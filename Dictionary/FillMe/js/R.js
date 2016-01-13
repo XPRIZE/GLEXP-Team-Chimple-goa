@@ -60,7 +60,9 @@
             this.load.image("bg", "bg.png");
             this.load.image("rLetter", "rLetter.png");
             this.load.image("sButton", "sButton.png");
-            
+            /*this.load.image("leftArrow", "leftArrow.png");
+            this.load.image("rightArrow", "rightArrow.png");
+            */
             this.load.image("camel", "camel.png");
             this.load.image("candle", "candle.png");
             this.load.image("car", "car.png");
@@ -315,7 +317,20 @@
             crown.events.onInputDown.add(onDownCrown, this);
             function onDownCrown() {this.resetRSpriteFlag(); crownFlag = 1;}
             
+            /*game.leftArrow = game.add.sprite(1070, 730, 'leftArrow');             
+            game.leftArrow.scale.setTo(1, 1); 
+            game.leftArrow.anchor.setTo(spriteAnchorX, spriteAnchorY);
+            game.leftArrow.inputEnabled = true;
+            game.leftArrow.events.onInputDown.add(onDownLeftArrow, this);
+            function onDownLeftArrow() {this.setRGlobalVaribalesToZero();game.state.start('Q');}
             
+            
+            game.rightArrow = game.add.sprite(1170, 730, 'rightArrow');             
+            game.rightArrow.scale.setTo(1, 1); 
+            game.rightArrow.anchor.setTo(spriteAnchorX, spriteAnchorY);
+            game.rightArrow.inputEnabled = true;
+            game.rightArrow.events.onInputDown.add(onDownRightArrow, this);
+            function onDownRightArrow() {this.setRGlobalVaribalesToZero();game.state.start('S');}*/
             
             //Color shades
             blue = game.add.sprite(objectsPositions[20].x, objectsPositions[20].y, 'blue');
@@ -628,7 +643,8 @@ if(camelFlag == 1 || candleFlag == 1 || carFlag == 1 || catFlag == 1 || cheeseFl
             game.world.bringToTop(cow);
             game.world.bringToTop(crab);
             game.world.bringToTop(crown);
-            
+           /* game.world.bringToTop(game.leftArrow);
+            game.world.bringToTop(game.rightArrow);*/
             
             
             if(rabbitFlag == 1){rabbit.angle += 2;}
@@ -663,6 +679,8 @@ if(camelFlag == 1 || candleFlag == 1 || carFlag == 1 || catFlag == 1 || cheeseFl
             if(rObjectClicked == 10){
             
                 askForLevelS = 1;
+                /*game.leftArrow.kill();
+                game.rightArrow.kill();*/
                 game.sButton = game.add.sprite(1170, 730, 'sButton');             
                 game.sButton.scale.setTo(1, 1); 
                 game.sButton.anchor.setTo(spriteAnchorX, spriteAnchorY);

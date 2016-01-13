@@ -59,7 +59,9 @@
     
             this.load.image("bg", "bg.png");
             this.load.image("zLetter", "zLetter.png");
-            this.load.image("endButton", "endButton.png");
+            
+            /*this.load.image("leftArrow", "leftArrow.png");*/
+
             
             this.load.image("camel", "camel.png");
             this.load.image("candle", "candle.png");
@@ -317,6 +319,17 @@
             
             
             
+            
+            
+           /* game.leftArrow = game.add.sprite(1170, 730, 'leftArrow');             
+            game.leftArrow.scale.setTo(1, 1); 
+            game.leftArrow.anchor.setTo(spriteAnchorX, spriteAnchorY);
+            game.leftArrow.inputEnabled = true;
+            game.leftArrow.events.onInputDown.add(onDownLeftArrow, this);
+            function onDownLeftArrow() {this.setZGlobalVaribalesToZero();game.state.start('Y');}*/
+            
+            
+            
             //Color shades
             blue = game.add.sprite(objectsPositions[20].x, objectsPositions[20].y, 'blue');
             blue.anchor.setTo(spriteAnchorX, spriteAnchorY);
@@ -516,43 +529,43 @@ greenzip.anchor.setTo(0.6, 0.6);stickSound.play(); }
 
             
             //ziptilt    
-                    if(zebrarightFlag == 1 && greenFlag == 1 ){var greenziptilt = game.add.sprite(game.input.mousePointer.x, game.input.mousePointer.y,'transZuchhini');greenziptilt.tint =  0x51C735; greenziptilt.scale.setTo(spriteScaleX, spriteScaleY); 
+                    if(ziptiltFlag == 1 && greenFlag == 1 ){var greenziptilt = game.add.sprite(game.input.mousePointer.x, game.input.mousePointer.y,'transZiptilt');greenziptilt.tint =  0x51C735; greenziptilt.scale.setTo(spriteScaleX, spriteScaleY); 
 greenziptilt.anchor.setTo(0.6, 0.6);stickSound.play(); }
                     
                     
-                    if(zebrarightFlag == 1 && blueFlag == 1){console.log("blueziptilt plotted");var blueziptilt = game.add.sprite(game.input.mousePointer.x, game.input.mousePointer.y, 'transZuchhini'); blueziptilt.tint =  0x456AC1; blueziptilt.scale.setTo(spriteScaleX, spriteScaleY); blueziptilt.anchor.setTo(spriteAnchorX, spriteAnchorY);stickSound.play();}
+                    if(ziptiltFlag == 1 && blueFlag == 1){console.log("blueziptilt plotted");var blueziptilt = game.add.sprite(game.input.mousePointer.x, game.input.mousePointer.y, 'transZiptilt'); blueziptilt.tint =  0x456AC1; blueziptilt.scale.setTo(spriteScaleX, spriteScaleY); blueziptilt.anchor.setTo(spriteAnchorX, spriteAnchorY);stickSound.play();}
                     
                     
-                    if(zebrarightFlag == 1 && orangeFlag == 1){var orangeziptilt = game.add.sprite(game.input.mousePointer.x, game.input.mousePointer.y, 'transZuchhini'); orangeziptilt.tint =  0xF38932; orangeziptilt.scale.setTo(spriteScaleX, spriteScaleY); orangeziptilt.anchor.setTo(spriteAnchorX, spriteAnchorY);stickSound.play();}
+                    if(ziptiltFlag == 1 && orangeFlag == 1){var orangeziptilt = game.add.sprite(game.input.mousePointer.x, game.input.mousePointer.y, 'transZiptilt'); orangeziptilt.tint =  0xF38932; orangeziptilt.scale.setTo(spriteScaleX, spriteScaleY); orangeziptilt.anchor.setTo(spriteAnchorX, spriteAnchorY);stickSound.play();}
                     
                     
-                    if(zebrarightFlag == 1 && redFlag == 1){var redziptilt = game.add.sprite(game.input.mousePointer.x, game.input.mousePointer.y, 'transZuchhini'); redziptilt.tint =  0xE32424; redziptilt.scale.setTo(spriteScaleX, spriteScaleY); redziptilt.anchor.setTo(spriteAnchorX, spriteAnchorY);stickSound.play();}
+                    if(ziptiltFlag == 1 && redFlag == 1){var redziptilt = game.add.sprite(game.input.mousePointer.x, game.input.mousePointer.y, 'transZiptilt'); redziptilt.tint =  0xE32424; redziptilt.scale.setTo(spriteScaleX, spriteScaleY); redziptilt.anchor.setTo(spriteAnchorX, spriteAnchorY);stickSound.play();}
                     
                     
-                    if(zebrarightFlag == 1 && pinkFlag == 1){var pinkziptilt = game.add.sprite(game.input.mousePointer.x, game.input.mousePointer.y, 'transZuchhini'); pinkziptilt.tint =  0xCC3ACC; pinkziptilt.scale.setTo(spriteScaleX, spriteScaleY); pinkziptilt.anchor.setTo(spriteAnchorX, spriteAnchorY);stickSound.play();}
+                    if(ziptiltFlag == 1 && pinkFlag == 1){var pinkziptilt = game.add.sprite(game.input.mousePointer.x, game.input.mousePointer.y, 'transZiptilt'); pinkziptilt.tint =  0xCC3ACC; pinkziptilt.scale.setTo(spriteScaleX, spriteScaleY); pinkziptilt.anchor.setTo(spriteAnchorX, spriteAnchorY);stickSound.play();}
                     
                     
-                    if(zebrarightFlag == 1 && cyanFlag == 1){var cyanziptilt = game.add.sprite(game.input.mousePointer.x, game.input.mousePointer.y, 'transZuchhini'); cyanziptilt.tint =  0x45C1C1; cyanziptilt.scale.setTo(spriteScaleX, spriteScaleY); cyanziptilt.anchor.setTo(spriteAnchorX, spriteAnchorY);stickSound.play();}
+                    if(ziptiltFlag == 1 && cyanFlag == 1){var cyanziptilt = game.add.sprite(game.input.mousePointer.x, game.input.mousePointer.y, 'transZiptilt'); cyanziptilt.tint =  0x45C1C1; cyanziptilt.scale.setTo(spriteScaleX, spriteScaleY); cyanziptilt.anchor.setTo(spriteAnchorX, spriteAnchorY);stickSound.play();}
 
             
             //zuchhini    
-                    if(zuchhiniFlag == 1 && greenFlag == 1 ){var greenzuchhini = game.add.sprite(game.input.mousePointer.x, game.input.mousePointer.y,'transZiptilt');greenzuchhini.tint =  0x51C735; greenzuchhini.scale.setTo(spriteScaleX, spriteScaleY); 
+                    if(zuchhiniFlag == 1 && greenFlag == 1 ){var greenzuchhini = game.add.sprite(game.input.mousePointer.x, game.input.mousePointer.y,'transZuchhini');greenzuchhini.tint =  0x51C735; greenzuchhini.scale.setTo(spriteScaleX, spriteScaleY); 
 greenzuchhini.anchor.setTo(0.6, 0.6);stickSound.play(); }
                     
                     
-                    if(zuchhiniFlag == 1 && blueFlag == 1){console.log("bluezuchhini plotted");var bluezuchhini = game.add.sprite(game.input.mousePointer.x, game.input.mousePointer.y, 'transZiptilt'); bluezuchhini.tint =  0x456AC1; bluezuchhini.scale.setTo(spriteScaleX, spriteScaleY); bluezuchhini.anchor.setTo(spriteAnchorX, spriteAnchorY);stickSound.play();}
+                    if(zuchhiniFlag == 1 && blueFlag == 1){console.log("bluezuchhini plotted");var bluezuchhini = game.add.sprite(game.input.mousePointer.x, game.input.mousePointer.y, 'transZuchhini'); bluezuchhini.tint =  0x456AC1; bluezuchhini.scale.setTo(spriteScaleX, spriteScaleY); bluezuchhini.anchor.setTo(spriteAnchorX, spriteAnchorY);stickSound.play();}
                     
                     
-                    if(zuchhiniFlag == 1 && orangeFlag == 1){var orangezuchhini = game.add.sprite(game.input.mousePointer.x, game.input.mousePointer.y, 'transZiptilt'); orangezuchhini.tint =  0xF38932; orangezuchhini.scale.setTo(spriteScaleX, spriteScaleY); orangezuchhini.anchor.setTo(spriteAnchorX, spriteAnchorY);stickSound.play();}
+                    if(zuchhiniFlag == 1 && orangeFlag == 1){var orangezuchhini = game.add.sprite(game.input.mousePointer.x, game.input.mousePointer.y, 'transZuchhini'); orangezuchhini.tint =  0xF38932; orangezuchhini.scale.setTo(spriteScaleX, spriteScaleY); orangezuchhini.anchor.setTo(spriteAnchorX, spriteAnchorY);stickSound.play();}
                     
                     
-                    if(zuchhiniFlag == 1 && redFlag == 1){var redzuchhini = game.add.sprite(game.input.mousePointer.x, game.input.mousePointer.y, 'transZiptilt'); redzuchhini.tint =  0xE32424; redzuchhini.scale.setTo(spriteScaleX, spriteScaleY); redzuchhini.anchor.setTo(spriteAnchorX, spriteAnchorY);stickSound.play();}
+                    if(zuchhiniFlag == 1 && redFlag == 1){var redzuchhini = game.add.sprite(game.input.mousePointer.x, game.input.mousePointer.y, 'transZuchhini'); redzuchhini.tint =  0xE32424; redzuchhini.scale.setTo(spriteScaleX, spriteScaleY); redzuchhini.anchor.setTo(spriteAnchorX, spriteAnchorY);stickSound.play();}
                     
                     
-                    if(zuchhiniFlag == 1 && pinkFlag == 1){var pinkzuchhini = game.add.sprite(game.input.mousePointer.x, game.input.mousePointer.y, 'transZiptilt'); pinkzuchhini.tint =  0xCC3ACC; pinkzuchhini.scale.setTo(spriteScaleX, spriteScaleY); pinkzuchhini.anchor.setTo(spriteAnchorX, spriteAnchorY);stickSound.play();}
+                    if(zuchhiniFlag == 1 && pinkFlag == 1){var pinkzuchhini = game.add.sprite(game.input.mousePointer.x, game.input.mousePointer.y, 'transZuchhini'); pinkzuchhini.tint =  0xCC3ACC; pinkzuchhini.scale.setTo(spriteScaleX, spriteScaleY); pinkzuchhini.anchor.setTo(spriteAnchorX, spriteAnchorY);stickSound.play();}
                     
                     
-                    if(zuchhiniFlag == 1 && cyanFlag == 1){var cyanzuchhini = game.add.sprite(game.input.mousePointer.x, game.input.mousePointer.y, 'transZiptilt'); cyanzuchhini.tint =  0x45C1C1; cyanzuchhini.scale.setTo(spriteScaleX, spriteScaleY); cyanzuchhini.anchor.setTo(spriteAnchorX, spriteAnchorY);stickSound.play();}
+                    if(zuchhiniFlag == 1 && cyanFlag == 1){var cyanzuchhini = game.add.sprite(game.input.mousePointer.x, game.input.mousePointer.y, 'transZuchhini'); cyanzuchhini.tint =  0x45C1C1; cyanzuchhini.scale.setTo(spriteScaleX, spriteScaleY); cyanzuchhini.anchor.setTo(spriteAnchorX, spriteAnchorY);stickSound.play();}
 
             
             //zuchhinidouble 
@@ -628,6 +641,7 @@ if(camelFlag == 1 || candleFlag == 1 || carFlag == 1 || catFlag == 1 || cheeseFl
             game.world.bringToTop(cow);
             game.world.bringToTop(crab);
             game.world.bringToTop(crown);
+           /* game.world.bringToTop(game.leftArrow);*/
             
             
             
@@ -663,6 +677,7 @@ if(camelFlag == 1 || candleFlag == 1 || carFlag == 1 || catFlag == 1 || cheeseFl
             if(zObjectClicked == 10){
             
                 askForEnd = 1;
+                                        
                 //game.endButton = game.add.sprite(1170, 730, 'endButton');             
                 //game.endButton.scale.setTo(1, 1); 
                 //game.endButton.anchor.setTo(spriteAnchorX, spriteAnchorY);
@@ -720,3 +735,4 @@ if(camelFlag == 1 || candleFlag == 1 || carFlag == 1 || catFlag == 1 || cheeseFl
         
         
     };
+

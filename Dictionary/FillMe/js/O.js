@@ -28,7 +28,7 @@
             this.load.image("transOlive", "transOlive.png");
             this.load.image("transOmlet", "transOmlet.png");
             this.load.image("transOnion", "transOnion.png");
-            this.load.image("transOrange", "transOrange.png");
+            this.load.image("transAwrange", "transAwrange.png");
             this.load.image("transOstrich", "transOstrich.png");
             this.load.image("transOstrichRightView", "transOstrichRightView.png");
             this.load.image("transOven", "transOven.png");
@@ -39,7 +39,7 @@
             this.load.image("olive", "olive.png");
             this.load.image("omlet", "omlet.png");
             this.load.image("onion", "onion.png");
-            this.load.image("orange", "orange.png");
+            this.load.image("awrange", "awrange.png");
             this.load.image("ostrich", "ostrich.png");
             this.load.image("ostrichRightView", "ostrichRightView.png");
             this.load.image("oven", "oven.png");
@@ -60,6 +60,9 @@
             this.load.image("bg", "bg.png");
             this.load.image("oLetter", "oLetter.png");
             this.load.image("pButton", "pButton.png");
+            /*this.load.image("leftArrow", "leftArrow.png");
+            this.load.image("rightArrow", "rightArrow.png");
+            */
             
             this.load.image("camel", "camel.png");
             this.load.image("candle", "candle.png");
@@ -184,12 +187,12 @@
             
             
             
-            orange = game.add.sprite(objectsPositions[2].x, objectsPositions[2].y, 'orange');
-            orange.anchor.setTo(spriteAnchorX, spriteAnchorY);
-            orange.scale.setTo(spriteScaleX, spriteScaleY);
-            orange.inputEnabled = true;
-            orange.events.onInputDown.add(onDownorange, this);
-            function onDownorange() {this.resetOSpriteFlag(); awrangeFlag = 1;oObjectClicked++;}
+            awrange = game.add.sprite(objectsPositions[2].x, objectsPositions[2].y, 'awrange');
+            awrange.anchor.setTo(spriteAnchorX, spriteAnchorY);
+            awrange.scale.setTo(spriteScaleX, spriteScaleY);
+            awrange.inputEnabled = true;
+            awrange.events.onInputDown.add(onDownawrange, this);
+            function onDownawrange() {this.resetOSpriteFlag(); awrangeFlag = 1;oObjectClicked++;}
             
             ostrich = game.add.sprite(objectsPositions[12].x, objectsPositions[12].y, 'ostrich');
             ostrich.anchor.setTo(spriteAnchorX, spriteAnchorY);
@@ -315,7 +318,20 @@
             crown.events.onInputDown.add(onDownCrown, this);
             function onDownCrown() {this.resetOSpriteFlag(); crownFlag = 1;}
             
+            /* game.leftArrow = game.add.sprite(1070, 730, 'leftArrow');             
+            game.leftArrow.scale.setTo(1, 1); 
+            game.leftArrow.anchor.setTo(spriteAnchorX, spriteAnchorY);
+            game.leftArrow.inputEnabled = true;
+            game.leftArrow.events.onInputDown.add(onDownLeftArrow, this);
+            function onDownLeftArrow() {this.setOGlobalVaribalesToZero();game.state.start('N');}
             
+            
+            game.rightArrow = game.add.sprite(1170, 730, 'rightArrow');             
+            game.rightArrow.scale.setTo(1, 1); 
+            game.rightArrow.anchor.setTo(spriteAnchorX, spriteAnchorY);
+            game.rightArrow.inputEnabled = true;
+            game.rightArrow.events.onInputDown.add(onDownRightArrow, this);
+            function onDownRightArrow() {this.setOGlobalVaribalesToZero();game.state.start('P');}*/
             
             //Color shades
             blue = game.add.sprite(objectsPositions[20].x, objectsPositions[20].y, 'blue');
@@ -455,24 +471,24 @@ greenonion.anchor.setTo(0.6, 0.6);stickSound.play(); }
                     if(onionFlag == 1 && cyanFlag == 1){var cyanonion = game.add.sprite(game.input.mousePointer.x, game.input.mousePointer.y, 'transOnion'); cyanonion.tint =  0x45C1C1; cyanonion.scale.setTo(spriteScaleX, spriteScaleY); cyanonion.anchor.setTo(spriteAnchorX, spriteAnchorY);stickSound.play();}
 
             
-            //orange    
-                    if(awrangeFlag == 1 && greenFlag == 1 ){var greenorange = game.add.sprite(game.input.mousePointer.x, game.input.mousePointer.y,'transOrange');greenorange.tint =  0x51C735; greenorange.scale.setTo(spriteScaleX, spriteScaleY); 
-greenorange.anchor.setTo(0.6, 0.6);stickSound.play(); }
+            //awrange    
+                    if(awrangeFlag == 1 && greenFlag == 1 ){var greenawrange = game.add.sprite(game.input.mousePointer.x, game.input.mousePointer.y,'transAwrange');greenawrange.tint =  0x51C735; greenawrange.scale.setTo(spriteScaleX, spriteScaleY); 
+greenawrange.anchor.setTo(0.6, 0.6);stickSound.play(); }
                     
                     
-                    if(awrangeFlag == 1 && blueFlag == 1){console.log("blueorange plotted");var blueorange = game.add.sprite(game.input.mousePointer.x, game.input.mousePointer.y, 'transOrange'); blueorange.tint =  0x456AC1; blueorange.scale.setTo(spriteScaleX, spriteScaleY); blueorange.anchor.setTo(spriteAnchorX, spriteAnchorY);stickSound.play();}
+                    if(awrangeFlag == 1 && blueFlag == 1){console.log("blueawrange plotted");var blueawrange = game.add.sprite(game.input.mousePointer.x, game.input.mousePointer.y, 'transAwrange'); blueawrange.tint =  0x456AC1; blueawrange.scale.setTo(spriteScaleX, spriteScaleY); blueawrange.anchor.setTo(spriteAnchorX, spriteAnchorY);stickSound.play();}
                     
                     
-                    if(awrangeFlag == 1 && orangeFlag == 1){var orangeorange = game.add.sprite(game.input.mousePointer.x, game.input.mousePointer.y, 'transOrange'); orangeorange.tint =  0xF38932; orangeorange.scale.setTo(spriteScaleX, spriteScaleY); orangeorange.anchor.setTo(spriteAnchorX, spriteAnchorY);stickSound.play();}
+                    if(awrangeFlag == 1 && orangeFlag == 1){var awrangeawrange = game.add.sprite(game.input.mousePointer.x, game.input.mousePointer.y, 'transAwrange'); awrangeawrange.tint =  0xF38932; awrangeawrange.scale.setTo(spriteScaleX, spriteScaleY); awrangeawrange.anchor.setTo(spriteAnchorX, spriteAnchorY);stickSound.play();}
                     
                     
-                    if(awrangeFlag == 1 && redFlag == 1){var redorange = game.add.sprite(game.input.mousePointer.x, game.input.mousePointer.y, 'transOrange'); redorange.tint =  0xE32424; redorange.scale.setTo(spriteScaleX, spriteScaleY); redorange.anchor.setTo(spriteAnchorX, spriteAnchorY);stickSound.play();}
+                    if(awrangeFlag == 1 && redFlag == 1){var redawrange = game.add.sprite(game.input.mousePointer.x, game.input.mousePointer.y, 'transAwrange'); redawrange.tint =  0xE32424; redawrange.scale.setTo(spriteScaleX, spriteScaleY); redawrange.anchor.setTo(spriteAnchorX, spriteAnchorY);stickSound.play();}
                     
                     
-                    if(awrangeFlag == 1 && pinkFlag == 1){var pinkorange = game.add.sprite(game.input.mousePointer.x, game.input.mousePointer.y, 'transOrange'); pinkorange.tint =  0xCC3ACC; pinkorange.scale.setTo(spriteScaleX, spriteScaleY); pinkorange.anchor.setTo(spriteAnchorX, spriteAnchorY);stickSound.play();}
+                    if(awrangeFlag == 1 && pinkFlag == 1){var pinkawrange = game.add.sprite(game.input.mousePointer.x, game.input.mousePointer.y, 'transAwrange'); pinkawrange.tint =  0xCC3ACC; pinkawrange.scale.setTo(spriteScaleX, spriteScaleY); pinkawrange.anchor.setTo(spriteAnchorX, spriteAnchorY);stickSound.play();}
                     
                     
-                    if(awrangeFlag == 1 && cyanFlag == 1){var cyanorange = game.add.sprite(game.input.mousePointer.x, game.input.mousePointer.y, 'transOrange'); cyanorange.tint =  0x45C1C1; cyanorange.scale.setTo(spriteScaleX, spriteScaleY); cyanorange.anchor.setTo(spriteAnchorX, spriteAnchorY);stickSound.play();}
+                    if(awrangeFlag == 1 && cyanFlag == 1){var cyanawrange = game.add.sprite(game.input.mousePointer.x, game.input.mousePointer.y, 'transAwrange'); cyanawrange.tint =  0x45C1C1; cyanawrange.scale.setTo(spriteScaleX, spriteScaleY); cyanawrange.anchor.setTo(spriteAnchorX, spriteAnchorY);stickSound.play();}
 
             
             //ostrich   
@@ -611,7 +627,7 @@ if(camelFlag == 1 || candleFlag == 1 || carFlag == 1 || catFlag == 1 || cheeseFl
             game.world.bringToTop(olive);
             game.world.bringToTop(omlet);
             game.world.bringToTop(onion);
-            game.world.bringToTop(orange);
+            game.world.bringToTop(awrange);
             game.world.bringToTop(ostrich);
             game.world.bringToTop(ostrichRightView);
             game.world.bringToTop(oven);
@@ -628,14 +644,15 @@ if(camelFlag == 1 || candleFlag == 1 || carFlag == 1 || catFlag == 1 || cheeseFl
             game.world.bringToTop(cow);
             game.world.bringToTop(crab);
             game.world.bringToTop(crown);
-            
+            /*game.world.bringToTop(game.leftArrow);
+            game.world.bringToTop(game.rightArrow);*/
             
             
             if(octopusFlag == 1){octopus.angle += 2;}
             if(oliveFlag == 1){olive.angle += 2;}
             if(omletFlag == 1){omlet.angle += 2;}
             if(onionFlag == 1){onion.angle += 2;}
-            if(orangeFlag == 1){orange.angle += 2;}
+            if(awrangeFlag == 1){awrange.angle += 2;}
             if(ovenFlag == 1){ostrich.angle += 2;}
             if(ostrichRightViewFlag == 1){ostrichRightView.angle += 2;}
             if(ostrichFlag == 1){oven.angle += 2;}
@@ -663,6 +680,8 @@ if(camelFlag == 1 || candleFlag == 1 || carFlag == 1 || catFlag == 1 || cheeseFl
             if(oObjectClicked == 10){
             
                 askForLevelP = 1;
+               /* game.leftArrow.kill();
+                game.rightArrow.kill();*/
                 game.pButton = game.add.sprite(1170, 730, 'pButton');             
                 game.pButton.scale.setTo(1, 1); 
                 game.pButton.anchor.setTo(spriteAnchorX, spriteAnchorY);
@@ -694,7 +713,7 @@ if(camelFlag == 1 || candleFlag == 1 || carFlag == 1 || catFlag == 1 || cheeseFl
             clockFlag = 0;cowFlag = 0;crabFlag = 0;crownFlag = 0;
 
             octopus.angle = 0;olive.angle = 0;omlet.angle = 0;ostrich.angle = 0;onion.angle = 0;
-            orange.angle = 0;ostrichRightView.angle = 0;oven.angle = 0;owl.angle = 0;ox.angle = 0;
+            awrange.angle = 0;ostrichRightView.angle = 0;oven.angle = 0;owl.angle = 0;ox.angle = 0;
             camel.angle = 0;candle.angle = 0;car.angle = 0;cat.angle = 0;cheese.angle = 0;
             cherry.angle = 0;crown.angle = 0;clock.angle = 0;cow.angle = 0;crab.angle = 0;
            

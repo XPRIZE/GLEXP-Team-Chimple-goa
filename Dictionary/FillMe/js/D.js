@@ -1,7 +1,7 @@
         
     var dObjectClicked = 0;
     var askForLevelE = 0;
-    var doorFlag = 0;
+   
     
     var D = {
 
@@ -22,7 +22,7 @@
     
             this.load.image("transDeer", "transDeer.png");
             this.load.image("transDiamond", "transDiamond.png");
-            this.load.image("transDiamond", "transDiamond.png");
+            this.load.image("transDice", "transDice.png");
             this.load.image("transDinosaur", "transDinosaur.png");
             this.load.image("transDog", "transDog.png");
             this.load.image("transDoll", "transDoll.png");
@@ -36,6 +36,9 @@
             this.load.image("bg", "bg.png");
             this.load.image("dLetter", "dLetter.png");
             this.load.image("eButton", "eButton.png");
+           /* this.load.image("leftArrow", "leftArrow.png");
+            this.load.image("rightArrow", "rightArrow.png");
+            */
             
             
             
@@ -53,14 +56,14 @@
             this.load.image("crab", "crab.png");
             
             this.load.image("deer", "deer.png");
-            this.load.image("door", "door.png");
+            this.load.image("dolphin", "dolphin.png");
             this.load.image("diamond", "diamond.png");
             this.load.image("dice", "dice.png");
             this.load.image("dinosaur", "dinosaur.png");
             this.load.image("dog", "dog.png");
             this.load.image("doll", "doll.png");
             this.load.image("dragonFruit", "dragonFruit.png");
-            this.load.image("donkey", "donkey.png");
+            this.load.image("donut", "donut.png");
             this.load.image("duck", "duck.png");
             
             this.load.image("cloud", "cloud.png");
@@ -145,12 +148,12 @@
             
             
             
-            door = game.add.sprite(objectsPositions[10].x, objectsPositions[10].y, 'door');
-            door.anchor.setTo(spriteAnchorX, spriteAnchorY);
-            door.scale.setTo(spriteScaleX, spriteScaleY);
-            door.inputEnabled = true;
-            door.events.onInputDown.add(onDowndoor, this);
-            function onDowndoor() {this.resetDSpriteFlag(); doorFlag = 1;dObjectClicked++;}
+            dolphin = game.add.sprite(objectsPositions[10].x, objectsPositions[10].y, 'dolphin');
+            dolphin.anchor.setTo(spriteAnchorX, spriteAnchorY);
+            dolphin.scale.setTo(spriteScaleX, spriteScaleY);
+            dolphin.inputEnabled = true;
+            dolphin.events.onInputDown.add(onDowndolphin, this);
+            function onDowndolphin() {this.resetDSpriteFlag(); dolphinFlag = 1;dObjectClicked++;}
 
             
             
@@ -205,12 +208,12 @@
             function onDownDragonFruit() {this.resetDSpriteFlag(); dragonFruitFlag = 1;dObjectClicked++;}
             
             
-            donkey = game.add.sprite(objectsPositions[4].x, objectsPositions[4].y, 'donkey');
-            donkey.anchor.setTo(spriteAnchorX, spriteAnchorY);
-            donkey.scale.setTo(spriteScaleX, spriteScaleY);
-            donkey.inputEnabled = true;
-            donkey.events.onInputDown.add(onDownDonkey, this);
-            function onDownDonkey() {this.resetDSpriteFlag(); donkeyFlag = 1;dObjectClicked++;}
+            donut = game.add.sprite(objectsPositions[4].x, objectsPositions[4].y, 'donut');
+            donut.anchor.setTo(spriteAnchorX, spriteAnchorY);
+            donut.scale.setTo(spriteScaleX, spriteScaleY);
+            donut.inputEnabled = true;
+            donut.events.onInputDown.add(onDowndonut, this);
+            function onDowndonut() {this.resetDSpriteFlag(); donutFlag = 1;dObjectClicked++;}
             
             
             duck = game.add.sprite(objectsPositions[14].x, objectsPositions[14].y, 'duck');
@@ -303,6 +306,22 @@
             crown.events.onInputDown.add(onDownCrown, this);
             function onDownCrown() {this.resetDSpriteFlag(); crownFlag = 1;}
             
+            
+            
+            /*game.leftArrow = game.add.sprite(1070, 730, 'leftArrow');             
+            game.leftArrow.scale.setTo(1, 1); 
+            game.leftArrow.anchor.setTo(spriteAnchorX, spriteAnchorY);
+            game.leftArrow.inputEnabled = true;
+            game.leftArrow.events.onInputDown.add(onDownLeftArrow, this);
+            function onDownLeftArrow() {this.setDGlobalVaribalesToZero();game.state.start('C');}
+            
+            
+            game.rightArrow = game.add.sprite(1170, 730, 'rightArrow');             
+            game.rightArrow.scale.setTo(1, 1); 
+            game.rightArrow.anchor.setTo(spriteAnchorX, spriteAnchorY);
+            game.rightArrow.inputEnabled = true;
+            game.rightArrow.events.onInputDown.add(onDownRightArrow, this);
+            function onDownRightArrow() {this.setDGlobalVaribalesToZero();game.state.start('E');}*/
             
             
             //Color shades
@@ -596,13 +615,13 @@ if(camelFlag == 1 || candleFlag == 1 || carFlag == 1 || catFlag == 1 || cheeseFl
             game.world.bringToTop(cloud3);
             
             game.world.bringToTop(dog);
-            game.world.bringToTop(door);
+            game.world.bringToTop(dolphin);
             game.world.bringToTop(diamond);
             game.world.bringToTop(deer);
             game.world.bringToTop(dice);
             game.world.bringToTop(doll);
             game.world.bringToTop(dragonFruit);
-            game.world.bringToTop(donkey);
+            game.world.bringToTop(donut);
             game.world.bringToTop(duck);
             
             game.world.bringToTop(camel);
@@ -617,16 +636,20 @@ if(camelFlag == 1 || candleFlag == 1 || carFlag == 1 || catFlag == 1 || cheeseFl
             game.world.bringToTop(crown);
             
             
+            /*game.world.bringToTop(game.leftArrow);
+            game.world.bringToTop(game.rightArrow);
+*/
+            
             
             if(dogFlag == 1){dog.angle += 2;}
             if(deerFlag == 1){deer.angle += 2;}
-            if(doorFlag == 1){door.angle += 2;}
+            if(dolphinFlag == 1){dolphin.angle += 2;}
             if(diamondFlag == 1){diamond.angle += 2;}
             if(diceFlag == 1){dice.angle += 2;}
             if(dinosaurFlag == 1){dinosaur.angle += 2;}
             if(dollFlag == 1){doll.angle += 2;}
             if(dragonFruitFlag == 1){dragonFruit.angle += 2;}
-            if(donkeyFlag == 1){donkey.angle += 2;}
+            if(donutFlag == 1){donut.angle += 2;}
             if(duckFlag == 1){duck.angle += 2;}
             
             if(camelFlag == 1){camel.angle += 2;}
@@ -648,7 +671,10 @@ if(camelFlag == 1 || candleFlag == 1 || carFlag == 1 || catFlag == 1 || cheeseFl
             if(pinkFlag == 1){pink.angle += 2;}
             
             if(dObjectClicked == 10){
-            
+                
+               /* game.leftArrow.kill();
+                game.rightArrow.kill();
+            */
                 askForLevelE = 1;
                 game.eButton = game.add.sprite(1170, 730, 'eButton');             
                 game.eButton.scale.setTo(1, 1); 
@@ -675,13 +701,13 @@ if(camelFlag == 1 || candleFlag == 1 || carFlag == 1 || catFlag == 1 || cheeseFl
         
         resetDSpriteFlag: function(){
             
-            dogFlag = 0;deerFlag = 0;doorFlag = 0;diamondFlag = 0;diceFlag = 0;
-            dinosaurFlag = 0;dollFlag = 0;dragonFruitFlag = 0;donkeyFlag = 0;duckFlag = 0;
+            dogFlag = 0;deerFlag = 0;dolphinFlag = 0;diamondFlag = 0;diceFlag = 0;
+            dinosaurFlag = 0;dollFlag = 0;dragonFruitFlag = 0;donutFlag = 0;duckFlag = 0;
             camelFlag = 0;cameloonFlag = 0;carFlag = 0;catFlag = 0;cheeseFlag = 0;cherryFlag = 0;
             clockFlag = 0;cowFlag = 0;crabFlag = 0;crownFlag = 0;
 
-            dog.angle = 0;deer.angle = 0;door.angle = 0;diamond.angle = 0;dice.angle = 0;
-            dinosaur.angle = 0;doll.angle = 0;dragonFruit.angle = 0;donkey.angle = 0;duck.angle = 0;
+            dog.angle = 0;deer.angle = 0;dolphin.angle = 0;diamond.angle = 0;dice.angle = 0;
+            dinosaur.angle = 0;doll.angle = 0;dragonFruit.angle = 0;donut.angle = 0;duck.angle = 0;
             camel.angle = 0;candle.angle = 0;car.angle = 0;cat.angle = 0;cheese.angle = 0;
             cherry.angle = 0;crown.angle = 0;clock.angle = 0;cow.angle = 0;crab.angle = 0;
            
@@ -695,8 +721,8 @@ if(camelFlag == 1 || candleFlag == 1 || carFlag == 1 || catFlag == 1 || cheeseFl
         setDGlobalVaribalesToZero: function(){
             
             
-            dogFlag = 0;deerFlag = 0;doorFlag = 0;diamondFlag = 0;diceFlag = 0;
-            dinosaurFlag = 0;dollFlag = 0;dragonFruitFlag = 0;donkeyFlag = 0;duckFlag = 0;
+            dogFlag = 0;deerFlag = 0;dolphinFlag = 0;diamondFlag = 0;diceFlag = 0;
+            dinosaurFlag = 0;dollFlag = 0;dragonFruitFlag = 0;donutFlag = 0;duckFlag = 0;
             camelFlag = 0;cameloonFlag = 0;carFlag = 0;catFlag = 0;cheeseFlag = 0;cherryFlag = 0;
             clockFlag = 0;cowFlag = 0;crabFlag = 0;crownFlag = 0;
 
@@ -707,3 +733,4 @@ if(camelFlag == 1 || candleFlag == 1 || carFlag == 1 || catFlag == 1 || cheeseFl
         
         
     };
+

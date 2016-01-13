@@ -120,7 +120,7 @@
             this.load.image("bg", "bg.png");
             this.load.image("aLetter", "aLetter.png");
             this.load.image("bButton", "bButton.png");
-            
+           // this.load.image("rightArrow", "rightArrow.png");
             
             
             //objects starting from A and not starting from A also 
@@ -387,6 +387,14 @@
             function onDownCup() {this.resetASpriteFlag(); cupFlag = 1;}
             
             
+            
+           /* game.rightArrow = game.add.sprite(1170, 730, 'rightArrow');             
+            game.rightArrow.scale.setTo(1, 1); 
+            game.rightArrow.anchor.setTo(spriteAnchorX, spriteAnchorY);
+            game.rightArrow.inputEnabled = true;
+            game.rightArrow.events.onInputDown.add(onDownRightArrow, this);
+            function onDownRightArrow() {this.setAGlobalVaribalesToZero();game.state.start('B');}
+            */
             
             //Color shades
             blue = game.add.sprite(objectsPositions[20].x, objectsPositions[20].y, 'blue');
@@ -699,6 +707,7 @@ if(catFlag == 1 || cakeFlag == 1 || camelFlag == 1 || candleFlag == 1 || carFlag
             game.world.bringToTop(cherry);
             game.world.bringToTop(cup);
             
+            /*game.world.bringToTop(game.rightArrow);*/
             
             
             if(appleFlag == 1){apple.angle += 2;}
@@ -731,7 +740,7 @@ if(catFlag == 1 || cakeFlag == 1 || camelFlag == 1 || candleFlag == 1 || carFlag
             if(pinkFlag == 1){pink.angle += 2;}
             
             if(aObjectClicked == 10){
-            
+               // game.rightArrow.kill();
                 askForLevelB = 1;
                 game.bButton = game.add.sprite(1170, 730, 'bButton');             
                 game.bButton.scale.setTo(1, 1); 
@@ -791,7 +800,3 @@ if(catFlag == 1 || cakeFlag == 1 || camelFlag == 1 || candleFlag == 1 || carFlag
         
     };
 
-
-
-
-    

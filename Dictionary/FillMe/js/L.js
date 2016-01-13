@@ -60,6 +60,9 @@
             this.load.image("bg", "bg.png");
             this.load.image("lLetter", "lLetter.png");
             this.load.image("mButton", "mButton.png");
+            /*this.load.image("leftArrow", "leftArrow.png");
+            this.load.image("rightArrow", "rightArrow.png");*/
+            
             
             this.load.image("camel", "camel.png");
             this.load.image("candle", "candle.png");
@@ -314,6 +317,22 @@
             crown.inputEnabled = true;
             crown.events.onInputDown.add(onDownCrown, this);
             function onDownCrown() {this.resetLSpriteFlag(); crownFlag = 1;}
+            
+            
+            /*game.leftArrow = game.add.sprite(1070, 730, 'leftArrow');             
+            game.leftArrow.scale.setTo(1, 1); 
+            game.leftArrow.anchor.setTo(spriteAnchorX, spriteAnchorY);
+            game.leftArrow.inputEnabled = true;
+            game.leftArrow.events.onInputDown.add(onDownLeftArrow, this);
+            function onDownLeftArrow() {this.setLGlobalVaribalesToZero();game.state.start('K');}
+            
+            
+            game.rightArrow = game.add.sprite(1170, 730, 'rightArrow');             
+            game.rightArrow.scale.setTo(1, 1); 
+            game.rightArrow.anchor.setTo(spriteAnchorX, spriteAnchorY);
+            game.rightArrow.inputEnabled = true;
+            game.rightArrow.events.onInputDown.add(onDownRightArrow, this);
+            function onDownRightArrow() {this.setLGlobalVaribalesToZero();game.state.start('M');}*/
             
             
             
@@ -628,6 +647,9 @@ if(camelFlag == 1 || candleFlag == 1 || carFlag == 1 || catFlag == 1 || cheeseFl
             game.world.bringToTop(cow);
             game.world.bringToTop(crab);
             game.world.bringToTop(crown);
+            /*game.world.bringToTop(game.leftArrow);
+            game.world.bringToTop(game.rightArrow);
+*/
             
             
             
@@ -663,6 +685,9 @@ if(camelFlag == 1 || candleFlag == 1 || carFlag == 1 || catFlag == 1 || cheeseFl
             if(lObjectClicked == 10){
             
                 askForLevelM = 1;
+                /*game.leftArrow.kill();
+                game.rightArrow.kill();*/
+            
                 game.mButton = game.add.sprite(1170, 730, 'mButton');             
                 game.mButton.scale.setTo(1, 1); 
                 game.mButton.anchor.setTo(spriteAnchorX, spriteAnchorY);

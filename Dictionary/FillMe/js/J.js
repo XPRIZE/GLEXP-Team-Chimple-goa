@@ -60,6 +60,9 @@
             this.load.image("bg", "bg.png");
             this.load.image("jLetter", "jLetter.png");
             this.load.image("kButton", "kButton.png");
+            /*this.load.image("leftArrow", "leftArrow.png");
+            this.load.image("rightArrow", "rightArrow.png");*/
+            
             
             this.load.image("camel", "camel.png");
             this.load.image("candle", "candle.png");
@@ -314,6 +317,21 @@
             crown.inputEnabled = true;
             crown.events.onInputDown.add(onDownCrown, this);
             function onDownCrown() {this.resetJSpriteFlag(); crownFlag = 1;}
+            
+            /*game.leftArrow = game.add.sprite(1070, 730, 'leftArrow');             
+            game.leftArrow.scale.setTo(1, 1); 
+            game.leftArrow.anchor.setTo(spriteAnchorX, spriteAnchorY);
+            game.leftArrow.inputEnabled = true;
+            game.leftArrow.events.onInputDown.add(onDownLeftArrow, this);
+            function onDownLeftArrow() {this.setJGlobalVaribalesToZero();game.state.start('I');}
+            
+            
+            game.rightArrow = game.add.sprite(1170, 730, 'rightArrow');             
+            game.rightArrow.scale.setTo(1, 1); 
+            game.rightArrow.anchor.setTo(spriteAnchorX, spriteAnchorY);
+            game.rightArrow.inputEnabled = true;
+            game.rightArrow.events.onInputDown.add(onDownRightArrow, this);
+            function onDownRightArrow() {this.setJGlobalVaribalesToZero();game.state.start('K');}*/
             
             
             
@@ -629,6 +647,10 @@ if(camelFlag == 1 || candleFlag == 1 || carFlag == 1 || catFlag == 1 || cheeseFl
             game.world.bringToTop(crab);
             game.world.bringToTop(crown);
             
+           /* game.world.bringToTop(game.leftArrow);
+            game.world.bringToTop(game.rightArrow);
+
+            */
             
             
             if(jackfruitFlag == 1){jackfruit.angle += 2;}
@@ -663,6 +685,9 @@ if(camelFlag == 1 || candleFlag == 1 || carFlag == 1 || catFlag == 1 || cheeseFl
             if(jObjectClicked == 10){
             
                 askForLevelK = 1;
+                /*game.leftArrow.kill();
+                game.rightArrow.kill();
+            */
                 game.kButton = game.add.sprite(1170, 730, 'kButton');             
                 game.kButton.scale.setTo(1, 1); 
                 game.kButton.anchor.setTo(spriteAnchorX, spriteAnchorY);

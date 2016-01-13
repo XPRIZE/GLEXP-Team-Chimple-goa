@@ -77,7 +77,9 @@
 
             this.load.spritesheet('blackSplash', 'blackSplash.png', 141, 240, 7);
             
-            
+            /*this.load.image("rightArrow", "rightArrow.png");
+            this.load.image("leftArrow", "leftArrow.png");
+            */
             
             //loading sounds
             this.load.audio("waterBurst", "waterBurst.mp3");
@@ -104,6 +106,9 @@
             gameFace.loop = true;
             //gameFace.play();
             
+            
+            
+           
             
             
             
@@ -312,6 +317,22 @@
             butterfly.inputEnabled = true;
             butterfly.events.onInputDown.add(onDownButterfly, this);
             function onDownButterfly() {this.resetBSpriteFlag(); butterflyFlag = 1; bObjectClicked++;}
+            
+            
+            /*game.leftArrow = game.add.sprite(1070, 730, 'leftArrow');             
+            game.leftArrow.scale.setTo(1, 1); 
+            game.leftArrow.anchor.setTo(spriteAnchorX, spriteAnchorY);
+            game.leftArrow.inputEnabled = true;
+            game.leftArrow.events.onInputDown.add(onDownLeftArrow, this);
+            function onDownLeftArrow() {this.setBGlobalVaribalesToZero();game.state.start('A');}
+            
+            game.rightArrow = game.add.sprite(1170, 730, 'rightArrow');             
+            game.rightArrow.scale.setTo(1, 1); 
+            game.rightArrow.anchor.setTo(spriteAnchorX, spriteAnchorY);
+            game.rightArrow.inputEnabled = true;
+            game.rightArrow.events.onInputDown.add(onDownRightArrow, this);
+            function onDownRightArrow() {this.setBGlobalVaribalesToZero();game.state.start('C');}
+            */
             
             
             
@@ -625,6 +646,9 @@ if(appleFlag == 1 || aeroplaneFlag == 1 || alligatorFlag == 1 || anchorFlag == 1
             game.world.bringToTop(bottle);
             game.world.bringToTop(butterfly);
             
+           // game.world.bringToTop(game.rightArrow);
+           // game.world.bringToTop(game.leftArrow);
+            
             
             
             if(appleFlag == 1){apple.angle += 2;}
@@ -659,6 +683,8 @@ if(appleFlag == 1 || aeroplaneFlag == 1 || alligatorFlag == 1 || anchorFlag == 1
             if(bObjectClicked == 10){
             
                 askForLevelC = 1;
+               // game.rightArrow.kill();
+               // game.leftArrow.kill();
                 game.cButton = game.add.sprite(1170, 730, 'cButton');             
                 game.cButton.scale.setTo(1, 1); 
                 game.cButton.anchor.setTo(spriteAnchorX, spriteAnchorY);
@@ -717,3 +743,4 @@ if(appleFlag == 1 || aeroplaneFlag == 1 || alligatorFlag == 1 || anchorFlag == 1
         
         
     };
+           

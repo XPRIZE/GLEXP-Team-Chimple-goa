@@ -61,6 +61,9 @@
             this.load.image("eLetter", "eLetter.png");
             this.load.image("fButton", "fButton.png");
             
+            /*this.load.image("leftArrow", "leftArrow.png");
+            this.load.image("rightArrow", "rightArrow.png");
+            */
             this.load.image("camel", "camel.png");
             this.load.image("candle", "candle.png");
             this.load.image("car", "car.png");
@@ -314,6 +317,23 @@
             crown.inputEnabled = true;
             crown.events.onInputDown.add(onDownCrown, this);
             function onDownCrown() {this.resetESpriteFlag(); crownFlag = 1;}
+            
+            
+           /* game.leftArrow = game.add.sprite(1070, 730, 'leftArrow');             
+            game.leftArrow.scale.setTo(1, 1); 
+            game.leftArrow.anchor.setTo(spriteAnchorX, spriteAnchorY);
+            game.leftArrow.inputEnabled = true;
+            game.leftArrow.events.onInputDown.add(onDownLeftArrow, this);
+            function onDownLeftArrow() {this.setEGlobalVaribalesToZero();game.state.start('D');}
+            
+            
+            game.rightArrow = game.add.sprite(1170, 730, 'rightArrow');             
+            game.rightArrow.scale.setTo(1, 1); 
+            game.rightArrow.anchor.setTo(spriteAnchorX, spriteAnchorY);
+            game.rightArrow.inputEnabled = true;
+            game.rightArrow.events.onInputDown.add(onDownRightArrow, this);
+            function onDownRightArrow() {this.setEGlobalVaribalesToZero();game.state.start('F');}
+            */
             
             
             
@@ -618,6 +638,10 @@ if(camelFlag == 1 || candleFlag == 1 || carFlag == 1 || catFlag == 1 || cheeseFl
             game.world.bringToTop(engine);
             game.world.bringToTop(eye);
             
+           /* game.world.bringToTop(game.leftArrow);
+            game.world.bringToTop(game.rightArrow);
+*/
+            
             game.world.bringToTop(camel);
             game.world.bringToTop(candle);
             game.world.bringToTop(car);
@@ -663,6 +687,9 @@ if(camelFlag == 1 || candleFlag == 1 || carFlag == 1 || catFlag == 1 || cheeseFl
             if(eObjectClicked == 10){
             
                 askForLevelF = 1;
+               /* game.leftArrow.kill();
+                game.rightArrow.kill();*/
+            
                 game.fButton = game.add.sprite(1170, 730, 'fButton');             
                 game.fButton.scale.setTo(1, 1); 
                 game.fButton.anchor.setTo(spriteAnchorX, spriteAnchorY);
@@ -720,3 +747,4 @@ if(camelFlag == 1 || candleFlag == 1 || carFlag == 1 || catFlag == 1 || cheeseFl
         
         
     };
+
