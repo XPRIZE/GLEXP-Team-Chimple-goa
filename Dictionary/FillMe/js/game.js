@@ -1,9 +1,6 @@
 
-
-    var physicsEngine = Phaser.Physics.ARCADE;
-
     //Creating game object
-    var game = new Phaser.Game(gameMaxWidth, gameMaxHeight, phaserRenderer, canvasDiv, null, false, true);
+    var game = new Phaser.Game(gameMaxWidth, gameMaxHeight, Phaser.AUTO, canvasDiv, null, False, True);
 
     //Adding states
     game.state.add('boot', this.bootState);

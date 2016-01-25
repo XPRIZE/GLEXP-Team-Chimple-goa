@@ -1,33 +1,5 @@
-
-    var gameMinWidth = 0;
-    var gameMinHeight = 0;
-    var gameMaxWidth = 1280;
-    var gameMaxHeight = 800;
-    var phaserRenderer = Phaser.AUTO;
-    var canvasDiv = 'game';
-    var tweenDuration = 1500;  //in ms
     
-    /*var objectPositions = [{x:gameMinWidth+100, y:gameMinHeight+100},
-                          {x:gameMinWidth+100, y:gameMinHeight+100},
-                          {x:gameMinWidth+100, y:gameMinHeight+100},
-                          {x:gameMinWidth+100, y:gameMinHeight+100},
-                          {x:gameMinWidth+100, y:gameMinHeight+100},
-                          {x:gameMinWidth+100, y:gameMinHeight+100}];
-*/
-    
-    var objectPositionsInsideA = [{x:gameMinWidth+100, y:gameMinHeight+100},
-                          {x:gameMinWidth+100, y:gameMinHeight+100},
-                          {x:gameMinWidth+100, y:gameMinHeight+100},
-                          {x:gameMinWidth+100, y:gameMinHeight+100},
-                          {x:gameMinWidth+100, y:gameMinHeight+100},
-                          {x:gameMinWidth+100, y:gameMinHeight+100},
-                          {x:gameMinWidth+100, y:gameMinHeight+100},
-                          {x:gameMinWidth+100, y:gameMinHeight+100},
-                          {x:gameMinWidth+100, y:gameMinHeight+100},
-                          {x:gameMinWidth+100, y:gameMinHeight+100},
-                          {x:gameMinWidth+100, y:gameMinHeight+100},
-                          {x:gameMinWidth+100, y:gameMinHeight+100}];
-    var bootState = {
+        var bootState = {
 
 
         create: function() {
@@ -72,23 +44,3 @@
 
 
     };
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
