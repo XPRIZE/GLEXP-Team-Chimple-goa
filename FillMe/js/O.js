@@ -14,7 +14,7 @@
     
     
 
-    var A = {
+    var O = {
 
         preload: function () {
 
@@ -23,20 +23,20 @@
             this.load.path = "";
             
            
-            this.rightPath = aPath;
-            this.wrongPath = bPath;
+            this.rightPath = oPath;
+            this.wrongPath = lPath;
             
-            this.bgLetter = aLetter;
+            this.bgLetter = oLetter;
             
-            this.Button = bButton;
+            this.Button = pButton;
             
-            this.nextLevel = 'B';
+            this.nextLevel = 'P';
             
             //loading right objects
             for(var i=0;i<10;i++){
                 
-                this.load.image(aCollection[i].trans, this.rightPath + aCollection[i].trans + imageExtension);
-                this.load.image(aCollection[i].name,this.rightPath + aCollection[i].name + imageExtension);
+                this.load.image(oCollection[i].trans, this.rightPath + oCollection[i].trans + imageExtension);
+                this.load.image(oCollection[i].name,this.rightPath + oCollection[i].name + imageExtension);
                 
             }
             
@@ -57,8 +57,8 @@
           
             for(var i=0;i<10;i++){
                 
-                this.load.image(bCollection[i].trans, this.wrongPath + bCollection[i].trans + imageExtension);  
-                this.load.image(bCollection[i].name, this.wrongPath + bCollection[i].name + imageExtension);
+                this.load.image(lCollection[i].trans, this.wrongPath + lCollection[i].trans + imageExtension);  
+                this.load.image(lCollection[i].name, this.wrongPath + lCollection[i].name + imageExtension);
             }
             
             
@@ -163,27 +163,27 @@
             
             this.rightTrans = [];
             
-            this.rightTrans[0] = game.add.sprite(objectsPosition[randomPositionArray[0]].x,objectsPosition[randomPositionArray[0]].y, aCollection[randomObjectArray[0]].trans);
+            this.rightTrans[0] = game.add.sprite(objectsPosition[randomPositionArray[0]].x,objectsPosition[randomPositionArray[0]].y, oCollection[randomObjectArray[0]].trans);
             this.rightTrans[0].anchor.setTo(spriteAnchorX, spriteAnchorY);
             this.rightTrans[0].scale.setTo(spriteScaleX, spriteScaleY);
           
             
-            this.rightTrans[1] = game.add.sprite(objectsPosition[randomPositionArray[1]].x,objectsPosition[randomPositionArray[1]].y, aCollection[randomObjectArray[1]].trans);
+            this.rightTrans[1] = game.add.sprite(objectsPosition[randomPositionArray[1]].x,objectsPosition[randomPositionArray[1]].y, oCollection[randomObjectArray[1]].trans);
             this.rightTrans[1].anchor.setTo(spriteAnchorX, spriteAnchorY);
             this.rightTrans[1].scale.setTo(spriteScaleX, spriteScaleY);
           
             
-            this.rightTrans[2] = game.add.sprite(objectsPosition[randomPositionArray[2]].x,objectsPosition[randomPositionArray[2]].y, aCollection[randomObjectArray[2]].trans);
+            this.rightTrans[2] = game.add.sprite(objectsPosition[randomPositionArray[2]].x,objectsPosition[randomPositionArray[2]].y, oCollection[randomObjectArray[2]].trans);
             this.rightTrans[2].anchor.setTo(spriteAnchorX, spriteAnchorY);
             this.rightTrans[2].scale.setTo(spriteScaleX, spriteScaleY);
           
             
-            this.rightTrans[3] = game.add.sprite(objectsPosition[randomPositionArray[3]].x,objectsPosition[randomPositionArray[3]].y, aCollection[randomObjectArray[3]].trans);
+            this.rightTrans[3] = game.add.sprite(objectsPosition[randomPositionArray[3]].x,objectsPosition[randomPositionArray[3]].y, oCollection[randomObjectArray[3]].trans);
             this.rightTrans[3].anchor.setTo(spriteAnchorX, spriteAnchorY);
             this.rightTrans[3].scale.setTo(spriteScaleX, spriteScaleY);
           
             
-            this.rightTrans[4] = game.add.sprite(objectsPosition[randomPositionArray[4]].x,objectsPosition[randomPositionArray[4]].y, aCollection[randomObjectArray[4]].trans);
+            this.rightTrans[4] = game.add.sprite(objectsPosition[randomPositionArray[4]].x,objectsPosition[randomPositionArray[4]].y, oCollection[randomObjectArray[4]].trans);
             this.rightTrans[4].anchor.setTo(spriteAnchorX, spriteAnchorY);
             this.rightTrans[4].scale.setTo(spriteScaleX, spriteScaleY);
           
@@ -193,11 +193,11 @@
             
             
             
-            this.rightObjects[0] = game.add.sprite(objectsPosition[randomPositionArray[0]].x,objectsPosition[randomPositionArray[0]].y, aCollection[randomObjectArray[0]].name);
+            this.rightObjects[0] = game.add.sprite(objectsPosition[randomPositionArray[0]].x,objectsPosition[randomPositionArray[0]].y, oCollection[randomObjectArray[0]].name);
             this.rightObjects[0].x = objectsPosition[randomPositionArray[0]].x;
             this.rightObjects[0].y = objectsPosition[randomPositionArray[0]].y;
-            this.rightObjects[0].name = aCollection[randomObjectArray[0]].name;
-            this.rightObjects[0].trans = aCollection[randomObjectArray[0]].trans;
+            this.rightObjects[0].name = oCollection[randomObjectArray[0]].name;
+            this.rightObjects[0].trans = oCollection[randomObjectArray[0]].trans;
             this.rightObjects[0].anchor.setTo(spriteAnchorX, spriteAnchorY);
             this.rightObjects[0].scale.setTo(spriteScaleX, spriteScaleY);
             this.rightObjects[0].inputEnabled = True;
@@ -207,11 +207,11 @@
             
             
             
-            this.rightObjects[1] = game.add.sprite(objectsPosition[randomPositionArray[1]].x,objectsPosition[randomPositionArray[1]].y, aCollection[randomObjectArray[1]].name);
+            this.rightObjects[1] = game.add.sprite(objectsPosition[randomPositionArray[1]].x,objectsPosition[randomPositionArray[1]].y, oCollection[randomObjectArray[1]].name);
             this.rightObjects[1].x = objectsPosition[randomPositionArray[1]].x;
             this.rightObjects[1].y = objectsPosition[randomPositionArray[1]].y;
-            this.rightObjects[1].name = aCollection[randomObjectArray[1]].name;
-            this.rightObjects[1].trans = aCollection[randomObjectArray[1]].trans;
+            this.rightObjects[1].name = oCollection[randomObjectArray[1]].name;
+            this.rightObjects[1].trans = oCollection[randomObjectArray[1]].trans;
             this.rightObjects[1].anchor.setTo(spriteAnchorX, spriteAnchorY);
             this.rightObjects[1].scale.setTo(spriteScaleX, spriteScaleY);
             this.rightObjects[1].inputEnabled = True;
@@ -219,11 +219,11 @@
             function onDownOne() {this.resetSpriteFlag(); this.clearActiveFlags(); this.setColorFlagToZero(); this.colorBoxes[1].flag = 1 ;this.rightObjects[1].flag = 1; ObjectClicked++; levelCounter++; id = 1;}
             
             
-            this.rightObjects[2] = game.add.sprite(objectsPosition[randomPositionArray[2]].x,objectsPosition[randomPositionArray[2]].y, aCollection[randomObjectArray[2]].name);
+            this.rightObjects[2] = game.add.sprite(objectsPosition[randomPositionArray[2]].x,objectsPosition[randomPositionArray[2]].y, oCollection[randomObjectArray[2]].name);
             this.rightObjects[2].x = objectsPosition[randomPositionArray[2]].x;
             this.rightObjects[2].y = objectsPosition[randomPositionArray[2]].y;
-            this.rightObjects[2].name = aCollection[randomObjectArray[2]].name;
-            this.rightObjects[2].trans = aCollection[randomObjectArray[2]].trans;
+            this.rightObjects[2].name = oCollection[randomObjectArray[2]].name;
+            this.rightObjects[2].trans = oCollection[randomObjectArray[2]].trans;
             this.rightObjects[2].anchor.setTo(spriteAnchorX, spriteAnchorY);
             this.rightObjects[2].scale.setTo(spriteScaleX, spriteScaleY);
             this.rightObjects[2].inputEnabled = True;
@@ -231,11 +231,11 @@
             function onDownTwo() {this.resetSpriteFlag(); this.clearActiveFlags(); this.setColorFlagToZero(); this.colorBoxes[2].flag = 1 ; this.rightObjects[2].flag = 1; ObjectClicked++;  levelCounter++; id = 2;}
             
             
-            this.rightObjects[3] = game.add.sprite(objectsPosition[randomPositionArray[3]].x,objectsPosition[randomPositionArray[3]].y, aCollection[randomObjectArray[3]].name);
+            this.rightObjects[3] = game.add.sprite(objectsPosition[randomPositionArray[3]].x,objectsPosition[randomPositionArray[3]].y, oCollection[randomObjectArray[3]].name);
             this.rightObjects[3].x = objectsPosition[randomPositionArray[3]].x;
             this.rightObjects[3].y = objectsPosition[randomPositionArray[3]].y;
-            this.rightObjects[3].name = aCollection[randomObjectArray[3]].name;
-            this.rightObjects[3].trans = aCollection[randomObjectArray[3]].trans;
+            this.rightObjects[3].name = oCollection[randomObjectArray[3]].name;
+            this.rightObjects[3].trans = oCollection[randomObjectArray[3]].trans;
             this.rightObjects[3].anchor.setTo(spriteAnchorX, spriteAnchorY);
             this.rightObjects[3].scale.setTo(spriteScaleX, spriteScaleY);
             this.rightObjects[3].inputEnabled = True;
@@ -243,11 +243,11 @@
             function onDownThree() {this.resetSpriteFlag(); this.clearActiveFlags(); this.setColorFlagToZero(); this.colorBoxes[3].flag = 1 ; this.rightObjects[3].flag = 1; ObjectClicked++; levelCounter++; id = 3;}
             
             
-            this.rightObjects[4] = game.add.sprite(objectsPosition[randomPositionArray[4]].x,objectsPosition[randomPositionArray[4]].y, aCollection[randomObjectArray[4]].name);
+            this.rightObjects[4] = game.add.sprite(objectsPosition[randomPositionArray[4]].x,objectsPosition[randomPositionArray[4]].y, oCollection[randomObjectArray[4]].name);
             this.rightObjects[4].x = objectsPosition[randomPositionArray[4]].x;
             this.rightObjects[4].y = objectsPosition[randomPositionArray[4]].y;
-            this.rightObjects[4].name = aCollection[randomObjectArray[4]].name;
-            this.rightObjects[4].trans = aCollection[randomObjectArray[4]].trans;
+            this.rightObjects[4].name = oCollection[randomObjectArray[4]].name;
+            this.rightObjects[4].trans = oCollection[randomObjectArray[4]].trans;
             this.rightObjects[4].anchor.setTo(spriteAnchorX, spriteAnchorY);
             this.rightObjects[4].scale.setTo(spriteScaleX, spriteScaleY);
             this.rightObjects[4].inputEnabled = True;
@@ -263,27 +263,27 @@
             
             this.wrongTrans = [];
             
-            this.wrongTrans[5] = game.add.sprite(objectsPosition[randomPositionArray[5]].x,objectsPosition[randomPositionArray[5]].y, bCollection[randomObjectArray[0]].trans);
+            this.wrongTrans[5] = game.add.sprite(objectsPosition[randomPositionArray[5]].x,objectsPosition[randomPositionArray[5]].y, lCollection[randomObjectArray[0]].trans);
             this.wrongTrans[5].anchor.setTo(spriteAnchorX, spriteAnchorY);
             this.wrongTrans[5].scale.setTo(spriteScaleX, spriteScaleY);
             
             
-            this.wrongTrans[6] = game.add.sprite(objectsPosition[randomPositionArray[6]].x,objectsPosition[randomPositionArray[6]].y, bCollection[randomObjectArray[1]].trans);
+            this.wrongTrans[6] = game.add.sprite(objectsPosition[randomPositionArray[6]].x,objectsPosition[randomPositionArray[6]].y, lCollection[randomObjectArray[1]].trans);
             this.wrongTrans[6].anchor.setTo(spriteAnchorX, spriteAnchorY);
             this.wrongTrans[6].scale.setTo(spriteScaleX, spriteScaleY);
             
             
-            this.wrongTrans[7] = game.add.sprite(objectsPosition[randomPositionArray[7]].x,objectsPosition[randomPositionArray[7]].y, bCollection[randomObjectArray[2]].trans);
+            this.wrongTrans[7] = game.add.sprite(objectsPosition[randomPositionArray[7]].x,objectsPosition[randomPositionArray[7]].y, lCollection[randomObjectArray[2]].trans);
             this.wrongTrans[7].anchor.setTo(spriteAnchorX, spriteAnchorY);
             this.wrongTrans[7].scale.setTo(spriteScaleX, spriteScaleY);
             
             
-            this.wrongTrans[8] = game.add.sprite(objectsPosition[randomPositionArray[8]].x,objectsPosition[randomPositionArray[8]].y, bCollection[randomObjectArray[3]].trans);
+            this.wrongTrans[8] = game.add.sprite(objectsPosition[randomPositionArray[8]].x,objectsPosition[randomPositionArray[8]].y, lCollection[randomObjectArray[3]].trans);
             this.wrongTrans[8].anchor.setTo(spriteAnchorX, spriteAnchorY);
             this.wrongTrans[8].scale.setTo(spriteScaleX, spriteScaleY);
             
             
-            this.wrongTrans[9] = game.add.sprite(objectsPosition[randomPositionArray[9]].x,objectsPosition[randomPositionArray[9]].y, bCollection[randomObjectArray[4]].trans);
+            this.wrongTrans[9] = game.add.sprite(objectsPosition[randomPositionArray[9]].x,objectsPosition[randomPositionArray[9]].y, lCollection[randomObjectArray[4]].trans);
             this.wrongTrans[9].anchor.setTo(spriteAnchorX, spriteAnchorY);
             this.wrongTrans[9].scale.setTo(spriteScaleX, spriteScaleY);
             
@@ -293,24 +293,24 @@
             
             this.wrongObjects = [];
           
-            this.wrongObjects[5] =  game.add.sprite(objectsPosition[randomPositionArray[5]].x, objectsPosition[randomPositionArray[5]].y, bCollection[randomObjectArray[0]].name);
+            this.wrongObjects[5] =  game.add.sprite(objectsPosition[randomPositionArray[5]].x, objectsPosition[randomPositionArray[5]].y, lCollection[randomObjectArray[0]].name);
                 
             this.wrongObjects[5].x = objectsPosition[randomPositionArray[5]].x;
             this.wrongObjects[5].y = objectsPosition[randomPositionArray[5]].y;
-            this.wrongObjects[5].name = bCollection[randomObjectArray[0]].name;
-            this.wrongObjects[5].trans = bCollection[randomObjectArray[0]].trans;
+            this.wrongObjects[5].name = lCollection[randomObjectArray[0]].name;
+            this.wrongObjects[5].trans = lCollection[randomObjectArray[0]].trans;
             this.wrongObjects[5].anchor.setTo(spriteAnchorX, spriteAnchorY);
             this.wrongObjects[5].scale.setTo(spriteScaleX, spriteScaleY);
             this.wrongObjects[5].inputEnabled = True;
             this.wrongObjects[5].events.onInputDown.add(onDownFive, this);
             function onDownFive() {this.resetSpriteFlag(); this.wrongObjects[5].flag = 1; id = 5;}
             
-            this.wrongObjects[6] =  game.add.sprite(objectsPosition[randomPositionArray[6]].x, objectsPosition[randomPositionArray[6]].y, bCollection[randomObjectArray[1]].name);
+            this.wrongObjects[6] =  game.add.sprite(objectsPosition[randomPositionArray[6]].x, objectsPosition[randomPositionArray[6]].y, lCollection[randomObjectArray[1]].name);
                 
             this.wrongObjects[6].x = objectsPosition[randomPositionArray[6]].x;
             this.wrongObjects[6].y = objectsPosition[randomPositionArray[6]].y;
-            this.wrongObjects[6].name = bCollection[randomObjectArray[1]].name;
-            this.wrongObjects[6].trans = bCollection[randomObjectArray[1]].trans;
+            this.wrongObjects[6].name = lCollection[randomObjectArray[1]].name;
+            this.wrongObjects[6].trans = lCollection[randomObjectArray[1]].trans;
             this.wrongObjects[6].anchor.setTo(spriteAnchorX, spriteAnchorY);
             this.wrongObjects[6].scale.setTo(spriteScaleX, spriteScaleY);
             this.wrongObjects[6].inputEnabled = True;
@@ -318,12 +318,12 @@
             function onDownSix() {this.resetSpriteFlag(); this.wrongObjects[6].flag = 1; id = 6;}
             
             
-            this.wrongObjects[7] =  game.add.sprite(objectsPosition[randomPositionArray[7]].x, objectsPosition[randomPositionArray[7]].y, bCollection[randomObjectArray[2]].name);
+            this.wrongObjects[7] =  game.add.sprite(objectsPosition[randomPositionArray[7]].x, objectsPosition[randomPositionArray[7]].y, lCollection[randomObjectArray[2]].name);
                 
             this.wrongObjects[7].x = objectsPosition[randomPositionArray[7]].x;
             this.wrongObjects[7].y = objectsPosition[randomPositionArray[7]].y;
-            this.wrongObjects[7].name = bCollection[randomObjectArray[2]].name;
-            this.wrongObjects[7].trans = bCollection[randomObjectArray[2]].trans;
+            this.wrongObjects[7].name = lCollection[randomObjectArray[2]].name;
+            this.wrongObjects[7].trans = lCollection[randomObjectArray[2]].trans;
             this.wrongObjects[7].anchor.setTo(spriteAnchorX, spriteAnchorY);
             this.wrongObjects[7].scale.setTo(spriteScaleX, spriteScaleY);
             this.wrongObjects[7].inputEnabled = True;
@@ -331,12 +331,12 @@
             function onDownSeven() {this.resetSpriteFlag(); this.wrongObjects[7].flag = 1; id = 7;}
             
             
-            this.wrongObjects[8] =  game.add.sprite(objectsPosition[randomPositionArray[8]].x, objectsPosition[randomPositionArray[8]].y, bCollection[randomObjectArray[3]].name);
+            this.wrongObjects[8] =  game.add.sprite(objectsPosition[randomPositionArray[8]].x, objectsPosition[randomPositionArray[8]].y, lCollection[randomObjectArray[3]].name);
                 
             this.wrongObjects[8].x = objectsPosition[randomPositionArray[8]].x;
             this.wrongObjects[8].y = objectsPosition[randomPositionArray[8]].y;
-            this.wrongObjects[8].name = bCollection[randomObjectArray[3]].name;
-            this.wrongObjects[8].trans = bCollection[randomObjectArray[3]].trans;
+            this.wrongObjects[8].name = lCollection[randomObjectArray[3]].name;
+            this.wrongObjects[8].trans = lCollection[randomObjectArray[3]].trans;
             this.wrongObjects[8].anchor.setTo(spriteAnchorX, spriteAnchorY);
             this.wrongObjects[8].scale.setTo(spriteScaleX, spriteScaleY);
             this.wrongObjects[8].inputEnabled = True;
@@ -344,12 +344,12 @@
             function onDownEight() {this.resetSpriteFlag(); this.wrongObjects[8].flag = 1; id = 8;}
             
             
-            this.wrongObjects[9] =  game.add.sprite(objectsPosition[randomPositionArray[9]].x, objectsPosition[randomPositionArray[9]].y, bCollection[randomObjectArray[4]].name);
+            this.wrongObjects[9] =  game.add.sprite(objectsPosition[randomPositionArray[9]].x, objectsPosition[randomPositionArray[9]].y, lCollection[randomObjectArray[4]].name);
                 
             this.wrongObjects[9].x = objectsPosition[randomPositionArray[9]].x;
             this.wrongObjects[9].y = objectsPosition[randomPositionArray[9]].y;
-            this.wrongObjects[9].name = bCollection[randomObjectArray[4]].name;
-            this.wrongObjects[9].trans = bCollection[randomObjectArray[4]].trans;
+            this.wrongObjects[9].name = lCollection[randomObjectArray[4]].name;
+            this.wrongObjects[9].trans = lCollection[randomObjectArray[4]].trans;
             this.wrongObjects[9].anchor.setTo(spriteAnchorX, spriteAnchorY);
             this.wrongObjects[9].scale.setTo(spriteScaleX, spriteScaleY);
             this.wrongObjects[9].inputEnabled = True;
