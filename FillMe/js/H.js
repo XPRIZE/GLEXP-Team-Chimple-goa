@@ -28,7 +28,7 @@
             
             this.bgLetter = hLetter;
             
-            this.Button = hButton;
+            this.Button = iButton;
             
             this.nextLevel = 'I';
             
