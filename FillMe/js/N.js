@@ -11,7 +11,7 @@
     var wrongId;
     var levelCounter = 0; 
     var filler = 0;
-    
+    var volumeFlag = 1;
     
 
     var N = {
@@ -44,8 +44,9 @@
             this.load.image(box,commonAssets +  box + imageExtension);
             this.load.image(bar,commonAssets +  bar + imageExtension);
             this.load.image("timeBar",commonAssets +  "timeBar" + imageExtension);
-            
-            
+            this.load.image("shadow",this.rightPath +  "shadow" + imageExtension);
+            this.load.image("volume",commonAssets +  "volume" + imageExtension);
+            this.load.image("mute",commonAssets +  "mute" + imageExtension);
             
             //loading assets for the level  
             this.load.image("bg", this.rightPath +  "bg" + imageExtension);
@@ -69,7 +70,7 @@
             this.load.audio(waterBurst, commonAssets +  waterBurst + audioExtension);
             this.load.audio(bubble,commonAssets +   bubble + audioExtension);
             this.load.audio(stick, commonAssets +   stick + audioExtension);
-            this.load.audio(gameFace, commonAssets +   gameFace + audioExtension);
+            this.load.audio("gameFace", commonAssets +   "gameFace" + audioExtension);
           
         },
 
@@ -84,7 +85,7 @@
             waterBurstSound = game.add.audio(waterBurst);
             bubbleSound = game.add.audio(bubble);
             stickSound = game.add.audio(stick);
-            gameFace =  game.add.audio(gameFace);
+            gameFace =  game.add.audio("gameFace");
             gameFace.loop = True;
             gameFace.play();
             
@@ -105,8 +106,28 @@
             
             //Main letter 
             Letter = game.add.sprite(gameMinWidth, gameMinHeight, this.bgLetter);
-            Letter.inputEnabled = True;
-            Letter.events.onInputDown.add(this.onDownLetter, this);
+           /* Letter.inputEnabled = True;
+            Letter.events.onInputDown.add(this.onDownLetter, this);*/
+            
+            shadow = game.add.sprite(gameMinWidth + 795, gameMinHeight + 505, "shadow");
+            shadow.anchor.setTo(spriteAnchorX, spriteAnchorY);
+            shadow.scale.setTo(1, 1);
+            shadow.inputEnabled = True;
+            shadow.events.onInputDown.add(this.onDownLetter, this);
+            
+            volume = game.add.sprite(gameMinWidth + 1230, gameMinHeight + 50, "volume");
+            volume.anchor.setTo(spriteAnchorX, spriteAnchorY);
+            volume.scale.setTo(1, 1);
+            volume.inputEnabled = True;
+            volume.events.onInputDown.add(onDownVolume, this);
+            function onDownVolume(){volumeFlag = 0; gameFace.pause();}
+            
+            mute = game.add.sprite(gameMinWidth + 1230, gameMinHeight + 50, "mute");
+            mute.anchor.setTo(spriteAnchorX, spriteAnchorY);
+            mute.scale.setTo(1, 1);
+            mute.inputEnabled = True;
+            mute.events.onInputDown.add(onDownMute, this);
+            function onDownMute(){volumeFlag = 1; gameFace.resume();}
             
             
             //Objects starting 
@@ -202,7 +223,7 @@
             this.rightObjects[0].scale.setTo(spriteScaleX, spriteScaleY);
             this.rightObjects[0].inputEnabled = True;
             this.rightObjects[0].events.onInputDown.add(onDownZero, this);
-            function onDownZero() {this.resetSpriteFlag(); this.clearActiveFlags(); this.setColorFlagToZero(); this.colorBoxes[0].flag = 1 ; this.rightObjects[0].flag = 1; ObjectClicked++; levelCounter++; id = 0;}
+            function onDownZero() {this.resetSpriteFlag(); this.clearActiveFlags(); this.setColorFlagToZero(); this.colorBoxes[0].flag = 1 ; this.rightObjects[0].flag = 1; ObjectClicked++;  id = 0;}
             
             
             
@@ -216,7 +237,7 @@
             this.rightObjects[1].scale.setTo(spriteScaleX, spriteScaleY);
             this.rightObjects[1].inputEnabled = True;
             this.rightObjects[1].events.onInputDown.add(onDownOne, this);
-            function onDownOne() {this.resetSpriteFlag(); this.clearActiveFlags(); this.setColorFlagToZero(); this.colorBoxes[1].flag = 1 ;this.rightObjects[1].flag = 1; ObjectClicked++; levelCounter++; id = 1;}
+            function onDownOne() {this.resetSpriteFlag(); this.clearActiveFlags(); this.setColorFlagToZero(); this.colorBoxes[1].flag = 1 ;this.rightObjects[1].flag = 1; ObjectClicked++;  id = 1;}
             
             
             this.rightObjects[2] = game.add.sprite(objectsPosition[randomPositionArray[2]].x,objectsPosition[randomPositionArray[2]].y, nCollection[randomObjectArray[2]].name);
@@ -228,7 +249,7 @@
             this.rightObjects[2].scale.setTo(spriteScaleX, spriteScaleY);
             this.rightObjects[2].inputEnabled = True;
             this.rightObjects[2].events.onInputDown.add(onDownTwo, this);
-            function onDownTwo() {this.resetSpriteFlag(); this.clearActiveFlags(); this.setColorFlagToZero(); this.colorBoxes[2].flag = 1 ; this.rightObjects[2].flag = 1; ObjectClicked++;  levelCounter++; id = 2;}
+            function onDownTwo() {this.resetSpriteFlag(); this.clearActiveFlags(); this.setColorFlagToZero(); this.colorBoxes[2].flag = 1 ; this.rightObjects[2].flag = 1; ObjectClicked++;   id = 2;}
             
             
             this.rightObjects[3] = game.add.sprite(objectsPosition[randomPositionArray[3]].x,objectsPosition[randomPositionArray[3]].y, nCollection[randomObjectArray[3]].name);
@@ -240,7 +261,7 @@
             this.rightObjects[3].scale.setTo(spriteScaleX, spriteScaleY);
             this.rightObjects[3].inputEnabled = True;
             this.rightObjects[3].events.onInputDown.add(onDownThree, this);
-            function onDownThree() {this.resetSpriteFlag(); this.clearActiveFlags(); this.setColorFlagToZero(); this.colorBoxes[3].flag = 1 ; this.rightObjects[3].flag = 1; ObjectClicked++; levelCounter++; id = 3;}
+            function onDownThree() {this.resetSpriteFlag(); this.clearActiveFlags(); this.setColorFlagToZero(); this.colorBoxes[3].flag = 1 ; this.rightObjects[3].flag = 1; ObjectClicked++;  id = 3;}
             
             
             this.rightObjects[4] = game.add.sprite(objectsPosition[randomPositionArray[4]].x,objectsPosition[randomPositionArray[4]].y, nCollection[randomObjectArray[4]].name);
@@ -252,7 +273,7 @@
             this.rightObjects[4].scale.setTo(spriteScaleX, spriteScaleY);
             this.rightObjects[4].inputEnabled = True;
             this.rightObjects[4].events.onInputDown.add(onDownFour, this);
-            function onDownFour() {this.resetSpriteFlag(); this.clearActiveFlags(); this.setColorFlagToZero(); this.colorBoxes[4].flag = 1 ; this.rightObjects[4].flag = 1; ObjectClicked++; id = 4; levelCounter++;}
+            function onDownFour() {this.resetSpriteFlag(); this.clearActiveFlags(); this.setColorFlagToZero(); this.colorBoxes[4].flag = 1 ; this.rightObjects[4].flag = 1; ObjectClicked++; id = 4; }
             
             
             
@@ -480,7 +501,7 @@
                     if(colorClickedFlag == 1 && objectClickedFlag == 1 ){var object = game.add.sprite(game.input.mousePointer.x, game.input.mousePointer.y,objectClickedTrans);object.tint =  colorClickedCode; object.scale.setTo(spriteScaleX, spriteScaleY); 
 object.anchor.setTo(paintObjectAnchorX, paintObjectAnchorY);stickSound.play();
                                                                           
-                                                    if(filler <= 10){
+                                                    if(filler < 10){   levelCounter++;
                                                                          this.timeBox[filler++].tint = redColor;  
                                                                         }
                                                                          this.clearActiveFlags();             
@@ -518,7 +539,7 @@ object.anchor.setTo(paintObjectAnchorX, paintObjectAnchorY);stickSound.play();
         update: function () {
             
             
-            
+            game.world.bringToTop(shadow);
             game.world.bringToTop(Letter);
            
             for(var i = 0; i < 10 ; i++){game.world.bringToTop(this.colorBoxes[i]);}
@@ -558,11 +579,16 @@ object.anchor.setTo(paintObjectAnchorX, paintObjectAnchorY);stickSound.play();
                 //start next level
                 
                 this.setGlobalVaribalesToZero();
+                gameFace.stop();
                 game.state.start(this.nextLevel);
                 
             }
         }
-           
+           if(volumeFlag == 0){
+                game.world.bringToTop(mute);
+            }else{
+                game.world.bringToTop(volume);
+            } 
             
         },
         
@@ -595,7 +621,7 @@ object.anchor.setTo(paintObjectAnchorX, paintObjectAnchorY);stickSound.play();
             wrongId = null;
             levelCounter = 0; 
             filler = 0;
-            
+            volumeFlag = 1;
             
             for(var i=0; i<5; i++){ this.rightObjects[i].flag = 0;}
             

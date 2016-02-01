@@ -133,7 +133,7 @@
     var waterBurst = "waterBurst";
     var bubble = "bubble";
     var stick = "stick";
-    var gameFace = "gameFace";
+    
 
  
 
@@ -318,7 +318,7 @@
     var gCollection = [
                        {trans : "transGate",name: "gate",flag: 0},
                        {trans : "transGhost",name: "ghost",flag: 0},
-                       {trans : "transG",name: "giraffe",flag: 0},
+                       {trans : "transGiraffe",name: "giraffe",flag: 0},
                        {trans : "transGlobe",name: "globe",flag: 0},
                        {trans : "transGloves",name: "gloves",flag: 0},
                        {trans : "transGoat",name: "goat",flag: 0},

@@ -1,1 +1,1 @@
-extract assets rar first before running the game.
+extract assets.rar in first before running the game.
