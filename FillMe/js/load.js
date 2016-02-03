@@ -94,8 +94,8 @@
                 
                 game.scale.pageAlignHorizontally = true;
                 game.scale.pageAlignVertically = true;
-
-                //game.scale.setScreenSize(true);
+                
+                game.scale.setScreenSize = true;
 
 
             }

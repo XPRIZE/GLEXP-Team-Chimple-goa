@@ -324,7 +324,7 @@
             this.wrongObjects[5].scale.setTo(spriteScaleX, spriteScaleY);
             this.wrongObjects[5].inputEnabled = True;
             this.wrongObjects[5].events.onInputDown.add(onDownFive, this);
-            function onDownFive() {this.resetSpriteFlag(); this.wrongObjects[5].flag = 1; id = 5;}
+            function onDownFive() {this.resetSpriteFlag(); this.wrongObjects[5].flag = 1; id = 5;bubbleSound.play();}
             
             this.wrongObjects[6] =  game.add.sprite(objectsPosition[randomPositionArray[6]].x, objectsPosition[randomPositionArray[6]].y, pCollection[randomObjectArray[1]].name);
                 
@@ -336,7 +336,7 @@
             this.wrongObjects[6].scale.setTo(spriteScaleX, spriteScaleY);
             this.wrongObjects[6].inputEnabled = True;
             this.wrongObjects[6].events.onInputDown.add(onDownSix, this);
-            function onDownSix() {this.resetSpriteFlag(); this.wrongObjects[6].flag = 1; id = 6;}
+            function onDownSix() {this.resetSpriteFlag(); this.wrongObjects[6].flag = 1; id = 6;bubbleSound.play();}
             
             
             this.wrongObjects[7] =  game.add.sprite(objectsPosition[randomPositionArray[7]].x, objectsPosition[randomPositionArray[7]].y, pCollection[randomObjectArray[2]].name);
@@ -349,7 +349,7 @@
             this.wrongObjects[7].scale.setTo(spriteScaleX, spriteScaleY);
             this.wrongObjects[7].inputEnabled = True;
             this.wrongObjects[7].events.onInputDown.add(onDownSeven, this);
-            function onDownSeven() {this.resetSpriteFlag(); this.wrongObjects[7].flag = 1; id = 7;}
+            function onDownSeven() {this.resetSpriteFlag(); this.wrongObjects[7].flag = 1; id = 7;bubbleSound.play();}
             
             
             this.wrongObjects[8] =  game.add.sprite(objectsPosition[randomPositionArray[8]].x, objectsPosition[randomPositionArray[8]].y, pCollection[randomObjectArray[3]].name);
@@ -362,7 +362,7 @@
             this.wrongObjects[8].scale.setTo(spriteScaleX, spriteScaleY);
             this.wrongObjects[8].inputEnabled = True;
             this.wrongObjects[8].events.onInputDown.add(onDownEight, this);
-            function onDownEight() {this.resetSpriteFlag(); this.wrongObjects[8].flag = 1; id = 8;}
+            function onDownEight() {this.resetSpriteFlag(); this.wrongObjects[8].flag = 1; id = 8;bubbleSound.play();}
             
             
             this.wrongObjects[9] =  game.add.sprite(objectsPosition[randomPositionArray[9]].x, objectsPosition[randomPositionArray[9]].y, pCollection[randomObjectArray[4]].name);
@@ -375,7 +375,7 @@
             this.wrongObjects[9].scale.setTo(spriteScaleX, spriteScaleY);
             this.wrongObjects[9].inputEnabled = True;
             this.wrongObjects[9].events.onInputDown.add(onDownNine, this);
-            function onDownNine() {this.resetSpriteFlag(); this.wrongObjects[9].flag = 1; id = 9;}
+            function onDownNine() {this.resetSpriteFlag(); this.wrongObjects[9].flag = 1; id = 9;bubbleSound.play();}
             
             
             
