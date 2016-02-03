@@ -498,7 +498,7 @@
             }
          
             
-                    if(colorClickedFlag == 1 && objectClickedFlag == 1 ){var object = game.add.sprite(game.input.mousePointer.x, game.input.mousePointer.y,objectClickedTrans);object.tint =  colorClickedCode; object.scale.setTo(spriteScaleX, spriteScaleY); 
+                    if(colorClickedFlag == 1 && objectClickedFlag == 1 ){var object = game.add.sprite(game.input.x, game.input.y,objectClickedTrans);object.tint =  colorClickedCode; object.scale.setTo(spriteScaleX, spriteScaleY); 
 object.anchor.setTo(paintObjectAnchorX, paintObjectAnchorY);stickSound.play();
                                                                           
                                                     if(filler < 10){    levelCounter++;
@@ -512,10 +512,10 @@ object.anchor.setTo(paintObjectAnchorX, paintObjectAnchorY);stickSound.play();
             
 if(wrongObjectClicked == 1){
     
-                    object = game.add.sprite(game.input.mousePointer.x, game.input.mousePointer.y,objectClickedName); object.scale.setTo(spriteScaleX, spriteScaleY); 
+                    object = game.add.sprite(game.input.x, game.input.mousePointer.y,objectClickedName); object.scale.setTo(spriteScaleX, spriteScaleY); 
 object.anchor.setTo(paintObjectAnchorX, paintObjectAnchorY);stickSound.play();                        
     
-    	this.tween = game.add.tween(object).to( { y:  game.input.mousePointer.y + 1000 }, 4000, Phaser.Easing.Linear.None, True);
+    	this.tween = game.add.tween(object).to( { y:  game.input.y + 1000 }, 4000, Phaser.Easing.Linear.None, True);
     this.tween.onComplete.add(killIt, this);
     function killIt(){object.kill();}
     this.randomizeObjects();

@@ -10,14 +10,14 @@
 
 
              //setting default path for assets to be used in game
-            this.load.path = './assets/';
+            this.load.path = "";
 
 
             //loading  assets for home screen
-            this.load.image('homeScreen', 'homeScreen.png');
+            this.load.image("homeScreen", commonAssets + "homeScreen" + imageExtension);
             //this.load.spritesheet('homeScreen', 'homeScreen.png', 1280, 800, 30);
             //loading sounds
-            this.load.audio("explosive", "explosive.mp3");
+            
               
             //this.load.spritesheet('fillMe', 'A/fillMe.png', 10, 10, 300);
             
@@ -26,20 +26,27 @@
 
 
         },
+         render : function()    
+    {
+        var self = this;
+        self.game.debug.text(self.game.time.fps || '' , 200, 200, '#00ff00');
+    },
         create: function() {
             //This function is called after the preload function
             //Here we set up the game, display sprites, etc.
             //Display the image on the screen
 
+            game.time.advancedTiming = true;  
 
+   
+            
             //Adding audio
-            explosiveSound = game.add.audio('explosive');
-
+            
 
             //start main map
 
             //Adding image  //600, 370,
-            homeScreen = game.add.sprite(640, 400, 'homeScreen');
+            homeScreen = game.add.sprite(640, 400, "homeScreen");
             
             homeScreen.rotation = true;
             //Setting anchor point
@@ -88,7 +95,7 @@
                 game.scale.pageAlignHorizontally = true;
                 game.scale.pageAlignVertically = true;
 
-                game.scale.setScreenSize(true);
+                //game.scale.setScreenSize(true);
 
 
             }
@@ -103,13 +110,10 @@
             homeScreen.alpha +=1/360;
             homeScreen.angle +=1.5;
             homeScreen.rotation += 0.05;
-        if(game.input.activePointer.leftButton.isDown
-                || game.input.activePointer.middleButton.isDown 
-                || game.input.activePointer.rightButton.isDown){
-
-            //explosiveSound.play();
-            this.state.start('A');
-        }
+            game.input.onDown.add(function(){this.state.start('A');}, this);
+            
+            
+        
 
         }
 

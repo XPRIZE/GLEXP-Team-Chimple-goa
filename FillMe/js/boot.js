@@ -31,9 +31,12 @@
                 //Center the game on the screen
                 game.scale.pageAlignHorizontally = true;
                 game.scale.pageAlignVertically = true;
+                
+                
+                game.scale.setScreenSize = true;;
 
                 //Apply the scale changes
-                game.scale.setScreenSize(true);
+                //game.scale.setScreenSize(true);
 
             }
 
