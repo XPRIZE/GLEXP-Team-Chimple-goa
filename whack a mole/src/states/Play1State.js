@@ -143,7 +143,7 @@ class PlayState extends Phaser.State {
    // check whether user click correct alphabet or not
     checkLetter() {
        this.pic.alpha = 0.5;
-        if (this.array[this.index] == 'A'){
+        if (this.array[this.index] == this.char){
             this.right_music.play();
             this.score += 1;
             this.scoreLabel.text = 'Score:' + this.score;
