@@ -1,4 +1,4 @@
-
+ 
     //Creating game object
     var game = new Phaser.Game(gameMaxWidth, gameMaxHeight, Phaser.AUTO, canvasDiv, null, False, True);
 

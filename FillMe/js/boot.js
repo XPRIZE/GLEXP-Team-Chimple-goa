@@ -13,6 +13,7 @@
             game.physics.startSystem(Phaser.Physics.ARCADE);
 
             //If the device is not desktop, so it's a mobile device
+            Phaser.ScaleManager.EXACT_FIT = 0;
             if(!game.device.desktop) {
 
                 //Set the type of scaling to 'show all'
@@ -23,17 +24,15 @@
 
                 
                 //Set the min and max width/height of the game
-                game.scale.minWidth = gameMaxWidth/4;
-                game.scale.minHeight = gameMaxHeight/4;
-                game.scale.maxWidth = gameMaxWidth;
-                game.scale.maxHeight = gameMaxHeight;
+                //game.scale.maxWidth = window.screen.width;
+                //game.scale.maxHeight = window.screen.height;
 
                 //Center the game on the screen
                 game.scale.pageAlignHorizontally = true;
                 game.scale.pageAlignVertically = true;
                 
                 
-                game.scale.setScreenSize = true;;
+                game.scale.setScreenSize = true;
 
                 //Apply the scale changes
                 //game.scale.setScreenSize(true);

@@ -1,4 +1,4 @@
-    
+
     var ObjectClicked = 0;
     var askForNextLevel = 0;
     var objectClickedFlag = 0;
@@ -13,6 +13,7 @@
     var filler = 0;
     var volumeFlag = 1;
     
+    
 
     var B = {
 
@@ -24,7 +25,7 @@
             
            
             this.rightPath = bPath;
-            this.wrongPath = zPath;
+            this.wrongPath = yPath;
             
             this.bgLetter = bLetter;
             
@@ -48,6 +49,7 @@
             this.load.image("volume",commonAssets +  "volume" + imageExtension);
             this.load.image("mute",commonAssets +  "mute" + imageExtension);
             
+            
             //loading assets for the level  
             this.load.image("bg", this.rightPath +  "bg" + imageExtension);
             this.load.image(this.bgLetter,this.rightPath +  this.bgLetter + imageExtension);
@@ -58,8 +60,8 @@
           
             for(var i=0;i<10;i++){
                 
-                this.load.image(zCollection[i].trans, this.wrongPath + zCollection[i].trans + imageExtension);  
-                this.load.image(zCollection[i].name, this.wrongPath + zCollection[i].name + imageExtension);
+                this.load.image(yCollection[i].trans, this.wrongPath + yCollection[i].trans + imageExtension);  
+                this.load.image(yCollection[i].name, this.wrongPath + yCollection[i].name + imageExtension);
             }
             
             
@@ -91,67 +93,75 @@
             
             
             //Adding progess bar
-            timeBarx = game.add.image(timeBarPosition.x  , timeBarPosition.y, "timeBar");
+            timeBarx = game.add.image(timeBarPosition.x , timeBarPosition.y, "timeBar"); //changes made
+            timeBarx.anchor.setTo(spriteAnchorX, spriteAnchorY);
+            timeBarx.scale.setTo(scale.x, scale.y);      //changes made
             
             //Filling time bar
             this.timeBox = [];
             for(var i =0; i<10 ; i++){
                 
                 this.timeBox[i] = game.add.image(progressBarPosition[i].x  , progressBarPosition[i].y, bar);
+                this.timeBox[i].anchor.setTo(spriteAnchorX, spriteAnchorY); 
+                this.timeBox[i].scale.setTo(scale.x, scale.y); //changes made
+
             }
             
+            
+            
             //Adding images 
-            bgx = game.add.image(gameMinWidth, gameMinHeight,  "bg");
-                
+            bgx = game.add.image(game.world.centerX, game.world.centerY  ,  "bg"); //changes made
+            bgx.anchor.setTo(spriteAnchorX, spriteAnchorY); //changes made
+            bgx.scale.setTo(scale.x + 0.03, scale.y + 0.03);  //changes made
             
             //Main letter 
-            Letter = game.add.sprite(gameMinWidth, gameMinHeight, this.bgLetter);
-           /* Letter.inputEnabled = True;
-            Letter.events.onInputDown.add(this.onDownLetter, this);
-           */ 
-            shadow = game.add.sprite(gameMinWidth + 780, gameMinHeight + 520, "shadow");
-            shadow.anchor.setTo(spriteAnchorX, spriteAnchorY);
-            shadow.scale.setTo(1, 1);
-            shadow.inputEnabled = True;
+            Letter = game.add.sprite(game.world.centerX, game.world.centerY   , this.bgLetter); //changes made
+            Letter.anchor.setTo(spriteAnchorX, spriteAnchorY); //changes made
+            Letter.scale.setTo(scale.x + 0.03 , scale.y + 0.03 );     //changes made
+            
+            
+            shadow = game.add.sprite(gameMaxWidth * 0.58, gameMaxHeight * 0.62, "shadow");  //changes made
+            shadow.anchor.setTo(spriteAnchorX, spriteAnchorY); //changes made
+            shadow.scale.setTo(scale.x, scale.y); //changes made
+            shadow.inputEnabled = True; 
             shadow.events.onInputDown.add(this.onDownLetter, this);
             
-            
-            volume = game.add.sprite(gameMinWidth + 1230, gameMinHeight + 50, "volume");
+            volume = game.add.sprite(gameMaxWidth * 0.96, gameMaxHeight * 0.06, "volume"); //changes made
             volume.anchor.setTo(spriteAnchorX, spriteAnchorY);
-            volume.scale.setTo(1, 1);
+            volume.scale.setTo(scale.x, scale.y);
             volume.inputEnabled = True;
             volume.events.onInputDown.add(onDownVolume, this);
             function onDownVolume(){volumeFlag = 0; gameFace.pause();}
             
-            mute = game.add.sprite(gameMinWidth + 1230, gameMinHeight + 50, "mute");
+            mute = game.add.sprite(gameMaxWidth * 0.96, gameMaxHeight * 0.06, "mute");
             mute.anchor.setTo(spriteAnchorX, spriteAnchorY);
-            mute.scale.setTo(1, 1);
+            mute.scale.setTo(scale.x, scale.y);
             mute.inputEnabled = True;
             mute.events.onInputDown.add(onDownMute, this);
             function onDownMute(){volumeFlag = 1; gameFace.resume();}
             
             
+            
             //Objects starting 
                         
-            cloud1 = game.add.image(gameMinWidth+445, gameMinHeight+101, cloud);
+            cloud1 = game.add.image(gameMaxWidth * 0.34, gameMaxHeight * 0.12, cloud);
             cloud1.anchor.setTo(spriteAnchorX, spriteAnchorY);
-            cloud1.scale.setTo(cloudScale,cloudScale);
+            cloud1.scale.setTo(scale.x/7, scale.y/7);
             cloud1.tint = greyColor;
+            game.add.tween(cloud1).to( {x:gameMaxWidth * 0.92, y:gameMaxHeight * 0.11}, 30000, Phaser.Easing.Linear.None, True, 0, 1000, True);
             
-            game.add.tween(cloud1).to( {x:1190, y:94}, 30000, Phaser.Easing.Linear.None, True, 0, 1000, True);
             
-            
-            cloud2 = game.add.image(gameMinWidth+494, gameMinHeight+69, cloud);
+            cloud2 = game.add.image(gameMaxWidth * 0.38, gameMaxHeight * 0.08, cloud);
             cloud2.anchor.setTo(spriteAnchorX, spriteAnchorY);
-            cloud2.scale.setTo(cloudScale, cloudScale);
+            cloud2.scale.setTo(scale.x/7, scale.y/7);
             cloud2.tint = greyColor;
-            game.add.tween(cloud2).to( {x:700, y: 69}, 30000, Phaser.Easing.Linear.None, True, 0, 1000, False);
+            game.add.tween(cloud2).to( {x:gameMaxWidth * 0.54, y: gameMaxHeight * 0.08}, 30000, Phaser.Easing.Linear.None, True, 0, 1000, False);
             
-            cloud3 = game.add.image(gameMinWidth+936, gameMinHeight+93, cloud);
+            cloud3 = game.add.image(gameMaxWidth * 0.73, gameMaxHeight * 0.11, cloud);
             cloud3.anchor.setTo(spriteAnchorX, spriteAnchorY);
-            cloud3.scale.setTo(cloudScale, cloudScale);
+            cloud3.scale.setTo(scale.x/7, scale.y/7);
             cloud3.tint = greyColor;
-            game.add.tween(cloud3).to( {x:1190, y:94}, 8000, Phaser.Easing.Linear.None, True, 0, 1000, True);
+            game.add.tween(cloud3).to( {x:gameMaxWidth * 0.92, y:gameMaxHeight * 0.11}, 8000, Phaser.Easing.Linear.None, True, 0, 1000, True);
         
             
             this.randomizeObjects();
@@ -179,35 +189,43 @@
         
         randomizeObjects: function() {
             
-            var randomObjectArray = this.randomArrayFromInterval(5,10);
-            var randomPositionArray = this.randomArrayFromInterval(10,10);
-            var randomColorArray = this.randomArrayFromInterval(6,6);
+            var randomObjectArray = [];       
+            var randomPositionArray = [];
+            var randomColorArray = [];
+            
+            
+            randomObjectArray = this.randomArrayFromInterval(5,10);
+            console.log(randomObjectArray);
+            randomPositionArray = this.randomArrayFromInterval(10,10);
+            console.log(randomPositionArray);
+            randomColorArray = this.randomArrayFromInterval(6,6);
+            console.log(randomColorArray);
             
             this.rightTrans = [];
             
             this.rightTrans[0] = game.add.sprite(objectsPosition[randomPositionArray[0]].x,objectsPosition[randomPositionArray[0]].y, bCollection[randomObjectArray[0]].trans);
             this.rightTrans[0].anchor.setTo(spriteAnchorX, spriteAnchorY);
-            this.rightTrans[0].scale.setTo(spriteScaleX, spriteScaleY);
+            this.rightTrans[0].scale.setTo(scale.x/4, scale.y/4);
           
             
             this.rightTrans[1] = game.add.sprite(objectsPosition[randomPositionArray[1]].x,objectsPosition[randomPositionArray[1]].y, bCollection[randomObjectArray[1]].trans);
             this.rightTrans[1].anchor.setTo(spriteAnchorX, spriteAnchorY);
-            this.rightTrans[1].scale.setTo(spriteScaleX, spriteScaleY);
+            this.rightTrans[1].scale.setTo(scale.x/4, scale.y/4);
           
             
             this.rightTrans[2] = game.add.sprite(objectsPosition[randomPositionArray[2]].x,objectsPosition[randomPositionArray[2]].y, bCollection[randomObjectArray[2]].trans);
             this.rightTrans[2].anchor.setTo(spriteAnchorX, spriteAnchorY);
-            this.rightTrans[2].scale.setTo(spriteScaleX, spriteScaleY);
+            this.rightTrans[2].scale.setTo(scale.x/4, scale.y/4);
           
             
             this.rightTrans[3] = game.add.sprite(objectsPosition[randomPositionArray[3]].x,objectsPosition[randomPositionArray[3]].y, bCollection[randomObjectArray[3]].trans);
             this.rightTrans[3].anchor.setTo(spriteAnchorX, spriteAnchorY);
-            this.rightTrans[3].scale.setTo(spriteScaleX, spriteScaleY);
+            this.rightTrans[3].scale.setTo(scale.x/4, scale.y/4);
           
             
             this.rightTrans[4] = game.add.sprite(objectsPosition[randomPositionArray[4]].x,objectsPosition[randomPositionArray[4]].y, bCollection[randomObjectArray[4]].trans);
             this.rightTrans[4].anchor.setTo(spriteAnchorX, spriteAnchorY);
-            this.rightTrans[4].scale.setTo(spriteScaleX, spriteScaleY);
+            this.rightTrans[4].scale.setTo(scale.x/4, scale.y/4);
           
             
             
@@ -221,10 +239,10 @@
             this.rightObjects[0].name = bCollection[randomObjectArray[0]].name;
             this.rightObjects[0].trans = bCollection[randomObjectArray[0]].trans;
             this.rightObjects[0].anchor.setTo(spriteAnchorX, spriteAnchorY);
-            this.rightObjects[0].scale.setTo(spriteScaleX, spriteScaleY);
+            this.rightObjects[0].scale.setTo(scale.x/4, scale.y/4);
             this.rightObjects[0].inputEnabled = True;
             this.rightObjects[0].events.onInputDown.add(onDownZero, this);
-            function onDownZero() {this.resetSpriteFlag(); this.clearActiveFlags(); this.setColorFlagToZero(); this.colorBoxes[0].flag = 1 ; this.rightObjects[0].flag = 1; ObjectClicked++;  id = 0;}
+            function onDownZero() {this.resetSpriteFlag(); this.clearActiveFlags(); this.setColorFlagToZero(); this.colorBoxes[0].flag = 1 ; this.rightObjects[0].flag = 1; ObjectClicked++; /*levelCounter++;*/ id = 0;}
             
             
             
@@ -235,10 +253,10 @@
             this.rightObjects[1].name = bCollection[randomObjectArray[1]].name;
             this.rightObjects[1].trans = bCollection[randomObjectArray[1]].trans;
             this.rightObjects[1].anchor.setTo(spriteAnchorX, spriteAnchorY);
-            this.rightObjects[1].scale.setTo(spriteScaleX, spriteScaleY);
+            this.rightObjects[1].scale.setTo(scale.x/4, scale.y/4);
             this.rightObjects[1].inputEnabled = True;
             this.rightObjects[1].events.onInputDown.add(onDownOne, this);
-            function onDownOne() {this.resetSpriteFlag(); this.clearActiveFlags(); this.setColorFlagToZero(); this.colorBoxes[1].flag = 1 ;this.rightObjects[1].flag = 1; ObjectClicked++;  id = 1;}
+            function onDownOne() {this.resetSpriteFlag(); this.clearActiveFlags(); this.setColorFlagToZero(); this.colorBoxes[1].flag = 1 ;this.rightObjects[1].flag = 1; ObjectClicked++; /*levelCounter++;*/ id = 1;}
             
             
             this.rightObjects[2] = game.add.sprite(objectsPosition[randomPositionArray[2]].x,objectsPosition[randomPositionArray[2]].y, bCollection[randomObjectArray[2]].name);
@@ -247,10 +265,10 @@
             this.rightObjects[2].name = bCollection[randomObjectArray[2]].name;
             this.rightObjects[2].trans = bCollection[randomObjectArray[2]].trans;
             this.rightObjects[2].anchor.setTo(spriteAnchorX, spriteAnchorY);
-            this.rightObjects[2].scale.setTo(spriteScaleX, spriteScaleY);
+            this.rightObjects[2].scale.setTo(scale.x/4, scale.y/4);
             this.rightObjects[2].inputEnabled = True;
             this.rightObjects[2].events.onInputDown.add(onDownTwo, this);
-            function onDownTwo() {this.resetSpriteFlag(); this.clearActiveFlags(); this.setColorFlagToZero(); this.colorBoxes[2].flag = 1 ; this.rightObjects[2].flag = 1; ObjectClicked++;   id = 2;}
+            function onDownTwo() {this.resetSpriteFlag(); this.clearActiveFlags(); this.setColorFlagToZero(); this.colorBoxes[2].flag = 1 ; this.rightObjects[2].flag = 1; ObjectClicked++;  /*levelCounter++;*/ id = 2;}
             
             
             this.rightObjects[3] = game.add.sprite(objectsPosition[randomPositionArray[3]].x,objectsPosition[randomPositionArray[3]].y, bCollection[randomObjectArray[3]].name);
@@ -259,10 +277,10 @@
             this.rightObjects[3].name = bCollection[randomObjectArray[3]].name;
             this.rightObjects[3].trans = bCollection[randomObjectArray[3]].trans;
             this.rightObjects[3].anchor.setTo(spriteAnchorX, spriteAnchorY);
-            this.rightObjects[3].scale.setTo(spriteScaleX, spriteScaleY);
+            this.rightObjects[3].scale.setTo(scale.x/4, scale.y/4);
             this.rightObjects[3].inputEnabled = True;
             this.rightObjects[3].events.onInputDown.add(onDownThree, this);
-            function onDownThree() {this.resetSpriteFlag(); this.clearActiveFlags(); this.setColorFlagToZero(); this.colorBoxes[3].flag = 1 ; this.rightObjects[3].flag = 1; ObjectClicked++;  id = 3;}
+            function onDownThree() {this.resetSpriteFlag(); this.clearActiveFlags(); this.setColorFlagToZero(); this.colorBoxes[3].flag = 1 ; this.rightObjects[3].flag = 1; ObjectClicked++; /*levelCounter++;*/ id = 3;}
             
             
             this.rightObjects[4] = game.add.sprite(objectsPosition[randomPositionArray[4]].x,objectsPosition[randomPositionArray[4]].y, bCollection[randomObjectArray[4]].name);
@@ -271,10 +289,10 @@
             this.rightObjects[4].name = bCollection[randomObjectArray[4]].name;
             this.rightObjects[4].trans = bCollection[randomObjectArray[4]].trans;
             this.rightObjects[4].anchor.setTo(spriteAnchorX, spriteAnchorY);
-            this.rightObjects[4].scale.setTo(spriteScaleX, spriteScaleY);
+            this.rightObjects[4].scale.setTo(scale.x/4, scale.y/4);
             this.rightObjects[4].inputEnabled = True;
             this.rightObjects[4].events.onInputDown.add(onDownFour, this);
-            function onDownFour() {this.resetSpriteFlag(); this.clearActiveFlags(); this.setColorFlagToZero(); this.colorBoxes[4].flag = 1 ; this.rightObjects[4].flag = 1; ObjectClicked++; id = 4;}
+            function onDownFour() {this.resetSpriteFlag(); this.clearActiveFlags(); this.setColorFlagToZero(); this.colorBoxes[4].flag = 1 ; this.rightObjects[4].flag = 1; ObjectClicked++; id = 4; /*levelCounter++;*/}
             
             
             
@@ -285,29 +303,29 @@
             
             this.wrongTrans = [];
             
-            this.wrongTrans[5] = game.add.sprite(objectsPosition[randomPositionArray[5]].x,objectsPosition[randomPositionArray[5]].y, zCollection[randomObjectArray[0]].trans);
+            this.wrongTrans[5] = game.add.sprite(objectsPosition[randomPositionArray[5]].x,objectsPosition[randomPositionArray[5]].y, yCollection[randomObjectArray[0]].trans);
             this.wrongTrans[5].anchor.setTo(spriteAnchorX, spriteAnchorY);
-            this.wrongTrans[5].scale.setTo(spriteScaleX, spriteScaleY);
+            this.wrongTrans[5].scale.setTo(scale.x/4, scale.y/4);
             
             
-            this.wrongTrans[6] = game.add.sprite(objectsPosition[randomPositionArray[6]].x,objectsPosition[randomPositionArray[6]].y, zCollection[randomObjectArray[1]].trans);
+            this.wrongTrans[6] = game.add.sprite(objectsPosition[randomPositionArray[6]].x,objectsPosition[randomPositionArray[6]].y, yCollection[randomObjectArray[1]].trans);
             this.wrongTrans[6].anchor.setTo(spriteAnchorX, spriteAnchorY);
-            this.wrongTrans[6].scale.setTo(spriteScaleX, spriteScaleY);
+            this.wrongTrans[6].scale.setTo(scale.x/4, scale.y/4);
             
             
-            this.wrongTrans[7] = game.add.sprite(objectsPosition[randomPositionArray[7]].x,objectsPosition[randomPositionArray[7]].y, zCollection[randomObjectArray[2]].trans);
+            this.wrongTrans[7] = game.add.sprite(objectsPosition[randomPositionArray[7]].x,objectsPosition[randomPositionArray[7]].y, yCollection[randomObjectArray[2]].trans);
             this.wrongTrans[7].anchor.setTo(spriteAnchorX, spriteAnchorY);
-            this.wrongTrans[7].scale.setTo(spriteScaleX, spriteScaleY);
+            this.wrongTrans[7].scale.setTo(scale.x/4, scale.y/4);
             
             
-            this.wrongTrans[8] = game.add.sprite(objectsPosition[randomPositionArray[8]].x,objectsPosition[randomPositionArray[8]].y, zCollection[randomObjectArray[3]].trans);
+            this.wrongTrans[8] = game.add.sprite(objectsPosition[randomPositionArray[8]].x,objectsPosition[randomPositionArray[8]].y, yCollection[randomObjectArray[3]].trans);
             this.wrongTrans[8].anchor.setTo(spriteAnchorX, spriteAnchorY);
-            this.wrongTrans[8].scale.setTo(spriteScaleX, spriteScaleY);
+            this.wrongTrans[8].scale.setTo(scale.x/4, scale.y/4);
             
             
-            this.wrongTrans[9] = game.add.sprite(objectsPosition[randomPositionArray[9]].x,objectsPosition[randomPositionArray[9]].y, zCollection[randomObjectArray[4]].trans);
+            this.wrongTrans[9] = game.add.sprite(objectsPosition[randomPositionArray[9]].x,objectsPosition[randomPositionArray[9]].y, yCollection[randomObjectArray[4]].trans);
             this.wrongTrans[9].anchor.setTo(spriteAnchorX, spriteAnchorY);
-            this.wrongTrans[9].scale.setTo(spriteScaleX, spriteScaleY);
+            this.wrongTrans[9].scale.setTo(scale.x/4, scale.y/4);
             
             
             
@@ -315,146 +333,142 @@
             
             this.wrongObjects = [];
           
-            this.wrongObjects[5] =  game.add.sprite(objectsPosition[randomPositionArray[5]].x, objectsPosition[randomPositionArray[5]].y, zCollection[randomObjectArray[0]].name);
+            this.wrongObjects[5] =  game.add.sprite(objectsPosition[randomPositionArray[5]].x, objectsPosition[randomPositionArray[5]].y, yCollection[randomObjectArray[0]].name);
                 
             this.wrongObjects[5].x = objectsPosition[randomPositionArray[5]].x;
             this.wrongObjects[5].y = objectsPosition[randomPositionArray[5]].y;
-            this.wrongObjects[5].name = zCollection[randomObjectArray[0]].name;
-            this.wrongObjects[5].trans = zCollection[randomObjectArray[0]].trans;
+            this.wrongObjects[5].name = yCollection[randomObjectArray[0]].name;
+            this.wrongObjects[5].trans = yCollection[randomObjectArray[0]].trans;
             this.wrongObjects[5].anchor.setTo(spriteAnchorX, spriteAnchorY);
-            this.wrongObjects[5].scale.setTo(spriteScaleX, spriteScaleY);
+            this.wrongObjects[5].scale.setTo(scale.x/4, scale.y/4);
             this.wrongObjects[5].inputEnabled = True;
             this.wrongObjects[5].events.onInputDown.add(onDownFive, this);
-            function onDownFive() {this.resetSpriteFlag(); this.wrongObjects[5].flag = 1; id = 5;bubbleSound.play();}
+            function onDownFive() {this.resetSpriteFlag(); this.wrongObjects[5].flag = 1; id = 5; bubbleSound.play();}
             
-            this.wrongObjects[6] =  game.add.sprite(objectsPosition[randomPositionArray[6]].x, objectsPosition[randomPositionArray[6]].y, zCollection[randomObjectArray[1]].name);
+            this.wrongObjects[6] =  game.add.sprite(objectsPosition[randomPositionArray[6]].x, objectsPosition[randomPositionArray[6]].y, yCollection[randomObjectArray[1]].name);
                 
             this.wrongObjects[6].x = objectsPosition[randomPositionArray[6]].x;
             this.wrongObjects[6].y = objectsPosition[randomPositionArray[6]].y;
-            this.wrongObjects[6].name = zCollection[randomObjectArray[1]].name;
-            this.wrongObjects[6].trans = zCollection[randomObjectArray[1]].trans;
+            this.wrongObjects[6].name = yCollection[randomObjectArray[1]].name;
+            this.wrongObjects[6].trans = yCollection[randomObjectArray[1]].trans;
             this.wrongObjects[6].anchor.setTo(spriteAnchorX, spriteAnchorY);
-            this.wrongObjects[6].scale.setTo(spriteScaleX, spriteScaleY);
+            this.wrongObjects[6].scale.setTo(scale.x/4, scale.y/4);
             this.wrongObjects[6].inputEnabled = True;
             this.wrongObjects[6].events.onInputDown.add(onDownSix, this);
-            function onDownSix() {this.resetSpriteFlag(); this.wrongObjects[6].flag = 1; id = 6;bubbleSound.play();}
+            function onDownSix() {this.resetSpriteFlag(); this.wrongObjects[6].flag = 1; id = 6; bubbleSound.play();}
             
             
-            this.wrongObjects[7] =  game.add.sprite(objectsPosition[randomPositionArray[7]].x, objectsPosition[randomPositionArray[7]].y, zCollection[randomObjectArray[2]].name);
+            this.wrongObjects[7] =  game.add.sprite(objectsPosition[randomPositionArray[7]].x, objectsPosition[randomPositionArray[7]].y, yCollection[randomObjectArray[2]].name);
                 
             this.wrongObjects[7].x = objectsPosition[randomPositionArray[7]].x;
             this.wrongObjects[7].y = objectsPosition[randomPositionArray[7]].y;
-            this.wrongObjects[7].name = zCollection[randomObjectArray[2]].name;
-            this.wrongObjects[7].trans = zCollection[randomObjectArray[2]].trans;
+            this.wrongObjects[7].name = yCollection[randomObjectArray[2]].name;
+            this.wrongObjects[7].trans = yCollection[randomObjectArray[2]].trans;
             this.wrongObjects[7].anchor.setTo(spriteAnchorX, spriteAnchorY);
-            this.wrongObjects[7].scale.setTo(spriteScaleX, spriteScaleY);
+            this.wrongObjects[7].scale.setTo(scale.x/4, scale.y/4);
             this.wrongObjects[7].inputEnabled = True;
             this.wrongObjects[7].events.onInputDown.add(onDownSeven, this);
-            function onDownSeven() {this.resetSpriteFlag(); this.wrongObjects[7].flag = 1; id = 7;bubbleSound.play();}
+            function onDownSeven() {this.resetSpriteFlag(); this.wrongObjects[7].flag = 1; id = 7; bubbleSound.play();}
             
             
-            this.wrongObjects[8] =  game.add.sprite(objectsPosition[randomPositionArray[8]].x, objectsPosition[randomPositionArray[8]].y, zCollection[randomObjectArray[3]].name);
+            this.wrongObjects[8] =  game.add.sprite(objectsPosition[randomPositionArray[8]].x, objectsPosition[randomPositionArray[8]].y, yCollection[randomObjectArray[3]].name);
                 
             this.wrongObjects[8].x = objectsPosition[randomPositionArray[8]].x;
             this.wrongObjects[8].y = objectsPosition[randomPositionArray[8]].y;
-            this.wrongObjects[8].name = zCollection[randomObjectArray[3]].name;
-            this.wrongObjects[8].trans = zCollection[randomObjectArray[3]].trans;
+            this.wrongObjects[8].name = yCollection[randomObjectArray[3]].name;
+            this.wrongObjects[8].trans = yCollection[randomObjectArray[3]].trans;
             this.wrongObjects[8].anchor.setTo(spriteAnchorX, spriteAnchorY);
-            this.wrongObjects[8].scale.setTo(spriteScaleX, spriteScaleY);
+            this.wrongObjects[8].scale.setTo(scale.x/4, scale.y/4);
             this.wrongObjects[8].inputEnabled = True;
             this.wrongObjects[8].events.onInputDown.add(onDownEight, this);
-            function onDownEight() {this.resetSpriteFlag(); this.wrongObjects[8].flag = 1; id = 8;bubbleSound.play();}
+            function onDownEight() {this.resetSpriteFlag(); this.wrongObjects[8].flag = 1; id = 8; bubbleSound.play();}
             
             
-            this.wrongObjects[9] =  game.add.sprite(objectsPosition[randomPositionArray[9]].x, objectsPosition[randomPositionArray[9]].y, zCollection[randomObjectArray[4]].name);
+            this.wrongObjects[9] =  game.add.sprite(objectsPosition[randomPositionArray[9]].x, objectsPosition[randomPositionArray[9]].y, yCollection[randomObjectArray[4]].name);
                 
             this.wrongObjects[9].x = objectsPosition[randomPositionArray[9]].x;
             this.wrongObjects[9].y = objectsPosition[randomPositionArray[9]].y;
-            this.wrongObjects[9].name = zCollection[randomObjectArray[4]].name;
-            this.wrongObjects[9].trans = zCollection[randomObjectArray[4]].trans;
+            this.wrongObjects[9].name = yCollection[randomObjectArray[4]].name;
+            this.wrongObjects[9].trans = yCollection[randomObjectArray[4]].trans;
             this.wrongObjects[9].anchor.setTo(spriteAnchorX, spriteAnchorY);
-            this.wrongObjects[9].scale.setTo(spriteScaleX, spriteScaleY);
+            this.wrongObjects[9].scale.setTo(scale.x/4, scale.y/4);
             this.wrongObjects[9].inputEnabled = True;
             this.wrongObjects[9].events.onInputDown.add(onDownNine, this);
-            function onDownNine() {this.resetSpriteFlag(); this.wrongObjects[9].flag = 1; id = 9;bubbleSound.play();}
+            function onDownNine() {this.resetSpriteFlag(); this.wrongObjects[9].flag = 1; id = 9; bubbleSound.play();}
             
             
-            
-            
-           
             
             //Adding boxes
-            
             
             
             this.colorBoxes = [];
        
             this.colorBoxes[0] = game.add.sprite(objectsPosition[randomPositionArray[0]].x,objectsPosition[randomPositionArray[0]].y, box);
             this.colorBoxes[0].anchor.setTo(spriteAnchorX, spriteAnchorY);
-            this.colorBoxes[0].scale.setTo(boxScale, boxScale);
+            this.colorBoxes[0].scale.setTo(scale.x, scale.y);
             this.colorBoxes[0].tint = colorObjects[randomColorArray[0]].code;
             this.colorBoxes[0].name = colorObjects[randomColorArray[0]].name;    
             
             
             this.colorBoxes[1] = game.add.sprite(objectsPosition[randomPositionArray[1]].x,objectsPosition[randomPositionArray[1]].y, box);
             this.colorBoxes[1].anchor.setTo(spriteAnchorX, spriteAnchorY);
-            this.colorBoxes[1].scale.setTo(boxScale, boxScale);
+            this.colorBoxes[1].scale.setTo(scale.x, scale.y);
             this.colorBoxes[1].tint = colorObjects[randomColorArray[1]].code;
             this.colorBoxes[1].name = colorObjects[randomColorArray[1]].name;    
             
             
             this.colorBoxes[2] = game.add.sprite(objectsPosition[randomPositionArray[2]].x,objectsPosition[randomPositionArray[2]].y, box);
             this.colorBoxes[2].anchor.setTo(spriteAnchorX, spriteAnchorY);
-            this.colorBoxes[2].scale.setTo(boxScale, boxScale);
+            this.colorBoxes[2].scale.setTo(scale.x, scale.y);
             this.colorBoxes[2].tint = colorObjects[randomColorArray[2]].code;
             this.colorBoxes[2].name = colorObjects[randomColorArray[2]].name;    
             
             
             this.colorBoxes[3] = game.add.sprite(objectsPosition[randomPositionArray[3]].x,objectsPosition[randomPositionArray[3]].y, box);
             this.colorBoxes[3].anchor.setTo(spriteAnchorX, spriteAnchorY);
-            this.colorBoxes[3].scale.setTo(boxScale, boxScale);
+            this.colorBoxes[3].scale.setTo(scale.x, scale.y);
             this.colorBoxes[3].tint = colorObjects[randomColorArray[3]].code;
             this.colorBoxes[3].name = colorObjects[randomColorArray[3]].name;    
             
             
             this.colorBoxes[4] = game.add.sprite(objectsPosition[randomPositionArray[4]].x,objectsPosition[randomPositionArray[4]].y, box);
             this.colorBoxes[4].anchor.setTo(spriteAnchorX, spriteAnchorY);
-            this.colorBoxes[4].scale.setTo(boxScale, boxScale);
+            this.colorBoxes[4].scale.setTo(scale.x, scale.y);
             this.colorBoxes[4].tint = colorObjects[randomColorArray[4]].code;
             this.colorBoxes[4].name = colorObjects[randomColorArray[4]].name;    
             
             
             this.colorBoxes[5] = game.add.sprite(objectsPosition[randomPositionArray[5]].x,objectsPosition[randomPositionArray[5]].y, box);
             this.colorBoxes[5].anchor.setTo(spriteAnchorX, spriteAnchorY);
-            this.colorBoxes[5].scale.setTo(boxScale, boxScale);
+            this.colorBoxes[5].scale.setTo(scale.x, scale.y);
             this.colorBoxes[5].tint = colorObjects[randomColorArray[5]].code;
             this.colorBoxes[5].name = colorObjects[randomColorArray[5]].name;    
             
             
             this.colorBoxes[6] = game.add.sprite(objectsPosition[randomPositionArray[6]].x,objectsPosition[randomPositionArray[6]].y, box);
             this.colorBoxes[6].anchor.setTo(spriteAnchorX, spriteAnchorY);
-            this.colorBoxes[6].scale.setTo(boxScale, boxScale);
+            this.colorBoxes[6].scale.setTo(scale.x, scale.y);
             this.colorBoxes[6].tint = colorObjects[randomColorArray[0]].code;
             this.colorBoxes[6].name = colorObjects[randomColorArray[0]].name;    
             
             
             this.colorBoxes[7] = game.add.sprite(objectsPosition[randomPositionArray[7]].x,objectsPosition[randomPositionArray[7]].y, box);
             this.colorBoxes[7].anchor.setTo(spriteAnchorX, spriteAnchorY);
-            this.colorBoxes[7].scale.setTo(boxScale, boxScale);
+            this.colorBoxes[7].scale.setTo(scale.x, scale.y);
             this.colorBoxes[7].tint = colorObjects[randomColorArray[1]].code;
             this.colorBoxes[7].name = colorObjects[randomColorArray[1]].name;    
             
             
             this.colorBoxes[8] = game.add.sprite(objectsPosition[randomPositionArray[8]].x,objectsPosition[randomPositionArray[8]].y, box);
             this.colorBoxes[8].anchor.setTo(spriteAnchorX, spriteAnchorY);
-            this.colorBoxes[8].scale.setTo(boxScale, boxScale);
+            this.colorBoxes[8].scale.setTo(scale.x, scale.y);
             this.colorBoxes[8].tint = colorObjects[randomColorArray[2]].code;
             this.colorBoxes[8].name = colorObjects[randomColorArray[2]].name;    
             
             
             this.colorBoxes[9] = game.add.sprite(objectsPosition[randomPositionArray[9]].x,objectsPosition[randomPositionArray[9]].y, box);
             this.colorBoxes[9].anchor.setTo(spriteAnchorX, spriteAnchorY);
-            this.colorBoxes[9].scale.setTo(boxScale, boxScale);
+            this.colorBoxes[9].scale.setTo(scale.x, scale.y);
             this.colorBoxes[9].tint = colorObjects[randomColorArray[3]].code;
             this.colorBoxes[9].name = colorObjects[randomColorArray[3]].name;    
             
@@ -498,29 +512,32 @@
                 }
             }
          
-            
-                    if(colorClickedFlag == 1 && objectClickedFlag == 1 ){var object = game.add.sprite(game.input.x, game.input.y,objectClickedTrans);object.tint =  colorClickedCode; object.scale.setTo(spriteScaleX, spriteScaleY); 
+           
+                    if(colorClickedFlag == 1 && objectClickedFlag == 1 ){var object = game.add.sprite(game.input.x, game.input.y,objectClickedTrans);object.tint =  colorClickedCode; object.scale.setTo(scale.x/4, scale.y/4); 
 object.anchor.setTo(paintObjectAnchorX, paintObjectAnchorY);stickSound.play();
                                                                           
                                                     if(filler < 10){   levelCounter++;
                                                                          this.timeBox[filler++].tint = redColor;  
                                                                         }
                                                                          this.clearActiveFlags();             
-                             
+                                                                         this.killAllSprites();
                                                                          this.randomizeObjects();
                                                                         }
             //For Wrong Objects
             
 if(wrongObjectClicked == 1){
     
-                    object = game.add.sprite(game.input.x, game.input.y,objectClickedName); object.scale.setTo(spriteScaleX, spriteScaleY); 
+                    object = game.add.sprite(game.input.x, game.input.y,objectClickedName); object.scale.setTo(scale.x/4, scale.y/4); 
 object.anchor.setTo(paintObjectAnchorX, paintObjectAnchorY);stickSound.play();                        
     
-    	this.tween = game.add.tween(object).to( { y:  game.input.y + 1000 }, 4000, Phaser.Easing.Linear.None, True);
+    	this.tween = game.add.tween(object).to( { y:  game.input.y + (gameMaxHeight * 1.25) }, 4000, Phaser.Easing.Linear.None, True);
     this.tween.onComplete.add(killIt, this);
     function killIt(){object.kill();}
+    
+    this.clearActiveFlags();          
+    this.killAllSprites();
     this.randomizeObjects();
-                            this.clearActiveFlags();
+    
                                     }
                     
             
@@ -539,7 +556,7 @@ object.anchor.setTo(paintObjectAnchorX, paintObjectAnchorY);stickSound.play();
     },    
         update: function () {
             
-            
+          
             game.world.bringToTop(shadow);
             game.world.bringToTop(Letter);
            
@@ -566,8 +583,8 @@ object.anchor.setTo(paintObjectAnchorX, paintObjectAnchorY);stickSound.play();
             if(levelCounter >= 10){
             
                 askForNextLevel = 1;
-                game.nextButton = game.add.sprite(1170, 730, this.Button);             
-                game.nextButton.scale.setTo(1, 1); 
+                game.nextButton = game.add.sprite(gameMaxWidth * 0.91, gameMaxHeight * 0.91, this.Button);             
+                game.nextButton.scale.setTo(scale.x, scale.y); 
                 game.nextButton.inputEnabled = True;
                 game.nextButton.anchor.setTo(spriteAnchorX, spriteAnchorY);
                 
@@ -586,12 +603,12 @@ object.anchor.setTo(paintObjectAnchorX, paintObjectAnchorY);stickSound.play();
                 
             }
         }
+         
            if(volumeFlag == 0){
                 game.world.bringToTop(mute);
             }else{
                 game.world.bringToTop(volume);
             } 
-            
         },
         
         resetSpriteFlag: function(){
@@ -626,12 +643,20 @@ object.anchor.setTo(paintObjectAnchorX, paintObjectAnchorY);stickSound.play();
             volumeFlag = 1;
             
             
-            
             for(var i=0; i<5; i++){ this.rightObjects[i].flag = 0;}
             
             for(var i=5; i<10; i++){ this.wrongObjects[i].flag = 0;}
             
             for(var i=0; i<10; i++){ this.colorBoxes[i].flag = 0;}
+        },
+        killAllSprites: function(){
+            
+            for(var i=0; i<5; i++){ this.rightObjects[i].kill(); this.rightTrans[i].kill();}
+            
+            for(var i=5; i<10; i++){ this.wrongObjects[i].kill(); this.wrongTrans[i].kill();}
+            
+            for(var i=0; i<10; i++){ this.colorBoxes[i].kill();}
         }
         
     };
+

@@ -1,5 +1,20 @@
+    
+    function scaleImage() {
+    
+        var xndy = {};
+        
+        var s1 = window.screen.width * 3 / 1280;
+        var s2 = window.screen.height * 3 / 800;
+        xndy.x = (window.devicePixelRatio/3 * s1) - 0.03; 
+        xndy.y = (window.devicePixelRatio/3 * s2) - 0.03; 
+        
+        return xndy;
+    }
+    
+    var scale = scaleImage();
+
     //Color codes
-    var greyColor = 0xB0B0B0
+    var greyColor = 0xB0B0B0;
     var blueColor = 0x456AC1; 
     var cyanColor = 0x45C1C1; 
     var greenColor = 0x51C735;
@@ -28,9 +43,10 @@
     //Game canvas size
     var gameMinWidth = 0;
     var gameMinHeight = 0;
-    var gameMaxWidth = 1280;
-    var gameMaxHeight = 800;
+    var gameMaxWidth = window.screen.width*window.devicePixelRatio;
+    var gameMaxHeight = window.screen.height*window.devicePixelRatio;
     
+ 
     //Canvas div
     var canvasDiv = 'game';
     
@@ -144,33 +160,58 @@
 
     var progressBarPosition = [
                 
-                {x:1194,y:550},
-                {x:1194,y:515},
-                {x:1194,y:480},
-                {x:1194,y:445},
-                {x:1194,y:410},
-                {x:1194,y:375},
-                {x:1194,y:340},
-                {x:1194,y:305},
-                {x:1194,y:270},
-                {x:1194,y:235}
+                /*{x:1194,y:550},   // x : 0.93,y : 0.68 
+                {x:1194,y:515},   // x : 0.93,y : 0.64
+                {x:1194,y:480},   // x : 0.93,y : 0.60
+                {x:1194,y:445},   // x : 0.93,y : 0.56
+                {x:1194,y:410},   // x : 0.93,y : 0.52
+                {x:1194,y:375},   // x : 0.93,y : 0.48
+                {x:1194,y:340},   // x : 0.93,y : 0.44 
+                {x:1194,y:305},   // x : 0.93,y : 0.40
+                {x:1194,y:270},   // x : 0.93,y : 0.36
+                {x:1194,y:235}    // x : 0.93,y : 0.32*/
+        
+        
+        
+                {x:gameMaxWidth * 0.93,y:gameMaxHeight * 0.68},   // x : 0.93,y : 0.68 
+                {x:gameMaxWidth * 0.93,y:gameMaxHeight * 0.64},   // x : 0.93,y : 0.64
+                {x:gameMaxWidth * 0.93,y:gameMaxHeight * 0.60},   // x : 0.93,y : 0.60
+                {x:gameMaxWidth * 0.93,y:gameMaxHeight * 0.56},   // x : 0.93,y : 0.56
+                {x:gameMaxWidth * 0.93,y:gameMaxHeight * 0.52},   // x : 0.93,y : 0.52
+                {x:gameMaxWidth * 0.93,y:gameMaxHeight * 0.48},   // x : 0.93,y : 0.48
+                {x:gameMaxWidth * 0.93,y:gameMaxHeight * 0.44},   // x : 0.93,y : 0.44 
+                {x:gameMaxWidth * 0.93,y:gameMaxHeight * 0.40},   // x : 0.93,y : 0.40
+                {x:gameMaxWidth * 0.93,y:gameMaxHeight * 0.36},   // x : 0.93,y : 0.36
+                {x:gameMaxWidth * 0.93,y:gameMaxHeight * 0.32}    // x : 0.93,y : 0.32
     ];
 
-    var timeBarPosition = {x:1190,y:230}
+    var timeBarPosition = {x:gameMaxWidth * 0.928 ,y:gameMaxHeight * 0.50}
     
     //All positions
     var objectsPosition = [
                 
-                {x:240,y:80},
-                {x:80,y:240},
-                {x:240,y:400},
-                {x:80,y:560},
-                {x:240,y:720},
-                {x:80,y:80},
-                {x:240,y:240},
-                {x:80,y:400},
-                {x:240,y:560},
-                {x:80,y:720}
+                /*{x:240,y:80},      // x : 0.18,y : 0.10 
+                {x:80,y:240},      // x : 0.06,y : 0.30 
+                {x:240,y:400},     // x : 0.18,y : 0.50 
+                {x:80,y:560},      // x : 0.06,y : 0.70 
+                {x:240,y:720},     // x : 0.18,y : 0.90 
+                {x:80,y:80},       // x : 0.06,y : 0.10 
+                {x:240,y:240},     // x : 0.18,y : 0.30 
+                {x:80,y:400},      // x : 0.06,y : 0.50 
+                {x:240,y:560},     // x : 0.18,y : 0.70 
+                {x:80,y:720}       // x : 0.06,y : 0.90 */
+        
+        
+                {x:gameMaxWidth * 0.18,y:gameMaxHeight * 0.10},      // x : 0.18,y : 0.10 
+                {x:gameMaxWidth * 0.06,y:gameMaxHeight * 0.30},      // x : 0.06,y : 0.30 
+                {x:gameMaxWidth * 0.18,y:gameMaxHeight * 0.50},     // x : 0.18,y : 0.50 
+                {x:gameMaxWidth * 0.06,y:gameMaxHeight * 0.70},      // x : 0.06,y : 0.70 
+                {x:gameMaxWidth * 0.18,y:gameMaxHeight * 0.90},     // x : 0.18,y : 0.90 
+                {x:gameMaxWidth * 0.06,y:gameMaxHeight * 0.10},       // x : 0.06,y : 0.10 
+                {x:gameMaxWidth * 0.18,y:gameMaxHeight * 0.30},     // x : 0.18,y : 0.30 
+                {x:gameMaxWidth * 0.06,y:gameMaxHeight * 0.50},      // x : 0.06,y : 0.50 
+                {x:gameMaxWidth * 0.18,y:gameMaxHeight * 0.70},     // x : 0.18,y : 0.70 
+                {x:gameMaxWidth * 0.06,y:gameMaxHeight * 0.90}       // x : 0.06,y : 0.90 
     ];
 
 

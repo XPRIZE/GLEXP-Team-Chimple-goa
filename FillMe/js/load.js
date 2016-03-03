@@ -15,16 +15,7 @@
 
             //loading  assets for home screen
             this.load.image("homeScreen", commonAssets + "homeScreen" + imageExtension);
-            //this.load.spritesheet('homeScreen', 'homeScreen.png', 1280, 800, 30);
-            //loading sounds
             
-              
-            //this.load.spritesheet('fillMe', 'A/fillMe.png', 10, 10, 300);
-            
-            
-
-
-
         },
          render : function()    
     {
@@ -46,39 +37,22 @@
             //start main map
 
             //Adding image  //600, 370,
-            homeScreen = game.add.sprite(640, 400, "homeScreen");
-            
+            homeScreen = game.add.sprite(game.world.centerX, game.world.centerY, "homeScreen");
+            homeScreen.anchor.setTo(0.5, 0.5);
+            homeScreen.scale.setTo(gameMaxWidth/3600, gameMaxHeight/2400);
+            console.log(gameMaxWidth);
+            console.log(gameMaxHeight);
+
             homeScreen.rotation = true;
             //Setting anchor point
-            homeScreen.anchor.x = 1;
-            homeScreen.anchor.y = 1;
-            homeScreen.anchor.setTo(.5, .5);
+            //homeScreen.anchor.x = 1;
+            //homeScreen.anchor.y = 1;
+           
 
             
-            /*homeScreen = game.add.sprite(0, 0, 'homeScreen');
-            //homeScreen.scale.set(1);
-            //homeScreen.smoothed = false;
-            anim = homeScreen.animations.add('rotate');
+           
 
-            //anim.onStart.add(animationStarted, this);
-            //anim.onLoop.add(animationLooped, this);
-            //anim.onComplete.add(animationStopped, this);
-
-            anim.play(7, true);
-                */
-            
-            //var fillMe = game.add.sprite(500, 500, 'fillMe');
-
-    //  Here we add a new animation called 'walk'
-    //  Because we didn't give any other parameters it's going to make an animation from all available frames in the 'mummy' sprite sheet
-    //var walk = fillMe.animations.add('walk');
-
-    //  And this starts the animation playing by using its key ("walk")
-    //  30 is the frame rate (30fps)
-    //  true means it will loop when it finishes
-   // fillMe.animations.play('walk', 30, true);
-
-            
+            //Phaser.ScaleManager.EXACT_FIT = 0;
             
             game.physics.startSystem(Phaser.Physics.ARCADE);
 
@@ -87,10 +61,16 @@
                 game.scale.scaleMode = Phaser.ScaleManager.SHOW_ALL;
 
 
-                game.scale.minWidth = gameMaxWidth/4;
+                /*game.scale.minWidth = gameMaxWidth/4; 
+                game.scale.minHeight = gameMaxHeight/4;
+                *///game.scale.maxWidth = window.screen.width;
+                //game.scale.maxHeight = window.screen.height;
+                
+                /*game.scale.minWidth = gameMaxWidth/4; //window.screen.width
                 game.scale.minHeight = gameMaxHeight/4;
                 game.scale.maxWidth = gameMaxWidth;
                 game.scale.maxHeight = gameMaxHeight;
+                */
                 
                 game.scale.pageAlignHorizontally = true;
                 game.scale.pageAlignVertically = true;
