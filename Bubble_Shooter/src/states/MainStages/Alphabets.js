@@ -257,15 +257,11 @@ class Alphabets extends Phaser.State {
         this.particleEffect();
         
 	}
-    
-    render(){
- 
-        // Render player bubble
-        this.renderPlayer();
-     
-    }
    
      update(){
+         
+         // Render player bubble
+        this.renderPlayer();
          
          if (this.gamestate == this.gamestates.ready) {
             // Game is ready for player input
@@ -507,8 +503,8 @@ class Alphabets extends Phaser.State {
             return;
             
         // Use to kill the previous bubble sprite
-       this.bubblePlayer.kill(); 
-       this.letterPlayer.kill();
+       this.bubblePlayer.destroy(); 
+       this.letterPlayer.destroy();
        
        // Draw the bubble sprite
        this.bubblePlayer =  this.game.add.sprite(x,y,this.imageSprite[index]);
@@ -524,7 +520,7 @@ class Alphabets extends Phaser.State {
         if (index < 0 || index >= this.bubblecolors)
             return;
         // Draw the bubble sprite
-     this.nextBubblePlayer.kill();
+     this.nextBubblePlayer.destroy();
      this.nextBubblePlayer =  this.game.add.sprite(x,y,this.imageSprite[index]);
      this.nextBubblePlayer.scale.setTo(this.widthScale,this.heightScale);
     }
@@ -534,7 +530,7 @@ class Alphabets extends Phaser.State {
         if (index < 0 || index >= this.bubblecolors)
             return;
         // Draw the bubble sprite
-      this.nextLetterPlayer.kill();
+      this.nextLetterPlayer.destroy();
       this.nextLetterPlayer = this.game.add.sprite(x,y,this.letterSprite[index]);
       this.nextLetterPlayer.scale.setTo(this.widthScale,this.heightScale);
     }
@@ -772,8 +768,8 @@ class Alphabets extends Phaser.State {
                
                     if (tile.type >= 0) {
                      
-                     this.bubbleName[i][j].kill();
-                     this.LetterName[i][j].kill();
+                     this.bubbleName[i][j].destroy();
+                     this.LetterName[i][j].destroy();
                      
                     }
                 }
@@ -1091,8 +1087,8 @@ class Alphabets extends Phaser.State {
    playerDie(tilex,tiley,type){
        if(type!=0)
        this.playAnimationParticle(tilex,tiley);
-       this.bubbleName[tilex][tiley].kill();
-       this.LetterName[tilex][tiley].kill();
+       this.bubbleName[tilex][tiley].destroy();
+       this.LetterName[tilex][tiley].destroy();
     }
 
     playAnimationParticle(tilex,tiley){
