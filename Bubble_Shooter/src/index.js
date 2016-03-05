@@ -1,35 +1,42 @@
 /// <reference path="../node_modules/phaser/typescript/phaser.d.ts" />
 
-import Puzzle from 'states/Puzzle';
-import Alphabets from 'states/Alphabets';
-import Number from 'states/Number'
-import HomeScreen from 'states/HomeScreen'
-import LevelSceenAlphabets from 'states/LevelSceenAlphabets'
-import LevelSceenNumber from 'states/LevelSceenNumber'
-import ScoreCardNumber from 'states/ScoreCardNumber'
+import PreClass from 'PreClass';
 
-class Game extends Phaser.Game {
+class Game {
+    
+    constructor(){
 
-	constructor() {
+        this.wei=0;
+        this.hei=0;
         
-		super(800, 1280, Phaser.AUTO, 'content', null);
-     
-        //  All Level flags ....
-        this._LevelFlag = 1;
-        
-        //  Set Variable for World size 
-       
-       	this.state.add('Puzzle', Puzzle, false);
-        this.state.add('Alphabets', Alphabets, false);
-        this.state.add('Number',Number,false);
-        this.state.add('HomeScreen',HomeScreen,false);
-        this.state.add('LevelSceenAlphabets',LevelSceenAlphabets,false);
-        this.state.add('LevelSceenNumber',LevelSceenNumber,false);
-        this.state.add('ScoreCardNumber',ScoreCardNumber,false);
-        
-		this.state.start('HomeScreen');
-	}
+        if(navigator.userAgent.match(/iPad|Android|webOS|iPhone|iPod|Blackberry/i) )
+        {
+        if(window.screen.width<= window.innerWidth)
+        {
+            this.wei = window.screen.width;
+        }
+        else
+            this.wei = window.innerWidth;
 
+        if(window.screen.height<= window.innerHeight)
+        {
+            this.hei = window.screen.height;
+        }
+        else
+            this.hei = window.innerHeight;
+
+        // do mobile stuff
+        }
+        else
+        {
+        console.log('desktop');
+        this.wei = window.innerWidth;
+        this.hei = window.innerHeight; 
+        }
+  
+        new PreClass(this.wei*window.devicePixelRatio, this.hei*window.devicePixelRatio);
+        
+    }
+    
 }
-
 new Game();

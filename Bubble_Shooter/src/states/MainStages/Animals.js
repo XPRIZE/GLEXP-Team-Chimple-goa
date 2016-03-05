@@ -1,13 +1,12 @@
-import RainbowText from 'objects/RainbowText';
 
-class Puzzle extends Phaser.State {
+class Animals extends Phaser.State{
 
+    
     preload()
     {
         this.game.physics.startSystem(Phaser.Physics.ARCADE);
         this.imageSprite = ['Red_Ball','Green_Ball','Yellow_Ball','Purple_Ball','Blue_Ball','Orange_Ball'];
         this.ParticleSprite = ['Red','Green','Orange','Purple','Skyblue','Yellow'];
-        this.letterSprite = ['A','B','C','D','E','F'];
         
         this.game.load.image('background', 'assets/Background.png');
         this.game.load.image('Red', 'assets/Red.png');
@@ -32,12 +31,38 @@ class Puzzle extends Phaser.State {
         this.game.load.image('D', 'assets/D.png');
         this.game.load.image('E', 'assets/E.png');
         this.game.load.image('F', 'assets/F.png');
+        this.game.load.image('G', 'assets/G.png');
+        this.game.load.image('H', 'assets/H.png');
+        this.game.load.image('I', 'assets/I.png');
+        this.game.load.image('J', 'assets/J.png');
+        this.game.load.image('K', 'assets/K.png');
+        this.game.load.image('L', 'assets/L.png');
+        this.game.load.image('M', 'assets/M.png');
+        this.game.load.image('N', 'assets/N.png');
+        this.game.load.image('O', 'assets/O.png');
+        this.game.load.image('P', 'assets/P.png');
+        this.game.load.image('Q', 'assets/Q.png');
+        this.game.load.image('R', 'assets/R.png');
+        this.game.load.image('S', 'assets/S.png');
+        this.game.load.image('T', 'assets/T.png');
+        this.game.load.image('U', 'assets/U.png');
+        this.game.load.image('V', 'assets/V.png');
+        this.game.load.image('W', 'assets/W.png');
+        this.game.load.image('X', 'assets/X.png');
+        this.game.load.image('Y', 'assets/Y.png');
+        this.game.load.image('Z', 'assets/Z.png');
         
     }
 
 	create() {
-        
-       this.game.add.image(0,0,'background');
+ 
+        this.widthScale =  this.game.width / 800;
+        this.heightScale = this.game.height / 1280;
+       
+        this.bg = this.game.add.image(this.game.world.centerX,this.game.world.centerY,'background'); 
+        this.bg.anchor.setTo(0.5);
+        this.bg.scale.setTo(this.widthScale,this.heightScale);
+        this.bg.inputEnabled = true;
        
        this.initialiseVariable();
     
@@ -49,17 +74,149 @@ class Puzzle extends Phaser.State {
                 this.level.tiles[i][j] = new this.Tile(i, j, 0, 0);
            }
         }
-       
+        
        // Define a level width and height
         this.level.width = this.level.columns * this.level.tilewidth + this.level.tilewidth/2;
-        this.level.height = (this.level.rows-1) * this.level.rowheight + this.level.tileheight;
+        this.level.height =(this.level.rows-1) * this.level.rowheight + this.level.tileheight;
       
         // Set the gamestate to ready
         this.setGameState(this.gamestates.ready);
+   
+        if(this.game._LevelFlag ==  1){        
+            this.levelName = "AnimalStarLevel1";            
+            this.hits = 50;
+            this.letterSprite = ['A','B','C','D'];
+            let color = 4 , repeat = 2;
         
-        // Create the level of bubbles
-        this.createLevel();
+            // Create the level of bubbles
+            this.createLevel(color,repeat);
         
+        }else if(this.game._LevelFlag ==  2){
+            this.levelName = "AnimalStarLevel2";            
+            this.hits = 50;
+            this.letterSprite = ['E','F','G','H'];
+            let color = 4 , repeat = 2;
+        
+            // Create the level of bubbles
+            this.createLevel(color,repeat);
+        
+        }else if(this.game._LevelFlag ==  3){
+            this.levelName = "AnimalStarLevel3";            
+            this.hits = 50;
+            this.letterSprite = ['I','J','K','L'];
+            let color = 4 , repeat = 2;
+        
+            // Create the level of bubbles
+            this.createLevel(color,repeat);
+            
+        }else if(this.game._LevelFlag ==  4){
+            this.levelName = "AnimalStarLevel4";            
+            this.hits = 50;
+            this.letterSprite = ['M','N','O','P'];
+            let color = 4 , repeat = 2;
+        
+            // Create the level of bubbles
+            this.createLevel(color,repeat);
+        
+        }else if(this.game._LevelFlag ==  5){
+            this.levelName = "AnimalStarLevel5";            
+            this.hits = 50;
+            this.letterSprite = ['Q','R','S','T'];
+            let color = 4 , repeat = 2;
+        
+            // Create the level of bubbles
+            this.createLevel(color,repeat);
+        
+            
+        }else if(this.game._LevelFlag ==  6){
+            this.levelName = "AnimalStarLevel6";            
+            this.hits = 50;
+            this.letterSprite = ['U','V','W','X'];
+            let color = 4 , repeat = 2;
+        
+            // Create the level of bubbles
+            this.createLevel(color,repeat);
+        
+            
+        }else if(this.game._LevelFlag ==  7){
+            this.levelName = "AnimalStarLevel7";            
+            this.hits = 50;
+            this.letterSprite = ['Y','Z','M','X'];
+            let color = 4 , repeat = 2;
+        
+            // Create the level of bubbles
+            this.createLevel(color,repeat);
+        
+        }else if(this.game._LevelFlag ==  8){
+            this.levelName = "AnimalStarLevel8";            
+            this.hits = 60;
+            let color = 4 , repeat = 3;
+            let alphabets = this.rndAlphabet(color);
+            let DataAlphabets = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'];
+
+            this.letterSprite = [DataAlphabets[alphabets[0]],DataAlphabets[alphabets[1]],DataAlphabets[alphabets[2]],DataAlphabets[alphabets[3]]];
+        
+            // Create the level of bubbles
+            this.createLevel(color,repeat);
+        
+            
+        }else if(this.game._LevelFlag ==  9){
+            this.levelName = "AnimalStarLevel9";            
+            this.hits = 60;            
+            let color = 4 , repeat = 2;
+        
+            let alphabets = this.rndAlphabet(color);
+            let DataAlphabets = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'];
+
+            this.letterSprite = [DataAlphabets[alphabets[0]],DataAlphabets[alphabets[1]],DataAlphabets[alphabets[2]],DataAlphabets[alphabets[3]]];
+
+            // Create the level of bubbles
+            this.createLevel(color,repeat);
+            
+        }else if(this.game._LevelFlag ==  10){
+            this.levelName = "AnimalStarLevel10";            
+            this.hits = 80;
+            let color = 4 , repeat = 1;
+
+            let alphabets = this.rndAlphabet(color);
+            let DataAlphabets = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'];
+
+            this.letterSprite = [DataAlphabets[alphabets[0]],DataAlphabets[alphabets[1]],DataAlphabets[alphabets[2]],DataAlphabets[alphabets[3]]];
+
+        
+            // Create the level of bubbles
+            this.createLevel(color,repeat);
+        
+            
+        }else if(this.game._LevelFlag ==  11){
+            this.levelName = "AnimalStarLevel11";            
+            this.hits = 80;
+            let color = 5 , repeat = 1;
+
+            let alphabets = this.rndAlphabet(color);
+            let DataAlphabets = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'];
+
+            this.letterSprite = [DataAlphabets[alphabets[0]],DataAlphabets[alphabets[1]],DataAlphabets[alphabets[2]],DataAlphabets[alphabets[3]],DataAlphabets[alphabets[4]]];
+
+            // Create the level of bubbles
+            this.createLevel(color,repeat);
+            
+        }else if(this.game._LevelFlag ==  12){
+            this.levelName = "AnimalStarLevel12";            
+            this.hits = 200;
+            let color = 6 , repeat = 1;
+
+            let alphabets = this.rndAlphabet(color);
+            let DataAlphabets = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'];
+
+            this.letterSprite = [DataAlphabets[alphabets[0]],DataAlphabets[alphabets[1]],DataAlphabets[alphabets[2]],DataAlphabets[alphabets[3]],DataAlphabets[alphabets[4]],DataAlphabets[alphabets[5]]];
+
+            // Create the level of bubbles
+            this.createLevel(color,repeat);
+            
+        }else{
+            console.log("level management error  - The value if level is : "+ this.game._LevelFlag );
+        }
        // Init the player in gun 
         this.player.x = this.level.x + this.level.width/2 - this.level.tilewidth/2 ;
         this.player.y = this.level.y + this.level.height ;
@@ -74,11 +231,13 @@ class Puzzle extends Phaser.State {
         // Set the gun Pointer
         this.gun = this.game.add.sprite((this.level.width/2) , (this.level.height + this.level.tileheight),'gunPointer');
         this.gun.anchor.setTo(0.5,0.6);
+        this.gun.scale.setTo(this.widthScale,this.heightScale);
         this.game.physics.enable(this.gun, Phaser.Physics.ARCADE);
        
        //Set the gun Base
         this.gunBase = this.game.add.sprite((this.level.width/2) , (this.level.height + this.level.tileheight),'gunBase');
         this.gunBase.anchor.setTo(0.5);
+        this.gunBase.scale.setTo(this.widthScale,this.heightScale);
        
         
         // Init the next bubble and set the current bubble
@@ -94,20 +253,14 @@ class Puzzle extends Phaser.State {
         this.renderTiles(); 
          
         this.particleEffect();
-      
+        
 	}
     
     render(){
  
         // Render player bubble
         this.renderPlayer();
-             
-         // To triger The method of onmouseMove 
      
-         if(this.game.input.activePointer.withinGame){
-            this.onMouseMove(this.game.input.activePointer.x , this.game.input.activePointer.y);
-         }
-                 
     }
    
      update(){
@@ -122,18 +275,84 @@ class Puzzle extends Phaser.State {
             // Remove cluster and drop tiles
             this.stateRemoveCluster();
         }
-
-        if(this.game.input.activePointer.isDown && this.game.input.activePointer.withinGame){
-         
-            if (this.gamestate == this.gamestates.ready) {
-                this.shootBubble();
-               
-            }
-        }
-           
+      
+         if(this.game.input.activePointer.withinGame ){
+            this.bg.events.onInputDown.add(this.gunMove, this); 
+          }
+          
         this.game.physics.arcade.collide(this.emitter);
     }
     
+    
+    gunMove(){
+       
+        this.onMouseMove(this.game.input.activePointer.x , this.game.input.activePointer.y);
+         if (this.gamestate == this.gamestates.ready) {
+                this.shootBubble(); 
+            }
+    }
+    
+    rndAlphabet(color)
+    {
+            
+      let ArrayBubble = new Array(color);
+      let newArrayBubble = [];
+      
+        for(let i =0 ; i < 26 ; i++){
+            ArrayBubble[i] = i;
+         }
+   
+        for(let i = 0 ; i < color ; i++){
+            
+            let temp = this.rnd.integerInRange(0,ArrayBubble.length-1);
+            newArrayBubble.push(ArrayBubble[temp]);
+       
+            ArrayBubble.splice(temp,1);
+        }
+        
+        return  newArrayBubble;
+     
+    }
+   
+    // Create a random pattern level1
+    createLevel( colour , repeat ) {
+ 
+       // Number of different colors
+       this.bubblecolors = colour;
+     
+        let randomtile , newtile = 0 ;
+        
+        // Create a level with random tiles
+         for (let j=0; j < this.level.rows; j++) {
+             randomtile = this.rnd.integerInRange(0, this.bubblecolors-1);
+            let count = 0;
+            for (let i=0; i < this.level.columns; i++) {
+                
+                if (count >= repeat) {
+                                        
+                    // Change the random tile
+                     newtile = this.rnd.integerInRange(0, this.bubblecolors-1);
+                    
+                    // Make sure the new tile is different from the previous tile
+                    if (newtile == randomtile) {
+                        newtile = (newtile + 1) % this.bubblecolors;
+                    }
+                    randomtile = newtile;
+                    count = 0;
+                }
+                count++;
+                               
+               if (j < this.level.rows/2) {
+                   
+                      this.level.tiles[i][j].type = randomtile;   
+                   
+                } else {
+                    this.level.tiles[i][j].type = -1;
+                }
+            }
+        }
+    }
+
   
         // Shoot the bubble
         shootBubble() {
@@ -155,62 +374,7 @@ class Puzzle extends Phaser.State {
         this.animationstate = 0;
         this.animationtime = 0;
     }
-    
-    // Create a random level
-    createLevel() {
- 
   
-        // Create a level with random tiles
-         for (let j=0; j < this.level.rows; j++) {          
-            for (let i=0; i < this.level.columns; i++) {
-                
-                this.level.tiles[i][j].type = -1 ;
-            }
-        }
-        
-      let ArrayBubble = new Array(this.bubblecolors);
-      let newArrayBubble = [];
-   
-      
-        for(let i =0 ; i < ArrayBubble.length ; i++){
-            ArrayBubble[i] = i;
-         }
-   
-        for(let i =0 ; i < this.bubblecolors ; i++){
-            
-            let temp = this.rnd.integerInRange(0,ArrayBubble.length-1);
-            newArrayBubble.push(ArrayBubble[temp]);
-       
-            ArrayBubble.splice(temp,1);
-        }
-     
-        
-        this.level.tiles[3][0].type = newArrayBubble[2];
-        this.level.tiles[6][0].type = newArrayBubble[2];
-        this.level.tiles[3][1].type = newArrayBubble[0];
-        this.level.tiles[4][1].type = newArrayBubble[1];
-        this.level.tiles[5][1].type = newArrayBubble[0];
-        this.level.tiles[4][2].type = newArrayBubble[1];
-        this.level.tiles[5][2].type = newArrayBubble[1];
-        this.level.tiles[3][3].type = newArrayBubble[2];
-        this.level.tiles[4][3].type = newArrayBubble[0];
-        this.level.tiles[5][3].type = newArrayBubble[2];
-        this.level.tiles[2][4].type = newArrayBubble[2];
-        this.level.tiles[3][4].type = newArrayBubble[1];
-        this.level.tiles[4][4].type = newArrayBubble[0];
-        this.level.tiles[5][4].type = newArrayBubble[0];
-        this.level.tiles[6][4].type = newArrayBubble[1];
-        this.level.tiles[7][4].type = newArrayBubble[2];
-        this.level.tiles[3][5].type = newArrayBubble[0];
-        this.level.tiles[4][5].type = newArrayBubble[2];
-        this.level.tiles[5][5].type = newArrayBubble[0];
-        this.level.tiles[4][6].type = newArrayBubble[2];
-        this.level.tiles[5][6].type = newArrayBubble[2];
-        this.level.tiles[4][7].type = newArrayBubble[0];
-        
-        
-    }
-    
      // Convert radians to degrees
     radToDeg(angle) {
         return angle * (180 / Math.PI);
@@ -300,6 +464,9 @@ class Puzzle extends Phaser.State {
                     this.bubbleName[i][j] = this.drawBubbleGroups(coord.tilex, coord.tiley + shift, tile.type,i,j);
                     this.LetterName[i][j] = this.drawLetterGroups(coord.tilex, coord.tiley + shift, tile.type,i,j);
                     
+                    this.LetterName[i][j].scale.setTo(this.widthScale,this.heightScale);
+                    this.bubbleName[i][j].scale.setTo(this.widthScale,this.heightScale);
+                    
                     this.game.physics.arcade.enable(this.bubbleName[i][j]);
                     this.game.physics.arcade.enable(this.LetterName[i][j]);
                 //   console.log(" bubble object : "+ this.bubbleName);
@@ -344,6 +511,8 @@ class Puzzle extends Phaser.State {
        // Draw the bubble sprite
        this.bubblePlayer =  this.game.add.sprite(x,y,this.imageSprite[index]);
        this.letterPlayer =  this.game.add.sprite(x,y,this.letterSprite[index]);
+       this.bubblePlayer.scale.setTo(this.widthScale,this.heightScale);
+       this.letterPlayer.scale.setTo(this.widthScale,this.heightScale);
        this.bubblePlayer.anchor.setTo(0,0.35);
        this.letterPlayer.anchor.setTo(0,0.35);
     }
@@ -355,6 +524,7 @@ class Puzzle extends Phaser.State {
         // Draw the bubble sprite
      this.nextBubblePlayer.kill();
      this.nextBubblePlayer =  this.game.add.sprite(x,y,this.imageSprite[index]);
+     this.nextBubblePlayer.scale.setTo(this.widthScale,this.heightScale);
     }
     
      // Draw the bubble
@@ -364,6 +534,7 @@ class Puzzle extends Phaser.State {
         // Draw the bubble sprite
       this.nextLetterPlayer.kill();
       this.nextLetterPlayer = this.game.add.sprite(x,y,this.letterSprite[index]);
+      this.nextLetterPlayer.scale.setTo(this.widthScale,this.heightScale);
     }
     
     // Render the player bubble
@@ -395,7 +566,7 @@ class Puzzle extends Phaser.State {
     
      // On mouse movement
       onMouseMove(posx , posy) {
-        
+        console.log("pointer position :  "+posx +" "+posy);
         let mouseangle = 0 ;
 		
         // Get the mouse angle
@@ -543,7 +714,13 @@ class Puzzle extends Phaser.State {
         
         // Add the tile to the grid
         if (addtile) {
-             console.log(" ---------------  you hited "+ this.count++ +" balls --------------------");
+            
+             ++this.count;
+             this.hits--;
+             
+             console.log(" ---------------  you hited "+ this.count +" balls --------------------");
+             console.log("hits remaining : "+ this.hits + " count value is : " + this.count);
+                
               // Hide the player bubble
               this.player.bubble.visible = false;
         
@@ -562,12 +739,18 @@ class Puzzle extends Phaser.State {
                 this.cluster = this.findCluster(gridpos.x, gridpos.y, true, true, false);
                 console.log("cluster size is : "+ this.cluster.length);
                 
+                 if( this.hits < 0 ){
+                 console.log("  GAME OVER  ");
+                 this.setGameState(this.gamestates.gameover);
+                 return;
+                }
+                
                 if (this.cluster.length >= 3) {
                 //  Remove the cluster
                     this.killBubble = false;
                     this.setGameState(this.gamestates.removecluster);
                     return;
-                }  
+                }   
             }
  
         // Next bubble
@@ -716,8 +899,8 @@ class Puzzle extends Phaser.State {
             }
             
             // Add cluster score
-            this.score += this.cluster.length * 100;
-            
+            this.score += this.cluster.length * 10;
+            console.log(" cluster bubble score : "+ this.score);
             // Find floating clusters
             this.floatingclusters = this.findFloatingClusters();
             console.log("float cluster : "+ this.floatingclusters.length);
@@ -744,9 +927,10 @@ class Puzzle extends Phaser.State {
 
                     if (tile.alpha == 0) {
 			
-                        if(i != 0 )
-                        this.playerDie(tile.x,tile.y,i);
-                       
+                        if(i != 0 ){
+                            this.playerDie(tile.x,tile.y,i);
+                        }
+                        
                         if( i == 0 ){
                            this.game.world.bringToTop(this.bubbleName[tile.x][tile.y]);
                            this.game.world.bringToTop(this.LetterName[tile.x][tile.y]);
@@ -756,8 +940,8 @@ class Puzzle extends Phaser.State {
                            this.game.add.tween(this.bubbleName[tile.x][tile.y]).to({x:this.game.world.centerX, y:this.game.world.centerY},1000,Phaser.Easing.Back.Out, true);
                            this.game.add.tween(this.LetterName[tile.x][tile.y]).to({x:this.game.world.centerX, y:this.game.world.centerY},1000,Phaser.Easing.Back.Out, true);
                            
-			               this.game.add.tween(this.bubbleName[tile.x][tile.y].scale).to({x:3, y:3},1000,Phaser.Easing.Back.Out, true);
-                           this.game.add.tween(this.LetterName[tile.x][tile.y].scale).to({x:3, y:3},1000,Phaser.Easing.Back.Out, true);
+			               this.game.add.tween(this.bubbleName[tile.x][tile.y].scale).to({x:3 * this.widthScale, y:3 * this.heightScale},1000,Phaser.Easing.Back.Out, true);
+                           this.game.add.tween(this.LetterName[tile.x][tile.y].scale).to({x:3 * this.widthScale, y:3 * this.heightScale},1000,Phaser.Easing.Back.Out, true);
                            console.log(" world x and y cord : " + this.game.world.centerX + "  "+ this.game.world.centerY);
                           
                            setTimeout(function() {
@@ -777,7 +961,7 @@ class Puzzle extends Phaser.State {
                 }                
             }
            
-          // Drop bubbles
+          // Drop Floating bubbles 
 
             for (let i=0; i < this.floatingclusters.length; i++) {
                 for (let j=0; j < this.floatingclusters[i].length; j++) {
@@ -799,17 +983,22 @@ class Puzzle extends Phaser.State {
                         // Check if the bubbles are past the bottom of the level
                         if (tile.alpha == 0 || (tile.y * this.level.rowheight + tile.shift > (this.level.rows - 1) * this.level.rowheight + this.level.tileheight)) {
                            
+                           this.score += 5;
+                           
+                           console.log(" floating bubble score : "+ this.score);
+                           
                            let rndDirectionValue = this.randDirection(); 
                            let gravityValue  = this.rnd.integerInRange(700 , 1600);
                             
                             this.bubbleName[tile.x][tile.y].body.gravity.y = gravityValue;
                             this.LetterName[tile.x][tile.y].body.gravity.y = gravityValue;
-                             
+                            
                             this.bubbleName[tile.x][tile.y].body.velocity.x = rndDirectionValue;
                             this.LetterName[tile.x][tile.y].body.velocity.x = rndDirectionValue;
-                          
+                           
                             if(tile.x == 0 || tile.x == 1 || tile.x == 8 || tile.x == 9 ){
                                 let data = this.randMinorDirection(tile.x);
+                                
                                 this.bubbleName[tile.x][tile.y].body.velocity.x = data;
                                 this.LetterName[tile.x][tile.y].body.velocity.x = data;
                             }
@@ -839,11 +1028,24 @@ class Puzzle extends Phaser.State {
                 }
                 
                 if (tilefound) {
-                  //  setTimeout(function() {
                         self.setGameState(self.gamestates.ready);
-                  //  }, 1300);
                    
                 } else {
+                    
+                    //Calculate for Stars
+                     if(this.score >= 900 ){
+                        console.log("3 stars");                        
+                        localStorage.setItem(this.levelName , '3');
+                    }else if (this.score >500 && this.score < 900){
+                        console.log("2 stars");
+                        localStorage.setItem(this.levelName , '2');
+
+                    }else{
+                        console.log("1 star");                        
+                        localStorage.setItem(this.levelName , '1');
+
+                    }
+                    
                     // No tiles left, game over
                     this.setGameState(this.gamestates.gameover);
                 }
@@ -893,30 +1095,43 @@ class Puzzle extends Phaser.State {
 
     playAnimationParticle(tilex,tiley){
         
-        this.emitter.x = this.bubbleName[tilex][tiley].x + 38 ;
-		this.emitter.y = this.bubbleName[tilex][tiley].y+ 38 ;
+        this.emitter.x = this.bubbleName[tilex][tiley].x + (38 * this.widthScale);
+		this.emitter.y = this.bubbleName[tilex][tiley].y + (38 * this.heightScale);
 		this.emitter.start(true, 1000, null, 2);
-        
-        this.emitter1.x = this.bubbleName[tilex][tiley].x + 38 ;
-		this.emitter1.y = this.bubbleName[tilex][tiley].y+ 38 ;
+        this.emitter.minParticleScale = ( this.widthScale + this.heightScale ) / 2;
+        this.emitter.maxParticleScale = ( this.widthScale + this.heightScale ) / 2;
+ 
+        this.emitter1.x = this.bubbleName[tilex][tiley].x + (38 * this.widthScale);
+		this.emitter1.y = this.bubbleName[tilex][tiley].y + (38 * this.heightScale);
 		this.emitter1.start(true, 1000, null, 2);
+        this.emitter1.minParticleScale = ( this.widthScale + this.heightScale ) / 2;
+        this.emitter1.maxParticleScale = ( this.widthScale + this.heightScale ) / 2;
         
-        this.emitter2.x = this.bubbleName[tilex][tiley].x + 38 ;
-		this.emitter2.y = this.bubbleName[tilex][tiley].y+ 38 ;
+        this.emitter2.x = this.bubbleName[tilex][tiley].x + (38 * this.widthScale);
+		this.emitter2.y = this.bubbleName[tilex][tiley].y + (38 * this.heightScale);
 		this.emitter2.start(true, 1000, null, 2);
+        this.emitter2.minParticleScale = ( this.widthScale + this.heightScale ) / 2;
+        this.emitter2.maxParticleScale = ( this.widthScale + this.heightScale ) / 2;
         
-        this.emitter3.x = this.bubbleName[tilex][tiley].x + 38 ;
-		this.emitter3.y = this.bubbleName[tilex][tiley].y+ 38 ;
+        this.emitter3.x = this.bubbleName[tilex][tiley].x + (38 * this.widthScale);
+		this.emitter3.y = this.bubbleName[tilex][tiley].y + (38 * this.heightScale);
 		this.emitter3.start(true, 1000, null, 2);
+        this.emitter3.minParticleScale = ( this.widthScale + this.heightScale ) / 2;
+        this.emitter3.maxParticleScale = ( this.widthScale + this.heightScale ) / 2;
         
-        this.emitter4.x = this.bubbleName[tilex][tiley].x + 38 ;
-		this.emitter4.y = this.bubbleName[tilex][tiley].y+ 38 ;
+        this.emitter4.x = this.bubbleName[tilex][tiley].x + (38 * this.widthScale);
+		this.emitter4.y = this.bubbleName[tilex][tiley].y + (38 * this.heightScale);
 		this.emitter4.start(true, 1000, null, 2);
+        this.emitter4.minParticleScale = ( this.widthScale + this.heightScale ) / 2;
+        this.emitter4.maxParticleScale = ( this.widthScale + this.heightScale ) / 2;
         
-        this.emitter5.x = this.bubbleName[tilex][tiley].x + 38 ;
-		this.emitter5.y = this.bubbleName[tilex][tiley].y+ 38 ;
-		this.emitter5.start(true, 1000, null, 2);
-
+        this.emitter5.x = this.bubbleName[tilex][tiley].x + (38 * this.widthScale);
+		this.emitter5.y = this.bubbleName[tilex][tiley].y + (38 * this.heightScale);
+		this.emitter5.start(true, 1000 , null,2);
+        this.emitter5.minParticleScale = ( this.widthScale + this.heightScale ) / 2;
+        this.emitter5.maxParticleScale = ( this.widthScale + this.heightScale ) / 2;
+ 
+ 
     }
   
      // Find floating clusters
@@ -982,42 +1197,42 @@ class Puzzle extends Phaser.State {
     particleEffect(){
         
         //Animation Particle when bubble blast
-        this.emitter = this.game.add.emitter(0, 0, 100);
+        this.emitter = this.game.add.emitter(0, 0, 500);
 		this.emitter.makeParticles(this.ParticleSprite[0]);
-		this.emitter.setYSpeed(-30, 30);
-		this.emitter.setXSpeed(-30, 30);
+		this.emitter.setYSpeed(-30 * this.widthScale, 30 * this.heightScale);
+		this.emitter.setXSpeed(-30 * this.widthScale, 30 * this.heightScale);
 		this.emitter.gravity = -10;
-        
-        this.emitter1 = this.game.add.emitter(0, 0, 100);
+
+        this.emitter1 = this.game.add.emitter(0, 0, 500);
 		this.emitter1.makeParticles(this.ParticleSprite[1]);
-		this.emitter1.setYSpeed(-20, 20);
-		this.emitter1.setXSpeed(-20, 20);
-		this.emitter1.gravity = 10;
-        
-        this.emitter2 = this.game.add.emitter(0, 0, 100);
+		this.emitter1.setYSpeed(-30 * this.widthScale, 30 * this.heightScale);
+		this.emitter1.setXSpeed(-30 * this.widthScale, 30 * this.heightScale);
+		this.emitter1.gravity = -10;
+
+        this.emitter2 = this.game.add.emitter(0, 0, 500);
 		this.emitter2.makeParticles(this.ParticleSprite[2]);
-		this.emitter2.setYSpeed(-20, 20);
-		this.emitter2.setXSpeed(-20, 20);
+		this.emitter2.setYSpeed(-30 * this.widthScale, 30 * this.heightScale);
+		this.emitter2.setXSpeed(-30 * this.widthScale, 30 * this.heightScale);
 		this.emitter2.gravity = -10;
-        
-        this.emitter3 = this.game.add.emitter(0, 0, 100);
+
+        this.emitter3 = this.game.add.emitter(0, 0, 500);
 		this.emitter3.makeParticles(this.ParticleSprite[3]);
-		this.emitter3.setYSpeed(-20, 20);
-		this.emitter3.setXSpeed(-20, 20);
-		this.emitter3.gravity = 10;
-        
-        this.emitter4 = this.game.add.emitter(0, 0, 100);
+		this.emitter3.setYSpeed(-30 * this.widthScale, 30 * this.heightScale);
+		this.emitter3.setXSpeed(-30 * this.widthScale, 30 * this.heightScale);
+		this.emitter3.gravity = -10;
+
+        this.emitter4 = this.game.add.emitter(0, 0, 500);
 		this.emitter4.makeParticles(this.ParticleSprite[4]);
-		this.emitter4.setYSpeed(-20, 20);
-		this.emitter4.setXSpeed(-20, 20);
+		this.emitter4.setYSpeed(-30 * this.widthScale, 30 * this.heightScale);
+		this.emitter4.setXSpeed(-30 * this.widthScale, 30 * this.heightScale);
 		this.emitter4.gravity = -10;
-     
-        this.emitter5 = this.game.add.emitter(0, 0, 100);
+
+        this.emitter5 = this.game.add.emitter(0, 0, 500);
 		this.emitter5.makeParticles(this.ParticleSprite[5]);
-		this.emitter5.setYSpeed(-20, 20);
-		this.emitter5.setXSpeed(-20, 20);
-		this.emitter5.gravity = 10;
-        
+		this.emitter5.setYSpeed(-30 * this.widthScale, 30 * this.heightScale);
+		this.emitter5.setXSpeed(-30 * this.widthScale, 30 * this.heightScale);
+		this.emitter5.gravity = -10;
+
     }
     
     Tile(x, y, type, shift){
@@ -1033,14 +1248,31 @@ class Puzzle extends Phaser.State {
     
     }
     
+       getValueXY(widthPer , heightPer){
+        
+        let X=0 , Y=0;
+        
+        if(!(widthPer == 0 || heightPer == 0)){
+            
+        let widthRatio = 100 / widthPer;
+        let heightRation = 100 / heightPer;
+        
+         X = ( this.bg.width / widthRatio ) ;
+         Y = ( this.bg.height / heightRation ) ;
+        
+        }else{
+            console.log(" please try again - Enter correct Value  ");
+        }
+        
+        return {X,Y};
+    }
+    
+    
     initialiseVariable(){
        
          // Neighbor offset table
          this.neighborsoffsets = [[[1, 0], [0, 1], [-1, 1], [-1, 0], [-1, -1], [0, -1]], // Even row tiles
                                      [[1, 0], [1, 1], [0, 1], [-1, 0], [0, -1], [1, -1]]];  // Odd row tiles
-    
-         // Number of different colors
-         this.bubblecolors = 4;
            
          // Game states
          this.gamestates = { init: 0, ready: 1, shootbubble: 2, removecluster: 3, renderBubble : 4 , gameover: 5};
@@ -1048,7 +1280,7 @@ class Puzzle extends Phaser.State {
         
         // Score
         this.score = 0;
-        this.count = 1;
+        this.count = 0;
         this.turncounter = 0;
         this.rowoffset = 0;
     
@@ -1072,20 +1304,19 @@ class Puzzle extends Phaser.State {
         this.loadtotal = 0;
         this.reloaded = false;
         
-        
          // Level
         this.level = {
             
-        x: 0 ,          // X position
-        y: 60,          // Y position
+        x: 0 * this.widthScale,          // X position
+        y: 60 * this.heightScale,          // Y position
         width: 0,       // Width, gets calculated
         height: 0,      // Height, gets calculated
         columns: 10,    // Number of tile columns
-        rows: 16,       // Number of tile rows
-        tilewidth: 76,  // Visual width of a tile
-        tileheight: 76, // Visual height of a tile
-        rowheight: 65,  // Height of a row
-        radius: 32,     // Bubble collision radius
+        rows: 16,     // Number of tile rows
+        tilewidth: 76 * this.widthScale,  // Visual width of a tile
+        tileheight: 76 * this.heightScale, // Visual height of a tile
+        rowheight: 65 * this.heightScale,  // Height of a row
+        radius: 32 * this.heightScale,     // Bubble collision radius
         tiles: []       // The two-dimensional tile array
         
         };
@@ -1101,7 +1332,7 @@ class Puzzle extends Phaser.State {
                     x: 0,
                     y: 0,
                     angle: 0,
-                    speed: 1000,
+                    speed: 1500,
                     dropspeed: 0,
                     tiletype: 0,
                     visible: false
@@ -1137,5 +1368,4 @@ class Puzzle extends Phaser.State {
     }
 }
 
-
-export default Puzzle;
+export default Animals;

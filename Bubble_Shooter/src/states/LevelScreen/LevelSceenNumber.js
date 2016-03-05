@@ -3,7 +3,8 @@ class LevelSceenNumber extends Phaser.State {
 
     preload(){
         
-         this.game.load.image('BackgroundHome', 'assets/Background_Scene.png');
+         this.game.load.image('BackgroundHome', 'assets/Level_Menu_Background.png');
+         
          this.game.load.image('lvl1', 'assets/lvl1.png');
          this.game.load.image('lvl2', 'assets/lvl2.png');
          this.game.load.image('lvl3', 'assets/lvl3.png');
@@ -11,8 +12,7 @@ class LevelSceenNumber extends Phaser.State {
          this.game.load.image('lvl5', 'assets/lvl5.png');
          this.game.load.image('lvl6', 'assets/lvl6.png');
          this.game.load.image('lvl7', 'assets/lvl7.png');
-         this.game.load.image('lvl8', 'assets/lvl8.png');
-         
+         this.game.load.image('lvl8', 'assets/lvl8.png');         
          this.game.load.image('Star0', 'assets/Star0.png');
          this.game.load.image('Star1', 'assets/Star1.png');
          this.game.load.image('Star2', 'assets/Star2.png');
@@ -26,55 +26,71 @@ class LevelSceenNumber extends Phaser.State {
 
     create(){
         
-         this.bg = this.game.add.image(0,0,'BackgroundHome');
+ 
+        this.widthScale =  this.game.width / 800;
+        this.heightScale = this.game.height / 1280;
+       
+         this.bg = this.game.add.image(this.game.world.centerX,this.game.world.centerY,'BackgroundHome');
+         this.bg.anchor.setTo(0.5);
+         this.bg.scale.setTo(this.widthScale, this.heightScale);
        
        // ----- ODD BUBBLE RENDERING ----
          
          let dataDimension = this.getValueXY(10,18);
-         this.self = this;
+         
          this.LevelBox1button = this.game.add.button(dataDimension.X, dataDimension.Y, 'OrangeLock', this.LevelMethod1, this);
          this.Level1button = this.game.add.sprite(dataDimension.X, dataDimension.Y, 'lvl1');
          this.Level1button.anchor.setTo(0.5);
          this.LevelBox1button.anchor.setTo(0.5);   
+         this.Level1button.scale.setTo(this.widthScale, this.heightScale);
+         this.LevelBox1button.scale.setTo(this.widthScale, this.heightScale);
          
          dataDimension = this.getValueXY(10,31);
          this.LevelBox3button = this.game.add.button(dataDimension.X, dataDimension.Y, 'RedLock', this.LevelMethod3, this);
          this.Level3button = this.game.add.sprite(dataDimension.X, dataDimension.Y, 'lvl3');
          this.Level3button.anchor.setTo(0.5);
-         this.LevelBox3button.anchor.setTo(0.5); 
+         this.LevelBox3button.anchor.setTo(0.5);
+         this.Level3button.scale.setTo(this.widthScale, this.heightScale);
+         this.LevelBox3button.scale.setTo(this.widthScale, this.heightScale);
          
          dataDimension = this.getValueXY(10,44);
          this.LevelBox5button = this.game.add.button(dataDimension.X, dataDimension.Y, 'RedLock', this.LevelMethod5, this);
          this.Level5button = this.game.add.sprite(dataDimension.X, dataDimension.Y, 'lvl5');
          this.Level5button.anchor.setTo(0.5);
          this.LevelBox5button.anchor.setTo(0.5); 
+         this.Level5button.scale.setTo(this.widthScale, this.heightScale);
+         this.LevelBox5button.scale.setTo(this.widthScale, this.heightScale);
          
          dataDimension = this.getValueXY(10,57);
          this.LevelBox7button = this.game.add.button(dataDimension.X, dataDimension.Y, 'RedLock', this.LevelMethod7, this);
          this.Level7button = this.game.add.sprite(dataDimension.X, dataDimension.Y, 'lvl7');
          this.Level7button.anchor.setTo(0.5);
          this.LevelBox7button.anchor.setTo(0.5); 
-         
-         
+         this.Level7button.scale.setTo(this.widthScale, this.heightScale);
+         this.LevelBox7button.scale.setTo(this.widthScale, this.heightScale);
+        
+        
          // ----- STARS RENDERING ----
          
          dataDimension = this.getValueXY(34,18);
-         if(localStorage.getItem('NumberStarLevel1') > 0){
+          if(localStorage.getItem('NumberStarLevel1') > 0){
              let star = "Star"+localStorage.getItem('NumberStarLevel1');
              this.Level1Star = this.game.add.image(dataDimension.X,dataDimension.Y,star);             
          }else{
             this.Level1Star = this.game.add.image(dataDimension.X,dataDimension.Y,'Star1');  
-         }        
+         }    
          this.Level1Star.anchor.setTo(0.5);
+         this.Level1Star.scale.setTo(this.widthScale, this.heightScale);
          
          dataDimension = this.getValueXY(34,31);
-         if(localStorage.getItem('NumberStarLevel3') > 0){
+          if(localStorage.getItem('NumberStarLevel3') > 0){
              let star = "Star"+localStorage.getItem('NumberStarLevel3');
              this.Level3Star = this.game.add.image(dataDimension.X,dataDimension.Y,star);             
          }else{
             this.Level3Star = this.game.add.image(dataDimension.X,dataDimension.Y,'Star0');  
-         }        
+         }    
          this.Level3Star.anchor.setTo(0.5);
+         this.Level3Star.scale.setTo(this.widthScale, this.heightScale);
          
          dataDimension = this.getValueXY(34,44);
          if(localStorage.getItem('NumberStarLevel5') > 0){
@@ -82,57 +98,61 @@ class LevelSceenNumber extends Phaser.State {
              this.Level5Star = this.game.add.image(dataDimension.X,dataDimension.Y,star);             
          }else{
             this.Level5Star = this.game.add.image(dataDimension.X,dataDimension.Y,'Star0');  
-         }        
+         }    
          this.Level5Star.anchor.setTo(0.5);
+         this.Level5Star.scale.setTo(this.widthScale, this.heightScale);
          
          dataDimension = this.getValueXY(34,57);
-         if(localStorage.getItem('NumberStarLevel7') > 0){
+          if(localStorage.getItem('NumberStarLevel7') > 0){
              let star = "Star"+localStorage.getItem('NumberStarLevel7');
              this.Level7Star = this.game.add.image(dataDimension.X,dataDimension.Y,star);             
          }else{
             this.Level7Star = this.game.add.image(dataDimension.X,dataDimension.Y,'Star0');  
-         }        
+         }    
          this.Level7Star.anchor.setTo(0.5);
-         
-         
-         
+         this.Level7Star.scale.setTo(this.widthScale, this.heightScale);
+        
          dataDimension = this.getValueXY(84,18);
-         if(localStorage.getItem('NumberStarLevel2') > 0){
+          if(localStorage.getItem('NumberStarLevel2') > 0){
              let star = "Star"+localStorage.getItem('NumberStarLevel2');
              this.Level2Star = this.game.add.image(dataDimension.X,dataDimension.Y,star);             
          }else{
             this.Level2Star = this.game.add.image(dataDimension.X,dataDimension.Y,'Star0');  
-         }        
+         }    
          this.Level2Star.anchor.setTo(0.5);
+         this.Level2Star.scale.setTo(this.widthScale, this.heightScale);
          
          dataDimension = this.getValueXY(84,31);
-         if(localStorage.getItem('NumberStarLevel4') > 0){
+          if(localStorage.getItem('NumberStarLevel4') > 0){
              let star = "Star"+localStorage.getItem('NumberStarLevel4');
              this.Level4Star = this.game.add.image(dataDimension.X,dataDimension.Y,star);             
          }else{
             this.Level4Star = this.game.add.image(dataDimension.X,dataDimension.Y,'Star0');  
-         }        
+         }    
          this.Level4Star.anchor.setTo(0.5);
+         this.Level4Star.scale.setTo(this.widthScale, this.heightScale);
          
          dataDimension = this.getValueXY(84,44);
-         if(localStorage.getItem('NumberStarLevel6') > 0){
+          if(localStorage.getItem('NumberStarLevel6') > 0){
              let star = "Star"+localStorage.getItem('NumberStarLevel6');
              this.Level6Star = this.game.add.image(dataDimension.X,dataDimension.Y,star);             
          }else{
             this.Level6Star = this.game.add.image(dataDimension.X,dataDimension.Y,'Star0');  
-         }        
+         }    
          this.Level6Star.anchor.setTo(0.5);
+         this.Level6Star.scale.setTo(this.widthScale, this.heightScale);
          
          dataDimension = this.getValueXY(84,57);
-         if(localStorage.getItem('NumberStarLevel8') > 0){
+          if(localStorage.getItem('NumberStarLevel8') > 0){
              let star = "Star"+localStorage.getItem('NumberStarLevel8');
              this.Level8Star = this.game.add.image(dataDimension.X,dataDimension.Y,star);             
          }else{
             this.Level8Star = this.game.add.image(dataDimension.X,dataDimension.Y,'Star0');  
-         }        
+         }    
          this.Level8Star.anchor.setTo(0.5);
+         this.Level8Star.scale.setTo(this.widthScale, this.heightScale);
          
-         
+    
         // ------ EVEN LEVEL BUBBLE RENDERING -----
         
          dataDimension = this.getValueXY(60,18);
@@ -140,26 +160,34 @@ class LevelSceenNumber extends Phaser.State {
          this.Level2button = this.game.add.sprite(dataDimension.X, dataDimension.Y, 'lvl2');
          this.Level2button.anchor.setTo(0.5);
          this.LevelBox2button.anchor.setTo(0.5);
+         this.Level2button.scale.setTo(this.widthScale, this.heightScale);
+         this.LevelBox2button.scale.setTo(this.widthScale, this.heightScale);
          
          dataDimension = this.getValueXY(60,31);
-         this.LevelBox2button = this.game.add.button(dataDimension.X, dataDimension.Y, 'RedLock', this.LevelMethod4, this);
-         this.Level2button = this.game.add.sprite(dataDimension.X, dataDimension.Y, 'lvl4');
-         this.Level2button.anchor.setTo(0.5);
-         this.LevelBox2button.anchor.setTo(0.5);
+         this.LevelBox4button = this.game.add.button(dataDimension.X, dataDimension.Y, 'RedLock', this.LevelMethod4, this);
+         this.Level4button = this.game.add.sprite(dataDimension.X, dataDimension.Y, 'lvl4');
+         this.Level4button.anchor.setTo(0.5);
+         this.LevelBox4button.anchor.setTo(0.5);
+         this.Level4button.scale.setTo(this.widthScale, this.heightScale);
+         this.LevelBox4button.scale.setTo(this.widthScale, this.heightScale);
          
          dataDimension = this.getValueXY(60,44);
-         this.LevelBox2button = this.game.add.button(dataDimension.X, dataDimension.Y, 'RedLock', this.LevelMethod6, this);
-         this.Level2button = this.game.add.sprite(dataDimension.X, dataDimension.Y, 'lvl6');
-         this.Level2button.anchor.setTo(0.5);
-         this.LevelBox2button.anchor.setTo(0.5);
+         this.LevelBox6button = this.game.add.button(dataDimension.X, dataDimension.Y, 'RedLock', this.LevelMethod6, this);
+         this.Level6button = this.game.add.sprite(dataDimension.X, dataDimension.Y, 'lvl6');
+         this.Level6button.anchor.setTo(0.5);
+         this.LevelBox6button.anchor.setTo(0.5);
+         this.Level6button.scale.setTo(this.widthScale, this.heightScale);
+         this.LevelBox6button.scale.setTo(this.widthScale, this.heightScale);
          
          dataDimension = this.getValueXY(60,57);
-         this.LevelBox2button = this.game.add.button(dataDimension.X, dataDimension.Y, 'RedLock', this.LevelMethod8, this);
-         this.Level2button = this.game.add.sprite(dataDimension.X, dataDimension.Y, 'lvl8');
-         this.Level2button.anchor.setTo(0.5);
-         this.LevelBox2button.anchor.setTo(0.5);
-        
-    }
+         this.LevelBox8button = this.game.add.button(dataDimension.X, dataDimension.Y, 'RedLock', this.LevelMethod8, this);
+         this.Level8button = this.game.add.sprite(dataDimension.X, dataDimension.Y, 'lvl8');
+         this.Level8button.anchor.setTo(0.5);
+         this.LevelBox8button.anchor.setTo(0.5);
+         this.Level8button.scale.setTo(this.widthScale, this.heightScale);
+         this.LevelBox8button.scale.setTo(this.widthScale, this.heightScale);
+                
+    }    
     
     getValueXY(widthPer , heightPer){
         
