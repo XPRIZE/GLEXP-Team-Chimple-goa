@@ -34,7 +34,7 @@ AttributeEditOverlay.prototype.configureOverlay = function (data) {
   self.phaserGameObject = data.phaserGameObject;
 
   self.initialScale = self.phaserGameObject.scale.x;
-  self.baseScale = ATTR_CONFIGS.BASE_SCALE;
+  self.baseScale = ATTR_CONFIGS.BASE_SCALE * self.game.widthScaleFactor;
 
   self.createOverlay();
 };
@@ -155,8 +155,9 @@ AttributeEditOverlay.prototype.createDragHandler = function (alpha, color, lineW
   self.dragHandlerSprite.input.enableDrag();
   self.dragHandlerSprite.angle = self.phaserGameObject.angle;
   self.dragHandlerSprite._click = 0;
+  //self.dragHandlerSprite.input.enableSnap(20, 20, false, true);
 
-  self.dragHandlerSprite._clickScale = new Phaser.Point(1, 1);
+  self.dragHandlerSprite._clickScale = new Phaser.Point(1 * self.game.widthScaleFactor, 1 * self.game.widthScaleFactor);
   self.dragHandlerSprite.input.useHandCursor = true;
   self.dragHandlerSprite.input.bringToTop = true;
   self.dragHandlerSprite.events.onInputDown.add(self.onDragHandlerInputDown, self);
