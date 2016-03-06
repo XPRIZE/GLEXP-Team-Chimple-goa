@@ -3,14 +3,14 @@ import Human from '../objects/Human.js';
 import Limb from '../objects/Limb.js';
 import Shape from '../objects/Shape.js';
 import Util from '../objects/Util.js';
-import Chooser from '../objects/Chooser.js';
+import TabView from '../objects/TabView.js';
 
 export default class GameState extends Phaser.State {
 
   preload() {
     this.load.atlas('chooser', 'assets/chooser.png', 'assets/chooser.json');
     this.load.atlas('shirt', 'assets/shirt.png', 'assets/shirt.json');
-    // this.load.image('arm_chooser_up', 'assets/arm_chooser_up.png');
+    this.load.json('dress', 'assets/dress.json');
   }
 
 	create() {
@@ -18,9 +18,25 @@ export default class GameState extends Phaser.State {
         puppet.x = this.game.width/4;
         puppet.y = 200;
         puppet.bodyColor = 0x7777ff;
+        let dressChoices = this.cache.getJSON('dress');
+        let chooser = this.game.add.existing(new TabView(this.game, 'chooser', this.game.width/2, this.game.height, 50, function(accType, accName) {
+            let acc = dressChoices[accType][accName];
+            for (var key in acc) {
+                if (acc.hasOwnProperty(key)) {
+                    let element = acc[key];
+                    puppet['set'+key](element.key, element.frame);
+                }
+            }
+        }));
+        let dressTabs = {};
         
-        let chooser = this.game.add.existing(new Chooser(this.game, 'chooser', this.game.width/2, this.game.height, Chooser.LAYOUT_VERTICAL));
-        chooser.buttons = new Map([['arm_chooser', ['shirt1', 'shirt1', 'shirt3', 'shirt4', 'shirt5']], [ 'beard_chooser', ['shirt1', 'shirt1', 'shirt3', 'shirt4', 'shirt5']], [ 'body_chooser', ['shirt1', 'shirt1', 'shirt3', 'shirt4', 'shirt5']], [ 'face_chooser', ['shirt1', 'shirt1', 'shirt3', 'shirt4', 'shirt5']], [ 'glasses_chooser', ['shirt1', 'shirt1', 'shirt3', 'shirt4', 'shirt5']], [ 'hair_chooser', ['shirt1', 'shirt1', 'shirt3', 'shirt4', 'shirt5']], [ 'hairColor_chooser', ['shirt1', 'shirt1', 'shirt3', 'shirt4', 'shirt5']], [ 'head_chooser', ['shirt1', 'shirt1', 'shirt3', 'shirt4', 'shirt5']], [ 'pants_chooser', ['shirt1', 'shirt1', 'shirt3', 'shirt4', 'shirt5']], [ 'shirt_chooser', ['shirt1', 'shirt1', 'shirt3', 'shirt4', 'shirt5']], [ 'shoes_chooser', ['shirt1', 'shirt1', 'shirt3', 'shirt4', 'shirt5']], [ 'skinColor_chooser', ['shirt1', 'shirt1', 'shirt3', 'shirt4', 'shirt5']]]);
+        for (var key in dressChoices) {
+            if (dressChoices.hasOwnProperty(key)) {
+                var element = dressChoices[key];
+                dressTabs[key] = Object.keys(element);
+            }
+        }
+        chooser.tabs = dressTabs;
         chooser.x = this.game.width / 2;
         chooser.y = 0;
 

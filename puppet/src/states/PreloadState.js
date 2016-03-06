@@ -10,7 +10,6 @@ export default class PreloadState extends Phaser.State {
     this.load.atlas('0', "assets/0.svg", "assets/0.json");
     this.load.atlas('1', "assets/1.svg", "assets/1.json");
     this.load.atlas('2', "assets/2.svg", "assets/2.json");
-    this.load.image('0svg', "assets/0.svg");
   }
 
   create() {
