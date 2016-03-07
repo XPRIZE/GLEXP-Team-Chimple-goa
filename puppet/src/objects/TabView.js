@@ -57,8 +57,13 @@ export default class TabView extends Phaser.Group {
         this.tabBody.buttons = buttons;
     }
     
-    callSelectTab(button, pointer) {
-        this.selectTabButton(button);
+    /**
+     * @param  {String} tab The currently choosen tab
+     * @param  {String} button The currently choosen button
+     * For tab, both values will be the same
+     */
+    callSelectTab(tab, button) {
+        this.selectTab(button);
     }
     
 }
