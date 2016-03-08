@@ -344,7 +344,6 @@ class LevelSceenAlphabets extends Phaser.State {
      this.game._LevelFlag = 12;
      this.state.start('Alphabets');
     }
-    
 }
 
 export default LevelSceenAlphabets;

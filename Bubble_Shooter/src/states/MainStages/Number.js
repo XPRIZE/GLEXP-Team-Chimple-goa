@@ -7,35 +7,7 @@ class Number extends Phaser.State {
         this.game.physics.startSystem(Phaser.Physics.ARCADE);
         this.imageSprite = ['Red_Ball','Green_Ball','Yellow_Ball','Purple_Ball','Blue_Ball','Orange_Ball'];
         this.ParticleSprite = ['Red','Green','Orange','Purple','Skyblue','Yellow'];
-        
-        this.game.load.image('background', 'assets/Background.png');
-        this.game.load.image('Red', 'assets/Red.png');
-        this.game.load.image('Green', 'assets/Green.png');
-        this.game.load.image('Orange', 'assets/Orange.png');
-        this.game.load.image('Purple', 'assets/Purple.png');
-        this.game.load.image('Skyblue', 'assets/Skyblue.png');
-        this.game.load.image('Yellow', 'assets/Yellow.png');
-        
-        this.game.load.image('Red_Ball', 'assets/Red_Ball.png');
-        this.game.load.image('Green_Ball', 'assets/Green_Ball.png');
-        this.game.load.image('Orange_Ball', 'assets/Orange_Ball.png');
-        this.game.load.image('Purple_Ball', 'assets/Purple_Ball.png');
-        this.game.load.image('Blue_Ball', 'assets/Blue_Ball.png');
-        this.game.load.image('Yellow_Ball', 'assets/Yellow_Ball.png');
-        this.game.load.image('gunPointer','assets/Gun_Shooter.png');
-        this.game.load.image('gunBase','assets/Gun_Base.png');
-        
-        this.game.load.image('0', 'assets/0.png');
-        this.game.load.image('1', 'assets/1.png');
-        this.game.load.image('2', 'assets/2.png');
-        this.game.load.image('3', 'assets/3.png');
-        this.game.load.image('4', 'assets/4.png');
-        this.game.load.image('5', 'assets/5.png');
-        this.game.load.image('6', 'assets/6.png');
-        this.game.load.image('7', 'assets/7.png');
-        this.game.load.image('8', 'assets/8.png');
-        this.game.load.image('9', 'assets/9.png');
-        
+       
     }
 
 	create() {
@@ -444,8 +416,8 @@ class Number extends Phaser.State {
             return;
             
         // Use to kill the previous bubble sprite
-       this.bubblePlayer.kill(); 
-       this.letterPlayer.kill();
+       this.bubblePlayer.destroy(); 
+       this.letterPlayer.destroy();
        
        // Draw the bubble sprite
        this.bubblePlayer =  this.game.add.sprite(x,y,this.imageSprite[index]);
@@ -461,7 +433,7 @@ class Number extends Phaser.State {
         if (index < 0 || index >= this.bubblecolors)
             return;
         // Draw the bubble sprite
-     this.nextBubblePlayer.kill();
+     this.nextBubblePlayer.destroy();
      this.nextBubblePlayer =  this.game.add.sprite(x,y,this.imageSprite[index]);
      this.nextBubblePlayer.scale.setTo(this.widthScale,this.heightScale);
     }
@@ -471,7 +443,7 @@ class Number extends Phaser.State {
         if (index < 0 || index >= this.bubblecolors)
             return;
         // Draw the bubble sprite
-      this.nextLetterPlayer.kill();
+      this.nextLetterPlayer.destroy();
       this.nextLetterPlayer = this.game.add.sprite(x,y,this.letterSprite[index]);
       this.nextLetterPlayer.scale.setTo(this.widthScale,this.heightScale);
     }
@@ -709,8 +681,8 @@ class Number extends Phaser.State {
                
                     if (tile.type >= 0) {
                      
-                     this.bubbleName[i][j].kill();
-                     this.LetterName[i][j].kill();
+                     this.bubbleName[i][j].destroy();
+                     this.LetterName[i][j].destroy();
                      
                     }
                 }
@@ -945,6 +917,11 @@ class Number extends Phaser.State {
                             tile.type = -1;
                             tile.shift = 0;
                             tile.alpha = 1;
+                            
+                             setTimeout(function() {
+                                self.bubbleName[tile.x][tile.y].destroy();
+                                self.LetterName[tile.x][tile.y].destroy();
+                            }, 3000);
                         }
                     }
 
@@ -1028,8 +1005,8 @@ class Number extends Phaser.State {
    playerDie(tilex,tiley,type){
        if(type!=0)
        this.playAnimationParticle(tilex,tiley);
-       this.bubbleName[tilex][tiley].kill();
-       this.LetterName[tilex][tiley].kill();
+       this.bubbleName[tilex][tiley].destroy();
+       this.LetterName[tilex][tiley].destroy();
     }
 
     playAnimationParticle(tilex,tiley){

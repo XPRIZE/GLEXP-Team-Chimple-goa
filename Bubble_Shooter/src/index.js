@@ -9,7 +9,7 @@ class Game {
         this.wei=0;
         this.hei=0;
         
-        if(navigator.userAgent.match(/iPad|Android|webOS|iPhone|iPod|Blackberry/i) )
+        if(navigator.userAgent.match(/iPad|Android|webOS|iPhone|iPod|Blackberry/i))
         {
         if(window.screen.width<= window.innerWidth)
         {

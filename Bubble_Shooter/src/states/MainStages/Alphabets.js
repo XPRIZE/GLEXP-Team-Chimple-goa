@@ -1,5 +1,3 @@
-import RainbowText from 'objects/RainbowText';
-
 class Alphabets extends Phaser.State {
    
     preload()
@@ -7,51 +5,7 @@ class Alphabets extends Phaser.State {
         this.game.physics.startSystem(Phaser.Physics.ARCADE);
         this.imageSprite = ['Red_Ball','Green_Ball','Yellow_Ball','Purple_Ball','Blue_Ball','Orange_Ball'];
         this.ParticleSprite = ['Red','Green','Orange','Purple','Skyblue','Yellow'];
-        
-        this.game.load.image('background', 'assets/Background.png');
-        this.game.load.image('Red', 'assets/Red.png');
-        this.game.load.image('Green', 'assets/Green.png');
-        this.game.load.image('Orange', 'assets/Orange.png');
-        this.game.load.image('Purple', 'assets/Purple.png');
-        this.game.load.image('Skyblue', 'assets/Skyblue.png');
-        this.game.load.image('Yellow', 'assets/Yellow.png');
-        
-        this.game.load.image('Red_Ball', 'assets/Red_Ball.png');
-        this.game.load.image('Green_Ball', 'assets/Green_Ball.png');
-        this.game.load.image('Orange_Ball', 'assets/Orange_Ball.png');
-        this.game.load.image('Purple_Ball', 'assets/Purple_Ball.png');
-        this.game.load.image('Blue_Ball', 'assets/Blue_Ball.png');
-        this.game.load.image('Yellow_Ball', 'assets/Yellow_Ball.png');
-        this.game.load.image('gunPointer','assets/Gun_Shooter.png');
-        this.game.load.image('gunBase','assets/Gun_Base.png');
-        
-        this.game.load.image('A', 'assets/A.png');
-        this.game.load.image('B', 'assets/B.png');
-        this.game.load.image('C', 'assets/C.png');
-        this.game.load.image('D', 'assets/D.png');
-        this.game.load.image('E', 'assets/E.png');
-        this.game.load.image('F', 'assets/F.png');
-        this.game.load.image('G', 'assets/G.png');
-        this.game.load.image('H', 'assets/H.png');
-        this.game.load.image('I', 'assets/I.png');
-        this.game.load.image('J', 'assets/J.png');
-        this.game.load.image('K', 'assets/K.png');
-        this.game.load.image('L', 'assets/L.png');
-        this.game.load.image('M', 'assets/M.png');
-        this.game.load.image('N', 'assets/N.png');
-        this.game.load.image('O', 'assets/O.png');
-        this.game.load.image('P', 'assets/P.png');
-        this.game.load.image('Q', 'assets/Q.png');
-        this.game.load.image('R', 'assets/R.png');
-        this.game.load.image('S', 'assets/S.png');
-        this.game.load.image('T', 'assets/T.png');
-        this.game.load.image('U', 'assets/U.png');
-        this.game.load.image('V', 'assets/V.png');
-        this.game.load.image('W', 'assets/W.png');
-        this.game.load.image('X', 'assets/X.png');
-        this.game.load.image('Y', 'assets/Y.png');
-        this.game.load.image('Z', 'assets/Z.png');
-        
+             
     }
 
 	create() {
@@ -91,7 +45,8 @@ class Alphabets extends Phaser.State {
             // Create the level of bubbles
             this.createLevel(color,repeat);
         
-        }else if(this.game._LevelFlag ==  2){
+        }
+        else if(this.game._LevelFlag ==  2){
             this.levelName = "AlphabetStarLevel2";            
             this.hits = 50;
             this.letterSprite = ['E','F','G','H'];
@@ -215,7 +170,8 @@ class Alphabets extends Phaser.State {
             // Create the level of bubbles
             this.createLevel(color,repeat);
             
-        }else{
+        }
+      else{
             console.log("level management error  - The value if level is : "+ this.game._LevelFlag );
         }
         
@@ -716,8 +672,8 @@ class Alphabets extends Phaser.State {
              ++this.count;
              this.hits--;
              
-             console.log(" ---------------  you hited "+ this.count +" balls --------------------");
-             console.log("hits remaining : "+ this.hits + " count value is : " + this.count);
+              console.log(" ---------------  you hited "+ this.count +" balls --------------------");
+              console.log("hits remaining : "+ this.hits + " count value is : " + this.count);
                 
               // Hide the player bubble
               this.player.bubble.visible = false;
@@ -738,7 +694,7 @@ class Alphabets extends Phaser.State {
                 console.log("cluster size is : "+ this.cluster.length);
                 
                  if( this.hits < 0 ){
-                 console.log("  GAME OVER  ");
+                 console.log(" GAME OVER  ");
                  this.setGameState(this.gamestates.gameover);
                  return;
                 }
@@ -945,8 +901,8 @@ class Alphabets extends Phaser.State {
                            setTimeout(function() {
                                 self.playerDie(tile.x,tile.y,i);
                                 self.bubbleName[tile.x][tile.y].alpha = 0;
-                               
                                 self.finalFlag = true;
+                                console.log("in side line ");
                            }, 1600);
                            
                               // Next bubble
@@ -985,8 +941,8 @@ class Alphabets extends Phaser.State {
                            
                            console.log(" floating bubble score : "+ this.score);
                            
-                           let rndDirectionValue = this.randDirection(); 
-                           let gravityValue  = this.rnd.integerInRange(700 , 1600);
+                            let rndDirectionValue = this.randDirection(); 
+                            let gravityValue  = this.rnd.integerInRange(700 , 1600);
                             
                             this.bubbleName[tile.x][tile.y].body.gravity.y = gravityValue;
                             this.LetterName[tile.x][tile.y].body.gravity.y = gravityValue;
@@ -1004,6 +960,12 @@ class Alphabets extends Phaser.State {
                             tile.type = -1;
                             tile.shift = 0;
                             tile.alpha = 1;
+                            
+                            setTimeout(function() {
+                                self.bubbleName[tile.x][tile.y].destroy();
+                                self.LetterName[tile.x][tile.y].destroy();
+                            }, 3000);
+                           
                         }
                     }
 
@@ -1032,6 +994,7 @@ class Alphabets extends Phaser.State {
                     
                     //Calculate for Stars
                      if(this.score >= 900 ){
+                         
                         console.log("3 stars");                        
                         localStorage.setItem(this.levelName , '3');
                     }else if (this.score >500 && this.score < 900){
@@ -1046,12 +1009,73 @@ class Alphabets extends Phaser.State {
                     
                     // No tiles left, game over
                     this.setGameState(this.gamestates.gameover);
+                    this.DataCard();
+                    
                 }
             }
             this.finalFlag = false;
           }
         }
     }        
+
+    DataCard(){
+    
+    this.bg1 = this.game.add.image(this.game.world.centerX,this.game.world.centerY,'darkTransparent');   
+    this.game.world.bringToTop(this.bg1);
+    this.bg1.anchor.setTo(0.5, 0.5);
+    this.bg1.scale.setTo(this.widthScale, this.heightScale);    
+        
+    let dataDimension = this.getValueXY(52,25);
+    this.buttonNext = this.game.add.image(dataDimension.X,dataDimension.Y,'Complete'); 
+    this.buttonNext.anchor.setTo(0.5);
+    this.buttonNext.scale.setTo(this.widthScale, this.heightScale);    
+
+    dataDimension = this.getValueXY(52,40);
+    this.buttonNext = this.game.add.image(dataDimension.X,dataDimension.Y,'starGame1'); 
+    this.buttonNext.anchor.setTo(0.5);
+    this.buttonNext.scale.setTo(this.widthScale, this.heightScale);    
+        
+ //   let dataDimension = this.getValueXY(50 , 25);    
+ //   this.pageText = this.game.add.text(dataDimension.X,dataDimension.Y, "\t\t\t\t LEVEL 2  \n COMPLETE !!  ", {font: ""+ 100 * ((this.widthScale+this.heightScale)/2) +"px Arial", fill: "#FFDF00"})
+ //   this.pageText.anchor.set(0.5);    
+        
+    dataDimension = this.getValueXY(50 , 60);
+    this.buttonNext = this.game.add.button(dataDimension.X,dataDimension.Y, 'next', this.nextButton, this, 2, 1, 0);
+    this.buttonNext.anchor.setTo(0.5);
+    this.buttonNext.scale.setTo(this.widthScale, this.heightScale);
+       
+    dataDimension = this.getValueXY(25,75);
+    this.buttonRetry = this.game.add.button(dataDimension.X,dataDimension.Y, 'retry', this.retryButton, this, 2, 1, 0);
+    this.buttonRetry.anchor.setTo(0.5);
+    this.buttonRetry.scale.setTo(this.widthScale, this.heightScale);
+    
+    dataDimension = this.getValueXY(75,75);
+    this.buttonMenu = this.game.add.button(dataDimension.X,dataDimension.Y, 'menu', this.MenuButton, this, 2, 1, 0);
+    this.buttonMenu.anchor.setTo(0.5);
+    this.buttonMenu.scale.setTo(this.widthScale, this.heightScale);
+    
+    }
+    
+    nextButton(){
+        console.log("Next button clicked ");
+        let value = this.game._LevelFlag;
+        this.game._LevelFlag = value + 1;
+        
+        console.log("the value of gobal variable flag is : " + this.game._LevelFlag);
+        this.state.start('Alphabets');
+    }
+    
+    retryButton(){
+        console.log("Retry button clicked ");
+         this.state.start('Alphabets');
+    }
+    
+    MenuButton(){
+         console.log("Menu button clicked ");
+         this.state.start('HomeScreen');
+    }
+
+    
     
     randDirection(){
        
@@ -1329,7 +1353,7 @@ class Alphabets extends Phaser.State {
                     x: 0,
                     y: 0,
                     angle: 0,
-                    speed: 1500,
+                    speed: 800,
                     dropspeed: 0,
                     tiletype: 0,
                     visible: false

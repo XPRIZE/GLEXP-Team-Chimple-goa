@@ -1,10 +1,10 @@
 class CategoriesScreen extends Phaser.State{
     preload(){
-        this.game.load.image('Background','assets/Background_Scene.png');
+        this.game.load.image('Background','assets/categoryBackground.png');
 
-        this.game.load.image('Animal','assets/animal.png');
-        this.game.load.image('Fruit','assets/fruits.png');
-        this.game.load.image('Vegitable','assets/Vegitables.png');
+        this.game.load.image('Animal','assets/Animal_Button.png');
+        this.game.load.image('Fruit','assets/Fruit_Button.png');
+        this.game.load.image('Vegitable','assets/Vegetable_Button.png');
 
     }
   
@@ -17,7 +17,6 @@ class CategoriesScreen extends Phaser.State{
     this.bg.anchor.setTo(0.5);
     this.bg.scale.setTo(this.widthScale,this.heightScale);
     this.bg.inputEnabled = true;
-    
     
     let dataDimension = this.getValueXY(50,25); 
     this.buttonNumbers = this.game.add.button(dataDimension.X,dataDimension.Y, 'Fruit', this.fruitLevel, this, 2, 1, 0);
@@ -37,16 +36,21 @@ class CategoriesScreen extends Phaser.State{
     }
     
     fruitLevel(){
-        this.state.start('LevelScreenFruit');
+        this.game._LoadFlag = 4;
+        console.log("categories  flag value is : "+ this.game._LoadFlag);
+        this.state.start('LoadStates');
     }
     
     vegitableLevel(){
-        this.state.start('LevelScreenVegitable');
+        this.game._LoadFlag = 5;
+        console.log("categories flag value is : "+ this.game._LoadFlag);
+        this.state.start('LoadStates');
     }
     
     animalLevel(){
-        
-        this.state.start('LevelScreenAnimal');
+        this.game._LoadFlag = 6;        
+        console.log("categories flag value is : "+ this.game._LoadFlag);
+        this.state.start('LoadStates');
     }
     
     getValueXY(widthPer , heightPer){

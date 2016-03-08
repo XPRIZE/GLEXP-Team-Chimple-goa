@@ -7,51 +7,10 @@ class Animals extends Phaser.State{
         this.game.physics.startSystem(Phaser.Physics.ARCADE);
         this.imageSprite = ['Red_Ball','Green_Ball','Yellow_Ball','Purple_Ball','Blue_Ball','Orange_Ball'];
         this.ParticleSprite = ['Red','Green','Orange','Purple','Skyblue','Yellow'];
-        
-        this.game.load.image('background', 'assets/Background.png');
-        this.game.load.image('Red', 'assets/Red.png');
-        this.game.load.image('Green', 'assets/Green.png');
-        this.game.load.image('Orange', 'assets/Orange.png');
-        this.game.load.image('Purple', 'assets/Purple.png');
-        this.game.load.image('Skyblue', 'assets/Skyblue.png');
-        this.game.load.image('Yellow', 'assets/Yellow.png');
-        
-        this.game.load.image('Red_Ball', 'assets/Red_Ball.png');
-        this.game.load.image('Green_Ball', 'assets/Green_Ball.png');
-        this.game.load.image('Orange_Ball', 'assets/Orange_Ball.png');
-        this.game.load.image('Purple_Ball', 'assets/Purple_Ball.png');
-        this.game.load.image('Blue_Ball', 'assets/Blue_Ball.png');
-        this.game.load.image('Yellow_Ball', 'assets/Yellow_Ball.png');
-        this.game.load.image('gunPointer','assets/Gun_Shooter.png');
-        this.game.load.image('gunBase','assets/Gun_Base.png');
-        
-        this.game.load.image('A', 'assets/A.png');
-        this.game.load.image('B', 'assets/B.png');
-        this.game.load.image('C', 'assets/C.png');
-        this.game.load.image('D', 'assets/D.png');
-        this.game.load.image('E', 'assets/E.png');
-        this.game.load.image('F', 'assets/F.png');
-        this.game.load.image('G', 'assets/G.png');
-        this.game.load.image('H', 'assets/H.png');
-        this.game.load.image('I', 'assets/I.png');
-        this.game.load.image('J', 'assets/J.png');
-        this.game.load.image('K', 'assets/K.png');
-        this.game.load.image('L', 'assets/L.png');
-        this.game.load.image('M', 'assets/M.png');
-        this.game.load.image('N', 'assets/N.png');
-        this.game.load.image('O', 'assets/O.png');
-        this.game.load.image('P', 'assets/P.png');
-        this.game.load.image('Q', 'assets/Q.png');
-        this.game.load.image('R', 'assets/R.png');
-        this.game.load.image('S', 'assets/S.png');
-        this.game.load.image('T', 'assets/T.png');
-        this.game.load.image('U', 'assets/U.png');
-        this.game.load.image('V', 'assets/V.png');
-        this.game.load.image('W', 'assets/W.png');
-        this.game.load.image('X', 'assets/X.png');
-        this.game.load.image('Y', 'assets/Y.png');
-        this.game.load.image('Z', 'assets/Z.png');
-        
+       
+        this.game.load.image('Banana','assets/BananaImg.png');
+        this.game.load.image('WhiteBall','assets/WhiteBall.png');
+
     }
 
 	create() {
@@ -505,8 +464,8 @@ class Animals extends Phaser.State{
             return;
             
         // Use to kill the previous bubble sprite
-       this.bubblePlayer.kill(); 
-       this.letterPlayer.kill();
+       this.bubblePlayer.destroy(); 
+       this.letterPlayer.destroy();
        
        // Draw the bubble sprite
        this.bubblePlayer =  this.game.add.sprite(x,y,this.imageSprite[index]);
@@ -522,7 +481,7 @@ class Animals extends Phaser.State{
         if (index < 0 || index >= this.bubblecolors)
             return;
         // Draw the bubble sprite
-     this.nextBubblePlayer.kill();
+     this.nextBubblePlayer.destroy();
      this.nextBubblePlayer =  this.game.add.sprite(x,y,this.imageSprite[index]);
      this.nextBubblePlayer.scale.setTo(this.widthScale,this.heightScale);
     }
@@ -532,7 +491,7 @@ class Animals extends Phaser.State{
         if (index < 0 || index >= this.bubblecolors)
             return;
         // Draw the bubble sprite
-      this.nextLetterPlayer.kill();
+      this.nextLetterPlayer.destroy();
       this.nextLetterPlayer = this.game.add.sprite(x,y,this.letterSprite[index]);
       this.nextLetterPlayer.scale.setTo(this.widthScale,this.heightScale);
     }
@@ -770,8 +729,8 @@ class Animals extends Phaser.State{
                
                     if (tile.type >= 0) {
                      
-                     this.bubbleName[i][j].kill();
-                     this.LetterName[i][j].kill();
+                     this.bubbleName[i][j].destroy();
+                     this.LetterName[i][j].destroy();
                      
                     }
                 }
@@ -932,9 +891,20 @@ class Animals extends Phaser.State{
                         }
                         
                         if( i == 0 ){
-                           this.game.world.bringToTop(this.bubbleName[tile.x][tile.y]);
-                           this.game.world.bringToTop(this.LetterName[tile.x][tile.y]);
+          
+                           let keyValue = this.bubbleName[tile.x][tile.y].key;
+                           console.log("key value is : "+ keyValue);
+                          
+                           this.playerDie(tile.x,tile.y,i);
+                        
+                           let coordinateValue = this.getTileCoordinate(tile.x,tile.y);
+                           console.log("player coordinated :  x: "+ coordinateValue.tilex + " y : " + coordinateValue.tiley);
                            
+                           this.LetterName[tile.x][tile.y] = this.game.add.sprite(coordinateValue.tilex,coordinateValue.tiley,'Banana');
+                           this.bubbleName[tile.x][tile.y] = this.game.add.sprite(coordinateValue.tilex,coordinateValue.tiley,'WhiteBall');
+                           
+                           this.game.world.bringToTop(this.bubbleName[tile.x][tile.y]);
+                           this.game.world.bringToTop(this.LetterName[tile.x][tile.y]);                           
                            this.bubbleName[tile.x][tile.y].anchor.setTo(0.5);
                            this.LetterName[tile.x][tile.y].anchor.setTo(0.5);
                            this.game.add.tween(this.bubbleName[tile.x][tile.y]).to({x:this.game.world.centerX, y:this.game.world.centerY},1000,Phaser.Easing.Back.Out, true);
@@ -1006,6 +976,12 @@ class Animals extends Phaser.State{
                             tile.type = -1;
                             tile.shift = 0;
                             tile.alpha = 1;
+                            
+                             setTimeout(function() {
+                                self.bubbleName[tile.x][tile.y].destroy();
+                                self.LetterName[tile.x][tile.y].destroy();
+                            }, 3000);
+                            
                         }
                     }
 
@@ -1089,8 +1065,8 @@ class Animals extends Phaser.State{
    playerDie(tilex,tiley,type){
        if(type!=0)
        this.playAnimationParticle(tilex,tiley);
-       this.bubbleName[tilex][tiley].kill();
-       this.LetterName[tilex][tiley].kill();
+       this.bubbleName[tilex][tiley].destroy();
+       this.LetterName[tilex][tiley].destroy();
     }
 
     playAnimationParticle(tilex,tiley){

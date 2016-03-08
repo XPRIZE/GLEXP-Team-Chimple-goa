@@ -51,6 +51,9 @@ class Vegitable extends Phaser.State {
         this.game.load.image('X', 'assets/X.png');
         this.game.load.image('Y', 'assets/Y.png');
         this.game.load.image('Z', 'assets/Z.png');
+
+        this.game.load.image('Banana','assets/BananaImg.png');
+        this.game.load.image('WhiteBall','assets/WhiteBall.png');
         
     }
 
@@ -507,8 +510,8 @@ class Vegitable extends Phaser.State {
             return;
             
         // Use to kill the previous bubble sprite
-       this.bubblePlayer.kill(); 
-       this.letterPlayer.kill();
+       this.bubblePlayer.destroy(); 
+       this.letterPlayer.destroy();
        
        // Draw the bubble sprite
        this.bubblePlayer =  this.game.add.sprite(x,y,this.imageSprite[index]);
@@ -524,7 +527,7 @@ class Vegitable extends Phaser.State {
         if (index < 0 || index >= this.bubblecolors)
             return;
         // Draw the bubble sprite
-     this.nextBubblePlayer.kill();
+     this.nextBubblePlayer.destroy();
      this.nextBubblePlayer =  this.game.add.sprite(x,y,this.imageSprite[index]);
      this.nextBubblePlayer.scale.setTo(this.widthScale,this.heightScale);
     }
@@ -534,7 +537,7 @@ class Vegitable extends Phaser.State {
         if (index < 0 || index >= this.bubblecolors)
             return;
         // Draw the bubble sprite
-      this.nextLetterPlayer.kill();
+      this.nextLetterPlayer.destroy();
       this.nextLetterPlayer = this.game.add.sprite(x,y,this.letterSprite[index]);
       this.nextLetterPlayer.scale.setTo(this.widthScale,this.heightScale);
     }
@@ -772,8 +775,8 @@ class Vegitable extends Phaser.State {
                
                     if (tile.type >= 0) {
                      
-                     this.bubbleName[i][j].kill();
-                     this.LetterName[i][j].kill();
+                     this.bubbleName[i][j].destroy();
+                     this.LetterName[i][j].destroy();
                      
                     }
                 }
@@ -903,6 +906,7 @@ class Vegitable extends Phaser.State {
             // Add cluster score
             this.score += this.cluster.length * 10;
             console.log(" cluster bubble score : "+ this.score);
+            
             // Find floating clusters
             this.floatingclusters = this.findFloatingClusters();
             console.log("float cluster : "+ this.floatingclusters.length);
@@ -934,9 +938,19 @@ class Vegitable extends Phaser.State {
                         }
                         
                         if( i == 0 ){
-                           this.game.world.bringToTop(this.bubbleName[tile.x][tile.y]);
-                           this.game.world.bringToTop(this.LetterName[tile.x][tile.y]);
+                           let keyValue = this.bubbleName[tile.x][tile.y].key;
+                           console.log("key value is : "+ keyValue);
+                          
+                           this.playerDie(tile.x,tile.y,i);
+                        
+                           let coordinateValue = this.getTileCoordinate(tile.x,tile.y);
+                           console.log("player coordinated :  x: "+ coordinateValue.tilex + " y : " + coordinateValue.tiley);
                            
+                           this.LetterName[tile.x][tile.y] = this.game.add.sprite(coordinateValue.tilex,coordinateValue.tiley,'Banana');
+                           this.bubbleName[tile.x][tile.y] = this.game.add.sprite(coordinateValue.tilex,coordinateValue.tiley,'WhiteBall');
+                           
+                           this.game.world.bringToTop(this.bubbleName[tile.x][tile.y]);
+                           this.game.world.bringToTop(this.LetterName[tile.x][tile.y]);                           
                            this.bubbleName[tile.x][tile.y].anchor.setTo(0.5);
                            this.LetterName[tile.x][tile.y].anchor.setTo(0.5);
                            this.game.add.tween(this.bubbleName[tile.x][tile.y]).to({x:this.game.world.centerX, y:this.game.world.centerY},1000,Phaser.Easing.Back.Out, true);
@@ -1008,6 +1022,11 @@ class Vegitable extends Phaser.State {
                             tile.type = -1;
                             tile.shift = 0;
                             tile.alpha = 1;
+                            
+                             setTimeout(function() {
+                                self.bubbleName[tile.x][tile.y].destroy();
+                                self.LetterName[tile.x][tile.y].destroy();
+                            }, 3000);
                         }
                     }
 
@@ -1091,8 +1110,8 @@ class Vegitable extends Phaser.State {
    playerDie(tilex,tiley,type){
        if(type!=0)
        this.playAnimationParticle(tilex,tiley);
-       this.bubbleName[tilex][tiley].kill();
-       this.LetterName[tilex][tiley].kill();
+       this.bubbleName[tilex][tiley].destroy();
+       this.LetterName[tilex][tiley].destroy();
     }
 
     playAnimationParticle(tilex,tiley){

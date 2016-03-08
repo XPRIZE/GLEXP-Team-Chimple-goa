@@ -1,4 +1,4 @@
-class LevelScreen1Puzzle extends Phaser.State{
+class LevelScreenPuzzle extends Phaser.State{
 
     preload(){
         
@@ -344,4 +344,4 @@ class LevelScreen1Puzzle extends Phaser.State{
      this.state.start('Puzzle');
     }
 }
-export default LevelScreen1Puzzle;
+export default LevelScreenPuzzle;

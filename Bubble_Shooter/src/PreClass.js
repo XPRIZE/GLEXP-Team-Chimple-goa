@@ -10,19 +10,22 @@ import LevelScreenFruit from 'states/LevelScreen/LevelScreenFruit'
 import Fruits from 'states/MainStages/Fruits'
 import LevelScreenAnimal from 'states/LevelScreen/LevelScreenAnimal'
 import Animals from 'states/MainStages/Animals'
-import LevelScreen1Puzzle from 'states/LevelScreen/LevelScreen1Puzzle'
+import LevelScreenPuzzle from 'states/LevelScreen/LevelScreenPuzzle'
 import LevelScreenVegitable from 'states/LevelScreen/LevelScreenVegitable'
 import Vegitable from 'states/MainStages/Vegitable'
+import LoadStates from 'states/LoadState/LoadStates'
+
 
 class PreClass extends Phaser.Game {
 
 	constructor(width , height) {
 		
-        super(width, height, Phaser.AUTO, 'content', null);
+        super(width, height, Phaser.CANVAS, 'content', null);
         console.log("width : "+ width + " height : "+ height);
         
         //  All Level flags ....
         this._LevelFlag = 1;
+        this._LoadFlag = 1;
         
         //  Set Variable for World size 
        
@@ -38,9 +41,10 @@ class PreClass extends Phaser.Game {
         this.state.add('Fruits',Fruits,false);
         this.state.add('LevelScreenAnimal',LevelScreenAnimal,false);
         this.state.add('Animals',Animals,false);
-        this.state.add('LevelScreen1Puzzle',LevelScreen1Puzzle,false);
+        this.state.add('LevelScreenPuzzle',LevelScreenPuzzle,false);
         this.state.add('LevelScreenVegitable',LevelScreenVegitable,false);
         this.state.add('Vegitable',Vegitable,false);
+        this.state.add('LoadStates',LoadStates,false);
         
 		this.state.start('HomeScreen');
        

@@ -9,27 +9,26 @@ class HomeScreen extends Phaser.State {
         this.game.load.image('Number','assets/Number_Button.png');
         this.game.load.image('Category','assets/Category_Button.png');
         this.game.load.image('Puzzle','assets/Puzzle_Button.png');
-    
+        
     }
     
     create(){
     
     if(!this.game.device.desktop)
-        {
-            this.game.scale.scaleMode = Phaser.ScaleManager.SHOW_ALL;
-            this.game.scale.pageAlignHorizontally = true;
-            this.game.scale.pageAlignVertically = true;
-        }
-   
-       this.widthScale =  this.game.width / 800;
-       this.heightScale = this.game.height / 1280;
+    {
+        this.game.scale.scaleMode = Phaser.ScaleManager.SHOW_ALL;
+        this.game.scale.pageAlignHorizontally = true;
+        this.game.scale.pageAlignVertically = true;
+    }
+
+    this.widthScale =  this.game.width / 800;
+    this.heightScale = this.game.height / 1280;
         
-        console.log("widthScale : "+ this.widthScale+ " heightScale : "+ this.heightScale);
+    console.log("widthScale : "+ this.widthScale+ " heightScale : "+ this.heightScale);
     
-       this.bg = this.game.add.image(this.game.world.centerX,this.game.world.centerY,'background');
-       
-       this.bg.anchor.setTo(0.5, 0.5);
-       this.bg.scale.setTo(this.widthScale, this.heightScale);
+    this.bg = this.game.add.image(this.game.world.centerX,this.game.world.centerY,'background');   
+    this.bg.anchor.setTo(0.5, 0.5);
+    this.bg.scale.setTo(this.widthScale, this.heightScale);
     
     let dataDimension = this.getValueXY(50,48);
     this.buttonAlphabets = this.game.add.button(dataDimension.X,dataDimension.Y, 'Alphabets', this.alphabetsLevel, this, 2, 1, 0);
@@ -50,24 +49,32 @@ class HomeScreen extends Phaser.State {
     this.buttonPuzzle = this.game.add.button(dataDimension.X,dataDimension.Y, 'Puzzle', this.puzzleLevel, this, 2, 1, 0);
     this.buttonPuzzle.anchor.setTo(0.5);
     this.buttonPuzzle.scale.setTo(this.widthScale, this.heightScale);
-    
+
     }
     
     alphabetsLevel(){
-        this.state.start('LevelSceenAlphabets');
+       this.game._LoadFlag = 1;
+       console.log("homescreen alphabets flag value is : "+ this.game._LoadFlag);
+       this.state.start('LoadStates');
+        
     }
     
     numberLevel(){
-        this.state.start('LevelSceenNumber');
+        this.game._LoadFlag = 2;
+        console.log("homescreen numbers flag value is : "+ this.game._LoadFlag);
+        this.state.start('LoadStates');
+       
     }
     
     categoriesLevel(){
-        this.state.start('CategoriesScreen');
+        console.log("categories method "); 
+        this.state.start('CategoriesScreen');           
     }
     
     puzzleLevel(){
-
-         this.state.start('LevelScreen1Puzzle');
+         this.game._LoadFlag = 3;
+         console.log("homescreen puzzle flag value is : "+ this.game._LoadFlag);
+         this.state.start('LoadStates');
     }
     
     getValueXY(widthPer , heightPer){
