@@ -1,8 +1,8 @@
-import Holder from './Holder.js';
+import Surface from './Surface.js';
 
-export default class Wall extends Holder {
-    constructor(game, x, y, key, frame) {
-        super(game, x, y, key, frame);
+export default class Wall extends Surface {
+    constructor(game, x, y) {
+        super(game, x, y);
     }
     
     toJSON() {
@@ -12,8 +12,10 @@ export default class Wall extends Holder {
     }
     
     static fromJSON(game, j) {
-        let wall = new Wall(game, j.x, j.y, j.key, j.frame);
-        return wall;
+        let val = new Wall(game, j.x, j.y);
+        val.texture = j.texture;
+        val.contents = j.contents;
+        return val;
     }
     
 }

@@ -1,3 +1,6 @@
+import Texture from './Texture.js';
+import Surface from './Surface.js';
+
 export default class Holder extends Phaser.Group {
     constructor(game, x, y) {
         super(game);
@@ -5,56 +8,48 @@ export default class Holder extends Phaser.Group {
         this.y = y;
     }
 
-    set surface(val) {
-            if(this._surface) {
-                this.remove(this._surface, true);
-            }
-            this._surface = val;
-            this.add(val);        
-    }    
-
-    get surface() {
-        return this._surface;
-    }
-
-    addTexture(texture) {
-        return this.add(texture);            
+    set frontTexture(val) {
+        if(this._frontTexture) {
+            this.remove(this._frontTexture, true);
+        }
+        this.addAt(val, this.total);
+        this._frontTexture = val;
     }
     
-    get textures() {
+    get frontTexture() {
+        return this._frontTexture;
+    }
+
+    set backTexture(val) {
+        if(this._backTexture) {
+            this.remove(this._backTexture, true);
+        }
+        this.addAt(val, 0);
+        this._backTexture = val;
+    }
+    
+    get backTexture() {
+        return this._backTexture;
+    }
+
+    addSurface(surface) {
+        let index = this._frontTexture ? this.total - 1 : this.total;
+        return this.addAt(surface, index);
+    }
+    
+    get surfaces() {
         let children = new Array();
         this.forEach(function(value, index, array) {
-            if(value instanceof Texture) {
+            if(value instanceof Surface) {
                 children.push(value);
             }
         });
         return children;
     }
     
-    set textures(val) {
+     set surfaces(val) {
         val.forEach(function(element) {
-            this.addTexture(element);
-        }, this);
-        
-    }
-    
-    addHolder(holder) {
-        return this.add(holder);
-    }
-    
-    get holders() {
-        let children = new Array();
-        this.forEach(function(value, index, array) {
-            if(value instanceof Holder) {
-                children.push(value);
-            }
-        });
-        return children;
-    }
-    
-     set holders(val) {
-        val.forEach(function(element) {
-            this.addHolder(element);
+            this.addSurface(element);
         }, this);
         
     }
@@ -64,15 +59,22 @@ export default class Holder extends Phaser.Group {
             _class: "Holder",
             x: this.x,
             y: this.y,
-            surface: this.surface,
-            textures: this.textures,
-            holders: this.holders
+            frontTexture: this.frontTexture,
+            backTexture: this.backTexture,
+            surfaces: this.surfaces
         }
         return json;
     }
     
     static fromJSON(game, j) {
         let holder = new Holder(game, j.x, j.y);
+        if(j.frontTexture) {
+            holder.frontTexture = j.frontTexture;        
+        }
+        if(j.backTexture) {
+            holder.backTexture = j.backTexture;        
+        }
+        holder.surfaces = j.surfaces;
         return holder;
     }
     

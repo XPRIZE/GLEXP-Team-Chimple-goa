@@ -9,7 +9,7 @@ export default class Texture extends Phaser.Sprite {
             x: this.x,
             y: this.y,
             key: this.key,
-            frame: this.frame
+            frame: this.frameName
         }
         return json;
     }

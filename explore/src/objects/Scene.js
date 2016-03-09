@@ -31,16 +31,16 @@ export default class Scene extends Phaser.Group {
     toJSON() {
         let json = {
             _class: "Scene",
-            floor: this._floor,
-            wall: this._wall
+            wall: this._wall,
+            floor: this._floor
         }
         return json;
     }
     
     static fromJSON(game, j) {
         let scene = new Scene(game);
-        scene.floor = j.floor;
         scene.wall = j.wall;
+        scene.floor = j.floor;
         return scene;
     }
 }

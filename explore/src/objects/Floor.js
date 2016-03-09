@@ -1,8 +1,8 @@
-import Holder from './Holder.js';
+import Surface from './Surface.js';
 
-export default class Floor extends Holder {
-    constructor(game, x, y, key, frame) {
-        super(game, x, y, key, frame);
+export default class Floor extends Surface {
+    constructor(game, x, y) {
+        super(game, x, y);
     }
     
     toJSON() {
@@ -12,8 +12,10 @@ export default class Floor extends Holder {
     }
     
     static fromJSON(game, j) {
-        let floor = new Floor(game, j.x, j.y, j.key, j.frame);
-        return floor;
+        let val = new Floor(game, j.x, j.y);
+        val.texture = j.texture;
+        val.contents = j.contents;
+        return val;
     }
     
 }
