@@ -130,19 +130,32 @@ export default class Limb extends RelativePosition(Phaser.Group)  {
             this.addAccessory(element);
         }, this);
     }
+
+    getAccessory(name) {
+        return this.iterate('name', name, Phaser.Group.RETURN_CHILD);
+    }
+
         
     /**
      * @param  {any} accessory
+     * @param  {any} removeExisting
      */
-    addAccessory(accessory) {
+    addAccessory(accessory, removeExisting) {
+        let existing = this.getAccessory(accessory.name);
+        if(existing) {
+            this.removeAccessory(existing, true);
+        }
         this.addChild(accessory);
-        accessory.name = this.name + '_accessory_' + this.frameName + '_' + this.getChildIndex(accessory);
         accessory.scale = this.currentScale.clone();
         accessory.positionRelativeToParent();
         if(this._maskA) {
             accessory.mask = this._maskA;
         }
         return accessory;
+    }
+    
+    removeAccessory(accessory) {
+        this.remove(accessory, true);
     }
     
     /**
