@@ -14,6 +14,7 @@ export default class GameState extends Phaser.State {
   }
 
 	create() {
+        
         let puppet = this.game.add.existing(Human.buildDefault(this.game));
         puppet.x = this.game.width/4;
         puppet.y = 200;
@@ -28,6 +29,7 @@ export default class GameState extends Phaser.State {
                 }
             }
         }));
+        
         let dressTabs = {};
         
         for (var key in dressChoices) {

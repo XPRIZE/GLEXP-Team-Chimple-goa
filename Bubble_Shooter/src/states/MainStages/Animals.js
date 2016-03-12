@@ -1024,12 +1024,70 @@ class Animals extends Phaser.State{
                     
                     // No tiles left, game over
                     this.setGameState(this.gamestates.gameover);
+                    this.DataCard();
                 }
             }
             this.finalFlag = false;
           }
         }
-    }        
+    } 
+    
+     DataCard(){
+    
+    this.bg1 = this.game.add.image(this.game.world.centerX,this.game.world.centerY,'darkTransparent');   
+    this.game.world.bringToTop(this.bg1);
+    this.bg1.anchor.setTo(0.5, 0.5);
+    this.bg1.scale.setTo(this.widthScale, this.heightScale);    
+        
+    let dataDimension = this.getValueXY(52,25);
+    this.buttonNext = this.game.add.image(dataDimension.X,dataDimension.Y,'Complete'); 
+    this.buttonNext.anchor.setTo(0.5);
+    this.buttonNext.scale.setTo(this.widthScale, this.heightScale);    
+
+    dataDimension = this.getValueXY(52,40);
+    this.buttonNext = this.game.add.image(dataDimension.X,dataDimension.Y,'starGame1'); 
+    this.buttonNext.anchor.setTo(0.5);
+    this.buttonNext.scale.setTo(this.widthScale, this.heightScale);    
+        
+ //   let dataDimension = this.getValueXY(50 , 25);    
+ //   this.pageText = this.game.add.text(dataDimension.X,dataDimension.Y, "\t\t\t\t LEVEL 2  \n COMPLETE !!  ", {font: ""+ 100 * ((this.widthScale+this.heightScale)/2) +"px Arial", fill: "#FFDF00"})
+ //   this.pageText.anchor.set(0.5);    
+        
+    dataDimension = this.getValueXY(50 , 60);
+    this.buttonNext = this.game.add.button(dataDimension.X,dataDimension.Y, 'next', this.nextButton, this, 2, 1, 0);
+    this.buttonNext.anchor.setTo(0.5);
+    this.buttonNext.scale.setTo(this.widthScale, this.heightScale);
+       
+    dataDimension = this.getValueXY(25,75);
+    this.buttonRetry = this.game.add.button(dataDimension.X,dataDimension.Y, 'retry', this.retryButton, this, 2, 1, 0);
+    this.buttonRetry.anchor.setTo(0.5);
+    this.buttonRetry.scale.setTo(this.widthScale, this.heightScale);
+    
+    dataDimension = this.getValueXY(75,75);
+    this.buttonMenu = this.game.add.button(dataDimension.X,dataDimension.Y, 'menu', this.MenuButton, this, 2, 1, 0);
+    this.buttonMenu.anchor.setTo(0.5);
+    this.buttonMenu.scale.setTo(this.widthScale, this.heightScale);
+    
+    }       
+    
+    nextButton(){
+        console.log("Next button clicked ");
+        let value = this.game._LevelFlag;
+        this.game._LevelFlag = value + 1;
+        
+        console.log("the value of gobal variable flag is : " + this.game._LevelFlag);
+        this.state.start('Animals');
+    }
+    
+    retryButton(){
+        console.log("Retry button clicked ");
+         this.state.start('Animals');
+    }
+    
+    MenuButton(){
+         console.log("Menu button clicked ");
+         this.state.start('HomeScreen');
+    }
     
     randDirection(){
        

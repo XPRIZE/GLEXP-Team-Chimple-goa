@@ -1,4 +1,4 @@
-class BootState extends Phaser.State {
+export default class BootState extends Phaser.State {
     
     preload()
     {
@@ -69,4 +69,4 @@ class BootState extends Phaser.State {
           // Change the frame of the button
            this.soundButton.frame = this.game.sound.mute ? 1 : 0;}     
 }
-export default BootState;
+
