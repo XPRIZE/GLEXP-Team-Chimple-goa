@@ -1,7 +1,8 @@
 
 export default class Scene extends Phaser.Group {
-    constructor(game) {
+    constructor(game, width, height) {
         super(game);
+        game.world.setBounds(0, 0, width, height);
     }
     
     set floor(floor) {
@@ -31,8 +32,10 @@ export default class Scene extends Phaser.Group {
     toJSON() {
         let json = {
             _class: "Scene",
-            wall: this._wall,
-            floor: this._floor
+            width: this.width,
+            height: this.height,
+            wall: this.wall,
+            floor: this.floor
         }
         return json;
     }

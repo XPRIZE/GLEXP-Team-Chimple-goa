@@ -1,18 +1,23 @@
 import Texture from './Texture.js';
 import Surface from './Surface.js';
+import Item from './Item.js';
 
-export default class Holder extends Phaser.Group {
+export default class Holder extends Item {
+    // TODO: Item takes a key and frame, but here we are not passing any. See if any better solution is there
     constructor(game, x, y) {
-        super(game);
-        this.x = x;
-        this.y = y;
+        super(game, x, y);
+        // this.x = x;
+        // this.y = y;
+        // this.inputEnabled = true;
+        // this.input.enableDrag();
+        this.input.priorityID = 1;
     }
 
     set frontTexture(val) {
         if(this._frontTexture) {
-            this.remove(this._frontTexture, true);
+            this.removeChild(this._frontTexture).destroy();
         }
-        this.addAt(val, this.total);
+        this.addChildAt(val, this.children.length);
         this._frontTexture = val;
     }
     
@@ -22,9 +27,9 @@ export default class Holder extends Phaser.Group {
 
     set backTexture(val) {
         if(this._backTexture) {
-            this.remove(this._backTexture, true);
+            this.removeChild(this._backTexture).destroy();
         }
-        this.addAt(val, 0);
+        this.addChildAt(val, 0);
         this._backTexture = val;
     }
     
@@ -33,17 +38,17 @@ export default class Holder extends Phaser.Group {
     }
 
     addSurface(surface) {
-        let index = this._frontTexture ? this.total - 1 : this.total;
-        return this.addAt(surface, index);
+        let index = this._frontTexture ? this.children.length - 1 : this.children.length;
+        return this.addChildAt(surface, index);
     }
     
     get surfaces() {
         let children = new Array();
-        this.forEach(function(value, index, array) {
+        this.children.forEach(function(value) {
             if(value instanceof Surface) {
                 children.push(value);
-            }
-        });
+            }            
+        }, this);
         return children;
     }
     
@@ -51,7 +56,6 @@ export default class Holder extends Phaser.Group {
         val.forEach(function(element) {
             this.addSurface(element);
         }, this);
-        
     }
    
     toJSON() {
