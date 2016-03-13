@@ -131,12 +131,24 @@ export default class Limb extends RelativePosition(Phaser.Group) {
         }, this);
     }
 
+<<<<<<< HEAD
+=======
+    getAccessory(name) {
+        return this.iterate('name', name, Phaser.Group.RETURN_CHILD);
+    }
+
+        
+>>>>>>> origin/master
     /**
      * @param  {any} accessory
+     * @param  {any} removeExisting
      */
-    addAccessory(accessory) {
+    addAccessory(accessory, removeExisting) {
+        let existing = this.getAccessory(accessory.name);
+        if(existing) {
+            this.removeAccessory(existing, true);
+        }
         this.addChild(accessory);
-        accessory.name = this.name + '_accessory_' + this.frameName + '_' + this.getChildIndex(accessory);
         accessory.scale = this.currentScale.clone();
         accessory.positionRelativeToParent();
         if (this._maskA) {
@@ -144,7 +156,15 @@ export default class Limb extends RelativePosition(Phaser.Group) {
         }
         return accessory;
     }
+<<<<<<< HEAD
 
+=======
+    
+    removeAccessory(accessory) {
+        this.remove(accessory, true);
+    }
+    
+>>>>>>> origin/master
     /**
      * @param  {any} sprite
      * @param  {any} pointer

@@ -122,22 +122,23 @@ export default class Human extends Puppet {
     }
     
     setShirt(key, frame) {
-        this.body.addAccessory(new Accessory(this.game, true, true, false, new Phaser.Point(0.5, 0), new Phaser.Point(0.5, 0), new Phaser.Point(0, 0), false, key, frame));
+        this.body.addAccessory(new Accessory(this.game, true, true, false, new Phaser.Point(0.5, 0), new Phaser.Point(0.5, 0), new Phaser.Point(0, 0), false, key, frame, 'shirt'), true);
     }
     
     setSleeve(key, frame) {
-        this.leftHand.addAccessory(new Accessory(this.game, false, true, true, new Phaser.Point(1, 0), new Phaser.Point(1, 0), new Phaser.Point(0, 0), false, key, frame));
-        this.rightHand.addAccessory(new Accessory(this.game, false, true, true, new Phaser.Point(0, 0), new Phaser.Point(0, 0), new Phaser.Point(0, 0), true, key, frame));
+        
+        this.leftHand.addAccessory(new Accessory(this.game, false, true, true, new Phaser.Point(1, 0), new Phaser.Point(1, 0), new Phaser.Point(0, 0), false, key, frame, 'leftSleeve'), true);
+        this.rightHand.addAccessory(new Accessory(this.game, false, true, true, new Phaser.Point(0, 0), new Phaser.Point(0, 0), new Phaser.Point(0, 0), true, key, frame, 'rightSleeve'), true);
     }
     
     setPants(key, frame) {
-        this.leftLeg.addAccessory(new Accessory(this.game, false, true, true, new Phaser.Point(0.5, 0), new Phaser.Point(0.5, 0), new Phaser.Point(0, 0), false, key, frame));
-        this.rightLeg.addAccessory(new Accessory(this.game, false, true, true, new Phaser.Point(0.5, 0), new Phaser.Point(0.5, 0), new Phaser.Point(0, 0), false, key, frame));
+        this.leftLeg.addAccessory(new Accessory(this.game, false, true, true, new Phaser.Point(0.5, 0), new Phaser.Point(0.5, 0), new Phaser.Point(0, 0), false, key, frame, 'leftPant'), true);
+        this.rightLeg.addAccessory(new Accessory(this.game, false, true, true, new Phaser.Point(0.5, 0), new Phaser.Point(0.5, 0), new Phaser.Point(0, 0), false, key, frame, 'rightSleeve'), true);
     }
     
     setShoes(key, frame) {
-        this.leftLeg.addAccessory(new Accessory(this.game, true, true, false, new Phaser.Point(1, 0), new Phaser.Point(1, 1), new Phaser.Point(0, 0), false, key, frame));
-        this.rightLeg.addAccessory(new Accessory(this.game, true, true, false, new Phaser.Point(0, 0), new Phaser.Point(0, 1), new Phaser.Point(0, 0), true, key, frame));
+        this.leftLeg.addAccessory(new Accessory(this.game, true, true, false, new Phaser.Point(1, 0), new Phaser.Point(1, 1), new Phaser.Point(0, 0), false, key, frame, 'leftShoe'), true);
+        this.rightLeg.addAccessory(new Accessory(this.game, true, true, false, new Phaser.Point(0, 0), new Phaser.Point(0, 1), new Phaser.Point(0, 0), true, key, frame, 'rightShoe'), true);
     }
 
     toJSON() {

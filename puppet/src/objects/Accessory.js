@@ -2,8 +2,9 @@ import Scalable from './Scalable.js';
 import RelativePosition from './RelativePosition.js';
 
 export default class Accessory extends RelativePosition(Scalable(Phaser.Sprite)) {
-    constructor(game, maintainAspectRatio, followWidth, followHeight, anchor, offset, offsetInPixel, flipX, key, frame) {
+    constructor(game, maintainAspectRatio, followWidth, followHeight, anchor, offset, offsetInPixel, flipX, key, frame, name) {
         super(game, 0, 0, key, frame);
+        this.name = name;
         this.flipX = flipX;
         this.initKey = key;
         this.initFrame = frame;
@@ -43,6 +44,6 @@ export default class Accessory extends RelativePosition(Scalable(Phaser.Sprite))
     }
     
     static fromJSON(game, j) {
-        return new Accessory(game, j.maintainAspectRatio, j.followWidth, j.followHeight, j.relativeAnchor, j.relativeOffset, j.offsetInPixel, j.flipX, j.initKey, j.initFrame);        
+        return new Accessory(game, j.maintainAspectRatio, j.followWidth, j.followHeight, j.relativeAnchor, j.relativeOffset, j.offsetInPixel, j.flipX, j.initKey, j.initFrame, j.name);        
     }
 }

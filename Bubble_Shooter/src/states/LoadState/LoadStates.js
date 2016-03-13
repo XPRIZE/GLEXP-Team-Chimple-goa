@@ -28,7 +28,6 @@ class LoadStates extends Phaser.State {
         this.game.load.image('starGame2','assets/starGame2.png');
         this.game.load.image('starGame3','assets/starGame3.png');
         
-        
         if(this.game._LoadFlag == 1 || this.game._LoadFlag == 3 || this.game._LoadFlag == 4 || this.game._LoadFlag == 5 || this.game._LoadFlag == 6){
         
         this.game.load.image('A', 'assets/A.png');
@@ -73,6 +72,42 @@ class LoadStates extends Phaser.State {
         this.game.load.image('7', 'assets/7.png');
         this.game.load.image('8', 'assets/8.png');
         this.game.load.image('9', 'assets/9.png');
+        }
+
+        //Load Audiio Files 
+
+/*
+		this.game.load.audio('jump', ['assets/jump.ogg', 'assets/jump.mp3']);        
+        this.jumpSound = this.game.add.audio('jump');
+        this.jumpSound.play();
+*/
+        if(this.game._LoadFlag == 1){
+        this.game.load.audio('A_Sound', 'sounds/abcd/A_Sound.wav');
+        this.game.load.audio('B_Sound', 'sounds/abcd/B_Sound.wav');
+        this.game.load.audio('C_Sound', 'sounds/abcd/C_Sound.wav');
+        this.game.load.audio('D_Sound', 'sounds/abcd/D_Sound.wav');
+        this.game.load.audio('E_Sound', 'sounds/abcd/E_Sound.wav');
+        this.game.load.audio('F_Sound', 'sounds/abcd/F_Sound.wav');
+        this.game.load.audio('G_Sound', 'sounds/abcd/G_Sound.wav');
+        this.game.load.audio('H_Sound', 'sounds/abcd/H_Sound.wav');
+        this.game.load.audio('I_Sound', 'sounds/abcd/I_Sound.wav');
+        this.game.load.audio('J_Sound', 'sounds/abcd/J_Sound.wav');
+        this.game.load.audio('K_Sound', 'sounds/abcd/K_Sound.wav');
+        this.game.load.audio('L_Sound', 'sounds/abcd/L_Sound.wav');
+        this.game.load.audio('M_Sound', 'sounds/abcd/M_Sound.wav');
+        this.game.load.audio('N_Sound', 'sounds/abcd/N_Sound.wav');
+        this.game.load.audio('O_Sound', 'sounds/abcd/O_Sound.wav');
+        this.game.load.audio('P_Sound', 'sounds/abcd/P_Sound.wav');
+        this.game.load.audio('Q_Sound', 'sounds/abcd/Q_Sound.wav');
+        this.game.load.audio('R_Sound', 'sounds/abcd/R_Sound.wav');
+        this.game.load.audio('S_Sound', 'sounds/abcd/S_Sound.wav');
+        this.game.load.audio('T_Sound', 'sounds/abcd/T_Sound.wav');
+        this.game.load.audio('U_Sound', 'sounds/abcd/U_Sound.wav');
+        this.game.load.audio('V_Sound', 'sounds/abcd/V_Sound.wav');
+        this.game.load.audio('W_Sound', 'sounds/abcd/W_Sound.wav');
+        this.game.load.audio('X_Sound', 'sounds/abcd/X_Sound.wav');
+        this.game.load.audio('Y_Sound', 'sounds/abcd/Y_Sound.wav');
+        this.game.load.audio('Z_Sound', 'sounds/abcd/Z_Sound.wav');
         }
     }
     

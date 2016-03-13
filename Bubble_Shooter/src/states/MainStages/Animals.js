@@ -1040,14 +1040,14 @@ class Animals extends Phaser.State{
     this.bg1.scale.setTo(this.widthScale, this.heightScale);    
         
     let dataDimension = this.getValueXY(52,25);
-    this.buttonNext = this.game.add.image(dataDimension.X,dataDimension.Y,'Complete'); 
-    this.buttonNext.anchor.setTo(0.5);
-    this.buttonNext.scale.setTo(this.widthScale, this.heightScale);    
+    this.CompleteText = this.game.add.image(dataDimension.X,dataDimension.Y,'Complete'); 
+    this.CompleteText.anchor.setTo(0.5);
+    this.CompleteText.scale.setTo(this.widthScale, this.heightScale);    
 
     dataDimension = this.getValueXY(52,40);
-    this.buttonNext = this.game.add.image(dataDimension.X,dataDimension.Y,'starGame1'); 
-    this.buttonNext.anchor.setTo(0.5);
-    this.buttonNext.scale.setTo(this.widthScale, this.heightScale);    
+    this.Stars = this.game.add.image(dataDimension.X,dataDimension.Y,'starGame1'); 
+    this.Stars.anchor.setTo(0.5);
+    this.Stars.scale.setTo(this.widthScale, this.heightScale);  
         
  //   let dataDimension = this.getValueXY(50 , 25);    
  //   this.pageText = this.game.add.text(dataDimension.X,dataDimension.Y, "\t\t\t\t LEVEL 2  \n COMPLETE !!  ", {font: ""+ 100 * ((this.widthScale+this.heightScale)/2) +"px Arial", fill: "#FFDF00"})
@@ -1378,7 +1378,6 @@ class Animals extends Phaser.State{
                         tiletype: 0
              }
          };
-          
           
          // Array Of BubbleColor
          this.bubbleName = new Array(this.level.columns);

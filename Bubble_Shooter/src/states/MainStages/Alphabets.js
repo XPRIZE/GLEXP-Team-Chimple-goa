@@ -40,8 +40,12 @@ class Alphabets extends Phaser.State {
             this.levelName = "AlphabetStarLevel1";            
             this.hits = 50;
             this.letterSprite = ['A','B','C','D'];
+            this.jumpSound1 = this.game.add.audio(""+this.letterSprite[0]+"_Sound");
+            this.jumpSound2 = this.game.add.audio(""+this.letterSprite[1]+"_Sound");
+            this.jumpSound3 = this.game.add.audio(""+this.letterSprite[2]+"_Sound");
+            this.jumpSound4 = this.game.add.audio(""+this.letterSprite[3]+"_Sound");
+
             let color = 4 , repeat = 2;
-        
             // Create the level of bubbles
             this.createLevel(color,repeat);
         
@@ -51,6 +55,10 @@ class Alphabets extends Phaser.State {
             this.hits = 50;
             this.letterSprite = ['E','F','G','H'];
             let color = 4 , repeat = 2;
+            this.jumpSound1 = this.game.add.audio(""+this.letterSprite[0]+"_Sound");
+            this.jumpSound2 = this.game.add.audio(""+this.letterSprite[1]+"_Sound");
+            this.jumpSound3 = this.game.add.audio(""+this.letterSprite[2]+"_Sound");
+            this.jumpSound4 = this.game.add.audio(""+this.letterSprite[3]+"_Sound");
         
             // Create the level of bubbles
             this.createLevel(color,repeat);
@@ -60,6 +68,10 @@ class Alphabets extends Phaser.State {
             this.hits = 50;
             this.letterSprite = ['I','J','K','L'];
             let color = 4 , repeat = 2;
+            this.jumpSound1 = this.game.add.audio(""+this.letterSprite[0]+"_Sound");
+            this.jumpSound2 = this.game.add.audio(""+this.letterSprite[1]+"_Sound");
+            this.jumpSound3 = this.game.add.audio(""+this.letterSprite[2]+"_Sound");
+            this.jumpSound4 = this.game.add.audio(""+this.letterSprite[3]+"_Sound");
         
             // Create the level of bubbles
             this.createLevel(color,repeat);
@@ -69,6 +81,10 @@ class Alphabets extends Phaser.State {
             this.hits = 50;
             this.letterSprite = ['M','N','O','P'];
             let color = 4 , repeat = 2;
+            this.jumpSound1 = this.game.add.audio(""+this.letterSprite[0]+"_Sound");
+            this.jumpSound2 = this.game.add.audio(""+this.letterSprite[1]+"_Sound");
+            this.jumpSound3 = this.game.add.audio(""+this.letterSprite[2]+"_Sound");
+            this.jumpSound4 = this.game.add.audio(""+this.letterSprite[3]+"_Sound");
         
             // Create the level of bubbles
             this.createLevel(color,repeat);
@@ -78,6 +94,10 @@ class Alphabets extends Phaser.State {
             this.hits = 50;
             this.letterSprite = ['Q','R','S','T'];
             let color = 4 , repeat = 2;
+            this.jumpSound1 = this.game.add.audio(""+this.letterSprite[0]+"_Sound");
+            this.jumpSound2 = this.game.add.audio(""+this.letterSprite[1]+"_Sound");
+            this.jumpSound3 = this.game.add.audio(""+this.letterSprite[2]+"_Sound");
+            this.jumpSound4 = this.game.add.audio(""+this.letterSprite[3]+"_Sound");
         
             // Create the level of bubbles
             this.createLevel(color,repeat);
@@ -88,6 +108,10 @@ class Alphabets extends Phaser.State {
             this.hits = 50;
             this.letterSprite = ['U','V','W','X'];
             let color = 4 , repeat = 2;
+            this.jumpSound1 = this.game.add.audio(""+this.letterSprite[0]+"_Sound");
+            this.jumpSound2 = this.game.add.audio(""+this.letterSprite[1]+"_Sound");
+            this.jumpSound3 = this.game.add.audio(""+this.letterSprite[2]+"_Sound");
+            this.jumpSound4 = this.game.add.audio(""+this.letterSprite[3]+"_Sound");
         
             // Create the level of bubbles
             this.createLevel(color,repeat);
@@ -98,6 +122,10 @@ class Alphabets extends Phaser.State {
             this.hits = 50;
             this.letterSprite = ['Y','Z','M','X'];
             let color = 4 , repeat = 2;
+            this.jumpSound1 = this.game.add.audio(""+this.letterSprite[0]+"_Sound");
+            this.jumpSound2 = this.game.add.audio(""+this.letterSprite[1]+"_Sound");
+            this.jumpSound3 = this.game.add.audio(""+this.letterSprite[2]+"_Sound");
+            this.jumpSound4 = this.game.add.audio(""+this.letterSprite[3]+"_Sound");
         
             // Create the level of bubbles
             this.createLevel(color,repeat);
@@ -111,6 +139,10 @@ class Alphabets extends Phaser.State {
             let DataAlphabets = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'];
 
             this.letterSprite = [DataAlphabets[alphabets[0]],DataAlphabets[alphabets[1]],DataAlphabets[alphabets[2]],DataAlphabets[alphabets[3]]];
+            this.jumpSound1 = this.game.add.audio(""+this.letterSprite[0]+"_Sound");
+            this.jumpSound2 = this.game.add.audio(""+this.letterSprite[1]+"_Sound");
+            this.jumpSound3 = this.game.add.audio(""+this.letterSprite[2]+"_Sound");
+            this.jumpSound4 = this.game.add.audio(""+this.letterSprite[3]+"_Sound");
         
             // Create the level of bubbles
             this.createLevel(color,repeat);
@@ -125,6 +157,10 @@ class Alphabets extends Phaser.State {
             let DataAlphabets = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'];
 
             this.letterSprite = [DataAlphabets[alphabets[0]],DataAlphabets[alphabets[1]],DataAlphabets[alphabets[2]],DataAlphabets[alphabets[3]]];
+            this.jumpSound1 = this.game.add.audio(""+this.letterSprite[0]+"_Sound");
+            this.jumpSound2 = this.game.add.audio(""+this.letterSprite[1]+"_Sound");
+            this.jumpSound3 = this.game.add.audio(""+this.letterSprite[2]+"_Sound");
+            this.jumpSound4 = this.game.add.audio(""+this.letterSprite[3]+"_Sound");
 
             // Create the level of bubbles
             this.createLevel(color,repeat);
@@ -138,6 +174,10 @@ class Alphabets extends Phaser.State {
             let DataAlphabets = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'];
 
             this.letterSprite = [DataAlphabets[alphabets[0]],DataAlphabets[alphabets[1]],DataAlphabets[alphabets[2]],DataAlphabets[alphabets[3]]];
+            this.jumpSound1 = this.game.add.audio(""+this.letterSprite[0]+"_Sound");
+            this.jumpSound2 = this.game.add.audio(""+this.letterSprite[1]+"_Sound");
+            this.jumpSound3 = this.game.add.audio(""+this.letterSprite[2]+"_Sound");
+            this.jumpSound4 = this.game.add.audio(""+this.letterSprite[3]+"_Sound");
 
         
             // Create the level of bubbles
@@ -153,6 +193,11 @@ class Alphabets extends Phaser.State {
             let DataAlphabets = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'];
 
             this.letterSprite = [DataAlphabets[alphabets[0]],DataAlphabets[alphabets[1]],DataAlphabets[alphabets[2]],DataAlphabets[alphabets[3]],DataAlphabets[alphabets[4]]];
+            this.jumpSound1 = this.game.add.audio(""+this.letterSprite[0]+"_Sound");
+            this.jumpSound2 = this.game.add.audio(""+this.letterSprite[1]+"_Sound");
+            this.jumpSound3 = this.game.add.audio(""+this.letterSprite[2]+"_Sound");
+            this.jumpSound4 = this.game.add.audio(""+this.letterSprite[3]+"_Sound");
+            this.jumpSound5 = this.game.add.audio(""+this.letterSprite[4]+"_Sound");
 
             // Create the level of bubbles
             this.createLevel(color,repeat);
@@ -166,6 +211,12 @@ class Alphabets extends Phaser.State {
             let DataAlphabets = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'];
 
             this.letterSprite = [DataAlphabets[alphabets[0]],DataAlphabets[alphabets[1]],DataAlphabets[alphabets[2]],DataAlphabets[alphabets[3]],DataAlphabets[alphabets[4]],DataAlphabets[alphabets[5]]];
+            this.jumpSound1 = this.game.add.audio(""+this.letterSprite[0]+"_Sound");
+            this.jumpSound2 = this.game.add.audio(""+this.letterSprite[1]+"_Sound");
+            this.jumpSound3 = this.game.add.audio(""+this.letterSprite[2]+"_Sound");
+            this.jumpSound4 = this.game.add.audio(""+this.letterSprite[3]+"_Sound");
+            this.jumpSound5 = this.game.add.audio(""+this.letterSprite[4]+"_Sound");
+            this.jumpSound6 = this.game.add.audio(""+this.letterSprite[5]+"_Sound");
 
             // Create the level of bubbles
             this.createLevel(color,repeat);
@@ -896,8 +947,47 @@ class Alphabets extends Phaser.State {
                            
 			               this.game.add.tween(this.bubbleName[tile.x][tile.y].scale).to({x:3 * this.widthScale, y:3 * this.heightScale},1000,Phaser.Easing.Back.Out, true);
                            this.game.add.tween(this.LetterName[tile.x][tile.y].scale).to({x:3 * this.widthScale, y:3 * this.heightScale},1000,Phaser.Easing.Back.Out, true);
-                           console.log(" world x and y cord : " + this.game.world.centerX + "  "+ this.game.world.centerY);
-                          
+                           
+                           let audioIndex = 0;
+                           for(audioIndex = 0 ;; audioIndex++){
+                               if(this.LetterName[tile.x][tile.y].key == this.letterSprite[audioIndex]){
+                                  console.log("matched value is : " + this.LetterName[tile.x][tile.y].key + "  "+this.letterSprite[audioIndex]);                           
+                                  break;
+                               }
+                               
+                               if(audioIndex > 6){
+                                   console.log("infinite and forloop is not correct ");
+                                   break;
+                               }
+                           }
+                           console.log(" audio index is: "+ audioIndex);
+
+                           if(audioIndex == 0 ){
+
+                                   this.jumpSound1.play();
+
+                           }else if (audioIndex == 1){
+
+                                   this.jumpSound2.play();                               
+
+                           }else if (audioIndex == 2){
+
+                                   this.jumpSound3.play();                               
+
+                           }else if (audioIndex == 3){
+
+                                   this.jumpSound4.play();                               
+
+                           }else if (audioIndex == 4){
+
+                                   this.jumpSound5.play();                               
+
+                           }else if (audioIndex == 5){
+
+                                   this.jumpSound6.play();                               
+
+                           }
+
                            setTimeout(function() {
                                 self.playerDie(tile.x,tile.y,i);
                                 self.bubbleName[tile.x][tile.y].alpha = 0;
@@ -1026,14 +1116,14 @@ class Alphabets extends Phaser.State {
     this.bg1.scale.setTo(this.widthScale, this.heightScale);    
         
     let dataDimension = this.getValueXY(52,25);
-    this.buttonNext = this.game.add.image(dataDimension.X,dataDimension.Y,'Complete'); 
-    this.buttonNext.anchor.setTo(0.5);
-    this.buttonNext.scale.setTo(this.widthScale, this.heightScale);    
+    this.CompleteText = this.game.add.image(dataDimension.X,dataDimension.Y,'Complete'); 
+    this.CompleteText.anchor.setTo(0.5);
+    this.CompleteText.scale.setTo(this.widthScale, this.heightScale);    
 
     dataDimension = this.getValueXY(52,40);
-    this.buttonNext = this.game.add.image(dataDimension.X,dataDimension.Y,'starGame1'); 
-    this.buttonNext.anchor.setTo(0.5);
-    this.buttonNext.scale.setTo(this.widthScale, this.heightScale);    
+    this.Stars = this.game.add.image(dataDimension.X,dataDimension.Y,'starGame1'); 
+    this.Stars.anchor.setTo(0.5);
+    this.Stars.scale.setTo(this.widthScale, this.heightScale);    
         
  //   let dataDimension = this.getValueXY(50 , 25);    
  //   this.pageText = this.game.add.text(dataDimension.X,dataDimension.Y, "\t\t\t\t LEVEL 2  \n COMPLETE !!  ", {font: ""+ 100 * ((this.widthScale+this.heightScale)/2) +"px Arial", fill: "#FFDF00"})

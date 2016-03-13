@@ -8,50 +8,6 @@ class Vegitable extends Phaser.State {
         this.imageSprite = ['Red_Ball','Green_Ball','Yellow_Ball','Purple_Ball','Blue_Ball','Orange_Ball'];
         this.ParticleSprite = ['Red','Green','Orange','Purple','Skyblue','Yellow'];
         
-        this.game.load.image('background', 'assets/Background.png');
-        this.game.load.image('Red', 'assets/Red.png');
-        this.game.load.image('Green', 'assets/Green.png');
-        this.game.load.image('Orange', 'assets/Orange.png');
-        this.game.load.image('Purple', 'assets/Purple.png');
-        this.game.load.image('Skyblue', 'assets/Skyblue.png');
-        this.game.load.image('Yellow', 'assets/Yellow.png');
-        
-        this.game.load.image('Red_Ball', 'assets/Red_Ball.png');
-        this.game.load.image('Green_Ball', 'assets/Green_Ball.png');
-        this.game.load.image('Orange_Ball', 'assets/Orange_Ball.png');
-        this.game.load.image('Purple_Ball', 'assets/Purple_Ball.png');
-        this.game.load.image('Blue_Ball', 'assets/Blue_Ball.png');
-        this.game.load.image('Yellow_Ball', 'assets/Yellow_Ball.png');
-        this.game.load.image('gunPointer','assets/Gun_Shooter.png');
-        this.game.load.image('gunBase','assets/Gun_Base.png');
-        
-        this.game.load.image('A', 'assets/A.png');
-        this.game.load.image('B', 'assets/B.png');
-        this.game.load.image('C', 'assets/C.png');
-        this.game.load.image('D', 'assets/D.png');
-        this.game.load.image('E', 'assets/E.png');
-        this.game.load.image('F', 'assets/F.png');
-        this.game.load.image('G', 'assets/G.png');
-        this.game.load.image('H', 'assets/H.png');
-        this.game.load.image('I', 'assets/I.png');
-        this.game.load.image('J', 'assets/J.png');
-        this.game.load.image('K', 'assets/K.png');
-        this.game.load.image('L', 'assets/L.png');
-        this.game.load.image('M', 'assets/M.png');
-        this.game.load.image('N', 'assets/N.png');
-        this.game.load.image('O', 'assets/O.png');
-        this.game.load.image('P', 'assets/P.png');
-        this.game.load.image('Q', 'assets/Q.png');
-        this.game.load.image('R', 'assets/R.png');
-        this.game.load.image('S', 'assets/S.png');
-        this.game.load.image('T', 'assets/T.png');
-        this.game.load.image('U', 'assets/U.png');
-        this.game.load.image('V', 'assets/V.png');
-        this.game.load.image('W', 'assets/W.png');
-        this.game.load.image('X', 'assets/X.png');
-        this.game.load.image('Y', 'assets/Y.png');
-        this.game.load.image('Z', 'assets/Z.png');
-
         this.game.load.image('Banana','assets/BananaImg.png');
         this.game.load.image('WhiteBall','assets/WhiteBall.png');
         
@@ -1085,14 +1041,14 @@ class Vegitable extends Phaser.State {
     this.bg1.scale.setTo(this.widthScale, this.heightScale);    
         
     let dataDimension = this.getValueXY(52,25);
-    this.buttonNext = this.game.add.image(dataDimension.X,dataDimension.Y,'Complete'); 
-    this.buttonNext.anchor.setTo(0.5);
-    this.buttonNext.scale.setTo(this.widthScale, this.heightScale);    
+    this.CompleteText = this.game.add.image(dataDimension.X,dataDimension.Y,'Complete'); 
+    this.CompleteText.anchor.setTo(0.5);
+    this.CompleteText.scale.setTo(this.widthScale, this.heightScale);    
 
     dataDimension = this.getValueXY(52,40);
-    this.buttonNext = this.game.add.image(dataDimension.X,dataDimension.Y,'starGame1'); 
-    this.buttonNext.anchor.setTo(0.5);
-    this.buttonNext.scale.setTo(this.widthScale, this.heightScale);    
+    this.Stars = this.game.add.image(dataDimension.X,dataDimension.Y,'starGame1'); 
+    this.Stars.anchor.setTo(0.5);
+    this.Stars.scale.setTo(this.widthScale, this.heightScale);
         
  //   let dataDimension = this.getValueXY(50 , 25);    
  //   this.pageText = this.game.add.text(dataDimension.X,dataDimension.Y, "\t\t\t\t LEVEL 2  \n COMPLETE !!  ", {font: ""+ 100 * ((this.widthScale+this.heightScale)/2) +"px Arial", fill: "#FFDF00"})
@@ -1131,6 +1087,9 @@ class Vegitable extends Phaser.State {
     
     MenuButton(){
          console.log("Menu button clicked ");
+         
+     //    this.game.cache.removeImage('image1');
+         
          this.state.start('HomeScreen');
     }
     
