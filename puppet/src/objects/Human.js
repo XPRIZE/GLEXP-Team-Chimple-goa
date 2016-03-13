@@ -122,7 +122,7 @@ export default class Human extends Puppet {
     }
     
     setShirt(key, frame) {
-        this.body.addAccessory(new Accessory(this.game, true, true, false, new Phaser.Point(0.5, 0), new Phaser.Point(0.5, 0), new Phaser.Point(0, 0), false, key, frame, 'shirt'), true);
+        this.body.addAccessory(new Accessory(this.game, true, true, true, new Phaser.Point(0.5, 0), new Phaser.Point(0.5, 0), new Phaser.Point(0, 0), false, key, frame, 'shirt'), true);
     }
     
     setSleeve(key, frame) {
