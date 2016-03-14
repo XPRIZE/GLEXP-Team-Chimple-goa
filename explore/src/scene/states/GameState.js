@@ -7,6 +7,7 @@ import Item from '../objects/Item.js';
 import Holder from '../objects/Holder.js';
 import Surface from '../objects/Surface.js';
 import Util from '../objects/Util.js';
+import Human from '../../puppet/objects/Human.js';
 
 export default class GameState extends Phaser.State {
 
@@ -16,18 +17,18 @@ export default class GameState extends Phaser.State {
     create() {
         let scene = new Scene(game, this.game.width * 2, this.game.height);
         scene.wall = new Wall(game, 0, 0);
-        scene.wall.addTexture(new TileTexture(game, 0, 0, this.game.width, this.game.height * 0.6, 'scene', 'Wall_Tile_single.png'));
+        scene.wall.addTexture(new TileTexture(game, 0, 0, this.game.width, this.game.height * 0.6, 'scene/scene', 'Wall_Tile_single.png'));
         scene.floor = new Floor(game, 0, this.game.height * 0.6);
-        scene.floor.addTexture(new TileTexture(game, 0, 0, this.game.width, this.game.height * 0.4, 'scene', 'Tile.png'));
+        scene.floor.addTexture(new TileTexture(game, 0, 0, this.game.width, this.game.height * 0.4, 'scene/scene', 'Tile.png'));
         
         var sink = new Holder(game, 100, 10);
-        sink.backTexture = new Texture(game, 0, 0, 'scene', 'Sink_Main.png');
+        sink.backTexture = new Texture(game, 0, 0, 'scene/scene', 'Sink_Main.png');
         
         let sinkTop = new Surface(game, 0, 0);
-        sinkTop.addTexture(new Texture(game, 0, 0, 'scene', 'Sink_upper.png'));
-        let item = new Item(game, 0, 0, 'scene', 'Object_1.png')
+        sinkTop.addTexture(new Texture(game, 0, 0, 'scene/scene', 'Sink_upper.png'));
+        let item = new Item(game, 0, 0, 'scene/scene', 'Object_1.png')
         sinkTop.addContent(item);
-        let item1 = new Item(game, 0, 0, 'scene', 'Object_3.png')
+        let item1 = new Item(game, 0, 0, 'scene/scene', 'Object_3.png')
         sinkTop.addContent(item1);
         sink.addSurface(sinkTop);
 

@@ -16,7 +16,7 @@ export default class BootState extends Phaser.State {
             this.game.scale.pageAlignHorizontally = true;
         }
 
-        this.game.state.start('PreloadState');
+        this.game.state.start('PuppetPreloadState');
  	}
 
 }

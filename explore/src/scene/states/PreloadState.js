@@ -6,7 +6,7 @@ export default class PreloadState extends Phaser.State {
 
     this.load.onLoadComplete.addOnce(this.onLoadComplete, this);
     this.load.setPreloadSprite(this._asset);
-    this.load.atlas('scene', "assets/scene.png", "assets/scene.json");
+    this.load.atlas('scene/scene', "assets/scene/scene.png", "assets/scene/scene.json");
   }
 
   create() {

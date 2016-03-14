@@ -12,6 +12,6 @@ export default class MenuState extends Phaser.State {
 	}
 
     onDown() {
-        this.game.state.start('GameState');
+        this.game.state.start('PuppetGameState');
     }
 }

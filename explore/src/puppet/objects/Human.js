@@ -183,8 +183,8 @@ export default class Human extends Puppet {
         human.rightLeg = new Limb(game, new Phaser.Point(0, 0), new Phaser.Point(0.5, 1), new Phaser.Point(10,-20), false, human.bodyColor);
         human.rightLeg.shape = new Shape(game, new Phaser.Point(0, 0), new Phaser.Point(0, 0), new Phaser.Point(0, 0), new Phaser.Rectangle(0, 0, 50, 300));
         
-        human.setPants('2', 'pants/005khakisuit_leg.png');
-        human.setShoes('1', 'shoes/001blacksneakers.png');
+        human.setPants('puppet/2', 'pants/005khakisuit_leg.png');
+        human.setShoes('puppet/1', 'shoes/001blacksneakers.png');
         
         human.defineBehavior();
         return human;

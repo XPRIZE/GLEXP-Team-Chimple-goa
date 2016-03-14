@@ -8,9 +8,9 @@ import TabView from '../objects/TabView.js';
 export default class GameState extends Phaser.State {
 
   preload() {
-    this.load.atlas('chooser', 'assets/chooser.png', 'assets/chooser.json');
-    this.load.atlas('shirt', 'assets/shirt.png', 'assets/shirt.json');
-    this.load.json('dress', 'assets/dress.json');
+    this.load.atlas('puppet/chooser', 'assets/puppet/chooser.png', 'assets/puppet/chooser.json');
+    this.load.atlas('puppet/shirt', 'assets/puppet/shirt.png', 'assets/puppet/shirt.json');
+    this.load.json('puppet/dress', 'assets/puppet/dress.json');
   }
 
   create() {
@@ -19,8 +19,8 @@ export default class GameState extends Phaser.State {
     puppet.x = this.game.width / 4;
     puppet.y = 200;
     puppet.bodyColor = 0x7777ff;
-    let dressChoices = this.cache.getJSON('dress');
-    let chooser = this.game.add.existing(new TabView(this.game, 'chooser', this.game.width / 2, this.game.height, 50, function (accType, accName) {
+    let dressChoices = this.cache.getJSON('puppet/dress');
+    let chooser = this.game.add.existing(new TabView(this.game, 'puppet/chooser', this.game.width / 2, this.game.height, 50, function (accType, accName) {
       let acc = dressChoices[accType][accName];
       for (var key in acc) {
         if (acc.hasOwnProperty(key)) {
@@ -46,7 +46,7 @@ export default class GameState extends Phaser.State {
     //let a=JSON.parse(JSON.stringify(puppet, Util.replacer), Util.revive);    
     //a.x = 200;
 
-    let test = this.game.add.sprite(50, 50, 'chooser', 'arm_chooser.png');
+    let test = this.game.add.sprite(50, 50, 'puppet/chooser', 'arm_chooser.png');
     // test.anchor = new Phaser.Point(0.5,0);
     // test.scale.x = -1;
     //let test1 = this.game.add.sprite(0,0,'0svg');
