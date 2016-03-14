@@ -45,7 +45,6 @@ let Scalable = (superclass) => class extends superclass {
       }
     }
     this.scale.setTo(x, y);
-    console.log('setting scale: x' + x + " y:" + y + " for:" + this.name);
   }
 }
 

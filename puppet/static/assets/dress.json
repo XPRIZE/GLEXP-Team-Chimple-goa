@@ -221,29 +221,45 @@
   },
   "shoes_chooser": {
     "shirt1": {
-      "Shoes": {
+      "Shirt": {
         "key": "1",
-        "frame": "shoes/001blacksneakers.png"
+        "frame": "shirt/001redplaid_body.png"
+      },
+      "Sleeve": {
+        "key": "2",
+        "frame": "shirt/001redplaid_arm.png"
       }
     },
     "shirt2": {
-      "Shoes": {
+      "Shirt": {
+        "key": "1",
+        "frame": "shirt/001redplaid_body.png"
+      },
+      "Sleeve": {
         "key": "2",
-        "frame": "shoes/003hightop.png"
+        "frame": "shirt/001redplaid_arm.png"
       }
     }
   },
   "skinColor_chooser": {
     "shirt1": {
-      "SkinColor": {
+      "Shirt": {
         "key": "1",
-        "frame": "0x7777FF"
+        "frame": "shirt/001redplaid_body.png"
+      },
+      "Sleeve": {
+        "key": "2",
+        "frame": "shirt/001redplaid_arm.png"
       }
     },
     "shirt2": {
-      "SkinColor": {
+      "Shirt": {
         "key": "1",
-        "frame": "#0xFF00FF"
+        "frame": "shirt/001redplaid_body.png"
+      },
+      "Sleeve": {
+        "key": "2",
+        "frame": "shirt/001redplaid_arm.png"
       }
     }
   }
