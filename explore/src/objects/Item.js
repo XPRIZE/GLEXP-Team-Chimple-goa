@@ -2,7 +2,7 @@ import Texture from './Texture.js';
 import TileTexture from './TileTexture.js';
 import Surface from './Surface.js';
 
-export default class Item extends Texture {
+export default class Item extends Phaser.Sprite {
     constructor(game, x, y, key, frame) {
         super(game, x, y, key, frame);  
         this.anchor.setTo(0, 1);
@@ -43,8 +43,13 @@ export default class Item extends Texture {
     }
     
     toJSON() {
-        let json = super.toJSON();
-        json._class = "Item";
+        let json = {
+            _class: "Item",
+            x: this.x,
+            y: this.y,
+            key: this.key,
+            frame: this.frameName
+        }
         return json;
     }
     

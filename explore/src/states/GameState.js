@@ -24,19 +24,22 @@ export default class GameState extends Phaser.State {
         sink.backTexture = new Texture(game, 0, 0, 'scene', 'Sink_Main.png');
         
         let sinkTop = new Surface(game, 0, 0);
-        sinkTop.texture = new Texture(game, 0, 0, 'scene', 'Sink_upper.png')
-        sinkTop.addContent(new Item(game, 0, 0, 'scene', 'Object_1.png'));
+        sinkTop.addTexture(new Texture(game, 0, 0, 'scene', 'Sink_upper.png'));
+        let item = new Item(game, 0, 0, 'scene', 'Object_1.png')
+        sinkTop.addContent(item);
+        let item1 = new Item(game, 0, 0, 'scene', 'Object_3.png')
+        sinkTop.addContent(item1);
         sink.addSurface(sinkTop);
 
-        var sink1 = new Holder(game, 0, -50);
-        sink1.backTexture = new Texture(game, 0, 0, 'scene', 'Sink_Main.png');
+        // var sink1 = new Holder(game, 0, -50);
+        // sink1.backTexture = new Texture(game, 0, 0, 'scene', 'Sink_Main.png');
         
-        let sink1Top = new Surface(game, 0, 0);
-        sink1Top.addTexture(new Texture(game, 0, 0, 'scene', 'Sink_upper.png'));
-        let item = new Item(game, 0, 0, 'scene', 'Object_1.png');
-        sink1Top.addContent(item);
-        sink1.addSurface(sink1Top);
-        sinkTop.addContent(sink1);
+        // let sink1Top = new Surface(game, 0, 0);
+        // sink1Top.addTexture(new Texture(game, 0, 0, 'scene', 'Sink_upper.png'));
+        // let item = new Item(game, 0, 0, 'scene', 'Object_1.png');
+        // sink1Top.addContent(item);
+        // sink1.addSurface(sink1Top);
+        // sinkTop.addContent(sink1);
 
         scene.floor.addContent(sink);
         

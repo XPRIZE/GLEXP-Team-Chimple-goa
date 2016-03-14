@@ -20,7 +20,7 @@ export default class Util {
         } else if (v instanceof Object && v._class == 'Texture') {
             return Texture.fromJSON(window.game, v);
         } else if (v instanceof Object && v._class == 'TileTexture') {
-            return Texture.fromJSON(window.game, v);
+            return TileTexture.fromJSON(window.game, v);
         } else if (v instanceof Object && v._class == 'Surface') {
             return Surface.fromJSON(window.game, v);
         } else if (v instanceof Object && v._class == 'Item') {

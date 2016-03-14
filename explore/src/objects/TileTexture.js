@@ -5,7 +5,7 @@ export default class TileTexture extends Phaser.TileSprite {
 
     toJSON() {
         let json = {
-            _class: "Texture",
+            _class: "TileTexture",
             x: this.x,
             y: this.y,
             width: this.width,
