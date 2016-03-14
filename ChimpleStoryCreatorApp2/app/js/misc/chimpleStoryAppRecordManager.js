@@ -390,12 +390,32 @@ var DragonBoneSprite = require('../fabs/dragonBoneSprite');
       }
     },
 
+    recordImageToLibrary: function (data, storyId) {
+      var self = this;
+      var storyInLibrary = self.game.storageDB.findInLibraryById(self.game.storage_config.libraryCollection, storyId);
+      storyInLibrary.imgSrc = data;
+      self.game.storageDB.getDB().save();
+    },
+
+    recordPageImageToLibrary: function (data, storyId, pageId) {
+      var self = this;
+      var libCollection = self.game.storageDB.getCollection(self.game.storage_config.libraryCollection);
+      var storyInLibrary = self.game.storageDB.findInLibraryById(self.game.storage_config.libraryCollection, storyId);
+      _.each(storyInLibrary.pages, function (p) {
+        if (p.id === pageId) {
+          p.backgroundImage = data;
+          libCollection.update(storyInLibrary);
+          self.game.storageDB.getDB().save();
+        }
+      });
+
+    },
+
     recordPropertiesChangeAcrossAllObjects: function (data) {
       var self = this;
       self.setPropteryToDefaultSuppliedValueForAllGameObjects(data);
 
       var collection = self.game.storageDB.getCollection(self.game.storage_config.storiesCollection);
-      var spriteToSave;
       var index;
 
       var identifiedObj = self.identifyObjectByUniquename(data.uniquename);

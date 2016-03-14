@@ -7,8 +7,8 @@ app.directive('phaserStory', ['$window', function ($window) {
 
   var link = function (scope, element, attrs) {
     storyContainer = angular.element(document.getElementById('phaser-story'));
-    console.log('toolbarheight 22222:' + scope.$root.toolBarHeight);
     scope.toolBarHeight = scope.$root.toolBarHeight;
+    scope.pageType = scope.$root.pageType;
     require('../states/editMode/init.js')(scope, storyContainer[0]);
   };
 

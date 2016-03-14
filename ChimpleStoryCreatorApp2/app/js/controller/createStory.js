@@ -66,10 +66,6 @@ module.exports = ['$scope', '$rootScope', '$location', '$route', '$routeParams',
 
     });
 
-    $scope.modifyTitle = function () {
-
-    };
-
     $scope.deletePage = function (index, obj) {
       $scope.draggableObjects.splice(index, 1);
       CreateStoryService.syncPages($scope.currentStory.id, $scope.draggableObjects);
@@ -81,7 +77,7 @@ module.exports = ['$scope', '$rootScope', '$location', '$route', '$routeParams',
       console.log('adding new page for Story:' + $scope.currentStory.id);
       //call service and generate new page
       var count = $scope.draggableObjects.length + 1;
-      var newPage = CreateStoryService.createPage($scope.currentStory.id, count, "content", "assets/images/newPage.png");
+      var newPage = CreateStoryService.createPage($scope.currentStory.id, count, "content", "assets/images/new_blank_page.png");
       $scope.draggableObjects.push(newPage);
     };
 
@@ -107,6 +103,7 @@ module.exports = ['$scope', '$rootScope', '$location', '$route', '$routeParams',
     };
 
     vm.updateTitle = function (title) {
+      $scope.currentStory.title = title;
       CreateStoryService.updateTitle($scope.currentStory.id, title);
     }
 
@@ -152,11 +149,10 @@ module.exports = ['$scope', '$rootScope', '$location', '$route', '$routeParams',
     $scope.editPage = function (index, page) {
       var createToolBar = document.getElementById("createToolBar");
       var toolBarHeight = 0;
-      if (createToolBar) {
-        $rootScope.toolBarHeight = createToolBar.clientHeight;
-      } else {
-        $rootScope.toolBarHeight = 0;
-      }
+      $rootScope.toolBarHeight = createToolBar ? createToolBar.clientHeight : 0;
+
+      $rootScope.pageType = page.type;
+
       $location.path("/editPage/" + page.id + "/" + $scope.currentStory.id + "/" + $scope.currentStory.title + "/" + $rootScope.toolBarHeight);
     };
 

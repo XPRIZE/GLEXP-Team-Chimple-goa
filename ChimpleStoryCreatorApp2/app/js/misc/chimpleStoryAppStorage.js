@@ -9,6 +9,21 @@
       return this.dbName;
     },
 
+    findInLibraryById: function (collectionKind, queryBy) {
+      var self = this;
+      var result = null;
+      self.dbName.loadDatabase({}, function () {
+        var collections = self.dbName.getCollection(collectionKind);
+        var story = collections.findOne({
+          'id': {
+            '$eq': queryBy
+          }
+        });
+        result = story;
+      });
+      return result;
+    },
+
     findStoryId: function (collectionKind, queryBy) {
       var self = this;
       var result = null;

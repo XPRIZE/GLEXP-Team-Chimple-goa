@@ -1,7 +1,7 @@
 'use strict';
 var _ = require('lodash')._;
 var NarrateCharacterSprite = require('../../fabs/narrateCharacterSprite');
-var dragonBones = require('../../dragonBones/phaserDragonBones');
+//var dragonBones = require('../../dragonBones/phaserDragonBones');
 
 var NarrateGameState = function (game) {
   var self = this;
@@ -265,6 +265,10 @@ NarrateGameState.prototype.loadGame = function () {
         var alpha = bInfo.hasOwnProperty("alpha") ? bInfo["alpha"] : 0;
         var texts = bInfo.hasOwnProperty("texts") ? bInfo["texts"] : [];
         var sound = bInfo.hasOwnProperty("sound") ? bInfo["sound"] : [];
+
+        x = x * self.game.actualGameWidth;
+        y = y * self.game.actualGameHeight;
+
         self.createBackGroundFromCache(x, y, name, anchorX, anchorY, scaleX, scaleY, uniquename, angle, rotation, alpha, texts, sound);
       }
     }
@@ -402,7 +406,7 @@ NarrateGameState.prototype.update = function () {
   //console.log('calling gamestate update');
 
   //self.firefilter.update();    
-  dragonBones.animation.WorldClock.clock.advanceTime(0.02);
+  //dragonBones.animation.WorldClock.clock.advanceTime(0.02);
 };
 
 NarrateGameState.prototype.createBackGroundFromCache = function (x, y, name, anchorX, anchorY, scaleX, scaleY, uniquename, angle, rotation, alpha, texts, sound) {
@@ -411,7 +415,6 @@ NarrateGameState.prototype.createBackGroundFromCache = function (x, y, name, anc
   self.background.uniquename = uniquename;
   self.background.anchor.set(anchorX, anchorY);
   self.background.scale.set(self.game.widthScaleFactor * scaleX, self.game.heightScaleFactor * scaleY);
-  crea
   self.background.angle = angle;
   self.background.texts = texts;
   self.background.sound = sound;
@@ -515,13 +518,13 @@ NarrateGameState.prototype.createDragonBoneArmature = function (defaultAnimation
   };
 
   console.log(config);
-  console.log(window.dragonBones);
+  
   //var dragonBones = window.dragonBones;
   //load phaser dragonbone
-  dragonBones.game = self.game;
-  dragonBones.stageContext = this;
-  dragonBones.stageContext.uniqueDragonName = uniquename;
-
+  //dragonBones.game = self.game;
+  //dragonBones.stageContext = this;
+  //dragonBones.stageContext.uniqueDragonName = uniquename;
+  var dragonBones = undefined;
   var armature = dragonBones.makeArmaturePhaser(config, skeletonJSON, atlasJson, texture);
 
   return armature;

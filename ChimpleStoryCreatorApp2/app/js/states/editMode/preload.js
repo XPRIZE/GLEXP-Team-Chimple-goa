@@ -48,6 +48,7 @@ PreloadState.prototype.preload = function () {
   self.game.load.script('filterX', 'https://cdn.rawgit.com/photonstorm/phaser/master/filters/BlurX.js');
   self.game.load.script('filterY', 'https://cdn.rawgit.com/photonstorm/phaser/master/filters/BlurY.js');
   self.game.load.script('fireFilter', 'https://cdn.rawgit.com/photonstorm/phaser/master/filters/Fire.js');
+  self.game.load.image('mask', 'assets/images/mask-test2.png');
 
   self.loadExistingPage();
 };

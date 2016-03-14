@@ -16,10 +16,6 @@ require('angular-messages');
 var _ = require('lodash')._;
 var AbstractParentSprite = require('./fabs/abstractParentSprite');
 var CharacterSprite = require('./fabs/characterSprite');
-var DragonBoneSprite = require('./fabs/dragonBoneSprite');
-var DragonBone = require('./dragonBones/dragonBones');
-var PhaserDragonBone = require('./dragonBones/phaserDragonBones');
-
 var app = angular.module('chimpleStoryBuilderApp', ['ngRoute', 'ngAnimate', 'ngResource', 'ngMaterial', 'lokijs', 'ngDraggable', 'ngCordova']);
 
 app.constant('VERSION', require('../../package.json').version);
@@ -43,9 +39,9 @@ require('./directive/ngDraggable');
 require('./directive/phaserStory');
 require('./directive/phaserNarrateStory');
 require('./directive/customToolBarFilter');
+require('./directive/popOver');
+require('./directive/singleClick');
 require('./fabs/characterSprite');
-require('./fabs/dragonBoneSprite');
-
 require('./misc/chimpleStoryAppStorage');
 require('./misc/chimpleStoryAppRecordManager');
 
@@ -68,7 +64,7 @@ app.config(function ($routeProvider, $locationProvider, $mdThemingProvider) {
     .when('/editPage/:id/:storyId/:title/:toolBarHeight', {
       templateUrl: 'views/editPage.html'
     })
-    .when('/narrateStory/:storyId/:title', {
+    .when('/narrateStory/:storyId/:title/:toolBarHeight', {
       templateUrl: 'views/narrateStory.html'
     })
     .otherwise({

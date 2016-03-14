@@ -67,21 +67,23 @@ BootState.prototype.initializeCollections = function () {
 
 BootState.prototype.preload = function () {
   this.assetpack = this.game.cache.getJSON('assetpack');
+  if (this.assetpack != null) {
+    var backGroundImages = this.assetpack.assets.editor.images;
+    for (var key in backGroundImages) {
+      this.game.load.image(key, backGroundImages[key]);
+    }
 
-  var backGroundImages = this.assetpack.assets.editor.images;
-  for (var key in backGroundImages) {
-    this.game.load.image(key, backGroundImages[key]);
-  }
+    var images = this.assetpack.assets.preloader.images;
+    for (var key in images) {
+      this.game.load.image(key, images[key]);
+    }
 
-  var images = this.assetpack.assets.preloader.images;
-  for (var key in images) {
-    this.game.load.image(key, images[key]);
-  }
+    var spritesheets = this.assetpack.assets.editor.spritesheets;
 
-  var spritesheets = this.assetpack.assets.editor.spritesheets;
+    for (var key in spritesheets) {
+      this.game.load.atlasJSONHash(key, spritesheets[key].image, spritesheets[key].json);
+    }
 
-  for (var key in spritesheets) {
-    this.game.load.atlasJSONHash(key, spritesheets[key].image, spritesheets[key].json);
   }
 };
 

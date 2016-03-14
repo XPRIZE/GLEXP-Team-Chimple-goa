@@ -1,6 +1,6 @@
 'use strict';
 
-module.exports = ['$scope', '$location', '$mdMedia', 'FetchStoriesService', 'Loki', 'chimpleConfig', '_', function ($scope, $location, $mdMedia, FetchStoriesService, Loki, chimpleConfig, _) {
+module.exports = ['$scope', '$rootScope', '$location', '$mdMedia', 'FetchStoriesService', 'ChimpleSpeechService', 'Loki', 'chimpleConfig', '_', function ($scope, $rootScope, $location, $mdMedia, FetchStoriesService, ChimpleSpeechService, Loki, chimpleConfig, _) {
   console.log('LibraryCtrl');
   var vm = this;
   $scope.stories = [];
@@ -106,8 +106,11 @@ module.exports = ['$scope', '$location', '$mdMedia', 'FetchStoriesService', 'Lok
   };
 
   $scope.startNarrateStory = function ($event, story) {
+    var libraryToolBar = document.getElementById("libraryToolBar");
+    var toolBarHeight = 0;
+    $rootScope.toolBarHeight = libraryToolBar ? libraryToolBar.clientHeight : 0;
     console.log('start narrating story $event:' + $event + " story id:" + story);
-    $location.path("/narrateStory/" + story.id + "/" + story.title);
+    $location.path("/narrateStory/" + story.id + "/" + story.title + "/" + $rootScope.toolBarHeight);
   };
 
   $scope.editStory = function ($event, story) {

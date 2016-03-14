@@ -7,7 +7,8 @@ var AttributeEditOverlay = require('../../fabs/attributeEditOverlay');
 
 var TextEditor = require('../../misc/textEditor');
 var TextSprite = require('../../fabs/textSprite');
-var dragonBones = require('../../dragonBones/phaserDragonBones');
+//var dragonBones = require('../../dragonBones/phaserDragonBones');
+import RainbowText from './RainbowText';
 
 var GameState = function (game) {
   var self = this;
@@ -22,7 +23,7 @@ var GameState = function (game) {
 GameState.prototype = Object.create(Phaser.State.prototype);
 GameState.prototype.constructor = GameState;
 
-GameState.prototype.init = function (args) {
+GameState.prototype.init = function () {
   var self = this;
   self.registerDispatchSignals();
   self.game.displayGroup = self.game.add.group();
@@ -57,6 +58,12 @@ GameState.prototype.registerDispatchSignals = function () {
   self.game.onResume.add(self.onGameResume, self);
   self.game.onPause.add(self.onGamePause, self);
 
+  self.generateSnapShotSignal = new Phaser.Signal();
+  self.generateSnapShotSignal.add(self.generateSnapShot, self);
+
+  self.recordSnapShotSignal = new Phaser.Signal();
+  self.recordSnapShotSignal.add(self.recordSnapShot, self);
+
 };
 
 GameState.prototype.onGamePause = function () {};
@@ -86,6 +93,35 @@ GameState.prototype.stop = function (args) {
   }
 };
 
+//write as different library
+//save point - change
+//dynamically find out width to reduce
+
+GameState.prototype.generateSnapShot = function () {
+  var self = this;
+  console.log('generate image');
+  var originalSnapShot = new Phaser.BitmapData(self.game, 'snap1', self.game.width, self.game.height);
+  originalSnapShot.draw(self.background);
+  originalSnapShot.drawGroup(self.game.displayGroup);
+
+  var adjustedSnapShot = new Phaser.BitmapData(self.game, 'snap2', self.game.width - 320, self.game.height);
+  adjustedSnapShot.copyRect(originalSnapShot, new Phaser.Rectangle(160, 0, originalSnapShot.width - 320, originalSnapShot.height), 0, 0);
+  var base64encodedImageData = adjustedSnapShot.baseTexture.source.toDataURL();
+
+  originalSnapShot.destroy();
+  adjustedSnapShot.destroy();
+
+  self.recordSnapShotSignal.dispatch(base64encodedImageData);
+};
+
+GameState.prototype.recordSnapShot = function (base64encodedImageData) {
+  var self = this;
+  if (self.game.scope && self.game.scope.pageType === 'Title') {
+    self.game.recordingManager.recordImageToLibrary(base64encodedImageData, self.game.story.storyId);
+  }
+  self.game.recordingManager.recordPageImageToLibrary(base64encodedImageData, self.game.story.storyId, self.game.currentPage.pageId);
+};
+
 GameState.prototype.record = function (args) {
   var self = this;
   if (args.action === 'record') {
@@ -103,6 +139,11 @@ GameState.prototype.record = function (args) {
 
 GameState.prototype.create = function () {
   var self = this;
+  
+    let center = { x: this.game.world.centerX, y: this.game.world.centerY }
+    let text = new RainbowText(this.game, center.x, center.y, "- phaser -\nwith a sprinkle of\nES6 dust!");
+    text.anchor.set(0.5);
+  
   self.charactersOnScreen = [];
   self.dragonsOnScreen = [];
 
@@ -141,6 +182,9 @@ GameState.prototype.create = function () {
   self.overlayDisplaySprite.alpha = 0.5;
   self.overlayDisplaySprite.inputEnabled = true;
 
+  if (self.needsRegenerateImage == true) {
+    self.generateSnapShotSignal.dispatch();
+  }
 };
 
 GameState.prototype.doRecording = function () {
@@ -425,16 +469,7 @@ GameState.prototype.loadGame = function () {
         var anchorX = bInfo.hasOwnProperty("anchorX") ? bInfo["anchorX"] : 0;
         var anchorY = bInfo.hasOwnProperty("anchorY") ? bInfo["anchorY"] : 0;
         var scaleX = bInfo.hasOwnProperty("scaleX") ? bInfo["scaleX"] : 0;
-
-        //if (scaleX < self.game.widthScaleFactor) {
-        //scaleX = self.game.widthScaleFactor;
-        //}
         var scaleY = bInfo.hasOwnProperty("scaleY") ? bInfo["scaleY"] : 0;
-
-        //if (scaleY < self.game.heightScaleFactor) {
-        //scaleY = self.game.heightScaleFactor;
-        //}
-
         var uniquename = bInfo.hasOwnProperty("uniquename") ? bInfo["uniquename"] : '';
         var angle = bInfo.hasOwnProperty("angle") ? bInfo["angle"] : 0;
         var rotation = bInfo.hasOwnProperty("rotation") ? bInfo["rotation"] : 0;
@@ -612,7 +647,7 @@ GameState.prototype.update = function () {
   //console.log('calling gamestate update');
 
   //self.firefilter.update();    
-  dragonBones.animation.WorldClock.clock.advanceTime(0.02);
+  //dragonBones.animation.WorldClock.clock.advanceTime(0.02);
 };
 
 GameState.prototype.createBackGroundFromCache = function (x, y, name, anchorX, anchorY, scaleX, scaleY, uniquename, angle, rotation, alpha, texts, sound) {
@@ -620,6 +655,7 @@ GameState.prototype.createBackGroundFromCache = function (x, y, name, anchorX, a
   self.background = new CharacterSprite(self.game, x, y, name, "background", self);
   self.background.uniquename = uniquename;
   self.background.anchor.set(anchorX, anchorY);
+  //self.background.scale.set(self.game.widthScaleFactor * scaleX, self.game.heightScaleFactor * scaleY);
   self.background.scale.set(self.game.widthScaleFactor * scaleX, self.game.heightScaleFactor * scaleY);
   self.background.angle = angle;
   self.background.texts = texts;
@@ -728,13 +764,13 @@ GameState.prototype.createDragonBoneArmature = function (defaultAnimationId, ske
   };
 
   console.log(config);
-  console.log(window.dragonBones);
+  //console.log(window.dragonBones);
   //var dragonBones = window.dragonBones;
   //load phaser dragonbone
-  dragonBones.game = self.game;
-  dragonBones.stageContext = this;
-  dragonBones.stageContext.uniqueDragonName = uniquename;
-
+  //dragonBones.game = self.game;
+  //dragonBones.stageContext = this;
+  //dragonBones.stageContext.uniqueDragonName = uniquename;
+    var dragonBones = undefined;
   var armature = dragonBones.makeArmaturePhaser(config, skeletonJSON, atlasJson, texture);
 
   return armature;

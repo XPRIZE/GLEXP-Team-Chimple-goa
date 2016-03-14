@@ -33,7 +33,6 @@ CharacterSprite.prototype.configureCharacterSprite = function () {
 
 CharacterSprite.prototype.update = function () {
   var self = this;
-
   if (self.context && self.context.inRecordingMode()) {
     if (self.uniquename === self.game.displayGroup.spriteBringToTopWhileRecording) {
       self.shouldBringToTop = true;
@@ -63,8 +62,9 @@ CharacterSprite.prototype.update = function () {
     self.recordDataMap.set(self.game.currentRecordingCounter, recordInfo);
 
   } else if (self.context && self.context.inPlayMode()) {
-
+    console.log('1111111:' + self.context.inPlayMode());
     var recordedValue = self.game.recordingManager.findNearestValue(self.uniquename, self.game.currentPlayCounter);
+    console.log('recordedvalue while playing:' + recordedValue + " at counter:" + self.game.currentPlayCounter);
     if (recordedValue) {
       self.changeAttributes(recordedValue);
     };
@@ -99,8 +99,9 @@ CharacterSprite.prototype.showTextEvent = function () {
 
 CharacterSprite.prototype.changeAttributes = function (recordedValue) {
   var self = this;
-  self.x = recordedValue.x;
-  self.y = recordedValue.y;
+  console.log('recorded Value:' + recordedValue.x + " " + recordedValue.y + " " + recordedValue.scaleX + " " + recordedValue.scaleY);
+  self.x = recordedValue.x * self.game.actualGameWidth;
+  self.y = recordedValue.y * self.game.actualGameHeight;
   self.angle = recordedValue.angle;
   self.pivot.x = recordedValue.pivotX;
   self.pivot.y = recordedValue.pivotY;

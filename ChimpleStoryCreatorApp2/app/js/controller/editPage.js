@@ -1,8 +1,8 @@
 'use strict';
 
-module.exports = ['$rootScope', '$scope', '$location', '$route', '$routeParams', '$mdSidenav', '$mdDialog', '$mdMedia', '$mdBottomSheet', '$mdToast', '$timeout', 'EditPageService',
-  'Loki', 'chimpleConfig', '_',
-  function ($rootScope, $scope, $location, $route, $routeParams, $mdSidenav, $mdDialog, $mdMedia, $mdBottomSheet, $mdToast, $timeout, EditPageService, Loki, chimpleConfig, _) {
+module.exports = ['$rootScope', '$scope', '$http', '$location', '$route', '$routeParams', '$mdSidenav', '$mdDialog', '$mdMedia', '$mdBottomSheet', '$mdToast', '$timeout', 'EditPageService',
+  'ChimpleSpeechService', 'Loki', 'chimpleConfig', '_',
+  function ($rootScope, $scope, $http, $location, $route, $routeParams, $mdSidenav, $mdDialog, $mdMedia, $mdBottomSheet, $mdToast, $timeout, EditPageService, ChimpleSpeechService, Loki, chimpleConfig, _) {
     console.log('Edit Page Ctrl');
     var vm = this;
     //load master configuration from internet
@@ -1147,14 +1147,17 @@ module.exports = ['$rootScope', '$scope', '$location', '$route', '$routeParams',
     $scope.showText = function (ev, args) {
       var useFullScreen = true;
       if (args && args.displayText) {
+        var contentsArr = args.displayText.split(' ');
         $scope.displayText = args.displayText;
+        $scope.contentsArr = contentsArr;
+        console.log('what we got:' + $scope.contentsArr);
         $mdDialog.show({
           controller: vm.ShowTextDialogController,
           templateUrl: 'views/showTextDialog.html',
           parent: angular.element(document.body),
           targetEvent: ev,
           bindToController: true,
-          locals: { content: $scope.displayText },
+          locals: { content: $scope.displayText, contentsArr: $scope.contentsArr },
           controllerAs: 'ctrl',
           clickOutsideToClose: true
         }).then(function (answer) {}, function () {
@@ -1174,8 +1177,123 @@ module.exports = ['$rootScope', '$scope', '$location', '$route', '$routeParams',
 
       $scope.cancel = function () {
         $mdDialog.cancel();
-        //$rootScope.$broadcast("game:resumePlaying",{});
       };
+
+      $scope.speakFullContent = function () {
+        var strToSpeak = $scope.ctrl.contentsArr.join(" ");
+        console.log('in speak function' + strToSpeak);
+        ChimpleSpeechService.speak(strToSpeak);
+      };
+
+      $scope.speakWord = function (ev, word) {
+        console.log('in speakWord:' + word);
+        //ChimpleSpeechService.speak(word);
+        console.log('event target:' + ev.target);
+        var url = "mocks/" + word + ".json";
+        $("element_to_pop_up").bPopup();
+        $(ev.target).webuiPopover({
+          title: word,
+          closeable: true,
+          type: 'async',
+          url: url,
+          content: function (data) {
+            var html = '<div>';
+            html += word + ": ";
+            html += '<div id="gdx-bubble-audio-icon"></div>';
+            html += '<div id = "gdx-bubble-meaning">Meaning: ' + data.meaning + '</div>';
+            html += '</div>';
+            return html;
+          }
+        });
+
+        /*$http.get(url).success(function (data) {
+          console.log('got herere');
+          alert('got data');
+
+          /*$(ev.target).popover({
+            placement: 'auto',
+            html: true,
+            title: 'User Info <a href="#" class="close" data-dismiss="alert">&times;</a>',
+            content: '<div class="media"><a href="#" class="pull-left"><img src="../images/avatar-tiny.jpg" class="media-object" alt="Sample Image"></a><div class="media-body"><h4 class="media-heading">Jhon Carter</h4><p>Excellent Bootstrap popover! I really love it.</p></div></div>'
+          });
+          $(document).on("click", ".popover .close", function () {
+            $(this).parents(".popover").popover('hide');
+          });
+          /*
+          content: '<div id="gdx-bubble-main">' +
+              ' <div id="gdx-bubble-close"></div> ' +
+              ' <div id="gdx-bubble-query-row"> ' +
+              ' <div id="gdx-bubble-query">' + word + '</div> ' +
+              ' <div id="gdx-bubble-audio-icon"></div></div>' +
+              ' <div id = "gdx-bubble-meaning">Meaning</div></div>',*/
+        /*var options = {
+          content: '<div id="gdx-bubble-main">' +
+            ' <div id="gdx-bubble-close"></div> ' +
+            ' <div id="gdx-bubble-query-row"> ' +
+            ' <div id="gdx-bubble-query">' + word + '</div> ' +
+            ' <div id="gdx-bubble-audio-icon"></div></div>' +
+            ' <div id = "gdx-bubble-meaning">Meaning</div></div>',
+          placement: "auto",
+          html: true,
+          title: '<h1><strong>' + word + '</strong></h1><div id="gdx-bubble-audio-icon"></div>'
+        };
+
+        $(ev.target).popover(options);*/
+        // ChimpleSpeechService.speak(word);
+        //});
+
+      };
+
+      /*$scope.speakWord = function (word) {
+        if ($scope.clicked) {
+          $scope.cancelClick = true;
+          return;
+        }
+
+        $scope.clicked = true;
+
+        $timeout(function () {
+          if ($scope.cancelClick) {
+            $scope.cancelClick = false;
+            $scope.clicked = false;
+            return;
+          }
+
+          //do something with your single click here
+          console.log('in speakWord:' + word);
+          ChimpleSpeechService.speak(word);
+
+          //clean up
+          $scope.cancelClick = false;
+          $scope.clicked = false;
+        }, 500);
+      };
+
+      $scope.explainWord = function (ev, word) {
+        $timeout(function () {
+
+          //do something with your double click here
+          console.log('in explainWord:' + word);
+          //ChimpleSpeechService.speak(word);
+          console.log('event target:' + ev.target);
+          $http.get("mocks/library.json").success(function (data) {
+            console.log('got herere');
+            alert('got data');
+          });
+          var options = {
+            content: "this is dummy content",
+            placement: "auto",
+            html: true,
+            title: 'testing',
+            trigger: 'focus'
+          };
+
+          $(ev.target).popover(options);
+          //alert('explain:' + word);
+
+        });
+      };*/
+
     };
 
     vm.AttributeEditorDialogController = function ($scope, $mdDialog) {

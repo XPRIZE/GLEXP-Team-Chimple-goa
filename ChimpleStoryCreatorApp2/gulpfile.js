@@ -1,5 +1,5 @@
 'use strict';
-
+var babelify = require('babelify');
 var browserify = require('browserify'),
   del = require('del'),
   source = require('vinyl-source-stream'),
@@ -32,7 +32,10 @@ var paths = {
     './app/js/dragonBones/hashmap.js',
     './app/js/dragonBones/touch-emulator.js',
     './app/js/fabs/dragonBoneSprite.js',
-    './app/js/loki-angular/loki-localforage-adapter.js',
+    './app/js/angular-translate/angular-translate.js',
+    './app/js/dragonBones/jquery.js',
+    './app/js/dragonBones/jquery.webui-popover.js',
+    './app/js/dragonBones/jquery.bpopup.min.js'
   ],
 };
 
@@ -95,7 +98,8 @@ gulp.task('copylibs', function () {
 
 gulp.task('browserify', function () {
   return browserify(paths.src + 'app.js', { debug: true })
-    .bundle()
+    .transform(babelify)
+    .bundle()    
     .pipe(source('app.js'))
     .pipe(gulp.dest(paths.dist))
     .pipe(gulpPlugins.connect.reload());
@@ -175,5 +179,5 @@ gulp.task('fast', ['clean'], function () {
 
 gulp.task('default', ['clean'], function () {
   liveReload = false;
-  gulp.start('karma', 'browserify', 'browserify-min', 'copylibs', 'e2e');
+  gulp.start('server', 'browserify', 'browserify-min', 'copylibs');
 });

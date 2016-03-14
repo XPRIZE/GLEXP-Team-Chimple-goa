@@ -3,8 +3,6 @@
 var _ = require('lodash')._;
 
 var Init = (function (scope, ele) {
-  //var game = new Phaser.Game("100%", "100%", Phaser.AUTO, ele);
-
   //determine window.screen or window.innerWidth
   var gameWidth, gameHeight = 0;
   var gameDevicePixelRation = 1;
@@ -29,10 +27,7 @@ var Init = (function (scope, ele) {
     gameHeight = window.innerHeight;
   }
 
-  console.log('toolbarheight in scope:' + scope.toolBarHeight);
-  if (scope.toolBarHeight) {
-    gameHeight = gameHeight - scope.toolBarHeight;
-  }
+  gameHeight = scope.toolBarHeight != 0 ? (gameHeight - scope.toolBarHeight) : gameHeight;
 
   console.log('gameHeight:' + gameHeight);
 
@@ -55,6 +50,7 @@ var Init = (function (scope, ele) {
   game.storage_config = {
     storageDBName: "masterDB",
     storiesCollection: "PhaserStories",
+    libraryCollection: "library",
     animationCollection: "PhaserAnimations"
   };
 
@@ -164,7 +160,9 @@ var Init = (function (scope, ele) {
   });
 
   scope.$on('game:backgroundSelected', function (event, args) {
-    //Received event from angular when new background is selected         
+    //Received event from angular when new background is selected 
+    console.log('game.state.getCurrentState():' + game.state.getCurrentState());
+    game.state.getCurrentState().needsRegenerateImage = true;
     game.state.start('DynamicLoaderState', true, false, args, 'background');
   });
 
@@ -173,12 +171,15 @@ var Init = (function (scope, ele) {
     //Determine sprite type => either CharacterSprite or DragonBoneSprite        
     var theme = args["theme"];
     if (theme) {
+      game.state.getCurrentState().needsRegenerateImage = true;
       if (theme.hasOwnProperty("kind")) {
         var kind = theme["kind"];
 
         if (kind === 'sprite') {
+          args.generatePageImage = true;
           game.state.start('DynamicLoaderState', true, false, args, kind);
         } else if (kind === 'armature') {
+          args.generatePageImage = true;
           game.state.start('DynamicLoaderState', true, false, args, kind);
         }
       }

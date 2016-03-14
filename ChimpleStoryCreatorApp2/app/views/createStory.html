@@ -2,28 +2,35 @@
       <md-toolbar id="createToolBar" layout="row" ng-class="__layout.screen" layout-align="space-between center">
             <!--The left side-->
             <span>
-                  <h2 class="md-toolbar-tools"> Add/Edit Page to Story</h2>
+                  <h2 class="md-toolbar-tools">
+                        <md-button aria-label="Add Title" class="md-fab md-mini" ng-click="addTitle($event)">
+                              <img src="./assets/images/icons/prop_button.png" alt="Add Title">
+                        </md-button>
+                  </h2>
+            </span>
+            <span>
+                  <h3>{{currentStory.title}}</h3>
             </span>
             <!--The right side-->
             <span>
                   <md-button aria-label="Add Pages" class="md-fab md-mini" ng-click="addNewPage()">
-                        <img src="./assets/images/icons/plus_button.png" style="my-img-button" alt="Add New Page">
+                        <img src="./assets/images/icons/plus_button.png" alt="Add New Page">
                   </md-button>
                   <md-button aria-label="Add Title" class="md-fab md-mini" ng-click="addTitle($event)">
-                        <img src="./assets/images/icons/prop_button.png" style="my-img-button" alt="Add Title">
+                        <img src="./assets/images/icons/prop_button.png" alt="Add Title">
                   </md-button>
                   <md-button aria-label="Library" class="md-fab md-mini" ng-click="goToLibrary($event)">
-                        <img src="./assets/images/icons/home_button.png" style="my-img-button" alt="Library">
+                        <img src="./assets/images/icons/home_button.png" alt="Library">
                   </md-button>
 
             </span>
       </md-toolbar>
       <md-content flex>
-            <div layout="row" class="md-padding" layout-wrap layout-xs="column">
-                  <div layout-align="center" flex-xs="auto" flex-sm="50" flex-md="33" ng-repeat="obj in draggableObjects track by $index" ng-drop="true" ng-drop-success="onDropComplete($index, $data,$event)">
+            <div layout="row" layout-wrap layout-xs="column">
+                  <div class="md-padding" layout-align="center" flex-xs="auto" flex-sm="50" flex-md="33" ng-repeat="obj in draggableObjects track by $index" ng-drop="true" ng-drop-success="onDropComplete($index, $data,$event)">
                         <md-card class="frame" ng-drag="true" ng-drag-data="obj">
                               <md-card-content>
-                                    <img class="md-card-image" alt="{{obj.title}}" ng-src="{{card.backgroundImage || './assets/images/new_blank_page.png'}}">
+                                    <img class="md-card-image" alt="{{obj.title}}" ng-src="{{obj.backgroundImage || './assets/images/new_blank_page.png'}}">
                               </md-card-content>
                               <!--<md-card-title>
                          <md-card-title-text>                             

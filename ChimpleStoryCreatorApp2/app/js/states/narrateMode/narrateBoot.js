@@ -26,12 +26,12 @@ NarrateBootState.prototype.init = function () {
   self.game.fadePlugin = self.game.plugins.add(require('../../plugins/FadePlugin'));
 
   //Create DB for Phaser if not exists and save references to window
-  self.game.storageDB = window.storageDB;
+
+  var lokiDBFromAngular = window.storageDB;
 
   if (!self.game.storageDB) {
     console.log('creating new DB:' + self.game.storage_config.storageDBName);
-    self.game.storageDB = $Storage(self.game.storage_config.storageDBName);
-    window.storageDB = self.game.storageDB;
+    self.game.storageDB = $Storage(lokiDBFromAngular);
   }
 
   if (!self.game.recordingManager && self.game.storageDB) {

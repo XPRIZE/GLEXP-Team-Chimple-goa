@@ -8,6 +8,7 @@
       <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
       <link rel="stylesheet" href="css/angular-material.css" />
       <link rel="stylesheet" type="text/css" href="css/app.css" />
+      <link rel="stylesheet" type="text/css" href="css/jquery.webui-popover.css" />
       <!--<link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Roboto:400,700'>-->
 </head>
 
@@ -27,6 +28,16 @@
       <div class="custom-app-loading" ng-animate-children>
 
             <style type="text/css">
+                  #element_to_pop_up {
+                        background-color: #fff;
+                        border-radius: 15px;
+                        color: #000;
+                        display: none;
+                        padding: 20px;
+                        min-width: 400px;
+                        min-height: 180px;
+                  }
+                  
                   div.custom-app-loading {
                         position: fixed;
                   }
@@ -104,7 +115,10 @@
       <script src="dist/app.js" type="text/javascript"></script>
       <script type="text/javascript" src="dist/js/lib/lokiAngular.js"></script>
       <script type="text/javascript" src="dist/js/lib/ng-cordova.js"></script>
-      <script type="text/javascript" src="dist/js/lib/cordova.js"></script>
+      <script type="text/javascript" src="dist/js/lib/jquery.js"></script>
+      <script type="text/javascript" src="dist/js/lib/jquery.webui-popover.js"></script>
+      <script type="text/javascript" src="dist/js/lib/jquery.bpopup.min.js"></script>
+      <!--<script type="text/javascript" src="dist/js/lib/cordova.js"></script>-->
       <!--<script> 
 if (navigator.userAgent.match(/(iPhone|iPod|iPad|Android|BlackBerry|IEMobile)/)) {
   //on Mobile
@@ -112,6 +126,11 @@ if (navigator.userAgent.match(/(iPhone|iPod|iPad|Android|BlackBerry|IEMobile)/))
    TouchEmulator();
 };
 </script>-->
+
+      <div id="element_to_pop_up
+">
+            <p>good to show</p>
+      </div>
 
 </body>
 

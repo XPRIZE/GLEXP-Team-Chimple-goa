@@ -37,7 +37,7 @@ module.exports = ['$http', '$q', 'Loki', '$rootScope', 'chimpleConfig', 'LokiSer
     createStoryService.save();
 
     //Add Title Page
-    createStoryService.createPage(newStory.id, 1, "Title", "assets/images/newPage.png");
+    createStoryService.createPage(newStory.id, 1, "Title", "assets/images/new_blank_page.png");
     createStoryService.save();
     return newStory;
   };

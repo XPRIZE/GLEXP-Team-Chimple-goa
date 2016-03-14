@@ -59,13 +59,13 @@ NarrateCharacterSprite.prototype.showTextEvent = function () {
 
 NarrateCharacterSprite.prototype.changeAttributes = function (recordedValue) {
   var self = this;
-  self.x = recordedValue.x;
-  self.y = recordedValue.y;
+  self.x = recordedValue.x * self.game.actualGameWidth;
+  self.y = recordedValue.y * self.game.actualGameHeight;
   self.angle = recordedValue.angle;
   self.pivot.x = recordedValue.pivotX;
   self.pivot.y = recordedValue.pivotY;
-  self.scale.x = recordedValue.scaleX;
-  self.scale.y = recordedValue.scaleY;
+  self.scale.x = recordedValue.scaleX * self.game.widthScaleFactor;
+  self.scale.y = recordedValue.scaleY * self.game.heightScaleFactor;
   self.alpha = recordedValue.alpha;
   if (recordedValue.isHidden) {
     self.alpha = 0;
