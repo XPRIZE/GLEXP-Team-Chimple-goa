@@ -140,9 +140,9 @@ GameState.prototype.record = function (args) {
 GameState.prototype.create = function () {
   var self = this;
   
-    let center = { x: this.game.world.centerX, y: this.game.world.centerY }
-    let text = new RainbowText(this.game, center.x, center.y, "- phaser -\nwith a sprinkle of\nES6 dust!");
-    text.anchor.set(0.5);
+  //let center = { x: this.game.world.centerX, y: this.game.world.centerY }
+  //let text = new RainbowText(this.game, center.x, center.y, "- phaser -\nwith a sprinkle of\nES6 dust!");
+  //text.anchor.set(0.5);
   
   self.charactersOnScreen = [];
   self.dragonsOnScreen = [];
