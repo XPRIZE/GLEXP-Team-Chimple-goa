@@ -42,6 +42,15 @@ export default class Holder extends Item {
         return this.addChildAt(surface, index);
     }
     
+    overlapHandler(obj1, obj2) {
+        if(obj1.parent.surfaces.some(function(val) {
+            return val === obj2.parent;
+        })) {
+            return;
+        }
+        super.overlapHandler(obj1, obj2);
+    }
+    
     get surfaces() {
         let children = new Array();
         this.children.forEach(function(value) {

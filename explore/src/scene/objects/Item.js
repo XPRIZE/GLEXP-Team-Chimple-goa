@@ -1,6 +1,8 @@
 import Texture from './Texture.js';
 import TileTexture from './TileTexture.js';
 import Surface from './Surface.js';
+// import Holder from './Holder.js';
+//Somehow adding Holder in the import makes it non-babelifiable
 
 export default class Item extends Phaser.Sprite {
     constructor(game, x, y, key, frame) {
