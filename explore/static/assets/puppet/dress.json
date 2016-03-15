@@ -1,13 +1,13 @@
 {
   "arm_chooser": {
     "shirt3": {
-      "Shirt": {
-        "key": "puppet/1",
-        "frame": "shirt/001redplaid_body.png"
-      },
-      "Sleeve": {
-        "key": "puppet/2",
-        "frame": "shirt/001redplaid_arm.png"
+      "ArmAccessory": {
+        "key": "puppet/0",
+        "frame": "arm/tambourine_inlefthand.png",
+        "anchorX": 0.25,
+        "anchorY": 0.5,
+        "offsetX": 0.5,
+        "offsetY": 1
       }
     },
     "shirt4": {
@@ -45,13 +45,9 @@
   },
   "body_chooser": {
     "shirt1": {
-      "Shirt": {
-        "key": "puppet/1",
-        "frame": "shirt/001redplaid_body.png"
-      },
-      "Sleeve": {
-        "key": "puppet/2",
-        "frame": "shirt/001redplaid_arm.png"
+      "Chain": {
+        "key": "puppet/0",
+        "frame": "body/039reddishnecklace_body.png"
       }
     },
     "shirt2": {
@@ -221,13 +217,9 @@
   },
   "shoes_chooser": {
     "shirt1": {
-      "Shirt": {
-        "key": "puppet/1",
-        "frame": "shirt/001redplaid_body.png"
-      },
-      "Sleeve": {
-        "key": "puppet/2",
-        "frame": "shirt/001redplaid_arm.png"
+      "Shoes": {
+        "key": "puppet/0",
+        "frame": "shoes/001055snowbardboots.png"
       }
     },
     "shirt2": {

@@ -6,13 +6,13 @@ import GameState from './states/GameState';
 
 export default class SceneStateHolder extends StateHolder {
     createStates() {
-		this.game.state.add('BootState', BootState, false);
-		this.game.state.add('PreloadState', PreloadState, false);
-		this.game.state.add('MenuState', MenuState, false);
-		this.game.state.add('GameState', GameState, false);
+		this.game.state.add('SceneBootState', BootState, false);
+		this.game.state.add('ScenePreloadState', PreloadState, false);
+		this.game.state.add('SceneMenuState', MenuState, false);
+		this.game.state.add('SceneGameState', GameState, false);
     }
     
     startDefault() {
-		this.game.state.start('BootState');
+		this.game.state.start('SceneBootState');
 	}
 }

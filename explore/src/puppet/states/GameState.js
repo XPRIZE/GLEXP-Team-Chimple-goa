@@ -6,7 +6,6 @@ import Util from '../objects/Util.js';
 import TabView from '../objects/TabView.js';
 
 export default class GameState extends Phaser.State {
-
   preload() {
     this.load.atlas('puppet/chooser', 'assets/puppet/chooser.png', 'assets/puppet/chooser.json');
     this.load.atlas('puppet/shirt', 'assets/puppet/shirt.png', 'assets/puppet/shirt.json');
@@ -14,7 +13,6 @@ export default class GameState extends Phaser.State {
   }
 
   create() {
-
     let puppet = this.game.add.existing(Human.buildDefault(this.game));
     puppet.x = this.game.width / 4;
     puppet.y = 200;
@@ -25,7 +23,7 @@ export default class GameState extends Phaser.State {
       for (var key in acc) {
         if (acc.hasOwnProperty(key)) {
           let element = acc[key];
-          puppet['set' + key](element.key, element.frame);
+          puppet['set' + key](element.key, element.frame, element.anchorX, element.anchorY, element.offsetX, element.offsetY);
         }
       }
     }));
@@ -56,4 +54,43 @@ export default class GameState extends Phaser.State {
     //     puppet.bodyColor = 0xff0000;
     // });
   }
+  
+}
+
+GameState.mainScreenJSON = {
+	id: 'mainScreen',
+	component: 'Window',	
+	padding: 4,
+	position: { x: 0, y: 0 },
+	width: 600,
+	height: 500,
+
+	layout: [1, 4],
+	children: [
+        {
+            id: 'label1',
+            text: 'My Awesome Game',
+            component: 'Label',
+            position: 'center',
+            width: 600,
+            height: 80
+        },
+		{
+		  id: 'playBtn',
+		  text: 'Play',
+		  component: 'Button',
+		  position: 'center',
+		  
+		  width: 190,
+		  height: 80
+		},
+		{
+		  id: 'optionsBtn',
+		  text: 'Options',
+		  component: 'Button',
+		  position: 'center',
+		  width: 190,
+		  height: 80
+		}		
+	]
 }

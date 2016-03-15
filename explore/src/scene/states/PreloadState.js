@@ -15,7 +15,7 @@ export default class PreloadState extends Phaser.State {
 
   update() {
     if (!!this.ready) {
-      this.game.state.start('MenuState');
+      this.game.state.start('SceneMenuState');
     }
   }
 

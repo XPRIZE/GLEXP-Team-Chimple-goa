@@ -140,6 +140,14 @@ export default class Human extends Puppet {
         this.leftLeg.addAccessory(new Accessory(this.game, true, true, false, new Phaser.Point(1, 0), new Phaser.Point(1, 1), new Phaser.Point(0, 0), false, key, frame, 'leftShoe'), true);
         this.rightLeg.addAccessory(new Accessory(this.game, true, true, false, new Phaser.Point(0, 0), new Phaser.Point(0, 1), new Phaser.Point(0, 0), true, key, frame, 'rightShoe'), true);
     }
+    
+    setChain(key, frame, x, y) {
+        this.body.addAccessory(new Accessory(this.game, true, true, true, new Phaser.Point(0.5, 0), new Phaser.Point(0.5, 0), new Phaser.Point(0, 0), false, key, frame, 'chain'), true);
+    }
+    
+    setArmAccessory(key, frame, anchorX, anchorY, offsetX, offsetY) {
+        this.leftHand.addAccessory(new Accessory(this.game, true, true, false, new Phaser.Point(anchorX, anchorY), new Phaser.Point(offsetX, offsetY), new Phaser.Point(0, 0), false, key, frame, 'armAccessory'), true);        
+    }
 
     toJSON() {
         let json = super.toJSON();
