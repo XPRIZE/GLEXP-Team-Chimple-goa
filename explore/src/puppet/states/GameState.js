@@ -5,7 +5,6 @@ import Shape from '../objects/Shape.js';
 import Util from '../objects/Util.js';
 import TabView from '../objects/TabView.js';
 import ButtonGrid from '../objects/ButtonGrid.js';
-import ScrollableView from '../objects/ScrollableView.js';
 
 export default class GameState extends Phaser.State {
   preload() {
