@@ -9,10 +9,10 @@ class Game extends Phaser.Game {
 		super(width, height, Phaser.AUTO, 'gameCanvas', null);
         let puppetStateHolder = new PuppetStateHolder(this);
         puppetStateHolder.createStates();
-		// puppetStateHolder.startDefault();
+		puppetStateHolder.startDefault();
         let sceneStateHolder = new SceneStateHolder(this);
         sceneStateHolder.createStates();
-		sceneStateHolder.startDefault();
+		// sceneStateHolder.startDefault();
 	}
 }
 

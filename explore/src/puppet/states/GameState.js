@@ -4,6 +4,8 @@ import Limb from '../objects/Limb.js';
 import Shape from '../objects/Shape.js';
 import Util from '../objects/Util.js';
 import TabView from '../objects/TabView.js';
+import ButtonGrid from '../objects/ButtonGrid.js';
+import ScrollableView from '../objects/ScrollableView.js';
 
 export default class GameState extends Phaser.State {
   preload() {
@@ -18,7 +20,7 @@ export default class GameState extends Phaser.State {
     puppet.y = 200;
     puppet.bodyColor = 0x7777ff;
     let dressChoices = this.cache.getJSON('puppet/dress');
-    let chooser = this.game.add.existing(new TabView(this.game, 'puppet/chooser', this.game.width / 2, this.game.height, 50, function (accType, accName) {
+    let chooser = this.game.add.existing(new TabView(this.game, 'puppet/chooser', this.game.width / 2, this.game.height, 10, 100, 5, 3, true, function (accType, accName) {
       let acc = dressChoices[accType][accName];
       for (var key in acc) {
         if (acc.hasOwnProperty(key)) {
@@ -26,7 +28,7 @@ export default class GameState extends Phaser.State {
           puppet['set' + key](element.key, element.frame, element.anchorX, element.anchorY, element.offsetX, element.offsetY);
         }
       }
-    }));
+    }, this));
 
     let dressTabs = {};
 
@@ -44,53 +46,6 @@ export default class GameState extends Phaser.State {
     //let a=JSON.parse(JSON.stringify(puppet, Util.replacer), Util.revive);    
     //a.x = 200;
 
-    let test = this.game.add.sprite(50, 50, 'puppet/chooser', 'arm_chooser.png');
-    // test.anchor = new Phaser.Point(0.5,0);
-    // test.scale.x = -1;
-    //let test1 = this.game.add.sprite(0,0,'0svg');
-    // test1.scale.setTo(5, 5);
-    // this.game.scope.$on('changePuppetColor', function() {
-    //     console.log('on');
-    //     puppet.bodyColor = 0xff0000;
-    // });
   }
-  
-}
 
-GameState.mainScreenJSON = {
-	id: 'mainScreen',
-	component: 'Window',	
-	padding: 4,
-	position: { x: 0, y: 0 },
-	width: 600,
-	height: 500,
-
-	layout: [1, 4],
-	children: [
-        {
-            id: 'label1',
-            text: 'My Awesome Game',
-            component: 'Label',
-            position: 'center',
-            width: 600,
-            height: 80
-        },
-		{
-		  id: 'playBtn',
-		  text: 'Play',
-		  component: 'Button',
-		  position: 'center',
-		  
-		  width: 190,
-		  height: 80
-		},
-		{
-		  id: 'optionsBtn',
-		  text: 'Options',
-		  component: 'Button',
-		  position: 'center',
-		  width: 190,
-		  height: 80
-		}		
-	]
 }

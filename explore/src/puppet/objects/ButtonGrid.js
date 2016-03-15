@@ -1,5 +1,5 @@
 export default class ButtonGrid extends Phaser.Group {
-    constructor(game, name, width, height, numRows, numColumns, callback, callbackContext) {
+    constructor(game, name, width, height, numRows, numColumns, horizontal, callback, callbackContext) {
         super(game);
         this.name = name;
         this.elementWidth = width;
@@ -9,60 +9,127 @@ export default class ButtonGrid extends Phaser.Group {
         this.padding = ButtonGrid.DEFAULT_PADDING;
         this.buttonCallback = callback;
         this.buttonCallbackContext = callbackContext;
+        this.horizontal = horizontal;
+
+        let mask = this.add(new Phaser.Graphics(this.game, 0, 0));
+        mask.beginFill(0x000000);
+        mask.alpha = 0;
+        mask.drawRect(0, 0, width, height);
+        mask.endFill();
+        this.mask = mask;
+
+        this.buttonPanel = new Phaser.Group(this.game, this);
+        this.tweenScroll = this.game.add.tween(this.buttonPanel);
+
+        var Swipe = require('phaser-swipe');
+        this.swipe = new Swipe(this.game, this);
+
     }
 
     set buttons(buttons) {
-        this.removeAll();
+        this.buttonPanel.removeAll(true);
         this._buttons = buttons;
-        let maxButtonLength = this.elementWidth / this.numColumns - 2 * this.padding;
+
+        let numAlong = this.horizontal ? this.numRows : this.numColumns;
+        let numAcross = Math.ceil(buttons.length / numAlong);
+
+        let maxButtonWidth = this.elementWidth / this.numColumns - 2 * this.padding;
+        let maxButtonHeight = this.elementHeight / this.numRows - 2 * this.padding;
 
         let index = 0;
-        for(var i = 0; i < this.numRows; i++) {
-            for(var j = 0; j < this.numColumns; j++) {
-                if(index >= buttons.length) {
+        for (var i = 0; i < numAcross; i++) {
+            for (var j = 0; j < numAlong; j++) {
+                if (index >= buttons.length) {
                     return;
                 }
-                let layoutX = (maxButtonLength + this.padding * 2) * j + this.padding;
-                let layoutY = (maxButtonLength + this.padding * 2) * i + this.padding;
+                let layoutX = (maxButtonWidth + this.padding * 2) * (this.horizontal ? i : j) + this.padding + maxButtonWidth / 2;
+                let layoutY = (maxButtonHeight + this.padding * 2) * (this.horizontal ? j : i) + this.padding + maxButtonHeight / 2;
                 let key = buttons[index];
-                let button = this.add(new Phaser.Button(this.game, layoutX, layoutY, this.name, this.callSelectButton, this, key+'.png', key+'_up.png', key+'.png', key+'_up.png'));
+                let button = this.buttonPanel.add(new Phaser.Button(this.game, layoutX, layoutY, this.name, this.callSelectButton, this, key + '.png', key + '_up.png', key + '.png', key + '_up.png'));
                 button.name = key;
-                button.scale.multiply(Math.min(maxButtonLength / button.width, 1), Math.min(maxButtonLength / button.width, 1));
+                let buttonScale = Math.min(maxButtonWidth < maxButtonHeight ? maxButtonWidth / button.width : maxButtonHeight / button.height, 1);
+                button.scale.multiply(buttonScale, buttonScale);
                 button.anchor.setTo(0.5, 0.5);
                 index++;
             }
         }
     }
-    
+
     getButton(name) {
         let button = null;
-        this.forEach(function(child) {if(child.name == name) {button = child}}, this);
+        this.buttonPanel.forEach(function(child) { if (child.name == name) { button = child } }, this);
         return button;
     }
-    
+
     selectButtonByName(name) {
         this.selectButton(this.getButton(name));
     }
-        
+
     selectButton(button) {
-        if(this.selectedButton) {
+        if (this.selectedButton) {
             this.selectedButton.freezeFrames = false;
-            this.selectedButton.changeStateFrame('Out');            
+            this.selectedButton.changeStateFrame('Out');
         }
         this.selectedButton = button;
         button.changeStateFrame('Down');
         button.freezeFrames = true;
     }
-    
+
     callSelectButton(button, pointer) {
         this.selectButton(button);
-        if(this.buttonCallback) {
+        if (this.buttonCallback) {
             this.buttonCallback.call(this.buttonCallbackContext, this.parent.tabView.selectedButton.name, button.name);
         }
     }
 
+    update() {
+        if (this.swipe) {
+            this.swipe.check();
+        }
+    }
+
+    left(point) {
+        if (this.horizontal && this.pointLiesInside(point) && this.buttonPanel.x + this.buttonPanel.width >= this.elementWidth && !this.tweenScroll.isRunning) {
+            // this.buttonPanel.x -= this.elementWidth;
+            this.game.tweens.remove(this.tweenScroll);
+            this.tweenScroll = this.game.add.tween(this.buttonPanel).to({
+                x: this.buttonPanel.x - this.elementWidth
+            }, 1000, Phaser.Easing.Quartic.Out, true);
+        }
+    }
+
+    right(point) {
+        if (this.horizontal && this.pointLiesInside(point) && this.buttonPanel.x + this.elementWidth <= 0 && !this.tweenScroll.isRunning) {
+            this.game.tweens.remove(this.tweenScroll);
+            this.tweenScroll = this.game.add.tween(this.buttonPanel).to({
+                x: this.buttonPanel.x + this.elementWidth
+            }, 1000, Phaser.Easing.Quartic.Out, true);
+        }
+    }
+
+    up(point) {
+        if (!this.horizontal && this.pointLiesInside(point) && this.buttonPanel.y + this.buttonPanel.height >= this.elementHeight) {
+            this.game.tweens.remove(this.tweenScroll);
+            this.tweenScroll = this.game.add.tween(this.buttonPanel).to({
+                y: this.buttonPanel.y - this.elementHeight
+            }, 1000, Phaser.Easing.Quartic.Out, true);
+        }
+    }
+
+    down(point) {
+        if (!this.horizontal && this.pointLiesInside(point) && this.buttonPanel.y + this.elementHeight <= 0) {
+            this.game.tweens.remove(this.tweenScroll);
+            this.tweenScroll = this.game.add.tween(this.buttonPanel).to({
+                y: this.buttonPanel.y + this.elementHeight
+            }, 1000, Phaser.Easing.Quartic.Out, true);
+
+        }
+    }
+
+    pointLiesInside(point) {
+        let p = this.toLocal(point);
+        return p.x >= this.x && p.x < this.x + this.elementWidth && p.y >= this.y && p.y < this.y + this.elementHeight
+    }
 }
 
-ButtonGrid.DEFAULT_PADDING = 5; 
-ButtonGrid.LAYOUT_VERTICAL = 1;
-ButtonGrid.LAYOUT_HORIZONTAL = 2;
+ButtonGrid.DEFAULT_PADDING = 5;
