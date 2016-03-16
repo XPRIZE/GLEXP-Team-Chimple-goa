@@ -1,4 +1,6 @@
 export default class ButtonGrid extends Phaser.Group {
+    //TODO: Swipe also selects button based on where you click
+    
     constructor(game, name, width, height, numRows, numColumns, horizontal, callback, callbackContext, frameData) {
         super(game);
         this.name = name;
