@@ -15,6 +15,7 @@ export default class Item extends Phaser.Sprite {
         super(game, x, y, key, frame);
         game.physics.enable(this);
         this.inputEnabled = true;
+        this.anchor.set(0.5,1);
         this.input.enableDrag();
         this.events.onDragStart.add(this.onDragStart, this);
         this.events.onDragUpdate.add(this.onDragUpdate, this);
@@ -53,7 +54,7 @@ export default class Item extends Phaser.Sprite {
 
     onInputUp(sprite, pointer) {
         if (!this._isDragging && !game._inPlayMode) {
-            this._showAttributeEditorSignal.dispatch(sprite);
+            this._showAttributeEditorSignal.dispatch(sprite, pointer);
         }
     }
 
@@ -96,7 +97,7 @@ export default class Item extends Phaser.Sprite {
         testSprite.destroy();
         if (result.closestObject) {
             result.closestObject.parent.addContent(this);
-            this.game.add.tween(this).to({ y: -this.height + result.closestObject.height / 2 }, 1000, null, true);
+            this.game.add.tween(this).to({ y: 0 + result.closestObject.height / 2 }, 1000, null, true);
         }
     }
 
@@ -114,7 +115,7 @@ export default class Item extends Phaser.Sprite {
 
     update() {
         if (game._inRecordingMode) {
-            this.onAttributesChanged.dispatch({ uniquename: this._uniquename, x: this.x, y: this.y });
+            this.onAttributesChanged.dispatch({ uniquename: this._uniquename, x: this.x, y: this.y, scaleX: this.scale.x, scaleY: this.scale.y, angle: this.angle });
         } else if (game._inPlayMode) {
             console.log('in play mode');
             if (this._changeAttributes != null && this._changeAttributes.size > 0) {
@@ -122,6 +123,9 @@ export default class Item extends Phaser.Sprite {
                 var recordedInfo = RecordInfo.fromJSON(json);
                 this.x = recordedInfo.x;
                 this.y = recordedInfo.y;
+                this.scale.x = recordedInfo.scaleX;
+                this.scale.y = recordedInfo.scaleY;
+                this.angle = recordedInfo.angle;                
             }
         }
 
