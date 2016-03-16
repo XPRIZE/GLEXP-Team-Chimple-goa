@@ -1,7 +1,7 @@
 import ButtonGrid from './ButtonGrid.js';
 
 export default class TabView extends Phaser.Group {
-    constructor(game, name, width, height, numTabs, tabThickness, numRows, numCols, horizontal, callback, callbackContext) {
+    constructor(game, name, width, height, numTabs, tabThickness, numRows, numCols, horizontal, callback, callbackContext, frameData) {
         super(game);
         this.name = name;
         this.elementWidth = width;
@@ -13,14 +13,15 @@ export default class TabView extends Phaser.Group {
         this.horizontal = horizontal;
         this.callback = callback;
         this.callbackContext = callbackContext;
+        if(frameData) this.frameData = frameData;
     }
     
     set tabs(tabs) {
         this._tabs = tabs;
-        this.tabView = new ButtonGrid(this.game, this.name, this.elementWidth, this.tabThickness, 1, this.numTabs, this.horizontal, this.callSelectTab, this);
+        this.tabView = new ButtonGrid(this.game, this.name, this.elementWidth, this.tabThickness, 1, this.numTabs, this.horizontal, this.callSelectTab, this, this.frameData);
         this.add(this.tabView);
         this.tabView.buttons = Object.keys(tabs);
-        this.buttonView = new ButtonGrid(this.game, this.name, this.elementWidth, this.elementHeight - this.tabThickness, this.numRows, this.numCols, this.horizontal, this.callback, this.callbackContext);
+        this.buttonView = new ButtonGrid(this.game, this.name, this.elementWidth, this.elementHeight - this.tabThickness, this.numRows, this.numCols, this.horizontal, this.callback, this.callbackContext, this.frameData);
         this.add(this.buttonView);
         this.buttonView.y = this.tabThickness;
         this.selectTab(Object.keys(tabs)[0]);
@@ -38,6 +39,7 @@ export default class TabView extends Phaser.Group {
         this.tabView.selectButton(button);
         let buttons = this._tabs[button.name];
         this.buttonView.buttons = buttons;
+        this.buttonView.visible = true;
     }
     
     /**
@@ -49,6 +51,10 @@ export default class TabView extends Phaser.Group {
         this.selectTab(button);
     }
     
+    unSelect() {
+        this.tabView.unSelect();
+        this.buttonView.visible = false;
+    }
 }
 
 TabView.LAYOUT_VERTICAL = 1;
