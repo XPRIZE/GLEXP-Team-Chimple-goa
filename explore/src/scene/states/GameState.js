@@ -20,9 +20,9 @@ export default class GameState extends Phaser.State {
         let scene = new Scene(game, this.game.width * 2, this.game.height);
         scene.uniquename = _.uniqueId("jungle_scene"); 
         scene.wall = new Wall(game, 0, 0);
-        scene.wall.addTexture(new TileTexture(game, 0, 0, this.game.width, this.game.height * 0.6, 'scene/scene', 'Wall_Tile_single.png'));
+        scene.wall.addTexture(new TileTexture(game, 0, 0, this.game.width * 2, this.game.height * 0.6, 'scene/scene', 'Wall_Tile_single.png'));
         scene.floor = new Floor(game, 0, this.game.height * 0.6);
-        scene.floor.addTexture(new TileTexture(game, 0, 0, this.game.width, this.game.height * 0.4, 'scene/scene', 'Tile.png'));        
+        scene.floor.addTexture(new TileTexture(game, 0, 0, this.game.width * 2, this.game.height * 0.4, 'scene/scene', 'Tile.png'));        
         
         var sink = new Holder(game, 100, 10);
         sink.uniquename = _.uniqueId("sink");
@@ -62,5 +62,16 @@ export default class GameState extends Phaser.State {
         // com.addChild(new Phaser.Sprite(game, 10, 10, 'scene', 'Sink_Main.png'));
         // com.inputEnabled = true;
         // com.input.enableDrag(true);
+    }
+
+    update() {
+   
+        
+        if(this.item.flag == 1){
+        
+        this.item.x = this.game.input.mousePointer.worldX - (0.262 * (this.game.width)); 
+        this.item.y = this.game.input.mousePointer.worldY - (0.582 * this.game.height);
+      
+        }
     }
 }
