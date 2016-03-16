@@ -4,12 +4,24 @@ import Texture from './Texture.js';
 import TileTexture from './TileTexture.js';
 
 export default class Surface extends Phaser.Group {
-    constructor(game, x, y) {
+    constructor(game, x, y, name) {
         super(game);
+        this.name = name;
         this.x = x;
         this.y = y;
         game.physics.enable(this);
     }
+    
+    set uniquename(name) {
+        if(!this._uniquename) {
+            this._uniquename = name;
+        }        
+    }
+    
+    get uniquename() {
+        return this._uniquename;
+    }
+    
 
     addTexture(texture) {
         Surface.All.push(texture);
@@ -61,7 +73,8 @@ export default class Surface extends Phaser.Group {
             x: this.x,
             y: this.y,
             textures: this.textures,
-            contents: this.contents
+            contents: this.contents,
+            uniquename: this.uniquename
         }
         return json;
     }
@@ -70,6 +83,7 @@ export default class Surface extends Phaser.Group {
         let val = new Surface(game, j.x, j.y);
         val.textures = j.textures;
         val.contents = j.contents;
+        val.uniquename = j.uniquename;
         return val;
     }
     

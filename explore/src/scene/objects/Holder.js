@@ -6,12 +6,17 @@ export default class Holder extends Item {
     // TODO: Item takes a key and frame, but here we are not passing any. See if any better solution is there
     constructor(game, x, y) {
         super(game, x, y);
-        // this.x = x;
-        // this.y = y;
-        // this.inputEnabled = true;
-        // this.input.enableDrag();
-        this.input.priorityID = 1;
+         this.x = x;
+         this.y = y;
+         this.inputEnabled = true;
+         this.input.enableDrag();
+         this.input.priorityID = 1;
     }
+    
+    update () {
+        this.onAttributesChanged.dispatch({uniquename: this._uniquename, x: this.x, y: this.y});
+    }
+
 
     set frontTexture(val) {
         if(this._frontTexture) {
@@ -72,6 +77,7 @@ export default class Holder extends Item {
             _class: "Holder",
             x: this.x,
             y: this.y,
+            uniquename: this.uniquename,
             frontTexture: this.frontTexture,
             backTexture: this.backTexture,
             surfaces: this.surfaces
@@ -81,6 +87,7 @@ export default class Holder extends Item {
     
     static fromJSON(game, j) {
         let holder = new Holder(game, j.x, j.y);
+        holder.uniquename = j.uniquename;
         if(j.frontTexture) {
             holder.frontTexture = j.frontTexture;        
         }
@@ -88,6 +95,7 @@ export default class Holder extends Item {
             holder.backTexture = j.backTexture;        
         }
         holder.surfaces = j.surfaces;
+        
         return holder;
     }
     

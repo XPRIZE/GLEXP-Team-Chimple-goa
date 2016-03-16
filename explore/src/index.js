@@ -1,18 +1,24 @@
 /// <reference path="../node_modules/phaser/typescript/phaser.d.ts" />
-/// <reference path="../typings/tsd.d.ts" />
 
 import PuppetStateHolder from './puppet/index.js';
 import SceneStateHolder from './scene/index.js';
+import StoryBuilderStateHolder from './storybuilder/index.js';
 
 class Game extends Phaser.Game {
 	constructor(width, height) {
 		super(width, height, Phaser.AUTO, 'gameCanvas', null);
-        let puppetStateHolder = new PuppetStateHolder(this);
-        puppetStateHolder.createStates();
-		puppetStateHolder.startDefault();
-        let sceneStateHolder = new SceneStateHolder(this);
-        sceneStateHolder.createStates();
+
+        //let puppetStateHolder = new PuppetStateHolder(this);
+        //puppetStateHolder.createStates();
+		//puppetStateHolder.startDefault();
+        //let sceneStateHolder = new SceneStateHolder(this);
+        //sceneStateHolder.createStates();
 		// sceneStateHolder.startDefault();
+        
+        let storyBuilderStateHolder = new StoryBuilderStateHolder(this);
+        storyBuilderStateHolder.createStates();
+        storyBuilderStateHolder.startDefault();
+
 	}
 }
 
