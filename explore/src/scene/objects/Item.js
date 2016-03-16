@@ -13,7 +13,6 @@ var _ = require('lodash');
 export default class Item extends Phaser.Sprite {
     constructor(game, x, y, key, frame) {
         super(game, x, y, key, frame);
-        this.anchor.setTo(0, 1);
         game.physics.enable(this);
         this.inputEnabled = true;
         this.input.enableDrag();
@@ -85,8 +84,8 @@ export default class Item extends Phaser.Sprite {
         this.game.physics.arcade.overlap(testSprite, Surface.All, this.overlapHandler, null, result);
         testSprite.destroy();
         if (result.closestObject) {
-            result.closestObject.addChild(this);
-            this.game.add.tween(this).to({ y: 0 }, 1000, null, true);
+            result.closestObject.parent.addContent(this);
+            this.game.add.tween(this).to({ y: -this.height + result.closestObject.height / 2 }, 1000, null, true);
         }
     }
 
