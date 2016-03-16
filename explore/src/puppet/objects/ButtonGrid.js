@@ -31,6 +31,7 @@ export default class ButtonGrid extends Phaser.Group {
 
     set buttons(buttons) {
         this.buttonPanel.removeAll(true);
+        this.buttonPanel.x = 0;
         this._buttons = buttons;
 
         let numAlong = this.horizontal ? this.numRows : this.numColumns;
@@ -49,8 +50,8 @@ export default class ButtonGrid extends Phaser.Group {
                 let layoutY = (maxButtonHeight + this.padding * 2) * (this.horizontal ? j : i) + this.padding + maxButtonHeight / 2;
                 let key = this.name;
                 let frame = buttons[index];
-                if(this.frameData && this.frameData[key]) {
-                    let info = this.frameData[key];
+                if(this.frameData && this.frameData[frame]) {
+                    let info = this.frameData[frame];
                     key = info.key;
                     frame = info.frame;
                 }
