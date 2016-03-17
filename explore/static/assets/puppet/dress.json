@@ -51,14 +51,36 @@
       }
     },
     "shirt2.png": {
-      "Shirt": {
-        "key": "puppet/1",
-        "frame": "shirt/001redplaid_body.png"
-      },
-      "Sleeve": {
-        "key": "puppet/2",
-        "frame": "shirt/001redplaid_arm.png"
+      "Chain": {
+        "key": "puppet/0",
+        "frame": "body/001092scarf_body.png"
       }
+      },
+      "shirt3.png": {
+      "Chain": {
+        "key": "puppet/0",
+        "frame": "body/041heartnecklace_body.png"
+      }
+      },
+     "shirt4.png": {
+      "Chain": {
+        "key": "puppet/0",
+        "frame": "body/042medallion_body.png"
+      }
+      },
+     "shirt5.png": {
+      "Chain": {
+        "key": "puppet/0",
+        "frame": "body/candynecklacev3_body.png"
+      }
+     },
+      "shirt6.png": {
+      "Belt": {
+        "key": "puppet/2",
+        "frame": "body/061waistbag-KR_body.png"
+        
+      
+     }
     }
   },
   "face_chooser.png": {
@@ -85,24 +107,39 @@
   },
   "glasses_chooser.png": {
     "shirt1.png": {
-      "Shirt": {
-        "key": "puppet/1",
-        "frame": "shirt/001redplaid_body.png"
-      },
-      "Sleeve": {
+      "Glass": {
         "key": "puppet/2",
-        "frame": "shirt/001redplaid_arm.png"
+        "frame": "glasses/001architect.png"
       }
+     
     },
     "shirt2.png": {
-      "Shirt": {
-        "key": "puppet/1",
-        "frame": "shirt/001redplaid_body.png"
-      },
-      "Sleeve": {
+      "Glass": {
         "key": "puppet/2",
-        "frame": "shirt/001redplaid_arm.png"
+        "frame": "glasses/009redglasses.png"
       }
+     
+    },
+     "shirt3.png": {
+      "Glass": {
+        "key": "puppet/2",
+        "frame": "glasses/002thomas.png"
+      }
+      
+    },
+     "shirt4.png": {
+      "Glass": {
+        "key": "puppet/2",
+        "frame": "glasses/003badass.png"
+      }
+      
+    },
+     "shirt5.png": {
+      "Glass": {
+        "key": "puppet/2",
+        "frame": "glasses/006aviators.png"
+      }
+      
     }
   },
   "hair_chooser.png": {
@@ -235,24 +272,18 @@
   },
   "skinColor_chooser.png": {
     "shirt1.png": {
-      "Shirt": {
+      "Skin": {
         "key": "puppet/1",
-        "frame": "shirt/001redplaid_body.png"
-      },
-      "Sleeve": {
-        "key": "puppet/2",
-        "frame": "shirt/001redplaid_arm.png"
+        "frame": "skin/foot.png"
       }
+      
     },
     "shirt2.png": {
-      "Shirt": {
+      "Skin": {
         "key": "puppet/1",
-        "frame": "shirt/001redplaid_body.png"
-      },
-      "Sleeve": {
-        "key": "puppet/2",
-        "frame": "shirt/001redplaid_arm.png"
+        "frame": "skin/shoulder.png"
       }
+     
     }
   }
 }

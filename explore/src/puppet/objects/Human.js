@@ -144,6 +144,20 @@ export default class Human extends Puppet {
     setChain(key, frame, x, y) {
         this.body.addAccessory(new Accessory(this.game, true, true, true, new Phaser.Point(0.5, 0), new Phaser.Point(0.5, 0), new Phaser.Point(0, 0), false, key, frame, 'chain'), true);
     }
+     setBelt(key,frame,x,y){
+       this.beltSize = this.body.addAccessory(new Accessory(this.game, true, true, true, new Phaser.Point(0, 0), new Phaser.Point(0, 0.5), new Phaser.Point(0, 0), false, key, frame, 'Belt'), true);
+       this.beltSize.scale.setTo(1.2,1);
+  } 
+  setGlass(key,frame,x,y){
+        
+       this.item = this.head.addAccessory(new Accessory(this.game, true, true, true, new Phaser.Point(0, 0), new Phaser.Point(0.1, 0.1), new Phaser.Point(0, 0), false, key, frame, 'Glass'), true);
+       this.item.scale.setTo(0.5);
+  }
+  setSkin(key,frame,x,y){
+    this.body.addAccessory(new Accessory(this.game, true, true, true, new Phaser.Point(0, 0), new Phaser.Point(0, 0.5), new Phaser.Point(0, 0), false, key, frame, 'Skin'), true);
+      
+  }
+
     
     setArmAccessory(key, frame, anchorX, anchorY, offsetX, offsetY) {
         this.leftHand.addAccessory(new Accessory(this.game, true, true, false, new Phaser.Point(anchorX, anchorY), new Phaser.Point(offsetX, offsetY), new Phaser.Point(0, 0), false, key, frame, 'armAccessory'), true);        
