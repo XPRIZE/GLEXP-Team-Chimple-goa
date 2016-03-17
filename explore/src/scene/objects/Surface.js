@@ -26,12 +26,18 @@ export default class Surface extends Phaser.Group {
     addTexture(texture) {
         Surface.All.push(texture);
         this.game.physics.enable(texture);
-        return this.add(texture);            
+        let lastTextureIndex = 0;
+        this.forEach(function(value) {
+            if(value instanceof Texture || value instanceof TileTexture) {
+                lastTextureIndex++;
+            }
+        });
+        return this.addAt(texture, lastTextureIndex);          
     }
     
     get textures() {
         let children = new Array();
-        this.forEach(function(value, index, array) {
+        this.forEach(function(value) {
             if(value instanceof Texture || value instanceof TileTexture) {
                 children.push(value);
             }
@@ -52,7 +58,7 @@ export default class Surface extends Phaser.Group {
     
     get contents() {
         let children = new Array();
-        this.forEach(function(value, index, array) {
+        this.forEach(function(value) {
             if(value instanceof Item || value instanceof Holder) {
                 children.push(value);
             }

@@ -15,13 +15,13 @@ export default class Item extends Phaser.Sprite {
         super(game, x, y, key, frame);
         game.physics.enable(this);
         this.inputEnabled = true;
-        this.anchor.set(0.5,1);
+        this.anchor.set(0.5, 1);
         this.input.enableDrag();
         this.events.onDragStart.add(this.onDragStart, this);
         this.events.onDragUpdate.add(this.onDragUpdate, this);
         this.events.onDragStop.add(this.onDragStop, this);
         this.input.priorityID = 2;
-       
+
         //Any Attribute Changes then dispatch signal        
         this.onAttributesChanged = new AttributesChangedSignal();
         this.onUpdateAttributesSignal = new UpdateAttributesSignal();
@@ -32,6 +32,10 @@ export default class Item extends Phaser.Sprite {
         this._enableAttributeEditorSignal = new EnableAttributeEditorSignal();
         this._enableAttributeEditorSignal.add(this.enableInputs, this);
         this._showAttributeEditorSignal = new ShowAttributeEditorSignal();
+
+        this.events.onInputDown.add(this.onInputDown, this);
+        this.events.onInputUp.add(this.onInputUp, this);
+
     }
 
     enableInputs(instance) {
@@ -56,11 +60,12 @@ export default class Item extends Phaser.Sprite {
     }
 
     onDragStart(sprite, pointer) {
-        
+
         this._isDragging = true;
         this.game.camera.follow(sprite);
-        sprite.scale.setTo(1.2,1.2);
-       
+        sprite.scale.setTo(1.2, 1.2);
+        sprite.tint = 0x000000;
+
         sprite.x = this.game.input.activePointer.x;
         sprite.y = this.game.input.activePointer.y;
     }
@@ -73,19 +78,23 @@ export default class Item extends Phaser.Sprite {
             this._isDragging = false;
         } else {
             this._isDragging = true;
+
+            if (this._isDragging == true) {
+
+                sprite.x = this.game.input.activePointer.worldX;
+                sprite.y = this.game.input.activePointer.worldY - (0.570 * this.game.height);
+
+            }
         }
-        
-         if(this._isDragging == true){
-        
-          sprite.x = this.game.input.activePointer.worldX ;
-          sprite.y = this.game.input.activePointer.worldY - (0.570 * this.game.height);
-         
-        }        
     }
 
     onDragStop(sprite, pointer) {
 
-        sprite.scale.setTo(1,1); //scaling back to normal when dropped
+        sprite.scale.setTo(1, 1); //scaling back to normal when dropped
+        this.game.camera.unfollow();
+        if (this._isDragging) {
+            sprite.tint = 0xFFFFFF;
+        }
         this._isDragging = false;
         let globalPoint = this.toGlobal(new PIXI.Point(0, 0));
         let testSprite = new Phaser.Sprite(this.game, globalPoint.x, globalPoint.y, this.key, this.frame);
@@ -127,7 +136,7 @@ export default class Item extends Phaser.Sprite {
                 this.y = recordedInfo.y;
                 this.scale.x = recordedInfo.scaleX;
                 this.scale.y = recordedInfo.scaleY;
-                this.angle = recordedInfo.angle;                
+                this.angle = recordedInfo.angle;
             }
         }
 

@@ -37,6 +37,7 @@ export default class TabView extends Phaser.Group {
         
     selectTabButton(button) {
         this.tabView.selectButton(button);
+        this.selectedTab = button.name;
         let buttons = this._tabs[button.name];
         this.buttonView.buttons = buttons;
         this.buttonView.visible = true;
@@ -48,10 +49,19 @@ export default class TabView extends Phaser.Group {
      * For tab, both values will be the same
      */
     callSelectTab(tab, button) {
-        this.selectTab(button);
+        if(this._tabs[button] && this._tabs[button].length >= 0) {
+            if(this.selectedTab == button) {
+                this.unSelect();            
+            } else {
+                this.selectTab(button);        
+            }
+        } else {
+            this.callback.call(this.callbackContext, button.name);            
+        }
     }
     
     unSelect() {
+        this.selectedTab = null;
         this.tabView.unSelect();
         this.buttonView.visible = false;
     }
