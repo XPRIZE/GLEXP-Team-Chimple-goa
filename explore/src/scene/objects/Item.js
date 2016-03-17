@@ -35,9 +35,9 @@ export default class Item extends Phaser.Sprite {
         this._showAttributeEditorSignal = new ShowAttributeEditorSignal();
     }
 
-    enableInputs() {
-        this.events.onInputDown.add(this.onInputDown, this);
-        this.events.onInputUp.add(this.onInputUp, this);
+    enableInputs(instance) {
+        this.events.onInputDown.add(instance.onInputDown, this);
+        this.events.onInputUp.add(instance.onInputUp, this, 0, game);
     }
 
     set uniquename(name) {
@@ -49,19 +49,15 @@ export default class Item extends Phaser.Sprite {
     }
 
     onInputDown(sprite, pointer) {
-
+        console.log('in default input down handler');
     }
 
     onInputUp(sprite, pointer) {
-        if (!this._isDragging && !game._inPlayMode) {
-            this._showAttributeEditorSignal.dispatch(sprite, pointer);
-        }
+        console.log('in default input up handler');
     }
 
     onDragStart(sprite, pointer) {
         this._isDragging = true;
-
-        //sprite.scale.setTo(1.2,1.2);
        
         this.flag = 1;
        

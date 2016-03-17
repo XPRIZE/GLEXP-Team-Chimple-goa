@@ -11,6 +11,7 @@ import RecordingManager from '../objects/RecordingManager.js';
 import EnableAttributeEditorSignal from '../objects/EnableAttributeEditorSignal.js';
 import ShowAttributeEditorSignal from '../objects/ShowAttributeEditorSignal.js';
 import AttributeEditOverlay from '../objects/AttributeEditOverlay.js';
+import StoryBuilderInputHandler from '../objects/StoryBuilderInputHandler.js';
 
 var _ = require('lodash');
 
@@ -93,7 +94,8 @@ export default class GameState extends Phaser.State {
     initializeRecordingManager() {
         this.recordingManager = new RecordingManager(game);
         this._enableAttributeEditorSignal = new EnableAttributeEditorSignal();
-        this._enableAttributeEditorSignal.dispatch();
+        let storyBuilderInputHandler = new StoryBuilderInputHandler();
+        this._enableAttributeEditorSignal.dispatch(storyBuilderInputHandler);
 
         this._showAttributeEditorSignal = new ShowAttributeEditorSignal();
         this._showAttributeEditorSignal.add(this.showAttributeEditor, this);
