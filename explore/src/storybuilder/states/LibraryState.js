@@ -7,24 +7,37 @@ import Item from '../../scene/objects/Item.js';
 import Holder from '../../scene/objects/Holder.js';
 import Surface from '../../scene/objects/Surface.js';
 import Util from '../../scene/objects/Util.js';
+import StoryUtil from '../objects/StoryUtil.js';
 import RecordingManager from '../objects/RecordingManager.js';
 import EnableAttributeEditorSignal from '../objects/EnableAttributeEditorSignal.js';
 import ShowAttributeEditorSignal from '../objects/ShowAttributeEditorSignal.js';
 import AttributeEditOverlay from '../objects/AttributeEditOverlay.js';
 import StoryBuilderInputHandler from '../objects/StoryBuilderInputHandler.js';
+import Library from '../objects/Library.js';
+import Story from '../objects/Story.js';
+import Page from '../objects/Page.js';
 
 var _ = require('lodash');
 
-export default class GameState extends Phaser.State {
+export default class LibraryState extends Phaser.State {
 
     preload() {
     }
 
     create() {
         // create internal datastructure
-
+               
+        let story = new Story(game, 0, 0, '123-332-11', 'My Journey', null);
+        
+        let library = new Library(game, this.game.width, this.game.height, 'MyBooks');
+        library.addStory(story);
+        
+        console.log('library:' + library);
+        
+        let library1 = Library.fromJSON(game, '{"_class":"Library","x":800,"y":600,"name":"MyBooks","stories":[{"_class":"Story","x":0,"y":0,"storyId":"123-332-11","imageData":null}]}');
+        
         //Refactor below method to create initial scene from JSON                
-        let scene = new Scene(game, this.game.width * 2, this.game.height);
+        /*let scene = new Scene(game, this.game.width * 2, this.game.height);
         scene.uniquename = _.uniqueId("jungle_scene");
         scene.wall = new Wall(game, 0, 0);
         scene.wall.addTexture(new TileTexture(game, 0, 0, this.game.width, this.game.height * 0.6, 'scene/scene', 'Wall_Tile_single.png'));
@@ -78,12 +91,9 @@ export default class GameState extends Phaser.State {
 
         //scene.floor.addContent(new Item(game, 20, 20, 'scene', 'commode.png'));
 
-        let sceneFromJSON = '{"_class":"Scene","width":826,"height":600,"wall":{"_class":"Wall","x":0,"y":0,"textures":[{"_class":"TileTexture","x":0,"y":0,"width":800,"height":360,"key":"scene/scene","frame":"Wall_Tile_single.png"}],"contents":[]},"floor":{"_class":"Floor","x":0,"y":360,"textures":[{"_class":"TileTexture","x":0,"y":0,"width":800,"height":240,"key":"scene/scene","frame":"Tile.png"}],"contents":[{"_class":"Item","x":0,"y":0,"key":"scene/scene","frame":"Object_1.png","uniquename":"object_12"},{"_class":"Item","x":0,"y":0,"key":"scene/scene","frame":"Object_3.png","uniquename":"object_13"}]},"uniquename":"jungle_scene1"}';
-        let scene2  = Scene.fromJSON(game, sceneFromJSON);
-
-        game.camera.follow(item);
-        game.physics.startSystem(Phaser.Physics.ARCADE);
-        this.initializeRecordingManager();
+        //game.camera.follow(item);
+        //game.physics.startSystem(Phaser.Physics.ARCADE);
+        //this.initializeRecordingManager();
 
         // let scene = JSON.parse('{"_class":"Scene","floor":{"_class":"Floor","x":0,"y":360,"texture":{"_class":"Texture","x":0,"y":0,"key":"scene","frame":"Floor.png"},"contents":[{"_class":"Holder","x":100,"y":10,"frontTexture":{"_class":"Texture","x":0,"y":0,"key":"scene","frame":"Sink_Main.png"},"surfaces":[{"_class":"Surface","x":0,"y":0,"texture":{"_class":"Texture","x":0,"y":0,"key":"scene","frame":"Sink_upper.png"},"contents":[]}]},{"_class":"Item","x":20,"y":20,"key":"scene","frame":"commode.png"}]},"wall":{"_class":"Wall","x":0,"y":0,"texture":{"_class":"Texture","x":0,"y":0,"key":"scene","frame":"Front_Wall.png"},"contents":[]}}', Util.revive);
 

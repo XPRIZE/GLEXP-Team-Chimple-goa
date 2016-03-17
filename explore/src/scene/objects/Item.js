@@ -52,18 +52,18 @@ export default class Item extends Phaser.Sprite {
     }
 
     onInputDown(sprite, pointer) {
-        console.log('in default input down handler');
+
     }
 
     onInputUp(sprite, pointer) {
-        console.log('in default input up handler');
+
     }
 
     onDragStart(sprite, pointer) {
 
         this._isDragging = true;
         this.game.camera.follow(sprite);
-        sprite.scale.setTo(1.2, 1.2);
+        
         sprite.tint = 0x000000;
 
         sprite.x = this.game.input.activePointer.x;
@@ -90,7 +90,7 @@ export default class Item extends Phaser.Sprite {
 
     onDragStop(sprite, pointer) {
 
-        sprite.scale.setTo(1, 1); //scaling back to normal when dropped
+        //sprite.scale.setTo(1, 1); //scaling back to normal when dropped
         this.game.camera.unfollow();
         if (this._isDragging) {
             sprite.tint = 0xFFFFFF;
