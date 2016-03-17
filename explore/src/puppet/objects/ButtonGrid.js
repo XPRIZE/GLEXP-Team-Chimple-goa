@@ -1,6 +1,6 @@
 export default class ButtonGrid extends Phaser.Group {
     //TODO: Swipe also selects button based on where you click
-    
+
     constructor(game, name, width, height, numRows, numColumns, horizontal, callback, callbackContext, frameData) {
         super(game);
         this.name = name;
@@ -12,7 +12,7 @@ export default class ButtonGrid extends Phaser.Group {
         this.buttonCallback = callback;
         this.buttonCallbackContext = callbackContext;
         this.horizontal = horizontal;
-        if(frameData) this.frameData = frameData;
+        if (frameData) this.frameData = frameData;
 
         let mask = this.add(new Phaser.Graphics(this.game, 0, 0));
         mask.beginFill(0x000000);
@@ -54,18 +54,19 @@ export default class ButtonGrid extends Phaser.Group {
                 button.name = buttons[index];
                 button.scale.multiply(maxButtonWidth / button.width, maxButtonHeight / button.height);
                 button.anchor.setTo(0.5, 0.5);
-                let buttonImage =  null;
-                if(this.frameData && this.frameData[frame]) {
+                let buttonImage = null;
+                if (this.frameData && this.frameData[frame]) {
                     let info = this.frameData[frame];
-                    if(info.key) {
+                    if (info.key) {
                         key = info.key;
-                        frame = info.frame;                
+                        frame = info.frame;
                         buttonImage = new Phaser.Sprite(this.game, layoutX, layoutY, key, frame);
-                    } else if(info.image_data) {
+                    } else if (info.image_data) {
                         //create sprite from image_data
+                        buttonImage = new Phaser.Sprite(this.game, layoutX, layoutY, frame);
                     }
                 } else {
-                    buttonImage = new Phaser.Sprite(this.game, layoutX, layoutY, key, frame);                    
+                    buttonImage = new Phaser.Sprite(this.game, layoutX, layoutY, key, frame);
                 }
                 buttonImage.anchor.setTo(0.5, 0.5);
                 let buttonScale = Math.min(maxButtonWidth / buttonImage.width, maxButtonHeight / buttonImage.height, 1);
@@ -92,9 +93,9 @@ export default class ButtonGrid extends Phaser.Group {
         button.changeStateFrame('Down');
         button.freezeFrames = true;
     }
-    
+
     unSelect() {
-        if(this.selectedButton) {
+        if (this.selectedButton) {
             this.selectedButton.freezeFrames = false;
             this.selectedButton.changeStateFrame('Out');
             this.selectedButton = null;
@@ -104,7 +105,11 @@ export default class ButtonGrid extends Phaser.Group {
     callSelectButton(button, pointer) {
         this.selectButton(button);
         if (this.buttonCallback) {
-            this.buttonCallback.call(this.buttonCallbackContext, this.parent.tabView.selectedButton.name, button.name);
+            let tabName = "";
+            if(this.parent.tabView) {
+                tabName = this.parent.tabView.selectedButton.name;    
+            }            
+            this.buttonCallback.call(this.buttonCallbackContext, tabName, button.name);
         }
     }
 

@@ -1,6 +1,7 @@
 import Library from './Library.js';
 import Story from './Story.js';
 import Page from './Page.js';
+import StoryPage from './StoryPage.js';
 
 export default class StoryUtil {
     static revive(k, v) {
@@ -10,7 +11,9 @@ export default class StoryUtil {
             return Story.fromJSON(window.game, v);
         } else if (v instanceof Object && v._class == 'Page') {
             return Page.fromJSON(window.game, v);
-        }
+        } else if (v instanceof Object && v._class == 'StoryPage') {
+            return StoryPage.fromJSON(window.game, v);
+        } 
         return v;
     }
 

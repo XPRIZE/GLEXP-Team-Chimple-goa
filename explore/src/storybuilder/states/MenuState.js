@@ -7,7 +7,7 @@ export default class MenuState extends Phaser.State {
         var style = { font: "65px Arial", fill: "#ffffff", align: "center" };
 
         this._text = this.add.text(x - 300, y - 200, "Press to Start", style);
-
+        
         this.input.onDown.add(this.onDown, this);
 	}
 
