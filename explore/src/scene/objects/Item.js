@@ -108,7 +108,7 @@ export default class Item extends Phaser.Sprite {
         testSprite.destroy();
         if (result.closestObject) {
             result.closestObject.parent.addContent(this);
-            this.game.add.tween(this).to({ y: 0 + result.closestObject.height / 2 }, 1000, null, true);
+            this.game.add.tween(this).to({ y: 0 + result.closestObject.height / 2 }, (Math.abs(this.y)/0.1), null, true);
         }
     }
 
