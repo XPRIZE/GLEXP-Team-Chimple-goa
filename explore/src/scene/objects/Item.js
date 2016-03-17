@@ -21,8 +21,7 @@ export default class Item extends Phaser.Sprite {
         this.events.onDragUpdate.add(this.onDragUpdate, this);
         this.events.onDragStop.add(this.onDragStop, this);
         this.input.priorityID = 2;
-        this.flag = 0;   //object is dragged on not (0 for dropped , 1 for picked)
-
+       
         //Any Attribute Changes then dispatch signal        
         this.onAttributesChanged = new AttributesChangedSignal();
         this.onUpdateAttributesSignal = new UpdateAttributesSignal();
@@ -57,9 +56,10 @@ export default class Item extends Phaser.Sprite {
     }
 
     onDragStart(sprite, pointer) {
+        
         this._isDragging = true;
-       
-        this.flag = 1;
+        this.game.camera.follow(sprite);
+        sprite.scale.setTo(1.2,1.2);
        
         sprite.x = this.game.input.activePointer.x;
         sprite.y = this.game.input.activePointer.y;
@@ -73,13 +73,19 @@ export default class Item extends Phaser.Sprite {
             this._isDragging = false;
         } else {
             this._isDragging = true;
+        }
+        
+         if(this._isDragging == true){
+        
+          sprite.x = this.game.input.activePointer.worldX ;
+          sprite.y = this.game.input.activePointer.worldY - (0.570 * this.game.height);
+         
         }        
     }
 
     onDragStop(sprite, pointer) {
 
-        this.flag = 0; 
-        //sprite.scale.setTo(1,1); //scaling back to normal when dropped
+        sprite.scale.setTo(1,1); //scaling back to normal when dropped
         this._isDragging = false;
         let globalPoint = this.toGlobal(new PIXI.Point(0, 0));
         let testSprite = new Phaser.Sprite(this.game, globalPoint.x, globalPoint.y, this.key, this.frame);

@@ -24,9 +24,9 @@ export default class EditState extends Phaser.State {
 
         let scene = new Scene(game, this.game.width * 2, this.game.height);
         scene.wall = new Wall(game, 0, 0);
-        scene.wall.addTexture(new TileTexture(game, 0, 0, this.game.width, this.game.height * 0.6, 'scene/scene', 'Wall_Tile_single.png'));
+        scene.wall.addTexture(new TileTexture(game, 0, 0, this.game.width * 2, this.game.height * 0.6, 'scene/scene', 'Wall_Tile_single.png'));
         scene.floor = new Floor(game, 0, this.game.height * 0.6);
-        scene.floor.addTexture(new TileTexture(game, 0, 0, this.game.width, this.game.height * 0.4, 'scene/scene', 'Tile.png'));
+        scene.floor.addTexture(new TileTexture(game, 0, 0, this.game.width * 2, this.game.height * 0.4, 'scene/scene', 'Tile.png'));
         let item = new Item(game, 0, 0, 'scene/scene', 'Object_1.png');
         scene.floor.addContent(item);
 
