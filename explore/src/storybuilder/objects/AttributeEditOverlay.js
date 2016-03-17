@@ -1,16 +1,21 @@
+import RecordingPauseSignal from './RecordingPauseSignal.js';
+import RecordingResumeSignal from './RecordingResumeSignal.js';
+
 export default class AttributeEditOverlay extends Phaser.Group {
     //container to edit item properties
     constructor(game, width, height, clickedObject, pointer) {
         super(game);
-        this.width = width;
-        this.height = height;
+        this._width = width;
+        this._height = height;
+        this._recordingPauseSignal = new RecordingPauseSignal();
+        this._recordingResumeSignal = new  RecordingResumeSignal();
+        
+        this._clickedObject = clickedObject;
 
-        this.clickedObject = clickedObject;
-        this.clickedPointer = pointer;
         this._overlayBitMap = game.make.bitmapData(game.width, game.height);
-        this._overlayBitMap.draw(game.cache.getImage('storyBuilder/backgroundOverlay'), 0, 0, game.width, game.height);
+        this._overlayBitMap.draw(game.cache.getImage('storyBuilder/backgroundOverlay'), 0, 0, this._width, this._height);
 
-        this.clickedObject.inputEnabled = false;
+        this._clickedObject.inputEnabled = false;
         this._overlayDisplaySprite = game.add.sprite(0, 0, this._overlayBitMap);
         this._overlayDisplaySprite.anchor.setTo(0, 0);
         this._overlayDisplaySprite.alpha = 0.5;
@@ -24,10 +29,10 @@ export default class AttributeEditOverlay extends Phaser.Group {
     }
 
     drawScaleHandler(alpha, color, lineWidth, radius) {
-        this.dynamicCircle = self.game.add.graphics(0, 0);
+        this._dynamicCircle = self.game.add.graphics(0, 0);
         this.drawFixedHandler(alpha, color, lineWidth, radius);
         this.drawDragHandler(alpha, color, lineWidth, 20);
-        
+        this._recordingPauseSignal.dispatch();
     }
 
     drawFixedHandler(alpha, color, lineWidth, radius) {
@@ -48,27 +53,27 @@ export default class AttributeEditOverlay extends Phaser.Group {
         this.drawHorizontalLineAroundCircleOnGraphics(graphics, radius, 360, 5);
 
 
-        let pos = this.clickedObject.toGlobal(new Phaser.Point(0, -this.clickedObject.height / 2));
+        let pos = this._clickedObject.parent.toGlobal(new Phaser.Point(this._clickedObject.x, this._clickedObject.y - this._clickedObject.height / 2));
         let clickedPointer = new Phaser.Point(pos.x + game.camera.x, pos.y + game.camera.y);
-        this.fixedHandlerSprite = game.add.sprite(clickedPointer.x, clickedPointer.y, graphics.generateTexture());
-        this.add(this.fixedHandlerSprite);
-        game.world.bringToTop(this.fixedHandlerSprite);
-        this.fixedHandlerSprite.anchor.set(0.5);
-        this.fixedHandlerSprite.inputEnabled = false;
+        this._fixedHandlerSprite = game.add.sprite(clickedPointer.x, clickedPointer.y, graphics.generateTexture());
+        this.add(this._fixedHandlerSprite);
+        game.world.bringToTop(this._fixedHandlerSprite);
+        this._fixedHandlerSprite.anchor.set(0.5);
+        this._fixedHandlerSprite.inputEnabled = false;
         graphics.destroy();
     }
 
 
     drawHorizontalLineAroundCircleOnGraphics(graphics, radius, angle, lineOffSet) {
-        var p1 = this.computePointOnCircle(radius, angle, lineOffSet);
-        var p2 = this.computePointOnCircle(radius, angle, -lineOffSet);
+        let p1 = this.computePointOnCircle(radius, angle, lineOffSet);
+        let p2 = this.computePointOnCircle(radius, angle, -lineOffSet);
         graphics.moveTo(p1.x, p1.y);
         graphics.lineTo(p2.x, p2.y);
     }
 
     computePointOnCircle(radius, angle, lineOffSet) {
-        var xPoint = (radius + lineOffSet) * Math.cos(angle * Math.PI / 180);
-        var yPoint = (radius + lineOffSet) * Math.sin(angle * Math.PI / 180);
+        let xPoint = (radius + lineOffSet) * Math.cos(angle * Math.PI / 180);
+        let yPoint = (radius + lineOffSet) * Math.sin(angle * Math.PI / 180);
 
         return new Phaser.Point(xPoint, yPoint);
     }
@@ -78,80 +83,82 @@ export default class AttributeEditOverlay extends Phaser.Group {
         graphicsDrag.lineStyle(lineWidth, color, alpha);
         graphicsDrag.drawCircle(0, 0, 2 * radius);
 
-        let initialDistance = (this.clickedObject.scale.x - 1.0) * 100 + 75;
-        let xPoint = (initialDistance * Math.cos((this.clickedObject.angle + 90) * Math.PI / 180));
-        let yPoint = (initialDistance * Math.sin((this.clickedObject.angle + 90) * Math.PI / 180));
+        let initialDistance = (this._clickedObject.scale.x - 1.0) * 100 + 75;
+        let xPoint = (initialDistance * Math.cos((this._clickedObject.angle + 90) * Math.PI / 180));
+        let yPoint = (initialDistance * Math.sin((this._clickedObject.angle + 90) * Math.PI / 180));
         this.refresh(initialDistance);
 
-        this.dragHandlerSprite = game.add.sprite(this.fixedHandlerSprite.x + xPoint, this.fixedHandlerSprite.y + yPoint, graphicsDrag.generateTexture());
-        game.world.bringToTop(this.dragHandlerSprite);
-        this.dragHandlerSprite.anchor.setTo(0.5);
-        this.dragHandlerSprite.inputEnabled = true;
-        this.dragHandlerSprite.input.enableDrag();
-        this.dragHandlerSprite.angle = this.clickedObject.angle;
-        this.dragHandlerSprite._click = 0;
-        this.dragHandlerSprite._clickScale = new Phaser.Point(1, 1);
-        this.dragHandlerSprite.input.useHandCursor = true;
-        this.dragHandlerSprite.input.bringToTop = true;
-        this.dragHandlerSprite.events.onInputDown.add(this.onDragHandlerInputDown, this);
-        this.dragHandlerSprite.events.onInputUp.add(this.onDragHandlerInputUp, this);
+        this._dragHandlerSprite = game.add.sprite(this._fixedHandlerSprite.x + xPoint, this._fixedHandlerSprite.y + yPoint, graphicsDrag.generateTexture());
+        game.world.bringToTop(this._dragHandlerSprite);
+        this._dragHandlerSprite.anchor.setTo(0.5);
+        this._dragHandlerSprite.inputEnabled = true;
+        this._dragHandlerSprite.input.enableDrag();
+        this._dragHandlerSprite.angle = this._clickedObject.angle;
+        this._dragHandlerSprite._click = 0;
+        this._dragHandlerSprite._clickScale = new Phaser.Point(1, 1);
+        this._dragHandlerSprite.input.useHandCursor = true;
+        this._dragHandlerSprite.input.bringToTop = true;
+        this._dragHandlerSprite.events.onInputDown.add(this.onDragHandlerInputDown, this);
+        this._dragHandlerSprite.events.onInputUp.add(this.onDragHandlerInputUp, this);
 
         graphicsDrag.destroy();
     }
 
     refresh(distance) {
-        this.dynamicCircle.lineStyle(1.5, 0xFFFFFF, 0.6);
-        game.world.bringToTop(this.dynamicCircle);
-        this.dynamicCircle.drawCircle(this.fixedHandlerSprite.x, this.fixedHandlerSprite.y, 2 * distance);
+        this._dynamicCircle.lineStyle(1.5, 0xFFFFFF, 0.6);
+        game.world.bringToTop(this._dynamicCircle);
+        this._dynamicCircle.drawCircle(this._fixedHandlerSprite.x, this._fixedHandlerSprite.y, 2 * distance);
 
     }
 
 
     onDragHandlerInputDown(sprite, pointer) {
-        this.dragHandlerSprite._click = new Phaser.Point(pointer.x, pointer.y);
-        this.dynamicCircle.clear();
+        this._dragHandlerSprite._click = new Phaser.Point(pointer.x, pointer.y);
+        this._dynamicCircle.clear();
         game.input.addMoveCallback(this.onDragHandlerInputDrag, this);
     }
 
     onDragHandlerInputDrag(pointer, x, y, down) {
-        this.dynamicCircle.clear();
-        var rotation = game.physics.arcade.angleToPointer(this.fixedHandlerSprite, pointer);
-        var angle = rotation * 180 / Math.PI - 90;
-        this.clickedObject.angle = angle;
+        this._dynamicCircle.clear();
+        this._recordingResumeSignal.dispatch();
+        let rotation = game.physics.arcade.angleToPointer(this._fixedHandlerSprite, pointer);
+        let angle = rotation * 180 / Math.PI - 90;
+        this._clickedObject.angle = angle;
 
-        var difference = 0;
+        let difference = 0;
 
-        var distance = game.physics.arcade.distanceBetween(this.fixedHandlerSprite, this.dragHandlerSprite);
-         difference = distance - 75;
+        let distance = game.physics.arcade.distanceBetween(this._fixedHandlerSprite, this._dragHandlerSprite);
+        difference = distance - 75;
 
-        var scaleX = this.dragHandlerSprite._clickScale.x + difference / 100;
-        var increasedScaleX = scaleX;
-        this.clickedObject.scale.setTo(scaleX, scaleX);
+        let scaleX = this._dragHandlerSprite._clickScale.x + difference / 100;
+        let increasedScaleX = scaleX;
+        this._clickedObject.scale.setTo(scaleX, scaleX);
         this.refresh(distance);
     }
 
     onDragHandlerInputUp(sprite, pointer) {
-        var self = this;
+        let self = this;
         game.input.deleteMoveCallback(this.onDragHandlerInputDrag, this);
-        game.time.events.add(Phaser.Timer.SECOND * 0.5, function() {
-            self.fixedHandlerSprite.destroy();
-            self.dragHandlerSprite.destroy();
-            self._overlayDisplaySprite.destroy();
-            self.dynamicCircle.destroy();
-            self.clickedObject.inputEnabled = true;
-        });
-
+        this.closeAttributeEditOverlay();
     }
 
     onInputDown() {
-        var self = this;
+        let self = this;
+        this.closeAttributeEditOverlay();
+    }
+
+    closeAttributeEditOverlay() {
+        var that = this;
         game.time.events.add(Phaser.Timer.SECOND * 0.5, function() {
-            self.fixedHandlerSprite.destroy();
-            self.dragHandlerSprite.destroy();
-            self._overlayDisplaySprite.destroy();
-            self.dynamicCircle.destroy();
-            self.clickedObject.inputEnabled = true;
+            that._fixedHandlerSprite.destroy();
+            that._dragHandlerSprite.destroy();
+            that._overlayDisplaySprite.destroy();
+            that._dynamicCircle.destroy();
+            that._clickedObject.inputEnabled = true;
+            that._recordingResumeSignal.dispatch();
         });
+
+
     }
 
     onInputUp() {

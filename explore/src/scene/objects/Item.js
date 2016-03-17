@@ -61,7 +61,7 @@ export default class Item extends Phaser.Sprite {
     onDragStart(sprite, pointer) {
         this._isDragging = true;
 
-        sprite.scale.setTo(1.2,1.2);
+        //sprite.scale.setTo(1.2,1.2);
        
         this.flag = 1;
        
@@ -83,7 +83,7 @@ export default class Item extends Phaser.Sprite {
     onDragStop(sprite, pointer) {
 
         this.flag = 0; 
-        sprite.scale.setTo(1,1); //scaling back to normal when dropped
+        //sprite.scale.setTo(1,1); //scaling back to normal when dropped
         this._isDragging = false;
         let globalPoint = this.toGlobal(new PIXI.Point(0, 0));
         let testSprite = new Phaser.Sprite(this.game, globalPoint.x, globalPoint.y, this.key, this.frame);

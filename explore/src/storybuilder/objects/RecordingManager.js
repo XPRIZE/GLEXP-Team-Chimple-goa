@@ -1,8 +1,11 @@
 import RecordingStartSignal from '../objects/RecordingStartSignal.js';
 import RecordingStopSignal from '../objects/RecordingStopSignal.js';
+import RecordingPauseSignal from './RecordingPauseSignal.js';
+import RecordingResumeSignal from './RecordingResumeSignal.js';
 import AttributesChangedSignal from '../objects/AttributesChangedSignal.js'
 import UpdateAttributesSignal from '../objects/UpdateAttributesSignal.js'
 import RecordInfo from '../objects/RecordInfo.js';
+
 
 var _ = require('lodash')._;
 
@@ -39,7 +42,7 @@ export default class RecordingManager extends Phaser.Group {
 
     narrateStory() {
         game._inPlayMode = true;
-        this.playStartTime = this.lastUpdatedPlayTimeInUpdate = new Date();
+        this.playStartTime = this._updatedTime = new Date();
         this.currentPlayCounter = 0;
     }
 
@@ -64,12 +67,19 @@ export default class RecordingManager extends Phaser.Group {
     registerToListeners() {
         game._inRecordingMode = false;
         game._inPlayMode = false;
+        game._inPauseRecording = false;
 
         this._recordingStartSignal = new RecordingStartSignal();
         this._recordingStartSignal.add(this.resetRecordingInformation, this);
 
         this._recordingStopSignal = new RecordingStopSignal();
         this._recordingStopSignal.add(this.persistRecordedInformation, this);
+
+        this._recordingPauseSignal = new RecordingPauseSignal();
+        this._recordingPauseSignal.add(this.pauseRecording, this);
+
+        this._recordingResumeSignal = new RecordingResumeSignal();
+        this._recordingResumeSignal.add(this.resumeRecording, this);
 
         this._attributesChangedSignal = new AttributesChangedSignal();
         this._attributesChangedSignal.add(this.handleAttributeChange, this);
@@ -81,13 +91,33 @@ export default class RecordingManager extends Phaser.Group {
         this.addToMap(data);
     }
 
+
+    resumeRecording() {
+        if (game._inPauseRecording) {
+            console.log('game resumed from pause to recording state:');
+            game._inRecordingMode = true;
+            game._inPauseRecording = false;
+        }
+    }
+
+    pauseRecording() {
+        if (game._inRecordingMode) {
+            console.log('game resumed from pause to recording state:');
+            game._inRecordingMode = false;
+            game._inPauseRecording = true;
+            console.log('updated pauseStart key should be :' + this.currentRecordingCounter);
+
+        }
+
+    }
+
     resetRecordingInformation(recordingStartTime) {
         console.log('in recording manager ==> call to reset Map');
         this._sceneRecordingMap = new Map();
         game._inRecordingMode = true;
 
         //set up time when recording starts
-        this.updatedRecordingTime = recordingStartTime;
+        this._updatedTime = recordingStartTime;
         this.currentRecordingCounter = 0;
     }
 
@@ -102,24 +132,23 @@ export default class RecordingManager extends Phaser.Group {
 
 
     update() {
-        if (game._inRecordingMode) {
-            let previousLastUpdateRecordTime = this.updatedRecordingTime;
-            this.updatedRecordingTime = new Date();
-            let delta = this.updatedRecordingTime.getTime() - previousLastUpdateRecordTime.getTime();
-            this.computeRecordingTimeCounters(delta);
-        } else if (game._inPlayMode) {
-            let previousLastUpdatePlayTimeInUpdate = this.lastUpdatedPlayTimeInUpdate;
-            this.lastUpdatedPlayTimeInUpdate = new Date();
-            let delta = this.lastUpdatedPlayTimeInUpdate.getTime() - previousLastUpdatePlayTimeInUpdate.getTime();
-            this.computePlayTimeCounters(delta);
-            game._inPlayMode = this.currentPlayCounter < this.currentRecordingCounter + 50;
-
-            //dispatch
-            let recordedData = this.findNearestUpdateAttributeInformationByCurrentPlayCounter(this.currentPlayCounter);
-            console.log('recordedData at counter:' + this.currentPlayCounter + " is:" + recordedData);
-            this._updateAttributeSignal.dispatch(recordedData);
+        if (this._updatedTime) {
+            this._previousUpdatedTime = this._updatedTime;
         }
-
+        this._updatedTime = new Date();
+        if (this._updatedTime && this._previousUpdatedTime) {
+            let delta = this._updatedTime.getTime() - this._previousUpdatedTime.getTime();
+            if (game._inRecordingMode) {
+                this.computeRecordingTimeCounters(delta);
+            } else if (game._inPlayMode) {
+                this.computePlayTimeCounters(delta);
+                game._inPlayMode = this.currentPlayCounter < this.currentRecordingCounter + 50;
+                //dispatch
+                let recordedData = this.findNearestUpdateAttributeInformationByCurrentPlayCounter(this.currentPlayCounter);
+                console.log('recordedData at counter:' + this.currentPlayCounter + " is:" + recordedData);
+                this._updateAttributeSignal.dispatch(recordedData);
+            }
+        }
     }
 
     findNearestUpdateAttributeInformationByCurrentPlayCounter(lookUpKey) {
