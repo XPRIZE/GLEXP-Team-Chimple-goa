@@ -164,6 +164,16 @@ export default class Human extends Puppet {
         this.leftHand.addAccessory(new Accessory(this.game, true, true, false, new Phaser.Point(anchorX, anchorY), new Phaser.Point(offsetX, offsetY), new Phaser.Point(0, 0), false, key, frame, 'armAccessory'), true);        
     }
     
+     setHeadStructure(key, frame, x, y,radius) {
+        
+        // this.children[0].children[2].children.splice(0,1);
+         this.head.children.splice(0,1);
+         this.head.shape = new Shape(game, new Phaser.Point(0.5, 1), new Phaser.Point(0.5, 0), new Phaser.Point(0, -10),new Phaser.Circle(x, y, radius) );
+        // this.body.children.splice(0,1);
+        // this.body.shape = new Shape(game, new Phaser.Point(0.5, 1), new Phaser.Point(0.5, 0), new Phaser.Point(0, -10),new Phaser.Circle(100, 100, 200) );
+        
+   }
+    
     sethead(key,frame,anchorX, anchorY, offsetX, offsetY){
        // console.log("in haed");
         this.head.addAccessory(new Accessory(this.game, true, true, false, new Phaser.Point(anchorX, anchorY), new Phaser.Point(offsetX, offsetY), new Phaser.Point(0, 0), false, key, frame, 'hats'), true);

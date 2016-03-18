@@ -3,24 +3,46 @@
     "shirt3.png": {
       "ArmAccessory": {
         "key": "puppet/0",
-        "frame": "arm/tambourine_inlefthand.png",
-        "anchorX": 0.25,
+        "frame": "arm/golfclub01_inlefthand.png",
+        "anchorX": 0.6,
+        "anchorY": 0,
+        "offsetX": 0,
+        "offsetY": 0.93
+      }
+    },
+     "shirt4.png": {
+      "ArmAccessory": {
+        "key": "puppet/0",
+        "frame": "arm/watch_onrighthand.png",
+        "anchorX": 0.5,
         "anchorY": 0.5,
+        "offsetX": 0.5,
+        "offsetY": 0.9
+     
+     }
+    },
+     "shirt1.png": {
+      "ArmAccessory": {
+        "key": "puppet/0",
+        "frame": "arm/totebag_inlefthand.png",
+        "anchorX": 0.5,
+        "anchorY": 0.2,
         "offsetX": 0.5,
         "offsetY": 1
       }
     },
-    "shirt4.png": {
-      "Shirt": {
-        "key": "puppet/1",
-        "frame": "shirt/001084woolsweater_body.png"
-      },
-      "Sleeve": {
-        "key": "puppet/2",
-        "frame": "shirt/001084woolsweater_arm.png"
-      }
+    "shirt5.png": {
+      "ArmAccessory": {
+        "key": "puppet/0",
+        "frame": "arm/icecreamsandwichvs_inlefthand.png",
+        "anchorX": 0.5,
+        "anchorY": 0.5,
+        "offsetX": 0.4,
+        "offsetY": 1
+     
+     }
     }
-  },
+    },
   "beard_chooser.png": {
     "shirt1.png": {
       "beard": {
@@ -303,14 +325,17 @@
   },
   "skinColor_chooser.png": {
     "shirt1.png": {
-      "Skin": {
+      "HeadStructure": {
         "key": "puppet/1",
-        "frame": "skin/foot.png"
+        "frame": "skin/foot.png",
+        "anchorX": 100,
+        "anchorY": 100,
+        "offsetX": 200
       }
       
     },
     "shirt2.png": {
-      "Skin": {
+      "HeadStructure": {
         "key": "puppet/1",
         "frame": "skin/shoulder.png"
       }
