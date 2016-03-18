@@ -6,7 +6,7 @@ import GameState from './states/GameState';
 import LibraryState from './states/LibraryState';
 import SelectStoryState from './states/SelectStoryState';
 import EditStoryPagesState from './states/EditStoryPagesState';
-import ConstructNewStoryPageState from '../states/ConstructNewStoryPageState';
+import ConstructNewStoryPageState from './states/ConstructNewStoryPageState';
 
 
 export default class StoryBuilderStateHolder extends StateHolder {
