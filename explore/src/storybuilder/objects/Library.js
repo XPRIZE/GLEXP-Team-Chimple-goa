@@ -1,4 +1,5 @@
 import Story from './Story.js';
+
 export default class Library extends Phaser.Group {
     //libray contents group of stories
 
@@ -25,11 +26,14 @@ export default class Library extends Phaser.Group {
     }
 
     set stories(val) {
-        val.forEach(function(element) {
-            if(val instanceof Story) {
-                this.addStory(element);    
-            }            
-        }, this);
+        if (val) {
+            val.forEach(function(element) {
+                if (element instanceof Story) {
+                    this.addStory(element);
+                }
+            }, this);
+
+        }
 
     }
 

@@ -4,6 +4,10 @@ import PreloadState from './states/PreloadState';
 import MenuState from './states/MenuState';
 import GameState from './states/GameState';
 import LibraryState from './states/LibraryState';
+import SelectStoryState from './states/SelectStoryState';
+import EditStoryPagesState from './states/EditStoryPagesState';
+import ConstructNewStoryPageState from '../states/ConstructNewStoryPageState';
+
 
 export default class StoryBuilderStateHolder extends StateHolder {
     createStates() {
@@ -12,6 +16,9 @@ export default class StoryBuilderStateHolder extends StateHolder {
 		this.game.state.add('StoryBuilderMenuState', MenuState, false);
 		this.game.state.add('StoryBuilderGameState', GameState, false);
         this.game.state.add('StoryBuilderLibraryState', LibraryState, false);
+        this.game.state.add('StoryBuilderSelectStoryState', SelectStoryState, false);
+        this.game.state.add('StoryEditStoryPagesState', EditStoryPagesState, false);
+        this.game.state.add('StoryConstructNewStoryPageState', ConstructNewStoryPageState, false);
     }
     
     startDefault() {

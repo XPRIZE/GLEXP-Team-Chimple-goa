@@ -54,10 +54,11 @@ export default class Story extends Phaser.Group {
     }
 
     set storyPages(val) {
-        val.forEach(function(element) {
-            this.addPage(element);
-        }, this);
-
+        if (val) {
+            val.forEach(function(element) {
+                this.addStoryPage(element);
+            }, this);
+        }
     }
 
     toJSON() {

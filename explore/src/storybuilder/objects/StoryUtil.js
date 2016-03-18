@@ -6,14 +6,18 @@ import StoryPage from './StoryPage.js';
 export default class StoryUtil {
     static revive(k, v) {
         if (v instanceof Object && v._class == 'Library') {
-            return Library.fromJSON(window.game, v);
+            let a = Library.fromJSON(window.game, v);
+            return a;
         } else if (v instanceof Object && v._class == 'Story') {
-            return Story.fromJSON(window.game, v);
+            let a = Story.fromJSON(window.game, v);
+            return a;
         } else if (v instanceof Object && v._class == 'Page') {
-            return Page.fromJSON(window.game, v);
+            let a =  Page.fromJSON(window.game, v);
+            return a;
         } else if (v instanceof Object && v._class == 'StoryPage') {
-            return StoryPage.fromJSON(window.game, v);
-        } 
+            let a =  StoryPage.fromJSON(window.game, v);
+            return a;
+        }
         return v;
     }
 

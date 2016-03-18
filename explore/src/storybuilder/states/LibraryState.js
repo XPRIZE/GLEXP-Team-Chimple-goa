@@ -24,7 +24,8 @@ export default class LibraryState extends Phaser.State {
 
     preload() {
         var that = this;
-        this._library = game.cache.getJSON('storyBuilder/library');
+        this._library = JSON.parse(JSON.stringify(game.cache.getJSON('storyBuilder/library')), StoryUtil.revive);        
+        
         let stories = this._library.stories;
         this._frameData = {};
         if (stories) {
@@ -33,8 +34,8 @@ export default class LibraryState extends Phaser.State {
                     let imgDataURI = story.imageData;
                     let storyImage = new Image();
                     storyImage.src = imgDataURI;
-                    game.cache.addImage(story.storyId, imgDataURI, storyImage);                    
-                    that._frameData[story.storyId] = {image_data:imgDataURI};
+                    game.cache.addImage(story.storyId, imgDataURI, storyImage);
+                    that._frameData[story.storyId] = { image_data: imgDataURI };
                 }
             });
 
@@ -43,55 +44,22 @@ export default class LibraryState extends Phaser.State {
 
     create() {
         // create internal datastructure
-
-        let storyPage1 = new StoryPage(game, 0, 0, 'page_1', 'Jungle 1', null);
-        let storyPage2 = new StoryPage(game, 0, 0, 'page_2', 'Jungle 2', null);
-
-        let story = new Story(game, 0, 0, '123-332-11', 'My Journey', null);
-        story.addStoryPage(storyPage1);
-        story.addStoryPage(storyPage2);
-
-        let library = new Library(game, this.game.width, this.game.height, 'MyBooks');
-        library.addStory(story);
-
-        console.log('library:' + library);
-
-        let lib1 = JSON.parse('{"_class":"Library","x":800,"y":600,"name":"MyBooks","stories":[{"_class":"Story","x":0,"y":0,"storyId":"123-332-11","imageData":null,"storyPages":[{"_class":"StoryPage","x":0,"y":0,"pageId":"page_1","imageData":null},{"_class":"StoryPage","x":0,"y":0,"pageId":"page_2","imageData":null}]}]}');
-        //    constructor(game, name, width, height, numRows, numColumns, horizontal, callback, callbackContext, frameData) {
-
+        this._display = this.game.add.group();
+        let that = this;        
         let libraryGrid = new ButtonGrid(game, 'library', game.width, game.height, 4, 3, true, function(tab, storyId) {
             //transit to next state with storyId
-
+            _.each(this._library.stories, function(story) {
+                if(story.storyId === storyId) {
+                    that.game.state.start('StoryBuilderSelectStoryState', true, false, JSON.stringify(story));        
+                }    
+            });
+            
+            
         }, this, this._frameData);
         libraryGrid.buttons = Object.keys(this._frameData);
-
-    }
-
-    initializeRecordingManager() {
-        this.recordingManager = new RecordingManager(game);
-        this._enableAttributeEditorSignal = new EnableAttributeEditorSignal();
-        let storyBuilderInputHandler = new StoryBuilderInputHandler();
-        this._enableAttributeEditorSignal.dispatch(storyBuilderInputHandler);
-
-        this._showAttributeEditorSignal = new ShowAttributeEditorSignal();
-        this._showAttributeEditorSignal.add(this.showAttributeEditor, this);
-    }
-
-    showAttributeEditor(item, pointer) {
-        console.log('create showAttributeEditor on item:' + item.uniquename);
-        //create overlay bitmap Sprite
-        this._AttributeEditOverlay = new AttributeEditOverlay(game, game.width, game.height, item, pointer);
-        /*this._overlayBitMap = game.make.bitmapData(game.width, game.height);
-        this._overlayBitMap.draw(game.cache.getImage('storyBuilder/backgroundOverlay'), 0, 0, game.width, game.height);
-
-        let overlayDisplaySprite = self.game.add.sprite(0, 0, this._overlayBitMap);
-        overlayDisplaySprite.anchor.setTo(0, 0);
-        overlayDisplaySprite.alpha = 0.5;
-        overlayDisplaySprite.inputEnabled = true;*/
-
+        this._display.add(libraryGrid);
     }
 
     shutdown() {
-        //this._overlayBitMap.destory();
     }
 }

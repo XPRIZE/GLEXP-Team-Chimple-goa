@@ -68,13 +68,26 @@ export default class ButtonGrid extends Phaser.Group {
                 } else {
                     buttonImage = new Phaser.Sprite(this.game, layoutX, layoutY, key, frame);
                 }
-                buttonImage.anchor.setTo(0.5, 0.5);
-                let buttonScale = Math.min(maxButtonWidth / buttonImage.width, maxButtonHeight / buttonImage.height, 1);
-                buttonImage.scale.multiply(buttonScale, buttonScale);
-                this.buttonPanel.addChild(buttonImage);
+                if (buttonImage) {
+                    buttonImage.anchor.setTo(0.5, 0.5);
+                    let buttonScale = Math.min(maxButtonWidth / buttonImage.width, maxButtonHeight / buttonImage.height, 1);
+                    buttonImage.scale.multiply(buttonScale, buttonScale);
+                    this.buttonPanel.addChild(buttonImage);
+                }
                 index++;
             }
         }
+    }
+    
+    addButton(buttonName, key, frame, image_data) {
+        let buttons = this._buttons;   
+        buttons.push(buttonName);
+        if(key && frame) {
+             this.frameData[buttonName] = {key:frame};    
+        } else {
+            this.frameData[buttonName] = {"image_data":image_data};
+        }
+        this.buttons = buttons;              
     }
 
     getButton(name) {
@@ -106,9 +119,9 @@ export default class ButtonGrid extends Phaser.Group {
         this.selectButton(button);
         if (this.buttonCallback) {
             let tabName = "";
-            if(this.parent.tabView) {
-                tabName = this.parent.tabView.selectedButton.name;    
-            }            
+            if (this.parent && this.parent.tabView) {
+                tabName = this.parent.tabView.selectedButton.name;
+            }
             this.buttonCallback.call(this.buttonCallbackContext, tabName, button.name);
         }
     }
