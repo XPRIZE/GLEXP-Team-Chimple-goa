@@ -23,24 +23,24 @@
   },
   "beard_chooser.png": {
     "shirt1.png": {
-      "Shirt": {
-        "key": "puppet/1",
-        "frame": "shirt/001redplaid_body.png"
-      },
-      "Sleeve": {
-        "key": "puppet/2",
-        "frame": "shirt/001redplaid_arm.png"
-      }
+      "beard": {
+        "key": "puppet/0",
+        "frame": "beard/beard02.png",
+        "anchorX": 0.93,
+        "anchorY": 0.3,
+        "offsetX": 0.9,
+        "offsetY": 1  
+     }
     },
     "shirt2.png": {
-      "Shirt": {
-        "key": "puppet/1",
-        "frame": "shirt/001redplaid_body.png"
-      },
-      "Sleeve": {
-        "key": "puppet/2",
-        "frame": "shirt/001redplaid_arm.png"
-      }
+       "beard": {
+        "key": "puppet/0",
+        "frame": "beard/freddiemoustache.png",
+        "anchorX": 0.5,
+        "anchorY": 0.2,
+        "offsetX": 0.5,
+        "offsetY": 0.7 
+     }
     }
   },
   "body_chooser.png": {
@@ -142,25 +142,26 @@
       
     }
   },
-  "hair_chooser.png": {
+ "hair_chooser.png": {
     "shirt1.png": {
-      "Shirt": {
-        "key": "puppet/1",
-        "frame": "shirt/001redplaid_body.png"
-      },
-      "Sleeve": {
-        "key": "puppet/2",
-        "frame": "shirt/001redplaid_arm.png"
+      "head": {
+        "key": "puppet/0",
+        "frame": "hair/008receding_back.png",
+        "anchorX":0.15,
+        "anchorY":0.5,
+        "offsetX":0,
+        "offsetY":0
       }
-    },
-    "shirt2.png": {
-      "Shirt": {
-        "key": "puppet/1",
-        "frame": "shirt/001redplaid_body.png"
       },
-      "Sleeve": {
-        "key": "puppet/2",
-        "frame": "shirt/001redplaid_arm.png"
+    
+    "shirt2.png": {
+      "head": {
+        "key": "puppet/0",
+        "frame": "hair/011flattop_back.png",
+         "anchorX":0.1,
+        "anchorY":0.91,
+        "offsetX":0,
+        "offsetY":0
       }
     }
   },
@@ -188,24 +189,34 @@
   },
   "head_chooser.png": {
     "shirt1.png": {
-      "Shirt": {
-        "key": "puppet/1",
-        "frame": "shirt/001redplaid_body.png"
-      },
-      "Sleeve": {
-        "key": "puppet/2",
-        "frame": "shirt/001redplaid_arm.png"
-      }
+       "head": {
+        "key": "puppet/0",
+        "frame": "head/001077skihat_hat.png",
+        "anchorX":0.255,
+        "anchorY":0.95,
+        "offsetX":0.3,
+        "offsetY":0
+    }
     },
     "shirt2.png": {
-      "Shirt": {
-        "key": "puppet/1",
-        "frame": "shirt/001redplaid_body.png"
-      },
-      "Sleeve": {
-        "key": "puppet/2",
-        "frame": "shirt/001redplaid_arm.png"
-      }
+      "head": {
+        "key": "puppet/0",
+        "frame": "head/028santahat_head.png",
+        "anchorX":0.1,
+        "anchorY":0.95,
+        "offsetX":0,
+        "offsetY":0
+    }
+    },
+    "shirt3.png": {
+      "head": {
+       "key": "puppet/0",
+        "frame": "head/024texanhat_head.png",
+        "anchorX":0.2,
+        "anchorY":0.95,
+        "offsetX":0,
+        "offsetY":0
+    }
     }
   },
   "pants_chooser.png": {
@@ -256,17 +267,37 @@
     "shirt1.png": {
       "Shoes": {
         "key": "puppet/0",
-        "frame": "shoes/001055snowbardboots.png"
+        "frame": "shoes/001055snowbardboots.png",
+        "anchorX":0.68,
+        "anchorY":0.6,
+        "offsetX":0.3,
+        "offsetY":1,
+        "offsetInPixelX":48,
+        "offsetInPixelY":0  
       }
     },
     "shirt2.png": {
-      "Shirt": {
-        "key": "puppet/1",
-        "frame": "shirt/001redplaid_body.png"
-      },
-      "Sleeve": {
-        "key": "puppet/2",
-        "frame": "shirt/001redplaid_arm.png"
+      "Shoes": {
+        "key": "puppet/0",
+        "frame": "shoes/002redsneakers.png",
+        "anchorX":0.6,
+        "anchorY":0.85,
+        "offsetX":0.07,
+        "offsetY":1 ,
+        "offsetInPixelX":55,
+        "offsetInPixelY":0
+      }
+    },
+    "shirt3.png": {
+      "Shoes": {
+        "key": "puppet/0",
+        "frame": "shoes/012tomshoes.png",
+        "anchorX":0.65,
+        "anchorY":0.2,
+        "offsetX":0.3,
+        "offsetY":1,
+        "offsetInPixelX":51,
+        "offsetInPixelY":0  
       }
     }
   },

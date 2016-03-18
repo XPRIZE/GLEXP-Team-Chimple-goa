@@ -25,7 +25,7 @@ export default class GameState extends Phaser.State {
       for (var key in acc) {
         if (acc.hasOwnProperty(key)) {
           let element = acc[key];
-          puppet['set' + key](element.key, element.frame, element.anchorX, element.anchorY, element.offsetX, element.offsetY);
+           puppet['set' + key](element.key, element.frame, element.anchorX, element.anchorY, element.offsetX, element.offsetY,element.offsetInPixelX,element.offsetInPixelY);
         }
       }
     }, this));

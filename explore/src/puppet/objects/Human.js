@@ -136,9 +136,10 @@ export default class Human extends Puppet {
         this.rightLeg.addAccessory(new Accessory(this.game, false, true, true, new Phaser.Point(0.5, 0), new Phaser.Point(0.5, 0), new Phaser.Point(0, 0), false, key, frame, 'rightSleeve'), true);
     }
     
-    setShoes(key, frame) {
-        this.leftLeg.addAccessory(new Accessory(this.game, true, true, false, new Phaser.Point(1, 0), new Phaser.Point(1, 1), new Phaser.Point(0, 0), false, key, frame, 'leftShoe'), true);
-        this.rightLeg.addAccessory(new Accessory(this.game, true, true, false, new Phaser.Point(0, 0), new Phaser.Point(0, 1), new Phaser.Point(0, 0), true, key, frame, 'rightShoe'), true);
+   setShoes(key, frame,anchorX, anchorY, offsetX, offsetY,offsetInPixelX,offsetInPixelY) {
+        this.leftLeg.addAccessory(new Accessory(this.game, true, true, false, new Phaser.Point(anchorX, anchorY), new Phaser.Point(offsetX, offsetY), new Phaser.Point(0,0), false, key, frame, 'leftShoe'), true);
+        //console.log(" offsetInPixelX  "+ offsetInPixelX+ "offsetInPixelY " +offsetInPixelY);
+        this.rightLeg.addAccessory(new Accessory(this.game, true, true, false, new Phaser.Point(anchorX, anchorY), new Phaser.Point(offsetX, offsetY), new Phaser.Point(offsetInPixelX, offsetInPixelY), true, key, frame, 'rightShoe'), true);
     }
     
     setChain(key, frame, x, y) {
@@ -161,6 +162,26 @@ export default class Human extends Puppet {
     
     setArmAccessory(key, frame, anchorX, anchorY, offsetX, offsetY) {
         this.leftHand.addAccessory(new Accessory(this.game, true, true, false, new Phaser.Point(anchorX, anchorY), new Phaser.Point(offsetX, offsetY), new Phaser.Point(0, 0), false, key, frame, 'armAccessory'), true);        
+    }
+    
+    sethead(key,frame,anchorX, anchorY, offsetX, offsetY){
+       // console.log("in haed");
+        this.head.addAccessory(new Accessory(this.game, true, true, false, new Phaser.Point(anchorX, anchorY), new Phaser.Point(offsetX, offsetY), new Phaser.Point(0, 0), false, key, frame, 'hats'), true);
+        // console.log(" anchorX  "+ anchorX+ "  anchorY " +anchorY);
+        // console.log(" offsetX  "+ offsetX+ "  offsetY " +offsetY);
+     
+    }
+    
+     setbeard(key, frame, anchorX, anchorY, offsetX, offsetY)
+    {
+        //this.beard = 
+         this.head.addAccessory(new Accessory(this.game, true, true, false, new Phaser.Point(anchorX, anchorY), new Phaser.Point(offsetX, offsetY), new Phaser.Point(0, 0), false, key, frame, 'beard'), true);
+       // this.beard.tint=0xfff000;
+    }
+    
+    sethairs(key,frame,anchorX, anchorY, offsetX, offsetY){
+        this.head.addAccessory(new Accessory(this.game, true, true, false, new Phaser.Point(anchorX, anchorY), new Phaser.Point(offsetX, offsetY), new Phaser.Point(0, 0), false, key, frame, 'hairs', new Phaer.Point(color)), true);
+        //this.hairs.scale.setTo(0.3);
     }
 
     toJSON() {
