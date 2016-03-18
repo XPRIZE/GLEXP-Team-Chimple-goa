@@ -56,7 +56,7 @@ export default class TabView extends Phaser.Group {
                 this.selectTab(button);        
             }
         } else {
-            this.callback.call(this.callbackContext, button.name);            
+            this.callback.call(this.callbackContext, tab);            
         }
     }
     

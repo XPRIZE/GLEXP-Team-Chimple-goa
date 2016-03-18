@@ -1,6 +1,7 @@
 import Texture from './Texture.js';
 import TileTexture from './TileTexture.js';
 import Surface from './Surface.js';
+import EnableInputs from './EnableInputs.js';
 import AttributesChangedSignal from '../../storybuilder/objects/AttributesChangedSignal.js'
 import UpdateAttributesSignal from '../../storybuilder/objects/UpdateAttributesSignal.js'
 import RecordInfo from '../../storybuilder/objects/RecordInfo.js';
@@ -10,17 +11,11 @@ import ShowAttributeEditorSignal from '../../storybuilder/objects/ShowAttributeE
 var _ = require('lodash');
 
 
-export default class Item extends Phaser.Sprite {
+export default class Item extends EnableInputs(Phaser.Sprite) {
     constructor(game, x, y, key, frame) {
         super(game, x, y, key, frame);
         game.physics.enable(this);
-        this.inputEnabled = true;
         this.anchor.set(0.5, 1);
-        this.input.enableDrag();
-        this.events.onDragStart.add(this.onDragStart, this);
-        this.events.onDragUpdate.add(this.onDragUpdate, this);
-        this.events.onDragStop.add(this.onDragStop, this);
-        this.input.priorityID = 2;
 
         //Any Attribute Changes then dispatch signal        
         this.onAttributesChanged = new AttributesChangedSignal();
@@ -33,16 +28,29 @@ export default class Item extends Phaser.Sprite {
         this._enableAttributeEditorSignal.add(this.enableInputs, this);
         this._showAttributeEditorSignal = new ShowAttributeEditorSignal();
 
-        this.events.onInputDown.add(this.onInputDown, this);
-        this.events.onInputUp.add(this.onInputUp, this);
-
     }
 
-    enableInputs(instance) {
+    enableInputs(instance, iterateInside) {
+        super.enableInputs(instance, iterateInside);
+        this.inputEnabled = true;
+        this.input.enableDrag();
         this.events.onInputDown.add(instance.onInputDown, this);
-        this.events.onInputUp.add(instance.onInputUp, this, 0, game);
+        this.events.onInputUp.add(instance.onInputUp, this);
+        this.events.onDragStart.add(instance.onDragStart, this);
+        this.events.onDragUpdate.add(instance.onDragUpdate, this);
+        this.events.onDragStop.add(instance.onDragStop, this);
+        this.input.priorityID = 2;
     }
 
+    drawBoundingBox() {
+        let box = this.addChild(new Phaser.Graphics(this.game, -this.offsetX, -this.offsetY));
+        box.lineStyle(1, 0xFF0000);
+        box.beginFill(0x000000, 0);
+        box.drawRect(0, 0, this.width, this.height);
+        box.endFill();    
+        return box;    
+    }    
+    
     set uniquename(name) {
         this._uniquename = name;
     }
@@ -51,66 +59,6 @@ export default class Item extends Phaser.Sprite {
         return this._uniquename;
     }
 
-    onInputDown(sprite, pointer) {
-
-    }
-
-    onInputUp(sprite, pointer) {
-
-    }
-
-    onDragStart(sprite, pointer) {
-
-        this._isDragging = true;
-        this.game.camera.follow(sprite);
-        
-        sprite.tint = 0x000000;
-
-        sprite.x = this.game.input.activePointer.x;
-        sprite.y = this.game.input.activePointer.y;
-    }
-
-    onDragUpdate(sprite, pointer, dragX, dragY, snapPoint) {
-        let distanceFromLastUp = Phaser.Math.distance(game.input.activePointer.positionDown.x, game.input.activePointer.positionDown.y,
-            game.input.activePointer.x, game.input.activePointer.y);
-
-        if (distanceFromLastUp < 5) {
-            this._isDragging = false;
-        } else {
-            this._isDragging = true;
-
-            if (this._isDragging == true) {
-
-                sprite.x = this.game.input.activePointer.worldX;
-                sprite.y = this.game.input.activePointer.worldY - (0.570 * this.game.height);
-
-            }
-        }
-    }
-
-    onDragStop(sprite, pointer) {
-
-        //sprite.scale.setTo(1, 1); //scaling back to normal when dropped
-        this.game.camera.unfollow();
-        if (this._isDragging) {
-            sprite.tint = 0xFFFFFF;
-        }
-        this._isDragging = false;
-        let globalPoint = this.toGlobal(new PIXI.Point(0, 0));
-        let testSprite = new Phaser.Sprite(this.game, globalPoint.x, globalPoint.y, this.key, this.frame);
-        this.game.physics.enable(testSprite);
-        testSprite.body.setSize(this.width, this.game.height - this.y, this.x, this.y);
-        this.addChild(testSprite);
-        this.game.debug.body(testSprite);
-
-        let result = {};
-        this.game.physics.arcade.overlap(testSprite, Surface.All, this.overlapHandler, null, result);
-        testSprite.destroy();
-        if (result.closestObject) {
-            result.closestObject.parent.addContent(this);
-            this.game.add.tween(this).to({ y: 0 + result.closestObject.height / 2 }, (Math.abs(this.y)/0.1), null, true);
-        }
-    }
 
     overlapHandler(obj1, obj2) {
         // console.log(obj2);

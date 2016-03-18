@@ -1,7 +1,7 @@
 export default class Scene extends Phaser.Group {
     constructor(game, width, height) {
         super(game);
-        game.world.setBounds(0, 0, width, height);
+        this.setSceneSize(width, height);
     }
     
     set uniquename(name) {
@@ -12,6 +12,12 @@ export default class Scene extends Phaser.Group {
     
     get uniquename() {
         return this._uniquename;
+    }
+    
+    setSceneSize(width, height) {
+        game.world.setBounds(0, 0, width, height);        
+        this.sceneWidth = width;
+        this.sceneHeight = height;
     }
     
     set floor(floor) {
@@ -41,8 +47,8 @@ export default class Scene extends Phaser.Group {
     toJSON() {
         let json = {
             _class: "Scene",
-            width: this.width,
-            height: this.height,
+            sceneWidth: this.sceneWidth,
+            sceneHeight: this.sceneHeight,
             wall: this.wall,
             floor: this.floor,
             uniquename: this.uniquename
@@ -51,7 +57,7 @@ export default class Scene extends Phaser.Group {
     }
     
     static fromJSON(game, j) {
-        let scene = new Scene(game);
+        let scene = new Scene(game, j.sceneWidth, j.sceneHeight);
         scene.uniquename = j.uniquename;
         scene.wall = j.wall;
         scene.floor = j.floor;

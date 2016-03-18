@@ -8,16 +8,46 @@ export default class Holder extends Item {
         super(game, x, y);
          this.x = x;
          this.y = y;
-         this.inputEnabled = true;
-         this.input.enableDrag();
-         this.input.priorityID = 1;
     }
     
     update () {
         this.onAttributesChanged.dispatch({uniquename: this._uniquename, x: this.x, y: this.y});
     }
 
+    enableInputs(instance, iterateInside) {
+        super.enableInputs(instance, iterateInside);
+        this.input.priorityID = 1;        
+    }
 
+    drawBoundingBox() {
+        let left = 0;
+        let right = 0;
+        let top = 0;
+        let bottom = 0;
+        this.children.forEach(function(value) {
+                if(value.x < left) {
+                    left = value.x;
+                }
+                if(value.x + value.width > right) {
+                    right = value.x + value.width;
+                }
+                if(value.y < top) {
+                    top = value.y;
+                }
+                if(value.y + value.height > bottom) {
+                    bottom = value.y + value.height;
+                }
+        }, this);
+        
+        let box = this.addChild(new Phaser.Graphics(this.game, left, top));
+        box.lineStyle(1, 0xFF0000);
+        box.beginFill(0x000000, 0);
+        box.drawRect(0, 0, right - left, bottom - top);
+        box.endFill();    
+        return box;    
+    }        
+    
+    
     set frontTexture(val) {
         if(this._frontTexture) {
             this.removeChild(this._frontTexture).destroy();

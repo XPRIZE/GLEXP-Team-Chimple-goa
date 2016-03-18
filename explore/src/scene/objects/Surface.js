@@ -2,8 +2,9 @@ import Item from './Item.js';
 import Holder from './Holder.js';
 import Texture from './Texture.js';
 import TileTexture from './TileTexture.js';
+import EnableInputs from './EnableInputs.js';
 
-export default class Surface extends Phaser.Group {
+export default class Surface extends EnableInputs(Phaser.Group) {
     constructor(game, x, y, name) {
         super(game);
         this.name = name;
@@ -33,6 +34,20 @@ export default class Surface extends Phaser.Group {
             }
         });
         return this.addAt(texture, lastTextureIndex);          
+    }
+    
+    appendTexture(texture) {
+        let maxX = 0;
+        this.forEach(function(value) {
+            if(value instanceof Texture || value instanceof TileTexture) {
+                if(maxX < value.right) {
+                    maxX = value.right+1;
+                }
+            }
+        });
+            texture.x = maxX;
+            return this.addTexture(texture);
+        
     }
     
     get textures() {
