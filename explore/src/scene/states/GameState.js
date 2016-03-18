@@ -9,7 +9,7 @@ import Surface from '../objects/Surface.js';
 import Util from '../objects/Util.js';
 import Human from '../../puppet/objects/Human.js';
 import EnableAttributeEditorSignal from '../../storybuilder/objects/EnableAttributeEditorSignal.js';
-import TocaInputHandler from '../objects/TocaInputHandler.js';
+import ExploreInputHandler from '../objects/ExploreInputHandler.js';
 
 var _ = require('lodash');
 
@@ -54,8 +54,8 @@ export default class GameState extends Phaser.State {
         scene.floor.addContent(sink);
         
         
-        let sceneFromJSON = '{"_class":"Scene","width":826,"height":600,"wall":{"_class":"Wall","x":0,"y":0,"textures":[{"_class":"TileTexture","x":0,"y":0,"width":800,"height":360,"key":"scene/scene","frame":"Wall_Tile_single.png"}],"contents":[]},"floor":{"_class":"Floor","x":0,"y":360,"textures":[{"_class":"TileTexture","x":0,"y":0,"width":800,"height":240,"key":"scene/scene","frame":"Tile.png"}],"contents":[{"_class":"Item","x":0,"y":0,"key":"scene/scene","frame":"Object_1.png","uniquename":"object_12"},{"_class":"Item","x":0,"y":0,"key":"scene/scene","frame":"Object_3.png","uniquename":"object_13"}]},"uniquename":"jungle_scene1"}';
-        let scene2  = Scene.fromJSON(game, sceneFromJSON);
+        // let sceneFromJSON = '{"_class":"Scene","width":826,"height":600,"wall":{"_class":"Wall","x":0,"y":0,"textures":[{"_class":"TileTexture","x":0,"y":0,"width":800,"height":360,"key":"scene/scene","frame":"Wall_Tile_single.png"}],"contents":[]},"floor":{"_class":"Floor","x":0,"y":360,"textures":[{"_class":"TileTexture","x":0,"y":0,"width":800,"height":240,"key":"scene/scene","frame":"Tile.png"}],"contents":[{"_class":"Item","x":0,"y":0,"key":"scene/scene","frame":"Object_1.png","uniquename":"object_12"},{"_class":"Item","x":0,"y":0,"key":"scene/scene","frame":"Object_3.png","uniquename":"object_13"}]},"uniquename":"jungle_scene1"}';
+        // let scene2  = JSON.parse(sceneFromJSON, Util.revive);
 
         //scene.floor.addContent(new Item(game, 20, 20, 'scene', 'commode.png'));
 
@@ -71,8 +71,8 @@ export default class GameState extends Phaser.State {
 
         //bind input handler 
         this._enableAttributeEditorSignal = new EnableAttributeEditorSignal();
-        let tocaInputHandler = new TocaInputHandler(game);
-        this._enableAttributeEditorSignal.dispatch(tocaInputHandler);
+        let exploreInputHandler = new ExploreInputHandler(game);
+        this._enableAttributeEditorSignal.dispatch(exploreInputHandler);
 
 
     }

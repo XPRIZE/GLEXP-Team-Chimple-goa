@@ -40,7 +40,7 @@ export default class TileTexture extends EnableInputs(Phaser.TileSprite) {
     }
     
     static fromJSON(game, j) {
-        let val = new Texture(game, j.x, j.y, j.width, j.height, j.key, j.frame);
+        let val = new TileTexture(game, j.x, j.y, j.width, j.height, j.key, j.frame);
         return val;
     }
 
