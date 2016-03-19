@@ -1,17 +1,29 @@
 export default class MenuState extends Phaser.State {
 
+    preload() {
+        this.load.atlas('scene/icons', "assets/scene/icons.png", "assets/scene/icons.json");
+    }
+    
 	create() {
-        var x = this.game.width / 2;
-        var y = this.game.height / 2;
+        let explore = game.add.button(this.game.width / 4, this.game.height / 2, 'scene/icons', this.goExplore, this, 'explore.png', 'explore.png', 'explore.png', 'explore.png')
+        explore.anchor.setTo(0.5, 0.5)
 
-        var style = { font: "65px Arial", fill: "#ffffff", align: "center" };
+        let edit = game.add.button(this.game.width * 2 / 4, this.game.height / 2, 'scene/icons', this.goEdit, this, 'edit.png', 'edit.png', 'edit.png', 'edit.png')
+        edit.anchor.setTo(0.5, 0.5)
 
-        this._text = this.add.text(x - 300, y - 200, "Press to Start", style);
-
-        this.input.onDown.add(this.onDown, this);
+        let group = game.add.button(this.game.width * 3 / 4, this.game.height / 2, 'scene/icons', this.goGroup, this, 'group.png', 'group.png', 'group.png', 'group.png')
+        group.anchor.setTo(0.5, 0.5)
 	}
 
-    onDown() {
+    goExplore() {
         this.game.state.start('SceneGameState');
+    }
+
+    goEdit() {
+        this.game.state.start('SceneEditState');
+    }
+
+    goGroup() {
+        this.game.state.start('SceneEditHolderState');
     }
 }

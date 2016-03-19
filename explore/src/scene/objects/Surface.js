@@ -25,7 +25,13 @@ export default class Surface extends EnableInputs(Phaser.Group) {
     
 
     addTexture(texture) {
-        Surface.All.push(texture);
+        if(texture instanceof TileTexture) {
+            //push the floor and wall to the back
+            Surface.All.push(texture)
+        } else {
+            Surface.All.unshift(texture);
+
+        }
         this.game.physics.enable(texture);
         let lastTextureIndex = 0;
         this.forEach(function(value) {
@@ -41,7 +47,7 @@ export default class Surface extends EnableInputs(Phaser.Group) {
         this.forEach(function(value) {
             if(value instanceof Texture || value instanceof TileTexture) {
                 if(maxX < value.right) {
-                    maxX = value.right+1;
+                    maxX = value.right;
                 }
             }
         });

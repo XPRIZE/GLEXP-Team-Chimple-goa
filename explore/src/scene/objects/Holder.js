@@ -19,7 +19,17 @@ export default class Holder extends Item {
         this.input.priorityID = 1;        
     }
 
-    drawBoundingBox() {
+    drawBoundingBox(color) {
+        let rect = this.getBoundingBox();
+        let box = this.addChild(new Phaser.Graphics(this.game, rect.left, rect.top));
+        box.lineStyle(1, color);
+        box.beginFill(0x000000, 0);
+        box.drawRect(0, 0, rect.width, rect.height);
+        box.endFill();    
+        return box;    
+    }        
+    
+    getBoundingBox() {
         let left = 0;
         let right = 0;
         let top = 0;
@@ -38,22 +48,23 @@ export default class Holder extends Item {
                     bottom = value.y + value.height;
                 }
         }, this);
-        
-        let box = this.addChild(new Phaser.Graphics(this.game, left, top));
-        box.lineStyle(1, 0xFF0000);
-        box.beginFill(0x000000, 0);
-        box.drawRect(0, 0, right - left, bottom - top);
-        box.endFill();    
-        return box;    
-    }        
+        return new Phaser.Rectangle(left, top, right - left, bottom - top);
+    }
     
+    updateBody() {
+        let rect = this.getBoundingBox();        
+        this.body.setSize(rect.width, rect.height, rect.halfWidth, rect.height);
+    }
     
     set frontTexture(val) {
         if(this._frontTexture) {
             this.removeChild(this._frontTexture).destroy();
         }
-        this.addChildAt(val, this.children.length);
+        if(val) {
+            this.addChildAt(val, this.children.length);        
+        }
         this._frontTexture = val;
+        this.updateBody();
     }
     
     get frontTexture() {
@@ -64,8 +75,11 @@ export default class Holder extends Item {
         if(this._backTexture) {
             this.removeChild(this._backTexture).destroy();
         }
-        this.addChildAt(val, 0);
+        if(val) {
+            this.addChildAt(val, 0);            
+        }
         this._backTexture = val;
+        this.updateBody();
     }
     
     get backTexture() {
@@ -74,7 +88,9 @@ export default class Holder extends Item {
 
     addSurface(surface) {
         let index = this._frontTexture ? this.children.length - 1 : this.children.length;
-        return this.addChildAt(surface, index);
+        this.addChildAt(surface, index);
+        this.updateBody();
+        return surface;        
     }
     
     overlapHandler(obj1, obj2) {

@@ -17,9 +17,9 @@ export default class TileTexture extends EnableInputs(Phaser.TileSprite) {
         this.input.priorityID = 3;    
     }
 
-    drawBoundingBox() {
+    drawBoundingBox(color) {
         let box = this.addChild(new Phaser.Graphics(this.game, -this.offsetX, -this.offsetY));
-        box.lineStyle(1, 0xFF0000);
+        box.lineStyle(1, color);
         box.beginFill(0x000000, 0);
         box.drawRect(0, 0, this.width, this.height);
         box.endFill();    

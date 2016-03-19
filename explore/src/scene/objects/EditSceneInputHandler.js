@@ -10,8 +10,9 @@ export default class EditSceneInputHandler {
         if (EditSceneInputHandler.box) {
             sprite.removeChild(EditSceneInputHandler.box);
             EditSceneInputHandler.box.destroy();
+            EditSceneInputHandler.box = null;
         }
-        EditSceneInputHandler.box = sprite.drawBoundingBox();
+        EditSceneInputHandler.box = sprite.drawBoundingBox(EditSceneInputHandler.LINE_COLOR);
     }
 
     onInputUp(sprite, pointer) {
@@ -19,44 +20,39 @@ export default class EditSceneInputHandler {
     }
 
     onDragStart(sprite, pointer) {
-        sprite._isDragging = true;
-        sprite.game.camera.follow(sprite, Phaser.Camera.FOLLOW_PLATFORMER);
-        sprite.start_camera_x = sprite.game.camera.x;
-        sprite.start_camera_y = sprite.game.camera.y;
     }
 
     onDragUpdate(sprite, pointer, dragX, dragY, snapPoint) {
-        sprite.x += sprite.game.camera.x - sprite.start_camera_x;
-        sprite.y += sprite.game.camera.y - sprite.start_camera_y;
         if(EditSceneInputHandler.surfaceTexture) {
             EditSceneInputHandler.surfaceTexture.tint = 0xFFFFFF;
             EditSceneInputHandler.surfaceTexture = null;
         }
-        this.game.physics.arcade.overlap(this, Surface.All, function(obj1, obj2) { 
+        
+        sprite.game.physics.arcade.overlap(sprite, Surface.All, function(obj1, obj2) { 
+            if(obj1.surfaces && obj1.surfaces.some(function(val) {
+                return val === obj2.parent;
+            })) {
+                return;
+            }
             if(!EditSceneInputHandler.surfaceTexture) {
                 EditSceneInputHandler.surfaceTexture = obj2;
                 obj2.tint = 0xFFFF88;
             }
-        }, null, this);
-        
+        }, null, this);        
     }
 
     onDragStop(sprite, pointer) {
-        this.game.camera.unfollow();
         if(EditSceneInputHandler.surfaceTexture) {
             let globalPoint = sprite.toGlobal(new Phaser.Point(sprite.x, sprite.y));
             sprite.parent.removeChild(sprite);
             EditSceneInputHandler.surfaceTexture.parent.addContent(sprite);
             let localPoint = sprite.toLocal(globalPoint);
             sprite.x = localPoint.x;
-            sprite.y = localPoint.y;
-            
+            sprite.y = localPoint.y;            
         }
     }
 }
 
-EditSceneInputHandler.ITEM_MODE = 'item';
-EditSceneInputHandler.HOLDER_MODE = 'holder';
 EditSceneInputHandler.box = null;
 EditSceneInputHandler.surfaceTexture = null;
-EditSceneInputHandler.mode = EditSceneInputHandler.ITEM_MODE;
+EditSceneInputHandler.LINE_COLOR = 0xFF0000;

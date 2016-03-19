@@ -10,8 +10,9 @@ export default class EditHolderInputHandler {
         if (EditHolderInputHandler.box) {
             sprite.removeChild(EditHolderInputHandler.box);
             EditHolderInputHandler.box.destroy();
+            EditHolderInputHandler.box = null;
         }
-        EditHolderInputHandler.box = sprite.drawBoundingBox();
+        EditHolderInputHandler.box = sprite.drawBoundingBox(EditHolderInputHandler.LINE_COLOR);
     }
 
     onInputUp(sprite, pointer) {
@@ -30,3 +31,4 @@ export default class EditHolderInputHandler {
 }
 
 EditHolderInputHandler.box = null;
+EditHolderInputHandler.LINE_COLOR = 0x0000FF;

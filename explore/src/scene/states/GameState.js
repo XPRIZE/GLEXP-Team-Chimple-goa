@@ -59,7 +59,7 @@ export default class GameState extends Phaser.State {
 
         //scene.floor.addContent(new Item(game, 20, 20, 'scene', 'commode.png'));
 
-        game.camera.follow(item);
+        // game.camera.follow(item);
         game.physics.startSystem(Phaser.Physics.ARCADE);
 
         // let scene = JSON.parse('{"_class":"Scene","floor":{"_class":"Floor","x":0,"y":360,"texture":{"_class":"Texture","x":0,"y":0,"key":"scene","frame":"Floor.png"},"contents":[{"_class":"Holder","x":100,"y":10,"frontTexture":{"_class":"Texture","x":0,"y":0,"key":"scene","frame":"Sink_Main.png"},"surfaces":[{"_class":"Surface","x":0,"y":0,"texture":{"_class":"Texture","x":0,"y":0,"key":"scene","frame":"Sink_upper.png"},"contents":[]}]},{"_class":"Item","x":20,"y":20,"key":"scene","frame":"commode.png"}]},"wall":{"_class":"Wall","x":0,"y":0,"texture":{"_class":"Texture","x":0,"y":0,"key":"scene","frame":"Front_Wall.png"},"contents":[]}}', Util.revive);
@@ -68,7 +68,7 @@ export default class GameState extends Phaser.State {
         // com.addChild(new Phaser.Sprite(game, 10, 10, 'scene', 'Sink_Main.png'));
         // com.inputEnabled = true;
         // com.input.enableDrag(true);
-
+        // let scene = JSON.parse('{"_class":"Scene","sceneWidth":1600,"sceneHeight":600,"wall":{"_class":"Wall","x":0,"y":0,"textures":[],"contents":[]},"floor":{"_class":"Floor","x":0,"y":360,"textures":[],"contents":[{"_class":"Item","x":515,"y":1,"key":"scene/scene","frame":"Object_7.png"},{"_class":"Holder","x":400,"y":300,"backTexture":{"_class":"Texture","x":0,"y":0,"key":"scene/scene","frame":"Sink_Main.png"},"surfaces":[{"_class":"Surface","x":0,"y":0,"textures":[{"_class":"Texture","x":0,"y":0,"key":"scene/scene","frame":"Sink_upper.png"}],"contents":[]}]},{"_class":"Holder","x":400,"y":300,"frontTexture":{"_class":"Texture","x":0,"y":0,"key":"scene/scene","frame":"Wall_Tile_single.png"},"backTexture":null,"surfaces":[{"_class":"Surface","x":0,"y":0,"textures":[{"_class":"Texture","x":35,"y":19,"key":"scene/scene","frame":"Shelf_ladders.png"}],"contents":[]}]}]}}', Util.revive);
         //bind input handler 
         this._enableAttributeEditorSignal = new EnableAttributeEditorSignal();
         let exploreInputHandler = new ExploreInputHandler(game);
