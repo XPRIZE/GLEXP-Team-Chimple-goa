@@ -15,7 +15,7 @@ import EditSceneInputHandler from '../objects/EditSceneInputHandler.js';
 var _ = require('lodash');
 
 export default class EditState extends Phaser.State {
-    init(holder, scene, holders) {
+    init(holder, scene, cameraPosition) {
         if(scene == null) {
             this.scene = new Scene(game, this.game.width * 2, this.game.height);        
             this.scene.wall = new Wall(game, 0, 0);
@@ -28,6 +28,7 @@ export default class EditState extends Phaser.State {
             holder.disableInputs(true);
             holder.enableInputs(new EditSceneInputHandler());
         }
+        this.cameraPosition = cameraPosition;
     }
 
     preload() {
@@ -37,6 +38,9 @@ export default class EditState extends Phaser.State {
     }
 
     create() {
+        if(this.cameraPosition) {
+            this.game.camera.position = this.cameraPosition;        
+        }
         let rightButton = this.game.add.button(game.width - 30, game.height / 2, 'scene/icons', this.panRight, this, 'ic_navigate_next_black_24dp_1x.png', 'ic_navigate_next_black_24dp_1x.png', 'ic_navigate_next_black_24dp_1x.png', 'ic_navigate_next_black_24dp_1x.png');
         rightButton.anchor.setTo(0.5, 0.5);
         rightButton.fixedToCamera = true;
@@ -56,7 +60,7 @@ export default class EditState extends Phaser.State {
             chooser.unSelect();
             switch (tab) {
                 case 'item':
-                    this.scene.floor.addContent(new Item(game, 0, 0, 'scene/scene', button)).enableInputs(new EditSceneInputHandler());
+                    this.scene.floor.addContent(new Item(game, this.game.camera.x + this.game.width / 2, 0, 'scene/scene', button)).enableInputs(new EditSceneInputHandler());
                     break;
                 case 'holder':
                     let holder = null;
@@ -67,10 +71,10 @@ export default class EditState extends Phaser.State {
                     //     holder = new Holder(this.game, this.game.width / 2, 0);
                     //     this.scene.floor.addContent(holder);
                     // }
-                    holder = new Holder(this.game, 0, 0);
+                    holder = new Holder(this.game, this.game.camera.x + this.game.width / 2, 0);
                     this.scene.floor.addContent(holder);
                     
-                    this.game.state.start('SceneEditHolderState', true, false, holder, this.scene);
+                    this.game.state.start('SceneEditHolderState', true, false, holder, this.scene, this.game.camera.position.clone());
                     break;
                 case 'floor':
                     let texture = new TileTexture(game, 0, 0, parseInt(this.surfaceWidth), this.game.height * 0.4, 'scene/scene', button);

@@ -13,7 +13,7 @@ import EnableAttributeEditorSignal from '../../storybuilder/objects/EnableAttrib
 import EditHolderInputHandler from '../objects/EditHolderInputHandler.js';
 
 export default class EditHolderState extends Phaser.State {
-    init(holder, scene, holders) {
+    init(holder, scene, cameraPosition) {
         this.holderX = holder.x;
         this.holderY = holder.y;
         holder.x = this.game.width / 2;
@@ -24,6 +24,7 @@ export default class EditHolderState extends Phaser.State {
         this.holder.enableInputs(new EditHolderInputHandler(), true);
 
         this.scene = scene;
+        this.cameraPosition = cameraPosition;
         // this.holders = holders;
     }
     
@@ -72,7 +73,7 @@ export default class EditHolderState extends Phaser.State {
                     }
                     break;
                 case 'done':
-                    this.game.state.start('SceneEditState', true, false, this.holder, this.scene);
+                    this.game.state.start('SceneEditState', true, false, this.holder, this.scene, this.cameraPosition);
                 default:
                     break;
             }
