@@ -9,7 +9,6 @@ import Surface from '../../scene/objects/Surface.js';
 import Util from '../../scene/objects/Util.js';
 import StoryUtil from '../objects/StoryUtil.js';
 import RecordingManager from '../objects/RecordingManager.js';
-import EnableAttributeEditorSignal from '../objects/EnableAttributeEditorSignal.js';
 import ShowAttributeEditorSignal from '../objects/ShowAttributeEditorSignal.js';
 import AttributeEditOverlay from '../objects/AttributeEditOverlay.js';
 import StoryBuilderInputHandler from '../objects/StoryBuilderInputHandler.js';
@@ -23,7 +22,7 @@ var _ = require('lodash');
 export default class LibraryState extends Phaser.State {
 
     preload() {
-        var that = this;
+        var that = this;        
         this._library = JSON.parse(JSON.stringify(game.cache.getJSON('storyBuilder/library')), StoryUtil.revive);        
         
         let stories = this._library.stories;
@@ -50,7 +49,8 @@ export default class LibraryState extends Phaser.State {
             //transit to next state with storyId
             _.each(this._library.stories, function(story) {
                 if(story.storyId === storyId) {
-                    that.game.state.start('StoryBuilderSelectStoryState', true, false, JSON.stringify(story));        
+                    that._curStory = story;
+                    that.game.state.start('StoryBuilderSelectStoryState', true, false, JSON.stringify(that._curStory));        
                 }    
             });
             
@@ -61,5 +61,6 @@ export default class LibraryState extends Phaser.State {
     }
 
     shutdown() {
+        //this.game.world.remove(this._curStory);
     }
 }

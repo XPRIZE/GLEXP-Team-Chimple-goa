@@ -12,6 +12,19 @@ export default class Puppet extends Limb {
         this.scale.setTo(0.5, 0.5);
     }
     
+    get body() {
+        if(!this._body) {
+            this._body = this.getLimb('body');
+        }
+        return this._body;
+    }
+    
+    set body(body) {
+        this._body = body;
+        body.name = 'body';
+        this.addLimb(body);
+    }
+    
     /**
      * Abstract behaviour. In each subclass add the behavior
      */

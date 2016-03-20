@@ -3,6 +3,7 @@ import StoryUtil from '../objects/StoryUtil.js';
 
 export default class SelectStoryState extends Phaser.State {
     init(selectedStory) {
+        //this._selectedStory = this.game.add.existing(selectedStory);
         this._selectedStory = JSON.parse(selectedStory, StoryUtil.revive);
     }
 
@@ -52,10 +53,14 @@ export default class SelectStoryState extends Phaser.State {
     }
     
     editStory() {
-        this.game.state.start('StoryEditStoryPagesState', true, false, JSON.stringify(this._selectedStory));
+        this.game.state.start('StoryEditStoryPagesState', true, false, JSON.stringify(this._selectedStory));//JSON.stringify(this._selectedStory)
     }
  
     onDown() {
         this.game.state.start('StoryBuilderLibraryState');
+    }
+    
+    shutdown() {
+        //this.game.world.remove(this._selectedStory);
     }
 }

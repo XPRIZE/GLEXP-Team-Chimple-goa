@@ -66,7 +66,12 @@ export default class ButtonGrid extends Phaser.Group {
                     if (info.key) {
                         key = info.key;
                         frame = info.frame;
-                        buttonImage = new Phaser.Sprite(this.game, layoutX, layoutY, key, frame);
+                        if(frame) {
+                            buttonImage = new Phaser.Sprite(this.game, layoutX, layoutY, key, frame);    
+                        } else {
+                             buttonImage = new Phaser.Sprite(this.game, layoutX, layoutY, key);
+                        }
+                        
                     } else if (info.image_data) {
                         //create sprite from image_data
                         buttonImage = new Phaser.Sprite(this.game, layoutX, layoutY, frame);
@@ -125,7 +130,7 @@ export default class ButtonGrid extends Phaser.Group {
         this.selectButton(button);
         if (this.buttonCallback) {
             let tabName = "";
-            if (this.parent && this.parent.tabView) {
+            if (this.parent && this.parent.tabView && this.parent.tabView.selectedButton) {
                 tabName = this.parent.tabView.selectedButton.name;
             }
             this.buttonCallback.call(this.buttonCallbackContext, tabName, button.name);

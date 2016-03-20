@@ -7,7 +7,7 @@ export default class StoryPage extends Phaser.Group {
         this._title = title;
         this._pageId = pageId;
         this._imageData = imageData;
-
+                
         game.physics.enable(this);
     }
 
@@ -51,7 +51,6 @@ export default class StoryPage extends Phaser.Group {
 
     static fromJSON(game, j) {
         let val = new StoryPage(game, j.x, j.y, j.pageId, j.title, j.imageData);
-        //val.pages = j.pages;
         return val;
     }
 }

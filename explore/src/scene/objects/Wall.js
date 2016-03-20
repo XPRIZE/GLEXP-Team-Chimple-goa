@@ -13,7 +13,7 @@ export default class Wall extends Surface {
     
     static fromJSON(game, j) {
         let val = new Wall(game, j.x, j.y);
-        val.texture = j.texture;
+        val.textures = j.textures;
         val.contents = j.contents;
         return val;
     }

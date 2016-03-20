@@ -2,9 +2,10 @@ import Puppet from '../objects/Puppet.js';
 import Human from '../objects/Human.js';
 import Limb from '../objects/Limb.js';
 import Shape from '../objects/Shape.js';
-import Util from '../objects/Util.js';
+import PuppetUtil from '../objects/PuppetUtil.js';
 import TabView from '../objects/TabView.js';
 import ButtonGrid from '../objects/ButtonGrid.js';
+import PuppetInputHandler from '../objects/PuppetInputHandler.js';
 
 export default class GameState extends Phaser.State {
   preload() {
@@ -15,7 +16,7 @@ export default class GameState extends Phaser.State {
   }
 
   create() {
-    let puppet = this.game.add.existing(Human.buildDefault(this.game));
+    let puppet = this.game.add.existing(Human.buildDefault(this.game, new PuppetInputHandler()));
     puppet.x = this.game.width / 4;
     puppet.y = 200;
     puppet.bodyColor = 0x7777ff;

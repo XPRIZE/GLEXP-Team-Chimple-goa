@@ -34,16 +34,6 @@ export default class GameState extends Phaser.State {
         let item = new Item(game, 0, 0, 'scene/scene', 'Object_1.png');
         item.uniquename = _.uniqueId("object_1");
         scene.floor.add(item);
-
-        let item1 = new Item(game, 0, 0, 'scene/scene', 'Object_3.png');
-        item1.uniquename = _.uniqueId("object_1");
-        scene.floor.add(item1);
-
-        //sinkTop.addContent(scene.floor);
-
-        /*let item1 = new Item(game, 0, 0, 'scene/scene', 'Object_3.png');
-        item1.uniquename = _.uniqueId("object_3");        
-        scene.floor.add(item1);    
         
         var sink = new Holder(game, 100, 10);
         sink.uniquename = _.uniqueId("sink");
@@ -57,16 +47,8 @@ export default class GameState extends Phaser.State {
         item2.uniquename = _.uniqueId("object_4");
         sinkTop.addContent(item2);
         sink.addSurface(sinkTop);
-
+        scene.floor.addContent(sink);
         
-        /*let item1 = new Item(game, 0, 0, 'scene/scene', 'Object_3.png')
-        item1.uniquename = _.uniqueId("object_3");
-        sinkTop.addContent(item1);
-        sink.addSurface(sinkTop);
-*/
-        // var sink1 = new Holder(game, 0, -50);
-        // sink1.backTexture = new Texture(game, 0, 0, 'scene', 'Sink_Main.png');
-
         // let sink1Top = new Surface(game, 0, 0);
         // sink1Top.addTexture(new Texture(game, 0, 0, 'scene', 'Sink_upper.png'));
         // let item = new Item(game, 0, 0, 'scene', 'Object_1.png');
@@ -78,10 +60,10 @@ export default class GameState extends Phaser.State {
 
         //scene.floor.addContent(new Item(game, 20, 20, 'scene', 'commode.png'));
 
-        let sceneFromJSON = '{"_class":"Scene","width":826,"height":600,"wall":{"_class":"Wall","x":0,"y":0,"textures":[{"_class":"TileTexture","x":0,"y":0,"width":800,"height":360,"key":"scene/scene","frame":"Wall_Tile_single.png"}],"contents":[]},"floor":{"_class":"Floor","x":0,"y":360,"textures":[{"_class":"TileTexture","x":0,"y":0,"width":800,"height":240,"key":"scene/scene","frame":"Tile.png"}],"contents":[{"_class":"Item","x":0,"y":0,"key":"scene/scene","frame":"Object_1.png","uniquename":"object_12"},{"_class":"Item","x":0,"y":0,"key":"scene/scene","frame":"Object_3.png","uniquename":"object_13"}]},"uniquename":"jungle_scene1"}';
-        let scene2  = Scene.fromJSON(game, sceneFromJSON);
+        //let sceneFromJSON = '{"_class":"Scene","width":826,"height":600,"wall":{"_class":"Wall","x":0,"y":0,"textures":[{"_class":"TileTexture","x":0,"y":0,"width":800,"height":360,"key":"scene/scene","frame":"Wall_Tile_single.png"}],"contents":[]},"floor":{"_class":"Floor","x":0,"y":360,"textures":[{"_class":"TileTexture","x":0,"y":0,"width":800,"height":240,"key":"scene/scene","frame":"Tile.png"}],"contents":[{"_class":"Item","x":0,"y":0,"key":"scene/scene","frame":"Object_1.png","uniquename":"object_12"},{"_class":"Item","x":0,"y":0,"key":"scene/scene","frame":"Object_3.png","uniquename":"object_13"}]},"uniquename":"jungle_scene1"}';
+        //let scene2  = Scene.fromJSON(game, sceneFromJSON);
 
-        game.camera.follow(item);
+        //game.camera.follow(item);
         game.physics.startSystem(Phaser.Physics.ARCADE);
         this.initializeRecordingManager();
 
@@ -96,9 +78,7 @@ export default class GameState extends Phaser.State {
 
     initializeRecordingManager() {
         this.recordingManager = new RecordingManager(game);
-        this._enableAttributeEditorSignal = new EnableAttributeEditorSignal();
-        let storyBuilderInputHandler = new StoryBuilderInputHandler();
-        this._enableAttributeEditorSignal.dispatch(storyBuilderInputHandler);
+        //let storyBuilderInputHandler = new StoryBuilderInputHandler();        
 
         this._showAttributeEditorSignal = new ShowAttributeEditorSignal();
         this._showAttributeEditorSignal.add(this.showAttributeEditor, this);

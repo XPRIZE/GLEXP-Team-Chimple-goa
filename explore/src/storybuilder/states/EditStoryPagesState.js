@@ -9,7 +9,6 @@ import Surface from '../../scene/objects/Surface.js';
 import Util from '../../scene/objects/Util.js';
 import StoryUtil from '../objects/StoryUtil.js';
 import RecordingManager from '../objects/RecordingManager.js';
-import EnableAttributeEditorSignal from '../objects/EnableAttributeEditorSignal.js';
 import ShowAttributeEditorSignal from '../objects/ShowAttributeEditorSignal.js';
 import AttributeEditOverlay from '../objects/AttributeEditOverlay.js';
 import StoryBuilderInputHandler from '../objects/StoryBuilderInputHandler.js';
@@ -23,6 +22,7 @@ var _ = require('lodash');
 export default class EditStoryPagesState extends Phaser.State {
     init(selectedStory) {
         this._selectedStory = JSON.parse(selectedStory, StoryUtil.revive);
+        //this._selectedStory = selectedStory;
     }
 
     preload() {
@@ -71,12 +71,12 @@ export default class EditStoryPagesState extends Phaser.State {
         let that = this;
         this._pagesGrid = new ButtonGrid(game, 'pages', game.width, game.height - this._homeButton.height - 10, 4, 3, true, function(tab, pageId) {
             //transit to next state with storyId
-            _.each(this._pages, function(page) {
-                if (page.pageId === pageId) {
-                    that.game.state.start('StoryConstructNewStoryPageState', true, false, page);
+            this._pages.forEach(function(element) {
+                if (element.pageId === pageId) {
+                    this._curPage = element;                    
+                    this.game.state.start('StoryConstructNewStoryPageState', true, false);
                 }
-            });
-
+            }, this);            
 
         }, this, this._frameData);
         this._pagesGrid.buttons = Object.keys(this._frameData);
@@ -94,6 +94,10 @@ export default class EditStoryPagesState extends Phaser.State {
 
     navigateToLibrary() {
         this.game.state.start('StoryBuilderLibraryState');
+    }
+
+    shutdown() {
+        this.world.remove(this._curPage);
     }
 
 }

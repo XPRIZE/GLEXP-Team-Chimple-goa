@@ -22,23 +22,13 @@ export default class Item extends EnableInputs(Phaser.Sprite) {
         this.onUpdateAttributesSignal = new UpdateAttributesSignal();
         this.onUpdateAttributesSignal.add(this.changeAttributes, this);
 
-
-        //add special events for story application
-        this._enableAttributeEditorSignal = new EnableAttributeEditorSignal();
-        this._enableAttributeEditorSignal.add(this.enableInputs, this);
+        //Allow item to invoke ShowAttributeEditorSignal()
         this._showAttributeEditorSignal = new ShowAttributeEditorSignal();
 
     }
 
     enableInputs(instance, iterateInside) {
         super.enableInputs(instance, iterateInside);
-        this.inputEnabled = true;
-        this.input.enableDrag();
-        this.events.onInputDown.add(instance.onInputDown, this);
-        this.events.onInputUp.add(instance.onInputUp, this);
-        this.events.onDragStart.add(instance.onDragStart, this);
-        this.events.onDragUpdate.add(instance.onDragUpdate, this);
-        this.events.onDragStop.add(instance.onDragStop, this);
         this.input.priorityID = 2;
     }
 
@@ -74,6 +64,7 @@ export default class Item extends EnableInputs(Phaser.Sprite) {
 
     update() {
         if (game._inRecordingMode) {
+            console.log('in recording mode');
             this.onAttributesChanged.dispatch({ uniquename: this._uniquename, x: this.x, y: this.y, scaleX: this.scale.x, scaleY: this.scale.y, angle: this.angle });
         } else if (game._inPlayMode) {
             console.log('in play mode');

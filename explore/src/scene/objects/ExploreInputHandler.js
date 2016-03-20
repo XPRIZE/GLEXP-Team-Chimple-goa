@@ -2,7 +2,10 @@ import Surface from './Surface.js';
 
 export default class ExploreInputHandler {
     constructor(game) {
+        this.clickEnabled = true;
+        this.dragEnabled = true;
     }
+    
     
     onInputDown(sprite, pointer) {
         sprite.scale.setTo(1.2,1.2);

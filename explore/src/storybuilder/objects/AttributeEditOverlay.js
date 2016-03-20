@@ -1,5 +1,6 @@
 import RecordingPauseSignal from './RecordingPauseSignal.js';
 import RecordingResumeSignal from './RecordingResumeSignal.js';
+import Shape from '../../puppet/objects/Shape.js';
 
 export default class AttributeEditOverlay extends Phaser.Group {
     //container to edit item properties
@@ -10,7 +11,12 @@ export default class AttributeEditOverlay extends Phaser.Group {
         this._recordingPauseSignal = new RecordingPauseSignal();
         this._recordingResumeSignal = new  RecordingResumeSignal();
         
-        this._clickedObject = clickedObject;
+        if(clickedObject instanceof Shape) {
+            this._clickedObject = clickedObject.parent.parent;    
+        } else {
+            this._clickedObject = clickedObject;    
+        }
+        
 
         this._overlayBitMap = game.make.bitmapData(game.width, game.height);
         this._overlayBitMap.draw(game.cache.getImage('storyBuilder/backgroundOverlay'), 0, 0, this._width, this._height);

@@ -5,7 +5,7 @@ import RelativePosition from './RelativePosition.js';
 import Puppet from './Puppet.js';
 import Human from './Human.js';
 
-export default class Util {
+export default class PuppetUtil {
     static revive(k, v) {
         if (v instanceof Object && v._class == 'Shape') {
             return Shape.fromJSON(window.game, v);

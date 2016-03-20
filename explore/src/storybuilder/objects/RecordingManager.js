@@ -11,9 +11,10 @@ var _ = require('lodash')._;
 
 
 export default class RecordingManager extends Phaser.Group {
-    constructor(game) {
+    constructor(game, displayGroup) {
         super(game);
         this._sceneRecordingMap = new Map();
+        this._displayGroup = displayGroup;
         //create UI
         this.createControls(game);
         this.registerToListeners();
@@ -21,22 +22,32 @@ export default class RecordingManager extends Phaser.Group {
 
 
     createControls(game) {
-        this.recordButton = new Phaser.Sprite(game, game.width - 60, 50, 'storyBuilder/record');
+        this.recordButton = new Phaser.Sprite(game, game.width - 60, 80, 'storyBuilder/record');
         this.recordButton.fixedToCamera = true;
         this.recordButton.inputEnabled = true;
         this.recordButton.scale.setTo(0.5, 0.5);
         this.add(this.recordButton);
         this.recordButton.events.onInputDown.add(this.toggleRecording, this);
-        this.add(this.recordButton);
+        if(this._displayGroup) {
+            this._displayGroup.add(this.recordButton);
+        } else {
+            this.add(this.recordButton);    
+        }
+        
 
-        this.playButton = new Phaser.Sprite(game, game.width - 120, 50, 'storyBuilder/pause');
+        this.playButton = new Phaser.Sprite(game, game.width - 120, 80, 'storyBuilder/pause');
         this.playButton.alpha = 1; //hidden until user records first time
         this.playButton.fixedToCamera = true;
         this.playButton.inputEnabled = true;
         this.playButton.scale.setTo(0.5, 0.5);
-        this.add(this.playButton);
         this.playButton.events.onInputDown.add(this.narrateStory, this);
-        this.add(this.playButton);
+        if(this._displayGroup) {
+            this._displayGroup.add(this.playButton);
+        } else {
+            this.add(this.playButton);    
+        }
+        
+        
 
     }
 
@@ -163,7 +174,6 @@ export default class RecordingManager extends Phaser.Group {
     }
 
     addToMap(data) {
-
         let recordInfo = new RecordInfo(data.uniquename, data.x, data.y, data.scaleX, data.scaleY, data.angle);
         let spriteMap = this._sceneRecordingMap.get(this.currentRecordingCounter);
         if (!spriteMap) {

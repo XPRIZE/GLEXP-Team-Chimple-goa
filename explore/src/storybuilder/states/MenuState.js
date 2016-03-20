@@ -12,6 +12,7 @@ export default class MenuState extends Phaser.State {
 	}
 
     onDown() {
-        this.game.state.start('StoryBuilderLibraryState');        
+        this.game.state.start('StoryBuilderLibraryState');
+        //this.game.state.start('StoryBuilderGameState');        
     }
 }

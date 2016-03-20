@@ -8,11 +8,7 @@ export default class Holder extends Item {
         super(game, x, y);
          this.x = x;
          this.y = y;
-    }
-    
-    update () {
-        this.onAttributesChanged.dispatch({uniquename: this._uniquename, x: this.x, y: this.y});
-    }
+    }   
 
     enableInputs(instance, iterateInside) {
         super.enableInputs(instance, iterateInside);

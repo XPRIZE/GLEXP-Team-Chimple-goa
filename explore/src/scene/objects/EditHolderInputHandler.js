@@ -4,6 +4,9 @@ import Wall from './Wall.js';
 
 export default class EditHolderInputHandler {
     constructor(game) {
+        this.clickEnabled = true;
+        this.dragEnabled = false;
+        
     }
 
     onInputDown(sprite, pointer) {

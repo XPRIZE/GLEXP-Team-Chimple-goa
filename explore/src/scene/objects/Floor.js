@@ -13,7 +13,7 @@ export default class Floor extends Surface {
     
     static fromJSON(game, j) {
         let val = new Floor(game, j.x, j.y);
-        val.texture = j.texture;
+        val.textures = j.textures;
         val.contents = j.contents;
         return val;
     }

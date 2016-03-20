@@ -7,6 +7,7 @@ import LibraryState from './states/LibraryState';
 import SelectStoryState from './states/SelectStoryState';
 import EditStoryPagesState from './states/EditStoryPagesState';
 import ConstructNewStoryPageState from './states/ConstructNewStoryPageState';
+import OnDemandLoadState from './states/OnDemandLoadState';
 
 
 export default class StoryBuilderStateHolder extends StateHolder {
@@ -19,6 +20,7 @@ export default class StoryBuilderStateHolder extends StateHolder {
         this.game.state.add('StoryBuilderSelectStoryState', SelectStoryState, false);
         this.game.state.add('StoryEditStoryPagesState', EditStoryPagesState, false);
         this.game.state.add('StoryConstructNewStoryPageState', ConstructNewStoryPageState, false);
+        this.game.state.add('StoryOnDemandLoadState', OnDemandLoadState, false);
     }
     
     startDefault() {
