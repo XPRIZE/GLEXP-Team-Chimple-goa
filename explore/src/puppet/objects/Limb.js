@@ -125,7 +125,7 @@ export default class Limb extends EnableInputs(RelativePosition(Phaser.Group)) {
 
     set shape(shape) {
         this._shape = shape;
-        shape.scale = this.currentScale;
+        shape.doScaleXY(this.currentScale);
         this.addChild(shape);
         shape.bodyColor = this.bodyColor;
         shape.name = this.name + '_shape_' + this.getChildIndex(shape);
@@ -137,8 +137,8 @@ export default class Limb extends EnableInputs(RelativePosition(Phaser.Group)) {
         this.positionRelativeToParent();
 
         if (this.isMask) {
-            let maskA = new Shape(this.game, shape.relativeAnchor, shape.relativeOffset, shape.offsetInPixel, shape.graphics);
-            maskA.scale = this.currentScale.clone();
+            let maskA = new Shape(this.game, shape.initialScale, shape.relativeAnchor, shape.relativeOffset, shape.offsetInPixel, shape.graphics, shape.name + '_mask');
+            maskA.doScaleXY(this.currentScale.clone());
             this.addChild(maskA);
             maskA.name = this.name + '_mask_' + this.getChildIndex(maskA);
             this._maskA = maskA;
@@ -180,7 +180,8 @@ export default class Limb extends EnableInputs(RelativePosition(Phaser.Group)) {
             this.removeAccessory(existing, true);
         }
         this.addChild(accessory);
-        accessory.scale = this.currentScale.clone();
+        //accessory.scale = this.currentScale.clone();
+        accessory.doScaleXY(this.currentScale.clone());
         accessory.positionRelativeToParent();
         if (this._maskA) {
             accessory.mask = this._maskA;
