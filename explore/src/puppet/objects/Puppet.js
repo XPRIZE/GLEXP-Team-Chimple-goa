@@ -10,6 +10,7 @@ export default class Puppet extends Limb {
         this.y=y;
         this.bodyColor = color;
         this.scale.setTo(0.5, 0.5);
+        this.childOrder = ['body']; //default
     }
     
     get body() {

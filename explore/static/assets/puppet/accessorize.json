@@ -1,0 +1,132 @@
+{
+  "arm_chooser": {
+    "testtube": {
+      "ArmAccessory": {
+        "key": "puppet/sample",
+        "frame": "testtube.png",
+        "anchorX": 0.5,
+        "anchorY": 0.4,
+        "offsetX": 0,
+        "offsetY": 1
+      }
+    }
+  },
+  "beard_chooser": {
+  },
+  "body_chooser": {
+    "scientist_tie": {
+      "Chain": {
+        "key": "puppet/sample",
+        "frame": "tie.png"
+      }
+    },
+      "belt": {
+      "Belt": {
+        "key": "puppet/sample",
+        "frame": "belt.png"
+     }
+    },
+      "stethoscope": {
+      "Scarf": {
+        "key": "puppet/sample",
+        "frame": "stethoscope.png"
+     }
+    },
+      "side_bag": {
+      "Scarf": {
+        "key": "puppet/sample",
+        "frame": "bag.png"
+     }
+    }
+  },
+  "face_chooser": {
+  },
+  "glasses_chooser": {
+    "scientist_glass": {
+      "Glass": {
+        "key": "puppet/sample",
+        "frame": "glass.png"
+      }     
+    }
+  },
+ "hair_chooser": {
+    "scientist_hair": {
+      "BackHair": {
+        "key": "puppet/sample",
+        "frame": "back_hair.png",
+        "anchorX":0.15,
+        "anchorY":0.5,
+        "offsetX":0,
+        "offsetY":0
+      },
+      "FrontHair": {
+        "key": "puppet/sample",
+        "frame": "front_hair.png",
+        "anchorX":0.15,
+        "anchorY":0.5,
+        "offsetX":0,
+        "offsetY":0
+      }
+      }
+  },
+  "hairColor_chooser": {
+  },
+  "hat_chooser": {
+    "cricket_helmet": {
+       "Hat": {
+        "key": "puppet/sample",
+        "frame": "helmet.png",
+        "anchorX":0.5,
+        "anchorY":0,
+        "offsetX":0.5,
+        "offsetY":0
+    }
+    }
+  },
+  "pants_chooser": {
+    "scientist_pant": {
+      "Pants": {
+        "key": "puppet/sample",
+        "frame": "pant.png"
+      }
+    }
+  },
+  "shirt_chooser": {
+    "scientist_shirt": {
+      "Shirt": {
+        "key": "puppet/sample",
+        "frame": "shirt.png"
+      }
+    },
+    "scientist_overcoat": {
+      "Jacket": {
+        "key": "puppet/sample",
+        "frame": "overcoat.png"
+      },
+      "Sleeves": {
+        "key": "puppet/sample",
+        "frame": "sleeve.png"
+      }
+    }
+  },
+  "shoes_chooser": {
+    "scientist_shoe": {
+      "Shoes": {
+        "key": "puppet/sample",
+        "frame": "shoe.png"
+      }
+    }
+  },
+  "skinColor_chooser": {
+    "shirt1.png": {
+      "HeadStructure": {
+        "key": "puppet/1",
+        "frame": "skin/foot.png",
+        "anchorX": 100,
+        "anchorY": 100,
+        "offsetX": 200
+      }
+      
+    }
+  }
+}

@@ -61,6 +61,15 @@ export default class PuppetUtil {
                 diameter: v.diameter
             }
       
+        }  else if (v instanceof Phaser.Ellipse) {
+            return {
+                _class: "Phaser.Ellipse",
+                x: v.x,
+                y: v.y,
+                width: v.width,
+                height: v.height
+            }
+      
         }
         return v;
     }    

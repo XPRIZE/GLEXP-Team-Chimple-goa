@@ -97,7 +97,7 @@ export default class Limb extends EnableInputs(RelativePosition(Phaser.Group)) {
         if (existingLimb) {
             this.remove(existingLimb);
         }
-        this.add(limb);
+        this.addChildInOrder(limb);
         limb.positionRelativeToParent();
         limb.bodyColor = this.bodyColor;
         return limb;
@@ -126,9 +126,8 @@ export default class Limb extends EnableInputs(RelativePosition(Phaser.Group)) {
     set shape(shape) {
         this._shape = shape;
         shape.doScaleXY(this.currentScale);
-        this.addChild(shape);
+        this.addChildInOrder(shape);
         shape.bodyColor = this.bodyColor;
-        shape.name = this.name + '_shape_' + this.getChildIndex(shape);
         if (this.instance) {
             this.enableInputs(this.instance, false);
         }
@@ -137,10 +136,9 @@ export default class Limb extends EnableInputs(RelativePosition(Phaser.Group)) {
         this.positionRelativeToParent();
 
         if (this.isMask) {
-            let maskA = new Shape(this.game, shape.initialScale, shape.relativeAnchor, shape.relativeOffset, shape.offsetInPixel, shape.graphics, shape.name + '_mask');
+            let maskA = new Shape(this.game, shape.initialScale, shape.relativeAnchor, shape.relativeOffset, shape.offsetInPixel, shape.graphics, 'mask');
             maskA.doScaleXY(this.currentScale.clone());
-            this.addChild(maskA);
-            maskA.name = this.name + '_mask_' + this.getChildIndex(maskA);
+            this.addChildInOrder(maskA);
             this._maskA = maskA;
             shape.mask = maskA;
             //maskA.positionRelativeToParent();
@@ -174,16 +172,16 @@ export default class Limb extends EnableInputs(RelativePosition(Phaser.Group)) {
      * @param  {any} accessory
      * @param  {any} removeExisting
      */
-    addAccessory(accessory, removeExisting) {
+    addAccessory(accessory, mask) {
         let existing = this.getAccessory(accessory.name);
         if (existing) {
             this.removeAccessory(existing, true);
         }
-        this.addChild(accessory);
+        this.addChildInOrder(accessory);
         //accessory.scale = this.currentScale.clone();
         accessory.doScaleXY(this.currentScale.clone());
         accessory.positionRelativeToParent();
-        if (this._maskA) {
+        if (this._maskA && mask) {
             accessory.mask = this._maskA;
         }
         return accessory;
@@ -193,7 +191,18 @@ export default class Limb extends EnableInputs(RelativePosition(Phaser.Group)) {
         this.remove(accessory, true);
     }
 
-
+    addChildInOrder(child) {
+        let j = 0;
+        for (let i = 0; i < this.childOrder.length && this.children && j < this.children.length; i++) {
+            if(child.name == this.childOrder[i]) {
+                break;
+            }
+            if(this.children[j].name == this.childOrder[i]) {
+                j++;
+            }
+        }
+        this.addChildAt(child, j);
+    }
 
     scaleLimbAlongWithPuppet(scaleXY) {
         let changeX = (scaleXY.x / this.currentScale.x - 1) * this.shape.width;
