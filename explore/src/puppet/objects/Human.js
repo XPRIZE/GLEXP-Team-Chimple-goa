@@ -22,7 +22,6 @@ export default class Human extends Puppet {
         this.leftLeg.onHeightChange.add(this.body.changeLimbHeightOnOtherChange, this.body, 0, this.leftLeg.onHeightChange);
         this.leftLeg.onHeightChange.add(this.head.changeLimbHeightOnOtherChange, this.head, 0, this.leftLeg.onHeightChange);
     }
-    
 
     get head() {
         if(!this._head) {
@@ -110,61 +109,61 @@ export default class Human extends Puppet {
     }
     
     setShirt(key, frame) {
-        this.body.addAccessory(new Accessory(this.game, true, true, true, new Phaser.Point(0.5, 0), new Phaser.Point(0.5, 0), new Phaser.Point(0, 0), false, key, frame, 'shirt'), true);
+        this.body.addAccessory(new Accessory(this.game, new Phaser.Point(1, 1), true, true, true, new Phaser.Point(0.5, 0), new Phaser.Point(0.5, 0), new Phaser.Point(0, 0), false, key, frame, 'shirt'), true);
     }
     
     setSleeve(key, frame) {
         
-        this.leftHand.addAccessory(new Accessory(this.game, false, true, true, new Phaser.Point(1, 0), new Phaser.Point(1, 0), new Phaser.Point(0, 0), false, key, frame, 'leftSleeve'), true);
-        this.rightHand.addAccessory(new Accessory(this.game, false, true, true, new Phaser.Point(0, 0), new Phaser.Point(0, 0), new Phaser.Point(0, 0), true, key, frame, 'rightSleeve'), true);
+        this.leftHand.addAccessory(new Accessory(this.game, new Phaser.Point(1, 1), false, true, true, new Phaser.Point(1, 0), new Phaser.Point(1, 0), new Phaser.Point(0, 0), false, key, frame, 'leftSleeve'), true);
+        this.rightHand.addAccessory(new Accessory(this.game, new Phaser.Point(1, 1), false, true, true, new Phaser.Point(0, 0), new Phaser.Point(0, 0), new Phaser.Point(0, 0), true, key, frame, 'rightSleeve'), true);
     }
     
     setPants(key, frame) {
-        this.leftLeg.addAccessory(new Accessory(this.game, false, true, true, new Phaser.Point(0.5, 0), new Phaser.Point(0.5, 0), new Phaser.Point(0, 0), false, key, frame, 'leftPant'), true);
-        this.rightLeg.addAccessory(new Accessory(this.game, false, true, true, new Phaser.Point(0.5, 0), new Phaser.Point(0.5, 0), new Phaser.Point(0, 0), false, key, frame, 'rightSleeve'), true);
+        this.leftLeg.addAccessory(new Accessory(this.game, new Phaser.Point(1, 1), false, true, true, new Phaser.Point(0.5, 0), new Phaser.Point(0.5, 0), new Phaser.Point(0, 0), false, key, frame, 'leftPant'), true);
+        this.rightLeg.addAccessory(new Accessory(this.game, new Phaser.Point(1, 1), false, true, true, new Phaser.Point(0.5, 0), new Phaser.Point(0.5, 0), new Phaser.Point(0, 0), false, key, frame, 'rightSleeve'), true);
     }
     
    setShoes(key, frame,anchorX, anchorY, offsetX, offsetY,offsetInPixelX,offsetInPixelY) {
-        this.leftLeg.addAccessory(new Accessory(this.game, true, true, false, new Phaser.Point(anchorX, anchorY), new Phaser.Point(offsetX, offsetY), new Phaser.Point(0,0), false, key, frame, 'leftShoe'), true);
+        this.leftLeg.addAccessory(new Accessory(this.game, new Phaser.Point(1, 1), true, true, false, new Phaser.Point(anchorX, anchorY), new Phaser.Point(offsetX, offsetY), new Phaser.Point(0,0), false, key, frame, 'leftShoe'), true);
         //console.log(" offsetInPixelX  "+ offsetInPixelX+ "offsetInPixelY " +offsetInPixelY);
-        this.rightLeg.addAccessory(new Accessory(this.game, true, true, false, new Phaser.Point(anchorX, anchorY), new Phaser.Point(offsetX, offsetY), new Phaser.Point(offsetInPixelX, offsetInPixelY), true, key, frame, 'rightShoe'), true);
+        this.rightLeg.addAccessory(new Accessory(this.game, new Phaser.Point(1, 1), true, true, false, new Phaser.Point(anchorX, anchorY), new Phaser.Point(offsetX, offsetY), new Phaser.Point(offsetInPixelX, offsetInPixelY), true, key, frame, 'rightShoe'), true);
     }
     
     setChain(key, frame, x, y) {
-        this.body.addAccessory(new Accessory(this.game, true, true, true, new Phaser.Point(0.5, 0), new Phaser.Point(0.5, 0), new Phaser.Point(0, 0), false, key, frame, 'chain'), true);
+        this.body.addAccessory(new Accessory(this.game, new Phaser.Point(1, 1), true, true, true, new Phaser.Point(0.5, 0), new Phaser.Point(0.5, 0), new Phaser.Point(0, 0), false, key, frame, 'chain'), true);
     }
      setBelt(key,frame,x,y){
-       this.beltSize = this.body.addAccessory(new Accessory(this.game, true, true, true, new Phaser.Point(0, 0), new Phaser.Point(0, 0.5), new Phaser.Point(0, 0), false, key, frame, 'Belt'), true);
+       this.beltSize = this.body.addAccessory(new Accessory(this.game, new Phaser.Point(1, 1), true, true, true, new Phaser.Point(0, 0), new Phaser.Point(0, 0.5), new Phaser.Point(0, 0), false, key, frame, 'Belt'), true);
        this.beltSize.scale.setTo(1.2,1);
   } 
   setGlass(key,frame,x,y){
         
-       this.item = this.head.addAccessory(new Accessory(this.game, true, true, true, new Phaser.Point(0, 0), new Phaser.Point(0.1, 0.1), new Phaser.Point(0, 0), false, key, frame, 'Glass'), true);
-       this.item.scale.setTo(0.5);
+       this.head.addAccessory(new Accessory(this.game, new Phaser.Point(0.5, 0.5), true, true, true, new Phaser.Point(0.5, 0), new Phaser.Point(0.5, 0.1), new Phaser.Point(0, 0), false, key, frame, 'Glass'), true);
+    //    this.item.scale.setTo(0.5);
   }
   setSkin(key,frame,x,y){
-    this.body.addAccessory(new Accessory(this.game, true, true, true, new Phaser.Point(0, 0), new Phaser.Point(0, 0.5), new Phaser.Point(0, 0), false, key, frame, 'Skin'), true);
+    this.body.addAccessory(new Accessory(this.game, new Phaser.Point(1, 1), true, true, true, new Phaser.Point(0, 0), new Phaser.Point(0, 0.5), new Phaser.Point(0, 0), false, key, frame, 'Skin'), true);
       
   }
 
     
     setArmAccessory(key, frame, anchorX, anchorY, offsetX, offsetY) {
-        this.leftHand.addAccessory(new Accessory(this.game, true, true, false, new Phaser.Point(anchorX, anchorY), new Phaser.Point(offsetX, offsetY), new Phaser.Point(0, 0), false, key, frame, 'armAccessory'), true);        
+        this.leftHand.addAccessory(new Accessory(this.game, new Phaser.Point(1, 1), true, true, false, new Phaser.Point(anchorX, anchorY), new Phaser.Point(offsetX, offsetY), new Phaser.Point(0, 0), false, key, frame, 'armAccessory'), true);        
     }
     
      setHeadStructure(key, frame, x, y,radius) {
         
         // this.children[0].children[2].children.splice(0,1);
          this.head.children.splice(0,1);
-         this.head.shape = new Shape(game, new Phaser.Point(0.5, 1), new Phaser.Point(0.5, 0), new Phaser.Point(0, -10),new Phaser.Circle(x, y, radius) );
+         this.head.shape = new Shape(game, new Phaser.Point(1, 1), new Phaser.Point(0.5, 1), new Phaser.Point(0.5, 0), new Phaser.Point(0, -10),new Phaser.Circle(x, y, radius), "headShape" );
         // this.body.children.splice(0,1);
-        // this.body.shape = new Shape(game, new Phaser.Point(0.5, 1), new Phaser.Point(0.5, 0), new Phaser.Point(0, -10),new Phaser.Circle(100, 100, 200) );
+        // this.body.shape = new Shape(game, new Phaser.Point(1, 1), new Phaser.Point(0.5, 1), new Phaser.Point(0.5, 0), new Phaser.Point(0, -10),new Phaser.Circle(100, 100, 200) );
         
    }
     
     sethead(key,frame,anchorX, anchorY, offsetX, offsetY){
        // console.log("in haed");
-        this.head.addAccessory(new Accessory(this.game, true, true, false, new Phaser.Point(anchorX, anchorY), new Phaser.Point(offsetX, offsetY), new Phaser.Point(0, 0), false, key, frame, 'hats'), true);
+        this.head.addAccessory(new Accessory(this.game, new Phaser.Point(1, 1), true, true, false, new Phaser.Point(anchorX, anchorY), new Phaser.Point(offsetX, offsetY), new Phaser.Point(0, 0), false, key, frame, 'hats'), true);
         // console.log(" anchorX  "+ anchorX+ "  anchorY " +anchorY);
         // console.log(" offsetX  "+ offsetX+ "  offsetY " +offsetY);
      
@@ -173,12 +172,12 @@ export default class Human extends Puppet {
      setbeard(key, frame, anchorX, anchorY, offsetX, offsetY)
     {
         //this.beard = 
-         this.head.addAccessory(new Accessory(this.game, true, true, false, new Phaser.Point(anchorX, anchorY), new Phaser.Point(offsetX, offsetY), new Phaser.Point(0, 0), false, key, frame, 'beard'), true);
+         this.head.addAccessory(new Accessory(this.game, new Phaser.Point(1, 1), true, true, false, new Phaser.Point(anchorX, anchorY), new Phaser.Point(offsetX, offsetY), new Phaser.Point(0, 0), false, key, frame, 'beard'), true);
        // this.beard.tint=0xfff000;
     }
     
     sethairs(key,frame,anchorX, anchorY, offsetX, offsetY){
-        this.head.addAccessory(new Accessory(this.game, true, true, false, new Phaser.Point(anchorX, anchorY), new Phaser.Point(offsetX, offsetY), new Phaser.Point(0, 0), false, key, frame, 'hairs', new Phaer.Point(color)), true);
+        this.head.addAccessory(new Accessory(this.game, new Phaser.Point(1, 1), true, true, false, new Phaser.Point(anchorX, anchorY), new Phaser.Point(offsetX, offsetY), new Phaser.Point(0, 0), false, key, frame, 'hairs', new Phaer.Point(color)), true);
         //this.hairs.scale.setTo(0.3);
     }
 
@@ -199,41 +198,40 @@ export default class Human extends Puppet {
         return puppet;
     }
 
+
+
     static buildDefault(game, handler) {
         let human = new Human(game);
         human.enableInputs(handler, false);
         human.name = 'human';
         
         human.body = new Limb(game, new Phaser.Point(0.5, 0), new Phaser.Point(0.5, 0), new Phaser.Point(0, 0), true);
+        human.body.shape = new Shape(game, new Phaser.Point(1, 1), new Phaser.Point(0.5, 0), new Phaser.Point(0.5, 0), new Phaser.Point(0, 0), new Phaser.RoundedRectangle(0, 0, 320, 320, 10), "bodyShape");
         human.body.enableInputs(handler, false);
-        human.body.shape = new Shape(game, new Phaser.Point(0.5, 0), new Phaser.Point(0.5, 0), new Phaser.Point(0, 0), new Phaser.RoundedRectangle(0, 0, 320, 320, 10));
-        //human.setShirt('1', 'shirt/001redplaid_body.png');
 
         human.head = new Limb(game, new Phaser.Point(0.5, 1), new Phaser.Point(0.5, 0), new Phaser.Point(0, -10), false);
+        human.head.shape = new Shape(game, new Phaser.Point(1, 1), new Phaser.Point(0.5, 1), new Phaser.Point(0.5, 0), new Phaser.Point(0, -10), new Phaser.RoundedRectangle(0, 0, 200, 200, 10), "headShape");
         human.head.enableInputs(handler, false);
-        human.head.shape = new Shape(game, new Phaser.Point(0.5, 1), new Phaser.Point(0.5, 0), new Phaser.Point(0, -10), new Phaser.RoundedRectangle(0, 0, 200, 200, 10));
         
         human.leftHand = new Limb(game, new Phaser.Point(1, 0), new Phaser.Point(0, 0), new Phaser.Point(-10,0), false);
+        human.leftHand.shape = new Shape(game, new Phaser.Point(1, 1), new Phaser.Point(1, 0), new Phaser.Point(0, 0), new Phaser.Point(-10, 0), new Phaser.Rectangle(0, 0, 50, 300), "leftHandShape");
         human.leftHand.enableInputs(handler, false);
-        human.leftHand.shape = new Shape(game, new Phaser.Point(1, 0), new Phaser.Point(0, 0), new Phaser.Point(-10, 0), new Phaser.Rectangle(0, 0, 50, 300));
         
         human.rightHand = new Limb(game, new Phaser.Point(0, 0), new Phaser.Point(1, 0), new Phaser.Point(10,0), false);
+        human.rightHand.shape = new Shape(game, new Phaser.Point(1, 1), new Phaser.Point(0, 0), new Phaser.Point(1, 0), new Phaser.Point(10, 0), new Phaser.Rectangle(0, 0, 50, 300), "rightHandShape");
         human.rightHand.enableInputs(handler, false);
-        human.rightHand.shape = new Shape(game, new Phaser.Point(0, 0), new Phaser.Point(1, 0), new Phaser.Point(10, 0), new Phaser.Rectangle(0, 0, 50, 300));
 
-        //human.setSleeve('2', 'shirt/001redplaid_arm.png');
         
         human.leftLeg = new Limb(game, new Phaser.Point(1, 0), new Phaser.Point(0.5, 1), new Phaser.Point(-10,-20), false);
+        human.leftLeg.shape = new Shape(game, new Phaser.Point(1, 1), new Phaser.Point(1, 0), new Phaser.Point(0, 0), new Phaser.Point(0, 0), new Phaser.Rectangle(0, 0, 50, 300), "leftLegShape");
         human.leftLeg.enableInputs(handler, false);
-        human.leftLeg.shape = new Shape(game, new Phaser.Point(1, 0), new Phaser.Point(0, 0), new Phaser.Point(0, 0), new Phaser.Rectangle(0, 0, 50, 300));
 
         human.rightLeg = new Limb(game, new Phaser.Point(0, 0), new Phaser.Point(0.5, 1), new Phaser.Point(10,-20), false, human.bodyColor);
+        human.rightLeg.shape = new Shape(game, new Phaser.Point(1, 1), new Phaser.Point(0, 0), new Phaser.Point(0, 0), new Phaser.Point(0, 0), new Phaser.Rectangle(0, 0, 50, 300), "rightLegShape");
         human.rightLeg.enableInputs(handler, false);
-        human.rightLeg.shape = new Shape(game, new Phaser.Point(0, 0), new Phaser.Point(0, 0), new Phaser.Point(0, 0), new Phaser.Rectangle(0, 0, 50, 300));
         
-        human.setPants('puppet/2', 'pants/005khakisuit_leg.png');
-        
-        human.setShoes('puppet/1', 'shoes/001blacksneakers.png');
+        // human.setPants('puppet/2', 'pants/005khakisuit_leg.png');
+        // human.setShoes('puppet/1', 'shoes/001blacksneakers.png');
         
         human.defineBehavior();
         return human;
