@@ -147,6 +147,7 @@ export default class Limb extends EnableInputs(RelativePosition(Phaser.Group)) {
             maskA.dirty = true; //Due to a bug in Pixi for WebGL need to explicitly set dirty for mask true
         }
     }
+<<<<<<< Updated upstream
 
     get accessories() {
         let acc = new Array();
@@ -158,6 +159,56 @@ export default class Limb extends EnableInputs(RelativePosition(Phaser.Group)) {
             }
         });
         return acc;
+=======
+    this.add(limb);
+    limb.positionRelativeToParent();
+    limb.bodyColor = this.bodyColor;
+    return limb;
+  }
+
+  getLimb(name) {
+    return this.iterate('name', name, Phaser.Group.RETURN_CHILD);
+  }
+
+  setTwin(twin) {
+    this._twin = twin;
+  }
+
+  get isMask() {
+    return this._isMask;
+  }
+
+  set isMask(value) {
+    this._isMask = value;
+  }
+
+  get shape() {
+    return this._shape;
+  }
+
+  set shape(shape) {
+    this._shape = shape;
+    // shape.scale = this.currentScale;
+    shape.doScaleXY(this.currentScale);
+    this.addChild(shape);
+    shape.bodyColor = this.bodyColor;
+    // shape.name = this.name + '_shape_' + this.getChildIndex(shape);
+    shape.inputEnabled = true;
+    shape.events.onInputDown.add(this.onInputDown, this);
+    shape.events.onInputUp.add(this.onInputUp, this);
+    this.positionRelativeToParent();
+
+    if (this.isMask) {
+      let maskA = new Shape(this.game, shape.initialScale, shape.relativeAnchor, shape.relativeOffset, shape.offsetInPixel, shape.graphics, shape.name+'_mask');
+    //   maskA.scale = this.currentScale.clone();
+    maskA.doScaleXY(this.currentScale);
+      this.addChild(maskA);
+    //   maskA.name = this.name + '_mask_' + this.getChildIndex(maskA);
+      this._maskA = maskA;
+      shape.mask = maskA;
+      //maskA.positionRelativeToParent();
+      maskA.dirty = true; //Due to a bug in Pixi for WebGL need to explicitly set dirty for mask true
+>>>>>>> Stashed changes
     }
 
     set accessories(val) {
@@ -165,9 +216,18 @@ export default class Limb extends EnableInputs(RelativePosition(Phaser.Group)) {
             this.addAccessory(element);
         }, this);
     }
+<<<<<<< Updated upstream
 
     getAccessory(name) {
         return this.iterate('name', name, Phaser.Group.RETURN_CHILD);
+=======
+    this.addChild(accessory);
+    // accessory.scale = this.currentScale.clone();
+    accessory.doScaleXY(this.currentScale.clone());
+    accessory.positionRelativeToParent();
+    if (this._maskA) {
+      accessory.mask = this._maskA;
+>>>>>>> Stashed changes
     }
 
     /**
@@ -209,6 +269,7 @@ export default class Limb extends EnableInputs(RelativePosition(Phaser.Group)) {
             this.onWidthChange.dispatch(changeX);
         }
     }
+<<<<<<< Updated upstream
 
     scaleLimb(scaleXY) {
         scaleXY.x = Math.max(this.minScale.x, Math.min(this.maxScale.x, scaleXY.x));
@@ -217,6 +278,34 @@ export default class Limb extends EnableInputs(RelativePosition(Phaser.Group)) {
         if (this._twin) {
             this._twin.scaleLimbOnly(scaleXY);
         }
+=======
+  }
+
+  scaleLimbOnly(scaleXY) {
+      console.log(scaleXY.x + " " + scaleXY.y);
+    this.callAllExists('doScaleXY', true, scaleXY);
+    this.callAllExists('positionRelativeToParent', true);
+    this.positionRelativeToParent();
+  }
+
+  changeLimbWidth(width) {
+    let newScale = this.currentScale.x * (this.shape.width + width) / this.shape.width;
+    this.scaleLimb(new Phaser.Point(newScale, this.currentScale.y));
+  }
+
+  changeLimbHeight(height) {
+    let newScale = this.currentScale.y * (this.shape.height + height) / this.shape.height;
+    this.scaleLimb(new Phaser.Point(this.currentScale.x, newScale));
+  }
+
+  positionRelativeToParent() {
+    if (this.shape) {
+      this.x = -this.relativeAnchor.x * this.shape.width;
+      this.y = -this.relativeAnchor.y * this.shape.height;
+    } else {
+      this.x = 0;
+      this.y = 0;
+>>>>>>> Stashed changes
     }
 
     scaleLimbOnly(scaleXY) {

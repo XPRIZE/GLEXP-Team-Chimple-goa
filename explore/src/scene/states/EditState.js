@@ -76,14 +76,14 @@ export default class EditState extends Phaser.State {
                     let texture = new TileTexture(game, 0, 0, parseInt(this.surfaceWidth), this.game.height * 0.4, 'scene/scene', button);
                     this.scene.floor.appendTexture(texture);
                     if(this.scene.sceneWidth < texture.right) {
-                        this.scene.setSceneSize(texture.right, scene.sceneHeight);
+                        this.scene.setSceneSize(texture.right, this.scene.sceneHeight);
                     }
                     break;
                 case 'wall':
                     texture = new TileTexture(game, 0, 0, parseInt(this.surfaceWidth), this.game.height * 0.6, 'scene/scene', button);
                     this.scene.wall.appendTexture(texture);
                     if(this.scene.sceneWidth < texture.right) {
-                        scene.setSceneSize(texture.right, this.scene.sceneHeight);
+                        this.scene.setSceneSize(texture.right, this.scene.sceneHeight);
                     }
                     break;
                 case 'width':

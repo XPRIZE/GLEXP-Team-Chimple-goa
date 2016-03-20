@@ -6,7 +6,22 @@
 	<link rel="stylesheet" href="styles/main.css">
 </head>
 <body>
-    <div id="gameCanvas">
+    <div id="gameCanvas"></div>
+	<div id="overlay">
+	    <div id = "shopContent">
+            <span class="close">×</span>
+            Enter some text here
+            <input type="text" name="fname" id="idofelement" onchange="addText()">  
+        </div>
+	</div>    
+    
+    <script>
+        function addText() {var element = document.getElementById('idofelement');var inputText = element.value;var text = game.add.text(0,0,inputText); text.addColor('#ffff00', 0); document.getElementById('overlay').style.display = "none";}   
+
+        document.getElementsByClassName("close")[0].onclick = function() {
+            addText();
+        }         
+    </script>  
 	<script src="scripts/phaser.js"></script>
 	<script src="scripts/game.js"></script>
 </body>

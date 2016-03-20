@@ -2,7 +2,7 @@ import Scalable from './Scalable.js';
 import RelativePosition from './RelativePosition.js';
 
 export default class Accessory extends RelativePosition(Scalable(Phaser.Sprite)) {
-    constructor(game, maintainAspectRatio, followWidth, followHeight, anchor, offset, offsetInPixel, flipX, key, frame, name) {
+    constructor(game, initialScale, maintainAspectRatio, followWidth, followHeight, anchor, offset, offsetInPixel, flipX, key, frame, name) {
         super(game, 0, 0, key, frame);
         this.name = name;
         this.flipX = flipX;
@@ -17,6 +17,7 @@ export default class Accessory extends RelativePosition(Scalable(Phaser.Sprite))
             this.scale.x = 1;
             bmd.add(this);
         }
+        this.initialScale = initialScale;
         this.relativeAnchor = anchor;
         this.relativeOffset = offset;
         this.offsetInPixel = offsetInPixel;
@@ -29,6 +30,7 @@ export default class Accessory extends RelativePosition(Scalable(Phaser.Sprite))
         let json = {
             _class: "Accessory",
             name: this.name,
+            initialScale: this.initialScale,
             maintainAspectRatio: this.maintainAspectRatio,
             followWidth: this.followWidth,
             followHeight: this.followHeight,
@@ -44,6 +46,6 @@ export default class Accessory extends RelativePosition(Scalable(Phaser.Sprite))
     }
     
     static fromJSON(game, j) {
-        return new Accessory(game, j.maintainAspectRatio, j.followWidth, j.followHeight, j.relativeAnchor, j.relativeOffset, j.offsetInPixel, j.flipX, j.initKey, j.initFrame, j.name);        
+        return new Accessory(game, j.initialScale, j.maintainAspectRatio, j.followWidth, j.followHeight, j.relativeAnchor, j.relativeOffset, j.offsetInPixel, j.flipX, j.initKey, j.initFrame, j.name);        
     }
 }

@@ -24,6 +24,7 @@ export default class MenuState extends Phaser.State {
     }
 
     goGroup() {
-        this.game.state.start('SceneEditHolderState');
+        // this.game.state.start('SceneEditHolderState');
+        document.getElementById('overlay').style.display = "block"
     }
 }

@@ -2,7 +2,7 @@ import Scalable from './Scalable.js';
 import RelativePosition from './RelativePosition.js';
 
 export default class Shape extends Scalable(Phaser.Graphics) {
-    constructor(game, anchor, offset, offsetInPixel, graphics) {
+    constructor(game, initialScale, anchor, offset, offsetInPixel, graphics, name) {
         super(game);
         this.graphics = graphics;
         if(graphics != null) {
@@ -10,6 +10,8 @@ export default class Shape extends Scalable(Phaser.Graphics) {
             this.drawShape(graphics);
             this.endFill();            
         }
+        this.name = name;
+        this.initialScale = initialScale || new Phaser.Point(1, 1);
         this.relativeAnchor = anchor || new Phaser.Point();
         this.relativeOffset = offset || new Phaser.Point();
         this.offsetInPixel = offsetInPixel || new Phaser.Point();
@@ -30,6 +32,7 @@ export default class Shape extends Scalable(Phaser.Graphics) {
         let json = {
             _class: "Shape",
             name: this.name,
+            initialScale: this.initialScale,
             relativeAnchor: this.relativeAnchor,
             relativeOffset: this.relativeOffset,
             offsetInPixel: this.offsetInPixel,
@@ -40,6 +43,6 @@ export default class Shape extends Scalable(Phaser.Graphics) {
     }
     
     static fromJSON(game, j) {
-        return new Shape(game, j.relativeAnchor, j.relativeOffset, j.offsetInPixel, j.graphics);        
+        return new Shape(game, j.initialScale, j.relativeAnchor, j.relativeOffset, j.offsetInPixel, j.graphics);        
     }
 }
