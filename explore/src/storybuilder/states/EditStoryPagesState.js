@@ -20,15 +20,18 @@ import ButtonGrid from '../../puppet/objects/ButtonGrid.js';
 var _ = require('lodash');
 
 export default class EditStoryPagesState extends Phaser.State {
-    init(selectedStory) {
-        this._selectedStory = JSON.parse(selectedStory, StoryUtil.revive);
-        //this._selectedStory = selectedStory;
+    init(currentStoryId) {
+        if(currentStoryId) {
+            this._currentStoryId = currentStoryId;
+            let storyJSON = localStorage.getItem(this._currentStoryId);
+            this._currentStory = JSON.parse(storyJSON, StoryUtil.revive);
+        }                
     }
 
     preload() {
         var that = this;
 
-        this._pages = this._selectedStory.storyPages;
+        this._pages = this._currentStory.storyPages;
 
         this._frameData = {};
         if (this._pages) {
@@ -43,8 +46,6 @@ export default class EditStoryPagesState extends Phaser.State {
             });
 
         }
-        this.load.image('storybuilder/plus_button', 'assets/storyBuilder/plus_button.png');
-
     }
 
     create() {
@@ -52,7 +53,7 @@ export default class EditStoryPagesState extends Phaser.State {
         this._display = this.game.add.group();
 
         //create UI
-        this._createNewPageButton = this.game.make.sprite(this.game.width - 40, 40, 'storybuilder/plus_button');
+        this._createNewPageButton = this.game.make.sprite(this.game.width - 40, 40, 'storyBuilder/plus');
         this._createNewPageButton.anchor.setTo(0.5);
         this._createNewPageButton.inputEnabled = true;
         this._createNewPageButton.events.onInputDown.add(this.addNewPage, this);

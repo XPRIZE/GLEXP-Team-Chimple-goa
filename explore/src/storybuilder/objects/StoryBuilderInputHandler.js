@@ -12,7 +12,7 @@ export default class StoryBuilderInputHandler {
     }
 
 
-    onDragStart(sprite, pointer) {
+    onDragStart(sprite, pointer) {        
         sprite._isDragging = true;
         sprite.game.camera.follow(sprite, Phaser.Camera.FOLLOW_PLATFORMER);
         sprite.start_camera_x = sprite.game.camera.x;

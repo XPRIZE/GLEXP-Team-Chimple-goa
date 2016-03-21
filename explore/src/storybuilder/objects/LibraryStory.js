@@ -1,7 +1,7 @@
 import Texture from '../../scene/objects/Texture.js';
-import Page from './Page.js';
+import StoryPage from './StoryPage.js';
 
-export default class Story extends Phaser.Group {
+export default class LibraryStory extends Phaser.Group {
     //libray contents group of stories
 
     constructor(game, x, y, storyId, title, imageData) {
@@ -10,11 +10,11 @@ export default class Story extends Phaser.Group {
         this.y = y;
         this._title = title;
         this._storyId = storyId;
-        this._imageData = imageData;        
+        this._imageData = imageData;
         this._canBePlayed = false;
         game.physics.enable(this);
     }
-    
+
     set canBePlayed(canBePlayed) {
         this._canBePlayed = canBePlayed;
     }
@@ -22,7 +22,7 @@ export default class Story extends Phaser.Group {
     get canBePlayed() {
         return this._canBePlayed;
     }
-    
+
     set storyId(storyId) {
         this._storyId = storyId;
     }
@@ -47,46 +47,22 @@ export default class Story extends Phaser.Group {
         return this._imageData;
     }
 
-    addStoryPage(storyPage) {
-        return this.add(storyPage);
-    }
-
-    get storyPages() {
-        let children = new Array();
-        this.forEach(function(value) {
-            if (value instanceof Page) {
-                children.push(value);
-            }
-        });
-        return children;
-    }
-
-    set storyPages(val) {
-        if (val) {
-            val.forEach(function(element) {
-                this.addStoryPage(element);
-            }, this);
-        }
-    }
-
     toJSON() {
         let json = {
-            _class: "Story",
+            _class: "LibraryStory",
             x: this.x,
             y: this.y,
             title: this.title,
-            storyId: this._storyId,            
+            storyId: this._storyId,
             imageData: this.imageData,
-            canBePlayed: this._canBePlayed,
-            storyPages: this.storyPages
+            canBePlayed: this._canBePlayed
         }
         return json;
     }
 
     static fromJSON(game, j) {
-        let val = new Story(game, j.x, j.y, j.storyId, j.title, j.imageData);
+        let val = new LibraryStory(game, j.x, j.y, j.storyId, j.title, j.imageData);
         val.canBePlayed = j.canBePlayed;
-        val.storyPages = j.storyPages;
         return val;
     }
 }
