@@ -18,13 +18,33 @@ export default class ExploreInputHandler {
     onDragStart(sprite, pointer) {
         sprite._isDragging = true;
         sprite.game.camera.follow(sprite, Phaser.Camera.FOLLOW_PLATFORMER);
-        sprite.start_camera_x = sprite.game.camera.x;
-        sprite.start_camera_y = sprite.game.camera.y;
+        // sprite.start_camera_x = sprite.game.camera.x;
+        // sprite.start_camera_y = sprite.game.camera.y;
+
+        sprite.x = this.game.input.activePointer.x;
+        sprite.y = this.game.input.activePointer.y;
     }
 
     onDragUpdate(sprite, pointer, dragX, dragY, snapPoint) {
-        sprite.x += sprite.game.camera.x - sprite.start_camera_x;
-        sprite.y += sprite.game.camera.y - sprite.start_camera_y;
+        // sprite.x += sprite.game.camera.x - sprite.start_camera_x;
+        // sprite.y += sprite.game.camera.y - sprite.start_camera_y;
+
+
+        let distanceFromLastUp = Phaser.Math.distance(game.input.activePointer.positionDown.x, game.input.activePointer.positionDown.y,
+            game.input.activePointer.x, game.input.activePointer.y);
+
+        if (distanceFromLastUp < 5) {
+            this._isDragging = false;
+        } else {
+            this._isDragging = true;
+
+            if (this._isDragging == true) {
+
+                sprite.x = this.game.input.activePointer.worldX;
+                sprite.y = this.game.input.activePointer.worldY - (0.570 * this.game.height);
+
+            }
+        }
     }
 
     onDragStop(sprite, pointer) {
