@@ -74,14 +74,14 @@ export default class Page extends Phaser.Group {
         return this._pageId;
     }
 
-    set Scene(scene) {
+    set scene(scene) {
         if (this._scene) {
             this._scene.destroy();
         }
         this._scene = scene;
     }
 
-    get Scene() {
+    get scene() {
         return this._scene;
     }
 

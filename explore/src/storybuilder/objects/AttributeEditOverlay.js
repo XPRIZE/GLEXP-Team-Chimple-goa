@@ -60,8 +60,8 @@ export default class AttributeEditOverlay extends Phaser.Group {
 
             that._chooseBackGroundTab = that.game.add.existing(new TabView(that.game, 'scene/scene', that.game.width + that.game.world.camera.x, that.game.height + that.game.world.camera.y, 10, 50, 5, 3, true, function(tab, button) {
                 that._chooseBackGroundTab.unSelect();
-                //that._chooseBackGroundTab.destroy();
-                //that._clickedObject.inputEnabled = true;
+                that._chooseBackGroundTab.destroy();
+                that._clickedObject.inputEnabled = true;
                 //that._recordingResumeSignal.dispatch();
 
             }, that, backGroundThemes));

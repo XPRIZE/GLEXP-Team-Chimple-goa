@@ -6,12 +6,10 @@ import TileTexture from '../../scene/objects/TileTexture.js';
 import Item from '../../scene/objects/Item.js';
 import Holder from '../../scene/objects/Holder.js';
 import Surface from '../../scene/objects/Surface.js';
-import Util from '../../scene/objects/Util.js';
-import PuppetUtil from '../../puppet/objects/PuppetUtil.js';
 import Human from '../../puppet/objects/Human.js';
 import Puppet from '../../puppet/objects/Puppet.js';
 import TabView from '../../puppet/objects/TabView.js';
-
+import JsonUtil from '../../puppet/objects/JsonUtil.js';
 import StoryUtil from '../objects/StoryUtil.js';
 import RecordingManager from '../objects/RecordingManager.js';
 import ShowAttributeEditorSignal from '../objects/ShowAttributeEditorSignal.js';
@@ -26,10 +24,21 @@ import ButtonGrid from '../../puppet/objects/ButtonGrid.js';
 var _ = require('lodash');
 
 export default class ConstructNewStoryPageState extends Phaser.State {
-    init(cachedDisplayGroup, lastLoadedKey, lastLoadedType) {
+    init(currentStoryId, currentPageId, cachedDisplayGroup, cachedJSONRepresentation, sceneOrPuppetType) {
+        this._currentStoryId = currentStoryId;
+        this._currentPageId = currentPageId;
+        let storyJSON = localStorage.getItem(this._currentStoryId);
+        this._currentStory = JSON.parse(storyJSON, JsonUtil.revive);
         this._cachedDisplayGroup = cachedDisplayGroup;
-        this._lastLoadedKeyForPupperOrSceneJSON = lastLoadedKey;
-        this._lastLoadedType = lastLoadedType;
+        this._cachedJSONStrRep = cachedJSONRepresentation;
+        this._sceneOrPuppetType = sceneOrPuppetType;
+
+        this._currentStory.storyPages.forEach(function(page) {
+            if (page.pageId === this._currentPageId) {
+                this._curPage = page;
+            }
+        }, this);
+
     }
 
     preload() {
@@ -50,11 +59,7 @@ export default class ConstructNewStoryPageState extends Phaser.State {
     }
 
     create() {
-        //Create UI
-        //Button to user input
-        //Add Background
-        //Add Puppet
-        //Add Props
+
         if (this._cachedDisplayGroup != null) {
             this._displayControlGroup = this._cachedDisplayGroup;
             this.game.add.existing(this._displayControlGroup);
@@ -78,24 +83,31 @@ export default class ConstructNewStoryPageState extends Phaser.State {
     }
 
     constructStory() {
-        let cachedJSON = this.cache.getJSON(this._lastLoadedKeyForPupperOrSceneJSON);
-        if (cachedJSON) {
+        if (this._curPage) {
+            //load scene on GROUP
+            this._scene = this._curPage.scene;
 
-            this._scene = null;
-            if (this._lastLoadedType == ConstructNewStoryPageState.SCENE_TYPE) {
-                let cachedJSONStr = JSON.stringify(cachedJSON);
-                this._scene = JSON.parse(cachedJSONStr, Util.revive);
-            } else if (this._lastLoadedType == ConstructNewStoryPageState.PUPPET_TYPE) {
-                let cachedJSONStr = JSON.stringify(cachedJSON, PuppetUtil.replacer);
-                this._puppet = JSON.parse(cachedJSONStr, PuppetUtil.revive);
-                this._puppet.body.enableInputs(new StoryBuilderInputHandler(), false);
-                //later puppet and add to scene
-
-                //scene = JSON.parse(cachedJSONStr, PuppetUtil.revive);
+            if (this._cachedJSONStrRep && this._sceneOrPuppetType) {
+                if (this._sceneOrPuppetType == ConstructNewStoryPageState.SCENE_TYPE) {
+                    let scene = null;
+                    scene = JSON.parse(this._cachedJSONStrRep, JsonUtil.revive);
+                    if (scene) {
+                        //copy each modified bit from OLD scene to new scene                        
+                        this._curPage.scene = scene;                        
+                    }
+                    //this._displayControlGroup.remove(this._scene);
+                    this._scene = scene;
+                } else if (this._sceneOrPuppetType == ConstructNewStoryPageState.PUPPET_TYPE) {
+                    this._puppet = JSON.parse(this._cachedJSONStrRep, JsonUtil.revive);
+                    this._puppet.body.disableInputs();
+                    this._puppet.body.enableInputs(new StoryBuilderInputHandler(), false);
+                    if (this._curPage.scene) {                        
+                        this._curPage.scene.floor.addContent(this._puppet)
+                    }
+                }
             }
-            if (this._scene) {
-                console.log('scene:' + this._scene);
 
+            if (this._scene) {
                 this._scene.floor.contents.forEach(function(element) {
                     element.enableInputs(new StoryBuilderInputHandler(), false);
                 }, this);
@@ -103,15 +115,20 @@ export default class ConstructNewStoryPageState extends Phaser.State {
                 this._scene.wall.contents.forEach(function(element) {
                     element.enableInputs(new StoryBuilderInputHandler(), false);
                 }, this);
-
-                this._displayControlGroup.add(this._scene);
-                this._displayControlGroup.sendToBack(this._scene);
-
             }
+
+
+            this._displayControlGroup.add(this._scene);
+            this._displayControlGroup.sendToBack(this._scene);
+
         }
 
+        this.saveToLocalStore();
     }
 
+    saveToLocalStore() {
+        localStorage.setItem(this._currentStory.storyId, JSON.stringify(this._currentStory, JsonUtil.replacer));
+    }
     createActionButtons() {
 
         this._homeButton = this.game.make.sprite(this.game.width - 40, 40, 'storybuilder/home_button');
@@ -142,20 +159,20 @@ export default class ConstructNewStoryPageState extends Phaser.State {
 
     chooseBackGround(sprite, pointer) {
         if (this._choosePuppetTab) {
-            this._choosePuppetTab.alpha = 0;
+            this._choosePuppetTab.visible = false;
         }
 
         this.createChooseBackGroundTab();
-        this._chooseBackGroundTab.alpha = 1;
+        this._chooseBackGroundTab.visible = true;
     }
 
     choosePuppet(sprite, pointer) {
         if (this._chooseBackGroundTab) {
-            this._chooseBackGroundTab.alpha = 0;
+            this._chooseBackGroundTab.visible = false;
         }
 
         this.createChoosePuppetTab();
-        this._choosePuppetTab.alpha = 1;
+        this._choosePuppetTab.visible = true;
     }
 
 
@@ -173,7 +190,7 @@ export default class ConstructNewStoryPageState extends Phaser.State {
             this._chooseBackGroundTab = this._displayControlGroup.add(new TabView(this.game, 'scene/scene', this.game.width * 0.9, this.game.height, 10, 50, 5, 3, true, function(tab, button) {
                 this._chooseBackGroundTab.unSelect();
                 this.dynamicallyLoadAssets(button, ConstructNewStoryPageState.SCENE_TYPE, this._sceneConfig);
-                this._chooseBackGroundTab.alpha = 0;
+                this._chooseBackGroundTab.visible = false;
             }, this, backGroundThemes));
 
             this._chooseBackGroundTab.tabs = { 'forest': forestNames, 'village': villageNames };
@@ -201,7 +218,7 @@ export default class ConstructNewStoryPageState extends Phaser.State {
                 //place item on game
                 //load puppet for selected button
                 this.dynamicallyLoadAssets(button, ConstructNewStoryPageState.PUPPET_TYPE, this._puppetConfig);
-                this._choosePuppetTab.alpha = 0;
+                this._choosePuppetTab.visible = false;
             }, this, puppetThemes));
 
             this._choosePuppetTab.tabs = { 'human1': humanNames, 'human2': humanNames };
@@ -211,7 +228,7 @@ export default class ConstructNewStoryPageState extends Phaser.State {
             this._choosePuppetTab.visible = false;
         } else {
             this._choosePuppetTab.visible = true;
-            this._chooseBackGroundTab.selectTab(Object.keys(this._choosePuppetTab.tabs)[0]);
+            this._choosePuppetTab.selectTab(Object.keys(this._choosePuppetTab.tabs)[0]);
         }
     }
 
@@ -226,7 +243,7 @@ export default class ConstructNewStoryPageState extends Phaser.State {
 
     dynamicallyLoadAssets(assetName, type, config) {
         this._configToLoad = config[type][assetName];
-        this.game.state.start('StoryOnDemandLoadState', true, false, this._configToLoad, this.game.state.getCurrentState().key, type, this._displayControlGroup);
+        this.game.state.start('StoryOnDemandLoadState', true, false, this._currentStoryId, this._currentPageId, this._configToLoad, this.game.state.getCurrentState().key, type, this._displayControlGroup);
     }
 
     showAttributeEditor(item, pointer) {
@@ -234,13 +251,10 @@ export default class ConstructNewStoryPageState extends Phaser.State {
     }
 
     shutdown() {
-        this.world.remove(this._page);
         this.world.remove(this._displayControlGroup);
     }
 
-
 }
-
 
 ConstructNewStoryPageState.SCENE_TYPE = 'scenes';
 ConstructNewStoryPageState.PUPPET_TYPE = 'puppets';

@@ -8,6 +8,11 @@ export default class PreloadState extends Phaser.State {
         this.load.setPreloadSprite(this._asset);
         this.load.atlas('scene/scene', "assets/scene/scene.png", "assets/scene/scene.json");
         this.load.image('testsprite', 'assets/test.png');
+        
+        //default book and page image
+        this.load.image('story_cover', 'assets/storyBuilder/story_cover.png');
+        this.load.image('page_cover', 'assets/storyBuilder/page_cover.png')
+        
         this.load.atlas('puppet/0', "assets/puppet/0.svg", "assets/puppet/0.json");
         this.load.atlas('puppet/1', "assets/puppet/1.svg", "assets/puppet/1.json");
         this.load.image('storyBuilder/record', "assets/storyBuilder/record_button.png");
@@ -23,6 +28,8 @@ export default class PreloadState extends Phaser.State {
         this.load.json('scene/menu_icons', 'assets/scene/menu_icons.json');
         this.load.json('storyBuilder/library', 'assets/storyBuilder/library.json');
         this.load.image('puppet/delete_button', 'assets/puppet/hair_chooser.png');
+        
+        
 
         //load file story sceen
 
