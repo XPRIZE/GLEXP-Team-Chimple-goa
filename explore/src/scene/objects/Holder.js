@@ -8,6 +8,8 @@ export default class Holder extends Item {
         super(game, x, y);
          this.x = x;
          this.y = y;
+         this.inputEbaled = true;
+         this.doorOpen = false;
     }   
 
     enableInputs(instance, iterateInside) {
@@ -52,6 +54,117 @@ export default class Holder extends Item {
         this.body.setSize(rect.width, rect.height, rect.halfWidth, rect.height);
     }
     
+        ///
+
+        set doorOpen(val) {
+         if(this._doorOpen == false){
+                 if(this._rightCloseDoorTexture && this._leftCloseDoorTexture) {
+            this._rightCloseDoorTexture.visible = false;
+           
+            this._leftCloseDoorTexture.visible = false;
+            
+            
+            this._rightOpenDoorTexture.visible = true;
+            
+            
+            this._leftOpenDoorTexture.visible = true;
+
+                 }
+            
+        } else{
+                 if(this._rightCloseDoorTexture && this._leftCloseDoorTexture) {
+                
+            this._rightCloseDoorTexture.visible = true;
+           
+            
+            this._leftCloseDoorTexture.visible = true;
+           
+            
+            this._rightOpenDoorTexture.visible = false;
+           
+            
+            this._leftOpenDoorTexture.visible = false;
+                }        
+        }   
+                    this._doorOpen = val;
+
+        }        
+
+        get doorOpen() {
+            return this._doorOpen;
+        }
+
+        toggleDoorOpen() {
+            this.doorOpen = !this.doorOpen;
+        }
+
+
+
+
+
+    //DEFINITIONS OF FRIDGE STARTS HERE    
+    
+    set leftOpenDoorTexture(val){
+        
+         if(this._leftOpenDoorTexture) {
+            this.removeChild(this._leftOpenDoorTexture).destroy();
+        }
+        this.addChildAt(val, this.children.length);
+        this._leftOpenDoorTexture = val;
+    }
+    
+    get leftOpenDoorTexture() {
+        return this._leftOpenDoorTexture;
+    }
+    
+    
+    set rightOpenDoorTexture(val){
+        
+         if(this._rightOpenDoorTexture) {
+            this.removeChild(this._rightOpenDoorTexture).destroy();
+        }
+        this.addChildAt(val, this.children.length);
+        this._rightOpenDoorTexture = val;
+    }
+    
+    
+    get rightOpenDoorTexture() {
+        return this._rightOpenDoorTexture;
+    }
+    
+    set leftCloseDoorTexture(val){
+        
+         if(this._leftCloseDoorTexture) {
+            this.removeChild(this._leftCloseDoorTexture).destroy();
+        }
+        this.addChildAt(val, this.children.length);
+        this._leftCloseDoorTexture = val;
+    }
+    
+    get leftCloseDoorTexture() {
+        return this._leftCloseDoorTexture;
+    }
+    
+    set rightCloseDoorTexture(val){
+        
+         if(this._rightCloseDoorTexture) {
+            this.removeChild(this._rightCloseDoorTexture).destroy();
+        }
+        this.addChildAt(val, this.children.length);
+        this._rightCloseDoorTexture = val;
+    }
+    
+    
+    get rightCloseDoorTexture() {
+        return this._rightCloseDoorTexture;
+    }
+    
+    //DEFINITIONS OF FRIDGE ENDS HERE
+    
+
+        ///
+
+
     set frontTexture(val) {
         if(this._frontTexture) {
             this.removeChild(this._frontTexture).destroy();
