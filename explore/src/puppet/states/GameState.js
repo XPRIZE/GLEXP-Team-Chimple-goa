@@ -24,13 +24,27 @@ export default class GameState extends Phaser.State {
     let dressChoices = this.cache.getJSON('puppet/accessorize');
     let menuAccessorize = this.cache.getJSON('puppet/menu_accessorize');
     let chooser = this.game.add.existing(new TabView(this.game, 'puppet/chooser', this.game.width / 2, this.game.height, 10, 100, 5, 3, true, function (accType, accName) {
-      let acc = dressChoices[accType][accName];
-      for (var key in acc) {
-        if (acc.hasOwnProperty(key)) {
-          let element = acc[key];
-           puppet['set' + key](element.key, element.frame, element.anchorX, element.anchorY, element.offsetX, element.offsetY,element.offsetInPixelX,element.offsetInPixelY);
+        if(accType == "skinColor_chooser") {
+            puppet.bodyColor = parseInt(accName, 16);
+        } else if(accType == "hairColor_chooser") {
+            if(puppet.head.getAccessory('frontHair')) {
+                puppet.head.getAccessory('frontHair').tint = parseInt(accName, 16);
+            }
+            if(puppet.head.getAccessory('backHair')) {
+                puppet.head.getAccessory('backHair').tint = parseInt(accName, 16);
+            }
+            if(puppet.head.getAccessory('beard')) {
+                puppet.head.getAccessory('beard').tint = parseInt(accName, 16);
+            }
+        } else {
+            let acc = dressChoices[accType][accName];
+            for (var key in acc) {
+                if (acc.hasOwnProperty(key)) {
+                let element = acc[key];
+                puppet['set' + key](element.key, element.frame, element.anchorX, element.anchorY, element.offsetX, element.offsetY,element.offsetInPixelX,element.offsetInPixelY);
+                }
+            }            
         }
-      }
     }, this, menuAccessorize));
 
     let dressTabs = {};
