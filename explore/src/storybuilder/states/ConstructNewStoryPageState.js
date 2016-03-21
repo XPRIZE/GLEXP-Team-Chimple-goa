@@ -43,6 +43,8 @@ export default class ConstructNewStoryPageState extends Phaser.State {
         this.load.image('storybuilder/choose_prop_button', 'assets/storyBuilder/prop_button.png');
         this.load.image('storybuilder/choose_character_button', 'assets/storyBuilder/prop_button.png');
         this.load.image('storybuilder/choose_background_button', 'assets/storyBuilder/prop_button.png');
+        this.load.image('storybuilder/setting_button', 'assets/storyBuilder/setting_button.png');
+        this.load.image('storybuilder/plus', 'assets/storyBuilder/plus_button.png');
 
 
     }
@@ -61,7 +63,7 @@ export default class ConstructNewStoryPageState extends Phaser.State {
             this._displayControlGroup.inputEnabled = true;
             this.setUpUI();
         }
-        
+
         //load configuration
         this._sceneConfig = this.game.cache.getJSON('storyBuilder/scene_config');
         this._puppetConfig = this.game.cache.getJSON('storyBuilder/puppet_config');
@@ -70,11 +72,11 @@ export default class ConstructNewStoryPageState extends Phaser.State {
 
     }
     setUpUI() {
-        
+
         this.createActionButtons();
         this.initializeRecordingManager();
     }
-    
+
     constructStory() {
         let cachedJSON = this.cache.getJSON(this._lastLoadedKeyForPupperOrSceneJSON);
         if (cachedJSON) {

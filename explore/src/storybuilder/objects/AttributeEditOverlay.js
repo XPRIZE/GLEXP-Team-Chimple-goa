@@ -1,6 +1,7 @@
 import RecordingPauseSignal from './RecordingPauseSignal.js';
 import RecordingResumeSignal from './RecordingResumeSignal.js';
 import Shape from '../../puppet/objects/Shape.js';
+import TabView from '../../puppet/objects/TabView.js';
 
 export default class AttributeEditOverlay extends Phaser.Group {
     //container to edit item properties
@@ -9,17 +10,17 @@ export default class AttributeEditOverlay extends Phaser.Group {
         this._width = width;
         this._height = height;
         this._recordingPauseSignal = new RecordingPauseSignal();
-        this._recordingResumeSignal = new  RecordingResumeSignal();
-        
-        if(clickedObject instanceof Shape) {
-            this._clickedObject = clickedObject.parent.parent;    
-        } else {
-            this._clickedObject = clickedObject;    
-        }
-        
+        this._recordingResumeSignal = new RecordingResumeSignal();
 
-        this._overlayBitMap = game.make.bitmapData(game.width, game.height);
-        this._overlayBitMap.draw(game.cache.getImage('storyBuilder/backgroundOverlay'), 0, 0, this._width, this._height);
+        if (clickedObject instanceof Shape) {
+            this._clickedObject = clickedObject.parent.parent;
+        } else {
+            this._clickedObject = clickedObject;
+        }
+
+
+        this._overlayBitMap = game.make.bitmapData(game.width + game.world.camera.x, game.height + game.world.camera.y);
+        this._overlayBitMap.draw(game.cache.getImage('storyBuilder/backgroundOverlay'), 0, 0, this._width + game.world.camera.x, this._height + game.world.camera.y);
 
         this._clickedObject.inputEnabled = false;
         this._overlayDisplaySprite = game.add.sprite(0, 0, this._overlayBitMap);
@@ -31,6 +32,47 @@ export default class AttributeEditOverlay extends Phaser.Group {
         this._overlayDisplaySprite.events.onInputUp.add(this.onInputUp, this);
 
         this.drawScaleHandler(0.8, 0xFFFFFF, 1.5, 75);
+
+        this._settings = this._overlayDisplaySprite.addChild(game.make.sprite(300, 60, 'storyBuilder/setting'));
+        this._settings.fixedToCameara = true;
+        this._settings.inputEnabled = true;
+        this._settings.events.onInputUp.add(this.createAdditionalPropertiesOverlay, this);
+        this._settings.input.priorityID = 2;
+
+    }
+
+    createAdditionalPropertiesOverlay() {
+        console.log('input up');
+        //create new TabUI for text and Sound editing
+        var that = this;
+
+        game.time.events.add(Phaser.Timer.SECOND * 0.5, function() {
+            that._fixedHandlerSprite.destroy();
+            that._dragHandlerSprite.destroy();
+            that._dynamicCircle.destroy();
+            that._overlayDisplaySprite.destroy();
+
+
+            let backGroundThemes = that.game.cache.getJSON('storyBuilder/background_themes');
+            //later get from texture packer
+            let forestNames = ["forest_1_th", "forest_2_th", "forest_3_th", "forest_4_th", "forest_5_th", "forest_6_th", "forest_7_th"];
+            let villageNames = ["village_1_th", "village_2_th", "village_3_th", "village_4_th", "village_5_th", "village_6_th", "village_7_th"];
+
+            that._chooseBackGroundTab = that.game.add.existing(new TabView(that.game, 'scene/scene', that.game.width + that.game.world.camera.x, that.game.height + that.game.world.camera.y, 10, 50, 5, 3, true, function(tab, button) {
+                that._chooseBackGroundTab.unSelect();
+                //that._chooseBackGroundTab.destroy();
+                //that._clickedObject.inputEnabled = true;
+                //that._recordingResumeSignal.dispatch();
+
+            }, that, backGroundThemes));
+
+            that._chooseBackGroundTab.tabs = { 'forest': forestNames, 'village': villageNames };
+            that._chooseBackGroundTab.x = that.game.width * 0.05;
+            that._chooseBackGroundTab.y = 0;
+            that._chooseBackGroundTab.fixedToCamera = true;
+            that._chooseBackGroundTab.visible = true;
+            that._chooseBackGroundTab.bringToTop = true;
+        });
 
     }
 
@@ -59,7 +101,9 @@ export default class AttributeEditOverlay extends Phaser.Group {
         this.drawHorizontalLineAroundCircleOnGraphics(graphics, radius, 360, 5);
 
 
-        let pos = this._clickedObject.parent.toGlobal(new Phaser.Point(this._clickedObject.x, this._clickedObject.y - this._clickedObject.height / 2));
+        //let pos = this._clickedObject.parent.toGlobal(new Phaser.Point(this._clickedObject.x, this._clickedObject.y - this._clickedObject.height / 2));
+        //let clickedPointer = new Phaser.Point(pos.x + game.camera.x, pos.y + game.camera.y);
+        let pos = this._clickedObject.toGlobal(new Phaser.Point(0, - this._clickedObject.height / 2));
         let clickedPointer = new Phaser.Point(pos.x + game.camera.x, pos.y + game.camera.y);
         this._fixedHandlerSprite = game.add.sprite(clickedPointer.x, clickedPointer.y, graphics.generateTexture());
         this.add(this._fixedHandlerSprite);

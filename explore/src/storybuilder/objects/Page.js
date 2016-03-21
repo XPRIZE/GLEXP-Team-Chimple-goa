@@ -12,19 +12,27 @@ export default class Page extends Phaser.Group {
     //recording functionality
     //replaying functionality
     //save to loki-    
-
-    constructor(game, x, y, pageId, scene, storyId) {
+    constructor(game, x, y, pageId, scene, storyId, imageData) {
         super(game);
         this.x = x;
         this.y = y;
         this._pageId = pageId;
         this._storyId = storyId;
+        this._imageData = imageData;
         this._scene = scene;
         this._hasRecording = false;
         this._canBePlayed = false;
         this._isTitlePage = false;
     }
-
+    
+    set imageData (imageData) {
+        this._imageData = imageData;
+    }
+    
+    get imageData() {
+        return this._imageData;
+    }
+    
     set isTitlePage(titlePage) {
         this._isTitlePage = titlePage;
     }
@@ -87,16 +95,17 @@ export default class Page extends Phaser.Group {
             storyId: this._storyId,
             hasRecording: this._hasRecording,
             canBePlayed: this._canBePlayed,
-            isTitlePage: this._isTitlePage
+            isTitlePage: this._isTitlePage,
+            imageData: this._imageData
         }
         return json;
     }
 
     static fromJSON(game, j) {
-        let val = new Page(game, j.x, j.y, j.pageId, j.scene, j.storyId);
-        val.hasRecording = h.hasRecording;
-        val.canBePlayed = h.canBePlayed;
-        val.isTitlePage = h.isTitlePage;
+        let val = new Page(game, j.x, j.y, j.pageId, j.scene, j.storyId, j.imageData);
+        val.hasRecording = j.hasRecording;
+        val.canBePlayed = j.canBePlayed;
+        val.isTitlePage = j.isTitlePage;
         return val;
     }
 }

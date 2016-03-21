@@ -1,5 +1,6 @@
 import Library from './Library.js';
 import Story from './Story.js';
+import LibraryStory from './LibraryStory.js';
 import Page from './Page.js';
 import StoryPage from './StoryPage.js';
 
@@ -16,6 +17,9 @@ export default class StoryUtil {
             return a;
         } else if (v instanceof Object && v._class == 'StoryPage') {
             let a =  StoryPage.fromJSON(window.game, v);
+            return a;
+        } else if (v instanceof Object && v._class == 'LibraryStory') {
+            let a =  LibraryStory.fromJSON(window.game, v);
             return a;
         }
         return v;
