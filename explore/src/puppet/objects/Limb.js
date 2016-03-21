@@ -131,7 +131,7 @@ export default class Limb extends EnableInputs(RelativePosition(Phaser.Group)) {
         if (this.instance) {
             this.enableInputs(this.instance, false);
         }
-
+        this.pivot.setTo(shape.relativeAnchor.x * shape.width, shape.relativeAnchor.y * shape.height);
 
         this.positionRelativeToParent();
 
@@ -245,12 +245,11 @@ export default class Limb extends EnableInputs(RelativePosition(Phaser.Group)) {
     }
 
     positionRelativeToParent() {
+        this.x = this.pivot.x;
+        this.y = this.pivot.y
         if (this.shape) {
-            this.x = -this.relativeAnchor.x * this.shape.width;
-            this.y = -this.relativeAnchor.y * this.shape.height;
-        } else {
-            this.x = 0;
-            this.y = 0;
+            this.x -= this.relativeAnchor.x * this.shape.width;
+            this.y -= this.relativeAnchor.y * this.shape.height;
         }
         if (this.parent && this.parent.shape) {
             let offset = this.relativeOffset.clone();
