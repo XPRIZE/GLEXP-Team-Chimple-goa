@@ -9,6 +9,16 @@
         "offsetX": 0,
         "offsetY": 1
       }
+    },
+     "mic": {
+      "ArmAccessory": {
+        "key": "puppet/characters",
+        "frame": "singer_mic.png",
+        "anchorX": 0.5,
+        "anchorY": 0.6,
+        "offsetX": 0.5,
+        "offsetY": 1
+      }
     }
   },
   "beard_chooser": {
@@ -23,7 +33,43 @@
                  "key": "puppet/characters",
         "frame": "singer_beard.png"
            }
-             }
+             },
+               "mouth 1": {
+      "Mouth": {
+        "key": "puppet/characters",
+        "frame": "Mouth 1.png"
+      }
+    },
+    "mouth 2": {
+      "Mouth": {
+        "key": "puppet/characters",
+        "frame": "Mouth 2.png"
+      }
+    },  
+    "mouth 3": {
+      "Mouth": {
+        "key": "puppet/characters",
+        "frame": "Mouth 3.png"
+      }
+    },
+    "head_rect": {
+      "HeadShape": {
+        "key": "puppet/characters",
+        "frame": "shape_rect.png"
+      }
+    },
+     "head_cir": {
+      "HeadShape": {
+        "key": "puppet/characters",
+        "frame": "shape_cir.png"
+      }
+    },
+     "head_tri": {
+      "HeadShape": {
+        "key": "puppet/characters",
+        "frame": "shape_tri.png"
+      }
+    }
   },
   "body_chooser": {
     "scientist_tie": {

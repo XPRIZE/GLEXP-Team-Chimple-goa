@@ -1,6 +1,7 @@
 import Limb from './Limb.js';
 import Accessory from './Accessory.js';
 import Shape from './Shape.js';
+import Sprite from './Sprite.js';
 import RelativePosition from './RelativePosition.js';
 
 export default class Puppet extends Limb {
