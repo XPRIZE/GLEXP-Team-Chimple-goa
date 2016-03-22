@@ -1,6 +1,7 @@
 import Puppet from './Puppet.js';
 import Limb from './Limb.js';
 import Shape from './Shape.js';
+import Sprite from './Sprite.js';
 import Accessory from './Accessory.js';
 
 export default class Human extends Puppet {
@@ -157,11 +158,11 @@ export default class Human extends Puppet {
         this.leftHand.addAccessory(new Accessory(this.game, new Phaser.Point(1, 1), true, true, false, new Phaser.Point(anchorX, anchorY), new Phaser.Point(offsetX, offsetY), new Phaser.Point(offsetInPixelX, offsetInPixelY), false, key, frame, 'armAccessory'), true);        
     }
     
-     setHeadStructure(key, frame, x, y,radius) {
+     setHeadShape(key, frame,anchorX=0.5, anchorY=1, offsetX=0.5, offsetY=0, offsetInPixelX=0, offsetInPixelY=0) {
         
         // this.children[0].children[2].children.splice(0,1);
-         this.head.children.splice(0,1);
-         this.head.shape = new Shape(game, new Phaser.Point(1, 1), new Phaser.Point(0.5, 1), new Phaser.Point(0.5, 0), new Phaser.Point(0, -10),new Phaser.Circle(x, y, radius), "headShape" );
+          this.head.children.splice(0,1);
+         this.head.shape = new Sprite(game, 0, 0, key,frame, new Phaser.Point(1, 1), new Phaser.Point(0.5, 1), new Phaser.Point(0.5, 0), new Phaser.Point(0, -10), "headShape" );
         // this.body.children.splice(0,1);
         // this.body.shape = new Shape(game, new Phaser.Point(1, 1), new Phaser.Point(0.5, 1), new Phaser.Point(0.5, 0), new Phaser.Point(0, -10),new Phaser.Circle(100, 100, 200) );
         
@@ -175,7 +176,12 @@ export default class Human extends Puppet {
      setBeard(key, frame, anchorX=0.5, anchorY=0, offsetX=0.5, offsetY=0.8, offsetInPixelX=0, offsetInPixelY=0)
     {
          this.head.addAccessory(new Accessory(this.game, new Phaser.Point(1, 1), true, true, false, new Phaser.Point(anchorX, anchorY), new Phaser.Point(offsetX, offsetY), new Phaser.Point(offsetInPixelX, offsetInPixelY), false, key, frame, 'beard'), true);
-    }
+         
+   }
+ setMouth(key,frame,anchorX=0.5, anchorY=0, offsetX=0.5, offsetY=0.7, offsetInPixelX=0, offsetInPixelY=0){
+    this.head.addAccessory(new Accessory(this.game, new Phaser.Point(1, 1), true, true, true, new Phaser.Point(anchorX, anchorY), new Phaser.Point(offsetX, offsetY), new Phaser.Point(offsetInPixelX, offsetInPixelY), false, key, frame, 'mouth'), true);
+  }
+
     
     setFrontHair(key,frame, anchorX=0.5, anchorY=0, offsetX=0.5, offsetY=0, offsetInPixelX=0, offsetInPixelY=0){
         this.head.addAccessory(new Accessory(this.game, new Phaser.Point(1, 1), true, true, false, new Phaser.Point(anchorX, anchorY), new Phaser.Point(offsetX, offsetY), new Phaser.Point(offsetInPixelX, offsetInPixelY), false, key, frame, 'frontHair'), true);

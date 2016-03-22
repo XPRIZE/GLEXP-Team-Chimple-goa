@@ -1,31 +1,14 @@
-import Library from './Library.js';
-import Story from './Story.js';
-import LibraryStory from './LibraryStory.js';
-import Page from './Page.js';
-import StoryPage from './StoryPage.js';
-
 export default class StoryUtil {
-    static revive(k, v) {
-        if (v instanceof Object && v._class == 'Library') {
-            let a = Library.fromJSON(window.game, v);
-            return a;
-        } else if (v instanceof Object && v._class == 'Story') {
-            let a = Story.fromJSON(window.game, v);
-            return a;
-        } else if (v instanceof Object && v._class == 'Page') {
-            let a =  Page.fromJSON(window.game, v);
-            return a;
-        } else if (v instanceof Object && v._class == 'StoryPage') {
-            let a =  StoryPage.fromJSON(window.game, v);
-            return a;
-        } else if (v instanceof Object && v._class == 'LibraryStory') {
-            let a =  LibraryStory.fromJSON(window.game, v);
-            return a;
+    static generateUUID() {
+        var d = new Date().getTime();
+        if (window.performance && typeof window.performance.now === "function") {
+            d += performance.now();; //use high-precision timer if available
         }
-        return v;
-    }
-
-    static replacer(k, v) {
-        return v;
-    }
+        var uuid = 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
+            var r = (d + Math.random() * 16) % 16 | 0;
+            d = Math.floor(d / 16);
+            return (c == 'x' ? r : (r & 0x3 | 0x8)).toString(16);
+        });
+        return uuid;
+    };
 }

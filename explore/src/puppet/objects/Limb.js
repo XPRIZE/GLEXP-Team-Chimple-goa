@@ -1,4 +1,5 @@
 import Shape from './Shape.js';
+import Sprite from './Sprite.js';
 import Accessory from './Accessory.js';
 import RelativePosition from './RelativePosition.js';
 import EnableInputs from '../../scene/objects/EnableInputs.js';
@@ -30,7 +31,7 @@ export default class Limb extends EnableInputs(RelativePosition(Phaser.Group)) {
 
     enableInputs(instance, iterateInside) {
         //super.enableInputs(instance, iterateInside);
-        this.instance = instance;        
+        this.instance = instance;
         if (this.shape && instance) {
             this.shape.inputEnabled = true;
             this.shape._showAttributeEditorSignal = new ShowAttributeEditorSignal();
@@ -193,13 +194,16 @@ export default class Limb extends EnableInputs(RelativePosition(Phaser.Group)) {
 
     addChildInOrder(child) {
         let j = 0;
-        for (let i = 0; i < this.childOrder.length && this.children && j < this.children.length; i++) {
-            if(child.name == this.childOrder[i]) {
-                break;
+        if (this.childOrder) {
+            for (let i = 0; i < this.childOrder.length && this.children && j < this.children.length; i++) {
+                if (child.name == this.childOrder[i]) {
+                    break;
+                }
+                if (this.children[j].name == this.childOrder[i]) {
+                    j++;
+                }
             }
-            if(this.children[j].name == this.childOrder[i]) {
-                j++;
-            }
+
         }
         this.addChildAt(child, j);
     }
