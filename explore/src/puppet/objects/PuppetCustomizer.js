@@ -2,7 +2,7 @@ import Puppet from '../objects/Puppet.js';
 import Human from '../objects/Human.js';
 import Limb from '../objects/Limb.js';
 import Shape from '../objects/Shape.js';
-import PuppetUtil from '../objects/PuppetUtil.js';
+import JsonUtil from '../objects/JsonUtil.js';
 import TabView from '../objects/TabView.js';
 import ButtonGrid from '../objects/ButtonGrid.js';
 import PuppetInputHandler from '../objects/PuppetInputHandler.js';
@@ -34,6 +34,7 @@ export default class PuppetCustomizer extends Phaser.Group {
                 this.puppet.animateWalk();
                 this.puppet.bodyColor = parseInt(accName, 16);
             } else if (accType == "hairColor_chooser") {
+                console.log(JSON.stringify(this.puppet, JsonUtil.replacer));
                 if (this.puppet.head.getAccessory('frontHair')) {
                     this.puppet.head.getAccessory('frontHair').tint = parseInt(accName, 16);
                 }
@@ -44,6 +45,7 @@ export default class PuppetCustomizer extends Phaser.Group {
                     this.puppet.head.getAccessory('beard').tint = parseInt(accName, 16);
                 }
             } else if (accType == 'beard_chooser') {
+                JSON.parse(JSON.stringify(this.puppet, JsonUtil.replacer), JsonUtil.revive);
                 this.puppet.animateWalk();
             } else {
                 let acc = dressChoices[accType][accName];
