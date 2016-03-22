@@ -32,18 +32,21 @@ export default class GameState extends Phaser.State {
         scene.floor.addTexture(new TileTexture(game, 0, 0, this.game.width, this.game.height * 0.4, 'scene/scene', 'Tile.png'));
 
         let item = new Item(game, 0, 0, 'scene/scene', 'Object_1.png');
+        item.enableInputs(new StoryBuilderInputHandler(), false);
         item.uniquename = _.uniqueId("object_1");
         scene.floor.add(item);
         
         var sink = new Holder(game, 100, 10);
         sink.uniquename = _.uniqueId("sink");
+        sink.enableInputs(new StoryBuilderInputHandler(), false);
         sink.backTexture = new Texture(game, 0, 0, 'scene/scene', 'Sink_Main.png');
         
-        let sinkTop = new Surface(game, 0, 0);
+        let sinkTop = new Surface(game, 0, 0);        
         sinkTop.uniquename = _.uniqueId("sinkTop");
         sinkTop.addTexture(new Texture(game, 0, 0, 'scene/scene', 'Sink_upper.png'));
         
         let item2  = new Item(game, 0, 0, 'scene/scene', 'Object_3.png')
+        item2.enableInputs(new StoryBuilderInputHandler(), false);
         item2.uniquename = _.uniqueId("object_4");
         sinkTop.addContent(item2);
         sink.addSurface(sinkTop);

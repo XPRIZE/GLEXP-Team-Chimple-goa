@@ -5,7 +5,7 @@ export default class StoryBuilderInputHandler {
     }
 
     onInputDown(sprite, pointer) {
-
+        sprite.modifiedBit = 1;
     }
 
     onInputUp(sprite, pointer) {

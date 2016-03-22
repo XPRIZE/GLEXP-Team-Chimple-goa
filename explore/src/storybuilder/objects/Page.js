@@ -1,7 +1,7 @@
 import Scene from '../../scene/objects/Scene.js';
 
 
-export default class Page extends Phaser.Group {
+export default class Page {
     //has texture - screen shot of scene
     //content 
     //scene   
@@ -12,8 +12,7 @@ export default class Page extends Phaser.Group {
     //recording functionality
     //replaying functionality
     //save to loki-    
-    constructor(game, x, y, pageId, scene, storyId, imageData) {
-        super(game);
+    constructor(game, x, y, pageId, scene, storyId, imageData) {        
         this.x = x;
         this.y = y;
         this._pageId = pageId;

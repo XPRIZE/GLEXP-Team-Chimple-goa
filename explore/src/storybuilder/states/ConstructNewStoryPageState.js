@@ -22,23 +22,30 @@ import ButtonGrid from '../../puppet/objects/ButtonGrid.js';
 
 
 var _ = require('lodash');
-
+//rename to BuildYourOwnStoryEditorState
 export default class ConstructNewStoryPageState extends Phaser.State {
-    init(currentStoryId, currentPageId, cachedDisplayGroup, cachedJSONRepresentation, sceneOrPuppetType) {
+    init(currentStoryId, currentPageId, cachedJSONRepresentation, sceneOrPuppetType) {
         this._currentStoryId = currentStoryId;
         this._currentPageId = currentPageId;
-        let storyJSON = localStorage.getItem(this._currentStoryId);
-        this._currentStory = JSON.parse(storyJSON, JsonUtil.revive);
-        this._cachedDisplayGroup = cachedDisplayGroup;
         this._cachedJSONStrRep = cachedJSONRepresentation;
         this._sceneOrPuppetType = sceneOrPuppetType;
+    }
 
+    loadStoryFromLocalStorage(currentStoryId) {
+        //cache current story Id
+        let storyJSON = localStorage.getItem(currentStoryId);
+        let currentStory = JSON.parse(storyJSON);
+        return currentStory;
+    }
+
+    loadStoryPageToEdit() {
+        let storyPage = null;
         this._currentStory.storyPages.forEach(function(page) {
             if (page.pageId === this._currentPageId) {
-                this._curPage = page;
+                storyPage = page;
             }
         }, this);
-
+        return storyPage;
     }
 
     preload() {
@@ -55,79 +62,111 @@ export default class ConstructNewStoryPageState extends Phaser.State {
         this.load.image('storybuilder/setting_button', 'assets/storyBuilder/setting_button.png');
         this.load.image('storybuilder/plus', 'assets/storyBuilder/plus_button.png');
 
+        this.loadScenesConfiguration();
+        this.loadPuppetsConfiguration();
 
+        this._currentStory = this.loadStoryFromLocalStorage(this._currentStoryId);
+        this._currentPage = this.loadStoryPageToEdit();
+    }
+
+    loadScenesConfiguration() {
+        this._sceneConfig = this.game.cache.getJSON('storyBuilder/scene_config');
+    }
+
+    loadPuppetsConfiguration() {
+        this._puppetConfig = this.game.cache.getJSON('storyBuilder/puppet_config');
     }
 
     create() {
 
-        if (this._cachedDisplayGroup != null) {
-            this._displayControlGroup = this._cachedDisplayGroup;
-            this.game.add.existing(this._displayControlGroup);
-        } else {
-            this._displayControlGroup = this.game.add.group();
-            this._displayControlGroup.inputEnabled = true;
-            this.setUpUI();
-        }
+        this._displayControlGroup = this.game.add.group();
+        this._displayControlGroup.inputEnabled = true;
 
-        //load configuration
-        this._sceneConfig = this.game.cache.getJSON('storyBuilder/scene_config');
-        this._puppetConfig = this.game.cache.getJSON('storyBuilder/puppet_config');
+        this.loadExistingSceneToEdit();
 
         this.constructStory();
 
-    }
-    setUpUI() {
+        this.setUpUI();
 
-        this.createActionButtons();
         this.initializeRecordingManager();
-    }
-
-    constructStory() {
-        if (this._curPage) {
-            //load scene on GROUP
-            this._scene = this._curPage.scene;
-
-            if (this._cachedJSONStrRep && this._sceneOrPuppetType) {
-                if (this._sceneOrPuppetType == ConstructNewStoryPageState.SCENE_TYPE) {
-                    let scene = null;
-                    scene = JSON.parse(this._cachedJSONStrRep, JsonUtil.revive);
-                    if (scene) {
-                        //copy each modified bit from OLD scene to new scene                        
-                        this._curPage.scene = scene;                        
-                    }
-                    //this._displayControlGroup.remove(this._scene);
-                    this._scene = scene;
-                } else if (this._sceneOrPuppetType == ConstructNewStoryPageState.PUPPET_TYPE) {
-                    this._puppet = JSON.parse(this._cachedJSONStrRep, JsonUtil.revive);
-                    this._puppet.body.disableInputs();
-                    this._puppet.body.enableInputs(new StoryBuilderInputHandler(), false);
-                    if (this._curPage.scene) {                        
-                        this._curPage.scene.floor.addContent(this._puppet)
-                    }
-                }
-            }
-
-            if (this._scene) {
-                this._scene.floor.contents.forEach(function(element) {
-                    element.enableInputs(new StoryBuilderInputHandler(), false);
-                }, this);
-
-                this._scene.wall.contents.forEach(function(element) {
-                    element.enableInputs(new StoryBuilderInputHandler(), false);
-                }, this);
-            }
-
-
-            this._displayControlGroup.add(this._scene);
-            this._displayControlGroup.sendToBack(this._scene);
-
-        }
 
         this.saveToLocalStore();
     }
 
+    setUpUI() {
+        this.createActionButtons();
+    }
+
+
+    loadExistingSceneToEdit() {
+        let page = JSON.parse(JSON.stringify(this._currentPage), JsonUtil.revive);
+        this._loadedScene = page.scene;
+        this._displayControlGroup.add(this._loadedScene);
+        //remove any direct child of world 
+        this.game.world.children.forEach(function(element) {
+            console.log(element);
+            if (element instanceof Scene) {
+                this.game.world.removeChild(element);
+            }
+        }, this);
+
+        this.enableInputsOnScene();
+    }
+
+
+    updateGroupWithScene(jsonSceneRepresentation) {
+        //remove any previous scene type child
+        this._displayControlGroup.children.forEach(function(element) {
+            console.log(element);
+            if (element instanceof Scene) {
+                this._displayControlGroup.removeChild(element);
+            }
+        }, this);
+
+        this._displayControlGroup.add(JSON.parse(jsonSceneRepresentation, JsonUtil.revive));
+    }
+
+    enableInputsOnScene() {
+        this._displayControlGroup.children.forEach(function(element) {
+            console.log(element);
+            if (element instanceof Scene) {
+                element.floor.contents.forEach(function(element) {
+                    element.enableInputs(new StoryBuilderInputHandler(), false);
+                }, this);
+
+                element.wall.contents.forEach(function(element) {
+                    element.enableInputs(new StoryBuilderInputHandler(), false);
+                }, this);
+            }
+        }, this);
+
+    }
+
+    constructStory() {
+
+        if (this._cachedJSONStrRep && this._sceneOrPuppetType) {
+            if (this._sceneOrPuppetType == ConstructNewStoryPageState.SCENE_TYPE) {
+                this.updateGroupWithScene(this._cachedJSONStrRep);
+            } else if (this._sceneOrPuppetType == ConstructNewStoryPageState.PUPPET_TYPE) {
+                this._puppet = JSON.parse(this._cachedJSONStrRep, JsonUtil.revive);
+                this._puppet.x = 100;
+                this._puppet.y = 100;
+                this._puppet.body.disableInputs();
+                this._puppet.body.enableInputs(new StoryBuilderInputHandler(), false);
+                this._displayControlGroup.children.forEach(function(element) {
+                    console.log(element);
+                    if (element instanceof Scene) {
+                        element.floor.addContent(this._puppet)
+                    }
+                }, this);
+            }
+
+            this.saveToLocalStore();
+        }
+    }
+
     saveToLocalStore() {
-        localStorage.setItem(this._currentStory.storyId, JSON.stringify(this._currentStory, JsonUtil.replacer));
+        //localStorage.setItem(this._currentStory.storyId, JSON.stringify(this._currentStory, JsonUtil.replacer));
     }
     createActionButtons() {
 
@@ -135,6 +174,7 @@ export default class ConstructNewStoryPageState extends Phaser.State {
         this._homeButton.anchor.setTo(0.5);
         this._homeButton.inputEnabled = true;
         this._homeButton.events.onInputDown.add(this.navigateToLibrary, this);
+        this._homeButton.input.priorityID = 2;
         this._displayControlGroup.add(this._homeButton);
 
 
@@ -181,78 +221,72 @@ export default class ConstructNewStoryPageState extends Phaser.State {
     }
 
     createChooseBackGroundTab() {
-        if (!this._chooseBackGroundTab) {
-            let backGroundThemes = this.game.cache.getJSON('storyBuilder/background_themes');
-            //later get from texture packer
-            let forestNames = ["forest_1_th", "forest_2_th", "forest_3_th", "forest_4_th", "forest_5_th", "forest_6_th", "forest_7_th"];
-            let villageNames = ["village_1_th", "village_2_th", "village_3_th", "village_4_th", "village_5_th", "village_6_th", "village_7_th"];
+        let backGroundThemes = this.game.cache.getJSON('storyBuilder/background_themes');
+        //later get from texture packer
+        let forestNames = ["forest_1_th", "forest_2_th", "forest_3_th", "forest_4_th", "forest_5_th", "forest_6_th", "forest_7_th"];
+        let villageNames = ["village_1_th", "village_2_th", "village_3_th", "village_4_th", "village_5_th", "village_6_th", "village_7_th"];
 
-            this._chooseBackGroundTab = this._displayControlGroup.add(new TabView(this.game, 'scene/scene', this.game.width * 0.9, this.game.height, 10, 50, 5, 3, true, function(tab, button) {
-                this._chooseBackGroundTab.unSelect();
-                this.dynamicallyLoadAssets(button, ConstructNewStoryPageState.SCENE_TYPE, this._sceneConfig);
-                this._chooseBackGroundTab.visible = false;
-            }, this, backGroundThemes));
-
-            this._chooseBackGroundTab.tabs = { 'forest': forestNames, 'village': villageNames };
-            this._chooseBackGroundTab.x = this.game.width * 0.05;
-            this._chooseBackGroundTab.y = 0;
-            this._chooseBackGroundTab.fixedToCamera = true;
+        this._chooseBackGroundTab = this._displayControlGroup.add(new TabView(this.game, 'scene/scene', this.game.width * 0.9, this.game.height, 10, 50, 5, 3, true, function(tab, button) {
+            this._chooseBackGroundTab.unSelect();
+            this.dynamicallyLoadAssets(button, ConstructNewStoryPageState.SCENE_TYPE, this._sceneConfig);
             this._chooseBackGroundTab.visible = false;
+        }, this, backGroundThemes));
 
-        } else {
-            this._chooseBackGroundTab.visible = true;
-            this._chooseBackGroundTab.selectTab(Object.keys(this._chooseBackGroundTab.tabs)[0]);
-        }
+        this._chooseBackGroundTab.tabs = { 'forest': forestNames, 'village': villageNames };
+        this._chooseBackGroundTab.x = this.game.width * 0.05;
+        this._chooseBackGroundTab.y = 0;
+        this._chooseBackGroundTab.fixedToCamera = true;
+        this._chooseBackGroundTab.visible = false;
+
+        /*else {
+           this._chooseBackGroundTab.visible = true;
+           this._chooseBackGroundTab.selectTab(Object.keys(this._chooseBackGroundTab.tabs)[0]);
+       }*/
     }
 
     createChoosePuppetTab() {
-        if (!this._choosePuppetTab) {
-            let puppetThemes = this.game.cache.getJSON('storyBuilder/puppet_themes');
-            //later get from texture packer
-            let humanNames = ["american_football_th"];
 
-            this._choosePuppetTab = this._displayControlGroup.add(new TabView(this.game, 'Puppet', this.game.width * 0.9, this.game.height, 10, 50, 5, 3, true, function(tab, button) {
-                this._choosePuppetTab.unSelect();
-                console.log('button:' + button);
-                console.log('tab:' + tab);
-                //place item on game
-                //load puppet for selected button
-                this.dynamicallyLoadAssets(button, ConstructNewStoryPageState.PUPPET_TYPE, this._puppetConfig);
-                this._choosePuppetTab.visible = false;
-            }, this, puppetThemes));
+        let puppetThemes = this.game.cache.getJSON('storyBuilder/puppet_themes');
+        //later get from texture packer
+        let humanNames = ["american_football_th"];
 
-            this._choosePuppetTab.tabs = { 'human1': humanNames, 'human2': humanNames };
-            this._choosePuppetTab.x = this.game.width * 0.05;
-            this._choosePuppetTab.y = 0;
-            this._choosePuppetTab.fixedToCamera = true;
+        this._choosePuppetTab = this._displayControlGroup.add(new TabView(this.game, 'Puppet', this.game.width * 0.9, this.game.height, 10, 50, 5, 3, true, function(tab, button) {
+            this._choosePuppetTab.unSelect();
+            console.log('button:' + button);
+            console.log('tab:' + tab);
+            //place item on game
+            //load puppet for selected button
+            this.dynamicallyLoadAssets(button, ConstructNewStoryPageState.PUPPET_TYPE, this._puppetConfig);
             this._choosePuppetTab.visible = false;
-        } else {
-            this._choosePuppetTab.visible = true;
-            this._choosePuppetTab.selectTab(Object.keys(this._choosePuppetTab.tabs)[0]);
-        }
-    }
+        }, this, puppetThemes));
 
-    initializeRecordingManager() {
-        if (!this.recordingManager) {
-            this.recordingManager = new RecordingManager(game, this._displayControlGroup);
-            this._showAttributeEditorSignal = new ShowAttributeEditorSignal();
-            this._showAttributeEditorSignal.add(this.showAttributeEditor, this);
-        }
-    }
+        this._choosePuppetTab.tabs = { 'human1': humanNames, 'human2': humanNames };
+        this._choosePuppetTab.x = this.game.width * 0.05;
+        this._choosePuppetTab.y = 0;
+        this._choosePuppetTab.fixedToCamera = true;
+        this._choosePuppetTab.visible = false;    
+}
+
+initializeRecordingManager() {
+    this.recordingManager = new RecordingManager(game, this._displayControlGroup);
+    this._showAttributeEditorSignal = new ShowAttributeEditorSignal();
+    this._showAttributeEditorSignal.add(this.showAttributeEditor, this);
+}
 
 
-    dynamicallyLoadAssets(assetName, type, config) {
-        this._configToLoad = config[type][assetName];
-        this.game.state.start('StoryOnDemandLoadState', true, false, this._currentStoryId, this._currentPageId, this._configToLoad, this.game.state.getCurrentState().key, type, this._displayControlGroup);
-    }
+dynamicallyLoadAssets(assetName, type, config) {
+    this._configToLoad = config[type][assetName];
+    this.game.state.start('StoryOnDemandLoadState', true, false, this._currentStoryId, this._currentPageId, this._configToLoad, this.game.state.getCurrentState().key, type);
+}
 
-    showAttributeEditor(item, pointer) {
-        this._AttributeEditOverlay = new AttributeEditOverlay(game, game.width, game.height, item, pointer);
-    }
+showAttributeEditor(item, pointer) {
+    this._AttributeEditOverlay = new AttributeEditOverlay(game, game.width, game.height, item, pointer);
+}
 
-    shutdown() {
-        this.world.remove(this._displayControlGroup);
-    }
+shutdown() {
+    this.recordingManager = null;
+    //this.world.remove(this._displayControlGroup);
+}
 
 }
 
