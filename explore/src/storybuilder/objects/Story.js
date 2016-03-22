@@ -1,18 +1,17 @@
 import Texture from '../../scene/objects/Texture.js';
 import Page from './Page.js';
 
-export default class Story extends Phaser.Group {
+export default class Story {
     //libray contents group of stories
 
-    constructor(game, x, y, storyId, title, imageData) {
-        super(game);
+    constructor(game, x, y, storyId, title, imageData) {        
         this.x = x;
         this.y = y;
         this._title = title;
         this._storyId = storyId;
         this._imageData = imageData;        
         this._canBePlayed = false;
-        game.physics.enable(this);
+        this._pages = [];
     }
     
     set canBePlayed(canBePlayed) {
@@ -48,16 +47,16 @@ export default class Story extends Phaser.Group {
     }
 
     addStoryPage(storyPage) {
-        return this.add(storyPage);
+        return this._pages.push(storyPage);
     }
 
     get storyPages() {
         let children = new Array();
-        this.forEach(function(value) {
-            if (value instanceof Page) {
-                children.push(value);
-            }
-        });
+        this._pages.forEach(function(element) {
+            if (element instanceof Page) {
+                children.push(element);
+            }            
+        }, this);
         return children;
     }
 

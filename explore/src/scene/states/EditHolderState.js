@@ -46,16 +46,20 @@ export default class EditHolderState extends Phaser.State {
             switch (tab) {
                 case 'surface':
                     let surface = new Surface(game, 0, 0);
-                    surface.addTexture(new Texture(game, 0, 0, 'scene/scene', button)).enableInputs(new EditHolderInputHandler());
+                    let surfaceTexture = new Texture(game, 0, 0, 'scene/scene', button);
+                    surface.addTexture(surfaceTexture).enableInputs(new EditHolderInputHandler());
+                    surfaceTexture.input.priorityID = 4;
                     this.holder.addSurface(surface);
                     break;
                 case 'texture':
                         if(!this.holder.backTexture) {
                             this.holder.backTexture = new Texture(game, 0, 0, 'scene/scene', button);
                             this.holder.backTexture.enableInputs(new EditHolderInputHandler())
+                            this.holder.backTexture.input.priorityID = 3;
                         } else if(!this.holder.frontTexture) {
                             this.holder.frontTexture = new Texture(game, 0, 0, 'scene/scene', button);
-                            this.holder.frontTexture.enableInputs(new EditHolderInputHandler())
+                            this.holder.frontTexture.enableInputs(new EditHolderInputHandler());
+                            this.holder.frontTexture.input.priorityID = 5;
                         }
                     break;
                 case 'delete':

@@ -104,7 +104,6 @@ export default class LibraryState extends Phaser.State {
         localStorage.setItem("library", JSON.stringify(this._library));
     }
     shutdown() {
-        //this.game.world.remove(this._curStory);
     }
 }
 LibraryState.DEFAULT_STORY_COVER_KEY = 'story_cover';

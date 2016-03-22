@@ -18,9 +18,9 @@ export default class Accessory extends RelativePosition(Scalable(Phaser.Sprite))
             bmd.add(this);
         }
         this.initialScale = initialScale;
-        this.relativeAnchor = anchor;
-        this.relativeOffset = offset;
-        this.offsetInPixel = offsetInPixel;
+        this.relativeAnchor = anchor || new Phaser.Point();
+        this.relativeOffset = offset || new Phaser.Point();
+        this.offsetInPixel = offsetInPixel || new Phaser.Point();
         this.maintainAspectRatio = maintainAspectRatio;
         this.followWidth = followWidth;
         this.followHeight = followHeight;

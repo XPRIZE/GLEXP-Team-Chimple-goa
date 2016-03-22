@@ -2,40 +2,98 @@
   "arm_chooser": {
     "testtube": {
       "ArmAccessory": {
-        "key": "puppet/sample",
-        "frame": "testtube.png",
+        "key": "puppet/characters",
+        "frame": "scientist_testtube.png",
         "anchorX": 0.5,
         "anchorY": 0.4,
         "offsetX": 0,
         "offsetY": 1
       }
+    },
+     "mic": {
+      "ArmAccessory": {
+        "key": "puppet/characters",
+        "frame": "singer_mic.png",
+        "anchorX": 0.5,
+        "anchorY": 0.6,
+        "offsetX": 0.5,
+        "offsetY": 1
+      }
     }
   },
   "beard_chooser": {
+      "photographer_beard":{
+          "Beard":{
+              "key": "puppet/characters",
+        "frame": "photographer_beard.png"
+          }
+      },
+      "singer_beard":{
+           "Beard":{
+                 "key": "puppet/characters",
+        "frame": "singer_beard.png"
+           }
+             },
+               "mouth 1": {
+      "Mouth": {
+        "key": "puppet/characters",
+        "frame": "Mouth 1.png"
+      }
+    },
+    "mouth 2": {
+      "Mouth": {
+        "key": "puppet/characters",
+        "frame": "Mouth 2.png"
+      }
+    },  
+    "mouth 3": {
+      "Mouth": {
+        "key": "puppet/characters",
+        "frame": "Mouth 3.png"
+      }
+    },
+    "head_rect": {
+      "HeadShape": {
+        "key": "puppet/characters",
+        "frame": "shape_rect.png"
+      }
+    },
+     "head_cir": {
+      "HeadShape": {
+        "key": "puppet/characters",
+        "frame": "shape_cir.png"
+      }
+    },
+     "head_tri": {
+      "HeadShape": {
+        "key": "puppet/characters",
+        "frame": "shape_tri.png"
+      }
+    }
   },
   "body_chooser": {
     "scientist_tie": {
       "Chain": {
-        "key": "puppet/sample",
-        "frame": "tie.png"
+        "key": "puppet/characters",
+        "frame": "scientist_tie.png"
       }
     },
       "belt": {
       "Belt": {
-        "key": "puppet/sample",
-        "frame": "belt.png"
+        "key": "puppet/characters",
+        "frame": "scientist_belt.png"
      }
     },
       "stethoscope": {
       "Scarf": {
-        "key": "puppet/sample",
-        "frame": "stethoscope.png"
+        "key": "puppet/characters",
+        "frame": "scientist_stethoscope.png"
      }
     },
       "side_bag": {
       "Scarf": {
-        "key": "puppet/sample",
-        "frame": "bag.png"
+        "key": "puppet/characters",
+        "frame": "scientist_bag.png"
      }
     }
   },
@@ -44,42 +102,72 @@
   "glasses_chooser": {
     "scientist_glass": {
       "Glass": {
-        "key": "puppet/sample",
-        "frame": "glass.png"
+        "key": "puppet/characters",
+        "frame": "scientist_glass.png"
       }     
     }
   },
  "hair_chooser": {
     "scientist_hair": {
       "BackHair": {
-        "key": "puppet/sample",
-        "frame": "back_hair.png",
-        "anchorX":0.15,
-        "anchorY":0.5,
+        "key": "puppet/characters",
+        "frame": "scientist_back_hair.png",
+        "anchorX":0.2,
+        "anchorY":0.3,
         "offsetX":0,
         "offsetY":0
       },
       "FrontHair": {
-        "key": "puppet/sample",
-        "frame": "front_hair.png",
-        "anchorX":0.15,
-        "anchorY":0.5,
+        "key": "puppet/characters",
+        "frame": "scientist_front_hair.png",
+        "anchorX":0.02,
+        "anchorY":0.3,
         "offsetX":0,
         "offsetY":0
       }
+      },
+        "photographer_hair":{
+          "FrontHair": {
+         "key": "puppet/characters",
+        "frame": "photographer_hair.png",
+        "anchorX":0.15,
+        "anchorY":0.3,
+        "offsetX":0.13,
+        "offsetY":0
+      },
+      "BackHair": {
+        "key": "puppet/characters"
       }
+          },
+        "singer_hair_do":{
+          "FrontHair": {
+         "key": "puppet/characters",
+        "frame": "singer_hair_do.png",
+        "anchorX":0.15,
+        "anchorY":0.2,
+        "offsetX":0.13,
+        "offsetY":0
+      },
+       
+        "BackHair": {
+        "key": "puppet/characters"
+      }
+        }
   },
   "hairColor_chooser": {
       "80FF00": "80FF00",
       "8000FF": "8000FF",
       "FF0000": "FF0000",
-      "FF00FF": "FF00FF"
+      "FF00FF": "FF00FF",
+      "F1D0A4": "F1D0A4",
+      "FFCC66": "FFCC66",
+      "F1BD78": "F1BD78"
   },
   "hat_chooser": {
     "cricket_helmet": {
        "Hat": {
-        "key": "puppet/sample",
-        "frame": "helmet.png",
+        "key": "puppet/characters",
+        "frame": "scientist_helmet.png",
         "anchorX":0.5,
         "anchorY":0,
         "offsetX":0.5,
@@ -90,35 +178,50 @@
   "pants_chooser": {
     "scientist_pant": {
       "Pants": {
-        "key": "puppet/sample",
-        "frame": "pant.png"
+        "key": "puppet/characters",
+        "frame": "scientist_pant.png"
       }
     }
   },
   "shirt_chooser": {
     "scientist_shirt": {
       "Shirt": {
-        "key": "puppet/sample",
-        "frame": "shirt.png"
+        "key": "puppet/characters",
+        "frame": "scientist_shirt.png"
       }
     },
     "scientist_overcoat": {
       "Jacket": {
-        "key": "puppet/sample",
-        "frame": "overcoat.png"
+        "key": "puppet/characters",
+        "frame": "scientist_overcoat.png"
       },
       "Sleeves": {
-        "key": "puppet/sample",
-        "frame": "sleeve.png"
+        "key": "puppet/characters",
+        "frame": "scientist_shirt_sleeve.png"
       }
     }
   },
   "shoes_chooser": {
     "scientist_shoe": {
       "Shoes": {
-        "key": "puppet/sample",
-        "frame": "shoe.png"
+        "key": "puppet/characters",
+        "frame": "scientist_shoe.png",
+        "offsetInPixelY":10
       }
+    },
+    "singer_shoe":{
+        "Shoes": {
+        "key": "puppet/characters",
+        "frame": "singer_shoe.png",
+         "offsetInPixelY":10
+        }  
+    },
+    "photographer_shoe":{
+        "Shoes": {
+        "key": "puppet/characters",
+        "frame": "photographer_shoe.png",
+         "offsetInPixelY":10
+        }  
     }
   },
   "skinColor_chooser": {

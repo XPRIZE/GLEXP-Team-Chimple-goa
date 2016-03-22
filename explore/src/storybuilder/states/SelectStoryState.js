@@ -10,7 +10,10 @@ export default class SelectStoryState extends Phaser.State {
     }
 
     preload() {
+        
+        //load UI buttons
         this.load.image('storybuilder/home_button', 'assets/storyBuilder/home_button.png');
+        
         //load story id JSON
         let jsonFile = "assets/storyBuilder/" + this._currentStoryId + ".json";
         console.log("loading story JSON:" + jsonFile);
@@ -18,7 +21,7 @@ export default class SelectStoryState extends Phaser.State {
 
 
         console.log('this._currentStoryId:' + this._currentStoryId);
-        this._imageKey = this._currentStoryId + "_image";
+        this._imageKey = this._currentStoryId;
 
         //load default imagedata to construct image to display
         let imgDataURI = this._defaultImageData;
@@ -26,25 +29,35 @@ export default class SelectStoryState extends Phaser.State {
         storyImage.src = imgDataURI;
         this.game.cache.addImage(this._imageKey, imgDataURI, storyImage);
     }
-
-    create() {
-
-        //check if JSON successfully loaded for given _currentStoryId
-        let storyJSON = localStorage.getItem(this._currentStoryId);
-
-        if (!storyJSON) {
+    
+    
+    loadJSONForStory(currentStoryId) {
+        //Check if json for current story exists in localstorage
+        let storyJSON = null;
+        
+        let storyJSONInLocalStorage = localStorage.getItem(currentStoryId);
+        
+        if(storyJSONInLocalStorage) {
+            storyJSON =  storyJSONInLocalStorage;
+        } else {
             let cachedJSON = this.cache.getJSON(this._currentStoryId);
             if(cachedJSON) {
                 storyJSON = JSON.stringify(cachedJSON);    
-            }
-            
+            }                           
         }
-                
+        return storyJSON;
+    }
+
+    create() {
+
+        
+        let storyJSON = this.loadJSONForStory(this._currentStoryId);
+
+            
         if (storyJSON) {
-            this._currentStory = JSON.parse(storyJSON, JsonUtil.revive);
+            this._currentStory = JSON.parse(storyJSON);
         } else {
             //create Brand New Story
-            //constructor(game, x, y, storyId, title, imageData) {
             let newStory = new Story(game, 0, 0, this._currentStoryId, SelectStoryState.TITLE, this._defaultImageData);
             this._currentStory = newStory;
         }
@@ -99,7 +112,6 @@ export default class SelectStoryState extends Phaser.State {
     }
 
     shutdown() {
-        this.game.world.remove(this._currentStory);
     }
 }
 

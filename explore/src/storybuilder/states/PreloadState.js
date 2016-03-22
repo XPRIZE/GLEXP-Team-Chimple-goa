@@ -30,6 +30,10 @@ export default class PreloadState extends Phaser.State {
         this.load.image('puppet/delete_button', 'assets/puppet/hair_chooser.png');
         
         
+        this.load.atlas('puppet/sample', 'assets/puppet/sample.png', 'assets/puppet/sample.json');
+        this.load.json('puppet/accessorize', 'assets/puppet/accessorize.json');
+        this.load.json('puppet/menu_accessorize', 'assets/puppet/menu_accessorize.json');
+        
 
         //load file story sceen
 

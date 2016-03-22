@@ -41,8 +41,9 @@ export default class JsonUtil {
             return new Phaser.Rectangle(v.x, v.y, v.width, v.height);
         } else if (v instanceof Object && v._class == 'Phaser.Circle') {
             return new Phaser.Circle(v.x, v.y, v.diameter);
-        }
-        else if (v instanceof Object && v._class == 'Scene') {
+        } else if (v instanceof Object && v._class == 'Phaser.Ellipse') {
+            return new Phaser.Ellipse(v.x, v.y, v.width, v.height);
+        } else if (v instanceof Object && v._class == 'Scene') {
             return Scene.fromJSON(window.game, v);
         } else if (v instanceof Object && v._class == 'Holder') {
             return Holder.fromJSON(window.game, v);

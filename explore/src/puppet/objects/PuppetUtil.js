@@ -1,6 +1,7 @@
 import Limb from './Limb.js';
 import Accessory from './Accessory.js';
 import Shape from './Shape.js';
+import Sprite from './Sprite.js';
 import RelativePosition from './RelativePosition.js';
 import Puppet from './Puppet.js';
 import Human from './Human.js';

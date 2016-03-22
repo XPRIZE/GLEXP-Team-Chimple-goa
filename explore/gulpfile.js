@@ -171,7 +171,7 @@ function serve() {
 gulp.task('cleanBuild', cleanBuild);
 gulp.task('copyStatic', ['cleanBuild'], copyStatic);
 gulp.task('copyAngular', ['copyStatic'], copyAngular);
-gulp.task('copyPhaser', ['copyAngular'], copyPhaser);
+gulp.task('copyPhaser', ['copyStatic'], copyPhaser);
 gulp.task('build', ['copyPhaser'], build);
 gulp.task('fastBuild', build);
 gulp.task('serve', ['build'], serve);

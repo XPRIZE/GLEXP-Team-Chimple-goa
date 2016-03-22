@@ -11,10 +11,10 @@ var _ = require('lodash')._;
 
 
 export default class RecordingManager extends Phaser.Group {
-    constructor(game, displayGroup) {
+    constructor(game) {
         super(game);
         this._sceneRecordingMap = new Map();
-        this._displayGroup = displayGroup;
+        
         //create UI
         this.createControls(game);
         this.registerToListeners();
@@ -28,11 +28,7 @@ export default class RecordingManager extends Phaser.Group {
         this.recordButton.scale.setTo(0.5, 0.5);
         this.add(this.recordButton);
         this.recordButton.events.onInputDown.add(this.toggleRecording, this);
-        if(this._displayGroup) {
-            this._displayGroup.add(this.recordButton);
-        } else {
-            this.add(this.recordButton);    
-        }
+        this.add(this.recordButton);        
         
 
         this.playButton = new Phaser.Sprite(game, game.width - 120, 80, 'storyBuilder/pause');
@@ -41,13 +37,7 @@ export default class RecordingManager extends Phaser.Group {
         this.playButton.inputEnabled = true;
         this.playButton.scale.setTo(0.5, 0.5);
         this.playButton.events.onInputDown.add(this.narrateStory, this);
-        if(this._displayGroup) {
-            this._displayGroup.add(this.playButton);
-        } else {
-            this.add(this.playButton);    
-        }
-        
-        
+        this.add(this.playButton);                
 
     }
 

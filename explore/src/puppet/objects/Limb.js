@@ -1,4 +1,5 @@
 import Shape from './Shape.js';
+import Sprite from './Sprite.js';
 import Accessory from './Accessory.js';
 import RelativePosition from './RelativePosition.js';
 import EnableInputs from '../../scene/objects/EnableInputs.js';

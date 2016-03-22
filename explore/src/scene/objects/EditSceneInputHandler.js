@@ -16,6 +16,7 @@ export default class EditSceneInputHandler {
             EditSceneInputHandler.box = null;
         }
         EditSceneInputHandler.box = sprite.drawBoundingBox(EditSceneInputHandler.LINE_COLOR);
+        // sprite.parent.removeChild(sprite);
     }
 
     onInputUp(sprite, pointer) {
@@ -47,8 +48,11 @@ export default class EditSceneInputHandler {
     onDragStop(sprite, pointer) {
         if (EditSceneInputHandler.surfaceTexture) {
             let globalPoint = sprite.toGlobal(new Phaser.Point(sprite.x, sprite.y));
-            sprite.parent.removeChild(sprite);
+            // sprite.parent.removeChild(sprite);
             EditSceneInputHandler.surfaceTexture.parent.addContent(sprite);
+            if(EditSceneInputHandler.surfaceTexture.parent.parent.input != null) {
+                sprite.input.priorityID = EditSceneInputHandler.surfaceTexture.parent.parent.input.priorityID+1;            
+            }
             let localPoint = sprite.toLocal(globalPoint);
             sprite.x = localPoint.x;
             sprite.y = localPoint.y;
