@@ -14,6 +14,13 @@ export default class TabView extends Phaser.Group {
         this.callback = callback;
         this.callbackContext = callbackContext;
         if(frameData) this.frameData = frameData;
+
+        // let back = this.add(new Phaser.Graphics(game, 0, 0));
+        // back.beginFill(0xDDDDDD);
+        // // back.alpha = 1;
+        // back.drawRect(0, 0, width, height);
+        // back.endFill();
+        
     }
     
     set tabs(tabs) {

@@ -245,5 +245,19 @@ export default class Human extends Puppet {
         // let b = JSON.stringify(human, Puppet.replacer);
         // let a=JSON.parse(JSON.stringify(human, Puppet.replacer), human.revive);    
         // a.scale.setTo(0.5,0.5);        
-    }        
+    }
+    
+    animateWalk() {
+        this.leftHand.angle = 0;
+        this.rightHand.angle = 0;
+        this.leftLeg.angle = 0;
+        this.rightLeg.angle = 0;
+        this.game.add.tween(this.body).to({y: this.body.y + 2}, 4/24*1000, null, true).yoyo(true);
+        this.game.add.tween(this.head).to({y: this.head.y + 2}, 4/24*1000, null, true).yoyo(true);
+        this.game.add.tween(this.leftHand).to({angle: -15}, 4/24*1000, null, true).chain(this.game.add.tween(this.leftHand).to({angle: 15}, 4/24*1000, null, true));
+        this.game.add.tween(this.rightHand).to({angle: 20}, 4/24*1000, null, true).chain(this.game.add.tween(this.rightHand).to({angle: -3}, 4/24*1000, null, true));
+        this.game.add.tween(this.leftLeg).to({angle: 15}, 4/24*1000, null, true).chain(this.game.add.tween(this.leftLeg).to({angle: -15}, 4/24*1000, null, true));
+        this.game.add.tween(this.rightLeg).to({angle: -9}, 4/24*1000, null, true).chain(this.game.add.tween(this.rightLeg).to({angle: 15}, 4/24*1000, null, true));
+        
+    }
 }

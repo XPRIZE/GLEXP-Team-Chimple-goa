@@ -21,12 +21,6 @@ export default class ButtonGrid extends Phaser.Group {
         mask.endFill();
         this.mask = mask;
 
-        let back = this.add(new Phaser.Graphics(this.game, 0, 0));
-        back.beginFill(0xDDDDDD);
-        back.alpha = 1;
-        back.drawRect(0, 0, width, height);
-        back.endFill();
-
         this.buttonPanel = new Phaser.Group(this.game, this);
         this.tweenScroll = this.game.add.tween(this.buttonPanel);
 

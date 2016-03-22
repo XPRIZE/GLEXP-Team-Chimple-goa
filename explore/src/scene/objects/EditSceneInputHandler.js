@@ -49,6 +49,7 @@ export default class EditSceneInputHandler {
             let globalPoint = sprite.toGlobal(new Phaser.Point(sprite.x, sprite.y));
             sprite.parent.removeChild(sprite);
             EditSceneInputHandler.surfaceTexture.parent.addContent(sprite);
+            // sprite.input.
             let localPoint = sprite.toLocal(globalPoint);
             sprite.x = localPoint.x;
             sprite.y = localPoint.y;
