@@ -3,6 +3,7 @@ import Holder from './Holder.js';
 import Texture from './Texture.js';
 import TileTexture from './TileTexture.js';
 import EnableInputs from './EnableInputs.js';
+import Puppet from '../../puppet/objects/Puppet.js';
 
 export default class Surface extends EnableInputs(Phaser.Group) {
     constructor(game, x, y, name) {
@@ -80,7 +81,7 @@ export default class Surface extends EnableInputs(Phaser.Group) {
     get contents() {
         let children = new Array();
         this.forEach(function(value) {
-            if(value instanceof Item || value instanceof Holder) {
+            if(value instanceof Item || value instanceof Holder || value instanceof Puppet) {
                 children.push(value);
             }
         });

@@ -86,11 +86,11 @@ export default class ConstructNewStoryPageState extends Phaser.State {
 
         this.constructStory();
 
+        this.enableInputsOnScene();
+
         this.setUpUI();
 
         this.initializeRecordingManager();
-
-        this.saveToLocalStore();
     }
 
     setUpUI() {
@@ -109,8 +109,6 @@ export default class ConstructNewStoryPageState extends Phaser.State {
                 this.game.world.removeChild(element);
             }
         }, this);
-
-        this.enableInputsOnScene();
     }
 
 
@@ -166,7 +164,23 @@ export default class ConstructNewStoryPageState extends Phaser.State {
     }
 
     saveToLocalStore() {
-        //localStorage.setItem(this._currentStory.storyId, JSON.stringify(this._currentStory, JsonUtil.replacer));
+        this._displayControlGroup.children.forEach(function(element) {
+            if (element instanceof Scene) {
+                console.log('element is scene');
+                let jsonStr = JSON.stringify(element, JsonUtil.replacer);
+                console.log('jsonStr:' + jsonStr);
+                this._currentPage.scene = element;
+            }
+        }, this);
+
+        this._currentStory.storyPages.forEach(function(page) {
+            if (page.pageId === this._currentPageId) {
+                page = this._currentPage;
+                localStorage.setItem(this._currentStory.storyId, JSON.stringify(this._currentStory, JsonUtil.replacer));
+            }
+        }, this);
+
+
     }
     createActionButtons() {
 
@@ -237,11 +251,6 @@ export default class ConstructNewStoryPageState extends Phaser.State {
         this._chooseBackGroundTab.y = 0;
         this._chooseBackGroundTab.fixedToCamera = true;
         this._chooseBackGroundTab.visible = false;
-
-        /*else {
-           this._chooseBackGroundTab.visible = true;
-           this._chooseBackGroundTab.selectTab(Object.keys(this._chooseBackGroundTab.tabs)[0]);
-       }*/
     }
 
     createChoosePuppetTab() {
@@ -264,29 +273,29 @@ export default class ConstructNewStoryPageState extends Phaser.State {
         this._choosePuppetTab.x = this.game.width * 0.05;
         this._choosePuppetTab.y = 0;
         this._choosePuppetTab.fixedToCamera = true;
-        this._choosePuppetTab.visible = false;    
-}
+        this._choosePuppetTab.visible = false;
+    }
 
-initializeRecordingManager() {
-    this.recordingManager = new RecordingManager(game, this._displayControlGroup);
-    this._showAttributeEditorSignal = new ShowAttributeEditorSignal();
-    this._showAttributeEditorSignal.add(this.showAttributeEditor, this);
-}
+    initializeRecordingManager() {
+        this.recordingManager = new RecordingManager(game, this._displayControlGroup);
+        this._showAttributeEditorSignal = new ShowAttributeEditorSignal();
+        this._showAttributeEditorSignal.add(this.showAttributeEditor, this);
+    }
 
 
-dynamicallyLoadAssets(assetName, type, config) {
-    this._configToLoad = config[type][assetName];
-    this.game.state.start('StoryOnDemandLoadState', true, false, this._currentStoryId, this._currentPageId, this._configToLoad, this.game.state.getCurrentState().key, type);
-}
+    dynamicallyLoadAssets(assetName, type, config) {
+        this._configToLoad = config[type][assetName];
+        this.game.state.start('StoryOnDemandLoadState', true, false, this._currentStoryId, this._currentPageId, this._configToLoad, this.game.state.getCurrentState().key, type);
+    }
 
-showAttributeEditor(item, pointer) {
-    this._AttributeEditOverlay = new AttributeEditOverlay(game, game.width, game.height, item, pointer);
-}
+    showAttributeEditor(item, pointer) {
+        this._AttributeEditOverlay = new AttributeEditOverlay(game, game.width, game.height, item, pointer);
+    }
 
-shutdown() {
-    this.recordingManager = null;
-    //this.world.remove(this._displayControlGroup);
-}
+    shutdown() {
+        this.recordingManager = null;
+        //this.world.remove(this._displayControlGroup);
+    }
 
 }
 
