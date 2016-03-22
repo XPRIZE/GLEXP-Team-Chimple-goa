@@ -1,6 +1,7 @@
 import Puppet from './Puppet.js';
 import Limb from './Limb.js';
 import Shape from './Shape.js';
+import ComboShape from './ComboShape.js';
 import Accessory from './Accessory.js';
 
 export default class Human extends Puppet {
@@ -216,7 +217,8 @@ export default class Human extends Puppet {
 
         human.head = new Limb(game, new Phaser.Point(0.5, 1), new Phaser.Point(0.5, 0), new Phaser.Point(0, -10), false);
         human.head.childOrder = ['backHair', 'headShape', 'mask', 'glasses', 'beard', 'frontHair', 'hat'];
-        human.head.shape = new Shape(game, new Phaser.Point(1, 1), new Phaser.Point(0.5, 1), new Phaser.Point(0.5, 0), new Phaser.Point(0, -10), new Phaser.Ellipse(85, 100, 85, 100), "headShape");
+        human.head.shape = new ComboShape(game, new Phaser.Point(1, 1), new Phaser.Point(0.5, 0), new Phaser.Point(0, 0), new Phaser.Point(0, 0), new Phaser.Circle(75, 100, 157), new Phaser.Circle(75, 50, 124), "headShape");
+        // human.head.shapeFace = new ShapeFace(game, new Phaser.Point(1, 1), new Phaser.Point(0.5, 1), new Phaser.Point(0.5, 0), new Phaser.Point(0, -10), new Phaser.Ellipse(85, 100, 85, 100), new Phaser.Ellipse(55, 80, 55, 80), "headShape");   
         human.head.enableInputs(handler, false);
         
         human.leftHand = new Limb(game, new Phaser.Point(1, 0), new Phaser.Point(0, 0), new Phaser.Point(-10,0), false);
