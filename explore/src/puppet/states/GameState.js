@@ -11,7 +11,8 @@ export default class GameState extends Phaser.State {
   preload() {
     this.load.atlas('misc/theme', "assets/misc/theme.png", "assets/misc/theme.json");            
     this.load.atlas('puppet/chooser', 'assets/puppet/chooser.png', 'assets/puppet/chooser.json');
-    this.load.atlas('puppet/sample', 'assets/puppet/sample.png', 'assets/puppet/sample.json');
+    this.load.atlas('puppet/characters', 'assets/puppet/characters.png', 'assets/puppet/characters.json');
+    //this.load.atlas('puppet/sample', 'assets/puppet/sample.png', 'assets/puppet/sample.json');
     this.load.json('puppet/accessorize', 'assets/puppet/accessorize.json');
     this.load.json('puppet/menu_accessorize', 'assets/puppet/menu_accessorize.json');
   }
