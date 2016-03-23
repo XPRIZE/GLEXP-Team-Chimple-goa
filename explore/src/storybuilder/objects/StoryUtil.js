@@ -11,4 +11,37 @@ export default class StoryUtil {
         });
         return uuid;
     };
+
+
+    static map_to_object(map) {
+        const out = Object.create(null);
+        map.forEach((value, key) => {
+            if (value instanceof Map) {
+                out[key] = StoryUtil.map_to_object(value);
+            }
+            else {
+                out[key] = value;
+            }
+        })
+        return out;
+    };
+    
+    static objectToMap(object) {
+        const out = new Map();
+        let keys = Object.keys(object);
+        keys.forEach(function(key) {
+            let spriteMap = out.get(key);
+            if (!spriteMap) {
+                spriteMap = new Map();
+                out.set(key, spriteMap);
+            }
+            let oKeys = Object.keys(object[key]);
+            oKeys.forEach(function(k1) {
+                let val2 = object[key][k1];
+                spriteMap.set(k1, val2);
+            });
+        });
+        return out
+    }
+
 }

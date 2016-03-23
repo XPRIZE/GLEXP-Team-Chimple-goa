@@ -33,6 +33,7 @@ let Scalable = (superclass) => class extends superclass {
   }
 
   doScaleXY(scaleXY) {
+    //  console.log(this.name + " " + this.scale.x +" "+ this.scale.y);
     let x = scaleXY.x;
     let y = scaleXY.y;
     if (this._maintainAspectRatio) {
@@ -54,6 +55,7 @@ let Scalable = (superclass) => class extends superclass {
       }
     }
     this.scale = new Phaser.Point(x, y).multiply(this.initialScale.x, this.initialScale.y);
+     // console.log(this.name + " " + this.scale.x +" "+ this.scale.y);    
   }
 }
 

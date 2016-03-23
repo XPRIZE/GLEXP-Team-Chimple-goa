@@ -1,7 +1,7 @@
 import Scene from '../../scene/objects/Scene.js';
 
 
-export default class Page extends Phaser.Group {
+export default class Page {
     //has texture - screen shot of scene
     //content 
     //scene   
@@ -12,8 +12,7 @@ export default class Page extends Phaser.Group {
     //recording functionality
     //replaying functionality
     //save to loki-    
-    constructor(game, x, y, pageId, scene, storyId, imageData) {
-        super(game);
+    constructor(game, x, y, pageId, scene, storyId, imageData) {        
         this.x = x;
         this.y = y;
         this._pageId = pageId;
@@ -23,6 +22,25 @@ export default class Page extends Phaser.Group {
         this._hasRecording = false;
         this._canBePlayed = false;
         this._isTitlePage = false;
+        this._recordedInformation = null;
+        this._totalRecordingCounter = 0;
+    }
+    
+    set recordedInformation(recordedInformation) {
+        this._recordedInformation = recordedInformation;
+    }
+    
+    get recordedInformation() {
+        return this._recordedInformation;
+    }
+    
+    set totalRecordingCounter(recordingCounter) {
+        this._totalRecordingCounter = recordingCounter;
+    }
+    
+    
+    get totalRecordingCounter() {
+        return this._totalRecordingCounter;
     }
     
     set imageData (imageData) {
@@ -96,7 +114,9 @@ export default class Page extends Phaser.Group {
             hasRecording: this._hasRecording,
             canBePlayed: this._canBePlayed,
             isTitlePage: this._isTitlePage,
-            imageData: this._imageData
+            imageData: this._imageData,
+            recordedInformation: this.recordedInformation,
+            totalRecordingCounter: this.totalRecordingCounter
         }
         return json;
     }
@@ -106,6 +126,8 @@ export default class Page extends Phaser.Group {
         val.hasRecording = j.hasRecording;
         val.canBePlayed = j.canBePlayed;
         val.isTitlePage = j.isTitlePage;
+        val.recordedInformation = j.recordedInformation;
+        val.totalRecordingCounter = j.totalRecordingCounter;
         return val;
     }
 }

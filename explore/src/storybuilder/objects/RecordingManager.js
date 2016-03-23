@@ -4,20 +4,31 @@ import RecordingPauseSignal from './RecordingPauseSignal.js';
 import RecordingResumeSignal from './RecordingResumeSignal.js';
 import AttributesChangedSignal from '../objects/AttributesChangedSignal.js'
 import UpdateAttributesSignal from '../objects/UpdateAttributesSignal.js'
+import PersistRecordingInformationSignal from '../objects/PersistRecordingInformationSignal.js'
 import RecordInfo from '../objects/RecordInfo.js';
+import StoryUtil from '../objects/StoryUtil.js';
 
 
 var _ = require('lodash')._;
 
 
 export default class RecordingManager extends Phaser.Group {
-    constructor(game, displayGroup) {
+    constructor(game, existingRecordingCounter, existingRecordedInformation) {
         super(game);
         this._sceneRecordingMap = new Map();
-        this._displayGroup = displayGroup;
+
         //create UI
         this.createControls(game);
         this.registerToListeners();
+        
+        
+        if(existingRecordedInformation != null && existingRecordedInformation != undefined) {
+            this.loadPreRecordedInformationToMap(existingRecordedInformation);
+        }
+        
+        if(existingRecordingCounter > 0) {
+            this.currentRecordingCounter = existingRecordingCounter;
+        }
     }
 
 
@@ -28,12 +39,8 @@ export default class RecordingManager extends Phaser.Group {
         this.recordButton.scale.setTo(0.5, 0.5);
         this.add(this.recordButton);
         this.recordButton.events.onInputDown.add(this.toggleRecording, this);
-        if(this._displayGroup) {
-            this._displayGroup.add(this.recordButton);
-        } else {
-            this.add(this.recordButton);    
-        }
-        
+        this.add(this.recordButton);
+
 
         this.playButton = new Phaser.Sprite(game, game.width - 120, 80, 'storyBuilder/pause');
         this.playButton.alpha = 1; //hidden until user records first time
@@ -41,20 +48,14 @@ export default class RecordingManager extends Phaser.Group {
         this.playButton.inputEnabled = true;
         this.playButton.scale.setTo(0.5, 0.5);
         this.playButton.events.onInputDown.add(this.narrateStory, this);
-        if(this._displayGroup) {
-            this._displayGroup.add(this.playButton);
-        } else {
-            this.add(this.playButton);    
-        }
-        
-        
+        this.add(this.playButton);
 
     }
 
     narrateStory() {
         game._inPlayMode = true;
         this.playStartTime = this._updatedTime = new Date();
-        this.currentPlayCounter = 0;
+        this.currentPlayCounter = 0;        
     }
 
     toggleRecording() {
@@ -96,6 +97,8 @@ export default class RecordingManager extends Phaser.Group {
         this._attributesChangedSignal.add(this.handleAttributeChange, this);
 
         this._updateAttributeSignal = new UpdateAttributesSignal();
+        
+        this._persistRecordingInformationSignal = new PersistRecordingInformationSignal();
     }
 
     handleAttributeChange(data) {
@@ -133,7 +136,12 @@ export default class RecordingManager extends Phaser.Group {
     }
 
     persistRecordedInformation() {
-        //persist this._sceneRecordingMap        
+        //persist this._sceneRecordingMap
+        console.log('this._sceneRecordingMap:' + this._sceneRecordingMap);        
+        let recordedObjInformation = StoryUtil.map_to_object(this._sceneRecordingMap);
+        let jsonObjectString = JSON.stringify(recordedObjInformation);
+        this.convertRecordedInformationToMap(jsonObjectString);   
+        this._persistRecordingInformationSignal.dispatch(jsonObjectString, this.currentRecordingCounter);
         game._inRecordingMode = false;
     }
 
@@ -153,7 +161,9 @@ export default class RecordingManager extends Phaser.Group {
                 this.computeRecordingTimeCounters(delta);
             } else if (game._inPlayMode) {
                 this.computePlayTimeCounters(delta);
+                
                 game._inPlayMode = this.currentPlayCounter < this.currentRecordingCounter + 50;
+                console.log('game._inPlayMode:' + game._inPlayMode + ' and this.currentPlayCounter:' + this.currentPlayCounter + ' and this.currentRecordingCounter:' + this.currentRecordingCounter);
                 //dispatch
                 let recordedData = this.findNearestUpdateAttributeInformationByCurrentPlayCounter(this.currentPlayCounter);
                 console.log('recordedData at counter:' + this.currentPlayCounter + " is:" + recordedData);
@@ -161,16 +171,40 @@ export default class RecordingManager extends Phaser.Group {
             }
         }
     }
+    
+    loadPreRecordedInformationToMap(JSONRecordingInformation) {
+        let recordedInformationObject = JSON.parse(JSONRecordingInformation);
+        this._map = StoryUtil.objectToMap(recordedInformationObject);
+        return this._map;        
+    }
+    
+    
+    convertRecordedInformationToMap(JSONRecordingInformation) {        
+        let recordedInformationObject = JSON.parse(JSONRecordingInformation);
+        this._map = StoryUtil.objectToMap(recordedInformationObject);
+        return this._map;        
+    }
 
     findNearestUpdateAttributeInformationByCurrentPlayCounter(lookUpKey) {
-        if (this._sceneRecordingMap && this._sceneRecordingMap.size > 0) {
+        if (this._map && this._map.size > 0) {
+            let keys = Array.from(this._map.keys());
+            var closest = keys.reduce(function(prev, curr) {
+                return (Math.abs(curr - lookUpKey) < Math.abs(prev - lookUpKey) ? curr : prev);
+            });
+            console.log('closest key 1111 :' + closest + " and lookupkey 1111 :" + lookUpKey);
+            console.log('what we got here:' + this._map.get(closest));
+            return this._map.get(closest);
+        };
+
+
+/*        if (this._sceneRecordingMap && this._sceneRecordingMap.size > 0) {
             let keys = Array.from(this._sceneRecordingMap.keys());
             var closest = keys.reduce(function(prev, curr) {
                 return (Math.abs(curr - lookUpKey) < Math.abs(prev - lookUpKey) ? curr : prev);
             });
             console.log('closest key:' + closest + " and lookupkey:" + lookUpKey);
             return this._sceneRecordingMap.get(closest);
-        };
+        };*/
     }
 
     addToMap(data) {

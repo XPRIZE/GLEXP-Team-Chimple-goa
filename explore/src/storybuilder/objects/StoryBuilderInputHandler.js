@@ -1,18 +1,25 @@
+import Shape from '../../puppet/objects/Shape.js';
+
 export default class StoryBuilderInputHandler {
     constructor(game) {
         this.clickEnabled = true;
-        this.dragEnabled = true;        
+        this.dragEnabled = true;
     }
 
     onInputDown(sprite, pointer) {
-
+        sprite.modifiedBit = 1;
+        if (sprite instanceof Shape) {
+            this.game.input.addMoveCallback(this.onInputDragFromStory, this);
+        }
     }
 
     onInputUp(sprite, pointer) {
+        if (sprite instanceof Shape) {
+            this.game.input.deleteMoveCallback(this.onInputDragFromStory, this);
+        }
     }
 
-
-    onDragStart(sprite, pointer) {        
+    onDragStart(sprite, pointer) {
         sprite._isDragging = true;
         sprite.game.camera.follow(sprite, Phaser.Camera.FOLLOW_PLATFORMER);
         sprite.start_camera_x = sprite.game.camera.x;
@@ -22,7 +29,7 @@ export default class StoryBuilderInputHandler {
     onDragUpdate(sprite, pointer, dragX, dragY, snapPoint) {
         sprite.x += sprite.game.camera.x - sprite.start_camera_x;
         sprite.y += sprite.game.camera.y - sprite.start_camera_y;
-        
+
     }
 
     onDragStop(sprite, pointer) {

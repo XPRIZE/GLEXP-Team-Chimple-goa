@@ -14,14 +14,13 @@ import Puppet from '../../puppet/objects/Puppet.js';
 var _ = require('lodash');
 
 export default class OnDemandLoadState extends Phaser.State {
-    init(currentStoryId, currentPageId, cachedConfig, stateToEnterAfterLoading, type, displayGroup) {
+    init(currentStoryId, currentPageId, cachedConfig, stateToEnterAfterLoading, type) {
         console.log('config:' + cachedConfig);
         console.log('stateToEnterAfterLoading:' + stateToEnterAfterLoading);
         this._stateToEnterAfterLoading = stateToEnterAfterLoading;
         this._sceneOrPuppetType = type;
         this._currentStoryId = currentStoryId;
-        this._currentPageId = currentPageId;
-        this._displayGroup = displayGroup;
+        this._currentPageId = currentPageId;        
         if (cachedConfig) {
             this._jsonCreationFiles = cachedConfig['scene_files'];
             this._jsonTextureFiles = cachedConfig['texture_files'];
@@ -70,7 +69,7 @@ export default class OnDemandLoadState extends Phaser.State {
 
     update() {
         if (!!this.ready) {
-            this.game.state.start(this._stateToEnterAfterLoading, true, false, this._currentStoryId, this._currentPageId, this._displayGroup, this._cachedJSONStringRepresentation, this._sceneOrPuppetType);
+            this.game.state.start(this._stateToEnterAfterLoading, true, false, this._currentStoryId, this._currentPageId, this._cachedJSONStringRepresentation, this._sceneOrPuppetType);
         }        
     }
 

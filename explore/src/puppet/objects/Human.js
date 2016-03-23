@@ -1,7 +1,7 @@
 import Puppet from './Puppet.js';
 import Limb from './Limb.js';
 import Shape from './Shape.js';
-import Sprite from './Sprite.js';
+import ComboShape from './ComboShape.js';
 import Accessory from './Accessory.js';
 
 export default class Human extends Puppet {
@@ -175,11 +175,11 @@ export default class Human extends Puppet {
         this.leftHand.addAccessory(new Accessory(this.game, new Phaser.Point(1, 1), true, true, false, new Phaser.Point(anchorX, anchorY), new Phaser.Point(offsetX, offsetY), new Phaser.Point(offsetInPixelX, offsetInPixelY), false, key, frame, 'armAccessory'), true);        
     }
     
-     setHeadShape(key, frame,anchorX=0.5, anchorY=1, offsetX=0.5, offsetY=0, offsetInPixelX=0, offsetInPixelY=0) {
+     setHeadStructure(key, frame, x, y,radius) {
         
         // this.children[0].children[2].children.splice(0,1);
-          this.head.children.splice(0,1);
-         this.head.shape = new Sprite(game, 0, 0, key,frame, new Phaser.Point(1, 1), new Phaser.Point(0.5, 1), new Phaser.Point(0.5, 0), new Phaser.Point(0, -10), "headShape" );
+         this.head.children.splice(0,1);
+         this.head.shape = new Shape(game, new Phaser.Point(1, 1), new Phaser.Point(0.5, 1), new Phaser.Point(0.5, 0), new Phaser.Point(0, -10),new Phaser.Circle(x, y, radius), "headShape" );
         // this.body.children.splice(0,1);
         // this.body.shape = new Shape(game, new Phaser.Point(1, 1), new Phaser.Point(0.5, 1), new Phaser.Point(0.5, 0), new Phaser.Point(0, -10),new Phaser.Circle(100, 100, 200) );
         
@@ -193,12 +193,7 @@ export default class Human extends Puppet {
      setBeard(key, frame, anchorX=0.5, anchorY=0, offsetX=0.5, offsetY=0.8, offsetInPixelX=0, offsetInPixelY=0)
     {
          this.head.addAccessory(new Accessory(this.game, new Phaser.Point(1, 1), true, true, false, new Phaser.Point(anchorX, anchorY), new Phaser.Point(offsetX, offsetY), new Phaser.Point(offsetInPixelX, offsetInPixelY), false, key, frame, 'beard'), true);
-         
-   }
- setMouth(key,frame,anchorX=0.5, anchorY=0, offsetX=0.5, offsetY=0.7, offsetInPixelX=0, offsetInPixelY=0){
-    this.head.addAccessory(new Accessory(this.game, new Phaser.Point(1, 1), true, true, true, new Phaser.Point(anchorX, anchorY), new Phaser.Point(offsetX, offsetY), new Phaser.Point(offsetInPixelX, offsetInPixelY), false, key, frame, 'mouth'), true);
-  }
-
+    }
     
     setFrontHair(key,frame, anchorX=0.5, anchorY=0, offsetX=0.5, offsetY=0, offsetInPixelX=0, offsetInPixelY=0){
         this.head.addAccessory(new Accessory(this.game, new Phaser.Point(1, 1), true, true, false, new Phaser.Point(anchorX, anchorY), new Phaser.Point(offsetX, offsetY), new Phaser.Point(offsetInPixelX, offsetInPixelY), false, key, frame, 'frontHair'), true);
@@ -240,7 +235,8 @@ export default class Human extends Puppet {
 
         human.head = new Limb(game, new Phaser.Point(0.5, 1), new Phaser.Point(0.5, 0), new Phaser.Point(0, -10), false);
         human.head.childOrder = ['backHair', 'headShape', 'mask', 'glasses', 'beard', 'frontHair', 'hat'];
-        human.head.shape = new Shape(game, new Phaser.Point(1, 1), new Phaser.Point(0.5, 1), new Phaser.Point(0.5, 0), new Phaser.Point(0, -10), new Phaser.Ellipse(85, 100, 85, 100), "headShape");
+        human.head.shape = new ComboShape(game, new Phaser.Point(1, 1), new Phaser.Point(0.5, 0), new Phaser.Point(0, 0), new Phaser.Point(0, 0), new Phaser.Circle(75, 100, 157), new Phaser.Circle(75, 50, 124), "headShape");
+        // human.head.shapeFace = new ShapeFace(game, new Phaser.Point(1, 1), new Phaser.Point(0.5, 1), new Phaser.Point(0.5, 0), new Phaser.Point(0, -10), new Phaser.Ellipse(85, 100, 85, 100), new Phaser.Ellipse(55, 80, 55, 80), "headShape");   
         human.head.enableInputs(handler, false);
         
         human.leftHand = new Limb(game, new Phaser.Point(1, 0), new Phaser.Point(0, 0), new Phaser.Point(-10,0), false);
@@ -269,19 +265,5 @@ export default class Human extends Puppet {
         // let b = JSON.stringify(human, Puppet.replacer);
         // let a=JSON.parse(JSON.stringify(human, Puppet.replacer), human.revive);    
         // a.scale.setTo(0.5,0.5);        
-    }
-    
-    animateWalk() {
-        this.leftHand.angle = 0;
-        this.rightHand.angle = 0;
-        this.leftLeg.angle = 0;
-        this.rightLeg.angle = 0;
-        this.game.add.tween(this.body).to({y: this.body.y + 2}, 4/24*1000, null, true).yoyo(true);
-        this.game.add.tween(this.head).to({y: this.head.y + 2}, 4/24*1000, null, true).yoyo(true);
-        this.game.add.tween(this.leftHand).to({angle: -15}, 4/24*1000, null, true).chain(this.game.add.tween(this.leftHand).to({angle: 15}, 4/24*1000, null, true));
-        this.game.add.tween(this.rightHand).to({angle: 20}, 4/24*1000, null, true).chain(this.game.add.tween(this.rightHand).to({angle: -3}, 4/24*1000, null, true));
-        this.game.add.tween(this.leftLeg).to({angle: 15}, 4/24*1000, null, true).chain(this.game.add.tween(this.leftLeg).to({angle: -15}, 4/24*1000, null, true));
-        this.game.add.tween(this.rightLeg).to({angle: -9}, 4/24*1000, null, true).chain(this.game.add.tween(this.rightLeg).to({angle: 15}, 4/24*1000, null, true));
-        
-    }
+    }        
 }

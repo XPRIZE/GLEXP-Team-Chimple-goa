@@ -50,6 +50,11 @@ export default class Limb extends EnableInputs(RelativePosition(Phaser.Group)) {
         }
     }
 
+    onInputDragFromStory(pointer, x, y, down) {
+        console.log('poitner:' + pointer + 'x:' + x + 'y:' + y + " donw:" + down);
+        this.parent.position = this.toGlobal(new Phaser.Point(x,y));
+    }
+    
     onInputDrag(pointer, x, y, down) {
         let scaleX = this._clickScale.x + this._scaleDirection.x * (x - this._clickPoint.x) / this.scaleFactor.x;
         let scaleY = this._clickScale.y + this._scaleDirection.y * (y - this._clickPoint.y) / this.scaleFactor.y;
