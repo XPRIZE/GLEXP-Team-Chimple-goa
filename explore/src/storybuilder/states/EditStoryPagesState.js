@@ -9,7 +9,6 @@ import Surface from '../../scene/objects/Surface.js';
 import StoryUtil from '../objects/StoryUtil.js';
 import JsonUtil from '../../puppet/objects/JsonUtil.js';
 import RecordingManager from '../objects/RecordingManager.js';
-import ShowAttributeEditorSignal from '../objects/ShowAttributeEditorSignal.js';
 import AttributeEditOverlay from '../objects/AttributeEditOverlay.js';
 import StoryBuilderInputHandler from '../objects/StoryBuilderInputHandler.js';
 import Library from '../objects/Library.js';

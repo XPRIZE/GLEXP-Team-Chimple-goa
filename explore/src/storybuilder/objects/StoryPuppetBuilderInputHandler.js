@@ -19,10 +19,18 @@ export default class StoryPuppetBuilderInputHandler {
     }
 
     onInputUp(sprite, pointer) {
-        if (sprite instanceof Shape) {
-             
+        if (sprite instanceof Shape) {             
             this.game.input.deleteMoveCallback(this.onInputDragFromStory, this);
         }
+
+        
+        var distanceFromLastUp = Phaser.Math.distance(self.game.input.activePointer.positionDown.x, self.game.input.activePointer.positionDown.y,
+            self.game.input.activePointer.x, self.game.input.activePointer.y);
+        console.log('distanceFromLastUp in 1111:' + distanceFromLastUp);
+        
+        if(distanceFromLastUp < 5 && !game._inPlayMode)  {
+            sprite._showAttributeEditorSignal.dispatch(sprite, pointer);
+        }        
     }
 
     onDragStart(sprite, pointer) {

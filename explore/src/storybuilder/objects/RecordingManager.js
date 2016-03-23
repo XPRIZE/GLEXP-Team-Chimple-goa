@@ -2,7 +2,10 @@ import RecordingStartSignal from '../objects/RecordingStartSignal.js';
 import RecordingStopSignal from '../objects/RecordingStopSignal.js';
 import RecordingPauseSignal from './RecordingPauseSignal.js';
 import RecordingResumeSignal from './RecordingResumeSignal.js';
+import PlayPauseSignal from './PlayPauseSignal.js';
+import PlayResumeSignal from './PlayResumeSignal.js';
 import AttributesChangedSignal from '../objects/AttributesChangedSignal.js'
+import SpecialAttributesChangedSignal from '../objects/SpecialAttributesChangedSignal.js'
 import UpdateAttributesSignal from '../objects/UpdateAttributesSignal.js'
 import PersistRecordingInformationSignal from '../objects/PersistRecordingInformationSignal.js'
 import RecordInfo from '../objects/RecordInfo.js';
@@ -20,13 +23,13 @@ export default class RecordingManager extends Phaser.Group {
         //create UI
         this.createControls(game);
         this.registerToListeners();
-        
-        
-        if(existingRecordedInformation != null && existingRecordedInformation != undefined) {
+
+
+        if (existingRecordedInformation != null && existingRecordedInformation != undefined) {
             this.loadPreRecordedInformationToMap(existingRecordedInformation);
         }
-        
-        if(existingRecordingCounter > 0) {
+
+        if (existingRecordingCounter > 0) {
             this.currentRecordingCounter = existingRecordingCounter;
         }
     }
@@ -55,7 +58,7 @@ export default class RecordingManager extends Phaser.Group {
     narrateStory() {
         game._inPlayMode = true;
         this.playStartTime = this._updatedTime = new Date();
-        this.currentPlayCounter = 0;        
+        this.currentPlayCounter = 0;
     }
 
     toggleRecording() {
@@ -96,16 +99,40 @@ export default class RecordingManager extends Phaser.Group {
         this._attributesChangedSignal = new AttributesChangedSignal();
         this._attributesChangedSignal.add(this.handleAttributeChange, this);
 
+        this._specialAttributesChangedSignal = new SpecialAttributesChangedSignal();
+        this._specialAttributesChangedSignal.add(this.handleSpecialAttributeChange, this);
+
         this._updateAttributeSignal = new UpdateAttributesSignal();
-        
+
         this._persistRecordingInformationSignal = new PersistRecordingInformationSignal();
+        
+        this._playPauseSignal = new PlayPauseSignal();
+        this._playPauseSignal.add(this.pausePlay, this);
+        
+        this._playResumeSignal = new PlayResumeSignal();
+        this._playResumeSignal.add(this.resumePlay, this);
+    }
+    
+    
+    pausePlay() {
+        console.log('play pause signal at: ' + this.currentPlayCounter);
+        game._inPlayMode = false;
+    }
+    
+    resumePlay() {
+        console.log('play resume signal at: ' + this.currentPlayCounter);
+        this._updatedTime = new Date();
+        game._inPlayMode = true;
     }
 
     handleAttributeChange(data) {
         this.addToMap(data);
     }
 
-
+    handleSpecialAttributeChange(data) {
+        this.addToMap(data);       
+    }   
+    
     resumeRecording() {
         if (game._inPauseRecording) {
             console.log('game resumed from pause to recording state:');
@@ -137,10 +164,10 @@ export default class RecordingManager extends Phaser.Group {
 
     persistRecordedInformation() {
         //persist this._sceneRecordingMap
-        console.log('this._sceneRecordingMap:' + this._sceneRecordingMap);        
+        console.log('this._sceneRecordingMap:' + this._sceneRecordingMap);
         let recordedObjInformation = StoryUtil.map_to_object(this._sceneRecordingMap);
         let jsonObjectString = JSON.stringify(recordedObjInformation);
-        this.convertRecordedInformationToMap(jsonObjectString);   
+        this.convertRecordedInformationToMap(jsonObjectString);
         this._persistRecordingInformationSignal.dispatch(jsonObjectString, this.currentRecordingCounter);
         game._inRecordingMode = false;
     }
@@ -161,7 +188,7 @@ export default class RecordingManager extends Phaser.Group {
                 this.computeRecordingTimeCounters(delta);
             } else if (game._inPlayMode) {
                 this.computePlayTimeCounters(delta);
-                
+
                 game._inPlayMode = this.currentPlayCounter < this.currentRecordingCounter + 50;
                 console.log('game._inPlayMode:' + game._inPlayMode + ' and this.currentPlayCounter:' + this.currentPlayCounter + ' and this.currentRecordingCounter:' + this.currentRecordingCounter);
                 //dispatch
@@ -171,18 +198,18 @@ export default class RecordingManager extends Phaser.Group {
             }
         }
     }
-    
+
     loadPreRecordedInformationToMap(JSONRecordingInformation) {
         let recordedInformationObject = JSON.parse(JSONRecordingInformation);
         this._map = StoryUtil.objectToMap(recordedInformationObject);
-        return this._map;        
+        return this._map;
     }
-    
-    
-    convertRecordedInformationToMap(JSONRecordingInformation) {        
+
+
+    convertRecordedInformationToMap(JSONRecordingInformation) {
         let recordedInformationObject = JSON.parse(JSONRecordingInformation);
         this._map = StoryUtil.objectToMap(recordedInformationObject);
-        return this._map;        
+        return this._map;
     }
 
     findNearestUpdateAttributeInformationByCurrentPlayCounter(lookUpKey) {
@@ -197,18 +224,18 @@ export default class RecordingManager extends Phaser.Group {
         };
 
 
-/*        if (this._sceneRecordingMap && this._sceneRecordingMap.size > 0) {
-            let keys = Array.from(this._sceneRecordingMap.keys());
-            var closest = keys.reduce(function(prev, curr) {
-                return (Math.abs(curr - lookUpKey) < Math.abs(prev - lookUpKey) ? curr : prev);
-            });
-            console.log('closest key:' + closest + " and lookupkey:" + lookUpKey);
-            return this._sceneRecordingMap.get(closest);
-        };*/
+        /*        if (this._sceneRecordingMap && this._sceneRecordingMap.size > 0) {
+                    let keys = Array.from(this._sceneRecordingMap.keys());
+                    var closest = keys.reduce(function(prev, curr) {
+                        return (Math.abs(curr - lookUpKey) < Math.abs(prev - lookUpKey) ? curr : prev);
+                    });
+                    console.log('closest key:' + closest + " and lookupkey:" + lookUpKey);
+                    return this._sceneRecordingMap.get(closest);
+                };*/
     }
 
     addToMap(data) {
-        let recordInfo = new RecordInfo(data.uniquename, data.x, data.y, data.scaleX, data.scaleY, data.angle);
+        let recordInfo = new RecordInfo(data.uniquename, data.x, data.y, data.scaleX, data.scaleY, data.angle, data.recordingAttributeKind, data.userGeneratedText);
         let spriteMap = this._sceneRecordingMap.get(this.currentRecordingCounter);
         if (!spriteMap) {
             let curRecordingMap = new Map();
@@ -217,7 +244,11 @@ export default class RecordingManager extends Phaser.Group {
         } else {
             spriteMap.set(data.uniquename, recordInfo.toJSON());
         }
-        console.log('this._sceneRecordingMap:' + JSON.stringify(this._sceneRecordingMap) + "at recording counter:" + this.currentRecordingCounter);
+        console.log('recordInfo:' + JSON.stringify(recordInfo) + "at recording counter:" + this.currentRecordingCounter);
+        
+        if(recordInfo.recordingAttributeKind === RecordInfo.TEXT_RECORDING_TYPE) {
+            console.log('text message received at ' + this.currentRecordingCounter);
+        }
     }
 
 

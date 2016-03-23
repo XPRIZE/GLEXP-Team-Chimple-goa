@@ -40,6 +40,15 @@ export default class AttributeEditOverlay extends Phaser.Group {
         this._settings.inputEnabled = true;
         this._settings.events.onInputUp.add(this.createAdditionalPropertiesOverlay, this);
         this._settings.input.priorityID = 2;
+        
+        
+        //Added TEXT BUTTON to generate Testing Text - later UI will be replaced ...
+        this._textEditor = this._overlayDisplaySprite.addChild(game.make.sprite(400, 60, 'storyBuilder/plus'));
+        this._textEditor.fixedToCameara = true;
+        this._textEditor.inputEnabled = true;
+        this._textEditor.events.onInputUp.add(this.createAdditionalPropertiesOverlay, this);
+        this._textEditor.input.priorityID = 2;
+        
 
     }
 
@@ -106,7 +115,12 @@ export default class AttributeEditOverlay extends Phaser.Group {
                   }
               }
           }
-        // this._itemSettingTab.destroy();
+          
+          this._itemSettingTab.destroy();
+           this._recordingResumeSignal.dispatch();
+           console.log("my value = "+textvalue + " color : "+ text_color + " background_color : "+ background_color);
+           console.log('text is added for sprite:' + this._clickedObject);
+           this._clickedObject.text = textvalue;        
     }
 
     drawScaleHandler(alpha, color, lineWidth, radius) {

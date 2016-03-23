@@ -3,10 +3,13 @@ import TileTexture from './TileTexture.js';
 import Surface from './Surface.js';
 import EnableInputs from './EnableInputs.js';
 import AttributesChangedSignal from '../../storybuilder/objects/AttributesChangedSignal.js'
+import SpecialAttributesChangedSignal from '../../storybuilder/objects/SpecialAttributesChangedSignal.js'
 import UpdateAttributesSignal from '../../storybuilder/objects/UpdateAttributesSignal.js'
 import RecordInfo from '../../storybuilder/objects/RecordInfo.js';
 import EnableAttributeEditorSignal from '../../storybuilder/objects/EnableAttributeEditorSignal.js';
 import ShowAttributeEditorSignal from '../../storybuilder/objects/ShowAttributeEditorSignal.js';
+import PlayPauseSignal from '../../storybuilder/objects/PlayPauseSignal.js';
+
 
 var _ = require('lodash');
 
@@ -19,11 +22,19 @@ export default class Item extends EnableInputs(Phaser.Sprite) {
         this.modifiedBit = modifiedBit;
         //Any Attribute Changes then dispatch signal        
         this.onAttributesChanged = new AttributesChangedSignal();
+        
+        //Special Attribute Changes
+        this._specialAttributesChangedSignal = new SpecialAttributesChangedSignal();
+                
         this.onUpdateAttributesSignal = new UpdateAttributesSignal();
         this.onUpdateAttributesSignal.add(this.changeAttributes, this);
 
         //Allow item to invoke ShowAttributeEditorSignal()
         this._showAttributeEditorSignal = new ShowAttributeEditorSignal();
+        //added for testing purpose, will be replaced by Special Attribute Class later...
+        this._userGeneratedText = null;
+        
+        this._playPauseSignal = new PlayPauseSignal();
     }
 
     enableInputs(instance, iterateInside) {
@@ -31,6 +42,13 @@ export default class Item extends EnableInputs(Phaser.Sprite) {
         this.input.priorityID = 2;
     }
 
+    set text(text) {
+        this._userGeneratedText = text;
+        if (game._inRecordingMode) {
+            this._specialAttributesChangedSignal.dispatch({ uniquename: this._uniquename, x: this.x, y: this.y, scaleX: this.scale.x, scaleY: this.scale.y, angle: this.angle, recordingAttributeKind: RecordInfo.TEXT_RECORDING_TYPE, userGeneratedText: this._userGeneratedText });
+        }        
+    }
+    
     drawBoundingBox(color) {
         let box = this.addChild(new Phaser.Graphics(this.game, -this.offsetX, -this.offsetY));
         box.lineStyle(1, color);
@@ -66,7 +84,7 @@ export default class Item extends EnableInputs(Phaser.Sprite) {
     update() {
         if (game._inRecordingMode) {
             console.log('in recording mode');
-            this.onAttributesChanged.dispatch({ uniquename: this._uniquename, x: this.x, y: this.y, scaleX: this.scale.x, scaleY: this.scale.y, angle: this.angle, modifiedBit: this.modifiedBit, gameCameraX: this.game.camera.x, gameCameraY: this.game.camera.y });
+            this.onAttributesChanged.dispatch({ uniquename: this._uniquename, x: this.x, y: this.y, scaleX: this.scale.x, scaleY: this.scale.y, angle: this.angle, recordingAttributeKind: RecordInfo.DEFAULT_RECORDING_TYPE });
         } else if (game._inPlayMode) {
             console.log('in play mode');
             if (this._changeAttributes != null && this._changeAttributes.size > 0) {
@@ -78,9 +96,14 @@ export default class Item extends EnableInputs(Phaser.Sprite) {
                 this.scale.x = recordedInfo.scaleX;
                 this.scale.y = recordedInfo.scaleY;
                 this.angle = recordedInfo.angle;
-                this.game.camera.x = recordedInfo.gameCameraX || 0;
-                this.game.camera.y = recordedInfo.gameCameraY || 0;
                 console.log('recordedInfo.x:' + recordedInfo.x + "recordedInfo.y:" + recordedInfo.y);
+                
+                //if we have received TEXT KIND data
+                if(recordedInfo.recordingAttributeKind == RecordInfo.TEXT_RECORDING_TYPE) {                  
+                  //send an signal to show Text PopUp to User
+                  console.log('show text popup to User' + recordedInfo.userGeneratedText);
+                  this._playPauseSignal.dispatch();      
+                }
             }
         }
     }

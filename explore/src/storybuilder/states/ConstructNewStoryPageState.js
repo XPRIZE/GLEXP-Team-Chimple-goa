@@ -22,6 +22,8 @@ import Story from '../objects/Story.js';
 import StoryPage from '../objects/StoryPage.js';
 import ButtonGrid from '../../puppet/objects/ButtonGrid.js';
 import PersistRecordingInformationSignal from '../objects/PersistRecordingInformationSignal.js'
+import PlayResumeSignal from '../objects/PlayResumeSignal.js';
+
 
 
 var _ = require('lodash');
@@ -32,10 +34,11 @@ export default class ConstructNewStoryPageState extends Phaser.State {
         this._currentPageId = currentPageId;
         this._cachedJSONStrRep = cachedJSONRepresentation;
         this._sceneOrPuppetType = sceneOrPuppetType;
-        
+
         this.onPersistRecordingInformationSignal = new PersistRecordingInformationSignal();
         this.onPersistRecordingInformationSignal.add(this.persistRecordingInformation, this);
-        
+
+        this._playResumeSignal = new PlayResumeSignal();
     }
 
     loadStoryFromLocalStorage(currentStoryId) {
@@ -136,13 +139,13 @@ export default class ConstructNewStoryPageState extends Phaser.State {
             console.log(element);
             if (element instanceof Scene) {
                 element.floor.contents.forEach(function(element) {
-                    if(element instanceof Puppet) {
+                    if (element instanceof Puppet) {
                         element.disableInputs(true);
-                        element.body.disableInputs(true);                    
+                        element.body.disableInputs(true);
                         element.body.enableInputs(new StoryPuppetBuilderInputHandler(), false);
                     } else {
                         element.disableInputs(true);
-                        element.enableInputs(new StoryBuilderInputHandler(), false);                        
+                        element.enableInputs(new StoryBuilderInputHandler(), false);
                     }
 
                 }, this);
@@ -222,9 +225,9 @@ export default class ConstructNewStoryPageState extends Phaser.State {
         this._chooseCharacterButton.y = this._homeButton.y;
         this._chooseCharacterButton.events.onInputDown.add(this.choosePuppet, this);
         this._displayControlGroup.add(this._chooseCharacterButton);
-        
-        
-         this._questionAndAnswerButton = this.game.make.sprite(this.game.width - 260, 40, 'storybuilder/home_button');
+
+
+        this._questionAndAnswerButton = this.game.make.sprite(this.game.width - 260, 40, 'storybuilder/home_button');
         this._questionAndAnswerButton.anchor.setTo(0.5);
         this._questionAndAnswerButton.inputEnabled = true;
         this._questionAndAnswerButton.events.onInputDown.add(this.createQuestionAndAnswer, this);
@@ -232,8 +235,20 @@ export default class ConstructNewStoryPageState extends Phaser.State {
         this._displayControlGroup.add(this._questionAndAnswerButton);
 
 
+        this._testResumePlayButton = this.game.make.sprite(this.game.width - 340, 40, 'storybuilder/home_button');
+        this._testResumePlayButton.anchor.setTo(0.5);
+        this._testResumePlayButton.inputEnabled = true;
+        this._testResumePlayButton.events.onInputDown.add(this.resumePlayForTesting, this);
+        this._testResumePlayButton.input.priorityID = 2;
+        this._displayControlGroup.add(this._testResumePlayButton);
+
+
     }
-    
+
+    resumePlayForTesting() {
+        this._playResumeSignal.dispatch();
+    }
+
     createQuestionAndAnswer() {
         console.log('this.storyid:' + this._currentStory.storyId + " and pageId:" + this._currentPage.pageId);
     }
@@ -319,8 +334,8 @@ export default class ConstructNewStoryPageState extends Phaser.State {
     showAttributeEditor(item, pointer) {
         this._AttributeEditOverlay = new AttributeEditOverlay(game, game.width, game.height, item, pointer);
     }
-    
-    
+
+
     persistRecordingInformation(recordedInformation, totalRecordingCounter) {
         console.log('received:' + recordedInformation + ' and totalRecordingCounter:' + totalRecordingCounter);
         //set into page JSON

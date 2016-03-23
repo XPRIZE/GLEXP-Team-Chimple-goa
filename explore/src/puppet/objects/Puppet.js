@@ -4,8 +4,10 @@ import Shape from './Shape.js';
 import Sprite from './Sprite.js';
 import RelativePosition from './RelativePosition.js';
 import AttributesChangedSignal from '../../storybuilder/objects/AttributesChangedSignal.js';
+import SpecialAttributesChangedSignal from '../../storybuilder/objects/SpecialAttributesChangedSignal.js'
 import UpdateAttributesSignal from '../../storybuilder/objects/UpdateAttributesSignal.js';
-import RecordInfo from '../../storybuilder/objects/RecordInfo.js'; 
+import RecordInfo from '../../storybuilder/objects/RecordInfo.js';
+import PlayPauseSignal from '../../storybuilder/objects/PlayPauseSignal.js';
 
 export default class Puppet extends Limb {
     constructor(game, x, y, color) {
@@ -15,11 +17,18 @@ export default class Puppet extends Limb {
         this.bodyColor = color;
         this.scale.setTo(0.5, 0.5);
         this.childOrder = ['body']; //default
-        
-        this.onAttributesChanged = new AttributesChangedSignal();        
+
+        this.onAttributesChanged = new AttributesChangedSignal();
+
+        //Special Attribute Changes
+        this._specialAttributesChangedSignal = new SpecialAttributesChangedSignal();
+
         this.onUpdateAttributesSignal = new UpdateAttributesSignal();
         this.onUpdateAttributesSignal.add(this.changeAttributes, this);
-        
+
+        //added for testing purpose, will be replaced by Special Attribute Class later...
+        this._userGeneratedText = null;
+        this._playPauseSignal = new PlayPauseSignal();
     }
 
     changeAttributes(data) {
@@ -73,17 +82,23 @@ export default class Puppet extends Limb {
         return puppet;
     }
 
+    set text(text) {
+        this._userGeneratedText = text;
+        if (game._inRecordingMode) {
+            this._specialAttributesChangedSignal.dispatch({ uniquename: this._uniquename, x: this.x, y: this.y, scaleX: this.scale.x, scaleY: this.scale.y, angle: this.angle, recordingAttributeKind: RecordInfo.TEXT_RECORDING_TYPE, userGeneratedText: this._userGeneratedText });
+        }
+    }
+
 
     update() {
         if (game._inRecordingMode) {
             console.log('in recording mode');
-            this.onAttributesChanged.dispatch({ uniquename: this._uniquename, x: this.x, y: this.y, scaleX: this.scale.x, scaleY: this.scale.y, angle: this.angle, modifiedBit: this.modifiedBit, gameCameraX: this.game.camera.x, gameCameraY: this.game.camera.y });
+            this.onAttributesChanged.dispatch({ uniquename: this._uniquename, x: this.x, y: this.y, scaleX: this.scale.x, scaleY: this.scale.y, angle: this.angle, recordingAttributeKind: RecordInfo.DEFAULT_RECORDING_TYPE });
         } else if (game._inPlayMode) {
             console.log('in play mode');
             if (this._changeAttributes != null && this._changeAttributes.size > 0) {
                 this.game.camera.follow(this, Phaser.Camera.FOLLOW_PLATFORMER);
-                if(!this.uniquename)
-                {
+                if (!this.uniquename) {
                     this.uniquename = "undefined";
                 }
                 let json = this._changeAttributes.get(this.uniquename);
@@ -98,6 +113,13 @@ export default class Puppet extends Limb {
                 this.game.camera.y = recordedInfo.gameCameraY || 0;
 
                 console.log('recordedInfo.x:' + recordedInfo.x + "recordedInfo.y:" + recordedInfo.y);
+                //if we have received TEXT KIND data
+                if (recordedInfo.recordingAttributeKind == RecordInfo.TEXT_RECORDING_TYPE) {
+                    //send an signal to show Text PopUp to User
+                    console.log('show text popup to User' + recordedInfo.userGeneratedText);
+                    this._playPauseSignal.dispatch();
+                }
+
             }
         }
 
