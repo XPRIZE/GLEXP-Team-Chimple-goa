@@ -2,6 +2,8 @@ import RecordingPauseSignal from './RecordingPauseSignal.js';
 import RecordingResumeSignal from './RecordingResumeSignal.js';
 import Shape from '../../puppet/objects/Shape.js';
 import TabView from '../../puppet/objects/TabView.js';
+import Sprite from '../../puppet/objects/Scalable.js';
+import TextData from './TextData.js';
 
 export default class AttributeEditOverlay extends Phaser.Group {
     //container to edit item properties
@@ -58,35 +60,53 @@ export default class AttributeEditOverlay extends Phaser.Group {
             let TextNames = ["plus1", "plus2", "plus3", "plus4"];
             let audioNames = ["plus1", "plus2"];
             
-            that._chooseBackGroundTab = that.game.add.existing(new TabView(that.game, 'scene/scene', that.game.width + that.game.world.camera.x, that.game.height + that.game.world.camera.y, 10, 50, 5, 3, true, function(tab, button) {
-                that._chooseBackGroundTab.unSelect();
-                that._chooseBackGroundTab.destroy();
-                that._clickedObject.inputEnabled = true;
+            that._itemSettingTab = that.game.add.existing(new TabView(that.game, 'scene/scene', that.game.width + that.game.world.camera.x, that.game.height + that.game.world.camera.y, 10, 50, 5, 3, true, function(tab, button) {
+                that._itemSettingTab.unSelect();
+                // that._itemSettingTab.destroy();
+                 that._clickedObject.inputEnabled = true;
                 //that._recordingResumeSignal.dispatch();
-               
+                              
                 console.log(" button name is : "+ button + " tab name is : "+tab);
-
+                that.clilckedButtonName = button;
+                if(tab == "forest"){
                 $("#login-box").fadeIn(300);
                 
                 $('body').append('<div id="mask"></div>');
                 $('#mask').fadeIn(300);
                     window.callback = this.addtext_fromhtml;
                     window.callbackContext = this;
+                }else if( tab == " village"){
+                    console.log("you pressed on AudioTab");
+                }
+                
             }, that, backGroundThemes));
 
-            that._chooseBackGroundTab.tabs = { 'forest': TextNames, 'village': audioNames };
-            that._chooseBackGroundTab.x = that.game.width * 0.05;
-            that._chooseBackGroundTab.y = 0;
-            that._chooseBackGroundTab.fixedToCamera = true;
-            that._chooseBackGroundTab.visible = true;
-            that._chooseBackGroundTab.bringToTop = true;
+            that._itemSettingTab.tabs = { 'forest': TextNames, 'village': audioNames };
+            that._itemSettingTab.x = that.game.width * 0.05;
+            that._itemSettingTab.y = 0;
+            that._itemSettingTab.fixedToCamera = true;
+            that._itemSettingTab.visible = true;
+            that._itemSettingTab.bringToTop = true;
         });
 
     }
 
     addtext_fromhtml(textvalue, text_color, background_color)
-    {
-           console.log("my value = "+textvalue + " color : "+ text_color + " background_color : "+ background_color);
+    {   
+        //   this._itemSettingTab.destroy();
+    
+          let value = this._itemSettingTab.children[1].children[1];
+          for(var i = 0 ; i < value.length ; i ++){
+              if(value.children[i] instanceof Phaser.Button ){
+                  if(this.clilckedButtonName == value.children[i].name){
+                      var style = { font: "32px Arial", fill: ""+text_color, wordWrap: true, wordWrapWidth: value.children[i].width, align: "center", backgroundColor: ""+background_color };
+                    //   let text = new TextData(game,);
+                    //   value.children[i+1] = new Phaser.Text(game,0,0,""+textvalue,style);
+                    //   value.children[i+1].parent = this._itemSettingTab.children[1].children[1];
+                  }
+              }
+          }
+        // this._itemSettingTab.destroy();
     }
 
     drawScaleHandler(alpha, color, lineWidth, radius) {

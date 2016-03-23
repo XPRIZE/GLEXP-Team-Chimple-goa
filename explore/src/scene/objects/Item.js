@@ -24,7 +24,6 @@ export default class Item extends EnableInputs(Phaser.Sprite) {
 
         //Allow item to invoke ShowAttributeEditorSignal()
         this._showAttributeEditorSignal = new ShowAttributeEditorSignal();
-
     }
 
     enableInputs(instance, iterateInside) {
@@ -82,7 +81,6 @@ export default class Item extends EnableInputs(Phaser.Sprite) {
                 console.log('recordedInfo.x:' + recordedInfo.x + "recordedInfo.y:" + recordedInfo.y);
             }
         }
-
     }
 
     changeAttributes(data) {
