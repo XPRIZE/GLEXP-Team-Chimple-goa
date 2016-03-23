@@ -222,7 +222,20 @@ export default class ConstructNewStoryPageState extends Phaser.State {
         this._chooseCharacterButton.y = this._homeButton.y;
         this._chooseCharacterButton.events.onInputDown.add(this.choosePuppet, this);
         this._displayControlGroup.add(this._chooseCharacterButton);
+        
+        
+         this._questionAndAnswerButton = this.game.make.sprite(this.game.width - 260, 40, 'storybuilder/home_button');
+        this._questionAndAnswerButton.anchor.setTo(0.5);
+        this._questionAndAnswerButton.inputEnabled = true;
+        this._questionAndAnswerButton.events.onInputDown.add(this.createQuestionAndAnswer, this);
+        this._questionAndAnswerButton.input.priorityID = 2;
+        this._displayControlGroup.add(this._questionAndAnswerButton);
 
+
+    }
+    
+    createQuestionAndAnswer() {
+        console.log('this.storyid:' + this._currentStory.storyId + " and pageId:" + this._currentPage.pageId);
     }
 
     chooseBackGround(sprite, pointer) {
