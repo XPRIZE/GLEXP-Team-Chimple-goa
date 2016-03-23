@@ -1,16 +1,28 @@
 import Shape from '../../puppet/objects/Shape.js';
 
-export default class StoryBuilderInputHandler {
+export default class StoryPuppetBuilderInputHandler {
     constructor(game) {
         this.clickEnabled = true;
-        this.dragEnabled = true;
+        this.dragEnabled = false;
     }
 
     onInputDown(sprite, pointer) {
         sprite.modifiedBit = 1;
+        if (sprite instanceof Shape) {
+            this.puppetPoint = new Phaser.Point(pointer.x, pointer.y);
+           
+           this.parent.animateWalk();
+            
+            this.originalPuppetPosition = this.parent.position.clone();
+            this.game.input.addMoveCallback(this.onInputDragFromStory, this);
+        }
     }
 
     onInputUp(sprite, pointer) {
+        if (sprite instanceof Shape) {
+             
+            this.game.input.deleteMoveCallback(this.onInputDragFromStory, this);
+        }
     }
 
     onDragStart(sprite, pointer) {

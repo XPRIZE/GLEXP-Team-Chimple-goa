@@ -67,7 +67,7 @@ export default class Item extends EnableInputs(Phaser.Sprite) {
     update() {
         if (game._inRecordingMode) {
             console.log('in recording mode');
-            this.onAttributesChanged.dispatch({ uniquename: this._uniquename, x: this.x, y: this.y, scaleX: this.scale.x, scaleY: this.scale.y, angle: this.angle, modifiedBit: this.modifiedBit });
+            this.onAttributesChanged.dispatch({ uniquename: this._uniquename, x: this.x, y: this.y, scaleX: this.scale.x, scaleY: this.scale.y, angle: this.angle, modifiedBit: this.modifiedBit, gameCameraX: this.game.camera.x, gameCameraY: this.game.camera.y });
         } else if (game._inPlayMode) {
             console.log('in play mode');
             if (this._changeAttributes != null && this._changeAttributes.size > 0) {
@@ -79,6 +79,8 @@ export default class Item extends EnableInputs(Phaser.Sprite) {
                 this.scale.x = recordedInfo.scaleX;
                 this.scale.y = recordedInfo.scaleY;
                 this.angle = recordedInfo.angle;
+                this.game.camera.x = recordedInfo.gameCameraX || 0;
+                this.game.camera.y = recordedInfo.gameCameraY || 0;
                 console.log('recordedInfo.x:' + recordedInfo.x + "recordedInfo.y:" + recordedInfo.y);
             }
         }

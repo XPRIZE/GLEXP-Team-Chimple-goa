@@ -15,6 +15,8 @@ import RecordingManager from '../objects/RecordingManager.js';
 import ShowAttributeEditorSignal from '../objects/ShowAttributeEditorSignal.js';
 import AttributeEditOverlay from '../objects/AttributeEditOverlay.js';
 import StoryBuilderInputHandler from '../objects/StoryBuilderInputHandler.js';
+import StoryPuppetBuilderInputHandler from '../objects/StoryPuppetBuilderInputHandler.js';
+
 import Library from '../objects/Library.js';
 import Story from '../objects/Story.js';
 import StoryPage from '../objects/StoryPage.js';
@@ -135,11 +137,11 @@ export default class ConstructNewStoryPageState extends Phaser.State {
             if (element instanceof Scene) {
                 element.floor.contents.forEach(function(element) {
                     if(element instanceof Puppet) {
-                        element.disableInputs();
-                        element._body.disableInputs();                    
-                        element._body.enableInputs(new StoryBuilderInputHandler(), false);
+                        element.disableInputs(true);
+                        element.body.disableInputs(true);                    
+                        element.body.enableInputs(new StoryPuppetBuilderInputHandler(), false);
                     } else {
-                        element.disableInputs();
+                        element.disableInputs(true);
                         element.enableInputs(new StoryBuilderInputHandler(), false);                        
                     }
 
