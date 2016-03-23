@@ -19,6 +19,7 @@ import Library from '../objects/Library.js';
 import Story from '../objects/Story.js';
 import StoryPage from '../objects/StoryPage.js';
 import ButtonGrid from '../../puppet/objects/ButtonGrid.js';
+import PersistRecordingInformationSignal from '../objects/PersistRecordingInformationSignal.js'
 
 
 var _ = require('lodash');
@@ -29,6 +30,10 @@ export default class ConstructNewStoryPageState extends Phaser.State {
         this._currentPageId = currentPageId;
         this._cachedJSONStrRep = cachedJSONRepresentation;
         this._sceneOrPuppetType = sceneOrPuppetType;
+        
+        this.onPersistRecordingInformationSignal = new PersistRecordingInformationSignal();
+        this.onPersistRecordingInformationSignal.add(this.persistRecordingInformation, this);
+        
     }
 
     loadStoryFromLocalStorage(currentStoryId) {
@@ -129,7 +134,15 @@ export default class ConstructNewStoryPageState extends Phaser.State {
             console.log(element);
             if (element instanceof Scene) {
                 element.floor.contents.forEach(function(element) {
-                    element.enableInputs(new StoryBuilderInputHandler(), false);
+                    if(element instanceof Puppet) {
+                        element.disableInputs();
+                        element._body.disableInputs();                    
+                        element._body.enableInputs(new StoryBuilderInputHandler(), false);
+                    } else {
+                        element.disableInputs();
+                        element.enableInputs(new StoryBuilderInputHandler(), false);                        
+                    }
+
                 }, this);
 
                 element.wall.contents.forEach(function(element) {
@@ -166,7 +179,6 @@ export default class ConstructNewStoryPageState extends Phaser.State {
     saveToLocalStore() {
         this._displayControlGroup.children.forEach(function(element) {
             if (element instanceof Scene) {
-                console.log('element is scene');
                 let jsonStr = JSON.stringify(element, JsonUtil.replacer);
                 console.log('jsonStr:' + jsonStr);
                 this._currentPage.scene = element;
@@ -277,7 +289,8 @@ export default class ConstructNewStoryPageState extends Phaser.State {
     }
 
     initializeRecordingManager() {
-        this.recordingManager = new RecordingManager(game, this._displayControlGroup);
+        //give current recording counter and map of data to play if already recording is present for current page        
+        this.recordingManager = new RecordingManager(game, this._currentPage.totalRecordingCounter, this._currentPage.recordedInformation);
         this._showAttributeEditorSignal = new ShowAttributeEditorSignal();
         this._showAttributeEditorSignal.add(this.showAttributeEditor, this);
     }
@@ -291,10 +304,18 @@ export default class ConstructNewStoryPageState extends Phaser.State {
     showAttributeEditor(item, pointer) {
         this._AttributeEditOverlay = new AttributeEditOverlay(game, game.width, game.height, item, pointer);
     }
+    
+    
+    persistRecordingInformation(recordedInformation, totalRecordingCounter) {
+        console.log('received:' + recordedInformation + ' and totalRecordingCounter:' + totalRecordingCounter);
+        //set into page JSON
+        this._currentPage.recordedInformation = recordedInformation;
+        this._currentPage.totalRecordingCounter = totalRecordingCounter;
+        this.saveToLocalStore();
+    }
 
     shutdown() {
         this.recordingManager = null;
-        //this.world.remove(this._displayControlGroup);
     }
 
 }

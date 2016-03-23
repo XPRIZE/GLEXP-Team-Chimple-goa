@@ -35,6 +35,11 @@ export default class GameState extends Phaser.State {
         item.enableInputs(new StoryBuilderInputHandler(), false);
         item.uniquename = _.uniqueId("object_1");
         scene.floor.add(item);
+
+        let item3 = new Item(game, 0, 0, 'scene/scene', 'Object_3.png');
+        item3.enableInputs(new StoryBuilderInputHandler(), false);
+        item3.uniquename = _.uniqueId("object_33");
+        scene.floor.add(item3);
         
         var sink = new Holder(game, 100, 10);
         sink.uniquename = _.uniqueId("sink");
