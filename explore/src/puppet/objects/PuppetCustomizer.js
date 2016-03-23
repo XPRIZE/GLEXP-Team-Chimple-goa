@@ -25,16 +25,14 @@ export default class PuppetCustomizer extends Phaser.Group {
         }
         this.add(this.puppet);
         this.puppet.x = 3 * width / 4;
-        this.puppet.y = 250;
+        this.puppet.y = 500;
         this.puppet.bodyColor = 0xF1BD78;
         let dressChoices = game.cache.getJSON('puppet/accessorize');
         let menuAccessorize = game.cache.getJSON('puppet/menu_accessorize');
         let chooser = this.add(new TabView(game, 'puppet/chooser', width / 2, height, 10, 100, 5, 3, true, function(accType, accName) {
             if (accType == "skinColor_chooser") {
-                this.puppet.animateWalk();
                 this.puppet.bodyColor = parseInt(accName, 16);
             } else if (accType == "hairColor_chooser") {
-                console.log(JSON.stringify(this.puppet, JsonUtil.replacer));
                 if (this.puppet.head.getAccessory('frontHair')) {
                     this.puppet.head.getAccessory('frontHair').tint = parseInt(accName, 16);
                 }
@@ -44,9 +42,6 @@ export default class PuppetCustomizer extends Phaser.Group {
                 if (this.puppet.head.getAccessory('beard')) {
                     this.puppet.head.getAccessory('beard').tint = parseInt(accName, 16);
                 }
-            } else if (accType == 'beard_chooser') {
-                JSON.parse(JSON.stringify(this.puppet, JsonUtil.replacer), JsonUtil.revive);
-                this.puppet.animateWalk();
             } else {
                 let acc = dressChoices[accType][accName];
                 for (var key in acc) {

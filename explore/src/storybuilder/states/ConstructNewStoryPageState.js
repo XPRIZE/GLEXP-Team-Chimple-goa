@@ -15,6 +15,8 @@ import RecordingManager from '../objects/RecordingManager.js';
 import ShowAttributeEditorSignal from '../objects/ShowAttributeEditorSignal.js';
 import AttributeEditOverlay from '../objects/AttributeEditOverlay.js';
 import StoryBuilderInputHandler from '../objects/StoryBuilderInputHandler.js';
+import StoryPuppetBuilderInputHandler from '../objects/StoryPuppetBuilderInputHandler.js';
+
 import Library from '../objects/Library.js';
 import Story from '../objects/Story.js';
 import StoryPage from '../objects/StoryPage.js';
@@ -135,11 +137,11 @@ export default class ConstructNewStoryPageState extends Phaser.State {
             if (element instanceof Scene) {
                 element.floor.contents.forEach(function(element) {
                     if(element instanceof Puppet) {
-                        element.disableInputs();
-                        element._body.disableInputs();                    
-                        element._body.enableInputs(new StoryBuilderInputHandler(), false);
+                        element.disableInputs(true);
+                        element.body.disableInputs(true);                    
+                        element.body.enableInputs(new StoryPuppetBuilderInputHandler(), false);
                     } else {
-                        element.disableInputs();
+                        element.disableInputs(true);
                         element.enableInputs(new StoryBuilderInputHandler(), false);                        
                     }
 
@@ -220,7 +222,20 @@ export default class ConstructNewStoryPageState extends Phaser.State {
         this._chooseCharacterButton.y = this._homeButton.y;
         this._chooseCharacterButton.events.onInputDown.add(this.choosePuppet, this);
         this._displayControlGroup.add(this._chooseCharacterButton);
+        
+        
+         this._questionAndAnswerButton = this.game.make.sprite(this.game.width - 260, 40, 'storybuilder/home_button');
+        this._questionAndAnswerButton.anchor.setTo(0.5);
+        this._questionAndAnswerButton.inputEnabled = true;
+        this._questionAndAnswerButton.events.onInputDown.add(this.createQuestionAndAnswer, this);
+        this._questionAndAnswerButton.input.priorityID = 2;
+        this._displayControlGroup.add(this._questionAndAnswerButton);
 
+
+    }
+    
+    createQuestionAndAnswer() {
+        console.log('this.storyid:' + this._currentStory.storyId + " and pageId:" + this._currentPage.pageId);
     }
 
     chooseBackGround(sprite, pointer) {

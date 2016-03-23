@@ -52,7 +52,10 @@ export default class Limb extends EnableInputs(RelativePosition(Phaser.Group)) {
 
     onInputDragFromStory(pointer, x, y, down) {
         console.log('poitner:' + pointer + 'x:' + x + 'y:' + y + " donw:" + down);
-        this.parent.position = this.toGlobal(new Phaser.Point(x,y));
+        //this.parent.position = this.toGlobal(new Phaser.Point(x,y));
+        this.differencePoint = Phaser.Point.subtract(pointer.position, this.puppetPoint);
+        this.parent.position = Phaser.Point.add(this.originalPuppetPosition, this.differencePoint);
+        
     }
     
     onInputDrag(pointer, x, y, down) {
@@ -260,12 +263,16 @@ export default class Limb extends EnableInputs(RelativePosition(Phaser.Group)) {
             this.x -= this.relativeAnchor.x * this.shape.width;
             this.y -= this.relativeAnchor.y * this.shape.height;
         }
+        let offset = this.relativeOffset.clone();
         if (this.parent && this.parent.shape) {
-            let offset = this.relativeOffset.clone();
             offset.multiply(this.parent.shape.width, this.parent.shape.height);
-            this.x += offset.x + this.offsetInPixel.x;
-            this.y += offset.y + this.offsetInPixel.y;
+            this.x += offset.x;
+            this.y += offset.y;
+        // } else {
+            // offset.multiply(this.width, this.height);
         }
+        this.x += this.offsetInPixel.x;
+        this.y += this.offsetInPixel.y;
     }
 
     changeLimbHeightOnOtherChange(changeY, signal) {
