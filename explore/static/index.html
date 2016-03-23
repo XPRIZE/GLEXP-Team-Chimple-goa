@@ -1,28 +1,217 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE HTML>
+<html>
 <head>
-	<meta charset="UTF-8">
-	<title>Phaser with a sprinkle of ES6 Dust!</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	
 	<link rel="stylesheet" href="styles/main.css">
-</head>
-<body>
-    <div id="gameCanvas"></div>
-	<div id="overlay">
-	    <div id = "shopContent">
-            <span class="close">×</span>
-            Enter some text here
-            <input type="text" name="fname" id="idofelement" onchange="addText()">  
-        </div>
-	</div>    
+<title>CHIMPLE CITY</title>
+<style type="text/css">
+body{
+	 background:#ffffff;
+	 font:bold 12px Arial, Helvetica, sans-serif;
+	 margin:0;
+	 padding:0;
+	 min-width:100%;
+     min-height: 100%;
     
-    <script>
-        function addText() {var element = document.getElementById('idofelement');var inputText = element.value;var text = game.add.text(0,0,inputText); text.addColor('#ffff00', 0); document.getElementById('overlay').style.display = "none";}   
+    width : 100%;
+    height : 100%;
+    
+	 color:#bbbbbb; 
+}
 
-        document.getElementsByClassName("close")[0].onclick = function() {
-            addText();
-        }         
-    </script>  
-	<script src="scripts/phaser.js"></script>
+.container {    
+    width: 100%; margin: 0 auto; overflow: hidden; height:100%;
+        min-height: 90%;
+    min-width: 90%;
+    }
+
+#gameCanvas {	float: left; width: 100%; height: 100%;}
+
+#mask {
+	display: none;
+	background: #000; 
+	position: fixed; left: 0; top: 0; 
+	z-index: 10;
+	width: 100%; height: 100%;
+    
+    min-height: 90%;
+    min-width: 90%;
+    
+	opacity: 0.8;
+	z-index: 999;
+}
+
+.login-popup{
+    width : 90%;
+    height : 90%;
+    
+    min-height: 90%;
+    min-width: 90%;
+    
+    margin-left: 5%;
+    margin-top: 2%;
+	display:none;
+	background: #333;
+	border: 2px solid #ddd;
+	float: left;
+	font-size: 1.2em;
+	position: fixed;
+	z-index: 99999;
+
+	-moz-box-shadow: 0px 0px 20px #999; /* Firefox */
+    -webkit-box-shadow: 0px 0px 20px #999; /* Safari, Chrome */
+	border-radius:3px 3px 3px 3px;
+    -moz-border-radius: 3px; /* Firefox */
+    -webkit-border-radius: 3px; /* Safari, Chrome */
+}
+
+#pankaj{
+    width : 20%;
+    height : 30%;
+    
+    min-height: 30%;
+    min-width: 15%;
+    
+    margin-left: 0%;
+    margin-top: 2%;
+    
+	display:none;
+	background: #333;
+	border: 2px solid #ddd;
+	float: left;
+	font-size: 1.2em;
+	position: fixed;
+	z-index: 999999;
+	box-shadow: 0px 0px 20px #999;
+	-moz-box-shadow: 0px 0px 20px #999; /* Firefox */
+    -webkit-box-shadow: 0px 0px 20px #999; /* Safari, Chrome */
+	border-radius:3px 3px 3px 3px;
+    -moz-border-radius: 3px; /* Firefox */
+    -webkit-border-radius: 3px; /* Safari, Chrome */
+}
+
+</style>
+
+    
+    
+   <script src="jquery-2.2.1.min.js"></script> 
+   <script src="jquery-ui.js"></script> 
+   <script src="jquery-ui.min.js"></script> 
+	<script src="scripts/phaser.min.js"></script>
 	<script src="scripts/game.js"></script>
+    
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+    
+    
+<script type="text/javascript" >
+
+    var flag=0, text_color="#000000", background_color="#000000";
+    
+    function chimple_html_to_phaser()
+        {
+            var textvalue = document.getElementById("text_area").value;
+            window.callback.call(window.callbackContext, textvalue, text_color, background_color);     
+            console.log("textvalue : "+ textvalue +" text_color : "+ text_color +" background_color : "+ background_color);
+        }
+    
+    function DisplayColor(val)
+    {
+        if(val=="back")
+            flag=1;
+        else
+            flag=0;
+    }
+ 
+    // used to convert the rgb to hex code
+function componentToHex(c) {
+    var hex = c.toString(16);
+    return hex.length == 1 ? "0" + hex : hex;
+}
+        
+function rgbToHex(r, g, b) {
+    return "#" + ((1 << 24) + (r << 16) + (g << 8) + b).toString(16).slice(1);
+}
+    </script>
+    
+<script type="text/javascript">
+
+$(document).ready(function() {
+	// When clicking on the button close or the mask layer the popup closed
+	$('#close_btn, #mask').live('click', function() { 
+	  $('#mask , .login-popup, #pankaj').fadeOut(300 , function() {
+		$('#mask').remove();
+	});
+	return false;
+	});
+
+    $('#ok_btn').click(function(){
+        
+        if(flag==0)
+            {
+                $("#text_area").css("color" , "rgb("+$("#r").val()+","+$("#g").val()+","+$("#b").val()+")"); 
+                text_color= rgbToHex(parseInt($("#r").val()) , parseInt($("#g").val()) , parseInt($("#b").val()));
+            }
+        else
+            {
+                $("#login-box").css("background-color" , "rgb("+$("#r").val()+","+$("#g").val()+","+$("#b").val()+")")
+                background_color = rgbToHex(parseInt($("#r").val()) , parseInt($("#g").val()) , parseInt($("#b").val()));
+            }
+
+        
+        $("#pankaj").css({"display":"none"});         
+    });
+   
+    $("#back").click(function(){
+       $('#pankaj').show(1000);
+    });
+    
+    $("#text").click(function(){
+       $('#pankaj').show(1000);
+    });
+    
+    $("#close_rgb").click(function(){
+       $('#pankaj').hide(1000);
+    });
+});
+
+    
+</script>
+    
+<link rel="canonical" href="http://www.alessioatzeni.com/wp-content/tutorials/jquery/login-box-modal-dialog-window/index.html" />
+</head>
+	
+<body>
+
+<div class="container">
+    
+	<div id="gameCanvas">
+    </div>
+
+        <div id="pankaj">
+            <input type="image" src="assets/close_pop.png" style="margin-left:84%;" id="close_rgb" />
+            <p>R<input type="range" id="r" value="256" name="range" style="width:90%; maring-top:5%;" max="256"></p>
+            <p>G<input type="range" id="g" value="256" name="range" style="width:90%" max="256"></p>
+            <p>B<input type="range" id="b" value="256" name="range" style="width:90%" max="256"></p>
+            <button type="button" style="margin-top:5%; width:50%; height:10%; margin-left : 25%;" id="ok_btn">OK </button>
+		</div>
+    
+        <div id="login-box" class="login-popup">
+            <input type="image" src="assets/close_pop.png" style="margin-left:98%;" id="close_btn"/>
+            
+            <div id="left" style="width:10%; height:70%; float:left;">
+                <button type="button" style="margin-top:5%; width:100%; height:10%;" onclick="DisplayColor('back');" id="back">Background color </button>
+                
+                <button type="button" style="margin-top:10%; width:100%; height:10%;" onclick="DisplayColor('text');" id="text">Text color </button>
+            </div>
+            
+            <div id="right"  style="width:85%; height:95%; float:right; margin-right:3%;">
+                <textarea style="width:100%; height:70%;" id="text_area"></textarea>
+                <button type="button" style="margin-top:10%; width:10%; height:5%; margin-left:40%; margin-right:40%;"  id="submit" onclick="chimple_html_to_phaser()">Add Text </button>
+            </div>
+		</div>
+    
+</div>
+
 </body>
 </html>

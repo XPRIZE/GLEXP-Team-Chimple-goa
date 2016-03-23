@@ -55,18 +55,26 @@ export default class AttributeEditOverlay extends Phaser.Group {
 
             let backGroundThemes = that.game.cache.getJSON('storyBuilder/background_themes');
             //later get from texture packer
-            let forestNames = ["forest_1_th", "forest_2_th", "forest_3_th", "forest_4_th", "forest_5_th", "forest_6_th", "forest_7_th"];
-            let villageNames = ["village_1_th", "village_2_th", "village_3_th", "village_4_th", "village_5_th", "village_6_th", "village_7_th"];
-
+            let TextNames = ["plus1", "plus2", "plus3", "plus4"];
+            let audioNames = ["plus1", "plus2"];
+            
             that._chooseBackGroundTab = that.game.add.existing(new TabView(that.game, 'scene/scene', that.game.width + that.game.world.camera.x, that.game.height + that.game.world.camera.y, 10, 50, 5, 3, true, function(tab, button) {
                 that._chooseBackGroundTab.unSelect();
                 that._chooseBackGroundTab.destroy();
                 that._clickedObject.inputEnabled = true;
                 //that._recordingResumeSignal.dispatch();
+               
+                console.log(" button name is : "+ button + " tab name is : "+tab);
 
+                $("#login-box").fadeIn(300);
+                
+                $('body').append('<div id="mask"></div>');
+                $('#mask').fadeIn(300);
+                    window.callback = this.addtext_fromhtml;
+                    window.callbackContext = this;
             }, that, backGroundThemes));
 
-            that._chooseBackGroundTab.tabs = { 'forest': forestNames, 'village': villageNames };
+            that._chooseBackGroundTab.tabs = { 'forest': TextNames, 'village': audioNames };
             that._chooseBackGroundTab.x = that.game.width * 0.05;
             that._chooseBackGroundTab.y = 0;
             that._chooseBackGroundTab.fixedToCamera = true;
@@ -74,6 +82,11 @@ export default class AttributeEditOverlay extends Phaser.Group {
             that._chooseBackGroundTab.bringToTop = true;
         });
 
+    }
+
+    addtext_fromhtml(textvalue, text_color, background_color)
+    {
+           console.log("my value = "+textvalue + " color : "+ text_color + " background_color : "+ background_color);
     }
 
     drawScaleHandler(alpha, color, lineWidth, radius) {
