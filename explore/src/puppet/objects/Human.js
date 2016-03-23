@@ -10,6 +10,7 @@ export default class Human extends Puppet {
     }
         
     defineBehavior() {
+        this.pivot.y = this.leftLeg.height;
         this.leftHand.setTwin(this.rightHand);
         this.rightHand.setTwin(this.leftHand);
         
@@ -17,11 +18,23 @@ export default class Human extends Puppet {
         this.rightLeg.setTwin(this.leftLeg);
         
         this.body.onHeightChange.add(this.head.changeLimbHeightOnOtherChange, this.head, 0, this.body.onHeightChange);
-        this.body.onHeightChange.add(this.leftLeg.changeLimbHeightOnOtherChange, this.leftLeg, 0, this.body.onHeightChange);
+        this.body.onHeightChange.add(function(changeY, signal) {
+            this.leftLeg.changeLimbHeightOnOtherChange.call(this.leftLeg, changeY, signal);
+            this.pivot.y = this.leftLeg.height;
+        }, this, 0, this.body.onHeightChange);
+        
         this.head.onHeightChange.add(this.body.changeLimbHeightOnOtherChange, this.body, 0, this.head.onHeightChange);
-        this.head.onHeightChange.add(this.leftLeg.changeLimbHeightOnOtherChange, this.leftLeg, 0, this.head.onHeightChange);
+        this.head.onHeightChange.add(function(changeY, signal) {
+            this.leftLeg.changeLimbHeightOnOtherChange.call(this.leftLeg, changeY, signal);
+            this.pivot.y = this.leftLeg.height;
+        }, this, 0, this.head.onHeightChange);
+        
         this.leftLeg.onHeightChange.add(this.body.changeLimbHeightOnOtherChange, this.body, 0, this.leftLeg.onHeightChange);
         this.leftLeg.onHeightChange.add(this.head.changeLimbHeightOnOtherChange, this.head, 0, this.leftLeg.onHeightChange);
+        this.leftLeg.onHeightChange.add(function(changeY, signal) {
+            console.log(changeY +" "+this.pivot.y);
+            this.pivot.y = this.leftLeg.height;
+        }, this, 0, this.leftLeg.onHeightChange);
     }
 
     get head() {
@@ -77,9 +90,10 @@ export default class Human extends Puppet {
 
     get leftLeg() {
         if(!this._leftLeg) {
-            if(this.body) {
-                this._leftLeg = this.body.getLimb('leftLeg');                
-            }
+            // if(this.body) {
+            //     this._leftLeg = this.body.getLimb('leftLeg');                
+            // }
+            this._leftLeg = this.getLimb('leftLeg');
         }
         return this._leftLeg;
     }
@@ -87,16 +101,18 @@ export default class Human extends Puppet {
     set leftLeg(leftLeg) {
         this._leftLeg = leftLeg;
         leftLeg.name = 'leftLeg';
-        if(this.body) {
-            this.body.addLimb(leftLeg);            
-        }
+        // if(this.body) {
+        //     this.body.addLimb(leftLeg);            
+        // }
+        this.addLimb(leftLeg);
     }
 
     get rightLeg() {
         if(!this._rightLeg) {
-            if(this.body) {
-                this._rightLeg = this.body.getLimb('rightLeg');                
-            }
+            // if(this.body) {
+            //     this._rightLeg = this.body.getLimb('rightLeg');                
+            // }
+            this._rightLeg = this.getLimb('rightLeg');
         }
         return this._rightLeg;
     }
@@ -104,9 +120,10 @@ export default class Human extends Puppet {
     set rightLeg(rightLeg) {
         this._rightLeg = rightLeg;
         rightLeg.name = 'rightLeg';
-        if(this.body) {
-            this.body.addLimb(rightLeg);            
-        }
+        // if(this.body) {
+        //     this.body.addLimb(rightLeg);            
+        // }
+        this.addLimb(rightLeg);
     }
     
     setShirt(key, frame, anchorX=0.5, anchorY=0, offsetX=0.5, offsetY=0, offsetInPixelX=0, offsetInPixelY=0) {
@@ -214,9 +231,10 @@ export default class Human extends Puppet {
         let human = new Human(game);
         human.enableInputs(handler, false);
         human.name = 'human';
+        human.childOrder = ['leftLeg', 'rightLeg', 'body'];
         
-        human.body = new Limb(game, new Phaser.Point(0.5, 0), new Phaser.Point(0.5, 0), new Phaser.Point(0, 0), true);
-        human.body.childOrder = ['leftLeg', 'rightLeg', 'bodyShape', 'mask', 'shirt', 'belt', 'chain', 'jacket', 'scarf', 'head', 'leftHand', 'rightHand'];
+        human.body = new Limb(game, new Phaser.Point(0.5, 1), new Phaser.Point(0.5, 0), new Phaser.Point(0, 0), true);
+        human.body.childOrder = ['bodyShape', 'mask', 'shirt', 'belt', 'chain', 'jacket', 'scarf', 'head', 'leftHand', 'rightHand'];
         human.body.shape = new Shape(game, new Phaser.Point(1, 1), new Phaser.Point(0.5, 0), new Phaser.Point(0.5, 0), new Phaser.Point(0, 0), new Phaser.RoundedRectangle(0, 0, 200, 300, 10), "bodyShape");
         human.body.enableInputs(handler, false);
 
@@ -235,12 +253,12 @@ export default class Human extends Puppet {
         human.rightHand.shape = new Shape(game, new Phaser.Point(1, 1), new Phaser.Point(0.5, 0), new Phaser.Point(1, 0), new Phaser.Point(10, 0), new Phaser.Rectangle(0, 0, 50, 200), "rightHandShape");
         human.rightHand.enableInputs(handler, false);
 
-        human.leftLeg = new Limb(game, new Phaser.Point(1, 0), new Phaser.Point(0.5, 1), new Phaser.Point(-10,-20), false);
+        human.leftLeg = new Limb(game, new Phaser.Point(1, 0), new Phaser.Point(0.5, 0), new Phaser.Point(-10,-20), false);
         human.leftLeg.childOrder = ['leftLegShape', 'mask', 'leftPant', 'leftShoe'];
         human.leftLeg.shape = new Shape(game, new Phaser.Point(1, 1), new Phaser.Point(0.5, 0), new Phaser.Point(0, 0), new Phaser.Point(0, 0), new Phaser.Rectangle(0, 0,50 , 300), "leftLegShape");
         human.leftLeg.enableInputs(handler, false);
 
-        human.rightLeg = new Limb(game, new Phaser.Point(0, 0), new Phaser.Point(0.5, 1), new Phaser.Point(10,-20), false, human.bodyColor);
+        human.rightLeg = new Limb(game, new Phaser.Point(0, 0), new Phaser.Point(0.5, 0), new Phaser.Point(10,-20), false, human.bodyColor);
         human.rightLeg.childOrder = ['rightLegShape', 'mask', 'rightPant', 'rightShoe'];
         human.rightLeg.shape = new Shape(game, new Phaser.Point(1, 1), new Phaser.Point(0.5, 0), new Phaser.Point(0, 0), new Phaser.Point(0, 0), new Phaser.Rectangle(0, 0, 50, 300), "rightLegShape");
         human.rightLeg.enableInputs(handler, false);

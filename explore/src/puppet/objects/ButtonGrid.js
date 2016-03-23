@@ -51,6 +51,7 @@ export default class ButtonGrid extends Phaser.Group {
                 let key = this.name;
                 let frame = buttons[index];
                 let button = this.buttonPanel.add(new Phaser.Button(this.game, layoutX, layoutY, 'misc/theme', this.callSelectButton, this, 'button_over.png', 'button_up.png', 'button_down.png', 'button_up.png'));
+                button.input.priorityID = 5;
                 button.name = buttons[index];
                 button.scale.multiply(maxButtonWidth / button.width, maxButtonHeight / button.height);
                 button.anchor.setTo(0.5, 0.5);
