@@ -55,7 +55,9 @@ export default class Item extends EnableInputs(Phaser.Sprite) {
         if (obj2 instanceof TileTexture) {
             return;
         }
-        let distance = obj1.game.physics.arcade.distanceBetween(obj1.parent, obj2);
+        let CollideObject = obj2.parent.toGlobal(obj2.parent.position);
+        //let distance = obj1.game.physics.arcade.distanceBetween(obj1.parent, obj2);
+        let distance = Math.abs(obj1.y - CollideObject.y);
         if (!this.closestDistance || this.closestDistance > distance) {
             this.closestDistance = distance;
             this.closestObject = obj2;

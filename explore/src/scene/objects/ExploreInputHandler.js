@@ -1,4 +1,5 @@
 import Surface from './Surface.js';
+import TileTexture from './TileTexture.js';
 
 export default class ExploreInputHandler {
     constructor(game) {
@@ -13,7 +14,7 @@ export default class ExploreInputHandler {
     
     onInputDown(sprite, pointer) {
         sprite.scale.setTo(1.2,1.2);
-        sprite.toggleDoorOpen();
+     //   sprite.toggleDoorOpen();
     }
     
     onInputUp(sprite, pointer) {
@@ -62,12 +63,35 @@ export default class ExploreInputHandler {
         this.addChild(testSprite);
         this.game.debug.body(testSprite);
 
-        let result = {};
+         let self = this,enoughSpace = true , result = {},newResult = {};
         this.game.physics.arcade.overlap(testSprite, Surface.All, this.overlapHandler, null, result);
         testSprite.destroy();
         if (result.closestObject) {
-            result.closestObject.parent.addContent(this);
-            this.game.add.tween(this).to({ y: 0 + result.closestObject.height / 2 }, 1000, null, true);
+            
+            let closestObjectName = result.closestObject;
+            
+            this.game.physics.arcade.overlap(this, Surface.All,function(obj1,obj2) {
+         
+                if(obj2 instanceof TileTexture){
+                    return;
+                }
+                if (! (obj2.parent._uniquename == closestObjectName.parent._uniquename)) {
+                        let value1 = obj2.parent.toGlobal(obj2.parent.position);
+                        let value2 = closestObjectName.parent.toGlobal(closestObjectName.parent.position);
+                    if(obj1.height >= Math.abs((value1.y - value2.y)/2) ){
+                        enoughSpace = false;
+                        console.log("There is no Enough space ");
+                        return; 
+                    }
+                }
+            } , null , newResult);
+        
+            if(enoughSpace){
+                result.closestObject.parent.addContent(this);
+                this.game.add.tween(this).to({ y: 0 + result.closestObject.height / 2 }, (Math.abs(this.y)/0.1), null, true);
+                enoughSpace = true;    
+             }
+        
         }
         
     }   
