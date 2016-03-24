@@ -109,12 +109,12 @@ export default class AttributeEditOverlay extends Phaser.Group {
               if(value.children[i] instanceof Phaser.Button ){
                   if(this.clilckedButtonName == value.children[i].name){
                       var style = { font: "32px Arial", fill: ""+text_color, wordWrap: true, wordWrapWidth: value.children[i].width, align: "center", backgroundColor: ""+background_color };
-                      value.children[i+1] = new TextData(game,0,0,this.clilckedButtonName,null,textvalue,style,this._clickedObject._uniquename);
+                      value.children[i+1] = new TextData(game,0,0,this.clilckedButtonName,null,textvalue,style,null);
+                    //   value.children[i+1] = new Phaser.Text(game,0,0,""+textvalue,style);
                       value.children[i+1].parent = this._itemSettingTab.children[1].children[1];
                   }
               }
           }
-          
           
           this._itemSettingTab.destroy();
            this._recordingResumeSignal.dispatch();
