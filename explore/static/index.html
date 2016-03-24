@@ -570,8 +570,7 @@ if(!get_json_from_local || get_json_from_local.length==0)
 
 var question_number; // question number of the story which will be incremented till at the end of question.
 // storyid and pageid
-var story_id = "1";
-var page_id = "1";
+var story_id, page_id;
     
 // store the answers of the user
 var answer_sheet = new Array();    
@@ -894,7 +893,10 @@ $(document).ready(function() {
 				hidepopup("#multiple_choice_css");
 				hidepopup("#Question_css");
 				showpopup("#matching_css");		
-                   console.log("hello world");
+
+                   var v = window.callback.call(window.callbackContext);
+                   story_id = v.storyId;
+                   page_id = v.pageId;
 			   });
 			   
 				// click to create multiple choice type question then it will popup multiple choice popup
@@ -902,7 +904,11 @@ $(document).ready(function() {
 				hidepopup("#matching_css");
 				hidepopup("#Question_css");
 				showpopup("#multiple_choice_css");
-			   });
+                
+                 var v = window.callback.call(window.callbackContext);
+                 story_id = v.storyId;
+                 page_id = v.pageId;
+                 });
 			   
 				// click to ask question then it will popup ask question popup
 			   $("#ask_question").click(function(){

@@ -27,6 +27,7 @@ import PlayResumeSignal from '../objects/PlayResumeSignal.js';
 
 
 var _ = require('lodash');
+var idObject = new Object();
 //rename to BuildYourOwnStoryEditorState
 export default class ConstructNewStoryPageState extends Phaser.State {
     init(currentStoryId, currentPageId, cachedJSONRepresentation, sceneOrPuppetType) {
@@ -252,6 +253,17 @@ export default class ConstructNewStoryPageState extends Phaser.State {
     createQuestionAndAnswer() {
         console.log('this.storyid:' + this._currentStory.storyId + " and pageId:" + this._currentPage.pageId);
         $("#select_choice").css({"visibility":"visible","display":"block"});
+        idObject.storyId = this._currentStory.storyId;
+        idObject.pageId = this._currentPage.pageId;   
+        
+        window.callback = this.returnID;
+        window.callbackContext = this; 
+    }
+    
+//  when user choose question type then it returns the story id and page id.
+    returnID()
+    {
+        return idObject;
     }
 
     chooseBackGround(sprite, pointer) {
