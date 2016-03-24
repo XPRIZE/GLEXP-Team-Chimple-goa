@@ -150,6 +150,9 @@ export default class Limb extends EnableInputs(RelativePosition(Phaser.Group)) {
             //maskA.positionRelativeToParent();
             maskA.dirty = true; //Due to a bug in Pixi for WebGL need to explicitly set dirty for mask true
         }
+        this.accessories.forEach(function(acc) {
+            acc.positionRelativeToParent();
+        }, this);
     }
 
     get accessories() {
@@ -189,6 +192,7 @@ export default class Limb extends EnableInputs(RelativePosition(Phaser.Group)) {
         accessory.positionRelativeToParent();
         if (this._maskA && mask) {
             accessory.mask = this._maskA;
+            this._maskA.dirty = true;
         }
         return accessory;
     }

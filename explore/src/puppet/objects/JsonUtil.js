@@ -25,6 +25,8 @@ export default class JsonUtil {
     static revive(k, v) {
         if (v instanceof Object && v._class == 'Shape') {
             return Shape.fromJSON(window.game, v);
+        } else if (v instanceof Object && v._class == 'ComboShape') {
+            return ComboShape.fromJSON(window.game, v);
         } else if (v instanceof Object && v._class == 'Limb') {
             return Limb.fromJSON(window.game, v);
         } else if (v instanceof Object && v._class == 'Puppet') {
