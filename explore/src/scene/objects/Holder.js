@@ -10,6 +10,7 @@ export default class Holder extends Item {
          this.y = y;
          this.inputEbaled = true;
          this.doorOpen = false;
+         this.text = "";
     }   
 
     enableInputs(instance, iterateInside) {

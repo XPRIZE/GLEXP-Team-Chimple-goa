@@ -111,8 +111,11 @@ body{
     function chimple_html_to_phaser()
         {
             var textvalue = document.getElementById("text_area").value;
-            window.callback.call(window.callbackContext, textvalue, text_color, background_color);     
+            window.callback.call(window.callbackContext, textvalue, text_color, background_color);
             console.log("textvalue : "+ textvalue +" text_color : "+ text_color +" background_color : "+ background_color);
+            $("#login-box").hide();
+            $('#mask').remove();
+            document.getElementById("text_area").value = '';
         }
     
     function DisplayColor(val)
@@ -161,6 +164,20 @@ $(document).ready(function() {
         
         $("#pankaj").css({"display":"none"});         
     });
+   
+   
+    $('#r, #g, #b').change(function(){
+       if(flag==0)
+           {
+               $("#text_area").css("color" , "rgb("+$("#r").val()+","+$("#g").val()+","+$("#b").val()+")"); 
+               text_color= rgbToHex(parseInt($("#r").val()) , parseInt($("#g").val()) , parseInt($("#b").val()));
+           }
+       else
+           {
+               $("#login-box").css("background-color" , "rgb("+$("#r").val()+","+$("#g").val()+","+$("#b").val()+")")
+               background_color = rgbToHex(parseInt($("#r").val()) , parseInt($("#g").val()) , parseInt($("#b").val()));
+           }
+   });
    
     $("#back").click(function(){
        $('#pankaj').show(1000);
