@@ -251,6 +251,7 @@ export default class ConstructNewStoryPageState extends Phaser.State {
 
     createQuestionAndAnswer() {
         console.log('this.storyid:' + this._currentStory.storyId + " and pageId:" + this._currentPage.pageId);
+        $("#select_choice").css({"visibility":"visible","display":"block"});
     }
 
     chooseBackGround(sprite, pointer) {
