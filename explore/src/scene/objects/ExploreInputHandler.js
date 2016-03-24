@@ -14,6 +14,21 @@ export default class ExploreInputHandler {
     
     onInputDown(sprite, pointer) {
         sprite.scale.setTo(1.2,1.2);
+        
+        $('#element_to_pop_up').bPopup();
+        
+   		var url = "make" + '.json';
+		console.log('url '+url);
+		var meaning = '';
+			$.getJSON(url, function(jd) {
+					meaning = jd.meaning;
+					meaning = $(meaning).text();
+					$("#word").text(url);					
+					$("#meaning_content").text(meaning);
+					$("#example_content").text(jd.exmaples);
+					$("#image_content").attr("src", jd.image);
+               });
+        
      //   sprite.toggleDoorOpen();
     }
     

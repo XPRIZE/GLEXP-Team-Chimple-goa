@@ -1,7 +1,7 @@
 
 export default class TextData extends Phaser.Text {
     
-    constructor(game,x,y,key,frame,text,style,objectUniqueName){
+    constructor(game,x,y,key,frame,text,style,objectUniqueName,apply){
         
         super(game,x,y,text,style);
         
@@ -11,6 +11,7 @@ export default class TextData extends Phaser.Text {
         this.text = text;
         this.style = style;
         this.objectUniqueName = objectUniqueName;
+        this.apply = apply;
         
     }
     
@@ -29,7 +30,7 @@ export default class TextData extends Phaser.Text {
     }
     
     static fromJSON(game, j) {
-        let textData = new TextData(game, j.x, j.y,j.key,j.frame,j.text,j.style,j.objectUniqueName);
+        let textData = new TextData(game, j.x, j.y,j.key,j.frame,j.text,j.style,j.objectUniqueName,j.apply);
         textData.objectUniqueName = j.objectUniqueName;
         return textData;
     

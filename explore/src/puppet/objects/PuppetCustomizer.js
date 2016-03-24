@@ -2,6 +2,7 @@ import Puppet from '../objects/Puppet.js';
 import Human from '../objects/Human.js';
 import Limb from '../objects/Limb.js';
 import Shape from '../objects/Shape.js';
+import Sprite from './Sprite.js';
 import JsonUtil from '../objects/JsonUtil.js';
 import TabView from '../objects/TabView.js';
 import ButtonGrid from '../objects/ButtonGrid.js';

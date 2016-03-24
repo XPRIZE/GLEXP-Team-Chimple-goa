@@ -67,27 +67,55 @@ export default class AttributeEditOverlay extends Phaser.Group {
             let backGroundThemes = that.game.cache.getJSON('storyBuilder/background_themes');
             //later get from texture packer
             let TextNames = ["plus1", "plus2", "plus3", "plus4"];
-            let audioNames = ["plus1", "plus2"];
+            let audioNames = ["plus1", "plus2"]
+            
+            that._clickedObject._specialAttributes.text.forEach(function(element, index) {
+                TextNames[index] = 'plus1';  
+               if(element != null){
+                   TextNames[index] = 'forest_1_th';
+               }
+              
+            }, this);
             
             that._itemSettingTab = that.game.add.existing(new TabView(that.game, 'scene/scene', that.game.width + that.game.world.camera.x, that.game.height + that.game.world.camera.y, 10, 50, 5, 3, true, function(tab, button) {
                 that._itemSettingTab.unSelect();
                 // that._itemSettingTab.destroy();
                  that._clickedObject.inputEnabled = true;
                 //that._recordingResumeSignal.dispatch();
-                              
-                console.log(" button name is : "+ button + " tab name is : "+tab);
-                that.clilckedButtonName = button;
-                if(tab == "forest"){
-                $("#login-box").fadeIn(300);
                 
-                $('body').append('<div id="mask"></div>');
-                $('#mask').fadeIn(300);
-                    window.callback = this.addtext_fromhtml;
-                    window.callbackContext = this;
-                }else if( tab == " village"){
-                    console.log("you pressed on AudioTab");
+                let index = 0,flag = false;
+                for(index =0 ; index < TextNames.length ; index++){
+                    if(TextNames[index] == button){
+                        flag = true;
+                    }
+                    if(flag)
+                         break;
                 }
                 
+                console.log(" button name is : "+ button + " tab name is : "+tab + " index of button : "+index);             
+                if(game._inPauseRecording){
+
+                    if(tab == "forest"){
+                        
+                        this._clickedObject.text = this._clickedObject._specialAttributes.text[index];
+                     
+                    }else if( tab == " village"){
+                  
+                    }
+
+                }else{                          
+                    that.clilckedButtonName = button;
+                    if(tab == "forest"){
+                    $("#login-box").fadeIn(300);
+                    
+                    $('body').append('<div id="mask"></div>');
+                    $('#mask').fadeIn(300);
+                        window.callback = this.addtext_fromhtml;
+                        window.callbackContext = this;
+                    }else if( tab == " village"){
+                        console.log("you pressed on AudioTab");
+                    }
+                }
             }, that, backGroundThemes));
 
             that._itemSettingTab.tabs = { 'forest': TextNames, 'village': audioNames };
@@ -102,25 +130,26 @@ export default class AttributeEditOverlay extends Phaser.Group {
 
     addtext_fromhtml(textvalue, text_color, background_color)
     {   
-        //   this._itemSettingTab.destroy();
-    
           let value = this._itemSettingTab.children[1].children[1];
           for(var i = 0 ; i < value.length ; i ++){
               if(value.children[i] instanceof Phaser.Button ){
                   if(this.clilckedButtonName == value.children[i].name){
-                      var style = { font: "32px Arial", fill: ""+text_color, wordWrap: true, wordWrapWidth: value.children[i].width, align: "center", backgroundColor: ""+background_color };
-                      value.children[i+1] = new TextData(game,0,0,this.clilckedButtonName,null,textvalue,style,this._clickedObject._uniquename);
-                      value.children[i+1].parent = this._itemSettingTab.children[1].children[1];
+                     var style = { font: "32px Arial", fill: ""+text_color, wordWrap: true, wordWrapWidth: value.children[i].width, align: "center", backgroundColor: ""+background_color };
+                    
+                     let x = value.children[i+1].x , y = value.children[i+1].y;
+                     let jsonDataText = new TextData(game,0,0,this.clilckedButtonName,null,textvalue,style,this._clickedObject._uniquename, 0);
+                     
+                     value.children[i+1].loadTexture("storyBuilder/forest_1_th");
+                     value.children[i+1].parent = value;
+                     console.log("JSON FOR TEXT OBJECT \n\n"+ JSON.stringify(jsonDataText));
                   }
               }
           }
-          
-          
-          this._itemSettingTab.destroy();
+        
            this._recordingResumeSignal.dispatch();
-           console.log("my value = "+textvalue + " color : "+ text_color + " background_color : "+ background_color);
-           console.log('text is added for sprite:' + this._clickedObject);
-           this._clickedObject.text = textvalue;        
+           this._clickedObject._specialAttributes.text.push(textvalue);
+           //console.log(" text value : "+  this._clickedObject._specialAttributes.text);    
+        //    this._itemSettingTab.destroy();    
     }
 
     drawScaleHandler(alpha, color, lineWidth, radius) {
