@@ -27,6 +27,7 @@ let EnableInputs = (superclass) => class extends superclass {
     disableInputs(iterateInside) {
         this.instance = null;
         this.inputEnabled = false;
+        this.dragEnabled  = false;
         if (iterateInside) {
             this.children.forEach(function(value) {
                 if ('function' == typeof value.disableInputs) {
