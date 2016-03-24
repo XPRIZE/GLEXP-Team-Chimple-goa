@@ -18,7 +18,7 @@ class Game extends Phaser.Game {
 
         let sceneStateHolder = new SceneStateHolder(this);
         sceneStateHolder.createStates();
-		// sceneStateHolder.startDefault();
+		//sceneStateHolder.startDefault();
 	}
 }
 

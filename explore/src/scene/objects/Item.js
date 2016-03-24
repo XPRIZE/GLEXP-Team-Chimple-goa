@@ -33,7 +33,9 @@ export default class Item extends EnableInputs(Phaser.Sprite) {
         this._showAttributeEditorSignal = new ShowAttributeEditorSignal();
         //added for testing purpose, will be replaced by Special Attribute Class later...
         this._userGeneratedText = null;
-        
+        this._specialAttributes = null;
+        this._specialAttributes = {text:[],audio:[]};
+       
         this._playPauseSignal = new PlayPauseSignal();
     }
 
