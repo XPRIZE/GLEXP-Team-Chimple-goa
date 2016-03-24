@@ -1,562 +1,542 @@
 <!DOCTYPE HTML>
 <html>
+
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-	
-	<link rel="stylesheet" href="styles/main.css">
-<title>CHIMPLE CITY</title>
-<style type="text/css">
-body{
-	 background:#ffffff;
-	 font:bold 12px Arial, Helvetica, sans-serif;
-	 margin:0;
-	 padding:0;
-	 min-width:100%;
-     min-height: 100%;
-    
-    width : 100%;
-    height : 100%;
-    
-	 color:#bbbbbb; 
-}
-/* start :-  css to add text from the html popup to phaser game */
-.container {    
-    width: 100%; margin: 0 auto; overflow: hidden; height:100%;
-        min-height: 90%;
-    min-width: 90%;
-    }
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 
-#gameCanvas {	float: left; width: 100%; height: 100%;}
+    <link rel="stylesheet" href="styles/main.css">
+    <title>CHIMPLE CITY</title>
+    <style type="text/css">
+        body {
+            background: #ffffff;
+            font: bold 12px Arial, Helvetica, sans-serif;
+            margin: 0;
+            padding: 0;
+            min-width: 100%;
+            min-height: 100%;
+            width: 100%;
+            height: 100%;
+            color: #bbbbbb;
+        }
+        /* start :-  css to add text from the html popup to phaser game */
+        
+        .container {
+            width: 100%;
+            margin: 0 auto;
+            overflow: hidden;
+            height: 100%;
+            min-height: 90%;
+            min-width: 90%;
+        }
+        
+        #gameCanvas {
+            float: left;
+            width: 100%;
+            height: 100%;
+        }
+        
+        #mask {
+            display: none;
+            background: #000;
+            position: fixed;
+            left: 0;
+            top: 0;
+            z-index: 10;
+            width: 100%;
+            height: 100%;
+            min-height: 90%;
+            min-width: 90%;
+            opacity: 0.8;
+            z-index: 999;
+        }
+        
+        .login-popup {
+            width: 90%;
+            height: 90%;
+            min-height: 90%;
+            min-width: 90%;
+            margin-left: 5%;
+            margin-top: 2%;
+            display: none;
+            background: #333;
+            border: 2px solid #ddd;
+            float: left;
+            font-size: 1.2em;
+            position: fixed;
+            z-index: 99999;
+            -moz-box-shadow: 0px 0px 20px #999;
+            /* Firefox */
+            -webkit-box-shadow: 0px 0px 20px #999;
+            /* Safari, Chrome */
+            border-radius: 3px 3px 3px 3px;
+            -moz-border-radius: 3px;
+            /* Firefox */
+            -webkit-border-radius: 3px;
+            /* Safari, Chrome */
+        }
+        
+        #pankaj {
+            width: 20%;
+            height: 30%;
+            min-height: 30%;
+            min-width: 15%;
+            margin-left: 0%;
+            margin-top: 2%;
+            display: none;
+            background: #333;
+            border: 2px solid #ddd;
+            float: left;
+            font-size: 1.2em;
+            position: fixed;
+            z-index: 999999;
+            box-shadow: 0px 0px 20px #999;
+            -moz-box-shadow: 0px 0px 20px #999;
+            /* Firefox */
+            -webkit-box-shadow: 0px 0px 20px #999;
+            /* Safari, Chrome */
+            border-radius: 3px 3px 3px 3px;
+            -moz-border-radius: 3px;
+            /* Firefox */
+            -webkit-border-radius: 3px;
+            /* Safari, Chrome */
+        }
+        /* end :-  css to add text from the html popup to phaser game */
+        /* start :-  css to show the details in popup when user select any text */
+        
+        #gdx-bubble-main {
+            border: 1px solid #999;
+            border-radius: 4px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+            color: #222;
+            font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+            font-size: 14px;
+            line-height: normal;
+            padding: 9px;
+            position: absolute;
+            width: 300px
+        }
+        
+        #gdx-bubble-main:after {
+            clear: both;
+            content: "";
+            display: table
+        }
+        
+        #gdx-bubble-close {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 16px;
+            height: 16px;
+            background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAICAYAAADED76LAAAAYUlEQVQYV12PwQ2AMAwD2w3YBEaAycsIsAkbgC+qowikeyCfHLe31l5xiUM8gm8RQ2x9hmuRECIUNwL2KSwhRCh2BFda4j9CTlbBtQi5ySfy5mzMTXWka3FyEwLPzJv/TR8o8xvGTnBWXwAAAABJRU5ErkJggg==');
+            background-position: center;
+            background-repeat: no-repeat;
+            cursor: pointer;
+            opacity: 0.35
+        }
+        
+        #gdx-bubble-close:hover {
+            opacity: 0.8
+        }
+        
+        #gdx-bubble-query-row {
+            margin-bottom: 9px
+        }
+        
+        #gdx-bubble-query,
+        #gdx-bubble-audio-icon {
+            display: inline-block;
+            height: 20px;
+            line-height: 20px;
+            vertical-align: top
+        }
+        
+        #gdx-bubble-query {
+            font-size: 16px;
+            font-weight: bold
+        }
+        
+        #gdx-bubble-audio-icon {
+            background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAcUlEQVQ4y2P4//8/AyUYQhAH3gNxA7IAIQPmo/H3g/QA8XkgFiBkwHyoYnRQABVfj88AmGZcTuuHyjlgMwBZM7IE3NlQGhQe65EN+I8Dw8MLGgYoFpFqADK/YUAMwOsFigORatFIlYRElaRMWmaiBAMAp0n+3U0kqkAAAAAASUVORK5CYII=');
+            background-position: center;
+            background-repeat: no-repeat;
+            cursor: pointer;
+            margin-left: 8px;
+            opacity: 0.5;
+            width: 16px
+        }
+        
+        #gdx-bubble-audio-icon:hover {
+            opacity: 1
+        }
+        
+        #gdx-bubble-meaning {
+            line-height: 1.3
+        }
+        
+        #gdx-bubble-options-tip,
+        #gdx-bubble-more,
+        #gdx-bubble-attribution {
+            font-size: 12px;
+            line-height: 1.3;
+            margin-top: 9px
+        }
+        
+        #gdx-bubble-options-tip {
+            color: #c04
+        }
+        
+        #gdx-bubble-more a {
+            float: right;
+            word-break: break-all
+        }
+        
+        #gdx-bubble-attribution {
+            color: #666;
+            float: left;
+            margin-right: 9px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            width: 230px
+        }
+        
+        #gdx-bubble-attribution a {
+            color: #073
+        }
+        
+        #gdx-arrow-main {
+            position: absolute;
+            z-index: 99998
+        }
+        
+        #gdx-bubble-arrow-inner-up,
+        #gdx-bubble-arrow-inner-down {
+            background: transparent;
+            border-left: 10px solid transparent;
+            border-right: 10px solid transparent;
+            left: 2px;
+            position: absolute;
+            width: 0;
+            z-index: 99999
+        }
+        
+        #gdx-bubble-arrow-inner-up {
+            border-bottom: 10px solid #ffd;
+            top: 2px
+        }
+        
+        #gdx-bubble-arrow-inner-down {
+            border-top: 10px solid #ffd
+        }
+        
+        #gdx-bubble-arrow-outer-up,
+        #gdx-bubble-arrow-outer-down {
+            background: transparent;
+            border-left: 12px solid transparent;
+            border-right: 12px solid transparent;
+            left: 0;
+            position: absolute;
+            width: 0
+        }
+        
+        #gdx-bubble-arrow-outer-up {
+            border-bottom: 12px solid #999
+        }
+        
+        #gdx-bubble-arrow-outer-down {
+            border-top: 12px solid #999
+        }
+        
+        .nytd_selection_button {
+            display: none
+        }
+        
+        #element_to_pop_up {
+            background-color: #fff;
+            border-radius: 15px;
+            color: #000;
+            display: none;
+            padding: 20px;
+            min-width: 400px;
+            min-height: 180px;
+        }
+        
+        .b-close {
+            cursor: pointer;
+            position: absolute;
+            right: 10px;
+            top: 5px;
+        }
+        /* end :-  css to show the details in popup when user select any text */
+        /* start :-  css to show the questions */
+        
+        #multiple_choice_css {
+            width: 50%;
+            height: 80%;
+            margin-top: 0%px;
+            margin-left: 25%;
+            display: none;
+            background: #333;
+            border: 2px solid #ddd;
+            float: left;
+            font-size: 1.2em;
+            position: fixed;
+            z-index: 99999;
+            -moz-box-shadow: 0px 0px 20px #999;
+            /* Firefox */
+            -webkit-box-shadow: 0px 0px 20px #999;
+            /* Safari, Chrome */
+            border-radius: 3px 3px 3px 3px;
+            -moz-border-radius: 3px;
+            /* Firefox */
+            -webkit-border-radius: 3px;
+            /* Safari, Chrome */
+        }
+        
+        #multiple_choice_css .login {
+            margin-left: 5%;
+            width: 95%;
+            height: 10%;
+            border: 2px solid silver;
+            border-radius: 10px;
+            padding: 5px;
+            margin: 10px;
+            font-size: 20px;
+        }
+        
+        #multiple_choice_css .common_css {
+            margin-left: 5%;
+            width: 40%;
+            height: 10%;
+            padding: 5px;
+            margin: 10px;
+        }
+        
+        #multiple_choice_css #multiple_submit_btn_css {
+            margin-top: 2%;
+            font-size: 30px;
+            width: 35%;
+            height: 12%;
+            margin-left: 32%;
+        }
+        
+        #matching_css {
+            width: 30%;
+            height: 40%;
+            margin-top: 0%px;
+            margin-left: 35%;
+            display: none;
+            background: #333;
+            border: 2px solid #ddd;
+            float: left;
+            font-size: 1.2em;
+            position: fixed;
+            z-index: 99999;
+            -moz-box-shadow: 0px 0px 20px #999;
+            /* Firefox */
+            -webkit-box-shadow: 0px 0px 20px #999;
+            /* Safari, Chrome */
+            border-radius: 3px 3px 3px 3px;
+            -moz-border-radius: 3px;
+            /* Firefox */
+            -webkit-border-radius: 3px;
+            /* Safari, Chrome */
+        }
+        
+        #matching_css .login {
+            margin-left: 5%;
+            width: 95%;
+            height: 10%;
+            border: 2px solid silver;
+            border-radius: 10px;
+            padding: 5px;
+            margin: 10px;
+            font-size: 20px;
+        }
+        
+        #matching_css .common_css {
+            margin-left: 5%;
+            width: 40%;
+            height: 10%;
+            padding: 5px;
+            margin: 10px;
+        }
+        
+        #matching_css #dologin {
+            margin-left: -5px;
+            margin-top: 10px;
+            width: 250px;
+            height: 40px;
+            border: none;
+            border-radius: 3px;
+            color: #E6E6E6;
+            background-color: grey;
+            font-size: 20px;
+        }
+        
+        #matching_css #matching_submit_btn_css {
+            margin-top: 5%;
+            font-size: 20px;
+            width: 35%;
+            height: 12%;
+            margin-left: 32%;
+        }
+        
+        #Question_css {
+            width: 50%;
+            height: 50%;
+            margin-top: 0%px;
+            margin-left: 25%;
+            display: none;
+            background: #333;
+            border: 2px solid #ddd;
+            float: left;
+            font-size: 1.2em;
+            position: fixed;
+            z-index: 99999;
+            -moz-box-shadow: 0px 0px 20px #999;
+            /* Firefox */
+            -webkit-box-shadow: 0px 0px 20px #999;
+            /* Safari, Chrome */
+            border-radius: 3px 3px 3px 3px;
+            -moz-border-radius: 3px;
+            /* Firefox */
+            -webkit-border-radius: 3px;
+            /* Safari, Chrome */
+        }
+        
+        #Question_css #login {
+            margin-left: 5%;
+            width: 95%;
+            height: 10%;
+            border: 2px solid silver;
+            border-radius: 10px;
+            padding: 5px;
+            margin-top: 5%;
+            font-size: 20px;
+        }
+        
+        #Question_css .common_css {
+            margin-left: 25%;
+            width: 40%;
+            height: 10%;
+            padding: 5px;
+            margin: 10px;
+        }
+        
+        #Question_css #dologin {
+            margin-left: -5px;
+            margin-top: 10px;
+            width: 250px;
+            height: 40px;
+            border: none;
+            border-radius: 3px;
+            color: #E6E6E6;
+            background-color: grey;
+            font-size: 20px;
+        }
+        
+        #Question_css #question_submit_btn_css {
+            margin-top: 5%;
+            font-size: 20px;
+            width: 35%;
+            height: 12%;
+            margin-left: 32%;
+        }
+        
+        #MatchingQuestion_css {
+            width: 50%;
+            height: auto;
+            margin-top: 0%px;
+            background-color: #585858;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px 0px #424242;
+            //		   padding:10px;
+            box-sizing: border-box;
+            font-family: helvetica;
+            visibility: hidden;
+            display: none;
+            margin-left: 25%;
+        }
+        
+        #MatchingQuestion_css #login {
+            margin-left: 5%;
+            width: 95%;
+            height: 10%;
+            border: 2px solid silver;
+            border-radius: 10px;
+            padding: 5px;
+            margin-top: 5%;
+            font-size: 20px;
+        }
+        
+        #MatchingQuestion_css .common_css {
+            margin-left: 25%;
+            width: 40%;
+            height: 10%;
+            padding: 5px;
+            margin: 10px;
+        }
+        
+        #MatchingQuestion_css #dologin {
+            margin-left: -5px;
+            margin-top: 10px;
+            width: 250px;
+            height: 40px;
+            border: none;
+            border-radius: 3px;
+            color: #E6E6E6;
+            background-color: grey;
+            font-size: 20px;
+        }
+        
+        #MatchingQuestion_css #question_submit_btn_css {
+            margin-top: 5%;
+            font-size: 20px;
+            width: 35%;
+            height: 12%;
+            margin-left: 32%;
+        }
+        
+        .choose_file {
+            margin-left: 5%;
+            position: relative;
+            display: inline-block;
+            border-radius: 8px;
+            border: #ebebeb solid 1px;
+            width: 20%;
+            padding: 4px 6px 4px 8px;
+            font: normal 14px Myriad Pro, Verdana, Geneva, sans-serif;
+            color: #7f7f7f;
+            margin-top: 2px;
+            background: white
+        }
+        
+        .choose_file input[type="file"] {
+            -webkit-appearance: none;
+            position: absolute;
+            top: 0;
+            left: 0;
+            opacity: 0;
+        }
+        /* end :-  css to show the questions */
+    </style>
 
-#mask {
-	display: none;
-	background: #000; 
-	position: fixed; left: 0; top: 0; 
-	z-index: 10;
-	width: 100%; height: 100%;
-    
-    min-height: 90%;
-    min-width: 90%;
-    
-	opacity: 0.8;
-	z-index: 999;
-}
 
-.login-popup{
-    width : 90%;
-    height : 90%;
-    
-    min-height: 90%;
-    min-width: 90%;
-    
-    margin-left: 5%;
-    margin-top: 2%;
-	display:none;
-	background: #333;
-	border: 2px solid #ddd;
-	float: left;
-	font-size: 1.2em;
-	position: fixed;
-	z-index: 99999;
-
-	-moz-box-shadow: 0px 0px 20px #999; /* Firefox */
-    -webkit-box-shadow: 0px 0px 20px #999; /* Safari, Chrome */
-	border-radius:3px 3px 3px 3px;
-    -moz-border-radius: 3px; /* Firefox */
-    -webkit-border-radius: 3px; /* Safari, Chrome */
-}
-
-#pankaj{
-    width : 20%;
-    height : 30%;
-    
-    min-height: 30%;
-    min-width: 15%;
-    
-    margin-left: 0%;
-    margin-top: 2%;
-    
-	display:none;
-	background: #333;
-	border: 2px solid #ddd;
-	float: left;
-	font-size: 1.2em;
-	position: fixed;
-	z-index: 999999;
-	box-shadow: 0px 0px 20px #999;
-	-moz-box-shadow: 0px 0px 20px #999; /* Firefox */
-    -webkit-box-shadow: 0px 0px 20px #999; /* Safari, Chrome */
-	border-radius:3px 3px 3px 3px;
-    -moz-border-radius: 3px; /* Firefox */
-    -webkit-border-radius: 3px; /* Safari, Chrome */
-}
-/* end :-  css to add text from the html popup to phaser game */
-
-/* start :-  css to show the details in popup when user select any text */
-    
-#gdx-bubble-main {
-    border: 1px solid #999;
-    border-radius: 4px;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
-    color: #222;
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-    font-size: 14px;
-    line-height: normal;
-    padding: 9px;
-    position: absolute;
-    width: 300px
-}
-
-#gdx-bubble-main:after {
-    clear: both;
-    content: "";
-    display: table
-}
-
-#gdx-bubble-close {
-    position: absolute;
-    top: 0;
-    right: 0;
-    width: 16px;
-    height: 16px;
-    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAICAYAAADED76LAAAAYUlEQVQYV12PwQ2AMAwD2w3YBEaAycsIsAkbgC+qowikeyCfHLe31l5xiUM8gm8RQ2x9hmuRECIUNwL2KSwhRCh2BFda4j9CTlbBtQi5ySfy5mzMTXWka3FyEwLPzJv/TR8o8xvGTnBWXwAAAABJRU5ErkJggg==');
-    background-position: center;
-    background-repeat: no-repeat;
-    cursor: pointer;
-    opacity: 0.35
-}
-
-#gdx-bubble-close:hover {
-    opacity: 0.8
-}
-
-#gdx-bubble-query-row {
-    margin-bottom: 9px
-}
-
-#gdx-bubble-query,
-#gdx-bubble-audio-icon {
-    display: inline-block;
-    height: 20px;
-    line-height: 20px;
-    vertical-align: top
-}
-
-#gdx-bubble-query {
-    font-size: 16px;
-    font-weight: bold
-}
-
-#gdx-bubble-audio-icon {
-    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAcUlEQVQ4y2P4//8/AyUYQhAH3gNxA7IAIQPmo/H3g/QA8XkgFiBkwHyoYnRQABVfj88AmGZcTuuHyjlgMwBZM7IE3NlQGhQe65EN+I8Dw8MLGgYoFpFqADK/YUAMwOsFigORatFIlYRElaRMWmaiBAMAp0n+3U0kqkAAAAAASUVORK5CYII=');
-    background-position: center;
-    background-repeat: no-repeat;
-    cursor: pointer;
-    margin-left: 8px;
-    opacity: 0.5;
-    width: 16px
-}
-
-#gdx-bubble-audio-icon:hover {
-    opacity: 1
-}
-
-#gdx-bubble-meaning {
-    line-height: 1.3
-}
-
-#gdx-bubble-options-tip,
-#gdx-bubble-more,
-#gdx-bubble-attribution {
-    font-size: 12px;
-    line-height: 1.3;
-    margin-top: 9px
-}
-
-#gdx-bubble-options-tip {
-    color: #c04
-}
-
-#gdx-bubble-more a {
-    float: right;
-    word-break: break-all
-}
-
-#gdx-bubble-attribution {
-    color: #666;
-    float: left;
-    margin-right: 9px;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    width: 230px
-}
-
-#gdx-bubble-attribution a {
-    color: #073
-}
-
-#gdx-arrow-main {
-    position: absolute;
-    z-index: 99998
-}
-
-#gdx-bubble-arrow-inner-up,
-#gdx-bubble-arrow-inner-down {
-    background: transparent;
-    border-left: 10px solid transparent;
-    border-right: 10px solid transparent;
-    left: 2px;
-    position: absolute;
-    width: 0;
-    z-index: 99999
-}
-
-#gdx-bubble-arrow-inner-up {
-    border-bottom: 10px solid #ffd;
-    top: 2px
-}
-
-#gdx-bubble-arrow-inner-down {
-    border-top: 10px solid #ffd
-}
-
-#gdx-bubble-arrow-outer-up,
-#gdx-bubble-arrow-outer-down {
-    background: transparent;
-    border-left: 12px solid transparent;
-    border-right: 12px solid transparent;
-    left: 0;
-    position: absolute;
-    width: 0
-}
-
-#gdx-bubble-arrow-outer-up {
-    border-bottom: 12px solid #999
-}
-
-#gdx-bubble-arrow-outer-down {
-    border-top: 12px solid #999
-}
-
-.nytd_selection_button {
-    display: none
-}
-
-#element_to_pop_up { 
-    background-color:#fff;
-    border-radius:15px;
-    color:#000;
-    display:none; 
-    padding:20px;
-    min-width:400px;
-    min-height: 180px;
-}
-.b-close{
-    cursor:pointer;
-    position:absolute;
-    right:10px;
-    top:5px;
-}
-
-/* end :-  css to show the details in popup when user select any text */ 
-    
-
-    
-/* start :-  css to show the questions */ 
-     
-		#multiple_choice_css
-		{
-		   width:50%;
-		   height:80%;
-		   margin-top:0%px;
-		   margin-left:25%;
-	display:none;
-	background: #333;
-	border: 2px solid #ddd;
-	float: left;
-	font-size: 1.2em;
-	position: fixed;
-	z-index: 99999;
-
-	-moz-box-shadow: 0px 0px 20px #999; /* Firefox */
-    -webkit-box-shadow: 0px 0px 20px #999; /* Safari, Chrome */
-	border-radius:3px 3px 3px 3px;
-    -moz-border-radius: 3px; /* Firefox */
-    -webkit-border-radius: 3px; /* Safari, Chrome */ 
-		}
-
-		#multiple_choice_css .login
-		{
-		   margin-left : 5%;
-		   width:95%;
-		   height:10%;
-		   border:2px solid silver;
-		   border-radius:10px;
-		   padding:5px;
-		   margin : 10px;
-		   font-size : 20px;
-		}
-		
-		#multiple_choice_css .common_css
-		{
-		   margin-left : 5%;
-		   width:40%;
-		   height:10%;
-		   padding:5px;
-		   margin : 10px;
-		}
-
-		
-		#multiple_choice_css #multiple_submit_btn_css
-		{
-			margin-top:2%;
-			font-size : 30px;
-			width : 35%;
-			height : 12%;
-			margin-left : 32%;
-		}
-		
-
-		
-		#matching_css
-		{
-		   width:30%;
-		   height:40%;
-		   margin-top:0%px;
-    
-    margin-left: 35%;
-	display:none;
-	background: #333;
-	border: 2px solid #ddd;
-	float: left;
-	font-size: 1.2em;
-	position: fixed;
-	z-index: 99999;
-
-	-moz-box-shadow: 0px 0px 20px #999; /* Firefox */
-    -webkit-box-shadow: 0px 0px 20px #999; /* Safari, Chrome */
-	border-radius:3px 3px 3px 3px;
-    -moz-border-radius: 3px; /* Firefox */
-    -webkit-border-radius: 3px; /* Safari, Chrome */
-		}
-
-		#matching_css .login
-		{
-		   margin-left : 5%;
-		   width:95%;
-		   height:10%;
-		   border:2px solid silver;
-		   border-radius:10px;
-		   padding:5px;
-		   margin : 10px;
-		   font-size : 20px;
-		}
-		
-		#matching_css .common_css
-		{
-		   margin-left : 5%;
-		   width:40%;
-		   height:10%;
-		   padding:5px;
-		   margin : 10px;
-		}
-
-		
-		
-		#matching_css #dologin
-		{
-		   margin-left:-5px;
-		   margin-top:10px;
-		   width:250px;
-		   height:40px;
-		   border:none;
-		   border-radius:3px;
-		   color:#E6E6E6;
-		   background-color:grey;
-		   font-size:20px;
-		}		
-		
-		#matching_css #matching_submit_btn_css
-		{
-			margin-top:5%;
-			font-size : 20px;
-			width : 35%;
-			height : 12%;
-			margin-left : 32%;
-		}
-
-    
-		#Question_css
-		{
-		   width:50%;
-		   height:50%;
-		   margin-top:0%px;
-		   margin-left:25%;
-            
-	display:none;
-	background: #333;
-	border: 2px solid #ddd;
-	float: left;
-	font-size: 1.2em;
-	position: fixed;
-	z-index: 99999;
-
-	-moz-box-shadow: 0px 0px 20px #999; /* Firefox */
-    -webkit-box-shadow: 0px 0px 20px #999; /* Safari, Chrome */
-	border-radius:3px 3px 3px 3px;
-    -moz-border-radius: 3px; /* Firefox */
-    -webkit-border-radius: 3px; /* Safari, Chrome */
-		}
-
-		#Question_css #login
-		{
-		   margin-left : 5%;
-		   width:95%;
-		   height:10%;
-		   border:2px solid silver;
-		   border-radius:10px;
-		   padding:5px;
-		   margin-top : 5%;
-		   font-size : 20px;
-		}
-		
-		#Question_css .common_css
-		{
-		   margin-left : 25%;
-		   width:40%;
-		   height:10%;
-		   padding:5px;
-		   margin : 10px;
-		}
-
-		
-		
-		#Question_css #dologin
-		{
-		   margin-left:-5px;
-		   margin-top:10px;
-		   width:250px;
-		   height:40px;
-		   border:none;
-		   border-radius:3px;
-		   color:#E6E6E6;
-		   background-color:grey;
-		   font-size:20px;
-		}		
-		
-		#Question_css #question_submit_btn_css
-		{
-			margin-top:5%;
-			font-size : 20px;
-			width : 35%;
-			height : 12%;
-			margin-left : 32%;
-		}
-		
-		
-		
-		#MatchingQuestion_css
-		{
-		   width:50%;
-		   height:auto;
-		   margin-top:0%px;
-		   background-color:#585858;
-		   border-radius:10px;
-		   box-shadow:0px 0px 10px 0px #424242;
-//		   padding:10px;
-		   box-sizing:border-box;
-		   font-family:helvetica;
-		   visibility:hidden;
-		   display:none;
-		   margin-left:25%;
-		}
-
-		#MatchingQuestion_css #login
-		{
-		   margin-left : 5%;
-		   width:95%;
-		   height:10%;
-		   border:2px solid silver;
-		   border-radius:10px;
-		   padding:5px;
-		   margin-top : 5%;
-		   font-size : 20px;
-		}
-		
-		#MatchingQuestion_css .common_css
-		{
-		   margin-left : 25%;
-		   width:40%;
-		   height:10%;
-		   padding:5px;
-		   margin : 10px;
-		}
-
-		
-		
-		#MatchingQuestion_css #dologin
-		{
-		   margin-left:-5px;
-		   margin-top:10px;
-		   width:250px;
-		   height:40px;
-		   border:none;
-		   border-radius:3px;
-		   color:#E6E6E6;
-		   background-color:grey;
-		   font-size:20px;
-		}		
-		
-		#MatchingQuestion_css #question_submit_btn_css
-		{
-			margin-top:5%;
-			font-size : 20px;
-			width : 35%;
-			height : 12%;
-			margin-left : 32%;
-		}
-		
-		
-		.choose_file{
-		   margin-left : 5%;	
-			position:relative;
-			display:inline-block;    
-			border-radius:8px;
-			border:#ebebeb solid 1px;
-			width:20%;
-			padding: 4px 6px 4px 8px;
-			font: normal 14px Myriad Pro, Verdana, Geneva, sans-serif;
-			color: #7f7f7f;
-			margin-top: 2px;
-			background:white
-		}
-		.choose_file input[type="file"]{
-			-webkit-appearance:none; 
-			position:absolute;
-			top:0; left:0;
-			opacity:0; 
-		}
-    
-/* end :-  css to show the questions */ 
-
-</style>
-
-    
-    
-   <script src="jquery-2.2.1.min.js"></script> 
-   <script src="jquery-ui.js"></script> 
-   <script src="jquery-ui.min.js"></script> 
-	<script src="scripts/phaser.min.js"></script>
-	<script src="scripts/game.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <script src="jquery-2.2.1.min.js"></script>
+    <script src="jquery-ui.js"></script>
+    <script src="jquery-ui.min.js"></script>
+    <script src="scripts/phaser.min.js"></script>
+    <script src="scripts/game.js"></script>
     <script src="jquery.bpopup.min.js"></script>
-    
-<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
-    
-    
-<script type="text/javascript" >
 
-// starting of json. that will contain all the data
+
+
+
+    <script type="text/javascript">
+        // starting of json. that will contain all the data
 var question_answer = new Array();
 
 // loading the json from local storage
@@ -811,15 +791,12 @@ if(document.selection && document.selection.empty) {
 }
     
 /* end js code :- to show the details in popup when user select any text */
-
-
     </script>
-    
-<script type="text/javascript">
 
-$(document).ready(function() {
+    <script type="text/javascript">
+        $(document).ready(function() {
 	// When clicking on the button close or the mask layer the popup closed
-	$('#close_btn, #mask').live('click', function() { 
+	$('#close_btn, #mask').click(function() { 
 	  $('#mask , .login-popup, #pankaj').fadeOut(300 , function() {
 		$('#mask').remove();
 	});
@@ -1288,19 +1265,19 @@ $(document).ready(function() {
     
 });
 
-    
-</script>
-    
-<link rel="canonical" href="http://www.alessioatzeni.com/wp-content/tutorials/jquery/login-box-modal-dialog-window/index.html" />
+    </script>
+
+    <link rel="canonical" href="http://www.alessioatzeni.com/wp-content/tutorials/jquery/login-box-modal-dialog-window/index.html"
+    />
 </head>
-	
+
 <body>
 
-<div class="container">
-    
-<!-- start : code to show the details in popup when user select any text -->
-<div id="element_to_pop_up">
-    <a class="b-close">x<a/>
+    <div class="container">
+
+        <!-- start : code to show the details in popup when user select any text -->
+        <div id="element_to_pop_up">
+            <a class="b-close">x<a/>
 
     <div id="myContent" class='content'>
 	

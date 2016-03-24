@@ -33,7 +33,8 @@ export default class Item extends EnableInputs(Phaser.Sprite) {
         this._showAttributeEditorSignal = new ShowAttributeEditorSignal();
         //added for testing purpose, will be replaced by Special Attribute Class later...
         this._userGeneratedText = null;
-
+    
+        this._playPauseSignal = new PlayPauseSignal();
         this._playResumeSignal = new PlayResumeSignal();
     }
 
@@ -119,6 +120,8 @@ export default class Item extends EnableInputs(Phaser.Sprite) {
                         $("#example_content").text(jd.exmaples);
                         $("#image_content").attr("src", jd.image);
                     });
+                    
+                    this._playPauseSignal.dispatch();
                 }
             }
         }
