@@ -25,6 +25,9 @@ let EnableInputs = (superclass) => class extends superclass {
     }
 
     disableInputs(iterateInside) {
+        if(this.events) {
+            this.events.destroy();        
+        }
         this.instance = null;
         this.inputEnabled = false;
         this.dragEnabled  = false;
