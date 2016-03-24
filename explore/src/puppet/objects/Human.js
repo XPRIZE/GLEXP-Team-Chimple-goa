@@ -166,8 +166,6 @@ export default class Human extends Puppet {
     setGlass(key, frame, anchorX = 0.5, anchorY = 0, offsetX = 0.5, offsetY = 0.3, offsetInPixelX = 0, offsetInPixelY = 0) {
         this.head.addAccessory(new Accessory(this.game, new Phaser.Point(1, 1), true, true, true, new Phaser.Point(anchorX, anchorY), new Phaser.Point(offsetX, offsetY), new Phaser.Point(offsetInPixelX, offsetInPixelY), false, key, frame, 'glass'), true);
     }
-<<<<<<< HEAD
-    
      setHeadShape(key, frame, x, y,radius) {
         
         // this.children[0].children[2].children.splice(0,1);
@@ -182,7 +180,7 @@ export default class Human extends Puppet {
         
     }
     setHat(key, frame, anchorX=0.5, anchorY=1, offsetX=0.5, offsetY=0, offsetInPixelX=0, offsetInPixelY=0){
-=======
+
 
     setSkin(key, frame, x, y) {
         this.body.addAccessory(new Accessory(this.game, new Phaser.Point(1, 1), true, true, true, new Phaser.Point(anchorX, anchorY), new Phaser.Point(offsetX, offsetY), new Phaser.Point(offsetInPixelX, offsetInPixelY), false, key, frame, 'Skin'), true);
@@ -204,7 +202,7 @@ export default class Human extends Puppet {
     }
 
     setHat(key, frame, anchorX = 0.5, anchorY = 1, offsetX = 0.5, offsetY = 0, offsetInPixelX = 0, offsetInPixelY = 0) {
->>>>>>> 320cc3596e2f250c81f5279b2d0c77224a653b08
+
         this.head.addAccessory(new Accessory(this.game, new Phaser.Point(1, 1), true, true, false, new Phaser.Point(anchorX, anchorY), new Phaser.Point(offsetX, offsetY), new Phaser.Point(offsetInPixelX, offsetInPixelY), false, key, frame, 'hat'), true);
 
     }
