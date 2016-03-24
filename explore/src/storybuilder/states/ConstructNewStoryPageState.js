@@ -284,9 +284,7 @@ export default class ConstructNewStoryPageState extends Phaser.State {
 
     }
 
-    resumePlayForTesting() {
-        var ph = document.getElementById("gameCanvas");
-        Canvas2Image.saveAsImage(ph, 1600, 1200, "png");
+    resumePlayForTesting() {        
         //this._playResumeSignal.dispatch();
     }
 
