@@ -17,7 +17,7 @@ export default class EditHolderState extends Phaser.State {
         this.holderX = holder.x;
         this.holderY = holder.y;
         holder.x = this.game.width / 2;
-        holder.y = this.game.height / 2;
+        holder.y = 100;
         this.holder = holder;
         
         this.holder.disableInputs();
@@ -41,7 +41,7 @@ export default class EditHolderState extends Phaser.State {
         this.game.cache.getFrameData('scene/scene').getFrames().forEach(function(val, index, array) {
             imageNames.push(val.name);
         })
-        let chooser = this.game.add.existing(new TabView(this.game, 'scene/scene', this.game.width * 0.9, this.game.height, 10, 50, 5, 3, true, function(tab, button) {
+        let chooser = this.game.add.existing(new TabView(this.game, 'scene/scene', this.game.width * 0.9, this.game.height, 10, 50, 9, 16, true, function(tab, button) {
             chooser.unSelect();
             switch (tab) {
                 case 'surface':
