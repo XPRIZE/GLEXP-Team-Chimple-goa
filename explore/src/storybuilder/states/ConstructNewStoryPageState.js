@@ -101,6 +101,8 @@ export default class ConstructNewStoryPageState extends Phaser.State {
         this.setUpUI();
 
         this.initializeRecordingManager();
+        
+        //this.generateSnapShot();
     }
 
     setUpUI() {
@@ -178,6 +180,7 @@ export default class ConstructNewStoryPageState extends Phaser.State {
             }
 
             this.saveToLocalStore();
+
         }
     }
 
@@ -198,6 +201,42 @@ export default class ConstructNewStoryPageState extends Phaser.State {
         }, this);
 
 
+    }
+
+
+    generateSnapShot() {
+        console.log('generate image');
+        game.stage.updateTransform();
+        var phaserCanvas = document.getElementById("gameCanvas");
+        html2canvas(phaserCanvas).then(function(canvas) {
+            //document.body.appendChild(canvas);
+            let base64encodedImageData = canvas.toDataURL();
+            console.log('base64encodedImageData:' + base64encodedImageData);
+        });        
+        // let originalSnapShot = new Phaser.BitmapData(this.game, 'snap1', this.game.width, this.game.height);
+        // originalSnapShot.drawFull(this._displayControlGroup);
+        // var adjustedSnapShot = new Phaser.BitmapData(self.game, 'snap2', this.game.width, this.game.height);
+        // adjustedSnapShot.copyRect(originalSnapShot, new Phaser.Rectangle(0, 0, originalSnapShot.width, originalSnapShot.height), 0, 0);
+        // var base64encodedImageData = adjustedSnapShot.baseTexture.source.toDataURL();
+
+        // originalSnapShot.destroy();
+        // adjustedSnapShot.destroy();
+        // console.log('base64encodedImageData:' + base64encodedImageData);
+
+        // // this._displayControlGroup.children.forEach(function(element) {
+        // //     console.log(element);
+        // //     if (element instanceof Scene) {
+        // //         originalSnapShot.drawFull(element);
+        // //         var adjustedSnapShot = new Phaser.BitmapData(self.game, 'snap2', this.game.width, this.game.height);
+        // //         adjustedSnapShot.copyRect(originalSnapShot, new Phaser.Rectangle(0, 0, originalSnapShot.width, originalSnapShot.height), 0, 0);
+        // //         var base64encodedImageData = adjustedSnapShot.baseTexture.source.toDataURL();
+
+        // //         originalSnapShot.destroy();
+        // //         adjustedSnapShot.destroy();
+        // //         console.log('base64encodedImageData:' + base64encodedImageData);
+
+        // //     }
+        // // }, this);
     }
     createActionButtons() {
 
@@ -246,12 +285,14 @@ export default class ConstructNewStoryPageState extends Phaser.State {
     }
 
     resumePlayForTesting() {
-        this._playResumeSignal.dispatch();
+        var ph = document.getElementById("gameCanvas");
+        Canvas2Image.saveAsImage(ph, 1600, 1200, "png");
+        //this._playResumeSignal.dispatch();
     }
 
     createQuestionAndAnswer() {
         console.log('this.storyid:' + this._currentStory.storyId + " and pageId:" + this._currentPage.pageId);
-        $("#select_choice").css({"visibility":"visible","display":"block"});
+        $("#select_choice").css({ "visibility": "visible", "display": "block" });
     }
 
     chooseBackGround(sprite, pointer) {
@@ -348,6 +389,12 @@ export default class ConstructNewStoryPageState extends Phaser.State {
     shutdown() {
         this.recordingManager = null;
     }
+    
+    
+    render() {
+        //this.generateSnapShot();
+    }
+    
 
 }
 
