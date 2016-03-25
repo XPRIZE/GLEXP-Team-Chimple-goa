@@ -80,6 +80,8 @@ export default class ConstructNewStoryPageState extends Phaser.State {
         //for now statically load audio
         this.load.audio('audio_1', 'assets/storyBuilder/sounds/audio_1.mp3');
         this.load.audio('audio_2', 'assets/storyBuilder/sounds/audio_2.mp3');
+        
+        this.load.script('gray', 'https://cdn.rawgit.com/photonstorm/phaser/master/filters/Gray.js');        
 
         this.loadScenesConfiguration();
         this.loadPuppetsConfiguration();
@@ -110,6 +112,7 @@ export default class ConstructNewStoryPageState extends Phaser.State {
         this.setUpUI();
 
         this.initializeRecordingManager();
+          
 
         //this.generateSnapShot();
     }
@@ -122,6 +125,9 @@ export default class ConstructNewStoryPageState extends Phaser.State {
     loadExistingSceneToEdit() {
         let page = JSON.parse(JSON.stringify(this._currentPage), JsonUtil.revive);
         this._loadedScene = page.scene;
+        var gray = this.game.add.filter('Gray');
+        this._loadedScene.filters = [gray];
+        
         this._displayControlGroup.add(this._loadedScene);
         //remove any direct child of world 
         this.game.world.children.forEach(function(element) {
@@ -387,10 +393,11 @@ export default class ConstructNewStoryPageState extends Phaser.State {
     }
 
     showAttributeEditor(item, pointer) {
-        this._testItemClicked = item;
+        //sound testing
+        //this._testItemClicked = item;
         //add sounds
-        let music = new SoundData(game, 'audio_1', false);
-        item.addSound(music);
+        //let music = new SoundData(game, 'audio_1', false);
+        //item.addSound(music);
 
         this._AttributeEditOverlay = new AttributeEditOverlay(game, game.width, game.height, item, pointer);
     }

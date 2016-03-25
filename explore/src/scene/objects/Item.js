@@ -167,6 +167,15 @@ export default class Item extends EnableInputs(Phaser.Sprite) {
             // if sound not present, then add to game and reference to game for now - TBD (how to remove)            
             let soundData = recordedInfo.soundData;
             if (game.cache.checkSoundKey(soundData.soundFileName)) {
+                if(!this._soundFileName) {
+                    this._soundFileName = new SoundData(game, soundData.soundFileName, soundData.apply);    
+                }                
+                if(soundData.apply) {
+                    this._soundFileName.playMusic();        
+                } else {
+                    this._soundFileName.stopMusic();
+                    this._soundFileName.destroy();
+                }
             }
         }
     }
