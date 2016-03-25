@@ -294,4 +294,35 @@ export default class Human extends Puppet {
         // let a=JSON.parse(JSON.stringify(human, Puppet.replacer), human.revive);    
         // a.scale.setTo(0.5,0.5);        
     }
+    
+    animateWalk() {
+        
+     
+        this.leftHand.angle = 0;
+        this.rightHand.angle = 0;
+        this.leftLeg.angle = 0;
+        this.rightLeg.angle = 0;
+        
+       
+        this.game.add.tween(this.body).to({y: this.body.y + 8}, 5/24*1000, null, true, 0,0, true).chain(this.game.add.tween(this.body).to({y: this.body.y + 8}, 5/24*1000, null, true,  0,0, true));
+        
+        
+        
+        this.game.add.tween(this.head).to({y: this.head.y + 10}, 5/24*1000, null, true, 0,0, true).chain(this.game.add.tween(this.head).to({y: this.head.y + 12}, 5/24*1000, null, true, 0,0, true));
+        
+        
+        
+        this.game.add.tween(this.rightHand).to({angle: this.rightHand.angle + 5.8, y: this.rightHand.y + 1.6}, 2/24*1000, null, true).chain(this.game.add.tween(this.rightHand).to({angle: this.rightHand.angle + 15, y: this.rightHand.y + 4}, 3/24*1000, null, false), this.game.add.tween(this.rightHand).to({angle: this.rightHand.angle - 15, y: this.rightHand.y + 4 }, 4/24*1000, null, false, 5/24*1000), this.game.add.tween(this.rightHand).to({angle: this.rightHand.angle - 5}, 4/24*1000, null, false));
+       
+        
+        this.game.add.tween(this.leftHand).to({angle: this.leftHand.angle - 5.8, y: this.leftHand.y + 1.6}, 2/24*1000, null, true).chain(this.game.add.tween(this.leftHand).to({angle: this.leftHand.angle - 15, y: this.leftHand.y + 4}, 3/24*1000, null, false), this.game.add.tween(this.leftHand).to({angle: this.leftHand.angle + 15, y: this.leftHand.y + 4 }, 4/24*1000, null, false), this.game.add.tween(this.leftHand).to({angle: this.leftHand.angle + 5}, 4/24*1000, null, false));
+
+       
+       this.game.add.tween(this.leftLeg).to({angle: this.leftLeg.angle + 14.5, y: this.leftLeg.y + 4}, 5/24*1000, null, true).chain(this.game.add.tween(this.leftLeg).to({angle:  this.leftLeg.angle + 1.6, y: this.leftLeg.y - 5.5}, 2/24*1000, null, false, 5/24*1000), this.game.add.tween(this.leftLeg).to({angle: this.leftLeg.angle - 13.8, y: this.leftLeg.y + 4 }, 3/24*1000, null, false), this.game.add.tween(this.leftLeg).to({angle: this.leftLeg.angle - 4.5, x: this.leftLeg.x + 0,y: this.leftLeg.y + 0 }, 4/24*1000, null, false));
+        
+       
+      
+      this.game.add.tween(this.rightLeg).to({angle: this.rightLeg.angle - 15, y: this.rightLeg.y + 4}, 5/24*1000, null, true).chain(this.game.add.tween(this.rightLeg).to({angle:  this.rightLeg.angle + 15, y: this.rightLeg.y + 4}, 5/24*1000, null, false, 5/24*1000), this.game.add.tween(this.rightLeg).to({angle: this.rightLeg.angle + 5, y: this.rightLeg.y + 0 }, 4/24*1000, null, false));
+
+    }
 }
