@@ -25,6 +25,11 @@ import PersistRecordingInformationSignal from '../objects/PersistRecordingInform
 import PlayResumeSignal from '../objects/PlayResumeSignal.js';
 
 
+import SpecialAttribute from '../../scene/objects/SpecialAttribute.js';
+import SoundData from '../../scene/objects/SoundData.js';
+
+
+
 
 var _ = require('lodash');
 //rename to BuildYourOwnStoryEditorState
@@ -72,6 +77,10 @@ export default class ConstructNewStoryPageState extends Phaser.State {
         this.load.image('storybuilder/setting_button', 'assets/storyBuilder/setting_button.png');
         this.load.image('storybuilder/plus', 'assets/storyBuilder/plus_button.png');
 
+        //for now statically load audio
+        this.load.audio('audio_1', 'assets/storyBuilder/sounds/audio_1.mp3');
+        this.load.audio('audio_2', 'assets/storyBuilder/sounds/audio_2.mp3');
+
         this.loadScenesConfiguration();
         this.loadPuppetsConfiguration();
 
@@ -101,7 +110,7 @@ export default class ConstructNewStoryPageState extends Phaser.State {
         this.setUpUI();
 
         this.initializeRecordingManager();
-        
+
         //this.generateSnapShot();
     }
 
@@ -212,7 +221,7 @@ export default class ConstructNewStoryPageState extends Phaser.State {
             //document.body.appendChild(canvas);
             let base64encodedImageData = canvas.toDataURL();
             console.log('base64encodedImageData:' + base64encodedImageData);
-        });        
+        });
         // let originalSnapShot = new Phaser.BitmapData(this.game, 'snap1', this.game.width, this.game.height);
         // originalSnapShot.drawFull(this._displayControlGroup);
         // var adjustedSnapShot = new Phaser.BitmapData(self.game, 'snap2', this.game.width, this.game.height);
@@ -277,15 +286,21 @@ export default class ConstructNewStoryPageState extends Phaser.State {
         this._testResumePlayButton = this.game.make.sprite(this.game.width - 340, 40, 'storybuilder/home_button');
         this._testResumePlayButton.anchor.setTo(0.5);
         this._testResumePlayButton.inputEnabled = true;
-        this._testResumePlayButton.events.onInputDown.add(this.resumePlayForTesting, this);
+        this._testResumePlayButton.events.onInputDown.add(this.testing, this);
         this._testResumePlayButton.input.priorityID = 2;
         this._displayControlGroup.add(this._testResumePlayButton);
-
+        this._soundAdded = false;
 
     }
 
-    resumePlayForTesting() {        
-        //this._playResumeSignal.dispatch();
+    testing() {
+        if (!this._soundAdded) {
+            this._testItemClicked.applySound(0, true);
+            this._soundAdded = true;
+        } else {
+            this._testItemClicked.applySound(0, false);
+            this._soundAdded = false; 
+        }
     }
 
     createQuestionAndAnswer() {
@@ -372,6 +387,11 @@ export default class ConstructNewStoryPageState extends Phaser.State {
     }
 
     showAttributeEditor(item, pointer) {
+        this._testItemClicked = item;
+        //add sounds
+        let music = new SoundData(game, 'audio_1', false);
+        item.addSound(music);
+
         this._AttributeEditOverlay = new AttributeEditOverlay(game, game.width, game.height, item, pointer);
     }
 
@@ -387,12 +407,12 @@ export default class ConstructNewStoryPageState extends Phaser.State {
     shutdown() {
         this.recordingManager = null;
     }
-    
-    
+
+
     render() {
         //this.generateSnapShot();
     }
-    
+
 
 }
 

@@ -10,7 +10,7 @@ import UpdateAttributesSignal from '../objects/UpdateAttributesSignal.js'
 import PersistRecordingInformationSignal from '../objects/PersistRecordingInformationSignal.js'
 import RecordInfo from '../objects/RecordInfo.js';
 import StoryUtil from '../objects/StoryUtil.js';
-
+import SoundData from '../../scene/objects/SoundData.js';
 
 var _ = require('lodash')._;
 
@@ -235,7 +235,9 @@ export default class RecordingManager extends Phaser.Group {
     }
 
     addToMap(data) {
-        let recordInfo = new RecordInfo(data.uniquename, data.x, data.y, data.scaleX, data.scaleY, data.angle, data.recordingAttributeKind, data.userGeneratedText);
+        let recordInfo = new RecordInfo(data.uniquename, data.x, data.y, data.scaleX, data.scaleY, data.angle, data.recordingAttributeKind);
+        this.recordSpecialTextAttribute(data, recordInfo);
+        this.recordSpecialSoundAttribute(data, recordInfo);
         let spriteMap = this._sceneRecordingMap.get(this.currentRecordingCounter);
         if (!spriteMap) {
             let curRecordingMap = new Map();
@@ -250,7 +252,21 @@ export default class RecordingManager extends Phaser.Group {
             console.log('text message received at ' + this.currentRecordingCounter);
         }
     }
-
+    
+    recordSpecialTextAttribute(data, recordInfo) {
+      if(recordInfo.recordingAttributeKind === RecordInfo.TEXT_RECORDING_TYPE && data.userGeneratedText != null) {
+         recordInfo.text = data.userGeneratedText;
+         console.log('text message received at ' + this.currentRecordingCounter);          
+      }  
+    }
+    
+    recordSpecialSoundAttribute(data, recordInfo) {
+      if(recordInfo.recordingAttributeKind === RecordInfo.SOUND_RECORDING_TYPE && data.soundData != null) {
+          let soundInfo = new SoundData(game, data.soundData.soundFileName, data.soundData.apply);
+          recordInfo.soundData = soundInfo; 
+          console.log('sound message received at ' + this.currentRecordingCounter);          
+      }  
+    }   
 
     computeRecordingTimeCounters(delta) {
         this.currentRecordingCounter += delta;
