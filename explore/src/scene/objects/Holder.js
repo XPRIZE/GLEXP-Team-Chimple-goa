@@ -53,6 +53,7 @@ export default class Holder extends Item {
     updateBody() {
         let rect = this.getBoundingBox();        
         this.body.setSize(rect.width, rect.height, rect.halfWidth, rect.height);
+        this.pivot.setTo(rect.halfWidth, rect.height);
     }
     
         ///

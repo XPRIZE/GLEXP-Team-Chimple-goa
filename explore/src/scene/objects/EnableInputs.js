@@ -40,6 +40,33 @@ let EnableInputs = (superclass) => class extends superclass {
         }
     }
 
+    enableDrag(iterateInside) {
+        if(this.instance && this.instance.dragEnabled && this.input) {
+            this.input.enableDrag();
+        }
+        if (iterateInside) {
+            this.children.forEach(function(value) {
+                if ('function' == typeof value.enableDrag) {
+                    value.enableDrag(iterateInside);
+                }
+            });
+        }
+    }
+
+    
+    disableDrag(iterateInside) {
+        if(this.instance && this.instance.dragEnabled && this.input) {
+            this.input.disableDrag();
+        }
+        if (iterateInside) {
+            this.children.forEach(function(value) {
+                if ('function' == typeof value.disableDrag) {
+                    value.disableDrag(iterateInside);
+                }
+            });
+        }
+    }
+
 
 }
 

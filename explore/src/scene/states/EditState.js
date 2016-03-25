@@ -104,12 +104,30 @@ export default class EditState extends Phaser.State {
                         EditSceneInputHandler.box.parent.destroy();
                         EditSceneInputHandler.box = null;
                     }
+                    break;
+                case 'unlock':
+                    if(EditSceneInputHandler.box != null) {
+                        EditSceneInputHandler.box.parent.enableDrag(true);
+                        if(EditSceneInputHandler.box.parent instanceof Holder) {
+                            EditSceneInputHandler.box.parent.surfaces.forEach(function(value, index, array) {
+                                Array.prototype.unshift.apply(Surface.All, value.textures);
+                            })
+                        }
+                    }
+                    break;    
+                case 'lock':
+                    this.scene.floor.disableDrag(true);
+                    this.scene.wall.disableDrag(true);
+                    Surface.All.length = 0;
+                    Array.prototype.push.apply(Surface.All, this.scene.floor.textures);
+                    Array.prototype.push.apply(Surface.All, this.scene.wall.textures);
+                    break;                                    
                 default:
                     break;
             }
         }, this, this.game.cache.getJSON('scene/menu_icons')));
 
-        chooser.tabs = { 'item': imageNames, 'holder': null, 'width': ['40', '80', '320', '640', '960', '1280', '1600', '1920', '2560', '3840'], 'floor': imageNames, 'wall': imageNames, 'delete': null };
+        chooser.tabs = { 'item': imageNames, 'holder': null, 'width': ['40', '80', '320', '640', '960', '1280', '1600', '1920', '2560', '3840'], 'floor': imageNames, 'wall': imageNames, 'lock': null, 'unlock': null, 'delete': null };
         chooser.x = this.game.width * 0.05;
         chooser.y = 0;
         chooser.unSelect();

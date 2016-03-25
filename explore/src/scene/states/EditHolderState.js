@@ -17,7 +17,7 @@ export default class EditHolderState extends Phaser.State {
         this.holderX = holder.x;
         this.holderY = holder.y;
         holder.x = this.game.width / 2;
-        holder.y = 100;
+        holder.y = this.game.height - 100;
         this.holder = holder;
         
         this.holder.disableInputs();
