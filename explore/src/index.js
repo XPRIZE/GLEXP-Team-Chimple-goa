@@ -14,12 +14,12 @@ class Game extends Phaser.Game {
 
         let puppetStateHolder = new PuppetStateHolder(this);
         puppetStateHolder.createStates();
-		puppetStateHolder.startDefault();
+		// puppetStateHolder.startDefault();
 
         let sceneStateHolder = new SceneStateHolder(this);
         sceneStateHolder.createStates();
-		//sceneStateHolder.startDefault();
+		sceneStateHolder.startDefault();
 	}
 }
 
-window.game = new Game(800, 600);
+window.game = new Game(1280, 800);
