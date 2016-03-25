@@ -142,7 +142,8 @@ export default class Item extends EnableInputs(Phaser.Sprite) {
             key: this.key,
             frame: this.frameName,
             uniquename: this.uniquename,
-            modifiedBit: this.modifiedBit
+            modifiedBit: this.modifiedBit,
+            _specialAttributes : this._specialAttributes
         }
         return json;
     }
