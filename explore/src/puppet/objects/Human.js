@@ -295,7 +295,7 @@ export default class Human extends Puppet {
         // a.scale.setTo(0.5,0.5);        
     }
     
-    animateWalk() {
+    walkAnimate() {
         
      
         this.leftHand.angle = 0;
