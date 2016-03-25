@@ -4,6 +4,7 @@ import Shape from '../../puppet/objects/Shape.js';
 import TabView from '../../puppet/objects/TabView.js';
 import Sprite from '../../puppet/objects/Scalable.js';
 import TextData from './TextData.js';
+import SpecialAttribute from '../../scene/objects/SpecialAttribute.js';
 
 export default class AttributeEditOverlay extends Phaser.Group {
     //container to edit item properties
@@ -69,9 +70,9 @@ export default class AttributeEditOverlay extends Phaser.Group {
             let TextNames = ["plus1", "plus2", "plus3", "plus4"];
             let audioNames = ["plus1", "plus2"]
             
-            that._clickedObject._specialAttributes.text.forEach(function(element, index) {
+            that._clickedObject._specialAttribute.allTexts.forEach(function(element, index) {
                 TextNames[index] = 'plus1';  
-               if(element != null){
+               if(element != null && element instanceof TextData){
                    TextNames[index] = 'forest_1_th';
                }
               
@@ -81,7 +82,6 @@ export default class AttributeEditOverlay extends Phaser.Group {
                 that._itemSettingTab.unSelect();
                 // that._itemSettingTab.destroy();
                  that._clickedObject.inputEnabled = true;
-                //that._recordingResumeSignal.dispatch();
                 
                 let index = 0,flag = false;
                 for(index =0 ; index < TextNames.length ; index++){
@@ -95,10 +95,10 @@ export default class AttributeEditOverlay extends Phaser.Group {
                 console.log(" button name is : "+ button + " tab name is : "+tab + " index of button : "+index);             
                 if(game._inPauseRecording){
 
-                    if(tab == "forest"){
-                        
-                        this._clickedObject.text = this._clickedObject._specialAttributes.text[index];
-                     
+                    if(tab == "forest"){                                                
+                        this._recordingResumeSignal.dispatch();
+                        this._clickedObject.applyText(index, true); //later if all applied then toggle it
+                        //this._clickedObject.text = this._clickedObject._specialAttributes.text[index];
                     }else if( tab == " village"){
                   
                     }
@@ -131,13 +131,14 @@ export default class AttributeEditOverlay extends Phaser.Group {
     addtext_fromhtml(textvalue, text_color, background_color)
     {   
           let value = this._itemSettingTab.children[1].children[1];
+          let jsonDataText = null;
           for(var i = 0 ; i < value.length ; i ++){
               if(value.children[i] instanceof Phaser.Button ){
                   if(this.clilckedButtonName == value.children[i].name){
                      var style = { font: "32px Arial", fill: ""+text_color, wordWrap: true, wordWrapWidth: value.children[i].width, align: "center", backgroundColor: ""+background_color };
                     
                      let x = value.children[i+1].x , y = value.children[i+1].y;
-                     let jsonDataText = new TextData(game,0,0,this.clilckedButtonName,null,textvalue,style,this._clickedObject._uniquename, 0);
+                     jsonDataText = new TextData(game,0,0,this.clilckedButtonName,null,textvalue,style,this._clickedObject._uniquename, 0);
                      
                      value.children[i+1].loadTexture("storyBuilder/forest_1_th");
                      value.children[i+1].parent = value;
@@ -145,10 +146,10 @@ export default class AttributeEditOverlay extends Phaser.Group {
                   }
               }
           }
-        
-           this._recordingResumeSignal.dispatch();
-           this._clickedObject._specialAttributes.text.push(textvalue);
-           //console.log(" text value : "+  this._clickedObject._specialAttributes.text);    
+           this._clickedObject.addText(jsonDataText);
+           this._recordingResumeSignal.dispatch();           
+           //this._clickedObject._specialAttributes.text.push(textvalue);
+           console.log(" text value : "+  this._clickedObject._specialAttribute.text);    
         //    this._itemSettingTab.destroy();    
     }
 

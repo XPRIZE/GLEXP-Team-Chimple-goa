@@ -1,6 +1,7 @@
 import Texture from './Texture.js';
 import TileTexture from './TileTexture.js';
 import Surface from './Surface.js';
+import SpecialAttribute from './SpecialAttribute.js';
 import EnableInputs from './EnableInputs.js';
 import AttributesChangedSignal from '../../storybuilder/objects/AttributesChangedSignal.js'
 import SpecialAttributesChangedSignal from '../../storybuilder/objects/SpecialAttributesChangedSignal.js'
@@ -10,6 +11,7 @@ import EnableAttributeEditorSignal from '../../storybuilder/objects/EnableAttrib
 import ShowAttributeEditorSignal from '../../storybuilder/objects/ShowAttributeEditorSignal.js';
 import PlayPauseSignal from '../../storybuilder/objects/PlayPauseSignal.js';
 import PlayResumeSignal from '../../storybuilder/objects/PlayResumeSignal.js';
+import TextData from '../../storybuilder/objects/TextData.js';
 
 var _ = require('lodash');
 
@@ -24,18 +26,17 @@ export default class Item extends EnableInputs(Phaser.Sprite) {
         this.onAttributesChanged = new AttributesChangedSignal();
 
         //Special Attribute Changes
-        this._specialAttributesChangedSignal = new SpecialAttributesChangedSignal();
+        this._specialAttributeChangedSignal = new SpecialAttributesChangedSignal();
 
         this.onUpdateAttributesSignal = new UpdateAttributesSignal();
         this.onUpdateAttributesSignal.add(this.changeAttributes, this);
 
         //Allow item to invoke ShowAttributeEditorSignal()
-        this._showAttributeEditorSignal = new ShowAttributeEditorSignal();
+        this._showAttributeEditorSignal = new ShowAttributeEditorSignal(game);
         //added for testing purpose, will be replaced by Special Attribute Class later...
         this._userGeneratedText = null;
 
-        this._specialAttributes = null;
-        this._specialAttributes = {text:[],audio:[]};
+        this._specialAttribute = new SpecialAttribute(game);
 
         this._playPauseSignal = new PlayPauseSignal();
         this._playResumeSignal = new PlayResumeSignal();
@@ -45,13 +46,28 @@ export default class Item extends EnableInputs(Phaser.Sprite) {
         super.enableInputs(instance, iterateInside);
         this.input.priorityID = 2;
     }
-
-    set text(text) {
-        this._userGeneratedText = text;
-        if (game._inRecordingMode) {
-            this._specialAttributesChangedSignal.dispatch({ uniquename: this._uniquename, x: this.x, y: this.y, scaleX: this.scale.x, scaleY: this.scale.y, angle: this.angle, recordingAttributeKind: RecordInfo.TEXT_RECORDING_TYPE, userGeneratedText: this._userGeneratedText });
-        }
+    
+    
+    addText(textData) {
+        this._specialAttribute.addText(textData); 
     }
+    
+    applyText(whichTextIndex, apply) {
+        this._specialAttribute.applyText(whichTextIndex, apply);
+        let appliedTextData = this._specialAttribute.getText(whichTextIndex);
+        let text = appliedTextData.text;
+        //later you should get text, fontColor, backgroundColor, style 
+        if (game._inRecordingMode) {
+            this._specialAttributeChangedSignal.dispatch({ uniquename: this._uniquename, x: this.x, y: this.y, scaleX: this.scale.x, scaleY: this.scale.y, angle: this.angle, recordingAttributeKind: RecordInfo.TEXT_RECORDING_TYPE, userGeneratedText: text});
+        }        
+    }
+
+    // set text(text) {
+    //     this._userGeneratedText = text;
+    //     if (game._inRecordingMode) {
+    //         this._specialAttributeChangedSignal.dispatch({ uniquename: this._uniquename, x: this.x, y: this.y, scaleX: this.scale.x, scaleY: this.scale.y, angle: this.angle, recordingAttributeKind: RecordInfo.TEXT_RECORDING_TYPE, userGeneratedText: this._userGeneratedText });
+    //     }
+    // }
 
     drawBoundingBox(color) {
         let box = this.addChild(new Phaser.Graphics(this.game, -this.offsetX, -this.offsetY));
@@ -143,7 +159,7 @@ export default class Item extends EnableInputs(Phaser.Sprite) {
             frame: this.frameName,
             uniquename: this.uniquename,
             modifiedBit: this.modifiedBit,
-            _specialAttributes : this._specialAttributes
+            specialAttributes : this._specialAttribute
         }
         return json;
     }

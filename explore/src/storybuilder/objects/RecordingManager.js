@@ -254,7 +254,7 @@ export default class RecordingManager extends Phaser.Group {
 
     computeRecordingTimeCounters(delta) {
         this.currentRecordingCounter += delta;
-        console.log('currentRecordingCounter updated:' + this.currentRecordingCounter);
+        console.log(' 11111 currentRecordingCounter updated:' + this.currentRecordingCounter);
     }
 
     computePlayTimeCounters(delta) {

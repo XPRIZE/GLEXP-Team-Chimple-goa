@@ -1,18 +1,14 @@
 
-export default class TextData extends Phaser.Text {
+export default class TextData {
     
-    constructor(game,x,y,key,frame,text,style,objectUniqueName,apply){
-        
-        super(game,x,y,text,style);
-        
+    constructor(game,x,y,key,frame,text,style,objectUniqueName,apply){        
         this.x = x;
         this.y = y;
         this.key = key;
         this.text = text;
         this.style = style;
         this.objectUniqueName = objectUniqueName;
-        this.apply = apply;
-        
+        this.apply = apply;                
     }
     
      toJSON() {
