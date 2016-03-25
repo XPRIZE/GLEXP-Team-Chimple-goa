@@ -71,7 +71,12 @@ export default class ConstructNewStoryPageState extends Phaser.State {
         this.load.image('storybuilder/choose_background_button', 'assets/storyBuilder/prop_button.png');
         this.load.image('storybuilder/setting_button', 'assets/storyBuilder/setting_button.png');
         this.load.image('storybuilder/plus', 'assets/storyBuilder/plus_button.png');
-
+        
+        
+        //for now statically load audio
+        this.load.audio('audio_1', 'assets/storyBuilder/sounds/audio_1.mp3');
+        this.load.audio('audio_2', 'assets/storyBuilder/sounds/audio_2.mp3');
+        
         this.loadScenesConfiguration();
         this.loadPuppetsConfiguration();
 

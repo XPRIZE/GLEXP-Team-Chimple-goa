@@ -61,6 +61,17 @@ export default class Item extends EnableInputs(Phaser.Sprite) {
             this._specialAttributeChangedSignal.dispatch({ uniquename: this._uniquename, x: this.x, y: this.y, scaleX: this.scale.x, scaleY: this.scale.y, angle: this.angle, recordingAttributeKind: RecordInfo.TEXT_RECORDING_TYPE, userGeneratedText: text});
         }        
     }
+    
+    
+    applySound(whichSoundIndex, apply) {
+        this._specialAttribute.applySound(whichSoundIndex, apply);
+        let applidSoundData = this._specialAttribute.getSound(whichSoundIndex);
+        let soundFileName = applidSoundData.soundFileName;
+        
+        if (game._inRecordingMode) {
+            this._specialAttributeChangedSignal.dispatch({ uniquename: this._uniquename, x: this.x, y: this.y, scaleX: this.scale.x, scaleY: this.scale.y, angle: this.angle, recordingAttributeKind: RecordInfo.SOUND_RECORDING_TYPE, soundFileName: soundFileName, applySound: apply});
+        }        
+    }
 
     // set text(text) {
     //     this._userGeneratedText = text;
@@ -118,32 +129,51 @@ export default class Item extends EnableInputs(Phaser.Sprite) {
                 this.scale.y = recordedInfo.scaleY;
                 this.angle = recordedInfo.angle;
                 console.log('recordedInfo.x:' + recordedInfo.x + "recordedInfo.y:" + recordedInfo.y);
-
-                //if we have received TEXT KIND data
-                if (recordedInfo.recordingAttributeKind == RecordInfo.TEXT_RECORDING_TYPE) {
-                    //send an signal to show Text PopUp to User
-                    console.log('show text popup to User' + recordedInfo.userGeneratedText);
-                    $('#element_to_pop_up').bPopup({onClose: function() {
-                        console.log('closing pop up');
-                        self._playResumeSignal.dispatch();
-                    }});
-
-                    var url = "make" + '.json';
-                    console.log('url ' + url);
-                    var meaning = '';
-                    $.getJSON(url, function(jd) {
-                        meaning = jd.meaning;
-                        meaning = $(meaning).text();
-                        $("#word").text(url);
-                        $("#meaning_content").text(meaning);
-                        $("#example_content").text(jd.exmaples);
-                        $("#image_content").attr("src", jd.image);
-                    });
-                    
-                    this._playPauseSignal.dispatch();
-                }
+                
+                this.applySpecialAttributeChanges(recordedInfo);                
+                
             }
         }
+    }
+    
+    
+    
+    applySpecialAttributeChanges(recordedInfo) {
+        var self = this;
+        //later refactor into 4 different classes
+        if (recordedInfo.recordingAttributeKind == RecordInfo.TEXT_RECORDING_TYPE) {
+            //send an signal to show Text PopUp to User
+            console.log('show text popup to User' + recordedInfo.userGeneratedText);
+            $('#element_to_pop_up').bPopup({onClose: function() {
+                console.log('closing pop up');
+                self._playResumeSignal.dispatch();
+            }});
+
+            var url = "make" + '.json';
+            console.log('url ' + url);
+            var meaning = '';
+            $.getJSON(url, function(jd) {
+                meaning = jd.meaning;
+                meaning = $(meaning).text();
+                $("#word").text(url);
+                $("#meaning_content").text(meaning);
+                $("#example_content").text(jd.exmaples);
+                $("#image_content").attr("src", jd.image);
+            });
+            
+            self._playPauseSignal.dispatch();
+        } else if (recordedInfo.recordingAttributeKind == RecordInfo.SOUND_RECORDING_TYPE) {
+            //check if sound present in cache, if so use (should had been created when user choose sound for page)
+            // if sound not present, then add to game and reference to game for now - TBD (how to remove)
+            if (game.cache.checkSoundKey(soundFileName)) {
+                let cachedSound = game.cache.getSound(soundFileName);
+                if(recordInfo.applySound) {
+                    cachedSound.play();   
+                } else {
+                    cachedSound.stop();
+                }
+            }
+        }    
     }
 
     changeAttributes(data) {

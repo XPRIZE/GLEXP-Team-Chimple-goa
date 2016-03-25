@@ -1,9 +1,11 @@
 import TextData from '../../storybuilder/objects/TextData.js';
+import SoundData from './SoundData.js';
 
 export default class SpecialAttribute {
 
     constructor(game) {
         this._texts = [];
+        this._sounds = [];
     }
 
     getText(index) {
@@ -47,10 +49,55 @@ export default class SpecialAttribute {
     }
 
 
+
+    //Sounds
+
+    getSound(index) {
+        if (index < this._sounds.length) {
+            return this._sounds[index];
+        }
+        return null;
+
+    }
+
+    addSound(soundData) {
+        if (soundData != null && soundData instanceof SoundData) {
+            this._sounds.push(textData);
+        }
+    }
+
+
+    applySound(indexOfElement, apply) {
+        this._sounds.forEach(function(soundData, index) {
+            if (index === indexOfElement && soundData instanceof SoundData) {
+                soundData.apply = apply;
+            }
+        }, this);
+    }
+
+    set allSounds(sounds) {
+        this._sounds.forEach(function(soundData) {
+            this.addSound(soundData);
+        }, this);
+
+    }
+
+    get allSounds() {
+        let children = new Array();
+        this._sounds.forEach(function(element) {
+            if (element instanceof SoundData) {
+                children.push(element);
+            }
+        }, this);
+        return children;
+    }
+
+
     toJSON() {
         let json = {
             _class: "SpecialAttribute",
-            texts: this.allTexts
+            texts: this.allTexts,
+            sounds: this.sounds            
         }
         return json;
     }
@@ -58,6 +105,7 @@ export default class SpecialAttribute {
     static fromJSON(game, j) {
         let val = new SpecialAttribute(game);
         val.allTexts = j.allTexts;
+        val.allsounds = j.allSounds;
         return val;
     }
 }

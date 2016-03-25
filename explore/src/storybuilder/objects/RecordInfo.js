@@ -1,5 +1,5 @@
 export default class RecordInfo {
-    constructor(uniquename, x, y, scaleX, scaleY, angle, recordingAttributeKind,userGeneratedText) {
+    constructor(uniquename, x, y, scaleX, scaleY, angle, recordingAttributeKind) {
         this.uniquename = uniquename;
         this.x = x;
         this.y = y;
@@ -10,11 +10,25 @@ export default class RecordInfo {
             this.recordingAttributeKind = RecordInfo.DEFAULT_RECORDING_TYPE;
         } else {
             this.recordingAttributeKind = recordingAttributeKind;    
-        }         
-        
-        this.userGeneratedText = userGeneratedText;
+        }                 
+    }
+    
+    
+    set text(userGeneratedText) {
+        this._userGeneratedText = userGeneratedText; 
+    }
+    
+    
+    get text() {
+        return this._userGeneratedText;
+    }
+    
+    
+    set sound(soundFileName) {
         
     }
+    
+    
 
     toJSON() {
         let json = {
@@ -26,14 +40,18 @@ export default class RecordInfo {
             scaleY: this.scaleY,
             angle: this.angle,
             recordingAttributeKind: this.recordingAttributeKind,
-            userGeneratedText: this.userGeneratedText
+            userGeneratedText: this._userGeneratedText
+            
         };
         console.log(json);
         return json;
     }
 
     static fromJSON(j) {
-        let recordInfo = new RecordInfo(j.uniquename, j.x, j.y, j.scaleX, j.scaleY, j.angle, j.recordingAttributeKind, j.userGeneratedText);
+        let recordInfo = new RecordInfo(j.uniquename, j.x, j.y, j.scaleX, j.scaleY, j.angle, j.recordingAttributeKind);
+        recordInfo.text = j.userGeneratedText;
+        recordInfo.soundFileName = j.soundFileName;
+        recordInfo.applySound = j.applySound;
         return recordInfo;
     }
 }
@@ -41,3 +59,4 @@ export default class RecordInfo {
 
 RecordInfo.DEFAULT_RECORDING_TYPE='DEFAULT_RECORING';
 RecordInfo.TEXT_RECORDING_TYPE='TEXT_RECORDING';
+RecordInfo.SOUND_RECORDING_TYPE='SOUND_RECORDING_TYPE';

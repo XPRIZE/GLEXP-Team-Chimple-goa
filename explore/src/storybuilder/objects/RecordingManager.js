@@ -222,20 +222,14 @@ export default class RecordingManager extends Phaser.Group {
             console.log('what we got here:' + this._map.get(closest));
             return this._map.get(closest);
         };
-
-
-        /*        if (this._sceneRecordingMap && this._sceneRecordingMap.size > 0) {
-                    let keys = Array.from(this._sceneRecordingMap.keys());
-                    var closest = keys.reduce(function(prev, curr) {
-                        return (Math.abs(curr - lookUpKey) < Math.abs(prev - lookUpKey) ? curr : prev);
-                    });
-                    console.log('closest key:' + closest + " and lookupkey:" + lookUpKey);
-                    return this._sceneRecordingMap.get(closest);
-                };*/
     }
+    
 
     addToMap(data) {
-        let recordInfo = new RecordInfo(data.uniquename, data.x, data.y, data.scaleX, data.scaleY, data.angle, data.recordingAttributeKind, data.userGeneratedText);
+        let recordInfo = new RecordInfo(data.uniquename, data.x, data.y, data.scaleX, data.scaleY, data.angle, data.recordingAttributeKind);        
+        this.recordSpecialTextAttribute(data, recordInfo);
+        this.recordSpecialSoundAttribute(data, recordInfo);
+        
         let spriteMap = this._sceneRecordingMap.get(this.currentRecordingCounter);
         if (!spriteMap) {
             let curRecordingMap = new Map();
@@ -244,12 +238,24 @@ export default class RecordingManager extends Phaser.Group {
         } else {
             spriteMap.set(data.uniquename, recordInfo.toJSON());
         }
-        console.log('recordInfo:' + JSON.stringify(recordInfo) + "at recording counter:" + this.currentRecordingCounter);
-        
-        if(recordInfo.recordingAttributeKind === RecordInfo.TEXT_RECORDING_TYPE) {
-            console.log('text message received at ' + this.currentRecordingCounter);
-        }
     }
+    
+    
+    recordSpecialTextAttribute(data, recordInfo) {
+      if(recordInfo.recordingAttributeKind === RecordInfo.TEXT_RECORDING_TYPE && data.userGeneratedText != null) {
+         recordInfo.text = data.userGeneratedText;
+         console.log('text message received at ' + this.currentRecordingCounter);          
+      }  
+    }
+    
+    recordSpecialSoundAttribute(data, recordInfo) {
+      if(recordInfo.recordingAttributeKind === RecordInfo.SOUND_RECORDING_TYPE && data.soundFileName != null) {
+          recordInfo.soundFileName = data.soundFileName;
+          recordInfo.applySound = data.applySound;         
+          console.log('sound message received at ' + this.currentRecordingCounter);          
+      }  
+    }
+    
 
 
     computeRecordingTimeCounters(delta) {
