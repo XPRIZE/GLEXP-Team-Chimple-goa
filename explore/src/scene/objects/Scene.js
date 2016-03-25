@@ -1,3 +1,6 @@
+import ExploreInputHandler from '../objects/ExploreInputHandler.js';
+import Item from '../objects/Item.js';
+
 export default class Scene extends Phaser.Group {
     constructor(game, width, height) {
         super(game);
@@ -26,6 +29,7 @@ export default class Scene extends Phaser.Group {
         }
         this._floor = floor;
         this.add(floor);
+        this.setInputHandler(floor);
     }
     
     get floor() {
@@ -38,10 +42,68 @@ export default class Scene extends Phaser.Group {
         }
         this._wall = wall;
         this.add(wall);
+        this.setInputHandler(wall);
     }
     
     get wall() {
         return this._wall;
+    }
+    
+    get surfaces() {
+        return [this.floor, this.wall];
+    }
+    
+    set mode(val) {
+        this._mode = val;
+        this.setInputHandler(this);
+        // if(this.wall) {
+        //     this.setInputHandler(this.wall);        
+        // }
+        // if(this.floor) {
+        //     this.setInputHandler(this.floor);                
+        // }
+    }
+    
+    get mode() {
+        return this._mode;
+    }
+    
+    setInputHandler(object) {
+        if(object.surfaces) {
+            object.surfaces.forEach(function (surface) {
+                surface.contents.forEach(function(content) {
+                    content.disableInputs(true);
+                    let inputHandler = this.getInputHandler(content);
+                    if(inputHandler) {
+                        content.enableInputs(inputHandler);            
+                    }
+                    this.setInputHandler(content);            
+                }, this);
+            }, this);
+        }
+    }
+    
+    getInputHandler(item) {
+        if(this.mode == Scene.EXPLORE_MODE) {
+            if(item instanceof Item) {
+                return new ExploreInputHandler(this);
+            }            
+        }
+    }
+    
+    update() {
+        super.update();
+        if(this.selectedObject) {
+            if(this.game.camera.x < this.game.camera.bounds.width - this.game.camera.width && this.selectedObject.x > this.game.camera.x + this.game.width - 100) {
+                this.game.camera.x += 5;
+                this.selectedObject.x += 5;
+                this.selectedObject.input.dragOffset.x += 5;
+            } else if(this.game.camera.x > 0 && this.selectedObject.x < this.game.camera.x + 100) {
+                this.game.camera.x -= 5;
+                this.selectedObject.x -= 5;
+                this.selectedObject.input.dragOffset.x -= 5;                
+            }
+        }
     }
     
     toJSON() {
@@ -64,3 +126,6 @@ export default class Scene extends Phaser.Group {
         return scene;
     }
 }
+
+Scene.EXPLORE_MODE = 'explore_mode';
+Scene.STORY_MODE = 'story_mode';

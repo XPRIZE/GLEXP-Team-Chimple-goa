@@ -2,18 +2,19 @@ import Surface from './Surface.js';
 import TileTexture from './TileTexture.js';
 
 export default class ExploreInputHandler {
-    constructor(game) {
+    constructor(scene) {
         this.clickEnabled = true;
         this.dragEnabled = true;
-
-
         this.inputEnabled = true;
-        
+        this.scene = scene;
     }
     
     
     onInputDown(sprite, pointer) {
         sprite.scale.setTo(1.2,1.2);
+        sprite.y -= 10;
+        
+        this.instance.scene.selectedObject = sprite;
         
         $('#element_to_pop_up').bPopup();
         
@@ -34,43 +35,18 @@ export default class ExploreInputHandler {
     
     onInputUp(sprite, pointer) {
         sprite.scale.setTo(1,1);
+        sprite.y += 10;
+        this.instance.scene.selectedObject = null;
     }
     
     onDragStart(sprite, pointer) {
-        sprite._isDragging = true;
-        sprite.game.camera.follow(sprite, Phaser.Camera.FOLLOW_PLATFORMER);
-        sprite.start_camera_x = sprite.game.camera.x;
-        sprite.start_camera_y = sprite.game.camera.y;
-
-        // sprite.x = this.game.input.activePointer.x;
-        // sprite.y = this.game.input.activePointer.y;
     }
 
     onDragUpdate(sprite, pointer, dragX, dragY, snapPoint) {
-        sprite.x += sprite.game.camera.x - sprite.start_camera_x;
-        sprite.y += sprite.game.camera.y - sprite.start_camera_y;
-
-
-        // let distanceFromLastUp = Phaser.Math.distance(game.input.activePointer.positionDown.x, game.input.activePointer.positionDown.y,
-        //     game.input.activePointer.x, game.input.activePointer.y);
-
-        // if (distanceFromLastUp < 5) {
-        //     this._isDragging = false;
-        // } else {
-        //     this._isDragging = true;
-
-        //     if (this._isDragging == true) {
-
-        //         sprite.x = this.game.input.activePointer.worldX;
-        //         sprite.y = this.game.input.activePointer.worldY - (0.570 * this.game.height);
-
-        //     }
-        // }
     }
 
     onDragStop(sprite, pointer) {
-        this.game.camera.unfollow();
-        sprite._isDragging = false;
+        sprite.input.dragOffset.x = 0;
         let globalPoint = this.toGlobal(new PIXI.Point(0, 0));
         let testSprite = new Phaser.Sprite(this.game, globalPoint.x, globalPoint.y, this.key, this.frame);
         this.game.physics.enable(testSprite);
