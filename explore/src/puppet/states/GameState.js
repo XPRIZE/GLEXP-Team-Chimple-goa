@@ -8,6 +8,7 @@ export default class GameState extends Phaser.State {
     this.load.atlas('puppet/icons', 'assets/puppet/icons.png', 'assets/puppet/icons.json');
     this.load.atlas('scene/icons', 'assets/scene/icons.png', 'assets/scene/icons.json');
     this.load.atlas('puppet/characters', 'assets/puppet/characters.png', 'assets/puppet/characters.json');
+     this.load.atlas('puppet/eye_mouth', 'assets/puppet/eye_mouth.png', 'assets/puppet/eye_mouth.json');
     //this.load.atlas('puppet/sample', 'assets/puppet/sample.png', 'assets/puppet/sample.json');
     this.load.json('puppet/accessorize', 'assets/puppet/accessorize.json');
     this.load.json('puppet/menu_accessorize', 'assets/puppet/menu_accessorize.json');

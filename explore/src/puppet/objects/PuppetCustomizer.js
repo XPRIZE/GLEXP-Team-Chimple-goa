@@ -33,6 +33,9 @@ export default class PuppetCustomizer extends Phaser.Group {
         let chooser = this.add(new TabView(game, 'puppet/chooser', width / 2, height, 10, 100, 5, 3, true, function(accType, accName) {
             if (accType == "skinColor_chooser") {
                 this.puppet.bodyColor = parseInt(accName, 16);
+                 this.puppet.blinkAct();
+                 this.puppet.smileAct();
+                 this.puppet.sadAct();
             } else if (accType == "hairColor_chooser") {
                 if (this.puppet.head.getAccessory('frontHair')) {
                     this.puppet.head.getAccessory('frontHair').tint = parseInt(accName, 16);

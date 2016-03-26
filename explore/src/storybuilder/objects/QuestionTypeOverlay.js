@@ -2,14 +2,10 @@ import RecordingPauseSignal from './RecordingPauseSignal.js';
 import RecordingResumeSignal from './RecordingResumeSignal.js';
 import Shape from '../../puppet/objects/Shape.js';
 import TabView from '../../puppet/objects/TabView.js';
-import Sprite from '../../puppet/objects/Scalable.js';
-import TextData from './TextData.js';
-import TileTexture from '../../scene/objects/TileTexture.js';
-import Floor from '../../scene/objects/Floor.js';
-import Wall from '../../scene/objects/Wall.js';
-import Scene from '../../scene/objects/Scene.js';
 
-export default class AttributeEditOverlay extends Phaser.Group {
+var idObject = new Object();
+
+export default class QuestionTypeOverlay extends Phaser.Group {
     //container to edit item properties
     constructor(game, width, height, clickedObject, pointer) {
         super(game);
@@ -37,25 +33,47 @@ export default class AttributeEditOverlay extends Phaser.Group {
         this._overlayDisplaySprite.events.onInputDown.add(this.onInputDown, this);
         this._overlayDisplaySprite.events.onInputUp.add(this.onInputUp, this);
 
-        this.drawScaleHandler(0.8, 0xFFFFFF, 1.5, 75);
 
-        this._settings = this._overlayDisplaySprite.addChild(game.make.sprite(300, 60, 'storyBuilder/setting'));
-        this._settings.fixedToCameara = true;
-        this._settings.inputEnabled = true;
-        this._settings.events.onInputUp.add(this.createAdditionalPropertiesOverlay, this);
-        this._settings.input.priorityID = 2;
+
+        this._matchingType = this._overlayDisplaySprite.addChild(game.make.sprite(300, 80, 'storyBuilder/setting'));
+//        this._matchingType.fixedToCameara = true;
+        this._matchingType.inputEnabled = true;
+        this._matchingType.events.onInputUp.add(this.matchingPopUp, this);
+        this._matchingType.input.priorityID = 2;
         
-        
-        //Added TEXT BUTTON to generate Testing Text - later UI will be replaced ...
-        this._textEditor = this._overlayDisplaySprite.addChild(game.make.sprite(400, 60, 'storyBuilder/plus'));
-        this._textEditor.fixedToCameara = true;
-        this._textEditor.inputEnabled = true;
-        this._textEditor.events.onInputUp.add(this.createAdditionalPropertiesOverlay, this);
-        this._textEditor.input.priorityID = 2;
-        
+        this._multipleChoice = this._overlayDisplaySprite.addChild(game.make.sprite(300, 160, 'storyBuilder/setting'));
+//        this._settings.fixedToCameara = true;
+        this._multipleChoice.inputEnabled = true;
+        this._multipleChoice.events.onInputUp.add(this.multipleChoicePopUp, this);
+        this._multipleChoice.input.priorityID = 2;
 
     }
 
+    multipleChoicePopUp()
+    {
+        this._overlayBitMap.destroy();
+        this._overlayDisplaySprite.destroy();
+        this._clickedObject.inputEnabled = true;
+        $('body').append('<div id="mask"></div>');
+        $('#mask').fadeIn(300);
+		$("#multiple_choice_css").fadeIn(1000);
+		$("#multiple_choice_css").css({"visibility":"visible","display":"block"});
+    }
+    
+    matchingPopUp()
+    {
+        this._overlayBitMap.destroy();
+        this._overlayDisplaySprite.destroy();
+        this._clickedObject.inputEnabled = true;
+        $('body').append('<div id="mask"></div>');
+        $('#mask').fadeIn(300);
+		$("#image_slider").fadeIn(1000);
+		$("#image_slider").css({"visibility":"visible","display":"block"});
+        
+        window.slide();
+    }
+    
+    
     createAdditionalPropertiesOverlay() {
         console.log('input up');
         //create new TabUI for text and Sound editing
@@ -71,89 +89,37 @@ export default class AttributeEditOverlay extends Phaser.Group {
             let backGroundThemes = that.game.cache.getJSON('storyBuilder/background_themes');
             //later get from texture packer
             let TextNames = ["plus1", "plus2", "plus3", "plus4"];
-            let audioNames = ["plus1", "plus2"]
+            let audioNames = ["plus1", "plus2"];
             
-            that._clickedObject._specialAttributes.text.forEach(function(element, index) {
-                TextNames[index] = 'plus1';  
-               if(element != null){
-                   TextNames[index] = 'forest_1_th';
-               }
-              
-            }, this);
-            
-            that._itemSettingTab = that.game.add.existing(new TabView(that.game, 'scene/scene', that.game.width + that.game.world.camera.x, that.game.height + that.game.world.camera.y, 10, 50, 5, 3, true, function(tab, button) {
-                that._itemSettingTab.unSelect();
-                // that._itemSettingTab.destroy();
-                 that._clickedObject.inputEnabled = true;
+            that._chooseBackGroundTab = that.game.add.existing(new TabView(that.game, 'scene/scene', that.game.width + that.game.world.camera.x, that.game.height + that.game.world.camera.y, 10, 50, 5, 3, true, function(tab, button) {
+                that._chooseBackGroundTab.unSelect();
+                that._chooseBackGroundTab.destroy();
+                that._clickedObject.inputEnabled = true;
                 //that._recordingResumeSignal.dispatch();
-                
-                let index = 0,flag = false;
-                for(index =0 ; index < TextNames.length ; index++){
-                    if(TextNames[index] == button){
-                        flag = true;
-                    }
-                    if(flag)
-                         break;
-                }
-                
-                console.log(" button name is : "+ button + " tab name is : "+tab + " index of button : "+index);             
-                if(game._inPauseRecording){
+               
+                console.log(" button name is : "+ button + " tab name is : "+tab);
 
-                    if(tab == "forest"){
-                        
-                        this._clickedObject.text = this._clickedObject._specialAttributes.text[index];
-                     
-                    }else if( tab == " village"){
-                  
-                    }
-
-                }else{                          
-                    that.clilckedButtonName = button;
-                    if(tab == "forest"){
-                    $("#login-box").fadeIn(300);
-                    
-                    $('body').append('<div id="mask"></div>');
-                    $('#mask').fadeIn(300);
-                        window.callback = this.addtext_fromhtml;
-                        window.callbackContext = this;
-                    }else if( tab == " village"){
-                        console.log("you pressed on AudioTab");
-                    }
-                }
+                $("#login-box").fadeIn(300);
+                
+                $('body').append('<div id="mask"></div>');
+                $('#mask').fadeIn(300);
+                    window.callback = this.addtext_fromhtml;
+                    window.callbackContext = this;
             }, that, backGroundThemes));
 
-            that._itemSettingTab.tabs = { 'forest': TextNames, 'village': audioNames };
-            that._itemSettingTab.x = that.game.width * 0.05;
-            that._itemSettingTab.y = 0;
-            that._itemSettingTab.fixedToCamera = true;
-            that._itemSettingTab.visible = true;
-            that._itemSettingTab.bringToTop = true;
+            that._chooseBackGroundTab.tabs = { 'forest': TextNames, 'village': audioNames };
+            that._chooseBackGroundTab.x = that.game.width * 0.05;
+            that._chooseBackGroundTab.y = 0;
+            that._chooseBackGroundTab.fixedToCamera = true;
+            that._chooseBackGroundTab.visible = true;
+            that._chooseBackGroundTab.bringToTop = true;
         });
 
     }
 
     addtext_fromhtml(textvalue, text_color, background_color)
-    {   
-          let value = this._itemSettingTab.children[1].children[1];
-          for(var i = 0 ; i < value.length ; i ++){
-              if(value.children[i] instanceof Phaser.Button ){
-                  if(this.clilckedButtonName == value.children[i].name){
-                     var style = { font: "32px Arial", fill: ""+text_color, wordWrap: true, wordWrapWidth: value.children[i].width, align: "center", backgroundColor: ""+background_color };
-                    
-                     let x = value.children[i+1].x , y = value.children[i+1].y;
-                     let jsonDataText = new TextData(game,0,0,this.clilckedButtonName,null,textvalue,style,this._clickedObject._uniquename, 0);
-                     
-                     value.children[i+1].loadTexture("storyBuilder/forest_1_th");
-                     value.children[i+1].parent = value;
-                     console.log("JSON FOR TEXT OBJECT \n\n"+ JSON.stringify(jsonDataText));
-                  }
-              }
-          }
-        
-           this._recordingResumeSignal.dispatch();
-           this._clickedObject._specialAttributes.text.push(textvalue);
-           //console.log(" text value : "+  this._clickedObject._specialAttributes.text);    
-        //    this._itemSettingTab.destroy();    
+    {
+           console.log("my value = "+textvalue + " color : "+ text_color + " background_color : "+ background_color);
     }
 
     drawScaleHandler(alpha, color, lineWidth, radius) {
@@ -253,7 +219,7 @@ export default class AttributeEditOverlay extends Phaser.Group {
         this._recordingResumeSignal.dispatch();
         let rotation = game.physics.arcade.angleToPointer(this._fixedHandlerSprite, pointer);
         let angle = rotation * 180 / Math.PI - 90;
-        
+        this._clickedObject.angle = angle;
 
         let difference = 0;
 
@@ -262,46 +228,23 @@ export default class AttributeEditOverlay extends Phaser.Group {
 
         let scaleX = this._dragHandlerSprite._clickScale.x + difference / 100;
         let increasedScaleX = scaleX;
-        if(this._clickedObject instanceof TileTexture) {
-            console.log('instand of tile texture');
-            if(this._clickedObject.parent && (this._clickedObject.parent instanceof Wall || this._clickedObject.parent instanceof Floor))
-            {
-                if(this._clickedObject.parent.parent && this._clickedObject.parent.parent instanceof Scene) {
-                    this._clickedObject.parent.parent.scale.setTo(scaleX, scaleX);
-                } 
-            }  
-        } else {
-            this._clickedObject.angle = angle;
-            this._clickedObject.scale.setTo(scaleX, scaleX);    
-        }
-        
+        this._clickedObject.scale.setTo(scaleX, scaleX);
         this.refresh(distance);
     }
 
     onDragHandlerInputUp(sprite, pointer) {
         let self = this;
         game.input.deleteMoveCallback(this.onDragHandlerInputDrag, this);
-        this.closeAttributeEditOverlay();
     }
 
     onInputDown() {
         let self = this;
-        this.closeAttributeEditOverlay();
+        this._overlayBitMap.destroy();
+        this._overlayDisplaySprite.destroy();
+        this._clickedObject.inputEnabled = true;
     }
 
-    closeAttributeEditOverlay() {
-        var that = this;
-        game.time.events.add(Phaser.Timer.SECOND * 0.5, function() {
-            that._fixedHandlerSprite.destroy();
-            that._dragHandlerSprite.destroy();
-            that._overlayDisplaySprite.destroy();
-            that._dynamicCircle.destroy();
-            that._clickedObject.inputEnabled = true;
-            that._recordingResumeSignal.dispatch();
-        });
 
-
-    }
 
     onInputUp() {
 

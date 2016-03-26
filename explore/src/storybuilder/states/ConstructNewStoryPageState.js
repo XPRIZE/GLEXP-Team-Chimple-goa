@@ -14,6 +14,7 @@ import StoryUtil from '../objects/StoryUtil.js';
 import RecordingManager from '../objects/RecordingManager.js';
 import ShowAttributeEditorSignal from '../objects/ShowAttributeEditorSignal.js';
 import AttributeEditOverlay from '../objects/AttributeEditOverlay.js';
+import QuestionTypeOverlay from '../objects/QuestionTypeOverlay.js';
 import StoryBuilderInputHandler from '../objects/StoryBuilderInputHandler.js';
 import StoryPuppetBuilderInputHandler from '../objects/StoryPuppetBuilderInputHandler.js';
 
@@ -25,8 +26,14 @@ import PersistRecordingInformationSignal from '../objects/PersistRecordingInform
 import PlayResumeSignal from '../objects/PlayResumeSignal.js';
 
 
+import SpecialAttribute from '../../scene/objects/SpecialAttribute.js';
+import SoundData from '../../scene/objects/SoundData.js';
+
+
+
 
 var _ = require('lodash');
+var idObject = new Object();
 //rename to BuildYourOwnStoryEditorState
 export default class ConstructNewStoryPageState extends Phaser.State {
     init(currentStoryId, currentPageId, cachedJSONRepresentation, sceneOrPuppetType) {
@@ -39,6 +46,7 @@ export default class ConstructNewStoryPageState extends Phaser.State {
         this.onPersistRecordingInformationSignal.add(this.persistRecordingInformation, this);
 
         this._playResumeSignal = new PlayResumeSignal();
+        this._screenshotGenerated = false;
     }
 
     loadStoryFromLocalStorage(currentStoryId) {
@@ -72,6 +80,12 @@ export default class ConstructNewStoryPageState extends Phaser.State {
         this.load.image('storybuilder/setting_button', 'assets/storyBuilder/setting_button.png');
         this.load.image('storybuilder/plus', 'assets/storyBuilder/plus_button.png');
 
+        //for now statically load audio
+        this.load.audio('audio_1', 'assets/storyBuilder/sounds/audio_1.mp3');
+        this.load.audio('audio_2', 'assets/storyBuilder/sounds/audio_2.mp3');
+
+        this.load.script('gray', 'https://cdn.rawgit.com/photonstorm/phaser/master/filters/Gray.js');
+
         this.loadScenesConfiguration();
         this.loadPuppetsConfiguration();
 
@@ -101,7 +115,8 @@ export default class ConstructNewStoryPageState extends Phaser.State {
         this.setUpUI();
 
         this.initializeRecordingManager();
-        
+
+
         //this.generateSnapShot();
     }
 
@@ -113,6 +128,9 @@ export default class ConstructNewStoryPageState extends Phaser.State {
     loadExistingSceneToEdit() {
         let page = JSON.parse(JSON.stringify(this._currentPage), JsonUtil.revive);
         this._loadedScene = page.scene;
+        //var gray = this.game.add.filter('Gray');
+        //this._loadedScene.filters = [gray];
+
         this._displayControlGroup.add(this._loadedScene);
         //remove any direct child of world 
         this.game.world.children.forEach(function(element) {
@@ -140,6 +158,12 @@ export default class ConstructNewStoryPageState extends Phaser.State {
         this._displayControlGroup.children.forEach(function(element) {
             console.log(element);
             if (element instanceof Scene) {
+                element.floor.textures.forEach(function(element) {
+                    element.disableInputs(true);
+                    element.enableInputs(new StoryBuilderInputHandler(), false);
+
+                }, this);
+
                 element.floor.contents.forEach(function(element) {
                     if (element instanceof Puppet) {
                         element.disableInputs(true);
@@ -178,8 +202,8 @@ export default class ConstructNewStoryPageState extends Phaser.State {
                     }
                 }, this);
             }
-
-            this.saveToLocalStore();
+            this._screenshotGenerated = false;
+            //this.saveToLocalStore();
 
         }
     }
@@ -204,40 +228,6 @@ export default class ConstructNewStoryPageState extends Phaser.State {
     }
 
 
-    generateSnapShot() {
-        console.log('generate image');
-        game.stage.updateTransform();
-        var phaserCanvas = document.getElementById("gameCanvas");
-        html2canvas(phaserCanvas).then(function(canvas) {
-            //document.body.appendChild(canvas);
-            let base64encodedImageData = canvas.toDataURL();
-            console.log('base64encodedImageData:' + base64encodedImageData);
-        });        
-        // let originalSnapShot = new Phaser.BitmapData(this.game, 'snap1', this.game.width, this.game.height);
-        // originalSnapShot.drawFull(this._displayControlGroup);
-        // var adjustedSnapShot = new Phaser.BitmapData(self.game, 'snap2', this.game.width, this.game.height);
-        // adjustedSnapShot.copyRect(originalSnapShot, new Phaser.Rectangle(0, 0, originalSnapShot.width, originalSnapShot.height), 0, 0);
-        // var base64encodedImageData = adjustedSnapShot.baseTexture.source.toDataURL();
-
-        // originalSnapShot.destroy();
-        // adjustedSnapShot.destroy();
-        // console.log('base64encodedImageData:' + base64encodedImageData);
-
-        // // this._displayControlGroup.children.forEach(function(element) {
-        // //     console.log(element);
-        // //     if (element instanceof Scene) {
-        // //         originalSnapShot.drawFull(element);
-        // //         var adjustedSnapShot = new Phaser.BitmapData(self.game, 'snap2', this.game.width, this.game.height);
-        // //         adjustedSnapShot.copyRect(originalSnapShot, new Phaser.Rectangle(0, 0, originalSnapShot.width, originalSnapShot.height), 0, 0);
-        // //         var base64encodedImageData = adjustedSnapShot.baseTexture.source.toDataURL();
-
-        // //         originalSnapShot.destroy();
-        // //         adjustedSnapShot.destroy();
-        // //         console.log('base64encodedImageData:' + base64encodedImageData);
-
-        // //     }
-        // // }, this);
-    }
     createActionButtons() {
 
         this._homeButton = this.game.make.sprite(this.game.width - 40, 40, 'storybuilder/home_button');
@@ -277,20 +267,58 @@ export default class ConstructNewStoryPageState extends Phaser.State {
         this._testResumePlayButton = this.game.make.sprite(this.game.width - 340, 40, 'storybuilder/home_button');
         this._testResumePlayButton.anchor.setTo(0.5);
         this._testResumePlayButton.inputEnabled = true;
-        this._testResumePlayButton.events.onInputDown.add(this.resumePlayForTesting, this);
+        this._testResumePlayButton.events.onInputDown.add(this.testing, this);
         this._testResumePlayButton.input.priorityID = 2;
         this._displayControlGroup.add(this._testResumePlayButton);
-
+        this._soundAdded = false;
+        
+        this._askQuestionButton = this.game.make.sprite(this.game.width - 420, 40, 'storybuilder/home_button');
+        this._askQuestionButton.anchor.setTo(0.5);
+        this._askQuestionButton.inputEnabled = true;
+        this._askQuestionButton.events.onInputDown.add(this.askQuestions, this);
+        this._askQuestionButton.input.priorityID = 2;
+        this._displayControlGroup.add(this._askQuestionButton);
 
     }
 
-    resumePlayForTesting() {        
-        //this._playResumeSignal.dispatch();
+    testing() {
+        if (!this._soundAdded) {
+            this._testItemClicked.applySound(0, true);
+            this._soundAdded = true;
+        } else {
+            this._testItemClicked.applySound(0, false);
+            this._soundAdded = false;
+        }
     }
 
-    createQuestionAndAnswer() {
-        console.log('this.storyid:' + this._currentStory.storyId + " and pageId:" + this._currentPage.pageId);
-        $("#select_choice").css({ "visibility": "visible", "display": "block" });
+    createQuestionAndAnswer(item, pointer) {
+        this._QuestionTypeOverlay = new QuestionTypeOverlay(game, game.width, game.height, item, pointer);
+        idObject.storyId = this._currentStory.storyId;
+        idObject.pageId = this._currentPage.pageId;   
+        
+        window.callback = this.returnID;
+        window.callbackContext = this;
+    }
+    
+//  when user choose question type then it returns the story id and page id.
+    returnID()
+    {
+        return idObject;
+//        $("#select_choice").css({ "visibility": "visible", "display": "block" });
+    }
+
+    askQuestions()
+    {
+        $("#Question_css").css({"visibility":"visible","display":"none"});
+//        $("#question_ask_select_choice").css({"visibility":"visible","display":"block"});
+        
+        idObject.storyId = this._currentStory.storyId;
+        idObject.pageId = this._currentPage.pageId;   
+        
+        window.callback = this.returnID;
+        window.callbackContext = this; 
+        
+        window.display_question_multichoice();
     }
 
     chooseBackGround(sprite, pointer) {
@@ -372,6 +400,12 @@ export default class ConstructNewStoryPageState extends Phaser.State {
     }
 
     showAttributeEditor(item, pointer) {
+        //sound testing
+        //this._testItemClicked = item;
+        //add sounds
+        //let music = new SoundData(game, 'audio_1', false);
+        //item.addSound(music);
+
         this._AttributeEditOverlay = new AttributeEditOverlay(game, game.width, game.height, item, pointer);
     }
 
@@ -387,12 +421,24 @@ export default class ConstructNewStoryPageState extends Phaser.State {
     shutdown() {
         this.recordingManager = null;
     }
-    
-    
+
+
     render() {
-        //this.generateSnapShot();
+        this.generateSnapShot();
     }
-    
+
+
+    generateSnapShot() {
+        if (!this._screenshotGenerated) {
+            let imageDataURI = document.getElementById("gameCanvas").children[0].toDataURL();
+            //update page                        
+            this._screenshotGenerated = true;
+            console.log('geneared image uri:' + imageDataURI);
+            this._currentPage.imageData = imageDataURI;
+            this.saveToLocalStore();
+        }
+
+    }
 
 }
 

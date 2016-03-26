@@ -1,7 +1,8 @@
 import ExploreInputHandler from '../objects/ExploreInputHandler.js';
 import Item from '../objects/Item.js';
+import EnableInputs from './EnableInputs.js';
 
-export default class Scene extends Phaser.Group {
+export default class Scene extends EnableInputs(Phaser.Group) {
     constructor(game, width, height) {
         super(game);
         this.setSceneSize(width, height);

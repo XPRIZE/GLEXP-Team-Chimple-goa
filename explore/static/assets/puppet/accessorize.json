@@ -34,24 +34,7 @@
         "frame": "singer_beard.png"
            }
              },
-    "mouth 1": {
-      "Mouth": {
-        "key": "puppet/headshape",
-        "frame": "mouth 1.png"
-      }
-    },
-    "mouth 2": {
-      "Mouth": {
-        "key": "puppet/headshape",
-        "frame": "mouth 2.png"
-      }
-    },  
-    "mouth 3": {
-      "Mouth": {
-        "key": "puppet/headshape",
-        "frame": "mouth 3.png"
-      }
-    },
+   
     "head_rect": {
       "HeadShape": {
         "key": "puppet/headshape",
@@ -191,7 +174,117 @@
         "offsetX":0.5,
         "offsetY":0
     }
-    }
+    },
+     "eye1":{
+        "Eye":{
+            "key": "puppet/eye_mouth",
+        "frame": "eye 1.png",
+        "anchorX":0,
+        "anchorY":0.1,
+        "offsetX":0.13,
+        "offsetY":0.3
+        }
+    },
+    "eye3":{
+        "Eye":{
+            "key": "puppet/eye_mouth",
+        "frame": "eyes 3.png",
+        "anchorX":0,
+        "anchorY":0.1,
+        "offsetX":0.13,
+        "offsetY":0.3
+        } 
+      },
+       "eye4":{
+        "Eye":{
+            "key": "puppet/eye_mouth",
+        "frame": "eyes 4.png",
+        "anchorX":0,
+        "anchorY":0.1,
+        "offsetX":0.13,
+        "offsetY":0.3
+        } 
+       },
+        "eye6":{
+        "Eye":{
+            "key": "puppet/eye_mouth",
+        "frame": "eyes 6.png",
+        "anchorX":0,
+        "anchorY":0.1,
+        "offsetX":0.13,
+        "offsetY":0.3
+        } 
+       },
+     "eye7":{
+        "Eye":{
+            "key": "puppet/eye_mouth",
+        "frame": "eyes 7.png",
+        "anchorX":0,
+        "anchorY":0.1,
+        "offsetX":0.13,
+        "offsetY":0.3
+        } 
+      },
+      "mouth1":{
+          "Mouth":{
+              "key":"puppet/eye_mouth",
+              "frame":"mouth 1.png",
+               "anchorX":0.45,
+               "anchorY":0.5,
+               "offsetX":0.5,
+               "offsetY":0.8
+          }
+      },
+       "mouth2":{
+          "Mouth":{
+              "key":"puppet/eye_mouth",
+              "frame":"mouth 2.png",
+               "anchorX":0.45,
+               "anchorY":0.5,
+               "offsetX":0.5,
+               "offsetY":0.8
+          }
+      },
+      "mouth3":{
+          "Mouth":{
+              "key":"puppet/eye_mouth",
+              "frame":"mouth 3.png",
+               "anchorX":0.45,
+               "anchorY":0.5,
+               "offsetX":0.5,
+               "offsetY":0.8
+          }
+      },
+       "mouth4":{
+          "Mouth":{
+              "key":"puppet/eye_mouth",
+              "frame":"mouth 4.png",
+               "anchorX":0.45,
+               "anchorY":0.5,
+               "offsetX":0.5,
+               "offsetY":0.8
+          }
+      },
+      "mouth5":{
+          "Mouth":{
+              "key":"puppet/eye_mouth",
+              "frame":"mouth 5.png",
+               "anchorX":0.45,
+               "anchorY":0.5,
+               "offsetX":0.5,
+               "offsetY":0.8
+          }
+      },
+       "mouth6":{
+          "Mouth":{
+              "key":"puppet/eye_mouth",
+              "frame":"mouth 6.png",
+               "anchorX":0.45,
+               "anchorY":0.5,
+               "offsetX":0.5,
+               "offsetY":0.8
+          }
+      }
   },
   "pants_chooser": {
     "scientist_pant": {

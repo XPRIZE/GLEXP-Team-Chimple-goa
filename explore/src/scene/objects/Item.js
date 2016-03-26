@@ -10,6 +10,9 @@ import EnableAttributeEditorSignal from '../../storybuilder/objects/EnableAttrib
 import ShowAttributeEditorSignal from '../../storybuilder/objects/ShowAttributeEditorSignal.js';
 import PlayPauseSignal from '../../storybuilder/objects/PlayPauseSignal.js';
 import PlayResumeSignal from '../../storybuilder/objects/PlayResumeSignal.js';
+import TextData from '../../storybuilder/objects/TextData.js';
+import SoundData from './SoundData.js';
+import SpecialAttribute from './SpecialAttribute.js';
 
 var _ = require('lodash');
 
@@ -31,12 +34,9 @@ export default class Item extends EnableInputs(Phaser.Sprite) {
 
         //Allow item to invoke ShowAttributeEditorSignal()
         this._showAttributeEditorSignal = new ShowAttributeEditorSignal();
-        //added for testing purpose, will be replaced by Special Attribute Class later...
-        this._userGeneratedText = null;
 
-        this._specialAttributes = null;
-        this._specialAttributes = {text:[],audio:[]};
-
+        this._specialAttribute = new SpecialAttribute();
+        
         this._playPauseSignal = new PlayPauseSignal();
         this._playResumeSignal = new PlayResumeSignal();
     }
@@ -44,13 +44,41 @@ export default class Item extends EnableInputs(Phaser.Sprite) {
     enableInputs(instance, iterateInside) {
         super.enableInputs(instance, iterateInside);
         this.input.priorityID = 2;
+    }    
+    
+    addText(textData) {
+        this._specialAttribute.addText(textData); 
+    }
+    
+    applyText(whichTextIndex, apply) {
+        this._specialAttribute.applyText(whichTextIndex, apply);
+        let appliedTextData = this._specialAttribute.getText(whichTextIndex);
+        let text = appliedTextData.text;
+        //later you should get text, fontColor, backgroundColor, style 
+        if (game._inRecordingMode) {
+            this._specialAttributesChangedSignal.dispatch({ uniquename: this._uniquename, x: this.x, y: this.y, scaleX: this.scale.x, scaleY: this.scale.y, angle: this.angle, recordingAttributeKind: RecordInfo.TEXT_RECORDING_TYPE, userGeneratedText: text});
+        }        
+    }
+    
+    addSound(soundData) {
+        this._specialAttribute.addSound(soundData); 
     }
 
-    set text(text) {
-        this._userGeneratedText = text;
-        if (game._inRecordingMode) {
-            this._specialAttributesChangedSignal.dispatch({ uniquename: this._uniquename, x: this.x, y: this.y, scaleX: this.scale.x, scaleY: this.scale.y, angle: this.angle, recordingAttributeKind: RecordInfo.TEXT_RECORDING_TYPE, userGeneratedText: this._userGeneratedText });
-        }
+    
+    applySound(whichSoundIndex, apply) {
+        this._specialAttribute.applySound(whichSoundIndex, apply);
+        let soundData = this._specialAttribute.getSound(whichSoundIndex);
+        soundData.apply = apply;
+        if (game._inRecordingMode) {            
+            if (game.cache.checkSoundKey(soundData.soundFileName)) {                
+                if(apply) {
+                    soundData.playMusic();                       
+                } else {
+                    soundData.stopMusic();                    
+                }
+            }            
+            this._specialAttributesChangedSignal.dispatch({ uniquename: this._uniquename, x: this.x, y: this.y, scaleX: this.scale.x, scaleY: this.scale.y, angle: this.angle, recordingAttributeKind: RecordInfo.SOUND_RECORDING_TYPE, soundData: soundData});
+        }        
     }
 
     drawBoundingBox(color) {
@@ -106,33 +134,57 @@ export default class Item extends EnableInputs(Phaser.Sprite) {
                 this.scale.y = recordedInfo.scaleY;
                 this.angle = recordedInfo.angle;
                 console.log('recordedInfo.x:' + recordedInfo.x + "recordedInfo.y:" + recordedInfo.y);
+                this.applySpecialAttributeChanges(recordedInfo);                
+                
+            }
+        }
+    }
+    
+    
+    
+    applySpecialAttributeChanges(recordedInfo) {
+        var self = this;
+        //later refactor into 4 different classes
+        if (recordedInfo.recordingAttributeKind == RecordInfo.TEXT_RECORDING_TYPE) {
+            //send an signal to show Text PopUp to User
+            console.log('show text popup to User' + recordedInfo.userGeneratedText);
+            $('#element_to_pop_up').bPopup({onClose: function() {
+                console.log('closing pop up');
+                self._playResumeSignal.dispatch();
+            }});
 
-                //if we have received TEXT KIND data
-                if (recordedInfo.recordingAttributeKind == RecordInfo.TEXT_RECORDING_TYPE) {
-                    //send an signal to show Text PopUp to User
-                    console.log('show text popup to User' + recordedInfo.userGeneratedText);
-                    $('#element_to_pop_up').bPopup({onClose: function() {
-                        console.log('closing pop up');
-                        self._playResumeSignal.dispatch();
-                    }});
-
-                    var url = "make" + '.json';
-                    console.log('url ' + url);
-                    var meaning = '';
-                    $.getJSON(url, function(jd) {
-                        meaning = jd.meaning;
-                        meaning = $(meaning).text();
-                        $("#word").text(url);
-                        $("#meaning_content").text(meaning);
-                        $("#example_content").text(jd.exmaples);
-                        $("#image_content").attr("src", jd.image);
-                    });
-                    
-                    this._playPauseSignal.dispatch();
+            var url = "make" + '.json';
+            console.log('url ' + url);
+            var meaning = '';
+            $.getJSON(url, function(jd) {
+                meaning = jd.meaning;
+                meaning = $(meaning).text();
+                $("#word").text(url);
+                $("#meaning_content").text(meaning);
+                $("#example_content").text(jd.exmaples);
+                $("#image_content").attr("src", jd.image);
+            });
+            
+            self._playPauseSignal.dispatch();
+        } else if (recordedInfo.recordingAttributeKind == RecordInfo.SOUND_RECORDING_TYPE) {
+            //check if sound present in cache, if so use (should had been created when user choose sound for page)
+            // if sound not present, then add to game and reference to game for now - TBD (how to remove)            
+            let soundData = recordedInfo.soundData;
+            if (game.cache.checkSoundKey(soundData.soundFileName)) {
+                if(!this._soundFileName) {
+                    this._soundFileName = new SoundData(game, soundData.soundFileName, soundData.apply);    
+                }                
+                if(soundData.apply) {
+                    this._soundFileName.playMusic();        
+                } else {
+                    this._soundFileName.stopMusic();
+                    this._soundFileName.destroy();
                 }
             }
         }
     }
+    
+    
 
     changeAttributes(data) {
         this._changeAttributes = data;
