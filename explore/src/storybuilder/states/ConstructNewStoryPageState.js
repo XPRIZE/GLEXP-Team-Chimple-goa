@@ -45,6 +45,7 @@ export default class ConstructNewStoryPageState extends Phaser.State {
         this.onPersistRecordingInformationSignal.add(this.persistRecordingInformation, this);
 
         this._playResumeSignal = new PlayResumeSignal();
+        this._screenshotGenerated = false;
     }
 
     loadStoryFromLocalStorage(currentStoryId) {
@@ -81,8 +82,8 @@ export default class ConstructNewStoryPageState extends Phaser.State {
         //for now statically load audio
         this.load.audio('audio_1', 'assets/storyBuilder/sounds/audio_1.mp3');
         this.load.audio('audio_2', 'assets/storyBuilder/sounds/audio_2.mp3');
-        
-        this.load.script('gray', 'https://cdn.rawgit.com/photonstorm/phaser/master/filters/Gray.js');        
+
+        this.load.script('gray', 'https://cdn.rawgit.com/photonstorm/phaser/master/filters/Gray.js');
 
         this.loadScenesConfiguration();
         this.loadPuppetsConfiguration();
@@ -113,7 +114,7 @@ export default class ConstructNewStoryPageState extends Phaser.State {
         this.setUpUI();
 
         this.initializeRecordingManager();
-          
+
 
         //this.generateSnapShot();
     }
@@ -126,9 +127,9 @@ export default class ConstructNewStoryPageState extends Phaser.State {
     loadExistingSceneToEdit() {
         let page = JSON.parse(JSON.stringify(this._currentPage), JsonUtil.revive);
         this._loadedScene = page.scene;
-        var gray = this.game.add.filter('Gray');
-        this._loadedScene.filters = [gray];
-        
+        //var gray = this.game.add.filter('Gray');
+        //this._loadedScene.filters = [gray];
+
         this._displayControlGroup.add(this._loadedScene);
         //remove any direct child of world 
         this.game.world.children.forEach(function(element) {
@@ -156,6 +157,12 @@ export default class ConstructNewStoryPageState extends Phaser.State {
         this._displayControlGroup.children.forEach(function(element) {
             console.log(element);
             if (element instanceof Scene) {
+                element.floor.textures.forEach(function(element) {
+                    element.disableInputs(true);
+                    element.enableInputs(new StoryBuilderInputHandler(), false);
+
+                }, this);
+
                 element.floor.contents.forEach(function(element) {
                     if (element instanceof Puppet) {
                         element.disableInputs(true);
@@ -194,8 +201,8 @@ export default class ConstructNewStoryPageState extends Phaser.State {
                     }
                 }, this);
             }
-
-            this.saveToLocalStore();
+            this._screenshotGenerated = false;
+            //this.saveToLocalStore();
 
         }
     }
@@ -220,40 +227,6 @@ export default class ConstructNewStoryPageState extends Phaser.State {
     }
 
 
-    generateSnapShot() {
-        console.log('generate image');
-        game.stage.updateTransform();
-        var phaserCanvas = document.getElementById("gameCanvas");
-        html2canvas(phaserCanvas).then(function(canvas) {
-            //document.body.appendChild(canvas);
-            let base64encodedImageData = canvas.toDataURL();
-            console.log('base64encodedImageData:' + base64encodedImageData);
-        });
-        // let originalSnapShot = new Phaser.BitmapData(this.game, 'snap1', this.game.width, this.game.height);
-        // originalSnapShot.drawFull(this._displayControlGroup);
-        // var adjustedSnapShot = new Phaser.BitmapData(self.game, 'snap2', this.game.width, this.game.height);
-        // adjustedSnapShot.copyRect(originalSnapShot, new Phaser.Rectangle(0, 0, originalSnapShot.width, originalSnapShot.height), 0, 0);
-        // var base64encodedImageData = adjustedSnapShot.baseTexture.source.toDataURL();
-
-        // originalSnapShot.destroy();
-        // adjustedSnapShot.destroy();
-        // console.log('base64encodedImageData:' + base64encodedImageData);
-
-        // // this._displayControlGroup.children.forEach(function(element) {
-        // //     console.log(element);
-        // //     if (element instanceof Scene) {
-        // //         originalSnapShot.drawFull(element);
-        // //         var adjustedSnapShot = new Phaser.BitmapData(self.game, 'snap2', this.game.width, this.game.height);
-        // //         adjustedSnapShot.copyRect(originalSnapShot, new Phaser.Rectangle(0, 0, originalSnapShot.width, originalSnapShot.height), 0, 0);
-        // //         var base64encodedImageData = adjustedSnapShot.baseTexture.source.toDataURL();
-
-        // //         originalSnapShot.destroy();
-        // //         adjustedSnapShot.destroy();
-        // //         console.log('base64encodedImageData:' + base64encodedImageData);
-
-        // //     }
-        // // }, this);
-    }
     createActionButtons() {
 
         this._homeButton = this.game.make.sprite(this.game.width - 40, 40, 'storybuilder/home_button');
@@ -306,7 +279,7 @@ export default class ConstructNewStoryPageState extends Phaser.State {
             this._soundAdded = true;
         } else {
             this._testItemClicked.applySound(0, false);
-            this._soundAdded = false; 
+            this._soundAdded = false;
         }
     }
 
@@ -433,9 +406,21 @@ export default class ConstructNewStoryPageState extends Phaser.State {
 
 
     render() {
-        //this.generateSnapShot();
+        this.generateSnapShot();
     }
 
+
+    generateSnapShot() {
+        if (!this._screenshotGenerated) {
+            let imageDataURI = document.getElementById("gameCanvas").children[0].toDataURL();
+            //update page                        
+            this._screenshotGenerated = true;
+            console.log('geneared image uri:' + imageDataURI);
+            this._currentPage.imageData = imageDataURI;
+            this.saveToLocalStore();
+        }
+
+    }
 
 }
 

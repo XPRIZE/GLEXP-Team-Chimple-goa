@@ -4,6 +4,10 @@ import Shape from '../../puppet/objects/Shape.js';
 import TabView from '../../puppet/objects/TabView.js';
 import Sprite from '../../puppet/objects/Scalable.js';
 import TextData from './TextData.js';
+import TileTexture from '../../scene/objects/TileTexture.js';
+import Floor from '../../scene/objects/Floor.js';
+import Wall from '../../scene/objects/Wall.js';
+import Scene from '../../scene/objects/Scene.js';
 
 export default class AttributeEditOverlay extends Phaser.Group {
     //container to edit item properties
@@ -249,7 +253,7 @@ export default class AttributeEditOverlay extends Phaser.Group {
         this._recordingResumeSignal.dispatch();
         let rotation = game.physics.arcade.angleToPointer(this._fixedHandlerSprite, pointer);
         let angle = rotation * 180 / Math.PI - 90;
-        this._clickedObject.angle = angle;
+        
 
         let difference = 0;
 
@@ -258,7 +262,19 @@ export default class AttributeEditOverlay extends Phaser.Group {
 
         let scaleX = this._dragHandlerSprite._clickScale.x + difference / 100;
         let increasedScaleX = scaleX;
-        this._clickedObject.scale.setTo(scaleX, scaleX);
+        if(this._clickedObject instanceof TileTexture) {
+            console.log('instand of tile texture');
+            if(this._clickedObject.parent && (this._clickedObject.parent instanceof Wall || this._clickedObject.parent instanceof Floor))
+            {
+                if(this._clickedObject.parent.parent && this._clickedObject.parent.parent instanceof Scene) {
+                    this._clickedObject.parent.parent.scale.setTo(scaleX, scaleX);
+                } 
+            }  
+        } else {
+            this._clickedObject.angle = angle;
+            this._clickedObject.scale.setTo(scaleX, scaleX);    
+        }
+        
         this.refresh(distance);
     }
 

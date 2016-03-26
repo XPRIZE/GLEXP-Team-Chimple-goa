@@ -1,4 +1,5 @@
 import Shape from '../../puppet/objects/Shape.js';
+import TileTexture from '../../scene/objects/TileTexture.js';
 
 export default class StoryBuilderInputHandler {
     constructor(game) {
@@ -25,22 +26,38 @@ export default class StoryBuilderInputHandler {
     }
 
     onInputUp(sprite, pointer) {
+        if (sprite instanceof TileTexture) {
+            if (!game._inPlayMode) {
+                sprite._showAttributeEditorSignal.dispatch(sprite, pointer);
+            }
+        }
     }
 
     onDragStart(sprite, pointer) {
+        if (sprite instanceof TileTexture) {
+            return;
+        }
         sprite._isDragging = true;
-        sprite.game.camera.follow(sprite, Phaser.Camera.FOLLOW_PLATFORMER);
+        //sprite.game.camera.follow(sprite, Phaser.Camera.FOLLOW_PLATFORMER);
         sprite.start_camera_x = sprite.game.camera.x;
         sprite.start_camera_y = sprite.game.camera.y;
     }
 
     onDragUpdate(sprite, pointer, dragX, dragY, snapPoint) {
+        if (sprite instanceof TileTexture) {
+            return;
+        }
+
         sprite.x += sprite.game.camera.x - sprite.start_camera_x;
         sprite.y += sprite.game.camera.y - sprite.start_camera_y;
 
     }
 
     onDragStop(sprite, pointer) {
+        if (sprite instanceof TileTexture) {
+            return;
+        }
+
         this.game.camera.unfollow();
         var distanceFromLastUp = Phaser.Math.distance(self.game.input.activePointer.positionDown.x, self.game.input.activePointer.positionDown.y,
             self.game.input.activePointer.x, self.game.input.activePointer.y);
