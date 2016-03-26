@@ -3,6 +3,7 @@ import Limb from './Limb.js';
 import Shape from './Shape.js';
 import Sprite from './Sprite.js';
 import ComboShape from './ComboShape.js';
+import HandShape from './HandShape.js';
 import Accessory from './Accessory.js';
 
 export default class Human extends Puppet {
@@ -371,12 +372,12 @@ export default class Human extends Puppet {
 
         human.leftHand = new Limb(game, new Phaser.Point(1, 0), new Phaser.Point(0, 0), new Phaser.Point(-10, 0), false);
         human.leftHand.childOrder = ['leftHandShape', 'mask', 'leftSleeve', 'armAccessory'];
-        human.leftHand.shape = new ComboShape(game, new Phaser.Point(1, 1), new Phaser.Point(0.5, 0), new Phaser.Point(0, 0), new Phaser.Point(-10, 0), new Phaser.Rectangle(0, 30, 50, 200), new Phaser.Circle(25, 30, 50), "leftHandShape");
+        human.leftHand.shape = new HandShape(game, new Phaser.Point(1, 1), new Phaser.Point(0.5, 0), new Phaser.Point(0, 0), new Phaser.Point(-10, 0), new Phaser.Rectangle(0, 30, 50, 200), new Phaser.Circle(25, 30, 50), new Phaser.Circle(25, 230, 50),"leftHandShape");
         human.leftHand.enableInputs(handler, false);
 
         human.rightHand = new Limb(game, new Phaser.Point(0, 0), new Phaser.Point(1, 0), new Phaser.Point(10, 0), false);
         human.rightHand.childOrder = ['rightHandShape', 'mask', 'rightSleeve', 'armAccessory'];
-        human.rightHand.shape = new ComboShape(game, new Phaser.Point(1, 1), new Phaser.Point(0.5, 0), new Phaser.Point(1, 0), new Phaser.Point(10, 0), new Phaser.Rectangle(0, 30, 50, 200), new Phaser.Circle(25, 30, 50), "rightHandShape");
+        human.rightHand.shape = new HandShape(game, new Phaser.Point(1, 1), new Phaser.Point(0.5, 0), new Phaser.Point(1, 0), new Phaser.Point(10, 0), new Phaser.Rectangle(0, 30, 50, 200), new Phaser.Circle(25, 30, 50), new Phaser.Circle(25, 230, 50),"rightHandShape");
         human.rightHand.enableInputs(handler, false);
 
         human.leftLeg = new Limb(game, new Phaser.Point(1, 0), new Phaser.Point(0.5, 0), new Phaser.Point(-10, -20), false);
