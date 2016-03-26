@@ -90,6 +90,10 @@ export default class Item extends EnableInputs(Phaser.Sprite) {
         box.endFill();
         return box;
     }
+    
+    getBoundingBox() {
+        return this.getLocalBounds();
+    }
 
     set uniquename(name) {
         this._uniquename = name;

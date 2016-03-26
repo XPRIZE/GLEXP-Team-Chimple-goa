@@ -1,565 +1,724 @@
 <!DOCTYPE HTML>
 <html>
-
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="stylesheet" href="styles/main.css">
-    <title>CHIMPLE CITY</title>
-    <style type="text/css">
-        body {
-            background: #ffffff;
-            font: bold 12px Arial, Helvetica, sans-serif;
-            margin: 0;
-            padding: 0;
-            min-width: 100%;
-            min-height: 100%;
-            width: 100%;
-            height: 100%;
-            color: #bbbbbb;
-        }
-        /* start :-  css to add text from the html popup to phaser game */
-        
-        .container {
-            width: 100%;
-            margin: 0 auto;
-            overflow: hidden;
-            height: 100%;
-            min-height: 90%;
-            min-width: 90%;
-        }
-        
-        #gameCanvas {
-            float: left;
-            width: 100%;
-            height: 100%;
-        }
-        
-        #mask {
-            display: none;
-            background: #000;
-            position: fixed;
-            left: 0;
-            top: 0;
-            z-index: 10;
-            width: 100%;
-            height: 100%;
-            min-height: 90%;
-            min-width: 90%;
-            opacity: 0.8;
-            z-index: 999;
-        }
-        
-        .login-popup {
-            width: 90%;
-            height: 90%;
-            min-height: 90%;
-            min-width: 90%;
-            margin-left: 5%;
-            margin-top: 2%;
-            display: none;
-            background: #333;
-            border: 2px solid #ddd;
-            float: left;
-            font-size: 1.2em;
-            position: fixed;
-            z-index: 99999;
-            -moz-box-shadow: 0px 0px 20px #999;
-            /* Firefox */
-            -webkit-box-shadow: 0px 0px 20px #999;
-            /* Safari, Chrome */
-            border-radius: 3px 3px 3px 3px;
-            -moz-border-radius: 3px;
-            /* Firefox */
-            -webkit-border-radius: 3px;
-            /* Safari, Chrome */
-        }
-        
-        #pankaj {
-            width: 20%;
-            height: 30%;
-            min-height: 30%;
-            min-width: 15%;
-            margin-left: 0%;
-            margin-top: 2%;
-            display: none;
-            background: #333;
-            border: 2px solid #ddd;
-            float: left;
-            font-size: 1.2em;
-            position: fixed;
-            z-index: 999999;
-            box-shadow: 0px 0px 20px #999;
-            -moz-box-shadow: 0px 0px 20px #999;
-            /* Firefox */
-            -webkit-box-shadow: 0px 0px 20px #999;
-            /* Safari, Chrome */
-            border-radius: 3px 3px 3px 3px;
-            -moz-border-radius: 3px;
-            /* Firefox */
-            -webkit-border-radius: 3px;
-            /* Safari, Chrome */
-        }
-        /* end :-  css to add text from the html popup to phaser game */
-        /* start :-  css to show the details in popup when user select any text */
-        
-        #gdx-bubble-main {
-            border: 1px solid #999;
-            border-radius: 4px;
-            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
-            color: #222;
-            font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-            font-size: 14px;
-            line-height: normal;
-            padding: 9px;
-            position: absolute;
-            width: 300px
-        }
-        
-        #gdx-bubble-main:after {
-            clear: both;
-            content: "";
-            display: table
-        }
-        
-        #gdx-bubble-close {
-            position: absolute;
-            top: 0;
-            right: 0;
-            width: 16px;
-            height: 16px;
-            background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAICAYAAADED76LAAAAYUlEQVQYV12PwQ2AMAwD2w3YBEaAycsIsAkbgC+qowikeyCfHLe31l5xiUM8gm8RQ2x9hmuRECIUNwL2KSwhRCh2BFda4j9CTlbBtQi5ySfy5mzMTXWka3FyEwLPzJv/TR8o8xvGTnBWXwAAAABJRU5ErkJggg==');
-            background-position: center;
-            background-repeat: no-repeat;
-            cursor: pointer;
-            opacity: 0.35
-        }
-        
-        #gdx-bubble-close:hover {
-            opacity: 0.8
-        }
-        
-        #gdx-bubble-query-row {
-            margin-bottom: 9px
-        }
-        
-        #gdx-bubble-query,
-        #gdx-bubble-audio-icon {
-            display: inline-block;
-            height: 20px;
-            line-height: 20px;
-            vertical-align: top
-        }
-        
-        #gdx-bubble-query {
-            font-size: 16px;
-            font-weight: bold
-        }
-        
-        #gdx-bubble-audio-icon {
-            background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAcUlEQVQ4y2P4//8/AyUYQhAH3gNxA7IAIQPmo/H3g/QA8XkgFiBkwHyoYnRQABVfj88AmGZcTuuHyjlgMwBZM7IE3NlQGhQe65EN+I8Dw8MLGgYoFpFqADK/YUAMwOsFigORatFIlYRElaRMWmaiBAMAp0n+3U0kqkAAAAAASUVORK5CYII=');
-            background-position: center;
-            background-repeat: no-repeat;
-            cursor: pointer;
-            margin-left: 8px;
-            opacity: 0.5;
-            width: 16px
-        }
-        
-        #gdx-bubble-audio-icon:hover {
-            opacity: 1
-        }
-        
-        #gdx-bubble-meaning {
-            line-height: 1.3
-        }
-        
-        #gdx-bubble-options-tip,
-        #gdx-bubble-more,
-        #gdx-bubble-attribution {
-            font-size: 12px;
-            line-height: 1.3;
-            margin-top: 9px
-        }
-        
-        #gdx-bubble-options-tip {
-            color: #c04
-        }
-        
-        #gdx-bubble-more a {
-            float: right;
-            word-break: break-all
-        }
-        
-        #gdx-bubble-attribution {
-            color: #666;
-            float: left;
-            margin-right: 9px;
-            overflow: hidden;
-            text-overflow: ellipsis;
-            white-space: nowrap;
-            width: 230px
-        }
-        
-        #gdx-bubble-attribution a {
-            color: #073
-        }
-        
-        #gdx-arrow-main {
-            position: absolute;
-            z-index: 99998
-        }
-        
-        #gdx-bubble-arrow-inner-up,
-        #gdx-bubble-arrow-inner-down {
-            background: transparent;
-            border-left: 10px solid transparent;
-            border-right: 10px solid transparent;
-            left: 2px;
-            position: absolute;
-            width: 0;
-            z-index: 99999
-        }
-        
-        #gdx-bubble-arrow-inner-up {
-            border-bottom: 10px solid #ffd;
-            top: 2px
-        }
-        
-        #gdx-bubble-arrow-inner-down {
-            border-top: 10px solid #ffd
-        }
-        
-        #gdx-bubble-arrow-outer-up,
-        #gdx-bubble-arrow-outer-down {
-            background: transparent;
-            border-left: 12px solid transparent;
-            border-right: 12px solid transparent;
-            left: 0;
-            position: absolute;
-            width: 0
-        }
-        
-        #gdx-bubble-arrow-outer-up {
-            border-bottom: 12px solid #999
-        }
-        
-        #gdx-bubble-arrow-outer-down {
-            border-top: 12px solid #999
-        }
-        
-        .nytd_selection_button {
-            display: none
-        }
-        
-        #element_to_pop_up {
-            background-color: #fff;
-            border-radius: 15px;
-            color: #000;
-            display: none;
-            padding: 20px;
-            min-width: 400px;
-            min-height: 180px;
-        }
-        
-        .b-close {
-            cursor: pointer;
-            position: absolute;
-            right: 10px;
-            top: 5px;
-        }
-        /* end :-  css to show the details in popup when user select any text */
-        /* start :-  css to show the questions */
-        
-        #multiple_choice_css {
-            width: 50%;
-            height: 80%;
-            margin-top: 0%px;
-            margin-left: 25%;
-            display: none;
-            background: #333;
-            border: 2px solid #ddd;
-            float: left;
-            font-size: 1.2em;
-            position: fixed;
-            z-index: 99999;
-            -moz-box-shadow: 0px 0px 20px #999;
-            /* Firefox */
-            -webkit-box-shadow: 0px 0px 20px #999;
-            /* Safari, Chrome */
-            border-radius: 3px 3px 3px 3px;
-            -moz-border-radius: 3px;
-            /* Firefox */
-            -webkit-border-radius: 3px;
-            /* Safari, Chrome */
-        }
-        
-        #multiple_choice_css .login {
-            margin-left: 5%;
-            width: 95%;
-            height: 10%;
-            border: 2px solid silver;
-            border-radius: 10px;
-            padding: 5px;
-            margin: 10px;
-            font-size: 20px;
-        }
-        
-        #multiple_choice_css .common_css {
-            margin-left: 5%;
-            width: 40%;
-            height: 10%;
-            padding: 5px;
-            margin: 10px;
-        }
-        
-        #multiple_choice_css #multiple_submit_btn_css {
-            margin-top: 2%;
-            font-size: 30px;
-            width: 35%;
-            height: 12%;
-            margin-left: 32%;
-        }
-        
-        #matching_css {
-            width: 30%;
-            height: 40%;
-            margin-top: 0%px;
-            margin-left: 35%;
-            display: none;
-            background: #333;
-            border: 2px solid #ddd;
-            float: left;
-            font-size: 1.2em;
-            position: fixed;
-            z-index: 99999;
-            -moz-box-shadow: 0px 0px 20px #999;
-            /* Firefox */
-            -webkit-box-shadow: 0px 0px 20px #999;
-            /* Safari, Chrome */
-            border-radius: 3px 3px 3px 3px;
-            -moz-border-radius: 3px;
-            /* Firefox */
-            -webkit-border-radius: 3px;
-            /* Safari, Chrome */
-        }
-        
-        #matching_css .login {
-            margin-left: 5%;
-            width: 95%;
-            height: 10%;
-            border: 2px solid silver;
-            border-radius: 10px;
-            padding: 5px;
-            margin: 10px;
-            font-size: 20px;
-        }
-        
-        #matching_css .common_css {
-            margin-left: 5%;
-            width: 40%;
-            height: 10%;
-            padding: 5px;
-            margin: 10px;
-        }
-        
-        #matching_css #dologin {
-            margin-left: -5px;
-            margin-top: 10px;
-            width: 250px;
-            height: 40px;
-            border: none;
-            border-radius: 3px;
-            color: #E6E6E6;
-            background-color: grey;
-            font-size: 20px;
-        }
-        
-        #matching_css #matching_submit_btn_css {
-            margin-top: 5%;
-            font-size: 20px;
-            width: 35%;
-            height: 12%;
-            margin-left: 32%;
-        }
-        
-        #Question_css {
-            width: 50%;
-            height: 50%;
-            margin-top: 0%px;
-            margin-left: 25%;
-            display: none;
-            background: #333;
-            border: 2px solid #ddd;
-            float: left;
-            font-size: 1.2em;
-            position: fixed;
-            z-index: 99999;
-            -moz-box-shadow: 0px 0px 20px #999;
-            /* Firefox */
-            -webkit-box-shadow: 0px 0px 20px #999;
-            /* Safari, Chrome */
-            border-radius: 3px 3px 3px 3px;
-            -moz-border-radius: 3px;
-            /* Firefox */
-            -webkit-border-radius: 3px;
-            /* Safari, Chrome */
-        }
-        
-        #Question_css #login {
-            margin-left: 5%;
-            width: 95%;
-            height: 10%;
-            border: 2px solid silver;
-            border-radius: 10px;
-            padding: 5px;
-            margin-top: 5%;
-            font-size: 20px;
-        }
-        
-        #Question_css .common_css {
-            margin-left: 25%;
-            width: 40%;
-            height: 10%;
-            padding: 5px;
-            margin: 10px;
-        }
-        
-        #Question_css #dologin {
-            margin-left: -5px;
-            margin-top: 10px;
-            width: 250px;
-            height: 40px;
-            border: none;
-            border-radius: 3px;
-            color: #E6E6E6;
-            background-color: grey;
-            font-size: 20px;
-        }
-        
-        #Question_css #question_submit_btn_css {
-            margin-top: 5%;
-            font-size: 20px;
-            width: 35%;
-            height: 12%;
-            margin-left: 32%;
-        }
-        
-        #MatchingQuestion_css {
-            width: 50%;
-            height: auto;
-            margin-top: 0%px;
-            background-color: #585858;
-            border-radius: 10px;
-            box-shadow: 0px 0px 10px 0px #424242;
-            //		   padding:10px;
-            box-sizing: border-box;
-            font-family: helvetica;
-            visibility: hidden;
-            display: none;
-            margin-left: 25%;
-        }
-        
-        #MatchingQuestion_css #login {
-            margin-left: 5%;
-            width: 95%;
-            height: 10%;
-            border: 2px solid silver;
-            border-radius: 10px;
-            padding: 5px;
-            margin-top: 5%;
-            font-size: 20px;
-        }
-        
-        #MatchingQuestion_css .common_css {
-            margin-left: 25%;
-            width: 40%;
-            height: 10%;
-            padding: 5px;
-            margin: 10px;
-        }
-        
-        #MatchingQuestion_css #dologin {
-            margin-left: -5px;
-            margin-top: 10px;
-            width: 250px;
-            height: 40px;
-            border: none;
-            border-radius: 3px;
-            color: #E6E6E6;
-            background-color: grey;
-            font-size: 20px;
-        }
-        
-        #MatchingQuestion_css #question_submit_btn_css {
-            margin-top: 5%;
-            font-size: 20px;
-            width: 35%;
-            height: 12%;
-            margin-left: 32%;
-        }
-        
-        .choose_file {
-            margin-left: 5%;
-            position: relative;
-            display: inline-block;
-            border-radius: 8px;
-            border: #ebebeb solid 1px;
-            width: 20%;
-            padding: 4px 6px 4px 8px;
-            font: normal 14px Myriad Pro, Verdana, Geneva, sans-serif;
-            color: #7f7f7f;
-            margin-top: 2px;
-            background: white
-        }
-        
-        .choose_file input[type="file"] {
-            -webkit-appearance: none;
-            position: absolute;
-            top: 0;
-            left: 0;
-            opacity: 0;
-        }
-        /* end :-  css to show the questions */
-    </style>
+	<link rel="stylesheet" href="styles/main.css">
+<title>CHIMPLE CITY</title>
+<style type="text/css">
+body{
+	 background:#ffffff;
+	 font:bold 12px Arial, Helvetica, sans-serif;
+	 margin:0;
+	 padding:0;
+	 min-width:100%;
+     min-height: 100%;
+    
+    width : 100%;
+    height : 100%;
+    
+	 color:#bbbbbb; 
+}
+    
 
+.image_slider_popup{
+    height : auto;
+    width : auto;
+    
+    margin-left: 5%;
+    margin-top: 2%;
+	display:none;
+	background: #333;
+	border: 2px solid #ddd;
+	float: left;
+	font-size: 1.2em;
+	position: absolute;
+	z-index: 99999;
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
-    <script src="jquery-2.2.1.min.js"></script>
-    <script src="jquery-ui.js"></script>
-    <script src="jquery-ui.min.js"></script>
-    <script src="scripts/phaser.min.js"></script>
-    <script src="scripts/game.js"></script>
+	-moz-box-shadow: 0px 0px 20px #999; /* Firefox */
+    -webkit-box-shadow: 0px 0px 20px #999; /* Safari, Chrome */
+	border-radius:3px 3px 3px 3px;
+    -moz-border-radius: 3px; /* Firefox */
+    -webkit-border-radius: 3px; /* Safari, Chrome */
+}    
+    
+/* start :-  css to add text from the html popup to phaser game */
+.container {    
+    width: 100%; margin: 0 auto; overflow: hidden; height:100%;
+        min-height: 90%;
+    min-width: 90%;
+    }
+
+#gameCanvas {	float: left; width: 100%; height: 100%;}
+
+#mask {
+	display: none;
+	background: #000; 
+	position: fixed; left: 0; top: 0; 
+	z-index: 10;
+	width: 100%; height: 100%;
+    
+    min-height: 90%;
+    min-width: 90%;
+    
+	opacity: 0.8;
+	z-index: 999;
+}
+
+.login-popup{
+    width : 90%;
+    height : 90%;
+    
+    min-height: 90%;
+    min-width: 90%;
+    
+    margin-left: 5%;
+    margin-top: 2%;
+	display:none;
+	background: #333;
+	border: 2px solid #ddd;
+	float: left;
+	font-size: 1.2em;
+	position: fixed;
+	z-index: 99999;
+
+	-moz-box-shadow: 0px 0px 20px #999; /* Firefox */
+    -webkit-box-shadow: 0px 0px 20px #999; /* Safari, Chrome */
+	border-radius:3px 3px 3px 3px;
+    -moz-border-radius: 3px; /* Firefox */
+    -webkit-border-radius: 3px; /* Safari, Chrome */
+}
+
+#pankaj{
+    width : 20%;
+    height : 30%;
+    
+    min-height: 30%;
+    min-width: 15%;
+    
+    margin-left: 0%;
+    margin-top: 2%;
+    
+	display:none;
+	background: #333;
+	border: 2px solid #ddd;
+	float: left;
+	font-size: 1.2em;
+	position: fixed;
+	z-index: 999999;
+	box-shadow: 0px 0px 20px #999;
+	-moz-box-shadow: 0px 0px 20px #999; /* Firefox */
+    -webkit-box-shadow: 0px 0px 20px #999; /* Safari, Chrome */
+	border-radius:3px 3px 3px 3px;
+    -moz-border-radius: 3px; /* Firefox */
+    -webkit-border-radius: 3px; /* Safari, Chrome */
+}
+/* end :-  css to add text from the html popup to phaser game */
+    
+
+/* start :-  css to show the details in popup when user select any text */
+    
+#gdx-bubble-main {
+    border: 1px solid #999;
+    border-radius: 4px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    color: #222;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    line-height: normal;
+    padding: 9px;
+    position: absolute;
+    width: 300px
+}
+
+#gdx-bubble-main:after {
+    clear: both;
+    content: "";
+    display: table
+}
+
+#gdx-bubble-close {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 16px;
+    height: 16px;
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAICAYAAADED76LAAAAYUlEQVQYV12PwQ2AMAwD2w3YBEaAycsIsAkbgC+qowikeyCfHLe31l5xiUM8gm8RQ2x9hmuRECIUNwL2KSwhRCh2BFda4j9CTlbBtQi5ySfy5mzMTXWka3FyEwLPzJv/TR8o8xvGTnBWXwAAAABJRU5ErkJggg==');
+    background-position: center;
+    background-repeat: no-repeat;
+    cursor: pointer;
+    opacity: 0.35
+}
+
+#gdx-bubble-close:hover {
+    opacity: 0.8
+}
+
+#gdx-bubble-query-row {
+    margin-bottom: 9px
+}
+
+#gdx-bubble-query,
+#gdx-bubble-audio-icon {
+    display: inline-block;
+    height: 20px;
+    line-height: 20px;
+    vertical-align: top
+}
+
+#gdx-bubble-query {
+    font-size: 16px;
+    font-weight: bold
+}
+
+#gdx-bubble-audio-icon {
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAcUlEQVQ4y2P4//8/AyUYQhAH3gNxA7IAIQPmo/H3g/QA8XkgFiBkwHyoYnRQABVfj88AmGZcTuuHyjlgMwBZM7IE3NlQGhQe65EN+I8Dw8MLGgYoFpFqADK/YUAMwOsFigORatFIlYRElaRMWmaiBAMAp0n+3U0kqkAAAAAASUVORK5CYII=');
+    background-position: center;
+    background-repeat: no-repeat;
+    cursor: pointer;
+    margin-left: 8px;
+    opacity: 0.5;
+    width: 16px
+}
+
+#gdx-bubble-audio-icon:hover {
+    opacity: 1
+}
+
+#gdx-bubble-meaning {
+    line-height: 1.3
+}
+
+#gdx-bubble-options-tip,
+#gdx-bubble-more,
+#gdx-bubble-attribution {
+    font-size: 12px;
+    line-height: 1.3;
+    margin-top: 9px
+}
+
+#gdx-bubble-options-tip {
+    color: #c04
+}
+
+#gdx-bubble-more a {
+    float: right;
+    word-break: break-all
+}
+
+#gdx-bubble-attribution {
+    color: #666;
+    float: left;
+    margin-right: 9px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width: 230px
+}
+
+#gdx-bubble-attribution a {
+    color: #073
+}
+
+#gdx-arrow-main {
+    position: absolute;
+    z-index: 99998
+}
+
+#gdx-bubble-arrow-inner-up,
+#gdx-bubble-arrow-inner-down {
+    background: transparent;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    left: 2px;
+    position: absolute;
+    width: 0;
+    z-index: 99999
+}
+
+#gdx-bubble-arrow-inner-up {
+    border-bottom: 10px solid #ffd;
+    top: 2px
+}
+
+#gdx-bubble-arrow-inner-down {
+    border-top: 10px solid #ffd
+}
+
+#gdx-bubble-arrow-outer-up,
+#gdx-bubble-arrow-outer-down {
+    background: transparent;
+    border-left: 12px solid transparent;
+    border-right: 12px solid transparent;
+    left: 0;
+    position: absolute;
+    width: 0
+}
+
+#gdx-bubble-arrow-outer-up {
+    border-bottom: 12px solid #999
+}
+
+#gdx-bubble-arrow-outer-down {
+    border-top: 12px solid #999
+}
+
+.nytd_selection_button {
+    display: none
+}
+
+#element_to_pop_up { 
+    background-color:#fff;
+    border-radius:15px;
+    color:#000;
+    display:none; 
+    padding:20px;
+    min-width:400px;
+    min-height: 180px;
+}
+.b-close{
+    cursor:pointer;
+    position:absolute;
+    right:10px;
+    top:5px;
+}
+
+/* end :-  css to show the details in popup when user select any text */ 
+    
+
+    
+/* start :-  css to show the questions */ 
+     
+		#multiple_choice_css
+		{
+		   width:50%;
+		   margin-top:0%px;
+		   margin-left:25%;
+	display:none;
+	background: #333;
+	border: 2px solid #ddd;
+	float: left;
+	font-size: 1.2em;
+	position: fixed;
+	z-index: 99999;
+
+	-moz-box-shadow: 0px 0px 20px #999; /* Firefox */
+    -webkit-box-shadow: 0px 0px 20px #999; /* Safari, Chrome */
+	border-radius:3px 3px 3px 3px;
+    -moz-border-radius: 3px; /* Firefox */
+    -webkit-border-radius: 3px; /* Safari, Chrome */ 
+		}
+
+		#multiple_choice_css .login
+		{
+		   margin-left : 5%;
+		   width:95%;
+		   height:10%;
+		   border:2px solid silver;
+		   border-radius:10px;
+		   padding:5px;
+		   margin : 10px;
+		   font-size : 20px;
+		}
+		
+		#multiple_choice_css .common_css
+		{
+		   margin-left : 5%;
+		   width:40%;
+		   height:10%;
+		   padding:5px;
+		   margin : 10px;
+		}
+
+		
+		#multiple_choice_css #multiple_submit_btn_css
+		{
+			margin-top:2%;
+			font-size : 30px;
+			width : 35%;
+			height : 12%;
+			margin-left : 32%;
+		}
+		
+
+		
+		#matching_css
+		{
+		   width:30%;
+		   height:40%;
+		   margin-top:0%px;
+    
+    margin-left: 35%;
+	display:none;
+	background: #333;
+	border: 2px solid #ddd;
+	float: left;
+	font-size: 1.2em;
+	position: fixed;
+	z-index: 99999;
+
+	-moz-box-shadow: 0px 0px 20px #999; /* Firefox */
+    -webkit-box-shadow: 0px 0px 20px #999; /* Safari, Chrome */
+	border-radius:3px 3px 3px 3px;
+    -moz-border-radius: 3px; /* Firefox */
+    -webkit-border-radius: 3px; /* Safari, Chrome */
+		}
+
+		#matching_css .login
+		{
+		   margin-left : 5%;
+		   width:95%;
+		   height:10%;
+		   border:2px solid silver;
+		   border-radius:10px;
+		   padding:5px;
+		   margin : 10px;
+		   font-size : 20px;
+		}
+		
+		#matching_css .common_css
+		{
+		   margin-left : 5%;
+		   width:40%;
+		   height:10%;
+		   padding:5px;
+		   margin : 10px;
+		}
+
+		
+		
+		#matching_css #dologin
+		{
+		   margin-left:-5px;
+		   margin-top:10px;
+		   width:250px;
+		   height:40px;
+		   border:none;
+		   border-radius:3px;
+		   color:#E6E6E6;
+		   background-color:grey;
+		   font-size:20px;
+		}		
+		
+		#matching_css #matching_submit_btn_css
+		{
+			margin-top:5%;
+			font-size : 20px;
+			width : 35%;
+			height : 12%;
+			margin-left : 32%;
+		}
+
+    
+		#Question_css
+		{
+		   width:50%;
+		   height:50%;
+		   margin-top:0%px;
+		   margin-left:25%;
+            
+	display:none;
+	background: #333;
+	border: 2px solid #ddd;
+	float: left;
+	font-size: 1.2em;
+	position: absolute;
+	z-index: 99999;
+
+	-moz-box-shadow: 0px 0px 20px #999; /* Firefox */
+    -webkit-box-shadow: 0px 0px 20px #999; /* Safari, Chrome */
+	border-radius:3px 3px 3px 3px;
+    -moz-border-radius: 3px; /* Firefox */
+    -webkit-border-radius: 3px; /* Safari, Chrome */
+		}
+
+		#Question_css #login
+		{
+		   margin-left : 5%;
+		   width:95%;
+		   height:10%;
+		   border:2px solid silver;
+		   border-radius:10px;
+		   padding:5px;
+		   margin-top : 5%;
+		   font-size : 20px;
+		}
+		
+		#Question_css .common_css
+		{
+		   margin-left : 25%;
+		   width:40%;
+		   height:10%;
+		   padding:5px;
+		   margin : 10px;
+		}
+
+		
+		
+		#Question_css #dologin
+		{
+		   margin-left:-5px;
+		   margin-top:10px;
+		   width:250px;
+		   height:40px;
+		   border:none;
+		   border-radius:3px;
+		   color:#E6E6E6;
+		   background-color:grey;
+		   font-size:20px;
+		}		
+		
+		#Question_css #question_submit_btn_css
+		{
+			margin-top:5%;
+			font-size : 20px;
+			width : 35%;
+			height : 12%;
+			margin-left : 32%;
+		}
+		
+		
+		
+		#MatchingQuestion_css
+		{
+		   width:50%;
+		   height:auto;
+		   margin-top:0%px;
+		   margin-left:25%;
+            
+	display:none;
+	background: #333;
+	border: 2px solid #ddd;
+	float: left;
+	font-size: 1.2em;
+	position: absolute;
+	z-index: 99999;
+
+	-moz-box-shadow: 0px 0px 20px #999; /* Firefox */
+    -webkit-box-shadow: 0px 0px 20px #999; /* Safari, Chrome */
+	border-radius:3px 3px 3px 3px;
+    -moz-border-radius: 3px; /* Firefox */
+    -webkit-border-radius: 3px; /* Safari, Chrome */
+		}
+
+		#MatchingQuestion_css #login
+		{
+		   margin-left : 5%;
+		   width:95%;
+		   height:10%;
+		   border:2px solid silver;
+		   border-radius:10px;
+		   padding:5px;
+		   margin-top : 5%;
+		   font-size : 20px;
+		}
+		
+		#MatchingQuestion_css .common_css
+		{
+		   margin-left : 25%;
+		   width:40%;
+		   height:10%;
+		   padding:5px;
+		   margin : 10px;
+		}
+
+		
+		
+		#MatchingQuestion_css #dologin
+		{
+		   margin-left:-5px;
+		   margin-top:10px;
+		   width:250px;
+		   height:40px;
+		   border:none;
+		   border-radius:3px;
+		   color:#E6E6E6;
+		   background-color:grey;
+		   font-size:20px;
+		}		
+		
+		#MatchingQuestion_css #question_submit_btn_css
+		{
+			margin-top:5%;
+			font-size : 20px;
+			width : 35%;
+			height : 12%;
+			margin-left : 32%;
+		}
+		
+		
+		.choose_file{
+		   margin-left : 5%;	
+			position:relative;
+			display:inline-block;    
+			border-radius:8px;
+			border:#ebebeb solid 1px;
+			width:20%;
+			padding: 4px 6px 4px 8px;
+			font: normal 14px Myriad Pro, Verdana, Geneva, sans-serif;
+			color: #7f7f7f;
+			margin-top: 2px;
+			background:white
+		}
+		.choose_file input[type="file"]{
+			-webkit-appearance:none; 
+			position:absolute;
+			top:0; left:0;
+			opacity:0; 
+		}
+    
+/* end :-  css to show the questions */ 
+    
+    
+</style>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    
+   <script src="jquery-2.2.1.min.js"></script> 
+   <script src="jquery-ui.js"></script> 
+   <script src="jquery-ui.min.js"></script> 
+	<script src="scripts/phaser.min.js"></script>
+	<script src="scripts/game.js"></script>
     <script src="jquery.bpopup.min.js"></script>
-
-
-
-
-    <script type="text/javascript">
-        // starting of json. that will contain all the data
+        
+    
+<script type="text/javascript" >
+    
+// starting of json. that will contain all the data
 var question_answer = new Array();
 
 // loading the json from local storage
 var get_json_from_local;
 get_json_from_local = JSON.parse(localStorage.getItem('myStorage'));
 
+    console.log(get_json_from_local);
     
 // if not storage then create it
 if(!get_json_from_local || get_json_from_local.length==0)
     localStorage.setItem('myStorage', JSON.stringify(question_answer));
 
-var question_number; // question number of the story which will be incremented till at the end of question.
+var question_number = 0; // question number of the story which will be incremented till at the end of question.
 // storyid and pageid
 var story_id, page_id;
-    
+
 // store the answers of the user
 var answer_sheet = new Array();    
 
-/* start js code :- create questions*/    
+    
+    
+    // matching type question creation start
+    // array that store the result matching type images
+    var ImageID = new Array();
+    //  image slider
+    
+    function slide()
+    {
+        // get the story id and page id
+                   var v = window.callback.call(window.callbackContext);
+                   story_id = v.storyId;
+                   page_id = v.pageId;
+        
+        var arr = ["assets/apple.png", "assets/close_pop.png", "assets/fruit.jpg", "assets/icons.png", "assets/scene.png", "assets/test.png", "assets/apple.png", "assets/close_pop.png", "assets/fruit.jpg", "assets/icons.png", "assets/scene.png", "assets/test.png", "assets/apple.png", "assets/close_pop.png", "assets/fruit.jpg", "assets/icons.png", "assets/scene.png", "assets/test.png", "assets/apple.png", "assets/close_pop.png", "assets/fruit.jpg", "assets/icons.png", "assets/scene.png", "assets/test.png", "assets/apple.png", "assets/close_pop.png", "assets/fruit.jpg", "assets/icons.png", "assets/scene.png", "assets/test.png"];
+        
+                $("#image_slider" ).append('<input type="image" src="assets/close_pop.png" style="margin-left:98%;" id="slider_close_btn"/>');
+                    
+        
+        for(var v = 0; v<30; v++)
+            {
+                $("#image_slider" ).append('<img src="'+arr[v]+'" style="height:30%; width:20%; margin-left : 10%;" onclick="add_image(this)" id="'+arr[v]+'" />');
+            }
+        
+                $("#image_slider" ).append('<button type="button" style="margin-top:10%; width:10%; height:5%; margin-left:40%; margin-right:40%;"  id="submit" onclick="add_Question()">Add Question </button>');
+
+    }
+            
+    // when user click add question button on matching then it will add the questions to the database
+    
+    function add_Question()
+    {
+						get_json_from_local = JSON.parse(localStorage.getItem('myStorage'));
+						var arrayIndex = 0;
+						for(var i=0; i<get_json_from_local.length; i++)
+						{
+							if(get_json_from_local[i].pageId==page_id && get_json_from_local[i].storyId == story_id)
+							{
+								arrayIndex = i;
+								flag++;
+							}
+						}
+
+                        var story_details = new Object();
+                        var question = new Array();
+                        var question_details = new Object();
+                        var answer_choice = new Array();
+                        var answer_choice_details = new Object();
+
+        
+						if(get_json_from_local.length==0)
+						{
+							story_details.storyId = story_id;
+							story_details.pageId = page_id;
+							story_details.question = question;
+							
+							question_answer.push(story_details);
+							
+							localStorage.setItem('myStorage', JSON.stringify(question_answer));
+						}
+        
+                        
+
+                        for(var v= 0 ; v<ImageID.length; v++)
+                        {
+                            get_json_from_local = JSON.parse(localStorage.getItem('myStorage'));
+                            question_details.questionkind = "Matching";
+                            question_details.order = (get_json_from_local[arrayIndex].question.length+1).toString();
+                            question_details.questionText = ImageID[v];
+                            
+                            get_json_from_local[arrayIndex].question.push(question_details);
+                            localStorage.setItem('myStorage', JSON.stringify(get_json_from_local));
+                        }
+        
+        get_json_from_local = JSON.parse(localStorage.getItem('myStorage'));
+        console.log(get_json_from_local);
+        $("#image_slider").hide();
+        $('#mask').remove();
+    }
+    
+    // user select or deselect the image
+    function add_image(image)
+    {
+        if(document.getElementById(image.id).style.opacity ==  0.5)
+            {
+                document.getElementById(image.id).style.opacity =  1;
+                ImageID.splice(ImageID.indexOf(image.id), 1);
+            }
+        else
+            {
+                document.getElementById(image.id).style.opacity =  0.5;  
+                ImageID.push(image.id);
+            }
+    }
+    
+    // end image sider
+    
+
+/* start js code :- create multiple choice questions*/    
     
 // 			load the questions from localStorage and ask to the user
-			function display_question()
+			function display_question_multichoice()
 			{
+                   var v = window.callback.call(window.callbackContext);
+                   story_id = v.storyId;
+                   page_id = v.pageId;
+                
+                get_json_from_local = JSON.parse(localStorage.getItem('myStorage'));
+
+                if(get_json_from_local.length==0)
+                    {
+                        return 0;
+                    }
+
 				// get the value of selected radio button and store in the array to generate the result
 				if(question_number!=0)
 				{
@@ -572,7 +731,7 @@ var answer_sheet = new Array();
 					document.getElementById("answer_4").checked = false;
 				}
 
-				
+                
 				var index;
 				// get the index of object from json, whose question we want to display
 				for(var i=0; i<get_json_from_local.length; i++)
@@ -583,13 +742,25 @@ var answer_sheet = new Array();
 						break;
 					}
 				}
-			
-				var len = get_json_from_local[index].question.length;
-				if(question_number<len)
-				{
+
+                
+                // check the question number of MultiChoice
+                var checkflag = 0; // is used to findout whether we are in last of question or not
+                for(var i = question_number; i<get_json_from_local[index].question.length; i++)
+                    {
+                        if(get_json_from_local[index].question[i].questionkind=="MultiChoice")
+                        {
+                            question_number = i;
+                            checkflag++;
+                            break;
+                        }
+                    }
+
+                
 				
-					if(get_json_from_local[index].question[question_number].questionkind=="MultiChoice")
-					{
+				var len = get_json_from_local[index].question.length;
+				if(question_number<len && checkflag!=0)
+				{
 						hidepopup("#Question_css");
 						hidepopup("#MatchingQuestion_css");
 						showpopup("#Question_css");
@@ -611,22 +782,14 @@ var answer_sheet = new Array();
 						question_number++;
 						
 						}, 500);
-					}
-					else if(get_json_from_local[index].question[question_number].questionkind=="Matching")
-					{
-						hidepopup("#Question_css");
-						hidepopup("#MatchingQuestion_css");
-						showpopup("#MatchingQuestion_css");
-						
-						var len = get_json_from_local[index].question[question_number].choices.length;
-						var element = get_json_from_local[index].question[question_number].choices;
-						for(var i=0; i<len+4; i++)
-						{
-							$("#MatchingQuestion_css" ).append('<img src="'+element[0].questionText+'" style="height:30%; width:20%; margin-left : 10%;" />');
-							$("#MatchingQuestion_css" ).append('<label for="name" style="margin-left:10%;">'+element[0].data+'</label> <br><br>');
-						}
-					}
 				}
+                else if(checkflag==0)
+                {
+                    hidepopup("#Question_css");
+                    hidepopup("#MatchingQuestion_css");
+                    question_number = 0;
+                    display_question_matching();
+                }
 
 				
 //				var ques = get_json_from_local[index].question[0].questionText;
@@ -635,7 +798,86 @@ var answer_sheet = new Array();
 //				$("#question").val(ques);
 //				document.getElementById('answer_1').parentNode.lastChild.nodeValue = "Answer Zero ";
 			}
-			
+/* end js code :- create multiple choice questions*/    
+    
+    
+/* start js code :- create matching choice questions*/    
+    
+// 			load the questions from localStorage and ask to the user
+			function display_question_matching()
+			{
+                if(question_number!=0)
+                    {
+                        for(var i =0 ; i<ImageID.length; i++)
+                            {
+                                var parent = document.getElementById("MatchingQuestion_css");
+                                console.log(parent);
+                                var child = document.getElementById(ImageID[i]);
+                                parent.removeChild(child);
+                            }
+                        $('#MatchingQuestion_css').html('');
+                    }
+                get_json_from_local = JSON.parse(localStorage.getItem('myStorage'));
+
+                if(get_json_from_local.length==0)
+                    {
+                        return 0;
+                    }
+
+				var index;
+				// get the index of object from json, whose question we want to display
+				for(var i=0; i<get_json_from_local.length; i++)
+				{
+					if(get_json_from_local[i].pageId==page_id && get_json_from_local[i].storyId == story_id)
+					{
+						index = i;
+						break;
+					}
+				}
+
+                // check the question number of Matching type
+                var checkflag = 0; // is used to findout whether we are in last of question or not
+                for(var i = question_number; i<get_json_from_local[index].question.length; i++)
+                    {
+                        if(get_json_from_local[index].question[i].questionkind=="Matching")
+                        {
+                            question_number = i;
+                            checkflag++;
+                            break;
+                        }
+                    } 
+                
+                var len = get_json_from_local[index].question.length;
+				if(question_number<len && checkflag!=0)
+                {
+                    hidepopup("#Question_css");
+                    hidepopup("#MatchingQuestion_css");
+                    showpopup("#MatchingQuestion_css");
+
+                    var element = get_json_from_local[index].question[question_number];
+                    console.log(element);
+                        $("#MatchingQuestion_css" ).append('<input type="image" src="assets/close_pop.png" style="margin-left:98%;" id="image_slider_close_btn"/>');
+                                
+                        $("#MatchingQuestion_css" ).append('<img src="'+element.questionText+'" style="height:30%; width:20%; margin-left : 10%;" />');
+                    
+                        $("#MatchingQuestion_css" ).append('<label>hello</label><br>');
+                        $("#MatchingQuestion_css" ).append('<label>hello</label><br>');
+                        $("#MatchingQuestion_css" ).append('<label>hello</label><br>');
+                        $("#MatchingQuestion_css" ).append('<label>hi</label><br>');
+                $("#MatchingQuestion_css" ).append('<button type="button" style="margin-top:10%; width:10%; height:5%; margin-left:40%; margin-right:40%;"  id="submit" onclick="display_question_matching()">Next Question </button>');
+                    
+                        question_number++;
+                    
+                }
+                else if(checkflag==0)
+                {
+                    hidepopup("#Question_css");
+                    hidepopup("#MatchingQuestion_css");
+                }
+				
+			}
+/* end js code :- create multiple choice questions*/
+
 			
 			// show popup when click on question type selection
 			function showpopup(css)
@@ -684,9 +926,9 @@ var answer_sheet = new Array();
 			}
     
 /* end js code :- create questions*/    
-
-
- /* start js code :- add text from the html popup to phaser game */
+    
+    
+/* start js code :- add text from the html popup to phaser game */
     var flag=0, text_color="#000000", background_color="#000000";
     
     function chimple_html_to_phaser()
@@ -716,8 +958,10 @@ function componentToHex(c) {
 function rgbToHex(r, g, b) {
     return "#" + ((1 << 24) + (r << 16) + (g << 8) + b).toString(16).slice(1);
 }
+    
 /* end js code :- add text from the html popup to phaser game */
-
+    
+    
 /* start js code :- to show the details in popup when user select any text */
     
     ;(function($) {
@@ -793,10 +1037,26 @@ if(document.selection && document.selection.empty) {
 }
     
 /* end js code :- to show the details in popup when user select any text */
+    
     </script>
+    
+<script type="text/javascript">
 
-    <script type="text/javascript">
-        $(document).ready(function() {
+    var matching_question_number;
+    
+$(document).ready(function() {
+    
+    
+    $("#image_slider").bind('mousewheel', function(e){
+        if(e.originalEvent.wheelDelta /120 > 0) {
+            console.log('scrolling up !');
+        }
+        else{
+            console.log('scrolling down !');
+        }        
+});
+    
+    
 	// When clicking on the button close or the mask layer the popup closed
 	$('#close_btn, #mask').click(function() { 
 	  $('#mask , .login-popup, #pankaj').fadeOut(300 , function() {
@@ -822,6 +1082,20 @@ if(document.selection && document.selection.empty) {
         $("#pankaj").css({"display":"none"});         
     });
    
+    
+    $('#r, #g, #b').change(function(){
+        if(flag==0)
+            {
+                $("#text_area").css("color" , "rgb("+$("#r").val()+","+$("#g").val()+","+$("#b").val()+")"); 
+                text_color= rgbToHex(parseInt($("#r").val()) , parseInt($("#g").val()) , parseInt($("#b").val()));
+            }
+        else
+            {
+                $("#login-box").css("background-color" , "rgb("+$("#r").val()+","+$("#g").val()+","+$("#b").val()+")")
+                background_color = rgbToHex(parseInt($("#r").val()) , parseInt($("#g").val()) , parseInt($("#b").val()));
+            }
+    });
+    
     $("#back").click(function(){
        $('#pankaj').show(1000);
     });
@@ -834,7 +1108,8 @@ if(document.selection && document.selection.empty) {
        $('#pankaj').hide(1000);
     });
     
-// start :- code to show the details in popup when user select any text
+    
+// jquery code to show the details in popup when user select any text
 
 // double click to select the text and it will open it's content from json file
     $("#word, #meaning_content, #example_content").click(function(e){
@@ -865,40 +1140,80 @@ if(document.selection && document.selection.empty) {
 	$("#meaning, #example, #image").click(function(e){
 		clearSelection();	
 	});
+    
+
 /* end js code :- create questions*/    
 
 				// click to create matching type question then it will popup matching choice popup
 			   $("#matching").click(function(){	
 
-				hidepopup("#multiple_choice_css");
-				hidepopup("#Question_css");
-				showpopup("#matching_css");		
-
-                   var v = window.callback.call(window.callbackContext);
+/*                   var v = window.callback.call(window.callbackContext);
                    story_id = v.storyId;
                    page_id = v.pageId;
+  */                 
+                   // each time matching pressed we can add only 4 choices to that question, after that we have to again press matching to add new question
+                   matching_question_number = 0;
+                   
+				hidepopup("#multiple_choice_css");
+				hidepopup("#Question_css");
+                hidepopup("#question_ask_select_choice");
+				showpopup("#matching_css");
 			   });
 			   
 				// click to create multiple choice type question then it will popup multiple choice popup
 			   $("#multiple_choice").click(function(){
+    /*               
+                   var v = window.callback.call(window.callbackContext);
+                   story_id = v.storyId;
+                   page_id = v.pageId;
+*/
 				hidepopup("#matching_css");
 				hidepopup("#Question_css");
+                hidepopup("#question_ask_select_choice");
 				showpopup("#multiple_choice_css");
-                
-                 var v = window.callback.call(window.callbackContext);
-                 story_id = v.storyId;
-                 page_id = v.pageId;
-                 });
-			   
-				// click to ask question then it will popup ask question popup
-			   $("#ask_question").click(function(){
-				hidepopup("#matching_css");
-				hidepopup("#multiple_choice_css");
-				showpopup("#Question_css");
-				question_number = 0; // this is the initial question number of the story
-				display_question();
 			   });
 			   
+				// click to ask multiple choice type question
+			   $("#question_ask_multiple_choice").click(function(){
+  /*                 
+                   var v = window.callback.call(window.callbackContext);
+                   story_id = v.storyId;
+                   page_id = v.pageId;
+    */               
+				hidepopup("#matching_css");
+				hidepopup("#multiple_choice_css");
+                hidepopup("#question_ask_select_choice");
+//				showpopup("#Question_css");
+				question_number = 0; // this is the initial question number of the story
+				display_question_multichoice();
+			   });
+    
+
+				// click to ask matching type question
+			   $("#question_ask_matching").click(function(){
+      /*             
+                   var v = window.callback.call(window.callbackContext);
+                   story_id = v.storyId;
+                   page_id = v.pageId;
+        */           
+				hidepopup("#matching_css");
+				hidepopup("#multiple_choice_css");
+                hidepopup("#question_ask_select_choice");
+//				showpopup("#Question_css");
+				question_number = 0; // this is the initial question number of the story
+				display_question_matching();
+			   });
+    
+			   // click close button of image_slider popup
+			   $("#image_slider_close_btn").click(function(){
+				hidepopup("#image_slider");
+			   });    
+    
+			   $("#slider_close_btn").click(function(){
+				hidepopup("#image_slider");
+			   });    
+    
+    
 			   // click close button of multiple choice question popup
 			   $("#close_btn_multiple_choice").click(function(){
 				hidepopup("#multiple_choice_css");
@@ -916,16 +1231,25 @@ if(document.selection && document.selection.empty) {
 			   
 
 			   // select image then it will display the name of the image
-			   $("#upload_image").change (function()
+			   $("#upload_image").change (function(event)
 			   {
 					var fileName = $(this).val();
 					$("#img_name").text("image selected");
+                    var selectedFile = event.target.files[0];
+                    var reader = new FileReader();
+                   console.log(selectedFile.name);
+                   
 			   });
 			   
 // multiple choice question add_Question button is press
 
 				$("#multiple_submit_btn_css").click(function() {
 					var flag=0, arrayIndex;
+                    
+                   var v = window.callback.call(window.callbackContext);
+                   story_id = v.storyId;
+                   page_id = v.pageId;                    
+                    
 					if($("#multiple_question").val()=='')
 					{
 						$("#multiple_question").css('border-color', 'red');
@@ -1017,8 +1341,8 @@ if(document.selection && document.selection.empty) {
 							
 							question.push(question_details);
 							
-							story_details.storyId = "1";
-							story_details.pageId = "1";
+							story_details.storyId = story_id;
+							story_details.pageId = page_id;
 							story_details.question = question;
 							
 							question_answer.push(story_details);
@@ -1133,6 +1457,9 @@ if(document.selection && document.selection.empty) {
 			
 				$("#matching_submit_btn_css").click(function(){
 						var flag=0, arrayIndex;
+                    
+                        console.log($("#upload_image").val());
+                    
 						if($("#upload_image").val()=='')
 						{
 							$("#choose_file_div").css('border-color', 'red');
@@ -1145,7 +1472,7 @@ if(document.selection && document.selection.empty) {
 						else
 							$("#matching_correct_answer").css('border-color', '');
 							
-							
+
 					if($("#upload_image").val()!='' && $("#matching_correct_answer").val()!='')
 					{
 						get_json_from_local = JSON.parse(localStorage.getItem('myStorage'));
@@ -1179,15 +1506,15 @@ if(document.selection && document.selection.empty) {
 							
 							question.push(question_details);
 							
-							story_details.storyId = "1";
-							story_details.pageId = "1";
+							story_details.storyId = story_id;
+							story_details.pageId = page_id;
 							story_details.question = question;
 							
 							question_answer.push(story_details);
 							
 							localStorage.setItem('myStorage', JSON.stringify(question_answer));
 						}
-						else if(flag!=0)
+						else if(flag!=0)  // same story id and same page id
 						{
 							// check whether matching type question is already in array or not.
 							var questionTypeIndex=0, questionkindflag=0;
@@ -1208,7 +1535,7 @@ if(document.selection && document.selection.empty) {
 							var answer_choice_details = new Object();
 							
 							// if matching type question is already in array							
-							if(questionkindflag!=0)
+							if(matching_question_number!=0)
 							{
 								var len = get_json_from_local[arrayIndex].question[questionTypeIndex].choices.length;
 								
@@ -1264,29 +1591,36 @@ if(document.selection && document.selection.empty) {
 							
 							localStorage.setItem('myStorage', JSON.stringify(question_answer));
 						}						
-						
+						matching_question_number++;
 					    $("#upload_image").val('');
 						$("#matching_correct_answer").val('');
+                        $("#img_name").text("");
+                        
+                        if(matching_question_number==4)
+                            {
+                                $("#mask").remove();
+                                $("#matching_css").hide();
+                            }
 					}
 							
 				});
-/* end js code :- create questions*/    
+/* end js code :- create questions*/   
+    
     
 });
 
-    </script>
-
-    <link rel="canonical" href="http://www.alessioatzeni.com/wp-content/tutorials/jquery/login-box-modal-dialog-window/index.html"
-    />
+    
+</script>
+    
+<link rel="canonical" href="http://www.alessioatzeni.com/wp-content/tutorials/jquery/login-box-modal-dialog-window/index.html" />
 </head>
-
+	
 <body>
 
-    <div class="container">
-
-        <!-- start : code to show the details in popup when user select any text -->
-        <div id="element_to_pop_up">
-            <a class="b-close">x<a/>
+<div class="container">
+<!-- start : code to show the details in popup when user select any text -->
+<div id="element_to_pop_up">
+    <a class="b-close">x<a/>
 
     <div id="myContent" class='content'>
 	
@@ -1322,16 +1656,25 @@ if(document.selection && document.selection.empty) {
 						<tr>
 							<td id="matching">Matching</td>
 						</tr>						
+					</table>
+				</div>
+                
+				<div id="question_ask_select_choice" style="background:#f1f1f1; display:none; margin-left:90%;">
+					<table style="cursor:pointer; cursor:hand;">
 						<tr>
-							<td id="ask_question">Ask Question</td>
+							<td id="question_ask_multiple_choice">Multiple Choice</td>
+						</tr>
+						<tr>
+							<td id="question_ask_matching">Matching</td>
 						</tr>						
 					</table>
-				</div>				
+				</div>
+                
 			</div>
-			
+
 
 			<div id = "multiple_choice_css">
-					<input type="image" src="close_pop.png" id="close_btn_multiple_choice" style="margin-left:95%; margin-top:0px;" />
+					<input type="image" src="assets/close_pop.png" id="close_btn_multiple_choice" style="margin-left:95%; margin-top:0px;" />
 				<form method = "post" action = "">
 					<label class="common_css">Type your the question</label>
 					<br>
@@ -1361,12 +1704,12 @@ if(document.selection && document.selection.empty) {
     
 			<div id ="matching_css">
 				<div style="width:102%;">
-					<input type="image" src="close_pop.png" id="close_btn_matching" style="margin-left:95%; margin-top:0px;" />
+					<input type="image" src="assets/close_pop.png" id="close_btn_matching" style="margin-left:95%; margin-top:0px;" />
 				</div>
 
 					<label class="common_css"></label>
 					<br>
-					
+                <form method="post">
 					<label class="common_css">Upload Image</label> <br>
 					<div class="choose_file" style="margin-top:3%;" id="choose_file_div">
 						<span>Choose File</span>
@@ -1379,14 +1722,14 @@ if(document.selection && document.selection.empty) {
 					<input type = "text" class = "login" placeholder = "Correct answer" name = "uid" id="matching_correct_answer">
 					<br>
 					<input type = "submit" value = "Add question" id="matching_submit_btn_css" onClick="match_submit_btn();"/>
-
+                </form>
 
 			</div>
 			
 			
 			<div id = "Question_css">
 				<div style="width:102%;">
-					<input type="image" src="close_pop.png" id="close_btn_question" style="margin-left:95%; margin-top:0px;" />
+					<input type="image" src="assets/close_pop.png" id="close_btn_question" style="margin-left:95%; margin-top:0px;" />
 				</div>
 
 					<label class="common_css" id="question">hello</label>
@@ -1400,23 +1743,23 @@ if(document.selection && document.selection.empty) {
 					<label><input type = "radio" class = "login" name = "gender" id="answer_4" value="">d</label>
 					<br><br>
 					<br>
-					<input type = "submit" value = "Next question" id="question_submit_btn_css" onclick="display_question();"/>					
+					<input type = "submit" value = "Next question" id="question_submit_btn_css" onclick="display_question_multichoice();"/>
 			</div>
 			
 			
 			<div id = "MatchingQuestion_css">
 				<div style="width:102%;">
-					<input type="image" src="close_pop.png" id="close_btn_question" style="margin-left:95%; margin-top:0px;" />
+					<input type="image" src="assets/close_pop.png" id="close_btn_question" style="margin-left:95%; margin-top:0px;" />
 				</div>
 
 			</div>
     
 <!-- end : code to show the questions -->
-
+    
     
 	<div id="gameCanvas">
     </div>
-    
+
 <!-- start : code to show the slider to change the background color and text color -->
         <div id="pankaj">
             <input type="image" src="assets/close_pop.png" style="margin-left:84%;" id="close_rgb" />
@@ -1426,8 +1769,9 @@ if(document.selection && document.selection.empty) {
             <button type="button" style="margin-top:5%; width:50%; height:10%; margin-left : 25%;" id="ok_btn">OK </button>
 		</div>
 <!--  end : code to show the slider to change the background color and text color -->
-
-<!--  start : code to show the popup when user click a sprite from phaser -->    
+    
+    
+<!--  start : code to show the popup when user click a sprite from phaser -->
         <div id="login-box" class="login-popup">
             <input type="image" src="assets/close_pop.png" style="margin-left:98%;" id="close_btn"/>
             
@@ -1443,6 +1787,14 @@ if(document.selection && document.selection.empty) {
             </div>
 		</div>
 <!--  end : code to show the popup when user click a sprite from phaser -->
+    
+    
+<!--  start : code to show the image slider -->
+        <div id="image_slider" class="image_slider_popup">
+
+		</div>
+<!--  end : code to show the popup when user click a sprite from phaser -->
+    
 </div>
 
 </body>

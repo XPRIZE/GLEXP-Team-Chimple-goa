@@ -3,6 +3,7 @@ import Limb from './Limb.js';
 import Shape from './Shape.js';
 import Sprite from './Sprite.js';
 import ComboShape from './ComboShape.js';
+import HandShape from './HandShape.js';
 import Accessory from './Accessory.js';
 
 export default class Human extends Puppet {
@@ -229,42 +230,77 @@ export default class Human extends Puppet {
         return puppet;
     }
 
-     animateWalk()
-     {
+    waveAnimate() {
+        this.body.angle = 0;
+        this.head.angle = 0;
+        this.leftHand.angle = 0;
+        this.rightHand.angle = 0;
+        this.leftLeg.angle = 0;
+        this.rightLeg.angle = 0;
+     
+       this.game.add.tween(this.body).to({y: this.body.y + 12, angle: 8.7},4/24*1000, null, true).yoyo(true,42/24*1000);
+      
+       this.game.add.tween(this.rightHand).to({x: this.rightHand.x + 6.1499, y: this.rightHand.y + 6.40,angle:-5.2},4/24*1000, null, true).chain(
+       this.game.add.tween(this.rightHand).to({x: this.rightHand.x , y: this.rightHand.y ,angle:0}, 4/24*1000, null, false, 42/24*1000));
+     
+       this.game.add.tween(this.head).to({x: this.head.x + 42.75, y: this.head.y + 15.199 , angle:8.7}, 4/24*1000, null, true).chain(
+       this.game.add.tween(this.head).to({ angle:23.7}, 3/24*1000,null, false),
+       this.game.add.tween(this.head).to({ angle:8.7}, 3/24*1000, null, false),
+       this.game.add.tween(this.head).to({ angle:13.7}, 5/24*1000, null, false),
+       this.game.add.tween(this.head).to({ angle:8.7}, 7/24*1000, null, false), 
+       this.game.add.tween(this.head).to({ angle:15.5}, 7/24*1000, null, false),
+       this.game.add.tween(this.head).to({ angle:8.7}, 7/24*1000, null, false),
+       this.game.add.tween(this.head).to({x: this.head.x , y:  this.head.y  , angle:0}, 5/24*1000, null, false, 10/24*1000));
+              
+       this.game.add.tween(this.leftHand).to({x: this.leftHand.x + 3.0499, y: this.leftHand.y - 3.199, angle:2}, 4/24*1000, null, true).chain(
+       this.game.add.tween(this.leftHand).to({x:this.leftHand.x + 3, y: this.leftHand.y - 3.25,angle:173.7}, 8/24*1000, null, false ,3/24*1000),
+       this.game.add.tween(this.leftHand).to({ y: this.leftHand.y - 3.30,angle:128.7}, 7/24*1000, null, false),
+       this.game.add.tween(this.leftHand).to({x:this.leftHand.x + 3, y: this.leftHand.y - 3.19,angle:171.7},
+       7/24*1000, null, false),this.game.add.tween(this.leftHand).to({x:this.leftHand.x + 3, y: this.leftHand.y - 3.30,angle:128.7},
+       7/24*1000, null, false),this.game.add.tween(this.leftHand).to({angle:33.3}, 5/24*1000, null, false),
+       this.game.add.tween(this.leftHand).to({angle:5.6}, 5/24*1000, null, false),
+       this.game.add.tween(this.leftHand).to({x: this.leftHand.x+0, y: this.leftHand.y+0,angle:0},5/24*1000, null, false));
+      
+        }
 
-                this.leftHand.angle = 0;
+    walkAnimate() {
+        this.leftHand.angle = 0;
+        this.rightHand.angle = 0;
+        this.leftLeg.angle = 0;
+        this.rightLeg.angle = 0;
+       
+        this.game.add.tween(this.body).to({y: this.body.y + 8}, 5/24*1000, null, true, 0,0, true).chain(this.game.add.tween(this.body).to({y: this.body.y + 8}, 5/24*1000, null, true,  0,0, true));
+        
+        
+        
+        this.game.add.tween(this.head).to({y: this.head.y + 10}, 5/24*1000, null, true, 0,0, true).chain(this.game.add.tween(this.head).to({y: this.head.y + 12}, 5/24*1000, null, true, 0,0, true));
+        
+        
+        this.game.add.tween(this.rightHand).to({angle: this.rightHand.angle + 5.8, y: this.rightHand.y + 1.6}, 2/24*1000, null, true).chain(this.game.add.tween(this.rightHand).to({angle: this.rightHand.angle + 15, y: this.rightHand.y + 4}, 3/24*1000, null, false), this.game.add.tween(this.rightHand).to({angle: this.rightHand.angle - 15, y: this.rightHand.y + 4 }, 4/24*1000, null, false, 5/24*1000), this.game.add.tween(this.rightHand).to({angle: this.rightHand.angle - 5}, 4/24*1000, null, false));
+       
+        
+        this.game.add.tween(this.leftHand).to({angle: this.leftHand.angle - 5.8, y: this.leftHand.y + 1.6}, 2/24*1000, null, true).chain(this.game.add.tween(this.leftHand).to({angle: this.leftHand.angle - 15, y: this.leftHand.y + 4}, 3/24*1000, null, false), this.game.add.tween(this.leftHand).to({angle: this.leftHand.angle + 15, y: this.leftHand.y + 4 }, 4/24*1000, null, false), this.game.add.tween(this.leftHand).to({angle: this.leftHand.angle + 5}, 4/24*1000, null, false));
 
-                this.rightHand.angle = 0;
+       
+       this.game.add.tween(this.leftLeg).to({angle: this.leftLeg.angle + 14.5, y: this.leftLeg.y + 4}, 5/24*1000, null, true).chain(this.game.add.tween(this.leftLeg).to({angle:  this.leftLeg.angle + 1.6, y: this.leftLeg.y - 5.5}, 2/24*1000, null, false, 5/24*1000), this.game.add.tween(this.leftLeg).to({angle: this.leftLeg.angle - 13.8, y: this.leftLeg.y + 4 }, 3/24*1000, null, false), this.game.add.tween(this.leftLeg).to({angle: this.leftLeg.angle - 4.5, x: this.leftLeg.x + 0,y: this.leftLeg.y + 0 }, 4/24*1000, null, false));
+       
+      
+      this.game.add.tween(this.rightLeg).to({angle: this.rightLeg.angle - 15, y: this.rightLeg.y + 4}, 5/24*1000, null, true).chain(this.game.add.tween(this.rightLeg).to({angle:  this.rightLeg.angle + 15, y: this.rightLeg.y + 4}, 5/24*1000, null, false, 5/24*1000), this.game.add.tween(this.rightLeg).to({angle: this.rightLeg.angle + 5, y: this.rightLeg.y + 0 }, 4/24*1000, null, false));
 
-                this.leftLeg.angle = 0;
+    }
 
-                this.rightLeg.angle = 0;
-
-                this.game.add.tween(this.body).to({ y: this.body.y + 2 }, 4 / 24 * 1000, null, true).yoyo(true);
-
-                this.game.add.tween(this.head).to({ y: this.head.y + 2 }, 4 / 24 * 1000, null, true).yoyo(true);
-
-                this.game.add.tween(this.leftHand).to({ angle: -15 }, 4 / 24 * 1000, null, true).chain(this.game.add.tween(this.leftHand).to({ angle: 15 }, 4 / 24 * 1000, null, true));
-
-                this.game.add.tween(this.rightHand).to({ angle: 20 }, 4 / 24 * 1000, null, true).chain(this.game.add.tween(this.rightHand).to({ angle: -3 }, 4 / 24 * 1000, null, true));
-
-                this.game.add.tween(this.leftLeg).to({ angle: 15 }, 4 / 24 * 1000, null, true).chain(this.game.add.tween(this.leftLeg).to({ angle: -15 }, 4 / 24 * 1000, null, true));
-
-                this.game.add.tween(this.rightLeg).to({ angle: -9 }, 4 / 24 * 1000, null, true).chain(this.game.add.tween(this.rightLeg).to({ angle: 15 }, 4 / 24 * 1000, null, true));
-
-  }
     blinkAct()
     {  
           let self = this;
           let i = 1;
           this.mytime = this.game.time.events.loop(500,function()
           {
-            if(i == 2 || i == 3)
+            if(i == 2 || i == 3 || i==4)
               {
                   self.eyeopen();
                   //console.log('---------- i --------'+i);
                   i++;
-                  if(i==3){
+                  if(i==5){
                       i = 1;
                   }
               }
@@ -330,18 +366,18 @@ export default class Human extends Puppet {
 
         human.head = new Limb(game, new Phaser.Point(0.5, 1), new Phaser.Point(0.5, 0), new Phaser.Point(0, -10), false);
         human.head.childOrder = ['backHair', 'headShape', 'mask', 'glasses', 'beard', 'frontHair', 'hat'];
-        human.head.shape = new Shape(game, new Phaser.Point(1, 1), new Phaser.Point(0.5, 0), new Phaser.Point(0, 0), new Phaser.Point(0, 0), new Phaser.Circle(75, 80, 157), "headShape");
+        human.head.shape = new ComboShape(game, new Phaser.Point(1, 1), new Phaser.Point(0.5, 0), new Phaser.Point(0, 0), new Phaser.Point(0, 0), new Phaser.Circle(75, 100, 157),new Phaser.Circle(75, 60, 124), "headShape");
         // human.head.shapeFace = new ShapeFace(game, new Phaser.Point(1, 1), new Phaser.Point(0.5, 1), new Phaser.Point(0.5, 0), new Phaser.Point(0, -10), new Phaser.Ellipse(85, 100, 85, 100), new Phaser.Ellipse(55, 80, 55, 80), "headShape");   
         human.head.enableInputs(handler, false);
 
         human.leftHand = new Limb(game, new Phaser.Point(1, 0), new Phaser.Point(0, 0), new Phaser.Point(-10, 0), false);
         human.leftHand.childOrder = ['leftHandShape', 'mask', 'leftSleeve', 'armAccessory'];
-        human.leftHand.shape = new Shape(game, new Phaser.Point(1, 1), new Phaser.Point(0.5, 0), new Phaser.Point(0, 0), new Phaser.Point(-10, 0), new Phaser.Rectangle(0, 0, 50, 200), "leftHandShape");
+        human.leftHand.shape = new HandShape(game, new Phaser.Point(1, 1), new Phaser.Point(0.5, 0), new Phaser.Point(0, 0), new Phaser.Point(-10, 0), new Phaser.Rectangle(0, 30, 50, 200), new Phaser.Circle(25, 30, 50), new Phaser.Circle(25, 230, 50),"leftHandShape");
         human.leftHand.enableInputs(handler, false);
 
         human.rightHand = new Limb(game, new Phaser.Point(0, 0), new Phaser.Point(1, 0), new Phaser.Point(10, 0), false);
         human.rightHand.childOrder = ['rightHandShape', 'mask', 'rightSleeve', 'armAccessory'];
-        human.rightHand.shape = new Shape(game, new Phaser.Point(1, 1), new Phaser.Point(0.5, 0), new Phaser.Point(1, 0), new Phaser.Point(10, 0), new Phaser.Rectangle(0, 0, 50, 200), "rightHandShape");
+        human.rightHand.shape = new HandShape(game, new Phaser.Point(1, 1), new Phaser.Point(0.5, 0), new Phaser.Point(1, 0), new Phaser.Point(10, 0), new Phaser.Rectangle(0, 30, 50, 200), new Phaser.Circle(25, 30, 50), new Phaser.Circle(25, 230, 50),"rightHandShape");
         human.rightHand.enableInputs(handler, false);
 
         human.leftLeg = new Limb(game, new Phaser.Point(1, 0), new Phaser.Point(0.5, 0), new Phaser.Point(-10, -20), false);
