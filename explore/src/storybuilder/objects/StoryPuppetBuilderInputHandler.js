@@ -13,7 +13,7 @@ export default class StoryPuppetBuilderInputHandler {
         if (sprite instanceof Shape) {
             this.puppetPoint = new Phaser.Point(pointer.x, pointer.y);
            
-           this.parent.animateWalk();
+           this.parent.walkAnimate();
             
             this.originalPuppetPosition = this.parent.position.clone();
             this.game.input.addMoveCallback(this.onInputDragFromStory, this);

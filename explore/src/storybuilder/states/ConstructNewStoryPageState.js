@@ -468,6 +468,8 @@ export default class ConstructNewStoryPageState extends Phaser.State {
 
     render() {
         this.generateSnapShot();
+        game.debug.inputInfo(32, 32);    
+        game.debug.pointer( game.input.activePointer );
 
     }
 
