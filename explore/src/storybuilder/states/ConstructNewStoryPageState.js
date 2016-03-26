@@ -291,7 +291,7 @@ export default class ConstructNewStoryPageState extends Phaser.State {
         }
     }
 
-    createQuestionAndAnswer() {
+    createQuestionAndAnswer(item, pointer) {
         this._QuestionTypeOverlay = new QuestionTypeOverlay(game, game.width, game.height, item, pointer);
         idObject.storyId = this._currentStory.storyId;
         idObject.pageId = this._currentPage.pageId;   
@@ -304,9 +304,7 @@ export default class ConstructNewStoryPageState extends Phaser.State {
     returnID()
     {
         return idObject;
-=======
-        $("#select_choice").css({ "visibility": "visible", "display": "block" });
->>>>>>> origin/master
+//        $("#select_choice").css({ "visibility": "visible", "display": "block" });
     }
 
     askQuestions()

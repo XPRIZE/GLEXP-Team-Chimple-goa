@@ -565,7 +565,7 @@ get_json_from_local = JSON.parse(localStorage.getItem('myStorage'));
 if(!get_json_from_local || get_json_from_local.length==0)
     localStorage.setItem('myStorage', JSON.stringify(question_answer));
 
-var question_number; // question number of the story which will be incremented till at the end of question.
+var question_number = 0; // question number of the story which will be incremented till at the end of question.
 // storyid and pageid
 var story_id, page_id;
     
@@ -1249,6 +1249,7 @@ if(document.selection && document.selection.empty) {
 			   
 			   // click close button of question popup
 			   $("#close_btn_question").click(function(){
+                   question_number = 0;
 				hidepopup("#Question_css");
 			   });
 			   
