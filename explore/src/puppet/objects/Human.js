@@ -176,8 +176,8 @@ export default class Human extends Puppet {
         this.leftHand.addAccessory(new Accessory(this.game, new Phaser.Point(1, 1), true, true, false, new Phaser.Point(anchorX, anchorY), new Phaser.Point(offsetX, offsetY), new Phaser.Point(offsetInPixelX, offsetInPixelY), false, key, frame, 'armAccessory'), true);
     }
 
-  setHeadShape(key, frame, x, y,radius) {
-        
+  setHeadShape(key, frame, x, y,radius)
+   {
         // this.children[0].children[2].children.splice(0,1);
          this.head.children.splice(0,1);
          this.head.shape = new Sprite(game, x, y, key, frame, new Phaser.Point(1, 1), new Phaser.Point(0.5, 0), new Phaser.Point(0, 0), new Phaser.Point(0, 0), "headShape" );
@@ -188,6 +188,12 @@ export default class Human extends Puppet {
     setMouth(  key,frame, anchorX=0.5, anchorY=0.5, offsetX=0.48, offsetY=0.75, offsetInPixelX=0, offsetInPixelY=0   ) {
        this.head.addAccessory(new Accessory(this.game, new Phaser.Point(1, 1), true, true, true, new Phaser.Point(anchorX, anchorY), new Phaser.Point(offsetX, offsetY), new Phaser.Point(offsetInPixelX, offsetInPixelY), false, key, frame, 'Mouth'), true);
         
+    }
+    
+    setEye(key,frame,anchorX=0.5, anchorY=0, offsetX=0.5, offsetY=0.7, offsetInPixelX=0, offsetInPixelY=0){
+        this.eyekey=key;
+        this.eyeframe=frame;
+        this.head.addAccessory(new Accessory(this.game, new Phaser.Point(1, 1), true, true, true, new Phaser.Point(anchorX, anchorY), new Phaser.Point(offsetX, offsetY), new Phaser.Point(offsetInPixelX, offsetInPixelY), false, key, frame, 'eyeopen'), true);
     }
     setHat(key, frame, anchorX = 0.5, anchorY = 1, offsetX = 0.5, offsetY = 0, offsetInPixelX = 0, offsetInPixelY = 0) {
         this.head.addAccessory(new Accessory(this.game, new Phaser.Point(1, 1), true, true, false, new Phaser.Point(anchorX, anchorY), new Phaser.Point(offsetX, offsetY), new Phaser.Point(offsetInPixelX, offsetInPixelY), false, key, frame, 'hat'), true);
@@ -223,7 +229,8 @@ export default class Human extends Puppet {
         return puppet;
     }
 
-     animateWalk() {
+     animateWalk()
+     {
 
                 this.leftHand.angle = 0;
 
@@ -245,10 +252,70 @@ export default class Human extends Puppet {
 
                 this.game.add.tween(this.rightLeg).to({ angle: -9 }, 4 / 24 * 1000, null, true).chain(this.game.add.tween(this.rightLeg).to({ angle: 15 }, 4 / 24 * 1000, null, true));
 
+  }
+    blinkAct()
+    {  
+          let self = this;
+          let i = 1;
+          this.mytime = this.game.time.events.loop(500,function()
+          {
+            if(i == 2 || i == 3)
+              {
+                  self.eyeopen();
+                  //console.log('---------- i --------'+i);
+                  i++;
+                  if(i==3){
+                      i = 1;
+                  }
+              }
+              else if(i == 1)
+              {
+                  self.eyeclose();
+                  // console.log('---------- i --------'+i);
+                  i++;
+              }},this);
+          
+        //   this.game.time.events.loop(10000,function(){
+        //       self.game.time.events.remove(self.mytime);
+        //   })
+   }
+    eyeopen()
+    {
+            let eyes;   
+            for(let i=0; i <this.head.children.length;i++)
+            {
+               if(this.head.children[i].name == "eyeclose")
+               {
+                  eyes = this.head.children[i].name;
+                  this.head.children.splice(i,1,this.head.addAccessory(new Accessory(this.game, new Phaser.Point(1, 1), true, true, true, new Phaser.Point(0, 0.1),
+                  new Phaser.Point(0.13, 0.3), new Phaser.Point(0,0), false,  "puppet/eye_mouth", this.eyeframe, 'eyeopen'), true));
 
+               } 
+           }
+     }
+    
+    eyeclose()
+    {
+                   let eyes ;
+                   for(let i=0; i <this.head.children.length;i++)
+                   {
+                       if(this.head.children[i].name == "eyeopen")
+                       {
+                             eyes = this.head.children[i].name;
+                             this.head.children.splice(i,1,this.head.addAccessory(new Accessory(this.game, new Phaser.Point(1, 1), true, true, true,
+                             new Phaser.Point(0, 0.1), new Phaser.Point(0.13, 0.3),
+                             new Phaser.Point(0,0), false,  "puppet/eye_mouth", "eyes 2.png", 'eyeclose'), true));
+                       } 
+                }
+    }  
 
-        }
-
+   smileAct()
+    {
+        this.head.addAccessory(new Accessory(this.game, new Phaser.Point(1, 1), true, true, true, new Phaser.Point(0.45, 0.5), new Phaser.Point(0.5, 0.8), new Phaser.Point(0,0), false, "puppet/eye_mouth","mouth 5.png" , 'mouth'), true);
+    }
+   sadAct(){
+       this.head.addAccessory(new Accessory(this.game, new Phaser.Point(1, 1), true, true, true, new Phaser.Point(0.45, 0.5), new Phaser.Point(0.5, 0.8), new Phaser.Point(0,0), false, "puppet/eye_mouth","mouth 4.png" , 'mouth'), true);
+   }
 
     static buildDefault(game, handler) {
         let human = new Human(game);
