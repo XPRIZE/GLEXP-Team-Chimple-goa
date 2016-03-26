@@ -14,6 +14,7 @@ import StoryUtil from '../objects/StoryUtil.js';
 import RecordingManager from '../objects/RecordingManager.js';
 import ShowAttributeEditorSignal from '../objects/ShowAttributeEditorSignal.js';
 import AttributeEditOverlay from '../objects/AttributeEditOverlay.js';
+import QuestionTypeOverlay from '../objects/QuestionTypeOverlay.js';
 import StoryBuilderInputHandler from '../objects/StoryBuilderInputHandler.js';
 import StoryPuppetBuilderInputHandler from '../objects/StoryPuppetBuilderInputHandler.js';
 
@@ -270,6 +271,13 @@ export default class ConstructNewStoryPageState extends Phaser.State {
         this._testResumePlayButton.input.priorityID = 2;
         this._displayControlGroup.add(this._testResumePlayButton);
         this._soundAdded = false;
+        
+        this._askQuestionButton = this.game.make.sprite(this.game.width - 420, 40, 'storybuilder/home_button');
+        this._askQuestionButton.anchor.setTo(0.5);
+        this._askQuestionButton.inputEnabled = true;
+        this._askQuestionButton.events.onInputDown.add(this.askQuestions, this);
+        this._askQuestionButton.input.priorityID = 2;
+        this._displayControlGroup.add(this._askQuestionButton);
 
     }
 
@@ -284,14 +292,12 @@ export default class ConstructNewStoryPageState extends Phaser.State {
     }
 
     createQuestionAndAnswer() {
-        console.log('this.storyid:' + this._currentStory.storyId + " and pageId:" + this._currentPage.pageId);
-<<<<<<< HEAD
-        $("#select_choice").css({"visibility":"visible","display":"block"});
+        this._QuestionTypeOverlay = new QuestionTypeOverlay(game, game.width, game.height, item, pointer);
         idObject.storyId = this._currentStory.storyId;
         idObject.pageId = this._currentPage.pageId;   
         
         window.callback = this.returnID;
-        window.callbackContext = this; 
+        window.callbackContext = this;
     }
     
 //  when user choose question type then it returns the story id and page id.
@@ -301,6 +307,20 @@ export default class ConstructNewStoryPageState extends Phaser.State {
 =======
         $("#select_choice").css({ "visibility": "visible", "display": "block" });
 >>>>>>> origin/master
+    }
+
+    askQuestions()
+    {
+        $("#Question_css").css({"visibility":"visible","display":"none"});
+//        $("#question_ask_select_choice").css({"visibility":"visible","display":"block"});
+        
+        idObject.storyId = this._currentStory.storyId;
+        idObject.pageId = this._currentPage.pageId;   
+        
+        window.callback = this.returnID;
+        window.callbackContext = this; 
+        
+        window.display_question_multichoice();
     }
 
     chooseBackGround(sprite, pointer) {
