@@ -295,12 +295,12 @@ export default class Human extends Puppet {
           let i = 1;
           this.mytime = this.game.time.events.loop(500,function()
           {
-            if(i == 2 || i == 3)
+            if(i == 2 || i == 3 || i==4)
               {
                   self.eyeopen();
                   //console.log('---------- i --------'+i);
                   i++;
-                  if(i==3){
+                  if(i==5){
                       i = 1;
                   }
               }
