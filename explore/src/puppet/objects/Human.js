@@ -229,30 +229,65 @@ export default class Human extends Puppet {
         return puppet;
     }
 
-     animateWalk()
-     {
+    waveAnimate() {
+        this.body.angle = 0;
+        this.head.angle = 0;
+        this.leftHand.angle = 0;
+        this.rightHand.angle = 0;
+        this.leftLeg.angle = 0;
+        this.rightLeg.angle = 0;
+     
+       this.game.add.tween(this.body).to({y: this.body.y + 12, angle: 8.7},4/24*1000, null, true).yoyo(true,42/24*1000);
+      
+       this.game.add.tween(this.rightHand).to({x: this.rightHand.x + 6.1499, y: this.rightHand.y + 6.40,angle:-5.2},4/24*1000, null, true).chain(
+       this.game.add.tween(this.rightHand).to({x: this.rightHand.x , y: this.rightHand.y ,angle:0}, 4/24*1000, null, false, 42/24*1000));
+     
+       this.game.add.tween(this.head).to({x: this.head.x + 42.75, y: this.head.y + 15.199 , angle:8.7}, 4/24*1000, null, true).chain(
+       this.game.add.tween(this.head).to({ angle:23.7}, 3/24*1000,null, false),
+       this.game.add.tween(this.head).to({ angle:8.7}, 3/24*1000, null, false),
+       this.game.add.tween(this.head).to({ angle:13.7}, 5/24*1000, null, false),
+       this.game.add.tween(this.head).to({ angle:8.7}, 7/24*1000, null, false), 
+       this.game.add.tween(this.head).to({ angle:15.5}, 7/24*1000, null, false),
+       this.game.add.tween(this.head).to({ angle:8.7}, 7/24*1000, null, false),
+       this.game.add.tween(this.head).to({x: this.head.x , y:  this.head.y  , angle:0}, 5/24*1000, null, false, 10/24*1000));
+              
+       this.game.add.tween(this.leftHand).to({x: this.leftHand.x + 3.0499, y: this.leftHand.y - 3.199, angle:2}, 4/24*1000, null, true).chain(
+       this.game.add.tween(this.leftHand).to({x:this.leftHand.x + 3, y: this.leftHand.y - 3.25,angle:173.7}, 8/24*1000, null, false ,3/24*1000),
+       this.game.add.tween(this.leftHand).to({ y: this.leftHand.y - 3.30,angle:128.7}, 7/24*1000, null, false),
+       this.game.add.tween(this.leftHand).to({x:this.leftHand.x + 3, y: this.leftHand.y - 3.19,angle:171.7},
+       7/24*1000, null, false),this.game.add.tween(this.leftHand).to({x:this.leftHand.x + 3, y: this.leftHand.y - 3.30,angle:128.7},
+       7/24*1000, null, false),this.game.add.tween(this.leftHand).to({angle:33.3}, 5/24*1000, null, false),
+       this.game.add.tween(this.leftHand).to({angle:5.6}, 5/24*1000, null, false),
+       this.game.add.tween(this.leftHand).to({x: this.leftHand.x+0, y: this.leftHand.y+0,angle:0},5/24*1000, null, false));
+      
+        }
 
-                this.leftHand.angle = 0;
+    walkAnimate() {
+        this.leftHand.angle = 0;
+        this.rightHand.angle = 0;
+        this.leftLeg.angle = 0;
+        this.rightLeg.angle = 0;
+       
+        this.game.add.tween(this.body).to({y: this.body.y + 8}, 5/24*1000, null, true, 0,0, true).chain(this.game.add.tween(this.body).to({y: this.body.y + 8}, 5/24*1000, null, true,  0,0, true));
+        
+        
+        
+        this.game.add.tween(this.head).to({y: this.head.y + 10}, 5/24*1000, null, true, 0,0, true).chain(this.game.add.tween(this.head).to({y: this.head.y + 12}, 5/24*1000, null, true, 0,0, true));
+        
+        
+        this.game.add.tween(this.rightHand).to({angle: this.rightHand.angle + 5.8, y: this.rightHand.y + 1.6}, 2/24*1000, null, true).chain(this.game.add.tween(this.rightHand).to({angle: this.rightHand.angle + 15, y: this.rightHand.y + 4}, 3/24*1000, null, false), this.game.add.tween(this.rightHand).to({angle: this.rightHand.angle - 15, y: this.rightHand.y + 4 }, 4/24*1000, null, false, 5/24*1000), this.game.add.tween(this.rightHand).to({angle: this.rightHand.angle - 5}, 4/24*1000, null, false));
+       
+        
+        this.game.add.tween(this.leftHand).to({angle: this.leftHand.angle - 5.8, y: this.leftHand.y + 1.6}, 2/24*1000, null, true).chain(this.game.add.tween(this.leftHand).to({angle: this.leftHand.angle - 15, y: this.leftHand.y + 4}, 3/24*1000, null, false), this.game.add.tween(this.leftHand).to({angle: this.leftHand.angle + 15, y: this.leftHand.y + 4 }, 4/24*1000, null, false), this.game.add.tween(this.leftHand).to({angle: this.leftHand.angle + 5}, 4/24*1000, null, false));
 
-                this.rightHand.angle = 0;
+       
+       this.game.add.tween(this.leftLeg).to({angle: this.leftLeg.angle + 14.5, y: this.leftLeg.y + 4}, 5/24*1000, null, true).chain(this.game.add.tween(this.leftLeg).to({angle:  this.leftLeg.angle + 1.6, y: this.leftLeg.y - 5.5}, 2/24*1000, null, false, 5/24*1000), this.game.add.tween(this.leftLeg).to({angle: this.leftLeg.angle - 13.8, y: this.leftLeg.y + 4 }, 3/24*1000, null, false), this.game.add.tween(this.leftLeg).to({angle: this.leftLeg.angle - 4.5, x: this.leftLeg.x + 0,y: this.leftLeg.y + 0 }, 4/24*1000, null, false));
+       
+      
+      this.game.add.tween(this.rightLeg).to({angle: this.rightLeg.angle - 15, y: this.rightLeg.y + 4}, 5/24*1000, null, true).chain(this.game.add.tween(this.rightLeg).to({angle:  this.rightLeg.angle + 15, y: this.rightLeg.y + 4}, 5/24*1000, null, false, 5/24*1000), this.game.add.tween(this.rightLeg).to({angle: this.rightLeg.angle + 5, y: this.rightLeg.y + 0 }, 4/24*1000, null, false));
 
-                this.leftLeg.angle = 0;
+    }
 
-                this.rightLeg.angle = 0;
-
-                this.game.add.tween(this.body).to({ y: this.body.y + 2 }, 4 / 24 * 1000, null, true).yoyo(true);
-
-                this.game.add.tween(this.head).to({ y: this.head.y + 2 }, 4 / 24 * 1000, null, true).yoyo(true);
-
-                this.game.add.tween(this.leftHand).to({ angle: -15 }, 4 / 24 * 1000, null, true).chain(this.game.add.tween(this.leftHand).to({ angle: 15 }, 4 / 24 * 1000, null, true));
-
-                this.game.add.tween(this.rightHand).to({ angle: 20 }, 4 / 24 * 1000, null, true).chain(this.game.add.tween(this.rightHand).to({ angle: -3 }, 4 / 24 * 1000, null, true));
-
-                this.game.add.tween(this.leftLeg).to({ angle: 15 }, 4 / 24 * 1000, null, true).chain(this.game.add.tween(this.leftLeg).to({ angle: -15 }, 4 / 24 * 1000, null, true));
-
-                this.game.add.tween(this.rightLeg).to({ angle: -9 }, 4 / 24 * 1000, null, true).chain(this.game.add.tween(this.rightLeg).to({ angle: 15 }, 4 / 24 * 1000, null, true));
-
-  }
     blinkAct()
     {  
           let self = this;
