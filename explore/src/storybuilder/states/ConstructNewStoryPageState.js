@@ -79,9 +79,13 @@ export default class ConstructNewStoryPageState extends Phaser.State {
         this.load.image('storybuilder/setting_button', 'assets/storyBuilder/setting_button.png');
         this.load.image('storybuilder/plus', 'assets/storyBuilder/plus_button.png');
 
-        //for now statically load audio
-        this.load.audio('audio_1', 'assets/storyBuilder/sounds/audio_1.mp3');
-        this.load.audio('audio_2', 'assets/storyBuilder/sounds/audio_2.mp3');
+         //load sounds for items
+        this.load.audio('storyBuilder/audio1', 'assets/storyBuilder/sounds/audio_1.mp3');
+        this.load.audio('storyBuilder/audio2', 'assets/storyBuilder/sounds/audio_2.mp3');
+
+        // //for now statically load audio
+        // this.load.audio('audio_1', 'assets/storyBuilder/sounds/audio_1.mp3');
+        // this.load.audio('audio_2', 'assets/storyBuilder/sounds/audio_2.mp3');
 
         this.load.script('gray', 'https://cdn.rawgit.com/photonstorm/phaser/master/filters/Gray.js');
 
@@ -285,7 +289,6 @@ export default class ConstructNewStoryPageState extends Phaser.State {
 
     createQuestionAndAnswer() {
         console.log('this.storyid:' + this._currentStory.storyId + " and pageId:" + this._currentPage.pageId);
-<<<<<<< HEAD
         $("#select_choice").css({"visibility":"visible","display":"block"});
         idObject.storyId = this._currentStory.storyId;
         idObject.pageId = this._currentPage.pageId;   
@@ -298,9 +301,6 @@ export default class ConstructNewStoryPageState extends Phaser.State {
     returnID()
     {
         return idObject;
-=======
-        $("#select_choice").css({ "visibility": "visible", "display": "block" });
->>>>>>> origin/master
     }
 
     chooseBackGround(sprite, pointer) {

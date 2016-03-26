@@ -70,7 +70,8 @@ export default class Item extends EnableInputs(Phaser.Sprite) {
         let soundData = this._specialAttribute.getSound(whichSoundIndex);
         soundData.apply = apply;
         if (game._inRecordingMode) {            
-            if (game.cache.checkSoundKey(soundData.soundFileName)) {                
+            if (game.cache.checkSoundKey(soundData.soundFileName)) {
+                                
                 if(apply) {
                     soundData.playMusic();                       
                 } else {
@@ -115,8 +116,11 @@ export default class Item extends EnableInputs(Phaser.Sprite) {
 
     update() {
         var self = this;
+        game.debug.text('Elapsed seconds: ' + this.game.time.totalElapsedSeconds(), 32, 32);
+
         if (game._inRecordingMode) {
             console.log('in recording mode');
+            
             this.onAttributesChanged.dispatch({ uniquename: this._uniquename, x: this.x, y: this.y, scaleX: this.scale.x, scaleY: this.scale.y, angle: this.angle, recordingAttributeKind: RecordInfo.DEFAULT_RECORDING_TYPE });
         } else if (game._inPlayMode) {
             console.log('in play mode');
@@ -174,7 +178,7 @@ export default class Item extends EnableInputs(Phaser.Sprite) {
                     this._soundFileName.playMusic();        
                 } else {
                     this._soundFileName.stopMusic();
-                    this._soundFileName.destroy();
+                    // this._soundFileName.destroy();
                 }
             }
         }

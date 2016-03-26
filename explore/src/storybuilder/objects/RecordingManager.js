@@ -246,7 +246,7 @@ export default class RecordingManager extends Phaser.Group {
         } else {
             spriteMap.set(data.uniquename, recordInfo.toJSON());
         }
-        console.log('recordInfo:' + JSON.stringify(recordInfo) + "at recording counter:" + this.currentRecordingCounter);
+        // console.log('recordInfo:' + JSON.stringify(recordInfo) + "at recording counter:" + this.currentRecordingCounter);
         
         if(recordInfo.recordingAttributeKind === RecordInfo.TEXT_RECORDING_TYPE) {
             console.log('text message received at ' + this.currentRecordingCounter);
@@ -270,7 +270,7 @@ export default class RecordingManager extends Phaser.Group {
 
     computeRecordingTimeCounters(delta) {
         this.currentRecordingCounter += delta;
-        console.log('currentRecordingCounter updated:' + this.currentRecordingCounter);
+        // console.log('currentRecordingCounter updated:' + this.currentRecordingCounter);
     }
 
     computePlayTimeCounters(delta) {

@@ -46,7 +46,7 @@ export default class RecordInfo {
             userGeneratedText: this._userGeneratedText,
             soundData: this._soundData            
         };
-        console.log(json);
+        // console.log(json);
         return json;
     }
 

@@ -1,15 +1,27 @@
 {
-    "text": {
+    "forest": {
         "key": "scene/icons",
-        "frame": "ic_widgets_black_24dp_1x.png"
+        "frame": "ic_widgets_black_24dp_1x.png",
+        "AudioPlus1" : "storyBuilder/audio1",
+        "AudioPlus2" : "storyBuilder/audio2",
+        "AudioPlus3" : "storyBuilder/audio1",
+        "AudioPlus4" : "storyBuilder/audio2"
     },
-    "audio": {
+    "village": {
         "key": "scene/icons",
-        "frame": "ic_layers_black_24dp_1x.png"
+        "frame": "ic_layers_black_24dp_1x.png",
+        "AudioPlus1" : "storyBuilder/audio1",
+        "AudioPlus2" : "storyBuilder/audio2",
+        "AudioPlus3" : "storyBuilder/audio1",
+        "AudioPlus4" : "storyBuilder/audio2"
     },
     "city": {
         "key": "scene/icons",
-        "frame": "ic_insert_photo_black_24dp_1x.png"
+        "frame": "ic_insert_photo_black_24dp_1x.png",
+        "AudioPlus1" : "storyBuilder/audio1",
+        "AudioPlus2" : "storyBuilder/audio2",
+        "AudioPlus3" : "storyBuilder/audio1",
+        "AudioPlus4" : "storyBuilder/audio2"
     },
     "forest_1_th": {
         "key": "storyBuilder/forest_1_th",
@@ -111,6 +123,14 @@
     },
     "AudioPlus4" : {
         "key": "storyBuilder/plus",
+        "frame":null
+    },
+    "key1" : {
+        "key": "storyBuilder/sound_button",
+        "frame":null
+    },
+    "key2" : {
+        "key" : "storyBuilder/sound_button",
         "frame":null
     }                                   
 }
