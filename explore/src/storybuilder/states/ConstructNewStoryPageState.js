@@ -23,7 +23,7 @@ import StoryPage from '../objects/StoryPage.js';
 import ButtonGrid from '../../puppet/objects/ButtonGrid.js';
 import PersistRecordingInformationSignal from '../objects/PersistRecordingInformationSignal.js'
 import PlayResumeSignal from '../objects/PlayResumeSignal.js';
-
+import RecordingStartSignal from '../objects/RecordingStartSignal.js';
 
 import SpecialAttribute from '../../scene/objects/SpecialAttribute.js';
 import SoundData from '../../scene/objects/SoundData.js';
@@ -45,7 +45,15 @@ export default class ConstructNewStoryPageState extends Phaser.State {
         this.onPersistRecordingInformationSignal.add(this.persistRecordingInformation, this);
 
         this._playResumeSignal = new PlayResumeSignal();
+
+        this._recordingStartSignal = new RecordingStartSignal();
+        this._recordingStartSignal.add(this.notifiedWhenRecordingStarts, this);
+
         this._screenshotGenerated = false;
+    }
+
+    notifiedWhenRecordingStarts() {
+        this.saveToLocalStore();
     }
 
     loadStoryFromLocalStorage(currentStoryId) {
@@ -66,6 +74,7 @@ export default class ConstructNewStoryPageState extends Phaser.State {
     }
 
     preload() {
+        this.load.atlas('scene/bank', "assets/scene/bank.png", "assets/scene/bank.json");
         this.load.atlas('scene/scene', "assets/scene/scene.png", "assets/scene/scene.json");
         this.load.atlas('misc/theme', "assets/misc/theme.png", "assets/misc/theme.json");
         this.load.atlas('scene/icons', "assets/scene/icons.png", "assets/scene/icons.json");
@@ -119,8 +128,8 @@ export default class ConstructNewStoryPageState extends Phaser.State {
 
         this.initializeRecordingManager();
 
+        this.hideAllControls();
 
-        //this.generateSnapShot();
     }
 
     setUpUI() {
@@ -159,28 +168,31 @@ export default class ConstructNewStoryPageState extends Phaser.State {
 
     enableInputsOnScene() {
         this._displayControlGroup.children.forEach(function(element) {
-            console.log(element);
+            console.log(element);            
             if (element instanceof Scene) {
+                let scene = element;                
                 element.floor.textures.forEach(function(element) {
-                    element.disableInputs(true);
-                    element.enableInputs(new StoryBuilderInputHandler(), false);
-
+                    element.enableInputs(new StoryBuilderInputHandler(scene), false);
+                    element.disableDrag(new StoryBuilderInputHandler(scene), true);
                 }, this);
+
+                element.wall.textures.forEach(function(element) {
+                    element.enableInputs(new StoryBuilderInputHandler(scene), false);
+                    element.disableDrag(new StoryBuilderInputHandler(scene), true);
+                }, this);
+
 
                 element.floor.contents.forEach(function(element) {
                     if (element instanceof Puppet) {
-                        element.disableInputs(true);
-                        element.body.disableInputs(true);
-                        element.body.enableInputs(new StoryPuppetBuilderInputHandler(), false);
+                        element.body.enableInputs(new StoryPuppetBuilderInputHandler(game), false);
                     } else {
-                        element.disableInputs(true);
-                        element.enableInputs(new StoryBuilderInputHandler(), false);
+                        element.enableInputs(new StoryBuilderInputHandler(scene), false);
                     }
 
                 }, this);
 
                 element.wall.contents.forEach(function(element) {
-                    element.enableInputs(new StoryBuilderInputHandler(), false);
+                    element.enableInputs(new StoryBuilderInputHandler(scene), false);
                 }, this);
             }
         }, this);
@@ -215,7 +227,6 @@ export default class ConstructNewStoryPageState extends Phaser.State {
         this._displayControlGroup.children.forEach(function(element) {
             if (element instanceof Scene) {
                 let jsonStr = JSON.stringify(element, JsonUtil.replacer);
-                console.log('jsonStr:' + jsonStr);
                 this._currentPage.scene = element;
             }
         }, this);
@@ -223,6 +234,7 @@ export default class ConstructNewStoryPageState extends Phaser.State {
         this._currentStory.storyPages.forEach(function(page) {
             if (page.pageId === this._currentPageId) {
                 page = this._currentPage;
+                this._currentPage.questionsAndAnswers = [];
                 localStorage.setItem(this._currentStory.storyId, JSON.stringify(this._currentStory, JsonUtil.replacer));
             }
         }, this);
@@ -230,6 +242,25 @@ export default class ConstructNewStoryPageState extends Phaser.State {
 
     }
 
+    hideAllControls() {
+        this._homeButton.visible = false;
+        this._chooseBackGroundButton.visible = false;
+        this._chooseCharacterButton.visible = false;
+        this._questionAndAnswerButton.visible = false;
+        this._testResumePlayButton.visible = false;
+
+        this.recordingManager.hideAllControls();
+    }
+
+
+    showAllControls() {
+        this._homeButton.visible = true;
+        this._chooseBackGroundButton.visible = true;
+        this._chooseCharacterButton.visible = true;
+        this._questionAndAnswerButton.visible = true;
+        this._testResumePlayButton.visible = true;
+        this.recordingManager.showAllControls();
+    }
 
     createActionButtons() {
 
@@ -239,6 +270,8 @@ export default class ConstructNewStoryPageState extends Phaser.State {
         this._homeButton.events.onInputDown.add(this.navigateToLibrary, this);
         this._homeButton.input.priorityID = 2;
         this._displayControlGroup.add(this._homeButton);
+        this._homeButton.visible = false;
+
 
 
         this._chooseBackGroundButton = this.game.make.sprite(this.game.width - 100, 40, 'storybuilder/home_button');
@@ -291,13 +324,13 @@ export default class ConstructNewStoryPageState extends Phaser.State {
         console.log('this.storyid:' + this._currentStory.storyId + " and pageId:" + this._currentPage.pageId);
         $("#select_choice").css({"visibility":"visible","display":"block"});
         idObject.storyId = this._currentStory.storyId;
-        idObject.pageId = this._currentPage.pageId;   
-        
+        idObject.pageId = this._currentPage.pageId;
+
         window.callback = this.returnID;
-        window.callbackContext = this; 
+        window.callbackContext = this;
     }
-    
-//  when user choose question type then it returns the story id and page id.
+
+	//  when user choose question type then it returns the story id and page id.
     returnID()
     {
         return idObject;
@@ -383,12 +416,20 @@ export default class ConstructNewStoryPageState extends Phaser.State {
 
     showAttributeEditor(item, pointer) {
         //sound testing
-        //this._testItemClicked = item;
-        //add sounds
-        //let music = new SoundData(game, 'audio_1', false);
-        //item.addSound(music);
+        if (item instanceof TileTexture) {
 
-        this._AttributeEditOverlay = new AttributeEditOverlay(game, game.width, game.height, item, pointer);
+        } else {
+            // this._testItemClicked = item;
+            // //add sounds
+            // let music = new SoundData(game, 'audio_1', false);
+            // item.addSound(music);
+
+        }
+        if(!this._AttributeEditOverlay) {
+            this._AttributeEditOverlay = new AttributeEditOverlay(game, game.width, game.height);    
+        }
+        
+        this._AttributeEditOverlay.addClickedObject(item);
     }
 
 
@@ -400,13 +441,13 @@ export default class ConstructNewStoryPageState extends Phaser.State {
         this.saveToLocalStore();
     }
 
-    shutdown() {
-        this.recordingManager = null;
+    shutdown() {        
     }
 
 
     render() {
         this.generateSnapShot();
+
     }
 
 
@@ -415,9 +456,9 @@ export default class ConstructNewStoryPageState extends Phaser.State {
             let imageDataURI = document.getElementById("gameCanvas").children[0].toDataURL();
             //update page                        
             this._screenshotGenerated = true;
-            console.log('geneared image uri:' + imageDataURI);
             this._currentPage.imageData = imageDataURI;
             this.saveToLocalStore();
+            this.showAllControls();
         }
 
     }

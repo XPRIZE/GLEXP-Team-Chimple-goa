@@ -79,6 +79,19 @@ export default class RecordingManager extends Phaser.Group {
         }
     }
 
+
+    hideAllControls() {
+        this.recordButton.visible = false;
+        this.playButton.visible = false;
+    }
+    
+    
+    showAllControls() {
+        this.recordButton.visible = true;
+        this.playButton.visible = true;
+        
+    }
+    
     registerToListeners() {
         game._inRecordingMode = false;
         game._inPlayMode = false;

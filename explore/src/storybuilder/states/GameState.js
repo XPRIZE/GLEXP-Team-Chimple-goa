@@ -95,7 +95,11 @@ export default class GameState extends Phaser.State {
     showAttributeEditor(item, pointer) {
         console.log('create showAttributeEditor on item:' + item.uniquename);
         //create overlay bitmap Sprite
-        this._AttributeEditOverlay = new AttributeEditOverlay(game, game.width, game.height, item, pointer);
+        if(!this._AttributeEditOverlay) {
+            this._AttributeEditOverlay = new AttributeEditOverlay(game, game.width, game.height);    
+        }
+        
+        this._AttributeEditOverlay.addClickedObject(item);
         /*this._overlayBitMap = game.make.bitmapData(game.width, game.height);
         this._overlayBitMap.draw(game.cache.getImage('storyBuilder/backgroundOverlay'), 0, 0, game.width, game.height);
 

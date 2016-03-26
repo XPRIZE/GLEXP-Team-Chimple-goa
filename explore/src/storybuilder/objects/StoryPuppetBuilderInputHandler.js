@@ -4,10 +4,12 @@ export default class StoryPuppetBuilderInputHandler {
     constructor(game) {
         this.clickEnabled = true;
         this.dragEnabled = false;
+        // this.scene = scene;
     }
 
     onInputDown(sprite, pointer) {
         sprite.modifiedBit = 1;
+        // this.instance.scene.selectedObject = sprite.parent.parent;        
         if (sprite instanceof Shape) {
             this.puppetPoint = new Phaser.Point(pointer.x, pointer.y);
            
@@ -19,6 +21,9 @@ export default class StoryPuppetBuilderInputHandler {
     }
 
     onInputUp(sprite, pointer) {
+        // this.instance.scene.selectedObject = null;
+        // sprite.parent.parent.input.dragOffset.x = 0;
+        
         if (sprite instanceof Shape) {             
             this.game.input.deleteMoveCallback(this.onInputDragFromStory, this);
         }
@@ -31,5 +36,7 @@ export default class StoryPuppetBuilderInputHandler {
         if(distanceFromLastUp < 5 && !game._inPlayMode)  {
             sprite._showAttributeEditorSignal.dispatch(sprite, pointer);
         }        
+        
+        
     }
 }

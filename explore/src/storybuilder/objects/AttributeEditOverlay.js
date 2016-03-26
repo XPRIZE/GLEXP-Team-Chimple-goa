@@ -12,12 +12,21 @@ import SoundData from '../../scene/objects/SoundData.js';
 
 export default class AttributeEditOverlay extends Phaser.Group {
     //container to edit item properties
-    constructor(game, width, height, clickedObject, pointer) {
+    constructor(game, width, height) {
         super(game);
         this._width = width;
         this._height = height;
         this._recordingPauseSignal = new RecordingPauseSignal();
         this._recordingResumeSignal = new RecordingResumeSignal();
+        this._isOpen = false;
+    }
+
+    addClickedObject(clickedObject) {
+        
+        if(this._isOpen) {
+            this.closeAttributeEditOverlay();
+            return;
+        }
 
         if (clickedObject instanceof Shape) {
             this._clickedObject = clickedObject.parent.parent;
@@ -25,11 +34,17 @@ export default class AttributeEditOverlay extends Phaser.Group {
             this._clickedObject = clickedObject;
         }
 
+        this._clickedObject.inputEnabled = false;
+        
+        this.constructUI();
+    }
 
+    constructUI() {
+        this._isOpen = true;
         this._overlayBitMap = game.make.bitmapData(game.width + game.world.camera.x, game.height + game.world.camera.y);
         this._overlayBitMap.draw(game.cache.getImage('storyBuilder/backgroundOverlay'), 0, 0, this._width + game.world.camera.x, this._height + game.world.camera.y);
 
-        this._clickedObject.inputEnabled = false;
+
         this._overlayDisplaySprite = game.add.sprite(0, 0, this._overlayBitMap);
         this._overlayDisplaySprite.anchor.setTo(0, 0);
         this._overlayDisplaySprite.alpha = 0.5;
@@ -45,16 +60,14 @@ export default class AttributeEditOverlay extends Phaser.Group {
         this._settings.inputEnabled = true;
         this._settings.events.onInputUp.add(this.createAdditionalPropertiesOverlay, this);
         this._settings.input.priorityID = 2;
-        
-        
+
+
         //Added TEXT BUTTON to generate Testing Text - later UI will be replaced ...
         this._textEditor = this._overlayDisplaySprite.addChild(game.make.sprite(400, 60, 'storyBuilder/plus'));
         this._textEditor.fixedToCameara = true;
         this._textEditor.inputEnabled = true;
         this._textEditor.events.onInputUp.add(this.createAdditionalPropertiesOverlay, this);
         this._textEditor.input.priorityID = 2;
-        
-
     }
 
     createAdditionalPropertiesOverlay() {
@@ -91,7 +104,7 @@ export default class AttributeEditOverlay extends Phaser.Group {
             }, this);
 
             
-that._itemSettingTab = that.game.add.existing(new TabView(that.game, 'scene/scene', that.game.width + that.game.world.camera.x, that.game.height + that.game.world.camera.y, 10, 50, 5, 3, true, function(tab, button) {
+			that._itemSettingTab = that.game.add.existing(new TabView(that.game, 'scene/scene', that.game.width + that.game.world.camera.x, that.game.height + that.game.world.camera.y, 10, 50, 5, 3, true, function(tab, button) {
                 
                 let self = that;
                 that._itemSettingTab.unSelect();
@@ -186,6 +199,7 @@ that._itemSettingTab = that.game.add.existing(new TabView(that.game, 'scene/scen
         });
     }
 
+
     addtext_fromhtml(textvalue, text_color, background_color)
     {   
           let value = this._itemSettingTab.children[1].children[1];
@@ -229,9 +243,9 @@ that._itemSettingTab = that.game.add.existing(new TabView(that.game, 'scene/scen
               }
           }
         this._clickedObject.addSound(jsonDataAudio);
-        this._itemSettingTab.destroy();
-        
+        this._itemSettingTab.destroy();        
     }
+    
     drawScaleHandler(alpha, color, lineWidth, radius) {
         this._dynamicCircle = self.game.add.graphics(0, 0);
         this.drawFixedHandler(alpha, color, lineWidth, radius);
@@ -298,7 +312,7 @@ that._itemSettingTab = that.game.add.existing(new TabView(that.game, 'scene/scen
         game.world.bringToTop(this._dragHandlerSprite);
         this._dragHandlerSprite.anchor.setTo(0.5);
         this._dragHandlerSprite.inputEnabled = true;
-        this._dragHandlerSprite.input.enableDrag();
+        this._dragHandlerSprite.input.enableDrag(false, true);
         this._dragHandlerSprite.angle = this._clickedObject.angle;
         this._dragHandlerSprite._click = 0;
         this._dragHandlerSprite._clickScale = new Phaser.Point(1, 1);
@@ -321,6 +335,7 @@ that._itemSettingTab = that.game.add.existing(new TabView(that.game, 'scene/scen
     onDragHandlerInputDown(sprite, pointer) {
         this._dragHandlerSprite._click = new Phaser.Point(pointer.x, pointer.y);
         this._dynamicCircle.clear();
+        this._clickedObject.bringToTop = true;
         game.input.addMoveCallback(this.onDragHandlerInputDrag, this);
     }
 
@@ -329,7 +344,7 @@ that._itemSettingTab = that.game.add.existing(new TabView(that.game, 'scene/scen
         this._recordingResumeSignal.dispatch();
         let rotation = game.physics.arcade.angleToPointer(this._fixedHandlerSprite, pointer);
         let angle = rotation * 180 / Math.PI - 90;
-        
+
 
         let difference = 0;
 
@@ -338,24 +353,24 @@ that._itemSettingTab = that.game.add.existing(new TabView(that.game, 'scene/scen
 
         let scaleX = this._dragHandlerSprite._clickScale.x + difference / 100;
         let increasedScaleX = scaleX;
-        if(this._clickedObject instanceof TileTexture) {
+        if (this._clickedObject instanceof TileTexture) {
             console.log('instand of tile texture');
-            if(this._clickedObject.parent && (this._clickedObject.parent instanceof Wall || this._clickedObject.parent instanceof Floor))
-            {
-                if(this._clickedObject.parent.parent && this._clickedObject.parent.parent instanceof Scene) {
+            if (this._clickedObject.parent && (this._clickedObject.parent instanceof Wall || this._clickedObject.parent instanceof Floor)) {
+                if (this._clickedObject.parent.parent && this._clickedObject.parent.parent instanceof Scene) {
                     this._clickedObject.parent.parent.scale.setTo(scaleX, scaleX);
-                } 
-            }  
+                }
+            }
         } else {
             this._clickedObject.angle = angle;
-            this._clickedObject.scale.setTo(scaleX, scaleX);    
+            this._clickedObject.scale.setTo(scaleX, scaleX);
         }
-        
+
         this.refresh(distance);
     }
 
     onDragHandlerInputUp(sprite, pointer) {
         let self = this;
+        this._clickedObject.bringToTop = false;
         game.input.deleteMoveCallback(this.onDragHandlerInputDrag, this);
         this.closeAttributeEditOverlay();
     }
@@ -374,6 +389,7 @@ that._itemSettingTab = that.game.add.existing(new TabView(that.game, 'scene/scen
             that._dynamicCircle.destroy();
             that._clickedObject.inputEnabled = true;
             that._recordingResumeSignal.dispatch();
+            that._isOpen = false;
         });
 
 
