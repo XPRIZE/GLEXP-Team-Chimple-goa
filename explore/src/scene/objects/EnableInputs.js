@@ -25,6 +25,9 @@ let EnableInputs = (superclass) => class extends superclass {
     }
 
     disableInputs(iterateInside) {
+        if(this.events) {
+            this.events.destroy();        
+        }
         this.instance = null;
         this.inputEnabled = false;
         this.dragEnabled  = false;
@@ -32,6 +35,33 @@ let EnableInputs = (superclass) => class extends superclass {
             this.children.forEach(function(value) {
                 if ('function' == typeof value.disableInputs) {
                     value.disableInputs(iterateInside);
+                }
+            });
+        }
+    }
+
+    enableDrag(iterateInside) {
+        if(this.instance && this.instance.dragEnabled && this.input) {
+            this.input.enableDrag();
+        }
+        if (iterateInside) {
+            this.children.forEach(function(value) {
+                if ('function' == typeof value.enableDrag) {
+                    value.enableDrag(iterateInside);
+                }
+            });
+        }
+    }
+
+    
+    disableDrag(iterateInside) {
+        if(this.instance && this.instance.dragEnabled && this.input) {
+            this.input.disableDrag();
+        }
+        if (iterateInside) {
+            this.children.forEach(function(value) {
+                if ('function' == typeof value.disableDrag) {
+                    value.disableDrag(iterateInside);
                 }
             });
         }

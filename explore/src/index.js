@@ -10,7 +10,7 @@ class Game extends Phaser.Game {
         
         let storyBuilderStateHolder = new StoryBuilderStateHolder(this);
         storyBuilderStateHolder.createStates();
-       // storyBuilderStateHolder.startDefault();
+       storyBuilderStateHolder.startDefault();
 
         let puppetStateHolder = new PuppetStateHolder(this);
         puppetStateHolder.createStates();
@@ -22,4 +22,4 @@ class Game extends Phaser.Game {
 	}
 }
 
-window.game = new Game(800, 600);
+window.game = new Game(1280, 800);

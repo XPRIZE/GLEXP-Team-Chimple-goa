@@ -16,7 +16,9 @@ export default class EditSceneInputHandler {
             EditSceneInputHandler.box = null;
         }
         EditSceneInputHandler.box = sprite.drawBoundingBox(EditSceneInputHandler.LINE_COLOR);
-        // sprite.parent.removeChild(sprite);
+        // if(sprite.parent && sprite.parent.parent && sprite.parent.parent instanceof Floor || sprite.parent.parent instanceof Wall) {
+        //     sprite.parent.removeChild(sprite);        
+        // }
     }
 
     onInputUp(sprite, pointer) {
@@ -33,11 +35,17 @@ export default class EditSceneInputHandler {
         }
 
         sprite.game.physics.arcade.overlap(sprite, Surface.All, function(obj1, obj2) {
-            if (obj1.surfaces && obj1.surfaces.some(function(val) {
-                return val === obj2.parent;
-            })) {
-                return;
+            let object = obj2;
+            while(object = object.parent) {
+                if(object == obj1) {
+                    return;
+                }
             }
+            // if (obj1.surfaces && obj1.surfaces.some(function(val) {
+            //     return val === obj2.parent;
+            // })) {
+            //     return;
+            // }
             if (!EditSceneInputHandler.surfaceTexture) {
                 EditSceneInputHandler.surfaceTexture = obj2;
                 obj2.tint = 0xFFFF88;

@@ -141,7 +141,9 @@ export default class Limb extends EnableInputs(RelativePosition(Phaser.Group)) {
             this.enableInputs(this.instance, false);
         }
         this.pivot.setTo(shape.relativeAnchor.x * shape.width, shape.relativeAnchor.y * shape.height);
-
+        this.accessories.forEach(function (value, index, array) {
+            value.positionRelativeToParent();
+        });
         this.positionRelativeToParent();
 
         if (this.isMask) {
