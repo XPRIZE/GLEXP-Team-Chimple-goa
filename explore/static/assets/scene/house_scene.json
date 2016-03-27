@@ -1,0 +1,1347 @@
+{
+    "_class": "Scene",
+    "sceneWidth": 3840,
+    "sceneHeight": 800,
+    "wall": {
+        "_class": "Wall",
+        "x": 0,
+        "y": 0,
+        "textures": [
+            {
+                "_class": "TileTexture",
+                "x": 0,
+                "y": 0,
+                "width": 1280,
+                "height": 480,
+                "key": "scene/house",
+                "frame": "Bathroom_Wall_Tile.png"
+            },
+            {
+                "_class": "TileTexture",
+                "x": 1280,
+                "y": 0,
+                "width": 1280,
+                "height": 480,
+                "key": "scene/house",
+                "frame": "Livingroom_Wall_Tile.png"
+            },
+            {
+                "_class": "TileTexture",
+                "x": 2560,
+                "y": 0,
+                "width": 1280,
+                "height": 480,
+                "key": "scene/house",
+                "frame": "Kitchen_Wall_Tile.png"
+            }
+        ],
+        "contents": [
+            {
+                "_class": "Item",
+                "x": 155,
+                "y": 213,
+                "key": "scene/house",
+                "frame": "Window.png"
+            },
+            {
+                "_class": "Holder",
+                "x": 236,
+                "y": 342,
+                "backTexture": {
+                    "_class": "Texture",
+                    "x": 185,
+                    "y": -55,
+                    "key": "scene/house",
+                    "frame": "Shelf.png"
+                },
+                "surfaces": [
+                    {
+                        "_class": "Surface",
+                        "x": 0,
+                        "y": 0,
+                        "textures": [
+                            {
+                                "_class": "Texture",
+                                "x": 196,
+                                "y": 102,
+                                "key": "scene/house",
+                                "frame": "Shelf1_Holder.png"
+                            }
+                        ],
+                        "contents": []
+                    },
+                    {
+                        "_class": "Surface",
+                        "x": 0,
+                        "y": 0,
+                        "textures": [
+                            {
+                                "_class": "Texture",
+                                "x": 195,
+                                "y": 29,
+                                "key": "scene/house",
+                                "frame": "Shelf1_Holder.png"
+                            }
+                        ],
+                        "contents": [
+                            {
+                                "_class": "Item",
+                                "x": 288,
+                                "y": 41,
+                                "key": "scene/house",
+                                "frame": "Object_1.png"
+                            },
+                            {
+                                "_class": "Item",
+                                "x": 234,
+                                "y": 39,
+                                "key": "scene/house",
+                                "frame": "Object_2.png"
+                            }
+                        ]
+                    },
+                    {
+                        "_class": "Surface",
+                        "x": 0,
+                        "y": 0,
+                        "textures": [
+                            {
+                                "_class": "Texture",
+                                "x": 196,
+                                "y": -38,
+                                "key": "scene/house",
+                                "frame": "Shelf1_Holder.png"
+                            }
+                        ],
+                        "contents": [
+                            {
+                                "_class": "Item",
+                                "x": 259,
+                                "y": -33,
+                                "key": "scene/house",
+                                "frame": "Object_3.png"
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "_class": "Item",
+                "x": 426,
+                "y": 381,
+                "key": "scene/house",
+                "frame": "Towel.png"
+            },
+            {
+                "_class": "Item",
+                "x": 604,
+                "y": 263,
+                "key": "scene/house",
+                "frame": "Mirror.png"
+            },
+            {
+                "_class": "Holder",
+                "x": 892,
+                "y": 435,
+                "frontTexture": {
+                    "_class": "Texture",
+                    "x": -12,
+                    "y": 0,
+                    "key": "scene/house",
+                    "frame": "Tissue_Front.png"
+                },
+                "backTexture": {
+                    "_class": "Texture",
+                    "x": 0,
+                    "y": 0,
+                    "key": "scene/house",
+                    "frame": "Tissue_Back.png"
+                },
+                "surfaces": []
+            },
+            {
+                "_class": "Item",
+                "x": 1408,
+                "y": 290,
+                "key": "scene/house",
+                "frame": "Light.png"
+            },
+            {
+                "_class": "Holder",
+                "x": 2348,
+                "y": 473,
+                "frontTexture": {
+                    "_class": "Texture",
+                    "x": 1,
+                    "y": 0,
+                    "key": "scene/house",
+                    "frame": "TV_Holder.png"
+                },
+                "backTexture": null,
+                "surfaces": [
+                    {
+                        "_class": "Surface",
+                        "x": 0,
+                        "y": 0,
+                        "textures": [
+                            {
+                                "_class": "Texture",
+                                "x": 0,
+                                "y": 0,
+                                "key": "scene/house",
+                                "frame": "TV_Stand_Holder_01.png"
+                            }
+                        ],
+                        "contents": []
+                    }
+                ]
+            },
+            {
+                "_class": "Item",
+                "x": 2343,
+                "y": 390,
+                "key": "scene/house",
+                "frame": "tv.png"
+            },
+            {
+                "_class": "Item",
+                "x": 2323,
+                "y": 119,
+                "key": "scene/house",
+                "frame": "WallPlate_02.png"
+            },
+            {
+                "_class": "Item",
+                "x": 2309,
+                "y": 206,
+                "key": "scene/house",
+                "frame": "WallPlate_04.png"
+            },
+            {
+                "_class": "Item",
+                "x": 2230,
+                "y": 96,
+                "key": "scene/house",
+                "frame": "WallPlate_05.png"
+            },
+            {
+                "_class": "Item",
+                "x": 2232,
+                "y": 159,
+                "key": "scene/house",
+                "frame": "WallPlate_03.png"
+            },
+            {
+                "_class": "Item",
+                "x": 2414,
+                "y": 96,
+                "key": "scene/house",
+                "frame": "WallPlate_03.png"
+            },
+            {
+                "_class": "Item",
+                "x": 2385,
+                "y": 206,
+                "key": "scene/house",
+                "frame": "WallPlate_01.png"
+            },
+            {
+                "_class": "Holder",
+                "x": 1820,
+                "y": 263,
+                "frontTexture": {
+                    "_class": "Texture",
+                    "x": 24,
+                    "y": 39,
+                    "key": "scene/house",
+                    "frame": "BookShelf_Front.png"
+                },
+                "backTexture": null,
+                "surfaces": [
+                    {
+                        "_class": "Surface",
+                        "x": 0,
+                        "y": 0,
+                        "textures": [
+                            {
+                                "_class": "Texture",
+                                "x": 28,
+                                "y": 28,
+                                "key": "scene/house",
+                                "frame": "BookShelf_Surface.png"
+                            }
+                        ],
+                        "contents": [
+                            {
+                                "_class": "Item",
+                                "x": 105,
+                                "y": 36,
+                                "key": "scene/house",
+                                "frame": "Book_03.png"
+                            },
+                            {
+                                "_class": "Item",
+                                "x": 188,
+                                "y": 36,
+                                "key": "scene/house",
+                                "frame": "Box_02.png"
+                            },
+                            {
+                                "_class": "Item",
+                                "x": 292,
+                                "y": 35,
+                                "key": "scene/house",
+                                "frame": "Box_01.png"
+                            },
+                            {
+                                "_class": "Item",
+                                "x": 345,
+                                "y": 39,
+                                "key": "scene/house",
+                                "frame": "Book_06.png"
+                            },
+                            {
+                                "_class": "Item",
+                                "x": 380,
+                                "y": 38,
+                                "key": "scene/house",
+                                "frame": "Book_05.png"
+                            },
+                            {
+                                "_class": "Item",
+                                "x": 404,
+                                "y": 36,
+                                "key": "scene/house",
+                                "frame": "Book_04.png"
+                            },
+                            {
+                                "_class": "Item",
+                                "x": 470,
+                                "y": 38,
+                                "key": "scene/house",
+                                "frame": "Book_02.png"
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "_class": "Item",
+                "x": 2034,
+                "y": 212,
+                "key": "scene/house",
+                "frame": "Book_01.png"
+            },
+            {
+                "_class": "Item",
+                "x": 2714,
+                "y": 210,
+                "key": "scene/house",
+                "frame": "Window.png"
+            },
+            {
+                "_class": "Holder",
+                "x": 3670,
+                "y": 234,
+                "frontTexture": {
+                    "_class": "Texture",
+                    "x": -6,
+                    "y": -17,
+                    "key": "scene/house",
+                    "frame": "WallShelf_Front.png"
+                },
+                "backTexture": null,
+                "surfaces": [
+                    {
+                        "_class": "Surface",
+                        "x": 0,
+                        "y": 0,
+                        "textures": [
+                            {
+                                "_class": "Texture",
+                                "x": -8,
+                                "y": -25,
+                                "key": "scene/house",
+                                "frame": "WallShelf_Surface.png"
+                            }
+                        ],
+                        "contents": [
+                            {
+                                "_class": "Item",
+                                "x": 53,
+                                "y": -20,
+                                "key": "scene/house",
+                                "frame": "Vessel.png"
+                            },
+                            {
+                                "_class": "Item",
+                                "x": 140,
+                                "y": -22,
+                                "key": "scene/house",
+                                "frame": "Plate.png"
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "_class": "Holder",
+                "x": 3654,
+                "y": 345,
+                "frontTexture": {
+                    "_class": "Texture",
+                    "x": -6,
+                    "y": -46,
+                    "key": "scene/house",
+                    "frame": "WallShelf_Front.png"
+                },
+                "backTexture": null,
+                "surfaces": [
+                    {
+                        "_class": "Surface",
+                        "x": 0,
+                        "y": 0,
+                        "textures": [
+                            {
+                                "_class": "Texture",
+                                "x": -9,
+                                "y": -57,
+                                "key": "scene/house",
+                                "frame": "WallShelf_Surface.png"
+                            }
+                        ],
+                        "contents": [
+                            {
+                                "_class": "Item",
+                                "x": 40,
+                                "y": -51,
+                                "key": "scene/house",
+                                "frame": "Bowl.png"
+                            },
+                            {
+                                "_class": "Item",
+                                "x": 92,
+                                "y": -51,
+                                "key": "scene/house",
+                                "frame": "Grater.png"
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "_class": "Item",
+                "x": 3245,
+                "y": 204,
+                "key": "scene/house",
+                "frame": "Chimney.png"
+            },
+            {
+                "_class": "Holder",
+                "x": 2982,
+                "y": 310,
+                "frontTexture": {
+                    "_class": "Texture",
+                    "x": -7,
+                    "y": -48,
+                    "key": "scene/house",
+                    "frame": "WallShelf_Front.png"
+                },
+                "backTexture": null,
+                "surfaces": [
+                    {
+                        "_class": "Surface",
+                        "x": 0,
+                        "y": 0,
+                        "textures": [
+                            {
+                                "_class": "Texture",
+                                "x": -8,
+                                "y": -58,
+                                "key": "scene/house",
+                                "frame": "WallShelf_Surface.png"
+                            }
+                        ],
+                        "contents": []
+                    }
+                ]
+            },
+            {
+                "_class": "Item",
+                "x": 2963,
+                "y": 323,
+                "key": "scene/house",
+                "frame": "Object_09.png"
+            },
+            {
+                "_class": "Holder",
+                "x": 3645,
+                "y": 333,
+                "frontTexture": {
+                    "_class": "Texture",
+                    "x": -5,
+                    "y": 30,
+                    "key": "scene/house",
+                    "frame": "WallShelf_Front.png"
+                },
+                "backTexture": null,
+                "surfaces": [
+                    {
+                        "_class": "Surface",
+                        "x": 0,
+                        "y": 0,
+                        "textures": [
+                            {
+                                "_class": "Texture",
+                                "x": -8,
+                                "y": 20,
+                                "key": "scene/house",
+                                "frame": "WallShelf_Surface.png"
+                            }
+                        ],
+                        "contents": [
+                            {
+                                "_class": "Item",
+                                "x": 31,
+                                "y": 26,
+                                "key": "scene/house",
+                                "frame": "Box_03.png"
+                            },
+                            {
+                                "_class": "Item",
+                                "x": 62,
+                                "y": 27,
+                                "key": "scene/house",
+                                "frame": "Box_05.png"
+                            },
+                            {
+                                "_class": "Item",
+                                "x": 92,
+                                "y": 27,
+                                "key": "scene/house",
+                                "frame": "Box_04.png"
+                            },
+                            {
+                                "_class": "Item",
+                                "x": 122,
+                                "y": 27,
+                                "key": "scene/house",
+                                "frame": "Box_06.png"
+                            },
+                            {
+                                "_class": "Item",
+                                "x": 150,
+                                "y": 27,
+                                "key": "scene/house",
+                                "frame": "Box_07.png"
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "_class": "Item",
+                "x": 3041,
+                "y": 299,
+                "key": "scene/house",
+                "frame": "Choping_Board.png"
+            },
+            {
+                "_class": "Item",
+                "x": 3555,
+                "y": 395,
+                "key": "scene/house",
+                "frame": "Cloth.png"
+            }
+        ]
+    },
+    "floor": {
+        "_class": "Floor",
+        "x": 0,
+        "y": 480,
+        "textures": [
+            {
+                "_class": "TileTexture",
+                "x": 0,
+                "y": 0,
+                "width": 1280,
+                "height": 320,
+                "key": "scene/house",
+                "frame": "Bathroom_Floor_Tile.png"
+            },
+            {
+                "_class": "TileTexture",
+                "x": 1280,
+                "y": 0,
+                "width": 1280,
+                "height": 320,
+                "key": "scene/house",
+                "frame": "Livingroom_Floor_Tile.png"
+            },
+            {
+                "_class": "TileTexture",
+                "x": 2560,
+                "y": 0,
+                "width": 1280,
+                "height": 320,
+                "key": "scene/house",
+                "frame": "Kitchen_Floor_Tile.png"
+            }
+        ],
+        "contents": [
+            {
+                "_class": "Holder",
+                "x": 175,
+                "y": 29,
+                "frontTexture": null,
+                "backTexture": {
+                    "_class": "Texture",
+                    "x": 0,
+                    "y": 0,
+                    "key": "scene/house",
+                    "frame": "Mug.png"
+                },
+                "surfaces": [
+                    {
+                        "_class": "Surface",
+                        "x": 0,
+                        "y": 0,
+                        "textures": [
+                            {
+                                "_class": "Texture",
+                                "x": 0,
+                                "y": 0,
+                                "key": "scene/house",
+                                "frame": "Mug_Base.png"
+                            }
+                        ],
+                        "contents": []
+                    }
+                ]
+            },
+            {
+                "_class": "Item",
+                "x": 69,
+                "y": 26,
+                "key": "scene/house",
+                "frame": "Object_8.png"
+            },
+            {
+                "_class": "Item",
+                "x": 131,
+                "y": 65,
+                "key": "scene/house",
+                "frame": "Object_7.png"
+            },
+            {
+                "_class": "Holder",
+                "x": 368,
+                "y": 60,
+                "frontTexture": {
+                    "_class": "Texture",
+                    "x": -75,
+                    "y": 51,
+                    "key": "scene/house",
+                    "frame": "Bucket_Front.png"
+                },
+                "backTexture": null,
+                "surfaces": [
+                    {
+                        "_class": "Surface",
+                        "x": 0,
+                        "y": 0,
+                        "textures": [
+                            {
+                                "_class": "Texture",
+                                "x": -62,
+                                "y": 46,
+                                "key": "scene/house",
+                                "frame": "Bucket_Back.png"
+                            }
+                        ],
+                        "contents": [
+                            {
+                                "_class": "Holder",
+                                "x": 122,
+                                "y": 174,
+                                "frontTexture": {
+                                    "_class": "Texture",
+                                    "x": 211,
+                                    "y": -8,
+                                    "key": "scene/house",
+                                    "frame": "Sink_front.png"
+                                },
+                                "backTexture": {
+                                    "_class": "Texture",
+                                    "x": 267,
+                                    "y": -49,
+                                    "key": "scene/house",
+                                    "frame": "Sink_Back.png"
+                                },
+                                "surfaces": [
+                                    {
+                                        "_class": "Surface",
+                                        "x": 0,
+                                        "y": 0,
+                                        "textures": [
+                                            {
+                                                "_class": "Texture",
+                                                "x": 214,
+                                                "y": -12,
+                                                "key": "scene/house",
+                                                "frame": "Sink_Base.png"
+                                            }
+                                        ],
+                                        "contents": [
+                                            {
+                                                "_class": "Item",
+                                                "x": 248,
+                                                "y": -11,
+                                                "key": "scene/house",
+                                                "frame": "Object_4.png"
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "_class": "Holder",
+                "x": 765,
+                "y": 229,
+                "frontTexture": {
+                    "_class": "Texture",
+                    "x": 24,
+                    "y": -156,
+                    "key": "scene/house",
+                    "frame": "commode_Front.png"
+                },
+                "backTexture": {
+                    "_class": "Texture",
+                    "x": 16,
+                    "y": -246,
+                    "key": "scene/house",
+                    "frame": "commode_Back.png"
+                },
+                "surfaces": [
+                    {
+                        "_class": "Surface",
+                        "x": 0,
+                        "y": 0,
+                        "textures": [
+                            {
+                                "_class": "Texture",
+                                "x": 24,
+                                "y": -163,
+                                "key": "scene/house",
+                                "frame": "commode_Surface.png"
+                            }
+                        ],
+                        "contents": []
+                    }
+                ]
+            },
+            {
+                "_class": "Holder",
+                "x": 1435,
+                "y": 129,
+                "frontTexture": {
+                    "_class": "Texture",
+                    "x": -276,
+                    "y": -65,
+                    "key": "scene/house",
+                    "frame": "Shelf1.png"
+                },
+                "backTexture": null,
+                "surfaces": [
+                    {
+                        "_class": "Surface",
+                        "x": 0,
+                        "y": 0,
+                        "textures": [
+                            {
+                                "_class": "Texture",
+                                "x": -271,
+                                "y": 52,
+                                "key": "scene/house",
+                                "frame": "Shelf_Holder.png"
+                            }
+                        ],
+                        "contents": [
+                            {
+                                "_class": "Item",
+                                "x": -189,
+                                "y": 66,
+                                "key": "scene/house",
+                                "frame": "Object_6.png"
+                            }
+                        ]
+                    },
+                    {
+                        "_class": "Surface",
+                        "x": 0,
+                        "y": 0,
+                        "textures": [
+                            {
+                                "_class": "Texture",
+                                "x": -272,
+                                "y": -12,
+                                "key": "scene/house",
+                                "frame": "Shelf_Holder.png"
+                            }
+                        ],
+                        "contents": [
+                            {
+                                "_class": "Item",
+                                "x": -217,
+                                "y": -3,
+                                "key": "scene/house",
+                                "frame": "Object_5.png"
+                            }
+                        ]
+                    },
+                    {
+                        "_class": "Surface",
+                        "x": 0,
+                        "y": 0,
+                        "textures": [
+                            {
+                                "_class": "Texture",
+                                "x": -272,
+                                "y": 119,
+                                "key": "scene/house",
+                                "frame": "Shelf_Holder.png"
+                            }
+                        ],
+                        "contents": [
+                            {
+                                "_class": "Item",
+                                "x": -214,
+                                "y": 129,
+                                "key": "scene/house",
+                                "frame": "Object_4.png"
+                            }
+                        ]
+                    },
+                    {
+                        "_class": "Surface",
+                        "x": 0,
+                        "y": 0,
+                        "textures": [
+                            {
+                                "_class": "Texture",
+                                "x": -273,
+                                "y": 182,
+                                "key": "scene/house",
+                                "frame": "Shelf_Holder.png"
+                            }
+                        ],
+                        "contents": []
+                    },
+                    {
+                        "_class": "Surface",
+                        "x": 0,
+                        "y": 0,
+                        "textures": [
+                            {
+                                "_class": "Texture",
+                                "x": -272,
+                                "y": 243,
+                                "key": "scene/house",
+                                "frame": "Shelf_Holder.png"
+                            }
+                        ],
+                        "contents": []
+                    }
+                ]
+            },
+            {
+                "_class": "Holder",
+                "x": 107,
+                "y": 312,
+                "frontTexture": {
+                    "_class": "Texture",
+                    "x": 0,
+                    "y": 8,
+                    "key": "scene/house",
+                    "frame": "WashingMachine_Front.png"
+                },
+                "backTexture": {
+                    "_class": "Texture",
+                    "x": 0,
+                    "y": 0,
+                    "key": "scene/house",
+                    "frame": "WashingMachine_Back.png"
+                },
+                "surfaces": []
+            },
+            {
+                "_class": "Holder",
+                "x": 455,
+                "y": 355,
+                "frontTexture": {
+                    "_class": "Texture",
+                    "x": -21,
+                    "y": -136,
+                    "key": "scene/house",
+                    "frame": "Bathtub_Front.png"
+                },
+                "backTexture": {
+                    "_class": "Texture",
+                    "x": 0,
+                    "y": 0,
+                    "key": "scene/house",
+                    "frame": "Bathtub_Back.png"
+                },
+                "surfaces": [
+                    {
+                        "_class": "Surface",
+                        "x": 0,
+                        "y": 0,
+                        "textures": [
+                            {
+                                "_class": "Texture",
+                                "x": 86,
+                                "y": 43,
+                                "key": "scene/house",
+                                "frame": "Stove_Surface.png"
+                            }
+                        ],
+                        "contents": []
+                    }
+                ]
+            },
+            {
+                "_class": "Item",
+                "x": 1165,
+                "y": 203,
+                "key": "scene/house",
+                "frame": "Mat.png"
+            },
+            {
+                "_class": "Holder",
+                "x": 1037,
+                "y": 281,
+                "frontTexture": {
+                    "_class": "Texture",
+                    "x": 0,
+                    "y": 0,
+                    "key": "scene/house",
+                    "frame": "DustBin_Cap.png"
+                },
+                "backTexture": {
+                    "_class": "Texture",
+                    "x": 4,
+                    "y": 20,
+                    "key": "scene/house",
+                    "frame": "DustBin_Base.png"
+                },
+                "surfaces": []
+            },
+            {
+                "_class": "Holder",
+                "x": 1410,
+                "y": 145,
+                "frontTexture": {
+                    "_class": "Texture",
+                    "x": 4,
+                    "y": 8,
+                    "key": "scene/house",
+                    "frame": "Side_Stand_Front.png"
+                },
+                "backTexture": null,
+                "surfaces": [
+                    {
+                        "_class": "Surface",
+                        "x": 0,
+                        "y": 0,
+                        "textures": [
+                            {
+                                "_class": "Texture",
+                                "x": 0,
+                                "y": 0,
+                                "key": "scene/house",
+                                "frame": "Side_Stand_Surface.png"
+                            }
+                        ],
+                        "contents": [
+                            {
+                                "_class": "Item",
+                                "x": 65,
+                                "y": 8,
+                                "key": "scene/house",
+                                "frame": "Vase_02.png"
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "_class": "Holder",
+                "x": 2354,
+                "y": 364,
+                "frontTexture": {
+                    "_class": "Texture",
+                    "x": -4,
+                    "y": -174,
+                    "key": "scene/house",
+                    "frame": "TV_Stand.png"
+                },
+                "backTexture": null,
+                "surfaces": [
+                    {
+                        "_class": "Surface",
+                        "x": 0,
+                        "y": 0,
+                        "textures": [
+                            {
+                                "_class": "Texture",
+                                "x": 207,
+                                "y": -125,
+                                "key": "scene/house",
+                                "frame": "TV_Stand_Holder_02.png"
+                            }
+                        ],
+                        "contents": []
+                    }
+                ]
+            },
+            {
+                "_class": "Item",
+                "x": 2417,
+                "y": 263,
+                "key": "scene/house",
+                "frame": "Livingroom_Mat.png"
+            },
+            {
+                "_class": "Holder",
+                "x": 1863,
+                "y": 346,
+                "frontTexture": {
+                    "_class": "Texture",
+                    "x": 76,
+                    "y": 12,
+                    "key": "scene/house",
+                    "frame": "Table_Front.png"
+                },
+                "backTexture": null,
+                "surfaces": [
+                    {
+                        "_class": "Surface",
+                        "x": 0,
+                        "y": 0,
+                        "textures": [
+                            {
+                                "_class": "Texture",
+                                "x": 58,
+                                "y": -35,
+                                "key": "scene/house",
+                                "frame": "Table_Surface.png"
+                            }
+                        ],
+                        "contents": [
+                            {
+                                "_class": "Item",
+                                "x": 187,
+                                "y": -12,
+                                "key": "scene/house",
+                                "frame": "Vase_01.png"
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "_class": "Holder",
+                "x": 2175,
+                "y": 164,
+                "frontTexture": {
+                    "_class": "Texture",
+                    "x": 49,
+                    "y": 38,
+                    "key": "scene/house",
+                    "frame": "Chair_Base.png"
+                },
+                "backTexture": null,
+                "surfaces": [
+                    {
+                        "_class": "Surface",
+                        "x": 0,
+                        "y": 0,
+                        "textures": [
+                            {
+                                "_class": "Texture",
+                                "x": 47,
+                                "y": 7,
+                                "key": "scene/house",
+                                "frame": "Chair_Holder.png"
+                            }
+                        ],
+                        "contents": [
+                            {
+                                "_class": "Holder",
+                                "x": -146,
+                                "y": 19,
+                                "frontTexture": {
+                                    "_class": "Texture",
+                                    "x": -80,
+                                    "y": 92,
+                                    "key": "scene/house",
+                                    "frame": "Sofa_Front.png"
+                                },
+                                "backTexture": {
+                                    "_class": "Texture",
+                                    "x": 0,
+                                    "y": 0,
+                                    "key": "scene/house",
+                                    "frame": "Sofa_Back.png"
+                                },
+                                "surfaces": [
+                                    {
+                                        "_class": "Surface",
+                                        "x": 0,
+                                        "y": 0,
+                                        "textures": [
+                                            {
+                                                "_class": "Texture",
+                                                "x": -20,
+                                                "y": 112,
+                                                "key": "scene/house",
+                                                "frame": "Sofa_Surface.png"
+                                            }
+                                        ],
+                                        "contents": []
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "_class": "Holder",
+                "x": 2181,
+                "y": 264,
+                "frontTexture": {
+                    "_class": "Texture",
+                    "x": 34,
+                    "y": 26,
+                    "key": "scene/house",
+                    "frame": "Chair_Base.png"
+                },
+                "backTexture": null,
+                "surfaces": [
+                    {
+                        "_class": "Surface",
+                        "x": 0,
+                        "y": 0,
+                        "textures": [
+                            {
+                                "_class": "Texture",
+                                "x": 33,
+                                "y": -4,
+                                "key": "scene/house",
+                                "frame": "Chair_Holder.png"
+                            }
+                        ],
+                        "contents": []
+                    }
+                ]
+            },
+            {
+                "_class": "Holder",
+                "x": 2673,
+                "y": 78,
+                "frontTexture": {
+                    "_class": "Texture",
+                    "x": -1,
+                    "y": 16,
+                    "key": "scene/house",
+                    "frame": "Fridge_Front.png"
+                },
+                "backTexture": {
+                    "_class": "Texture",
+                    "x": 0,
+                    "y": 0,
+                    "key": "scene/house",
+                    "frame": "Fridge_Back.png"
+                },
+                "surfaces": []
+            },
+            {
+                "_class": "Holder",
+                "x": 3631,
+                "y": 517,
+                "frontTexture": {
+                    "_class": "Texture",
+                    "x": 13,
+                    "y": -214,
+                    "key": "scene/house",
+                    "frame": "Chair_Front.png"
+                },
+                "backTexture": {
+                    "_class": "Texture",
+                    "x": 8,
+                    "y": -317,
+                    "key": "scene/house",
+                    "frame": "Chair_Back.png"
+                },
+                "surfaces": [
+                    {
+                        "_class": "Surface",
+                        "x": 0,
+                        "y": 0,
+                        "textures": [
+                            {
+                                "_class": "Texture",
+                                "x": 13,
+                                "y": -224,
+                                "key": "scene/house",
+                                "frame": "Chair_Surface.png"
+                            }
+                        ],
+                        "contents": []
+                    }
+                ]
+            },
+            {
+                "_class": "Holder",
+                "x": 3429,
+                "y": 464,
+                "frontTexture": {
+                    "_class": "Texture",
+                    "x": 87,
+                    "y": -160,
+                    "key": "scene/house",
+                    "frame": "Chair_Front.png"
+                },
+                "backTexture": {
+                    "_class": "Texture",
+                    "x": 85,
+                    "y": -261,
+                    "key": "scene/house",
+                    "frame": "Chair_Back.png"
+                },
+                "surfaces": [
+                    {
+                        "_class": "Surface",
+                        "x": 0,
+                        "y": 0,
+                        "textures": [
+                            {
+                                "_class": "Texture",
+                                "x": 87,
+                                "y": -170,
+                                "key": "scene/house",
+                                "frame": "Chair_Surface.png"
+                            }
+                        ],
+                        "contents": []
+                    }
+                ]
+            },
+            {
+                "_class": "Holder",
+                "x": 3286,
+                "y": 168,
+                "frontTexture": {
+                    "_class": "Texture",
+                    "x": 0,
+                    "y": 20,
+                    "key": "scene/house",
+                    "frame": "Slab_Front.png"
+                },
+                "backTexture": null,
+                "surfaces": [
+                    {
+                        "_class": "Surface",
+                        "x": 0,
+                        "y": 0,
+                        "textures": [
+                            {
+                                "_class": "Texture",
+                                "x": 0,
+                                "y": 0,
+                                "key": "scene/house",
+                                "frame": "Slab_Surface.png"
+                            }
+                        ],
+                        "contents": [
+                            {
+                                "_class": "Holder",
+                                "x": 436,
+                                "y": 248,
+                                "frontTexture": {
+                                    "_class": "Texture",
+                                    "x": -2,
+                                    "y": 8,
+                                    "key": "scene/house",
+                                    "frame": "Stove_Front.png"
+                                },
+                                "backTexture": null,
+                                "surfaces": [
+                                    {
+                                        "_class": "Surface",
+                                        "x": 0,
+                                        "y": 0,
+                                        "textures": [
+                                            {
+                                                "_class": "Texture",
+                                                "x": 0,
+                                                "y": 0,
+                                                "key": "scene/house",
+                                                "frame": "Stove_Surface.png"
+                                            }
+                                        ],
+                                        "contents": [
+                                            {
+                                                "_class": "Item",
+                                                "x": 95,
+                                                "y": 11,
+                                                "key": "scene/house",
+                                                "frame": "Cooker.png"
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "_class": "Holder",
+                "x": 3574,
+                "y": 713,
+                "frontTexture": {
+                    "_class": "Texture",
+                    "x": 36,
+                    "y": -213,
+                    "key": "scene/house",
+                    "frame": "Kitchen_Table_Front.png"
+                },
+                "backTexture": null,
+                "surfaces": [
+                    {
+                        "_class": "Surface",
+                        "x": 0,
+                        "y": 0,
+                        "textures": [
+                            {
+                                "_class": "Texture",
+                                "x": 10,
+                                "y": -278,
+                                "key": "scene/house",
+                                "frame": "Kitchen_Table_Surface.png"
+                            }
+                        ],
+                        "contents": []
+                    }
+                ]
+            }
+        ]
+    }
+}
