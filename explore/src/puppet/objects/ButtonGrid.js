@@ -32,6 +32,10 @@ export default class ButtonGrid extends Phaser.Group {
         if(!style.buttonType) {
             style.buttonType = 'round';            
         }
+        if(!style.iconType) {
+            style.iconType = 'square';            
+        }
+        
         
         let color = Phaser.Color.getRGB(style.overFillColor);
         style.overFillStyle = 'rgb(' + color.r + ',' + color.g + ',' + color.b + ')'   
@@ -44,19 +48,22 @@ export default class ButtonGrid extends Phaser.Group {
 
         this.style = style;
 
+        this.buttonPanel = new Phaser.Group(this.game, this);
+
         let mask = this.add(new Phaser.Graphics(this.game, 0, 0));
         // mask.alpha = 0;
         mask.beginFill(this.style.overFillColor);
         mask.drawRect(0, 0, width, height);
         mask.endFill();
         this.mask = mask;
+        this.buttonPanel.mask = mask;
+        this.mask.dirty = true;
 
-        let background = this.add(new Phaser.Graphics(this.game, 0, 0));
-        background.beginFill(this.style.overFillColor);
-        background.drawRect(0, 0, width, height);
-        background.endFill();
+        // let background = this.add(new Phaser.Graphics(this.game, 0, 0));
+        // background.beginFill(this.style.overFillColor);
+        // background.drawRect(0, 0, width, height);
+        // background.endFill();
 
-        this.buttonPanel = new Phaser.Group(this.game, this);
         this.tweenScroll = this.game.add.tween(this.buttonPanel);
 
         var Swipe = require('phaser-swipe');
@@ -85,9 +92,14 @@ export default class ButtonGrid extends Phaser.Group {
                 let layoutY = (maxButtonHeight + this.padding) * (this.horizontal ? i : j) + this.padding + maxButtonHeight / 2;
 
                 if(this.style.buttonType == 'tab') {
-                    this.buttonPanel.add(new TabButton(this.game, layoutX, layoutY, maxButtonWidth, maxButtonHeight, this.name, buttons[index], this.callSelectButton, this, this.frameData, this.style));
+                    let button = new TabButton(this.game, layoutX, layoutY, maxButtonWidth, maxButtonHeight, this.name, buttons[index], this.callSelectButton, this, this.frameData, this.style);
+                    this.buttonPanel.add(button);
+                    button.mask = this.mask;
+                    button.mask.dirty = true;
                 } else {
-                    this.buttonPanel.add(new RoundButton(this.game, layoutX, layoutY, maxButtonWidth, maxButtonHeight, this.name, buttons[index], this.callSelectButton, this, this.frameData, this.style));                    
+                    let button = new RoundButton(this.game, layoutX, layoutY, maxButtonWidth, maxButtonHeight, this.name, buttons[index], this.callSelectButton, this, this.frameData, this.style);
+                    this.buttonPanel.add(button);   
+                    button.mask = this.mask;                 
                 }
                 index++;
             }
@@ -110,6 +122,13 @@ export default class ButtonGrid extends Phaser.Group {
         let button = null;
         this.buttonPanel.forEach(function(child) { if (child.name == name) { button = child } }, this);
         return button;
+    }
+
+    updateButtonImage(name, key, frame) {
+        let button = this.getButton(name);
+        if(button) {
+            button.updateImage(key, frame);
+        }
     }
 
     selectButtonByName(name) {

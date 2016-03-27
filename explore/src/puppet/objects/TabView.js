@@ -1,7 +1,7 @@
 import ButtonGrid from './ButtonGrid.js';
 
 export default class TabView extends Phaser.Group {
-    constructor(game, name, width, height, numTabs, tabThickness, numRows, numCols, horizontal, callback, callbackContext, frameData) {
+    constructor(game, name, width, height, numTabs, tabThickness, numRows, numCols, horizontal, callback, callbackContext, frameData, style) {
         super(game);
         this.name = name;
         this.elementWidth = width;
@@ -15,17 +15,31 @@ export default class TabView extends Phaser.Group {
         this.callbackContext = callbackContext;
         if(frameData) this.frameData = frameData;
 
-        // let back = this.add(new Phaser.Graphics(game, 0, 0));
-        // back.beginFill(0xDDDDDD);
-        // // back.alpha = 1;
-        // back.drawRect(0, 0, width, height);
-        // back.endFill();
+        if(!style) {
+            style = {};
+        }
+        if(!style.overFillColor) {
+            style.overFillColor = 0x25878A;            
+        }
+        if(!style.upFillColor) {
+            style.upFillColor = 0x32A9B4;            
+        }
+        if(!style.downFillColor) {
+            style.downFillColor = 0x136662;            
+        }
+        
+
+        let back = this.add(new Phaser.Graphics(game, 0, this.tabThickness));
+        back.beginFill(style.downFillColor);
+        back.drawRect(0, 0, this.elementWidth, this.elementHeight - this.tabThickness);
+        back.endFill();
         
     }
     
     set tabs(tabs) {
         this._tabs = tabs;
-        this.tabView = new ButtonGrid(this.game, this.name, this.elementWidth, this.tabThickness, 1, this.numTabs, this.horizontal, this.callSelectTab, this, this.frameData);
+        this.tabView = new ButtonGrid(this.game, this.name, this.elementWidth, this.tabThickness, 1, this.numTabs, this.horizontal, this.callSelectTab, this, this.frameData, {buttonType: 'tab'});
+        this.tabView.padding = 0;
         this.add(this.tabView);
         this.tabView.buttons = Object.keys(tabs);
         this.buttonView = new ButtonGrid(this.game, this.name, this.elementWidth, this.elementHeight - this.tabThickness, this.numRows, this.numCols, this.horizontal, this.callback, this.callbackContext, this.frameData);
