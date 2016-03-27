@@ -36,6 +36,8 @@ export default class ConsoleBar extends Phaser.Group {
          
         this.rightButtonGrid = this.addChild(new ButtonGrid(game, 'scene/icons', gridWidth, gridHeight, 1, this.buttonsPerGrid, true, this.callback, this));
         this.rightButtonGrid.x = game.width - gridWidth;
+        
+        this.fixedToCamera = true;
 
     }
     
