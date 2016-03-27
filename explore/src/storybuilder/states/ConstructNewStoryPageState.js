@@ -287,7 +287,7 @@ export default class ConstructNewStoryPageState extends Phaser.State {
         this._currentStory.storyPages.forEach(function(page) {
             if (page.pageId === this._currentPageId) {
                 page = this._currentPage;
-                this._currentPage.questionsAndAnswers = [];
+//                this._currentPage.questionsAndAnswers = [];
                 localStorage.setItem(this._currentStory.storyId, JSON.stringify(this._currentStory, JsonUtil.replacer));
             }
         }, this);
@@ -404,15 +404,26 @@ export default class ConstructNewStoryPageState extends Phaser.State {
         idObject.storyId = this._currentStory.storyId;
         idObject.pageId = this._currentPage.pageId;
 
-        window.callback = this.returnID;
+        window.callback = this.saveQuestionInLocal;
         window.callbackContext = this;
     }
 
-    //  when user choose question type then it returns the story id and page id.
+/*    //  when user choose question type then it returns the story id and page id.
     returnID() {
         return idObject;
     }
-
+*/
+    saveQuestionInLocal(get_json_from_local)
+    {
+        console.log(get_json_from_local);
+        for(var i = 0; i<get_json_from_local.length; i++)
+            {
+                this._currentPage.questionsAndAnswers.push(get_json_from_local[i]);
+            }
+        this.saveToLocalStore();
+        
+    }
+	
     askQuestions() {
         $("#Question_css").css({ "visibility": "visible", "display": "none" });
         //        $("#question_ask_select_choice").css({"visibility":"visible","display":"block"});
@@ -420,10 +431,15 @@ export default class ConstructNewStoryPageState extends Phaser.State {
         idObject.storyId = this._currentStory.storyId;
         idObject.pageId = this._currentPage.pageId;
 
-        window.callback = this.returnID;
+        window.callback = this.returnPageJson;
         window.callbackContext = this;
 
         window.display_question_multichoice();
+    }
+// return json of current page
+    returnPageJson()
+    {
+        return this._currentPage.questionsAndAnswers;
     }
 
     chooseBackGround(sprite, pointer) {
