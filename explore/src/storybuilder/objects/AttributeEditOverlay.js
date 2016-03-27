@@ -247,7 +247,7 @@ export default class AttributeEditOverlay extends Phaser.Group {
                 }              
             }, that, backGroundThemes));
 
-            that._itemSettingTab.tabs = { 'text': TextNames, 'audio': audioNames };
+            that._itemSettingTab.tabs = { 'text': TextNames, 'audio': audioNames , 'anim' : animationNames , 'effects' : effectNames};
             that._itemSettingTab.x = that.game.width * 0.05;
             that._itemSettingTab.y = 0;
             that._itemSettingTab.fixedToCamera = true;

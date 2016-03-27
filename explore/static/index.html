@@ -936,7 +936,10 @@ var answer_sheet = new Array();
     function chimple_html_to_phaser()
         {
             var textvalue = document.getElementById("text_area").value;
-            window.callback.call(window.callbackContext, textvalue, text_color, background_color);     
+            window.callback.call(window.callbackContext, textvalue, text_color, background_color);  
+            $("#login-box").hide();
+            $("#mask").remove();
+            document.getElementById("text_area").value = '';   
             console.log("textvalue : "+ textvalue +" text_color : "+ text_color +" background_color : "+ background_color);
         }
     
