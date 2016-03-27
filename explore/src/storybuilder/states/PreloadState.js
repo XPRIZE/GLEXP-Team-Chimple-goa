@@ -21,6 +21,9 @@ export default class PreloadState extends Phaser.State {
         this.load.image('storyBuilder/plus', "assets/storyBuilder/plus_button.png");
         this.load.image('storyBuilder/setting', "assets/storyBuilder/setting_button.png");
         this.load.image('storyBuilder/backgroundOverlay', "assets/storyBuilder/backgroundOverlay.png");
+        this.load.image('storyBuilder/sound_button','assets/sound_button.png');
+        this.load.json('storyBuilder/object_sounds', 'assets/storyBuilder/object_sounds.json');
+        
 
         this.load.atlas('scene/scene', "assets/scene/scene.png", "assets/scene/scene.json");
         this.load.atlas('misc/theme', "assets/misc/theme.png", "assets/misc/theme.json");
@@ -57,6 +60,9 @@ export default class PreloadState extends Phaser.State {
         //load configuration files
         this.load.json('storyBuilder/scene_config', 'assets/misc/configuration/scene_config.json');
         this.load.json('storyBuilder/puppet_config', 'assets/misc/configuration/puppet_config.json');
+
+      
+
     }
 
     create() {
