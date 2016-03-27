@@ -11,6 +11,7 @@ import PersistRecordingInformationSignal from '../objects/PersistRecordingInform
 import RecordInfo from '../objects/RecordInfo.js';
 import StoryUtil from '../objects/StoryUtil.js';
 import SoundData from '../../scene/objects/SoundData.js';
+import RecordingPlayEndSignal from '../objects/RecordingPlayEndSignal.js'
 
 var _ = require('lodash')._;
 
@@ -124,6 +125,8 @@ export default class RecordingManager extends Phaser.Group {
         
         this._playResumeSignal = new PlayResumeSignal();
         this._playResumeSignal.add(this.resumePlay, this);
+        
+        this._recordingPlayEndSignal = new RecordingPlayEndSignal();
     }
     
     
@@ -208,6 +211,13 @@ export default class RecordingManager extends Phaser.Group {
                 let recordedData = this.findNearestUpdateAttributeInformationByCurrentPlayCounter(this.currentPlayCounter);
                 console.log('recordedData at counter:' + this.currentPlayCounter + " is:" + recordedData);
                 this._updateAttributeSignal.dispatch(recordedData);
+                
+                if(!game._inPlayMode)
+                {
+                    this.playButton.inputEnabled = true;
+                    this.recordButton.inputEnabled = true;
+                    this._recordingPlayEndSignal.dispatch();
+                }
             }
         }
     }

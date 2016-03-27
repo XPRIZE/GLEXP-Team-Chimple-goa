@@ -31,6 +31,7 @@ import SoundData from '../../scene/objects/SoundData.js';
 
 import PuppetCustomizer from '../../puppet/objects/PuppetCustomizer.js';
 
+import RecordingPlayEndSignal from '../objects/RecordingPlayEndSignal.js'
 
 
 var _ = require('lodash');
@@ -52,6 +53,9 @@ export default class ConstructNewStoryPageState extends Phaser.State {
         this._recordingStartSignal.add(this.notifiedWhenRecordingStarts, this);
 
         this._screenshotGenerated = false;
+        
+        this._recordingPlayEndSignal = new RecordingPlayEndSignal();
+        this._recordingPlayEndSignal.add(this.displayButtonOnrecordingPlayEnd, this);
     }
 
     notifiedWhenRecordingStarts() {
@@ -368,6 +372,13 @@ export default class ConstructNewStoryPageState extends Phaser.State {
         this._askQuestionButton.input.priorityID = 2;
         this._displayControlGroup.add(this._askQuestionButton);
 
+        this._nextButton = this.game.make.sprite(this.game.width - 40, 240, 'storybuilder/home_button');
+        this._nextButton.anchor.setTo(0.5);
+        this._nextButton.alpha = 0;
+        this._nextButton.inputEnabled = true;
+        this._nextButton.events.onInputDown.add(this.nextButton, this);
+        this._nextButton.input.priorityID = 2;
+        this._displayControlGroup.add(this._nextButton);
 
         this._editPuppet = game.add.button(this.game.width - 300, 100, 'scene/icons', this.editPuppet, this, 'ic_grid_on_black_24dp_1x.png', 'ic_grid_on_black_24dp_1x.png', 'ic_grid_on_black_24dp_1x.png', 'ic_grid_on_black_24dp_1x.png');
         this._editPuppet.anchor.setTo(0.5, 0.5);
@@ -399,43 +410,52 @@ export default class ConstructNewStoryPageState extends Phaser.State {
         }
     }
 
+    // when recording play ends then we will show next button to ask the questions
+    displayButtonOnrecordingPlayEnd()
+    {
+        this._nextButton.alpha = 1;
+        
+        window.callback = this.returnPageJson;
+        window.callbackContext = this;
+        
+        console.log('hello');
+    }
+    
     createQuestionAndAnswer(item, pointer) {
-        this._QuestionTypeOverlay = new QuestionTypeOverlay(game, game.width, game.height, item, pointer);
+        this._QuestionTypeOverlay = new QuestionTypeOverlay(game, game.width, game.height, item, pointer, this, this.saveQuestionInLocal, this._currentPage.questionsAndAnswers);
         idObject.storyId = this._currentStory.storyId;
         idObject.pageId = this._currentPage.pageId;
-
-        window.callback = this.saveQuestionInLocal;
-        window.callbackContext = this;
     }
 
-/*    //  when user choose question type then it returns the story id and page id.
-    returnID() {
-        return idObject;
-    }
-*/
+    
     saveQuestionInLocal(get_json_from_local)
     {
         console.log(get_json_from_local);
+
+        if(get_json_from_local == undefined)
+            return 0;
+        
         for(var i = 0; i<get_json_from_local.length; i++)
             {
                 this._currentPage.questionsAndAnswers.push(get_json_from_local[i]);
             }
         this.saveToLocalStore();
-        
     }
 	
+    // after recording play end will show next button to ask the questions
+    nextButton()
+    {
+        console.log("next button");
+        window.display_question_multichoice();        
+    }
+    
     askQuestions() {
         $("#Question_css").css({ "visibility": "visible", "display": "none" });
-        //        $("#question_ask_select_choice").css({"visibility":"visible","display":"block"});
 
         idObject.storyId = this._currentStory.storyId;
         idObject.pageId = this._currentPage.pageId;
-
-        window.callback = this.returnPageJson;
-        window.callbackContext = this;
-
-        window.display_question_multichoice();
     }
+    
 // return json of current page
     returnPageJson()
     {
