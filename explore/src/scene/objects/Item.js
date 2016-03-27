@@ -11,6 +11,7 @@ import ShowAttributeEditorSignal from '../../storybuilder/objects/ShowAttributeE
 import PlayPauseSignal from '../../storybuilder/objects/PlayPauseSignal.js';
 import PlayResumeSignal from '../../storybuilder/objects/PlayResumeSignal.js';
 import TextData from '../../storybuilder/objects/TextData.js';
+import StoryUtil from '../../storybuilder/objects/StoryUtil.js';
 import SoundData from './SoundData.js';
 import SpecialAttribute from './SpecialAttribute.js';
 
@@ -18,11 +19,10 @@ var _ = require('lodash');
 
 
 export default class Item extends EnableInputs(Phaser.Sprite) {
-    constructor(game, x, y, key, frame, modifiedBit) {
+    constructor(game, x, y, key, frame, uniquename) {
         super(game, x, y, key, frame);
         game.physics.enable(this);
         this.anchor.set(0.5, 1);
-        this.modifiedBit = modifiedBit;
         //Any Attribute Changes then dispatch signal        
         this.onAttributesChanged = new AttributesChangedSignal();
 
@@ -39,11 +39,17 @@ export default class Item extends EnableInputs(Phaser.Sprite) {
         
         this._playPauseSignal = new PlayPauseSignal();
         this._playResumeSignal = new PlayResumeSignal();
+        
+        if(!uniquename) {
+            this._uniquename = StoryUtil.generateUUID();
+        } else {
+            this._uniquename = uniquename;
+        }
     }
 
     enableInputs(instance, iterateInside) {
         super.enableInputs(instance, iterateInside);
-        this.input.priorityID = 2;
+        this.input.priorityID = 3;
     }    
     
     addText(textData) {
@@ -202,15 +208,13 @@ export default class Item extends EnableInputs(Phaser.Sprite) {
             y: this.y,
             key: this.key,
             frame: this.frameName,
-            uniquename: this.uniquename,
-            modifiedBit: this.modifiedBit
+            uniquename: this.uniquename
         }
         return json;
     }
 
     static fromJSON(game, j) {
-        let val = new Item(game, j.x, j.y, j.key, j.frame, j.modifiedBit);
-        val.uniquename = j.uniquename;
+        let val = new Item(game, j.x, j.y, j.key, j.frame, j.uniquename);
         return val;
     }
 

@@ -469,8 +469,8 @@ export default class AttributeEditOverlay extends Phaser.Group {
 
     render() {
         // Input debug info
-        game.debug.inputInfo(32, 32);
-        game.debug.pointer(game.input.activePointer);
+        // game.debug.inputInfo(32, 32);
+        // game.debug.pointer(game.input.activePointer);
 
     }
 
