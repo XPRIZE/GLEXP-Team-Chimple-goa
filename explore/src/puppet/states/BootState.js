@@ -18,5 +18,5 @@ export default class BootState extends Phaser.State {
 
         this.game.state.start('PuppetPreloadState');
  	}
-
+     // simple comment
 }
