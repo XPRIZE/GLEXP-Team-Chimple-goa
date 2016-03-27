@@ -438,6 +438,109 @@ export default class Human extends Puppet {
         return box;
     }
     
+     handshakeAnimate(){
+                    this.leftHand.x = this.lhx;
+                    this.leftHand.y = this.lhy;
+                    
+                    this.leftLeg.x = this.llx;
+                    this.leftLeg.y = this.lly;
+                    
+                    this.rightHand.x = this.rhx;
+                    this.rightHand.y = this.rhy;
+                    
+                    this.rightLeg.x = this.rlx;
+                    this.rightLeg.y = this.rly;
+                    
+                    this.body.x = this.bx;
+                    this.body.y = this.by;
+                    
+                    this.head.x = this.hx;
+                    this.head.y = this.hy;
+     
+                    this.bodyTween = this.game.add.tween(this.body).to({angle:-5.7},6/24*1000, null, false).chain(
+                    this.game.add.tween(this.body).to({y: this.body.y + 0},12/24*1000, null, false),
+                    this.game.add.tween(this.body).to({angle:0},5/24*1000, null, false));
+                    
+                    this.headTween = this.game.add.tween(this.head).to({x: this.head.x - 27.95,y: this.head.y + 1.4, angle:3.1},6/24*1000, null, false).chain(
+                    this.game.add.tween(this.head).to({ },12/24*1000, null, false),
+                    this.game.add.tween(this.head).to({x: this.head.x -0, y: this.head.y + 0, angle:0},5/24*1000, null, false));
+                    
+                    this.leftHandTween = this.game.add.tween(this.leftHand).to({x:this.leftHand.x -26.74,y: this.leftHand.y +13.399, angle:34.6}, 6/24*1000, null,false).chain(
+                    this.game.add.tween(this.leftHand).to({x:this.leftHand.x -26,angle:49.6}, 4/24*1000, null, false ),
+                    this.game.add.tween(this.leftHand).to({ angle:41.6}, 4/24*1000, null, false),
+                    this.game.add.tween(this.leftHand).to({angle:49.4}, 4/24*1000, null, false),
+                    this.game.add.tween(this.leftHand).to({x:this.leftHand.x + 0, y: this.leftHand.y - 0,angle:0},5/24*1000, null, false) );
+                 
+                    this.rightHandTween = this.game.add.tween(this.rightHand).to({x: this.rightHand.x - 10.79 , y: this.rightHand.y - 6.54 ,angle:-5.7},6/24*1000, null,false).chain(
+                    this.game.add.tween(this.rightHand).to({}, 12/24*1000, null, false),
+                    this.game.add.tween(this.rightHand).to({x: this.rightHand.x+0.099 , y: this.rightHand.y +0.99 ,angle:0}, 5/24*1000, null, false));
+                   
+                   this.leftLegTween = this.game.add.tween(this.leftLeg).to({  },23/24*1000, null, false);    
+                    
+                   this.rightLegTween = this.game.add.tween(this.rightLeg).to({  },23/24*1000, null, false);
+              
+                    let self = this;
+                    this.startStopAniamation(1500);
+     }
+    jumpAnimate(){
+           
+                    this.leftHand.x = this.lhx;
+                    this.leftHand.y = this.lhy;
+                    
+                    this.leftLeg.x = this.llx;
+                    this.leftLeg.y = this.lly;
+                    
+                    this.rightHand.x = this.rhx;
+                    this.rightHand.y = this.rhy;
+                    
+                    this.rightLeg.x = this.rlx;
+                    this.rightLeg.y = this.rly;
+                    
+                    this.body.x = this.bx;
+                    this.body.y = this.by;
+                    
+                    this.head.x = this.hx;
+                    this.head.y = this.hy;
+     
+                    this.bodyTween = this.game.add.tween(this.body).to({y: this.body.y - 4},3/24*1000, null, false).chain(
+                    this.game.add.tween(this.body).to({y: this.body.y + 20},4/24*1000, null, false),
+                    this.game.add.tween(this.body).to({y: this.body.y -72},6/24*1000, null, false),
+                    this.game.add.tween(this.body).to({y: this.body.y + 20},5/24*1000, null, false),
+                    this.game.add.tween(this.body).to({y: this.body.y - 4},3/24*1000, null, false), 
+                    this.game.add.tween(this.body).to({y: this.body.y + 0},2/24*1000, null, false));
+                        
+                    this.headTween = this.game.add.tween(this.head).to({ y: this.head.y -4}, 3/24*1000, null, false).chain(
+                    this.game.add.tween(this.head).to({ y: this.head.y + 38}, 4/24*1000,null, false),
+                    this.game.add.tween(this.head).to({y: this.head.y - 70}, 6/24*1000, null, false),
+                    this.game.add.tween(this.head).to({y: this.head.y +38}, 5/24*1000, null, false),
+                    this.game.add.tween(this.head).to({y: this.head.y - 4}, 3/24*1000, null, false), 
+                    this.game.add.tween(this.head).to({ y: this.head.y +0}, 2/24*1000, null, false));
+                    
+                    this.rightHandTween = this.game.add.tween(this.rightHand).to({x: this.rightHand.x +0.0499 , y: this.rightHand.y - 3.9499 ,angle:-15},3/24*1000, null, false).chain(
+                    this.game.add.tween(this.rightHand).to({x: this.rightHand.x-27.95 , y: this.rightHand.y - 15.9499 ,angle:-45}, 4/24*1000, null, false),
+                    this.game.add.tween(this.rightHand).to({x: this.rightHand.x-11.95 , y: this.rightHand.y - 57.84 ,angle:-75}, 6/24*1000, null, false),
+                    this.game.add.tween(this.rightHand).to({x: this.rightHand.x-27.95 , y: this.rightHand.y - 15.94 ,angle:-45}, 5/24*1000, null, false),
+                    this.game.add.tween(this.rightHand).to({x: this.rightHand.x+0.04 , y: this.rightHand.y - 3.94 ,angle:-15}, 3/24*1000, null, false),
+                    this.game.add.tween(this.rightHand).to({ y: this.rightHand.y + 0.050 ,angle:0}, 2/24*1000, null, false));
+                    
+                    this.leftHandTween = this.game.add.tween(this.leftHand).to({y: this.leftHand.y - 4, angle:15}, 3/24*1000, null, false).chain(
+                    this.game.add.tween(this.leftHand).to({x:this.leftHand.x + 30, y: this.leftHand.y - 16,angle:45}, 4/24*1000, null, false ),
+                    this.game.add.tween(this.leftHand).to({x:this.leftHand.x + 12.04, y: this.leftHand.y -51.94, angle:75}, 6/24*1000, null, false),
+                    this.game.add.tween(this.leftHand).to({x:this.leftHand.x + 30, y: this.leftHand.y - 16,angle:45}, 5/24*1000, null, false),
+                    this.game.add.tween(this.leftHand).to({x:this.leftHand.x + 0, y: this.leftHand.y - 4,angle:15},3/24*1000, null, false),
+                    this.game.add.tween(this.leftHand).to({y: this.leftHand.y-0,angle:0}, 2/24*1000, null, false));
+                    
+                    this.leftLegTween = this.game.add.tween(this.leftLeg).to({ y: this.leftLeg.y + 0 },7/24*1000, null, false).chain(
+                    this.game.add.tween(this.leftLeg).to({ y: this.leftLeg.y - 90.05 }, 6/24*1000, null, false),
+                    this.game.add.tween(this.leftLeg).to({ y: this.leftLeg.y - 0 }, 5/24*1000, null, false));    
+                    
+                    this.rightLegTween = this.game.add.tween(this.rightLeg).to({ y: this.rightLeg.y + 0 },7/24*1000, null, false).chain(
+                    this.game.add.tween(this.rightLeg).to({ y: this.rightLeg.y - 90.05 }, 6/24*1000, null, false),
+                    this.game.add.tween(this.rightLeg).to({ y: this.rightLeg.y - 0 }, 5/24*1000, null, false));
+                    
+                    this.startStopAniamation(1500);
+             }
+         
       walkAnimate() {
         
         
@@ -489,12 +592,12 @@ export default class Human extends Puppet {
       
       this.rightLegTween = this.game.add.tween(this.rightLeg).to({angle: this.rightLeg.angle - 15, y: this.rightLeg.y + 4}, 5/24*1000, null, false).chain(this.game.add.tween(this.rightLeg).to({angle:  this.rightLeg.angle + 15, y: this.rightLeg.y + 4}, 5/24*1000, null, false), this.game.add.tween(this.rightLeg).to({angle: this.rightLeg.angle + 5, y: this.rightLeg.y + 0 }, 4/24*1000, null, false));
       
-       this.startStopAniamation();
+       this.startStopAniamation(791);
       
           
       }
       
-      startStopAniamation(){
+      startStopAniamation(time){
           
            let self = this;
           
@@ -553,7 +656,7 @@ export default class Human extends Puppet {
               }
               if(!key)
               {
-                this.myTween =  this.game.time.events.loop(791,function(){
+                this.myTween =  this.game.time.events.loop(time,function(){
              
                    self.bodyTween.start();
                    self.headTween.start();
