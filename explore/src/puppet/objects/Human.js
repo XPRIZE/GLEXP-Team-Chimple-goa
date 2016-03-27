@@ -5,10 +5,17 @@ import Sprite from './Sprite.js';
 import ComboShape from './ComboShape.js';
 import HandShape from './HandShape.js';
 import Accessory from './Accessory.js';
+import StoryUtil from '../../storybuilder/objects/StoryUtil.js';
 
 export default class Human extends Puppet {
-    constructor(game, x, y, color) {
+    constructor(game, x, y, color, uniquename) {
         super(game, x, y, color);
+        
+        if(!uniquename) {
+            this._uniquename = StoryUtil.generateUUID(); 
+        } else {
+            this._uniquename = uniquename;
+        }
     }
 
     defineBehavior() {
@@ -216,11 +223,12 @@ export default class Human extends Puppet {
     toJSON() {
         let json = super.toJSON();
         json._class = 'Human';
+        json.uniquename = this.uniquename;
         return json;
     }
 
     static fromJSON(game, j) {
-        let puppet = new Human(game, j.x, j.y, j.bodyColor);
+        let puppet = new Human(game, j.x, j.y, j.bodyColor, j.uniquename);
         if (j.shape) {
             puppet.shape = j.shape;
         }
