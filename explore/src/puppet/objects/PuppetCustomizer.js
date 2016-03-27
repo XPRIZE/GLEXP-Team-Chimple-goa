@@ -36,7 +36,7 @@ export default class PuppetCustomizer extends Phaser.Group {
                  this.puppet.blinkAct();
                  this.puppet.smileAct();
                  this.puppet.sadAct();
-                 this.puppet.walkAnimate();
+                 this.puppet.handshakeAnimate();
             } else if (accType == "hairColor_chooser") {
                 if (this.puppet.head.getAccessory('frontHair')) {
                     this.puppet.head.getAccessory('frontHair').tint = parseInt(accName, 16);
