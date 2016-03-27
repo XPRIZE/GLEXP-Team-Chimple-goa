@@ -27,19 +27,19 @@ export default class ExploreInputHandler {
         sprite.game.add.existing(sprite);
         sprite.bringToTop();
 
-        $('#element_to_pop_up').bPopup();
+        // $('#element_to_pop_up').bPopup();
 
-        var url = "make" + '.json';
-        console.log('url '+url);
-        var meaning = '';
-        	$.getJSON(url, function(jd) {
-        			meaning = jd.meaning;
-        			meaning = $(meaning).text();
-        			$("#word").text(url);					
-        			$("#meaning_content").text(meaning);
-        			$("#example_content").text(jd.exmaples);
-        			$("#image_content").attr("src", jd.image);
-               });
+        // var url = "make" + '.json';
+        // console.log('url '+url);
+        // var meaning = '';
+        // 	$.getJSON(url, function(jd) {
+        // 			meaning = jd.meaning;
+        // 			meaning = $(meaning).text();
+        // 			$("#word").text(url);					
+        // 			$("#meaning_content").text(meaning);
+        // 			$("#example_content").text(jd.exmaples);
+        // 			$("#image_content").attr("src", jd.image);
+        //        });
 
         //   sprite.toggleDoorOpen();
     }

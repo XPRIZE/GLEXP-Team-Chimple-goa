@@ -1,7 +1,10 @@
+import RoundButton from './RoundButton.js';
+import TabButton from './TabButton.js';
+
 export default class ButtonGrid extends Phaser.Group {
     //TODO: Swipe also selects button based on where you click
 
-    constructor(game, name, width, height, numRows, numColumns, horizontal, callback, callbackContext, frameData) {
+    constructor(game, name, width, height, numRows, numColumns, horizontal, callback, callbackContext, frameData, style) {
         super(game);
         this.name = name;
         this.elementWidth = width;
@@ -14,12 +17,44 @@ export default class ButtonGrid extends Phaser.Group {
         this.horizontal = horizontal;
         if (frameData) this.frameData = frameData;
 
+        if(!style) {
+            style = {};
+        }
+        if(!style.overFillColor) {
+            style.overFillColor = 0x25878A;            
+        }
+        if(!style.upFillColor) {
+            style.upFillColor = 0x32A9B4;            
+        }
+        if(!style.downFillColor) {
+            style.downFillColor = 0x136662;            
+        }
+        if(!style.buttonType) {
+            style.buttonType = 'round';            
+        }
+        
+        let color = Phaser.Color.getRGB(style.overFillColor);
+        style.overFillStyle = 'rgb(' + color.r + ',' + color.g + ',' + color.b + ')'   
+
+        color = Phaser.Color.getRGB(style.upFillColor);
+        style.upFillStyle = 'rgb(' + color.r + ',' + color.g + ',' + color.b + ')'   
+
+        color = Phaser.Color.getRGB(style.downFillColor);
+        style.downFillStyle = 'rgb(' + color.r + ',' + color.g + ',' + color.b + ')'   
+
+        this.style = style;
+
         let mask = this.add(new Phaser.Graphics(this.game, 0, 0));
-        mask.beginFill(0x000000);
-        mask.alpha = 0;
+        // mask.alpha = 0;
+        mask.beginFill(this.style.overFillColor);
         mask.drawRect(0, 0, width, height);
         mask.endFill();
         this.mask = mask;
+
+        let background = this.add(new Phaser.Graphics(this.game, 0, 0));
+        background.beginFill(this.style.overFillColor);
+        background.drawRect(0, 0, width, height);
+        background.endFill();
 
         this.buttonPanel = new Phaser.Group(this.game, this);
         this.tweenScroll = this.game.add.tween(this.buttonPanel);
@@ -37,63 +72,38 @@ export default class ButtonGrid extends Phaser.Group {
         let numAlong = this.horizontal ? this.numRows : this.numColumns;
         let numAcross = Math.ceil(buttons.length / numAlong);
 
-        let maxButtonWidth = this.elementWidth / this.numColumns - 2 * this.padding;
-        let maxButtonHeight = this.elementHeight / this.numRows - 2 * this.padding;
+        let maxButtonWidth = (this.elementWidth - this.padding) / this.numColumns - this.padding;
+        let maxButtonHeight = (this.elementHeight - this.padding) / this.numRows - this.padding;
 
         let index = 0;
-        for (var i = 0; i < numAcross; i++) {
-            for (var j = 0; j < numAlong; j++) {
+        for (var i = 0; i < numAlong; i++) {
+            for (var j = 0; j < numAcross; j++) {
                 if (index >= buttons.length) {
                     return;
                 }
-                let layoutX = (maxButtonWidth + this.padding * 2) * (this.horizontal ? i : j) + this.padding + maxButtonWidth / 2;
-                let layoutY = (maxButtonHeight + this.padding * 2) * (this.horizontal ? j : i) + this.padding + maxButtonHeight / 2;
-                let key = this.name;
-                let frame = buttons[index];
-                let button = this.buttonPanel.add(new Phaser.Button(this.game, layoutX, layoutY, 'misc/theme', this.callSelectButton, this, 'button_over.png', 'button_up.png', 'button_down.png', 'button_up.png'));
-                button.input.priorityID = 5;
-                button.name = buttons[index];
-                button.scale.multiply(maxButtonWidth / button.width, maxButtonHeight / button.height);
-                button.anchor.setTo(0.5, 0.5);
-                let buttonImage = null;
-                if (this.frameData && this.frameData[frame]) {
-                    let info = this.frameData[frame];
-                    if (info.key) {
-                        key = info.key;
-                        frame = info.frame;
-                        if(frame) {
-                            buttonImage = new Phaser.Sprite(this.game, layoutX, layoutY, key, frame);    
-                        } else {
-                             buttonImage = new Phaser.Sprite(this.game, layoutX, layoutY, key);
-                        }
-                        
-                    } else if (info.image_data) {
-                        //create sprite from image_data
-                        buttonImage = new Phaser.Sprite(this.game, layoutX, layoutY, frame);
-                    }
+                let layoutX = (maxButtonWidth + this.padding) * (this.horizontal ? j : i) + this.padding + maxButtonWidth / 2;
+                let layoutY = (maxButtonHeight + this.padding) * (this.horizontal ? i : j) + this.padding + maxButtonHeight / 2;
+
+                if(this.style.buttonType == 'tab') {
+                    this.buttonPanel.add(new TabButton(this.game, layoutX, layoutY, maxButtonWidth, maxButtonHeight, this.name, buttons[index], this.callSelectButton, this, this.frameData, this.style));
                 } else {
-                    buttonImage = new Phaser.Sprite(this.game, layoutX, layoutY, key, frame);
-                }
-                if (buttonImage) {
-                    buttonImage.anchor.setTo(0.5, 0.5);
-                    let buttonScale = Math.min(maxButtonWidth / buttonImage.width, maxButtonHeight / buttonImage.height, 1);
-                    buttonImage.scale.multiply(buttonScale, buttonScale);
-                    this.buttonPanel.addChild(buttonImage);
+                    this.buttonPanel.add(new RoundButton(this.game, layoutX, layoutY, maxButtonWidth, maxButtonHeight, this.name, buttons[index], this.callSelectButton, this, this.frameData, this.style));                    
                 }
                 index++;
             }
         }
     }
-    
+
+
     addButton(buttonName, key, frame, image_data) {
-        let buttons = this._buttons;   
+        let buttons = this._buttons;
         buttons.push(buttonName);
-        if(key && frame) {
-             this.frameData[buttonName] = {key:frame};    
+        if (key && frame) {
+            this.frameData[buttonName] = { key: frame };
         } else {
-            this.frameData[buttonName] = {"image_data":image_data};
+            this.frameData[buttonName] = { "image_data": image_data };
         }
-        this.buttons = buttons;              
+        this.buttons = buttons;
     }
 
     getButton(name) {
@@ -131,9 +141,9 @@ export default class ButtonGrid extends Phaser.Group {
             this.buttonCallback.call(this.buttonCallbackContext, tabName, button.name);
         }
     }
-    
+
     setPriorityID(number) {
-        
+
     }
 
     update() {
