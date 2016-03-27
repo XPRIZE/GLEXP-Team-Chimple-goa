@@ -1,5 +1,5 @@
 export default class RecordInfo {
-    constructor(uniquename, x, y, scaleX, scaleY, angle, recordingAttributeKind) {
+    constructor(uniquename, x, y, scaleX, scaleY, angle, recordingAttributeKind, cameraX, cameraY) {
         this.uniquename = uniquename;
         this.x = x;
         this.y = y;
@@ -11,6 +11,9 @@ export default class RecordInfo {
         } else {
             this.recordingAttributeKind = recordingAttributeKind;    
         }         
+        
+        this.cameraX = cameraX;
+        this.cameraY = cameraY;
     }    
     
     set text(userGeneratedText) {
@@ -44,14 +47,17 @@ export default class RecordInfo {
             angle: this.angle,
             recordingAttributeKind: this.recordingAttributeKind,
             userGeneratedText: this._userGeneratedText,
-            soundData: this._soundData            
+            soundData: this._soundData,
+            cameraX: this.cameraX,
+            cameraY: this.cameraY
+                        
         };
         // console.log(json);
         return json;
     }
 
     static fromJSON(j) {
-        let recordInfo = new RecordInfo(j.uniquename, j.x, j.y, j.scaleX, j.scaleY, j.angle, j.recordingAttributeKind);
+        let recordInfo = new RecordInfo(j.uniquename, j.x, j.y, j.scaleX, j.scaleY, j.angle, j.recordingAttributeKind, j.cameraX, j.cameraY);
         recordInfo.text = j.userGeneratedText;
         recordInfo.soundData = j.soundData;
 
