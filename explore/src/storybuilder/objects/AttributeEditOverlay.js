@@ -11,6 +11,7 @@ import Scene from '../../scene/objects/Scene.js';
 import SoundData from '../../scene/objects/SoundData.js';
 import Holder from '../../scene/objects/Holder.js';
 import Item from '../../scene/objects/Item.js';
+import Puppet from '../../puppet/objects/Puppet.js';
 
 export default class AttributeEditOverlay extends Phaser.Group {
     //container to edit item properties
@@ -271,12 +272,18 @@ export default class AttributeEditOverlay extends Phaser.Group {
         this.drawHorizontalLineAroundCircleOnGraphics(graphics, radius, 315, 5);
         this.drawHorizontalLineAroundCircleOnGraphics(graphics, radius, 360, 5);
 
-        let boundingBox = this._clickedObject.drawBoundingBox(0xFFFFFF);            
-        let clickedPointer = this._clickedObject.toGlobal(new Phaser.Point(this.game.input.activePointer.x,this.game.input.activePointer.y));
-        let topLeftPoint = this._clickedObject.toGlobal(new Phaser.Point( game.camera.x + 0, game.camera.y + 0));        
-        if (this._clickedObject instanceof Holder) {        
-            clickedPointer = new Phaser.Point( topLeftPoint.x + boundingBox.width / 2, topLeftPoint.y + boundingBox.height / 2);
-        } else if (this._clickedObject instanceof Item) {                        
+
+        let clickedPointer = this._clickedObject.toGlobal(new Phaser.Point(game.input.activePointer.x, game.input.activePointer.y));
+        let topLeftPoint = this._clickedObject.toGlobal(new Phaser.Point(game.camera.x + 0, game.camera.y + 0));
+
+        if (this._clickedObject instanceof Puppet) {
+            let pos = this._clickedObject.toGlobal(new Phaser.Point(0 + game.camera.x, - this._clickedObject.height / 2 + game.camera.y));
+            clickedPointer = new Phaser.Point(pos.x, pos.y);
+        } else if (this._clickedObject instanceof Holder) {
+            let boundingBox = this._clickedObject.drawBoundingBox(0xFFFFFF);
+            clickedPointer = new Phaser.Point(topLeftPoint.x + boundingBox.width / 2, topLeftPoint.y + boundingBox.height / 2);
+        } else if (this._clickedObject instanceof Item) {
+            let boundingBox = this._clickedObject.drawBoundingBox(0xFFFFFF);
             let actualX = topLeftPoint.x - boundingBox.width * this._clickedObject.anchor.x;
             let actualY = topLeftPoint.y - boundingBox.height * this._clickedObject.anchor.y;
             clickedPointer = new Phaser.Point(actualX + boundingBox.width / 2, actualY + boundingBox.height / 2);

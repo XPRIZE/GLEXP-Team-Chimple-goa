@@ -14,13 +14,14 @@ export default class StoryBuilderInputHandler {
             this.instance.scene.selectedObject = sprite;    
         }            
         
-        if (StoryBuilderInputHandler.box) {
-            sprite.removeChild(StoryBuilderInputHandler.box);
-            StoryBuilderInputHandler.box.destroy();
-            StoryBuilderInputHandler.box = null;
-        }
-        StoryBuilderInputHandler.box = sprite.drawBoundingBox(StoryBuilderInputHandler.LINE_COLOR);
-        console.log('StoryBuilderInputHandler.box:' + StoryBuilderInputHandler.box);
+        // if (StoryBuilderInputHandler.box) {
+        //     sprite.removeChild(StoryBuilderInputHandler.box);
+        //     StoryBuilderInputHandler.box.destroy();
+        //     StoryBuilderInputHandler.box = null;
+        // }
+        
+        // StoryBuilderInputHandler.box = sprite.drawBoundingBox(StoryBuilderInputHandler.LINE_COLOR);
+        // console.log('StoryBuilderInputHandler.box:' + StoryBuilderInputHandler.box);
     }
 
 
@@ -69,5 +70,5 @@ export default class StoryBuilderInputHandler {
 }
 
 
-StoryBuilderInputHandler.box = null;
-StoryBuilderInputHandler.LINE_COLOR = 0x0000FF;
+//StoryBuilderInputHandler.box = null;
+//StoryBuilderInputHandler.LINE_COLOR = 0x0000FF;

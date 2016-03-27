@@ -397,4 +397,14 @@ export default class Human extends Puppet {
         // let a=JSON.parse(JSON.stringify(human, Puppet.replacer), human.revive);    
         // a.scale.setTo(0.5,0.5);        
     }
+    
+    drawBoundingBox(color) {
+        let box = this.addChild(new Phaser.Graphics(this.game, -this.offsetX, -this.offsetY));
+        box.lineStyle(1, color);
+        box.beginFill(0x000000, 0);
+        box.drawRect(0, 0, this.width, this.height);
+        box.endFill();
+        return box;
+    }
+    
 }
