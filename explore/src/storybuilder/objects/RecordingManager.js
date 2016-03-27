@@ -248,7 +248,7 @@ export default class RecordingManager extends Phaser.Group {
     }
 
     addToMap(data) {
-        let recordInfo = new RecordInfo(data.uniquename, data.x, data.y, data.scaleX, data.scaleY, data.angle, data.recordingAttributeKind);
+        let recordInfo = new RecordInfo(data.uniquename, data.x, data.y, data.scaleX, data.scaleY, data.angle, data.recordingAttributeKind, game.camera.x, game.camera.y);
         this.recordSpecialTextAttribute(data, recordInfo);
         this.recordSpecialSoundAttribute(data, recordInfo);
         let spriteMap = this._sceneRecordingMap.get(this.currentRecordingCounter);

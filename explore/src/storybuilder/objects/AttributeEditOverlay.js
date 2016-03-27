@@ -9,6 +9,9 @@ import Floor from '../../scene/objects/Floor.js';
 import Wall from '../../scene/objects/Wall.js';
 import Scene from '../../scene/objects/Scene.js';
 import SoundData from '../../scene/objects/SoundData.js';
+import Holder from '../../scene/objects/Holder.js';
+import Item from '../../scene/objects/Item.js';
+import Puppet from '../../puppet/objects/Puppet.js';
 
 export default class AttributeEditOverlay extends Phaser.Group {
     //container to edit item properties
@@ -22,8 +25,8 @@ export default class AttributeEditOverlay extends Phaser.Group {
     }
 
     addClickedObject(clickedObject) {
-        
-        if(this._isOpen) {
+
+        if (this._isOpen) {
             this.closeAttributeEditOverlay();
             return;
         }
@@ -35,7 +38,7 @@ export default class AttributeEditOverlay extends Phaser.Group {
         }
 
         this._clickedObject.inputEnabled = false;
-        
+
         this.constructUI();
     }
 
@@ -59,7 +62,7 @@ export default class AttributeEditOverlay extends Phaser.Group {
         this._settings.fixedToCameara = true;
         this._settings.inputEnabled = true;
         this._settings.events.onInputUp.add(this.createAdditionalPropertiesOverlay, this);
-        this._settings.input.priorityID = 2;
+        this._settings.input.priorityID = 3;
 
 
         //Added TEXT BUTTON to generate Testing Text - later UI will be replaced ...
@@ -67,7 +70,7 @@ export default class AttributeEditOverlay extends Phaser.Group {
         this._textEditor.fixedToCameara = true;
         this._textEditor.inputEnabled = true;
         this._textEditor.events.onInputUp.add(this.createAdditionalPropertiesOverlay, this);
-        this._textEditor.input.priorityID = 2;
+        this._textEditor.input.priorityID = 3;
     }
 
     createAdditionalPropertiesOverlay() {
@@ -84,35 +87,41 @@ export default class AttributeEditOverlay extends Phaser.Group {
 
             let backGroundThemes = that.game.cache.getJSON('storyBuilder/background_themes');
             let objectSound = that.game.cache.getJSON('storyBuilder/object_sounds');
+            let objectAnim = that.game.cache.getJSON('storyBuilder/object_animation');
+            let objectEffects = that.game.cache.getJSON('storyBuilder/object_effects');
+
+
             //later get from texture packer
             let TextNames = ["textPlus1", "textPlus2", "textPlus3", "textPlus4"];
-            let audioNames = ["AudioPlus1", "AudioPlus2","AudioPlus3","AudioPlus4"];
+            let audioNames = ["AudioPlus1", "AudioPlus2", "AudioPlus3", "AudioPlus4"];
+            let animationNames = ["AnimPlus1", "AnimPlus2","AnimPlus3","AnimPlus4"];
+            let effectNames = ["EffectPlus1", "EffectPlus2","EffectPlus3","EffectPlus4"]; 
             let audioItem = ["AudioPlus1", "AudioPlus2"];
-            
+
             that._clickedObject._specialAttribute.allTexts.forEach(function(element, index) {
                 TextNames[index] = 'textPlus1';
-               if(element != null && element instanceof TextData){
-                   TextNames[index] = 'forest_1_th';
-               }
+                if (element != null && element instanceof TextData) {
+                    TextNames[index] = 'forest_1_th';
+                }
             }, this);
 
             that._clickedObject._specialAttribute.allSounds.forEach(function(element, index) {
                 audioNames[index] = 'AudioPlus1';
-               if(element != null && element instanceof SoundData){
-                   audioNames[index] = 'forest_1_th';
-               }
+                if (element != null && element instanceof SoundData) {
+                    audioNames[index] = 'forest_1_th';
+                }
             }, this);
 
-            
-			that._itemSettingTab = that.game.add.existing(new TabView(that.game, 'scene/scene', that.game.width + that.game.world.camera.x, that.game.height + that.game.world.camera.y, 10, 50, 5, 3, true, function(tab, button) {
-                
+
+            that._itemSettingTab = that.game.add.existing(new TabView(that.game, 'scene/scene', that.game.width + that.game.world.camera.x, that.game.height + that.game.world.camera.y, 10, 50, 5, 3, true, function(tab, button) {
+
                 let self = that;
                 that._itemSettingTab.unSelect();
                 // that._itemSettingTab.destroy();
-                 that._clickedObject.inputEnabled = true;
-                
-                let index = 0,flag = false;
-                
+                that._clickedObject.inputEnabled = true;
+
+                let index = 0, flag = false;
+
                 // If condition true when recording is in pause mode
                 if(game._inPauseRecording){
                     if(tab == "text"){    
@@ -144,16 +153,25 @@ export default class AttributeEditOverlay extends Phaser.Group {
                        }
                         else {
                         this._clickedObject.applySound(index, false);
-                        window.isMusicOn = false;   
-                            
-                        }
+                        window.isMusicOn = false;                               
+                        }    
+                        // console.log(" ----  -- pressed in audio : "+ index);
+                    }else if (tab == "anim"){
                         
-                        console.log(" ----  -- pressed in audio : "+ index);
-
+                        for(index =0 ; index < animationNames.length ; index++){
+                                if(animationNames[index] == button){
+                                    flag = true;
+                                }
+                                if(flag)
+                                    break;
+                        }
+                        console.log(" ----  -- pressed in audio : "+ index);      
+                        
                     }
+                    
                     this._itemSettingTab.destroy();
-                
-                }else{ 
+
+                } else {
                     
                         if(tab == "text"){                                                
                         
@@ -185,12 +203,51 @@ export default class AttributeEditOverlay extends Phaser.Group {
                             self._itemAudioTab.visible = true;
                             self._itemAudioTab.bringToTop = true;
                             
+                        }else if (tab == "anim"){
+                            
+                            console.log("inside the anim tab ");
+                            this.clilckedButtonName = button;  
+                            self._itemAnimTab = that.game.add.existing(new TabView(self.game, 'scene/scene', self.game.width + self.game.world.camera.x, self.game.height + self.game.world.camera.y, 10, 50, 5, 3, true, function(tab, button) {
+                                    
+                                console.log(" TabName:"+ tab + " ButtonName: "+ button + " KeyName: "+ objectAnim[tab][button]);        
+                               
+                              //  this.setAudioData(objectSound[tab][button]);
+                                 self._itemAnimTab.destroy();
+                                 that._itemSettingTab.destroy();
+                            }, that, objectAnim));
+                            
+                            self._itemAnimTab.tabs = { 'human': audioItem ,'animal': audioItem , 'alen': audioItem };
+                            self._itemAnimTab.x = that.game.width * 0.05;
+                            self._itemAnimTab.y = 0;
+                            self._itemAnimTab.fixedToCamera = true;
+                            self._itemAnimTab.visible = true;
+                            self._itemAnimTab.bringToTop = true;
+                            
+                        }else if (tab == 'effects'){
+                            
+                             console.log("inside the Effects tab ");
+                            this.clilckedButtonName = button;  
+                            self._itemAnimTab = that.game.add.existing(new TabView(self.game, 'scene/scene', self.game.width + self.game.world.camera.x, self.game.height + self.game.world.camera.y, 10, 50, 5, 3, true, function(tab, button) {
+                                    
+                                console.log(" TabName:"+ tab + " ButtonName: "+ button + " KeyName: "+ objectEffects[tab][button]);        
+                               
+                              //  this.setAudioData(objectSound[tab][button]);
+                                 self._itemAnimTab.destroy();
+                                 that._itemSettingTab.destroy();
+                            }, that, objectEffects));
+                            
+                            self._itemAnimTab.tabs = { 'effect1': audioItem ,'effect2': audioItem , 'effect3': audioItem };
+                            self._itemAnimTab.x = that.game.width * 0.05;
+                            self._itemAnimTab.y = 0;
+                            self._itemAnimTab.fixedToCamera = true;
+                            self._itemAnimTab.visible = true;
+                            self._itemAnimTab.bringToTop = true;
+                            
                         }
-                   
                 }              
             }, that, backGroundThemes));
 
-            that._itemSettingTab.tabs = { 'text': TextNames, 'audio': audioNames };
+            that._itemSettingTab.tabs = { 'text': TextNames, 'audio': audioNames , 'anim' : animationNames , 'effects' : effectNames};
             that._itemSettingTab.x = that.game.width * 0.05;
             that._itemSettingTab.y = 0;
             that._itemSettingTab.fixedToCamera = true;
@@ -200,52 +257,51 @@ export default class AttributeEditOverlay extends Phaser.Group {
     }
 
 
-    addtext_fromhtml(textvalue, text_color, background_color)
-    {   
-          let value = this._itemSettingTab.children[1].children[1];
-          let jsonDataText = null;
-          for(var i = 0 ; i < value.length ; i ++){
-              if(value.children[i] instanceof Phaser.Button ){
-                  if(this.clilckedButtonName == value.children[i].name){
-                     var style = { font: "32px Arial", fill: ""+text_color, wordWrap: true, wordWrapWidth: value.children[i].width, align: "center", backgroundColor: ""+background_color };
-                    
-                     let x = value.children[i+1].x , y = value.children[i+1].y;
-                     jsonDataText = new TextData(game,0,0,this.clilckedButtonName,null,textvalue,style,this._clickedObject._uniquename, 0);
-                     
-                     value.children[i+1].loadTexture("storyBuilder/forest_1_th");
-                     value.children[i+1].parent = value;
-                     console.log("JSON FOR TEXT OBJECT \n\n"+ JSON.stringify(jsonDataText));
-                  }
-              }
-          }
-           this._clickedObject.addText(jsonDataText);
-           this._recordingResumeSignal.dispatch();           
-           //this._clickedObject._specialAttributes.text.push(textvalue);
-           console.log(" text value : "+  this._clickedObject._specialAttribute.text);    
-           this._itemSettingTab.destroy();    
+    addtext_fromhtml(textvalue, text_color, background_color) {
+        let value = this._itemSettingTab.children[1].children[1];
+        let jsonDataText = null;
+        for (var i = 0; i < value.length; i++) {
+            if (value.children[i] instanceof Phaser.Button) {
+                if (this.clilckedButtonName == value.children[i].name) {
+                    var style = { font: "32px Arial", fill: "" + text_color, wordWrap: true, wordWrapWidth: value.children[i].width, align: "center", backgroundColor: "" + background_color };
+
+                    let x = value.children[i + 1].x, y = value.children[i + 1].y;
+                    jsonDataText = new TextData(game, 0, 0, this.clilckedButtonName, null, textvalue, style, this._clickedObject._uniquename, 0);
+
+                    value.children[i + 1].loadTexture("storyBuilder/forest_1_th");
+                    value.children[i + 1].parent = value;
+                    console.log("JSON FOR TEXT OBJECT \n\n" + JSON.stringify(jsonDataText));
+                }
+            }
+        }
+        this._clickedObject.addText(jsonDataText);
+        this._recordingResumeSignal.dispatch();
+        //this._clickedObject._specialAttributes.text.push(textvalue);
+        console.log(" text value : " + this._clickedObject._specialAttribute.text);
+        this._itemSettingTab.destroy();
     }
-    
-    setAudioData(soundFileName){
+
+    setAudioData(soundFileName) {
         console.log(" destroy aduio inside tebview");
         this._itemAudioTab.destroy();
         let value = this._itemSettingTab.children[1].children[1];
-          let jsonDataAudio = null;
-          for(var i = 0 ; i < value.length ; i ++){
-              if(value.children[i] instanceof Phaser.Button ){
-                  if(this.clilckedButtonName == value.children[i].name){
-                   
-                     jsonDataAudio = new SoundData(game,soundFileName,0);
-                     
-                     value.children[i+1].loadTexture("storyBuilder/forest_1_th");
-                     value.children[i+1].parent = value;
+        let jsonDataAudio = null;
+        for (var i = 0; i < value.length; i++) {
+            if (value.children[i] instanceof Phaser.Button) {
+                if (this.clilckedButtonName == value.children[i].name) {
+
+                    jsonDataAudio = new SoundData(game, soundFileName, 0);
+
+                    value.children[i + 1].loadTexture("storyBuilder/forest_1_th");
+                    value.children[i + 1].parent = value;
                     //  console.log("JSON FOR TEXT OBJECT \n\n"+ JSON.stringify(jsonDataText));
-                  }
-              }
-          }
+                }
+            }
+        }
         this._clickedObject.addSound(jsonDataAudio);
-        this._itemSettingTab.destroy();        
+        this._itemSettingTab.destroy();
     }
-    
+
     drawScaleHandler(alpha, color, lineWidth, radius) {
         this._dynamicCircle = self.game.add.graphics(0, 0);
         this.drawFixedHandler(alpha, color, lineWidth, radius);
@@ -271,10 +327,21 @@ export default class AttributeEditOverlay extends Phaser.Group {
         this.drawHorizontalLineAroundCircleOnGraphics(graphics, radius, 360, 5);
 
 
-        //let pos = this._clickedObject.parent.toGlobal(new Phaser.Point(this._clickedObject.x, this._clickedObject.y - this._clickedObject.height / 2));
-        //let clickedPointer = new Phaser.Point(pos.x + game.camera.x, pos.y + game.camera.y);
-        let pos = this._clickedObject.toGlobal(new Phaser.Point(0, - this._clickedObject.height / 2));
-        let clickedPointer = new Phaser.Point(pos.x + game.camera.x, pos.y + game.camera.y);
+        let clickedPointer = this._clickedObject.toGlobal(new Phaser.Point(game.input.activePointer.x, game.input.activePointer.y));
+        let topLeftPoint = this._clickedObject.toGlobal(new Phaser.Point(game.camera.x + 0, game.camera.y + 0));
+
+        if (this._clickedObject instanceof Puppet) {
+            let pos = this._clickedObject.toGlobal(new Phaser.Point(0 + game.camera.x, - this._clickedObject.height / 2 + game.camera.y));
+            clickedPointer = new Phaser.Point(pos.x, pos.y);
+        } else if (this._clickedObject instanceof Holder) {
+            let boundingBox = this._clickedObject.drawBoundingBox(0xFFFFFF);
+            clickedPointer = new Phaser.Point(topLeftPoint.x + boundingBox.width / 2, topLeftPoint.y + boundingBox.height / 2);
+        } else if (this._clickedObject instanceof Item) {
+            let boundingBox = this._clickedObject.drawBoundingBox(0xFFFFFF);
+            let actualX = topLeftPoint.x - boundingBox.width * this._clickedObject.anchor.x;
+            let actualY = topLeftPoint.y - boundingBox.height * this._clickedObject.anchor.y;
+            clickedPointer = new Phaser.Point(actualX + boundingBox.width / 2, actualY + boundingBox.height / 2);
+        }
         this._fixedHandlerSprite = game.add.sprite(clickedPointer.x, clickedPointer.y, graphics.generateTexture());
         this.add(this._fixedHandlerSprite);
         game.world.bringToTop(this._fixedHandlerSprite);
@@ -313,6 +380,7 @@ export default class AttributeEditOverlay extends Phaser.Group {
         this._dragHandlerSprite.anchor.setTo(0.5);
         this._dragHandlerSprite.inputEnabled = true;
         this._dragHandlerSprite.input.enableDrag(false, true);
+        this._dragHandlerSprite.input.priorityID = 3;
         this._dragHandlerSprite.angle = this._clickedObject.angle;
         this._dragHandlerSprite._click = 0;
         this._dragHandlerSprite._clickScale = new Phaser.Point(1, 1);
@@ -399,6 +467,12 @@ export default class AttributeEditOverlay extends Phaser.Group {
 
     }
 
+    render() {
+        // Input debug info
+        // game.debug.inputInfo(32, 32);
+        // game.debug.pointer(game.input.activePointer);
+
+    }
 
     shutdown() {
         this._overlayBitMap.destroy();

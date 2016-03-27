@@ -14,6 +14,7 @@ import StoryUtil from '../objects/StoryUtil.js';
 import RecordingManager from '../objects/RecordingManager.js';
 import ShowAttributeEditorSignal from '../objects/ShowAttributeEditorSignal.js';
 import AttributeEditOverlay from '../objects/AttributeEditOverlay.js';
+import QuestionTypeOverlay from '../objects/QuestionTypeOverlay.js';
 import StoryBuilderInputHandler from '../objects/StoryBuilderInputHandler.js';
 import StoryPuppetBuilderInputHandler from '../objects/StoryPuppetBuilderInputHandler.js';
 
@@ -28,6 +29,7 @@ import RecordingStartSignal from '../objects/RecordingStartSignal.js';
 import SpecialAttribute from '../../scene/objects/SpecialAttribute.js';
 import SoundData from '../../scene/objects/SoundData.js';
 
+import PuppetCustomizer from '../../puppet/objects/PuppetCustomizer.js';
 
 
 
@@ -65,9 +67,13 @@ export default class ConstructNewStoryPageState extends Phaser.State {
 
     loadStoryPageToEdit() {
         let storyPage = null;
-        this._currentStory.storyPages.forEach(function(page) {
+        this._currentStory.storyPages.forEach(function(page, index) {
             if (page.pageId === this._currentPageId) {
                 storyPage = page;
+
+                if (index === 0) {
+                    this._isTitlePage = true;
+                }
             }
         }, this);
         return storyPage;
@@ -88,9 +94,22 @@ export default class ConstructNewStoryPageState extends Phaser.State {
         this.load.image('storybuilder/setting_button', 'assets/storyBuilder/setting_button.png');
         this.load.image('storybuilder/plus', 'assets/storyBuilder/plus_button.png');
 
-         //load sounds for items
+        //load sounds for items
         this.load.audio('storyBuilder/audio1', 'assets/storyBuilder/sounds/audio_1.mp3');
         this.load.audio('storyBuilder/audio2', 'assets/storyBuilder/sounds/audio_2.mp3');
+
+        this.load.atlas('misc/theme', "assets/misc/theme.png", "assets/misc/theme.json");
+        this.load.atlas('puppet/chooser', 'assets/puppet/chooser.png', 'assets/puppet/chooser.json');
+        this.load.atlas('puppet/sample', 'assets/puppet/sample.png', 'assets/puppet/sample.json');
+        this.load.atlas('puppet/icons', 'assets/puppet/icons.png', 'assets/puppet/icons.json');
+        this.load.atlas('scene/icons', 'assets/scene/icons.png', 'assets/scene/icons.json');
+        this.load.atlas('puppet/characters', 'assets/puppet/characters.png', 'assets/puppet/characters.json');
+        this.load.atlas('puppet/eye_mouth', 'assets/puppet/eye_mouth.png', 'assets/puppet/eye_mouth.json');
+        //this.load.atlas('puppet/sample', 'assets/puppet/sample.png', 'assets/puppet/sample.json');
+        this.load.json('puppet/accessorize', 'assets/puppet/accessorize.json');
+        this.load.json('puppet/menu_accessorize', 'assets/puppet/menu_accessorize.json');
+        this.load.atlas('puppet/headshape', 'assets/puppet/headshape.png', 'assets/puppet/headshape.json');
+
 
         // //for now statically load audio
         // this.load.audio('audio_1', 'assets/storyBuilder/sounds/audio_1.mp3');
@@ -154,23 +173,55 @@ export default class ConstructNewStoryPageState extends Phaser.State {
     }
 
 
+    findAllPuppetsInScene(scene) {
+        let puppets = [];
+        scene.children.forEach(function(elementChild) {
+            //could be Wall/Floor
+            let parent = null;
+            if (elementChild instanceof Wall) {
+                parent = elementChild;
+            } else if (elementChild instanceof Floor) {
+                parent = elementChild;
+            }
+
+            if (parent) {
+                parent.children.forEach(function(child) {
+                    if (child instanceof Puppet) {
+                        puppets.push(child);
+                    }
+                })
+            }
+        }, this);
+        return puppets;
+    }
+
     updateGroupWithScene(jsonSceneRepresentation) {
         //remove any previous scene type child
+        let puppets = null;
         this._displayControlGroup.children.forEach(function(element) {
             console.log(element);
             if (element instanceof Scene) {
+
+                puppets = this.findAllPuppetsInScene(element);
+                //iterate all child and copy all children of type Puppet
                 this._displayControlGroup.removeChild(element);
             }
         }, this);
+        let newScene = JSON.parse(jsonSceneRepresentation, JsonUtil.revive);
+        if (puppets) {
+            puppets.forEach(function(puppet) {
+                newScene.floor.addContent(puppet);
+            }, this);
+        }
 
-        this._displayControlGroup.add(JSON.parse(jsonSceneRepresentation, JsonUtil.revive));
+        this._displayControlGroup.add(newScene);
     }
 
     enableInputsOnScene() {
         this._displayControlGroup.children.forEach(function(element) {
-            console.log(element);            
+            console.log(element);
             if (element instanceof Scene) {
-                let scene = element;                
+                let scene = element;
                 element.floor.textures.forEach(function(element) {
                     element.enableInputs(new StoryBuilderInputHandler(scene), false);
                     element.disableDrag(new StoryBuilderInputHandler(scene), true);
@@ -206,21 +257,23 @@ export default class ConstructNewStoryPageState extends Phaser.State {
                 this.updateGroupWithScene(this._cachedJSONStrRep);
             } else if (this._sceneOrPuppetType == ConstructNewStoryPageState.PUPPET_TYPE) {
                 this._puppet = JSON.parse(this._cachedJSONStrRep, JsonUtil.revive);
-                this._puppet.x = 100;
-                this._puppet.y = 100;
-                this._puppet.body.disableInputs();
-                this._puppet.body.enableInputs(new StoryBuilderInputHandler(), false);
-                this._displayControlGroup.children.forEach(function(element) {
-                    console.log(element);
-                    if (element instanceof Scene) {
-                        element.floor.addContent(this._puppet)
-                    }
-                }, this);
+                this.positionAddedPuppetOnScene(this._puppet);
             }
             this._screenshotGenerated = false;
-            //this.saveToLocalStore();
-
         }
+    }
+
+    positionAddedPuppetOnScene(puppet) {
+        puppet.x = game.width * Math.random();
+        puppet.y = game.height * Math.random();
+        puppet.body.disableInputs();
+        puppet.body.enableInputs(new StoryPuppetBuilderInputHandler(game), false);
+        this._displayControlGroup.children.forEach(function(element) {
+            console.log(element);
+            if (element instanceof Scene) {
+                element.floor.addContent(puppet)
+            }
+        }, this);
     }
 
     saveToLocalStore() {
@@ -234,7 +287,7 @@ export default class ConstructNewStoryPageState extends Phaser.State {
         this._currentStory.storyPages.forEach(function(page) {
             if (page.pageId === this._currentPageId) {
                 page = this._currentPage;
-                this._currentPage.questionsAndAnswers = [];
+//                this._currentPage.questionsAndAnswers = [];
                 localStorage.setItem(this._currentStory.storyId, JSON.stringify(this._currentStory, JsonUtil.replacer));
             }
         }, this);
@@ -308,6 +361,32 @@ export default class ConstructNewStoryPageState extends Phaser.State {
         this._displayControlGroup.add(this._testResumePlayButton);
         this._soundAdded = false;
 
+        this._askQuestionButton = this.game.make.sprite(this.game.width - 420, 40, 'storybuilder/home_button');
+        this._askQuestionButton.anchor.setTo(0.5);
+        this._askQuestionButton.inputEnabled = true;
+        this._askQuestionButton.events.onInputDown.add(this.askQuestions, this);
+        this._askQuestionButton.input.priorityID = 2;
+        this._displayControlGroup.add(this._askQuestionButton);
+
+
+        this._editPuppet = game.add.button(this.game.width - 300, 100, 'scene/icons', this.editPuppet, this, 'ic_grid_on_black_24dp_1x.png', 'ic_grid_on_black_24dp_1x.png', 'ic_grid_on_black_24dp_1x.png', 'ic_grid_on_black_24dp_1x.png');
+        this._editPuppet.anchor.setTo(0.5, 0.5);
+        //this._editPuppet.visible = false;
+    }
+
+
+    editPuppet() {
+        this._displayControlGroup.add(new PuppetCustomizer(this.game, this.game.width, this.game.height, this.puppet, this.addPuppet, this));
+    }
+
+    //add or update Puppet
+    addPuppet(puppet) {
+        if (this.puppet == null) {
+            this.puppet = puppet;
+        }
+
+        this.positionAddedPuppetOnScene(this.puppet);
+        this._screenshotGenerated = false;        
     }
 
     testing() {
@@ -320,20 +399,47 @@ export default class ConstructNewStoryPageState extends Phaser.State {
         }
     }
 
-    createQuestionAndAnswer() {
-        console.log('this.storyid:' + this._currentStory.storyId + " and pageId:" + this._currentPage.pageId);
-        $("#select_choice").css({"visibility":"visible","display":"block"});
+    createQuestionAndAnswer(item, pointer) {
+        this._QuestionTypeOverlay = new QuestionTypeOverlay(game, game.width, game.height, item, pointer);
         idObject.storyId = this._currentStory.storyId;
         idObject.pageId = this._currentPage.pageId;
 
-        window.callback = this.returnID;
+        window.callback = this.saveQuestionInLocal;
         window.callbackContext = this;
     }
 
-	//  when user choose question type then it returns the story id and page id.
-    returnID()
-    {
+/*    //  when user choose question type then it returns the story id and page id.
+    returnID() {
         return idObject;
+    }
+*/
+    saveQuestionInLocal(get_json_from_local)
+    {
+        console.log(get_json_from_local);
+        for(var i = 0; i<get_json_from_local.length; i++)
+            {
+                this._currentPage.questionsAndAnswers.push(get_json_from_local[i]);
+            }
+        this.saveToLocalStore();
+        
+    }
+	
+    askQuestions() {
+        $("#Question_css").css({ "visibility": "visible", "display": "none" });
+        //        $("#question_ask_select_choice").css({"visibility":"visible","display":"block"});
+
+        idObject.storyId = this._currentStory.storyId;
+        idObject.pageId = this._currentPage.pageId;
+
+        window.callback = this.returnPageJson;
+        window.callbackContext = this;
+
+        window.display_question_multichoice();
+    }
+// return json of current page
+    returnPageJson()
+    {
+        return this._currentPage.questionsAndAnswers;
     }
 
     chooseBackGround(sprite, pointer) {
@@ -425,10 +531,10 @@ export default class ConstructNewStoryPageState extends Phaser.State {
             // item.addSound(music);
 
         }
-        if(!this._AttributeEditOverlay) {
-            this._AttributeEditOverlay = new AttributeEditOverlay(game, game.width, game.height);    
+        if (!this._AttributeEditOverlay) {
+            this._AttributeEditOverlay = new AttributeEditOverlay(game, game.width, game.height);
         }
-        
+
         this._AttributeEditOverlay.addClickedObject(item);
     }
 
@@ -441,12 +547,14 @@ export default class ConstructNewStoryPageState extends Phaser.State {
         this.saveToLocalStore();
     }
 
-    shutdown() {        
+    shutdown() {
     }
 
 
     render() {
         this.generateSnapShot();
+        // game.debug.inputInfo(32, 32);
+        // game.debug.pointer(game.input.activePointer);
 
     }
 
@@ -457,13 +565,61 @@ export default class ConstructNewStoryPageState extends Phaser.State {
             //update page                        
             this._screenshotGenerated = true;
             this._currentPage.imageData = imageDataURI;
+
+            //update to story level
+
+            this.updateGenereatedScreenShotIfTitlePage(imageDataURI);
+            //update to library 
             this.saveToLocalStore();
             this.showAllControls();
         }
 
     }
 
+
+    loadLibraryFromLocalStorage() {
+        //cache current story Id
+        let library = null;
+        let libraryJSON = localStorage.getItem(ConstructNewStoryPageState.LIBRARY_KEY);
+        if (libraryJSON) {
+            library = JSON.parse(libraryJSON);
+        }
+        return library;
+    }
+
+    loadLibraryStoryFromLocalStorage(library) {
+        //cache current story Id
+        let libStory = null;
+        if (library) {
+            if (library && library.stories)
+                library.stories.forEach(function(libraryStory) {
+                    if (libraryStory.storyId == this._currentStory.storyId) {
+                        libStory = libraryStory;
+                    }
+                }, this);
+        }
+        return libStory;
+    }
+
+
+    updateGenereatedScreenShotIfTitlePage(imageDataURI) {
+        if (this._isTitlePage) {
+            //get library from localstorage
+            let library = this.loadLibraryFromLocalStorage();
+            let curLibraryStory = this.loadLibraryStoryFromLocalStorage(library);
+            curLibraryStory.imageData = imageDataURI;
+
+            library.stories.forEach(function(libraryStory) {
+                if (libraryStory.storyId == this._currentStory.storyId) {
+                    libraryStory = curLibraryStory;
+                }
+            }, this);
+
+            localStorage.setItem(ConstructNewStoryPageState.LIBRARY_KEY, JSON.stringify(library));
+        }
+    }
 }
 
 ConstructNewStoryPageState.SCENE_TYPE = 'scenes';
 ConstructNewStoryPageState.PUPPET_TYPE = 'puppets';
+ConstructNewStoryPageState.LIBRARY_KEY = 'library';

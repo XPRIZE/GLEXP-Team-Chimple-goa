@@ -1,19 +1,27 @@
 {
-    "text": {
+    "human": {
         "key": "scene/icons",
-        "frame": "ic_widgets_black_24dp_1x.png"
+        "frame": "ic_widgets_black_24dp_1x.png",
+        "AudioPlus1" : "walk",
+        "AudioPlus2" : "dance",
+        "AudioPlus3" : "smile",
+        "AudioPlus4" : "jump"
     },
-    "audio": {
+    "animal": {
         "key": "scene/icons",
-        "frame": "ic_layers_black_24dp_1x.png"
+        "frame": "ic_layers_black_24dp_1x.png",
+        "AudioPlus1" : "walk",
+        "AudioPlus2" : "dance",
+        "AudioPlus3" : "smile",
+        "AudioPlus4" : "jump"
     },
-    "anim": {
+    "alen": {
         "key": "scene/icons",
-        "frame": "ic_insert_photo_black_24dp_1x.png"
-    },
-    "effects": {
-        "key": "scene/icons",
-        "frame": "ic_insert_photo_black_24dp_1x.png"
+        "frame": "ic_insert_photo_black_24dp_1x.png",
+        "AudioPlus1" : "walk",
+        "AudioPlus2" : "dance",
+        "AudioPlus3" : "smile",
+        "AudioPlus4" : "jump"
     },
     "forest_1_th": {
         "key": "storyBuilder/forest_1_th",
@@ -117,37 +125,12 @@
         "key": "storyBuilder/plus",
         "frame":null
     },
-    "AnimPlus1" : {
-        "key": "storyBuilder/plus",
+    "key1" : {
+        "key": "storyBuilder/sound_button",
         "frame":null
     },
-    "AnimPlus2" : {
-        "key": "storyBuilder/plus",
+    "key2" : {
+        "key" : "storyBuilder/sound_button",
         "frame":null
-    },
-    "AnimPlus3" : {
-        "key": "storyBuilder/plus",
-        "frame":null
-    },
-    "AnimPlus4" : {
-        "key": "storyBuilder/plus",
-        "frame":null
-    },
-    "EffectPlus1" : {
-        "key": "storyBuilder/plus",
-        "frame":null
-    },
-    "EffectPlus2" : {
-        "key": "storyBuilder/plus",
-        "frame":null
-    },
-    "EffectPlus3" : {
-        "key": "storyBuilder/plus",
-        "frame":null
-    },
-    "EffectPlus4" : {
-        "key": "storyBuilder/plus",
-        "frame":null
-    }                 
-                                       
+    }                                   
 }

@@ -70,14 +70,15 @@ export default class SelectStoryState extends Phaser.State {
         homeButton.anchor.setTo(0.5);
         homeButton.inputEnabled = true;
         homeButton.events.onInputDown.add(this.navigateToLibrary, this);
-
-        let imageKey = this._currentStoryId + "_image";
-        let imageSuccessfullyLoaded = this.game.cache.checkImageKey(imageKey);
+        
+        let imageSuccessfullyLoaded = this.game.cache.checkImageKey(this._imageKey);
         console.log("imageSuccessfullyLoaded:" + imageSuccessfullyLoaded);
         let storyMainImage = this.game.add.sprite(this.game.world.centerX, this.game.world.centerY, this._imageKey);
         storyMainImage.inputEnabled = true;
         storyMainImage.events.onInputDown.add(this.onDown, this);
         storyMainImage.anchor.setTo(0.5, 0.5);
+        storyMainImage.width = 500;
+        storyMainImage.height = 500;
         displayGroup.add(storyMainImage);
 
 

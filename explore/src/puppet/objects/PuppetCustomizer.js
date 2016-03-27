@@ -36,6 +36,7 @@ export default class PuppetCustomizer extends Phaser.Group {
                  this.puppet.blinkAct();
                  this.puppet.smileAct();
                  this.puppet.sadAct();
+                 this.puppet.walkAnimate();
             } else if (accType == "hairColor_chooser") {
                 if (this.puppet.head.getAccessory('frontHair')) {
                     this.puppet.head.getAccessory('frontHair').tint = parseInt(accName, 16);
@@ -69,7 +70,7 @@ export default class PuppetCustomizer extends Phaser.Group {
         chooser.x = 0;
         chooser.y = 0;
         
-        this.add(new Phaser.Button(game, this.width - 50, 20, 'scene/icons', function() {
+        this.add(new Phaser.Button(game, this.width - 50, 300, 'scene/icons', function() {
             this.removeChild(this.puppet);
             this.destroy();
             this.callback.call(this.callbackContext, this.puppet);
