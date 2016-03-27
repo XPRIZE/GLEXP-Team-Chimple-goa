@@ -26,7 +26,6 @@ export default class RoundButton extends Phaser.Button {
         this.name = frame;
         // this.scale.multiply(maxButtonWidth / this.width, maxButtonHeight / this.height);
         this.anchor.setTo(0.5, 0.5);
-        let buttonImage = null;
         if (frameData && frameData[frame]) {
             let info = frameData[frame];
             if (info.key) {
@@ -34,28 +33,34 @@ export default class RoundButton extends Phaser.Button {
                 frame = info.frame;
                 if (frame) {
                     // buttonImage = new Phaser.Sprite(game, layoutX, layoutY, key, frame);    
-                    buttonImage = new Phaser.Sprite(game, 0, 0, key, frame);
+                    this.buttonImage = new Phaser.Sprite(game, 0, 0, key, frame);
                 } else {
-                    buttonImage = new Phaser.Sprite(game, 0, 0, key);
+                    this.buttonImage = new Phaser.Sprite(game, 0, 0, key);
                     //  buttonImage = new Phaser.Sprite(game, layoutX, layoutY, key);
                 }
 
             } else if (info.image_data) {
                 //create sprite from image_data
                 // buttonImage = new Phaser.Sprite(game, layoutX, layoutY, frame);
-                buttonImage = new Phaser.Sprite(game, 0, 0, frame);
+                this.buttonImage = new Phaser.Sprite(game, 0, 0, frame);
             }
         } else {
             // buttonImage = new Phaser.Sprite(game, layoutX, layoutY, key, frame);
-            buttonImage = new Phaser.Sprite(game, 0, 0, key, frame);
+            this.buttonImage = new Phaser.Sprite(game, 0, 0, key, frame);
         }
-        if (buttonImage) {
-            buttonImage.anchor.setTo(0.5, 0.5);
-            let buttonScale = Math.min(buttonLength / buttonImage.width, buttonLength / buttonImage.height, 1);
-            buttonScale = Math.sqrt(buttonScale * buttonScale / 2);
-            buttonImage.scale.multiply(buttonScale, buttonScale);
+        if (this.buttonImage) {
+            this.buttonImage.anchor.setTo(0.5, 0.5);
+            let buttonScale = Math.min(buttonLength / this.buttonImage.width, buttonLength / this.buttonImage.height, 1);
+            if(style.iconType != 'round') {
+                buttonScale = Math.sqrt(buttonScale * buttonScale / 2);            
+            }
+            this.buttonImage.scale.multiply(buttonScale, buttonScale);
             // buttonPanel.addChild(buttonImage);
-            this.addChild(buttonImage);
+            this.addChild(this.buttonImage);
         }
+    }
+    
+    updateImage(key, frame) {
+        this.buttonImage.loadTexture(key, frame);
     }
 }

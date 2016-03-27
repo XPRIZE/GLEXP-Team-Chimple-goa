@@ -1,6 +1,6 @@
 export default class TabButton extends Phaser.Button {
     constructor(game, x, y, maxButtonWidth, maxButtonHeight, key, frame, callback, callbackContext, frameData, style) {
-        let frame1 = new Phaser.Frame(0, 0, 0, maxButtonWidth, maxButtonWidth, 'button_over.png');
+        let frame1 = new Phaser.Frame(0, 0, 0, maxButtonWidth, maxButtonHeight, 'button_over.png');
         let frame2 = new Phaser.Frame(1, maxButtonWidth + 1, 0, maxButtonWidth, maxButtonHeight, 'button_up.png');
         let frame3 = new Phaser.Frame(2, maxButtonWidth * 2 + 2, 0, maxButtonWidth, maxButtonHeight, 'button_down.png');
         let fd = new Phaser.FrameData();
@@ -8,7 +8,7 @@ export default class TabButton extends Phaser.Button {
         fd.addFrame(frame2);
         fd.addFrame(frame3);
 
-        let bmd = new Phaser.BitmapData(game, name, maxButtonWidth * 3 + 3, maxButtonHeight);
+        let bmd = new Phaser.BitmapData(game, frame, maxButtonWidth * 3 + 3, maxButtonHeight);
         bmd.context.fillStyle = style.overFillStyle;
         bmd.rect(0, 0, maxButtonWidth, maxButtonHeight);
         bmd.context.fillStyle = style.upFillStyle;
@@ -16,12 +16,12 @@ export default class TabButton extends Phaser.Button {
         bmd.context.fillStyle = style.downFillStyle;
         bmd.rect(maxButtonWidth *2 + 2, 0, maxButtonWidth, maxButtonHeight);        
 
-        game.cache.addBitmapData(name, bmd, fd);
+        game.cache.addBitmapData(frame, bmd, fd);
 
-        super(game, x, y, game.cache.getBitmapData(name), callback, callbackContext, 'button_over.png', 'button_up.png', 'button_down.png', 'button_up.png');
+        super(game, x, y, game.cache.getBitmapData(frame), callback, callbackContext, 'button_over.png', 'button_up.png', 'button_down.png', 'button_up.png');
 
         this.input.priorityID = 5;
-        this.name = name;
+        this.name = frame;
         this.anchor.setTo(0.5, 0.5);
         let buttonImage = null;
         if (frameData && frameData[frame]) {
@@ -52,4 +52,9 @@ export default class TabButton extends Phaser.Button {
             this.addChild(buttonImage);
         }
     }
+    
+    updateImage(key, frame) {
+        this.buttonImage.loadTexture(key, frame);
+    }
+    
 }

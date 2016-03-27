@@ -16,7 +16,7 @@ export default class ConsoleBar extends Phaser.Group {
         backBar.drawRect(0, 0, game.width, gridHeight);
         backBar.endFill();
         
-        this.leftButtonGrid = this.addChild(new ButtonGrid(game, 'scene/icons', gridWidth, gridHeight , 1, this.buttonsPerGrid, true, this.callback, this));
+        this.leftButtonGrid = this.addChild(new ButtonGrid(game, 'scene/icons', gridWidth, gridHeight , 1, this.buttonsPerGrid, true, this.callback, this, null, {iconType: 'round'}));
         this.leftButtonGrid.buttons = ['Animation.png', 'Animation_onclick.png', 'HairTransparent.png', 'Eyes.png', 'Face_shape.png', 'Glasses.png'];
         
         this.infoBar = this.addChild(new Phaser.Graphics(game, gridWidth, 0));
@@ -47,5 +47,9 @@ export default class ConsoleBar extends Phaser.Group {
     
     get text() {
         return this._text;
+    }
+    
+    callback(tabName, buttonName) {
+        this.leftButtonGrid.updateButtonImage(buttonName, 'scene/icons', 'Caps.png');
     }
 }
