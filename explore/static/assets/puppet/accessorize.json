@@ -246,6 +246,13 @@
     
   },
   "beard_chooser": {
+    
+      "singer_beard":{
+       "Beard":{
+         "key": "puppet/characters",
+         "frame": "singer_beard.png"
+         }
+      },
       "Beard_1":{
        "Beard":{
          "key": "puppet/character",
@@ -300,20 +307,15 @@
          "frame": "designer_mustache.png"
         }
      },  
-      "photographer_beard":{
-          "Beard":{
-              "key": "puppet/characters",
-              "frame": "photographer_beard.png",
-               "anchorY":0.25
-          }
-      },
-      "singer_beard":{
-           "Beard":{
-                 "key": "puppet/characters",
-                 "frame": "singer_beard.png",
-                  "anchorY":0.25
-           }
-             },
+       "photographer_beard":{
+       "Beard":{
+         "key": "puppet/character",
+         "frame": "photographer_beard.png"
+        }
+     },     
+                  
+      
+                  
    
     "head_rect": {
       "HeadShape": {
@@ -435,21 +437,27 @@
       "BackHair": {
         "key": "puppet/characters",
         "frame": "scientist_back_hair.png",
+        "anchorX":0.2,
         "anchorY":0.3,
+        "offsetX":0,
         "offsetY":0
       },
       "FrontHair": {
         "key": "puppet/characters",
         "frame": "scientist_front_hair.png",
+        "anchorX":0.02,
         "anchorY":0.3,
+        "offsetX":0,
         "offsetY":0
       }
       },
         "photographer_hair":{
           "FrontHair": {
          "key": "puppet/characters",
-        "frame": "photographer_hair.png", 
-        "anchorY":0.3,   
+        "frame": "photographer_hair.png",
+        "anchorX":0.15,
+        "anchorY":0.3,
+        "offsetX":0.13,
         "offsetY":0
       },
       "BackHair": {
@@ -459,9 +467,11 @@
         "singer_hair_do":{
           "FrontHair": {
          "key": "puppet/characters",
-        "frame": "singer_hair_do.png", 
+        "frame": "singer_hair_do.png",
+        "anchorX":0.15,
         "anchorY":0.2,
-         "offsetY":0
+        "offsetX":0.13,
+        "offsetY":0
       },
        
         "BackHair": {
@@ -712,11 +722,13 @@
         "offsetY":0.3
         } 
       },
-     "mouth1":{
+      "mouth1":{
           "Mouth":{
               "key":"puppet/eye_mouth",
               "frame":"mouth 1.png",
+               "anchorX":0.45,
                "anchorY":0.5,
+               "offsetX":0.5,
                "offsetY":0.8
           }
       },
@@ -724,23 +736,29 @@
           "Mouth":{
               "key":"puppet/eye_mouth",
               "frame":"mouth 2.png",
-               "anchorY":0.5, 
+               "anchorX":0.45,
+               "anchorY":0.5,
+               "offsetX":0.5,
                "offsetY":0.8
           }
       },
       "mouth3":{
           "Mouth":{
               "key":"puppet/eye_mouth",
-              "frame":"mouth 3.png",  
-               "anchorY":0.5,  
+              "frame":"mouth 3.png",
+               "anchorX":0.45,
+               "anchorY":0.5,
+               "offsetX":0.5,
                "offsetY":0.8
           }
       },
        "mouth4":{
           "Mouth":{
               "key":"puppet/eye_mouth",
-              "frame":"mouth 4.png", 
+              "frame":"mouth 4.png",
+               "anchorX":0.45,
                "anchorY":0.5,
+               "offsetX":0.5,
                "offsetY":0.8
           }
       },
@@ -748,15 +766,19 @@
           "Mouth":{
               "key":"puppet/eye_mouth",
               "frame":"mouth 5.png",
-              "anchorY":0.5,
-              "offsetY":0.8
+               "anchorX":0.45,
+               "anchorY":0.5,
+               "offsetX":0.5,
+               "offsetY":0.8
           }
       },
        "mouth6":{
           "Mouth":{
               "key":"puppet/eye_mouth",
               "frame":"mouth 6.png",
-               "anchorY":0.5, 
+               "anchorX":0.45,
+               "anchorY":0.5,
+               "offsetX":0.5,
                "offsetY":0.8
           }
       }
