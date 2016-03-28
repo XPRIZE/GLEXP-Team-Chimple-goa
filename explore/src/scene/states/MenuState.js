@@ -2,7 +2,6 @@ export default class MenuState extends Phaser.State {
 
     preload() {
         this.load.atlas('scene/icons', "assets/scene/icons.png", "assets/scene/icons.json");
-        this.load.atlas('misc/theme', "assets/misc/theme.png", "assets/misc/theme.json");
     }
     
 	create() {
@@ -17,7 +16,7 @@ export default class MenuState extends Phaser.State {
 	}
 
     goExplore() {
-        this.game.state.start('SceneGameState', true, false, 'school');
+        this.game.state.start('SceneGameState', true, false, 'bank');
     }
 
     goEdit() {

@@ -7,15 +7,10 @@ var idObject = new Object();
 
 export default class QuestionTypeOverlay extends Phaser.Group {
     //container to edit item properties
-    constructor(game, width, height, clickedObject, pointer, callBack, callBackFunction, object) {
+    constructor(game, width, height, clickedObject, pointer) {
         super(game);
         this._width = width;
         this._height = height;
-        
-        this._callback = callBackFunction;
-        this._callbackContext = callBack;
-        this._object = object;
-        
         this._recordingPauseSignal = new RecordingPauseSignal();
         this._recordingResumeSignal = new RecordingResumeSignal();
 
@@ -59,16 +54,23 @@ export default class QuestionTypeOverlay extends Phaser.Group {
         this._overlayBitMap.destroy();
         this._overlayDisplaySprite.destroy();
         this._clickedObject.inputEnabled = true;
-                
-        window.display_multiple_choice_pop(this._callback, this._callbackContext, this._object);
+        $('body').append('<div id="mask"></div>');
+        $('#mask').fadeIn(300);
+		$("#multiple_choice_css").fadeIn(1000);
+		$("#multiple_choice_css").css({"visibility":"visible","display":"block"});
     }
     
     matchingPopUp()
     {
         this._overlayBitMap.destroy();
         this._overlayDisplaySprite.destroy();
+        this._clickedObject.inputEnabled = true;
+        $('body').append('<div id="mask"></div>');
+        $('#mask').fadeIn(300);
+		$("#image_slider").fadeIn(1000);
+		$("#image_slider").css({"visibility":"visible","display":"block"});
         
-        window.display_matching_pop(this._callback, this._callbackContext, this._object);
+        window.slide();
     }
     
     

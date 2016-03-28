@@ -11,7 +11,6 @@ import PersistRecordingInformationSignal from '../objects/PersistRecordingInform
 import RecordInfo from '../objects/RecordInfo.js';
 import StoryUtil from '../objects/StoryUtil.js';
 import SoundData from '../../scene/objects/SoundData.js';
-import RecordingPlayEndSignal from '../objects/RecordingPlayEndSignal.js'
 
 var _ = require('lodash')._;
 
@@ -37,22 +36,22 @@ export default class RecordingManager extends Phaser.Group {
 
 
     createControls(game) {
-        // this.recordButton = new Phaser.Sprite(game, game.width - 60, 80, 'storyBuilder/record');
-        // this.recordButton.fixedToCamera = true;
-        // this.recordButton.inputEnabled = true;
-        // this.recordButton.scale.setTo(0.5, 0.5);
-        // this.add(this.recordButton);
-        // this.recordButton.events.onInputDown.add(this.toggleRecording, this);
-        // this.add(this.recordButton);
+        this.recordButton = new Phaser.Sprite(game, game.width - 60, 80, 'storyBuilder/record');
+        this.recordButton.fixedToCamera = true;
+        this.recordButton.inputEnabled = true;
+        this.recordButton.scale.setTo(0.5, 0.5);
+        this.add(this.recordButton);
+        this.recordButton.events.onInputDown.add(this.toggleRecording, this);
+        this.add(this.recordButton);
 
 
-        // this.playButton = new Phaser.Sprite(game, game.width - 120, 80, 'storyBuilder/pause');
-        // this.playButton.alpha = 1; //hidden until user records first time
-        // this.playButton.fixedToCamera = true;
-        // this.playButton.inputEnabled = true;
-        // this.playButton.scale.setTo(0.5, 0.5);
-        // this.playButton.events.onInputDown.add(this.narrateStory, this);
-        // this.add(this.playButton);
+        this.playButton = new Phaser.Sprite(game, game.width - 120, 80, 'storyBuilder/pause');
+        this.playButton.alpha = 1; //hidden until user records first time
+        this.playButton.fixedToCamera = true;
+        this.playButton.inputEnabled = true;
+        this.playButton.scale.setTo(0.5, 0.5);
+        this.playButton.events.onInputDown.add(this.narrateStory, this);
+        this.add(this.playButton);
 
     }
 
@@ -66,7 +65,7 @@ export default class RecordingManager extends Phaser.Group {
         if (game._inRecordingMode) {
             game._inRecordingMode = false;
             //update texture of button
-            // this.recordButton.loadTexture('storyBuilder/record');
+            this.recordButton.loadTexture('storyBuilder/record');
             this._recordingStopSignal.dispatch();
         } else {
             this.recordingStartTime = new Date();
@@ -76,23 +75,10 @@ export default class RecordingManager extends Phaser.Group {
 
             game._inRecordingMode = true;
             //update texture of button
-            // this.recordButton.loadTexture('storyBuilder/stop');
+            this.recordButton.loadTexture('storyBuilder/stop');
         }
     }
 
-
-    hideAllControls() {
-        // this.recordButton.visible = false;
-        // this.playButton.visible = false;
-    }
-    
-    
-    showAllControls() {
-        // this.recordButton.visible = true;
-        // this.playButton.visible = true;
-        
-    }
-    
     registerToListeners() {
         game._inRecordingMode = false;
         game._inPlayMode = false;
@@ -125,8 +111,6 @@ export default class RecordingManager extends Phaser.Group {
         
         this._playResumeSignal = new PlayResumeSignal();
         this._playResumeSignal.add(this.resumePlay, this);
-        
-        this._recordingPlayEndSignal = new RecordingPlayEndSignal();
     }
     
     
@@ -211,13 +195,6 @@ export default class RecordingManager extends Phaser.Group {
                 let recordedData = this.findNearestUpdateAttributeInformationByCurrentPlayCounter(this.currentPlayCounter);
                 console.log('recordedData at counter:' + this.currentPlayCounter + " is:" + recordedData);
                 this._updateAttributeSignal.dispatch(recordedData);
-                
-                if(!game._inPlayMode)
-                {
-                    //this.playButton.inputEnabled = true;
-                    // this.recordButton.inputEnabled = true;
-                    this._recordingPlayEndSignal.dispatch();
-                }
             }
         }
     }
@@ -258,7 +235,7 @@ export default class RecordingManager extends Phaser.Group {
     }
 
     addToMap(data) {
-        let recordInfo = new RecordInfo(data.uniquename, data.x, data.y, data.scaleX, data.scaleY, data.angle, data.recordingAttributeKind, game.camera.x, game.camera.y);
+        let recordInfo = new RecordInfo(data.uniquename, data.x, data.y, data.scaleX, data.scaleY, data.angle, data.recordingAttributeKind);
         this.recordSpecialTextAttribute(data, recordInfo);
         this.recordSpecialSoundAttribute(data, recordInfo);
         let spriteMap = this._sceneRecordingMap.get(this.currentRecordingCounter);
@@ -269,7 +246,7 @@ export default class RecordingManager extends Phaser.Group {
         } else {
             spriteMap.set(data.uniquename, recordInfo.toJSON());
         }
-        // console.log('recordInfo:' + JSON.stringify(recordInfo) + "at recording counter:" + this.currentRecordingCounter);
+        console.log('recordInfo:' + JSON.stringify(recordInfo) + "at recording counter:" + this.currentRecordingCounter);
         
         if(recordInfo.recordingAttributeKind === RecordInfo.TEXT_RECORDING_TYPE) {
             console.log('text message received at ' + this.currentRecordingCounter);
@@ -293,7 +270,7 @@ export default class RecordingManager extends Phaser.Group {
 
     computeRecordingTimeCounters(delta) {
         this.currentRecordingCounter += delta;
-        // console.log('currentRecordingCounter updated:' + this.currentRecordingCounter);
+        console.log('currentRecordingCounter updated:' + this.currentRecordingCounter);
     }
 
     computePlayTimeCounters(delta) {

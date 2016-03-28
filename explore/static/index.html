@@ -581,11 +581,10 @@ body{
 	<script src="scripts/phaser.min.js"></script>
 	<script src="scripts/game.js"></script>
     <script src="jquery.bpopup.min.js"></script>
-    <script src="scripts/phaser-plugin-isometric.min.js"></script>
         
     
 <script type="text/javascript" >
-
+    
 // starting of json. that will contain all the data
 var question_answer = new Array();
 
@@ -594,7 +593,7 @@ var get_json_from_local;
 get_json_from_local = JSON.parse(localStorage.getItem('myStorage'));
 
     console.log(get_json_from_local);
-//    localStorage.setItem('myStorage', JSON.stringify(question_answer));
+    
 // if not storage then create it
 if(!get_json_from_local || get_json_from_local.length==0)
     localStorage.setItem('myStorage', JSON.stringify(question_answer));
@@ -606,20 +605,6 @@ var story_id, page_id;
 // store the answers of the user
 var answer_sheet = new Array();    
 
-var questionAnswerObject, my_callback, my_callbackContext;
-    
-    // display multiple_choice popup to the user
-    
-    function display_multiple_choice_pop(callback1, callbackContext1, object)
-    {
-        questionAnswerObject = object;
-        my_callback = callback1;
-        my_callbackContext = callbackContext1;
-        $('body').append('<div id="mask"></div>');
-        $('#mask').fadeIn(300);
-		$("#multiple_choice_css").fadeIn(1000);
-		$("#multiple_choice_css").css({"visibility":"visible","display":"block"});
-    }
     
     
     // matching type question creation start
@@ -627,19 +612,15 @@ var questionAnswerObject, my_callback, my_callbackContext;
     var ImageID = new Array();
     //  image slider
     
-    function display_matching_pop(callback, callbackContext, object)
+    function slide()
     {
-        questionAnswerObject = object;
-        my_callback = callback;
-        my_callbackContext = callbackContext;
+        // get the story id and page id
+                   var v = window.callback.call(window.callbackContext);
+                   story_id = v.storyId;
+                   page_id = v.pageId;
         
-        $('body').append('<div id="mask"></div>');
-        $('#mask').fadeIn(300);
-		$("#image_slider").fadeIn(1000);
-		$("#image_slider").css({"visibility":"visible","display":"block"});
-
         var arr = ["assets/apple.png", "assets/close_pop.png", "assets/fruit.jpg", "assets/icons.png", "assets/scene.png", "assets/test.png", "assets/apple.png", "assets/close_pop.png", "assets/fruit.jpg", "assets/icons.png", "assets/scene.png", "assets/test.png", "assets/apple.png", "assets/close_pop.png", "assets/fruit.jpg", "assets/icons.png", "assets/scene.png", "assets/test.png", "assets/apple.png", "assets/close_pop.png", "assets/fruit.jpg", "assets/icons.png", "assets/scene.png", "assets/test.png", "assets/apple.png", "assets/close_pop.png", "assets/fruit.jpg", "assets/icons.png", "assets/scene.png", "assets/test.png"];
-
+        
                 $("#image_slider" ).append('<input type="image" src="assets/close_pop.png" style="margin-left:98%;" id="slider_close_btn"/>');
                     
         
@@ -656,15 +637,8 @@ var questionAnswerObject, my_callback, my_callbackContext;
     
     function add_Question()
     {
-        console.log(questionAnswerObject);
-        console.log(my_callback);
-        console.log(my_callbackContext);
-        
-                    if(!ImageID)
-                        return 0;
-        
 						get_json_from_local = JSON.parse(localStorage.getItem('myStorage'));
-/*						var arrayIndex = 0;
+						var arrayIndex = 0;
 						for(var i=0; i<get_json_from_local.length; i++)
 						{
 							if(get_json_from_local[i].pageId==page_id && get_json_from_local[i].storyId == story_id)
@@ -673,7 +647,7 @@ var questionAnswerObject, my_callback, my_callbackContext;
 								flag++;
 							}
 						}
-*/
+
                         var story_details = new Object();
                         var question = new Array();
                         var question_details = new Object();
@@ -681,7 +655,7 @@ var questionAnswerObject, my_callback, my_callbackContext;
                         var answer_choice_details = new Object();
 
         
-/*						if(get_json_from_local.length==0)
+						if(get_json_from_local.length==0)
 						{
 							story_details.storyId = story_id;
 							story_details.pageId = page_id;
@@ -691,28 +665,22 @@ var questionAnswerObject, my_callback, my_callbackContext;
 							
 							localStorage.setItem('myStorage', JSON.stringify(question_answer));
 						}
-*/      
+        
                         
 
                         for(var v= 0 ; v<ImageID.length; v++)
                         {
                             get_json_from_local = JSON.parse(localStorage.getItem('myStorage'));
-                            
                             question_details.questionkind = "Matching";
-                            question_details.order = (get_json_from_local.length+1).toString();
+                            question_details.order = (get_json_from_local[arrayIndex].question.length+1).toString();
                             question_details.questionText = ImageID[v];
-                            question_details.correctAnswer = ImageID[v];
-                            question_answer.push(question_details);
                             
-                            localStorage.setItem('myStorage', JSON.stringify(question_answer));
+                            get_json_from_local[arrayIndex].question.push(question_details);
+                            localStorage.setItem('myStorage', JSON.stringify(get_json_from_local));
                         }
         
         get_json_from_local = JSON.parse(localStorage.getItem('myStorage'));
-        
-        var v = my_callback.call(my_callbackContext, get_json_from_local);
-        question_answer = [];
-        localStorage.setItem('myStorage', JSON.stringify(question_answer));
-
+        console.log(get_json_from_local);
         $("#image_slider").hide();
         $('#mask').remove();
     }
@@ -733,16 +701,20 @@ var questionAnswerObject, my_callback, my_callbackContext;
     }
     
     // end image sider
-
+    
 
 /* start js code :- create multiple choice questions*/    
-
+    
 // 			load the questions from localStorage and ask to the user
 			function display_question_multichoice()
 			{
-                   var Question_Answer_JSON = window.callback.call(window.callbackContext);
+                   var v = window.callback.call(window.callbackContext);
+                   story_id = v.storyId;
+                   page_id = v.pageId;
                 
-                if(!Question_Answer_JSON)
+                get_json_from_local = JSON.parse(localStorage.getItem('myStorage'));
+
+                if(get_json_from_local.length==0)
                     {
                         return 0;
                     }
@@ -762,7 +734,7 @@ var questionAnswerObject, my_callback, my_callbackContext;
                 
 				var index;
 				// get the index of object from json, whose question we want to display
-/*				for(var i=0; i<get_json_from_local.length; i++)
+				for(var i=0; i<get_json_from_local.length; i++)
 				{
 					if(get_json_from_local[i].pageId==page_id && get_json_from_local[i].storyId == story_id)
 					{
@@ -770,13 +742,13 @@ var questionAnswerObject, my_callback, my_callbackContext;
 						break;
 					}
 				}
-*/
+
                 
                 // check the question number of MultiChoice
                 var checkflag = 0; // is used to findout whether we are in last of question or not
-                for(var i = question_number; i<Question_Answer_JSON.length; i++)
+                for(var i = question_number; i<get_json_from_local[index].question.length; i++)
                     {
-                        if(Question_Answer_JSON[i].questionkind=="MultiChoice")
+                        if(get_json_from_local[index].question[i].questionkind=="MultiChoice")
                         {
                             question_number = i;
                             checkflag++;
@@ -786,29 +758,27 @@ var questionAnswerObject, my_callback, my_callbackContext;
 
                 
 				
-				var len = Question_Answer_JSON.length;
+				var len = get_json_from_local[index].question.length;
 				if(question_number<len && checkflag!=0)
 				{
 						hidepopup("#Question_css");
 						hidepopup("#MatchingQuestion_css");
 						showpopup("#Question_css");
 						
-						console.log(Question_Answer_JSON[question_number]);
-                    
 						setTimeout(function(){
 						
 //						console.log(get_json_from_local[index].question[question_number].choices[0].data);
 						
-				document.getElementById('answer_1').value = Question_Answer_JSON[question_number].choices[0].data; 
-				document.getElementById('answer_2').value = Question_Answer_JSON[question_number].choices[1].data; 
-				document.getElementById('answer_3').value = Question_Answer_JSON[question_number].choices[2].data; 
-				document.getElementById('answer_4').value = Question_Answer_JSON[question_number].choices[3].data;  
+						document.getElementById('answer_1').value = get_json_from_local[index].question[question_number].choices[0].data;
+						document.getElementById('answer_2').value = get_json_from_local[index].question[question_number].choices[1].data;
+						document.getElementById('answer_3').value = get_json_from_local[index].question[question_number].choices[2].data;
+						document.getElementById('answer_4').value = get_json_from_local[index].question[question_number].choices[3].data;
 						
-						document.getElementById('question').innerHTML = Question_Answer_JSON[question_number].questionText;
-						document.getElementById('answer_1').parentNode.lastChild.nodeValue = Question_Answer_JSON[question_number].choices[0].data;
-						document.getElementById('answer_2').parentNode.lastChild.nodeValue = Question_Answer_JSON[question_number].choices[0].data;
-						document.getElementById('answer_3').parentNode.lastChild.nodeValue = Question_Answer_JSON[question_number].choices[0].data;
-						document.getElementById('answer_4').parentNode.lastChild.nodeValue = Question_Answer_JSON[question_number].choices[0].data;
+						document.getElementById('question').innerHTML = get_json_from_local[index].question[question_number].questionText;
+						document.getElementById('answer_1').parentNode.lastChild.nodeValue = get_json_from_local[index].question[question_number].choices[0].data;
+						document.getElementById('answer_2').parentNode.lastChild.nodeValue = get_json_from_local[index].question[question_number].choices[1].data;
+						document.getElementById('answer_3').parentNode.lastChild.nodeValue = get_json_from_local[index].question[question_number].choices[2].data;
+						document.getElementById('answer_4').parentNode.lastChild.nodeValue = get_json_from_local[index].question[question_number].choices[3].data;
 						question_number++;
 						
 						}, 500);
@@ -836,8 +806,6 @@ var questionAnswerObject, my_callback, my_callbackContext;
 // 			load the questions from localStorage and ask to the user
 			function display_question_matching()
 			{
-                var Question_Answer_JSON = window.callback.call(window.callbackContext);
-                
                 if(question_number!=0)
                     {
                         for(var i =0 ; i<ImageID.length; i++)
@@ -849,10 +817,16 @@ var questionAnswerObject, my_callback, my_callbackContext;
                             }
                         $('#MatchingQuestion_css').html('');
                     }
+                get_json_from_local = JSON.parse(localStorage.getItem('myStorage'));
+
+                if(get_json_from_local.length==0)
+                    {
+                        return 0;
+                    }
 
 				var index;
 				// get the index of object from json, whose question we want to display
-/*				for(var i=0; i<get_json_from_local.length; i++)
+				for(var i=0; i<get_json_from_local.length; i++)
 				{
 					if(get_json_from_local[i].pageId==page_id && get_json_from_local[i].storyId == story_id)
 					{
@@ -860,12 +834,12 @@ var questionAnswerObject, my_callback, my_callbackContext;
 						break;
 					}
 				}
-*/
+
                 // check the question number of Matching type
                 var checkflag = 0; // is used to findout whether we are in last of question or not
-                for(var i = question_number; i<Question_Answer_JSON.length; i++)
+                for(var i = question_number; i<get_json_from_local[index].question.length; i++)
                     {
-                        if(Question_Answer_JSON[i].questionkind == "Matching")
+                        if(get_json_from_local[index].question[i].questionkind=="Matching")
                         {
                             question_number = i;
                             checkflag++;
@@ -873,17 +847,18 @@ var questionAnswerObject, my_callback, my_callbackContext;
                         }
                     } 
                 
-                var len = Question_Answer_JSON.length;
+                var len = get_json_from_local[index].question.length;
 				if(question_number<len && checkflag!=0)
                 {
                     hidepopup("#Question_css");
                     hidepopup("#MatchingQuestion_css");
                     showpopup("#MatchingQuestion_css");
 
-
+                    var element = get_json_from_local[index].question[question_number];
+                    console.log(element);
                         $("#MatchingQuestion_css" ).append('<input type="image" src="assets/close_pop.png" style="margin-left:98%;" id="image_slider_close_btn"/>');
                                 
-                        $("#MatchingQuestion_css" ).append('<img src="'+Question_Answer_JSON[question_number].questionText+'" style="height:30%; width:20%; margin-left : 10%;" />');
+                        $("#MatchingQuestion_css" ).append('<img src="'+element.questionText+'" style="height:30%; width:20%; margin-left : 10%;" />');
                     
                         $("#MatchingQuestion_css" ).append('<label>hello</label><br>');
                         $("#MatchingQuestion_css" ).append('<label>hello</label><br>');
@@ -898,7 +873,6 @@ var questionAnswerObject, my_callback, my_callbackContext;
                 {
                     hidepopup("#Question_css");
                     hidepopup("#MatchingQuestion_css");
-                    question_number = 0;
                 }
 				
 			}
@@ -960,10 +934,7 @@ var questionAnswerObject, my_callback, my_callbackContext;
     function chimple_html_to_phaser()
         {
             var textvalue = document.getElementById("text_area").value;
-            window.callback.call(window.callbackContext, textvalue, text_color, background_color);
-            $("#login-box").hide();
-            $("#mask").remove();
-            document.getElementById("text_area").value = '';     
+            window.callback.call(window.callbackContext, textvalue, text_color, background_color);     
             console.log("textvalue : "+ textvalue +" text_color : "+ text_color +" background_color : "+ background_color);
         }
     
@@ -1064,6 +1035,9 @@ if(document.selection && document.selection.empty) {
     
 /* end js code :- to show the details in popup when user select any text */
     
+    </script>
+    
+<script type="text/javascript">
 
     var matching_question_number;
     
@@ -1239,15 +1213,6 @@ $(document).ready(function() {
     
 			   // click close button of multiple choice question popup
 			   $("#close_btn_multiple_choice").click(function(){
-                    get_json_from_local = JSON.parse(localStorage.getItem('myStorage'));
-                    console.log(get_json_from_local);
-                    console.log("hello");
-                   
-                   var v = my_callback.call(my_callbackContext, get_json_from_local);
-                    question_answer = [];
-                    localStorage.setItem('myStorage', JSON.stringify(question_answer));
-
-                   
 				hidepopup("#multiple_choice_css");
 			   });
 			   
@@ -1258,7 +1223,6 @@ $(document).ready(function() {
 			   
 			   // click close button of question popup
 			   $("#close_btn_question").click(function(){
-                   question_number = 0;
 				hidepopup("#Question_css");
 			   });
 			   
@@ -1279,9 +1243,9 @@ $(document).ready(function() {
 				$("#multiple_submit_btn_css").click(function() {
 					var flag=0, arrayIndex;
                     
-                    get_json_from_local = JSON.parse(localStorage.getItem('myStorage'));
-//                   story_id = v.storyId;
-//                   page_id = v.pageId;                    
+                   var v = window.callback.call(window.callbackContext);
+                   story_id = v.storyId;
+                   page_id = v.pageId;                    
                     
 					if($("#multiple_question").val()=='')
 					{
@@ -1325,7 +1289,7 @@ $(document).ready(function() {
 					{
 						get_json_from_local = JSON.parse(localStorage.getItem('myStorage'));
 						
-/*						for(var i=0; i<get_json_from_local.length; i++)
+						for(var i=0; i<get_json_from_local.length; i++)
 						{
 							if(get_json_from_local[i].pageId==page_id && get_json_from_local[i].storyId == story_id)
 							{
@@ -1336,7 +1300,7 @@ $(document).ready(function() {
 
 						if(get_json_from_local.length==0)
 						{
-*/							var story_details = new Object();
+							var story_details = new Object();
 							var question = new Array();
 							var question_details = new Object();
 							var answer_choice = new Array();
@@ -1366,7 +1330,7 @@ $(document).ready(function() {
 							
 							answer_choice.push(answer_choice_details);
 							
-							question_details.order = (get_json_from_local.length+1).toString();
+							question_details.order = "1";
 							question_details.questionkind = "MultiChoice";
 							question_details.questionText = $("#multiple_question").val();
 							question_details.correctAnswers = $("#correct_answer").val();
@@ -1374,14 +1338,14 @@ $(document).ready(function() {
 							
 							question.push(question_details);
 							
-//							story_details.storyId = story_id;
-//							story_details.pageId = page_id;
-//							story_details.question = question;
+							story_details.storyId = story_id;
+							story_details.pageId = page_id;
+							story_details.question = question;
 							
-							question_answer.push(question_details);
+							question_answer.push(story_details);
 							
 							localStorage.setItem('myStorage', JSON.stringify(question_answer));
-/*						}
+						}
 						else if(flag!=0)
 						{
 							var story_details = new Object();
@@ -1472,7 +1436,7 @@ $(document).ready(function() {
 							
 							localStorage.setItem('myStorage', JSON.stringify(get_json_from_local));
 						}						
-*/						
+						
 //						console.log(JSON.stringify(question_answer));
 						
 //							console.log(question_answer[0].question);
