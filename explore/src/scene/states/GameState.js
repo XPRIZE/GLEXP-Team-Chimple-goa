@@ -22,7 +22,7 @@ export default class GameState extends Phaser.State {
         this.sceneJsonKey = this.sceneKey + '_scene';
     }
     preload() {
-        game.load.atlas(this.sceneKey, 'assets/'+this.sceneKey+'.png', 'assets/'+this.sceneKey+'.json');
+        //game.load.atlas(this.sceneKey, 'assets/'+this.sceneKey+'.png', 'assets/'+this.sceneKey+'.json');
         game.load.text(this.sceneJsonKey, 'assets/'+this.sceneJsonKey+'.json');
     }
 
