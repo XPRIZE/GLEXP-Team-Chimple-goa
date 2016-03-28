@@ -1,5 +1,5 @@
 export default class TabButton extends Phaser.Button {
-    constructor(game, x, y, maxButtonWidth, maxButtonHeight, key, frame, callback, callbackContext, frameData, style) {
+    constructor(game, x, y, maxButtonWidth, maxButtonHeight, key, frame, callback, callbackContext, frameData, style, priorityID) {
         let frame1 = new Phaser.Frame(0, 0, 0, maxButtonWidth, maxButtonHeight, 'button_over.png');
         let frame2 = new Phaser.Frame(1, maxButtonWidth + 1, 0, maxButtonWidth, maxButtonHeight, 'button_up.png');
         let frame3 = new Phaser.Frame(2, maxButtonWidth * 2 + 2, 0, maxButtonWidth, maxButtonHeight, 'button_down.png');
@@ -20,7 +20,7 @@ export default class TabButton extends Phaser.Button {
 
         super(game, x, y, game.cache.getBitmapData(frame), callback, callbackContext, 'button_over.png', 'button_up.png', 'button_down.png', 'button_up.png');
 
-        this.input.priorityID = 5;
+        this.input.priorityID = priorityID;
         this.name = frame;
         this.anchor.setTo(0.5, 0.5);
         let buttonImage = null;
