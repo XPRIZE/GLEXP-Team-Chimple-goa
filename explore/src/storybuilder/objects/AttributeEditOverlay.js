@@ -13,6 +13,7 @@ import Holder from '../../scene/objects/Holder.js';
 import Item from '../../scene/objects/Item.js';
 import Puppet from '../../puppet/objects/Puppet.js';
 import RoundButton from '../../puppet/objects/RoundButton.js';
+import Human from '../../puppet/objects/Human.js';
 
 export default class AttributeEditOverlay extends Phaser.Group {
     //container to edit item properties
@@ -114,7 +115,7 @@ export default class AttributeEditOverlay extends Phaser.Group {
                 }
             }, this);
             
-            // if(that._clickedObject instanceof Shape){
+            // if(that._clickedObject instanceof Human){
             //     that._clickedObject._specialAttribute.allAnimation.forEach(function(element, index) {
             //         animationNames[index] = 'AnimPlus1';
             //         if (element != null && element instanceof SoundData) {
@@ -266,7 +267,7 @@ export default class AttributeEditOverlay extends Phaser.Group {
             }, that, backGroundThemes));
 
 
-            if(that._clickedObject instanceof Shape){
+            if(that._clickedObject instanceof Human){
                 that._itemSettingTab.tabs = { 'text': TextNames, 'audio': audioNames , 'anim' : animationNames };
             }            
             else if(that._clickedObject instanceof TileTexture){

@@ -6,17 +6,87 @@ import ComboShape from './ComboShape.js';
 import HandShape from './HandShape.js';
 import Accessory from './Accessory.js';
 import StoryUtil from '../../storybuilder/objects/StoryUtil.js';
+import TextData from '../../storybuilder/objects/TextData.js';
+import SoundData from '../../scene/objects/SoundData.js';
+import SpecialAttribute from '../../scene/objects/SpecialAttribute.js';
+import RecordInfo from '../../storybuilder/objects/RecordInfo.js';
 
 export default class Human extends Puppet {
     constructor(game, x, y, color, uniquename) {
         super(game, x, y, color);
         
+        this._specialAttribute = new SpecialAttribute();
+        
         if(!uniquename) {
-            this._uniquename = StoryUtil.generateUUID(); 
+            this._uniquename = StoryUtil.generateUUID();
         } else {
             this._uniquename = uniquename;
         }
+        
     }
+
+    addText(textData) {
+        this._specialAttribute.addText(textData); 
+    }
+    
+    applyText(whichTextIndex, apply) {
+        this._specialAttribute.applyText(whichTextIndex, apply);
+        let appliedTextData = this._specialAttribute.getText(whichTextIndex);
+        let text = appliedTextData.text;
+        //later you should get text, fontColor, backgroundColor, style 
+        if (game._inRecordingMode) {
+            this._specialAttributesChangedSignal.dispatch({ uniquename: this._uniquename, x: this.x, y: this.y, scaleX: this.scale.x, scaleY: this.scale.y, angle: this.angle, recordingAttributeKind: RecordInfo.TEXT_RECORDING_TYPE, userGeneratedText: text});
+        }        
+    }
+    
+    addSound(soundData) {
+        this._specialAttribute.addSound(soundData); 
+    }
+
+    applySound(whichSoundIndex, apply) {
+        this._specialAttribute.applySound(whichSoundIndex, apply);
+        let soundData = this._specialAttribute.getSound(whichSoundIndex);
+        soundData.apply = apply;
+        if (game._inRecordingMode) {            
+            if (game.cache.checkSoundKey(soundData.soundFileName)) {
+                                
+                if(apply) {
+                    soundData.playMusic();                       
+                } else {
+                    soundData.stopMusic();                    
+                }
+            }            
+            this._specialAttributesChangedSignal.dispatch({ uniquename: this._uniquename, x: this.x, y: this.y, scaleX: this.scale.x, scaleY: this.scale.y, angle: this.angle, recordingAttributeKind: RecordInfo.SOUND_RECORDING_TYPE, soundData: soundData});
+        }        
+    }
+
+
+    update() {
+        var self = this;
+       
+        if (game._inRecordingMode) {
+            // console.log('in recording mode');            
+            this.onAttributesChanged.dispatch({ uniquename: this._uniquename, x: this.x, y: this.y, scaleX: this.scale.x, scaleY: this.scale.y, angle: this.angle, recordingAttributeKind: RecordInfo.DEFAULT_RECORDING_TYPE });
+        } else if (game._inPlayMode) {
+            console.log('in play mode');
+            if (this._changeAttributes != null && this._changeAttributes.size > 0) {
+                let json = this._changeAttributes.get(this.uniquename);
+                var recordedInfo = RecordInfo.fromJSON(json);
+                console.log('this.x: ' + this.x + " this.y:" + this.y);
+                this.x = recordedInfo.x;
+                this.y = recordedInfo.y;
+                this.scale.x = recordedInfo.scaleX;
+                this.scale.y = recordedInfo.scaleY;
+                this.angle = recordedInfo.angle;
+                this.game.camera.x = recordedInfo.cameraX;
+                this.game.camera.y = recordedInfo.cameraY;
+                console.log('recordedInfo.x:' + recordedInfo.x + "recordedInfo.y:" + recordedInfo.y);
+                this.applySpecialAttributeChanges(recordedInfo);                
+                
+            }
+        }
+    }
+
 
     defineBehavior() {
         this.pivot.y = this.leftLeg.height;
