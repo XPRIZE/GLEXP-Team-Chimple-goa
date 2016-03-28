@@ -9,8 +9,8 @@ class Game extends Phaser.Game {
 	constructor(width, height) {
 		super(width, height, Phaser.AUTO, 'gameCanvas', null);
         
-        let storyBuilderStateHolder = new StoryBuilderStateHolder(this);
-        storyBuilderStateHolder.createStates();
+        this._storyBuilderStateHolder = new StoryBuilderStateHolder(this);
+        this._storyBuilderStateHolder.createStates();
         // storyBuilderStateHolder.startDefault();
 
         let puppetStateHolder = new PuppetStateHolder(this);

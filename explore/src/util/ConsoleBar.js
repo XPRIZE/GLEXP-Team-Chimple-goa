@@ -1,6 +1,7 @@
 import ButtonGrid from '../puppet/objects/ButtonGrid.js';
 import PuppetCustomizer from '../puppet/objects/PuppetCustomizer.js';
 import Popup from './Popup.js';
+import StoryBuilderStateHolder from '../storybuilder/index.js';
 
 export default class ConsoleBar extends Phaser.Group {
     constructor(game) {
@@ -81,7 +82,7 @@ export default class ConsoleBar extends Phaser.Group {
         } else if(buttonName == ConsoleBar.MY_PETS_ICON) { 
             
         } else if(buttonName == ConsoleBar.STORY_ICON) { 
-            this.game.state.start('StoryBuilderLibraryState');
+            game._storyBuilderStateHolder.startDefault();
         } else if(buttonName == ConsoleBar.MY_COINS_ICON) { 
             
         } else if(buttonName == ConsoleBar.HELP_ICON) { 
