@@ -141,6 +141,12 @@ export default class Human extends Puppet {
         this.leftLeg.addAccessory(new Accessory(this.game, new Phaser.Point(1, 1), false, true, true, new Phaser.Point(anchorX, anchorY), new Phaser.Point(offsetX, offsetY), new Phaser.Point(offsetInPixelX, offsetInPixelY), false, key, frame, 'leftPant'), true);
         this.rightLeg.addAccessory(new Accessory(this.game, new Phaser.Point(1, 1), false, true, true, new Phaser.Point(1 - anchorX, anchorY), new Phaser.Point(1 - offsetX, offsetY), new Phaser.Point(-offsetInPixelX, offsetInPixelY), false, key, frame, 'rightPant'), true);
     }
+    
+    setSkirt(key, frame, anchorX = 0, anchorY = 0, offsetX = 0, offsetY = 0, offsetInPixelX = 0, offsetInPixelY = 0) {
+        this.body.addAccessory(new Accessory(this.game, new Phaser.Point(1, 1), true, true, true, new Phaser.Point(anchorX, anchorY), new Phaser.Point(offsetX, offsetY), new Phaser.Point(offsetInPixelX, offsetInPixelY), true, key, frame, 'skirt'), true);
+        //this.leftLeg.addAccessory(new Accessory(this.game, new Phaser.Point(1, 1), false, true, true, new Phaser.Point(anchorX, anchorY), new Phaser.Point(offsetX, offsetY), new Phaser.Point(offsetInPixelX, offsetInPixelY), true, key, frame, 'leftPant'), true);
+  
+    }
 
     setShoes(key, frame, anchorX = 1, anchorY = 1, offsetX = 1, offsetY = 1, offsetInPixelX = 0, offsetInPixelY = 0) {
         this.leftLeg.addAccessory(new Accessory(this.game, new Phaser.Point(1, 1), true, true, false, new Phaser.Point(anchorX, anchorY), new Phaser.Point(offsetX, offsetY), new Phaser.Point(offsetInPixelX, offsetInPixelY), false, key, frame, 'leftShoe'), true);

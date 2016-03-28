@@ -159,7 +159,7 @@ export default class Limb extends EnableInputs(RelativePosition(Phaser.Group)) {
 
     get accessories() {
         let acc = new Array();
-        console.log('accessories: ' + this.name);
+     //   console.log('accessories: ' + this.name);
         this.forEach(function(value, index, array) {
             if (value instanceof Accessory) {
                 console.log('    Pushing: ' + value.name);
