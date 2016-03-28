@@ -110,7 +110,7 @@ export default class AttributeEditOverlay extends Phaser.Group {
             that._clickedObject._specialAttribute.allSounds.forEach(function(element, index) {
                 audioNames[index] = 'AudioPlus1';
                 if (element != null && element instanceof SoundData) {
-                    audioNames[index] = 'forest_1_th';
+                    audioNames[index] = 'soundButton';
                 }
             }, this);
             
@@ -211,7 +211,7 @@ export default class AttributeEditOverlay extends Phaser.Group {
                                 console.log(" TabName:"+ tab + " ButtonName: "+ button + " KeyName: "+ objectSound[tab][button]);        
                                
                                 this.setAudioData(objectSound[tab][button]);
-                                
+                                 that._itemSettingTab.destroy();
                             }, that, objectSound));
                             
                             self._itemAudioTab.tabs = { 'forest': audioItem ,'village': audioItem , 'city': audioItem };
@@ -290,9 +290,9 @@ export default class AttributeEditOverlay extends Phaser.Group {
 
 
     addtext_fromhtml(textvalue, text_color, background_color) {
-        let value = this._itemSettingTab.children[1].children[2];
+        let value = this._itemSettingTab.buttonView.buttonPanel;
         let jsonDataText = null;
-        for (var i = 0; i < value.length; i++) {
+        for (var i = 0; i < value.children.length; i++) {
             if (value.children[i] instanceof RoundButton) {
                 if (this.clilckedButtonName == value.children[i].name) {
                     var style = { font: "32px Arial", fill: "" + text_color, wordWrap: true, wordWrapWidth: value.children[i].width, align: "center", backgroundColor: "" + background_color };
@@ -316,10 +316,9 @@ export default class AttributeEditOverlay extends Phaser.Group {
     setAudioData(soundFileName) {
         console.log(" destroy aduio inside tebview");
         this._itemAudioTab.destroy();
-        let value = this._itemSettingTab.children[1].children[2];
+        let value = this._itemSettingTab.buttonView.buttonPanel;
         let jsonDataAudio = null;
-        
-        for (var i = 0; i < value.length; i++) {
+        for (var i = 0; i < value.children.length; i++) {
             if (value.children[i] instanceof RoundButton) {
                 if (this.clilckedButtonName == value.children[i].name) {
                     var style = { font: "32px Arial", fill: "" + text_color, wordWrap: true, wordWrapWidth: value.children[i].width, align: "center", backgroundColor: "" + background_color };
