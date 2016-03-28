@@ -1,4 +1,6 @@
 import ButtonGrid from '../puppet/objects/ButtonGrid.js';
+import PuppetCustomizer from '../puppet/objects/PuppetCustomizer.js';
+import Popup from './Popup.js';
 
 export default class ConsoleBar extends Phaser.Group {
     constructor(game) {
@@ -6,9 +8,10 @@ export default class ConsoleBar extends Phaser.Group {
         this.unitHeight = 36;
         this.unitWidth = 36;
         this.padding = 5;
-        this.buttonsPerGrid = 9;
+        this.buttonsPerGrid = 6;
 
-        let gridWidth = this.buttonsPerGrid*(this.unitWidth+this.padding)+this.padding;
+        // let gridWidth = this.buttonsPerGrid*(this.unitWidth+this.padding)+this.padding;
+        let gridWidth = 400;
         let gridHeight = this.unitHeight+2*this.padding;
 
         let backBar = this.addChild(new Phaser.Graphics(game, 0, 0));
@@ -16,7 +19,7 @@ export default class ConsoleBar extends Phaser.Group {
         backBar.drawRect(0, 0, game.width, gridHeight);
         backBar.endFill();
         
-        this.leftButtonGrid = this.addChild(new ButtonGrid(game, 'scene/icons', gridWidth, gridHeight , 1, this.buttonsPerGrid, true, this.callback, this, null, {iconType: 'round'}));
+        this.leftButtonGrid = this.addChild(new ButtonGrid(game, 'scene/icons', gridWidth, gridHeight , 1, this.buttonsPerGrid, true, this.leftCallback, this, null, {iconType: 'round'}));
         this.leftButtonGrid.buttons = ['Animation.png', 'Animation_onclick.png', 'HairTransparent.png', 'Eyes.png', 'Face_shape.png', 'Glasses.png'];
         
         this.infoBar = this.addChild(new Phaser.Graphics(game, gridWidth, 0));
@@ -26,7 +29,7 @@ export default class ConsoleBar extends Phaser.Group {
         this.infoBar.drawCircle(game.width - 2 * gridWidth - this.unitHeight/2 - 3, this.unitHeight/2 + this.padding, this.unitHeight + 6);
         this.infoBar.endFill();
          
-        this.midLeftButtonGrid = this.addChild(new ButtonGrid(game, 'scene/icons', this.unitHeight + this.padding * 2, this.unitHeight + this.padding * 2, 1, 1, true, this.callback, this));
+        this.midLeftButtonGrid = this.addChild(new ButtonGrid(game, 'scene/icons', this.unitHeight + this.padding * 2, this.unitHeight + this.padding * 2, 1, 1, true, this.midCallback, this));
         this.midLeftButtonGrid.buttons = ['Animation.png'];
         this.midLeftButtonGrid.x = gridWidth;
         
@@ -34,7 +37,7 @@ export default class ConsoleBar extends Phaser.Group {
         this.text.anchor.setTo(0.5, 0.5);
         this.infoBar.addChild(this.text);
          
-        this.rightButtonGrid = this.addChild(new ButtonGrid(game, 'scene/icons', gridWidth, gridHeight, 1, this.buttonsPerGrid, true, this.callback, this));
+        this.rightButtonGrid = this.addChild(new ButtonGrid(game, 'scene/icons', gridWidth, gridHeight, 1, this.buttonsPerGrid, true, this.rightCallback, this));
         this.rightButtonGrid.x = game.width - gridWidth;
         
         this.fixedToCamera = true;
@@ -49,7 +52,45 @@ export default class ConsoleBar extends Phaser.Group {
         return this._text;
     }
     
-    callback(tabName, buttonName) {
+    leftCallback(tabName, buttonName) {
+        if(buttonName == this.leftButtonGrid.buttons[0]) { //back
+            this.popup = new Popup(this.game, 6);
+            let pc = new PuppetCustomizer(this.game, this.game.width * 0.9, this.game.height * 0.9, this.avatar, this.addAvatar, this, 7);
+            this.popup.addContent(pc);
+            
+        } else if(buttonName == this.leftButtonGrid.buttons[1]) { //home
+            
+        } else if(buttonName == this.leftButtonGrid.buttons[2]) { //My house
+            
+        } else if(buttonName == this.leftButtonGrid.buttons[3]) { //My avatar
+            
+        } else if(buttonName == this.leftButtonGrid.buttons[4]) { //My pets
+            
+        } else if(buttonName == this.leftButtonGrid.buttons[5]) { //Coins
+            
+        }    
+
+        this.leftButtonGrid.updateButtonImage(buttonName, 'scene/icons', 'Caps.png');
+    }
+    
+    addAvatar(avatar) {
+        if(!this.avatar) {
+            this.avatar = avatar;
+        }
+        this.popup.destroy();
+    }
+
+    midCallback(tabName, buttonName) {
+        if(buttonName == 'Animation.png') {
+            
+        }    
+        this.leftButtonGrid.updateButtonImage(buttonName, 'scene/icons', 'Caps.png');
+    }
+
+    rightCallback(tabName, buttonName) {
+        if(buttonName == 'Animation.png') {
+            
+        }    
         this.leftButtonGrid.updateButtonImage(buttonName, 'scene/icons', 'Caps.png');
     }
 }

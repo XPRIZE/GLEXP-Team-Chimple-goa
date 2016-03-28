@@ -1,6 +1,7 @@
 import Texture from './Texture.js';
 import Surface from './Surface.js';
 import Item from './Item.js';
+import StoryUtil from '../../storybuilder/objects/StoryUtil.js';
 
 export default class Holder extends Item {
     // TODO: Item takes a key and frame, but here we are not passing any. See if any better solution is there

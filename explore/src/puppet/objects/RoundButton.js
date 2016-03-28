@@ -1,5 +1,5 @@
 export default class RoundButton extends Phaser.Button {
-    constructor(game, x, y, maxButtonWidth, maxButtonHeight, key, frame, callback, callbackContext, frameData, style) {
+    constructor(game, x, y, maxButtonWidth, maxButtonHeight, key, frame, callback, callbackContext, frameData, style, priorityID) {
         let buttonLength = Math.min(maxButtonWidth, maxButtonHeight);
         let halfButtonLength = buttonLength / 2;
         let frame1 = new Phaser.Frame(0, 0, 0, buttonLength, buttonLength, 'button_over.png');
@@ -22,7 +22,7 @@ export default class RoundButton extends Phaser.Button {
 
         super(game, x, y, game.cache.getBitmapData(frame), callback, callbackContext, 'button_over.png', 'button_up.png', 'button_down.png', 'button_up.png');
 
-        this.input.priorityID = 5;
+        this.input.priorityID = priorityID;
         this.name = frame;
         // this.scale.multiply(maxButtonWidth / this.width, maxButtonHeight / this.height);
         this.anchor.setTo(0.5, 0.5);
