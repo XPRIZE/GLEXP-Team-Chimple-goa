@@ -1,14 +1,14 @@
 class BootState extends Phaser.State {
 
 preload () {
-    this.game.load.json('isometric', 'assets/navigate/newMap.json');
-	this.game.load.image("grass","assets/navigate/grass.png");
-	this.game.load.image("water","assets/navigate/water.png");
-	this.game.load.image("Road","assets/navigate/Road.png");
-	this.game.load.image("Build_1","assets/navigate/Building_01.png");
-	this.game.load.image("Build_2","assets/navigate/Building_02.png");
-	this.game.load.image("Build_3","assets/navigate/Building_03.png");
-	 this.game.load.image("tree","assets/navigate/Tree.png");
+    this.game.load.json('isometric', 'assets/newMap.json');
+	this.game.load.image("grass","assets/grass.png");
+	this.game.load.image("water","assets/water.png");
+	this.game.load.image("Road","assets/Road.png");
+	this.game.load.image("Build_1","assets/Building_01.png");
+	this.game.load.image("Build_2","assets/Building_02.png");
+	this.game.load.image("Build_3","assets/Building_03.png");
+	 this.game.load.image("tree","assets/Tree.png");
    let pl =this.game.plugins.add(new Phaser.Plugin.Isometric(this.game, null, 0.5));
   // this.game.world.setBounds(0, 0, 2048, 1024);
    this.game.iso.anchor.setTo(0.5, 0.2);

@@ -26,7 +26,7 @@ export default class Limb extends EnableInputs(RelativePosition(Phaser.Group)) {
         this.scaleFactor = new Phaser.Point(400, 400);
         this.onHeightChange = new Phaser.Signal();
         this.onWidthChange = new Phaser.Signal();
-        this._showAttributeEditorSignal = new ShowAttributeEditorSignal();        
+        this._showAttributeEditorSignal = new ShowAttributeEditorSignal();
     }
 
     enableInputs(instance, iterateInside) {
@@ -46,7 +46,7 @@ export default class Limb extends EnableInputs(RelativePosition(Phaser.Group)) {
                 this.shape.events.onDragUpdate.add(instance.onDragUpdate, this);
                 this.shape.events.onDragStop.add(instance.onDragStop, this);
             }
-            this.shape.input.priorityID = 2;
+
         }
     }
 
@@ -159,7 +159,7 @@ export default class Limb extends EnableInputs(RelativePosition(Phaser.Group)) {
 
     get accessories() {
         let acc = new Array();
-        console.log('accessories: ' + this.name);
+     //   console.log('accessories: ' + this.name);
         this.forEach(function(value, index, array) {
             if (value instanceof Accessory) {
                 console.log('    Pushing: ' + value.name);

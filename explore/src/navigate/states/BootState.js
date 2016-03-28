@@ -1,29 +1,15 @@
 class BootState extends Phaser.State {
 
 preload () {
-		this.game.load.image("assets/main","assets/navigate/main.png");
-        this.game.load.image("assets/Village","assets/navigate/Village.png");
-        this.game.load.image("assets/Syria-City","assets/navigate/Syria-City.png");
-        this.game.load.image("assets/City","assets/navigate/City.png");
-        this.game.load.image("assets/City1","assets/navigate/City1.png");
-        this.game.load.image("assets/Home","assets/navigate/Home.png");
+		this.game.load.image("assets/main","assets/main.png");
+        this.game.load.image("assets/Village","assets/Village.png");
+        this.game.load.image("assets/Syria-City","assets/Syria-City.png");
+        this.game.load.image("assets/City","assets/City.png");
+        this.game.load.image("assets/City1","assets/City1.png");
+        this.game.load.image("assets/Home","assets/Home.png");
 	}
     
 create () {
-    
-         if (this.game.device.desktop) {
-            this.game.stage.pageAlignHorizontally = true;
-        } else {
-            this.game.scale.scaleMode = Phaser.ScaleManager.SHOW_ALL;
-            this.game.scale.minWidth =  480;
-            this.game.scale.minHeight = 260;
-            this.game.scale.maxWidth = 1280;
-            this.game.scale.maxHeight = 800;
-            this.game.scale.forceLandscape = true;
-            this.game.scale.pageAlignHorizontally = true;
-        }
- 
-    
         this.game.stage.backgroundColor = "#808080";
         
         let syria_City = this.game.add.image(this.game.width/2 +25, 210, "assets/Syria-City");

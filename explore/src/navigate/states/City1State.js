@@ -1,34 +1,36 @@
 class City_1_State extends Phaser.State {
 preload () {
 	
-    this.game.load.json('assets/city/Json', 'assets/navigate/city/newCity.json');
-    this.game.load.image("assets/city/Aeroplane", "assets/navigate/city/Aeroplane.png");
-	this.game.load.image("assets/city/Airport", "assets/navigate/city/Airport.png");
-	this.game.load.image("assets/city/Ambulance", "assets/navigate/city/Ambulance.png");
-	this.game.load.image("assets/city/Bank", "assets/navigate/city/Bank.png");
-	this.game.load.image("assets/city/Cafe", "assets/navigate/city/Cafe.png");
-	this.game.load.image("assets/city/FireEngine", "assets/navigate/city/FireEngine.png");
-	this.game.load.image("assets/city/FireStation", "assets/navigate/city/FireStation.png");
-    this.game.load.image("assets/city/Garden", "assets/navigate/city/Garden.png");
-    this.game.load.image("assets/city/green", "assets/navigate/city/green.png");
-    this.game.load.image("assets/city/Hospital", "assets/navigate/city/Hospital.png");
-    this.game.load.image("assets/city/House", "assets/navigate/city/House.png");
-    this.game.load.image("assets/city/Park1", "assets/navigate/city/Park1.png");
-    this.game.load.image("assets/city/Park2", "assets/navigate/city/Park2.png");
-    this.game.load.image("assets/city/Park3", "assets/navigate/city/Park3.png");
-    this.game.load.image("assets/city/PoliceStation", "assets/navigate/city/PoliceStation.png");
-    this.game.load.image("assets/city/PoliceCar", "assets/navigate/city/PoliceCar.png");
-    this.game.load.image("assets/city/Road", "assets/navigate/city/Road.png");
-    this.game.load.image("assets/city/Road_Light", "assets/navigate/city/Road_Light.png");
-    this.game.load.image("assets/city/School", "assets/navigate/city/School.png");
-    this.game.load.image("assets/city/SchoolBus", "assets/navigate/city/SchoolBus.png");
-    this.game.load.image("assets/city/SchoolGround", "assets/navigate/city/SchoolGround.png");
-    this.game.load.image("assets/city/SchoolGround", "assets/navigate/city/SchoolGround.png");
-    this.game.load.image("assets/city/Tree", "assets/navigate/city/Tree.png");
+    this.game.load.json('assets/city/Json', 'assets/city/newCity.json');
+    this.game.load.image("assets/city/Aeroplane","assets/city/Aeroplane.png");
+	this.game.load.image("assets/city/Airport","assets/city/Airport.png");
+	this.game.load.image("assets/city/Ambulance","assets/city/Ambulance.png");
+	this.game.load.image("assets/city/Bank","assets/city/Bank.png");
+	this.game.load.image("assets/city/Cafe","assets/city/Cafe.png");
+	this.game.load.image("assets/city/FireEngine","assets/city/FireEngine.png");
+	this.game.load.image("assets/city/FireStation","assets/city/FireStation.png");
+    this.game.load.image("assets/city/Garden","assets/city/Garden.png");
+    this.game.load.image("assets/city/green","assets/city/green.png");
+    this.game.load.image("assets/city/Hospital","assets/city/Hospital.png");
+    this.game.load.image("assets/city/House","assets/city/House.png");
+    this.game.load.image("assets/city/Park1","assets/city/Park1.png");
+    this.game.load.image("assets/city/Park2","assets/city/Park2.png");
+    this.game.load.image("assets/city/Park3","assets/city/Park3.png");
+    this.game.load.image("assets/city/PoliceStation","assets/city/PoliceStation.png");
+    this.game.load.image("assets/city/PoliceCar","assets/city/PoliceCar.png");
+    this.game.load.image("assets/city/Road","assets/city/Road.png");
+    this.game.load.image("assets/city/Road_Light","assets/city/Road_Light.png");
+    this.game.load.image("assets/city/School","assets/city/School.png");
+    this.game.load.image("assets/city/SchoolBus","assets/city/SchoolBus.png");
+    this.game.load.image("assets/city/SchoolGround","assets/city/SchoolGround.png");
+    this.game.load.image("assets/city/SchoolGround","assets/city/SchoolGround.png");
+    this.game.load.image("assets/city/Tree","assets/city/Tree.png");
     
     this.game.plugins.add(new Phaser.Plugin.Isometric(this.game, null, 0.4469989)); //, null, 0.4469
-    this.game.iso.anchor.setTo(0.9, -0.5);
+    this.game.iso.anchor.setTo(0.995, -0.5);
 }
+    
+    
     
 create () {
         
@@ -124,12 +126,7 @@ update(){
                  if ( tile.key == "assets/city/Park1" || tile.key == "assets/city/Park2" || tile.key == "assets/city/Park3"){
                      
                     tile.events.onInputDown.add(function(){this.moveInsideView("park", -0.3, -1.6)}, this);
-                 }  
-                 
-                 if ( tile.key == "assets/city/Airport" || tile.key == "assets/city/Aeroplane"){
-                     
-                    tile.events.onInputDown.add(function(){this.moveInsideView("airport", -0.5, -1.2)}, this);
-                 }    
+                 }      
             }
             else if (tile.selected ) {
                 tile.selected = false;
@@ -207,18 +204,17 @@ update(){
 moveInsideView(name, xx, yy){
         
         console.log(name);
-       // console.log(" cubic = "+Phaser.Easing.Cubic.In);
         this.game.add.tween(this.game.iso.anchor).to({x:xx , y:yy}, 2000, Phaser.Easing.Cubic.Out, true).start();  
         this.game.add.tween(this.isoGroup.scale).to({x:1.5 , y:1.5}, 2000,  Phaser.Easing.Linear.None, true).start();
         this.game.add.tween(this.tree_isoGroup.scale).to({x:1.5 , y:1.5}, 2000,  Phaser.Easing.Linear.None, true).start();
         setTimeout(function() {
              this.game.state.start("gameState", true, false, name);
-        }, 2500);
+        }, 2000);
        
     }
 
 worldTiles() {
-      //  console.log("in tile");
+        console.log("in tile");
  
         for( let i=0; i < 4; i++){
            

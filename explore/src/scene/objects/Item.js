@@ -11,7 +11,6 @@ import ShowAttributeEditorSignal from '../../storybuilder/objects/ShowAttributeE
 import PlayPauseSignal from '../../storybuilder/objects/PlayPauseSignal.js';
 import PlayResumeSignal from '../../storybuilder/objects/PlayResumeSignal.js';
 import TextData from '../../storybuilder/objects/TextData.js';
-import StoryUtil from '../../storybuilder/objects/StoryUtil.js';
 import SoundData from './SoundData.js';
 import SpecialAttribute from './SpecialAttribute.js';
 
@@ -19,10 +18,11 @@ var _ = require('lodash');
 
 
 export default class Item extends EnableInputs(Phaser.Sprite) {
-    constructor(game, x, y, key, frame, uniquename) {
+    constructor(game, x, y, key, frame, modifiedBit) {
         super(game, x, y, key, frame);
         game.physics.enable(this);
         this.anchor.set(0.5, 1);
+        this.modifiedBit = modifiedBit;
         //Any Attribute Changes then dispatch signal        
         this.onAttributesChanged = new AttributesChangedSignal();
 
@@ -39,17 +39,11 @@ export default class Item extends EnableInputs(Phaser.Sprite) {
         
         this._playPauseSignal = new PlayPauseSignal();
         this._playResumeSignal = new PlayResumeSignal();
-        
-        if(!uniquename) {
-            this._uniquename = StoryUtil.generateUUID();
-        } else {
-            this._uniquename = uniquename;
-        }
     }
 
     enableInputs(instance, iterateInside) {
         super.enableInputs(instance, iterateInside);
-        this.input.priorityID = 3;
+        this.input.priorityID = 2;
     }    
     
     addText(textData) {
@@ -76,8 +70,7 @@ export default class Item extends EnableInputs(Phaser.Sprite) {
         let soundData = this._specialAttribute.getSound(whichSoundIndex);
         soundData.apply = apply;
         if (game._inRecordingMode) {            
-            if (game.cache.checkSoundKey(soundData.soundFileName)) {
-                                
+            if (game.cache.checkSoundKey(soundData.soundFileName)) {                
                 if(apply) {
                     soundData.playMusic();                       
                 } else {
@@ -126,10 +119,8 @@ export default class Item extends EnableInputs(Phaser.Sprite) {
 
     update() {
         var self = this;
-        game.debug.text('Elapsed seconds: ' + this.game.time.totalElapsedSeconds(), 32, 32);
-
         if (game._inRecordingMode) {
-            console.log('in recording mode');            
+            console.log('in recording mode');
             this.onAttributesChanged.dispatch({ uniquename: this._uniquename, x: this.x, y: this.y, scaleX: this.scale.x, scaleY: this.scale.y, angle: this.angle, recordingAttributeKind: RecordInfo.DEFAULT_RECORDING_TYPE });
         } else if (game._inPlayMode) {
             console.log('in play mode');
@@ -142,8 +133,6 @@ export default class Item extends EnableInputs(Phaser.Sprite) {
                 this.scale.x = recordedInfo.scaleX;
                 this.scale.y = recordedInfo.scaleY;
                 this.angle = recordedInfo.angle;
-                this.game.camera.x = recordedInfo.cameraX;
-                this.game.camera.y = recordedInfo.cameraY;
                 console.log('recordedInfo.x:' + recordedInfo.x + "recordedInfo.y:" + recordedInfo.y);
                 this.applySpecialAttributeChanges(recordedInfo);                
                 
@@ -189,7 +178,7 @@ export default class Item extends EnableInputs(Phaser.Sprite) {
                     this._soundFileName.playMusic();        
                 } else {
                     this._soundFileName.stopMusic();
-                    // this._soundFileName.destroy();
+                    this._soundFileName.destroy();
                 }
             }
         }
@@ -208,13 +197,15 @@ export default class Item extends EnableInputs(Phaser.Sprite) {
             y: this.y,
             key: this.key,
             frame: this.frameName,
-            uniquename: this.uniquename
+            uniquename: this.uniquename,
+            modifiedBit: this.modifiedBit
         }
         return json;
     }
 
     static fromJSON(game, j) {
-        let val = new Item(game, j.x, j.y, j.key, j.frame, j.uniquename);
+        let val = new Item(game, j.x, j.y, j.key, j.frame, j.modifiedBit);
+        val.uniquename = j.uniquename;
         return val;
     }
 

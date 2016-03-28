@@ -109,8 +109,9 @@ export default class Puppet extends Limb {
                 this.scale.x = recordedInfo.scaleX;
                 this.scale.y = recordedInfo.scaleY;
                 this.angle = recordedInfo.angle;
-                this.game.camera.x = recordedInfo.cameraX;
-                this.game.camera.y = recordedInfo.cameraY;
+                this.game.camera.x = recordedInfo.gameCameraX || 0;
+                this.game.camera.y = recordedInfo.gameCameraY || 0;
+
                 console.log('recordedInfo.x:' + recordedInfo.x + "recordedInfo.y:" + recordedInfo.y);
                 //if we have received TEXT KIND data
                 if (recordedInfo.recordingAttributeKind == RecordInfo.TEXT_RECORDING_TYPE) {

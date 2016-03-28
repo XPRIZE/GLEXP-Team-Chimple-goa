@@ -3,7 +3,6 @@
 import PuppetStateHolder from './puppet/index.js';
 import SceneStateHolder from './scene/index.js';
 import StoryBuilderStateHolder from './storybuilder/index.js';
-import NavigateStateHolder from './navigate/index.js';
 
 class Game extends Phaser.Game {
 	constructor(width, height) {
@@ -15,15 +14,11 @@ class Game extends Phaser.Game {
 
         let puppetStateHolder = new PuppetStateHolder(this);
         puppetStateHolder.createStates();
-	//	puppetStateHolder.startDefault();
+		puppetStateHolder.startDefault();
 
         let sceneStateHolder = new SceneStateHolder(this);
         sceneStateHolder.createStates();
-	//	 sceneStateHolder.startDefault();
-        
-        let navigateStateHolder = new NavigateStateHolder(this);
-        navigateStateHolder.createStates();
-		navigateStateHolder.startDefault();
+		// sceneStateHolder.startDefault();
 	}
 }
 

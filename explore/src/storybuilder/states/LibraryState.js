@@ -3,7 +3,6 @@ import JsonUtil from '../../puppet/objects/JsonUtil.js';
 import Library from '../objects/Library.js';
 import LibraryStory from '../objects/LibraryStory.js';
 import ButtonGrid from '../../puppet/objects/ButtonGrid.js';
-import ConsoleBar from '../../util/ConsoleBar.js';
 
 var _ = require('lodash');
 
@@ -13,10 +12,10 @@ export default class LibraryState extends Phaser.State {
         var that = this;
         //TBD
         let libraryLocalStorageJSON = localStorage.getItem(LibraryState.LIBRARY_KEY);
-        if (!libraryLocalStorageJSON) {
+        if(!libraryLocalStorageJSON) {
             libraryLocalStorageJSON = JSON.stringify(game.cache.getJSON('storyBuilder/library'));
         }
-
+        
         this._library = JSON.parse(libraryLocalStorageJSON, JsonUtil.revive);
         //load into local storage
         if (typeof (Storage) !== "undefined") {
@@ -34,33 +33,17 @@ export default class LibraryState extends Phaser.State {
         // create internal datastructure
         this._display = this.game.add.group();
         let that = this;
-        //add console bar
 
-        this._consoleBar = new ConsoleBar(this.game);
-        this._consoleBar.createRightButtonGrid([LibraryState.EDIT_BUTTON], this.createNewStoryUsingGrid, this);
-
-        this.game.add.existing(this._consoleBar);
         //create UI
-        // this._createNewStoryButton = this.game.add.sprite(this.game.width - 40, 40, 'storyBuilder/plus');
-        // this._createNewStoryButton.anchor.setTo(0.5);
-        // this._createNewStoryButton.inputEnabled = true;
-        // this._createNewStoryButton.events.onInputDown.add(this.createNewStory, this);
-        // this._display.add(this._createNewStoryButton);
+        this._createNewStoryButton = this.game.add.sprite(this.game.width - 40, 40, 'storyBuilder/plus');
+        this._createNewStoryButton.anchor.setTo(0.5);
+        this._createNewStoryButton.inputEnabled = true;
+        this._createNewStoryButton.events.onInputDown.add(this.createNewStory, this);
+        this._display.add(this._createNewStoryButton);
 
         this.showLibrary();
-
     }
 
-    createNewStoryUsingGrid(tab, name) {
-        let storyId = StoryUtil.generateUUID();
-        let newStory = new LibraryStory(game, 0, 0, storyId, "Untitled", this._defaultStoryImage);
-        this._library.addStory(newStory);
-        console.log('added');
-        this.saveToLocalStorage();
-        this.loadStories();
-        this.showLibrary();
-    }
-    
     loadStories() {
         var that = this;
         let stories = this._library.stories;
@@ -100,13 +83,21 @@ export default class LibraryState extends Phaser.State {
         }, this, this._frameData);
         this._libraryGrid.buttons = Object.keys(this._frameData);
         this._libraryGrid.x = 0;
-        this._libraryGrid.y = this._consoleBar.consoleBarHeight();
+        this._libraryGrid.y = this._createNewStoryButton.y + this._createNewStoryButton.height / 2;
         this._display.add(this._libraryGrid);
 
     }
 
     createNewStory() {
-
+        console.log('create new story');
+        let storyId = StoryUtil.generateUUID();
+        let newStory = new LibraryStory(game, 0, 0, storyId, "Untitled", this._defaultStoryImage);
+        this._library.addStory(newStory);
+        console.log('added');
+        this.saveToLocalStorage();
+        this.loadStories();
+        this.showLibrary();
+        
     }
 
     saveToLocalStorage() {
@@ -118,4 +109,3 @@ export default class LibraryState extends Phaser.State {
 LibraryState.DEFAULT_STORY_COVER_KEY = 'story_cover';
 LibraryState.DEFAULT_PAGE_COVER_KEY = 'page_cover';
 LibraryState.LIBRARY_KEY = "library";
-LibraryState.EDIT_BUTTON = 'edit.png';
