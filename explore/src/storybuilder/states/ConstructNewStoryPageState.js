@@ -127,6 +127,11 @@ export default class ConstructNewStoryPageState extends Phaser.State {
 
         this._currentStory = this.loadStoryFromLocalStorage(this._currentStoryId);
         this._currentPage = this.loadStoryPageToEdit();
+        
+        if(this._currentPage.questionsAndAnswers==undefined)
+        {
+            this._currentPage.questionsAndAnswers = [];
+        }
     }
 
     loadScenesConfiguration() {
@@ -478,6 +483,7 @@ export default class ConstructNewStoryPageState extends Phaser.State {
 
     // after recording play end will show next button to ask the questions
     nextButton() {
+        this._nextButton.alpha = 0;
         console.log("next button");
         window.display_question_multichoice();
     }
