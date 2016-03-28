@@ -9,7 +9,7 @@ import ButtonGrid from '../objects/ButtonGrid.js';
 import PuppetInputHandler from '../objects/PuppetInputHandler.js';
 
 export default class PuppetCustomizer extends Phaser.Group {
-    constructor(game, width, height, puppet, callback, callbackContext) {
+    constructor(game, width, height, puppet, callback, callbackContext, priorityID) {
         super(game);
         
         let back = this.add(new Phaser.Graphics(game, 0, 0));
@@ -18,6 +18,7 @@ export default class PuppetCustomizer extends Phaser.Group {
         back.drawRect(0, 0, width, height);
         back.endFill();
         
+        this.priorityID = priorityID;
         this.puppet = puppet;
         this.callback = callback;
         this.callbackContext = callbackContext;
@@ -57,6 +58,9 @@ export default class PuppetCustomizer extends Phaser.Group {
                 }
             }
         }, this, menuAccessorize));
+        if(priorityID) {
+            chooser.priorityID = priorityID;        
+        }
 
         let dressTabs = {};
 
@@ -70,11 +74,14 @@ export default class PuppetCustomizer extends Phaser.Group {
         chooser.x = 0;
         chooser.y = 0;
         
-        this.add(new Phaser.Button(game, this.width - 50, 300, 'scene/icons', function() {
+        let button = this.add(new Phaser.Button(game, this.width - 50, 300, 'scene/icons', function() {
             this.removeChild(this.puppet);
             this.destroy();
             this.callback.call(this.callbackContext, this.puppet);
         }, this, 'ic_done_black_24dp_1x.png', 'ic_done_black_24dp_1x.png', 'ic_done_black_24dp_1x.png', 'ic_done_black_24dp_1x.png'));
-    }
+        if(priorityID) {
+            button.input.priorityID = this.priorityID;
+        }
+    }    
 
 }
