@@ -60,6 +60,29 @@ export default class TileTexture extends EnableInputs(Phaser.TileSprite) {
             this._specialAttributesChangedSignal.dispatch({ uniquename: this._uniquename, x: this.x, y: this.y, scaleX: this.scale.x, scaleY: this.scale.y, angle: this.angle, recordingAttributeKind: RecordInfo.TEXT_RECORDING_TYPE, userGeneratedText: text });
         }
     }
+    
+    addSound(soundData) {
+        this._specialAttribute.addSound(soundData); 
+    }
+
+    
+    applySound(whichSoundIndex, apply) {
+        this._specialAttribute.applySound(whichSoundIndex, apply);
+        let soundData = this._specialAttribute.getSound(whichSoundIndex);
+        soundData.apply = apply;
+        if (game._inRecordingMode) {            
+            if (game.cache.checkSoundKey(soundData.soundFileName)) {
+                                
+                if(apply) {
+                    soundData.playMusic();                       
+                } else {
+                    soundData.stopMusic();                    
+                }
+            }            
+            this._specialAttributesChangedSignal.dispatch({ uniquename: this._uniquename, x: this.x, y: this.y, scaleX: this.scale.x, scaleY: this.scale.y, angle: this.angle, recordingAttributeKind: RecordInfo.SOUND_RECORDING_TYPE, soundData: soundData});
+        }        
+    }
+
 
     enableInputs(instance, iterateInside) {
         super.enableInputs(instance, iterateInside);
@@ -111,18 +134,18 @@ export default class TileTexture extends EnableInputs(Phaser.TileSprite) {
                 console.log('closing pop up');
                 self._playResumeSignal.dispatch();
             }});
-
-            var url = "make" + '.json';
-            console.log('url ' + url);
-            var meaning = '';
-            $.getJSON(url, function(jd) {
-                meaning = jd.meaning;
-                meaning = $(meaning).text();
-                $("#word").text(url);
-                $("#meaning_content").text(meaning);
-                $("#example_content").text(jd.exmaples);
-                $("#image_content").attr("src", jd.image);
-            });
+            $("#word").text(recordedInfo.text);
+            // var url = "make" + '.json';
+            // console.log('url ' + url);
+            // var meaning = '';
+            // $.getJSON(url, function(jd) {
+            //     meaning = jd.meaning;
+            //     meaning = $(meaning).text();
+            //     $("#word").text(url);
+            //     $("#meaning_content").text(meaning);
+            //     $("#example_content").text(jd.exmaples);
+            //     $("#image_content").attr("src", jd.image);
+            // });
             
             self._playPauseSignal.dispatch();
         } else if (recordedInfo.recordingAttributeKind == RecordInfo.SOUND_RECORDING_TYPE) {
