@@ -28,21 +28,26 @@ export default class TabView extends Phaser.Group {
             style.downFillColor = 0x136662;            
         }
         
+        this.priorityID = 5;
 
-        let back = this.add(new Phaser.Graphics(game, 0, this.tabThickness));
-        back.beginFill(style.downFillColor);
-        back.drawRect(0, 0, this.elementWidth, this.elementHeight - this.tabThickness);
-        back.endFill();
+        this.backPanel = this.add(new Phaser.Graphics(game, 0, this.tabThickness));
+        this.backPanel.beginFill(style.downFillColor);
+        this.backPanel.drawRect(0, 0, this.elementWidth, this.elementHeight - this.tabThickness);
+        this.backPanel.endFill();
+        this.backPanel.inputEnabled = true;
+        this.backPanel.input.priorityID = this.priorityID;
         
     }
     
     set tabs(tabs) {
         this._tabs = tabs;
         this.tabView = new ButtonGrid(this.game, this.name, this.elementWidth, this.tabThickness, 1, this.numTabs, this.horizontal, this.callSelectTab, this, this.frameData, {buttonType: 'tab'});
+        this.tabView.priorityID = this.priorityID;
         this.tabView.padding = 0;
         this.add(this.tabView);
         this.tabView.buttons = Object.keys(tabs);
         this.buttonView = new ButtonGrid(this.game, this.name, this.elementWidth, this.elementHeight - this.tabThickness, this.numRows, this.numCols, this.horizontal, this.callback, this.callbackContext, this.frameData);
+        this.buttonView.priorityID = this.priorityID + 1;        
         this.add(this.buttonView);
         this.buttonView.y = this.tabThickness;
         this.selectTab(Object.keys(tabs)[0]);
@@ -50,6 +55,23 @@ export default class TabView extends Phaser.Group {
     
     get tabs() {
         return this._tabs;
+    }
+
+    set priorityID(number) {
+        this._priorityID = number;
+        if(this.backPanel) {
+            this.backPanel.input.priorityID = number;        
+        }
+        if(this.tabView) {
+            this.tabView.input.priorityID = number;
+        }
+        if(this.buttonView) {
+            this.buttonView.input.priorityID = number + 1;
+        }
+    }
+    
+    get priorityID() {
+        return this._priorityID;
     }
     
     selectTab(name) {

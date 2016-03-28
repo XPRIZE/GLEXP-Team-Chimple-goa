@@ -194,6 +194,7 @@ export default class Limb extends EnableInputs(RelativePosition(Phaser.Group)) {
         accessory.positionRelativeToParent();
         if (this._maskA && mask) {
             accessory.mask = this._maskA;
+            this._maskA.dirty = true;
         }
         return accessory;
     }

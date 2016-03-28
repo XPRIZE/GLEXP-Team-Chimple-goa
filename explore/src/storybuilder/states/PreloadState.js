@@ -11,17 +11,19 @@ export default class PreloadState extends Phaser.State {
         
         //default book and page image
         this.load.image('story_cover', 'assets/storyBuilder/story_cover.png');
-        this.load.image('page_cover', 'assets/storyBuilder/page_cover.png')
+        this.load.image('page_cover', 'assets/storyBuilder/page_cover.png');
+        
+        //load background scenes thumbnail JSON
+        this.load.atlas('storyBuilder/backgrounds', "assets/storyBuilder/backgrounds.png", "assets/storyBuilder/backgrounds.json");
+        this.load.json('storyBuilder/backgrounds_grid', 'assets/storyBuilder/backgrounds_grid.json');
         
         this.load.atlas('puppet/0', "assets/puppet/0.svg", "assets/puppet/0.json");
         this.load.atlas('puppet/1', "assets/puppet/1.svg", "assets/puppet/1.json");
-        this.load.image('storyBuilder/record', "assets/storyBuilder/record_button.png");
-        this.load.image('storyBuilder/stop', "assets/storyBuilder/stop_button.png");
-        this.load.image('storyBuilder/pause', "assets/storyBuilder/pause_button.png");
         this.load.image('storyBuilder/plus', "assets/storyBuilder/plus_button.png");
         this.load.image('storyBuilder/setting', "assets/storyBuilder/setting_button.png");
         this.load.image('storyBuilder/backgroundOverlay', "assets/storyBuilder/backgroundOverlay.png");
         this.load.image('storyBuilder/sound_button','assets/storyBuilder/sound_button.png');
+                        
         this.load.json('storyBuilder/background_themes', 'assets/storyBuilder/background_themes.json');
         this.load.json('storyBuilder/object_sounds', 'assets/storyBuilder/object_sounds.json');
         this.load.json('storyBuilder/object_animation', 'assets/storyBuilder/object_animation.json');
@@ -74,7 +76,7 @@ export default class PreloadState extends Phaser.State {
 
     update() {
         if (!!this.ready) {
-            this.game.state.start('StoryBuilderMenuState');
+            this.game.state.start('StoryBuilderLibraryState');
         }
     }
 
