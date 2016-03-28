@@ -17,6 +17,7 @@ import AttributeEditOverlay from '../objects/AttributeEditOverlay.js';
 import QuestionTypeOverlay from '../objects/QuestionTypeOverlay.js';
 import StoryBuilderInputHandler from '../objects/StoryBuilderInputHandler.js';
 import StoryPuppetBuilderInputHandler from '../objects/StoryPuppetBuilderInputHandler.js';
+import ConsoleBar from '../../util/ConsoleBar.js';
 
 import Library from '../objects/Library.js';
 import Story from '../objects/Story.js';
@@ -53,7 +54,7 @@ export default class ConstructNewStoryPageState extends Phaser.State {
         this._recordingStartSignal.add(this.notifiedWhenRecordingStarts, this);
 
         this._screenshotGenerated = false;
-        
+
         this._recordingPlayEndSignal = new RecordingPlayEndSignal();
         this._recordingPlayEndSignal.add(this.displayButtonOnrecordingPlayEnd, this);
     }
@@ -138,9 +139,16 @@ export default class ConstructNewStoryPageState extends Phaser.State {
 
     create() {
 
+        this._consoleBar = new ConsoleBar(this.game);
+        this.game.add.existing(this._consoleBar);
+
+
         this._displayControlGroup = this.game.add.group();
         this._displayControlGroup.inputEnabled = true;
-
+        this._displayControlGroup.x = 0;
+        this._displayControlGroup.y = this._consoleBar.consoleBarHeight();
+        this.initializeRecordingManager();
+        
         this.loadExistingSceneToEdit();
 
         this.constructStory();
@@ -148,10 +156,8 @@ export default class ConstructNewStoryPageState extends Phaser.State {
         this.enableInputsOnScene();
 
         this.setUpUI();
-
-        this.initializeRecordingManager();
-
-        this.hideAllControls();
+        
+        // this.hideAllControls();
 
     }
 
@@ -291,7 +297,7 @@ export default class ConstructNewStoryPageState extends Phaser.State {
         this._currentStory.storyPages.forEach(function(page) {
             if (page.pageId === this._currentPageId) {
                 page = this._currentPage;
-//                this._currentPage.questionsAndAnswers = [];
+                //                this._currentPage.questionsAndAnswers = [];
                 localStorage.setItem(this._currentStory.storyId, JSON.stringify(this._currentStory, JsonUtil.replacer));
             }
         }, this);
@@ -300,77 +306,108 @@ export default class ConstructNewStoryPageState extends Phaser.State {
     }
 
     hideAllControls() {
-        this._homeButton.visible = false;
-        this._chooseBackGroundButton.visible = false;
-        this._chooseCharacterButton.visible = false;
-        this._questionAndAnswerButton.visible = false;
-        this._testResumePlayButton.visible = false;
+        // this._homeButton.visible = false;
+        // this._chooseBackGroundButton.visible = false;
+        // this._chooseCharacterButton.visible = false;
+        // this._questionAndAnswerButton.visible = false;
+        // this._testResumePlayButton.visible = false;
 
-        this.recordingManager.hideAllControls();
+        // this.recordingManager.hideAllControls();
     }
 
 
     showAllControls() {
-        this._homeButton.visible = true;
-        this._chooseBackGroundButton.visible = true;
-        this._chooseCharacterButton.visible = true;
-        this._questionAndAnswerButton.visible = true;
-        this._testResumePlayButton.visible = true;
-        this.recordingManager.showAllControls();
+        // this._homeButton.visible = true;
+        // this._chooseBackGroundButton.visible = true;
+        // this._chooseCharacterButton.visible = true;
+        // this._questionAndAnswerButton.visible = true;
+        // this._testResumePlayButton.visible = true;
+        // this.recordingManager.showAllControls();
+    }
+
+    defineControls(tab, name) {
+        console.log('name:' + name);
+        if(name === ConstructNewStoryPageState.HOME_BUTTON) {
+            this.navigateToLibrary();
+        } else if(name === ConstructNewStoryPageState.ADD_BACKGROUND_BUTTON) {
+            this.chooseBackGround();
+        } else if(name === ConstructNewStoryPageState.ADD_CHARACTER_BUTTON) {
+            this.choosePuppet();
+        } 
+        //else if(name === ConstructNewStoryPageState.ADD_PROPS_BUTTON) {
+            
+        // } 
+        else if(name === ConstructNewStoryPageState.ADD_QUESTION_ANWSERS_BUTTON) {
+            this.createQuestionAndAnswer();
+        } else if(name === ConstructNewStoryPageState.ADD_RECORD_BUTTON) {            
+            this.recordingManager.toggleRecording.call(this.recordingManager);
+        } else if(name === ConstructNewStoryPageState.ADD_PLAY_BUTTON) {
+            this.recordingManager.narrateStory.call(this.recordingManager);            
+        }
     }
 
     createActionButtons() {
 
-        this._homeButton = this.game.make.sprite(this.game.width - 40, 40, 'storybuilder/home_button');
-        this._homeButton.anchor.setTo(0.5);
-        this._homeButton.inputEnabled = true;
-        this._homeButton.events.onInputDown.add(this.navigateToLibrary, this);
-        this._homeButton.input.priorityID = 2;
-        this._displayControlGroup.add(this._homeButton);
-        this._homeButton.visible = false;
+        this._consoleBar.createRightButtonGrid(
+            [ConstructNewStoryPageState.HOME_BUTTON,
+                ConstructNewStoryPageState.ADD_BACKGROUND_BUTTON,
+                ConstructNewStoryPageState.ADD_CHARACTER_BUTTON,
+                ConstructNewStoryPageState.ADD_PROPS_BUTTON,
+                ConstructNewStoryPageState.ADD_QUESTION_ANWSERS_BUTTON,
+                ConstructNewStoryPageState.ADD_RECORD_BUTTON,
+                ConstructNewStoryPageState.ADD_PLAY_BUTTON],
+            this.defineControls, this);
+
+        // this._homeButton = this.game.make.sprite(this.game.width - 40, 40, 'storybuilder/home_button');
+        // this._homeButton.anchor.setTo(0.5);
+        // this._homeButton.inputEnabled = true;
+        // this._homeButton.events.onInputDown.add(this.navigateToLibrary, this);
+        // this._homeButton.input.priorityID = 2;
+        // this._displayControlGroup.add(this._homeButton);
+        // this._homeButton.visible = false;
 
 
 
-        this._chooseBackGroundButton = this.game.make.sprite(this.game.width - 100, 40, 'storybuilder/home_button');
-        this._chooseBackGroundButton.anchor.setTo(0.5);
-        this._chooseBackGroundButton.inputEnabled = true;
-        this._chooseBackGroundButton.events.onInputDown.add(this.chooseBackGround, this);
-        this._chooseBackGroundButton.x = this._homeButton.x - this._homeButton.width;
-        this._chooseBackGroundButton.y = this._homeButton.y;
+        // this._chooseBackGroundButton = this.game.make.sprite(this.game.width - 100, 40, 'storybuilder/home_button');
+        // this._chooseBackGroundButton.anchor.setTo(0.5);
+        // this._chooseBackGroundButton.inputEnabled = true;
+        // this._chooseBackGroundButton.events.onInputDown.add(this.chooseBackGround, this);
+        // this._chooseBackGroundButton.x = this._homeButton.x - this._homeButton.width;
+        // this._chooseBackGroundButton.y = this._homeButton.y;
 
-        this._displayControlGroup.add(this._chooseBackGroundButton);
+        // this._displayControlGroup.add(this._chooseBackGroundButton);
 
-        this._chooseCharacterButton = this.game.make.sprite(this.game.width - 160, 40, 'storybuilder/home_button');
-        this._chooseCharacterButton.anchor.setTo(0.5);
-        this._chooseCharacterButton.inputEnabled = true;
-        this._chooseCharacterButton.x = this._chooseBackGroundButton.x - this._chooseBackGroundButton.width;
-        this._chooseCharacterButton.y = this._homeButton.y;
-        this._chooseCharacterButton.events.onInputDown.add(this.choosePuppet, this);
-        this._displayControlGroup.add(this._chooseCharacterButton);
-
-
-        this._questionAndAnswerButton = this.game.make.sprite(this.game.width - 260, 40, 'storybuilder/home_button');
-        this._questionAndAnswerButton.anchor.setTo(0.5);
-        this._questionAndAnswerButton.inputEnabled = true;
-        this._questionAndAnswerButton.events.onInputDown.add(this.createQuestionAndAnswer, this);
-        this._questionAndAnswerButton.input.priorityID = 2;
-        this._displayControlGroup.add(this._questionAndAnswerButton);
+        // this._chooseCharacterButton = this.game.make.sprite(this.game.width - 160, 40, 'storybuilder/home_button');
+        // this._chooseCharacterButton.anchor.setTo(0.5);
+        // this._chooseCharacterButton.inputEnabled = true;
+        // this._chooseCharacterButton.x = this._chooseBackGroundButton.x - this._chooseBackGroundButton.width;
+        // this._chooseCharacterButton.y = this._homeButton.y;
+        // this._chooseCharacterButton.events.onInputDown.add(this.choosePuppet, this);
+        // this._displayControlGroup.add(this._chooseCharacterButton);
 
 
-        this._testResumePlayButton = this.game.make.sprite(this.game.width - 340, 40, 'storybuilder/home_button');
-        this._testResumePlayButton.anchor.setTo(0.5);
-        this._testResumePlayButton.inputEnabled = true;
-        this._testResumePlayButton.events.onInputDown.add(this.testing, this);
-        this._testResumePlayButton.input.priorityID = 2;
-        this._displayControlGroup.add(this._testResumePlayButton);
-        this._soundAdded = false;
+        // this._questionAndAnswerButton = this.game.make.sprite(this.game.width - 260, 40, 'storybuilder/home_button');
+        // this._questionAndAnswerButton.anchor.setTo(0.5);
+        // this._questionAndAnswerButton.inputEnabled = true;
+        // this._questionAndAnswerButton.events.onInputDown.add(this.createQuestionAndAnswer, this);
+        // this._questionAndAnswerButton.input.priorityID = 2;
+        // this._displayControlGroup.add(this._questionAndAnswerButton);
 
-        this._askQuestionButton = this.game.make.sprite(this.game.width - 420, 40, 'storybuilder/home_button');
-        this._askQuestionButton.anchor.setTo(0.5);
-        this._askQuestionButton.inputEnabled = true;
-        this._askQuestionButton.events.onInputDown.add(this.askQuestions, this);
-        this._askQuestionButton.input.priorityID = 2;
-        this._displayControlGroup.add(this._askQuestionButton);
+
+        // this._testResumePlayButton = this.game.make.sprite(this.game.width - 340, 40, 'storybuilder/home_button');
+        // this._testResumePlayButton.anchor.setTo(0.5);
+        // this._testResumePlayButton.inputEnabled = true;
+        // this._testResumePlayButton.events.onInputDown.add(this.testing, this);
+        // this._testResumePlayButton.input.priorityID = 2;
+        // this._displayControlGroup.add(this._testResumePlayButton);
+        // this._soundAdded = false;
+
+        // this._askQuestionButton = this.game.make.sprite(this.game.width - 420, 40, 'storybuilder/home_button');
+        // this._askQuestionButton.anchor.setTo(0.5);
+        // this._askQuestionButton.inputEnabled = true;
+        // this._askQuestionButton.events.onInputDown.add(this.askQuestions, this);
+        // this._askQuestionButton.input.priorityID = 2;
+        // this._displayControlGroup.add(this._askQuestionButton);
 
         this._nextButton = this.game.make.sprite(this.game.width - 40, 240, 'storybuilder/home_button');
         this._nextButton.anchor.setTo(0.5);
@@ -380,7 +417,7 @@ export default class ConstructNewStoryPageState extends Phaser.State {
         this._nextButton.input.priorityID = 2;
         this._displayControlGroup.add(this._nextButton);
 
-        this._editPuppet = game.add.button(this.game.width - 300, 100, 'scene/icons', this.editPuppet, this, 'ic_grid_on_black_24dp_1x.png', 'ic_grid_on_black_24dp_1x.png', 'ic_grid_on_black_24dp_1x.png', 'ic_grid_on_black_24dp_1x.png');
+        this._editPuppet = game.add.button(this.game.width - 30, 60, 'scene/icons', this.editPuppet, this, 'ic_grid_on_black_24dp_1x.png', 'ic_grid_on_black_24dp_1x.png', 'ic_grid_on_black_24dp_1x.png', 'ic_grid_on_black_24dp_1x.png');
         this._editPuppet.anchor.setTo(0.5, 0.5);
         //this._editPuppet.visible = false;
     }
@@ -397,7 +434,7 @@ export default class ConstructNewStoryPageState extends Phaser.State {
         }
 
         this.positionAddedPuppetOnScene(this.puppet);
-        this._screenshotGenerated = false;        
+        this._screenshotGenerated = false;
     }
 
     testing() {
@@ -411,54 +448,49 @@ export default class ConstructNewStoryPageState extends Phaser.State {
     }
 
     // when recording play ends then we will show next button to ask the questions
-    displayButtonOnrecordingPlayEnd()
-    {
+    displayButtonOnrecordingPlayEnd() {
         this._nextButton.alpha = 1;
-        
+
         window.callback = this.returnPageJson;
         window.callbackContext = this;
-        
+
         console.log('hello');
     }
-    
+
     createQuestionAndAnswer(item, pointer) {
         this._QuestionTypeOverlay = new QuestionTypeOverlay(game, game.width, game.height, item, pointer, this, this.saveQuestionInLocal, this._currentPage.questionsAndAnswers);
         idObject.storyId = this._currentStory.storyId;
         idObject.pageId = this._currentPage.pageId;
     }
 
-    
-    saveQuestionInLocal(get_json_from_local)
-    {
+
+    saveQuestionInLocal(get_json_from_local) {
         console.log(get_json_from_local);
 
-        if(get_json_from_local == undefined)
+        if (get_json_from_local == undefined)
             return 0;
-        
-        for(var i = 0; i<get_json_from_local.length; i++)
-            {
-                this._currentPage.questionsAndAnswers.push(get_json_from_local[i]);
-            }
+
+        for (var i = 0; i < get_json_from_local.length; i++) {
+            this._currentPage.questionsAndAnswers.push(get_json_from_local[i]);
+        }
         this.saveToLocalStore();
     }
-	
+
     // after recording play end will show next button to ask the questions
-    nextButton()
-    {
+    nextButton() {
         console.log("next button");
-        window.display_question_multichoice();        
+        window.display_question_multichoice();
     }
-    
+
     askQuestions() {
         $("#Question_css").css({ "visibility": "visible", "display": "none" });
 
         idObject.storyId = this._currentStory.storyId;
         idObject.pageId = this._currentPage.pageId;
     }
-    
-// return json of current page
-    returnPageJson()
-    {
+
+    // return json of current page
+    returnPageJson() {
         return this._currentPage.questionsAndAnswers;
     }
 
@@ -643,3 +675,13 @@ export default class ConstructNewStoryPageState extends Phaser.State {
 ConstructNewStoryPageState.SCENE_TYPE = 'scenes';
 ConstructNewStoryPageState.PUPPET_TYPE = 'puppets';
 ConstructNewStoryPageState.LIBRARY_KEY = 'library';
+
+
+
+ConstructNewStoryPageState.HOME_BUTTON = 'Home.png';
+ConstructNewStoryPageState.ADD_BACKGROUND_BUTTON = 'group.png';
+ConstructNewStoryPageState.ADD_CHARACTER_BUTTON = 'numbers.sketch/QuickLook/Preview.png';
+ConstructNewStoryPageState.ADD_PROPS_BUTTON = 'explore.png';
+ConstructNewStoryPageState.ADD_QUESTION_ANWSERS_BUTTON = 'explore.png';
+ConstructNewStoryPageState.ADD_RECORD_BUTTON = 'Skin_tone.png';
+ConstructNewStoryPageState.ADD_PLAY_BUTTON = 'Pant.png';

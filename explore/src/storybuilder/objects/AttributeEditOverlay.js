@@ -72,6 +72,18 @@ export default class AttributeEditOverlay extends Phaser.Group {
         this._textEditor.inputEnabled = true;
         this._textEditor.events.onInputUp.add(this.createAdditionalPropertiesOverlay, this);
         this._textEditor.input.priorityID = 3;
+        
+        if(this._clickedObject instanceof Puppet) {
+            this._editPuppet = game.add.button(400, 140, 'scene/icons', this.editPuppet, this, 'ic_grid_on_black_24dp_1x.png', 'ic_grid_on_black_24dp_1x.png', 'ic_grid_on_black_24dp_1x.png', 'ic_grid_on_black_24dp_1x.png');
+            this._editPuppet.anchor.setTo(0.5, 0.5);
+            
+        }
+        
+    }
+    
+    
+    editPuppet() {
+        
     }
 
     createAdditionalPropertiesOverlay() {
@@ -490,6 +502,9 @@ export default class AttributeEditOverlay extends Phaser.Group {
             that._dragHandlerSprite.destroy();
             that._overlayDisplaySprite.destroy();
             that._dynamicCircle.destroy();
+            if(that._editPuppet) {
+                that._editPuppet.destroy();
+            } 
             that._clickedObject.inputEnabled = true;
             that._recordingResumeSignal.dispatch();
             that._isOpen = false;

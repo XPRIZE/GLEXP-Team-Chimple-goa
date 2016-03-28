@@ -37,22 +37,22 @@ export default class RecordingManager extends Phaser.Group {
 
 
     createControls(game) {
-        this.recordButton = new Phaser.Sprite(game, game.width - 60, 80, 'storyBuilder/record');
-        this.recordButton.fixedToCamera = true;
-        this.recordButton.inputEnabled = true;
-        this.recordButton.scale.setTo(0.5, 0.5);
-        this.add(this.recordButton);
-        this.recordButton.events.onInputDown.add(this.toggleRecording, this);
-        this.add(this.recordButton);
+        // this.recordButton = new Phaser.Sprite(game, game.width - 60, 80, 'storyBuilder/record');
+        // this.recordButton.fixedToCamera = true;
+        // this.recordButton.inputEnabled = true;
+        // this.recordButton.scale.setTo(0.5, 0.5);
+        // this.add(this.recordButton);
+        // this.recordButton.events.onInputDown.add(this.toggleRecording, this);
+        // this.add(this.recordButton);
 
 
-        this.playButton = new Phaser.Sprite(game, game.width - 120, 80, 'storyBuilder/pause');
-        this.playButton.alpha = 1; //hidden until user records first time
-        this.playButton.fixedToCamera = true;
-        this.playButton.inputEnabled = true;
-        this.playButton.scale.setTo(0.5, 0.5);
-        this.playButton.events.onInputDown.add(this.narrateStory, this);
-        this.add(this.playButton);
+        // this.playButton = new Phaser.Sprite(game, game.width - 120, 80, 'storyBuilder/pause');
+        // this.playButton.alpha = 1; //hidden until user records first time
+        // this.playButton.fixedToCamera = true;
+        // this.playButton.inputEnabled = true;
+        // this.playButton.scale.setTo(0.5, 0.5);
+        // this.playButton.events.onInputDown.add(this.narrateStory, this);
+        // this.add(this.playButton);
 
     }
 
@@ -66,7 +66,7 @@ export default class RecordingManager extends Phaser.Group {
         if (game._inRecordingMode) {
             game._inRecordingMode = false;
             //update texture of button
-            this.recordButton.loadTexture('storyBuilder/record');
+            // this.recordButton.loadTexture('storyBuilder/record');
             this._recordingStopSignal.dispatch();
         } else {
             this.recordingStartTime = new Date();
@@ -76,20 +76,20 @@ export default class RecordingManager extends Phaser.Group {
 
             game._inRecordingMode = true;
             //update texture of button
-            this.recordButton.loadTexture('storyBuilder/stop');
+            // this.recordButton.loadTexture('storyBuilder/stop');
         }
     }
 
 
     hideAllControls() {
-        this.recordButton.visible = false;
-        this.playButton.visible = false;
+        // this.recordButton.visible = false;
+        // this.playButton.visible = false;
     }
     
     
     showAllControls() {
-        this.recordButton.visible = true;
-        this.playButton.visible = true;
+        // this.recordButton.visible = true;
+        // this.playButton.visible = true;
         
     }
     
@@ -214,8 +214,8 @@ export default class RecordingManager extends Phaser.Group {
                 
                 if(!game._inPlayMode)
                 {
-                    this.playButton.inputEnabled = true;
-                    this.recordButton.inputEnabled = true;
+                    //this.playButton.inputEnabled = true;
+                    // this.recordButton.inputEnabled = true;
                     this._recordingPlayEndSignal.dispatch();
                 }
             }
