@@ -92,6 +92,8 @@ export default class ConstructNewStoryPageState extends Phaser.State {
         this.load.json('scene/menu_icons', 'assets/scene/menu_icons.json');
         this.load.json('storyBuilder/puppet_themes', 'assets/storyBuilder/puppet_themes.json');
 
+		
+		this.load.atlas('storyBuilder/curtain', 'assets/storyBuilder/curtain.png', 'assets/storyBuilder/curtain.json');
         this.load.image('storybuilder/choose_prop_button', 'assets/storyBuilder/prop_button.png');
         this.load.image('storybuilder/choose_character_button', 'assets/storyBuilder/prop_button.png');
         this.load.image('storybuilder/choose_background_button', 'assets/storyBuilder/prop_button.png');
@@ -346,7 +348,22 @@ export default class ConstructNewStoryPageState extends Phaser.State {
         } else if(name === ConstructNewStoryPageState.ADD_RECORD_BUTTON) {            
             this.recordingManager.toggleRecording.call(this.recordingManager);
         } else if(name === ConstructNewStoryPageState.ADD_PLAY_BUTTON) {
-            this.recordingManager.narrateStory.call(this.recordingManager);            
+           // this.recordingManager.narrateStory.call(this.recordingManager);             let curtain1 = this.game.add.image(this.game.width, this.game.height, 'storyBuilder/curtain', "Curtain_center.png");
+            curtain1.anchor.set(1,1);
+            
+             let curtain2 = game.add.image(0, this.game.height, 'storyBuilder/curtain', "Curtain_left.png");
+             curtain2.anchor.set(0, 1)
+              let curtain3 = game.add.image(710, 0, 'storyBuilder/curtain', "Curtain_right.png");
+              this.game.add.tween(curtain1).to({y:0}, 2000).start();
+              this.game.add.tween(curtain2).to({x:-curtain2.width}, 2000).start();
+              this.game.add.tween(curtain3).to({x:this.game.width}, 2000).start();
+              this.recordingManager.narrateStory.call(this.recordingManager);
+              setTimeout(function() {
+                 curtain1.kill();
+                 curtain2.kill();
+                 curtain3.kill();
+               //  this.recordingManager.narrateStory.call(this.recordingManager);
+              }, 2100);
         }
     }
 
