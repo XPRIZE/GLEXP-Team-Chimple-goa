@@ -5,64 +5,10 @@ import Sprite from './Sprite.js';
 import ComboShape from './ComboShape.js';
 import HandShape from './HandShape.js';
 import Accessory from './Accessory.js';
-import StoryUtil from '../../storybuilder/objects/StoryUtil.js';
-import TextData from '../../storybuilder/objects/TextData.js';
-import SoundData from '../../scene/objects/SoundData.js';
-import PlayPauseSignal from '../../storybuilder/objects/PlayPauseSignal.js';
-import PlayResumeSignal from '../../storybuilder/objects/PlayResumeSignal.js';
-import SpecialAttribute from '../../scene/objects/SpecialAttribute.js';
-import RecordInfo from '../../storybuilder/objects/RecordInfo.js';
 
 export default class Human extends Puppet {
-    constructor(game, x, y, color, uniquename) {
+    constructor(game, x, y, color) {
         super(game, x, y, color);
-        
-        this._specialAttribute = new SpecialAttribute();
-        
-        this._playPauseSignal = new PlayPauseSignal();
-        this._playResumeSignal = new PlayResumeSignal();
-        
-        if(!uniquename) {
-            this._uniquename = StoryUtil.generateUUID();
-        } else {
-            this._uniquename = uniquename;
-        }
-        
-    }
-
-    addText(textData) {
-        this._specialAttribute.addText(textData); 
-    }
-    
-    applyText(whichTextIndex, apply) {
-        this._specialAttribute.applyText(whichTextIndex, apply);
-        let appliedTextData = this._specialAttribute.getText(whichTextIndex);
-        let text = appliedTextData.text;
-        //later you should get text, fontColor, backgroundColor, style 
-        if (game._inRecordingMode) {
-            this._specialAttributesChangedSignal.dispatch({ uniquename: this._uniquename, x: this.x, y: this.y, scaleX: this.scale.x, scaleY: this.scale.y, angle: this.angle, recordingAttributeKind: RecordInfo.TEXT_RECORDING_TYPE, userGeneratedText: text});
-        }        
-    }
-    
-    addSound(soundData) {
-        this._specialAttribute.addSound(soundData); 
-    }
-
-    applySound(whichSoundIndex, apply) {
-        this._specialAttribute.applySound(whichSoundIndex, apply);
-        let soundData = this._specialAttribute.getSound(whichSoundIndex);
-        soundData.apply = apply;
-        if (game._inRecordingMode) {            
-            if (game.cache.checkSoundKey(soundData.soundFileName)) {
-                                
-                if(apply) {
-                    soundData.playMusic();                       
-                } else {
-                    soundData.stopMusic();                    
-                }
-            }            
-            this._specialAttributesChangedSignal.dispatch({ uniquename: this._uniquename, x: this.x, y: this.y, scaleX: this.scale.x, scaleY: this.scale.y, angle: this.angle, recordingAttributeKind: RecordInfo.SOUND_RECORDING_TYPE, soundData: soundData});
-        }        
     }
 
 
@@ -145,8 +91,8 @@ applySpecialAttributeChanges(recordedInfo) {
 
         this.body.onHeightChange.add(this.head.changeLimbHeightOnOtherChange, this.head, 0, this.body.onHeightChange);
         this.body.onHeightChange.add(function(changeY, signal) {
-        this.leftLeg.changeLimbHeightOnOtherChange.call(this.leftLeg, changeY, signal);
-        this.pivot.y = this.leftLeg.height;
+            this.leftLeg.changeLimbHeightOnOtherChange.call(this.leftLeg, changeY, signal);
+            this.pivot.y = this.leftLeg.height;
         }, this, 0, this.body.onHeightChange);
 
         this.head.onHeightChange.add(this.body.changeLimbHeightOnOtherChange, this.body, 0, this.head.onHeightChange);
@@ -161,30 +107,7 @@ applySpecialAttributeChanges(recordedInfo) {
             console.log(changeY + " " + this.pivot.y);
             this.pivot.y = this.leftLeg.height;
         }, this, 0, this.leftLeg.onHeightChange);
-    
-
-        this.lhx = this.leftHand.x;
-        this.lhy = this.leftHand.y;
-        
-        this.llx = this.leftLeg.x;
-        this.lly = this.leftLeg.y;
-        
-        this.rhx = this.rightHand.x;
-        this.rhy = this.rightHand.y
-        
-        this.rlx = this.rightLeg.x;
-        this.rly = this.rightLeg.y;
-        
-        this.bx = this.body.x;
-        this.by = this.body.y;
-        
-        this.hx = this.head.x;
-        this.hy = this.head.y;
-        
-        
-        this.bodyTweenFlag = false;
-
-      }
+    }
 
     get head() {
         if (!this._head) {
@@ -288,6 +211,12 @@ applySpecialAttributeChanges(recordedInfo) {
         this.leftLeg.addAccessory(new Accessory(this.game, new Phaser.Point(1, 1), false, true, true, new Phaser.Point(anchorX, anchorY), new Phaser.Point(offsetX, offsetY), new Phaser.Point(offsetInPixelX, offsetInPixelY), false, key, frame, 'leftPant'), true);
         this.rightLeg.addAccessory(new Accessory(this.game, new Phaser.Point(1, 1), false, true, true, new Phaser.Point(1 - anchorX, anchorY), new Phaser.Point(1 - offsetX, offsetY), new Phaser.Point(-offsetInPixelX, offsetInPixelY), false, key, frame, 'rightPant'), true);
     }
+    
+    setSkirt(key, frame, anchorX = 0, anchorY = 0, offsetX = 0, offsetY = 0, offsetInPixelX = 0, offsetInPixelY = 0) {
+        this.body.addAccessory(new Accessory(this.game, new Phaser.Point(1, 1), true, true, true, new Phaser.Point(anchorX, anchorY), new Phaser.Point(offsetX, offsetY), new Phaser.Point(offsetInPixelX, offsetInPixelY), true, key, frame, 'skirt'), true);
+        //this.leftLeg.addAccessory(new Accessory(this.game, new Phaser.Point(1, 1), false, true, true, new Phaser.Point(anchorX, anchorY), new Phaser.Point(offsetX, offsetY), new Phaser.Point(offsetInPixelX, offsetInPixelY), true, key, frame, 'leftPant'), true);
+  
+    }
 
     setShoes(key, frame, anchorX = 1, anchorY = 1, offsetX = 1, offsetY = 1, offsetInPixelX = 0, offsetInPixelY = 0) {
         this.leftLeg.addAccessory(new Accessory(this.game, new Phaser.Point(1, 1), true, true, false, new Phaser.Point(anchorX, anchorY), new Phaser.Point(offsetX, offsetY), new Phaser.Point(offsetInPixelX, offsetInPixelY), false, key, frame, 'leftShoe'), true);
@@ -363,12 +292,11 @@ applySpecialAttributeChanges(recordedInfo) {
     toJSON() {
         let json = super.toJSON();
         json._class = 'Human';
-        json.uniquename = this._uniquename;
         return json;
     }
 
     static fromJSON(game, j) {
-        let puppet = new Human(game, j.x, j.y, j.bodyColor, j.uniquename);
+        let puppet = new Human(game, j.x, j.y, j.bodyColor);
         if (j.shape) {
             puppet.shape = j.shape;
         }
@@ -443,12 +371,12 @@ applySpecialAttributeChanges(recordedInfo) {
           let i = 1;
           this.mytime = this.game.time.events.loop(500,function()
           {
-            if(i == 2 || i == 3 || i==4)
+            if(i == 2 || i == 3)
               {
                   self.eyeopen();
                   //console.log('---------- i --------'+i);
                   i++;
-                  if(i==5){
+                  if(i==3){
                       i = 1;
                   }
               }
@@ -545,245 +473,4 @@ applySpecialAttributeChanges(recordedInfo) {
         // let a=JSON.parse(JSON.stringify(human, Puppet.replacer), human.revive);    
         // a.scale.setTo(0.5,0.5);        
     }
-    
-    drawBoundingBox(color) {
-        let box = this.addChild(new Phaser.Graphics(this.game, -this.offsetX, -this.offsetY));
-        box.lineStyle(1, color);
-        box.beginFill(0x000000, 0);
-        box.drawRect(0, 0, this.width, this.height);
-        box.endFill();
-        return box;
-    }
-    
-     handshakeAnimate(){
-                    this.leftHand.x = this.lhx;
-                    this.leftHand.y = this.lhy;
-                    
-                    this.leftLeg.x = this.llx;
-                    this.leftLeg.y = this.lly;
-                    
-                    this.rightHand.x = this.rhx;
-                    this.rightHand.y = this.rhy;
-                    
-                    this.rightLeg.x = this.rlx;
-                    this.rightLeg.y = this.rly;
-                    
-                    this.body.x = this.bx;
-                    this.body.y = this.by;
-                    
-                    this.head.x = this.hx;
-                    this.head.y = this.hy;
-     
-                    this.bodyTween = this.game.add.tween(this.body).to({angle:-5.7},6/24*1000, null, false).chain(
-                    this.game.add.tween(this.body).to({y: this.body.y + 0},12/24*1000, null, false),
-                    this.game.add.tween(this.body).to({angle:0},5/24*1000, null, false));
-                    
-                    this.headTween = this.game.add.tween(this.head).to({x: this.head.x - 27.95,y: this.head.y + 1.4, angle:3.1},6/24*1000, null, false).chain(
-                    this.game.add.tween(this.head).to({ },12/24*1000, null, false),
-                    this.game.add.tween(this.head).to({x: this.head.x -0, y: this.head.y + 0, angle:0},5/24*1000, null, false));
-                    
-                    this.leftHandTween = this.game.add.tween(this.leftHand).to({x:this.leftHand.x -26.74,y: this.leftHand.y +13.399, angle:34.6}, 6/24*1000, null,false).chain(
-                    this.game.add.tween(this.leftHand).to({x:this.leftHand.x -26,angle:49.6}, 4/24*1000, null, false ),
-                    this.game.add.tween(this.leftHand).to({ angle:41.6}, 4/24*1000, null, false),
-                    this.game.add.tween(this.leftHand).to({angle:49.4}, 4/24*1000, null, false),
-                    this.game.add.tween(this.leftHand).to({x:this.leftHand.x + 0, y: this.leftHand.y - 0,angle:0},5/24*1000, null, false) );
-                 
-                    this.rightHandTween = this.game.add.tween(this.rightHand).to({x: this.rightHand.x - 10.79 , y: this.rightHand.y - 6.54 ,angle:-5.7},6/24*1000, null,false).chain(
-                    this.game.add.tween(this.rightHand).to({}, 12/24*1000, null, false),
-                    this.game.add.tween(this.rightHand).to({x: this.rightHand.x+0.099 , y: this.rightHand.y +0.99 ,angle:0}, 5/24*1000, null, false));
-                   
-                   this.leftLegTween = this.game.add.tween(this.leftLeg).to({  },23/24*1000, null, false);    
-                    
-                   this.rightLegTween = this.game.add.tween(this.rightLeg).to({  },23/24*1000, null, false);
-              
-                    let self = this;
-                    this.startStopAniamation(1500);
-     }
-    jumpAnimate(){
-           
-                    this.leftHand.x = this.lhx;
-                    this.leftHand.y = this.lhy;
-                    
-                    this.leftLeg.x = this.llx;
-                    this.leftLeg.y = this.lly;
-                    
-                    this.rightHand.x = this.rhx;
-                    this.rightHand.y = this.rhy;
-                    
-                    this.rightLeg.x = this.rlx;
-                    this.rightLeg.y = this.rly;
-                    
-                    this.body.x = this.bx;
-                    this.body.y = this.by;
-                    
-                    this.head.x = this.hx;
-                    this.head.y = this.hy;
-     
-                    this.bodyTween = this.game.add.tween(this.body).to({y: this.body.y - 4},3/24*1000, null, false).chain(
-                    this.game.add.tween(this.body).to({y: this.body.y + 20},4/24*1000, null, false),
-                    this.game.add.tween(this.body).to({y: this.body.y -72},6/24*1000, null, false),
-                    this.game.add.tween(this.body).to({y: this.body.y + 20},5/24*1000, null, false),
-                    this.game.add.tween(this.body).to({y: this.body.y - 4},3/24*1000, null, false), 
-                    this.game.add.tween(this.body).to({y: this.body.y + 0},2/24*1000, null, false));
-                        
-                    this.headTween = this.game.add.tween(this.head).to({ y: this.head.y -4}, 3/24*1000, null, false).chain(
-                    this.game.add.tween(this.head).to({ y: this.head.y + 38}, 4/24*1000,null, false),
-                    this.game.add.tween(this.head).to({y: this.head.y - 70}, 6/24*1000, null, false),
-                    this.game.add.tween(this.head).to({y: this.head.y +38}, 5/24*1000, null, false),
-                    this.game.add.tween(this.head).to({y: this.head.y - 4}, 3/24*1000, null, false), 
-                    this.game.add.tween(this.head).to({ y: this.head.y +0}, 2/24*1000, null, false));
-                    
-                    this.rightHandTween = this.game.add.tween(this.rightHand).to({x: this.rightHand.x +0.0499 , y: this.rightHand.y - 3.9499 ,angle:-15},3/24*1000, null, false).chain(
-                    this.game.add.tween(this.rightHand).to({x: this.rightHand.x-27.95 , y: this.rightHand.y - 15.9499 ,angle:-45}, 4/24*1000, null, false),
-                    this.game.add.tween(this.rightHand).to({x: this.rightHand.x-11.95 , y: this.rightHand.y - 57.84 ,angle:-75}, 6/24*1000, null, false),
-                    this.game.add.tween(this.rightHand).to({x: this.rightHand.x-27.95 , y: this.rightHand.y - 15.94 ,angle:-45}, 5/24*1000, null, false),
-                    this.game.add.tween(this.rightHand).to({x: this.rightHand.x+0.04 , y: this.rightHand.y - 3.94 ,angle:-15}, 3/24*1000, null, false),
-                    this.game.add.tween(this.rightHand).to({ y: this.rightHand.y + 0.050 ,angle:0}, 2/24*1000, null, false));
-                    
-                    this.leftHandTween = this.game.add.tween(this.leftHand).to({y: this.leftHand.y - 4, angle:15}, 3/24*1000, null, false).chain(
-                    this.game.add.tween(this.leftHand).to({x:this.leftHand.x + 30, y: this.leftHand.y - 16,angle:45}, 4/24*1000, null, false ),
-                    this.game.add.tween(this.leftHand).to({x:this.leftHand.x + 12.04, y: this.leftHand.y -51.94, angle:75}, 6/24*1000, null, false),
-                    this.game.add.tween(this.leftHand).to({x:this.leftHand.x + 30, y: this.leftHand.y - 16,angle:45}, 5/24*1000, null, false),
-                    this.game.add.tween(this.leftHand).to({x:this.leftHand.x + 0, y: this.leftHand.y - 4,angle:15},3/24*1000, null, false),
-                    this.game.add.tween(this.leftHand).to({y: this.leftHand.y-0,angle:0}, 2/24*1000, null, false));
-                    
-                    this.leftLegTween = this.game.add.tween(this.leftLeg).to({ y: this.leftLeg.y + 0 },7/24*1000, null, false).chain(
-                    this.game.add.tween(this.leftLeg).to({ y: this.leftLeg.y - 90.05 }, 6/24*1000, null, false),
-                    this.game.add.tween(this.leftLeg).to({ y: this.leftLeg.y - 0 }, 5/24*1000, null, false));    
-                    
-                    this.rightLegTween = this.game.add.tween(this.rightLeg).to({ y: this.rightLeg.y + 0 },7/24*1000, null, false).chain(
-                    this.game.add.tween(this.rightLeg).to({ y: this.rightLeg.y - 90.05 }, 6/24*1000, null, false),
-                    this.game.add.tween(this.rightLeg).to({ y: this.rightLeg.y - 0 }, 5/24*1000, null, false));
-                    
-                    this.startStopAniamation(1500);
-             }
-         
-      walkAnimate() {
-        
-        
-        this.leftHand.angle = 0;
-        this.rightHand.angle = 0;
-        this.leftLeg.angle = 0;
-        this.rightLeg.angle = 0;
-       
-        this.leftHand.x = this.lhx;
-        this.leftHand.y = this.lhy;
-        
-        this.leftLeg.x = this.llx;
-        this.leftLeg.y = this.lly;
-        
-        this.rightHand.x = this.rhx;
-        this.rightHand.y = this.rhy;
-        
-        this.rightLeg.x = this.rlx;
-        this.rightLeg.y = this.rly;
-        
-        this.body.x = this.bx;
-        this.body.y = this.by;
-        
-        this.head.x = this.hx;
-        this.head.y = this.hy;
-        
-       
-        this.bodyTween = this.game.add.tween(this.body).to({y: this.body.y + 8}, 5/24*1000, null, false).chain(this.game.add.tween(this.body).to({y: this.body.y + 0}, 5/24*1000, null, false),
-        this.game.add.tween(this.body).to({y: this.body.y + 0}, 5/24*1000, null, false),
-        this.game.add.tween(this.body).to({y: this.body.y + 0}, 5/24*1000, null, false));//416.6
-        
-        
-        
-        this.headTween = this.game.add.tween(this.head).to({y: this.head.y + 10}, 5/24*1000, null, false).chain(this.game.add.tween(this.head).to({y: this.head.y + 0}, 5/24*1000, null, false),
-        this.game.add.tween(this.head).to({y: this.head.y + 12}, 5/24*1000, null, false),
-        this.game.add.tween(this.head).to({y: this.head.y + 0}, 5/24*1000, null, false));//416.6
-        
-        
-        
-        this.rightHandTween = this.game.add.tween(this.rightHand).to({angle: this.rightHand.angle + 5.8, y: this.rightHand.y + 1.6}, 2/24*1000, null, false).chain(this.game.add.tween(this.rightHand).to({angle: this.rightHand.angle + 15, y: this.rightHand.y + 4}, 3/24*1000, null, false), this.game.add.tween(this.rightHand).to({angle: this.rightHand.angle - 15, y: this.rightHand.y + 4 }, 4/24*1000, null, false), this.game.add.tween(this.rightHand).to({angle: this.rightHand.angle - 5}, 4/24*1000, null, false)); //750
-       
-        
-        this.leftHandTween = this.game.add.tween(this.leftHand).to({angle: this.leftHand.angle - 5.8, y: this.leftHand.y + 1.6}, 2/24*1000, null, false).chain(this.game.add.tween(this.leftHand).to({angle: this.leftHand.angle - 15, y: this.leftHand.y + 4}, 3/24*1000, null, false), this.game.add.tween(this.leftHand).to({angle: this.leftHand.angle + 15, y: this.leftHand.y + 4 }, 4/24*1000, null, false), this.game.add.tween(this.leftHand).to({angle: this.leftHand.angle + 5}, 4/24*1000, null, false));//541.6
-
-       
-       this.leftLegTween = this.game.add.tween(this.leftLeg).to({angle: this.leftLeg.angle + 14.5, y: this.leftLeg.y + 4}, 5/24*1000, null, false).chain(this.game.add.tween(this.leftLeg).to({angle:  this.leftLeg.angle + 1.6, y: this.leftLeg.y - 5.5}, 2/24*1000, null, false), this.game.add.tween(this.leftLeg).to({angle: this.leftLeg.angle - 13.8, y: this.leftLeg.y + 4 }, 3/24*1000, null, false), this.game.add.tween(this.leftLeg).to({angle: this.leftLeg.angle - 4.5, x: this.leftLeg.x + 0,y: this.leftLeg.y + 0 }, 4/24*1000, null, false));//791.6
-        
-       
-      
-      this.rightLegTween = this.game.add.tween(this.rightLeg).to({angle: this.rightLeg.angle - 15, y: this.rightLeg.y + 4}, 5/24*1000, null, false).chain(this.game.add.tween(this.rightLeg).to({angle:  this.rightLeg.angle + 15, y: this.rightLeg.y + 4}, 5/24*1000, null, false), this.game.add.tween(this.rightLeg).to({angle: this.rightLeg.angle + 5, y: this.rightLeg.y + 0 }, 4/24*1000, null, false));
-      
-       this.startStopAniamation(791);
-      
-          
-      }
-      
-      startStopAniamation(time){
-          
-           let self = this;
-          
-           let key = true;
-                  
-           if(this.bodyTweenFlag )
-              {
-                  
-                   this.bodyTween.stop();
-                   this.headTween.stop();
-                   this.leftHandTween.stop();
-                   this.rightHandTween.stop();
-                   this.rightLegTween.stop();
-                   this.leftLegTween.stop();
-                  
-                  
-                   this.leftHand.angle = 0;
-                   this.rightHand.angle = 0;
-                   this.leftLeg.angle = 0;
-                   this.rightLeg.angle = 0;
-       
-                   this.leftHand.x = this.lhx;
-                   this.leftHand.y = this.lhy;
-        
-                   this.leftLeg.x = this.llx;
-                   this.leftLeg.y = this.lly;
-        
-                   this.rightHand.x = this.rhx;
-                   this.rightHand.y = this.rhy;
-        
-                   this.rightLeg.x = this.rlx;
-                   this.rightLeg.y = this.rly;
-        
-                   this.body.x = this.bx;
-                   this.body.y = this.by;
-        
-                   this.head.x = this.hx;
-                   this.head.y = this.hy;
-                   
-                   
-                   self.game.time.events.remove(this.myTween);
-                   this.bodyTweenFlag = false;
-                  
-                   key = true;
-              
-            }else{
-                  
-                   self.bodyTween.start();
-                   self.headTween.start();
-                   self.leftHandTween.start();
-                   self.rightHandTween.start();
-                   self.rightLegTween.start();
-                   self.leftLegTween.start();
-                   this.bodyTweenFlag = true;
-                   key = false;
-              }
-              if(!key)
-              {
-                this.myTween =  this.game.time.events.loop(time,function(){
-             
-                   self.bodyTween.start();
-                   self.headTween.start();
-                   self.leftHandTween.start();
-                   self.rightHandTween.start();
-                   self.rightLegTween.start();
-                   self.leftLegTween.start();
-               });
-              }
-      
-      }
-      
 }
