@@ -8,6 +8,8 @@ import Accessory from './Accessory.js';
 import StoryUtil from '../../storybuilder/objects/StoryUtil.js';
 import TextData from '../../storybuilder/objects/TextData.js';
 import SoundData from '../../scene/objects/SoundData.js';
+import PlayPauseSignal from '../../storybuilder/objects/PlayPauseSignal.js';
+import PlayResumeSignal from '../../storybuilder/objects/PlayResumeSignal.js';
 import SpecialAttribute from '../../scene/objects/SpecialAttribute.js';
 import RecordInfo from '../../storybuilder/objects/RecordInfo.js';
 
@@ -16,6 +18,9 @@ export default class Human extends Puppet {
         super(game, x, y, color);
         
         this._specialAttribute = new SpecialAttribute();
+        
+        this._playPauseSignal = new PlayPauseSignal();
+        this._playResumeSignal = new PlayResumeSignal();
         
         if(!uniquename) {
             this._uniquename = StoryUtil.generateUUID();
@@ -70,7 +75,7 @@ export default class Human extends Puppet {
         } else if (game._inPlayMode) {
             console.log('in play mode');
             if (this._changeAttributes != null && this._changeAttributes.size > 0) {
-                let json = this._changeAttributes.get(this.uniquename);
+                let json = this._changeAttributes.get(this._uniquename);
                 var recordedInfo = RecordInfo.fromJSON(json);
                 console.log('this.x: ' + this.x + " this.y:" + this.y);
                 this.x = recordedInfo.x;
@@ -78,11 +83,53 @@ export default class Human extends Puppet {
                 this.scale.x = recordedInfo.scaleX;
                 this.scale.y = recordedInfo.scaleY;
                 this.angle = recordedInfo.angle;
-                this.game.camera.x = recordedInfo.cameraX;
-                this.game.camera.y = recordedInfo.cameraY;
+                //this.game.camera.x = recordedInfo.cameraX;
+                //this.game.camera.y = recordedInfo.cameraY;
                 console.log('recordedInfo.x:' + recordedInfo.x + "recordedInfo.y:" + recordedInfo.y);
-                this.applySpecialAttributeChanges(recordedInfo);                
-                
+                this.applySpecialAttributeChanges(recordedInfo);                                
+            }
+        }
+    }
+
+applySpecialAttributeChanges(recordedInfo) {
+        var self = this;
+        //later refactor into 4 different classes
+        if (recordedInfo.recordingAttributeKind == RecordInfo.TEXT_RECORDING_TYPE) {
+            //send an signal to show Text PopUp to User
+            console.log('show text popup to User' + recordedInfo.userGeneratedText);
+            $('#element_to_pop_up').bPopup({onClose: function() {
+                console.log('closing pop up');
+                self._playResumeSignal.dispatch();
+            }});
+              $("#word").text(""+recordedInfo.text);
+              
+            // var url = "make" + '.json';
+            // console.log('url ' + url);
+            // var meaning = '';
+            // $.getJSON(url, function(jd) {
+            //     meaning = jd.meaning;
+            //     meaning = $(meaning).text();
+            //     $("#word").text(url);
+            //     $("#meaning_content").text(meaning);
+            //     $("#example_content").text(jd.exmaples);
+            //     $("#image_content").attr("src", jd.image);
+            // });
+            
+            self._playPauseSignal.dispatch();
+        } else if (recordedInfo.recordingAttributeKind == RecordInfo.SOUND_RECORDING_TYPE) {
+            //check if sound present in cache, if so use (should had been created when user choose sound for page)
+            // if sound not present, then add to game and reference to game for now - TBD (how to remove)            
+            let soundData = recordedInfo.soundData;
+            if (game.cache.checkSoundKey(soundData.soundFileName)) {
+                if(!this._soundFileName) {
+                    this._soundFileName = new SoundData(game, soundData.soundFileName, soundData.apply);    
+                }                
+                if(soundData.apply) {
+                    this._soundFileName.playMusic();        
+                } else {
+                    this._soundFileName.stopMusic();
+                    // this._soundFileName.destroy();
+                }
             }
         }
     }
@@ -98,8 +145,8 @@ export default class Human extends Puppet {
 
         this.body.onHeightChange.add(this.head.changeLimbHeightOnOtherChange, this.head, 0, this.body.onHeightChange);
         this.body.onHeightChange.add(function(changeY, signal) {
-            this.leftLeg.changeLimbHeightOnOtherChange.call(this.leftLeg, changeY, signal);
-            this.pivot.y = this.leftLeg.height;
+        this.leftLeg.changeLimbHeightOnOtherChange.call(this.leftLeg, changeY, signal);
+        this.pivot.y = this.leftLeg.height;
         }, this, 0, this.body.onHeightChange);
 
         this.head.onHeightChange.add(this.body.changeLimbHeightOnOtherChange, this.body, 0, this.head.onHeightChange);
@@ -242,6 +289,12 @@ export default class Human extends Puppet {
         this.rightLeg.addAccessory(new Accessory(this.game, new Phaser.Point(1, 1), false, true, true, new Phaser.Point(1 - anchorX, anchorY), new Phaser.Point(1 - offsetX, offsetY), new Phaser.Point(-offsetInPixelX, offsetInPixelY), false, key, frame, 'rightPant'), true);
     }
 
+    setSkirt(key, frame, anchorX = 0, anchorY = 0, offsetX = 0, offsetY = 0, offsetInPixelX = 0, offsetInPixelY = 0) {
+        this.body.addAccessory(new Accessory(this.game, new Phaser.Point(1, 1), true, true, true, new Phaser.Point(anchorX, anchorY), new Phaser.Point(offsetX, offsetY), new Phaser.Point(offsetInPixelX, offsetInPixelY), true, key, frame, 'skirt'), true);
+        //this.leftLeg.addAccessory(new Accessory(this.game, new Phaser.Point(1, 1), false, true, true, new Phaser.Point(anchorX, anchorY), new Phaser.Point(offsetX, offsetY), new Phaser.Point(offsetInPixelX, offsetInPixelY), true, key, frame, 'leftPant'), true);
+  
+    }
+
     setShoes(key, frame, anchorX = 1, anchorY = 1, offsetX = 1, offsetY = 1, offsetInPixelX = 0, offsetInPixelY = 0) {
         this.leftLeg.addAccessory(new Accessory(this.game, new Phaser.Point(1, 1), true, true, false, new Phaser.Point(anchorX, anchorY), new Phaser.Point(offsetX, offsetY), new Phaser.Point(offsetInPixelX, offsetInPixelY), false, key, frame, 'leftShoe'), true);
         //console.log(" offsetInPixelX  "+ offsetInPixelX+ "offsetInPixelY " +offsetInPixelY);
@@ -316,7 +369,7 @@ export default class Human extends Puppet {
     toJSON() {
         let json = super.toJSON();
         json._class = 'Human';
-        json.uniquename = this.uniquename;
+        json.uniquename = this._uniquename;
         return json;
     }
 
