@@ -7,6 +7,7 @@ class BootState extends Phaser.State {
         this.game.load.image("assets/City", "assets/navigate/City.png");
         this.game.load.image("assets/City1", "assets/navigate/City1.png");
         this.game.load.image("assets/Home", "assets/navigate/Home.png");
+        this.load.atlas('scene/icons', 'assets/scene/icons.png', 'assets/scene/icons.json');
 
         //load all external scenes
         this.game.load.json("load_scenes", "assets/scene/load_scenes.json");
@@ -74,7 +75,11 @@ class BootState extends Phaser.State {
 
     moveToSyria() {
         // console.log("in syria");
+<<<<<<< HEAD
+        this.game.state.start('exampleState');
+=======
         this.game.state.start('preloadState', true, false, 'exampleState');
+>>>>>>> master
     }
 
     moveToVillage() {
@@ -84,12 +89,20 @@ class BootState extends Phaser.State {
 
     moveToCity() {
         // console.log("City");
+<<<<<<< HEAD
+        this.game.state.start('city1State');
+=======
         this.game.state.start('preloadState', true, false, 'city1State');
+>>>>>>> master
     }
 
     moveToCity1() {
         // console.log("City1");
+<<<<<<< HEAD
+        this.game.state.start('city2State');
+=======
         this.game.state.start('preloadState', true, false, 'city2State');
+>>>>>>> master
     }
 
 }
