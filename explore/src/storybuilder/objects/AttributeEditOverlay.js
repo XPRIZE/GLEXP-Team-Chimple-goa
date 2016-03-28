@@ -12,6 +12,8 @@ import SoundData from '../../scene/objects/SoundData.js';
 import Holder from '../../scene/objects/Holder.js';
 import Item from '../../scene/objects/Item.js';
 import Puppet from '../../puppet/objects/Puppet.js';
+import RoundButton from '../../puppet/objects/RoundButton.js';
+import Human from '../../puppet/objects/Human.js';
 
 export default class AttributeEditOverlay extends Phaser.Group {
     //container to edit item properties
@@ -71,6 +73,17 @@ export default class AttributeEditOverlay extends Phaser.Group {
         this._textEditor.inputEnabled = true;
         this._textEditor.events.onInputUp.add(this.createAdditionalPropertiesOverlay, this);
         this._textEditor.input.priorityID = 3;
+        
+        if(this._clickedObject instanceof Puppet) {
+            this._editPuppet = game.add.button(400, 140, 'scene/icons', this.editPuppet, this, 'ic_grid_on_black_24dp_1x.png', 'ic_grid_on_black_24dp_1x.png', 'ic_grid_on_black_24dp_1x.png', 'ic_grid_on_black_24dp_1x.png');
+            this._editPuppet.anchor.setTo(0.5, 0.5);
+            
+        }
+        
+    }
+    
+    editPuppet() {
+        
     }
 
     createAdditionalPropertiesOverlay() {
@@ -98,6 +111,7 @@ export default class AttributeEditOverlay extends Phaser.Group {
             let effectNames = ["EffectPlus1", "EffectPlus2","EffectPlus3","EffectPlus4"]; 
             let audioItem = ["AudioPlus1", "AudioPlus2"];
 
+
             that._clickedObject._specialAttribute.allTexts.forEach(function(element, index) {
                 TextNames[index] = 'textPlus1';
                 if (element != null && element instanceof TextData) {
@@ -108,10 +122,26 @@ export default class AttributeEditOverlay extends Phaser.Group {
             that._clickedObject._specialAttribute.allSounds.forEach(function(element, index) {
                 audioNames[index] = 'AudioPlus1';
                 if (element != null && element instanceof SoundData) {
-                    audioNames[index] = 'forest_1_th';
+                    audioNames[index] = 'soundButton';
                 }
             }, this);
-
+            
+            // if(that._clickedObject instanceof Human){
+            //     that._clickedObject._specialAttribute.allAnimation.forEach(function(element, index) {
+            //         animationNames[index] = 'AnimPlus1';
+            //         if (element != null && element instanceof SoundData) {
+            //             animationNames[index] = 'forest_1_th';
+            //         }
+            //     }, this);
+            // }
+            // if(that._clickedObject instanceof TileTexture){
+            //     that._clickedObject._specialAttribute.allAnimation.forEach(function(element, index) {
+            //         effectNames[index] = 'EffectPlus1';
+            //         if (element != null && element instanceof SoundData) {
+            //             effectNames[index] = 'forest_1_th';
+            //         }
+            //     }, this);
+            // }
 
             that._itemSettingTab = that.game.add.existing(new TabView(that.game, 'scene/scene', that.game.width + that.game.world.camera.x, that.game.height + that.game.world.camera.y, 10, 50, 5, 3, true, function(tab, button) {
 
@@ -134,6 +164,7 @@ export default class AttributeEditOverlay extends Phaser.Group {
                         }                                                     
                         this._recordingResumeSignal.dispatch();
                         this._clickedObject.applyText(index, false); 
+                        
                         //later if all applied then toggle it
                     
                     }else if( tab == "audio"){
@@ -193,7 +224,7 @@ export default class AttributeEditOverlay extends Phaser.Group {
                                 console.log(" TabName:"+ tab + " ButtonName: "+ button + " KeyName: "+ objectSound[tab][button]);        
                                
                                 this.setAudioData(objectSound[tab][button]);
-                                
+                                 that._itemSettingTab.destroy();
                             }, that, objectSound));
                             
                             self._itemAudioTab.tabs = { 'forest': audioItem ,'village': audioItem , 'city': audioItem };
@@ -247,7 +278,21 @@ export default class AttributeEditOverlay extends Phaser.Group {
                 }              
             }, that, backGroundThemes));
 
-            that._itemSettingTab.tabs = { 'text': TextNames, 'audio': audioNames , 'anim' : animationNames , 'effects' : effectNames};
+
+            if(that._clickedObject instanceof Human){
+                that._itemSettingTab.tabs = { 'text': TextNames, 'audio': audioNames , 'anim' : animationNames };
+            }            
+            else if(that._clickedObject instanceof TileTexture){
+                that._itemSettingTab.tabs = { 'text': TextNames, 'audio': audioNames , 'effects' : effectNames};
+            }
+            else if((that._clickedObject instanceof Item) || (that._clickedObject instanceof Holder)){
+                that._itemSettingTab.tabs = { 'text': TextNames, 'audio': audioNames };
+            }            
+            else{
+                console.log("It does not understand the type of clickedObject , so thats why 4 popup categories came");
+                that._itemSettingTab.tabs = { 'text': TextNames, 'audio': audioNames , 'anim' : animationNames , 'effects' : effectNames};
+            }
+            
             that._itemSettingTab.x = that.game.width * 0.05;
             that._itemSettingTab.y = 0;
             that._itemSettingTab.fixedToCamera = true;
@@ -258,18 +303,19 @@ export default class AttributeEditOverlay extends Phaser.Group {
 
 
     addtext_fromhtml(textvalue, text_color, background_color) {
-        let value = this._itemSettingTab.children[1].children[1];
+        let value = this._itemSettingTab.buttonView.buttonPanel;
+        this._textFromHtml = textvalue;
         let jsonDataText = null;
-        for (var i = 0; i < value.length; i++) {
-            if (value.children[i] instanceof Phaser.Button) {
+        for (var i = 0; i < value.children.length; i++) {
+            if (value.children[i] instanceof RoundButton) {
                 if (this.clilckedButtonName == value.children[i].name) {
                     var style = { font: "32px Arial", fill: "" + text_color, wordWrap: true, wordWrapWidth: value.children[i].width, align: "center", backgroundColor: "" + background_color };
 
-                    let x = value.children[i + 1].x, y = value.children[i + 1].y;
+                    let x = value.children[i].x, y = value.children[i].y;
                     jsonDataText = new TextData(game, 0, 0, this.clilckedButtonName, null, textvalue, style, this._clickedObject._uniquename, 0);
 
-                    value.children[i + 1].loadTexture("storyBuilder/forest_1_th");
-                    value.children[i + 1].parent = value;
+                    value.children[i].children[0].loadTexture("storyBuilder/forest_1_th");
+                  //  value.children[i].parent = value;
                     console.log("JSON FOR TEXT OBJECT \n\n" + JSON.stringify(jsonDataText));
                 }
             }
@@ -284,19 +330,19 @@ export default class AttributeEditOverlay extends Phaser.Group {
     setAudioData(soundFileName) {
         console.log(" destroy aduio inside tebview");
         this._itemAudioTab.destroy();
-        let value = this._itemSettingTab.children[1].children[1];
+        let value = this._itemSettingTab.buttonView.buttonPanel;
         let jsonDataAudio = null;
-        for (var i = 0; i < value.length; i++) {
-            if (value.children[i] instanceof Phaser.Button) {
+        for (var i = 0; i < value.children.length; i++) {
+            if (value.children[i] instanceof RoundButton) {
                 if (this.clilckedButtonName == value.children[i].name) {
+                    var style = { font: "32px Arial", fill: "" + text_color, wordWrap: true, wordWrapWidth: value.children[i].width, align: "center", backgroundColor: "" + background_color };
 
                     jsonDataAudio = new SoundData(game, soundFileName, 0);
-
-                    value.children[i + 1].loadTexture("storyBuilder/forest_1_th");
-                    value.children[i + 1].parent = value;
-                    //  console.log("JSON FOR TEXT OBJECT \n\n"+ JSON.stringify(jsonDataText));
+                    value.children[i].children[0].loadTexture("storyBuilder/sound_button");
+                  //  value.children[i].parent = value;
+                    console.log("JSON FOR TEXT OBJECT \n\n" + JSON.stringify(jsonDataAudio));
                 }
-            }
+            }            
         }
         this._clickedObject.addSound(jsonDataAudio);
         this._itemSettingTab.destroy();
@@ -326,22 +372,24 @@ export default class AttributeEditOverlay extends Phaser.Group {
         this.drawHorizontalLineAroundCircleOnGraphics(graphics, radius, 315, 5);
         this.drawHorizontalLineAroundCircleOnGraphics(graphics, radius, 360, 5);
 
-
         let clickedPointer = this._clickedObject.toGlobal(new Phaser.Point(game.input.activePointer.x, game.input.activePointer.y));
         let topLeftPoint = this._clickedObject.toGlobal(new Phaser.Point(game.camera.x + 0, game.camera.y + 0));
-
+        let boundingBox = null;
         if (this._clickedObject instanceof Puppet) {
             let pos = this._clickedObject.toGlobal(new Phaser.Point(0 + game.camera.x, - this._clickedObject.height / 2 + game.camera.y));
             clickedPointer = new Phaser.Point(pos.x, pos.y);
         } else if (this._clickedObject instanceof Holder) {
-            let boundingBox = this._clickedObject.drawBoundingBox(0xFFFFFF);
+            boundingBox = this._clickedObject.drawBoundingBox(0xFFFFFF);
             clickedPointer = new Phaser.Point(topLeftPoint.x + boundingBox.width / 2, topLeftPoint.y + boundingBox.height / 2);
-        } else if (this._clickedObject instanceof Item) {
-            let boundingBox = this._clickedObject.drawBoundingBox(0xFFFFFF);
+            boundingBox.destroy();    
+    } else if (this._clickedObject instanceof Item) {
+            boundingBox = this._clickedObject.drawBoundingBox(0xFFFFFF);
             let actualX = topLeftPoint.x - boundingBox.width * this._clickedObject.anchor.x;
             let actualY = topLeftPoint.y - boundingBox.height * this._clickedObject.anchor.y;
             clickedPointer = new Phaser.Point(actualX + boundingBox.width / 2, actualY + boundingBox.height / 2);
-        }
+            boundingBox.destroy();    
+    }
+        
         this._fixedHandlerSprite = game.add.sprite(clickedPointer.x, clickedPointer.y, graphics.generateTexture());
         this.add(this._fixedHandlerSprite);
         game.world.bringToTop(this._fixedHandlerSprite);
@@ -455,6 +503,9 @@ export default class AttributeEditOverlay extends Phaser.Group {
             that._dragHandlerSprite.destroy();
             that._overlayDisplaySprite.destroy();
             that._dynamicCircle.destroy();
+            if(that._editPuppet) {
+                that._editPuppet.destroy();
+            } 
             that._clickedObject.inputEnabled = true;
             that._recordingResumeSignal.dispatch();
             that._isOpen = false;

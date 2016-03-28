@@ -1,9 +1,7 @@
 
-export default class TextData extends Phaser.Text {
+export default class TextData  {
     
     constructor(game,x,y,key,frame,text,style,objectUniqueName,apply){
-        
-        super(game,x,y,text,style);
         
         this.x = x;
         this.y = y;

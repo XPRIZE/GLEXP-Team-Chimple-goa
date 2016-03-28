@@ -581,10 +581,11 @@ body{
 	<script src="scripts/phaser.min.js"></script>
 	<script src="scripts/game.js"></script>
     <script src="jquery.bpopup.min.js"></script>
+    <script src="scripts/phaser-plugin-isometric.min.js"></script>
         
     
 <script type="text/javascript" >
-    
+
 // starting of json. that will contain all the data
 var question_answer = new Array();
 
@@ -605,6 +606,20 @@ var story_id, page_id;
 // store the answers of the user
 var answer_sheet = new Array();    
 
+var questionAnswerObject, my_callback, my_callbackContext;
+    
+    // display multiple_choice popup to the user
+    
+    function display_multiple_choice_pop(callback1, callbackContext1, object)
+    {
+        questionAnswerObject = object;
+        my_callback = callback1;
+        my_callbackContext = callbackContext1;
+        $('body').append('<div id="mask"></div>');
+        $('#mask').fadeIn(300);
+		$("#multiple_choice_css").fadeIn(1000);
+		$("#multiple_choice_css").css({"visibility":"visible","display":"block"});
+    }
     
     
     // matching type question creation start
@@ -612,15 +627,19 @@ var answer_sheet = new Array();
     var ImageID = new Array();
     //  image slider
     
-    function slide()
+    function display_matching_pop(callback, callbackContext, object)
     {
-        // get the story id and page id
-/*                   var v = window.callback.call(window.callbackContext);
-                   story_id = v.storyId;
-                   page_id = v.pageId;
- */       
-        var arr = ["assets/apple.png", "assets/close_pop.png", "assets/fruit.jpg", "assets/icons.png", "assets/scene.png", "assets/test.png", "assets/apple.png", "assets/close_pop.png", "assets/fruit.jpg", "assets/icons.png", "assets/scene.png", "assets/test.png", "assets/apple.png", "assets/close_pop.png", "assets/fruit.jpg", "assets/icons.png", "assets/scene.png", "assets/test.png", "assets/apple.png", "assets/close_pop.png", "assets/fruit.jpg", "assets/icons.png", "assets/scene.png", "assets/test.png", "assets/apple.png", "assets/close_pop.png", "assets/fruit.jpg", "assets/icons.png", "assets/scene.png", "assets/test.png"];
+        questionAnswerObject = object;
+        my_callback = callback;
+        my_callbackContext = callbackContext;
         
+        $('body').append('<div id="mask"></div>');
+        $('#mask').fadeIn(300);
+		$("#image_slider").fadeIn(1000);
+		$("#image_slider").css({"visibility":"visible","display":"block"});
+
+        var arr = ["assets/apple.png", "assets/close_pop.png", "assets/fruit.jpg", "assets/icons.png", "assets/scene.png", "assets/test.png", "assets/apple.png", "assets/close_pop.png", "assets/fruit.jpg", "assets/icons.png", "assets/scene.png", "assets/test.png", "assets/apple.png", "assets/close_pop.png", "assets/fruit.jpg", "assets/icons.png", "assets/scene.png", "assets/test.png", "assets/apple.png", "assets/close_pop.png", "assets/fruit.jpg", "assets/icons.png", "assets/scene.png", "assets/test.png", "assets/apple.png", "assets/close_pop.png", "assets/fruit.jpg", "assets/icons.png", "assets/scene.png", "assets/test.png"];
+
                 $("#image_slider" ).append('<input type="image" src="assets/close_pop.png" style="margin-left:98%;" id="slider_close_btn"/>');
                     
         
@@ -637,6 +656,10 @@ var answer_sheet = new Array();
     
     function add_Question()
     {
+        console.log(questionAnswerObject);
+        console.log(my_callback);
+        console.log(my_callbackContext);
+        
                     if(!ImageID)
                         return 0;
         
@@ -685,7 +708,8 @@ var answer_sheet = new Array();
                         }
         
         get_json_from_local = JSON.parse(localStorage.getItem('myStorage'));
-        var v = window.callback.call(window.callbackContext, get_json_from_local);
+        
+        var v = my_callback.call(my_callbackContext, get_json_from_local);
         question_answer = [];
         localStorage.setItem('myStorage', JSON.stringify(question_answer));
 
@@ -709,10 +733,10 @@ var answer_sheet = new Array();
     }
     
     // end image sider
-    
+
 
 /* start js code :- create multiple choice questions*/    
-    
+
 // 			load the questions from localStorage and ask to the user
 			function display_question_multichoice()
 			{
@@ -936,10 +960,10 @@ var answer_sheet = new Array();
     function chimple_html_to_phaser()
         {
             var textvalue = document.getElementById("text_area").value;
-            window.callback.call(window.callbackContext, textvalue, text_color, background_color);  
+            window.callback.call(window.callbackContext, textvalue, text_color, background_color);
             $("#login-box").hide();
             $("#mask").remove();
-            document.getElementById("text_area").value = '';   
+            document.getElementById("text_area").value = '';     
             console.log("textvalue : "+ textvalue +" text_color : "+ text_color +" background_color : "+ background_color);
         }
     
@@ -1040,9 +1064,6 @@ if(document.selection && document.selection.empty) {
     
 /* end js code :- to show the details in popup when user select any text */
     
-    </script>
-    
-<script type="text/javascript">
 
     var matching_question_number;
     
@@ -1221,7 +1242,8 @@ $(document).ready(function() {
                     get_json_from_local = JSON.parse(localStorage.getItem('myStorage'));
                     console.log(get_json_from_local);
                     console.log("hello");
-                   var v = window.callback.call(window.callbackContext, get_json_from_local);
+                   
+                   var v = my_callback.call(my_callbackContext, get_json_from_local);
                     question_answer = [];
                     localStorage.setItem('myStorage', JSON.stringify(question_answer));
 
@@ -1640,7 +1662,7 @@ $(document).ready(function() {
 		<div id="gdx-bubble-audio-icon" onclick = "sound_click()" >
 		</div>
 		</div>
-		<div id="gdx-bubble-meaning">
+		<div id="gdx-bubble-meaning" style="display:none">
 			<label id="meaning"><b>Meaning:</b> </label> <br>
 			<label id="meaning_content"> Apple is a fruit change</label><br><br>
 			
