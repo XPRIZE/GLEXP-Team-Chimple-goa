@@ -101,18 +101,19 @@ applySpecialAttributeChanges(recordedInfo) {
                 console.log('closing pop up');
                 self._playResumeSignal.dispatch();
             }});
-
-            var url = "make" + '.json';
-            console.log('url ' + url);
-            var meaning = '';
-            $.getJSON(url, function(jd) {
-                meaning = jd.meaning;
-                meaning = $(meaning).text();
-                $("#word").text(url);
-                $("#meaning_content").text(meaning);
-                $("#example_content").text(jd.exmaples);
-                $("#image_content").attr("src", jd.image);
-            });
+              $("#word").text(""+recordedInfo.text);
+              
+            // var url = "make" + '.json';
+            // console.log('url ' + url);
+            // var meaning = '';
+            // $.getJSON(url, function(jd) {
+            //     meaning = jd.meaning;
+            //     meaning = $(meaning).text();
+            //     $("#word").text(url);
+            //     $("#meaning_content").text(meaning);
+            //     $("#example_content").text(jd.exmaples);
+            //     $("#image_content").attr("src", jd.image);
+            // });
             
             self._playPauseSignal.dispatch();
         } else if (recordedInfo.recordingAttributeKind == RecordInfo.SOUND_RECORDING_TYPE) {

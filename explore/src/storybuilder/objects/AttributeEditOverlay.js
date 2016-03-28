@@ -82,7 +82,6 @@ export default class AttributeEditOverlay extends Phaser.Group {
         
     }
     
-    
     editPuppet() {
         
     }
@@ -165,6 +164,7 @@ export default class AttributeEditOverlay extends Phaser.Group {
                         }                                                     
                         this._recordingResumeSignal.dispatch();
                         this._clickedObject.applyText(index, false); 
+                        
                         //later if all applied then toggle it
                     
                     }else if( tab == "audio"){
@@ -304,6 +304,7 @@ export default class AttributeEditOverlay extends Phaser.Group {
 
     addtext_fromhtml(textvalue, text_color, background_color) {
         let value = this._itemSettingTab.buttonView.buttonPanel;
+        this._textFromHtml = textvalue;
         let jsonDataText = null;
         for (var i = 0; i < value.children.length; i++) {
             if (value.children[i] instanceof RoundButton) {
