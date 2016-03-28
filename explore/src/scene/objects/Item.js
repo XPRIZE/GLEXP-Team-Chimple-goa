@@ -126,7 +126,7 @@ export default class Item extends EnableInputs(Phaser.Sprite) {
 
     update() {
         var self = this;
-        game.debug.text('Elapsed seconds: ' + this.game.time.totalElapsedSeconds(), 32, 32);
+        // game.debug.text('Elapsed seconds: ' + this.game.time.totalElapsedSeconds(), 32, 32);
 
         if (game._inRecordingMode) {
             console.log('in recording mode');            
