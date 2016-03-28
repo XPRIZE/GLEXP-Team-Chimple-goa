@@ -70,7 +70,7 @@ export default class ConsoleBar extends Phaser.Group {
     
     standardCallback(tabName, buttonName) {
         if(buttonName == ConsoleBar.WORLD_ICON) { 
-
+            this.game.state.start('bootState');
         } else if(buttonName == ConsoleBar.MY_AVATAR_ICON) { 
             this.popup = new Popup(this.game, 6);
             let pc = new PuppetCustomizer(this.game, this.game.width * 0.9, this.game.height * 0.9, this.avatar, this.addAvatar, this, 7);
@@ -81,7 +81,7 @@ export default class ConsoleBar extends Phaser.Group {
         } else if(buttonName == ConsoleBar.MY_PETS_ICON) { 
             
         } else if(buttonName == ConsoleBar.STORY_ICON) { 
-            
+            this.game.state.start('StoryBuilderLibraryState');
         } else if(buttonName == ConsoleBar.MY_COINS_ICON) { 
             
         } else if(buttonName == ConsoleBar.HELP_ICON) { 
