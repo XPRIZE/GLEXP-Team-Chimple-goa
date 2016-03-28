@@ -29,7 +29,6 @@ export default class QuestionTypeOverlay extends Phaser.Group {
         this._overlayBitMap = game.make.bitmapData(game.width + game.world.camera.x, game.height + game.world.camera.y);
         this._overlayBitMap.draw(game.cache.getImage('storyBuilder/backgroundOverlay'), 0, 0, this._width + game.world.camera.x, this._height + game.world.camera.y);
 
-        this._clickedObject.inputEnabled = false;
         this._overlayDisplaySprite = game.add.sprite(0, 0, this._overlayBitMap);
         this._overlayDisplaySprite.anchor.setTo(0, 0);
         this._overlayDisplaySprite.alpha = 0.5;
@@ -58,7 +57,6 @@ export default class QuestionTypeOverlay extends Phaser.Group {
     {
         this._overlayBitMap.destroy();
         this._overlayDisplaySprite.destroy();
-        this._clickedObject.inputEnabled = true;
                 
         window.display_multiple_choice_pop(this._callback, this._callbackContext, this._object);
     }

@@ -15,11 +15,11 @@ class Game extends Phaser.Game {
 
         let puppetStateHolder = new PuppetStateHolder(this);
         puppetStateHolder.createStates();
-	//	puppetStateHolder.startDefault();
+		// puppetStateHolder.startDefault();
 
         let sceneStateHolder = new SceneStateHolder(this);
         sceneStateHolder.createStates();
-	//	 sceneStateHolder.startDefault();
+//		 sceneStateHolder.startDefault();
         
         let navigateStateHolder = new NavigateStateHolder(this);
         navigateStateHolder.createStates();
