@@ -42,7 +42,7 @@ export default class GameState extends Phaser.State {
         scene.mode = Scene.EXPLORE_MODE;
         game.physics.startSystem(Phaser.Physics.ARCADE);
 
-        this.game.add.existing(new ConsoleBar(this.game));
+        this.consoleBar = this.game.add.existing(new ConsoleBar(this.game));
     }
 
 

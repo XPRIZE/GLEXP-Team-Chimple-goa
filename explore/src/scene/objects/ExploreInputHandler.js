@@ -15,6 +15,25 @@ export default class ExploreInputHandler {
 
 
     onInputDown(sprite, pointer) {
+        let consoleBar = sprite.game.state.getCurrentState().consoleBar;
+        let consoleText;
+        if(consoleBar) {
+            if(sprite instanceof Holder) {
+                if(sprite.children[0]) {
+                    consoleText = sprite.children[0].frameName;
+                }
+            } else {
+                consoleText = sprite.frameName
+            }
+            if(consoleText) {
+                if(consoleText.indexOf('_') != -1) {
+                    consoleText = consoleText.substr(0, consoleText.indexOf('_'));
+                } else if (consoleText.indexOf('.') != -1) {
+                    consoleText = consoleText.substr(0, consoleText.indexOf('.'));
+                }
+                consoleBar.text.text = consoleText
+            }
+        }
         sprite.scale.setTo(1.25, 1.25);
         sprite.y -= 10;
 
