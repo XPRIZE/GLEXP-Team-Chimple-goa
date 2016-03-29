@@ -47,7 +47,7 @@ export default class TabView extends Phaser.Group {
         this.add(this.tabView);
         this.tabView.buttons = Object.keys(tabs);
         this.buttonView = new ButtonGrid(this.game, this.name, this.elementWidth, this.elementHeight - this.tabThickness, this.numRows, this.numCols, this.horizontal, this.callback, this.callbackContext, this.frameData);
-        this.buttonView.priorityID = this.priorityID;        
+        this.buttonView.priorityID = this.priorityID + 1;        
         this.add(this.buttonView);
         this.buttonView.y = this.tabThickness;
         this.selectTab(Object.keys(tabs)[0]);
@@ -63,10 +63,10 @@ export default class TabView extends Phaser.Group {
             this.backPanel.input.priorityID = number;        
         }
         if(this.tabView) {
-            this.tabView.input.priorityID = number
+            this.tabView.input.priorityID = number;
         }
         if(this.buttonView) {
-            this.buttonView.input.priorityID = number
+            this.buttonView.input.priorityID = number + 1;
         }
     }
     

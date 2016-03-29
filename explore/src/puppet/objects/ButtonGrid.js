@@ -58,7 +58,7 @@ export default class ButtonGrid extends Phaser.Group {
         this.buttonMask = mask;
 
         this.buttonPanel = new Phaser.Group(this.game, this);
-        this.buttonPanel.addChild(this.buttonMask);
+        this.addChild(this.buttonMask);
         // let background = this.add(new Phaser.Graphics(this.game, 0, 0));
         // background.beginFill(this.style.overFillColor);
         // background.drawRect(0, 0, width, height);
@@ -74,7 +74,7 @@ export default class ButtonGrid extends Phaser.Group {
     }
     
     set buttons(buttons) {
-        // this.buttonPanel.removeAll(true);
+        this.buttonPanel.removeAll(true);
         this.buttonPanel.x = 0;
         this._buttons = buttons;
 
@@ -186,12 +186,6 @@ export default class ButtonGrid extends Phaser.Group {
         if (this.swipe) {
             this.swipe.check();
         }
-        // Phaser has bugs if mask is added to a group. So track it from top position
-        if(this.parent instanceof TabView) {
-            console.log('yes');
-        }
-        this.buttonMask.dirty = true;
-        // this.mask.position = this.toGlobal(new Phaser.Point(this.buttonPanel.x, this.buttonPanel.y));
     }
 
     left(point) {

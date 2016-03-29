@@ -1,3 +1,5 @@
+import ConsoleBar from '../../util/ConsoleBar.js';
+
 class City_2_State extends Phaser.State {
 
 preload () {
@@ -35,6 +37,7 @@ preload () {
     this.game.load.image("assets/city_1/Veh_06", "assets/navigate/city_1/Veh_06.png");
     this.game.load.image("assets/city_1/Veh_07", "assets/navigate/city_1/Veh_07.png");
     this.game.load.image("assets/city_1/Veh_08", "assets/navigate/city_1/Veh_08.png");
+    var isometric = require('../../../node_modules/phaser-plugin-isometric/dist/phaser-plugin-isometric.js');
     this.game.plugins.add(new Phaser.Plugin.Isometric(this.game, null, 0.5));
     this.game.iso.anchor.setTo(0.9, -0.75);
 	}
@@ -93,6 +96,8 @@ preload () {
 	this.cursorPos = new Phaser.Plugin.Isometric.Point3();
 
 	// console.log("group = "+ this.tree_isoGroup);
+    this.game.add.existing(new ConsoleBar(this.game));
+    
     }
  update(){
      
