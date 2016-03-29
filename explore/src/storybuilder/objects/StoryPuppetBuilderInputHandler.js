@@ -1,15 +1,15 @@
 import Shape from '../../puppet/objects/Shape.js';
 
 export default class StoryPuppetBuilderInputHandler {
-    constructor(game) {
+    constructor(scene) {
         this.clickEnabled = true;
         this.dragEnabled = false;
-        // this.scene = scene;
+        this.scene = scene;
     }
 
     onInputDown(sprite, pointer) {
         sprite.modifiedBit = 1;
-        // this.instance.scene.selectedObject = sprite.parent.parent;        
+        this.instance.scene.selectedObject = sprite;        
         if (sprite instanceof Shape) {
             this.puppetPoint = new Phaser.Point(pointer.x, pointer.y);
            
@@ -21,8 +21,8 @@ export default class StoryPuppetBuilderInputHandler {
     }
 
     onInputUp(sprite, pointer) {
-        // this.instance.scene.selectedObject = null;
-        // sprite.parent.parent.input.dragOffset.x = 0;
+        //this.instance.scene.selectedObject.input.dragOffset.x = 0;
+        this.instance.scene.selectedObject = null;        
         
         if (sprite instanceof Shape) {             
             this.game.input.deleteMoveCallback(this.onInputDragFromStory, this);
