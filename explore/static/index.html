@@ -884,7 +884,7 @@ var questionAnswerObject, my_callback, my_callbackContext;
                     showpopup("#MatchingQuestion_css");
 
 
-					$("#MatchingQuestion_css").append('<input type="image" src="assets/close_pop.png" id="MatchingQuestion_close_btn_question" style="background-color : #136662; color : #ffffff; border-radius: 20px; margin-left : 99%; margin-top:-20px;" /> <br>');
+					$("#MatchingQuestion_css").append('<input type="image" src="assets/close_pop.png" id="MatchingQuestion_close_btn_question" style="background-color : #136662; color : #ffffff; border-radius: 20px; margin-left : 99%; margin-top:-20px;" onclick="MatchingQuestion_close_btn_question()" /> <br>');
                     $("#MatchingQuestion_css").append('<img src="'+Question_Answer_JSON[question_number].questionText+'" style="height:30%; width:20%; margin-left : 40%; margin-top:5%;" /> <br><br>');
                     
 					$("#MatchingQuestion_css").append('<label style="margin-left:10%; font-size:25px; margin:top:5%; color:#000000"><input type = "radio" class = "login" name = "gender" id="answer_1" value="" style="height: 1.5em; width:3%;">a</label>');
@@ -1038,18 +1038,26 @@ var seltxt = '';
     return seltxt;
 }
 	
+			   // click close button of matching type question while asking
+    
+                function MatchingQuestion_close_btn_question()
+                {
+                    hidepopup("#MatchingQuestion_css");
+                }
+
+    
 // get the data from json and display it on the dialog box	
     
 function displayContent(text)
 {
    		var url = text + '.json';
-		console.log('url '+url);
+		console.log('dictionary/url '+url);
 		var meaning = '';
 			$.getJSON(url, function(jd) {
 					console.log(jd);
 					meaning = jd.meaning;
 					meaning = $(meaning).text();
-					$("#word").text(text);					
+					$("#word").text(text);
 					$("#meaning_content").text(meaning);
 					$("#example_content").text(jd.exmaples);
 					$("#image_content").attr("src", jd.image);
@@ -1063,8 +1071,23 @@ function sound_click()
 	var su = new SpeechSynthesisUtterance();
 	var text = document.getElementById("word").textContent;
 	console.log(text);
-	su.text = text;
-	speechSynthesis.speak(su);
+    
+    var sounds = text.split(" ");
+    
+    for(var i=0; i<sounds.length; i++)
+    {
+        if(i==0)
+        {
+            
+        }
+        else
+        {
+            
+        }
+        
+        su.text = sounds[i];
+        speechSynthesis.speak(su);
+    }
 }
 
 // clear selected when we try to select it on double click
@@ -1245,8 +1268,8 @@ $(document).ready(function() {
 			   // click close button of image_slider popup
 			   $("#image_slider_close_btn").click(function(){
 				hidepopup("#image_slider");
-			   });    
-    
+			   });
+               
 			   $("#slider_close_btn").click(function(){
 				hidepopup("#image_slider");
 			   });    
@@ -1283,10 +1306,7 @@ $(document).ready(function() {
 				hidepopup("#Question_css");
 			   });
                
-			   // click close button of question popup
-			   $("#MatchingQuestion_close_btn_question").click(function(){
-				hidepopup("#MatchingQuestion_css");
-			   });
+
 			   
 
 			   // select image then it will display the name of the image
@@ -1729,10 +1749,10 @@ $(document).ready(function() {
 					</table>
 				</div>
                 
-			</div>
-
--->
-			<div id = "multiple_choice_css">
+			</div> -->
+            
+            
+			<div id = "multiple_choice_css" style="margin-top:5%;">
 					<input type="image" src="assets/close_pop.png" id="close_btn_multiple_choice" style="margin-left:99%; margin-top:-20px;" />
 				<form method = "post" action = "">
 					<label class="common_css">Type your the question</label>
@@ -1744,7 +1764,7 @@ $(document).ready(function() {
 					<br>
 					<input type = "text" class = "login" placeholder = "Correct answer" name = "uid" id="correct_answer">
 					<br>
-					
+				 
 					<label class="common_css">Wrong answers</label>
 					<br>
 					<input type = "text" class = "login" placeholder = "Wrong answer 1" name = "uid" id="wrong_answer1">
@@ -1786,7 +1806,7 @@ $(document).ready(function() {
 			</div>
 			
 			
-			<div id = "Question_css">
+			<div id = "Question_css" style="margin-top:5%;">
 					<input type="image" src="assets/close_pop.png" id="close_btn_question" style="margin-left:99%; margin-top:-20px;" />
 
 					<label class="common_css" id="question" style="margin-left:2%; font-size:30px;">hellakjlfdjkdfjdjdlfksdfkkkkkkkkkkkkkkkkkkkkkkk</label>
@@ -1803,12 +1823,7 @@ $(document).ready(function() {
 					<input type = "submit" value = "Next question" id="question_submit_btn_css" onclick="display_question_multichoice();" style="background-color : #136662; color : #ffffff; border-radius: 20px;"/>
 			</div>
 			
-			
-			<div id = "MatchingQuestion_css">
-				<div style="width:102%;">
-					<input type="image" src="assets/close_pop.png" id="close_btn_question" style="margin-left:95%; margin-top:0px;" />
-				</div>
-
+			<div id = "MatchingQuestion_css" style="margin-top:5%;">
 			</div>
     
 <!-- end : code to show the questions -->
