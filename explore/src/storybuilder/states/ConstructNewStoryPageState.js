@@ -344,16 +344,16 @@ export default class ConstructNewStoryPageState extends Phaser.State {
             }
 
         } else if (name === ConstructNewStoryPageState.START_PLAY_BUTTON) {
-           let curtain1 = this.game.add.image(this.game.width, this.game.height, 'storyBuilder/curtain', "Curtain_center.png");
-            curtain1.anchor.set(1,1);
-            
-             let curtain2 = game.add.image(0, this.game.height, 'storyBuilder/curtain', "Curtain_left.png");
-             curtain2.anchor.set(0, 1)
+              let curtain1 = this.game.add.image(this.game.width, this.game.height, 'storyBuilder/curtain', "Curtain_center.png");
+              curtain1.anchor.set(1); 
+              let curtain2 = game.add.image(0, this.game.height, 'storyBuilder/curtain', "Curtain_left.png");
+              curtain2.anchor.set(0, 1)
               let curtain3 = game.add.image(710, 0, 'storyBuilder/curtain', "Curtain_right.png");
               this.game.add.tween(curtain1).to({y:0}, 2000).start();
               this.game.add.tween(curtain2).to({x:-curtain2.width}, 2000).start();
-              this.game.add.tween(curtain3).to({x:this.game.width}, 2000).start();              
-              var self = this;              
+              this.game.add.tween(curtain3).to({x:this.game.width}, 2000).start();
+              let self = this;
+              
               setTimeout(function() {
                  curtain1.kill();
                  curtain2.kill();
@@ -369,7 +369,6 @@ export default class ConstructNewStoryPageState extends Phaser.State {
                 //start button
                 this._consoleBar.rightButtonGrid.updateButtonImage(ConstructNewStoryPageState.START_PLAY_BUTTON, 'scene/icons', ConstructNewStoryPageState.START_PLAY_BUTTON);
             }
-        }
     }
 
     createActionButtons() {
