@@ -1,7 +1,9 @@
 import Limb from './Limb.js';
 import Accessory from './Accessory.js';
 import Shape from './Shape.js';
+import HandShape from './HandShape.js';
 import ComboShape from './ComboShape.js';
+import HandShape from './HandShape.js';
 import RelativePosition from './RelativePosition.js';
 import Puppet from './Puppet.js';
 import Human from './Human.js';
@@ -23,11 +25,14 @@ import Page from '../../storybuilder/objects/Page.js';
 import StoryPage from '../../storybuilder/objects/StoryPage.js';
 
 export default class JsonUtil {
+    
     static revive(k, v) {
         if (v instanceof Object && v._class == 'Shape') {
             return Shape.fromJSON(window.game, v);
         } else if (v instanceof Object && v._class == 'ComboShape') {
-            return Shape.fromJSON(window.game, v);
+            return ComboShape.fromJSON(window.game, v);
+        } else if (v instanceof Object && v._class == 'HandShape') {
+            return HandShape.fromJSON(window.game, v);
         } else if (v instanceof Object && v._class == 'Limb') {
             return Limb.fromJSON(window.game, v);
         } else if (v instanceof Object && v._class == 'Puppet') {
