@@ -1,3 +1,4 @@
+import WhackAMoleStateHolder from '../../whack_a_mole/index.js';
 class BootState extends Phaser.State {
 
     preload() {
@@ -89,6 +90,9 @@ class BootState extends Phaser.State {
     moveToVillage() {
         // console.log("Village");
         //  this.game.state.start('bootState2');
+        let myStateHolder = new WhackAMoleStateHolder(this.game);
+        myStateHolder.createStates();
+		myStateHolder.startDefault();
     }
 
     moveToCity() {
