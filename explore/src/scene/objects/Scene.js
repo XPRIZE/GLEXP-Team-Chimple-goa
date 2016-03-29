@@ -1,5 +1,6 @@
 import ExploreInputHandler from '../objects/ExploreInputHandler.js';
 import Item from '../objects/Item.js';
+import Shape from '../../puppet/objects/Shape.js';
 import EnableInputs from './EnableInputs.js';
 
 export default class Scene extends EnableInputs(Phaser.Group) {
@@ -93,16 +94,24 @@ export default class Scene extends EnableInputs(Phaser.Group) {
     }
 
     update() {
-        super.update();
+        super.update();        
         if (this.selectedObject) {
+            if(this.selectedObject instanceof Shape) {
+                this.selectedObject = this.selectedObject.parent.parent;
+            }       
             if (this.game.camera.x < this.game.camera.bounds.width - this.game.camera.width && this.selectedObject.x > this.game.camera.x + this.game.width - 100) {
                 this.game.camera.x += 5;
                 this.selectedObject.x += 5;
-                this.selectedObject.input.dragOffset.x += 5;
+                if(this.selectedObject.input) {
+                    this.selectedObject.input.dragOffset.x += 5;    
+                }
+                
             } else if (this.game.camera.x > 0 && this.selectedObject.x < this.game.camera.x + 100) {
                 this.game.camera.x -= 5;
                 this.selectedObject.x -= 5;
-                this.selectedObject.input.dragOffset.x -= 5;
+                if(this.selectedObject.input) {
+                    this.selectedObject.input.dragOffset.x -= 5;
+                }                
             }
         }
     }
