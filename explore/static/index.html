@@ -41,7 +41,30 @@ body{
 	border-radius:3px 3px 3px 3px;
     -moz-border-radius: 3px; /* Firefox */
     -webkit-border-radius: 3px; /* Safari, Chrome */
-}    
+}
+
+.score_card_popup{
+    height : auto;
+    width : 80%;
+    margin-left : 10%;
+    
+
+    margin-top: 2%;
+	display:none;
+	background: #ffffff;
+	border: 10px solid #ddd;
+	float: left;
+	font-size: 1.2em;
+	position: absolute;
+	z-index: 99999;
+
+	-moz-box-shadow: 0px 0px 20px #999; /* Firefox */
+    -webkit-box-shadow: 0px 0px 20px #999; /* Safari, Chrome */
+	border-radius:3px 3px 3px 3px;
+    -moz-border-radius: 3px; /* Firefox */
+    -webkit-border-radius: 3px; /* Safari, Chrome */
+}
+    
     
 /* start :-  css to add text from the html popup to phaser game */
 .container {    
@@ -620,16 +643,23 @@ var questionAnswerObject, my_callback, my_callbackContext;
     }
     
     
+    function slider_close_btn()
+    {
+        hidepopup("#image_slider");
+    }
+    
     // matching type question creation start
     // array that store the result matching type images
     var ImageID = new Array();
     //  image slider
     
-    function display_matching_pop(callback, callbackContext, object)
+    function display_matching_pop(callback, callbackContext, object, _uniqueImageNames)
     {
         questionAnswerObject = object;
         my_callback = callback;
         my_callbackContext = callbackContext;
+
+        let uniqueImageNames = _uniqueImageNames;
         
         $('body').append('<div id="mask"></div>');
         $('#mask').fadeIn(300);
@@ -637,13 +667,15 @@ var questionAnswerObject, my_callback, my_callbackContext;
 		$("#image_slider").css({"visibility":"visible","display":"block"});
 
         var arr = ["assets/apple.png", "assets/close_pop.png", "assets/fruit.jpg", "assets/icons.png", "assets/scene.png", "assets/test.png", "assets/apple.png", "assets/close_pop.png", "assets/fruit.jpg", "assets/icons.png", "assets/scene.png", "assets/test.png", "assets/apple.png", "assets/close_pop.png", "assets/fruit.jpg", "assets/icons.png", "assets/scene.png", "assets/test.png", "assets/apple.png", "assets/close_pop.png", "assets/fruit.jpg", "assets/icons.png", "assets/scene.png", "assets/test.png", "assets/apple.png", "assets/close_pop.png", "assets/fruit.jpg", "assets/icons.png", "assets/scene.png", "assets/test.png"];
-
-//                $("#image_slider" ).append('<input type="image" src="assets/close_pop.png" style="margin-left:98%;" id="slider_close_btn"/>');
-                    
         
-        for(var v = 0; v<30; v++)
+        $('#image_slider').html('');
+        $("#image_slider").append('<input type="image" src="assets/close_pop.png" style="margin-left:99%; margin-top:-20%;" id="slider_close_btn"  onclick="slider_close_btn()"/>');
+        
+        $("#image_slider").append('<div style="height:70px; line-height:70px; text-align:center;"> <label style="color:#000000;font-size:25px;"> Choose image to create question </label></div>');                   
+        
+        for(var v = 0; v<uniqueImageNames.length; v++)
             {
-                $("#image_slider" ).append('<img src="'+arr[v]+'" style="height:30%; width:20%; margin-left : 10%;" onclick="add_image(this)" id="'+arr[v]+'" />');
+                $("#image_slider" ).append('<img src="assets/construct_story/'+uniqueImageNames[v]+'" style="height:30%; width:20%; margin-left : 10%;" onclick="add_image(this)" id="'+uniqueImageNames[v]+'" />');
             }
         
                 $("#image_slider" ).append('<button type="button" style="margin-top:5%; background-color : #136662; color : #ffffff; border-radius: 20px; width:20%; height:40px; margin-left:40%; margin-right:40%; font-size:25px;"  id="submit" onclick="add_Question()">Add Question </button><br><br><br>');
@@ -652,7 +684,7 @@ var questionAnswerObject, my_callback, my_callbackContext;
     }
             
     // when user click add question button on matching then it will add the questions to the database
-    
+   
     function add_Question()
     {
         console.log(questionAnswerObject);
@@ -749,8 +781,9 @@ var questionAnswerObject, my_callback, my_callbackContext;
 				// get the value of selected radio button and store in the array to generate the result
 				if(question_number!=0)
 				{
-					var ans = document.querySelector('input[name="gender"]:checked').value;
-					answer_sheet.push(ans);
+					var ans = document.querySelector('input[name="gender"]:checked');//.value;
+                    if(!ans==null)
+    					answer_sheet.push(ans.value);
 					
 					document.getElementById("answer_1").checked = false;
 					document.getElementById("answer_2").checked = false;
@@ -820,14 +853,7 @@ var questionAnswerObject, my_callback, my_callbackContext;
                     hidepopup("#MatchingQuestion_css");
                     question_number = 0;
                     display_question_matching();
-                }
-
-				
-//				var ques = get_json_from_local[index].question[0].questionText;
-//				document.getElementById('question').innerHTML = ques;
-
-//				$("#question").val(ques);
-//				document.getElementById('answer_1').parentNode.lastChild.nodeValue = "Answer Zero ";
+                }				
 			}
 /* end js code :- create multiple choice questions*/    
     
@@ -1042,6 +1068,7 @@ var seltxt = '';
     
                 function MatchingQuestion_close_btn_question()
                 {
+                    question_number = 0;
                     hidepopup("#MatchingQuestion_css");
                 }
 
@@ -1863,12 +1890,16 @@ $(document).ready(function() {
     
 <!--  start : code to show the image slider -->
         <div id="image_slider" class="image_slider_popup">
-                   <input type="image" src="assets/close_pop.png" style="margin-left:99%; margin-top:-20%;" id="slider_close_btn"/>
-                <div style="height:70px; line-height:70px; text-align:center;">
-                    <label style="color:#000000;font-size:25px;"> Choose image to create question </label>
-                </div>
+
 		</div>
 <!--  end : code to show the popup when user click a sprite from phaser -->
+
+
+<!--  start : code to show the score card -->
+        <div id="score_card" class="score_card_popup">
+
+		</div>
+<!--  end : code to show the score card popup  -->
     
 </div>
 
