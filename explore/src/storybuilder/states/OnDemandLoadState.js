@@ -59,7 +59,7 @@ export default class OnDemandLoadState extends Phaser.State {
 
     update() {
         if (!!this.ready) {
-            this.game.state.start(this._stateToEnterAfterLoading, true, false, false, this._currentStoryId, this._currentPageId, this._cachedJSONStringRepresentation, this._sceneOrPuppetType);
+            this.game.state.start(this._stateToEnterAfterLoading, true, false, this._currentStoryId, this._currentPageId, this._cachedJSONStringRepresentation, this._sceneOrPuppetType);
         }
     }
 
