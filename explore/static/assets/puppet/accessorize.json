@@ -241,9 +241,6 @@
       }
     }  
     
-    
-    
-    
   },
   "beard_chooser": {
     
@@ -1501,20 +1498,104 @@
         }  
     }
     
-    
-    
-    
-    
-    
-    
-    
-    
-      
   },
   "skinColor_chooser": {
     "B44F0E": "B44F0E",
     "F1BD78": "F1BD78",
     "F1D0A4": "F1D0A4",
     "FFCC66": "FFCC66"
-  }
+  },
+   "eye_chooser":{
+      
+      
+  },
+    "headshape_chooser":{
+      
+      
+  },
+  "mouth_chooser":{
+      
+  },
+   "emoticon_chooser": {
+    "angryFace":{
+        "DialogBox":{
+        "key": "puppet/emoticon",
+        "frame": "dialog box2.png"
+        },
+       "Emoticon":{
+        "key": "puppet/emoticon",
+        "frame": "angry.png"
+       }
+    },
+    "cryingFace":{
+        "DialogBox":{
+        "key": "puppet/emoticon",
+        "frame": "dialog box2.png"
+        },
+       "Emoticon":{
+        "key": "puppet/emoticon",
+        "frame": "crying.png"
+       }
+    },
+     "smileFace":{
+        "DialogBox":{
+        "key": "puppet/emoticon",
+        "frame": "dialog box2.png"
+        },
+       "Emoticon":{
+        "key": "puppet/emoticon",
+        "frame": "smile.png"
+       }
+    },
+     "sadFace":{
+        "DialogBox":{
+        "key": "puppet/emoticon",
+        "frame": "dialog box2.png"
+        },
+       "Emoticon":{
+        "key": "puppet/emoticon",
+        "frame": "sad.png"
+       }
+    },
+    "closeeyesmileFace":{
+        "DialogBox":{
+        "key": "puppet/emoticon",
+        "frame": "dialog box2.png"
+        },
+       "Emoticon":{
+        "key": "puppet/emoticon",
+        "frame": "closed eyes smile.png"
+       }
+    },
+      "coolFace":{
+        "DialogBox":{
+        "key": "puppet/emoticon",
+        "frame": "dialog box2.png"
+        },
+       "Emoticon":{
+        "key": "puppet/emoticon",
+        "frame": "cool.png"
+       }
+    },
+    "laughFace":{
+        "DialogBox":{
+        "key": "puppet/emoticon",
+        "frame": "dialog box2.png"
+        },
+       "Emoticon":{
+        "key": "puppet/emoticon",
+        "frame": "laughing.png"
+       }
+    },
+    "nervousFace":{
+        "DialogBox":{
+        "key": "puppet/emoticon",
+        "frame": "dialog box2.png"
+        },
+       "Emoticon":{
+        "key": "puppet/emoticon",
+        "frame": "nervous.png"
+       }
+   }
+}
 }
