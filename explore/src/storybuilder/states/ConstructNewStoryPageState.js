@@ -357,7 +357,24 @@ export default class ConstructNewStoryPageState extends Phaser.State {
             }
 
         } else if (name === ConstructNewStoryPageState.START_PLAY_BUTTON) {
-            this.recordingManager.narrateStory.call(this.recordingManager);
+            
+              let curtain1 = this.game.add.image(this.game.width, this.game.height, 'storyBuilder/curtain', "Curtain_center.png");
+              curtain1.anchor.set(1); 
+              let curtain2 = game.add.image(0, this.game.height, 'storyBuilder/curtain', "Curtain_left.png");
+              curtain2.anchor.set(0, 1)
+              let curtain3 = game.add.image(710, 0, 'storyBuilder/curtain', "Curtain_right.png");
+              this.game.add.tween(curtain1).to({y:0}, 2000).start();
+              this.game.add.tween(curtain2).to({x:-curtain2.width}, 2000).start();
+              this.game.add.tween(curtain3).to({x:this.game.width}, 2000).start();
+              let self = this;
+              
+              setTimeout(function() {
+                 curtain1.kill();
+                 curtain2.kill();
+                 curtain3.kill();
+                 self.recordingManager.narrateStory.call(self.recordingManager);
+              }, 2100);
+
             if (game._inPlayMode) {
                 //stop button
                 this._consoleBar.rightButtonGrid.updateButtonImage(ConstructNewStoryPageState.START_PLAY_BUTTON, 'scene/icons', ConstructNewStoryPageState.STOP_PLAY_BUTTON);
@@ -366,22 +383,8 @@ export default class ConstructNewStoryPageState extends Phaser.State {
                 this._consoleBar.rightButtonGrid.updateButtonImage(ConstructNewStoryPageState.START_PLAY_BUTTON, 'scene/icons', ConstructNewStoryPageState.START_PLAY_BUTTON);
             }
         } else if(name === ConstructNewStoryPageState.ADD_PLAY_BUTTON) {
-           // this.recordingManager.narrateStory.call(this.recordingManager);             let curtain1 = this.game.add.image(this.game.width, this.game.height, 'storyBuilder/curtain', "Curtain_center.png");
-            curtain1.anchor.set(1,1);
+         
             
-             let curtain2 = game.add.image(0, this.game.height, 'storyBuilder/curtain', "Curtain_left.png");
-             curtain2.anchor.set(0, 1)
-              let curtain3 = game.add.image(710, 0, 'storyBuilder/curtain', "Curtain_right.png");
-              this.game.add.tween(curtain1).to({y:0}, 2000).start();
-              this.game.add.tween(curtain2).to({x:-curtain2.width}, 2000).start();
-              this.game.add.tween(curtain3).to({x:this.game.width}, 2000).start();
-              this.recordingManager.narrateStory.call(this.recordingManager);
-              setTimeout(function() {
-                 curtain1.kill();
-                 curtain2.kill();
-                 curtain3.kill();
-               //  this.recordingManager.narrateStory.call(this.recordingManager);
-              }, 2100);
         }
     }
 
