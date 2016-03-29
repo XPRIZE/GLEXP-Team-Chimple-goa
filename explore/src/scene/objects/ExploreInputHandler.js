@@ -31,7 +31,7 @@ export default class ExploreInputHandler {
                 } else if (consoleText.indexOf('.') != -1) {
                     consoleText = consoleText.substr(0, consoleText.indexOf('.'));
                 }
-                consoleBar.text.text = consoleText
+                consoleBar.text.text = consoleText.charAt(0).toLowerCase() + consoleText.slice(1);
             }
         }
         sprite.scale.setTo(1.25, 1.25);
