@@ -1,6 +1,7 @@
 import Limb from './Limb.js';
 import Accessory from './Accessory.js';
 import Shape from './Shape.js';
+import HandShape from './HandShape.js';
 import ComboShape from './ComboShape.js';
 import HandShape from './HandShape.js';
 import RelativePosition from './RelativePosition.js';
