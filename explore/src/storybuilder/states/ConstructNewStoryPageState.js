@@ -183,9 +183,9 @@ export default class ConstructNewStoryPageState extends Phaser.State {
         let page = JSON.parse(JSON.stringify(this._currentPage), JsonUtil.revive);
         this._loadedScene = page.scene;
         //var gray = this.game.add.filter('Gray');
-        //this._loadedScene.filters = [gray];
-
+        //this._loadedScene.filters = [gray];        
         this._displayControlGroup.add(this._loadedScene);
+        this._uniqueImageNames = this.buildContentsList(this._loadedScene);
         //remove any direct child of world 
         this.game.world.children.forEach(function(element) {
             console.log(element);
@@ -193,6 +193,24 @@ export default class ConstructNewStoryPageState extends Phaser.State {
                 this.game.world.removeChild(element);
             }
         }, this);
+    }
+    
+    
+    buildContentsList(scene) {
+        let uniqueImageNameSet = new Set();
+        scene.children.forEach(function(element) {
+            if(element instanceof Wall || element instanceof Floor) {
+                element.children.forEach(function(child) {
+                    if(child instanceof Item) {
+                        console.log('child: frame:' + child.frameName);
+                        if(child.frameName != null || child.frameName != undefined) {
+                            uniqueImageNameSet.add(child.frameName);
+                        }                        
+                    } 
+                })
+            }
+        }, this);
+        return Array.from(uniqueImageNameSet);
     }
 
 
@@ -231,6 +249,7 @@ export default class ConstructNewStoryPageState extends Phaser.State {
             }
         }, this);
         let newScene = JSON.parse(jsonSceneRepresentation, JsonUtil.revive);
+        this._uniqueImageNames = this.buildContentsList(newScene);
         if (puppets) {
             puppets.forEach(function(puppet) {
                 newScene.floor.addContent(puppet);
@@ -445,7 +464,7 @@ export default class ConstructNewStoryPageState extends Phaser.State {
     }
 
     createQuestionAndAnswer(item, pointer) {
-        this._QuestionTypeOverlay = new QuestionTypeOverlay(game, game.width, game.height, item, pointer, this, this.saveQuestionInLocal, this._currentPage.questionsAndAnswers);
+        this._QuestionTypeOverlay = new QuestionTypeOverlay(game, game.width, game.height, item, pointer, this, this.saveQuestionInLocal, this._currentPage.questionsAndAnswers, this._uniqueImageNames);
         idObject.storyId = this._currentStory.storyId;
         idObject.pageId = this._currentPage.pageId;
     }
