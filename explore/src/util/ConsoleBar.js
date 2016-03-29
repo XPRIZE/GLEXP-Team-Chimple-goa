@@ -86,7 +86,20 @@ export default class ConsoleBar extends Phaser.Group {
         } else if(buttonName == ConsoleBar.MY_COINS_ICON) { 
             
         } else if(buttonName == ConsoleBar.HELP_ICON) { 
+            $('#element_to_pop_up').bPopup({onClose: function() {
+                console.log('closing pop up');
+            }});
+			$("#word").text(this.text.text);
             
+            var url = 'dictionary/' + this.text.text + '.json';
+		    var meaning = '';
+			$.getJSON(url, function(jd) {
+					meaning = jd.meaning;
+					meaning = $(meaning).text();
+					$("#meaning_content").text(meaning);
+					$("#example_content").text(jd.exmaples);
+					$("#image_content").attr("src", jd.image);
+               });
         } else if(buttonName == ConsoleBar.SETTINGS_ICON) { 
             
         }    

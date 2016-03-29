@@ -39,13 +39,13 @@ preload () {
     this.game.load.image("assets/city_1/Veh_08", "assets/navigate/city_1/Veh_08.png");
     var isometric = require('../../../node_modules/phaser-plugin-isometric/dist/phaser-plugin-isometric.js');
     this.game.plugins.add(new Phaser.Plugin.Isometric(this.game, null, 0.5));
-    this.game.iso.anchor.setTo(0.9, -0.75);
+    this.game.iso.anchor.setTo(0.9, -0.75); 
 	}
     
     
     
  create () {
-        
+       
 	this.map_array = new Array;
 	this.isoGroup = this.game.add.group();
 	this.tree_isoGroup = this.game.add.group();
@@ -126,7 +126,7 @@ preload () {
                      tile.events.onInputDown.add(function(){this.moveInsideView("hospital", 0.4 ,-1)}, this);
                  }  
                   if ( tile.key == "assets/city_1/Grocery"){
-                     tile.events.onInputDown.add(function(){this.moveInsideView("grocery", 0.05 ,-1.4)}, this);
+                     tile.events.onInputDown.add(function(){this.moveInsideView("gym", 0.05 ,-1.4)}, this);
                  }  
                   if ( tile.key == "assets/city_1/Police_Station"){
                      tile.events.onInputDown.add(function(){this.moveInsideView("policestation", 0.2 ,-1.5)}, this);
