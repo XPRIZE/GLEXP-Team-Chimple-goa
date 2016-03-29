@@ -1,6 +1,7 @@
 import Limb from './Limb.js';
 import Accessory from './Accessory.js';
 import Shape from './Shape.js';
+import HandShape from './HandShape.js';
 import ComboShape from './ComboShape.js';
 import RelativePosition from './RelativePosition.js';
 import Puppet from './Puppet.js';
@@ -27,7 +28,9 @@ export default class JsonUtil {
         if (v instanceof Object && v._class == 'Shape') {
             return Shape.fromJSON(window.game, v);
         } else if (v instanceof Object && v._class == 'ComboShape') {
-            return Shape.fromJSON(window.game, v);
+            return ComboShape.fromJSON(window.game, v);
+        } else if (v instanceof Object && v._class == 'HandShape') {
+            return HandShape.fromJSON(window.game, v);
         } else if (v instanceof Object && v._class == 'Limb') {
             return Limb.fromJSON(window.game, v);
         } else if (v instanceof Object && v._class == 'Puppet') {

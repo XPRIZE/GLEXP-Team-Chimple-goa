@@ -39,7 +39,8 @@ var _ = require('lodash');
 var idObject = new Object();
 //rename to BuildYourOwnStoryEditorState
 export default class ConstructNewStoryPageState extends Phaser.State {
-    init(currentStoryId, currentPageId, cachedJSONRepresentation, sceneOrPuppetType) {
+    init(shouldAutoPlay, currentStoryId, currentPageId, cachedJSONRepresentation, sceneOrPuppetType) {
+        this._shouldAutoPlay = shouldAutoPlay;
         this._currentStoryId = currentStoryId;
         this._currentPageId = currentPageId;
         this._cachedJSONStrRep = cachedJSONRepresentation;
@@ -53,7 +54,10 @@ export default class ConstructNewStoryPageState extends Phaser.State {
         this._recordingStartSignal = new RecordingStartSignal();
         this._recordingStartSignal.add(this.notifiedWhenRecordingStarts, this);
 
-        this._screenshotGenerated = false;
+        if(!shouldAutoPlay) {
+            this._screenshotGenerated = false;    
+        }
+        
 
         this._recordingPlayEndSignal = new RecordingPlayEndSignal();
         this._recordingPlayEndSignal.add(this.displayButtonOnrecordingPlayEnd, this);
@@ -163,6 +167,10 @@ export default class ConstructNewStoryPageState extends Phaser.State {
         this.setUpUI();
 
         // this.hideAllControls();
+        
+        if(this._shouldAutoPlay) {
+            this.autoPlay();
+        }
 
     }
 
@@ -310,28 +318,7 @@ export default class ConstructNewStoryPageState extends Phaser.State {
 
     }
 
-    hideAllControls() {
-        // this._homeButton.visible = false;
-        // this._chooseBackGroundButton.visible = false;
-        // this._chooseCharacterButton.visible = false;
-        // this._questionAndAnswerButton.visible = false;
-        // this._testResumePlayButton.visible = false;
-
-        // this.recordingManager.hideAllControls();
-    }
-
-
-    showAllControls() {
-        // this._homeButton.visible = true;
-        // this._chooseBackGroundButton.visible = true;
-        // this._chooseCharacterButton.visible = true;
-        // this._questionAndAnswerButton.visible = true;
-        // this._testResumePlayButton.visible = true;
-        // this.recordingManager.showAllControls();
-    }
-
-    defineControls(tab, name) {
-        console.log('name:' + name);
+    defineControls(tab, name) {        
         if (name === ConstructNewStoryPageState.HOME_BUTTON) {
             this.navigateToLibrary();
         } else if (name === ConstructNewStoryPageState.ADD_BACKGROUND_BUTTON) {
@@ -357,7 +344,6 @@ export default class ConstructNewStoryPageState extends Phaser.State {
             }
 
         } else if (name === ConstructNewStoryPageState.START_PLAY_BUTTON) {
-            
               let curtain1 = this.game.add.image(this.game.width, this.game.height, 'storyBuilder/curtain', "Curtain_center.png");
               curtain1.anchor.set(1); 
               let curtain2 = game.add.image(0, this.game.height, 'storyBuilder/curtain', "Curtain_left.png");
@@ -374,7 +360,8 @@ export default class ConstructNewStoryPageState extends Phaser.State {
                  curtain3.kill();
                  self.recordingManager.narrateStory.call(self.recordingManager);
               }, 2100);
-
+            
+            
             if (game._inPlayMode) {
                 //stop button
                 this._consoleBar.rightButtonGrid.updateButtonImage(ConstructNewStoryPageState.START_PLAY_BUTTON, 'scene/icons', ConstructNewStoryPageState.STOP_PLAY_BUTTON);
@@ -382,10 +369,6 @@ export default class ConstructNewStoryPageState extends Phaser.State {
                 //start button
                 this._consoleBar.rightButtonGrid.updateButtonImage(ConstructNewStoryPageState.START_PLAY_BUTTON, 'scene/icons', ConstructNewStoryPageState.START_PLAY_BUTTON);
             }
-        } else if(name === ConstructNewStoryPageState.ADD_PLAY_BUTTON) {
-         
-            
-        }
     }
 
     createActionButtons() {
@@ -413,6 +396,18 @@ export default class ConstructNewStoryPageState extends Phaser.State {
         //this._editPuppet.visible = false;
     }
 
+
+    autoPlay() {
+        //getButton
+        this._consoleBar.rightButtonGrid.buttons.forEach(function(name) {
+              console.log('button:' + name);
+              if(name === ConstructNewStoryPageState.START_PLAY_BUTTON) {
+                  let playButton = this._consoleBar.rightButtonGrid.getButton(name);
+                  this._consoleBar.rightButtonGrid.callSelectButton(playButton);
+              }            
+        }, this);
+         
+    }
 
     editPuppet() {
         this._displayControlGroup.add(new PuppetCustomizer(this.game, this.game.width, this.game.height, this.puppet, this.addPuppet, this));
@@ -596,7 +591,6 @@ export default class ConstructNewStoryPageState extends Phaser.State {
             this.updateGenereatedScreenShotIfTitlePage(imageDataURI);
             //update to library 
             this.saveToLocalStore();
-            this.showAllControls();
         }
 
     }
