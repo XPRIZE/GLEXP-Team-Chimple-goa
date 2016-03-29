@@ -21,7 +21,7 @@ export default class Popup extends Phaser.Group {
     }
     
     handleClick(sprite, pointer) {
-        this.add(new ConfirmPopup(this.game, this.fuzzyBackground.input.priorityID + 1));
+        this.add(new ConfirmPopup(this.game, this.fuzzyBackground.input.priorityID + 2));
     }
     
 }
