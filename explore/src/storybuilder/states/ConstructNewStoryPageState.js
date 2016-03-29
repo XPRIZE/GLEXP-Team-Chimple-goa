@@ -175,9 +175,9 @@ export default class ConstructNewStoryPageState extends Phaser.State {
         let page = JSON.parse(JSON.stringify(this._currentPage), JsonUtil.revive);
         this._loadedScene = page.scene;
         //var gray = this.game.add.filter('Gray');
-        //this._loadedScene.filters = [gray];
-
+        //this._loadedScene.filters = [gray];        
         this._displayControlGroup.add(this._loadedScene);
+        this._uniqueImageNames = this.buildContentsList(this._loadedScene);
         //remove any direct child of world 
         this.game.world.children.forEach(function(element) {
             console.log(element);
@@ -185,6 +185,24 @@ export default class ConstructNewStoryPageState extends Phaser.State {
                 this.game.world.removeChild(element);
             }
         }, this);
+    }
+    
+    
+    buildContentsList(scene) {
+        let uniqueImageNameSet = new Set();
+        scene.children.forEach(function(element) {
+            if(element instanceof Wall || element instanceof Floor) {
+                element.children.forEach(function(child) {
+                    if(child instanceof Item) {
+                        console.log('child: frame:' + child.frameName);
+                        if(child.frameName != null || child.frameName != undefined) {
+                            uniqueImageNameSet.add(child.frameName);
+                        }                        
+                    } 
+                })
+            }
+        }, this);
+        return Array.from(uniqueImageNameSet);
     }
 
 
@@ -223,6 +241,7 @@ export default class ConstructNewStoryPageState extends Phaser.State {
             }
         }, this);
         let newScene = JSON.parse(jsonSceneRepresentation, JsonUtil.revive);
+        this._uniqueImageNames = this.buildContentsList(newScene);
         if (puppets) {
             puppets.forEach(function(puppet) {
                 newScene.floor.addContent(puppet);
@@ -357,16 +376,7 @@ export default class ConstructNewStoryPageState extends Phaser.State {
             }
 
         } else if (name === ConstructNewStoryPageState.START_PLAY_BUTTON) {
-            this.recordingManager.narrateStory.call(this.recordingManager);
-            if (game._inPlayMode) {
-                //stop button
-                this._consoleBar.rightButtonGrid.updateButtonImage(ConstructNewStoryPageState.START_PLAY_BUTTON, 'scene/icons', ConstructNewStoryPageState.STOP_PLAY_BUTTON);
-            } else {
-                //start button
-                this._consoleBar.rightButtonGrid.updateButtonImage(ConstructNewStoryPageState.START_PLAY_BUTTON, 'scene/icons', ConstructNewStoryPageState.START_PLAY_BUTTON);
-            }
-        } else if(name === ConstructNewStoryPageState.ADD_PLAY_BUTTON) {
-           // this.recordingManager.narrateStory.call(this.recordingManager);             let curtain1 = this.game.add.image(this.game.width, this.game.height, 'storyBuilder/curtain', "Curtain_center.png");
+            let curtain1 = this.game.add.image(this.game.width, this.game.height, 'storyBuilder/curtain', "Curtain_center.png");
             curtain1.anchor.set(1,1);
             
              let curtain2 = game.add.image(0, this.game.height, 'storyBuilder/curtain', "Curtain_left.png");
@@ -375,13 +385,26 @@ export default class ConstructNewStoryPageState extends Phaser.State {
               this.game.add.tween(curtain1).to({y:0}, 2000).start();
               this.game.add.tween(curtain2).to({x:-curtain2.width}, 2000).start();
               this.game.add.tween(curtain3).to({x:this.game.width}, 2000).start();
-              this.recordingManager.narrateStory.call(this.recordingManager);
+              let self = this;
+             // this.recordingManager.narrateStory.call(this.recordingManager);
               setTimeout(function() {
                  curtain1.kill();
                  curtain2.kill();
                  curtain3.kill();
-               //  this.recordingManager.narrateStory.call(this.recordingManager);
+                 self.recordingManager.narrateStory.call(self.recordingManager);
               }, 2100);
+          //  this.recordingManager.narrateStory.call(this.recordingManager);
+            if (game._inPlayMode) {
+                //stop button
+                this._consoleBar.rightButtonGrid.updateButtonImage(ConstructNewStoryPageState.START_PLAY_BUTTON, 'scene/icons', ConstructNewStoryPageState.STOP_PLAY_BUTTON);
+            } else {
+                //start button
+                this._consoleBar.rightButtonGrid.updateButtonImage(ConstructNewStoryPageState.START_PLAY_BUTTON, 'scene/icons', ConstructNewStoryPageState.START_PLAY_BUTTON);
+            }
+        } else if(name === ConstructNewStoryPageState.ADD_PLAY_BUTTON) {
+           // this.recordingManager.narrateStory.call(this.recordingManager);     
+           console.log("in playing curtain");        
+           
         }
     }
 
@@ -446,7 +469,7 @@ export default class ConstructNewStoryPageState extends Phaser.State {
     }
 
     createQuestionAndAnswer(item, pointer) {
-        this._QuestionTypeOverlay = new QuestionTypeOverlay(game, game.width, game.height, item, pointer, this, this.saveQuestionInLocal, this._currentPage.questionsAndAnswers);
+        this._QuestionTypeOverlay = new QuestionTypeOverlay(game, game.width, game.height, item, pointer, this, this.saveQuestionInLocal, this._currentPage.questionsAndAnswers, this._uniqueImageNames);
         idObject.storyId = this._currentStory.storyId;
         idObject.pageId = this._currentPage.pageId;
     }
