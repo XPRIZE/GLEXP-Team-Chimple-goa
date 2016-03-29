@@ -24,6 +24,7 @@ import Page from '../../storybuilder/objects/Page.js';
 import StoryPage from '../../storybuilder/objects/StoryPage.js';
 
 export default class JsonUtil {
+    
     static revive(k, v) {
         if (v instanceof Object && v._class == 'Shape') {
             return Shape.fromJSON(window.game, v);
