@@ -95,7 +95,7 @@ export default class EditStoryPagesState extends Phaser.State {
                 if (element.pageId === pageId) {
                     this._curPage = element;
                     this.saveToLocalStore();
-                    this.game.state.start('StoryConstructNewStoryPageState', true, false, this._currentStoryId, this._curPage.pageId);
+                    this.game.state.start('StoryConstructNewStoryPageState', true, false, false, this._currentStoryId, this._curPage.pageId);
                 }
             }, this);
 
