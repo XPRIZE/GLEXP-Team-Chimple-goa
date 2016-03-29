@@ -18,7 +18,7 @@ export default class ConfirmPopup extends Phaser.Group {
         prompt.drawRoundedRect(0, 0, 200, 200, 5);
         prompt.inputEnabled = true;
         // prompt.input.priorityID = priorityID + 1;
-        prompt.events.onInputDown.add(this.handlePromptClick, this);
+        // prompt.events.onInputDown.add(this.handlePromptClick, this);
         
         this.buttons = prompt.addChild(new ButtonGrid(game, 'scene/icons', 200, 100, 1, 2, true, this.handlePromptClick, this, null));
         this.buttons.priorityID = priorityID;
