@@ -45,8 +45,8 @@ body{
 
 .score_card_popup{
     height : auto;
-    width : 80%;
-    margin-left : 10%;
+    width : 50%;
+    margin-left : 25%;
     
 
     margin-top: 2%;
@@ -627,6 +627,9 @@ var story_id, page_id;
 // store the answers of the user
 var answer_sheet = new Array();    
 
+// store the correct answers of the questions
+var correct_answer_sheet = new Array();
+
 var questionAnswerObject, my_callback, my_callbackContext;
     
     // display multiple_choice popup to the user
@@ -782,7 +785,9 @@ var questionAnswerObject, my_callback, my_callbackContext;
 				if(question_number!=0)
 				{
 					var ans = document.querySelector('input[name="gender"]:checked');//.value;
-                    if(!ans==null)
+                    if(ans==null)
+                        answer_sheet.push(0);
+                    else
     					answer_sheet.push(ans.value);
 					
 					document.getElementById("answer_1").checked = false;
@@ -828,6 +833,8 @@ var questionAnswerObject, my_callback, my_callbackContext;
                         $('body').append('<div id="mask"></div>');
                         $('#mask').fadeIn(300);
 						console.log(Question_Answer_JSON[question_number]);
+                    
+                        correct_answer_sheet.push(Question_Answer_JSON[question_number].correctAnswers);
                     
 						setTimeout(function(){
 						
@@ -909,6 +916,8 @@ var questionAnswerObject, my_callback, my_callbackContext;
                     $('#mask').fadeIn(300);
                     showpopup("#MatchingQuestion_css");
 
+                    var nam = Question_Answer_JSON[question_number].questionText.split(".");
+                    correct_answer_sheet.push(nam[0]);
 
 					$("#MatchingQuestion_css").append('<input type="image" src="assets/close_pop.png" id="MatchingQuestion_close_btn_question" style="background-color : #136662; color : #ffffff; border-radius: 20px; margin-left : 99%; margin-top:-20px;" onclick="MatchingQuestion_close_btn_question()" /> <br>');
                     $("#MatchingQuestion_css").append('<img src="'+Question_Answer_JSON[question_number].questionText+'" style="height:30%; width:20%; margin-left : 40%; margin-top:5%;" /> <br><br>');
@@ -1231,6 +1240,12 @@ $(document).ready(function() {
     
 
 /* end js code :- create questions*/    
+
+                // close popup of score card
+			   $("#score_card_close_btn").click(function(){	
+                question_number = 0;                   
+                hidepopup("#score_card");
+			   });
 
 				// click to create matching type question then it will popup matching choice popup
 			   $("#matching").click(function(){	
@@ -1897,7 +1912,11 @@ $(document).ready(function() {
 
 <!--  start : code to show the score card -->
         <div id="score_card" class="score_card_popup">
-
+            <input type="image" src="assets/close_pop.png" style="margin-left:99%; margin-top:-20px;" id="score_card_close_btn"/>
+            <label style="margin-left : 5%; margin-top : 2%; color : #000000; font-size : 25px;">Total asked question : </label><label></label> <br><br>
+            <label style="margin-left : 5%; margin-top : 2%; color : #000000; font-size : 25px;">Correct answer : </label><label></label> <br><br>
+            <label style="margin-left : 5%; margin-top : 2%; color : #000000; font-size : 25px;">Wrong answer : </label><label></label> <br><br>
+            <label style="margin-left : 5%; margin-top : 2%; color : #000000; font-size : 25px;">Score :  </label><label></label> <br><br>
 		</div>
 <!--  end : code to show the score card popup  -->
     
