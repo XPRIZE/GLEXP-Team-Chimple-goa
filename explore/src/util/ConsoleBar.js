@@ -5,7 +5,6 @@ import StoryBuilderStateHolder from '../storybuilder/index.js';
 
 export default class ConsoleBar extends Phaser.Group {
     constructor(game) {
-        //some comment
         super(game);
         this.unitHeight = 36;
         this.unitWidth = 36;
