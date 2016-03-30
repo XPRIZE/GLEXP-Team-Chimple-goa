@@ -43,6 +43,6 @@ export default class Shape extends Scalable(Phaser.Graphics) {
     }
     
     static fromJSON(game, j) {
-        return new Shape(game, j.initialScale, j.relativeAnchor, j.relativeOffset, j.offsetInPixel, j.graphics);        
+        return new Shape(game, j.initialScale, j.relativeAnchor, j.relativeOffset, j.offsetInPixel, j.graphics, j.name);        
     }
 }

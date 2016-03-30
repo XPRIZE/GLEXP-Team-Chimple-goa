@@ -2,7 +2,7 @@
 
 {
 	"filename": "ambulance.png",
-	"frame": {"x":1,"y":804,"w":1120,"h":495},
+	"frame": {"x":1,"y":1,"w":1120,"h":495},
 	"rotated": false,
 	"trimmed": true,
 	"spriteSourceSize": {"x":0,"y":0,"w":1120,"h":495},
@@ -10,7 +10,7 @@
 },
 {
 	"filename": "book_blue.png",
-	"frame": {"x":1163,"y":1285,"w":33,"h":86},
+	"frame": {"x":1720,"y":735,"w":33,"h":86},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":33,"h":86},
@@ -18,7 +18,7 @@
 },
 {
 	"filename": "book_brown_small.png",
-	"frame": {"x":1920,"y":1812,"w":33,"h":61},
+	"frame": {"x":1056,"y":597,"w":33,"h":61},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":33,"h":61},
@@ -26,7 +26,7 @@
 },
 {
 	"filename": "book_dark_blue.png",
-	"frame": {"x":1254,"y":1687,"w":33,"h":93},
+	"frame": {"x":1727,"y":1727,"w":33,"h":93},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":33,"h":93},
@@ -34,7 +34,7 @@
 },
 {
 	"filename": "book_dark_yellow.png",
-	"frame": {"x":1993,"y":1,"w":33,"h":97},
+	"frame": {"x":1056,"y":498,"w":33,"h":97},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":33,"h":97},
@@ -42,7 +42,7 @@
 },
 {
 	"filename": "book_green.png",
-	"frame": {"x":1993,"y":100,"w":33,"h":83},
+	"frame": {"x":432,"y":1765,"w":33,"h":83},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":33,"h":83},
@@ -50,7 +50,7 @@
 },
 {
 	"filename": "book_red.png",
-	"frame": {"x":1993,"y":185,"w":33,"h":81},
+	"frame": {"x":1718,"y":1137,"w":33,"h":81},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":33,"h":81},
@@ -58,23 +58,39 @@
 },
 {
 	"filename": "book_shelf_holder.png",
-	"frame": {"x":1205,"y":803,"w":283,"h":399},
+	"frame": {"x":1046,"y":1446,"w":248,"h":329},
 	"rotated": false,
 	"trimmed": false,
-	"spriteSourceSize": {"x":0,"y":0,"w":283,"h":399},
-	"sourceSize": {"w":283,"h":399}
+	"spriteSourceSize": {"x":0,"y":0,"w":248,"h":329},
+	"sourceSize": {"w":248,"h":329}
+},
+{
+	"filename": "book_shelf_holder_front.png",
+	"frame": {"x":474,"y":1283,"w":283,"h":380},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":283,"h":380},
+	"sourceSize": {"w":283,"h":380}
 },
 {
 	"filename": "book_shelf_surface.png",
-	"frame": {"x":1242,"y":774,"w":248,"h":25},
+	"frame": {"x":484,"y":1245,"w":248,"h":25},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":248,"h":25},
 	"sourceSize": {"w":248,"h":25}
 },
 {
+	"filename": "book_shelf_surface_top.png",
+	"frame": {"x":1321,"y":1969,"w":283,"h":20},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":283,"h":20},
+	"sourceSize": {"w":283,"h":20}
+},
+{
 	"filename": "book_yellow.png",
-	"frame": {"x":1993,"y":1320,"w":33,"h":74},
+	"frame": {"x":1702,"y":1876,"w":33,"h":74},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":33,"h":74},
@@ -82,7 +98,7 @@
 },
 {
 	"filename": "box_with_books.png",
-	"frame": {"x":1944,"y":1650,"w":91,"h":78},
+	"frame": {"x":1631,"y":384,"w":91,"h":78},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":91,"h":78},
@@ -90,7 +106,7 @@
 },
 {
 	"filename": "certificate.png",
-	"frame": {"x":1790,"y":1501,"w":174,"h":126},
+	"frame": {"x":1580,"y":1009,"w":174,"h":126},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":174,"h":126},
@@ -98,7 +114,7 @@
 },
 {
 	"filename": "chair_blue_holder.png",
-	"frame": {"x":1821,"y":1020,"w":197,"h":298},
+	"frame": {"x":1296,"y":1446,"w":197,"h":298},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":197,"h":298},
@@ -106,7 +122,7 @@
 },
 {
 	"filename": "chair_blue_surface.png",
-	"frame": {"x":1870,"y":786,"w":134,"h":48},
+	"frame": {"x":1632,"y":237,"w":134,"h":48},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":134,"h":48},
@@ -114,7 +130,7 @@
 },
 {
 	"filename": "chair_red_holder.png",
-	"frame": {"x":1608,"y":1456,"w":180,"h":284},
+	"frame": {"x":1449,"y":1160,"w":180,"h":284},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":180,"h":284},
@@ -122,7 +138,7 @@
 },
 {
 	"filename": "chair_red_surface.png",
-	"frame": {"x":1570,"y":1881,"w":134,"h":48},
+	"frame": {"x":1632,"y":287,"w":134,"h":48},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":134,"h":48},
@@ -130,7 +146,7 @@
 },
 {
 	"filename": "computer_back.png",
-	"frame": {"x":1818,"y":1320,"w":173,"h":179},
+	"frame": {"x":1580,"y":828,"w":173,"h":179},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":173,"h":179},
@@ -138,7 +154,7 @@
 },
 {
 	"filename": "computer_front.png",
-	"frame": {"x":1821,"y":836,"w":216,"h":182},
+	"frame": {"x":1566,"y":551,"w":216,"h":182},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":216,"h":182},
@@ -146,7 +162,7 @@
 },
 {
 	"filename": "drawer_holder.png",
-	"frame": {"x":1242,"y":493,"w":268,"h":236},
+	"frame": {"x":1495,"y":1446,"w":268,"h":236},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":268,"h":236},
@@ -154,7 +170,7 @@
 },
 {
 	"filename": "drawer_surface.png",
-	"frame": {"x":1242,"y":731,"w":268,"h":41},
+	"frame": {"x":1495,"y":1684,"w":268,"h":41},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":268,"h":41},
@@ -162,7 +178,7 @@
 },
 {
 	"filename": "drip_stand.png",
-	"frame": {"x":1242,"y":1,"w":277,"h":490},
+	"frame": {"x":484,"y":753,"w":277,"h":490},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":277,"h":490},
@@ -170,7 +186,7 @@
 },
 {
 	"filename": "emergency_board.png",
-	"frame": {"x":1254,"y":1877,"w":232,"h":53},
+	"frame": {"x":392,"y":1881,"w":232,"h":53},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":232,"h":53},
@@ -178,7 +194,7 @@
 },
 {
 	"filename": "floor_01.png",
-	"frame": {"x":1941,"y":1730,"w":80,"h":80},
+	"frame": {"x":1631,"y":1264,"w":80,"h":80},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":80,"h":80},
@@ -186,7 +202,7 @@
 },
 {
 	"filename": "floor_02.png",
-	"frame": {"x":1488,"y":1877,"w":80,"h":40},
+	"frame": {"x":1657,"y":1952,"w":80,"h":40},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":80,"h":40},
@@ -194,15 +210,23 @@
 },
 {
 	"filename": "glass_door.png",
-	"frame": {"x":1490,"y":836,"w":329,"h":395},
+	"frame": {"x":763,"y":753,"w":329,"h":395},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":329,"h":395},
 	"sourceSize": {"w":329,"h":395}
 },
 {
+	"filename": "grass_floor-01.png",
+	"frame": {"x":467,"y":1765,"w":5,"h":5},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":5,"h":5},
+	"sourceSize": {"w":5,"h":5}
+},
+{
 	"filename": "heart_rate_monitor.png",
-	"frame": {"x":1790,"y":1629,"w":152,"h":91},
+	"frame": {"x":1566,"y":735,"w":152,"h":91},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":152,"h":91},
@@ -210,7 +234,7 @@
 },
 {
 	"filename": "hospital_bed_01_holder.png",
-	"frame": {"x":484,"y":1301,"w":507,"h":322},
+	"frame": {"x":1123,"y":1,"w":507,"h":322},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":507,"h":322},
@@ -218,7 +242,7 @@
 },
 {
 	"filename": "hospital_bed_01_holder_front.png",
-	"frame": {"x":1612,"y":1784,"w":306,"h":95},
+	"frame": {"x":751,"y":1786,"w":306,"h":95},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":306,"h":95},
@@ -226,7 +250,7 @@
 },
 {
 	"filename": "hospital_bed_01_surface.png",
-	"frame": {"x":1,"y":1831,"w":418,"h":94},
+	"frame": {"x":626,"y":1883,"w":418,"h":94},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":418,"h":94},
@@ -234,7 +258,7 @@
 },
 {
 	"filename": "hospital_bed_02_holder.png",
-	"frame": {"x":484,"y":1625,"w":506,"h":224},
+	"frame": {"x":1123,"y":325,"w":506,"h":224},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":506,"h":224},
@@ -242,7 +266,7 @@
 },
 {
 	"filename": "hospital_bed_02_surface.png",
-	"frame": {"x":421,"y":1851,"w":438,"h":39},
+	"frame": {"x":1094,"y":1100,"w":438,"h":39},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":438,"h":39},
@@ -250,7 +274,7 @@
 },
 {
 	"filename": "hospital_celling_lights.png",
-	"frame": {"x":1205,"y":1204,"w":275,"h":214},
+	"frame": {"x":474,"y":1665,"w":275,"h":214},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":275,"h":214},
@@ -258,31 +282,23 @@
 },
 {
 	"filename": "hospital_curten.png",
-	"frame": {"x":1,"y":1301,"w":481,"h":528},
+	"frame": {"x":1,"y":753,"w":481,"h":528},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":481,"h":528},
 	"sourceSize": {"w":481,"h":528}
 },
 {
-	"filename": "hospital_division.png",
-	"frame": {"x":1112,"y":1,"w":128,"h":800},
-	"rotated": false,
-	"trimmed": false,
-	"spriteSourceSize": {"x":0,"y":0,"w":128,"h":800},
-	"sourceSize": {"w":128,"h":800}
-},
-{
 	"filename": "hospital_enterance.png",
-	"frame": {"x":1,"y":1,"w":1109,"h":801},
+	"frame": {"x":1,"y":498,"w":1053,"h":253},
 	"rotated": false,
 	"trimmed": false,
-	"spriteSourceSize": {"x":0,"y":0,"w":1109,"h":801},
-	"sourceSize": {"w":1109,"h":801}
+	"spriteSourceSize": {"x":0,"y":0,"w":1053,"h":253},
+	"sourceSize": {"w":1053,"h":253}
 },
 {
 	"filename": "injection.png",
-	"frame": {"x":861,"y":1851,"w":102,"h":22},
+	"frame": {"x":1631,"y":1406,"w":102,"h":22},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":102,"h":22},
@@ -290,7 +306,7 @@
 },
 {
 	"filename": "medicen.png",
-	"frame": {"x":1966,"y":1501,"w":68,"h":147},
+	"frame": {"x":1657,"y":1727,"w":68,"h":147},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":68,"h":147},
@@ -298,7 +314,7 @@
 },
 {
 	"filename": "pill_01.png",
-	"frame": {"x":421,"y":1831,"w":23,"h":10},
+	"frame": {"x":1296,"y":1746,"w":23,"h":10},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":23,"h":10},
@@ -306,7 +322,7 @@
 },
 {
 	"filename": "pill_02.png",
-	"frame": {"x":1321,"y":1420,"w":23,"h":10},
+	"frame": {"x":1296,"y":1758,"w":23,"h":10},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":23,"h":10},
@@ -314,7 +330,7 @@
 },
 {
 	"filename": "pill_03.png",
-	"frame": {"x":1790,"y":1456,"w":23,"h":10},
+	"frame": {"x":1046,"y":1417,"w":23,"h":10},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":23,"h":10},
@@ -322,7 +338,7 @@
 },
 {
 	"filename": "pill_04.png",
-	"frame": {"x":1492,"y":774,"w":18,"h":10},
+	"frame": {"x":1071,"y":1417,"w":18,"h":10},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":18,"h":10},
@@ -330,7 +346,7 @@
 },
 {
 	"filename": "pill_bottle.png",
-	"frame": {"x":1993,"y":1396,"w":43,"h":74},
+	"frame": {"x":1657,"y":1876,"w":43,"h":74},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":43,"h":74},
@@ -338,23 +354,39 @@
 },
 {
 	"filename": "piller.png",
-	"frame": {"x":1123,"y":803,"w":38,"h":569},
+	"frame": {"x":392,"y":1283,"w":38,"h":569},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":38,"h":569},
 	"sourceSize": {"w":38,"h":569}
 },
 {
+	"filename": "piller_wall.png",
+	"frame": {"x":1,"y":1283,"w":389,"h":620},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":389,"h":620},
+	"sourceSize": {"w":389,"h":620}
+},
+{
 	"filename": "pillow.png",
-	"frame": {"x":1830,"y":1722,"w":109,"h":58},
+	"frame": {"x":1631,"y":1346,"w":109,"h":58},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":109,"h":58},
 	"sourceSize": {"w":109,"h":58}
 },
 {
+	"filename": "sky_wall-01.png",
+	"frame": {"x":1296,"y":1770,"w":5,"h":5},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":5,"h":5},
+	"sourceSize": {"w":5,"h":5}
+},
+{
 	"filename": "stethoscope.png",
-	"frame": {"x":1870,"y":695,"w":142,"h":89},
+	"frame": {"x":1632,"y":146,"w":142,"h":89},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":142,"h":89},
@@ -362,7 +394,7 @@
 },
 {
 	"filename": "table_02_holder.png",
-	"frame": {"x":1512,"y":550,"w":356,"h":284},
+	"frame": {"x":1091,"y":1160,"w":356,"h":284},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":356,"h":284},
@@ -370,7 +402,7 @@
 },
 {
 	"filename": "table_02_surface.png",
-	"frame": {"x":1254,"y":1825,"w":356,"h":50},
+	"frame": {"x":1,"y":1905,"w":356,"h":50},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":356,"h":50},
@@ -378,7 +410,7 @@
 },
 {
 	"filename": "table_holder.png",
-	"frame": {"x":1521,"y":1,"w":470,"h":294},
+	"frame": {"x":1094,"y":551,"w":470,"h":294},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":470,"h":294},
@@ -386,7 +418,7 @@
 },
 {
 	"filename": "table_office_holder.png",
-	"frame": {"x":993,"y":1420,"w":326,"h":265},
+	"frame": {"x":763,"y":1150,"w":326,"h":265},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":326,"h":265},
@@ -394,7 +426,7 @@
 },
 {
 	"filename": "table_office_surface.png",
-	"frame": {"x":421,"y":1911,"w":314,"h":22},
+	"frame": {"x":1,"y":1957,"w":314,"h":22},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":314,"h":22},
@@ -402,15 +434,23 @@
 },
 {
 	"filename": "table_surface.png",
-	"frame": {"x":421,"y":1892,"w":452,"h":17},
+	"frame": {"x":1094,"y":1141,"w":452,"h":17},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":452,"h":17},
 	"sourceSize": {"w":452,"h":17}
 },
 {
+	"filename": "vase.png",
+	"frame": {"x":1631,"y":1137,"w":85,"h":125},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":85,"h":125},
+	"sourceSize": {"w":85,"h":125}
+},
+{
 	"filename": "waiting_seat_holder.png",
-	"frame": {"x":1521,"y":297,"w":484,"h":251},
+	"frame": {"x":1094,"y":847,"w":484,"h":251},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":484,"h":251},
@@ -418,7 +458,7 @@
 },
 {
 	"filename": "waiting_seat_surface.png",
-	"frame": {"x":993,"y":1301,"w":125,"h":45},
+	"frame": {"x":1631,"y":337,"w":125,"h":45},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":125,"h":45},
@@ -426,7 +466,7 @@
 },
 {
 	"filename": "wall.png",
-	"frame": {"x":1198,"y":1285,"w":5,"h":5},
+	"frame": {"x":467,"y":1772,"w":5,"h":5},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":5,"h":5},
@@ -434,7 +474,7 @@
 },
 {
 	"filename": "wall_clock.png",
-	"frame": {"x":1870,"y":550,"w":146,"h":143},
+	"frame": {"x":1632,"y":1,"w":146,"h":143},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":146,"h":143},
@@ -442,7 +482,7 @@
 },
 {
 	"filename": "wall_texture.png",
-	"frame": {"x":1163,"y":803,"w":40,"h":480},
+	"frame": {"x":432,"y":1283,"w":40,"h":480},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":480},
@@ -450,7 +490,7 @@
 },
 {
 	"filename": "weighing_machine.png",
-	"frame": {"x":993,"y":1348,"w":102,"h":66},
+	"frame": {"x":1631,"y":464,"w":102,"h":66},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":102,"h":66},
@@ -458,7 +498,7 @@
 },
 {
 	"filename": "wheelchair_holder.png",
-	"frame": {"x":1321,"y":1456,"w":285,"h":367},
+	"frame": {"x":759,"y":1417,"w":285,"h":367},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":285,"h":367},
@@ -466,7 +506,7 @@
 },
 {
 	"filename": "wheelchair_surface.png",
-	"frame": {"x":1608,"y":1742,"w":220,"h":40},
+	"frame": {"x":359,"y":1936,"w":220,"h":40},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":220,"h":40},
@@ -474,7 +514,7 @@
 },
 {
 	"filename": "wight_board_with_text.png",
-	"frame": {"x":992,"y":1687,"w":260,"h":212},
+	"frame": {"x":1059,"y":1777,"w":260,"h":212},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":260,"h":212},
@@ -482,7 +522,7 @@
 },
 {
 	"filename": "x_ray_board.png",
-	"frame": {"x":1482,"y":1233,"w":334,"h":221},
+	"frame": {"x":1321,"y":1746,"w":334,"h":221},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":334,"h":221},
@@ -493,8 +533,8 @@
 	"version": "1.0",
 	"image": "scene.png",
 	"format": "RGBA8888",
-	"size": {"w":2038,"h":1935},
+	"size": {"w":1783,"h":1993},
 	"scale": "1",
-	"smartupdate": "$TexturePacker:SmartUpdate:d2fe3e394bb4b4262bb21f513c333614:1c5bceac7bc479399c77d7a1068c4ac7:b5ae526252a9bb5f811c6329b74d8d84$"
+	"smartupdate": "$TexturePacker:SmartUpdate:64233c4e62491047820305d48b5e1f0c:7935aad04ecfdd721c64ae3daa69b76a:b5ae526252a9bb5f811c6329b74d8d84$"
 }
 }

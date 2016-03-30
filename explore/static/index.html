@@ -17,20 +17,20 @@ body{
     
     width : 100%;
     height : 100%;
-    
 	 color:#bbbbbb; 
 }
     
 
 .image_slider_popup{
     height : auto;
-    width : auto;
+    width : 80%;
+    margin-left : 10%;
     
-    margin-left: 5%;
+
     margin-top: 2%;
 	display:none;
-	background: #333;
-	border: 2px solid #ddd;
+	background: #ffffff;
+	border: 10px solid #ddd;
 	float: left;
 	font-size: 1.2em;
 	position: absolute;
@@ -41,7 +41,30 @@ body{
 	border-radius:3px 3px 3px 3px;
     -moz-border-radius: 3px; /* Firefox */
     -webkit-border-radius: 3px; /* Safari, Chrome */
-}    
+}
+
+.score_card_popup{
+    height : auto;
+    width : 50%;
+    margin-left : 25%;
+    
+
+    margin-top: 2%;
+	display:none;
+	background: #ffffff;
+	border: 10px solid #ddd;
+	float: left;
+	font-size: 1.2em;
+	position: absolute;
+	z-index: 99999;
+
+	-moz-box-shadow: 0px 0px 20px #999; /* Firefox */
+    -webkit-box-shadow: 0px 0px 20px #999; /* Safari, Chrome */
+	border-radius:3px 3px 3px 3px;
+    -moz-border-radius: 3px; /* Firefox */
+    -webkit-border-radius: 3px; /* Safari, Chrome */
+}
+    
     
 /* start :-  css to add text from the html popup to phaser game */
 .container {    
@@ -68,16 +91,13 @@ body{
 
 .login-popup{
     width : 90%;
-    height : 90%;
-    
-    min-height: 90%;
-    min-width: 90%;
+    height : 80%;
     
     margin-left: 5%;
     margin-top: 2%;
 	display:none;
-	background: #333;
-	border: 2px solid #ddd;
+	background: #ffffff;
+	border: 10px solid #ddd;
 	float: left;
 	font-size: 1.2em;
 	position: fixed;
@@ -92,7 +112,7 @@ body{
 
 #pankaj{
     width : 20%;
-    height : 30%;
+    height : 35%;
     
     min-height: 30%;
     min-width: 15%;
@@ -101,7 +121,7 @@ body{
     margin-top: 2%;
     
 	display:none;
-	background: #333;
+	background: #ffffff;
 	border: 2px solid #ddd;
 	float: left;
 	font-size: 1.2em;
@@ -296,8 +316,8 @@ body{
 		   margin-top:0%px;
 		   margin-left:25%;
 	display:none;
-	background: #333;
-	border: 2px solid #ddd;
+	background: #ffffff;
+	border: 10px solid #ddd;
 	float: left;
 	font-size: 1.2em;
 	position: fixed;
@@ -329,6 +349,8 @@ body{
 		   height:10%;
 		   padding:5px;
 		   margin : 10px;
+           
+           color: #333;
 		}
 
 		
@@ -417,10 +439,10 @@ body{
 		   height:50%;
 		   margin-top:0%px;
 		   margin-left:25%;
-            
+           color: #333;
 	display:none;
-	background: #333;
-	border: 2px solid #ddd;
+	background: #ffffff;
+	border: 10px solid #ddd;
 	float: left;
 	font-size: 1.2em;
 	position: absolute;
@@ -486,10 +508,9 @@ body{
 		   height:auto;
 		   margin-top:0%px;
 		   margin-left:25%;
-            
+	background: #ffffff;
 	display:none;
-	background: #333;
-	border: 2px solid #ddd;
+	border: 10px solid #ddd;
 	float: left;
 	font-size: 1.2em;
 	position: absolute;
@@ -592,8 +613,6 @@ var question_answer = new Array();
 // loading the json from local storage
 var get_json_from_local;
 get_json_from_local = JSON.parse(localStorage.getItem('myStorage'));
-
-    console.log(get_json_from_local);
 //    localStorage.setItem('myStorage', JSON.stringify(question_answer));
 // if not storage then create it
 if(!get_json_from_local || get_json_from_local.length==0)
@@ -605,6 +624,9 @@ var story_id, page_id;
 
 // store the answers of the user
 var answer_sheet = new Array();    
+
+// store the correct answers of the questions
+var correct_answer_sheet = new Array();
 
 var questionAnswerObject, my_callback, my_callbackContext;
     
@@ -622,16 +644,23 @@ var questionAnswerObject, my_callback, my_callbackContext;
     }
     
     
+    function slider_close_btn()
+    {
+        hidepopup("#image_slider");
+    }
+    
     // matching type question creation start
     // array that store the result matching type images
     var ImageID = new Array();
     //  image slider
     
-    function display_matching_pop(callback, callbackContext, object)
+    function display_matching_pop(callback, callbackContext, object, _uniqueImageNames)
     {
         questionAnswerObject = object;
         my_callback = callback;
         my_callbackContext = callbackContext;
+
+        let uniqueImageNames = _uniqueImageNames;
         
         $('body').append('<div id="mask"></div>');
         $('#mask').fadeIn(300);
@@ -639,21 +668,24 @@ var questionAnswerObject, my_callback, my_callbackContext;
 		$("#image_slider").css({"visibility":"visible","display":"block"});
 
         var arr = ["assets/apple.png", "assets/close_pop.png", "assets/fruit.jpg", "assets/icons.png", "assets/scene.png", "assets/test.png", "assets/apple.png", "assets/close_pop.png", "assets/fruit.jpg", "assets/icons.png", "assets/scene.png", "assets/test.png", "assets/apple.png", "assets/close_pop.png", "assets/fruit.jpg", "assets/icons.png", "assets/scene.png", "assets/test.png", "assets/apple.png", "assets/close_pop.png", "assets/fruit.jpg", "assets/icons.png", "assets/scene.png", "assets/test.png", "assets/apple.png", "assets/close_pop.png", "assets/fruit.jpg", "assets/icons.png", "assets/scene.png", "assets/test.png"];
-
-                $("#image_slider" ).append('<input type="image" src="assets/close_pop.png" style="margin-left:98%;" id="slider_close_btn"/>');
-                    
         
-        for(var v = 0; v<30; v++)
+        $('#image_slider').html('');
+        $("#image_slider").append('<input type="image" src="assets/close_pop.png" style="margin-left:99%; margin-top:-20%;" id="slider_close_btn"  onclick="slider_close_btn()"/>');
+        
+        $("#image_slider").append('<div style="height:70px; line-height:70px; text-align:center;"> <label style="color:#000000;font-size:25px;"> Choose image to create question </label></div>');                   
+        
+        for(var v = 0; v<uniqueImageNames.length; v++)
             {
-                $("#image_slider" ).append('<img src="'+arr[v]+'" style="height:30%; width:20%; margin-left : 10%;" onclick="add_image(this)" id="'+arr[v]+'" />');
+                $("#image_slider" ).append('<img src="assets/construct_story/'+uniqueImageNames[v]+'" style="height:30%; width:20%; margin-left : 10%;" onclick="add_image(this)" id="'+uniqueImageNames[v]+'" />');
             }
         
-                $("#image_slider" ).append('<button type="button" style="margin-top:10%; width:10%; height:5%; margin-left:40%; margin-right:40%;"  id="submit" onclick="add_Question()">Add Question </button>');
+                $("#image_slider" ).append('<button type="button" style="margin-top:5%; background-color : #136662; color : #ffffff; border-radius: 20px; width:20%; height:40px; margin-left:40%; margin-right:40%; font-size:25px;"  id="submit" onclick="add_Question()">Add Question </button><br><br><br>');
+                $("#image_slider" ).append('<label class="common_css" style="maring-top:20px;"></label>');
 
     }
             
     // when user click add question button on matching then it will add the questions to the database
-    
+   
     function add_Question()
     {
         console.log(questionAnswerObject);
@@ -750,8 +782,11 @@ var questionAnswerObject, my_callback, my_callbackContext;
 				// get the value of selected radio button and store in the array to generate the result
 				if(question_number!=0)
 				{
-					var ans = document.querySelector('input[name="gender"]:checked').value;
-					answer_sheet.push(ans);
+					var ans = document.querySelector('input[name="gender"]:checked');//.value;
+                    if(ans==null)
+                        answer_sheet.push(0);
+                    else
+    					answer_sheet.push(ans.value);
 					
 					document.getElementById("answer_1").checked = false;
 					document.getElementById("answer_2").checked = false;
@@ -791,9 +826,13 @@ var questionAnswerObject, my_callback, my_callbackContext;
 				{
 						hidepopup("#Question_css");
 						hidepopup("#MatchingQuestion_css");
+                        
 						showpopup("#Question_css");
-						
+                        $('body').append('<div id="mask"></div>');
+                        $('#mask').fadeIn(300);
 						console.log(Question_Answer_JSON[question_number]);
+                    
+                        correct_answer_sheet.push(Question_Answer_JSON[question_number].correctAnswers);
                     
 						setTimeout(function(){
 						
@@ -819,14 +858,7 @@ var questionAnswerObject, my_callback, my_callbackContext;
                     hidepopup("#MatchingQuestion_css");
                     question_number = 0;
                     display_question_matching();
-                }
-
-				
-//				var ques = get_json_from_local[index].question[0].questionText;
-//				document.getElementById('question').innerHTML = ques;
-
-//				$("#question").val(ques);
-//				document.getElementById('answer_1').parentNode.lastChild.nodeValue = "Answer Zero ";
+                }				
 			}
 /* end js code :- create multiple choice questions*/    
     
@@ -878,19 +910,35 @@ var questionAnswerObject, my_callback, my_callbackContext;
                 {
                     hidepopup("#Question_css");
                     hidepopup("#MatchingQuestion_css");
+                    $('body').append('<div id="mask"></div>');
+                    $('#mask').fadeIn(300);
                     showpopup("#MatchingQuestion_css");
 
+                    var nam = Question_Answer_JSON[question_number].questionText.split(".");
+                    correct_answer_sheet.push(nam[0]);
 
-                        $("#MatchingQuestion_css" ).append('<input type="image" src="assets/close_pop.png" style="margin-left:98%;" id="image_slider_close_btn"/>');
-                                
-                        $("#MatchingQuestion_css" ).append('<img src="'+Question_Answer_JSON[question_number].questionText+'" style="height:30%; width:20%; margin-left : 10%;" />');
+					$("#MatchingQuestion_css").append('<input type="image" src="assets/close_pop.png" id="MatchingQuestion_close_btn_question" style="background-color : #136662; color : #ffffff; border-radius: 20px; margin-left : 99%; margin-top:-20px;" onclick="MatchingQuestion_close_btn_question()" /> <br>');
+                    $("#MatchingQuestion_css").append('<img src="'+Question_Answer_JSON[question_number].questionText+'" style="height:30%; width:20%; margin-left : 40%; margin-top:5%;" /> <br><br>');
                     
-                        $("#MatchingQuestion_css" ).append('<label>hello</label><br>');
-                        $("#MatchingQuestion_css" ).append('<label>hello</label><br>');
-                        $("#MatchingQuestion_css" ).append('<label>hello</label><br>');
-                        $("#MatchingQuestion_css" ).append('<label>hi</label><br>');
-                $("#MatchingQuestion_css" ).append('<button type="button" style="margin-top:10%; width:10%; height:5%; margin-left:40%; margin-right:40%;"  id="submit" onclick="display_question_matching()">Next Question </button>');
+					$("#MatchingQuestion_css").append('<label style="margin-left:10%; font-size:25px; margin:top:5%; color:#000000"><input type = "radio" class = "login" name = "gender" id="answer_1" value="" style="height: 1.5em; width:3%;">a</label>');
+
+					$("#MatchingQuestion_css").append('<label style="margin-left:40%; font-size:25px;color:#000000"><input type = "radio" class = "login" name = "gender" id="answer_2" value="" style="height: 1.5em; width:3%;">b</label>');
+					$("#MatchingQuestion_css").append('<br><br>');
+					$("#MatchingQuestion_css").append('<label style="margin-left:10%; font-size:25px;color:#000000"><input type = "radio" class = "login" name = "gender" id="answer_3" value="" style="height: 1.5em; width:3%;">c</label>');
+
+					$("#MatchingQuestion_css").append('<label style="margin-left:40%; font-size:25px; color:#000000"><input type = "radio" class = "login" name = "gender" id="answer_4" value="" style="height: 1.5em; width:3%;">d</label>');
+                $("#MatchingQuestion_css").append('<button type="button" style="background-color : #136662; color : #ffffff; border-radius: 20px; margin-top:10%; margin-left:40%; margin-right:40%; width:30%; height:40px; font-size:25px;"  id="submit" onclick="display_question_matching()">Next Question </button><br>');
+                $("#MatchingQuestion_css").append('<br><br>');
+
+/*
+                        $("#MatchingQuestion_css").append('<img src="'+Question_Answer_JSON[question_number].questionText+'" style="height:30%; width:20%; margin-left : 10%;" />');
                     
+                        $("#MatchingQuestion_css").append('<label>hello</label><br>');
+                        $("#MatchingQuestion_css").append('<label>hello</label><br>');
+                        $("#MatchingQuestion_css").append('<label>hello</label><br>');
+                        $("#MatchingQuestion_css").append('<label>hi</label><br>');
+                $("#MatchingQuestion_css").append('<button type="button" style="background-color : #136662; color : #ffffff; border-radius: 20px; margin-top:10%; width:10%; height:5%; margin-left:40%; margin-right:40%;"  id="submit" onclick="display_question_matching()">Next Question </button>');
+  */                  
                         question_number++;
                     
                 }
@@ -1023,18 +1071,27 @@ var seltxt = '';
     return seltxt;
 }
 	
+			   // click close button of matching type question while asking
+    
+                function MatchingQuestion_close_btn_question()
+                {
+                    question_number = 0;
+                    hidepopup("#MatchingQuestion_css");
+                }
+
+    
 // get the data from json and display it on the dialog box	
     
 function displayContent(text)
 {
    		var url = text + '.json';
-		console.log('url '+url);
+		console.log('dictionary/url '+url);
 		var meaning = '';
 			$.getJSON(url, function(jd) {
 					console.log(jd);
 					meaning = jd.meaning;
 					meaning = $(meaning).text();
-					$("#word").text(text);					
+					$("#word").text(text);
 					$("#meaning_content").text(meaning);
 					$("#example_content").text(jd.exmaples);
 					$("#image_content").attr("src", jd.image);
@@ -1048,8 +1105,23 @@ function sound_click()
 	var su = new SpeechSynthesisUtterance();
 	var text = document.getElementById("word").textContent;
 	console.log(text);
-	su.text = text;
-	speechSynthesis.speak(su);
+    
+    var sounds = text.split(" ");
+    
+    for(var i=0; i<sounds.length; i++)
+    {
+        if(i==0)
+        {
+            
+        }
+        else
+        {
+            
+        }
+        
+        su.text = sounds[i];
+        speechSynthesis.speak(su);
+    }
 }
 
 // clear selected when we try to select it on double click
@@ -1167,6 +1239,12 @@ $(document).ready(function() {
 
 /* end js code :- create questions*/    
 
+                // close popup of score card
+			   $("#score_card_close_btn").click(function(){	
+                question_number = 0;                   
+                hidepopup("#score_card");
+			   });
+
 				// click to create matching type question then it will popup matching choice popup
 			   $("#matching").click(function(){	
 
@@ -1230,8 +1308,8 @@ $(document).ready(function() {
 			   // click close button of image_slider popup
 			   $("#image_slider_close_btn").click(function(){
 				hidepopup("#image_slider");
-			   });    
-    
+			   });
+               
 			   $("#slider_close_btn").click(function(){
 				hidepopup("#image_slider");
 			   });    
@@ -1255,12 +1333,20 @@ $(document).ready(function() {
 			   $("#close_btn_matching").click(function(){
 				hidepopup("#matching_css");
 			   });
+               
+
+			   // click close button of image slider while creating questions
+			   $("#slider_close_btn").click(function(){
+				hidepopup("#image_slider");
+			   });
 			   
 			   // click close button of question popup
 			   $("#close_btn_question").click(function(){
                    question_number = 0;
 				hidepopup("#Question_css");
 			   });
+               
+
 			   
 
 			   // select image then it will display the name of the image
@@ -1662,7 +1748,7 @@ $(document).ready(function() {
 		<div id="gdx-bubble-audio-icon" onclick = "sound_click()" >
 		</div>
 		</div>
-		<div id="gdx-bubble-meaning" style="display:none">
+		<div id="gdx-bubble-meaning">
 			<label id="meaning"><b>Meaning:</b> </label> <br>
 			<label id="meaning_content"> Apple is a fruit change</label><br><br>
 			
@@ -1679,7 +1765,7 @@ $(document).ready(function() {
     
 <!-- start : code to show the questions -->
     
-			<div style="height:10%; margin-top:0px; background : white; z-index:99;">
+			<!--<div style="height:10%; margin-top:0px; background : white; z-index:99;">
 				
 				<div id="select_choice" style="background:#f1f1f1; display:none; margin-left:90%;">
 					<table style="cursor:pointer; cursor:hand;">
@@ -1703,11 +1789,13 @@ $(document).ready(function() {
 					</table>
 				</div>
                 
-			</div>
 
+			</div> -->
+            
+            
+			<div id = "multiple_choice_css" style="margin-top:5%;">
 
-			<div id = "multiple_choice_css">
-					<input type="image" src="assets/close_pop.png" id="close_btn_multiple_choice" style="margin-left:95%; margin-top:0px;" />
+					<input type="image" src="assets/close_pop.png" id="close_btn_multiple_choice" style="margin-left:99%; margin-top:-20px;" />
 				<form method = "post" action = "">
 					<label class="common_css">Type your the question</label>
 					<br>
@@ -1718,7 +1806,7 @@ $(document).ready(function() {
 					<br>
 					<input type = "text" class = "login" placeholder = "Correct answer" name = "uid" id="correct_answer">
 					<br>
-					
+				 
 					<label class="common_css">Wrong answers</label>
 					<br>
 					<input type = "text" class = "login" placeholder = "Wrong answer 1" name = "uid" id="wrong_answer1">
@@ -1728,8 +1816,8 @@ $(document).ready(function() {
 					<input type = "text" class = "login" placeholder = "Wrong answer 3" name = "uid" id="wrong_answer3">
 					<br>
 				</form>
-					<input type = "submit" value = "Add question" id="multiple_submit_btn_css" onClick="multiple_submit_btn();">
-
+					<input type = "submit" value = "Add question" id="multiple_submit_btn_css" onClick="multiple_submit_btn();" style="background-color : #136662; color : #ffffff; border-radius: 20px;"> <br>
+					<label class="common_css" style="maring-top:20px;"></label>
 			</div>
 			
 					
@@ -1760,23 +1848,21 @@ $(document).ready(function() {
 			</div>
 			
 			
-			<div id = "Question_css">
-				<div style="width:102%;">
-					<input type="image" src="assets/close_pop.png" id="close_btn_question" style="margin-left:95%; margin-top:0px;" />
-				</div>
+			<div id = "Question_css" style="margin-top:5%;">
+					<input type="image" src="assets/close_pop.png" id="close_btn_question" style="margin-left:99%; margin-top:-20px;" />
 
-					<label class="common_css" id="question">hello</label>
+					<label class="common_css" id="question" style="margin-left:2%; font-size:30px;">hellakjlfdjkdfjdjdlfksdfkkkkkkkkkkkkkkkkkkkkkkk</label>
 					<br><br>
-					<label><input type = "radio" class = "login" name = "gender" id="answer_1" value="">a</label>
+					<label style="margin-left:5%; font-size:25px;"><input type = "radio" class = "login" name = "gender" id="answer_1" value="" style="height: 1.5em; width:3%;">a</label>
 					<br><br>
-					<label><input type = "radio" class = "login" name = "gender" id="answer_2" value="">b</label>
+					<label style="margin-left:5%; font-size:25px;"><input type = "radio" class = "login" name = "gender" id="answer_2" value="" style="height: 1.5em; width:3%;">b</label>
 					<br><br>
-					<label><input type = "radio" class = "login" name = "gender" id="answer_3" value="">c</label>
+					<label style="margin-left:5%; font-size:25px;"><input type = "radio" class = "login" name = "gender" id="answer_3" value="" style="height: 1.5em; width:3%;">c</label>
 					<br><br>
-					<label><input type = "radio" class = "login" name = "gender" id="answer_4" value="">d</label>
+					<label style="margin-left:5%; font-size:25px;"><input type = "radio" class = "login" name = "gender" id="answer_4" value="" style="height: 1.5em; width:3%;">d</label>
 					<br><br>
 					<br>
-					<input type = "submit" value = "Next question" id="question_submit_btn_css" onclick="display_question_multichoice();"/>
+					<input type = "submit" value = "Next question" id="question_submit_btn_css" onclick="display_question_multichoice();" style="background-color : #136662; color : #ffffff; border-radius: 20px;"/>
 			</div>
 			
 			
@@ -1784,39 +1870,37 @@ $(document).ready(function() {
 				<div style="width:102%;">
 					<input type="image" src="assets/close_pop.png" id="close_btn_question" style="margin-left:95%; margin-top:0px;" />
 				</div>
-
-			</div>
-    
+            </div>    
 <!-- end : code to show the questions -->
     
     
-	<div id="gameCanvas">
+	<div id="gameCanvas" style="">
     </div>
 
 <!-- start : code to show the slider to change the background color and text color -->
         <div id="pankaj">
-            <input type="image" src="assets/close_pop.png" style="margin-left:84%;" id="close_rgb" />
-            <p>R<input type="range" id="r" value="256" name="range" style="width:90%; maring-top:5%;" max="256"></p>
-            <p>G<input type="range" id="g" value="256" name="range" style="width:90%" max="256"></p>
-            <p>B<input type="range" id="b" value="256" name="range" style="width:90%" max="256"></p>
-            <button type="button" style="margin-top:5%; width:50%; height:10%; margin-left : 25%;" id="ok_btn">OK </button>
+            <input type="image" src="assets/close_pop.png" style="margin-left:90%; margin-top:-10px;" id="close_rgb" />
+            <p style="color : #000000;">R<input type="range" id="r" value="256" name="range" style="width:90%; maring-top:5%;" max="256"></p>
+            <p style="color : #000000;">G<input type="range" id="g" value="256" name="range" style="width:90%" max="256"></p>
+            <p style="color : #000000;">B<input type="range" id="b" value="256" name="range" style="width:90%" max="256"></p>
+            <button type="button" style="margin-top:5%; width:40%; height:20%; margin-left : 25%; background-color : #136662; color : #ffffff; border-radius: 20px;" id="ok_btn">OK </button>
 		</div>
 <!--  end : code to show the slider to change the background color and text color -->
     
     
 <!--  start : code to show the popup when user click a sprite from phaser -->
         <div id="login-box" class="login-popup">
-            <input type="image" src="assets/close_pop.png" style="margin-left:98%;" id="close_btn"/>
+            <input type="image" src="assets/close_pop.png" style="margin-left:99%; margin-top:-20px;" id="close_btn"/>
             
-            <div id="left" style="width:10%; height:70%; float:left;">
-                <button type="button" style="margin-top:5%; width:100%; height:10%;" onclick="DisplayColor('back');" id="back">Background color </button>
+            <div id="left" style="width:10%; height:70%; float:left; margin-left:10px;">
+                <button type="button" style="margin-top:5%; width:100%; height:10%; background-color : #136662; color : #ffffff; border-radius: 20px;" onclick="DisplayColor('back');" id="back">Background color </button>
                 
-                <button type="button" style="margin-top:10%; width:100%; height:10%;" onclick="DisplayColor('text');" id="text">Text color </button>
+                <button type="button" style="margin-top:10%; width:100%; height:10%; background-color : #136662; color : #ffffff; border-radius: 20px;" onclick="DisplayColor('text');" id="text">Text color </button>
             </div>
             
             <div id="right"  style="width:85%; height:95%; float:right; margin-right:3%;">
-                <textarea style="width:100%; height:70%;" id="text_area"></textarea>
-                <button type="button" style="margin-top:10%; width:10%; height:5%; margin-left:40%; margin-right:40%;"  id="submit" onclick="chimple_html_to_phaser()">Add Text </button>
+                <textarea style="width:100%; height:70%; font-size:20px; border-radius : 10px; border: 2px solid #000;" id="text_area"></textarea>
+                <button type="button" style="margin-top:5%; width:10%; height:5%; margin-left:40%; margin-right:40%; background-color : #136662; color : #ffffff; border-radius: 20px;"  id="submit" onclick="chimple_html_to_phaser()">Add Text </button>
             </div>
 		</div>
 <!--  end : code to show the popup when user click a sprite from phaser -->
@@ -1827,6 +1911,17 @@ $(document).ready(function() {
 
 		</div>
 <!--  end : code to show the popup when user click a sprite from phaser -->
+
+
+<!--  start : code to show the score card -->
+        <div id="score_card" class="score_card_popup">
+            <input type="image" src="assets/close_pop.png" style="margin-left:99%; margin-top:-20px;" id="score_card_close_btn"/>
+            <label style="margin-left : 5%; margin-top : 2%; color : #000000; font-size : 25px;">Total asked question : </label><label></label> <br><br>
+            <label style="margin-left : 5%; margin-top : 2%; color : #000000; font-size : 25px;">Correct answer : </label><label></label> <br><br>
+            <label style="margin-left : 5%; margin-top : 2%; color : #000000; font-size : 25px;">Wrong answer : </label><label></label> <br><br>
+            <label style="margin-left : 5%; margin-top : 2%; color : #000000; font-size : 25px;">Score :  </label><label></label> <br><br>
+		</div>
+<!--  end : code to show the score card popup  -->
     
 </div>
 

@@ -1,7 +1,7 @@
 {
     "arm_chooser": {
-        "key": "puppet/chooser",
-        "frame": "arm_chooser.png"
+        "key": "scene/icons",
+        "frame": "hand_access.png"
     },
     
     "Conductor_board": {
@@ -98,12 +98,12 @@
         "frame": "teacher_book.png"
     },
     "beard_chooser": {
-        "key": "puppet/chooser",
-        "frame": "beard_chooser.png"
+        "key":"scene/icons",
+        "frame": "beard.png"
     },
     "body_chooser": {
-        "key": "puppet/chooser",
-        "frame": "body_chooser.png"
+        "key": "scene/icons",
+        "frame": "neck_acccess.png"
     },
      "Priest_chain": {
         "key": "puppet/character",
@@ -121,12 +121,12 @@
     
     
     "face_chooser": {
-        "key": "puppet/chooser",
-        "frame": "face_chooser.png"
+        "key": "scene/icons",
+        "frame": "mouth_access.png"
     },
     "glasses_chooser": {
-        "key": "puppet/chooser",
-        "frame": "glasses_chooser.png"
+        "key": "scene/icons",
+        "frame": "glasses.png"
     },
       "Glasses_1": {
         "key": "puppet/character",
@@ -142,13 +142,16 @@
         "frame": "Glasses_3.png"
     },
     "hairColor_chooser": {
-        "key": "puppet/chooser",
-        "frame": "hairColor_chooser.png"
+        "key": "scene/icons",
+        "frame": "hair_color.png"
     },
-   
+   "E2E434":{
+       "key": "puppet/Animals",
+        "frame": "E2E434.png"
+   },
     "hair_chooser": {
-        "key": "puppet/chooser",
-        "frame": "hair_chooser.png"
+        "key": "scene/icons",
+        "frame": "Hair_style.png"
     },
      "Hair_1": {
         "key": "puppet/character",
@@ -175,8 +178,8 @@
         "frame": "nurse_hair.png"
     },
     "hat_chooser": {
-        "key": "puppet/chooser",
-        "frame": "head_chooser.png"
+        "key": "scene/icons",
+        "frame": "caps.png"
     },
     "Conductor_cap": {
         "key": "puppet/character",
@@ -227,8 +230,8 @@
         "frame": "fireman helmet.png"
     },
     "pants_chooser": {
-        "key": "puppet/chooser",
-        "frame": "pants_chooser.png"
+        "key": "scene/icons",
+        "frame": "pant.png"
     },
      "Captain_right_leg": {
         "key": "puppet/character",
@@ -297,8 +300,8 @@
     },
      
     "shirt_chooser": {
-        "key": "puppet/chooser",
-        "frame": "shirt_chooser.png"
+        "key": "scene/icons",
+        "frame": "shirt.png"
     },
     "Captain_shirt": {
          "key": "puppet/character",
@@ -430,8 +433,8 @@
         "frame": "teacher_body2.png"
     },
     "shoes_chooser": {
-        "key": "puppet/chooser",
-        "frame": "shoes_chooser.png"
+        "key": "scene/icons",
+        "frame": "shoe.png"
     },
     "Captain_right_shoe": {
         "key": "puppet/character",
@@ -510,8 +513,8 @@
         "frame": "Housewife_right_shoe.png"
     },
     "skinColor_chooser": {
-        "key": "puppet/chooser",
-        "frame": "skinColor_chooser.png"
+        "key": "scene/icons",
+        "frame": "skintone.png"
     },
     "80FF00": {
         "key": "puppet/chooser",
@@ -578,11 +581,12 @@
         "key": "puppet/character",
         "frame": "Astronaut_helmet.png"
     },
+
     "cricketer_helmet": {
         "key": "puppet/character",
         "frame": "cricketer_helmet.png"
     },
-   
+
     "scientist_sleeve": {
         "key": "puppet/character",
         "frame": "scientist_shirt_sleeve.png"
@@ -695,10 +699,7 @@
         "key": "puppet/character",
         "frame": "cowBoy_shoe.png"
 },
-"photographer_beard":{
-    "key": "puppet/character",
-        "frame": "photographer_beard.png"
-},
+
 "singer_beard":{
     "key": "puppet/character",
         "frame": "singer_beard.png"
@@ -829,6 +830,7 @@
         "key": "puppet/character",
         "frame": "mouth_2.png"
     },
+
      "mouth_3":{
         "key": "puppet/character",
         "frame": "mouth_3.png"
@@ -836,5 +838,118 @@
     "mouth_4":{
         "key": "puppet/character",
         "frame": "mouth_4.png"
+    },
+    "mouth6":{
+        "key": "puppet/eye_mouth",
+        "frame": "mouth 6.png"
+    },
+   
+    "angryFace":{
+         "key": "puppet/emoticon",
+        "frame": "angry.png"
+    },
+    "cryingFace":{
+       "key": "puppet/emoticon",
+       "frame": "crying.png"
+    },
+    "smileFace":{
+       "key": "puppet/emoticon",
+       "frame":"smile.png"
+    },
+      "sadFace":{
+       "key": "puppet/emoticon",
+       "frame":"sad.png"
+    },
+     "eye_chooser":{
+          "key":"scene/icons",
+        "frame": "eyes.png"
+        
+    },
+      "headshape_chooser":{
+          "key":"scene/icons",
+        "frame": "head_shape.png"
+        
+    },
+     "mouth_chooser":{
+          "key": "scene/icons",
+        "frame": "mouth.png"
+        
+    },
+     "emoticon_chooser":{
+          "key":"scene/icons",
+        "frame": "emoticons.png"
+        
+    },
+     "puppetAnimation_chooser":{
+          "key":"scene/icons",
+        "frame": "animation.png"
+        
+    },
+    "closeeyesmileFace":{
+        "key": "puppet/emoticon",
+        "frame": "closed eyes smile.png"
+        
+    },
+    "coolFace":{
+        "key": "puppet/emoticon",
+        "frame": "cool.png"
+    },
+   "laughFace":{
+        "key": "puppet/emoticon",
+        "frame": "laughing.png"
+   },
+   "nervousFace":{
+       "key": "puppet/emoticon",
+        "frame": "nervous.png"
+   },
+   "staringFace":{
+       "key": "puppet/emoticon",
+        "frame": "nervous.png"
+   },
+    "tearsjoyFace":{
+       "key": "puppet/emoticon",
+        "frame": "tears of joy.png"  
+    },
+     "body1":{
+        "key":"puppet/Animals",
+        "frame":"Body.png"
+    },
+    "ear":{
+        "key":"puppet/Animals",
+        "frame":"Cheetah_ear.png"
+    },
+    
+     "Eyes":{
+        "key":"puppet/Animals",
+        "frame":"Eye.png"
+    },
+     "faces":{
+        "key":"puppet/Animals",
+        "frame":"Face.png"
+    },
+     "hairs":{
+        "key":"puppet/Animals",
+        "frame":"Cheetah_hair.png"
+    },
+     "Hand":{
+        "key":"puppet/Animals",
+        "frame":"Hand.png"
+    },
+     "Leg":{
+        "key":"puppet/Animals",
+        "frame":"Leg.png"
+    },
+     "body2":{
+        "key":"puppet/Animals",
+        "frame":"Inside_body.png"
+    },
+     "mouths":{
+        "key":"puppet/Animals",
+        "frame":"Cheetah_mouth.png"
+    },
+     "body3":{
+        "key":"puppet/Animals",
+        "frame":"Cheetah_texture.png"
+
     }
 }

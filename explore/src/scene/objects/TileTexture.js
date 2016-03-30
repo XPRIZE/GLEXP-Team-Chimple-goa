@@ -10,6 +10,7 @@ import AttributesChangedSignal from '../../storybuilder/objects/AttributesChange
 import SpecialAttributesChangedSignal from '../../storybuilder/objects/SpecialAttributesChangedSignal.js'
 import PlayPauseSignal from '../../storybuilder/objects/PlayPauseSignal.js';
 import PlayResumeSignal from '../../storybuilder/objects/PlayResumeSignal.js';
+import MiscUtil from '../../util/MiscUtil.js';
 
 
 export default class TileTexture extends EnableInputs(Phaser.TileSprite) {
@@ -54,12 +55,39 @@ export default class TileTexture extends EnableInputs(Phaser.TileSprite) {
     applyText(whichTextIndex, apply) {
         this._specialAttribute.applyText(whichTextIndex, apply);
         let appliedTextData = this._specialAttribute.getText(whichTextIndex);
-        let text = appliedTextData.text;
-        //later you should get text, fontColor, backgroundColor, style 
-        if (game._inRecordingMode) {
-            this._specialAttributesChangedSignal.dispatch({ uniquename: this._uniquename, x: this.x, y: this.y, scaleX: this.scale.x, scaleY: this.scale.y, angle: this.angle, recordingAttributeKind: RecordInfo.TEXT_RECORDING_TYPE, userGeneratedText: text });
+        if(appliedTextData != null){
+            let text = appliedTextData.text;
+            //later you should get text, fontColor, backgroundColor, style 
+            if (game._inRecordingMode) {
+                this._specialAttributesChangedSignal.dispatch({ uniquename: this._uniquename, x: this.x, y: this.y, scaleX: this.scale.x, scaleY: this.scale.y, angle: this.angle, recordingAttributeKind: RecordInfo.TEXT_RECORDING_TYPE, userGeneratedText: text });
+            }
         }
     }
+    
+    addSound(soundData) {
+        this._specialAttribute.addSound(soundData); 
+    }
+
+    
+    applySound(whichSoundIndex, apply) {
+        this._specialAttribute.applySound(whichSoundIndex, apply);
+        let soundData = this._specialAttribute.getSound(whichSoundIndex);
+        soundData.apply = apply;
+       if(soundData != null){
+        if (game._inRecordingMode) {            
+            if (game.cache.checkSoundKey(soundData.soundFileName)) {
+                                
+                if(apply) {
+                    soundData.playMusic();                       
+                } else {
+                    soundData.stopMusic();                    
+                }
+            }            
+            this._specialAttributesChangedSignal.dispatch({ uniquename: this._uniquename, x: this.x, y: this.y, scaleX: this.scale.x, scaleY: this.scale.y, angle: this.angle, recordingAttributeKind: RecordInfo.SOUND_RECORDING_TYPE, soundData: soundData});
+        }
+      }        
+    }
+
 
     enableInputs(instance, iterateInside) {
         super.enableInputs(instance, iterateInside);
@@ -70,7 +98,8 @@ export default class TileTexture extends EnableInputs(Phaser.TileSprite) {
         this.events.onDragStart.add(instance.onDragStart, this);
         this.events.onDragUpdate.add(instance.onDragUpdate, this);
         this.events.onDragStop.add(instance.onDragStop, this);
-        this.input.priorityID = 1;
+        // this.input.priorityID = 1;
+        MiscUtil.setPriorityID(this, 1);
     }
 
     drawBoundingBox(color) {
@@ -111,18 +140,18 @@ export default class TileTexture extends EnableInputs(Phaser.TileSprite) {
                 console.log('closing pop up');
                 self._playResumeSignal.dispatch();
             }});
-
-            var url = "make" + '.json';
-            console.log('url ' + url);
-            var meaning = '';
-            $.getJSON(url, function(jd) {
-                meaning = jd.meaning;
-                meaning = $(meaning).text();
-                $("#word").text(url);
-                $("#meaning_content").text(meaning);
-                $("#example_content").text(jd.exmaples);
-                $("#image_content").attr("src", jd.image);
-            });
+            $("#word").text(recordedInfo.text);
+            // var url = "make" + '.json';
+            // console.log('url ' + url);
+            // var meaning = '';
+            // $.getJSON(url, function(jd) {
+            //     meaning = jd.meaning;
+            //     meaning = $(meaning).text();
+            //     $("#word").text(url);
+            //     $("#meaning_content").text(meaning);
+            //     $("#example_content").text(jd.exmaples);
+            //     $("#image_content").attr("src", jd.image);
+            // });
             
             self._playPauseSignal.dispatch();
         } else if (recordedInfo.recordingAttributeKind == RecordInfo.SOUND_RECORDING_TYPE) {
@@ -151,7 +180,7 @@ export default class TileTexture extends EnableInputs(Phaser.TileSprite) {
 
     update() {
         var self = this;
-        game.debug.text('Elapsed seconds: ' + this.game.time.totalElapsedSeconds(), 32, 32);
+        // game.debug.text('Elapsed seconds: ' + this.game.time.totalElapsedSeconds(), 32, 32);
 
         if (game._inRecordingMode) {
             console.log('in recording mode');

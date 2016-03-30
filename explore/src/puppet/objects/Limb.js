@@ -4,6 +4,7 @@ import Accessory from './Accessory.js';
 import RelativePosition from './RelativePosition.js';
 import EnableInputs from '../../scene/objects/EnableInputs.js';
 import ShowAttributeEditorSignal from '../../storybuilder/objects/ShowAttributeEditorSignal.js';
+import MiscUtil from '../../util/MiscUtil.js';
 
 export default class Limb extends EnableInputs(RelativePosition(Phaser.Group)) {
     /**
@@ -32,6 +33,9 @@ export default class Limb extends EnableInputs(RelativePosition(Phaser.Group)) {
     enableInputs(instance, iterateInside) {
         //super.enableInputs(instance, iterateInside);
         this.instance = instance;
+        if(!instance.priorityID) {
+            instance.priorityID = 2;
+        }
         if (this.shape && instance) {
             this.shape.inputEnabled = true;
             this.shape._showAttributeEditorSignal = new ShowAttributeEditorSignal();
@@ -46,16 +50,14 @@ export default class Limb extends EnableInputs(RelativePosition(Phaser.Group)) {
                 this.shape.events.onDragUpdate.add(instance.onDragUpdate, this);
                 this.shape.events.onDragStop.add(instance.onDragStop, this);
             }
-            this.shape.input.priorityID = 2;
+            // this.shape.input.priorityID = 2;
+            MiscUtil.setPriorityID(this.shape, instance.priorityID);
         }
     }
 
     onInputDragFromStory(pointer, x, y, down) {
-        console.log('poitner:' + pointer + 'x:' + x + 'y:' + y + " donw:" + down);
-        //this.parent.position = this.toGlobal(new Phaser.Point(x,y));
         this.differencePoint = Phaser.Point.subtract(pointer.position, this.puppetPoint);
-        this.parent.position = Phaser.Point.add(this.originalPuppetPosition, this.differencePoint);
-        
+        this.parent.position = Phaser.Point.add(this.originalPuppetPosition, this.differencePoint);        
     }
     
     onInputDrag(pointer, x, y, down) {
@@ -65,6 +67,27 @@ export default class Limb extends EnableInputs(RelativePosition(Phaser.Group)) {
         scaleXY.x = Math.max(this.minScale.x, Math.min(this.maxScale.x, scaleXY.x));
         scaleXY.y = Math.max(this.minScale.y, Math.min(this.maxScale.y, scaleXY.y));
         this.scaleLimbAlongWithPuppet(scaleXY);
+    }
+    
+    get name() {
+        return this._name;
+    }
+    
+    set name(val) {
+        this._name = val;
+        if(val == 'body') {
+            this.childOrder = ['bodyShape', 'mask', 'shirt', 'belt', 'chain', 'jacket', 'scarf', 'head', 'leftHand', 'rightHand'];
+        } else if(val == 'head') {
+            this.childOrder = ['backHair', 'headShape', 'mask', 'glasses', 'beard', 'frontHair', 'hat','dailogBox', 'emoticon'];
+        } else if(val == 'leftHand') {
+            this.childOrder = ['leftHandShape', 'mask', 'leftSleeve', 'armAccessory'];
+        } else if(val == 'rightHand') {
+            this.childOrder = ['rightHandShape', 'mask', 'rightSleeve', 'armAccessory']
+        } else if(val == 'leftLeg') {
+            this.childOrder = ['leftLegShape', 'mask', 'leftPant', 'leftShoe']
+        } else if(val == 'rightLeg') {
+            this.childOrder = ['rightLegShape', 'mask', 'rightPant', 'rightShoe']
+        }
     }
 
     get bodyColor() {
@@ -194,6 +217,7 @@ export default class Limb extends EnableInputs(RelativePosition(Phaser.Group)) {
         accessory.positionRelativeToParent();
         if (this._maskA && mask) {
             accessory.mask = this._maskA;
+            this._maskA.dirty = true;
         }
         return accessory;
     }

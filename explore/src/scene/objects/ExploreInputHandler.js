@@ -3,7 +3,7 @@ import TileTexture from './TileTexture.js';
 import Holder from './Holder.js';
 import Item from './Item.js';
 import Wall from './Wall.js';
-
+import MiscUtil from '../../util/MiscUtil.js';
 
 export default class ExploreInputHandler {
     constructor(scene) {
@@ -15,6 +15,25 @@ export default class ExploreInputHandler {
 
 
     onInputDown(sprite, pointer) {
+        let consoleBar = sprite.game.state.getCurrentState().consoleBar;
+        let consoleText;
+        if(consoleBar) {
+            if(sprite instanceof Holder) {
+                if(sprite.children[0]) {
+                    consoleText = sprite.children[0].frameName;
+                }
+            } else {
+                consoleText = sprite.frameName
+            }
+            if(consoleText) {
+                if(consoleText.indexOf('_') != -1) {
+                    consoleText = consoleText.substr(0, consoleText.indexOf('_'));
+                } else if (consoleText.indexOf('.') != -1) {
+                    consoleText = consoleText.substr(0, consoleText.indexOf('.'));
+                }
+                consoleBar.text.text = consoleText.charAt(0).toLowerCase() + consoleText.slice(1);
+            }
+        }
         sprite.scale.setTo(1.25, 1.25);
         sprite.y -= 10;
 
@@ -22,7 +41,8 @@ export default class ExploreInputHandler {
         sprite.position = sprite.parent.toGlobal(sprite.position).add(sprite.game.camera.x, 0);
         sprite.parent.removeChild(sprite);
         if(sprite instanceof Holder) {
-            sprite.input.priorityID = 1;        
+            // sprite.input.priorityID = 1;        
+            MiscUtil.setPriorityID(sprite, 1);
         }
         sprite.game.add.existing(sprite);
         sprite.bringToTop();

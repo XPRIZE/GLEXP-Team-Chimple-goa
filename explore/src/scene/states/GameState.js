@@ -12,6 +12,7 @@ import EnableAttributeEditorSignal from '../../storybuilder/objects/EnableAttrib
 import ExploreInputHandler from '../objects/ExploreInputHandler.js';
 import JsonUtil from '../../puppet/objects/JsonUtil.js';
 import ConsoleBar from '../../util/ConsoleBar.js';
+import WhackAMoleStateHolder from '../../whack_a_mole/index.js';
 
 var _ = require('lodash');
 
@@ -22,40 +23,65 @@ export default class GameState extends Phaser.State {
         this.sceneJsonKey = this.sceneKey + '_scene';
     }
     preload() {
-        game.load.atlas(this.sceneKey, 'assets/'+this.sceneKey+'.png', 'assets/'+this.sceneKey+'.json');
-        game.load.text(this.sceneJsonKey, 'assets/'+this.sceneJsonKey+'.json');
+        game.load.atlas(this.sceneKey, 'assets/' + this.sceneKey + '.png', 'assets/' + this.sceneKey + '.json');
+        game.load.text(this.sceneJsonKey, 'assets/' + this.sceneJsonKey + '.json');
+        this.load.atlas('misc/theme', "assets/misc/theme.png", "assets/misc/theme.json");
+        this.load.atlas('puppet/chooser', 'assets/puppet/chooser.png', 'assets/puppet/chooser.json');
+        this.load.atlas('puppet/sample', 'assets/puppet/sample.png', 'assets/puppet/sample.json');
+        this.load.atlas('puppet/icons', 'assets/puppet/icons.png', 'assets/puppet/icons.json');
+        this.load.atlas('scene/icons', 'assets/scene/icons.png', 'assets/scene/icons.json');
+        this.load.atlas('puppet/characters', 'assets/puppet/characters.png', 'assets/puppet/characters.json');
+        this.load.atlas('puppet/eye_mouth', 'assets/puppet/eye_mouth.png', 'assets/puppet/eye_mouth.json');
+        //this.load.atlas('puppet/sample', 'assets/puppet/sample.png', 'assets/puppet/sample.json');
+        this.load.json('puppet/accessorize', 'assets/puppet/accessorize.json');
+        this.load.json('puppet/menu_accessorize', 'assets/puppet/menu_accessorize.json');
+        this.load.atlas('puppet/headshape', 'assets/puppet/headshape.png', 'assets/puppet/headshape.json');
     }
 
     create() {
-        let scene = JSON.parse(game.cache.getText(this.sceneJsonKey), JsonUtil.revive);
-        scene.mode = Scene.EXPLORE_MODE;
+        this.contentArea = JSON.parse(game.cache.getText(this.sceneJsonKey), JsonUtil.revive);
+        this.contentArea.mode = Scene.EXPLORE_MODE;
         game.physics.startSystem(Phaser.Physics.ARCADE);
-        
-        this.game.add.existing(new ConsoleBar(this.game));
+
+        this.consoleBar = this.game.add.existing(new ConsoleBar(this.game));
+        this.consoleBar.text.text = this.sceneName;
+        let buttons = [];
+        if(this.sceneName == 'school') {
+            buttons = [GameState.WHACK_A_MOLE_ICON];
+        }
+        this.consoleBar.createRightButtonGrid(buttons, this.consoleBarCallback, this);    
     }
 
+    consoleBarCallback(tabName, buttonName) {
+        if(buttonName == GameState.WHACK_A_MOLE_ICON) {
+            let myStateHolder = new WhackAMoleStateHolder(this.game);
+            myStateHolder.createStates();
+		    myStateHolder.startDefault();
+            
+        }
+    }
 
-     openDoor(){
-               
+    openDoor() {
+
         this.fridge.leftOpenDoorTexture = new Texture(game, 68, -80.5, 'left_opened_door', 'left_opened_door.png');
         this.fridge._leftOpenDoorTexture.visible = false;
-        
-        
+
+
         this.fridge.rightOpenDoorTexture = new Texture(game, 360, -80.5, 'right_opened_door', 'right_opened_door.png');
         this.fridge._rightOpenDoorTexture.visible = false;
-         
+
     }
-    
-     closeDoor(){
-        
-        
-        
-        this.fridge.leftCloseDoorTexture = new Texture(game, 162, -75.5, 'left_closed_door', 'left_closed_door.png');       
-   
-        this.fridge.rightCloseDoorTexture = new Texture(game, 259, -75.5, 'right_closed_door', 'right_closed_door.png');       
-        
+
+    closeDoor() {
+
+
+
+        this.fridge.leftCloseDoorTexture = new Texture(game, 162, -75.5, 'left_closed_door', 'left_closed_door.png');
+
+        this.fridge.rightCloseDoorTexture = new Texture(game, 259, -75.5, 'right_closed_door', 'right_closed_door.png');
+
     }
-    
+
 
     update() {
 
@@ -68,3 +94,5 @@ export default class GameState extends Phaser.State {
         }*/
     }
 }
+
+GameState.WHACK_A_MOLE_ICON = 'play.png';

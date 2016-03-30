@@ -20,11 +20,14 @@ export default class OnDemandLoadState extends Phaser.State {
         this._stateToEnterAfterLoading = stateToEnterAfterLoading;
         this._sceneOrPuppetType = type;
         this._currentStoryId = currentStoryId;
-        this._currentPageId = currentPageId;        
+        this._currentPageId = currentPageId;
         if (cachedConfig) {
-            this._jsonCreationFiles = cachedConfig['scene_files'];
-            this._jsonTextureFiles = cachedConfig['texture_files'];
+            if (this._sceneOrPuppetType == OnDemandLoadState.SCENE_TYPE) {
+                this._jsonCreationFiles = cachedConfig['scene_files'];
 
+            } else if (this._sceneOrPuppetType == OnDemandLoadState.PUPPET_TYPE) {
+                this._jsonCreationFiles = cachedConfig['puppet_files'];
+            }
         }
     }
 
@@ -39,14 +42,6 @@ export default class OnDemandLoadState extends Phaser.State {
             this._loadedJSONKey = element['key'];
             let file = element['json_file'];
             this.load.json(this._loadedJSONKey, file);
-
-        }, this);
-
-        this._jsonTextureFiles.forEach(function(element) {
-            let key = element['key'];
-            let textureJson = element['json_file'];
-            let textureImageFile = element['texture_file'];
-            this.load.atlas(key, textureImageFile, textureJson);
 
         }, this);
     }
@@ -64,13 +59,12 @@ export default class OnDemandLoadState extends Phaser.State {
             }
         }
         this._asset.cropEnabled = false;
-
     }
 
     update() {
         if (!!this.ready) {
-            this.game.state.start(this._stateToEnterAfterLoading, true, false, this._currentStoryId, this._currentPageId, this._cachedJSONStringRepresentation, this._sceneOrPuppetType);
-        }        
+            this.game.state.start(this._stateToEnterAfterLoading, true, false, false, this._currentStoryId, this._currentPageId, this._cachedJSONStringRepresentation, this._sceneOrPuppetType);
+        }
     }
 
     onLoadComplete() {

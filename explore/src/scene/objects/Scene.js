@@ -1,6 +1,9 @@
 import ExploreInputHandler from '../objects/ExploreInputHandler.js';
+import EditSceneInputHandler from '../objects/EditSceneInputHandler.js';
 import Item from '../objects/Item.js';
+import Shape from '../../puppet/objects/Shape.js';
 import EnableInputs from './EnableInputs.js';
+import Surface from './Surface.js';
 
 export default class Scene extends EnableInputs(Phaser.Group) {
     constructor(game, width, height) {
@@ -89,20 +92,32 @@ export default class Scene extends EnableInputs(Phaser.Group) {
             if (item instanceof Item) {
                 return new ExploreInputHandler(this);
             }
-        }
+        } else if (this.mode == Scene.EDIT_MODE) {
+            if (item instanceof Item) {
+                return new EditSceneInputHandler(this);
+            }
+        } 
     }
 
     update() {
-        super.update();
+        super.update();        
         if (this.selectedObject) {
+            if(this.selectedObject instanceof Shape) {
+                this.selectedObject = this.selectedObject.parent.parent;
+            }       
             if (this.game.camera.x < this.game.camera.bounds.width - this.game.camera.width && this.selectedObject.x > this.game.camera.x + this.game.width - 100) {
                 this.game.camera.x += 5;
                 this.selectedObject.x += 5;
-                this.selectedObject.input.dragOffset.x += 5;
+                if(this.selectedObject.input) {
+                    this.selectedObject.input.dragOffset.x += 5;    
+                }
+                
             } else if (this.game.camera.x > 0 && this.selectedObject.x < this.game.camera.x + 100) {
                 this.game.camera.x -= 5;
                 this.selectedObject.x -= 5;
-                this.selectedObject.input.dragOffset.x -= 5;
+                if(this.selectedObject.input) {
+                    this.selectedObject.input.dragOffset.x -= 5;
+                }                
             }
         }
     }
@@ -124,9 +139,13 @@ export default class Scene extends EnableInputs(Phaser.Group) {
         scene.uniquename = j.uniquename;
         scene.wall = j.wall;
         scene.floor = j.floor;
+        // For editor keep these since things stick to wall first
+        // Array.prototype.push.apply(Surface.All, scene.floor.textures);
+        // Array.prototype.push.apply(Surface.All, scene.wall.textures);        
         return scene;
     }
 }
 
 Scene.EXPLORE_MODE = 'explore_mode';
 Scene.STORY_MODE = 'story_mode';
+Scene.EDIT_MODE = 'edit_mode';

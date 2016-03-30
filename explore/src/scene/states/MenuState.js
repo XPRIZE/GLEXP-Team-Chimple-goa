@@ -17,7 +17,7 @@ export default class MenuState extends Phaser.State {
 	}
 
     goExplore() {
-        this.game.state.start('SceneGameState', true, false, 'school');
+        this.game.state.start('SceneGameState', true, false, 'playground');
     }
 
     goEdit() {
