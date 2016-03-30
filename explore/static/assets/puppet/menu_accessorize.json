@@ -744,72 +744,45 @@
     },
    
     "head_rect": {
-        "key": "puppet/headshape",
+        "key": "puppet/character",
         "frame": "head.png"
     },
      "head_cir": {
-        "key": "puppet/headshape",
+        "key": "puppet/character",
         "frame": "head_shape_circle.png"
     },
      "head_tri": {
-        "key": "puppet/headshape",
+        "key": "puppet/character",
         "frame": "head_shape_hex.png"
     },
      "head_tri1": {
-        "key": "puppet/headshape",
+        "key": "puppet/character",
         "frame": "head_shape_rectangle.png"
     },
     "head_tri2": {
-        "key": "puppet/headshape",
+        "key": "puppet/character",
         "frame": "head_shape_semicircle.png"
     },
     "head_tri3": {
-        "key": "puppet/headshape",
+        "key": "puppet/character",
         "frame": "head_shape_triabgle.png"
     },
-    "eye1":{
-        "key": "puppet/eye_mouth",
-        "frame": "eye 1.png"
-    },
-    "eye3":{
-        "key": "puppet/eye_mouth",
-        "frame": "eyes 3.png"
-    },
-    "eye4":{
-        "key": "puppet/eye_mouth",
-        "frame": "eyes 4.png"
-    },
-     "eye6":{
-        "key": "puppet/eye_mouth",
-        "frame": "eyes 6.png"
-    },
-     "eye7":{
-        "key": "puppet/eye_mouth",
-        "frame": "eyes 7.png"
-    },
+    
     "mouth1":{
-        "key": "puppet/eye_mouth",
-        "frame": "mouth 1.png"
+        "key": "puppet/character",
+        "frame": "mouth_1.png"
     },
     "mouth2":{
-        "key": "puppet/eye_mouth",
-        "frame": "mouth 2.png"
+        "key": "puppet/character",
+        "frame": "mouth_2.png"
     },
      "mouth3":{
-        "key": "puppet/eye_mouth",
-        "frame": "mouth 3.png"
+        "key": "puppet/character",
+        "frame": "mouth_3.png"
     },
     "mouth4":{
-        "key": "puppet/eye_mouth",
-        "frame": "mouth 4.png"
-    },
-    "mouth5":{
-        "key": "puppet/eye_mouth",
-        "frame": "mouth 5.png"
-    },
-    "mouth6":{
-        "key": "puppet/eye_mouth",
-        "frame": "mouth 6.png"
+        "key": "puppet/character",
+        "frame": "mouth_4.png"
     },
    
     "angryFace":{
@@ -872,10 +845,50 @@
    },
    "staringFace":{
        "key": "puppet/emoticon",
-        "frame": "nervous.png"
+        "frame": "staring.png"
    },
     "tearsjoyFace":{
        "key": "puppet/emoticon",
         "frame": "tears of joy.png"  
+    },
+     "Eye":{
+        "key": "puppet/character",
+        "frame": "Eye.png"
+    },
+    "eyes_1":{
+        "key": "puppet/character",
+        "frame": "eyes_1.png"
+    },
+     "eyes_10":{
+        "key": "puppet/character",
+        "frame": "eyes_10.png"
+    },
+     "eyes_2":{
+        "key": "puppet/character",
+        "frame": "eyes_2.png"
+    },
+    "eyes_3":{
+        "key": "puppet/character",
+        "frame": "eyes_3.png"
+    },
+     "eyes_4":{
+        "key": "puppet/character",
+        "frame": "eyes_4.png"
+    },
+     "eyes_5":{
+        "key": "puppet/character",
+        "frame": "eyes_5.png"
+    },
+      "eyes_6":{
+        "key": "puppet/character",
+        "frame": "eyes_6.png"
+    },
+      "eyes_7":{
+        "key": "puppet/character",
+        "frame": "eyes_7.png"
+    },
+      "eyes_8":{
+        "key": "puppet/character",
+        "frame": "eyes_8.png"
     }
 }
