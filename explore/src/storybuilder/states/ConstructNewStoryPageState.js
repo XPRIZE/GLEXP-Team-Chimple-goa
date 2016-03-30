@@ -58,8 +58,8 @@ export default class ConstructNewStoryPageState extends Phaser.State {
         if (!shouldAutoPlay) {
             this._screenshotGenerated = false;
         }
-
-
+        
+        this._questionsAlreadyAskedToUser = false;
         this._recordingPlayEndSignal = new RecordingPlayEndSignal();
         this._recordingPlayEndSignal.add(this.displayButtonOnrecordingPlayEnd, this);
     }
@@ -84,6 +84,8 @@ export default class ConstructNewStoryPageState extends Phaser.State {
                 if (index === 0) {
                     this._isTitlePage = true;
                 }
+                
+                this._curIndex = index;
             }
         }, this);
         return storyPage;
@@ -112,7 +114,6 @@ export default class ConstructNewStoryPageState extends Phaser.State {
         this.load.atlas('misc/theme', "assets/misc/theme.png", "assets/misc/theme.json");
         this.load.atlas('puppet/chooser', 'assets/puppet/chooser.png', 'assets/puppet/chooser.json');
         this.load.atlas('puppet/sample', 'assets/puppet/sample.png', 'assets/puppet/sample.json');
-        this.load.atlas('puppet/icons', 'assets/puppet/icons.png', 'assets/puppet/icons.json');
         this.load.atlas('scene/icons', 'assets/scene/icons.png', 'assets/scene/icons.json');
         this.load.atlas('puppet/characters', 'assets/puppet/characters.png', 'assets/puppet/characters.json');
         this.load.atlas('puppet/eye_mouth', 'assets/puppet/eye_mouth.png', 'assets/puppet/eye_mouth.json');
@@ -195,19 +196,19 @@ export default class ConstructNewStoryPageState extends Phaser.State {
             }
         }, this);
     }
-    
-    
+
+
     buildContentsList(scene) {
         let uniqueImageNameSet = new Set();
         scene.children.forEach(function(element) {
-            if(element instanceof Wall || element instanceof Floor) {
+            if (element instanceof Wall || element instanceof Floor) {
                 element.children.forEach(function(child) {
-                    if(child instanceof Item) {
+                    if (child instanceof Item) {
                         console.log('child: frame:' + child.frameName);
-                        if(child.frameName != null || child.frameName != undefined) {
+                        if (child.frameName != null || child.frameName != undefined) {
                             uniqueImageNameSet.add(child.frameName);
-                        }                        
-                    } 
+                        }
+                    }
                 })
             }
         }, this);
@@ -308,12 +309,12 @@ export default class ConstructNewStoryPageState extends Phaser.State {
 
     positionAddedPuppetOnScene(puppet) {
         puppet.x = game.width * Math.random();
-        puppet.y = game.height * Math.random();
+        puppet.y = game.height/2 * Math.random();
         puppet.body.disableInputs();
-        puppet.body.enableInputs(new StoryPuppetBuilderInputHandler(game), false);
         this._displayControlGroup.children.forEach(function(element) {
             console.log(element);
             if (element instanceof Scene) {
+                puppet.body.enableInputs(new StoryPuppetBuilderInputHandler(element), false);
                 element.floor.addContent(puppet)
             }
         }, this);
@@ -330,12 +331,39 @@ export default class ConstructNewStoryPageState extends Phaser.State {
         this._currentStory.storyPages.forEach(function(page) {
             if (page.pageId === this._currentPageId) {
                 page = this._currentPage;
-                //                this._currentPage.questionsAndAnswers = [];
-                localStorage.setItem(this._currentStory.storyId, JSON.stringify(this._currentStory, JsonUtil.replacer));
+                try {
+                    localStorage.setItem(this._currentStory.storyId, JSON.stringify(this._currentStory, JsonUtil.replacer));
+                } catch (e) {
+                    if (isQuotaExceeded(e)) {
+                        // Storage full, maybe notify user or do some clean-up
+                    }
+                }
             }
         }, this);
+    }
 
 
+    isQuotaExceeded(e) {
+        let quotaExceeded = false;
+        if (e) {
+            if (e.code) {
+                switch (e.code) {
+                    case 22:
+                        quotaExceeded = true;
+                        break;
+                    case 1014:
+                        // Firefox
+                        if (e.name === 'NS_ERROR_DOM_QUOTA_REACHED') {
+                            quotaExceeded = true;
+                        }
+                        break;
+                }
+            } else if (e.number === -2147024882) {
+                // Internet Explorer 8
+                quotaExceeded = true;
+            }
+        }
+        return quotaExceeded;
     }
 
     defineControls(tab, name) {
@@ -408,9 +436,8 @@ export default class ConstructNewStoryPageState extends Phaser.State {
         this._nextButton.anchor.setTo(0.5);
         this._nextButton.visible = false;
         this._nextButton.inputEnabled = true;
-        this._nextButton.events.onInputDown.add(this.nextButton, this);
-        // this._nextButton.input.priorityID = 2;
-        MiscUtil.setPriorityID(this._nextButton, 2);
+        this._nextButton.events.onInputDown.add(this.nextButton, this);        
+        MiscUtil.setPriorityID(this._nextButton, 5);
         this._displayControlGroup.add(this._nextButton);
 
         this._editPuppet = game.add.button(this.game.width - 30, 60, 'scene/icons', this.editPuppet, this, 'ic_grid_on_black_24dp_1x.png', 'ic_grid_on_black_24dp_1x.png', 'ic_grid_on_black_24dp_1x.png', 'ic_grid_on_black_24dp_1x.png');
@@ -461,7 +488,7 @@ export default class ConstructNewStoryPageState extends Phaser.State {
         this._consoleBar.rightButtonGrid.updateButtonImage(ConstructNewStoryPageState.START_PLAY_BUTTON, 'scene/icons', ConstructNewStoryPageState.START_PLAY_BUTTON);
         window.callback = this.returnPageJson;
         window.callbackContext = this;
-
+        this._questionsAlreadyAskedToUser = false;
         console.log('hello');
     }
 
@@ -487,7 +514,27 @@ export default class ConstructNewStoryPageState extends Phaser.State {
     // after recording play end will show next button to ask the questions
     nextButton() {
         console.log("next button");
-        window.display_question_multichoice();
+        if(!this._questionsAlreadyAskedToUser) {
+            let isAnyQuestionsConfigued = this._currentPage.questionsAndAnswers.length > 0 ?  1 : 0;
+            if(isAnyQuestionsConfigued) {
+                this._questionsAlreadyAskedToUser = true;                
+                window.display_question_multichoice();    
+            } else {
+                this.playNextPage();    
+            }
+        } else {
+            this.playNextPage();
+        }
+        
+    }
+    
+    playNextPage() {
+        if(this._curIndex < this._currentStory.storyPages.length) {
+            let newPage = this._currentStory.storyPages[this._curIndex + 1];
+            this.game.state.start('StoryConstructNewStoryPageState', true, false, true, this._currentStoryId, newPage.pageId);            
+        } else {
+            this.game.state.start('StoryBuilderLibraryState');
+        }
     }
 
     askQuestions() {
@@ -526,7 +573,7 @@ export default class ConstructNewStoryPageState extends Phaser.State {
     }
 
     createChooseBackGroundTab() {
-        //will come from texture packer
+
         let backgroundImageNames = [];
         this.game.cache.getFrameData('storyBuilder/backgrounds').getFrames().forEach(function(val, index, array) {
             backgroundImageNames.push(val.name);
@@ -549,17 +596,21 @@ export default class ConstructNewStoryPageState extends Phaser.State {
 
     createChoosePuppetTab() {
 
-        let puppetThemes = this.game.cache.getJSON('storyBuilder/puppet_themes');
-        //later get from texture packer
-        let humanNames = ["american_football_th"];
+        let puppetImageNames = [];
+        this.game.cache.getFrameData('storyBuilder/puppets').getFrames().forEach(function(val, index, array) {
+            puppetImageNames.push(val.name);
+        });
 
-        this._choosePuppetTab = this._displayControlGroup.add(new TabView(this.game, 'Puppet', this.game.width * 0.9, this.game.height, 10, 50, 5, 3, true, function(tab, button) {
+        let puppetThemes = this.game.cache.getJSON('storyBuilder/puppets_grid');
+
+        this._choosePuppetTab = this._displayControlGroup.add(new TabView(this.game, 'storyBuilder/puppets', this.game.width * 0.9, this.game.height, 10, 50, 5, 3, true, function(tab, button) {
             this._choosePuppetTab.unSelect();
             this.dynamicallyLoadAssets(button, ConstructNewStoryPageState.PUPPET_TYPE, this._puppetConfig);
             this._choosePuppetTab.visible = false;
         }, this, puppetThemes));
 
-        this._choosePuppetTab.tabs = { 'human1': humanNames, 'human2': humanNames };
+        // this._choosePuppetTab.tabs = { 'human': humanNames };
+        this._choosePuppetTab.tabs = { 'human1': puppetImageNames };
         this._choosePuppetTab.x = this.game.width * 0.05;
         this._choosePuppetTab.y = 0;
         this._choosePuppetTab.fixedToCamera = true;
@@ -656,9 +707,17 @@ export default class ConstructNewStoryPageState extends Phaser.State {
                 }
             }, this);
 
-            localStorage.setItem(ConstructNewStoryPageState.LIBRARY_KEY, JSON.stringify(library));
+            try {
+                localStorage.setItem(ConstructNewStoryPageState.LIBRARY_KEY, JSON.stringify(library));
+            } catch (e) {
+                if (isQuotaExceeded(e)) {
+                    // Storage full, maybe notify user or do some clean-up
+                }
+            }
+
+
         }
-    }
+    }       
 
     shutdown() {
     }

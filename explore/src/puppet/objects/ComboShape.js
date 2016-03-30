@@ -52,6 +52,6 @@ export default class ComboShape extends Scalable(Phaser.Graphics) {
     }
     
     static fromJSON(game, j) {
-        return new ComboShape(game, j.initialScale, j.relativeAnchor, j.relativeOffset, j.offsetInPixel, j.graphics, j.graphics1);        
+        return new ComboShape(game, j.initialScale, j.relativeAnchor, j.relativeOffset, j.offsetInPixel, j.graphics, j.graphics1, j.name);        
     }
 }
