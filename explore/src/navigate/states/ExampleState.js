@@ -11,7 +11,7 @@ preload () {
 	this.game.load.image("Build_2","assets/navigate/Building_02.png");
 	this.game.load.image("Build_3","assets/navigate/Building_03.png");
 	 this.game.load.image("tree","assets/navigate/Tree.png");
-     var isometric = require('../../../node_modules/phaser-plugin-isometric/dist/phaser-plugin-isometric.js');
+    //  var isometric = require('../../../node_modules/phaser-plugin-isometric/dist/phaser-plugin-isometric.js');
    let pl =this.game.plugins.add(new Phaser.Plugin.Isometric(this.game, null, 0.5));
   // this.game.world.setBounds(0, 0, 2048, 1024);
    this.game.iso.anchor.setTo(0.5, 0.2);

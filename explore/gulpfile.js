@@ -16,6 +16,7 @@ var browserSync = require('browser-sync');
  */
 var PHASER_PATH = './node_modules/phaser/build/';
 var ANGULAR_PATH = './node_modules/angular/';
+var ISOMETRIC_PATH = './node_modules/phaser-plugin-isometric/dist';
 var BUILD_PATH = './build';
 var SCRIPTS_PATH = BUILD_PATH + '/scripts';
 var SOURCE_PATH = './src';
@@ -103,6 +104,27 @@ function copyAngular() {
     
     srcList = srcList.map(function(file) {
         return ANGULAR_PATH + file;
+    });
+        
+    return gulp.src(srcList)
+        .pipe(gulp.dest(SCRIPTS_PATH));
+
+}
+
+/**
+ * Copies required Phaser files from the './node_modules/Phaser' folder into the './build/scripts' folder.
+ * This way you can call 'npm update', get the lastest Phaser version and use it on your project with ease.
+ */
+function copyIsometric() {
+
+    var srcList = ['phaser-plugin-isometric.min.js'];
+    
+    if (!isProduction()) {
+        srcList.push('phaser-plugin-isometric.js');
+    }
+    
+    srcList = srcList.map(function(file) {
+        return ISOMETRIC_PATH + file;
     });
         
     return gulp.src(srcList)
