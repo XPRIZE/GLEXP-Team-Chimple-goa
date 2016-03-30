@@ -836,8 +836,8 @@ var questionAnswerObject, my_callback, my_callbackContext, my_uniqueImageNames;
 						hidepopup("#MatchingQuestion_css");
                         
 						showpopup("#Question_css");
-                        $('body').append('<div id="mask"></div>');
-                        $('#mask').fadeIn(300);
+                      //  $('body').append('<div id="mask"></div>');
+                      //  $('#mask').fadeIn(300);
 						console.log(Question_Answer_JSON[question_number]);
                     
                         correct_answer_sheet.push(Question_Answer_JSON[question_number].correctAnswers);
@@ -929,8 +929,8 @@ var questionAnswerObject, my_callback, my_callbackContext, my_uniqueImageNames;
                 {
                     hidepopup("#Question_css");
                     hidepopup("#MatchingQuestion_css");
-                    $('body').append('<div id="mask"></div>');
-                    $('#mask').fadeIn(300);
+  //                  $('body').append('<div id="mask"></div>');
+//                    $('#mask').fadeIn(300);
                     showpopup("#MatchingQuestion_css");
 
                     var nam = Question_Answer_JSON[question_number].questionText.split(".");
@@ -952,19 +952,21 @@ var questionAnswerObject, my_callback, my_callbackContext, my_uniqueImageNames;
 
                     var rand_number = Math.floor(Math.random() * dynamic_options.length);                    
 					$("#MatchingQuestion_css").append('<label style="margin-left:10%; font-size:25px; margin:top:5%; color:#000000"><input type = "radio" class = "login" name = "matching" id="answer_1" value="'+dynamic_options[rand_number]+'" style="height: 1.5em; width:3%;">'+dynamic_options[rand_number]+'</label>');
+                    $("#MatchingQuestion_css").append('<br><br>');
                     dynamic_options.splice(dynamic_options.indexOf(dynamic_options[rand_number]) ,1);
 
                     var rand_number = Math.floor(Math.random() * dynamic_options.length);
-					$("#MatchingQuestion_css").append('<label style="margin-left:40%; font-size:25px;color:#000000"><input type = "radio" class = "login" name = "matching" id="answer_2" value="'+dynamic_options[rand_number]+'" style="height: 1.5em; width:3%;">'+dynamic_options[rand_number]+'</label>');
+					$("#MatchingQuestion_css").append('<label style="margin-left:10%; font-size:25px;color:#000000"><input type = "radio" class = "login" name = "matching" id="answer_2" value="'+dynamic_options[rand_number]+'" style="height: 1.5em; width:3%;">'+dynamic_options[rand_number]+'</label>');
 					$("#MatchingQuestion_css").append('<br><br>');
                     dynamic_options.splice(dynamic_options.indexOf(dynamic_options[rand_number]) ,1);
                     
                     var rand_number = Math.floor(Math.random() * dynamic_options.length);
 					$("#MatchingQuestion_css").append('<label style="margin-left:10%; font-size:25px;color:#000000"><input type = "radio" class = "login" name = "matching" id="answer_3" value="'+dynamic_options[rand_number]+'" style="height: 1.5em; width:3%;">'+dynamic_options[rand_number]+'</label>');
+                    $("#MatchingQuestion_css").append('<br><br>');
                     dynamic_options.splice(dynamic_options.indexOf(dynamic_options[rand_number]) ,1);
 
                     var rand_number = Math.floor(Math.random() * dynamic_options.length);
-					$("#MatchingQuestion_css").append('<label style="margin-left:40%; font-size:25px; color:#000000"><input type = "radio" class = "login" name = "matching" id="answer_4" value="'+dynamic_options[rand_number]+'" style="height: 1.5em; width:3%;">'+dynamic_options[0]+'</label>');
+					$("#MatchingQuestion_css").append('<label style="margin-left:10%; font-size:25px; color:#000000"><input type = "radio" class = "login" name = "matching" id="answer_4" value="'+dynamic_options[rand_number]+'" style="height: 1.5em; width:3%;">'+dynamic_options[0]+'</label>');
 
                 $("#MatchingQuestion_css").append('<button type="button" style="background-color : #136662; color : #ffffff; border-radius: 20px; margin-top:10%; margin-left:40%; margin-right:40%; width:30%; height:40px; font-size:25px;"  id="submit" onclick="display_question_matching()">Next Question </button><br>');
                 $("#MatchingQuestion_css").append('<br><br>');
@@ -1001,7 +1003,8 @@ var questionAnswerObject, my_callback, my_callbackContext, my_uniqueImageNames;
                     $("#total_question").text(text+' '+correct_answer_sheet.length);
                     $("#correct").text($("#correct").text()+" "+correct_answer_temp);
                     $("#wrong").text($("#wrong").text()+" "+(correct_answer_sheet.length-correct_answer_temp));
-                    $("#score").text($("#score").text()+" "+(correct_answer_temp*3));                                        
+                    $("#score").text($("#score").text()+" "+(correct_answer_temp*3));
+                    
                     showpopup("#score_card");
                 }
 				
@@ -1012,14 +1015,11 @@ var questionAnswerObject, my_callback, my_callbackContext, my_uniqueImageNames;
 			// show popup when click on question type selection
 			function showpopup(css)
 			{
-                $(css).fadeIn(300);
-
                 $('body').append('<div id="mask"></div>');
                 $('#mask').fadeIn(300);
-                
+
 			   $(css).fadeIn(1000);
 			   $(css).css({"visibility":"visible","display":"block"});
-			   $("#select_choice").css({"visibility":"visible","display":"none"});
 			}
 
 			// hide popup
@@ -1027,7 +1027,7 @@ var questionAnswerObject, my_callback, my_callbackContext, my_uniqueImageNames;
 			{
 			   $(css).fadeOut();
 			   $(css).css({"visibility":"hidden","display":"none"});
-                  $('#mask').fadeOut(300 , function() {
+                  $('#mask').fadeOut(10 , function() {
                     $('#mask').remove();
                 });
                 
@@ -1797,7 +1797,7 @@ $(document).ready(function() {
 			
 			<label id="example"> <b>Example:</b> </label> <br>
 			<label id="example_content"> </label> <br><br>
-			
+			 
 			<label id="image"><b> Image: </b></label> <br>
 			<img src= "" style="width:50%; height:50%;" id="image_content">
 		</div>
