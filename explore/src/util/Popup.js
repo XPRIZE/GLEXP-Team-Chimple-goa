@@ -29,6 +29,7 @@ export default class Popup extends Phaser.Group {
         this.fuzzyBackground.addChild(displayObject);
         displayObject.x = (this.game.width - rect.width) / 2;
         displayObject.y = (this.game.height - rect.height) / 2;
+        // displayObject.onDestroy.add(this.callOnDestroy, this);                
         return displayObject;
     }
     

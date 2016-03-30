@@ -56,11 +56,8 @@ export default class Limb extends EnableInputs(RelativePosition(Phaser.Group)) {
     }
 
     onInputDragFromStory(pointer, x, y, down) {
-        console.log('poitner:' + pointer + 'x:' + x + 'y:' + y + " donw:" + down);
-        //this.parent.position = this.toGlobal(new Phaser.Point(x,y));
         this.differencePoint = Phaser.Point.subtract(pointer.position, this.puppetPoint);
-        this.parent.position = Phaser.Point.add(this.originalPuppetPosition, this.differencePoint);
-        
+        this.parent.position = Phaser.Point.add(this.originalPuppetPosition, this.differencePoint);        
     }
     
     onInputDrag(pointer, x, y, down) {
@@ -70,6 +67,27 @@ export default class Limb extends EnableInputs(RelativePosition(Phaser.Group)) {
         scaleXY.x = Math.max(this.minScale.x, Math.min(this.maxScale.x, scaleXY.x));
         scaleXY.y = Math.max(this.minScale.y, Math.min(this.maxScale.y, scaleXY.y));
         this.scaleLimbAlongWithPuppet(scaleXY);
+    }
+    
+    get name() {
+        return this._name;
+    }
+    
+    set name(val) {
+        this._name = val;
+        if(val == 'body') {
+            this.childOrder = ['bodyShape', 'mask', 'shirt', 'belt', 'chain', 'jacket', 'scarf', 'head', 'leftHand', 'rightHand'];
+        } else if(val == 'head') {
+            this.childOrder = ['backHair', 'headShape', 'mask', 'glasses', 'beard', 'frontHair', 'hat','dailogBox', 'emoticon'];
+        } else if(val == 'leftHand') {
+            this.childOrder = ['leftHandShape', 'mask', 'leftSleeve', 'armAccessory'];
+        } else if(val == 'rightHand') {
+            this.childOrder = ['rightHandShape', 'mask', 'rightSleeve', 'armAccessory']
+        } else if(val == 'leftLeg') {
+            this.childOrder = ['leftLegShape', 'mask', 'leftPant', 'leftShoe']
+        } else if(val == 'rightLeg') {
+            this.childOrder = ['rightLegShape', 'mask', 'rightPant', 'rightShoe']
+        }
     }
 
     get bodyColor() {
