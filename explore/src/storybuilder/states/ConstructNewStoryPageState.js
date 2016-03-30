@@ -111,7 +111,7 @@ export default class ConstructNewStoryPageState extends Phaser.State {
 
         this.load.atlas('misc/theme', "assets/misc/theme.png", "assets/misc/theme.json");
         this.load.atlas('puppet/chooser', 'assets/puppet/chooser.png', 'assets/puppet/chooser.json');
-        this.load.atlas('puppet/sample', 'assets/puppet/sample.png', 'assets/puppet/sample.json');        
+        this.load.atlas('puppet/sample', 'assets/puppet/sample.png', 'assets/puppet/sample.json');
         this.load.atlas('scene/icons', 'assets/scene/icons.png', 'assets/scene/icons.json');
         this.load.atlas('puppet/characters', 'assets/puppet/characters.png', 'assets/puppet/characters.json');
         this.load.atlas('puppet/eye_mouth', 'assets/puppet/eye_mouth.png', 'assets/puppet/eye_mouth.json');
@@ -308,11 +308,11 @@ export default class ConstructNewStoryPageState extends Phaser.State {
     positionAddedPuppetOnScene(puppet) {
         puppet.x = game.width * Math.random();
         puppet.y = game.height * Math.random();
-        puppet.body.disableInputs();        
+        puppet.body.disableInputs();
         this._displayControlGroup.children.forEach(function(element) {
             console.log(element);
             if (element instanceof Scene) {
-                puppet.body.enableInputs(new StoryPuppetBuilderInputHandler(element), false);                
+                puppet.body.enableInputs(new StoryPuppetBuilderInputHandler(element), false);
                 element.floor.addContent(puppet)
             }
         }, this);
@@ -329,12 +329,39 @@ export default class ConstructNewStoryPageState extends Phaser.State {
         this._currentStory.storyPages.forEach(function(page) {
             if (page.pageId === this._currentPageId) {
                 page = this._currentPage;
-                //                this._currentPage.questionsAndAnswers = [];
-                localStorage.setItem(this._currentStory.storyId, JSON.stringify(this._currentStory, JsonUtil.replacer));
+                try {
+                    localStorage.setItem(this._currentStory.storyId, JSON.stringify(this._currentStory, JsonUtil.replacer));
+                } catch (e) {
+                    if (isQuotaExceeded(e)) {
+                        // Storage full, maybe notify user or do some clean-up
+                    }
+                }
             }
         }, this);
+    }
 
 
+    isQuotaExceeded(e) {
+        let quotaExceeded = false;
+        if (e) {
+            if (e.code) {
+                switch (e.code) {
+                    case 22:
+                        quotaExceeded = true;
+                        break;
+                    case 1014:
+                        // Firefox
+                        if (e.name === 'NS_ERROR_DOM_QUOTA_REACHED') {
+                            quotaExceeded = true;
+                        }
+                        break;
+                }
+            } else if (e.number === -2147024882) {
+                // Internet Explorer 8
+                quotaExceeded = true;
+            }
+        }
+        return quotaExceeded;
     }
 
     defineControls(tab, name) {
@@ -659,9 +686,17 @@ export default class ConstructNewStoryPageState extends Phaser.State {
                 }
             }, this);
 
-            localStorage.setItem(ConstructNewStoryPageState.LIBRARY_KEY, JSON.stringify(library));
+            try {
+                localStorage.setItem(ConstructNewStoryPageState.LIBRARY_KEY, JSON.stringify(library));
+            } catch (e) {
+                if (isQuotaExceeded(e)) {
+                    // Storage full, maybe notify user or do some clean-up
+                }
+            }
+
+
         }
-    }
+    }       
 
     shutdown() {
     }
