@@ -35,6 +35,9 @@ export default class PreloadState extends Phaser.State {
         this.load.image('storyBuilder/plus', "assets/storyBuilder/plus_button.png");
         this.load.image('storyBuilder/setting', "assets/storyBuilder/setting_button.png");
         this.load.image('storyBuilder/backgroundOverlay', "assets/storyBuilder/backgroundOverlay.png");
+        this.load.image('storyBuilder/audio','assets/storyBuilder/audio.png');
+        this.load.image('storyBuilder/text','assets/storyBuilder/text.png');
+                        
         this.load.image('storyBuilder/sound_button', 'assets/storyBuilder/sound_button.png');
 
         this.load.json('storyBuilder/background_themes', 'assets/storyBuilder/background_themes.json');
