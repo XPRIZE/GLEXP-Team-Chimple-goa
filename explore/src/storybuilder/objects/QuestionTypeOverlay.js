@@ -38,14 +38,14 @@ export default class QuestionTypeOverlay extends Phaser.Group {
         // this._overlayDisplaySprite.input.priorityID = 3;
         MiscUtil.setPriorityID(this._overlayDisplaySprite, 3);
 
-        this._matchingType = this._overlayDisplaySprite.addChild(game.make.sprite(300, 80, 'storyBuilder/setting'));
+        this._matchingType = this._overlayDisplaySprite.addChild(game.make.sprite(this.game.width - 40, 80, 'match_the_following'));
 //        this._matchingType.fixedToCameara = true;
         this._matchingType.inputEnabled = true;
         this._matchingType.events.onInputUp.add(this.matchingPopUp, this);
         // this._matchingType.input.priorityID = 4;
         MiscUtil.setPriorityID(this._matchingType, 4);
         
-        this._multipleChoice = this._overlayDisplaySprite.addChild(game.make.sprite(300, 160, 'storyBuilder/setting'));
+        this._multipleChoice = this._overlayDisplaySprite.addChild(game.make.sprite(this.game.width - 40, 160, 'multiple_choice_ques'));
 //        this._settings.fixedToCameara = true;
         this._multipleChoice.inputEnabled = true;
         this._multipleChoice.events.onInputUp.add(this.multipleChoicePopUp, this);
