@@ -60,6 +60,6 @@ export default class HandShape extends Scalable(Phaser.Graphics) {
     }
     
     static fromJSON(game, j) {
-        return new HandShape(game, j.initialScale, j.relativeAnchor, j.relativeOffset, j.offsetInPixel, j.graphics, j.graphics1, j.graphics2);        
+        return new HandShape(game, j.initialScale, j.relativeAnchor, j.relativeOffset, j.offsetInPixel, j.graphics, j.graphics1, j.graphics2, j.name);        
     }
 }
