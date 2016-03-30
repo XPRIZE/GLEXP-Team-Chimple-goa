@@ -85,6 +85,10 @@
         "key": "puppet/character",
         "frame": "scissor.png"
     },
+    "nurse_pad": {
+        "key": "puppet/character",
+        "frame": "nurse_pad.png"
+    },
     "teacher_duster": {
         "key": "puppet/character",
         "frame": "teacher_duster.png"
@@ -218,7 +222,10 @@
         "key": "puppet/character",
         "frame": "nurse_hat.png"
     },
-    
+     "fireman helmet": {
+        "key": "puppet/character",
+        "frame": "fireman helmet.png"
+    },
     "pants_chooser": {
         "key": "puppet/chooser",
         "frame": "pants_chooser.png"
@@ -267,6 +274,7 @@
         "key": "puppet/character",
         "frame": "cricketer_pent.png"
     },
+    
      "designer_pant": {
         "key": "puppet/character",
         "frame": "designer_pant.png"
@@ -287,10 +295,7 @@
         "key": "puppet/character",
         "frame": "soccer_leg.png"
     },
-      "teacher_leg": {
-        "key": "puppet/character",
-        "frame": "teacher_leg.png"
-    },
+     
     "shirt_chooser": {
         "key": "puppet/chooser",
         "frame": "shirt_chooser.png"
@@ -363,10 +368,7 @@
          "key": "puppet/character",
         "frame": "chef_body.png"
     },
-    "chef_apron": {
-         "key": "puppet/character",
-        "frame": "chef_apron.png"
-    },
+   
      "cowBoy_body": {
          "key": "puppet/character",
         "frame": "cowBoy_body.png"
@@ -544,49 +546,45 @@
         "frame": "FFCC66.png"
     },
     "scientist_overcoat": {
-        "key": "puppet/characters",
+        "key": "puppet/character",
         "frame": "scientist_overcoat.png"
     },
     "scientist_shirt": {
-        "key": "puppet/characters",
+        "key": "puppet/character",
         "frame": "scientist_shirt.png"
     },
     "scientist_hair": {
-        "key": "puppet/characters",
+        "key": "puppet/character",
         "frame": "scientist_back_hair.png"
     },
     "photographer_hair": {
-        "key": "puppet/characters",
+        "key": "puppet/character",
         "frame": "photographer_hair.png"
     },
     "singer_hair_do": {
-        "key": "puppet/characters",
+        "key": "puppet/character",
         "frame": "singer_hair_do.png"
     },
-    
-    "side_bag": {
-        "key": "puppet/characters",
-        "frame": "scientist_bag.png"
-    },
+  
     "belt": {
-        "key": "puppet/characters",
-        "frame": "scientist_belt.png"
+        "key": "puppet/character",
+        "frame": "belt.png"
     },
     "cricket_helmet": {
-        "key": "puppet/characters",
+        "key": "puppet/character",
         "frame": "scientist_helmet.png"
     },
     "Astronaut_helmet": {
         "key": "puppet/character",
         "frame": "Astronaut_helmet.png"
     },
-    "scientist_overcoat": {
-        "key": "puppet/characters",
-        "frame": "scientist_overcoat.png"
+    "cricketer_helmet": {
+        "key": "puppet/character",
+        "frame": "cricketer_helmet.png"
     },
    
     "scientist_sleeve": {
-        "key": "puppet/characters",
+        "key": "puppet/character",
         "frame": "scientist_shirt_sleeve.png"
     },
   
@@ -612,11 +610,11 @@
         "frame": "Musician_right_leg.png"
     },
       "photographer_leg": {
-        "key": "puppet/characters",
+        "key": "puppet/character",
         "frame": "photographer_leg.png"
     },
      "singer_leg": {
-        "key": "puppet/characters",
+        "key": "puppet/character",
         "frame": "singer_leg.png"
     },
      "Housewife_skirt": {
@@ -641,36 +639,36 @@
         "frame": "scientist_pant.png"
     },
     "stethoscope": {
-        "key": "puppet/characters",
-        "frame": "scientist_stethoscope.png"
+        "key": "puppet/character",
+        "frame": "stethoscope.png"
     },
     "testtube": {
-        "key": "puppet/characters",
-        "frame": "scientist_testtube.png"
+        "key": "puppet/character",
+        "frame": "testtube.png"
     },
-    "scientist_tie": {
-        "key": "puppet/characters",
-        "frame": "scientist_tie.png"
+    "tie": {
+        "key": "puppet/character",
+        "frame": "tie.png"
     },
     "scientist_glass": {
-        "key": "puppet/characters",
+        "key": "puppet/character",
         "frame": "scientist_glass.png"
     },
      "singer_goggle": {
-        "key": "puppet/characters",
+        "key": "puppet/character",
         "frame": "singer_goggle.png"
     },
-    "scientist_shoe": {
-        "key": "puppet/characters",
-        "frame": "scientist_shoe.png"
+    "shoe": {
+        "key": "puppet/character",
+        "frame": "shoe.png"
     },
      "singer_shoe":{
         
-        "key": "puppet/characters",
+        "key": "puppet/character",
         "frame": "singer_shoe.png"
 },
  "photographer_shoe":{     
-        "key": "puppet/characters",
+        "key": "puppet/character",
         "frame": "photographer_shoe.png"
 },
  "Astronaut_shoe":{     
@@ -698,11 +696,11 @@
         "frame": "cowBoy_shoe.png"
 },
 "photographer_beard":{
-    "key": "puppet/characters",
+    "key": "puppet/character",
         "frame": "photographer_beard.png"
 },
 "singer_beard":{
-    "key": "puppet/characters",
+    "key": "puppet/character",
         "frame": "singer_beard.png"
 },
 "Beard_1":{
@@ -746,7 +744,7 @@
         "frame": "photographer_beard.png"
 },
    "mic": {
-        "key": "puppet/characters",
+        "key": "puppet/character",
         "frame": "singer_mic.png"
     },
    
@@ -774,48 +772,69 @@
         "key": "puppet/headshape",
         "frame": "head_shape_triabgle.png"
     },
-    "eye1":{
-        "key": "puppet/eye_mouth",
-        "frame": "eye 1.png"
+    "Eye":{
+        "key": "puppet/character",
+        "frame": "Eye.png"
     },
-    "eye3":{
-        "key": "puppet/eye_mouth",
-        "frame": "eyes 3.png"
+    "eye_Blink":{
+        "key": "puppet/character",
+        "frame": "eye_Blink.png"
     },
-    "eye4":{
-        "key": "puppet/eye_mouth",
-        "frame": "eyes 4.png"
+    "eyes_1":{
+        "key": "puppet/character",
+        "frame": "eyes_1.png"
     },
-     "eye6":{
-        "key": "puppet/eye_mouth",
-        "frame": "eyes 6.png"
+     "eyes_10":{
+        "key": "puppet/character",
+        "frame": "eyes_10.png"
     },
-     "eye7":{
-        "key": "puppet/eye_mouth",
-        "frame": "eyes 7.png"
+     "eyes_2":{
+        "key": "puppet/character",
+        "frame": "eyes_2.png"
     },
-    "mouth1":{
-        "key": "puppet/eye_mouth",
-        "frame": "mouth 1.png"
+    "eyes_3":{
+        "key": "puppet/character",
+        "frame": "eyes_3.png"
     },
-    "mouth2":{
-        "key": "puppet/eye_mouth",
-        "frame": "mouth 2.png"
+     "eyes_4":{
+        "key": "puppet/character",
+        "frame": "eyes_4.png"
     },
-     "mouth3":{
-        "key": "puppet/eye_mouth",
-        "frame": "mouth 3.png"
+     "eyes_5":{
+        "key": "puppet/character",
+        "frame": "eyes_5.png"
     },
-    "mouth4":{
-        "key": "puppet/eye_mouth",
-        "frame": "mouth 4.png"
+      "eyes_6":{
+        "key": "puppet/character",
+        "frame": "eyes_6.png"
     },
-    "mouth5":{
-        "key": "puppet/eye_mouth",
-        "frame": "mouth 5.png"
+      "eyes_7":{
+        "key": "puppet/character",
+        "frame": "eyes_7.png"
     },
-    "mouth6":{
-        "key": "puppet/eye_mouth",
-        "frame": "mouth 6.png"
+      "eyes_8":{
+        "key": "puppet/character",
+        "frame": "eyes_8.png"
+    },
+      "eyes_9":{
+        "key": "puppet/character",
+        "frame": "eyes_9.png"
+    },
+    
+    "mouth_1":{
+        "key": "puppet/character",
+        "frame": "mouth_1.png"
+    },
+    "mouth_2":{
+        "key": "puppet/character",
+        "frame": "mouth_2.png"
+    },
+     "mouth_3":{
+        "key": "puppet/character",
+        "frame": "mouth_3.png"
+    },
+    "mouth_4":{
+        "key": "puppet/character",
+        "frame": "mouth_4.png"
     }
 }
