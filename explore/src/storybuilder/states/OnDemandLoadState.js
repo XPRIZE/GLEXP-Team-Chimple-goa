@@ -22,8 +22,12 @@ export default class OnDemandLoadState extends Phaser.State {
         this._currentStoryId = currentStoryId;
         this._currentPageId = currentPageId;
         if (cachedConfig) {
-            this._jsonCreationFiles = cachedConfig['scene_files'];
+            if (this._sceneOrPuppetType == OnDemandLoadState.SCENE_TYPE) {
+                this._jsonCreationFiles = cachedConfig['scene_files'];
 
+            } else if (this._sceneOrPuppetType == OnDemandLoadState.PUPPET_TYPE) {
+                this._jsonCreationFiles = cachedConfig['puppet_files'];
+            }
         }
     }
 
