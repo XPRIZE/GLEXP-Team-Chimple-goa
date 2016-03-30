@@ -25,7 +25,7 @@ preload () {
         if (this.heightScale > 1){
             this.cache = 1;
         }*/
-		home = this.game.add.image(this.game.world.centerX,this.game.world.centerY, 'Home');
+		home = this.game.add.image(this.game.width / 2,this.game.height /2, 'Home');
         home.anchor.setTo(0.5, 0.5);
        home.scale.setTo(this.widthScale, this.heightScale);
        

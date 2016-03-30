@@ -1,4 +1,3 @@
-import Demo from './index1';
 import StateHolder from '../StateHolder.js';
 import Whack_A_BootState from './states/BootState';
 import Whack_A_LoadLevel from './states/LoadLevel';
