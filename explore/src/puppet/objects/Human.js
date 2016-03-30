@@ -65,6 +65,14 @@ export default class Human extends Puppet {
         }        
     }
 
+    addLimb(limb) {
+        if(limb.name == 'human') {
+            limb.childOrder = ['leftLeg', 'rightLeg', 'body'];
+        } else if (limb.name == 'body') {
+            limb.childOrder = ['bodyShape', 'mask', 'shirt', 'belt', 'chain', 'jacket', 'scarf', 'head', 'leftHand', 'rightHand'];
+        }
+        super.addLimb(limb);
+    }
 
     update() {
         var self = this;

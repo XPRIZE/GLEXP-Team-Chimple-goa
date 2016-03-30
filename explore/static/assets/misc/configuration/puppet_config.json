@@ -1,25 +1,36 @@
 {
 	"puppets": {
-		"american_football_th": {
-			"texture_files": [{
-                "key": "human_1",
-				"json_file": "assets/puppet/0.json",
-				"texture_file": "assets/puppet/0.svg"
-			}, {
-                "key": "human_2",
-				"json_file": "assets/puppet/1.json",
-				"texture_file": "assets/puppet/1.svg"
-			}, {
-                "key": "human_3",
-				"json_file": "assets/puppet/2.json",
-				"texture_file": "assets/puppet/2.svg"
-			}],			
-			"scene_files": [
+		"Engineer.png": {
+			"puppet_files": [
 				 {
-				 	"key": "american_football",
-				 	"json_file": "assets/misc/configuration/puppets/human/american_football.json"
+				 	"key": "engineerPuppet",
+				 	"json_file": "assets/puppet/engineer.json"
 				 }
-			]            
-		}
+			]
+		},
+        "Lawyer.png": {
+			"puppet_files": [
+				 {
+				 	"key": "engineerPuppet",
+				 	"json_file": "assets/puppet/lawyer.json"
+				 }
+			]
+		},
+        "Cricketer.png": {
+			"puppet_files": [
+				 {
+				 	"key": "engineerPuppet",
+				 	"json_file": "assets/puppet/cricketer.json"
+				 }
+			]
+		},
+        "Astronaut.png": {
+			"puppet_files": [
+				 {
+				 	"key": "engineerPuppet",
+				 	"json_file": "assets/puppet/astronaut.json"
+				 }
+			]
+		}	        	        	        	
 	}
 }
