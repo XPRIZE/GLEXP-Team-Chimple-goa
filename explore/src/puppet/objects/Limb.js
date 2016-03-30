@@ -51,11 +51,8 @@ export default class Limb extends EnableInputs(RelativePosition(Phaser.Group)) {
     }
 
     onInputDragFromStory(pointer, x, y, down) {
-        console.log('poitner:' + pointer + 'x:' + x + 'y:' + y + " donw:" + down);
-        //this.parent.position = this.toGlobal(new Phaser.Point(x,y));
         this.differencePoint = Phaser.Point.subtract(pointer.position, this.puppetPoint);
-        this.parent.position = Phaser.Point.add(this.originalPuppetPosition, this.differencePoint);
-        
+        this.parent.position = Phaser.Point.add(this.originalPuppetPosition, this.differencePoint);        
     }
     
     onInputDrag(pointer, x, y, down) {

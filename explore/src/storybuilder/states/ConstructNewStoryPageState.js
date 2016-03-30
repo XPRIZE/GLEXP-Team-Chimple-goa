@@ -110,8 +110,7 @@ export default class ConstructNewStoryPageState extends Phaser.State {
 
         this.load.atlas('misc/theme', "assets/misc/theme.png", "assets/misc/theme.json");
         this.load.atlas('puppet/chooser', 'assets/puppet/chooser.png', 'assets/puppet/chooser.json');
-        this.load.atlas('puppet/sample', 'assets/puppet/sample.png', 'assets/puppet/sample.json');
-        this.load.atlas('puppet/icons', 'assets/puppet/icons.png', 'assets/puppet/icons.json');
+        this.load.atlas('puppet/sample', 'assets/puppet/sample.png', 'assets/puppet/sample.json');        
         this.load.atlas('scene/icons', 'assets/scene/icons.png', 'assets/scene/icons.json');
         this.load.atlas('puppet/characters', 'assets/puppet/characters.png', 'assets/puppet/characters.json');
         this.load.atlas('puppet/eye_mouth', 'assets/puppet/eye_mouth.png', 'assets/puppet/eye_mouth.json');
@@ -194,19 +193,19 @@ export default class ConstructNewStoryPageState extends Phaser.State {
             }
         }, this);
     }
-    
-    
+
+
     buildContentsList(scene) {
         let uniqueImageNameSet = new Set();
         scene.children.forEach(function(element) {
-            if(element instanceof Wall || element instanceof Floor) {
+            if (element instanceof Wall || element instanceof Floor) {
                 element.children.forEach(function(child) {
-                    if(child instanceof Item) {
+                    if (child instanceof Item) {
                         console.log('child: frame:' + child.frameName);
-                        if(child.frameName != null || child.frameName != undefined) {
+                        if (child.frameName != null || child.frameName != undefined) {
                             uniqueImageNameSet.add(child.frameName);
-                        }                        
-                    } 
+                        }
+                    }
                 })
             }
         }, this);
@@ -308,11 +307,11 @@ export default class ConstructNewStoryPageState extends Phaser.State {
     positionAddedPuppetOnScene(puppet) {
         puppet.x = game.width * Math.random();
         puppet.y = game.height * Math.random();
-        puppet.body.disableInputs();
-        puppet.body.enableInputs(new StoryPuppetBuilderInputHandler(game), false);
+        puppet.body.disableInputs();        
         this._displayControlGroup.children.forEach(function(element) {
             console.log(element);
             if (element instanceof Scene) {
+                puppet.body.enableInputs(new StoryPuppetBuilderInputHandler(element), false);                
                 element.floor.addContent(puppet)
             }
         }, this);
@@ -524,7 +523,7 @@ export default class ConstructNewStoryPageState extends Phaser.State {
     }
 
     createChooseBackGroundTab() {
-        //will come from texture packer
+
         let backgroundImageNames = [];
         this.game.cache.getFrameData('storyBuilder/backgrounds').getFrames().forEach(function(val, index, array) {
             backgroundImageNames.push(val.name);
@@ -547,17 +546,21 @@ export default class ConstructNewStoryPageState extends Phaser.State {
 
     createChoosePuppetTab() {
 
-        let puppetThemes = this.game.cache.getJSON('storyBuilder/puppet_themes');
-        //later get from texture packer
-        let humanNames = ["american_football_th"];
+        let puppetImageNames = [];
+        this.game.cache.getFrameData('storyBuilder/puppets').getFrames().forEach(function(val, index, array) {
+            puppetImageNames.push(val.name);
+        });
 
-        this._choosePuppetTab = this._displayControlGroup.add(new TabView(this.game, 'Puppet', this.game.width * 0.9, this.game.height, 10, 50, 5, 3, true, function(tab, button) {
+        let puppetThemes = this.game.cache.getJSON('storyBuilder/puppets_grid');
+
+        this._choosePuppetTab = this._displayControlGroup.add(new TabView(this.game, 'storyBuilder/puppets', this.game.width * 0.9, this.game.height, 10, 50, 5, 3, true, function(tab, button) {
             this._choosePuppetTab.unSelect();
             this.dynamicallyLoadAssets(button, ConstructNewStoryPageState.PUPPET_TYPE, this._puppetConfig);
             this._choosePuppetTab.visible = false;
         }, this, puppetThemes));
 
-        this._choosePuppetTab.tabs = { 'human1': humanNames, 'human2': humanNames };
+        // this._choosePuppetTab.tabs = { 'human': humanNames };
+        this._choosePuppetTab.tabs = { 'human1': puppetImageNames };
         this._choosePuppetTab.x = this.game.width * 0.05;
         this._choosePuppetTab.y = 0;
         this._choosePuppetTab.fixedToCamera = true;
