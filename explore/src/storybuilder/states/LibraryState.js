@@ -21,7 +21,13 @@ export default class LibraryState extends Phaser.State {
         //load into local storage
         if (typeof (Storage) !== "undefined") {
             // Code for localStorage/sessionStorage.
-            localStorage.setItem("library", JSON.stringify(this._library));
+            try {
+                localStorage.setItem("library", JSON.stringify(this._library));
+            } catch (e) {
+                if (isQuotaExceeded(e)) {
+                    // Storage full, maybe notify user or do some clean-up
+                }
+            }
         } else {
             // Sorry! No Web Storage support..
         }
@@ -60,7 +66,7 @@ export default class LibraryState extends Phaser.State {
         this.loadStories();
         this.showLibrary();
     }
-    
+
     loadStories() {
         var that = this;
         let stories = this._library.stories;
@@ -110,11 +116,41 @@ export default class LibraryState extends Phaser.State {
     }
 
     saveToLocalStorage() {
-        localStorage.setItem("library", JSON.stringify(this._library));
+        try {
+            localStorage.setItem("library", JSON.stringify(this._library));
+        } catch (e) {
+            if (isQuotaExceeded(e)) {
+                // Storage full, maybe notify user or do some clean-up
+            }
+        }
     }
     shutdown() {
     }
+
+    isQuotaExceeded(e) {
+        let quotaExceeded = false;
+        if (e) {
+            if (e.code) {
+                switch (e.code) {
+                    case 22:
+                        quotaExceeded = true;
+                        break;
+                    case 1014:
+                        // Firefox
+                        if (e.name === 'NS_ERROR_DOM_QUOTA_REACHED') {
+                            quotaExceeded = true;
+                        }
+                        break;
+                }
+            } else if (e.number === -2147024882) {
+                // Internet Explorer 8
+                quotaExceeded = true;
+            }
+        }
+        return quotaExceeded;
+    }
 }
+
 LibraryState.DEFAULT_STORY_COVER_KEY = 'story_cover';
 LibraryState.DEFAULT_PAGE_COVER_KEY = 'page_cover';
 LibraryState.LIBRARY_KEY = "library";
