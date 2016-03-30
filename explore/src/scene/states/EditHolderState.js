@@ -11,6 +11,7 @@ import Human from '../../puppet/objects/Human.js';
 import TabView from '../../puppet/objects/TabView.js';
 import EnableAttributeEditorSignal from '../../storybuilder/objects/EnableAttributeEditorSignal.js';
 import EditHolderInputHandler from '../objects/EditHolderInputHandler.js';
+import MiscUtil from '../../util/MiscUtil.js';
 
 export default class EditHolderState extends Phaser.State {
     init(holder, scene, cameraPosition) {
@@ -48,18 +49,21 @@ export default class EditHolderState extends Phaser.State {
                     let surface = new Surface(game, 0, 0);
                     let surfaceTexture = new Texture(game, 0, 0, 'scene/scene', button);
                     surface.addTexture(surfaceTexture).enableInputs(new EditHolderInputHandler());
-                    surfaceTexture.input.priorityID = 4;
+                    // surfaceTexture.input.priorityID = 4;
+                    MiscUtil.setPriorityID(surfaceTexture, 4);
                     this.holder.addSurface(surface);
                     break;
                 case 'texture':
                         if(!this.holder.backTexture) {
                             this.holder.backTexture = new Texture(game, 0, 0, 'scene/scene', button);
                             this.holder.backTexture.enableInputs(new EditHolderInputHandler())
-                            this.holder.backTexture.input.priorityID = 3;
+                            // this.holder.backTexture.input.priorityID = 3;
+                            MiscUtil.setPriorityID(this.holder.backTexture, 3);
                         } else if(!this.holder.frontTexture) {
                             this.holder.frontTexture = new Texture(game, 0, 0, 'scene/scene', button);
                             this.holder.frontTexture.enableInputs(new EditHolderInputHandler());
-                            this.holder.frontTexture.input.priorityID = 5;
+                            // this.holder.frontTexture.input.priorityID = 5;
+                            MiscUtil.setPriorityID(this.holder.frontTexture, 5);
                         }
                     break;
                 case 'delete':

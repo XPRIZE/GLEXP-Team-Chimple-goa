@@ -33,6 +33,7 @@ import SoundData from '../../scene/objects/SoundData.js';
 import PuppetCustomizer from '../../puppet/objects/PuppetCustomizer.js';
 
 import RecordingPlayEndSignal from '../objects/RecordingPlayEndSignal.js'
+import MiscUtil from '../../util/MiscUtil.js';
 
 
 var _ = require('lodash');
@@ -408,7 +409,8 @@ export default class ConstructNewStoryPageState extends Phaser.State {
         this._nextButton.visible = false;
         this._nextButton.inputEnabled = true;
         this._nextButton.events.onInputDown.add(this.nextButton, this);
-        this._nextButton.input.priorityID = 2;
+        // this._nextButton.input.priorityID = 2;
+        MiscUtil.setPriorityID(this._nextButton, 2);
         this._displayControlGroup.add(this._nextButton);
 
         this._editPuppet = game.add.button(this.game.width - 30, 60, 'scene/icons', this.editPuppet, this, 'ic_grid_on_black_24dp_1x.png', 'ic_grid_on_black_24dp_1x.png', 'ic_grid_on_black_24dp_1x.png', 'ic_grid_on_black_24dp_1x.png');

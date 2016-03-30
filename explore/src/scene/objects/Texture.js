@@ -1,4 +1,5 @@
 import EnableInputs from './EnableInputs.js';
+import MiscUtil from '../../util/MiscUtil.js';
 
 export default class Texture extends EnableInputs(Phaser.Sprite) {
     constructor(game, x, y, key, frame) {
@@ -14,7 +15,8 @@ export default class Texture extends EnableInputs(Phaser.Sprite) {
         this.events.onDragStart.add(instance.onDragStart, this);
         this.events.onDragUpdate.add(instance.onDragUpdate, this);
         this.events.onDragStop.add(instance.onDragStop, this);
-        this.input.priorityID = 3;    
+        // this.input.priorityID = 3; 
+        MiscUtil.setPriorityID(this, 3);   
     }
 
     drawBoundingBox(color) {
