@@ -1,5 +1,5 @@
 import MiscUtil from '../../util/MiscUtil.js';
-
+import RoundButton from './RoundButton.js';
 import ButtonGrid from './ButtonGrid.js';
 
 export default class TabView extends Phaser.Group {
@@ -24,12 +24,12 @@ export default class TabView extends Phaser.Group {
             style.overFillColor = 0x25878A;            
         }
         if(!style.upFillColor) {
-            style.upFillColor = 0x32A9B4;            
+            style.upFillColor = 0x136662;            
         }
         if(!style.downFillColor) {
-            style.downFillColor = 0x136662;            
+            style.downFillColor = 0x32A9B4;            
         }
-        
+        this.style = style;
         this.priorityID = 5;
 
         this.backPanel = this.add(new Phaser.Graphics(game, 0, this.tabThickness));
@@ -44,12 +44,12 @@ export default class TabView extends Phaser.Group {
     
     set tabs(tabs) {
         this._tabs = tabs;
-        this.tabView = new ButtonGrid(this.game, this.name, this.elementWidth, this.tabThickness, 1, this.numTabs, this.horizontal, this.callSelectTab, this, this.frameData, {buttonType: 'tab', iconType: 'round'});
+        this.tabView = new ButtonGrid(this.game, this.name, this.elementWidth, this.tabThickness, 1, this.numTabs, this.horizontal, this.callSelectTab, this, this.frameData, {buttonType: 'tab', iconType: 'round', overFillColor: this.style.overFillColor, upFillColor: this.style.upFillColor, downFillColor: this.style.downFillColor});
         this.tabView.priorityID = this.priorityID;
         this.tabView.padding = 0;
         this.add(this.tabView);
         this.tabView.buttons = Object.keys(tabs);
-        this.buttonView = new ButtonGrid(this.game, this.name, this.elementWidth, this.elementHeight - this.tabThickness, this.numRows, this.numCols, this.horizontal, this.callback, this.callbackContext, this.frameData);
+        this.buttonView = new ButtonGrid(this.game, this.name, this.elementWidth, this.elementHeight - this.tabThickness, this.numRows, this.numCols, this.horizontal, this.callback, this.callbackContext, this.frameData, {buttonType: 'round',navButtons: 'round', overFillColor: this.style.overFillColor, upFillColor: this.style.downFillColor, downFillColor: this.style.upFillColor, displayPrice:this.style.displayPrice});
         this.buttonView.priorityID = this.priorityID + 1;        
         this.add(this.buttonView);
         this.buttonView.y = this.tabThickness;

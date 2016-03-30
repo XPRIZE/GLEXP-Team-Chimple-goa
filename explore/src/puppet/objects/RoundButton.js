@@ -42,6 +42,12 @@ export default class RoundButton extends Phaser.Button {
                     this.buttonImage = new Phaser.Sprite(game, 0, 0, key);
                     //  buttonImage = new Phaser.Sprite(game, layoutX, layoutY, key);
                 }
+                if(info.price && style.displayPrice) {
+                    let price = new Phaser.Text(game, 0, this.buttonImage.height/2, info.price.toString(), { backgroundColor: "#FFFFFF", fill: '#25878A', fontSize: '30px', boundsAlignV: 'middle' }); 
+                    price.anchor.setTo(0.5, 0);       
+                    this.buttonImage.addChild(price);
+                }
+                
 
             } else if (info.image_data) {
                 //create sprite from image_data
