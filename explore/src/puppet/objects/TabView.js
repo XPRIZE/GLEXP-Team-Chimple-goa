@@ -113,6 +113,7 @@ export default class TabView extends Phaser.Group {
         this.selectedTab = null;
         this.tabView.unSelect();
         this.buttonView.visible = false;
+        this.backPanel.visible = false;
     }
 }
 
