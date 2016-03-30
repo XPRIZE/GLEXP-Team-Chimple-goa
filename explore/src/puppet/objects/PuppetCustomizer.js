@@ -42,6 +42,7 @@ export default class PuppetCustomizer extends Phaser.Group {
                 for (var key in acc) {
                     if (acc.hasOwnProperty(key)) {
                         let element = acc[key];
+
                         this.puppet['set' + key](element.key, element.frame, element.anchorX, element.anchorY, element.offsetX, element.offsetY, element.offsetInPixelX, element.offsetInPixelY);
                     }
                 }

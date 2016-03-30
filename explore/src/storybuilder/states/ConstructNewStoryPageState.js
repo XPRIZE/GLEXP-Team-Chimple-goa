@@ -430,9 +430,9 @@ export default class ConstructNewStoryPageState extends Phaser.State {
                 ConstructNewStoryPageState.ADD_QUESTION_ANWSERS_BUTTON,
                 ConstructNewStoryPageState.START_RECORD_BUTTON,
                 ConstructNewStoryPageState.START_PLAY_BUTTON],
-            this.defineControls, this);
+            this.defineControls, this); 
 
-        this._nextButton = this.game.make.sprite(this.game.width - 40, 240, 'storybuilder/home_button');
+        this._nextButton = this.game.make.sprite(this.game.width - 40, 240, 'next');
         this._nextButton.anchor.setTo(0.5);
         this._nextButton.visible = false;
         this._nextButton.inputEnabled = true;
@@ -546,7 +546,10 @@ export default class ConstructNewStoryPageState extends Phaser.State {
 
     // return json of current page
     returnPageJson() {
-        return this._currentPage.questionsAndAnswers;
+        var page_json = new Array();
+        page_json.push(this._currentPage.questionsAndAnswers);
+        page_json.push(this._uniqueImageNames);
+        return page_json;
     }
 
     chooseBackGround(sprite, pointer) {
