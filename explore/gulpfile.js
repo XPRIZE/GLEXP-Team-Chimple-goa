@@ -16,7 +16,7 @@ var browserSync = require('browser-sync');
  */
 var PHASER_PATH = './node_modules/phaser/build/';
 var ANGULAR_PATH = './node_modules/angular/';
-var ISOMETRIC_PATH = './node_modules/phaser-plugin-isometric/dist';
+var ISOMETRIC_PATH = './node_modules/phaser-plugin-isometric/dist/';
 var BUILD_PATH = './build';
 var SCRIPTS_PATH = BUILD_PATH + '/scripts';
 var SOURCE_PATH = './src';
@@ -192,8 +192,8 @@ function serve() {
 
 gulp.task('cleanBuild', cleanBuild);
 gulp.task('copyStatic', ['cleanBuild'], copyStatic);
-gulp.task('copyAngular', ['copyStatic'], copyAngular);
-gulp.task('copyPhaser', ['copyStatic'], copyPhaser);
+gulp.task('copyIsometric', ['copyStatic'], copyIsometric);
+gulp.task('copyPhaser', ['copyIsometric'], copyPhaser);
 gulp.task('build', ['copyPhaser'], build);
 gulp.task('fastBuild', build);
 gulp.task('serve', ['build'], serve);
