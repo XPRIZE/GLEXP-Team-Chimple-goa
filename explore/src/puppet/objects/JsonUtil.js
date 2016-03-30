@@ -3,10 +3,11 @@ import Accessory from './Accessory.js';
 import Shape from './Shape.js';
 import HandShape from './HandShape.js';
 import ComboShape from './ComboShape.js';
-import HandShape from './HandShape.js';
+//import HandShape from './HandShape.js';
 import RelativePosition from './RelativePosition.js';
 import Puppet from './Puppet.js';
 import Human from './Human.js';
+import Animal from './Animal.js';
 
 
 import Scene from '../../scene/objects/Scene.js';
@@ -39,6 +40,8 @@ export default class JsonUtil {
             return Puppet.fromJSON(window.game, v);
         } else if (v instanceof Object && v._class == 'Human') {
             return Human.fromJSON(window.game, v);
+        } else if (v instanceof Object && v._class == 'Animal') {
+            return Animal.fromJSON(window.game, v);
         } else if (v instanceof Object && v._class == 'Accessory') {
             return Accessory.fromJSON(window.game, v);
         } else if (v instanceof Object && v._class == 'Phaser.Point') {

@@ -1,4 +1,5 @@
 import PuppetCustomizer from '../objects/PuppetCustomizer.js';
+import AnimalCustomizer from '../objects/AnimalCustomizer.js';
 
 export default class GameState extends Phaser.State {
   preload() {
@@ -9,12 +10,13 @@ export default class GameState extends Phaser.State {
     this.load.atlas('scene/icons', 'assets/scene/icons.png', 'assets/scene/icons.json');
     this.load.atlas('puppet/characters', 'assets/puppet/characters.png', 'assets/puppet/characters.json');
     this.load.atlas('puppet/character', 'assets/puppet/Character.png', 'assets/puppet/Character.json');
-    
+    this.load.atlas('puppet/Animals', 'assets/puppet/Animals.png', 'assets/puppet/Animals.json');
      this.load.atlas('puppet/eye_mouth', 'assets/puppet/eye_mouth.png', 'assets/puppet/eye_mouth.json');
     //this.load.atlas('puppet/sample', 'assets/puppet/sample.png', 'assets/puppet/sample.json');
     this.load.json('puppet/accessorize', 'assets/puppet/accessorize.json');
     this.load.json('puppet/menu_accessorize', 'assets/puppet/menu_accessorize.json');
     this.load.atlas('puppet/headshape', 'assets/puppet/headshape.png', 'assets/puppet/headshape.json');
+    this.load.atlas('puppet/emoticon', 'assets/puppet/emoticon.png', 'assets/puppet/emoticon.json');
   }
 
   create() {
@@ -24,7 +26,9 @@ export default class GameState extends Phaser.State {
 
     goEdit() {
         this.add.existing(new PuppetCustomizer(this.game, this.game.width, this.game.height, this.puppet, this.addPuppet, this));
-    }
+        this.add.existing(new AnimalCustomizer(this.game, this.game.width, this.game.height, this.puppet, this.addPuppet, this));
+
+ }
       
     //let b = JSON.stringify(puppet, Util.replacer);
     //let a=JSON.parse(JSON.stringify(puppet, Util.replacer), Util.revive);    

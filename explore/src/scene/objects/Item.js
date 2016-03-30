@@ -14,13 +14,19 @@ import TextData from '../../storybuilder/objects/TextData.js';
 import StoryUtil from '../../storybuilder/objects/StoryUtil.js';
 import SoundData from './SoundData.js';
 import SpecialAttribute from './SpecialAttribute.js';
+import MiscUtil from '../../util/MiscUtil.js';
 
 var _ = require('lodash');
 
 
 export default class Item extends EnableInputs(Phaser.Sprite) {
-    constructor(game, x, y, key, frame, uniquename) {
+    constructor(game, x, y, key, frame, uniquename, movable) {
         super(game, x, y, key, frame);
+        if(movable) {
+            this.movable = movable;
+        } else {
+            this.movable = false;
+        }
         game.physics.enable(this);
         this.anchor.set(0.5, 1);
         //Any Attribute Changes then dispatch signal        
@@ -49,7 +55,8 @@ export default class Item extends EnableInputs(Phaser.Sprite) {
 
     enableInputs(instance, iterateInside) {
         super.enableInputs(instance, iterateInside);
-        this.input.priorityID = 3;
+        // this.input.priorityID = 3;
+        MiscUtil.setPriorityID(this, 3);
     }    
     
     addText(textData) {
@@ -109,6 +116,13 @@ export default class Item extends EnableInputs(Phaser.Sprite) {
         return this._uniquename;
     }
 
+    set movable(val) {
+        this._movable = val;
+    }
+    
+    get movable() {
+        return this._movable;
+    }
 
     overlapHandler(obj1, obj2) {
         // console.log(obj2);
@@ -210,7 +224,8 @@ export default class Item extends EnableInputs(Phaser.Sprite) {
             y: this.y,
             key: this.key,
             frame: this.frameName,
-            uniquename: this.uniquename
+            uniquename: this.uniquename,
+            movable: this.movable
         }
         return json;
     }

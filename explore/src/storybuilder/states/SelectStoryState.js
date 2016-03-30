@@ -76,20 +76,49 @@ export default class SelectStoryState extends Phaser.State {
         storyMainImage.height = 500;
         displayGroup.add(storyMainImage);
 
-        //save story into localStorage        
-        localStorage.setItem(this._currentStoryId, JSON.stringify(this._currentStory, JsonUtil.replacer));
-
+        //save story into localStorage
+        try {
+            //remove image data
+            this._currentStory.imageData = null;
+            localStorage.setItem(this._currentStoryId, JSON.stringify(this._currentStory, JsonUtil.replacer));
+        } catch (e) {
+            if (isQuotaExceeded(e)) {
+                // Storage full, maybe notify user or do some clean-up
+            }
+        }
     }
 
+
+    isQuotaExceeded(e) {
+        let quotaExceeded = false;
+        if (e) {
+            if (e.code) {
+                switch (e.code) {
+                    case 22:
+                        quotaExceeded = true;
+                        break;
+                    case 1014:
+                        // Firefox
+                        if (e.name === 'NS_ERROR_DOM_QUOTA_REACHED') {
+                            quotaExceeded = true;
+                        }
+                        break;
+                }
+            } else if (e.number === -2147024882) {
+                // Internet Explorer 8
+                quotaExceeded = true;
+            }
+        }
+        return quotaExceeded;
+    }
     selectNavigation(tab, name) {
         if (name === SelectStoryState.HOME_BUTTON) {
             this.navigateToLibrary();
         } else if (name === SelectStoryState.EDIT_BUTTON) {
             this.editStory();
         } else if (name === SelectStoryState.PLAY_BUTTON) {
-            if(this._currentStory.storyPages && this._currentStory.storyPages.length > 0)
-            {                
-                let currentPage = this._currentStory.storyPages[0];                
+            if (this._currentStory.storyPages && this._currentStory.storyPages.length > 0) {
+                let currentPage = this._currentStory.storyPages[0];
                 this.game.state.start('StoryConstructNewStoryPageState', true, false, true, this._currentStoryId, currentPage.pageId);
             }
         }

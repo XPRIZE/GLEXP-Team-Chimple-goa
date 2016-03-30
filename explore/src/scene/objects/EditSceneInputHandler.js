@@ -1,6 +1,8 @@
 import Surface from './Surface.js';
 import Floor from './Floor.js';
 import Wall from './Wall.js';
+import MiscUtil from '../../util/MiscUtil.js';
+
 
 export default class EditSceneInputHandler {
     constructor(game) {
@@ -59,7 +61,8 @@ export default class EditSceneInputHandler {
             // sprite.parent.removeChild(sprite);
             EditSceneInputHandler.surfaceTexture.parent.addContent(sprite);
             if(EditSceneInputHandler.surfaceTexture.parent.parent.input != null) {
-                sprite.input.priorityID = EditSceneInputHandler.surfaceTexture.parent.parent.input.priorityID+1;            
+                // sprite.input.priorityID = EditSceneInputHandler.surfaceTexture.parent.parent.input.priorityID+1; 
+                MiscUtil.setPriorityID(sprite, EditSceneInputHandler.surfaceTexture.parent.parent.input.priorityID+1);           
             }
             let localPoint = sprite.toLocal(globalPoint);
             sprite.x = localPoint.x;

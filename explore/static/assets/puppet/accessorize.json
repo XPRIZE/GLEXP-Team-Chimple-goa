@@ -241,9 +241,6 @@
       }
     }  
     
-    
-    
-    
   },
   "beard_chooser": {
     
@@ -430,8 +427,56 @@
         "key": "puppet/character",
         "frame": "singer_goggle.png"
       }     
+    },
+    "Eyes":{
+        "Eye":{
+        "key":"puppet/Animals",
+        "frame":"Eye.png",
+        "anchorY":0.2,
+        "offsetY":0.3
+      }
+    },
+    "ear":{
+        "Ear":{
+            "key":"puppet/Animals",
+            "frame":"Cheetah_ear.png",
+            "anchorY":0.1,
+             "offsetY":0
+            }
+    },
+        "mouths":{
+        "Mouth":{
+            "key":"puppet/Animals",
+            "frame":"Cheetah_mouth.png",
+            "anchorY":0.5,
+            "offsetY":0.8
+            }
+        },
+          "hairs":{
+          "Hair":{
+              "key":"puppet/Animals",
+              "frame":"Cheetah_hair.png",
+              "anchorY":0.6
+           }
+         },
+     "body2":{
+         "Inside_body":{
+             "key":"puppet/Animals",
+              "frame":"Inside_body.png",
+              "anchorY":0.02,
+              "offsetY":0
+              }
+     },
+      "body3":{
+         "Texture":{
+             "key":"puppet/Animals",
+              "frame":"Cheetah_texture.png",
+               "anchorY":0.05,
+                "offsetY":0
+            }
     }
-  },
+   },
+  
  "hair_chooser": {
     "scientist_hair": {
       "BackHair": {
@@ -546,7 +591,9 @@
       "FF00FF": "FF00FF",
       "F1D0A4": "F1D0A4",
       "FFCC66": "FFCC66",
-      "F1BD78": "F1BD78"
+      "F1BD78": "F1BD78",
+      
+       "E2E434":"E2E434"
   },
   "hat_chooser": {
     
@@ -1501,20 +1548,104 @@
         }  
     }
     
-    
-    
-    
-    
-    
-    
-    
-    
-      
   },
   "skinColor_chooser": {
     "B44F0E": "B44F0E",
     "F1BD78": "F1BD78",
     "F1D0A4": "F1D0A4",
     "FFCC66": "FFCC66"
-  }
+  },
+   "eye_chooser":{
+      
+      
+  },
+    "headshape_chooser":{
+      
+      
+  },
+  "mouth_chooser":{
+      
+  },
+   "emoticon_chooser": {
+    "angryFace":{
+        "DialogBox":{
+        "key": "puppet/emoticon",
+        "frame": "dialog box2.png"
+        },
+       "Emoticon":{
+        "key": "puppet/emoticon",
+        "frame": "angry.png"
+       }
+    },
+    "cryingFace":{
+        "DialogBox":{
+        "key": "puppet/emoticon",
+        "frame": "dialog box2.png"
+        },
+       "Emoticon":{
+        "key": "puppet/emoticon",
+        "frame": "crying.png"
+       }
+    },
+     "smileFace":{
+        "DialogBox":{
+        "key": "puppet/emoticon",
+        "frame": "dialog box2.png"
+        },
+       "Emoticon":{
+        "key": "puppet/emoticon",
+        "frame": "smile.png"
+       }
+    },
+     "sadFace":{
+        "DialogBox":{
+        "key": "puppet/emoticon",
+        "frame": "dialog box2.png"
+        },
+       "Emoticon":{
+        "key": "puppet/emoticon",
+        "frame": "sad.png"
+       }
+    },
+    "closeeyesmileFace":{
+        "DialogBox":{
+        "key": "puppet/emoticon",
+        "frame": "dialog box2.png"
+        },
+       "Emoticon":{
+        "key": "puppet/emoticon",
+        "frame": "closed eyes smile.png"
+       }
+    },
+      "coolFace":{
+        "DialogBox":{
+        "key": "puppet/emoticon",
+        "frame": "dialog box2.png"
+        },
+       "Emoticon":{
+        "key": "puppet/emoticon",
+        "frame": "cool.png"
+       }
+    },
+    "laughFace":{
+        "DialogBox":{
+        "key": "puppet/emoticon",
+        "frame": "dialog box2.png"
+        },
+       "Emoticon":{
+        "key": "puppet/emoticon",
+        "frame": "laughing.png"
+       }
+    },
+    "nervousFace":{
+        "DialogBox":{
+        "key": "puppet/emoticon",
+        "frame": "dialog box2.png"
+        },
+       "Emoticon":{
+        "key": "puppet/emoticon",
+        "frame": "nervous.png"
+       }
+   }
+}
 }

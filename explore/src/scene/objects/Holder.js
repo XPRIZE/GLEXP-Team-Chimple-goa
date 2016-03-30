@@ -2,16 +2,23 @@ import Texture from './Texture.js';
 import Surface from './Surface.js';
 import Item from './Item.js';
 import StoryUtil from '../../storybuilder/objects/StoryUtil.js';
+import MiscUtil from '../../util/MiscUtil.js';
 
 export default class Holder extends Item {
     // TODO: Item takes a key and frame, but here we are not passing any. See if any better solution is there
-    constructor(game, x, y, uniquename) {
+    constructor(game, x, y, uniquename, movable) {
         super(game, x, y);
         this.x = x;
         this.y = y;
         this.inputEbaled = true;
         this.doorOpen = false;
         this.text = "";
+
+        if(movable) {
+            this.movable = movable;
+        } else {
+            this.movable = false;
+        }
 
         if (!uniquename) {
             this._uniquename = StoryUtil.generateUUID();
@@ -23,7 +30,8 @@ export default class Holder extends Item {
 
     enableInputs(instance, iterateInside) {
         super.enableInputs(instance, iterateInside);
-        this.input.priorityID = 2;
+        // this.input.priorityID = 2;
+        MiscUtil.setPriorityID(this, 2);
     }
 
     drawBoundingBox(color) {
@@ -254,13 +262,14 @@ export default class Holder extends Item {
             uniquename: this.uniquename,
             frontTexture: this.frontTexture,
             backTexture: this.backTexture,
-            surfaces: this.surfaces
+            surfaces: this.surfaces,
+            movable: this.movable
         }
         return json;
     }
 
     static fromJSON(game, j) {
-        let holder = new Holder(game, j.x, j.y, j.uniquename);        
+        let holder = new Holder(game, j.x, j.y, j.uniquename, j.movable);        
         if (j.frontTexture) {
             holder.frontTexture = j.frontTexture;
         }

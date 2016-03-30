@@ -14,6 +14,7 @@ import Item from '../../scene/objects/Item.js';
 import Puppet from '../../puppet/objects/Puppet.js';
 import RoundButton from '../../puppet/objects/RoundButton.js';
 import Human from '../../puppet/objects/Human.js';
+import MiscUtil from '../../util/MiscUtil.js';
 
 export default class AttributeEditOverlay extends Phaser.Group {
     //container to edit item properties
@@ -64,8 +65,18 @@ export default class AttributeEditOverlay extends Phaser.Group {
         this._settings.fixedToCameara = true;
         this._settings.inputEnabled = true;
         this._settings.events.onInputUp.add(this.createAdditionalPropertiesOverlay, this);
-        this._settings.input.priorityID = 3;
+        // this._settings.input.priorityID = 3;
+        MiscUtil.setPriorityID(this._settings, 3);
         this._settings.fixedToCameara = true;
+
+        // Looks like this was removed in latest commit so commenting right now
+        // //Added TEXT BUTTON to generate Testing Text - later UI will be replaced ...
+        // this._textEditor = this._overlayDisplaySprite.addChild(game.make.sprite(400, 60, 'storyBuilder/plus'));
+        // this._textEditor.fixedToCameara = true;
+        // this._textEditor.inputEnabled = true;
+        // this._textEditor.events.onInputUp.add(this.createAdditionalPropertiesOverlay, this);
+        // // this._textEditor.input.priorityID = 3;
+        // MiscUtil.setPriorityID(this._textEditor, 3);
         
         // if(this._clickedObject instanceof Puppet) {
         //     this._editPuppet = game.add.button(400, 140, 'scene/icons', this.editPuppet, this, 'ic_grid_on_black_24dp_1x.png', 'ic_grid_on_black_24dp_1x.png', 'ic_grid_on_black_24dp_1x.png', 'ic_grid_on_black_24dp_1x.png');
@@ -420,7 +431,9 @@ export default class AttributeEditOverlay extends Phaser.Group {
         this._dragHandlerSprite.anchor.setTo(0.5);
         this._dragHandlerSprite.inputEnabled = true;
         this._dragHandlerSprite.input.enableDrag(false, true);
-        this._dragHandlerSprite.input.priorityID = 3;
+        // this._dragHandlerSprite.input.priorityID = 3;
+        MiscUtil.setPriorityID(this._dragHandlerSprite, 3);
+        
         this._dragHandlerSprite.angle = this._clickedObject.angle;
         this._dragHandlerSprite._click = 0;
         this._dragHandlerSprite._clickScale = new Phaser.Point(1, 1);

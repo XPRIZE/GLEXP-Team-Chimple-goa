@@ -7,37 +7,26 @@ import JsonUtil from '../objects/JsonUtil.js';
 import TabView from '../objects/TabView.js';
 import ButtonGrid from '../objects/ButtonGrid.js';
 import PuppetInputHandler from '../objects/PuppetInputHandler.js';
+import MiscUtil from '../../util/MiscUtil.js';
 
 export default class PuppetCustomizer extends Phaser.Group {
     constructor(game, width, height, puppet, callback, callbackContext, priorityID) {
         super(game);
-        
-        let back = this.add(new Phaser.Graphics(game, 0, 0));
-        back.beginFill(0xDDDDDD);
-        // back.alpha = 1;
-        back.drawRect(0, 0, width, height);
-        back.endFill();
-        
-        this.priorityID = priorityID;
+                
+        this.priorityID = priorityID || 0;
         this.puppet = puppet;
         this.callback = callback;
         this.callbackContext = callbackContext;
-        if(this.puppet == null) {
-            this.puppet = Human.buildDefault(game, new PuppetInputHandler());
-        }
-        this.add(this.puppet);
-        this.puppet.x = 3 * width / 4;
-        this.puppet.y = 500;
-        this.puppet.bodyColor = 0xF1BD78;
         let dressChoices = game.cache.getJSON('puppet/accessorize');
         let menuAccessorize = game.cache.getJSON('puppet/menu_accessorize');
-        let chooser = this.add(new TabView(game, 'puppet/chooser', width / 2, height, 10, 100, 5, 3, true, function(accType, accName) {
+        let chooser = this.add(new TabView(game, 'scene/icons', width / 2, height, 10, 100, 5, 3, true, function(accType, accName) {
             if (accType == "skinColor_chooser") {
                 this.puppet.bodyColor = parseInt(accName, 16);
-                 this.puppet.blinkAct();
-                 this.puppet.smileAct();
-                 this.puppet.sadAct();
-                 this.puppet.handshakeAnimate();
+                //  this.puppet.blinkAct();
+                //  this.puppet.smileAct();
+                //  this.puppet.sadAct();
+                //  this.puppet.handshakeAnimate();
+                this.puppet.eatAnimate();
             } else if (accType == "hairColor_chooser") {
                 if (this.puppet.head.getAccessory('frontHair')) {
                     this.puppet.head.getAccessory('frontHair').tint = parseInt(accName, 16);
@@ -73,6 +62,22 @@ export default class PuppetCustomizer extends Phaser.Group {
         chooser.tabs = dressTabs;
         chooser.x = 0;
         chooser.y = 0;
+
+        let back = this.add(new Phaser.Graphics(game, 0, 0));
+        back.beginFill(0xDDDDDD);
+        // back.alpha = 1;
+        back.drawRect(width / 2, 0, width / 2, height);
+        back.endFill();
+        back.inputEnabled = true;
+        back.input.priorityID = priorityID + 2;
+
+        if(this.puppet == null) {
+            this.puppet = Human.buildDefault(game, new PuppetInputHandler(game, priorityID + 3));
+        }
+        this.add(this.puppet);
+        this.puppet.x = 3 * width / 4;
+        this.puppet.y = 500;
+        this.puppet.bodyColor = 0xF1BD78;
         
         let button = this.add(new Phaser.Button(game, this.width - 50, 300, 'scene/icons', function() {
             this.removeChild(this.puppet);
@@ -80,7 +85,8 @@ export default class PuppetCustomizer extends Phaser.Group {
             this.callback.call(this.callbackContext, this.puppet);
         }, this, 'ic_done_black_24dp_1x.png', 'ic_done_black_24dp_1x.png', 'ic_done_black_24dp_1x.png', 'ic_done_black_24dp_1x.png'));
         if(priorityID) {
-            button.input.priorityID = this.priorityID;
+            // button.input.priorityID = this.priorityID;
+            MiscUtil.setPriorityID(button, priorityID + 3);
         }
     }    
 

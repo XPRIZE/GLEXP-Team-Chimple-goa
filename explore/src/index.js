@@ -11,7 +11,7 @@ class Game extends Phaser.Game {
         
         this._storyBuilderStateHolder = new StoryBuilderStateHolder(this);
         this._storyBuilderStateHolder.createStates();
-        // storyBuilderStateHolder.startDefault();
+        // storyBuilderStateHolder.startDefault();        
 
         let puppetStateHolder = new PuppetStateHolder(this);
         puppetStateHolder.createStates();
