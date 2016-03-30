@@ -2,6 +2,7 @@ import RecordingPauseSignal from './RecordingPauseSignal.js';
 import RecordingResumeSignal from './RecordingResumeSignal.js';
 import Shape from '../../puppet/objects/Shape.js';
 import TabView from '../../puppet/objects/TabView.js';
+import MiscUtil from '../../util/MiscUtil.js';
 
 var idObject = new Object();
 
@@ -34,19 +35,22 @@ export default class QuestionTypeOverlay extends Phaser.Group {
         this._overlayDisplaySprite.alpha = 0.5;
         this._overlayDisplaySprite.inputEnabled = true;
         game.world.bringToTop(this._overlayDisplaySprite);
-        this._overlayDisplaySprite.input.priorityID = 3;
+        // this._overlayDisplaySprite.input.priorityID = 3;
+        MiscUtil.setPriorityID(this._overlayDisplaySprite, 3);
 
         this._matchingType = this._overlayDisplaySprite.addChild(game.make.sprite(300, 80, 'storyBuilder/setting'));
 //        this._matchingType.fixedToCameara = true;
         this._matchingType.inputEnabled = true;
         this._matchingType.events.onInputUp.add(this.matchingPopUp, this);
-        this._matchingType.input.priorityID = 4;
+        // this._matchingType.input.priorityID = 4;
+        MiscUtil.setPriorityID(this._matchingType, 4);
         
         this._multipleChoice = this._overlayDisplaySprite.addChild(game.make.sprite(300, 160, 'storyBuilder/setting'));
 //        this._settings.fixedToCameara = true;
         this._multipleChoice.inputEnabled = true;
         this._multipleChoice.events.onInputUp.add(this.multipleChoicePopUp, this);
         this._multipleChoice.input.priorityID = 4;
+        MiscUtil.setPriorityID(this._multipleChoice, 4);
 
     }
 

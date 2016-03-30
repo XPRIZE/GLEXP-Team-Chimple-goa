@@ -2,6 +2,7 @@ import ButtonGrid from '../puppet/objects/ButtonGrid.js';
 import PuppetCustomizer from '../puppet/objects/PuppetCustomizer.js';
 import Popup from './Popup.js';
 import StoryBuilderStateHolder from '../storybuilder/index.js';
+import MiscUtil from './MiscUtil.js';
 
 export default class ConsoleBar extends Phaser.Group {
     constructor(game) {
@@ -73,8 +74,8 @@ export default class ConsoleBar extends Phaser.Group {
         if(buttonName == ConsoleBar.WORLD_ICON) { 
             this.game.state.start('bootState');
         } else if(buttonName == ConsoleBar.MY_AVATAR_ICON) { 
-            this.popup = new Popup(this.game, 6);
-            let pc = new PuppetCustomizer(this.game, this.game.width * 0.9, this.game.height * 0.9, this.avatar, this.addAvatar, this, 7);
+            this.popup = new Popup(this.game);
+            let pc = new PuppetCustomizer(this.game, this.game.width * 0.9, this.game.height * 0.9, this.avatar, this.addAvatar, this, MiscUtil.getMaxPriorityID(this.game) + 1);
             this.popup.addContent(pc);
                         
         } else if(buttonName == ConsoleBar.MY_HOUSE_ICON) { 

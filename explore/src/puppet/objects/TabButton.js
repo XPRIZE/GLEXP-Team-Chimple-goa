@@ -1,3 +1,5 @@
+import MiscUtil from '../../util/MiscUtil.js';
+
 export default class TabButton extends Phaser.Button {
     constructor(game, x, y, maxButtonWidth, maxButtonHeight, key, frame, callback, callbackContext, frameData, style, priorityID) {
         let frame1 = new Phaser.Frame(0, 0, 0, maxButtonWidth, maxButtonHeight, 'button_over.png');
@@ -20,7 +22,8 @@ export default class TabButton extends Phaser.Button {
 
         super(game, x, y, game.cache.getBitmapData(frame), callback, callbackContext, 'button_over.png', 'button_up.png', 'button_down.png', 'button_up.png');
 
-        this.input.priorityID = priorityID;
+        // this.input.priorityID = priorityID;
+        MiscUtil.setPriorityID(this, priorityID);
         this.name = frame;
         this.anchor.setTo(0.5, 0.5);
         let buttonImage = null;

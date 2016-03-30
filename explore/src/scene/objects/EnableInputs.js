@@ -1,8 +1,12 @@
+import MiscUtil from '../../util/MiscUtil.js';
+
 let EnableInputs = (superclass) => class extends superclass {
     enableInputs(instance, iterateInside) {
         this.instance = instance;
         this.inputEnabled = true;
-
+        if(instance.priorityID) {
+            MiscUtil.setPriorityID(this, instance.priorityID);
+        }
         if (instance.clickEnabled) {
             this.events.onInputDown.add(instance.onInputDown, this);
             this.events.onInputUp.add(instance.onInputUp, this);
