@@ -20,8 +20,13 @@ var _ = require('lodash');
 
 
 export default class Item extends EnableInputs(Phaser.Sprite) {
-    constructor(game, x, y, key, frame, uniquename) {
+    constructor(game, x, y, key, frame, uniquename, movable) {
         super(game, x, y, key, frame);
+        if(movable) {
+            this.movable = movable;
+        } else {
+            this.movable = false;
+        }
         game.physics.enable(this);
         this.anchor.set(0.5, 1);
         //Any Attribute Changes then dispatch signal        
@@ -61,25 +66,26 @@ export default class Item extends EnableInputs(Phaser.Sprite) {
     applyText(whichTextIndex, apply) {
         this._specialAttribute.applyText(whichTextIndex, apply);
         let appliedTextData = this._specialAttribute.getText(whichTextIndex);
-        let text = appliedTextData.text;
-        //later you should get text, fontColor, backgroundColor, style 
-        if (game._inRecordingMode) {
-            this._specialAttributesChangedSignal.dispatch({ uniquename: this._uniquename, x: this.x, y: this.y, scaleX: this.scale.x, scaleY: this.scale.y, angle: this.angle, recordingAttributeKind: RecordInfo.TEXT_RECORDING_TYPE, userGeneratedText: text});
-        }        
+        if(appliedTextData != null){
+            let text = appliedTextData.text;
+            //later you should get text, fontColor, backgroundColor, style 
+            if (game._inRecordingMode) {
+                this._specialAttributesChangedSignal.dispatch({ uniquename: this._uniquename, x: this.x, y: this.y, scaleX: this.scale.x, scaleY: this.scale.y, angle: this.angle, recordingAttributeKind: RecordInfo.TEXT_RECORDING_TYPE, userGeneratedText: text });
+            }
+        }  
     }
     
     addSound(soundData) {
         this._specialAttribute.addSound(soundData); 
     }
-
     
     applySound(whichSoundIndex, apply) {
         this._specialAttribute.applySound(whichSoundIndex, apply);
         let soundData = this._specialAttribute.getSound(whichSoundIndex);
         soundData.apply = apply;
+        if(soundData != null){
         if (game._inRecordingMode) {            
             if (game.cache.checkSoundKey(soundData.soundFileName)) {
-                                
                 if(apply) {
                     soundData.playMusic();                       
                 } else {
@@ -87,7 +93,8 @@ export default class Item extends EnableInputs(Phaser.Sprite) {
                 }
             }            
             this._specialAttributesChangedSignal.dispatch({ uniquename: this._uniquename, x: this.x, y: this.y, scaleX: this.scale.x, scaleY: this.scale.y, angle: this.angle, recordingAttributeKind: RecordInfo.SOUND_RECORDING_TYPE, soundData: soundData});
-        }        
+        }
+      }        
     }
 
     drawBoundingBox(color) {
@@ -111,6 +118,13 @@ export default class Item extends EnableInputs(Phaser.Sprite) {
         return this._uniquename;
     }
 
+    set movable(val) {
+        this._movable = val;
+    }
+    
+    get movable() {
+        return this._movable;
+    }
 
     overlapHandler(obj1, obj2) {
         // console.log(obj2);
@@ -187,6 +201,7 @@ export default class Item extends EnableInputs(Phaser.Sprite) {
             let soundData = recordedInfo.soundData;
             if (game.cache.checkSoundKey(soundData.soundFileName)) {
                 if(!this._soundFileName) {
+                    
                     this._soundFileName = new SoundData(game, soundData.soundFileName, soundData.apply);    
                 }                
                 if(soundData.apply) {
@@ -212,7 +227,8 @@ export default class Item extends EnableInputs(Phaser.Sprite) {
             y: this.y,
             key: this.key,
             frame: this.frameName,
-            uniquename: this.uniquename
+            uniquename: this.uniquename,
+            movable: this.movable
         }
         return json;
     }

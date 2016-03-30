@@ -69,23 +69,23 @@ export default class EditStoryPagesState extends Phaser.State {
         this._consoleBar.createRightButtonGrid([EditStoryPagesState.HOME_BUTTON, EditStoryPagesState.EDIT_BUTTON], this.defineControls, this);
 
         this.game.add.existing(this._consoleBar);
-        
-        
+
+
         // create internal datastructure
         this._editStoryPagesDisplayGroup = this.game.add.group();
-        
-        this.saveToLocalStore();        
-        
+
+        this.saveToLocalStore();
+
         this.drawGrid();
     }
-    
+
     defineControls(tab, name) {
-       console.log('name:' + name);
-       if(name === EditStoryPagesState.HOME_BUTTON) {
-           this.navigateToLibrary();           
-       } else if(name === EditStoryPagesState.EDIT_BUTTON) {
-           this.addNewPage();
-       }
+        console.log('name:' + name);
+        if (name === EditStoryPagesState.HOME_BUTTON) {
+            this.navigateToLibrary();
+        } else if (name === EditStoryPagesState.EDIT_BUTTON) {
+            this.addNewPage();
+        }
     }
 
     drawGrid() {
@@ -125,7 +125,37 @@ export default class EditStoryPagesState extends Phaser.State {
 
 
     saveToLocalStore() {
-        localStorage.setItem(this._currentStory.storyId, JSON.stringify(this._currentStory, JsonUtil.replacer));
+        try {
+            localStorage.setItem(this._currentStory.storyId, JSON.stringify(this._currentStory, JsonUtil.replacer));
+        } catch (e) {
+            if (isQuotaExceeded(e)) {
+                // Storage full, maybe notify user or do some clean-up
+            }
+        }
+
+    }
+
+    isQuotaExceeded(e) {
+        let quotaExceeded = false;
+        if (e) {
+            if (e.code) {
+                switch (e.code) {
+                    case 22:
+                        quotaExceeded = true;
+                        break;
+                    case 1014:
+                        // Firefox
+                        if (e.name === 'NS_ERROR_DOM_QUOTA_REACHED') {
+                            quotaExceeded = true;
+                        }
+                        break;
+                }
+            } else if (e.number === -2147024882) {
+                // Internet Explorer 8
+                quotaExceeded = true;
+            }
+        }
+        return quotaExceeded;
     }
     shutdown() {
     }
