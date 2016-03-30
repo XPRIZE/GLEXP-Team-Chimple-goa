@@ -4,6 +4,7 @@ import Accessory from './Accessory.js';
 import RelativePosition from './RelativePosition.js';
 import EnableInputs from '../../scene/objects/EnableInputs.js';
 import ShowAttributeEditorSignal from '../../storybuilder/objects/ShowAttributeEditorSignal.js';
+import MiscUtil from '../../util/MiscUtil.js';
 
 export default class Limb extends EnableInputs(RelativePosition(Phaser.Group)) {
     /**
@@ -32,6 +33,9 @@ export default class Limb extends EnableInputs(RelativePosition(Phaser.Group)) {
     enableInputs(instance, iterateInside) {
         //super.enableInputs(instance, iterateInside);
         this.instance = instance;
+        if(!instance.priorityID) {
+            instance.priorityID = 2;
+        }
         if (this.shape && instance) {
             this.shape.inputEnabled = true;
             this.shape._showAttributeEditorSignal = new ShowAttributeEditorSignal();
@@ -46,7 +50,8 @@ export default class Limb extends EnableInputs(RelativePosition(Phaser.Group)) {
                 this.shape.events.onDragUpdate.add(instance.onDragUpdate, this);
                 this.shape.events.onDragStop.add(instance.onDragStop, this);
             }
-            this.shape.input.priorityID = 2;
+            // this.shape.input.priorityID = 2;
+            MiscUtil.setPriorityID(this.shape, instance.priorityID);
         }
     }
 

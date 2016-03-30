@@ -1,3 +1,5 @@
+import MiscUtil from '../../util/MiscUtil.js';
+
 export default class RoundButton extends Phaser.Button {
     constructor(game, x, y, maxButtonWidth, maxButtonHeight, key, frame, callback, callbackContext, frameData, style, priorityID) {
         let buttonLength = Math.min(maxButtonWidth, maxButtonHeight);
@@ -22,7 +24,9 @@ export default class RoundButton extends Phaser.Button {
 
         super(game, x, y, game.cache.getBitmapData(frame), callback, callbackContext, 'button_over.png', 'button_up.png', 'button_down.png', 'button_up.png');
 
-        this.input.priorityID = priorityID;
+        // this.input.priorityID = priorityID;
+        MiscUtil.setPriorityID(this, priorityID);
+        
         this.name = frame;
         // this.scale.multiply(maxButtonWidth / this.width, maxButtonHeight / this.height);
         this.anchor.setTo(0.5, 0.5);

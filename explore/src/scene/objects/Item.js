@@ -14,6 +14,7 @@ import TextData from '../../storybuilder/objects/TextData.js';
 import StoryUtil from '../../storybuilder/objects/StoryUtil.js';
 import SoundData from './SoundData.js';
 import SpecialAttribute from './SpecialAttribute.js';
+import MiscUtil from '../../util/MiscUtil.js';
 
 var _ = require('lodash');
 
@@ -49,7 +50,8 @@ export default class Item extends EnableInputs(Phaser.Sprite) {
 
     enableInputs(instance, iterateInside) {
         super.enableInputs(instance, iterateInside);
-        this.input.priorityID = 3;
+        // this.input.priorityID = 3;
+        MiscUtil.setPriorityID(this, 3);
     }    
     
     addText(textData) {

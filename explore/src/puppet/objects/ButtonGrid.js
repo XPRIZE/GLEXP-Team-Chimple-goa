@@ -2,6 +2,7 @@ import RoundButton from './RoundButton.js';
 import TabButton from './TabButton.js';
 import PuppetCustomizer from './PuppetCustomizer.js';
 import TabView from './TabView.js';
+import MiscUtil from '../../util/MiscUtil.js';
 
 export default class ButtonGrid extends Phaser.Group {
     //TODO: Swipe also selects button based on where you click
@@ -70,7 +71,6 @@ export default class ButtonGrid extends Phaser.Group {
         this.swipe = new Swipe(this.game, this);
         
         this.priorityID = 5;
-
     }
     
     set buttons(buttons) {
