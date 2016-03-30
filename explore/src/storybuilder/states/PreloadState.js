@@ -66,7 +66,11 @@ export default class PreloadState extends Phaser.State {
         this.load.json('storyBuilder/scene_config', 'assets/misc/configuration/scene_config.json');
         this.load.json('storyBuilder/puppet_config', 'assets/misc/configuration/puppet_config.json');
 
-      
+
+        // load images for icon in question answer
+        this.load.image("match_the_following","assets/match_the_following.png");
+        this.load.image("multiple_choice_ques","assets/multiple_choice_ques.png");
+        this.load.image("next","assets/next.png");
 
     }
 

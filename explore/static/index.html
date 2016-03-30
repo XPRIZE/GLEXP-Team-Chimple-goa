@@ -630,15 +630,16 @@ var answer_sheet = new Array();
 // store the correct answers of the questions
 var correct_answer_sheet = new Array();
 
-var questionAnswerObject, my_callback, my_callbackContext;
+var questionAnswerObject, my_callback, my_callbackContext, my_uniqueImageNames;
     
     // display multiple_choice popup to the user
     
-    function display_multiple_choice_pop(callback1, callbackContext1, object)
+    function display_multiple_choice_pop(callback1, callbackContext1, object, uniqueImageNames)
     {
         questionAnswerObject = object;
         my_callback = callback1;
         my_callbackContext = callbackContext1;
+        my_uniqueImageNames = uniqueImageNames;
         $('body').append('<div id="mask"></div>');
         $('#mask').fadeIn(300);
 		$("#multiple_choice_css").fadeIn(1000);
@@ -662,7 +663,7 @@ var questionAnswerObject, my_callback, my_callbackContext;
         my_callback = callback;
         my_callbackContext = callbackContext;
 
-        let uniqueImageNames = _uniqueImageNames;
+        my_uniqueImageNames = _uniqueImageNames;
         
         $('body').append('<div id="mask"></div>');
         $('#mask').fadeIn(300);
@@ -676,14 +677,13 @@ var questionAnswerObject, my_callback, my_callbackContext;
         
         $("#image_slider").append('<div style="height:70px; line-height:70px; text-align:center;"> <label style="color:#000000;font-size:25px;"> Choose image to create question </label></div>');                   
         
-        for(var v = 0; v<uniqueImageNames.length; v++)
+        for(var v = 0; v<my_uniqueImageNames.length; v++)
             {
-                $("#image_slider" ).append('<img src="assets/construct_story/'+uniqueImageNames[v]+'" style="height:30%; width:20%; margin-left : 10%;" onclick="add_image(this)" id="'+uniqueImageNames[v]+'" />');
+                $("#image_slider" ).append('<img src="assets/dictionary/'+my_uniqueImageNames[v]+'" style="height:30%; width:20%; margin-left : 10%;" onclick="add_image(this)" id="'+my_uniqueImageNames[v]+'" />');
             }
         
                 $("#image_slider" ).append('<button type="button" style="margin-top:5%; background-color : #136662; color : #ffffff; border-radius: 20px; width:20%; height:40px; margin-left:40%; margin-right:40%; font-size:25px;"  id="submit" onclick="add_Question()">Add Question </button><br><br><br>');
                 $("#image_slider" ).append('<label class="common_css" style="maring-top:20px;"></label>');
-
     }
             
     // when user click add question button on matching then it will add the questions to the database
@@ -732,19 +732,24 @@ var questionAnswerObject, my_callback, my_callbackContext;
                         {
                             get_json_from_local = JSON.parse(localStorage.getItem('myStorage'));
                             
+                            console.log(get_json_from_local);
+                            
+                            var question_details = new Object();
                             question_details.questionkind = "Matching";
                             question_details.order = (get_json_from_local.length+1).toString();
                             question_details.questionText = ImageID[v];
                             question_details.correctAnswer = ImageID[v];
-                            question_answer.push(question_details);
+                            var question_answer = new Array();
+                            get_json_from_local.push(question_details);
                             
-                            localStorage.setItem('myStorage', JSON.stringify(question_answer));
+                            localStorage.setItem('myStorage', JSON.stringify(get_json_from_local));
                         }
         
         get_json_from_local = JSON.parse(localStorage.getItem('myStorage'));
         
         var v = my_callback.call(my_callbackContext, get_json_from_local);
         question_answer = [];
+        ImageID = [];
         localStorage.setItem('myStorage', JSON.stringify(question_answer));
 
         $("#image_slider").hide();
@@ -774,7 +779,9 @@ var questionAnswerObject, my_callback, my_callbackContext;
 // 			load the questions from localStorage and ask to the user
 			function display_question_multichoice()
 			{
-                   var Question_Answer_JSON = window.callback.call(window.callbackContext);
+                   var JSON = window.callback.call(window.callbackContext);
+                   my_uniqueImageNames = JSON[1];
+                   var Question_Answer_JSON = JSON[0];
                 
                 if(!Question_Answer_JSON)
                     {
@@ -847,9 +854,9 @@ var questionAnswerObject, my_callback, my_callbackContext;
 						
 						document.getElementById('question').innerHTML = Question_Answer_JSON[question_number].questionText;
 						document.getElementById('answer_1').parentNode.lastChild.nodeValue = Question_Answer_JSON[question_number].choices[0].data;
-						document.getElementById('answer_2').parentNode.lastChild.nodeValue = Question_Answer_JSON[question_number].choices[0].data;
-						document.getElementById('answer_3').parentNode.lastChild.nodeValue = Question_Answer_JSON[question_number].choices[0].data;
-						document.getElementById('answer_4').parentNode.lastChild.nodeValue = Question_Answer_JSON[question_number].choices[0].data;
+						document.getElementById('answer_2').parentNode.lastChild.nodeValue = Question_Answer_JSON[question_number].choices[1].data;
+						document.getElementById('answer_3').parentNode.lastChild.nodeValue = Question_Answer_JSON[question_number].choices[2].data;
+						document.getElementById('answer_4').parentNode.lastChild.nodeValue = Question_Answer_JSON[question_number].choices[3].data;
 						question_number++;
 						
 						}, 500);
@@ -870,10 +877,18 @@ var questionAnswerObject, my_callback, my_callbackContext;
 // 			load the questions from localStorage and ask to the user
 			function display_question_matching()
 			{
-                var Question_Answer_JSON = window.callback.call(window.callbackContext);
+			        var JSON = window.callback.call(window.callbackContext);
+                   my_uniqueImageNames = JSON[1];
+                   var Question_Answer_JSON = JSON[0];
                 
                 if(question_number!=0)
                     {
+					var ans = document.querySelector('input[name="matching"]:checked');//.value;
+                    if(ans==null)
+                        answer_sheet.push(0);
+                    else
+    					answer_sheet.push(ans.value);
+                        
                         for(var i =0 ; i<ImageID.length; i++)
                             {
                                 var parent = document.getElementById("MatchingQuestion_css");
@@ -907,6 +922,9 @@ var questionAnswerObject, my_callback, my_callbackContext;
                         }
                     } 
                 
+                var dynamic_options = new Array(); // will contain options to show while matching question ask
+                
+                
                 var len = Question_Answer_JSON.length;
 				if(question_number<len && checkflag!=0)
                 {
@@ -918,17 +936,37 @@ var questionAnswerObject, my_callback, my_callbackContext;
 
                     var nam = Question_Answer_JSON[question_number].questionText.split(".");
                     correct_answer_sheet.push(nam[0]);
+                    dynamic_options.push(nam[0]);
+                    
+                    for(var v = 0; v<3; v++)
+                    {
+                        var rand_number = Math.floor(Math.random() * my_uniqueImageNames.length);
+                        var img = my_uniqueImageNames[rand_number].split(".");
+                        if(dynamic_options.indexOf(img[0])==-1)
+                            dynamic_options.push(img[0]);
+                        else
+                            v--;
+                    }
 
 					$("#MatchingQuestion_css").append('<input type="image" src="assets/close_pop.png" id="MatchingQuestion_close_btn_question" style="background-color : #136662; color : #ffffff; border-radius: 20px; margin-left : 99%; margin-top:-20px;" onclick="MatchingQuestion_close_btn_question()" /> <br>');
-                    $("#MatchingQuestion_css").append('<img src="'+Question_Answer_JSON[question_number].questionText+'" style="height:30%; width:20%; margin-left : 40%; margin-top:5%;" /> <br><br>');
-                    
-					$("#MatchingQuestion_css").append('<label style="margin-left:10%; font-size:25px; margin:top:5%; color:#000000"><input type = "radio" class = "login" name = "gender" id="answer_1" value="" style="height: 1.5em; width:3%;">a</label>');
+                    $("#MatchingQuestion_css").append('<img src="assets/dictionary/'+Question_Answer_JSON[question_number].questionText+'" style="height:30%; width:20%; margin-left : 40%; margin-top:5%;" /> <br><br>');
 
-					$("#MatchingQuestion_css").append('<label style="margin-left:40%; font-size:25px;color:#000000"><input type = "radio" class = "login" name = "gender" id="answer_2" value="" style="height: 1.5em; width:3%;">b</label>');
+                    var rand_number = Math.floor(Math.random() * dynamic_options.length);                    
+					$("#MatchingQuestion_css").append('<label style="margin-left:10%; font-size:25px; margin:top:5%; color:#000000"><input type = "radio" class = "login" name = "matching" id="answer_1" value="'+dynamic_options[rand_number]+'" style="height: 1.5em; width:3%;">'+dynamic_options[rand_number]+'</label>');
+                    dynamic_options.splice(dynamic_options.indexOf(dynamic_options[rand_number]) ,1);
+
+                    var rand_number = Math.floor(Math.random() * dynamic_options.length);
+					$("#MatchingQuestion_css").append('<label style="margin-left:40%; font-size:25px;color:#000000"><input type = "radio" class = "login" name = "matching" id="answer_2" value="'+dynamic_options[rand_number]+'" style="height: 1.5em; width:3%;">'+dynamic_options[rand_number]+'</label>');
 					$("#MatchingQuestion_css").append('<br><br>');
-					$("#MatchingQuestion_css").append('<label style="margin-left:10%; font-size:25px;color:#000000"><input type = "radio" class = "login" name = "gender" id="answer_3" value="" style="height: 1.5em; width:3%;">c</label>');
+                    dynamic_options.splice(dynamic_options.indexOf(dynamic_options[rand_number]) ,1);
+                    
+                    var rand_number = Math.floor(Math.random() * dynamic_options.length);
+					$("#MatchingQuestion_css").append('<label style="margin-left:10%; font-size:25px;color:#000000"><input type = "radio" class = "login" name = "matching" id="answer_3" value="'+dynamic_options[rand_number]+'" style="height: 1.5em; width:3%;">'+dynamic_options[rand_number]+'</label>');
+                    dynamic_options.splice(dynamic_options.indexOf(dynamic_options[rand_number]) ,1);
 
-					$("#MatchingQuestion_css").append('<label style="margin-left:40%; font-size:25px; color:#000000"><input type = "radio" class = "login" name = "gender" id="answer_4" value="" style="height: 1.5em; width:3%;">d</label>');
+                    var rand_number = Math.floor(Math.random() * dynamic_options.length);
+					$("#MatchingQuestion_css").append('<label style="margin-left:40%; font-size:25px; color:#000000"><input type = "radio" class = "login" name = "matching" id="answer_4" value="'+dynamic_options[rand_number]+'" style="height: 1.5em; width:3%;">'+dynamic_options[0]+'</label>');
+
                 $("#MatchingQuestion_css").append('<button type="button" style="background-color : #136662; color : #ffffff; border-radius: 20px; margin-top:10%; margin-left:40%; margin-right:40%; width:30%; height:40px; font-size:25px;"  id="submit" onclick="display_question_matching()">Next Question </button><br>');
                 $("#MatchingQuestion_css").append('<br><br>');
 
@@ -949,6 +987,23 @@ var questionAnswerObject, my_callback, my_callbackContext;
                     hidepopup("#Question_css");
                     hidepopup("#MatchingQuestion_css");
                     question_number = 0;
+                    
+                    console.log(answer_sheet);
+                    var correct_answer_temp=0;
+                    
+                    for(var v = 0; v<answer_sheet.length; v++)
+                       {
+                               if(answer_sheet[v]==correct_answer_sheet[v])
+                                   correct_answer_temp++;
+                       }
+                    
+                    console.log($("#total_question").text());
+                    var text = $("#total_question").text()
+                    $("#total_question").text(text+' '+correct_answer_sheet.length);
+                    $("#correct").text($("#correct").text()+" "+correct_answer_temp);
+                    $("#wrong").text($("#wrong").text()+" "+(correct_answer_sheet.length-correct_answer_temp));
+                    $("#score").text($("#score").text()+" "+(correct_answer_temp*3));                                        
+                    showpopup("#score_card");
                 }
 				
 			}
@@ -1428,31 +1483,33 @@ $(document).ready(function() {
 							var question = new Array();
 							var question_details = new Object();
 							var answer_choice = new Array();
-							var answer_choice_details = new Object();
+							var answer_choice_details_1 = new Object();
+							var answer_choice_details_2 = new Object();
+							var answer_choice_details_3 = new Object();
+							var answer_choice_details_4 = new Object();
+                            
+							answer_choice_details_1.id = "1";
+							answer_choice_details_1.choiceType = "text";
+							answer_choice_details_1.data = $("#wrong_answer1").val();
+							answer_choice.push(answer_choice_details_1);
 							
-							answer_choice_details.id = "1";
-							answer_choice_details.choiceType = "text";
-							answer_choice_details.data = $("#wrong_answer1").val();
+							answer_choice_details_2.id = "2";
+							answer_choice_details_2.choiceType = "text";
+							answer_choice_details_2.data = $("#wrong_answer2").val();
 							
-							answer_choice.push(answer_choice_details);
+							answer_choice.push(answer_choice_details_2);
 							
-							answer_choice_details.id = "2";
-							answer_choice_details.choiceType = "text";
-							answer_choice_details.data = $("#wrong_answer2").val();
+							answer_choice_details_3.id = "3";
+							answer_choice_details_3.choiceType = "text";
+							answer_choice_details_3.data = $("#wrong_answer3").val();
 							
-							answer_choice.push(answer_choice_details);
+							answer_choice.push(answer_choice_details_3);
 							
-							answer_choice_details.id = "3";
-							answer_choice_details.choiceType = "text";
-							answer_choice_details.data = $("#wrong_answer3").val();
+							answer_choice_details_4.id = "4";
+							answer_choice_details_4.choiceType = "text";
+							answer_choice_details_4.data = $("#correct_answer").val();
 							
-							answer_choice.push(answer_choice_details);
-							
-							answer_choice_details.id = "4";
-							answer_choice_details.choiceType = "text";
-							answer_choice_details.data = $("#correct_answer").val();
-							
-							answer_choice.push(answer_choice_details);
+							answer_choice.push(answer_choice_details_4);
 							
 							question_details.order = (get_json_from_local.length+1).toString();
 							question_details.questionkind = "MultiChoice";
@@ -1913,10 +1970,10 @@ $(document).ready(function() {
 <!--  start : code to show the score card -->
         <div id="score_card" class="score_card_popup">
             <input type="image" src="assets/close_pop.png" style="margin-left:99%; margin-top:-20px;" id="score_card_close_btn"/>
-            <label style="margin-left : 5%; margin-top : 2%; color : #000000; font-size : 25px;">Total asked question : </label><label></label> <br><br>
-            <label style="margin-left : 5%; margin-top : 2%; color : #000000; font-size : 25px;">Correct answer : </label><label></label> <br><br>
-            <label style="margin-left : 5%; margin-top : 2%; color : #000000; font-size : 25px;">Wrong answer : </label><label></label> <br><br>
-            <label style="margin-left : 5%; margin-top : 2%; color : #000000; font-size : 25px;">Score :  </label><label></label> <br><br>
+            <label style="margin-left : 5%; margin-top : 2%; color : #000000; font-size : 25px;" id="total_question">Total asked question : </label><label></label> <br><br>
+            <label style="margin-left : 5%; margin-top : 2%; color : #000000; font-size : 25px;" id="correct">Correct answer : </label><label></label> <br><br>
+            <label style="margin-left : 5%; margin-top : 2%; color : #000000; font-size : 25px;" id="wrong">Wrong answer : </label><label></label> <br><br>
+            <label style="margin-left : 5%; margin-top : 2%; color : #000000; font-size : 25px;" id="score">Score :  </label><label></label> <br><br>
 		</div>
 <!--  end : code to show the score card popup  -->
     
