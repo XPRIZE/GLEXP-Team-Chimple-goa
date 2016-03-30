@@ -7,7 +7,7 @@ class MenuState extends Phaser.State {
         this.widthScale = this.game.width / 1280;
         this.heightScale = this.game.height / 800;      
    
-        let home = this.game.add.image(this.game.world.centerX,this.game.world.centerY, 'level2');
+        let home = this.game.add.image(this.game.width / 2,this.game.height / 2, 'level2');
         home.anchor.setTo(0.5, 0.5);
         home.scale.setTo(this.widthScale, this.heightScale);
         
