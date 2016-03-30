@@ -3,7 +3,7 @@ import TileTexture from './TileTexture.js';
 import Holder from './Holder.js';
 import Item from './Item.js';
 import Wall from './Wall.js';
-
+import MiscUtil from '../../util/MiscUtil.js';
 
 export default class ExploreInputHandler {
     constructor(scene) {
@@ -41,7 +41,8 @@ export default class ExploreInputHandler {
         sprite.position = sprite.parent.toGlobal(sprite.position).add(sprite.game.camera.x, 0);
         sprite.parent.removeChild(sprite);
         if(sprite instanceof Holder) {
-            sprite.input.priorityID = 1;        
+            // sprite.input.priorityID = 1;        
+            MiscUtil.setPriorityID(sprite, 1);
         }
         sprite.game.add.existing(sprite);
         sprite.bringToTop();

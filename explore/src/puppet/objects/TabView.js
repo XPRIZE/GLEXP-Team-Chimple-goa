@@ -1,3 +1,5 @@
+import MiscUtil from '../../util/MiscUtil.js';
+
 import ButtonGrid from './ButtonGrid.js';
 
 export default class TabView extends Phaser.Group {
@@ -35,7 +37,8 @@ export default class TabView extends Phaser.Group {
         this.backPanel.drawRect(0, 0, this.elementWidth, this.elementHeight - this.tabThickness);
         this.backPanel.endFill();
         this.backPanel.inputEnabled = true;
-        this.backPanel.input.priorityID = this.priorityID;
+        // this.backPanel.input.priorityID = this.priorityID;
+        MiscUtil.setPriorityID(this.backPanel, this.priorityID);
         
     }
     
@@ -60,13 +63,16 @@ export default class TabView extends Phaser.Group {
     set priorityID(number) {
         this._priorityID = number;
         if(this.backPanel) {
-            this.backPanel.input.priorityID = number;        
+            // this.backPanel.input.priorityID = number;     
+            MiscUtil.setPriorityID(this.backPanel, number);   
         }
         if(this.tabView) {
-            this.tabView.input.priorityID = number;
+            // this.tabView.input.priorityID = number;
+            MiscUtil.setPriorityID(this.tabView, number);
         }
         if(this.buttonView) {
             this.buttonView.input.priorityID = number + 1;
+            MiscUtil.setPriorityID(this.buttonView, number+1);
         }
     }
     
