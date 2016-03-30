@@ -54,6 +54,23 @@ export default class Limb extends EnableInputs(RelativePosition(Phaser.Group)) {
             MiscUtil.setPriorityID(this.shape, instance.priorityID);
         }
     }
+    
+    disableInputs(iterateInside) {
+        if(this.shape && this.shape.events) {
+            this.shape.events.destroy();
+            this.instance = null;
+            this.shape.inputEnabled = false;
+            this.shape.dragEnabled = false;
+        }
+
+        if (iterateInside) {
+            this.children.forEach(function(value) {
+                if ('function' == typeof value.disableInputs) {
+                    value.disableInputs(iterateInside);
+                }
+            });
+        }        
+    }
 
     onInputDragFromStory(pointer, x, y, down) {
         this.differencePoint = Phaser.Point.subtract(pointer.position, this.puppetPoint);
