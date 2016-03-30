@@ -9,6 +9,7 @@ import Surface from '../objects/Surface.js';
 import Util from '../objects/Util.js';
 import Human from '../../puppet/objects/Human.js';
 import TabView from '../../puppet/objects/TabView.js';
+import JsonUtil from '../../puppet/objects/JsonUtil.js';
 import EnableAttributeEditorSignal from '../../storybuilder/objects/EnableAttributeEditorSignal.js';
 import EditSceneInputHandler from '../objects/EditSceneInputHandler.js';
 import MiscUtil from '../../util/MiscUtil.js';
@@ -18,9 +19,14 @@ var _ = require('lodash');
 export default class EditState extends Phaser.State {
     init(holder, scene, cameraPosition) {
         if(scene == null) {
-            this.scene = new Scene(game, this.game.width * 2, this.game.height);        
-            this.scene.wall = new Wall(game, 0, 0);
-            this.scene.floor = new Floor(game, 0, this.game.height * 0.6);
+            if(window.location.search.length == 0) {
+                this.scene = new Scene(game, this.game.width * 2, this.game.height);        
+                this.scene.wall = new Wall(game, 0, 0);
+                this.scene.floor = new Floor(game, 0, this.game.height * 0.6);  
+                this.sceneName = 'scene';  
+            } else {
+                this.sceneName = window.location.search.substring(1);
+            }
         } else {
             this.scene = scene;
             this.game.add.existing(this.scene);
@@ -33,12 +39,20 @@ export default class EditState extends Phaser.State {
     }
 
     preload() {
-        this.load.atlas('scene/scene', "assets/scene/scene.png", "assets/scene/scene.json");
+        this.load.atlas('scene/'+this.sceneName, "assets/scene/"+this.sceneName+".png", "assets/scene/"+this.sceneName+".json");
+        if(this.sceneName != 'scene') {
+            this.load.text('scene/scene_def', 'assets/scene/' + this.sceneName + '_scene.json');        
+        }
+        
         this.load.atlas('misc/theme', "assets/misc/theme.png", "assets/misc/theme.json");
         this.load.json('scene/menu_icons', 'assets/scene/menu_icons.json');        
     }
 
     create() {
+        if(this.scene == null) {
+            this.scene = JSON.parse(game.cache.getText('scene/scene_def'), JsonUtil.revive);
+            this.scene.mode = Scene.EDIT_MODE; 
+        }
         if(this.cameraPosition) {
             this.game.camera.position = this.cameraPosition;        
         }
@@ -111,6 +125,7 @@ export default class EditState extends Phaser.State {
                 case 'unlock':
                     if(EditSceneInputHandler.box != null) {
                         EditSceneInputHandler.box.parent.enableDrag(true);
+                        EditSceneInputHandler.box.parent.movable = true;
                         if(EditSceneInputHandler.box.parent instanceof Holder) {
                             EditSceneInputHandler.box.parent.surfaces.forEach(function(value, index, array) {
                                 Array.prototype.unshift.apply(Surface.All, value.textures);
@@ -119,11 +134,15 @@ export default class EditState extends Phaser.State {
                     }
                     break;    
                 case 'lock':
-                    this.scene.floor.disableDrag(true);
-                    this.scene.wall.disableDrag(true);
-                    Surface.All.length = 0;
-                    Array.prototype.push.apply(Surface.All, this.scene.floor.textures);
-                    Array.prototype.push.apply(Surface.All, this.scene.wall.textures);
+                    // this.scene.floor.disableDrag(true);
+                    // this.scene.wall.disableDrag(true);
+                    // Surface.All.length = 0;
+                    // Array.prototype.push.apply(Surface.All, this.scene.floor.textures);
+                    // Array.prototype.push.apply(Surface.All, this.scene.wall.textures);
+                    if(EditSceneInputHandler.box != null) {
+                        EditSceneInputHandler.box.parent.disableDrag();
+                        EditSceneInputHandler.box.parent.movable = false;
+                    }
                     break;                                    
                 default:
                     break;
