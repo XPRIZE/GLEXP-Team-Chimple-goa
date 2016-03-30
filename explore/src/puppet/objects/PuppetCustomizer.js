@@ -19,7 +19,9 @@ export default class PuppetCustomizer extends Phaser.Group {
         this.callbackContext = callbackContext;
         let dressChoices = game.cache.getJSON('puppet/accessorize');
         let menuAccessorize = game.cache.getJSON('puppet/menu_accessorize');
+
         let chooser = this.add(new TabView(game, 'scene/icons', width / 2, height, 10, 100, 5, 3, true, function(accType, accName) {
+
             if (accType == "skinColor_chooser") {
                 this.puppet.bodyColor = parseInt(accName, 16);
                 //  this.puppet.blinkAct();
@@ -42,6 +44,7 @@ export default class PuppetCustomizer extends Phaser.Group {
                 for (var key in acc) {
                     if (acc.hasOwnProperty(key)) {
                         let element = acc[key];
+
                         this.puppet['set' + key](element.key, element.frame, element.anchorX, element.anchorY, element.offsetX, element.offsetY, element.offsetInPixelX, element.offsetInPixelY);
                     }
                 }
