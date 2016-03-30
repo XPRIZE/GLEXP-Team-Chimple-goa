@@ -146,7 +146,8 @@ export default class AttributeEditOverlay extends Phaser.Group {
             //     }, this);
             // }
 
-            that._itemSettingTab = that.game.add.existing(new TabView(that.game, 'scene/scene', that.game.width + that.game.world.camera.x, that.game.height + that.game.world.camera.y, 10, 50, 5, 3, true, function(tab, button) {
+            that._itemSettingTab = that.game.add.existing(new TabView(that.game, 'storyBuilder/icons', that.game.width + that.game.world.camera.x, that.game.height + that.game.world.camera.y, 10, 50, 5, 3, true, function(tab, button) {
+
 
                 let self = that;
                 that._itemSettingTab.unSelect();
