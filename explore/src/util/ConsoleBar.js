@@ -75,7 +75,7 @@ export default class ConsoleBar extends Phaser.Group {
             this.game.state.start('bootState');
         } else if(buttonName == ConsoleBar.MY_AVATAR_ICON) { 
             this.popup = new Popup(this.game);
-            let pc = new PuppetCustomizer(this.game, this.game.width * 0.9, this.game.height * 0.9, this.avatar, this.addAvatar, this, MiscUtil.getMaxPriorityID(this.game) + 1);
+            let pc = new PuppetCustomizer(this.game, this.game.width * 0.9, this.game.height * 0.9, this.game.avatar, this.addAvatar, this, MiscUtil.getMaxPriorityID(this.game) + 1);
             this.popup.addContent(pc);
                         
         } else if(buttonName == ConsoleBar.MY_HOUSE_ICON) { 
@@ -108,8 +108,12 @@ export default class ConsoleBar extends Phaser.Group {
     }
     
     addAvatar(avatar) {
-        if(!this.avatar) {
-            this.avatar = avatar;
+        if(!this.game.avatar) {
+            this.game.avatar = avatar;
+            if(!this.game.state.getCurrentState().contentArea.floor.contents.includes(avatar)) {
+                avatar.x = this.game.camera.x + this.game.width / 2;
+                this.game.state.getCurrentState().contentArea.floor.addContent(avatar);
+            }
         }
         this.popup.destroy();
     }

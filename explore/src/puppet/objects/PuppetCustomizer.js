@@ -70,7 +70,7 @@ export default class PuppetCustomizer extends Phaser.Group {
         back.endFill();
         back.inputEnabled = true;
         back.input.priorityID = priorityID + 2;
-        
+
         if(this.puppet == null) {
             this.puppet = Human.buildDefault(game, new PuppetInputHandler(game, priorityID + 3));
         }

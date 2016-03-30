@@ -39,11 +39,12 @@ export default class GameState extends Phaser.State {
     }
 
     create() {
-        let scene = JSON.parse(game.cache.getText(this.sceneJsonKey), JsonUtil.revive);
-        scene.mode = Scene.EXPLORE_MODE;
+        this.contentArea = JSON.parse(game.cache.getText(this.sceneJsonKey), JsonUtil.revive);
+        this.contentArea.mode = Scene.EXPLORE_MODE;
         game.physics.startSystem(Phaser.Physics.ARCADE);
 
         this.consoleBar = this.game.add.existing(new ConsoleBar(this.game));
+        this.consoleBar.text.text = this.sceneName;
         let buttons = [];
         if(this.sceneName == 'school') {
             buttons = [GameState.WHACK_A_MOLE_ICON];
