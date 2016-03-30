@@ -27,9 +27,9 @@ preload () {
     this.game.load.image("assets/city/SchoolGround", "assets/navigate/city/SchoolGround.png");
     this.game.load.image("assets/city/SchoolGround", "assets/navigate/city/SchoolGround.png");
     this.game.load.image("assets/city/Tree", "assets/navigate/city/Tree.png");
-    var isometric = require('../../../node_modules/phaser-plugin-isometric/dist/phaser-plugin-isometric.js');
-
-    this.game.plugins.add(new Phaser.Plugin.Isometric(this.game, null, 0.4469989)); //, null, 0.4469
+   // var isometric = require('../../../node_modules/phaser-plugin-isometric/dist/phaser-plugin-isometric.js')(this.game, null, 0.429999999995000);
+    //console.log("function = "+ isometrtic);
+    this.game.plugins.add(new Phaser.Plugin.Isometric(this.game, null, 0.429999999995000)); //, null, 0.446
     this.game.iso.anchor.setTo(0.9, -0.5);
 }
     
@@ -239,7 +239,7 @@ worldTiles() {
             this.map_array = this.layer4;
         }
        //ss  console.log( "layer = "+ this.map_array);
-        for (var yy = 0; yy <  3270; yy += 218) {
+        for (var yy = 0; yy <  3225; yy += 215) {
             for (var xx = 0; xx < 3270; xx += 218) {
                 if (this.green_tile.firstgid == this.map_array[temp]){
                     tile = this.game.add.isoSprite(xx, yy, 0, "assets/city/green", 0, this.isoGroup);
