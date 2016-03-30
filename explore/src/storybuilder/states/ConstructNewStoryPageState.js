@@ -307,7 +307,7 @@ export default class ConstructNewStoryPageState extends Phaser.State {
 
     positionAddedPuppetOnScene(puppet) {
         puppet.x = game.width * Math.random();
-        puppet.y = game.height * Math.random();
+        puppet.y = game.height/2 * Math.random();
         puppet.body.disableInputs();
         this._displayControlGroup.children.forEach(function(element) {
             console.log(element);
