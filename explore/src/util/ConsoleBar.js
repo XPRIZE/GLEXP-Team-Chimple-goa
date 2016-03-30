@@ -110,12 +110,14 @@ export default class ConsoleBar extends Phaser.Group {
     addAvatar(avatar) {
         if(!this.game.avatar) {
             this.game.avatar = avatar;
-            if(!this.game.state.getCurrentState().contentArea.floor.contents.includes(avatar)) {
-                avatar.x = this.game.camera.x + this.game.width / 2;
-                this.game.state.getCurrentState().contentArea.floor.addContent(avatar);
-            }
+        }
+        if(!this.game.state.getCurrentState().contentArea.floor.contents.includes(avatar)) {
+            avatar.x = this.game.camera.x + this.game.width / 2;
+            avatar.y = (this.game.height - this.game.state.getCurrentState().contentArea.floor.y) / 2;
+            this.game.state.getCurrentState().contentArea.floor.addContent(avatar);
         }
         this.popup.destroy();
+        this.leftButtonGrid.unSelect();
     }
 
     consoleBarHeight () {

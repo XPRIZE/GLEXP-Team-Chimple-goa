@@ -44,7 +44,7 @@ export default class TabView extends Phaser.Group {
     
     set tabs(tabs) {
         this._tabs = tabs;
-        this.tabView = new ButtonGrid(this.game, this.name, this.elementWidth, this.tabThickness, 1, this.numTabs, this.horizontal, this.callSelectTab, this, this.frameData, {buttonType: 'tab'});
+        this.tabView = new ButtonGrid(this.game, this.name, this.elementWidth, this.tabThickness, 1, this.numTabs, this.horizontal, this.callSelectTab, this, this.frameData, {buttonType: 'tab', iconType: 'round'});
         this.tabView.priorityID = this.priorityID;
         this.tabView.padding = 0;
         this.add(this.tabView);
