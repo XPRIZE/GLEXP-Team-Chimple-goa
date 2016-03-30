@@ -1,7 +1,8 @@
 export default class PuppetInputHandler {
-    constructor(game) {
+    constructor(game, priorityID) {
         this.clickEnabled = true;
         this.dragEnabled = false;
+        this.priorityID = priorityID;
     }
 
     /**
