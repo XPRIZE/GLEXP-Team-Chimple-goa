@@ -10,6 +10,7 @@ import AttributesChangedSignal from '../../storybuilder/objects/AttributesChange
 import SpecialAttributesChangedSignal from '../../storybuilder/objects/SpecialAttributesChangedSignal.js'
 import PlayPauseSignal from '../../storybuilder/objects/PlayPauseSignal.js';
 import PlayResumeSignal from '../../storybuilder/objects/PlayResumeSignal.js';
+import MiscUtil from '../../util/MiscUtil.js';
 
 
 export default class TileTexture extends EnableInputs(Phaser.TileSprite) {
@@ -93,7 +94,8 @@ export default class TileTexture extends EnableInputs(Phaser.TileSprite) {
         this.events.onDragStart.add(instance.onDragStart, this);
         this.events.onDragUpdate.add(instance.onDragUpdate, this);
         this.events.onDragStop.add(instance.onDragStop, this);
-        this.input.priorityID = 1;
+        // this.input.priorityID = 1;
+        MiscUtil.setPriorityID(this, 1);
     }
 
     drawBoundingBox(color) {

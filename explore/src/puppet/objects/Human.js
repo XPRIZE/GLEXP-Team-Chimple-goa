@@ -65,6 +65,14 @@ export default class Human extends Puppet {
         }        
     }
 
+    addLimb(limb) {
+        if(limb.name == 'human') {
+            limb.childOrder = ['leftLeg', 'rightLeg', 'body'];
+        } else if (limb.name == 'body') {
+            limb.childOrder = ['bodyShape', 'mask', 'shirt', 'belt', 'chain', 'jacket', 'scarf', 'head', 'leftHand', 'rightHand'];
+        }
+        super.addLimb(limb);
+    }
 
     update() {
         var self = this;
@@ -365,6 +373,37 @@ applySpecialAttributeChanges(recordedInfo) {
     setBackHair(key, frame, anchorX = 0.5, anchorY = 0, offsetX = 0.5, offsetY = 0, offsetInPixelX = 0, offsetInPixelY = 0) {
         this.head.addAccessory(new Accessory(this.game, new Phaser.Point(1, 1), true, true, false, new Phaser.Point(anchorX, anchorY), new Phaser.Point(offsetX, offsetY), new Phaser.Point(offsetInPixelX, offsetInPixelY), false, key, frame, 'backHair'), true);
     }
+     setDialogBox(key, frame, anchorX = 0, anchorY = 1, offsetX = 1, offsetY = 0.4, offsetInPixelX = 0, offsetInPixelY = 0) {
+        this.head.addAccessory(new Accessory(this.game, new Phaser.Point(1, 1), true, true, true, new Phaser.Point(anchorX, anchorY), new Phaser.Point(offsetX, offsetY), new Phaser.Point(offsetInPixelX, offsetInPixelY), false, key, frame, 'dailogBox'), true);
+    }
+    
+    setEmoticon(key, frame, anchorX = 0, anchorY = 1, offsetX = .89, offsetY = 0.11, offsetInPixelX = 100, offsetInPixelY = 0) {
+        this.head.addAccessory(new Accessory(this.game, new Phaser.Point(1, 1), true, true, true, new Phaser.Point(anchorX, anchorY), new Phaser.Point(offsetX, offsetY), new Phaser.Point(offsetInPixelX, offsetInPixelY), false, key, frame, 'emoticon'), true);
+  
+    let self = this;
+     this.game.time.events.add(15000,function(){
+        for(let i=0; i < self.head.children.length; i++)
+     {
+       
+         if(self.head.children[i].name == 'dailogBox')
+         {
+                   self.game.add.tween(self.head.children[i]).to({alpha:0},1000, null, true).onComplete.add(function(){
+                     // self.head.children.splice(i,1);
+                       self.head.children[i].destroy();
+                   });
+                 
+         }
+         if(self.head.children[i].name == 'emoticon')
+         {
+              self.game.add.tween(self.head.children[i]).to({alpha:0},970, null, true).onComplete.add(function(){
+                     // self.head.children.splice(i,1);
+                       self.head.children[i].destroy();
+                   });
+                 
+         }
+         }
+               });
+        }
 
     toJSON() {
         let json = super.toJSON();
@@ -519,7 +558,7 @@ applySpecialAttributeChanges(recordedInfo) {
         human.body.enableInputs(handler, false);
 
         human.head = new Limb(game, new Phaser.Point(0.5, 1), new Phaser.Point(0.5, 0), new Phaser.Point(0, -10), false);
-        human.head.childOrder = ['backHair', 'headShape', 'mask', 'glasses', 'beard', 'frontHair', 'hat'];
+        human.head.childOrder = ['backHair', 'headShape', 'mask', 'glasses', 'beard', 'frontHair', 'hat','dailogBox', 'emoticon'];
         human.head.shape = new ComboShape(game, new Phaser.Point(1, 1), new Phaser.Point(0.5, 0), new Phaser.Point(0, 0), new Phaser.Point(0, 0), new Phaser.Circle(75, 100, 157),new Phaser.Circle(75, 60, 124), "headShape");
         // human.head.shapeFace = new ShapeFace(game, new Phaser.Point(1, 1), new Phaser.Point(0.5, 1), new Phaser.Point(0.5, 0), new Phaser.Point(0, -10), new Phaser.Ellipse(85, 100, 85, 100), new Phaser.Ellipse(55, 80, 55, 80), "headShape");   
         human.head.enableInputs(handler, false);
@@ -663,6 +702,36 @@ applySpecialAttributeChanges(recordedInfo) {
                     
                     this.startStopAniamation(1500);
              }
+   eatAnimate(){
+          
+                    this.bodyTween = this.game.add.tween(this.body).to({x: this.body.x+.0999,y: this.body.y + 7.60, angle: 7.60},7/24*1000, null, false).chain(
+                    this.game.add.tween(this.body).to({x: this.body.x+0,y: this.body.y + 0, angle: 0},4/24*1000, null, false),
+                    this.game.add.tween(this.body).to({},18/24*1000, null, false));
+                    
+                    this.headTween = this.game.add.tween(this.head).to({ x: this.head.x+11,y: this.head.y +  7.80, angle:17.2}, 7/24*1000, null, false).chain(
+                    this.game.add.tween(this.head).to({  x: this.head.x+0,y: this.head.y + 0, angle:6.7}, 4/24*1000,null, false),
+                    this.game.add.tween(this.head).to({y: this.head.y + 6, angle:5.5}, 3/24*1000, null, false),
+                    this.game.add.tween(this.head).to({y: this.head.y -6, angle:-0.5}, 3/24*1000, null, false),
+                    this.game.add.tween(this.head).to({y: this.head.y +6}, 3/24*1000, null, false), 
+                    this.game.add.tween(this.head).to({ y: this.head.y +0,angle:0}, 3/24*1000, null, false),
+                    this.game.add.tween(this.head).to({ y: this.head.y + 8}, 3/24*1000, null, false),
+                   this.game.add.tween(this.head).to({ y: this.head.y +0}, 3/24*1000, null, false));
+                  
+                    this.leftHandTween = this.game.add.tween(this.leftHand).to({x:this.leftHand.x + 10.85, y: this.leftHand.y-+3.15,angle:-112.1}, 7/24*1000, null, false).chain(
+                    this.game.add.tween(this.leftHand).to({x:this.leftHand.x +0, y: this.leftHand.y +0,angle:-45}, 4/24*1000, null, false ),
+                    this.game.add.tween(this.leftHand).to({angle:0}, 6/24*1000, null, false),
+                    this.game.add.tween(this.leftHand).to({}, 12/24*1000, null, false));
+                    
+                    this.rightHandTween = this.game.add.tween(this.rightHand).to({x: this.rightHand.x +10.64 , y: this.rightHand.y +12.70 ,angle:2.2},7/24*1000, null, false).chain(
+                    this.game.add.tween(this.rightHand).to({x: this.rightHand.x+0 , y: this.rightHand.y +0 ,angle:0}, 4/24*1000, null, false),
+                    this.game.add.tween(this.rightHand).to({}, 18/24*1000, null, false));
+                    
+                   this.leftLegTween = this.game.add.tween(this.leftLeg).to({},28/24*1000, null, false);
+            
+                   this.rightLegTween = this.game.add.tween(this.rightLeg).to({  },29/24*1000, null, false);  
+                   
+                   this.startStopAniamation(1500);                                  
+      }
          
       walkAnimate() {
         

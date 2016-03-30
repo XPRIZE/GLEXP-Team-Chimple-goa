@@ -11,6 +11,7 @@ import Human from '../../puppet/objects/Human.js';
 import TabView from '../../puppet/objects/TabView.js';
 import EnableAttributeEditorSignal from '../../storybuilder/objects/EnableAttributeEditorSignal.js';
 import EditSceneInputHandler from '../objects/EditSceneInputHandler.js';
+import MiscUtil from '../../util/MiscUtil.js';
 
 var _ = require('lodash');
 
@@ -44,12 +45,14 @@ export default class EditState extends Phaser.State {
         let rightButton = this.game.add.button(game.width - 30, game.height / 2, 'scene/icons', this.panRight, this, 'ic_navigate_next_black_24dp_1x.png', 'ic_navigate_next_black_24dp_1x.png', 'ic_navigate_next_black_24dp_1x.png', 'ic_navigate_next_black_24dp_1x.png');
         rightButton.anchor.setTo(0.5, 0.5);
         rightButton.fixedToCamera = true;
-        rightButton.input.priorityID = 4;
+        // rightButton.input.priorityID = 4;
+        MiscUtil.setPriorityID(rightButton, 4);
 
         let leftButton = this.game.add.button(30, game.height / 2, 'scene/icons', this.panLeft, this, 'ic_navigate_before_black_24dp_1x.png', 'ic_navigate_before_black_24dp_1x.png', 'ic_navigate_before_black_24dp_1x.png', 'ic_navigate_before_black_24dp_1x.png');
         leftButton.anchor.setTo(0.5, 0.5);
         leftButton.fixedToCamera = true;
-        leftButton.input.priorityID = 4;
+        // leftButton.input.priorityID = 4;
+        MiscUtil.setPriorityID(leftButton, 4);
 
         this.surfaceWidth = 1280;
         let imageNames = [];

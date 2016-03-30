@@ -1,3 +1,4 @@
+import WhackAMoleStateHolder from '../../whack_a_mole/index.js';
 class BootState extends Phaser.State {
 
     preload() {
@@ -8,6 +9,14 @@ class BootState extends Phaser.State {
         this.game.load.image("assets/City1", "assets/navigate/City1.png");
         this.game.load.image("assets/Home", "assets/navigate/Home.png");
         this.load.atlas('scene/icons', 'assets/scene/icons.png', 'assets/scene/icons.json');
+        this.load.atlas('puppet/characters', 'assets/puppet/characters.png', 'assets/puppet/characters.json');
+        this.load.atlas('puppet/character', 'assets/puppet/Character.png', 'assets/puppet/Character.json');
+        
+        this.load.atlas('puppet/eye_mouth', 'assets/puppet/eye_mouth.png', 'assets/puppet/eye_mouth.json');
+        //this.load.atlas('puppet/sample', 'assets/puppet/sample.png', 'assets/puppet/sample.json');
+        this.load.json('puppet/accessorize', 'assets/puppet/accessorize.json');
+        this.load.json('puppet/menu_accessorize', 'assets/puppet/menu_accessorize.json');
+        this.load.atlas('puppet/headshape', 'assets/puppet/headshape.png', 'assets/puppet/headshape.json');
 
         //load all external scenes
         this.game.load.json("load_scenes", "assets/scene/load_scenes.json");
@@ -81,6 +90,9 @@ class BootState extends Phaser.State {
     moveToVillage() {
         // console.log("Village");
         //  this.game.state.start('bootState2');
+        let myStateHolder = new WhackAMoleStateHolder(this.game);
+        myStateHolder.createStates();
+		myStateHolder.startDefault();
     }
 
     moveToCity() {

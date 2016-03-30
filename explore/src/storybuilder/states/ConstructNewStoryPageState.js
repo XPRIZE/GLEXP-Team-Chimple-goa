@@ -33,6 +33,7 @@ import SoundData from '../../scene/objects/SoundData.js';
 import PuppetCustomizer from '../../puppet/objects/PuppetCustomizer.js';
 
 import RecordingPlayEndSignal from '../objects/RecordingPlayEndSignal.js'
+import MiscUtil from '../../util/MiscUtil.js';
 
 
 var _ = require('lodash');
@@ -110,8 +111,7 @@ export default class ConstructNewStoryPageState extends Phaser.State {
 
         this.load.atlas('misc/theme', "assets/misc/theme.png", "assets/misc/theme.json");
         this.load.atlas('puppet/chooser', 'assets/puppet/chooser.png', 'assets/puppet/chooser.json');
-        this.load.atlas('puppet/sample', 'assets/puppet/sample.png', 'assets/puppet/sample.json');
-        this.load.atlas('puppet/icons', 'assets/puppet/icons.png', 'assets/puppet/icons.json');
+        this.load.atlas('puppet/sample', 'assets/puppet/sample.png', 'assets/puppet/sample.json');        
         this.load.atlas('scene/icons', 'assets/scene/icons.png', 'assets/scene/icons.json');
         this.load.atlas('puppet/characters', 'assets/puppet/characters.png', 'assets/puppet/characters.json');
         this.load.atlas('puppet/eye_mouth', 'assets/puppet/eye_mouth.png', 'assets/puppet/eye_mouth.json');
@@ -183,9 +183,9 @@ export default class ConstructNewStoryPageState extends Phaser.State {
         let page = JSON.parse(JSON.stringify(this._currentPage), JsonUtil.revive);
         this._loadedScene = page.scene;
         //var gray = this.game.add.filter('Gray');
-        //this._loadedScene.filters = [gray];
-
+        //this._loadedScene.filters = [gray];        
         this._displayControlGroup.add(this._loadedScene);
+        this._uniqueImageNames = this.buildContentsList(this._loadedScene);
         //remove any direct child of world 
         this.game.world.children.forEach(function(element) {
             console.log(element);
@@ -193,6 +193,24 @@ export default class ConstructNewStoryPageState extends Phaser.State {
                 this.game.world.removeChild(element);
             }
         }, this);
+    }
+
+
+    buildContentsList(scene) {
+        let uniqueImageNameSet = new Set();
+        scene.children.forEach(function(element) {
+            if (element instanceof Wall || element instanceof Floor) {
+                element.children.forEach(function(child) {
+                    if (child instanceof Item) {
+                        console.log('child: frame:' + child.frameName);
+                        if (child.frameName != null || child.frameName != undefined) {
+                            uniqueImageNameSet.add(child.frameName);
+                        }
+                    }
+                })
+            }
+        }, this);
+        return Array.from(uniqueImageNameSet);
     }
 
 
@@ -231,6 +249,7 @@ export default class ConstructNewStoryPageState extends Phaser.State {
             }
         }, this);
         let newScene = JSON.parse(jsonSceneRepresentation, JsonUtil.revive);
+        this._uniqueImageNames = this.buildContentsList(newScene);
         if (puppets) {
             puppets.forEach(function(puppet) {
                 newScene.floor.addContent(puppet);
@@ -289,11 +308,11 @@ export default class ConstructNewStoryPageState extends Phaser.State {
     positionAddedPuppetOnScene(puppet) {
         puppet.x = game.width * Math.random();
         puppet.y = game.height * Math.random();
-        puppet.body.disableInputs();
-        puppet.body.enableInputs(new StoryPuppetBuilderInputHandler(game), false);
+        puppet.body.disableInputs();        
         this._displayControlGroup.children.forEach(function(element) {
             console.log(element);
             if (element instanceof Scene) {
+                puppet.body.enableInputs(new StoryPuppetBuilderInputHandler(element), false);                
                 element.floor.addContent(puppet)
             }
         }, this);
@@ -389,7 +408,8 @@ export default class ConstructNewStoryPageState extends Phaser.State {
         this._nextButton.visible = false;
         this._nextButton.inputEnabled = true;
         this._nextButton.events.onInputDown.add(this.nextButton, this);
-        this._nextButton.input.priorityID = 2;
+        // this._nextButton.input.priorityID = 2;
+        MiscUtil.setPriorityID(this._nextButton, 2);
         this._displayControlGroup.add(this._nextButton);
 
         this._editPuppet = game.add.button(this.game.width - 30, 60, 'scene/icons', this.editPuppet, this, 'ic_grid_on_black_24dp_1x.png', 'ic_grid_on_black_24dp_1x.png', 'ic_grid_on_black_24dp_1x.png', 'ic_grid_on_black_24dp_1x.png');
@@ -445,7 +465,7 @@ export default class ConstructNewStoryPageState extends Phaser.State {
     }
 
     createQuestionAndAnswer(item, pointer) {
-        this._QuestionTypeOverlay = new QuestionTypeOverlay(game, game.width, game.height, item, pointer, this, this.saveQuestionInLocal, this._currentPage.questionsAndAnswers);
+        this._QuestionTypeOverlay = new QuestionTypeOverlay(game, game.width, game.height, item, pointer, this, this.saveQuestionInLocal, this._currentPage.questionsAndAnswers, this._uniqueImageNames);
         idObject.storyId = this._currentStory.storyId;
         idObject.pageId = this._currentPage.pageId;
     }
@@ -505,7 +525,7 @@ export default class ConstructNewStoryPageState extends Phaser.State {
     }
 
     createChooseBackGroundTab() {
-        //will come from texture packer
+
         let backgroundImageNames = [];
         this.game.cache.getFrameData('storyBuilder/backgrounds').getFrames().forEach(function(val, index, array) {
             backgroundImageNames.push(val.name);
@@ -528,17 +548,21 @@ export default class ConstructNewStoryPageState extends Phaser.State {
 
     createChoosePuppetTab() {
 
-        let puppetThemes = this.game.cache.getJSON('storyBuilder/puppet_themes');
-        //later get from texture packer
-        let humanNames = ["american_football_th"];
+        let puppetImageNames = [];
+        this.game.cache.getFrameData('storyBuilder/puppets').getFrames().forEach(function(val, index, array) {
+            puppetImageNames.push(val.name);
+        });
 
-        this._choosePuppetTab = this._displayControlGroup.add(new TabView(this.game, 'Puppet', this.game.width * 0.9, this.game.height, 10, 50, 5, 3, true, function(tab, button) {
+        let puppetThemes = this.game.cache.getJSON('storyBuilder/puppets_grid');
+
+        this._choosePuppetTab = this._displayControlGroup.add(new TabView(this.game, 'storyBuilder/puppets', this.game.width * 0.9, this.game.height, 10, 50, 5, 3, true, function(tab, button) {
             this._choosePuppetTab.unSelect();
             this.dynamicallyLoadAssets(button, ConstructNewStoryPageState.PUPPET_TYPE, this._puppetConfig);
             this._choosePuppetTab.visible = false;
         }, this, puppetThemes));
 
-        this._choosePuppetTab.tabs = { 'human1': humanNames, 'human2': humanNames };
+        // this._choosePuppetTab.tabs = { 'human': humanNames };
+        this._choosePuppetTab.tabs = { 'human1': puppetImageNames };
         this._choosePuppetTab.x = this.game.width * 0.05;
         this._choosePuppetTab.y = 0;
         this._choosePuppetTab.fixedToCamera = true;

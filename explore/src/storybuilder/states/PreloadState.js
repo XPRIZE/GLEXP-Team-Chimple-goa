@@ -8,28 +8,43 @@ export default class PreloadState extends Phaser.State {
         this.load.setPreloadSprite(this._asset);
         this.load.atlas('scene/scene', "assets/scene/scene.png", "assets/scene/scene.json");
         this.load.image('testsprite', 'assets/test.png');
-        
+
         //default book and page image
         this.load.image('story_cover', 'assets/storyBuilder/story_cover.png');
         this.load.image('page_cover', 'assets/storyBuilder/page_cover.png');
-        
+
         //load background scenes thumbnail JSON
         this.load.atlas('storyBuilder/backgrounds', "assets/storyBuilder/backgrounds.png", "assets/storyBuilder/backgrounds.json");
         this.load.json('storyBuilder/backgrounds_grid', 'assets/storyBuilder/backgrounds_grid.json');
+
+
+        //load puppet scenes json
+        this.load.atlas('puppet/characters', 'assets/puppet/characters.png', 'assets/puppet/characters.json');
+        this.load.atlas('puppet/character', 'assets/puppet/Character.png', 'assets/puppet/Character.json');
+        this.load.atlas('puppet/eye_mouth', 'assets/puppet/eye_mouth.png', 'assets/puppet/eye_mouth.json');
+        this.load.json('puppet/accessorize', 'assets/puppet/accessorize.json');
+        this.load.json('puppet/menu_accessorize', 'assets/puppet/menu_accessorize.json');
+        this.load.atlas('puppet/headshape', 'assets/puppet/headshape.png', 'assets/puppet/headshape.json');
         
-        this.load.atlas('puppet/0', "assets/puppet/0.svg", "assets/puppet/0.json");
-        this.load.atlas('puppet/1', "assets/puppet/1.svg", "assets/puppet/1.json");
+        //load puppet scenes thumbnail JSON
+        this.load.atlas('storyBuilder/puppets', "assets/storyBuilder/puppets.png", "assets/storyBuilder/puppets.json");
+        this.load.json('storyBuilder/puppets_grid', 'assets/storyBuilder/puppets_grid.json');
+        
+
+
         this.load.image('storyBuilder/plus', "assets/storyBuilder/plus_button.png");
         this.load.image('storyBuilder/setting', "assets/storyBuilder/setting_button.png");
         this.load.image('storyBuilder/backgroundOverlay', "assets/storyBuilder/backgroundOverlay.png");
         this.load.image('storyBuilder/audio','assets/storyBuilder/audio.png');
         this.load.image('storyBuilder/text','assets/storyBuilder/text.png');
                         
+        this.load.image('storyBuilder/sound_button', 'assets/storyBuilder/sound_button.png');
+
         this.load.json('storyBuilder/background_themes', 'assets/storyBuilder/background_themes.json');
         this.load.json('storyBuilder/object_sounds', 'assets/storyBuilder/object_sounds.json');
         this.load.json('storyBuilder/object_animation', 'assets/storyBuilder/object_animation.json');
         this.load.json('storyBuilder/object_effects', 'assets/storyBuilder/object_effects.json');
-        
+
 
         this.load.atlas('scene/scene', "assets/scene/scene.png", "assets/scene/scene.json");
         this.load.atlas('misc/theme', "assets/misc/theme.png", "assets/misc/theme.json");
@@ -37,12 +52,7 @@ export default class PreloadState extends Phaser.State {
         this.load.json('scene/menu_icons', 'assets/scene/menu_icons.json');
         this.load.json('storyBuilder/library', 'assets/storyBuilder/library.json');
         this.load.image('puppet/delete_button', 'assets/puppet/hair_chooser.png');
-        
-        
-        this.load.atlas('puppet/sample', 'assets/puppet/sample.png', 'assets/puppet/sample.json');
-        this.load.json('puppet/accessorize', 'assets/puppet/accessorize.json');
-        this.load.json('puppet/menu_accessorize', 'assets/puppet/menu_accessorize.json');
-        
+
 
         //load file story sceen
 
@@ -67,7 +77,7 @@ export default class PreloadState extends Phaser.State {
         this.load.json('storyBuilder/scene_config', 'assets/misc/configuration/scene_config.json');
         this.load.json('storyBuilder/puppet_config', 'assets/misc/configuration/puppet_config.json');
 
-      
+
 
     }
 

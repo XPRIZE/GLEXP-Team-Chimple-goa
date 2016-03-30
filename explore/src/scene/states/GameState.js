@@ -12,6 +12,7 @@ import EnableAttributeEditorSignal from '../../storybuilder/objects/EnableAttrib
 import ExploreInputHandler from '../objects/ExploreInputHandler.js';
 import JsonUtil from '../../puppet/objects/JsonUtil.js';
 import ConsoleBar from '../../util/ConsoleBar.js';
+import WhackAMoleStateHolder from '../../whack_a_mole/index.js';
 
 var _ = require('lodash');
 
@@ -42,9 +43,22 @@ export default class GameState extends Phaser.State {
         scene.mode = Scene.EXPLORE_MODE;
         game.physics.startSystem(Phaser.Physics.ARCADE);
 
-        this.game.add.existing(new ConsoleBar(this.game));
+        this.consoleBar = this.game.add.existing(new ConsoleBar(this.game));
+        let buttons = [];
+        if(this.sceneName == 'school') {
+            buttons = [GameState.WHACK_A_MOLE_ICON];
+        }
+        this.consoleBar.createRightButtonGrid(buttons, this.consoleBarCallback, this);    
     }
 
+    consoleBarCallback(tabName, buttonName) {
+        if(buttonName == GameState.WHACK_A_MOLE_ICON) {
+            let myStateHolder = new WhackAMoleStateHolder(this.game);
+            myStateHolder.createStates();
+		    myStateHolder.startDefault();
+            
+        }
+    }
 
     openDoor() {
 
@@ -79,3 +93,5 @@ export default class GameState extends Phaser.State {
         }*/
     }
 }
+
+GameState.WHACK_A_MOLE_ICON = 'play.png';
