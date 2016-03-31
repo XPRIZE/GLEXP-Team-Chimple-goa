@@ -30,7 +30,7 @@ preload () {
    // var isometric = require('../../../node_modules/phaser-plugin-isometric/dist/phaser-plugin-isometric.js')(this.game, null, 0.429999999995000);
     //console.log("function = "+ isometrtic);
     this.game.plugins.add(new Phaser.Plugin.Isometric(this.game, null, 0.429999999995000)); //, null, 0.446
-    this.game.iso.anchor.setTo(0.9, -0.5);
+    this.game.iso.anchor.setTo(0.99, -0.38);
 }
     
 create () {
@@ -74,7 +74,7 @@ create () {
   
     this.worldTiles();
   // this.game.add.image(this.game.width - 50, 0, "assets/Home");
-    this.game.add.button(this.game.width - 50, 0, "assets/Home", function(){ this.game.state.start('bootState')});
+  //  this.game.add.button(this.game.width - 50, 0, "assets/Home", function(){ this.game.state.start('bootState')});
     //"assets/Home"
 	// Provide a 3D position for the cursor
 	this.cursorPos = new Phaser.Plugin.Isometric.Point3();
