@@ -544,7 +544,7 @@
         "frame": "nurse_hair.png",
         "anchorY":0,
          "offsetX":0.45,
-        "offsetY":-0.3
+        "offsetY":-0.1
       }
      },
        "boy_hair":{
@@ -553,7 +553,7 @@
         "frame": "boy_hair.png",
         "anchorY":0,
          "offsetX":0.45,
-        "offsetY":-0.3
+        "offsetY":-0.1
       }
      },
       "girl_hair":{
@@ -562,7 +562,7 @@
         "frame": "girl_hair.png",
         "anchorY":0,
          "offsetX":0.45,
-        "offsetY":-0.3
+        "offsetY":-0.15
       }
      }
   },
@@ -897,23 +897,23 @@
         "key": "puppet/character",
         "frame": "teacher_skirt.png",
         "offsetX":-0.06,
-         "offsetY":0.1
+         "offsetY":0.9
       }
     },
     "girl_uniform_skirt": {
       "Skirt": {
         "key": "puppet/character",
         "frame": "girl_uniform_skirt.png",
-        "offsetX":-0.06,
-         "offsetY":0.1
+        "offsetX":-0.125,
+         "offsetY":0.7
       }
     },
      "boy_uniform_pant": {
       "Skirt": {
         "key": "puppet/character",
         "frame": "boy_uniform_pant.png",
-        "offsetX":-0.06,
-         "offsetY":0.1
+        "offsetX":-0.01,
+         "offsetY":0.9
       }
     }
    
@@ -1262,6 +1262,10 @@
        "Sleeves": {
         "key": "puppet/character",
         "frame": "teacher_arm.png"
+      },
+      "Jacket": {
+        "key": "puppet/character",
+        "frame": "teacher_body1.png"
       }
     },
        
@@ -1344,7 +1348,7 @@
         "Shoes": {
         "key": "puppet/character",
         "frame": "Housewife_right_shoe.png",
-         "offsetInPixelY":10
+         "offsetInPixelY":55
         }  
     },
      "Musician_right_shoe":{
@@ -1491,6 +1495,7 @@
         "Shoes": {
         "key": "puppet/character",
         "frame": "boy_uniform_right_shoe.png",
+         "offsetInPixelX":5,
          "offsetInPixelY":10
         }  
     },
@@ -1498,13 +1503,15 @@
         "Shoes": {
         "key": "puppet/character",
         "frame": "girl_uniform_right_shoe.png",
-         "offsetInPixelY":10
+         "offsetInPixelY":10,
+          "offsetInPixelX":4
         }  
     },
      "girl_right_shoe":{
         "Shoes": {
         "key": "puppet/character",
         "frame": "girl_right_shoe.png",
+       
          "offsetInPixelY":10
         }  
     }

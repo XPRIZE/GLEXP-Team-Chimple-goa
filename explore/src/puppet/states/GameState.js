@@ -26,7 +26,7 @@ export default class GameState extends Phaser.State {
 
     goEdit() {
         this.add.existing(new PuppetCustomizer(this.game, this.game.width, this.game.height, this.puppet, this.addPuppet, this));
-        this.add.existing(new AnimalCustomizer(this.game, this.game.width, this.game.height, this.puppet, this.addPuppet, this));
+     //   this.add.existing(new AnimalCustomizer(this.game, this.game.width, this.game.height, this.puppet, this.addPuppet, this));
 
  }
       

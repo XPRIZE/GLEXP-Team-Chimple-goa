@@ -346,6 +346,7 @@ export default class Human extends Puppet {
     }
 
     setShoes(key, frame, anchorX = 1, anchorY = 1, offsetX = 1, offsetY = 1, offsetInPixelX = 0, offsetInPixelY = 0) {
+        console.log("frame = "+ frame);
         this.leftLeg.addAccessory(new Accessory(this.game, new Phaser.Point(1, 1), true, true, false, new Phaser.Point(anchorX, anchorY), new Phaser.Point(offsetX, offsetY), new Phaser.Point(offsetInPixelX, offsetInPixelY), false, key, frame, 'leftShoe'), true);
         //console.log(" offsetInPixelX  "+ offsetInPixelX+ "offsetInPixelY " +offsetInPixelY);
         this.rightLeg.addAccessory(new Accessory(this.game, new Phaser.Point(1, 1), true, true, false, new Phaser.Point(1 - anchorX, anchorY), new Phaser.Point(1 - offsetX, offsetY), new Phaser.Point(-offsetInPixelX, offsetInPixelY), true, key, frame, 'rightShoe'), true);
