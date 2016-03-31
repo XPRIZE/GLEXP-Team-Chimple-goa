@@ -37,6 +37,7 @@ preload () {
     this.game.load.image("assets/city_1/Veh_06", "assets/navigate/city_1/Veh_06.png");
     this.game.load.image("assets/city_1/Veh_07", "assets/navigate/city_1/Veh_07.png");
     this.game.load.image("assets/city_1/Veh_08", "assets/navigate/city_1/Veh_08.png");
+    this.game.load.image("assets/city_1/Sand", "assets/navigate/city_1/Sand.png");
     // var isometric = require('../../../node_modules/phaser-plugin-isometric/dist/phaser-plugin-isometric.js');
     // this.game.plugins.add(new Phaser.Plugin.Isometric(this.game, null, 0.9));// 0.5
     // //this.game.iso._projectionAngle = 0.9;
@@ -52,7 +53,7 @@ preload () {
     this.game.plugins.add(new Phaser.Plugin.Isometric(this.game, null, 0.5));
   //   Phaser.Plugin.Isometric.Projector.projectionAngle = 0.9;
    // this.game.iso._projectionAngle = 0.9;
-    this.game.iso.anchor.setTo(0.9, -0.75);
+    this.game.iso.anchor.setTo(0.9, -0.70);
     
     console.log(" projector = "+ new Phaser.Plugin.Isometric.Projector(this.game, Phaser.Plugin.Isometric.CLASSIC));
         
@@ -97,11 +98,12 @@ preload () {
     this.vech06_tile = phaserJSON.tilesets[27];
     this.vech07_tile = phaserJSON.tilesets[28];
     this.vech08_tile = phaserJSON.tilesets[29];
+    this.sand_tile = phaserJSON.tilesets[30];
   
     this.worldTiles();
     
   //  this.game.add.image(this.game.width - 50, 0, "assets/Home");
-    this.game.add.button(this.game.width - 50, 0, "assets/Home", function(){ this.game.state.start('bootState')});
+   // this.game.add.button(this.game.width - 50, 0, "assets/Home", function(){ this.game.state.start('bootState')});
    	// Provide a 3D position for the cursor
 	this.cursorPos = new Phaser.Plugin.Isometric.Point3();
 
@@ -145,7 +147,7 @@ preload () {
                      tile.events.onInputDown.add(function(){this.moveInsideView("school", 0.2 ,-0.6)}, this);
                  }   
                  
-                 if ( tile.key == "assets/city_1/Garden_01" || tile.key == "assets/city_1/Garden_02" || tile.key == "assets/city_1/Garden_03" || tile.key == "assets/city_1/Garden_04" ||  tile.key == "assets/city_1/Garden_05"){
+                 if ( tile.key == "assets/city_1/Garden_01" || tile.key == "assets/city_1/Garden_02" || tile.key == "assets/city_1/Garden_03" || tile.key == "assets/city_1/Garden_04" ||  tile.key == "assets/city_1/Garden_05" || tile.key == "assets/city_1/Sand"){
                      tile.events.onInputDown.add(function(){this.moveInsideView("park", -0.4, -1.5)}, this);
                  }      
             }
@@ -375,7 +377,12 @@ preload () {
                             tile = this.game.add.isoSprite(xx, yy, 0, "assets/city_1/Veh_08", 0, this.isoGroup);
                             temp++; 
                             tile.anchor.set(0.5, 1);
-                        } else {
+                        } else if (this.sand_tile.firstgid == this.map_array[temp]) {
+                            tile = this.game.add.isoSprite(xx, yy, 0, "assets/city_1/Sand", 0, this.isoGroup);
+                            temp++; 
+                            tile.anchor.set(0.5, 1);
+                        }  
+                        else {
                             temp++;
                         }
                 
