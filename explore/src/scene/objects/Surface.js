@@ -28,10 +28,9 @@ export default class Surface extends EnableInputs(Phaser.Group) {
     addTexture(texture) {
         if(texture instanceof TileTexture) {
             //push the floor and wall to the back
-            Surface.All.push(texture)
+            //check Floor or Wall
         } else {
             Surface.All.unshift(texture);
-
         }
         this.game.physics.enable(texture);
         let lastTextureIndex = 0;
@@ -75,6 +74,10 @@ export default class Surface extends EnableInputs(Phaser.Group) {
     }
 
     addContent(content) {
+        // TODO this seems to work in edit mode investigate more
+        // if(this.parent.input && content.input) {
+        //     content.input.priorityID = this.parent.input.priorityID + 1;
+        // }
         return this.add(content);            
     }
     
