@@ -38,7 +38,7 @@ export default class Sprite extends Scalable (Phaser.Sprite) {
             offsetInPixel: this.offsetInPixel,
             graphics: this.graphics
         };
-        console.log(json);
+        //console.log(json);
         return json;
 }
 
