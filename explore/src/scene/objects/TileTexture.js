@@ -79,8 +79,9 @@ export default class TileTexture extends EnableInputs(Phaser.TileSprite) {
     applySound(whichSoundIndex, apply) {
         this._specialAttribute.applySound(whichSoundIndex, apply);
         let soundData = this._specialAttribute.getSound(whichSoundIndex);
-        soundData.apply = apply;
+        
        if(soundData != null){
+           soundData.apply = apply;
          if (game._inRecordingMode) {            
              this._specialAttributesChangedSignal.dispatch({ uniquename: this._uniquename, x: this.x, y: this.y, scaleX: this.scale.x, scaleY: this.scale.y, angle: this.angle, recordingAttributeKind: RecordInfo.SOUND_RECORDING_TYPE, soundData: soundData});
          }
@@ -185,7 +186,7 @@ export default class TileTexture extends EnableInputs(Phaser.TileSprite) {
              if(musicHandlesMap.has(checkSoundKey)) {
                  console.log("skipping Sound as exists:" + checkSoundKey)                 
              } else {                 
-                 musicHandlesMap.set(checkSoundKey, game.add.audio(soundData.soundFileName, 1.0, false));                                            
+                 musicHandlesMap.set(checkSoundKey, game.add.audio(soundData.soundFileName, 1.0, true));                                            
              }             
         }  
         return checkSoundKey;       

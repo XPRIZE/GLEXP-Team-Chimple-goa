@@ -53,8 +53,10 @@ export default class Human extends Puppet {
     applySound(whichSoundIndex, apply) {
         this._specialAttribute.applySound(whichSoundIndex, apply);
         let soundData = this._specialAttribute.getSound(whichSoundIndex);
-        soundData.apply = apply;
+        
         if(soundData != null){
+            soundData.apply = apply;
+            console.log(" ===== sounddata for human and value :  "+ soundData.apply);
         if (game._inRecordingMode) {            
             this._specialAttributesChangedSignal.dispatch({ uniquename: this._uniquename, x: this.x, y: this.y, scaleX: this.scale.x, scaleY: this.scale.y, angle: this.angle, recordingAttributeKind: RecordInfo.SOUND_RECORDING_TYPE, soundData: soundData});
         } 
@@ -119,7 +121,7 @@ export default class Human extends Puppet {
             //send an signal to show Text PopUp to User            
             if(!this.checkIfTextAlreadyShown(recordedInfo))
             {
-                console.log('show text popup to User' + recordedInfo.userGeneratedText);
+                console.log('show text popup to User' + recordedInfo.text);
                 $('#element_to_pop_up').bPopup({onClose: function() {
                     console.log('closing pop up');
                     self._playResumeSignal.dispatch();
@@ -134,13 +136,17 @@ export default class Human extends Puppet {
             let soundKey = this.addSoundKeyToMapIfNotExists(recordedInfo);
             let soundData = recordedInfo.soundData;
             let musicHandlesMap = window.musicHandlesMap;
+            console.log(" ========= Sounddata for human ====== "+ soundData.apply);
+            
             if(soundData.apply) {
                 //play music
                 let audioFile = musicHandlesMap.get(soundKey);
+                console.log("audioFile name for human in playing mode: "+ audioFile);
                 audioFile.play();
             } else {
                 //stop music
                 let audioFile = musicHandlesMap.get(soundKey);
+                console.log("audioFile name for human in stop mode: "+ audioFile);
                 audioFile.stop();
             }
         }

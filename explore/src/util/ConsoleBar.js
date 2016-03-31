@@ -121,7 +121,9 @@ export default class ConsoleBar extends Phaser.Group {
         if(!this.game.profile.avatar) {
             this.game.profile.avatar = avatar;
         }
-        if(!this.game.state.getCurrentState().contentArea.floor.contents.includes(avatar)) {
+        
+        
+        if(this.game.state.getCurrentState().contentArea && !this.game.state.getCurrentState().contentArea.floor.contents.includes(avatar)) {
             avatar.disableInputs(true);
             avatar.body.enableInputs(new StoryPuppetBuilderInputHandler(this.game.state.getCurrentState().contentArea));
             avatar.x = this.game.camera.x + this.game.width / 2;

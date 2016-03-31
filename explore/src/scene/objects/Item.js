@@ -87,8 +87,9 @@ export default class Item extends EnableInputs(Phaser.Sprite) {
     applySound(whichSoundIndex, apply) {
         this._specialAttribute.applySound(whichSoundIndex, apply);
         let soundData = this._specialAttribute.getSound(whichSoundIndex);
-        soundData.apply = apply;
+       
         if(soundData != null){
+             soundData.apply = apply;
             if (game._inRecordingMode) {            
                 this._specialAttributesChangedSignal.dispatch({ uniquename: this._uniquename, x: this.x, y: this.y, scaleX: this.scale.x, scaleY: this.scale.y, angle: this.angle, recordingAttributeKind: RecordInfo.SOUND_RECORDING_TYPE, soundData: soundData});
             }

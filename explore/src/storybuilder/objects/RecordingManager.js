@@ -110,12 +110,12 @@ export default class RecordingManager extends Phaser.Group {
     }
 
     handleSoundWhileRecording(data) {
-        if(data.recordingAttributeKind === RecordInfo.SOUND_RECORDING_TYPE && data.soundData && 
+        if(data.recordingAttributeKind === RecordInfo.SOUND_RECORDING_TYPE && data.soundData &&
             game.cache.checkSoundKey(data.soundData.soundFileName))
-        {   
+        {
             let key = data.uniquename + "_" + data.soundData.soundFileName;
             if(data.soundData.apply) {
-                let audio = game.add.audio(data.soundData.soundFileName, 1.0, false);               
+                let audio = game.add.audio(data.soundData.soundFileName, 1.0, false);
                 this._recordingTimeMusicHandlerMap.set(key, audio);
                 audio.play();
             } else {
@@ -146,6 +146,7 @@ export default class RecordingManager extends Phaser.Group {
             game._inPauseRecording = true;
             console.log('updated pauseStart key should be :' + this.currentRecordingCounter);
 
+
         }
 
     }
@@ -158,7 +159,7 @@ export default class RecordingManager extends Phaser.Group {
         //set up time when recording starts
         this._updatedTime = recordingStartTime;
         this.currentRecordingCounter = 0;
-        
+
         //create recordingTimeMusicHandlerMap to store all instance of audio playing while recording
         this._recordingTimeMusicHandlerMap = new Map();
     }
@@ -249,6 +250,7 @@ export default class RecordingManager extends Phaser.Group {
         this.recordSpecialTextAttribute(data, recordInfo);
         this.recordSpecialSoundAttribute(data, recordInfo);
         let spriteMap = this._sceneRecordingMap.get(this.currentRecordingCounter);
+        console.log("adding key at map at:" + this.currentRecordingCounter);
         if (!spriteMap) {
             let curRecordingMap = new Map();
             curRecordingMap.set(data.uniquename, recordInfo.toJSON());
@@ -260,7 +262,15 @@ export default class RecordingManager extends Phaser.Group {
 
         if (recordInfo.recordingAttributeKind === RecordInfo.TEXT_RECORDING_TYPE) {
             console.log('text message received at ' + this.currentRecordingCounter);
+            //delete previous key
+            spriteMap.delete(this.prevRecordingCounter);
         }
+
+        if (recordInfo.recordingAttributeKind === RecordInfo.SOUND_RECORDING_TYPE) {
+            console.log('text message received at ' + this.currentRecordingCounter);
+            spriteMap.delete(this.prevRecordingCounter);
+        }
+
     }
 
     recordSpecialTextAttribute(data, recordInfo) {
@@ -279,6 +289,7 @@ export default class RecordingManager extends Phaser.Group {
     }
 
     computeRecordingTimeCounters(delta) {
+        this.prevRecordingCounter = this.currentRecordingCounter;
         this.currentRecordingCounter += delta;
         // console.log('currentRecordingCounter updated:' + this.currentRecordingCounter);
     }

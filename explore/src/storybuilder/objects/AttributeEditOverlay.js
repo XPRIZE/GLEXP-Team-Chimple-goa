@@ -101,7 +101,7 @@ export default class AttributeEditOverlay extends Phaser.Group {
             that._dynamicCircle.destroy();
             that._overlayDisplaySprite.destroy();
             that._isOpen = false
-
+     
             let backGroundThemes = that.game.cache.getJSON('storyBuilder/background_themes');
             let objectSound = that.game.cache.getJSON('storyBuilder/object_sounds');
             let objectAnim = that.game.cache.getJSON('storyBuilder/object_animation');
@@ -149,7 +149,6 @@ export default class AttributeEditOverlay extends Phaser.Group {
 
             that._itemSettingTab = that.game.add.existing(new TabView(that.game, 'storyBuilder/icons', that.game.width + that.game.world.camera.x, that.game.height + that.game.world.camera.y, 10, 50, 5, 3, true, function(tab, button) {
 
-
                 let self = that;
                 that._itemSettingTab.unSelect();
                 // that._itemSettingTab.destroy();
@@ -186,12 +185,14 @@ export default class AttributeEditOverlay extends Phaser.Group {
                        if(!window.isMusicOn) { 
                         this._clickedObject.applySound(index, true);
                         window.isMusicOn = true;   
+                        
                        }
                         else {
                         this._clickedObject.applySound(index, false);
                         window.isMusicOn = false;                               
-                        }    
-                        // console.log(" ----  -- pressed in audio : "+ index);
+                        }
+                            
+                        console.log(" ----  -- window.isMusicOn - attributeOverlay: "+ window.isMusicOn);
                     }else if (tab == "anim"){
                         
                         for(index =0 ; index < animationNames.length ; index++){

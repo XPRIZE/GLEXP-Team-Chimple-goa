@@ -98,8 +98,7 @@ export default class ConstructNewStoryPageState extends Phaser.State {
         this.load.atlas('scene/icons', "assets/scene/icons.png", "assets/scene/icons.json");
         this.load.json('scene/menu_icons', 'assets/scene/menu_icons.json');
         this.load.json('storyBuilder/puppet_themes', 'assets/storyBuilder/puppet_themes.json');
-
-
+        
         this.load.atlas('storyBuilder/curtain', 'assets/storyBuilder/curtain.png', 'assets/storyBuilder/curtain.json');
         this.load.image('storybuilder/choose_prop_button', 'assets/storyBuilder/prop_button.png');
         this.load.image('storybuilder/choose_character_button', 'assets/storyBuilder/prop_button.png');
@@ -724,6 +723,7 @@ export default class ConstructNewStoryPageState extends Phaser.State {
     }
 
     shutdown() {
+        this._AttributeEditOverlay = null;
     }
 }
 
