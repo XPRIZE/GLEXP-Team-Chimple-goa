@@ -47,6 +47,7 @@ export default class PreloadState extends Phaser.State {
 
 
         this.load.atlas('scene/scene', "assets/scene/scene.png", "assets/scene/scene.json");
+        this.load.atlas('storyBuilder/icons', "assets/storyBuilder/text_sound_effect_anim_icons.png", "assets/storyBuilder/text_sound_effect_anim_icons.json");
         this.load.atlas('misc/theme', "assets/misc/theme.png", "assets/misc/theme.json");
         this.load.atlas('scene/icons', "assets/scene/icons.png", "assets/scene/icons.json");
         this.load.json('scene/menu_icons', 'assets/scene/menu_icons.json');
@@ -77,7 +78,14 @@ export default class PreloadState extends Phaser.State {
         this.load.json('storyBuilder/scene_config', 'assets/misc/configuration/scene_config.json');
         this.load.json('storyBuilder/puppet_config', 'assets/misc/configuration/puppet_config.json');
 
-
+        // load images for icon in question answer
+        this.load.image("match_the_following","assets/match_the_following.png");
+        this.load.image("multiple_choice_ques","assets/multiple_choice_ques.png");
+        this.load.image("next","assets/next.png");
+        
+        
+        
+        
 
     }
 

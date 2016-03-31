@@ -37,11 +37,13 @@ export default class Human extends Puppet {
     applyText(whichTextIndex, apply) {
         this._specialAttribute.applyText(whichTextIndex, apply);
         let appliedTextData = this._specialAttribute.getText(whichTextIndex);
-        let text = appliedTextData.text;
-        //later you should get text, fontColor, backgroundColor, style 
-        if (game._inRecordingMode) {
-            this._specialAttributesChangedSignal.dispatch({ uniquename: this._uniquename, x: this.x, y: this.y, scaleX: this.scale.x, scaleY: this.scale.y, angle: this.angle, recordingAttributeKind: RecordInfo.TEXT_RECORDING_TYPE, userGeneratedText: text});
-        }        
+        if(appliedTextData != null){
+            let text = appliedTextData.text;
+            //later you should get text, fontColor, backgroundColor, style 
+            if (game._inRecordingMode) {
+                this._specialAttributesChangedSignal.dispatch({ uniquename: this._uniquename, x: this.x, y: this.y, scaleX: this.scale.x, scaleY: this.scale.y, angle: this.angle, recordingAttributeKind: RecordInfo.TEXT_RECORDING_TYPE, userGeneratedText: text });
+            }
+        }     
     }
     
     addSound(soundData) {
@@ -52,6 +54,7 @@ export default class Human extends Puppet {
         this._specialAttribute.applySound(whichSoundIndex, apply);
         let soundData = this._specialAttribute.getSound(whichSoundIndex);
         soundData.apply = apply;
+        if(soundData != null){
         if (game._inRecordingMode) {            
             if (game.cache.checkSoundKey(soundData.soundFileName)) {
                                 
@@ -62,7 +65,8 @@ export default class Human extends Puppet {
                 }
             }            
             this._specialAttributesChangedSignal.dispatch({ uniquename: this._uniquename, x: this.x, y: this.y, scaleX: this.scale.x, scaleY: this.scale.y, angle: this.angle, recordingAttributeKind: RecordInfo.SOUND_RECORDING_TYPE, soundData: soundData});
-        }        
+        } 
+      }       
     }
 
     addLimb(limb) {
@@ -284,21 +288,44 @@ applySpecialAttributeChanges(recordedInfo) {
     }
 
     setShirt(key, frame, anchorX = 0.5, anchorY = 0, offsetX = 0.5, offsetY = 0, offsetInPixelX = 0, offsetInPixelY = 0) {
+        
         this.body.addAccessory(new Accessory(this.game, new Phaser.Point(1, 1), true, true, true, new Phaser.Point(anchorX, anchorY), new Phaser.Point(offsetX, offsetY), new Phaser.Point(offsetInPixelX, offsetInPixelY), false, key, frame, 'shirt'), true);
     }
 
     setSleeves(key, frame, anchorX = 1, anchorY = 0, offsetX = 1, offsetY = 0, offsetInPixelX = 0, offsetInPixelY = 0) {
+        if(key == null || key == 'null') {
+            let acc = this.leftHand.getAccessory('leftSleeve');
+            if(acc) {
+                this.leftHand.removeAccessory(acc);
+            }
+           acc = this.rightHand.getAccessory('rightSleeve');
+            if(acc) {
+                this.rightHand.removeAccessory(acc);
+            }
+            //  this.leftHand.addAccessory(new Accessory(this.game, new Phaser.Point(1, 1), false, true, true, new Phaser.Point(anchorX, anchorY), new Phaser.Point(offsetX, offsetY), new Phaser.Point(offsetInPixelX, offsetInPixelY), false, key, frame, 'leftSleeve'), true);
+            // this.rightHand.addAccessory(new Accessory(this.game, new Phaser.Point(1, 1), false, true, true, new Phaser.Point(1 - anchorX, anchorY), new Phaser.Point(1 - offsetX, offsetY), new Phaser.Point(-offsetInPixelX, offsetInPixelY), true, key, frame, 'rightSleeve'), true);
+            
+        } else {
         this.leftHand.addAccessory(new Accessory(this.game, new Phaser.Point(1, 1), false, true, true, new Phaser.Point(anchorX, anchorY), new Phaser.Point(offsetX, offsetY), new Phaser.Point(offsetInPixelX, offsetInPixelY), false, key, frame, 'leftSleeve'), true);
         this.rightHand.addAccessory(new Accessory(this.game, new Phaser.Point(1, 1), false, true, true, new Phaser.Point(1 - anchorX, anchorY), new Phaser.Point(1 - offsetX, offsetY), new Phaser.Point(-offsetInPixelX, offsetInPixelY), true, key, frame, 'rightSleeve'), true);
+            
+        }
+     //   this.rightHand.children.splice(0,3);
     }
 
     setPants(key, frame, anchorX = 1, anchorY = 0, offsetX = 1, offsetY = 0, offsetInPixelX = 0, offsetInPixelY = 0) {
+        
         this.leftLeg.addAccessory(new Accessory(this.game, new Phaser.Point(1, 1), false, true, true, new Phaser.Point(anchorX, anchorY), new Phaser.Point(offsetX, offsetY), new Phaser.Point(offsetInPixelX, offsetInPixelY), false, key, frame, 'leftPant'), true);
         this.rightLeg.addAccessory(new Accessory(this.game, new Phaser.Point(1, 1), false, true, true, new Phaser.Point(1 - anchorX, anchorY), new Phaser.Point(1 - offsetX, offsetY), new Phaser.Point(-offsetInPixelX, offsetInPixelY), false, key, frame, 'rightPant'), true);
     }
+    setPad(key, frame, anchorX = 1, anchorY = 0, offsetX = 1, offsetY = 0, offsetInPixelX = 0, offsetInPixelY = 0) {
+        
+        this.leftLeg.addAccessory(new Accessory(this.game, new Phaser.Point(1, 1), false, true, true, new Phaser.Point(anchorX, anchorY), new Phaser.Point(offsetX, offsetY), new Phaser.Point(offsetInPixelX, offsetInPixelY), false, key, frame, 'leftPad'), true);
+        this.rightLeg.addAccessory(new Accessory(this.game, new Phaser.Point(1, 1), false, true, true, new Phaser.Point(1 - anchorX, anchorY), new Phaser.Point(1 - offsetX, offsetY), new Phaser.Point(-offsetInPixelX, offsetInPixelY), false, key, frame, 'rightPad'), true);
+    }
 
     setSkirt(key, frame, anchorX = 0, anchorY = 0, offsetX = 0, offsetY = 0, offsetInPixelX = 0, offsetInPixelY = 0) {
-        this.body.addAccessory(new Accessory(this.game, new Phaser.Point(1, 1), true, true, true, new Phaser.Point(anchorX, anchorY), new Phaser.Point(offsetX, offsetY), new Phaser.Point(offsetInPixelX, offsetInPixelY), true, key, frame, 'skirt'), true);
+        this.body.addAccessory(new Accessory(this.game, new Phaser.Point(1, 1), false, true, true, new Phaser.Point(anchorX, anchorY), new Phaser.Point(offsetX, offsetY), new Phaser.Point(offsetInPixelX, offsetInPixelY), true, key, frame, 'skirt'), true);
         //this.leftLeg.addAccessory(new Accessory(this.game, new Phaser.Point(1, 1), false, true, true, new Phaser.Point(anchorX, anchorY), new Phaser.Point(offsetX, offsetY), new Phaser.Point(offsetInPixelX, offsetInPixelY), true, key, frame, 'leftPant'), true);
   
     }
@@ -322,6 +349,7 @@ applySpecialAttributeChanges(recordedInfo) {
     }
 
     setJacket(key, frame, anchorX = 0.5, anchorY = 0, offsetX = 0.5, offsetY = 0, offsetInPixelX = 0, offsetInPixelY = 0) {
+         
         this.body.addAccessory(new Accessory(this.game, new Phaser.Point(1, 1), true, true, true, new Phaser.Point(anchorX, anchorY), new Phaser.Point(offsetX, offsetY), new Phaser.Point(offsetInPixelX, offsetInPixelY), false, key, frame, 'jacket'), false);
     }
 

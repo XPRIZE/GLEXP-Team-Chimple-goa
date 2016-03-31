@@ -37,7 +37,6 @@ export default class TabButton extends Phaser.Button {
                 } else {
                     buttonImage = new Phaser.Sprite(game, 0, 0, key);
                 }
-
             } else if (info.image_data) {
                 //create sprite from image_data
                 // buttonImage = new Phaser.Sprite(game, layoutX, layoutY, frame);

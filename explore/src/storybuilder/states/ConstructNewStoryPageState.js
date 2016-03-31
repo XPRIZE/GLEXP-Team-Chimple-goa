@@ -58,8 +58,8 @@ export default class ConstructNewStoryPageState extends Phaser.State {
         if (!shouldAutoPlay) {
             this._screenshotGenerated = false;
         }
-
-
+        
+        this._questionsAlreadyAskedToUser = false;
         this._recordingPlayEndSignal = new RecordingPlayEndSignal();
         this._recordingPlayEndSignal.add(this.displayButtonOnrecordingPlayEnd, this);
     }
@@ -84,6 +84,8 @@ export default class ConstructNewStoryPageState extends Phaser.State {
                 if (index === 0) {
                     this._isTitlePage = true;
                 }
+                
+                this._curIndex = index;
             }
         }, this);
         return storyPage;
@@ -428,15 +430,14 @@ export default class ConstructNewStoryPageState extends Phaser.State {
                 ConstructNewStoryPageState.ADD_QUESTION_ANWSERS_BUTTON,
                 ConstructNewStoryPageState.START_RECORD_BUTTON,
                 ConstructNewStoryPageState.START_PLAY_BUTTON],
-            this.defineControls, this);
+            this.defineControls, this); 
 
-        this._nextButton = this.game.make.sprite(this.game.width - 40, 240, 'storybuilder/home_button');
+        this._nextButton = this.game.make.sprite(this.game.width - 40, 240, 'next');
         this._nextButton.anchor.setTo(0.5);
         this._nextButton.visible = false;
         this._nextButton.inputEnabled = true;
-        this._nextButton.events.onInputDown.add(this.nextButton, this);
-        // this._nextButton.input.priorityID = 2;
-        MiscUtil.setPriorityID(this._nextButton, 2);
+        this._nextButton.events.onInputDown.add(this.nextButton, this);        
+        MiscUtil.setPriorityID(this._nextButton, 5);
         this._displayControlGroup.add(this._nextButton);
 
         this._editPuppet = game.add.button(this.game.width - 30, 60, 'scene/icons', this.editPuppet, this, 'ic_grid_on_black_24dp_1x.png', 'ic_grid_on_black_24dp_1x.png', 'ic_grid_on_black_24dp_1x.png', 'ic_grid_on_black_24dp_1x.png');
@@ -487,7 +488,7 @@ export default class ConstructNewStoryPageState extends Phaser.State {
         this._consoleBar.rightButtonGrid.updateButtonImage(ConstructNewStoryPageState.START_PLAY_BUTTON, 'scene/icons', ConstructNewStoryPageState.START_PLAY_BUTTON);
         window.callback = this.returnPageJson;
         window.callbackContext = this;
-
+        this._questionsAlreadyAskedToUser = false;
         console.log('hello');
     }
 
@@ -513,7 +514,27 @@ export default class ConstructNewStoryPageState extends Phaser.State {
     // after recording play end will show next button to ask the questions
     nextButton() {
         console.log("next button");
-        window.display_question_multichoice();
+        if(!this._questionsAlreadyAskedToUser) {
+            let isAnyQuestionsConfigued = this._currentPage.questionsAndAnswers.length > 0 ?  1 : 0;
+            if(isAnyQuestionsConfigued) {
+                this._questionsAlreadyAskedToUser = true;                
+                window.display_question_multichoice();    
+            } else {
+                this.playNextPage();    
+            }
+        } else {
+            this.playNextPage();
+        }
+        
+    }
+    
+    playNextPage() {
+        if(this._curIndex < this._currentStory.storyPages.length) {
+            let newPage = this._currentStory.storyPages[this._curIndex + 1];
+            this.game.state.start('StoryConstructNewStoryPageState', true, false, true, this._currentStoryId, newPage.pageId);            
+        } else {
+            this.game.state.start('StoryBuilderLibraryState');
+        }
     }
 
     askQuestions() {
@@ -525,7 +546,10 @@ export default class ConstructNewStoryPageState extends Phaser.State {
 
     // return json of current page
     returnPageJson() {
-        return this._currentPage.questionsAndAnswers;
+        var page_json = new Array();
+        page_json.push(this._currentPage.questionsAndAnswers);
+        page_json.push(this._uniqueImageNames);
+        return page_json;
     }
 
     chooseBackGround(sprite, pointer) {
