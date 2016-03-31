@@ -62,7 +62,7 @@ export default class AttributeEditOverlay extends Phaser.Group {
 
         this.drawScaleHandler(0.8, 0xFFFFFF, 1.5, 75);
 
-        this._settings = this._overlayDisplaySprite.addChild(game.make.sprite(this.game.camera.x + this.game.width - 100, this.game.camera.y + 50, 'storyBuilder/setting'));
+        this._settings = this._overlayDisplaySprite.addChild(game.make.sprite(game.camera.x + game.width - 100, game.camera.y + 50, 'storyBuilder/setting'));
         this._settings.fixedToCameara = true;
         this._settings.inputEnabled = true;
         this._settings.events.onInputUp.add(this.createAdditionalPropertiesOverlay, this);
