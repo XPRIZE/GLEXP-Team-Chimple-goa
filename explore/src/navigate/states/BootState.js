@@ -68,7 +68,7 @@ class BootState extends Phaser.State {
         this.game.add.tween(city1.scale).to({ x: 1.2, y: 1.2 }, 2500).to({ x: 1, y: 1 }, 2500).loop().start();
         this.game.add.tween(city.scale).to({ x: 1.1, y: 1.1 }, 2500).to({ x: 1, y: 1 }, 2500).loop().start();
 
-        let text = this.game.add.text(this.game.world.centerX, this.game.world.centerY, 'Chimple Town');
+        let text = this.game.add.text(this.game.width/2, this.game.height/2, 'Chimple City');
         text.anchor.set(0.5, 0.5);
         text.align = 'center';
         text.font = 'Arial Black';
