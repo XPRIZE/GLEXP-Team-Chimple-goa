@@ -24,7 +24,7 @@ export default class LibraryState extends Phaser.State {
             try {
                 localStorage.setItem("library", JSON.stringify(this._library));
             } catch (e) {
-                if (isQuotaExceeded(e)) {
+                if (this.isQuotaExceeded(e)) {
                     // Storage full, maybe notify user or do some clean-up
                 }
             }
@@ -46,6 +46,7 @@ export default class LibraryState extends Phaser.State {
         this._consoleBar.createRightButtonGrid([LibraryState.EDIT_BUTTON], this.createNewStoryUsingGrid, this);
 
         this.game.add.existing(this._consoleBar);
+        this._consoleBar.text.text = "Your Stories";
         //create UI
         // this._createNewStoryButton = this.game.add.sprite(this.game.width - 40, 40, 'storyBuilder/plus');
         // this._createNewStoryButton.anchor.setTo(0.5);

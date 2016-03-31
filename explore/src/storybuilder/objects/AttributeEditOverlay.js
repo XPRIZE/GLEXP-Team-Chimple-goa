@@ -31,6 +31,7 @@ export default class AttributeEditOverlay extends Phaser.Group {
 
         if (this._isOpen) {
             this.closeAttributeEditOverlay();
+            console.log("consider as open return back");
             return;
         }
 
@@ -99,7 +100,7 @@ export default class AttributeEditOverlay extends Phaser.Group {
             that._dragHandlerSprite.destroy();
             that._dynamicCircle.destroy();
             that._overlayDisplaySprite.destroy();
-
+            that._isOpen = false
 
             let backGroundThemes = that.game.cache.getJSON('storyBuilder/background_themes');
             let objectSound = that.game.cache.getJSON('storyBuilder/object_sounds');

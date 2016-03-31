@@ -8,19 +8,19 @@ export default class HandShape extends Scalable(Phaser.Graphics) {
         this.graphics1 = graphics1;
         this.graphics2 = graphics2;
         if(graphics != null) {
-            console.log("one");
+            // console.log("one");
             this.beginFill(0xffffff);
             this.drawShape(graphics);
             this.endFill();            
         }
         if(graphics1 != null) {
-            console.log("two");
+            // console.log("two");
             this.beginFill(0xffffff);
             this.drawShape(graphics1);
             this.endFill();            
         }
          if(graphics2 != null) {
-            console.log("three");
+            // console.log("three");
             this.beginFill(0xffffff);
             this.drawShape(graphics2);
             this.endFill();            
@@ -55,7 +55,7 @@ export default class HandShape extends Scalable(Phaser.Graphics) {
             graphics1: this.graphics1,
             graphics2: this.graphics2
         };
-        console.log(json);
+        // console.log(json);
         return json;
     }
     

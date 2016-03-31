@@ -96,7 +96,7 @@ export default class ExploreInputHandler {
         this.game.physics.arcade.overlap(testSprite, Surface.All, function(obj1, obj2) {
             let object = obj2;
             while(object = object.parent) {
-                if(object == obj1) {
+                if(object == obj1.parent) {
                     return;
                 }
             }            

@@ -90,7 +90,10 @@ export default class ConsoleBar extends Phaser.Group {
         } else if(buttonName == ConsoleBar.MY_PETS_ICON) { 
             
         } else if(buttonName == ConsoleBar.STORY_ICON) { 
+            
             game._storyBuilderStateHolder.startDefault();
+            this.text.text = "Your Stories";
+            
         } else if(buttonName == ConsoleBar.MY_COINS_ICON) { 
             
         } else if(buttonName == ConsoleBar.HELP_ICON) { 

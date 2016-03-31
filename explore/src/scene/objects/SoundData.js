@@ -22,18 +22,6 @@ export default class SoundData {
         return this._apply;
     }
     
-    playMusic() {
-        //for now hardcoded volume and loop
-        this._music =  game.add.audio(this.soundFileName, 1.0, false);        
-        this._music.play();        
-    }
-    
-    
-    stopMusic() {
-        this._music.stop();
-        this._music.destroy();
-    }
-
     toJSON() {
         let json = {
             _class: "SoundData",
