@@ -998,12 +998,20 @@ var questionAnswerObject, my_callback, my_callbackContext, my_uniqueImageNames;
                                    correct_answer_temp++;
                        }
                     
-                    console.log($("#total_question").text());
-                    var text = $("#total_question").text()
-                    $("#total_question").text(text+' '+correct_answer_sheet.length);
-                    $("#correct").text($("#correct").text()+" "+correct_answer_temp);
-                    $("#wrong").text($("#wrong").text()+" "+(correct_answer_sheet.length-correct_answer_temp));
-                    $("#score").text($("#score").text()+" "+(correct_answer_temp*3));
+//                    console.log($("#total_question").text());
+//                    var text = $("#total_question").text()
+                    $("#total_question").text('Total asked question : '+correct_answer_sheet.length);
+                    $("#correct").text('Correct answer : '+correct_answer_temp);
+                    $("#wrong").text('Wrong answer : '+(correct_answer_sheet.length-correct_answer_temp));
+                    $("#score").text('Score :  '+(correct_answer_temp*3));
+                    
+                    correct_answer_sheet = [];
+                    correct_answer_temp = 0;
+                    answer_sheet = [];
+
+//			   $("#score_card").fadeIn(1000);
+//			   $("#score_card").css({"visibility":"visible","display":"block"});
+                    
                     
                     showpopup("#score_card");
                 }
@@ -1015,11 +1023,17 @@ var questionAnswerObject, my_callback, my_callbackContext, my_uniqueImageNames;
 			// show popup when click on question type selection
 			function showpopup(css)
 			{
-                $('body').append('<div id="mask"></div>');
-                $('#mask').fadeIn(300);
+//                $('body').append('<div id="mask"></div>');
+ //               $('#mask').fadeIn(300);
 
 			   $(css).fadeIn(1000);
 			   $(css).css({"visibility":"visible","display":"block"});
+               
+                    setTimeout(function(){
+                $('body').append('<div id="mask"></div>');
+                $('#mask').fadeIn(300);                        
+                    },100);
+
 			}
 
 			// hide popup
@@ -1160,10 +1174,23 @@ function sound_click()
 	// for sound
 	var su = new SpeechSynthesisUtterance();
 	var text = document.getElementById("word").textContent;
-	console.log(text);    
+
+        su.text = text;
+        
+        speechSynthesis.speak(su);
+}
+
+// play sound when user press sound button
+function sound_click_hindi()
+{
+	// for sound
+	var su = new SpeechSynthesisUtterance();
+	var text = document.getElementById("word_hindi").textContent;
+
         su.text = text;
         speechSynthesis.speak(su);
 }
+
 
 // clear selected when we try to select it on double click
 function clearSelection() {
@@ -1806,19 +1833,16 @@ $(document).ready(function() {
     <div id="myContent" class='content' style="float:right; width:50%">
 	
 		<div id="gdx-bubble-query-row" class="">
-		<div id="gdx-bubble-query"><label id="word"> hello </label></div>
-		<div id="gdx-bubble-audio-icon" onclick = "sound_click()" >
+		<div id="gdx-bubble-query"><label id="word_hindi"> हेलो </label></div>
+		<div id="gdx-bubble-audio-icon" onclick = "sound_click_hindi()" >
 		</div>
 		</div>
 		<div id="gdx-bubble-meaning">
 			<label id="meaning"><b>Meaning:</b> </label> <br>
-			<label id="meaning_content"> meaning is lot </label><br><br>
+			<label id="meaning_content_hindi"> meaning is lot </label><br><br>
 			
 			<label id="example"> <b>Example:</b> </label> <br>
-			<label id="example_content"> so many examples </label> <br><br>
-			 
-			<label id="image"><b> Image: </b></label> <br>
-			<img src= "assets/apple.png" style="width:50%; height:50%;" id="image_content">
+			<label id="example_content_hindi"> so many examples </label> <br><br>			 
 		</div>
 	</div>
         
@@ -1974,10 +1998,10 @@ $(document).ready(function() {
 <!--  start : code to show the score card -->
         <div id="score_card" class="score_card_popup">
             <input type="image" src="assets/close_pop.png" style="margin-left:99%; margin-top:-20px;" id="score_card_close_btn"/>
-            <label style="margin-left : 5%; margin-top : 2%; color : #000000; font-size : 25px;" id="total_question">Total asked question : </label><label></label> <br><br>
-            <label style="margin-left : 5%; margin-top : 2%; color : #000000; font-size : 25px;" id="correct">Correct answer : </label><label></label> <br><br>
-            <label style="margin-left : 5%; margin-top : 2%; color : #000000; font-size : 25px;" id="wrong">Wrong answer : </label><label></label> <br><br>
-            <label style="margin-left : 5%; margin-top : 2%; color : #000000; font-size : 25px;" id="score">Score :  </label><label></label> <br><br>
+            <label style="margin-left : 5%; margin-top : 2%; color : #000000; font-size : 25px;" id="total_question"></label><label></label> <br><br>
+            <label style="margin-left : 5%; margin-top : 2%; color : #000000; font-size : 25px;" id="correct"></label><label></label> <br><br>
+            <label style="margin-left : 5%; margin-top : 2%; color : #000000; font-size : 25px;" id="wrong"></label><label></label> <br><br>
+            <label style="margin-left : 5%; margin-top : 2%; color : #000000; font-size : 25px;" id="score"></label><label></label> <br><br>
 		</div>
 <!--  end : code to show the score card popup  -->
     
