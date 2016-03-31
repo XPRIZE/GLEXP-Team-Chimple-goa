@@ -25,8 +25,12 @@ class BootState extends Phaser.State {
     }
 
     create() {
-
+        
+        console.log("game width = "+ this.game.world.width);
+        console.log("game height = "+ this.game.world.height);
+        this.game.world.width = 1280;
         if (this.game.device.desktop) {
+             this.game.world.width = 1280;
             this.game.stage.pageAlignHorizontally = true;
         } else {
             this.game.scale.scaleMode = Phaser.ScaleManager.SHOW_ALL;
