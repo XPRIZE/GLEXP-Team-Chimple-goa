@@ -546,6 +546,24 @@
          "offsetX":0.45,
         "offsetY":-0.3
       }
+     },
+       "boy_hair":{
+        "FrontHair": {
+        "key": "puppet/character",
+        "frame": "boy_hair.png",
+        "anchorY":0,
+         "offsetX":0.45,
+        "offsetY":-0.3
+      }
+     },
+      "girl_hair":{
+        "FrontHair": {
+        "key": "puppet/character",
+        "frame": "girl_hair.png",
+        "anchorY":0,
+         "offsetX":0.45,
+        "offsetY":-0.3
+      }
      }
   },
   "hairColor_chooser": {
@@ -866,7 +884,7 @@
         "frame": "soccer_leg.png"
       }
     },
-  
+    
      "Housewife_skirt": {
       "Skirt": {
         "key": "puppet/character",
@@ -879,7 +897,23 @@
         "key": "puppet/character",
         "frame": "teacher_skirt.png",
         "offsetX":-0.06,
-         "offsetY":0.9
+         "offsetY":0.1
+      }
+    },
+    "girl_uniform_skirt": {
+      "Skirt": {
+        "key": "puppet/character",
+        "frame": "girl_uniform_skirt.png",
+        "offsetX":-0.06,
+         "offsetY":0.1
+      }
+    },
+     "boy_uniform_pant": {
+      "Skirt": {
+        "key": "puppet/character",
+        "frame": "boy_uniform_pant.png",
+        "offsetX":-0.06,
+         "offsetY":0.1
       }
     }
    
@@ -1229,7 +1263,30 @@
         "key": "puppet/character",
         "frame": "teacher_arm.png"
       }
+    },
+       
+      "boy_uniform_shirt": {
+      "Shirt": {
+        "key": "puppet/character",
+        "frame": "boy_uniform_shirt.png"
+      },
+       "Sleeves": {
+        "key": "puppet/character",
+        "frame": "boy_uniform_right_hand.png"
+      }
+    },
+     "girl_frock": {
+      "Shirt": {
+        "key": "puppet/character",
+        "frame": "girl_frock.png"
+      },
+       "Sleeves": {
+        "key": "puppet/character",
+        "frame": "girl_right_hand.png"
+      }
     }
+    
+    
     
   },
   "shoes_chooser": {
@@ -1429,7 +1486,29 @@
         "frame": "soccer_shoe.png",
          "offsetInPixelY":10
         }  
+    },
+    "boy_uniform_right_shoe":{
+        "Shoes": {
+        "key": "puppet/character",
+        "frame": "boy_uniform_right_shoe.png",
+         "offsetInPixelY":10
+        }  
+    },
+     "girl_uniform_right_shoe":{
+        "Shoes": {
+        "key": "puppet/character",
+        "frame": "girl_uniform_right_shoe.png",
+         "offsetInPixelY":10
+        }  
+    },
+     "girl_right_shoe":{
+        "Shoes": {
+        "key": "puppet/character",
+        "frame": "girl_right_shoe.png",
+         "offsetInPixelY":10
+        }  
     }
+    
     
   },
   "skinColor_chooser": {
