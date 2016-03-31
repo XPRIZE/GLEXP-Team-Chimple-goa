@@ -13,7 +13,7 @@ export default class StoryPuppetBuilderInputHandler {
         if (sprite instanceof Shape) {
             this.puppetPoint = new Phaser.Point(pointer.x, pointer.y);
            
-           this.parent.walkAnimate();
+            this.parent.walkAnimate();
             
             this.originalPuppetPosition = this.parent.position.clone();
             this.game.input.addMoveCallback(this.onInputDragFromStory, this);
@@ -21,7 +21,6 @@ export default class StoryPuppetBuilderInputHandler {
     }
 
     onInputUp(sprite, pointer) {
-        //this.instance.scene.selectedObject.input.dragOffset.x = 0;
         this.instance.scene.selectedObject = null;        
         
         if (sprite instanceof Shape) {             
@@ -31,7 +30,6 @@ export default class StoryPuppetBuilderInputHandler {
         
         var distanceFromLastUp = Phaser.Math.distance(self.game.input.activePointer.positionDown.x, self.game.input.activePointer.positionDown.y,
             self.game.input.activePointer.x, self.game.input.activePointer.y);
-        console.log('distanceFromLastUp in 1111:' + distanceFromLastUp);
         
         if(distanceFromLastUp < 5 && !game._inPlayMode)  {
             sprite._showAttributeEditorSignal.dispatch(sprite, pointer);

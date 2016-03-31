@@ -69,7 +69,7 @@ export default class EditStoryPagesState extends Phaser.State {
         this._consoleBar.createRightButtonGrid([EditStoryPagesState.HOME_BUTTON, EditStoryPagesState.EDIT_BUTTON], this.defineControls, this);
 
         this.game.add.existing(this._consoleBar);
-
+        this._consoleBar.text.text = "Your Stories";
 
         // create internal datastructure
         this._editStoryPagesDisplayGroup = this.game.add.group();
