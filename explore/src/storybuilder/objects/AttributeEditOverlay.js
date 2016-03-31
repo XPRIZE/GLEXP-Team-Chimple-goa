@@ -15,6 +15,7 @@ import Puppet from '../../puppet/objects/Puppet.js';
 import RoundButton from '../../puppet/objects/RoundButton.js';
 import Human from '../../puppet/objects/Human.js';
 import MiscUtil from '../../util/MiscUtil.js';
+import PuppetCustomizer from '../../puppet/objects/PuppetCustomizer.js';
 
 export default class AttributeEditOverlay extends Phaser.Group {
     //container to edit item properties
@@ -78,17 +79,34 @@ export default class AttributeEditOverlay extends Phaser.Group {
         // this._textEditor.events.onInputUp.add(this.createAdditionalPropertiesOverlay, this);
         // // this._textEditor.input.priorityID = 3;
         // MiscUtil.setPriorityID(this._textEditor, 3);
-        
-        // if(this._clickedObject instanceof Puppet) {
-        //     this._editPuppet = game.add.button(400, 140, 'scene/icons', this.editPuppet, this, 'ic_grid_on_black_24dp_1x.png', 'ic_grid_on_black_24dp_1x.png', 'ic_grid_on_black_24dp_1x.png', 'ic_grid_on_black_24dp_1x.png');
-        //     this._editPuppet.anchor.setTo(0.5, 0.5);            
-        // }
-        
+
+        if (this._clickedObject instanceof Puppet) {
+
+            this._editSettings = this._overlayDisplaySprite.addChild(game.make.sprite(game.camera.x + game.width - 100, game.camera.y + 200, 'storyBuilder/setting'));
+            this._editSettings.fixedToCameara = true;
+            this._editSettings.inputEnabled = true;
+            this._editSettings.events.onInputUp.add(this.editPuppet, this);
+            // this._settings.input.priorityID = 3;
+            MiscUtil.setPriorityID(this._editSettings, 3);
+            this._editSettings.fixedToCameara = true;
+
+        }
+
     }
-    
-    // editPuppet() {
-        
-    // }
+
+    editPuppet() {
+        //close overlay 
+        console.log(game.state.getCurrentState());
+        let currentState = game.state.getCurrentState();
+
+        if (currentState.key === 'StoryConstructNewStoryPageState') {
+            currentState.puppet = this._clickedObject;
+            currentState._displayControlGroup.add(new PuppetCustomizer(game, game.width, game.height, currentState.puppet, currentState.addPuppet, currentState));
+        }
+        this._editSettings.destroy();
+        this.closeAttributeEditOverlay();
+
+    }
 
     createAdditionalPropertiesOverlay() {
         console.log('input up');
@@ -111,8 +129,8 @@ export default class AttributeEditOverlay extends Phaser.Group {
             //later get from texture packer
             let TextNames = ["textPlus1", "textPlus2", "textPlus3", "textPlus4"];
             let audioNames = ["AudioPlus1", "AudioPlus2", "AudioPlus3", "AudioPlus4"];
-            let animationNames = ["AnimPlus1", "AnimPlus2","AnimPlus3","AnimPlus4"];
-            let effectNames = ["EffectPlus1", "EffectPlus2","EffectPlus3","EffectPlus4"]; 
+            let animationNames = ["AnimPlus1", "AnimPlus2", "AnimPlus3", "AnimPlus4"];
+            let effectNames = ["EffectPlus1", "EffectPlus2", "EffectPlus3", "EffectPlus4"];
             let audioItem = ["AudioPlus1", "AudioPlus2"];
 
 
@@ -129,7 +147,7 @@ export default class AttributeEditOverlay extends Phaser.Group {
                     audioNames[index] = 'soundButton';
                 }
             }, this);
-            
+
             // if(that._clickedObject instanceof Human){
             //     that._clickedObject._specialAttribute.allAnimation.forEach(function(element, index) {
             //         animationNames[index] = 'AnimPlus1';
@@ -158,146 +176,146 @@ export default class AttributeEditOverlay extends Phaser.Group {
                 let index = 0, flag = false;
 
                 // If condition true when recording is in pause mode
-                if(game._inPauseRecording){
-                    if(tab == "text"){    
-                        for(index =0 ; index < TextNames.length ; index++){
-                                if(TextNames[index] == button){
-                                    flag = true;
-                                }
-                                if(flag)
-                                    break;
-                        }                                                     
-                        this._recordingResumeSignal.dispatch();
-                        this._clickedObject.applyText(index, false); 
-                        
-                        //later if all applied then toggle it
-                    
-                    }else if( tab == "audio"){
-
-                        for(index =0 ; index < audioNames.length ; index++){
-                                if(audioNames[index] == button){
-                                    flag = true;
-                                }
-                                if(flag)
-                                    break;
-                        }      
-                        
-                        this._recordingResumeSignal.dispatch();
-                       if(!window.isMusicOn) { 
-                        this._clickedObject.applySound(index, true);
-                        window.isMusicOn = true;   
-                       }
-                        else {
-                        this._clickedObject.applySound(index, false);
-                        window.isMusicOn = false;                               
-                        }    
-                        // console.log(" ----  -- pressed in audio : "+ index);
-                    }else if (tab == "anim"){
-                        
-                        for(index =0 ; index < animationNames.length ; index++){
-                                if(animationNames[index] == button){
-                                    flag = true;
-                                }
-                                if(flag)
-                                    break;
+                if (game._inPauseRecording) {
+                    if (tab == "text") {
+                        for (index = 0; index < TextNames.length; index++) {
+                            if (TextNames[index] == button) {
+                                flag = true;
+                            }
+                            if (flag)
+                                break;
                         }
-                        console.log(" ----  -- pressed in audio : "+ index);      
-                        
+                        this._recordingResumeSignal.dispatch();
+                        this._clickedObject.applyText(index, false);
+
+                        //later if all applied then toggle it
+
+                    } else if (tab == "audio") {
+
+                        for (index = 0; index < audioNames.length; index++) {
+                            if (audioNames[index] == button) {
+                                flag = true;
+                            }
+                            if (flag)
+                                break;
+                        }
+
+                        this._recordingResumeSignal.dispatch();
+                        if (!window.isMusicOn) {
+                            this._clickedObject.applySound(index, true);
+                            window.isMusicOn = true;
+                        }
+                        else {
+                            this._clickedObject.applySound(index, false);
+                            window.isMusicOn = false;
+                        }
+                        // console.log(" ----  -- pressed in audio : "+ index);
+                    } else if (tab == "anim") {
+
+                        for (index = 0; index < animationNames.length; index++) {
+                            if (animationNames[index] == button) {
+                                flag = true;
+                            }
+                            if (flag)
+                                break;
+                        }
+                        console.log(" ----  -- pressed in audio : " + index);
+
                     }
-                    
+
                     this._itemSettingTab.destroy();
 
                 } else {
-                    
-                        if(tab == "text"){                                                
-                        
-                            that.clilckedButtonName = button;
-                            
-                            $("#login-box").fadeIn(300);
-                            
-                            $('body').append('<div id="mask"></div>');
-                            $('#mask').fadeIn(300);
-                                window.callback = this.addtext_fromhtml;
-                                window.callbackContext = this;
-                            
-                        }else if( tab == "audio"){
-                            
-                            console.log("inside the audio tab ");
-                            this.clilckedButtonName = button;  
-                            self._itemAudioTab = that.game.add.existing(new TabView(self.game, 'scene/scene', self.game.width + self.game.world.camera.x, self.game.height + self.game.world.camera.y, 10, 50, 5, 3, true, function(tab, button) {
-                                    
-                                console.log(" TabName:"+ tab + " ButtonName: "+ button + " KeyName: "+ objectSound[tab][button]);        
-                               
-                                this.setAudioData(objectSound[tab][button]);
-                                 that._itemSettingTab.destroy();
-                            }, that, objectSound));
-                            
-                            self._itemAudioTab.tabs = { 'forest': audioItem ,'village': audioItem , 'city': audioItem };
-                            self._itemAudioTab.x = that.game.width * 0.05;
-                            self._itemAudioTab.y = 0;
-                            self._itemAudioTab.fixedToCamera = true;
-                            self._itemAudioTab.visible = true;
-                            self._itemAudioTab.bringToTop = true;
-                            
-                        }else if (tab == "anim"){
-                            
-                            console.log("inside the anim tab ");
-                            this.clilckedButtonName = button;  
-                            self._itemAnimTab = that.game.add.existing(new TabView(self.game, 'scene/scene', self.game.width + self.game.world.camera.x, self.game.height + self.game.world.camera.y, 10, 50, 5, 3, true, function(tab, button) {
-                                    
-                                console.log(" TabName:"+ tab + " ButtonName: "+ button + " KeyName: "+ objectAnim[tab][button]);        
-                               
-                              //  this.setAudioData(objectSound[tab][button]);
-                                 self._itemAnimTab.destroy();
-                                 that._itemSettingTab.destroy();
-                            }, that, objectAnim));
-                            
-                            self._itemAnimTab.tabs = { 'human': audioItem ,'animal': audioItem , 'alen': audioItem };
-                            self._itemAnimTab.x = that.game.width * 0.05;
-                            self._itemAnimTab.y = 0;
-                            self._itemAnimTab.fixedToCamera = true;
-                            self._itemAnimTab.visible = true;
-                            self._itemAnimTab.bringToTop = true;
-                            
-                        }else if (tab == 'effects'){
-                            
-                             console.log("inside the Effects tab ");
-                            this.clilckedButtonName = button;  
-                            self._itemAnimTab = that.game.add.existing(new TabView(self.game, 'scene/scene', self.game.width + self.game.world.camera.x, self.game.height + self.game.world.camera.y, 10, 50, 5, 3, true, function(tab, button) {
-                                    
-                                console.log(" TabName:"+ tab + " ButtonName: "+ button + " KeyName: "+ objectEffects[tab][button]);        
-                               
-                              //  this.setAudioData(objectSound[tab][button]);
-                                 self._itemAnimTab.destroy();
-                                 that._itemSettingTab.destroy();
-                            }, that, objectEffects));
-                            
-                            self._itemAnimTab.tabs = { 'effect1': audioItem ,'effect2': audioItem , 'effect3': audioItem };
-                            self._itemAnimTab.x = that.game.width * 0.05;
-                            self._itemAnimTab.y = 0;
-                            self._itemAnimTab.fixedToCamera = true;
-                            self._itemAnimTab.visible = true;
-                            self._itemAnimTab.bringToTop = true;
-                            
-                        }
-                }              
+
+                    if (tab == "text") {
+
+                        that.clilckedButtonName = button;
+
+                        $("#login-box").fadeIn(300);
+
+                        $('body').append('<div id="mask"></div>');
+                        $('#mask').fadeIn(300);
+                        window.callback = this.addtext_fromhtml;
+                        window.callbackContext = this;
+
+                    } else if (tab == "audio") {
+
+                        console.log("inside the audio tab ");
+                        this.clilckedButtonName = button;
+                        self._itemAudioTab = that.game.add.existing(new TabView(self.game, 'scene/scene', self.game.width + self.game.world.camera.x, self.game.height + self.game.world.camera.y, 10, 50, 5, 3, true, function(tab, button) {
+
+                            console.log(" TabName:" + tab + " ButtonName: " + button + " KeyName: " + objectSound[tab][button]);
+
+                            this.setAudioData(objectSound[tab][button]);
+                            that._itemSettingTab.destroy();
+                        }, that, objectSound));
+
+                        self._itemAudioTab.tabs = { 'forest': audioItem, 'village': audioItem, 'city': audioItem };
+                        self._itemAudioTab.x = that.game.width * 0.05;
+                        self._itemAudioTab.y = 0;
+                        self._itemAudioTab.fixedToCamera = true;
+                        self._itemAudioTab.visible = true;
+                        self._itemAudioTab.bringToTop = true;
+
+                    } else if (tab == "anim") {
+
+                        console.log("inside the anim tab ");
+                        this.clilckedButtonName = button;
+                        self._itemAnimTab = that.game.add.existing(new TabView(self.game, 'scene/scene', self.game.width + self.game.world.camera.x, self.game.height + self.game.world.camera.y, 10, 50, 5, 3, true, function(tab, button) {
+
+                            console.log(" TabName:" + tab + " ButtonName: " + button + " KeyName: " + objectAnim[tab][button]);
+
+                            //  this.setAudioData(objectSound[tab][button]);
+                            self._itemAnimTab.destroy();
+                            that._itemSettingTab.destroy();
+                        }, that, objectAnim));
+
+                        self._itemAnimTab.tabs = { 'human': audioItem, 'animal': audioItem, 'alen': audioItem };
+                        self._itemAnimTab.x = that.game.width * 0.05;
+                        self._itemAnimTab.y = 0;
+                        self._itemAnimTab.fixedToCamera = true;
+                        self._itemAnimTab.visible = true;
+                        self._itemAnimTab.bringToTop = true;
+
+                    } else if (tab == 'effects') {
+
+                        console.log("inside the Effects tab ");
+                        this.clilckedButtonName = button;
+                        self._itemAnimTab = that.game.add.existing(new TabView(self.game, 'scene/scene', self.game.width + self.game.world.camera.x, self.game.height + self.game.world.camera.y, 10, 50, 5, 3, true, function(tab, button) {
+
+                            console.log(" TabName:" + tab + " ButtonName: " + button + " KeyName: " + objectEffects[tab][button]);
+
+                            //  this.setAudioData(objectSound[tab][button]);
+                            self._itemAnimTab.destroy();
+                            that._itemSettingTab.destroy();
+                        }, that, objectEffects));
+
+                        self._itemAnimTab.tabs = { 'effect1': audioItem, 'effect2': audioItem, 'effect3': audioItem };
+                        self._itemAnimTab.x = that.game.width * 0.05;
+                        self._itemAnimTab.y = 0;
+                        self._itemAnimTab.fixedToCamera = true;
+                        self._itemAnimTab.visible = true;
+                        self._itemAnimTab.bringToTop = true;
+
+                    }
+                }
             }, that, backGroundThemes));
 
 
-            if(that._clickedObject instanceof Human){
-                that._itemSettingTab.tabs = { 'text': TextNames, 'audio': audioNames , 'anim' : animationNames };
-            }            
-            else if(that._clickedObject instanceof TileTexture){
-                that._itemSettingTab.tabs = { 'text': TextNames, 'audio': audioNames , 'effects' : effectNames};
+            if (that._clickedObject instanceof Human) {
+                that._itemSettingTab.tabs = { 'text': TextNames, 'audio': audioNames, 'anim': animationNames };
             }
-            else if((that._clickedObject instanceof Item) || (that._clickedObject instanceof Holder)){
+            else if (that._clickedObject instanceof TileTexture) {
+                that._itemSettingTab.tabs = { 'text': TextNames, 'audio': audioNames, 'effects': effectNames };
+            }
+            else if ((that._clickedObject instanceof Item) || (that._clickedObject instanceof Holder)) {
                 that._itemSettingTab.tabs = { 'text': TextNames, 'audio': audioNames };
-            }            
-            else{
-                console.log("It does not understand the type of clickedObject , so thats why 4 popup categories came");
-                that._itemSettingTab.tabs = { 'text': TextNames, 'audio': audioNames , 'anim' : animationNames , 'effects' : effectNames};
             }
-            
+            else {
+                console.log("It does not understand the type of clickedObject , so thats why 4 popup categories came");
+                that._itemSettingTab.tabs = { 'text': TextNames, 'audio': audioNames, 'anim': animationNames, 'effects': effectNames };
+            }
+
             that._itemSettingTab.x = that.game.width * 0.05;
             that._itemSettingTab.y = 0;
             that._itemSettingTab.fixedToCamera = true;
@@ -320,7 +338,7 @@ export default class AttributeEditOverlay extends Phaser.Group {
                     jsonDataText = new TextData(game, 0, 0, this.clilckedButtonName, null, textvalue, style, this._clickedObject._uniquename, 0);
 
                     value.children[i].children[0].loadTexture("storyBuilder/forest_1_th");
-                  //  value.children[i].parent = value;
+                    //  value.children[i].parent = value;
                     console.log("JSON FOR TEXT OBJECT \n\n" + JSON.stringify(jsonDataText));
                 }
             }
@@ -344,10 +362,10 @@ export default class AttributeEditOverlay extends Phaser.Group {
 
                     jsonDataAudio = new SoundData(game, soundFileName, 0);
                     value.children[i].children[0].loadTexture("storyBuilder/sound_button");
-                  //  value.children[i].parent = value;
+                    //  value.children[i].parent = value;
                     console.log("JSON FOR TEXT OBJECT \n\n" + JSON.stringify(jsonDataAudio));
                 }
-            }            
+            }
         }
         this._clickedObject.addSound(jsonDataAudio);
         this._itemSettingTab.destroy();
@@ -386,15 +404,15 @@ export default class AttributeEditOverlay extends Phaser.Group {
         } else if (this._clickedObject instanceof Holder) {
             boundingBox = this._clickedObject.drawBoundingBox(0xFFFFFF);
             clickedPointer = new Phaser.Point(topLeftPoint.x + boundingBox.width / 2, topLeftPoint.y + boundingBox.height / 2);
-            boundingBox.destroy();    
-    } else if (this._clickedObject instanceof Item) {
+            boundingBox.destroy();
+        } else if (this._clickedObject instanceof Item) {
             boundingBox = this._clickedObject.drawBoundingBox(0xFFFFFF);
             let actualX = topLeftPoint.x - boundingBox.width * this._clickedObject.anchor.x;
             let actualY = topLeftPoint.y - boundingBox.height * this._clickedObject.anchor.y;
             clickedPointer = new Phaser.Point(actualX + boundingBox.width / 2, actualY + boundingBox.height / 2);
-            boundingBox.destroy();    
-    }
-        
+            boundingBox.destroy();
+        }
+
         this._fixedHandlerSprite = game.add.sprite(clickedPointer.x, clickedPointer.y, graphics.generateTexture());
         this.add(this._fixedHandlerSprite);
         game.world.bringToTop(this._fixedHandlerSprite);
@@ -435,7 +453,7 @@ export default class AttributeEditOverlay extends Phaser.Group {
         this._dragHandlerSprite.input.enableDrag(false, true);
         // this._dragHandlerSprite.input.priorityID = 3;
         MiscUtil.setPriorityID(this._dragHandlerSprite, 3);
-        
+
         this._dragHandlerSprite.angle = this._clickedObject.angle;
         this._dragHandlerSprite._click = 0;
         this._dragHandlerSprite._clickScale = new Phaser.Point(1, 1);
@@ -510,9 +528,6 @@ export default class AttributeEditOverlay extends Phaser.Group {
             that._dragHandlerSprite.destroy();
             that._overlayDisplaySprite.destroy();
             that._dynamicCircle.destroy();
-            if(that._editPuppet) {
-                that._editPuppet.destroy();
-            } 
             that._clickedObject.inputEnabled = true;
             that._recordingResumeSignal.dispatch();
             that._isOpen = false;
