@@ -54,6 +54,11 @@ export default class Item extends EnableInputs(Phaser.Sprite) {
     }
 
     enableInputs(instance, iterateInside) {
+        if(this.movable) {
+            instance.dragEnabled = true;
+        } else {
+            instance.dragEnabled = false;
+        }
         super.enableInputs(instance, iterateInside);
         // this.input.priorityID = 3;
         MiscUtil.setPriorityID(this, 3);
@@ -234,7 +239,7 @@ export default class Item extends EnableInputs(Phaser.Sprite) {
     }
 
     static fromJSON(game, j) {
-        let val = new Item(game, j.x, j.y, j.key, j.frame, j.uniquename);
+        let val = new Item(game, j.x, j.y, j.key, j.frame, j.uniquename, j.movable);
         return val;
     }
 
