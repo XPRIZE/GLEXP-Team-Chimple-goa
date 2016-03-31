@@ -100,6 +100,7 @@ export default class EditHolderState extends Phaser.State {
             EditHolderInputHandler.box.destroy();
             EditHolderInputHandler.box = null;
         }
+        this.holder.repairOffset();
         this.holder.x = this.holderX;
         this.holder.y = this.holderY;
         this.world.remove(this.holder);

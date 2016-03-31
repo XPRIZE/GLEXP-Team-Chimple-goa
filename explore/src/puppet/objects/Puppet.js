@@ -47,6 +47,7 @@ export default class Puppet extends Limb {
         body.name = 'body';
         this.addLimb(body);
     }
+    
 
     /**
      * Abstract behaviour. In each subclass add the behavior

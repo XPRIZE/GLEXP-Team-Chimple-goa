@@ -253,6 +253,28 @@ export default class Holder extends Item {
         return this._uniquename;
     }
 
+    repairOffset() {
+        let base = this.backTexture;
+        if(!base) {
+            base = this.frontTexture;
+        }
+        if(base) {
+            this.surfaces.forEach(function(value) {
+                value.textures.forEach(function(texture) {
+                    texture.x -= base.x;
+                    texture.y -= base.y;
+                });
+                value.contents.forEach(function(content) {
+                    content.x -= base.x;
+                    content.y -= base.y;
+                });
+            });
+            this.x += base.x;
+            this.y += base.y;
+            base.x = 0;
+            base.y = 0;            
+        }
+    }
 
     toJSON() {
         let json = {

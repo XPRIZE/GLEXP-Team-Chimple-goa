@@ -3,7 +3,7 @@ import MiscUtil from '../../util/MiscUtil.js';
 
 export default class Texture extends EnableInputs(Phaser.Sprite) {
     constructor(game, x, y, key, frame) {
-        super(game, x, y, key, frame);
+        super(game, x, y, key, frame);        
     }
 
     enableInputs(instance, iterateInside) {

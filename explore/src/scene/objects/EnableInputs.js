@@ -4,19 +4,22 @@ let EnableInputs = (superclass) => class extends superclass {
     enableInputs(instance, iterateInside) {
         this.instance = instance;
         this.inputEnabled = true;
-        if(instance.priorityID) {
+        if (instance.priorityID) {
             MiscUtil.setPriorityID(this, instance.priorityID);
         }
         if (instance.clickEnabled) {
-            this.events.onInputDown.add(instance.onInputDown, this);
-            this.events.onInputUp.add(instance.onInputUp, this);
-
+            if (this.events) {
+                this.events.onInputDown.add(instance.onInputDown, this);
+                this.events.onInputUp.add(instance.onInputUp, this);
+            }
         }
-        if (instance.dragEnabled) {
+        if (instance.dragEnabled && this.input) {
             this.input.enableDrag();
-            this.events.onDragStart.add(instance.onDragStart, this);
-            this.events.onDragUpdate.add(instance.onDragUpdate, this);
-            this.events.onDragStop.add(instance.onDragStop, this);
+            if (this.events) {
+                this.events.onDragStart.add(instance.onDragStart, this);
+                this.events.onDragUpdate.add(instance.onDragUpdate, this);
+                this.events.onDragStop.add(instance.onDragStop, this);
+            }
         }
 
         if (iterateInside) {
@@ -29,12 +32,12 @@ let EnableInputs = (superclass) => class extends superclass {
     }
 
     disableInputs(iterateInside) {
-        if(this.events) {
-            this.events.destroy();        
+        if (this.events) {
+            this.events.destroy();
         }
         this.instance = null;
         this.inputEnabled = false;
-        this.dragEnabled  = false;
+        this.dragEnabled = false;
         if (iterateInside) {
             this.children.forEach(function(value) {
                 if ('function' == typeof value.disableInputs) {
@@ -45,7 +48,7 @@ let EnableInputs = (superclass) => class extends superclass {
     }
 
     enableDrag(iterateInside) {
-        if(this.instance && this.instance.dragEnabled && this.input) {
+        if (this.instance && this.instance.dragEnabled && this.input) {
             this.input.enableDrag();
         }
         if (iterateInside) {
@@ -57,9 +60,9 @@ let EnableInputs = (superclass) => class extends superclass {
         }
     }
 
-    
+
     disableDrag(iterateInside) {
-        if(this.instance && this.instance.dragEnabled && this.input) {
+        if (this.instance && this.instance.dragEnabled && this.input) {
             this.input.disableDrag();
         }
         if (iterateInside) {
