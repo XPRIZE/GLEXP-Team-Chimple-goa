@@ -54,6 +54,11 @@ export default class Item extends EnableInputs(Phaser.Sprite) {
     }
 
     enableInputs(instance, iterateInside) {
+        if(this.movable) {
+            instance.dragEnabled = true;
+        } else {
+            instance.dragEnabled = false;
+        }
         super.enableInputs(instance, iterateInside);
         // this.input.priorityID = 3;
         MiscUtil.setPriorityID(this, 3);
@@ -66,33 +71,28 @@ export default class Item extends EnableInputs(Phaser.Sprite) {
     applyText(whichTextIndex, apply) {
         this._specialAttribute.applyText(whichTextIndex, apply);
         let appliedTextData = this._specialAttribute.getText(whichTextIndex);
-        let text = appliedTextData.text;
-        //later you should get text, fontColor, backgroundColor, style 
-        if (game._inRecordingMode) {
-            this._specialAttributesChangedSignal.dispatch({ uniquename: this._uniquename, x: this.x, y: this.y, scaleX: this.scale.x, scaleY: this.scale.y, angle: this.angle, recordingAttributeKind: RecordInfo.TEXT_RECORDING_TYPE, userGeneratedText: text});
-        }        
+        if(appliedTextData != null){
+            let text = appliedTextData.text;
+            //later you should get text, fontColor, backgroundColor, style 
+            if (game._inRecordingMode) {
+                this._specialAttributesChangedSignal.dispatch({ uniquename: this._uniquename, x: this.x, y: this.y, scaleX: this.scale.x, scaleY: this.scale.y, angle: this.angle, recordingAttributeKind: RecordInfo.TEXT_RECORDING_TYPE, userGeneratedText: text });
+            }
+        }  
     }
     
     addSound(soundData) {
         this._specialAttribute.addSound(soundData); 
     }
-
     
     applySound(whichSoundIndex, apply) {
         this._specialAttribute.applySound(whichSoundIndex, apply);
         let soundData = this._specialAttribute.getSound(whichSoundIndex);
         soundData.apply = apply;
-        if (game._inRecordingMode) {            
-            if (game.cache.checkSoundKey(soundData.soundFileName)) {
-                                
-                if(apply) {
-                    soundData.playMusic();                       
-                } else {
-                    soundData.stopMusic();                    
-                }
-            }            
-            this._specialAttributesChangedSignal.dispatch({ uniquename: this._uniquename, x: this.x, y: this.y, scaleX: this.scale.x, scaleY: this.scale.y, angle: this.angle, recordingAttributeKind: RecordInfo.SOUND_RECORDING_TYPE, soundData: soundData});
-        }        
+        if(soundData != null){
+            if (game._inRecordingMode) {            
+                this._specialAttributesChangedSignal.dispatch({ uniquename: this._uniquename, x: this.x, y: this.y, scaleX: this.scale.x, scaleY: this.scale.y, angle: this.angle, recordingAttributeKind: RecordInfo.SOUND_RECORDING_TYPE, soundData: soundData});
+            }
+      }        
     }
 
     drawBoundingBox(color) {
@@ -143,14 +143,14 @@ export default class Item extends EnableInputs(Phaser.Sprite) {
         // game.debug.text('Elapsed seconds: ' + this.game.time.totalElapsedSeconds(), 32, 32);
 
         if (game._inRecordingMode) {
-            console.log('in recording mode');            
+            // console.log('in recording mode');            
             this.onAttributesChanged.dispatch({ uniquename: this._uniquename, x: this.x, y: this.y, scaleX: this.scale.x, scaleY: this.scale.y, angle: this.angle, recordingAttributeKind: RecordInfo.DEFAULT_RECORDING_TYPE });
         } else if (game._inPlayMode) {
-            console.log('in play mode');
+            // console.log('in play mode');
             if (this._changeAttributes != null && this._changeAttributes.size > 0) {
                 let json = this._changeAttributes.get(this.uniquename);
                 var recordedInfo = RecordInfo.fromJSON(json);
-                console.log('this.x: ' + this.x + " this.y:" + this.y);
+                // console.log('this.x: ' + this.x + " this.y:" + this.y);
                 this.x = recordedInfo.x;
                 this.y = recordedInfo.y;
                 this.scale.x = recordedInfo.scaleX;
@@ -158,13 +158,28 @@ export default class Item extends EnableInputs(Phaser.Sprite) {
                 this.angle = recordedInfo.angle;
                 this.game.camera.x = recordedInfo.cameraX;
                 this.game.camera.y = recordedInfo.cameraY;
-                console.log('recordedInfo.x:' + recordedInfo.x + "recordedInfo.y:" + recordedInfo.y);
+                // console.log('recordedInfo.x:' + recordedInfo.x + "recordedInfo.y:" + recordedInfo.y);
                 this.applySpecialAttributeChanges(recordedInfo);                
                 
             }
         }
     }
     
+    checkIfTextAlreadyShown(recordedInfo) {
+        let checkTextKey = recordedInfo.uniquename + "_" + recordedInfo.text;
+        let textMap = window.textMessages;
+        if(textMap) {
+             if(textMap.has(checkTextKey)) {
+                 console.log("skipping text as exists:" + checkTextKey)
+                 return true;
+             } else {
+                 textMap.set(checkTextKey, 1);
+                 return false;
+             }
+             
+        } 
+        return false;
+    }
     
     
     applySpecialAttributeChanges(recordedInfo) {
@@ -172,45 +187,48 @@ export default class Item extends EnableInputs(Phaser.Sprite) {
         //later refactor into 4 different classes
         if (recordedInfo.recordingAttributeKind == RecordInfo.TEXT_RECORDING_TYPE) {
             //send an signal to show Text PopUp to User
-            console.log('show text popup to User' + recordedInfo.userGeneratedText);
-            $('#element_to_pop_up').bPopup({onClose: function() {
-                console.log('closing pop up');
-                self._playResumeSignal.dispatch();
-            }});
-             $("#word").text(""+recordedInfo.text);
             
-           
-/*              var url = "make" + '.json';
-                console.log('url ' + url);
-                var meaning = '';
-                $.getJSON(url, function(jd) {
-                meaning = jd.meaning;
-                meaning = $(meaning).text();
-                $("#word").text(url);
-                $("#meaning_content").text(meaning);
-                $("#example_content").text(jd.exmaples);
-                $("#image_content").attr("src", jd.image);
-            });
-  */          
-            self._playPauseSignal.dispatch();
+            if(!this.checkIfTextAlreadyShown(recordedInfo))
+            {
+                console.log('show text popup to User' + recordedInfo.text);
+                $('#element_to_pop_up').bPopup({onClose: function() {
+                    console.log('closing pop up');
+                    self._playResumeSignal.dispatch();
+                }});
+                $("#word").text(""+recordedInfo.text);            
+                self._playPauseSignal.dispatch();            
+            } 
         } else if (recordedInfo.recordingAttributeKind == RecordInfo.SOUND_RECORDING_TYPE) {
             //check if sound present in cache, if so use (should had been created when user choose sound for page)
-            // if sound not present, then add to game and reference to game for now - TBD (how to remove)            
+            // if sound not present, then add to game and reference to game for now - TBD (how to remove)
+            let soundKey = this.addSoundKeyToMapIfNotExists(recordedInfo);
             let soundData = recordedInfo.soundData;
-            if (game.cache.checkSoundKey(soundData.soundFileName)) {
-                if(!this._soundFileName) {
-                    this._soundFileName = new SoundData(game, soundData.soundFileName, soundData.apply);    
-                }                
-                if(soundData.apply) {
-                    this._soundFileName.playMusic();        
-                } else {
-                    this._soundFileName.stopMusic();
-                    // this._soundFileName.destroy();
-                }
-            }
+            let musicHandlesMap = window.musicHandlesMap;
+            if(soundData.apply) {
+                //play music
+                let audioFile = musicHandlesMap.get(soundKey);
+                audioFile.play();
+            } else {
+                //stop music
+                let audioFile = musicHandlesMap.get(soundKey);
+                audioFile.stop();
+            }            
         }
     }
     
+    addSoundKeyToMapIfNotExists(recordedInfo) {
+        let soundData = recordedInfo.soundData;        
+        let checkSoundKey = recordedInfo.uniquename + "_" + soundData.soundFileName;
+        let musicHandlesMap = window.musicHandlesMap;
+        if(musicHandlesMap) {
+             if(musicHandlesMap.has(checkSoundKey)) {
+                 console.log("skipping Sound as exists:" + checkSoundKey)                 
+             } else {                 
+                 musicHandlesMap.set(checkSoundKey, game.add.audio(soundData.soundFileName, 1.0, false));                                            
+             }             
+        }  
+        return checkSoundKey;       
+    }
     
 
     changeAttributes(data) {
@@ -231,7 +249,7 @@ export default class Item extends EnableInputs(Phaser.Sprite) {
     }
 
     static fromJSON(game, j) {
-        let val = new Item(game, j.x, j.y, j.key, j.frame, j.uniquename);
+        let val = new Item(game, j.x, j.y, j.key, j.frame, j.uniquename, j.movable);
         return val;
     }
 

@@ -19,7 +19,7 @@ export default class PuppetCustomizer extends Phaser.Group {
         this.callbackContext = callbackContext;
         let dressChoices = game.cache.getJSON('puppet/accessorize');
         let menuAccessorize = game.cache.getJSON('puppet/menu_accessorize');
-        let chooser = this.add(new TabView(game, 'scene/icons', width / 2, height, 10, 100, 5, 3, true, function(accType, accName) {
+        let chooser = this.add(new TabView(game, 'scene/icons', width * 5/8, height, 16, 58, 5, 3, true, function(accType, accName) {
             if (accType == "skinColor_chooser") {
                 this.puppet.bodyColor = parseInt(accName, 16);
                 //  this.puppet.blinkAct();
@@ -42,11 +42,12 @@ export default class PuppetCustomizer extends Phaser.Group {
                 for (var key in acc) {
                     if (acc.hasOwnProperty(key)) {
                         let element = acc[key];
+
                         this.puppet['set' + key](element.key, element.frame, element.anchorX, element.anchorY, element.offsetX, element.offsetY, element.offsetInPixelX, element.offsetInPixelY);
                     }
                 }
             }
-        }, this, menuAccessorize));
+        }, this, menuAccessorize, {displayPrice: true}));
         if(priorityID) {
             chooser.priorityID = priorityID;        
         }
@@ -66,7 +67,7 @@ export default class PuppetCustomizer extends Phaser.Group {
         let back = this.add(new Phaser.Graphics(game, 0, 0));
         back.beginFill(0xDDDDDD);
         // back.alpha = 1;
-        back.drawRect(width / 2, 0, width / 2, height);
+        back.drawRect(width * 5/8, 0, width * 3/8, height);
         back.endFill();
         back.inputEnabled = true;
         back.input.priorityID = priorityID + 2;
@@ -75,12 +76,14 @@ export default class PuppetCustomizer extends Phaser.Group {
             this.puppet = Human.buildDefault(game, new PuppetInputHandler(game, priorityID + 3));
         }
         this.add(this.puppet);
-        this.puppet.x = 3 * width / 4;
+        this.puppetInitialPosition = this.puppet.position.clone();
+        this.puppet.x = width * 13/16;
         this.puppet.y = 500;
         this.puppet.bodyColor = 0xF1BD78;
         
-        let button = this.add(new Phaser.Button(game, this.width - 50, 300, 'scene/icons', function() {
+        let button = this.add(new Phaser.Button(game, width * 13/16, height - 100, 'scene/icons', function() {
             this.removeChild(this.puppet);
+            this.puppet.position = this.puppetInitialPosition;
             this.destroy();
             this.callback.call(this.callbackContext, this.puppet);
         }, this, 'ic_done_black_24dp_1x.png', 'ic_done_black_24dp_1x.png', 'ic_done_black_24dp_1x.png', 'ic_done_black_24dp_1x.png'));

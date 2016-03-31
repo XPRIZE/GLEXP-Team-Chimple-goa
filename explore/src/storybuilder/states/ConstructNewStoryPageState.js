@@ -58,7 +58,7 @@ export default class ConstructNewStoryPageState extends Phaser.State {
         if (!shouldAutoPlay) {
             this._screenshotGenerated = false;
         }
-        
+
         this._questionsAlreadyAskedToUser = false;
         this._recordingPlayEndSignal = new RecordingPlayEndSignal();
         this._recordingPlayEndSignal.add(this.displayButtonOnrecordingPlayEnd, this);
@@ -84,7 +84,7 @@ export default class ConstructNewStoryPageState extends Phaser.State {
                 if (index === 0) {
                     this._isTitlePage = true;
                 }
-                
+
                 this._curIndex = index;
             }
         }, this);
@@ -152,7 +152,7 @@ export default class ConstructNewStoryPageState extends Phaser.State {
 
         this._consoleBar = new ConsoleBar(this.game);
         this.game.add.existing(this._consoleBar);
-
+        this._consoleBar.text.text = "Your Stories";
 
         this._displayControlGroup = this.game.add.group();
         this._displayControlGroup.inputEnabled = true;
@@ -263,7 +263,6 @@ export default class ConstructNewStoryPageState extends Phaser.State {
 
     enableInputsOnScene() {
         this._displayControlGroup.children.forEach(function(element) {
-            console.log(element);
             if (element instanceof Scene) {
                 let scene = element;
                 element.floor.textures.forEach(function(element) {
@@ -279,7 +278,7 @@ export default class ConstructNewStoryPageState extends Phaser.State {
 
                 element.floor.contents.forEach(function(element) {
                     if (element instanceof Puppet) {
-                        element.body.enableInputs(new StoryPuppetBuilderInputHandler(scene), false);
+                        this.bindPuppetInputHandler(element, scene);
                     } else {
                         element.enableInputs(new StoryBuilderInputHandler(scene), false);
                     }
@@ -294,6 +293,19 @@ export default class ConstructNewStoryPageState extends Phaser.State {
 
     }
 
+    bindPuppetInputHandler(element, scene) {
+        element.children.forEach(function(limb) {
+            // if (limb._name === 'body') {
+            //     limb.children.forEach(function(child) {
+            //         if (child instanceof Limb) {
+            //             child.enableInputs(new StoryPuppetBuilderInputHandler(scene), false);
+            //         }
+            //     }, this);
+            // }
+            limb.enableInputs(new StoryPuppetBuilderInputHandler(scene), false);
+        }, this);
+
+    }
     constructStory() {
 
         if (this._cachedJSONStrRep && this._sceneOrPuppetType) {
@@ -309,13 +321,12 @@ export default class ConstructNewStoryPageState extends Phaser.State {
 
     positionAddedPuppetOnScene(puppet) {
         puppet.x = game.width * Math.random();
-        puppet.y = game.height/2 * Math.random();
+        puppet.y = game.height / 2 * Math.random();
         puppet.body.disableInputs();
         this._displayControlGroup.children.forEach(function(element) {
-            console.log(element);
             if (element instanceof Scene) {
-                puppet.body.enableInputs(new StoryPuppetBuilderInputHandler(element), false);
-                element.floor.addContent(puppet)
+                this.bindPuppetInputHandler(puppet, element);
+                element.floor.addContent(puppet);
             }
         }, this);
     }
@@ -334,7 +345,7 @@ export default class ConstructNewStoryPageState extends Phaser.State {
                 try {
                     localStorage.setItem(this._currentStory.storyId, JSON.stringify(this._currentStory, JsonUtil.replacer));
                 } catch (e) {
-                    if (isQuotaExceeded(e)) {
+                    if (this.isQuotaExceeded(e)) {
                         // Storage full, maybe notify user or do some clean-up
                     }
                 }
@@ -432,11 +443,11 @@ export default class ConstructNewStoryPageState extends Phaser.State {
                 ConstructNewStoryPageState.START_PLAY_BUTTON],
             this.defineControls, this);
 
-        this._nextButton = this.game.make.sprite(this.game.width - 40, 240, 'storybuilder/home_button');
+        this._nextButton = this.game.make.sprite(this.game.width - 40, 240, 'next');
         this._nextButton.anchor.setTo(0.5);
         this._nextButton.visible = false;
         this._nextButton.inputEnabled = true;
-        this._nextButton.events.onInputDown.add(this.nextButton, this);        
+        this._nextButton.events.onInputDown.add(this.nextButton, this);
         MiscUtil.setPriorityID(this._nextButton, 5);
         this._displayControlGroup.add(this._nextButton);
 
@@ -472,16 +483,6 @@ export default class ConstructNewStoryPageState extends Phaser.State {
         this._screenshotGenerated = false;
     }
 
-    testing() {
-        if (!this._soundAdded) {
-            this._testItemClicked.applySound(0, true);
-            this._soundAdded = true;
-        } else {
-            this._testItemClicked.applySound(0, false);
-            this._soundAdded = false;
-        }
-    }
-
     // when recording play ends then we will show next button to ask the questions
     displayButtonOnrecordingPlayEnd() {
         this._nextButton.visible = true;
@@ -514,24 +515,24 @@ export default class ConstructNewStoryPageState extends Phaser.State {
     // after recording play end will show next button to ask the questions
     nextButton() {
         console.log("next button");
-        if(!this._questionsAlreadyAskedToUser) {
-            let isAnyQuestionsConfigued = this._currentPage.questionsAndAnswers.length > 0 ?  1 : 0;
-            if(isAnyQuestionsConfigued) {
-                this._questionsAlreadyAskedToUser = true;                
-                window.display_question_multichoice();    
+        if (!this._questionsAlreadyAskedToUser) {
+            let isAnyQuestionsConfigued = this._currentPage.questionsAndAnswers.length > 0 ? 1 : 0;
+            if (isAnyQuestionsConfigued) {
+                this._questionsAlreadyAskedToUser = true;
+                window.display_question_multichoice();
             } else {
-                this.playNextPage();    
+                this.playNextPage();
             }
         } else {
             this.playNextPage();
         }
-        
+
     }
-    
+
     playNextPage() {
-        if(this._curIndex < this._currentStory.storyPages.length) {
+        if (this._curIndex + 1 <= this._currentStory.storyPages.length - 1) {
             let newPage = this._currentStory.storyPages[this._curIndex + 1];
-            this.game.state.start('StoryConstructNewStoryPageState', true, false, true, this._currentStoryId, newPage.pageId);            
+            this.game.state.start('StoryConstructNewStoryPageState', true, false, true, this._currentStoryId, newPage.pageId);
         } else {
             this.game.state.start('StoryBuilderLibraryState');
         }
@@ -546,7 +547,10 @@ export default class ConstructNewStoryPageState extends Phaser.State {
 
     // return json of current page
     returnPageJson() {
-        return this._currentPage.questionsAndAnswers;
+        var page_json = new Array();
+        page_json.push(this._currentPage.questionsAndAnswers);
+        page_json.push(this._uniqueImageNames);
+        return page_json;
     }
 
     chooseBackGround(sprite, pointer) {
@@ -634,13 +638,13 @@ export default class ConstructNewStoryPageState extends Phaser.State {
         if (!this._AttributeEditOverlay) {
             this._AttributeEditOverlay = new AttributeEditOverlay(game, game.width, game.height);
         }
-
+        console.log('in showAttributeEditor:' + JSON.stringify(item));
         this._AttributeEditOverlay.addClickedObject(item);
     }
 
 
     persistRecordingInformation(recordedInformation, totalRecordingCounter) {
-        console.log('received:' + recordedInformation + ' and totalRecordingCounter:' + totalRecordingCounter);
+        // console.log('received:' + recordedInformation + ' and totalRecordingCounter:' + totalRecordingCounter);
         //set into page JSON
         this._currentPage.recordedInformation = recordedInformation;
         this._currentPage.totalRecordingCounter = totalRecordingCounter;
@@ -710,14 +714,14 @@ export default class ConstructNewStoryPageState extends Phaser.State {
             try {
                 localStorage.setItem(ConstructNewStoryPageState.LIBRARY_KEY, JSON.stringify(library));
             } catch (e) {
-                if (isQuotaExceeded(e)) {
+                if (this.isQuotaExceeded(e)) {
                     // Storage full, maybe notify user or do some clean-up
                 }
             }
 
 
         }
-    }       
+    }
 
     shutdown() {
     }
@@ -735,6 +739,6 @@ ConstructNewStoryPageState.ADD_CHARACTER_BUTTON = 'add_character.png';
 ConstructNewStoryPageState.ADD_PROPS_BUTTON = 'add_props.png';
 ConstructNewStoryPageState.ADD_QUESTION_ANWSERS_BUTTON = 'add_qna_onclick.png';
 ConstructNewStoryPageState.START_RECORD_BUTTON = 'record.png';
-ConstructNewStoryPageState.STOP_RECORD_BUTTON = 'stop_rocording.png';
+ConstructNewStoryPageState.STOP_RECORD_BUTTON = 'group.png';
 ConstructNewStoryPageState.START_PLAY_BUTTON = 'play.png';
 ConstructNewStoryPageState.STOP_PLAY_BUTTON = 'stop.png';

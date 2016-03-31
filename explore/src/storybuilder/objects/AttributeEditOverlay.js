@@ -31,6 +31,7 @@ export default class AttributeEditOverlay extends Phaser.Group {
 
         if (this._isOpen) {
             this.closeAttributeEditOverlay();
+            console.log("consider as open return back");
             return;
         }
 
@@ -61,7 +62,7 @@ export default class AttributeEditOverlay extends Phaser.Group {
 
         this.drawScaleHandler(0.8, 0xFFFFFF, 1.5, 75);
 
-        this._settings = this._overlayDisplaySprite.addChild(game.make.sprite(this.game.camera.x + this.game.width - 100, this.game.camera.y + 50, 'storyBuilder/setting'));
+        this._settings = this._overlayDisplaySprite.addChild(game.make.sprite(game.camera.x + game.width - 100, game.camera.y + 50, 'storyBuilder/setting'));
         this._settings.fixedToCameara = true;
         this._settings.inputEnabled = true;
         this._settings.events.onInputUp.add(this.createAdditionalPropertiesOverlay, this);
@@ -99,7 +100,7 @@ export default class AttributeEditOverlay extends Phaser.Group {
             that._dragHandlerSprite.destroy();
             that._dynamicCircle.destroy();
             that._overlayDisplaySprite.destroy();
-
+            that._isOpen = false
 
             let backGroundThemes = that.game.cache.getJSON('storyBuilder/background_themes');
             let objectSound = that.game.cache.getJSON('storyBuilder/object_sounds');
@@ -146,7 +147,8 @@ export default class AttributeEditOverlay extends Phaser.Group {
             //     }, this);
             // }
 
-            that._itemSettingTab = that.game.add.existing(new TabView(that.game, 'scene/scene', that.game.width + that.game.world.camera.x, that.game.height + that.game.world.camera.y, 10, 50, 5, 3, true, function(tab, button) {
+            that._itemSettingTab = that.game.add.existing(new TabView(that.game, 'storyBuilder/icons', that.game.width + that.game.world.camera.x, that.game.height + that.game.world.camera.y, 10, 50, 5, 3, true, function(tab, button) {
+
 
                 let self = that;
                 that._itemSettingTab.unSelect();

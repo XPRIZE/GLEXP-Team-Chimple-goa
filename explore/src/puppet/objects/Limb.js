@@ -54,6 +54,23 @@ export default class Limb extends EnableInputs(RelativePosition(Phaser.Group)) {
             MiscUtil.setPriorityID(this.shape, instance.priorityID);
         }
     }
+    
+    disableInputs(iterateInside) {
+        if(this.shape && this.shape.events) {
+            this.shape.events.destroy();
+            this.instance = null;
+            this.shape.inputEnabled = false;
+            this.shape.dragEnabled = false;
+        }
+
+        if (iterateInside) {
+            this.children.forEach(function(value) {
+                if ('function' == typeof value.disableInputs) {
+                    value.disableInputs(iterateInside);
+                }
+            });
+        }        
+    }
 
     onInputDragFromStory(pointer, x, y, down) {
         this.differencePoint = Phaser.Point.subtract(pointer.position, this.puppetPoint);
@@ -108,10 +125,10 @@ export default class Limb extends EnableInputs(RelativePosition(Phaser.Group)) {
 
     get limbs() {
         let l = new Array();
-        console.log('limbs: ' + this.name);
+        //console.log('limbs: ' + this.name);
         this.forEach(function(value, index, array) {
             if (value instanceof Limb) {
-                console.log('    Pushing: ' + value.name);
+                // console.log('    Pushing: ' + value.name);
                 l.push(value);
             }
         });
@@ -182,10 +199,10 @@ export default class Limb extends EnableInputs(RelativePosition(Phaser.Group)) {
 
     get accessories() {
         let acc = new Array();
-        console.log('accessories: ' + this.name);
+        // console.log('accessories: ' + this.name);
         this.forEach(function(value, index, array) {
             if (value instanceof Accessory) {
-                console.log('    Pushing: ' + value.name);
+                // console.log('    Pushing: ' + value.name);
                 acc.push(value);
             }
         });
@@ -323,7 +340,7 @@ export default class Limb extends EnableInputs(RelativePosition(Phaser.Group)) {
             accessories: this.accessories,
             limbs: this.limbs
         };
-        console.log(json);
+        //console.log(json);
         return json;
     }
     /**
@@ -331,7 +348,7 @@ export default class Limb extends EnableInputs(RelativePosition(Phaser.Group)) {
      * @param  {any} j
      */
     static fromJSON(game, j) {
-        console.log(j);
+        // console.log(j);
         let limb = new Limb(game, j.relativeAnchor, j.relativeOffset, j.offsetInPixel, j.isMask);
         limb.name = j.name;
         if (j.shape) {

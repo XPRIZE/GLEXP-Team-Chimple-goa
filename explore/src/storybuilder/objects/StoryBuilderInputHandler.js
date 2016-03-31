@@ -1,5 +1,6 @@
 import Shape from '../../puppet/objects/Shape.js';
 import TileTexture from '../../scene/objects/TileTexture.js';
+import Texture from '../../scene/objects/Texture.js';
 
 export default class StoryBuilderInputHandler {
     constructor(scene) {
@@ -9,29 +10,37 @@ export default class StoryBuilderInputHandler {
     }
 
     onInputDown(sprite, pointer) {
+        if (sprite instanceof Texture) {
+            return;
+        };
+
         sprite.modifiedBit = 1;
-        if(this.instance.scene) {
-            this.instance.scene.selectedObject = sprite;    
-        }            
-        
+        if (this.instance.scene) {
+            this.instance.scene.selectedObject = sprite;
+        };
+
         // if (StoryBuilderInputHandler.box) {
         //     sprite.removeChild(StoryBuilderInputHandler.box);
         //     StoryBuilderInputHandler.box.destroy();
         //     StoryBuilderInputHandler.box = null;
         // }
-        
+
         // StoryBuilderInputHandler.box = sprite.drawBoundingBox(StoryBuilderInputHandler.LINE_COLOR);
         // console.log('StoryBuilderInputHandler.box:' + StoryBuilderInputHandler.box);
     }
 
 
     onInputUp(sprite, pointer) {
+        if (sprite instanceof Texture) {
+            return;
+        };
+
         if (sprite instanceof TileTexture) {
             if (!game._inPlayMode) {
                 sprite._showAttributeEditorSignal.dispatch(sprite, pointer);
             }
-        }
-        
+        };
+
         this.instance.scene.selectedObject = null;
     }
 
@@ -44,6 +53,10 @@ export default class StoryBuilderInputHandler {
     }
 
     onDragUpdate(sprite, pointer, dragX, dragY, snapPoint) {
+        if (sprite instanceof Texture) {
+            return;
+        }
+
         // if (!(sprite instanceof TileTexture)) {
         //     sprite.x += sprite.game.camera.x - sprite.start_camera_x;
         //     sprite.y += sprite.game.camera.y - sprite.start_camera_y;
@@ -52,6 +65,9 @@ export default class StoryBuilderInputHandler {
 
     onDragStop(sprite, pointer) {
         this.instance.scene.selectedObject = null;
+        if (sprite instanceof Texture) {
+            return;
+        }
         sprite.input.dragOffset.x = 0;
         if (!(sprite instanceof TileTexture)) {
             var distanceFromLastUp = Phaser.Math.distance(self.game.input.activePointer.positionDown.x, self.game.input.activePointer.positionDown.y,

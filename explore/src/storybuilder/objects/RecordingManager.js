@@ -33,9 +33,11 @@ export default class RecordingManager extends Phaser.Group {
             this.currentRecordingCounter = existingRecordingCounter;
         }
     }
-    
+
     narrateStory() {
         game._inPlayMode = true;
+        window.textMessages = new Map();
+        window.musicHandlesMap = new Map();
         this.playStartTime = this._updatedTime = new Date();
         this.currentPlayCounter = 0;
     }
@@ -54,7 +56,7 @@ export default class RecordingManager extends Phaser.Group {
             game._inRecordingMode = true;
         }
     }
-    
+
     registerToListeners() {
         game._inRecordingMode = false;
         game._inPlayMode = false;
@@ -81,22 +83,22 @@ export default class RecordingManager extends Phaser.Group {
         this._updateAttributeSignal = new UpdateAttributesSignal();
 
         this._persistRecordingInformationSignal = new PersistRecordingInformationSignal();
-        
+
         this._playPauseSignal = new PlayPauseSignal();
         this._playPauseSignal.add(this.pausePlay, this);
-        
+
         this._playResumeSignal = new PlayResumeSignal();
         this._playResumeSignal.add(this.resumePlay, this);
-        
+
         this._recordingPlayEndSignal = new RecordingPlayEndSignal();
     }
-    
-    
+
+
     pausePlay() {
         console.log('play pause signal at: ' + this.currentPlayCounter);
         game._inPlayMode = false;
     }
-    
+
     resumePlay() {
         console.log('play resume signal at: ' + this.currentPlayCounter);
         this._updatedTime = new Date();
@@ -107,10 +109,28 @@ export default class RecordingManager extends Phaser.Group {
         this.addToMap(data);
     }
 
+    handleSoundWhileRecording(data) {
+        if(data.recordingAttributeKind === RecordInfo.SOUND_RECORDING_TYPE && data.soundData && 
+            game.cache.checkSoundKey(data.soundData.soundFileName))
+        {   
+            let key = data.uniquename + "_" + data.soundData.soundFileName;
+            if(data.soundData.apply) {
+                let audio = game.add.audio(data.soundData.soundFileName, 1.0, false);               
+                this._recordingTimeMusicHandlerMap.set(key, audio);
+                audio.play();
+            } else {
+                let audio = this._recordingTimeMusicHandlerMap.get(key);
+                audio.stop();
+                this._recordingTimeMusicHandlerMap.delete(key);
+            }
+        }
+    }
+
     handleSpecialAttributeChange(data) {
-        this.addToMap(data);       
-    }   
-    
+        this.addToMap(data);
+        this.handleSoundWhileRecording(data);
+    }
+
     resumeRecording() {
         if (game._inPauseRecording) {
             console.log('game resumed from pause to recording state:');
@@ -138,16 +158,20 @@ export default class RecordingManager extends Phaser.Group {
         //set up time when recording starts
         this._updatedTime = recordingStartTime;
         this.currentRecordingCounter = 0;
+        
+        //create recordingTimeMusicHandlerMap to store all instance of audio playing while recording
+        this._recordingTimeMusicHandlerMap = new Map();
     }
 
     persistRecordedInformation() {
         //persist this._sceneRecordingMap
-        console.log('this._sceneRecordingMap:' + this._sceneRecordingMap);
+        // console.log('this._sceneRecordingMap:' + this._sceneRecordingMap);
         let recordedObjInformation = StoryUtil.map_to_object(this._sceneRecordingMap);
         let jsonObjectString = JSON.stringify(recordedObjInformation);
         this.convertRecordedInformationToMap(jsonObjectString);
         this._persistRecordingInformationSignal.dispatch(jsonObjectString, this.currentRecordingCounter);
         game._inRecordingMode = false;
+        this._recordingTimeMusicHandlerMap = null;
     }
 
     retrieveRecordedInformation() {
@@ -173,12 +197,13 @@ export default class RecordingManager extends Phaser.Group {
                 let recordedData = this.findNearestUpdateAttributeInformationByCurrentPlayCounter(this.currentPlayCounter);
                 console.log('recordedData at counter:' + this.currentPlayCounter + " is:" + recordedData);
                 this._updateAttributeSignal.dispatch(recordedData);
-                
-                if(!game._inPlayMode)
-                {
+
+                if (!game._inPlayMode) {
                     //this.playButton.inputEnabled = true;
                     // this.recordButton.inputEnabled = true;
                     this._recordingPlayEndSignal.dispatch();
+                    window.textMessages = null;
+                    window.musicHandlesMap = null;
                 }
             }
         }
@@ -232,26 +257,26 @@ export default class RecordingManager extends Phaser.Group {
             spriteMap.set(data.uniquename, recordInfo.toJSON());
         }
         // console.log('recordInfo:' + JSON.stringify(recordInfo) + "at recording counter:" + this.currentRecordingCounter);
-        
-        if(recordInfo.recordingAttributeKind === RecordInfo.TEXT_RECORDING_TYPE) {
+
+        if (recordInfo.recordingAttributeKind === RecordInfo.TEXT_RECORDING_TYPE) {
             console.log('text message received at ' + this.currentRecordingCounter);
         }
     }
-    
+
     recordSpecialTextAttribute(data, recordInfo) {
-      if(recordInfo.recordingAttributeKind === RecordInfo.TEXT_RECORDING_TYPE && data.userGeneratedText != null) {
-         recordInfo.text = data.userGeneratedText;
-         console.log('text message received at ' + this.currentRecordingCounter);          
-      }  
+        if (recordInfo.recordingAttributeKind === RecordInfo.TEXT_RECORDING_TYPE && data.userGeneratedText != null) {
+            recordInfo.text = data.userGeneratedText;
+            console.log('text message received at ' + this.currentRecordingCounter);
+        }
     }
-    
+
     recordSpecialSoundAttribute(data, recordInfo) {
-      if(recordInfo.recordingAttributeKind === RecordInfo.SOUND_RECORDING_TYPE && data.soundData != null) {
-          let soundInfo = new SoundData(game, data.soundData.soundFileName, data.soundData.apply);
-          recordInfo.soundData = soundInfo; 
-          console.log('sound message received at ' + this.currentRecordingCounter);          
-      }  
-    }   
+        if (recordInfo.recordingAttributeKind === RecordInfo.SOUND_RECORDING_TYPE && data.soundData != null) {
+            let soundInfo = new SoundData(game, data.soundData.soundFileName, data.soundData.apply);
+            recordInfo.soundData = soundInfo;
+            console.log('sound message received at ' + this.currentRecordingCounter);
+        }
+    }
 
     computeRecordingTimeCounters(delta) {
         this.currentRecordingCounter += delta;

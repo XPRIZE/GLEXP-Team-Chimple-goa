@@ -41,7 +41,7 @@ export default class Accessory extends RelativePosition(Scalable(Phaser.Sprite))
             initKey: this.initKey,
             initFrame: this.initFrame
         };
-        console.log(json);
+        // console.log(json);
         return json;
     }
     

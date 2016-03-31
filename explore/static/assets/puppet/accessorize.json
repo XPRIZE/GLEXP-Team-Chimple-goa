@@ -2,17 +2,17 @@
   "arm_chooser": {
     "testtube": {
       "ArmAccessory": {
-        "key": "puppet/characters",
-        "frame": "scientist_testtube.png",
+        "key": "puppet/character",
+        "frame": "testtube.png",
         "anchorX": 0.5,
         "anchorY": 0.4,
-        "offsetX": 0,
+        "offsetX": 0.4,
         "offsetY": 1
       }
     },
      "mic": {
       "ArmAccessory": {
-        "key": "puppet/characters",
+        "key": "puppet/character",
         "frame": "singer_mic.png",
         "anchorX": 0.5,
         "anchorY": 0.6,
@@ -220,6 +220,16 @@
         "offsetY": 1
       }
     } ,
+     "nurse_pad": {
+      "ArmAccessory": {
+        "key": "puppet/character",
+        "frame": "nurse_pad.png",
+        "anchorX": 0.5,
+        "anchorY": 0.6,
+        "offsetX": 0.5,
+        "offsetY": 1
+      }
+    },
       "teacher_duster": {
       "ArmAccessory": {
         "key": "puppet/character",
@@ -246,7 +256,7 @@
     
       "singer_beard":{
        "Beard":{
-         "key": "puppet/characters",
+         "key": "puppet/character",
          "frame": "singer_beard.png"
          }
       },
@@ -309,73 +319,28 @@
          "key": "puppet/character",
          "frame": "photographer_beard.png"
         }
-     },     
-                  
-      
-                  
-   
-    "head_rect": {
-      "HeadShape": {
-        "key": "puppet/headshape",
-        "frame": "head.png"
-      }
-    },
-     "head_cir": {
-      "HeadShape": {
-        "key": "puppet/headshape",
-        "frame": "head_shape_circle.png"
-      }
-    },
-     "head_tri": {
-      "HeadShape": {
-        "key": "puppet/headshape",
-        "frame": "head_shape_hex.png"
-      }
-    },
-     "head_tri1": {
-      "HeadShape": {
-        "key": "puppet/headshape",
-        "frame": "head_shape_rectangle.png"
-      }
-    },
-     "head_tri2": {
-      "HeadShape": {
-        "key": "puppet/headshape",
-        "frame": "head_shape_semicircle.png"
-      }
-    },
-    "head_tri3": {
-      "HeadShape": {
-        "key": "puppet/headshape",
-        "frame": "head_shape_triabgle.png"
-      }
-    }
+     }   
   },
   "body_chooser": {
-    "scientist_tie": {
+    "tie": {
       "Chain": {
-        "key": "puppet/characters",
-        "frame": "scientist_tie.png"
+        "key": "puppet/character",
+        "frame": "tie.png"
       }
     },
       "belt": {
       "Belt": {
-        "key": "puppet/characters",
-        "frame": "scientist_belt.png"
+        "key": "puppet/character",
+        "frame": "belt.png"
      }
     },
       "stethoscope": {
       "Scarf": {
-        "key": "puppet/characters",
-        "frame": "scientist_stethoscope.png"
+        "key": "puppet/character",
+        "frame": "stethoscope.png"
      }
     },
-      "side_bag": {
-      "Scarf": {
-        "key": "puppet/characters",
-        "frame": "scientist_bag.png"
-     }
-    },
+     
      "Priest_chain": {
       "Scarf": {
         "key": "puppet/character",
@@ -400,7 +365,7 @@
   "glasses_chooser": {
     "scientist_glass": {
       "Glass": {
-        "key": "puppet/characters",
+        "key": "puppet/character",
         "frame": "scientist_glass.png"
       }     
     },
@@ -430,7 +395,7 @@
     },
     "Eyes":{
         "Eye":{
-        "key":"puppet/Animals",
+        "key":"puppet/character",
         "frame":"Eye.png",
         "anchorY":0.2,
         "offsetY":0.3
@@ -438,7 +403,7 @@
     },
     "ear":{
         "Ear":{
-            "key":"puppet/Animals",
+            "key":"puppet/character",
             "frame":"Cheetah_ear.png",
             "anchorY":0.1,
              "offsetY":0
@@ -446,7 +411,7 @@
     },
         "mouths":{
         "Mouth":{
-            "key":"puppet/Animals",
+            "key":"puppet/character",
             "frame":"Cheetah_mouth.png",
             "anchorY":0.5,
             "offsetY":0.8
@@ -454,14 +419,14 @@
         },
           "hairs":{
           "Hair":{
-              "key":"puppet/Animals",
+              "key":"puppet/character",
               "frame":"Cheetah_hair.png",
               "anchorY":0.6
            }
          },
      "body2":{
          "Inside_body":{
-             "key":"puppet/Animals",
+             "key":"puppet/character",
               "frame":"Inside_body.png",
               "anchorY":0.02,
               "offsetY":0
@@ -469,7 +434,7 @@
      },
       "body3":{
          "Texture":{
-             "key":"puppet/Animals",
+             "key":"puppet/character",
               "frame":"Cheetah_texture.png",
                "anchorY":0.05,
                 "offsetY":0
@@ -480,66 +445,66 @@
  "hair_chooser": {
     "scientist_hair": {
       "BackHair": {
-        "key": "puppet/characters",
+        "key": "puppet/character",
         "frame": "scientist_back_hair.png",
-        "anchorX":0.2,
+     
         "anchorY":0.3,
-        "offsetX":0,
+      
         "offsetY":0
       },
       "FrontHair": {
-        "key": "puppet/characters",
+        "key": "puppet/character",
         "frame": "scientist_front_hair.png",
-        "anchorX":0.02,
+    
         "anchorY":0.3,
-        "offsetX":0,
+      
         "offsetY":0
       }
       },
         "photographer_hair":{
           "FrontHair": {
-         "key": "puppet/characters",
+         "key": "puppet/character",
         "frame": "photographer_hair.png",
-        "anchorX":0.15,
+       
         "anchorY":0.3,
-        "offsetX":0.13,
+      
         "offsetY":0
       },
       "BackHair": {
-        "key": "puppet/characters"
+        "key": "puppet/character"
       }
           },
         "singer_hair_do":{
           "FrontHair": {
-         "key": "puppet/characters",
+         "key": "puppet/character",
         "frame": "singer_hair_do.png",
-        "anchorX":0.15,
+       
         "anchorY":0.2,
-        "offsetX":0.13,
+       
         "offsetY":0
       },
        
         "BackHair": {
-        "key": "puppet/characters"
+        "key": "puppet/character"
       }
         },
     "Hair_1":{
         "FrontHair": {
         "key": "puppet/character",
         "frame": "Hair_1.png",
-        "anchorX":0.15,
+       
         "anchorY":0.2,
-        "offsetX":0.05,
-        "offsetY":0
+        
+        "offsetY":0.1
       }
      },
       "Hair_2":{
         "FrontHair": {
         "key": "puppet/character",
         "frame": "Hair_2.png",
-        "anchorX":0.15,
+       
         "anchorY":0.2,
-        "offsetX":0.13,
+       
         "offsetY":0
       }
      },
@@ -547,9 +512,9 @@
         "FrontHair": {
         "key": "puppet/character",
         "frame": "barber_hair.png",
-        "anchorX":0.15,
+      
         "anchorY":0.2,
-        "offsetX":0.08,
+       
         "offsetY":0
       }
      },
@@ -557,9 +522,9 @@
         "FrontHair": {
         "key": "puppet/character",
         "frame": "designer_hair.png",
-        "anchorX":0.15,
+       
         "anchorY":0.2,
-        "offsetX":0.08,
+      
         "offsetY":0
       }
      },
@@ -567,9 +532,9 @@
         "FrontHair": {
         "key": "puppet/character",
         "frame": "doctor_hair.png",
-        "anchorX":0.15,
+     
         "anchorY":0.2,
-        "offsetX":0.08,
+    
         "offsetY":0
       }
      },
@@ -577,10 +542,9 @@
         "FrontHair": {
         "key": "puppet/character",
         "frame": "nurse_hair.png",
-        "anchorX":0.15,
-        "anchorY":0.2,
-        "offsetX":0.08,
-        "offsetY":0
+        "anchorY":0,
+         "offsetX":0.45,
+        "offsetY":-0.3
       }
      }
   },
@@ -694,7 +658,7 @@
         "anchorX":0.5,
         "anchorY":0.5,
         "offsetX":0.5,
-        "offsetY":0.2
+        "offsetY":0.08
     }
     },
      "farmer_head_wear": {
@@ -714,126 +678,34 @@
         "anchorX":0.5,
         "anchorY":0.5,
         "offsetX":0.5,
-        "offsetY":0.2
+        "offsetY":-0.2
     }
     },
-    
-    
-     "eye1":{
-        "Eye":{
-            "key": "puppet/eye_mouth",
-        "frame": "eye 1.png",
-        "anchorX":0,
-        "anchorY":0.1,
-        "offsetX":0.13,
-        "offsetY":0.3
-        }
+      "cricketer_helmet": {
+       "Hat": {
+        "key": "puppet/character",
+        "frame": "cricketer_helmet.png",
+        "anchorX":0.5,
+        "anchorY":0.5,
+        "offsetX":0.5,
+        "offsetY":0.35
+    }
     },
-    "eye3":{
-        "Eye":{
-            "key": "puppet/eye_mouth",
-        "frame": "eyes 3.png",
-        "anchorX":0,
-        "anchorY":0.1,
-        "offsetX":0.13,
-        "offsetY":0.3
-        } 
-      },
-       "eye4":{
-        "Eye":{
-            "key": "puppet/eye_mouth",
-        "frame": "eyes 4.png",
-        "anchorX":0,
-        "anchorY":0.1,
-        "offsetX":0.13,
-        "offsetY":0.3
-        } 
-       },
-        "eye6":{
-        "Eye":{
-            "key": "puppet/eye_mouth",
-        "frame": "eyes 6.png",
-        "anchorX":0,
-        "anchorY":0.1,
-        "offsetX":0.13,
-        "offsetY":0.3
-        } 
-       },
-     "eye7":{
-        "Eye":{
-            "key": "puppet/eye_mouth",
-        "frame": "eyes 7.png",
-        "anchorX":0,
-        "anchorY":0.1,
-        "offsetX":0.13,
-        "offsetY":0.3
-        } 
-      },
-      "mouth1":{
-          "Mouth":{
-              "key":"puppet/eye_mouth",
-              "frame":"mouth 1.png",
-               "anchorX":0.45,
-               "anchorY":0.5,
-               "offsetX":0.5,
-               "offsetY":0.8
-          }
-      },
-       "mouth2":{
-          "Mouth":{
-              "key":"puppet/eye_mouth",
-              "frame":"mouth 2.png",
-               "anchorX":0.45,
-               "anchorY":0.5,
-               "offsetX":0.5,
-               "offsetY":0.8
-          }
-      },
-      "mouth3":{
-          "Mouth":{
-              "key":"puppet/eye_mouth",
-              "frame":"mouth 3.png",
-               "anchorX":0.45,
-               "anchorY":0.5,
-               "offsetX":0.5,
-               "offsetY":0.8
-          }
-      },
-       "mouth4":{
-          "Mouth":{
-              "key":"puppet/eye_mouth",
-              "frame":"mouth 4.png",
-               "anchorX":0.45,
-               "anchorY":0.5,
-               "offsetX":0.5,
-               "offsetY":0.8
-          }
-      },
-      "mouth5":{
-          "Mouth":{
-              "key":"puppet/eye_mouth",
-              "frame":"mouth 5.png",
-               "anchorX":0.45,
-               "anchorY":0.5,
-               "offsetX":0.5,
-               "offsetY":0.8
-          }
-      },
-       "mouth6":{
-          "Mouth":{
-              "key":"puppet/eye_mouth",
-              "frame":"mouth 6.png",
-               "anchorX":0.45,
-               "anchorY":0.5,
-               "offsetX":0.5,
-               "offsetY":0.8
-          }
-      }
+     "fireman helmet": {
+       "Hat": {
+        "key": "puppet/character",
+        "frame": "fireman helmet.png",
+        "anchorX":0.5,
+        "anchorY":0.5,
+        "offsetX":0.5,
+        "offsetY":0.15
+    }
+    }
   },
   "pants_chooser": {
     "scientist_pant": {
       "Pants": {
-        "key": "puppet/characters",
+        "key": "puppet/character",
         "frame": "scientist_pant.png"
       }
     },
@@ -944,8 +816,14 @@
       "Pants": {
         "key": "puppet/character",
         "frame": "cricketer_pent.png"
+      },
+       "Pad": {
+        "key": "puppet/character",
+        "frame": "cricketer_pad.png",
+         "offsetY":0.1
       }
     },
+     
      "designer_pant": {
       "Pants": {
         "key": "puppet/character",
@@ -988,12 +866,7 @@
         "frame": "soccer_leg.png"
       }
     },
-    "teacher_leg": {
-      "Pants": {
-        "key": "puppet/character",
-        "frame": "teacher_leg.png"
-      }
-    },
+  
      "Housewife_skirt": {
       "Skirt": {
         "key": "puppet/character",
@@ -1014,11 +887,11 @@
   "shirt_chooser": {
     "scientist_shirt": {
       "Shirt": {
-        "key": "puppet/characters",
+        "key": "puppet/character",
         "frame": "scientist_shirt.png"
       },
        "Sleeves": {
-        "key": "puppet/characters",
+        "key": "puppet/character",
         "frame": "scientist_shirt_sleeve.png"
       }
      
@@ -1027,6 +900,9 @@
       "Shirt": {
         "key": "puppet/character",
         "frame": "scientist_overcoat.png"
+      },
+        "Sleeves": {
+          "key": "null"
       }
       
     },
@@ -1175,6 +1051,9 @@
       "Shirt": {
         "key": "puppet/character",
         "frame": "basketball_body.png"
+      },
+        "Sleeves": {
+          "key": "null"
       }
      
     },
@@ -1198,15 +1077,7 @@
         "key": "puppet/character",
         "frame": "chef_hand.png"
       }
-    },
-     "chef_apron": {
-      "Shirt": {
-        "key": "puppet/character",
-        "frame": "chef_apron.png"
-      }
-       
-    },
-    
+   },
       "cowBoy_body": {
       "Shirt": {
         "key": "puppet/character",
@@ -1222,6 +1093,9 @@
       "Shirt": {
         "key": "puppet/character",
         "frame": "cowBoy_jacket.png"
+      },
+      "Sleeves": {
+          "key": "null"
       }
       
     },
@@ -1260,6 +1134,9 @@
       "Shirt": {
         "key": "puppet/character",
         "frame": "doctor_overcoat.png"
+      },
+        "Sleeves": {
+          "key": "null"
       }
       
     },
@@ -1267,6 +1144,9 @@
       "Shirt": {
         "key": "puppet/character",
         "frame": "farmer_shirt.png"
+      },
+        "Sleeves": {
+          "key": "null"
       }
       
     },
@@ -1334,6 +1214,9 @@
       "Shirt": {
         "key": "puppet/character",
         "frame": "teacher_body1.png"
+      },
+        "Sleeves": {
+          "key": "null"
       }
       },
       
@@ -1350,17 +1233,17 @@
     
   },
   "shoes_chooser": {
-    "scientist_shoe": {
+    "shoe": {
       "Shoes": {
-        "key": "puppet/characters",
-        "frame": "scientist_shoe.png",
+        "key": "puppet/character",
+        "frame": "shoe.png",
         "offsetInPixelY":10
       }
     },
-    "singer_shoe":{
+    "shoe":{
         "Shoes": {
-        "key": "puppet/characters",
-        "frame": "singer_shoe.png",
+        "key": "puppet/character",
+        "frame": "shoe.png",
          "offsetInPixelY":10
         }  
     },
@@ -1556,15 +1439,188 @@
     "FFCC66": "FFCC66"
   },
    "eye_chooser":{
-      
-      
+         "Eye":{
+        "Eye":{
+            "key": "puppet/character",
+        "frame": "Eye.png",
+        "anchorX":-0.2,
+        "anchorY":0.1,
+        "offsetX":0.13,
+        "offsetY":0.3
+        }
+    },
+       "eyes_1":{
+        "Eye":{
+            "key": "puppet/character",
+        "frame": "eyes_1.png",
+        "anchorX":0,
+        "anchorY":0.1,
+        "offsetX":0.13,
+        "offsetY":0.3
+        } 
+       },
+        "eyes_10":{
+        "Eye":{
+            "key": "puppet/character",
+        "frame": "eyes_10.png",
+        "anchorX":0,
+        "anchorY":0.1,
+        "offsetX":0.13,
+        "offsetY":0.3
+        } 
+       },
+     "eyes_2":{
+        "Eye":{
+            "key": "puppet/character",
+        "frame": "eyes_2.png",
+        "anchorX":0,
+        "anchorY":0.1,
+        "offsetX":0.13,
+        "offsetY":0.3
+        } 
+      },
+       "eyes_3":{
+        "Eye":{
+            "key": "puppet/character",
+        "frame": "eyes_3.png",
+        "anchorX":0,
+        "anchorY":0.1,
+        "offsetX":0.13,
+        "offsetY":0.3
+        } 
+      },
+        "eyes_4":{
+        "Eye":{
+            "key": "puppet/character",
+        "frame": "eyes_4.png",
+        "anchorX":-0.05,
+        "anchorY":0,
+        "offsetX":0.13,
+        "offsetY":0.3
+        } 
+      },
+         "eyes_5":{
+        "Eye":{
+            "key": "puppet/character",
+        "frame": "eyes_5.png",
+        "anchorX":-0.1,
+        "anchorY":-0.4,
+        "offsetX":0.13,
+        "offsetY":0.3
+        } 
+      },
+         "eyes_6":{
+        "Eye":{
+            "key": "puppet/character",
+        "frame": "eyes_6.png",
+        "anchorX":0,
+        "anchorY":0.1,
+        "offsetX":0.16,
+        "offsetY":0.4
+        } 
+      },
+         "eyes_7":{
+        "Eye":{
+            "key": "puppet/character",
+        "frame": "eyes_7.png",
+        "anchorX":0,
+        "anchorY":0,
+        "offsetX":0.03,
+        "offsetY":0.40
+        } 
+      },
+       "eyes_8":{
+        "Eye":{
+            "key": "puppet/character",
+        "frame": "eyes_8.png",
+        "anchorX":0,
+        "anchorY":0.5,
+        "offsetX":0.13,
+        "offsetY":0.45
+        } 
+      }
   },
     "headshape_chooser":{
       
+    "head_rect": {
+      "HeadShape": {
+        "key": "puppet/character",
+        "frame": "head.png"
+      }
+    },
+     "head_cir": {
+      "HeadShape": {
+        "key": "puppet/character",
+        "frame": "head_shape_circle.png"
+      }
+    },
+     "head_tri": {
+      "HeadShape": {
+        "key": "puppet/character",
+        "frame": "head_shape_hex.png"
+      }
+    },
+     "head_tri1": {
+      "HeadShape": {
+        "key": "puppet/character",
+        "frame": "head_shape_rectangle.png"
+      }
+    },
+     "head_tri2": {
+      "HeadShape": {
+        "key": "puppet/character",
+        "frame": "head_shape_semicircle.png"
+      }
+    },
+    "head_tri3": {
+      "HeadShape": {
+        "key": "puppet/character",
+        "frame": "head_shape_triabgle.png"
+      }
+    }
       
   },
   "mouth_chooser":{
-      
+       "mouth1":{
+          "Mouth":{
+              "key":"puppet/character",
+              "frame":"mouth_1.png",
+               "anchorX":0.45,
+               "anchorY":0.5,
+               "offsetX":0.5,
+               "offsetY":0.8
+          }
+      },
+       "mouth2":{
+          "Mouth":{
+              "key":"puppet/character",
+              "frame":"mouth_2.png",
+               "anchorX":0.45,
+               "anchorY":0.5,
+               "offsetX":0.5,
+               "offsetY":0.8
+          }
+      },
+      "mouth3":{
+          "Mouth":{
+              "key":"puppet/character",
+              "frame":"mouth_3.png",
+               "anchorX":0.45,
+               "anchorY":0.5,
+               "offsetX":0.5,
+               "offsetY":0.8
+          }
+      },
+       "mouth4":{
+          "Mouth":{
+              "key":"puppet/character",
+              "frame":"mouth_4.png",
+               "anchorX":0.45,
+               "anchorY":0.5,
+               "offsetX":0.5,
+               "offsetY":0.8
+          }
+      }
   },
    "emoticon_chooser": {
     "angryFace":{
@@ -1645,6 +1701,27 @@
        "Emoticon":{
         "key": "puppet/emoticon",
         "frame": "nervous.png"
+       }
+   },
+     "staringFace":{
+        "DialogBox":{
+        "key": "puppet/emoticon",
+        "frame": "dialog box2.png"
+        },
+       "Emoticon":{
+        "key": "puppet/emoticon",
+        "frame": "staring.png"
+       }
+   },
+  
+     "tearsjoyFace":{
+        "DialogBox":{
+        "key": "puppet/emoticon",
+        "frame": "dialog box2.png"
+        },
+       "Emoticon":{
+        "key": "puppet/emoticon",
+        "frame": "tears of joy.png"
        }
    }
 }
