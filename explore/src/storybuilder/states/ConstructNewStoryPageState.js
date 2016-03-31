@@ -385,9 +385,10 @@ export default class ConstructNewStoryPageState extends Phaser.State {
         } else if (name === ConstructNewStoryPageState.ADD_CHARACTER_BUTTON) {
             this.choosePuppet();
         }
-        //else if(name === ConstructNewStoryPageState.ADD_PROPS_BUTTON) {
-
-        // } 
+        else if(name === ConstructNewStoryPageState.ADD_PROPS_BUTTON) {
+        //     console.log('in props:');
+        //    this._displayControlGroup.add(new PuppetCustomizer(this.game, this.game.width, this.game.height, this.puppet, this.addPuppet, this));            
+        } 
         else if (name === ConstructNewStoryPageState.ADD_QUESTION_ANWSERS_BUTTON) {
             this.createQuestionAndAnswer();
         } else if (name === ConstructNewStoryPageState.START_RECORD_BUTTON) {
@@ -451,8 +452,8 @@ export default class ConstructNewStoryPageState extends Phaser.State {
         MiscUtil.setPriorityID(this._nextButton, 5);
         this._displayControlGroup.add(this._nextButton);
 
-        this._editPuppet = game.add.button(this.game.width - 30, 60, 'scene/icons', this.editPuppet, this, 'ic_grid_on_black_24dp_1x.png', 'ic_grid_on_black_24dp_1x.png', 'ic_grid_on_black_24dp_1x.png', 'ic_grid_on_black_24dp_1x.png');
-        this._editPuppet.anchor.setTo(0.5, 0.5);
+        // this._editPuppet = game.add.button(this.game.width - 30, 60, 'scene/icons', this.editPuppet, this, 'ic_grid_on_black_24dp_1x.png', 'ic_grid_on_black_24dp_1x.png', 'ic_grid_on_black_24dp_1x.png', 'ic_grid_on_black_24dp_1x.png');
+        // this._editPuppet.anchor.setTo(0.5, 0.5);
         //this._editPuppet.visible = false;
     }
 
