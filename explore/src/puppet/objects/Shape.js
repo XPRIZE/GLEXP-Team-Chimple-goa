@@ -38,7 +38,7 @@ export default class Shape extends Scalable(Phaser.Graphics) {
             offsetInPixel: this.offsetInPixel,
             graphics: this.graphics
         };
-        console.log(json);
+        //console.log(json);
         return json;
     }
     

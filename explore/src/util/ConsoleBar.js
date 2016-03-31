@@ -3,6 +3,9 @@ import PuppetCustomizer from '../puppet/objects/PuppetCustomizer.js';
 import Popup from './Popup.js';
 import StoryBuilderStateHolder from '../storybuilder/index.js';
 import MiscUtil from './MiscUtil.js';
+import Profile from './Profile.js';
+import StoryPuppetBuilderInputHandler from '../storybuilder/objects/StoryPuppetBuilderInputHandler.js';
+
 
 export default class ConsoleBar extends Phaser.Group {
     constructor(game) {
@@ -47,6 +50,10 @@ export default class ConsoleBar extends Phaser.Group {
         this.rightButtonGrid.x = game.width - gridWidth;
 
         this.fixedToCamera = true;
+        
+        if(!this.game.profile) {
+            this.game.profile = new Profile();
+        }
 
     }
 
@@ -75,7 +82,7 @@ export default class ConsoleBar extends Phaser.Group {
             this.game.state.start('bootState');
         } else if(buttonName == ConsoleBar.MY_AVATAR_ICON) { 
             this.popup = new Popup(this.game);
-            let pc = new PuppetCustomizer(this.game, this.game.width * 0.9, this.game.height * 0.9, this.game.avatar, this.addAvatar, this, MiscUtil.getMaxPriorityID(this.game) + 1);
+            let pc = new PuppetCustomizer(this.game, this.game.width * 0.9, this.game.height * 0.9, this.game.profile.avatar, this.addAvatar, this, MiscUtil.getMaxPriorityID(this.game) + 1);
             this.popup.addContent(pc);
                         
         } else if(buttonName == ConsoleBar.MY_HOUSE_ICON) { 
@@ -83,7 +90,10 @@ export default class ConsoleBar extends Phaser.Group {
         } else if(buttonName == ConsoleBar.MY_PETS_ICON) { 
             
         } else if(buttonName == ConsoleBar.STORY_ICON) { 
+            
             game._storyBuilderStateHolder.startDefault();
+            this.text.text = "Your Stories";
+            
         } else if(buttonName == ConsoleBar.MY_COINS_ICON) { 
             
         } else if(buttonName == ConsoleBar.HELP_ICON) { 
@@ -108,10 +118,12 @@ export default class ConsoleBar extends Phaser.Group {
     }
     
     addAvatar(avatar) {
-        if(!this.game.avatar) {
-            this.game.avatar = avatar;
+        if(!this.game.profile.avatar) {
+            this.game.profile.avatar = avatar;
         }
         if(!this.game.state.getCurrentState().contentArea.floor.contents.includes(avatar)) {
+            avatar.disableInputs(true);
+            avatar.body.enableInputs(new StoryPuppetBuilderInputHandler(this.game.state.getCurrentState().contentArea));
             avatar.x = this.game.camera.x + this.game.width / 2;
             avatar.y = (this.game.height - this.game.state.getCurrentState().contentArea.floor.y) / 2;
             this.game.state.getCurrentState().contentArea.floor.addContent(avatar);

@@ -2,8 +2,10 @@ import ExploreInputHandler from '../objects/ExploreInputHandler.js';
 import EditSceneInputHandler from '../objects/EditSceneInputHandler.js';
 import Item from '../objects/Item.js';
 import Shape from '../../puppet/objects/Shape.js';
+import Puppet from '../../puppet/objects/Puppet.js';
 import EnableInputs from './EnableInputs.js';
 import Surface from './Surface.js';
+import StoryPuppetBuilderInputHandler from '../../storybuilder/objects/StoryPuppetBuilderInputHandler.js';
 
 export default class Scene extends EnableInputs(Phaser.Group) {
     constructor(game, width, height) {
@@ -91,6 +93,8 @@ export default class Scene extends EnableInputs(Phaser.Group) {
         if (this.mode == Scene.EXPLORE_MODE) {
             if (item instanceof Item) {
                 return new ExploreInputHandler(this);
+            } else if (item instanceof Puppet) {
+                return new StoryPuppetBuilderInputHandler(this);
             }
         } else if (this.mode == Scene.EDIT_MODE) {
             if (item instanceof Item) {

@@ -47,7 +47,7 @@ export default class PuppetCustomizer extends Phaser.Group {
                     }
                 }
             }
-        }, this, menuAccessorize));
+        }, this, menuAccessorize, {displayPrice: true}));
         if(priorityID) {
             chooser.priorityID = priorityID;        
         }

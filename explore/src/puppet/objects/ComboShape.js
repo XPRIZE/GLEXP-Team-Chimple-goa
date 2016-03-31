@@ -7,13 +7,13 @@ export default class ComboShape extends Scalable(Phaser.Graphics) {
         this.graphics = graphics;
          this.graphics1 = graphics1;
         if(graphics != null) {
-            console.log("one");
+            // console.log("one");
             this.beginFill(0xffffff);
             this.drawShape(graphics);
             this.endFill();            
         }
         if(graphics1 != null) {
-            console.log("two");
+            // console.log("two");
             this.beginFill(0xffffff);
             this.drawShape(graphics1);
             this.endFill();            
@@ -47,7 +47,7 @@ export default class ComboShape extends Scalable(Phaser.Graphics) {
             graphics: this.graphics,
             graphics1: this.graphics1
         };
-        console.log(json);
+        //console.log(json);
         return json;
     }
     

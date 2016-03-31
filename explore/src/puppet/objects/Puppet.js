@@ -67,7 +67,7 @@ export default class Puppet extends Limb {
         limbJson.x = this.x;
         limbJson.y = this.y;
         limbJson.bodyColor = this.bodyColor;
-        console.log(limbJson);
+        // console.log(limbJson);
         return limbJson;
     }
 
@@ -87,40 +87,5 @@ export default class Puppet extends Limb {
         if (game._inRecordingMode) {
             this._specialAttributesChangedSignal.dispatch({ uniquename: this._uniquename, x: this.x, y: this.y, scaleX: this.scale.x, scaleY: this.scale.y, angle: this.angle, recordingAttributeKind: RecordInfo.TEXT_RECORDING_TYPE, userGeneratedText: this._userGeneratedText });
         }
-    }
-
-
-    update() {
-        if (game._inRecordingMode) {
-            console.log('in recording mode');
-            this.onAttributesChanged.dispatch({ uniquename: this._uniquename, x: this.x, y: this.y, scaleX: this.scale.x, scaleY: this.scale.y, angle: this.angle, recordingAttributeKind: RecordInfo.DEFAULT_RECORDING_TYPE });
-        } else if (game._inPlayMode) {
-            console.log('in play mode');
-            if (this._changeAttributes != null && this._changeAttributes.size > 0) {
-                this.game.camera.follow(this, Phaser.Camera.FOLLOW_PLATFORMER);
-                if (!this.uniquename) {
-                    this.uniquename = "undefined";
-                }
-                let json = this._changeAttributes.get(this.uniquename);
-                var recordedInfo = RecordInfo.fromJSON(json);
-                console.log('this.x: ' + this.x + " this.y:" + this.y);
-                this.x = recordedInfo.x;
-                this.y = recordedInfo.y;
-                this.scale.x = recordedInfo.scaleX;
-                this.scale.y = recordedInfo.scaleY;
-                this.angle = recordedInfo.angle;
-                this.game.camera.x = recordedInfo.cameraX;
-                this.game.camera.y = recordedInfo.cameraY;
-                console.log('recordedInfo.x:' + recordedInfo.x + "recordedInfo.y:" + recordedInfo.y);
-                //if we have received TEXT KIND data
-                if (recordedInfo.recordingAttributeKind == RecordInfo.TEXT_RECORDING_TYPE) {
-                    //send an signal to show Text PopUp to User
-                    console.log('show text popup to User' + recordedInfo.userGeneratedText);
-                    this._playPauseSignal.dispatch();
-                }
-
-            }
-        }
-
     }
 }

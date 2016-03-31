@@ -15,6 +15,7 @@ export default class ButtonGrid extends Phaser.Group {
         this.numRows = numRows;
         this.numColumns = numColumns;
         this.padding = ButtonGrid.DEFAULT_PADDING;
+        this.naviButtonWidth = 24 + this.padding * 2;
         this.buttonCallback = callback;
         this.buttonCallbackContext = callbackContext;
         this.horizontal = horizontal;
@@ -38,6 +39,9 @@ export default class ButtonGrid extends Phaser.Group {
         if(!style.iconType) {
             style.iconType = 'square';            
         }
+        if(!style.navButtons) {
+            style.navButtons = 'none';
+        }
         
         
         let color = Phaser.Color.getRGB(style.overFillColor);
@@ -50,15 +54,21 @@ export default class ButtonGrid extends Phaser.Group {
         style.downFillStyle = 'rgb(' + color.r + ',' + color.g + ',' + color.b + ')'   
 
         this.style = style;
+        this.buttonPanel = new Phaser.Group(this.game, this);
+
+        this.priorityID = 5;
+        this.buttonStartX = 0;
+        if(this.style.navButtons != 'none') {
+            this.buttonStartX =  this.naviButtonWidth;
+        }
 
         let mask = new Phaser.Graphics(this.game, 0, 0);
         // mask.alpha = 0;
         mask.beginFill(0x000000);
-        mask.drawRect(0, 0, width, height);
+        mask.drawRect(this.buttonStartX, 0, width-this.buttonStartX*2, height);
         mask.endFill();
         this.buttonMask = mask;
 
-        this.buttonPanel = new Phaser.Group(this.game, this);
         this.addChild(this.buttonMask);
         // let background = this.add(new Phaser.Graphics(this.game, 0, 0));
         // background.beginFill(this.style.overFillColor);
@@ -70,18 +80,25 @@ export default class ButtonGrid extends Phaser.Group {
         var Swipe = require('phaser-swipe');
         this.swipe = new Swipe(this.game, this);
         
-        this.priorityID = 5;
+        
     }
     
     set buttons(buttons) {
         this.buttonPanel.removeAll(true);
+        if(this.style.navButtons != 'none') {
+            this.leftButton = new RoundButton(game, this.naviButtonWidth / 2, this.elementHeight/2, this.naviButtonWidth - this.padding*2, this.naviButtonWidth - this.padding*2,'scene/icons', ButtonGrid.LEFT_BUTTON, this.moveRight, this, null, this.style, this.priorityID);       
+            this.addChild(this.leftButton);
+            this.rightButton = new RoundButton(game, this.elementWidth - this.naviButtonWidth / 2, this.elementHeight/2, this.naviButtonWidth - this.padding*2, this.naviButtonWidth - this.padding*2,'scene/icons', ButtonGrid.RIGHT_BUTTON, this.moveLeft, this, null, this.style, this.priorityID);       
+            this.addChild(this.rightButton);
+        }
+        
         this.buttonPanel.x = 0;
         this._buttons = buttons;
 
         let numAlong = this.horizontal ? this.numRows : this.numColumns;
         let numAcross = Math.ceil(buttons.length / numAlong);
 
-        let maxButtonWidth = (this.elementWidth - this.padding) / this.numColumns - this.padding;
+        let maxButtonWidth = (this.elementWidth - this.buttonStartX * 2) / this.numColumns - this.padding;
         let maxButtonHeight = (this.elementHeight - this.padding) / this.numRows - this.padding;
 
         let index = 0;
@@ -90,7 +107,7 @@ export default class ButtonGrid extends Phaser.Group {
                 if (index >= buttons.length) {
                     return;
                 }
-                let layoutX = (maxButtonWidth + this.padding) * (this.horizontal ? j : i) + this.padding + maxButtonWidth / 2;
+                let layoutX = (maxButtonWidth + this.padding) * (this.horizontal ? j : i) + this.padding + maxButtonWidth / 2 + this.buttonStartX;
                 let layoutY = (maxButtonHeight + this.padding) * (this.horizontal ? i : j) + this.padding + maxButtonHeight / 2;
 
                 if(this.style.buttonType == 'tab') {
@@ -189,24 +206,36 @@ export default class ButtonGrid extends Phaser.Group {
     }
 
     left(point) {
-        if (this.horizontal && this.pointLiesInside(point) && this.buttonPanel.x + this.buttonPanel.width >= this.elementWidth && !this.tweenScroll.isRunning) {
+        if (this.horizontal && this.pointLiesInside(point)) {
+            this.moveLeft();
+        }
+    }
+
+    moveLeft() {
+        if(this.buttonPanel.x + this.buttonPanel.width >= this.elementWidth - this.buttonStartX * 2 && !this.tweenScroll.isRunning) {
             // this.buttonPanel.x -= this.elementWidth;
             this.game.tweens.remove(this.tweenScroll);
             this.tweenScroll = this.game.add.tween(this.buttonPanel).to({
-                x: this.buttonPanel.x - this.elementWidth
+                x: this.buttonPanel.x - this.elementWidth + this.buttonStartX * 2
             }, 1000, Phaser.Easing.Quartic.Out, true);
+        }        
+    }
+    
+    right(point) {
+        if (this.horizontal && this.pointLiesInside(point)) {
+            this.moveRight();
         }
     }
 
-    right(point) {
-        if (this.horizontal && this.pointLiesInside(point) && this.buttonPanel.x + this.elementWidth <= 0 && !this.tweenScroll.isRunning) {
+    moveRight() {
+        if(this.buttonPanel.x + this.elementWidth - this.buttonStartX * 2 <= 0 && !this.tweenScroll.isRunning) {
             this.game.tweens.remove(this.tweenScroll);
             this.tweenScroll = this.game.add.tween(this.buttonPanel).to({
-                x: this.buttonPanel.x + this.elementWidth
+                x: this.buttonPanel.x + this.elementWidth - this.buttonStartX * 2
             }, 1000, Phaser.Easing.Quartic.Out, true);
-        }
+        }        
     }
-
+    
     up(point) {
         if (!this.horizontal && this.pointLiesInside(point) && this.buttonPanel.y + this.buttonPanel.height >= this.elementHeight) {
             this.game.tweens.remove(this.tweenScroll);
@@ -233,3 +262,5 @@ export default class ButtonGrid extends Phaser.Group {
 }
 
 ButtonGrid.DEFAULT_PADDING = 5;
+ButtonGrid.LEFT_BUTTON = 'ic_navigate_before_black_24dp_1x.png';
+ButtonGrid.RIGHT_BUTTON = 'ic_navigate_next_black_24dp_1x.png';

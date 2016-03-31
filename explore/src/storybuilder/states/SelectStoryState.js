@@ -28,7 +28,7 @@ export default class SelectStoryState extends Phaser.State {
         this._consoleBar.createRightButtonGrid([SelectStoryState.HOME_BUTTON, SelectStoryState.EDIT_BUTTON, SelectStoryState.PLAY_BUTTON], this.selectNavigation, this);
 
         this.game.add.existing(this._consoleBar);
-
+        this._consoleBar.text.text = "Your Stories";
     }
 
 
@@ -82,7 +82,7 @@ export default class SelectStoryState extends Phaser.State {
             this._currentStory.imageData = null;
             localStorage.setItem(this._currentStoryId, JSON.stringify(this._currentStory, JsonUtil.replacer));
         } catch (e) {
-            if (isQuotaExceeded(e)) {
+            if (this.isQuotaExceeded(e)) {
                 // Storage full, maybe notify user or do some clean-up
             }
         }
