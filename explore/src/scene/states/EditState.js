@@ -48,10 +48,32 @@ export default class EditState extends Phaser.State {
         this.load.json('scene/menu_icons', 'assets/scene/menu_icons.json');        
     }
 
+    repair(obj) {
+        if(obj instanceof Holder) {
+            obj.repairOffset();
+        }
+        obj.children.forEach(function (val) {
+            this.repair(val)
+        }, this);
+    }
+
+    setTempPriority(obj) {
+        if(obj instanceof Holder || obj instanceof Item) {
+            if(obj.input && obj.parent.parent && obj.parent.parent.input) {
+                obj.input.priorityID = obj.parent.parent.input.priorityID + 1;
+            }
+        }
+        obj.children.forEach(function (val) {
+            this.setTempPriority(val)
+        }, this);
+    }
+
     create() {
         if(this.scene == null) {
             this.scene = JSON.parse(game.cache.getText('scene/scene_def'), JsonUtil.revive);
             this.scene.mode = Scene.EDIT_MODE; 
+            this.repair(this.scene);
+            this.setTempPriority(this.scene);
         }
         if(this.cameraPosition) {
             this.game.camera.position = this.cameraPosition;        
@@ -70,38 +92,39 @@ export default class EditState extends Phaser.State {
 
         this.surfaceWidth = 1280;
         let imageNames = [];
-        this.game.cache.getFrameData('scene/scene').getFrames().forEach(function(val, index, array) {
+        this.game.cache.getFrameData('scene/'+this.sceneName).getFrames().forEach(function(val, index, array) {
             imageNames.push(val.name);
         })
-        let chooser = this.game.add.existing(new TabView(this.game, 'scene/scene', this.game.width * 0.9, this.game.height, 10, 50, 9, 16, true, function(tab, button) {
+        let chooser = this.game.add.existing(new TabView(this.game, 'scene/'+this.sceneName, this.game.width * 0.9, this.game.height, 10, 50, 9, 16, true, function(tab, button) {
             chooser.unSelect();
             switch (tab) {
                 case 'item':
-                    this.scene.floor.addContent(new Item(game, this.game.camera.x + this.game.width / 2, 0, 'scene/scene', button)).enableInputs(new EditSceneInputHandler());
+                    this.scene.floor.addContent(new Item(game, this.game.camera.x + this.game.width / 2, 0, 'scene/'+this.sceneName, button)).enableInputs(new EditSceneInputHandler());
                     break;
                 case 'holder':
                     let holder = null;
                     // For now do not allow holder to be edited
-                    // if(EditSceneInputHandler.box != null && EditSceneInputHandler.box.parent instanceof Holder) {
-                    //     holder = EditSceneInputHandler.box.parent;
-                    // } else {
+                    if(EditSceneInputHandler.box != null && EditSceneInputHandler.box.parent instanceof Holder) {
+                        holder = EditSceneInputHandler.box.parent;
+                    } else {
                     //     holder = new Holder(this.game, this.game.width / 2, 0);
                     //     this.scene.floor.addContent(holder);
                     // }
                     holder = new Holder(this.game, this.game.camera.x + this.game.width / 2, 0);
                     this.scene.floor.addContent(holder);
+                    }
                     
                     this.game.state.start('SceneEditHolderState', true, false, holder, this.scene, this.game.camera.position.clone());
                     break;
                 case 'floor':
-                    let texture = new TileTexture(game, 0, 0, parseInt(this.surfaceWidth), this.game.height * 0.4, 'scene/scene', button);
+                    let texture = new TileTexture(game, 0, 0, parseInt(this.surfaceWidth), this.game.height * 0.4, 'scene/'+this.sceneName, button);
                     this.scene.floor.appendTexture(texture);
                     if(this.scene.sceneWidth < texture.right) {
                         this.scene.setSceneSize(texture.right, this.scene.sceneHeight);
                     }
                     break;
                 case 'wall':
-                    texture = new TileTexture(game, 0, 0, parseInt(this.surfaceWidth), this.game.height * 0.6, 'scene/scene', button);
+                    texture = new TileTexture(game, 0, 0, parseInt(this.surfaceWidth), this.game.height * 0.6, 'scene/'+this.sceneName, button);
                     this.scene.wall.appendTexture(texture);
                     if(this.scene.sceneWidth < texture.right) {
                         this.scene.setSceneSize(texture.right, this.scene.sceneHeight);
@@ -124,7 +147,7 @@ export default class EditState extends Phaser.State {
                     break;
                 case 'unlock':
                     if(EditSceneInputHandler.box != null) {
-                        EditSceneInputHandler.box.parent.enableDrag(true);
+                        EditSceneInputHandler.box.parent.input.enableDrag();
                         EditSceneInputHandler.box.parent.movable = true;
                         if(EditSceneInputHandler.box.parent instanceof Holder) {
                             EditSceneInputHandler.box.parent.surfaces.forEach(function(value, index, array) {
