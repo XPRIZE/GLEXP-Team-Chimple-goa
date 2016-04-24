@@ -1,6 +1,7 @@
 chimple.ButtonPanel = ccui.ScrollView.extend({
     ctor:function(position, size, numButtonsPerRow, numButtonsPerColumn, configuration) {
         this._super();
+        this._configuration = configuration;
         this.setBackGroundColorType(ccui.Layout.BG_COLOR_SOLID);
         this.setBackGroundColor(cc.color.GREEN);        
         this.setContentSize(size);
@@ -14,6 +15,7 @@ chimple.ButtonPanel = ccui.ScrollView.extend({
                     var item = new ccui.Button(configuration[index]['icon'], configuration[index]['cIcon']);
                     item.addTouchEventListener(this.itemSelected, this);
                     item.setPosition(pageIndex * size.width + (rowIndex + 0.5) * size.width / numButtonsPerRow, (colIndex + 0.5) * size.height / numButtonsPerColumn);
+                    item.setName(configuration[index]['icon']);
                     index++;
                     this.addChild(item);
                 }                
@@ -29,9 +31,12 @@ chimple.ButtonPanel = ccui.ScrollView.extend({
                 }
                 break;
             case ccui.Widget.TOUCH_ENDED:
-                this._currentSelectedItem = sender;
-                sender.setHighlighted(true);
+                this.selectButton(sender);
                 break;
         }
-    }
+    },
+    selectButton: function(button) {
+        this._currentSelectedItem = button;
+        button.setHighlighted(true);
+    }
 }); 
