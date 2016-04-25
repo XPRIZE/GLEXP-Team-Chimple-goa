@@ -121,25 +121,24 @@ cc.loader.loadJson(misc.Config_json, function (error, data) {
     Object.getOwnPropertyNames(chimple.storyConfigurationObject).forEach(function (element) {
         cc.log("processing:" + element);
         var configObj = chimple.storyConfigurationObject[element];
-        if (configObj != null) {
-            cc.log('configObj.icon:' + configObj.icon);
-            cc.log('configObj.cIcon:' + configObj.cIcon);
-            if(configObj.categories) {
-                configObj.categories.forEach(function (eleObj) {
-                    cc.log('eleObj.icon:' + eleObj.icon);
-                    cc.log('eleObj.cIcon:' + eleObj.cIcon);
+        // if (configObj != null) {
+        //     cc.log('configObj.icon:' + configObj.icon);
+        //     cc.log('configObj.cIcon:' + configObj.cIcon);
+        //     if(configObj.categories) {
+        //         configObj.categories.forEach(function (eleObj) {
+        //             cc.log('eleObj.icon:' + eleObj.icon);
+        //             cc.log('eleObj.cIcon:' + eleObj.cIcon);
 
-                    eleObj.items.forEach(function(itmObj) {
-                        console.log('itmObj.json:' + itmObj.itmObj);
-                        cc.log('itmObj.icon:' + itmObj.icon);
-                        cc.log('itmObj.cIcon:' + itmObj.cIcon);
+        //             eleObj.items.forEach(function(itmObj) {
+        //                 console.log('itmObj.json:' + itmObj.itmObj);
+        //                 cc.log('itmObj.icon:' + itmObj.icon);
+        //                 cc.log('itmObj.cIcon:' + itmObj.cIcon);
 
-                    }, this);
-                }, this);
+        //             }, this);
+        //         }, this);
 
-            }
-        }
-
+        //     }
+        // }
     }, this);
 });
 

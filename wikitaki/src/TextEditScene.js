@@ -7,7 +7,7 @@ var TextEditLayer = cc.Layer.extend({
         return true;
     },
     init: function () {
-        var backgroundLayer = cc.LayerColor.create(new cc.Color(140, 140, 140, 255), 960, 640);
+        var backgroundLayer = cc.LayerColor.create(new cc.Color(140, 140, 140, 255), 2560, 1800);
         this.addChild(backgroundLayer, 0);
         //create menu item with close button
 
@@ -21,7 +21,7 @@ var TextEditLayer = cc.Layer.extend({
 
         var textField = new ccui.TextField();
         if (this._text) {
-            textField.setText(this._text);
+            textField.setString(this._text);
         }
         textField.setPosition(cc.director.getWinSize().width / 2, cc.director.getWinSize().height / 2);
         this.addChild(textField, 0);
@@ -34,8 +34,11 @@ var TextEditLayer = cc.Layer.extend({
                 cc.log("displayed keyboard");
                 break;
             case ccui.TextField.EVENT_DETACH_WITH_IME:
+                cc.log("closed keyboard");
+                this.closeEditor();
                 break;
             case ccui.TextField.EVENT_INSERT_TEXT:
+                cc.log("text entered");
                 this._text = sender.getString();
                 break;
         }
