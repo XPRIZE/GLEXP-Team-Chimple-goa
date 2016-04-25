@@ -70,6 +70,31 @@ var HelloWorldLayer = cc.Layer.extend({
         context.addChild(sprite, 1);
         sprite.setPosition(cc.director.getWinSize().width / 2, cc.director.getWinSize().height / 2);
         sprite.setScale(1);
+
+        var listener = cc.EventListener.create({
+            event: cc.EventListener.TOUCH_ONE_BY_ONE,
+            swallowTouches: true,
+            onTouchBegan: function (touch, event) {
+                var target = event.getCurrentTarget();
+                var location = target.convertToNodeSpace(touch.getLocation());
+                var targetSize = target.getContentSize();
+                var targetRectangle = cc.rect(0, 0, targetSize.width, targetSize.
+                    height);
+                if (cc.rectContainsPoint(targetRectangle, location)) {
+                    return true;
+                }
+                return false;
+            },
+
+            onTouchMoved: function (touch, event) {
+                var target = event.getCurrentTarget();
+                var location = target.parent.convertToNodeSpace(touch.getLocation());
+                event.getCurrentTarget().setPosition(location);
+            }
+        });
+
+        cc.eventManager.addListener(listener, sprite);
+
     },
 
     loadJsonFile: function (selectedItem) {
@@ -94,15 +119,42 @@ var HelloWorldLayer = cc.Layer.extend({
 
     doPostLoadingProcessForScene: function (context, fileToLoad) {
         cc.log('context:' + context._name);
-        chimple.mainScene = ccs.load(fileToLoad);
-        if (chimple.mainScene != null) {
-            context.addChild(chimple.mainScene.node, 0);
+        this._mainScene = ccs.load(fileToLoad);
+        if (this._mainScene != null) {
+            context.addChild(this._mainScene.node, 0);
+
+            this._mainScene.node.children.forEach(function (element) {
+                var listener = cc.EventListener.create({
+                    event: cc.EventListener.TOUCH_ONE_BY_ONE,
+                    swallowTouches: true,
+                    onTouchBegan: function (touch, event) {
+                        var target = event.getCurrentTarget();
+                        var location = target.convertToNodeSpace(touch.getLocation());
+                        var targetSize = target.getContentSize();
+                        var targetRectangle = cc.rect(0, 0, targetSize.width, targetSize.
+                            height);
+                        if (cc.rectContainsPoint(targetRectangle, location)) {
+                            return true;
+                        }
+                        return false;
+                    },
+
+                    onTouchMoved: function (touch, event) {
+                        var target = event.getCurrentTarget();
+                        var location = target.parent.convertToNodeSpace(touch.getLocation());
+                        event.getCurrentTarget().setPosition(location);
+                    }
+                });
+
+                cc.eventManager.addListener(listener, element);
+
+            }, this);
         }
     },
 
     replaceMainScene: function (fileToLoad) {
-        if (chimple.mainScene != null) {
-            chimple.mainScene.node.removeFromParent(true);
+        if (this._mainScene != null) {
+            this._mainScene.node.removeFromParent(true);
         }
         this.showLoadingScene(fileToLoad, this.doPostLoadingProcessForScene, this, fileToLoad);
     },
@@ -157,6 +209,10 @@ var HelloWorldLayer = cc.Layer.extend({
 
     destoryTabBar: function () {
         this._tabBar.removeFromParent(true);
+    },
+
+    saveToFile: function () {
+        cc.sys.localStorage;
     }
 });
 
@@ -169,5 +225,38 @@ var HelloWorldScene = cc.Scene.extend({
             this.addChild(layer);
             layer.init();
         }
+        if (layer) {
+            layer.children.forEach(function (element) {
+                if (element._name === 'Scene') {
+                    element.children.forEach(function (element) {
+                        var listener = cc.EventListener.create({
+                            event: cc.EventListener.TOUCH_ONE_BY_ONE,
+                            swallowTouches: true,
+                            onTouchBegan: function (touch, event) {
+                                var target = event.getCurrentTarget();
+                                var location = target.convertToNodeSpace(touch.getLocation());
+                                var targetSize = target.getContentSize();
+                                var targetRectangle = cc.rect(0, 0, targetSize.width, targetSize.
+                                    height);
+                                if (cc.rectContainsPoint(targetRectangle, location)) {
+                                    return true;
+                                }
+                                return false;
+                            },
+
+                            onTouchMoved: function (touch, event) {
+                                var target = event.getCurrentTarget();
+                                var location = target.parent.convertToNodeSpace(touch.getLocation());
+                                event.getCurrentTarget().setPosition(location);
+                            }
+                        });
+
+                        cc.eventManager.addListener(listener, element);
+                    }, this);
+                }
+            }, this);
+        }
+
     }
-});
+}
+);
