@@ -15,7 +15,7 @@ var HelloWorldLayer = cc.Layer.extend({
             //backgrounds, characters and pops, texts
             var mainConfigurationItems = Object.getOwnPropertyNames(chimple.storyConfigurationObject);
             //Construct UI
-            var pageView = new chimple.PageScroller(cc.p(760, 0), cc.size(200, 640), 1, 2, mainConfigurationItems, cc.color.RED, this.configurationChoosed, this, false);
+            var pageView = new chimple.PageScroller(cc.p(760, 0), cc.size(200, 640), 1, 3, mainConfigurationItems, cc.color.RED, this.configurationChoosed, this, false);
             this.addChild(pageView, 2);
         }
     },
@@ -26,16 +26,42 @@ var HelloWorldLayer = cc.Layer.extend({
 
         var selectedConfig = chimple.storyConfigurationObject[selectedItem.getName()];
 
-        if (selectedConfig != null) {
+        if (selectedConfig != null && selectedItem.getName() != "texts") {
             this.constructTabBar(selectedConfig.categories);
+        } else {
+            //show text editor
+            this.addTextToScene();
         }
     },
-
-    itemSelectedInConfiguration: function(selectedItem) {
+    addTextToScene: function() {
+        var currentText = "how are you today?";
+        var textEditScene = new TextEditScene(currentText);
+        cc.director.pushScene(textEditScene);
+    },
+    
+    itemSelectedInConfiguration: function (selectedItem) {
         cc.log('itemSelectedInConfiguration:' + selectedItem);
         this.destoryTabBar();
+        this.loadJsonFile(selectedItem._jsonFileToLoad);
+    },
 
+    loadJsonFile: function (fileToLoad) {
         //load json file in new window
+        if(this._mainScene != null) {
+            this._mainScene.node.removeFromParent(true);
+        }
+        //later create custom loading screen
+        var loaderScene = cc.LoaderScene;
+        cc.director.pushScene(loaderScene);
+        var dynamicResources = [fileToLoad];
+        loaderScene.preload(dynamicResources, function () {            
+            cc.director.popScene(loaderScene);            
+            this._mainScene = ccs.load(fileToLoad);
+            if (this._mainScene != null) {
+                this.addChild(this._mainScene.node, 0);
+            }
+        }, this);
+
     },
 
     constructTabBar: function (configuration) {
@@ -53,6 +79,6 @@ var HelloWorldScene = cc.Scene.extend({
         this._super();
         layer = new HelloWorldLayer();
         this.addChild(layer);
-        layer.init();
+        layer.init();        
     }
 });

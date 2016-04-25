@@ -35,7 +35,8 @@ var res = {
     pant_onclick_png: "res/pant_onclick.png",
     pant_png: "res/pant.png",
     neck_acccess_onclick_png: "res/neck_acccess_onclick.png",
-    neck_acccess_png: "res/neck_acccess.png"    
+    neck_acccess_png: "res/neck_acccess.png",
+    close_pop_png: "res/close_pop.png"
 };
 
 
@@ -48,6 +49,8 @@ var g_resources = [];
 for (var i in res) {
     g_resources.push(res[i]);
 }
+
+
 
 cc.loader.loadJson(misc.Config_json, function (error, data) {
     chimple.storyConfigurationObject = data;

@@ -2,127 +2,165 @@
   "backgrounds": {
     "cIcon": "res/head_shape_onclick.png",
     "icon": "res/head_shape.png",
-    "categories": [{
-      "name": "desert",
-      "cIcon": "res/Hair_style_onclick.png",
-      "icon": "res/Hair_style.png",
-      "items": [{
-        "cIcon": "res/mouth_2_onclick.png",
-        "icon": "res/mouth_2.png",
-        "json": "african_desert.json"
-      }, {
-        "cIcon": "res/neck_access_onclick.png",
-        "icon": "res/neck_access.png",
-        "json": "indian_desert.json"
-      }, {
-        "cIcon": "res/shirt_onclick.png",
-        "icon": "res/neck_acccess_onclick.png",
-        "json": "indian_desert.json"
-      }, {
-        "cIcon": "res/shirt_onclick.png",
-        "icon": "res/mouth_2.png",
-        "json": "indian_desert.json"
-      },{
-        "cIcon": "res/mouth_2_onclick.png",
-        "icon": "res/mouth_2.png",
-        "json": "african_desert.json"
-      }, {
-        "cIcon": "res/neck_access_onclick.png",
-        "icon": "res/neck_access.png",
-        "json": "indian_desert.json"
-      }, {
-        "cIcon": "res/shirt_onclick.png",
-        "icon": "res/neck_acccess_onclick.png",
-        "json": "indian_desert.json"
-      }, {
-        "cIcon": "res/shirt_onclick.png",
-        "icon": "res/mouth_2.png",
-        "json": "indian_desert.json"
-      }]
-    }, {
-      "name": "forest",
-      "cIcon": "res/hand_access_onclick.png",
-      "icon": "res/hand_access.png",
-      "items": [{
-        "cIcon": "res/pant_onclick.png",
-        "icon": "res/pant.png",
-        "json": "african_forest.json"
-      }, {
-        "cIcon": "res/pant_onclick.png",
-        "icon": "res/pant.png",
-        "json": "african_forest.json"
-      }, {
-        "cIcon": "res/pant_onclick.png",
-        "icon": "res/pant.png",
-        "json": "african_forest.json"
-      }, {
-        "cIcon": "res/pant_onclick.png",
-        "icon": "res/pant.png",
-        "json": "african_forest.json"
-      },{
-        "cIcon": "res/mouth_2_onclick.png",
-        "icon": "res/mouth_2.png",
-        "json": "african_desert.json"
-      }, {
-        "cIcon": "res/neck_access_onclick.png",
-        "icon": "res/neck_access.png",
-        "json": "indian_desert.json"
-      }, {
-        "cIcon": "res/shirt_onclick.png",
-        "icon": "res/neck_acccess_onclick.png",
-        "json": "indian_desert.json"
-      }, {
-        "cIcon": "res/shirt_onclick.png",
-        "icon": "res/mouth_2.png",
-        "json": "indian_desert.json"
-      }]
-    }]
+    "categories": [
+      {
+        "name": "desert",
+        "cIcon": "res/Hair_style_onclick.png",
+        "icon": "res/Hair_style.png",
+        "items": [
+          {
+            "cIcon": "res/mouth_2_onclick.png",
+            "icon": "res/mouth_2.png",
+            "json": "res/misc/scene1/MainScene.json"
+          },
+          {
+            "cIcon": "res/neck_access_onclick.png",
+            "icon": "res/neck_access.png",
+            "json": "res/misc/scene1/MainScene.json"
+          },
+          {
+            "cIcon": "res/shirt_onclick.png",
+            "icon": "res/neck_acccess_onclick.png",
+            "json": "res/misc/scene1/MainScene.json"
+          },
+          {
+            "cIcon": "res/shirt_onclick.png",
+            "icon": "res/mouth_2.png",
+            "json": "res/misc/scene1/MainScene.json"
+          },
+          {
+            "cIcon": "res/mouth_2_onclick.png",
+            "icon": "res/mouth_2.png",
+            "json": "res/misc/scene1/MainScene.json"
+          },
+          {
+            "cIcon": "res/neck_access_onclick.png",
+            "icon": "res/neck_access.png",
+            "json": "res/misc/scene1/MainScene.json"
+          },
+          {
+            "cIcon": "res/shirt_onclick.png",
+            "icon": "res/neck_acccess_onclick.png",
+            "json": "res/misc/scene1/MainScene.json"
+          },
+          {
+            "cIcon": "res/shirt_onclick.png",
+            "icon": "res/mouth_2.png",
+            "json": "res/misc/scene1/MainScene.json"
+          }
+        ]
+      },
+      {
+        "name": "forest",
+        "cIcon": "res/hand_access_onclick.png",
+        "icon": "res/hand_access.png",
+        "items": [
+          {
+            "cIcon": "res/pant_onclick.png",
+            "icon": "res/pant.png",
+            "json": "res/misc/scene1/MainScene.json"
+          },
+          {
+            "cIcon": "res/pant_onclick.png",
+            "icon": "res/pant.png",
+            "json": "res/misc/scene1/MainScene.json"
+          },
+          {
+            "cIcon": "res/pant_onclick.png",
+            "icon": "res/pant.png",
+            "json": "res/misc/scene1/MainScene.json"
+          },
+          {
+            "cIcon": "res/pant_onclick.png",
+            "icon": "res/pant.png",
+            "json": "res/misc/scene1/MainScene.json"
+          },
+          {
+            "cIcon": "res/mouth_2_onclick.png",
+            "icon": "res/mouth_2.png",
+            "json": "res/misc/scene1/MainScene.json"
+          },
+          {
+            "cIcon": "res/neck_access_onclick.png",
+            "icon": "res/neck_access.png",
+            "json": "res/misc/scene1/MainScene.json"
+          },
+          {
+            "cIcon": "res/shirt_onclick.png",
+            "icon": "res/neck_acccess_onclick.png",
+            "json": "res/misc/scene1/MainScene.json"
+          },
+          {
+            "cIcon": "res/shirt_onclick.png",
+            "icon": "res/mouth_2.png",
+            "json": "res/misc/scene1/MainScene.json"
+          }
+        ]
+      }
+    ]
   },
   "characters": {
     "cIcon": "res/shirt_onclick.png",
     "icon": "res/shirt.png",
-    "categories": [{
-      "name": "humans",
-      "cIcon": "res/head_shape_onclick.png",
-      "icon": "res/head_shape.png",
-      "items": [{
-        "cIcon": "res/glasses_onclick.png",
-        "icon": "res/glasses.png",
-        "json": "teacher.json"
-      }, {
-        "cIcon": "res/eyes_onclick.png",
-        "icon": "res/eyes.png",
-        "json": "judge.json"
-      }, {
-        "cIcon": "res/glasses_onclick.png",
-        "icon": "res/glasses.png",
-        "json": "teacher.json"
-      }, {
-        "cIcon": "res/eyes_onclick.png",
-        "icon": "res/eyes.png",
-        "json": "judge.json"
-      }]
-    }, {
-      "name": "birds",
-      "cIcon": "res/pant_onclick.png",
-      "icon": "res/pant.png",
-      "items": [{
-        "cIcon": "res/shoe_onclick.png",
-        "icon": "res/shoe.png",
-        "json": "eagle.json"
-      }, {
-        "cIcon": "res/shirt_onclick.png",
-        "icon": "res/shirt.png",
-        "json": "crow.json"
-      }, {
-        "cIcon": "res/glasses_onclick.png",
-        "icon": "res/glasses.png",
-        "json": "teacher.json"
-      }, {
-        "cIcon": "res/eyes_onclick.png",
-        "icon": "res/eyes.png",
-        "json": "judge.json"
-      }]
-    }]
+    "categories": [
+      {
+        "name": "humans",
+        "cIcon": "res/head_shape_onclick.png",
+        "icon": "res/head_shape.png",
+        "items": [
+          {
+            "cIcon": "res/glasses_onclick.png",
+            "icon": "res/glasses.png",
+            "json": "res/misc/scene1/MainScene.json"
+          },
+          {
+            "cIcon": "res/eyes_onclick.png",
+            "icon": "res/eyes.png",
+            "json": "res/misc/scene1/MainScene.json"
+          },
+          {
+            "cIcon": "res/glasses_onclick.png",
+            "icon": "res/glasses.png",
+            "json": "res/misc/scene1/MainScene.json"
+          },
+          {
+            "cIcon": "res/eyes_onclick.png",
+            "icon": "res/eyes.png",
+            "json": "res/misc/scene1/MainScene.json"
+          }
+        ]
+      },
+      {
+        "name": "birds",
+        "cIcon": "res/pant_onclick.png",
+        "icon": "res/pant.png",
+        "items": [
+          {
+            "cIcon": "res/shoe_onclick.png",
+            "icon": "res/shoe.png",
+            "json": "res/misc/scene1/MainScene.json"
+          },
+          {
+            "cIcon": "res/shirt_onclick.png",
+            "icon": "res/shirt.png",
+            "json": "res/misc/scene1/MainScene.json"
+          },
+          {
+            "cIcon": "res/glasses_onclick.png",
+            "icon": "res/glasses.png",
+            "json": "res/misc/scene1/MainScene.json"
+          },
+          {
+            "cIcon": "res/eyes_onclick.png",
+            "icon": "res/eyes.png",
+            "json": "res/misc/scene1/MainScene.json"
+          }
+        ]
+      }
+    ]
+  },
+  "texts": {
+    "cIcon": "res/shirt_onclick.png",
+    "icon": "res/shirt.png"
   }
 }
