@@ -99,7 +99,7 @@ var res = {
     hare_righthand_png: "res/characters/hare/hare_righthand.png",
     hare_rightleg_png: "res/characters/hare/hare_rightleg.png",
     hare_thumbnail_png: "res/characters/hare/hare_thumbnail.png",
-    
+    close_pop_png: "res/close_pop.png"
 };
 
 
@@ -112,6 +112,8 @@ var g_resources = [];
 for (var i in res) {
     g_resources.push(res[i]);
 }
+
+
 
 cc.loader.loadJson(misc.Config_json, function (error, data) {
     chimple.storyConfigurationObject = data;
