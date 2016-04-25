@@ -1,9 +1,11 @@
 /// <reference path="../../../cocos2d-typescript-definitions/cocos2d/cocos2d-lib.d.ts" />
+var LAYER_INIT = false;
 
 var chimple = chimple || {};
 var HelloWorldLayer = cc.Layer.extend({
     ctor: function () {
         this._super();
+        this._name = "StoryLayer";
         return true;
     },
     init: function () {
@@ -51,11 +53,24 @@ var HelloWorldLayer = cc.Layer.extend({
     process: function (selectedItem) {
         if (selectedItem.dataType === 'png' && selectedItem._pngFileToLoad != null) {
             //process image - create cc.sprite node
+            this.loadImageAddToNode(selectedItem);
         } else if (selectedItem.dataType === 'json' && selectedItem._jsonFileToLoad != null) {
             this.loadJsonFile(selectedItem);
         }
     },
 
+    loadImageAddToNode: function (selectedItem) {
+        //load image if only not already in cache
+        var imageToLoad = selectedItem._pngFileToLoad;
+        this.showLoadingScene(imageToLoad, this.doPostLoadingProcessForImage, this, imageToLoad);
+    },
+
+    doPostLoadingProcessForImage: function (context, imageToLoad) {
+        var sprite = new cc.Sprite(imageToLoad);
+        context.addChild(sprite, 1);
+        sprite.setPosition(cc.director.getWinSize().width / 2, cc.director.getWinSize().height / 2);
+        sprite.setScale(1);
+    },
 
     loadJsonFile: function (selectedItem) {
         //load json file in new window
@@ -77,23 +92,31 @@ var HelloWorldLayer = cc.Layer.extend({
 
     },
 
-    replaceMainScene: function (fileToLoad) {
-        if (this._mainScene != null) {
-            this._mainScene.node.removeFromParent(true);
+    doPostLoadingProcessForScene: function (context, fileToLoad) {
+        cc.log('context:' + context._name);
+        chimple.mainScene = ccs.load(fileToLoad);
+        if (chimple.mainScene != null) {
+            context.addChild(chimple.mainScene.node, 0);
         }
-        //later create custom loading screen
+    },
+
+    replaceMainScene: function (fileToLoad) {
+        if (chimple.mainScene != null) {
+            chimple.mainScene.node.removeFromParent(true);
+        }
+        this.showLoadingScene(fileToLoad, this.doPostLoadingProcessForScene, this, fileToLoad);
+    },
+
+
+    //later create custom loading screen
+    showLoadingScene: function (fileToLoad, doPostLoadingProcessFunction, context, args) {
         var loaderScene = cc.LoaderScene;
         cc.director.pushScene(loaderScene);
         var dynamicResources = [fileToLoad];
         loaderScene.preload(dynamicResources, function () {
             cc.director.popScene(loaderScene);
-            this._mainScene = ccs.load(fileToLoad);
-            if (this._mainScene != null) {
-                this.addChild(this._mainScene.node, 0);
-            }
+            doPostLoadingProcessFunction.call(context, context, args);
         }, this);
-
-
     },
 
     addCharacterToScene: function (fileToLoad) {
@@ -140,8 +163,11 @@ var HelloWorldLayer = cc.Layer.extend({
 var HelloWorldScene = cc.Scene.extend({
     onEnter: function () {
         this._super();
-        layer = new HelloWorldLayer();
-        this.addChild(layer);
-        layer.init();
+        if (LAYER_INIT === false) {
+            LAYER_INIT = true;
+            layer = new HelloWorldLayer();
+            this.addChild(layer);
+            layer.init();
+        }
     }
 });
