@@ -26,7 +26,7 @@ var HelloWorldLayer = cc.Layer.extend({
         //create scroll bar at top based on item selected
 
         var selectedConfig = chimple.storyConfigurationObject[selectedItem.getName()];
-
+        cc.log(selectedItem.getName());
         if (selectedConfig != null && selectedItem.getName() != "texts") {
             this.constructTabBar(selectedConfig.categories);
         } else {
@@ -68,8 +68,8 @@ var HelloWorldLayer = cc.Layer.extend({
         var fileToLoad = selectedItem._jsonFileToLoad;
         switch (type) {
             case "character":
+                this.addCharacterToScene(fileToLoad);
                 break;
-
             case "scene":
                 this.replaceMainScene(fileToLoad);
                 break;
@@ -96,8 +96,34 @@ var HelloWorldLayer = cc.Layer.extend({
 
     },
 
-    addCharacterToScene: function () {
-
+    addCharacterToScene: function (fileToLoad) {
+        var load = ccs.load(fileToLoad);
+        load.node.setPosition(900, 900);
+        var listener = cc.EventListener.create({
+            event: cc.EventListener.TOUCH_ONE_BY_ONE,
+            swallowTouches: true,
+            onTouchBegan: function (touch, event) {
+                var target = event.getCurrentTarget();
+                var location = target.convertToNodeSpace(touch.getLocation());
+                var boundingBox = target.getBoundingBoxToWorld();
+                var targetSize = cc.size(boundingBox.width, boundingBox.height);
+                var targetRectangle = cc.rect(0, 0, targetSize.width, targetSize.height);
+                if (cc.rectContainsPoint(targetRectangle, location)) {
+                    return true;
+                }
+                return false;
+            },
+            onTouchMoved: function(touch, event) {
+                var target = event.getCurrentTarget();
+                target.setPosition(target.parent.convertToNodeSpace(touch.getLocation()));
+                target._renderCmd._dirtyFlag = 1;
+            }
+        });
+        cc.eventManager.addListener(listener, load.node);        
+            
+        this.addChild(load.node);  
+        // load.node.runAction(load.action);
+        // load.action.play('nod', false);       
     },
 
 

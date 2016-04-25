@@ -118,70 +118,42 @@
   "characters": {
     "cIcon": "res/shirt_onclick.png",
     "icon": "res/shirt.png",
-    "categories": [
-      {
-        "name": "humans",
-        "cIcon": "res/head_shape_onclick.png",
-        "icon": "res/head_shape.png",
-        "items": [
-          {
-            "cIcon": "res/glasses_onclick.png",
-            "icon": "res/glasses.png",
-            "json": "res/misc/scene1/MainScene.json",
-            "type":"character"
-          },
-          {
-            "cIcon": "res/eyes_onclick.png",
-            "icon": "res/eyes.png",
-            "json": "res/misc/scene1/MainScene.json",
-            "type":"character"
-          },
-          {
-            "cIcon": "res/glasses_onclick.png",
-            "icon": "res/glasses.png",
-            "json": "res/misc/scene1/MainScene.json",
-            "type":"character"
-          },
-          {
-            "cIcon": "res/eyes_onclick.png",
-            "icon": "res/eyes.png",
-            "json": "res/misc/scene1/MainScene.json",
-            "type":"character"
-          }
-        ]
-      },
-      {
-        "name": "birds",
-        "cIcon": "res/pant_onclick.png",
-        "icon": "res/pant.png",
-        "items": [
-          {
-            "cIcon": "res/shoe_onclick.png",
-            "icon": "res/shoe.png",
-            "json": "res/misc/scene1/MainScene.json",
-            "type":"character"
-          },
-          {
-            "cIcon": "res/shirt_onclick.png",
-            "icon": "res/shirt.png",
-            "json": "res/misc/scene1/MainScene.json",
-            "type":"character"
-          },
-          {
-            "cIcon": "res/glasses_onclick.png",
-            "icon": "res/glasses.png",
-            "json": "res/misc/scene1/MainScene.json",
-            "type":"character"
-          },
-          {
-            "cIcon": "res/eyes_onclick.png",
-            "icon": "res/eyes.png",
-            "json": "res/misc/scene1/MainScene.json",
-            "type":"character"
-          }
-        ]
-      }
-    ]
+    "categories": [{
+      "name": "humans",
+      "cIcon": "res/head_shape_onclick.png",
+      "icon": "res/head_shape.png",
+      "items": [{
+        "icon": "res/characters/human/cricketer_thumbnail.png",
+        "json": "res/characters/human/human.json",
+        "type": "character"        
+      }, {
+        "icon": "res/characters/human/cowboy_thumbnail.png",
+        "json": "res/characters/human/human.json",
+        "type": "character"        
+      }]
+    }, {
+      "name": "animals",
+      "cIcon": "res/pant_onclick.png",
+      "icon": "res/pant.png",
+      "items": [{
+        "icon": "res/characters/crow/crow_thumbnail.png",
+        "json": "res/characters/crow/Animation.json",
+        "type": "character"        
+      }, {
+        "icon": "res/characters/donkey/donkey_thumbnail.png",
+        "json": "res/characters/donkey/Skeleton.json",
+        "type": "character"        
+      }, {
+        "icon": "res/characters/elephant/elephant_thumbnail.png",
+        "json": "res/characters/elephant/elep.json",
+        "type": "character"        
+      }, {
+        "cIcon": "res/characters/hare/hare_thumbnail.png",
+        "icon": "res/characters/hare/hare_thumbnail.png",
+        "json": "res/characters/hare/Skeleton.json",
+        "type": "character"        
+      }]
+    }]
   },
   "texts": {
     "cIcon": "res/shirt_onclick.png",
