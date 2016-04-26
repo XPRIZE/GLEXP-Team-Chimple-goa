@@ -179,11 +179,10 @@ var HelloWorldLayer = cc.Layer.extend({
             swallowTouches: true,
             onTouchBegan: function (touch, event) {
                 var target = event.getCurrentTarget();
-                var location = target.convertToNodeSpace(touch.getLocation());
                 var boundingBox = target.getBoundingBoxToWorld();
-                var targetSize = cc.size(boundingBox.width, boundingBox.height);
-                var targetRectangle = cc.rect(0, 0, targetSize.width, targetSize.height);
-                if (cc.rectContainsPoint(targetRectangle, location)) {
+                if (cc.rectContainsPoint(target.getBoundingBoxToWorld(), touch.getLocation())) {
+                    var action = target.actionManager.getActionByTag(target.tag, target);
+                    action.play(Object.keys(action._animationInfos)[0], true);
                     return true;
                 }
                 return false;
@@ -191,14 +190,16 @@ var HelloWorldLayer = cc.Layer.extend({
             onTouchMoved: function(touch, event) {
                 var target = event.getCurrentTarget();
                 target.setPosition(target.parent.convertToNodeSpace(touch.getLocation()));
-                target._renderCmd._dirtyFlag = 1;
+            },
+            onTouchEnded: function(touch, event) {
+                var target = event.getCurrentTarget();
+                target.actionManager.getActionByTag(target.tag, target).pause();
             }
         });
         cc.eventManager.addListener(listener, load.node);        
-            
-        this.addChild(load.node);  
-        // load.node.runAction(load.action);
-        // load.action.play('nod', false);       
+        this.addChild(load.node);
+        load.node.runAction(load.action);
+        load.node._renderCmd._dirtyFlag = 1;
     },
 
 
