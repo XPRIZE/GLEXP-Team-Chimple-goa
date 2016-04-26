@@ -1,859 +1,112 @@
 {
-  "ID": "a2ee0952-26b5-49ae-8bf9-4f1d6279b798",
-  "Version": "3.10.0.0",
-  "Name": "MainScene",
-  "Content": {
-    "Content": {
-      "Animation": {
-        "Duration": 0,
-        "Speed": 1.0,
-        "Timelines": [],
-        "ctype": "TimelineActionData"
-      },
-      "AnimationList": [],
-      "ObjectData": {
-        "Children": [
-          {
-            "FileData": {
-              "Type": "Default",
-              "Path": "Default/Sprite.png",
-              "Plist": ""
-            },
-            "BlendFunc": {
-              "Src": 1,
-              "Dst": 771
-            },
-            "AnchorPoint": {
-              "ScaleX": 0.5,
-              "ScaleY": 0.5
-            },
-            "Position": {
-              "X": 441.7288,
-              "Y": 249.6563
-            },
-            "Scale": {
-              "ScaleX": 1.0,
-              "ScaleY": 1.0
-            },
-            "CColor": {},
-            "IconVisible": false,
-            "PrePosition": {
-              "X": 0.2454,
-              "Y": 0.1387
-            },
-            "PreSize": {
-              "X": 0.0256,
-              "Y": 0.0256
-            },
-            "LeftMargin": 418.7288,
-            "RightMargin": 1335.2712,
-            "TopMargin": 1527.3438,
-            "BottomMargin": 226.6563,
-            "Tag": 3,
-            "ActionTag": 831774237,
-            "Size": {
-              "X": 46.0,
-              "Y": 46.0
-            },
-            "Name": "Sprite_1",
-            "ctype": "SpriteObjectData"
-          },
-          {
-            "FileData": {
-              "Type": "Normal",
-              "Path": "Background.png",
-              "Plist": ""
-            },
-            "BlendFunc": {
-              "Src": 770,
-              "Dst": 771
-            },
-            "AnchorPoint": {
-              "ScaleX": 0.5,
-              "ScaleY": 0.5
-            },
-            "Position": {
-              "X": 904.3564,
-              "Y": 909.121
-            },
-            "Scale": {
-              "ScaleX": 1.0,
-              "ScaleY": 1.0
-            },
-            "CColor": {},
-            "IconVisible": false,
-            "PrePosition": {
-              "X": 0.5024,
-              "Y": 0.5051
-            },
-            "PreSize": {
-              "X": 1.0,
-              "Y": 1.0
-            },
-            "LeftMargin": 4.3564,
-            "RightMargin": -4.3564,
-            "TopMargin": -9.121,
-            "BottomMargin": 9.121,
-            "Tag": 4,
-            "ActionTag": 1779239264,
-            "Size": {
-              "X": 1800.0,
-              "Y": 1800.0
-            },
-            "Name": "Background_2",
-            "ctype": "SpriteObjectData"
-          },
-          {
-            "FileData": {
-              "Type": "Normal",
-              "Path": "Hill.png",
-              "Plist": ""
-            },
-            "BlendFunc": {
-              "Src": 1,
-              "Dst": 771
-            },
-            "AnchorPoint": {
-              "ScaleX": 0.5,
-              "ScaleY": 0.5
-            },
-            "Position": {
-              "X": 1426.0857,
-              "Y": 922.2059
-            },
-            "Scale": {
-              "ScaleX": 1.0,
-              "ScaleY": 1.0
-            },
-            "CColor": {},
-            "IconVisible": false,
-            "PrePosition": {
-              "X": 0.7923,
-              "Y": 0.5123
-            },
-            "PreSize": {
-              "X": 0.4083,
-              "Y": 0.3694
-            },
-            "LeftMargin": 1058.5857,
-            "RightMargin": 6.4143,
-            "TopMargin": 545.2942,
-            "BottomMargin": 589.7059,
-            "Tag": 5,
-            "ActionTag": 2073467258,
-            "Size": {
-              "X": 735.0,
-              "Y": 665.0
-            },
-            "Name": "Hill_3",
-            "ctype": "SpriteObjectData"
-          },
-          {
-            "FileData": {
-              "Type": "Normal",
-              "Path": "Cloud.png",
-              "Plist": ""
-            },
-            "BlendFunc": {
-              "Src": 1,
-              "Dst": 771
-            },
-            "AnchorPoint": {
-              "ScaleX": 0.5,
-              "ScaleY": 0.5
-            },
-            "Position": {
-              "X": 229.1563,
-              "Y": 1514.1892
-            },
-            "Scale": {
-              "ScaleX": 1.0,
-              "ScaleY": 1.0
-            },
-            "CColor": {},
-            "IconVisible": false,
-            "PrePosition": {
-              "X": 0.1273,
-              "Y": 0.8412
-            },
-            "PreSize": {
-              "X": 0.1133,
-              "Y": 0.0633
-            },
-            "LeftMargin": 127.1563,
-            "RightMargin": 1468.8438,
-            "TopMargin": 228.8108,
-            "BottomMargin": 1457.1892,
-            "Tag": 6,
-            "ActionTag": 2017756126,
-            "Size": {
-              "X": 204.0,
-              "Y": 114.0
-            },
-            "Name": "Cloud_4",
-            "ctype": "SpriteObjectData"
-          },
-          {
-            "FileData": {
-              "Type": "Normal",
-              "Path": "Cloud.png",
-              "Plist": ""
-            },
-            "BlendFunc": {
-              "Src": 1,
-              "Dst": 771
-            },
-            "AnchorPoint": {
-              "ScaleX": 0.5,
-              "ScaleY": 0.5
-            },
-            "Position": {
-              "X": 682.0797,
-              "Y": 1376.6672
-            },
-            "Scale": {
-              "ScaleX": 1.1981,
-              "ScaleY": 1.1981
-            },
-            "CColor": {},
-            "IconVisible": false,
-            "PrePosition": {
-              "X": 0.3789,
-              "Y": 0.7648
-            },
-            "PreSize": {
-              "X": 0.1133,
-              "Y": 0.0633
-            },
-            "LeftMargin": 580.0797,
-            "RightMargin": 1015.9203,
-            "TopMargin": 366.3328,
-            "BottomMargin": 1319.6672,
-            "Tag": 7,
-            "ActionTag": -2001778490,
-            "Size": {
-              "X": 204.0,
-              "Y": 114.0
-            },
-            "Name": "Sprite_5",
-            "ctype": "SpriteObjectData"
-          },
-          {
-            "FileData": {
-              "Type": "Normal",
-              "Path": "Cloud.png",
-              "Plist": ""
-            },
-            "BlendFunc": {
-              "Src": 1,
-              "Dst": 771
-            },
-            "AnchorPoint": {
-              "ScaleX": 0.5,
-              "ScaleY": 0.5
-            },
-            "Position": {
-              "X": 1222.9971,
-              "Y": 1578.7908
-            },
-            "Scale": {
-              "ScaleX": 1.634,
-              "ScaleY": 1.634
-            },
-            "CColor": {},
-            "IconVisible": false,
-            "PrePosition": {
-              "X": 0.6794,
-              "Y": 0.8771
-            },
-            "PreSize": {
-              "X": 0.1133,
-              "Y": 0.0633
-            },
-            "LeftMargin": 1120.9971,
-            "RightMargin": 475.0029,
-            "TopMargin": 164.2092,
-            "BottomMargin": 1521.7908,
-            "Tag": 8,
-            "ActionTag": -678938541,
-            "Size": {
-              "X": 204.0,
-              "Y": 114.0
-            },
-            "Name": "Cloud_6",
-            "ctype": "SpriteObjectData"
-          },
-          {
-            "FileData": {
-              "Type": "Normal",
-              "Path": "Cloud.png",
-              "Plist": ""
-            },
-            "BlendFunc": {
-              "Src": 1,
-              "Dst": 771
-            },
-            "AnchorPoint": {
-              "ScaleX": 0.5,
-              "ScaleY": 0.5
-            },
-            "Position": {
-              "X": 378.9517,
-              "Y": 1020.9918
-            },
-            "Scale": {
-              "ScaleX": 0.8019,
-              "ScaleY": 0.8019
-            },
-            "CColor": {},
-            "IconVisible": false,
-            "PrePosition": {
-              "X": 0.2105,
-              "Y": 0.5672
-            },
-            "PreSize": {
-              "X": 0.1133,
-              "Y": 0.0633
-            },
-            "LeftMargin": 276.9517,
-            "RightMargin": 1319.0483,
-            "TopMargin": 722.0082,
-            "BottomMargin": 963.9918,
-            "Tag": 9,
-            "ActionTag": -254412241,
-            "Size": {
-              "X": 204.0,
-              "Y": 114.0
-            },
-            "Name": "Cloud_7",
-            "ctype": "SpriteObjectData"
-          },
-          {
-            "FileData": {
-              "Type": "Normal",
-              "Path": "Grass_Hill.png",
-              "Plist": ""
-            },
-            "BlendFunc": {
-              "Src": 1,
-              "Dst": 771
-            },
-            "AnchorPoint": {
-              "ScaleX": 0.5,
-              "ScaleY": 0.5
-            },
-            "Position": {
-              "X": 309.0225,
-              "Y": 663.6794
-            },
-            "Scale": {
-              "ScaleX": 1.0,
-              "ScaleY": 1.0
-            },
-            "CColor": {},
-            "IconVisible": false,
-            "PrePosition": {
-              "X": 0.1717,
-              "Y": 0.3687
-            },
-            "PreSize": {
-              "X": 0.3394,
-              "Y": 0.0856
-            },
-            "LeftMargin": 3.5225,
-            "RightMargin": 1185.4775,
-            "TopMargin": 1059.3206,
-            "BottomMargin": 586.6794,
-            "Tag": 10,
-            "ActionTag": 1731044688,
-            "Size": {
-              "X": 611.0,
-              "Y": 154.0
-            },
-            "Name": "Grass_Hill_8",
-            "ctype": "SpriteObjectData"
-          },
-          {
-            "FileData": {
-              "Type": "Normal",
-              "Path": "Grass_Hill.png",
-              "Plist": ""
-            },
-            "BlendFunc": {
-              "Src": 1,
-              "Dst": 771
-            },
-            "AnchorPoint": {
-              "ScaleX": 0.5,
-              "ScaleY": 0.5
-            },
-            "Position": {
-              "X": 712.9625,
-              "Y": 704.1026
-            },
-            "Scale": {
-              "ScaleX": 1.0,
-              "ScaleY": 1.5592
-            },
-            "CColor": {},
-            "IconVisible": false,
-            "PrePosition": {
-              "X": 0.3961,
-              "Y": 0.3912
-            },
-            "PreSize": {
-              "X": 0.3394,
-              "Y": 0.0856
-            },
-            "LeftMargin": 407.4625,
-            "RightMargin": 781.5375,
-            "TopMargin": 1018.8974,
-            "BottomMargin": 627.1026,
-            "Tag": 11,
-            "ActionTag": -328171015,
-            "Size": {
-              "X": 611.0,
-              "Y": 154.0
-            },
-            "Name": "Grass_Hill_9",
-            "ctype": "SpriteObjectData"
-          },
-          {
-            "FileData": {
-              "Type": "Normal",
-              "Path": "Grass_Hill.png",
-              "Plist": ""
-            },
-            "BlendFunc": {
-              "Src": 1,
-              "Dst": 771
-            },
-            "AnchorPoint": {
-              "ScaleX": 0.5,
-              "ScaleY": 0.5
-            },
-            "Position": {
-              "X": 1177.9092,
-              "Y": 641.3745
-            },
-            "Scale": {
-              "ScaleX": 1.0,
-              "ScaleY": 0.704
-            },
-            "CColor": {},
-            "IconVisible": false,
-            "PrePosition": {
-              "X": 0.6544,
-              "Y": 0.3563
-            },
-            "PreSize": {
-              "X": 0.3394,
-              "Y": 0.0856
-            },
-            "LeftMargin": 872.4092,
-            "RightMargin": 316.5908,
-            "TopMargin": 1081.6255,
-            "BottomMargin": 564.3745,
-            "Tag": 12,
-            "ActionTag": 1660801300,
-            "Size": {
-              "X": 611.0,
-              "Y": 154.0
-            },
-            "Name": "Grass_Hill_10",
-            "ctype": "SpriteObjectData"
-          },
-          {
-            "FileData": {
-              "Type": "Normal",
-              "Path": "Sun.png",
-              "Plist": ""
-            },
-            "BlendFunc": {
-              "Src": 1,
-              "Dst": 771
-            },
-            "AnchorPoint": {
-              "ScaleX": 0.4824,
-              "ScaleY": 0.4655
-            },
-            "Position": {
-              "X": 871.6884,
-              "Y": 1093.8838
-            },
-            "Scale": {
-              "ScaleX": 1.0,
-              "ScaleY": 1.0
-            },
-            "CColor": {},
-            "IconVisible": false,
-            "PrePosition": {
-              "X": 0.4843,
-              "Y": 0.6077
-            },
-            "PreSize": {
-              "X": 0.1122,
-              "Y": 0.1117
-            },
-            "LeftMargin": 774.2436,
-            "RightMargin": 823.7564,
-            "TopMargin": 598.6818,
-            "BottomMargin": 1000.3183,
-            "Tag": 13,
-            "ActionTag": -730312124,
-            "Size": {
-              "X": 202.0,
-              "Y": 201.0
-            },
-            "Name": "Sun_11",
-            "ctype": "SpriteObjectData"
-          },
-          {
-            "FileData": {
-              "Type": "Normal",
-              "Path": "Tree_01.png",
-              "Plist": ""
-            },
-            "BlendFunc": {
-              "Src": 1,
-              "Dst": 771
-            },
-            "AnchorPoint": {
-              "ScaleX": 0.5,
-              "ScaleY": 0.5
-            },
-            "Position": {
-              "X": 156.9413,
-              "Y": 351.9479
-            },
-            "Scale": {
-              "ScaleX": 1.0,
-              "ScaleY": 1.0
-            },
-            "CColor": {},
-            "IconVisible": false,
-            "PrePosition": {
-              "X": 0.0872,
-              "Y": 0.1955
-            },
-            "PreSize": {
-              "X": 0.1133,
-              "Y": 0.2861
-            },
-            "LeftMargin": 54.9413,
-            "RightMargin": 1541.0587,
-            "TopMargin": 1190.5521,
-            "BottomMargin": 94.4479,
-            "Tag": 14,
-            "ActionTag": 1122102064,
-            "Size": {
-              "X": 204.0,
-              "Y": 515.0
-            },
-            "Name": "Tree_01_12",
-            "ctype": "SpriteObjectData"
-          },
-          {
-            "FileData": {
-              "Type": "Normal",
-              "Path": "Tree_02.png",
-              "Plist": ""
-            },
-            "BlendFunc": {
-              "Src": 1,
-              "Dst": 771
-            },
-            "AnchorPoint": {
-              "ScaleX": 0.5,
-              "ScaleY": 0.5
-            },
-            "Position": {
-              "X": 1650.6606,
-              "Y": 349.2081
-            },
-            "Scale": {
-              "ScaleX": 1.0,
-              "ScaleY": 1.0
-            },
-            "CColor": {},
-            "IconVisible": false,
-            "PrePosition": {
-              "X": 0.917,
-              "Y": 0.194
-            },
-            "PreSize": {
-              "X": 0.1117,
-              "Y": 0.3256
-            },
-            "LeftMargin": 1550.1606,
-            "RightMargin": 48.8394,
-            "TopMargin": 1157.7919,
-            "BottomMargin": 56.2081,
-            "Tag": 15,
-            "ActionTag": 917293606,
-            "Size": {
-              "X": 201.0,
-              "Y": 586.0
-            },
-            "Name": "Tree_02_13",
-            "ctype": "SpriteObjectData"
-          },
-          {
-            "FileData": {
-              "Type": "Normal",
-              "Path": "Tree_03.png",
-              "Plist": ""
-            },
-            "BlendFunc": {
-              "Src": 1,
-              "Dst": 771
-            },
-            "AnchorPoint": {
-              "ScaleX": 0.5,
-              "ScaleY": 0.5
-            },
-            "Position": {
-              "X": 1238.4011,
-              "Y": 417.9161
-            },
-            "Scale": {
-              "ScaleX": 1.0,
-              "ScaleY": 1.0
-            },
-            "CColor": {},
-            "IconVisible": false,
-            "PrePosition": {
-              "X": 0.688,
-              "Y": 0.2322
-            },
-            "PreSize": {
-              "X": 0.05,
-              "Y": 0.14
-            },
-            "LeftMargin": 1193.4011,
-            "RightMargin": 516.5989,
-            "TopMargin": 1256.0839,
-            "BottomMargin": 291.9161,
-            "Tag": 16,
-            "ActionTag": 1621314628,
-            "Size": {
-              "X": 90.0,
-              "Y": 252.0
-            },
-            "Name": "Tree_03_14",
-            "ctype": "SpriteObjectData"
-          },
-          {
-            "FileData": {
-              "Type": "Normal",
-              "Path": "Tree_01.png",
-              "Plist": ""
-            },
-            "BlendFunc": {
-              "Src": 1,
-              "Dst": 771
-            },
-            "AnchorPoint": {
-              "ScaleX": 0.5,
-              "ScaleY": 0.5
-            },
-            "Position": {
-              "X": 385.5903,
-              "Y": 579.5887
-            },
-            "Scale": {
-              "ScaleX": 0.3264,
-              "ScaleY": 0.3264
-            },
-            "CColor": {},
-            "IconVisible": false,
-            "PrePosition": {
-              "X": 0.2142,
-              "Y": 0.322
-            },
-            "PreSize": {
-              "X": 0.1133,
-              "Y": 0.2861
-            },
-            "LeftMargin": 283.5903,
-            "RightMargin": 1312.4097,
-            "TopMargin": 962.9113,
-            "BottomMargin": 322.0887,
-            "Tag": 17,
-            "ActionTag": 1241868791,
-            "Size": {
-              "X": 204.0,
-              "Y": 515.0
-            },
-            "Name": "Tree_01_15",
-            "ctype": "SpriteObjectData"
-          },
-          {
-            "FileData": {
-              "Type": "Normal",
-              "Path": "Tree_02.png",
-              "Plist": ""
-            },
-            "BlendFunc": {
-              "Src": 1,
-              "Dst": 771
-            },
-            "AnchorPoint": {
-              "ScaleX": 0.5,
-              "ScaleY": 0.5
-            },
-            "Position": {
-              "X": 998.4679,
-              "Y": 600.1387
-            },
-            "Scale": {
-              "ScaleX": 0.2359,
-              "ScaleY": 0.2359
-            },
-            "CColor": {},
-            "IconVisible": false,
-            "PrePosition": {
-              "X": 0.5547,
-              "Y": 0.3334
-            },
-            "PreSize": {
-              "X": 0.1117,
-              "Y": 0.3256
-            },
-            "LeftMargin": 897.9679,
-            "RightMargin": 701.0321,
-            "TopMargin": 906.8613,
-            "BottomMargin": 307.1387,
-            "Tag": 18,
-            "ActionTag": -1676797601,
-            "Size": {
-              "X": 201.0,
-              "Y": 586.0
-            },
-            "Name": "Tree_02_16",
-            "ctype": "SpriteObjectData"
-          },
-          {
-            "FileData": {
-              "Type": "Normal",
-              "Path": "Tree_03.png",
-              "Plist": ""
-            },
-            "BlendFunc": {
-              "Src": 1,
-              "Dst": 771
-            },
-            "AnchorPoint": {
-              "ScaleX": 0.5,
-              "ScaleY": 0.5
-            },
-            "Position": {
-              "X": 1434.7649,
-              "Y": 584.2488
-            },
-            "Scale": {
-              "ScaleX": 0.3853,
-              "ScaleY": 0.3853
-            },
-            "CColor": {},
-            "IconVisible": false,
-            "PrePosition": {
-              "X": 0.7971,
-              "Y": 0.3246
-            },
-            "PreSize": {
-              "X": 0.05,
-              "Y": 0.14
-            },
-            "LeftMargin": 1389.7649,
-            "RightMargin": 320.2351,
-            "TopMargin": 1089.7512,
-            "BottomMargin": 458.2488,
-            "Tag": 19,
-            "ActionTag": -1124955866,
-            "Size": {
-              "X": 90.0,
-              "Y": 252.0
-            },
-            "Name": "Tree_03_17",
-            "ctype": "SpriteObjectData"
-          },
-          {
-            "FlipX": true,
-            "FlipY": true,
-            "FileData": {
-              "Type": "Normal",
-              "Path": "Crow.png",
-              "Plist": ""
-            },
-            "BlendFunc": {
-              "Src": 1,
-              "Dst": 771
-            },
-            "AnchorPoint": {
-              "ScaleX": 0.5,
-              "ScaleY": 0.5
-            },
-            "Position": {
-              "X": 744.33,
-              "Y": 174.1278
-            },
-            "Scale": {
-              "ScaleX": 1.0,
-              "ScaleY": 1.0
-            },
-            "RotationSkewX": 30.0,
-            "RotationSkewY": 30.0,
-            "CColor": {
-              "G": 0,
-              "B": 0
-            },
-            "IconVisible": false,
-            "PrePosition": {
-              "X": 0.4135,
-              "Y": 0.0967
-            },
-            "PreSize": {
-              "X": 0.1422,
-              "Y": 0.1344
-            },
-            "LeftMargin": 616.33,
-            "RightMargin": 927.67,
-            "TopMargin": 1504.8722,
-            "BottomMargin": 53.1278,
-            "UserData": "surface",
-            "Tag": 20,
-            "ActionTag": -525424108,
-            "Size": {
-              "X": 256.0,
-              "Y": 242.0
-            },
-            "Alpha": 225,
-            "Name": "Crow_18",
-            "ctype": "SpriteObjectData"
-          }
-        ],
-        "Size": {
-          "X": 640.0,
-          "Y": 640.0
-        },
-        "Name": "Scene",
-        "ctype": "SingleNodeObjectData"
-      },
-      "UsedResources": [
-        "Background.png",
-        "Cloud.png",
-        "Crow.png",
-        "Default/Sprite.png",
-        "Grass_Hill.png",
-        "Hill.png",
-        "Sun.png",
-        "Tree_01.png",
-        "Tree_02.png",
-        "Tree_03.png"
-      ],
-      "ctype": "GameFileData"
-    }
-  },
-  "Type": "Scene"
+	"ID": "a2ee0952-26b5-49ae-8bf9-4f1d6279b798",
+	"Version": "3.10.0.0",
+	"Name": "MainScene",
+	"Content": {
+		"Content": {
+			"Animation": {
+				"Duration": 0,
+				"Speed": 1,
+				"Timelines": [],
+				"ctype": "TimelineActionData"
+			},
+			"AnimationList": [],
+			"ObjectData": {
+				"Children": [{
+					"FileData": {
+						"Type": "Normal",
+						"Path": "Background.png",
+						"Plist": ""
+					},
+					"BlendFunc": {
+						"Src": 770,
+						"Dst": 771
+					},
+					"AnchorPoint": {
+						"ScaleX": 0.5,
+						"ScaleY": 0.5
+					},
+					"Position": {
+						"X": 904.3564,
+						"Y": 909.121
+					},
+					"Scale": {
+						"ScaleX": 1,
+						"ScaleY": 1
+					},
+					"CColor": {},
+					"IconVisible": false,
+					"PrePosition": {
+						"X": 0.5024,
+						"Y": 0.5051
+					},
+					"PreSize": {
+						"X": 1,
+						"Y": 1
+					},
+					"LeftMargin": 4.3564,
+					"RightMargin": -4.3564,
+					"TopMargin": -9.121,
+					"BottomMargin": 9.121,
+					"Tag": 4,
+					"ActionTag": 1779239264,
+					"Size": {
+						"X": 1800,
+						"Y": 1800
+					},
+					"Name": "Background_2%%889dc55f-e48d-4ceb-9424-a4126f19168d",
+					"ctype": "SpriteObjectData"
+				}, {
+					"FlipX": false,
+					"FlipY": false,
+					"FileData": {
+						"Type": "Normal",
+						"Path": "Tree_01.png",
+						"Plist": ""
+					},
+					"BlendFunc": {
+						"Src": 1,
+						"Dst": 771
+					},
+					"AnchorPoint": {
+						"ScaleX": 0.5,
+						"ScaleY": 0.5
+					},
+					"Position": {
+						"X": 1280,
+						"Y": 900
+					},
+					"RotationSkewX": 0,
+					"RotationSkewY": 0,
+					"Scale": {
+						"ScaleX": 1,
+						"ScaleY": 1
+					},
+					"CColor": {
+						"R": 255,
+						"G": 255,
+						"B": 255,
+						"A": 255
+					},
+					"IconVisible": false,
+					"Size": {
+						"X": 204,
+						"Y": 515
+					},
+					"Tag": -1,
+					"Name": "%%c1ac8be2-ea42-4c57-a972-094a13f80e7e",
+					"ctype": "SpriteObjectData"
+				}],
+				"Size": {
+					"X": 640,
+					"Y": 640
+				},
+				"Name": "Scene",
+				"ctype": "SingleNodeObjectData"
+			},
+			"UsedResources": ["Background.png", "Cloud.png", "Crow.png", "Default/Sprite.png", "Grass_Hill.png", "Hill.png", "Sun.png", "Tree_01.png", "Tree_02.png", "Tree_03.png"],
+			"ctype": "GameFileData"
+		}
+	},
+	"Type": "Scene"
 }
