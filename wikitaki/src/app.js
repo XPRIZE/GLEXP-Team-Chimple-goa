@@ -8,6 +8,7 @@ var HelloWorldLayer = cc.Layer.extend({
         this._name = "StoryLayer";
         this._propsContainer = [];
         this._charactersContainer = [];
+        
         return true;
     },
     init: function () {
@@ -126,14 +127,14 @@ var HelloWorldLayer = cc.Layer.extend({
         context.addChild(sprite, 1);
         sprite.setPosition(cc.director.getWinSize().width / 2, cc.director.getWinSize().height / 2);
         sprite.setScale(1);
-        
-        
+
+
         var loadedImageObject = this.constructJSONFromCCSprite(sprite);
 
         var storedSceneString = cc.sys.localStorage.getItem(this.pageKey);
         if (storedSceneString != null && storedSceneString.length > 0) {
             var storedSceneJSON = JSON.parse(storedSceneString);
-            if(storedSceneJSON) {
+            if (storedSceneJSON) {
                 storedSceneJSON.Content.Content.ObjectData.Children.push(loadedImageObject);
                 this.saveSceneToLocalStorage(JSON.stringify(storedSceneJSON));
             }
@@ -178,20 +179,20 @@ var HelloWorldLayer = cc.Layer.extend({
         object.MaxLengthEnable = true;
         object.MaxLengthText = 50;
         object.AnchorPoint = {
-            "ScaleX": sprite._anchorPoint.x,
-            "ScaleY": sprite._anchorPoint.y
+            "ScaleX": sprite.getAnchorPoint().x,
+            "ScaleY": sprite.getAnchorPoint().y
         };
 
         object.Position = {
-            "X": sprite._position.x,
-            "Y": sprite._position.y
+            "X": sprite.getPosition().x,
+            "Y": sprite.getPosition().y
         };
 
-        object.RotationSkewX = sprite._rotationX;
-        object.RotationSkewY = sprite._rotationY;
+        object.RotationSkewX = sprite.getRotationX();
+        object.RotationSkewY = sprite.getRotationY();
         object.Scale = {
-            "ScaleX": sprite._scaleX,
-            "ScaleY": sprite._scaleY
+            "ScaleX": sprite.getScaleX(),
+            "ScaleY": sprite.getScaleY()
         };
         object.CColor = {
             "R": sprite.color.r,
@@ -201,8 +202,8 @@ var HelloWorldLayer = cc.Layer.extend({
         };
         object.IconVisible = false;
         object.Size = {
-            "X": sprite._rect.width,
-            "Y": sprite._rect.height
+            "X": sprite.getBoundingBox().width,
+            "Y": sprite.getBoundingBox().height
         };
         object.Alpha = sprite._alpha;
         object.Tag = sprite.tag;
@@ -213,71 +214,72 @@ var HelloWorldLayer = cc.Layer.extend({
         object.Name = sprite.getName();
         object.ctype = "TextFieldObjectData";
 
-        if (sprite.getComponent('ComExtensionData') && sprite.getComponent('ComExtensionData')._customProperty != null) {
-            object.UserData = sprite.getComponent('ComExtensionData')._customProperty;
+        if (sprite.getComponent('ComExtensionData') && sprite.getComponent('ComExtensionData').getCustomProperty() != null) {
+            object.UserData = sprite.getComponent('ComExtensionData').getCustomProperty();
         };
         return object;
     },
 
 
-constructJSONFromCCSprite: function (sprite) {
+    constructJSONFromCCSprite: function (sprite) {
 
-        var object = Object.create(Object.prototype);
-        object.FlipX = sprite._flippedX;
-        object.FlipY = sprite._flippedY;
-        object.FileData = {};
-        object.FileData.Type = "Normal";
-        if (sprite.getTexture().url != null) {
-            var path = sprite.getTexture().url.replace("res/", "");
-            object.FileData.Path = path;
-        }
-        object.FileData.Plist = "";
-        
-        object.BlendFunc = {
-            "Src": sprite.getBlendFunc.src,
-            "Dst": sprite.getBlendFunc.dst
-        };
+        var object = Object.create(Object.prototype);
+        object.FlipX = sprite._flippedX;
+        object.FlipY = sprite._flippedY;
+        object.FileData = {};
+        object.FileData.Type = "Normal";
+        if (sprite.getTexture().url != null) {
+            var path = sprite.getTexture().url.replace("res/", "");
+            object.FileData.Path = path;
+        }
+        object.FileData.Plist = "";
+        
+        object.BlendFunc = {
+            "Src": sprite.getBlendFunc.src,
+            "Dst": sprite.getBlendFunc.dst
+        };
 
-        object.AnchorPoint = {
-            "ScaleX": sprite.getAnchorPoint().x,
-            "ScaleY": sprite.getAnchorPoint().y
-        };
+        object.AnchorPoint = {
+            "ScaleX": sprite.getAnchorPoint().x,
+            "ScaleY": sprite.getAnchorPoint().y
+        };
 
-        object.Position = {
-            "X": sprite.getPosition().x,
-            "Y": sprite.getPosition().y
-        };
+        object.Position = {
+            "X": sprite.getPosition().x,
+            "Y": sprite.getPosition().y
+        };
 
-        object.RotationSkewX = sprite.getRotationX();
-        object.RotationSkewY = sprite.getRotationY();
-        object.Scale = {
-            "ScaleX": sprite.getScaleX(),
-            "ScaleY": sprite.getScaleY()
-        };
-        object.CColor = {
-            "R": sprite.color.r,
-            "G": sprite.color.g,
-            "B": sprite.color.b,
-            "A": sprite.color.a
-        };
-        object.IconVisible = false;
-        object.Size = {
-            "X": sprite.getBoundingBox().width,
-            "Y": sprite.getBoundingBox().height
-        };
-        object.Tag = sprite.tag;
-        if (sprite.getName().indexOf("%%") === -1) {
-            sprite.setName(sprite.getName() + "%%" + this.generateUUID());
-        }
+        object.RotationSkewX = sprite.getRotationX();
+        object.RotationSkewY = sprite.getRotationY();
+        object.Scale = {
+            "ScaleX": sprite.getScaleX(),
+            "ScaleY": sprite.getScaleY()
+        };
+        object.CColor = {
+            "R": sprite.color.r,
+            "G": sprite.color.g,
+            "B": sprite.color.b,
+            "A": sprite.color.a
+        };
+        object.IconVisible = false;
+        object.Size = {
+            "X": sprite.getBoundingBox().width,
+            "Y": sprite.getBoundingBox().height
+        };
+        object.Tag = sprite.tag;
+        if (sprite.getName().indexOf("%%") === -1) {
+            sprite.setName(sprite.getName() + "%%" + this.generateUUID());
+        }
 
-        object.Name = sprite.getName();
-        object.ctype = "SpriteObjectData";
+        object.Name = sprite.getName();
+        object.ctype = "SpriteObjectData";
 
-        if (sprite.getComponent('ComExtensionData') && sprite.getComponent('ComExtensionData').getCustomProperty() != null) {
-            object.UserData = sprite.getComponent('ComExtensionData').getCustomProperty();
-        };
-        return object;
-    },
+        if (sprite.getComponent('ComExtensionData') && sprite.getComponent('ComExtensionData').getCustomProperty() != null) {
+            object.UserData = sprite.getComponent('ComExtensionData').getCustomProperty();
+        };
+        return object;
+    },
+
 
     loadJsonFile: function (selectedItem) {
         //load json file in new window
@@ -322,7 +324,13 @@ constructJSONFromCCSprite: function (sprite) {
                     onTouchMoved: function (touch, event) {
                         var target = event.getCurrentTarget();
                         var location = target.parent.convertToNodeSpace(touch.getLocation());
-                        event.getCurrentTarget().setPosition(location);
+                        //event.getCurrentTarget().setPosition(location);
+                        var center = cc.p(target.getBoundingBox().width/2, target.getBoundingBox().height/2);
+                        var difference = cc.pSub(location, center);
+                        var direction = cc.pNormalize(difference);
+                        var angleInDegree =  cc.pToAngle(direction) * 180/Math.PI;
+                        cc.log('angleInDegree:' + angleInDegree);
+                        target.setRotation(angleInDegree);
                     }
                 });
 
@@ -410,10 +418,10 @@ constructJSONFromCCSprite: function (sprite) {
         }
     },
 
-    
-    
+
+
     parseCharacter: function (fileToLoad, load) {
-        cc.log('got file:' + fileToLoad);        
+        cc.log('got file:' + fileToLoad);
         var resourcePath = fileToLoad.replace("res/", "");
         cc.log('resourcePath:' + resourcePath);
         cc.log('skeleton:' + load.node);
@@ -423,12 +431,12 @@ constructJSONFromCCSprite: function (sprite) {
         var storedSceneString = cc.sys.localStorage.getItem(this.pageKey);
         if (storedSceneString != null && storedSceneString.length > 0) {
             var storedSceneJSON = JSON.parse(storedSceneString);
-            if(storedSceneJSON) {
+            if (storedSceneJSON) {
                 storedSceneJSON.Content.Content.ObjectData.Children.push(skeletonObject);
                 this.saveSceneToLocalStorage(JSON.stringify(storedSceneJSON));
             }
         }
-        
+
         // cc.loader.loadJson(fileToLoad, function (error, data) {
         //     cc.log('data:' + data);
         //     // context.updateCharacterToUniqueName(data, resourcePath);
@@ -439,31 +447,30 @@ constructJSONFromCCSprite: function (sprite) {
     },
 
 
-constructJSONFromCharacter: function(skeleton, resourcePath) 
-    {        
+    constructJSONFromCharacter: function (skeleton, resourcePath) {
         var object = Object.create(Object.prototype);
         object.FileData = {};
         object.FileData.Type = "Normal";
         object.FileData.Path = resourcePath;
         object.FileData.Plist = "";
-        
-        object.InnerActionSpeed =  1.0;
+
+        object.InnerActionSpeed = 1.0;
 
         object.AnchorPoint = {
-            "ScaleX": skeleton._anchorPoint.x,
-            "ScaleY": skeleton._anchorPoint.y
+            "ScaleX": skeleton.getAnchorPoint().x,
+            "ScaleY": skeleton.getAnchorPoint().y
         };
 
         object.Position = {
-            "X": skeleton._position.x,
-            "Y": skeleton._position.y
+            "X": skeleton.getPosition().x,
+            "Y": skeleton.getPosition().y
         };
 
-        object.RotationSkewX = skeleton._rotationX;
-        object.RotationSkewY = skeleton._rotationY;
+        object.RotationSkewX = skeleton.getRotationX();
+        object.RotationSkewY = skeleton.getRotationY();
         object.Scale = {
-            "ScaleX": skeleton._scaleX,
-            "ScaleY": skeleton._scaleY
+            "ScaleX": skeleton.getScaleX(),
+            "ScaleY": skeleton.getScaleY()
         };
         object.CColor = {
             "R": skeleton.color.r,
@@ -477,12 +484,12 @@ constructJSONFromCharacter: function(skeleton, resourcePath)
             "Y": skeleton.height
         };
 
-        object.Name = skeleton._name;
+        object.Name = skeleton.getName();
         object.ctype = "ProjectNodeObjectData";
 
-        return object;                      
+        return object;
     },
-    
+
     updateCharacterToUniqueName: function (data, resourcePath) {
         if (data && data.Content && data.Content.Content) {
             var objects = data.Content.Content.ObjectData;
@@ -504,7 +511,7 @@ constructJSONFromCharacter: function(skeleton, resourcePath)
 
     addCharacterToScene: function (fileToLoad) {
         var load = ccs.load(fileToLoad);
-        
+
         load.node.setPosition(900, 900);
         var listener = cc.EventListener.create({
             event: cc.EventListener.TOUCH_ONE_BY_ONE,
@@ -525,12 +532,12 @@ constructJSONFromCharacter: function(skeleton, resourcePath)
                 var target = event.getCurrentTarget();
                 target.setPosition(target.parent.convertToNodeSpace(touch.getLocation()));
             },
-            onTouchEnded: function(touch, event) {
+            onTouchEnded: function (touch, event) {
                 var target = event.getCurrentTarget();
                 target.actionManager.getActionByTag(target.tag, target).pause();
             }
         });
-        cc.eventManager.addListener(listener, load.node);        
+        cc.eventManager.addListener(listener, load.node);
         this.addChild(load.node);
         load.node.runAction(load.action);
         if(!cc.sys.isNative) {
