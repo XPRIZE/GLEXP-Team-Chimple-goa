@@ -9,7 +9,9 @@ var HelloWorldLayer = cc.Layer.extend({
         this._propsContainer = [];
         this._charactersContainer = [];
         this._nodesSelected = [];
-        this.schedule(this.recordMovement, 1.0);
+        this._nodesTouchedWhileRecording = [];
+        this._isRecordingStarted = false;
+        this.scheduleUpdate();
         return true;
     },
     init: function () {
@@ -44,6 +46,7 @@ var HelloWorldLayer = cc.Layer.extend({
                                     height);
                                 if (cc.rectContainsPoint(targetRectangle, location)) {
                                     this._nodesSelected.push(target);
+                                    this._nodesTouchedWhileRecording.push(target);
                                     return true;
                                 }
                                 return false;
@@ -96,13 +99,38 @@ var HelloWorldLayer = cc.Layer.extend({
 
         var selectedConfig = chimple.storyConfigurationObject[selectedItem.getName()];
         cc.log(selectedItem.getName());
-        if (selectedConfig != null && selectedItem.getName() != "texts") {
-            this.constructTabBar(selectedConfig.categories);
-        } else {
-            //show text editor
+        if (selectedConfig != null && selectedItem.getName() === "texts") {
             this.addTextToScene();
+        } else if (selectedConfig != null && selectedItem.getName() === "startRecording") {
+            this.startRecording();
+        } else if (selectedConfig != null && selectedItem.getName() === "stopRecording") {
+            this.stopRecording();
+        } else if (selectedConfig != null) {
+            this.constructTabBar(selectedConfig.categories);
         }
     },
+
+    startRecording: function () {
+        this._isRecordingStarted = true;
+        this._recordingFrameIndex = 0;
+        cc.log("recording started");
+        this._nodesTouchedWhileRecording = [];
+    },
+
+    stopRecording: function () {
+        this._isRecordingStarted = false;
+        cc.log("recording stopped");
+        if (this._nodesTouchedWhileRecording != null && this._nodesTouchedWhileRecording.length > 0) {
+            this._nodesTouchedWhileRecording.forEach(function (element) {
+                var recordedTimeLine = this.constructPositionMoveMentTimeLine(element);
+                cc.log("recordedTimeLine:" + recordedTimeLine);
+                //JSON stringfy and merge with mainScene.json
+            }, this);
+        }
+
+        this._nodesTouchedWhileRecording = null;
+    },
+
     addTextToScene: function () {
         this._sceneText = "how are you today?";
         var textEditScene = new TextEditScene(this._sceneText);
@@ -165,6 +193,7 @@ var HelloWorldLayer = cc.Layer.extend({
                     height);
                 if (cc.rectContainsPoint(targetRectangle, location)) {
                     context._nodesSelected.push(target);
+                    context._nodesTouchedWhileRecording.push(target);
                     return true;
                 }
                 return false;
@@ -338,6 +367,7 @@ var HelloWorldLayer = cc.Layer.extend({
                             height);
                         if (cc.rectContainsPoint(targetRectangle, location)) {
                             context._nodesSelected.push(target);
+                            context._nodesTouchedWhileRecording.push(target);
                             return true;
                         }
                         return false;
@@ -546,11 +576,12 @@ var HelloWorldLayer = cc.Layer.extend({
                 var target = event.getCurrentTarget();
                 var boundingBox = target.getBoundingBoxToWorld();
                 if (cc.rectContainsPoint(target.getBoundingBoxToWorld(), touch.getLocation())) {
-                    context._nodesSelected.push(target);
                     if (!cc.sys.isNative) {
                         var action = target.actionManager.getActionByTag(target.tag, target);
                         action.play(Object.keys(action._animationInfos)[0], true);
                     }
+                    context._nodesSelected.push(target);
+                    context._nodesTouchedWhileRecording.push(target);
                     return true;
                 }
                 return false;
@@ -564,19 +595,7 @@ var HelloWorldLayer = cc.Layer.extend({
                 target.actionManager.getActionByTag(target.tag, target).pause();
                 var target = event.getCurrentTarget();
                 var nodeToRemoveIndex = context._nodesSelected.indexOf(target);
-                cc.log(nodeToRemoveIndex);
-                cc.log(context._nodesSelected);
                 if (nodeToRemoveIndex != -1) {
-                    //if not record mode pop the configuration
-                    cc.log(cc.loader.cache);
-                    cc.loader.loadJson(res.character_config_json, function (error, data) {
-                        cc.log('data:' + data);
-                        if (data != null) {
-                            context.constructConfigPanel(data, target);
-
-                        }
-                    });
-
                     context._nodesSelected.splice(nodeToRemoveIndex, 1);
                 }
 
@@ -591,11 +610,7 @@ var HelloWorldLayer = cc.Layer.extend({
         this.parseCharacter(fileToLoad, load);
     },
 
-    // skinSelectedInConfiguration: function(selectedItem) {
-    //     if(this._nodesSelected != null && this._nodesSelected.length>0 && selectedItem._configuration && selectedItem._configuration.skin && selectedItem._configuration.bone) {
-    //         this._nodesSelected[0].getBoneNode(selectedItem._configuration.bone).displaySkin(selectedItem._configuration.skin, true);
-    //     }
-    // },
+
 
     constructTabBar: function (configuration) {
         this._tabBar = new chimple.TabPanel(cc.p(0, 0), cc.size(1800, 1800), 2, 2, configuration, this.itemSelectedInConfiguration, this);
@@ -604,21 +619,6 @@ var HelloWorldLayer = cc.Layer.extend({
 
     destoryTabBar: function () {
         this._tabBar.removeFromParent(true);
-    },
-
-    constructConfigPanel: function (configuration, target) {
-        if (this._configPanel) {
-            this.destroyConfigPanel();
-        }
-        var newObject = new chimple.ObjectSelector(target);
-        this._configPanel = new chimple.TabPanel(cc.p(1800, 0), cc.size(760, 1800), 2, 2, configuration, newObject.skinSelectedInConfiguration, newObject);
-        this._configPanel._objectToActOn = target;
-        this.addChild(this._configPanel, 3);
-    },
-
-    destroyConfigPanel: function () {
-        this._configPanel.removeFromParent(true);
-        this._configPanel = null;
     },
 
     saveToFile: function () {
@@ -654,13 +654,14 @@ var HelloWorldLayer = cc.Layer.extend({
         }
     },
 
-    recordMovement: function () {
+    update: function (dt) {
         //console.log('calling recordMovement');
-        if (this._nodesSelected != null && this._nodesSelected.length > 0) {
+        if (this._isRecordingStarted && this._nodesSelected != null && this._nodesSelected.length > 0) {
+            this._recordingFrameIndex = this._recordingFrameIndex + 1;
             this._nodesSelected.forEach(function (element) {
                 console.log('record movement for Node:' + element);
                 //construct position framedata for now for each timesecond
-                this.constructPositionFrameData(element);
+                this.constructPositionFrameData(element, this._recordingFrameIndex);
             }, this);
         }
     }
@@ -686,12 +687,3 @@ var HelloWorldScene = cc.Scene.extend({
     }
 }
 );
-
-// var newObject = {
-//     _objectSelected: null,
-//     skinSelectedInConfiguration: function(selectedItem) {
-//         if(this._objectSelected != null && selectedItem._configuration && selectedItem._configuration.skin && selectedItem._configuration.bone) {
-//             this._objectSelected.getBoneNode(selectedItem._configuration.bone).displaySkin(selectedItem._configuration.skin, true);
-//         }
-//     }
-// }
