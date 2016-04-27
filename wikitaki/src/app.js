@@ -8,7 +8,7 @@ var HelloWorldLayer = cc.Layer.extend({
         this._name = "StoryLayer";
         this._propsContainer = [];
         this._charactersContainer = [];
-        this._nodesForRecording = [];
+        this._nodesSelected = [];
         this.schedule(this.recordMovement, 1.0);
         return true;
     },
@@ -43,7 +43,7 @@ var HelloWorldLayer = cc.Layer.extend({
                                 var targetRectangle = cc.rect(0, 0, targetSize.width, targetSize.
                                     height);
                                 if (cc.rectContainsPoint(targetRectangle, location)) {
-                                    this._nodesForRecording.push(target);
+                                    this._nodesSelected.push(target);
                                     return true;
                                 }
                                 return false;
@@ -57,9 +57,9 @@ var HelloWorldLayer = cc.Layer.extend({
 
                             onTouchEnded: function (touch, event) {
                                 var target = event.getCurrentTarget();
-                                var nodeToRemoveIndex = this._nodesForRecording.indexOf(target);
+                                var nodeToRemoveIndex = this._nodesSelected.indexOf(target);
                                 if (nodeToRemoveIndex != -1) {
-                                    this._nodesForRecording.splice(nodeToRemoveIndex, 1);
+                                    this._nodesSelected.splice(nodeToRemoveIndex, 1);
                                 }
                             }
                         });
@@ -164,7 +164,7 @@ var HelloWorldLayer = cc.Layer.extend({
                 var targetRectangle = cc.rect(0, 0, targetSize.width, targetSize.
                     height);
                 if (cc.rectContainsPoint(targetRectangle, location)) {
-                    context._nodesForRecording.push(target);
+                    context._nodesSelected.push(target);
                     return true;
                 }
                 return false;
@@ -178,9 +178,9 @@ var HelloWorldLayer = cc.Layer.extend({
 
             onTouchEnded: function (touch, event) {
                 var target = event.getCurrentTarget();
-                var nodeToRemoveIndex = context._nodesForRecording.indexOf(target);
+                var nodeToRemoveIndex = context._nodesSelected.indexOf(target);
                 if (nodeToRemoveIndex != -1) {
-                    context._nodesForRecording.splice(nodeToRemoveIndex, 1);
+                    context._nodesSelected.splice(nodeToRemoveIndex, 1);
                 }
             }
 
@@ -231,7 +231,7 @@ var HelloWorldLayer = cc.Layer.extend({
         if (sprite.getName().indexOf("%%") === -1) {
             sprite.setName(sprite.getName() + "%%" + this.generateUUID());
         }
-
+        object.ActionTag = -new Date().valueOf();
         object.Name = sprite.getName();
         object.ctype = "TextFieldObjectData";
 
@@ -291,7 +291,7 @@ var HelloWorldLayer = cc.Layer.extend({
         if (sprite.getName().indexOf("%%") === -1) {
             sprite.setName(sprite.getName() + "%%" + this.generateUUID());
         }
-
+        object.ActionTag = -new Date().valueOf();
         object.Name = sprite.getName();
         object.ctype = "SpriteObjectData";
 
@@ -313,7 +313,7 @@ var HelloWorldLayer = cc.Layer.extend({
         var fileToLoad = selectedItem._jsonFileToLoad;
         switch (type) {
             case "character":
-                this.addCharacterToScene(fileToLoad);
+                this.addCharacterToScene(this, fileToLoad);
                 break;
             case "scene":
                 this.createSceneFromFile(fileToLoad);
@@ -337,7 +337,7 @@ var HelloWorldLayer = cc.Layer.extend({
                         var targetRectangle = cc.rect(0, 0, targetSize.width, targetSize.
                             height);
                         if (cc.rectContainsPoint(targetRectangle, location)) {
-                            context._nodesForRecording.push(target);
+                            context._nodesSelected.push(target);
                             return true;
                         }
                         return false;
@@ -350,9 +350,9 @@ var HelloWorldLayer = cc.Layer.extend({
                     },
                     onTouchEnded: function (touch, event) {
                         var target = event.getCurrentTarget();
-                        var nodeToRemoveIndex = context._nodesForRecording.indexOf(target);
+                        var nodeToRemoveIndex = context._nodesSelected.indexOf(target);
                         if (nodeToRemoveIndex != -1) {
-                            context._nodesForRecording.splice(nodeToRemoveIndex, 1);
+                            context._nodesSelected.splice(nodeToRemoveIndex, 1);
                         }
 
                     }
@@ -451,6 +451,7 @@ var HelloWorldLayer = cc.Layer.extend({
         cc.log('resourcePath:' + resourcePath);
         cc.log('skeleton:' + load.node);
         var skeletonObject = this.constructJSONFromCharacter(load.node, resourcePath);
+        load.node.ActionTag = skeletonObject.ActionTag;
         // context.saveCharacterToLocalStorage(JSON.stringify(skeletonObject));
         cc.log('JSON.stringify(skeletonObject):' + JSON.stringify(skeletonObject));
         var storedSceneString = cc.sys.localStorage.getItem(this.pageKey);
@@ -508,7 +509,7 @@ var HelloWorldLayer = cc.Layer.extend({
             "X": skeleton.width,
             "Y": skeleton.height
         };
-
+        object.ActionTag = -new Date().valueOf();
         object.Name = skeleton.getName();
         object.ctype = "ProjectNodeObjectData";
 
@@ -534,7 +535,7 @@ var HelloWorldLayer = cc.Layer.extend({
         cc.sys.localStorage.setItem(charKey, JSON.stringify(data));
     },
 
-    addCharacterToScene: function (fileToLoad) {
+    addCharacterToScene: function (context, fileToLoad) {
         var load = ccs.load(fileToLoad);
 
         load.node.setPosition(900, 900);
@@ -549,7 +550,7 @@ var HelloWorldLayer = cc.Layer.extend({
                         var action = target.actionManager.getActionByTag(target.tag, target);
                         action.play(Object.keys(action._animationInfos)[0], true);
                     }
-                    this._nodesForRecording.push(target);
+                    context._nodesSelected.push(target);
                     return true;
                 }
                 return false;
@@ -562,9 +563,9 @@ var HelloWorldLayer = cc.Layer.extend({
                 var target = event.getCurrentTarget();
                 target.actionManager.getActionByTag(target.tag, target).pause();
                 var target = event.getCurrentTarget();
-                var nodeToRemoveIndex = this._nodesForRecording.indexOf(target);
+                var nodeToRemoveIndex = context._nodesSelected.indexOf(target);
                 if (nodeToRemoveIndex != -1) {
-                    this._nodesForRecording.splice(nodeToRemoveIndex, 1);
+                    context._nodesSelected.splice(nodeToRemoveIndex, 1);
                 }
 
             }
@@ -593,11 +594,42 @@ var HelloWorldLayer = cc.Layer.extend({
         cc.sys.localStorage;
     },
 
+    //every timeline
+    constructPositionFrameData: function (node, frameIndex) {
+        if (node.positionFrames == null) {
+            node.positionFrames = [];
+        }
+        var frameData = Object.create(Object.prototype);
+        frameData.X = node.x;
+        frameData.Y = node.y;
+        frameData.FrameIndex = frameIndex;
+        frameData.EasingData = {};
+        frameData.EasingData.Type = 0;
+        frameData.ctype = "PointFrameData";
+
+        node.positionFrames.push(frameData);
+    },
+
+
+    constructPositionMoveMentTimeLine: function (node) {
+        if (node.positionFrames !== null && node.positionFrames.length > 0) {
+            var object = Object.create(Object.prototype);
+            object.ActionTag = node.ActionTag;
+            object.Property = "Position";
+            object.Frames = node.positionFrames;
+            node.positionFrames = null;
+            object.ctype = "TimelineData";
+            return object;
+        }
+    },
+
     recordMovement: function () {
         //console.log('calling recordMovement');
-        if (this._nodesForRecording != null && this._nodesForRecording.length > 0) {
-            this._nodesForRecording.forEach(function (element) {
+        if (this._nodesSelected != null && this._nodesSelected.length > 0) {
+            this._nodesSelected.forEach(function (element) {
                 console.log('record movement for Node:' + element);
+                //construct position framedata for now for each timesecond
+                this.constructPositionFrameData(element);
             }, this);
         }
     }
