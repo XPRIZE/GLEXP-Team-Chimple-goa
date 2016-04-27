@@ -8,7 +8,8 @@ var HelloWorldLayer = cc.Layer.extend({
         this._name = "StoryLayer";
         this._propsContainer = [];
         this._charactersContainer = [];
-        
+        this._nodesForRecording = [];
+        this.schedule(this.recordMovement, 1.0);
         return true;
     },
     init: function () {
@@ -42,6 +43,7 @@ var HelloWorldLayer = cc.Layer.extend({
                                 var targetRectangle = cc.rect(0, 0, targetSize.width, targetSize.
                                     height);
                                 if (cc.rectContainsPoint(targetRectangle, location)) {
+                                    this._nodesForRecording.push(target);
                                     return true;
                                 }
                                 return false;
@@ -51,6 +53,14 @@ var HelloWorldLayer = cc.Layer.extend({
                                 var target = event.getCurrentTarget();
                                 var location = target.parent.convertToNodeSpace(touch.getLocation());
                                 event.getCurrentTarget().setPosition(location);
+                            },
+
+                            onTouchEnded: function (touch, event) {
+                                var target = event.getCurrentTarget();
+                                var nodeToRemoveIndex = this._nodesForRecording.indexOf(target);
+                                if (nodeToRemoveIndex != -1) {
+                                    this._nodesForRecording.splice(nodeToRemoveIndex, 1);
+                                }
                             }
                         });
 
@@ -129,18 +139,18 @@ var HelloWorldLayer = cc.Layer.extend({
         sprite.setScale(1);
 
 
-        var loadedImageObject = this.constructJSONFromCCSprite(sprite);
+        var loadedImageObject = context.constructJSONFromCCSprite(sprite);
 
-        var storedSceneString = cc.sys.localStorage.getItem(this.pageKey);
+        var storedSceneString = cc.sys.localStorage.getItem(context.pageKey);
         if (storedSceneString != null && storedSceneString.length > 0) {
             var storedSceneJSON = JSON.parse(storedSceneString);
             if (storedSceneJSON) {
                 storedSceneJSON.Content.Content.ObjectData.Children.push(loadedImageObject);
-                this.saveSceneToLocalStorage(JSON.stringify(storedSceneJSON));
+                context.saveSceneToLocalStorage(JSON.stringify(storedSceneJSON));
             }
         }
         else {
-            this._propsContainer.push(loadedImageObject);
+            context._propsContainer.push(loadedImageObject);
         }
 
 
@@ -154,6 +164,7 @@ var HelloWorldLayer = cc.Layer.extend({
                 var targetRectangle = cc.rect(0, 0, targetSize.width, targetSize.
                     height);
                 if (cc.rectContainsPoint(targetRectangle, location)) {
+                    context._nodesForRecording.push(target);
                     return true;
                 }
                 return false;
@@ -163,7 +174,17 @@ var HelloWorldLayer = cc.Layer.extend({
                 var target = event.getCurrentTarget();
                 var location = target.parent.convertToNodeSpace(touch.getLocation());
                 event.getCurrentTarget().setPosition(location);
+            },
+
+            onTouchEnded: function (touch, event) {
+                var target = event.getCurrentTarget();
+                var nodeToRemoveIndex = context._nodesForRecording.indexOf(target);
+                if (nodeToRemoveIndex != -1) {
+                    context._nodesForRecording.splice(nodeToRemoveIndex, 1);
+                }
             }
+
+
         });
 
         cc.eventManager.addListener(listener, sprite);
@@ -233,7 +254,7 @@ var HelloWorldLayer = cc.Layer.extend({
             object.FileData.Path = path;
         }
         object.FileData.Plist = "";
-        
+
         object.BlendFunc = {
             "Src": sprite.getBlendFunc.src,
             "Dst": sprite.getBlendFunc.dst
@@ -316,6 +337,7 @@ var HelloWorldLayer = cc.Layer.extend({
                         var targetRectangle = cc.rect(0, 0, targetSize.width, targetSize.
                             height);
                         if (cc.rectContainsPoint(targetRectangle, location)) {
+                            context._nodesForRecording.push(target);
                             return true;
                         }
                         return false;
@@ -324,14 +346,17 @@ var HelloWorldLayer = cc.Layer.extend({
                     onTouchMoved: function (touch, event) {
                         var target = event.getCurrentTarget();
                         var location = target.parent.convertToNodeSpace(touch.getLocation());
-                        //event.getCurrentTarget().setPosition(location);
-                        var center = cc.p(target.getBoundingBox().width/2, target.getBoundingBox().height/2);
-                        var difference = cc.pSub(location, center);
-                        var direction = cc.pNormalize(difference);
-                        var angleInDegree =  cc.pToAngle(direction) * 180/Math.PI;
-                        cc.log('angleInDegree:' + angleInDegree);
-                        target.setRotation(angleInDegree);
+                        event.getCurrentTarget().setPosition(location);
+                    },
+                    onTouchEnded: function (touch, event) {
+                        var target = event.getCurrentTarget();
+                        var nodeToRemoveIndex = context._nodesForRecording.indexOf(target);
+                        if (nodeToRemoveIndex != -1) {
+                            context._nodesForRecording.splice(nodeToRemoveIndex, 1);
+                        }
+
                     }
+
                 });
 
                 cc.eventManager.addListener(listener, element);
@@ -401,12 +426,12 @@ var HelloWorldLayer = cc.Layer.extend({
 
     //later create custom loading screen
     showLoadingScene: function (fileToLoad, doPostLoadingProcessFunction, context, args, shouldSaveToLocalStorage) {
-        if(cc.sys.isNative) {
+        if (cc.sys.isNative) {
             cc.log(fileToLoad);
             var dynamicResources = [fileToLoad];
             cc.LoaderScene.preload(dynamicResources, function () {
                 doPostLoadingProcessFunction.call(context, context, args, shouldSaveToLocalStorage);
-            }, this);            
+            }, this);
         } else {
             cc.director.pushScene(new cc.LoaderScene()); //TODO dummy right now later fix this
             cc.log(fileToLoad);
@@ -427,7 +452,7 @@ var HelloWorldLayer = cc.Layer.extend({
         cc.log('skeleton:' + load.node);
         var skeletonObject = this.constructJSONFromCharacter(load.node, resourcePath);
         // context.saveCharacterToLocalStorage(JSON.stringify(skeletonObject));
-        cc.log('JSON.stringify(skeletonObject):' +JSON.stringify(skeletonObject));
+        cc.log('JSON.stringify(skeletonObject):' + JSON.stringify(skeletonObject));
         var storedSceneString = cc.sys.localStorage.getItem(this.pageKey);
         if (storedSceneString != null && storedSceneString.length > 0) {
             var storedSceneJSON = JSON.parse(storedSceneString);
@@ -520,10 +545,11 @@ var HelloWorldLayer = cc.Layer.extend({
                 var target = event.getCurrentTarget();
                 var boundingBox = target.getBoundingBoxToWorld();
                 if (cc.rectContainsPoint(target.getBoundingBoxToWorld(), touch.getLocation())) {
-                    if(!cc.sys.isNative) {
+                    if (!cc.sys.isNative) {
                         var action = target.actionManager.getActionByTag(target.tag, target);
                         action.play(Object.keys(action._animationInfos)[0], true);
                     }
+                    this._nodesForRecording.push(target);
                     return true;
                 }
                 return false;
@@ -535,12 +561,18 @@ var HelloWorldLayer = cc.Layer.extend({
             onTouchEnded: function (touch, event) {
                 var target = event.getCurrentTarget();
                 target.actionManager.getActionByTag(target.tag, target).pause();
+                var target = event.getCurrentTarget();
+                var nodeToRemoveIndex = this._nodesForRecording.indexOf(target);
+                if (nodeToRemoveIndex != -1) {
+                    this._nodesForRecording.splice(nodeToRemoveIndex, 1);
+                }
+
             }
         });
         cc.eventManager.addListener(listener, load.node);
         this.addChild(load.node);
         load.node.runAction(load.action);
-        if(!cc.sys.isNative) {
+        if (!cc.sys.isNative) {
             load.node._renderCmd._dirtyFlag = 1;
         }
         this.parseCharacter(fileToLoad, load);
@@ -559,11 +591,21 @@ var HelloWorldLayer = cc.Layer.extend({
 
     saveToFile: function () {
         cc.sys.localStorage;
+    },
+
+    recordMovement: function () {
+        //console.log('calling recordMovement');
+        if (this._nodesForRecording != null && this._nodesForRecording.length > 0) {
+            this._nodesForRecording.forEach(function (element) {
+                console.log('record movement for Node:' + element);
+            }, this);
+        }
     }
+
 });
 
 var HelloWorldScene = cc.Scene.extend({
-    ctor: function() {
+    ctor: function () {
         this._super();
         if (LAYER_INIT === false) {
             LAYER_INIT = true;
@@ -572,7 +614,7 @@ var HelloWorldScene = cc.Scene.extend({
             this.addChild(this._sceneLayer);
             this._sceneLayer.init();
         }
-    }, 
+    },
     onEnter: function () {
         this._super();
         this._sceneLayer.registerEventListenerForAllChildren();
