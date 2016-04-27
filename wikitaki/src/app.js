@@ -8,6 +8,8 @@ var HelloWorldLayer = cc.Layer.extend({
         this._name = "StoryLayer";
         this._propsContainer = [];
         this._charactersContainer = [];
+        this._nodesSelected = [];
+        this.schedule(this.recordMovement, 1.0);
         return true;
     },
     init: function () {
@@ -41,6 +43,7 @@ var HelloWorldLayer = cc.Layer.extend({
                                 var targetRectangle = cc.rect(0, 0, targetSize.width, targetSize.
                                     height);
                                 if (cc.rectContainsPoint(targetRectangle, location)) {
+                                    this._nodesSelected.push(target);
                                     return true;
                                 }
                                 return false;
@@ -50,6 +53,14 @@ var HelloWorldLayer = cc.Layer.extend({
                                 var target = event.getCurrentTarget();
                                 var location = target.parent.convertToNodeSpace(touch.getLocation());
                                 event.getCurrentTarget().setPosition(location);
+                            },
+
+                            onTouchEnded: function (touch, event) {
+                                var target = event.getCurrentTarget();
+                                var nodeToRemoveIndex = this._nodesSelected.indexOf(target);
+                                if (nodeToRemoveIndex != -1) {
+                                    this._nodesSelected.splice(nodeToRemoveIndex, 1);
+                                }
                             }
                         });
 
@@ -126,20 +137,20 @@ var HelloWorldLayer = cc.Layer.extend({
         context.addChild(sprite, 1);
         sprite.setPosition(cc.director.getWinSize().width / 2, cc.director.getWinSize().height / 2);
         sprite.setScale(1);
-        
-        
-        var loadedImageObject = this.constructJSONFromCCSprite(sprite);
 
-        var storedSceneString = cc.sys.localStorage.getItem(this.pageKey);
+
+        var loadedImageObject = context.constructJSONFromCCSprite(sprite);
+
+        var storedSceneString = cc.sys.localStorage.getItem(context.pageKey);
         if (storedSceneString != null && storedSceneString.length > 0) {
             var storedSceneJSON = JSON.parse(storedSceneString);
-            if(storedSceneJSON) {
+            if (storedSceneJSON) {
                 storedSceneJSON.Content.Content.ObjectData.Children.push(loadedImageObject);
-                this.saveSceneToLocalStorage(JSON.stringify(storedSceneJSON));
+                context.saveSceneToLocalStorage(JSON.stringify(storedSceneJSON));
             }
         }
         else {
-            this._propsContainer.push(loadedImageObject);
+            context._propsContainer.push(loadedImageObject);
         }
 
 
@@ -153,6 +164,7 @@ var HelloWorldLayer = cc.Layer.extend({
                 var targetRectangle = cc.rect(0, 0, targetSize.width, targetSize.
                     height);
                 if (cc.rectContainsPoint(targetRectangle, location)) {
+                    context._nodesSelected.push(target);
                     return true;
                 }
                 return false;
@@ -162,7 +174,17 @@ var HelloWorldLayer = cc.Layer.extend({
                 var target = event.getCurrentTarget();
                 var location = target.parent.convertToNodeSpace(touch.getLocation());
                 event.getCurrentTarget().setPosition(location);
+            },
+
+            onTouchEnded: function (touch, event) {
+                var target = event.getCurrentTarget();
+                var nodeToRemoveIndex = context._nodesSelected.indexOf(target);
+                if (nodeToRemoveIndex != -1) {
+                    context._nodesSelected.splice(nodeToRemoveIndex, 1);
+                }
             }
+
+
         });
 
         cc.eventManager.addListener(listener, sprite);
@@ -178,20 +200,20 @@ var HelloWorldLayer = cc.Layer.extend({
         object.MaxLengthEnable = true;
         object.MaxLengthText = 50;
         object.AnchorPoint = {
-            "ScaleX": sprite._anchorPoint.x,
-            "ScaleY": sprite._anchorPoint.y
+            "ScaleX": sprite.getAnchorPoint().x,
+            "ScaleY": sprite.getAnchorPoint().y
         };
 
         object.Position = {
-            "X": sprite._position.x,
-            "Y": sprite._position.y
+            "X": sprite.getPosition().x,
+            "Y": sprite.getPosition().y
         };
 
-        object.RotationSkewX = sprite._rotationX;
-        object.RotationSkewY = sprite._rotationY;
+        object.RotationSkewX = sprite.getRotationX();
+        object.RotationSkewY = sprite.getRotationY();
         object.Scale = {
-            "ScaleX": sprite._scaleX,
-            "ScaleY": sprite._scaleY
+            "ScaleX": sprite.getScaleX(),
+            "ScaleY": sprite.getScaleY()
         };
         object.CColor = {
             "R": sprite.color.r,
@@ -201,83 +223,84 @@ var HelloWorldLayer = cc.Layer.extend({
         };
         object.IconVisible = false;
         object.Size = {
-            "X": sprite._rect.width,
-            "Y": sprite._rect.height
+            "X": sprite.getBoundingBox().width,
+            "Y": sprite.getBoundingBox().height
         };
         object.Alpha = sprite._alpha;
         object.Tag = sprite.tag;
         if (sprite.getName().indexOf("%%") === -1) {
             sprite.setName(sprite.getName() + "%%" + this.generateUUID());
         }
-
+        object.ActionTag = -new Date().valueOf();
         object.Name = sprite.getName();
         object.ctype = "TextFieldObjectData";
 
-        if (sprite.getComponent('ComExtensionData') && sprite.getComponent('ComExtensionData')._customProperty != null) {
-            object.UserData = sprite.getComponent('ComExtensionData')._customProperty;
+        if (sprite.getComponent('ComExtensionData') && sprite.getComponent('ComExtensionData').getCustomProperty() != null) {
+            object.UserData = sprite.getComponent('ComExtensionData').getCustomProperty();
         };
         return object;
     },
 
 
-constructJSONFromCCSprite: function (sprite) {
+    constructJSONFromCCSprite: function (sprite) {
 
-        var object = Object.create(Object.prototype);
-        object.FlipX = sprite._flippedX;
-        object.FlipY = sprite._flippedY;
-        object.FileData = {};
-        object.FileData.Type = "Normal";
-        if (sprite.getTexture().url != null) {
-            var path = sprite.getTexture().url.replace("res/", "");
-            object.FileData.Path = path;
-        }
-        object.FileData.Plist = "";
-        
-        object.BlendFunc = {
-            "Src": sprite.getBlendFunc.src,
-            "Dst": sprite.getBlendFunc.dst
-        };
+        var object = Object.create(Object.prototype);
+        object.FlipX = sprite._flippedX;
+        object.FlipY = sprite._flippedY;
+        object.FileData = {};
+        object.FileData.Type = "Normal";
+        if (sprite.getTexture().url != null) {
+            var path = sprite.getTexture().url.replace("res/", "");
+            object.FileData.Path = path;
+        }
+        object.FileData.Plist = "";
 
-        object.AnchorPoint = {
-            "ScaleX": sprite.getAnchorPoint().x,
-            "ScaleY": sprite.getAnchorPoint().y
-        };
+        object.BlendFunc = {
+            "Src": sprite.getBlendFunc.src,
+            "Dst": sprite.getBlendFunc.dst
+        };
 
-        object.Position = {
-            "X": sprite.getPosition().x,
-            "Y": sprite.getPosition().y
-        };
+        object.AnchorPoint = {
+            "ScaleX": sprite.getAnchorPoint().x,
+            "ScaleY": sprite.getAnchorPoint().y
+        };
 
-        object.RotationSkewX = sprite.getRotationX();
-        object.RotationSkewY = sprite.getRotationY();
-        object.Scale = {
-            "ScaleX": sprite.getScaleX(),
-            "ScaleY": sprite.getScaleY()
-        };
-        object.CColor = {
-            "R": sprite.color.r,
-            "G": sprite.color.g,
-            "B": sprite.color.b,
-            "A": sprite.color.a
-        };
-        object.IconVisible = false;
-        object.Size = {
-            "X": sprite.getBoundingBox().width,
-            "Y": sprite.getBoundingBox().height
-        };
-        object.Tag = sprite.tag;
-        if (sprite.getName().indexOf("%%") === -1) {
-            sprite.setName(sprite.getName() + "%%" + this.generateUUID());
-        }
+        object.Position = {
+            "X": sprite.getPosition().x,
+            "Y": sprite.getPosition().y
+        };
 
-        object.Name = sprite.getName();
-        object.ctype = "SpriteObjectData";
+        object.RotationSkewX = sprite.getRotationX();
+        object.RotationSkewY = sprite.getRotationY();
+        object.Scale = {
+            "ScaleX": sprite.getScaleX(),
+            "ScaleY": sprite.getScaleY()
+        };
+        object.CColor = {
+            "R": sprite.color.r,
+            "G": sprite.color.g,
+            "B": sprite.color.b,
+            "A": sprite.color.a
+        };
+        object.IconVisible = false;
+        object.Size = {
+            "X": sprite.getBoundingBox().width,
+            "Y": sprite.getBoundingBox().height
+        };
+        object.Tag = sprite.tag;
+        if (sprite.getName().indexOf("%%") === -1) {
+            sprite.setName(sprite.getName() + "%%" + this.generateUUID());
+        }
+        object.ActionTag = -new Date().valueOf();
+        object.Name = sprite.getName();
+        object.ctype = "SpriteObjectData";
 
-        if (sprite.getComponent('ComExtensionData') && sprite.getComponent('ComExtensionData').getCustomProperty() != null) {
-            object.UserData = sprite.getComponent('ComExtensionData').getCustomProperty();
-        };
-        return object;
-    },
+        if (sprite.getComponent('ComExtensionData') && sprite.getComponent('ComExtensionData').getCustomProperty() != null) {
+            object.UserData = sprite.getComponent('ComExtensionData').getCustomProperty();
+        };
+        return object;
+    },
+
 
     loadJsonFile: function (selectedItem) {
         //load json file in new window
@@ -290,7 +313,7 @@ constructJSONFromCCSprite: function (sprite) {
         var fileToLoad = selectedItem._jsonFileToLoad;
         switch (type) {
             case "character":
-                this.addCharacterToScene(fileToLoad);
+                this.addCharacterToScene(this, fileToLoad);
                 break;
             case "scene":
                 this.createSceneFromFile(fileToLoad);
@@ -314,6 +337,7 @@ constructJSONFromCCSprite: function (sprite) {
                         var targetRectangle = cc.rect(0, 0, targetSize.width, targetSize.
                             height);
                         if (cc.rectContainsPoint(targetRectangle, location)) {
+                            context._nodesSelected.push(target);
                             return true;
                         }
                         return false;
@@ -323,7 +347,16 @@ constructJSONFromCCSprite: function (sprite) {
                         var target = event.getCurrentTarget();
                         var location = target.parent.convertToNodeSpace(touch.getLocation());
                         event.getCurrentTarget().setPosition(location);
+                    },
+                    onTouchEnded: function (touch, event) {
+                        var target = event.getCurrentTarget();
+                        var nodeToRemoveIndex = context._nodesSelected.indexOf(target);
+                        if (nodeToRemoveIndex != -1) {
+                            context._nodesSelected.splice(nodeToRemoveIndex, 1);
+                        }
+
                     }
+
                 });
 
                 cc.eventManager.addListener(listener, element);
@@ -393,12 +426,12 @@ constructJSONFromCCSprite: function (sprite) {
 
     //later create custom loading screen
     showLoadingScene: function (fileToLoad, doPostLoadingProcessFunction, context, args, shouldSaveToLocalStorage) {
-        if(cc.sys.isNative) {
+        if (cc.sys.isNative) {
             cc.log(fileToLoad);
             var dynamicResources = [fileToLoad];
             cc.LoaderScene.preload(dynamicResources, function () {
                 doPostLoadingProcessFunction.call(context, context, args, shouldSaveToLocalStorage);
-            }, this);            
+            }, this);
         } else {
             cc.director.pushScene(new cc.LoaderScene()); //TODO dummy right now later fix this
             cc.log(fileToLoad);
@@ -410,25 +443,26 @@ constructJSONFromCCSprite: function (sprite) {
         }
     },
 
-    
-    
+
+
     parseCharacter: function (fileToLoad, load) {
-        cc.log('got file:' + fileToLoad);        
+        cc.log('got file:' + fileToLoad);
         var resourcePath = fileToLoad.replace("res/", "");
         cc.log('resourcePath:' + resourcePath);
         cc.log('skeleton:' + load.node);
         var skeletonObject = this.constructJSONFromCharacter(load.node, resourcePath);
+        load.node.ActionTag = skeletonObject.ActionTag;
         // context.saveCharacterToLocalStorage(JSON.stringify(skeletonObject));
-        cc.log('JSON.stringify(skeletonObject):' +JSON.stringify(skeletonObject));
+        cc.log('JSON.stringify(skeletonObject):' + JSON.stringify(skeletonObject));
         var storedSceneString = cc.sys.localStorage.getItem(this.pageKey);
         if (storedSceneString != null && storedSceneString.length > 0) {
             var storedSceneJSON = JSON.parse(storedSceneString);
-            if(storedSceneJSON) {
+            if (storedSceneJSON) {
                 storedSceneJSON.Content.Content.ObjectData.Children.push(skeletonObject);
                 this.saveSceneToLocalStorage(JSON.stringify(storedSceneJSON));
             }
         }
-        
+
         // cc.loader.loadJson(fileToLoad, function (error, data) {
         //     cc.log('data:' + data);
         //     // context.updateCharacterToUniqueName(data, resourcePath);
@@ -439,31 +473,30 @@ constructJSONFromCCSprite: function (sprite) {
     },
 
 
-constructJSONFromCharacter: function(skeleton, resourcePath) 
-    {        
+    constructJSONFromCharacter: function (skeleton, resourcePath) {
         var object = Object.create(Object.prototype);
         object.FileData = {};
         object.FileData.Type = "Normal";
         object.FileData.Path = resourcePath;
         object.FileData.Plist = "";
-        
-        object.InnerActionSpeed =  1.0;
+
+        object.InnerActionSpeed = 1.0;
 
         object.AnchorPoint = {
-            "ScaleX": skeleton._anchorPoint.x,
-            "ScaleY": skeleton._anchorPoint.y
+            "ScaleX": skeleton.getAnchorPoint().x,
+            "ScaleY": skeleton.getAnchorPoint().y
         };
 
         object.Position = {
-            "X": skeleton._position.x,
-            "Y": skeleton._position.y
+            "X": skeleton.getPosition().x,
+            "Y": skeleton.getPosition().y
         };
 
-        object.RotationSkewX = skeleton._rotationX;
-        object.RotationSkewY = skeleton._rotationY;
+        object.RotationSkewX = skeleton.getRotationX();
+        object.RotationSkewY = skeleton.getRotationY();
         object.Scale = {
-            "ScaleX": skeleton._scaleX,
-            "ScaleY": skeleton._scaleY
+            "ScaleX": skeleton.getScaleX(),
+            "ScaleY": skeleton.getScaleY()
         };
         object.CColor = {
             "R": skeleton.color.r,
@@ -476,13 +509,13 @@ constructJSONFromCharacter: function(skeleton, resourcePath)
             "X": skeleton.width,
             "Y": skeleton.height
         };
-
-        object.Name = skeleton._name;
+        object.ActionTag = -new Date().valueOf();
+        object.Name = skeleton.getName();
         object.ctype = "ProjectNodeObjectData";
 
-        return object;                      
+        return object;
     },
-    
+
     updateCharacterToUniqueName: function (data, resourcePath) {
         if (data && data.Content && data.Content.Content) {
             var objects = data.Content.Content.ObjectData;
@@ -502,9 +535,9 @@ constructJSONFromCharacter: function(skeleton, resourcePath)
         cc.sys.localStorage.setItem(charKey, JSON.stringify(data));
     },
 
-    addCharacterToScene: function (fileToLoad) {
+    addCharacterToScene: function (context, fileToLoad) {
         var load = ccs.load(fileToLoad);
-        
+
         load.node.setPosition(900, 900);
         var listener = cc.EventListener.create({
             event: cc.EventListener.TOUCH_ONE_BY_ONE,
@@ -513,9 +546,8 @@ constructJSONFromCharacter: function(skeleton, resourcePath)
                 var target = event.getCurrentTarget();
                 var boundingBox = target.getBoundingBoxToWorld();
                 if (cc.rectContainsPoint(target.getBoundingBoxToWorld(), touch.getLocation())) {
-                    target.parent._selectedObject = target;
-                    target.parent.constructConfigPanel(cc.loader.cache[res.character_config_json]);
-                    if(!cc.sys.isNative) {
+                    context._nodesSelected.push(target);
+                    if (!cc.sys.isNative) {
                         var action = target.actionManager.getActionByTag(target.tag, target);
                         action.play(Object.keys(action._animationInfos)[0], true);
                     }
@@ -527,25 +559,43 @@ constructJSONFromCharacter: function(skeleton, resourcePath)
                 var target = event.getCurrentTarget();
                 target.setPosition(target.parent.convertToNodeSpace(touch.getLocation()));
             },
-            onTouchEnded: function(touch, event) {
+            onTouchEnded: function (touch, event) {
                 var target = event.getCurrentTarget();
                 target.actionManager.getActionByTag(target.tag, target).pause();
+                var target = event.getCurrentTarget();
+                var nodeToRemoveIndex = context._nodesSelected.indexOf(target);
+                cc.log(nodeToRemoveIndex);
+                cc.log(context._nodesSelected);
+                if (nodeToRemoveIndex != -1) {
+                    //if not record mode pop the configuration
+                    cc.log(cc.loader.cache);
+                    cc.loader.loadJson(res.character_config_json, function (error, data) {
+                        cc.log('data:' + data);
+                        if (data != null) {
+                            context.constructConfigPanel(data, target);
+
+                        }
+                    });
+
+                    context._nodesSelected.splice(nodeToRemoveIndex, 1);
+                }
+
             }
         });
-        cc.eventManager.addListener(listener, load.node);        
+        cc.eventManager.addListener(listener, load.node);
         this.addChild(load.node);
         load.node.runAction(load.action);
-        if(!cc.sys.isNative) {
+        if (!cc.sys.isNative) {
             load.node._renderCmd._dirtyFlag = 1;
         }
         this.parseCharacter(fileToLoad, load);
     },
 
-    skinSelectedInConfiguration: function(selectedItem) {
-        if(this._selectedObject && selectedItem._configuration && selectedItem._configuration.skin && selectedItem._configuration.bone) {
-            this._selectedObject.getBoneNode(selectedItem._configuration.bone).displaySkin(selectedItem._configuration.skin, true);
-        }
-    },
+    // skinSelectedInConfiguration: function(selectedItem) {
+    //     if(this._nodesSelected != null && this._nodesSelected.length>0 && selectedItem._configuration && selectedItem._configuration.skin && selectedItem._configuration.bone) {
+    //         this._nodesSelected[0].getBoneNode(selectedItem._configuration.bone).displaySkin(selectedItem._configuration.skin, true);
+    //     }
+    // },
 
     constructTabBar: function (configuration) {
         this._tabBar = new chimple.TabPanel(cc.p(0, 0), cc.size(1800, 1800), 2, 2, configuration, this.itemSelectedInConfiguration, this);
@@ -555,27 +605,70 @@ constructJSONFromCharacter: function(skeleton, resourcePath)
     destoryTabBar: function () {
         this._tabBar.removeFromParent(true);
     },
-    
-    constructConfigPanel: function(configuration) {
-        if(this._configPanel) {
+
+    constructConfigPanel: function (configuration, target) {
+        if (this._configPanel) {
             this.destroyConfigPanel();
         }
-        this._configPanel = new chimple.TabPanel(cc.p(1800, 0), cc.size(760, 1800), 2, 2, configuration, this.skinSelectedInConfiguration, this);
+        var newObject = new chimple.ObjectSelector(target);
+        this._configPanel = new chimple.TabPanel(cc.p(1800, 0), cc.size(760, 1800), 2, 2, configuration, newObject.skinSelectedInConfiguration, newObject);
+        this._configPanel._objectToActOn = target;
         this.addChild(this._configPanel, 3);
     },
-    
-    destroyConfigPanel: function() {
+
+    destroyConfigPanel: function () {
         this._configPanel.removeFromParent(true);
         this._configPanel = null;
     },
 
     saveToFile: function () {
         cc.sys.localStorage;
+    },
+
+    //every timeline
+    constructPositionFrameData: function (node, frameIndex) {
+        if (node.positionFrames == null) {
+            node.positionFrames = [];
+        }
+        var frameData = Object.create(Object.prototype);
+        frameData.X = node.x;
+        frameData.Y = node.y;
+        frameData.FrameIndex = frameIndex;
+        frameData.EasingData = {};
+        frameData.EasingData.Type = 0;
+        frameData.ctype = "PointFrameData";
+
+        node.positionFrames.push(frameData);
+    },
+
+
+    constructPositionMoveMentTimeLine: function (node) {
+        if (node.positionFrames !== null && node.positionFrames.length > 0) {
+            var object = Object.create(Object.prototype);
+            object.ActionTag = node.ActionTag;
+            object.Property = "Position";
+            object.Frames = node.positionFrames;
+            node.positionFrames = null;
+            object.ctype = "TimelineData";
+            return object;
+        }
+    },
+
+    recordMovement: function () {
+        //console.log('calling recordMovement');
+        if (this._nodesSelected != null && this._nodesSelected.length > 0) {
+            this._nodesSelected.forEach(function (element) {
+                console.log('record movement for Node:' + element);
+                //construct position framedata for now for each timesecond
+                this.constructPositionFrameData(element);
+            }, this);
+        }
     }
+
 });
 
 var HelloWorldScene = cc.Scene.extend({
-    ctor: function() {
+    ctor: function () {
         this._super();
         if (LAYER_INIT === false) {
             LAYER_INIT = true;
@@ -584,7 +677,7 @@ var HelloWorldScene = cc.Scene.extend({
             this.addChild(this._sceneLayer);
             this._sceneLayer.init();
         }
-    }, 
+    },
     onEnter: function () {
         this._super();
         this._sceneLayer.registerEventListenerForAllChildren();
@@ -593,3 +686,12 @@ var HelloWorldScene = cc.Scene.extend({
     }
 }
 );
+
+// var newObject = {
+//     _objectSelected: null,
+//     skinSelectedInConfiguration: function(selectedItem) {
+//         if(this._objectSelected != null && selectedItem._configuration && selectedItem._configuration.skin && selectedItem._configuration.bone) {
+//             this._objectSelected.getBoneNode(selectedItem._configuration.bone).displaySkin(selectedItem._configuration.skin, true);
+//         }
+//     }
+// }
