@@ -100,7 +100,8 @@ var res = {
     hare_rightleg_png: "res/characters/hare/hare_rightleg.png",
     hare_thumbnail_png: "res/characters/hare/hare_thumbnail.png",
     close_pop_png: "res/close_pop.png",
-    boy_json: "res/characters/Animation.json"
+    boy_json: "res/characters/Animation.json",
+    character_config_json: "res/misc/characterConfig.json"
 };
 
 

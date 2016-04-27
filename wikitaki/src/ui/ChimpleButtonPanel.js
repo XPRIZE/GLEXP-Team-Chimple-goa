@@ -20,7 +20,7 @@ chimple.ButtonPanel = ccui.ScrollView.extend({
                         item.addTouchEventListener(this.itemSelected, this);
                         item.setPosition(pageIndex * size.width + (rowIndex + 0.5) * size.width / numButtonsPerRow, (colIndex + 0.5) * size.height / numButtonsPerColumn);
                         item.setName(configuration[index]['icon']);
-                        
+                        item._configuration = configuration[index];
                         if (configuration[index].hasOwnProperty('json')) {
                             item._jsonFileToLoad = configuration[index]['json'];
                             item._configurationType = configuration[index].type;    

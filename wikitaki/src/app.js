@@ -513,6 +513,8 @@ constructJSONFromCharacter: function(skeleton, resourcePath)
                 var target = event.getCurrentTarget();
                 var boundingBox = target.getBoundingBoxToWorld();
                 if (cc.rectContainsPoint(target.getBoundingBoxToWorld(), touch.getLocation())) {
+                    target.parent._selectedObject = target;
+                    target.parent.constructConfigPanel(cc.loader.cache[res.character_config_json]);
                     if(!cc.sys.isNative) {
                         var action = target.actionManager.getActionByTag(target.tag, target);
                         action.play(Object.keys(action._animationInfos)[0], true);
@@ -539,7 +541,11 @@ constructJSONFromCharacter: function(skeleton, resourcePath)
         this.parseCharacter(fileToLoad, load);
     },
 
-
+    skinSelectedInConfiguration: function(selectedItem) {
+        if(this._selectedObject && selectedItem._configuration && selectedItem._configuration.skin && selectedItem._configuration.bone) {
+            this._selectedObject.getBoneNode(selectedItem._configuration.bone).displaySkin(selectedItem._configuration.skin, true);
+        }
+    },
 
     constructTabBar: function (configuration) {
         this._tabBar = new chimple.TabPanel(cc.p(0, 0), cc.size(1800, 1800), 2, 2, configuration, this.itemSelectedInConfiguration, this);
@@ -548,6 +554,19 @@ constructJSONFromCharacter: function(skeleton, resourcePath)
 
     destoryTabBar: function () {
         this._tabBar.removeFromParent(true);
+    },
+    
+    constructConfigPanel: function(configuration) {
+        if(this._configPanel) {
+            this.destroyConfigPanel();
+        }
+        this._configPanel = new chimple.TabPanel(cc.p(1800, 0), cc.size(760, 1800), 2, 2, configuration, this.skinSelectedInConfiguration, this);
+        this.addChild(this._configPanel, 3);
+    },
+    
+    destroyConfigPanel: function() {
+        this._configPanel.removeFromParent(true);
+        this._configPanel = null;
     },
 
     saveToFile: function () {
