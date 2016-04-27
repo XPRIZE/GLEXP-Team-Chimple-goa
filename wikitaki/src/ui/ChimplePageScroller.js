@@ -6,6 +6,7 @@ chimple.INITIAL_MARGIN = 0.3;
 chimple.PageScroller = ccui.PageView.extend({
     ctor: function (position, size, numButtonsPerRow, numButtonsPerColumn, configuration, backgroundColor, callBackFunction, callBackContext, isAnimated) {
         this._super();
+        cc.log('ctor of scroller')
         this._configuration = configuration;
         this._numButtonsPerRow = numButtonsPerRow;
         this._numButtonsPerColumn = numButtonsPerColumn;
@@ -21,10 +22,6 @@ chimple.PageScroller = ccui.PageView.extend({
         this.setBackGroundColorType(ccui.Layout.BG_COLOR_SOLID);
         this._callBackFunction = callBackFunction;
         this._callBackContext = callBackContext;
-    },
-
-    onEnter: function () {
-        this._super();
         this.createPages();
         if (this._isAnimated) {
             //run animation to show page view
@@ -58,7 +55,7 @@ chimple.PageScroller = ccui.PageView.extend({
             var button = ccui.Button.create(configObject.icon, configObject.cIcon);
             button.setAnchorPoint(0, 0);
             button.setPosition(position);
-            button._name = item;
+            button.setName(item);
             button.addTouchEventListener(this.itemSelected, this);
             return button;
 
@@ -66,7 +63,6 @@ chimple.PageScroller = ccui.PageView.extend({
     },
 
     itemSelected: function (sender, type) {
-
         switch (type) {
             case ccui.Widget.TOUCH_BEGAN:
                 if (this._currentSelectedItem != null) {
@@ -76,6 +72,7 @@ chimple.PageScroller = ccui.PageView.extend({
             case ccui.Widget.TOUCH_ENDED:
                 this._currentSelectedItem = sender;
                 sender.setHighlighted(true);
+                cc.log(this._callBackFunction);
                 this._callBackFunction.call(this._callBackContext, this._currentSelectedItem);
                 break;
         }

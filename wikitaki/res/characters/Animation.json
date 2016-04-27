@@ -5429,8 +5429,8 @@
                   "ScaleY": 0.5
                 },
                 "Position": {
-                  "X": 205.8197,
-                  "Y": 1.0544
+                  "X": 205.3658,
+                  "Y": 0.6005
                 },
                 "Scale": {
                   "ScaleX": 1.0,
@@ -5448,10 +5448,10 @@
                   "X": 0.0,
                   "Y": 0.0
                 },
-                "LeftMargin": -0.6803,
-                "RightMargin": -412.3197,
-                "TopMargin": -286.0544,
-                "BottomMargin": -283.9456,
+                "LeftMargin": -1.1342,
+                "RightMargin": -411.8658,
+                "TopMargin": -285.6005,
+                "BottomMargin": -284.3995,
                 "Tag": 23,
                 "ActionTag": 866151141,
                 "Size": {
@@ -5937,6 +5937,198 @@
                     "VisibleForFrame": false,
                     "Name": "CowboyMouth_1",
                     "ctype": "SpriteObjectData"
+                  },
+                  {
+                    "FileData": {
+                      "Type": "Normal",
+                      "Path": "character/hare_eyes.png",
+                      "Plist": ""
+                    },
+                    "BlendFunc": {
+                      "Src": 1,
+                      "Dst": 771
+                    },
+                    "AnchorPoint": {
+                      "ScaleX": 0.5,
+                      "ScaleY": 0.5
+                    },
+                    "Position": {
+                      "X": -117.5863,
+                      "Y": 64.6434
+                    },
+                    "Scale": {
+                      "ScaleX": 1.0,
+                      "ScaleY": 1.0
+                    },
+                    "RotationSkewX": -269.7886,
+                    "RotationSkewY": -269.7986,
+                    "CColor": {},
+                    "IconVisible": false,
+                    "PrePosition": {
+                      "X": 0.0,
+                      "Y": 0.0
+                    },
+                    "PreSize": {
+                      "X": 0.0,
+                      "Y": 0.0
+                    },
+                    "LeftMargin": -366.5782,
+                    "RightMargin": 275.5782,
+                    "TopMargin": 167.2437,
+                    "BottomMargin": -237.2437,
+                    "Tag": 227,
+                    "ActionTag": -856563526,
+                    "Size": {
+                      "X": 91.0,
+                      "Y": 70.0
+                    },
+                    "VisibleForFrame": false,
+                    "Name": "hare_eyes_3",
+                    "ctype": "SpriteObjectData"
+                  },
+                  {
+                    "FileData": {
+                      "Type": "Normal",
+                      "Path": "character/hare_head.png",
+                      "Plist": ""
+                    },
+                    "BlendFunc": {
+                      "Src": 1,
+                      "Dst": 771
+                    },
+                    "AnchorPoint": {
+                      "ScaleX": 0.5,
+                      "ScaleY": 0.5
+                    },
+                    "Position": {
+                      "X": 221.3312,
+                      "Y": 19.855
+                    },
+                    "Scale": {
+                      "ScaleX": 1.0,
+                      "ScaleY": 1.0
+                    },
+                    "RotationSkewX": -269.7886,
+                    "RotationSkewY": -269.7986,
+                    "CColor": {},
+                    "IconVisible": false,
+                    "PrePosition": {
+                      "X": 0.0,
+                      "Y": 0.0
+                    },
+                    "PreSize": {
+                      "X": 0.0,
+                      "Y": 0.0
+                    },
+                    "LeftMargin": 86.8312,
+                    "RightMargin": -355.8312,
+                    "TopMargin": -145.355,
+                    "BottomMargin": -105.645,
+                    "Tag": 228,
+                    "ActionTag": -750214793,
+                    "Size": {
+                      "X": 269.0,
+                      "Y": 251.0
+                    },
+                    "VisibleForFrame": false,
+                    "Name": "hare_head_4",
+                    "ctype": "SpriteObjectData"
+                  },
+                  {
+                    "FileData": {
+                      "Type": "Normal",
+                      "Path": "character/hare_leftear.png",
+                      "Plist": ""
+                    },
+                    "BlendFunc": {
+                      "Src": 1,
+                      "Dst": 771
+                    },
+                    "AnchorPoint": {
+                      "ScaleX": 0.5,
+                      "ScaleY": 0.5
+                    },
+                    "Position": {
+                      "X": 296.2554,
+                      "Y": 309.3272
+                    },
+                    "Scale": {
+                      "ScaleX": 1.0,
+                      "ScaleY": 1.0
+                    },
+                    "RotationSkewX": -269.7886,
+                    "RotationSkewY": -269.7986,
+                    "CColor": {},
+                    "IconVisible": false,
+                    "PrePosition": {
+                      "X": 0.0,
+                      "Y": 0.0
+                    },
+                    "PreSize": {
+                      "X": 0.0,
+                      "Y": 0.0
+                    },
+                    "LeftMargin": 203.7554,
+                    "RightMargin": -388.7554,
+                    "TopMargin": -417.8272,
+                    "BottomMargin": 200.8272,
+                    "Tag": 229,
+                    "ActionTag": 1871578070,
+                    "Size": {
+                      "X": 185.0,
+                      "Y": 217.0
+                    },
+                    "VisibleForFrame": false,
+                    "Name": "hare_leftear_5",
+                    "ctype": "SpriteObjectData"
+                  },
+                  {
+                    "FileData": {
+                      "Type": "Normal",
+                      "Path": "character/hare_rightear.png",
+                      "Plist": ""
+                    },
+                    "BlendFunc": {
+                      "Src": 1,
+                      "Dst": 771
+                    },
+                    "AnchorPoint": {
+                      "ScaleX": 0.5,
+                      "ScaleY": 0.5
+                    },
+                    "Position": {
+                      "X": 342.6041,
+                      "Y": -308.3005
+                    },
+                    "Scale": {
+                      "ScaleX": 1.0,
+                      "ScaleY": 1.0
+                    },
+                    "RotationSkewX": -269.7886,
+                    "RotationSkewY": -269.7986,
+                    "CColor": {},
+                    "IconVisible": false,
+                    "PrePosition": {
+                      "X": 0.0,
+                      "Y": 0.0
+                    },
+                    "PreSize": {
+                      "X": 0.0,
+                      "Y": 0.0
+                    },
+                    "LeftMargin": 271.1041,
+                    "RightMargin": -414.1041,
+                    "TopMargin": 181.8005,
+                    "BottomMargin": -434.8005,
+                    "Tag": 231,
+                    "ActionTag": -1394567016,
+                    "Size": {
+                      "X": 143.0,
+                      "Y": 253.0
+                    },
+                    "VisibleForFrame": false,
+                    "Name": "hare_rightear_7",
+                    "ctype": "SpriteObjectData"
                   }
                 ],
                 "ActionTag": -1149579151,
@@ -6241,6 +6433,54 @@
                     },
                     "Name": "Hand_lower_left",
                     "ctype": "BoneNodeObjectData"
+                  },
+                  {
+                    "FileData": {
+                      "Type": "Normal",
+                      "Path": "character/hare_lefthand.png",
+                      "Plist": ""
+                    },
+                    "BlendFunc": {
+                      "Src": 1,
+                      "Dst": 771
+                    },
+                    "AnchorPoint": {
+                      "ScaleX": 0.5,
+                      "ScaleY": 0.5
+                    },
+                    "Position": {
+                      "X": 81.3575,
+                      "Y": -77.7382
+                    },
+                    "Scale": {
+                      "ScaleX": 1.0,
+                      "ScaleY": 1.0
+                    },
+                    "RotationSkewX": -92.2289,
+                    "RotationSkewY": -92.2313,
+                    "CColor": {},
+                    "IconVisible": false,
+                    "PrePosition": {
+                      "X": 0.0,
+                      "Y": 0.0
+                    },
+                    "PreSize": {
+                      "X": 0.0,
+                      "Y": 0.0
+                    },
+                    "LeftMargin": 8.3575,
+                    "RightMargin": -154.3575,
+                    "TopMargin": 11.2382,
+                    "BottomMargin": -144.2382,
+                    "Tag": 230,
+                    "ActionTag": 1321011868,
+                    "Size": {
+                      "X": 146.0,
+                      "Y": 133.0
+                    },
+                    "VisibleForFrame": false,
+                    "Name": "hare_lefthand_6",
+                    "ctype": "SpriteObjectData"
                   }
                 ],
                 "ActionTag": 1378491057,
@@ -6393,6 +6633,54 @@
                     },
                     "Name": "Leg_lower_left",
                     "ctype": "BoneNodeObjectData"
+                  },
+                  {
+                    "FileData": {
+                      "Type": "Normal",
+                      "Path": "character/hare_rightleg.png",
+                      "Plist": ""
+                    },
+                    "BlendFunc": {
+                      "Src": 1,
+                      "Dst": 771
+                    },
+                    "AnchorPoint": {
+                      "ScaleX": 0.5,
+                      "ScaleY": 0.5
+                    },
+                    "Position": {
+                      "X": 87.3741,
+                      "Y": 222.3922
+                    },
+                    "Scale": {
+                      "ScaleX": 1.0,
+                      "ScaleY": 1.0
+                    },
+                    "RotationSkewX": -89.4226,
+                    "RotationSkewY": -89.4251,
+                    "CColor": {},
+                    "IconVisible": false,
+                    "PrePosition": {
+                      "X": 0.0,
+                      "Y": 0.0
+                    },
+                    "PreSize": {
+                      "X": 0.0,
+                      "Y": 0.0
+                    },
+                    "LeftMargin": 18.8741,
+                    "RightMargin": -155.8741,
+                    "TopMargin": -277.3922,
+                    "BottomMargin": 167.3922,
+                    "Tag": 233,
+                    "ActionTag": -1143008262,
+                    "Size": {
+                      "X": 137.0,
+                      "Y": 110.0
+                    },
+                    "VisibleForFrame": false,
+                    "Name": "hare_rightleg_9",
+                    "ctype": "SpriteObjectData"
                   }
                 ],
                 "ActionTag": 875327419,
@@ -6545,6 +6833,54 @@
                     },
                     "Name": "Hand_lower_right",
                     "ctype": "BoneNodeObjectData"
+                  },
+                  {
+                    "FileData": {
+                      "Type": "Normal",
+                      "Path": "character/hare_righthand.png",
+                      "Plist": ""
+                    },
+                    "BlendFunc": {
+                      "Src": 1,
+                      "Dst": 771
+                    },
+                    "AnchorPoint": {
+                      "ScaleX": 0.5,
+                      "ScaleY": 0.5
+                    },
+                    "Position": {
+                      "X": -35.0532,
+                      "Y": 26.7209
+                    },
+                    "Scale": {
+                      "ScaleX": 1.0,
+                      "ScaleY": 1.0
+                    },
+                    "RotationSkewX": -89.2752,
+                    "RotationSkewY": -89.2728,
+                    "CColor": {},
+                    "IconVisible": false,
+                    "PrePosition": {
+                      "X": 0.0,
+                      "Y": 0.0
+                    },
+                    "PreSize": {
+                      "X": 0.0,
+                      "Y": 0.0
+                    },
+                    "LeftMargin": -100.5532,
+                    "RightMargin": -30.4468,
+                    "TopMargin": -101.7209,
+                    "BottomMargin": -48.2791,
+                    "Tag": 232,
+                    "ActionTag": -489264458,
+                    "Size": {
+                      "X": 131.0,
+                      "Y": 150.0
+                    },
+                    "VisibleForFrame": false,
+                    "Name": "hare_righthand_8",
+                    "ctype": "SpriteObjectData"
                   }
                 ],
                 "ActionTag": 293011208,
@@ -6555,6 +6891,54 @@
                 },
                 "Name": "Hand_upper_right",
                 "ctype": "BoneNodeObjectData"
+              },
+              {
+                "FileData": {
+                  "Type": "Normal",
+                  "Path": "character/hare_body.png",
+                  "Plist": ""
+                },
+                "BlendFunc": {
+                  "Src": 1,
+                  "Dst": 771
+                },
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 199.5598,
+                  "Y": 2.3108
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "RotationSkewX": -90.0,
+                "RotationSkewY": -90.0,
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 0.0,
+                  "Y": 0.0
+                },
+                "PreSize": {
+                  "X": 0.0,
+                  "Y": 0.0
+                },
+                "LeftMargin": 93.0598,
+                "RightMargin": -306.0598,
+                "TopMargin": -167.3108,
+                "BottomMargin": -162.6892,
+                "Tag": 226,
+                "ActionTag": -969698301,
+                "Size": {
+                  "X": 213.0,
+                  "Y": 330.0
+                },
+                "VisibleForFrame": false,
+                "Name": "hare_body_2",
+                "ctype": "SpriteObjectData"
               }
             ],
             "ActionTag": -1598552952,
@@ -6582,6 +6966,14 @@
         "character/Face.png",
         "character/Hand_lower.png",
         "character/Hand_upper.png",
+        "character/hare_body.png",
+        "character/hare_eyes.png",
+        "character/hare_head.png",
+        "character/hare_leftear.png",
+        "character/hare_lefthand.png",
+        "character/hare_rightear.png",
+        "character/hare_righthand.png",
+        "character/hare_rightleg.png",
         "character/Leg_lower.png",
         "character/Leg_upper.png",
         "character/Mouth.png",

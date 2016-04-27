@@ -20,14 +20,15 @@ var HelloWorldLayer = cc.Layer.extend({
             //backgrounds, characters and pops, texts
             var mainConfigurationItems = Object.getOwnPropertyNames(chimple.storyConfigurationObject);
             //Construct UI
+            cc.log('creating new pageview');
             var pageView = new chimple.PageScroller(cc.p(1800, 0), cc.size(760, 1800), 2, 3, mainConfigurationItems, cc.color.RED, this.configurationChoosed, this, false);
             this.addChild(pageView, 2);
         }
     },
 
     registerEventListenerForAllChildren: function () {
-        if (layer) {
-            layer.children.forEach(function (element) {
+        if (this._sceneLayer) {
+            this._sceneLayer.children.forEach(function (element) {
                 if (element._name === 'Scene') {
                     element.children.forEach(function (element) {
                         var listener = cc.EventListener.create({
@@ -62,11 +63,11 @@ var HelloWorldLayer = cc.Layer.extend({
 
     loadSceneFromStorage: function () {
         //check if data exists in localstorage with Key
-        var storedSceneString = cc.sys.localStorage.getItem(layer.pageKey);
-        if (storedSceneString != null) {
+        var storedSceneString = cc.sys.localStorage.getItem(this.pageKey);
+        if (storedSceneString != null && storedSceneString.length > 0) {
             var storedSceneJSON = JSON.parse(storedSceneString);
-            this.putIntoCacheFromLocalStorage(layer.pageKey, storedSceneJSON);
-            this.doPostLoadingProcessForScene(this, layer.pageKey, false);
+            this.putIntoCacheFromLocalStorage(this.pageKey, storedSceneJSON);
+            this.doPostLoadingProcessForScene(this, this.pageKey, false);
         }
     },
 
@@ -75,7 +76,7 @@ var HelloWorldLayer = cc.Layer.extend({
     },
 
     saveSceneToLocalStorage: function (data) {
-        cc.sys.localStorage.setItem(layer.pageKey, data);
+        cc.sys.localStorage.setItem(this.pageKey, data);
     },
 
     configurationChoosed: function (selectedItem) {
@@ -122,15 +123,15 @@ var HelloWorldLayer = cc.Layer.extend({
 
     doPostLoadingProcessForImage: function (context, imageToLoad) {
         var sprite = new cc.Sprite(imageToLoad);
-        //context.addChild(sprite, 1);
+        context.addChild(sprite, 1);
         sprite.setPosition(cc.director.getWinSize().width / 2, cc.director.getWinSize().height / 2);
         sprite.setScale(1);
         
         
         var loadedImageObject = this.constructJSONFromCCSprite(sprite);
 
-        var storedSceneString = cc.sys.localStorage.getItem(layer.pageKey);
-        if (storedSceneString != null) {
+        var storedSceneString = cc.sys.localStorage.getItem(this.pageKey);
+        if (storedSceneString != null && storedSceneString.length > 0) {
             var storedSceneJSON = JSON.parse(storedSceneString);
             if(storedSceneJSON) {
                 storedSceneJSON.Content.Content.ObjectData.Children.push(loadedImageObject);
@@ -219,66 +220,64 @@ var HelloWorldLayer = cc.Layer.extend({
     },
 
 
-    constructJSONFromCCSprite: function (sprite) {
+constructJSONFromCCSprite: function (sprite) {
 
-        var object = Object.create(Object.prototype);
-        object.FlipX = sprite._flippedX;
-        object.FlipY = sprite._flippedY;
-        object.FileData = {};
-        object.FileData.Type = "Normal";
-        if (sprite.getTexture().url != null) {
-            var path = sprite.getTexture().url.replace("res/", "");
-            object.FileData.Path = path;
-        }
-        object.FileData.Plist = "";
+        var object = Object.create(Object.prototype);
+        object.FlipX = sprite._flippedX;
+        object.FlipY = sprite._flippedY;
+        object.FileData = {};
+        object.FileData.Type = "Normal";
+        if (sprite.getTexture().url != null) {
+            var path = sprite.getTexture().url.replace("res/", "");
+            object.FileData.Path = path;
+        }
+        object.FileData.Plist = "";
+        
+        object.BlendFunc = {
+            "Src": sprite.getBlendFunc.src,
+            "Dst": sprite.getBlendFunc.dst
+        };
 
-        object.BlendFunc = {
-            "Src": sprite._blendFunc.src,
-            "Dst": sprite._blendFunc.dst
-        };
+        object.AnchorPoint = {
+            "ScaleX": sprite.getAnchorPoint().x,
+            "ScaleY": sprite.getAnchorPoint().y
+        };
 
+        object.Position = {
+            "X": sprite.getPosition().x,
+            "Y": sprite.getPosition().y
+        };
 
-        object.AnchorPoint = {
-            "ScaleX": sprite._anchorPoint.x,
-            "ScaleY": sprite._anchorPoint.y
-        };
+        object.RotationSkewX = sprite.getRotationX();
+        object.RotationSkewY = sprite.getRotationY();
+        object.Scale = {
+            "ScaleX": sprite.getScaleX(),
+            "ScaleY": sprite.getScaleY()
+        };
+        object.CColor = {
+            "R": sprite.color.r,
+            "G": sprite.color.g,
+            "B": sprite.color.b,
+            "A": sprite.color.a
+        };
+        object.IconVisible = false;
+        object.Size = {
+            "X": sprite.getBoundingBox().width,
+            "Y": sprite.getBoundingBox().height
+        };
+        object.Tag = sprite.tag;
+        if (sprite.getName().indexOf("%%") === -1) {
+            sprite.setName(sprite.getName() + "%%" + this.generateUUID());
+        }
 
-        object.Position = {
-            "X": sprite._position.x,
-            "Y": sprite._position.y
-        };
+        object.Name = sprite.getName();
+        object.ctype = "SpriteObjectData";
 
-        object.RotationSkewX = sprite._rotationX;
-        object.RotationSkewY = sprite._rotationY;
-        object.Scale = {
-            "ScaleX": sprite._scaleX,
-            "ScaleY": sprite._scaleY
-        };
-        object.CColor = {
-            "R": sprite.color.r,
-            "G": sprite.color.g,
-            "B": sprite.color.b,
-            "A": sprite.color.a
-        };
-        object.IconVisible = false;
-        object.Size = {
-            "X": sprite._rect.width,
-            "Y": sprite._rect.height
-        };
-        object.Alpha = sprite._alpha;
-        object.Tag = sprite.tag;
-        if (sprite.getName().indexOf("%%") === -1) {
-            sprite.setName(sprite.getName() + "%%" + this.generateUUID());
-        }
-
-        object.Name = sprite.getName();
-        object.ctype = "SpriteObjectData";
-
-        if (sprite.getComponent('ComExtensionData') && sprite.getComponent('ComExtensionData')._customProperty != null) {
-            object.UserData = sprite.getComponent('ComExtensionData')._customProperty;
-        };
-        return object;
-    },
+        if (sprite.getComponent('ComExtensionData') && sprite.getComponent('ComExtensionData').getCustomProperty() != null) {
+            object.UserData = sprite.getComponent('ComExtensionData').getCustomProperty();
+        };
+        return object;
+    },
 
     loadJsonFile: function (selectedItem) {
         //load json file in new window
@@ -394,13 +393,21 @@ var HelloWorldLayer = cc.Layer.extend({
 
     //later create custom loading screen
     showLoadingScene: function (fileToLoad, doPostLoadingProcessFunction, context, args, shouldSaveToLocalStorage) {
-        var loaderScene = cc.LoaderScene;
-        cc.director.pushScene(loaderScene);
-        var dynamicResources = [fileToLoad];
-        loaderScene.preload(dynamicResources, function () {
-            cc.director.popScene(loaderScene);
-            doPostLoadingProcessFunction.call(context, context, args, shouldSaveToLocalStorage);
-        }, this);
+        if(cc.sys.isNative) {
+            cc.log(fileToLoad);
+            var dynamicResources = [fileToLoad];
+            cc.LoaderScene.preload(dynamicResources, function () {
+                doPostLoadingProcessFunction.call(context, context, args, shouldSaveToLocalStorage);
+            }, this);            
+        } else {
+            cc.director.pushScene(new cc.LoaderScene()); //TODO dummy right now later fix this
+            cc.log(fileToLoad);
+            var dynamicResources = [fileToLoad];
+            cc.LoaderScene.preload(dynamicResources, function () {
+                cc.director.popScene();
+                doPostLoadingProcessFunction.call(context, context, args, shouldSaveToLocalStorage);
+            }, this);
+        }
     },
 
     
@@ -413,8 +420,8 @@ var HelloWorldLayer = cc.Layer.extend({
         var skeletonObject = this.constructJSONFromCharacter(load.node, resourcePath);
         // context.saveCharacterToLocalStorage(JSON.stringify(skeletonObject));
         cc.log('JSON.stringify(skeletonObject):' +JSON.stringify(skeletonObject));
-        var storedSceneString = cc.sys.localStorage.getItem(layer.pageKey);
-        if (storedSceneString != null) {
+        var storedSceneString = cc.sys.localStorage.getItem(this.pageKey);
+        if (storedSceneString != null && storedSceneString.length > 0) {
             var storedSceneJSON = JSON.parse(storedSceneString);
             if(storedSceneJSON) {
                 storedSceneJSON.Content.Content.ObjectData.Children.push(skeletonObject);
@@ -491,7 +498,7 @@ constructJSONFromCharacter: function(skeleton, resourcePath)
 
 
     saveCharacterToLocalStorage: function (data) {
-        var charKey = layer.pageKey + "_" + data.Content.Content.ObjectData.Name;
+        var charKey = this.pageKey + "_" + data.Content.Content.ObjectData.Name;
         cc.sys.localStorage.setItem(charKey, JSON.stringify(data));
     },
 
@@ -506,8 +513,10 @@ constructJSONFromCharacter: function(skeleton, resourcePath)
                 var target = event.getCurrentTarget();
                 var boundingBox = target.getBoundingBoxToWorld();
                 if (cc.rectContainsPoint(target.getBoundingBoxToWorld(), touch.getLocation())) {
-                    var action = target.actionManager.getActionByTag(target.tag, target);
-                    action.play(Object.keys(action._animationInfos)[0], true);
+                    if(!cc.sys.isNative) {
+                        var action = target.actionManager.getActionByTag(target.tag, target);
+                        action.play(Object.keys(action._animationInfos)[0], true);
+                    }
                     return true;
                 }
                 return false;
@@ -524,7 +533,9 @@ constructJSONFromCharacter: function(skeleton, resourcePath)
         cc.eventManager.addListener(listener, load.node);        
         this.addChild(load.node);
         load.node.runAction(load.action);
-        load.node._renderCmd._dirtyFlag = 1;
+        if(!cc.sys.isNative) {
+            load.node._renderCmd._dirtyFlag = 1;
+        }
         this.parseCharacter(fileToLoad, load);
     },
 
@@ -545,19 +556,21 @@ constructJSONFromCharacter: function(skeleton, resourcePath)
 });
 
 var HelloWorldScene = cc.Scene.extend({
-    onEnter: function () {
+    ctor: function() {
         this._super();
         if (LAYER_INIT === false) {
             LAYER_INIT = true;
-            layer = new HelloWorldLayer();
-            this.addChild(layer);
-            layer.init();
+            cc.log('initing layer...should only be once');
+            this._sceneLayer = new HelloWorldLayer();
+            this.addChild(this._sceneLayer);
+            this._sceneLayer.init();
         }
-
-        layer.registerEventListenerForAllChildren();
-        layer.pageKey = "res/chimple.page1.scene.json";
-        layer.loadSceneFromStorage();
-
+    }, 
+    onEnter: function () {
+        this._super();
+        this._sceneLayer.registerEventListenerForAllChildren();
+        this._sceneLayer.pageKey = "res/chimple.page1.scene.json";
+        this._sceneLayer.loadSceneFromStorage();
     }
 }
 );

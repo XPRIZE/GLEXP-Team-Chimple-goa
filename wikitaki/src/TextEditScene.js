@@ -45,8 +45,8 @@ var TextEditLayer = cc.Layer.extend({
     },
 
     closeEditor: function () {
-        cc.director.popScene(TextEditScene);
-        this.removeFromParent(true);
+        cc.director.popScene();
+        // this.removeFromParent(true);
     }
 });
 
