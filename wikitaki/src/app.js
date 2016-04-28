@@ -11,9 +11,9 @@ var HelloWorldLayer = cc.Layer.extend({
         this._nodesSelected = [];
         this._nodesTouchedWhileRecording = [];
         this._isRecordingStarted = false;
-        this.scheduleUpdate();
         return true;
     },
+
     init: function () {
         //load cache of icons.png and icons.plist to create panel
         // var cache = cc.spriteFrameCache;
@@ -46,7 +46,8 @@ var HelloWorldLayer = cc.Layer.extend({
                                     height);
                                 if (cc.rectContainsPoint(targetRectangle, location)) {
                                     this._nodesSelected.push(target);
-                                    this._nodesTouchedWhileRecording.push(target);
+                                    this.addNodeToRecording(this, target)
+
                                     return true;
                                 }
                                 return false;
@@ -115,20 +116,36 @@ var HelloWorldLayer = cc.Layer.extend({
         this._recordingFrameIndex = 0;
         cc.log("recording started");
         this._nodesTouchedWhileRecording = [];
+        this.scheduleUpdate();
     },
 
     stopRecording: function () {
         this._isRecordingStarted = false;
         cc.log("recording stopped");
+        var timelines = [];
         if (this._nodesTouchedWhileRecording != null && this._nodesTouchedWhileRecording.length > 0) {
             this._nodesTouchedWhileRecording.forEach(function (element) {
+
                 var recordedTimeLine = this.constructPositionMoveMentTimeLine(element);
-                cc.log("recordedTimeLine:" + recordedTimeLine);
+                timelines.push(JSON.stringify(recordedTimeLine));
                 //JSON stringfy and merge with mainScene.json
             }, this);
         }
+        this.createTimeLinesForPlayAnimation(timelines);
+        this._nodesTouchedWhileRecording = [];
+        this.unscheduleUpdate();
+    },
 
-        this._nodesTouchedWhileRecording = null;
+    createTimeLinesForPlayAnimation: function (timelines) {
+        //fetch scene json
+        var storedSceneString = cc.sys.localStorage.getItem(this.pageKey);
+        if (storedSceneString != null && storedSceneString.length > 0) {
+            var storedSceneJSON = JSON.parse(storedSceneString);
+            cc.log('storedSceneJSON:' + storedSceneJSON);
+            storedSceneJSON.Content.Content.Animation.Timelines = timelines;
+            this.saveSceneToLocalStorage(JSON.stringify(storedSceneJSON));
+            timelines = null;
+        }
     },
 
     addTextToScene: function () {
@@ -168,6 +185,7 @@ var HelloWorldLayer = cc.Layer.extend({
 
 
         var loadedImageObject = context.constructJSONFromCCSprite(sprite);
+        sprite.ActionTag = loadedImageObject.ActionTag;
 
         var storedSceneString = cc.sys.localStorage.getItem(context.pageKey);
         if (storedSceneString != null && storedSceneString.length > 0) {
@@ -193,7 +211,8 @@ var HelloWorldLayer = cc.Layer.extend({
                     height);
                 if (cc.rectContainsPoint(targetRectangle, location)) {
                     context._nodesSelected.push(target);
-                    context._nodesTouchedWhileRecording.push(target);
+                    context.addNodeToRecording(context, target);
+
                     return true;
                 }
                 return false;
@@ -345,10 +364,19 @@ var HelloWorldLayer = cc.Layer.extend({
                 this.addCharacterToScene(this, fileToLoad);
                 break;
             case "scene":
-                this.createSceneFromFile(fileToLoad);
+                this.createSceneFromFile(this, fileToLoad);
                 break;
         }
 
+    },
+
+    addNodeToRecording: function (context, target) {
+        if (context._isRecordingStarted) {
+            context._nodesTouchedWhileRecording.push(target);
+            if (target.positionFrames == null) {
+                target.positionFrames = [];
+            }
+        }
     },
 
     doPostLoadingProcessForScene: function (context, fileToLoad, shouldSaveToLocalStorage) {
@@ -356,6 +384,11 @@ var HelloWorldLayer = cc.Layer.extend({
         if (context._constructedScene != null) {
             context.addChild(context._constructedScene.node, 0);
             context._constructedScene.node.children.forEach(function (element) {
+                //copy action tag
+                cc.log('element:' + element.getComponent('ComExtensionData').getActionTag());
+                if (element.getComponent('ComExtensionData') != null) {
+                    element.getComponent('ComExtensionData').getActionTag();
+                }
                 var listener = cc.EventListener.create({
                     event: cc.EventListener.TOUCH_ONE_BY_ONE,
                     swallowTouches: true,
@@ -367,7 +400,8 @@ var HelloWorldLayer = cc.Layer.extend({
                             height);
                         if (cc.rectContainsPoint(targetRectangle, location)) {
                             context._nodesSelected.push(target);
-                            context._nodesTouchedWhileRecording.push(target);
+                            context.addNodeToRecording(context, target);
+
                             return true;
                         }
                         return false;
@@ -446,11 +480,11 @@ var HelloWorldLayer = cc.Layer.extend({
         }
     },
 
-    createSceneFromFile: function (fileToLoad) {
-        if (this._mainScene != null) {
-            this._mainScene.node.removeFromParent(true);
+    createSceneFromFile: function (context, fileToLoad) {
+        if (context._mainScene != null) {
+            context._mainScene.node.removeFromParent(true);
         }
-        this.showLoadingScene(fileToLoad, this.doPostLoadingProcessForScene, this, fileToLoad, true);
+        context.showLoadingScene(fileToLoad, context.doPostLoadingProcessForScene, context, fileToLoad, true);
     },
 
 
@@ -581,7 +615,8 @@ var HelloWorldLayer = cc.Layer.extend({
                         action.play(Object.keys(action._animationInfos)[0], true);
                     }
                     context._nodesSelected.push(target);
-                    context._nodesTouchedWhileRecording.push(target);
+                    context.addNodeToRecording(context, target)
+
                     return true;
                 }
                 return false;
@@ -627,9 +662,6 @@ var HelloWorldLayer = cc.Layer.extend({
 
     //every timeline
     constructPositionFrameData: function (node, frameIndex) {
-        if (node.positionFrames == null) {
-            node.positionFrames = [];
-        }
         var frameData = Object.create(Object.prototype);
         frameData.X = node.x;
         frameData.Y = node.y;
@@ -645,7 +677,12 @@ var HelloWorldLayer = cc.Layer.extend({
     constructPositionMoveMentTimeLine: function (node) {
         if (node.positionFrames !== null && node.positionFrames.length > 0) {
             var object = Object.create(Object.prototype);
-            object.ActionTag = node.ActionTag;
+            if (node.ActionTag != null) {
+                object.ActionTag = node.ActionTag;
+            } else if (node.getComponent('ComExtensionData') != null && node.getComponent('ComExtensionData').getActionTag() != null) {
+                object.ActionTag = node.getComponent('ComExtensionData').getActionTag();
+            }
+
             object.Property = "Position";
             object.Frames = node.positionFrames;
             node.positionFrames = null;
@@ -655,7 +692,6 @@ var HelloWorldLayer = cc.Layer.extend({
     },
 
     update: function (dt) {
-        //console.log('calling recordMovement');
         if (this._isRecordingStarted && this._nodesSelected != null && this._nodesSelected.length > 0) {
             this._recordingFrameIndex = this._recordingFrameIndex + 1;
             this._nodesSelected.forEach(function (element) {
