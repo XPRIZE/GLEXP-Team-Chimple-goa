@@ -46,7 +46,7 @@ var HelloWorldLayer = cc.Layer.extend({
                                     height);
                                 if (cc.rectContainsPoint(targetRectangle, location)) {
                                     this._nodesSelected.push(target);
-                                    this.addNodeToRecording(this, target)
+                                    this.addNodeToRecording(this, touch, target)
 
                                     return true;
                                 }
@@ -57,10 +57,12 @@ var HelloWorldLayer = cc.Layer.extend({
                                 var target = event.getCurrentTarget();
                                 var location = target.parent.convertToNodeSpace(touch.getLocation());
                                 event.getCurrentTarget().setPosition(location);
+                                // this.calcScaleForTarget(this, touch, target);
                             },
 
                             onTouchEnded: function (touch, event) {
                                 var target = event.getCurrentTarget();
+                                this.toggleEventsForAllOtherNodes(this, target, true);
                                 var nodeToRemoveIndex = this._nodesSelected.indexOf(target);
                                 if (nodeToRemoveIndex != -1) {
                                     this._nodesSelected.splice(nodeToRemoveIndex, 1);
@@ -125,9 +127,9 @@ var HelloWorldLayer = cc.Layer.extend({
         var timelines = [];
         if (this._nodesTouchedWhileRecording != null && this._nodesTouchedWhileRecording.length > 0) {
             this._nodesTouchedWhileRecording.forEach(function (element) {
-
-                var recordedTimeLine = this.constructPositionMoveMentTimeLine(element);
-                timelines.push(JSON.stringify(recordedTimeLine));
+                timelines.push(JSON.stringify(this.constructTimeLineObject(element, "Position", "positionFrames")));
+                timelines.push(JSON.stringify(this.constructTimeLineObject(element, "Scale", "scaleFrames")));
+                timelines.push(JSON.stringify(this.constructTimeLineObject(element, "RotationSkew", "rotationFrames")));
                 //JSON stringfy and merge with mainScene.json
             }, this);
         }
@@ -211,7 +213,7 @@ var HelloWorldLayer = cc.Layer.extend({
                     height);
                 if (cc.rectContainsPoint(targetRectangle, location)) {
                     context._nodesSelected.push(target);
-                    context.addNodeToRecording(context, target);
+                    context.addNodeToRecording(context, touch, target);
 
                     return true;
                 }
@@ -221,11 +223,14 @@ var HelloWorldLayer = cc.Layer.extend({
             onTouchMoved: function (touch, event) {
                 var target = event.getCurrentTarget();
                 var location = target.parent.convertToNodeSpace(touch.getLocation());
+                // context.calcScaleForTarget(context, touch, target);
                 event.getCurrentTarget().setPosition(location);
+                
             },
 
             onTouchEnded: function (touch, event) {
                 var target = event.getCurrentTarget();
+                context.toggleEventsForAllOtherNodes(context, target, true);
                 var nodeToRemoveIndex = context._nodesSelected.indexOf(target);
                 if (nodeToRemoveIndex != -1) {
                     context._nodesSelected.splice(nodeToRemoveIndex, 1);
@@ -370,13 +375,66 @@ var HelloWorldLayer = cc.Layer.extend({
 
     },
 
-    addNodeToRecording: function (context, target) {
+    addNodeToRecording: function (context, touch, target) {
         if (context._isRecordingStarted) {
             context._nodesTouchedWhileRecording.push(target);
             if (target.positionFrames == null) {
                 target.positionFrames = [];
             }
+
+            if (target.scaleFrames == null) {
+                target.scaleFrames = [];
+            }
+
+            if (target.rotationFrames == null) {
+                target.rotationFrames = [];
+            }
         }
+
+        var location = target.parent.convertToNodeSpace(touch.getLocation());
+        context._initialScale = target.getScale();
+        context._initialDiff = cc.pDistance(location, target.getPosition());
+        context._lastDiff = null;
+        context.toggleEventsForAllOtherNodes(context, target, false);
+    },
+
+    calcAngleAndRotationForTarget: function (touch, target) {
+        var nodePostion = target.getPosition();
+        var currentPosition = target.parent.convertToNodeSpace(touch.getLocation());
+        var diff = cc.pSub(currentPosition, nodePostion);
+        var rads = cc.pToAngle(diff);
+        var degs = -cc.radiansToDegrees(rads);
+        degs += 90.0; // 0 is pointing right, so offset so our angle is pointing out of the top of the sprite
+        target.setRotation(degs);
+    },
+
+    calcScaleForTarget: function (context, touch, target) {
+        var nodePostion = target.getPosition();
+        var currentPosition = target.parent.convertToNodeSpace(touch.getLocation());
+        if (context._lastDiff == null) {
+            context._lastDiff = context._initialDiff;
+        }
+        context._currentDiff = cc.pDistance(currentPosition, nodePostion);
+
+        var distanceMoved = (context._currentDiff - context._lastDiff) / context._initialDiff;
+        
+        context._lastDiff = context._currentDiff;
+        var computedScale = target.getScale() + distanceMoved * context._initialScale;
+        target.setScale(computedScale);
+    },
+
+    toggleEventsForAllOtherNodes: function (context, target, isEnabled) {
+        target.parent.children.forEach(function (element) {
+            if (element.getName() !== target.getName()) {
+                if (!isEnabled) {
+                    // element.setOpacity(150);
+                    cc.eventManager.pauseTarget(element, true);
+                } else {
+                    // element.setOpacity(255);
+                    cc.eventManager.resumeTarget(element, true);
+                }
+            }
+        });
     },
 
     doPostLoadingProcessForScene: function (context, fileToLoad, shouldSaveToLocalStorage) {
@@ -385,7 +443,6 @@ var HelloWorldLayer = cc.Layer.extend({
             context.addChild(context._constructedScene.node, 0);
             context._constructedScene.node.children.forEach(function (element) {
                 //copy action tag
-                cc.log('element:' + element.getComponent('ComExtensionData').getActionTag());
                 if (element.getComponent('ComExtensionData') != null) {
                     element.getComponent('ComExtensionData').getActionTag();
                 }
@@ -400,8 +457,7 @@ var HelloWorldLayer = cc.Layer.extend({
                             height);
                         if (cc.rectContainsPoint(targetRectangle, location)) {
                             context._nodesSelected.push(target);
-                            context.addNodeToRecording(context, target);
-
+                            context.addNodeToRecording(context, touch, target);
                             return true;
                         }
                         return false;
@@ -411,9 +467,11 @@ var HelloWorldLayer = cc.Layer.extend({
                         var target = event.getCurrentTarget();
                         var location = target.parent.convertToNodeSpace(touch.getLocation());
                         event.getCurrentTarget().setPosition(location);
+                        // context.calcScaleForTarget(context, touch, target);
                     },
                     onTouchEnded: function (touch, event) {
                         var target = event.getCurrentTarget();
+                        context.toggleEventsForAllOtherNodes(context, target, true);                        
                         var nodeToRemoveIndex = context._nodesSelected.indexOf(target);
                         if (nodeToRemoveIndex != -1) {
                             context._nodesSelected.splice(nodeToRemoveIndex, 1);
@@ -625,7 +683,7 @@ var HelloWorldLayer = cc.Layer.extend({
                         action.play(Object.keys(action._animationInfos)[0], true);
                     }
                     context._nodesSelected.push(target);
-                    context.addNodeToRecording(context, target)
+                    context.addNodeToRecording(context, touch, target)
 
                     return true;
                 }
@@ -633,10 +691,12 @@ var HelloWorldLayer = cc.Layer.extend({
             },
             onTouchMoved: function (touch, event) {
                 var target = event.getCurrentTarget();
-                target.setPosition(target.parent.convertToNodeSpace(touch.getLocation()));
+                // context.calcScaleForTarget(context, touch, target);
+                target.setPosition(target.parent.convertToNodeSpace(touch.getLocation()));                
             },
             onTouchEnded: function (touch, event) {
                 var target = event.getCurrentTarget();
+                context.toggleEventsForAllOtherNodes(context, target, true);
                 target.actionManager.getActionByTag(target.tag, target).pause();
                 var target = event.getCurrentTarget();
                 var nodeToRemoveIndex = context._nodesSelected.indexOf(target);
@@ -693,30 +753,81 @@ var HelloWorldLayer = cc.Layer.extend({
     },
 
 
-    constructPositionMoveMentTimeLine: function (node) {
-        if (node.positionFrames !== null && node.positionFrames.length > 0) {
-            var object = Object.create(Object.prototype);
-            if (node.ActionTag != null) {
-                object.ActionTag = node.ActionTag;
-            } else if (node.getComponent('ComExtensionData') != null && node.getComponent('ComExtensionData').getActionTag() != null) {
-                object.ActionTag = node.getComponent('ComExtensionData').getActionTag();
-            }
+    constructFrameData: function (node, frameIndex) {
+        var positionFrameData = Object.create(Object.prototype);
+        positionFrameData.FrameIndex = frameIndex;
+        positionFrameData.EasingData = {};
+        positionFrameData.EasingData.Type = 0;
+        positionFrameData.ctype = "PointFrameData";
+        positionFrameData.X = node.x;
+        positionFrameData.Y = node.y;
+        node.positionFrames.push(positionFrameData);
 
-            object.Property = "Position";
-            object.Frames = node.positionFrames;
-            node.positionFrames = null;
-            object.ctype = "TimelineData";
-            return object;
-        }
+        var scaleFrameData = Object.create(Object.prototype);
+        scaleFrameData.FrameIndex = frameIndex;
+        scaleFrameData.EasingData = {};
+        scaleFrameData.EasingData.Type = 0;
+        scaleFrameData.ctype = "ScaleValueFrameData";
+        scaleFrameData.X = node.getScaleX();
+        scaleFrameData.Y = node.getScaleY();
+        node.scaleFrames.push(scaleFrameData);
+
+        var rotationFrameData = Object.create(Object.prototype);
+        rotationFrameData.FrameIndex = frameIndex;
+        rotationFrameData.EasingData = {};
+        rotationFrameData.EasingData.Type = 0;
+        rotationFrameData.ctype = "ScaleValueFrameData";
+        rotationFrameData.X = node.getRotationX();
+        rotationFrameData.Y = node.getRotationY();
+        node.rotationFrames.push(rotationFrameData);
     },
+
+    constructTimeLineObject: function (node, property, frameName) {
+        var object = Object.create(Object.prototype);
+        if (node.ActionTag != null) {
+            object.ActionTag = node.ActionTag;
+        } else if (node.getComponent('ComExtensionData') != null && node.getComponent('ComExtensionData').getActionTag() != null) {
+            object.ActionTag = node.getComponent('ComExtensionData').getActionTag();
+        }
+        object.Property = property;
+        object.Frames = node[frameName];
+        object.ctype = "TimelineData";
+
+        node[frameName] = null;
+        return object;
+    },
+
+    // constructPositionMoveMentTimeLine: function (node) {
+    //     var object = Object.create(Object.prototype);
+    //     if (node.ActionTag != null) {
+    //         object.ActionTag = node.ActionTag;
+    //     } else if (node.getComponent('ComExtensionData') != null && node.getComponent('ComExtensionData').getActionTag() != null) {
+    //         object.ActionTag = node.getComponent('ComExtensionData').getActionTag();
+    //     }
+
+    //     if (node.positionFrames !== null && node.positionFrames.length > 0) {
+    //         var object = Object.create(Object.prototype);
+    //         if (node.ActionTag != null) {
+    //             object.ActionTag = node.ActionTag;
+    //         } else if (node.getComponent('ComExtensionData') != null && node.getComponent('ComExtensionData').getActionTag() != null) {
+    //             object.ActionTag = node.getComponent('ComExtensionData').getActionTag();
+    //         }
+
+    //         object.Property = "Position";
+    //         object.Frames = node.positionFrames;
+    //         node.positionFrames = null;
+    //         object.ctype = "TimelineData";
+    //         return object;
+    //     }
+    // },
 
     update: function (dt) {
         if (this._isRecordingStarted && this._nodesSelected != null && this._nodesSelected.length > 0) {
             this._recordingFrameIndex = this._recordingFrameIndex + 1;
             this._nodesSelected.forEach(function (element) {
                 console.log('record movement for Node:' + element);
-                //construct position framedata for now for each timesecond
-                this.constructPositionFrameData(element, this._recordingFrameIndex);
+                //construct position, rotation and scale framedata for now for each timesecond
+                this.constructFrameData(element, this._recordingFrameIndex);
             }, this);
         }
     }
