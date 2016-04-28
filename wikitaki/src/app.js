@@ -16,16 +16,10 @@ var HelloWorldLayer = cc.Layer.extend({
     },
 
     init: function () {
-        //load cache of icons.png and icons.plist to create panel
-        // var cache = cc.spriteFrameCache;
-        // cache.addSpriteFrames(res.icon_plist, res.icon_png);
-        //create dummy variable to hold Text
-        cc.log('eeeee:' + this._sceneText);
         if (chimple.storyConfigurationObject) {
             //backgrounds, characters and pops, texts
             var mainConfigurationItems = Object.getOwnPropertyNames(chimple.storyConfigurationObject);
             //Construct UI
-            cc.log('creating new pageview');
             var pageView = new chimple.PageScroller(cc.p(1800, 0), cc.size(760, 1800), 2, 3, mainConfigurationItems, cc.color.RED, this.configurationChoosed, this, false);
             this.addChild(pageView, 2);
         }
@@ -114,6 +108,10 @@ var HelloWorldLayer = cc.Layer.extend({
             this.nodeAction(selectedItem.getName());
         } else if (selectedConfig != null && selectedItem.getName() === "scale") {
             this.nodeAction(selectedItem.getName());
+        } else if (selectedConfig != null && selectedItem.getName() === "play") {
+            this.nodeAction(selectedItem.getName());
+            var playScene = new PlayRecordingScene(this.pageKey);
+            cc.director.pushScene(playScene);
         } else if (selectedConfig != null) {
             this.constructTabBar(selectedConfig.categories);
         }
@@ -133,6 +131,8 @@ var HelloWorldLayer = cc.Layer.extend({
             this._scaleAction = true;
             this._rotateAction = false;
             this._moveAction = false;
+        } else if (actionName == 'play') {
+            cc.log('play recording...');
         }
     },
 
@@ -150,10 +150,9 @@ var HelloWorldLayer = cc.Layer.extend({
         var timelines = [];
         if (this._nodesTouchedWhileRecording != null && this._nodesTouchedWhileRecording.length > 0) {
             this._nodesTouchedWhileRecording.forEach(function (element) {
-                timelines.push(JSON.stringify(this.constructTimeLineObject(element, "Position", "positionFrames")));
-                timelines.push(JSON.stringify(this.constructTimeLineObject(element, "Scale", "scaleFrames")));
-                timelines.push(JSON.stringify(this.constructTimeLineObject(element, "RotationSkew", "rotationFrames")));
-                //JSON stringfy and merge with mainScene.json
+                timelines.push(this.constructTimeLineObject(element, "Position", "positionFrames"));
+                timelines.push(this.constructTimeLineObject(element, "Scale", "scaleFrames"));
+                timelines.push(this.constructTimeLineObject(element, "RotationSkew", "rotationFrames"));
             }, this);
         }
         this.createTimeLinesForPlayAnimation(timelines);
@@ -168,7 +167,9 @@ var HelloWorldLayer = cc.Layer.extend({
             var storedSceneJSON = JSON.parse(storedSceneString);
             cc.log('storedSceneJSON:' + storedSceneJSON);
             storedSceneJSON.Content.Content.Animation.Timelines = timelines;
+            storedSceneJSON.Content.Content.Animation.Duration = this._recordingFrameIndex;
             this.saveSceneToLocalStorage(JSON.stringify(storedSceneJSON));
+            cc.sys.localStorage.setItem("duration", this._recordingFrameIndex);
             timelines = null;
         }
     },
@@ -755,19 +756,19 @@ var HelloWorldLayer = cc.Layer.extend({
     },
 
     constructConfigPanel: function (configuration, target) {
-                if (this._configPanel) {
-                        this.destroyConfigPanel();
-                }
-                var newObject = new chimple.ObjectSelector(target);
-                this._configPanel = new chimple.TabPanel(cc.p(1800, 0), cc.size(760, 1800), 2, 2, configuration, newObject.skinSelectedInConfiguration, newObject);
-                this._configPanel._objectToActOn = target;
-                this.addChild(this._configPanel, 3);
-        },
+        if (this._configPanel) {
+            this.destroyConfigPanel();
+        }
+        var newObject = new chimple.ObjectSelector(target);
+        this._configPanel = new chimple.TabPanel(cc.p(1800, 0), cc.size(760, 1800), 2, 2, configuration, newObject.skinSelectedInConfiguration, newObject);
+        this._configPanel._objectToActOn = target;
+        this.addChild(this._configPanel, 3);
+    },
 
-        destroyConfigPanel: function () {
-                this._configPanel.removeFromParent(true);
-                this._configPanel = null;
-        },
+    destroyConfigPanel: function () {
+        this._configPanel.removeFromParent(true);
+        this._configPanel = null;
+    },
 
     constructTabBar: function (configuration) {
         this._tabBar = new chimple.TabPanel(cc.p(0, 0), cc.size(1800, 1800), 2, 2, configuration, this.itemSelectedInConfiguration, this);
@@ -829,7 +830,7 @@ var HelloWorldLayer = cc.Layer.extend({
         var object = Object.create(Object.prototype);
         if (node.ActionTag != null) {
             object.ActionTag = node.ActionTag;
-        } else if (node.getComponent('ComExtensionData') != null && node.getComponent('ComExtensionData').getActionTag() != null) {
+            } else if (node.getComponent('ComExtensionData') != null && node.getComponent('ComExtensionData').getActionTag() != null) {
             object.ActionTag = node.getComponent('ComExtensionData').getActionTag();
         }
         object.Property = property;

@@ -118,44 +118,55 @@
   "characters": {
     "cIcon": "res/icons/add_char_onclick.png",
     "icon": "res/icons/add_char.png",
-    "categories": [{
-      "name": "humans",
-      "cIcon": "res/head_shape_onclick.png",
-      "icon": "res/head_shape.png",
-      "items": [{
-        "icon": "res/characters/human/cricketer_thumbnail.png",
-        "json": "res/characters/Animation.json",
-        "skinNameMap": "cricketer",
-        "type": "character"        
-      }, {
-        "icon": "res/characters/human/cowboy_thumbnail.png",
-        "json": "res/characters/Animation.json",
-        "skinNameMap": "hare",
-        "type": "character"        
-      }]
-    }, {
-      "name": "animals",
-      "cIcon": "res/pant_onclick.png",
-      "icon": "res/pant.png",
-      "items": [{
-        "icon": "res/characters/crow/crow_thumbnail.png",
-        "json": "res/characters/crow/Animation.json",
-        "type": "character"        
-      }, {
-        "icon": "res/characters/donkey/donkey_thumbnail.png",
-        "json": "res/characters/donkey/Skeleton.json",
-        "type": "character"        
-      }, {
-        "icon": "res/characters/elephant/elephant_thumbnail.png",
-        "json": "res/characters/elephant/elep.json",
-        "type": "character"        
-      }, {
-        "cIcon": "res/characters/hare/hare_thumbnail.png",
-        "icon": "res/characters/hare/hare_thumbnail.png",
-        "json": "res/characters/hare/Skeleton.json",
-        "type": "character"        
-      }]
-    }]
+    "categories": [
+      {
+        "name": "humans",
+        "cIcon": "res/head_shape_onclick.png",
+        "icon": "res/head_shape.png",
+        "items": [
+          {
+            "icon": "res/characters/human/cricketer_thumbnail.png",
+            "json": "res/characters/Animation.json",
+            "skinNameMap": "cricketer",
+            "type": "character"
+          },
+          {
+            "icon": "res/characters/human/cowboy_thumbnail.png",
+            "json": "res/characters/Animation.json",
+            "skinNameMap": "hare",
+            "type": "character"
+          }
+        ]
+      },
+      {
+        "name": "animals",
+        "cIcon": "res/pant_onclick.png",
+        "icon": "res/pant.png",
+        "items": [
+          {
+            "icon": "res/characters/crow/crow_thumbnail.png",
+            "json": "res/characters/crow/Animation.json",
+            "type": "character"
+          },
+          {
+            "icon": "res/characters/donkey/donkey_thumbnail.png",
+            "json": "res/characters/donkey/Skeleton.json",
+            "type": "character"
+          },
+          {
+            "icon": "res/characters/elephant/elephant_thumbnail.png",
+            "json": "res/characters/elephant/elep.json",
+            "type": "character"
+          },
+          {
+            "cIcon": "res/characters/hare/hare_thumbnail.png",
+            "icon": "res/characters/hare/hare_thumbnail.png",
+            "json": "res/characters/hare/Skeleton.json",
+            "type": "character"
+          }
+        ]
+      }
+    ]
   },
   "texts": {
     "cIcon": "res/icons/add_text_onclick.png",
@@ -193,6 +204,11 @@
     "cIcon": "res/icons/record_onclick.png",
     "icon": "res/icons/record.png"
   },
+  "stopRecording": {
+    "cIcon": "res/icons/stop_onclick.png",
+    "icon": "res/icons/stop.png"
+  },
+  
   "move": {
     "cIcon": "res/icons/mat_que_onclick.png",
     "icon": "res/icons/mat_que.png"
@@ -204,6 +220,9 @@
   "rotate": {
     "cIcon": "res/icons/settings_onclick.png",
     "icon": "res/icons/settings.png"
+  },
+  "play": {
+    "cIcon": "res/icons/play_onclick.png",
+    "icon": "res/icons/play.png"
   }
-  
 }
