@@ -313,7 +313,7 @@ var HelloWorldLayer = cc.Layer.extend({
         var fileToLoad = selectedItem._jsonFileToLoad;
         switch (type) {
             case "character":
-                this.addCharacterToScene(this, fileToLoad);
+                this.addCharacterToScene(this, selectedItem._configuration);
                 break;
             case "scene":
                 this.createSceneFromFile(fileToLoad);
@@ -535,10 +535,20 @@ var HelloWorldLayer = cc.Layer.extend({
         cc.sys.localStorage.setItem(charKey, JSON.stringify(data));
     },
 
-    addCharacterToScene: function (context, fileToLoad) {
-        var load = ccs.load(fileToLoad);
+    addCharacterToScene: function (context, configuration) {
+        var load = ccs.load(configuration.json);
+        if (configuration.skinNameMap) {
+            cc.loader.loadJson('res/characters/skeletonConfig/' + load.node.getName() + '.json', function (error, data) {
+                cc.log('data:' + data);
+                if (data != null && data.skinNameMaps && data.skinNameMaps[configuration.skinNameMap]) {
+                    load.node.changeSkins(data.skinNameMaps[configuration.skinNameMap]);
+                }
+
+            });
+        }
 
         load.node.setPosition(900, 900);
+
         var listener = cc.EventListener.create({
             event: cc.EventListener.TOUCH_ONE_BY_ONE,
             swallowTouches: true,
@@ -568,11 +578,10 @@ var HelloWorldLayer = cc.Layer.extend({
                 cc.log(context._nodesSelected);
                 if (nodeToRemoveIndex != -1) {
                     //if not record mode pop the configuration
-                    cc.log(cc.loader.cache);
-                    cc.loader.loadJson(res.character_config_json, function (error, data) {
+                    cc.loader.loadJson('res/characters/skeletonConfig/' + target.getName() + '.json', function (error, data) {
                         cc.log('data:' + data);
                         if (data != null) {
-                            context.constructConfigPanel(data, target);
+                            context.constructConfigPanel(data.skinChoices, target);
 
                         }
                     });
@@ -588,7 +597,7 @@ var HelloWorldLayer = cc.Layer.extend({
         if (!cc.sys.isNative) {
             load.node._renderCmd._dirtyFlag = 1;
         }
-        this.parseCharacter(fileToLoad, load);
+        this.parseCharacter(configuration.json, load);
     },
 
     // skinSelectedInConfiguration: function(selectedItem) {

@@ -4,8 +4,10 @@ chimple.ObjectSelector = cc.Class.extend({
         this._objectSelected = objectSelected;
     },
     skinSelectedInConfiguration: function(selectedItem) {
-        if(this._objectSelected != null && selectedItem._configuration && selectedItem._configuration.skin && selectedItem._configuration.bone) {
-            this._objectSelected.getBoneNode(selectedItem._configuration.bone).displaySkin(selectedItem._configuration.skin, true);
+        if(this._objectSelected != null && selectedItem._configuration && selectedItem._configuration.skins && selectedItem._configuration.skins.length > 0) {
+            selectedItem._configuration.skins.forEach(function(element) {
+                this._objectSelected.getBoneNode(element.bone).displaySkin(element.skin, true);            
+            }, this);   
         }
     }
     
