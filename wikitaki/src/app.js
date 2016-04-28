@@ -11,6 +11,7 @@ var HelloWorldLayer = cc.Layer.extend({
         this._nodesSelected = [];
         this._nodesTouchedWhileRecording = [];
         this._isRecordingStarted = false;
+        this._moveAction = true;
         return true;
     },
 
@@ -56,8 +57,7 @@ var HelloWorldLayer = cc.Layer.extend({
                             onTouchMoved: function (touch, event) {
                                 var target = event.getCurrentTarget();
                                 var location = target.parent.convertToNodeSpace(touch.getLocation());
-                                event.getCurrentTarget().setPosition(location);
-                                // this.calcScaleForTarget(this, touch, target);
+                                this.enableTargetTransformForTarget(context, touch, target, location);
                             },
 
                             onTouchEnded: function (touch, event) {
@@ -108,8 +108,31 @@ var HelloWorldLayer = cc.Layer.extend({
             this.startRecording();
         } else if (selectedConfig != null && selectedItem.getName() === "stopRecording") {
             this.stopRecording();
+        } else if (selectedConfig != null && selectedItem.getName() === "move") {
+            this.nodeAction(selectedItem.getName());
+        } else if (selectedConfig != null && selectedItem.getName() === "rotate") {
+            this.nodeAction(selectedItem.getName());
+        } else if (selectedConfig != null && selectedItem.getName() === "scale") {
+            this.nodeAction(selectedItem.getName());
         } else if (selectedConfig != null) {
             this.constructTabBar(selectedConfig.categories);
+        }
+    },
+
+    nodeAction: function (actionName) {
+        if (actionName == 'move') {
+            this._moveAction = true;
+            this._rotateAction = false;
+            this._scaleAction = false;
+        } else if (actionName == 'rotate') {
+            this._rotateAction = true;
+            this._moveAction = false;
+            this._scaleAction = false;
+
+        } else if (actionName == 'scale') {
+            this._scaleAction = true;
+            this._rotateAction = false;
+            this._moveAction = false;
         }
     },
 
@@ -179,6 +202,16 @@ var HelloWorldLayer = cc.Layer.extend({
         this.showLoadingScene(imageToLoad, this.doPostLoadingProcessForImage, this, imageToLoad);
     },
 
+    enableTargetTransformForTarget: function (context, touch, target, location) {
+        if (context._moveAction) {
+            target.setPosition(location);
+        } else if (context._rotateAction) {
+            context.calcAngleAndRotationForTarget(touch, target);
+        } else if (context._scaleAction) {
+            context.calcScaleForTarget(context, touch, target);
+        }
+    },
+
     doPostLoadingProcessForImage: function (context, imageToLoad) {
         var sprite = new cc.Sprite(imageToLoad);
         context.addChild(sprite, 1);
@@ -223,9 +256,7 @@ var HelloWorldLayer = cc.Layer.extend({
             onTouchMoved: function (touch, event) {
                 var target = event.getCurrentTarget();
                 var location = target.parent.convertToNodeSpace(touch.getLocation());
-                // context.calcScaleForTarget(context, touch, target);
-                event.getCurrentTarget().setPosition(location);
-                
+                context.enableTargetTransformForTarget(context, touch, target, location);
             },
 
             onTouchEnded: function (touch, event) {
@@ -417,7 +448,7 @@ var HelloWorldLayer = cc.Layer.extend({
         context._currentDiff = cc.pDistance(currentPosition, nodePostion);
 
         var distanceMoved = (context._currentDiff - context._lastDiff) / context._initialDiff;
-        
+
         context._lastDiff = context._currentDiff;
         var computedScale = target.getScale() + distanceMoved * context._initialScale;
         target.setScale(computedScale);
@@ -466,12 +497,11 @@ var HelloWorldLayer = cc.Layer.extend({
                     onTouchMoved: function (touch, event) {
                         var target = event.getCurrentTarget();
                         var location = target.parent.convertToNodeSpace(touch.getLocation());
-                        event.getCurrentTarget().setPosition(location);
-                        // context.calcScaleForTarget(context, touch, target);
+                        context.enableTargetTransformForTarget(context, touch, target, location);
                     },
                     onTouchEnded: function (touch, event) {
                         var target = event.getCurrentTarget();
-                        context.toggleEventsForAllOtherNodes(context, target, true);                        
+                        context.toggleEventsForAllOtherNodes(context, target, true);
                         var nodeToRemoveIndex = context._nodesSelected.indexOf(target);
                         if (nodeToRemoveIndex != -1) {
                             context._nodesSelected.splice(nodeToRemoveIndex, 1);
@@ -691,8 +721,8 @@ var HelloWorldLayer = cc.Layer.extend({
             },
             onTouchMoved: function (touch, event) {
                 var target = event.getCurrentTarget();
-                // context.calcScaleForTarget(context, touch, target);
-                target.setPosition(target.parent.convertToNodeSpace(touch.getLocation()));                
+                var location = target.parent.convertToNodeSpace(touch.getLocation());
+                context.enableTargetTransformForTarget(context, touch, target, location);
             },
             onTouchEnded: function (touch, event) {
                 var target = event.getCurrentTarget();
@@ -724,7 +754,20 @@ var HelloWorldLayer = cc.Layer.extend({
         this.parseCharacter(configuration.json, load);
     },
 
+    constructConfigPanel: function (configuration, target) {
+                if (this._configPanel) {
+                        this.destroyConfigPanel();
+                }
+                var newObject = new chimple.ObjectSelector(target);
+                this._configPanel = new chimple.TabPanel(cc.p(1800, 0), cc.size(760, 1800), 2, 2, configuration, newObject.skinSelectedInConfiguration, newObject);
+                this._configPanel._objectToActOn = target;
+                this.addChild(this._configPanel, 3);
+        },
 
+        destroyConfigPanel: function () {
+                this._configPanel.removeFromParent(true);
+                this._configPanel = null;
+        },
 
     constructTabBar: function (configuration) {
         this._tabBar = new chimple.TabPanel(cc.p(0, 0), cc.size(1800, 1800), 2, 2, configuration, this.itemSelectedInConfiguration, this);
