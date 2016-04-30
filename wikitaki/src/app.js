@@ -29,47 +29,103 @@ var HelloWorldLayer = cc.Layer.extend({
         this.children.forEach(function (element) {
             if (element._name === 'Scene') {
                 element.children.forEach(function (element) {
-                    var listener = cc.EventListener.create({
-                        event: cc.EventListener.TOUCH_ONE_BY_ONE,
-                        swallowTouches: true,
-                        onTouchBegan: function (touch, event) {
-                            var context = event.getCurrentTarget().parent.parent;
-                            var target = event.getCurrentTarget();
-                            var location = target.convertToNodeSpace(touch.getLocation());
-                            var targetSize = target.getContentSize();
-                            var targetRectangle = cc.rect(0, 0, targetSize.width, targetSize.
-                                height);
-                            if (cc.rectContainsPoint(targetRectangle, location)) {
-                                context._nodesSelected.push(target);
-                                context.addNodeToRecording(context, touch, target)
+                    if (element.getName().indexOf("Skeleton") != -1) {
+                        var listener = cc.EventListener.create({
+                            event: cc.EventListener.TOUCH_ONE_BY_ONE,
+                            swallowTouches: true,
+                            onTouchBegan: function (touch, event) {
+                                var context = event.getCurrentTarget().parent.parent;
+                                var target = event.getCurrentTarget();
+                                var boundingBox = target.getBoundingBoxToWorld();
+                                if (cc.rectContainsPoint(target.getBoundingBoxToWorld(), touch.getLocation())) {
+                                    if (!cc.sys.isNative) {
+                                        var action = target.actionManager.getActionByTag(target.tag, target);
+                                        action.play(Object.keys(action._animationInfos)[0], true);
+                                    }
+                                    context._nodesSelected.push(target);
+                                    context.addNodeToRecording(context, touch, target)
+                                    //dummy for testing animation_1
+                                    context._animationNode = target;
+                                    return true;
+                                }
+                                return false;
+                            },
+                            onTouchMoved: function (touch, event) {
+                                var context = event.getCurrentTarget().parent.parent;
+                                var target = event.getCurrentTarget();
+                                var location = target.parent.convertToNodeSpace(touch.getLocation());
+                                context.enableTargetTransformForTarget(context, touch, target, location);
+                            },
+                            onTouchEnded: function (touch, event) {
+                                var context = event.getCurrentTarget().parent.parent;
+                                var target = event.getCurrentTarget();
+                                context.enableEventsForAllOtherNodes(context, target, true);
+                                target.actionManager.getActionByTag(target.tag, target).pause();
+                                var target = event.getCurrentTarget();
+                                var nodeToRemoveIndex = context._nodesSelected.indexOf(target);
+                                if (nodeToRemoveIndex != -1) {
+                                    // if not record mode pop the configuration
+                                    // cc.loader.loadJson('res/characters/skeletonConfig/' + target.getName() + '.json', function (error, data) {
+                                    //     cc.log('data:' + data);
+                                    //     if (data != null) {
+                                    //         context.constructConfigPanel(data.skinChoices, target);
 
-                                return true;
+                                    //     }
+                                    // });
+
+                                    context._nodesSelected.splice(nodeToRemoveIndex, 1);
+                                }
+
                             }
-                            return false;
-                        },
-
-                        onTouchMoved: function (touch, event) {
-                            var target = event.getCurrentTarget();
-                            var context = event.getCurrentTarget().parent.parent;
-                            var location = target.parent.convertToNodeSpace(touch.getLocation());
-                            context.enableTargetTransformForTarget(context, touch, target, location);
-                        },
-
-                        onTouchEnded: function (touch, event) {
-                            var target = event.getCurrentTarget();
-                            var context = event.getCurrentTarget().parent.parent;
-                            context.enableEventsForAllOtherNodes(context, target, true);
-                            var nodeToRemoveIndex = context._nodesSelected.indexOf(target);
-                            if (nodeToRemoveIndex != -1) {
-                                context._nodesSelected.splice(nodeToRemoveIndex, 1);
-                            }
+                        });
+                        cc.eventManager.addListener(listener, element);
+                        if (!cc.sys.isNative) {
+                            element._renderCmd._dirtyFlag = 1;                            
                         }
-                    });
+                    } else {
+                        var listener = cc.EventListener.create({
+                            event: cc.EventListener.TOUCH_ONE_BY_ONE,
+                            swallowTouches: true,
+                            onTouchBegan: function (touch, event) {
+                                var context = event.getCurrentTarget().parent.parent;
+                                var target = event.getCurrentTarget();
+                                var location = target.convertToNodeSpace(touch.getLocation());
+                                var targetSize = target.getContentSize();
+                                var targetRectangle = cc.rect(0, 0, targetSize.width, targetSize.
+                                    height);
+                                if (cc.rectContainsPoint(targetRectangle, location)) {
+                                    context._nodesSelected.push(target);
+                                    context.addNodeToRecording(context, touch, target)
 
-                    cc.eventManager.addListener(listener, element);
+                                    return true;
+                                }
+                                return false;
+                            },
+
+                            onTouchMoved: function (touch, event) {
+                                var target = event.getCurrentTarget();
+                                var context = event.getCurrentTarget().parent.parent;
+                                var location = target.parent.convertToNodeSpace(touch.getLocation());
+                                context.enableTargetTransformForTarget(context, touch, target, location);
+                            },
+
+                            onTouchEnded: function (touch, event) {
+                                var target = event.getCurrentTarget();
+                                var context = event.getCurrentTarget().parent.parent;
+                                context.enableEventsForAllOtherNodes(context, target, true);
+                                var nodeToRemoveIndex = context._nodesSelected.indexOf(target);
+                                if (nodeToRemoveIndex != -1) {
+                                    context._nodesSelected.splice(nodeToRemoveIndex, 1);
+                                }
+                            }
+                        });
+
+                        cc.eventManager.addListener(listener, element);
+                    }
+
                 }, this);
             }
-        }, this);        
+        }, this);
     },
 
 
@@ -749,14 +805,14 @@ var HelloWorldLayer = cc.Layer.extend({
                 var target = event.getCurrentTarget();
                 var nodeToRemoveIndex = context._nodesSelected.indexOf(target);
                 if (nodeToRemoveIndex != -1) {
-                    //if not record mode pop the configuration
-                    // cc.loader.loadJson('res/characters/skeletonConfig/' + target.getName() + '.json', function (error, data) {
-                    //     cc.log('data:' + data);
-                    //     if (data != null) {
-                    //         context.constructConfigPanel(data.skinChoices, target);
+                    // if not record mode pop the configuration
+                    cc.loader.loadJson('res/characters/skeletonConfig/' + target.getName() + '.json', function (error, data) {
+                        cc.log('data:' + data);
+                        if (data != null) {
+                            context.constructConfigPanel(data.skinChoices, target);
 
-                    //     }
-                    // });
+                        }
+                    });
 
                     context._nodesSelected.splice(nodeToRemoveIndex, 1);
                 }
