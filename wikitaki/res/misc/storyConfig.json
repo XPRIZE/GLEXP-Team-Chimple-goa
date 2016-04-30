@@ -126,13 +126,13 @@
         "items": [
           {
             "icon": "res/characters/human/cricketer_thumbnail.png",
-            "json": "res/characters/Animation.json",
+            "json": "res/Animation.json",
             "skinNameMap": "cricketer",
             "type": "character"
           },
           {
             "icon": "res/characters/human/cowboy_thumbnail.png",
-            "json": "res/characters/Animation.json",
+            "json": "res/Animation.json",
             "skinNameMap": "hare",
             "type": "character"
           }
@@ -208,7 +208,6 @@
     "cIcon": "res/icons/stop_onclick.png",
     "icon": "res/icons/stop.png"
   },
-  
   "move": {
     "cIcon": "res/icons/mat_que_onclick.png",
     "icon": "res/icons/mat_que.png"
@@ -224,5 +223,9 @@
   "play": {
     "cIcon": "res/icons/play_onclick.png",
     "icon": "res/icons/play.png"
+  },
+  "animation_1": {
+    "cIcon": "res/icons/add_animation_onclick.png",
+    "icon": "res/icons/add_animation.png"
   }
 }

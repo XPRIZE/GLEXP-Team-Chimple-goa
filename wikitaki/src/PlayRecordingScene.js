@@ -51,9 +51,13 @@ var PlayRecordingLayer = cc.Layer.extend({
 
             if (!cc.sys.isNative) {
                 recordedScene.node._renderCmd._dirtyFlag = 1;
-                recordedScene.node.children[1]._renderCmd._dirtyFlag = 1;
+                recordedScene.node.children.forEach(function(element) {
+                    if(element.getName().indexOf("Skeleton") != -1)
+                    {
+                        element._renderCmd._dirtyFlag = 1;
+                    }
+                }, this);
             }
-
         }
     },
 

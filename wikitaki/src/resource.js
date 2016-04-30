@@ -171,7 +171,7 @@ var res = {
     hare_rightleg_png: "res/characters/hare/hare_rightleg.png",
     hare_thumbnail_png: "res/characters/hare/hare_thumbnail.png",
     close_pop_png: "res/close_pop.png",
-    boy_json: "res/characters/Animation.json",
+    boy_json: "res/Animation.json",
     skeleton_config_boy_skeleton_json: "res/characters/skeletonConfig/BoySkeleton.json",
     skeleton_config_cowboy_skeleton_json: "res/characters/skeletonConfig/CowboySkeleton.json",    
 };
