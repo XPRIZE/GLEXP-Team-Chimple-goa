@@ -80,7 +80,7 @@ var HelloWorldLayer = cc.Layer.extend({
                         });
                         cc.eventManager.addListener(listener, element);
                         if (!cc.sys.isNative) {
-                            element._renderCmd._dirtyFlag = 1;                            
+                            element._renderCmd._dirtyFlag = 1;
                         }
                     } else {
                         var listener = cc.EventListener.create({
@@ -545,6 +545,7 @@ var HelloWorldLayer = cc.Layer.extend({
         context._constructedScene = ccs.load(fileToLoad);
         if (context._constructedScene != null) {
             context.addChild(context._constructedScene.node, 0);
+            context._constructedScene.node._renderCmd._dirtyFlag = 1;
             context._constructedScene.node.children.forEach(function (element) {
                 //copy action tag
                 if (element.getComponent('ComExtensionData') != null) {
