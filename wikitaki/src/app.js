@@ -11,42 +11,91 @@ var HelloWorldLayer = cc.Layer.extend({
         this._nodesSelected = [];
         this._nodesTouchedWhileRecording = [];
         this._isRecordingStarted = false;
+        this._moveAction = true;
         return true;
     },
 
     init: function () {
-        //load cache of icons.png and icons.plist to create panel
-        // var cache = cc.spriteFrameCache;
-        // cache.addSpriteFrames(res.icon_plist, res.icon_png);
-        //create dummy variable to hold Text
-        cc.log('eeeee:' + this._sceneText);
         if (chimple.storyConfigurationObject) {
             //backgrounds, characters and pops, texts
             var mainConfigurationItems = Object.getOwnPropertyNames(chimple.storyConfigurationObject);
             //Construct UI
-            cc.log('creating new pageview');
             var pageView = new chimple.PageScroller(cc.p(1800, 0), cc.size(760, 1800), 2, 3, mainConfigurationItems, cc.color.RED, this.configurationChoosed, this, false);
             this.addChild(pageView, 2);
         }
     },
 
     registerEventListenerForAllChildren: function () {
-        if (this._sceneLayer) {
-            this._sceneLayer.children.forEach(function (element) {
-                if (element._name === 'Scene') {
-                    element.children.forEach(function (element) {
+        this.children.forEach(function (element) {
+            if (element._name === 'Scene') {
+                element.children.forEach(function (element) {
+                    if (element.getName().indexOf("Skeleton") != -1) {
                         var listener = cc.EventListener.create({
                             event: cc.EventListener.TOUCH_ONE_BY_ONE,
                             swallowTouches: true,
                             onTouchBegan: function (touch, event) {
+                                var context = event.getCurrentTarget().parent.parent;
+                                var target = event.getCurrentTarget();
+                                var boundingBox = target.getBoundingBoxToWorld();
+                                if (cc.rectContainsPoint(target.getBoundingBoxToWorld(), touch.getLocation())) {
+                                    if (!cc.sys.isNative) {
+                                        var action = target.actionManager.getActionByTag(target.tag, target);
+                                        action.play(Object.keys(action._animationInfos)[0], true);
+                                    }
+                                    context._nodesSelected.push(target);
+                                    context.addNodeToRecording(context, touch, target)
+                                    //dummy for testing animation_1
+                                    context._animationNode = target;
+                                    return true;
+                                }
+                                return false;
+                            },
+                            onTouchMoved: function (touch, event) {
+                                var context = event.getCurrentTarget().parent.parent;
+                                var target = event.getCurrentTarget();
+                                var location = target.parent.convertToNodeSpace(touch.getLocation());
+                                context.enableTargetTransformForTarget(context, touch, target, location);
+                            },
+                            onTouchEnded: function (touch, event) {
+                                var context = event.getCurrentTarget().parent.parent;
+                                var target = event.getCurrentTarget();
+                                context.enableEventsForAllOtherNodes(context, target, true);
+                                target.actionManager.getActionByTag(target.tag, target).pause();
+                                var target = event.getCurrentTarget();
+                                var nodeToRemoveIndex = context._nodesSelected.indexOf(target);
+                                if (nodeToRemoveIndex != -1) {
+                                    // if not record mode pop the configuration
+                                    // cc.loader.loadJson('res/characters/skeletonConfig/' + target.getName() + '.json', function (error, data) {
+                                    //     cc.log('data:' + data);
+                                    //     if (data != null) {
+                                    //         context.constructConfigPanel(data.skinChoices, target);
+
+                                    //     }
+                                    // });
+
+                                    context._nodesSelected.splice(nodeToRemoveIndex, 1);
+                                }
+
+                            }
+                        });
+                        cc.eventManager.addListener(listener, element);
+                        if (!cc.sys.isNative) {
+                            element._renderCmd._dirtyFlag = 1;
+                        }
+                    } else {
+                        var listener = cc.EventListener.create({
+                            event: cc.EventListener.TOUCH_ONE_BY_ONE,
+                            swallowTouches: true,
+                            onTouchBegan: function (touch, event) {
+                                var context = event.getCurrentTarget().parent.parent;
                                 var target = event.getCurrentTarget();
                                 var location = target.convertToNodeSpace(touch.getLocation());
                                 var targetSize = target.getContentSize();
                                 var targetRectangle = cc.rect(0, 0, targetSize.width, targetSize.
                                     height);
                                 if (cc.rectContainsPoint(targetRectangle, location)) {
-                                    this._nodesSelected.push(target);
-                                    this.addNodeToRecording(this, target)
+                                    context._nodesSelected.push(target);
+                                    context.addNodeToRecording(context, touch, target)
 
                                     return true;
                                 }
@@ -55,24 +104,28 @@ var HelloWorldLayer = cc.Layer.extend({
 
                             onTouchMoved: function (touch, event) {
                                 var target = event.getCurrentTarget();
+                                var context = event.getCurrentTarget().parent.parent;
                                 var location = target.parent.convertToNodeSpace(touch.getLocation());
-                                event.getCurrentTarget().setPosition(location);
+                                context.enableTargetTransformForTarget(context, touch, target, location);
                             },
 
                             onTouchEnded: function (touch, event) {
                                 var target = event.getCurrentTarget();
-                                var nodeToRemoveIndex = this._nodesSelected.indexOf(target);
+                                var context = event.getCurrentTarget().parent.parent;
+                                context.enableEventsForAllOtherNodes(context, target, true);
+                                var nodeToRemoveIndex = context._nodesSelected.indexOf(target);
                                 if (nodeToRemoveIndex != -1) {
-                                    this._nodesSelected.splice(nodeToRemoveIndex, 1);
+                                    context._nodesSelected.splice(nodeToRemoveIndex, 1);
                                 }
                             }
                         });
 
                         cc.eventManager.addListener(listener, element);
-                    }, this);
-                }
-            }, this);
-        }
+                    }
+
+                }, this);
+            }
+        }, this);
     },
 
 
@@ -106,8 +159,41 @@ var HelloWorldLayer = cc.Layer.extend({
             this.startRecording();
         } else if (selectedConfig != null && selectedItem.getName() === "stopRecording") {
             this.stopRecording();
-        } else if (selectedConfig != null) {
+        } else if (selectedConfig != null && selectedItem.getName() === "move") {
+            this.nodeAction(selectedItem.getName());
+        } else if (selectedConfig != null && selectedItem.getName() === "rotate") {
+            this.nodeAction(selectedItem.getName());
+        } else if (selectedConfig != null && selectedItem.getName() === "scale") {
+            this.nodeAction(selectedItem.getName());
+        } else if (selectedConfig != null && selectedItem.getName() === "play") {
+            this.nodeAction(selectedItem.getName());
+            var playScene = new PlayRecordingScene(this.pageKey);
+            cc.director.pushScene(playScene);
+        } else if (selectedConfig != null && selectedItem.getName() === "animation_1") {
+            //Node, animationName, isLast
+            this.constructAnimationFrameData(this._animationNode, "Dance", false);
+        }
+        else if (selectedConfig != null) {
             this.constructTabBar(selectedConfig.categories);
+        }
+    },
+
+    nodeAction: function (actionName) {
+        if (actionName == 'move') {
+            this._moveAction = true;
+            this._rotateAction = false;
+            this._scaleAction = false;
+        } else if (actionName == 'rotate') {
+            this._rotateAction = true;
+            this._moveAction = false;
+            this._scaleAction = false;
+
+        } else if (actionName == 'scale') {
+            this._scaleAction = true;
+            this._rotateAction = false;
+            this._moveAction = false;
+        } else if (actionName == 'play') {
+            cc.log('play recording...');
         }
     },
 
@@ -125,10 +211,10 @@ var HelloWorldLayer = cc.Layer.extend({
         var timelines = [];
         if (this._nodesTouchedWhileRecording != null && this._nodesTouchedWhileRecording.length > 0) {
             this._nodesTouchedWhileRecording.forEach(function (element) {
-
-                var recordedTimeLine = this.constructPositionMoveMentTimeLine(element);
-                timelines.push(JSON.stringify(recordedTimeLine));
-                //JSON stringfy and merge with mainScene.json
+                timelines.push(this.constructTimeLineObject(element, "Position", "positionFrames"));
+                timelines.push(this.constructTimeLineObject(element, "Scale", "scaleFrames"));
+                timelines.push(this.constructTimeLineObject(element, "RotationSkew", "rotationFrames"));
+                timelines.push(this.constructTimeLineObject(element, "ActionValue", "animationFrames"));
             }, this);
         }
         this.createTimeLinesForPlayAnimation(timelines);
@@ -143,7 +229,9 @@ var HelloWorldLayer = cc.Layer.extend({
             var storedSceneJSON = JSON.parse(storedSceneString);
             cc.log('storedSceneJSON:' + storedSceneJSON);
             storedSceneJSON.Content.Content.Animation.Timelines = timelines;
+            storedSceneJSON.Content.Content.Animation.Duration = this._recordingFrameIndex;
             this.saveSceneToLocalStorage(JSON.stringify(storedSceneJSON));
+            cc.sys.localStorage.setItem("duration", this._recordingFrameIndex);
             timelines = null;
         }
     },
@@ -177,6 +265,16 @@ var HelloWorldLayer = cc.Layer.extend({
         this.showLoadingScene(imageToLoad, this.doPostLoadingProcessForImage, this, imageToLoad);
     },
 
+    enableTargetTransformForTarget: function (context, touch, target, location) {
+        if (context._moveAction) {
+            target.setPosition(location);
+        } else if (context._rotateAction) {
+            context.calcAngleAndRotationForTarget(touch, target);
+        } else if (context._scaleAction) {
+            context.calcScaleForTarget(context, touch, target);
+        }
+    },
+
     doPostLoadingProcessForImage: function (context, imageToLoad) {
         var sprite = new cc.Sprite(imageToLoad);
         context.addChild(sprite, 1);
@@ -196,45 +294,45 @@ var HelloWorldLayer = cc.Layer.extend({
             }
         }
         else {
-            context._propsContainer.push(loadedImageObject);
+            // context._propsContainer.push(loadedImageObject);
         }
 
+        // var listener = cc.EventListener.create({
+        //     event: cc.EventListener.TOUCH_ONE_BY_ONE,
+        //     swallowTouches: true,
+        //     onTouchBegan: function (touch, event) {
+        //         var target = event.getCurrentTarget();
+        //         var location = target.convertToNodeSpace(touch.getLocation());
+        //         var targetSize = target.getContentSize();
+        //         var targetRectangle = cc.rect(0, 0, targetSize.width, targetSize.
+        //             height);
+        //         if (cc.rectContainsPoint(targetRectangle, location)) {
+        //             context._nodesSelected.push(target);
+        //             context.addNodeToRecording(context, touch, target);
 
-        var listener = cc.EventListener.create({
-            event: cc.EventListener.TOUCH_ONE_BY_ONE,
-            swallowTouches: true,
-            onTouchBegan: function (touch, event) {
-                var target = event.getCurrentTarget();
-                var location = target.convertToNodeSpace(touch.getLocation());
-                var targetSize = target.getContentSize();
-                var targetRectangle = cc.rect(0, 0, targetSize.width, targetSize.
-                    height);
-                if (cc.rectContainsPoint(targetRectangle, location)) {
-                    context._nodesSelected.push(target);
-                    context.addNodeToRecording(context, target);
+        //             return true;
+        //         }
+        //         return false;
+        //     },
 
-                    return true;
-                }
-                return false;
-            },
+        //     onTouchMoved: function (touch, event) {
+        //         var target = event.getCurrentTarget();
+        //         var location = target.parent.convertToNodeSpace(touch.getLocation());
+        //         context.enableTargetTransformForTarget(context, touch, target, location);
+        //     },
 
-            onTouchMoved: function (touch, event) {
-                var target = event.getCurrentTarget();
-                var location = target.parent.convertToNodeSpace(touch.getLocation());
-                event.getCurrentTarget().setPosition(location);
-            },
+        //     onTouchEnded: function (touch, event) {
+        //         var target = event.getCurrentTarget();
+        //         context.enableEventsForAllOtherNodes(context, target, true);
+        //         var nodeToRemoveIndex = context._nodesSelected.indexOf(target);
+        //         if (nodeToRemoveIndex != -1) {
+        //             context._nodesSelected.splice(nodeToRemoveIndex, 1);
+        //         }
+        //     }
+        // });
 
-            onTouchEnded: function (touch, event) {
-                var target = event.getCurrentTarget();
-                var nodeToRemoveIndex = context._nodesSelected.indexOf(target);
-                if (nodeToRemoveIndex != -1) {
-                    context._nodesSelected.splice(nodeToRemoveIndex, 1);
-                }
-            }
-
-
-        });
-
+        var eventObj = new chimple.SpriteTouchHandler(context);        
+        var listener = cc.EventListener.create(eventObj);
         cc.eventManager.addListener(listener, sprite);
 
     },
@@ -370,22 +468,85 @@ var HelloWorldLayer = cc.Layer.extend({
 
     },
 
-    addNodeToRecording: function (context, target) {
+    addNodeToRecording: function (context, touch, target) {
         if (context._isRecordingStarted) {
             context._nodesTouchedWhileRecording.push(target);
             if (target.positionFrames == null) {
                 target.positionFrames = [];
             }
+
+            if (target.scaleFrames == null) {
+                target.scaleFrames = [];
+            }
+
+            if (target.rotationFrames == null) {
+                target.rotationFrames = [];
+            }
+
+            if (target.animationFrames == null) {
+                target.animationFrames = [];
+            }
         }
+
+        var location = target.parent.convertToNodeSpace(touch.getLocation());
+        context._initialScale = target.getScale();
+        context._initialDiff = cc.pDistance(location, target.getPosition());
+        context._lastDiff = null;
+        context.toggleEventsForAllOtherNodes(context, target, false);
+    },
+
+    calcAngleAndRotationForTarget: function (touch, target) {
+        var nodePostion = target.getPosition();
+        var currentPosition = target.parent.convertToNodeSpace(touch.getLocation());
+        var diff = cc.pSub(currentPosition, nodePostion);
+        var rads = cc.pToAngle(diff);
+        var degs = -cc.radiansToDegrees(rads);
+        degs += 90.0; // 0 is pointing right, so offset so our angle is pointing out of the top of the sprite
+        target.setRotation(degs);
+    },
+
+    calcScaleForTarget: function (context, touch, target) {
+        var nodePostion = target.getPosition();
+        var currentPosition = target.parent.convertToNodeSpace(touch.getLocation());
+        if (context._lastDiff == null) {
+            context._lastDiff = context._initialDiff;
+        }
+        context._currentDiff = cc.pDistance(currentPosition, nodePostion);
+
+        var distanceMoved = (context._currentDiff - context._lastDiff) / context._initialDiff;
+
+        context._lastDiff = context._currentDiff;
+        var computedScale = target.getScale() + distanceMoved * context._initialScale;
+        target.setScale(computedScale);
+    },
+
+    enableEventsForAllOtherNodes: function (context, target, isEnabled) {
+        target.parent.children.forEach(function (element) {
+            cc.eventManager.resumeTarget(element, true);
+        });
+    },
+
+    toggleEventsForAllOtherNodes: function (context, target, isEnabled) {
+        target.parent.children.forEach(function (element) {
+            if (element.getName() !== target.getName()) {
+                if (!isEnabled) {
+                    // element.setOpacity(150);
+                    cc.eventManager.pauseTarget(element, true);
+                } else {
+                    // element.setOpacity(255);
+                    cc.eventManager.resumeTarget(element, true);
+                }
+            }
+        });
     },
 
     doPostLoadingProcessForScene: function (context, fileToLoad, shouldSaveToLocalStorage) {
         context._constructedScene = ccs.load(fileToLoad);
         if (context._constructedScene != null) {
             context.addChild(context._constructedScene.node, 0);
+            context._constructedScene.node._renderCmd._dirtyFlag = 1;
             context._constructedScene.node.children.forEach(function (element) {
                 //copy action tag
-                cc.log('element:' + element.getComponent('ComExtensionData').getActionTag());
                 if (element.getComponent('ComExtensionData') != null) {
                     element.getComponent('ComExtensionData').getActionTag();
                 }
@@ -400,8 +561,7 @@ var HelloWorldLayer = cc.Layer.extend({
                             height);
                         if (cc.rectContainsPoint(targetRectangle, location)) {
                             context._nodesSelected.push(target);
-                            context.addNodeToRecording(context, target);
-
+                            context.addNodeToRecording(context, touch, target);
                             return true;
                         }
                         return false;
@@ -410,10 +570,11 @@ var HelloWorldLayer = cc.Layer.extend({
                     onTouchMoved: function (touch, event) {
                         var target = event.getCurrentTarget();
                         var location = target.parent.convertToNodeSpace(touch.getLocation());
-                        event.getCurrentTarget().setPosition(location);
+                        context.enableTargetTransformForTarget(context, touch, target, location);
                     },
                     onTouchEnded: function (touch, event) {
                         var target = event.getCurrentTarget();
+                        context.enableEventsForAllOtherNodes(context, target, true);
                         var nodeToRemoveIndex = context._nodesSelected.indexOf(target);
                         if (nodeToRemoveIndex != -1) {
                             context._nodesSelected.splice(nodeToRemoveIndex, 1);
@@ -628,18 +789,21 @@ var HelloWorldLayer = cc.Layer.extend({
                         action.play(Object.keys(action._animationInfos)[0], true);
                     }
                     context._nodesSelected.push(target);
-                    context.addNodeToRecording(context, target)
-
+                    context.addNodeToRecording(context, touch, target)
+                    //dummy for testing animation_1
+                    context._animationNode = target;
                     return true;
                 }
                 return false;
             },
             onTouchMoved: function (touch, event) {
                 var target = event.getCurrentTarget();
-                target.setPosition(target.parent.convertToNodeSpace(touch.getLocation()));
+                var location = target.parent.convertToNodeSpace(touch.getLocation());
+                context.enableTargetTransformForTarget(context, touch, target, location);
             },
             onTouchEnded: function (touch, event) {
                 var target = event.getCurrentTarget();
+                context.enableEventsForAllOtherNodes(context, target, true);
                 target.actionManager.getActionByTag(target.tag, target).pause();
                 var target = event.getCurrentTarget();
                 var nodeToRemoveIndex = context._nodesSelected.indexOf(target);
@@ -648,6 +812,14 @@ var HelloWorldLayer = cc.Layer.extend({
                         if (target.getUserData() != null) {
                             context.constructConfigPanel(target.getUserData().skinChoices, target);
                         }
+                    // if not record mode pop the configuration
+                    cc.loader.loadJson('res/characters/skeletonConfig/' + target.getName() + '.json', function (error, data) {
+                        cc.log('data:' + data);
+                        if (data != null) {
+                            context.constructConfigPanel(data.skinChoices, target);
+
+                        }
+                    });
 
                     context._nodesSelected.splice(nodeToRemoveIndex, 1);
                 }
@@ -704,31 +876,100 @@ var HelloWorldLayer = cc.Layer.extend({
         node.positionFrames.push(frameData);
     },
 
+    constructAnimationFrameData: function (node, animationName, shouldStopAnimation) {
+        var animationFrameData = Object.create(Object.prototype);
 
-    constructPositionMoveMentTimeLine: function (node) {
-        if (node.positionFrames !== null && node.positionFrames.length > 0) {
-            var object = Object.create(Object.prototype);
-            if (node.ActionTag != null) {
-                object.ActionTag = node.ActionTag;
-            } else if (node.getComponent('ComExtensionData') != null && node.getComponent('ComExtensionData').getActionTag() != null) {
-                object.ActionTag = node.getComponent('ComExtensionData').getActionTag();
-            }
+        animationFrameData.SingleFrameIndex = "0";
+        animationFrameData.FrameIndex = this._recordingFrameIndex;
+        animationFrameData.Tween = false;
+        animationFrameData.ctype = "InnerActionFrameData";
 
-            object.Property = "Position";
-            object.Frames = node.positionFrames;
-            node.positionFrames = null;
-            object.ctype = "TimelineData";
-            return object;
+        if (shouldStopAnimation) {
+            animationFrameData.InnerActionType = "SingleFrame";
+            animationFrameData.CurrentAniamtionName = "-- ALL --";
+        } else {
+            animationFrameData.InnerActionType = "LoopAction";
+            animationFrameData.CurrentAniamtionName = animationName;
         }
+
+        node.animationFrames.push(animationFrameData);
     },
+
+    constructFrameData: function (node, frameIndex) {
+        var positionFrameData = Object.create(Object.prototype);
+        positionFrameData.FrameIndex = frameIndex;
+        positionFrameData.EasingData = {};
+        positionFrameData.EasingData.Type = 0;
+        positionFrameData.ctype = "PointFrameData";
+        positionFrameData.X = node.x;
+        positionFrameData.Y = node.y;
+        node.positionFrames.push(positionFrameData);
+
+        var scaleFrameData = Object.create(Object.prototype);
+        scaleFrameData.FrameIndex = frameIndex;
+        scaleFrameData.EasingData = {};
+        scaleFrameData.EasingData.Type = 0;
+        scaleFrameData.ctype = "ScaleValueFrameData";
+        scaleFrameData.X = node.getScaleX();
+        scaleFrameData.Y = node.getScaleY();
+        node.scaleFrames.push(scaleFrameData);
+
+        var rotationFrameData = Object.create(Object.prototype);
+        rotationFrameData.FrameIndex = frameIndex;
+        rotationFrameData.EasingData = {};
+        rotationFrameData.EasingData.Type = 0;
+        rotationFrameData.ctype = "ScaleValueFrameData";
+        rotationFrameData.X = node.getRotationX();
+        rotationFrameData.Y = node.getRotationY();
+        node.rotationFrames.push(rotationFrameData);
+    },
+
+    constructTimeLineObject: function (node, property, frameName) {
+        var object = Object.create(Object.prototype);
+        if (node.ActionTag != null) {
+            object.ActionTag = node.ActionTag;
+        } else if (node.getComponent('ComExtensionData') != null && node.getComponent('ComExtensionData').getActionTag() != null) {
+            object.ActionTag = node.getComponent('ComExtensionData').getActionTag();
+        }
+        object.Property = property;
+        object.Frames = node[frameName];
+        object.ctype = "TimelineData";
+
+        node[frameName] = null;
+        return object;
+    },
+
+    // constructPositionMoveMentTimeLine: function (node) {
+    //     var object = Object.create(Object.prototype);
+    //     if (node.ActionTag != null) {
+    //         object.ActionTag = node.ActionTag;
+    //     } else if (node.getComponent('ComExtensionData') != null && node.getComponent('ComExtensionData').getActionTag() != null) {
+    //         object.ActionTag = node.getComponent('ComExtensionData').getActionTag();
+    //     }
+
+    //     if (node.positionFrames !== null && node.positionFrames.length > 0) {
+    //         var object = Object.create(Object.prototype);
+    //         if (node.ActionTag != null) {
+    //             object.ActionTag = node.ActionTag;
+    //         } else if (node.getComponent('ComExtensionData') != null && node.getComponent('ComExtensionData').getActionTag() != null) {
+    //             object.ActionTag = node.getComponent('ComExtensionData').getActionTag();
+    //         }
+
+    //         object.Property = "Position";
+    //         object.Frames = node.positionFrames;
+    //         node.positionFrames = null;
+    //         object.ctype = "TimelineData";
+    //         return object;
+    //     }
+    // },
 
     update: function (dt) {
         if (this._isRecordingStarted && this._nodesSelected != null && this._nodesSelected.length > 0) {
             this._recordingFrameIndex = this._recordingFrameIndex + 1;
             this._nodesSelected.forEach(function (element) {
                 console.log('record movement for Node:' + element);
-                //construct position framedata for now for each timesecond
-                this.constructPositionFrameData(element, this._recordingFrameIndex);
+                //construct position, rotation and scale framedata for now for each timesecond
+                this.constructFrameData(element, this._recordingFrameIndex);
             }, this);
         }
     }
@@ -748,9 +989,9 @@ var HelloWorldScene = cc.Scene.extend({
     },
     onEnter: function () {
         this._super();
-        this._sceneLayer.registerEventListenerForAllChildren();
         this._sceneLayer.pageKey = "res/chimple.page1.scene.json";
         this._sceneLayer.loadSceneFromStorage();
+        this._sceneLayer.registerEventListenerForAllChildren();
     }
 }
 );

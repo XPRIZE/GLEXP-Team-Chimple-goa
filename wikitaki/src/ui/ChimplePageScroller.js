@@ -72,7 +72,6 @@ chimple.PageScroller = ccui.PageView.extend({
             case ccui.Widget.TOUCH_ENDED:
                 this._currentSelectedItem = sender;
                 sender.setHighlighted(true);
-                cc.log(this._callBackFunction);
                 this._callBackFunction.call(this._callBackContext, this._currentSelectedItem);
                 break;
         }

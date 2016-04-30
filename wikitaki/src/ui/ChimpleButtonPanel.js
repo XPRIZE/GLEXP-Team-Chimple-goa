@@ -53,12 +53,10 @@ chimple.ButtonPanel = ccui.ScrollView.extend({
         }
     },
     selectButton: function (button) {
-        cc.log('00000');
         cc.log(button);
         this._currentSelectedItem = button;
         button.setHighlighted(true);
         if (this._callBackFunction != null && this._callBackContext != null) {
-            cc.log('1234');
             this._callBackFunction.call(this._callBackContext, this._currentSelectedItem);
         }
 
