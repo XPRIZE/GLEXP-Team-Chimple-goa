@@ -331,7 +331,7 @@ var HelloWorldLayer = cc.Layer.extend({
         //     }
         // });
 
-        var eventObj = new chimple.SpriteTouchHandler(context);        
+        var eventObj = new chimple.SpriteTouchHandler(context);
         var listener = cc.EventListener.create(eventObj);
         cc.eventManager.addListener(listener, sprite);
 
@@ -544,7 +544,9 @@ var HelloWorldLayer = cc.Layer.extend({
         context._constructedScene = ccs.load(fileToLoad);
         if (context._constructedScene != null) {
             context.addChild(context._constructedScene.node, 0);
-            context._constructedScene.node._renderCmd._dirtyFlag = 1;
+            if (!cc.sys.isNative) {
+                context._constructedScene.node._renderCmd._dirtyFlag = 1;
+            }
             context._constructedScene.node.children.forEach(function (element) {
                 //copy action tag
                 if (element.getComponent('ComExtensionData') != null) {
@@ -767,7 +769,7 @@ var HelloWorldLayer = cc.Layer.extend({
                 cc.log('data:' + data);
                 if (data != null) {
                     load.node.setUserData(data);
-                    if(data.skinNameMaps && data.skinNameMaps[configuration.skinNameMap]) {
+                    if (data.skinNameMaps && data.skinNameMaps[configuration.skinNameMap]) {
                         load.node.changeSkins(data.skinNameMaps[configuration.skinNameMap]);
                     }
                 }
@@ -809,9 +811,9 @@ var HelloWorldLayer = cc.Layer.extend({
                 var nodeToRemoveIndex = context._nodesSelected.indexOf(target);
                 if (nodeToRemoveIndex != -1) {
                     //if not record mode pop the configuration
-                        if (target.getUserData() != null) {
-                            context.constructConfigPanel(target.getUserData().skinChoices, target);
-                        }
+                    if (target.getUserData() != null) {
+                        context.constructConfigPanel(target.getUserData().skinChoices, target);
+                    }
                     // if not record mode pop the configuration
                     cc.loader.loadJson('res/characters/skeletonConfig/' + target.getName() + '.json', function (error, data) {
                         cc.log('data:' + data);
