@@ -297,43 +297,42 @@ var HelloWorldLayer = cc.Layer.extend({
             // context._propsContainer.push(loadedImageObject);
         }
 
+        // var listener = cc.EventListener.create({
+        //     event: cc.EventListener.TOUCH_ONE_BY_ONE,
+        //     swallowTouches: true,
+        //     onTouchBegan: function (touch, event) {
+        //         var target = event.getCurrentTarget();
+        //         var location = target.convertToNodeSpace(touch.getLocation());
+        //         var targetSize = target.getContentSize();
+        //         var targetRectangle = cc.rect(0, 0, targetSize.width, targetSize.
+        //             height);
+        //         if (cc.rectContainsPoint(targetRectangle, location)) {
+        //             context._nodesSelected.push(target);
+        //             context.addNodeToRecording(context, touch, target);
 
-        var listener = cc.EventListener.create({
-            event: cc.EventListener.TOUCH_ONE_BY_ONE,
-            swallowTouches: true,
-            onTouchBegan: function (touch, event) {
-                var target = event.getCurrentTarget();
-                var location = target.convertToNodeSpace(touch.getLocation());
-                var targetSize = target.getContentSize();
-                var targetRectangle = cc.rect(0, 0, targetSize.width, targetSize.
-                    height);
-                if (cc.rectContainsPoint(targetRectangle, location)) {
-                    context._nodesSelected.push(target);
-                    context.addNodeToRecording(context, touch, target);
+        //             return true;
+        //         }
+        //         return false;
+        //     },
 
-                    return true;
-                }
-                return false;
-            },
+        //     onTouchMoved: function (touch, event) {
+        //         var target = event.getCurrentTarget();
+        //         var location = target.parent.convertToNodeSpace(touch.getLocation());
+        //         context.enableTargetTransformForTarget(context, touch, target, location);
+        //     },
 
-            onTouchMoved: function (touch, event) {
-                var target = event.getCurrentTarget();
-                var location = target.parent.convertToNodeSpace(touch.getLocation());
-                context.enableTargetTransformForTarget(context, touch, target, location);
-            },
+        //     onTouchEnded: function (touch, event) {
+        //         var target = event.getCurrentTarget();
+        //         context.enableEventsForAllOtherNodes(context, target, true);
+        //         var nodeToRemoveIndex = context._nodesSelected.indexOf(target);
+        //         if (nodeToRemoveIndex != -1) {
+        //             context._nodesSelected.splice(nodeToRemoveIndex, 1);
+        //         }
+        //     }
+        // });
 
-            onTouchEnded: function (touch, event) {
-                var target = event.getCurrentTarget();
-                context.enableEventsForAllOtherNodes(context, target, true);
-                var nodeToRemoveIndex = context._nodesSelected.indexOf(target);
-                if (nodeToRemoveIndex != -1) {
-                    context._nodesSelected.splice(nodeToRemoveIndex, 1);
-                }
-            }
-
-
-        });
-
+        var eventObj = new chimple.SpriteTouchHandler(context);        
+        var listener = cc.EventListener.create(eventObj);
         cc.eventManager.addListener(listener, sprite);
 
     },
@@ -807,13 +806,13 @@ var HelloWorldLayer = cc.Layer.extend({
                 var nodeToRemoveIndex = context._nodesSelected.indexOf(target);
                 if (nodeToRemoveIndex != -1) {
                     // if not record mode pop the configuration
-                    cc.loader.loadJson('res/characters/skeletonConfig/' + target.getName() + '.json', function (error, data) {
-                        cc.log('data:' + data);
-                        if (data != null) {
-                            context.constructConfigPanel(data.skinChoices, target);
+                    // cc.loader.loadJson('res/characters/skeletonConfig/' + target.getName() + '.json', function (error, data) {
+                    //     cc.log('data:' + data);
+                    //     if (data != null) {
+                    //         context.constructConfigPanel(data.skinChoices, target);
 
-                        }
-                    });
+                    //     }
+                    // });
 
                     context._nodesSelected.splice(nodeToRemoveIndex, 1);
                 }
