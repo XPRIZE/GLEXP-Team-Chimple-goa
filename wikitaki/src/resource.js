@@ -173,7 +173,8 @@ var res = {
     close_pop_png: "res/close_pop.png",
     boy_json: "res/characters/Animation.json",
     skeleton_config_boy_skeleton_json: "res/characters/skeletonConfig/BoySkeleton.json",
-    skeleton_config_cowboy_skeleton_json: "res/characters/skeletonConfig/CowboySkeleton.json",    
+    skeleton_config_cowboy_skeleton_json: "res/characters/skeletonConfig/CowboySkeleton.json",
+    boy_animation_json: "res/boy_animation.json"    
 };
 
 

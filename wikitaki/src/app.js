@@ -604,8 +604,11 @@ var HelloWorldLayer = cc.Layer.extend({
         if (configuration.skinNameMap) {
             cc.loader.loadJson('res/characters/skeletonConfig/' + load.node.getName() + '.json', function (error, data) {
                 cc.log('data:' + data);
-                if (data != null && data.skinNameMaps && data.skinNameMaps[configuration.skinNameMap]) {
-                    load.node.changeSkins(data.skinNameMaps[configuration.skinNameMap]);
+                if (data != null) {
+                    load.node.setUserData(data);
+                    if(data.skinNameMaps && data.skinNameMaps[configuration.skinNameMap]) {
+                        load.node.changeSkins(data.skinNameMaps[configuration.skinNameMap]);
+                    }
                 }
 
             });
@@ -642,13 +645,9 @@ var HelloWorldLayer = cc.Layer.extend({
                 var nodeToRemoveIndex = context._nodesSelected.indexOf(target);
                 if (nodeToRemoveIndex != -1) {
                     //if not record mode pop the configuration
-                    cc.loader.loadJson('res/characters/skeletonConfig/' + target.getName() + '.json', function (error, data) {
-                        cc.log('data:' + data);
-                        if (data != null) {
-                            context.constructConfigPanel(data.skinChoices, target);
-
+                        if (target.getUserData() != null) {
+                            context.constructConfigPanel(target.getUserData().skinChoices, target);
                         }
-                    });
 
                     context._nodesSelected.splice(nodeToRemoveIndex, 1);
                 }
@@ -664,7 +663,20 @@ var HelloWorldLayer = cc.Layer.extend({
         this.parseCharacter(configuration.json, load);
     },
 
+    constructConfigPanel: function (configuration, target) {
+        if (this._configPanel) {
+            this.destroyConfigPanel();
+        }
+        var newObject = new chimple.ObjectSelector(target);
+        this._configPanel = new chimple.TabPanel(cc.p(1800, 0), cc.size(760, 1800), 2, 2, configuration, newObject.skinSelectedInConfiguration, newObject);
+        this._configPanel._objectToActOn = target;
+        this.addChild(this._configPanel, 3);
+    },
 
+    destroyConfigPanel: function () {
+        this._configPanel.removeFromParent(true);
+        this._configPanel = null;
+    },
 
     constructTabBar: function (configuration) {
         this._tabBar = new chimple.TabPanel(cc.p(0, 0), cc.size(1800, 1800), 2, 2, configuration, this.itemSelectedInConfiguration, this);

@@ -1,0 +1,274 @@
+{
+    "skinChoices": [
+        {
+            "name": "shirt",
+            "cIcon": "res/shirt_onclick.png",
+            "icon": "res/shirt.png",
+            "items": [
+                {
+                    "icon": "res/Astronaut/shirt.png",
+                    "skins": [
+                        {
+                            "skin": "sleves_lower_26",
+                            "bone": "hand_lower_right"
+                        },
+                        {
+                            "skin": "sleves_upper_25",
+                            "bone": "hand_upper_right"
+                        },
+                        {
+                            "skin": "sleves_lower_24",
+                            "bone": "hand_lower_left"
+                        },
+                        {
+                            "skin": "sleves_upper_23",
+                            "bone": "hand_upper_left"
+                        },
+                        {
+                            "skin": "shirt_19",
+                            "bone": "body"
+                        }
+                    ]
+                },
+                {
+                    "icon": "res/Cricketer/shirt.png",
+                    "skins": [
+                        {
+                            "skin": "hand_lower_right",
+                            "bone": "hand_lower_right"
+                        },
+                        {
+                            "skin": "sleves_10",
+                            "bone": "hand_upper_right"
+                        },
+                        {
+                            "skin": "sleves_9",
+                            "bone": "hand_upper_left"
+                        },
+                        {
+                            "skin": "hand_lower_left",
+                            "bone": "hand_lower_left"
+                        },
+                        {
+                            "skin": "shirt_2",
+                            "bone": "body"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "hat",
+            "cIcon": "res/icons/hat_onclick.png",
+            "icon": "res/icons/hat.png",
+            "items": [
+                {
+                    "icon": "res/Cricketer/helmet.png",
+                    "skins": [
+                        {
+                            "skin": "helmet_13",
+                            "bone": "hair"
+                        }
+                    ]
+                },
+                {
+                    "icon": "res/icons/delete.png",
+                    "skins": [
+                        {
+                            "skin": "hair",
+                            "bone": "hair"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "shoes",
+            "cIcon": "res/icons/shoe_onclick.png",
+            "icon": "res/icons/shoe.png",
+            "items": [
+                {
+                    "icon": "res/Cricketer/shoe.png",
+                    "skins": [
+                        {
+                            "skin": "shoe_12",
+                            "bone": "leg_foot_left"
+                        },
+                        {
+                            "skin": "shoe_11",
+                            "bone": "leg_foot_right"
+                        }
+                    ]
+                },
+                {
+                    "icon": "res/Astronaut/shoes.png",
+                    "skins": [
+                        {
+                            "skin": "shoes_22",
+                            "bone": "leg_foot_left"
+                        },
+                        {
+                            "skin": "shoes_21",
+                            "bone": "leg_foot_right"
+                        }
+                    ]
+                },
+                {
+                    "icon": "res/icons/delete.png",
+                    "skins": [
+                        {
+                            "skin": "leg_foot_left",
+                            "bone": "leg_foot_left"
+                        },
+                        {
+                            "skin": "leg_foot_right",
+                            "bone": "leg_foot_right"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "pants",
+            "cIcon": "res/icons/pant_onclick.png",
+            "icon": "res/icons/pant.png",
+            "items": [
+                {
+                    "icon": "res/Cricketer/pent_lower.png",
+                    "skins": [
+                        {
+                            "skin": "pent_lower_6",
+                            "bone": "leg_lower_right"
+                        },
+                        {
+                            "skin": "pent_lower_8",
+                            "bone": "leg_lower_left"
+                        },
+                        {
+                            "skin": "leg_upper_right",
+                            "bone": "leg_upper_right"
+                        },
+                        {
+                            "skin": "pent_upper_7",
+                            "bone": "leg_upper_left"
+                        },
+                        {
+                            "skin": "pent_4",
+                            "bone": "hip"
+                        }
+                    ]
+                },
+                {
+                    "icon": "res/Astronaut/pent_lower.png",
+                    "skins": [
+                        {
+                            "skin": "pent_lower_15",
+                            "bone": "leg_lower_right"
+                        },
+                        {
+                            "skin": "pent_lower_17",
+                            "bone": "leg_lower_left"
+                        },
+                        {
+                            "skin": "pent_upper_16",
+                            "bone": "leg_upper_right"
+                        },
+                        {
+                            "skin": "pent_upper_18",
+                            "bone": "leg_upper_left"
+                        },
+                        {
+                            "skin": "hip_20",
+                            "bone": "hip"
+                        }
+                    ]
+                },
+                {
+                    "icon": "res/icons/delete.png",
+                    "skins": [
+                        {
+                            "skin": "leg_lower_right",
+                            "bone": "leg_lower_right"
+                        },
+                        {
+                            "skin": "leg_lower_left",
+                            "bone": "leg_lower_left"
+                        },
+                        {
+                            "skin": "leg_upper_right",
+                            "bone": "leg_upper_right"
+                        },
+                        {
+                            "skin": "leg_upper_left",
+                            "bone": "leg_upper_left"
+                        },
+                        {
+                            "skin": "hip",
+                            "bone": "hip"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "skinColor",
+            "cIcon": "res/icons/skintone_onclick.png",
+            "icon": "res/icons/skintone.png",
+            "items": [
+                {
+                    "icon": "res/icons/game.png",
+                    "colorSkins": {
+                        "skins": "bodySkin",
+                        "color": "#4477BB"
+                    }
+                },
+                {
+                    "icon": "res/icons/add_qna.png",
+                    "colorSkins": {
+                        "skins": "bodySkin",
+                        "color": "#AA1133"
+                    }
+                }
+            ]
+        }
+    ],
+    "skinNameMaps": {
+        "cricketer": {
+            "hand_upper_right": "sleves_10",
+            "hand_upper_left": "sleves_9",
+            "hair": "helmet_13",
+            "body": "shirt_2",
+            "leg_foot_right": "shoe_11",
+            "leg_lower_right": "pent_lower_6",
+            "leg_foot_left": "shoe_12",
+            "leg_lower_left": "pent_lower_8",
+            "leg_upper_left": "pent_upper_7",
+            "hip": "pent_4"
+        },
+        "astronaut": {
+            "hand_lower_right": "sleves_lower_26",
+            "hand_upper_right": "sleves_upper_25",
+            "hand_lower_left": "sleves_lower_24",
+            "hand_upper_left": "sleves_upper_23",
+            "hair": "hair",
+            "body": "shirt_19",
+            "leg_foot_right": "shoes_21",
+            "leg_lower_right": "pent_lower_15",
+            "leg_upper_right": "pent_upper_16",
+            "leg_foot_left": "shoes_22",
+            "leg_lower_left": "pent_lower_17",
+            "leg_upper_left": "pent_upper_18",
+            "hip": "hip_20"
+        }
+    },
+    "colorSkins": {
+        "bodySkin": {
+            "face": "face",
+            "hand_palm_right": "hand_palm_right",
+            "hand_palm_left": "hand_palm_left",
+            "hand_upper_right": "hand_upper_right",
+            "hand_upper_left": "hand_upper_left",
+            "body": "body"
+        }
+    }
+}
