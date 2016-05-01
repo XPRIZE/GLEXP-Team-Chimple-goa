@@ -174,7 +174,10 @@ var res = {
     boy_json: "res/Animation.json",
     skeleton_config_boy_skeleton_json: "res/characters/skeletonConfig/BoySkeleton.json",
     skeleton_config_cowboy_skeleton_json: "res/characters/skeletonConfig/CowboySkeleton.json",
-    boy_animation_json: "res/boy_animation.json"    
+    boy_animation_json: "res/boy_animation.json",
+    sliderProgress_png: "res/sliderProgress.png",
+    sliderThumb_png: "res/sliderThumb.png",
+    sliderTrack_png: "res/sliderTrack.png"    
 };
 
 
