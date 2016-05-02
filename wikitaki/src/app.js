@@ -750,13 +750,13 @@ var HelloWorldLayer = cc.Layer.extend({
                     if (data.skinNameMaps && data.skinNameMaps[configuration.skinNameMap]) {
                         load.node.changeSkins(data.skinNameMaps[configuration.skinNameMap]);
                     }
+                    load.node._currentAnimationName = data.animations[0].name;
                 }
 
             });
         }
 
         load.node.setPosition(900, 900);
-
         var listener = cc.EventListener.create({
             event: cc.EventListener.TOUCH_ONE_BY_ONE,
             swallowTouches: true,
@@ -766,7 +766,7 @@ var HelloWorldLayer = cc.Layer.extend({
                 if (cc.rectContainsPoint(target.getBoundingBoxToWorld(), touch.getLocation())) {
                     if (!cc.sys.isNative) {
                         var action = target.actionManager.getActionByTag(target.tag, target);
-                        action.play(Object.keys(action._animationInfos)[0], true);
+                        action.play(target._currentAnimationName, true);
                     }
                     context._nodesSelected.push(target);
                     context.addNodeToRecording(context, touch, target);
