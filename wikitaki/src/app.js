@@ -46,7 +46,8 @@ var HelloWorldLayer = cc.Layer.extend({
                                         action.play(Object.keys(action._animationInfos)[0], true);
                                     }
                                     context._nodesSelected.push(target);
-                                    context.addNodeToRecording(context, touch, target)
+                                    context.addNodeToRecording(context, touch, target);
+                                    context.constructConfigPanel(target);                                        
                                     //dummy for testing animation_1
                                     context._animationNode = target;
                                     return true;
@@ -67,15 +68,6 @@ var HelloWorldLayer = cc.Layer.extend({
                                 var target = event.getCurrentTarget();
                                 var nodeToRemoveIndex = context._nodesSelected.indexOf(target);
                                 if (nodeToRemoveIndex != -1) {
-                                    // if not record mode pop the configuration
-                                    // cc.loader.loadJson('res/characters/skeletonConfig/' + target.getName() + '.json', function (error, data) {
-                                    //     cc.log('data:' + data);
-                                    //     if (data != null) {
-                                    //         context.constructConfigPanel(data.skinChoices, target);
-
-                                    //     }
-                                    // });
-
                                     context._nodesSelected.splice(nodeToRemoveIndex, 1);
                                 }
 
@@ -99,6 +91,7 @@ var HelloWorldLayer = cc.Layer.extend({
                                 if (cc.rectContainsPoint(targetRectangle, location)) {
                                     context._nodesSelected.push(target);
                                     context.addNodeToRecording(context, touch, target)
+                                    context.constructConfigPanel(target);                    
 
                                     return true;
                                 }
@@ -543,6 +536,7 @@ var HelloWorldLayer = cc.Layer.extend({
                         if (cc.rectContainsPoint(targetRectangle, location)) {
                             context._nodesSelected.push(target);
                             context.addNodeToRecording(context, touch, target);
+                            context.constructConfigPanel(target);                                        
                             return true;
                         }
                         return false;
@@ -790,16 +784,6 @@ var HelloWorldLayer = cc.Layer.extend({
                 var target = event.getCurrentTarget();
                 var nodeToRemoveIndex = context._nodesSelected.indexOf(target);
                 if (nodeToRemoveIndex != -1) {
-                    //if not record mode pop the configuration
-                    // if not record mode pop the configuration
-                    // cc.loader.loadJson('res/characters/skeletonConfig/' + target.getName() + '.json', function (error, data) {
-                    //     cc.log('data:' + data);
-                    //     if (data != null) {
-                    //         context.constructConfigPanel(data.skinChoices, target);
-
-                    //     }
-                    // });
-
                     context._nodesSelected.splice(nodeToRemoveIndex, 1);
                 }
 

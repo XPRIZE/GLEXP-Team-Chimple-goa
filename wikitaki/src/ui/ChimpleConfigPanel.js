@@ -32,9 +32,15 @@ chimple.ConfigPanel = cc.Node.extend({
             this._target.parent._scaleAction = true;
         } else if(button.getName() == res.flipx_png) {
             this._target.setScaleX(-1 * this._target.getScaleX());
+        } else if(button.getName() == res.delete_png) {
+            this._target.parent.removeChild(this._target, true);
         } else if(button.getName() == res.my_avatar_png) {
             if(this._target.getUserData() != null && this._target.getUserData().skinChoices != null){
                 this.parent.push(new chimple.ConfigPanel(this._target, cc.p(0, 0), cc.size(760, 1800), 2, 2, this._target.getUserData().skinChoices, this.skinSelected, this, true));
+            }
+        } else if(button.getName() == res.animation_png) {
+            if(this._target.getUserData() != null && this._target.getUserData().animations != null){
+                this.parent.push(new chimple.ConfigPanel(this._target, cc.p(0, 0), cc.size(760, 1800), 2, 2, this._target.getUserData().animations, this.animationSelected, this, false));
             }
         }
     },
@@ -63,7 +69,12 @@ chimple.ConfigPanel = cc.Node.extend({
                 }
             }
         }
-    }    
+    },
+    animationSelected: function (selectedItem) {
+        this._target._currentAnimationName = selectedItem._configuration.name;
+        var action = this._target.actionManager.getActionByTag(this._target.tag, this._target);
+        action.play(this._target._currentAnimationName, false);
+    }       
 });
 
 chimple.TopConfigPanel = ccui.Layout.extend({
