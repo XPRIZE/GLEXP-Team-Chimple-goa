@@ -215,7 +215,8 @@ var HelloWorldLayer = cc.Layer.extend({
 
     addTextToScene: function () {
         this._sceneText = "how are you today?";
-        var textEditScene = new TextEditScene(this._sceneText);
+        this._sceneTextKey = this.pageKey + ".text";
+        var textEditScene = new TextEditScene(this._sceneText, this._sceneTextKey);
         cc.director.pushScene(textEditScene);
     },
 

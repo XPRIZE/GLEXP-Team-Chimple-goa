@@ -1,9 +1,11 @@
 /// <reference path="../../../cocos2d-typescript-definitions/cocos2d/cocos2d-lib.d.ts" />
 var chimple = chimple || {};
 var PlayRecordingLayer = cc.Layer.extend({
+    _defaultTextSize: 40,
     ctor: function (pageKey) {
         this._super();
         this._pageKey = pageKey;
+        this.scheduleUpdate();
         return true;
     },
     init: function () {
@@ -40,29 +42,67 @@ var PlayRecordingLayer = cc.Layer.extend({
         cc.loader.cache[cacheKey] = contents;
     },
 
-    playRecordedScene: function (pageKey) {
-        var recordedScene = ccs.load(pageKey);
-        if (recordedScene != null) {
-            this.addChild(recordedScene.node);
+    isPlayEnded: function () {
+        if (this._playDuration == undefined || this._playDuration == null) {
+            return true;
+        }
+        if (!(this._recordedScene.action.getCurrentFrame() < this._playDuration)) {
+            return true;
+        }
 
-            recordedScene.node.runAction(recordedScene.action);
-            var duration = cc.sys.localStorage.getItem("duration");
-            recordedScene.action.gotoFrameAndPlay(0, duration, 0, false);
+        return false;
+    },
+
+    playRecordedScene: function (pageKey) {
+        this._recordedScene = ccs.load(pageKey);
+        if (this._recordedScene != null) {
+            this.addChild(this._recordedScene.node);
+
+            this._recordedScene.node.runAction(this._recordedScene.action);
+            this._playDuration = cc.sys.localStorage.getItem("duration");
+            this._recordedScene.action.gotoFrameAndPlay(0, this._playDuration, 0, false);
 
             if (!cc.sys.isNative) {
-                recordedScene.node._renderCmd._dirtyFlag = 1;
-                recordedScene.node.children.forEach(function(element) {
-                    if(element.getName().indexOf("Skeleton") != -1)
-                    {
+                this._recordedScene.node._renderCmd._dirtyFlag = 1;
+                this._recordedScene.node.children.forEach(function (element) {
+                    if (element.getName().indexOf("Skeleton") != -1) {
                         element._renderCmd._dirtyFlag = 1;
                     }
                 }, this);
             }
         }
+
+        //load text
+        var textKey = pageKey + ".text";
+        var textToDisplay = cc.sys.localStorage.getItem(textKey);
+
+        var maxHeight = cc.director.getWinSize().height;
+        var textLayerWidth = cc.director.getWinSize().width - cc.director.getWinSize().height;
+        var textContentMargin = 30;
+
+        var textLayer = cc.LayerColor.create(new cc.Color(160, 160, 160, 255), textLayerWidth, maxHeight);
+        textLayer.setPosition(maxHeight, 0);
+        this._textNode = new ccui.Text(textToDisplay, "AmericanTypewriter", 50);
+        this._textNode.setAnchorPoint(0, 1);
+        this._textNode.setPosition(textContentMargin, cc.director.getWinSize().height - 100);
+        this._textNode.ignoreContentAdaptWithSize(false);
+        this._textNode.setContentSize(cc.size(textLayerWidth - 2 * textContentMargin, cc.director.getWinSize().height - 100));
+        this._textNode.setTouchEnabled(true);
+        this._textNode.setTextHorizontalAlignment(cc.TEXT_ALIGNMENT_LEFT);
+        this._textNode.setTextVerticalAlignment(cc.VERTICAL_TEXT_ALIGNMENT_TOP);
+        this._textNode.setVisible(false);
+        textLayer.addChild(this._textNode);
+        this.addChild(textLayer, 0);
     },
 
     closeEditor: function () {
         cc.director.popScene();
+    },
+
+    update: function (dt) {
+        if (this.isPlayEnded()) {
+            this._textNode.setVisible(true);
+        }
     }
 });
 

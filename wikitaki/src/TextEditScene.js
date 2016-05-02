@@ -22,44 +22,24 @@ var TextCreateLayer = cc.Layer.extend({
             menu.setPosition(cc.director.getWinSize().width - 200, cc.director.getWinSize().height - 200);
         }
 
-        if (!cc.sys.isNative) {
-            var scrollView = new ccui.ScrollView();
-            scrollView.setTouchEnabled(true);
-            scrollView.setBounceEnabled(true);
-            scrollView.setPosition(cc.director.getWinSize().width / 2, cc.director.getWinSize().height / 2);
-            scrollView.setDirection(ccui.ScrollView.DIR_VERTICAL);
-            scrollView.setBounceEnabled(true);
-            scrollView.setClippingEnabled = true;
-            scrollView.setContentSize(cc.size(1600, 1600));
-            scrollView.setInnerContainerSize(cc.size(1600, 1600));
-            scrollView.setBackGroundColor(new cc.Color(140, 140, 160, 255));
-            scrollView.setAnchorPoint(0.5, 0.5);
-            scrollView.setBackGroundColorType(ccui.Layout.BG_COLOR_SOLID);
-            this.addChild(scrollView);
-        }
-
+        var textContentMargin = 100; 
 
         this._textField = new ccui.TextField();
         //this._textField.setSize(cc.size(cc.director.getWinSize().width / 2, cc.director.getWinSize().height / 2));
-        this._textField.setFontSize(44);
+        this._textField.setFontSize(50);
         this._textField.setAnchorPoint(0.5, 0.5);
-        this._textField.setPosition(800, 700);
+        this._textField.setPosition(cc.director.getWinSize().width / 2  + textContentMargin, cc.director.getWinSize().height/2 - 2 * textContentMargin);
         this._textField.setMaxLengthEnabled(true);
         this._textField.setMaxLength(500);
         this._textField.ignoreContentAdaptWithSize(false);
         this._textField.setPlaceHolderColor(cc.color.BLUE);
-        this._textField.setTextHorizontalAlignment(cc.TEXT_ALIGNMENT_CENTER);
+        this._textField.setTextHorizontalAlignment(cc.TEXT_ALIGNMENT_LEFT);
         this._textField.setTextVerticalAlignment(cc.VERTICAL_TEXT_ALIGNMENT_TOP);
-        this._textField.setContentSize(cc.size(1400, 1600));
+        this._textField.setContentSize(cc.size(cc.director.getWinSize().width - 4 * textContentMargin, cc.director.getWinSize().height));
         if (this._text) {
             this._textField.setString(this._text);
         }
-
-        if (!cc.sys.isNative) {
-            scrollView.addChild(this._textField, 0);
-        } else {
-            this.addChild(this._textField, 0);
-        }
+        this.addChild(this._textField, 0);  
         this._textField.addEventListener(this.updateText, this);
     },
 
@@ -109,11 +89,15 @@ var TextEditLayer = cc.Layer.extend({
     },
 
     init: function () {
-        var leftLayer = cc.LayerColor.create(new cc.Color(200, 230, 230, 255), 1800, 1800);
+        //assuming landscape mode, width will be more than height
+        var maxHeight = cc.director.getWinSize().height;
+        var rightLayerWidth = cc.director.getWinSize().width - cc.director.getWinSize().height; 
+        var textContentMargin = 30; 
+        var leftLayer = cc.LayerColor.create(new cc.Color(200, 230, 230, 255), maxHeight, maxHeight);
         this.addChild(leftLayer, 0);
 
-        var rightLayer = cc.LayerColor.create(new cc.Color(160, 160, 160, 255), 760, 1800);
-        rightLayer.setPosition(1800, 0);
+        var rightLayer = cc.LayerColor.create(new cc.Color(160, 160, 160, 255), rightLayerWidth, maxHeight);
+        rightLayer.setPosition(maxHeight, 0);
         this.addChild(rightLayer, 0);
 
         if (!cc.sys.isNative) {
@@ -123,7 +107,7 @@ var TextEditLayer = cc.Layer.extend({
             var menu = new cc.Menu(closeButton);
             menu.alignItemsVerticallyWithPadding(10);
             this.addChild(menu, 0);
-            menu.setPosition(1800, cc.director.getWinSize().height - 150);
+            menu.setPosition(maxHeight, cc.director.getWinSize().height - 150);
         }
 
 
@@ -142,32 +126,17 @@ var TextEditLayer = cc.Layer.extend({
         slider.addEventListener(this.sliderChanged, this);
         leftLayer.addChild(slider);
 
-        //create scrolling text
-        var scrollView = new ccui.ScrollView();
-        scrollView.setTouchEnabled(true);
-        scrollView.setBounceEnabled(true);
-        scrollView.setPosition(80, 100);
-        scrollView.setDirection(ccui.ScrollView.DIR_VERTICAL);
-        scrollView.setBounceEnabled(true);
-        scrollView.setClippingEnabled = true;
-        scrollView.setContentSize(cc.size(600, 1600));
-        scrollView.setInnerContainerSize(cc.size(600, 2000));
-        scrollView.setBackGroundColor(new cc.Color(160, 160, 160, 255));
-        scrollView.setAnchorPoint(0, 0);
-        scrollView.setBackGroundColorType(ccui.Layout.BG_COLOR_SOLID);
-        rightLayer.addChild(scrollView);
-
         this._textNode = new ccui.Text(this._text, "AmericanTypewriter", this._defaultTextSize);
-        this._textNode.setAnchorPoint(0, 0.25);
+        this._textNode.setAnchorPoint(0, 1);
+        this._textNode.setPosition(maxHeight + textContentMargin, cc.director.getWinSize().height - 100);
         this._textNode.ignoreContentAdaptWithSize(false);
-        this._textNode.setContentSize(cc.size(600, 2400));
+        this._textNode.setContentSize(cc.size(rightLayerWidth - 2 * textContentMargin, cc.director.getWinSize().height - 100));
         this._textNode.setTouchEnabled(true);
-        this._textNode.setTextHorizontalAlignment(cc.TEXT_ALIGNMENT_CENTER);
+        this._textNode.setTextHorizontalAlignment(cc.TEXT_ALIGNMENT_LEFT);
         this._textNode.setTextVerticalAlignment(cc.VERTICAL_TEXT_ALIGNMENT_TOP);
         this._textNode.addTouchEventListener(this.textEvent, this);
-        scrollView.addChild(this._textNode);
+        this.addChild(this._textNode);
         slider.referenceTextNode = this._textNode;
-        slider.referenceScrollView = scrollView;
     },
 
     textEvent: function (sender, type) {
