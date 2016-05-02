@@ -1,9 +1,10 @@
 /// <reference path="../../../cocos2d-typescript-definitions/cocos2d/cocos2d-lib.d.ts" />
 var chimple = chimple || {};
 var TextCreateLayer = cc.Layer.extend({
-    ctor: function (existingText) {
+    ctor: function (existingText, textKey) {
         this._super();
         this._text = existingText;
+        this._textKey = textKey;
         return true;
     },
     init: function () {
@@ -21,20 +22,43 @@ var TextCreateLayer = cc.Layer.extend({
             menu.setPosition(cc.director.getWinSize().width - 200, cc.director.getWinSize().height - 200);
         }
 
+
+        var scrollView = new ccui.ScrollView();
+        scrollView.setTouchEnabled(true);        
+        scrollView.setBounceEnabled(true);
+        scrollView.setPosition(cc.director.getWinSize().width / 2, cc.director.getWinSize().height / 2);
+        scrollView.setDirection(ccui.ScrollView.DIR_VERTICAL);
+        scrollView.setBounceEnabled(true);
+        scrollView.setClippingEnabled = true;
+        scrollView.setContentSize(cc.size(1600, 1600));
+        scrollView.setInnerContainerSize(cc.size(1600, 1600));
+        scrollView.setBackGroundColor(new cc.Color(140, 140, 160, 255));
+        scrollView.setAnchorPoint(0.5, 0.5);
+        scrollView.setBackGroundColorType(ccui.Layout.BG_COLOR_SOLID);
+        this.addChild(scrollView);
+
         this._textField = new ccui.TextField();
-        this._textField.setSize(cc.size(cc.director.getWinSize().width / 2, cc.director.getWinSize().height / 2));
-        this._textField.setFontSize(100);
+        //this._textField.setSize(cc.size(cc.director.getWinSize().width / 2, cc.director.getWinSize().height / 2));
+        this._textField.setFontSize(44);
+        this._textField.setAnchorPoint(0.5,0.5);
+        this._textField.setPosition(800,700);
+        this._textField.setMaxLengthEnabled(true);
+        this._textField.setMaxLength(500);
+        this._textField.ignoreContentAdaptWithSize(false);
         this._textField.setPlaceHolderColor(cc.color.BLUE);
+        this._textField.setTextHorizontalAlignment(cc.TEXT_ALIGNMENT_CENTER);
+        this._textField.setTextVerticalAlignment(cc.VERTICAL_TEXT_ALIGNMENT_TOP);
+        this._textField.setContentSize(cc.size(1400, 1600));
         if (this._text) {
             this._textField.setString(this._text);
         }
 
-        this._textField.setPosition(cc.director.getWinSize().width / 2, cc.director.getWinSize().height / 2 + 500);
-        this.addChild(this._textField, 0);
+        //this._textField.setPosition(cc.director.getWinSize().width / 2, cc.director.getWinSize().height / 2 + 500);
+        scrollView.addChild(this._textField, 0);
         this._textField.addEventListener(this.updateText, this);
     },
 
-    changeText: function(text) {
+    changeText: function (text) {
         this._text = text;
         this._textField.setString(this._text);
     },
@@ -64,13 +88,14 @@ var TextCreateLayer = cc.Layer.extend({
 var TextEditLayer = cc.Layer.extend({
     _defaultTextSize: 40,
     _initialSliderPercentage: 50,
-    ctor: function (existingText) {
+    ctor: function (existingText, textKey) {
         this._super();
         this._text = existingText;
+        this._textKey = textKey;
         return true;
     },
 
-    changeText: function(text) {
+    changeText: function (text) {
         this._text = text;
         this._textNode.setString(text);
     },
@@ -98,12 +123,12 @@ var TextEditLayer = cc.Layer.extend({
         //create COLOR picker for Font Color Change
 
         var sliderLabel = new cc.LabelTTF("Change Font Size:", "AmericanTypewriter", 40);
-        sliderLabel.setPosition(300, cc.director.getWinSize().height/2 + 200);
+        sliderLabel.setPosition(300, cc.director.getWinSize().height / 2 + 200);
         leftLayer.addChild(sliderLabel);
 
         var slider = new ccui.Slider("res/sliderTrack.png",
             "res/sliderThumb.png");
-        slider.setPosition(900, cc.director.getWinSize().height/2 + 200);
+        slider.setPosition(900, cc.director.getWinSize().height / 2 + 200);
         slider.setPercent(this._initialSliderPercentage);
 
         slider.addEventListener(this.sliderChanged, this);
@@ -120,7 +145,7 @@ var TextEditLayer = cc.Layer.extend({
         scrollView.setContentSize(cc.size(600, 1600));
         scrollView.setInnerContainerSize(cc.size(600, 2000));
         scrollView.setBackGroundColor(new cc.Color(160, 160, 160, 255));
-        scrollView.setAnchorPoint(0,0);
+        scrollView.setAnchorPoint(0, 0);
         scrollView.setBackGroundColorType(ccui.Layout.BG_COLOR_SOLID);
         rightLayer.addChild(scrollView);
 
@@ -137,7 +162,7 @@ var TextEditLayer = cc.Layer.extend({
         slider.referenceScrollView = scrollView;
     },
 
-    textEvent: function(sender, type) {
+    textEvent: function (sender, type) {
 
         switch (type) {
             case ccui.Widget.TOUCH_BEGAN:
@@ -159,32 +184,34 @@ var TextEditLayer = cc.Layer.extend({
     },
 
 
-    sliderChanged: function(sender, type) {
+    sliderChanged: function (sender, type) {
         cc.log(sender.getPercent());
         var difference = Math.ceil(sender.getPercent() - this._initialSliderPercentage);
-        var updatedFontSize  = this._defaultTextSize + difference;
+        var updatedFontSize = this._defaultTextSize + difference;
         sender.referenceTextNode.setFontSize(updatedFontSize);
     },
 
     closeEditor: function () {
+        cc.sys.localStorage.setItem(this._textKey, this._text);
         cc.director.popScene();
     }
 });
 
 var TextEditScene = cc.Scene.extend({
     _text: null,
-    ctor: function (text) {
+    ctor: function (text, textKey) {
         this._super();
         cc.log("received:" + text);
         this._text = text;
+        this._textKey = textKey;
     },
 
     onEnter: function () {
         this._super();
-        this._textEditLayer = new TextEditLayer(this._text);
+        this._textEditLayer = new TextEditLayer(this._text, this._textKey);
         this._textEditLayer.init();
 
-        this._textCreateLayer = new TextCreateLayer(this._text);
+        this._textCreateLayer = new TextCreateLayer(this._text, this._textKey);
         this._textCreateLayer.init();
 
         if (this._text != null && this._text.length > 0) {
