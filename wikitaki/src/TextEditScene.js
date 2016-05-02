@@ -75,6 +75,9 @@ var TextCreateLayer = cc.Layer.extend({
                 break;
             case ccui.TextField.EVENT_DETACH_WITH_IME:
                 cc.log("closed keyboard");
+                if (cc.sys.isNative) {
+                    self.closeEditor();
+                }
                 break;
             case ccui.TextField.EVENT_INSERT_TEXT:
                 cc.log("text entered");
@@ -180,6 +183,11 @@ var TextEditLayer = cc.Layer.extend({
                 this.setVisible(false);
                 this.parent._textCreateLayer.changeText(this._text);
                 this.parent._textCreateLayer.setVisible(true);
+
+                if (cc.sys.isNative) {
+                    self.closeEditor();
+                }
+
                 break;
             case ccui.Widget.TOUCH_CANCELED:
                 break;
