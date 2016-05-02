@@ -31,9 +31,7 @@ chimple.ConfigPanel = cc.Node.extend({
             this._target.parent._rotateAction = true;
             this._target.parent._scaleAction = true;
         } else if(button.getName() == res.flipx_png) {
-            this._target.setFlippedX(!this._target.flippedX);
-        } else if(button.getName() == res.flipy_png) {
-            this._target.setFlippedY(!this._target.flippedY);
+            this._target.setScaleX(-1 * this._target.getScaleX());
         } else if(button.getName() == res.my_avatar_png) {
             if(this._target.getUserData() != null && this._target.getUserData().skinChoices != null){
                 this.parent.push(new chimple.ConfigPanel(this._target, cc.p(0, 0), cc.size(760, 1800), 2, 2, this._target.getUserData().skinChoices, this.skinSelected, this, true));
