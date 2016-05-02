@@ -33,89 +33,15 @@ var HelloWorldLayer = cc.Layer.extend({
             if (element._name === 'Scene') {
                 element.children.forEach(function (element) {
                     if (element.getName().indexOf("Skeleton") != -1) {
-                        var listener = cc.EventListener.create({
-                            event: cc.EventListener.TOUCH_ONE_BY_ONE,
-                            swallowTouches: true,
-                            onTouchBegan: function (touch, event) {
-                                var context = event.getCurrentTarget().parent.parent;
-                                var target = event.getCurrentTarget();
-                                var boundingBox = target.getBoundingBoxToWorld();
-                                if (cc.rectContainsPoint(target.getBoundingBoxToWorld(), touch.getLocation())) {
-                                    if (!cc.sys.isNative) {
-                                        var action = target.actionManager.getActionByTag(target.tag, target);
-                                        action.play(Object.keys(action._animationInfos)[0], true);
-                                    }
-                                    context._nodesSelected.push(target);
-                                    context.addNodeToRecording(context, touch, target);
-                                    context.constructConfigPanel(target);                                        
-                                    //dummy for testing animation_1
-                                    context._animationNode = target;
-                                    return true;
-                                }
-                                return false;
-                            },
-                            onTouchMoved: function (touch, event) {
-                                var context = event.getCurrentTarget().parent.parent;
-                                var target = event.getCurrentTarget();
-                                var location = target.parent.convertToNodeSpace(touch.getLocation());
-                                context.enableTargetTransformForTarget(context, touch, target, location);
-                            },
-                            onTouchEnded: function (touch, event) {
-                                var context = event.getCurrentTarget().parent.parent;
-                                var target = event.getCurrentTarget();
-                                context.enableEventsForAllOtherNodes(context, target, true);
-                                target.actionManager.getActionByTag(target.tag, target).pause();
-                                var target = event.getCurrentTarget();
-                                var nodeToRemoveIndex = context._nodesSelected.indexOf(target);
-                                if (nodeToRemoveIndex != -1) {
-                                    context._nodesSelected.splice(nodeToRemoveIndex, 1);
-                                }
-
-                            }
-                        });
+                        var eventObj = new chimple.SkeletonTouchHandler(this);
+                        var listener = cc.EventListener.create(eventObj);
                         cc.eventManager.addListener(listener, element);
                         if (!cc.sys.isNative) {
                             element._renderCmd._dirtyFlag = 1;
                         }
                     } else {
-                        var listener = cc.EventListener.create({
-                            event: cc.EventListener.TOUCH_ONE_BY_ONE,
-                            swallowTouches: true,
-                            onTouchBegan: function (touch, event) {
-                                var context = event.getCurrentTarget().parent.parent;
-                                var target = event.getCurrentTarget();
-                                var location = target.convertToNodeSpace(touch.getLocation());
-                                var targetSize = target.getContentSize();
-                                var targetRectangle = cc.rect(0, 0, targetSize.width, targetSize.
-                                    height);
-                                if (cc.rectContainsPoint(targetRectangle, location)) {
-                                    context._nodesSelected.push(target);
-                                    context.addNodeToRecording(context, touch, target)
-                                    context.constructConfigPanel(target);                    
-
-                                    return true;
-                                }
-                                return false;
-                            },
-
-                            onTouchMoved: function (touch, event) {
-                                var target = event.getCurrentTarget();
-                                var context = event.getCurrentTarget().parent.parent;
-                                var location = target.parent.convertToNodeSpace(touch.getLocation());
-                                context.enableTargetTransformForTarget(context, touch, target, location);
-                            },
-
-                            onTouchEnded: function (touch, event) {
-                                var target = event.getCurrentTarget();
-                                var context = event.getCurrentTarget().parent.parent;
-                                context.enableEventsForAllOtherNodes(context, target, true);
-                                var nodeToRemoveIndex = context._nodesSelected.indexOf(target);
-                                if (nodeToRemoveIndex != -1) {
-                                    context._nodesSelected.splice(nodeToRemoveIndex, 1);
-                                }
-                            }
-                        });
-
+                        var eventObj = new chimple.SpriteTouchHandler(this);
+                        var listener = cc.EventListener.create(eventObj);
                         cc.eventManager.addListener(listener, element);
                     }
 
@@ -267,40 +193,6 @@ var HelloWorldLayer = cc.Layer.extend({
             // context._propsContainer.push(loadedImageObject);
         }
 
-        // var listener = cc.EventListener.create({
-        //     event: cc.EventListener.TOUCH_ONE_BY_ONE,
-        //     swallowTouches: true,
-        //     onTouchBegan: function (touch, event) {
-        //         var target = event.getCurrentTarget();
-        //         var location = target.convertToNodeSpace(touch.getLocation());
-        //         var targetSize = target.getContentSize();
-        //         var targetRectangle = cc.rect(0, 0, targetSize.width, targetSize.
-        //             height);
-        //         if (cc.rectContainsPoint(targetRectangle, location)) {
-        //             context._nodesSelected.push(target);
-        //             context.addNodeToRecording(context, touch, target);
-
-        //             return true;
-        //         }
-        //         return false;
-        //     },
-
-        //     onTouchMoved: function (touch, event) {
-        //         var target = event.getCurrentTarget();
-        //         var location = target.parent.convertToNodeSpace(touch.getLocation());
-        //         context.enableTargetTransformForTarget(context, touch, target, location);
-        //     },
-
-        //     onTouchEnded: function (touch, event) {
-        //         var target = event.getCurrentTarget();
-        //         context.enableEventsForAllOtherNodes(context, target, true);
-        //         var nodeToRemoveIndex = context._nodesSelected.indexOf(target);
-        //         if (nodeToRemoveIndex != -1) {
-        //             context._nodesSelected.splice(nodeToRemoveIndex, 1);
-        //         }
-        //     }
-        // });
-
         var eventObj = new chimple.SpriteTouchHandler(context);
         var listener = cc.EventListener.create(eventObj);
         cc.eventManager.addListener(listener, sprite);
@@ -419,12 +311,6 @@ var HelloWorldLayer = cc.Layer.extend({
 
 
     loadJsonFile: function (selectedItem) {
-        //load json file in new window
-        //could be following
-        //SceneNode - mainScene
-        //characterNode 
-        //text - no png or json
-        //png - sprite image  
         var type = selectedItem._configurationType;
         var fileToLoad = selectedItem._jsonFileToLoad;
         switch (type) {
@@ -524,41 +410,9 @@ var HelloWorldLayer = cc.Layer.extend({
                 if (element.getComponent('ComExtensionData') != null) {
                     element.getComponent('ComExtensionData').getActionTag();
                 }
-                var listener = cc.EventListener.create({
-                    event: cc.EventListener.TOUCH_ONE_BY_ONE,
-                    swallowTouches: true,
-                    onTouchBegan: function (touch, event) {
-                        var target = event.getCurrentTarget();
-                        var location = target.convertToNodeSpace(touch.getLocation());
-                        var targetSize = target.getContentSize();
-                        var targetRectangle = cc.rect(0, 0, targetSize.width, targetSize.
-                            height);
-                        if (cc.rectContainsPoint(targetRectangle, location)) {
-                            context._nodesSelected.push(target);
-                            context.addNodeToRecording(context, touch, target);
-                            context.constructConfigPanel(target);                                        
-                            return true;
-                        }
-                        return false;
-                    },
 
-                    onTouchMoved: function (touch, event) {
-                        var target = event.getCurrentTarget();
-                        var location = target.parent.convertToNodeSpace(touch.getLocation());
-                        context.enableTargetTransformForTarget(context, touch, target, location);
-                    },
-                    onTouchEnded: function (touch, event) {
-                        var target = event.getCurrentTarget();
-                        context.enableEventsForAllOtherNodes(context, target, true);
-                        var nodeToRemoveIndex = context._nodesSelected.indexOf(target);
-                        if (nodeToRemoveIndex != -1) {
-                            context._nodesSelected.splice(nodeToRemoveIndex, 1);
-                        }
-
-                    }
-
-                });
-
+                var eventObj = new chimple.SpriteTouchHandler(context);
+                var listener = cc.EventListener.create(eventObj);
                 cc.eventManager.addListener(listener, element);
 
             }, context);
@@ -752,43 +606,9 @@ var HelloWorldLayer = cc.Layer.extend({
         }
 
         load.node.setPosition(900, 900);
-        var listener = cc.EventListener.create({
-            event: cc.EventListener.TOUCH_ONE_BY_ONE,
-            swallowTouches: true,
-            onTouchBegan: function (touch, event) {
-                var target = event.getCurrentTarget();
-                var boundingBox = target.getBoundingBoxToWorld();
-                if (cc.rectContainsPoint(target.getBoundingBoxToWorld(), touch.getLocation())) {
-                    if (!cc.sys.isNative) {
-                        var action = target.actionManager.getActionByTag(target.tag, target);
-                        action.play(target._currentAnimationName, true);
-                    }
-                    context._nodesSelected.push(target);
-                    context.addNodeToRecording(context, touch, target);
-                    context.constructConfigPanel(target);                    
-                    //dummy for testing animation_1
-                    context._animationNode = target;
-                    return true;
-                }
-                return false;
-            },
-            onTouchMoved: function (touch, event) {
-                var target = event.getCurrentTarget();
-                var location = target.parent.convertToNodeSpace(touch.getLocation());
-                context.enableTargetTransformForTarget(context, touch, target, location);
-            },
-            onTouchEnded: function (touch, event) {
-                var target = event.getCurrentTarget();
-                context.enableEventsForAllOtherNodes(context, target, true);
-                target.actionManager.getActionByTag(target.tag, target).pause();
-                var target = event.getCurrentTarget();
-                var nodeToRemoveIndex = context._nodesSelected.indexOf(target);
-                if (nodeToRemoveIndex != -1) {
-                    context._nodesSelected.splice(nodeToRemoveIndex, 1);
-                }
 
-            }
-        });
+        var eventObj = new chimple.SkeletonTouchHandler(context);
+        var listener = cc.EventListener.create(eventObj);
         cc.eventManager.addListener(listener, load.node);
         this.addChild(load.node);
         load.node.runAction(load.action);
@@ -799,12 +619,12 @@ var HelloWorldLayer = cc.Layer.extend({
     },
 
     constructConfigPanel: function (target) {
-        if(this._controlPanel.getCurrentTarget() != target) {
+        if (this._controlPanel.getCurrentTarget() != target) {
             if (target.getName().indexOf("Skeleton") != -1) {
                 this._controlPanel.push(new chimple.ConfigPanel(target, cc.p(0, 0), cc.size(760, 1800), 2, 4, chimple.storyConfigurationObject.editObject))
             } else {
-                this._controlPanel.push(new chimple.ConfigPanel(target, cc.p(0, 0), cc.size(760, 1800), 2, 4, chimple.storyConfigurationObject.editCharacter))            
-            }            
+                this._controlPanel.push(new chimple.ConfigPanel(target, cc.p(0, 0), cc.size(760, 1800), 2, 4, chimple.storyConfigurationObject.editCharacter))
+            }
         }
     },
 
@@ -902,30 +722,6 @@ var HelloWorldLayer = cc.Layer.extend({
         return object;
     },
 
-    // constructPositionMoveMentTimeLine: function (node) {
-    //     var object = Object.create(Object.prototype);
-    //     if (node.ActionTag != null) {
-    //         object.ActionTag = node.ActionTag;
-    //     } else if (node.getComponent('ComExtensionData') != null && node.getComponent('ComExtensionData').getActionTag() != null) {
-    //         object.ActionTag = node.getComponent('ComExtensionData').getActionTag();
-    //     }
-
-    //     if (node.positionFrames !== null && node.positionFrames.length > 0) {
-    //         var object = Object.create(Object.prototype);
-    //         if (node.ActionTag != null) {
-    //             object.ActionTag = node.ActionTag;
-    //         } else if (node.getComponent('ComExtensionData') != null && node.getComponent('ComExtensionData').getActionTag() != null) {
-    //             object.ActionTag = node.getComponent('ComExtensionData').getActionTag();
-    //         }
-
-    //         object.Property = "Position";
-    //         object.Frames = node.positionFrames;
-    //         node.positionFrames = null;
-    //         object.ctype = "TimelineData";
-    //         return object;
-    //     }
-    // },
-
     update: function (dt) {
         if (this._isRecordingStarted && this._nodesSelected != null && this._nodesSelected.length > 0) {
             this._recordingFrameIndex = this._recordingFrameIndex + 1;
@@ -936,7 +732,6 @@ var HelloWorldLayer = cc.Layer.extend({
             }, this);
         }
     }
-
 });
 
 var HelloWorldScene = cc.Scene.extend({
@@ -956,5 +751,4 @@ var HelloWorldScene = cc.Scene.extend({
         this._sceneLayer.loadSceneFromStorage();
         this._sceneLayer.registerEventListenerForAllChildren();
     }
-}
-);
+});
