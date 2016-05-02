@@ -14,7 +14,7 @@ chimple.SpriteTouchHandler = function (context) {
         if (cc.rectContainsPoint(targetRectangle, location)) {
             this._context._nodesSelected.push(target);
             this._context.addNodeToRecording(this._context, touch, target);
-
+            this._context.constructConfigPanel(target);
             return true;
         }
         return false;

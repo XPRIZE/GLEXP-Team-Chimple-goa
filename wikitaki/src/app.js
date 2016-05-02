@@ -12,16 +12,19 @@ var HelloWorldLayer = cc.Layer.extend({
         this._nodesTouchedWhileRecording = [];
         this._isRecordingStarted = false;
         this._moveAction = true;
+        this._controlPanel = null;
         return true;
     },
 
     init: function () {
         if (chimple.storyConfigurationObject) {
             //backgrounds, characters and pops, texts
-            var mainConfigurationItems = Object.getOwnPropertyNames(chimple.storyConfigurationObject);
+            var mainConfigurationItems = Object.getOwnPropertyNames(chimple.storyConfigurationObject.addObjects);
             //Construct UI
-            var pageView = new chimple.PageScroller(cc.p(1800, 0), cc.size(760, 1800), 2, 3, mainConfigurationItems, cc.color.RED, this.configurationChoosed, this, false);
-            this.addChild(pageView, 2);
+            var pageView = new chimple.PageScroller(cc.p(0, 0), cc.size(760, 1800), 2, 3, mainConfigurationItems, cc.color.RED, this.configurationChoosed, this, false);
+            this._controlPanel = new chimple.PanelStack(pageView, cc.size(760, 1800));
+            this._controlPanel.setPosition(1800, 0);
+            this.addChild(this._controlPanel, 0);
         }
     },
 
@@ -151,7 +154,7 @@ var HelloWorldLayer = cc.Layer.extend({
         //get configuration for selected Item
         //create scroll bar at top based on item selected
 
-        var selectedConfig = chimple.storyConfigurationObject[selectedItem.getName()];
+        var selectedConfig = chimple.storyConfigurationObject.addObjects[selectedItem.getName()];
         cc.log(selectedItem.getName());
         if (selectedConfig != null && selectedItem.getName() === "texts") {
             this.addTextToScene();
@@ -159,14 +162,7 @@ var HelloWorldLayer = cc.Layer.extend({
             this.startRecording();
         } else if (selectedConfig != null && selectedItem.getName() === "stopRecording") {
             this.stopRecording();
-        } else if (selectedConfig != null && selectedItem.getName() === "move") {
-            this.nodeAction(selectedItem.getName());
-        } else if (selectedConfig != null && selectedItem.getName() === "rotate") {
-            this.nodeAction(selectedItem.getName());
-        } else if (selectedConfig != null && selectedItem.getName() === "scale") {
-            this.nodeAction(selectedItem.getName());
         } else if (selectedConfig != null && selectedItem.getName() === "play") {
-            this.nodeAction(selectedItem.getName());
             var playScene = new PlayRecordingScene(this.pageKey);
             cc.director.pushScene(playScene);
         } else if (selectedConfig != null && selectedItem.getName() === "animation_1") {
@@ -175,25 +171,6 @@ var HelloWorldLayer = cc.Layer.extend({
         }
         else if (selectedConfig != null) {
             this.constructTabBar(selectedConfig.categories);
-        }
-    },
-
-    nodeAction: function (actionName) {
-        if (actionName == 'move') {
-            this._moveAction = true;
-            this._rotateAction = false;
-            this._scaleAction = false;
-        } else if (actionName == 'rotate') {
-            this._rotateAction = true;
-            this._moveAction = false;
-            this._scaleAction = false;
-
-        } else if (actionName == 'scale') {
-            this._scaleAction = true;
-            this._rotateAction = false;
-            this._moveAction = false;
-        } else if (actionName == 'play') {
-            cc.log('play recording...');
         }
     },
 
@@ -268,9 +245,8 @@ var HelloWorldLayer = cc.Layer.extend({
     enableTargetTransformForTarget: function (context, touch, target, location) {
         if (context._moveAction) {
             target.setPosition(location);
-        } else if (context._rotateAction) {
+        } else if (context._rotateAction || context._scaleAction) {
             context.calcAngleAndRotationForTarget(touch, target);
-        } else if (context._scaleAction) {
             context.calcScaleForTarget(context, touch, target);
         }
     },
@@ -489,7 +465,8 @@ var HelloWorldLayer = cc.Layer.extend({
         }
 
         var location = target.parent.convertToNodeSpace(touch.getLocation());
-        context._initialScale = target.getScale();
+        context._initialScaleX = target.getScaleX();
+        context._initialScaleY = target.getScaleY();
         context._initialDiff = cc.pDistance(location, target.getPosition());
         context._lastDiff = null;
         context.toggleEventsForAllOtherNodes(context, target, false);
@@ -516,8 +493,9 @@ var HelloWorldLayer = cc.Layer.extend({
         var distanceMoved = (context._currentDiff - context._lastDiff) / context._initialDiff;
 
         context._lastDiff = context._currentDiff;
-        var computedScale = target.getScale() + distanceMoved * context._initialScale;
-        target.setScale(computedScale);
+        var computedScaleX = target.getScaleX() + distanceMoved * context._initialScaleX;
+        var computedScaleY = target.getScaleY() + distanceMoved * context._initialScaleY;
+        target.setScale(computedScaleX, computedScaleY);
     },
 
     enableEventsForAllOtherNodes: function (context, target, isEnabled) {
@@ -791,7 +769,8 @@ var HelloWorldLayer = cc.Layer.extend({
                         action.play(Object.keys(action._animationInfos)[0], true);
                     }
                     context._nodesSelected.push(target);
-                    context.addNodeToRecording(context, touch, target)
+                    context.addNodeToRecording(context, touch, target);
+                    context.constructConfigPanel(target);                    
                     //dummy for testing animation_1
                     context._animationNode = target;
                     return true;
@@ -811,17 +790,14 @@ var HelloWorldLayer = cc.Layer.extend({
                 var nodeToRemoveIndex = context._nodesSelected.indexOf(target);
                 if (nodeToRemoveIndex != -1) {
                     //if not record mode pop the configuration
-                    if (target.getUserData() != null) {
-                        context.constructConfigPanel(target.getUserData().skinChoices, target);
-                    }
                     // if not record mode pop the configuration
-                    cc.loader.loadJson('res/characters/skeletonConfig/' + target.getName() + '.json', function (error, data) {
-                        cc.log('data:' + data);
-                        if (data != null) {
-                            context.constructConfigPanel(data.skinChoices, target);
+                    // cc.loader.loadJson('res/characters/skeletonConfig/' + target.getName() + '.json', function (error, data) {
+                    //     cc.log('data:' + data);
+                    //     if (data != null) {
+                    //         context.constructConfigPanel(data.skinChoices, target);
 
-                        }
-                    });
+                    //     }
+                    // });
 
                     context._nodesSelected.splice(nodeToRemoveIndex, 1);
                 }
@@ -837,14 +813,14 @@ var HelloWorldLayer = cc.Layer.extend({
         this.parseCharacter(configuration.json, load);
     },
 
-    constructConfigPanel: function (configuration, target) {
-        if (this._configPanel) {
-            this.destroyConfigPanel();
+    constructConfigPanel: function (target) {
+        if(this._controlPanel.getCurrentTarget() != target) {
+            if (target.getName().indexOf("Skeleton") != -1) {
+                this._controlPanel.push(new chimple.ConfigPanel(target, cc.p(0, 0), cc.size(760, 1800), 2, 4, chimple.storyConfigurationObject.editObject))
+            } else {
+                this._controlPanel.push(new chimple.ConfigPanel(target, cc.p(0, 0), cc.size(760, 1800), 2, 4, chimple.storyConfigurationObject.editCharacter))            
+            }            
         }
-        var newObject = new chimple.ObjectSelector(target);
-        this._configPanel = new chimple.TabPanel(cc.p(1800, 0), cc.size(760, 1800), 2, 2, configuration, newObject.skinSelectedInConfiguration, newObject);
-        this._configPanel._objectToActOn = target;
-        this.addChild(this._configPanel, 3);
     },
 
     destroyConfigPanel: function () {

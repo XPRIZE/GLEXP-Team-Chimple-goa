@@ -50,7 +50,7 @@ chimple.PageScroller = ccui.PageView.extend({
     },
 
     createItem: function (position, item) {
-        var configObject = chimple.storyConfigurationObject[item];
+        var configObject = chimple.storyConfigurationObject.addObjects[item];
         if (configObject != null) {
             var button = ccui.Button.create(configObject.icon, configObject.cIcon);
             button.setAnchorPoint(0, 0);
