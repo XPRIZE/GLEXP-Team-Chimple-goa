@@ -22,26 +22,28 @@ var TextCreateLayer = cc.Layer.extend({
             menu.setPosition(cc.director.getWinSize().width - 200, cc.director.getWinSize().height - 200);
         }
 
+        if (!cc.sys.isNative) {
+            var scrollView = new ccui.ScrollView();
+            scrollView.setTouchEnabled(true);
+            scrollView.setBounceEnabled(true);
+            scrollView.setPosition(cc.director.getWinSize().width / 2, cc.director.getWinSize().height / 2);
+            scrollView.setDirection(ccui.ScrollView.DIR_VERTICAL);
+            scrollView.setBounceEnabled(true);
+            scrollView.setClippingEnabled = true;
+            scrollView.setContentSize(cc.size(1600, 1600));
+            scrollView.setInnerContainerSize(cc.size(1600, 1600));
+            scrollView.setBackGroundColor(new cc.Color(140, 140, 160, 255));
+            scrollView.setAnchorPoint(0.5, 0.5);
+            scrollView.setBackGroundColorType(ccui.Layout.BG_COLOR_SOLID);
+            this.addChild(scrollView);
+        }
 
-        var scrollView = new ccui.ScrollView();
-        scrollView.setTouchEnabled(true);        
-        scrollView.setBounceEnabled(true);
-        scrollView.setPosition(cc.director.getWinSize().width / 2, cc.director.getWinSize().height / 2);
-        scrollView.setDirection(ccui.ScrollView.DIR_VERTICAL);
-        scrollView.setBounceEnabled(true);
-        scrollView.setClippingEnabled = true;
-        scrollView.setContentSize(cc.size(1600, 1600));
-        scrollView.setInnerContainerSize(cc.size(1600, 1600));
-        scrollView.setBackGroundColor(new cc.Color(140, 140, 160, 255));
-        scrollView.setAnchorPoint(0.5, 0.5);
-        scrollView.setBackGroundColorType(ccui.Layout.BG_COLOR_SOLID);
-        this.addChild(scrollView);
 
         this._textField = new ccui.TextField();
         //this._textField.setSize(cc.size(cc.director.getWinSize().width / 2, cc.director.getWinSize().height / 2));
         this._textField.setFontSize(44);
-        this._textField.setAnchorPoint(0.5,0.5);
-        this._textField.setPosition(800,700);
+        this._textField.setAnchorPoint(0.5, 0.5);
+        this._textField.setPosition(800, 700);
         this._textField.setMaxLengthEnabled(true);
         this._textField.setMaxLength(500);
         this._textField.ignoreContentAdaptWithSize(false);
@@ -53,8 +55,11 @@ var TextCreateLayer = cc.Layer.extend({
             this._textField.setString(this._text);
         }
 
-        //this._textField.setPosition(cc.director.getWinSize().width / 2, cc.director.getWinSize().height / 2 + 500);
-        scrollView.addChild(this._textField, 0);
+        if (!cc.sys.isNative) {
+            scrollView.addChild(this._textField, 0);
+        } else {
+            this.addChild(this._textField, 0);
+        }
         this._textField.addEventListener(this.updateText, this);
     },
 
