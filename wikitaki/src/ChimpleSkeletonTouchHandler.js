@@ -13,10 +13,10 @@ chimple.SkeletonTouchHandler = function (context) {
                 var action = target.actionManager.getActionByTag(target.tag, target);
                 action.play(target._currentAnimationName, true);
             }
-            context._nodesSelected.push(target);
-            context.addNodeToRecording(context, touch, target);
-            context.constructConfigPanel(target);
-            context._animationNode = target;
+            this._context._nodesSelected.push(target);
+            this._context.addNodeToRecording(this._context, touch, target);
+            this._context.constructConfigPanel(target);
+            this._context._animationNode = target;
             return true;
         }
         return false;
@@ -31,7 +31,8 @@ chimple.SkeletonTouchHandler = function (context) {
         var target = event.getCurrentTarget();
         this._context.enableEventsForAllOtherNodes(this._context, target, true);
         target.actionManager.getActionByTag(target.tag, target).pause();
-        var nodeToRemoveIndex = context._nodesSelected.indexOf(target);
+        this._context.constructRemoveAnimationFrame(target);        
+        var nodeToRemoveIndex = this._context._nodesSelected.indexOf(target);
         if (nodeToRemoveIndex != -1) {
             this._context._nodesSelected.splice(nodeToRemoveIndex, 1);
         }

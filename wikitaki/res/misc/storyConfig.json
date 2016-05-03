@@ -1,6 +1,22 @@
 {
-  "addObjects": {
-    "backgrounds": {
+  "addObjects": [
+    {
+      "name": "startRecording",
+      "cIcon": "res/icons/record_onclick.png",
+      "icon": "res/icons/record.png"
+    },
+    {
+      "name": "stopRecording",
+      "cIcon": "res/icons/stop_onclick.png",
+      "icon": "res/icons/stop.png"
+    },
+    {
+      "name": "play",
+      "cIcon": "res/icons/play_onclick.png",
+      "icon": "res/icons/play.png"
+    },    
+    {
+      "name": "backgrounds",
       "cIcon": "res/icons/add_bg_onclick.png",
       "icon": "res/icons/add_bg.png",
       "categories": [
@@ -116,7 +132,8 @@
         }
       ]
     },
-    "characters": {
+    {
+      "name": "characters",
       "cIcon": "res/icons/add_char_onclick.png",
       "icon": "res/icons/add_char.png",
       "categories": [
@@ -169,11 +186,13 @@
         }
       ]
     },
-    "texts": {
+    {
+      "name": "texts",
       "cIcon": "res/icons/add_text_onclick.png",
       "icon": "res/icons/add_text.png"
     },
-    "props": {
+    {
+      "name": "props",
       "cIcon": "res/icons/add_effects_onclick.png",
       "icon": "res/icons/add_effects.png",
       "categories": [
@@ -200,36 +219,8 @@
           ]
         }
       ]
-    },
-    "startRecording": {
-      "cIcon": "res/icons/record_onclick.png",
-      "icon": "res/icons/record.png"
-    },
-    "stopRecording": {
-      "cIcon": "res/icons/stop_onclick.png",
-      "icon": "res/icons/stop.png"
-    },
-    "move": {
-      "cIcon": "res/icons/mat_que_onclick.png",
-      "icon": "res/icons/mat_que.png"
-    },
-    "scale": {
-      "cIcon": "res/icons/multi_que_onclick.png",
-      "icon": "res/icons/multi_que.png"
-    },
-    "rotate": {
-      "cIcon": "res/icons/settings_onclick.png",
-      "icon": "res/icons/settings.png"
-    },
-    "play": {
-      "cIcon": "res/icons/play_onclick.png",
-      "icon": "res/icons/play.png"
-    },
-    "animation_1": {
-      "cIcon": "res/icons/add_animation_onclick.png",
-      "icon": "res/icons/add_animation.png"
     }
-  },
+  ],
   "editObject": [
     {
       "cIcon": "res/icons/translate_onclick.png",

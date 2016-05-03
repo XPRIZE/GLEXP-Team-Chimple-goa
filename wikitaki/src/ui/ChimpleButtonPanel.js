@@ -17,6 +17,7 @@ chimple.ButtonPanel = ccui.Layout.extend({
                         var item = new ccui.Button(configuration[index]['icon'], configuration[index]['cIcon']);
                         item.addTouchEventListener(this.itemSelected, this);
                         item.setPosition(pageIndex * size.width + (colIndex + 0.5) * size.width / numButtonsPerRow, size.height - (rowIndex + 0.5) * size.height / numButtonsPerColumn);
+                        item._selectedIndex = index;
                         item.setName(configuration[index]['icon']);
                         item._configuration = configuration[index];
                         if (configuration[index].hasOwnProperty('json')) {
