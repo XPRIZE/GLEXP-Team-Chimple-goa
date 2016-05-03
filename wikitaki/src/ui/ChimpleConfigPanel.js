@@ -35,12 +35,12 @@ chimple.ConfigPanel = cc.Node.extend({
         } else if(button.getName() == res.delete_png) {
             this._target.parent.removeChild(this._target, true);
         } else if(button.getName() == res.my_avatar_png) {
-            if(this._target.getUserData() != null && this._target.getUserData().skinChoices != null){
-                this.parent.push(new chimple.ConfigPanel(this._target, cc.p(0, 0), cc.size(760, 1800), 2, 2, this._target.getUserData().skinChoices, this.skinSelected, this, true));
+            if(this._target._skeletonConfig != null && this._target._skeletonConfig.skinChoices != null){
+                this.parent.push(new chimple.ConfigPanel(this._target, cc.p(0, 0), cc.size(760, 1800), 2, 2, this._target._skeletonConfig.skinChoices, this.skinSelected, this, true));
             }
         } else if(button.getName() == res.animation_png) {
-            if(this._target.getUserData() != null && this._target.getUserData().animations != null){
-                this.parent.push(new chimple.ConfigPanel(this._target, cc.p(0, 0), cc.size(760, 1800), 2, 2, this._target.getUserData().animations, this.animationSelected, this, false));
+            if(this._target._skeletonConfig != null && this._target._skeletonConfig.animations != null){
+                this.parent.push(new chimple.ConfigPanel(this._target, cc.p(0, 0), cc.size(760, 1800), 2, 2, this._target._skeletonConfig.animations, this.animationSelected, this, false));
             }
         }
     },
@@ -52,8 +52,8 @@ chimple.ConfigPanel = cc.Node.extend({
                     this._target.getBoneNode(element.bone).displaySkin(element.bone);
                 }, this);
             } else if(selectedItem._configuration.colorSkins && selectedItem._configuration.colorSkins.skins && selectedItem._configuration.colorSkins.color) {
-                if(this._target.getUserData() != null && this._target.getUserData().colorSkins != null) {
-                    var skinNames = this._target.getUserData().colorSkins[selectedItem._configuration.colorSkins.skins];
+                if(this._target._skeletonConfig != null && this._target._skeletonConfig.colorSkins != null) {
+                    var skinNames = this._target._skeletonConfig.colorSkins[selectedItem._configuration.colorSkins.skins];
                     if(skinNames != null) {
                         for (var boneName in skinNames) {
                             var bone = this._target.getBoneNode(boneName);
