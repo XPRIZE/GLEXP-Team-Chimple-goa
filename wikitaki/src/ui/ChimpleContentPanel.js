@@ -40,12 +40,12 @@ chimple.ContentPanel = cc.LayerColor.extend({
             this.registerEventListenerForAllChildren();
             //parse JSON and store in local storage
             if (shouldSaveToLocalStorage) {
-                this.parseScene(fileToLoad);
+                this.parseScene(this, fileToLoad);
             }
         }
     },
 
-    parseScene: function (fileToLoad) {
+    parseScene: function (context, fileToLoad) {
         cc.log('got file:' + fileToLoad);
         var resourcePath = fileToLoad.substring(0, fileToLoad.lastIndexOf("/") + 1);
         cc.log('resourcePath:' + resourcePath);
@@ -60,7 +60,7 @@ chimple.ContentPanel = cc.LayerColor.extend({
                 //     }, this);
                 // }
                 // this._propsContainer = [];
-                this.saveSceneToLocalStorage(JSON.stringify(data));
+                context.saveSceneToLocalStorage(JSON.stringify(data));
             }
         });
     },
@@ -118,7 +118,7 @@ chimple.ContentPanel = cc.LayerColor.extend({
 
     createTimeLinesForPlayAnimation: function (timelines) {
         //fetch scene json
-        var storedSceneString = cc.sys.localStorage.getItem(this.pageKey);
+        var storedSceneString = cc.sys.localStorage.getItem(this._pageKey);
         if (storedSceneString != null && storedSceneString.length > 0) {
             var storedSceneJSON = JSON.parse(storedSceneString);
             cc.log('storedSceneJSON:' + storedSceneJSON);
@@ -132,7 +132,7 @@ chimple.ContentPanel = cc.LayerColor.extend({
 
     addTextToScene: function () {
         this._sceneText = "how are you today?";
-        this._sceneTextKey = this.pageKey + ".text";
+        this._sceneTextKey = this._pageKey + ".text";
         var textEditScene = new TextEditScene(this._sceneText, this._sceneTextKey);
         cc.director.pushScene(textEditScene);
     },
@@ -465,7 +465,7 @@ chimple.ContentPanel = cc.LayerColor.extend({
         load.node.ActionTag = skeletonObject.ActionTag;
         // context.saveCharacterToLocalStorage(JSON.stringify(skeletonObject));
         cc.log('JSON.stringify(skeletonObject):' + JSON.stringify(skeletonObject));
-        var storedSceneString = cc.sys.localStorage.getItem(this.pageKey);
+        var storedSceneString = cc.sys.localStorage.getItem(this._pageKey);
         if (storedSceneString != null && storedSceneString.length > 0) {
             var storedSceneJSON = JSON.parse(storedSceneString);
             if (storedSceneJSON) {
