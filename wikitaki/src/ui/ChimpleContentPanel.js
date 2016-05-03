@@ -25,7 +25,7 @@ chimple.ContentPanel = cc.LayerColor.extend({
     doPostLoadingProcessForScene: function (fileToLoad, shouldSaveToLocalStorage) {
         if (this._constructedScene != null) {
             this._constructedScene.node.removeFromParent(true);
-        }        
+        }
         this._constructedScene = ccs.load(fileToLoad);
         if (this._constructedScene != null) {
             this.addChild(this._constructedScene.node, 0);
@@ -73,22 +73,25 @@ chimple.ContentPanel = cc.LayerColor.extend({
         this.children.forEach(function (element) {
             if (element._name === 'Scene') {
                 element.children.forEach(function (element) {
-                    if (element.getName().indexOf("Skeleton") != -1) {
-                        var eventObj = new chimple.SkeletonTouchHandler(this);
-                        var listener = cc.EventListener.create(eventObj);
-                        cc.eventManager.addListener(listener, element);
-                        if (!cc.sys.isNative) {
-                            element._renderCmd._dirtyFlag = 1;
-                        }
-                    } else {
-                        var eventObj = new chimple.SpriteTouchHandler(this);
-                        var listener = cc.EventListener.create(eventObj);
-                        cc.eventManager.addListener(listener, element);
-                    }
-
+                    this.registerEventListenerForChild(element);
                 }, this);
             }
         }, this);
+    },
+
+    registerEventListenerForChild(element) {
+        if (element.getName().indexOf("Skeleton") != -1) {
+            var eventObj = new chimple.SkeletonTouchHandler(this);
+            var listener = cc.EventListener.create(eventObj);
+            cc.eventManager.addListener(listener, element);
+            if (!cc.sys.isNative) {
+                element._renderCmd._dirtyFlag = 1;
+            }
+        } else {
+            var eventObj = new chimple.SpriteTouchHandler(this);
+            var listener = cc.EventListener.create(eventObj);
+            cc.eventManager.addListener(listener, element);
+        }
     },
 
     startRecording: function () {
@@ -221,7 +224,7 @@ chimple.ContentPanel = cc.LayerColor.extend({
         }
 
     },
-    
+
     doPostLoadingProcessForImage: function (imageToLoad) {
         var sprite = new cc.Sprite(imageToLoad);
         this.addChild(sprite, 1);
@@ -244,10 +247,10 @@ chimple.ContentPanel = cc.LayerColor.extend({
             // this._propsContainer.push(loadedImageObject);
         }
 
-        var eventObj = new chimple.SpriteTouchHandler(this);
-        var listener = cc.EventListener.create(eventObj);
-        cc.eventManager.addListener(listener, sprite);
-
+        // var eventObj = new chimple.SpriteTouchHandler(this);
+        // var listener = cc.EventListener.create(eventObj);
+        // cc.eventManager.addListener(listener, sprite);
+        this.registerEventListenerForChild(sprite);
     },
 
     constructJSONFromCCSprite: function (sprite) {
@@ -349,16 +352,16 @@ chimple.ContentPanel = cc.LayerColor.extend({
         object.Name = skeleton.getName();
         object.ctype = "ProjectNodeObjectData";
 
-      var existingUserData = null;
-        if (skeleton.getComponent('ComExtensionData') && skeleton.getComponent('ComExtensionData').getCustomProperty() != null
-            && skeleton.getComponent('ComExtensionData').getCustomProperty().length > 0) {
-            existingUserData = skeleton.getComponent('ComExtensionData').getCustomProperty();
-        } else {
-            existingUserData = {};
-        };
+              var existingUserData = null;
+                if (skeleton.getComponent('ComExtensionData') && skeleton.getComponent('ComExtensionData').getCustomProperty() != null
+                        && skeleton.getComponent('ComExtensionData').getCustomProperty().length > 0) {
+                        existingUserData = skeleton.getComponent('ComExtensionData').getCustomProperty();
+                } else {
+                        existingUserData = {};
+                };
 
-        existingUserData._currentAnimationName = skeleton._currentAnimationName;
-        object.UserData = existingUserData;
+                existingUserData._currentAnimationName = skeleton._currentAnimationName;
+                object.UserData = existingUserData;
         return object;
     },
 
@@ -433,9 +436,9 @@ chimple.ContentPanel = cc.LayerColor.extend({
                         load.node.changeSkins(data.skinNameMaps[configuration.skinNameMap]);
                     }
                     var subBonesMap = load.node.getAllSubBonesMap();
-                    for(var name in subBonesMap) {
+                    for (var name in subBonesMap) {
                         var bone = subBonesMap[name];
-                        if(bone != null) {
+                        if (bone != null) {
                             bone.displaySkin(name);
                         }
                     }
@@ -445,14 +448,15 @@ chimple.ContentPanel = cc.LayerColor.extend({
 
         load.node.setPosition(900, 900);
 
-        var eventObj = new chimple.SkeletonTouchHandler(this);
-        var listener = cc.EventListener.create(eventObj);
-        cc.eventManager.addListener(listener, load.node);
         this.addChild(load.node);
         load.node.runAction(load.action);
-        if (!cc.sys.isNative) {
-            load.node._renderCmd._dirtyFlag = 1;
-        }
+        // var eventObj = new chimple.SkeletonTouchHandler(this);
+        // var listener = cc.EventListener.create(eventObj);
+        // cc.eventManager.addListener(listener, load.node);
+        // if (!cc.sys.isNative) {
+        //     load.node._renderCmd._dirtyFlag = 1;
+        // }
+        this.registerEventListenerForChild(load.node);
         this.parseCharacter(configuration.json, load);
     },
 
