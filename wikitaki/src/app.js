@@ -603,13 +603,25 @@ var HelloWorldLayer = cc.Layer.extend({
 
     addCharacterToScene: function (context, configuration) {
         var load = ccs.load(configuration.json);
+
         if (configuration.skinNameMap) {
             cc.loader.loadJson('res/characters/skeletonConfig/' + load.node.getName() + '.json', function (error, data) {
                 if (data != null) {
-                    load.node.setUserData(data);
-                    if (data.skinNameMaps && data.skinNameMaps[configuration.skinNameMap]) {
-                        load.node.changeSkins(data.skinNameMaps[configuration.skinNameMap]);
+                    load.node._skeletonConfig = data;
+                    if (configuration.skinNameMap) {
+                        if (data.skinNameMaps && data.skinNameMaps[configuration.skinNameMap]) {
+                            load.node.changeSkins(data.skinNameMaps[configuration.skinNameMap]);
+                        }
+
+                        var subBonesMap = load.node.getAllSubBonesMap();
+                        for (var name in subBonesMap) {
+                            var bone = subBonesMap[name];
+                            if (bone != null) {
+                                bone.displaySkin(name);
+                            }
+                        }
                     }
+
                     load.node._currentAnimationName = data.animations[0].name;
                     load.node.setPosition(900, 900);
                     var eventObj = new chimple.SkeletonTouchHandler(context);
@@ -621,12 +633,9 @@ var HelloWorldLayer = cc.Layer.extend({
                         load.node._renderCmd._dirtyFlag = 1;
                     }
                     context.parseCharacter(configuration.json, load);
-
                 }
-
             });
         }
-
     },
 
     constructConfigPanel: function (target) {
