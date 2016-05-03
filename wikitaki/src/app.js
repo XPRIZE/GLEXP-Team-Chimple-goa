@@ -37,7 +37,7 @@ var HelloWorldLayer = cc.Layer.extend({
             this._pageConfigPanel = new chimple.PageConfigPanel(this._configPanelWidth, this._configPanelHeight, cc.p(this._configPanelWidth + this._contentPanelWidth, 0), chimple.storyConfigurationObject, this._contentPanel);
             this.addChild(this._pageConfigPanel);
         }
-    },
+    }
 
 });
 

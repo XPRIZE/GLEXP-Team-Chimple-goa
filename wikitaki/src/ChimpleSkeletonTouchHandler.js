@@ -35,6 +35,7 @@ chimple.SkeletonTouchHandler = function (context) {
         var nodeToRemoveIndex = this._context._nodesSelected.indexOf(target);
         if (nodeToRemoveIndex != -1) {
             this._context._nodesSelected.splice(nodeToRemoveIndex, 1);
+            
         }
     };
 };
