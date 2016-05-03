@@ -28,11 +28,10 @@ chimple.SpriteTouchHandler = function (context) {
 
     this.onTouchEnded = function (touch, event) {
         var target = event.getCurrentTarget();
-        this._context.enableEventsForAllOtherNodes(this._context, target, true);
+        this._context.enableEventsForAllOtherNodes(this._context, target, true);        
         var nodeToRemoveIndex = this._context._nodesSelected.indexOf(target);
         if (nodeToRemoveIndex != -1) {
             this._context._nodesSelected.splice(nodeToRemoveIndex, 1);
         }
-
     };
 }

@@ -84,11 +84,7 @@ var HelloWorldLayer = cc.Layer.extend({
         } else if (selectedConfig != null && selectedItem.getName() === "play") {
             var playScene = new PlayRecordingScene(this.pageKey);
             cc.director.pushScene(playScene);
-        } else if (selectedConfig != null && selectedItem.getName() === "animation_1") {
-            //Node, animationName, isLast
-            this.constructAnimationFrameData(this._animationNode, "Dance", false);
-        }
-        else if (selectedConfig != null) {
+        } else if (selectedConfig != null) {
             this.constructTabBar(selectedConfig.categories);
         }
     },
@@ -200,54 +196,54 @@ var HelloWorldLayer = cc.Layer.extend({
     },
 
 
-    constructJSONFromTextSprite: function (sprite) {
-        var object = Object.create(Object.prototype);
-        object.FontSize = "12";
-        object.LabelText = "How are you??";
-        object.PlaceHolderText = "";
-        object.MaxLengthEnable = true;
-        object.MaxLengthText = 50;
-        object.AnchorPoint = {
-            "ScaleX": sprite.getAnchorPoint().x,
-            "ScaleY": sprite.getAnchorPoint().y
-        };
+    // constructJSONFromTextSprite: function (sprite) {
+    //     var object = Object.create(Object.prototype);
+    //     object.FontSize = "12";
+    //     object.LabelText = "How are you??";
+    //     object.PlaceHolderText = "";
+    //     object.MaxLengthEnable = true;
+    //     object.MaxLengthText = 50;
+    //     object.AnchorPoint = {
+    //         "ScaleX": sprite.getAnchorPoint().x,
+    //         "ScaleY": sprite.getAnchorPoint().y
+    //     };
 
-        object.Position = {
-            "X": sprite.getPosition().x,
-            "Y": sprite.getPosition().y
-        };
+    //     object.Position = {
+    //         "X": sprite.getPosition().x,
+    //         "Y": sprite.getPosition().y
+    //     };
 
-        object.RotationSkewX = sprite.getRotationX();
-        object.RotationSkewY = sprite.getRotationY();
-        object.Scale = {
-            "ScaleX": sprite.getScaleX(),
-            "ScaleY": sprite.getScaleY()
-        };
-        object.CColor = {
-            "R": sprite.color.r,
-            "G": sprite.color.g,
-            "B": sprite.color.b,
-            "A": sprite.color.a
-        };
-        object.IconVisible = false;
-        object.Size = {
-            "X": sprite.getBoundingBox().width,
-            "Y": sprite.getBoundingBox().height
-        };
-        object.Alpha = sprite._alpha;
-        object.Tag = sprite.tag;
-        if (sprite.getName().indexOf("%%") === -1) {
-            sprite.setName(sprite.getName() + "%%" + this.generateUUID());
-        }
-        object.ActionTag = -new Date().valueOf();
-        object.Name = sprite.getName();
-        object.ctype = "TextFieldObjectData";
+    //     object.RotationSkewX = sprite.getRotationX();
+    //     object.RotationSkewY = sprite.getRotationY();
+    //     object.Scale = {
+    //         "ScaleX": sprite.getScaleX(),
+    //         "ScaleY": sprite.getScaleY()
+    //     };
+    //     object.CColor = {
+    //         "R": sprite.color.r,
+    //         "G": sprite.color.g,
+    //         "B": sprite.color.b,
+    //         "A": sprite.color.a
+    //     };
+    //     object.IconVisible = false;
+    //     object.Size = {
+    //         "X": sprite.getBoundingBox().width,
+    //         "Y": sprite.getBoundingBox().height
+    //     };
+    //     object.Alpha = sprite._alpha;
+    //     object.Tag = sprite.tag;
+    //     if (sprite.getName().indexOf("%%") === -1) {
+    //         sprite.setName(sprite.getName() + "%%" + this.generateUUID());
+    //     }
+    //     object.ActionTag = -new Date().valueOf();
+    //     object.Name = sprite.getName();
+    //     object.ctype = "TextFieldObjectData";
 
-        if (sprite.getComponent('ComExtensionData') && sprite.getComponent('ComExtensionData').getCustomProperty() != null) {
-            object.UserData = sprite.getComponent('ComExtensionData').getCustomProperty();
-        };
-        return object;
-    },
+    //     if (sprite.getComponent('ComExtensionData') && sprite.getComponent('ComExtensionData').getCustomProperty() != null) {
+    //         object.UserData = sprite.getComponent('ComExtensionData').getCustomProperty();
+    //     };
+    //     return object;
+    // },
 
 
     constructJSONFromCCSprite: function (sprite) {
@@ -406,11 +402,21 @@ var HelloWorldLayer = cc.Layer.extend({
                 context._constructedScene.node._renderCmd._dirtyFlag = 1;
             }
             context._constructedScene.node.children.forEach(function (element) {
-                //copy action tag
+
                 if (element.getComponent('ComExtensionData') != null) {
-                    element.getComponent('ComExtensionData').getActionTag();
+                    var customUserData = element.getComponent('ComExtensionData').getCustomProperty();
+                    //process User Data
+                    if (customUserData != null && typeof customUserData == 'object') {
+                        Object.getOwnPropertyNames(customUserData).forEach(function (property) {
+                            if (customUserData.hasOwnProperty(property)) {
+                                element[property] = customUserData[property];
+                            }
+                        }, this);
+
+                    }
                 }
 
+                //for now attach Sprite Touch Handler - DEFAULT
                 var eventObj = new chimple.SpriteTouchHandler(context);
                 var listener = cc.EventListener.create(eventObj);
                 cc.eventManager.addListener(listener, element);
@@ -500,14 +506,10 @@ var HelloWorldLayer = cc.Layer.extend({
 
 
     parseCharacter: function (fileToLoad, load) {
-        cc.log('got file:' + fileToLoad);
         var resourcePath = fileToLoad.replace("res/", "");
-        cc.log('resourcePath:' + resourcePath);
-        cc.log('skeleton:' + load.node);
         var skeletonObject = this.constructJSONFromCharacter(load.node, resourcePath);
         load.node.ActionTag = skeletonObject.ActionTag;
         // context.saveCharacterToLocalStorage(JSON.stringify(skeletonObject));
-        cc.log('JSON.stringify(skeletonObject):' + JSON.stringify(skeletonObject));
         var storedSceneString = cc.sys.localStorage.getItem(this.pageKey);
         if (storedSceneString != null && storedSceneString.length > 0) {
             var storedSceneJSON = JSON.parse(storedSceneString);
@@ -567,6 +569,16 @@ var HelloWorldLayer = cc.Layer.extend({
         object.Name = skeleton.getName();
         object.ctype = "ProjectNodeObjectData";
 
+        var existingUserData = null;
+        if (skeleton.getComponent('ComExtensionData') && skeleton.getComponent('ComExtensionData').getCustomProperty() != null
+            && skeleton.getComponent('ComExtensionData').getCustomProperty().length > 0) {
+            existingUserData = skeleton.getComponent('ComExtensionData').getCustomProperty();
+        } else {
+            existingUserData = {};
+        };
+
+        existingUserData._currentAnimationName = skeleton._currentAnimationName;
+        object.UserData = existingUserData;
         return object;
     },
 
@@ -593,29 +605,28 @@ var HelloWorldLayer = cc.Layer.extend({
         var load = ccs.load(configuration.json);
         if (configuration.skinNameMap) {
             cc.loader.loadJson('res/characters/skeletonConfig/' + load.node.getName() + '.json', function (error, data) {
-                cc.log('data:' + data);
                 if (data != null) {
                     load.node.setUserData(data);
                     if (data.skinNameMaps && data.skinNameMaps[configuration.skinNameMap]) {
                         load.node.changeSkins(data.skinNameMaps[configuration.skinNameMap]);
                     }
                     load.node._currentAnimationName = data.animations[0].name;
+                    load.node.setPosition(900, 900);
+                    var eventObj = new chimple.SkeletonTouchHandler(context);
+                    var listener = cc.EventListener.create(eventObj);
+                    cc.eventManager.addListener(listener, load.node);
+                    context.addChild(load.node);
+                    load.node.runAction(load.action);
+                    if (!cc.sys.isNative) {
+                        load.node._renderCmd._dirtyFlag = 1;
+                    }
+                    context.parseCharacter(configuration.json, load);
+
                 }
 
             });
         }
 
-        load.node.setPosition(900, 900);
-
-        var eventObj = new chimple.SkeletonTouchHandler(context);
-        var listener = cc.EventListener.create(eventObj);
-        cc.eventManager.addListener(listener, load.node);
-        this.addChild(load.node);
-        load.node.runAction(load.action);
-        if (!cc.sys.isNative) {
-            load.node._renderCmd._dirtyFlag = 1;
-        }
-        this.parseCharacter(configuration.json, load);
     },
 
     constructConfigPanel: function (target) {
@@ -659,26 +670,50 @@ var HelloWorldLayer = cc.Layer.extend({
         node.positionFrames.push(frameData);
     },
 
-    constructAnimationFrameData: function (node, animationName, shouldStopAnimation) {
-        var animationFrameData = Object.create(Object.prototype);
-
-        animationFrameData.SingleFrameIndex = "0";
-        animationFrameData.FrameIndex = this._recordingFrameIndex;
-        animationFrameData.Tween = false;
-        animationFrameData.ctype = "InnerActionFrameData";
-
-        if (shouldStopAnimation) {
-            animationFrameData.InnerActionType = "SingleFrame";
-            animationFrameData.CurrentAniamtionName = "-- ALL --";
-        } else {
-            animationFrameData.InnerActionType = "LoopAction";
-            animationFrameData.CurrentAniamtionName = animationName;
+    constructAnimationFrameData: function (node, frameIndex, shouldStopAnimation) {
+        if (node.animationFrames == null) {
+            node.animationFrames = [];
         }
 
-        node.animationFrames.push(animationFrameData);
+        if (node._previousAnimationName != null && node._previousAnimationName === node._currentAnimationName) {
+            return;
+        }
+
+        if (frameIndex != null && node != null) {
+            var animationFrameData = Object.create(Object.prototype);
+
+            animationFrameData.SingleFrameIndex = "0";
+            animationFrameData.FrameIndex = frameIndex;
+            animationFrameData.Tween = false;
+            animationFrameData.ctype = "InnerActionFrameData";
+
+            if (shouldStopAnimation) {
+                animationFrameData.InnerActionType = "SingleFrame";
+                animationFrameData.CurrentAniamtionName = "-- ALL --";
+                node._previousAnimationName = "-- ALL --";
+            } else {
+                animationFrameData.InnerActionType = "LoopAction";
+                animationFrameData.CurrentAniamtionName = node._currentAnimationName;
+                node._previousAnimationName = node._currentAnimationName;
+            }
+            node.animationFrames.push(animationFrameData);
+        }
+
     },
 
     constructFrameData: function (node, frameIndex) {
+        if (node.positionFrames == null) {
+            node.positionFrames = [];
+        }
+
+        if (node.scaleFrames == null) {
+            node.scaleFrames = [];
+        }
+
+        if (node.rotationFrames == null) {
+            node.rotationFrames = [];
+        }
+
         var positionFrameData = Object.create(Object.prototype);
         positionFrameData.FrameIndex = frameIndex;
         positionFrameData.EasingData = {};
@@ -686,6 +721,7 @@ var HelloWorldLayer = cc.Layer.extend({
         positionFrameData.ctype = "PointFrameData";
         positionFrameData.X = node.x;
         positionFrameData.Y = node.y;
+
         node.positionFrames.push(positionFrameData);
 
         var scaleFrameData = Object.create(Object.prototype);
@@ -726,11 +762,16 @@ var HelloWorldLayer = cc.Layer.extend({
         if (this._isRecordingStarted && this._nodesSelected != null && this._nodesSelected.length > 0) {
             this._recordingFrameIndex = this._recordingFrameIndex + 1;
             this._nodesSelected.forEach(function (element) {
-                console.log('record movement for Node:' + element);
                 //construct position, rotation and scale framedata for now for each timesecond
                 this.constructFrameData(element, this._recordingFrameIndex);
+                this.constructAnimationFrameData(element, this._recordingFrameIndex, false);
             }, this);
         }
+    },
+
+    constructRemoveAnimationFrame: function (element) {
+        element._previousAnimationName = null;
+        this.constructAnimationFrameData(element, this._recordingFrameIndex, true);
     }
 });
 
