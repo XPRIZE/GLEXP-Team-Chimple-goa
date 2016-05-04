@@ -29,7 +29,7 @@ var HelloWorldLayer = cc.Layer.extend({
             //Construct UI
             this._contentPanel = new chimple.ContentPanel(this._pageKey, this._contentPanelWidth, this._contentPanelWidth, cc.p(this._configPanelWidth, 0));
             this.addChild(this._contentPanel);
-            
+
             this._objectConfigPanel = new chimple.ObjectConfigPanel(this._configPanelWidth, this._configPanelHeight, cc.p(0, 0), chimple.storyConfigurationObject, this._contentPanel);
             this.addChild(this._objectConfigPanel);
             this._contentPanel._objectConfigPanel = this._objectConfigPanel;

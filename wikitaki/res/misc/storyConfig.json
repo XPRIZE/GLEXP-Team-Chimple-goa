@@ -2,13 +2,9 @@
   "addObjects": [
     {
       "name": "startRecording",
-      "cIcon": "res/icons/record_onclick.png",
-      "icon": "res/icons/record.png"
-    },
-    {
-      "name": "stopRecording",
-      "cIcon": "res/icons/stop_onclick.png",
-      "icon": "res/icons/stop.png"
+      "cIcon": "res/icons/stop.png",
+      "icon": "res/icons/record.png",
+      "toggle": true
     },
     {
       "name": "play",
@@ -223,12 +219,9 @@
   ],
   "editObject": [
     {
-      "cIcon": "res/icons/translate_onclick.png",
-      "icon": "res/icons/translate.png"
-    },
-    {
-      "cIcon": "res/icons/rotate_onclick.png",
-      "icon": "res/icons/rotate.png"
+      "cIcon": "res/icons/rotate.png",
+      "icon": "res/icons/translate.png",
+      "toggle": true      
     },
     {
       "cIcon": "res/icons/flipX_onclick.png",
@@ -249,12 +242,9 @@
   ],
   "editCharacter": [
     {
-      "cIcon": "res/icons/translate_onclick.png",
-      "icon": "res/icons/translate.png"
-    },
-    {
-      "cIcon": "res/icons/rotate_onclick.png",
-      "icon": "res/icons/rotate.png"
+      "cIcon": "res/icons/rotate.png",
+      "icon": "res/icons/translate.png",
+      "toggle": true      
     },
     {
       "cIcon": "res/icons/flipX_onclick.png",

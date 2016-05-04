@@ -1,7 +1,8 @@
 chimple.ButtonPanel = ccui.Layout.extend({
-    ctor: function (position, size, numButtonsPerRow, numButtonsPerColumn, configuration, callBackFunction, callBackContext) {
+    ctor: function (position, size, numButtonsPerRow, numButtonsPerColumn, configuration, callBackFunction, callBackContext, isMenu) {
         this._super();
         this._configuration = configuration;
+        this._isMenu = isMenu;
         this.setBackGroundColorType(ccui.Layout.BG_COLOR_SOLID);
         this.setBackGroundColor(cc.color.GREEN);
         this.setPosition(position);
@@ -22,10 +23,10 @@ chimple.ButtonPanel = ccui.Layout.extend({
                         item._configuration = configuration[index];
                         if (configuration[index].hasOwnProperty('json')) {
                             item._jsonFileToLoad = configuration[index]['json'];
-                            item._configurationType = configuration[index].type;    
-                            item.dataType = "json";                            
+                            item._configurationType = configuration[index].type;
+                            item.dataType = "json";
                         } else if (configuration[index].hasOwnProperty('png')) {
-                            item._pngFileToLoad = configuration[index]['png'];                            
+                            item._pngFileToLoad = configuration[index]['png'];
                             item.dataType = "png";
                         }
                         index++;
@@ -35,15 +36,27 @@ chimple.ButtonPanel = ccui.Layout.extend({
                 }
             }
         }
-        this.setContentSize(cc.size(Math.ceil(configuration.length / (numButtonsPerRow * numButtonsPerColumn)) * size.width, size.height));        
+        this.setContentSize(cc.size(Math.ceil(configuration.length / (numButtonsPerRow * numButtonsPerColumn)) * size.width, size.height));
     },
-    
-    
+
+
     itemSelected: function (sender, type) {
         switch (type) {
             case ccui.Widget.TOUCH_BEGAN:
-                if (this._currentSelectedItem != null && this._currentSelectedItem != sender) {
-                    this._currentSelectedItem.setHighlighted(false);
+                if (this._isMenu) {
+                    if (this._currentSelectedItem != null && this._currentSelectedItem != sender) {
+                        this._currentSelectedItem.setHighlighted(false);
+                    }
+                } else {
+                    if (sender._configuration.toggle) {
+                        if (sender._currentlyHighlighed) {
+                            sender._currentlyHighlighed = false;
+                            sender.setHighlighted(false);
+                        } else {
+                            sender._currentlyHighlighed = true;
+                            sender.setHighlighted(true);
+                        }
+                    }
                 }
                 break;
             case ccui.Widget.TOUCH_ENDED:
@@ -51,16 +64,27 @@ chimple.ButtonPanel = ccui.Layout.extend({
                 break;
         }
     },
-    selectButton: function (button) {
-        cc.log(button);
-        this._currentSelectedItem = button;
-        button.setHighlighted(true);
+    selectButton: function (sender) {
+        // cc.log(sender);
+        if (this._isMenu) {
+            this._currentSelectedItem = sender;
+            sender.setHighlighted(true);
+        } else {
+            if (sender._configuration.toggle) {
+                if (sender._currentlyHighlighed) {
+                    sender.setHighlighted(true);
+                } else {
+                    sender.setHighlighted(false);
+                }
+            }
+        }
+
         if (this._callBackFunction != null && this._callBackContext != null) {
-            this._callBackFunction.call(this._callBackContext, this._currentSelectedItem);
+            this._callBackFunction.call(this._callBackContext, sender);
         }
 
     },
-    getButtonByName: function(name) {
+    getButtonByName: function (name) {
         return this.getChildByName(name);
     }
 }); 
