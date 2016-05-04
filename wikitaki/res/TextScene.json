@@ -14,93 +14,57 @@
       "ObjectData": {
         "Children": [
           {
+            "ClipAble": false,
+            "BackColorAlpha": 102,
+            "FileData": {
+              "Type": "Normal",
+              "Path": "bubble.png",
+              "Plist": ""
+            },
+            "ComboBoxIndex": 1,
+            "SingleColor": {
+              "R": 150,
+              "G": 200
+            },
+            "FirstColor": {
+              "R": 150,
+              "G": 200
+            },
+            "EndColor": {},
+            "ColorVector": {
+              "ScaleY": 1.0
+            },
+            "Scale9Enable": true,
+            "Scale9OriginX": 64,
+            "Scale9OriginY": 64,
+            "Scale9Width": 1482,
+            "Scale9Height": 1630,
+            "TouchEnable": true,
             "AnchorPoint": {},
             "Position": {
-              "X": 810.4508,
-              "Y": 752.9353
+              "X": 0.0,
+              "Y": 0.0
             },
             "Scale": {
               "ScaleX": 1.0,
               "ScaleY": 1.0
             },
             "CColor": {},
-            "IconVisible": true,
+            "IconVisible": false,
             "PrePosition": {
-              "X": 0.4503,
-              "Y": 0.4183
-            },
-            "PreSize": {
               "X": 0.0,
               "Y": 0.0
             },
-            "LeftMargin": 810.4508,
-            "RightMargin": 989.5492,
-            "TopMargin": 1047.0647,
-            "BottomMargin": 752.9353,
-            "Tag": 18,
+            "PreSize": {
+              "X": 1.0,
+              "Y": 1.0
+            },
+            "Tag": 12,
             "Children": [
               {
-                "ClipAble": false,
-                "BackColorAlpha": 102,
-                "FileData": {
-                  "Type": "Normal",
-                  "Path": "Bubble.png",
-                  "Plist": ""
-                },
-                "SingleColor": {},
-                "FirstColor": {
-                  "R": 150,
-                  "G": 200
-                },
-                "EndColor": {},
-                "ColorVector": {
-                  "ScaleY": 1.0
-                },
-                "Scale9Enable": true,
-                "Scale9OriginX": 531,
-                "Scale9OriginY": 580,
-                "Scale9Width": 548,
-                "Scale9Height": 598,
-                "TouchEnable": true,
-                "AnchorPoint": {
-                  "ScaleX": 0.5,
-                  "ScaleY": 0.5
-                },
-                "Position": {
-                  "X": 91.0017,
-                  "Y": 135.2975
-                },
-                "Scale": {
-                  "ScaleX": 1.0,
-                  "ScaleY": 1.0
-                },
-                "CColor": {},
-                "IconVisible": false,
-                "PrePosition": {
-                  "X": 0.0,
-                  "Y": 0.0
-                },
-                "PreSize": {
-                  "X": 0.0,
-                  "Y": 0.0
-                },
-                "LeftMargin": -708.9983,
-                "RightMargin": -891.0017,
-                "TopMargin": -935.2975,
-                "BottomMargin": -664.7025,
-                "Tag": 19,
-                "ActionTag": -1458098178,
-                "Size": {
-                  "X": 1600.0,
-                  "Y": 1600.0
-                },
-                "Name": "Panel_1",
-                "ctype": "PanelObjectData"
-              },
-              {
                 "IsCustomSize": true,
-                "FontSize": 20,
-                "LabelText": "i want to change the label.\n",
+                "FontSize": 36,
+                "LabelText": "Text Label sdgdsgsag  sdg sdgasd sdga sdg sdga dsgsadg sdag asgasdgsadg  asdg sdag\n\n",
                 "OutlineColor": {
                   "G": 0,
                   "B": 0
@@ -112,53 +76,50 @@
                 },
                 "ShadowOffsetX": 2.0,
                 "ShadowOffsetY": -2.0,
-                "AnchorPoint": {
-                  "ScaleX": 0.5,
-                  "ScaleY": 0.5
-                },
+                "AnchorPoint": {},
                 "Position": {
-                  "X": 40.0,
-                  "Y": 750.0
+                  "X": 100.0,
+                  "Y": 100.0
                 },
                 "Scale": {
-                  "ScaleX": 5.7815,
-                  "ScaleY": 5.7815
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
                 },
                 "CColor": {
-                  "R": 2,
-                  "G": 2,
-                  "B": 2
+                  "R": 26,
+                  "G": 26,
+                  "B": 26
                 },
                 "IconVisible": false,
                 "PrePosition": {
-                  "X": 0.0,
-                  "Y": 0.0
+                  "X": 0.0556,
+                  "Y": 0.0556
                 },
                 "PreSize": {
-                  "X": 0.0,
-                  "Y": 0.0
+                  "X": 0.8889,
+                  "Y": 0.8889
                 },
-                "LeftMargin": -78.8728,
-                "RightMargin": -151.1272,
-                "TopMargin": -270.7316,
-                "BottomMargin": 224.7316,
-                "Tag": 20,
-                "ActionTag": -258313699,
+                "LeftMargin": 100.0,
+                "RightMargin": 100.0,
+                "TopMargin": 100.0,
+                "BottomMargin": 100.0,
+                "Tag": 13,
+                "ActionTag": -1612391704,
                 "Size": {
-                  "X": 230.0,
-                  "Y": 46.0
+                  "X": 1600.0,
+                  "Y": 1600.0
                 },
                 "Name": "ChimpleCustomText",
                 "ctype": "TextObjectData"
               }
             ],
-            "ActionTag": 1394819963,
+            "ActionTag": 467034842,
             "Size": {
-              "X": 0.0,
-              "Y": 0.0
+              "X": 1800.0,
+              "Y": 1800.0
             },
-            "Name": "Node_1",
-            "ctype": "SingleNodeObjectData"
+            "Name": "ChimpleTextPanel",
+            "ctype": "PanelObjectData"
           }
         ],
         "Size": {

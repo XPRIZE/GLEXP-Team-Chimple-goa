@@ -13,9 +13,9 @@ chimple.ObjectConfigPanel = cc.LayerColor.extend({
             }
             if (target.getName().indexOf("Skeleton") != -1) {
                 this._buttonPanel = new chimple.ButtonPanel(new cc.p(0, 0), this.getContentSize(), 1, 6, this._configuration.editObject, this.buttonPressed, this);
-            } else if(target.getName().indexOf("ChimpleCustomText") != -1) {
+            } else if (target.getName().indexOf("ChimpleCustomText") != -1) {
                 this._buttonPanel = new chimple.ButtonPanel(new cc.p(0, 0), this.getContentSize(), 1, 6, this._configuration.editText, this.buttonPressed, this);
-            } 
+            }
             else {
                 this._buttonPanel = new chimple.ButtonPanel(new cc.p(0, 0), this.getContentSize(), 1, 6, this._configuration.editCharacter, this.buttonPressed, this);
             }
@@ -39,23 +39,24 @@ chimple.ObjectConfigPanel = cc.LayerColor.extend({
             this._target.parent.removeChild(this._target, true);
         } else if (button.getName() == res.my_avatar_png) {
             if (this._target._skeletonConfig != null && this._target._skeletonConfig.skinChoices != null) {
-                this.parent.addChild(new chimple.PreviewPanel(cc.director.getWinSize().width, cc.director.getWinSize().height, cc.p(0, 0), this._target, this._target._skeletonConfig.skinChoices, this.skinSelected, this, true));
+                this.parent.addChild(new chimple.PreviewPanel(cc.director.getWinSize().width, cc.director.getWinSize().height, cc.p(0, 0), this._target, this._target._skeletonConfig.skinChoices, this.skinSelected, this));
             }
         } else if (button.getName() == res.animation_png) {
-            if (this._target._skeletonConfig != null && this._target._skeletonConfig.animations != null) {
-                this.parent.addChild(new chimple.PreviewPanel(cc.director.getWinSize().width, cc.director.getWinSize().height, cc.p(0, 0), this._target, this._target._skeletonConfig.animations, this.animationSelected, this, false));
+            if (this._target.getUserData() != null && this._target.getUserData().animations != null) {
+                this.parent.push(new chimple.ConfigPanel(this._target, cc.p(0, 0), cc.size(760, 1800), 2, 2, this._target.getUserData().animations, this.animationSelected, this, false));
             }
-        } else if(button.getName() == res.book_png) {            
+        } else if (button.getName() == res.book_png) {
             var fontSize = this._target.getFontSize();
-            fontSize =- 20;
+            fontSize += -1;
             this._target.setFontSize(fontSize);
-        } else if(button.getName() == res.next_png) {
+        } else if (button.getName() == res.next_png) {
             var fontSize = this._target.getFontSize();
-            fontSize =+ 40;
+            fontSize += 1;            
             this._target.setFontSize(fontSize);
-        } else if(button.getName() == res.text_png) {
-            cc.log('change text');
-            this._contentPanel.addTextToScene();
+            //Fix Font
+            //this._contentPanel.saveTextToLocalStorage(this._target.parent, res.bubble_png);
+        } else if (button.getName() == res.text_png) {            
+            this._contentPanel.addTextToScene(this._target.getString());
         }
     },
     skinSelected: function (selectedItem) {
