@@ -185,7 +185,10 @@ var res = {
     boy_animation_json: "res/boy_animation.json",
     sliderProgress_png: "res/sliderProgress.png",
     sliderThumb_png: "res/sliderThumb.png",
-    sliderTrack_png: "res/sliderTrack.png"    
+    sliderTrack_png: "res/sliderTrack.png",
+    textBubble_png: "res/ninepatch_bubble_300x300.png",
+    bubble_png: "res/bubble.png",
+    textTemplate_json: "res/TextScene.json"  
 };
 
 

@@ -87,7 +87,12 @@ chimple.ContentPanel = cc.LayerColor.extend({
             if (!cc.sys.isNative) {
                 element._renderCmd._dirtyFlag = 1;
             }
-        } else {
+        } else if (element.getName().indexOf("ChimpleCustomText") != -1) {
+            var eventObj = new chimple.TextTouchHandler(this);
+            var listener = cc.EventListener.create(eventObj);
+            cc.eventManager.addListener(listener, element);
+        }
+        else {
             var eventObj = new chimple.SpriteTouchHandler(this);
             var listener = cc.EventListener.create(eventObj);
             cc.eventManager.addListener(listener, element);
@@ -136,8 +141,54 @@ chimple.ContentPanel = cc.LayerColor.extend({
     addTextToScene: function () {
         this._sceneText = "how are you today?";
         this._sceneTextKey = this._pageKey + ".text";
-        var textEditScene = new TextEditScene(this._sceneText, this._sceneTextKey);
-        cc.director.pushScene(textEditScene);
+        // var textEditScene = new TextEditScene(this._sceneText, this._sceneTextKey);
+        // cc.director.pushScene(textEditScene);
+
+        this.parent.addChild(new chimple.TextCreatePanel(cc.director.getWinSize().width, cc.director.getWinSize().height, cc.p(0, 0), this._sceneText, this.processText, this));
+    },
+
+    processText: function (text) {
+        cc.log("text reccivec:" + text);
+        //create text Node for display
+        var load = ccs.load(res.textTemplate_json);
+
+        this.addChild(load.node);
+        // var tNode = this.constructJSONFromText(text, res.textBubble_png);
+        if (load.node.children != null && load.node.children.length > 0) {
+            var dummyNode = load.node.children[0];
+            if (dummyNode != null && dummyNode.children != null && dummyNode.children.length == 2) {
+                dummyNode.children[1].setString(text);
+                //var modifiedWidth = dummyNode.children[1].getAutoRenderSize().width;
+                //var modifiedHeight = dummyNode.children[1].getAutoRenderSize().height;
+                //modifiedWidth = modifiedWidth - 400;
+                //dummyNode.children[0].setContentSize(modifiedWidth,modifiedWidth);
+                //dummyNode.children[1].setContentSize(modifiedWidth,modifiedWidth);
+                //dummyNode.setContentSize(modifiedWidth,modifiedWidth);
+                load.node.setPosition(10, 10);
+                this.registerEventListenerForChild(dummyNode.children[1]);
+            }
+        }
+
+        this.parseText(res.textTemplate_json, load);
+
+    },
+
+    parseText: function (fileToLoad, load) {
+        cc.log('got file:' + fileToLoad);
+        var resourcePath = fileToLoad.replace("res/", "");
+        cc.log('resourcePath:' + resourcePath);
+        cc.log('textNode:' + load.node);
+        var textNodeObject = this.constructJSONFromTextNode(load.node, resourcePath);
+        load.node.ActionTag = textNodeObject.ActionTag;
+        cc.log('JSON.stringify(textNodeObject):' + JSON.stringify(textNodeObject));
+        var storedSceneString = cc.sys.localStorage.getItem(this._pageKey);
+        if (storedSceneString != null && storedSceneString.length > 0) {
+            var storedSceneJSON = JSON.parse(storedSceneString);
+            if (storedSceneJSON) {
+                storedSceneJSON.Content.Content.ObjectData.Children.push(textNodeObject);
+                this.saveSceneToLocalStorage(JSON.stringify(storedSceneJSON));
+            }
+        }
     },
 
     playScene: function () {
@@ -352,65 +403,58 @@ chimple.ContentPanel = cc.LayerColor.extend({
         object.Name = skeleton.getName();
         object.ctype = "ProjectNodeObjectData";
 
-              var existingUserData = null;
-                if (skeleton.getComponent('ComExtensionData') && skeleton.getComponent('ComExtensionData').getCustomProperty() != null
-                        && skeleton.getComponent('ComExtensionData').getCustomProperty().length > 0) {
-                        existingUserData = skeleton.getComponent('ComExtensionData').getCustomProperty();
-                } else {
-                        existingUserData = {};
-                };
+        var existingUserData = null;
+        if (skeleton.getComponent('ComExtensionData') && skeleton.getComponent('ComExtensionData').getCustomProperty() != null
+            && skeleton.getComponent('ComExtensionData').getCustomProperty().length > 0) {
+            existingUserData = skeleton.getComponent('ComExtensionData').getCustomProperty();
+        } else {
+            existingUserData = {};
+        };
 
-                existingUserData._currentAnimationName = skeleton._currentAnimationName;
-                object.UserData = existingUserData;
+        existingUserData._currentAnimationName = skeleton._currentAnimationName;
+        object.UserData = existingUserData;
+
         return object;
     },
 
-    constructJSONFromTextSprite: function (sprite) {
+
+    constructJSONFromTextNode: function (textNode, resourcePath) {
         var object = Object.create(Object.prototype);
-        object.FontSize = "12";
-        object.LabelText = "How are you??";
-        object.PlaceHolderText = "";
-        object.MaxLengthEnable = true;
-        object.MaxLengthText = 50;
+        object.FileData = {};
+        object.FileData.Type = "Normal";
+        object.FileData.Path = resourcePath;
+        object.FileData.Plist = "";
+
         object.AnchorPoint = {
-            "ScaleX": sprite.getAnchorPoint().x,
-            "ScaleY": sprite.getAnchorPoint().y
+            "ScaleX": textNode.getAnchorPoint().x,
+            "ScaleY": textNode.getAnchorPoint().y
         };
 
         object.Position = {
-            "X": sprite.getPosition().x,
-            "Y": sprite.getPosition().y
+            "X": textNode.getPosition().x,
+            "Y": textNode.getPosition().y
         };
 
-        object.RotationSkewX = sprite.getRotationX();
-        object.RotationSkewY = sprite.getRotationY();
+        object.RotationSkewX = textNode.getRotationX();
+        object.RotationSkewY = textNode.getRotationY();
         object.Scale = {
-            "ScaleX": sprite.getScaleX(),
-            "ScaleY": sprite.getScaleY()
+            "ScaleX": textNode.getScaleX(),
+            "ScaleY": textNode.getScaleY()
         };
         object.CColor = {
-            "R": sprite.color.r,
-            "G": sprite.color.g,
-            "B": sprite.color.b,
-            "A": sprite.color.a
+            "R": textNode.color.r,
+            "G": textNode.color.g,
+            "B": textNode.color.b,
+            "A": textNode.color.a
         };
-        object.IconVisible = false;
+        object.tag = textNode.tag;
         object.Size = {
-            "X": sprite.getBoundingBox().width,
-            "Y": sprite.getBoundingBox().height
+            "X": textNode.width,
+            "Y": textNode.height
         };
-        object.Alpha = sprite._alpha;
-        object.Tag = sprite.tag;
-        if (sprite.getName().indexOf("%%") === -1) {
-            sprite.setName(sprite.getName() + "%%" + this.generateUUID());
-        }
         object.ActionTag = -new Date().valueOf();
-        object.Name = sprite.getName();
-        object.ctype = "TextFieldObjectData";
-
-        if (sprite.getComponent('ComExtensionData') && sprite.getComponent('ComExtensionData').getCustomProperty() != null) {
-            object.UserData = sprite.getComponent('ComExtensionData').getCustomProperty();
-        };
+        object.Name = textNode.getName();
+        object.ctype = "ProjectNodeObjectData";
         return object;
     },
 
@@ -486,7 +530,7 @@ chimple.ContentPanel = cc.LayerColor.extend({
         //     context.saveCharacterToLocalStorage(data);
         // });
     },
-
+    
     enableTargetTransformForTarget: function (context, touch, target, location) {
         if (context._moveAction) {
             target.setPosition(location);

@@ -13,7 +13,10 @@ chimple.ObjectConfigPanel = cc.LayerColor.extend({
             }
             if (target.getName().indexOf("Skeleton") != -1) {
                 this._buttonPanel = new chimple.ButtonPanel(new cc.p(0, 0), this.getContentSize(), 1, 6, this._configuration.editObject, this.buttonPressed, this);
-            } else {
+            } else if(target.getName().indexOf("ChimpleCustomText") != -1) {
+                this._buttonPanel = new chimple.ButtonPanel(new cc.p(0, 0), this.getContentSize(), 1, 6, this._configuration.editText, this.buttonPressed, this);
+            } 
+            else {
                 this._buttonPanel = new chimple.ButtonPanel(new cc.p(0, 0), this.getContentSize(), 1, 6, this._configuration.editCharacter, this.buttonPressed, this);
             }
             this.addChild(this._buttonPanel);
@@ -40,6 +43,17 @@ chimple.ObjectConfigPanel = cc.LayerColor.extend({
             if(this._target.getUserData() != null && this._target.getUserData().animations != null){
                 this.parent.push(new chimple.ConfigPanel(this._target, cc.p(0, 0), cc.size(760, 1800), 2, 2, this._target.getUserData().animations, this.animationSelected, this, false));
             }
+        } else if(button.getName() == res.book_png) {            
+            var fontSize = this._target.getFontSize();
+            fontSize =- 20;
+            this._target.setFontSize(fontSize);
+        } else if(button.getName() == res.next_png) {
+            var fontSize = this._target.getFontSize();
+            fontSize =+ 40;
+            this._target.setFontSize(fontSize);
+        } else if(button.getName() == res.text_png) {
+            cc.log('change text');
+            this._contentPanel.addTextToScene();
         }
     },
     skinSelected: function (selectedItem) {
