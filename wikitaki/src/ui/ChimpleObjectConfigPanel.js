@@ -59,15 +59,14 @@ chimple.ObjectConfigPanel = cc.LayerColor.extend({
             }
         } else if (button.getName() == res.book_png) {
             var fontSize = this._target.getFontSize();
-            fontSize = - 20;
+            fontSize += - 1;
             this._target.setFontSize(fontSize);
         } else if (button.getName() == res.next_png) {
             var fontSize = this._target.getFontSize();
-            fontSize = + 40;
+            fontSize += 1;
             this._target.setFontSize(fontSize);
         } else if (button.getName() == res.text_png) {
-            cc.log('change text');
-            this._contentPanel.addTextToScene();
+            this._contentPanel.addTextToScene(this._target.getString());
         }
     },
     skinSelected: function (selectedItem) {
