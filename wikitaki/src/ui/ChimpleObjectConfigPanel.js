@@ -4,27 +4,34 @@ chimple.ObjectConfigPanel = cc.LayerColor.extend({
         this.setPosition(position);
         this._configuration = configuration;
         this._contentPanel = contentPanel;
+        this.setButtonPanel(this.getDefaultPanel());
     },
-    setTarget(target) {
+    setButtonPanel: function (buttonPanel) {
+        if (this._buttonPanel) {
+            this.removeChild(this._buttonPanel, true);
+        }
+        this._buttonPanel = buttonPanel;
+        this.addChild(buttonPanel);
+    },
+    getDefaultPanel: function () {
+        return new chimple.ButtonPanel(new cc.p(0, 0), this.getContentSize(), 1, 6, this._configuration.editDefault, this.buttonPressed, this);
+    },
+    setTarget: function (target) {
         if (this._target != target) {
             this._target = target;
-            if (this._buttonPanel) {
-                this.removeChild(this._buttonPanel, true);
-            }
             if (target.getName().indexOf("Skeleton") != -1) {
-                this._buttonPanel = new chimple.ButtonPanel(new cc.p(0, 0), this.getContentSize(), 1, 6, this._configuration.editObject, this.buttonPressed, this);
-            } else if(target.getName().indexOf("ChimpleCustomText") != -1) {
-                this._buttonPanel = new chimple.ButtonPanel(new cc.p(0, 0), this.getContentSize(), 1, 6, this._configuration.editText, this.buttonPressed, this);
-            } 
-            else {
-                this._buttonPanel = new chimple.ButtonPanel(new cc.p(0, 0), this.getContentSize(), 1, 6, this._configuration.editCharacter, this.buttonPressed, this);
+                this.setButtonPanel(new chimple.ButtonPanel(new cc.p(0, 0), this.getContentSize(), 1, 6, this._configuration.editCharacter, this.buttonPressed, this));
+            } else if (target.getName().indexOf("ChimpleCustomText") != -1) {
+                this.setButtonPanel(new chimple.ButtonPanel(new cc.p(0, 0), this.getContentSize(), 1, 6, this._configuration.editText, this.buttonPressed, this));
             }
-            this.addChild(this._buttonPanel);
+            else {
+                this.setButtonPanel(new chimple.ButtonPanel(new cc.p(0, 0), this.getContentSize(), 1, 6, this._configuration.editObject, this.buttonPressed, this));
+            }
         }
     },
     buttonPressed: function (button) {
         if (button.getName() == res.translate_png) {
-            if (button.isHighlighted()) { //if button is highlighted then it is rotate
+            if (button._isToggled) { //if button is toggled then it is rotate
                 this._contentPanel._moveAction = false;
                 this._contentPanel._rotateAction = true;
                 this._contentPanel._scaleAction = true;
@@ -34,26 +41,31 @@ chimple.ObjectConfigPanel = cc.LayerColor.extend({
                 this._contentPanel._scaleAction = false;
             }
         } else if (button.getName() == res.flipx_png) {
-            this._target.setScaleX(-1 * this._target.getScaleX());
+            if (this._target) {
+                this._target.setScaleX(-1 * this._target.getScaleX());
+            }
         } else if (button.getName() == res.delete_png) {
-            this._target.parent.removeChild(this._target, true);
+            if (this._target) {
+                this._target.parent.removeChild(this._target, true);
+                this.setButtonPanel(this.getDefaultPanel());
+            }
         } else if (button.getName() == res.my_avatar_png) {
-            if (this._target._skeletonConfig != null && this._target._skeletonConfig.skinChoices != null) {
+            if (this._target && this._target._skeletonConfig != null && this._target._skeletonConfig.skinChoices != null) {
                 this.parent.addChild(new chimple.PreviewPanel(cc.director.getWinSize().width, cc.director.getWinSize().height, cc.p(0, 0), this._target, this._target._skeletonConfig.skinChoices, this.skinSelected, this, true));
             }
         } else if (button.getName() == res.animation_png) {
-            if (this._target._skeletonConfig != null && this._target._skeletonConfig.animations != null) {
+            if (this._target && this._target._skeletonConfig != null && this._target._skeletonConfig.animations != null) {
                 this.parent.addChild(new chimple.PreviewPanel(cc.director.getWinSize().width, cc.director.getWinSize().height, cc.p(0, 0), this._target, this._target._skeletonConfig.animations, this.animationSelected, this, false));
             }
-        } else if(button.getName() == res.book_png) {            
+        } else if (button.getName() == res.book_png) {
             var fontSize = this._target.getFontSize();
-            fontSize =- 20;
+            fontSize = - 20;
             this._target.setFontSize(fontSize);
-        } else if(button.getName() == res.next_png) {
+        } else if (button.getName() == res.next_png) {
             var fontSize = this._target.getFontSize();
-            fontSize =+ 40;
+            fontSize = + 40;
             this._target.setFontSize(fontSize);
-        } else if(button.getName() == res.text_png) {
+        } else if (button.getName() == res.text_png) {
             cc.log('change text');
             this._contentPanel.addTextToScene();
         }

@@ -217,7 +217,11 @@
       ]
     }
   ],
-  "editObject": [
+  "editCharacter": [
+    {
+      "cIcon": "res/icons/back_onclick.png",
+      "icon": "res/icons/back.png"
+    },
     {
       "cIcon": "res/icons/rotate.png",
       "icon": "res/icons/translate.png",
@@ -240,7 +244,11 @@
       "icon": "res/icons/animation.png"
     }
   ],
-  "editCharacter": [
+  "editObject": [
+    {
+      "cIcon": "res/icons/back_onclick.png",
+      "icon": "res/icons/back.png"
+    },
     {
       "cIcon": "res/icons/rotate.png",
       "icon": "res/icons/translate.png",
@@ -268,5 +276,11 @@
       "cIcon": "res/icons/book_onclick.png",
       "icon": "res/icons/book.png"
     }
-  ]  
+  ],
+  "editDefault": [
+    {
+      "cIcon": "res/icons/back_onclick.png",
+      "icon": "res/icons/back.png"
+    }
+  ]
 }

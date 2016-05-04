@@ -48,15 +48,15 @@ chimple.ButtonPanel = ccui.Layout.extend({
                         this._currentSelectedItem.setHighlighted(false);
                     }
                 } else {
-                    if (sender._configuration.toggle) {
-                        if (sender._currentlyHighlighed) {
-                            sender._currentlyHighlighed = false;
-                            sender.setHighlighted(false);
-                        } else {
-                            sender._currentlyHighlighed = true;
-                            sender.setHighlighted(true);
-                        }
-                    }
+                    // if (sender._configuration.toggle) {
+                    //     if (sender._isToggled) {
+                    //         sender._isToggled = false;
+                    //         sender.setHighlighted(false);
+                    //     } else {
+                    //         sender._isToggled = true;
+                    //         sender.setHighlighted(true);
+                    //     }
+                    // }
                 }
                 break;
             case ccui.Widget.TOUCH_ENDED:
@@ -71,10 +71,14 @@ chimple.ButtonPanel = ccui.Layout.extend({
             sender.setHighlighted(true);
         } else {
             if (sender._configuration.toggle) {
-                if (sender._currentlyHighlighed) {
-                    sender.setHighlighted(true);
+                if (sender._isToggled) {
+                    // sender.setHighlighted(true);
+                    sender._isToggled = false;
+                    sender.loadTextures(sender._configuration.icon, sender._configuration.cIcon)
                 } else {
-                    sender.setHighlighted(false);
+                    // sender.setHighlighted(false);
+                    sender._isToggled = true;
+                    sender.loadTextures(sender._configuration.cIcon, sender._configuration.icon)
                 }
             }
         }
