@@ -7,6 +7,7 @@ chimple.ContentPanel = cc.LayerColor.extend({
         this._nodesTouchedWhileRecording = [];
         this._isRecordingStarted = false;
         this._moveAction = true;
+        this.loadSceneFromStorage();
     },
     loadSceneFromStorage: function () {
         //check if data exists in localstorage with Key
@@ -28,16 +29,12 @@ chimple.ContentPanel = cc.LayerColor.extend({
         }
         this._constructedScene = ccs.load(fileToLoad);
         if (this._constructedScene != null) {
-            this.addChild(this._constructedScene.node, 0);
+            this.addChild(this._constructedScene.node);
             if (!cc.sys.isNative) {
                 this._constructedScene.node._renderCmd._dirtyFlag = 1;
             }
-            // this._constructedScene.node.children.forEach(function (element) {
-            //     var eventObj = new chimple.SpriteTouchHandler(this);
-            //     var listener = cc.EventListener.create(eventObj);
-            //     cc.eventManager.addListener(listener, element);
-            // }, this);
             this.registerEventListenerForAllChildren();
+            this.postProcessForSceneObjects(this._constructedScene.node);
             //parse JSON and store in local storage
             if (shouldSaveToLocalStorage) {
                 this.parseScene(this, fileToLoad);
@@ -52,14 +49,6 @@ chimple.ContentPanel = cc.LayerColor.extend({
         cc.loader.loadJson(fileToLoad, function (error, data) {
             cc.log('data:' + data);
             if (data != null) {
-                //this.updateNodesNameToUniqueName(data, resourcePath);
-
-                // if (this._propsContainer != null && this._propsContainer.length > 0) {
-                //     this._propsContainer.forEach(function (propObject) {
-                //         data.Content.Content.ObjectData.Children.push(propObject);
-                //     }, this);
-                // }
-                // this._propsContainer = [];
                 context.saveSceneToLocalStorage(JSON.stringify(data));
             }
         });
@@ -68,6 +57,22 @@ chimple.ContentPanel = cc.LayerColor.extend({
     saveSceneToLocalStorage: function (data) {
         cc.sys.localStorage.setItem(this._pageKey, data);
     },
+
+    postProcessForSceneObjects: function (node) {
+        node.children.forEach(function (element) {
+            if (element.getName().indexOf("Skeleton") != -1) {
+                chimple.CharacterUtil.loadSkeletonConfig(element);
+                if(element._userData && element._userData.visibleSkins) {
+                    chimple.CharacterUtil.displaySkins(element, element._userData.visibleSkins, this._pageKey)                
+                }
+                if(element._userData && element._userData.currentAnimationName) {
+                    element._currentAnimationName = element._userData.currentAnimationName;
+                }
+            }
+        }, this);
+
+    },
+
 
     registerEventListenerForAllChildren: function () {
         this.children.forEach(function (element) {
@@ -156,7 +161,7 @@ chimple.ContentPanel = cc.LayerColor.extend({
             this._sceneTextNode.node.removeFromParent(true);
         }
         this._sceneTextNode = ccs.load(res.textTemplate_json);
-        this.addChild(this._sceneTextNode.node);
+        this._constructedScene.node.addChild(this._sceneTextNode.node);
         if (this._sceneTextNode.node.children != null && this._sceneTextNode.node.children.length > 0) {
             var panelNode = this._sceneTextNode.node.children[0];
             if (panelNode != null && panelNode.children != null && panelNode.children.length == 1) {
@@ -169,16 +174,9 @@ chimple.ContentPanel = cc.LayerColor.extend({
     },
 
     saveTextToLocalStorage: function (textPanelObject, resourcePath) {
-        var textNodeObject = this.constructJSONFromText(textPanelObject, resourcePath);
+        var textNodeObject = chimple.ParseUtil.constructJSONFromText(textPanelObject, resourcePath);
         cc.log('JSON.stringify(textNodeObject):' + JSON.stringify(textNodeObject));
-        var storedSceneString = cc.sys.localStorage.getItem(this._pageKey);
-        if (storedSceneString != null && storedSceneString.length > 0) {
-            var storedSceneJSON = JSON.parse(storedSceneString);
-            if (storedSceneJSON) {
-                storedSceneJSON.Content.Content.ObjectData.Children.push(textNodeObject);
-                this.saveSceneToLocalStorage(JSON.stringify(storedSceneJSON));
-            }
-        }
+        chimple.ParseUtil.saveObjectToStoredScene(this._pageKey, textNodeObject);
     },
 
     parseText: function (fileToLoad, load) {
@@ -275,370 +273,25 @@ chimple.ContentPanel = cc.LayerColor.extend({
 
     doPostLoadingProcessForImage: function (imageToLoad) {
         var sprite = new cc.Sprite(imageToLoad);
-        this.addChild(sprite, 1);
+        this._constructedScene.node.addChild(sprite);
         sprite.setPosition(cc.director.getWinSize().width / 2, cc.director.getWinSize().height / 2);
         sprite.setScale(1);
 
-
-        var loadedImageObject = this.constructJSONFromCCSprite(sprite);
-        sprite.ActionTag = loadedImageObject.ActionTag;
-
-        var storedSceneString = cc.sys.localStorage.getItem(this._pageKey);
-        if (storedSceneString != null && storedSceneString.length > 0) {
-            var storedSceneJSON = JSON.parse(storedSceneString);
-            if (storedSceneJSON) {
-                storedSceneJSON.Content.Content.ObjectData.Children.push(loadedImageObject);
-                this.saveSceneToLocalStorage(JSON.stringify(storedSceneJSON));
-            }
-        }
-        else {
-            // this._propsContainer.push(loadedImageObject);
-        }
-
-        // var eventObj = new chimple.SpriteTouchHandler(this);
-        // var listener = cc.EventListener.create(eventObj);
-        // cc.eventManager.addListener(listener, sprite);
+        var loadedImageObject = chimple.ParseUtil.constructJSONFromCCSprite(sprite);
+        // sprite.ActionTag = loadedImageObject.ActionTag;
+        chimple.ParseUtil.saveObjectToStoredScene(this._pageKey, loadedImageObject);
         this.registerEventListenerForChild(sprite);
-    },
-
-    constructJSONFromCCSprite: function (sprite) {
-
-        var object = Object.create(Object.prototype);
-        object.FlipX = sprite._flippedX;
-        object.FlipY = sprite._flippedY;
-        object.FileData = {};
-        object.FileData.Type = "Normal";
-        if (sprite.getTexture().url != null) {
-            var path = sprite.getTexture().url.replace("res/", "");
-            object.FileData.Path = path;
-        }
-        object.FileData.Plist = "";
-
-        object.BlendFunc = {
-            "Src": sprite.getBlendFunc.src,
-            "Dst": sprite.getBlendFunc.dst
-        };
-
-        object.AnchorPoint = {
-            "ScaleX": sprite.getAnchorPoint().x,
-            "ScaleY": sprite.getAnchorPoint().y
-        };
-
-        object.Position = {
-            "X": sprite.getPosition().x,
-            "Y": sprite.getPosition().y
-        };
-
-        object.RotationSkewX = sprite.getRotationX();
-        object.RotationSkewY = sprite.getRotationY();
-        object.Scale = {
-            "ScaleX": sprite.getScaleX(),
-            "ScaleY": sprite.getScaleY()
-        };
-        object.CColor = {
-            "R": sprite.color.r,
-            "G": sprite.color.g,
-            "B": sprite.color.b,
-            "A": sprite.color.a
-        };
-        object.IconVisible = false;
-        object.Size = {
-            "X": sprite.getBoundingBox().width,
-            "Y": sprite.getBoundingBox().height
-        };
-        object.Tag = sprite.tag;
-        if (sprite.getName().indexOf("%%") === -1) {
-            sprite.setName(sprite.getName() + "%%" + this.generateUUID());
-        }
-        object.ActionTag = -new Date().valueOf();
-        object.Name = sprite.getName();
-        object.ctype = "SpriteObjectData";
-
-        if (sprite.getComponent('ComExtensionData') && sprite.getComponent('ComExtensionData').getCustomProperty() != null) {
-            object.UserData = sprite.getComponent('ComExtensionData').getCustomProperty();
-        };
-        return object;
-    },
-
-    constructJSONFromCharacter: function (skeleton, resourcePath) {
-        var object = Object.create(Object.prototype);
-        object.FileData = {};
-        object.FileData.Type = "Normal";
-        object.FileData.Path = resourcePath;
-        object.FileData.Plist = "";
-
-        object.InnerActionSpeed = 1.0;
-
-        object.AnchorPoint = {
-            "ScaleX": skeleton.getAnchorPoint().x,
-            "ScaleY": skeleton.getAnchorPoint().y
-        };
-
-        object.Position = {
-            "X": skeleton.getPosition().x,
-            "Y": skeleton.getPosition().y
-        };
-
-        object.RotationSkewX = skeleton.getRotationX();
-        object.RotationSkewY = skeleton.getRotationY();
-        object.Scale = {
-            "ScaleX": skeleton.getScaleX(),
-            "ScaleY": skeleton.getScaleY()
-        };
-        object.CColor = {
-            "R": skeleton.color.r,
-            "G": skeleton.color.g,
-            "B": skeleton.color.b,
-            "A": skeleton.color.a
-        };
-        object.tag = skeleton.tag;
-        object.Size = {
-            "X": skeleton.width,
-            "Y": skeleton.height
-        };
-        object.ActionTag = -new Date().valueOf();
-        object.Name = skeleton.getName();
-        object.ctype = "ProjectNodeObjectData";
-
-        var existingUserData = null;
-        if (skeleton.getComponent('ComExtensionData') && skeleton.getComponent('ComExtensionData').getCustomProperty() != null
-            && skeleton.getComponent('ComExtensionData').getCustomProperty().length > 0) {
-            existingUserData = skeleton.getComponent('ComExtensionData').getCustomProperty();
-        } else {
-            existingUserData = {};
-        };
-
-        existingUserData._currentAnimationName = skeleton._currentAnimationName;
-        object.UserData = existingUserData;
-
-        return object;
-    },
-
-    constructJSONFromText: function (panel, resourcePath) {
-        //create panel data
-        var panelObject = Object.create(Object.prototype);
-        panelObject.ClipAble = panel.clippingEnabled;
-        panelObject.BackColorAlpha = panel.getBackGroundColorOpacity();
-
-        panelObject.FileData = {};
-        panelObject.FileData.Type = "Normal";
-        panelObject.FileData.Path = resourcePath;
-        panelObject.FileData.Plist = "";
-
-        panelObject.ComboBoxIndex = panel.getBackGroundColorType();
-        panelObject.SingleColor = {
-            "R": panel.getBackGroundColor().r,
-            "G": panel.getBackGroundColor().g
-        };
-
-        panelObject.FirstColor = {
-            "R": panel.getBackGroundColor().r,
-            "G": panel.getBackGroundColor().g
-        };
-        panelObject.EndColor = {};
-
-        panelObject.ColorVector = {
-            "ScaleX": panel.getBackGroundColorVector().x,
-            "ScaleY": panel.getBackGroundColorVector().y
-        };
-
-        panelObject.Scale9Enable = panel.isBackGroundImageScale9Enabled();
-        panelObject.Scale9OriginX = panel.getBackGroundImageCapInsets().x;
-        panelObject.Scale9OriginY = panel.getBackGroundImageCapInsets().y;
-        panelObject.Scale9Width = panel.getBackGroundImageCapInsets().width;
-        panelObject.Scale9Height = panel.getBackGroundImageCapInsets().height;
-        panelObject.TouchEnable = panel.touchEnabled;
-        panelObject.AnchorPoint = {
-            "ScaleX": panel.getAnchorPoint().x,
-            "ScaleY": panel.getAnchorPoint().y
-        };
-        panelObject.Position = {
-            "X": panel.getPosition().x,
-            "Y": panel.getPosition().y
-        };
-
-        panelObject.Scale = {
-            "ScaleX": panel.getScaleX(),
-            "ScaleY": panel.getScaleY()
-        };
-
-        panelObject.CColor = {
-
-        };
-
-        panelObject.Tag = new Date().valueOf();
-        panelObject.ActionTag = -new Date().valueOf();
-
-        panelObject.Size = {
-            "X": panel.getContentSize().width,
-            "Y": panel.getContentSize().height
-        };
-
-        panelObject.Name = "ChimpleTextPanel";
-        panelObject.ctype = "PanelObjectData";
-
-        var textNode = panel.children[0];
-        var textObject = Object.create(Object.prototype);
-
-        textObject.IsCustomSize = !textNode.isIgnoreContentAdaptWithSize();
-        textObject.FontSize = textNode.fontSize;
-
-        textObject.LabelText = textNode.getString();
-        textObject.OutlineColor = {
-            "G": 0,
-            "B": 0
-        };
-        textObject.ShadowColor = {
-            "R": 110,
-            "G": 110,
-            "B": 110
-        };
-        textObject.ShadowOffsetX = 2.0;
-        textObject.ShadowOffsetY = -2.0;
-
-        textObject.AnchorPoint = {
-            "ScaleX": textNode.getAnchorPoint().x,
-            "ScaleY": textNode.getAnchorPoint().y
-        };
-        textObject.Position = {
-            "X": textNode.getPosition().x,
-            "Y": textNode.getPosition().y
-        };
-        textObject.Scale = {
-            "ScaleX": textNode.getScaleX(),
-            "ScaleY": textNode.getScaleY()
-        };
-        textObject.CColor = {
-            "R": textNode.getTextColor().r,
-            "G": textNode.getTextColor().g,
-            "B": textNode.getTextColor().b
-        };
-
-        textObject.Tag = new Date().valueOf();
-        textObject.ActionTag = -new Date().valueOf();
-        textObject.Size = {
-            "X": textNode.getContentSize().width,
-            "Y": textNode.getContentSize().height
-        };
-        textObject.Name = textNode.name;
-        textObject.ctype = "TextObjectData";
-
-        panelObject.Children = [textObject];
-
-        return panelObject;
-    },
-
-    constructJSONFromTextNode: function (textNode, resourcePath) {
-        var object = Object.create(Object.prototype);
-        object.FileData = {};
-        object.FileData.Type = "Normal";
-        object.FileData.Path = resourcePath;
-        object.FileData.Plist = "";
-
-        object.AnchorPoint = {
-            "ScaleX": textNode.getAnchorPoint().x,
-            "ScaleY": textNode.getAnchorPoint().y
-        };
-
-        object.Position = {
-            "X": textNode.getPosition().x,
-            "Y": textNode.getPosition().y
-        };
-
-        object.RotationSkewX = textNode.getRotationX();
-        object.RotationSkewY = textNode.getRotationY();
-        object.Scale = {
-            "ScaleX": textNode.getScaleX(),
-            "ScaleY": textNode.getScaleY()
-        };
-        object.CColor = {
-            "R": textNode.color.r,
-            "G": textNode.color.g,
-            "B": textNode.color.b,
-            "A": textNode.color.a
-        };
-        object.tag = textNode.tag;
-        object.Size = {
-            "X": textNode.width,
-            "Y": textNode.height
-        };
-        object.ActionTag = -new Date().valueOf();
-        object.Name = textNode.getName();
-        object.ctype = "ProjectNodeObjectData";
-        return object;
-    },
-
-    generateUUID: function () {
-        var d = new Date().getTime();
-        var uuid = 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (c) {
-            var r = (d + Math.random() * 16) % 16 | 0;
-            d = Math.floor(d / 16);
-            return (c == 'x' ? r : (r & 0x3 | 0x8)).toString(16);
-        });
-        return uuid;
     },
 
     addCharacterToScene: function (configuration) {
         var load = ccs.load(configuration.json);
-        cc.loader.loadJson('res/characters/skeletonConfig/' + load.node.getName() + '.json', function (error, data) {
-            cc.log('data:' + data);
-            if (data != null) {
-                load.node._skeletonConfig = data;
-                load.node._currentAnimationName = data.animations[0].name;
-                if (configuration.skinNameMap) {
-                    if (data.skinNameMaps && data.skinNameMaps[configuration.skinNameMap]) {
-                        load.node.changeSkins(data.skinNameMaps[configuration.skinNameMap]);
-                    }
-                    var subBonesMap = load.node.getAllSubBonesMap();
-                    for (var name in subBonesMap) {
-                        var bone = subBonesMap[name];
-                        if (bone != null) {
-                            bone.displaySkin(name);
-                        }
-                    }
-                }
-            }
-        });
-
+        chimple.CharacterUtil.loadSkeletonConfig(load.node);
+        chimple.CharacterUtil.applySkinNameMap(load.node, configuration);   
         load.node.setPosition(900, 900);
-
-        this.addChild(load.node);
+        this._constructedScene.node.addChild(load.node);
         load.node.runAction(load.action);
-        // var eventObj = new chimple.SkeletonTouchHandler(this);
-        // var listener = cc.EventListener.create(eventObj);
-        // cc.eventManager.addListener(listener, load.node);
-        // if (!cc.sys.isNative) {
-        //     load.node._renderCmd._dirtyFlag = 1;
-        // }
         this.registerEventListenerForChild(load.node);
-        this.parseCharacter(configuration.json, load);
-    },
-
-    parseCharacter: function (fileToLoad, load) {
-        cc.log('got file:' + fileToLoad);
-        var resourcePath = fileToLoad.replace("res/", "");
-        cc.log('resourcePath:' + resourcePath);
-        cc.log('skeleton:' + load.node);
-        var skeletonObject = this.constructJSONFromCharacter(load.node, resourcePath);
-        load.node.ActionTag = skeletonObject.ActionTag;
-        // context.saveCharacterToLocalStorage(JSON.stringify(skeletonObject));
-        cc.log('JSON.stringify(skeletonObject):' + JSON.stringify(skeletonObject));
-        var storedSceneString = cc.sys.localStorage.getItem(this._pageKey);
-        if (storedSceneString != null && storedSceneString.length > 0) {
-            var storedSceneJSON = JSON.parse(storedSceneString);
-            if (storedSceneJSON) {
-                storedSceneJSON.Content.Content.ObjectData.Children.push(skeletonObject);
-                this.saveSceneToLocalStorage(JSON.stringify(storedSceneJSON));
-            }
-        }
-
-        // cc.loader.loadJson(fileToLoad, function (error, data) {
-        //     cc.log('data:' + data);
-        //     // context.updateCharacterToUniqueName(data, resourcePath);
-        //     context._charactersContainer.push(data);
-        //     cc.log('JSON String:' + JSON.stringify(data));
-        //     context.saveCharacterToLocalStorage(data);
-        // });
+        chimple.ParseUtil.saveCharacterToJSON(this._pageKey, configuration.json, load);
     },
 
     enableTargetTransformForTarget: function (context, touch, target, location) {
@@ -726,13 +379,6 @@ chimple.ContentPanel = cc.LayerColor.extend({
 
     constructConfigPanel: function (target) {
         this._objectConfigPanel.setTarget(target);
-        // if (this._controlPanel.getCurrentTarget() != target) {
-        //     if (target.getName().indexOf("Skeleton") != -1) {
-        //         this._controlPanel.push(new chimple.ConfigPanel(target, cc.p(0, 0), cc.size(760, 1800), 2, 4, chimple.storyConfigurationObject.editObject))
-        //     } else {
-        //         this._controlPanel.push(new chimple.ConfigPanel(target, cc.p(0, 0), cc.size(760, 1800), 2, 4, chimple.storyConfigurationObject.editCharacter))
-        //     }
-        // }
     },
 
     update: function (dt) {
@@ -750,9 +396,19 @@ chimple.ContentPanel = cc.LayerColor.extend({
     onEnter: function () {
         this._super();
         // this._sceneLayer.pageKey = "res/chimple.page1.scene.json";
-        this.loadSceneFromStorage();
+        //this.loadSceneFromStorage();
+        if(this._constructedScene && this._constructedScene.node) {
+            chimple.CharacterUtil.storeActionToTemporaryStore(this._constructedScene.node);
+        }
+        this.registerEventListenerForAllChildren();
+    },
+    
+    onExit: function() {
+        this._super();
+        if(this._constructedScene && this._constructedScene.node) {
+            chimple.CharacterUtil.restoreActionFromTemporaryStore(this._constructedScene.node);
+        }
     }
 
-
-
 });
+;

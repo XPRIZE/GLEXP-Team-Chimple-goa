@@ -11,7 +11,9 @@ chimple.SkeletonTouchHandler = function (context) {
         if (cc.rectContainsPoint(target.getBoundingBoxToWorld(), touch.getLocation())) {
             if (!cc.sys.isNative) {
                 var action = target.actionManager.getActionByTag(target.tag, target);
-                action.play(target._currentAnimationName, true);
+                if(action) {
+                    action.play(target._currentAnimationName, true);                
+                }
             }
             this._context._nodesSelected.push(target);
             this._context.addNodeToRecording(this._context, touch, target);
@@ -30,7 +32,10 @@ chimple.SkeletonTouchHandler = function (context) {
     this.onTouchEnded = function (touch, event) {
         var target = event.getCurrentTarget();
         this._context.enableEventsForAllOtherNodes(this._context, target, true);
-        target.actionManager.getActionByTag(target.tag, target).pause();
+        var action = target.actionManager.getActionByTag(target.tag, target);
+        if(action) {
+            action.pause();
+        }
         this._context.constructRemoveAnimationFrame(target);        
         var nodeToRemoveIndex = this._context._nodesSelected.indexOf(target);
         if (nodeToRemoveIndex != -1) {
