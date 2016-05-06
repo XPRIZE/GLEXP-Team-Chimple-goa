@@ -16,6 +16,9 @@ chimple.ContentPanel = cc.LayerColor.extend({
             var storedSceneJSON = JSON.parse(storedSceneString);
             this.putIntoCacheFromLocalStorage(this._pageKey, storedSceneJSON);
             this.doPostLoadingProcessForScene(this._pageKey, false);
+        } else {
+            this._constructedScene = new cc.Node();
+            this.addChild(this._constructedScene);
         }
     },
 
@@ -25,16 +28,17 @@ chimple.ContentPanel = cc.LayerColor.extend({
 
     doPostLoadingProcessForScene: function (fileToLoad, shouldSaveToLocalStorage) {
         if (this._constructedScene != null) {
-            this._constructedScene.node.removeFromParent(true);
+            this._constructedScene.removeFromParent(true);
         }
-        this._constructedScene = ccs.load(fileToLoad);
-        if (this._constructedScene != null) {
-            this.addChild(this._constructedScene.node);
+        var constructedScene = ccs.load(fileToLoad);
+        if (constructedScene != null) {
+            this._constructedScene = constructedScene.node;
+            this.addChild(this._constructedScene);
             if (!cc.sys.isNative) {
-                this._constructedScene.node._renderCmd._dirtyFlag = 1;
+                this._constructedScene._renderCmd._dirtyFlag = 1;
             }
             this.registerEventListenerForAllChildren();
-            this.postProcessForSceneObjects(this._constructedScene.node);
+            this.postProcessForSceneObjects(this._constructedScene);
             //parse JSON and store in local storage
             if (shouldSaveToLocalStorage) {
                 this.parseScene(this, fileToLoad);
@@ -161,7 +165,7 @@ chimple.ContentPanel = cc.LayerColor.extend({
             this._sceneTextNode.node.removeFromParent(true);
         }
         this._sceneTextNode = ccs.load(res.textTemplate_json);
-        this._constructedScene.node.addChild(this._sceneTextNode.node);
+        this._constructedScene.addChild(this._sceneTextNode.node);
         if (this._sceneTextNode.node.children != null && this._sceneTextNode.node.children.length > 0) {
             var panelNode = this._sceneTextNode.node.children[0];
             if (panelNode != null && panelNode.children != null && panelNode.children.length == 1) {
@@ -273,7 +277,7 @@ chimple.ContentPanel = cc.LayerColor.extend({
 
     doPostLoadingProcessForImage: function (imageToLoad) {
         var sprite = new cc.Sprite(imageToLoad);
-        this._constructedScene.node.addChild(sprite);
+        this._constructedScene.addChild(sprite);
         sprite.setPosition(cc.director.getWinSize().width / 2, cc.director.getWinSize().height / 2);
         sprite.setScale(1);
 
@@ -288,7 +292,7 @@ chimple.ContentPanel = cc.LayerColor.extend({
         chimple.CharacterUtil.loadSkeletonConfig(load.node);
         chimple.CharacterUtil.applySkinNameMap(load.node, configuration);   
         load.node.setPosition(900, 900);
-        this._constructedScene.node.addChild(load.node);
+        this._constructedScene.addChild(load.node);
         load.node.runAction(load.action);
         this.registerEventListenerForChild(load.node);
         chimple.ParseUtil.saveCharacterToJSON(this._pageKey, configuration.json, load);
@@ -397,18 +401,17 @@ chimple.ContentPanel = cc.LayerColor.extend({
         this._super();
         // this._sceneLayer.pageKey = "res/chimple.page1.scene.json";
         //this.loadSceneFromStorage();
-        if(this._constructedScene && this._constructedScene.node) {
-            chimple.CharacterUtil.storeActionToTemporaryStore(this._constructedScene.node);
+        if(this._constructedScene) {
+            chimple.CharacterUtil.storeActionToTemporaryStore(this._constructedScene);
         }
         this.registerEventListenerForAllChildren();
     },
     
     onExit: function() {
         this._super();
-        if(this._constructedScene && this._constructedScene.node) {
-            chimple.CharacterUtil.restoreActionFromTemporaryStore(this._constructedScene.node);
+        if(this._constructedScene) {
+            chimple.CharacterUtil.restoreActionFromTemporaryStore(this._constructedScene);
         }
     }
 
 });
-;
