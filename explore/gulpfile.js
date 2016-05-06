@@ -16,6 +16,7 @@ var browserSync = require('browser-sync');
  */
 var PHASER_PATH = './node_modules/phaser/build/';
 var ANGULAR_PATH = './node_modules/angular/';
+var ISOMETRIC_PATH = './static/iso_plugin/';
 var BUILD_PATH = './build';
 var SCRIPTS_PATH = BUILD_PATH + '/scripts';
 var SOURCE_PATH = './src';
@@ -110,6 +111,27 @@ function copyAngular() {
 
 }
 
+/**
+ * Copies required Phaser files from the './node_modules/Phaser' folder into the './build/scripts' folder.
+ * This way you can call 'npm update', get the lastest Phaser version and use it on your project with ease.
+ */
+function copyIsometric() {
+
+    var srcList = ['phaser-plugin-isometric.min.js'];
+    
+    if (!isProduction()) {
+        srcList.push('phaser-plugin-isometric.js');
+    }
+    
+    srcList = srcList.map(function(file) {
+        return ISOMETRIC_PATH + file;
+    });
+        
+    return gulp.src(srcList)
+        .pipe(gulp.dest(SCRIPTS_PATH));
+
+}
+
 
 /**
  * Transforms ES2015 code into ES5 code.
@@ -170,8 +192,8 @@ function serve() {
 
 gulp.task('cleanBuild', cleanBuild);
 gulp.task('copyStatic', ['cleanBuild'], copyStatic);
-gulp.task('copyAngular', ['copyStatic'], copyAngular);
-gulp.task('copyPhaser', ['copyAngular'], copyPhaser);
+gulp.task('copyIsometric', ['copyStatic'], copyIsometric);
+gulp.task('copyPhaser', ['copyIsometric'], copyPhaser);
 gulp.task('build', ['copyPhaser'], build);
 gulp.task('fastBuild', build);
 gulp.task('serve', ['build'], serve);

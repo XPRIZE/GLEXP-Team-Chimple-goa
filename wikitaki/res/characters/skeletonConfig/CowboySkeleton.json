@@ -1,0 +1,49 @@
+{
+    "skinChoices": [
+        {
+            "name": "face",
+            "cIcon": "res/Hair_style_onclick.png",
+            "icon": "res/Hair_style.png",
+            "items": [
+                {
+                    "cIcon": "res/mouth_2_onclick.png",
+                    "icon": "res/story_page_1.png",
+                    "skins": [
+                        {
+                            "skin": "hare_rightear_7",
+                            "bone": "Face"
+                        },
+                        {
+                            "skin": "hare_lefthand_6",
+                            "bone": "Hand_upper_left"
+                        }
+                    ]
+                },
+                {
+                    "cIcon": "res/mouth_2_onclick.png",
+                    "icon": "res/story_page_1.png",
+                    "skins": [
+                        {
+                            "skin": "Face",
+                            "bone": "Face"
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "skinNameMaps": {
+        "cricketer": {
+            "Hand_lower_right": "Hand_lower_right",
+            "Hand_upper_right": "Hand_upper_right",
+            "Face": "Face",
+            "Body": "Body"
+        },
+        "hare": {
+            "Hand_lower_right": "Hand_lower_right",
+            "Hand_upper_right": "Hand_upper_right",
+            "Face": "hare_eyes_3",
+            "Body": "hare_body_2"
+        }
+    }
+}

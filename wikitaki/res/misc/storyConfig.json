@@ -1,0 +1,286 @@
+{
+  "addObjects": [
+    {
+      "name": "startRecording",
+      "cIcon": "res/icons/stop.png",
+      "icon": "res/icons/record.png",
+      "toggle": true
+    },
+    {
+      "name": "play",
+      "cIcon": "res/icons/play_onclick.png",
+      "icon": "res/icons/play.png"
+    },    
+    {
+      "name": "backgrounds",
+      "cIcon": "res/icons/add_bg_onclick.png",
+      "icon": "res/icons/add_bg.png",
+      "categories": [
+        {
+          "name": "desert",
+          "cIcon": "res/Hair_style_onclick.png",
+          "icon": "res/Hair_style.png",
+          "items": [
+            {
+              "cIcon": "res/mouth_2_onclick.png",
+              "icon": "res/story_page_1.png",
+              "json": "res/MainScene.json",
+              "type": "scene"
+            },
+            {
+              "cIcon": "res/neck_access_onclick.png",
+              "icon": "res/story_page_1.png",
+              "json": "res/MainScene.json",
+              "type": "scene"
+            },
+            {
+              "cIcon": "res/shirt_onclick.png",
+              "icon": "res/story_page_1.png",
+              "json": "res/MainScene.json",
+              "type": "scene"
+            },
+            {
+              "cIcon": "res/shirt_onclick.png",
+              "icon": "res/story_page_1.png",
+              "json": "res/MainScene.json",
+              "type": "scene"
+            },
+            {
+              "cIcon": "res/mouth_2_onclick.png",
+              "icon": "res/story_page_1.png",
+              "json": "res/MainScene.json",
+              "type": "scene"
+            },
+            {
+              "cIcon": "res/neck_access_onclick.png",
+              "icon": "res/story_page_1.png",
+              "json": "res/MainScene.json",
+              "type": "scene"
+            },
+            {
+              "cIcon": "res/shirt_onclick.png",
+              "icon": "res/story_page_1.png",
+              "json": "res/MainScene.json",
+              "type": "scene"
+            },
+            {
+              "cIcon": "res/shirt_onclick.png",
+              "icon": "res/story_page_1.png",
+              "json": "res/MainScene.json",
+              "type": "scene"
+            }
+          ]
+        },
+        {
+          "name": "forest",
+          "cIcon": "res/hand_access_onclick.png",
+          "icon": "res/hand_access.png",
+          "items": [
+            {
+              "cIcon": "res/pant_onclick.png",
+              "icon": "res/pant.png",
+              "json": "res/MainScene.json",
+              "type": "scene"
+            },
+            {
+              "cIcon": "res/pant_onclick.png",
+              "icon": "res/pant.png",
+              "json": "res/MainScene.json",
+              "type": "scene"
+            },
+            {
+              "cIcon": "res/pant_onclick.png",
+              "icon": "res/pant.png",
+              "json": "res/MainScene.json",
+              "type": "scene"
+            },
+            {
+              "cIcon": "res/pant_onclick.png",
+              "icon": "res/pant.png",
+              "json": "res/MainScene.json",
+              "type": "scene"
+            },
+            {
+              "cIcon": "res/mouth_2_onclick.png",
+              "icon": "res/mouth_2.png",
+              "json": "res/MainScene.json",
+              "type": "scene"
+            },
+            {
+              "cIcon": "res/neck_access_onclick.png",
+              "icon": "res/neck_access.png",
+              "json": "res/MainScene.json",
+              "type": "scene"
+            },
+            {
+              "cIcon": "res/shirt_onclick.png",
+              "icon": "res/neck_acccess_onclick.png",
+              "json": "res/MainScene.json",
+              "type": "scene"
+            },
+            {
+              "cIcon": "res/shirt_onclick.png",
+              "icon": "res/mouth_2.png",
+              "json": "res/MainScene.json",
+              "type": "scene"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "characters",
+      "cIcon": "res/icons/add_char_onclick.png",
+      "icon": "res/icons/add_char.png",
+      "categories": [
+        {
+          "name": "humans",
+          "cIcon": "res/head_shape_onclick.png",
+          "icon": "res/head_shape.png",
+          "items": [
+            {
+              "icon": "res/characters/human/cricketer_thumbnail.png",
+              "json": "res/boy_animation.json",
+              "skinNameMap": "cricketer",
+              "type": "character"
+            },
+            {
+              "icon": "res/characters/human/cowboy_thumbnail.png",
+              "json": "res/boy_animation.json",
+              "skinNameMap": "astronaut",
+              "type": "character"
+            }
+          ]
+        },
+        {
+          "name": "animals",
+          "cIcon": "res/pant_onclick.png",
+          "icon": "res/pant.png",
+          "items": [
+            {
+              "icon": "res/characters/crow/crow_thumbnail.png",
+              "json": "res/characters/crow/Animation.json",
+              "type": "character"
+            },
+            {
+              "icon": "res/characters/donkey/donkey_thumbnail.png",
+              "json": "res/characters/donkey/Skeleton.json",
+              "type": "character"
+            },
+            {
+              "icon": "res/characters/elephant/elephant_thumbnail.png",
+              "json": "res/characters/elephant/elep.json",
+              "type": "character"
+            },
+            {
+              "cIcon": "res/characters/hare/hare_thumbnail.png",
+              "icon": "res/characters/hare/hare_thumbnail.png",
+              "json": "res/characters/hare/Skeleton.json",
+              "type": "character"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "texts",
+      "cIcon": "res/icons/add_text_onclick.png",
+      "icon": "res/icons/add_text.png"
+    },
+    {
+      "name": "props",
+      "cIcon": "res/icons/add_effects_onclick.png",
+      "icon": "res/icons/add_effects.png",
+      "categories": [
+        {
+          "name": "tree",
+          "cIcon": "res/Hair_style_onclick.png",
+          "icon": "res/Hair_style.png",
+          "items": [
+            {
+              "cIcon": "res/mouth_2_onclick.png",
+              "icon": "res/misc/scene1/Tree_01.png",
+              "png": "res/misc/scene1/Tree_01.png"
+            },
+            {
+              "cIcon": "res/neck_access_onclick.png",
+              "icon": "res/misc/scene1/Tree_02.png",
+              "png": "res/misc/scene1/Tree_02.png"
+            },
+            {
+              "cIcon": "res/shirt_onclick.png",
+              "icon": "res/misc/scene1/Tree_03.png",
+              "png": "res/misc/scene1/Tree_03.png"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "editCharacter": [
+    {
+      "cIcon": "res/icons/back_onclick.png",
+      "icon": "res/icons/back.png"
+    },
+    {
+      "cIcon": "res/icons/rotate.png",
+      "icon": "res/icons/translate.png",
+      "toggle": true      
+    },
+    {
+      "cIcon": "res/icons/flipX_onclick.png",
+      "icon": "res/icons/flipX.png"
+    },
+    {
+      "cIcon": "res/icons/delete_onclick.png",
+      "icon": "res/icons/delete.png"
+    },
+    {
+      "cIcon": "res/icons/my_avatar_onclick.png",
+      "icon": "res/icons/my_avatar.png"
+    },
+    {
+      "cIcon": "res/icons/animation_onclick.png",
+      "icon": "res/icons/animation.png"
+    }
+  ],
+  "editObject": [
+    {
+      "cIcon": "res/icons/back_onclick.png",
+      "icon": "res/icons/back.png"
+    },
+    {
+      "cIcon": "res/icons/rotate.png",
+      "icon": "res/icons/translate.png",
+      "toggle": true      
+    },
+    {
+      "cIcon": "res/icons/flipX_onclick.png",
+      "icon": "res/icons/flipX.png"
+    },
+    {
+      "cIcon": "res/icons/delete_onclick.png",
+      "icon": "res/icons/delete.png"
+    }
+  ],
+  "editText": [
+    {
+      "cIcon": "res/icons/text_onclick.png",
+      "icon": "res/icons/text.png"
+    },
+    {
+      "cIcon": "res/icons/next_onclick.png",
+      "icon": "res/icons/next.png"
+    },
+    {
+      "cIcon": "res/icons/book_onclick.png",
+      "icon": "res/icons/book.png"
+    }
+  ],
+  "editDefault": [
+    {
+      "cIcon": "res/icons/back_onclick.png",
+      "icon": "res/icons/back.png"
+    }
+  ]
+}
