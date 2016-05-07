@@ -18,6 +18,7 @@ chimple.ContentPanel = cc.LayerColor.extend({
             this.doPostLoadingProcessForScene(this._pageKey, false);
         } else {
             this._constructedScene = new cc.Node();
+            this._constructedScene.setName("Scene");            
             this.addChild(this._constructedScene);
         }
     },
@@ -88,7 +89,7 @@ chimple.ContentPanel = cc.LayerColor.extend({
         }, this);
     },
 
-    registerEventListenerForChild(element) {
+    registerEventListenerForChild: function(element) {
         if (element.getName().indexOf("Skeleton") != -1) {
             var eventObj = new chimple.SkeletonTouchHandler(this);
             var listener = cc.EventListener.create(eventObj);
