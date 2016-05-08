@@ -1,0 +1,46 @@
+html	(-webkit-tap-highlight-color:#FF7A73;)
+
+::-moz-selection 	{background:#fff;color:#F4716A;-webkit-text-shadow:none;-moz-text-shadow:none;text-shadow:none;}
+::selection 	 		{background:#fff;color:#F4716A;-webkit-text-shadow:none;-moz-text-shadow:none;text-shadow:none;}
+
+em,.req 	{color:#FF7A73;}
+.spinner	{background:#FF7A73;}
+
+a, a:hover, a:focus,.post h2 a:hover ,p.drop-cap::first-letter,.main-nav ul ul li:hover a,.main-nav ul ul li:hover span,.main-nav ul ul .current-menu-item a,.user-nav .dark.current-menu-item a,.user-nav .dark:hover a,.button.white,.entry h2 a:hover,.foot a:hover ,.icons .title,.actions div div a:hover 
+{color:#F4716A !important;}
+
+p.drop-cap.secondary::first-letter,th,.pricing .active th,.user-nav .dark a,.button:hover, .button:focus,.white:hover,.white:focus,section.cta,.comment-reply-link:focus,.comment-reply-link:hover,.widget #today,.boxed .dark a,button:hover, input[type="button"]:hover, input[type="reset"]:hover, input[type="submit"]:hover,button:focus, input[type="button"]:focus, input[type="reset"]:focus, input[type="submit"]:focus ,div.uploader.active span.action,div.uploader.hover span.action, div.uploader.focus span.action ,.social li:hover,div#subnav.item-list-tabs ul li.feed:hover,button:hover, a.button:hover, input[type="submit"]:hover, input[type="button"]:hover, input[type="reset"]:hover, ul.button-nav li a:hover, div.generic-button a:hover, .comment-reply-link:hover, a.bp-title-button:hover,.activity-comments li .acomment-options a:hover,#bbpress-forums div.bbp-forum-header, #bbpress-forums div.bbp-topic-header, #bbpress-forums div.bbp-reply-header,.item-options a:last-child ,.bp-primary-action:hover,.bp-secondary-action:hover,a.friendship-button:hover, .activity-read-more a:hover, .pending_friend a:hover 
+{background:#F4716A !important;}
+
+div.bbp-template-notice.info {background:rgba(245, 113, 106, 0.5) !important;}
+.entry figcaption {background:rgba(255, 123, 116, 0.85);}
+
+th,.pricing .active th,.pricing.secondary .active 
+{border-color:#F4716A !important;}
+
+.user-nav .medium.current-menu-item a,.user-nav .medium:hover a,.pager a:hover,.pager .current,.bbp-topic-title > a,.page-numbers.current 
+{color:#FF7B74 !important;}
+
+.main-nav li:hover span,.main-nav .current-menu-item span,.user-nav .medium a,.button,.post .date,.pager a,.page-numbers,.comment-reply-link,.comment-meta a,.recipe dd,.basic dd,.tabs .active  a,.tabs a:hover,.articles_latest li a:hover,.boxed .medium a,.categories li a:hover,.categories li.active a,.widget .page_item a:hover,.item-options a,button, input[type="button"], input[type="reset"], input[type="submit"],div.uploader span.action ,.error_text,.social li,.item-list-tabs ul li.selected a,.item-list-tabs ul li.current a,.item-list-tabs ul li:hover a,div#subnav.item-list-tabs ul li.feed,button, a.button, input[type="submit"], input[type="button"], input[type="reset"], ul.button-nav li a, div.generic-button a, .comment-reply-link, a.bp-title-button,.activity-comments li .acomment-options a,.activity-read-more a,td.data 
+ {background:#FF7B74 !important;}
+
+.main-nav ul ul 
+{border-color: #FF7B74;}
+
+.main-nav ul ul:after 	
+{border-color: transparent transparent #FF7B74 transparent;}
+
+.tabs .active:before,.item-list-tabs ul li.selected:after,.item-list-tabs ul li.current:after 	
+{border-color: #ff7b74 transparent transparent;}
+
+.item-options a.selected:before	
+{border-color: #FF7B74 transparent transparent transparent;}
+
+.user-nav .light.current-menu-item a, .user-nav .light:hover a,.actions .more a:hover 	
+{color:#FF8E88 !important;}
+
+.boxed .light a,.item-options a:first-child,.error_type,.quicktags-toolbar, .wp_themeSkin tr.mceFirst td.mceToolbar,.user-nav .light a,.instructions li:before,.basic dd 		
+{background:#FF8E88 !important;}
+
+.instructions li:hover:after 
+{border-left-color: #FF8E88;}
