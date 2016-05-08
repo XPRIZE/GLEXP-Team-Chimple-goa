@@ -1,17 +1,17 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: SocialChef\n"
-"POT-Creation-Date: 2015-08-18 23:50+0100\n"
-"PO-Revision-Date: 2015-08-18 23:50+0100\n"
+"POT-Creation-Date: 2016-05-08 10:50+0530\n"
+"PO-Revision-Date: 2016-05-08 10:57+0530\n"
 "Last-Translator: Kajag <support@kajag.com>\n"
 "Language-Team: ThemeEnergy <support@themeenergy.com>\n"
-"Language: en_US\n"
+"Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 1.6.4\n"
+"X-Generator: Poedit 1.8.7\n"
 "X-Poedit-Basepath: .\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 "X-Poedit-KeywordsList: __;_e;_x;esc_attr__;esc_attr_e\n"
 "X-Poedit-SearchPath-0: .\n"
@@ -201,8 +201,7 @@ msgstr ""
 msgid "Profile Details"
 msgstr ""
 
-#: ../buddypress/members/register.php:91
-#: ../buddypress/members/register.php:106
+#: ../buddypress/members/register.php:91 ../buddypress/members/register.php:106
 #, php-format
 msgid ""
 "This field can be seen by: <span class=\"current-visibility-level\">%s</span>"
@@ -357,18 +356,15 @@ msgstr ""
 msgid "Configure"
 msgstr ""
 
-#: ../functions.php:170
-#: ../includes/plugins/class-tgm-plugin-activation.php:226
+#: ../functions.php:170 ../includes/plugins/class-tgm-plugin-activation.php:226
 msgid "Install Required Plugins"
 msgstr ""
 
-#: ../functions.php:171
-#: ../includes/plugins/class-tgm-plugin-activation.php:227
+#: ../functions.php:171 ../includes/plugins/class-tgm-plugin-activation.php:227
 msgid "Install Plugins"
 msgstr ""
 
-#: ../functions.php:172
-#: ../includes/plugins/class-tgm-plugin-activation.php:228
+#: ../functions.php:172 ../includes/plugins/class-tgm-plugin-activation.php:228
 #, php-format
 msgid "Installing Plugin: %s"
 msgstr ""
@@ -377,13 +373,11 @@ msgstr ""
 msgid "Something went wrong with the plugin API."
 msgstr ""
 
-#: ../functions.php:184
-#: ../includes/plugins/class-tgm-plugin-activation.php:240
+#: ../functions.php:184 ../includes/plugins/class-tgm-plugin-activation.php:240
 msgid "Return to Required Plugins Installer"
 msgstr ""
 
-#: ../functions.php:185
-#: ../includes/plugins/class-tgm-plugin-activation.php:242
+#: ../functions.php:185 ../includes/plugins/class-tgm-plugin-activation.php:242
 #: ../includes/plugins/class-tgm-plugin-activation.php:2107
 msgid "Plugin activated successfully."
 msgstr ""
@@ -397,9 +391,9 @@ msgstr ""
 msgid "SocialChef.com"
 msgstr ""
 
-#: ../header.php:86 ../page-custom-search.php:305
-msgid "Search for recipes"
-msgstr ""
+#: ../header.php:86
+msgid "Search for stories"
+msgstr "French search"
 
 #: ../header.php:87
 msgid "My account"
@@ -647,7 +641,7 @@ msgid "Type"
 msgstr ""
 
 #: ../includes/plugins/class-tgm-plugin-activation.php:1500
-#: ../includes/plugins/frontend-submit/frontend-submit.php:1319
+#: ../includes/plugins/frontend-submit/frontend-submit.php:1436
 msgid "Status"
 msgstr ""
 
@@ -744,240 +738,244 @@ msgstr ""
 msgid "Installing Plugin %1$s (%2$d/%3$d)"
 msgstr ""
 
-#: ../includes/plugins/frontend-submit/frontend-submit.php:155
-#: ../includes/plugins/frontend-submit/frontend-submit.php:156
+#: ../includes/plugins/frontend-submit/frontend-submit.php:134
+#: ../includes/plugins/frontend-submit/frontend-submit.php:135
+#: ../includes/plugins/frontend-submit/frontend-submit.php:192
+#: ../includes/plugins/frontend-submit/frontend-submit.php:193
+#: ../includes/plugins/frontend-submit/frontend-submit.php:270
+#: ../includes/plugins/frontend-submit/frontend-submit.php:271
 msgid "Unnamed"
 msgstr ""
 
-#: ../includes/plugins/frontend-submit/frontend-submit.php:459
+#: ../includes/plugins/frontend-submit/frontend-submit.php:574
 msgid "New Recipe Submission"
 msgstr ""
 
-#: ../includes/plugins/frontend-submit/frontend-submit.php:461
+#: ../includes/plugins/frontend-submit/frontend-submit.php:576
 #, php-format
 msgid "A new recipe has been submitted on your website: %s"
 msgstr ""
 
-#: ../includes/plugins/frontend-submit/frontend-submit.php:463
+#: ../includes/plugins/frontend-submit/frontend-submit.php:578
 #, php-format
 msgid ""
 "To view the newly submitted recipe please follow the link bellow:\n"
 "%s"
 msgstr ""
 
-#: ../includes/plugins/frontend-submit/frontend-submit.php:635
+#: ../includes/plugins/frontend-submit/frontend-submit.php:751
 msgid "Your file was successfully uploaded!"
 msgstr ""
 
-#: ../includes/plugins/frontend-submit/frontend-submit.php:639
+#: ../includes/plugins/frontend-submit/frontend-submit.php:755
 msgid "Your recipe was successfully submitted!"
 msgstr ""
 
-#: ../includes/plugins/frontend-submit/frontend-submit.php:643
+#: ../includes/plugins/frontend-submit/frontend-submit.php:759
 msgid "Your recipe was successfully updated!"
 msgstr ""
 
-#: ../includes/plugins/frontend-submit/frontend-submit.php:647
+#: ../includes/plugins/frontend-submit/frontend-submit.php:763
 msgid "There was an error with your submission"
 msgstr ""
 
-#: ../includes/plugins/frontend-submit/frontend-submit.php:654
+#: ../includes/plugins/frontend-submit/frontend-submit.php:770
 msgid ""
 "You are currently editing your selected recipe. Click \"Submit\" to save "
 "your changes."
 msgstr ""
 
-#: ../includes/plugins/frontend-submit/frontend-submit.php:696
+#: ../includes/plugins/frontend-submit/frontend-submit.php:812
 msgid "Security check failed!"
 msgstr ""
 
-#: ../includes/plugins/frontend-submit/frontend-submit.php:699
+#: ../includes/plugins/frontend-submit/frontend-submit.php:815
 msgid "This kind of file is not allowed. Please, try selecting another file."
 msgstr ""
 
-#: ../includes/plugins/frontend-submit/frontend-submit.php:703
+#: ../includes/plugins/frontend-submit/frontend-submit.php:819
 msgid "The content you are trying to post is invalid."
 msgstr ""
 
-#: ../includes/plugins/frontend-submit/frontend-submit.php:706
+#: ../includes/plugins/frontend-submit/frontend-submit.php:822
 msgid "Couldn't upload the file"
 msgstr ""
 
-#: ../includes/plugins/frontend-submit/frontend-submit.php:709
+#: ../includes/plugins/frontend-submit/frontend-submit.php:825
 msgid "Couldn't create the post"
 msgstr ""
 
-#: ../includes/plugins/frontend-submit/frontend-submit.php:712
+#: ../includes/plugins/frontend-submit/frontend-submit.php:828
 msgid "User does not own recipe specified"
 msgstr ""
 
-#: ../includes/plugins/frontend-submit/frontend-submit.php:956
+#: ../includes/plugins/frontend-submit/frontend-submit.php:1072
 msgid "Select preparation time (minutes)"
 msgstr ""
 
-#: ../includes/plugins/frontend-submit/frontend-submit.php:961
+#: ../includes/plugins/frontend-submit/frontend-submit.php:1077
 msgid "Select cook time (minutes)"
 msgstr ""
 
-#: ../includes/plugins/frontend-submit/frontend-submit.php:968
-#: ../single-recipe.php:63
+#: ../includes/plugins/frontend-submit/frontend-submit.php:1084
+#: ../single-recipe.php:64
 msgid "Preparation time"
 msgstr ""
 
-#: ../includes/plugins/frontend-submit/frontend-submit.php:979
-#: ../single-recipe.php:67
+#: ../includes/plugins/frontend-submit/frontend-submit.php:1095
+#: ../single-recipe.php:68
 msgid "Cooking time"
 msgstr ""
 
-#: ../includes/plugins/frontend-submit/frontend-submit.php:988
+#: ../includes/plugins/frontend-submit/frontend-submit.php:1104
 msgid "Select serving (people)"
 msgstr ""
 
-#: ../includes/plugins/frontend-submit/frontend-submit.php:989
+#: ../includes/plugins/frontend-submit/frontend-submit.php:1105
 msgid "Serving"
 msgstr ""
 
-#: ../includes/plugins/frontend-submit/frontend-submit.php:1007
-#: ../includes/plugins/frontend-submit/frontend-submit.php:1012
+#: ../includes/plugins/frontend-submit/frontend-submit.php:1123
+#: ../includes/plugins/frontend-submit/frontend-submit.php:1128
 #: ../includes/plugins/widgets/widget-search.php:57
 #: ../includes/plugins/widgets/widget-search.php:203
 #: ../page-custom-search.php:247
 msgid "Select difficulty"
 msgstr ""
 
-#: ../includes/plugins/frontend-submit/frontend-submit.php:1024
-#: ../includes/plugins/frontend-submit/frontend-submit.php:1029
+#: ../includes/plugins/frontend-submit/frontend-submit.php:1140
+#: ../includes/plugins/frontend-submit/frontend-submit.php:1145
 #: ../includes/plugins/widgets/widget-search.php:58
 #: ../includes/plugins/widgets/widget-search.php:204
 #: ../page-custom-search.php:224
 msgid "Select meal course"
 msgstr ""
 
-#: ../includes/plugins/frontend-submit/frontend-submit.php:1051
+#: ../includes/plugins/frontend-submit/frontend-submit.php:1167
 #: ../includes/plugins/widgets/widget-featured-recipe.php:177
 #: ../includes/plugins/widgets/widget-recipe-list.php:256
 msgid "Recipe categories"
 msgstr ""
 
-#: ../includes/plugins/frontend-submit/frontend-submit.php:1064
-#: ../includes/plugins/frontend-submit/frontend-submit.php:1206
+#: ../includes/plugins/frontend-submit/frontend-submit.php:1180
+#: ../includes/plugins/frontend-submit/frontend-submit.php:1323
 msgid "Enter instruction"
 msgstr ""
 
-#: ../includes/plugins/frontend-submit/frontend-submit.php:1081
-#: ../includes/plugins/frontend-submit/frontend-submit.php:1203
+#: ../includes/plugins/frontend-submit/frontend-submit.php:1197
+#: ../includes/plugins/frontend-submit/frontend-submit.php:1320
 #: ../includes/post_types/recipes_post_type.php:449
-#: ../includes/theme_meta_boxes.php:162
+#: ../includes/theme_meta_boxes.php:167
 msgid "Ingredient"
 msgstr ""
 
-#: ../includes/plugins/frontend-submit/frontend-submit.php:1092
-#: ../includes/plugins/frontend-submit/frontend-submit.php:1139
-#: ../includes/plugins/frontend-submit/frontend-submit.php:1202
-#: ../includes/plugins/frontend-submit/frontend-submit.php:1204
+#: ../includes/plugins/frontend-submit/frontend-submit.php:1208
+#: ../includes/plugins/frontend-submit/frontend-submit.php:1255
+#: ../includes/plugins/frontend-submit/frontend-submit.php:1319
+#: ../includes/plugins/frontend-submit/frontend-submit.php:1321
 msgid "Quantity"
 msgstr ""
 
-#: ../includes/plugins/frontend-submit/frontend-submit.php:1104
-#: ../includes/plugins/frontend-submit/frontend-submit.php:1109
+#: ../includes/plugins/frontend-submit/frontend-submit.php:1220
+#: ../includes/plugins/frontend-submit/frontend-submit.php:1225
 msgid "Select ingredient unit"
 msgstr ""
 
-#: ../includes/plugins/frontend-submit/frontend-submit.php:1128
-#: ../includes/plugins/frontend-submit/frontend-submit.php:1205
+#: ../includes/plugins/frontend-submit/frontend-submit.php:1244
+#: ../includes/plugins/frontend-submit/frontend-submit.php:1322
 #: ../includes/post_types/recipes_post_type.php:519
-#: ../includes/theme_meta_boxes.php:198
+#: ../includes/theme_meta_boxes.php:203
 msgid "Nutritional element"
 msgstr ""
 
-#: ../includes/plugins/frontend-submit/frontend-submit.php:1151
-#: ../includes/plugins/frontend-submit/frontend-submit.php:1156
+#: ../includes/plugins/frontend-submit/frontend-submit.php:1267
+#: ../includes/plugins/frontend-submit/frontend-submit.php:1272
 msgid "Select nutritional unit"
 msgstr ""
 
-#: ../includes/plugins/frontend-submit/frontend-submit.php:1191
+#: ../includes/plugins/frontend-submit/frontend-submit.php:1307
 msgid ""
 "Errors were encountered when processing your submission. Please correct them "
 "and submit again."
 msgstr ""
 
-#: ../includes/plugins/frontend-submit/frontend-submit.php:1208
+#: ../includes/plugins/frontend-submit/frontend-submit.php:1325
 msgid "Basics"
 msgstr ""
 
-#: ../includes/plugins/frontend-submit/frontend-submit.php:1209
+#: ../includes/plugins/frontend-submit/frontend-submit.php:1326
 msgid "All fields are required."
 msgstr ""
 
-#: ../includes/plugins/frontend-submit/frontend-submit.php:1223
+#: ../includes/plugins/frontend-submit/frontend-submit.php:1340
 msgid "Title"
 msgstr ""
 
-#: ../includes/plugins/frontend-submit/frontend-submit.php:1231
-#: ../includes/plugins/frontend-submit/frontend-submit.php:1235
+#: ../includes/plugins/frontend-submit/frontend-submit.php:1348
+#: ../includes/plugins/frontend-submit/frontend-submit.php:1352
 msgid "Description"
 msgstr ""
 
-#: ../includes/plugins/frontend-submit/frontend-submit.php:1242
-#: ../includes/theme_meta_boxes.php:122
+#: ../includes/plugins/frontend-submit/frontend-submit.php:1359
+#: ../includes/theme_meta_boxes.php:127
 msgid "Instructions"
 msgstr ""
 
-#: ../includes/plugins/frontend-submit/frontend-submit.php:1242
+#: ../includes/plugins/frontend-submit/frontend-submit.php:1359
 msgid "(enter instructions, one step at a time)"
 msgstr ""
 
-#: ../includes/plugins/frontend-submit/frontend-submit.php:1258
+#: ../includes/plugins/frontend-submit/frontend-submit.php:1375
 msgid "Add a new step"
 msgstr ""
 
-#: ../includes/plugins/frontend-submit/frontend-submit.php:1262
+#: ../includes/plugins/frontend-submit/frontend-submit.php:1379
 #: ../includes/post_types/recipes_post_type.php:448
 #: ../includes/post_types/recipes_post_type.php:462
-#: ../includes/theme_meta_boxes.php:146
+#: ../includes/theme_meta_boxes.php:151
 msgid "Ingredients"
 msgstr ""
 
-#: ../includes/plugins/frontend-submit/frontend-submit.php:1278
+#: ../includes/plugins/frontend-submit/frontend-submit.php:1395
 msgid "Add an ingredient"
 msgstr ""
 
-#: ../includes/plugins/frontend-submit/frontend-submit.php:1283
+#: ../includes/plugins/frontend-submit/frontend-submit.php:1400
 #: ../includes/post_types/recipes_post_type.php:518
 #: ../includes/post_types/recipes_post_type.php:532
 msgid "Nutritional elements"
 msgstr ""
 
-#: ../includes/plugins/frontend-submit/frontend-submit.php:1299
+#: ../includes/plugins/frontend-submit/frontend-submit.php:1416
 msgid "Add a nutritional element"
 msgstr ""
 
-#: ../includes/plugins/frontend-submit/frontend-submit.php:1304
+#: ../includes/plugins/frontend-submit/frontend-submit.php:1421
 msgid "Photo"
 msgstr ""
 
-#: ../includes/plugins/frontend-submit/frontend-submit.php:1319
+#: ../includes/plugins/frontend-submit/frontend-submit.php:1436
 msgid ""
 "(would you like to further edit this recipe or are you ready to publish it?)"
 msgstr ""
 
-#: ../includes/plugins/frontend-submit/frontend-submit.php:1321
+#: ../includes/plugins/frontend-submit/frontend-submit.php:1438
 msgid ""
 "The administrator of this website has opted to review submissions before "
 "publishing. After you hit submit, your recipe will be published as soon as "
 "the administrator has reviewed it."
 msgstr ""
 
-#: ../includes/plugins/frontend-submit/frontend-submit.php:1325
+#: ../includes/plugins/frontend-submit/frontend-submit.php:1442
 msgid "I am still working on it"
 msgstr ""
 
-#: ../includes/plugins/frontend-submit/frontend-submit.php:1330
-#: ../includes/plugins/frontend-submit/frontend-submit.php:1333
+#: ../includes/plugins/frontend-submit/frontend-submit.php:1447
+#: ../includes/plugins/frontend-submit/frontend-submit.php:1450
 msgid "I am ready to publish this recipe"
 msgstr ""
 
-#: ../includes/plugins/frontend-submit/frontend-submit.php:1339
+#: ../includes/plugins/frontend-submit/frontend-submit.php:1460
 msgid "Save this recipe"
 msgstr ""
 
@@ -1092,7 +1090,7 @@ msgstr ""
 #: ../includes/plugins/widgets/widget-featured-recipe.php:165
 #: ../includes/plugins/widgets/widget-post-list.php:239
 #: ../includes/plugins/widgets/widget-recipe-list.php:236
-#: ../includes/theme_meta_boxes.php:38
+#: ../includes/theme_meta_boxes.php:43
 msgid "Random"
 msgstr ""
 
@@ -1121,7 +1119,7 @@ msgstr ""
 
 #: ../includes/plugins/widgets/widget-featured-recipe.php:213
 #: ../includes/plugins/widgets/widget-recipe-list.php:292
-#: ../includes/theme_meta_boxes.php:89
+#: ../includes/theme_meta_boxes.php:94
 msgid "Recipe meal course"
 msgstr ""
 
@@ -1234,7 +1232,7 @@ msgstr ""
 
 #: ../includes/plugins/widgets/widget-post-list.php:277
 #: ../includes/plugins/widgets/widget-recipe-list.php:310
-#: ../includes/theme_meta_boxes.php:68
+#: ../includes/theme_meta_boxes.php:73
 msgid "Show only featured recipes?"
 msgstr ""
 
@@ -1339,27 +1337,27 @@ msgstr ""
 msgid "SocialChef: Share"
 msgstr ""
 
-#: ../includes/plugins/widgets/widget-share.php:57
+#: ../includes/plugins/widgets/widget-share.php:63
 msgid "Twitter"
 msgstr ""
 
-#: ../includes/plugins/widgets/widget-share.php:57
+#: ../includes/plugins/widgets/widget-share.php:63
 msgid "Share on Twitter"
 msgstr ""
 
-#: ../includes/plugins/widgets/widget-share.php:58
+#: ../includes/plugins/widgets/widget-share.php:64
 msgid "Facebook"
 msgstr ""
 
-#: ../includes/plugins/widgets/widget-share.php:58
+#: ../includes/plugins/widgets/widget-share.php:64
 msgid "Share on Facebook"
 msgstr ""
 
-#: ../includes/plugins/widgets/widget-share.php:59
+#: ../includes/plugins/widgets/widget-share.php:65
 msgid "Pinterest"
 msgstr ""
 
-#: ../includes/plugins/widgets/widget-share.php:59
+#: ../includes/plugins/widgets/widget-share.php:65
 msgid "Pin on Pinterest"
 msgstr ""
 
@@ -1497,7 +1495,7 @@ msgstr ""
 #: ../includes/post_types/recipes_post_type.php:337
 #: ../includes/post_types/recipes_post_type.php:338
 #: ../includes/post_types/recipes_post_type.php:351
-#: ../includes/theme_meta_boxes.php:43 ../single-recipe.php:84
+#: ../includes/theme_meta_boxes.php:48 ../single-recipe.php:85
 msgid "Meal course"
 msgstr ""
 
@@ -1593,7 +1591,7 @@ msgstr ""
 #: ../includes/post_types/recipes_post_type.php:411
 #: ../includes/post_types/recipes_post_type.php:412
 #: ../includes/post_types/recipes_post_type.php:425
-#: ../includes/theme_meta_boxes.php:49 ../single-recipe.php:73
+#: ../includes/theme_meta_boxes.php:54 ../single-recipe.php:74
 msgid "Difficulty"
 msgstr ""
 
@@ -1949,158 +1947,158 @@ msgid ""
 "recipe lists as well as other widgets"
 msgstr ""
 
-#: ../includes/theme_actions.php:480
+#: ../includes/theme_actions.php:483
 msgid "Extra profile information"
 msgstr ""
 
-#: ../includes/theme_actions.php:483 ../includes/theme_meta_boxes.php:77
+#: ../includes/theme_actions.php:486 ../includes/theme_meta_boxes.php:82
 msgid "Is Featured"
 msgstr ""
 
-#: ../includes/theme_actions.php:486
+#: ../includes/theme_actions.php:489
 msgid "Is this member featured on our website?"
 msgstr ""
 
-#: ../includes/theme_actions.php:490
+#: ../includes/theme_actions.php:493
 msgid "Featured from date"
 msgstr ""
 
-#: ../includes/theme_actions.php:493
+#: ../includes/theme_actions.php:496
 msgid "From what date is this member featured"
 msgstr ""
 
-#: ../includes/theme_actions.php:540
+#: ../includes/theme_actions.php:543
 msgid "Password"
 msgstr ""
 
-#: ../includes/theme_actions.php:546
+#: ../includes/theme_actions.php:549
 msgid "Repeat password"
 msgstr ""
 
-#: ../includes/theme_filters.php:70
+#: ../includes/theme_filters.php:71
 #, php-format
 msgid "Page %s"
 msgstr ""
 
-#: ../includes/theme_filters.php:80
+#: ../includes/theme_filters.php:81
 #, php-format
 msgid "%1$s submitted a new recipe, %2$s, on the site %3$s"
 msgstr ""
 
-#: ../includes/theme_filters.php:82
+#: ../includes/theme_filters.php:83
 #, php-format
 msgid "%1$s submitted a new recipe, %2$s"
 msgstr ""
 
-#: ../includes/theme_meta_boxes.php:19 ../options.php:318
+#: ../includes/theme_meta_boxes.php:24 ../options.php:318
 msgid "No sidebar"
 msgstr ""
 
-#: ../includes/theme_meta_boxes.php:20 ../options.php:319
+#: ../includes/theme_meta_boxes.php:25 ../options.php:319
 msgid "Left sidebar"
 msgstr ""
 
-#: ../includes/theme_meta_boxes.php:21 ../options.php:320
+#: ../includes/theme_meta_boxes.php:26 ../options.php:320
 msgid "Right sidebar"
 msgstr ""
 
-#: ../includes/theme_meta_boxes.php:22 ../options.php:321
+#: ../includes/theme_meta_boxes.php:27 ../options.php:321
 msgid "Left and right sidebars"
 msgstr ""
 
-#: ../includes/theme_meta_boxes.php:26
+#: ../includes/theme_meta_boxes.php:31
 msgid "Select sidebar positioning"
 msgstr ""
 
-#: ../includes/theme_meta_boxes.php:35
+#: ../includes/theme_meta_boxes.php:40
 msgid "Recipe title"
 msgstr ""
 
-#: ../includes/theme_meta_boxes.php:36
+#: ../includes/theme_meta_boxes.php:41
 msgid "Recipe ID"
 msgstr ""
 
-#: ../includes/theme_meta_boxes.php:37
+#: ../includes/theme_meta_boxes.php:42
 msgid "Publish date"
 msgstr ""
 
-#: ../includes/theme_meta_boxes.php:39
+#: ../includes/theme_meta_boxes.php:44
 msgid "Comment count"
 msgstr ""
 
-#: ../includes/theme_meta_boxes.php:55
+#: ../includes/theme_meta_boxes.php:60
 msgid "Sort by field"
 msgstr ""
 
-#: ../includes/theme_meta_boxes.php:62
+#: ../includes/theme_meta_boxes.php:67
 msgid "Sort descending?"
 msgstr ""
 
-#: ../includes/theme_meta_boxes.php:63
+#: ../includes/theme_meta_boxes.php:68
 msgid "If checked, will sort recipes in descending order"
 msgstr ""
 
-#: ../includes/theme_meta_boxes.php:69
+#: ../includes/theme_meta_boxes.php:74
 msgid "If checked, will show only recipes marked as featured"
 msgstr ""
 
-#: ../includes/theme_meta_boxes.php:78
+#: ../includes/theme_meta_boxes.php:83
 msgid "Show in lists where only featured items are shown."
 msgstr ""
 
-#: ../includes/theme_meta_boxes.php:83
+#: ../includes/theme_meta_boxes.php:88
 msgid "Recipe difficulty"
 msgstr ""
 
-#: ../includes/theme_meta_boxes.php:95
+#: ../includes/theme_meta_boxes.php:100
 msgid "Preparation time (in minutes)"
 msgstr ""
 
-#: ../includes/theme_meta_boxes.php:104
+#: ../includes/theme_meta_boxes.php:109
 msgid "Cooking time (in minutes)"
 msgstr ""
 
-#: ../includes/theme_meta_boxes.php:113
+#: ../includes/theme_meta_boxes.php:118
 msgid "Serving (number of people)"
 msgstr ""
 
-#: ../includes/theme_meta_boxes.php:123
+#: ../includes/theme_meta_boxes.php:128
 msgid "Instructions for creating this recipe (step by step)"
 msgstr ""
 
-#: ../includes/theme_meta_boxes.php:133
+#: ../includes/theme_meta_boxes.php:138
 msgid "Instruction"
 msgstr ""
 
-#: ../includes/theme_meta_boxes.php:147
+#: ../includes/theme_meta_boxes.php:152
 msgid "Ingredients for creating this recipe"
 msgstr ""
 
-#: ../includes/theme_meta_boxes.php:157 ../includes/theme_meta_boxes.php:193
+#: ../includes/theme_meta_boxes.php:162 ../includes/theme_meta_boxes.php:198
 msgid "Amount"
 msgstr ""
 
-#: ../includes/theme_meta_boxes.php:168
+#: ../includes/theme_meta_boxes.php:173
 msgid "Ingredient unit"
 msgstr ""
 
-#: ../includes/theme_meta_boxes.php:182
+#: ../includes/theme_meta_boxes.php:187
 msgid "Nutritional values"
 msgstr ""
 
-#: ../includes/theme_meta_boxes.php:183
+#: ../includes/theme_meta_boxes.php:188
 msgid "Nutritional values for creating this recipe"
 msgstr ""
 
-#: ../includes/theme_meta_boxes.php:204
+#: ../includes/theme_meta_boxes.php:209
 msgid "Nutritional unit"
 msgstr ""
 
-#: ../includes/theme_meta_boxes.php:221 ../includes/theme_meta_boxes.php:228
+#: ../includes/theme_meta_boxes.php:226 ../includes/theme_meta_boxes.php:233
 msgid "Extra information"
 msgstr ""
 
-#: ../includes/theme_meta_boxes.php:242
+#: ../includes/theme_meta_boxes.php:247
 msgid "Sidebar selection"
 msgstr ""
 
@@ -2152,40 +2150,40 @@ msgstr ""
 msgid "said on"
 msgstr ""
 
-#: ../includes/theme_utils.php:378
+#: ../includes/theme_utils.php:382
 #, php-format
 msgid "%s - Reset Password Request"
 msgstr ""
 
-#: ../includes/theme_utils.php:379
+#: ../includes/theme_utils.php:383
 msgid "To reset your password please go to the following url: "
 msgstr ""
 
-#: ../includes/theme_utils.php:384
+#: ../includes/theme_utils.php:388
 msgid "This link will remain valid for the next 24 hours."
 msgstr ""
 
-#: ../includes/theme_utils.php:385
+#: ../includes/theme_utils.php:389
 msgid "In case you did not request a password reset, please ignore this email."
 msgstr ""
 
-#: ../includes/theme_utils.php:425
+#: ../includes/theme_utils.php:435
 msgid " - New Password "
 msgstr ""
 
-#: ../includes/theme_utils.php:426
+#: ../includes/theme_utils.php:436
 msgid "Your password was successfully reset. "
 msgstr ""
 
-#: ../includes/theme_utils.php:429
+#: ../includes/theme_utils.php:439
 msgid "Your new password is:"
 msgstr ""
 
-#: ../includes/theme_utils.php:465
+#: ../includes/theme_utils.php:475
 msgid " - User Activation "
 msgstr ""
 
-#: ../includes/theme_utils.php:466
+#: ../includes/theme_utils.php:476
 msgid "To activate your user account, please click the activation link below: "
 msgstr ""
 
@@ -2646,6 +2644,10 @@ msgstr ""
 msgid "Max preparation time"
 msgstr ""
 
+#: ../page-custom-search.php:305
+msgid "Search for recipes"
+msgstr "Search for stories"
+
 #: ../page-custom-search.php:338
 msgid ""
 "Unfortunately no results were found for your query. Please try searching for "
@@ -2805,35 +2807,35 @@ msgstr ""
 msgid "Nutrition facts <span>(per serving)</span>"
 msgstr ""
 
-#: ../single-recipe.php:16 ../single-recipe.php:122 ../single-recipe.php:127
+#: ../single-recipe.php:17 ../single-recipe.php:123 ../single-recipe.php:128
 msgid "Add to favorites"
 msgstr ""
 
-#: ../single-recipe.php:17 ../single-recipe.php:119
+#: ../single-recipe.php:18 ../single-recipe.php:120
 msgid "Remove from favorites"
 msgstr ""
 
-#: ../single-recipe.php:64 ../single-recipe.php:68
+#: ../single-recipe.php:65 ../single-recipe.php:69
 msgid "mins"
 msgstr ""
 
-#: ../single-recipe.php:77
+#: ../single-recipe.php:78
 msgid "Serves"
 msgstr ""
 
-#: ../single-recipe.php:78
+#: ../single-recipe.php:79
 msgid "people"
 msgstr ""
 
-#: ../single-recipe.php:87
+#: ../single-recipe.php:88
 msgid "Posted by"
 msgstr ""
 
-#: ../single-recipe.php:89
+#: ../single-recipe.php:90
 msgid "Posted on"
 msgstr ""
 
-#: ../single-recipe.php:132
+#: ../single-recipe.php:133
 msgid "Print recipe"
 msgstr ""
 

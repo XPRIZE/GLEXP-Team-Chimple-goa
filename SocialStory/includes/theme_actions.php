@@ -135,7 +135,7 @@ class SocialChef_Theme_Actions extends SocialChef_BaseSingleton {
 		}
 		
 		bp_core_new_nav_item( array( 
-			'name' => sprintf( __( 'Recipes <span class="%s">%s</span>', 'socialchef' ), esc_attr( $class ), number_format_i18n( $count ) ),
+			'name' => sprintf( __( 'Stories <span class="%s">%s</span>', 'socialchef' ), esc_attr( $class ), number_format_i18n( $count ) ),
 			'slug' => $my_recipes_slug,
 			'position' => 55,
 			'screen_function'     => array( $this, 'bp_recipes_tab_screen'),
@@ -144,7 +144,7 @@ class SocialChef_Theme_Actions extends SocialChef_BaseSingleton {
 		) );
 		
 		bp_core_new_subnav_item( array(
-    			'name' => __('My Recipes', 'socialchef'),
+    			'name' => __('My Stories', 'socialchef'),
     			'slug' => 'my-recipes',
     			'parent_slug' => $recipes_slug,
     			'parent_url' => $recipes_link,
@@ -154,7 +154,7 @@ class SocialChef_Theme_Actions extends SocialChef_BaseSingleton {
     	) );
 		
 		bp_core_new_subnav_item( array(
-    			'name' => __('Favorite Recipes', 'socialchef'),
+    			'name' => __('Favorite Stories', 'socialchef'),
     			'slug' => 'favorite-recipes',
     			'parent_slug' => $recipes_slug,
     			'parent_url' => $recipes_link,
@@ -278,9 +278,9 @@ class SocialChef_Theme_Actions extends SocialChef_BaseSingleton {
 		
 		// Right Sidebar Widget area for Recipe
 		register_sidebar(array(
-			'name'=> __('Right Sidebar Recipe', 'socialchef'),
+			'name'=> __('Right Sidebar Story', 'socialchef'),
 			'id'=>'right-recipe',
-			'description' => __('This Widget area is used for the right sidebar of the single recipe screen', 'socialchef'),
+			'description' => __('This Widget area is used for the right sidebar of the single story screen', 'socialchef'),
 			'before_widget' => '<li class="widget widget-sidebar">',
 			'after_widget' => '</li>',
 			'before_title' => '<h5>',
@@ -338,7 +338,7 @@ class SocialChef_Theme_Actions extends SocialChef_BaseSingleton {
 		register_sidebar(array(
 			'name'=> __('Home Main Content', 'socialchef'),
 			'id'=>'home-main-content',
-			'description' => __('This Widget area is used for the home main content area to display post and recipe lists as well as other widgets', 'socialchef'),
+			'description' => __('This Widget area is used for the home main content area to display post and story lists as well as other widgets', 'socialchef'),
 			'before_widget' => '',
 			'after_widget' => '',
 			'class'	=> '',

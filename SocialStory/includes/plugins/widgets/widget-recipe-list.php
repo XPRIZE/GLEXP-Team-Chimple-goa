@@ -133,7 +133,7 @@ class socialchef_Recipe_List_Widget extends WP_Widget {
 				}?>
 				<!--//entries-->
 					<div class="quicklinks">
-						<a href="<?php echo esc_url ($sc_theme_globals->get_recipe_list_page_url()); ?>" class="button"><?php _e('More recipes', 'socialchef'); ?></a>
+						<a href="<?php echo esc_url ($sc_theme_globals->get_recipe_list_page_url()); ?>" class="button"><?php _e('More stories', 'socialchef'); ?></a>
 						<a href="javascript:void(0)" class="button scroll-to-top"><?php _e('Back to top', 'socialchef'); ?></a>
 					</div>
 				</div><?php
@@ -220,7 +220,7 @@ class socialchef_Recipe_List_Widget extends WP_Widget {
 		</p>
 
 		<p>
-			<label for="<?php echo esc_attr ( $this->get_field_id( 'number_of_recipes' ) ); ?>"><?php _e('How many recipes do you want to display?', 'socialchef') ?></label>
+			<label for="<?php echo esc_attr ( $this->get_field_id( 'number_of_recipes' ) ); ?>"><?php _e('How many stories do you want to display?', 'socialchef') ?></label>
 			<select id="<?php echo esc_attr ( $this->get_field_id( 'number_of_recipes' ) ); ?>" name="<?php echo esc_attr ( $this->get_field_name( 'number_of_recipes' ) ); ?>">
 				<?php for ($i=1;$i<13;$i++) { ?>
 				<option <?php echo ($i == $instance['number_of_recipes'] ? 'selected="selected"' : ''); ?> value="<?php echo esc_attr ( $i ); ?>"><?php echo $i; ?></option>
@@ -253,7 +253,7 @@ class socialchef_Recipe_List_Widget extends WP_Widget {
 		</p>
 		
 		<p>
-			<label><?php _e('Recipe categories', 'socialchef') ?></label>
+			<label><?php _e('Story categories', 'socialchef') ?></label>
 			<div>
 				<?php for ($j=0;$j<count($recipe_categories);$j++) { 
 					$category = $recipe_categories[$j];
@@ -271,7 +271,7 @@ class socialchef_Recipe_List_Widget extends WP_Widget {
 		</p>
 		
 		<p>
-			<label><?php _e('Recipe difficulties', 'socialchef') ?></label>
+			<label><?php _e('Story languages', 'socialchef') ?></label>
 			<div>
 				<?php for ($j=0;$j<count($recipe_difficulties);$j++) { 
 					$category = $recipe_difficulties[$j];
@@ -289,7 +289,7 @@ class socialchef_Recipe_List_Widget extends WP_Widget {
 		</p>
 		
 		<p>
-			<label><?php _e('Recipe meal course', 'socialchef') ?></label>
+			<label><?php _e('Story license', 'socialchef') ?></label>
 			<div>
 				<?php for ($j=0;$j<count($recipe_meal_courses);$j++) { 
 					$category = $recipe_meal_courses[$j];
@@ -307,7 +307,7 @@ class socialchef_Recipe_List_Widget extends WP_Widget {
 		</p>
 		
 		<p>
-			<label for="<?php echo esc_attr ( $this->get_field_id( 'show_featured_only' ) ); ?>"><?php _e('Show only featured recipes?', 'socialchef') ?></label>
+			<label for="<?php echo esc_attr ( $this->get_field_id( 'show_featured_only' ) ); ?>"><?php _e('Show only featured stories?', 'socialchef') ?></label>
 			<input type="checkbox"  <?php echo ($instance['show_featured_only'] == '1' ? 'checked="checked"' : ''); ?> class="checkbox" id="<?php echo esc_attr ( $this->get_field_id( 'show_featured_only' ) ); ?>" name="<?php echo esc_attr ( $this->get_field_name( 'show_featured_only' ) ); ?>" value="1" />
 		</p>
 		

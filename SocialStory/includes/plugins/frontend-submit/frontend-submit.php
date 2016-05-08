@@ -298,139 +298,139 @@ class Frontend_Submit {
 	
 		global $sc_recipes_post_type, $wpdb;
 		
-		$ingredient_indexes = array();
-		$instruction_indexes = array();
-		$nutritional_element_indexes = array();
+		// $ingredient_indexes = array();
+		// $instruction_indexes = array();
+		// $nutritional_element_indexes = array();
 		
-	    foreach ($_POST as $key => $value) {
-			if (preg_match("/ingredient_(\d+)_name/", $key, $match)) {
-				$ingredient_indexes[] = $match[1];
-			}
-		}
-	    foreach ($_POST as $key => $value) {
-			if (preg_match("/instruction_(\d+)/", $key, $match)) {
-				$instruction_indexes[] = $match[1];
-			}
-		}
-		if ($this->sc_theme_globals->enable_nutritional_elements()) {
-			foreach ($_POST as $key => $value) {
-				if (preg_match("/nutritional_element_(\d+)_name/", $key, $match)) {
-					$nutritional_element_indexes[] = $match[1];
-				}
-			}
-		}
+	 //    foreach ($_POST as $key => $value) {
+		// 	if (preg_match("/ingredient_(\d+)_name/", $key, $match)) {
+		// 		$ingredient_indexes[] = $match[1];
+		// 	}
+		// }
+	 //    foreach ($_POST as $key => $value) {
+		// 	if (preg_match("/instruction_(\d+)/", $key, $match)) {
+		// 		$instruction_indexes[] = $match[1];
+		// 	}
+		// }
+		// if ($this->sc_theme_globals->enable_nutritional_elements()) {
+		// 	foreach ($_POST as $key => $value) {
+		// 		if (preg_match("/nutritional_element_(\d+)_name/", $key, $match)) {
+		// 			$nutritional_element_indexes[] = $match[1];
+		// 		}
+		// 	}
+		// }
 		
-		$sc_recipes_post_type->clear_recipe_ingredients($post_id);		
-		$ingredient_array = array();
-		$count = 0;
-		foreach ($ingredient_indexes as $ingredient_index) {
+	// 	$sc_recipes_post_type->clear_recipe_ingredients($post_id);		
+	// 	$ingredient_array = array();
+	// 	$count = 0;
+	// 	foreach ($ingredient_indexes as $ingredient_index) {
 			
-			$amount = isset($_POST["ingredient_{$ingredient_index}_quantity"]) ? $_POST["ingredient_{$ingredient_index}_quantity"] : '0';
-			$amount = floatval(str_replace(',', '.', $amount));
-			$ingredient_name = isset($_POST["ingredient_{$ingredient_index}_name"]) ? wp_kses($_POST["ingredient_{$ingredient_index}_name"], '') : '';
-			$ingredient_unit_term_id = isset($_POST["ingredient_{$ingredient_index}_unit"]) ? intval($_POST["ingredient_{$ingredient_index}_unit"]) : 0;
+	// 		$amount = isset($_POST["ingredient_{$ingredient_index}_quantity"]) ? $_POST["ingredient_{$ingredient_index}_quantity"] : '0';
+	// 		$amount = floatval(str_replace(',', '.', $amount));
+	// 		$ingredient_name = isset($_POST["ingredient_{$ingredient_index}_name"]) ? wp_kses($_POST["ingredient_{$ingredient_index}_name"], '') : '';
+	// 		$ingredient_unit_term_id = isset($_POST["ingredient_{$ingredient_index}_unit"]) ? intval($_POST["ingredient_{$ingredient_index}_unit"]) : 0;
 
-			if (!empty($ingredient_name) && $amount > 0 && $ingredient_unit_term_id > 0) {
+	// 		if (!empty($ingredient_name) && $amount > 0 && $ingredient_unit_term_id > 0) {
 			
-				$ingredient_term = get_term_by( 'name', $ingredient_name, 'ingredient' );
-				$ingredient_term_id = 0;
-				if ($ingredient_term) {
-					$ingredient_term_id = (int)$ingredient_term->term_id;
-				} else {
-					$ingredient_term = wp_insert_term($ingredient_name, 'ingredient');
-					if ( !is_wp_error($ingredient_term) ) {
-						$ingredient_term_id = $ingredient_term['term_id'];
-					}
-				}
+	// 			$ingredient_term = get_term_by( 'name', $ingredient_name, 'ingredient' );
+	// 			$ingredient_term_id = 0;
+	// 			if ($ingredient_term) {
+	// 				$ingredient_term_id = (int)$ingredient_term->term_id;
+	// 			} else {
+	// 				$ingredient_term = wp_insert_term($ingredient_name, 'ingredient');
+	// 				if ( !is_wp_error($ingredient_term) ) {
+	// 					$ingredient_term_id = $ingredient_term['term_id'];
+	// 				}
+	// 			}
 
-				if ($ingredient_term_id > 0) {
-					$sc_recipes_post_type->save_recipe_ingredient($post_id, $ingredient_term_id, $ingredient_unit_term_id, $amount);
+	// 			if ($ingredient_term_id > 0) {
+	// 				$sc_recipes_post_type->save_recipe_ingredient($post_id, $ingredient_term_id, $ingredient_unit_term_id, $amount);
 					
-					$ingredient = get_term_by( 'ID', $ingredient_term_id, 'ingredient' );
-					$ingredient_unit = get_term_by( 'ID', $ingredient_unit_term_id, 'ingredient_unit' );
+	// 				$ingredient = get_term_by( 'ID', $ingredient_term_id, 'ingredient' );
+	// 				$ingredient_unit = get_term_by( 'ID', $ingredient_unit_term_id, 'ingredient_unit' );
 					
-					$ingredient_array[$count] = array(
-						'amount' => $amount,
-						'ingredient' => $ingredient->slug,
-						'ingredient_unit' => $ingredient_unit->slug
-					);
+	// 				$ingredient_array[$count] = array(
+	// 					'amount' => $amount,
+	// 					'ingredient' => $ingredient->slug,
+	// 					'ingredient_unit' => $ingredient_unit->slug
+	// 				);
 					
-				}
-			}
+	// 			}
+	// 		}
 			
-			$count++;
-		}
+	// 		$count++;
+	// 	}
 		
-		if ($existing)
-			update_post_meta( $post_id, 'recipe_ingredients', $ingredient_array );
-		else
-			add_post_meta( $post_id, 'recipe_ingredients', $ingredient_array, true );
+	// 	if ($existing)
+	// 		update_post_meta( $post_id, 'recipe_ingredients', $ingredient_array );
+	// 	else
+	// 		add_post_meta( $post_id, 'recipe_ingredients', $ingredient_array, true );
 				
-		if ($this->sc_theme_globals->enable_nutritional_elements()) {
-			$sc_recipes_post_type->clear_recipe_nutritional_elements($post_id);		
-			$nutritional_element_array = array();
-			$count = 0;
-			foreach ($nutritional_element_indexes as $nutritional_element_index) {
+	// 	if ($this->sc_theme_globals->enable_nutritional_elements()) {
+	// 		$sc_recipes_post_type->clear_recipe_nutritional_elements($post_id);		
+	// 		$nutritional_element_array = array();
+	// 		$count = 0;
+	// 		foreach ($nutritional_element_indexes as $nutritional_element_index) {
 				
-				$amount = isset($_POST["nutritional_element_{$nutritional_element_index}_quantity"]) ? $_POST["nutritional_element_{$nutritional_element_index}_quantity"] : '0';
-				$amount = floatval(str_replace(',', '.', $amount));
+	// 			$amount = isset($_POST["nutritional_element_{$nutritional_element_index}_quantity"]) ? $_POST["nutritional_element_{$nutritional_element_index}_quantity"] : '0';
+	// 			$amount = floatval(str_replace(',', '.', $amount));
 				
-				$nutritional_element_name = isset($_POST["nutritional_element_{$nutritional_element_index}_name"]) ? wp_kses($_POST["nutritional_element_{$nutritional_element_index}_name"], '') : '';
-				$nutritional_unit_term_id = isset($_POST["nutritional_{$nutritional_element_index}_unit"]) ? intval($_POST["nutritional_{$nutritional_element_index}_unit"]) : 0;
+	// 			$nutritional_element_name = isset($_POST["nutritional_element_{$nutritional_element_index}_name"]) ? wp_kses($_POST["nutritional_element_{$nutritional_element_index}_name"], '') : '';
+	// 			$nutritional_unit_term_id = isset($_POST["nutritional_{$nutritional_element_index}_unit"]) ? intval($_POST["nutritional_{$nutritional_element_index}_unit"]) : 0;
 
-				if (!empty($nutritional_element_name) && $amount > 0 && $nutritional_unit_term_id > 0) {
+	// 			if (!empty($nutritional_element_name) && $amount > 0 && $nutritional_unit_term_id > 0) {
 				
-					$nutritional_element_term = get_term_by( 'name', $nutritional_element_name, 'nutritional_element' );
-					$nutritional_element_term_id = 0;
-					if ($nutritional_element_term) {
-						$nutritional_element_term_id = (int)$nutritional_element_term->term_id;
-					} else {
-						$nutritional_element_term = wp_insert_term($nutritional_element_name, 'nutritional_element');
-						if ( !is_wp_error($nutritional_element_term) ) {
-							$nutritional_element_term_id = $nutritional_element_term['term_id'];
-						}
-					}
+	// 				$nutritional_element_term = get_term_by( 'name', $nutritional_element_name, 'nutritional_element' );
+	// 				$nutritional_element_term_id = 0;
+	// 				if ($nutritional_element_term) {
+	// 					$nutritional_element_term_id = (int)$nutritional_element_term->term_id;
+	// 				} else {
+	// 					$nutritional_element_term = wp_insert_term($nutritional_element_name, 'nutritional_element');
+	// 					if ( !is_wp_error($nutritional_element_term) ) {
+	// 						$nutritional_element_term_id = $nutritional_element_term['term_id'];
+	// 					}
+	// 				}
 
-					if ($nutritional_element_term_id > 0) {
-						$sc_recipes_post_type->save_recipe_nutritional_element($post_id, $nutritional_element_term_id, $nutritional_unit_term_id, $amount);
+	// 				if ($nutritional_element_term_id > 0) {
+	// 					$sc_recipes_post_type->save_recipe_nutritional_element($post_id, $nutritional_element_term_id, $nutritional_unit_term_id, $amount);
 						
-						$nutritional_element = get_term_by( 'ID', $nutritional_element_term_id, 'nutritional_element' );
-						$nutritional_unit = get_term_by( 'ID', $nutritional_unit_term_id, 'nutritional_unit' );
+	// 					$nutritional_element = get_term_by( 'ID', $nutritional_element_term_id, 'nutritional_element' );
+	// 					$nutritional_unit = get_term_by( 'ID', $nutritional_unit_term_id, 'nutritional_unit' );
 						
-						$nutritional_element_array[$count] = array(
-							'amount' => $amount,
-							'nutritional_element' => $nutritional_element->slug,
-							'nutritional_unit' => $nutritional_unit->slug
-						);
+	// 					$nutritional_element_array[$count] = array(
+	// 						'amount' => $amount,
+	// 						'nutritional_element' => $nutritional_element->slug,
+	// 						'nutritional_unit' => $nutritional_unit->slug
+	// 					);
 						
-					}
-				}
+	// 				}
+	// 			}
 				
-				$count++;
-			}
+	// 			$count++;
+	// 		}
 			
-			if ($existing)
-				update_post_meta( $post_id, 'recipe_nutritional_values', $nutritional_element_array );
-			else
-				add_post_meta( $post_id, 'recipe_nutritional_values', $nutritional_element_array, true );
-		}
+	// 		if ($existing)
+	// 			update_post_meta( $post_id, 'recipe_nutritional_values', $nutritional_element_array );
+	// 		else
+	// 			add_post_meta( $post_id, 'recipe_nutritional_values', $nutritional_element_array, true );
+	// 	}
 		
-		$instruction_array = array();
-		$count = 0;
-		foreach ($instruction_indexes as $instruction_index) {
+	// 	$instruction_array = array();
+	// 	$count = 0;
+	// 	foreach ($instruction_indexes as $instruction_index) {
 			
-			$instruction = isset($_POST["instruction_{$instruction_index}"]) ? wp_kses($_POST["instruction_{$instruction_index}"], '') : '';
+	// 		$instruction = isset($_POST["instruction_{$instruction_index}"]) ? wp_kses($_POST["instruction_{$instruction_index}"], '') : '';
 
-			if (!empty($instruction)) {
-				$instruction_array[$count]['instruction'] = $instruction;
-			}
-			$count++;
-		}
+	// 		if (!empty($instruction)) {
+	// 			$instruction_array[$count]['instruction'] = $instruction;
+	// 		}
+	// 		$count++;
+	// 	}
 		
-		if ($existing)
-			update_post_meta( $post_id, 'recipe_instructions', $instruction_array );
-		else
-			add_post_meta( $post_id, 'recipe_instructions', $instruction_array, true );
+	// 	if ($existing)
+	// 		update_post_meta( $post_id, 'recipe_instructions', $instruction_array );
+	// 	else
+	// 		add_post_meta( $post_id, 'recipe_instructions', $instruction_array, true );
 	}
 	
 	private function _save_extra_fields( $post_id = 0, $existing = false ) {
@@ -1069,35 +1069,35 @@ class Frontend_Submit {
 		// row
 		$this->form_fields[] = (object)array( 'type' => 'div', 'class' => 'f-row', 'is_closing' => false );
 
-		$prep_time_str = ":" . __('Select preparation time (minutes)', 'socialchef') . "";
-		for ($i = 1;$i < 181;$i++) {
-			$prep_time_str .= ",$i:$i";
-		}
+		// $prep_time_str = ":" . __('Select preparation time (minutes)', 'socialchef') . "";
+		// for ($i = 1;$i < 181;$i++) {
+		// 	$prep_time_str .= ",$i:$i";
+		// }
 
-		$cook_time_str = ":" . __('Select cook time (minutes)', 'socialchef') . "";
-		for ($i = 1;$i < 181;$i++) {
-			$cook_time_str .= ",$i:$i";
-		}
+		// $cook_time_str = ":" . __('Select cook time (minutes)', 'socialchef') . "";
+		// for ($i = 1;$i < 181;$i++) {
+		// 	$cook_time_str .= ",$i:$i";
+		// }
 		
-		// prep time
-		$this->form_fields[] = (object)array( 'type' => 'div', 'class' => 'third', 'is_closing' => false );
-		$preparation_time_field = array( 'type' => 'select', 'role' => 'internal', 'name' => 'recipe_preparation_time', 'id' => 'fes_recipe_preparation_time', 'description' => __( 'Preparation time', 'socialchef' ), 'values' => $prep_time_str, 'class' => 'select' );
-		if ($this->entry != null) {
-			$preparation_time_field['value'] = $this->get_entry_field_value('recipe_preparation_time');
-		}
-		$this->form_fields[] = (object)$preparation_time_field;
+		// // prep time
+		// $this->form_fields[] = (object)array( 'type' => 'div', 'class' => 'third', 'is_closing' => false );
+		// $preparation_time_field = array( 'type' => 'select', 'role' => 'internal', 'name' => 'recipe_preparation_time', 'id' => 'fes_recipe_preparation_time', 'description' => __( 'Preparation time', 'socialchef' ), 'values' => $prep_time_str, 'class' => 'select' );
+		// if ($this->entry != null) {
+		// 	$preparation_time_field['value'] = $this->get_entry_field_value('recipe_preparation_time');
+		// }
+		// $this->form_fields[] = (object)$preparation_time_field;
 		
 			
-		$this->form_fields[] = (object)array( 'type' => 'div', 'class' => '', 'is_closing' => true );
+		// $this->form_fields[] = (object)array( 'type' => 'div', 'class' => '', 'is_closing' => true );
 
 		// cook time
-		$this->form_fields[] = (object)array( 'type' => 'div', 'class' => 'third', 'is_closing' => false );		
-		$cooking_time_field = array( 'type' => 'select', 'role' => 'internal', 'name' => 'recipe_cooking_time', 'id' => 'fes_recipe_cooking_time', 'description' => __( 'Cooking time', 'socialchef' ), 'values' => $cook_time_str, 'class' => 'select' );
-		if ($this->entry != null) {
-			$cooking_time_field['value'] = $this->get_entry_field_value('recipe_cooking_time');
-		}
-		$this->form_fields[] = (object)$cooking_time_field;
-		$this->form_fields[] = (object)array( 'type' => 'div', 'class' => '', 'is_closing' => true );		
+		// $this->form_fields[] = (object)array( 'type' => 'div', 'class' => 'third', 'is_closing' => false );		
+		// $cooking_time_field = array( 'type' => 'select', 'role' => 'internal', 'name' => 'recipe_cooking_time', 'id' => 'fes_recipe_cooking_time', 'description' => __( 'Cooking time', 'socialchef' ), 'values' => $cook_time_str, 'class' => 'select' );
+		// if ($this->entry != null) {
+		// 	$cooking_time_field['value'] = $this->get_entry_field_value('recipe_cooking_time');
+		// }
+		// $this->form_fields[] = (object)$cooking_time_field;
+		// $this->form_fields[] = (object)array( 'type' => 'div', 'class' => '', 'is_closing' => true );		
 
 		// serving
 		$this->form_fields[] = (object)array( 'type' => 'div', 'class' => 'third', 'is_closing' => false );		
@@ -1172,7 +1172,7 @@ class Frontend_Submit {
 		wp_reset_postdata();
 	}
 	
-	function get_instruction_html($index, $value_array = array()) {
+/*	function get_instruction_html($index, $value_array = array()) {
 	?>
 		<div class="f-row instruction instruction_<?php echo esc_attr( $index ); ?>">
 			<div class="full">
@@ -1188,7 +1188,7 @@ class Frontend_Submit {
 		</div>
 	<?php
 	}
-	
+
 	function get_ingredient_html($index, $value_array = array()) {
 	?>
 		<div class="f-row ingredient ingredient_<?php echo esc_attr( $index ); ?>">
@@ -1282,7 +1282,7 @@ class Frontend_Submit {
 		</div>
 	<?php
 	}
-	
+*/		
 	/**
 	 * Display the upload post form
 	 */
@@ -1355,21 +1355,21 @@ class Frontend_Submit {
 					</div>
 				</div>
 			</section>
-			<section class="instructions">
+<!-- 			<section class="instructions">
 				<h2><?php _e('Instructions', 'socialchef'); ?> <span><?php _e("(enter instructions, one step at a time)", 'socialchef') ?></span></h2>
 				<?php
-				$instruction_entries = array();
-				if ($this->entry != null) {
-					$instruction_entries = unserialize($this->get_entry_field_value('recipe_instructions'));
-				}
+				// $instruction_entries = array();
+				// if ($this->entry != null) {
+				// 	$instruction_entries = unserialize($this->get_entry_field_value('recipe_instructions'));
+				// }
 				
-				if (count($instruction_entries) > 0) {
-					for ($i = 0; $i < count($instruction_entries); $i++) {
-						$this->get_instruction_html($i, $instruction_entries[$i]);
-					}
-				} else {
-					$this->get_instruction_html(0, $instruction_entries);
-				}
+				// if (count($instruction_entries) > 0) {
+				// 	for ($i = 0; $i < count($instruction_entries); $i++) {
+				// 		$this->get_instruction_html($i, $instruction_entries[$i]);
+				// 	}
+				// } else {
+				// 	$this->get_instruction_html(0, $instruction_entries);
+				// }
 				?>
 				<div class="f-row full">
 					<button class="add add_instruction"><?php _e('Add a new step', 'socialchef'); ?></button>
@@ -1378,18 +1378,18 @@ class Frontend_Submit {
 			<section class="ingredients">
 				<h2><?php _e('Ingredients', 'socialchef'); ?></h2>
 				<?php 
-					$ingredient_entries = array();
-					if ($this->entry != null) {
-						$ingredient_entries = unserialize($this->get_entry_field_value('recipe_ingredients'));
-					}
+					// $ingredient_entries = array();
+					// if ($this->entry != null) {
+					// 	$ingredient_entries = unserialize($this->get_entry_field_value('recipe_ingredients'));
+					// }
 					
-					if (count($ingredient_entries) > 0) {
-						for ($i = 0; $i < count($ingredient_entries); $i++) {
-							$this->get_ingredient_html($i, $ingredient_entries[$i]);
-						}
-					} else {
-						$this->get_ingredient_html(0, $ingredient_entries);
-					}
+					// if (count($ingredient_entries) > 0) {
+					// 	for ($i = 0; $i < count($ingredient_entries); $i++) {
+					// 		$this->get_ingredient_html($i, $ingredient_entries[$i]);
+					// 	}
+					// } else {
+					// 	$this->get_ingredient_html(0, $ingredient_entries);
+					// }
 				?>
 				<div class="f-row full">
 					<button class="add add_ingredient"><?php _e('Add an ingredient', 'socialchef'); ?></button>
@@ -1399,24 +1399,24 @@ class Frontend_Submit {
 			<section class="nutritional_elements">
 				<h2><?php _e('Nutritional elements', 'socialchef'); ?></h2>
 				<?php 
-					$nutritional_element_entries = array();
-					if ($this->entry != null) {
-						$nutritional_element_entries = unserialize($this->get_entry_field_value('recipe_nutritional_values'));
-					}
+					// $nutritional_element_entries = array();
+					// if ($this->entry != null) {
+					// 	$nutritional_element_entries = unserialize($this->get_entry_field_value('recipe_nutritional_values'));
+					// }
 					
-					if (count($nutritional_element_entries) > 0) {
-						for ($i = 0; $i < count($nutritional_element_entries); $i++) {
-							$this->get_nutritional_element_html($i, $nutritional_element_entries[$i]);
-						}
-					} else {
-						$this->get_nutritional_element_html(0, $nutritional_element_entries);
-					}
+					// if (count($nutritional_element_entries) > 0) {
+					// 	for ($i = 0; $i < count($nutritional_element_entries); $i++) {
+					// 		$this->get_nutritional_element_html($i, $nutritional_element_entries[$i]);
+					// 	}
+					// } else {
+					// 	$this->get_nutritional_element_html(0, $nutritional_element_entries);
+					// }
 				?>
 				<div class="f-row full">
 					<button class="add add_nutritional_element"><?php _e('Add a nutritional element', 'socialchef'); ?></button>
 				</div>
 			</section>
-			<?php } ?>
+ 			<?php } ?> */ -->
 			<section>
 				<h2><?php _e('Photo', 'socialchef'); ?></h2>
 				<div class="f-row full">
@@ -1433,7 +1433,7 @@ class Frontend_Submit {
 						$current_recipe_status = $this->entry->post_status;
 					}
 				?>
-				<h2><?php _e('Status', 'socialchef'); ?> <span><?php _e('(would you like to further edit this recipe or are you ready to publish it?)', 'socialchef'); ?></span></h2>
+				<h2><?php _e('Status', 'socialchef'); ?> <span><?php _e('(would you like to further edit this story or are you ready to publish it?)', 'socialchef'); ?></span></h2>
 				<?php if (!$this->_is_public()) { ?>
 				<p><?php _e('The administrator of this website has opted to review submissions before publishing. After you hit submit, your recipe will be published as soon as the administrator has reviewed it.', 'socialchef'); ?></p>
 				<?php } ?>
@@ -1444,10 +1444,10 @@ class Frontend_Submit {
 				<div class="f-row full">
 					<?php if ($this->_is_public()) { ?>
 					<input type="radio" <?php echo ($current_recipe_status == 'publish' ? 'checked="checked"' : ''); ?> id="recipe_public" name="recipe_status" value="publish" />
-					<label for="recipe_public"><?php _e('I am ready to publish this recipe', 'socialchef'); ?></label>
+					<label for="recipe_public"><?php _e('I am ready to publish this story', 'socialchef'); ?></label>
 					<?php } else { ?>
 					<input type="radio" <?php echo ($current_recipe_status == 'publish' ? 'checked="checked"' : ''); ?> id="recipe_public" name="recipe_status" value="private" />
-					<label for="recipe_public"><?php _e('I am ready to publish this recipe', 'socialchef'); ?></label>
+					<label for="recipe_public"><?php _e('I am ready to publish this story', 'socialchef'); ?></label>
 					<?php } ?>
 				</div>
 			</section>

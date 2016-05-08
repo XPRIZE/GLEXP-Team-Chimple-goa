@@ -190,11 +190,11 @@ $terms = get_terms($taxonomies, $args);
 					</form>
 				</div>
 				<div class="tab-content" id="tab2" style="display: none;">
-					<h3><?php _e('Please select your search parameters and press "Search for recipes"', 'socialchef') ?></h3>
+					<h3><?php _e('Please select your search parameters and press "Search for stories"', 'socialchef') ?></h3>
 					<form id="custom-search-2" method="get" action="<?php echo SocialChef_Theme_Utils::get_current_page_url(); ?>">
 						<div class="row">
 							<div class="search one-fourth">
-								<input type="search" name="term" id="search_term" value="<?php echo $request_term; ?>" placeholder="<?php _e('Recipe name', 'socialchef'); ?>">
+								<input type="search" name="term" id="search_term" value="<?php echo $request_term; ?>" placeholder="<?php _e('Story name', 'socialchef'); ?>">
 							</div>
 							<div class="one-fourth">
 								<select name="cat" id="recipe_category">

@@ -78,9 +78,9 @@ class SocialChef_Theme_Filters extends SocialChef_BaseSingleton {
 		global $bp;
 		if( $post->post_type == 'recipe' ) {
 			if ( is_multisite() )
-				$activity_action = sprintf( __( '%1$s submitted a new recipe, %2$s, on the site %3$s', 'socialchef' ), bp_core_get_userlink( (int) $post->post_author ), '' . $post->post_title . '', '' . get_blog_option( $blog_id, 'blogname' ) . '');
+				$activity_action = sprintf( __( '%1$s submitted a new story, %2$s, on the site %3$s', 'socialchef' ), bp_core_get_userlink( (int) $post->post_author ), '' . $post->post_title . '', '' . get_blog_option( $blog_id, 'blogname' ) . '');
 			else
-				$activity_action = sprintf( __( '%1$s submitted a new recipe, %2$s', 'socialchef' ), bp_core_get_userlink( (int) $post->post_author ), '' . $post->post_title . '');
+				$activity_action = sprintf( __( '%1$s submitted a new story, %2$s', 'socialchef' ), bp_core_get_userlink( (int) $post->post_author ), '' . $post->post_title . '');
 			$post_permalink = get_permalink($post->ID);
 		}
 

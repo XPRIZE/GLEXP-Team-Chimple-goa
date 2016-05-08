@@ -75,7 +75,7 @@ class socialchef_Featured_Recipe_Widget extends WP_Widget {
 					if (!empty( $main_image ) ) { ?>
 						<figure>
 							<img src="<?php echo esc_url( $recipe_obj->get_main_image() ); ?>" alt="<?php echo esc_attr( $recipe_obj->get_title() ); ?>" />
-							<figcaption><a href="<?php echo esc_url ($recipe_obj->get_permalink()); ?>"><i class="ico i-view"></i> <span><?php _e('View recipe', 'socialchef'); ?></span></a></figcaption>
+							<figcaption><a href="<?php echo esc_url ($recipe_obj->get_permalink()); ?>"><i class="ico i-view"></i> <span><?php _e('View story', 'socialchef'); ?></span></a></figcaption>
 						</figure>
 					<?php } ?>
 					
@@ -84,8 +84,8 @@ class socialchef_Featured_Recipe_Widget extends WP_Widget {
 						<p><?php echo $recipe_obj->get_excerpt(); ?></p>
 						<div class="actions">
 							<div>
-								<a href="<?php echo esc_url ($recipe_obj->get_permalink()); ?>" class="button"><?php _e('See the full recipe', 'socialchef'); ?></a>
-								<div class="more"><a href="<?php echo esc_url ($featured_recipes_page_url); ?>"><?php _e('See past featured recipes', 'socialchef'); ?></a></div>
+								<a href="<?php echo esc_url ($recipe_obj->get_permalink()); ?>" class="button"><?php _e('See the full story', 'socialchef'); ?></a>
+								<div class="more"><a href="<?php echo esc_url ($featured_recipes_page_url); ?>"><?php _e('See past featured stories', 'socialchef'); ?></a></div>
 							</div>
 						</div>
 					</div>
@@ -174,7 +174,7 @@ class socialchef_Featured_Recipe_Widget extends WP_Widget {
 		</p>
 		
 		<p>
-			<label><?php _e('Recipe categories', 'socialchef') ?></label>
+			<label><?php _e('Story categories', 'socialchef') ?></label>
 			<div>
 				<?php for ($j=0;$j<count($recipe_categories);$j++) { 
 					$category = $recipe_categories[$j];
@@ -192,7 +192,7 @@ class socialchef_Featured_Recipe_Widget extends WP_Widget {
 		</p>
 		
 		<p>
-			<label><?php _e('Recipe difficulties', 'socialchef') ?></label>
+			<label><?php _e('Story languages', 'socialchef') ?></label>
 			<div>
 				<?php for ($j=0;$j<count($recipe_difficulties);$j++) { 
 					$category = $recipe_difficulties[$j];
@@ -210,7 +210,7 @@ class socialchef_Featured_Recipe_Widget extends WP_Widget {
 		</p>
 		
 		<p>
-			<label><?php _e('Recipe meal course', 'socialchef') ?></label>
+			<label><?php _e('Story licenses', 'socialchef') ?></label>
 			<div>
 				<?php for ($j=0;$j<count($recipe_meal_courses);$j++) { 
 					$category = $recipe_meal_courses[$j];

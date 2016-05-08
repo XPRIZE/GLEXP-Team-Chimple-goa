@@ -291,18 +291,18 @@ class SocialChef_Recipes_Post_Type extends SocialChef_BaseSingleton {
 		$recipes_permalink_slug = $sc_theme_globals->get_recipes_permalink_slug();
 			
 		$labels = array(
-			'name'                => __( 'Recipes', 'Post Type General Name', 'socialchef' ),
-			'singular_name'       => __( 'Recipe', 'Post Type Singular Name', 'socialchef' ),
-			'menu_name'           => __( 'Recipes', 'socialchef' ),
-			'all_items'           => __( 'All Recipes', 'socialchef' ),
-			'view_item'           => __( 'View Recipe', 'socialchef' ),
-			'add_new_item'        => __( 'Add New Recipe', 'socialchef' ),
-			'add_new'             => __( 'New Recipes', 'socialchef' ),
-			'edit_item'           => __( 'Edit Recipes', 'socialchef' ),
-			'update_item'         => __( 'Update Recipes', 'socialchef' ),
-			'search_items'        => __( 'Search Recipes', 'socialchef' ),
-			'not_found'           => __( 'No Recipes found', 'socialchef' ),
-			'not_found_in_trash'  => __( 'No Recipes found in Trash', 'socialchef' ),
+			'name'                => __( 'Stories', 'Post Type General Name', 'socialchef' ),
+			'singular_name'       => __( 'Story', 'Post Type Singular Name', 'socialchef' ),
+			'menu_name'           => __( 'Stories', 'socialchef' ),
+			'all_items'           => __( 'All Stories', 'socialchef' ),
+			'view_item'           => __( 'View Story', 'socialchef' ),
+			'add_new_item'        => __( 'Add New Story', 'socialchef' ),
+			'add_new'             => __( 'New Stories', 'socialchef' ),
+			'edit_item'           => __( 'Edit Stories', 'socialchef' ),
+			'update_item'         => __( 'Update Stories', 'socialchef' ),
+			'search_items'        => __( 'Search Stories', 'socialchef' ),
+			'not_found'           => __( 'No Stories found', 'socialchef' ),
+			'not_found_in_trash'  => __( 'No Stories found in Trash', 'socialchef' ),
 		);
 		$args = array(
 			'label'               => __( 'recipe', 'socialchef' ),

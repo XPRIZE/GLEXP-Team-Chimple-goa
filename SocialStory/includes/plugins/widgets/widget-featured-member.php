@@ -106,7 +106,7 @@ class socialchef_Featured_Member_Widget extends WP_Widget {
 						<?php } ?>
 						<div class="actions">
 							<div>
-								<a href="<?php echo esc_url ( $profile_link ); ?>" class="button"><?php _e('Recipes by this user', 'socialchef'); ?></a>
+								<a href="<?php echo esc_url ( $profile_link ); ?>" class="button"><?php _e('Stories by this user', 'socialchef'); ?></a>
 								<div class="more"><a href="<?php echo esc_url ($featured_members_page_url ); ?>"><?php _e('See past featured members', 'socialchef'); ?></a></div>
 							</div>
 						</div>

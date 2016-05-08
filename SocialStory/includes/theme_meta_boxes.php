@@ -37,8 +37,8 @@ class SocialChef_Theme_MetaBoxes extends SocialChef_BaseSingleton {
 		);
 	
 		$sort_by_columns = array();
-		$sort_by_columns[] = array('value' => 'title', 'label' => __('Recipe title', 'socialchef'));
-		$sort_by_columns[] = array('value' => 'ID', 'label' => __('Recipe ID', 'socialchef'));
+		$sort_by_columns[] = array('value' => 'title', 'label' => __('Story title', 'socialchef'));
+		$sort_by_columns[] = array('value' => 'ID', 'label' => __('Story ID', 'socialchef'));
 		$sort_by_columns[] = array('value' => 'date', 'label' => __('Publish date', 'socialchef'));
 		$sort_by_columns[] = array('value' => 'rand', 'label' => __('Random', 'socialchef'));
 		$sort_by_columns[] = array('value' => 'comment_count', 'label' => __('Comment count', 'socialchef'));
@@ -85,37 +85,37 @@ class SocialChef_Theme_MetaBoxes extends SocialChef_BaseSingleton {
 				'type'	=> 'checkbox', // type of field
 			),
 			array( // Taxonomy Select box
-				'label'	=> __('Recipe difficulty', 'socialchef'), // <label>
+				'label'	=> __('Story language', 'socialchef'), // <label>
 				// the description is created in the callback function with a link to Manage the taxonomy terms
 				'id'	=> 'recipe_difficulty', // field id and name, needs to be the exact name of the taxonomy
 				'type'	=> 'tax_select' // type of field
 			),
 			array( // Taxonomy Select box
-				'label'	=> __('Recipe meal course', 'socialchef'), // <label>
+				'label'	=> __('Story license', 'socialchef'), // <label>
 				// the description is created in the callback function with a link to Manage the taxonomy terms
 				'id'	=> 'recipe_meal_course', // field id and name, needs to be the exact name of the taxonomy
 				'type'	=> 'tax_select' // type of field
 			),
+			// array( // Post ID select box
+			// 	'label'	=> __('Preparation time (in minutes)', 'socialchef'), // <label>
+			// 	'desc'	=> '', // description
+			// 	'id'	=> 'recipe_preparation_time', // field id and name
+			// 	'type'	=> 'slider',
+			// 	'min'	=> '1',
+			// 	'max'	=> '360',
+			// 	'step'	=> '1'
+			// ),
+			// array( // Post ID select box
+			// 	'label'	=> __('Cooking time (in minutes)', 'socialchef'), // <label>
+			// 	'desc'	=> '', // description
+			// 	'id'	=> 'recipe_cooking_time', // field id and name
+			// 	'type'	=> 'slider',
+			// 	'min'	=> '1',
+			// 	'max'	=> '360',
+			// 	'step'	=> '1'
+			// ),
 			array( // Post ID select box
-				'label'	=> __('Preparation time (in minutes)', 'socialchef'), // <label>
-				'desc'	=> '', // description
-				'id'	=> 'recipe_preparation_time', // field id and name
-				'type'	=> 'slider',
-				'min'	=> '1',
-				'max'	=> '360',
-				'step'	=> '1'
-			),
-			array( // Post ID select box
-				'label'	=> __('Cooking time (in minutes)', 'socialchef'), // <label>
-				'desc'	=> '', // description
-				'id'	=> 'recipe_cooking_time', // field id and name
-				'type'	=> 'slider',
-				'min'	=> '1',
-				'max'	=> '360',
-				'step'	=> '1'
-			),
-			array( // Post ID select box
-				'label'	=> __('Serving (number of people)', 'socialchef'), // <label>
+				'label'	=> __('Reading level', 'socialchef'), // <label>
 				'desc'	=> '', // description
 				'id'	=> 'recipe_serving', // field id and name
 				'type'	=> 'slider',

@@ -83,9 +83,9 @@
 			<?php } ?>
 			<nav class="user-nav" role="navigation">
 				<ul>
-					<li class="light"><a href="<?php echo esc_url ($sc_theme_globals->get_search_form_page_url() ); ?>" title="<?php _e('Search for recipes', 'socialchef'); ?>"><i class="ico i-search"></i> <span><?php _e('Search for recipes', 'socialchef'); ?></span></a></li>
+					<li class="light"><a href="<?php echo esc_url ($sc_theme_globals->get_search_form_page_url() ); ?>" title="<?php _e('Search for stories', 'socialchef'); ?>"><i class="ico i-search"></i> <span><?php _e('Search for stories', 'socialchef'); ?></span></a></li>
 					<li class="medium"><a href="<?php echo is_user_logged_in() ? esc_url ( $account_uri ) : esc_url ( $sc_theme_globals->get_login_page_url() ); ?>" title="<?php _e('My account', 'socialchef'); ?>"><i class="ico i-account"></i> <span><?php _e('My account', 'socialchef'); ?></span></a></li>
-					<li class="dark"><a href="<?php echo is_user_logged_in() ? esc_url ( $sc_theme_globals->get_submit_recipes_url() ) : esc_url ( $sc_theme_globals->get_login_page_url() ); ?>" title="<?php _e('Submit a recipe', 'socialchef'); ?>"><i class="ico i-submitrecipe"></i> <span><?php _e('Submit a recipe', 'socialchef'); ?></span></a></li>
+					<li class="dark"><a href="<?php echo is_user_logged_in() ? esc_url ( $sc_theme_globals->get_submit_recipes_url() ) : esc_url ( $sc_theme_globals->get_login_page_url() ); ?>" title="<?php _e('Submit a story', 'socialchef'); ?>"><i class="ico i-submitrecipe"></i> <span><?php _e('Submit a story', 'socialchef'); ?></span></a></li>
 				</ul>
 			</nav>
 		</div>

@@ -49,7 +49,7 @@
 								<div class="container">
 									<i class="ico i-recipes"></i>
 									<span class="title dynamic-number" data-dnumber="<?php echo esc_attr( $published_recipes); ?>">0</span>
-									<span class="subtitle"><?php _e('recipes', 'socialchef'); ?></span>
+									<span class="subtitle"><?php _e('stories', 'socialchef'); ?></span>
 								</div>
 							</div>
 							<!--//item-->

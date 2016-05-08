@@ -12,7 +12,6 @@ if ( have_posts() ) while ( have_posts() ) :
 
 ?>
 <script>
-	alert('single-recipe');
 	window.recipeId = <?php echo $post->ID; ?>;
 	window.addToFavoritesText = '<i class="ico eldorado_heart"></i><span><?php _e('Add to favorites', 'socialchef') ?></span>';
 	window.removeFromFavoritesText = '<i class="ico eldorado_heart"></i><span><?php _e('Remove from favorites', 'socialchef') ?></span>';
@@ -21,21 +20,21 @@ if ( have_posts() ) while ( have_posts() ) :
 	
 	$recipe_obj = new sc_recipe($post);
 	$recipe_id = $recipe_obj->get_id();
-	$recipe_instructions = $recipe_obj->get_instructions();
-	$recipe_preparation_time = $recipe_obj->get_preparation_time();
-	$recipe_cooking_time = $recipe_obj->get_cooking_time();
+	// $recipe_instructions = $recipe_obj->get_instructions();
+	// $recipe_preparation_time = $recipe_obj->get_preparation_time();
+	// $recipe_cooking_time = $recipe_obj->get_cooking_time();
 	$recipe_serving = $recipe_obj->get_serving();
 	$recipe_difficulty = $recipe_obj->get_difficulty();
 	$recipe_meal_course = $recipe_obj->get_meal_course();
 	
 	// Generate microformat time values for Schema.org compatibility
-	$mf_recipe_cooking_time = SocialChef_Theme_Utils::time_to_iso8601_duration(strtotime($recipe_cooking_time . " minutes", 0));
-	$mf_recipe_preparation_time = SocialChef_Theme_Utils::time_to_iso8601_duration(strtotime($recipe_preparation_time . " minutes", 0));
+	// $mf_recipe_cooking_time = SocialChef_Theme_Utils::time_to_iso8601_duration(strtotime($recipe_cooking_time . " minutes", 0));
+	// $mf_recipe_preparation_time = SocialChef_Theme_Utils::time_to_iso8601_duration(strtotime($recipe_preparation_time . " minutes", 0));
 		
-	$ingredient_results = $sc_recipes_post_type->list_recipe_ingredients($post->ID);
+	// $ingredient_results = $sc_recipes_post_type->list_recipe_ingredients($post->ID);
 	
-	if ($sc_theme_globals->enable_nutritional_elements())
-		$sc_nutritional_element_results = $sc_recipes_post_type->list_recipe_nutritional_elements($post->ID);
+	// if ($sc_theme_globals->enable_nutritional_elements())
+	// 	$sc_nutritional_element_results = $sc_recipes_post_type->list_recipe_nutritional_elements($post->ID);
 		
 	$author_nice_name = get_the_author_meta('user_nicename', $post->post_author);
 	
@@ -60,14 +59,14 @@ if ( have_posts() ) while ( have_posts() ) :
 						<!--one-third-->
 						<div class="one-third entry-header">
 							<dl class="basic">
-								<?php if ($recipe_preparation_time) { ?>
+<!-- 								<?php if ($recipe_preparation_time) { ?>
 								<dt><?php _e('Preparation time', 'socialchef'); ?></dt>
 								<dd itemprop="prepTime" content="<?php echo $mf_recipe_preparation_time; ?>"><?php echo $recipe_preparation_time; ?> <?php _e('mins', 'socialchef'); ?></dd>
-								<?php } ?>
-								<?php if ($recipe_cooking_time) { ?>
+								<?php } ?> -->
+<!-- 								<?php if ($recipe_cooking_time) { ?>
 								<dt><?php _e('Cooking time', 'socialchef'); ?></dt>
 								<dd itemprop="cookTime" content="<?php echo $mf_recipe_cooking_time; ?>"><?php echo $recipe_cooking_time; ?> <?php _e('mins', 'socialchef'); ?></dd>
-								<?php } ?>
+								<?php } ?> -->
 								<?php if ($recipe_difficulty) { 
 									$difficulty_link = get_term_link( $recipe_difficulty->term_id, 'recipe_difficulty' );
 								?>
@@ -91,7 +90,7 @@ if ( have_posts() ) while ( have_posts() ) :
 								<dd  itemprop="datePublished" content="<?php echo get_the_date(); ?>"  class="post-date updated"><?php echo get_the_date(); ?></dd>
 							</dl>
 							
-							<?php
+<!-- 							<?php
 							if (count($ingredient_results) > 0) { ?>
 							<dl class="ingredients">
 								<?php 
@@ -111,7 +110,7 @@ if ( have_posts() ) while ( have_posts() ) :
 								?>
 							</dl>
 							<?php } ?>
-							<?php if (defined('BP_VERSION')) { ?>
+ -->							<?php if (defined('BP_VERSION')) { ?>
 							<?php if ( is_user_logged_in() ) { ?>
 							<div class="favorite">
 								<?php 
@@ -129,10 +128,10 @@ if ( have_posts() ) while ( have_posts() ) :
 							</div>
 							<?php } ?>
 							<?php } // defined('BP_VERSION')  ?>
-							<div class="print">
-								<a class="" onclick="window.print();" href="#"><i class="ico eldorado_print"></i> <span><?php _e('Print recipe', 'socialchef'); ?></span></a>
+<!-- 							<div class="print">
+								<a class="" onclick="window.print();" href="#"><i class="ico eldorado_print"></i> <span><?php _e('Print story', 'socialchef'); ?></span></a>
 							</div>							
-						</div><!--// one-third -->
+ -->						</div><!--// one-third -->
 						<!--two-third-->
 						<div class="two-third">
 							<?php 
@@ -148,7 +147,7 @@ if ( have_posts() ) while ( have_posts() ) :
 								<?php the_content(); ?>
 							</div>
 							<?php } ?>
-							<?php if (count($recipe_instructions) > 0) { ?>
+<!-- 							<?php if (count($recipe_instructions) > 0) { ?>
 							<div class="instructions" itemprop="recipeInstructions">
 								<ol>
 								<?php
@@ -162,14 +161,14 @@ if ( have_posts() ) while ( have_posts() ) :
 								</ol>
 							</div>
 							<?php } ?>
-						</div>
+ -->						</div>
 						<!--//two-third-->
 					</div><!--//row-->
 				</article><!--//recipe-->
 				<?php comments_template( '', true ); ?>		
 				<!--//recipe entry-->
 			</section>
-			<?php get_sidebar('right-recipe'); ?>
+			<!-- <?php get_sidebar('right-recipe'); ?> -->
 		</div><!--//hentry-->
 	</div><!--//row-->
 <?php 

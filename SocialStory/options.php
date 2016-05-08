@@ -130,8 +130,8 @@ function optionsframework_options() {
 		'type' => 'heading');
 	
 	$options[] = array(
-		'name' => __('Search recipes page url', 'socialchef'),
-		'desc' => __('Page that displays custom recipe search form and results.', 'socialchef'),
+		'name' => __('Search stories page url', 'socialchef'),
+		'desc' => __('Page that displays custom story search form and results.', 'socialchef'),
 		'id' => 'search_form_page_url_id',
 		'std' => 'three',
 		'type' => 'select',
@@ -200,8 +200,8 @@ function optionsframework_options() {
 		'type' => 'checkbox');
 		
 	$options[] = array(
-		'name' => __('Featured recipes page url', 'socialchef'),
-		'desc' => __('Featured recipes page url used in featured recipe widget', 'socialchef'),
+		'name' => __('Featured stories page url', 'socialchef'),
+		'desc' => __('Featured stories page url used in featured story widget', 'socialchef'),
 		'id' => 'featured_recipes_page_url_id',
 		'std' => 'three',
 		'type' => 'select',
@@ -218,8 +218,8 @@ function optionsframework_options() {
 		'options' => $pages_array);
 		
 	$options[] = array(
-		'name' => __('Submit recipes page url', 'socialchef'),
-		'desc' => __('Submit recipes page url', 'socialchef'),
+		'name' => __('Submit stories page url', 'socialchef'),
+		'desc' => __('Submit stories page url', 'socialchef'),
 		'id' => 'submit_recipes_url_id',
 		'std' => 'three',
 		'type' => 'select',
@@ -248,19 +248,19 @@ function optionsframework_options() {
 		'type' => 'checkbox');
 		
 	$options[] = array(
-		'name' => __('Recipes', 'socialchef'),
+		'name' => __('Stories', 'socialchef'),
 		'type' => 'heading');
 		
 	$options[] = array(
-		'name' => __('Single recipe permalink slug', 'socialchef'),
-		'desc' => __('The permalink slug used for single recipes (by default it is set to "recipe". <br /><strong>Note:</strong> Please make sure you flush your rewrite rules after changing this setting. You can do so by navigating to <a href="/wp-admin/options-permalink.php">Settings->Permalinks</a> and clicking "Save Changes".', 'socialchef'),
+		'name' => __('Single story permalink slug', 'socialchef'),
+		'desc' => __('The permalink slug used for single stories (by default it is set to "story". <br /><strong>Note:</strong> Please make sure you flush your rewrite rules after changing this setting. You can do so by navigating to <a href="/wp-admin/options-permalink.php">Settings->Permalinks</a> and clicking "Save Changes".', 'socialchef'),
 		'id' => 'recipes_permalink_slug',
 		'std' => 'recipe',
 		'type' => 'text');
 		
 	$options[] = array(
-		'name' => __('Recipe archive posts per page', 'socialchef'),
-		'desc' => __('Number of recipes to display on recipes archive pages', 'socialchef'),
+		'name' => __('Story archive posts per page', 'socialchef'),
+		'desc' => __('Number of stories to display on stories archive pages', 'socialchef'),
 		'id' => 'recipes_archive_posts_per_page',
 		'std' => '12',
 		'type' => 'text');
@@ -274,8 +274,8 @@ function optionsframework_options() {
 		'type' => 'text');
 		
 	$options[] = array(
-		'name' => __('Single recipe category permalink slug', 'socialchef'),
-		'desc' => __('The permalink slug used for single recipe category (by default it is set to "recipe-category". <br /><strong>Note:</strong> Please make sure you flush your rewrite rules after changing this setting. You can do so by navigating to <a href="/wp-admin/options-permalink.php">Settings->Permalinks</a> and clicking "Save Changes".', 'socialchef'),
+		'name' => __('Single story category permalink slug', 'socialchef'),
+		'desc' => __('The permalink slug used for single recipe category (by default it is set to "story-category". <br /><strong>Note:</strong> Please make sure you flush your rewrite rules after changing this setting. You can do so by navigating to <a href="/wp-admin/options-permalink.php">Settings->Permalinks</a> and clicking "Save Changes".', 'socialchef'),
 		'id' => 'recipe_category_permalink_slug',
 		'std' => 'recipe-category',
 		'type' => 'text');

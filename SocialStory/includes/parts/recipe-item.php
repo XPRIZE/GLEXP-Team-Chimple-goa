@@ -9,14 +9,14 @@
 <!--item-->
 <div class="entry <?php echo $sc_recipe_class; ?> recipe-item">
 	<?php if ($sc_include_edit_link) { ?>
-	<a class="edit" href="<?php echo esc_url ( $sc_theme_globals->get_submit_recipes_url() ); ?>?fesid=<?php echo urlencode($recipe_id); ?>" title="<?php _e('Edit recipe', 'socialchef'); ?>"><?php _e('Edit recipe', 'socialchef'); ?></a>
+	<a class="edit" href="<?php echo esc_url ( $sc_theme_globals->get_submit_recipes_url() ); ?>?fesid=<?php echo urlencode($recipe_id); ?>" title="<?php _e('Edit story', 'socialchef'); ?>"><?php _e('Edit story', 'socialchef'); ?></a>
 	<?php } ?>
 <?php 
 $main_image = $recipe_obj->get_main_image('thumb-image');
 if (!empty( $main_image ) ) { ?>
 	<figure>
 		<img src="<?php echo esc_url ( $main_image ); ?>" alt="<?php the_title(); ?>" />
-		<figcaption><a href="<?php echo esc_url ( $recipe_obj->get_permalink() ); ?>"><i class="ico i-view"></i> <span><?php _e('View recipe', 'socialchef'); ?></span></a></figcaption>
+		<figcaption><a href="<?php echo esc_url ( $recipe_obj->get_permalink() ); ?>"><i class="ico i-view"></i> <span><?php _e('View story', 'socialchef'); ?></span></a></figcaption>
 	</figure>
 <?php } ?>
 	<div class="container">
