@@ -434,10 +434,6 @@ class SocialChef_Theme_Actions extends SocialChef_BaseSingleton {
 			
 			}
 		}
-
-		if($post->post_type  === 'recipe') {
-			wp_enqueue_script('game_js', SocialChef_Theme_Utils::get_file_uri('/js/game.min.js'), array('jquery'), 1.1, true);					
-		}
 		
 	}
 	

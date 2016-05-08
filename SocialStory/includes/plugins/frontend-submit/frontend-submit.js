@@ -1,4 +1,4 @@
-(function ($) {
+(function($){
 
 	"use strict";
 
@@ -6,7 +6,7 @@
 		submit_recipe.init();
 	});
 
-	$(window).load(function () {
+	$(window).load(function(){
 
 	});
 
@@ -26,19 +26,19 @@
 			ingredient_0_quantity: "required",
 			ingredient_0_unit: "required",
 			featured_image: "required",
-			recipe_status: "required"
+			recipe_status: "required"					
 		},
-		invalidHandler: function (e, validator) {
-
+		invalidHandler: function(e, validator) {
+		
 			var errors = validator.numberOfInvalids();
 			if (errors) {
 				$("div.alert-danger").show();
 			} else {
 				$("div.alert-danger").hide();
 			}
-
+			
 		},
-		errorPlacement: function (error, element) {
+		errorPlacement: function(error, element) {
 			if (element[0].tagName == "SELECT") {
 				element.parent().addClass('error');
 			}
@@ -47,10 +47,10 @@
 			}
 			return true;
 		},
-		unhighlight: function (element, errorClass, validClass) {
+		unhighlight: function(element, errorClass, validClass) {
 			if (element.type === 'radio') {
 				this.findByName(element.name).removeClass(errorClass).addClass(validClass);
-			} else {
+			} else {    
 				if (element.tagName == "SELECT") {
 					$(element).parent().removeClass(errorClass).addClass(validClass);
 				} else {
@@ -58,7 +58,7 @@
 				}
 			}
 		},
-		messages: {
+		messages: {	
 			post_title: "1",
 			// recipe_preparation_time: "2",
 			// recipe_cooking_time: "3",
@@ -71,64 +71,37 @@
 			// ingredient_0_quantity: "10",
 			// ingredient_0_unit: "11",
 			featured_image: "12",
-			recipe_status: "13"
-		}
+			recipe_status: "13"					
+		}			
 	});
-
+	
 	var submit_recipe = {
-
-		generateImageFromCanvas: function () {
-			var canvas = document.getElementById("gameCanvas");
-			if (canvas != null) {
-				var dataURL = canvas.toDataURL("image/png");
-				return dataURL;
-			}
-		},
-
-		readStoryJSONFromLocalStorage: function () {
-			var base64endcoedStoryJSONStr = "";
-			var Base64={_keyStr:"ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=",encode:function(e){var t="";var n,r,i,s,o,u,a;var f=0;e=Base64._utf8_encode(e);while(f<e.length){n=e.charCodeAt(f++);r=e.charCodeAt(f++);i=e.charCodeAt(f++);s=n>>2;o=(n&3)<<4|r>>4;u=(r&15)<<2|i>>6;a=i&63;if(isNaN(r)){u=a=64}else if(isNaN(i)){a=64}t=t+this._keyStr.charAt(s)+this._keyStr.charAt(o)+this._keyStr.charAt(u)+this._keyStr.charAt(a)}return t},decode:function(e){var t="";var n,r,i;var s,o,u,a;var f=0;e=e.replace(/[^A-Za-z0-9\+\/\=]/g,"");while(f<e.length){s=this._keyStr.indexOf(e.charAt(f++));o=this._keyStr.indexOf(e.charAt(f++));u=this._keyStr.indexOf(e.charAt(f++));a=this._keyStr.indexOf(e.charAt(f++));n=s<<2|o>>4;r=(o&15)<<4|u>>2;i=(u&3)<<6|a;t=t+String.fromCharCode(n);if(u!=64){t=t+String.fromCharCode(r)}if(a!=64){t=t+String.fromCharCode(i)}}t=Base64._utf8_decode(t);return t},_utf8_encode:function(e){e=e.replace(/\r\n/g,"\n");var t="";for(var n=0;n<e.length;n++){var r=e.charCodeAt(n);if(r<128){t+=String.fromCharCode(r)}else if(r>127&&r<2048){t+=String.fromCharCode(r>>6|192);t+=String.fromCharCode(r&63|128)}else{t+=String.fromCharCode(r>>12|224);t+=String.fromCharCode(r>>6&63|128);t+=String.fromCharCode(r&63|128)}}return t},_utf8_decode:function(e){var t="";var n=0;var r=c1=c2=0;while(n<e.length){r=e.charCodeAt(n);if(r<128){t+=String.fromCharCode(r);n++}else if(r>191&&r<224){c2=e.charCodeAt(n+1);t+=String.fromCharCode((r&31)<<6|c2&63);n+=2}else{c2=e.charCodeAt(n+1);c3=e.charCodeAt(n+2);t+=String.fromCharCode((r&15)<<12|(c2&63)<<6|c3&63);n+=3}}return t}}
-
-			if (typeof (Storage) !== "undefined") {
-				// Code for localStorage/sessionStorage.
-				for (var i = 0, len = localStorage.length; i < len; ++i) {
-					var storageKey = localStorage.key(i);
-					if(storageKey.indexOf("chimpleStory.json") != -1)
-					{
-						base64endcoedStoryJSONStr = Base64.encode(localStorage.getItem(storageKey));
-						base64endcoedStoryJSONStr = 'data:application/json;base64,' + base64endcoedStoryJSONStr;
-						localStorage.removeItem(storageKey);
-
-					}					
-				}				
-			} 
-			return base64endcoedStoryJSONStr;
-		},
-
-		injectStoryAttributes: function () {
-			//inject base64 byte array of Canvas Image
-			var gameCanvasImage = document.getElementById("gameCanvasImage");
-			gameCanvasImage.value = submit_recipe.generateImageFromCanvas();
-
-			//inject JSON from localStorage from browser			
-			var chimpleStoryJSON = document.getElementById("chimpleStoryJSON");
-			chimpleStoryJSON.value =  submit_recipe.readStoryJSONFromLocalStorage();
-		},
-
-		init: function () {
-
-			$('#submit_recipe').on('click', function (e) {
-				var content = tinyMCE.activeEditor.getContent({ format: 'raw' }); // get the content
+		
+			generateImageFromCanvas: function () {
+				
+ 			 var canvas = document.getElementById("gameCanvas");
+				if(canvas != null) {
+				    var dataURL = canvas.toDataURL("image/png");    				
+					return dataURL;
+				}
+			},
+		
+			init : function () {
+		
+			$('#submit_recipe').on('click', function(e) {
+				
+				var content = tinyMCE.activeEditor.getContent({format : 'raw'}); // get the content
 				$('#fes_post_content').val(content); // put it in the textarea
-
+			
 				if ($('#fes-upload-form-recipe').valid()) {
 					$('.recipe_saving').show();
-					submit_recipe.injectStoryAttributes();
+					var gameCanvasImage = document.getElementById("gameCanvasImage");
+					gameCanvasImage.value = submit_recipe.generateImageFromCanvas();
 					form.submit();
 				}
 
 				e.preventDefault();
-				return false;
+				return false;				
 			});
 		
 			// $('.add_instruction').on('click', function(e) {
@@ -212,6 +185,7 @@
 				
 			// 	var nutritionalElementNamePlaceHolder = window.nutritionalElementNameText;
 			// 	var nutritionalElementQuantityPlaceHolder = window.nutritionalElementQuantityText;
+
 			// 	var newNutritionalElementRow = '<div class="f-row nutritional_element nutritional_element_' + newNutritionalElementIndex + '">';
 			// 	newNutritionalElementRow += '<div class="large">';
 			// 	newNutritionalElementRow += '<input class="nutritional_element_name" type="text" placeholder="' + nutritionalElementNamePlaceHolder + '" name="nutritional_element_' + newNutritionalElementIndex + '_name" class="nutritional_element_name" id="nutritional_element_' + newNutritionalElementIndex + '_name">';
@@ -271,15 +245,14 @@
 		// 			$(this).closest( ".nutritional_element" ).remove();
 		// 	});
 		// },
-
 		configureSuggest: function (element_name, ajax_method) {
 			$('input[name=' + element_name + ']').suggest(SCAjax.ajax_url + '?action=' + ajax_method + '&nonce=' + SCAjax.nonce, {
-				multiple: false,
-				delimiter: ';',
-				multipleSep: '',
-				resultsClass: 'suggest-results',
-				selectClass: 'suggest-over',
-				matchClass: 'suggest-match'
+				multiple     	: false,
+				delimiter		: ';',
+				multipleSep		: '',
+				resultsClass 	: 'suggest-results',
+				selectClass  	: 'suggest-over',
+				matchClass   	: 'suggest-match'
 			});
 		},
 	}
