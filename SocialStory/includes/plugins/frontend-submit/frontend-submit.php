@@ -228,29 +228,29 @@ class Frontend_Submit {
 	
 		global $sc_recipes_post_type, $wpdb;
 		
-		// $ingredient_indexes = array();
-		// $instruction_indexes = array();
-		// $nutritional_element_indexes = array();
+	// 	$ingredient_indexes = array();
+	// 	$instruction_indexes = array();
+	// 	$nutritional_element_indexes = array();
 		
-	 //    foreach ($_POST as $key => $value) {
-		// 	if (preg_match("/ingredient_(\d+)_name/", $key, $match)) {
-		// 		$ingredient_indexes[] = $match[1];
-		// 	}
-		// }
-	 //    foreach ($_POST as $key => $value) {
-		// 	if (preg_match("/instruction_(\d+)/", $key, $match)) {
-		// 		$instruction_indexes[] = $match[1];
-		// 	}
-		// }
-		// if ($this->sc_theme_globals->enable_nutritional_elements()) {
-		// 	foreach ($_POST as $key => $value) {
-		// 		if (preg_match("/nutritional_element_(\d+)_name/", $key, $match)) {
-		// 			$nutritional_element_indexes[] = $match[1];
-		// 		}
-		// 	}
-		// }
+	// 	foreach ($_POST as $key => $value) {
+	// 		if (preg_match("/ingredient_(\d+)_name/", $key, $match)) {
+	// 			$ingredient_indexes[] = $match[1];
+	// 		}
+	// 	}
+	// 	foreach ($_POST as $key => $value) {
+	// 		if (preg_match("/instruction_(\d+)/", $key, $match)) {
+	// 			$instruction_indexes[] = $match[1];
+	// 		}
+	// 	}
+	// 	if ($this->sc_theme_globals->enable_nutritional_elements()) {
+	// 		foreach ($_POST as $key => $value) {
+	// 			if (preg_match("/nutritional_element_(\d+)_name/", $key, $match)) {
+	// 				$nutritional_element_indexes[] = $match[1];
+	// 			}
+	// 		}
+	// 	}
 		
-	// 	$sc_recipes_post_type->clear_recipe_ingredients($post_id);		
+	// 	$sc_recipes_post_type->clear_recipe_ingredients($post_id);
 	// 	$ingredient_array = array();
 	// 	$count = 0;
 	// 	foreach ($ingredient_indexes as $ingredient_index) {
@@ -259,7 +259,6 @@ class Frontend_Submit {
 	// 		$amount = floatval(str_replace(',', '.', $amount));
 	// 		$ingredient_name = isset($_POST["ingredient_{$ingredient_index}_name"]) ? wp_kses($_POST["ingredient_{$ingredient_index}_name"], '') : '';
 	// 		$ingredient_unit_term_id = isset($_POST["ingredient_{$ingredient_index}_unit"]) ? intval($_POST["ingredient_{$ingredient_index}_unit"]) : 0;
-
 	// 		if (!empty($ingredient_name) && $amount > 0 && $ingredient_unit_term_id > 0) {
 			
 	// 			$ingredient_term = get_term_by( 'name', $ingredient_name, 'ingredient' );
@@ -272,7 +271,6 @@ class Frontend_Submit {
 	// 					$ingredient_term_id = $ingredient_term['term_id'];
 	// 				}
 	// 			}
-
 	// 			if ($ingredient_term_id > 0) {
 	// 				$sc_recipes_post_type->save_recipe_ingredient($post_id, $ingredient_term_id, $ingredient_unit_term_id, $amount);
 					
@@ -283,8 +281,7 @@ class Frontend_Submit {
 	// 					'amount' => $amount,
 	// 					'ingredient' => $ingredient->slug,
 	// 					'ingredient_unit' => $ingredient_unit->slug
-	// 				);
-					
+	// 				);					
 	// 			}
 	// 		}
 			
@@ -297,7 +294,7 @@ class Frontend_Submit {
 	// 		add_post_meta( $post_id, 'recipe_ingredients', $ingredient_array, true );
 				
 	// 	if ($this->sc_theme_globals->enable_nutritional_elements()) {
-	// 		$sc_recipes_post_type->clear_recipe_nutritional_elements($post_id);		
+	// 		$sc_recipes_post_type->clear_recipe_nutritional_elements($post_id);
 	// 		$nutritional_element_array = array();
 	// 		$count = 0;
 	// 		foreach ($nutritional_element_indexes as $nutritional_element_index) {
@@ -307,7 +304,6 @@ class Frontend_Submit {
 				
 	// 			$nutritional_element_name = isset($_POST["nutritional_element_{$nutritional_element_index}_name"]) ? wp_kses($_POST["nutritional_element_{$nutritional_element_index}_name"], '') : '';
 	// 			$nutritional_unit_term_id = isset($_POST["nutritional_{$nutritional_element_index}_unit"]) ? intval($_POST["nutritional_{$nutritional_element_index}_unit"]) : 0;
-
 	// 			if (!empty($nutritional_element_name) && $amount > 0 && $nutritional_unit_term_id > 0) {
 				
 	// 				$nutritional_element_term = get_term_by( 'name', $nutritional_element_name, 'nutritional_element' );
@@ -320,7 +316,6 @@ class Frontend_Submit {
 	// 						$nutritional_element_term_id = $nutritional_element_term['term_id'];
 	// 					}
 	// 				}
-
 	// 				if ($nutritional_element_term_id > 0) {
 	// 					$sc_recipes_post_type->save_recipe_nutritional_element($post_id, $nutritional_element_term_id, $nutritional_unit_term_id, $amount);
 						
@@ -350,7 +345,6 @@ class Frontend_Submit {
 	// 	foreach ($instruction_indexes as $instruction_index) {
 			
 	// 		$instruction = isset($_POST["instruction_{$instruction_index}"]) ? wp_kses($_POST["instruction_{$instruction_index}"], '') : '';
-
 	// 		if (!empty($instruction)) {
 	// 			$instruction_array[$count]['instruction'] = $instruction;
 	// 		}
@@ -489,11 +483,11 @@ class Frontend_Submit {
 					add_post_meta( $entry_id, 'author_name', $author );
 				if ($post_type == 'recipe') {
 										$admin_email = get_option( 'admin_email' );
-					$subject = sprintf(__( 'New Recipe Submission', 'socialchef' ), get_bloginfo( 'name' ));
+					$subject = sprintf(__( 'New Story Submission', 'socialchef' ), get_bloginfo( 'name' ));
 					
-					$body = sprintf(__( 'A new recipe has been submitted on your website: %s', 'socialchef' ), get_bloginfo( 'url' ));
+					$body = sprintf(__( 'A new story has been submitted on your website: %s', 'socialchef' ), get_bloginfo( 'url' ));
 					$body .= "\r\n";
-					$body .= sprintf(__( "To view the newly submitted recipe please follow the link bellow:\n%s", 'socialchef' ), get_permalink($entry_id));
+					$body .= sprintf(__( "To view the newly submitted story please follow the link bellow:\n%s", 'socialchef' ), get_permalink($entry_id));
 					$headers   = array();
 					$headers[] = "MIME-Version: 1.0";
 					$headers[] = "Content-type: text/plain; charset=utf-8";
@@ -650,11 +644,11 @@ class Frontend_Submit {
 				'class' => 'alert-success',
 			),
 			'fes-recipe-sent' => array(
-				'text' => __( 'Your recipe was successfully submitted!', 'socialchef' ),
+				'text' => __( 'Your story was successfully submitted!', 'socialchef' ),
 				'class' => 'alert-success',
 			),
 			'fes-recipe-updated' => array(
-				'text' => __( 'Your recipe was successfully updated!', 'socialchef' ),
+				'text' => __( 'Your story was successfully updated!', 'socialchef' ),
 				'class' => 'alert-success',
 			),
 			'fes-error' => array(
@@ -665,7 +659,7 @@ class Frontend_Submit {
 		
 		$edit_notices = array(
 			'recipe' => array (
-				'text' => __('You are currently editing your selected recipe. Click "Submit" to save your changes.', 'socialchef'),
+				'text' => __('You are currently editing your selected story. Click "Submit" to save your changes.', 'socialchef'),
 				'class' => 'alert-warning'
 			)
 			);
@@ -721,7 +715,7 @@ class Frontend_Submit {
 				'text' =>__( "Couldn't create the post", 'socialchef' ),
 			),
 			'fes-error-recipe-wrong-user' => array(
-				'text' =>__( "User does not own recipe specified", 'socialchef' ),
+				'text' =>__( "User does not own story specified", 'socialchef' ),
 			)
 		);
 		// TODO: DAMN SON you should refactor this
@@ -944,18 +938,16 @@ class Frontend_Submit {
 		$this->form_fields = array();
 		// row
 		$this->form_fields[] = (object)array( 'type' => 'div', 'class' => 'f-row', 'is_closing' => false );
-
 		// $prep_time_str = ":" . __('Select preparation time (minutes)', 'socialchef') . "";
 		// for ($i = 1;$i < 181;$i++) {
 		// 	$prep_time_str .= ",$i:$i";
 		// }
-
 		// $cook_time_str = ":" . __('Select cook time (minutes)', 'socialchef') . "";
 		// for ($i = 1;$i < 181;$i++) {
 		// 	$cook_time_str .= ",$i:$i";
 		// }
 		
-		// // prep time
+		// prep time
 		// $this->form_fields[] = (object)array( 'type' => 'div', 'class' => 'third', 'is_closing' => false );
 		// $preparation_time_field = array( 'type' => 'select', 'role' => 'internal', 'name' => 'recipe_preparation_time', 'id' => 'fes_recipe_preparation_time', 'description' => __( 'Preparation time', 'socialchef' ), 'values' => $prep_time_str, 'class' => 'select' );
 		// if ($this->entry != null) {
@@ -965,43 +957,36 @@ class Frontend_Submit {
 		
 			
 		// $this->form_fields[] = (object)array( 'type' => 'div', 'class' => '', 'is_closing' => true );
-
-		// cook time
-		// $this->form_fields[] = (object)array( 'type' => 'div', 'class' => 'third', 'is_closing' => false );		
+		// // cook time
+		// 		$this->form_fields[] = (object)array( 'type' => 'div', 'class' => 'third', 'is_closing' => false );
 		// $cooking_time_field = array( 'type' => 'select', 'role' => 'internal', 'name' => 'recipe_cooking_time', 'id' => 'fes_recipe_cooking_time', 'description' => __( 'Cooking time', 'socialchef' ), 'values' => $cook_time_str, 'class' => 'select' );
 		// if ($this->entry != null) {
 		// 	$cooking_time_field['value'] = $this->get_entry_field_value('recipe_cooking_time');
 		// }
 		// $this->form_fields[] = (object)$cooking_time_field;
-		// $this->form_fields[] = (object)array( 'type' => 'div', 'class' => '', 'is_closing' => true );		
-
+		// 		$this->form_fields[] = (object)array( 'type' => 'div', 'class' => '', 'is_closing' => true );
 		// serving
 				$this->form_fields[] = (object)array( 'type' => 'div', 'class' => 'third', 'is_closing' => false );
-		$serving_str = ":" . __('Select serving (people)', 'socialchef') . ",1:1,2:2,3:3,4:4,5:5,6:6,7:7,8:8,9:9,10:10";
-		$serving_field = array( 'type' => 'select', 'role' => 'internal', 'name' => 'recipe_serving', 'id' => 'fes_recipe_serving', 'description' => __( 'Serving', 'socialchef' ), 'values' => $serving_str, 'class' => 'select' );
+		$serving_str = ":" . __('Select reading level', 'socialchef') . ",1:1,2:2,3:3,4:4,5:5,6:6,7:7,8:8,9:9,10:10";
+		$serving_field = array( 'type' => 'select', 'role' => 'internal', 'name' => 'recipe_serving', 'id' => 'fes_recipe_serving', 'description' => __( 'Reading Level', 'socialchef' ), 'values' => $serving_str, 'class' => 'select' );
 		if ($this->entry != null) {
 			$serving_field['value'] = $this->get_entry_field_value('recipe_serving');
 		}
 		$this->form_fields[] = (object)$serving_field;
 				$this->form_fields[] = (object)array( 'type' => 'div', 'class' => '', 'is_closing' => true );
 		
-		$this->form_fields[] = (object)array( 'type' => 'div', 'class' => 'f-row', 'is_closing' => true );
-		// end row
-		
-		// row
-		$this->form_fields[] = (object)array( 'type' => 'div', 'class' => 'f-row', 'is_closing' => false );
 		
 		// difficulty
 				$this->form_fields[] = (object)array( 'type' => 'div', 'class' => 'third', 'is_closing' => false );
 		$taxonomies = array( 'recipe_difficulty' );
 		$args = array( 'hide_empty' => false, 'fields' => 'all' );
 		$recipe_difficulties = get_terms($taxonomies, $args);
-		$recipe_difficulties_str = ':' . __('Select difficulty', 'socialchef') . ',';
+		$recipe_difficulties_str = ':' . __('Select language', 'socialchef') . ',';
 		foreach ($recipe_difficulties as $recipe_difficulty) {
 			$recipe_difficulties_str .= "{$recipe_difficulty->term_id}:{$recipe_difficulty->name},";
 		}
 						$recipe_difficulties_str = rtrim($recipe_difficulties_str, ',');
-		$difficulty_field = array( 'type' => 'select', 'role' => 'internal', 'name' => 'recipe_difficulty', 'id' => 'fes_recipe_difficulty', 'description' => __( 'Select difficulty', 'socialchef' ), 'values' => $recipe_difficulties_str, 'class' => 'select' );
+		$difficulty_field = array( 'type' => 'select', 'role' => 'internal', 'name' => 'recipe_difficulty', 'id' => 'fes_recipe_difficulty', 'description' => __( 'Select language', 'socialchef' ), 'values' => $recipe_difficulties_str, 'class' => 'select' );
 		if ($this->entry != null) {
 			$difficulty_field['value'] = $this->get_entry_field_value('recipe_difficulty');
 		}
@@ -1013,7 +998,7 @@ class Frontend_Submit {
 		$taxonomies = array( 'recipe_meal_course' );
 		$args = array( 'hide_empty' => false, 'fields' => 'all' );
 		$recipe_meal_courses = get_terms($taxonomies, $args);
-		$recipe_meal_courses_str = ':' . __('Select meal course', 'socialchef') . ',';
+		$recipe_meal_courses_str = ':' . __('Select license', 'socialchef') . ',';
 		foreach ($recipe_meal_courses as $recipe_meal_course) {
 			$recipe_meal_courses_str .= "{$recipe_meal_course->term_id}:{$recipe_meal_course->name},";
 		}
@@ -1037,32 +1022,150 @@ class Frontend_Submit {
 			$recipe_categories_str .= "{$recipe_category->term_id}:{$recipe_category->name},";
 		}
 		$recipe_categories_str = rtrim($recipe_categories_str, ',');
-		$this->form_fields[] = (object)array( 'type' => 'checkbox', 'role' => 'internal', 'name' => 'recipe_categories', 'id' => 'fes_recipe_categories', 'description' => __( 'Recipe categories', 'socialchef' ), 'values' => $recipe_categories_str, 'class' => 'checkboxes' );
+		$this->form_fields[] = (object)array( 'type' => 'checkbox', 'role' => 'internal', 'name' => 'recipe_categories', 'id' => 'fes_recipe_categories', 'description' => __( 'Story categories', 'socialchef' ), 'values' => $recipe_categories_str, 'class' => 'checkboxes' );
 		$this->form_fields[] = (object)array( 'type' => 'div', 'class' => 'f-row', 'is_closing' => true );
 		// end row
 		
 		wp_reset_postdata();
 	}
 	
-/*	function get_instruction_html($index, $value_array = array()) {
-	?>
-		<div class="f-row instruction instruction_<?php echo esc_attr( $index ); ?>">
-			<div class="full">
-			<?php
-			$atts = array( 'description' => __('Enter instruction', 'socialchef'), 'class' => 'instruction_text', 'type' => 'text', 'name' => 'instruction_' . $index, 'id' => 'instruction_' . $index );
-			if (count ($value_array) > 0) {
-				$atts['value'] = esc_attr ( $value_array['instruction'] );
-			}
-			echo $this->_render_input($atts);
-			?>
-			</div>
-			<button class="remove remove_instruction">-</button>
-		</div>
+	function get_instruction_html($index, $value_array = array()) {
+?>
+<!-- <div class="f-row instruction instruction_<?php echo esc_attr( $index ); ?>">
+	<div class="full">
+		<?php
+		$atts = array( 'description' => __('Enter instruction', 'socialchef'), 'class' => 'instruction_text', 'type' => 'text', 'name' => 'instruction_' . $index, 'id' => 'instruction_' . $index );
+		if (count ($value_array) > 0) {
+			$atts['value'] = esc_attr ( $value_array['instruction'] );
+		}
+		echo $this->_render_input($atts);
+		?>
+	</div>
+	<button class="remove remove_instruction">-</button>
+</div>
+ --><?php
+}
+function get_ingredient_html($index, $value_array = array()) {
+?>
+<!-- <div class="f-row ingredient ingredient_<?php echo esc_attr( $index ); ?>">
+	<div class="large">
+		<?php
+		$atts = array( 'description' => __('Ingredient', 'socialchef'), 'type' => 'text', 'name' => 'ingredient_' . $index . '_name', 'class' => 'ingredient_name', 'id' => 'fes_ingredient_' . $index . '_name' );
+		if (count ($value_array) > 0) {
+			$term = get_term_by('slug', $value_array['ingredient'], 'ingredient');
+			if ($term)
+				$atts['value'] = esc_attr ( $term->name );
+		}
+		echo $this->_render_input($atts);
+		?>
+	</div>
+	<div class="small">
+		<?php
+		$atts = array( 'description' => __('Quantity', 'socialchef'), 'type' => 'text', 'name' => 'ingredient_' . $index . '_quantity', 'id' => 'fes_ingredient_' . $index . '_quantity', 'class' => 'ingredient_quantity' );
+		if (count ($value_array) > 0) {
+			$atts['value'] = esc_attr ( $value_array['amount'] );
+		}
+		echo $this->_render_input($atts);
+		?>
+	</div>
+	<div class="third">
+		<?php
+		$taxonomies = array( 'ingredient_unit' );
+		$args = array( 'hide_empty' => false, 'fields' => 'all' );
+		$ingredient_units = get_terms($taxonomies, $args);
+		$ingredient_units_str = ':' . __('Select ingredient unit', 'socialchef') . ',';
+		foreach ($ingredient_units as $ingredient_unit) {
+			$ingredient_units_str .= "{$ingredient_unit->term_id}:{$ingredient_unit->name},";
+		}
+						$ingredient_units_str = rtrim($ingredient_units_str, ',');
+		$atts = array( 'type' => 'select', 'role' => 'internal', 'name' => 'ingredient_' . $index . '_unit', 'id' => 'fes_ingredient_' . $index . '_unit', 'description' => __( 'Select ingredient unit', 'socialchef' ), 'values' => $ingredient_units_str, 'class' => 'select ingredient_unit' );
+		if (count ($value_array) > 0) {
+			$term = get_term_by('slug', $value_array['ingredient_unit'], 'ingredient_unit');
+			if ($term)
+				$atts['value'] = $term->term_id;
+		}
+		echo $this->_render_select($atts);
+		?>
+	</div>
+	<button class="remove remove_ingredient">-</button>
+</div> -->
+<?php
+}
+function get_nutritional_element_html($index, $value_array = array()) {
+?>
+<!-- <div class="f-row nutritional_element nutritional_element_<?php echo esc_attr( $index ); ?>">
+	<div class="large">
+		<?php
+		$atts = array( 'description' => __('Nutritional element', 'socialchef'), 'type' => 'text', 'name' => 'nutritional_element_' . $index . '_name', 'class' => 'nutritional_element_name', 'id' => 'fes_nutritional_element_' . $index . '_name' );
+		if (count ($value_array) > 0) {
+			$term = get_term_by('slug', $value_array['nutritional_element'], 'nutritional_element');
+			if ($term)
+				$atts['value'] = esc_attr ( $term->name );
+		}
+		echo $this->_render_input($atts);
+		?>
+	</div>
+	<div class="small">
+		<?php
+		$atts = array( 'description' => __('Quantity', 'socialchef'), 'type' => 'text', 'name' => 'nutritional_element_' . $index . '_quantity', 'id' => 'fes_nutritional_element_' . $index . '_quantity', 'class' => 'nutritional_element_quantity' );
+		if (count ($value_array) > 0) {
+			$atts['value'] = esc_attr ( $value_array['amount'] );
+		}
+		echo $this->_render_input($atts);
+		?>
+	</div>
+	<div class="third">
+		<?php
+		$taxonomies = array( 'nutritional_unit' );
+		$args = array( 'hide_empty' => false, 'fields' => 'all' );
+		$nutritional_units = get_terms($taxonomies, $args);
+		$nutritional_units_str = ':' . __('Select nutritional unit', 'socialchef') . ',';
+		foreach ($nutritional_units as $nutritional_unit) {
+			$nutritional_units_str .= "{$nutritional_unit->term_id}:{$nutritional_unit->name},";
+		}
+						$nutritional_units_str = rtrim($nutritional_units_str, ',');
+		$atts = array( 'type' => 'select', 'role' => 'internal', 'name' => 'nutritional_' . $index . '_unit', 'id' => 'fes_nutritional_' . $index . '_unit', 'description' => __( 'Select nutritional unit', 'socialchef' ), 'values' => $nutritional_units_str, 'class' => 'select nutritional_unit' );
+		if (count ($value_array) > 0) {
+			$term = get_term_by('slug', $value_array['nutritional_unit'], 'nutritional_unit');
+			if ($term)
+				$atts['value'] = $term->term_id;
+		}
+		echo $this->_render_select($atts);
+		?>
+	</div>
+	<button class="remove remove_nutritional_element">-</button>
+</div>
+ --><?php
+}
+/**
+* Display the upload post form
+*/
+function upload_form( $content_type = 'recipe' ) {
+	if ( $content_type == 'recipe' )
+		$this->_initialize_recipe_fields();
+		
+	// Reset postdata in case it got polluted somewhere
+	wp_reset_postdata();
+	$form_post_id = get_the_id();
+	$post_id = (int) $form_post_id;
+	
+	ob_start();
+?>
+<script type="text/javascript">
+window.adminAjaxUrl = '<?php echo home_url() . "/wp-admin/admin-ajax.php"; ?>';
+</script>
+<form action="<?php echo esc_url ( admin_url( 'admin-ajax.php' ) ) ?>" method="post" id="fes-upload-form-<?php echo esc_attr( $content_type ); ?>" name="fes-upload-form-<?php echo esc_attr( $content_type ); ?>" class="fes-upload-form fes-form-<?php echo esc_attr( $content_type ); ?>" enctype="multipart/form-data">
+	<div class="alert alert-danger" style="display:none">
+		<?php _e('Errors were encountered when processing your submission. Please correct them and submit again.', 'socialchef') ?>
+	</div>
+	<input type="hidden" name="gameCanvasImage" id="gameCanvasImage"/>
+	<input type="hidden" name="chimpleStoryJSON" id="chimpleStoryJSON"/>
+	
 	<?php
-	}
-
-	function get_ingredient_html($index, $value_array = array()) {
-
+	if ( !empty( $_GET ) && isset($_GET['response'] ) && ($_GET['response'] == 'fes-sent' || $_GET['response'] == 'fes-recipe-sent' || $_GET['response'] == 'fes-recipe-updated') )
+		$this->_display_response_notices( $_GET );
+	else {
+		$this->_display_response_notices( $_GET );
 	?>
 	<section>
 		<script>
@@ -1105,234 +1208,28 @@ class Frontend_Submit {
 			</div>
 		</div>
 	</section>
-	<section class="instructions">
-		<h2><?php _e('Instructions', 'socialchef'); ?> <span><?php _e("(enter instructions, one step at a time)", 'socialchef') ?></span></h2>
-		<?php
-		$instruction_entries = array();
-		if ($this->entry != null) {
-			$instruction_entries = unserialize($this->get_entry_field_value('recipe_instructions'));
-		}
-		
-		if (count($instruction_entries) > 0) {
-			for ($i = 0; $i < count($instruction_entries); $i++) {
-				$this->get_instruction_html($i, $instruction_entries[$i]);
-			}
-		} else {
-			$this->get_instruction_html(0, $instruction_entries);
-		}
-		?>
-		<div class="f-row full">
-			<button class="add add_instruction"><?php _e('Add a new step', 'socialchef'); ?></button>
-		</div>
-	</section>
-	<section class="ingredients">
-		<h2><?php _e('Ingredients', 'socialchef'); ?></h2>
-		<?php
-			$ingredient_entries = array();
-			if ($this->entry != null) {
-				$ingredient_entries = unserialize($this->get_entry_field_value('recipe_ingredients'));
-			}
-			
-			if (count($ingredient_entries) > 0) {
-				for ($i = 0; $i < count($ingredient_entries); $i++) {
-					$this->get_ingredient_html($i, $ingredient_entries[$i]);
-				}
-			} else {
-				$this->get_ingredient_html(0, $ingredient_entries);
-			}
-		?>
-		<div class="f-row full">
-			<button class="add add_ingredient"><?php _e('Add an ingredient', 'socialchef'); ?></button>
-		</div>
-	<?php
-	}
-*/		
-	/**
-	 * Display the upload post form
-	 */
-	function upload_form( $content_type = 'recipe' ) {
-	
-		if ( $content_type == 'recipe' )
-			$this->_initialize_recipe_fields();
-			
-			if (count($nutritional_element_entries) > 0) {
-				for ($i = 0; $i < count($nutritional_element_entries); $i++) {
-					$this->get_nutritional_element_html($i, $nutritional_element_entries[$i]);
-				}
-			} else {
-				$this->get_nutritional_element_html(0, $nutritional_element_entries);
-			}
-		?>
-		<div class="f-row full">
-			<button class="add add_nutritional_element"><?php _e('Add a nutritional element', 'socialchef'); ?></button>
-		</div>
-	</section>
-	<?php } ?>
 	<section>
-		<h2><?php _e('Photo', 'socialchef'); ?></h2>
+		<?php
+			$current_recipe_status = '';
+			if ($this->entry != null) {
+				$current_recipe_status = $this->entry->post_status;
+			}
+		?>
+		<h2><?php _e('Status', 'socialchef'); ?> <span><?php _e('(would you like to further edit this story or are you ready to publish it?)', 'socialchef'); ?></span></h2>
+		<?php if (!$this->_is_public()) { ?>
+		<p><?php _e('The administrator of this website has opted to review submissions before publishing. After you hit submit, your story will be published as soon as the administrator has reviewed it.', 'socialchef'); ?></p>
+		<?php } ?>
 		<div class="f-row full">
-			<?php
-			$atts = array( 'type' => 'file', 'role' => 'file', 'name' => 'featured_image', 'id' => 'fes_featured_image', 'multiple' => false );
-			echo $this->_render_input($atts);
-			?>
-			<section>
-				<script>
-					window.enableNutritionalElements = <?php echo esc_js ( $this->sc_theme_globals->enable_nutritional_elements() ); ?>;
-					window.ingredientQuantityText = '<?php echo esc_js ( __('Quantity', 'socialchef') ); ?>';
-					window.ingredientNameText = '<?php echo esc_js ( __('Ingredient', 'socialchef') ); ?>';
-					window.nutritionalElementQuantityText = '<?php echo esc_js ( __('Quantity', 'socialchef') ); ?>';
-					window.nutritionalElementNameText = '<?php echo esc_js ( __('Nutritional element', 'socialchef') ); ?>';
-					window.instructionText = '<?php echo esc_js ( __('Enter instruction', 'socialchef') ); ?>';
-				</script>
-				<h2><?php _e('Basics', 'socialchef'); ?></h2>
-				<p><?php _e('All fields are required.', 'socialchef'); ?></p>
-				<?php
-
-				$atts = array( 'type' => 'hidden', 'role' => 'internal', 'name' => 'post_author', 'id' => 'fes_post_author', 'value' =>  $this->get_current_user_id() );
-				echo $this->_render_input($atts);
-				
-				$atts = array( 'type' => 'hidden', 'role' => 'internal', 'name' => 'content_type', 'id' => 'fes_content_type', 'value' =>  $content_type );
-				echo $this->_render_input($atts);
-				
-				if ($this->entry_id > 0) {
-					$atts = array( 'type' => 'hidden', 'role' => 'internal', 'name' => 'entry_id', 'value' => $this->entry_id, 'id' => 'fes_entry_id' );
-					echo $this->_render_input($atts);
-				}
-				
-				$atts = array( 'type' => 'text', 'role' => 'title', 'name' => 'post_title',	'id' => 'fes_post_title', 'class' => '', 'description' =>  __( 'Title', 'socialchef' ) );
-				echo '<div class="f-row">';
-				echo $this->_render_input($atts);
-				echo '</div>';
-				$this->_render_extra_fields();
-				?>
-			</section>
-			<section>
-				<h2><?php _e('Description', 'socialchef'); ?></h2>
-				<div class="f-row">
-					<div class="full">
-						<?php
-						$atts = array( 'role' => 'content', 'name' => 'post_content', 'id' => 'fes_post_content', 'class' => '', 'description' =>  __( 'Description', 'socialchef' ), 'wysiwyg_enabled' => true );
-						echo $this->_render_textarea($atts);
-						?>
-					</div>
-				</div>
-			</section>
-<!-- 			<section class="instructions">
-				<h2><?php _e('Instructions', 'socialchef'); ?> <span><?php _e("(enter instructions, one step at a time)", 'socialchef') ?></span></h2>
-				<?php
-				// $instruction_entries = array();
-				// if ($this->entry != null) {
-				// 	$instruction_entries = unserialize($this->get_entry_field_value('recipe_instructions'));
-				// }
-				
-				// if (count($instruction_entries) > 0) {
-				// 	for ($i = 0; $i < count($instruction_entries); $i++) {
-				// 		$this->get_instruction_html($i, $instruction_entries[$i]);
-				// 	}
-				// } else {
-				// 	$this->get_instruction_html(0, $instruction_entries);
-				// }
-				?>
-				<div class="f-row full">
-					<button class="add add_instruction"><?php _e('Add a new step', 'socialchef'); ?></button>
-				</div>
-			</section>
-			<section class="ingredients">
-				<h2><?php _e('Ingredients', 'socialchef'); ?></h2>
-				<?php 
-					// $ingredient_entries = array();
-					// if ($this->entry != null) {
-					// 	$ingredient_entries = unserialize($this->get_entry_field_value('recipe_ingredients'));
-					// }
-					
-					// if (count($ingredient_entries) > 0) {
-					// 	for ($i = 0; $i < count($ingredient_entries); $i++) {
-					// 		$this->get_ingredient_html($i, $ingredient_entries[$i]);
-					// 	}
-					// } else {
-					// 	$this->get_ingredient_html(0, $ingredient_entries);
-					// }
-				?>
-				<div class="f-row full">
-					<button class="add add_ingredient"><?php _e('Add an ingredient', 'socialchef'); ?></button>
-				</div>
-			</section>	
-			<?php if ($this->sc_theme_globals->enable_nutritional_elements()) { ?>
-			<section class="nutritional_elements">
-				<h2><?php _e('Nutritional elements', 'socialchef'); ?></h2>
-				<?php 
-					// $nutritional_element_entries = array();
-					// if ($this->entry != null) {
-					// 	$nutritional_element_entries = unserialize($this->get_entry_field_value('recipe_nutritional_values'));
-					// }
-					
-					// if (count($nutritional_element_entries) > 0) {
-					// 	for ($i = 0; $i < count($nutritional_element_entries); $i++) {
-					// 		$this->get_nutritional_element_html($i, $nutritional_element_entries[$i]);
-					// 	}
-					// } else {
-					// 	$this->get_nutritional_element_html(0, $nutritional_element_entries);
-					// }
-				?>
-				<div class="f-row full">
-					<button class="add add_nutritional_element"><?php _e('Add a nutritional element', 'socialchef'); ?></button>
-				</div>
-			</section>
- 			<?php } ?> */ -->
-			<section>
-				<h2><?php _e('Photo', 'socialchef'); ?></h2>
-				<div class="f-row full">
-					<?php
-					$atts = array( 'type' => 'file', 'role' => 'file', 'name' => 'featured_image', 'id' => 'fes_featured_image', 'multiple' => false );
-					echo $this->_render_input($atts);
-					?>
-				</div>
-			</section>
-			<section>
-				<?php
-					$current_recipe_status = '';
-					if ($this->entry != null) {
-						$current_recipe_status = $this->entry->post_status;
-					}
-				?>
-				<h2><?php _e('Status', 'socialchef'); ?> <span><?php _e('(would you like to further edit this story or are you ready to publish it?)', 'socialchef'); ?></span></h2>
-				<?php if (!$this->_is_public()) { ?>
-				<p><?php _e('The administrator of this website has opted to review submissions before publishing. After you hit submit, your recipe will be published as soon as the administrator has reviewed it.', 'socialchef'); ?></p>
-				<?php } ?>
-				<div class="f-row full">
-					<input type="radio" <?php echo ($current_recipe_status == 'private' ? 'checked="checked"' : ''); ?> id="recipe_private" name="recipe_status" value="private" />
-					<label for="recipe_private"><?php _e('I am still working on it', 'socialchef'); ?></label>
-				</div>
-				<div class="f-row full">
-					<?php if ($this->_is_public()) { ?>
-					<input type="radio" <?php echo ($current_recipe_status == 'publish' ? 'checked="checked"' : ''); ?> id="recipe_public" name="recipe_status" value="publish" />
-					<label for="recipe_public"><?php _e('I am ready to publish this story', 'socialchef'); ?></label>
-					<?php } else { ?>
-					<input type="radio" <?php echo ($current_recipe_status == 'publish' ? 'checked="checked"' : ''); ?> id="recipe_public" name="recipe_status" value="private" />
-					<label for="recipe_public"><?php _e('I am ready to publish this story', 'socialchef'); ?></label>
-					<?php } ?>
-				</div>
-			</section>
-			<div id="results" class="f-row full">
-				<canvas id="gameCanvas" width="480" height="720"></canvas>
-			</div>
-			
-			<div class="f-row full">
-				<?php								
-				$atts = array( 'type' => 'submit', 'role' => 'internal', 'name' => 'submitRecipe', 'id' => 'submit_recipe', 'class' => 'button', 'value' =>  __( 'Save this recipe', 'socialchef' ) );
-				echo $this->_render_input($atts);
-				if (isset($_GET['fesid'])) {
-					$atts = array( 'type' => 'hidden', 'role' => 'internal', 'name' => 'fesid', 'id' => 'fesid', 'value' => wp_kses($_GET['fesid'], '')  );
-					echo $this->_render_input($atts);
-				}
-				$atts = array( 'type' => 'hidden', 'role' => 'internal', 'name' => 'action', 'id' => 'fes_action', 'value' =>  'frontend_recipe_submit' );
-				echo $this->_render_input($atts);
-				wp_nonce_field( FES_NONCE, 'fes_nonce' ); 
-				?>
-				<input type="hidden" name="form_post_id" value="<?php echo (int) $form_post_id ?>" />
-				<div class="recipe_saving" style="display:none"><img src="<?php echo SocialChef_Theme_Utils::get_file_uri( '/images/ico/ajax-loader.gif' ); ?>" alt="..." /></div>
-			</div>
-
+			<input type="radio" <?php echo ($current_recipe_status == 'private' ? 'checked="checked"' : ''); ?> id="recipe_private" name="recipe_status" value="private" />
+			<label for="recipe_private"><?php _e('I am still working on it', 'socialchef'); ?></label>
+		</div>
+		<div class="f-row full">
+			<?php if ($this->_is_public()) { ?>
+			<input type="radio" <?php echo ($current_recipe_status == 'publish' ? 'checked="checked"' : ''); ?> id="recipe_public" name="recipe_status" value="publish" />
+			<label for="recipe_public"><?php _e('I am ready to publish this story', 'socialchef'); ?></label>
+			<?php } else { ?>
+			<input type="radio" <?php echo ($current_recipe_status == 'publish' ? 'checked="checked"' : ''); ?> id="recipe_public" name="recipe_status" value="private" />
+			<label for="recipe_public"><?php _e('I am ready to publish this story', 'socialchef'); ?></label>
 			<?php } ?>
 		</div>
 	</section>
@@ -1342,7 +1239,7 @@ class Frontend_Submit {
 	
 	<div class="f-row full">
 		<?php
-		$atts = array( 'type' => 'submit', 'role' => 'internal', 'name' => 'submitRecipe', 'id' => 'submit_recipe', 'class' => 'button', 'value' =>  __( 'Save this recipe', 'socialchef' ) );
+		$atts = array( 'type' => 'submit', 'role' => 'internal', 'name' => 'submitRecipe', 'id' => 'submit_recipe', 'class' => 'button', 'value' =>  __( 'Save this story', 'socialchef' ) );
 		echo $this->_render_input($atts);
 		if (isset($_GET['fesid'])) {
 		$atts = array( 'type' => 'hidden', 'role' => 'internal', 'name' => 'fesid', 'id' => 'fesid', 'value' => wp_kses($_GET['fesid'], '')  );
