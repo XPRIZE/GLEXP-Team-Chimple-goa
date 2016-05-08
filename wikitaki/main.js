@@ -51,6 +51,47 @@
  }
  *
  */
+ 
+(function () {
+    var d = document;
+    
+    var c = {
+    "project_type": "javascript",
+
+    "debugMode" : 1,
+    "showFPS" : true,
+    "frameRate" : 60,
+    "noCache" : false,
+    "id" : "gameCanvas",
+    "renderMode" : 0,
+    "engineDir":"frameworks/cocos2d-html5",
+
+    "modules" : ["cocos2d", "cocostudio"],
+
+    "jsList" : [
+        "src/resource.js",
+        "src/app.js",
+        "src/ui/PageConfigPanel.js",
+        "src/ui/ObjectConfigPanel.js",
+        "src/ui/ContentPanel.js",        
+        "src/ui/ButtonPanel.js",
+        "src/ui/ScrollableButtonPanel.js",        
+        "src/ui/TabBar.js",
+        "src/ui/TabPanel.js",
+        "src/ui/PreviewPanel.js",
+        "src/ui/TextCreatePanel.js",
+        "src/util/CharacterUtil.js",
+        "src/util/ParseUtil.js",
+        "src/TextEditScene.js",
+        "src/PlayRecordingScene.js",
+        "src/SpriteTouchHandler.js",
+        "src/SkeletonTouchHandler.js",
+        "src/TextTouchHandler.js"
+    ]    
+    
+    };
+
+	document.ccConfig = c;
 
 cc.game.onStart = function(){
     if(!cc.sys.isNative && document.getElementById("cocosLoading")) //If referenced loading.js, please remove it
@@ -73,3 +114,7 @@ cc.game.onStart = function(){
     }, this);
 };
 cc.game.run();
+
+})();
+ 
+
