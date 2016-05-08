@@ -387,12 +387,6 @@ class SocialChef_Theme_Actions extends SocialChef_BaseSingleton {
 			wp_enqueue_script( 'socialchef-home', SocialChef_Theme_Utils::get_file_uri('/js/home.js'), array('jquery'), '1.0', true );
 		}		
 		
-		
-		if(true) {
-			wp_enqueue_script('game_js', SocialChef_Theme_Utils::get_file_uri('/js/game.min.js'), array('jquery'), 1.1, true);			
-			wp_enqueue_script('chimple_game', SocialChef_Theme_Utils::get_file_uri('/js/chimple.js'), array('jquery','game_js'), 1.1, true);	
-		}
-		
 		wp_register_script( 'socialchef-prettyphoto', SocialChef_Theme_Utils::get_file_uri('/js/jquery.prettyPhoto.js'), array('jquery'), '1.0', true );
 		wp_enqueue_script( 'socialchef-prettyphoto');
 		wp_enqueue_style('socialchef-style-pp',  SocialChef_Theme_Utils::get_file_uri('/css/prettyPhoto.css'), array(), '1.0', "screen");
@@ -430,6 +424,9 @@ class SocialChef_Theme_Actions extends SocialChef_BaseSingleton {
 				wp_enqueue_script( 'socialchef-custom-suggest', SocialChef_Theme_Utils::get_file_uri('/js/custom-suggest.js'), array('jquery'), '1.0', true );
 				wp_register_script( 'frontend-submit',  SocialChef_Theme_Utils::get_file_uri ('/includes/plugins/frontend-submit/frontend-submit.js'), array( 'jquery', 'socialchef-jquery-validate', 'socialchef-custom-suggest' ), '1.0', true );
 				wp_enqueue_script( 'frontend-submit' );	
+		
+				wp_enqueue_script('game_js', SocialChef_Theme_Utils::get_file_uri('/js/game.min.js'), array('jquery'), 1.1, true);					
+
 			} elseif ($template_file == 'page-custom-search.php') {
 				wp_enqueue_script( 'socialchef-custom-suggest', SocialChef_Theme_Utils::get_file_uri('/js/custom-suggest.js'), array('jquery'), '1.0', true );
 				wp_register_script( 'socialchef-search',  SocialChef_Theme_Utils::get_file_uri ('/js/search.js'), array( 'jquery', 'socialchef-custom-suggest' ), '1.0', true );
