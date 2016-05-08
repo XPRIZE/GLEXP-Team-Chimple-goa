@@ -47,7 +47,7 @@ var HelloWorldScene = cc.Scene.extend({
         if (LAYER_INIT === false) {
             LAYER_INIT = true;
             cc.log('initing layer...should only be once');
-            this._sceneLayer = new HelloWorldLayer("res/chimple.page1.scene.json");
+            this._sceneLayer = new HelloWorldLayer("/wp-content/themes/SocialChef/images/res/chimpleStory.json");
             this.addChild(this._sceneLayer);
             this._sceneLayer.init();
         }

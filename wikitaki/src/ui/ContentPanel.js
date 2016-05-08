@@ -400,8 +400,6 @@ chimple.ContentPanel = cc.LayerColor.extend({
 
     onEnter: function () {
         this._super();
-        // this._sceneLayer.pageKey = "res/chimple.page1.scene.json";
-        //this.loadSceneFromStorage();
         if(this._constructedScene) {
             chimple.CharacterUtil.storeActionToTemporaryStore(this._constructedScene);
         }
