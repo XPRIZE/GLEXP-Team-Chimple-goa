@@ -81,7 +81,7 @@ var HelloWorldScene = cc.Scene.extend({
                 }
                 
                 var context = this;
-                if (storyIdToFetch != null && storyIdToFetch != undefined && storyIdToFetch.length > 0) {
+                if (storyIdToFetch != null) {
                     var url = '/wp-content/uploads/' + storyIdToFetch + '.json';
                     cc.log('fetching json for storyId' + storyIdToFetch + ' url:' + url);
                     cc.loader.loadJson(url, function (error, data) {
