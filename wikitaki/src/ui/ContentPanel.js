@@ -12,7 +12,7 @@ chimple.ContentPanel = cc.LayerColor.extend({
     loadSceneFromStorage: function () {
         //check if data exists in localstorage with Key
         var storedSceneString = cc.sys.localStorage.getItem(this._pageKey);
-        if (storedSceneString != null && storedSceneString.length > 0) {
+        if (storedSceneString != null && storedSceneString != "undefined" && storedSceneString.length > 0) {
             var storedSceneJSON = JSON.parse(storedSceneString);
             this.putIntoCacheFromLocalStorage(this._pageKey, storedSceneJSON);
             this.doPostLoadingProcessForScene(this._pageKey, false);

@@ -11,8 +11,7 @@ if ( have_posts() ) while ( have_posts() ) :
 	global $current_user;
 
 ?>
-<script>
-	alert('single-recipe');
+<script>	
 	window.recipeId = <?php echo $post->ID; ?>;
 	window.addToFavoritesText = '<i class="ico eldorado_heart"></i><span><?php _e('Add to favorites', 'socialchef') ?></span>';
 	window.removeFromFavoritesText = '<i class="ico eldorado_heart"></i><span><?php _e('Remove from favorites', 'socialchef') ?></span>';
