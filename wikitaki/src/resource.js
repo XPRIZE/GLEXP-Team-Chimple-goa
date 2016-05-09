@@ -182,7 +182,7 @@ var res = {
     boy_json: "/wp-content/themes/SocialChef/images/res/Animation.json",
     skeleton_config_boy_skeleton_json: "/wp-content/themes/SocialChef/images/res/characters/skeletonConfig/BoySkeleton.json",
     skeleton_config_cowboy_skeleton_json: "/wp-content/themes/SocialChef/images/res/characters/skeletonConfig/CowboySkeleton.json",
-    boy_animation_json: "/wp-content/themes/SocialChef/images/res/boy_animation.json",
+    human_skeleton_json: "/wp-content/themes/SocialChef/images/res/human_skeleton.json",
     sliderProgess_png: "/wp-content/themes/SocialChef/images/res/sliderProgress.png",
     sliderThumb_png: "/wp-content/themes/SocialChef/images/res/sliderThumb.png",
     sliderTrack_png: "/wp-content/themes/SocialChef/images/res/sliderTrack.png",
