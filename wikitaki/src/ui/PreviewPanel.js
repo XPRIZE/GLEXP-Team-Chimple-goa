@@ -1,11 +1,11 @@
 chimple.PreviewPanel = cc.LayerColor.extend({
-    ctor: function (width, height, position, target, configuration, callback, callbackContext, isTab) {
+    ctor: function (width, height, position, target, configuration, callback, callbackContext, isTab, contentPanel) {
         this._super(cc.color.BLUE, width, height);
         var backButton = new ccui.Button(res.back_png, res.back_onclick_png);
-        backButton.setPosition(0, height - 256);
+        backButton.setPosition(128, height - 128);
         backButton.addTouchEventListener(this.goBack, this);
         this.addChild(backButton);
-        
+        this._contentPanel = contentPanel;
         this._target = target;
         this._targetParent = target.parent;
         this._targetPosition = target.getPosition();
@@ -29,7 +29,7 @@ chimple.PreviewPanel = cc.LayerColor.extend({
                 this._targetParent.addChild(this._target);
                 this._target.setPosition(this._targetPosition);
                 this._target.setScale(this._targetScale);
-                this._targetParent.registerEventListenerForChild(this._target);
+                this._contentPanel.registerEventListenerForChild(this._target);
 
                 this.parent.removeChild(this, true);
                 

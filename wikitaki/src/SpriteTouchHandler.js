@@ -24,6 +24,7 @@ chimple.SpriteTouchHandler = function (context) {
     this.onTouchMoved = function (touch, event) {
         var target = event.getCurrentTarget();
         var location = target.parent.convertToNodeSpace(touch.getLocation());        
+        this._context.enableTargetTransformForTarget(this._context, touch, target, location);        
     };
 
     this.onTouchEnded = function (touch, event) {

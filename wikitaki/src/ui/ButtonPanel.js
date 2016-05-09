@@ -30,7 +30,7 @@ chimple.ButtonPanel = ccui.Layout.extend({
                             item.dataType = "png";
                         }
                         index++;
-                        this.addChild(item);
+                        this.addChild(item, 2);
 
                     }
                 }

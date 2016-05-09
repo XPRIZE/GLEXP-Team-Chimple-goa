@@ -25,7 +25,7 @@ chimple.PageConfigPanel = cc.LayerColor.extend({
 
     constructTabBar: function (configuration) {
         this._tabBar = new chimple.TabPanel(cc.p(0, 0), cc.director.getWinSize(), 2, 2, configuration, this.itemSelectedInConfiguration, this);
-        this.parent.addChild(this._tabBar);
+        this.parent.addChild(this._tabBar, 1);
     },
 
     destoryTabBar: function () {
