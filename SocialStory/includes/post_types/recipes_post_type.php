@@ -306,7 +306,7 @@ class SocialChef_Recipes_Post_Type extends SocialChef_BaseSingleton {
 		);
 		$args = array(
 			'label'               => __( 'recipe', 'socialchef' ),
-			'description'         => __( 'Recipe information pages', 'socialchef' ),
+			'description'         => __( 'Story information pages', 'socialchef' ),
 			'labels'              => $labels,
 			'supports'            => array( 'title', 'editor', 'thumbnail', 'author', 'excerpt', 'comments' ),
 			'taxonomies'          => array( ),
@@ -845,11 +845,11 @@ class SocialChef_Recipes_Post_Type extends SocialChef_BaseSingleton {
 		$meta_query = array();
 		if ( isset($search_args['serving']) && strlen($search_args['serving']) > 0 ) {
 			$serving = intval($search_args['serving']);
-			if ($serving > 0 & $serving <=10) {
+			if ($serving > 0 & $serving <=5) {
 				$meta_query[] = array(
 					'key'       => 'recipe_serving',
 					'value'     => $serving,
-					'compare'   => '<=',
+					'compare'   => '=',
 					'type' => 'numeric'
 				);
 			}

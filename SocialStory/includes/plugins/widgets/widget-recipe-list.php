@@ -24,13 +24,13 @@ class socialchef_Recipe_List_Widget extends WP_Widget {
 	function __construct() {
 	
 		/* Widget settings. */
-		$widget_ops = array( 'classname' => 'socialchef_recipe_lists_widget', 'description' => __('SocialChef: Recipe List', 'socialchef') );
+		$widget_ops = array( 'classname' => 'socialchef_recipe_lists_widget', 'description' => __('Chimple: Story List', 'socialchef') );
 
 		/* Widget control settings. */
 		$control_ops = array( 'width' => 260, 'height' => 400, 'id_base' => 'socialchef_recipe_lists_widget' );
 
 		/* Create the widget. */
-		parent::__construct( 'socialchef_recipe_lists_widget', __('SocialChef: Recipe List', 'socialchef'), $widget_ops, $control_ops );
+		parent::__construct( 'socialchef_recipe_lists_widget', __('Chimple: Story List', 'socialchef'), $widget_ops, $control_ops );
 	}
 
 
@@ -53,7 +53,7 @@ class socialchef_Recipe_List_Widget extends WP_Widget {
 		extract( $args );
 
 		/* Our variables from the widget settings. */
-		$title = apply_filters('widget_title', isset($instance['title']) ? $instance['title'] : __('Display latest recipes', 'socialchef') );
+		$title = apply_filters('widget_title', isset($instance['title']) ? $instance['title'] : __('Display latest stories', 'socialchef') );
 		
 		$number_of_recipes = isset($instance['number_of_recipes']) ? (int)$instance['number_of_recipes'] : 5;
 		$sort_by = isset($instance['sort_by']) ? (int)$instance['sort_by'] : 'title';
@@ -200,7 +200,7 @@ class socialchef_Recipe_List_Widget extends WP_Widget {
 			
 		/* Set up some default widget settings. */
 		$defaults = array(
-			'title' => __('Latest recipes', 'socialchef'),
+			'title' => __('Latest stories', 'socialchef'),
 			'number_of_recipes' => '5',
 			'sort_by' => 'date',
 			'sort_descending' => '1',

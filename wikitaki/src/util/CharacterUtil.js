@@ -44,7 +44,7 @@ chimple.CharacterUtil.colorSkins = function (character, colorSkins) {
     }
 }
 
-chimple.CharacterUtil.loadSkeletonConfig = function (skeleton) {
+chimple.CharacterUtil.loadSkeletonConfig = function (skeleton, selectedConfiguration) {
     var comExtensionData = skeleton.getComponent('ComExtensionData');
     if (comExtensionData) {
         skeleton._userData = comExtensionData.getCustomProperty();
@@ -55,6 +55,8 @@ chimple.CharacterUtil.loadSkeletonConfig = function (skeleton) {
         if (data != null) {
             skeleton._skeletonConfig = data;
             skeleton._currentAnimationName = data.animations[0].name;
+            chimple.CharacterUtil.applySkinNameMap(skeleton, selectedConfiguration);   
+
         }
     });
 }
