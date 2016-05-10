@@ -2,7 +2,7 @@ var chimple = chimple || {};
 
 chimple.CharacterUtil = chimple.CharacterUtil || {};
 
-chimple.CharacterUtil.displaySkins = function (character, skins, pageKey) {
+chimple.CharacterUtil.displaySkins = function (character, skins) {
     skins.forEach(function (element) {
         var bone = character.getBoneNode(element.bone);
         if (bone != null) {
@@ -10,7 +10,7 @@ chimple.CharacterUtil.displaySkins = function (character, skins, pageKey) {
             bone.displaySkin(element.bone);
         }
     }, this);
-    chimple.ParseUtil.updateUserData(pageKey, character._actionTag, 'visibleSkins', chimple.CharacterUtil.getVisibleSkins(character));
+    chimple.ParseUtil.updateUserData(character._actionTag, 'visibleSkins', chimple.CharacterUtil.getVisibleSkins(character));
 }
 
 chimple.CharacterUtil.getVisibleSkins = function (character) {
@@ -55,8 +55,9 @@ chimple.CharacterUtil.loadSkeletonConfig = function (skeleton, selectedConfigura
         if (data != null) {
             skeleton._skeletonConfig = data;
             skeleton._currentAnimationName = data.animations[0].name;
-            chimple.CharacterUtil.applySkinNameMap(skeleton, selectedConfiguration);   
-
+            if (selectedConfiguration != null) {
+                chimple.CharacterUtil.applySkinNameMap(skeleton, selectedConfiguration);
+            }
         }
     });
 }
@@ -73,6 +74,9 @@ chimple.CharacterUtil.applySkinNameMap = function (skeleton, configuration) {
                 bone.displaySkin(name);
             }
         }
+
+        chimple.ParseUtil.updateUserData(skeleton._actionTag, 'visibleSkins', chimple.CharacterUtil.getVisibleSkins(skeleton));
+
     }
 
 }

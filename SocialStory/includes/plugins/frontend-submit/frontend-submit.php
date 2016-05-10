@@ -967,7 +967,7 @@ class Frontend_Submit {
 		// 		$this->form_fields[] = (object)array( 'type' => 'div', 'class' => '', 'is_closing' => true );
 		// serving
 				$this->form_fields[] = (object)array( 'type' => 'div', 'class' => 'third', 'is_closing' => false );
-		$serving_str = ":" . __('Select reading level', 'socialchef') . ",1:1,2:2,3:3,4:4,5:5,6:6,7:7,8:8,9:9,10:10";
+		$serving_str = ":" . __('Select reading level', 'socialchef') . ",1:" . __('First alphabets', 'socialchef') . ",2:" . __('First words', 'socialchef') . ",3:" . __('First sentences', 'socialchef') . ",4:" . __('First paragraphs', 'socialchef') . ",5:" . __('Well versed reader', 'socialchef');
 		$serving_field = array( 'type' => 'select', 'role' => 'internal', 'name' => 'recipe_serving', 'id' => 'fes_recipe_serving', 'description' => __( 'Reading Level', 'socialchef' ), 'values' => $serving_str, 'class' => 'select' );
 		if ($this->entry != null) {
 			$serving_field['value'] = $this->get_entry_field_value('recipe_serving');
@@ -1003,7 +1003,7 @@ class Frontend_Submit {
 			$recipe_meal_courses_str .= "{$recipe_meal_course->term_id}:{$recipe_meal_course->name},";
 		}
 						$recipe_meal_courses_str = rtrim($recipe_meal_courses_str, ',');
-		$meal_course_field = array( 'type' => 'select', 'role' => 'internal', 'name' => 'recipe_meal_course', 'id' => 'fes_recipe_meal_course', 'description' => __( 'Select meal course', 'socialchef' ), 'values' => $recipe_meal_courses_str, 'class' => 'select' );
+		$meal_course_field = array( 'type' => 'select', 'role' => 'internal', 'name' => 'recipe_meal_course', 'id' => 'fes_recipe_meal_course', 'description' => __( 'Select license', 'socialchef' ), 'values' => $recipe_meal_courses_str, 'class' => 'select' );
 		if ($this->entry != null) {
 			$meal_course_field['value'] = $this->get_entry_field_value('recipe_meal_course');
 		}

@@ -86,7 +86,8 @@
             "src/PlayRecordingScene.js",
             "src/SpriteTouchHandler.js",
             "src/SkeletonTouchHandler.js",
-            "src/TextTouchHandler.js"
+            "src/TextTouchHandler.js",
+            "src/EditStoryScene.js"
         ]
 
     };
@@ -110,6 +111,8 @@
         cc.view.resizeWithBrowserSize(true);
         //load resources
         cc.LoaderScene.preload(g_resources, function () {
+            cc.spriteFrameCache.addSpriteFrames(res.icons1_plist);            
+            cc.spriteFrameCache.addSpriteFrames(res.icons2_plist);            
             cc.director.runScene(new HelloWorldScene());
         }, this);
     };

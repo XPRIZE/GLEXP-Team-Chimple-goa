@@ -6,7 +6,7 @@
             "icon": "res/shirt.png",
             "items": [
                 {
-                    "icon": "res/Astronaut/shirt.png",
+                    "icon": "res/costume/painter/painter_shirt.png",
                     "skins": [
                         {
                             "skin": "painter_sleave_right",
@@ -23,26 +23,18 @@
                     ]
                 },
                 {
-                    "icon": "res/Cricketer/shirt.png",
+                    "icon": "res/costume/motu/motu_shirt_body.png",
                     "skins": [
                         {
-                            "skin": "hand_lower_right",
-                            "bone": "hand_lower_right"
+                            "skin": "motu_shirt_upper_right",
+                            "bone": "arm_upper_right"
                         },
                         {
-                            "skin": "sleves_10",
-                            "bone": "hand_upper_right"
+                            "skin": "motu_shirt_upper_left",
+                            "bone": "arm_upper_left"
                         },
                         {
-                            "skin": "sleves_9",
-                            "bone": "hand_upper_left"
-                        },
-                        {
-                            "skin": "hand_lower_left",
-                            "bone": "hand_lower_left"
-                        },
-                        {
-                            "skin": "res/Cricketer/shirt.png",
+                            "skin": "motu_shirt_body",
                             "bone": "body"
                         }
                     ]
@@ -55,13 +47,33 @@
             "icon": "res/icons/hat.png",
             "items": [
                 {
-                    "icon": "res/Cricketer/helmet.png",
+                    "icon": "res/costume/painter/painter_cap.png",
                     "skins": [
                         {
                             "skin": "painter_cap",
                             "bone": "head_accessories"
                         }
                     ]
+                },
+                {
+                    "icon": "res/head_accessories/side_cap.png",
+                    "skins": [
+                        {
+                            "skin": "side_cap",
+                            "bone": "head_accessories"
+                        }
+                    ]
+                    
+                },
+                {
+                    "icon": "res/head_accessories/top_hat.png",
+                    "skins": [
+                        {
+                            "skin": "top_hat",
+                            "bone": "head_accessories"
+                        }
+                    ]
+                    
                 },
                 {
                     "icon": "res/icons/delete.png",
@@ -80,20 +92,20 @@
             "icon": "res/icons/shoe.png",
             "items": [
                 {
-                    "icon": "res/Cricketer/shoe.png",
+                    "icon": "res/costume/motu/motu_shoes_left.png",
                     "skins": [
                         {
-                            "skin": "shoe_12",
+                            "skin": "motu_shoes_left",
                             "bone": "leg_foot_left"
                         },
                         {
-                            "skin": "shoe_11",
+                            "skin": "motu_shoes_right",
                             "bone": "leg_foot_right"
                         }
                     ]
                 },
                 {
-                    "icon": "res/Astronaut/shoes.png",
+                    "icon": "res/costume/painter/painter_shoe_left.png",
                     "skins": [
                         {
                             "skin": "painter_shoe_left",
@@ -151,26 +163,26 @@
                     ]
                 },
                 {
-                    "icon": "res/Astronaut/pent_lower.png",
+                    "icon": "res/Cricketer/pent_lower.png",
                     "skins": [
                         {
-                            "skin": "pent_lower_15",
+                            "skin": "motu_pant_lower_right",
                             "bone": "leg_lower_right"
                         },
                         {
-                            "skin": "pent_lower_17",
+                            "skin": "motu_pant_lower_left",
                             "bone": "leg_lower_left"
                         },
                         {
-                            "skin": "pent_upper_16",
+                            "skin": "motu_pant_upper_right",
                             "bone": "leg_upper_right"
                         },
                         {
-                            "skin": "pent_upper_18",
+                            "skin": "motu_pant_upper_left",
                             "bone": "leg_upper_left"
                         },
                         {
-                            "skin": "hip_20",
+                            "skin": "motu_pant_hip",
                             "bone": "hip"
                         }
                     ]
@@ -240,17 +252,17 @@
         },
         
         "painter": {
-            "arm_upper_right": "motu_shirt_upper_right",
-            "arm_upper_left": "motu_shirt_upper_left",
-            "hair": "motu_hair",
-            "body": "motu_shirt_body",
-            "leg_foot_right": "motu_shoes_right",
-            "leg_foot_left": "motu_shoes_left",
-            "leg_lower_right": "motu_pant_lower_right",
-            "leg_lower_left": "motu_pant_lower_left",
-            "leg_upper_left": "motu_pant_upper_left",
-            "leg_upper_right": "motu_pant_upper_right",
-            "hip": "motu_pant_hip"
+            "arm_upper_right": "painter_sleave_right",
+            "arm_upper_left": "painter_sleave_left",
+            "hair": "hair_bold",
+            "body": "painter_shirt",
+            "leg_foot_right": "painter_shoe_right",
+            "leg_foot_left": "painter_shoe_left",
+            "leg_lower_right": "painter_pant_lower_right",
+            "leg_lower_left": "painter_pant_lower_left",
+            "leg_upper_left": "painter_pant_upper_left",
+            "leg_upper_right": "painter_pant_upper_right",
+            "hip": "painter_pant_hip"
         }
     },
     "colorSkins": {
@@ -266,11 +278,23 @@
     "animations": [
         {
           "icon": "res/icons/add_qna.png",
-          "name": "dummy"  
+          "name": "walk"
         },
         {
           "icon": "res/icons/add_qna.png",
-          "name": "dummyani"  
+          "name": "run"  
+        },
+        {
+          "icon": "res/icons/add_qna.png",
+          "name": "blink"
+        },
+        {
+          "icon": "res/icons/add_qna.png",
+          "name": "hi"  
+        },
+         {
+          "icon": "res/icons/add_qna.png",
+          "name": "hop"  
         }
     ]
 }

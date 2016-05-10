@@ -2,69 +2,95 @@ var chimple = chimple || {};
 
 chimple.ParseUtil = chimple.ParseUtil || {};
 
-chimple.ParseUtil.saveSceneToLocalStorage = function (pageKey, data) {
-    cc.sys.localStorage.setItem(pageKey, data);
+chimple.ParseUtil.saveScene = function (scene) {
+    if (chimple.story && chimple.story.items != null) {
+        chimple.story.items[chimple.pageIndex].scene = scene;
+    }
 }
 
-chimple.ParseUtil.saveObjectToStoredScene = function (pageKey, jsonObject) {
-    var storedSceneString = cc.sys.localStorage.getItem(pageKey);
-    if (storedSceneString != null && storedSceneString.length > 0) {
-        var storedSceneJSON = JSON.parse(storedSceneString);
+chimple.ParseUtil.saveObjectToStoredScene = function (jsonObject) {
+    if (chimple.story && chimple.story.items != null) {
         var replace = false;
-        if (storedSceneJSON) {
-            var children = storedSceneJSON.Content.Content.ObjectData.Children;
-            for (var index = 0; index < children.length; index++) {
-                if (children[index].ActionTag == jsonObject.ActionTag) {
-                    children.splice(index, 1, jsonObject);
-                    replace = true;
-                    break;
-                }
+        var children = chimple.story.items[chimple.pageIndex].scene.Content.Content.ObjectData.Children;
+        for (var index = 0; index < children.length; index++) {
+            if (children[index].ActionTag == jsonObject.ActionTag) {
+                children.splice(index, 1, jsonObject);
+                replace = true;
+                break;
             }
-            if (!replace) {
-                children.push(jsonObject);
-            }
-            chimple.ParseUtil.saveSceneToLocalStorage(pageKey, JSON.stringify(storedSceneJSON));
         }
+        if (!replace) {
+            children.push(jsonObject);
+        }
+        chimple.ParseUtil.saveScene(chimple.story.items[chimple.pageIndex].scene);
     }
 }
 
-chimple.ParseUtil.removeObjectFromStoredScene = function (pageKey, tag) {
-    var storedSceneString = cc.sys.localStorage.getItem(pageKey);
-    if (storedSceneString != null && storedSceneString.length > 0) {
-        var storedSceneJSON = JSON.parse(storedSceneString);
-        if (storedSceneJSON) {
-            var children = storedSceneJSON.Content.Content.ObjectData.Children;
-            for (var index = 0; index < children.length; index++) {
-                if (children[index].ActionTag == tag) {
-                    children.splice(index, 1);
+chimple.ParseUtil.updateScaleRotationAndPositionObjectFromStoredScene = function (target) {
+    if (chimple.story && chimple.story.items != null) {
+        var children = chimple.story.items[chimple.pageIndex].scene.Content.Content.ObjectData.Children;
+        for (var index = 0; index < children.length; index++) {            
+            var comExtensionData = target.getComponent("ComExtensionData");
+            if (comExtensionData && comExtensionData.getActionTag()) {
+                if (children[index].ActionTag == comExtensionData.getActionTag()) {
+                    children[index].Scale.ScaleX = target.scaleX;
+                    children[index].Scale.ScaleY = target.scaleY;
+                    
+                    children[index].Position.X = target.x;
+                    children[index].Position.Y = target.y;
+
+                    children[index].RotationSkewX = target.rotationX;
+                    children[index].RotationSkewY = target.rotationY;
                     break;
                 }
-            }
-            chimple.ParseUtil.saveSceneToLocalStorage(pageKey, JSON.stringify(storedSceneJSON));
+            } 
         }
+        chimple.ParseUtil.saveScene(chimple.story.items[chimple.pageIndex].scene);
     }
 }
 
-chimple.ParseUtil.updateUserData = function(pageKey, tag, dataKey, dataValue) {
-    var storedSceneString = cc.sys.localStorage.getItem(pageKey);
-    if (storedSceneString != null && storedSceneString.length > 0) {
-        var storedSceneJSON = JSON.parse(storedSceneString);
-        if (storedSceneJSON) {
-            var children = storedSceneJSON.Content.Content.ObjectData.Children;
-            for (var index = 0; index < children.length; index++) {
-                if (children[index].ActionTag == tag) {
-                    var object = children[index];
-                    object.UserData[dataKey] = dataValue;
-                    break;
-                }
+chimple.ParseUtil.updateFlipObjectFromStoredScene = function (tag, scaleX) {
+    if (chimple.story && chimple.story.items != null) {
+        var children = chimple.story.items[chimple.pageIndex].scene.Content.Content.ObjectData.Children;
+        for (var index = 0; index < children.length; index++) {
+            if (children[index].ActionTag == tag) {
+                children[index].Scale.ScaleX = scaleX;
+                break;
             }
-            chimple.ParseUtil.saveSceneToLocalStorage(pageKey, JSON.stringify(storedSceneJSON));
         }
+        chimple.ParseUtil.saveScene(chimple.story.items[chimple.pageIndex].scene);
     }
-    
 }
 
-chimple.ParseUtil.saveCharacterToJSON = function (pageKey, fileToLoad, load) {
+
+chimple.ParseUtil.removeObjectFromStoredScene = function (tag) {
+    if (chimple.story && chimple.story.items != null) {
+        var children = chimple.story.items[chimple.pageIndex].scene.Content.Content.ObjectData.Children;
+        for (var index = 0; index < children.length; index++) {
+            if (children[index].ActionTag == tag) {
+                children.splice(index, 1);
+                break;
+            }
+        }
+        chimple.ParseUtil.saveScene(chimple.story.items[chimple.pageIndex].scene);
+    }
+}
+
+chimple.ParseUtil.updateUserData = function (tag, dataKey, dataValue) {
+    if (chimple.story && chimple.story.items != null) {
+        var children = chimple.story.items[chimple.pageIndex].scene.Content.Content.ObjectData.Children;
+        for (var index = 0; index < children.length; index++) {
+            if (children[index].ActionTag == tag) {
+                var object = children[index];
+                object.UserData[dataKey] = dataValue;
+                break;
+            }
+        }
+        chimple.ParseUtil.saveScene(chimple.story.items[chimple.pageIndex].scene);
+    }
+}
+
+chimple.ParseUtil.saveCharacterToJSON = function (fileToLoad, load) {
     cc.log('got file:' + fileToLoad);
     var resourcePath = fileToLoad.replace("/wp-content/themes/SocialChef/images/res/", "");
     cc.log('resourcePath:' + resourcePath);
@@ -72,7 +98,7 @@ chimple.ParseUtil.saveCharacterToJSON = function (pageKey, fileToLoad, load) {
     var skeletonObject = chimple.ParseUtil.constructJSONFromCharacter(load.node, resourcePath);
     // load.node.ActionTag = skeletonObject.ActionTag;
     cc.log('JSON.stringify(skeletonObject):' + JSON.stringify(skeletonObject));
-    chimple.ParseUtil.saveObjectToStoredScene(pageKey, skeletonObject);
+    chimple.ParseUtil.saveObjectToStoredScene(skeletonObject);
 }
 
 chimple.ParseUtil.constructJSONFromCharacter = function (skeleton, resourcePath) {
@@ -130,7 +156,7 @@ chimple.ParseUtil.constructJSONFromCharacter = function (skeleton, resourcePath)
 
     existingUserData.currentAnimationName = skeleton._currentAnimationName;
     object.UserData = existingUserData;
-    
+
     skeleton._actionTag = object.ActionTag;
     skeleton._userData = object.UserData;
 
@@ -202,159 +228,161 @@ chimple.ParseUtil.constructJSONFromCCSprite = function (sprite) {
 }
 
 chimple.ParseUtil.constructJSONFromText = function (panel, resourcePath) {
-        //create panel data
-        var panelObject = Object.create(Object.prototype);
-        panelObject.ClipAble = panel.clippingEnabled;
-        panelObject.BackColorAlpha = panel.getBackGroundColorOpacity();
+    //create panel data
+    var panelObject = Object.create(Object.prototype);
+    panelObject.ClipAble = panel.clippingEnabled;
+    panelObject.BackColorAlpha = panel.getBackGroundColorOpacity();
 
-        panelObject.FileData = {};
-        panelObject.FileData.Type = "Normal";
-        panelObject.FileData.Path = resourcePath;
-        panelObject.FileData.Plist = "";
+    panelObject.FileData = {};
+    panelObject.FileData.Type = "Normal";
+    resourcePath = resourcePath.replace("/wp-content/themes/SocialChef/images/", "");
+    panelObject.FileData.Path = resourcePath;
+        
+    panelObject.FileData.Plist = "";
 
-        panelObject.ComboBoxIndex = panel.getBackGroundColorType();
-        panelObject.SingleColor = {
-            "R": panel.getBackGroundColor().r,
-            "G": panel.getBackGroundColor().g
-        };
+    panelObject.ComboBoxIndex = panel.getBackGroundColorType();
+    panelObject.SingleColor = {
+        "R": panel.getBackGroundColor().r,
+        "G": panel.getBackGroundColor().g
+    };
 
-        panelObject.FirstColor = {
-            "R": panel.getBackGroundColor().r,
-            "G": panel.getBackGroundColor().g
-        };
-        panelObject.EndColor = {};
+    panelObject.FirstColor = {
+        "R": panel.getBackGroundColor().r,
+        "G": panel.getBackGroundColor().g
+    };
+    panelObject.EndColor = {};
 
-        panelObject.ColorVector = {
-            "ScaleX": panel.getBackGroundColorVector().x,
-            "ScaleY": panel.getBackGroundColorVector().y
-        };
+    panelObject.ColorVector = {
+        "ScaleX": panel.getBackGroundColorVector().x,
+        "ScaleY": panel.getBackGroundColorVector().y
+    };
 
-        panelObject.Scale9Enable = panel.isBackGroundImageScale9Enabled();
-        panelObject.Scale9OriginX = panel.getBackGroundImageCapInsets().x;
-        panelObject.Scale9OriginY = panel.getBackGroundImageCapInsets().y;
-        panelObject.Scale9Width = panel.getBackGroundImageCapInsets().width;
-        panelObject.Scale9Height = panel.getBackGroundImageCapInsets().height;
-        panelObject.TouchEnable = panel.touchEnabled;
-        panelObject.AnchorPoint = {
-            "ScaleX": panel.getAnchorPoint().x,
-            "ScaleY": panel.getAnchorPoint().y
-        };
-        panelObject.Position = {
-            "X": panel.getPosition().x,
-            "Y": panel.getPosition().y
-        };
+    panelObject.Scale9Enable = panel.isBackGroundImageScale9Enabled();
+    panelObject.Scale9OriginX = panel.getBackGroundImageCapInsets().x;
+    panelObject.Scale9OriginY = panel.getBackGroundImageCapInsets().y;
+    panelObject.Scale9Width = panel.getBackGroundImageCapInsets().width;
+    panelObject.Scale9Height = panel.getBackGroundImageCapInsets().height;
+    panelObject.TouchEnable = panel.touchEnabled;
+    panelObject.AnchorPoint = {
+        "ScaleX": panel.getAnchorPoint().x,
+        "ScaleY": panel.getAnchorPoint().y
+    };
+    panelObject.Position = {
+        "X": panel.getPosition().x,
+        "Y": panel.getPosition().y
+    };
 
-        panelObject.Scale = {
-            "ScaleX": panel.getScaleX(),
-            "ScaleY": panel.getScaleY()
-        };
+    panelObject.Scale = {
+        "ScaleX": panel.getScaleX(),
+        "ScaleY": panel.getScaleY()
+    };
 
-        panelObject.CColor = {
+    panelObject.CColor = {
 
-        };
+    };
 
-        panelObject.Tag = new Date().valueOf();
-        panelObject.ActionTag = -new Date().valueOf();
+    panelObject.Tag = new Date().valueOf();
+    panelObject.ActionTag = -new Date().valueOf();
 
-        panelObject.Size = {
-            "X": panel.getContentSize().width,
-            "Y": panel.getContentSize().height
-        };
+    panelObject.Size = {
+        "X": panel.getContentSize().width,
+        "Y": panel.getContentSize().height
+    };
 
-        panelObject.Name = "ChimpleTextPanel";
-        panelObject.ctype = "PanelObjectData";
+    panelObject.Name = "ChimpleTextPanel";
+    panelObject.ctype = "PanelObjectData";
 
-        var textNode = panel.children[0];
-        var textObject = Object.create(Object.prototype);
+    var textNode = panel.children[0];
+    var textObject = Object.create(Object.prototype);
 
-        textObject.IsCustomSize = !textNode.isIgnoreContentAdaptWithSize();
-        textObject.FontSize = textNode.fontSize;
+    textObject.IsCustomSize = !textNode.isIgnoreContentAdaptWithSize();
+    textObject.FontSize = textNode.fontSize;
 
-        textObject.LabelText = textNode.getString();
-        textObject.OutlineColor = {
-            "G": 0,
-            "B": 0
-        };
-        textObject.ShadowColor = {
-            "R": 110,
-            "G": 110,
-            "B": 110
-        };
-        textObject.ShadowOffsetX = 2.0;
-        textObject.ShadowOffsetY = -2.0;
+    textObject.LabelText = textNode.getString();
+    textObject.OutlineColor = {
+        "G": 0,
+        "B": 0
+    };
+    textObject.ShadowColor = {
+        "R": 110,
+        "G": 110,
+        "B": 110
+    };
+    textObject.ShadowOffsetX = 2.0;
+    textObject.ShadowOffsetY = -2.0;
 
-        textObject.AnchorPoint = {
-            "ScaleX": textNode.getAnchorPoint().x,
-            "ScaleY": textNode.getAnchorPoint().y
-        };
-        textObject.Position = {
-            "X": textNode.getPosition().x,
-            "Y": textNode.getPosition().y
-        };
-        textObject.Scale = {
-            "ScaleX": textNode.getScaleX(),
-            "ScaleY": textNode.getScaleY()
-        };
-        textObject.CColor = {
-            "R": textNode.getTextColor().r,
-            "G": textNode.getTextColor().g,
-            "B": textNode.getTextColor().b
-        };
+    textObject.AnchorPoint = {
+        "ScaleX": textNode.getAnchorPoint().x,
+        "ScaleY": textNode.getAnchorPoint().y
+    };
+    textObject.Position = {
+        "X": textNode.getPosition().x,
+        "Y": textNode.getPosition().y
+    };
+    textObject.Scale = {
+        "ScaleX": textNode.getScaleX(),
+        "ScaleY": textNode.getScaleY()
+    };
+    textObject.CColor = {
+        "R": textNode.getTextColor().r,
+        "G": textNode.getTextColor().g,
+        "B": textNode.getTextColor().b
+    };
 
-        textObject.Tag = new Date().valueOf();
-        textObject.ActionTag = -new Date().valueOf();
-        textObject.Size = {
-            "X": textNode.getContentSize().width,
-            "Y": textNode.getContentSize().height
-        };
-        textObject.Name = textNode.name;
-        textObject.ctype = "TextObjectData";
+    textObject.Tag = new Date().valueOf();
+    textObject.ActionTag = -new Date().valueOf();
+    textObject.Size = {
+        "X": textNode.getContentSize().width,
+        "Y": textNode.getContentSize().height
+    };
+    textObject.Name = textNode.name;
+    textObject.ctype = "TextObjectData";
 
-        panelObject.Children = [textObject];
+    panelObject.Children = [textObject];
 
-        return panelObject;
-    }
+    return panelObject;
+}
 
-    chimple.ParseUtil.constructJSONFromTextNode = function (textNode, resourcePath) {
-        var object = Object.create(Object.prototype);
-        object.FileData = {};
-        object.FileData.Type = "Normal";
-        object.FileData.Path = resourcePath;
-        object.FileData.Plist = "";
+chimple.ParseUtil.constructJSONFromTextNode = function (textNode, resourcePath) {
+    var object = Object.create(Object.prototype);
+    object.FileData = {};
+    object.FileData.Type = "Normal";
+    object.FileData.Path = resourcePath;
+    object.FileData.Plist = "";
 
-        object.AnchorPoint = {
-            "ScaleX": textNode.getAnchorPoint().x,
-            "ScaleY": textNode.getAnchorPoint().y
-        };
+    object.AnchorPoint = {
+        "ScaleX": textNode.getAnchorPoint().x,
+        "ScaleY": textNode.getAnchorPoint().y
+    };
 
-        object.Position = {
-            "X": textNode.getPosition().x,
-            "Y": textNode.getPosition().y
-        };
+    object.Position = {
+        "X": textNode.getPosition().x,
+        "Y": textNode.getPosition().y
+    };
 
-        object.RotationSkewX = textNode.getRotationX();
-        object.RotationSkewY = textNode.getRotationY();
-        object.Scale = {
-            "ScaleX": textNode.getScaleX(),
-            "ScaleY": textNode.getScaleY()
-        };
-        object.CColor = {
-            "R": textNode.color.r,
-            "G": textNode.color.g,
-            "B": textNode.color.b,
-            "A": textNode.color.a
-        };
-        object.tag = textNode.tag;
-        object.Size = {
-            "X": textNode.width,
-            "Y": textNode.height
-        };
-        object.ActionTag = -new Date().valueOf();
-        object.Name = textNode.getName();
-        object.ctype = "ProjectNodeObjectData";
-        return object;
-    }
-    
+    object.RotationSkewX = textNode.getRotationX();
+    object.RotationSkewY = textNode.getRotationY();
+    object.Scale = {
+        "ScaleX": textNode.getScaleX(),
+        "ScaleY": textNode.getScaleY()
+    };
+    object.CColor = {
+        "R": textNode.color.r,
+        "G": textNode.color.g,
+        "B": textNode.color.b,
+        "A": textNode.color.a
+    };
+    object.tag = textNode.tag;
+    object.Size = {
+        "X": textNode.width,
+        "Y": textNode.height
+    };
+    object.ActionTag = -new Date().valueOf();
+    object.Name = textNode.getName();
+    object.ctype = "ProjectNodeObjectData";
+    return object;
+}
+
 chimple.ParseUtil.generateUUID = function () {
     var d = new Date().getTime();
     var uuid = 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (c) {

@@ -24,13 +24,13 @@ class socialchef_Featured_Recipe_Widget extends WP_Widget {
 	function __construct() {
 	
 		/* Widget settings. */
-		$widget_ops = array( 'classname' => 'socialchef_featured_recipe_widget', 'description' => __('SocialChef: Featured Recipe', 'socialchef') );
+		$widget_ops = array( 'classname' => 'socialchef_featured_recipe_widget', 'description' => __('SocialChef: Featured Story', 'socialchef') );
 
 		/* Widget control settings. */
 		$control_ops = array( 'width' => 260, 'height' => 400, 'id_base' => 'socialchef_featured_recipe_widget' );
 
 		/* Create the widget. */
-		parent::__construct( 'socialchef_featured_recipe_widget', __('SocialChef: Featured Recipe', 'socialchef'), $widget_ops, $control_ops );
+		parent::__construct( 'socialchef_featured_recipe_widget', __('SocialChef: Featured Story', 'socialchef'), $widget_ops, $control_ops );
 	}
 
 
@@ -46,7 +46,7 @@ class socialchef_Featured_Recipe_Widget extends WP_Widget {
 		extract( $args );
 
 		/* Our variables from the widget settings. */
-		$title = apply_filters('widget_title', isset($instance['title']) ? $instance['title'] : __('Display featured recipe', 'socialchef') );
+		$title = apply_filters('widget_title', isset($instance['title']) ? $instance['title'] : __('Display featured story', 'socialchef') );
 		
 		$sort_by = isset($instance['sort_by']) ? (int)$instance['sort_by'] : 'title';
 		$sort_descending = isset($instance['sort_by']) && $instance['sort_descending'] == '1';
@@ -142,7 +142,7 @@ class socialchef_Featured_Recipe_Widget extends WP_Widget {
 			
 		/* Set up some default widget settings. */
 		$defaults = array(
-			'title' => __('Featured recipe', 'socialchef'),
+			'title' => __('Featured story', 'socialchef'),
 			'sort_by' => 'date',
 			'sort_descending' => '1',
 			'recipe_category_ids' => array(),

@@ -15,7 +15,13 @@ chimple.ButtonPanel = ccui.Layout.extend({
                 for (var colIndex = 0; colIndex < numButtonsPerRow; colIndex++) {
                     if (index < configuration.length) {
                         cc.log('configuration[index]:' + configuration[index]);
-                        var item = new ccui.Button(configuration[index]['icon'], configuration[index]['cIcon']);
+                        var item;
+                        try {
+                            item = new ccui.Button(configuration[index]['icon'], configuration[index]['cIcon'], null, ccui.Widget.PLIST_TEXTURE);
+                        } catch (error) {
+                            cc.log(error);
+                            item = new ccui.Button(configuration[index]['icon'], configuration[index]['cIcon'], null, ccui.Widget.LOCAL_TEXTURE);
+                        }
                         item.addTouchEventListener(this.itemSelected, this);
                         item.setPosition(pageIndex * size.width + (colIndex + 0.5) * size.width / numButtonsPerRow, size.height - (rowIndex + 0.5) * size.height / numButtonsPerColumn);
                         item._selectedIndex = index;

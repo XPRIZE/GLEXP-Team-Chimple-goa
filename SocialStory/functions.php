@@ -120,6 +120,8 @@ if (defined('BP_VERSION')) {
 	require_once SocialChef_Theme_Utils::get_file_path('/includes/plugins/widgets/widget_buddypress-members.php');
 }
 
+show_admin_bar(false);
+
 add_action( 'tgmpa_register', 'socialchef_register_required_plugins' );
 /**
  * Register the required plugins for this theme.

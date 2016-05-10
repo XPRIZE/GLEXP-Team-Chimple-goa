@@ -24,13 +24,13 @@ class socialchef_Recipe_Categories_Widget extends WP_Widget {
 	function __construct() {
 	
 		/* Widget settings. */
-		$widget_ops = array( 'classname' => 'socialchef_recipe_categories_widget', 'description' => __('SocialChef: Recipe Categories', 'socialchef') );
+		$widget_ops = array( 'classname' => 'socialchef_recipe_categories_widget', 'description' => __('Chimple: Story Categories', 'socialchef') );
 
 		/* Widget control settings. */
 		$control_ops = array( 'width' => 260, 'height' => 400, 'id_base' => 'socialchef_recipe_categories_widget' );
 
 		/* Create the widget. */
-		parent::__construct( 'socialchef_recipe_categories_widget', __('SocialChef: Recipe Categories', 'socialchef'), $widget_ops, $control_ops );
+		parent::__construct( 'socialchef_recipe_categories_widget', __('Chimple: Story Categories', 'socialchef'), $widget_ops, $control_ops );
 	}
 
 
@@ -41,7 +41,7 @@ class socialchef_Recipe_Categories_Widget extends WP_Widget {
 	function widget( $args, $instance ) {
 
 		/* Our variables from the widget settings. */
-		$title = apply_filters('widget_title', isset($instance['title']) ? $instance['title'] : __('Recipe categories title', 'bookyourtravel') );
+		$title = apply_filters('widget_title', isset($instance['title']) ? $instance['title'] : __('Story categories title', 'bookyourtravel') );
 		
 		$show_category_icons = isset($instance['show_category_icons']) && $instance['show_category_icons'] == '1';
 		$category_count = isset($instance['category_count']) ? (int)$instance['category_count'] : 15;
