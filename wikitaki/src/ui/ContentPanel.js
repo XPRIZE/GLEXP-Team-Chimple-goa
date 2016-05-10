@@ -12,12 +12,13 @@ chimple.ContentPanel = cc.LayerColor.extend({
     loadSceneFromStorage: function () {
         //check if data exists in localstorage with Key
         var storedSceneString = cc.sys.localStorage.getItem(this._pageKey);
-        if (storedSceneString != null && storedSceneString.length > 0) {
+        if (storedSceneString != null && storedSceneString != "undefined" && storedSceneString.length > 0) {
             var storedSceneJSON = JSON.parse(storedSceneString);
             this.putIntoCacheFromLocalStorage(this._pageKey, storedSceneJSON);
             this.doPostLoadingProcessForScene(this._pageKey, false);
         } else {
             this._constructedScene = new cc.Node();
+            this._constructedScene.setName("Scene");            
             this.addChild(this._constructedScene);
         }
     },
@@ -88,7 +89,7 @@ chimple.ContentPanel = cc.LayerColor.extend({
         }, this);
     },
 
-    registerEventListenerForChild(element) {
+    registerEventListenerForChild: function(element) {
         if (element.getName().indexOf("Skeleton") != -1) {
             var eventObj = new chimple.SkeletonTouchHandler(this);
             var listener = cc.EventListener.create(eventObj);
@@ -289,8 +290,7 @@ chimple.ContentPanel = cc.LayerColor.extend({
 
     addCharacterToScene: function (configuration) {
         var load = ccs.load(configuration.json);
-        chimple.CharacterUtil.loadSkeletonConfig(load.node);
-        chimple.CharacterUtil.applySkinNameMap(load.node, configuration);   
+        chimple.CharacterUtil.loadSkeletonConfig(load.node, configuration);
         load.node.setPosition(900, 900);
         this._constructedScene.addChild(load.node);
         load.node.runAction(load.action);
@@ -399,8 +399,6 @@ chimple.ContentPanel = cc.LayerColor.extend({
 
     onEnter: function () {
         this._super();
-        // this._sceneLayer.pageKey = "res/chimple.page1.scene.json";
-        //this.loadSceneFromStorage();
         if(this._constructedScene) {
             chimple.CharacterUtil.storeActionToTemporaryStore(this._constructedScene);
         }
