@@ -195,12 +195,5 @@ var TextEditScene = cc.Scene.extend({
         this._textCreateLayer = new TextCreateLayer(this._text, this._textKey);
         this._textCreateLayer.init();
         this.addChild(this._textCreateLayer);
-        // if (this._text != null && this._text.length > 0) {
-        //     this.addChild(this._textCreateLayer);
-        //     //this.addChild(this._textEditLayer);
-        // } else {
-        //     //this.addChild(this._textEditLayer);
-        //     this.addChild(this._textCreateLayer);
-        // }
     }
 });

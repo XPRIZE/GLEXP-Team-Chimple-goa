@@ -194,13 +194,13 @@ var res = {
 
 var misc = {
     Config_json: defaultMiscFolder + "misc/storyConfig.json"
-}
+};
 
 
 var g_resources = [];
 for (var i in res) {
     g_resources.push(res[i]);
-}
+};
 
 
 
@@ -230,4 +230,3 @@ cc.loader.loadJson(misc.Config_json, function (error, data) {
         // }
     }, this);
 });
-

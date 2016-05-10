@@ -86,7 +86,8 @@
             "src/PlayRecordingScene.js",
             "src/SpriteTouchHandler.js",
             "src/SkeletonTouchHandler.js",
-            "src/TextTouchHandler.js"
+            "src/TextTouchHandler.js",
+            "src/EditStoryScene.js"
         ]
 
     };

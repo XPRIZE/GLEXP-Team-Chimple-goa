@@ -43,12 +43,16 @@ chimple.ObjectConfigPanel = cc.LayerColor.extend({
         } else if (button.getName() == res.flipx_png) {
             if (this._target) {
                 this._target.setScaleX(-1 * this._target.getScaleX());
+                var comExtensionData = this._target.getComponent("ComExtensionData");
+                if (comExtensionData && comExtensionData.getActionTag()) {
+                    chimple.ParseUtil.updateFlipObjectFromStoredScene(comExtensionData.getActionTag(), this._target.getScaleX());
+                }
             }
         } else if (button.getName() == res.delete_png) {
             if (this._target) {
                 var comExtensionData = this._target.getComponent("ComExtensionData");
-                if(comExtensionData && comExtensionData.getActionTag()) {
-                    chimple.ParseUtil.removeObjectFromStoredScene(this._contentPanel._pageKey, comExtensionData.getActionTag()); 
+                if (comExtensionData && comExtensionData.getActionTag()) {
+                    chimple.ParseUtil.removeObjectFromStoredScene(comExtensionData.getActionTag());
                 }
                 this._target.parent.removeChild(this._target, true);
                 this.setButtonPanel(this.getDefaultPanel());
@@ -71,12 +75,14 @@ chimple.ObjectConfigPanel = cc.LayerColor.extend({
             this._target.setFontSize(fontSize);
         } else if (button.getName() == res.text_png) {
             this._contentPanel.addTextToScene(this._target.getString());
+        } else if (button.getName() == res.back_png) {
+            this._contentPanel.backPressed(this._target);
         }
     },
     skinSelected: function (selectedItem) {
         if (this._target != null && selectedItem._configuration) {
             if (selectedItem._configuration.skins) {
-                chimple.CharacterUtil.displaySkins(this._target, selectedItem._configuration.skins, this._contentPanel._pageKey);
+                chimple.CharacterUtil.displaySkins(this._target, selectedItem._configuration.skins);
             } else if (selectedItem._configuration.colorSkins) {
                 chimple.CharacterUtil.colorSkins(this._target, selectedItem._configuration.colorSkins);
             }
@@ -84,7 +90,7 @@ chimple.ObjectConfigPanel = cc.LayerColor.extend({
     },
     animationSelected: function (selectedItem) {
         this._target._currentAnimationName = selectedItem._configuration.name;
-        chimple.ParseUtil.updateUserData(this._contentPanel._pageKey, this._target._actionTag, 'currentAnimationName', this._target._currentAnimationName);
+        chimple.ParseUtil.updateUserData(this._target._actionTag, 'currentAnimationName', this._target._currentAnimationName);
         var action = this._target.actionManager.getActionByTag(this._target.tag, this._target);
         action.play(this._target._currentAnimationName, false);
     }
