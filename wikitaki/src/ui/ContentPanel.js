@@ -321,10 +321,7 @@ chimple.ContentPanel = cc.LayerColor.extend({
     addCharacterToScene: function (configuration) {
         var load = ccs.load(configuration.json);
 
-        chimple.CharacterUtil.loadSkeletonConfig(load.node);
-        chimple.CharacterUtil.applySkinNameMap(load.node, configuration);
-
-        //chimple.CharacterUtil.loadSkeletonConfig(load.node, configuration);
+        chimple.CharacterUtil.loadSkeletonConfig(load.node, configuration);
 
         load.node.setPosition(900, 900);
         this._constructedScene.addChild(load.node);

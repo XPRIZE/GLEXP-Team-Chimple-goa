@@ -67,6 +67,7 @@ var HelloWorldScene = cc.Scene.extend({
                 this.addChild(this._sceneLayer);
                 this._sceneLayer.init();
             }
+            chimple.MODIFIED_BIT = 1;
         }
     },
 
@@ -125,8 +126,7 @@ var HelloWorldScene = cc.Scene.extend({
                         context._sceneLayer = new HelloWorldLayer();
                         context.addChild(context._sceneLayer);
                         context._sceneLayer.init();
-                    }
-                    chimple.MODIFIED_BIT = 1;
+                    }                    
                 });
             }
         } else {

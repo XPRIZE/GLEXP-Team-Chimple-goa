@@ -235,7 +235,9 @@ chimple.ParseUtil.constructJSONFromText = function (panel, resourcePath) {
 
     panelObject.FileData = {};
     panelObject.FileData.Type = "Normal";
+    resourcePath = resourcePath.replace("/wp-content/themes/SocialChef/images/", "");
     panelObject.FileData.Path = resourcePath;
+        
     panelObject.FileData.Plist = "";
 
     panelObject.ComboBoxIndex = panel.getBackGroundColorType();

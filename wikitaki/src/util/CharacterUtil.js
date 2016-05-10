@@ -55,8 +55,9 @@ chimple.CharacterUtil.loadSkeletonConfig = function (skeleton, selectedConfigura
         if (data != null) {
             skeleton._skeletonConfig = data;
             skeleton._currentAnimationName = data.animations[0].name;
-            chimple.CharacterUtil.applySkinNameMap(skeleton, selectedConfiguration);   
-
+            if (selectedConfiguration != null) {
+                chimple.CharacterUtil.applySkinNameMap(skeleton, selectedConfiguration);
+            }
         }
     });
 }
@@ -73,6 +74,9 @@ chimple.CharacterUtil.applySkinNameMap = function (skeleton, configuration) {
                 bone.displaySkin(name);
             }
         }
+
+        chimple.ParseUtil.updateUserData(skeleton._actionTag, 'visibleSkins', chimple.CharacterUtil.getVisibleSkins(skeleton));
+
     }
 
 }

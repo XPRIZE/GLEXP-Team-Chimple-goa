@@ -62,7 +62,16 @@ var EditStoryScene = cc.Scene.extend({
         var newPage = {};
         newPage.cIcon = "/wp-content/themes/SocialChef/images/res/mouth_2_onclick.png";
         newPage.icon = "wp-content/themes/SocialChef/images/res/story_page_1.png";
-        newPage.scene = {};
+        newPage.scene = {
+            Content: {
+                Content: {
+                    ObjectData: {
+                        Children: []
+                    }
+                }
+            }
+        };
+        
         chimple.story.items.push(newPage);
         
 
