@@ -25,7 +25,8 @@ var res = {
 
 
 var misc = {
-    Config_json: defaultMiscFolder + "misc/storyConfig.json"
+    Config_json: defaultMiscFolder + "misc/storyConfig.json",
+    PlayConfig_json: defaultMiscFolder + "misc/playConfig.json"
 };
 
 
@@ -35,30 +36,10 @@ for (var i in res) {
 };
 
 
+cc.loader.loadJson(misc.PlayConfig_json, function (error, data) {
+    chimple.storyPlayConfigurationObject = data;
+});
 
 cc.loader.loadJson(misc.Config_json, function (error, data) {
     chimple.storyConfigurationObject = data;
-
-    Object.getOwnPropertyNames(chimple.storyConfigurationObject).forEach(function (element) {
-        cc.log("processing:" + element);
-        var configObj = chimple.storyConfigurationObject[element];
-        // if (configObj != null) {
-        //     cc.log('configObj.icon:' + configObj.icon);
-        //     cc.log('configObj.cIcon:' + configObj.cIcon);
-        //     if(configObj.categories) {
-        //         configObj.categories.forEach(function (eleObj) {
-        //             cc.log('eleObj.icon:' + eleObj.icon);
-        //             cc.log('eleObj.cIcon:' + eleObj.cIcon);
-
-        //             eleObj.items.forEach(function(itmObj) {
-        //                 console.log('itmObj.json:' + itmObj.itmObj);
-        //                 cc.log('itmObj.icon:' + itmObj.icon);
-        //                 cc.log('itmObj.cIcon:' + itmObj.cIcon);
-
-        //             }, this);
-        //         }, this);
-
-        //     }
-        // }
-    }, this);
 });

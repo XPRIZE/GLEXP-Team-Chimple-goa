@@ -73,7 +73,9 @@
             "src/app.js",
             "src/ui/PageConfigPanel.js",
             "src/ui/ObjectConfigPanel.js",
+            "src/ui/AbstractContentPanel.js",
             "src/ui/ContentPanel.js",
+            "src/ui/PlayContentPanel.js",
             "src/ui/ButtonPanel.js",
             "src/ui/ScrollableButtonPanel.js",
             "src/ui/TabBar.js",
@@ -87,7 +89,7 @@
             "src/SpriteTouchHandler.js",
             "src/SkeletonTouchHandler.js",
             "src/TextTouchHandler.js",
-            "src/EditStoryScene.js"
+            "src/EditStoryScene.js"            
         ]
 
     };
