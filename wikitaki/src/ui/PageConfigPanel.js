@@ -56,12 +56,12 @@ chimple.PageConfigPanel = cc.LayerColor.extend({
     },
 
     //later create custom loading screen
-    showLoadingScene: function (fileToLoad, context, doPostLoadingProcessFunction, args, shouldSaveToLocalStorage) {
+    showLoadingScene: function (fileToLoad, context, doPostLoadingProcessFunction, args, shouldSaveScene) {
         if (cc.sys.isNative) {
             cc.log(fileToLoad);
             var dynamicResources = [fileToLoad];
             cc.LoaderScene.preload(dynamicResources, function () {
-                doPostLoadingProcessFunction.call(context, args, shouldSaveToLocalStorage);
+                doPostLoadingProcessFunction.call(context, args, shouldSaveScene);
             }, this);
         } else {
             cc.director.pushScene(new cc.LoaderScene()); //TODO dummy right now later fix this
@@ -69,7 +69,7 @@ chimple.PageConfigPanel = cc.LayerColor.extend({
             var dynamicResources = [fileToLoad];
             cc.LoaderScene.preload(dynamicResources, function () {
                 cc.director.popScene();
-                doPostLoadingProcessFunction.call(context, args, shouldSaveToLocalStorage);
+                doPostLoadingProcessFunction.call(context, args, shouldSaveScene);
             }, this);
         }
     },
