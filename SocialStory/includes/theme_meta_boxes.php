@@ -65,13 +65,13 @@ class SocialChef_Theme_MetaBoxes extends SocialChef_BaseSingleton {
 			),
 			array( // Post ID select box
 				'label'	=> __('Sort descending?', 'socialchef'), // <label>
-				'desc'	=> __('If checked, will sort recipes in descending order', 'socialchef'), // description
+				'desc'	=> __('If checked, will sort stories in descending order', 'socialchef'), // description
 				'id'	=> 'recipe_list_sort_descending', // field id and name
 				'type'	=> 'checkbox', // type of field
 			),
 			array( // Post ID select box
-				'label'	=> __('Show only featured recipes?', 'socialchef'), // <label>
-				'desc'	=> __('If checked, will show only recipes marked as featured', 'socialchef'), // description
+				'label'	=> __('Show only featured stories?', 'socialchef'), // <label>
+				'desc'	=> __('If checked, will show only stories marked as featured', 'socialchef'), // description
 				'id'	=> 'recipe_list_show_featured', // field id and name
 				'type'	=> 'checkbox', // type of field
 			)
@@ -125,7 +125,7 @@ class SocialChef_Theme_MetaBoxes extends SocialChef_BaseSingleton {
 			),
 			array( // Repeatable & Sortable Text inputs
 				'label'	=> __('Instructions', 'socialchef'), // <label>
-				'desc'	=> __('Instructions for creating this recipe (step by step)', 'socialchef'), // description
+				'desc'	=> __('Instructions for creating this story (step by step)', 'socialchef'), // description
 				'id'	=> 'recipe_instructions', // field id and name
 				'type'	=> 'repeatable', // type of field
 				'sanitizer' => array( // array of sanitizers with matching kets to next array
@@ -149,7 +149,7 @@ class SocialChef_Theme_MetaBoxes extends SocialChef_BaseSingleton {
 			),
 			array( // Repeatable & Sortable Text inputs
 				'label'	=> __('Ingredients', 'socialchef'), // <label>
-				'desc'	=> __('Ingredients for creating this recipe', 'socialchef'), // description
+				'desc'	=> __('Ingredients for creating this story', 'socialchef'), // description
 				'id'	=> 'recipe_ingredients', // field id and name
 				'type'	=> 'repeatable', // type of field
 				'sanitizer' => array( // array of sanitizers with matching kets to next array
@@ -185,7 +185,7 @@ class SocialChef_Theme_MetaBoxes extends SocialChef_BaseSingleton {
 		
 			$this->recipe_custom_meta_fields[] = array( // Repeatable & Sortable Text inputs
 				'label'	=> __('Nutritional values', 'socialchef'), // <label>
-				'desc'	=> __('Nutritional values for creating this recipe', 'socialchef'), // description
+				'desc'	=> __('Nutritional values for creating this story', 'socialchef'), // description
 				'id'	=> 'recipe_nutritional_values', // field id and name
 				'type'	=> 'repeatable', // type of field
 				'sanitizer' => array( // array of sanitizers with matching kets to next array

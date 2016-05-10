@@ -69,7 +69,7 @@ $search_args = array();
 $request_serv = 0;
 if (isset($_GET['serv'])) {
 	$request_serv = intval($_GET['serv']);
-	if ($request_serv > 0 && $request_serv <= 10)
+	if ($request_serv > 0 && $request_serv <= 5)
 		$search_args['serving'] = $request_serv;
 }
 
@@ -154,42 +154,6 @@ $terms = get_terms($taxonomies, $args);
 		<?php endwhile; ?>	
 		<section class="content <?php echo esc_attr($section_class); ?>">
 			<div class="recipefinder">
-				<nav class="tabs">
-					<ul>
-						<li class="active"><a href="#tab1" title="<?php _e('Search by ingredients', 'socialchef') ?>"><?php _e('Search by ingredients', 'socialchef') ?></a></li>
-						<li class=""><a href="#tab2" title="<?php _e('Classic search', 'socialchef') ?>"><?php _e('Classic search', 'socialchef') ?></a></li>
-					</ul>
-				</nav>
-				<div class="tab-content" id="tab1" style="display: block;">
-					<form id="custom-search-1" method="get" action="<?php echo SocialChef_Theme_Utils::get_current_page_url(); ?>">
-						<div class="left">
-							<h3><?php _e('Search by ingredients', 'socialchef'); ?></h3>
-							<p><?php _e("Click the '-' to remove an ingredient, or click the ingredient itself to emphasize", 'socialchef'); ?></p>
-							<div class="f-row">
-								<input id="ingredient_name" type="text" placeholder="<?php esc_attr_e('Add ingredients (one at a time)', 'socialchef'); ?>" />
-								<button class="add add_search_ingredient">+</button>
-							</div>
-							<div class="added-ingredients"></div>
-							<div class="f-row">
-								<input type="submit" value="<?php esc_attr_e('Search', 'socialchef'); ?>" />
-							</div>
-						</div>
-						<div class="right">
-							<div class="ingredients">
-								<h3><?php _e('Do you also have?', 'socialchef'); ?></h3>
-								<?php
-									$ingredient_terms = $sc_recipes_post_type->list_random_ingredients();
-									foreach ($ingredient_terms as $term) {
-										?>
-										<a href="#" class="add_random_search_ingredient button gold"><?php echo esc_js( $term->name ); ?></a>
-										<?php
-									}
-								?>
-							</div>
-						</div>
-					</form>
-				</div>
-				<div class="tab-content" id="tab2" style="display: none;">
 					<h3><?php _e('Please select your search parameters and press "Search for stories"', 'socialchef') ?></h3>
 					<form id="custom-search-2" method="get" action="<?php echo SocialChef_Theme_Utils::get_current_page_url(); ?>">
 						<div class="row">
@@ -221,7 +185,7 @@ $terms = get_terms($taxonomies, $args);
 							</div>
 							<div class="one-fourth">
 								<select name="mc" id="recipe_meal_course">
-									<option value="0"><?php echo __('Select meal course', 'socialchef'); ?></option>
+									<option value="0"><?php echo __('Select license', 'socialchef'); ?></option>
 									<?php 
 									$args = array( 
 										'taxonomy'=>'recipe_meal_course', 
@@ -244,7 +208,7 @@ $terms = get_terms($taxonomies, $args);
 							</div>
 							<div class="one-fourth">
 								<select name="diff" id="recipe_difficulty">
-									<option value="0"><?php echo __('Select difficulty', 'socialchef'); ?></option>
+									<option value="0"><?php echo __('Select language', 'socialchef'); ?></option>
 									<?php 
 									$args = array( 
 										'taxonomy'=>'recipe_difficulty', 
@@ -269,43 +233,19 @@ $terms = get_terms($taxonomies, $args);
 						<div class="row">					
 							<div class="one-third">
 								<select name="serv" id="recipe_serving">
-									<option value="0"><?php echo __('Maximum serving size', 'socialchef'); ?></option>
-									<?php 
-									for ($i=1;$i<11;$i++) {?>
-									<option <?php echo ($request_serv == $i ? 'selected="selected"' : ''); ?> value="<?php echo esc_attr( $i ); ?>"><?php echo $i; ?></option>
-									<?php	
-									}
-									?>
-								</select>
-							</div>
-							<div class="one-third">
-								<select name="cook" id="recipe_cooking_time">
-									<option value="0"><?php echo __('Max cooking time', 'socialchef'); ?></option>
-									<?php 
-									for ($i=1;$i<181;$i++) {?>
-									<option <?php echo ($request_cook == $i ? 'selected="selected"' : ''); ?> value="<?php echo esc_attr( $i ); ?>"><?php echo $i; ?></option>
-									<?php	
-									}
-									?>
-								</select>
-							</div>
-							<div class="one-third">
-								<select name="prep" id="recipe_prep_time">
-									<option value="0"><?php echo __('Max preparation time', 'socialchef'); ?></option>
-									<?php 
-									for ($i=1;$i<181;$i++) {?>
-									<option <?php echo ( $request_prep == $i ? 'selected="selected"' : '' ); ?> value="<?php echo esc_attr( $i ); ?>"><?php echo $i; ?></option>
-									<?php	
-									}
-									?>
+									<option value="0"><?php echo __('Reading level', 'socialchef'); ?></option>
+									<option <?php echo ($request_serv == 1 ? 'selected="selected"' : ''); ?> value="<?php echo esc_attr( 1 ); ?>"><?php  _e('First alphabets', 'socialchef')?></option>
+									<option <?php echo ($request_serv == 2 ? 'selected="selected"' : ''); ?> value="<?php echo esc_attr( 2 ); ?>"><?php  _e('First words', 'socialchef')?></option>
+									<option <?php echo ($request_serv == 3 ? 'selected="selected"' : ''); ?> value="<?php echo esc_attr( 3 ); ?>"><?php  _e('First sentences', 'socialchef')?></option>
+									<option <?php echo ($request_serv == 4 ? 'selected="selected"' : ''); ?> value="<?php echo esc_attr( 4 ); ?>"><?php  _e('First paragraphs', 'socialchef')?></option>
+									<option <?php echo ($request_serv == 5 ? 'selected="selected"' : ''); ?> value="<?php echo esc_attr( 5 ); ?>"><?php  _e('Well versed reader', 'socialchef')?></option>
 								</select>
 							</div>
 						</div>
 						<div class="f-row">
-							<input type="submit" value="<?php esc_attr_e('Search for recipes', 'socialchef'); ?>">
+							<input type="submit" value="<?php esc_attr_e('Search for stories', 'socialchef'); ?>">
 						</div>
 					</form>
-				</div>
 			</div>				
 			<?php 
 			$recipe_results = $sc_recipes_post_type->list_recipes($paged, $posts_per_page, $sort_by, $sort_order, $meal_course_ids, $difficulty_ids, $category_ids, $search_args, $ingredient_ids); 
