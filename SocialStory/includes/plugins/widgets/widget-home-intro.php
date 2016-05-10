@@ -47,10 +47,10 @@ class socialchef_Home_Intro_Widget extends WP_Widget {
 		extract( $args );
 
 		/* Our variables from the widget settings. */
-		$title = apply_filters('widget_title', isset($instance['title']) ? $instance['title'] : __('Welcome to SocialChef', 'bookyourtravel') );
+		$title = apply_filters('widget_title', isset($instance['title']) ? $instance['title'] : __('Welcome to Chimple', 'bookyourtravel') );
 		
-		$home_intro_teaser = isset($instance['home_intro_teaser']) ? $instance['home_intro_teaser'] : __('<p>SocialChef is the ultimate cooking social community, where recipes come to life. By joining us you will join a robust foodie community and where you will get to share your recipes and food ideas with hundreds of other like-minded members.</p><p>You will also get a chance to win awesome prizes, make new friends and share delicious recipes.</p>', 'socialchef');
-		$home_intro_teaser_logged_in = isset($instance['home_intro_teaser_logged_in']) ? $instance['home_intro_teaser_logged_in'] : __('<p>SocialChef is the ultimate cooking social community, where recipes come to life. </p><p>Thank you for logging in. Please browse the website using the options in the menu above or the features listed below!</p>', 'socialchef');
+		$home_intro_teaser = isset($instance['home_intro_teaser']) ? $instance['home_intro_teaser'] : __('<p>Chimple is the ultimate story community, where stories come to life. By joining us you will join a robust story telling community and where you will get to share your stories with hundreds of other like-minded members.</p><p>You will also get a chance to win awesome prizes, make new friends and share delicious stories.</p>', 'socialchef');
+		$home_intro_teaser_logged_in = isset($instance['home_intro_teaser_logged_in']) ? $instance['home_intro_teaser_logged_in'] : __('<p>Chimple is the ultimate story community, where stories come to life. </p><p>Thank you for logging in. Please browse the website using the options in the menu above or the features listed below!</p>', 'socialchef');
 		$home_intro_button_text = isset($instance['home_intro_button_text']) ? $instance['home_intro_button_text'] : __('Join our community', 'socialchef');
 		$home_intro_button_link = isset($instance['home_intro_button_link']) ? $instance['home_intro_button_link'] : $register_page_url;
 		$home_intro_below_button_text = isset($instance['home_intro_below_button_text']) ? $instance['home_intro_below_button_text'] : sprintf(__("<p>Already a member? Click <a href='%s'>here</a> to login.</p>", 'socialchef'), esc_url ($login_page_url));
@@ -137,8 +137,8 @@ class socialchef_Home_Intro_Widget extends WP_Widget {
 		/* Set up some default widget settings. */
 		$defaults = array(
 			'title' => __('Welcome to SocialChef!', 'socialchef'),
-			'home_intro_teaser' => __('<p>SocialChef is the ultimate cooking social community, where recipes come to life. By joining us you will join a robust foodie community and where you will get to share your recipes and food ideas with hundreds of other like-minded members.</p><p>You will also get a chance to win awesome prizes, make new friends and share delicious recipes.</p>', 'socialchef'),
-			'home_intro_teaser_logged_in' => __('<p>SocialChef is the ultimate cooking social community, where recipes come to life. </p><p>Thank you for logging in. Please browse the website using the options in the menu above or the features listed below!</p>', 'socialchef'),
+			'home_intro_teaser' => __('<p>SChimple is the ultimate story community, where stories come to life. By joining us you will join a robust story telling community and where you will get to share your stories with hundreds of other like-minded members.</p><p>You will also get a chance to win awesome prizes, make new friends and share delicious stories.</p>', 'socialchef'),
+			'home_intro_teaser_logged_in' => __('<p>Chimple is the ultimate story community, where stories come to life.</p><p>You will also get a chance to win awesome prizes, make new friends and share delicious stories. </p><p>Thank you for logging in. Please browse the website using the options in the menu above or the features listed below!</p>', 'socialchef'),
 			'home_intro_button_text' => __('Join our community', 'socialchef'),
 			'home_intro_button_link' => $register_page_url,
 			'home_intro_below_button_text' => sprintf(__("<p>Already a member? Click <a href='%s'>here</a> to login.</p>", 'socialchef'), esc_url ($login_page_url))

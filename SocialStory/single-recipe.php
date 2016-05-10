@@ -70,18 +70,35 @@ if ( have_posts() ) while ( have_posts() ) :
 								<?php if ($recipe_difficulty) { 
 									$difficulty_link = get_term_link( $recipe_difficulty->term_id, 'recipe_difficulty' );
 								?>
-								<dt><?php _e('Difficulty', 'socialchef'); ?></dt>
+								<dt><?php _e('Language', 'socialchef'); ?></dt>
 								<dd><a href="<?php echo esc_url( $difficulty_link ); ?>"><?php echo $recipe_difficulty->name; ?></a></dd>
 								<?php } ?>
 								<?php if ($recipe_serving) { ?>
-								<dt><?php _e('Serves', 'socialchef'); ?></dt>
-								<dd><?php echo $recipe_serving; ?> <?php _e('people', 'socialchef'); ?></dd>
+								<dt><?php _e('Reading level', 'socialchef'); ?></dt>
+								<dd><?php switch ($recipe_serving) {
+									case 1:
+										_e('First alphabets', 'socialchef');
+										break;
+									case 2:
+										_e('First words', 'socialchef');
+										break;
+									case 3:
+										_e('First sentences', 'socialchef');
+										break;
+									case 4:
+										_e('First paragraphs', 'socialchef');
+										break;
+									case 5:
+										_e('Well versed reader', 'socialchef');
+										break;
+
+									} ?></dd>
 								<?php } ?>
 							</dl>
 							
 							<dl class="user">
 								<?php if ($recipe_meal_course) { ?>
-								<dt><?php _e('Meal course', 'socialchef'); ?></dt>
+								<dt><?php _e('License', 'socialchef'); ?></dt>
 								<dd><a href="<?php echo esc_url( get_term_link( $recipe_meal_course->term_id, 'recipe_meal_course' ) ); ?>"><?php echo $recipe_meal_course->name; ?></a></dd>
 								<?php } ?>
 								<dt><?php _e('Posted by', 'socialchef'); ?></dt>
