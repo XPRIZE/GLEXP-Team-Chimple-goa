@@ -124,7 +124,7 @@ var chimple = chimple || {};
         if (query_string != null && query_string != undefined) {
             var mode = query_string['mode'];
             cc.log('mode:' + mode);
-            if (!(mode == chimple.PLAY_MODE || mode == chimple.EDIT_MODE)) {
+            if (!(mode == chimple.PLAY_MODE || mode.indexOf(chimple.EDIT_MODE) != -1)) {
                 chimple.mode = chimple.PLAY_MODE;
             } else {
                 chimple.mode = mode;
@@ -156,7 +156,7 @@ var chimple = chimple || {};
             cc.spriteFrameCache.addSpriteFrames(res.icons2_plist);
                 
                 cc.log("mode:" + chimple.mode);
-                if(chimple.mode == chimple.EDIT_MODE) {
+                if(chimple.mode.indexOf(chimple.EDIT_MODE) != -1) {
                     cc.director.runScene(new HelloWorldScene());    
                 }  else {
                     cc.director.runScene(new PlayFullStoryScene());
