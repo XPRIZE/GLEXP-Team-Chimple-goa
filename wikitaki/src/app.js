@@ -1,4 +1,4 @@
-/// <reference path="../../../cocos2d-typescript-definitions/cocos2d/cocos2d-lib.d.ts" />
+/// <reference path="../../cocos2d-typescript-definitions/cocos2d/cocos2d-lib.d.ts" />
 var chimple = chimple || {};
 chimple.LAYER_INIT = false;
 var HelloWorldLayer = cc.Layer.extend({

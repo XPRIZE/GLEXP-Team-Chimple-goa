@@ -3,7 +3,7 @@ chimple.ScrollableButtonPanel = ccui.ScrollView.extend({
     ctor: function (position, size, numButtonsPerRow, numButtonsPerColumn, configuration, callBackFunction, callBackContext) {
         this._super();
         this.setPosition(position);   
-        this.setContentSize(size);             
+        this.setContentSize(size);
         this._buttonPanel = new chimple.ButtonPanel(cc.p(0, 0), size, numButtonsPerRow, numButtonsPerColumn, configuration, callBackFunction, callBackContext);
         this.addChild(this._buttonPanel);
         this.setInnerContainerSize(cc.size(Math.ceil(configuration.length / (numButtonsPerRow * numButtonsPerColumn)) * size.width, size.height));
@@ -18,5 +18,16 @@ chimple.ScrollableButtonPanel = ccui.ScrollView.extend({
     },
     getButtonByName: function (name) {
         return this._buttonPanel.getButtonByName(name);
+    },
+    
+    scrollableButtonPanel_moveLeft : function()
+    {
+        this.scrollToLeft(5, true);
+    },
+    
+    scrollableButtonPanel_moveRight : function()
+    {
+        this.scrollToRight(5, true);
     }
+    
 }); 

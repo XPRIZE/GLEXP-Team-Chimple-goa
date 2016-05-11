@@ -16,7 +16,7 @@ chimple.PreviewPanel = cc.LayerColor.extend({
         target.setPosition(0, 0);
         
         if(isTab) {
-            this.addChild(new chimple.TabPanel(cc.p(width / 3, 0), cc.size(width * 2 / 3, height), 2, 2, configuration, callback, callbackContext));               
+            this.addChild(new chimple.TabPanel(cc.p(width / 3, 0), cc.size(width * 2 / 3, height), 2, 2, configuration, callback, callbackContext));
         } else {
             this.addChild(new chimple.ScrollableButtonPanel(cc.p(width / 3, 0), cc.size(width * 2 / 3, height), 2, 2, configuration, callback, callbackContext));               
         }
