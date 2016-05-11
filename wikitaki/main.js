@@ -134,7 +134,7 @@ var chimple = chimple || {};
 
     document.ccConfig = c;
     this.retrieveMode();
-    
+
     cc.game.onStart = function () {
         if (!cc.sys.isNative && document.getElementById("cocosLoading")) //If referenced loading.js, please remove it
             document.body.removeChild(document.getElementById("cocosLoading"));
@@ -154,14 +154,16 @@ var chimple = chimple || {};
         cc.LoaderScene.preload(g_resources, function () {
             cc.spriteFrameCache.addSpriteFrames(res.icons1_plist);
             cc.spriteFrameCache.addSpriteFrames(res.icons2_plist);
-                
-                cc.log("mode:" + chimple.mode);
-                if(chimple.mode.indexOf(chimple.EDIT_MODE) != -1) {
-                    cc.director.runScene(new HelloWorldScene());    
-                }  else {
-                    cc.director.runScene(new PlayFullStoryScene());
-                }
-                
+
+            cc.log("mode:" + chimple.mode);
+            if (chimple.mode.indexOf(chimple.EDIT_MODE) != -1) {
+                cc.director.runScene(new HelloWorldScene());
+            } else {
+                chimple.pageIndex = 0;
+                window.PLAYING_STORY_FIRST_TIME = true;
+                cc.director.runScene(new PlayFullStoryScene());
+            }
+
         }, this);
     };
     cc.game.run();
