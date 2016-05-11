@@ -8,14 +8,14 @@ chimple.PlayContentPanel = chimple.AbstractContentPanel.extend({
     },
 
     loadScene: function () {
-        if (chimple.story != null && chimple.story.items[chimple.playIndex].scene.Content != null) {
+        if (chimple.story != null && chimple.story.items[chimple.pageIndex].scene.Content != null) {
             this.putIntoCache();
             this.doPostLoadingProcessForScene(chimple.PLAY_KEY);
         }
     },
 
     putIntoCache: function () {
-        cc.loader.cache[chimple.PLAY_KEY] = chimple.story.items[chimple.playIndex].scene;
+        cc.loader.cache[chimple.PLAY_KEY] = chimple.story.items[chimple.pageIndex].scene;
     },
 
     doPostLoadingProcessForScene: function (fileToLoad) {

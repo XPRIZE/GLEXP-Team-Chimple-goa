@@ -2,8 +2,7 @@
 var chimple = chimple || {};
 chimple.PLAY_KEY = "/wp-content/themes/SocialChef/images/res/chimplePlayStory.json";
 
-var PlayRecordingLayer = cc.Layer.extend({
-    _defaultTextSize: 40,
+var PlayRecordingLayer = cc.Layer.extend({    
     _defaultPageIndex: 0,
     _contentPanel: null,
     _pageConfigPanel: null,
@@ -18,8 +17,6 @@ var PlayRecordingLayer = cc.Layer.extend({
         this._contentPanelWidth = cc.director.getWinSize().height; //assuming landscape
         this._configPanelWidth = (cc.director.getWinSize().width - this._contentPanelWidth) / 2;
         this._configPanelHeight = cc.director.getWinSize().height;
-
-        this.scheduleUpdate();
         return true;
     },
     init: function () {
@@ -38,16 +35,16 @@ var PlayRecordingLayer = cc.Layer.extend({
         this.playRecordedScene();
     },
 
-    isPlayEnded: function () {
-        if (this._playDuration == undefined || this._playDuration == null) {
-            return true;
-        }
-        if (!(this._recordedScene.action.getCurrentFrame() < this._playDuration)) {
-            return true;
-        }
+    // isPlayEnded: function () {
+    //     if (this._playDuration == undefined || this._playDuration == null) {
+    //         return true;
+    //     }
+    //     if (!(this._recordedScene.action.getCurrentFrame() < this._playDuration)) {
+    //         return true;
+    //     }
 
-        return false;
-    },
+    //     return false;
+    // },
 
     playRecordedScene: function () {
         if (this._contentPanel._constructedScene.node) {
@@ -64,12 +61,6 @@ var PlayRecordingLayer = cc.Layer.extend({
                 }, this);
             }
         }
-    },
-
-    update: function (dt) {
-        // if (this.isPlayEnded()) {
-        //     this._textNode.setVisible(true);
-        // }
     }
 });
 

@@ -185,9 +185,7 @@ chimple.ContentPanel = chimple.AbstractContentPanel.extend({
         this.saveText(load.node.children[0], resourcePath);
     },
 
-    playSceneInEditMode: function () {
-        // var curScene = chimple.story.items[chimple.pageIndex].scene;
-        chimple.playIndex = chimple.pageIndex;       
+    playSceneInEditMode: function () {               
         var playScene = new PlayRecordingScene();
         cc.director.pushScene(playScene);
     },

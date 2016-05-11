@@ -26,7 +26,9 @@ var res = {
 
 var misc = {
     Config_json: defaultMiscFolder + "misc/storyConfig.json",
-    PlayConfig_json: defaultMiscFolder + "misc/playConfig.json"
+    EditPlayConfig_json: defaultMiscFolder + "misc/playConfig.json",
+    OnlyStoryPlayConfig_json: defaultMiscFolder + "misc/onlyPlayConfig.json",
+    
 };
 
 
@@ -36,9 +38,14 @@ for (var i in res) {
 };
 
 
-cc.loader.loadJson(misc.PlayConfig_json, function (error, data) {
+cc.loader.loadJson(misc.EditPlayConfig_json, function (error, data) {
     chimple.storyPlayConfigurationObject = data;
 });
+
+cc.loader.loadJson(misc.OnlyStoryPlayConfig_json, function (error, data) {
+    chimple.onlyStoryPlayConfigurationObject = data;
+});
+
 
 cc.loader.loadJson(misc.Config_json, function (error, data) {
     chimple.storyConfigurationObject = data;
