@@ -15,7 +15,13 @@ chimple.ButtonPanel = ccui.Layout.extend({
                 for (var colIndex = 0; colIndex < numButtonsPerRow; colIndex++) {
                     if (index < configuration.length) {
                         cc.log('configuration[index]:' + configuration[index]);
-                        var item = new ccui.Button(configuration[index]['icon'], configuration[index]['cIcon']);
+                        var item;
+                        try {
+                            item = new ccui.Button(configuration[index]['icon'], configuration[index]['cIcon'], null, ccui.Widget.PLIST_TEXTURE);
+                        } catch (error) {
+                            cc.log(error);
+                            item = new ccui.Button(configuration[index]['icon'], configuration[index]['cIcon'], null, ccui.Widget.LOCAL_TEXTURE);
+                        }
                         item.addTouchEventListener(this.itemSelected, this);
                         item.setPosition(pageIndex * size.width + (colIndex + 0.5) * size.width / numButtonsPerRow, size.height - (rowIndex + 0.5) * size.height / numButtonsPerColumn);
                         item._selectedIndex = index;
@@ -74,11 +80,22 @@ chimple.ButtonPanel = ccui.Layout.extend({
                 if (sender._isToggled) {
                     // sender.setHighlighted(true);
                     sender._isToggled = false;
-                    sender.loadTextures(sender._configuration.icon, sender._configuration.cIcon)
+                    try {
+                        sender.loadTextures(sender._configuration.icon, sender._configuration.cIcon, null, ccui.Widget.PLIST_TEXTURE);
+                    } catch (error) {
+                        cc.log(error);
+                        sender.loadTextures(sender._configuration.icon, sender._configuration.cIcon, null, ccui.Widget.LOCAL_TEXTURE);
+                    }
+
                 } else {
                     // sender.setHighlighted(false);
                     sender._isToggled = true;
-                    sender.loadTextures(sender._configuration.cIcon, sender._configuration.icon)
+                    try {
+                        sender.loadTextures(sender._configuration.cIcon, sender._configuration.icon, null, ccui.Widget.PLIST_TEXTURE);
+                    } catch (error) {
+                        cc.log(error);
+                        sender.loadTextures(sender._configuration.cIcon, sender._configuration.icon, null, ccui.Widget.LOCAL_TEXTURE);
+                    }
                 }
             }
         }
