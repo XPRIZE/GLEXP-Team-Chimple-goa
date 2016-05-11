@@ -1,6 +1,6 @@
 /// <reference path="../../../cocos2d-typescript-definitions/cocos2d/cocos2d-lib.d.ts" />
 var chimple = chimple || {};
-chimple.PLAY_KEY = "/wp-content/themes/SocialChef/images/res/chimplePlayStory.json";
+chimple.PLAY_KEY = "/res/chimplePlayStory.json";
 
 var PlayRecordingLayer = cc.Layer.extend({    
     _defaultPageIndex: 0,
