@@ -20,12 +20,12 @@ chimple.TabPanel = cc.Node.extend({
 
 // for tab bar
 
-        var tabBar_backButton = new ccui.Button(res.back_png, res.back_onclick_png);
+        var tabBar_backButton = new ccui.Button("back.png", "back_onclick.png", null, ccui.Widget.PLIST_TEXTURE);
        tabBar_backButton.setPosition(size.width*5/100, position.y + size.height - this._tabHeight/2);
        tabBar_backButton.addTouchEventListener(this.tabBar_backButton, this);
        this.addChild(tabBar_backButton);
 
-        var tabBar_nextButton = new ccui.Button(res.next_png, res.next_onclick_png);
+        var tabBar_nextButton = new ccui.Button("next.png", "next_onclick.png", null, ccui.Widget.PLIST_TEXTURE);
        tabBar_nextButton.setPosition(size.width*95/100, position.y + size.height - this._tabHeight/2);
        tabBar_nextButton.addTouchEventListener(this.tabBar_nextButton, this);
        this.addChild(tabBar_nextButton);
@@ -63,12 +63,12 @@ chimple.TabPanel = cc.Node.extend({
                 this.addChild(this._panel);
 
 // for tab panel                
-        var tabPanel_backButton = new ccui.Button(res.back_png, res.back_onclick_png);
+        var tabPanel_backButton = new ccui.Button("back.png", "back_onclick.png", null, ccui.Widget.PLIST_TEXTURE);
         tabPanel_backButton.setPosition(this._panelPosition.x+this._panelSize.width*5/100, this._panelSize.height/2);
         tabPanel_backButton.addTouchEventListener(this.tabPanel_backButton, this);
         this.addChild(tabPanel_backButton);
         
-        var tabPanel_nextButton = new ccui.Button(res.next_png, res.next_onclick_png);
+        var tabPanel_nextButton = new ccui.Button("next.png", "next_onclick.png", null, ccui.Widget.PLIST_TEXTURE);
         tabPanel_nextButton.setPosition((this._panelPosition.x)+this._panelSize.width*95/100, this._panelSize.height/2);
         tabPanel_nextButton.addTouchEventListener(this.tabPanel_nextButton, this);
         this.addChild(tabPanel_nextButton);

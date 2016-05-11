@@ -6,6 +6,13 @@ chimple.PlayContentPanel = chimple.AbstractContentPanel.extend({
         this.setPosition(position);
         this.loadScene();
     },
+    
+    changeScene: function() {
+        if (chimple.story != null && chimple.story.items[chimple.pageIndex].scene.Content != null) {
+            this.putIntoCache();
+            this.doPostLoadingProcessForScene(chimple.PLAY_KEY);
+        }        
+    },
 
     loadScene: function () {
         if (chimple.story != null && chimple.story.items[chimple.pageIndex].scene.Content != null) {
@@ -19,9 +26,6 @@ chimple.PlayContentPanel = chimple.AbstractContentPanel.extend({
     },
 
     doPostLoadingProcessForScene: function (fileToLoad) {
-        if (this._constructedScene != null) {
-            this._constructedScene.removeFromParent(true);
-        }
         if (fileToLoad == null) {
             return;
         }
