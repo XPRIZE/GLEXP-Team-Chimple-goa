@@ -14,10 +14,8 @@ chimple.PageConfigPanel = cc.LayerColor.extend({
             this._contentPanel.addTextToScene();
         } else if (selectedConfig != null && selectedConfig.name === "startRecording") {
             this._contentPanel.startRecording();
-        } else if (selectedConfig != null && selectedConfig.name === "stopRecording") {
-            this._contentPanel.stopRecording();
         } else if (selectedConfig != null && selectedConfig.name === "play") {
-            this._contentPanel.playScene();
+            this._contentPanel.playSceneInEditMode();
         } else if (selectedConfig != null) {
             this.constructTabBar(selectedConfig.categories);
         }
