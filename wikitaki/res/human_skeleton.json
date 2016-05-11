@@ -1958,8 +1958,8 @@
             "Property": "Position",
             "Frames": [
               {
-                "X": 332.2894,
-                "Y": -111.9186,
+                "X": 332.2895,
+                "Y": -110.1971,
                 "FrameIndex": 0,
                 "EasingData": {
                   "Type": 0
@@ -1967,8 +1967,8 @@
                 "ctype": "PointFrameData"
               },
               {
-                "X": 332.2894,
-                "Y": -111.9186,
+                "X": 332.2895,
+                "Y": -110.1971,
                 "FrameIndex": 90,
                 "EasingData": {
                   "Type": 0
@@ -1976,8 +1976,8 @@
                 "ctype": "PointFrameData"
               },
               {
-                "X": 332.2894,
-                "Y": -111.9186,
+                "X": 332.2895,
+                "Y": -110.1971,
                 "FrameIndex": 130,
                 "EasingData": {
                   "Type": 0
@@ -1985,8 +1985,8 @@
                 "ctype": "PointFrameData"
               },
               {
-                "X": 332.2894,
-                "Y": -111.9186,
+                "X": 332.2895,
+                "Y": -110.1971,
                 "FrameIndex": 180,
                 "EasingData": {
                   "Type": 0
@@ -1994,8 +1994,8 @@
                 "ctype": "PointFrameData"
               },
               {
-                "X": 332.2894,
-                "Y": -111.9186,
+                "X": 332.2895,
+                "Y": -110.1971,
                 "FrameIndex": 220,
                 "EasingData": {
                   "Type": 0
@@ -4990,6 +4990,19 @@
                   "Type": 0
                 },
                 "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 2054206058,
+            "Property": "VisibleForFrame",
+            "Frames": [
+              {
+                "Value": false,
+                "FrameIndex": 130,
+                "Tween": false,
+                "ctype": "BoolFrameData"
               }
             ],
             "ctype": "TimelineData"
@@ -7993,15 +8006,15 @@
           {
             "Length": 400.0,
             "Position": {
-              "X": 0.0089,
-              "Y": 256.6854
+              "X": 0.009,
+              "Y": 251.7417
             },
             "Scale": {
               "ScaleX": 1.0,
               "ScaleY": 1.0
             },
-            "RotationSkewX": -89.0,
-            "RotationSkewY": -89.0,
+            "RotationSkewX": -90.0,
+            "RotationSkewY": -90.0,
             "CColor": {},
             "BlendFunc": {
               "Src": 1,
@@ -8024,12 +8037,12 @@
                   "ScaleY": 0.5
                 },
                 "Position": {
-                  "X": 201.8654,
-                  "Y": -0.99
+                  "X": 204.3737,
+                  "Y": -0.9899
                 },
                 "Scale": {
-                  "ScaleX": 1.0,
-                  "ScaleY": 1.0
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
                 },
                 "RotationSkewX": -269.2949,
                 "RotationSkewY": 90.7051,
@@ -8043,15 +8056,15 @@
                   "X": 0.0,
                   "Y": 0.0
                 },
-                "LeftMargin": 53.3654,
-                "RightMargin": -350.3654,
-                "TopMargin": -201.01,
-                "BottomMargin": -202.99,
+                "LeftMargin": -103.6263,
+                "RightMargin": -512.3737,
+                "TopMargin": -418.5101,
+                "BottomMargin": -420.4899,
                 "Tag": 171,
                 "ActionTag": -2088331849,
                 "Size": {
-                  "X": 297.0,
-                  "Y": 404.0
+                  "X": 616.0,
+                  "Y": 839.0
                 },
                 "Name": "body",
                 "ctype": "SpriteObjectData"
@@ -8066,8 +8079,8 @@
                   "ScaleX": 1.0,
                   "ScaleY": 1.0
                 },
-                "RotationSkewX": 286.4226,
-                "RotationSkewY": 286.423,
+                "RotationSkewX": 159.477,
+                "RotationSkewY": 159.4774,
                 "CColor": {},
                 "BlendFunc": {
                   "Src": 1,
@@ -8085,8 +8098,8 @@
                       "ScaleX": 1.0,
                       "ScaleY": 1.0
                     },
-                    "RotationSkewX": 22.6091,
-                    "RotationSkewY": 22.6091,
+                    "RotationSkewX": 28.352,
+                    "RotationSkewY": 28.352,
                     "CColor": {},
                     "BlendFunc": {
                       "Src": 1,
@@ -8104,6 +8117,8 @@
                           "ScaleX": 1.0,
                           "ScaleY": 1.0
                         },
+                        "RotationSkewX": 11.3628,
+                        "RotationSkewY": 11.3628,
                         "CColor": {},
                         "BlendFunc": {
                           "Src": 1,
@@ -8130,8 +8145,8 @@
                               "Y": -5.2857
                             },
                             "Scale": {
-                              "ScaleX": 1.0,
-                              "ScaleY": 1.0
+                              "ScaleX": 0.5,
+                              "ScaleY": 0.5
                             },
                             "RotationSkewX": -90.0,
                             "RotationSkewY": -90.0,
@@ -8152,8 +8167,8 @@
                             "Tag": 200,
                             "ActionTag": 730582319,
                             "Size": {
-                              "X": 50.0,
-                              "Y": 77.0
+                              "X": 103.0,
+                              "Y": 158.0
                             },
                             "Name": "arm_hand_right",
                             "ctype": "SpriteObjectData"
@@ -8264,8 +8279,8 @@
                           "Y": 0.098
                         },
                         "Scale": {
-                          "ScaleX": 1.0,
-                          "ScaleY": 1.0
+                          "ScaleX": 0.5,
+                          "ScaleY": 0.5
                         },
                         "RotationSkewX": -90.0,
                         "RotationSkewY": -90.0,
@@ -8286,11 +8301,38 @@
                         "Tag": 201,
                         "ActionTag": 1778109647,
                         "Size": {
-                          "X": 36.0,
-                          "Y": 159.0
+                          "X": 72.0,
+                          "Y": 329.0
                         },
                         "Name": "arm_lower_right ",
                         "ctype": "SpriteObjectData"
+                      },
+                      {
+                        "Length": 43.0,
+                        "Position": {
+                          "X": 101.88,
+                          "Y": 22.1188
+                        },
+                        "Scale": {
+                          "ScaleX": 1.0,
+                          "ScaleY": 1.0
+                        },
+                        "RotationSkewX": 89.9985,
+                        "RotationSkewY": 90.0,
+                        "CColor": {},
+                        "BlendFunc": {
+                          "Src": 770,
+                          "Dst": 771
+                        },
+                        "Tag": 97,
+                        "ActionTag": 509590221,
+                        "ZOrder": 150,
+                        "Size": {
+                          "X": 0.0,
+                          "Y": 0.0
+                        },
+                        "Name": "arm_lower_accessories_right",
+                        "ctype": "BoneNodeObjectData"
                       }
                     ],
                     "ActionTag": 1117874416,
@@ -8321,8 +8363,8 @@
                       "Y": 0.0984
                     },
                     "Scale": {
-                      "ScaleX": 1.0,
-                      "ScaleY": 1.0
+                      "ScaleX": 0.5,
+                      "ScaleY": 0.5
                     },
                     "RotationSkewX": -90.0,
                     "RotationSkewY": -90.0,
@@ -8343,17 +8385,17 @@
                     "Tag": 202,
                     "ActionTag": -811800215,
                     "Size": {
-                      "X": 41.0,
-                      "Y": 190.0
+                      "X": 83.0,
+                      "Y": 393.0
                     },
                     "Name": "arm_upper_right",
                     "ctype": "SpriteObjectData"
                   },
                   {
                     "FileData": {
-                      "Type": "Normal",
-                      "Path": "costume/motu/motu_shirt_upper_right.png",
-                      "Plist": ""
+                      "Type": "MarkedSubImage",
+                      "Path": "costume/motu/motu_sleave_right.png",
+                      "Plist": "costume/testspritesheet.plist"
                     },
                     "BlendFunc": {
                       "Src": 1,
@@ -8364,12 +8406,12 @@
                       "ScaleY": 0.5
                     },
                     "Position": {
-                      "X": 17.4416,
-                      "Y": 0.2026
+                      "X": 15.1964,
+                      "Y": 0.1948
                     },
                     "Scale": {
-                      "ScaleX": 1.0,
-                      "ScaleY": 1.0
+                      "ScaleX": 0.5,
+                      "ScaleY": 0.5
                     },
                     "RotationSkewX": -90.0,
                     "RotationSkewY": -90.0,
@@ -8383,15 +8425,15 @@
                       "X": 0.0,
                       "Y": 0.0
                     },
-                    "LeftMargin": -5.5584,
-                    "RightMargin": -40.4416,
-                    "TopMargin": -38.7026,
-                    "BottomMargin": -38.2974,
+                    "LeftMargin": -32.8036,
+                    "RightMargin": -63.1964,
+                    "TopMargin": -79.1948,
+                    "BottomMargin": -78.8052,
                     "Tag": 86,
                     "ActionTag": -1158187111,
                     "Size": {
-                      "X": 46.0,
-                      "Y": 77.0
+                      "X": 96.0,
+                      "Y": 158.0
                     },
                     "VisibleForFrame": false,
                     "Name": "motu_shirt_upper_right",
@@ -8431,10 +8473,10 @@
                       "X": 0.0,
                       "Y": 0.0
                     },
-                    "LeftMargin": -1.3307,
-                    "RightMargin": -44.6693,
-                    "TopMargin": -43.1183,
-                    "BottomMargin": -41.8817,
+                    "LeftMargin": -2.8307,
+                    "RightMargin": -46.1693,
+                    "TopMargin": -44.1183,
+                    "BottomMargin": -42.8817,
                     "Tag": 96,
                     "ActionTag": 1603786623,
                     "Size": {
@@ -8444,6 +8486,33 @@
                     "VisibleForFrame": false,
                     "Name": "painter_sleave_right",
                     "ctype": "SpriteObjectData"
+                  },
+                  {
+                    "Length": 43.0,
+                    "Position": {
+                      "X": 56.4589,
+                      "Y": 18.7137
+                    },
+                    "Scale": {
+                      "ScaleX": 1.0,
+                      "ScaleY": 1.0
+                    },
+                    "RotationSkewX": 89.9985,
+                    "RotationSkewY": 90.0,
+                    "CColor": {},
+                    "BlendFunc": {
+                      "Src": 770,
+                      "Dst": 771
+                    },
+                    "Tag": 98,
+                    "ActionTag": 1080545540,
+                    "ZOrder": 149,
+                    "Size": {
+                      "X": 0.0,
+                      "Y": 0.0
+                    },
+                    "Name": "arm_upper_accessories_right",
+                    "ctype": "BoneNodeObjectData"
                   }
                 ],
                 "ActionTag": 1444436227,
@@ -8458,15 +8527,15 @@
               {
                 "Length": 156.0,
                 "Position": {
-                  "X": 332.2894,
-                  "Y": -111.9186
+                  "X": 332.2895,
+                  "Y": -110.1971
                 },
                 "Scale": {
                   "ScaleX": 1.0,
                   "ScaleY": 1.0
                 },
-                "RotationSkewX": 166.8955,
-                "RotationSkewY": 526.8955,
+                "RotationSkewX": 197.3492,
+                "RotationSkewY": 557.3491,
                 "CColor": {},
                 "BlendFunc": {
                   "Src": 1,
@@ -8493,8 +8562,8 @@
                       "Y": 0.7756
                     },
                     "Scale": {
-                      "ScaleX": 1.0,
-                      "ScaleY": 1.0
+                      "ScaleX": 0.5,
+                      "ScaleY": 0.5
                     },
                     "RotationSkewX": -91.6334,
                     "RotationSkewY": -91.6334,
@@ -8515,8 +8584,8 @@
                     "Tag": 207,
                     "ActionTag": 518757364,
                     "Size": {
-                      "X": 41.0,
-                      "Y": 190.0
+                      "X": 83.0,
+                      "Y": 393.0
                     },
                     "Name": "arm_upper_left",
                     "ctype": "SpriteObjectData"
@@ -8531,8 +8600,8 @@
                       "ScaleX": 1.0,
                       "ScaleY": 1.0
                     },
-                    "RotationSkewX": 15.2523,
-                    "RotationSkewY": 375.2523,
+                    "RotationSkewX": 24.9397,
+                    "RotationSkewY": 384.9397,
                     "CColor": {},
                     "BlendFunc": {
                       "Src": 1,
@@ -8559,8 +8628,8 @@
                           "Y": 0.5542
                         },
                         "Scale": {
-                          "ScaleX": 1.0,
-                          "ScaleY": 1.0
+                          "ScaleX": 0.5,
+                          "ScaleY": 0.5
                         },
                         "RotationSkewX": -90.0,
                         "RotationSkewY": -90.0,
@@ -8581,8 +8650,8 @@
                         "Tag": 208,
                         "ActionTag": -2057703225,
                         "Size": {
-                          "X": 36.0,
-                          "Y": 159.0
+                          "X": 72.0,
+                          "Y": 329.0
                         },
                         "Name": "arm_lower_left",
                         "ctype": "SpriteObjectData"
@@ -8597,7 +8666,8 @@
                           "ScaleX": 1.0,
                           "ScaleY": 1.0
                         },
-                        "RotationSkewY": 720.0,
+                        "RotationSkewX": 7.6368,
+                        "RotationSkewY": 727.6369,
                         "CColor": {},
                         "BlendFunc": {
                           "Src": 1,
@@ -8624,8 +8694,8 @@
                               "Y": -5.0021
                             },
                             "Scale": {
-                              "ScaleX": 1.0,
-                              "ScaleY": 1.0
+                              "ScaleX": 0.5,
+                              "ScaleY": 0.5
                             },
                             "RotationSkewX": -90.0,
                             "RotationSkewY": -90.0,
@@ -8646,8 +8716,8 @@
                             "Tag": 206,
                             "ActionTag": 1962659810,
                             "Size": {
-                              "X": 50.0,
-                              "Y": 77.0
+                              "X": 103.0,
+                              "Y": 158.0
                             },
                             "Name": "arm_hand_left",
                             "ctype": "SpriteObjectData"
@@ -8721,7 +8791,7 @@
                               }
                             ],
                             "ActionTag": -891778341,
-                            "ZOrder": 138,
+                            "ZOrder": 142,
                             "Size": {
                               "X": 0.0,
                               "Y": 0.0
@@ -8731,17 +8801,44 @@
                           }
                         ],
                         "ActionTag": 1431671456,
-                        "ZOrder": 141,
+                        "ZOrder": 145,
                         "Size": {
                           "X": 0.0,
                           "Y": 0.0
                         },
                         "Name": "arm_hand_left",
                         "ctype": "BoneNodeObjectData"
+                      },
+                      {
+                        "Length": 43.0,
+                        "Position": {
+                          "X": 106.6017,
+                          "Y": -13.5728
+                        },
+                        "Scale": {
+                          "ScaleX": 1.0,
+                          "ScaleY": 1.0
+                        },
+                        "RotationSkewX": -90.1991,
+                        "RotationSkewY": -90.1957,
+                        "CColor": {},
+                        "BlendFunc": {
+                          "Src": 770,
+                          "Dst": 771
+                        },
+                        "Tag": 95,
+                        "ActionTag": 806030024,
+                        "ZOrder": 148,
+                        "Size": {
+                          "X": 0.0,
+                          "Y": 0.0
+                        },
+                        "Name": "arm_lower_accessories_left",
+                        "ctype": "BoneNodeObjectData"
                       }
                     ],
                     "ActionTag": 1253853243,
-                    "ZOrder": 140,
+                    "ZOrder": 144,
                     "Size": {
                       "X": 0.0,
                       "Y": 0.0
@@ -8751,9 +8848,9 @@
                   },
                   {
                     "FileData": {
-                      "Type": "Normal",
-                      "Path": "costume/motu/motu_shirt_upper_left.png",
-                      "Plist": ""
+                      "Type": "MarkedSubImage",
+                      "Path": "costume/motu/motu_sleave_left.png",
+                      "Plist": "costume/testspritesheet.plist"
                     },
                     "BlendFunc": {
                       "Src": 1,
@@ -8764,12 +8861,12 @@
                       "ScaleY": 0.5
                     },
                     "Position": {
-                      "X": 15.338,
-                      "Y": 0.5927
+                      "X": 15.3433,
+                      "Y": -0.9046
                     },
                     "Scale": {
-                      "ScaleX": 1.0,
-                      "ScaleY": 1.0
+                      "ScaleX": 0.5,
+                      "ScaleY": 0.5
                     },
                     "RotationSkewX": -90.0,
                     "RotationSkewY": -90.0,
@@ -8783,15 +8880,15 @@
                       "X": 0.0,
                       "Y": 0.0
                     },
-                    "LeftMargin": -7.662,
-                    "RightMargin": -38.338,
-                    "TopMargin": -39.0927,
-                    "BottomMargin": -37.9073,
+                    "LeftMargin": -32.6567,
+                    "RightMargin": -63.3433,
+                    "TopMargin": -78.0954,
+                    "BottomMargin": -79.9046,
                     "Tag": 85,
                     "ActionTag": -1295071358,
                     "Size": {
-                      "X": 46.0,
-                      "Y": 77.0
+                      "X": 96.0,
+                      "Y": 158.0
                     },
                     "VisibleForFrame": false,
                     "Name": "motu_shirt_upper_left",
@@ -8844,10 +8941,37 @@
                     "VisibleForFrame": false,
                     "Name": "painter_sleave_left",
                     "ctype": "SpriteObjectData"
+                  },
+                  {
+                    "Length": 43.0,
+                    "Position": {
+                      "X": 63.3487,
+                      "Y": -15.2599
+                    },
+                    "Scale": {
+                      "ScaleX": 1.0,
+                      "ScaleY": 1.0
+                    },
+                    "RotationSkewX": -90.1987,
+                    "RotationSkewY": -90.1987,
+                    "CColor": {},
+                    "BlendFunc": {
+                      "Src": 770,
+                      "Dst": 771
+                    },
+                    "Tag": 96,
+                    "ActionTag": 283105575,
+                    "ZOrder": 147,
+                    "Size": {
+                      "X": 0.0,
+                      "Y": 0.0
+                    },
+                    "Name": "arm_upper_accessories_left",
+                    "ctype": "BoneNodeObjectData"
                   }
                 ],
                 "ActionTag": 1907865128,
-                "ZOrder": 139,
+                "ZOrder": 143,
                 "Size": {
                   "X": 0.0,
                   "Y": 0.0
@@ -8884,8 +9008,8 @@
                       "ScaleX": 1.0,
                       "ScaleY": 1.0
                     },
-                    "RotationSkewX": -1.4172,
-                    "RotationSkewY": -1.4172,
+                    "RotationSkewX": -0.0931,
+                    "RotationSkewY": -0.0931,
                     "CColor": {},
                     "BlendFunc": {
                       "Src": 1,
@@ -8912,8 +9036,8 @@
                           "Y": -7.3344
                         },
                         "Scale": {
-                          "ScaleX": 1.0,
-                          "ScaleY": 1.0
+                          "ScaleX": 0.5,
+                          "ScaleY": 0.5
                         },
                         "RotationSkewX": -629.9993,
                         "RotationSkewY": 90.0005,
@@ -8934,8 +9058,8 @@
                         "Tag": 212,
                         "ActionTag": -1685406041,
                         "Size": {
-                          "X": 588.0,
-                          "Y": 490.0
+                          "X": 1223.0,
+                          "Y": 1020.0
                         },
                         "Name": "face",
                         "ctype": "SpriteObjectData"
@@ -9054,6 +9178,33 @@
                             "VisibleForFrame": false,
                             "Name": " motu_hair",
                             "ctype": "SpriteObjectData"
+                          },
+                          {
+                            "Length": 416.0,
+                            "Position": {
+                              "X": -115.5802,
+                              "Y": -40.6451
+                            },
+                            "Scale": {
+                              "ScaleX": 1.0,
+                              "ScaleY": 1.0
+                            },
+                            "RotationSkewX": -360.1067,
+                            "RotationSkewY": -0.106,
+                            "CColor": {},
+                            "BlendFunc": {
+                              "Src": 1,
+                              "Dst": 771
+                            },
+                            "Tag": 92,
+                            "ActionTag": -1088435946,
+                            "ZOrder": 146,
+                            "Size": {
+                              "X": 0.0,
+                              "Y": 0.0
+                            },
+                            "Name": "hair_back",
+                            "ctype": "BoneNodeObjectData"
                           }
                         ],
                         "ActionTag": -1441364158,
@@ -9108,7 +9259,7 @@
                                   "Plist": ""
                                 },
                                 "BlendFunc": {
-                                  "Src": 1,
+                                  "Src": 770,
                                   "Dst": 771
                                 },
                                 "AnchorPoint": {
@@ -9135,10 +9286,10 @@
                                   "X": 0.0,
                                   "Y": 0.0
                                 },
-                                "LeftMargin": -23.4461,
-                                "RightMargin": -48.5539,
-                                "TopMargin": -20.3679,
-                                "BottomMargin": -2.6321,
+                                "LeftMargin": -3.4461,
+                                "RightMargin": -28.5539,
+                                "TopMargin": -45.8679,
+                                "BottomMargin": -28.1321,
                                 "Tag": 89,
                                 "ActionTag": 2071344856,
                                 "Size": {
@@ -9258,7 +9409,7 @@
                                   "Plist": ""
                                 },
                                 "BlendFunc": {
-                                  "Src": 1,
+                                  "Src": 770,
                                   "Dst": 771
                                 },
                                 "AnchorPoint": {
@@ -9285,10 +9436,10 @@
                                   "X": 0.0,
                                   "Y": 0.0
                                 },
-                                "LeftMargin": -11.0837,
-                                "RightMargin": -59.9163,
-                                "TopMargin": -14.7551,
-                                "BottomMargin": -8.2449,
+                                "LeftMargin": 8.4163,
+                                "RightMargin": -40.4163,
+                                "TopMargin": -40.2551,
+                                "BottomMargin": -33.7449,
                                 "Tag": 88,
                                 "ActionTag": 1506101691,
                                 "Size": {
@@ -9536,9 +9687,9 @@
                         "Children": [
                           {
                             "FileData": {
-                              "Type": "Normal",
+                              "Type": "MarkedSubImage",
                               "Path": "ear/ear_round.png",
-                              "Plist": ""
+                              "Plist": "costume/testspritesheet.plist"
                             },
                             "BlendFunc": {
                               "Src": 1,
@@ -9905,6 +10056,53 @@
                             "VisibleForFrame": false,
                             "Name": "painter_cap",
                             "ctype": "SpriteObjectData"
+                          },
+                          {
+                            "FileData": {
+                              "Type": "Normal",
+                              "Path": "costume/police/police_cap.png",
+                              "Plist": ""
+                            },
+                            "BlendFunc": {
+                              "Src": 1,
+                              "Dst": 771
+                            },
+                            "AnchorPoint": {
+                              "ScaleX": 0.5,
+                              "ScaleY": 0.5
+                            },
+                            "Position": {
+                              "X": 141.1896,
+                              "Y": 39.3
+                            },
+                            "Scale": {
+                              "ScaleX": 1.0,
+                              "ScaleY": 1.0
+                            },
+                            "RotationSkewX": 0.5714,
+                            "RotationSkewY": 0.5761,
+                            "CColor": {},
+                            "IconVisible": false,
+                            "PrePosition": {
+                              "X": 0.0,
+                              "Y": 0.0
+                            },
+                            "PreSize": {
+                              "X": 0.0,
+                              "Y": 0.0
+                            },
+                            "LeftMargin": -188.8104,
+                            "RightMargin": -471.1896,
+                            "TopMargin": -174.8,
+                            "BottomMargin": -96.2,
+                            "Tag": 95,
+                            "ActionTag": 1782442036,
+                            "Size": {
+                              "X": 660.0,
+                              "Y": 271.0
+                            },
+                            "Name": "police_cap",
+                            "ctype": "SpriteObjectData"
                           }
                         ],
                         "ActionTag": -1471426797,
@@ -9942,7 +10140,7 @@
                               "Plist": ""
                             },
                             "BlendFunc": {
-                              "Src": 1,
+                              "Src": 770,
                               "Dst": 771
                             },
                             "AnchorPoint": {
@@ -10022,8 +10220,8 @@
                       "Y": -2.0795
                     },
                     "Scale": {
-                      "ScaleX": 1.0,
-                      "ScaleY": 1.0
+                      "ScaleX": 0.5,
+                      "ScaleY": 0.5
                     },
                     "RotationSkewX": 90.0,
                     "RotationSkewY": 90.0,
@@ -10044,8 +10242,8 @@
                     "Tag": 213,
                     "ActionTag": 150527605,
                     "Size": {
-                      "X": 57.0,
-                      "Y": 124.0
+                      "X": 117.0,
+                      "Y": 226.0
                     },
                     "Name": "neck",
                     "ctype": "SpriteObjectData"
@@ -10177,7 +10375,7 @@
                   }
                 ],
                 "ActionTag": 226986727,
-                "ZOrder": 137,
+                "ZOrder": 141,
                 "Size": {
                   "X": 0.0,
                   "Y": 0.0
@@ -10187,9 +10385,9 @@
               },
               {
                 "FileData": {
-                  "Type": "Normal",
-                  "Path": "costume/motu/motu_shirt_body.png",
-                  "Plist": ""
+                  "Type": "MarkedSubImage",
+                  "Path": "costume/motu/motu_shirt.png",
+                  "Plist": "costume/testspritesheet.plist"
                 },
                 "BlendFunc": {
                   "Src": 1,
@@ -10204,8 +10402,8 @@
                   "Y": -2.0488
                 },
                 "Scale": {
-                  "ScaleX": 1.0,
-                  "ScaleY": 1.0
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
                 },
                 "RotationSkewX": -269.8007,
                 "RotationSkewY": 90.1993,
@@ -10226,8 +10424,8 @@
                 "Tag": 84,
                 "ActionTag": 2054206058,
                 "Size": {
-                  "X": 310.0,
-                  "Y": 422.0
+                  "X": 644.0,
+                  "Y": 879.0
                 },
                 "VisibleForFrame": false,
                 "Name": "motu_shirt_body",
@@ -10267,10 +10465,10 @@
                   "X": 0.0,
                   "Y": 0.0
                 },
-                "LeftMargin": 52.2592,
-                "RightMargin": -349.2592,
-                "TopMargin": -200.1714,
-                "BottomMargin": -202.8286,
+                "LeftMargin": 49.2592,
+                "RightMargin": -352.2592,
+                "TopMargin": -201.1714,
+                "BottomMargin": -203.8286,
                 "Tag": 94,
                 "ActionTag": -632789953,
                 "Size": {
@@ -10282,56 +10480,85 @@
                 "ctype": "SpriteObjectData"
               },
               {
-                "FileData": {
-                  "Type": "Normal",
-                  "Path": "costume/painter/painter_coat.png",
-                  "Plist": ""
-                },
-                "BlendFunc": {
-                  "Src": 1,
-                  "Dst": 771
-                },
-                "AnchorPoint": {
-                  "ScaleX": 0.5,
-                  "ScaleY": 0.5
-                },
+                "Length": 384.0,
                 "Position": {
-                  "X": 198.1071,
-                  "Y": -0.4098
+                  "X": 6.1916,
+                  "Y": -8.8788
                 },
                 "Scale": {
                   "ScaleX": 1.0,
                   "ScaleY": 1.0
                 },
-                "RotationSkewX": 90.0,
-                "RotationSkewY": 90.0,
+                "RotationSkewX": -0.6009,
+                "RotationSkewY": -0.6005,
                 "CColor": {},
-                "IconVisible": false,
-                "PrePosition": {
-                  "X": 0.0,
-                  "Y": 0.0
+                "BlendFunc": {
+                  "Src": 1,
+                  "Dst": 771
                 },
-                "PreSize": {
-                  "X": 0.0,
-                  "Y": 0.0
-                },
-                "LeftMargin": 46.1071,
-                "RightMargin": -350.1071,
-                "TopMargin": -199.5902,
-                "BottomMargin": -200.4098,
-                "Tag": 91,
-                "ActionTag": 1780901782,
+                "Tag": 93,
+                "Children": [
+                  {
+                    "FileData": {
+                      "Type": "Normal",
+                      "Path": "costume/painter/painter_coat.png",
+                      "Plist": ""
+                    },
+                    "BlendFunc": {
+                      "Src": 1,
+                      "Dst": 771
+                    },
+                    "AnchorPoint": {
+                      "ScaleX": 0.5,
+                      "ScaleY": 0.5
+                    },
+                    "Position": {
+                      "X": 191.9938,
+                      "Y": 6.457
+                    },
+                    "Scale": {
+                      "ScaleX": 1.0,
+                      "ScaleY": 1.0
+                    },
+                    "RotationSkewX": 90.6003,
+                    "RotationSkewY": 90.6011,
+                    "CColor": {},
+                    "IconVisible": false,
+                    "PrePosition": {
+                      "X": 0.0,
+                      "Y": 0.0
+                    },
+                    "PreSize": {
+                      "X": 0.0,
+                      "Y": 0.0
+                    },
+                    "LeftMargin": 39.9938,
+                    "RightMargin": -343.9938,
+                    "TopMargin": -206.457,
+                    "BottomMargin": -193.543,
+                    "Tag": 91,
+                    "ActionTag": 1780901782,
+                    "Size": {
+                      "X": 304.0,
+                      "Y": 400.0
+                    },
+                    "VisibleForFrame": false,
+                    "Name": "painter_coat",
+                    "ctype": "SpriteObjectData"
+                  }
+                ],
+                "ActionTag": -536780461,
+                "ZOrder": 140,
                 "Size": {
-                  "X": 304.0,
-                  "Y": 400.0
+                  "X": 0.0,
+                  "Y": 0.0
                 },
-                "VisibleForFrame": false,
-                "Name": "painter_coat",
-                "ctype": "SpriteObjectData"
+                "Name": "body_accessories",
+                "ctype": "BoneNodeObjectData"
               }
             ],
             "ActionTag": 1103410760,
-            "ZOrder": 136,
+            "ZOrder": 139,
             "Size": {
               "X": 0.0,
               "Y": 0.0
@@ -10342,8 +10569,8 @@
           {
             "Length": 139.0,
             "Position": {
-              "X": 0.0089,
-              "Y": 256.6854
+              "X": 0.009,
+              "Y": 251.7417
             },
             "Scale": {
               "ScaleX": 1.0,
@@ -10373,12 +10600,12 @@
                   "ScaleY": 0.5
                 },
                 "Position": {
-                  "X": 0.6067,
-                  "Y": 0.6067
+                  "X": 7.1325,
+                  "Y": -1.5522
                 },
                 "Scale": {
-                  "ScaleX": 1.0,
-                  "ScaleY": 1.0
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
                 },
                 "RotationSkewX": -89.8458,
                 "RotationSkewY": -89.8458,
@@ -10392,15 +10619,15 @@
                   "X": 0.0,
                   "Y": 0.0
                 },
-                "LeftMargin": -147.3933,
-                "RightMargin": -148.6067,
-                "TopMargin": -148.6067,
-                "BottomMargin": -147.3933,
+                "LeftMargin": -140.8675,
+                "RightMargin": -155.1325,
+                "TopMargin": -146.4478,
+                "BottomMargin": -149.5522,
                 "Tag": 173,
                 "ActionTag": -319888933,
                 "Size": {
-                  "X": 296.0,
-                  "Y": 296.0
+                  "X": 615.0,
+                  "Y": 615.0
                 },
                 "Name": "hip",
                 "ctype": "SpriteObjectData"
@@ -10415,7 +10642,8 @@
                   "ScaleX": 1.0,
                   "ScaleY": 1.0
                 },
-                "RotationSkewY": 360.0,
+                "RotationSkewX": 17.8038,
+                "RotationSkewY": 377.8038,
                 "CColor": {},
                 "BlendFunc": {
                   "Src": 1,
@@ -10433,6 +10661,8 @@
                       "ScaleX": 1.0,
                       "ScaleY": 1.0
                     },
+                    "RotationSkewX": -6.0751,
+                    "RotationSkewY": -6.0751,
                     "CColor": {},
                     "BlendFunc": {
                       "Src": 1,
@@ -10450,8 +10680,8 @@
                           "ScaleX": 1.0,
                           "ScaleY": 1.0
                         },
-                        "RotationSkewX": 90.0,
-                        "RotationSkewY": 90.0,
+                        "RotationSkewX": 100.6692,
+                        "RotationSkewY": 100.6692,
                         "CColor": {},
                         "BlendFunc": {
                           "Src": 1,
@@ -10478,8 +10708,8 @@
                               "Y": -1.2075
                             },
                             "Scale": {
-                              "ScaleX": 1.0,
-                              "ScaleY": 1.0
+                              "ScaleX": 0.5,
+                              "ScaleY": 0.5
                             },
                             "RotationSkewX": -900.0005,
                             "RotationSkewY": 899.9996,
@@ -10500,17 +10730,17 @@
                             "Tag": 245,
                             "ActionTag": 1496681380,
                             "Size": {
-                              "X": 106.0,
-                              "Y": 23.0
+                              "X": 217.0,
+                              "Y": 47.0
                             },
                             "Name": "leg_foot_right",
                             "ctype": "SpriteObjectData"
                           },
                           {
                             "FileData": {
-                              "Type": "Normal",
-                              "Path": "costume/motu/motu_shoes_right.png",
-                              "Plist": ""
+                              "Type": "MarkedSubImage",
+                              "Path": "costume/motu/motu_shoe_right.png",
+                              "Plist": "costume/testspritesheet.plist"
                             },
                             "BlendFunc": {
                               "Src": 1,
@@ -10525,8 +10755,8 @@
                               "Y": -1.6985
                             },
                             "Scale": {
-                              "ScaleX": 1.0,
-                              "ScaleY": 1.0
+                              "ScaleX": 0.5,
+                              "ScaleY": 0.5
                             },
                             "RotationSkewX": -179.71,
                             "RotationSkewY": -179.7107,
@@ -10547,10 +10777,9 @@
                             "Tag": 83,
                             "ActionTag": -370520272,
                             "Size": {
-                              "X": 116.0,
-                              "Y": 25.0
+                              "X": 239.0,
+                              "Y": 50.0
                             },
-                            "VisibleForFrame": false,
                             "Name": "motu_shoes_right",
                             "ctype": "SpriteObjectData"
                           },
@@ -10631,8 +10860,8 @@
                           "Y": -0.3156
                         },
                         "Scale": {
-                          "ScaleX": 1.0,
-                          "ScaleY": 1.0
+                          "ScaleX": 0.5,
+                          "ScaleY": 0.5
                         },
                         "RotationSkewX": -90.6082,
                         "RotationSkewY": -90.6082,
@@ -10653,17 +10882,17 @@
                         "Tag": 247,
                         "ActionTag": -1901371507,
                         "Size": {
-                          "X": 21.0,
-                          "Y": 90.0
+                          "X": 42.0,
+                          "Y": 186.0
                         },
                         "Name": "leg_lower_right",
                         "ctype": "SpriteObjectData"
                       },
                       {
                         "FileData": {
-                          "Type": "Normal",
+                          "Type": "MarkedSubImage",
                           "Path": "costume/motu/motu_pant_lower_right.png",
-                          "Plist": ""
+                          "Plist": "costume/testspritesheet.plist"
                         },
                         "BlendFunc": {
                           "Src": 1,
@@ -10678,8 +10907,8 @@
                           "Y": -0.4489
                         },
                         "Scale": {
-                          "ScaleX": 1.0,
-                          "ScaleY": 1.0
+                          "ScaleX": 0.5,
+                          "ScaleY": 0.5
                         },
                         "RotationSkewX": -90.0,
                         "RotationSkewY": -90.0,
@@ -10693,15 +10922,15 @@
                           "X": 0.0,
                           "Y": 0.0
                         },
-                        "LeftMargin": 13.5267,
-                        "RightMargin": -34.5267,
+                        "LeftMargin": 12.5267,
+                        "RightMargin": -35.5267,
                         "TopMargin": -36.0511,
                         "BottomMargin": -36.9489,
                         "Tag": 81,
                         "ActionTag": -1430643657,
                         "Size": {
-                          "X": 23.0,
-                          "Y": 73.0
+                          "X": 45.0,
+                          "Y": 145.0
                         },
                         "VisibleForFrame": false,
                         "Name": "motu_pant_lower_right",
@@ -10741,10 +10970,10 @@
                           "X": 0.0,
                           "Y": 0.0
                         },
-                        "LeftMargin": 17.1242,
-                        "RightMargin": -39.1242,
-                        "TopMargin": -38.2453,
-                        "BottomMargin": -38.7547,
+                        "LeftMargin": 16.6242,
+                        "RightMargin": -39.6242,
+                        "TopMargin": -37.7453,
+                        "BottomMargin": -38.2547,
                         "Tag": 91,
                         "ActionTag": -37692843,
                         "Size": {
@@ -10753,6 +10982,54 @@
                         },
                         "VisibleForFrame": false,
                         "Name": "painter_pant_lower_right",
+                        "ctype": "SpriteObjectData"
+                      },
+                      {
+                        "FileData": {
+                          "Type": "Normal",
+                          "Path": "costume/police/police_pant_lower_right.png",
+                          "Plist": ""
+                        },
+                        "BlendFunc": {
+                          "Src": 1,
+                          "Dst": 771
+                        },
+                        "AnchorPoint": {
+                          "ScaleX": 0.5,
+                          "ScaleY": 0.5
+                        },
+                        "Position": {
+                          "X": 24.166,
+                          "Y": -0.5347
+                        },
+                        "Scale": {
+                          "ScaleX": 1.0,
+                          "ScaleY": 1.0
+                        },
+                        "RotationSkewX": -90.0,
+                        "RotationSkewY": -90.0,
+                        "CColor": {},
+                        "IconVisible": false,
+                        "PrePosition": {
+                          "X": 0.0,
+                          "Y": 0.0
+                        },
+                        "PreSize": {
+                          "X": 0.0,
+                          "Y": 0.0
+                        },
+                        "LeftMargin": 12.666,
+                        "RightMargin": -35.666,
+                        "TopMargin": -35.9653,
+                        "BottomMargin": -37.0347,
+                        "Tag": 98,
+                        "ActionTag": 381957536,
+                        "Size": {
+                          "X": 23.0,
+                          "Y": 73.0
+                        },
+                        "VisibleForFrame": false,
+                        "Name": "police_pant_lower_right",
                         "ctype": "SpriteObjectData"
                       }
                     ],
@@ -10784,8 +11061,8 @@
                       "Y": -0.4915
                     },
                     "Scale": {
-                      "ScaleX": 1.0,
-                      "ScaleY": 1.0
+                      "ScaleX": 0.5,
+                      "ScaleY": 0.5
                     },
                     "RotationSkewX": -90.0,
                     "RotationSkewY": -90.0,
@@ -10806,17 +11083,17 @@
                     "Tag": 249,
                     "ActionTag": 540026135,
                     "Size": {
-                      "X": 25.0,
-                      "Y": 106.0
+                      "X": 50.0,
+                      "Y": 218.0
                     },
                     "Name": "leg_upper_right",
                     "ctype": "SpriteObjectData"
                   },
                   {
                     "FileData": {
-                      "Type": "Normal",
+                      "Type": "MarkedSubImage",
                       "Path": "costume/motu/motu_pant_upper_right.png",
-                      "Plist": ""
+                      "Plist": "costume/testspritesheet.plist"
                     },
                     "BlendFunc": {
                       "Src": 1,
@@ -10831,8 +11108,8 @@
                       "Y": -0.2913
                     },
                     "Scale": {
-                      "ScaleX": 1.0,
-                      "ScaleY": 1.0
+                      "ScaleX": 0.5,
+                      "ScaleY": 0.5
                     },
                     "RotationSkewX": -90.0,
                     "RotationSkewY": -90.0,
@@ -10846,15 +11123,15 @@
                       "X": 0.0,
                       "Y": 0.0
                     },
-                    "LeftMargin": 28.5698,
-                    "RightMargin": -53.5698,
-                    "TopMargin": -53.2087,
-                    "BottomMargin": -53.7913,
+                    "LeftMargin": 27.5698,
+                    "RightMargin": -54.5698,
+                    "TopMargin": -56.2087,
+                    "BottomMargin": -56.7913,
                     "Tag": 80,
                     "ActionTag": 297697875,
                     "Size": {
-                      "X": 27.0,
-                      "Y": 113.0
+                      "X": 54.0,
+                      "Y": 221.0
                     },
                     "VisibleForFrame": false,
                     "Name": "motu_pant_upper_right",
@@ -10894,10 +11171,10 @@
                       "X": 0.0,
                       "Y": 0.0
                     },
-                    "LeftMargin": 28.066,
-                    "RightMargin": -53.066,
-                    "TopMargin": -52.7557,
-                    "BottomMargin": -53.2443,
+                    "LeftMargin": 27.066,
+                    "RightMargin": -54.066,
+                    "TopMargin": -56.2557,
+                    "BottomMargin": -56.7443,
                     "Tag": 90,
                     "ActionTag": 546511459,
                     "Size": {
@@ -10928,7 +11205,8 @@
                   "ScaleX": 1.0,
                   "ScaleY": 1.0
                 },
-                "RotationSkewY": 360.0001,
+                "RotationSkewX": -18.0973,
+                "RotationSkewY": 341.9028,
                 "CColor": {},
                 "BlendFunc": {
                   "Src": 1,
@@ -10946,6 +11224,8 @@
                       "ScaleX": 1.0,
                       "ScaleY": 1.0
                     },
+                    "RotationSkewX": -42.0615,
+                    "RotationSkewY": -42.0615,
                     "CColor": {},
                     "BlendFunc": {
                       "Src": 1,
@@ -10963,8 +11243,8 @@
                           "ScaleX": 1.0,
                           "ScaleY": 1.0
                         },
-                        "RotationSkewX": 90.0,
-                        "RotationSkewY": 90.0,
+                        "RotationSkewX": 126.696,
+                        "RotationSkewY": 126.696,
                         "CColor": {},
                         "BlendFunc": {
                           "Src": 1,
@@ -10991,8 +11271,8 @@
                               "Y": 1.0841
                             },
                             "Scale": {
-                              "ScaleX": 1.0,
-                              "ScaleY": 1.0
+                              "ScaleX": 0.5,
+                              "ScaleY": 0.5
                             },
                             "RotationSkewX": -180.0,
                             "RotationSkewY": 180.0,
@@ -11013,17 +11293,17 @@
                             "Tag": 244,
                             "ActionTag": -1111117900,
                             "Size": {
-                              "X": 106.0,
-                              "Y": 23.0
+                              "X": 217.0,
+                              "Y": 47.0
                             },
                             "Name": "leg_foot_left",
                             "ctype": "SpriteObjectData"
                           },
                           {
                             "FileData": {
-                              "Type": "Normal",
-                              "Path": "costume/motu/motu_shoes_left.png",
-                              "Plist": ""
+                              "Type": "MarkedSubImage",
+                              "Path": "costume/motu/motu_shoe_left.png",
+                              "Plist": "costume/testspritesheet.plist"
                             },
                             "BlendFunc": {
                               "Src": 1,
@@ -11038,8 +11318,8 @@
                               "Y": 0.145
                             },
                             "Scale": {
-                              "ScaleX": 1.0,
-                              "ScaleY": 1.0
+                              "ScaleX": 0.5,
+                              "ScaleY": 0.5
                             },
                             "RotationSkewX": -180.0,
                             "RotationSkewY": 180.0,
@@ -11060,8 +11340,8 @@
                             "Tag": 82,
                             "ActionTag": 2054698665,
                             "Size": {
-                              "X": 115.0,
-                              "Y": 25.0
+                              "X": 239.0,
+                              "Y": 50.0
                             },
                             "VisibleForFrame": false,
                             "Name": "motu_shoes_left",
@@ -11117,7 +11397,7 @@
                           }
                         ],
                         "ActionTag": 806505809,
-                        "ZOrder": 135,
+                        "ZOrder": 137,
                         "Size": {
                           "X": 0.0,
                           "Y": 0.0
@@ -11140,12 +11420,12 @@
                           "ScaleY": 0.5
                         },
                         "Position": {
-                          "X": 37.7618,
-                          "Y": 0.3259
+                          "X": 37.0074,
+                          "Y": 0.5533
                         },
                         "Scale": {
-                          "ScaleX": 1.0,
-                          "ScaleY": 1.0
+                          "ScaleX": 0.5,
+                          "ScaleY": 0.5
                         },
                         "RotationSkewX": -90.0,
                         "RotationSkewY": -90.0,
@@ -11159,24 +11439,24 @@
                           "X": 0.0,
                           "Y": 0.0
                         },
-                        "LeftMargin": 27.2618,
-                        "RightMargin": -48.2618,
-                        "TopMargin": -45.3259,
-                        "BottomMargin": -44.6741,
+                        "LeftMargin": 26.5074,
+                        "RightMargin": -47.5074,
+                        "TopMargin": -45.5533,
+                        "BottomMargin": -44.4467,
                         "Tag": 246,
                         "ActionTag": 1605124117,
                         "Size": {
-                          "X": 21.0,
-                          "Y": 90.0
+                          "X": 42.0,
+                          "Y": 186.0
                         },
                         "Name": "leg_lower_left",
                         "ctype": "SpriteObjectData"
                       },
                       {
                         "FileData": {
-                          "Type": "Normal",
+                          "Type": "MarkedSubImage",
                           "Path": "costume/motu/motu_pant_lower_left.png",
-                          "Plist": ""
+                          "Plist": "costume/testspritesheet.plist"
                         },
                         "BlendFunc": {
                           "Src": 1,
@@ -11187,12 +11467,12 @@
                           "ScaleY": 0.5
                         },
                         "Position": {
-                          "X": 27.299,
-                          "Y": 0.513
+                          "X": 27.3,
+                          "Y": 0.51
                         },
                         "Scale": {
-                          "ScaleX": 1.0,
-                          "ScaleY": 1.0
+                          "ScaleX": 0.5,
+                          "ScaleY": 0.5
                         },
                         "RotationSkewX": -90.0,
                         "RotationSkewY": -90.0,
@@ -11206,15 +11486,15 @@
                           "X": 0.0,
                           "Y": 0.0
                         },
-                        "LeftMargin": 16.799,
-                        "RightMargin": -37.799,
-                        "TopMargin": -36.513,
-                        "BottomMargin": -35.487,
+                        "LeftMargin": 15.8,
+                        "RightMargin": -38.8,
+                        "TopMargin": -37.01,
+                        "BottomMargin": -35.99,
                         "Tag": 78,
                         "ActionTag": -1497863730,
                         "Size": {
-                          "X": 23.0,
-                          "Y": 73.0
+                          "X": 45.0,
+                          "Y": 145.0
                         },
                         "VisibleForFrame": false,
                         "Name": "motu_pant_lower_left",
@@ -11236,7 +11516,7 @@
                         },
                         "Position": {
                           "X": 29.9984,
-                          "Y": -0.0066
+                          "Y": -0.01
                         },
                         "Scale": {
                           "ScaleX": 1.0,
@@ -11256,8 +11536,8 @@
                         },
                         "LeftMargin": 18.9984,
                         "RightMargin": -40.9984,
-                        "TopMargin": -38.4934,
-                        "BottomMargin": -38.5066,
+                        "TopMargin": -37.99,
+                        "BottomMargin": -38.01,
                         "Tag": 88,
                         "ActionTag": 543205458,
                         "Size": {
@@ -11267,10 +11547,59 @@
                         "VisibleForFrame": false,
                         "Name": "painter_pant_lower_left",
                         "ctype": "SpriteObjectData"
+                      },
+                      {
+                        "FileData": {
+                          "Type": "Normal",
+                          "Path": "Basic Character0.png",
+                          "Plist": ""
+                        },
+                        "BlendFunc": {
+                          "Src": 1,
+                          "Dst": 771
+                        },
+                        "AnchorPoint": {
+                          "ScaleX": 0.5,
+                          "ScaleY": 0.5
+                        },
+                        "Position": {
+                          "X": 27.3,
+                          "Y": 0.58
+                        },
+                        "Scale": {
+                          "ScaleX": 0.5,
+                          "ScaleY": 0.5
+                        },
+                        "RotationSkewX": -90.0,
+                        "RotationSkewY": -90.0,
+                        "CColor": {},
+                        "IconVisible": false,
+                        "PrePosition": {
+                          "X": 0.0,
+                          "Y": 0.0
+                        },
+                        "PreSize": {
+                          "X": 0.0,
+                          "Y": 0.0
+                        },
+                        "LeftMargin": 15.8,
+                        "RightMargin": -38.8,
+                        "TopMargin": -37.08,
+                        "BottomMargin": -35.92,
+                        "Tag": 97,
+                        "ActionTag": 203648672,
+                        "Size": {
+                          "X": 45.0,
+                          "Y": 150.0
+                        },
+                        "VisibleForFrame": false,
+                        "Alpha": 127,
+                        "Name": "police_pant_lower_left",
+                        "ctype": "SpriteObjectData"
                       }
                     ],
                     "ActionTag": -298616116,
-                    "ZOrder": 134,
+                    "ZOrder": 135,
                     "Size": {
                       "X": 0.0,
                       "Y": 0.0
@@ -11297,8 +11626,8 @@
                       "Y": 0.46
                     },
                     "Scale": {
-                      "ScaleX": 1.0,
-                      "ScaleY": 1.0
+                      "ScaleX": 0.5,
+                      "ScaleY": 0.5
                     },
                     "RotationSkewX": -90.0,
                     "RotationSkewY": -90.0,
@@ -11319,17 +11648,17 @@
                     "Tag": 248,
                     "ActionTag": 364088592,
                     "Size": {
-                      "X": 25.0,
-                      "Y": 106.0
+                      "X": 50.0,
+                      "Y": 218.0
                     },
                     "Name": "leg_upper_left",
                     "ctype": "SpriteObjectData"
                   },
                   {
                     "FileData": {
-                      "Type": "Normal",
+                      "Type": "MarkedSubImage",
                       "Path": "costume/motu/motu_pant_upper_left.png",
-                      "Plist": ""
+                      "Plist": "costume/testspritesheet.plist"
                     },
                     "BlendFunc": {
                       "Src": 1,
@@ -11340,12 +11669,12 @@
                       "ScaleY": 0.5
                     },
                     "Position": {
-                      "X": 38.5526,
-                      "Y": 0.5933
+                      "X": 38.55,
+                      "Y": 0.59
                     },
                     "Scale": {
-                      "ScaleX": 1.0201,
-                      "ScaleY": 1.01
+                      "ScaleX": 0.5,
+                      "ScaleY": 0.5
                     },
                     "RotationSkewX": -90.0,
                     "RotationSkewY": -90.0,
@@ -11359,15 +11688,15 @@
                       "X": 0.0,
                       "Y": 0.0
                     },
-                    "LeftMargin": 25.0526,
-                    "RightMargin": -52.0526,
-                    "TopMargin": -57.0933,
-                    "BottomMargin": -55.9067,
+                    "LeftMargin": 25.05,
+                    "RightMargin": -52.05,
+                    "TopMargin": -57.09,
+                    "BottomMargin": -55.91,
                     "Tag": 79,
                     "ActionTag": 735116649,
                     "Size": {
-                      "X": 27.0,
-                      "Y": 113.0
+                      "X": 54.0,
+                      "Y": 221.0
                     },
                     "VisibleForFrame": false,
                     "Name": "motu_pant_upper_left",
@@ -11407,10 +11736,10 @@
                       "X": 0.0,
                       "Y": 0.0
                     },
-                    "LeftMargin": 27.1549,
-                    "RightMargin": -52.1549,
-                    "TopMargin": -53.1894,
-                    "BottomMargin": -52.8106,
+                    "LeftMargin": 26.6549,
+                    "RightMargin": -52.6549,
+                    "TopMargin": -56.6894,
+                    "BottomMargin": -56.3106,
                     "Tag": 89,
                     "ActionTag": -724101296,
                     "Size": {
@@ -11419,6 +11748,54 @@
                     },
                     "VisibleForFrame": false,
                     "Name": "painter_pant_upper_left",
+                    "ctype": "SpriteObjectData"
+                  },
+                  {
+                    "FileData": {
+                      "Type": "Normal",
+                      "Path": "costume/police/police_pant_upper_left.png",
+                      "Plist": ""
+                    },
+                    "BlendFunc": {
+                      "Src": 1,
+                      "Dst": 771
+                    },
+                    "AnchorPoint": {
+                      "ScaleX": 0.5,
+                      "ScaleY": 0.5
+                    },
+                    "Position": {
+                      "X": 38.55,
+                      "Y": 0.59
+                    },
+                    "Scale": {
+                      "ScaleX": 1.1,
+                      "ScaleY": 1.1
+                    },
+                    "RotationSkewX": -90.0,
+                    "RotationSkewY": -90.0,
+                    "CColor": {},
+                    "IconVisible": false,
+                    "PrePosition": {
+                      "X": 0.0,
+                      "Y": 0.0
+                    },
+                    "PreSize": {
+                      "X": 0.0,
+                      "Y": 0.0
+                    },
+                    "LeftMargin": 25.05,
+                    "RightMargin": -52.05,
+                    "TopMargin": -57.09,
+                    "BottomMargin": -55.91,
+                    "Tag": 100,
+                    "ActionTag": -1002479585,
+                    "Size": {
+                      "X": 27.0,
+                      "Y": 113.0
+                    },
+                    "VisibleForFrame": false,
+                    "Name": "police_pant_upper_left",
                     "ctype": "SpriteObjectData"
                   }
                 ],
@@ -11433,9 +11810,9 @@
               },
               {
                 "FileData": {
-                  "Type": "Normal",
+                  "Type": "MarkedSubImage",
                   "Path": "costume/motu/motu_pant_hip.png",
-                  "Plist": ""
+                  "Plist": "costume/testspritesheet.plist"
                 },
                 "BlendFunc": {
                   "Src": 1,
@@ -11446,12 +11823,12 @@
                   "ScaleY": 0.5
                 },
                 "Position": {
-                  "X": 2.3087,
-                  "Y": -0.0137
+                  "X": 7.133,
+                  "Y": -1.5522
                 },
                 "Scale": {
-                  "ScaleX": 1.0,
-                  "ScaleY": 1.0
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
                 },
                 "RotationSkewX": -90.1493,
                 "RotationSkewY": -90.1493,
@@ -11465,15 +11842,15 @@
                   "X": 0.0,
                   "Y": 0.0
                 },
-                "LeftMargin": -147.6913,
-                "RightMargin": -152.3087,
-                "TopMargin": -149.9863,
-                "BottomMargin": -150.0137,
+                "LeftMargin": -142.867,
+                "RightMargin": -157.133,
+                "TopMargin": -148.4478,
+                "BottomMargin": -151.5522,
                 "Tag": 77,
                 "ActionTag": 517282618,
                 "Size": {
-                  "X": 300.0,
-                  "Y": 300.0
+                  "X": 623.0,
+                  "Y": 623.0
                 },
                 "VisibleForFrame": false,
                 "Name": "motu_pant_hip",
@@ -11494,8 +11871,8 @@
                   "ScaleY": 0.5
                 },
                 "Position": {
-                  "X": 1.3352,
-                  "Y": 0.6182
+                  "X": 7.1305,
+                  "Y": -1.5538
                 },
                 "Scale": {
                   "ScaleX": 1.0,
@@ -11513,10 +11890,10 @@
                   "X": 0.0,
                   "Y": 0.0
                 },
-                "LeftMargin": -147.1648,
-                "RightMargin": -149.8352,
-                "TopMargin": -149.1182,
-                "BottomMargin": -147.8818,
+                "LeftMargin": -144.3695,
+                "RightMargin": -158.6305,
+                "TopMargin": -147.4462,
+                "BottomMargin": -150.5538,
                 "Tag": 87,
                 "ActionTag": 728214668,
                 "Size": {
@@ -11525,6 +11902,54 @@
                 },
                 "VisibleForFrame": false,
                 "Name": "painter_pant_hip",
+                "ctype": "SpriteObjectData"
+              },
+              {
+                "FileData": {
+                  "Type": "Normal",
+                  "Path": "costume/police/police_hip.png",
+                  "Plist": ""
+                },
+                "BlendFunc": {
+                  "Src": 1,
+                  "Dst": 771
+                },
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 7.132,
+                  "Y": -1.5522
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "RotationSkewX": -90.0,
+                "RotationSkewY": -90.0,
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 0.0,
+                  "Y": 0.0
+                },
+                "PreSize": {
+                  "X": 0.0,
+                  "Y": 0.0
+                },
+                "LeftMargin": -142.868,
+                "RightMargin": -157.132,
+                "TopMargin": -148.4478,
+                "BottomMargin": -151.5522,
+                "Tag": 96,
+                "ActionTag": 959598412,
+                "Size": {
+                  "X": 300.0,
+                  "Y": 300.0
+                },
+                "VisibleForFrame": false,
+                "Name": "police_hip",
                 "ctype": "SpriteObjectData"
               }
             ],
@@ -11562,17 +11987,8 @@
         "base_body/leg_upper_left.png",
         "base_body/leg_upper_right.png",
         "base_body/neck.png",
+        "Basic Character0.png",
         "beard_n_mustache/motu_beard.png",
-        "costume/motu/motu_pant_hip.png",
-        "costume/motu/motu_pant_lower_left.png",
-        "costume/motu/motu_pant_lower_right.png",
-        "costume/motu/motu_pant_upper_left.png",
-        "costume/motu/motu_pant_upper_right.png",
-        "costume/motu/motu_shirt_body.png",
-        "costume/motu/motu_shirt_upper_left.png",
-        "costume/motu/motu_shirt_upper_right.png",
-        "costume/motu/motu_shoes_left.png",
-        "costume/motu/motu_shoes_right.png",
         "costume/painter/paint_brush.png",
         "costume/painter/paint_bucket.png",
         "costume/painter/painter_coat.png",
@@ -11586,7 +12002,12 @@
         "costume/painter/painter_shoe_right.png",
         "costume/painter/painter_sleave_left.png",
         "costume/painter/painter_sleave_right.png",
-        "ear/ear_round.png",
+        "costume/police/police_cap.png",
+        "costume/police/police_hip.png",
+        "costume/police/police_pant_lower_right.png",
+        "costume/police/police_pant_upper_left.png",
+        "costume/testspritesheet.plist",
+        "costume/testspritesheet.png",
         "eye/eye_inner_green_left.png",
         "eye/eye_inner_green_right.png",
         "eye/eye_outer_green_left.png",
