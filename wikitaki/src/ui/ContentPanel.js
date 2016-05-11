@@ -1,12 +1,12 @@
-chimple.ContentPanel = cc.LayerColor.extend({
+var chimple = chimple || {};
+chimple.ContentPanel = chimple.AbstractContentPanel.extend({
     ctor: function (width, height, position) {
-        this._super(cc.color.WHITE, width, height);
+        this._super(width, height, position);
         this.setPosition(position);
         this._nodesSelected = [];
         this._nodesTouchedWhileRecording = [];
         this._isRecordingStarted = false;
         this._moveAction = true;
-        // this.loadSceneFromStorage();
         this.loadScene();
     },
 
@@ -24,28 +24,7 @@ chimple.ContentPanel = cc.LayerColor.extend({
     putIntoCache: function () {
         cc.loader.cache[chimple.STORY_KEY] = chimple.story.items[chimple.pageIndex].scene;
     },
-
-    // loadSceneFromStorage: function () {
-    //     //check if data exists in localstorage with Key
-    //     var storedSceneString = cc.sys.localStorage.getItem(this._storyKey);
-    //     if (storedSceneString != null && storedSceneString != "undefined" && storedSceneString.length > 0) {
-    //         var storedSceneJSON = JSON.parse(storedSceneString);
-    //         this.putIntoCacheFromLocalStorage(this._storyKey, storedSceneJSON);
-    //         this.doPostLoadingProcessForScene(this._storyKey, false);
-    //     } else {
-    //         this._constructedScene = new cc.Node();
-    //         this._constructedScene.setName("Scene");
-    //         this.addChild(this._constructedScene);
-    //     }
-    // },
-
-    // putIntoCacheFromLocalStorage: function (cacheKey, contents) {
-    //     if (contents != null && contents.items != null && this._currentPageIndex != null
-    //         && contents.items.length > this._currentPageIndex) {
-    //         cc.loader.cache[cacheKey] = contents.items[this._currentPageIndex].scene;
-    //     }
-    // },
-
+    
     doPostLoadingProcessForScene: function (fileToLoad, shouldSaveScene) {
         if (this._constructedScene != null) {
             this._constructedScene.removeFromParent(true);
@@ -134,28 +113,28 @@ chimple.ContentPanel = cc.LayerColor.extend({
     },
 
     startRecording: function () {
-        this._isRecordingStarted = true;
-        this._recordingFrameIndex = 0;
-        cc.log("recording started");
-        this._nodesTouchedWhileRecording = [];
-        this.scheduleUpdate();
-    },
-
-    stopRecording: function () {
-        this._isRecordingStarted = false;
-        cc.log("recording stopped");
-        var timelines = [];
-        if (this._nodesTouchedWhileRecording != null && this._nodesTouchedWhileRecording.length > 0) {
-            this._nodesTouchedWhileRecording.forEach(function (element) {
-                timelines.push(this.constructTimeLineObject(element, "Position", "positionFrames"));
-                timelines.push(this.constructTimeLineObject(element, "Scale", "scaleFrames"));
-                timelines.push(this.constructTimeLineObject(element, "RotationSkew", "rotationFrames"));
-                timelines.push(this.constructTimeLineObject(element, "ActionValue", "animationFrames"));
-            }, this);
+        if (!this._isRecordingStarted) {
+            this._isRecordingStarted = true;
+            this._recordingFrameIndex = 0;
+            cc.log("recording started");
+            this._nodesTouchedWhileRecording = [];
+            this.scheduleUpdate();
+        } else {
+            this._isRecordingStarted = false;
+            cc.log("recording stopped");
+            var timelines = [];
+            if (this._nodesTouchedWhileRecording != null && this._nodesTouchedWhileRecording.length > 0) {
+                this._nodesTouchedWhileRecording.forEach(function (element) {
+                    timelines.push(this.constructTimeLineObject(element, "Position", "positionFrames"));
+                    timelines.push(this.constructTimeLineObject(element, "Scale", "scaleFrames"));
+                    timelines.push(this.constructTimeLineObject(element, "RotationSkew", "rotationFrames"));
+                    timelines.push(this.constructTimeLineObject(element, "ActionValue", "animationFrames"));
+                }, this);
+            }
+            this.createTimeLinesForPlayAnimation(timelines);
+            this._nodesTouchedWhileRecording = [];
+            this.unscheduleUpdate();
         }
-        this.createTimeLinesForPlayAnimation(timelines);
-        this._nodesTouchedWhileRecording = [];
-        this.unscheduleUpdate();
     },
 
     createTimeLinesForPlayAnimation: function (timelines) {
@@ -166,21 +145,6 @@ chimple.ContentPanel = cc.LayerColor.extend({
             cc.sys.localStorage.setItem("duration", this._recordingFrameIndex);
             timelines = null;
         }
-        // var storedStoryString = cc.sys.localStorage.getItem(this._storyKey);
-
-        // if (storedStoryString != null && storedStoryString.length > 0) {
-        //     var storedStoryJSON = JSON.parse(storedStoryString);
-        //     cc.log('storedStoryJSON:' + storedStoryJSON);
-        //     if (storedStoryJSON != null && storedStoryJSON.items != null && this._currentPageIndex != null
-        //         && storedStoryJSON.items.length > this._currentPageIndex) {
-        //         var storedSceneJSON = storedStoryJSON.items[this._currentPageIndex].scene;
-        //         storedSceneJSON.Content.Content.Animation.Timelines = timelines;
-        //         storedSceneJSON.Content.Content.Animation.Duration = this._recordingFrameIndex;
-        //         chimple.ParseUtil.saveSceneToLocalStorage(this._storyKey, this._currentPageIndex, JSON.stringify(storedSceneJSON));
-        //         cc.sys.localStorage.setItem("duration", this._recordingFrameIndex);
-        //         timelines = null;
-        //     }
-        // }
     },
 
     addTextToScene: function (existingText) {
@@ -221,8 +185,8 @@ chimple.ContentPanel = cc.LayerColor.extend({
         this.saveText(load.node.children[0], resourcePath);
     },
 
-    playScene: function () {
-        var playScene = new PlayRecordingScene(chimple.STORY_KEY);
+    playSceneInEditMode: function () {               
+        var playScene = new PlayRecordingScene();
         cc.director.pushScene(playScene);
     },
 
@@ -261,6 +225,8 @@ chimple.ContentPanel = cc.LayerColor.extend({
             object.ActionTag = node.ActionTag;
         } else if (node.getComponent('ComExtensionData') != null && node.getComponent('ComExtensionData').getActionTag() != null) {
             object.ActionTag = node.getComponent('ComExtensionData').getActionTag();
+        } else if(node._userData != null && node._actionTag != null) {
+            object.ActionTag = node._actionTag;
         }
         object.Property = property;
         object.Frames = node[frameName];

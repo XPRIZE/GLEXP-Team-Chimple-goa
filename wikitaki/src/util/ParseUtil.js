@@ -92,7 +92,7 @@ chimple.ParseUtil.updateUserData = function (tag, dataKey, dataValue) {
 
 chimple.ParseUtil.saveCharacterToJSON = function (fileToLoad, load) {
     cc.log('got file:' + fileToLoad);
-    var resourcePath = fileToLoad.replace("/wp-content/themes/SocialChef/images/res/", "");
+    var resourcePath = fileToLoad.replace("/res/", "");
     cc.log('resourcePath:' + resourcePath);
     cc.log('skeleton:' + load.node);
     var skeletonObject = chimple.ParseUtil.constructJSONFromCharacter(load.node, resourcePath);
@@ -171,7 +171,7 @@ chimple.ParseUtil.constructJSONFromCCSprite = function (sprite) {
     object.FileData = {};
     object.FileData.Type = "Normal";
     if (sprite.getTexture().url != null) {
-        var path = sprite.getTexture().url.replace("/wp-content/themes/SocialChef/images/res/", "");
+        var path = sprite.getTexture().url.replace("/res/", "");
         object.FileData.Path = path;
     }
     object.FileData.Plist = "";
@@ -235,7 +235,7 @@ chimple.ParseUtil.constructJSONFromText = function (panel, resourcePath) {
 
     panelObject.FileData = {};
     panelObject.FileData.Type = "Normal";
-    resourcePath = resourcePath.replace("/wp-content/themes/SocialChef/images/", "");
+    resourcePath = resourcePath.replace("/", "");
     panelObject.FileData.Path = resourcePath;
         
     panelObject.FileData.Plist = "";

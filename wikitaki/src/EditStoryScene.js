@@ -1,7 +1,7 @@
 /// <reference path="../../../cocos2d-typescript-definitions/cocos2d/cocos2d-lib.d.ts" />
 var chimple = chimple || {};
 chimple.LAYER_EDIT_STORY = false;
-chimple.STORY_KEY = "/wp-content/themes/SocialChef/images/res/chimpleStory.json";
+chimple.STORY_KEY = "/res/chimpleStory.json";
 
 var EditStoryLayer = cc.Layer.extend({
     _contentPanel: null,
@@ -13,8 +13,6 @@ var EditStoryLayer = cc.Layer.extend({
     ctor: function () {
         this._super();
         this._name = "StoryLayer";
-        this._propsContainer = [];
-        this._charactersContainer = [];
         this._controlPanel = null;
         this._contentPanelWidth = cc.director.getWinSize().height; //assuming landscape
         this._configPanelWidth = (cc.director.getWinSize().width - this._contentPanelWidth) / 2;
@@ -60,8 +58,8 @@ var EditStoryScene = cc.Scene.extend({
 
     createStoryPage: function () {
         var newPage = {};
-        newPage.cIcon = "/wp-content/themes/SocialChef/images/res/mouth_2_onclick.png";
-        newPage.icon = "wp-content/themes/SocialChef/images/res/story_page_1.png";
+        newPage.cIcon = "/res/mouth_2_onclick.png";
+        newPage.icon = "/res/story_page_1.png";
         newPage.scene = {};
         
         chimple.story.items.push(newPage);

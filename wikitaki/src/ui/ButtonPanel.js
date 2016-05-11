@@ -80,11 +80,22 @@ chimple.ButtonPanel = ccui.Layout.extend({
                 if (sender._isToggled) {
                     // sender.setHighlighted(true);
                     sender._isToggled = false;
-                    sender.loadTextures(sender._configuration.icon, sender._configuration.cIcon)
+                    try {
+                        sender.loadTextures(sender._configuration.icon, sender._configuration.cIcon, null, ccui.Widget.PLIST_TEXTURE);
+                    } catch (error) {
+                        cc.log(error);
+                        sender.loadTextures(sender._configuration.icon, sender._configuration.cIcon, null, ccui.Widget.LOCAL_TEXTURE);
+                    }
+
                 } else {
                     // sender.setHighlighted(false);
                     sender._isToggled = true;
-                    sender.loadTextures(sender._configuration.cIcon, sender._configuration.icon)
+                    try {
+                        sender.loadTextures(sender._configuration.cIcon, sender._configuration.icon, null, ccui.Widget.PLIST_TEXTURE);
+                    } catch (error) {
+                        cc.log(error);
+                        sender.loadTextures(sender._configuration.cIcon, sender._configuration.icon, null, ccui.Widget.LOCAL_TEXTURE);
+                    }
                 }
             }
         }

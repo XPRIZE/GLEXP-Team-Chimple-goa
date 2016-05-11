@@ -52,6 +52,8 @@
  *
  */
 
+var chimple = chimple || {};
+
 (function () {
     var d = document;
 
@@ -73,7 +75,9 @@
             "src/app.js",
             "src/ui/PageConfigPanel.js",
             "src/ui/ObjectConfigPanel.js",
+            "src/ui/AbstractContentPanel.js",
             "src/ui/ContentPanel.js",
+            "src/ui/PlayContentPanel.js",
             "src/ui/ButtonPanel.js",
             "src/ui/ScrollableButtonPanel.js",
             "src/ui/TabBar.js",
@@ -87,12 +91,48 @@
             "src/SpriteTouchHandler.js",
             "src/SkeletonTouchHandler.js",
             "src/TextTouchHandler.js",
-            "src/EditStoryScene.js"
+            "src/EditStoryScene.js",
+            "src/play.js"
         ]
 
     };
 
+    chimple.DEFAULT_MODE = "PLAY";
+    chimple.EDIT_MODE = "edit";
+    chimple.PLAY_MODE = "play";
+
+    retrieveMode = function () {
+
+        var query_string = {};
+        var query = window.location.search.substring(1);
+        var vars = query.split("&");
+        for (var i = 0; i < vars.length; i++) {
+            var pair = vars[i].split("=");
+            // If first entry with this name
+            if (typeof query_string[pair[0]] === "undefined") {
+                query_string[pair[0]] = decodeURIComponent(pair[1]);
+                // If second entry with this name
+            } else if (typeof query_string[pair[0]] === "string") {
+                var arr = [query_string[pair[0]], decodeURIComponent(pair[1])];
+                query_string[pair[0]] = arr;
+                // If third or later entry with this name
+            } else {
+                query_string[pair[0]].push(decodeURIComponent(pair[1]));
+            }
+        }
+        if (query_string != null && query_string != undefined) {
+            var mode = query_string['mode'];
+            cc.log('mode:' + mode);
+            if (!(mode == chimple.PLAY_MODE || mode == chimple.EDIT_MODE)) {
+                chimple.mode = chimple.PLAY_MODE;
+            } else {
+                chimple.mode = mode;
+            }
+        }
+    };
+
     document.ccConfig = c;
+    this.retrieveMode();
     
     cc.game.onStart = function () {
         if (!cc.sys.isNative && document.getElementById("cocosLoading")) //If referenced loading.js, please remove it
@@ -111,9 +151,16 @@
         cc.view.resizeWithBrowserSize(true);
         //load resources
         cc.LoaderScene.preload(g_resources, function () {
-            cc.spriteFrameCache.addSpriteFrames(res.icons1_plist);            
-            cc.spriteFrameCache.addSpriteFrames(res.icons2_plist);            
-            cc.director.runScene(new HelloWorldScene());
+            cc.spriteFrameCache.addSpriteFrames(res.icons1_plist);
+            cc.spriteFrameCache.addSpriteFrames(res.icons2_plist);
+                
+                cc.log("mode:" + chimple.mode);
+                if(chimple.mode == chimple.EDIT_MODE) {
+                    cc.director.runScene(new HelloWorldScene());    
+                }  else {
+                    cc.director.runScene(new PlayFullStoryScene());
+                }
+                
         }, this);
     };
     cc.game.run();
