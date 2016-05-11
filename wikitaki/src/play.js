@@ -27,25 +27,39 @@ var PlayFullStoryLayer = cc.Layer.extend({
         this._contentPanel = new chimple.PlayContentPanel(this._contentPanelWidth, this._contentPanelWidth, cc.p(this._configPanelWidth, 0));
         this.addChild(this._contentPanel);
         
-        this._leftButtonPanel = new chimple.ButtonPanel(new cc.p(0, 0), cc.size(this._configPanelWidth,  this._contentPanelWidth), 1, 1, chimple.onlyStoryPlayConfigurationObject.editDefault, this.buttonPressed, this);
+        this._leftButtonPanel = new chimple.ButtonPanel(new cc.p(0, 0), cc.size(this._configPanelWidth, this._contentPanelWidth), 1, 1, chimple.onlyStoryPlayConfigurationObject.editDefault, this.previousStory, this, false);
         this.addChild(this._leftButtonPanel);
-        
-        this._rightButtonPanel = new chimple.ButtonPanel(new cc.p(this._configPanelWidth + this._contentPanelWidth, 0), cc.size(this._configPanelWidth,  this._contentPanelWidth), 1, 1, chimple.onlyStoryPlayConfigurationObject.nextDefault, this.buttonPressed, this);
+
+        this._rightButtonPanel = new chimple.ButtonPanel(new cc.p(this._configPanelWidth + this._contentPanelWidth, 0), cc.size(this._configPanelWidth, this._contentPanelWidth), 1, 1, chimple.onlyStoryPlayConfigurationObject.nextDefault, this.nextStory, this, false);
         this.addChild(this._rightButtonPanel);
-        
+
         // this._objectConfigPanel = new chimple.ObjectConfigPanel(this._configPanelWidth, this._configPanelHeight, cc.p(0, 0), chimple.onlyStoryPlayConfigurationObject, this._contentPanel);
         // this.addChild(this._objectConfigPanel);
         // this._contentPanel._objectConfigPanel = this._objectConfigPanel;
 
         // this._pageConfigPanel = new chimple.PageConfigPanel(this._configPanelWidth, this._configPanelHeight, cc.p(this._configPanelWidth + this._contentPanelWidth, 0), chimple.onlyStoryPlayConfigurationObject, this._contentPanel);
         // this.addChild(this._pageConfigPanel);
-        
-        this.playRecordedScene();
 
+        this.showTitle();
     },
-    
-    buttonPressed: function() {
-        
+
+    previousStory: function () {
+        cc.log('previousStory clicked!');
+        chimple.pageIndex--;
+    },
+
+    nextStory: function () {
+        cc.log('next clicked!');
+        chimple.pageIndex++;
+    },
+
+
+    showTitle: function () {
+        if (chimple.pageIndex == 0) {
+            //show title and once User touch screen start playing
+        } else  {
+            this.playRecordedScene();
+        }
     },
 
     playRecordedScene: function () {
