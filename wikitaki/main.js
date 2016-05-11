@@ -82,6 +82,7 @@ var chimple = chimple || {};
             "src/ui/ScrollableButtonPanel.js",
             "src/ui/TabBar.js",
             "src/ui/TabPanel.js",
+            "src/ui/TabBarPanel.js",
             "src/ui/PreviewPanel.js",
             "src/ui/TextCreatePanel.js",
             "src/util/CharacterUtil.js",
