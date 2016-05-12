@@ -54,6 +54,11 @@
 
 
 var chimple = chimple || {};
+chimple.RESOURCE_DESIGN_HEIGHT = 1800;
+chimple.DEVICE_WIDTH = 640;
+chimple.DEVICE_HEIGHT = 450;
+
+
 (function () {
     // var d = document;
     
@@ -150,7 +155,7 @@ var chimple = chimple || {};
         // Adjust viewport meta
         cc.view.adjustViewPort(true);
         // Setup the resolution policy and design resolution size
-        cc.view.setDesignResolutionSize(2560, 1800, cc.ResolutionPolicy.SHOW_ALL);
+        cc.view.setDesignResolutionSize(chimple.DEVICE_WIDTH, chimple.DEVICE_HEIGHT, cc.ResolutionPolicy.SHOW_ALL);
         // Instead of set design resolution, you can also set the real pixel resolution size
         // Uncomment the following line and delete the previous line.
         // cc.view.setRealPixelResolution(960, 640, cc.ResolutionPolicy.SHOW_ALL);
@@ -158,8 +163,7 @@ var chimple = chimple || {};
         cc.view.resizeWithBrowserSize(true);
         //load resources
         cc.LoaderScene.preload(g_resources, function () {
-            cc.spriteFrameCache.addSpriteFrames(res.icons1_plist);
-            cc.spriteFrameCache.addSpriteFrames(res.icons2_plist);
+            cc.spriteFrameCache.addSpriteFrames(res.thumbnails_plist);            
 
             cc.log("mode:" + chimple.mode);
             if (chimple.mode.indexOf(chimple.EDIT_MODE) != -1) {
