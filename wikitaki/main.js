@@ -52,11 +52,11 @@
  *
  */
 
-var chimple = chimple || {};
 
+var chimple = chimple || {};
 (function () {
     var d = document;
-
+    
     var c = {
         "project_type": "javascript",
 
@@ -123,7 +123,10 @@ var chimple = chimple || {};
         }
         if (query_string != null && query_string != undefined) {
             var mode = query_string['mode'];
-            cc.log('mode:' + mode);
+            console.log('mode:' + mode);
+            if(!mode) {
+                mode = chimple.PLAY_MODE;
+            }
             if (!(mode == chimple.PLAY_MODE || mode.indexOf(chimple.EDIT_MODE) != -1)) {
                 chimple.mode = chimple.PLAY_MODE;
             } else {
