@@ -52,51 +52,51 @@
  *
  */
 
+
 var chimple = chimple || {};
-
 (function () {
-    var d = document;
+    // var d = document;
+    
+    // var c = {
+    //     "project_type": "javascript",
 
-    var c = {
-        "project_type": "javascript",
+    //     "debugMode": 1,
+    //     "showFPS": true,
+    //     "frameRate": 60,
+    //     "noCache": false,
+    //     "id": "gameCanvas",
+    //     "renderMode": 0,
+    //     "engineDir": "frameworks/cocos2d-html5",
 
-        "debugMode": 1,
-        "showFPS": true,
-        "frameRate": 60,
-        "noCache": false,
-        "id": "gameCanvas",
-        "renderMode": 0,
-        "engineDir": "frameworks/cocos2d-html5",
+    //     "modules": ["cocos2d", "cocostudio"],
 
-        "modules": ["cocos2d", "cocostudio"],
+    //     "jsList": [
+    //         "src/resource.js",
+    //         "src/app.js",
+    //         "src/ui/PageConfigPanel.js",
+    //         "src/ui/ObjectConfigPanel.js",
+    //         "src/ui/AbstractContentPanel.js",
+    //         "src/ui/ContentPanel.js",
+    //         "src/ui/PlayContentPanel.js",
+    //         "src/ui/ButtonPanel.js",
+    //         "src/ui/ScrollableButtonPanel.js",
+    //         "src/ui/TabBarPanel.js",
+    //         "src/ui/TabBar.js",
+    //         "src/ui/TabPanel.js",
+    //         "src/ui/PreviewPanel.js",
+    //         "src/ui/TextCreatePanel.js",
+    //         "src/util/CharacterUtil.js",
+    //         "src/util/ParseUtil.js",
+    //         "src/TextEditScene.js",
+    //         "src/PlayRecordingScene.js",
+    //         "src/SpriteTouchHandler.js",
+    //         "src/SkeletonTouchHandler.js",
+    //         "src/TextTouchHandler.js",
+    //         "src/EditStoryScene.js",
+    //         "src/play.js"
+    //     ]
 
-        "jsList": [
-            "src/resource.js",
-            "src/app.js",
-            "src/ui/PageConfigPanel.js",
-            "src/ui/ObjectConfigPanel.js",
-            "src/ui/AbstractContentPanel.js",
-            "src/ui/ContentPanel.js",
-            "src/ui/PlayContentPanel.js",
-            "src/ui/ButtonPanel.js",
-            "src/ui/ScrollableButtonPanel.js",
-            "src/ui/TabBar.js",
-            "src/ui/TabPanel.js",
-            "src/ui/TabBarPanel.js",
-            "src/ui/PreviewPanel.js",
-            "src/ui/TextCreatePanel.js",
-            "src/util/CharacterUtil.js",
-            "src/util/ParseUtil.js",
-            "src/TextEditScene.js",
-            "src/PlayRecordingScene.js",
-            "src/SpriteTouchHandler.js",
-            "src/SkeletonTouchHandler.js",
-            "src/TextTouchHandler.js",
-            "src/EditStoryScene.js",
-            "src/play.js"
-        ]
-
-    };
+    // };
 
     chimple.DEFAULT_MODE = "PLAY";
     chimple.EDIT_MODE = "edit";
@@ -123,16 +123,22 @@ var chimple = chimple || {};
         }
         if (query_string != null && query_string != undefined) {
             var mode = query_string['mode'];
-            cc.log('mode:' + mode);
-            if (!(mode == chimple.PLAY_MODE || mode.indexOf(chimple.EDIT_MODE) != -1)) {
-                chimple.mode = chimple.PLAY_MODE;
+            var fesid = query_string['fesid'] || window.recipeId;
+            console.log('mode:' + mode);
+            if(!fesid) {
+                mode = chimple.EDIT_MODE;
             } else {
-                chimple.mode = mode;
+                if(mode && mode.indexOf(chimple.EDIT_MODE) != -1) {
+                    mode = chimple.EDIT_MODE;
+                } else {
+                    mode = chimple.PLAY_MODE;
+                }    
             }
+            chimple.mode = mode;
         }
     };
 
-    document.ccConfig = c;
+    // document.ccConfig = c;
     this.retrieveMode();
 
     cc.game.onStart = function () {

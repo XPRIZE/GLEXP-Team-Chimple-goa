@@ -151,14 +151,9 @@ if ( have_posts() ) while ( have_posts() ) :
  -->						</div><!--// one-third -->
 						<!--two-third-->
 						<div class="two-third">
-							<?php 
-							$main_image = $recipe_obj->get_main_image('content-image');
-							if ( !empty( $main_image ) ) { ?>
-							<div class="image"><img itemprop="image" src="<?php echo esc_url( $main_image ) ?>" alt="<?php the_title(); ?>" /></div>
-							<div id="results" itemprop="description">
+							<div id="results">
 								<canvas id="gameCanvas" width="480" height="720"></canvas>
 							</div>
-							<?php } ?>
 							<?php if (strlen($post->post_content) > 0) { ?>
 							<div class="intro" itemprop="description">
 								<?php the_content(); ?>

@@ -27,6 +27,7 @@ chimple.SkeletonTouchHandler = function (context) {
     this.onTouchMoved = function (touch, event) {
         var target = event.getCurrentTarget();
         var location = target.parent.convertToNodeSpace(touch.getLocation());
+        location.y -= (0.55*touch.getLocation().y);
         this._context.enableTargetTransformForTarget(this._context, touch, target, location);
     };
     this.onTouchEnded = function (touch, event) {
