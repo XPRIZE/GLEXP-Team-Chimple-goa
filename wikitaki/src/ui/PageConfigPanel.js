@@ -12,10 +12,9 @@ chimple.PageConfigPanel = cc.LayerColor.extend({
         }else{
             chimple.PageConfigPanel.disableOrEnableAllButtons(this._buttonPanel,true);
          }
-         
         this.addChild(this._buttonPanel);
     },
-    buttonPressed: function(selectedItem) {
+    buttonPressed: function (selectedItem) {
         var selectedConfig = this._configuration.addObjects[selectedItem._selectedIndex];
         cc.log(selectedItem.getName());
         if (selectedConfig != null && selectedConfig.name === "texts") {
@@ -66,7 +65,10 @@ chimple.PageConfigPanel = cc.LayerColor.extend({
         if (cc.sys.isNative) {
             cc.log(fileToLoad);
             var dynamicResources = [fileToLoad];
-            cc.LoaderScene.preload(dynamicResources, function () {
+            cc.LoaderScene.preload(dynamicResources, function () {                
+                chimple.ParseUtil.changeSize(cc.loader.cache[fileToLoad], null, chimple.designScaleFactor);
+                cc.loader.cache[fileToLoad].ChimpleCompressed = true;
+                
                 doPostLoadingProcessFunction.call(context, args, shouldSaveScene);
             }, this);
         } else {
@@ -74,7 +76,9 @@ chimple.PageConfigPanel = cc.LayerColor.extend({
             cc.log(fileToLoad);
             var dynamicResources = [fileToLoad];
             cc.LoaderScene.preload(dynamicResources, function () {
-                cc.director.popScene();
+                cc.director.popScene();               
+                chimple.ParseUtil.changeSize(cc.loader.cache[fileToLoad], null, chimple.designScaleFactor);                
+                cc.loader.cache[fileToLoad].ChimpleCompressed = true;
                 doPostLoadingProcessFunction.call(context, args, shouldSaveScene);
             }, this);
         }
@@ -83,17 +87,18 @@ chimple.PageConfigPanel = cc.LayerColor.extend({
     createSceneFromFile: function (fileToLoad) {
         this.showLoadingScene(fileToLoad, this._contentPanel, this._contentPanel.doPostLoadingProcessForScene, fileToLoad, true);
     },
-        
+
     loadSkeletonConfig: function (configuration, fileToLoad) {
         this.showLoadingScene(fileToLoad, this._contentPanel, this._contentPanel.addCharacterToScene, configuration, false);
     },
 
-    
+
     loadJsonFile: function (selectedItem) {
         var type = selectedItem._configurationType;
         var fileToLoad = selectedItem._jsonFileToLoad;
         switch (type) {
             case "character":
+                // this._contentPanel.addCharacterToScene(selectedItem._configuration);
                 this.loadSkeletonConfig(selectedItem._configuration, selectedItem._configuration.json);
                 break;
             case "scene":
