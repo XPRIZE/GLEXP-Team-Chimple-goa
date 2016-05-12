@@ -394,7 +394,10 @@ chimple.ParseUtil.generateUUID = function () {
 }
 
 
-chimple.ParseUtil.changeSize = function (obj, name) {
+chimple.ParseUtil.changeSize = function (obj, name, scaleFactor) {
+    if(obj['ChimpleCompressed']) {
+        return;
+    }
     if (obj['ctype'] && obj['ctype'] == 'PointFrameData') {
         name = obj['ctype'];
     }
@@ -402,11 +405,11 @@ chimple.ParseUtil.changeSize = function (obj, name) {
         var element = obj[key];
         if (name == 'Size' || name == 'Position' || name == 'PointFrameData') {
             if (key == 'X' || key == 'Y') {
-                obj[key] = obj[key] / chimple.scaleFactor;
+                obj[key] = obj[key] / scaleFactor;
             }
         }
         if (typeof (element) == 'object') {
-            this.changeSize(element, key);
+            this.changeSize(element, key, scaleFactor);
         }
     }
 }

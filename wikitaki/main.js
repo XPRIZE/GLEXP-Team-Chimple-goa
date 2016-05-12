@@ -161,10 +161,11 @@ chimple.DEVICE_HEIGHT = 450;
         // cc.view.setRealPixelResolution(960, 640, cc.ResolutionPolicy.SHOW_ALL);
         // The game will be resized when browser size change
         cc.view.resizeWithBrowserSize(true);
+        chimple.designScaleFactor = chimple.RESOURCE_DESIGN_HEIGHT / chimple.DEVICE_HEIGHT;
+        
         //load resources
         cc.LoaderScene.preload(g_resources, function () {
             cc.spriteFrameCache.addSpriteFrames(res.thumbnails_plist);            
-
             cc.log("mode:" + chimple.mode);
             if (chimple.mode.indexOf(chimple.EDIT_MODE) != -1) {
                 cc.director.runScene(new HelloWorldScene());

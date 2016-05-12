@@ -67,7 +67,9 @@ chimple.PageConfigPanel = cc.LayerColor.extend({
             cc.log(fileToLoad);
             var dynamicResources = [fileToLoad];
             cc.LoaderScene.preload(dynamicResources, function () {                
-                chimple.ParseUtil.changeSize(cc.loader.cache[fileToLoad]);
+                chimple.ParseUtil.changeSize(cc.loader.cache[fileToLoad], null, chimple.designScaleFactor);
+                cc.loader.cache[fileToLoad].ChimpleCompressed = true;
+                
                 doPostLoadingProcessFunction.call(context, args, shouldSaveScene);
             }, this);
         } else {
@@ -76,7 +78,8 @@ chimple.PageConfigPanel = cc.LayerColor.extend({
             var dynamicResources = [fileToLoad];
             cc.LoaderScene.preload(dynamicResources, function () {
                 cc.director.popScene();               
-                chimple.ParseUtil.changeSize(cc.loader.cache[fileToLoad]);                
+                chimple.ParseUtil.changeSize(cc.loader.cache[fileToLoad], null, chimple.designScaleFactor);                
+                cc.loader.cache[fileToLoad].ChimpleCompressed = true;
                 doPostLoadingProcessFunction.call(context, args, shouldSaveScene);
             }, this);
         }
@@ -96,6 +99,7 @@ chimple.PageConfigPanel = cc.LayerColor.extend({
         var fileToLoad = selectedItem._jsonFileToLoad;
         switch (type) {
             case "character":
+                // this._contentPanel.addCharacterToScene(selectedItem._configuration);
                 this.loadSkeletonConfig(selectedItem._configuration, selectedItem._configuration.json);
                 break;
             case "scene":
