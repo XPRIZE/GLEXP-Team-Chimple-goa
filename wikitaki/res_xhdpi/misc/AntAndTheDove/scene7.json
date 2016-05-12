@@ -1,0 +1,169 @@
+{
+  "ID": "6fcff682-30fa-474e-8a52-2347f6dea712",
+  "Version": "3.10.0.0",
+  "Name": "scene7",
+  "Content": {
+    "Content": {
+      "Animation": {
+        "Duration": 0,
+        "Speed": 1.0,
+        "Timelines": [],
+        "ctype": "TimelineActionData"
+      },
+      "AnimationList": [],
+      "ObjectData": {
+        "Tag": 21,
+        "Children": [
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "scene1/bg.png",
+              "Plist": ""
+            },
+            "BlendFunc": {
+              "Src": 770,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 900.8715,
+              "Y": 899.8458
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.5005,
+              "Y": 0.4999
+            },
+            "PreSize": {
+              "X": 1.0,
+              "Y": 1.0
+            },
+            "LeftMargin": 0.8715,
+            "RightMargin": -0.8716,
+            "TopMargin": 0.1542,
+            "BottomMargin": -0.1542,
+            "Tag": 29,
+            "ActionTag": -1366557470,
+            "Size": {
+              "X": 1800.0,
+              "Y": 1800.0
+            },
+            "Name": "bg_7",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "ground.png",
+              "Plist": ""
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 907.0753,
+              "Y": 673.5713
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.5039,
+              "Y": 0.3742
+            },
+            "PreSize": {
+              "X": 0.7894,
+              "Y": 0.3156
+            },
+            "LeftMargin": 196.5753,
+            "RightMargin": 182.4247,
+            "TopMargin": 842.4287,
+            "BottomMargin": 389.5713,
+            "Tag": 30,
+            "ActionTag": 1177620134,
+            "Size": {
+              "X": 1421.0,
+              "Y": 568.0
+            },
+            "Name": "ground_8",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "human_legs.png",
+              "Plist": ""
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 683.4188,
+              "Y": 1069.4399
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.3797,
+              "Y": 0.5941
+            },
+            "PreSize": {
+              "X": 0.4322,
+              "Y": 0.4606
+            },
+            "LeftMargin": 294.4188,
+            "RightMargin": 727.5812,
+            "TopMargin": 316.0601,
+            "BottomMargin": 654.9399,
+            "Tag": 31,
+            "ActionTag": -520126743,
+            "Size": {
+              "X": 778.0,
+              "Y": 829.0
+            },
+            "Name": "human_legs_9",
+            "ctype": "SpriteObjectData"
+          }
+        ],
+        "Size": {
+          "X": 1800.0,
+          "Y": 1800.0
+        },
+        "Name": "Scene",
+        "ctype": "SingleNodeObjectData"
+      },
+      "UsedResources": [
+        "ground.png",
+        "human_legs.png",
+        "scene1/bg.png"
+      ],
+      "ctype": "GameFileData"
+    }
+  },
+  "Type": "Scene"
+}

@@ -1233,8 +1233,8 @@ window.adminAjaxUrl = '<?php echo home_url() . "/wp-admin/admin-ajax.php"; ?>';
 			<?php } ?>
 		</div>
 	</section>
-	<div id="results" class="f-row full">
-		<canvas id="gameCanvas" width="480" height="720"></canvas>
+	<div id="results" class="f-row two-third">
+		<canvas id="gameCanvas" width="640" height="450"></canvas>
 	</div>
 	
 	<div class="f-row full">
