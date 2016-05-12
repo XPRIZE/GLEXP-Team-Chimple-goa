@@ -152,7 +152,7 @@ if ( have_posts() ) while ( have_posts() ) :
 						<!--two-third-->
 						<div class="two-third">
 							<div id="results">
-								<canvas id="gameCanvas" width="480" height="720"></canvas>
+								<canvas id="gameCanvas" width="640" height="450"></canvas>
 							</div>
 							<?php if (strlen($post->post_content) > 0) { ?>
 							<div class="intro" itemprop="description">

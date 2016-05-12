@@ -60,48 +60,48 @@ chimple.DEVICE_HEIGHT = 450;
 
 
 (function () {
-    // var d = document;
+    var d = document;
     
-    // var c = {
-    //     "project_type": "javascript",
+    var c = {
+        "project_type": "javascript",
 
-    //     "debugMode": 1,
-    //     "showFPS": true,
-    //     "frameRate": 60,
-    //     "noCache": false,
-    //     "id": "gameCanvas",
-    //     "renderMode": 0,
-    //     "engineDir": "frameworks/cocos2d-html5",
+        "debugMode": 1,
+        "showFPS": true,
+        "frameRate": 60,
+        "noCache": false,
+        "id": "gameCanvas",
+        "renderMode": 0,
+        "engineDir": "frameworks/cocos2d-html5",
 
-    //     "modules": ["cocos2d", "cocostudio"],
+        "modules": ["cocos2d", "cocostudio"],
 
-    //     "jsList": [
-    //         "src/resource.js",
-    //         "src/app.js",
-    //         "src/ui/PageConfigPanel.js",
-    //         "src/ui/ObjectConfigPanel.js",
-    //         "src/ui/AbstractContentPanel.js",
-    //         "src/ui/ContentPanel.js",
-    //         "src/ui/PlayContentPanel.js",
-    //         "src/ui/ButtonPanel.js",
-    //         "src/ui/ScrollableButtonPanel.js",
-    //         "src/ui/TabBarPanel.js",
-    //         "src/ui/TabBar.js",
-    //         "src/ui/TabPanel.js",
-    //         "src/ui/PreviewPanel.js",
-    //         "src/ui/TextCreatePanel.js",
-    //         "src/util/CharacterUtil.js",
-    //         "src/util/ParseUtil.js",
-    //         "src/TextEditScene.js",
-    //         "src/PlayRecordingScene.js",
-    //         "src/SpriteTouchHandler.js",
-    //         "src/SkeletonTouchHandler.js",
-    //         "src/TextTouchHandler.js",
-    //         "src/EditStoryScene.js",
-    //         "src/play.js"
-    //     ]
+        "jsList": [
+            "src/resource.js",
+            "src/app.js",
+            "src/ui/PageConfigPanel.js",
+            "src/ui/ObjectConfigPanel.js",
+            "src/ui/AbstractContentPanel.js",
+            "src/ui/ContentPanel.js",
+            "src/ui/PlayContentPanel.js",
+            "src/ui/ButtonPanel.js",
+            "src/ui/ScrollableButtonPanel.js",
+            "src/ui/TabBarPanel.js",
+            "src/ui/TabBar.js",
+            "src/ui/TabPanel.js",
+            "src/ui/PreviewPanel.js",
+            "src/ui/TextCreatePanel.js",
+            "src/util/CharacterUtil.js",
+            "src/util/ParseUtil.js",
+            "src/TextEditScene.js",
+            "src/PlayRecordingScene.js",
+            "src/SpriteTouchHandler.js",
+            "src/SkeletonTouchHandler.js",
+            "src/TextTouchHandler.js",
+            "src/EditStoryScene.js",
+            "src/play.js"
+        ]
 
-    // };
+    };
 
     chimple.DEFAULT_MODE = "PLAY";
     chimple.EDIT_MODE = "edit";
@@ -143,7 +143,7 @@ chimple.DEVICE_HEIGHT = 450;
         }
     };
 
-    // document.ccConfig = c;
+    document.ccConfig = c;
     this.retrieveMode();
 
     cc.game.onStart = function () {
@@ -160,7 +160,7 @@ chimple.DEVICE_HEIGHT = 450;
         // Uncomment the following line and delete the previous line.
         // cc.view.setRealPixelResolution(960, 640, cc.ResolutionPolicy.SHOW_ALL);
         // The game will be resized when browser size change
-        cc.view.resizeWithBrowserSize(true);
+        // cc.view.resizeWithBrowserSize(true);
         chimple.designScaleFactor = chimple.RESOURCE_DESIGN_HEIGHT / chimple.DEVICE_HEIGHT;
         
         //load resources
