@@ -16,8 +16,6 @@ var res = {
     HelloWorld_png : "/res/HelloWorld.png",
     crow_json: "/res/characters/crow/Animation.json",
     elephant_json: "/res/characters/elephant/elep.json",
-    donkey_skeleton_json: "/res/characters/donkey/Skeleton.json",
-    human_skeleton_json: "/res/human_skeleton.json",
     textBubble_png: "/res/ninepatch_bubble_300x300.png",
     bubble_png: "/res/bubble.png",
     textTemplate_json: "/res/TextScene.json"  

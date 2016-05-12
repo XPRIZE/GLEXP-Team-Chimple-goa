@@ -213,12 +213,8 @@ var PlayFullStoryScene = cc.Scene.extend({
             }
         }
         if (query_string != null && query_string != undefined) {
-            storyIdToFetch = query_string['fesid'];
+            storyIdToFetch = query_string['fesid'] || window.recipeId;
             cc.log('storyid from queryString:' + storyIdToFetch);
-        } else {
-            cc.log('storyid from queryString: not recived');
-            storyIdToFetch = window.recipeId;
-            cc.log('storyid from window.recipeId: ' + storyIdToFetch);
         }
 
         return storyIdToFetch;

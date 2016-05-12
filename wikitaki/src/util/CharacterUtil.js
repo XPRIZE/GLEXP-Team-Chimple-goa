@@ -51,7 +51,7 @@ chimple.CharacterUtil.loadSkeletonConfig = function (skeleton, selectedConfigura
         skeleton._actionTag = comExtensionData.getActionTag();
     }
 
-    cc.loader.loadJson('res/characters/skeletonConfig/' + skeleton.getName() + '.json', function (error, data) {
+    cc.loader.loadJson('/res/characters/skeletonConfig/' + skeleton.getName() + '.json', function (error, data) {
         if (data != null) {
             skeleton._skeletonConfig = data;
             skeleton._currentAnimationName = data.animations[0].name;

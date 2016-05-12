@@ -84,13 +84,17 @@ chimple.PageConfigPanel = cc.LayerColor.extend({
         this.showLoadingScene(fileToLoad, this._contentPanel, this._contentPanel.doPostLoadingProcessForScene, fileToLoad, true);
     },
         
+    loadSkeletonConfig: function (configuration, fileToLoad) {
+        this.showLoadingScene(fileToLoad, this._contentPanel, this._contentPanel.addCharacterToScene, configuration, false);
+    },
+
     
     loadJsonFile: function (selectedItem) {
         var type = selectedItem._configurationType;
         var fileToLoad = selectedItem._jsonFileToLoad;
         switch (type) {
             case "character":
-                this._contentPanel.addCharacterToScene(selectedItem._configuration);
+                this.loadSkeletonConfig(selectedItem._configuration, selectedItem._configuration.json);
                 break;
             case "scene":
                 this.createSceneFromFile(fileToLoad); //later move to ContentPanel
