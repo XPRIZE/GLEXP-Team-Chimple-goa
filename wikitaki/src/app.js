@@ -120,7 +120,7 @@ var HelloWorldScene = cc.Scene.extend({
                         context.addChild(context._sceneLayer);
                         context._sceneLayer.init();
                     } else {
-                        this.createNewStory();
+                        context.createNewStory();
                         context._sceneLayer = new HelloWorldLayer();
                         context.addChild(context._sceneLayer);
                         context._sceneLayer.init();
