@@ -4,15 +4,14 @@ chimple.PageConfigPanel = cc.LayerColor.extend({
         this.setPosition(position);
         this._configuration = configuration;
         this._contentPanel = contentPanel;
-
-        this._buttonPanel = new chimple.ButtonPanel(new cc.p(0, 0), this.getContentSize(), 1, 6, configuration.addObjects, this.buttonPressed, this, "isMenu");
-
-        if (chimple.story.items[chimple.pageIndex].scene.Content == null) {
-            chimple.PageConfigPanel.disableOrEnableAllButtons(this._buttonPanel, false);
-        } else {
-            chimple.PageConfigPanel.disableOrEnableAllButtons(this._buttonPanel, true);
-        }
-
+        
+        this._buttonPanel = new chimple.ButtonPanel(new cc.p(0, 0), this.getContentSize(), 1, 6, configuration.addObjects, this.buttonPressed, this);
+        
+        if(chimple.story.items[chimple.pageIndex].scene.Content == null){
+              chimple.PageConfigPanel.disableOrEnableAllButtons(this._buttonPanel,false);
+        }else{
+            chimple.PageConfigPanel.disableOrEnableAllButtons(this._buttonPanel,true);
+         }
         this.addChild(this._buttonPanel);
     },
     buttonPressed: function (selectedItem) {
@@ -67,7 +66,9 @@ chimple.PageConfigPanel = cc.LayerColor.extend({
             cc.log(fileToLoad);
             var dynamicResources = [fileToLoad];
             cc.LoaderScene.preload(dynamicResources, function () {                
-                chimple.ParseUtil.changeSize(cc.loader.cache[fileToLoad]);
+                chimple.ParseUtil.changeSize(cc.loader.cache[fileToLoad], null, chimple.designScaleFactor);
+                cc.loader.cache[fileToLoad].ChimpleCompressed = true;
+                
                 doPostLoadingProcessFunction.call(context, args, shouldSaveScene);
             }, this);
         } else {
@@ -76,7 +77,8 @@ chimple.PageConfigPanel = cc.LayerColor.extend({
             var dynamicResources = [fileToLoad];
             cc.LoaderScene.preload(dynamicResources, function () {
                 cc.director.popScene();               
-                chimple.ParseUtil.changeSize(cc.loader.cache[fileToLoad]);                
+                chimple.ParseUtil.changeSize(cc.loader.cache[fileToLoad], null, chimple.designScaleFactor);                
+                cc.loader.cache[fileToLoad].ChimpleCompressed = true;
                 doPostLoadingProcessFunction.call(context, args, shouldSaveScene);
             }, this);
         }
@@ -96,6 +98,7 @@ chimple.PageConfigPanel = cc.LayerColor.extend({
         var fileToLoad = selectedItem._jsonFileToLoad;
         switch (type) {
             case "character":
+                // this._contentPanel.addCharacterToScene(selectedItem._configuration);
                 this.loadSkeletonConfig(selectedItem._configuration, selectedItem._configuration.json);
                 break;
             case "scene":
@@ -107,18 +110,18 @@ chimple.PageConfigPanel = cc.LayerColor.extend({
 });
 
 chimple.PageConfigPanel.disableOrEnableAllButtons = function (panel, isEnabled) {
-
-    panel.children.forEach(function (element) {
-        if (isEnabled) {
-
-            element.setEnabled(true);
-            element.setHighlighted(false);
-
-        } else {
-            if (element._configuration.name != "backgrounds") {
-                element.setEnabled(false);
-                element.setHighlighted(true);
-            }
-        }
-    }, this);
-}
+    
+        panel.children.forEach(function (element) {
+            if (isEnabled) {
+                if(element._configuration.name != "play"){
+                    element.setEnabled(true);
+                    element.setHighlighted(false);
+                }
+            } else {
+                if(element._configuration.name != "backgrounds"){
+                    element.setEnabled(false);
+                    element.setHighlighted(true);
+                }    
+            }   
+     }, this);
+   }

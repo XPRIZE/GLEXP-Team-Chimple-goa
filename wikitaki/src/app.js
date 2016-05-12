@@ -54,6 +54,7 @@ var HelloWorldScene = cc.Scene.extend({
         this._super();
         if (chimple.LAYER_INIT === false) {
             chimple.LAYER_INIT = true;
+            
             cc.log('initing layer...should only be once');
             //read storyId from document, if not null then load json and store in localStorage
             var storyId = this.retrieveStoryId();
@@ -104,8 +105,7 @@ var HelloWorldScene = cc.Scene.extend({
         if (chimple && chimple.MODIFIED_BIT != 1) {
             chimple.story = {};
             chimple.story.items = [];
-            chimple.scaleFactor = chimple.RESOURCE_DESIGN_HEIGHT / chimple.DEVICE_HEIGHT;
-            chimple.story.RESOLUTION_HEIGHT = chimple.DEVICE_HEIGHT;
+            chimple.story.RESOLUTION_HEIGHT = chimple.DEVICE_HEIGHT;            
             cc.log('chimple.story.scaleFactor:' + chimple.story.scaleFactor);
         }
     },
@@ -122,9 +122,13 @@ var HelloWorldScene = cc.Scene.extend({
                         chimple.scaleFactor = chimple.story.RESOLUTION_HEIGHT / chimple.DEVICE_HEIGHT;
                         chimple.story.RESOLUTION_HEIGHT = chimple.DEVICE_HEIGHT;
 
+                        chimple.ParseUtil.changeSize(cc.loader.cache[res.human_skeleton_json], null, chimple.designScaleFactor);
+                        cc.loader.cache[res.human_skeleton_json].ChimpleCompressed = true;
+
                         data.items.forEach(function (element) {
                             if (element && element.scene) {
-                                chimple.ParseUtil.changeSize(element.scene);
+                                chimple.ParseUtil.changeSize(element.scene, null, chimple.scaleFactor);
+                                element.scene.ChimpleCompressed = true;
                             }
                         }, this);
                         
