@@ -4,7 +4,7 @@ chimple.PreviewPanel = cc.LayerColor.extend({
         var backButton = new ccui.Button('icons/back.png', 'icons/back_onclick.png', false, ccui.Widget.PLIST_TEXTURE);
         backButton.setPosition(128, height - 128);
         backButton.addTouchEventListener(this.goBack, this);
-        this.addChild(backButton);
+//        this.addChild(backButton);
         this._contentPanel = contentPanel;
         this._target = target;
         this._targetParent = target.parent;
@@ -17,20 +17,20 @@ chimple.PreviewPanel = cc.LayerColor.extend({
         // target.anchorY = 0.5;
         cc.log(target);
         this.addChild(target);
-        target.setPosition(400, 600);
+        target.setPosition(width * 85 / 100, 600);
         target.scaleX = 0.5;
         target.scaleY = 0.5;
         
         if(isTab) {
-            this.addChild(new chimple.TabPanel(cc.p(width / 3, 0), cc.size(width * 2 / 3, height), 2, 2, configuration, callback, callbackContext));
+//            this.addChild(new chimple.TabPanel(cc.p(width / 3, 0), cc.size(width * 2 / 3, height), 2, 2, configuration, callback, callbackContext));
+            this.addChild(new chimple.TabPanel(cc.p(0, 0), cc.size(width * 2 / 3, height), 2, 2, configuration, callback, callbackContext, this));
         } else {
-            this.addChild(new chimple.ScrollableButtonPanel(cc.p(width / 3, 0), cc.size(width * 2 / 3, height), 2, 2, configuration, callback, callbackContext));               
+            this.addChild(new chimple.ScrollableButtonPanel(cc.p(0, 0), cc.size(width * 2 / 3, height), 2, 2, configuration, callback, callbackContext));               
         }
     
     },
-    goBack: function (sender, type) {
-        switch (type) {
-            case ccui.Widget.TOUCH_ENDED:
+ 
+    goBack: function () {
                 this.removeChild(this._target, false);
                 this._targetParent.addChild(this._target);
                 this._target.setPosition(this._targetPosition);
@@ -38,10 +38,5 @@ chimple.PreviewPanel = cc.LayerColor.extend({
                 this._contentPanel.registerEventListenerForChild(this._target);
 
                 this.parent.removeChild(this, true);
-                
-                
-                break;
-        }
-    },
-
+        },    
 });
