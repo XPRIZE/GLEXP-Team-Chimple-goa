@@ -101,6 +101,9 @@ chimple.ButtonPanel = ccui.Layout.extend({
         }
 
         if (this._callBackFunction != null && this._callBackContext != null) {
+            if(sender._configurationType == "scene"){
+                chimple.PageConfigPanel.disableOrEnableAllButtons(this._callBackContext._buttonPanel,true);
+            }
             this._callBackFunction.call(this._callBackContext, sender);
         }
 
