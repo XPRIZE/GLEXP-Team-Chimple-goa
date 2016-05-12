@@ -11,7 +11,7 @@ var HelloWorldLayer = cc.Layer.extend({
     ctor: function () {
         this._super();
         this._name = "StoryLayer";
-        this._tabHeight = 256;
+        this._tabHeight = 64;
         this._controlPanel = null;
         this._contentPanelWidth = cc.director.getWinSize().height; //assuming landscape
         this._configPanelWidth = (cc.director.getWinSize().width - this._contentPanelWidth) / 2;
@@ -104,6 +104,9 @@ var HelloWorldScene = cc.Scene.extend({
         if (chimple && chimple.MODIFIED_BIT != 1) {
             chimple.story = {};
             chimple.story.items = [];
+            chimple.scaleFactor = chimple.RESOURCE_DESIGN_HEIGHT / chimple.DEVICE_HEIGHT;
+            chimple.story.RESOLUTION_HEIGHT = chimple.DEVICE_HEIGHT;
+            cc.log('chimple.story.scaleFactor:' + chimple.story.scaleFactor);
         }
     },
 
@@ -116,15 +119,24 @@ var HelloWorldScene = cc.Scene.extend({
                 cc.loader.loadJson(url, function (error, data) {
                     if (data != null && data.items != null && data.items.length > 0) {
                         chimple.story = data;
+                        chimple.scaleFactor = chimple.story.RESOLUTION_HEIGHT / chimple.DEVICE_HEIGHT;
+                        chimple.story.RESOLUTION_HEIGHT = chimple.DEVICE_HEIGHT;
+
+                        data.items.forEach(function (element) {
+                            if (element && element.scene) {
+                                chimple.ParseUtil.changeSize(element.scene);
+                            }
+                        }, this);
+                        
                         context._sceneLayer = new HelloWorldLayer();
                         context.addChild(context._sceneLayer);
                         context._sceneLayer.init();
                     } else {
-                        this.createNewStory();
+                        context.createNewStory();
                         context._sceneLayer = new HelloWorldLayer();
                         context.addChild(context._sceneLayer);
                         context._sceneLayer.init();
-                    }                    
+                    }
                 });
             }
         } else {

@@ -54,49 +54,54 @@
 
 
 var chimple = chimple || {};
+chimple.RESOURCE_DESIGN_HEIGHT = 1800;
+chimple.DEVICE_WIDTH = 640;
+chimple.DEVICE_HEIGHT = 450;
+
+
 (function () {
-    var d = document;
+    // var d = document;
     
-    var c = {
-        "project_type": "javascript",
+    // var c = {
+    //     "project_type": "javascript",
 
-        "debugMode": 1,
-        "showFPS": true,
-        "frameRate": 60,
-        "noCache": false,
-        "id": "gameCanvas",
-        "renderMode": 0,
-        "engineDir": "frameworks/cocos2d-html5",
+    //     "debugMode": 1,
+    //     "showFPS": true,
+    //     "frameRate": 60,
+    //     "noCache": false,
+    //     "id": "gameCanvas",
+    //     "renderMode": 0,
+    //     "engineDir": "frameworks/cocos2d-html5",
 
-        "modules": ["cocos2d", "cocostudio"],
+    //     "modules": ["cocos2d", "cocostudio"],
 
-        "jsList": [
-            "src/resource.js",
-            "src/app.js",
-            "src/ui/PageConfigPanel.js",
-            "src/ui/ObjectConfigPanel.js",
-            "src/ui/AbstractContentPanel.js",
-            "src/ui/ContentPanel.js",
-            "src/ui/PlayContentPanel.js",
-            "src/ui/ButtonPanel.js",
-            "src/ui/ScrollableButtonPanel.js",
-            "src/ui/TabBar.js",
-            "src/ui/TabPanel.js",
-            "src/ui/TabBarPanel.js",
-            "src/ui/PreviewPanel.js",
-            "src/ui/TextCreatePanel.js",
-            "src/util/CharacterUtil.js",
-            "src/util/ParseUtil.js",
-            "src/TextEditScene.js",
-            "src/PlayRecordingScene.js",
-            "src/SpriteTouchHandler.js",
-            "src/SkeletonTouchHandler.js",
-            "src/TextTouchHandler.js",
-            "src/EditStoryScene.js",
-            "src/play.js"
-        ]
+    //     "jsList": [
+    //         "src/resource.js",
+    //         "src/app.js",
+    //         "src/ui/PageConfigPanel.js",
+    //         "src/ui/ObjectConfigPanel.js",
+    //         "src/ui/AbstractContentPanel.js",
+    //         "src/ui/ContentPanel.js",
+    //         "src/ui/PlayContentPanel.js",
+    //         "src/ui/ButtonPanel.js",
+    //         "src/ui/ScrollableButtonPanel.js",
+    //         "src/ui/TabBarPanel.js",
+    //         "src/ui/TabBar.js",
+    //         "src/ui/TabPanel.js",
+    //         "src/ui/PreviewPanel.js",
+    //         "src/ui/TextCreatePanel.js",
+    //         "src/util/CharacterUtil.js",
+    //         "src/util/ParseUtil.js",
+    //         "src/TextEditScene.js",
+    //         "src/PlayRecordingScene.js",
+    //         "src/SpriteTouchHandler.js",
+    //         "src/SkeletonTouchHandler.js",
+    //         "src/TextTouchHandler.js",
+    //         "src/EditStoryScene.js",
+    //         "src/play.js"
+    //     ]
 
-    };
+    // };
 
     chimple.DEFAULT_MODE = "PLAY";
     chimple.EDIT_MODE = "edit";
@@ -123,19 +128,22 @@ var chimple = chimple || {};
         }
         if (query_string != null && query_string != undefined) {
             var mode = query_string['mode'];
+            var fesid = query_string['fesid'] || window.recipeId;
             console.log('mode:' + mode);
-            if(!mode) {
-                mode = chimple.PLAY_MODE;
-            }
-            if (!(mode == chimple.PLAY_MODE || mode.indexOf(chimple.EDIT_MODE) != -1)) {
-                chimple.mode = chimple.PLAY_MODE;
+            if(!fesid) {
+                mode = chimple.EDIT_MODE;
             } else {
-                chimple.mode = mode;
+                if(mode && mode.indexOf(chimple.EDIT_MODE) != -1) {
+                    mode = chimple.EDIT_MODE;
+                } else {
+                    mode = chimple.PLAY_MODE;
+                }    
             }
+            chimple.mode = mode;
         }
     };
 
-    document.ccConfig = c;
+    // document.ccConfig = c;
     this.retrieveMode();
 
     cc.game.onStart = function () {
@@ -147,7 +155,7 @@ var chimple = chimple || {};
         // Adjust viewport meta
         cc.view.adjustViewPort(true);
         // Setup the resolution policy and design resolution size
-        cc.view.setDesignResolutionSize(2560, 1800, cc.ResolutionPolicy.SHOW_ALL);
+        cc.view.setDesignResolutionSize(chimple.DEVICE_WIDTH, chimple.DEVICE_HEIGHT, cc.ResolutionPolicy.SHOW_ALL);
         // Instead of set design resolution, you can also set the real pixel resolution size
         // Uncomment the following line and delete the previous line.
         // cc.view.setRealPixelResolution(960, 640, cc.ResolutionPolicy.SHOW_ALL);
@@ -155,8 +163,7 @@ var chimple = chimple || {};
         cc.view.resizeWithBrowserSize(true);
         //load resources
         cc.LoaderScene.preload(g_resources, function () {
-            cc.spriteFrameCache.addSpriteFrames(res.icons1_plist);
-            cc.spriteFrameCache.addSpriteFrames(res.icons2_plist);
+            cc.spriteFrameCache.addSpriteFrames(res.thumbnails_plist);            
 
             cc.log("mode:" + chimple.mode);
             if (chimple.mode.indexOf(chimple.EDIT_MODE) != -1) {

@@ -7,7 +7,7 @@ chimple.TabPanel = cc.Node.extend({
         this._numButtonsPerColumn = numButtonsPerColumn;
         this._configuration = configuration;
         this._tabWidth = size.width;
-        this._tabHeight = 256;
+        this._tabHeight = 64;
         this._callBackFunction = callBackFunction;
         this._callBackContext = callBackContext;
            
@@ -20,12 +20,12 @@ chimple.TabPanel = cc.Node.extend({
 
 // for tab bar
 
-        var tabBar_backButton = new ccui.Button("back.png", "back_onclick.png", null, ccui.Widget.PLIST_TEXTURE);
+        var tabBar_backButton = new ccui.Button("icons/back.png", "icons/back_onclick.png", null, ccui.Widget.PLIST_TEXTURE);
        tabBar_backButton.setPosition(size.width*5/100, position.y + size.height - this._tabHeight/2);
        tabBar_backButton.addTouchEventListener(this.tabBar_backButton, this);
        this.addChild(tabBar_backButton);
 
-        var tabBar_nextButton = new ccui.Button("next.png", "next_onclick.png", null, ccui.Widget.PLIST_TEXTURE);
+        var tabBar_nextButton = new ccui.Button("icons/next.png", "icons/next_onclick.png", null, ccui.Widget.PLIST_TEXTURE);
        tabBar_nextButton.setPosition(size.width*95/100, position.y + size.height - this._tabHeight/2);
        tabBar_nextButton.addTouchEventListener(this.tabBar_nextButton, this);
        this.addChild(tabBar_nextButton);
@@ -63,12 +63,12 @@ chimple.TabPanel = cc.Node.extend({
                 this.addChild(this._panel);
 
 // for tab panel                
-        var tabPanel_backButton = new ccui.Button("back.png", "back_onclick.png", null, ccui.Widget.PLIST_TEXTURE);
+        var tabPanel_backButton = new ccui.Button("icons/back.png", "icons/back_onclick.png", null, ccui.Widget.PLIST_TEXTURE);
         tabPanel_backButton.setPosition(this._panelPosition.x+this._panelSize.width*5/100, this._panelSize.height/2);
         tabPanel_backButton.addTouchEventListener(this.tabPanel_backButton, this);
         this.addChild(tabPanel_backButton);
         
-        var tabPanel_nextButton = new ccui.Button("next.png", "next_onclick.png", null, ccui.Widget.PLIST_TEXTURE);
+        var tabPanel_nextButton = new ccui.Button("icons/next.png", "icons/next_onclick.png", null, ccui.Widget.PLIST_TEXTURE);
         tabPanel_nextButton.setPosition((this._panelPosition.x)+this._panelSize.width*95/100, this._panelSize.height/2);
         tabPanel_nextButton.addTouchEventListener(this.tabPanel_nextButton, this);
         this.addChild(tabPanel_nextButton);

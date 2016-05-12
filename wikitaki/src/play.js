@@ -12,7 +12,7 @@ var PlayFullStoryLayer = cc.Layer.extend({
     ctor: function () {
         this._super();
         this._name = "PlayFullStoryLayer";
-        this._tabHeight = 256;
+        this._tabHeight = 64;
         this._controlPanel = null;
         this._contentPanelWidth = cc.director.getWinSize().height; //assuming landscape
         this._configPanelWidth = (cc.director.getWinSize().width - this._contentPanelWidth) / 2;
@@ -213,12 +213,8 @@ var PlayFullStoryScene = cc.Scene.extend({
             }
         }
         if (query_string != null && query_string != undefined) {
-            storyIdToFetch = query_string['fesid'];
+            storyIdToFetch = query_string['fesid'] || window.recipeId;
             cc.log('storyid from queryString:' + storyIdToFetch);
-        } else {
-            cc.log('storyid from queryString: not recived');
-            storyIdToFetch = window.recipeId;
-            cc.log('storyid from window.recipeId: ' + storyIdToFetch);
         }
 
         return storyIdToFetch;

@@ -4,10 +4,18 @@ chimple.PageConfigPanel = cc.LayerColor.extend({
         this.setPosition(position);
         this._configuration = configuration;
         this._contentPanel = contentPanel;
-        var buttonPanel = new chimple.ButtonPanel(new cc.p(0, 0), this.getContentSize(), 1, 6, configuration.addObjects, this.buttonPressed, this);
-        this.addChild(buttonPanel);
+
+        this._buttonPanel = new chimple.ButtonPanel(new cc.p(0, 0), this.getContentSize(), 1, 6, configuration.addObjects, this.buttonPressed, this, "isMenu");
+
+        if (chimple.story.items[chimple.pageIndex].scene.Content == null) {
+            chimple.PageConfigPanel.disableOrEnableAllButtons(this._buttonPanel, false);
+        } else {
+            chimple.PageConfigPanel.disableOrEnableAllButtons(this._buttonPanel, true);
+        }
+
+        this.addChild(this._buttonPanel);
     },
-    buttonPressed: function(selectedItem) {
+    buttonPressed: function (selectedItem) {
         var selectedConfig = this._configuration.addObjects[selectedItem._selectedIndex];
         cc.log(selectedItem.getName());
         if (selectedConfig != null && selectedConfig.name === "texts") {
@@ -58,7 +66,8 @@ chimple.PageConfigPanel = cc.LayerColor.extend({
         if (cc.sys.isNative) {
             cc.log(fileToLoad);
             var dynamicResources = [fileToLoad];
-            cc.LoaderScene.preload(dynamicResources, function () {
+            cc.LoaderScene.preload(dynamicResources, function () {                
+                chimple.ParseUtil.changeSize(cc.loader.cache[fileToLoad]);
                 doPostLoadingProcessFunction.call(context, args, shouldSaveScene);
             }, this);
         } else {
@@ -66,7 +75,8 @@ chimple.PageConfigPanel = cc.LayerColor.extend({
             cc.log(fileToLoad);
             var dynamicResources = [fileToLoad];
             cc.LoaderScene.preload(dynamicResources, function () {
-                cc.director.popScene();
+                cc.director.popScene();               
+                chimple.ParseUtil.changeSize(cc.loader.cache[fileToLoad]);                
                 doPostLoadingProcessFunction.call(context, args, shouldSaveScene);
             }, this);
         }
@@ -75,21 +85,40 @@ chimple.PageConfigPanel = cc.LayerColor.extend({
     createSceneFromFile: function (fileToLoad) {
         this.showLoadingScene(fileToLoad, this._contentPanel, this._contentPanel.doPostLoadingProcessForScene, fileToLoad, true);
     },
-        
-    
+
+    loadSkeletonConfig: function (configuration, fileToLoad) {
+        this.showLoadingScene(fileToLoad, this._contentPanel, this._contentPanel.addCharacterToScene, configuration, false);
+    },
+
+
     loadJsonFile: function (selectedItem) {
         var type = selectedItem._configurationType;
         var fileToLoad = selectedItem._jsonFileToLoad;
         switch (type) {
             case "character":
-                this._contentPanel.addCharacterToScene(selectedItem._configuration);
+                this.loadSkeletonConfig(selectedItem._configuration, selectedItem._configuration.json);
                 break;
             case "scene":
                 this.createSceneFromFile(fileToLoad); //later move to ContentPanel
                 break;
         }
 
-    },
-    
-
+    }
 });
+
+chimple.PageConfigPanel.disableOrEnableAllButtons = function (panel, isEnabled) {
+
+    panel.children.forEach(function (element) {
+        if (isEnabled) {
+
+            element.setEnabled(true);
+            element.setHighlighted(false);
+
+        } else {
+            if (element._configuration.name != "backgrounds") {
+                element.setEnabled(false);
+                element.setHighlighted(true);
+            }
+        }
+    }, this);
+}

@@ -33,14 +33,14 @@ chimple.ContentPanel = chimple.AbstractContentPanel.extend({
             return;
         }
         var constructedScene = ccs.load(fileToLoad);
-        if (constructedScene != null) {
+        if (constructedScene != null) {            
             this._constructedScene = constructedScene.node;
             if (this._constructedScene) {
                 this.addChild(this._constructedScene);
                 if (!cc.sys.isNative) {
                     this._constructedScene._renderCmd._dirtyFlag = 1;
                 }
-                this.registerEventListenerForAllChildren();
+                this.registerEventListenerForAllChildren();                
                 this.postProcessForSceneObjects(this._constructedScene);
                 //parse JSON and store in local storage
                 if (shouldSaveScene) {
@@ -181,7 +181,7 @@ chimple.ContentPanel = chimple.AbstractContentPanel.extend({
     },
 
     parseText: function (fileToLoad, load) {
-        var resourcePath = fileToLoad.replace("res/", "");
+        var resourcePath = fileToLoad.replace("/res/", "");
         this.saveText(load.node.children[0], resourcePath);
     },
 
