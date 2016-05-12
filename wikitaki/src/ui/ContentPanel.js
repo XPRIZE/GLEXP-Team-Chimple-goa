@@ -33,14 +33,14 @@ chimple.ContentPanel = chimple.AbstractContentPanel.extend({
             return;
         }
         var constructedScene = ccs.load(fileToLoad);
-        if (constructedScene != null) {
+        if (constructedScene != null) {            
             this._constructedScene = constructedScene.node;
             if (this._constructedScene) {
                 this.addChild(this._constructedScene);
                 if (!cc.sys.isNative) {
                     this._constructedScene._renderCmd._dirtyFlag = 1;
                 }
-                this.registerEventListenerForAllChildren();
+                this.registerEventListenerForAllChildren();                
                 this.postProcessForSceneObjects(this._constructedScene);
                 //parse JSON and store in local storage
                 if (shouldSaveScene) {
@@ -53,14 +53,12 @@ chimple.ContentPanel = chimple.AbstractContentPanel.extend({
     loadAndSaveScene: function (context, fileToLoad) {
         var resourcePath = fileToLoad.substring(0, fileToLoad.lastIndexOf("/") + 1);
         var context = this;
-        cc.loader.loadJson(fileToLoad, function (error, data) {
-            cc.log('data:' + data);
+        data = cc.loader.cache[fileToLoad];
             if (data != null) {
                 //new scene added
                 chimple.ParseUtil.saveScene(data);
                 // chimple.ParseUtil.saveSceneToLocalStorage(context._storyKey, context._currentPageIndex, JSON.stringify(data));
             }
-        });
     },
 
     postProcessForSceneObjects: function (node) {
@@ -289,7 +287,7 @@ chimple.ContentPanel = chimple.AbstractContentPanel.extend({
 
         chimple.CharacterUtil.loadSkeletonConfig(load.node, configuration);
 
-        load.node.setPosition(900, 900);
+        load.node.setPosition(this.getContentSize().width/2, this.getContentSize().height/2);
         this._constructedScene.addChild(load.node);
         load.node.runAction(load.action);
         this.registerEventListenerForChild(load.node);

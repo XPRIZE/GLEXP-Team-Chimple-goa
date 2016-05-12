@@ -29,13 +29,13 @@ chimple.ParseUtil.saveObjectToStoredScene = function (jsonObject) {
 chimple.ParseUtil.updateScaleRotationAndPositionObjectFromStoredScene = function (target) {
     if (chimple.story && chimple.story.items != null) {
         var children = chimple.story.items[chimple.pageIndex].scene.Content.Content.ObjectData.Children;
-        for (var index = 0; index < children.length; index++) {            
+        for (var index = 0; index < children.length; index++) {
             var comExtensionData = target.getComponent("ComExtensionData");
             if (comExtensionData && comExtensionData.getActionTag()) {
                 if (children[index].ActionTag == comExtensionData.getActionTag()) {
                     children[index].Scale.ScaleX = target.scaleX;
                     children[index].Scale.ScaleY = target.scaleY;
-                    
+
                     children[index].Position.X = target.x;
                     children[index].Position.Y = target.y;
 
@@ -43,7 +43,7 @@ chimple.ParseUtil.updateScaleRotationAndPositionObjectFromStoredScene = function
                     children[index].RotationSkewY = target.rotationY;
                     break;
                 }
-            } 
+            }
         }
         chimple.ParseUtil.saveScene(chimple.story.items[chimple.pageIndex].scene);
     }
@@ -237,7 +237,7 @@ chimple.ParseUtil.constructJSONFromText = function (panel, resourcePath) {
     panelObject.FileData.Type = "Normal";
     resourcePath = resourcePath.replace("/", "");
     panelObject.FileData.Path = resourcePath;
-        
+
     panelObject.FileData.Plist = "";
 
     panelObject.ComboBoxIndex = panel.getBackGroundColorType();
@@ -391,4 +391,25 @@ chimple.ParseUtil.generateUUID = function () {
         return (c == 'x' ? r : (r & 0x3 | 0x8)).toString(16);
     });
     return uuid;
+}
+
+
+chimple.ParseUtil.changeSize = function (obj, name, scaleFactor) {
+    if(obj['ChimpleCompressed']) {
+        return;
+    }
+    if (obj['ctype'] && obj['ctype'] == 'PointFrameData') {
+        name = obj['ctype'];
+    }
+    for (var key in obj) {
+        var element = obj[key];
+        if (name == 'Size' || name == 'Position' || name == 'PointFrameData') {
+            if (key == 'X' || key == 'Y') {
+                obj[key] = obj[key] / scaleFactor;
+            }
+        }
+        if (typeof (element) == 'object') {
+            this.changeSize(element, key, scaleFactor);
+        }
+    }
 }
