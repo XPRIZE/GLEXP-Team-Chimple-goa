@@ -5,7 +5,7 @@ chimple.PageConfigPanel = cc.LayerColor.extend({
         this._configuration = configuration;
         this._contentPanel = contentPanel;
         
-        this._buttonPanel = new chimple.ButtonPanel(new cc.p(0, 0), this.getContentSize(), 1, 6, configuration.addObjects, this.buttonPressed, this,"isMenu");
+        this._buttonPanel = new chimple.ButtonPanel(new cc.p(0, 0), this.getContentSize(), 1, 6, configuration.addObjects, this.buttonPressed, this);
         
         if(chimple.story.items[chimple.pageIndex].scene.Content == null){
               chimple.PageConfigPanel.disableOrEnableAllButtons(this._buttonPanel,false);
@@ -108,10 +108,10 @@ chimple.PageConfigPanel.disableOrEnableAllButtons = function (panel, isEnabled) 
     
         panel.children.forEach(function (element) {
             if (isEnabled) {
-             
+                if(element._configuration.name != "play"){
                     element.setEnabled(true);
                     element.setHighlighted(false);
-             
+                }
             } else {
                 if(element._configuration.name != "backgrounds"){
                     element.setEnabled(false);
