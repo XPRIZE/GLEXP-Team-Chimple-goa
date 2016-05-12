@@ -181,7 +181,7 @@ chimple.ContentPanel = chimple.AbstractContentPanel.extend({
     },
 
     parseText: function (fileToLoad, load) {
-        var resourcePath = fileToLoad.replace("res/", "");
+        var resourcePath = fileToLoad.replace("/res/", "");
         this.saveText(load.node.children[0], resourcePath);
     },
 
