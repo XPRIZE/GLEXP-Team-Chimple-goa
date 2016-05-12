@@ -11,7 +11,7 @@ var HelloWorldLayer = cc.Layer.extend({
     ctor: function () {
         this._super();
         this._name = "StoryLayer";
-        this._tabHeight = 256;
+        this._tabHeight = 64;
         this._controlPanel = null;
         this._contentPanelWidth = cc.director.getWinSize().height; //assuming landscape
         this._configPanelWidth = (cc.director.getWinSize().width - this._contentPanelWidth) / 2;

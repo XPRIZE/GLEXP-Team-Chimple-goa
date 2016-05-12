@@ -9,10 +9,8 @@ if (!cc.sys.isNative) {
 
 
 var res = {
-    icons1_png: "/res/icons1.png",
-    icons1_plist: "/res/icons1.plist",
-    icons2_png: "/res/icons2.png",
-    icons2_plist: "/res/icons2.plist",
+    thumbnails_png: "/res/thumbnails.png",
+    thumbnails_plist: "/res/thumbnails.plist",
     HelloWorld_png : "/res/HelloWorld.png",
     crow_json: "/res/characters/crow/Animation.json",
     elephant_json: "/res/characters/elephant/elep.json",
