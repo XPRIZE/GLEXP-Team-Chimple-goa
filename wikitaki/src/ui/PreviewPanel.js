@@ -1,7 +1,7 @@
 chimple.PreviewPanel = cc.LayerColor.extend({
     ctor: function (width, height, position, target, configuration, callback, callbackContext, isTab, contentPanel) {
         this._super(cc.color.BLUE, width, height);
-        var backButton = new ccui.Button('back.png', 'back_onclick.png', false, ccui.Widget.PLIST_TEXTURE);
+        var backButton = new ccui.Button('icons/back.png', 'icons/back_onclick.png', false, ccui.Widget.PLIST_TEXTURE);
         backButton.setPosition(128, height - 128);
         backButton.addTouchEventListener(this.goBack, this);
 //        this.addChild(backButton);

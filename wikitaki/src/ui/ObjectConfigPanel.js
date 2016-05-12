@@ -30,7 +30,7 @@ chimple.ObjectConfigPanel = cc.LayerColor.extend({
         }
     },
     buttonPressed: function (button) {
-        if (button.getName() == "translate.png") {
+        if (button.getName() == "icons/translate.png") {
             if (button._isToggled) { //if button is toggled then it is rotate
                 this._contentPanel._moveAction = false;
                 this._contentPanel._rotateAction = true;
@@ -40,7 +40,7 @@ chimple.ObjectConfigPanel = cc.LayerColor.extend({
                 this._contentPanel._rotateAction = false;
                 this._contentPanel._scaleAction = false;
             }
-        } else if (button.getName() == "flipX.png") {
+        } else if (button.getName() == "icons/flipX.png") {
             if (this._target) {
                 this._target.setScaleX(-1 * this._target.getScaleX());
                 var comExtensionData = this._target.getComponent("ComExtensionData");
@@ -48,7 +48,7 @@ chimple.ObjectConfigPanel = cc.LayerColor.extend({
                     chimple.ParseUtil.updateFlipObjectFromStoredScene(comExtensionData.getActionTag(), this._target.getScaleX());
                 }
             }
-        } else if (button.getName() == "delete.png") {
+        } else if (button.getName() == "icons/delete.png") {
             if (this._target) {
                 var comExtensionData = this._target.getComponent("ComExtensionData");
                 if (comExtensionData && comExtensionData.getActionTag()) {
@@ -57,25 +57,25 @@ chimple.ObjectConfigPanel = cc.LayerColor.extend({
                 this._target.parent.removeChild(this._target, true);
                 this.setButtonPanel(this.getDefaultPanel());
             }
-        } else if (button.getName() == "my_avatar.png") {
+        } else if (button.getName() == "icons/my_avatar.png") {
             if (this._target && this._target._skeletonConfig != null && this._target._skeletonConfig.skinChoices != null) {
                 this.parent.addChild(new chimple.PreviewPanel(cc.director.getWinSize().width, cc.director.getWinSize().height, cc.p(0, 0), this._target, this._target._skeletonConfig.skinChoices, this.skinSelected, this, true, this._contentPanel), 1);
             }
-        } else if (button.getName() == "animation.png") {
+        } else if (button.getName() == "icons/animation.png") {
             if (this._target && this._target._skeletonConfig != null && this._target._skeletonConfig.animations != null) {
                 this.parent.addChild(new chimple.PreviewPanel(cc.director.getWinSize().width, cc.director.getWinSize().height, cc.p(0, 0), this._target, this._target._skeletonConfig.animations, this.animationSelected, this, false, this._contentPanel), 1);
             }
-        } else if (button.getName() == "book.png") {
+        } else if (button.getName() == "icons/book.png") {
             var fontSize = this._target.getFontSize();
             fontSize += - 1;
             this._target.setFontSize(fontSize);
-        } else if (button.getName() == "next.png") {
+        } else if (button.getName() == "icons/next.png") {
             var fontSize = this._target.getFontSize();
             fontSize += 1;
             this._target.setFontSize(fontSize);
         } else if (button.getName() == res.text_png) {
             this._contentPanel.addTextToScene(this._target.getString());
-        } else if (button.getName() == "back.png") {
+        } else if (button.getName() == "icons/back.png") {
             this._contentPanel.backPressed(this._target);
         }
     },

@@ -11,7 +11,7 @@ var HelloWorldLayer = cc.Layer.extend({
     ctor: function () {
         this._super();
         this._name = "StoryLayer";
-        this._tabHeight = 256;
+        this._tabHeight = 64;
         this._controlPanel = null;
         this._contentPanelWidth = cc.director.getWinSize().height; //assuming landscape
         this._configPanelWidth = (cc.director.getWinSize().width - this._contentPanelWidth) / 2;
@@ -54,6 +54,7 @@ var HelloWorldScene = cc.Scene.extend({
         this._super();
         if (chimple.LAYER_INIT === false) {
             chimple.LAYER_INIT = true;
+            
             cc.log('initing layer...should only be once');
             //read storyId from document, if not null then load json and store in localStorage
             var storyId = this.retrieveStoryId();
@@ -104,6 +105,8 @@ var HelloWorldScene = cc.Scene.extend({
         if (chimple && chimple.MODIFIED_BIT != 1) {
             chimple.story = {};
             chimple.story.items = [];
+            chimple.story.RESOLUTION_HEIGHT = chimple.DEVICE_HEIGHT;            
+            cc.log('chimple.story.scaleFactor:' + chimple.story.scaleFactor);
         }
     },
 
@@ -116,6 +119,19 @@ var HelloWorldScene = cc.Scene.extend({
                 cc.loader.loadJson(url, function (error, data) {
                     if (data != null && data.items != null && data.items.length > 0) {
                         chimple.story = data;
+                        chimple.scaleFactor = chimple.story.RESOLUTION_HEIGHT / chimple.DEVICE_HEIGHT;
+                        chimple.story.RESOLUTION_HEIGHT = chimple.DEVICE_HEIGHT;
+
+                        chimple.ParseUtil.changeSize(cc.loader.cache[res.human_skeleton_json], null, chimple.designScaleFactor);
+                        cc.loader.cache[res.human_skeleton_json].ChimpleCompressed = true;
+
+                        data.items.forEach(function (element) {
+                            if (element && element.scene) {
+                                chimple.ParseUtil.changeSize(element.scene, null, chimple.scaleFactor);
+                                element.scene.ChimpleCompressed = true;
+                            }
+                        }, this);
+                        
                         context._sceneLayer = new HelloWorldLayer();
                         context.addChild(context._sceneLayer);
                         context._sceneLayer.init();
@@ -124,7 +140,7 @@ var HelloWorldScene = cc.Scene.extend({
                         context._sceneLayer = new HelloWorldLayer();
                         context.addChild(context._sceneLayer);
                         context._sceneLayer.init();
-                    }                    
+                    }
                 });
             }
         } else {
