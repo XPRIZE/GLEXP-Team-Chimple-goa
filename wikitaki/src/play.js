@@ -12,7 +12,7 @@ var PlayFullStoryLayer = cc.Layer.extend({
     ctor: function () {
         this._super();
         this._name = "PlayFullStoryLayer";
-        this._tabHeight = 256;
+        this._tabHeight = 64;
         this._controlPanel = null;
         this._contentPanelWidth = cc.director.getWinSize().height; //assuming landscape
         this._configPanelWidth = (cc.director.getWinSize().width - this._contentPanelWidth) / 2;
@@ -227,7 +227,19 @@ var PlayFullStoryScene = cc.Scene.extend({
             cc.log('fetching json for storyId' + storyIdToFetch + ' url:' + url);
             cc.loader.loadJson(url, function (error, data) {
                 if (data != null && data.items != null && data.items.length > 0) {
-                    chimple.story = data;
+                        chimple.story = data;
+                        chimple.scaleFactor = chimple.story.RESOLUTION_HEIGHT / chimple.DEVICE_HEIGHT;
+                        chimple.story.RESOLUTION_HEIGHT = chimple.DEVICE_HEIGHT;
+
+                        chimple.ParseUtil.changeSize(cc.loader.cache[res.human_skeleton_json], null, chimple.designScaleFactor);
+                        cc.loader.cache[res.human_skeleton_json].ChimpleCompressed = true;
+
+                        data.items.forEach(function (element) {
+                            if (element && element.scene) {
+                                chimple.ParseUtil.changeSize(element.scene, null, chimple.scaleFactor);
+                                element.scene.ChimpleCompressed = true;                                
+                            }
+                        }, this);
                     context._sceneLayer = new PlayFullStoryLayer();
                     context.addChild(context._sceneLayer);
                     context._sceneLayer.init();

@@ -79,7 +79,14 @@ chimple.ButtonPanel = ccui.Layout.extend({
             if (sender._configuration.toggle) {
                 if (sender._isToggled) {
                     // sender.setHighlighted(true);
-                    sender._isToggled = false;
+                   sender._isToggled = false;
+                   this._callBackContext._buttonPanel.children.forEach(function (element) {
+                       if(element._configuration.name == "play"){
+                            element.setEnabled(true);
+                            element.setHighlighted(false);
+                       }
+                    }, this);
+               
                     try {
                         sender.loadTextures(sender._configuration.icon, sender._configuration.cIcon, null, ccui.Widget.PLIST_TEXTURE);
                     } catch (error) {
@@ -89,7 +96,14 @@ chimple.ButtonPanel = ccui.Layout.extend({
 
                 } else {
                     // sender.setHighlighted(false);
-                    sender._isToggled = true;
+                   sender._isToggled = true;
+                   this._callBackContext._buttonPanel.children.forEach(function (element) {       
+                       if(element._configuration.name == "play"){
+                            element.setEnabled(false);
+                            element.setHighlighted(true);
+                       }
+                    }, this);
+                    
                     try {
                         sender.loadTextures(sender._configuration.cIcon, sender._configuration.icon, null, ccui.Widget.PLIST_TEXTURE);
                     } catch (error) {
@@ -106,7 +120,6 @@ chimple.ButtonPanel = ccui.Layout.extend({
             }
             this._callBackFunction.call(this._callBackContext, sender);
         }
-
     },
     getButtonByName: function (name) {
         return this.getChildByName(name);
