@@ -6,7 +6,7 @@
             "icon": "shirt.png",
             "items": [
                 {
-                    "icon": "res/costume/painter/painter_shirt.png",
+                    "icon": "costume/painter/painter_shirt.png",
                     "skins": [
                         {
                             "skin": "painter_sleave_right",
@@ -23,7 +23,7 @@
                     ]
                 },
                 {
-                    "icon": "res/costume/motu/motu_shirt.png",
+                    "icon": "costume/motu/motu_shirt.png",
                     "skins": [
                         {
                             "skin": "motu_shirt_upper_right",
@@ -43,11 +43,11 @@
         },
         {
             "name": "hat",
-            "cIcon": "res/icons/hat_onclick.png",
-            "icon": "res/icons/hat.png",
+            "cIcon": "icons/hat_onclick.png",
+            "icon": "icons/hat.png",
             "items": [
                 {
-                    "icon": "res/costume/painter/painter_cap.png",
+                    "icon": "costume/painter/painter_cap.png",
                     "skins": [
                         {
                             "skin": "painter_cap",
@@ -56,7 +56,7 @@
                     ]
                 },
                 {
-                    "icon": "res/head_accessories/side_cap.png",
+                    "icon": "head_accessories/side_cap.png",
                     "skins": [
                         {
                             "skin": "side_cap",
@@ -66,7 +66,7 @@
                     
                 },
                 {
-                    "icon": "res/head_accessories/top_hat.png",
+                    "icon": "head_accessories/top_hat.png",
                     "skins": [
                         {
                             "skin": "top_hat",
@@ -76,7 +76,7 @@
                     
                 },
                 {
-                    "icon": "res/icons/delete.png",
+                    "icon": "icons/delete.png",
                     "skins": [
                         {
                             "skin": "hair",
@@ -88,11 +88,11 @@
         },
         {
             "name": "shoes",
-            "cIcon": "res/icons/shoe_onclick.png",
-            "icon": "res/icons/shoe.png",
+            "cIcon": "icons/shoe_onclick.png",
+            "icon": "icons/shoe.png",
             "items": [
                 {
-                    "icon": "res/costume/motu/motu_shoes_left.png",
+                    "icon": "costume/motu/motu_shoes_left.png",
                     "skins": [
                         {
                             "skin": "motu_shoes_left",
@@ -105,7 +105,7 @@
                     ]
                 },
                 {
-                    "icon": "res/costume/painter/painter_shoe_left.png",
+                    "icon": "costume/painter/painter_shoe_left.png",
                     "skins": [
                         {
                             "skin": "painter_shoe_left",
@@ -118,7 +118,7 @@
                     ]
                 },
                 {
-                    "icon": "res/icons/delete.png",
+                    "icon": "icons/delete.png",
                     "skins": [
                         {
                             "skin": "leg_foot_left",
@@ -134,11 +134,11 @@
         },
         {
             "name": "pants",
-            "cIcon": "res/icons/pant_onclick.png",
-            "icon": "res/icons/pant.png",
+            "cIcon": "icons/pant_onclick.png",
+            "icon": "icons/pant.png",
             "items": [
                 {
-                    "icon": "res/Cricketer/pent_lower.png",
+                    "icon": "Cricketer/pent_lower.png",
                     "skins": [
                         {
                             "skin": "painter_pant_lower_right",
@@ -163,7 +163,7 @@
                     ]
                 },
                 {
-                    "icon": "res/Cricketer/pent_lower.png",
+                    "icon": "Cricketer/pent_lower.png",
                     "skins": [
                         {
                             "skin": "motu_pant_lower_right",
@@ -188,7 +188,7 @@
                     ]
                 },
                 {
-                    "icon": "res/icons/delete.png",
+                    "icon": "icons/delete.png",
                     "skins": [
                         {
                             "skin": "leg_lower_right",
@@ -216,18 +216,18 @@
         },
         {
             "name": "skinColor",
-            "cIcon": "res/icons/skintone_onclick.png",
-            "icon": "res/icons/skintone.png",
+            "cIcon": "icons/skintone_onclick.png",
+            "icon": "icons/skintone.png",
             "items": [
                 {
-                    "icon": "res/icons/game.png",
+                    "icon": "icons/game.png",
                     "colorSkins": {
                         "skins": "bodySkin",
                         "color": "#4477BB"
                     }
                 },
                 {
-                    "icon": "res/icons/add_qna.png",
+                    "icon": "icons/add_qna.png",
                     "colorSkins": {
                         "skins": "bodySkin",
                         "color": "#AA1133"
@@ -277,23 +277,23 @@
     },
     "animations": [
         {
-          "icon": "res/icons/add_qna.png",
+          "icon": "icons/add_qna.png",
           "name": "walk"
         },
         {
-          "icon": "res/icons/add_qna.png",
+          "icon": "icons/add_qna.png",
           "name": "run"  
         },
         {
-          "icon": "res/icons/add_qna.png",
+          "icon": "icons/add_qna.png",
           "name": "blink"
         },
         {
-          "icon": "res/icons/add_qna.png",
+          "icon": "icons/add_qna.png",
           "name": "hi"  
         },
          {
-          "icon": "res/icons/add_qna.png",
+          "icon": "icons/add_qna.png",
           "name": "hop"  
         }
     ]
