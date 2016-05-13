@@ -119,6 +119,7 @@ var HelloWorldScene = cc.Scene.extend({
                 cc.loader.loadJson(url, function (error, data) {
                     if (data != null && data.items != null && data.items.length > 0) {
                         chimple.story = data;
+                        chimple.story.storyId = storyIdToFetch;
                         chimple.scaleFactor = chimple.story.RESOLUTION_HEIGHT / chimple.DEVICE_HEIGHT;
                         chimple.story.RESOLUTION_HEIGHT = chimple.DEVICE_HEIGHT;
 
