@@ -13,10 +13,10 @@ chimple.ButtonPanel = ccui.Layout.extend({
         // this._callBackContext = callBackContext;
         // this._currentSelectedItem = null;
         var index = start;
-        for (pageIndex = 0; pageIndex < (numButtons - start) / (numButtonsPerRow * numButtonsPerColumn); pageIndex++) {
+        for (var pageIndex = 0; pageIndex < (numButtons - start) / (numButtonsPerRow * numButtonsPerColumn); pageIndex++) {
             for (var rowIndex = 0; rowIndex < numButtonsPerColumn; rowIndex++) {
                 for (var colIndex = 0; colIndex < numButtonsPerRow; colIndex++) {
-                    if (index < numButtons) {
+                    if (index < configuration.length - pageIndex * (numButtonsPerRow * numButtonsPerColumn)) {
                         cc.log('configuration[index]:' + configuration[index]);
                         var item;
                         try {
