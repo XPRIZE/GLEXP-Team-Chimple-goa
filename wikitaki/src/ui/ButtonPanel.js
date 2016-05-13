@@ -1,19 +1,22 @@
 chimple.ButtonPanel = ccui.Layout.extend({
-    ctor: function (position, size, numButtonsPerRow, numButtonsPerColumn, configuration, callBackFunction, callBackContext, isMenu) {
+    ctor: function (position, size, numButtonsPerRow, numButtonsPerColumn, configuration, buttonHandler, start, numButtons) {
         this._super();
         this._configuration = configuration;
-        this._isMenu = isMenu;
+        this._buttonHandler = buttonHandler;
         this.setBackGroundColorType(ccui.Layout.BG_COLOR_SOLID);
         this.setBackGroundColor(cc.color.GREEN);
         this.setPosition(position);
-        this._currentSelectedItem = null;
-        this._callBackFunction = callBackFunction;
-        this._callBackContext = callBackContext;
-        var index = 0;
-        for (pageIndex = 0; pageIndex < configuration.length / (numButtonsPerRow * numButtonsPerColumn); pageIndex++) {
+        start = start || 0;
+        numButtons = numButtons || configuration.length;
+        // this._isMenu = isMenu;
+        // this._callBackFunction = callBackFunction;
+        // this._callBackContext = callBackContext;
+        // this._currentSelectedItem = null;
+        var index = start;
+        for (pageIndex = 0; pageIndex < (numButtons - start) / (numButtonsPerRow * numButtonsPerColumn); pageIndex++) {
             for (var rowIndex = 0; rowIndex < numButtonsPerColumn; rowIndex++) {
                 for (var colIndex = 0; colIndex < numButtonsPerRow; colIndex++) {
-                    if (index < configuration.length) {
+                    if (index < numButtons) {
                         cc.log('configuration[index]:' + configuration[index]);
                         var item;
                         try {
@@ -22,7 +25,7 @@ chimple.ButtonPanel = ccui.Layout.extend({
                             cc.log(error);
                             item = new ccui.Button(configuration[index]['icon'], configuration[index]['cIcon'], null, ccui.Widget.LOCAL_TEXTURE);
                         }
-                        item.addTouchEventListener(this.itemSelected, this);
+                        item.addTouchEventListener(this._buttonHandler.itemSelected, this._buttonHandler);
                         item.setPosition(pageIndex * size.width + (colIndex + 0.5) * size.width / numButtonsPerRow, size.height - (rowIndex + 0.5) * size.height / numButtonsPerColumn);
                         item._selectedIndex = index;
                         item.setName(configuration[index]['icon']);
@@ -44,8 +47,22 @@ chimple.ButtonPanel = ccui.Layout.extend({
         }
         this.setContentSize(cc.size(Math.ceil(configuration.length / (numButtonsPerRow * numButtonsPerColumn)) * size.width, size.height));
     },
+    
+    selectButton: function (sender) {
+        this._buttonHandler.selectButton(sender);
+    },
 
+    getButtonByName: function (name) {
+        return this.getChildByName(name);
+    }
+}); 
 
+chimple.ButtonHandler = cc.Class.extend({
+    ctor: function(callBackFunction, callBackContext, isMenu) {
+        this._isMenu = isMenu;
+        this._callBackFunction = callBackFunction;
+        this._callBackContext = callBackContext;
+    },
     itemSelected: function (sender, type) {
         switch (type) {
             case ccui.Widget.TOUCH_BEGAN:
@@ -53,16 +70,6 @@ chimple.ButtonPanel = ccui.Layout.extend({
                     if (this._currentSelectedItem != null && this._currentSelectedItem != sender) {
                         this._currentSelectedItem.setHighlighted(false);
                     }
-                } else {
-                    // if (sender._configuration.toggle) {
-                    //     if (sender._isToggled) {
-                    //         sender._isToggled = false;
-                    //         sender.setHighlighted(false);
-                    //     } else {
-                    //         sender._isToggled = true;
-                    //         sender.setHighlighted(true);
-                    //     }
-                    // }
                 }
                 break;
             case ccui.Widget.TOUCH_ENDED:
@@ -120,8 +127,5 @@ chimple.ButtonPanel = ccui.Layout.extend({
             }
             this._callBackFunction.call(this._callBackContext, sender);
         }
-    },
-    getButtonByName: function (name) {
-        return this.getChildByName(name);
     }
-}); 
+})

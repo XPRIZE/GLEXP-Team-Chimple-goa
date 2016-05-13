@@ -48,10 +48,10 @@ var PlayFullStoryLayer = cc.Layer.extend({
         this._contentPanel = new chimple.PlayContentPanel(this._contentPanelWidth, this._contentPanelWidth, cc.p(this._configPanelWidth, 0));
         this.addChild(this._contentPanel);
 
-        this._leftButtonPanel = new chimple.ButtonPanel(new cc.p(0, 0), cc.size(this._configPanelWidth, this._contentPanelWidth), 1, 1, chimple.onlyStoryPlayConfigurationObject.editDefault, this.previousStory, this, false);
+        this._leftButtonPanel = new chimple.ButtonPanel(new cc.p(0, 0), cc.size(this._configPanelWidth, this._contentPanelWidth), 1, 1, chimple.onlyStoryPlayConfigurationObject.editDefault, new chimple.ButtonHandler(this.previousStory, this, false));
         this.disableOrEnableAllButtons(this._leftButtonPanel, false);
         this.addChild(this._leftButtonPanel);
-        this._rightButtonPanel = new chimple.ButtonPanel(new cc.p(this._configPanelWidth + this._contentPanelWidth, 0), cc.size(this._configPanelWidth, this._contentPanelWidth), 1, 1, chimple.onlyStoryPlayConfigurationObject.nextDefault, this.nextStory, this, false);
+        this._rightButtonPanel = new chimple.ButtonPanel(new cc.p(this._configPanelWidth + this._contentPanelWidth, 0), cc.size(this._configPanelWidth, this._contentPanelWidth), 1, 1, chimple.onlyStoryPlayConfigurationObject.nextDefault, new chimple.ButtonHandler(this.nextStory, this, false));
         this.disableOrEnableAllButtons(this._rightButtonPanel, false);
         this.addChild(this._rightButtonPanel);
         this.setUpRecordedScene();
