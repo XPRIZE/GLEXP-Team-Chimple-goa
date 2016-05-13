@@ -145,44 +145,15 @@ chimple.ContentPanel = chimple.AbstractContentPanel.extend({
         }
     },
 
-    addTextToScene: function (existingText) {
-        this._sceneText = existingText || "Change Me!!! Create your own story!!!";
-        // this._sceneTextKey = this._storyKey + ".text";
-        // var textEditScene = new TextEditScene(this._sceneText, this._sceneTextKey);
-        // cc.director.pushScene(textEditScene);
-        this.parent.addChild(new chimple.TextCreatePanel(cc.director.getWinSize().width, cc.director.getWinSize().height, cc.p(0, 0), this._sceneText, this.processText, this));
+    addTextToScene: function () {
+        this.parent.addChild(new chimple.TextCreatePanel(cc.director.getWinSize().width, cc.director.getWinSize().height, cc.p(0, 0), chimple.story.sceneText, this.processText, this));
     },
 
     processText: function (text) {
         cc.log("text reccivec:" + text);
-
-        if (this._sceneTextNode != null) {
-            this._sceneTextNode.node.removeFromParent(true);
-        }
-        this._sceneTextNode = ccs.load(res.textTemplate_json);
-        this._constructedScene.addChild(this._sceneTextNode.node);
-        if (this._sceneTextNode.node.children != null && this._sceneTextNode.node.children.length > 0) {
-            var panelNode = this._sceneTextNode.node.children[0];
-            if (panelNode != null && panelNode.children != null && panelNode.children.length == 1) {
-                var textNode = panelNode.children[0];
-                textNode.setString(text);
-                this.registerEventListenerForChild(panelNode);
-            }
-        }
-        this.parseText(res.bubble_png, this._sceneTextNode);
+        chimple.story.sceneText = text;
     },
-
-    saveText: function (textPanelObject, resourcePath) {
-        var textNodeObject = chimple.ParseUtil.constructJSONFromText(textPanelObject, resourcePath);
-        cc.log('JSON.stringify(textNodeObject):' + JSON.stringify(textNodeObject));
-        chimple.ParseUtil.saveObjectToStoredScene(textNodeObject);
-    },
-
-    parseText: function (fileToLoad, load) {
-        var resourcePath = fileToLoad.replace("/res/", "");
-        this.saveText(load.node.children[0], resourcePath);
-    },
-
+   
     playSceneInEditMode: function () {               
         var playScene = new PlayRecordingScene();
         cc.director.pushScene(playScene);
