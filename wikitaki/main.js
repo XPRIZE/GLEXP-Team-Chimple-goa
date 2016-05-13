@@ -65,7 +65,7 @@ chimple.DEVICE_HEIGHT = 450;
     var c = {
         "project_type": "javascript",
 
-        "debugMode": 0,
+        "debugMode": 1,
         "showFPS": false,
         "frameRate": 60,
         "noCache": false,

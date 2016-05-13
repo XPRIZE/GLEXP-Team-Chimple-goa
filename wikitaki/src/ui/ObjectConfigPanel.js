@@ -14,18 +14,18 @@ chimple.ObjectConfigPanel = cc.LayerColor.extend({
         this.addChild(buttonPanel, 1);
     },
     getDefaultPanel: function () {
-        return new chimple.ButtonPanel(new cc.p(0, 0), this.getContentSize(), 1, 6, this._configuration.editDefault, this.buttonPressed, this);
+        return new chimple.ButtonPanel(new cc.p(0, 0), this.getContentSize(), 1, 6, this._configuration.editDefault, new chimple.ButtonHandler(this.buttonPressed, this));
     },
     setTarget: function (target) {
         if (this._target != target) {
             this._target = target;
             if (target.getName().indexOf("Skeleton") != -1) {
-                this.setButtonPanel(new chimple.ButtonPanel(new cc.p(0, 0), this.getContentSize(), 1, 6, this._configuration.editCharacter, this.buttonPressed, this));
+                this.setButtonPanel(new chimple.ButtonPanel(new cc.p(0, 0), this.getContentSize(), 1, 6, this._configuration.editCharacter, new chimple.ButtonHandler(this.buttonPressed, this)));
             } else if (target.getName().indexOf("ChimpleCustomText") != -1) {
-                this.setButtonPanel(new chimple.ButtonPanel(new cc.p(0, 0), this.getContentSize(), 1, 6, this._configuration.editText, this.buttonPressed, this));
+                this.setButtonPanel(new chimple.ButtonPanel(new cc.p(0, 0), this.getContentSize(), 1, 6, this._configuration.editText, new chimple.ButtonHandler(this.buttonPressed, this)));
             }
             else {
-                this.setButtonPanel(new chimple.ButtonPanel(new cc.p(0, 0), this.getContentSize(), 1, 6, this._configuration.editObject, this.buttonPressed, this));
+                this.setButtonPanel(new chimple.ButtonPanel(new cc.p(0, 0), this.getContentSize(), 1, 6, this._configuration.editObject, new chimple.ButtonHandler(this.buttonPressed, this)));
             }
         }
     },
