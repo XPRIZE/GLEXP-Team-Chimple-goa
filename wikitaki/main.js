@@ -65,8 +65,8 @@ chimple.DEVICE_HEIGHT = 450;
     var c = {
         "project_type": "javascript",
 
-        "debugMode": 1,
-        "showFPS": true,
+        "debugMode": 0,
+        "showFPS": false,
         "frameRate": 60,
         "noCache": false,
         "id": "gameCanvas",
