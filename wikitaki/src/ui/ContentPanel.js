@@ -150,7 +150,7 @@ chimple.ContentPanel = chimple.AbstractContentPanel.extend({
     },
 
     processText: function (text) {
-        cc.log("text reccivec:" + text);
+        console.log("text reccivec:" + text);
         chimple.story.sceneText = text;
     },
    

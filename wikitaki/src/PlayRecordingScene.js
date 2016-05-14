@@ -2,7 +2,7 @@
 var chimple = chimple || {};
 chimple.PLAY_KEY = "/res/chimplePlayStory.json";
 
-var PlayRecordingLayer = cc.Layer.extend({    
+var PlayRecordingLayer = cc.Layer.extend({
     _defaultPageIndex: 0,
     _contentPanel: null,
     _pageConfigPanel: null,
@@ -29,27 +29,46 @@ var PlayRecordingLayer = cc.Layer.extend({
         this.addChild(this._objectConfigPanel);
         this._contentPanel._objectConfigPanel = this._objectConfigPanel;
 
-        this._pageConfigPanel = new chimple.PageConfigPanel(this._configPanelWidth, this._configPanelHeight, cc.p(this._configPanelWidth + this._contentPanelWidth, 0), chimple.storyPlayConfigurationObject, this._contentPanel);
-        this.addChild(this._pageConfigPanel);
+        // this._pageConfigPanel = new chimple.PageConfigPanel(this._configPanelWidth, this._configPanelHeight, cc.p(this._configPanelWidth + this._contentPanelWidth, 0), chimple.storyPlayConfigurationObject, this._contentPanel);
+        // this.addChild(this._pageConfigPanel);
 
         this.playRecordedScene();
+
+
     },
 
-    // isPlayEnded: function () {
-    //     if (this._playDuration == undefined || this._playDuration == null) {
-    //         return true;
-    //     }
-    //     if (!(this._recordedScene.action.getCurrentFrame() < this._playDuration)) {
-    //         return true;
-    //     }
 
-    //     return false;
-    // },
+    playEnded: function () {
+        if (chimple.story.sceneText != null && chimple.story.sceneText !== "undefined") {
+            this.referenceToContext._textField = new ccui.WebView();
+            this.referenceToContext._textField.loadURL("/displayText.html?height=" + 450 + '&contents=' + chimple.story.sceneText);
+            //this._textField.setPosition(cc.director.getWinSize().width / 2, cc.director.getWinSize().height / 2);
+            //this._textField.setContentSize(cc.size(cc.director.getWinSize().width, cc.director.getWinSize().height));
+            this.referenceToContext._textField.setPosition(64, 0);
+            this.referenceToContext._textField.setContentSize(cc.size(cc.director.getWinSize().width - 64, cc.director.getWinSize().height));
+            this.referenceToContext._textField.setScalesPageToFit(true);
+            this.referenceToContext._textField.setAnchorPoint(0,0);
+            this.referenceToContext.addChild(this.referenceToContext._textField, 0);
+            
+            this.referenceToContext._leftButtonPanel = new chimple.ButtonPanel(new cc.p(0, 0), cc.size(64,450), 1, 1, chimple.onlyStoryPlayConfigurationObject.editDefault, new chimple.ButtonHandler(this.referenceToContext.closeWebView, this.referenceToContext, false));
+            this.referenceToContext.addChild(this.referenceToContext._leftButtonPanel,1);
+            
+        }
+    },
 
+    closeWebView: function() {
+        this._textField.removeFromParent(true);
+        this._leftButtonPanel.removeFromParent(true);
+    },
+    
     playRecordedScene: function () {
         if (this._contentPanel._constructedScene.node) {
-            this._contentPanel._constructedScene.node.runAction(this._contentPanel._constructedScene.action);
+
+            this._contentPanel._constructedScene.action.referenceToContext = this;
+            this._contentPanel._constructedScene.action.setLastFrameCallFunc(this.playEnded);
+            this._contentPanel._constructedScene.action.gotoFrameAndPause(0);
             this._playDuration = cc.sys.localStorage.getItem("duration");
+            this._contentPanel._constructedScene.node.runAction(this._contentPanel._constructedScene.action);
             this._contentPanel._constructedScene.action.gotoFrameAndPlay(0, this._playDuration, 0, false);
 
             if (!cc.sys.isNative) {
