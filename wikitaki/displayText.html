@@ -44,7 +44,7 @@
             $('#meaning-div').hide();
             text = text.replace(/\W+/g, '');
 
-            var url = 'dictionary/' + text.toLocaleLowerCase() + '.json';
+            var url = '/dictionary/' + text.toLocaleLowerCase() + '.json';
             console.log('dictionary/url ' + url);
             var meaning = '';
             $.getJSON(url, function (jd) {
