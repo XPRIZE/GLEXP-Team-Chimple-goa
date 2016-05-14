@@ -8,10 +8,6 @@ chimple.ButtonPanel = ccui.Layout.extend({
         this.setPosition(position);
         start = start || 0;
         numButtons = numButtons || configuration.length;
-        // this._isMenu = isMenu;
-        // this._callBackFunction = callBackFunction;
-        // this._callBackContext = callBackContext;
-        // this._currentSelectedItem = null;
         var index = start;
         for (var pageIndex = 0; pageIndex < (numButtons - start) / (numButtonsPerRow * numButtonsPerColumn); pageIndex++) {
             for (var rowIndex = 0; rowIndex < numButtonsPerColumn; rowIndex++) {

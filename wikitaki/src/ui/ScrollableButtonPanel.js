@@ -8,10 +8,6 @@ chimple.ScrollableButtonPanel = ccui.PageView.extend({
         for (var pageIndex = 0; pageIndex < configuration.length / (numButtonsPerRow * numButtonsPerColumn); pageIndex++) {
             this.addPage(new chimple.ButtonPanel(cc.p(0, 0), size, numButtonsPerRow, numButtonsPerColumn, configuration, this._buttonHandler, pageIndex * (numButtonsPerRow * numButtonsPerColumn), (numButtonsPerRow * numButtonsPerColumn)))
         }
-        // this._buttonPanel = new chimple.ButtonPanel(cc.p(0, 0), size, numButtonsPerRow, numButtonsPerColumn, configuration, this._buttonHandler);
-        // this.addChild(this._buttonPanel);
-        // this.setInnerContainerSize(cc.size(Math.ceil(configuration.length / (numButtonsPerRow * numButtonsPerColumn)) * size.width, size.height));
-        // this.setDirection(ccui.ScrollView.DIR_HORIZONTAL); 
         this.setClippingEnabled(true);       
     },
     itemSelected: function (sender, type) {
@@ -29,12 +25,10 @@ chimple.ScrollableButtonPanel = ccui.PageView.extend({
                 return button;
             }
         }
-        // return this._buttonPanel.getButtonByName(name);
     },
     
     scrollableButtonPanel_moveLeft : function()
     {
-        // this.scrollToLeft(5, true);
         if(this.getCurPageIndex() > 0) {
             this.scrollToPage(this.getCurPageIndex() - 1);        
         }
