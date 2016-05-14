@@ -1,6 +1,6 @@
 chimple.PageConfigPanel = cc.LayerColor.extend({
     ctor: function (width, height, position, configuration, contentPanel) {
-        this._super(cc.color.RED, width, height);
+        this._super(cc.color.GREEN, width, height);
         this.setPosition(position);
         this._configuration = configuration;
         this._contentPanel = contentPanel;

@@ -157,22 +157,30 @@ var PlayFullStoryLayer = cc.Layer.extend({
 
     playEnded: function () {
         cc.log('play ended');
+
+        //create delay action
+        var delayAction = new cc.delayTime(2);
+        var createWebViewAction = new cc.CallFunc(this.referenceToContext.createWebView, this.referenceToContext);
+        var playEndSequence = new cc.sequence(delayAction, createWebViewAction);
+        this.referenceToContext.runAction(playEndSequence);
+    },
+
+    createWebView: function () {
         if (chimple.story.sceneText != null && chimple.story.sceneText !== "undefined") {
-            this.referenceToContext._textField = new ccui.WebView();
-            this.referenceToContext._textField.loadURL("/displayText.html?height=" + 450 + '&contents=' + chimple.story.sceneText);
+            this._textField = new ccui.WebView();
+            this._textField.loadURL("/displayText.html?height=" + 450 + '&contents=' + chimple.story.sceneText);
             //this._textField.setPosition(cc.director.getWinSize().width / 2, cc.director.getWinSize().height / 2);
             //this._textField.setContentSize(cc.size(cc.director.getWinSize().width, cc.director.getWinSize().height));
-            this.referenceToContext._textField.setPosition(64, 0);
-            this.referenceToContext._textField.setContentSize(cc.size(cc.director.getWinSize().width - 64, cc.director.getWinSize().height));
-            this.referenceToContext._textField.setScalesPageToFit(true);
-            this.referenceToContext._textField.setAnchorPoint(0, 0);
-            this.referenceToContext.addChild(this.referenceToContext._textField, 0);
+            this._textField.setPosition(64, 0);
+            this._textField.setContentSize(cc.size(cc.director.getWinSize().width - 64, cc.director.getWinSize().height));
+            this._textField.setScalesPageToFit(true);
+            this._textField.setAnchorPoint(0, 0);
+            this.addChild(this._textField, 0);
 
-            this.referenceToContext._leftButtonPanel = new chimple.ButtonPanel(new cc.p(0, 0), cc.size(64, 450), 1, 1, chimple.onlyStoryPlayConfigurationObject.editDefault, new chimple.ButtonHandler(this.referenceToContext.closeWebView, this.referenceToContext, false));
-            this.referenceToContext.addChild(this.referenceToContext._leftButtonPanel, 1);
+            this._leftButtonPanel = new chimple.ButtonPanel(new cc.p(0, 0), cc.size(64, 450), 1, 1, chimple.onlyStoryPlayConfigurationObject.editDefault, new chimple.ButtonHandler(this.closeWebView, this, false));
+            this.addChild(this._leftButtonPanel, 1);
 
         }
-
     },
 
     playRecordedScene: function () {
