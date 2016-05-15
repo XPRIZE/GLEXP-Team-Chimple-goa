@@ -74,33 +74,34 @@ chimple.CharacterUtil.applySkinNameMap = function (skeleton, configuration) {
                 bone.displaySkin(name);
             }
         }
-
-        var uniqueCharacterID = null;
-        if (configuration.favoriteSkins && configuration.favoriteSkins.length > 0) {
-            chimple.CharacterUtil.displaySkins(skeleton, configuration.favoriteSkins);
-            uniqueCharacterID = configuration.uniqueCharacterID;
-        } else {
-            uniqueCharacterID = "skeleton_%%_" + chimple.ParseUtil.generateUUID();
-        }
-
-        if (!skeleton.uniqueCharacterID) {
-            skeleton.uniqueCharacterID = uniqueCharacterID;
-            chimple.ParseUtil.updateUserData(skeleton._actionTag, 'uniqueCharacterID', skeleton.uniqueCharacterID);
-        }
-
-        chimple.ParseUtil.updateUserData(skeleton._actionTag, 'visibleSkins', chimple.CharacterUtil.getVisibleSkins(skeleton));
-
-
-        if (!configuration.favoriteSkins) {
-            chimple.CharacterUtil.addCharacterToFavorites(skeleton, configuration);
-        }
-
     }
+    var uniqueCharacterID = null;
+    if (configuration.favoriteSkins && configuration.favoriteSkins.length > 0) {
+        chimple.CharacterUtil.displaySkins(skeleton, configuration.favoriteSkins);
+        uniqueCharacterID = configuration.uniqueCharacterID;
+    } else {
+        uniqueCharacterID = "skeleton_%%_" + chimple.ParseUtil.generateUUID();
+    }
+
+    if (!skeleton.uniqueCharacterID) {
+        skeleton.uniqueCharacterID = uniqueCharacterID;
+        chimple.ParseUtil.updateUserData(skeleton._actionTag, 'uniqueCharacterID', skeleton.uniqueCharacterID);
+    }
+
+    chimple.ParseUtil.updateUserData(skeleton._actionTag, 'visibleSkins', chimple.CharacterUtil.getVisibleSkins(skeleton));
+
+
+    if (!configuration.favoriteSkins) {
+        chimple.CharacterUtil.addCharacterToFavorites(skeleton, configuration);
+    }
+
 }
 
 chimple.CharacterUtil.addCharacterToFavorites = function (skeleton, configuration) {
     //check if configuration is already added into favorites
     var favoriteCharConfiguration = JSON.parse(JSON.stringify(configuration));
+    favoriteCharConfiguration.type = "character";
+    favoriteCharConfiguration.json = '/res/' + skeleton._userData.resourcePath;
     favoriteCharConfiguration.uniqueCharacterID = skeleton.uniqueCharacterID;
     favoriteCharConfiguration.favoriteSkins = [];
     skeleton._userData.visibleSkins.forEach(function (element) {
@@ -114,7 +115,7 @@ chimple.CharacterUtil.addCharacterToFavorites = function (skeleton, configuratio
 chimple.CharacterUtil.addToCharacterConfigs = function (characterConfig) {
     var characterCategories = chimple.storyConfigurationObject.addObjects[3].categories;
     if (characterCategories.length > chimple.initalCharacterCategories) {
-        characterCategories.splice(-1, 1);
+        characterCategories.splice(2);
     }
     characterCategories.push(characterConfig);
 

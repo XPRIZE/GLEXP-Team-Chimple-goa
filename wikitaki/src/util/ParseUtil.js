@@ -77,7 +77,7 @@ chimple.ParseUtil.removeObjectFromStoredScene = function (tag) {
 }
 
 chimple.ParseUtil.updateUserData = function (tag, dataKey, dataValue) {
-    if (chimple.story && chimple.story.items != null) {
+    if (chimple.story && chimple.story.items != null && chimple.story.items[chimple.pageIndex].scene.Content) {
         var children = chimple.story.items[chimple.pageIndex].scene.Content.Content.ObjectData.Children;
         for (var index = 0; index < children.length; index++) {
             if (children[index].ActionTag == tag) {
@@ -155,6 +155,7 @@ chimple.ParseUtil.constructJSONFromCharacter = function (skeleton, resourcePath)
     };
 
     existingUserData.currentAnimationName = skeleton._currentAnimationName;
+    existingUserData.resourcePath = resourcePath;
     object.UserData = existingUserData;
 
     skeleton._actionTag = object.ActionTag;
