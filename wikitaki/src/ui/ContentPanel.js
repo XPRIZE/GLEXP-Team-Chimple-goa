@@ -151,7 +151,6 @@ chimple.ContentPanel = chimple.AbstractContentPanel.extend({
     },
 
     processText: function (text) {
-        console.log("text reccivec:" + text);
         chimple.story.sceneText = text;
     },
 
@@ -389,7 +388,6 @@ chimple.ContentPanel = chimple.AbstractContentPanel.extend({
         if (this._isRecordingStarted && this._nodesSelected != null && this._nodesSelected.length > 0) {
             this._recordingFrameIndex = this._recordingFrameIndex + 1;
             this._nodesSelected.forEach(function (element) {
-                console.log('record movement for Node:' + element);
                 //construct position, rotation and scale framedata for now for each timesecond
                 this.constructFrameData(element, this._recordingFrameIndex);
                 this.constructAnimationFrameData(element, this._recordingFrameIndex, false);

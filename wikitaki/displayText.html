@@ -45,10 +45,8 @@
             text = text.replace(/\W+/g, '');
 
             var url = '/dictionary/' + text.toLocaleLowerCase() + '.json';
-            console.log('dictionary/url ' + url);
             var meaning = '';
             $.getJSON(url, function (jd) {
-                        console.log(jd);
                         meaning = jd.meaning;
                         meaning = $(meaning).text();
                         $("#meaning-word").html('<p>' + text + '</p>');
@@ -65,13 +63,11 @@
                     })
 
                     .fail(function () {
-                        console.log("error");
                         $("#meaning-word").html('<p>failed to retrieve meaning for word:' + text + '</p>');
                         $('#meaning-row-div').show();
                         $('#meaning-div').hide();
                     })
                     .always(function () {
-                        console.log("complete");
                     });
 
 

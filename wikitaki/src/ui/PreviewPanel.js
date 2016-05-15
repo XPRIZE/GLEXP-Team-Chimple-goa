@@ -12,10 +12,6 @@ chimple.PreviewPanel = cc.LayerColor.extend({
         this._targetScale = target.getScale();
         target.removeFromParent(false);
         cc.eventManager.removeListeners(target);
-        cc.log(target);
-        // target.anchorX = 0.5;
-        // target.anchorY = 0.5;
-        cc.log(target);
         this.addChild(target);
         target.setPosition(width * 90 / 100, 600);
         target.scaleX = 0.5;
