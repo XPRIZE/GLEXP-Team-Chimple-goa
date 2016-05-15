@@ -10,7 +10,7 @@ chimple.CharacterUtil.displaySkins = function (character, skins) {
             bone.displaySkin(element.bone);
         }
     }, this);
-    chimple.ParseUtil.updateUserData(character._actionTag, 'visibleSkins', chimple.CharacterUtil.getVisibleSkins(character));
+    chimple.ParseUtil.updateUserData(character._actionTag, 'visibleSkins', chimple.CharacterUtil.getVisibleSkins(character));    
 }
 
 chimple.CharacterUtil.getVisibleSkins = function (character) {
@@ -59,7 +59,7 @@ chimple.CharacterUtil.loadSkeletonConfig = function (skeleton, selectedConfigura
                 chimple.CharacterUtil.applySkinNameMap(skeleton, selectedConfiguration);
             }
         }
-    });
+    });        
 }
 
 chimple.CharacterUtil.applySkinNameMap = function (skeleton, configuration) {
@@ -75,8 +75,13 @@ chimple.CharacterUtil.applySkinNameMap = function (skeleton, configuration) {
             }
         }
 
+        //apply fav skins if present
+        //chimple.CharacterUtil.displaySkins(element, element._userData.visibleSkins);
+        if(configuration.favSkins && configuration.favSkins.length > 0) {
+            chimple.CharacterUtil.displaySkins(skeleton, configuration.favSkins);
+        }
         chimple.ParseUtil.updateUserData(skeleton._actionTag, 'visibleSkins', chimple.CharacterUtil.getVisibleSkins(skeleton));
-
+        chimple.ParseUtil.updateUserData(skeleton._actionTag, 'appliedSkinMap', configuration.skinNameMap);
     }
 
 }

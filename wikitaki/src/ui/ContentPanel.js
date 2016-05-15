@@ -54,6 +54,7 @@ chimple.ContentPanel = chimple.AbstractContentPanel.extend({
         var resourcePath = fileToLoad.substring(0, fileToLoad.lastIndexOf("/") + 1);
         var context = this;
         data = cc.loader.cache[fileToLoad];
+        data=JSON.parse(JSON.stringify(data));
         if (data != null) {
             //new scene added
             chimple.ParseUtil.saveScene(data);
@@ -365,12 +366,12 @@ chimple.ContentPanel = chimple.AbstractContentPanel.extend({
                 var dataURL = gameCanvas.toDataURL("image/png");
                 var imageData = new Image();
                 imageData.src = dataURL;
-                
+
                 var snapShotCanvas = document.getElementById('snapShotCanvas');
                 var ctx = snapShotCanvas.getContext("2d");
-                var xOffSet = (cc.director.getWinSize().width - cc.director.getWinSize().height)/2; 
+                var xOffSet = (cc.director.getWinSize().width - cc.director.getWinSize().height) / 2;
                 ctx.drawImage(imageData, xOffSet, 0, cc.director.getWinSize().height, cc.director.getWinSize().height, 0, 0, 450, 450);
-                var snapShotDataURL = snapShotCanvas.toDataURL("image/png");                
+                var snapShotDataURL = snapShotCanvas.toDataURL("image/png");
                 chimple.story.titlePageDataURL = snapShotDataURL;
                 ctx.clearRect(0, 0, snapShotCanvas.width, snapShotCanvas.height);
                 snapShotCanvas = null;

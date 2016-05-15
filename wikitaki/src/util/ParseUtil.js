@@ -11,7 +11,7 @@ chimple.ParseUtil.saveScene = function (scene) {
 chimple.ParseUtil.saveObjectToStoredScene = function (jsonObject) {
     if (chimple.story && chimple.story.items != null) {
         var replace = false;
-        var children = chimple.story.items[chimple.pageIndex].scene.Content.Content.ObjectData.Children;
+        let children = chimple.story.items[chimple.pageIndex].scene.Content.Content.ObjectData.Children;
         for (var index = 0; index < children.length; index++) {
             if (children[index].ActionTag == jsonObject.ActionTag) {
                 children.splice(index, 1, jsonObject);
