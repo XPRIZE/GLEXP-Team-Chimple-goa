@@ -54,7 +54,7 @@ chimple.ContentPanel = chimple.AbstractContentPanel.extend({
         var resourcePath = fileToLoad.substring(0, fileToLoad.lastIndexOf("/") + 1);
         var context = this;
         data = cc.loader.cache[fileToLoad];
-        data=JSON.parse(JSON.stringify(data));
+        data = JSON.parse(JSON.stringify(data));
         if (data != null) {
             //new scene added
             chimple.ParseUtil.saveScene(data);

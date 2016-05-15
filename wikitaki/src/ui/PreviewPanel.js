@@ -70,45 +70,14 @@ chimple.PreviewPanel = cc.LayerColor.extend({
     },
 
     goBack: function () {
-        //create custom configuration for fav chars
-        var context = this;
-        var selectedChar = null;
-        var referenceToEle = null;
-        chimple.storyConfigurationObject.addObjects.forEach(function (ele) {
-            if (ele.name == 'characters') {
-                referenceToEle = ele;
-                ele.categories.forEach(function (ob) {
-                    if (ob.name == 'humans') {
-                        if (ob.items) {
-                            ob.items.forEach(function (item) {
-                                if (item.skinNameMap == context._target._userData.appliedSkinMap) {
-                                    selectedChar = {};
-                                    selectedChar.icon = item.icon;
-                                    selectedChar.json = item.json;
-                                    selectedChar.skinNameMap = item.skinNameMap;
-                                    selectedChar.type = item.type;                                                                                                                                           
-                                }
-                            });
-                        }
-                    }
-
-                });
-                if (referenceToEle && selectedChar) {
-                    //create fav skins
-                    selectedChar.favSkins = [];
-                    context._target._userData.visibleSkins.forEach(function (element) {
-                        selectedChar.favSkins.push(element);
-                    }, context);
-                    chimple.customCharacters.items.push(selectedChar);
-                    if(referenceToEle.categories.length > chimple.initalCharacterCategories) {
-                        referenceToEle.categories.splice(-1,1);    
-                    }
-                    
-                    referenceToEle.categories.push(chimple.customCharacters);
+        //update skins and color based on user selection
+        if(chimple.customCharacters && chimple.customCharacters.items) {
+            chimple.customCharacters.items.forEach(function(element) {
+                if(element.uniqueCharacterID == this._target.uniqueCharacterID) {
+                    element.favoriteSkins = this._target._userData.visibleSkins;
                 }
-            }
-
-        });
+            }, this);
+        }                 
 
         this.removeChild(this._target, false);
         this._targetParent.addChild(this._target);

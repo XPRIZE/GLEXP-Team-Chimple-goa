@@ -395,7 +395,7 @@ chimple.ParseUtil.generateUUID = function () {
 
 
 chimple.ParseUtil.changeSize = function (obj, name, scaleFactor) {
-    if(obj['ChimpleCompressed']) {
+    if (obj['ChimpleCompressed']) {
         return;
     }
     if (obj['ctype'] && obj['ctype'] == 'PointFrameData') {
@@ -411,5 +411,18 @@ chimple.ParseUtil.changeSize = function (obj, name, scaleFactor) {
         if (typeof (element) == 'object') {
             this.changeSize(element, key, scaleFactor);
         }
+    }
+}
+
+
+chimple.ParseUtil.disableFavoriteChoiceIfCharacterAlreadyLoadedInPage = function (item, itemConfiguration) {
+    if (itemConfiguration && itemConfiguration['uniqueCharacterID'] &&
+        chimple.story.items[chimple.pageIndex].scene.Content && chimple.story.items[chimple.pageIndex].scene.Content.Content
+        && chimple.story.items[chimple.pageIndex].scene.Content.Content.ObjectData) {
+        chimple.story.items[chimple.pageIndex].scene.Content.Content.ObjectData.Children.forEach(function (child) {
+            if(child.UserData && child.UserData.uniqueCharacterID == itemConfiguration['uniqueCharacterID']) {
+                item.setEnabled(false);
+            }
+        }, this);
     }
 }

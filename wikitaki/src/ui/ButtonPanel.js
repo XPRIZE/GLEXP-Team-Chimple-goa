@@ -15,12 +15,15 @@ chimple.ButtonPanel = ccui.Layout.extend({
                     if (index < configuration.length - pageIndex * (numButtonsPerRow * numButtonsPerColumn)) {
                         cc.log('configuration[index]:' + configuration[index]);
                         var item;
-                        try {
+                        try {                            
                             item = new ccui.Button(configuration[index]['icon'], configuration[index]['cIcon'], null, ccui.Widget.PLIST_TEXTURE);
                         } catch (error) {
                             cc.log(error);
                             item = new ccui.Button('icons/my_pet.png', 'icons/my_pet_onclick.png', null, ccui.Widget.PLIST_TEXTURE);
                         }
+                        item.setEnabled(true);
+                        chimple.ParseUtil.disableFavoriteChoiceIfCharacterAlreadyLoadedInPage(item, configuration[index]);
+                        
                         item.addTouchEventListener(this._buttonHandler.itemSelected, this._buttonHandler);
                         item.setPosition(pageIndex * size.width + (colIndex + 0.5) * size.width / numButtonsPerRow, size.height - (rowIndex + 0.5) * size.height / numButtonsPerColumn);
                         item._selectedIndex = index;

@@ -10,7 +10,7 @@ chimple.CharacterUtil.displaySkins = function (character, skins) {
             bone.displaySkin(element.bone);
         }
     }, this);
-    chimple.ParseUtil.updateUserData(character._actionTag, 'visibleSkins', chimple.CharacterUtil.getVisibleSkins(character));    
+    chimple.ParseUtil.updateUserData(character._actionTag, 'visibleSkins', chimple.CharacterUtil.getVisibleSkins(character));
 }
 
 chimple.CharacterUtil.getVisibleSkins = function (character) {
@@ -59,7 +59,7 @@ chimple.CharacterUtil.loadSkeletonConfig = function (skeleton, selectedConfigura
                 chimple.CharacterUtil.applySkinNameMap(skeleton, selectedConfiguration);
             }
         }
-    });        
+    });
 }
 
 chimple.CharacterUtil.applySkinNameMap = function (skeleton, configuration) {
@@ -75,14 +75,48 @@ chimple.CharacterUtil.applySkinNameMap = function (skeleton, configuration) {
             }
         }
 
-        //apply fav skins if present
-        //chimple.CharacterUtil.displaySkins(element, element._userData.visibleSkins);
-        if(configuration.favSkins && configuration.favSkins.length > 0) {
-            chimple.CharacterUtil.displaySkins(skeleton, configuration.favSkins);
+        var uniqueCharacterID = null;
+        if (configuration.favoriteSkins && configuration.favoriteSkins.length > 0) {
+            chimple.CharacterUtil.displaySkins(skeleton, configuration.favoriteSkins);
+            uniqueCharacterID = configuration.uniqueCharacterID;
+        } else {
+            uniqueCharacterID = "skeleton_%%_" + chimple.ParseUtil.generateUUID();
         }
+
+        if (!skeleton.uniqueCharacterID) {
+            skeleton.uniqueCharacterID = uniqueCharacterID;
+            chimple.ParseUtil.updateUserData(skeleton._actionTag, 'uniqueCharacterID', skeleton.uniqueCharacterID);
+        }
+
         chimple.ParseUtil.updateUserData(skeleton._actionTag, 'visibleSkins', chimple.CharacterUtil.getVisibleSkins(skeleton));
-        chimple.ParseUtil.updateUserData(skeleton._actionTag, 'appliedSkinMap', configuration.skinNameMap);
+
+
+        if (!configuration.favoriteSkins) {
+            chimple.CharacterUtil.addCharacterToFavorites(skeleton, configuration);
+        }
+
     }
+}
+
+chimple.CharacterUtil.addCharacterToFavorites = function (skeleton, configuration) {
+    //check if configuration is already added into favorites
+    var favoriteCharConfiguration = JSON.parse(JSON.stringify(configuration));
+    favoriteCharConfiguration.uniqueCharacterID = skeleton.uniqueCharacterID;
+    favoriteCharConfiguration.favoriteSkins = [];
+    skeleton._userData.visibleSkins.forEach(function (element) {
+        favoriteCharConfiguration.favoriteSkins.push(element);
+    }, this);
+
+    chimple.customCharacters.items.push(favoriteCharConfiguration);
+    chimple.CharacterUtil.addToCharacterConfigs(chimple.customCharacters);
+}
+
+chimple.CharacterUtil.addToCharacterConfigs = function (characterConfig) {
+    var characterCategories = chimple.storyConfigurationObject.addObjects[3].categories;
+    if (characterCategories.length > chimple.initalCharacterCategories) {
+        characterCategories.splice(-1, 1);
+    }
+    characterCategories.push(characterConfig);
 
 }
 
