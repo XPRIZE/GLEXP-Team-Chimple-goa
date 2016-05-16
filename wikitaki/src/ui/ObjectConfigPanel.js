@@ -81,8 +81,9 @@ chimple.ObjectConfigPanel = cc.LayerColor.extend({
     },
     skinSelected: function (selectedItem) {
         if (this._target != null && selectedItem._configuration) {
-            if (selectedItem._configuration.skins) {
+            if (selectedItem._configuration.skins) {                
                 chimple.CharacterUtil.displaySkins(this._target, selectedItem._configuration.skins);
+                
             } else if (selectedItem._configuration.colorSkins) {
                 chimple.CharacterUtil.colorSkins(this._target, selectedItem._configuration.colorSkins);
             }

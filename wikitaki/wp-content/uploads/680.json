@@ -1,1 +1,976 @@
-{"items":[{"cIcon":"/res/mouth_2_onclick.png","icon":"/res/story_page_1.png","scene":{"ID":"a2ee0952-26b5-49ae-8bf9-4f1d6279b798","Version":"3.10.0.0","Name":"MainScene","Content":{"Content":{"Animation":{"Duration":67,"Speed":1,"Timelines":[{"ActionTag":-1463048277668,"Property":"Position","Frames":[{"FrameIndex":1,"EasingData":{"Type":0},"ctype":"PointFrameData","X":89.39024390243904,"Y":18.274390243902438},{"FrameIndex":2,"EasingData":{"Type":0},"ctype":"PointFrameData","X":89.39024390243904,"Y":18.274390243902438},{"FrameIndex":3,"EasingData":{"Type":0},"ctype":"PointFrameData","X":89.39024390243904,"Y":18.274390243902438},{"FrameIndex":4,"EasingData":{"Type":0},"ctype":"PointFrameData","X":89.39024390243904,"Y":18.274390243902438},{"FrameIndex":5,"EasingData":{"Type":0},"ctype":"PointFrameData","X":89.39024390243904,"Y":18.274390243902438},{"FrameIndex":6,"EasingData":{"Type":0},"ctype":"PointFrameData","X":89.39024390243904,"Y":18.274390243902438},{"FrameIndex":7,"EasingData":{"Type":0},"ctype":"PointFrameData","X":89.39024390243904,"Y":18.274390243902438},{"FrameIndex":8,"EasingData":{"Type":0},"ctype":"PointFrameData","X":89.39024390243904,"Y":18.274390243902438},{"FrameIndex":9,"EasingData":{"Type":0},"ctype":"PointFrameData","X":85,"Y":56.30487804878048},{"FrameIndex":10,"EasingData":{"Type":0},"ctype":"PointFrameData","X":86.09756097560975,"Y":57.29268292682926},{"FrameIndex":11,"EasingData":{"Type":0},"ctype":"PointFrameData","X":89.39024390243904,"Y":59.76219512195122},{"FrameIndex":12,"EasingData":{"Type":0},"ctype":"PointFrameData","X":94.8780487804878,"Y":62.23170731707316},{"FrameIndex":13,"EasingData":{"Type":0},"ctype":"PointFrameData","X":100.3658536585366,"Y":64.70121951219511},{"FrameIndex":14,"EasingData":{"Type":0},"ctype":"PointFrameData","X":110.2439024390244,"Y":68.15853658536585},{"FrameIndex":15,"EasingData":{"Type":0},"ctype":"PointFrameData","X":117.92682926829269,"Y":70.1341463414634},{"FrameIndex":16,"EasingData":{"Type":0},"ctype":"PointFrameData","X":126.70731707317074,"Y":72.60365853658536},{"FrameIndex":17,"EasingData":{"Type":0},"ctype":"PointFrameData","X":137.6829268292683,"Y":73.59146341463413},{"FrameIndex":18,"EasingData":{"Type":0},"ctype":"PointFrameData","X":147.5609756097561,"Y":74.57926829268293},{"FrameIndex":19,"EasingData":{"Type":0},"ctype":"PointFrameData","X":158.53658536585365,"Y":75.5670731707317},{"FrameIndex":20,"EasingData":{"Type":0},"ctype":"PointFrameData","X":169.5121951219512,"Y":76.0609756097561},{"FrameIndex":21,"EasingData":{"Type":0},"ctype":"PointFrameData","X":179.390243902439,"Y":76.0609756097561},{"FrameIndex":22,"EasingData":{"Type":0},"ctype":"PointFrameData","X":188.1707317073171,"Y":76.55487804878048},{"FrameIndex":23,"EasingData":{"Type":0},"ctype":"PointFrameData","X":195.85365853658539,"Y":76.55487804878048},{"FrameIndex":24,"EasingData":{"Type":0},"ctype":"PointFrameData","X":205.7317073170732,"Y":76.55487804878048},{"FrameIndex":25,"EasingData":{"Type":0},"ctype":"PointFrameData","X":214.5121951219512,"Y":76.55487804878048},{"FrameIndex":26,"EasingData":{"Type":0},"ctype":"PointFrameData","X":214.5121951219512,"Y":76.55487804878048},{"FrameIndex":27,"EasingData":{"Type":0},"ctype":"PointFrameData","X":223.2926829268293,"Y":76.55487804878048},{"FrameIndex":28,"EasingData":{"Type":0},"ctype":"PointFrameData","X":230.97560975609758,"Y":76.55487804878048},{"FrameIndex":29,"EasingData":{"Type":0},"ctype":"PointFrameData","X":237.5609756097561,"Y":76.55487804878048},{"FrameIndex":30,"EasingData":{"Type":0},"ctype":"PointFrameData","X":244.14634146341461,"Y":76.55487804878048},{"FrameIndex":31,"EasingData":{"Type":0},"ctype":"PointFrameData","X":252.9268292682927,"Y":75.5670731707317},{"FrameIndex":32,"EasingData":{"Type":0},"ctype":"PointFrameData","X":259.5121951219512,"Y":74.57926829268293},{"FrameIndex":33,"EasingData":{"Type":0},"ctype":"PointFrameData","X":267.1951219512195,"Y":73.09756097560975},{"FrameIndex":34,"EasingData":{"Type":0},"ctype":"PointFrameData","X":273.7804878048781,"Y":71.61585365853658},{"FrameIndex":35,"EasingData":{"Type":0},"ctype":"PointFrameData","X":281.4634146341464,"Y":70.6280487804878},{"FrameIndex":36,"EasingData":{"Type":0},"ctype":"PointFrameData","X":288.0487804878049,"Y":68.65243902439023},{"FrameIndex":37,"EasingData":{"Type":0},"ctype":"PointFrameData","X":293.5365853658537,"Y":65.68902439024389},{"FrameIndex":38,"EasingData":{"Type":0},"ctype":"PointFrameData","X":299.0243902439025,"Y":62.725609756097555},{"FrameIndex":39,"EasingData":{"Type":0},"ctype":"PointFrameData","X":304.5121951219512,"Y":59.26829268292683},{"FrameIndex":40,"EasingData":{"Type":0},"ctype":"PointFrameData","X":307.8048780487805,"Y":56.30487804878048},{"FrameIndex":41,"EasingData":{"Type":0},"ctype":"PointFrameData","X":311.0975609756098,"Y":52.353658536585364},{"FrameIndex":42,"EasingData":{"Type":0},"ctype":"PointFrameData","X":314.390243902439,"Y":48.89634146341463},{"FrameIndex":43,"EasingData":{"Type":0},"ctype":"PointFrameData","X":316.5853658536586,"Y":45.4390243902439},{"FrameIndex":44,"EasingData":{"Type":0},"ctype":"PointFrameData","X":319.8780487804878,"Y":42.475609756097555},{"FrameIndex":45,"EasingData":{"Type":0},"ctype":"PointFrameData","X":323.1707317073171,"Y":39.01829268292683},{"FrameIndex":46,"EasingData":{"Type":0},"ctype":"PointFrameData","X":326.4634146341464,"Y":36.548780487804876},{"FrameIndex":47,"EasingData":{"Type":0},"ctype":"PointFrameData","X":328.6585365853659,"Y":35.0670731707317},{"FrameIndex":48,"EasingData":{"Type":0},"ctype":"PointFrameData","X":331.9512195121951,"Y":33.09146341463414},{"FrameIndex":49,"EasingData":{"Type":0},"ctype":"PointFrameData","X":335.2439024390244,"Y":32.103658536585364},{"FrameIndex":50,"EasingData":{"Type":0},"ctype":"PointFrameData","X":338.5365853658537,"Y":31.11585365853658},{"FrameIndex":51,"EasingData":{"Type":0},"ctype":"PointFrameData","X":345.1219512195122,"Y":30.62195121951219},{"FrameIndex":52,"EasingData":{"Type":0},"ctype":"PointFrameData","X":348.4146341463415,"Y":30.128048780487802},{"FrameIndex":53,"EasingData":{"Type":0},"ctype":"PointFrameData","X":353.9024390243903,"Y":30.128048780487802},{"FrameIndex":54,"EasingData":{"Type":0},"ctype":"PointFrameData","X":358.2926829268293,"Y":30.128048780487802},{"FrameIndex":55,"EasingData":{"Type":0},"ctype":"PointFrameData","X":358.2926829268293,"Y":30.128048780487802},{"FrameIndex":56,"EasingData":{"Type":0},"ctype":"PointFrameData","X":365.9756097560976,"Y":30.128048780487802},{"FrameIndex":57,"EasingData":{"Type":0},"ctype":"PointFrameData","X":370.3658536585366,"Y":30.62195121951219},{"FrameIndex":58,"EasingData":{"Type":0},"ctype":"PointFrameData","X":372.5609756097561,"Y":31.609756097560975},{"FrameIndex":59,"EasingData":{"Type":0},"ctype":"PointFrameData","X":374.7560975609756,"Y":32.59756097560975},{"FrameIndex":60,"EasingData":{"Type":0},"ctype":"PointFrameData","X":376.9512195121951,"Y":33.09146341463414},{"FrameIndex":61,"EasingData":{"Type":0},"ctype":"PointFrameData","X":378.0487804878049,"Y":33.58536585365854},{"FrameIndex":62,"EasingData":{"Type":0},"ctype":"PointFrameData","X":379.1463414634146,"Y":34.079268292682926},{"FrameIndex":63,"EasingData":{"Type":0},"ctype":"PointFrameData","X":380.2439024390244,"Y":34.573170731707314},{"FrameIndex":64,"EasingData":{"Type":0},"ctype":"PointFrameData","X":382.4390243902439,"Y":35.5609756097561},{"FrameIndex":65,"EasingData":{"Type":0},"ctype":"PointFrameData","X":385.7317073170732,"Y":36.548780487804876},{"FrameIndex":66,"EasingData":{"Type":0},"ctype":"PointFrameData","X":386.8292682926829,"Y":37.042682926829265},{"FrameIndex":67,"EasingData":{"Type":0},"ctype":"PointFrameData","X":387.9268292682927,"Y":37.53658536585366}],"ctype":"TimelineData"},{"ActionTag":-1463048277668,"Property":"Scale","Frames":[{"FrameIndex":1,"EasingData":{"Type":0},"ctype":"ScaleValueFrameData","X":1,"Y":1},{"FrameIndex":2,"EasingData":{"Type":0},"ctype":"ScaleValueFrameData","X":1,"Y":1},{"FrameIndex":3,"EasingData":{"Type":0},"ctype":"ScaleValueFrameData","X":1,"Y":1},{"FrameIndex":4,"EasingData":{"Type":0},"ctype":"ScaleValueFrameData","X":1,"Y":1},{"FrameIndex":5,"EasingData":{"Type":0},"ctype":"ScaleValueFrameData","X":1,"Y":1},{"FrameIndex":6,"EasingData":{"Type":0},"ctype":"ScaleValueFrameData","X":1,"Y":1},{"FrameIndex":7,"EasingData":{"Type":0},"ctype":"ScaleValueFrameData","X":1,"Y":1},{"FrameIndex":8,"EasingData":{"Type":0},"ctype":"ScaleValueFrameData","X":1,"Y":1},{"FrameIndex":9,"EasingData":{"Type":0},"ctype":"ScaleValueFrameData","X":1,"Y":1},{"FrameIndex":10,"EasingData":{"Type":0},"ctype":"ScaleValueFrameData","X":1,"Y":1},{"FrameIndex":11,"EasingData":{"Type":0},"ctype":"ScaleValueFrameData","X":1,"Y":1},{"FrameIndex":12,"EasingData":{"Type":0},"ctype":"ScaleValueFrameData","X":1,"Y":1},{"FrameIndex":13,"EasingData":{"Type":0},"ctype":"ScaleValueFrameData","X":1,"Y":1},{"FrameIndex":14,"EasingData":{"Type":0},"ctype":"ScaleValueFrameData","X":1,"Y":1},{"FrameIndex":15,"EasingData":{"Type":0},"ctype":"ScaleValueFrameData","X":1,"Y":1},{"FrameIndex":16,"EasingData":{"Type":0},"ctype":"ScaleValueFrameData","X":1,"Y":1},{"FrameIndex":17,"EasingData":{"Type":0},"ctype":"ScaleValueFrameData","X":1,"Y":1},{"FrameIndex":18,"EasingData":{"Type":0},"ctype":"ScaleValueFrameData","X":1,"Y":1},{"FrameIndex":19,"EasingData":{"Type":0},"ctype":"ScaleValueFrameData","X":1,"Y":1},{"FrameIndex":20,"EasingData":{"Type":0},"ctype":"ScaleValueFrameData","X":1,"Y":1},{"FrameIndex":21,"EasingData":{"Type":0},"ctype":"ScaleValueFrameData","X":1,"Y":1},{"FrameIndex":22,"EasingData":{"Type":0},"ctype":"ScaleValueFrameData","X":1,"Y":1},{"FrameIndex":23,"EasingData":{"Type":0},"ctype":"ScaleValueFrameData","X":1,"Y":1},{"FrameIndex":24,"EasingData":{"Type":0},"ctype":"ScaleValueFrameData","X":1,"Y":1},{"FrameIndex":25,"EasingData":{"Type":0},"ctype":"ScaleValueFrameData","X":1,"Y":1},{"FrameIndex":26,"EasingData":{"Type":0},"ctype":"ScaleValueFrameData","X":1,"Y":1},{"FrameIndex":27,"EasingData":{"Type":0},"ctype":"ScaleValueFrameData","X":1,"Y":1},{"FrameIndex":28,"EasingData":{"Type":0},"ctype":"ScaleValueFrameData","X":1,"Y":1},{"FrameIndex":29,"EasingData":{"Type":0},"ctype":"ScaleValueFrameData","X":1,"Y":1},{"FrameIndex":30,"EasingData":{"Type":0},"ctype":"ScaleValueFrameData","X":1,"Y":1},{"FrameIndex":31,"EasingData":{"Type":0},"ctype":"ScaleValueFrameData","X":1,"Y":1},{"FrameIndex":32,"EasingData":{"Type":0},"ctype":"ScaleValueFrameData","X":1,"Y":1},{"FrameIndex":33,"EasingData":{"Type":0},"ctype":"ScaleValueFrameData","X":1,"Y":1},{"FrameIndex":34,"EasingData":{"Type":0},"ctype":"ScaleValueFrameData","X":1,"Y":1},{"FrameIndex":35,"EasingData":{"Type":0},"ctype":"ScaleValueFrameData","X":1,"Y":1},{"FrameIndex":36,"EasingData":{"Type":0},"ctype":"ScaleValueFrameData","X":1,"Y":1},{"FrameIndex":37,"EasingData":{"Type":0},"ctype":"ScaleValueFrameData","X":1,"Y":1},{"FrameIndex":38,"EasingData":{"Type":0},"ctype":"ScaleValueFrameData","X":1,"Y":1},{"FrameIndex":39,"EasingData":{"Type":0},"ctype":"ScaleValueFrameData","X":1,"Y":1},{"FrameIndex":40,"EasingData":{"Type":0},"ctype":"ScaleValueFrameData","X":1,"Y":1},{"FrameIndex":41,"EasingData":{"Type":0},"ctype":"ScaleValueFrameData","X":1,"Y":1},{"FrameIndex":42,"EasingData":{"Type":0},"ctype":"ScaleValueFrameData","X":1,"Y":1},{"FrameIndex":43,"EasingData":{"Type":0},"ctype":"ScaleValueFrameData","X":1,"Y":1},{"FrameIndex":44,"EasingData":{"Type":0},"ctype":"ScaleValueFrameData","X":1,"Y":1},{"FrameIndex":45,"EasingData":{"Type":0},"ctype":"ScaleValueFrameData","X":1,"Y":1},{"FrameIndex":46,"EasingData":{"Type":0},"ctype":"ScaleValueFrameData","X":1,"Y":1},{"FrameIndex":47,"EasingData":{"Type":0},"ctype":"ScaleValueFrameData","X":1,"Y":1},{"FrameIndex":48,"EasingData":{"Type":0},"ctype":"ScaleValueFrameData","X":1,"Y":1},{"FrameIndex":49,"EasingData":{"Type":0},"ctype":"ScaleValueFrameData","X":1,"Y":1},{"FrameIndex":50,"EasingData":{"Type":0},"ctype":"ScaleValueFrameData","X":1,"Y":1},{"FrameIndex":51,"EasingData":{"Type":0},"ctype":"ScaleValueFrameData","X":1,"Y":1},{"FrameIndex":52,"EasingData":{"Type":0},"ctype":"ScaleValueFrameData","X":1,"Y":1},{"FrameIndex":53,"EasingData":{"Type":0},"ctype":"ScaleValueFrameData","X":1,"Y":1},{"FrameIndex":54,"EasingData":{"Type":0},"ctype":"ScaleValueFrameData","X":1,"Y":1},{"FrameIndex":55,"EasingData":{"Type":0},"ctype":"ScaleValueFrameData","X":1,"Y":1},{"FrameIndex":56,"EasingData":{"Type":0},"ctype":"ScaleValueFrameData","X":1,"Y":1},{"FrameIndex":57,"EasingData":{"Type":0},"ctype":"ScaleValueFrameData","X":1,"Y":1},{"FrameIndex":58,"EasingData":{"Type":0},"ctype":"ScaleValueFrameData","X":1,"Y":1},{"FrameIndex":59,"EasingData":{"Type":0},"ctype":"ScaleValueFrameData","X":1,"Y":1},{"FrameIndex":60,"EasingData":{"Type":0},"ctype":"ScaleValueFrameData","X":1,"Y":1},{"FrameIndex":61,"EasingData":{"Type":0},"ctype":"ScaleValueFrameData","X":1,"Y":1},{"FrameIndex":62,"EasingData":{"Type":0},"ctype":"ScaleValueFrameData","X":1,"Y":1},{"FrameIndex":63,"EasingData":{"Type":0},"ctype":"ScaleValueFrameData","X":1,"Y":1},{"FrameIndex":64,"EasingData":{"Type":0},"ctype":"ScaleValueFrameData","X":1,"Y":1},{"FrameIndex":65,"EasingData":{"Type":0},"ctype":"ScaleValueFrameData","X":1,"Y":1},{"FrameIndex":66,"EasingData":{"Type":0},"ctype":"ScaleValueFrameData","X":1,"Y":1},{"FrameIndex":67,"EasingData":{"Type":0},"ctype":"ScaleValueFrameData","X":1,"Y":1}],"ctype":"TimelineData"},{"ActionTag":-1463048277668,"Property":"RotationSkew","Frames":[{"FrameIndex":1,"EasingData":{"Type":0},"ctype":"ScaleValueFrameData","X":0,"Y":0},{"FrameIndex":2,"EasingData":{"Type":0},"ctype":"ScaleValueFrameData","X":0,"Y":0},{"FrameIndex":3,"EasingData":{"Type":0},"ctype":"ScaleValueFrameData","X":0,"Y":0},{"FrameIndex":4,"EasingData":{"Type":0},"ctype":"ScaleValueFrameData","X":0,"Y":0},{"FrameIndex":5,"EasingData":{"Type":0},"ctype":"ScaleValueFrameData","X":0,"Y":0},{"FrameIndex":6,"EasingData":{"Type":0},"ctype":"ScaleValueFrameData","X":0,"Y":0},{"FrameIndex":7,"EasingData":{"Type":0},"ctype":"ScaleValueFrameData","X":0,"Y":0},{"FrameIndex":8,"EasingData":{"Type":0},"ctype":"ScaleValueFrameData","X":0,"Y":0},{"FrameIndex":9,"EasingData":{"Type":0},"ctype":"ScaleValueFrameData","X":0,"Y":0},{"FrameIndex":10,"EasingData":{"Type":0},"ctype":"ScaleValueFrameData","X":0,"Y":0},{"FrameIndex":11,"EasingData":{"Type":0},"ctype":"ScaleValueFrameData","X":0,"Y":0},{"FrameIndex":12,"EasingData":{"Type":0},"ctype":"ScaleValueFrameData","X":0,"Y":0},{"FrameIndex":13,"EasingData":{"Type":0},"ctype":"ScaleValueFrameData","X":0,"Y":0},{"FrameIndex":14,"EasingData":{"Type":0},"ctype":"ScaleValueFrameData","X":0,"Y":0},{"FrameIndex":15,"EasingData":{"Type":0},"ctype":"ScaleValueFrameData","X":0,"Y":0},{"FrameIndex":16,"EasingData":{"Type":0},"ctype":"ScaleValueFrameData","X":0,"Y":0},{"FrameIndex":17,"EasingData":{"Type":0},"ctype":"ScaleValueFrameData","X":0,"Y":0},{"FrameIndex":18,"EasingData":{"Type":0},"ctype":"ScaleValueFrameData","X":0,"Y":0},{"FrameIndex":19,"EasingData":{"Type":0},"ctype":"ScaleValueFrameData","X":0,"Y":0},{"FrameIndex":20,"EasingData":{"Type":0},"ctype":"ScaleValueFrameData","X":0,"Y":0},{"FrameIndex":21,"EasingData":{"Type":0},"ctype":"ScaleValueFrameData","X":0,"Y":0},{"FrameIndex":22,"EasingData":{"Type":0},"ctype":"ScaleValueFrameData","X":0,"Y":0},{"FrameIndex":23,"EasingData":{"Type":0},"ctype":"ScaleValueFrameData","X":0,"Y":0},{"FrameIndex":24,"EasingData":{"Type":0},"ctype":"ScaleValueFrameData","X":0,"Y":0},{"FrameIndex":25,"EasingData":{"Type":0},"ctype":"ScaleValueFrameData","X":0,"Y":0},{"FrameIndex":26,"EasingData":{"Type":0},"ctype":"ScaleValueFrameData","X":0,"Y":0},{"FrameIndex":27,"EasingData":{"Type":0},"ctype":"ScaleValueFrameData","X":0,"Y":0},{"FrameIndex":28,"EasingData":{"Type":0},"ctype":"ScaleValueFrameData","X":0,"Y":0},{"FrameIndex":29,"EasingData":{"Type":0},"ctype":"ScaleValueFrameData","X":0,"Y":0},{"FrameIndex":30,"EasingData":{"Type":0},"ctype":"ScaleValueFrameData","X":0,"Y":0},{"FrameIndex":31,"EasingData":{"Type":0},"ctype":"ScaleValueFrameData","X":0,"Y":0},{"FrameIndex":32,"EasingData":{"Type":0},"ctype":"ScaleValueFrameData","X":0,"Y":0},{"FrameIndex":33,"EasingData":{"Type":0},"ctype":"ScaleValueFrameData","X":0,"Y":0},{"FrameIndex":34,"EasingData":{"Type":0},"ctype":"ScaleValueFrameData","X":0,"Y":0},{"FrameIndex":35,"EasingData":{"Type":0},"ctype":"ScaleValueFrameData","X":0,"Y":0},{"FrameIndex":36,"EasingData":{"Type":0},"ctype":"ScaleValueFrameData","X":0,"Y":0},{"FrameIndex":37,"EasingData":{"Type":0},"ctype":"ScaleValueFrameData","X":0,"Y":0},{"FrameIndex":38,"EasingData":{"Type":0},"ctype":"ScaleValueFrameData","X":0,"Y":0},{"FrameIndex":39,"EasingData":{"Type":0},"ctype":"ScaleValueFrameData","X":0,"Y":0},{"FrameIndex":40,"EasingData":{"Type":0},"ctype":"ScaleValueFrameData","X":0,"Y":0},{"FrameIndex":41,"EasingData":{"Type":0},"ctype":"ScaleValueFrameData","X":0,"Y":0},{"FrameIndex":42,"EasingData":{"Type":0},"ctype":"ScaleValueFrameData","X":0,"Y":0},{"FrameIndex":43,"EasingData":{"Type":0},"ctype":"ScaleValueFrameData","X":0,"Y":0},{"FrameIndex":44,"EasingData":{"Type":0},"ctype":"ScaleValueFrameData","X":0,"Y":0},{"FrameIndex":45,"EasingData":{"Type":0},"ctype":"ScaleValueFrameData","X":0,"Y":0},{"FrameIndex":46,"EasingData":{"Type":0},"ctype":"ScaleValueFrameData","X":0,"Y":0},{"FrameIndex":47,"EasingData":{"Type":0},"ctype":"ScaleValueFrameData","X":0,"Y":0},{"FrameIndex":48,"EasingData":{"Type":0},"ctype":"ScaleValueFrameData","X":0,"Y":0},{"FrameIndex":49,"EasingData":{"Type":0},"ctype":"ScaleValueFrameData","X":0,"Y":0},{"FrameIndex":50,"EasingData":{"Type":0},"ctype":"ScaleValueFrameData","X":0,"Y":0},{"FrameIndex":51,"EasingData":{"Type":0},"ctype":"ScaleValueFrameData","X":0,"Y":0},{"FrameIndex":52,"EasingData":{"Type":0},"ctype":"ScaleValueFrameData","X":0,"Y":0},{"FrameIndex":53,"EasingData":{"Type":0},"ctype":"ScaleValueFrameData","X":0,"Y":0},{"FrameIndex":54,"EasingData":{"Type":0},"ctype":"ScaleValueFrameData","X":0,"Y":0},{"FrameIndex":55,"EasingData":{"Type":0},"ctype":"ScaleValueFrameData","X":0,"Y":0},{"FrameIndex":56,"EasingData":{"Type":0},"ctype":"ScaleValueFrameData","X":0,"Y":0},{"FrameIndex":57,"EasingData":{"Type":0},"ctype":"ScaleValueFrameData","X":0,"Y":0},{"FrameIndex":58,"EasingData":{"Type":0},"ctype":"ScaleValueFrameData","X":0,"Y":0},{"FrameIndex":59,"EasingData":{"Type":0},"ctype":"ScaleValueFrameData","X":0,"Y":0},{"FrameIndex":60,"EasingData":{"Type":0},"ctype":"ScaleValueFrameData","X":0,"Y":0},{"FrameIndex":61,"EasingData":{"Type":0},"ctype":"ScaleValueFrameData","X":0,"Y":0},{"FrameIndex":62,"EasingData":{"Type":0},"ctype":"ScaleValueFrameData","X":0,"Y":0},{"FrameIndex":63,"EasingData":{"Type":0},"ctype":"ScaleValueFrameData","X":0,"Y":0},{"FrameIndex":64,"EasingData":{"Type":0},"ctype":"ScaleValueFrameData","X":0,"Y":0},{"FrameIndex":65,"EasingData":{"Type":0},"ctype":"ScaleValueFrameData","X":0,"Y":0},{"FrameIndex":66,"EasingData":{"Type":0},"ctype":"ScaleValueFrameData","X":0,"Y":0},{"FrameIndex":67,"EasingData":{"Type":0},"ctype":"ScaleValueFrameData","X":0,"Y":0}],"ctype":"TimelineData"},{"ActionTag":-1463048277668,"Property":"ActionValue","Frames":[{"SingleFrameIndex":"0","FrameIndex":1,"Tween":false,"ctype":"InnerActionFrameData","InnerActionType":"LoopAction","CurrentAniamtionName":"walk"},{"SingleFrameIndex":"0","FrameIndex":67,"Tween":false,"ctype":"InnerActionFrameData","InnerActionType":"SingleFrame","CurrentAniamtionName":"-- ALL --"}],"ctype":"TimelineData"}],"ctype":"TimelineActionData"},"AnimationList":[],"ObjectData":{"Children":[{"FileData":{"Type":"Normal","Path":"Background/Background.png","Plist":""},"BlendFunc":{"Src":770,"Dst":771},"AnchorPoint":{"ScaleX":0.5,"ScaleY":0.5},"Position":{"X":224.906875,"Y":225.1708},"Scale":{"ScaleX":1,"ScaleY":1},"CColor":{},"IconVisible":false,"PrePosition":{"X":0.4998,"Y":0.5004},"PreSize":{"X":1,"Y":1},"LeftMargin":-0.3725,"RightMargin":0.3726,"TopMargin":-0.6832,"BottomMargin":0.6832,"Tag":3,"ActionTag":-182419043,"Size":{"X":450,"Y":450},"Name":"Background","ctype":"SpriteObjectData"},{"FileData":{"Type":"Normal","Path":"cloud/Cloud.png","Plist":""},"BlendFunc":{"Src":1,"Dst":771},"AnchorPoint":{"ScaleX":0.5,"ScaleY":0.5},"Position":{"X":55.000375,"Y":379.91865},"Scale":{"ScaleX":1,"ScaleY":1},"CColor":{},"IconVisible":false,"PrePosition":{"X":0.1222,"Y":0.8443},"PreSize":{"X":0.1133,"Y":0.0633},"LeftMargin":118.0015,"RightMargin":1477.9985,"TopMargin":223.3254,"BottomMargin":1462.6746,"Tag":4,"ActionTag":937219592,"Size":{"X":51,"Y":28.5},"Name":"Cloud_1","ctype":"SpriteObjectData"},{"FileData":{"Type":"Normal","Path":"cloud/Cloud.png","Plist":""},"BlendFunc":{"Src":1,"Dst":771},"AnchorPoint":{"ScaleX":0.5,"ScaleY":0.5},"Position":{"X":196.04415,"Y":407.402875},"Scale":{"ScaleX":1.3383,"ScaleY":1.3383},"CColor":{},"IconVisible":false,"PrePosition":{"X":0.4357,"Y":0.9053},"PreSize":{"X":0.1133,"Y":0.0633},"LeftMargin":682.1766,"RightMargin":913.8234,"TopMargin":113.3885,"BottomMargin":1572.6115,"Tag":5,"ActionTag":-1127136192,"Size":{"X":51,"Y":28.5},"Name":"Cloud_2","ctype":"SpriteObjectData"},{"FileData":{"Type":"Normal","Path":"cloud/Cloud.png","Plist":""},"BlendFunc":{"Src":1,"Dst":771},"AnchorPoint":{"ScaleX":0.5,"ScaleY":0.5},"Position":{"X":383.80535,"Y":373.948175},"Scale":{"ScaleX":0.6603,"ScaleY":0.6603},"CColor":{},"IconVisible":false,"PrePosition":{"X":0.8529,"Y":0.831},"PreSize":{"X":0.1133,"Y":0.0633},"LeftMargin":1433.2214,"RightMargin":162.7786,"TopMargin":247.2073,"BottomMargin":1438.7927,"Tag":6,"ActionTag":-1188298444,"Size":{"X":51,"Y":28.5},"Name":"Cloud_3","ctype":"SpriteObjectData"},{"FileData":{"Type":"Normal","Path":"cloud/Cloud.png","Plist":""},"BlendFunc":{"Src":1,"Dst":771},"AnchorPoint":{"ScaleX":0.5,"ScaleY":0.5},"Position":{"X":145.703975,"Y":317.168575},"Scale":{"ScaleX":1.1109,"ScaleY":1.1109},"CColor":{},"IconVisible":false,"PrePosition":{"X":0.3238,"Y":0.7048},"PreSize":{"X":0.1133,"Y":0.0633},"LeftMargin":480.8159,"RightMargin":1115.1841,"TopMargin":474.3257,"BottomMargin":1211.6743,"Tag":7,"ActionTag":605923677,"Size":{"X":51,"Y":28.5},"Name":"Cloud_4","ctype":"SpriteObjectData"},{"FileData":{"Type":"Normal","Path":"Hill/Hill.png","Plist":""},"BlendFunc":{"Src":1,"Dst":771},"AnchorPoint":{"ScaleX":0.5,"ScaleY":0.5},"Position":{"X":357.79395,"Y":227.7244},"Scale":{"ScaleX":1,"ScaleY":1},"CColor":{},"IconVisible":false,"PrePosition":{"X":0.7951,"Y":0.5061},"PreSize":{"X":0.4083,"Y":0.3694},"LeftMargin":1063.6758,"RightMargin":1.3242,"TopMargin":556.6024,"BottomMargin":578.3976,"Tag":8,"ActionTag":-1709289729,"Size":{"X":183.75,"Y":166.25},"Name":"Hill","ctype":"SpriteObjectData"},{"FileData":{"Type":"Normal","Path":"Grass_hill/Grass_Hill.png","Plist":""},"BlendFunc":{"Src":1,"Dst":771},"AnchorPoint":{"ScaleX":0.5,"ScaleY":0.5},"Position":{"X":76.477275,"Y":163.19995},"Scale":{"ScaleX":1,"ScaleY":1},"CColor":{},"IconVisible":false,"PrePosition":{"X":0.1699,"Y":0.3627},"PreSize":{"X":0.3394,"Y":0.0856},"LeftMargin":0.4091,"RightMargin":1188.5908,"TopMargin":1070.2002,"BottomMargin":575.7998,"Tag":9,"ActionTag":-309631914,"Size":{"X":152.75,"Y":38.5},"Name":"Grass_Hill_1","ctype":"SpriteObjectData"},{"FileData":{"Type":"Normal","Path":"Grass_hill/Grass_Hill_01.png","Plist":""},"BlendFunc":{"Src":1,"Dst":771},"AnchorPoint":{"ScaleX":0.5,"ScaleY":0.5},"Position":{"X":177.662375,"Y":156.83825},"Scale":{"ScaleX":1,"ScaleY":1},"CColor":{},"IconVisible":false,"PrePosition":{"X":0.3948,"Y":0.3485},"PreSize":{"X":0.3506,"Y":0.06},"LeftMargin":395.1495,"RightMargin":773.8506,"TopMargin":1118.647,"BottomMargin":573.353,"Tag":10,"ActionTag":954313197,"Size":{"X":157.75,"Y":27},"Name":"Grass_Hill_2","ctype":"SpriteObjectData"},{"FileData":{"Type":"Normal","Path":"Grass_hill/Grass_Hill_02.png","Plist":""},"BlendFunc":{"Src":1,"Dst":771},"AnchorPoint":{"ScaleX":0.5,"ScaleY":0.5},"Position":{"X":290.819275,"Y":165.22325},"Scale":{"ScaleX":1,"ScaleY":1},"CColor":{},"IconVisible":false,"PrePosition":{"X":0.6463,"Y":0.3672},"PreSize":{"X":0.4,"Y":0.0989},"LeftMargin":803.2771,"RightMargin":276.7229,"TopMargin":1050.1069,"BottomMargin":571.893,"Tag":11,"ActionTag":3278976,"Size":{"X":180,"Y":44.5},"Name":"Grass_Hill_3","ctype":"SpriteObjectData"},{"FileData":{"Type":"Normal","Path":"Sun/Sun.png","Plist":""},"BlendFunc":{"Src":1,"Dst":771},"AnchorPoint":{"ScaleX":0.5,"ScaleY":0.5},"Position":{"X":248.8457,"Y":298.328675},"Scale":{"ScaleX":1,"ScaleY":1},"CColor":{},"IconVisible":false,"PrePosition":{"X":0.553,"Y":0.663},"PreSize":{"X":0.1122,"Y":0.1117},"LeftMargin":894.3828,"RightMargin":703.6172,"TopMargin":506.1853,"BottomMargin":1092.8147,"Tag":12,"ActionTag":-2130853594,"Size":{"X":50.5,"Y":50.25},"Name":"Sun","ctype":"SpriteObjectData"},{"FileData":{"Type":"Normal","Path":"Trees/Tree_01.png","Plist":""},"BlendFunc":{"Src":1,"Dst":771},"AnchorPoint":{"ScaleX":0.5,"ScaleY":0.5},"Position":{"X":34.1435,"Y":74.07375},"Scale":{"ScaleX":1,"ScaleY":1},"CColor":{},"IconVisible":false,"PrePosition":{"X":0.0759,"Y":0.1646},"PreSize":{"X":0.1133,"Y":0.2861},"LeftMargin":34.574,"RightMargin":1561.426,"TopMargin":1246.205,"BottomMargin":38.795,"Tag":13,"ActionTag":216635551,"Size":{"X":51,"Y":128.75},"Name":"Tree_1","ctype":"SpriteObjectData"},{"FileData":{"Type":"Normal","Path":"Trees/Tree_02.png","Plist":""},"BlendFunc":{"Src":1,"Dst":771},"AnchorPoint":{"ScaleX":0.5,"ScaleY":0.5},"Position":{"X":416.897225,"Y":99.558575},"Scale":{"ScaleX":1,"ScaleY":1},"CColor":{},"IconVisible":false,"PrePosition":{"X":0.9264,"Y":0.2212},"PreSize":{"X":0.1117,"Y":0.3256},"LeftMargin":1567.0889,"RightMargin":31.9111,"TopMargin":1108.7657,"BottomMargin":105.2343,"Tag":14,"ActionTag":1276438497,"Size":{"X":50.25,"Y":146.5},"Name":"Tree_2","ctype":"SpriteObjectData"},{"FileData":{"Type":"Normal","Path":"Trees/Tree_03.png","Plist":""},"BlendFunc":{"Src":1,"Dst":771},"AnchorPoint":{"ScaleX":0.5,"ScaleY":0.5},"Position":{"X":338.402525,"Y":125.139225},"Scale":{"ScaleX":1,"ScaleY":1},"CColor":{},"IconVisible":false,"PrePosition":{"X":0.752,"Y":0.2781},"PreSize":{"X":0.05,"Y":0.14},"LeftMargin":1308.6101,"RightMargin":401.3899,"TopMargin":1173.4431,"BottomMargin":374.5569,"Tag":15,"ActionTag":662858467,"Size":{"X":22.5,"Y":63},"Name":"Tree_3","ctype":"SpriteObjectData"},{"FileData":{"Type":"Normal","Path":"Trees/Tree_03.png","Plist":""},"BlendFunc":{"Src":1,"Dst":771},"AnchorPoint":{"ScaleX":0.5,"ScaleY":0.5},"Position":{"X":131.447425,"Y":137.0451},"Scale":{"ScaleX":0.5365,"ScaleY":0.5365},"CColor":{},"IconVisible":false,"PrePosition":{"X":0.2921,"Y":0.3045},"PreSize":{"X":0.05,"Y":0.14},"LeftMargin":480.7897,"RightMargin":1229.2103,"TopMargin":1125.8196,"BottomMargin":422.1804,"Tag":16,"ActionTag":773663296,"Size":{"X":22.5,"Y":63},"Name":"Tree_4","ctype":"SpriteObjectData"},{"FileData":{"Type":"Normal","Path":"Trees/Tree_04.png","Plist":""},"BlendFunc":{"Src":1,"Dst":771},"AnchorPoint":{"ScaleX":0.5,"ScaleY":0.5},"Position":{"X":62.0265,"Y":184.764575},"Scale":{"ScaleX":1,"ScaleY":1},"CColor":{},"IconVisible":false,"PrePosition":{"X":0.1378,"Y":0.4106},"PreSize":{"X":0.02,"Y":0.0344},"LeftMargin":230.106,"RightMargin":1533.894,"TopMargin":1029.9417,"BottomMargin":708.0583,"Tag":17,"ActionTag":-1974209328,"Size":{"X":9,"Y":15.5},"Name":"Tree_5","ctype":"SpriteObjectData"},{"FileData":{"Type":"Normal","Path":"Trees/Tree_04.png","Plist":""},"BlendFunc":{"Src":1,"Dst":771},"AnchorPoint":{"ScaleX":0.5,"ScaleY":0.5},"Position":{"X":201.39845,"Y":173.54175},"Scale":{"ScaleX":1.5888,"ScaleY":1.5888},"CColor":{},"IconVisible":false,"PrePosition":{"X":0.4476,"Y":0.3856},"PreSize":{"X":0.02,"Y":0.0344},"LeftMargin":787.5938,"RightMargin":976.4062,"TopMargin":1074.833,"BottomMargin":663.167,"Tag":18,"ActionTag":303209334,"Size":{"X":9,"Y":15.5},"Name":"Tree_6","ctype":"SpriteObjectData"},{"FileData":{"Type":"Normal","Path":"Trees/Tree_05.png","Plist":""},"BlendFunc":{"Src":1,"Dst":771},"AnchorPoint":{"ScaleX":0.5,"ScaleY":0.5},"Position":{"X":126.944875,"Y":165.891275},"Scale":{"ScaleX":1,"ScaleY":1},"CColor":{},"IconVisible":false,"PrePosition":{"X":0.2821,"Y":0.3686},"PreSize":{"X":0.02,"Y":0.0633},"LeftMargin":489.7795,"RightMargin":1274.2205,"TopMargin":1079.4349,"BottomMargin":606.5651,"Tag":19,"ActionTag":-1346848200,"Size":{"X":9,"Y":28.5},"Name":"Tree_7","ctype":"SpriteObjectData"},{"FileData":{"Type":"Normal","Path":"Trees/Tree_05.png","Plist":""},"BlendFunc":{"Src":1,"Dst":771},"AnchorPoint":{"ScaleX":0.5,"ScaleY":0.5},"Position":{"X":281.726325,"Y":197.881225},"Scale":{"ScaleX":1,"ScaleY":1},"CColor":{},"IconVisible":false,"PrePosition":{"X":0.6261,"Y":0.4397},"PreSize":{"X":0.02,"Y":0.0633},"LeftMargin":1108.9053,"RightMargin":655.0947,"TopMargin":951.4751,"BottomMargin":734.5249,"Tag":20,"ActionTag":-554618542,"Size":{"X":9,"Y":28.5},"Name":"Tree_8","ctype":"SpriteObjectData"},{"FileData":{"Type":"Normal","Path":"human_skeleton.json","Plist":""},"InnerActionSpeed":1,"AnchorPoint":{"ScaleX":0,"ScaleY":0},"Position":{"X":89.39024390243904,"Y":18.274390243902438},"RotationSkewX":0,"RotationSkewY":0,"Scale":{"ScaleX":1,"ScaleY":1},"CColor":{"R":255,"G":255,"B":255,"A":255},"Tag":127,"Size":{"X":0,"Y":0},"ActionTag":-1463048277668,"Name":"Human_Skeleton","ctype":"ProjectNodeObjectData","UserData":{"visibleSkins":[{"bone":"head_accessories","skin":"police_cap"},{"bone":"eyebrow_right","skin":"eyebrow_box_right"},{"bone":"eyebrow_left","skin":"eyebrow_box_left"},{"bone":"ear","skin":"ear_round"},{"bone":"nose","skin":"nose"},{"bone":"mouth","skin":"mouth_smile"},{"bone":"eye_inner_right","skin":"eye_green_right"},{"bone":"eye_outer_right","skin":"eye_outer_green_left"},{"bone":"eye_inner_left","skin":"eye_green_left"},{"bone":"eye_outer_left","skin":"eye_outer_green_right"},{"bone":"face","skin":"face"},{"bone":"neck","skin":"neck"},{"bone":"arm_hand_left","skin":"arm_hand_left"},{"bone":"arm_lower_left","skin":"arm_lower_left"},{"bone":"arm_upper_left","skin":"arm_upper_left"},{"bone":"arm_upper_left","skin":"motu_shirt_upper_left"},{"bone":"arm_hand_right","skin":"arm_hand_right"},{"bone":"arm_lower_right ","skin":"arm_lower_right "},{"bone":"arm_upper_right","skin":"arm_upper_right"},{"bone":"arm_upper_right","skin":"motu_shirt_upper_right"},{"bone":"body","skin":"body"},{"bone":"body","skin":"motu_shirt_body"},{"bone":"leg_foot_left","skin":"leg_foot_left"},{"bone":"leg_foot_left","skin":"motu_shoes_left"},{"bone":"leg_lower_left","skin":"leg_lower_left"},{"bone":"leg_lower_left","skin":"motu_pant_lower_left"},{"bone":"leg_upper_left","skin":"leg_upper_left"},{"bone":"leg_upper_left","skin":"motu_pant_upper_left"},{"bone":"leg_foot_right","skin":"leg_foot_right"},{"bone":"leg_foot_right","skin":"motu_shoes_right"},{"bone":"leg_lower_right","skin":"leg_lower_right"},{"bone":"leg_lower_right","skin":"motu_pant_lower_right"},{"bone":"leg_upper_right","skin":"leg_upper_right"},{"bone":"leg_upper_right","skin":"motu_pant_upper_right"},{"bone":"hip","skin":"hip"},{"bone":"hip","skin":"motu_pant_hip"}]}}],"Size":{"X":450,"Y":450},"Name":"Scene","ctype":"SingleNodeObjectData"},"UsedResources":["Background/Background.png","cloud/Cloud.png","Grass_hill/Grass_Hill.png","Grass_hill/Grass_Hill_01.png","Grass_hill/Grass_Hill_02.png","Hill/Hill.png","Sun/Sun.png","Trees/Tree_01.png","Trees/Tree_02.png","Trees/Tree_03.png","Trees/Tree_04.png","Trees/Tree_05.png"],"ctype":"GameFileData"}},"Type":"Scene","ChimpleCompressed":true}}],"RESOLUTION_HEIGHT":450}
+{
+	"items": [{
+		"cIcon": "/res/mouth_2_onclick.png",
+		"icon": "/res/story_page_1.png",
+		"scene": {
+			"ID": "a2ee0952-26b5-49ae-8bf9-4f1d6279b798",
+			"Version": "3.10.0.0",
+			"Name": "MainScene",
+			"Content": {
+				"Content": {
+					"Animation": {
+						"Duration": 0,
+						"Speed": 1,
+						"Timelines": [],
+						"ctype": "TimelineActionData"
+					},
+					"AnimationList": [],
+					"ObjectData": {
+						"Children": [{
+							"FileData": {
+								"Type": "Normal",
+								"Path": "Background/Background.png",
+								"Plist": ""
+							},
+							"BlendFunc": {
+								"Src": 770,
+								"Dst": 771
+							},
+							"AnchorPoint": {
+								"ScaleX": 0.5,
+								"ScaleY": 0.5
+							},
+							"Position": {
+								"X": 224.906875,
+								"Y": 225.1708
+							},
+							"Scale": {
+								"ScaleX": 1,
+								"ScaleY": 1
+							},
+							"CColor": {},
+							"IconVisible": false,
+							"PrePosition": {
+								"X": 0.4998,
+								"Y": 0.5004
+							},
+							"PreSize": {
+								"X": 1,
+								"Y": 1
+							},
+							"LeftMargin": -0.3725,
+							"RightMargin": 0.3726,
+							"TopMargin": -0.6832,
+							"BottomMargin": 0.6832,
+							"Tag": 3,
+							"ActionTag": -182419043,
+							"Size": {
+								"X": 450,
+								"Y": 450
+							},
+							"Name": "Background",
+							"ctype": "SpriteObjectData"
+						}, {
+							"FileData": {
+								"Type": "Normal",
+								"Path": "cloud/Cloud.png",
+								"Plist": ""
+							},
+							"BlendFunc": {
+								"Src": 1,
+								"Dst": 771
+							},
+							"AnchorPoint": {
+								"ScaleX": 0.5,
+								"ScaleY": 0.5
+							},
+							"Position": {
+								"X": 55.000375,
+								"Y": 379.91865
+							},
+							"Scale": {
+								"ScaleX": 1,
+								"ScaleY": 1
+							},
+							"CColor": {},
+							"IconVisible": false,
+							"PrePosition": {
+								"X": 0.1222,
+								"Y": 0.8443
+							},
+							"PreSize": {
+								"X": 0.1133,
+								"Y": 0.0633
+							},
+							"LeftMargin": 118.0015,
+							"RightMargin": 1477.9985,
+							"TopMargin": 223.3254,
+							"BottomMargin": 1462.6746,
+							"Tag": 4,
+							"ActionTag": 937219592,
+							"Size": {
+								"X": 51,
+								"Y": 28.5
+							},
+							"Name": "Cloud_1",
+							"ctype": "SpriteObjectData"
+						}, {
+							"FileData": {
+								"Type": "Normal",
+								"Path": "cloud/Cloud.png",
+								"Plist": ""
+							},
+							"BlendFunc": {
+								"Src": 1,
+								"Dst": 771
+							},
+							"AnchorPoint": {
+								"ScaleX": 0.5,
+								"ScaleY": 0.5
+							},
+							"Position": {
+								"X": 196.04415,
+								"Y": 407.402875
+							},
+							"Scale": {
+								"ScaleX": 1.3383,
+								"ScaleY": 1.3383
+							},
+							"CColor": {},
+							"IconVisible": false,
+							"PrePosition": {
+								"X": 0.4357,
+								"Y": 0.9053
+							},
+							"PreSize": {
+								"X": 0.1133,
+								"Y": 0.0633
+							},
+							"LeftMargin": 682.1766,
+							"RightMargin": 913.8234,
+							"TopMargin": 113.3885,
+							"BottomMargin": 1572.6115,
+							"Tag": 5,
+							"ActionTag": -1127136192,
+							"Size": {
+								"X": 51,
+								"Y": 28.5
+							},
+							"Name": "Cloud_2",
+							"ctype": "SpriteObjectData"
+						}, {
+							"FileData": {
+								"Type": "Normal",
+								"Path": "cloud/Cloud.png",
+								"Plist": ""
+							},
+							"BlendFunc": {
+								"Src": 1,
+								"Dst": 771
+							},
+							"AnchorPoint": {
+								"ScaleX": 0.5,
+								"ScaleY": 0.5
+							},
+							"Position": {
+								"X": 383.80535,
+								"Y": 373.948175
+							},
+							"Scale": {
+								"ScaleX": 0.6603,
+								"ScaleY": 0.6603
+							},
+							"CColor": {},
+							"IconVisible": false,
+							"PrePosition": {
+								"X": 0.8529,
+								"Y": 0.831
+							},
+							"PreSize": {
+								"X": 0.1133,
+								"Y": 0.0633
+							},
+							"LeftMargin": 1433.2214,
+							"RightMargin": 162.7786,
+							"TopMargin": 247.2073,
+							"BottomMargin": 1438.7927,
+							"Tag": 6,
+							"ActionTag": -1188298444,
+							"Size": {
+								"X": 51,
+								"Y": 28.5
+							},
+							"Name": "Cloud_3",
+							"ctype": "SpriteObjectData"
+						}, {
+							"FileData": {
+								"Type": "Normal",
+								"Path": "cloud/Cloud.png",
+								"Plist": ""
+							},
+							"BlendFunc": {
+								"Src": 1,
+								"Dst": 771
+							},
+							"AnchorPoint": {
+								"ScaleX": 0.5,
+								"ScaleY": 0.5
+							},
+							"Position": {
+								"X": 145.703975,
+								"Y": 317.168575
+							},
+							"Scale": {
+								"ScaleX": 1.1109,
+								"ScaleY": 1.1109
+							},
+							"CColor": {},
+							"IconVisible": false,
+							"PrePosition": {
+								"X": 0.3238,
+								"Y": 0.7048
+							},
+							"PreSize": {
+								"X": 0.1133,
+								"Y": 0.0633
+							},
+							"LeftMargin": 480.8159,
+							"RightMargin": 1115.1841,
+							"TopMargin": 474.3257,
+							"BottomMargin": 1211.6743,
+							"Tag": 7,
+							"ActionTag": 605923677,
+							"Size": {
+								"X": 51,
+								"Y": 28.5
+							},
+							"Name": "Cloud_4",
+							"ctype": "SpriteObjectData"
+						}, {
+							"FileData": {
+								"Type": "Normal",
+								"Path": "Hill/Hill.png",
+								"Plist": ""
+							},
+							"BlendFunc": {
+								"Src": 1,
+								"Dst": 771
+							},
+							"AnchorPoint": {
+								"ScaleX": 0.5,
+								"ScaleY": 0.5
+							},
+							"Position": {
+								"X": 357.79395,
+								"Y": 227.7244
+							},
+							"Scale": {
+								"ScaleX": 1,
+								"ScaleY": 1
+							},
+							"CColor": {},
+							"IconVisible": false,
+							"PrePosition": {
+								"X": 0.7951,
+								"Y": 0.5061
+							},
+							"PreSize": {
+								"X": 0.4083,
+								"Y": 0.3694
+							},
+							"LeftMargin": 1063.6758,
+							"RightMargin": 1.3242,
+							"TopMargin": 556.6024,
+							"BottomMargin": 578.3976,
+							"Tag": 8,
+							"ActionTag": -1709289729,
+							"Size": {
+								"X": 183.75,
+								"Y": 166.25
+							},
+							"Name": "Hill",
+							"ctype": "SpriteObjectData"
+						}, {
+							"FileData": {
+								"Type": "Normal",
+								"Path": "Grass_hill/Grass_Hill.png",
+								"Plist": ""
+							},
+							"BlendFunc": {
+								"Src": 1,
+								"Dst": 771
+							},
+							"AnchorPoint": {
+								"ScaleX": 0.5,
+								"ScaleY": 0.5
+							},
+							"Position": {
+								"X": 76.477275,
+								"Y": 163.19995
+							},
+							"Scale": {
+								"ScaleX": 1,
+								"ScaleY": 1
+							},
+							"CColor": {},
+							"IconVisible": false,
+							"PrePosition": {
+								"X": 0.1699,
+								"Y": 0.3627
+							},
+							"PreSize": {
+								"X": 0.3394,
+								"Y": 0.0856
+							},
+							"LeftMargin": 0.4091,
+							"RightMargin": 1188.5908,
+							"TopMargin": 1070.2002,
+							"BottomMargin": 575.7998,
+							"Tag": 9,
+							"ActionTag": -309631914,
+							"Size": {
+								"X": 152.75,
+								"Y": 38.5
+							},
+							"Name": "Grass_Hill_1",
+							"ctype": "SpriteObjectData"
+						}, {
+							"FileData": {
+								"Type": "Normal",
+								"Path": "Grass_hill/Grass_Hill_01.png",
+								"Plist": ""
+							},
+							"BlendFunc": {
+								"Src": 1,
+								"Dst": 771
+							},
+							"AnchorPoint": {
+								"ScaleX": 0.5,
+								"ScaleY": 0.5
+							},
+							"Position": {
+								"X": 177.662375,
+								"Y": 156.83825
+							},
+							"Scale": {
+								"ScaleX": 1,
+								"ScaleY": 1
+							},
+							"CColor": {},
+							"IconVisible": false,
+							"PrePosition": {
+								"X": 0.3948,
+								"Y": 0.3485
+							},
+							"PreSize": {
+								"X": 0.3506,
+								"Y": 0.06
+							},
+							"LeftMargin": 395.1495,
+							"RightMargin": 773.8506,
+							"TopMargin": 1118.647,
+							"BottomMargin": 573.353,
+							"Tag": 10,
+							"ActionTag": 954313197,
+							"Size": {
+								"X": 157.75,
+								"Y": 27
+							},
+							"Name": "Grass_Hill_2",
+							"ctype": "SpriteObjectData"
+						}, {
+							"FileData": {
+								"Type": "Normal",
+								"Path": "Grass_hill/Grass_Hill_02.png",
+								"Plist": ""
+							},
+							"BlendFunc": {
+								"Src": 1,
+								"Dst": 771
+							},
+							"AnchorPoint": {
+								"ScaleX": 0.5,
+								"ScaleY": 0.5
+							},
+							"Position": {
+								"X": 290.819275,
+								"Y": 165.22325
+							},
+							"Scale": {
+								"ScaleX": 1,
+								"ScaleY": 1
+							},
+							"CColor": {},
+							"IconVisible": false,
+							"PrePosition": {
+								"X": 0.6463,
+								"Y": 0.3672
+							},
+							"PreSize": {
+								"X": 0.4,
+								"Y": 0.0989
+							},
+							"LeftMargin": 803.2771,
+							"RightMargin": 276.7229,
+							"TopMargin": 1050.1069,
+							"BottomMargin": 571.893,
+							"Tag": 11,
+							"ActionTag": 3278976,
+							"Size": {
+								"X": 180,
+								"Y": 44.5
+							},
+							"Name": "Grass_Hill_3",
+							"ctype": "SpriteObjectData"
+						}, {
+							"FileData": {
+								"Type": "Normal",
+								"Path": "Sun/Sun.png",
+								"Plist": ""
+							},
+							"BlendFunc": {
+								"Src": 1,
+								"Dst": 771
+							},
+							"AnchorPoint": {
+								"ScaleX": 0.5,
+								"ScaleY": 0.5
+							},
+							"Position": {
+								"X": 248.8457,
+								"Y": 298.328675
+							},
+							"Scale": {
+								"ScaleX": 1,
+								"ScaleY": 1
+							},
+							"CColor": {},
+							"IconVisible": false,
+							"PrePosition": {
+								"X": 0.553,
+								"Y": 0.663
+							},
+							"PreSize": {
+								"X": 0.1122,
+								"Y": 0.1117
+							},
+							"LeftMargin": 894.3828,
+							"RightMargin": 703.6172,
+							"TopMargin": 506.1853,
+							"BottomMargin": 1092.8147,
+							"Tag": 12,
+							"ActionTag": -2130853594,
+							"Size": {
+								"X": 50.5,
+								"Y": 50.25
+							},
+							"Name": "Sun",
+							"ctype": "SpriteObjectData"
+						}, {
+							"FileData": {
+								"Type": "Normal",
+								"Path": "Trees/Tree_01.png",
+								"Plist": ""
+							},
+							"BlendFunc": {
+								"Src": 1,
+								"Dst": 771
+							},
+							"AnchorPoint": {
+								"ScaleX": 0.5,
+								"ScaleY": 0.5
+							},
+							"Position": {
+								"X": 34.1435,
+								"Y": 74.07375
+							},
+							"Scale": {
+								"ScaleX": 1,
+								"ScaleY": 1
+							},
+							"CColor": {},
+							"IconVisible": false,
+							"PrePosition": {
+								"X": 0.0759,
+								"Y": 0.1646
+							},
+							"PreSize": {
+								"X": 0.1133,
+								"Y": 0.2861
+							},
+							"LeftMargin": 34.574,
+							"RightMargin": 1561.426,
+							"TopMargin": 1246.205,
+							"BottomMargin": 38.795,
+							"Tag": 13,
+							"ActionTag": 216635551,
+							"Size": {
+								"X": 51,
+								"Y": 128.75
+							},
+							"Name": "Tree_1",
+							"ctype": "SpriteObjectData"
+						}, {
+							"FileData": {
+								"Type": "Normal",
+								"Path": "Trees/Tree_02.png",
+								"Plist": ""
+							},
+							"BlendFunc": {
+								"Src": 1,
+								"Dst": 771
+							},
+							"AnchorPoint": {
+								"ScaleX": 0.5,
+								"ScaleY": 0.5
+							},
+							"Position": {
+								"X": 416.897225,
+								"Y": 99.558575
+							},
+							"Scale": {
+								"ScaleX": 1,
+								"ScaleY": 1
+							},
+							"CColor": {},
+							"IconVisible": false,
+							"PrePosition": {
+								"X": 0.9264,
+								"Y": 0.2212
+							},
+							"PreSize": {
+								"X": 0.1117,
+								"Y": 0.3256
+							},
+							"LeftMargin": 1567.0889,
+							"RightMargin": 31.9111,
+							"TopMargin": 1108.7657,
+							"BottomMargin": 105.2343,
+							"Tag": 14,
+							"ActionTag": 1276438497,
+							"Size": {
+								"X": 50.25,
+								"Y": 146.5
+							},
+							"Name": "Tree_2",
+							"ctype": "SpriteObjectData"
+						}, {
+							"FileData": {
+								"Type": "Normal",
+								"Path": "Trees/Tree_03.png",
+								"Plist": ""
+							},
+							"BlendFunc": {
+								"Src": 1,
+								"Dst": 771
+							},
+							"AnchorPoint": {
+								"ScaleX": 0.5,
+								"ScaleY": 0.5
+							},
+							"Position": {
+								"X": 338.402525,
+								"Y": 125.139225
+							},
+							"Scale": {
+								"ScaleX": 1,
+								"ScaleY": 1
+							},
+							"CColor": {},
+							"IconVisible": false,
+							"PrePosition": {
+								"X": 0.752,
+								"Y": 0.2781
+							},
+							"PreSize": {
+								"X": 0.05,
+								"Y": 0.14
+							},
+							"LeftMargin": 1308.6101,
+							"RightMargin": 401.3899,
+							"TopMargin": 1173.4431,
+							"BottomMargin": 374.5569,
+							"Tag": 15,
+							"ActionTag": 662858467,
+							"Size": {
+								"X": 22.5,
+								"Y": 63
+							},
+							"Name": "Tree_3",
+							"ctype": "SpriteObjectData"
+						}, {
+							"FileData": {
+								"Type": "Normal",
+								"Path": "Trees/Tree_03.png",
+								"Plist": ""
+							},
+							"BlendFunc": {
+								"Src": 1,
+								"Dst": 771
+							},
+							"AnchorPoint": {
+								"ScaleX": 0.5,
+								"ScaleY": 0.5
+							},
+							"Position": {
+								"X": 131.447425,
+								"Y": 137.0451
+							},
+							"Scale": {
+								"ScaleX": 0.5365,
+								"ScaleY": 0.5365
+							},
+							"CColor": {},
+							"IconVisible": false,
+							"PrePosition": {
+								"X": 0.2921,
+								"Y": 0.3045
+							},
+							"PreSize": {
+								"X": 0.05,
+								"Y": 0.14
+							},
+							"LeftMargin": 480.7897,
+							"RightMargin": 1229.2103,
+							"TopMargin": 1125.8196,
+							"BottomMargin": 422.1804,
+							"Tag": 16,
+							"ActionTag": 773663296,
+							"Size": {
+								"X": 22.5,
+								"Y": 63
+							},
+							"Name": "Tree_4",
+							"ctype": "SpriteObjectData"
+						}, {
+							"FileData": {
+								"Type": "Normal",
+								"Path": "Trees/Tree_04.png",
+								"Plist": ""
+							},
+							"BlendFunc": {
+								"Src": 1,
+								"Dst": 771
+							},
+							"AnchorPoint": {
+								"ScaleX": 0.5,
+								"ScaleY": 0.5
+							},
+							"Position": {
+								"X": 62.0265,
+								"Y": 184.764575
+							},
+							"Scale": {
+								"ScaleX": 1,
+								"ScaleY": 1
+							},
+							"CColor": {},
+							"IconVisible": false,
+							"PrePosition": {
+								"X": 0.1378,
+								"Y": 0.4106
+							},
+							"PreSize": {
+								"X": 0.02,
+								"Y": 0.0344
+							},
+							"LeftMargin": 230.106,
+							"RightMargin": 1533.894,
+							"TopMargin": 1029.9417,
+							"BottomMargin": 708.0583,
+							"Tag": 17,
+							"ActionTag": -1974209328,
+							"Size": {
+								"X": 9,
+								"Y": 15.5
+							},
+							"Name": "Tree_5",
+							"ctype": "SpriteObjectData"
+						}, {
+							"FileData": {
+								"Type": "Normal",
+								"Path": "Trees/Tree_04.png",
+								"Plist": ""
+							},
+							"BlendFunc": {
+								"Src": 1,
+								"Dst": 771
+							},
+							"AnchorPoint": {
+								"ScaleX": 0.5,
+								"ScaleY": 0.5
+							},
+							"Position": {
+								"X": 201.39845,
+								"Y": 173.54175
+							},
+							"Scale": {
+								"ScaleX": 1.5888,
+								"ScaleY": 1.5888
+							},
+							"CColor": {},
+							"IconVisible": false,
+							"PrePosition": {
+								"X": 0.4476,
+								"Y": 0.3856
+							},
+							"PreSize": {
+								"X": 0.02,
+								"Y": 0.0344
+							},
+							"LeftMargin": 787.5938,
+							"RightMargin": 976.4062,
+							"TopMargin": 1074.833,
+							"BottomMargin": 663.167,
+							"Tag": 18,
+							"ActionTag": 303209334,
+							"Size": {
+								"X": 9,
+								"Y": 15.5
+							},
+							"Name": "Tree_6",
+							"ctype": "SpriteObjectData"
+						}, {
+							"FileData": {
+								"Type": "Normal",
+								"Path": "Trees/Tree_05.png",
+								"Plist": ""
+							},
+							"BlendFunc": {
+								"Src": 1,
+								"Dst": 771
+							},
+							"AnchorPoint": {
+								"ScaleX": 0.5,
+								"ScaleY": 0.5
+							},
+							"Position": {
+								"X": 126.944875,
+								"Y": 165.891275
+							},
+							"Scale": {
+								"ScaleX": 1,
+								"ScaleY": 1
+							},
+							"CColor": {},
+							"IconVisible": false,
+							"PrePosition": {
+								"X": 0.2821,
+								"Y": 0.3686
+							},
+							"PreSize": {
+								"X": 0.02,
+								"Y": 0.0633
+							},
+							"LeftMargin": 489.7795,
+							"RightMargin": 1274.2205,
+							"TopMargin": 1079.4349,
+							"BottomMargin": 606.5651,
+							"Tag": 19,
+							"ActionTag": -1346848200,
+							"Size": {
+								"X": 9,
+								"Y": 28.5
+							},
+							"Name": "Tree_7",
+							"ctype": "SpriteObjectData"
+						}, {
+							"FileData": {
+								"Type": "Normal",
+								"Path": "Trees/Tree_05.png",
+								"Plist": ""
+							},
+							"BlendFunc": {
+								"Src": 1,
+								"Dst": 771
+							},
+							"AnchorPoint": {
+								"ScaleX": 0.5,
+								"ScaleY": 0.5
+							},
+							"Position": {
+								"X": 281.726325,
+								"Y": 197.881225
+							},
+							"Scale": {
+								"ScaleX": 1,
+								"ScaleY": 1
+							},
+							"CColor": {},
+							"IconVisible": false,
+							"PrePosition": {
+								"X": 0.6261,
+								"Y": 0.4397
+							},
+							"PreSize": {
+								"X": 0.02,
+								"Y": 0.0633
+							},
+							"LeftMargin": 1108.9053,
+							"RightMargin": 655.0947,
+							"TopMargin": 951.4751,
+							"BottomMargin": 734.5249,
+							"Tag": 20,
+							"ActionTag": -554618542,
+							"Size": {
+								"X": 9,
+								"Y": 28.5
+							},
+							"Name": "Tree_8",
+							"ctype": "SpriteObjectData"
+						}, {
+							"FileData": {
+								"Type": "Normal",
+								"Path": "human_skeleton.json",
+								"Plist": ""
+							},
+							"InnerActionSpeed": 1,
+							"AnchorPoint": {
+								"ScaleX": 0,
+								"ScaleY": 0
+							},
+							"Position": {
+								"X": 186.31868131868129,
+								"Y": 76.48351648351647
+							},
+							"RotationSkewX": 0,
+							"RotationSkewY": 0,
+							"Scale": {
+								"ScaleX": 1,
+								"ScaleY": 1
+							},
+							"CColor": {
+								"R": 255,
+								"G": 255,
+								"B": 255,
+								"A": 255
+							},
+							"Tag": 127,
+							"Size": {
+								"X": 0,
+								"Y": 0
+							},
+							"ActionTag": -1463330303567,
+							"Name": "Human_Skeleton",
+							"ctype": "ProjectNodeObjectData",
+							"UserData": {
+								"resourcePath": "human_skeleton.json",
+								"uniqueCharacterID": "skeleton_%%_6fadcfc2-557f-40a9-a427-25e8d65efb90",
+								"visibleSkins": [{
+									"bone": "head_accessories",
+									"skin": "police_cap"
+								}, {
+									"bone": "eyebrow_right",
+									"skin": "eyebrow_box_right"
+								}, {
+									"bone": "eyebrow_left",
+									"skin": "eyebrow_box_left"
+								}, {
+									"bone": "ear",
+									"skin": "ear_round"
+								}, {
+									"bone": "nose",
+									"skin": "nose"
+								}, {
+									"bone": "mouth",
+									"skin": "mouth_smile"
+								}, {
+									"bone": "eye_inner_right",
+									"skin": "eye_green_right"
+								}, {
+									"bone": "eye_outer_right",
+									"skin": "eye_outer_green_left"
+								}, {
+									"bone": "eye_inner_left",
+									"skin": "eye_green_left"
+								}, {
+									"bone": "eye_outer_left",
+									"skin": "eye_outer_green_right"
+								}, {
+									"bone": "face",
+									"skin": "face"
+								}, {
+									"bone": "neck",
+									"skin": "neck"
+								}, {
+									"bone": "arm_hand_left",
+									"skin": "arm_hand_left"
+								}, {
+									"bone": "arm_lower_left",
+									"skin": "arm_lower_left"
+								}, {
+									"bone": "arm_upper_left",
+									"skin": "arm_upper_left"
+								}, {
+									"bone": "arm_upper_left",
+									"skin": "motu_shirt_upper_left"
+								}, {
+									"bone": "arm_hand_right",
+									"skin": "arm_hand_right"
+								}, {
+									"bone": "arm_lower_right ",
+									"skin": "arm_lower_right "
+								}, {
+									"bone": "arm_upper_right",
+									"skin": "arm_upper_right"
+								}, {
+									"bone": "arm_upper_right",
+									"skin": "motu_shirt_upper_right"
+								}, {
+									"bone": "body",
+									"skin": "body"
+								}, {
+									"bone": "body",
+									"skin": "motu_shirt_body"
+								}, {
+									"bone": "leg_foot_left",
+									"skin": "leg_foot_left"
+								}, {
+									"bone": "leg_foot_left",
+									"skin": "motu_shoes_left"
+								}, {
+									"bone": "leg_lower_left",
+									"skin": "leg_lower_left"
+								}, {
+									"bone": "leg_lower_left",
+									"skin": "motu_pant_lower_left"
+								}, {
+									"bone": "leg_upper_left",
+									"skin": "leg_upper_left"
+								}, {
+									"bone": "leg_upper_left",
+									"skin": "motu_pant_upper_left"
+								}, {
+									"bone": "leg_foot_right",
+									"skin": "leg_foot_right"
+								}, {
+									"bone": "leg_foot_right",
+									"skin": "motu_shoes_right"
+								}, {
+									"bone": "leg_lower_right",
+									"skin": "leg_lower_right"
+								}, {
+									"bone": "leg_lower_right",
+									"skin": "motu_pant_lower_right"
+								}, {
+									"bone": "leg_upper_right",
+									"skin": "leg_upper_right"
+								}, {
+									"bone": "leg_upper_right",
+									"skin": "motu_pant_upper_right"
+								}, {
+									"bone": "hip",
+									"skin": "hip"
+								}, {
+									"bone": "hip",
+									"skin": "motu_pant_hip"
+								}]
+							}
+						}],
+						"Size": {
+							"X": 450,
+							"Y": 450
+						},
+						"Name": "Scene",
+						"ctype": "SingleNodeObjectData"
+					},
+					"UsedResources": ["Background/Background.png", "cloud/Cloud.png", "Grass_hill/Grass_Hill.png", "Grass_hill/Grass_Hill_01.png", "Grass_hill/Grass_Hill_02.png", "Hill/Hill.png", "Sun/Sun.png", "Trees/Tree_01.png", "Trees/Tree_02.png", "Trees/Tree_03.png", "Trees/Tree_04.png", "Trees/Tree_05.png"],
+					"ctype": "GameFileData"
+				}
+			},
+			"Type": "Scene",
+			"ChimpleCompressed": true
+		}
+	}],
+	"RESOLUTION_HEIGHT": 450
+}

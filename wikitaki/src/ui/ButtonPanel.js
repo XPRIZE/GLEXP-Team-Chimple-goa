@@ -8,23 +8,22 @@ chimple.ButtonPanel = ccui.Layout.extend({
         this.setPosition(position);
         start = start || 0;
         numButtons = numButtons || configuration.length;
-        // this._isMenu = isMenu;
-        // this._callBackFunction = callBackFunction;
-        // this._callBackContext = callBackContext;
-        // this._currentSelectedItem = null;
         var index = start;
-        for (var pageIndex = 0; pageIndex < (numButtons - start) / (numButtonsPerRow * numButtonsPerColumn); pageIndex++) {
+        for (var pageIndex = 0; pageIndex < (numButtons) / (numButtonsPerRow * numButtonsPerColumn); pageIndex++) {
             for (var rowIndex = 0; rowIndex < numButtonsPerColumn; rowIndex++) {
                 for (var colIndex = 0; colIndex < numButtonsPerRow; colIndex++) {
                     if (index < configuration.length - pageIndex * (numButtonsPerRow * numButtonsPerColumn)) {
                         cc.log('configuration[index]:' + configuration[index]);
                         var item;
-                        try {
+                        try {                            
                             item = new ccui.Button(configuration[index]['icon'], configuration[index]['cIcon'], null, ccui.Widget.PLIST_TEXTURE);
                         } catch (error) {
                             cc.log(error);
-                            item = new ccui.Button(configuration[index]['icon'], configuration[index]['cIcon'], null, ccui.Widget.LOCAL_TEXTURE);
+                            item = new ccui.Button('icons/my_pet.png', 'icons/my_pet_onclick.png', null, ccui.Widget.PLIST_TEXTURE);
                         }
+                        item.setEnabled(true);
+                        chimple.ParseUtil.disableFavoriteChoiceIfCharacterAlreadyLoadedInPage(item, configuration[index]);
+                        
                         item.addTouchEventListener(this._buttonHandler.itemSelected, this._buttonHandler);
                         item.setPosition(pageIndex * size.width + (colIndex + 0.5) * size.width / numButtonsPerRow, size.height - (rowIndex + 0.5) * size.height / numButtonsPerColumn);
                         item._selectedIndex = index;
@@ -98,7 +97,7 @@ chimple.ButtonHandler = cc.Class.extend({
                         sender.loadTextures(sender._configuration.icon, sender._configuration.cIcon, null, ccui.Widget.PLIST_TEXTURE);
                     } catch (error) {
                         cc.log(error);
-                        sender.loadTextures(sender._configuration.icon, sender._configuration.cIcon, null, ccui.Widget.LOCAL_TEXTURE);
+                        sender.loadTextures('icons/my_pet.png', 'icons/my_pet_onclick.png', null, ccui.Widget.PLIST_TEXTURE);
                     }
 
                 } else {
@@ -115,7 +114,7 @@ chimple.ButtonHandler = cc.Class.extend({
                         sender.loadTextures(sender._configuration.cIcon, sender._configuration.icon, null, ccui.Widget.PLIST_TEXTURE);
                     } catch (error) {
                         cc.log(error);
-                        sender.loadTextures(sender._configuration.cIcon, sender._configuration.icon, null, ccui.Widget.LOCAL_TEXTURE);
+                        sender.loadTextures('icons/my_pet_onclick.png', 'icons/my_pet.png', null, ccui.Widget.PLIST_TEXTURE);
                     }
                 }
             }

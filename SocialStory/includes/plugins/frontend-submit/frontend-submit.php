@@ -1235,6 +1235,7 @@ window.adminAjaxUrl = '<?php echo home_url() . "/wp-admin/admin-ajax.php"; ?>';
 	</section>
 	<div id="results" class="f-row two-third">
 		<canvas id="gameCanvas" width="640" height="450"></canvas>
+		<canvas id="snapShotCanvas" style="display:none;" width="450" height="450"></canvas>		
 	</div>
 	
 	<div class="f-row full">

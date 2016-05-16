@@ -78,11 +78,12 @@
 	var submit_recipe = {
 
 		generateImageFromCanvas: function () {
-			var canvas = document.getElementById("gameCanvas");
-			if (canvas != null) {
-				var dataURL = canvas.toDataURL("image/png");
-				return dataURL;
-			}
+			return chimple.story.titlePageDataURL;
+			// var canvas = document.getElementById("gameCanvas");
+			// if (canvas != null) {
+			// 	var dataURL = canvas.toDataURL("image/png");
+			// 	return dataURL;
+			// }
 		},
 
 		readStoryJSONFromLocalStorage: function () {
@@ -91,6 +92,7 @@
 
 			if (chimple.story) {
 				// Code for localStorage/sessionStorage.
+						chimple.story.titlePageDataURL = null;
 						base64endcoedStoryJSONStr = Base64.encode(JSON.stringify(chimple.story));
 						base64endcoedStoryJSONStr = 'data:application/json;base64,' + base64endcoedStoryJSONStr;
 						chimple.story = null;
