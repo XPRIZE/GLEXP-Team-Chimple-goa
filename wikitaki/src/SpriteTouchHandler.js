@@ -7,6 +7,9 @@ chimple.SpriteTouchHandler = function (context) {
 
     this.onTouchBegan = function (touch, event) {
         var target = event.getCurrentTarget();
+        if(target.getTexture().url.indexOf('background') != -1) {
+            return false;
+        }
         var location = target.convertToNodeSpace(touch.getLocation());
         var targetSize = target.getContentSize();
         var targetRectangle = cc.rect(0, 0, targetSize.width, targetSize.
