@@ -70,19 +70,7 @@ chimple.PreviewPanel = cc.LayerColor.extend({
     goBack: function () {
         //update skins and color based on user selection
         //var renderer = new cc.RenderTexture(this._target.getBoundingBoxToWorld().width, this._target.getBoundingBoxToWorld().height);
-        var renderer = new cc.RenderTexture(64 * 4, 64 * 4);
-        this._target._renderCmd._dirtyFlag = 1;
-        renderer.begin();
-        this._target.visit();
-        this._target._renderCmd._dirtyFlag = 1;
-        renderer.end();
-        // renderer.setContentSize(cc.size(64,64));
-        renderer.scaleY = -1;
-        this._target._renderCmd._dirtyFlag = 1;
-        var sprite = renderer.getSprite();
-        var cacheName = '/res/' + this._target. uniqueCharacterID + '.png';
-        cc.textureCache.cacheImage(cacheName, sprite.texture);
-        renderer.cleanup();
+        chimple.ParseUtil.cacheThumbnailForFavorites(this._target);
         if (chimple.customCharacters && chimple.customCharacters.items) {
             chimple.customCharacters.items.forEach(function (element) {
                 if (element.uniqueCharacterID == this._target.uniqueCharacterID) {
