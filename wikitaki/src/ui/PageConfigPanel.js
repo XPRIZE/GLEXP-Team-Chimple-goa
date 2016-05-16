@@ -20,6 +20,19 @@ chimple.PageConfigPanel = cc.LayerColor.extend({
         if (selectedConfig != null && selectedConfig.name === "texts") {
             this._contentPanel.addTextToScene();
         } else if (selectedConfig != null && selectedConfig.name === "startRecording") {
+            if(this._contentPanel._isRecordingStarted) {
+                this._buttonPanel.enableButton("play", true);
+                this._buttonPanel.enableButton("backgrounds", true);
+                this._buttonPanel.enableButton("characters", true);
+                this._buttonPanel.enableButton("texts", true);
+                this._buttonPanel.enableButton("props", true);                
+            } else {
+                this._buttonPanel.enableButton("play", false);
+                this._buttonPanel.enableButton("backgrounds", false);
+                this._buttonPanel.enableButton("characters", false);
+                this._buttonPanel.enableButton("texts", false);
+                this._buttonPanel.enableButton("props", false);
+            }
             this._contentPanel.startRecording();
         } else if (selectedConfig != null && selectedConfig.name === "play") {
             this._contentPanel.playSceneInEditMode();

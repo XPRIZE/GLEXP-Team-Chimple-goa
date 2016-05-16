@@ -19,6 +19,10 @@ chimple.ObjectConfigPanel = cc.LayerColor.extend({
     setTarget: function (target) {
         if (this._target != target) {
             this._target = target;
+            this._contentPanel._moveAction = true;
+            this._contentPanel._rotateAction = false;
+            this._contentPanel._scaleAction = false;
+            
             if (target.getName().indexOf("Skeleton") != -1) {
                 this.setButtonPanel(new chimple.ButtonPanel(new cc.p(0, 0), this.getContentSize(), 1, 6, this._configuration.editCharacter, new chimple.ButtonHandler(this.buttonPressed, this)));
             } else if (target.getName().indexOf("ChimpleCustomText") != -1) {
@@ -26,6 +30,9 @@ chimple.ObjectConfigPanel = cc.LayerColor.extend({
             }
             else {
                 this.setButtonPanel(new chimple.ButtonPanel(new cc.p(0, 0), this.getContentSize(), 1, 6, this._configuration.editObject, new chimple.ButtonHandler(this.buttonPressed, this)));
+            }
+            if(this._contentPanel._isRecordingStarted) {
+                this._buttonPanel.enableButton("delete", false);
             }
         }
     },

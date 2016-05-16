@@ -2,7 +2,7 @@
   "addObjects": [
     {
       "name": "startRecording",
-      "cIcon": "icons/stop.png",
+      "cIcon": "icons/record_onclick.png",
       "icon": "icons/record.png",
       "toggle": true
     },
@@ -702,46 +702,56 @@
   ],
   "editCharacter": [
     {
+      "name": "back",
       "cIcon": "icons/back_onclick.png",
       "icon": "icons/back.png"
     },
     {
+      "name": "translate",      
       "cIcon": "icons/rotate.png",
       "icon": "icons/translate.png",
       "toggle": true
     },
     {
+      "name": "flipX",      
       "cIcon": "icons/flipX_onclick.png",
       "icon": "icons/flipX.png"
     },
     {
+      "name": "delete",      
       "cIcon": "icons/delete_onclick.png",
       "icon": "icons/delete.png"
     },
     {
+      "name": "my_avatar",      
       "cIcon": "icons/my_avatar_onclick.png",
       "icon": "icons/my_avatar.png"
     },
     {
+      "name": "animation",      
       "cIcon": "icons/animation_onclick.png",
       "icon": "icons/animation.png"
     }
   ],
   "editObject": [
     {
+      "name": "back",      
       "cIcon": "icons/back_onclick.png",
       "icon": "icons/back.png"
     },
     {
+      "name": "translate",      
       "cIcon": "icons/rotate.png",
       "icon": "icons/translate.png",
       "toggle": true
     },
     {
+      "name": "flipX",      
       "cIcon": "icons/flipX_onclick.png",
       "icon": "icons/flipX.png"
     },
     {
+      "name": "delete",      
       "cIcon": "icons/delete_onclick.png",
       "icon": "icons/delete.png"
     }
@@ -762,6 +772,7 @@
   ],
   "editDefault": [
     {
+      "name": "back",      
       "cIcon": "icons/back_onclick.png",
       "icon": "icons/back.png"
     }
