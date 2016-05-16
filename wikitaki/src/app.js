@@ -22,7 +22,7 @@ var HelloWorldLayer = cc.Layer.extend({
     init: function () {
         //create new content panel for showing all stories
         //add button panel
-        this._buttonPanel = new chimple.ButtonPanel(new cc.p(0, 0), this.getContentSize(), 6, 6, chimple.storyConfigurationObject.editStory, this.createNewPage, this);
+        this._buttonPanel = new chimple.ButtonPanel(new cc.p(0, 0), this.getContentSize(), 6, 6, chimple.storyConfigurationObject.editStory, new chimple.ButtonHandler(this.createNewPage, this));
         this.addChild(this._buttonPanel);
 
         var displayPages = [];
@@ -119,6 +119,7 @@ var HelloWorldScene = cc.Scene.extend({
                 cc.loader.loadJson(url, function (error, data) {
                     if (data != null && data.items != null && data.items.length > 0) {
                         chimple.story = data;
+                        chimple.story.storyId = storyIdToFetch;
                         chimple.scaleFactor = chimple.story.RESOLUTION_HEIGHT / chimple.DEVICE_HEIGHT;
                         chimple.story.RESOLUTION_HEIGHT = chimple.DEVICE_HEIGHT;
 

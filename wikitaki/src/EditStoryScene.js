@@ -3,6 +3,7 @@ var chimple = chimple || {};
 chimple.LAYER_EDIT_STORY = false;
 chimple.STORY_KEY = "/res/chimpleStory.json";
 
+
 var EditStoryLayer = cc.Layer.extend({
     _contentPanel: null,
     _pageConfigPanel: null,
@@ -44,7 +45,13 @@ var EditStoryScene = cc.Scene.extend({
     _pageIndex: null,
     ctor: function () {
         this._super();
-
+        //creating custom characters cache
+        chimple.customCharacters = {};
+        chimple.customCharacters.cIcon = "shirt_onclick.png";
+        chimple.customCharacters.icon = "shirt.png";
+        chimple.customCharacters.items = []; 
+        chimple.customCharacters.name = "favCharacters";
+        chimple.initalCharacterCategories = chimple.storyConfigurationObject.addObjects[3].categories.length;        
         if (chimple.LAYER_EDIT_STORY === false) {
             chimple.LAYER_EDIT_STORY = true;
             cc.log('initing layer...should only be once');

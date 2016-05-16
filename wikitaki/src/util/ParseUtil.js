@@ -11,7 +11,7 @@ chimple.ParseUtil.saveScene = function (scene) {
 chimple.ParseUtil.saveObjectToStoredScene = function (jsonObject) {
     if (chimple.story && chimple.story.items != null) {
         var replace = false;
-        var children = chimple.story.items[chimple.pageIndex].scene.Content.Content.ObjectData.Children;
+        let children = chimple.story.items[chimple.pageIndex].scene.Content.Content.ObjectData.Children;
         for (var index = 0; index < children.length; index++) {
             if (children[index].ActionTag == jsonObject.ActionTag) {
                 children.splice(index, 1, jsonObject);
@@ -77,7 +77,7 @@ chimple.ParseUtil.removeObjectFromStoredScene = function (tag) {
 }
 
 chimple.ParseUtil.updateUserData = function (tag, dataKey, dataValue) {
-    if (chimple.story && chimple.story.items != null) {
+    if (chimple.story && chimple.story.items != null && chimple.story.items[chimple.pageIndex].scene.Content) {
         var children = chimple.story.items[chimple.pageIndex].scene.Content.Content.ObjectData.Children;
         for (var index = 0; index < children.length; index++) {
             if (children[index].ActionTag == tag) {
@@ -155,6 +155,7 @@ chimple.ParseUtil.constructJSONFromCharacter = function (skeleton, resourcePath)
     };
 
     existingUserData.currentAnimationName = skeleton._currentAnimationName;
+    existingUserData.resourcePath = resourcePath;
     object.UserData = existingUserData;
 
     skeleton._actionTag = object.ActionTag;
@@ -395,7 +396,7 @@ chimple.ParseUtil.generateUUID = function () {
 
 
 chimple.ParseUtil.changeSize = function (obj, name, scaleFactor) {
-    if(obj['ChimpleCompressed']) {
+    if (obj['ChimpleCompressed']) {
         return;
     }
     if (obj['ctype'] && obj['ctype'] == 'PointFrameData') {
@@ -411,5 +412,18 @@ chimple.ParseUtil.changeSize = function (obj, name, scaleFactor) {
         if (typeof (element) == 'object') {
             this.changeSize(element, key, scaleFactor);
         }
+    }
+}
+
+
+chimple.ParseUtil.disableFavoriteChoiceIfCharacterAlreadyLoadedInPage = function (item, itemConfiguration) {
+    if (itemConfiguration && itemConfiguration['uniqueCharacterID'] &&
+        chimple.story.items[chimple.pageIndex].scene.Content && chimple.story.items[chimple.pageIndex].scene.Content.Content
+        && chimple.story.items[chimple.pageIndex].scene.Content.Content.ObjectData) {
+        chimple.story.items[chimple.pageIndex].scene.Content.Content.ObjectData.Children.forEach(function (child) {
+            if(child.UserData && child.UserData.uniqueCharacterID == itemConfiguration['uniqueCharacterID']) {
+                item.setEnabled(false);
+            }
+        }, this);
     }
 }

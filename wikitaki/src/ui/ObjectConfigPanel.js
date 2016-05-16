@@ -14,18 +14,18 @@ chimple.ObjectConfigPanel = cc.LayerColor.extend({
         this.addChild(buttonPanel, 1);
     },
     getDefaultPanel: function () {
-        return new chimple.ButtonPanel(new cc.p(0, 0), this.getContentSize(), 1, 6, this._configuration.editDefault, this.buttonPressed, this);
+        return new chimple.ButtonPanel(new cc.p(0, 0), this.getContentSize(), 1, 6, this._configuration.editDefault, new chimple.ButtonHandler(this.buttonPressed, this));
     },
     setTarget: function (target) {
         if (this._target != target) {
             this._target = target;
             if (target.getName().indexOf("Skeleton") != -1) {
-                this.setButtonPanel(new chimple.ButtonPanel(new cc.p(0, 0), this.getContentSize(), 1, 6, this._configuration.editCharacter, this.buttonPressed, this));
+                this.setButtonPanel(new chimple.ButtonPanel(new cc.p(0, 0), this.getContentSize(), 1, 6, this._configuration.editCharacter, new chimple.ButtonHandler(this.buttonPressed, this)));
             } else if (target.getName().indexOf("ChimpleCustomText") != -1) {
-                this.setButtonPanel(new chimple.ButtonPanel(new cc.p(0, 0), this.getContentSize(), 1, 6, this._configuration.editText, this.buttonPressed, this));
+                this.setButtonPanel(new chimple.ButtonPanel(new cc.p(0, 0), this.getContentSize(), 1, 6, this._configuration.editText, new chimple.ButtonHandler(this.buttonPressed, this)));
             }
             else {
-                this.setButtonPanel(new chimple.ButtonPanel(new cc.p(0, 0), this.getContentSize(), 1, 6, this._configuration.editObject, this.buttonPressed, this));
+                this.setButtonPanel(new chimple.ButtonPanel(new cc.p(0, 0), this.getContentSize(), 1, 6, this._configuration.editObject, new chimple.ButtonHandler(this.buttonPressed, this)));
             }
         }
     },
@@ -74,15 +74,16 @@ chimple.ObjectConfigPanel = cc.LayerColor.extend({
             fontSize += 1;
             this._target.setFontSize(fontSize);
         } else if (button.getName() == res.text_png) {
-            this._contentPanel.addTextToScene(this._target.getString());
+            this._contentPanel.addTextToScene(chimple.story.sceneText);
         } else if (button.getName() == "icons/back.png") {
             this._contentPanel.backPressed(this._target);
         }
     },
     skinSelected: function (selectedItem) {
         if (this._target != null && selectedItem._configuration) {
-            if (selectedItem._configuration.skins) {
+            if (selectedItem._configuration.skins) {                
                 chimple.CharacterUtil.displaySkins(this._target, selectedItem._configuration.skins);
+                
             } else if (selectedItem._configuration.colorSkins) {
                 chimple.CharacterUtil.colorSkins(this._target, selectedItem._configuration.colorSkins);
             }
