@@ -95,10 +95,8 @@ chimple.ButtonHandler = cc.Class.extend({
                     // sender.setHighlighted(true);
                     sender._isToggled = false;
                     this._callBackContext._buttonPanel.children.forEach(function (element) {
-                        if (element._configuration.name == "play") {
                             element.setEnabled(true);
                             element.setHighlighted(false);
-                        }
                     }, this);
 
                     try {
@@ -112,7 +110,7 @@ chimple.ButtonHandler = cc.Class.extend({
                     // sender.setHighlighted(false);
                     sender._isToggled = true;
                     this._callBackContext._buttonPanel.children.forEach(function (element) {
-                        if (element._configuration.name == "play") {
+                        if (element._configuration.name != "startRecording") {
                             element.setEnabled(false);
                             element.setHighlighted(true);
                         }
@@ -130,7 +128,7 @@ chimple.ButtonHandler = cc.Class.extend({
 
         if (this._callBackFunction != null && this._callBackContext != null) {
             if (sender._configurationType == "scene") {
-                chimple.PageConfigPanel.disableOrEnableAllButtons(this._callBackContext._buttonPanel, true);
+                 this._callBackContext.disableOrEnableAllButtons(this._callBackContext._buttonPanel,true);
             }
             this._callBackFunction.call(this._callBackContext, sender);
         }
