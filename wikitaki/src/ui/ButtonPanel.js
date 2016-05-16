@@ -3,8 +3,8 @@ chimple.ButtonPanel = ccui.Layout.extend({
         this._super();
         this._configuration = configuration;
         this._buttonHandler = buttonHandler;
-        this.setBackGroundColorType(ccui.Layout.BG_COLOR_SOLID);
-        this.setBackGroundColor(cc.color.GREEN);
+        // this.setBackGroundColorType(ccui.Layout.BG_COLOR_SOLID);
+        // this.setBackGroundColor(cc.color.GREEN);
         this.setPosition(position);
         start = start || 0;
         numButtons = numButtons || configuration.length;
