@@ -421,9 +421,25 @@ chimple.ParseUtil.disableFavoriteChoiceIfCharacterAlreadyLoadedInPage = function
         chimple.story.items[chimple.pageIndex].scene.Content && chimple.story.items[chimple.pageIndex].scene.Content.Content
         && chimple.story.items[chimple.pageIndex].scene.Content.Content.ObjectData) {
         chimple.story.items[chimple.pageIndex].scene.Content.Content.ObjectData.Children.forEach(function (child) {
-            if(child.UserData && child.UserData.uniqueCharacterID == itemConfiguration['uniqueCharacterID']) {
+            if (child.UserData && child.UserData.uniqueCharacterID == itemConfiguration['uniqueCharacterID']) {
                 item.setEnabled(false);
             }
         }, this);
     }
+}
+
+
+chimple.ParseUtil.cacheThumbnailForFavorites = function (skeleton) {
+    var renderer = new cc.RenderTexture(64 * 4, 64 * 4);
+    skeleton._renderCmd._dirtyFlag = 1;
+    renderer.begin();
+    skeleton.visit();
+    skeleton._renderCmd._dirtyFlag = 1;
+    renderer.end();
+    renderer.scaleY = -1;
+    skeleton._renderCmd._dirtyFlag = 1;
+    var sprite = renderer.getSprite();    
+    var cacheName = '/res/' + skeleton.uniqueCharacterID + '.png';
+    cc.textureCache.cacheImage(cacheName, sprite.texture);
+    renderer.cleanup();    
 }

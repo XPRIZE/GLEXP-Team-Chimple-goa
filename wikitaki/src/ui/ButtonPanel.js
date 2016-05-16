@@ -108,13 +108,6 @@ chimple.ButtonHandler = cc.Class.extend({
                 if (sender._isToggled) {
                     // sender.setHighlighted(true);
                     sender._isToggled = false;
-                    // this._callBackContext._buttonPanel.enableButton("play", true);
-                    // this._callBackContext._buttonPanel.children.forEach(function (element) {
-                    //     if (element._configuration.name == "play") {
-                    //         element.setEnabled(true);
-                    //         element.setHighlighted(false);
-                    //     }
-                    // }, this);
 
                     try {
                         sender.loadTextures(sender._configuration.icon, sender._configuration.cIcon, null, ccui.Widget.PLIST_TEXTURE);
@@ -126,13 +119,6 @@ chimple.ButtonHandler = cc.Class.extend({
                 } else {
                     // sender.setHighlighted(false);
                     sender._isToggled = true;
-                    // this._callBackContext._buttonPanel.enableButton("play", false);
-                    // this._callBackContext._buttonPanel.children.forEach(function (element) {
-                    //     if (element._configuration.name == "play") {
-                    //         element.setEnabled(false);
-                    //         element.setHighlighted(true);
-                    //     }
-                    // }, this);
 
                     try {
                         sender.loadTextures(sender._configuration.cIcon, sender._configuration.icon, null, ccui.Widget.PLIST_TEXTURE);
@@ -146,7 +132,7 @@ chimple.ButtonHandler = cc.Class.extend({
 
         if (this._callBackFunction != null && this._callBackContext != null) {
             if (sender._configurationType == "scene") {
-                chimple.PageConfigPanel.disableOrEnableAllButtons(this._callBackContext._buttonPanel, true);
+                 this._callBackContext.disableOrEnableAllButtons(this._callBackContext._buttonPanel,true);
             }
             this._callBackFunction.call(this._callBackContext, sender);
         }

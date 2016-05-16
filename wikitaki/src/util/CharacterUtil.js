@@ -110,6 +110,7 @@ chimple.CharacterUtil.addCharacterToFavorites = function (skeleton, configuratio
 
     chimple.customCharacters.items.push(favoriteCharConfiguration);
     chimple.CharacterUtil.addToCharacterConfigs(chimple.customCharacters);
+    chimple.ParseUtil.cacheThumbnailForFavorites(skeleton);
 }
 
 chimple.CharacterUtil.addToCharacterConfigs = function (characterConfig) {

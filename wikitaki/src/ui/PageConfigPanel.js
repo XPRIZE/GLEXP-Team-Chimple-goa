@@ -8,9 +8,9 @@ chimple.PageConfigPanel = cc.LayerColor.extend({
         this._buttonPanel = new chimple.ButtonPanel(new cc.p(0, 0), this.getContentSize(), 1, 6, configuration.addObjects, new chimple.ButtonHandler(this.buttonPressed, this));
 
         if (chimple.story.items[chimple.pageIndex].scene.Content == null) {
-            chimple.PageConfigPanel.disableOrEnableAllButtons(this._buttonPanel, false);
+            this.disableOrEnableAllButtons(this._buttonPanel,false);
         } else {
-            chimple.PageConfigPanel.disableOrEnableAllButtons(this._buttonPanel, true);
+            this.disableOrEnableAllButtons(this._buttonPanel,true);
         }
         this.addChild(this._buttonPanel);
     },
@@ -121,22 +121,21 @@ chimple.PageConfigPanel = cc.LayerColor.extend({
                 break;
         }
 
-    }
+    },
+    disableOrEnableAllButtons : function (panel, isEnabled) {
+    
+        panel.children.forEach(function (element) {
+            if (isEnabled) {
+                if(element._configuration.name != "play"){
+                    element.setEnabled(true);
+                    element.setHighlighted(false);
+                }
+            } else {
+                if(element._configuration.name != "backgrounds"){
+                    element.setEnabled(false);
+                    element.setHighlighted(true);
+                }    
+            }   
+     }, this);
+   }
 });
-
-chimple.PageConfigPanel.disableOrEnableAllButtons = function (panel, isEnabled) {
-
-    panel.children.forEach(function (element) {
-        if (isEnabled) {
-            if (element._configuration.name != "play") {
-                element.setEnabled(true);
-                element.setHighlighted(false);
-            }
-        } else {
-            if (element._configuration.name != "backgrounds") {
-                element.setEnabled(false);
-                element.setHighlighted(true);
-            }
-        }
-    }, this);
-}
