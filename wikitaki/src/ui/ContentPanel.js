@@ -1,4 +1,5 @@
 var chimple = chimple || {};
+chimple.RECORDING_TIME = 5;
 chimple.ContentPanel = chimple.AbstractContentPanel.extend({
     ctor: function (width, height, position) {
         this._super(width, height, position);
@@ -7,6 +8,7 @@ chimple.ContentPanel = chimple.AbstractContentPanel.extend({
         this._nodesTouchedWhileRecording = [];
         this._isRecordingStarted = false;
         this._moveAction = true;
+        this._recordingCounter = 0;
         this.loadScene();
     },
 
@@ -113,9 +115,9 @@ chimple.ContentPanel = chimple.AbstractContentPanel.extend({
             cc.eventManager.addListener(listener, element);
         }
     },
-
+    
     startRecording: function () {
-        if (!this._isRecordingStarted) {
+        if (!this._isRecordingStarted) {            
             this._isRecordingStarted = true;
             this._recordingFrameIndex = 0;
             cc.log("recording started");
@@ -124,6 +126,7 @@ chimple.ContentPanel = chimple.AbstractContentPanel.extend({
         } else {
             this._isRecordingStarted = false;
             cc.log("recording stopped");
+            this._recordingCounter = 0;
             var timelines = [];
             if (this._nodesTouchedWhileRecording != null && this._nodesTouchedWhileRecording.length > 0) {
                 this._nodesTouchedWhileRecording.forEach(function (element) {
