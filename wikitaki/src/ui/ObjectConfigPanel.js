@@ -33,6 +33,10 @@ chimple.ObjectConfigPanel = cc.LayerColor.extend({
             }
             if(this._contentPanel._isRecordingStarted) {
                 this._buttonPanel.enableButton("delete", false);
+                this._buttonPanel.enableButton("my_avatar", false);                
+            } else {
+                this._buttonPanel.enableButton("delete", true); 
+                this._buttonPanel.enableButton("my_avatar", true);                               
             }
         }
     },
