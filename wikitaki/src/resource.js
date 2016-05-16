@@ -11,6 +11,12 @@ if (!cc.sys.isNative) {
 var res = {
     thumbnails_png: "/res/thumbnails.png",
     thumbnails_plist: "/res/thumbnails.plist",
+    human_skeleton_01_png: "/res/human_skeleton_01.png",
+    human_skeleton_01_plist: "/res/human_skeleton_01.plist",
+    human_skeleton_02_png: "/res/human_skeleton_02.png",
+    human_skeleton_02_plist: "/res/human_skeleton_02.plist",
+    human_skeleton_03_png: "/res/human_skeleton_03.png",
+    human_skeleton_03_plist: "/res/human_skeleton_03.plist",
     HelloWorld_png : "/res/HelloWorld.png",
     crow_json: "/res/characters/crow/Animation.json",
     elephant_json: "/res/characters/elephant/elep.json",
