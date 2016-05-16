@@ -1,6 +1,6 @@
 chimple.PageConfigPanel = cc.LayerColor.extend({
     ctor: function (width, height, position, configuration, contentPanel) {
-        this._super(cc.color.GREEN, width, height);
+        this._super(chimple.PRIMARY_COLOR, width, height);
         this.setPosition(position);
         this._configuration = configuration;
         this._contentPanel = contentPanel;
@@ -29,7 +29,7 @@ chimple.PageConfigPanel = cc.LayerColor.extend({
     },
 
     constructTabBar: function (configuration) {
-        this._tabBar = new chimple.TabPanel(cc.p(0, 0), cc.director.getWinSize(), 2, 2, configuration, this.itemSelectedInConfiguration, this);
+        this._tabBar = new chimple.TabPanel(cc.p(0, 0), cc.director.getWinSize(), 4, 3, configuration, this.itemSelectedInConfiguration, this);
         this.parent.addChild(this._tabBar, 1);
     },
 

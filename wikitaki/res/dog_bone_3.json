@@ -1,0 +1,123 @@
+{
+  "ID": "84a981e8-e9de-48df-835b-1397a4a9f275",
+  "Version": "3.10.0.0",
+  "Name": "Scene_3",
+  "Content": {
+    "Content": {
+      "Animation": {
+        "Duration": 0,
+        "Speed": 1.0,
+        "Timelines": [],
+        "ctype": "TimelineActionData"
+      },
+      "AnimationList": [],
+      "ObjectData": {
+        "Tag": 20,
+        "Children": [
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "bg/dog_bone_scene_3_water.png",
+              "Plist": ""
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 904.81,
+              "Y": 964.5569
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.5027,
+              "Y": 0.5359
+            },
+            "PreSize": {
+              "X": 0.965,
+              "Y": 0.5806
+            },
+            "LeftMargin": 36.31,
+            "RightMargin": 26.6899,
+            "TopMargin": 312.9431,
+            "BottomMargin": 442.0569,
+            "Tag": 19,
+            "ActionTag": 702969272,
+            "Size": {
+              "X": 1737.0,
+              "Y": 1045.0
+            },
+            "Name": "scene_3_water_1",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "bg/dog_bone_scene_3_stream.png",
+              "Plist": ""
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 856.35,
+              "Y": 1232.11
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.4757,
+              "Y": 0.6845
+            },
+            "PreSize": {
+              "X": 1.0656,
+              "Y": 0.2844
+            },
+            "LeftMargin": -102.65,
+            "RightMargin": -15.35,
+            "TopMargin": 311.89,
+            "BottomMargin": 976.11,
+            "Tag": 20,
+            "ActionTag": -476516531,
+            "Size": {
+              "X": 1918.0,
+              "Y": 512.0
+            },
+            "Name": "scene_3_stream_2",
+            "ctype": "SpriteObjectData"
+          }
+        ],
+        "Size": {
+          "X": 1800.0,
+          "Y": 1800.0
+        },
+        "Name": "Scene",
+        "ctype": "SingleNodeObjectData"
+      },
+      "UsedResources": [
+        "bg/dog_bone_scene_3_stream.png",
+        "bg/dog_bone_scene_3_water.png"
+      ],
+      "ctype": "GameFileData"
+    }
+  },
+  "Type": "Scene"
+}
