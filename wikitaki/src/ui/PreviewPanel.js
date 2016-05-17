@@ -13,12 +13,12 @@ chimple.PreviewPanel = cc.LayerColor.extend({
         target.removeFromParent(false);
         cc.eventManager.removeListeners(target);
 
-
+        
         this.addChild(target);
         target.setPosition(width*0.8, 200);
         target.scaleX = 0.5;
         target.scaleY = 0.5;
-
+        this.bindTouchListener(this);
         if (isTab) {
             //            this.addChild(new chimple.TabPanel(cc.p(width / 3, 0), cc.size(width * 2 / 3, height), 2, 2, configuration, callback, callbackContext));
             this.addChild(new chimple.TabPanel(cc.p(0, 0), cc.size(width * 2 / 3, height), 2, 2, configuration, callback, callbackContext, this));
@@ -42,6 +42,19 @@ chimple.PreviewPanel = cc.LayerColor.extend({
             this.addChild(this.main_backButton);
         }
 
+    },
+    
+    
+     bindTouchListener: function (target) {
+        var context = this;
+        this._listener = cc.EventListener.create({
+            event: cc.EventListener.TOUCH_ONE_BY_ONE,
+            swallowTouches: true,
+            onTouchBegan: function (touch, event) {                
+                return true;
+            }
+        });
+        cc.eventManager.addListener(this._listener, target);
     },
 
     main_backButton_function: function (sender, type) {
