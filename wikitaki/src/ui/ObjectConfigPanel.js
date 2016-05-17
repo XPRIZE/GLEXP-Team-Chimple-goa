@@ -92,7 +92,7 @@ chimple.ObjectConfigPanel = cc.LayerColor.extend({
             fontSize += 1;
             this._target.setFontSize(fontSize);
         } else if (button.getName() == res.text_png) {
-            this._contentPanel.addTextToScene(chimple.story.sceneText);
+            this._contentPanel.addTextToScene(chimple.story.items[chimple.pageIndex].sceneText);
         } else if (button.getName() == "icons/back.png") {
             this._contentPanel.backPressed(this._target);
         }

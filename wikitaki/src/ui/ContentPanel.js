@@ -154,11 +154,11 @@ chimple.ContentPanel = chimple.AbstractContentPanel.extend({
     },
 
     addTextToScene: function () {
-        this.parent.addChild(new chimple.TextCreatePanel(cc.director.getWinSize().width, cc.director.getWinSize().height, cc.p(0, 0), chimple.story.sceneText, this.processText, this));
+        this.parent.addChild(new chimple.TextCreatePanel(cc.director.getWinSize().width, cc.director.getWinSize().height, cc.p(0, 0), chimple.story.items[chimple.pageIndex].sceneText, this.processText, this));
     },
 
     processText: function (text) {
-        chimple.story.sceneText = text;
+        chimple.story.items[chimple.pageIndex].sceneText = text;
     },
 
     playSceneInEditMode: function () {
