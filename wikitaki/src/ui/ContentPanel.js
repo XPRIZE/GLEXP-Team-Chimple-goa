@@ -117,6 +117,7 @@ chimple.ContentPanel = chimple.AbstractContentPanel.extend({
     },
     
     startRecording: function () {
+        this._objectConfigPanel.setTarget(null);
         if (!this._isRecordingStarted) {            
             this._isRecordingStarted = true;
             this._recordingFrameIndex = 0;

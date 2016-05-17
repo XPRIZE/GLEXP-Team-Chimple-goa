@@ -17,7 +17,14 @@ chimple.ObjectConfigPanel = cc.LayerColor.extend({
         return new chimple.ButtonPanel(new cc.p(0, 0), this.getContentSize(), 1, 6, this._configuration.editDefault, new chimple.ButtonHandler(this.buttonPressed, this));
     },
     setTarget: function (target) {
-        if (this._target != target) {
+        if(target == null) {
+            this._target = null;
+            this._contentPanel._moveAction = true;
+            this._contentPanel._rotateAction = false;
+            this._contentPanel._scaleAction = false;
+            this.setButtonPanel(this.getDefaultPanel());
+        }
+        else if (this._target != target) {
             this._target = target;
             this._contentPanel._moveAction = true;
             this._contentPanel._rotateAction = false;
