@@ -66,7 +66,7 @@ chimple.ContentPanel = chimple.AbstractContentPanel.extend({
 
     postProcessForSceneObjects: function (node) {
         node.children.forEach(function (element) {
-            if (element.getName().indexOf("Skeleton") != -1) {
+            if (element.getName().indexOf("Skeleton") != -1 || element.getName().indexOf("skeleton") != -1) {
                 chimple.CharacterUtil.loadSkeletonConfig(element, chimple.customCharacters);
                 if (element._userData && element._userData.visibleSkins) {
                     chimple.CharacterUtil.displaySkins(element, element._userData.visibleSkins);
