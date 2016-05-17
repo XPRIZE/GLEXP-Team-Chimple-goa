@@ -30,7 +30,7 @@ chimple.ObjectConfigPanel = cc.LayerColor.extend({
             this._contentPanel._rotateAction = false;
             this._contentPanel._scaleAction = false;
             
-            if (target.getName().indexOf("Skeleton") != -1) {
+            if (target.getName().indexOf("Skeleton") != -1 || element.getName().indexOf("skeleton") != -1) {
                 this.setButtonPanel(new chimple.ButtonPanel(new cc.p(0, 0), this.getContentSize(), 1, 6, this._configuration.editCharacter, new chimple.ButtonHandler(this.buttonPressed, this)));
             } else if (target.getName().indexOf("ChimpleCustomText") != -1) {
                 this.setButtonPanel(new chimple.ButtonPanel(new cc.p(0, 0), this.getContentSize(), 1, 6, this._configuration.editText, new chimple.ButtonHandler(this.buttonPressed, this)));

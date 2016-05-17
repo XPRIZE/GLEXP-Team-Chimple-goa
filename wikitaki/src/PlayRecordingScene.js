@@ -83,7 +83,7 @@ var PlayRecordingLayer = cc.Layer.extend({
             if (!cc.sys.isNative) {
                 this._contentPanel._constructedScene.node._renderCmd._dirtyFlag = 1;
                 this._contentPanel._constructedScene.node.children.forEach(function (element) {
-                    if (element.getName().indexOf("Skeleton") != -1) {
+                    if (element.getName().indexOf("Skeleton") != -1 || element.getName().indexOf("skeleton") != -1) {
                         element._renderCmd._dirtyFlag = 1;
                     }
                 }, this);
