@@ -30,7 +30,7 @@ chimple.ObjectConfigPanel = cc.LayerColor.extend({
             this._contentPanel._rotateAction = false;
             this._contentPanel._scaleAction = false;
             
-            if (target.getName().indexOf("Skeleton") != -1) {
+            if (target.getName().indexOf("Skeleton") != -1 || target.getName().indexOf("skeleton") != -1) {
                 this.setButtonPanel(new chimple.ButtonPanel(new cc.p(0, 0), this.getContentSize(), 1, 6, this._configuration.editCharacter, new chimple.ButtonHandler(this.buttonPressed, this)));
             } else if (target.getName().indexOf("ChimpleCustomText") != -1) {
                 this.setButtonPanel(new chimple.ButtonPanel(new cc.p(0, 0), this.getContentSize(), 1, 6, this._configuration.editText, new chimple.ButtonHandler(this.buttonPressed, this)));
@@ -92,7 +92,7 @@ chimple.ObjectConfigPanel = cc.LayerColor.extend({
             fontSize += 1;
             this._target.setFontSize(fontSize);
         } else if (button.getName() == res.text_png) {
-            this._contentPanel.addTextToScene(chimple.story.sceneText);
+            this._contentPanel.addTextToScene(chimple.story.items[chimple.pageIndex].sceneText);
         } else if (button.getName() == "icons/back.png") {
             this._contentPanel.backPressed(this._target);
         }

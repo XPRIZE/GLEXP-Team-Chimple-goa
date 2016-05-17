@@ -66,7 +66,7 @@ chimple.ContentPanel = chimple.AbstractContentPanel.extend({
 
     postProcessForSceneObjects: function (node) {
         node.children.forEach(function (element) {
-            if (element.getName().indexOf("Skeleton") != -1) {
+            if (element.getName().indexOf("Skeleton") != -1 || element.getName().indexOf("skeleton") != -1) {
                 chimple.CharacterUtil.loadSkeletonConfig(element, chimple.customCharacters);
                 if (element._userData && element._userData.visibleSkins) {
                     chimple.CharacterUtil.displaySkins(element, element._userData.visibleSkins);
@@ -94,7 +94,7 @@ chimple.ContentPanel = chimple.AbstractContentPanel.extend({
     },
 
     registerEventListenerForChild: function (element) {
-        if (element.getName().indexOf("Skeleton") != -1) {
+        if (element.getName().indexOf("Skeleton") != -1 || element.getName().indexOf("skeleton") != -1) {
             var eventObj = new chimple.SkeletonTouchHandler(this);
             var listener = cc.EventListener.create(eventObj);
             cc.eventManager.addListener(listener, element);
@@ -154,11 +154,11 @@ chimple.ContentPanel = chimple.AbstractContentPanel.extend({
     },
 
     addTextToScene: function () {
-        this.parent.addChild(new chimple.TextCreatePanel(cc.director.getWinSize().width, cc.director.getWinSize().height, cc.p(0, 0), chimple.story.sceneText, this.processText, this));
+        this.parent.addChild(new chimple.TextCreatePanel(cc.director.getWinSize().width, cc.director.getWinSize().height, cc.p(0, 0), chimple.story.items[chimple.pageIndex].sceneText, this.processText, this));
     },
 
     processText: function (text) {
-        chimple.story.sceneText = text;
+        chimple.story.items[chimple.pageIndex].sceneText = text;
     },
 
     playSceneInEditMode: function () {
