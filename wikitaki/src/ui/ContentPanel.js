@@ -1,5 +1,5 @@
 var chimple = chimple || {};
-chimple.RECORDING_TIME = 5;
+chimple.RECORDING_TIME = 15;
 chimple.ContentPanel = chimple.AbstractContentPanel.extend({
     ctor: function (width, height, position) {
         this._super(width, height, position);
@@ -8,7 +8,7 @@ chimple.ContentPanel = chimple.AbstractContentPanel.extend({
         this._nodesTouchedWhileRecording = [];
         this._isRecordingStarted = false;
         this._moveAction = true;
-        this._recordingCounter = 0;
+        this._recordingCounter = 1;
         this.loadScene();
     },
 
@@ -117,6 +117,7 @@ chimple.ContentPanel = chimple.AbstractContentPanel.extend({
     },
     
     startRecording: function () {
+        this._objectConfigPanel.setTarget(null);
         if (!this._isRecordingStarted) {            
             this._isRecordingStarted = true;
             this._recordingFrameIndex = 0;
@@ -126,7 +127,7 @@ chimple.ContentPanel = chimple.AbstractContentPanel.extend({
         } else {
             this._isRecordingStarted = false;
             cc.log("recording stopped");
-            this._recordingCounter = 0;
+            this._recordingCounter = 1;
             var timelines = [];
             if (this._nodesTouchedWhileRecording != null && this._nodesTouchedWhileRecording.length > 0) {
                 this._nodesTouchedWhileRecording.forEach(function (element) {
@@ -153,11 +154,11 @@ chimple.ContentPanel = chimple.AbstractContentPanel.extend({
     },
 
     addTextToScene: function () {
-        this.parent.addChild(new chimple.TextCreatePanel(cc.director.getWinSize().width, cc.director.getWinSize().height, cc.p(0, 0), chimple.story.sceneText, this.processText, this));
+        this.parent.addChild(new chimple.TextCreatePanel(cc.director.getWinSize().width, cc.director.getWinSize().height, cc.p(0, 0), chimple.story.items[chimple.pageIndex].sceneText, this.processText, this));
     },
 
     processText: function (text) {
-        chimple.story.sceneText = text;
+        chimple.story.items[chimple.pageIndex].sceneText = text;
     },
 
     playSceneInEditMode: function () {
@@ -173,7 +174,10 @@ chimple.ContentPanel = chimple.AbstractContentPanel.extend({
         positionFrameData.ctype = "PointFrameData";
         positionFrameData.X = node.x;
         positionFrameData.Y = node.y;
-        node.positionFrames.push(positionFrameData);
+        if(node.positionFrames) {
+            node.positionFrames.push(positionFrameData);    
+        }
+        
 
         var scaleFrameData = Object.create(Object.prototype);
         scaleFrameData.FrameIndex = frameIndex;
@@ -182,7 +186,10 @@ chimple.ContentPanel = chimple.AbstractContentPanel.extend({
         scaleFrameData.ctype = "ScaleValueFrameData";
         scaleFrameData.X = node.getScaleX();
         scaleFrameData.Y = node.getScaleY();
-        node.scaleFrames.push(scaleFrameData);
+        if(node.scaleFrames) {
+            node.scaleFrames.push(scaleFrameData);
+        }
+        
 
         var rotationFrameData = Object.create(Object.prototype);
         rotationFrameData.FrameIndex = frameIndex;
@@ -191,7 +198,10 @@ chimple.ContentPanel = chimple.AbstractContentPanel.extend({
         rotationFrameData.ctype = "ScaleValueFrameData";
         rotationFrameData.X = node.getRotationX();
         rotationFrameData.Y = node.getRotationY();
-        node.rotationFrames.push(rotationFrameData);
+        if(node.rotationFrames) {
+            node.rotationFrames.push(rotationFrameData);
+        }
+        
     },
 
     constructTimeLineObject: function (node, property, frameName) {
@@ -394,8 +404,7 @@ chimple.ContentPanel = chimple.AbstractContentPanel.extend({
         if (this._isRecordingStarted && this._nodesSelected != null && this._nodesSelected.length > 0) {
             this._recordingFrameIndex = this._recordingFrameIndex + 1;
             this._nodesSelected.forEach(function (element) {
-                console.log('element:' + element.getName());
-                //construct position, rotation and scale framedata for now for each timesecond
+                //construct position, rotation and scale framedata for now for each timesecond                
                 this.constructFrameData(element, this._recordingFrameIndex);
                 this.constructAnimationFrameData(element, this._recordingFrameIndex, false);
             }, this);

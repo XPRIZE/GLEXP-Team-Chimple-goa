@@ -1,0 +1,75 @@
+{
+    "skinChoices": [
+        {
+            "name": "shirt",
+            "cIcon": "shirt_onclick.png",
+            "icon": "shirt.png",
+            "items": [
+                {
+                    "icon": "costume/painter/painter_shirt.png",
+                    "skins": [
+                        {
+                            "skin": "painter_sleave_right",
+                            "bone": "arm_upper_right"
+                        },
+                        {
+                            "skin": "painter_sleave_left",
+                            "bone": "arm_upper_left"
+                        },
+                        {
+                            "skin": "painter_shirt",
+                            "bone": "body"
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "skinNameMaps": {
+        "lion": {
+            "arm_upper_right": "motu_shirt_upper_right",
+            "arm_upper_left": "motu_shirt_upper_left",
+            "hair": "motu_hair",
+            "body": "motu_shirt_body",
+            "leg_foot_right": "motu_shoes_right",
+            "leg_foot_left": "motu_shoes_left",
+            "leg_lower_right": "motu_pant_lower_right",
+            "leg_lower_left": "motu_pant_lower_left",
+            "leg_upper_left": "motu_pant_upper_left",
+            "leg_upper_right": "motu_pant_upper_right",
+            "hip": "motu_pant_hip"
+        }
+    },
+    "colorSkins": {
+        "bodySkin": {
+            "face": "face",
+            "hand_palm_right": "hand_palm_right",
+            "hand_palm_left": "hand_palm_left",
+            "hand_upper_right": "hand_upper_right",
+            "hand_upper_left": "hand_upper_left",
+            "body": "body"
+        }
+    },
+    "animations": [
+        {
+          "icon": "icons/add_qna.png",
+          "name": "walk"
+        },
+        {
+          "icon": "icons/add_qna.png",
+          "name": "run"  
+        },
+        {
+          "icon": "icons/add_qna.png",
+          "name": "blink"
+        },
+        {
+          "icon": "icons/add_qna.png",
+          "name": "hi"  
+        },
+         {
+          "icon": "icons/add_qna.png",
+          "name": "hop"  
+        }
+    ]
+}
