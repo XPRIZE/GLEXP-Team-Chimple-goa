@@ -124,7 +124,7 @@ chimple.CharacterUtil.addToCharacterConfigs = function (characterConfig) {
 
 chimple.CharacterUtil.storeActionToTemporaryStore = function (node) {
     node.children.forEach(function (element) {
-        if (element.getName().indexOf("Skeleton") != -1) {
+        if (element.getName().indexOf("Skeleton") != -1 || element.getName().indexOf("skeleton") != -1) {
             var action = element._storedAction;
             if (action) {
                 element.runAction(action);
@@ -135,7 +135,7 @@ chimple.CharacterUtil.storeActionToTemporaryStore = function (node) {
 
 chimple.CharacterUtil.restoreActionFromTemporaryStore = function (node) {
     node.children.forEach(function (element) {
-        if (element.getName().indexOf("Skeleton") != -1) {
+        if (element.getName().indexOf("Skeleton") != -1 || element.getName().indexOf("skeleton") != -1) {
             var action = element.actionManager.getActionByTag(element.tag, element);
             if (action) {
                 element._storedAction = action;

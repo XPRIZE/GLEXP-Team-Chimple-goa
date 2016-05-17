@@ -15,7 +15,7 @@ chimple.PreviewPanel = cc.LayerColor.extend({
 
 
         this.addChild(target);
-        target.setPosition(550, 200);
+        target.setPosition(width*0.8, 200);
         target.scaleX = 0.5;
         target.scaleY = 0.5;
 
