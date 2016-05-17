@@ -23,7 +23,7 @@ chimple.ButtonPanel = ccui.Layout.extend({
                         }
 
                         if (configuration[index] && configuration[index]['uniqueCharacterID']) {
-                            
+
                             var cacheName = '/res/' + configuration[index]['uniqueCharacterID'] + '.png';
                             item = new ccui.Button(cacheName, cacheName, null, ccui.Widget.LOCAL_TEXTURE);
                             item.setFlippedY(true);
@@ -61,6 +61,20 @@ chimple.ButtonPanel = ccui.Layout.extend({
 
     getButtonByName: function (name) {
         return this.getChildByName(name);
+    },
+    
+    enableButton: function (name, enable) {
+        this.children.forEach(function (element) {
+            if (element._configuration.name == name) {
+                if (enable) {
+                    element.setEnabled(true);
+                    element.setHighlighted(false);
+                } else {
+                    element.setEnabled(false);
+                    element.setHighlighted(true);
+                }
+            }
+        });
     }
 });
 
@@ -94,10 +108,6 @@ chimple.ButtonHandler = cc.Class.extend({
                 if (sender._isToggled) {
                     // sender.setHighlighted(true);
                     sender._isToggled = false;
-                    this._callBackContext._buttonPanel.children.forEach(function (element) {
-                            element.setEnabled(true);
-                            element.setHighlighted(false);
-                    }, this);
 
                     try {
                         sender.loadTextures(sender._configuration.icon, sender._configuration.cIcon, null, ccui.Widget.PLIST_TEXTURE);
@@ -109,12 +119,6 @@ chimple.ButtonHandler = cc.Class.extend({
                 } else {
                     // sender.setHighlighted(false);
                     sender._isToggled = true;
-                    this._callBackContext._buttonPanel.children.forEach(function (element) {
-                        if (element._configuration.name != "startRecording") {
-                            element.setEnabled(false);
-                            element.setHighlighted(true);
-                        }
-                    }, this);
 
                     try {
                         sender.loadTextures(sender._configuration.cIcon, sender._configuration.icon, null, ccui.Widget.PLIST_TEXTURE);

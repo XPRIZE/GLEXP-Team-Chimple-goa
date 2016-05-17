@@ -1,4 +1,5 @@
 var chimple = chimple || {};
+chimple.RECORDING_TIME = 5;
 chimple.ContentPanel = chimple.AbstractContentPanel.extend({
     ctor: function (width, height, position) {
         this._super(width, height, position);
@@ -7,6 +8,7 @@ chimple.ContentPanel = chimple.AbstractContentPanel.extend({
         this._nodesTouchedWhileRecording = [];
         this._isRecordingStarted = false;
         this._moveAction = true;
+        this._recordingCounter = 0;
         this.loadScene();
     },
 
@@ -82,6 +84,9 @@ chimple.ContentPanel = chimple.AbstractContentPanel.extend({
         this.children.forEach(function (element) {
             if (element._name === 'Scene') {
                 element.children.forEach(function (element) {
+                    if(element.getComponent('ComExtensionData') && element.getComponent('ComExtensionData').getActionTag()) {
+                        element.ActionTag = element.getComponent('ComExtensionData').getActionTag()
+                    }                    
                     this.registerEventListenerForChild(element);
                 }, this);
             }
@@ -110,9 +115,9 @@ chimple.ContentPanel = chimple.AbstractContentPanel.extend({
             cc.eventManager.addListener(listener, element);
         }
     },
-
+    
     startRecording: function () {
-        if (!this._isRecordingStarted) {
+        if (!this._isRecordingStarted) {            
             this._isRecordingStarted = true;
             this._recordingFrameIndex = 0;
             cc.log("recording started");
@@ -121,6 +126,7 @@ chimple.ContentPanel = chimple.AbstractContentPanel.extend({
         } else {
             this._isRecordingStarted = false;
             cc.log("recording stopped");
+            this._recordingCounter = 0;
             var timelines = [];
             if (this._nodesTouchedWhileRecording != null && this._nodesTouchedWhileRecording.length > 0) {
                 this._nodesTouchedWhileRecording.forEach(function (element) {
@@ -248,7 +254,7 @@ chimple.ContentPanel = chimple.AbstractContentPanel.extend({
         sprite.setScale(1);
 
         var loadedImageObject = chimple.ParseUtil.constructJSONFromCCSprite(sprite);
-        // sprite.ActionTag = loadedImageObject.ActionTag;
+        sprite.ActionTag = loadedImageObject.ActionTag;
         chimple.ParseUtil.saveObjectToStoredScene(loadedImageObject);
         this.registerEventListenerForChild(sprite);
     },
@@ -388,6 +394,7 @@ chimple.ContentPanel = chimple.AbstractContentPanel.extend({
         if (this._isRecordingStarted && this._nodesSelected != null && this._nodesSelected.length > 0) {
             this._recordingFrameIndex = this._recordingFrameIndex + 1;
             this._nodesSelected.forEach(function (element) {
+                console.log('element:' + element.getName());
                 //construct position, rotation and scale framedata for now for each timesecond
                 this.constructFrameData(element, this._recordingFrameIndex);
                 this.constructAnimationFrameData(element, this._recordingFrameIndex, false);

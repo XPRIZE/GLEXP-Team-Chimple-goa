@@ -14,7 +14,10 @@ var res = {
     human_skeleton_png: "/res/human_skeleton.png",
     human_skeleton_plist: "/res/human_skeleton.plist",
     HelloWorld_png : "/res/HelloWorld.png",
-    human_skeleton_json: "/res/human_skeleton.json"
+    human_skeleton_json: "/res/human_skeleton.json",
+    play_png: "/res/play.png",
+    record_time_animation_png: "/res/Timer.png",
+    record_time_animation_plist: "/res/Timer.plist",
 };
 
 
