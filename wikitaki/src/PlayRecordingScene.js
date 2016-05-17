@@ -25,13 +25,13 @@ var PlayRecordingLayer = cc.Layer.extend({
         this._contentPanel = new chimple.PlayContentPanel(this._contentPanelWidth, this._contentPanelWidth, cc.p(this._configPanelWidth, 0));
         this.addChild(this._contentPanel);
 
-        this._objectConfigPanel = new chimple.ObjectConfigPanel(this._configPanelWidth, this._configPanelHeight, cc.p(0, 0), chimple.storyPlayConfigurationObject, this._contentPanel);
+        this._objectConfigPanel = new chimple.ObjectConfigPanel(this._configPanelWidth, this._configPanelHeight, cc.p(this._configPanelWidth + this._contentPanelWidth, 0), chimple.storyPlayConfigurationObject, this._contentPanel);
         this.addChild(this._objectConfigPanel);
         this._contentPanel._objectConfigPanel = this._objectConfigPanel;
 
         var config = {};
         config.addObjects = [];
-        this._pageConfigPanel = new chimple.PageConfigPanel(this._configPanelWidth, this._configPanelHeight, cc.p(this._configPanelWidth + this._contentPanelWidth, 0), config, this._contentPanel);
+        this._pageConfigPanel = new chimple.PageConfigPanel(this._configPanelWidth, this._configPanelHeight, cc.p(0, 0), config, this._contentPanel);
         this.addChild(this._pageConfigPanel);
 
         this.playRecordedScene();
