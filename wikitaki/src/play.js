@@ -332,6 +332,9 @@ var PlayFullStoryScene = cc.Scene.extend({
 
                     chimple.ParseUtil.changeSize(cc.loader.cache[res.human_skeleton_json], null, chimple.designScaleFactor);
                     cc.loader.cache[res.human_skeleton_json].ChimpleCompressed = true;
+                    chimple.ParseUtil.changeSize(cc.loader.cache[res.animalskeleton_json], null, chimple.designScaleFactor);
+                    cc.loader.cache[res.animalskeleton_json].ChimpleCompressed = true;
+
 
                     data.items.forEach(function (element) {
                         if (element && element.scene) {
