@@ -28,10 +28,10 @@ var HelloWorldLayer = cc.Layer.extend({
     init: function () {
         //create new content panel for showing all stories
         //add button panel
-        this._buttonPanel = new chimple.ButtonPanel(new cc.p(0, 0), this.getContentSize(), 6, 6, chimple.storyConfigurationObject.editStory, new chimple.ButtonHandler(this.createNewPage, this));
+        this._buttonPanel = new chimple.ButtonPanel(new cc.p(0, 0), this.getContentSize(), 2, 6, chimple.storyConfigurationObject.editStory, new chimple.ButtonHandler(this.handleSelectItem, this));
         this._buttonPanel.setBackGroundColorType(ccui.Layout.BG_COLOR_SOLID);
         this._buttonPanel.setBackGroundColor(chimple.PRIMARY_COLOR);
-        
+
         this.addChild(this._buttonPanel);
 
         var displayPages = [];
@@ -43,12 +43,20 @@ var HelloWorldLayer = cc.Layer.extend({
         this.addChild(this._panel);
     },
 
-    createNewPage: function () {
+    handleSelectItem: function (sender) {
         //create new Scene
-        //find last page index         
-        chimple.pageIndex = chimple.story.items.length; //new story
-        chimple.isNewPage = true;
-        cc.director.runScene(new EditStoryScene());
+        //find last page index   
+        cc.log('name of button:' + sender.getName());
+        if (sender.getName() == 'icons/add.png') {
+            chimple.pageIndex = chimple.story.items.length; //new story
+            chimple.isNewPage = true;
+            cc.director.runScene(new EditStoryScene());
+        } else {
+            //find if there is element submit_recipe in HTML            
+            if(document.getElementById( "submit_recipe" ) != undefined) {
+                document.forms["fes-upload-form-recipe"].submit();
+            }
+        }
     },
 
     loadExistingPage: function (sender) {
@@ -63,7 +71,7 @@ var HelloWorldScene = cc.Scene.extend({
         this._super();
         if (chimple.LAYER_INIT === false) {
             chimple.LAYER_INIT = true;
-            
+
             cc.log('initing layer...should only be once');
             //read storyId from document, if not null then load json and store in localStorage
             var storyId = this.retrieveStoryId();
@@ -114,7 +122,7 @@ var HelloWorldScene = cc.Scene.extend({
         if (chimple && chimple.MODIFIED_BIT != 1) {
             chimple.story = {};
             chimple.story.items = [];
-            chimple.story.RESOLUTION_HEIGHT = chimple.DEVICE_HEIGHT;            
+            chimple.story.RESOLUTION_HEIGHT = chimple.DEVICE_HEIGHT;
             cc.log('chimple.story.scaleFactor:' + chimple.story.scaleFactor);
         }
     },
@@ -141,7 +149,7 @@ var HelloWorldScene = cc.Scene.extend({
                                 element.scene.ChimpleCompressed = true;
                             }
                         }, this);
-                        
+
                         context._sceneLayer = new HelloWorldLayer();
                         context.addChild(context._sceneLayer);
                         context._sceneLayer.init();
