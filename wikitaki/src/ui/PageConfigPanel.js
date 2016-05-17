@@ -36,6 +36,10 @@ chimple.PageConfigPanel = cc.LayerColor.extend({
             this._contentPanel.startRecording();
             if (this._contentPanel._isRecordingStarted) {
                 this.schedule(this.trackRecording, 1, chimple.RECORDING_TIME);
+            } else {
+                cc.log('check if recordign stoped manually');
+                this.unschedule(this.trackRecording);
+                this.updateUIWhenForRecording();
             }
         } else if (selectedConfig != null && selectedConfig.name === "play") {
             this._contentPanel.playSceneInEditMode();
@@ -143,24 +147,30 @@ chimple.PageConfigPanel = cc.LayerColor.extend({
     },
 
     trackRecording: function () {
-        cc.log('called every time tick recording');
-        this._contentPanel._recordingCounter++;
-        if (this._contentPanel._recordingCounter == chimple.RECORDING_TIME + 1) {
-            cc.log('recording should stop');
-            this.updateUIWhenForRecording();
-            this._contentPanel.startRecording();
-                        
+        //check if recording stopped
+        if (this._contentPanel._isRecordingStarted) {
+            this._contentPanel._recordingCounter++;
+            var buttonKey = this._contentPanel._recordingCounter + '.png';
+            this._buttonPanel.getButtonByName("icons/record.png").loadTextures(buttonKey, "icons/record.png", null, ccui.Widget.PLIST_TEXTURE);
         }
+        
+        if (this._contentPanel._recordingCounter == chimple.RECORDING_TIME + 1) {
+            this._contentPanel.startRecording();
+            this.unschedule(this.trackRecording);
+            this.updateUIWhenForRecording();
+        }
+
     },
 
     updateUIWhenForRecording: function () {
-        if (this._contentPanel._isRecordingStarted) {
+        if (!this._contentPanel._isRecordingStarted) {
             this._buttonPanel.enableButton("startRecording", true);
             this._buttonPanel.enableButton("play", true);
             this._buttonPanel.enableButton("backgrounds", true);
             this._buttonPanel.enableButton("characters", true);
             this._buttonPanel.enableButton("texts", true);
             this._buttonPanel.enableButton("props", true);
+            this._buttonPanel.getButtonByName("icons/record.png").loadTextures("icons/record.png", null, null, ccui.Widget.PLIST_TEXTURE);
         } else {
             this._buttonPanel.enableButton("startRecording", false);
             this._buttonPanel.enableButton("play", false);
@@ -168,8 +178,7 @@ chimple.PageConfigPanel = cc.LayerColor.extend({
             this._buttonPanel.enableButton("characters", false);
             this._buttonPanel.enableButton("texts", false);
             this._buttonPanel.enableButton("props", false);
+
         }
-
     }
-
 });
