@@ -29,7 +29,7 @@
                             "bone": "body"
                         },
                         {
-                            "skin": "painter_shirt",
+                            "skin": "body_accessories",
                             "bone": "body_accessories"
                         }
                     ]
@@ -125,7 +125,7 @@
                     "icon": "human/shirts/captain_shirt.png",
                     "skins": [
                         {
-                            "skin": "captain_shirt_sleave_upper_right",
+                            "skin": "captain_coat_sleave_upper_right",
                             "bone": "arm_upper_right"
                         },
                         {
@@ -133,7 +133,7 @@
                             "bone": "arm_upper_left"
                         },
                         {
-                            "skin": "captain_coat_sleave_lower_left",
+                            "skin": "captain_shirt_sleave_lower_right",
                             "bone": "arm_lower_right"
                         },
                         {
@@ -145,7 +145,7 @@
                             "bone": "body"
                         },
                         {
-                            "skin": "painter_shirt",
+                            "skin": "body_accessories",
                             "bone": "body_accessories"
                         }
                     ]
@@ -166,7 +166,7 @@
                             "bone": "arm_lower_right"
                         },
                         {
-                            "skin": "arm_lower_left",
+                            "skin": "chef_shirt_sleave_lower_left",
                             "bone": "arm_lower_left"
                         },
                         {
@@ -278,7 +278,7 @@
                             "bone": "arm_upper_left"
                         },
                         {
-                            "skin": "arm_lower_right",
+                            "skin": "designer_coat_sleave_lower_right",
                             "bone": "arm_lower_right"
                         },
                         {
@@ -3088,7 +3088,7 @@
             "arm_lower_left":"astronaut_coat_sleave_lower_left",
             "arm_hand_right":"astronaut_glove_right",
             "arm_hand_left":"astronaut_glove_left_0",
-            "hair": "hair_curtained_hair",
+            "hair": "hair",
             "body": "astronaut_shirt",
             "leg_foot_right": "astronaut_shoe_right",
             "leg_foot_left": "astronaut_shoe_left",
@@ -3113,7 +3113,7 @@
             "hip": "barber_pant_hip",
             "body_accessories":"barber_coat",
             "neck_accessories":"barber_tie",
-            "head_accessories":"barber_cap",
+            "head_accessories":"head_accessories",
             "beard_n_mustache":"moustache_barber"
         },
          "boss": {
@@ -3123,7 +3123,7 @@
             "arm_lower_left":"boss_coat_sleave_lower_left",
             "arm_hand_right":"astronaut_glove_right",
             "arm_hand_left":"astronaut_glove_left_0",
-            "hair": "hair_curtained_hair",
+            "hair": "hair_Business_man_cut",
             "body": "boss_shirt",
             "leg_foot_right": "boss_shoe_right",
             "leg_foot_left": "boss_shoe_left",
@@ -3158,7 +3158,7 @@
             "arm_upper_left": "chef_shirt_sleave_upper_left",
             "arm_lower_right":"chef_shirt_sleave_lower_right",
             "arm_lower_left":"chef_shirt_sleave_lower_left",
-            "hair": "hair_curtained_hair",
+            "hair": "hair_burr",
             "body": "chef_shirt",
             "leg_foot_right": "chef_shoe_right",
             "leg_foot_left": "chef_shoe_left",
@@ -3202,7 +3202,8 @@
             "leg_upper_right": "cowboy_pant_upper_right",
             "hip": "cowboy_pant_hip",
             "head_accessories":"cowboy_hat",
-            "neck_accessories":"cowboy_scarf"
+            "neck_accessories":"cowboy_scarf",
+            "beard_n_mustache" : "beard_soalpatch"
             },
             
         "cricketer": {
@@ -3236,7 +3237,8 @@
             "leg_upper_left": "designer_pant_upper_left",
             "leg_upper_right": "designer_pant_upper_right",
             "hip": "designer_pant_hip",
-            "body_accessories":"designer_coat"
+            "body_accessories":"designer_coat",
+            "beard_n_mustache" : "beard_french"
             },  
             
         "doctor": {
@@ -3244,7 +3246,7 @@
             "arm_upper_left": "doctor_coat_sleave_upper_left",
             "arm_lower_right":"doctor_coat_sleave_lower_right",
             "arm_lower_left":"doctor_coat_sleave_lower_left",
-            "hair": "hair_bold",
+            "hair": "hair_Business_man_cut",
             "body": "doctor_shirt",
             "leg_foot_right": "doctor_shoe_right",
             "leg_foot_left": "doctor_shoe_left",
@@ -3253,7 +3255,8 @@
             "leg_upper_left": "doctor_pant_upper_left",
             "leg_upper_right": "doctor_pant_upper_right",
             "hip": "doctor_pant_hip",
-            "body_accessories":"doctor_coat"
+            "body_accessories":"doctor_coat",
+            "neck_accessories": "stethoscope"
         },   
         
        "employe": {
@@ -3261,7 +3264,7 @@
             "arm_upper_left": "employe_shirt_sleave_upper_left",
             "arm_lower_right":"employe_coat_sleave_lower_right",
             "arm_lower_left":"employe_coat_sleave_lower_left",
-            "hair": "hair_bold",
+            "hair": "hair_Business_man_cut",
             "body": "employe_shirt",
             "leg_foot_right": "employe_shoe_right",
             "leg_foot_left": "employe_shoe_left",
@@ -3276,7 +3279,7 @@
       "engineer": {
             "arm_upper_right": "engineer_shirt_sleave_upper_right",
             "arm_upper_left": "engineer_shirt_sleave_upper_left",
-            "hair": "hair_bold",
+            "hair": "hair_Business_man_cut",
             "body": "engineer_shirt",
             "leg_foot_right": "engineer_shoe_right",
             "leg_foot_left": "engineer_shoe_left",
@@ -3294,7 +3297,7 @@
             "arm_upper_left": "farmer_shirt_sleave_upper_left",
             "arm_lower_right":"farmer_shirt_sleave_lower_right",
             "arm_lower_left":"farmer_shirt_sleave_lower_left",
-            "hair": "hair_bold",
+            "hair": "hair_curtained_hair",
             "body": "farmer_shirt",
             "leg_foot_right": "farmer_shoe_right",
             "leg_foot_left": "farmer_shoe_left",
@@ -3320,7 +3323,9 @@
             "leg_upper_left": "fireman_pant_upper_left",
             "leg_upper_right": "fireman_pant_upper_right",
             "hip": "fireman_pant_hip",
-            "head_accessories":"fireman_hat"
+            "head_accessories":"fireman_hat",
+            "leg_accessories_left": "fireman_shoe_upper_left",
+            "leg_accessories_right": "fireman_shoe_upper_right"
          },            
       "footballer": {
             "arm_upper_right": "footballer_shirt_sleave_upper_right",
@@ -3334,7 +3339,10 @@
             "leg_upper_left": "footballer_pant_upper_left",
             "leg_upper_right": "footballer_pant_upper_right",
             "hip": "footballer_pant_hip",
-            "head_accessories":"footballer_hat"
+            "head_accessories":"football_helmet",
+            "leg_accessories_left": "footballer_socks_left",
+            "leg_accessories_right": "footballer_socks_right",
+            "beard_n_mustache" : "beard_baba"
          },  
          
       "lawyer": {
@@ -3342,7 +3350,7 @@
             "arm_upper_left": "lawyer_coat_sleave_upper_left",
             "arm_lower_right":"fireman_shirt_sleave_lower_right",
             "arm_lower_left":"lawyer_coat_sleave_lower_left",
-            "hair": "hair_bold",
+            "hair": "hair_curtained_hair",
             "body": "lawyer_shirt",
             "leg_foot_right": "lawyer_shoe_right",
             "leg_foot_left": "lawyer_shoe_left",
@@ -3352,13 +3360,14 @@
             "leg_upper_right": "lawyer_pant_upper_right",
             "hip": "lawyer_pant_hip",
             "body_accessories":"lawyer_coat",
-            "neck_accessories":"lawyer_tie"
+            "neck_accessories":"lawyer_tie",
+            "beard_n_mustache" : "beard_trimmed"
         },                               
             
         "motu": {
             "arm_upper_right": "motu_shirt_sleave_upper_right",
             "arm_upper_left": "motu_shirt_sleave_upper_left",
-            "hair": "motu_hair",
+            "hair": "hair_curl",
             "body": "motu_shirt",
             "leg_foot_right": "motu_shoe_right",
             "leg_foot_left": "motu_shoe_left",
@@ -3370,12 +3379,11 @@
         },
         
       "musician": {
-            "arm_upper_right": "",
-            "arm_upper_left": "",
+            "arm_upper_right": "arm_upper_right",
+            "arm_upper_left": "arm_upper_left",
             "arm_upper_accessories_left":"musician_tattoo",
             "arm_upper_accessories_right":"musician_tattoo",
-            "hand_gear_right":"musician_guitar",
-            "hair": "hair_bold",
+            "hair": "hair_mohawk",
             "body": "musician_shirt",
             "leg_foot_right": "musician_shoe_right",
             "leg_foot_left": "musician_shoe_left",
@@ -3383,13 +3391,14 @@
             "leg_lower_left": "musician_pant_lower_left",
             "leg_upper_left": "musician_pant_upper_left",
             "leg_upper_right": "musician_pant_upper_right",
-            "hip": "musician_pant_hip"
+            "hip": "musician_pant_hip",
+            "beard_n_mustache" : "beard_goatee"
         }, 
         
     "nurse": {
             "arm_upper_right": "nurse_shirt_sleave_upper_right",
             "arm_upper_left": "nurse_shirt_sleave_upper_left",
-            "hair": "hair_bold",
+            "hair": "hair_curtained_hair",
             "mouth":"nurse_mask",
             "body": "nurse_shirt",
             "leg_foot_right": "nurse_shoe_right",
@@ -3402,9 +3411,9 @@
         },    
         
         "painter": {
-            "arm_upper_right": "painter_shirt_sleave_right",
-            "arm_upper_left": "painter_shirt_sleave_left",
-            "hair": "hair_bold",
+            "arm_upper_right": "painter_shirt_sleave_upper_right",
+            "arm_upper_left": "painter_shirt_sleave_upper_left",
+            "hair": "hair_curl",
             "body": "painter_shirt",
             "leg_foot_right": "painter_shoe_right",
             "leg_foot_left": "painter_shoe_left",
@@ -3413,7 +3422,7 @@
             "leg_upper_left": "painter_pant_upper_left",
             "leg_upper_right": "painter_pant_upper_right",
             "hip": "painter_pant_hip",
-            "head_accessories":"painter_cap",
+            "head_accessories":"head_accessories",
             "body_accessories":"painter_coat"
         },
          
@@ -3429,13 +3438,15 @@
             "leg_upper_left": "photographer_pant_upper_left",
             "leg_upper_right": "photographer_pant_upper_right",
             "hip": "photographer_pant_hip",
-            "body_accessories":"photographer_coat"
+            "body_accessories":"photographer_coat",
+            "beard_n_mustache" : "beard_french",
+            "neck_accessories": "camera_neck"
         },
         
       "police": {
             "arm_upper_right": "police_shirt_sleave_upper_right",
             "arm_upper_left": "police_shirt_sleave_upper_left",
-            "hair": "hair_curtained_hair",
+            "hair": "hair_bold",
             "body": "police_shirt",
             "leg_foot_right": "police_shoe_right",
             "leg_foot_left": "police_shoe_left",
@@ -3453,7 +3464,7 @@
             "arm_upper_left": "priest_coat_sleave_upper_left",
             "arm_lower_right":"priest_shirt_sleave_lower_right",
             "arm_lower_left":"priest_coat_sleave_lower_left",
-            "hair": "hair_curtained_hair",
+            "hair": "hair_Business_man_cut",
             "body": "priest_shirt",
             "leg_foot_right": "priest_shoe_right",
             "leg_foot_left": "priest_shoe_left",
@@ -3462,7 +3473,8 @@
             "leg_upper_left": "priest_pant_upper_left",
             "leg_upper_right": "priest_pant_upper_right",
             "hip": "priest_pant_hip",
-            "neck_accessories":"Priest_scarf"
+            "neck_accessories":"Priest_scarf",
+            "beard_n_mustache" : "beard_french"
         },   
       
          "scientist": {
@@ -3482,7 +3494,8 @@
             "body_accessories":"scientist_coat",
             "goggles":"scientist_goggles",
             "arm_hand_left":"scientist_glouse_left",
-            "arm_hand_right":"scientist_glouse_right"
+            "arm_hand_right":"scientist_glouse_right",
+             "beard_n_mustache" : "beard_trimmed"
         },
      "singer": {
             "arm_upper_right": "singer_shirt_sleave_upper_right",
@@ -3496,13 +3509,14 @@
             "leg_upper_left": "singer_pant_upper_left",
             "leg_upper_right": "singer_pant_upper_right",
             "hip": "singer_pant_hip",
-            "body_accessories":"singer_coat"
+            "body_accessories":"singer_coat",
+            "beard_n_mustache" : "beard_soalpatch"
            },
            
         "teacher": {
             "arm_upper_right": "teacher_shirt_sleave_upper_right",
             "arm_upper_left": "teacher_shirt_sleave_upper_left",
-            "hair": "hair_curtained_hair",
+            "hair": "hair_bun",
             "body": "teacher_shirt",
             "leg_foot_right": "teacher_shoe_right",
             "leg_foot_left": "teacher_shoe_left",
@@ -3512,13 +3526,11 @@
             "leg_upper_right": "teacher_pant_upper_right",
             "hip": "teacher_pant_hip",
             "body_accessories":"teacher_coat"
-           
-        },   
-               
+        },     
          "soccer": {
             "arm_upper_right": "soccer_shirt_sleave_upper_right",
             "arm_upper_left": "soccer_shirt_sleave_upper_left",
-            "hair": "hair_curtained_hair",
+            "hair": "hair_mohawk",
             "body": "soccer_shirt",
             "leg_foot_right": "soccer_shoe_right",
             "leg_foot_left": "soccer_shoe_left",
@@ -3526,13 +3538,13 @@
             "leg_upper_left": "soccer_pant_upper_left",
             "leg_accessories_right":"soccer_socks_right",
             "leg_accessories_left":"soccer_socks_left",
-            "hip": "soccer_pant_hip"
-           
+            "hip": "soccer_pant_hip",
+            "beard_n_mustache" : "beard_soalpatch"
         },
          "soldier": {
             "arm_upper_right": "soldier_shirt_sleave_upper_right",
             "arm_upper_left": "soldier_shirt_sleave_upper_left",
-            "hair": "hair_curtained_hair",
+            "hair": "hair_bold",
             "body": "soldier_shirt",
             "leg_foot_right": "solidier_shoe_right",
             "leg_foot_left": "soldier_shoe_left",
@@ -3546,7 +3558,7 @@
         "watchman": {
             "arm_upper_right": "watchman_shirt_sleave_upper_right",
             "arm_upper_left": "watchman_shirt_sleave_upper_left",
-            "hair": "hair_curtained_hair",
+            "hair": "hair_bold",
             "body": "watchman_shirt",
             "leg_foot_right": "watchman_shoe_right",
             "leg_foot_left": "watchman_shoe_left",
