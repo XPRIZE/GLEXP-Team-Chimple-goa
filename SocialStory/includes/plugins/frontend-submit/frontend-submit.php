@@ -1197,17 +1197,10 @@ window.adminAjaxUrl = '<?php echo home_url() . "/wp-admin/admin-ajax.php"; ?>';
 		$this->_render_extra_fields();
 		?>
 	</section>
-	<section>
-		<h2><?php _e('Description', 'socialchef'); ?></h2>
-		<div class="f-row">
-			<div class="full">
-				<?php
-				$atts = array( 'role' => 'content', 'name' => 'post_content', 'id' => 'fes_post_content', 'class' => '', 'description' =>  __( 'Description', 'socialchef' ), 'wysiwyg_enabled' => true );
-				echo $this->_render_textarea($atts);
-				?>
-			</div>
-		</div>
-	</section>
+	<div id="results" class="full">
+		<canvas id="gameCanvas" width="640" height="450"></canvas>
+		<canvas id="snapShotCanvas" style="display:none;" width="450" height="450"></canvas>		
+	</div>	
 	<section>
 		<?php
 			$current_recipe_status = '';
@@ -1233,11 +1226,17 @@ window.adminAjaxUrl = '<?php echo home_url() . "/wp-admin/admin-ajax.php"; ?>';
 			<?php } ?>
 		</div>
 	</section>
-	<div id="results" class="f-row two-third">
-		<canvas id="gameCanvas" width="640" height="450"></canvas>
-		<canvas id="snapShotCanvas" style="display:none;" width="450" height="450"></canvas>		
-	</div>
-	
+	<section>
+		<h2><?php _e('Description', 'socialchef'); ?></h2>
+		<div class="f-row">
+			<div class="full">
+				<?php
+				$atts = array( 'role' => 'content', 'name' => 'post_content', 'id' => 'fes_post_content', 'class' => '', 'description' =>  __( 'Description', 'socialchef' ), 'wysiwyg_enabled' => true );
+				echo $this->_render_textarea($atts);
+				?>
+			</div>
+		</div>
+	</section>	
 	<div class="f-row full">
 		<?php
 		$atts = array( 'type' => 'submit', 'role' => 'internal', 'name' => 'submitRecipe', 'id' => 'submit_recipe', 'class' => 'button', 'value' =>  __( 'Save this story', 'socialchef' ) );
