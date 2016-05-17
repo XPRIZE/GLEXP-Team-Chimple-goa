@@ -134,7 +134,7 @@ chimple.PageConfigPanel = cc.LayerColor.extend({
                     element.setHighlighted(false);
                 }
             } else {
-                if (element._configuration.name != "backgrounds") {
+                if (element._configuration.name != "addToScene") {
                     element.setEnabled(false);
                     element.setHighlighted(true);
                 }
