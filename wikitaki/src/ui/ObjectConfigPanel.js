@@ -14,7 +14,7 @@ chimple.ObjectConfigPanel = cc.LayerColor.extend({
         this.addChild(buttonPanel, 1);
     },
     getDefaultPanel: function () {
-        return new chimple.ButtonPanel(new cc.p(0, 0), this.getContentSize(), 1, 6, this._configuration.editDefault, new chimple.ButtonHandler(this.buttonPressed, this));
+        return new chimple.ButtonPanel(new cc.p(0, 0), this.getContentSize(), 1, 6, this._configuration.blank, new chimple.ButtonHandler(this.buttonPressed, this));
     },
     setTarget: function (target) {
         if(target == null) {
@@ -93,8 +93,6 @@ chimple.ObjectConfigPanel = cc.LayerColor.extend({
             this._target.setFontSize(fontSize);
         } else if (button.getName() == res.text_png) {
             this._contentPanel.addTextToScene(chimple.story.items[chimple.pageIndex].sceneText);
-        } else if (button.getName() == "icons/back.png") {
-            this._contentPanel.backPressed(this._target);
         }
     },
     skinSelected: function (selectedItem) {

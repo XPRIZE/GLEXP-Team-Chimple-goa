@@ -11,6 +11,79 @@
       "icon": "icons/add.png",
       "categories": [
         {
+          "name": "humans",
+          "cIcon": "icons/add_char_onclick.png",
+          "icon": "icons/add_char.png",
+          "items": [
+            {
+              "icon": "human/cricketer_thumbnail.png",
+              "json": "/res/human_skeleton.json",
+              "skinNameMap": "motu",
+              "type": "character"
+            },
+            {
+              "icon": "human/cowboy_thumbnail.png",
+              "json": "/res/human_skeleton.json",
+              "skinNameMap": "painter",
+              "type": "character"
+            },
+            {
+              "icon": "res/thumbnails/human/doctor.png",
+              "json": "/res/human_skeleton.json",
+              "skinNameMap": "doctor",
+              "type": "character"
+            },
+             {
+              "icon": "human/farmer.png",
+              "json": "/res/human_skeleton.json",
+              "skinNameMap": "farmer",
+              "type": "character"
+            },
+             {
+              "icon": "human/photographer.png",
+              "json": "/res/human_skeleton.json",
+              "skinNameMap": "photographer",
+              "type": "character"
+            },
+             {
+              "icon": "human/police.png",
+              "json": "/res/human_skeleton.json",
+              "skinNameMap": "police",
+              "type": "character"
+            },
+             {
+              "icon": "human/scientist.png",
+              "json": "/res/human_skeleton.json",
+              "skinNameMap": "scientist",
+              "type": "character"
+            },
+             {
+              "icon": "human/singer.png",
+              "json": "/res/human_skeleton.json",
+              "skinNameMap": "singer",
+              "type": "character"
+            },
+             {
+              "icon": "human/soccer.png",
+              "json": "/res/human_skeleton.json",
+              "skinNameMap": "soccer",
+              "type": "character"
+            },
+             {
+              "icon": "human/soldier.png",
+              "json": "/res/human_skeleton.json",
+              "skinNameMap": "soldier",
+              "type": "character"
+            },
+             {
+              "icon": "human/watchman.png",
+              "json": "/res/human_skeleton.json",
+              "skinNameMap": "watchman",
+              "type": "character"
+            }
+          ]
+        },
+        {
           "name": "backgrounds",
           "cIcon": "icons/add_bg_onclick.png",
           "icon": "icons/add_bg.png",
@@ -294,79 +367,6 @@
           ]
         },
         {
-          "name": "humans",
-          "cIcon": "icons/add_char_onclick.png",
-          "icon": "icons/add_char.png",
-          "items": [
-            {
-              "icon": "human/cricketer_thumbnail.png",
-              "json": "/res/human_skeleton.json",
-              "skinNameMap": "motu",
-              "type": "character"
-            },
-            {
-              "icon": "human/cowboy_thumbnail.png",
-              "json": "/res/human_skeleton.json",
-              "skinNameMap": "painter",
-              "type": "character"
-            },
-            {
-              "icon": "res/thumbnails/human/doctor.png",
-              "json": "/res/human_skeleton.json",
-              "skinNameMap": "doctor",
-              "type": "character"
-            },
-             {
-              "icon": "human/farmer.png",
-              "json": "/res/human_skeleton.json",
-              "skinNameMap": "farmer",
-              "type": "character"
-            },
-             {
-              "icon": "human/photographer.png",
-              "json": "/res/human_skeleton.json",
-              "skinNameMap": "photographer",
-              "type": "character"
-            },
-             {
-              "icon": "human/police.png",
-              "json": "/res/human_skeleton.json",
-              "skinNameMap": "police",
-              "type": "character"
-            },
-             {
-              "icon": "human/scientist.png",
-              "json": "/res/human_skeleton.json",
-              "skinNameMap": "scientist",
-              "type": "character"
-            },
-             {
-              "icon": "human/singer.png",
-              "json": "/res/human_skeleton.json",
-              "skinNameMap": "singer",
-              "type": "character"
-            },
-             {
-              "icon": "human/soccer.png",
-              "json": "/res/human_skeleton.json",
-              "skinNameMap": "soccer",
-              "type": "character"
-            },
-             {
-              "icon": "human/soldier.png",
-              "json": "/res/human_skeleton.json",
-              "skinNameMap": "soldier",
-              "type": "character"
-            },
-             {
-              "icon": "human/watchman.png",
-              "json": "/res/human_skeleton.json",
-              "skinNameMap": "watchman",
-              "type": "character"
-            }
-          ]
-        },
-        {
           "name": "animal",
           "cIcon": "icons/my_pet_onclick.png",
           "icon": "icons/my_pet.png",
@@ -558,8 +558,16 @@
   ],
   "editStory": [
     {
+      "name":"story",
       "cIcon": "icons/add_onclick.png",
       "icon": "icons/add.png"
-    }
+    },
+    {
+      "name": "save",      
+      "cIcon": "icons/game_onclick.png",
+      "icon": "icons/game.png"
+    }    
+  ],
+  "blank": [
   ]
 }
