@@ -26,20 +26,10 @@ chimple.PreviewPanel = cc.LayerColor.extend({
             this._scrolPanel = new chimple.ScrollableButtonPanel(cc.p(0, 0), cc.size(width * 2 / 3, height), 2, 2, configuration, callback, callbackContext);
             this.addChild(this._scrolPanel);
 
-            this.tabPanel_backButton = new ccui.Button("icons/left.png", "icons/left_onclick.png", null, ccui.Widget.PLIST_TEXTURE);
-            this.tabPanel_backButton.setPosition(width * 5 / 100, height * 50 / 100);
-            this.tabPanel_backButton.addTouchEventListener(this.tabPanel_backButton_function, this);
-            this.addChild(this.tabPanel_backButton);
-
-            this.tabPanel_nextButton = new ccui.Button("icons/right.png", "icons/right_onclick.png", null, ccui.Widget.PLIST_TEXTURE);
-            this.tabPanel_nextButton.setPosition(width * 62 / 100, height * 50 / 100);
-            this.tabPanel_nextButton.addTouchEventListener(this.tabPanel_nextButton_function, this);
-            this.addChild(this.tabPanel_nextButton);
-
             this.main_backButton = new ccui.Button("icons/back.png", "icons/back_onclick.png", null, ccui.Widget.PLIST_TEXTURE);
             this.main_backButton.setPosition(width * 5 / 100, height * 95 / 100);
             this.main_backButton.addTouchEventListener(this.main_backButton_function, this);
-            this.addChild(this.main_backButton);
+            this.addChild(this.main_backButton,1);
         }
 
     },
@@ -73,11 +63,16 @@ chimple.PreviewPanel = cc.LayerColor.extend({
     },
 
     tabPanel_nextButton_function: function () {
-        this._scrolPanel.scrollableButtonPanel_moveRight();
+        if(typeof(this._scrolPanel.scrollableButtonPanel_moveRight) == "function") {
+            this._scrolPanel.scrollableButtonPanel_moveRight();     
+        }
+       
     },
 
     tabPanel_backButton_function: function () {
-        this._scrolPanel.scrollableButtonPanel_moveLeft();
+        if(typeof(this._scrolPanel.scrollableButtonPanel_moveLeft) == "function") {
+            this._scrolPanel.scrollableButtonPanel_moveLeft();     
+        }        
     },
 
     goBack: function () {
