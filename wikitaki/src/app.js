@@ -1,6 +1,12 @@
 /// <reference path="../../cocos2d-typescript-definitions/cocos2d/cocos2d-lib.d.ts" />
 var chimple = chimple || {};
 chimple.LAYER_INIT = false;
+chimple.PRIMARY_COLOR = cc.color("#FF8E88");
+chimple.DARK_PRIMARY_COLOR = cc.color("#B2524D");
+chimple.SECONDARY_COLOR = cc.color("#5895CC");
+chimple.DARK_SECONDARY_COLOR = cc.color("#5687B2");
+chimple.TERTIARY_COLOR = cc.color("#F6FF88");
+
 var HelloWorldLayer = cc.Layer.extend({
     _contentPanel: null,
     _pageConfigPanel: null,
@@ -23,6 +29,9 @@ var HelloWorldLayer = cc.Layer.extend({
         //create new content panel for showing all stories
         //add button panel
         this._buttonPanel = new chimple.ButtonPanel(new cc.p(0, 0), this.getContentSize(), 6, 6, chimple.storyConfigurationObject.editStory, new chimple.ButtonHandler(this.createNewPage, this));
+        this._buttonPanel.setBackGroundColorType(ccui.Layout.BG_COLOR_SOLID);
+        this._buttonPanel.setBackGroundColor(chimple.PRIMARY_COLOR);
+        
         this.addChild(this._buttonPanel);
 
         var displayPages = [];

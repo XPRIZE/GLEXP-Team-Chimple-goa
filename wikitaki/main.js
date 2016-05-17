@@ -166,6 +166,8 @@ chimple.DEVICE_HEIGHT = 450;
         //load resources
         cc.LoaderScene.preload(g_resources, function () {
             cc.spriteFrameCache.addSpriteFrames(res.thumbnails_plist);            
+            cc.spriteFrameCache.addSpriteFrames(res.human_skeleton_plist);
+            cc.spriteFrameCache.addSpriteFrames(res.record_animation_plist);            
             cc.log("mode:" + chimple.mode);
             if (chimple.mode.indexOf(chimple.EDIT_MODE) != -1) {
                 cc.director.runScene(new HelloWorldScene());

@@ -1,424 +1,302 @@
 {
   "addObjects": [
     {
-      "name": "startRecording",
-      "cIcon": "icons/stop.png",
-      "icon": "icons/record.png",
-      "toggle": true
-    },
+      "name": "back",
+      "cIcon": "icons/back_onclick.png",
+      "icon": "icons/back.png"
+    },  
     {
-      "name": "play",
-      "cIcon": "icons/play_onclick.png",
-      "icon": "icons/play.png"
-    },    
-    {
-      "name": "backgrounds",
-      "cIcon": "icons/add_bg_onclick.png",
-      "icon": "icons/add_bg.png",
+      "name": "addToScene",
+      "cIcon": "icons/add_onclick.png",
+      "icon": "icons/add.png",
       "categories": [
         {
-          "name": "desert",
-          "cIcon": "icons/hairstyle_onclick.png",
-          "icon": "icons/hairstyle.png",
+          "name": "backgrounds",
+          "cIcon": "icons/add_bg_onclick.png",
+          "icon": "icons/add_bg.png",
           "items": [
             {
-              "cIcon": "icons/mouth_2_onclick.png",
-              "icon": "icons/mouth_2.png",
-              "json": "/res/MainScene.json",
+              "cIcon": "scene/fox_stork_01.png",
+              "icon": "scene/fox_stork_01.png",
+              "json": "/res/fox_stork_01.json",
               "type": "scene"
             },
             {
-              "cIcon": "icons/neck_access_onclick.png",
-              "icon": "icons/neck_access.png",
-              "json": "/res/MainScene.json",
+              "cIcon": "scene/fox_stork_02.png",
+              "icon": "scene/fox_stork_02.png",
+              "json": "/res/fox_stork_02.json",
               "type": "scene"
             },
             {
-              "cIcon": "icons/shirt_onclick.png",
-              "icon": "icons/shirt.png",
-              "json": "/res/MainScene.json",
+              "cIcon": "scene/fox_stork_03.png",
+              "icon": "scene/fox_stork_03.png",
+              "json": "/res/fox_stork_03.json",
               "type": "scene"
             },
             {
-              "cIcon": "icons/shirt_onclick.png",
-              "icon": "icons/shirt.png",
-              "json": "/res/MainScene.json",
+              "cIcon": "scene/ant_dove_1.png",
+              "icon": "scene/ant_dove_1.png",
+              "json": "/res/ant_dove_1.json",
               "type": "scene"
             },
             {
-              "cIcon": "icons/mouth_2_onclick.png",
-              "icon": "icons/mouth_2.png",
-              "json": "/res/MainScene.json",
+              "cIcon": "scene/ant_dove_2.png",
+              "icon": "scene/ant_dove_2.png",
+              "json": "/res/ant_dove_2.json",
               "type": "scene"
             },
             {
-              "cIcon": "icons/neck_access_onclick.png",
-              "icon": "icons/neck_access.png",
-              "json": "/res/MainScene.json",
+              "cIcon": "scene/ant_dove_3.png",
+              "icon": "scene/ant_dove_3.png",
+              "json": "/res/ant_dove_3.json",
               "type": "scene"
             },
             {
-              "cIcon": "icons/shirt_onclick.png",
-              "icon": "icons/shirt.png",
-              "json": "/res/MainScene.json",
+              "cIcon": "scene/ant_dove_4.png",
+              "icon": "scene/ant_dove_4.png",
+              "json": "/res/ant_dove_4.json",
               "type": "scene"
             },
             {
-              "cIcon": "icons/shirt_onclick.png",
-              "icon": "icons/shirt.png",
-              "json": "/res/MainScene.json",
+              "cIcon": "scene/ant_dove_5.png",
+              "icon": "scene/ant_dove_5.png",
+              "json": "/res/ant_dove_5.json",
               "type": "scene"
             },
             {
-              "cIcon": "icons/res/shirt_onclick.png",
-              "icon": "icons/res/misc/TheFoxAndTheCrow/sceneIcons/mainScene.png",
-              "json": "res/misc/TheFoxAndTheCrow/MainScene.json",
+              "cIcon": "scene/ant_dove_6.png",
+              "icon": "scene/ant_dove_6.png",
+              "json": "/res/ant_dove_6.json",
               "type": "scene"
             },
             {
-              "cIcon": "icons/res/shirt_onclick.png",
-              "icon": "icons/res/misc/TheFoxAndTheCrow/sceneIcons/Page_02.png",
-              "json": "res/misc/TheFoxAndTheCrow/Page_02.json",
+              "cIcon": "scene/ant_dove_7.png",
+              "icon": "scene/ant_dove_7.png",
+              "json": "/res/ant_dove_7.json",
               "type": "scene"
             },
             {
-              "cIcon": "icons/res/shirt_onclick.png",
-              "icon": "icons/res/misc/TheFoxAndTheCrow/sceneIcons/Page_03.png",
-              "json": "res/misc/TheFoxAndTheCrow/Page_03.json",
+              "cIcon": "scene/ant_dove_8.png",
+              "icon": "scene/ant_dove_8.png",
+              "json": "/res/ant_dove_8.json",
               "type": "scene"
             },
             {
-              "cIcon": "icons/res/shirt_onclick.png",
-              "icon": "icons/res/misc/TheFoxAndTheCrow/sceneIcons/Page_04.png",
-              "json": "res/misc/TheFoxAndTheCrow/Page_04.json",
+              "cIcon": "scene/hare_tortoise_1.png",
+              "icon": "scene/hare_tortoise_1.png",
+              "json": "/res/hare_tortoise_1.json",
               "type": "scene"
             },
             {
-              "cIcon": "icons/res/shirt_onclick.png",
-              "icon": "icons/res/misc/TheFoxAndTheCrow/sceneIcons/Page_05.png",
-              "json": "res/misc/TheFoxAndTheCrow/Page_05.json",
+              "cIcon": "scene/hare_tortoise_2.png",
+              "icon": "scene/hare_tortoise_2.png",
+              "json": "/res/hare_tortoise_2.json",
               "type": "scene"
             },
             {
-              "cIcon": "icons/res/shirt_onclick.png",
-              "icon": "icons/res/misc/TheFoxAndTheCrow/sceneIcons/Page_06.png",
-              "json": "res/misc/TheFoxAndTheCrow/Page_06.json",
+              "cIcon": "scene/hare_tortoise_3.png",
+              "icon": "scene/hare_tortoise_3.png",
+              "json": "/res/hare_tortoise_3.json",
               "type": "scene"
             },
             {
-              "cIcon": "icons/res/shirt_onclick.png",
-              "icon": "icons/res/misc/HareAndTortoise/sceneIcons/thumbnail_1.png",
-              "json": "res/misc/HareAndTortoise/MainScene.json",
+              "cIcon": "scene/dog_bone_1.png",
+              "icon": "scene/dog_bone_1.png",
+              "json": "/res/dog_bone_1.json",
               "type": "scene"
             },
             {
-              "cIcon": "icons/res/shirt_onclick.png",
-              "icon": "icons/res/misc/HareAndTortoise/sceneIcons/thumbnail_2.png",
-              "json": "res/misc/HareAndTortoise/Scene1.json",
+              "cIcon": "scene/dog_bone_2.png",
+              "icon": "scene/dog_bone_2.png",
+              "json": "/res/dog_bone_2.json",
               "type": "scene"
             },
             {
-              "cIcon": "icons/res/shirt_onclick.png",
-              "icon": "icons/res/misc/HareAndTortoise/sceneIcons/thumbnail_3.png",
-              "json": "res/misc/HareAndTortoise/Scene2.json",
+              "cIcon": "scene/dog_bone_3.png",
+              "icon": "scene/dog_bone_3.png",
+              "json": "/res/dog_bone_3.json",
               "type": "scene"
             },
             {
-              "cIcon": "icons/res/shirt_onclick.png",
-              "icon": "icons/res/misc/HareAndTortoise/sceneIcons/thumbnail_4.png",
-              "json": "res/misc/HareAndTortoise/Scene3.json",
+              "cIcon": "scene/fox_crow_1.png",
+              "icon": "scene/fox_crow_1.png",
+              "json": "/res/fox_crow_1.json",
               "type": "scene"
             },
             {
-              "cIcon": "icons/res/shirt_onclick.png",
-              "icon": "icons/res/misc/TheDogAndTheBone/sceneIcons/thumbnail_1.png",
-              "json": "res/misc/TheDogAndTheBone/Scene_1.json",
+              "cIcon": "scene/fox_crow_2.png",
+              "icon": "scene/fox_crow_2.png",
+              "json": "/res/fox_crow_2.json",
               "type": "scene"
             },
             {
-              "cIcon": "icons/res/shirt_onclick.png",
-              "icon": "icons/res/misc/TheDogAndTheBone/sceneIcons/thumbnail_2.png",
-              "json": "res/misc/TheDogAndTheBone/Scene_2.json",
+              "cIcon": "scene/fox_crow_3.png",
+              "icon": "scene/fox_crow_3.png",
+              "json": "/res/fox_crow_3.json",
               "type": "scene"
             },
             {
-              "cIcon": "icons/res/shirt_onclick.png",
-              "icon": "icons/res/misc/TheDogAndTheBone/sceneIcons/thumbnail_3.png",
-              "json": "res/misc/TheDogAndTheBone/Scene_3.json",
+              "cIcon": "scene/fox_crow_4.png",
+              "icon": "scene/fox_crow_4.png",
+              "json": "/res/fox_crow_4.json",
               "type": "scene"
             },
             {
-              "cIcon": "icons/res/shirt_onclick.png",
-              "icon": "icons/res/misc/TheFoxAndTheStork/Thumbnails/Page_01.png",
-              "json": "res/misc/TheFoxAndTheStork/MainScene.json",
+              "cIcon": "scene/fox_crow_5.png",
+              "icon": "scene/fox_crow_5.png",
+              "json": "/res/fox_crow_5.json",
               "type": "scene"
             },
             {
-              "cIcon": "icons/res/shirt_onclick.png",
-              "icon": "icons/res/misc/TheFoxAndTheStork/Thumbnails/Page_02.png",
-              "json": "res/misc/TheFoxAndTheStork/Page_02.json",
+              "cIcon": "scene/fox_crow_6.png",
+              "icon": "scene/fox_crow_6.png",
+              "json": "/res/fox_crow_6.json",
               "type": "scene"
             },
             {
-              "cIcon": "icons/res/shirt_onclick.png",
-              "icon": "icons/res/misc/TheFoxAndTheStork/Thumbnails/Page_03.png",
-              "json": "res/misc/TheFoxAndTheStork/Page_03.json",
+              "cIcon": "scene/fox_grapes_1.png",
+              "icon": "scene/fox_grapes_1.png",
+              "json": "/res/fox_grapes_1.json",
               "type": "scene"
             },
             {
-              "cIcon": "icons/res/shirt_onclick.png",
-              "icon": "icons/res/misc/ThirstyCrow/Thumbnails/Page_01.png",
-              "json": "res/misc/ThirstyCrow/MainScene.json",
+              "cIcon": "scene/fox_grapes_2.png",
+              "icon": "scene/fox_grapes_2.png",
+              "json": "/res/fox_grapes_2.json",
               "type": "scene"
             },
             {
-              "cIcon": "icons/res/shirt_onclick.png",
-              "icon": "icons/res/misc/ThirstyCrow/Thumbnails/Page_02.png",
-              "json": "res/misc/ThirstyCrow/Page_02.json",
+              "cIcon": "scene/selfish_horse_1.png",
+              "icon": "scene/selfish_horse_1.png",
+              "json": "/res/selfish_horse_1.json",
               "type": "scene"
             },
             {
-              "cIcon": "icons/res/shirt_onclick.png",
-              "icon": "icons/res/misc/ThirstyCrow/Thumbnails/Page_03.png",
-              "json": "res/misc/ThirstyCrow/Page_03.json",
+              "cIcon": "scene/selfish_horse_2.png",
+              "icon": "scene/selfish_horse_2.png",
+              "json": "/res/selfish_horse_2.json",
               "type": "scene"
             },
             {
-              "cIcon": "icons/res/shirt_onclick.png",
-              "icon": "icons/res/misc/ThirstyCrow/Thumbnails/Page_04.png",
-              "json": "res/misc/ThirstyCrow/Page_04.json",
+              "cIcon": "scene/selfish_horse_3.png",
+              "icon": "scene/selfish_horse_3.png",
+              "json": "/res/selfish_horse_3.json",
               "type": "scene"
             },
             {
-              "cIcon": "icons/res/shirt_onclick.png",
-              "icon": "icons/res/misc/ThirstyCrow/Thumbnails/Page_05.png",
-              "json": "res/misc/ThirstyCrow/Page_05.json",
+              "cIcon": "scene/shell_wings_1.png",
+              "icon": "scene/shell_wings_1.png",
+              "json": "/res/shell_wings_1.json",
               "type": "scene"
             },
             {
-              "cIcon": "icons/res/shirt_onclick.png",
-              "icon": "icons/res/misc/ThirstyCrow/Thumbnails/Page_06.png",
-              "json": "res/misc/ThirstyCrow/Page_06.json",
+              "cIcon": "scene/shell_wings_2.png",
+              "icon": "scene/shell_wings_2.png",
+              "json": "/res/shell_wings_2.json",
               "type": "scene"
             },
             {
-              "cIcon": "icons/res/shirt_onclick.png",
-              "icon": "icons/res/misc/ThirstyCrow/Thumbnails/Page_07.png",
-              "json": "res/misc/ThirstyCrow/Page_07.json",
+              "cIcon": "scene/shell_wings_3.png",
+              "icon": "scene/shell_wings_3.png",
+              "json": "/res/shell_wings_3.json",
               "type": "scene"
             },
             {
-              "cIcon": "icons/res/shirt_onclick.png",
-              "icon": "icons/res/misc/ThirstyCrow/Thumbnails/Page_08.png",
-              "json": "res/misc/ThirstyCrow/Page_08.json",
+              "cIcon": "scene/shell_wings_4.png",
+              "icon": "scene/shell_wings_4.png",
+              "json": "/res/shell_wings_4.json",
               "type": "scene"
             },
             {
-              "cIcon": "icons/res/shirt_onclick.png",
-              "icon": "icons/res/misc/AntAndTheDove/Thumbnails/scene1.png",
-              "json": "res/misc/AntAndTheDove/scene1.json",
+              "cIcon": "scene/shell_wings_5.png",
+              "icon": "scene/shell_wings_5.png",
+              "json": "/res/shell_wings_5.json",
               "type": "scene"
             },
             {
-              "cIcon": "icons/res/shirt_onclick.png",
-              "icon": "icons/res/misc/AntAndTheDove/Thumbnails/scene2.png",
-              "json": "res/misc/AntAndTheDove/scene2.json",
+              "cIcon": "scene/shell_wings_6.png",
+              "icon": "scene/shell_wings_6.png",
+              "json": "/res/shell_wings_6.json",
               "type": "scene"
             },
             {
-              "cIcon": "icons/res/shirt_onclick.png",
-              "icon": "icons/res/misc/AntAndTheDove/Thumbnails/scene3.png",
-              "json": "res/misc/AntAndTheDove/scene3.json",
+              "cIcon": "scene/shell_wings_7.png",
+              "icon": "scene/shell_wings_7.png",
+              "json": "/res/shell_wings_7.json",
               "type": "scene"
             },
             {
-              "cIcon": "icons/res/shirt_onclick.png",
-              "icon": "icons/res/misc/AntAndTheDove/Thumbnails/scene4.png",
-              "json": "res/misc/AntAndTheDove/scene4.json",
+              "cIcon": "scene/shell_wings_8.png",
+              "icon": "scene/shell_wings_8.png",
+              "json": "/res/shell_wings_8.json",
               "type": "scene"
             },
             {
-              "cIcon": "icons/res/shirt_onclick.png",
-              "icon": "icons/res/misc/AntAndTheDove/Thumbnails/scene5.png",
-              "json": "res/misc/AntAndTheDove/scene5.json",
+              "cIcon": "scene/silly_goats_1.png",
+              "icon": "scene/silly_goats_1.png",
+              "json": "/res/silly_goats_1.json",
               "type": "scene"
             },
             {
-              "cIcon": "icons/res/shirt_onclick.png",
-              "icon": "icons/res/misc/AntAndTheDove/Thumbnails/scene6.png",
-              "json": "res/misc/AntAndTheDove/scene6.json",
+              "cIcon": "scene/silly_goats_2.png",
+              "icon": "scene/silly_goats_2.png",
+              "json": "/res/silly_goats_2.json",
               "type": "scene"
             },
             {
-              "cIcon": "icons/res/shirt_onclick.png",
-              "icon": "icons/res/misc/AntAndTheDove/Thumbnails/scene7.png",
-              "json": "res/misc/AntAndTheDove/scene7.json",
+              "cIcon": "scene/thirsty_crow_1.png",
+              "icon": "scene/thirsty_crow_1.png",
+              "json": "/res/thirsty_crow_1.json",
               "type": "scene"
             },
             {
-              "cIcon": "icons/res/shirt_onclick.png",
-              "icon": "icons/res/misc/AntAndTheDove/Thumbnails/scene8.png",
-              "json": "res/misc/AntAndTheDove/scene8.json",
+              "cIcon": "scene/thirsty_crow_2.png",
+              "icon": "scene/thirsty_crow_2.png",
+              "json": "/res/thirsty_crow_2.json",
               "type": "scene"
             },
             {
-              "cIcon": "icons/res/shirt_onclick.png",
-              "icon": "icons/res/misc/ShellWithTheWings/Thumbnails/scene1.png",
-              "json": "res/misc/ShellWithTheWings/Scene1.json",
+              "cIcon": "scene/thirsty_crow_3.png",
+              "icon": "scene/thirsty_crow_3.png",
+              "json": "/res/thirsty_crow_3.json",
               "type": "scene"
             },
             {
-              "cIcon": "icons/res/shirt_onclick.png",
-              "icon": "icons/res/misc/ShellWithTheWings/Thumbnails/Scene2.png",
-              "json": "res/misc/ShellWithTheWings/Scene2.json",
+              "cIcon": "scene/thirsty_crow_4.png",
+              "icon": "scene/thirsty_crow_4.png",
+              "json": "/res/thirsty_crow_4.json",
               "type": "scene"
             },
             {
-              "cIcon": "icons/res/shirt_onclick.png",
-              "icon": "icons/res/misc/ShellWithTheWings/Thumbnails/scene3.png",
-              "json": "res/misc/ShellWithTheWings/Scene3.json",
+              "cIcon": "scene/thirsty_crow_5.png",
+              "icon": "scene/thirsty_crow_5.png",
+              "json": "/res/thirsty_crow_5.json",
               "type": "scene"
             },
             {
-              "cIcon": "icons/res/shirt_onclick.png",
-              "icon": "icons/res/misc/ShellWithTheWings/Thumbnails/scene4.png",
-              "json": "res/misc/ShellWithTheWings/Scene4.json",
+              "cIcon": "scene/thirsty_crow_6.png",
+              "icon": "scene/thirsty_crow_6.png",
+              "json": "/res/thirsty_crow_6.json",
               "type": "scene"
             },
             {
-              "cIcon": "icons/res/shirt_onclick.png",
-              "icon": "icons/res/misc/ShellWithTheWings/Thumbnails/scene5.png",
-              "json": "res/misc/ShellWithTheWings/Scene5.json",
+              "cIcon": "scene/thirsty_crow_7.png",
+              "icon": "scene/thirsty_crow_7.png",
+              "json": "/res/thirsty_crow_7.json",
               "type": "scene"
             },
             {
-              "cIcon": "icons/res/shirt_onclick.png",
-              "icon": "icons/res/misc/ShellWithTheWings/Thumbnails/scene6.png",
-              "json": "res/misc/ShellWithTheWings/Scene6.json",
-              "type": "scene"
-            },
-            {
-              "cIcon": "icons/res/shirt_onclick.png",
-              "icon": "icons/res/misc/ShellWithTheWings/Thumbnails/scene7.png",
-              "json": "res/misc/ShellWithTheWings/Scene7.json",
-              "type": "scene"
-            },
-            {
-              "cIcon": "icons/res/shirt_onclick.png",
-              "icon": "icons/res/misc/ShellWithTheWings/Thumbnails/scene8.png",
-              "json": "res/misc/ShellWithTheWings/Scene8.json",
-              "type": "scene"
-            },
-            {
-              "cIcon": "icons/res/shirt_onclick.png",
-              "icon": "icons/res/misc/TheFoxAndTheGrapes/Thumbnails/scene1.png",
-              "json": "res/misc/TheFoxAndTheGrapes/Scene1.json",
-              "type": "scene"
-            },
-            {
-              "cIcon": "icons/res/shirt_onclick.png",
-              "icon": "icons/res/misc/TheFoxAndTheGrapes/Thumbnails/scene2.png",
-              "json": "res/misc/TheFoxAndTheGrapes/Scene2.json",
-              "type": "scene"
-            },
-            {
-              "cIcon": "res/shirt_onclick.png",
-              "icon": "res/misc/TheSelfishHorse/Thumbnails/scene1.png",
-              "json": "res/misc/TheSelfishHorse/Scene1.json",
-              "type": "scene"
-            },
-            {
-              "cIcon": "res/shirt_onclick.png",
-              "icon": "res/misc/TheSelfishHorse/Thumbnails/scene2.png",
-              "json": "res/misc/TheSelfishHorse/Scene2.json",
-              "type": "scene"
-            },
-            {
-              "cIcon": "res/shirt_onclick.png",
-              "icon": "res/misc/TheSelfishHorse/Thumbnails/scene3.png",
-              "json": "res/misc/TheSelfishHorse/Scene3.json",
-              "type": "scene"
-            },
-            {
-              "cIcon": "res/shirt_onclick.png",
-              "icon": "res/misc/TwoSillyGoats/Thumbnails/scene1.png",
-              "json": "res/misc/TwoSillyGoats/Scene1.json",
-              "type": "scene"
-            },
-            {
-              "cIcon": "res/shirt_onclick.png",
-              "icon": "res/misc/TwoSillyGoats/Thumbnails/scene2.png",
-              "json": "res/misc/TwoSillyGoats/Scene2.json",
+              "cIcon": "scene/thirsty_crow_8.png",
+              "icon": "scene/thirsty_crow_8.png",
+              "json": "/res/thirsty_crow_8.json",
               "type": "scene"
             }
           ]
         },
         {
-          "name": "forest",
-          "cIcon": "icons/hand_access_onclick.png",
-          "icon": "icons/hand_access.png",
-          "items": [
-            {
-              "cIcon": "icons/pant_onclick.png",
-              "icon": "icons/pant.png",
-              "json": "/res/MainScene.json",
-              "type": "scene"
-            },
-            {
-              "cIcon": "icons/pant_onclick.png",
-              "icon": "icons/pant.png",
-              "json": "/res/MainScene.json",
-              "type": "scene"
-            },
-            {
-              "cIcon": "icons/pant_onclick.png",
-              "icon": "icons/pant.png",
-              "json": "/res/MainScene.json",
-              "type": "scene"
-            },
-            {
-              "cIcon": "icons/pant_onclick.png",
-              "icon": "icons/pant.png",
-              "json": "/res/MainScene.json",
-              "type": "scene"
-            },
-            {
-              "cIcon": "icons/mouth_2_onclick.png",
-              "icon": "icons/mouth_2.png",
-              "json": "/res/MainScene.json",
-              "type": "scene"
-            },
-            {
-              "cIcon": "icons/neck_access_onclick.png",
-              "icon": "icons/neck_access.png",
-              "json": "/res/MainScene.json",
-              "type": "scene"
-            },
-            {
-              "cIcon": "icons/shirt_onclick.png",
-              "icon": "icons/neck_acccess_onclick.png",
-              "json": "/res/MainScene.json",
-              "type": "scene"
-            },
-            {
-              "cIcon": "icons/shirt_onclick.png",
-              "icon": "icons/mouth_2.png",
-              "json": "/res/MainScene.json",
-              "type": "scene"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "name": "characters",
-      "cIcon": "icons/add_char_onclick.png",
-      "icon": "icons/add_char.png",
-      "categories": [
-        {
           "name": "humans",
-          "cIcon": "icons/head_shape_onclick.png",
-          "icon": "icons/head_shape.png",
+          "cIcon": "icons/add_char_onclick.png",
+          "icon": "icons/add_char.png",
           "items": [
             {
               "icon": "human/cricketer_thumbnail.png",
@@ -431,316 +309,131 @@
               "json": "/res/human_skeleton.json",
               "skinNameMap": "painter",
               "type": "character"
-            }
+            },
+            {
+              "icon": "res/thumbnails/human/doctor.png",
+              "json": "/res/human_skeleton.json",
+              "skinNameMap": "doctor",
+              "type": "character"
+            },
+             {
+              "icon": "human/farmer.png",
+              "json": "/res/human_skeleton.json",
+              "skinNameMap": "farmer",
+              "type": "character"
+            },
+             {
+              "icon": "human/photographer.png",
+              "json": "/res/human_skeleton.json",
+              "skinNameMap": "photographer",
+              "type": "character"
+            },
+             {
+              "icon": "human/police.png",
+              "json": "/res/human_skeleton.json",
+              "skinNameMap": "police",
+              "type": "character"
+            },
+             {
+              "icon": "human/scientist.png",
+              "json": "/res/human_skeleton.json",
+              "skinNameMap": "scientist",
+              "type": "character"
+            },
+             {
+              "icon": "human/singer.png",
+              "json": "/res/human_skeleton.json",
+              "skinNameMap": "singer",
+              "type": "character"
+            },
+             {
+              "icon": "human/soccer.png",
+              "json": "/res/human_skeleton.json",
+              "skinNameMap": "soccer",
+              "type": "character"
+            },
+             {
+              "icon": "human/soldier.png",
+              "json": "/res/human_skeleton.json",
+              "skinNameMap": "soldier",
+              "type": "character"
+            },
+             {
+              "icon": "human/watchman.png",
+              "json": "/res/human_skeleton.json",
+              "skinNameMap": "watchman",
+              "type": "character"
+            },
+            {
+              "icon": "human/cricketer_thumbnail.png",
+              "json": "/res/animalskeleton.json",
+              "skinNameMap": "lion",
+              "type": "character"
+            }            
+            
           ]
-        },
-        {
-          "name": "animals",
-          "cIcon": "icons/pant_onclick.png",
-          "icon": "icons/pant.png",
-          "items": [
-            {
-              "icon": "thumbnails/animal/crow_thumbnail.png",
-              "json": "/res/characters/crow/Animation.json",
-              "type": "character"
-            },
-            {
-              "icon": "thumbnails/animal/donkey_thumbnail.png",
-              "json": "/res/characters/donkey/Skeleton.json",
-              "type": "character"
-            },
-            {
-              "icon": "thumbnails/animal/elephant_thumbnail.png",
-              "json": "/res/characters/elephant/elep.json",
-              "type": "character"
-            },
-            {
-              "cIcon": "thumbnails/animal/hare_thumbnail.png",
-              "icon": "thumbnails/animal/hare_thumbnail.png",
-              "json": "/res/characters/hare/Skeleton.json",
-              "type": "character"
-            }
-          ]
-        }
+        }        
       ]
     },
+    {
+      "name": "startRecording",
+      "cIcon": "icons/record_onclick.png",
+      "icon": "icons/record.png",
+      "toggle": true
+    },
+    {
+      "name": "play",
+      "cIcon": "icons/play_onclick.png",
+      "icon": "icons/play.png"
+    },    
     {
       "name": "texts",
       "cIcon": "icons/add_text_onclick.png",
       "icon": "icons/add_text.png"
-    },
-    {
-      "name": "props",
-      "cIcon": "icons/add_effects_onclick.png",
-      "icon": "icons/add_effects.png",
-      "categories": [
-        {
-          "name": "tree",
-          "cIcon": "icons/hairstyle_onclick.png",
-          "icon": "icons/hairstyle.png",
-          "items": [
-            {
-              "cIcon": "icons/mouth_2_onclick.png",
-              "icon": "misc/scene1/Tree_01.png",
-              "png": "/res/misc/scene1/Tree_01.png"
-            },
-            {
-              "cIcon": "icons/neck_access_onclick.png",
-              "icon": "misc/scene1/Tree_02.png",
-              "png": "/res/misc/scene1/Tree_02.png"
-            },
-            {
-              "cIcon": "icons/shirt_onclick.png",
-              "icon": "misc/scene1/Tree_03.png",
-              "png": "/res/misc/scene1/Tree_03.png"
-            },
-            {
-              "cIcon": "icons/mouth_access_onclick.png",
-              "icon": "Trees/Tree_04.png",
-              "png": "/res/Trees/Tree_04.png"
-            },
-            {
-              "cIcon": "icons/pant_onclick.png",
-              "icon": "Trees/Tree_05.png",
-              "png": "/res/Trees/Tree_05.png"
-            },
-            {
-              "cIcon": "icons/pant_onclick.png",
-              "icon": "Trees/tree_1.png",
-              "png": "/res/Trees/tree_1.png"
-            },
-            {
-              "cIcon": "icons/pant_onclick.png",
-              "icon": "Trees/tree_2.png",
-              "png": "/res/Trees/tree_2.png"
-            },
-            {
-              "cIcon": "icons/pant_onclick.png",
-              "icon": "Trees/tree_3.png",
-              "png": "/res/Trees/tree_3.png"
-            },
-            {
-              "cIcon": "icons/pant_onclick.png",
-              "icon": "Trees/tree_4.png",
-              "png": "/res/Trees/tree_4.png"
-            },
-            {
-              "cIcon": "icons/pant_onclick.png",
-              "icon": "Trees/tree_5.png",
-              "png": "/res/Trees/tree_5.png"
-            }
-          ]
-        },
-        {
-          "name": "hills",
-          "cIcon": "icons/Hair_color_onclick.png",
-          "icon": "icons/Hair_color.png",
-          "items": [
-            {
-              "cIcon": "icons/mouth_2_onclick.png",
-              "icon": "Grass_hill/Grass_Hill.png",
-              "png": "/res/Grass_hill/Grass_Hill.png"
-            },
-            {
-              "cIcon": "icons/neck_access_onclick.png",
-              "icon": "Grass_hill/Grass_Hill_01.png",
-              "png": "/res/Grass_hill/Grass_Hill_01.png"
-            },
-            {
-              "cIcon": "icons/shirt_onclick.png",
-              "icon": "Grass_hill/Grass_Hill_02.png",
-              "png": "/res/Grass_hill/Grass_Hill_02.png"
-            },
-            {
-              "cIcon": "icons/mouth_access_onclick.png",
-              "icon": "Hill/Hill.png",
-              "png": "/res/Hill/Hill.png"
-            },
-            {
-              "cIcon": "icons/pant_onclick.png",
-              "icon": "Hill/hill_1.png",
-              "png": "/res/Hill/hill_1.png"
-            },
-            {
-              "cIcon": "icons/pant_onclick.png",
-              "icon": "Hill/hill_2.png",
-              "png": "/res/Hill/hill_2.png"
-            },
-             {
-              "cIcon": "icons/pant_onclick.png",
-              "icon": "Hill/hill_3.png",
-              "png": "/res/Hill/hill_3.png"
-            },
-             {
-              "cIcon": "icons/pant_onclick.png",
-              "icon": "Hill/hill_4.png",
-              "png": "/res/Hill/hill_4.png"
-            }
-          ]
-        },
-        {
-          "name": "sun",
-          "cIcon": "icons/pant_onclick.png",
-          "icon": "icons/pant.png",
-          "items": [
-            {
-              "cIcon": "icons/mouth_2_onclick.png",
-              "icon": "Sun/Sun.png",
-              "png": "/res/Sun/Sun.png"
-            }
-          ]
-        },
-        {
-          "name": "bush",
-          "cIcon": "icons/glass_onclick.png",
-          "icon": "icons/glass.png",
-          "items": [
-            {
-              "cIcon": "icons/mouth_2_onclick.png",
-              "icon": "bush/bush_0.png",
-              "png": "/res/bush/bush_0.png"
-            },
-            {
-              "cIcon": "icons/mouth_2_onclick.png",
-              "icon": "bush/bush_1.png",
-              "png": "/res/bush/bush_1.png"
-            },
-            {
-              "cIcon": "icons/mouth_2_onclick.png",
-              "icon": "bush/bush_2.png",
-              "png": "/res/bush/bush_2.png"
-            },
-            {
-              "cIcon": "icons/mouth_2_onclick.png",
-              "icon": "bush/bush_3.png",
-              "png": "/res/bush/bush_3.png"
-            },
-            {
-              "cIcon": "icons/mouth_2_onclick.png",
-              "icon": "bush/grass.png",
-              "png": "/res/bush/grass.png"
-            },
-            {
-              "cIcon": "icons/mouth_2_onclick.png",
-              "icon": "bush/grass_1.png",
-              "png": "/res/bush/grass_1.png"
-            },
-            {
-              "cIcon": "icons/mouth_2_onclick.png",
-              "icon": "bush/grass_2.png",
-              "png": "/res/bush/grass_2.png"
-            }
-          ]
-        },
-        {
-          "name": "home",
-          "cIcon": "icons/eyes_onclick.png",
-          "icon": "icons/eyes.png",
-          "items": [
-            {
-              "cIcon": "icons/mouth_2_onclick.png",
-              "icon": "home/home.png",
-              "png": "/res/home/home.png"
-            },
-            {
-              "cIcon": "icons/mouth_2_onclick.png",
-              "icon": "home/home_01.png",
-              "png": "/res/home/home_01.png"
-            }
-          ]
-        },
-        {
-          "name": "animals",
-          "cIcon": "icons/glass_onclick.png",
-          "icon": "icons/glass.png",
-          "items": [
-            {
-              "cIcon": "icons/mouth_2_onclick.png",
-              "icon": "Animals/ant1.png",
-              "png": "/res/Animals/ant1.png"
-            },
-            {
-              "cIcon": "icons/mouth_2_onclick.png",
-              "icon": "Animals/bird.png",
-              "png": "/res/Animals/bird.png"
-            },
-             {
-              "cIcon": "icons/mouth_2_onclick.png",
-              "icon": "Animals/bird3.png",
-              "png": "/res/Animals/bir3.png"
-            },
-             {
-              "cIcon": "icons/mouth_2_onclick.png",
-              "icon": "Animals/bird5.png",
-              "png": "/res/Animals/bird5.png"
-            },
-            {
-              "cIcon": "icons/mouth_2_onclick.png",
-              "icon": "Animals/dove2.png",
-              "png": "/res/Animals/dove2.png"
-            },
-            {
-              "cIcon": "icons/mouth_2_onclick.png",
-              "icon": "Animals/dove3.png",
-              "png": "/res/Animals/dove8.png"
-            },
-            {
-              "cIcon": "icons/mouth_2_onclick.png",
-              "icon": "Animals/turtle.png",
-              "png": "/res/Animals/turtle.png"
-            },
-             {
-              "cIcon": "icons/mouth_2_onclick.png",
-              "icon": "Animals/turtle10.png",
-              "png": "/res/Animals/turtle10.png"
-            }
-          ]
-        }
-      ]
-    }
+    }    
   ],
   "editCharacter": [
     {
-      "cIcon": "icons/back_onclick.png",
-      "icon": "icons/back.png"
-    },
-    {
+      "name": "translate",      
       "cIcon": "icons/rotate.png",
       "icon": "icons/translate.png",
-      "toggle": true      
+      "toggle": true
     },
     {
+      "name": "flipX",      
       "cIcon": "icons/flipX_onclick.png",
       "icon": "icons/flipX.png"
     },
     {
+      "name": "delete",      
       "cIcon": "icons/delete_onclick.png",
       "icon": "icons/delete.png"
     },
     {
+      "name": "my_avatar",      
       "cIcon": "icons/my_avatar_onclick.png",
       "icon": "icons/my_avatar.png"
     },
     {
+      "name": "animation",      
       "cIcon": "icons/animation_onclick.png",
       "icon": "icons/animation.png"
     }
   ],
   "editObject": [
     {
-      "cIcon": "icons/back_onclick.png",
-      "icon": "icons/back.png"
-    },
-    {
+      "name": "translate",      
       "cIcon": "icons/rotate.png",
       "icon": "icons/translate.png",
-      "toggle": true      
+      "toggle": true
     },
     {
+      "name": "flipX",      
       "cIcon": "icons/flipX_onclick.png",
       "icon": "icons/flipX.png"
     },
     {
+      "name": "delete",      
       "cIcon": "icons/delete_onclick.png",
       "icon": "icons/delete.png"
     }
@@ -761,10 +454,11 @@
   ],
   "editDefault": [
     {
+      "name": "back",      
       "cIcon": "icons/back_onclick.png",
       "icon": "icons/back.png"
     }
-  ],  
+  ],
   "editStory": [
     {
       "cIcon": "icons/add_onclick.png",

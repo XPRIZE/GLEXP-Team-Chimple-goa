@@ -1,6 +1,6 @@
 chimple.PageConfigPanel = cc.LayerColor.extend({
     ctor: function (width, height, position, configuration, contentPanel) {
-        this._super(cc.color.GREEN, width, height);
+        this._super(chimple.PRIMARY_COLOR, width, height);
         this.setPosition(position);
         this._configuration = configuration;
         this._contentPanel = contentPanel;
@@ -8,9 +8,9 @@ chimple.PageConfigPanel = cc.LayerColor.extend({
         this._buttonPanel = new chimple.ButtonPanel(new cc.p(0, 0), this.getContentSize(), 1, 6, configuration.addObjects, new chimple.ButtonHandler(this.buttonPressed, this));
 
         if (chimple.story.items[chimple.pageIndex].scene.Content == null) {
-            chimple.PageConfigPanel.disableOrEnableAllButtons(this._buttonPanel, false);
+            this.disableOrEnableAllButtons(this._buttonPanel, false);
         } else {
-            chimple.PageConfigPanel.disableOrEnableAllButtons(this._buttonPanel, true);
+            this.disableOrEnableAllButtons(this._buttonPanel, true);
         }
         this.addChild(this._buttonPanel);
     },
@@ -20,7 +20,7 @@ chimple.PageConfigPanel = cc.LayerColor.extend({
         if (selectedConfig != null && selectedConfig.name === "texts") {
             this._contentPanel.addTextToScene();
         } else if (selectedConfig != null && selectedConfig.name === "startRecording") {
-            this._contentPanel.startRecording();
+            this.handleRecordingAnimation(selectedItem);
         } else if (selectedConfig != null && selectedConfig.name === "play") {
             this._contentPanel.playSceneInEditMode();
         } else if (selectedConfig != null) {
@@ -28,8 +28,46 @@ chimple.PageConfigPanel = cc.LayerColor.extend({
         }
     },
 
+    handleRecordingAnimation: function (selectedItem) {
+        if (this._contentPanel._isRecordingStarted) {
+            this.updateUIBeforeRecording();
+        } else {
+            this.createRecordingAnimation(selectedItem);
+        }
+    },
+
+    createRecordingAnimation: function (selectedItem) {
+        cc.log('start recording animation');
+        selectedItem.loadTextures("icons/record_onclick.png", null, null, ccui.Widget.PLIST_TEXTURE);
+
+        this._preRecordAnimationSprite = new cc.Sprite('#record_time/3.png');
+        this._contentPanel.addChild(this._preRecordAnimationSprite, 0);
+        this._preRecordAnimationSprite.setPosition(this._contentPanel.width / 2, this._contentPanel.height / 2);
+
+        var spriteFrames = [];
+
+        //create animations
+        for (var i = 3; i >= 1; i--) {
+            var frame = cc.spriteFrameCache.getSpriteFrame('record_time/' + i + '.png');
+            spriteFrames.push(frame);
+        }
+
+        var animation = new cc.Animation(spriteFrames, 0.5);
+        var animAction = cc.animate(animation);
+        //var delayAction = new cc.delayTime(0.5);
+        var finishRecordingAnimAction = new cc.CallFunc(this.finishRecordingAnimation, this);
+        var preRecordSequence = new cc.sequence(animAction, finishRecordingAnimAction);
+        this._preRecordAnimationSprite.runAction(preRecordSequence);
+    },
+
+    finishRecordingAnimation: function () {
+        this._preRecordAnimationSprite.removeFromParent(true);
+        this._preRecordAnimationSprite = null;
+        this.updateUIBeforeRecording();
+    },
+
     constructTabBar: function (configuration) {
-        this._tabBar = new chimple.TabPanel(cc.p(0, 0), cc.director.getWinSize(), 2, 2, configuration, this.itemSelectedInConfiguration, this);
+        this._tabBar = new chimple.TabPanel(cc.p(0, 0), cc.director.getWinSize(), 4, 3, configuration, this.itemSelectedInConfiguration, this);
         this.parent.addChild(this._tabBar, 1);
     },
 
@@ -108,22 +146,87 @@ chimple.PageConfigPanel = cc.LayerColor.extend({
                 break;
         }
 
+    },
+    disableOrEnableAllButtons: function (panel, isEnabled) {
+
+        panel.children.forEach(function (element) {
+            if (isEnabled) {
+                if (element._configuration.name != "play") {
+                    element.setEnabled(true);
+                    element.setHighlighted(false);
+                }
+            } else {
+                if (element._configuration.name != "addToScene") {
+                    element.setEnabled(false);
+                    element.setHighlighted(true);
+                }
+            }
+        }, this);
+    },
+
+    trackRecording: function () {
+        //check if recording stopped
+        if (this._contentPanel._isRecordingStarted) {
+            this._contentPanel._recordingCounter++;
+            var buttonKey = 'timer/' + this._contentPanel._recordingCounter + '.png';
+            this._buttonPanel.getButtonByName("icons/record.png").loadTextures(buttonKey, "icons/record.png", null, ccui.Widget.PLIST_TEXTURE);
+        }
+
+        if (this._contentPanel._recordingCounter == chimple.RECORDING_TIME + 1) {
+            this._contentPanel.startRecording();
+            this.unschedule(this.trackRecording);
+            this.updateUIWhenForRecording();
+        }
+
+    },
+
+    updateUIBeforeRecording: function () {
+        if (this._contentPanel._isRecordingStarted) {
+            this._buttonPanel.enableButton("play", true);
+            this._buttonPanel.enableButton("backgrounds", true);
+            this._buttonPanel.enableButton("characters", true);
+            this._buttonPanel.enableButton("texts", true);
+            this._buttonPanel.enableButton("props", true);
+        } else {
+            this._buttonPanel.enableButton("play", false);
+            this._buttonPanel.enableButton("backgrounds", false);
+            this._buttonPanel.enableButton("characters", false);
+            this._buttonPanel.enableButton("texts", false);
+            this._buttonPanel.enableButton("props", false);
+            var buttonKey = 'timer/' + this._contentPanel._recordingCounter + '.png';
+            this._buttonPanel.getButtonByName("icons/record.png").loadTextures(buttonKey, "icons/record.png", null, ccui.Widget.PLIST_TEXTURE);
+        }
+
+        this._contentPanel.startRecording(); //toggle Recording
+        if (this._contentPanel._isRecordingStarted) {
+            this.schedule(this.trackRecording, 1, chimple.RECORDING_TIME);
+        } else {
+            this.unschedule(this.trackRecording);
+            this.updateUIWhenForRecording();
+        }
+        
+    },
+
+    updateUIWhenForRecording: function () {
+        if (!this._contentPanel._isRecordingStarted) {
+            this._buttonPanel.enableButton("startRecording", true);
+            this._buttonPanel.enableButton("play", true);
+            this._buttonPanel.enableButton("backgrounds", true);
+            this._buttonPanel.enableButton("characters", true);
+            this._buttonPanel.enableButton("texts", true);
+            this._buttonPanel.enableButton("props", true);
+            this._buttonPanel.getButtonByName("icons/record.png").loadTextures("icons/record.png", null, null, ccui.Widget.PLIST_TEXTURE);
+        } else {
+            this._buttonPanel.enableButton("startRecording", false);
+            this._buttonPanel.enableButton("play", false);
+            this._buttonPanel.enableButton("backgrounds", false);
+            this._buttonPanel.enableButton("characters", false);
+            this._buttonPanel.enableButton("texts", false);
+            this._buttonPanel.enableButton("props", false);
+
+        }
     }
 });
 
-chimple.PageConfigPanel.disableOrEnableAllButtons = function (panel, isEnabled) {
 
-    panel.children.forEach(function (element) {
-        if (isEnabled) {
-            if (element._configuration.name != "play") {
-                element.setEnabled(true);
-                element.setHighlighted(false);
-            }
-        } else {
-            if (element._configuration.name != "backgrounds") {
-                element.setEnabled(false);
-                element.setHighlighted(true);
-            }
-        }
-    }, this);
-}
+

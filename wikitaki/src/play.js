@@ -8,7 +8,7 @@ var PlayFullStoryLayer = cc.Layer.extend({
     _contentPanelWidth: null,
     _configPanelWidth: null,
     _configPanelHeight: null,
-    _isTextDisplayed: false,
+    _isTitleDisplayed: false,
     ctor: function () {
         this._super();
         this._name = "PlayFullStoryLayer";
@@ -18,15 +18,14 @@ var PlayFullStoryLayer = cc.Layer.extend({
         this._configPanelWidth = (cc.director.getWinSize().width - this._contentPanelWidth) / 2;
         this._configPanelHeight = cc.director.getWinSize().height;
 
-        if (window.PLAYING_STORY_FIRST_TIME) {
-            this.bindTouchListener();
-        }
-
+        this._playButton = new cc.Sprite(res.play_png);
+        this.bindTouchListener(this._playButton);
 
         return true;
     },
 
-    bindTouchListener: function () {
+    bindTouchListener: function (target) {
+        var context = this;
         this._listener = cc.EventListener.create({
             event: cc.EventListener.TOUCH_ONE_BY_ONE,
             swallowTouches: true,
@@ -37,21 +36,32 @@ var PlayFullStoryLayer = cc.Layer.extend({
                 var targetRectangle = cc.rect(0, 0, targetSize.width, targetSize.
                     height);
                 if (cc.rectContainsPoint(targetRectangle, location)) {
-                    target.sceneTouched();
+                    context.sceneTouched();
                 }
             }
         });
-        cc.eventManager.addListener(this._listener, this);
+        cc.eventManager.addListener(this._listener, target);
     },
 
     init: function () {
         this._contentPanel = new chimple.PlayContentPanel(this._contentPanelWidth, this._contentPanelWidth, cc.p(this._configPanelWidth, 0));
+        this._contentPanel.setOpacity(0.2);
         this.addChild(this._contentPanel);
 
+        this._playButton.setPosition(cc.director.getWinSize().width / 2, cc.director.getWinSize().height / 2);
+        this.addChild(this._playButton, 0);
+
         this._leftButtonPanel = new chimple.ButtonPanel(new cc.p(0, 0), cc.size(this._configPanelWidth, this._contentPanelWidth), 1, 1, chimple.onlyStoryPlayConfigurationObject.editDefault, new chimple.ButtonHandler(this.previousStory, this, false));
+        this._leftButtonPanel.setBackGroundColorType(ccui.Layout.BG_COLOR_SOLID);
+        this._leftButtonPanel.setBackGroundColor(chimple.PRIMARY_COLOR);
+
         this.disableOrEnableAllButtons(this._leftButtonPanel, false);
         this.addChild(this._leftButtonPanel);
+
         this._rightButtonPanel = new chimple.ButtonPanel(new cc.p(this._configPanelWidth + this._contentPanelWidth, 0), cc.size(this._configPanelWidth, this._contentPanelWidth), 1, 1, chimple.onlyStoryPlayConfigurationObject.nextDefault, new chimple.ButtonHandler(this.nextStory, this, false));
+        this._rightButtonPanel.setBackGroundColorType(ccui.Layout.BG_COLOR_SOLID);
+        this._rightButtonPanel.setBackGroundColor(chimple.PRIMARY_COLOR);
+
         this.disableOrEnableAllButtons(this._rightButtonPanel, false);
         this.addChild(this._rightButtonPanel);
         this.setUpRecordedScene();
@@ -89,9 +99,10 @@ var PlayFullStoryLayer = cc.Layer.extend({
     },
 
     sceneTouched: function () {
-        if (this._isTextDisplayed) {
-            this.playRecordedScene();
-        }
+        this._contentPanel._constructedScene.action.gotoFrameAndPause(0);
+        this.playRecordedScene();
+        this._playButton.removeFromParent(true);
+        cc.eventManager.removeListener(this._listener);
     },
 
     previousStory: function () {
@@ -111,7 +122,7 @@ var PlayFullStoryLayer = cc.Layer.extend({
 
     showTitle: function () {
         if (window.PLAYING_STORY_FIRST_TIME) {
-            this._isTextDisplayed = true;
+            this._isTitleDisplayed = true;
         } else {
             this.playRecordedScene();
         }
@@ -142,7 +153,6 @@ var PlayFullStoryLayer = cc.Layer.extend({
                 }, this);
             }
         }
-
     },
 
     closeWebView: function () {
@@ -166,9 +176,9 @@ var PlayFullStoryLayer = cc.Layer.extend({
     },
 
     createWebView: function () {
-        if (chimple.story.sceneText != null && chimple.story.sceneText !== "undefined") {
+        if (chimple.story.items[chimple.pageIndex].sceneText != null && chimple.story.items[chimple.pageIndex].sceneText !== "undefined") {
             this._textField = new ccui.WebView();
-            this._textField.loadURL("/displayText.html?height=" + 450 + '&contents=' + chimple.story.sceneText);
+            this._textField.loadURL("/displayText.html?height=" + 450 + '&contents=' + chimple.story.items[chimple.pageIndex].sceneText);
             //this._textField.setPosition(cc.director.getWinSize().width / 2, cc.director.getWinSize().height / 2);
             //this._textField.setContentSize(cc.size(cc.director.getWinSize().width, cc.director.getWinSize().height));
             this._textField.setPosition(64, 0);
@@ -186,9 +196,9 @@ var PlayFullStoryLayer = cc.Layer.extend({
     playRecordedScene: function () {
         this.disableOrEnableAllButtons(this._leftButtonPanel, false);
         this.disableOrEnableAllButtons(this._rightButtonPanel, false);
-        if (this._contentPanel._constructedScene.node) {
+        if (this._contentPanel._constructedScene.node && this._contentPanel._constructedScene.action.getDuration()) {
             this._contentPanel._constructedScene.node.runAction(this._contentPanel._constructedScene.action);
-            this._contentPanel._constructedScene.action.gotoFrameAndPlay(0, this._playDuration, 0, false);
+            this._contentPanel._constructedScene.action.gotoFrameAndPlay(0, this._contentPanel._constructedScene.action.getDuration(), 0, false);
 
             if (!cc.sys.isNative) {
                 this._contentPanel._renderCmd._dirtyFlag = 1;
@@ -199,6 +209,9 @@ var PlayFullStoryLayer = cc.Layer.extend({
                     }
                 }, this);
             }
+        } else {
+            this.referenceToContext = this;
+            this.playEnded();
         }
     }
 });

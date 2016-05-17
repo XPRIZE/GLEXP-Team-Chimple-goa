@@ -110,12 +110,13 @@ chimple.CharacterUtil.addCharacterToFavorites = function (skeleton, configuratio
 
     chimple.customCharacters.items.push(favoriteCharConfiguration);
     chimple.CharacterUtil.addToCharacterConfigs(chimple.customCharacters);
+    chimple.ParseUtil.cacheThumbnailForFavorites(skeleton);
 }
 
 chimple.CharacterUtil.addToCharacterConfigs = function (characterConfig) {
-    var characterCategories = chimple.storyConfigurationObject.addObjects[3].categories;
+    var characterCategories = chimple.storyConfigurationObject.addObjects[1].categories;
     if (characterCategories.length > chimple.initalCharacterCategories) {
-        characterCategories.splice(2);
+        characterCategories.splice(0);
     }
     characterCategories.push(characterConfig);
 

@@ -12,8 +12,10 @@ chimple.PreviewPanel = cc.LayerColor.extend({
         this._targetScale = target.getScale();
         target.removeFromParent(false);
         cc.eventManager.removeListeners(target);
+
+
         this.addChild(target);
-        target.setPosition(width * 90 / 100, 600);
+        target.setPosition(550, 200);
         target.scaleX = 0.5;
         target.scaleY = 0.5;
 
@@ -67,13 +69,15 @@ chimple.PreviewPanel = cc.LayerColor.extend({
 
     goBack: function () {
         //update skins and color based on user selection
-        if(chimple.customCharacters && chimple.customCharacters.items) {
-            chimple.customCharacters.items.forEach(function(element) {
-                if(element.uniqueCharacterID == this._target.uniqueCharacterID) {
+        //var renderer = new cc.RenderTexture(this._target.getBoundingBoxToWorld().width, this._target.getBoundingBoxToWorld().height);
+        chimple.ParseUtil.cacheThumbnailForFavorites(this._target);
+        if (chimple.customCharacters && chimple.customCharacters.items) {
+            chimple.customCharacters.items.forEach(function (element) {
+                if (element.uniqueCharacterID == this._target.uniqueCharacterID) {
                     element.favoriteSkins = this._target._userData.visibleSkins;
                 }
             }, this);
-        }                 
+        }
 
         this.removeChild(this._target, false);
         this._targetParent.addChild(this._target);
