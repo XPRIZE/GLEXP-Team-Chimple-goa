@@ -80,50 +80,7 @@
               "json": "/res/human_skeleton.json",
               "skinNameMap": "watchman",
               "type": "character"
-            },
-            {
-              "icon": "animal/lion.png",
-              "json": "/res/animalskeleton.json",
-              "skinNameMap": "lion",
-              "type": "character"
-            },
-            {
-              "icon": "animal/dog.png",
-              "json": "/res/animalskeleton.json",
-              "skinNameMap": "dog",
-              "type": "character"
-            },
-             {
-              "icon": "animal/cat.png",
-              "json": "/res/animalskeleton.json",
-              "skinNameMap": "cat",
-              "type": "character"
-            },
-            {
-              "icon": "animal/cow.png",
-              "json": "/res/animalskeleton.json",
-              "skinNameMap": "cow",
-              "type": "character"
-            },
-             {
-              "icon": "animal/elephant.png",
-              "json": "/res/animalskeleton.json",
-              "skinNameMap": "elephant",
-              "type": "character"
-            },
-            {
-              "icon": "animal/pig.png",
-              "json": "/res/animalskeleton.json",
-              "skinNameMap": "pig",
-              "type": "character"
-            },
-            {
-              "icon": "animal/goat.png",
-              "json": "/res/animalskeleton.json",
-              "skinNameMap": "goat",
-              "type": "character"
-            }         
-            
+            }
           ]
         },
         {
@@ -408,7 +365,111 @@
               "type": "scene"
             }
           ]
-        }                
+        },
+        {
+          "name": "animal",
+          "cIcon": "icons/my_pet_onclick.png",
+          "icon": "icons/my_pet.png",
+          "items": [
+            {
+              "icon": "animal/lion.png",
+              "json": "/res/animalskeleton.json",
+              "skinNameMap": "lion",
+              "type": "character"
+            },
+            {
+              "icon": "animal/dog.png",
+              "json": "/res/animalskeleton.json",
+              "skinNameMap": "dog",
+              "type": "character"
+            },
+             {
+              "icon": "animal/cat.png",
+              "json": "/res/animalskeleton.json",
+              "skinNameMap": "cat",
+              "type": "character"
+            },
+            {
+              "icon": "animal/cow.png",
+              "json": "/res/animalskeleton.json",
+              "skinNameMap": "cow",
+              "type": "character"
+            },
+             {
+              "icon": "animal/elephant.png",
+              "json": "/res/animalskeleton.json",
+              "skinNameMap": "elephant",
+              "type": "character"
+            },
+            {
+              "icon": "animal/pig.png",
+              "json": "/res/animalskeleton.json",
+              "skinNameMap": "pig",
+              "type": "character"
+            },
+            {
+              "icon": "animal/goat.png",
+              "json": "/res/animalskeleton.json",
+              "skinNameMap": "goat",
+              "type": "character"
+            },
+             {
+              "icon": "animal/sheep.png",
+              "json": "/res/animalskeleton.json",
+              "skinNameMap": "sheep",
+              "type": "character"
+            },
+            {
+              "icon": "animal/donkey.png",
+              "json": "/res/animalskeleton.json",
+              "skinNameMap": "donkey",
+              "type": "character"
+            },
+            {
+              "icon": "animal/horse.png",
+              "json": "/res/animalskeleton.json",
+              "skinNameMap": "horse",
+              "type": "character"
+            },
+             {
+              "icon": "animal/rhino.png",
+              "json": "/res/animalskeleton.json",
+              "skinNameMap": "rhino",
+              "type": "character"
+            },
+            {
+              "icon": "animal/hippo.png",
+              "json": "/res/animalskeleton.json",
+              "skinNameMap": "hippo",
+              "type": "character"
+            },
+            {
+              "icon": "animal/zebra.png",
+              "json": "/res/animalskeleton.json",
+              "skinNameMap": "zebra",
+              "type": "character"
+            },
+            {
+              "icon": "animal/buffalo.png",
+              "json": "/res/animalskeleton.json",
+              "skinNameMap": "buffalo",
+              "type": "character"
+            },
+            {
+              "icon": "animal/ox.png",
+              "json": "/res/animalskeleton.json",
+              "skinNameMap": "ox",
+              "type": "character"
+            },
+            {
+              "icon": "animal/yak.png",
+              "json": "/res/animalskeleton.json",
+              "skinNameMap": "yak",
+              "type": "character"
+            }
+            
+          ]
+        }        
       ]
     },
     {
