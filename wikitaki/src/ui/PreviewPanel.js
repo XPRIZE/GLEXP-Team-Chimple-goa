@@ -26,12 +26,12 @@ chimple.PreviewPanel = cc.LayerColor.extend({
             this._scrolPanel = new chimple.ScrollableButtonPanel(cc.p(0, 0), cc.size(width * 2 / 3, height), 2, 2, configuration, callback, callbackContext);
             this.addChild(this._scrolPanel);
 
-            this.tabPanel_backButton = new ccui.Button("icons/back.png", "icons/back_onclick.png", null, ccui.Widget.PLIST_TEXTURE);
+            this.tabPanel_backButton = new ccui.Button("icons/left.png", "icons/left_onclick.png", null, ccui.Widget.PLIST_TEXTURE);
             this.tabPanel_backButton.setPosition(width * 5 / 100, height * 50 / 100);
             this.tabPanel_backButton.addTouchEventListener(this.tabPanel_backButton_function, this);
             this.addChild(this.tabPanel_backButton);
 
-            this.tabPanel_nextButton = new ccui.Button("icons/next.png", "icons/next_onclick.png", null, ccui.Widget.PLIST_TEXTURE);
+            this.tabPanel_nextButton = new ccui.Button("icons/right.png", "icons/right_onclick.png", null, ccui.Widget.PLIST_TEXTURE);
             this.tabPanel_nextButton.setPosition(width * 62 / 100, height * 50 / 100);
             this.tabPanel_nextButton.addTouchEventListener(this.tabPanel_nextButton_function, this);
             this.addChild(this.tabPanel_nextButton);
