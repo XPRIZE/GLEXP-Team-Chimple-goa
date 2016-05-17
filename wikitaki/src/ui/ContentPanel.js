@@ -174,7 +174,10 @@ chimple.ContentPanel = chimple.AbstractContentPanel.extend({
         positionFrameData.ctype = "PointFrameData";
         positionFrameData.X = node.x;
         positionFrameData.Y = node.y;
-        node.positionFrames.push(positionFrameData);
+        if(node.positionFrames) {
+            node.positionFrames.push(positionFrameData);    
+        }
+        
 
         var scaleFrameData = Object.create(Object.prototype);
         scaleFrameData.FrameIndex = frameIndex;
@@ -183,7 +186,10 @@ chimple.ContentPanel = chimple.AbstractContentPanel.extend({
         scaleFrameData.ctype = "ScaleValueFrameData";
         scaleFrameData.X = node.getScaleX();
         scaleFrameData.Y = node.getScaleY();
-        node.scaleFrames.push(scaleFrameData);
+        if(node.scaleFrames) {
+            node.scaleFrames.push(scaleFrameData);
+        }
+        
 
         var rotationFrameData = Object.create(Object.prototype);
         rotationFrameData.FrameIndex = frameIndex;
@@ -192,7 +198,10 @@ chimple.ContentPanel = chimple.AbstractContentPanel.extend({
         rotationFrameData.ctype = "ScaleValueFrameData";
         rotationFrameData.X = node.getRotationX();
         rotationFrameData.Y = node.getRotationY();
-        node.rotationFrames.push(rotationFrameData);
+        if(node.rotationFrames) {
+            node.rotationFrames.push(rotationFrameData);
+        }
+        
     },
 
     constructTimeLineObject: function (node, property, frameName) {
@@ -396,7 +405,7 @@ chimple.ContentPanel = chimple.AbstractContentPanel.extend({
             this._recordingFrameIndex = this._recordingFrameIndex + 1;
             this._nodesSelected.forEach(function (element) {
                 console.log('element:' + element.getName());
-                //construct position, rotation and scale framedata for now for each timesecond
+                //construct position, rotation and scale framedata for now for each timesecond                
                 this.constructFrameData(element, this._recordingFrameIndex);
                 this.constructAnimationFrameData(element, this._recordingFrameIndex, false);
             }, this);

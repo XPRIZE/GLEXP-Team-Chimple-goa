@@ -20,12 +20,12 @@ chimple.PageConfigPanel = cc.LayerColor.extend({
         if (selectedConfig != null && selectedConfig.name === "texts") {
             this._contentPanel.addTextToScene();
         } else if (selectedConfig != null && selectedConfig.name === "startRecording") {
-            if(this._contentPanel._isRecordingStarted) {
+            if (this._contentPanel._isRecordingStarted) {
                 this._buttonPanel.enableButton("play", true);
                 this._buttonPanel.enableButton("backgrounds", true);
                 this._buttonPanel.enableButton("characters", true);
                 this._buttonPanel.enableButton("texts", true);
-                this._buttonPanel.enableButton("props", true);                
+                this._buttonPanel.enableButton("props", true);
             } else {
                 this._buttonPanel.enableButton("play", false);
                 this._buttonPanel.enableButton("backgrounds", false);
@@ -34,9 +34,9 @@ chimple.PageConfigPanel = cc.LayerColor.extend({
                 this._buttonPanel.enableButton("props", false);
             }
             this._contentPanel.startRecording();
-            if(this._contentPanel._isRecordingStarted) {
-                this.schedule(this.trackRecording, 1, chimple.RECORDING_TIME);    
-            }            
+            if (this._contentPanel._isRecordingStarted) {
+                this.schedule(this.trackRecording, 1, chimple.RECORDING_TIME);
+            }
         } else if (selectedConfig != null && selectedConfig.name === "play") {
             this._contentPanel.playSceneInEditMode();
         } else if (selectedConfig != null) {
@@ -147,11 +147,29 @@ chimple.PageConfigPanel = cc.LayerColor.extend({
         this._contentPanel._recordingCounter++;
         if (this._contentPanel._recordingCounter == chimple.RECORDING_TIME + 1) {
             cc.log('recording should stop');
+            this.updateUIWhenForRecording();
             this._contentPanel.startRecording();
-            this._buttonPanel.selectButton(this._buttonPanel.getButtonByName("icons/record.png"));
+                        
         }
     },
 
+    updateUIWhenForRecording: function () {
+        if (this._contentPanel._isRecordingStarted) {
+            this._buttonPanel.enableButton("startRecording", true);
+            this._buttonPanel.enableButton("play", true);
+            this._buttonPanel.enableButton("backgrounds", true);
+            this._buttonPanel.enableButton("characters", true);
+            this._buttonPanel.enableButton("texts", true);
+            this._buttonPanel.enableButton("props", true);
+        } else {
+            this._buttonPanel.enableButton("startRecording", false);
+            this._buttonPanel.enableButton("play", false);
+            this._buttonPanel.enableButton("backgrounds", false);
+            this._buttonPanel.enableButton("characters", false);
+            this._buttonPanel.enableButton("texts", false);
+            this._buttonPanel.enableButton("props", false);
+        }
 
+    }
 
 });
