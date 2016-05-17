@@ -75,7 +75,7 @@ var PlayFullStoryLayer = cc.Layer.extend({
     },
 
     renderNextButton: function () {
-        
+
         if (chimple.story != null && chimple.story.items != null && !(chimple.pageIndex + 1 == chimple.story.items.length)) {
             this.disableOrEnableAllButtons(this._rightButtonPanel, true);
         } else {
@@ -113,10 +113,10 @@ var PlayFullStoryLayer = cc.Layer.extend({
     },
 
     previousStory: function () {
-        cc.log('previousStory clicked!');  
-        var curIndex = chimple.pageIndex;      
+        cc.log('previousStory clicked!');
+        var curIndex = chimple.pageIndex;
         curIndex--;
-        if(curIndex < 0) {
+        if (curIndex < 0) {
             return;
         }
         chimple.pageIndex--;
@@ -127,13 +127,13 @@ var PlayFullStoryLayer = cc.Layer.extend({
     nextStory: function () {
         cc.log('next clicked!');
         var curIndex = chimple.pageIndex;
-        curIndex++;          
-        if(curIndex >= chimple.story.items.length) {
+        curIndex++;
+        if (curIndex >= chimple.story.items.length) {
             return;
         }
-        
+
         chimple.pageIndex++;
-        
+
         var nextScene = new PlayFullStoryScene();
         cc.director.runScene(new cc.TransitionPageTurn(2.5, nextScene));
     },
@@ -206,6 +206,7 @@ var PlayFullStoryLayer = cc.Layer.extend({
     closeWebView: function () {
         this._textField.removeFromParent(true);
         this._leftButtonPanel.removeFromParent(true);
+        this._rightButtonPanel.removeFromParent(true);
         this.renderNextButton();
         this.renderPreviousButton();
         window.PLAYING_STORY_FIRST_TIME = false;
@@ -216,10 +217,17 @@ var PlayFullStoryLayer = cc.Layer.extend({
     playEnded: function () {
         cc.log('play ended');
         //create delay action
-        var delayAction = new cc.delayTime(2);
-        var createWebViewAction = new cc.CallFunc(this.referenceToContext.createWebView, this.referenceToContext);
-        var playEndSequence = new cc.sequence(delayAction, createWebViewAction);
-        this.referenceToContext.runAction(playEndSequence);
+        if (chimple.story.items[chimple.pageIndex].sceneText != null && chimple.story.items[chimple.pageIndex].sceneText !== "undefined") {
+            var delayAction = new cc.delayTime(2);
+            var createWebViewAction = new cc.CallFunc(this.referenceToContext.createWebView, this.referenceToContext);
+            var playEndSequence = new cc.sequence(delayAction, createWebViewAction);
+            this.referenceToContext.runAction(playEndSequence);
+        } else {
+            this.referenceToContext.renderNextButton();
+            this.referenceToContext.renderPreviousButton();
+            window.PLAYING_STORY_FIRST_TIME = false;
+
+        }
     },
 
     createWebView: function () {
