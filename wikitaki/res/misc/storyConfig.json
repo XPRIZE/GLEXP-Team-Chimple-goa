@@ -11,6 +11,122 @@
       "icon": "icons/add.png",
       "categories": [
         {
+          "name": "humans",
+          "cIcon": "icons/add_char_onclick.png",
+          "icon": "icons/add_char.png",
+          "items": [
+            {
+              "icon": "human/cricketer_thumbnail.png",
+              "json": "/res/human_skeleton.json",
+              "skinNameMap": "motu",
+              "type": "character"
+            },
+            {
+              "icon": "human/cowboy_thumbnail.png",
+              "json": "/res/human_skeleton.json",
+              "skinNameMap": "painter",
+              "type": "character"
+            },
+            {
+              "icon": "res/thumbnails/human/doctor.png",
+              "json": "/res/human_skeleton.json",
+              "skinNameMap": "doctor",
+              "type": "character"
+            },
+             {
+              "icon": "human/farmer.png",
+              "json": "/res/human_skeleton.json",
+              "skinNameMap": "farmer",
+              "type": "character"
+            },
+             {
+              "icon": "human/photographer.png",
+              "json": "/res/human_skeleton.json",
+              "skinNameMap": "photographer",
+              "type": "character"
+            },
+             {
+              "icon": "human/police.png",
+              "json": "/res/human_skeleton.json",
+              "skinNameMap": "police",
+              "type": "character"
+            },
+             {
+              "icon": "human/scientist.png",
+              "json": "/res/human_skeleton.json",
+              "skinNameMap": "scientist",
+              "type": "character"
+            },
+             {
+              "icon": "human/singer.png",
+              "json": "/res/human_skeleton.json",
+              "skinNameMap": "singer",
+              "type": "character"
+            },
+             {
+              "icon": "human/soccer.png",
+              "json": "/res/human_skeleton.json",
+              "skinNameMap": "soccer",
+              "type": "character"
+            },
+             {
+              "icon": "human/soldier.png",
+              "json": "/res/human_skeleton.json",
+              "skinNameMap": "soldier",
+              "type": "character"
+            },
+             {
+              "icon": "human/watchman.png",
+              "json": "/res/human_skeleton.json",
+              "skinNameMap": "watchman",
+              "type": "character"
+            },
+            {
+              "icon": "animal/lion.png",
+              "json": "/res/animalskeleton.json",
+              "skinNameMap": "lion",
+              "type": "character"
+            },
+            {
+              "icon": "animal/dog.png",
+              "json": "/res/animalskeleton.json",
+              "skinNameMap": "dog",
+              "type": "character"
+            },
+             {
+              "icon": "animal/cat.png",
+              "json": "/res/animalskeleton.json",
+              "skinNameMap": "cat",
+              "type": "character"
+            },
+            {
+              "icon": "animal/cow.png",
+              "json": "/res/animalskeleton.json",
+              "skinNameMap": "cow",
+              "type": "character"
+            },
+             {
+              "icon": "animal/elephant.png",
+              "json": "/res/animalskeleton.json",
+              "skinNameMap": "elephant",
+              "type": "character"
+            },
+            {
+              "icon": "animal/pig.png",
+              "json": "/res/animalskeleton.json",
+              "skinNameMap": "pig",
+              "type": "character"
+            },
+            {
+              "icon": "animal/goat.png",
+              "json": "/res/animalskeleton.json",
+              "skinNameMap": "goat",
+              "type": "character"
+            }         
+            
+          ]
+        },
+        {
           "name": "backgrounds",
           "cIcon": "icons/add_bg_onclick.png",
           "icon": "icons/add_bg.png",
@@ -292,123 +408,7 @@
               "type": "scene"
             }
           ]
-        },
-        {
-          "name": "humans",
-          "cIcon": "icons/add_char_onclick.png",
-          "icon": "icons/add_char.png",
-          "items": [
-            {
-              "icon": "human/cricketer_thumbnail.png",
-              "json": "/res/human_skeleton.json",
-              "skinNameMap": "motu",
-              "type": "character"
-            },
-            {
-              "icon": "human/cowboy_thumbnail.png",
-              "json": "/res/human_skeleton.json",
-              "skinNameMap": "painter",
-              "type": "character"
-            },
-            {
-              "icon": "res/thumbnails/human/doctor.png",
-              "json": "/res/human_skeleton.json",
-              "skinNameMap": "doctor",
-              "type": "character"
-            },
-             {
-              "icon": "human/farmer.png",
-              "json": "/res/human_skeleton.json",
-              "skinNameMap": "farmer",
-              "type": "character"
-            },
-             {
-              "icon": "human/photographer.png",
-              "json": "/res/human_skeleton.json",
-              "skinNameMap": "photographer",
-              "type": "character"
-            },
-             {
-              "icon": "human/police.png",
-              "json": "/res/human_skeleton.json",
-              "skinNameMap": "police",
-              "type": "character"
-            },
-             {
-              "icon": "human/scientist.png",
-              "json": "/res/human_skeleton.json",
-              "skinNameMap": "scientist",
-              "type": "character"
-            },
-             {
-              "icon": "human/singer.png",
-              "json": "/res/human_skeleton.json",
-              "skinNameMap": "singer",
-              "type": "character"
-            },
-             {
-              "icon": "human/soccer.png",
-              "json": "/res/human_skeleton.json",
-              "skinNameMap": "soccer",
-              "type": "character"
-            },
-             {
-              "icon": "human/soldier.png",
-              "json": "/res/human_skeleton.json",
-              "skinNameMap": "soldier",
-              "type": "character"
-            },
-             {
-              "icon": "human/watchman.png",
-              "json": "/res/human_skeleton.json",
-              "skinNameMap": "watchman",
-              "type": "character"
-            },
-            {
-              "icon": "animal/lion.png",
-              "json": "/res/animalskeleton.json",
-              "skinNameMap": "lion",
-              "type": "character"
-            },
-            {
-              "icon": "animal/dog.png",
-              "json": "/res/animalskeleton.json",
-              "skinNameMap": "dog",
-              "type": "character"
-            },
-             {
-              "icon": "animal/cat.png",
-              "json": "/res/animalskeleton.json",
-              "skinNameMap": "cat",
-              "type": "character"
-            },
-            {
-              "icon": "animal/cow.png",
-              "json": "/res/animalskeleton.json",
-              "skinNameMap": "cow",
-              "type": "character"
-            },
-             {
-              "icon": "animal/elephant.png",
-              "json": "/res/animalskeleton.json",
-              "skinNameMap": "elephant",
-              "type": "character"
-            },
-            {
-              "icon": "animal/pig.png",
-              "json": "/res/animalskeleton.json",
-              "skinNameMap": "pig",
-              "type": "character"
-            },
-            {
-              "icon": "animal/goat.png",
-              "json": "/res/animalskeleton.json",
-              "skinNameMap": "goat",
-              "type": "character"
-            }         
-            
-          ]
-        }        
+        }                
       ]
     },
     {
@@ -500,5 +500,7 @@
       "cIcon": "icons/add_onclick.png",
       "icon": "icons/add.png"
     }
+  ],
+  "blank": [
   ]
 }

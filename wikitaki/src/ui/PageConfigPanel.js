@@ -23,8 +23,14 @@ chimple.PageConfigPanel = cc.LayerColor.extend({
             this.handleRecordingAnimation(selectedItem);
         } else if (selectedConfig != null && selectedConfig.name === "play") {
             this._contentPanel.playSceneInEditMode();
-        } else if (selectedConfig != null) {
-            this.constructTabBar(selectedConfig.categories);
+        } else if (selectedConfig != null && selectedConfig.name === "back") {
+            this._contentPanel.backPressed();            
+        } else if (selectedConfig != null && selectedConfig.name === "addToScene") {
+            if (chimple.story.items[chimple.pageIndex].scene.Content == null) {
+                this.constructTabBar([selectedConfig.categories[1]]);
+            } else {
+                this.constructTabBar(selectedConfig.categories);
+            }
         }
     },
 
@@ -156,7 +162,7 @@ chimple.PageConfigPanel = cc.LayerColor.extend({
                     element.setHighlighted(false);
                 }
             } else {
-                if (element._configuration.name != "addToScene") {
+                if (element._configuration.name != "addToScene" && element._configuration.name != "back") {
                     element.setEnabled(false);
                     element.setHighlighted(true);
                 }
@@ -183,16 +189,14 @@ chimple.PageConfigPanel = cc.LayerColor.extend({
     updateUIBeforeRecording: function () {
         if (this._contentPanel._isRecordingStarted) {
             this._buttonPanel.enableButton("play", true);
-            this._buttonPanel.enableButton("backgrounds", true);
-            this._buttonPanel.enableButton("characters", true);
+            this._buttonPanel.enableButton("addToScene", true);
+            this._buttonPanel.enableButton("back", true);
             this._buttonPanel.enableButton("texts", true);
-            this._buttonPanel.enableButton("props", true);
         } else {
             this._buttonPanel.enableButton("play", false);
-            this._buttonPanel.enableButton("backgrounds", false);
-            this._buttonPanel.enableButton("characters", false);
+            this._buttonPanel.enableButton("addToScene", false);
+            this._buttonPanel.enableButton("back", false);
             this._buttonPanel.enableButton("texts", false);
-            this._buttonPanel.enableButton("props", false);
             var buttonKey = 'timer/' + this._contentPanel._recordingCounter + '.png';
             this._buttonPanel.getButtonByName("icons/record.png").loadTextures(buttonKey, "icons/record.png", null, ccui.Widget.PLIST_TEXTURE);
         }
@@ -211,18 +215,16 @@ chimple.PageConfigPanel = cc.LayerColor.extend({
         if (!this._contentPanel._isRecordingStarted) {
             this._buttonPanel.enableButton("startRecording", true);
             this._buttonPanel.enableButton("play", true);
-            this._buttonPanel.enableButton("backgrounds", true);
-            this._buttonPanel.enableButton("characters", true);
+            this._buttonPanel.enableButton("addToScene", true);
+            this._buttonPanel.enableButton("back", true);
             this._buttonPanel.enableButton("texts", true);
-            this._buttonPanel.enableButton("props", true);
             this._buttonPanel.getButtonByName("icons/record.png").loadTextures("icons/record.png", null, null, ccui.Widget.PLIST_TEXTURE);
         } else {
             this._buttonPanel.enableButton("startRecording", false);
             this._buttonPanel.enableButton("play", false);
-            this._buttonPanel.enableButton("backgrounds", false);
-            this._buttonPanel.enableButton("characters", false);
+            this._buttonPanel.enableButton("addToScene", false);
+            this._buttonPanel.enableButton("back", false);
             this._buttonPanel.enableButton("texts", false);
-            this._buttonPanel.enableButton("props", false);
 
         }
     }
