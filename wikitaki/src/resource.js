@@ -13,8 +13,15 @@ var res = {
     thumbnails_plist: "/res/thumbnails.plist",
     human_skeleton_png: "/res/human_skeleton.png",
     human_skeleton_plist: "/res/human_skeleton.plist",
+    animalskeleton_png: "/res/animalskeleton.png",
+    animalskeleton_plist: "/res/animalskeleton.plist",
+    animalskeleton_json: "/res/animalskeleton.json",
     HelloWorld_png : "/res/HelloWorld.png",
-    human_skeleton_json: "/res/human_skeleton.json"
+    human_skeleton_json: "/res/human_skeleton.json",
+    play_png: "/res/play.png",
+    record_animation_png: "/res/recording.png",
+    record_animation_plist: "/res/recording.plist",
+    
 };
 
 

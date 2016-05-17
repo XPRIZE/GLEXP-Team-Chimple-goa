@@ -25,13 +25,13 @@ var PlayRecordingLayer = cc.Layer.extend({
         this._contentPanel = new chimple.PlayContentPanel(this._contentPanelWidth, this._contentPanelWidth, cc.p(this._configPanelWidth, 0));
         this.addChild(this._contentPanel);
 
-        this._objectConfigPanel = new chimple.ObjectConfigPanel(this._configPanelWidth, this._configPanelHeight, cc.p(0, 0), chimple.storyPlayConfigurationObject, this._contentPanel);
+        this._objectConfigPanel = new chimple.ObjectConfigPanel(this._configPanelWidth, this._configPanelHeight, cc.p(this._configPanelWidth + this._contentPanelWidth, 0), chimple.storyPlayConfigurationObject, this._contentPanel);
         this.addChild(this._objectConfigPanel);
         this._contentPanel._objectConfigPanel = this._objectConfigPanel;
 
         var config = {};
         config.addObjects = [];
-        this._pageConfigPanel = new chimple.PageConfigPanel(this._configPanelWidth, this._configPanelHeight, cc.p(this._configPanelWidth + this._contentPanelWidth, 0), config, this._contentPanel);
+        this._pageConfigPanel = new chimple.PageConfigPanel(this._configPanelWidth, this._configPanelHeight, cc.p(0, 0), config, this._contentPanel);
         this.addChild(this._pageConfigPanel);
 
         this.playRecordedScene();
@@ -49,9 +49,9 @@ var PlayRecordingLayer = cc.Layer.extend({
     },
     
     createWebView: function() {
-        if (chimple.story.sceneText != null && chimple.story.sceneText !== "undefined") {
+        if (chimple.story.items[chimple.pageIndex].sceneText != null && chimple.story.items[chimple.pageIndex].sceneText !== "undefined") {
             this._textField = new ccui.WebView();
-            this._textField.loadURL("/displayText.html?height=" + 450 + '&contents=' + chimple.story.sceneText);
+            this._textField.loadURL("/displayText.html?height=" + 450 + '&contents=' + chimple.story.items[chimple.pageIndex].sceneText);
             //this._textField.setPosition(cc.director.getWinSize().width / 2, cc.director.getWinSize().height / 2);
             //this._textField.setContentSize(cc.size(cc.director.getWinSize().width, cc.director.getWinSize().height));
             this._textField.setPosition(64, 0);
@@ -71,24 +71,26 @@ var PlayRecordingLayer = cc.Layer.extend({
         this._leftButtonPanel.removeFromParent(true);
     },
     
-    playRecordedScene: function () {
-        if (this._contentPanel._constructedScene.node) {
-
+    playRecordedScene: function () {        
+        if (this._contentPanel._constructedScene.node && this._contentPanel._constructedScene.action.getDuration()) {            
             this._contentPanel._constructedScene.action.referenceToContext = this;
             this._contentPanel._constructedScene.action.setLastFrameCallFunc(this.playEnded);
             this._contentPanel._constructedScene.action.gotoFrameAndPause(0);
-            this._playDuration = cc.sys.localStorage.getItem("duration");
+            
             this._contentPanel._constructedScene.node.runAction(this._contentPanel._constructedScene.action);
-            this._contentPanel._constructedScene.action.gotoFrameAndPlay(0, this._playDuration, 0, false);
+            this._contentPanel._constructedScene.action.gotoFrameAndPlay(0, this._contentPanel._constructedScene.action.getDuration(), 0, false);
 
             if (!cc.sys.isNative) {
                 this._contentPanel._constructedScene.node._renderCmd._dirtyFlag = 1;
                 this._contentPanel._constructedScene.node.children.forEach(function (element) {
-                    if (element.getName().indexOf("Skeleton") != -1) {
+                    if (element.getName().indexOf("Skeleton") != -1 || element.getName().indexOf("skeleton") != -1) {
                         element._renderCmd._dirtyFlag = 1;
                     }
                 }, this);
             }
+        } else {
+            this.referenceToContext = this;
+            this.playEnded();
         }
     }
 });

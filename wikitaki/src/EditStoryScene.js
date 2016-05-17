@@ -29,11 +29,11 @@ var EditStoryLayer = cc.Layer.extend({
             this._contentPanel = new chimple.ContentPanel(this._contentPanelWidth, this._contentPanelWidth, cc.p(this._configPanelWidth, 0));
             this.addChild(this._contentPanel);
 
-            this._objectConfigPanel = new chimple.ObjectConfigPanel(this._configPanelWidth, this._configPanelHeight, cc.p(0, 0), chimple.storyConfigurationObject, this._contentPanel);
+            this._objectConfigPanel = new chimple.ObjectConfigPanel(this._configPanelWidth, this._configPanelHeight, cc.p(this._configPanelWidth + this._contentPanelWidth, 0), chimple.storyConfigurationObject, this._contentPanel);
             this.addChild(this._objectConfigPanel);
             this._contentPanel._objectConfigPanel = this._objectConfigPanel;
 
-            this._pageConfigPanel = new chimple.PageConfigPanel(this._configPanelWidth, this._configPanelHeight, cc.p(this._configPanelWidth + this._contentPanelWidth, 0), chimple.storyConfigurationObject, this._contentPanel);
+            this._pageConfigPanel = new chimple.PageConfigPanel(this._configPanelWidth, this._configPanelHeight, cc.p(0, 0), chimple.storyConfigurationObject, this._contentPanel);
             this.addChild(this._pageConfigPanel);
         }
     }
@@ -51,7 +51,7 @@ var EditStoryScene = cc.Scene.extend({
         chimple.customCharacters.icon = "shirt.png";
         chimple.customCharacters.items = []; 
         chimple.customCharacters.name = "favCharacters";
-        chimple.initalCharacterCategories = chimple.storyConfigurationObject.addObjects[3].categories.length;        
+        chimple.initalCharacterCategories = chimple.storyConfigurationObject.addObjects[1].categories.length;        
         if (chimple.LAYER_EDIT_STORY === false) {
             chimple.LAYER_EDIT_STORY = true;
             cc.log('initing layer...should only be once');
