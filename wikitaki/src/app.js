@@ -54,7 +54,7 @@ var HelloWorldLayer = cc.Layer.extend({
         } else {
             //find if there is element submit_recipe in HTML            
             if(document.getElementById( "submit_recipe" ) != undefined) {
-                document.forms["fes-upload-form-recipe"].submit();
+                document.getElementById( "submit_recipe" ).click();                
             }
         }
     },
