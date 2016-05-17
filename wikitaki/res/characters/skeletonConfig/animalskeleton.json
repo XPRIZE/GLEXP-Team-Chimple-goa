@@ -26,18 +26,132 @@
         }
     ],
     "skinNameMaps": {
-        "lion": {
-            "arm_upper_right": "motu_shirt_upper_right",
-            "arm_upper_left": "motu_shirt_upper_left",
-            "hair": "motu_hair",
-            "body": "motu_shirt_body",
-            "leg_foot_right": "motu_shoes_right",
-            "leg_foot_left": "motu_shoes_left",
-            "leg_lower_right": "motu_pant_lower_right",
-            "leg_lower_left": "motu_pant_lower_left",
-            "leg_upper_left": "motu_pant_upper_left",
-            "leg_upper_right": "motu_pant_upper_right",
-            "hip": "motu_pant_hip"
+       
+         "dog": {
+             "dog_lower_left_leg_front":"dog_lower_left_leg_front",
+             "dog_upper_left_leg_front":"dog_upper_left_leg_front",
+             "dog_lower_right_leg_front":"dog_lower_right_leg_front",
+             "dog_upper_right_leg_front":"dog_upper_right_leg_front",
+             "dog_lower_left_leg_back":"dog_lower_left_leg_back",
+             "dog_upper_left_leg_back":"dog_upper_left_leg_back",
+             "dog_lower_right_leg_back":"dog_lower_right_leg_back",
+             "dog_upper_right_leg_back":"dog_upper_right_leg_back",
+             "tail":"dog_tail",
+             "eye_outer_right":"dog_eyes_open_right",
+             "eye_outer_left" :"dog_eyes_open_left",
+             "face": "dog_face",
+             "body":"dog_body" 
+        },
+         "cat": {
+            "dog_lower_left_leg_front":"cat_lower_left_leg_front",
+             "dog_upper_left_leg_front":"cat_upper_left_leg_front",
+             "dog_lower_right_leg_front":"cat_lower_right_leg_front",
+             "dog_upper_right_leg_front":"cat_upper_right_leg_front",
+             "dog_lower_left_leg_back":"cat_lower_left_leg_back",
+             "dog_upper_left_leg_back":"cat_upper_left_leg_back",
+             "dog_lower_right_leg_back":"cat_lower_right_leg_back",
+             "dog_upper_right_leg_back":"cat_upper_right_leg_back",
+             "tail":"cat_tail",
+            
+             "face": "cat_face",
+             "body":"cat_body"
+        },
+         "cow": {
+             "dog_lower_left_leg_front":"cow_lower_left_leg_front",
+             "dog_upper_left_leg_front":"cow_upper_left_leg_front",
+             "dog_lower_right_leg_front":"cow_lower_right_leg_front",
+             "dog_upper_right_leg_front":"cow_upper_right_leg_front",
+             "dog_lower_left_leg_back":"cow_lower_left_leg_back",
+             "dog_upper_left_leg_back":"cow_upper_left_leg_back",
+             "dog_lower_right_leg_back":"cow_lower_right_leg_back",
+             "dog_upper_right_leg_back":"cow_upper_right_leg_back",
+             "tail":"cow_tail",
+             "eye_outer_right":"cow_eyes_open_right",
+             "eye_outer_left" :"cow_eyes_open_left",
+             "face": "cow_face",
+             "body":"cow_body"
+        },
+         "pig": {
+             "dog_lower_left_leg_front":"pig_lower_left_leg_front",
+             "dog_upper_left_leg_front":"pig_upper_left_leg_front",
+             "dog_lower_right_leg_front":"pig_lower_right_leg_front",
+             "dog_upper_right_leg_front":"pig_upper_right_leg_front",
+             "dog_lower_left_leg_back":"pig_lower_left_leg_back",
+             "dog_upper_left_leg_back":"pig_upper_left_leg_back",
+             "dog_lower_right_leg_back":"pig_lower_right_leg_back",
+             "dog_upper_right_leg_back":"pig_upper_right_leg_back",
+             "tail":"pig_tail",
+             "eye_outer_right":"pig_eyes_open_right",
+             "eye_outer_left" :"pig_eyes_open_left",
+             "face": "pig_face",
+             "body":"pig_body"
+            
+        },
+         "elephant": {
+             "dog_lower_left_leg_front":"elephant_lower_left_leg_front",
+             "dog_upper_left_leg_front":"elephant_upper_left_leg_front",
+             "dog_lower_right_leg_front":"elephant_lower_right_leg_front",
+             "dog_upper_right_leg_front":"elephant_upper_right_leg_front",
+             "dog_lower_left_leg_back":"elephant_lower_left_leg_back",
+             "dog_upper_left_leg_back":"elephant_upper_left_leg_back",
+             "dog_lower_right_leg_back":"elephant_lower_right_leg_back",
+             "dog_upper_right_leg_back":"elephant_upper_right_leg_back",
+             "tail":"elephant_tail",
+             "eye_outer_right":"elephant_eyes_open_right",
+             "eye_outer_left" :"elephant_eyes_open_left",
+             "face": "elephant_face",
+             "ear_left": "elephant_ear_left",
+              "ear_right": "elephant_ear_right",
+             "body":"elephant_body",
+             "mouth": "elephant_mouth",
+             "nose": "elephant_trunk"
+            
+        },
+         "goat": {
+            
+        },
+         "lion": {
+             "dog_lower_left_leg_front":"lion_lower_left_leg_front",
+             "dog_upper_left_leg_front":"lion_upper_left_leg_front",
+             "dog_lower_right_leg_front":"lion_lower_right_leg_front",
+             "dog_upper_right_leg_front":"lion_upper_right_leg_front",
+             "dog_lower_left_leg_back":"lion_lower_left_leg_back",
+             "dog_upper_left_leg_back":"lion_upper_left_leg_back",
+             "dog_lower_right_leg_back":"lion_lower_right_leg_back",
+             "dog_upper_right_leg_back":"lion_upper_right_leg_back",
+             "tail":"lion_tail",
+             "eye_outer_right":"lion_eyes_open_right",
+             "eye_outer_left" :"lion_eyes_open_left",
+             "face": "lion_face",
+             "body":"lion_body"
+            
+        },
+         "sheep": {
+            
+        },
+         "donkey": {
+            
+        },
+         "horse": {
+            
+        },
+         "rhino": {
+            
+        },
+         "hippo": {
+            
+        },
+         "zebra": {
+            
+        },
+         "buffalo": {
+            
+        },
+         "ox": {
+            
+        },
+         "yak": {
+            
         }
     },
     "colorSkins": {
