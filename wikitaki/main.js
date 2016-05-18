@@ -147,7 +147,7 @@ chimple.DEVICE_HEIGHT = 450;
 
     document.ccConfig = c;
     this.retrieveMode();
-
+    
     cc.game.onStart = function () {
         if (!cc.sys.isNative && document.getElementById("cocosLoading")) //If referenced loading.js, please remove it
             document.body.removeChild(document.getElementById("cocosLoading"));

@@ -21,6 +21,7 @@ chimple.SpriteTouchHandler = function (context) {
             this._context.constructConfigPanel(target);
             // this._context.selectedObjectHighlight(target ,this._context._animationNode);
             this._context._animationNode = target;
+            chimple.ParseUtil.drawBoundingBox(location, target);
             return true;
         }
         return false;
