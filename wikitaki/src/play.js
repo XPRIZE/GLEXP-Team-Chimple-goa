@@ -112,7 +112,6 @@ var PlayFullStoryLayer = cc.Layer.extend({
     },
 
     previousStory: function () {
-        cc.log('previousStory clicked!');
         var curIndex = chimple.pageIndex;
         curIndex--;
         if (curIndex < 0) {
@@ -124,7 +123,6 @@ var PlayFullStoryLayer = cc.Layer.extend({
     },
 
     nextStory: function () {
-        cc.log('next clicked!');
         var curIndex = chimple.pageIndex;
         curIndex++;
         if (curIndex >= chimple.story.items.length) {
@@ -326,6 +324,7 @@ var PlayFullStoryScene = cc.Scene.extend({
             cc.loader.loadJson(url, function (error, data) {
                 if (data != null && data.items != null && data.items.length > 0) {
                     chimple.story = data;
+                    chimple.storyTitle  = chimple.story.storyTitleText;
                     chimple.scaleFactor = chimple.story.RESOLUTION_HEIGHT / chimple.DEVICE_HEIGHT;
                     chimple.story.RESOLUTION_HEIGHT = chimple.DEVICE_HEIGHT;
 

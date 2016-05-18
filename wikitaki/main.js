@@ -54,7 +54,6 @@
 
 
 var chimple = chimple || {};
-chimple.storyTitle  = "WRITE STORY!!!! weotu qtqw t"
 chimple.RESOURCE_DESIGN_HEIGHT = 1800;
 chimple.DEVICE_WIDTH = 640;
 chimple.DEVICE_HEIGHT = 450;
