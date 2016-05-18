@@ -29,11 +29,11 @@ chimple.CharacterUtil.colorSkins = function (character, colorSkins) {
         if (character._skeletonConfig != null && character._skeletonConfig.colorSkins != null) {
             var skinNames = character._skeletonConfig.colorSkins[colorSkins.skins];
             if (skinNames != null) {
-                for (var boneName in skinNames) {
-                    var bone = character.getBoneNode(boneName);
+                for (var skinName in skinNames) {
+                    var bone = character.getBoneNode(skinNames[skinName]);
                     if (bone != null) {
                         bone.getSkins().forEach(function (skin) {
-                            if (skin.getName() == skinNames[boneName]) {
+                            if (skin.getName() == skinName) {
                                 skin.color = cc.color(colorSkins.color)
                             }
                         }, this);;
