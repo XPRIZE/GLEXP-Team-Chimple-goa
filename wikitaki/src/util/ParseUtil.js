@@ -31,7 +31,7 @@ chimple.ParseUtil.updateScaleRotationAndPositionObjectFromStoredScene = function
         var children = chimple.story.items[chimple.pageIndex].scene.Content.Content.ObjectData.Children;
         for (var index = 0; index < children.length; index++) {
             var comExtensionData = target.getComponent("ComExtensionData");
-            
+
             if (comExtensionData && comExtensionData.getActionTag()) {
                 if (children[index].ActionTag == comExtensionData.getActionTag()) {
                     children[index].Scale.ScaleX = target.scaleX;
@@ -86,6 +86,21 @@ chimple.ParseUtil.removeObjectFromStoredScene = function (tag) {
             }
         }
         chimple.ParseUtil.saveScene(chimple.story.items[chimple.pageIndex].scene);
+    }
+}
+
+chimple.ParseUtil.getUserData = function (tag, dataKey) {
+    var result = null;
+    if (chimple.story && chimple.story.items != null && chimple.story.items[chimple.pageIndex].scene.Content) {
+        var children = chimple.story.items[chimple.pageIndex].scene.Content.Content.ObjectData.Children;
+        for (var index = 0; index < children.length; index++) {
+            if (children[index].ActionTag == tag) {
+                var object = children[index];
+                result = object.UserData[dataKey];
+                break;
+            }
+        }
+        return result;
     }
 }
 
@@ -460,21 +475,21 @@ chimple.ParseUtil.cacheThumbnailForFavorites = function (skeleton) {
 
 chimple.ParseUtil.drawBoundingBox = function (location, target) {
     var box = null;
-    if(chimple.currentBoxShownForNode != null) {
+    if (chimple.currentBoxShownForNode != null) {
         var boundingBoxNode = chimple.currentBoxShownForNode.getChildByTag(chimple.DEFAULT_BOUNDING_BOX_TAG);
-        if(boundingBoxNode) {
-            boundingBoxNode.removeFromParent(true);    
-        }        
-        
+        if (boundingBoxNode) {
+            boundingBoxNode.removeFromParent(true);
+        }
+
     }
     if (target.getName().indexOf("Skeleton") != -1 || target.getName().indexOf("skeleton") != -1) {
         box = target.getBoundingBoxToWorld();
 
-        var dn = new cc.DrawNode();        
+        var dn = new cc.DrawNode();
         dn.clear();
         dn.tag = chimple.DEFAULT_BOUNDING_BOX_TAG;
         target.addChild(dn);
-        dn.drawRect(cc.p(-box.width/2, 0), cc.p(box.width/2, box.height), null, 3, chimple.SECONDARY_COLOR);
+        dn.drawRect(cc.p(-box.width / 2, 0), cc.p(box.width / 2, box.height), null, 3, chimple.SECONDARY_COLOR);
         chimple.currentBoxShownForNode = target;
     } else {
         box = target.getBoundingBox();
@@ -482,7 +497,7 @@ chimple.ParseUtil.drawBoundingBox = function (location, target) {
         dn.clear();
         dn.tag = chimple.DEFAULT_BOUNDING_BOX_TAG;
         target.addChild(dn);
-        dn.drawRect(cc.p(0, 0), cc.p(box.width,box.height), null, 3, chimple.SECONDARY_COLOR);        
+        dn.drawRect(cc.p(0, 0), cc.p(box.width, box.height), null, 3, chimple.SECONDARY_COLOR);
         chimple.currentBoxShownForNode = target;
     }
 }
