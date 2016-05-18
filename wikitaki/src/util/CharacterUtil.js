@@ -25,6 +25,11 @@ chimple.CharacterUtil.getVisibleSkins = function (character) {
 }
 
 chimple.CharacterUtil.colorSkins = function (character, colorSkins) {
+    var existingColorSkins = chimple.ParseUtil.getUserData(character._actionTag, 'colorSkins');
+    if (existingColorSkins == null) {
+        existingColorSkins = [];
+    }
+
     if (colorSkins.skins && colorSkins.color) {
         if (character._skeletonConfig != null && character._skeletonConfig.colorSkins != null) {
             var skinNames = character._skeletonConfig.colorSkins[colorSkins.skins];
@@ -41,7 +46,20 @@ chimple.CharacterUtil.colorSkins = function (character, colorSkins) {
                 }
             }
         }
-    chimple.ParseUtil.updateUserData(character._actionTag, 'colorSkins', character._skeletonConfig.colorSkins);
+        if (existingColorSkins) {
+            var colorSkinFound = false;
+            existingColorSkins.forEach(function (colorSkin) {
+                if (colorSkin && colorSkin.skins == colorSkins.skins) {
+                    colorSkin.color = colorSkins.color;
+                    colorSkinFound = true;
+                }
+            }, this);
+
+            if (!colorSkinFound) {
+                existingColorSkins.push(colorSkins);
+            }
+        }
+        chimple.ParseUtil.updateUserData(character._actionTag, 'colorSkins', existingColorSkins);
     }
 }
 
@@ -58,9 +76,17 @@ chimple.CharacterUtil.loadSkeletonConfig = function (skeleton, selectedConfigura
             skeleton._currentAnimationName = data.animations[0].name;
             if (selectedConfiguration != null) {
                 chimple.CharacterUtil.applySkinNameMap(skeleton, selectedConfiguration);
-                if(selectedConfiguration.colorSkins != null) {
-                    selectedConfiguration.colorSkins.forEach(function(colorSkin) {
-                            chimple.CharacterUtil.colorSkins(skeleton, colorSkin);
+                if (selectedConfiguration.colorSkins != null) {
+                    selectedConfiguration.colorSkins.forEach(function (colorSkin) {
+                        chimple.CharacterUtil.colorSkins(skeleton, colorSkin);
+
+                    })
+                }
+
+            } else {
+                if (skeleton._userData && skeleton._userData.colorSkins) {
+                    skeleton._userData.colorSkins.forEach(function (colorSkin) {
+                        chimple.CharacterUtil.colorSkins(skeleton, colorSkin);
                     })
                 }
             }
@@ -122,10 +148,10 @@ chimple.CharacterUtil.addCharacterToFavorites = function (skeleton, configuratio
 chimple.CharacterUtil.addToCharacterConfigs = function (characterConfig) {
     var characterCategories = chimple.storyConfigurationObject.addObjects[1].categories;
     //add to chimple.customCharacters.items
-    
-    if (characterCategories.length === chimple.initalCharacterCategories) {        
-        characterCategories.splice(0,0,chimple.customCharacters);
-    }    
+
+    if (characterCategories.length === chimple.initalCharacterCategories) {
+        characterCategories.splice(0, 0, chimple.customCharacters);
+    }
 }
 
 chimple.CharacterUtil.storeActionToTemporaryStore = function (node) {
