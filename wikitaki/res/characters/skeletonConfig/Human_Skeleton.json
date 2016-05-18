@@ -162,7 +162,7 @@
                             "bone": "arm_upper_left"
                         },
                         {
-                            "skin": "arm_lower_right",
+                            "skin": "chef_shirt_sleave_lower_right",
                             "bone": "arm_lower_right"
                         },
                         {
@@ -874,6 +874,35 @@
                             "bone": "body_accessories"
                         }
                     ]
+                },
+                {
+                    "icon": "icons/delete.png",
+                    "skins": [
+                        {
+                            "skin": "arm_upper_right",
+                            "bone": "arm_upper_right"
+                        },
+                        {
+                            "skin": "arm_upper_left",
+                            "bone": "arm_upper_left"
+                        },
+                        {
+                            "skin": "arm_lower_right",
+                            "bone": "arm_lower_right"
+                        },
+                        {
+                            "skin": "arm_lower_left",
+                            "bone": "arm_lower_left"
+                        },
+                        {
+                            "skin": "body",
+                            "bone": "body"
+                        },
+                        {
+                            "skin": "body_accessories",
+                            "bone": "body_accessories"
+                        }
+                    ]
                 }
             ]
         },
@@ -1061,6 +1090,19 @@
                             "bone": "arm_lower_accessories_left"
                         }
                     ]
+                },
+                {
+                    "icon": "icons/delete.png",
+                    "skins": [
+                        {
+                            "skin": "arm_lower_accessories_left",
+                            "bone": "arm_lower_accessories_left"
+                        },
+                         {
+                            "skin": "arm_lower_accessories_right",
+                            "bone": "arm_lower_accessories_right"
+                        }
+                    ]
                 }
             ]
         },
@@ -1185,6 +1227,19 @@
                             "bone": "hair_back"
                         }
                     ]
+                },
+                {
+                    "icon": "icons/delete.png",
+                    "skins": [
+                        {
+                            "skin": "hair",
+                            "bone": "hair"
+                        },
+                        {
+                            "skin": "hair_back",
+                            "bone": "hair_back"
+                        }
+                    ]
                 }
             ]
         },
@@ -1282,6 +1337,15 @@
                             "bone": "beard_n_mustache"
                         }
                      ]
+                },
+                {
+                    "icon": "icons/delete.png",
+                    "skins": [
+                        {
+                            "skin": "beard_n_mustache",
+                            "bone": "beard_n_mustache"
+                        }
+                    ]
                 }
             ]
         },
@@ -1379,10 +1443,490 @@
                             "bone": "goggles"
                         }
                     ]
+                },
+                {
+                    "icon": "icons/delete.png",
+                    "skins": [
+                        {
+                            "skin": "goggles",
+                            "bone": "goggles"
+                        }
+                    ]
                 }
             ]
         },
-       {
+        {
+            "name": "eyes",
+            "cIcon": "icons/eyes_onclick.png",
+            "icon": "icons/eyes.png",
+            "items": [
+                 {
+                    "icon": "human/goggles/scientist_goggles.png",
+                    "skins": [
+                        {
+                            "skin": "eye_green_right",
+                            "bone": "eye_inner_right"
+                        },
+                         {
+                            "skin": "eye_green_left",
+                            "bone": "eye_inner_left"
+                        },
+                        {
+                            "skin": "eye_boy_outer_right",
+                            "bone": "eye_outer_right"
+                        },
+                         {
+                            "skin": "eye_boy_outer_left",
+                            "bone": "eye_outer_left"
+                        },
+                        {
+                            "skin": "eyebrow_boy_right",
+                            "bone": "eyebrow_right"
+                        },
+                         {
+                            "skin": "eyebrow_boy_left",
+                            "bone": "eyebrow_left"
+                        }
+                    ]
+                },
+                {
+                    "icon": "human/goggles/scientist_goggles.png",
+                    "skins": [
+                        {
+                            "skin": "eye_darkbrown_right",
+                            "bone": "eye_inner_right"
+                        },
+                         {
+                            "skin": "eye_darkbrown_left",
+                            "bone": "eye_inner_left"
+                        },
+                        {
+                            "skin": "eye_boy_outer_right",
+                            "bone": "eye_outer_right"
+                        },
+                         {
+                            "skin": "eye_boy_outer_left",
+                            "bone": "eye_outer_left"
+                        },
+                        {
+                            "skin": "eyebrow_boy_right",
+                            "bone": "eyebrow_right"
+                        },
+                         {
+                            "skin": "eyebrow_boy_left",
+                            "bone": "eyebrow_left"
+                        }
+                    ]
+                },
+                {
+                    "icon": "human/goggles/scientist_goggles.png",
+                    "skins": [
+                        {
+                            "skin": "eye_hazelgreen_right",
+                            "bone": "eye_inner_right"
+                        },
+                         {
+                            "skin": "eye_hazelgreen_left",
+                            "bone": "eye_inner_left"
+                        },
+                        {
+                            "skin": "eye_boy_outer_right",
+                            "bone": "eye_outer_right"
+                        },
+                         {
+                            "skin": "eye_boy_outer_left",
+                            "bone": "eye_outer_left"
+                        },
+                        {
+                            "skin": "eyebrow_boy_right",
+                            "bone": "eyebrow_right"
+                        },
+                         {
+                            "skin": "eyebrow_boy_left",
+                            "bone": "eyebrow_left"
+                        }
+                    ]
+                },
+                {
+                    "icon": "human/goggles/scientist_goggles.png",
+                    "skins": [
+                        {
+                            "skin": "eye_lightblue_right",
+                            "bone": "eye_inner_right"
+                        },
+                         {
+                            "skin": "eye_lightblue_left",
+                            "bone": "eye_inner_left"
+                        },
+                        {
+                            "skin": "eye_boy_outer_right",
+                            "bone": "eye_outer_right"
+                        },
+                         {
+                            "skin": "eye_boy_outer_left",
+                            "bone": "eye_outer_left"
+                        },
+                        {
+                            "skin": "eyebrow_boy_right",
+                            "bone": "eyebrow_right"
+                        },
+                         {
+                            "skin": "eyebrow_boy_left",
+                            "bone": "eyebrow_left"
+                        }
+                    ]
+                },
+                {
+                    "icon": "human/goggles/scientist_goggles.png",
+                    "skins": [
+                        {
+                            "skin": "eye_lightbrown_right",
+                            "bone": "eye_inner_right"
+                        },
+                         {
+                            "skin": "eye_lightbrown_left",
+                            "bone": "eye_inner_left"
+                        },
+                        {
+                            "skin": "eye_boy_outer_right",
+                            "bone": "eye_outer_right"
+                        },
+                         {
+                            "skin": "eye_boy_outer_left",
+                            "bone": "eye_outer_left"
+                        },
+                        {
+                            "skin": "eyebrow_boy_right",
+                            "bone": "eyebrow_right"
+                        },
+                         {
+                            "skin": "eyebrow_boy_left",
+                            "bone": "eyebrow_left"
+                        }
+                    ]
+                },
+                {
+                    "icon": "human/goggles/scientist_goggles.png",
+                    "skins": [
+                        {
+                            "skin": "eye_navyblue_right",
+                            "bone": "eye_inner_right"
+                        },
+                         {
+                            "skin": "eye_navyblue_left",
+                            "bone": "eye_inner_left"
+                        },
+                        {
+                            "skin": "eye_boy_outer_right",
+                            "bone": "eye_outer_right"
+                        },
+                         {
+                            "skin": "eye_boy_outer_left",
+                            "bone": "eye_outer_left"
+                        },
+                        {
+                            "skin": "eyebrow_boy_right",
+                            "bone": "eyebrow_right"
+                        },
+                         {
+                            "skin": "eyebrow_boy_left",
+                            "bone": "eyebrow_left"
+                        }
+                    ]
+                },
+                {
+                    "icon": "human/goggles/scientist_goggles.png",
+                    "skins": [
+                        {
+                            "skin": "eye_pink_right",
+                            "bone": "eye_inner_right"
+                        },
+                         {
+                            "skin": "eye_pink_left",
+                            "bone": "eye_inner_left"
+                        },
+                        {
+                            "skin": "eye_boy_outer_right",
+                            "bone": "eye_outer_right"
+                        },
+                         {
+                            "skin": "eye_boy_outer_left",
+                            "bone": "eye_outer_left"
+                        },
+                        {
+                            "skin": "eyebrow_boy_right",
+                            "bone": "eyebrow_right"
+                        },
+                         {
+                            "skin": "eyebrow_boy_left",
+                            "bone": "eyebrow_left"
+                        }
+                    ]
+                },
+                {
+                    "icon": "human/goggles/scientist_goggles.png",
+                    "skins": [
+                        {
+                            "skin": "eye_purple_right",
+                            "bone": "eye_inner_right"
+                        },
+                         {
+                            "skin": "eye_purple_left",
+                            "bone": "eye_inner_left"
+                        },
+                        {
+                            "skin": "eye_boy_outer_right",
+                            "bone": "eye_outer_right"
+                        },
+                         {
+                            "skin": "eye_boy_outer_left",
+                            "bone": "eye_outer_left"
+                        },
+                        {
+                            "skin": "eyebrow_boy_right",
+                            "bone": "eyebrow_right"
+                        },
+                         {
+                            "skin": "eyebrow_boy_left",
+                            "bone": "eyebrow_left"
+                        }
+                    ]
+                },
+                {
+                    "icon": "human/goggles/scientist_goggles.png",
+                    "skins": [
+                        {
+                            "skin": "eye_green_right",
+                            "bone": "eye_inner_right"
+                        },
+                         {
+                            "skin": "eye_green_left",
+                            "bone": "eye_inner_left"
+                        },
+                        {
+                            "skin": "eye_girl_outer_right",
+                            "bone": "eye_outer_right"
+                        },
+                         {
+                            "skin": "eye_girl_outer_left",
+                            "bone": "eye_outer_left"
+                        },
+                        {
+                            "skin": "eyebrow_girl_right",
+                            "bone": "eyebrow_right"
+                        },
+                         {
+                            "skin": "eyebrow_girl_left",
+                            "bone": "eyebrow_left"
+                        }
+                    ]
+                },
+                {
+                    "icon": "human/goggles/scientist_goggles.png",
+                    "skins": [
+                        {
+                            "skin": "eye_darkbrown_right",
+                            "bone": "eye_inner_right"
+                        },
+                         {
+                            "skin": "eye_darkbrown_left",
+                            "bone": "eye_inner_left"
+                        },
+                        {
+                            "skin": "eye_girl_outer_right",
+                            "bone": "eye_outer_right"
+                        },
+                         {
+                            "skin": "eye_girl_outer_left",
+                            "bone": "eye_outer_left"
+                        },
+                        {
+                            "skin": "eyebrow_girl_right",
+                            "bone": "eyebrow_right"
+                        },
+                         {
+                            "skin": "eyebrow_girl_left",
+                            "bone": "eyebrow_left"
+                        }
+                    ]
+                },
+                {
+                    "icon": "human/goggles/scientist_goggles.png",
+                    "skins": [
+                        {
+                            "skin": "eye_hazelgreen_right",
+                            "bone": "eye_inner_right"
+                        },
+                         {
+                            "skin": "eye_hazelgreen_left",
+                            "bone": "eye_inner_left"
+                        },
+                        {
+                            "skin": "eye_girl_outer_right",
+                            "bone": "eye_outer_right"
+                        },
+                         {
+                            "skin": "eye_girl_outer_left",
+                            "bone": "eye_outer_left"
+                        },
+                        {
+                            "skin": "eyebrow_girl_right",
+                            "bone": "eyebrow_right"
+                        },
+                         {
+                            "skin": "eyebrow_girl_left",
+                            "bone": "eyebrow_left"
+                        }
+                    ]
+                },
+                {
+                    "icon": "human/goggles/scientist_goggles.png",
+                    "skins": [
+                        {
+                            "skin": "eye_lightblue_right",
+                            "bone": "eye_inner_right"
+                        },
+                         {
+                            "skin": "eye_lightblue_left",
+                            "bone": "eye_inner_left"
+                        },
+                        {
+                            "skin": "eye_girl_outer_right",
+                            "bone": "eye_outer_right"
+                        },
+                         {
+                            "skin": "eye_girl_outer_left",
+                            "bone": "eye_outer_left"
+                        },
+                        {
+                            "skin": "eyebrow_girl_right",
+                            "bone": "eyebrow_right"
+                        },
+                         {
+                            "skin": "eyebrow_girl_left",
+                            "bone": "eyebrow_left"
+                        }
+                    ]
+                },
+                {
+                    "icon": "human/goggles/scientist_goggles.png",
+                    "skins": [
+                        {
+                            "skin": "eye_lightbrown_right",
+                            "bone": "eye_inner_right"
+                        },
+                         {
+                            "skin": "eye_lightbrown_left",
+                            "bone": "eye_inner_left"
+                        },
+                        {
+                            "skin": "eye_girl_outer_right",
+                            "bone": "eye_outer_right"
+                        },
+                         {
+                            "skin": "eye_girl_outer_left",
+                            "bone": "eye_outer_left"
+                        },
+                        {
+                            "skin": "eyebrow_girl_right",
+                            "bone": "eyebrow_right"
+                        },
+                         {
+                            "skin": "eyebrow_girl_left",
+                            "bone": "eyebrow_left"
+                        }
+                    ]
+                },
+                {
+                    "icon": "human/goggles/scientist_goggles.png",
+                    "skins": [
+                        {
+                            "skin": "eye_navyblue_right",
+                            "bone": "eye_inner_right"
+                        },
+                         {
+                            "skin": "eye_navyblue_left",
+                            "bone": "eye_inner_left"
+                        },
+                        {
+                            "skin": "eye_girl_outer_right",
+                            "bone": "eye_outer_right"
+                        },
+                         {
+                            "skin": "eye_girl_outer_left",
+                            "bone": "eye_outer_left"
+                        },
+                        {
+                            "skin": "eyebrow_girl_right",
+                            "bone": "eyebrow_right"
+                        },
+                         {
+                            "skin": "eyebrow_girl_left",
+                            "bone": "eyebrow_left"
+                        }
+                    ]
+                },
+                {
+                    "icon": "human/goggles/scientist_goggles.png",
+                    "skins": [
+                        {
+                            "skin": "eye_pink_right",
+                            "bone": "eye_inner_right"
+                        },
+                         {
+                            "skin": "eye_pink_left",
+                            "bone": "eye_inner_left"
+                        },
+                        {
+                            "skin": "eye_girl_outer_right",
+                            "bone": "eye_outer_right"
+                        },
+                         {
+                            "skin": "eye_girl_outer_left",
+                            "bone": "eye_outer_left"
+                        },
+                        {
+                            "skin": "eyebrow_girl_right",
+                            "bone": "eyebrow_right"
+                        },
+                         {
+                            "skin": "eyebrow_girl_left",
+                            "bone": "eyebrow_left"
+                        }
+                    ]
+                },
+                {
+                    "icon": "human/goggles/scientist_goggles.png",
+                    "skins": [
+                        {
+                            "skin": "eye_purple_right",
+                            "bone": "eye_inner_right"
+                        },
+                         {
+                            "skin": "eye_purple_left",
+                            "bone": "eye_inner_left"
+                        },
+                        {
+                            "skin": "eye_girl_outer_right",
+                            "bone": "eye_outer_right"
+                        },
+                         {
+                            "skin": "eye_girl_outer_left",
+                            "bone": "eye_outer_left"
+                        },
+                        {
+                            "skin": "eyebrow_girl_right",
+                            "bone": "eyebrow_right"
+                        },
+                         {
+                            "skin": "eyebrow_girl_left",
+                            "bone": "eyebrow_left"
+                        }
+                    ]
+                }                
+            ]
+        },
+        {
            "name": "neck_accessories",
            "cIcon": "icons/neck_access_onclick.png",
            "icon": "icons/neck_access.png",
@@ -1476,7 +2020,16 @@
                            "bone": "neck_accessories"
                        }
                    ]
-               }
+               },
+               {
+                    "icon": "icons/delete.png",
+                    "skins": [
+                        {
+                            "skin": "neck_accessories",
+                            "bone": "neck_accessories"
+                        }
+                    ]
+                }
            ]              
         },                  
         {
@@ -3067,18 +3620,228 @@
                     "icon": "icons/game.png",
                     "colorSkins": {
                         "skins": "bodySkin",
-                        "color": "#4477BB"
+                        "color": "#a37462"
                     }
                 },
                 {
                     "icon": "icons/add_qna.png",
                     "colorSkins": {
                         "skins": "bodySkin",
-                        "color": "#AA1133"
+                        "color": "#96c1ed"
+                    }
+                },
+                {
+                    "icon": "icons/game.png",
+                    "colorSkins": {
+                        "skins": "bodySkin",
+                        "color": "#ffe0de"
+                    }
+                },
+                {
+                    "icon": "icons/add_qna.png",
+                    "colorSkins": {
+                        "skins": "bodySkin",
+                        "color": "#e5ad8f"
+                    }
+                },
+                {
+                    "icon": "icons/game.png",
+                    "colorSkins": {
+                        "skins": "bodySkin",
+                        "color": "#f9e9dc"
+                    }
+                },
+                {
+                    "icon": "icons/add_qna.png",
+                    "colorSkins": {
+                        "skins": "bodySkin",
+                        "color": "#84d37d"
+                    }
+                },
+                {
+                    "icon": "icons/game.png",
+                    "colorSkins": {
+                        "skins": "bodySkin",
+                        "color": "#9d9ba5"
+                    }
+                },
+                {
+                    "icon": "icons/add_qna.png",
+                    "colorSkins": {
+                        "skins": "bodySkin",
+                        "color": "#ed773b"
+                    }
+                },
+                {
+                    "icon": "icons/game.png",
+                    "colorSkins": {
+                        "skins": "bodySkin",
+                        "color": "#d6aea1"
+                    }
+                },
+                {
+                    "icon": "icons/add_qna.png",
+                    "colorSkins": {
+                        "skins": "bodySkin",
+                        "color": "#ddc6b6"
+                    }
+                },
+                {
+                    "icon": "icons/game.png",
+                    "colorSkins": {
+                        "skins": "bodySkin",
+                        "color": "#f7eac9"
+                    }
+                },
+                {
+                    "icon": "icons/add_qna.png",
+                    "colorSkins": {
+                        "skins": "bodySkin",
+                        "color": "#bd6dbf"
+                    }
+                },
+                {
+                    "icon": "icons/game.png",
+                    "colorSkins": {
+                        "skins": "bodySkin",
+                        "color": "#ef3a3a"
+                    }
+                },
+                {
+                    "icon": "icons/add_qna.png",
+                    "colorSkins": {
+                        "skins": "bodySkin",
+                        "color": "#eab0b0"
+                    }
+                },
+                {
+                    "icon": "icons/game.png",
+                    "colorSkins": {
+                        "skins": "bodySkin",
+                        "color": "#ede43a"
                     }
                 }
             ]
-        }
+        },
+        {
+            "name": "hairColor",
+            "cIcon": "icons/hair_color_onclick.png",
+            "icon": "icons/hair_color.png",
+            "items": [
+                {
+                    "icon": "icons/game.png",
+                    "colorSkins": {
+                        "skins": "hairSkin",
+                        "color": "#000000"
+                    }
+                },
+                {
+                    "icon": "icons/add_qna.png",
+                    "colorSkins": {
+                        "skins": "hairSkin",
+                        "color": "#d62b2b"
+                    }
+                },
+                {
+                    "icon": "icons/game.png",
+                    "colorSkins": {
+                        "skins": "hairSkin",
+                        "color": "#d82acb"
+                    }
+                },
+                {
+                    "icon": "icons/add_qna.png",
+                    "colorSkins": {
+                        "skins": "hairSkin",
+                        "color": "#9839b7"
+                    }
+                },
+                {
+                    "icon": "icons/game.png",
+                    "colorSkins": {
+                        "skins": "hairSkin",
+                        "color": "#7d38ba"
+                    }
+                },
+                {
+                    "icon": "icons/add_qna.png",
+                    "colorSkins": {
+                        "skins": "hairSkin",
+                        "color": "#5da032"
+                    }
+                },
+                {
+                    "icon": "icons/game.png",
+                    "colorSkins": {
+                        "skins": "hairSkin",
+                        "color": "#fcfc7e"
+                    }
+                },
+                {
+                    "icon": "icons/add_qna.png",
+                    "colorSkins": {
+                        "skins": "hairSkin",
+                        "color": "#d3b020"
+                    }
+                },
+                {
+                    "icon": "icons/game.png",
+                    "colorSkins": {
+                        "skins": "hairSkin",
+                        "color": "#e86b2d"
+                    }
+                },
+                {
+                    "icon": "icons/add_qna.png",
+                    "colorSkins": {
+                        "skins": "hairSkin",
+                        "color": "#8c5438"
+                    }
+                },
+                {
+                    "icon": "icons/game.png",
+                    "colorSkins": {
+                        "skins": "hairSkin",
+                        "color": "#664f42"
+                    }
+                },
+                {
+                    "icon": "icons/add_qna.png",
+                    "colorSkins": {
+                        "skins": "hairSkin",
+                        "color": "#969696"
+                    }
+                },
+                {
+                    "icon": "icons/game.png",
+                    "colorSkins": {
+                        "skins": "hairSkin",
+                        "color": "#424241"
+                    }
+                },
+                {
+                    "icon": "icons/add_qna.png",
+                    "colorSkins": {
+                        "skins": "hairSkin",
+                        "color": "#282828"
+                    }
+                },
+                {
+                    "icon": "icons/game.png",
+                    "colorSkins": {
+                        "skins": "hairSkin",
+                        "color": "#8e1635"
+                    }
+                },
+                {
+                    "icon": "icons/add_qna.png",
+                    "colorSkins": {
+                        "skins": "hairSkin",
+                        "color": "#ede43a"
+                    }
+                }
+            ]
+        }      
     ],
     "skinNameMaps": {
          "astronaut": {
@@ -3569,8 +4332,6 @@
             "hip": "watchman_pant_hip",
             "head_accessories":"watchman_cap"
         }
-        
-        
     },
     "colorSkins": {
         "bodySkin": {
@@ -3579,7 +4340,50 @@
             "hand_palm_left": "hand_palm_left",
             "hand_upper_right": "hand_upper_right",
             "hand_upper_left": "hand_upper_left",
-            "body": "body"
+            "body": "body",
+            "nose": "nose",
+            "mouth" : "mouth",
+            "neck": "neck",
+            "ear_round" : "ear",
+            "arm_lower_left" : "arm_lower_left",
+            "arm_upper_left": "arm_upper_left",
+            "arm_lower_right" : "arm_lower_right",
+            "arm_upper_right": "arm_upper_right",
+            "leg_foot_left": "leg_foot_left",
+            "leg_lower_left" : "leg_lower_left",
+            "leg_upper_left": "leg_upper_left",
+            "leg_foot_right" : "leg_foot_right",
+            "leg_lower_right": "leg_lower_right",
+            "leg_upper_right" : "leg_upper_right",
+            "arm_hand_left" : "arm_hand_left",
+            "arm_hand_right" : "arm_hand_right",
+            "hip" : "hip"
+        },
+        "hairSkin": {
+            "hair_female_back_long": "hair_back",
+            "hair_Business_man_cut": "hair",
+            "hair_high_and_tight_two": "hair",
+            "hair_curtained_hair": "hair",
+            "hair_high_and_tight": "hair",
+            "hair_mohawk": "hair",
+            "hair_curl": "hair",
+            "hair_bun": "hair",
+            "hair_female_front": "hair",
+            "hair_burr": "hair",
+            "beard_baba": "beard_n_mustache",
+            "beard_soalpatch": "beard_n_mustache",
+            "beard_chin_strap": "beard_n_mustache",
+            "beard_french": "beard_n_mustache",
+            "beard_goatee": "beard_n_mustache",
+            "beard_motu": "beard_n_mustache",
+            "beard_trimmed": "beard_n_mustache",
+            "moustache_barber": "beard_n_mustache",
+            "moustche_chinese": "beard_n_mustache",
+            "mutton_chops": "beard_n_mustache",
+            "eyebrow_boy_right": "eyebrow_right",
+            "eyebrow_girl_right": "eyebrow_right",
+            "eyebrow_boy_left": "eyebrow_left",
+            "eyebrow_girl_left": "eyebrow_left"       
         }
     },
     "animations": [

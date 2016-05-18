@@ -48,9 +48,6 @@ var PlayFullStoryLayer = cc.Layer.extend({
         this._contentPanel.setOpacity(0.2);
         this.addChild(this._contentPanel);
 
-        this._playButton.setPosition(cc.director.getWinSize().width / 2, cc.director.getWinSize().height / 2);
-        this.addChild(this._playButton, 0);
-        this._playButton.setVisible(false);
 
         this._leftButtonPanel = new chimple.ButtonPanel(new cc.p(0, 0), cc.size(this._configPanelWidth, this._contentPanelWidth), 1, 1, chimple.onlyStoryPlayConfigurationObject.editDefault, new chimple.ButtonHandler(this.previousStory, this, false));
         this._leftButtonPanel.setBackGroundColorType(ccui.Layout.BG_COLOR_SOLID);
@@ -66,6 +63,11 @@ var PlayFullStoryLayer = cc.Layer.extend({
         this.disableOrEnableAllButtons(this._rightButtonPanel, false);
         this.addChild(this._rightButtonPanel);
         this.setUpRecordedScene();
+
+        this._playButton.setPosition(cc.director.getWinSize().width / 2, cc.director.getWinSize().height / 2);
+        this.addChild(this._playButton, 0);
+        this._playButton.setVisible(false);
+
 
         if (!this._isTitleDisplayed) {
             this._playButton.setVisible(true);
@@ -95,10 +97,8 @@ var PlayFullStoryLayer = cc.Layer.extend({
     disableOrEnableAllButtons: function (panel, isEnabled) {
         panel.children.forEach(function (element) {
             if (isEnabled) {
-                //element.setEnabled(true);
                 element.setHighlighted(false);
             } else {
-                //element.setEnabled(false);
                 element.setHighlighted(true);
             }
         }, this);
@@ -108,8 +108,7 @@ var PlayFullStoryLayer = cc.Layer.extend({
     sceneTouched: function () {
         this._contentPanel._constructedScene.action.gotoFrameAndPause(0);
         this.playRecordedScene();
-        this._playButton.removeFromParent(true);
-        cc.eventManager.removeListener(this._listener);
+        this._playButton.setVisible(false);
     },
 
     previousStory: function () {
@@ -209,6 +208,7 @@ var PlayFullStoryLayer = cc.Layer.extend({
         this._rightButtonPanel.removeFromParent(true);
         this.renderNextButton();
         this.renderPreviousButton();
+        this._playButton.setVisible(true);
         window.PLAYING_STORY_FIRST_TIME = false;
 
     },
@@ -225,6 +225,7 @@ var PlayFullStoryLayer = cc.Layer.extend({
         } else {
             this.referenceToContext.renderNextButton();
             this.referenceToContext.renderPreviousButton();
+            this.referenceToContext._playButton.setVisible(true);
             window.PLAYING_STORY_FIRST_TIME = false;
 
         }
@@ -234,8 +235,6 @@ var PlayFullStoryLayer = cc.Layer.extend({
         if (chimple.story.items[chimple.pageIndex].sceneText != null && chimple.story.items[chimple.pageIndex].sceneText !== "undefined") {
             this._textField = new ccui.WebView();
             this._textField.loadURL("/displayText.html?height=" + 450 + '&contents=' + chimple.story.items[chimple.pageIndex].sceneText);
-            //this._textField.setPosition(cc.director.getWinSize().width / 2, cc.director.getWinSize().height / 2);
-            //this._textField.setContentSize(cc.size(cc.director.getWinSize().width, cc.director.getWinSize().height));
             this._textField.setPosition(64, 0);
             this._textField.setContentSize(cc.size(cc.director.getWinSize().width - 64, cc.director.getWinSize().height));
             this._textField.setScalesPageToFit(true);
