@@ -82,7 +82,6 @@ chimple.ParseUtil.updateUserData = function (tag, dataKey, dataValue) {
         for (var index = 0; index < children.length; index++) {
             if (children[index].ActionTag == tag) {
                 var object = children[index];
-                object.scaleY = -object.scaleY;
                 object.UserData[dataKey] = dataValue;
                 break;
             }
