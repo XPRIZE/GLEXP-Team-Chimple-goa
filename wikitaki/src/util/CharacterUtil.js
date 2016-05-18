@@ -57,6 +57,11 @@ chimple.CharacterUtil.loadSkeletonConfig = function (skeleton, selectedConfigura
             skeleton._currentAnimationName = data.animations[0].name;
             if (selectedConfiguration != null) {
                 chimple.CharacterUtil.applySkinNameMap(skeleton, selectedConfiguration);
+                if(selectedConfiguration.colorSkins != null) {
+                    selectedConfiguration.colorSkins.forEach(function(colorSkin) {
+                            chimple.CharacterUtil.colorSkins(skeleton, colorSkin);
+                    })
+                }
             }
         }
     });
