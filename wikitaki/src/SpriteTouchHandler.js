@@ -23,6 +23,7 @@ chimple.SpriteTouchHandler = function (context) {
             this._context._animationNode = target;
             chimple.ParseUtil.drawBoundingBox(location, target);
             this._offsetYInTouch = locationInParent.y - target.getPosition().y;
+            this._offsetXInTouch = locationInParent.x - target.getPosition().x;
             return true;
         }
         return false;
@@ -31,7 +32,7 @@ chimple.SpriteTouchHandler = function (context) {
     this.onTouchMoved = function (touch, event) {
         var target = event.getCurrentTarget();
         var location = target.parent.convertToNodeSpace(touch.getLocation());
-        var locationTo = cc.p(location.x, location.y - this._offsetYInTouch);        
+        var locationTo = cc.p(location.x - this._offsetXInTouch, location.y - this._offsetYInTouch);        
         this._context.enableTargetTransformForTarget(this._context, touch, target, locationTo);        
     };
 
