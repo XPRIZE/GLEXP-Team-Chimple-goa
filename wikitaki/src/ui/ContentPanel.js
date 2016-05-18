@@ -144,7 +144,10 @@ chimple.ContentPanel = chimple.AbstractContentPanel.extend({
         
         if (chimple.currentBoxShownForNode != null) {
             var boundingBoxNode = chimple.currentBoxShownForNode.getChildByTag(chimple.DEFAULT_BOUNDING_BOX_TAG);
-            boundingBoxNode.removeFromParent(true);
+            if(boundingBoxNode) {
+                boundingBoxNode.removeFromParent(true);    
+            }
+            
         }        
     },
 

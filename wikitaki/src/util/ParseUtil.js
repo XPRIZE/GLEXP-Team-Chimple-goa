@@ -31,8 +31,21 @@ chimple.ParseUtil.updateScaleRotationAndPositionObjectFromStoredScene = function
         var children = chimple.story.items[chimple.pageIndex].scene.Content.Content.ObjectData.Children;
         for (var index = 0; index < children.length; index++) {
             var comExtensionData = target.getComponent("ComExtensionData");
+            
             if (comExtensionData && comExtensionData.getActionTag()) {
                 if (children[index].ActionTag == comExtensionData.getActionTag()) {
+                    children[index].Scale.ScaleX = target.scaleX;
+                    children[index].Scale.ScaleY = target.scaleY;
+
+                    children[index].Position.X = target.x;
+                    children[index].Position.Y = target.y;
+
+                    children[index].RotationSkewX = target.rotationX;
+                    children[index].RotationSkewY = target.rotationY;
+                    break;
+                }
+            } else if (target.ActionTag) {
+                if (children[index].ActionTag == target.ActionTag) {
                     children[index].Scale.ScaleX = target.scaleX;
                     children[index].Scale.ScaleY = target.scaleY;
 
