@@ -274,7 +274,8 @@ chimple.ContentPanel = chimple.AbstractContentPanel.extend({
 
         chimple.CharacterUtil.loadSkeletonConfig(load.node, configuration);
 
-        load.node.setPosition(this.getContentSize().width / 2, this.getContentSize().height / 2);
+        load.node.setPosition(this.getContentSize().width / 2, this.getContentSize().height / 6);
+        load.node.setScale(0.5, 0.5);
         this._constructedScene.addChild(load.node);
         load.node.runAction(load.action);
         this.registerEventListenerForChild(load.node);
