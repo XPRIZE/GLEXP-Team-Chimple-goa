@@ -22,6 +22,7 @@ chimple.SkeletonTouchHandler = function (context) {
             chimple.ParseUtil.drawBoundingBox(location, target);
             var location = target.parent.convertToNodeSpace(touch.getLocation());
             this._offsetYInTouch = location.y - target.getPosition().y;
+            this._offsetXInTouch = location.x - target.getPosition().x;
             return true;
         }
         return false;
@@ -30,7 +31,7 @@ chimple.SkeletonTouchHandler = function (context) {
     this.onTouchMoved = function (touch, event) {
         var target = event.getCurrentTarget();
         var location = target.parent.convertToNodeSpace(touch.getLocation());
-        var locationTo = cc.p(location.x, location.y - this._offsetYInTouch);
+        var locationTo = cc.p(location.x - this._offsetXInTouch, location.y - this._offsetYInTouch);
         this._context.enableTargetTransformForTarget(this._context, touch, target, locationTo);
         
     };
