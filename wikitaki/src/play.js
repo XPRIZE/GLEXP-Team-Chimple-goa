@@ -19,7 +19,6 @@ var PlayFullStoryLayer = cc.Layer.extend({
         this._configPanelHeight = cc.director.getWinSize().height;
 
         this._playButton = new cc.Sprite(res.play_png);
-        this._playButton.setVisible(false);
         this.bindTouchListener(this._playButton);
 
         return true;
@@ -51,6 +50,7 @@ var PlayFullStoryLayer = cc.Layer.extend({
 
         this._playButton.setPosition(cc.director.getWinSize().width / 2, cc.director.getWinSize().height / 2);
         this.addChild(this._playButton, 0);
+        this._playButton.setVisible(false);
 
         this._leftButtonPanel = new chimple.ButtonPanel(new cc.p(0, 0), cc.size(this._configPanelWidth, this._contentPanelWidth), 1, 1, chimple.onlyStoryPlayConfigurationObject.editDefault, new chimple.ButtonHandler(this.previousStory, this, false));
         this._leftButtonPanel.setBackGroundColorType(ccui.Layout.BG_COLOR_SOLID);
@@ -67,13 +67,15 @@ var PlayFullStoryLayer = cc.Layer.extend({
         this.addChild(this._rightButtonPanel);
         this.setUpRecordedScene();
 
-        cc.log('init called');
-        if (this._isTitleDisplayed) {
+        if (!this._isTitleDisplayed) {
+            this._playButton.setVisible(true);
+        } else {
             this.createStoryTitle();
         }
     },
 
     renderNextButton: function () {
+
         if (chimple.story != null && chimple.story.items != null && !(chimple.pageIndex + 1 == chimple.story.items.length)) {
             this.disableOrEnableAllButtons(this._rightButtonPanel, true);
         } else {
@@ -82,6 +84,7 @@ var PlayFullStoryLayer = cc.Layer.extend({
     },
 
     renderPreviousButton: function () {
+
         if (chimple.story != null && chimple.story.items != null && !(chimple.pageIndex == 0)) {
             this.disableOrEnableAllButtons(this._leftButtonPanel, true);
         } else {
@@ -111,6 +114,11 @@ var PlayFullStoryLayer = cc.Layer.extend({
 
     previousStory: function () {
         cc.log('previousStory clicked!');
+        var curIndex = chimple.pageIndex;
+        curIndex--;
+        if (curIndex < 0) {
+            return;
+        }
         chimple.pageIndex--;
         var prevScene = new PlayFullStoryScene();
         cc.director.runScene(new cc.TransitionPageTurn(1.5, prevScene, true));
@@ -118,7 +126,14 @@ var PlayFullStoryLayer = cc.Layer.extend({
 
     nextStory: function () {
         cc.log('next clicked!');
+        var curIndex = chimple.pageIndex;
+        curIndex++;
+        if (curIndex >= chimple.story.items.length) {
+            return;
+        }
+
         chimple.pageIndex++;
+
         var nextScene = new PlayFullStoryScene();
         cc.director.runScene(new cc.TransitionPageTurn(2.5, nextScene));
     },
@@ -129,7 +144,6 @@ var PlayFullStoryLayer = cc.Layer.extend({
             this._isTitleDisplayed = true;
         } else {
             this._playButton.setVisible(true);
-            this.playRecordedScene();
         }
     },
 
@@ -192,6 +206,7 @@ var PlayFullStoryLayer = cc.Layer.extend({
     closeWebView: function () {
         this._textField.removeFromParent(true);
         this._leftButtonPanel.removeFromParent(true);
+        this._rightButtonPanel.removeFromParent(true);
         this.renderNextButton();
         this.renderPreviousButton();
         window.PLAYING_STORY_FIRST_TIME = false;
@@ -202,10 +217,17 @@ var PlayFullStoryLayer = cc.Layer.extend({
     playEnded: function () {
         cc.log('play ended');
         //create delay action
-        var delayAction = new cc.delayTime(2);
-        var createWebViewAction = new cc.CallFunc(this.referenceToContext.createWebView, this.referenceToContext);
-        var playEndSequence = new cc.sequence(delayAction, createWebViewAction);
-        this.referenceToContext.runAction(playEndSequence);
+        if (chimple.story.items[chimple.pageIndex].sceneText != null && chimple.story.items[chimple.pageIndex].sceneText !== "undefined") {
+            var delayAction = new cc.delayTime(2);
+            var createWebViewAction = new cc.CallFunc(this.referenceToContext.createWebView, this.referenceToContext);
+            var playEndSequence = new cc.sequence(delayAction, createWebViewAction);
+            this.referenceToContext.runAction(playEndSequence);
+        } else {
+            this.referenceToContext.renderNextButton();
+            this.referenceToContext.renderPreviousButton();
+            window.PLAYING_STORY_FIRST_TIME = false;
+
+        }
     },
 
     createWebView: function () {
@@ -310,6 +332,9 @@ var PlayFullStoryScene = cc.Scene.extend({
 
                     chimple.ParseUtil.changeSize(cc.loader.cache[res.human_skeleton_json], null, chimple.designScaleFactor);
                     cc.loader.cache[res.human_skeleton_json].ChimpleCompressed = true;
+                    chimple.ParseUtil.changeSize(cc.loader.cache[res.animalskeleton_json], null, chimple.designScaleFactor);
+                    cc.loader.cache[res.animalskeleton_json].ChimpleCompressed = true;
+
 
                     data.items.forEach(function (element) {
                         if (element && element.scene) {

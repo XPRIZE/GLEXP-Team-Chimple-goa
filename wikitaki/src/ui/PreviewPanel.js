@@ -13,12 +13,12 @@ chimple.PreviewPanel = cc.LayerColor.extend({
         target.removeFromParent(false);
         cc.eventManager.removeListeners(target);
 
-
+        
         this.addChild(target);
-        target.setPosition(550, 200);
+        target.setPosition(width*0.8, 200);
         target.scaleX = 0.5;
         target.scaleY = 0.5;
-
+        this.bindTouchListener(this);
         if (isTab) {
             //            this.addChild(new chimple.TabPanel(cc.p(width / 3, 0), cc.size(width * 2 / 3, height), 2, 2, configuration, callback, callbackContext));
             this.addChild(new chimple.TabPanel(cc.p(0, 0), cc.size(width * 2 / 3, height), 2, 2, configuration, callback, callbackContext, this));
@@ -26,22 +26,25 @@ chimple.PreviewPanel = cc.LayerColor.extend({
             this._scrolPanel = new chimple.ScrollableButtonPanel(cc.p(0, 0), cc.size(width * 2 / 3, height), 2, 2, configuration, callback, callbackContext);
             this.addChild(this._scrolPanel);
 
-            this.tabPanel_backButton = new ccui.Button("icons/back.png", "icons/back_onclick.png", null, ccui.Widget.PLIST_TEXTURE);
-            this.tabPanel_backButton.setPosition(width * 5 / 100, height * 50 / 100);
-            this.tabPanel_backButton.addTouchEventListener(this.tabPanel_backButton_function, this);
-            this.addChild(this.tabPanel_backButton);
-
-            this.tabPanel_nextButton = new ccui.Button("icons/next.png", "icons/next_onclick.png", null, ccui.Widget.PLIST_TEXTURE);
-            this.tabPanel_nextButton.setPosition(width * 62 / 100, height * 50 / 100);
-            this.tabPanel_nextButton.addTouchEventListener(this.tabPanel_nextButton_function, this);
-            this.addChild(this.tabPanel_nextButton);
-
             this.main_backButton = new ccui.Button("icons/back.png", "icons/back_onclick.png", null, ccui.Widget.PLIST_TEXTURE);
             this.main_backButton.setPosition(width * 5 / 100, height * 95 / 100);
             this.main_backButton.addTouchEventListener(this.main_backButton_function, this);
-            this.addChild(this.main_backButton);
+            this.addChild(this.main_backButton,1);
         }
 
+    },
+    
+    
+     bindTouchListener: function (target) {
+        var context = this;
+        this._listener = cc.EventListener.create({
+            event: cc.EventListener.TOUCH_ONE_BY_ONE,
+            swallowTouches: true,
+            onTouchBegan: function (touch, event) {                
+                return true;
+            }
+        });
+        cc.eventManager.addListener(this._listener, target);
     },
 
     main_backButton_function: function (sender, type) {
@@ -60,11 +63,16 @@ chimple.PreviewPanel = cc.LayerColor.extend({
     },
 
     tabPanel_nextButton_function: function () {
-        this._scrolPanel.scrollableButtonPanel_moveRight();
+        if(typeof(this._scrolPanel.scrollableButtonPanel_moveRight) == "function") {
+            this._scrolPanel.scrollableButtonPanel_moveRight();     
+        }
+       
     },
 
     tabPanel_backButton_function: function () {
-        this._scrolPanel.scrollableButtonPanel_moveLeft();
+        if(typeof(this._scrolPanel.scrollableButtonPanel_moveLeft) == "function") {
+            this._scrolPanel.scrollableButtonPanel_moveLeft();     
+        }        
     },
 
     goBack: function () {

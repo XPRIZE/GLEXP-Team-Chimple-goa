@@ -424,6 +424,34 @@ chimple.ContentPanel = chimple.AbstractContentPanel.extend({
         if (this._constructedScene) {
             chimple.CharacterUtil.restoreActionFromTemporaryStore(this._constructedScene);
         }
-    }
+    },
+    selectedObjectHighlight : function(target , previousTarget){
+     if(previousTarget != null){
+            if(previousTarget._name == "Human_Skeleton")
+                {
+                            if (!cc.sys.isNative)
+                            {
+                                previousTarget._renderCmd._dirtyFlag = 1;
+                            }
+                }
+                
+            else {
+                        previousTarget.setBlendFunc(1,771);
+                }
+       }
+       
+       if(target != null){
+             if(target._name == "Human_Skeleton")
+            {
+                        if (!cc.sys.isNative) {
+                            target._renderCmd._dirtyFlag = 1;
+                        }
+            }
+            else
+            {
+                         target.setBlendFunc(0, 769);
+            }
+       }
+   }
 
 });

@@ -84,6 +84,7 @@ chimple.DEVICE_HEIGHT = 450;
             "src/ui/AbstractContentPanel.js",
             "src/ui/ContentPanel.js",
             "src/ui/PlayContentPanel.js",
+            "src/ui/BaseConfigPanel.js",     
             "src/ui/ButtonPanel.js",
             "src/ui/ScrollableButtonPanel.js",
             "src/ui/TabBarPanel.js",
