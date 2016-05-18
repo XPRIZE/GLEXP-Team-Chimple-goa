@@ -91,7 +91,7 @@ chimple.PreviewPanel = cc.LayerColor.extend({
         this.removeChild(this._target, false);
         this._targetParent.addChild(this._target);
         this._target.setPosition(this._targetPosition);
-        this._target.setScale(this._targetScale);
+        this._target.setScale(this._targetScaleX,this._targetScaleY);
         this._contentPanel.registerEventListenerForChild(this._target);
 
         this.parent.removeChild(this, true);

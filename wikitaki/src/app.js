@@ -52,7 +52,10 @@ var HelloWorldLayer = cc.Layer.extend({
             chimple.isNewPage = true;
             cc.director.runScene(new EditStoryScene());
         } else {
-            //find if there is element submit_recipe in HTML            
+            //find if there is element submit_recipe in HTML
+            if(document.getElementById("fes_post_title") != undefined) {
+                chimple.story.storyTitleText = document.getElementById("fes_post_title").value;
+            } 
             if(document.getElementById( "submit_recipe" ) != undefined) {
                 document.getElementById( "submit_recipe" ).click();                
             }
@@ -137,6 +140,7 @@ var HelloWorldScene = cc.Scene.extend({
                     if (data != null && data.items != null && data.items.length > 0) {
                         chimple.story = data;
                         chimple.story.storyId = storyIdToFetch;
+                        chimple.storyTitle  = chimple.story.storyTitleText;
                         chimple.scaleFactor = chimple.story.RESOLUTION_HEIGHT / chimple.DEVICE_HEIGHT;
                         chimple.story.RESOLUTION_HEIGHT = chimple.DEVICE_HEIGHT;
 

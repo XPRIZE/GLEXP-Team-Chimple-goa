@@ -112,7 +112,6 @@ var PlayFullStoryLayer = cc.Layer.extend({
     },
 
     previousStory: function () {
-        cc.log('previousStory clicked!');
         var curIndex = chimple.pageIndex;
         curIndex--;
         if (curIndex < 0) {
@@ -124,7 +123,6 @@ var PlayFullStoryLayer = cc.Layer.extend({
     },
 
     nextStory: function () {
-        cc.log('next clicked!');
         var curIndex = chimple.pageIndex;
         curIndex++;
         if (curIndex >= chimple.story.items.length) {
