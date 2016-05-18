@@ -71,6 +71,11 @@ chimple.ContentPanel = chimple.AbstractContentPanel.extend({
                 if (element._userData && element._userData.visibleSkins) {
                     chimple.CharacterUtil.displaySkins(element, element._userData.visibleSkins);
                 }
+                
+                if (element._userData && element._userData.colorSkins) {
+                    chimple.CharacterUtil.colorSkins(element, element._userData.colorSkins);
+                }
+                
                 if (element._userData && element._userData.currentAnimationName) {
                     element._currentAnimationName = element._userData.currentAnimationName;
                 }

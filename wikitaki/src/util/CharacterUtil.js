@@ -41,6 +41,7 @@ chimple.CharacterUtil.colorSkins = function (character, colorSkins) {
                 }
             }
         }
+    chimple.ParseUtil.updateUserData(character._actionTag, 'colorSkins', character._skeletonConfig.colorSkins);
     }
 }
 
