@@ -82,6 +82,7 @@ chimple.ParseUtil.updateUserData = function (tag, dataKey, dataValue) {
         for (var index = 0; index < children.length; index++) {
             if (children[index].ActionTag == tag) {
                 var object = children[index];
+                object.scaleY = -object.scaleY;
                 object.UserData[dataKey] = dataValue;
                 break;
             }
@@ -438,8 +439,38 @@ chimple.ParseUtil.cacheThumbnailForFavorites = function (skeleton) {
     renderer.end();
     renderer.scaleY = -1;
     skeleton._renderCmd._dirtyFlag = 1;
-    var sprite = renderer.getSprite();    
+    var sprite = renderer.getSprite();
     var cacheName = '/res/' + skeleton.uniqueCharacterID + '.png';
     cc.textureCache.cacheImage(cacheName, sprite.texture);
-    renderer.cleanup();    
+    renderer.cleanup();
+}
+
+
+chimple.ParseUtil.drawBoundingBox = function (location, target) {
+    var box = null;
+    if(chimple.currentBoxShownForNode != null) {
+        var boundingBoxNode = chimple.currentBoxShownForNode.getChildByTag(chimple.DEFAULT_BOUNDING_BOX_TAG);
+        if(boundingBoxNode) {
+            boundingBoxNode.removeFromParent(true);    
+        }        
+        
+    }
+    if (target.getName().indexOf("Skeleton") != -1 || target.getName().indexOf("skeleton") != -1) {
+        box = target.getBoundingBoxToWorld();
+
+        var dn = new cc.DrawNode();        
+        dn.clear();
+        dn.tag = chimple.DEFAULT_BOUNDING_BOX_TAG;
+        target.addChild(dn);
+        dn.drawRect(cc.p(-box.width/2, 0), cc.p(box.width/2, box.height), null, 3, chimple.SECONDARY_COLOR);
+        chimple.currentBoxShownForNode = target;
+    } else {
+        box = target.getBoundingBox();
+        var dn = new cc.DrawNode();
+        dn.clear();
+        dn.tag = chimple.DEFAULT_BOUNDING_BOX_TAG;
+        target.addChild(dn);
+        dn.drawRect(cc.p(0, 0), cc.p(box.width,box.height), null, 3, chimple.SECONDARY_COLOR);        
+        chimple.currentBoxShownForNode = target;
+    }
 }

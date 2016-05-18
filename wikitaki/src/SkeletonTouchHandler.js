@@ -18,8 +18,9 @@ chimple.SkeletonTouchHandler = function (context) {
             this._context._nodesSelected.push(target);
             this._context.addNodeToRecording(this._context, touch, target);
             this._context.constructConfigPanel(target);
-            this._context.selectedObjectHighlight(target ,this._context._animationNode);
+            // this._context.selectedObjectHighlight(target ,this._context._animationNode);
             this._context._animationNode = target;
+            chimple.ParseUtil.drawBoundingBox(location, target);
             return true;
         }
         return false;

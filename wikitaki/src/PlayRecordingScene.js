@@ -29,9 +29,7 @@ var PlayRecordingLayer = cc.Layer.extend({
         this.addChild(this._objectConfigPanel);
         this._contentPanel._objectConfigPanel = this._objectConfigPanel;
 
-        var config = {};
-        config.addObjects = [];
-        this._pageConfigPanel = new chimple.PageConfigPanel(this._configPanelWidth, this._configPanelHeight, cc.p(0, 0), config, this._contentPanel);
+        this._pageConfigPanel = new chimple.BaseConfigPanel(this._configPanelWidth, this._configPanelHeight, cc.p(0, 0), chimple.storyPlayConfigurationObject.editDefault, this._contentPanel);
         this.addChild(this._pageConfigPanel);
 
         this.playRecordedScene();
@@ -39,6 +37,13 @@ var PlayRecordingLayer = cc.Layer.extend({
 
     },
 
+    buttonPressed: function(selectedItem) {
+        var selectedConfig = this._configuration.addObjects[selectedItem._selectedIndex];
+        if (selectedConfig != null && selectedConfig.name === "back") {
+            this._contentPanel.backPressed();  
+        }          
+
+    },
 
     playEnded: function () {
         //create delay action

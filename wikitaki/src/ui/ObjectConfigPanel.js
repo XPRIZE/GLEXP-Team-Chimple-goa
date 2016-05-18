@@ -71,6 +71,8 @@ chimple.ObjectConfigPanel = cc.LayerColor.extend({
                 var comExtensionData = this._target.getComponent("ComExtensionData");
                 if (comExtensionData && comExtensionData.getActionTag()) {
                     chimple.ParseUtil.removeObjectFromStoredScene(comExtensionData.getActionTag());
+                } else if(this._target.ActionTag) {
+                    chimple.ParseUtil.removeObjectFromStoredScene(this._target.ActionTag);
                 }
                 this._target.parent.removeChild(this._target, true);
                 this.setButtonPanel(this.getDefaultPanel());
