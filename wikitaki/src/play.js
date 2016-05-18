@@ -203,7 +203,6 @@ var PlayFullStoryLayer = cc.Layer.extend({
     closeWebView: function () {
         this._textField.removeFromParent(true);
         this._leftButtonPanel.removeFromParent(true);
-        this._rightButtonPanel.removeFromParent(true);
         this.renderNextButton();
         this.renderPreviousButton();
         this._playButton.setVisible(true);
