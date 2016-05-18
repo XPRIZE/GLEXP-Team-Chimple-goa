@@ -41,6 +41,7 @@ chimple.CharacterUtil.colorSkins = function (character, colorSkins) {
                 }
             }
         }
+    chimple.ParseUtil.updateUserData(character._actionTag, 'colorSkins', character._skeletonConfig.colorSkins);
     }
 }
 
@@ -57,6 +58,11 @@ chimple.CharacterUtil.loadSkeletonConfig = function (skeleton, selectedConfigura
             skeleton._currentAnimationName = data.animations[0].name;
             if (selectedConfiguration != null) {
                 chimple.CharacterUtil.applySkinNameMap(skeleton, selectedConfiguration);
+                if(selectedConfiguration.colorSkins != null) {
+                    selectedConfiguration.colorSkins.forEach(function(colorSkin) {
+                            chimple.CharacterUtil.colorSkins(skeleton, colorSkin);
+                    })
+                }
             }
         }
     });
