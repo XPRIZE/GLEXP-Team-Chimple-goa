@@ -4,7 +4,7 @@ chimple.SkeletonTouchHandler = function (context) {
     this._context = context;
     this.event = cc.EventListener.TOUCH_ONE_BY_ONE;
     this.swallowTouches = true;
-
+    this._previousTouchLocation = null;
     this.onTouchBegan = function (touch, event) {
         var target = event.getCurrentTarget();
         var boundingBox = target.getBoundingBoxToWorld();
@@ -18,9 +18,10 @@ chimple.SkeletonTouchHandler = function (context) {
             this._context._nodesSelected.push(target);
             this._context.addNodeToRecording(this._context, touch, target);
             this._context.constructConfigPanel(target);
-            // this._context.selectedObjectHighlight(target ,this._context._animationNode);
             this._context._animationNode = target;
             chimple.ParseUtil.drawBoundingBox(location, target);
+            var location = target.parent.convertToNodeSpace(touch.getLocation());
+            this._offsetYInTouch = location.y - target.getPosition().y;
             return true;
         }
         return false;
@@ -29,8 +30,9 @@ chimple.SkeletonTouchHandler = function (context) {
     this.onTouchMoved = function (touch, event) {
         var target = event.getCurrentTarget();
         var location = target.parent.convertToNodeSpace(touch.getLocation());
-        location.y -= (0.55*touch.getLocation().y);
-        this._context.enableTargetTransformForTarget(this._context, touch, target, location);
+        var locationTo = cc.p(location.x, location.y - this._offsetYInTouch);
+        this._context.enableTargetTransformForTarget(this._context, touch, target, locationTo);
+        
     };
     this.onTouchEnded = function (touch, event) {
         var target = event.getCurrentTarget();
