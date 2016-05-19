@@ -54,7 +54,6 @@
 
 
 var chimple = chimple || {};
-chimple.storyTitle  = "WRITE STORY!!!! weotu qtqw t"
 chimple.RESOURCE_DESIGN_HEIGHT = 1800;
 chimple.DEVICE_WIDTH = 640;
 chimple.DEVICE_HEIGHT = 450;
@@ -147,7 +146,7 @@ chimple.DEVICE_HEIGHT = 450;
 
     document.ccConfig = c;
     this.retrieveMode();
-
+    
     cc.game.onStart = function () {
         if (!cc.sys.isNative && document.getElementById("cocosLoading")) //If referenced loading.js, please remove it
             document.body.removeChild(document.getElementById("cocosLoading"));

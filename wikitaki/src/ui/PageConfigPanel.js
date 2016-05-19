@@ -27,7 +27,11 @@ chimple.PageConfigPanel = cc.LayerColor.extend({
             this._contentPanel.backPressed();            
         } else if (selectedConfig != null && selectedConfig.name === "addToScene") {
             if (chimple.story.items[chimple.pageIndex].scene.Content == null) {
-                this.constructTabBar([selectedConfig.categories[2]]);
+                selectedConfig.categories.forEach(function(element, index) {
+                    if(element.name == "backgrounds") {
+                        this.constructTabBar([selectedConfig.categories[index]]);        
+                    }
+                }, this);
             } else {
                 this.constructTabBar(selectedConfig.categories);
             }

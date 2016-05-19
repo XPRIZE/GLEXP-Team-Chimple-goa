@@ -11,6 +11,7 @@ chimple.SpriteTouchHandler = function (context) {
             return false;
         }
         var location = target.convertToNodeSpace(touch.getLocation());
+        var locationInParent = target.parent.convertToNodeSpace(touch.getLocation());
         var targetSize = target.getContentSize();
         var targetRectangle = cc.rect(0, 0, targetSize.width, targetSize.
             height);
@@ -19,8 +20,10 @@ chimple.SpriteTouchHandler = function (context) {
             this._context._nodesSelected.push(target);
             this._context.addNodeToRecording(this._context, touch, target);
             this._context.constructConfigPanel(target);
-            // this._context.selectedObjectHighlight(target ,this._context._animationNode);
             this._context._animationNode = target;
+            chimple.ParseUtil.drawBoundingBox(location, target);
+            this._offsetYInTouch = locationInParent.y - target.getPosition().y;
+            this._offsetXInTouch = locationInParent.x - target.getPosition().x;
             return true;
         }
         return false;
@@ -28,8 +31,9 @@ chimple.SpriteTouchHandler = function (context) {
 
     this.onTouchMoved = function (touch, event) {
         var target = event.getCurrentTarget();
-        var location = target.parent.convertToNodeSpace(touch.getLocation());        
-        this._context.enableTargetTransformForTarget(this._context, touch, target, location);        
+        var location = target.parent.convertToNodeSpace(touch.getLocation());
+        var locationTo = cc.p(location.x - this._offsetXInTouch, location.y - this._offsetYInTouch);        
+        this._context.enableTargetTransformForTarget(this._context, touch, target, locationTo);        
     };
 
     this.onTouchEnded = function (touch, event) {

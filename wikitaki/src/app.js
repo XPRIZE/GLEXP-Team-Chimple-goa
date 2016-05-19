@@ -6,7 +6,7 @@ chimple.DARK_PRIMARY_COLOR = cc.color("#B2524D");
 chimple.SECONDARY_COLOR = cc.color("#5895CC");
 chimple.DARK_SECONDARY_COLOR = cc.color("#5687B2");
 chimple.TERTIARY_COLOR = cc.color("#F6FF88");
-
+chimple.DEFAULT_BOUNDING_BOX_TAG = 999;
 var HelloWorldLayer = cc.Layer.extend({
     _contentPanel: null,
     _pageConfigPanel: null,
@@ -52,9 +52,12 @@ var HelloWorldLayer = cc.Layer.extend({
             chimple.isNewPage = true;
             cc.director.runScene(new EditStoryScene());
         } else {
-            //find if there is element submit_recipe in HTML            
-            if(document.getElementById( "submit_recipe" ) != undefined) {
-                document.getElementById( "submit_recipe" ).click();                
+            //find if there is element submit_recipe in HTML
+            if (document.getElementById("fes_post_title") != undefined) {
+                chimple.story.storyTitleText = document.getElementById("fes_post_title").value;
+            }
+            if (document.getElementById("submit_recipe") != undefined) {
+                document.getElementById("submit_recipe").click();
             }
         }
     },
@@ -137,11 +140,16 @@ var HelloWorldScene = cc.Scene.extend({
                     if (data != null && data.items != null && data.items.length > 0) {
                         chimple.story = data;
                         chimple.story.storyId = storyIdToFetch;
+                        chimple.storyTitle = chimple.story.storyTitleText;
                         chimple.scaleFactor = chimple.story.RESOLUTION_HEIGHT / chimple.DEVICE_HEIGHT;
                         chimple.story.RESOLUTION_HEIGHT = chimple.DEVICE_HEIGHT;
 
                         chimple.ParseUtil.changeSize(cc.loader.cache[res.human_skeleton_json], null, chimple.designScaleFactor);
                         cc.loader.cache[res.human_skeleton_json].ChimpleCompressed = true;
+
+                        chimple.ParseUtil.changeSize(cc.loader.cache[res.animalskeleton_json], null, chimple.designScaleFactor);
+                        cc.loader.cache[res.animalskeleton_json].ChimpleCompressed = true;
+
 
                         data.items.forEach(function (element) {
                             if (element && element.scene) {

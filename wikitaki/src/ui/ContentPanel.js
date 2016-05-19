@@ -71,6 +71,11 @@ chimple.ContentPanel = chimple.AbstractContentPanel.extend({
                 if (element._userData && element._userData.visibleSkins) {
                     chimple.CharacterUtil.displaySkins(element, element._userData.visibleSkins);
                 }
+                
+                if (element._userData && element._userData.colorSkins) {
+                    chimple.CharacterUtil.colorSkins(element, element._userData.colorSkins);
+                }
+                
                 if (element._userData && element._userData.currentAnimationName) {
                     element._currentAnimationName = element._userData.currentAnimationName;
                 }
@@ -84,9 +89,9 @@ chimple.ContentPanel = chimple.AbstractContentPanel.extend({
         this.children.forEach(function (element) {
             if (element._name === 'Scene') {
                 element.children.forEach(function (element) {
-                    if(element.getComponent('ComExtensionData') && element.getComponent('ComExtensionData').getActionTag()) {
+                    if (element.getComponent('ComExtensionData') && element.getComponent('ComExtensionData').getActionTag()) {
                         element.ActionTag = element.getComponent('ComExtensionData').getActionTag()
-                    }                    
+                    }
                     this.registerEventListenerForChild(element);
                 }, this);
             }
@@ -115,10 +120,10 @@ chimple.ContentPanel = chimple.AbstractContentPanel.extend({
             cc.eventManager.addListener(listener, element);
         }
     },
-    
+
     startRecording: function () {
         this._objectConfigPanel.setTarget(null);
-        if (!this._isRecordingStarted) {            
+        if (!this._isRecordingStarted) {
             this._isRecordingStarted = true;
             this._recordingFrameIndex = 0;
             cc.log("recording started");
@@ -141,6 +146,14 @@ chimple.ContentPanel = chimple.AbstractContentPanel.extend({
             this._nodesTouchedWhileRecording = [];
             this.unscheduleUpdate();
         }
+        
+        if (chimple.currentBoxShownForNode != null) {
+            var boundingBoxNode = chimple.currentBoxShownForNode.getChildByTag(chimple.DEFAULT_BOUNDING_BOX_TAG);
+            if(boundingBoxNode) {
+                boundingBoxNode.removeFromParent(true);    
+            }
+            
+        }        
     },
 
     createTimeLinesForPlayAnimation: function (timelines) {
@@ -174,10 +187,10 @@ chimple.ContentPanel = chimple.AbstractContentPanel.extend({
         positionFrameData.ctype = "PointFrameData";
         positionFrameData.X = node.x;
         positionFrameData.Y = node.y;
-        if(node.positionFrames) {
-            node.positionFrames.push(positionFrameData);    
+        if (node.positionFrames) {
+            node.positionFrames.push(positionFrameData);
         }
-        
+
 
         var scaleFrameData = Object.create(Object.prototype);
         scaleFrameData.FrameIndex = frameIndex;
@@ -186,10 +199,10 @@ chimple.ContentPanel = chimple.AbstractContentPanel.extend({
         scaleFrameData.ctype = "ScaleValueFrameData";
         scaleFrameData.X = node.getScaleX();
         scaleFrameData.Y = node.getScaleY();
-        if(node.scaleFrames) {
+        if (node.scaleFrames) {
             node.scaleFrames.push(scaleFrameData);
         }
-        
+
 
         var rotationFrameData = Object.create(Object.prototype);
         rotationFrameData.FrameIndex = frameIndex;
@@ -198,10 +211,10 @@ chimple.ContentPanel = chimple.AbstractContentPanel.extend({
         rotationFrameData.ctype = "ScaleValueFrameData";
         rotationFrameData.X = node.getRotationX();
         rotationFrameData.Y = node.getRotationY();
-        if(node.rotationFrames) {
+        if (node.rotationFrames) {
             node.rotationFrames.push(rotationFrameData);
         }
-        
+
     },
 
     constructTimeLineObject: function (node, property, frameName) {
@@ -274,7 +287,8 @@ chimple.ContentPanel = chimple.AbstractContentPanel.extend({
 
         chimple.CharacterUtil.loadSkeletonConfig(load.node, configuration);
 
-        load.node.setPosition(this.getContentSize().width / 2, this.getContentSize().height / 2);
+        load.node.setPosition(this.getContentSize().width / 2, this.getContentSize().height / 6);
+        load.node.setScale(0.5, 0.5);
         this._constructedScene.addChild(load.node);
         load.node.runAction(load.action);
         this.registerEventListenerForChild(load.node);
@@ -424,34 +438,5 @@ chimple.ContentPanel = chimple.AbstractContentPanel.extend({
         if (this._constructedScene) {
             chimple.CharacterUtil.restoreActionFromTemporaryStore(this._constructedScene);
         }
-    },
-    selectedObjectHighlight : function(target , previousTarget){
-     if(previousTarget != null){
-            if(previousTarget._name == "Human_Skeleton")
-                {
-                            if (!cc.sys.isNative)
-                            {
-                                previousTarget._renderCmd._dirtyFlag = 1;
-                            }
-                }
-                
-            else {
-                        previousTarget.setBlendFunc(1,771);
-                }
-       }
-       
-       if(target != null){
-             if(target._name == "Human_Skeleton")
-            {
-                        if (!cc.sys.isNative) {
-                            target._renderCmd._dirtyFlag = 1;
-                        }
-            }
-            else
-            {
-                         target.setBlendFunc(0, 769);
-            }
-       }
-   }
-
+    }
 });
