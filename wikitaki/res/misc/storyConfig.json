@@ -2,13 +2,13 @@
   "addObjects": [
     {
       "name": "back",
-      "cIcon": "icons/back_onclick.png",
-      "icon": "icons/back.png"
+      "cIcon": "icons/save_goback_onclick.png",
+      "icon": "icons/save_goback.png"
     },  
     {
       "name": "addToScene",
-      "cIcon": "icons/add_onclick.png",
-      "icon": "icons/add.png",
+      "cIcon": "icons/plus_onclick.png",
+      "icon": "icons/plus.png",
       "categories": [
         {
           "name": "humans",
@@ -606,8 +606,8 @@
         },
          {
           "name": "backgrounds",
-          "cIcon": "icons/add_bg_onclick.png",
-          "icon": "icons/add_bg.png",
+          "cIcon": "icons/bg_onclick.png",
+          "icon": "icons/bg.png",
           "items": [
             {
               "cIcon": "scene/fox_stork_01.png",
@@ -891,8 +891,8 @@
     },
     {
       "name": "texts",
-      "cIcon": "icons/add_text_onclick.png",
-      "icon": "icons/add_text.png"
+      "cIcon": "icons/text_onclick.png",
+      "icon": "icons/text.png"
     },
     {
       "name": "play",
@@ -901,17 +901,21 @@
     },    
     {
       "name": "startRecording",
-      "cIcon": "icons/record_onclick.png",
-      "icon": "icons/record.png",
+      "cIcon": "icons/start_recording_onclick.png",
+      "icon": "icons/start_recording.png",
       "toggle": true
     }
   ],
   "editCharacter": [
     {
       "name": "translate",      
-      "cIcon": "icons/rotate.png",
-      "icon": "icons/translate.png",
-      "toggle": true
+      "cIcon": "icons/move_onclick.png",
+      "icon": "icons/move.png"
+    },
+    {
+      "name": "rotateScale",      
+      "cIcon": "icons/rotate_onclick.png",
+      "icon": "icons/rotate.png"
     },
     {
       "name": "flipX",      
@@ -937,9 +941,13 @@
   "editObject": [
     {
       "name": "translate",      
-      "cIcon": "icons/rotate.png",
-      "icon": "icons/translate.png",
-      "toggle": true
+      "cIcon": "icons/move_onclick.png",
+      "icon": "icons/move.png"
+    },
+    {
+      "name": "rotateScale",      
+      "cIcon": "icons/rotate_onclick.png",
+      "icon": "icons/rotate.png"
     },
     {
       "name": "flipX",      
@@ -969,15 +977,15 @@
   "editDefault": [
     {
       "name": "back",      
-      "cIcon": "icons/back_onclick.png",
-      "icon": "icons/back.png"
+      "cIcon": "icons/save_goback_onclick.png",
+      "icon": "icons/save_goback.png"
     }
   ],
   "editStory": [
     {
       "name":"story",
-      "cIcon": "icons/add_onclick.png",
-      "icon": "icons/add.png"
+      "cIcon": "icons/plus_onclick.png",
+      "icon": "icons/plus.png"
     },
     {
       "name": "save",      
