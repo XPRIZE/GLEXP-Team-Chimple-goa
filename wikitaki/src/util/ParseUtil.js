@@ -489,7 +489,7 @@ chimple.ParseUtil.drawBoundingBox = function (location, target) {
         dn.clear();
         dn.tag = chimple.DEFAULT_BOUNDING_BOX_TAG;
         target.addChild(dn);
-        dn.drawRect(cc.p(-box.width / 2, 0), cc.p(box.width / 2, box.height), null, 3, chimple.SECONDARY_COLOR);
+        dn.drawRect(cc.p(-box.width / (2*target.getScaleX()), 0), cc.p(box.width / (2*target.getScaleX()), box.height/target.getScaleX()), null, 3, chimple.SECONDARY_COLOR);
         chimple.currentBoxShownForNode = target;
     } else {
         box = target.getBoundingBox();
@@ -497,7 +497,7 @@ chimple.ParseUtil.drawBoundingBox = function (location, target) {
         dn.clear();
         dn.tag = chimple.DEFAULT_BOUNDING_BOX_TAG;
         target.addChild(dn);
-        dn.drawRect(cc.p(0, 0), cc.p(box.width, box.height), null, 3, chimple.SECONDARY_COLOR);
+        dn.drawRect(cc.p(0, 0), cc.p(box.width/target.getScaleX(), box.height/target.getScaleX()), null, 3, chimple.SECONDARY_COLOR);
         chimple.currentBoxShownForNode = target;
     }
 }
