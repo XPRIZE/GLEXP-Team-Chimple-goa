@@ -39,7 +39,7 @@ var HelloWorldLayer = cc.Layer.extend({
             displayPages = chimple.story['items'];
         } else {
             this._help = new cc.Sprite('#icons/help_click_new_page.png');
-            this._help.setPosition(cc.p(130,cc.director.getWinSize().height - this._tabHeight-50));
+            this._help.setPosition(cc.p(100,cc.director.getWinSize().height - this._tabHeight-50));
             this._help.setAnchorPoint(0, 1);
             this.addChild(this._help, 1);
 

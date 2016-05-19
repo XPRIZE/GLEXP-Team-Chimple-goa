@@ -1204,8 +1204,11 @@ window.adminAjaxUrl = '<?php echo home_url() . "/wp-admin/admin-ajax.php"; ?>';
 		<canvas id="gameCanvas" width="640" height="450"></canvas>
 		<canvas id="snapShotCanvas" style="display:none;" width="450" height="450"></canvas>		
 	</div>	
-	<div class="f-row full">
+	<p>
+	<div style="display: none;">
 		<?php
+		$atts = array( 'type' => 'submit', 'role' => 'internal', 'name' => 'submitRecipe', 'id' => 'submit_recipe', 'class' => 'buttonhidden', 'value' =>  __( 'Save this story', 'socialchef' ) );		
+ 		echo $this->_render_input($atts);		
 		if (isset($_GET['fesid'])) {
 		$atts = array( 'type' => 'hidden', 'role' => 'internal', 'name' => 'fesid', 'id' => 'fesid', 'value' => wp_kses($_GET['fesid'], '')  );
 		echo $this->_render_input($atts);
