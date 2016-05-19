@@ -376,16 +376,17 @@ class Frontend_Submit {
 					
 				$value = $_POST[$extra_field_name];
 				
-				if ($extra_field_name == 'recipe_categories') {
+				// if ($extra_field_name == 'recipe_categories') {
 				
-					$term_ids = array();
-					foreach ($value as $term_id) {
-						$term_ids[] = intval($term_id);
-					}
+				// 	$term_ids = array();
+				// 	foreach ($value as $term_id) {
+				// 		$term_ids[] = intval($term_id);
+				// 	}
 					
-					wp_set_post_terms( $post_id, $term_ids, 'recipe_category');
+				// 	wp_set_post_terms( $post_id, $term_ids, 'recipe_category');
 				
-					} elseif ($extra_field_name == 'recipe_difficulty') {
+				// 	} else
+				if ($extra_field_name == 'recipe_difficulty') {
 				
 					wp_set_post_terms( $post_id, array(intval($value)), 'recipe_difficulty');
 					
@@ -449,7 +450,8 @@ class Frontend_Submit {
 						// we can safely strip slashes because wp_insert_post and wp_update_post does it's own addslashes
 						$existing_post->post_title = (isset($_POST['post_title']) ? stripslashes($_POST['post_title']) : '');
 						$existing_post->post_content = isset($_POST['post_content']) ? stripslashes($_POST['post_content']) : '';
-						$existing_post->post_status = $this->_is_public() && $recipe_status == 'publish' ? 'publish' : 'private';
+						// $existing_post->post_status = $this->_is_public() && $recipe_status == 'publish' ? 'publish' : 'private';
+						$existing_post->post_status = 'publish';
 						
 						$entry_id = wp_update_post($existing_post, true);
 					}
@@ -463,7 +465,8 @@ class Frontend_Submit {
 					'post_type' =>  $post_type,
 					'post_title'    => stripslashes($_POST['post_title']),
 					'post_content'  => stripslashes($_POST['post_content']),
-					'post_status'   => $this->_is_public() && $recipe_status == 'publish' ? 'publish' : 'private',
+					// 'post_status'   => $this->_is_public() && $recipe_status == 'publish' ? 'publish' : 'private',
+					'post_status' => 'publish',
 				);
 				$author = isset( $_POST['post_author'] ) ? wp_kses_post( $_POST['post_author'] ) : '';
 				$users = get_users( array(
@@ -1013,17 +1016,17 @@ class Frontend_Submit {
 		$this->form_fields[] = (object)array( 'type' => 'div', 'class' => 'f-row', 'is_closing' => true );
 		// end row
 		// row
-		$this->form_fields[] = (object)array( 'type' => 'div', 'class' => 'f-row', 'is_closing' => false );
-		$taxonomies = array( 'recipe_category' );
-		$args = array( 'hide_empty' => false, 'fields' => 'all' );
-		$recipe_categories = get_terms($taxonomies, $args);
-		$recipe_categories_str = '';
-		foreach ($recipe_categories as $recipe_category) {
-			$recipe_categories_str .= "{$recipe_category->term_id}:{$recipe_category->name},";
-		}
-		$recipe_categories_str = rtrim($recipe_categories_str, ',');
-		$this->form_fields[] = (object)array( 'type' => 'checkbox', 'role' => 'internal', 'name' => 'recipe_categories', 'id' => 'fes_recipe_categories', 'description' => __( 'Story categories', 'socialchef' ), 'values' => $recipe_categories_str, 'class' => 'checkboxes' );
-		$this->form_fields[] = (object)array( 'type' => 'div', 'class' => 'f-row', 'is_closing' => true );
+		// $this->form_fields[] = (object)array( 'type' => 'div', 'class' => 'f-row', 'is_closing' => false );
+		// $taxonomies = array( 'recipe_category' );
+		// $args = array( 'hide_empty' => false, 'fields' => 'all' );
+		// $recipe_categories = get_terms($taxonomies, $args);
+		// $recipe_categories_str = '';
+		// foreach ($recipe_categories as $recipe_category) {
+		// 	$recipe_categories_str .= "{$recipe_category->term_id}:{$recipe_category->name},";
+		// }
+		// $recipe_categories_str = rtrim($recipe_categories_str, ',');
+		// $this->form_fields[] = (object)array( 'type' => 'checkbox', 'role' => 'internal', 'name' => 'recipe_categories', 'id' => 'fes_recipe_categories', 'description' => __( 'Story categories', 'socialchef' ), 'values' => $recipe_categories_str, 'class' => 'checkboxes' );
+		// $this->form_fields[] = (object)array( 'type' => 'div', 'class' => 'f-row', 'is_closing' => true );
 		// end row
 		
 		wp_reset_postdata();
@@ -1201,46 +1204,8 @@ window.adminAjaxUrl = '<?php echo home_url() . "/wp-admin/admin-ajax.php"; ?>';
 		<canvas id="gameCanvas" width="640" height="450"></canvas>
 		<canvas id="snapShotCanvas" style="display:none;" width="450" height="450"></canvas>		
 	</div>	
-	<section>
-		<?php
-			$current_recipe_status = '';
-			if ($this->entry != null) {
-				$current_recipe_status = $this->entry->post_status;
-			}
-		?>
-		<h2><?php _e('Status', 'socialchef'); ?> <span><?php _e('(would you like to further edit this story or are you ready to publish it?)', 'socialchef'); ?></span></h2>
-		<?php if (!$this->_is_public()) { ?>
-		<p><?php _e('The administrator of this website has opted to review submissions before publishing. After you hit submit, your story will be published as soon as the administrator has reviewed it.', 'socialchef'); ?></p>
-		<?php } ?>
-		<div class="f-row full">
-			<input type="radio" <?php echo ($current_recipe_status == 'private' ? 'checked="checked"' : ''); ?> id="recipe_private" name="recipe_status" value="private" />
-			<label for="recipe_private"><?php _e('I am still working on it', 'socialchef'); ?></label>
-		</div>
-		<div class="f-row full">
-			<?php if ($this->_is_public()) { ?>
-			<input type="radio" <?php echo ($current_recipe_status == 'publish' ? 'checked="checked"' : ''); ?> id="recipe_public" name="recipe_status" value="publish" />
-			<label for="recipe_public"><?php _e('I am ready to publish this story', 'socialchef'); ?></label>
-			<?php } else { ?>
-			<input type="radio" <?php echo ($current_recipe_status == 'publish' ? 'checked="checked"' : ''); ?> id="recipe_public" name="recipe_status" value="private" />
-			<label for="recipe_public"><?php _e('I am ready to publish this story', 'socialchef'); ?></label>
-			<?php } ?>
-		</div>
-	</section>
-	<section>
-		<h2><?php _e('Description', 'socialchef'); ?></h2>
-		<div class="f-row">
-			<div class="full">
-				<?php
-				$atts = array( 'role' => 'content', 'name' => 'post_content', 'id' => 'fes_post_content', 'class' => '', 'description' =>  __( 'Description', 'socialchef' ), 'wysiwyg_enabled' => true );
-				echo $this->_render_textarea($atts);
-				?>
-			</div>
-		</div>
-	</section>	
 	<div class="f-row full">
 		<?php
-		$atts = array( 'type' => 'submit', 'role' => 'internal', 'name' => 'submitRecipe', 'id' => 'submit_recipe', 'class' => 'button', 'value' =>  __( 'Save this story', 'socialchef' ) );
-		echo $this->_render_input($atts);
 		if (isset($_GET['fesid'])) {
 		$atts = array( 'type' => 'hidden', 'role' => 'internal', 'name' => 'fesid', 'id' => 'fesid', 'value' => wp_kses($_GET['fesid'], '')  );
 		echo $this->_render_input($atts);

@@ -52,21 +52,17 @@ if ( have_posts() ) while ( have_posts() ) :
 				<h1 itemprop="name" class="entry-title"><?php the_title(); ?></h1>
 			</header>		
 			<!--content-->
-			<section class="content three-fourth">
+			<section class="content">
 				<!--recipe-->
 				<article id="recipe-<?php the_ID(); ?>" class="recipe">
-					<div class="row">
+							<div class="row">
+								<canvas id="gameCanvas" width="640" height="450"></canvas>
+							</div>
+
+					<div class="f-row">
 						<!--one-third-->
 						<div class="one-third entry-header">
 							<dl class="basic">
-<!-- 								<?php if ($recipe_preparation_time) { ?>
-								<dt><?php _e('Preparation time', 'socialchef'); ?></dt>
-								<dd itemprop="prepTime" content="<?php echo $mf_recipe_preparation_time; ?>"><?php echo $recipe_preparation_time; ?> <?php _e('mins', 'socialchef'); ?></dd>
-								<?php } ?> -->
-<!-- 								<?php if ($recipe_cooking_time) { ?>
-								<dt><?php _e('Cooking time', 'socialchef'); ?></dt>
-								<dd itemprop="cookTime" content="<?php echo $mf_recipe_cooking_time; ?>"><?php echo $recipe_cooking_time; ?> <?php _e('mins', 'socialchef'); ?></dd>
-								<?php } ?> -->
 								<?php if ($recipe_difficulty) { 
 									$difficulty_link = get_term_link( $recipe_difficulty->term_id, 'recipe_difficulty' );
 								?>
@@ -107,27 +103,7 @@ if ( have_posts() ) while ( have_posts() ) :
 								<dd  itemprop="datePublished" content="<?php echo get_the_date(); ?>"  class="post-date updated"><?php echo get_the_date(); ?></dd>
 							</dl>
 							
-<!-- 							<?php
-							if (count($ingredient_results) > 0) { ?>
-							<dl class="ingredients">
-								<?php 
-								foreach ($ingredient_results as $ingredient_result) {
-									$ingredient_unit = get_term_by('term_id', $ingredient_result->ingredient_unit_term_id, 'ingredient_unit');
-									$term_id = $ingredient_result->ingredient_unit_term_id;
-									$term_meta = get_option( "taxonomy_$term_id" );
-									$unit_abbreviation = $term_meta['ingredient_unit_abbreviation'];
-									$unit_name = empty($unit_abbreviation) ? $ingredient_unit->name : $unit_abbreviation;
-									
-									$ingredient = get_term_by('term_id', $ingredient_result->ingredient_term_id, 'ingredient');
-									$ingredient_link = get_term_link( (int)$ingredient_result->ingredient_term_id, 'ingredient' );
-
-									echo "<dt>" . SocialChef_Theme_Utils::convert_decimal_to_fraction($ingredient_result->amount) . " $unit_name</dt>";
-									echo "<dd itemprop='ingredients'><a href='" . esc_url( $ingredient_link ) . "'>" . $ingredient->name . "</a></dd>";
-								}
-								?>
-							</dl>
-							<?php } ?>
- -->							<?php if (defined('BP_VERSION')) { ?>
+							<?php if (defined('BP_VERSION')) { ?>
 							<?php if ( is_user_logged_in() ) { ?>
 							<div class="favorite">
 								<?php 
@@ -149,33 +125,9 @@ if ( have_posts() ) while ( have_posts() ) :
 								<a class="" onclick="window.print();" href="#"><i class="ico eldorado_print"></i> <span><?php _e('Print story', 'socialchef'); ?></span></a>
 							</div>							
  -->						</div><!--// one-third -->
+ 					</div><!--//row-->
 						<!--two-third-->
-						<div class="two-third">
-							<div id="results">
-								<canvas id="gameCanvas" width="640" height="450"></canvas>
-							</div>
-							<?php if (strlen($post->post_content) > 0) { ?>
-							<div class="intro" itemprop="description">
-								<?php the_content(); ?>
-							</div>
-							<?php } ?>
-<!-- 							<?php if (count($recipe_instructions) > 0) { ?>
-							<div class="instructions" itemprop="recipeInstructions">
-								<ol>
-								<?php
-								$instructions_array = unserialize($recipe_instructions);
-								for ( $i = 0; $i < count($instructions_array); $i++ ) { 
-									$instruction = $instructions_array[$i]['instruction'];
-									echo '<li>';
-									echo $instruction;
-									echo '</li>';
-								}?>
-								</ol>
-							</div>
-							<?php } ?>
- -->						</div>
 						<!--//two-third-->
-					</div><!--//row-->
 				</article><!--//recipe-->
 				<?php comments_template( '', true ); ?>		
 				<!--//recipe entry-->
