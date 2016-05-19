@@ -50,8 +50,7 @@ var EditStoryScene = cc.Scene.extend({
         chimple.customCharacters.cIcon = "fav_character_onclick.png";
         chimple.customCharacters.icon = "fav_character.png";
         chimple.customCharacters.items = []; 
-        chimple.customCharacters.name = "favCharacters";
-        chimple.initalCharacterCategories = chimple.storyConfigurationObject.addObjects[1].categories.length;        
+        chimple.customCharacters.name = "favCharacters";                
         if (chimple.LAYER_EDIT_STORY === false) {
             chimple.LAYER_EDIT_STORY = true;
             cc.log('initing layer...should only be once');

@@ -82,7 +82,7 @@ var HelloWorldScene = cc.Scene.extend({
         if (chimple.LAYER_INIT === false) {
             chimple.LAYER_INIT = true;
 
-            cc.log('initing layer...should only be once');
+            cc.log('initing layer...should only be once');            
             //read storyId from document, if not null then load json and store in localStorage
             var storyId = this.retrieveStoryId();
             if (storyId) {
@@ -156,6 +156,10 @@ var HelloWorldScene = cc.Scene.extend({
 
                         chimple.ParseUtil.changeSize(cc.loader.cache[res.animalskeleton_json], null, chimple.designScaleFactor);
                         cc.loader.cache[res.animalskeleton_json].ChimpleCompressed = true;
+                        
+                        chimple.ParseUtil.changeSize(cc.loader.cache[res.birdskeleton_json], null, chimple.designScaleFactor);
+                        cc.loader.cache[res.birdskeleton_json].ChimpleCompressed = true;
+                        
 
 
                         data.items.forEach(function (element) {

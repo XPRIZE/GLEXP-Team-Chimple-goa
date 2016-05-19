@@ -53,4 +53,5 @@ cc.loader.loadJson(misc.OnlyStoryPlayConfig_json, function (error, data) {
 
 cc.loader.loadJson(misc.Config_json, function (error, data) {
     chimple.storyConfigurationObject = data;
+    chimple.initalCharacterCategories = chimple.storyConfigurationObject.addObjects[1].categories.length;
 });
