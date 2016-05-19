@@ -37,10 +37,17 @@ var HelloWorldLayer = cc.Layer.extend({
         var displayPages = [];
         if (chimple.story != null && chimple.story.items != null && chimple.story.items.length > 0) {
             displayPages = chimple.story['items'];
+        } else {
+            this._help = new cc.Sprite('#icons/help_click_new_page.png');
+            this._help.setPosition(cc.p(130,cc.director.getWinSize().height - this._tabHeight-50));
+            this._help.setAnchorPoint(0, 1);
+            this.addChild(this._help, 1);
+
         }
 
-        this._panel = new chimple.ScrollableButtonPanel(cc.p(0, 0), cc.size(cc.director.getWinSize().width, cc.director.getWinSize().height - this._tabHeight), 2, 2, displayPages, this.loadExistingPage, this);
+        this._panel = new chimple.ScrollableButtonPanel(cc.p(0, 0), cc.size(cc.director.getWinSize().width, cc.director.getWinSize().height - this._tabHeight), 4, 4, displayPages, this.loadExistingPage, this);
         this.addChild(this._panel);
+
     },
 
     handleSelectItem: function (sender) {

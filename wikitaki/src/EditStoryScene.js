@@ -65,8 +65,8 @@ var EditStoryScene = cc.Scene.extend({
 
     createStoryPage: function () {
         var newPage = {};
-        newPage.cIcon = "/res/mouth_2_onclick.png";
-        newPage.icon = "/res/story_page_1.png";
+        newPage.cIcon = "icons/page.png";
+        newPage.icon = "icons/page.png";
         newPage.scene = {};
         
         chimple.story.items.push(newPage);
