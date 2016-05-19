@@ -75,14 +75,14 @@ chimple.CharacterUtil.loadSkeletonConfig = function (skeleton, selectedConfigura
             skeleton._skeletonConfig = data;
             skeleton._currentAnimationName = data.animations[0].name;
             if (selectedConfiguration != null) {
-                chimple.CharacterUtil.applySkinNameMap(skeleton, selectedConfiguration);
+                
                 if (selectedConfiguration.colorSkins != null) {
                     selectedConfiguration.colorSkins.forEach(function (colorSkin) {
                         chimple.CharacterUtil.colorSkins(skeleton, colorSkin);
 
                     })
                 }
-
+                chimple.CharacterUtil.applySkinNameMap(skeleton, selectedConfiguration);
             } else {
                 if (skeleton._userData && skeleton._userData.colorSkins) {
                     skeleton._userData.colorSkins.forEach(function (colorSkin) {
@@ -123,7 +123,7 @@ chimple.CharacterUtil.applySkinNameMap = function (skeleton, configuration) {
     chimple.ParseUtil.updateUserData(skeleton._actionTag, 'visibleSkins', chimple.CharacterUtil.getVisibleSkins(skeleton));
 
 
-    if (!configuration.favoriteSkins) {
+    if (!configuration.favoriteSkins && configuration.type && configuration.type == 'character') {
         chimple.CharacterUtil.addCharacterToFavorites(skeleton, configuration);
     }
 

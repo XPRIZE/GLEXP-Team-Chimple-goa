@@ -46,11 +46,6 @@ var EditStoryScene = cc.Scene.extend({
     ctor: function () {
         this._super();
         //creating custom characters cache
-        chimple.customCharacters = {};
-        chimple.customCharacters.cIcon = "fav_character_onclick.png";
-        chimple.customCharacters.icon = "fav_character.png";
-        chimple.customCharacters.items = []; 
-        chimple.customCharacters.name = "favCharacters";                
         if (chimple.LAYER_EDIT_STORY === false) {
             chimple.LAYER_EDIT_STORY = true;
             cc.log('initing layer...should only be once');
