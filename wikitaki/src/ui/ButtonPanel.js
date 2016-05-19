@@ -90,6 +90,7 @@ chimple.ButtonHandler = cc.Class.extend({
                 if (this._isMenu) {
                     if (this._currentSelectedItem != null && this._currentSelectedItem != sender) {
                         this._currentSelectedItem.setHighlighted(false);
+                        this._currentSelectedItem.setEnabled(true);
                     }
                 }
                 break;
@@ -103,6 +104,7 @@ chimple.ButtonHandler = cc.Class.extend({
         if (this._isMenu) {
             this._currentSelectedItem = sender;
             sender.setHighlighted(true);
+            sender.setEnabled(false);
         } else {
             if (sender._configuration.toggle) {
                 if (sender._isToggled) {

@@ -47,7 +47,7 @@ var HelloWorldLayer = cc.Layer.extend({
         //create new Scene
         //find last page index   
         cc.log('name of button:' + sender.getName());
-        if (sender.getName() == 'icons/add.png') {
+        if (sender.getName() == 'icons/plus.png') {
             chimple.pageIndex = chimple.story.items.length; //new story
             chimple.isNewPage = true;
             cc.director.runScene(new EditStoryScene());

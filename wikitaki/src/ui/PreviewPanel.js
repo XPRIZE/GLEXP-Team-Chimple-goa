@@ -1,6 +1,6 @@
 chimple.PreviewPanel = cc.LayerColor.extend({
     ctor: function (width, height, position, target, configuration, callback, callbackContext, isTab, contentPanel) {
-        this._super(cc.color.BLUE, width, height);
+        this._super(chimple.TERTIARY_COLOR, width, height);
         var backButton = new ccui.Button('icons/back.png', 'icons/back_onclick.png', false, ccui.Widget.PLIST_TEXTURE);
         backButton.setPosition(128, height - 128);
         backButton.addTouchEventListener(this.goBack, this);
@@ -22,9 +22,9 @@ chimple.PreviewPanel = cc.LayerColor.extend({
         this.bindTouchListener(this);
         if (isTab) {
             //            this.addChild(new chimple.TabPanel(cc.p(width / 3, 0), cc.size(width * 2 / 3, height), 2, 2, configuration, callback, callbackContext));
-            this.addChild(new chimple.TabPanel(cc.p(0, 0), cc.size(width * 2 / 3, height), 2, 2, configuration, callback, callbackContext, this));
+            this.addChild(new chimple.TabPanel(cc.p(0, 0), cc.size(width * 2 / 3, height), 3, 4, configuration, callback, callbackContext, this));
         } else {
-            this._scrolPanel = new chimple.ScrollableButtonPanel(cc.p(0, 0), cc.size(width * 2 / 3, height), 2, 2, configuration, callback, callbackContext);
+            this._scrolPanel = new chimple.ScrollableButtonPanel(cc.p(0, 0), cc.size(width * 2 / 3, height), 3, 4, configuration, callback, callbackContext);
             this.addChild(this._scrolPanel);
 
             this.main_backButton = new ccui.Button("icons/back.png", "icons/back_onclick.png", null, ccui.Widget.PLIST_TEXTURE);

@@ -47,8 +47,8 @@ var EditStoryScene = cc.Scene.extend({
         this._super();
         //creating custom characters cache
         chimple.customCharacters = {};
-        chimple.customCharacters.cIcon = "shirt_onclick.png";
-        chimple.customCharacters.icon = "shirt.png";
+        chimple.customCharacters.cIcon = "fav_character_onclick.png";
+        chimple.customCharacters.icon = "fav_character.png";
         chimple.customCharacters.items = []; 
         chimple.customCharacters.name = "favCharacters";
         chimple.initalCharacterCategories = chimple.storyConfigurationObject.addObjects[1].categories.length;        
