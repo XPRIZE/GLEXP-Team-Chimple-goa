@@ -131,7 +131,12 @@ chimple.CharacterUtil.applySkinNameMap = function (skeleton, configuration) {
 
 chimple.CharacterUtil.addCharacterToFavorites = function (skeleton, configuration) {
     //check if configuration is already added into favorites
-    var favoriteCharConfiguration = JSON.parse(JSON.stringify(configuration));
+    var favoriteCharConfiguration = null;
+    if(!configuration) {
+        favoriteCharConfiguration = {}   
+    } else {
+        favoriteCharConfiguration = JSON.parse(JSON.stringify(configuration));
+    }    
     favoriteCharConfiguration.type = "character";
     favoriteCharConfiguration.json = '/res/' + skeleton._userData.resourcePath;
     favoriteCharConfiguration.uniqueCharacterID = skeleton._userData.uniqueCharacterID;
@@ -139,6 +144,13 @@ chimple.CharacterUtil.addCharacterToFavorites = function (skeleton, configuratio
     skeleton._userData.visibleSkins.forEach(function (element) {
         favoriteCharConfiguration.favoriteSkins.push(element);
     }, this);
+    if(!favoriteCharConfiguration.colorSkins) {
+        favoriteCharConfiguration.colorSkins = [];
+    }
+        
+    skeleton._userData.colorSkins.forEach(function (element) {
+        favoriteCharConfiguration.colorSkins.push(element);
+    }, this);        
 
     chimple.customCharacters.items.push(favoriteCharConfiguration);
     chimple.CharacterUtil.addToCharacterConfigs(chimple.customCharacters);

@@ -80,11 +80,7 @@ chimple.ContentPanel = chimple.AbstractContentPanel.extend({
                 if (element._userData && element._userData.currentAnimationName) {
                     element._currentAnimationName = element._userData.currentAnimationName;
                 }
-                var configuration = {};
-                configuration.type = "character";
-                configuration.icon = '/res/' + element._userData.uniqueCharacterID + '.png';
-                configuration.colorSkins = element._userData.colorSkins;                
-                chimple.CharacterUtil.addCharacterToFavorites(element, configuration);                
+                chimple.CharacterUtil.addCharacterToFavorites(element);                
             }
         }, this);
 
