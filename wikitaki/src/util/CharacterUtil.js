@@ -141,16 +141,20 @@ chimple.CharacterUtil.addCharacterToFavorites = function (skeleton, configuratio
     favoriteCharConfiguration.json = '/res/' + skeleton._userData.resourcePath;
     favoriteCharConfiguration.uniqueCharacterID = skeleton._userData.uniqueCharacterID;
     favoriteCharConfiguration.favoriteSkins = [];
-    skeleton._userData.visibleSkins.forEach(function (element) {
-        favoriteCharConfiguration.favoriteSkins.push(element);
-    }, this);
+    if(skeleton._userData.visibleSkins) {
+         skeleton._userData.visibleSkins.forEach(function (element) {
+            favoriteCharConfiguration.favoriteSkins.push(element);
+        }, this);        
+    }
     if(!favoriteCharConfiguration.colorSkins) {
         favoriteCharConfiguration.colorSkins = [];
     }
-        
-    skeleton._userData.colorSkins.forEach(function (element) {
-        favoriteCharConfiguration.colorSkins.push(element);
-    }, this);        
+    
+    if(skeleton._userData.colorSkins) {
+        skeleton._userData.colorSkins.forEach(function (element) {
+            favoriteCharConfiguration.colorSkins.push(element);
+        }, this);                
+    }    
 
     chimple.customCharacters.items.push(favoriteCharConfiguration);
     chimple.CharacterUtil.addToCharacterConfigs(chimple.customCharacters);
