@@ -467,7 +467,7 @@ chimple.ParseUtil.cacheThumbnailForFavorites = function (skeleton) {
     renderer.scaleY = -1;
     skeleton._renderCmd._dirtyFlag = 1;
     var sprite = renderer.getSprite();
-    var cacheName = '/res/' + skeleton.uniqueCharacterID + '.png';
+    var cacheName = '/res/' + skeleton._userData.uniqueCharacterID + '.png';
     cc.textureCache.cacheImage(cacheName, sprite.texture);
     renderer.cleanup();
 }
