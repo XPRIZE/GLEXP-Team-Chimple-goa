@@ -1366,6 +1366,11 @@
       ]
     },
     {
+      "name": "check",
+      "cIcon": "icons/check_disabled.png",
+      "icon": "icons/check.png"
+    },
+    {
       "name": "text_done",
       "icon": "icons/text_disabled.png"
     },
@@ -1376,12 +1381,7 @@
     {
       "name": "play",
       "icon": "icons/play_disabled.png"
-    },
-    {
-      "name": "check",
-      "cIcon": "icons/check_disabled.png",
-      "icon": "icons/check.png"
-    }  
+    }
   ],
   "addText": [
     {
@@ -1394,18 +1394,18 @@
       "icon": "icons/text.png"
     },
     {
+      "name": "check",
+      "cIcon": "icons/check_onclick.png",
+      "icon": "icons/check.png"
+    },
+    {
       "name": "record",
       "icon": "icons/record_disabled.png"
     },
     {
       "name": "play",
       "icon": "icons/play_disabled.png"
-    },
-    {
-      "name": "check",
-      "cIcon": "icons/check_onclick.png",
-      "icon": "icons/check.png"
-    } 
+    }
   ],
   "addRecording": [
     {
