@@ -22,7 +22,7 @@ chimple.ContentPanel = chimple.AbstractContentPanel.extend({
             this.addChild(this._constructedScene);
 
             this._help = new cc.Sprite('#icons/help_click_add_bg.png');
-            this._help.setPosition(cc.p(0,cc.director.getWinSize().height - 70));
+            this._help.setPosition(cc.p(0,cc.director.getWinSize().height));
             this._help.setAnchorPoint(0, 1);
             this.addChild(this._help, 1);
 
