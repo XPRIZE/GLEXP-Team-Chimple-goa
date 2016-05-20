@@ -77,7 +77,7 @@ chimple.PageConfigPanel = cc.LayerColor.extend({
     },
 
     constructTabBar: function (configuration) {
-        this._tabBar = new chimple.TabPanel(cc.p(0, 0), cc.director.getWinSize(), 4, 3, configuration, this.itemSelectedInConfiguration, this);
+        this._tabBar = new chimple.TabPanel(cc.p(0, 0), cc.director.getWinSize(), 5, 3, configuration, this.itemSelectedInConfiguration, this);
         this.parent.addChild(this._tabBar, 1);
     },
 
@@ -179,7 +179,7 @@ chimple.PageConfigPanel = cc.LayerColor.extend({
         if (this._contentPanel._isRecordingStarted) {
             this._contentPanel._recordingCounter++;
             var buttonKey = 'timer/' + this._contentPanel._recordingCounter + '.png';
-            this._buttonPanel.getButtonByName("icons/record.png").loadTextures(buttonKey, "icons/record.png", null, ccui.Widget.PLIST_TEXTURE);
+            this._buttonPanel.getButtonByName("icons/start_recording.png").loadTextures(buttonKey, "icons/start_recording.png", null, ccui.Widget.PLIST_TEXTURE);
         }
 
         if (this._contentPanel._recordingCounter == chimple.RECORDING_TIME + 1) {
@@ -202,7 +202,7 @@ chimple.PageConfigPanel = cc.LayerColor.extend({
             this._buttonPanel.enableButton("back", false);
             this._buttonPanel.enableButton("texts", false);
             var buttonKey = 'timer/' + this._contentPanel._recordingCounter + '.png';
-            this._buttonPanel.getButtonByName("icons/record.png").loadTextures(buttonKey, "icons/record.png", null, ccui.Widget.PLIST_TEXTURE);
+            this._buttonPanel.getButtonByName("icons/start_recording.png").loadTextures(buttonKey, "icons/start_recording.png", null, ccui.Widget.PLIST_TEXTURE);
         }
 
         this._contentPanel.startRecording(); //toggle Recording
@@ -222,7 +222,7 @@ chimple.PageConfigPanel = cc.LayerColor.extend({
             this._buttonPanel.enableButton("addToScene", true);
             this._buttonPanel.enableButton("back", true);
             this._buttonPanel.enableButton("texts", true);
-            this._buttonPanel.getButtonByName("icons/record.png").loadTextures("icons/record.png", null, null, ccui.Widget.PLIST_TEXTURE);
+            this._buttonPanel.getButtonByName("icons/start_recording.png").loadTextures("icons/start_recording.png", null, null, ccui.Widget.PLIST_TEXTURE);
         } else {
             this._buttonPanel.enableButton("startRecording", false);
             this._buttonPanel.enableButton("play", false);

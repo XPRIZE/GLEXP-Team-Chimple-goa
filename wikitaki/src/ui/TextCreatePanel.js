@@ -1,7 +1,7 @@
 var chimple = chimple || {};
 chimple.TextCreatePanel = cc.LayerColor.extend({
     ctor: function (width, height, position, existingText, callback, callbackContext) {
-        this._super(cc.color.GRAY, width, height);
+        this._super(chimple.SECONDARY_COLOR, width, height);
         var backButton = new ccui.Button('icons/back.png', 'icons/back_onclick.png', null, ccui.Widget.PLIST_TEXTURE);
         backButton.setPosition(20, height - 20);
         backButton.addTouchEventListener(this.goBack, this);

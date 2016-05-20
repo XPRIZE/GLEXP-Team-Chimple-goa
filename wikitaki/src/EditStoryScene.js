@@ -46,12 +46,6 @@ var EditStoryScene = cc.Scene.extend({
     ctor: function () {
         this._super();
         //creating custom characters cache
-        chimple.customCharacters = {};
-        chimple.customCharacters.cIcon = "fav_character_onclick.png";
-        chimple.customCharacters.icon = "fav_character.png";
-        chimple.customCharacters.items = []; 
-        chimple.customCharacters.name = "favCharacters";
-        chimple.initalCharacterCategories = chimple.storyConfigurationObject.addObjects[1].categories.length;        
         if (chimple.LAYER_EDIT_STORY === false) {
             chimple.LAYER_EDIT_STORY = true;
             cc.log('initing layer...should only be once');
@@ -65,8 +59,8 @@ var EditStoryScene = cc.Scene.extend({
 
     createStoryPage: function () {
         var newPage = {};
-        newPage.cIcon = "/res/mouth_2_onclick.png";
-        newPage.icon = "/res/story_page_1.png";
+        newPage.cIcon = "icons/page.png";
+        newPage.icon = "icons/page.png";
         newPage.scene = {};
         
         chimple.story.items.push(newPage);
