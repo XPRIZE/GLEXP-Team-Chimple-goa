@@ -1318,22 +1318,22 @@
     },
     {
       "name": "texts",
-      "cIcon": "icons/text_onclick.png",
+      "cIcon": "icons/text_disabled.png",
       "icon": "icons/text.png"
     },
     {
       "name": "play",
-      "cIcon": "icons/play_onclick.png",
+      "cIcon": "icons/play_disabled.png",
       "icon": "icons/play.png"
     },    
     {
       "name": "startRecording",
-      "cIcon": "icons/start_recording_onclick.png",
+      "cIcon": "icons/record_disabled.png",
       "icon": "icons/start_recording.png",
       "toggle": true
     }
   ],
-  "editCharacter": [
+  "Human_Skeleton": [
     {
       "name": "translate",      
       "cIcon": "icons/move_onclick.png",
@@ -1355,14 +1355,63 @@
       "icon": "icons/delete.png"
     },
     {
-      "name": "my_avatar",      
-      "cIcon": "icons/my_avatar_onclick.png",
-      "icon": "icons/my_avatar.png"
+      "name": "customize",      
+      "cIcon": "icons/avatar_onclick.png",
+      "icon": "icons/avatar.png"
     },
     {
       "name": "animation",      
       "cIcon": "icons/animation_onclick.png",
       "icon": "icons/animation.png"
+    }
+  ],
+  "animalskeleton": [
+    {
+      "name": "translate",      
+      "cIcon": "icons/move_onclick.png",
+      "icon": "icons/move.png"
+    },
+    {
+      "name": "rotateScale",      
+      "cIcon": "icons/rotate_onclick.png",
+      "icon": "icons/rotate.png"
+    },
+    {
+      "name": "flipX",      
+      "cIcon": "icons/flipX_onclick.png",
+      "icon": "icons/flipX.png"
+    },
+    {
+      "name": "delete",      
+      "cIcon": "icons/delete_onclick.png",
+      "icon": "icons/delete.png"
+    },
+    {
+      "name": "animation",      
+      "cIcon": "icons/animation_onclick.png",
+      "icon": "icons/animation.png"
+    }
+  ],
+  "birdskeleton": [
+    {
+      "name": "translate",      
+      "cIcon": "icons/move_onclick.png",
+      "icon": "icons/move.png"
+    },
+    {
+      "name": "rotateScale",      
+      "cIcon": "icons/rotate_onclick.png",
+      "icon": "icons/rotate.png"
+    },
+    {
+      "name": "flipX",      
+      "cIcon": "icons/flipX_onclick.png",
+      "icon": "icons/flipX.png"
+    },
+    {
+      "name": "delete",      
+      "cIcon": "icons/delete_onclick.png",
+      "icon": "icons/delete.png"
     }
   ],
   "editObject": [
@@ -1416,8 +1465,8 @@
     },
     {
       "name": "save",      
-      "cIcon": "icons/save_goback_onclick.png",
-      "icon": "icons/save_goback.png"
+      "cIcon": "icons/publish_onclick.png",
+      "icon": "icons/publish.png"
     }    
   ],
   "blank": [

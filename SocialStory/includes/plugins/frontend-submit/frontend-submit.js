@@ -119,7 +119,7 @@
 				if ($('#fes-upload-form-recipe').valid()) {
 					$('.recipe_saving').show();
 					submit_recipe.injectStoryAttributes();
-					form.submit();
+					document["fes-upload-form-recipe"].submit();
 				}
 
 				e.preventDefault();

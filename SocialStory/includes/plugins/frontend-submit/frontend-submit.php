@@ -94,6 +94,9 @@ class Frontend_Submit {
 		//upload canvas base64 data
 		// baseFromJavascript will be the javascript base64 string retrieved of some way (async or post submited)
 		$baseFromJavascript = $_POST['gameCanvasImage']; //your data in base64 'data:image/png....';
+		if($baseFromJavascript == null || $baseFromJavascript == '') {
+			return;
+		}
 		// We need to remove the "data:image/png;base64,"
 		$base_to_php = explode(',', $baseFromJavascript);
 		// the 2nd item in the base_to_php array contains the content of the image
