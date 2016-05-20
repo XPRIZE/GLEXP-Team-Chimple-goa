@@ -53,7 +53,7 @@ cc.loader.loadJson(misc.OnlyStoryPlayConfig_json, function (error, data) {
 
 cc.loader.loadJson(misc.Config_json, function (error, data) {
     chimple.storyConfigurationObject = data;
-    chimple.initalCharacterCategories = chimple.storyConfigurationObject.addObjects[1].categories.length;
+    chimple.initalCharacterCategories = chimple.storyConfigurationObject.addObjects[0].categories.length;
     chimple.customCharacters = {};
     chimple.customCharacters.cIcon = "icons/fav_character_onclick.png";
     chimple.customCharacters.icon = "icons/fav_character.png";
