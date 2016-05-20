@@ -23,24 +23,24 @@ chimple.PageConfigPanel = cc.LayerColor.extend({
         } else if (selectedItem.getName() === "icons/play.png") {
             this._contentPanel.playSceneInEditMode();
         } else if (selectedItem.getName() === "icons/save_goback.png") {
-            this._contentPanel.backPressed();            
+            this._contentPanel.backPressed();
         } else if (selectedItem.getName() === "icons/plus.png") {
-            var selectedConfig = this._configuration.addObjects[selectedItem._selectedIndex];                
+            var selectedConfig = this._configuration.addObjects[selectedItem._selectedIndex];
             if (chimple.story.items[chimple.pageIndex].scene.Content == null) {
-                selectedConfig.categories.forEach(function(element, index) {
-                    if(element.name == "backgrounds") {
-                        this.constructTabBar([selectedConfig.categories[index]]);        
+                selectedConfig.categories.forEach(function (element, index) {
+                    if (element.name == "backgrounds") {
+                        this.constructTabBar([selectedConfig.categories[index]]);
                     }
                 }, this);
             } else {
                 this.constructTabBar(selectedConfig.categories);
             }
         } else if (selectedItem.getName() === "icons/check.png") {
-            if(this._currentStep == "addObjects") {
+            if (this._currentStep == "addObjects") {
                 this._currentStep = "addText";
-            } else if(this._currentStep == "addText") {
+            } else if (this._currentStep == "addText") {
                 this._currentStep = "addRecording";
-            } else if(this._currentStep == "addRecording") {
+            } else if (this._currentStep == "addRecording") {
                 this._contentPanel.backPressed();
             }
             this.removeChild(this._buttonPanel, true);
@@ -82,31 +82,37 @@ chimple.PageConfigPanel = cc.LayerColor.extend({
 
     createRecordingAnimation: function (selectedItem) {
         cc.log('start recording animation');
-        selectedItem.loadTextures("icons/start_recording_onclick.png", null, null, ccui.Widget.PLIST_TEXTURE);
+        if (!this._clickRecordAniamation) {
+            selectedItem.loadTextures("icons/start_recording_onclick.png", null, null, ccui.Widget.PLIST_TEXTURE);
 
-        this._preRecordAnimationSprite = new cc.Sprite('#record_time/3.png');
-        this._contentPanel.addChild(this._preRecordAnimationSprite, 0);
-        this._preRecordAnimationSprite.setPosition(this._contentPanel.width / 2, this._contentPanel.height / 2);
+            this._preRecordAnimationSprite = new cc.Sprite('#record_time/3.png');
+            this._contentPanel.addChild(this._preRecordAnimationSprite, 0);
+            this._preRecordAnimationSprite.setPosition(this._contentPanel.width / 2, this._contentPanel.height / 2);
 
-        var spriteFrames = [];
+            var spriteFrames = [];
 
-        //create animations
-        for (var i = 3; i >= 1; i--) {
-            var frame = cc.spriteFrameCache.getSpriteFrame('record_time/' + i + '.png');
-            spriteFrames.push(frame);
+            //create animations
+            for (var i = 3; i >= 1; i--) {
+                var frame = cc.spriteFrameCache.getSpriteFrame('record_time/' + i + '.png');
+                spriteFrames.push(frame);
+            }
+
+            var animation = new cc.Animation(spriteFrames, 0.5);
+            var animAction = cc.animate(animation);
+            //var delayAction = new cc.delayTime(0.5);
+            var finishRecordingAnimAction = new cc.CallFunc(this.finishRecordingAnimation, this);
+            var preRecordSequence = new cc.sequence(animAction, finishRecordingAnimAction);
+            this._preRecordAnimationSprite.runAction(preRecordSequence);
+            this._clickRecordAniamation = true;
         }
 
-        var animation = new cc.Animation(spriteFrames, 0.5);
-        var animAction = cc.animate(animation);
-        //var delayAction = new cc.delayTime(0.5);
-        var finishRecordingAnimAction = new cc.CallFunc(this.finishRecordingAnimation, this);
-        var preRecordSequence = new cc.sequence(animAction, finishRecordingAnimAction);
-        this._preRecordAnimationSprite.runAction(preRecordSequence);
+        
     },
 
     finishRecordingAnimation: function () {
         this._preRecordAnimationSprite.removeFromParent(true);
         this._preRecordAnimationSprite = null;
+        this._clickRecordAniamation = false;
         this.updateUIBeforeRecording();
     },
 
@@ -246,7 +252,7 @@ chimple.PageConfigPanel = cc.LayerColor.extend({
             this.unschedule(this.trackRecording);
             this.updateUIWhenForRecording();
         }
-        
+
     },
 
     updateUIWhenForRecording: function () {
