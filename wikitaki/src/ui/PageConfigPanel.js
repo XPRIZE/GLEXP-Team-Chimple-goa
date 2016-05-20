@@ -113,17 +113,17 @@ chimple.PageConfigPanel = cc.LayerColor.extend({
         if (cc.sys.isNative) {
             cc.log(fileToLoad);
             var dynamicResources = [fileToLoad];
-            cc.LoaderScene.preload(dynamicResources, function () {
+            Preloader.preload(dynamicResources, function () {
                 chimple.ParseUtil.changeSize(cc.loader.cache[fileToLoad], null, chimple.designScaleFactor);
                 cc.loader.cache[fileToLoad].ChimpleCompressed = true;
 
                 doPostLoadingProcessFunction.call(context, args, shouldSaveScene);
             }, this);
         } else {
-            cc.director.pushScene(new cc.LoaderScene()); //TODO dummy right now later fix this
+            cc.director.pushScene(new Preloader()); //TODO dummy right now later fix this
             cc.log(fileToLoad);
             var dynamicResources = [fileToLoad];
-            cc.LoaderScene.preload(dynamicResources, function () {
+            Preloader.preload(dynamicResources, function () {
                 cc.director.popScene();
                 if (fileToLoad && fileToLoad.indexOf(".png") == -1) {
                     chimple.ParseUtil.changeSize(cc.loader.cache[fileToLoad], null, chimple.designScaleFactor);
