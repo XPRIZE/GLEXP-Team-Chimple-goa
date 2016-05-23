@@ -10,8 +10,9 @@ chimple.TextCreatePanel = cc.LayerColor.extend({
         this._callbackContext = callbackContext;
         
         
-        this._textField = new ccui.WebView();        
-        this._textField.loadURL("/textView.html?height=" + height+'&contents='+chimple.story.items[chimple.pageIndex].sceneText);
+        this._textField = new ccui.WebView();
+        localStorage.setItem('scene_text_contents', chimple.story.items[chimple.pageIndex].sceneText);
+        this._textField.loadURL("/textView.html?height=" + height);
         this._textField.setPosition(cc.director.getWinSize().width / 2, cc.director.getWinSize().height / 2);
         this._textField.setContentSize(cc.size(cc.director.getWinSize().width * 0.8, cc.director.getWinSize().height * 0.8));
         this._textField.setScalesPageToFit(true);

@@ -207,7 +207,7 @@ var PlayFullStoryLayer = cc.Layer.extend({
         this.renderPreviousButton();
         this._playButton.setVisible(true);
         window.PLAYING_STORY_FIRST_TIME = false;
-
+        localStorage.removeItem("scene_display_text_contents");
     },
 
 
@@ -231,7 +231,8 @@ var PlayFullStoryLayer = cc.Layer.extend({
     createWebView: function () {
         if (chimple.story.items[chimple.pageIndex].sceneText != null && chimple.story.items[chimple.pageIndex].sceneText !== "undefined") {
             this._textField = new ccui.WebView();
-            this._textField.loadURL("/displayText.html?height=" + 450 + '&contents=' + chimple.story.items[chimple.pageIndex].sceneText);
+            localStorage.setItem("scene_display_text_contents", chimple.story.items[chimple.pageIndex].sceneText);
+            this._textField.loadURL("/displayText.html?height=" + 450);
             this._textField.setPosition(64, 0);
             this._textField.setContentSize(cc.size(cc.director.getWinSize().width - 64, cc.director.getWinSize().height));
             this._textField.setScalesPageToFit(true);

@@ -91,8 +91,9 @@
 
 
         $(document).ready(function () {            
-            var height = $.getUrlVar('height');
-            var existingText = $.getUrlVar('contents');
+            var height = $.getUrlVar('height');            
+            var existingText = localStorage.getItem("scene_display_text_contents");
+            
             $('#word').html('<p>' + decodeURI(existingText) + '</p>');
             createSpan('#word');
 
