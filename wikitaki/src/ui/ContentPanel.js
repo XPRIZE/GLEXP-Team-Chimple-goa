@@ -20,6 +20,12 @@ chimple.ContentPanel = chimple.AbstractContentPanel.extend({
             this._constructedScene = new cc.Node();
             this._constructedScene.setName("Scene");
             this.addChild(this._constructedScene);
+
+            this._help = new cc.Sprite('#icons/help_click_add_bg.png');
+            this._help.setPosition(cc.p(0,cc.director.getWinSize().height));
+            this._help.setAnchorPoint(0, 1);
+            this.addChild(this._help, 1);
+
         }
     },
 
@@ -28,6 +34,10 @@ chimple.ContentPanel = chimple.AbstractContentPanel.extend({
     },
 
     doPostLoadingProcessForScene: function (fileToLoad, shouldSaveScene) {
+        if(this._help != null) {
+            this.removeChild(this._help, true);
+            this._help = null;
+        }
         if (this._constructedScene != null) {
             this._constructedScene.removeFromParent(true);
         }
@@ -67,18 +77,20 @@ chimple.ContentPanel = chimple.AbstractContentPanel.extend({
     postProcessForSceneObjects: function (node) {
         node.children.forEach(function (element) {
             if (element.getName().indexOf("Skeleton") != -1 || element.getName().indexOf("skeleton") != -1) {
-                chimple.CharacterUtil.loadSkeletonConfig(element, chimple.customCharacters);
-                if (element._userData && element._userData.visibleSkins) {
-                    chimple.CharacterUtil.displaySkins(element, element._userData.visibleSkins);
-                }
-                
+                chimple.CharacterUtil.loadSkeletonConfig(element);
                 if (element._userData && element._userData.colorSkins) {
                     chimple.CharacterUtil.colorSkins(element, element._userData.colorSkins);
                 }
                 
+                if (element._userData && element._userData.visibleSkins) {
+                    chimple.CharacterUtil.displaySkins(element, element._userData.visibleSkins);
+                }
+                
+                
                 if (element._userData && element._userData.currentAnimationName) {
                     element._currentAnimationName = element._userData.currentAnimationName;
                 }
+                chimple.CharacterUtil.addCharacterToFavorites(element);                
             }
         }, this);
 

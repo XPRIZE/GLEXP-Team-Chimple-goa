@@ -19,12 +19,12 @@ var res = {
     birdskeleton_png: "/res/birdskeleton.png",
     birdskeleton_plist: "/res/birdskeleton.plist",
     birdskeleton_json: "/res/birdskeleton.json",
-    HelloWorld_png : "/res/HelloWorld.png",
+    HelloWorld_png: "/res/HelloWorld.png",
     human_skeleton_json: "/res/human_skeleton.json",
     play_png: "/res/play.png",
     record_animation_png: "/res/recording.png",
     record_animation_plist: "/res/recording.plist",
-    
+
 };
 
 
@@ -32,7 +32,7 @@ var misc = {
     Config_json: defaultMiscFolder + "misc/storyConfig.json",
     EditPlayConfig_json: defaultMiscFolder + "misc/playConfig.json",
     OnlyStoryPlayConfig_json: defaultMiscFolder + "misc/onlyPlayConfig.json",
-    
+
 };
 
 
@@ -53,4 +53,10 @@ cc.loader.loadJson(misc.OnlyStoryPlayConfig_json, function (error, data) {
 
 cc.loader.loadJson(misc.Config_json, function (error, data) {
     chimple.storyConfigurationObject = data;
+    chimple.initalCharacterCategories = chimple.storyConfigurationObject.addObjects[0].categories.length;
+    chimple.customCharacters = {};
+    chimple.customCharacters.cIcon = "icons/fav_character_onclick.png";
+    chimple.customCharacters.icon = "icons/fav_character.png";
+    chimple.customCharacters.items = [];
+    chimple.customCharacters.name = "favCharacters";
 });

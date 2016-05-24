@@ -75,14 +75,14 @@ chimple.CharacterUtil.loadSkeletonConfig = function (skeleton, selectedConfigura
             skeleton._skeletonConfig = data;
             skeleton._currentAnimationName = data.animations[0].name;
             if (selectedConfiguration != null) {
-                chimple.CharacterUtil.applySkinNameMap(skeleton, selectedConfiguration);
+                
                 if (selectedConfiguration.colorSkins != null) {
                     selectedConfiguration.colorSkins.forEach(function (colorSkin) {
                         chimple.CharacterUtil.colorSkins(skeleton, colorSkin);
 
                     })
                 }
-
+                chimple.CharacterUtil.applySkinNameMap(skeleton, selectedConfiguration);
             } else {
                 if (skeleton._userData && skeleton._userData.colorSkins) {
                     skeleton._userData.colorSkins.forEach(function (colorSkin) {
@@ -131,14 +131,30 @@ chimple.CharacterUtil.applySkinNameMap = function (skeleton, configuration) {
 
 chimple.CharacterUtil.addCharacterToFavorites = function (skeleton, configuration) {
     //check if configuration is already added into favorites
-    var favoriteCharConfiguration = JSON.parse(JSON.stringify(configuration));
+    var favoriteCharConfiguration = null;
+    if(!configuration) {
+        favoriteCharConfiguration = {}   
+    } else {
+        favoriteCharConfiguration = JSON.parse(JSON.stringify(configuration));
+    }    
     favoriteCharConfiguration.type = "character";
     favoriteCharConfiguration.json = '/res/' + skeleton._userData.resourcePath;
-    favoriteCharConfiguration.uniqueCharacterID = skeleton.uniqueCharacterID;
+    favoriteCharConfiguration.uniqueCharacterID = skeleton._userData.uniqueCharacterID;
     favoriteCharConfiguration.favoriteSkins = [];
-    skeleton._userData.visibleSkins.forEach(function (element) {
-        favoriteCharConfiguration.favoriteSkins.push(element);
-    }, this);
+    if(skeleton._userData.visibleSkins) {
+         skeleton._userData.visibleSkins.forEach(function (element) {
+            favoriteCharConfiguration.favoriteSkins.push(element);
+        }, this);        
+    }
+    if(!favoriteCharConfiguration.colorSkins) {
+        favoriteCharConfiguration.colorSkins = [];
+    }
+    
+    if(skeleton._userData.colorSkins) {
+        skeleton._userData.colorSkins.forEach(function (element) {
+            favoriteCharConfiguration.colorSkins.push(element);
+        }, this);                
+    }    
 
     chimple.customCharacters.items.push(favoriteCharConfiguration);
     chimple.CharacterUtil.addToCharacterConfigs(chimple.customCharacters);
@@ -146,7 +162,7 @@ chimple.CharacterUtil.addCharacterToFavorites = function (skeleton, configuratio
 }
 
 chimple.CharacterUtil.addToCharacterConfigs = function (characterConfig) {
-    var characterCategories = chimple.storyConfigurationObject.addObjects[1].categories;
+    var characterCategories = chimple.storyConfigurationObject.addObjects[0].categories;
     //add to chimple.customCharacters.items
 
     if (characterCategories.length === chimple.initalCharacterCategories) {

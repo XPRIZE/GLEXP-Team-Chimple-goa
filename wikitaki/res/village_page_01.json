@@ -1,0 +1,533 @@
+{
+  "ID": "a2ee0952-26b5-49ae-8bf9-4f1d6279b798",
+  "Version": "3.10.0.0",
+  "Name": "MainScene",
+  "Content": {
+    "Content": {
+      "Animation": {
+        "Duration": 0,
+        "Speed": 1.0,
+        "Timelines": [],
+        "ctype": "TimelineActionData"
+      },
+      "AnimationList": [],
+      "ObjectData": {
+        "Children": [
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "bg/village_background.png",
+              "Plist": ""
+            },
+            "BlendFunc": {
+              "Src": 770,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 900.1751,
+              "Y": 898.4348
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.5001,
+              "Y": 0.4991
+            },
+            "PreSize": {
+              "X": 1.0,
+              "Y": 1.0
+            },
+            "LeftMargin": 0.1751,
+            "RightMargin": -0.175,
+            "TopMargin": 1.5652,
+            "BottomMargin": -1.5652,
+            "Tag": 3,
+            "ActionTag": 1327414997,
+            "Size": {
+              "X": 1800.0,
+              "Y": 1800.0
+            },
+            "Name": "background",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "ob/hill/village_grass_hill_02.png",
+              "Plist": ""
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 550.86,
+              "Y": 1018.7017
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.306,
+              "Y": 0.5659
+            },
+            "PreSize": {
+              "X": 0.6117,
+              "Y": 0.1894
+            },
+            "LeftMargin": 0.36,
+            "RightMargin": 698.6399,
+            "TopMargin": 610.7983,
+            "BottomMargin": 848.2017,
+            "Tag": 4,
+            "ActionTag": -1261154886,
+            "Size": {
+              "X": 1101.0,
+              "Y": 341.0
+            },
+            "Name": "grass_hill_01",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "ob/hill/village_grass_hill_01.png",
+              "Plist": ""
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1267.7418,
+              "Y": 957.7097
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.7043,
+              "Y": 0.5321
+            },
+            "PreSize": {
+              "X": 0.5911,
+              "Y": 0.1222
+            },
+            "LeftMargin": 735.7418,
+            "RightMargin": 0.2582,
+            "TopMargin": 732.2903,
+            "BottomMargin": 847.7097,
+            "Tag": 5,
+            "ActionTag": 593809890,
+            "Size": {
+              "X": 1064.0,
+              "Y": 220.0
+            },
+            "Name": "grass_hill_02",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "ob/sky/village_sun.png",
+              "Plist": ""
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 917.1315,
+              "Y": 1518.1553
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.5095,
+              "Y": 0.8434
+            },
+            "PreSize": {
+              "X": 0.1456,
+              "Y": 0.1456
+            },
+            "LeftMargin": 786.1315,
+            "RightMargin": 751.8685,
+            "TopMargin": 150.8447,
+            "BottomMargin": 1387.1553,
+            "Tag": 6,
+            "ActionTag": -812701282,
+            "Size": {
+              "X": 262.0,
+              "Y": 262.0
+            },
+            "Name": "sun",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "ob/bird/village_bird.png",
+              "Plist": ""
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 343.7588,
+              "Y": 1656.5557
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.191,
+              "Y": 0.9203
+            },
+            "PreSize": {
+              "X": 0.1,
+              "Y": 0.0317
+            },
+            "LeftMargin": 253.7588,
+            "RightMargin": 1366.2412,
+            "TopMargin": 114.9443,
+            "BottomMargin": 1628.0557,
+            "Tag": 7,
+            "ActionTag": 762766649,
+            "Size": {
+              "X": 180.0,
+              "Y": 57.0
+            },
+            "Name": "bird_1",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "ob/bird/village_bird.png",
+              "Plist": ""
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 554.6544,
+              "Y": 1504.9744
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.3081,
+              "Y": 0.8361
+            },
+            "PreSize": {
+              "X": 0.1,
+              "Y": 0.0317
+            },
+            "LeftMargin": 464.6544,
+            "RightMargin": 1155.3456,
+            "TopMargin": 266.5256,
+            "BottomMargin": 1476.4744,
+            "Tag": 8,
+            "ActionTag": -950978158,
+            "Size": {
+              "X": 180.0,
+              "Y": 57.0
+            },
+            "Name": "bird_2",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "ob/bird/village_bird.png",
+              "Plist": ""
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1144.8387,
+              "Y": 1709.0558
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.636,
+              "Y": 0.9495
+            },
+            "PreSize": {
+              "X": 0.1,
+              "Y": 0.0317
+            },
+            "LeftMargin": 1054.8387,
+            "RightMargin": 565.1613,
+            "TopMargin": 62.4442,
+            "BottomMargin": 1680.5558,
+            "Tag": 9,
+            "ActionTag": -1517624473,
+            "Size": {
+              "X": 180.0,
+              "Y": 57.0
+            },
+            "Name": "bird_3",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "ob/bird/village_bird.png",
+              "Plist": ""
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1299.4547,
+              "Y": 1520.8171
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.7219,
+              "Y": 0.8449
+            },
+            "PreSize": {
+              "X": 0.1,
+              "Y": 0.0317
+            },
+            "LeftMargin": 1209.4547,
+            "RightMargin": 410.5453,
+            "TopMargin": 250.6829,
+            "BottomMargin": 1492.3171,
+            "Tag": 10,
+            "ActionTag": 1336233893,
+            "Size": {
+              "X": 180.0,
+              "Y": 57.0
+            },
+            "Name": "bird_4",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "ob/house/village_house.png",
+              "Plist": ""
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 358.187,
+              "Y": 984.3502
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.199,
+              "Y": 0.5469
+            },
+            "PreSize": {
+              "X": 0.3756,
+              "Y": 0.5661
+            },
+            "LeftMargin": 20.187,
+            "RightMargin": 1103.813,
+            "TopMargin": 306.1498,
+            "BottomMargin": 474.8502,
+            "Tag": 11,
+            "ActionTag": -1323338624,
+            "Size": {
+              "X": 676.0,
+              "Y": 1019.0
+            },
+            "Name": "house",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "ob/tree/village_tree.png",
+              "Plist": ""
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1521.374,
+              "Y": 999.7421
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.8452,
+              "Y": 0.5554
+            },
+            "PreSize": {
+              "X": 0.2944,
+              "Y": 0.5317
+            },
+            "LeftMargin": 1256.374,
+            "RightMargin": 13.626,
+            "TopMargin": 321.7578,
+            "BottomMargin": 521.2421,
+            "Tag": 12,
+            "ActionTag": 1007376418,
+            "Size": {
+              "X": 530.0,
+              "Y": 957.0
+            },
+            "Name": "tree",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "ob/water/village_well.png",
+              "Plist": ""
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1293.2354,
+              "Y": 250.5001
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.7185,
+              "Y": 0.1392
+            },
+            "PreSize": {
+              "X": 0.5522,
+              "Y": 0.2761
+            },
+            "LeftMargin": 796.2354,
+            "RightMargin": 9.7646,
+            "TopMargin": 1301.0,
+            "BottomMargin": 2.0001,
+            "Tag": 13,
+            "ActionTag": -1143500098,
+            "Size": {
+              "X": 994.0,
+              "Y": 497.0
+            },
+            "Name": "well",
+            "ctype": "SpriteObjectData"
+          }
+        ],
+        "Size": {
+          "X": 1800.0,
+          "Y": 1800.0
+        },
+        "Name": "Scene",
+        "ctype": "SingleNodeObjectData"
+      },
+      "UsedResources": [
+        "bg/village_background.png",
+        "ob/bird/village_bird.png",
+        "ob/hill/village_grass_hill_01.png",
+        "ob/hill/village_grass_hill_02.png",
+        "ob/house/village_house.png",
+        "ob/sky/village_sun.png",
+        "ob/tree/village_tree.png",
+        "ob/water/village_well.png"
+      ],
+      "ctype": "GameFileData"
+    }
+  },
+  "Type": "Scene"
+}

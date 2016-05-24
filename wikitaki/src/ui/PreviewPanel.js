@@ -1,6 +1,6 @@
 chimple.PreviewPanel = cc.LayerColor.extend({
     ctor: function (width, height, position, target, configuration, callback, callbackContext, isTab, contentPanel) {
-        this._super(cc.color.BLUE, width, height);
+        this._super(chimple.TERTIARY_COLOR, width, height);
         var backButton = new ccui.Button('icons/back.png', 'icons/back_onclick.png', false, ccui.Widget.PLIST_TEXTURE);
         backButton.setPosition(128, height - 128);
         backButton.addTouchEventListener(this.goBack, this);
@@ -11,37 +11,42 @@ chimple.PreviewPanel = cc.LayerColor.extend({
         this._targetPosition = target.getPosition();
         this._targetScaleX = target.getScaleX();
         this._targetScaleY = target.getScaleY();
+
+        this._targetRotationX = target.getRotationX();
+        this._targetRotationY = target.getRotationY();
+
         target.removeFromParent(false);
         cc.eventManager.removeListeners(target);
 
-        
+
         this.addChild(target);
-        target.setPosition(width*0.8, 200);
+        target.setRotation(0);
+        target.setPosition(width * 0.8, 200);
         target.scaleX = 0.5;
         target.scaleY = 0.5;
         this.bindTouchListener(this);
         if (isTab) {
             //            this.addChild(new chimple.TabPanel(cc.p(width / 3, 0), cc.size(width * 2 / 3, height), 2, 2, configuration, callback, callbackContext));
-            this.addChild(new chimple.TabPanel(cc.p(0, 0), cc.size(width * 2 / 3, height), 2, 2, configuration, callback, callbackContext, this));
+            this.addChild(new chimple.TabPanel(cc.p(0, 0), cc.size(width * 2 / 3, height), 3, 4, configuration, callback, callbackContext, this));
         } else {
-            this._scrolPanel = new chimple.ScrollableButtonPanel(cc.p(0, 0), cc.size(width * 2 / 3, height), 2, 2, configuration, callback, callbackContext);
+            this._scrolPanel = new chimple.ScrollableButtonPanel(cc.p(0, 0), cc.size(width * 2 / 3, height), 3, 4, configuration, callback, callbackContext);
             this.addChild(this._scrolPanel);
 
             this.main_backButton = new ccui.Button("icons/back.png", "icons/back_onclick.png", null, ccui.Widget.PLIST_TEXTURE);
             this.main_backButton.setPosition(width * 5 / 100, height * 95 / 100);
             this.main_backButton.addTouchEventListener(this.main_backButton_function, this);
-            this.addChild(this.main_backButton,1);
+            this.addChild(this.main_backButton, 1);
         }
 
     },
-    
-    
-     bindTouchListener: function (target) {
+
+
+    bindTouchListener: function (target) {
         var context = this;
         this._listener = cc.EventListener.create({
             event: cc.EventListener.TOUCH_ONE_BY_ONE,
             swallowTouches: true,
-            onTouchBegan: function (touch, event) {                
+            onTouchBegan: function (touch, event) {
                 return true;
             }
         });
@@ -54,7 +59,8 @@ chimple.PreviewPanel = cc.LayerColor.extend({
                 this.removeChild(this._target, false);
                 this._targetParent.addChild(this._target);
                 this._target.setPosition(this._targetPosition);
-                this._target.setScale(this._targetScaleX,this._targetScaleY);
+                this._target.setScale(this._targetScaleX, this._targetScaleY);
+                this._target.setRotation(this._targetRotationX, this._targetRotationY);
                 this._contentPanel.registerEventListenerForChild(this._target);
 
                 this.parent.removeChild(this, true);
@@ -64,16 +70,16 @@ chimple.PreviewPanel = cc.LayerColor.extend({
     },
 
     tabPanel_nextButton_function: function () {
-        if(typeof(this._scrolPanel.scrollableButtonPanel_moveRight) == "function") {
-            this._scrolPanel.scrollableButtonPanel_moveRight();     
+        if (typeof (this._scrolPanel.scrollableButtonPanel_moveRight) == "function") {
+            this._scrolPanel.scrollableButtonPanel_moveRight();
         }
-       
+
     },
 
     tabPanel_backButton_function: function () {
-        if(typeof(this._scrolPanel.scrollableButtonPanel_moveLeft) == "function") {
-            this._scrolPanel.scrollableButtonPanel_moveLeft();     
-        }        
+        if (typeof (this._scrolPanel.scrollableButtonPanel_moveLeft) == "function") {
+            this._scrolPanel.scrollableButtonPanel_moveLeft();
+        }
     },
 
     goBack: function () {
@@ -91,7 +97,8 @@ chimple.PreviewPanel = cc.LayerColor.extend({
         this.removeChild(this._target, false);
         this._targetParent.addChild(this._target);
         this._target.setPosition(this._targetPosition);
-        this._target.setScale(this._targetScaleX,this._targetScaleY);
+        this._target.setScale(this._targetScaleX, this._targetScaleY);
+        this._target.setRotation(this._targetRotationX, this._targetRotationY);
         this._contentPanel.registerEventListenerForChild(this._target);
 
         this.parent.removeChild(this, true);

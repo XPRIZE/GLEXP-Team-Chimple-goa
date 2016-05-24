@@ -467,7 +467,7 @@ chimple.ParseUtil.cacheThumbnailForFavorites = function (skeleton) {
     renderer.scaleY = -1;
     skeleton._renderCmd._dirtyFlag = 1;
     var sprite = renderer.getSprite();
-    var cacheName = '/res/' + skeleton.uniqueCharacterID + '.png';
+    var cacheName = '/res/' + skeleton._userData.uniqueCharacterID + '.png';
     cc.textureCache.cacheImage(cacheName, sprite.texture);
     renderer.cleanup();
 }
@@ -489,7 +489,12 @@ chimple.ParseUtil.drawBoundingBox = function (location, target) {
         dn.clear();
         dn.tag = chimple.DEFAULT_BOUNDING_BOX_TAG;
         target.addChild(dn);
-        dn.drawRect(cc.p(-box.width / 2, 0), cc.p(box.width / 2, box.height), null, 3, chimple.SECONDARY_COLOR);
+        if(target.getName().indexOf("birdskeleton") != -1)
+        {
+            dn.drawRect(cc.p(-box.width / (Math.abs(target.getScaleX())), -box.height / (2*Math.abs(target.getScaleX()))), cc.p(box.width / (2*Math.abs(target.getScaleX())), box.height/Math.abs(target.getScaleX())), null, 3, chimple.SECONDARY_COLOR);       
+        }  else {
+            dn.drawRect(cc.p(-box.width / (2*Math.abs(target.getScaleX())), 0), cc.p(box.width / (2*Math.abs(target.getScaleX())), box.height/Math.abs(target.getScaleX())), null, 3, chimple.SECONDARY_COLOR);            
+        }
         chimple.currentBoxShownForNode = target;
     } else {
         box = target.getBoundingBox();
@@ -497,7 +502,7 @@ chimple.ParseUtil.drawBoundingBox = function (location, target) {
         dn.clear();
         dn.tag = chimple.DEFAULT_BOUNDING_BOX_TAG;
         target.addChild(dn);
-        dn.drawRect(cc.p(0, 0), cc.p(box.width, box.height), null, 3, chimple.SECONDARY_COLOR);
+        dn.drawRect(cc.p(0, 0), cc.p(box.width/Math.abs(target.getScaleX()), box.height/Math.abs(target.getScaleX())), null, 3, chimple.SECONDARY_COLOR);
         chimple.currentBoxShownForNode = target;
     }
 }

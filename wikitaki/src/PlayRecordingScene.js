@@ -56,7 +56,8 @@ var PlayRecordingLayer = cc.Layer.extend({
     createWebView: function() {
         if (chimple.story.items[chimple.pageIndex].sceneText != null && chimple.story.items[chimple.pageIndex].sceneText !== "undefined") {
             this._textField = new ccui.WebView();
-            this._textField.loadURL("/displayText.html?height=" + 450 + '&contents=' + chimple.story.items[chimple.pageIndex].sceneText);
+            localStorage.setItem("scene_display_text_contents", chimple.story.items[chimple.pageIndex].sceneText);
+            this._textField.loadURL("/displayText.html?height=" + 450);
             //this._textField.setPosition(cc.director.getWinSize().width / 2, cc.director.getWinSize().height / 2);
             //this._textField.setContentSize(cc.size(cc.director.getWinSize().width, cc.director.getWinSize().height));
             this._textField.setPosition(64, 0);
@@ -74,6 +75,7 @@ var PlayRecordingLayer = cc.Layer.extend({
     closeWebView: function() {
         this._textField.removeFromParent(true);
         this._leftButtonPanel.removeFromParent(true);
+        localStorage.removeItem("scene_display_text_contents");
     },
     
     playRecordedScene: function () {        

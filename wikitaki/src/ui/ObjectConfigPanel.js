@@ -19,45 +19,64 @@ chimple.ObjectConfigPanel = cc.LayerColor.extend({
     setTarget: function (target) {
         if(target == null) {
             this._target = null;
-            this._contentPanel._moveAction = true;
-            this._contentPanel._rotateAction = false;
-            this._contentPanel._scaleAction = false;
             this.setButtonPanel(this.getDefaultPanel());
+            this.resetToMove();
         }
         else if (this._target != target) {
             this._target = target;
-            this._contentPanel._moveAction = true;
-            this._contentPanel._rotateAction = false;
-            this._contentPanel._scaleAction = false;
             
             if (target.getName().indexOf("Skeleton") != -1 || target.getName().indexOf("skeleton") != -1) {
-                this.setButtonPanel(new chimple.ButtonPanel(new cc.p(0, 0), this.getContentSize(), 1, 6, this._configuration.editCharacter, new chimple.ButtonHandler(this.buttonPressed, this)));
+                this.setButtonPanel(new chimple.ButtonPanel(new cc.p(0, 0), this.getContentSize(), 1, 6, this._configuration[target.getName()], new chimple.ButtonHandler(this.buttonPressed, this)));
+                this.resetToMove();
             } else if (target.getName().indexOf("ChimpleCustomText") != -1) {
                 this.setButtonPanel(new chimple.ButtonPanel(new cc.p(0, 0), this.getContentSize(), 1, 6, this._configuration.editText, new chimple.ButtonHandler(this.buttonPressed, this)));
             }
             else {
                 this.setButtonPanel(new chimple.ButtonPanel(new cc.p(0, 0), this.getContentSize(), 1, 6, this._configuration.editObject, new chimple.ButtonHandler(this.buttonPressed, this)));
+                this.resetToMove();                
             }
             if(this._contentPanel._isRecordingStarted) {
                 this._buttonPanel.enableButton("delete", false);
-                this._buttonPanel.enableButton("my_avatar", false);                
+                this._buttonPanel.enableButton("avatar", false);                
             } else {
                 this._buttonPanel.enableButton("delete", true); 
-                this._buttonPanel.enableButton("my_avatar", true);                               
+                this._buttonPanel.enableButton("avatar", true);                               
             }
         }
     },
+    resetToMove: function() {
+        this._contentPanel._moveAction = true;
+        this._contentPanel._rotateAction = false;
+        this._contentPanel._scaleAction = false;
+        var moveButton = this._buttonPanel.getButtonByName("icons/move.png");
+        if(moveButton != null) {
+            moveButton.setHighlighted(true);
+        }
+    },
+
     buttonPressed: function (button) {
-        if (button.getName() == "icons/translate.png") {
-            if (button._isToggled) { //if button is toggled then it is rotate
-                this._contentPanel._moveAction = false;
-                this._contentPanel._rotateAction = true;
-                this._contentPanel._scaleAction = true;
-            } else {
+        if (button.getName() == "icons/move.png") {
                 this._contentPanel._moveAction = true;
                 this._contentPanel._rotateAction = false;
                 this._contentPanel._scaleAction = false;
-            }
+                button.setEnabled(false);
+                button.setHighlighted(true);
+                var rotateButton = button.parent.getButtonByName("icons/rotate.png");
+                if(rotateButton != null) {
+                    rotateButton.setEnabled(true);
+                    rotateButton.setHighlighted(false);
+                }
+        } else if (button.getName() == "icons/rotate.png") {
+                this._contentPanel._moveAction = false;
+                this._contentPanel._rotateAction = true;
+                this._contentPanel._scaleAction = true;
+                button.setEnabled(false);
+                button.setHighlighted(true);
+                var moveButton = button.parent.getButtonByName("icons/move.png");
+                if(moveButton != null) {
+                    moveButton.setEnabled(true);
+                    moveButton.setHighlighted(false);
+                }
         } else if (button.getName() == "icons/flipX.png") {
             if (this._target) {
                 this._target.setScaleX(-1 * this._target.getScaleX());
@@ -77,7 +96,7 @@ chimple.ObjectConfigPanel = cc.LayerColor.extend({
                 this._target.parent.removeChild(this._target, true);
                 this.setButtonPanel(this.getDefaultPanel());
             }
-        } else if (button.getName() == "icons/my_avatar.png") {
+        } else if (button.getName() == "icons/avatar.png") {
             if (this._target && this._target._skeletonConfig != null && this._target._skeletonConfig.skinChoices != null) {
                 this.parent.addChild(new chimple.PreviewPanel(cc.director.getWinSize().width, cc.director.getWinSize().height, cc.p(0, 0), this._target, this._target._skeletonConfig.skinChoices, this.skinSelected, this, true, this._contentPanel), 1);
             }

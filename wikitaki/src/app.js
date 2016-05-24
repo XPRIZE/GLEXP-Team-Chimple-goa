@@ -37,17 +37,24 @@ var HelloWorldLayer = cc.Layer.extend({
         var displayPages = [];
         if (chimple.story != null && chimple.story.items != null && chimple.story.items.length > 0) {
             displayPages = chimple.story['items'];
+        } else {
+            this._help = new cc.Sprite('#icons/help_click_new_page.png');
+            this._help.setPosition(cc.p(100,cc.director.getWinSize().height - this._tabHeight-50));
+            this._help.setAnchorPoint(0, 1);
+            this.addChild(this._help, 1);
+
         }
 
-        this._panel = new chimple.ScrollableButtonPanel(cc.p(0, 0), cc.size(cc.director.getWinSize().width, cc.director.getWinSize().height - this._tabHeight), 2, 2, displayPages, this.loadExistingPage, this);
+        this._panel = new chimple.ScrollableButtonPanel(cc.p(0, 0), cc.size(cc.director.getWinSize().width, cc.director.getWinSize().height - this._tabHeight), 4, 4, displayPages, this.loadExistingPage, this);
         this.addChild(this._panel);
+
     },
 
     handleSelectItem: function (sender) {
         //create new Scene
         //find last page index   
         cc.log('name of button:' + sender.getName());
-        if (sender.getName() == 'icons/add.png') {
+        if (sender.getName() == 'icons/plus.png') {
             chimple.pageIndex = chimple.story.items.length; //new story
             chimple.isNewPage = true;
             cc.director.runScene(new EditStoryScene());
@@ -75,7 +82,7 @@ var HelloWorldScene = cc.Scene.extend({
         if (chimple.LAYER_INIT === false) {
             chimple.LAYER_INIT = true;
 
-            cc.log('initing layer...should only be once');
+            cc.log('initing layer...should only be once');            
             //read storyId from document, if not null then load json and store in localStorage
             var storyId = this.retrieveStoryId();
             if (storyId) {
@@ -149,6 +156,10 @@ var HelloWorldScene = cc.Scene.extend({
 
                         chimple.ParseUtil.changeSize(cc.loader.cache[res.animalskeleton_json], null, chimple.designScaleFactor);
                         cc.loader.cache[res.animalskeleton_json].ChimpleCompressed = true;
+                        
+                        chimple.ParseUtil.changeSize(cc.loader.cache[res.birdskeleton_json], null, chimple.designScaleFactor);
+                        cc.loader.cache[res.birdskeleton_json].ChimpleCompressed = true;
+                        
 
 
                         data.items.forEach(function (element) {

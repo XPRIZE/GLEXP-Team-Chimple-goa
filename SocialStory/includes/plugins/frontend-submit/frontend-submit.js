@@ -113,13 +113,13 @@
 		init: function () {
 
 			$('#submit_recipe').on('click', function (e) {
-				var content = tinyMCE.activeEditor.getContent({ format: 'raw' }); // get the content
-				$('#fes_post_content').val(content); // put it in the textarea
+				// var content = tinyMCE.activeEditor.getContent({ format: 'raw' }); // get the content
+				// $('#fes_post_content').val(content); // put it in the textarea
 
 				if ($('#fes-upload-form-recipe').valid()) {
 					$('.recipe_saving').show();
 					submit_recipe.injectStoryAttributes();
-					form.submit();
+					document["fes-upload-form-recipe"].submit();
 				}
 
 				e.preventDefault();
