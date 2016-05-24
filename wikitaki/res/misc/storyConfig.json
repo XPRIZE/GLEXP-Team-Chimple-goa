@@ -1,11 +1,6 @@
 {
   "addObjects": [
     {
-      "name": "back",
-      "cIcon": "icons/save_goback_onclick.png",
-      "icon": "icons/save_goback.png"
-    },  
-    {
       "name": "addToScene",
       "cIcon": "icons/plus_onclick.png",
       "icon": "icons/plus.png",
@@ -1311,10 +1306,87 @@
               "icon": "scene/thirsty_crow_8.png",
               "json": "/res/thirsty_crow_8.json",
               "type": "scene"
+            },
+            {
+              "cIcon": "scene/Village_01.png",
+              "icon": "scene/Village_01.png",
+              "json": "/res/village_page_01.json",
+              "type": "scene"
+            },
+            {
+              "cIcon": "scene/Village_02.png",
+              "icon": "scene/Village_02.png",
+              "json": "/res/village_Page_02.json",
+              "type": "scene"
+            },
+            {
+              "cIcon": "scene/Village_03.png",
+              "icon": "scene/Village_03.png",
+              "json": "/res/village_Page_03.json",
+              "type": "scene"
+            },
+            {
+              "cIcon": "scene/Village_04.png",
+              "icon": "scene/Village_04.png",
+              "json": "/res/village_Page_04.json",
+              "type": "scene"
+            },
+            {
+              "cIcon": "scene/Village_05.png",
+              "icon": "scene/Village_05.png",
+              "json": "/res/village_Page_05.json",
+              "type": "scene"
+            },
+            {
+              "cIcon": "scene/the_hungry_mouse_Page_01.png",
+              "icon": "scene/the_hungry_mouse_Page_01.png",
+              "json": "/res/the_hungry_mouse_page_01.json",
+              "type": "scene"
+            },
+            {
+              "cIcon": "scene/the_hungry_mouse_Page_02.png",
+              "icon": "scene/the_hungry_mouse_Page_02.png",
+              "json": "/res/the_hungry_mouse_page_02.json",
+              "type": "scene"
+            },
+            {
+              "cIcon": "scene/the_farm_house_Page_01.png",
+              "icon": "scene/the_farm_house_Page_01.png",
+              "json": "/res/the_farm_house_page_01.json",
+              "type": "scene"
+            },
+            {
+              "cIcon": "scene/the_farm_house_Page_02.png",
+              "icon": "scene/the_farm_house_Page_02.png",
+              "json": "/res/the_farm_house_Page_02.json",
+              "type": "scene" 
             }
           ]
         }
       ]
+    },
+    {
+      "name": "check",
+      "cIcon": "icons/check_disabled.png",
+      "icon": "icons/check.png"
+    },
+    {
+      "name": "text_done",
+      "icon": "icons/text_disabled.png"
+    },
+    {
+      "name": "record",
+      "icon": "icons/record_disabled.png"
+    },
+    {
+      "name": "play",
+      "icon": "icons/play_disabled.png"
+    }
+  ],
+  "addText": [
+    {
+      "name": "plus",
+      "icon": "icons/plus_done.png"
     },
     {
       "name": "texts",
@@ -1322,18 +1394,46 @@
       "icon": "icons/text.png"
     },
     {
+      "name": "check",
+      "cIcon": "icons/check_onclick.png",
+      "icon": "icons/check.png"
+    },
+    {
+      "name": "record",
+      "icon": "icons/record_disabled.png"
+    },
+    {
       "name": "play",
-      "cIcon": "icons/play_onclick.png",
+      "icon": "icons/play_disabled.png"
+    }
+  ],
+  "addRecording": [
+    {
+      "name": "plus",
+      "icon": "icons/plus_done.png"
+    },    
+    {
+      "name": "text",
+      "icon": "icons/text_done.png"
+    },
+    {
+      "name": "startRecording",
+      "cIcon": "icons/record_disabled.png",
+      "icon": "icons/start_recording.png",
+      "toggle": true
+    },
+    {
+      "name": "play",
+      "cIcon": "icons/play_disabled.png",
       "icon": "icons/play.png"
     },    
     {
-      "name": "startRecording",
-      "cIcon": "icons/start_recording_onclick.png",
-      "icon": "icons/start_recording.png",
-      "toggle": true
-    }
+      "name": "check",
+      "cIcon": "icons/check_onclick.png",
+      "icon": "icons/check.png"
+    }        
   ],
-  "editCharacter": [
+  "Human_Skeleton": [
     {
       "name": "translate",      
       "cIcon": "icons/move_onclick.png",
@@ -1355,14 +1455,63 @@
       "icon": "icons/delete.png"
     },
     {
-      "name": "my_avatar",      
-      "cIcon": "icons/my_avatar_onclick.png",
-      "icon": "icons/my_avatar.png"
+      "name": "customize",      
+      "cIcon": "icons/avatar_onclick.png",
+      "icon": "icons/avatar.png"
     },
     {
       "name": "animation",      
       "cIcon": "icons/animation_onclick.png",
       "icon": "icons/animation.png"
+    }
+  ],
+  "animalskeleton": [
+    {
+      "name": "translate",      
+      "cIcon": "icons/move_onclick.png",
+      "icon": "icons/move.png"
+    },
+    {
+      "name": "rotateScale",      
+      "cIcon": "icons/rotate_onclick.png",
+      "icon": "icons/rotate.png"
+    },
+    {
+      "name": "flipX",      
+      "cIcon": "icons/flipX_onclick.png",
+      "icon": "icons/flipX.png"
+    },
+    {
+      "name": "delete",      
+      "cIcon": "icons/delete_onclick.png",
+      "icon": "icons/delete.png"
+    },
+    {
+      "name": "animation",      
+      "cIcon": "icons/animation_onclick.png",
+      "icon": "icons/animation.png"
+    }
+  ],
+  "birdskeleton": [
+    {
+      "name": "translate",      
+      "cIcon": "icons/move_onclick.png",
+      "icon": "icons/move.png"
+    },
+    {
+      "name": "rotateScale",      
+      "cIcon": "icons/rotate_onclick.png",
+      "icon": "icons/rotate.png"
+    },
+    {
+      "name": "flipX",      
+      "cIcon": "icons/flipX_onclick.png",
+      "icon": "icons/flipX.png"
+    },
+    {
+      "name": "delete",      
+      "cIcon": "icons/delete_onclick.png",
+      "icon": "icons/delete.png"
     }
   ],
   "editObject": [
@@ -1416,8 +1565,8 @@
     },
     {
       "name": "save",      
-      "cIcon": "icons/save_goback_onclick.png",
-      "icon": "icons/save_goback.png"
+      "cIcon": "icons/publish_onclick.png",
+      "icon": "icons/publish.png"
     }    
   ],
   "blank": [

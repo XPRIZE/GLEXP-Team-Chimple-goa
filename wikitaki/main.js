@@ -99,7 +99,8 @@ chimple.DEVICE_HEIGHT = 450;
             "src/SkeletonTouchHandler.js",
             "src/TextTouchHandler.js",
             "src/EditStoryScene.js",
-            "src/play.js"
+            "src/play.js",
+            "src/Preload.js"
         ]
 
     };
@@ -163,9 +164,10 @@ chimple.DEVICE_HEIGHT = 450;
         // The game will be resized when browser size change
         // cc.view.resizeWithBrowserSize(true);
         chimple.designScaleFactor = chimple.RESOURCE_DESIGN_HEIGHT / chimple.DEVICE_HEIGHT;
-        
+        cc._loaderImage = null;
+
         //load resources
-        cc.LoaderScene.preload(g_resources, function () {
+        Preloader.preload(g_resources, function () {
             cc.spriteFrameCache.addSpriteFrames(res.thumbnails_plist);            
             cc.spriteFrameCache.addSpriteFrames(res.human_skeleton_plist);
             cc.spriteFrameCache.addSpriteFrames(res.record_animation_plist);            
@@ -178,7 +180,22 @@ chimple.DEVICE_HEIGHT = 450;
                 cc.director.runScene(new PlayFullStoryScene());
             }
 
-        }, this);
+        });
+        
+        // cc.LoaderScene.preload(g_resources, function () {
+        //     cc.spriteFrameCache.addSpriteFrames(res.thumbnails_plist);            
+        //     cc.spriteFrameCache.addSpriteFrames(res.human_skeleton_plist);
+        //     cc.spriteFrameCache.addSpriteFrames(res.record_animation_plist);            
+        //     cc.log("mode:" + chimple.mode);
+        //     if (chimple.mode.indexOf(chimple.EDIT_MODE) != -1) {
+        //         cc.director.runScene(new HelloWorldScene());
+        //     } else {
+        //         chimple.pageIndex = 0;
+        //         window.PLAYING_STORY_FIRST_TIME = true;
+        //         cc.director.runScene(new PlayFullStoryScene());
+        //     }
+
+        // }, this);
     };
     cc.game.run();
 

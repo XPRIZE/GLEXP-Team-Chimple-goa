@@ -489,7 +489,12 @@ chimple.ParseUtil.drawBoundingBox = function (location, target) {
         dn.clear();
         dn.tag = chimple.DEFAULT_BOUNDING_BOX_TAG;
         target.addChild(dn);
-        dn.drawRect(cc.p(-box.width / (2*Math.abs(target.getScaleX())), 0), cc.p(box.width / (2*Math.abs(target.getScaleX())), box.height/Math.abs(target.getScaleX())), null, 3, chimple.SECONDARY_COLOR);
+        if(target.getName().indexOf("birdskeleton") != -1)
+        {
+            dn.drawRect(cc.p(-box.width / (Math.abs(target.getScaleX())), -box.height / (2*Math.abs(target.getScaleX()))), cc.p(box.width / (2*Math.abs(target.getScaleX())), box.height/Math.abs(target.getScaleX())), null, 3, chimple.SECONDARY_COLOR);       
+        }  else {
+            dn.drawRect(cc.p(-box.width / (2*Math.abs(target.getScaleX())), 0), cc.p(box.width / (2*Math.abs(target.getScaleX())), box.height/Math.abs(target.getScaleX())), null, 3, chimple.SECONDARY_COLOR);            
+        }
         chimple.currentBoxShownForNode = target;
     } else {
         box = target.getBoundingBox();

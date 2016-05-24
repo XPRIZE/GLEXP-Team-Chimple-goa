@@ -6,6 +6,7 @@ chimple.PageConfigPanel = cc.LayerColor.extend({
         this._contentPanel = contentPanel;
 
         this._buttonPanel = new chimple.ButtonPanel(new cc.p(0, 0), this.getContentSize(), 1, 6, configuration.addObjects, new chimple.ButtonHandler(this.buttonPressed, this));
+        this._currentStep = "addObjects";
 
         if (chimple.story.items[chimple.pageIndex].scene.Content == null) {
             this.disableOrEnableAllButtons(this._buttonPanel, false);
@@ -15,27 +16,60 @@ chimple.PageConfigPanel = cc.LayerColor.extend({
         this.addChild(this._buttonPanel);
     },
     buttonPressed: function (selectedItem) {
-        var selectedConfig = this._configuration.addObjects[selectedItem._selectedIndex];
-        cc.log(selectedItem.getName());
-        if (selectedConfig != null && selectedConfig.name === "texts") {
+        if (selectedItem.getName() === "icons/text.png") {
             this._contentPanel.addTextToScene();
-        } else if (selectedConfig != null && selectedConfig.name === "startRecording") {
+        } else if (selectedItem.getName() === "icons/start_recording.png") {
             this.handleRecordingAnimation(selectedItem);
-        } else if (selectedConfig != null && selectedConfig.name === "play") {
+        } else if (selectedItem.getName() === "icons/play.png") {
             this._contentPanel.playSceneInEditMode();
-        } else if (selectedConfig != null && selectedConfig.name === "back") {
-            this._contentPanel.backPressed();            
-        } else if (selectedConfig != null && selectedConfig.name === "addToScene") {
+        } else if (selectedItem.getName() === "icons/save_goback.png") {
+            this._contentPanel.backPressed();
+        } else if (selectedItem.getName() === "icons/plus.png") {
+            var selectedConfig = this._configuration.addObjects[selectedItem._selectedIndex];
             if (chimple.story.items[chimple.pageIndex].scene.Content == null) {
-                selectedConfig.categories.forEach(function(element, index) {
-                    if(element.name == "backgrounds") {
-                        this.constructTabBar([selectedConfig.categories[index]]);        
+                selectedConfig.categories.forEach(function (element, index) {
+                    if (element.name == "backgrounds") {
+                        this.constructTabBar([selectedConfig.categories[index]]);
                     }
                 }, this);
             } else {
                 this.constructTabBar(selectedConfig.categories);
             }
+        } else if (selectedItem.getName() === "icons/check.png") {
+            if (this._currentStep == "addObjects") {
+                this._currentStep = "addText";
+            } else if (this._currentStep == "addText") {
+                this._currentStep = "addRecording";
+            } else if (this._currentStep == "addRecording") {
+                this._contentPanel.backPressed();
+            }
+            this.removeChild(this._buttonPanel, true);
+            this._buttonPanel = new chimple.ButtonPanel(new cc.p(0, 0), this.getContentSize(), 1, 6, this._configuration[this._currentStep], new chimple.ButtonHandler(this.buttonPressed, this));
+            this.addChild(this._buttonPanel);
+            this.disableOrEnableAllButtons(this._buttonPanel, true);
         }
+
+        // var selectedConfig = this._configuration.addObjects[selectedItem._selectedIndex];
+        // cc.log(selectedItem.getName());
+        // if (selectedConfig != null && selectedConfig.name === "texts") {
+        //     this._contentPanel.addTextToScene();
+        // } else if (selectedConfig != null && selectedConfig.name === "startRecording") {
+        //     this.handleRecordingAnimation(selectedItem);
+        // } else if (selectedConfig != null && selectedConfig.name === "play") {
+        //     this._contentPanel.playSceneInEditMode();
+        // } else if (selectedConfig != null && selectedConfig.name === "back") {
+        //     this._contentPanel.backPressed();            
+        // } else if (selectedConfig != null && selectedConfig.name === "addToScene") {
+        //     if (chimple.story.items[chimple.pageIndex].scene.Content == null) {
+        //         selectedConfig.categories.forEach(function(element, index) {
+        //             if(element.name == "backgrounds") {
+        //                 this.constructTabBar([selectedConfig.categories[index]]);        
+        //             }
+        //         }, this);
+        //     } else {
+        //         this.constructTabBar(selectedConfig.categories);
+        //     }
+        // }
     },
 
     handleRecordingAnimation: function (selectedItem) {
@@ -48,31 +82,37 @@ chimple.PageConfigPanel = cc.LayerColor.extend({
 
     createRecordingAnimation: function (selectedItem) {
         cc.log('start recording animation');
-        selectedItem.loadTextures("icons/record_onclick.png", null, null, ccui.Widget.PLIST_TEXTURE);
+        if (!this._clickRecordAniamation) {
+            selectedItem.loadTextures("icons/start_recording_onclick.png", null, null, ccui.Widget.PLIST_TEXTURE);
 
-        this._preRecordAnimationSprite = new cc.Sprite('#record_time/3.png');
-        this._contentPanel.addChild(this._preRecordAnimationSprite, 0);
-        this._preRecordAnimationSprite.setPosition(this._contentPanel.width / 2, this._contentPanel.height / 2);
+            this._preRecordAnimationSprite = new cc.Sprite('#record_time/3.png');
+            this._contentPanel.addChild(this._preRecordAnimationSprite, 0);
+            this._preRecordAnimationSprite.setPosition(this._contentPanel.width / 2, this._contentPanel.height / 2);
 
-        var spriteFrames = [];
+            var spriteFrames = [];
 
-        //create animations
-        for (var i = 3; i >= 1; i--) {
-            var frame = cc.spriteFrameCache.getSpriteFrame('record_time/' + i + '.png');
-            spriteFrames.push(frame);
+            //create animations
+            for (var i = 3; i >= 1; i--) {
+                var frame = cc.spriteFrameCache.getSpriteFrame('record_time/' + i + '.png');
+                spriteFrames.push(frame);
+            }
+
+            var animation = new cc.Animation(spriteFrames, 0.5);
+            var animAction = cc.animate(animation);
+            //var delayAction = new cc.delayTime(0.5);
+            var finishRecordingAnimAction = new cc.CallFunc(this.finishRecordingAnimation, this);
+            var preRecordSequence = new cc.sequence(animAction, finishRecordingAnimAction);
+            this._preRecordAnimationSprite.runAction(preRecordSequence);
+            this._clickRecordAniamation = true;
         }
 
-        var animation = new cc.Animation(spriteFrames, 0.5);
-        var animAction = cc.animate(animation);
-        //var delayAction = new cc.delayTime(0.5);
-        var finishRecordingAnimAction = new cc.CallFunc(this.finishRecordingAnimation, this);
-        var preRecordSequence = new cc.sequence(animAction, finishRecordingAnimAction);
-        this._preRecordAnimationSprite.runAction(preRecordSequence);
+        
     },
 
     finishRecordingAnimation: function () {
         this._preRecordAnimationSprite.removeFromParent(true);
         this._preRecordAnimationSprite = null;
+        this._clickRecordAniamation = false;
         this.updateUIBeforeRecording();
     },
 
@@ -113,17 +153,17 @@ chimple.PageConfigPanel = cc.LayerColor.extend({
         if (cc.sys.isNative) {
             cc.log(fileToLoad);
             var dynamicResources = [fileToLoad];
-            cc.LoaderScene.preload(dynamicResources, function () {
+            Preloader.preload(dynamicResources, function () {
                 chimple.ParseUtil.changeSize(cc.loader.cache[fileToLoad], null, chimple.designScaleFactor);
                 cc.loader.cache[fileToLoad].ChimpleCompressed = true;
 
                 doPostLoadingProcessFunction.call(context, args, shouldSaveScene);
             }, this);
         } else {
-            cc.director.pushScene(new cc.LoaderScene()); //TODO dummy right now later fix this
+            cc.director.pushScene(new Preloader()); //TODO dummy right now later fix this
             cc.log(fileToLoad);
             var dynamicResources = [fileToLoad];
-            cc.LoaderScene.preload(dynamicResources, function () {
+            Preloader.preload(dynamicResources, function () {
                 cc.director.popScene();
                 if (fileToLoad && fileToLoad.indexOf(".png") == -1) {
                     chimple.ParseUtil.changeSize(cc.loader.cache[fileToLoad], null, chimple.designScaleFactor);
@@ -212,7 +252,7 @@ chimple.PageConfigPanel = cc.LayerColor.extend({
             this.unschedule(this.trackRecording);
             this.updateUIWhenForRecording();
         }
-        
+
     },
 
     updateUIWhenForRecording: function () {

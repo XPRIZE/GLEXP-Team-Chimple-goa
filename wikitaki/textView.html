@@ -49,7 +49,7 @@
               
         $(document).ready(function() {      
             var height = $.getUrlVar('height');
-            var existingText = $.getUrlVar('contents');
+            var existingText = localStorage.getItem("scene_text_contents");
             if(existingText == undefined || existingText == "undefined") {
                 existingText = "Write your story";
             }
