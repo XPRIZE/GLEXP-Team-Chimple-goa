@@ -44,7 +44,7 @@ chimple.PageConfigPanel = cc.LayerColor.extend({
                 this._contentPanel.backPressed();
             }
             this.removeChild(this._buttonPanel, true);
-            this._buttonPanel = new chimple.ButtonPanel(new cc.p(0, 0), this.getContentSize(), 1, 6, this._configuration[this._currentStep], new chimple.ButtonHandler(this.buttonPressed, this));
+            this._buttonPanel = new chimple.ButtonPanel(new cc.p(0, 0), this.getContentSize(), 1, 7, this._configuration[this._currentStep], new chimple.ButtonHandler(this.buttonPressed, this));
             this.addChild(this._buttonPanel);
             this.disableOrEnableAllButtons(this._buttonPanel, true);
         }
