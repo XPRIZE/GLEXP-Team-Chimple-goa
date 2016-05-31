@@ -41,6 +41,14 @@ chimple.ContentPanel = chimple.AbstractContentPanel.extend({
                     element.removeFromParent();
                     this._constructedScene.addChild(element);
                 }
+
+                chimple.customSprites.forEach(function (customSprite, index) {
+                    if (customSprite === element.getName()) {
+                        element.removeFromParent();
+                        this._constructedScene.addChild(element);
+                        chimple.customSprites.splice(index, 1);    
+                    }
+                }, this);
             }, this);
             this._backLayer.children[0].removeFromParent(true);
         }
@@ -80,7 +88,7 @@ chimple.ContentPanel = chimple.AbstractContentPanel.extend({
         var context = this;
         data = cc.loader.cache[fileToLoad];
         data = JSON.parse(JSON.stringify(data));
-        chimple.ParseUtil.copyUserAddedDataToScene(data);        
+        chimple.ParseUtil.copyUserAddedDataToScene(data);
         if (data != null) {
             chimple.ParseUtil.saveScene(data);
         }
@@ -311,6 +319,7 @@ chimple.ContentPanel = chimple.AbstractContentPanel.extend({
         sprite.setScale(1);
         var loadedImageObject = chimple.ParseUtil.constructJSONFromCCSprite(sprite);
         sprite.ActionTag = loadedImageObject.ActionTag;
+        chimple.customSprites.push(sprite.getName());
         chimple.ParseUtil.saveObjectToStoredScene(loadedImageObject);
         this.registerEventListenerForChild(sprite);
     },

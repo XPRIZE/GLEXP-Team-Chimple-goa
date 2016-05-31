@@ -271,11 +271,10 @@ chimple.ParseUtil.constructJSONFromCCSprite = function (sprite) {
     } else {
         existingUserData = {};
     };
-
+    
     existingUserData.userAdded = true;
     object.UserData = existingUserData;
-
-    sprite._userData = object.UserData;
+    sprite.userData = object.UserData;
     return object;
 }
 

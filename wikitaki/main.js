@@ -109,7 +109,7 @@ chimple.DEVICE_HEIGHT = 450;
     chimple.DEFAULT_MODE = "PLAY";
     chimple.EDIT_MODE = "edit";
     chimple.PLAY_MODE = "play";
-
+    chimple.customSprites = [];
     retrieveMode = function () {
 
         var query_string = {};
