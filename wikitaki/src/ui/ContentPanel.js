@@ -46,7 +46,6 @@ chimple.ContentPanel = chimple.AbstractContentPanel.extend({
                     if (customSprite === element.getName()) {
                         element.removeFromParent();
                         this._constructedScene.addChild(element);
-                        chimple.customSprites.splice(index, 1);    
                     }
                 }, this);
             }, this);

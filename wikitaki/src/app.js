@@ -65,6 +65,7 @@ var HelloWorldLayer = cc.Layer.extend({
             }
             if (document.getElementById("submit_recipe") != undefined) {
                 document.getElementById("submit_recipe").click();
+                chimple.customSprite = [];
             }
         }
     },
