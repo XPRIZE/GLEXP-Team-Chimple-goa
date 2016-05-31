@@ -321,7 +321,8 @@ var PlayFullStoryScene = cc.Scene.extend({
         if (storyIdToFetch != null) {
             var url = '/wp-content/uploads/' + storyIdToFetch + '.json';
             cc.log('fetching json for storyId' + storyIdToFetch + ' url:' + url);
-            cc.loader.loadJson(url, function (error, data) {
+            cc.loader.loadTxt(url, function (error, sdata) {
+                var data = chimple.ParseUtil.inflate(sdata);
                 if (data != null && data.items != null && data.items.length > 0) {
                     chimple.story = data;
                     chimple.storyTitle  = chimple.story.storyTitleText;

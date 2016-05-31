@@ -144,8 +144,9 @@ var HelloWorldScene = cc.Scene.extend({
                 var url = '/wp-content/uploads/' + storyIdToFetch + '.json';
                 cc.log('fetching json for storyId' + storyIdToFetch + ' url:' + url);
                 cc.loader.loadJson(url, function (error, data) {
-                    if (data != null && data.items != null && data.items.length > 0) {
-                        chimple.story = data;
+                    var storyData = chimple.ParseUtil.inflate(data);
+                    if (storyData != null && storyData.items != null && storyData.items.length > 0) {
+                        chimple.story = storyData;
                         chimple.story.storyId = storyIdToFetch;
                         chimple.storyTitle = chimple.story.storyTitleText;
                         chimple.scaleFactor = chimple.story.RESOLUTION_HEIGHT / chimple.DEVICE_HEIGHT;
