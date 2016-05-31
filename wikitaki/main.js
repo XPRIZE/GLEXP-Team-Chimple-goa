@@ -101,7 +101,8 @@ chimple.DEVICE_HEIGHT = 450;
             "src/EditStoryScene.js",
             "src/play.js",
             "src/Preload.js",
-            "src/pako.js"
+            "src/pako.js",
+            "src/ui/TextReadPanel.js"
         ]
 
     };

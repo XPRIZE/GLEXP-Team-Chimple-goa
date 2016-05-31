@@ -35,12 +35,30 @@ chimple.ContentPanel = chimple.AbstractContentPanel.extend({
 
     copyUserAddedObjectsToScene: function () {
         if (this._backLayer && this._backLayer.children && this._backLayer.children.length == 2) {
-            this._backLayer.children[0].children.forEach(function (element, index) {
-                if (element._userData && element._userData.userAdded) {
+            var count = this._backLayer.children[0].children.length;
+            for (var i = 0; i < count; i++) {
+                var element = this._backLayer.children[0].children[i];
+                if (element && element._userData && element._userData.userAdded) {
                     // this._constructedScene.children.push(element);
                     element.removeFromParent();
+                    i--;
                     this._constructedScene.addChild(element);
                 }
+
+                chimple.customSprites.forEach(function (customSprite, index) {
+                    if (element &&  customSprite === element.getName()) {
+                        element.removeFromParent();
+                        i--;
+                        this._constructedScene.addChild(element);
+                    }
+                }, this);
+
+            }
+            this._backLayer.children[0].removeFromParent(true);
+        }
+
+        if (this._frontLayer && this._frontLayer.children && this._frontLayer.children.length > 0) {
+            this._frontLayer.children.forEach(function (element, index) {
 
                 chimple.customSprites.forEach(function (customSprite, index) {
                     if (customSprite === element.getName()) {
@@ -49,7 +67,6 @@ chimple.ContentPanel = chimple.AbstractContentPanel.extend({
                     }
                 }, this);
             }, this);
-            this._backLayer.children[0].removeFromParent(true);
         }
     },
 
@@ -207,7 +224,7 @@ chimple.ContentPanel = chimple.AbstractContentPanel.extend({
     },
 
     addTextToScene: function () {
-        this.parent.addChild(new chimple.TextCreatePanel(cc.director.getWinSize().width, cc.director.getWinSize().height, cc.p(0, 0), chimple.story.items[chimple.pageIndex].sceneText, this.processText, this));
+        this.parent.addChild(new chimple.TextCreatePanel(cc.director.getWinSize().width, cc.director.getWinSize().height, cc.p(150, 150), chimple.story.items[chimple.pageIndex].sceneText, this.processText, this));
     },
 
     processText: function (text) {

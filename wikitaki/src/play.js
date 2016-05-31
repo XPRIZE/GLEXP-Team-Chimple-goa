@@ -227,6 +227,7 @@ var PlayFullStoryLayer = cc.Layer.extend({
 
         }
     },
+    
 
     createWebView: function () {
         if (chimple.story.items[chimple.pageIndex].sceneText != null && chimple.story.items[chimple.pageIndex].sceneText !== "undefined") {
