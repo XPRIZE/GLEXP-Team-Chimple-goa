@@ -310,8 +310,9 @@ chimple.ContentPanel = chimple.AbstractContentPanel.extend({
     enableTargetTransformForTarget: function (context, touch, target, location) {
         if (context._moveAction) {
             target.setPosition(location);
-        } else if (context._rotateAction || context._scaleAction) {
+        } else if (context._rotateAction) {
             context.calcAngleAndRotationForTarget(touch, target);
+        } else if (context._scaleAction) {
             context.calcScaleForTarget(context, touch, target);
         }
 
