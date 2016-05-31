@@ -1,0 +1,443 @@
+{
+  "ID": "a9ec149a-fcf9-42fc-b10f-aabeb3134790",
+  "Version": "3.10.0.0",
+  "Name": "Scene_2",
+  "Content": {
+    "Content": {
+      "Animation": {
+        "Duration": 0,
+        "Speed": 1.0,
+        "Timelines": [],
+        "ctype": "TimelineActionData"
+      },
+      "AnimationList": [],
+      "ObjectData": {
+        "Tag": 12,
+        "Children": [
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "bg/water_bg-02.png",
+              "Plist": ""
+            },
+            "BlendFunc": {
+              "Src": 770,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 899.79,
+              "Y": 899.79
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.4999,
+              "Y": 0.4999
+            },
+            "PreSize": {
+              "X": 1.0,
+              "Y": 1.0
+            },
+            "LeftMargin": -0.21,
+            "RightMargin": 0.21,
+            "TopMargin": 0.21,
+            "BottomMargin": -0.21,
+            "Tag": 13,
+            "ActionTag": 16418812,
+            "Size": {
+              "X": 1800.0,
+              "Y": 1800.0
+            },
+            "Name": "Sprite",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "ob/water/water_chair.png",
+              "Plist": ""
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1507.0017,
+              "Y": 753.5352
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.8372,
+              "Y": 0.4186
+            },
+            "PreSize": {
+              "X": 0.1556,
+              "Y": 0.1006
+            },
+            "LeftMargin": 1367.0017,
+            "RightMargin": 152.9983,
+            "TopMargin": 955.9648,
+            "BottomMargin": 663.0352,
+            "Tag": 14,
+            "ActionTag": 25542645,
+            "Size": {
+              "X": 280.0,
+              "Y": 181.0
+            },
+            "Name": "water_chair",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "ob/water/water_leaf.png",
+              "Plist": ""
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1217.5532,
+              "Y": 341.8366
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.6764,
+              "Y": 0.1899
+            },
+            "PreSize": {
+              "X": 0.1672,
+              "Y": 0.0467
+            },
+            "LeftMargin": 1067.0532,
+            "RightMargin": 431.9468,
+            "TopMargin": 1416.1633,
+            "BottomMargin": 299.8366,
+            "Tag": 16,
+            "ActionTag": -113617158,
+            "Size": {
+              "X": 301.0,
+              "Y": 84.0
+            },
+            "Name": "water_leaf",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "ob/water/water_flower.png",
+              "Plist": ""
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1323.4459,
+              "Y": 315.4186
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.7352,
+              "Y": 0.1752
+            },
+            "PreSize": {
+              "X": 0.1006,
+              "Y": 0.0506
+            },
+            "LeftMargin": 1232.9459,
+            "RightMargin": 386.0541,
+            "TopMargin": 1439.0814,
+            "BottomMargin": 269.9186,
+            "Tag": 15,
+            "ActionTag": 1137353464,
+            "Size": {
+              "X": 181.0,
+              "Y": 91.0
+            },
+            "Name": "water_flower",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "ob/water/water_leaf.png",
+              "Plist": ""
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 377.9752,
+              "Y": 390.1531
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.21,
+              "Y": 0.2168
+            },
+            "PreSize": {
+              "X": 0.1672,
+              "Y": 0.0467
+            },
+            "LeftMargin": 227.4752,
+            "RightMargin": 1271.5248,
+            "TopMargin": 1367.8469,
+            "BottomMargin": 348.1531,
+            "Tag": 17,
+            "ActionTag": 697973402,
+            "Size": {
+              "X": 301.0,
+              "Y": 84.0
+            },
+            "Name": "water_leaf",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "ob/water/water_flower.png",
+              "Plist": ""
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 553.1918,
+              "Y": 329.7335
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.3073,
+              "Y": 0.1832
+            },
+            "PreSize": {
+              "X": 0.1006,
+              "Y": 0.0506
+            },
+            "LeftMargin": 462.6918,
+            "RightMargin": 1156.3082,
+            "TopMargin": 1424.7665,
+            "BottomMargin": 284.2335,
+            "Tag": 18,
+            "ActionTag": 943364968,
+            "Size": {
+              "X": 181.0,
+              "Y": 91.0
+            },
+            "Name": "water_flower",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "ob/water/water_stone.png",
+              "Plist": ""
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 167.0523,
+              "Y": 696.3132
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.0928,
+              "Y": 0.3868
+            },
+            "PreSize": {
+              "X": 0.1378,
+              "Y": 0.0767
+            },
+            "LeftMargin": 43.0523,
+            "RightMargin": 1508.9478,
+            "TopMargin": 1034.6868,
+            "BottomMargin": 627.3132,
+            "Tag": 21,
+            "ActionTag": 1016234620,
+            "Size": {
+              "X": 248.0,
+              "Y": 138.0
+            },
+            "Name": "water_stone",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "ob/water/water_plant.png",
+              "Plist": ""
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 307.0706,
+              "Y": 723.9969
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.1706,
+              "Y": 0.4022
+            },
+            "PreSize": {
+              "X": 0.1861,
+              "Y": 0.1
+            },
+            "LeftMargin": 139.5706,
+            "RightMargin": 1325.4293,
+            "TopMargin": 986.0031,
+            "BottomMargin": 633.9969,
+            "Tag": 19,
+            "ActionTag": 1060892421,
+            "Size": {
+              "X": 335.0,
+              "Y": 180.0
+            },
+            "Name": "water_plant",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "ob/water/water_anchor.png",
+              "Plist": ""
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1639.7888,
+              "Y": 567.8705
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.911,
+              "Y": 0.3155
+            },
+            "PreSize": {
+              "X": 0.1106,
+              "Y": 0.1117
+            },
+            "LeftMargin": 1540.2888,
+            "RightMargin": 60.7112,
+            "TopMargin": 1131.6295,
+            "BottomMargin": 467.3705,
+            "Tag": 41,
+            "ActionTag": -338046313,
+            "Size": {
+              "X": 199.0,
+              "Y": 201.0
+            },
+            "Name": "water_anchor_10",
+            "ctype": "SpriteObjectData"
+          }
+        ],
+        "Size": {
+          "X": 1800.0,
+          "Y": 1800.0
+        },
+        "Name": "Scene",
+        "ctype": "SingleNodeObjectData"
+      },
+      "UsedResources": [
+        "bg/water_bg-02.png",
+        "ob/water/water_anchor.png",
+        "ob/water/water_chair.png",
+        "ob/water/water_flower.png",
+        "ob/water/water_leaf.png",
+        "ob/water/water_plant.png",
+        "ob/water/water_stone.png"
+      ],
+      "ctype": "GameFileData"
+    }
+  },
+  "Type": "Scene"
+}
