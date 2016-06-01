@@ -100,7 +100,9 @@ chimple.DEVICE_HEIGHT = 450;
             "src/TextTouchHandler.js",
             "src/EditStoryScene.js",
             "src/play.js",
-            "src/Preload.js"
+            "src/Preload.js",
+            "src/pako.js",
+            "src/ui/TextReadPanel.js"
         ]
 
     };
@@ -108,7 +110,7 @@ chimple.DEVICE_HEIGHT = 450;
     chimple.DEFAULT_MODE = "PLAY";
     chimple.EDIT_MODE = "edit";
     chimple.PLAY_MODE = "play";
-
+    chimple.customSprites = [];
     retrieveMode = function () {
 
         var query_string = {};

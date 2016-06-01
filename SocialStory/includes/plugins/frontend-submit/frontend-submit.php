@@ -94,46 +94,45 @@ class Frontend_Submit {
 		//upload canvas base64 data
 		// baseFromJavascript will be the javascript base64 string retrieved of some way (async or post submited)
 		$baseFromJavascript = $_POST['gameCanvasImage']; //your data in base64 'data:image/png....';
-		if($baseFromJavascript == null || $baseFromJavascript == '') {
-			return;
-		}
-		// We need to remove the "data:image/png;base64,"
-		$base_to_php = explode(',', $baseFromJavascript);
-		// the 2nd item in the base_to_php array contains the content of the image
-		$decoded = base64_decode($base_to_php[1]);
-				
-		$upload_dir   =  wp_upload_dir();
-		$upload_path      = str_replace( '/', DIRECTORY_SEPARATOR, $upload_dir['path'] ) . DIRECTORY_SEPARATOR;
-		$filename         = 'newImage.png';
-		$hashed_filename  = md5( $filename . microtime() ) . '_' . $filename;
-		$image_upload     = file_put_contents( $upload_path . $hashed_filename, $decoded );
-		
-		// @new
-		$file             = array();
-		$file['error']    = '';
-		$file['tmp_name'] = $upload_path . $hashed_filename;
-		
-		$file['name']     = $hashed_filename;
-		
-		$file['type']     = 'image/jpg';
-		$file['size']     = filesize( $upload_path . $hashed_filename );
-		
-		// Trying to upload the file
-		$filename = pathinfo( $file['name'], PATHINFO_FILENAME );
-		$post_overrides = array(
-					'post_status' => $this->_is_public() ? 'publish' : 'private',
-					'post_title' => isset( $_POST['post_title'] ) && ! empty( $_POST['post_title'] ) ? sanitize_text_field( $_POST['post_title'] ) : sanitize_text_field( $filename ),
-					'post_content' => empty( $caption ) ? __( 'Unnamed', 'socialchef' ) : $caption,
-					'post_excerpt' => empty( $caption ) ? __( 'Unnamed', 'socialchef' ) :  $caption,
-					);
-		$upload_id = media_handle_sideload( $file, (int) $post_id, $post_overrides['post_title'], $post_overrides );
-		if ( !is_wp_error( $upload_id ) ) {
-			if ($set_as_featured) {
-				set_post_thumbnail($post_id, $upload_id);
+		if($baseFromJavascript != null && $baseFromJavascript != '') {
+			// We need to remove the "data:image/png;base64,"
+			$base_to_php = explode(',', $baseFromJavascript);
+			// the 2nd item in the base_to_php array contains the content of the image
+			$decoded = base64_decode($base_to_php[1]);
+					
+			$upload_dir   =  wp_upload_dir();
+			$upload_path      = str_replace( '/', DIRECTORY_SEPARATOR, $upload_dir['path'] ) . DIRECTORY_SEPARATOR;
+			$filename         = 'newImage.png';
+			$hashed_filename  = md5( $filename . microtime() ) . '_' . $filename;
+			$image_upload     = file_put_contents( $upload_path . $hashed_filename, $decoded );
+			
+			// @new
+			$file             = array();
+			$file['error']    = '';
+			$file['tmp_name'] = $upload_path . $hashed_filename;
+			
+			$file['name']     = $hashed_filename;
+			
+			$file['type']     = 'image/jpg';
+			$file['size']     = filesize( $upload_path . $hashed_filename );
+			
+			// Trying to upload the file
+			$filename = pathinfo( $file['name'], PATHINFO_FILENAME );
+			$post_overrides = array(
+						'post_status' => $this->_is_public() ? 'publish' : 'private',
+						'post_title' => isset( $_POST['post_title'] ) && ! empty( $_POST['post_title'] ) ? sanitize_text_field( $_POST['post_title'] ) : sanitize_text_field( $filename ),
+						'post_content' => empty( $caption ) ? __( 'Unnamed', 'socialchef' ) : $caption,
+						'post_excerpt' => empty( $caption ) ? __( 'Unnamed', 'socialchef' ) :  $caption,
+						);
+			$upload_id = media_handle_sideload( $file, (int) $post_id, $post_overrides['post_title'], $post_overrides );
+			if ( !is_wp_error( $upload_id ) ) {
+				if ($set_as_featured) {
+					set_post_thumbnail($post_id, $upload_id);
+				}
+				$media_ids[] = $upload_id;
+			} else {
+				$errors['fes-error-media'][] = $file['name'];
 			}
-			$media_ids[] = $upload_id;
-		} else {
-			$errors['fes-error-media'][] = $file['name'];
 		}
 				
 		/**

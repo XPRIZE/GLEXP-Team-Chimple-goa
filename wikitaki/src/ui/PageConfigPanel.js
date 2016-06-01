@@ -48,28 +48,6 @@ chimple.PageConfigPanel = cc.LayerColor.extend({
             this.addChild(this._buttonPanel);
             this.disableOrEnableAllButtons(this._buttonPanel, true);
         }
-
-        // var selectedConfig = this._configuration.addObjects[selectedItem._selectedIndex];
-        // cc.log(selectedItem.getName());
-        // if (selectedConfig != null && selectedConfig.name === "texts") {
-        //     this._contentPanel.addTextToScene();
-        // } else if (selectedConfig != null && selectedConfig.name === "startRecording") {
-        //     this.handleRecordingAnimation(selectedItem);
-        // } else if (selectedConfig != null && selectedConfig.name === "play") {
-        //     this._contentPanel.playSceneInEditMode();
-        // } else if (selectedConfig != null && selectedConfig.name === "back") {
-        //     this._contentPanel.backPressed();            
-        // } else if (selectedConfig != null && selectedConfig.name === "addToScene") {
-        //     if (chimple.story.items[chimple.pageIndex].scene.Content == null) {
-        //         selectedConfig.categories.forEach(function(element, index) {
-        //             if(element.name == "backgrounds") {
-        //                 this.constructTabBar([selectedConfig.categories[index]]);        
-        //             }
-        //         }, this);
-        //     } else {
-        //         this.constructTabBar(selectedConfig.categories);
-        //     }
-        // }
     },
 
     handleRecordingAnimation: function (selectedItem) {

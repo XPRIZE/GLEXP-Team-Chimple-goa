@@ -17,12 +17,12 @@ chimple.ContentPanel = chimple.AbstractContentPanel.extend({
             this.putIntoCache();
             this.doPostLoadingProcessForScene(chimple.STORY_KEY, false);
         } else {
-            this._constructedScene = new cc.Node();
-            this._constructedScene.setName("Scene");
-            this.addChild(this._constructedScene);
+            // this._constructedScene = new cc.Node();
+            // this._constructedScene.setName("Scene");
+            // this.addChild(this._constructedScene);
 
             this._help = new cc.Sprite('#icons/help_click_add_bg.png');
-            this._help.setPosition(cc.p(0,cc.director.getWinSize().height));
+            this._help.setPosition(cc.p(0, cc.director.getWinSize().height));
             this._help.setAnchorPoint(0, 1);
             this.addChild(this._help, 1);
 
@@ -33,14 +33,49 @@ chimple.ContentPanel = chimple.AbstractContentPanel.extend({
         cc.loader.cache[chimple.STORY_KEY] = chimple.story.items[chimple.pageIndex].scene;
     },
 
+    copyUserAddedObjectsToScene: function () {
+        if (this._backLayer && this._backLayer.children && this._backLayer.children.length == 2) {
+            var count = this._backLayer.children[0].children.length;
+            for (var i = 0; i < count; i++) {
+                var element = this._backLayer.children[0].children[i];
+                if (element && element._userData && element._userData.userAdded) {
+                    // this._constructedScene.children.push(element);
+                    element.removeFromParent();
+                    i--;
+                    this._constructedScene.addChild(element);
+                }
+
+                chimple.customSprites.forEach(function (customSprite, index) {
+                    if (element &&  customSprite === element.getName()) {
+                        element.removeFromParent();
+                        i--;
+                        this._constructedScene.addChild(element);
+                    }
+                }, this);
+
+            }
+            this._backLayer.children[0].removeFromParent(true);
+        }
+
+        if (this._frontLayer && this._frontLayer.children && this._frontLayer.children.length > 0) {
+            this._frontLayer.children.forEach(function (element, index) {
+
+                chimple.customSprites.forEach(function (customSprite, index) {
+                    if (customSprite === element.getName()) {
+                        element.removeFromParent();
+                        this._constructedScene.addChild(element);
+                    }
+                }, this);
+            }, this);
+        }
+    },
+
     doPostLoadingProcessForScene: function (fileToLoad, shouldSaveScene) {
-        if(this._help != null) {
+        if (this._help != null) {
             this.removeChild(this._help, true);
             this._help = null;
         }
-        if (this._constructedScene != null) {
-            this._constructedScene.removeFromParent(true);
-        }
+
         if (fileToLoad == null) {
             return;
         }
@@ -48,7 +83,9 @@ chimple.ContentPanel = chimple.AbstractContentPanel.extend({
         if (constructedScene != null) {
             this._constructedScene = constructedScene.node;
             if (this._constructedScene) {
-                this.addChild(this._constructedScene);
+                this._backLayer.addChild(this._constructedScene);
+                //now copy user added objects from earlier constructed scene if any
+                this.copyUserAddedObjectsToScene();
                 if (!cc.sys.isNative) {
                     this._constructedScene._renderCmd._dirtyFlag = 1;
                 }
@@ -67,10 +104,9 @@ chimple.ContentPanel = chimple.AbstractContentPanel.extend({
         var context = this;
         data = cc.loader.cache[fileToLoad];
         data = JSON.parse(JSON.stringify(data));
+        chimple.ParseUtil.copyUserAddedDataToScene(data);
         if (data != null) {
-            //new scene added
             chimple.ParseUtil.saveScene(data);
-            // chimple.ParseUtil.saveSceneToLocalStorage(context._storyKey, context._currentPageIndex, JSON.stringify(data));
         }
     },
 
@@ -81,16 +117,16 @@ chimple.ContentPanel = chimple.AbstractContentPanel.extend({
                 if (element._userData && element._userData.colorSkins) {
                     chimple.CharacterUtil.colorSkins(element, element._userData.colorSkins);
                 }
-                
+
                 if (element._userData && element._userData.visibleSkins) {
                     chimple.CharacterUtil.displaySkins(element, element._userData.visibleSkins);
                 }
-                
-                
+
+
                 if (element._userData && element._userData.currentAnimationName) {
                     element._currentAnimationName = element._userData.currentAnimationName;
                 }
-                chimple.CharacterUtil.addCharacterToFavorites(element);                
+                chimple.CharacterUtil.addCharacterToFavorites(element);
             }
         }, this);
 
@@ -99,12 +135,12 @@ chimple.ContentPanel = chimple.AbstractContentPanel.extend({
 
     registerEventListenerForAllChildren: function () {
         this.children.forEach(function (element) {
-            if (element._name === 'Scene') {
-                element.children.forEach(function (element) {
-                    if (element.getComponent('ComExtensionData') && element.getComponent('ComExtensionData').getActionTag()) {
-                        element.ActionTag = element.getComponent('ComExtensionData').getActionTag()
+            if (element._name === 'FrontLayer' || element._name === 'BackLayer') {
+                element.children.forEach(function (child) {
+                    if (child.getComponent('ComExtensionData') && child.getComponent('ComExtensionData').getActionTag()) {
+                        child.ActionTag = child.getComponent('ComExtensionData').getActionTag()
                     }
-                    this.registerEventListenerForChild(element);
+                    this.registerEventListenerForChild(child);
                 }, this);
             }
         }, this);
@@ -118,18 +154,27 @@ chimple.ContentPanel = chimple.AbstractContentPanel.extend({
             if (!cc.sys.isNative) {
                 element._renderCmd._dirtyFlag = 1;
             }
-        } else if (element.getName().indexOf("ChimpleTextPanel") != -1) {
-            if (element.children != null && element.children.length > 0) {
-                var eventObj = new chimple.TextTouchHandler(this);
-                var listener = cc.EventListener.create(eventObj);
-                cc.eventManager.addListener(listener, element.children[0]);
-
-            }
         }
-        else {
+        else if ((element.children && element.children.length == 0) || (element.children.length == 1 && element.children[0].tag == chimple.DEFAULT_BOUNDING_BOX_TAG)) {
             var eventObj = new chimple.SpriteTouchHandler(this);
             var listener = cc.EventListener.create(eventObj);
             cc.eventManager.addListener(listener, element);
+        } else if (element.children && element.children.length > 0) {
+            element.children.forEach(function (child) {
+                if (child && (child.getName().indexOf("Skeleton") != -1 || child.getName().indexOf("skeleton") != -1)) {
+                    var eventObj = new chimple.SkeletonTouchHandler(this);
+                    var listener = cc.EventListener.create(eventObj);
+                    cc.eventManager.addListener(listener, child);
+                    if (!cc.sys.isNative) {
+                        child._renderCmd._dirtyFlag = 1;
+                    }
+                } else if (child && child.getName().indexOf('background') == -1) {
+                    var eventObj = new chimple.SpriteTouchHandler(this);
+                    var listener = cc.EventListener.create(eventObj);
+                    cc.eventManager.addListener(listener, child);
+                }
+            }, this);
+
         }
     },
 
@@ -158,14 +203,14 @@ chimple.ContentPanel = chimple.AbstractContentPanel.extend({
             this._nodesTouchedWhileRecording = [];
             this.unscheduleUpdate();
         }
-        
+
         if (chimple.currentBoxShownForNode != null) {
             var boundingBoxNode = chimple.currentBoxShownForNode.getChildByTag(chimple.DEFAULT_BOUNDING_BOX_TAG);
-            if(boundingBoxNode) {
-                boundingBoxNode.removeFromParent(true);    
+            if (boundingBoxNode) {
+                boundingBoxNode.removeFromParent(true);
             }
-            
-        }        
+
+        }
     },
 
     createTimeLinesForPlayAnimation: function (timelines) {
@@ -179,7 +224,7 @@ chimple.ContentPanel = chimple.AbstractContentPanel.extend({
     },
 
     addTextToScene: function () {
-        this.parent.addChild(new chimple.TextCreatePanel(cc.director.getWinSize().width, cc.director.getWinSize().height, cc.p(0, 0), chimple.story.items[chimple.pageIndex].sceneText, this.processText, this));
+        this.parent.addChild(new chimple.TextCreatePanel(cc.director.getWinSize().width, cc.director.getWinSize().height, cc.p(150, 150), chimple.story.items[chimple.pageIndex].sceneText, this.processText, this));
     },
 
     processText: function (text) {
@@ -284,12 +329,13 @@ chimple.ContentPanel = chimple.AbstractContentPanel.extend({
 
     doPostLoadingProcessForImage: function (imageToLoad) {
         var sprite = new cc.Sprite(imageToLoad);
-        this._constructedScene.addChild(sprite);
+        // this._constructedScene.addChild(sprite);        
+        this._frontLayer.addChild(sprite);
         sprite.setPosition(cc.director.getWinSize().width / 2, cc.director.getWinSize().height / 2);
         sprite.setScale(1);
-
         var loadedImageObject = chimple.ParseUtil.constructJSONFromCCSprite(sprite);
         sprite.ActionTag = loadedImageObject.ActionTag;
+        chimple.customSprites.push(sprite.getName());
         chimple.ParseUtil.saveObjectToStoredScene(loadedImageObject);
         this.registerEventListenerForChild(sprite);
     },
@@ -301,7 +347,8 @@ chimple.ContentPanel = chimple.AbstractContentPanel.extend({
 
         load.node.setPosition(this.getContentSize().width / 2, this.getContentSize().height / 6);
         load.node.setScale(0.5, 0.5);
-        this._constructedScene.addChild(load.node);
+        // this._constructedScene.addChild(load.node);        
+        this._frontLayer.addChild(load.node);
         load.node.runAction(load.action);
         this.registerEventListenerForChild(load.node);
         chimple.ParseUtil.saveCharacterToJSON(configuration.json, load);
