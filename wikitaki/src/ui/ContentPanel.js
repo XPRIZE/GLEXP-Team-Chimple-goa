@@ -350,12 +350,10 @@ chimple.ContentPanel = chimple.AbstractContentPanel.extend({
             this._isRecordingStarted = true;
             this._recordingFrameIndex = 0;
             this._anyNodeTouched = false;
-            cc.log("recording started");
             this._nodesTouchedWhileRecording = [];
             this.scheduleUpdate();
         } else {
             this._isRecordingStarted = false;
-            cc.log("recording stopped");
             this._recordingCounter = 1;
             var timelines = [];
             if (this._nodesTouchedWhileRecording != null && this._nodesTouchedWhileRecording.length > 0) {
@@ -569,7 +567,6 @@ chimple.ContentPanel = chimple.AbstractContentPanel.extend({
     addNodeToRecording: function (context, touch, target) {
         if (context._isRecordingStarted) {
             context._nodesTouchedWhileRecording.push(target);
-            cc.log('frame when node is touched:' + this._recordingFrameIndex);
             this._anyNodeTouched = true;
             if (target.positionFrames == null) {
                 target.positionFrames = [];
@@ -623,7 +620,6 @@ chimple.ContentPanel = chimple.AbstractContentPanel.extend({
     backPressed: function () {
         //take a screen shot of page if index is 0 (first page of story)
         if (chimple.pageIndex == 0) {
-            cc.log('title page');
             var gameCanvas = document.getElementById("gameCanvas");
             if (gameCanvas != null) {
                 var dataURL = gameCanvas.toDataURL("image/png");
@@ -649,9 +645,6 @@ chimple.ContentPanel = chimple.AbstractContentPanel.extend({
     update: function (dt) {
         this._recordingFrameIndex = this._recordingFrameIndex + 1;
         if (this._isRecordingStarted && this._nodesSelected != null && this._nodesSelected.length > 0) {
-            if (this._anyNodeTouched) {
-                cc.log('at time when node touched frame recording' + this._recordingFrameIndex);
-            }
             this._nodesSelected.forEach(function (element) {
                 //construct position, rotation and scale framedata for now for each timesecond
                 this.constructFrameData(element, this._recordingFrameIndex, this._anyNodeTouched);
