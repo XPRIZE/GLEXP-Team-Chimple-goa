@@ -46,7 +46,7 @@ chimple.ContentPanel = chimple.AbstractContentPanel.extend({
                 }
 
                 chimple.customSprites.forEach(function (customSprite, index) {
-                    if (element &&  customSprite === element.getName()) {
+                    if (element && customSprite === element.getName()) {
                         element.removeFromParent();
                         i--;
                         this._constructedScene.addChild(element);
@@ -137,8 +137,16 @@ chimple.ContentPanel = chimple.AbstractContentPanel.extend({
         this.children.forEach(function (element) {
             if (element._name === 'FrontLayer' || element._name === 'BackLayer') {
                 element.children.forEach(function (child) {
-                    if (child.getComponent('ComExtensionData') && child.getComponent('ComExtensionData').getActionTag()) {
-                        child.ActionTag = child.getComponent('ComExtensionData').getActionTag()
+                    if(child.getName() === 'Scene') {
+                        child.children.forEach(function(subChild) {
+                            if (subChild.getComponent('ComExtensionData') && subChild.getComponent('ComExtensionData').getActionTag())
+                            {
+                               subChild.ActionTag = subChild.getComponent('ComExtensionData').getActionTag();  
+                            }
+                        }, this);
+                    } 
+                    else if (child.getComponent('ComExtensionData') && child.getComponent('ComExtensionData').getActionTag()) {
+                        child.ActionTag = child.getComponent('ComExtensionData').getActionTag();
                     }
                     this.registerEventListenerForChild(child);
                 }, this);
@@ -178,11 +186,170 @@ chimple.ContentPanel = chimple.AbstractContentPanel.extend({
         }
     },
 
+    processFrames: function (object) {
+        var framesWhenObjectsTouched = [];
+        if (object && object.Frames) {
+            object.Frames.forEach(function (frameData, index) {
+                if (frameData.touched) {
+                    framesWhenObjectsTouched.push(frameData);
+                }
+                //ending frame
+                if (index === object.Frames.length - 1) {
+                    framesWhenObjectsTouched.push(frameData);
+                }
+            }, this);
+
+            object.Frames = framesWhenObjectsTouched;
+        }
+    },
+
+
+    processPositionFrames: function (object) {
+        var framesWhenObjectsTouched = [];
+        var lastFramesWhenTouchLifted = [];
+        var intermediateFrames = [];
+        var uniquePositionFrameIndexes = [];
+        var previousFrameX = 0;
+        var curFrameX = 0;
+        var prevSign = 0;
+        var curSign = 0;
+        if (object && object.Frames) {
+            object.Frames.forEach(function (frameData, index) {
+                if (frameData.touched) {
+                    framesWhenObjectsTouched.push(frameData);
+                    previousFrameX = frameData.X;
+                }
+
+                curFrameX = frameData.X;
+                curSign = Math.sign(curFrameX - previousFrameX);
+                if (curSign != prevSign) {
+                    intermediateFrames.push(object.Frames[index - 1]);
+                    intermediateFrames.push(frameData);
+                }
+                previousFrameX = curFrameX;
+                prevSign = curSign;
+                //ending frame
+                if (index === object.Frames.length - 1) {
+                    lastFramesWhenTouchLifted.push(frameData);
+                }
+            }, this);
+            intermediateFrames = this.uniqueBy(intermediateFrames, function (x) { return x.X; });
+            uniquePositionFrameIndexes = this.uniqueFrameIndexBy(intermediateFrames, function (x) { return x.FrameIndex; });            
+            framesWhenObjectsTouched = framesWhenObjectsTouched.concat(intermediateFrames, lastFramesWhenTouchLifted);
+            object.Frames = framesWhenObjectsTouched.sort(this.compareByFrameIndex);
+        }
+        return uniquePositionFrameIndexes;
+    },
+
+    processRotationOrScaleFrames: function (object, additionalFrameIndexes) {
+        var framesWhenObjectsTouched = [];
+        var lastFramesWhenTouchLifted = [];
+        var intermediateFrames = [];
+        var additionalFrames = [];
+        var previousFrameX = 0;
+        var curFrameX = 0;
+        var prevSign = 0;
+        var curSign = 0;
+        if (object && object.Frames) {
+            object.Frames.forEach(function (frameData, index) {
+                if (frameData.touched) {
+                    framesWhenObjectsTouched.push(frameData);
+                    previousFrameX = frameData.X;
+                }
+
+                curFrameX = frameData.X;
+                curSign = Math.sign(curFrameX - previousFrameX);
+                if (curSign != prevSign) {
+                    intermediateFrames.push(object.Frames[index - 1]);
+                    intermediateFrames.push(frameData);
+                }
+
+                if (additionalFrameIndexes && additionalFrameIndexes.indexOf(frameData.FrameIndex) != -1) {
+                    additionalFrames.push(frameData);
+                }
+
+                previousFrameX = curFrameX;
+                prevSign = curSign;
+                //ending frame
+                if (index === object.Frames.length - 1) {
+                    lastFramesWhenTouchLifted.push(frameData);
+                }
+            }, this);
+            intermediateFrames = this.uniqueBy(intermediateFrames, function (x) { return x.FrameIndex; });
+            framesWhenObjectsTouched = framesWhenObjectsTouched.concat(intermediateFrames, additionalFrames, lastFramesWhenTouchLifted);
+            object.Frames = framesWhenObjectsTouched.sort(this.compareByFrameIndex);
+        }
+    },
+
+
+    compareByFrameIndex: function (a, b) {
+        if (a.FrameIndex < b.FrameIndex)
+            return -1;
+        else if (a.FrameIndex > b.FrameIndex)
+            return 1;
+        else
+            return 0;
+    },
+
+   uniqueFrameIndexBy: function (arr, fn) {
+        var unique = {};
+        var distinct = [];
+        arr.forEach(function (x) {
+            var key = fn(x);
+            if (!unique[key]) {
+                distinct.push(key);
+                unique[key] = true;
+            }
+        });
+        return distinct;
+    },
+
+
+    uniqueBy: function (arr, fn) {
+        var unique = {};
+        var distinct = [];
+        arr.forEach(function (x) {
+            var key = fn(x);
+            if (!unique[key]) {
+                distinct.push(x);
+                unique[key] = true;
+            }
+        });
+        return distinct;
+    },
+
+    createTimeLines: function (element, timelines) {
+        var positionFrames = this.constructTimeLineObject(element, "Position", "positionFrames");
+        var posFrameIndexes = null;
+        if (positionFrames) {
+            posFrameIndexes = this.processPositionFrames(positionFrames);
+            timelines.push(positionFrames);
+        }
+
+        var scaleFrames = this.constructTimeLineObject(element, "Scale", "scaleFrames");
+        if (scaleFrames) {
+            this.processRotationOrScaleFrames(scaleFrames, posFrameIndexes);
+            timelines.push(scaleFrames);
+        }
+
+        var rotationFrames = this.constructTimeLineObject(element, "RotationSkew", "rotationFrames");
+        if (rotationFrames) {
+            this.processRotationOrScaleFrames(rotationFrames, posFrameIndexes);
+            timelines.push(rotationFrames);
+        }
+
+        var animationFrames = this.constructTimeLineObject(element, "ActionValue", "animationFrames");
+        if (animationFrames) {
+            timelines.push(animationFrames);
+        }
+    },
+
     startRecording: function () {
         this._objectConfigPanel.setTarget(null);
         if (!this._isRecordingStarted) {
             this._isRecordingStarted = true;
             this._recordingFrameIndex = 0;
+            this._anyNodeTouched = false;
             cc.log("recording started");
             this._nodesTouchedWhileRecording = [];
             this.scheduleUpdate();
@@ -193,10 +360,7 @@ chimple.ContentPanel = chimple.AbstractContentPanel.extend({
             var timelines = [];
             if (this._nodesTouchedWhileRecording != null && this._nodesTouchedWhileRecording.length > 0) {
                 this._nodesTouchedWhileRecording.forEach(function (element) {
-                    timelines.push(this.constructTimeLineObject(element, "Position", "positionFrames"));
-                    timelines.push(this.constructTimeLineObject(element, "Scale", "scaleFrames"));
-                    timelines.push(this.constructTimeLineObject(element, "RotationSkew", "rotationFrames"));
-                    timelines.push(this.constructTimeLineObject(element, "ActionValue", "animationFrames"));
+                    this.createTimeLines(element, timelines);
                 }, this);
             }
             this.createTimeLinesForPlayAnimation(timelines);
@@ -236,7 +400,7 @@ chimple.ContentPanel = chimple.AbstractContentPanel.extend({
         cc.director.pushScene(playScene);
     },
 
-    constructFrameData: function (node, frameIndex) {
+    constructFrameData: function (node, frameIndex, isNodeTouchedAtThisFrame) {
         var positionFrameData = Object.create(Object.prototype);
         positionFrameData.FrameIndex = frameIndex;
         positionFrameData.EasingData = {};
@@ -244,6 +408,7 @@ chimple.ContentPanel = chimple.AbstractContentPanel.extend({
         positionFrameData.ctype = "PointFrameData";
         positionFrameData.X = node.x;
         positionFrameData.Y = node.y;
+        positionFrameData.touched = isNodeTouchedAtThisFrame;
         if (node.positionFrames) {
             node.positionFrames.push(positionFrameData);
         }
@@ -256,6 +421,7 @@ chimple.ContentPanel = chimple.AbstractContentPanel.extend({
         scaleFrameData.ctype = "ScaleValueFrameData";
         scaleFrameData.X = node.getScaleX();
         scaleFrameData.Y = node.getScaleY();
+        scaleFrameData.touched = isNodeTouchedAtThisFrame;
         if (node.scaleFrames) {
             node.scaleFrames.push(scaleFrameData);
         }
@@ -268,6 +434,7 @@ chimple.ContentPanel = chimple.AbstractContentPanel.extend({
         rotationFrameData.ctype = "ScaleValueFrameData";
         rotationFrameData.X = node.getRotationX();
         rotationFrameData.Y = node.getRotationY();
+        rotationFrameData.touched = isNodeTouchedAtThisFrame;
         if (node.rotationFrames) {
             node.rotationFrames.push(rotationFrameData);
         }
@@ -275,6 +442,9 @@ chimple.ContentPanel = chimple.AbstractContentPanel.extend({
     },
 
     constructTimeLineObject: function (node, property, frameName) {
+        if (node[frameName] == null) {
+            return null;
+        }
         var object = Object.create(Object.prototype);
         if (node.ActionTag != null) {
             object.ActionTag = node.ActionTag;
@@ -300,7 +470,9 @@ chimple.ContentPanel = chimple.AbstractContentPanel.extend({
         if (node.animationFrames == null) {
             node.animationFrames = [];
         }
-
+        if(!node._currentAnimationName) {
+            return;
+        }
         if (node._previousAnimationName != null && node._previousAnimationName === node._currentAnimationName) {
             return;
         }
@@ -397,6 +569,8 @@ chimple.ContentPanel = chimple.AbstractContentPanel.extend({
     addNodeToRecording: function (context, touch, target) {
         if (context._isRecordingStarted) {
             context._nodesTouchedWhileRecording.push(target);
+            cc.log('frame when node is touched:' + this._recordingFrameIndex);
+            this._anyNodeTouched = true;
             if (target.positionFrames == null) {
                 target.positionFrames = [];
             }
@@ -461,7 +635,7 @@ chimple.ContentPanel = chimple.AbstractContentPanel.extend({
                 var xOffSet = (cc.director.getWinSize().width - cc.director.getWinSize().height) / 2;
                 ctx.drawImage(imageData, xOffSet, 0, cc.director.getWinSize().height, cc.director.getWinSize().height, 0, 0, 450, 450);
                 var snapShotDataURL = snapShotCanvas.toDataURL("image/png");
-                chimple.story.titlePageDataURL = snapShotDataURL;
+                chimple.image.titlePageDataURL = snapShotDataURL;
                 ctx.clearRect(0, 0, snapShotCanvas.width, snapShotCanvas.height);
                 snapShotCanvas = null;
             }
@@ -470,18 +644,21 @@ chimple.ContentPanel = chimple.AbstractContentPanel.extend({
         chimple.LAYER_INIT = false;
         chimple.LAYER_EDIT_STORY = false;
         cc.director.runScene(new HelloWorldScene());
-
-
     },
 
     update: function (dt) {
+        this._recordingFrameIndex = this._recordingFrameIndex + 1;
         if (this._isRecordingStarted && this._nodesSelected != null && this._nodesSelected.length > 0) {
-            this._recordingFrameIndex = this._recordingFrameIndex + 1;
+            if (this._anyNodeTouched) {
+                cc.log('at time when node touched frame recording' + this._recordingFrameIndex);
+            }
             this._nodesSelected.forEach(function (element) {
-                //construct position, rotation and scale framedata for now for each timesecond                
-                this.constructFrameData(element, this._recordingFrameIndex);
+                //construct position, rotation and scale framedata for now for each timesecond
+                this.constructFrameData(element, this._recordingFrameIndex, this._anyNodeTouched);
                 this.constructAnimationFrameData(element, this._recordingFrameIndex, false);
             }, this);
+
+            this._anyNodeTouched = false;
         }
     },
 

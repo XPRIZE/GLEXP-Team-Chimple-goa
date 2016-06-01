@@ -37,13 +37,15 @@ chimple.SkeletonTouchHandler = function (context) {
         var locationTo = cc.p(location.x - this._offsetXInTouch, location.y - this._offsetYInTouch);
         this._context.enableTargetTransformForTarget(this._context, touch, target, locationTo);
 
-        if ((location.x - this._previousTouchLocation.x) < 0) {
-            if (target.getScaleX() < 0) {
-                target.setScaleX(-1 * target.getScaleX());
-            }
-        } else {
-            if (target.getScaleX() > 0) {
-                target.setScaleX(-1 * target.getScaleX());
+        if (this._context._moveAction) {
+            if ((location.x - this._previousTouchLocation.x) < 0) {
+                if (target.getScaleX() < 0) {
+                    target.setScaleX(-1 * target.getScaleX());
+                }
+            } else {
+                if (target.getScaleX() > 0) {
+                    target.setScaleX(-1 * target.getScaleX());
+                }
             }
         }
 
