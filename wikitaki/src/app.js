@@ -49,7 +49,7 @@ var HelloWorldLayer = cc.Layer.extend({
             this.addChild(this._help, 1);
         }
 
-        this._panel = new chimple.ScrollableButtonPanel(cc.p(0, 0), cc.size(cc.director.getWinSize().width, cc.director.getWinSize().height - this._tabHeight), 2, 1, displayPages, this.loadOptions, this);
+        this._panel = new chimple.ScrollableButtonPanel(cc.p(0, 0), cc.size(cc.director.getWinSize().width, cc.director.getWinSize().height - this._tabHeight), 4, 4, displayPages, this.loadOptions, this);
         this.addChild(this._panel);
     },
 
@@ -106,7 +106,6 @@ var HelloWorldLayer = cc.Layer.extend({
     },
 
     chooseEditPageOption: function (sender) {
-        cc.log('chooseEditPageOption options' + sender);
         if (this._optionPanel) {
             this._optionPanel.removeFromParent(true);
         }
@@ -133,7 +132,6 @@ var HelloWorldLayer = cc.Layer.extend({
 
             }
         } else if (sender.getName() == 'icons/delete.png') {
-            cc.log('sender._selectedIndex:' + this._curSelectedPageIndex);
             if (chimple.story && chimple.story.items && chimple.story.items.length > this._curSelectedPageIndex) {
                 chimple.story.items.splice(this._curSelectedPageIndex, 1);
                 if (this._panel) {
