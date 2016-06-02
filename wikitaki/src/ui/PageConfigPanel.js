@@ -8,11 +8,11 @@ chimple.PageConfigPanel = cc.LayerColor.extend({
         this._buttonPanel = new chimple.ButtonPanel(new cc.p(0, 0), this.getContentSize(), 1, 6, configuration.addObjects, new chimple.ButtonHandler(this.buttonPressed, this));
         this._currentStep = "addObjects";
 
-        if (chimple.story.items[chimple.pageIndex].scene.Content == null) {
-            this.disableOrEnableAllButtons(this._buttonPanel, false);
-        } else {
-            this.disableOrEnableAllButtons(this._buttonPanel, true);
-        }
+        // if (chimple.story.items[chimple.pageIndex].scene.Content == null) {
+        //     this.disableOrEnableAllButtons(this._buttonPanel, false);
+        // } else {
+        //     this.disableOrEnableAllButtons(this._buttonPanel, true);
+        // }
         this.addChild(this._buttonPanel);
     },
     buttonPressed: function (selectedItem) {
@@ -24,7 +24,7 @@ chimple.PageConfigPanel = cc.LayerColor.extend({
             this._contentPanel.playSceneInEditMode();
         } else if (selectedItem.getName() === "icons/save_goback.png") {
             this._contentPanel.backPressed();
-        } else if (selectedItem.getName() === "icons/plus.png") {
+        } else if (selectedItem.getName() === "icons/bg.png") {
             var selectedConfig = this._configuration.addObjects[selectedItem._selectedIndex];
             if (chimple.story.items[chimple.pageIndex].scene.Content == null) {
                 selectedConfig.categories.forEach(function (element, index) {
@@ -46,7 +46,10 @@ chimple.PageConfigPanel = cc.LayerColor.extend({
             this.removeChild(this._buttonPanel, true);
             this._buttonPanel = new chimple.ButtonPanel(new cc.p(0, 0), this.getContentSize(), 1, 7, this._configuration[this._currentStep], new chimple.ButtonHandler(this.buttonPressed, this));
             this.addChild(this._buttonPanel);
-            this.disableOrEnableAllButtons(this._buttonPanel, true);
+            // this.disableOrEnableAllButtons(this._buttonPanel, true);
+        } else {
+            var selectedConfig = this._configuration.addObjects[selectedItem._selectedIndex];
+            this.constructTabBar(selectedConfig.categories);
         }
     },
 
