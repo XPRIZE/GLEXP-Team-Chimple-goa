@@ -1,35 +1,40 @@
 chimple.ScrollableButtonPanel = cc.LayerColor.extend({
     _buttonPanel: null,
     _page: null,
-    ctor: function (position, size, numButtonsPerRow, numButtonsPerColumn, configuration, callBackFunction, callBackContext) {
+    _numButtonsPerRow: null,
+    _numButtonsPerColumn: null,
+    ctor: function (position, size, numButtonsPerRow, numButtonsPerColumn, configuration, callBackFunction, callBackContext, noPagination) {
         this._super(chimple.SECONDARY_COLOR, size.width, size.height);
         this.setPosition(position);
         this.setContentSize(size);
         this._buttonHandler = new chimple.ButtonHandler(callBackFunction, callBackContext);
+        this._numButtonsPerRow = numButtonsPerRow;
+        this._numButtonsPerColumn = numButtonsPerColumn;
 
         this._page = new ccui.PageView();
-        this._page.setPosition(size.width * 5/100, 0);
-        this._page.setContentSize(size.width * 90/100, size.height);
+        this._page.setPosition(size.width * 5 / 100, 0);
+        this._page.setContentSize(size.width * 90 / 100, size.height);
         for (var pageIndex = 0; pageIndex < configuration.length / (numButtonsPerRow * numButtonsPerColumn); pageIndex++) {
-            this._page.addPage(new chimple.ButtonPanel(cc.p(0, 0), cc.size(size.width * 90/100, size.height), numButtonsPerRow, numButtonsPerColumn, configuration, this._buttonHandler, pageIndex * (numButtonsPerRow * numButtonsPerColumn), (numButtonsPerRow * numButtonsPerColumn)))
+            this._page.addPage(new chimple.ButtonPanel(cc.p(0, 0), cc.size(size.width * 90 / 100, size.height), numButtonsPerRow, numButtonsPerColumn, configuration, this._buttonHandler, pageIndex * (numButtonsPerRow * numButtonsPerColumn), (numButtonsPerRow * numButtonsPerColumn)))
         }
         this._page.setClippingEnabled(true);
         this.addChild(this._page);
 
-        this._page.addEventListener(this.updateLeftRightButtons, this)
-        
-        this._backButton = new ccui.Button("icons/left.png", "icons/left_onclick.png", null, ccui.Widget.PLIST_TEXTURE);
-        this._backButton.setPosition(size.width * 5 / 100, size.height / 2);
-        this._backButton.addTouchEventListener(this.moveLeft, this);
-        this.addChild(this._backButton);
+        if (!noPagination) {
+            this._page.addEventListener(this.updateLeftRightButtons, this)
 
-        this._nextButton = new ccui.Button("icons/right.png", "icons/right_onclick.png", null, ccui.Widget.PLIST_TEXTURE);
-        this._nextButton.setPosition(size.width * 95 / 100, size.height / 2);
-        this._nextButton.addTouchEventListener(this.moveRight, this);
-        this.addChild(this._nextButton);
+            this._backButton = new ccui.Button("icons/left.png", "icons/left_onclick.png", null, ccui.Widget.PLIST_TEXTURE);
+            this._backButton.setPosition(size.width * 5 / 100, size.height / 2);
+            this._backButton.addTouchEventListener(this.moveLeft, this);
+            this.addChild(this._backButton);
 
-        this.updateLeftRightButtons();
+            this._nextButton = new ccui.Button("icons/right.png", "icons/right_onclick.png", null, ccui.Widget.PLIST_TEXTURE);
+            this._nextButton.setPosition(size.width * 95 / 100, size.height / 2);
+            this._nextButton.addTouchEventListener(this.moveRight, this);
+            this.addChild(this._nextButton);
 
+            this.updateLeftRightButtons();
+        }
     },
     itemSelected: function (sender, type) {
         this._buttonHandler.itemSelected(sender, type);
@@ -47,6 +52,18 @@ chimple.ScrollableButtonPanel = cc.LayerColor.extend({
             }
         }
     },
+
+    getButtonByIndex: function (buttonIndex) {
+        var pages = this._page.getPages();
+        var pageIndex = Math.floor(buttonIndex / (this._numButtonsPerRow * this._numButtonsPerColumn));
+        var page = pages[pageIndex];        
+        var buttonInPage = buttonIndex - pageIndex * (this._numButtonsPerRow * this._numButtonsPerColumn);        
+        var button = page.getButtonByIndex(buttonInPage);
+        if (button) {
+            return button;
+        }
+    },
+
 
     moveLeft: function (sender, type) {
         switch (type) {
@@ -68,20 +85,20 @@ chimple.ScrollableButtonPanel = cc.LayerColor.extend({
         }
     },
 
-    updateLeftRightButtons: function(sender, type) {
-        if(this._page.getCurPageIndex() <= 0) {
+    updateLeftRightButtons: function (sender, type) {
+        if (this._page.getCurPageIndex() <= 0) {
             this._backButton.setEnabled(false);
             this._backButton.setHighlighted(true);
         } else {
             this._backButton.setEnabled(true);
             this._backButton.setHighlighted(false);
         }
-        if(this._page.getCurPageIndex() >= this._page.getPages().length - 1) {
+        if (this._page.getCurPageIndex() >= this._page.getPages().length - 1) {
             this._nextButton.setEnabled(false);
             this._nextButton.setHighlighted(true);
         } else {
             this._nextButton.setEnabled(true);
-            this._nextButton.setHighlighted(false);            
+            this._nextButton.setHighlighted(false);
         }
     }
 
