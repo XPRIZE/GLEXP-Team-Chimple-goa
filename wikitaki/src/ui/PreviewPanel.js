@@ -37,7 +37,7 @@ chimple.PreviewPanel = cc.LayerColor.extend({
             this.main_backButton.addTouchEventListener(this.main_backButton_function, this);
             this.addChild(this.main_backButton, 1);
         }
-
+        this._contentPanel._isRecordingPaused = true;
     },
 
 
@@ -61,6 +61,7 @@ chimple.PreviewPanel = cc.LayerColor.extend({
                 this._target.setPosition(this._targetPosition);
                 this._target.setScale(this._targetScaleX, this._targetScaleY);
                 this._target.setRotation(this._targetRotationX, this._targetRotationY);
+                this._contentPanel._isRecordingPaused = false;
                 this._contentPanel.registerEventListenerForChild(this._target);
 
                 this.parent.removeChild(this, true);
@@ -99,6 +100,7 @@ chimple.PreviewPanel = cc.LayerColor.extend({
         this._target.setPosition(this._targetPosition);
         this._target.setScale(this._targetScaleX, this._targetScaleY);
         this._target.setRotation(this._targetRotationX, this._targetRotationY);
+        this._contentPanel._isRecordingPaused = false;
         this._contentPanel.registerEventListenerForChild(this._target);
 
         this.parent.removeChild(this, true);

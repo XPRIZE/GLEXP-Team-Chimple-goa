@@ -9,6 +9,7 @@ chimple.ContentPanel = chimple.AbstractContentPanel.extend({
         this._isRecordingStarted = false;
         this._moveAction = true;
         this._recordingCounter = 1;
+        this._isRecordingPaused = false;
         this.loadScene();
     },
 
@@ -642,8 +643,11 @@ chimple.ContentPanel = chimple.AbstractContentPanel.extend({
         cc.director.runScene(new HelloWorldScene());
     },
 
-    update: function (dt) {
-        this._recordingFrameIndex = this._recordingFrameIndex + 1;
+    update: function (dt) { 
+        if(this._isRecordingStarted && !this._isRecordingPaused) {
+            this._recordingFrameIndex = this._recordingFrameIndex + 1;
+        }               
+
         if (this._isRecordingStarted && this._nodesSelected != null && this._nodesSelected.length > 0) {
             this._nodesSelected.forEach(function (element) {
                 //construct position, rotation and scale framedata for now for each timesecond

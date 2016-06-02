@@ -193,7 +193,7 @@ chimple.PageConfigPanel = cc.LayerColor.extend({
 
     trackRecording: function () {
         //check if recording stopped
-        if (this._contentPanel._isRecordingStarted) {
+        if (this._contentPanel._isRecordingStarted && !this._contentPanel._isRecordingPaused) {
             this._contentPanel._recordingCounter++;
             var buttonKey = 'timer/' + this._contentPanel._recordingCounter + '.png';
             this._buttonPanel.getButtonByName("icons/start_recording.png").loadTextures(buttonKey, "icons/start_recording.png", null, ccui.Widget.PLIST_TEXTURE);
