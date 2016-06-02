@@ -660,6 +660,15 @@ chimple.ContentPanel = chimple.AbstractContentPanel.extend({
         if (this._constructedScene) {
             chimple.CharacterUtil.storeActionToTemporaryStore(this._constructedScene);
         }
+        
+        if (this._frontLayer) {
+            chimple.CharacterUtil.storeActionToTemporaryStore(this._frontLayer);
+        }
+
+        if (this._backLayer) {
+            chimple.CharacterUtil.storeActionToTemporaryStore(this._backLayer);
+        }
+        
         this.registerEventListenerForAllChildren();
     },
 
@@ -668,5 +677,14 @@ chimple.ContentPanel = chimple.AbstractContentPanel.extend({
         if (this._constructedScene) {
             chimple.CharacterUtil.restoreActionFromTemporaryStore(this._constructedScene);
         }
+        
+        if (this._frontLayer) {
+            chimple.CharacterUtil.restoreActionFromTemporaryStore(this._frontLayer);
+        }
+
+        if (this._backLayer) {
+            chimple.CharacterUtil.restoreActionFromTemporaryStore(this._backLayer);
+        }
+        
     }
 });

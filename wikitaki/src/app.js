@@ -34,7 +34,12 @@ var HelloWorldLayer = cc.Layer.extend({
 
         this.addChild(this._buttonPanel);
 
+        this.createPages();
+    },
+
+    createPages: function () {
         var displayPages = [];
+
         if (chimple.story != null && chimple.story.items != null && chimple.story.items.length > 0) {
             displayPages = chimple.story['items'];
         } else {
@@ -42,12 +47,10 @@ var HelloWorldLayer = cc.Layer.extend({
             this._help.setPosition(cc.p(100, cc.director.getWinSize().height - this._tabHeight - 50));
             this._help.setAnchorPoint(0, 1);
             this.addChild(this._help, 1);
-
         }
 
-        this._panel = new chimple.ScrollableButtonPanel(cc.p(0, 0), cc.size(cc.director.getWinSize().width, cc.director.getWinSize().height - this._tabHeight), 4, 4, displayPages, this.loadExistingPage, this);
+        this._panel = new chimple.ScrollableButtonPanel(cc.p(0, 0), cc.size(cc.director.getWinSize().width, cc.director.getWinSize().height - this._tabHeight), 4, 4, displayPages, this.loadOptions, this);
         this.addChild(this._panel);
-
     },
 
     createOrCopyPage: function () {
@@ -64,6 +67,11 @@ var HelloWorldLayer = cc.Layer.extend({
     handleSelectItem: function (sender) {
         //create new Scene
         //find last page index   
+
+        if (this._optionPanel) {
+            this._optionPanel.removeFromParent(true);
+        }
+
         if (sender.getName() == 'icons/plus.png') {
             chimple.pageIndex = chimple.story.items.length; //new story
             this.createOrCopyPage();
@@ -79,8 +87,68 @@ var HelloWorldLayer = cc.Layer.extend({
         }
     },
 
+    loadOptions: function (sender) {
+        if (this._optionPanel) {
+            this._optionPanel.removeFromParent(true);
+        }
+        this._optionPanel = new chimple.ScrollableButtonPanel(cc.p(sender.getPosition().x + sender.width / 2 - 75, sender.getPosition().y - 75), cc.size(150, 150), 2, 2, chimple.storyConfigurationObject.editPage, this.chooseEditPageOption, this, true);
+        this._optionPanel.setOpacity(150);
+        this._optionPanel.setColor(chimple.TERTIARY_COLOR);
+        this.addChild(this._optionPanel, 1);
+        this._curSelectedPageIndex = sender._selectedIndex;
+    },
+
+    reDrawPages: function () {
+        if (this._panel) {
+            this._panel.removeFromParent(true);
+            this.createPages();
+        }
+    },
+
+    chooseEditPageOption: function (sender) {
+        cc.log('chooseEditPageOption options' + sender);
+        if (this._optionPanel) {
+            this._optionPanel.removeFromParent(true);
+        }
+
+        if (sender.getName() == 'icons/plus.png') {
+            this.loadExistingPage(sender);
+        } else if (sender.getName() == 'icons/back.png') {
+            if (this._curSelectedPageIndex != 0) {
+                this.shufflePage(chimple.story.items, this._curSelectedPageIndex, this._curSelectedPageIndex - 1);
+                this.reDrawPages();
+                var button = this._panel.getButtonByIndex(this._curSelectedPageIndex - 1);
+                this.loadOptions(button);
+            }
+
+        } else if (sender.getName() == 'icons/next_arrow.png') {
+            if (this._curSelectedPageIndex < chimple.story.items.length - 1) {
+                this.shufflePage(chimple.story.items, this._curSelectedPageIndex, this._curSelectedPageIndex + 1);
+                this.reDrawPages();
+                var button = this._panel.getButtonByIndex(this._curSelectedPageIndex + 1);
+                this.loadOptions(button);
+
+            }
+        } else if (sender.getName() == 'icons/delete.png') {
+            cc.log('sender._selectedIndex:' + this._curSelectedPageIndex);
+            if (chimple.story && chimple.story.items && chimple.story.items.length > this._curSelectedPageIndex) {
+                chimple.story.items.splice(this._curSelectedPageIndex, 1);
+                if (this._panel) {
+                    this._panel.removeFromParent(true);
+                    this.createPages();
+                }
+            }
+        }
+    },
+
+    shufflePage: function (arr, fromIndex, toIndex) {
+        var element = arr[fromIndex];
+        arr.splice(fromIndex, 1);
+        arr.splice(toIndex, 0, element);
+    },
+
     loadExistingPage: function (sender) {
-        chimple.pageIndex = sender._selectedIndex; //index of selected button
+        chimple.pageIndex = this._curSelectedPageIndex; //index of selected button
         chimple.isNewPage = false;
         cc.director.runScene(new EditStoryScene());
     }

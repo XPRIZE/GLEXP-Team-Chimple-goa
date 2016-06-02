@@ -2342,7 +2342,7 @@
     {
       "name": "plus",
       "icon": "icons/plus_done.png"
-    },    
+    },
     {
       "name": "text",
       "icon": "icons/text_done.png"
@@ -2357,132 +2357,132 @@
       "name": "play",
       "cIcon": "icons/play_disabled.png",
       "icon": "icons/play.png"
-    },    
+    },
     {
       "name": "check",
       "cIcon": "icons/check_onclick.png",
       "icon": "icons/check.png"
-    }        
+    }
   ],
   "Human_Skeleton": [
     {
-      "name": "translate",      
+      "name": "translate",
       "cIcon": "icons/move_onclick.png",
       "icon": "icons/move.png"
     },
     {
-      "name": "rotateScale",      
+      "name": "rotateScale",
       "cIcon": "icons/rotate_onclick.png",
       "icon": "icons/rotate.png"
     },
     {
-      "name": "scale",      
+      "name": "scale",
       "cIcon": "icons/scale_onclick.png",
       "icon": "icons/scale.png"
-    },            
+    },
     {
-      "name": "flipX",      
+      "name": "flipX",
       "cIcon": "icons/flipX_onclick.png",
       "icon": "icons/flipX.png"
     },
     {
-      "name": "delete",      
+      "name": "delete",
       "cIcon": "icons/delete_onclick.png",
       "icon": "icons/delete.png"
     },
     {
-      "name": "customize",      
+      "name": "customize",
       "cIcon": "icons/avatar_onclick.png",
       "icon": "icons/avatar.png"
     },
     {
-      "name": "animation",      
+      "name": "animation",
       "cIcon": "icons/animation_onclick.png",
       "icon": "icons/animation.png"
     }
   ],
   "animalskeleton": [
     {
-      "name": "translate",      
+      "name": "translate",
       "cIcon": "icons/move_onclick.png",
       "icon": "icons/move.png"
     },
     {
-      "name": "rotateScale",      
+      "name": "rotateScale",
       "cIcon": "icons/rotate_onclick.png",
       "icon": "icons/rotate.png"
     },
     {
-      "name": "scale",      
+      "name": "scale",
       "cIcon": "icons/scale_onclick.png",
       "icon": "icons/scale.png"
-    },            
+    },
     {
-      "name": "flipX",      
+      "name": "flipX",
       "cIcon": "icons/flipX_onclick.png",
       "icon": "icons/flipX.png"
     },
     {
-      "name": "delete",      
+      "name": "delete",
       "cIcon": "icons/delete_onclick.png",
       "icon": "icons/delete.png"
     },
     {
-      "name": "animation",      
+      "name": "animation",
       "cIcon": "icons/animation_onclick.png",
       "icon": "icons/animation.png"
     }
   ],
   "birdskeleton": [
     {
-      "name": "translate",      
+      "name": "translate",
       "cIcon": "icons/move_onclick.png",
       "icon": "icons/move.png"
     },
     {
-      "name": "rotateScale",      
+      "name": "rotateScale",
       "cIcon": "icons/rotate_onclick.png",
       "icon": "icons/rotate.png"
     },
     {
-      "name": "scale",      
+      "name": "scale",
       "cIcon": "icons/scale_onclick.png",
       "icon": "icons/scale.png"
-    },    
+    },
     {
-      "name": "flipX",      
+      "name": "flipX",
       "cIcon": "icons/flipX_onclick.png",
       "icon": "icons/flipX.png"
     },
     {
-      "name": "delete",      
+      "name": "delete",
       "cIcon": "icons/delete_onclick.png",
       "icon": "icons/delete.png"
     }
   ],
   "editObject": [
     {
-      "name": "translate",      
+      "name": "translate",
       "cIcon": "icons/move_onclick.png",
       "icon": "icons/move.png"
     },
     {
-      "name": "rotateScale",      
+      "name": "rotateScale",
       "cIcon": "icons/rotate_onclick.png",
       "icon": "icons/rotate.png"
     },
     {
-      "name": "scale",      
+      "name": "scale",
       "cIcon": "icons/scale_onclick.png",
       "icon": "icons/scale.png"
-    },    
+    },
     {
-      "name": "flipX",      
+      "name": "flipX",
       "cIcon": "icons/flipX_onclick.png",
       "icon": "icons/flipX.png"
     },
     {
-      "name": "delete",      
+      "name": "delete",
       "cIcon": "icons/delete_onclick.png",
       "icon": "icons/delete.png"
     }
@@ -2503,23 +2503,44 @@
   ],
   "editDefault": [
     {
-      "name": "back",      
+      "name": "back",
       "cIcon": "icons/save_goback_onclick.png",
       "icon": "icons/save_goback.png"
     }
   ],
   "editStory": [
     {
-      "name":"story",
+      "name": "story",
       "cIcon": "icons/plus_onclick.png",
       "icon": "icons/plus.png"
     },
     {
-      "name": "save",      
+      "name": "save",
       "cIcon": "icons/publish_onclick.png",
       "icon": "icons/publish.png"
-    }    
+    }
   ],
-  "blank": [
-  ]
+  "editPage": [
+    {
+      "name": "edit",
+      "cIcon": "icons/edit_onclick.png",
+      "icon": "icons/edit.png"
+    },
+    {
+      "name": "delete",
+      "cIcon": "icons/delete_onclick.png",
+      "icon": "icons/delete.png"
+    },
+    {
+      "name": "prev",
+      "cIcon": "icons/back_onclick.png",
+      "icon": "icons/back.png"
+    },
+    {
+      "name": "next",
+      "cIcon": "icons/next_arrow_onclick.png",
+      "icon": "icons/next_arrow.png"
+    }
+  ],
+  "blank": []
 }

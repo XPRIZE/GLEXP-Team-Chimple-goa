@@ -59,10 +59,15 @@ chimple.ButtonPanel = ccui.Layout.extend({
         this._buttonHandler.selectButton(sender);
     },
 
+    getButtonByIndex: function (index) {
+        return this.getChildren()[index];
+    },
+
+
     getButtonByName: function (name) {
         return this.getChildByName(name);
     },
-    
+
     enableButton: function (name, enable) {
         this.children.forEach(function (element) {
             if (element._configuration.name == name) {
@@ -134,7 +139,7 @@ chimple.ButtonHandler = cc.Class.extend({
 
         if (this._callBackFunction != null && this._callBackContext != null) {
             if (sender._configurationType == "scene") {
-                 this._callBackContext.disableOrEnableAllButtons(this._callBackContext._buttonPanel,true);
+                this._callBackContext.disableOrEnableAllButtons(this._callBackContext._buttonPanel, true);
             }
             this._callBackFunction.call(this._callBackContext, sender);
         }
