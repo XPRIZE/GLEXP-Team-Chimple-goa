@@ -8,11 +8,11 @@ chimple.PageConfigPanel = cc.LayerColor.extend({
         this._buttonPanel = new chimple.ButtonPanel(new cc.p(0, 0), this.getContentSize(), 1, 6, configuration.addObjects, new chimple.ButtonHandler(this.buttonPressed, this));
         this._currentStep = "addObjects";
 
-        // if (chimple.story.items[chimple.pageIndex].scene.Content == null) {
-        //     this.disableOrEnableAllButtons(this._buttonPanel, false);
-        // } else {
-        //     this.disableOrEnableAllButtons(this._buttonPanel, true);
-        // }
+        if (chimple.story.items[chimple.pageIndex].scene.Content == null) {
+            this.disableOrEnableAllButtons(this._buttonPanel, false);
+        } else {
+            this.disableOrEnableAllButtons(this._buttonPanel, true);
+        }
         this.addChild(this._buttonPanel);
     },
     buttonPressed: function (selectedItem) {
@@ -187,7 +187,7 @@ chimple.PageConfigPanel = cc.LayerColor.extend({
                     element.setHighlighted(false);
                 }
             } else {
-                if (element._configuration.name != "addToScene" && element._configuration.name != "back") {
+                if (element._configuration.name != "addBackground" && element._configuration.name != "back") {
                     element.setEnabled(false);
                     element.setHighlighted(true);
                 }
