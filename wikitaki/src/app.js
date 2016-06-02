@@ -111,7 +111,7 @@ var HelloWorldLayer = cc.Layer.extend({
             this._optionPanel.removeFromParent(true);
         }
 
-        if (sender.getName() == 'icons/plus.png') {
+        if (sender.getName() == 'icons/edit.png') {
             this.loadExistingPage(sender);
         } else if (sender.getName() == 'icons/back.png') {
             if (this._curSelectedPageIndex != 0) {
