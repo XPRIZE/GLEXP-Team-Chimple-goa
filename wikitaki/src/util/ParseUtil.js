@@ -134,13 +134,9 @@ chimple.ParseUtil.updateUserData = function (tag, dataKey, dataValue) {
 }
 
 chimple.ParseUtil.saveCharacterToJSON = function (fileToLoad, load) {
-    cc.log('got file:' + fileToLoad);
     var resourcePath = fileToLoad.replace("/res/", "");
-    cc.log('resourcePath:' + resourcePath);
-    cc.log('skeleton:' + load.node);
     var skeletonObject = chimple.ParseUtil.constructJSONFromCharacter(load.node, resourcePath);
     // load.node.ActionTag = skeletonObject.ActionTag;
-    cc.log('JSON.stringify(skeletonObject):' + JSON.stringify(skeletonObject));
     chimple.ParseUtil.saveObjectToStoredScene(skeletonObject);
 }
 

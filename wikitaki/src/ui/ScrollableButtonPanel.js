@@ -56,8 +56,8 @@ chimple.ScrollableButtonPanel = cc.LayerColor.extend({
     getButtonByIndex: function (buttonIndex) {
         var pages = this._page.getPages();
         var pageIndex = Math.floor(buttonIndex / (this._numButtonsPerRow * this._numButtonsPerColumn));
-        var page = pages[pageIndex];        
-        var buttonInPage = buttonIndex - pageIndex * (this._numButtonsPerRow * this._numButtonsPerColumn);        
+        var page = pages[pageIndex];
+        var buttonInPage = buttonIndex - pageIndex * (this._numButtonsPerRow * this._numButtonsPerColumn);
         var button = page.getButtonByIndex(buttonInPage);
         if (button) {
             return button;
@@ -82,6 +82,13 @@ chimple.ScrollableButtonPanel = cc.LayerColor.extend({
                     this._page.scrollToPage(this._page.getCurPageIndex() + 1);
                 }
                 break;
+        }
+    },
+
+    moveRightAutomatically: function (buttonIndex) {
+        var pageIndex = Math.floor(buttonIndex / (this._numButtonsPerRow * this._numButtonsPerColumn));
+        if (pageIndex < this._page.getPages().length) {
+            this._page.scrollToPage(pageIndex);
         }
     },
 

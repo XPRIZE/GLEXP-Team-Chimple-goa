@@ -61,7 +61,6 @@ chimple.PlayContentPanel = chimple.AbstractContentPanel.extend({
 
 
     backPressed: function () {
-        cc.log('back button pressed');
         cc.director.popScene();
     },
 

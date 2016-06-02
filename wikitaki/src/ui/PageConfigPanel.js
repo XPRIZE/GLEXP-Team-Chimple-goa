@@ -62,7 +62,6 @@ chimple.PageConfigPanel = cc.LayerColor.extend({
     },
 
     createRecordingAnimation: function (selectedItem) {
-        cc.log('start recording animation');
         if (!this._clickRecordAniamation) {
             selectedItem.loadTextures("icons/start_recording_onclick.png", null, null, ccui.Widget.PLIST_TEXTURE);
 
@@ -107,7 +106,6 @@ chimple.PageConfigPanel = cc.LayerColor.extend({
     },
 
     itemSelectedInConfiguration: function (selectedItem) {
-        cc.log('itemSelectedInConfiguration:' + selectedItem);
         this.destoryTabBar();
         this.process(selectedItem);
 
@@ -132,7 +130,6 @@ chimple.PageConfigPanel = cc.LayerColor.extend({
     //later create custom loading screen
     showLoadingScene: function (fileToLoad, context, doPostLoadingProcessFunction, args, shouldSaveScene) {
         if (cc.sys.isNative) {
-            cc.log(fileToLoad);
             var dynamicResources = [fileToLoad];
             Preloader.preload(dynamicResources, function () {
                 chimple.ParseUtil.changeSize(cc.loader.cache[fileToLoad], null, chimple.designScaleFactor);
@@ -142,7 +139,6 @@ chimple.PageConfigPanel = cc.LayerColor.extend({
             }, this);
         } else {
             cc.director.pushScene(new Preloader()); //TODO dummy right now later fix this
-            cc.log(fileToLoad);
             var dynamicResources = [fileToLoad];
             Preloader.preload(dynamicResources, function () {
                 cc.director.popScene();

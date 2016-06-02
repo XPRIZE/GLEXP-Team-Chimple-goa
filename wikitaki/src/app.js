@@ -49,7 +49,7 @@ var HelloWorldLayer = cc.Layer.extend({
             this.addChild(this._help, 1);
         }
 
-        this._panel = new chimple.ScrollableButtonPanel(cc.p(0, 0), cc.size(cc.director.getWinSize().width, cc.director.getWinSize().height - this._tabHeight), 4, 4, displayPages, this.loadOptions, this);
+        this._panel = new chimple.ScrollableButtonPanel(cc.p(0, 0), cc.size(cc.director.getWinSize().width, cc.director.getWinSize().height - this._tabHeight), 2, 1, displayPages, this.loadOptions, this);
         this.addChild(this._panel);
     },
 
@@ -126,6 +126,9 @@ var HelloWorldLayer = cc.Layer.extend({
                 this.shufflePage(chimple.story.items, this._curSelectedPageIndex, this._curSelectedPageIndex + 1);
                 this.reDrawPages();
                 var button = this._panel.getButtonByIndex(this._curSelectedPageIndex + 1);
+                if(this._curSelectedPageIndex + 1 == (this._panel._numButtonsPerRow * this._panel._numButtonsPerColumn)) {
+                    this._panel.moveRightAutomatically(this._curSelectedPageIndex + 1);
+                }
                 this.loadOptions(button);
 
             }
