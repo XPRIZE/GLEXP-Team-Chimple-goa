@@ -5,6 +5,9 @@ chimple.SkeletonTouchHandler = function (context) {
     this.event = cc.EventListener.TOUCH_ONE_BY_ONE;
     this.swallowTouches = true;
     this._previousTouchLocation = null;
+    this._minCountToRightDirection = 3;
+    this._minCountToLeftDirection = 3;
+    this._minCountToChangeDirection = 3;
     this._flipTarget = false;
     this.onTouchBegan = function (touch, event) {
         var target = event.getCurrentTarget();
@@ -30,6 +33,60 @@ chimple.SkeletonTouchHandler = function (context) {
         return false;
     };
 
+    this.flipSkeleton = function (target, location) {
+        if (this._context._moveAction) {
+            if ((location.x - this._previousTouchLocation.x) <= 1) {
+                this._minCountToLeftDirection++;
+                if (target.getScaleX() < 0 && this._minCountToLeftDirection > this._minCountToChangeDirection) {
+                    target.setScaleX(-1 * target.getScaleX());
+                    this._minCountToRightDirection = 0;
+                }
+            } else if ((location.x - this._previousTouchLocation.x) > 1) {
+                this._minCountToRightDirection++;
+                if (target.getScaleX() > 0 && this._minCountToRightDirection > this._minCountToChangeDirection) {
+                    target.setScaleX(-1 * target.getScaleX());
+                    this._minCountToLeftDirection = 0;
+                }
+            }
+        }
+
+        if (this._minCountToRightDirection > this._minCountToChangeDirection) {
+            this._minCountToChangeDirection = this._minCountToChangeDirection;
+        }
+
+        if (this._minCountToLeftDirection > this._minCountToChangeDirection) {
+            this._minCountToLeftDirection = this._minCountToChangeDirection;
+        }
+
+    };
+
+    this.flipAnimalSkeleton = function (target, location) {
+        if (this._context._moveAction) {
+            if ((location.x - this._previousTouchLocation.x) > 1) {
+                this._minCountToLeftDirection++;
+                if (target.getScaleX() < 0 && this._minCountToLeftDirection > this._minCountToChangeDirection) {
+                    target.setScaleX(-1 * target.getScaleX());
+                    this._minCountToRightDirection = 0;
+                }
+            } else if ((location.x - this._previousTouchLocation.x) <= 1) {
+                this._minCountToRightDirection++;
+                if (target.getScaleX() > 0 && this._minCountToRightDirection > this._minCountToChangeDirection) {
+                    target.setScaleX(-1 * target.getScaleX());
+                    this._minCountToLeftDirection = 0;
+                }
+            }
+        }
+
+        if (this._minCountToRightDirection > this._minCountToChangeDirection) {
+            this._minCountToChangeDirection = this._minCountToChangeDirection;
+        }
+
+        if (this._minCountToLeftDirection > this._minCountToChangeDirection) {
+            this._minCountToLeftDirection = this._minCountToChangeDirection;
+        }
+
+    };
+
     this.onTouchMoved = function (touch, event) {
         var target = event.getCurrentTarget();
         var location = target.parent.convertToNodeSpace(touch.getLocation());
@@ -37,17 +94,13 @@ chimple.SkeletonTouchHandler = function (context) {
         var locationTo = cc.p(location.x - this._offsetXInTouch, location.y - this._offsetYInTouch);
         this._context.enableTargetTransformForTarget(this._context, touch, target, locationTo);
 
-        if (this._context._moveAction) {
-            if ((location.x - this._previousTouchLocation.x) < 25) {
-                if (target.getScaleX() < 0) {
-                    target.setScaleX(-1 * target.getScaleX());
-                }
-            } else if ((location.x - this._previousTouchLocation.x) > 25) {
-                if (target.getScaleX() > 0) {
-                    target.setScaleX(-1 * target.getScaleX());
-                }
-            }
+        if(target.getName() == 'animalskeleton') {
+            this.flipAnimalSkeleton(target, location);
+        } else {
+            this.flipSkeleton(target, location);    
         }
+        
+
 
         this._previousTouchLocation = location;
     };
