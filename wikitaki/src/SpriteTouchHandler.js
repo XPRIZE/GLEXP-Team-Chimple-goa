@@ -13,7 +13,6 @@ chimple.SpriteTouchHandler = function (context) {
         var targetRectangle = cc.rect(0, 0, targetSize.width, targetSize.
             height);
         if (cc.rectContainsPoint(targetRectangle, location)) {
-            // temp comment
             this._context._nodesSelected.push(target);
             this._context.addNodeToRecording(this._context, touch, target);
             this._context.constructConfigPanel(target);
@@ -27,13 +26,82 @@ chimple.SpriteTouchHandler = function (context) {
         return false;
     };
 
+    this.collisionDetectionWithSkeleton = function (target) {
+        this._context.children.forEach(function (element) {
+            if (element._name === 'FrontLayer' || element._name === 'BackLayer') {
+                element.children.forEach(function (child) {
+                    if (child.getName() === 'Scene') {
+                        child.children.forEach(function (subChild) {
+                            if (subChild.getName() === 'Human_Skeleton') {
+                                this.attachedCustomObject(subChild, target);
+                            }
+                        }, this);
+                    } else {
+                        if (child.getName() === 'Human_Skeleton') {
+                            this.attachedCustomObject(child, target);
+                        }
+                    }
+                }, this);
+            }
+        }, this);
+    };
+
+    this.attachedCustomObject = function (child, target) {
+        var skeletonBoundingBox = child.getBoundingBoxToWorld();
+        var boundingBox = target.getBoundingBoxToWorld();
+        if (cc.rectIntersectsRect(boundingBox, skeletonBoundingBox)) {
+            var boneName = chimple.HAND_GEAR_LEFT;
+            var bone = child.getBoneNode(boneName);
+            var shouldProcess = true;
+            var contentPanelContext = this._context;
+            bone.getSkins().forEach(function (skin, index) {
+                if (skin && skin.getTexture() && skin.getTexture().url == target.getTexture().url) {
+                    shouldProcess = false;
+                    if (bone.getVisibleSkins() && bone.getVisibleSkins().length > 0) {
+                        var topSkin = bone.getVisibleSkins()[0];
+                        var spriteToScene = new cc.Sprite(topSkin.getTexture());
+                        spriteToScene.setPosition(50, 50);
+                        var eventObj = new chimple.SpriteTouchHandler(contentPanelContext);
+                        var listener = cc.EventListener.create(eventObj);
+                        cc.eventManager.addListener(listener, spriteToScene);
+                        contentPanelContext._frontLayer.addChild(spriteToScene);
+                    }
+                    bone.displaySkin(skin, true);
+                    target.setVisible(false);
+                    target._markedForRemove = true;
+                }
+            });
+            if (bone && shouldProcess) {
+                if (bone.getSkins().length > 0) {
+                    var topSkin = bone.getSkins()[bone.getSkins().length - 1];
+                    var spriteToScene = new cc.Sprite(topSkin.getTexture());
+                    spriteToScene.setPosition(50, 50);
+                    var eventObj = new chimple.SpriteTouchHandler(this._context);
+                    var listener = cc.EventListener.create(eventObj);
+                    cc.eventManager.addListener(listener, spriteToScene);
+                    this._context._frontLayer.addChild(spriteToScene);
+                }
+                target.setPosition(0, 0);
+                target.removeFromParent();
+                bone.addSkin(target);
+                bone.displaySkin(bone.getSkins()[bone.getSkins().length - 1], true);
+            }
+            var visibleCustomSkin = child.getBoneNode("hand_gear_left").getVisibleSkins();
+            if(child && child._userData) {
+                child._userData.userCustomObjectSkin = {
+                    bone: chimple.HAND_GEAR_LEFT,
+                    skin: target.getName()
+                }   
+            }
+        }
+    };
+
     this.onTouchMoved = function (touch, event) {
         var target = event.getCurrentTarget();
         var location = target.parent.convertToNodeSpace(touch.getLocation());
         var locationTo = cc.p(location.x - this._offsetXInTouch, location.y - this._offsetYInTouch);
-        this._context.enableTargetTransformForTarget(this._context, touch, target, locationTo);        
+        this._context.enableTargetTransformForTarget(this._context, touch, target, locationTo);
         this._previousTouchLocation = location;
-
     };
 
     this.onTouchEnded = function (touch, event) {
@@ -42,6 +110,19 @@ chimple.SpriteTouchHandler = function (context) {
         var nodeToRemoveIndex = this._context._nodesSelected.indexOf(target);
         if (nodeToRemoveIndex != -1) {
             this._context._nodesSelected.splice(nodeToRemoveIndex, 1);
+        }
+
+        //find out all skeleton on scene and object is overlap with it
+        this.collisionDetectionWithSkeleton(target);
+
+        if (target._markedForRemove) {
+            var comExtensionData = target.getComponent("ComExtensionData");
+            if (comExtensionData && comExtensionData.getActionTag()) {
+                chimple.ParseUtil.removeObjectFromStoredScene(comExtensionData.getActionTag());
+            } else if (target.ActionTag) {
+                chimple.ParseUtil.removeObjectFromStoredScene(target.ActionTag);
+            }
+            target.parent.removeChild(target, true);
         }
     };
 }

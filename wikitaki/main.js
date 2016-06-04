@@ -57,6 +57,7 @@ var chimple = chimple || {};
 chimple.RESOURCE_DESIGN_HEIGHT = 1800;
 chimple.DEVICE_WIDTH = 640;
 chimple.DEVICE_HEIGHT = 450;
+chimple.HAND_GEAR_LEFT = "hand_gear_left";
 chimple.image = {};
 
 (function () {

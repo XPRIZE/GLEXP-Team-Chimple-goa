@@ -18,20 +18,60 @@ chimple.ContentPanel = chimple.AbstractContentPanel.extend({
             this.putIntoCache();
             this.doPostLoadingProcessForScene(chimple.STORY_KEY, false);
         } else {
-            // this._constructedScene = new cc.Node();
-            // this._constructedScene.setName("Scene");
-            // this.addChild(this._constructedScene);
-
             this._help = new cc.Sprite('#icons/help_click_add_bg.png');
             this._help.setPosition(cc.p(0, cc.director.getWinSize().height));
             this._help.setAnchorPoint(0, 1);
             this.addChild(this._help, 1);
-
         }
     },
 
     putIntoCache: function () {
         cc.loader.cache[chimple.STORY_KEY] = chimple.story.items[chimple.pageIndex].scene;
+    },
+
+    attachCustomObjectSkinToSkeleton: function () {
+        var customSkinName = null;
+        var skeleton = null;
+        if (this._constructedScene && this._constructedScene.children) {
+            var result = this._constructedScene.children.filter(function (d) { return d && d._userData && d._userData.userCustomObjectSkin });
+            if (result && result.length == 0) {
+                result = this._constructedScene.children.filter(function (d) {
+                    return d && d.getComponent('ComExtensionData')
+                        && d.getComponent('ComExtensionData').getCustomProperty() && d.getComponent('ComExtensionData').getCustomProperty().userCustomObjectSkin
+                });
+            }
+            var cScene = this._constructedScene;
+            result.forEach(function (skeleton) {
+                if (skeleton && skeleton.getComponent('ComExtensionData').getCustomProperty()
+                    && skeleton.getComponent('ComExtensionData').getCustomProperty().userCustomObjectSkin) {
+                    customSkinName = skeleton.getComponent('ComExtensionData').getCustomProperty().userCustomObjectSkin.skin;
+                    var skinNodeArray = cScene.children.filter(function (d) { return d.getName() === customSkinName });
+                    skinNodeArray.forEach(function (skinNode) {
+                        skinNode.setPosition(0, 0);
+                        skinNode.removeFromParent();
+                        var boneName = chimple.HAND_GEAR_LEFT;
+                        var bone = skeleton.getBoneNode(boneName);
+                        bone.addSkin(skinNode);
+                        bone.displaySkin(bone.getSkins()[bone.getSkins().length - 1], true);
+                    }, this);
+                } else if (skeleton && skeleton._userData && skeleton._userData.userCustomObjectSkin) {
+                    customSkinName = skeleton._userData.userCustomObjectSkin.skin;
+                    var skinNodeArray = cScene.children.filter(function (d) { return d.getName() === customSkinName });
+                    skinNodeArray.forEach(function (skinNode) {
+                        skinNode.setPosition(0, 0);
+                        skinNode.removeFromParent();
+                        var boneName = chimple.HAND_GEAR_LEFT;
+                        var bone = skeleton.getBoneNode(boneName);
+                        bone.addSkin(skinNode, true);
+                        bone.displaySkin(bone.getSkins()[bone.getSkins().length - 1], true);
+                    }, this);
+                }
+
+            }, this);
+
+
+
+        }
     },
 
     copyUserAddedObjectsToScene: function () {
@@ -87,6 +127,7 @@ chimple.ContentPanel = chimple.AbstractContentPanel.extend({
                 this._backLayer.addChild(this._constructedScene);
                 //now copy user added objects from earlier constructed scene if any
                 this.copyUserAddedObjectsToScene();
+                this.attachCustomObjectSkinToSkeleton();
                 if (!cc.sys.isNative) {
                     this._constructedScene._renderCmd._dirtyFlag = 1;
                 }
@@ -138,14 +179,13 @@ chimple.ContentPanel = chimple.AbstractContentPanel.extend({
         this.children.forEach(function (element) {
             if (element._name === 'FrontLayer' || element._name === 'BackLayer') {
                 element.children.forEach(function (child) {
-                    if(child.getName() === 'Scene') {
-                        child.children.forEach(function(subChild) {
-                            if (subChild.getComponent('ComExtensionData') && subChild.getComponent('ComExtensionData').getActionTag())
-                            {
-                               subChild.ActionTag = subChild.getComponent('ComExtensionData').getActionTag();  
+                    if (child.getName() === 'Scene') {
+                        child.children.forEach(function (subChild) {
+                            if (subChild.getComponent('ComExtensionData') && subChild.getComponent('ComExtensionData').getActionTag()) {
+                                subChild.ActionTag = subChild.getComponent('ComExtensionData').getActionTag();
                             }
                         }, this);
-                    } 
+                    }
                     else if (child.getComponent('ComExtensionData') && child.getComponent('ComExtensionData').getActionTag()) {
                         child.ActionTag = child.getComponent('ComExtensionData').getActionTag();
                     }
@@ -235,7 +275,7 @@ chimple.ContentPanel = chimple.AbstractContentPanel.extend({
                 }
             }, this);
             intermediateFrames = this.uniqueBy(intermediateFrames, function (x) { return x.X; });
-            uniquePositionFrameIndexes = this.uniqueFrameIndexBy(intermediateFrames, function (x) { return x.FrameIndex; });            
+            uniquePositionFrameIndexes = this.uniqueFrameIndexBy(intermediateFrames, function (x) { return x.FrameIndex; });
             framesWhenObjectsTouched = framesWhenObjectsTouched.concat(intermediateFrames, lastFramesWhenTouchLifted);
             object.Frames = framesWhenObjectsTouched.sort(this.compareByFrameIndex);
         }
@@ -292,7 +332,7 @@ chimple.ContentPanel = chimple.AbstractContentPanel.extend({
             return 0;
     },
 
-   uniqueFrameIndexBy: function (arr, fn) {
+    uniqueFrameIndexBy: function (arr, fn) {
         var unique = {};
         var distinct = [];
         arr.forEach(function (x) {
@@ -469,7 +509,7 @@ chimple.ContentPanel = chimple.AbstractContentPanel.extend({
         if (node.animationFrames == null) {
             node.animationFrames = [];
         }
-        if(!node._currentAnimationName) {
+        if (!node._currentAnimationName) {
             return;
         }
         if (node._previousAnimationName != null && node._previousAnimationName === node._currentAnimationName) {
@@ -643,10 +683,10 @@ chimple.ContentPanel = chimple.AbstractContentPanel.extend({
         cc.director.runScene(new HelloWorldScene());
     },
 
-    update: function (dt) { 
-        if(this._isRecordingStarted && !this._isRecordingPaused) {
+    update: function (dt) {
+        if (this._isRecordingStarted && !this._isRecordingPaused) {
             this._recordingFrameIndex = this._recordingFrameIndex + 1;
-        }               
+        }
 
         if (this._isRecordingStarted && this._nodesSelected != null && this._nodesSelected.length > 0) {
             this._nodesSelected.forEach(function (element) {
@@ -664,7 +704,7 @@ chimple.ContentPanel = chimple.AbstractContentPanel.extend({
         if (this._constructedScene) {
             chimple.CharacterUtil.storeActionToTemporaryStore(this._constructedScene);
         }
-        
+
         if (this._frontLayer) {
             chimple.CharacterUtil.storeActionToTemporaryStore(this._frontLayer);
         }
@@ -672,7 +712,7 @@ chimple.ContentPanel = chimple.AbstractContentPanel.extend({
         if (this._backLayer) {
             chimple.CharacterUtil.storeActionToTemporaryStore(this._backLayer);
         }
-        
+
         this.registerEventListenerForAllChildren();
     },
 
@@ -681,7 +721,7 @@ chimple.ContentPanel = chimple.AbstractContentPanel.extend({
         if (this._constructedScene) {
             chimple.CharacterUtil.restoreActionFromTemporaryStore(this._constructedScene);
         }
-        
+
         if (this._frontLayer) {
             chimple.CharacterUtil.restoreActionFromTemporaryStore(this._frontLayer);
         }
@@ -689,6 +729,6 @@ chimple.ContentPanel = chimple.AbstractContentPanel.extend({
         if (this._backLayer) {
             chimple.CharacterUtil.restoreActionFromTemporaryStore(this._backLayer);
         }
-        
+
     }
 });
