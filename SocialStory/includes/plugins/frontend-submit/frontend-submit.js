@@ -93,7 +93,7 @@
 			if (chimple.story) {
 				// Code for localStorage/sessionStorage.
 						chimple.story.titlePageDataURL = null;
-						base64endcoedStoryJSONStr = Base64.encode(JSON.stringify(chimple.story));
+						base64endcoedStoryJSONStr = Base64.encode(chimple.ParseUtil.deflate(chimple.story));
 						base64endcoedStoryJSONStr = 'data:application/json;base64,' + base64endcoedStoryJSONStr;
 						chimple.story = null;
 			} 
