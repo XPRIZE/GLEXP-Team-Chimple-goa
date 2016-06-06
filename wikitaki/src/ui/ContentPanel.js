@@ -29,52 +29,7 @@ chimple.ContentPanel = chimple.AbstractContentPanel.extend({
         cc.loader.cache[chimple.STORY_KEY] = chimple.story.items[chimple.pageIndex].scene;
     },
 
-    attachCustomObjectSkinToSkeleton: function () {
-        var customSkinName = null;
-        var skeleton = null;
-        if (this._constructedScene && this._constructedScene.children) {
-            var result = this._constructedScene.children.filter(function (d) { return d && d._userData && d._userData.userCustomObjectSkin });
-            if (result && result.length == 0) {
-                result = this._constructedScene.children.filter(function (d) {
-                    return d && d.getComponent('ComExtensionData')
-                        && d.getComponent('ComExtensionData').getCustomProperty() && d.getComponent('ComExtensionData').getCustomProperty().userCustomObjectSkin
-                });
-            }
-            var cScene = this._constructedScene;
-            result.forEach(function (skeleton) {
-                if (skeleton && skeleton.getComponent('ComExtensionData').getCustomProperty()
-                    && skeleton.getComponent('ComExtensionData').getCustomProperty().userCustomObjectSkin) {
-                    customSkinName = skeleton.getComponent('ComExtensionData').getCustomProperty().userCustomObjectSkin.skin;
-                    var skinNodeArray = cScene.children.filter(function (d) { return d.getName() === customSkinName });
-                    skinNodeArray.forEach(function (skinNode) {
-                        skinNode.setPosition(0, 0);
-                        skinNode.removeFromParent();
-                        var boneName = chimple.HAND_GEAR_LEFT;
-                        var bone = skeleton.getBoneNode(boneName);
-                        bone.addSkin(skinNode);
-                        bone.displaySkin(bone.getSkins()[bone.getSkins().length - 1], true);
-                    }, this);
-                } else if (skeleton && skeleton._userData && skeleton._userData.userCustomObjectSkin) {
-                    customSkinName = skeleton._userData.userCustomObjectSkin.skin;
-                    var skinNodeArray = cScene.children.filter(function (d) { return d.getName() === customSkinName });
-                    skinNodeArray.forEach(function (skinNode) {
-                        skinNode.setPosition(0, 0);
-                        skinNode.removeFromParent();
-                        var boneName = chimple.HAND_GEAR_LEFT;
-                        var bone = skeleton.getBoneNode(boneName);
-                        bone.addSkin(skinNode, true);
-                        bone.displaySkin(bone.getSkins()[bone.getSkins().length - 1], true);
-                    }, this);
-                }
-
-            }, this);
-
-
-
-        }
-    },
-
-    copyUserAddedObjectsToScene: function () {
+   copyUserAddedObjectsToScene: function () {
         if (this._backLayer && this._backLayer.children && this._backLayer.children.length == 2) {
             var count = this._backLayer.children[0].children.length;
             for (var i = 0; i < count; i++) {
@@ -127,7 +82,7 @@ chimple.ContentPanel = chimple.AbstractContentPanel.extend({
                 this._backLayer.addChild(this._constructedScene);
                 //now copy user added objects from earlier constructed scene if any
                 this.copyUserAddedObjectsToScene();
-                this.attachCustomObjectSkinToSkeleton();
+                this.attachCustomObjectSkinToSkeleton(this._constructedScene);
                 if (!cc.sys.isNative) {
                     this._constructedScene._renderCmd._dirtyFlag = 1;
                 }

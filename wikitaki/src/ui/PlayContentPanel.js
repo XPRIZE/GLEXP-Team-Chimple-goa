@@ -32,7 +32,7 @@ chimple.PlayContentPanel = chimple.AbstractContentPanel.extend({
         this._constructedScene = ccs.load(fileToLoad);
         if (this._constructedScene != null) {
             if (this._constructedScene.node) {
-                this.addChild(this._constructedScene.node);
+                this.addChild(this._constructedScene.node);                
                 if (!cc.sys.isNative) {
                     this._constructedScene.node._renderCmd._dirtyFlag = 1;
                 }
@@ -57,6 +57,8 @@ chimple.PlayContentPanel = chimple.AbstractContentPanel.extend({
                 }
             }
         }, this);
+        
+        this.attachCustomObjectSkinToSkeleton(node);        
     },
 
 
