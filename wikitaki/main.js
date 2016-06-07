@@ -57,7 +57,11 @@ var chimple = chimple || {};
 chimple.RESOURCE_DESIGN_HEIGHT = 1800;
 chimple.DEVICE_WIDTH = 640;
 chimple.DEVICE_HEIGHT = 450;
-
+chimple.HAND_GEAR_LEFT = "hand_gear_left";
+chimple.image = {};
+chimple.isHTML5 = function() {
+    return typeof document !== "undefined";
+};
 
 (function () {
     var d = document;
@@ -102,7 +106,9 @@ chimple.DEVICE_HEIGHT = 450;
             "src/play.js",
             "src/Preload.js",
             "src/pako.js",
-            "src/ui/TextReadPanel.js"
+            "src/ui/TextReadPanel.js",
+            "src/lz-string.js",
+            "src/jsonc.js"
         ]
 
     };

@@ -24,7 +24,7 @@ chimple.PageConfigPanel = cc.LayerColor.extend({
             this._contentPanel.playSceneInEditMode();
         } else if (selectedItem.getName() === "icons/save_goback.png") {
             this._contentPanel.backPressed();
-        } else if (selectedItem.getName() === "icons/plus.png") {
+        } else if (selectedItem.getName() === "icons/bg.png") {
             var selectedConfig = this._configuration.addObjects[selectedItem._selectedIndex];
             if (chimple.story.items[chimple.pageIndex].scene.Content == null) {
                 selectedConfig.categories.forEach(function (element, index) {
@@ -46,7 +46,10 @@ chimple.PageConfigPanel = cc.LayerColor.extend({
             this.removeChild(this._buttonPanel, true);
             this._buttonPanel = new chimple.ButtonPanel(new cc.p(0, 0), this.getContentSize(), 1, 7, this._configuration[this._currentStep], new chimple.ButtonHandler(this.buttonPressed, this));
             this.addChild(this._buttonPanel);
-            this.disableOrEnableAllButtons(this._buttonPanel, true);
+            // this.disableOrEnableAllButtons(this._buttonPanel, true);
+        } else {
+            var selectedConfig = this._configuration.addObjects[selectedItem._selectedIndex];
+            this.constructTabBar(selectedConfig.categories);
         }
     },
 
@@ -59,7 +62,6 @@ chimple.PageConfigPanel = cc.LayerColor.extend({
     },
 
     createRecordingAnimation: function (selectedItem) {
-        cc.log('start recording animation');
         if (!this._clickRecordAniamation) {
             selectedItem.loadTextures("icons/start_recording_onclick.png", null, null, ccui.Widget.PLIST_TEXTURE);
 
@@ -104,7 +106,6 @@ chimple.PageConfigPanel = cc.LayerColor.extend({
     },
 
     itemSelectedInConfiguration: function (selectedItem) {
-        cc.log('itemSelectedInConfiguration:' + selectedItem);
         this.destoryTabBar();
         this.process(selectedItem);
 
@@ -129,7 +130,6 @@ chimple.PageConfigPanel = cc.LayerColor.extend({
     //later create custom loading screen
     showLoadingScene: function (fileToLoad, context, doPostLoadingProcessFunction, args, shouldSaveScene) {
         if (cc.sys.isNative) {
-            cc.log(fileToLoad);
             var dynamicResources = [fileToLoad];
             Preloader.preload(dynamicResources, function () {
                 chimple.ParseUtil.changeSize(cc.loader.cache[fileToLoad], null, chimple.designScaleFactor);
@@ -139,7 +139,6 @@ chimple.PageConfigPanel = cc.LayerColor.extend({
             }, this);
         } else {
             cc.director.pushScene(new Preloader()); //TODO dummy right now later fix this
-            cc.log(fileToLoad);
             var dynamicResources = [fileToLoad];
             Preloader.preload(dynamicResources, function () {
                 cc.director.popScene();
@@ -184,7 +183,7 @@ chimple.PageConfigPanel = cc.LayerColor.extend({
                     element.setHighlighted(false);
                 }
             } else {
-                if (element._configuration.name != "addToScene" && element._configuration.name != "back") {
+                if (element._configuration.name != "addBackground" && element._configuration.name != "back") {
                     element.setEnabled(false);
                     element.setHighlighted(true);
                 }
@@ -194,7 +193,7 @@ chimple.PageConfigPanel = cc.LayerColor.extend({
 
     trackRecording: function () {
         //check if recording stopped
-        if (this._contentPanel._isRecordingStarted) {
+        if (this._contentPanel._isRecordingStarted && !this._contentPanel._isRecordingPaused) {
             this._contentPanel._recordingCounter++;
             var buttonKey = 'timer/' + this._contentPanel._recordingCounter + '.png';
             this._buttonPanel.getButtonByName("icons/start_recording.png").loadTextures(buttonKey, "icons/start_recording.png", null, ccui.Widget.PLIST_TEXTURE);

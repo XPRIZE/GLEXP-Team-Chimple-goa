@@ -174,13 +174,11 @@ var PlayFullStoryLayer = cc.Layer.extend({
     },
 
     onEnterTransitionDidFinish: function () {
-        cc.log('transition enter finished');
 
         this.showTitle();
     },
 
     onExitTransitionDidStart: function () {
-        cc.log('transition exit started');
     },
 
     setUpRecordedScene: function () {

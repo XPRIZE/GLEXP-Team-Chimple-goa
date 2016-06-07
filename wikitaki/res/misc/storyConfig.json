@@ -1,9 +1,587 @@
 {
   "addObjects": [
     {
-      "name": "addToScene",
-      "cIcon": "icons/plus_onclick.png",
-      "icon": "icons/plus.png",
+      "name": "addBackground",
+      "cIcon": "icons/bg_onclick.png",
+      "icon": "icons/bg.png",
+      "categories": [
+        {
+          "name": "backgrounds",
+          "cIcon": "icons/bg_onclick.png",
+          "icon": "icons/bg.png",
+          "items": [
+            {
+              "cIcon": "scene/fox_stork_01.png",
+              "icon": "scene/fox_stork_01.png",
+              "json": "/res/fox_stork_01.json",
+              "type": "scene"
+            },
+            {
+              "cIcon": "scene/fox_stork_02.png",
+              "icon": "scene/fox_stork_02.png",
+              "json": "/res/fox_stork_02.json",
+              "type": "scene"
+            },
+            {
+              "cIcon": "scene/fox_stork_03.png",
+              "icon": "scene/fox_stork_03.png",
+              "json": "/res/fox_stork_03.json",
+              "type": "scene"
+            },
+            {
+              "cIcon": "scene/ant_dove_1.png",
+              "icon": "scene/ant_dove_1.png",
+              "json": "/res/ant_dove_1.json",
+              "type": "scene"
+            },
+            {
+              "cIcon": "scene/ant_dove_2.png",
+              "icon": "scene/ant_dove_2.png",
+              "json": "/res/ant_dove_2.json",
+              "type": "scene"
+            },
+            {
+              "cIcon": "scene/ant_dove_3.png",
+              "icon": "scene/ant_dove_3.png",
+              "json": "/res/ant_dove_3.json",
+              "type": "scene"
+            },
+            {
+              "cIcon": "scene/ant_dove_4.png",
+              "icon": "scene/ant_dove_4.png",
+              "json": "/res/ant_dove_4.json",
+              "type": "scene"
+            },
+            {
+              "cIcon": "scene/ant_dove_5.png",
+              "icon": "scene/ant_dove_5.png",
+              "json": "/res/ant_dove_5.json",
+              "type": "scene"
+            },
+            {
+              "cIcon": "scene/ant_dove_6.png",
+              "icon": "scene/ant_dove_6.png",
+              "json": "/res/ant_dove_6.json",
+              "type": "scene"
+            },
+            {
+              "cIcon": "scene/ant_dove_7.png",
+              "icon": "scene/ant_dove_7.png",
+              "json": "/res/ant_dove_7.json",
+              "type": "scene"
+            },
+            {
+              "cIcon": "scene/ant_dove_8.png",
+              "icon": "scene/ant_dove_8.png",
+              "json": "/res/ant_dove_8.json",
+              "type": "scene"
+            },
+            {
+              "cIcon": "scene/hare_tortoise_1.png",
+              "icon": "scene/hare_tortoise_1.png",
+              "json": "/res/hare_tortoise_1.json",
+              "type": "scene"
+            },
+            {
+              "cIcon": "scene/hare_tortoise_2.png",
+              "icon": "scene/hare_tortoise_2.png",
+              "json": "/res/hare_tortoise_2.json",
+              "type": "scene"
+            },
+            {
+              "cIcon": "scene/hare_tortoise_3.png",
+              "icon": "scene/hare_tortoise_3.png",
+              "json": "/res/hare_tortoise_3.json",
+              "type": "scene"
+            },
+            {
+              "cIcon": "scene/dog_bone_1.png",
+              "icon": "scene/dog_bone_1.png",
+              "json": "/res/dog_bone_1.json",
+              "type": "scene"
+            },
+            {
+              "cIcon": "scene/dog_bone_2.png",
+              "icon": "scene/dog_bone_2.png",
+              "json": "/res/dog_bone_2.json",
+              "type": "scene"
+            },
+            {
+              "cIcon": "scene/dog_bone_3.png",
+              "icon": "scene/dog_bone_3.png",
+              "json": "/res/dog_bone_3.json",
+              "type": "scene"
+            },
+            {
+              "cIcon": "scene/fox_crow_1.png",
+              "icon": "scene/fox_crow_1.png",
+              "json": "/res/fox_crow_1.json",
+              "type": "scene"
+            },
+            {
+              "cIcon": "scene/fox_crow_2.png",
+              "icon": "scene/fox_crow_2.png",
+              "json": "/res/fox_crow_2.json",
+              "type": "scene"
+            },
+            {
+              "cIcon": "scene/fox_crow_3.png",
+              "icon": "scene/fox_crow_3.png",
+              "json": "/res/fox_crow_3.json",
+              "type": "scene"
+            },
+            {
+              "cIcon": "scene/fox_crow_4.png",
+              "icon": "scene/fox_crow_4.png",
+              "json": "/res/fox_crow_4.json",
+              "type": "scene"
+            },
+            {
+              "cIcon": "scene/fox_crow_5.png",
+              "icon": "scene/fox_crow_5.png",
+              "json": "/res/fox_crow_5.json",
+              "type": "scene"
+            },
+            {
+              "cIcon": "scene/fox_crow_6.png",
+              "icon": "scene/fox_crow_6.png",
+              "json": "/res/fox_crow_6.json",
+              "type": "scene"
+            },
+            {
+              "cIcon": "scene/fox_grapes_1.png",
+              "icon": "scene/fox_grapes_1.png",
+              "json": "/res/fox_grapes_1.json",
+              "type": "scene"
+            },
+            {
+              "cIcon": "scene/fox_grapes_2.png",
+              "icon": "scene/fox_grapes_2.png",
+              "json": "/res/fox_grapes_2.json",
+              "type": "scene"
+            },
+            {
+              "cIcon": "scene/selfish_horse_1.png",
+              "icon": "scene/selfish_horse_1.png",
+              "json": "/res/selfish_horse_1.json",
+              "type": "scene"
+            },
+            {
+              "cIcon": "scene/selfish_horse_2.png",
+              "icon": "scene/selfish_horse_2.png",
+              "json": "/res/selfish_horse_2.json",
+              "type": "scene"
+            },
+            {
+              "cIcon": "scene/selfish_horse_3.png",
+              "icon": "scene/selfish_horse_3.png",
+              "json": "/res/selfish_horse_3.json",
+              "type": "scene"
+            },
+            {
+              "cIcon": "scene/shell_wings_1.png",
+              "icon": "scene/shell_wings_1.png",
+              "json": "/res/shell_wings_1.json",
+              "type": "scene"
+            },
+            {
+              "cIcon": "scene/shell_wings_2.png",
+              "icon": "scene/shell_wings_2.png",
+              "json": "/res/shell_wings_2.json",
+              "type": "scene"
+            },
+            {
+              "cIcon": "scene/shell_wings_3.png",
+              "icon": "scene/shell_wings_3.png",
+              "json": "/res/shell_wings_3.json",
+              "type": "scene"
+            },
+            {
+              "cIcon": "scene/shell_wings_4.png",
+              "icon": "scene/shell_wings_4.png",
+              "json": "/res/shell_wings_4.json",
+              "type": "scene"
+            },
+            {
+              "cIcon": "scene/shell_wings_5.png",
+              "icon": "scene/shell_wings_5.png",
+              "json": "/res/shell_wings_5.json",
+              "type": "scene"
+            },
+            {
+              "cIcon": "scene/shell_wings_6.png",
+              "icon": "scene/shell_wings_6.png",
+              "json": "/res/shell_wings_6.json",
+              "type": "scene"
+            },
+            {
+              "cIcon": "scene/shell_wings_7.png",
+              "icon": "scene/shell_wings_7.png",
+              "json": "/res/shell_wings_7.json",
+              "type": "scene"
+            },
+            {
+              "cIcon": "scene/shell_wings_8.png",
+              "icon": "scene/shell_wings_8.png",
+              "json": "/res/shell_wings_8.json",
+              "type": "scene"
+            },
+            {
+              "cIcon": "scene/silly_goats_1.png",
+              "icon": "scene/silly_goats_1.png",
+              "json": "/res/silly_goats_1.json",
+              "type": "scene"
+            },
+            {
+              "cIcon": "scene/silly_goats_2.png",
+              "icon": "scene/silly_goats_2.png",
+              "json": "/res/silly_goats_2.json",
+              "type": "scene"
+            },
+            {
+              "cIcon": "scene/thirsty_crow_1.png",
+              "icon": "scene/thirsty_crow_1.png",
+              "json": "/res/thirsty_crow_1.json",
+              "type": "scene"
+            },
+            {
+              "cIcon": "scene/thirsty_crow_2.png",
+              "icon": "scene/thirsty_crow_2.png",
+              "json": "/res/thirsty_crow_2.json",
+              "type": "scene"
+            },
+            {
+              "cIcon": "scene/thirsty_crow_3.png",
+              "icon": "scene/thirsty_crow_3.png",
+              "json": "/res/thirsty_crow_3.json",
+              "type": "scene"
+            },
+            {
+              "cIcon": "scene/thirsty_crow_4.png",
+              "icon": "scene/thirsty_crow_4.png",
+              "json": "/res/thirsty_crow_4.json",
+              "type": "scene"
+            },
+            {
+              "cIcon": "scene/thirsty_crow_5.png",
+              "icon": "scene/thirsty_crow_5.png",
+              "json": "/res/thirsty_crow_5.json",
+              "type": "scene"
+            },
+            {
+              "cIcon": "scene/thirsty_crow_6.png",
+              "icon": "scene/thirsty_crow_6.png",
+              "json": "/res/thirsty_crow_6.json",
+              "type": "scene"
+            },
+            {
+              "cIcon": "scene/thirsty_crow_7.png",
+              "icon": "scene/thirsty_crow_7.png",
+              "json": "/res/thirsty_crow_7.json",
+              "type": "scene"
+            },
+            {
+              "cIcon": "scene/thirsty_crow_8.png",
+              "icon": "scene/thirsty_crow_8.png",
+              "json": "/res/thirsty_crow_8.json",
+              "type": "scene"
+            },
+            {
+              "cIcon": "scene/Village_01.png",
+              "icon": "scene/Village_01.png",
+              "json": "/res/village_page_01.json",
+              "type": "scene"
+            },
+            {
+              "cIcon": "scene/Village_02.png",
+              "icon": "scene/Village_02.png",
+              "json": "/res/village_Page_02.json",
+              "type": "scene"
+            },
+            {
+              "cIcon": "scene/Village_03.png",
+              "icon": "scene/Village_03.png",
+              "json": "/res/village_Page_03.json",
+              "type": "scene"
+            },
+            {
+              "cIcon": "scene/Village_04.png",
+              "icon": "scene/Village_04.png",
+              "json": "/res/village_Page_04.json",
+              "type": "scene"
+            },
+            {
+              "cIcon": "scene/Village_05.png",
+              "icon": "scene/Village_05.png",
+              "json": "/res/village_Page_05.json",
+              "type": "scene"
+            },
+            {
+              "cIcon": "scene/the_hungry_mouse_Page_01.png",
+              "icon": "scene/the_hungry_mouse_Page_01.png",
+              "json": "/res/the_hungry_mouse_page_01.json",
+              "type": "scene"
+            },
+            {
+              "cIcon": "scene/the_hungry_mouse_Page_02.png",
+              "icon": "scene/the_hungry_mouse_Page_02.png",
+              "json": "/res/the_hungry_mouse_page_02.json",
+              "type": "scene"
+            },
+            {
+              "cIcon": "scene/the_farm_house_Page_01.png",
+              "icon": "scene/the_farm_house_Page_01.png",
+              "json": "/res/the_farm_house_page_01.json",
+              "type": "scene"
+            },
+            {
+              "cIcon": "scene/the_farm_house_Page_02.png",
+              "icon": "scene/the_farm_house_Page_02.png",
+              "json": "/res/the_farm_house_Page_02.json",
+              "type": "scene" 
+            },
+            {
+              "cIcon": "scene/forest_01_64.png",
+              "icon": "scene/forest_01_64.png",
+              "json": "/res/forest_01.json",
+              "type": "scene" 
+            },
+            {
+              "cIcon": "scene/forest_02_64.png",
+              "icon": "scene/forest_02_64.png",
+              "json": "/res/forest_02.json",
+              "type": "scene" 
+            },
+            {
+              "cIcon": "scene/forest_03_64.png",
+              "icon": "scene/forest_03_64.png",
+              "json": "/res/forest_03.json",
+              "type": "scene" 
+            },
+            {
+              "cIcon": "scene/forest_04_64.png",
+              "icon": "scene/forest_04_64.png",
+              "json": "/res/forest_04.json",
+              "type": "scene" 
+            },
+            {
+              "cIcon": "scene/forest_05_64.png",
+              "icon": "scene/forest_05_64.png",
+              "json": "/res/forest_05.json",
+              "type": "scene" 
+            },
+            {
+              "cIcon": "scene/forest_06_64.png",
+              "icon": "scene/forest_06_64.png",
+              "json": "/res/forest_06.json",
+              "type": "scene" 
+            },
+            {
+              "cIcon": "scene/forest_07_64.png",
+              "icon": "scene/forest_07_64.png",
+              "json": "/res/forest_07.json",
+              "type": "scene" 
+            },
+            {
+              "cIcon": "scene/forest_08_64.png",
+              "icon": "scene/forest_08_64.png",
+              "json": "/res/forest_08.json",
+              "type": "scene" 
+            },
+            {
+              "cIcon": "scene/forest_09_64.png",
+              "icon": "scene/forest_09_64.png",
+              "json": "/res/forest_09.json",
+              "type": "scene" 
+            },
+            {
+              "cIcon": "scene/forest_10_64.png",
+              "icon": "scene/forest_10_64.png",
+              "json": "/res/forest_10.json",
+              "type": "scene"
+            },
+            {
+              "cIcon": "scene/water_scene_01.png",
+              "icon": "scene/water_scene_01.png",
+              "json": "/res/water_Scene_1.json",
+              "type": "scene" 
+            },
+            {
+              "cIcon": "scene/water_scene_02.png",
+              "icon": "scene/water_scene_02.png",
+              "json": "/res/water_Scene_2.json",
+              "type": "scene" 
+            },
+            {
+              "cIcon": "scene/water_scene_03.png",
+              "icon": "scene/water_scene_03.png",
+              "json": "/res/water_Scene_3.json",
+              "type": "scene" 
+            },
+            {
+              "cIcon": "scene/water_scene_04.png",
+              "icon": "scene/water_scene_04.png",
+              "json": "/res/water_Scene_4.json",
+              "type": "scene" 
+            },
+            {
+              "cIcon": "scene/desert_Scene_1.png",
+              "icon": "scene/desert_Scene_1.png",
+              "json": "/res/desert_Scene_1.json",
+              "type": "scene" 
+            },
+            {
+              "cIcon": "scene/desert_Scene_2.png",
+              "icon": "scene/desert_Scene_2.png",
+              "json": "/res/desert_Scene_2.json",
+              "type": "scene" 
+            },
+            {
+              "cIcon": "scene/desert_Scene_3.png",
+              "icon": "scene/desert_Scene_3.png",
+              "json": "/res/desert_Scene_3.json",
+              "type": "scene" 
+            },
+            {
+              "cIcon": "scene/desert_Scene_4.png",
+              "icon": "scene/desert_Scene_4.png",
+              "json": "/res/desert_Scene_4.json",
+              "type": "scene" 
+            },
+            {
+              "cIcon": "scene/desert_Scene_5.png",
+              "icon": "scene/desert_Scene_5.png",
+              "json": "/res/desert_Scene_5.json",
+              "type": "scene" 
+            },
+            {
+              "cIcon": "scene/desert_Scene_6.png",
+              "icon": "scene/desert_Scene_6.png",
+              "json": "/res/desert_Scene_6.json",
+              "type": "scene" 
+            },
+            {
+              "cIcon": "scene/story_01_01_64.png",
+              "icon": "scene/story_01_01_64.png",
+              "json": "/res/Scene_01.json",
+              "type": "scene" 
+            },
+            {
+              "cIcon": "scene/story_01_02_64.png",
+              "icon": "scene/story_01_02_64.png",
+              "json": "/res/Scene_02.json",
+              "type": "scene" 
+            },
+            {
+              "cIcon": "scene/story_01_03_64.png",
+              "icon": "scene/story_01_03_64.png",
+              "json": "/res/Scene_03.json",
+              "type": "scene" 
+            },
+            {
+              "cIcon": "scene/story_02_01_64.png",
+              "icon": "scene/story_02_01_64.png",
+              "json": "/res/Story_Scene_01.json",
+              "type": "scene" 
+            },
+            {
+              "cIcon": "scene/story_02_02_64.png",
+              "icon": "scene/story_02_02_64.png",
+              "json": "/res/Story_Scene_02.json",
+              "type": "scene" 
+            },
+            {
+              "cIcon": "scene/story_02_03_64.png",
+              "icon": "scene/story_02_03_64.png",
+              "json": "/res/Story_Scene_03.json",
+              "type": "scene" 
+            },
+            {
+              "cIcon": "scene/story_02_04_64.png",
+              "icon": "scene/story_02_04_64.png",
+              "json": "/res/Story_Scene_04.json",
+              "type": "scene" 
+            },
+            {
+              "cIcon": "scene/story_02_05_64.png",
+              "icon": "scene/story_02_05_64.png",
+              "json": "/res/Story_Scene_05.json",
+              "type": "scene" 
+            },
+            {
+              "cIcon": "scene/story_03_01_64.png",
+              "icon": "scene/story_03_01_64.png",
+              "json": "/res/colour_Scene_01.json",
+              "type": "scene" 
+            },
+            {
+              "cIcon": "scene/story_03_02_64.png",
+              "icon": "scene/story_03_02_64.png",
+              "json": "/res/colour_Scene_02.json",
+              "type": "scene" 
+            },
+            {
+              "cIcon": "scene/story_03_03_64.png",
+              "icon": "scene/story_03_03_64.png",
+              "json": "/res/colour_Scene_03.json",
+              "type": "scene" 
+            },
+            {
+              "cIcon": "scene/story_03_04_64.png",
+              "icon": "scene/story_03_04_64.png",
+              "json": "/res/colour_Scene_04.json",
+              "type": "scene" 
+            },
+            {
+              "cIcon": "scene/story_03_05_64.png",
+              "icon": "scene/story_03_05_64.png",
+              "json": "/res/colour_Scene_05.json",
+              "type": "scene" 
+            },
+            {
+              "cIcon": "scene/story_03_06_64.png",
+              "icon": "scene/story_03_06_64.png",
+              "json": "/res/colour_Scene_06.json",
+              "type": "scene" 
+            },
+            {
+              "cIcon": "scene/story_03_07_64.png",
+              "icon": "scene/story_03_07_64.png",
+              "json": "/res/colour_Scene_07.json",
+              "type": "scene" 
+            },
+            {
+              "cIcon": "scene/story_03_08_64.png",
+              "icon": "scene/story_03_08_64.png",
+              "json": "/res/colour_Scene_08.json",
+              "type": "scene" 
+            },
+            {
+              "cIcon": "scene/story_03_09_64.png",
+              "icon": "scene/story_03_09_64.png",
+              "json": "/res/colour_Scene_09.json",
+              "type": "scene" 
+            },
+            {
+              "cIcon": "scene/story_03_10_64.png",
+              "icon": "scene/story_03_10_64.png",
+              "json": "/res/colour_Scene_10.json",
+              "type": "scene" 
+            },
+            {
+              "cIcon": "scene/story_03_11_64.png",
+              "icon": "scene/story_03_11_64.png",
+              "json": "/res/colour_Scene_11.json",
+              "type": "scene" 
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "addCharacter",
+      "cIcon": "icons/character_onclick.png",
+      "icon": "icons/character.png",
       "categories": [
         {
           "name": "humans",
@@ -477,7 +1055,7 @@
             }
             
           ]
-        },       
+        },
         {
           "name": "animal",
           "cIcon": "icons/my_pet_onclick.png",
@@ -598,7 +1176,14 @@
               "type": "character"
             }            
           ]
-        },
+        }        
+      ]
+    },
+    {
+      "name": "addObject",
+      "cIcon": "icons/props_onclick.png",
+      "icon": "icons/props.png",
+      "categories": [         
          {
           "name": "objects",
           "cIcon": "icons/props_onclick.png",
@@ -1720,596 +2305,13 @@
               "png": "/res/ob/bird/woodpicker.png"
             }
           ]
-         },
-         {
-          "name": "backgrounds",
-          "cIcon": "icons/bg_onclick.png",
-          "icon": "icons/bg.png",
-          "items": [
-            {
-              "cIcon": "scene/fox_stork_01.png",
-              "icon": "scene/fox_stork_01.png",
-              "json": "/res/fox_stork_01.json",
-              "type": "scene"
-            },
-            {
-              "cIcon": "scene/fox_stork_02.png",
-              "icon": "scene/fox_stork_02.png",
-              "json": "/res/fox_stork_02.json",
-              "type": "scene"
-            },
-            {
-              "cIcon": "scene/fox_stork_03.png",
-              "icon": "scene/fox_stork_03.png",
-              "json": "/res/fox_stork_03.json",
-              "type": "scene"
-            },
-            {
-              "cIcon": "scene/ant_dove_1.png",
-              "icon": "scene/ant_dove_1.png",
-              "json": "/res/ant_dove_1.json",
-              "type": "scene"
-            },
-            {
-              "cIcon": "scene/ant_dove_2.png",
-              "icon": "scene/ant_dove_2.png",
-              "json": "/res/ant_dove_2.json",
-              "type": "scene"
-            },
-            {
-              "cIcon": "scene/ant_dove_3.png",
-              "icon": "scene/ant_dove_3.png",
-              "json": "/res/ant_dove_3.json",
-              "type": "scene"
-            },
-            {
-              "cIcon": "scene/ant_dove_4.png",
-              "icon": "scene/ant_dove_4.png",
-              "json": "/res/ant_dove_4.json",
-              "type": "scene"
-            },
-            {
-              "cIcon": "scene/ant_dove_5.png",
-              "icon": "scene/ant_dove_5.png",
-              "json": "/res/ant_dove_5.json",
-              "type": "scene"
-            },
-            {
-              "cIcon": "scene/ant_dove_6.png",
-              "icon": "scene/ant_dove_6.png",
-              "json": "/res/ant_dove_6.json",
-              "type": "scene"
-            },
-            {
-              "cIcon": "scene/ant_dove_7.png",
-              "icon": "scene/ant_dove_7.png",
-              "json": "/res/ant_dove_7.json",
-              "type": "scene"
-            },
-            {
-              "cIcon": "scene/ant_dove_8.png",
-              "icon": "scene/ant_dove_8.png",
-              "json": "/res/ant_dove_8.json",
-              "type": "scene"
-            },
-            {
-              "cIcon": "scene/hare_tortoise_1.png",
-              "icon": "scene/hare_tortoise_1.png",
-              "json": "/res/hare_tortoise_1.json",
-              "type": "scene"
-            },
-            {
-              "cIcon": "scene/hare_tortoise_2.png",
-              "icon": "scene/hare_tortoise_2.png",
-              "json": "/res/hare_tortoise_2.json",
-              "type": "scene"
-            },
-            {
-              "cIcon": "scene/hare_tortoise_3.png",
-              "icon": "scene/hare_tortoise_3.png",
-              "json": "/res/hare_tortoise_3.json",
-              "type": "scene"
-            },
-            {
-              "cIcon": "scene/dog_bone_1.png",
-              "icon": "scene/dog_bone_1.png",
-              "json": "/res/dog_bone_1.json",
-              "type": "scene"
-            },
-            {
-              "cIcon": "scene/dog_bone_2.png",
-              "icon": "scene/dog_bone_2.png",
-              "json": "/res/dog_bone_2.json",
-              "type": "scene"
-            },
-            {
-              "cIcon": "scene/dog_bone_3.png",
-              "icon": "scene/dog_bone_3.png",
-              "json": "/res/dog_bone_3.json",
-              "type": "scene"
-            },
-            {
-              "cIcon": "scene/fox_crow_1.png",
-              "icon": "scene/fox_crow_1.png",
-              "json": "/res/fox_crow_1.json",
-              "type": "scene"
-            },
-            {
-              "cIcon": "scene/fox_crow_2.png",
-              "icon": "scene/fox_crow_2.png",
-              "json": "/res/fox_crow_2.json",
-              "type": "scene"
-            },
-            {
-              "cIcon": "scene/fox_crow_3.png",
-              "icon": "scene/fox_crow_3.png",
-              "json": "/res/fox_crow_3.json",
-              "type": "scene"
-            },
-            {
-              "cIcon": "scene/fox_crow_4.png",
-              "icon": "scene/fox_crow_4.png",
-              "json": "/res/fox_crow_4.json",
-              "type": "scene"
-            },
-            {
-              "cIcon": "scene/fox_crow_5.png",
-              "icon": "scene/fox_crow_5.png",
-              "json": "/res/fox_crow_5.json",
-              "type": "scene"
-            },
-            {
-              "cIcon": "scene/fox_crow_6.png",
-              "icon": "scene/fox_crow_6.png",
-              "json": "/res/fox_crow_6.json",
-              "type": "scene"
-            },
-            {
-              "cIcon": "scene/fox_grapes_1.png",
-              "icon": "scene/fox_grapes_1.png",
-              "json": "/res/fox_grapes_1.json",
-              "type": "scene"
-            },
-            {
-              "cIcon": "scene/fox_grapes_2.png",
-              "icon": "scene/fox_grapes_2.png",
-              "json": "/res/fox_grapes_2.json",
-              "type": "scene"
-            },
-            {
-              "cIcon": "scene/selfish_horse_1.png",
-              "icon": "scene/selfish_horse_1.png",
-              "json": "/res/selfish_horse_1.json",
-              "type": "scene"
-            },
-            {
-              "cIcon": "scene/selfish_horse_2.png",
-              "icon": "scene/selfish_horse_2.png",
-              "json": "/res/selfish_horse_2.json",
-              "type": "scene"
-            },
-            {
-              "cIcon": "scene/selfish_horse_3.png",
-              "icon": "scene/selfish_horse_3.png",
-              "json": "/res/selfish_horse_3.json",
-              "type": "scene"
-            },
-            {
-              "cIcon": "scene/shell_wings_1.png",
-              "icon": "scene/shell_wings_1.png",
-              "json": "/res/shell_wings_1.json",
-              "type": "scene"
-            },
-            {
-              "cIcon": "scene/shell_wings_2.png",
-              "icon": "scene/shell_wings_2.png",
-              "json": "/res/shell_wings_2.json",
-              "type": "scene"
-            },
-            {
-              "cIcon": "scene/shell_wings_3.png",
-              "icon": "scene/shell_wings_3.png",
-              "json": "/res/shell_wings_3.json",
-              "type": "scene"
-            },
-            {
-              "cIcon": "scene/shell_wings_4.png",
-              "icon": "scene/shell_wings_4.png",
-              "json": "/res/shell_wings_4.json",
-              "type": "scene"
-            },
-            {
-              "cIcon": "scene/shell_wings_5.png",
-              "icon": "scene/shell_wings_5.png",
-              "json": "/res/shell_wings_5.json",
-              "type": "scene"
-            },
-            {
-              "cIcon": "scene/shell_wings_6.png",
-              "icon": "scene/shell_wings_6.png",
-              "json": "/res/shell_wings_6.json",
-              "type": "scene"
-            },
-            {
-              "cIcon": "scene/shell_wings_7.png",
-              "icon": "scene/shell_wings_7.png",
-              "json": "/res/shell_wings_7.json",
-              "type": "scene"
-            },
-            {
-              "cIcon": "scene/shell_wings_8.png",
-              "icon": "scene/shell_wings_8.png",
-              "json": "/res/shell_wings_8.json",
-              "type": "scene"
-            },
-            {
-              "cIcon": "scene/silly_goats_1.png",
-              "icon": "scene/silly_goats_1.png",
-              "json": "/res/silly_goats_1.json",
-              "type": "scene"
-            },
-            {
-              "cIcon": "scene/silly_goats_2.png",
-              "icon": "scene/silly_goats_2.png",
-              "json": "/res/silly_goats_2.json",
-              "type": "scene"
-            },
-            {
-              "cIcon": "scene/thirsty_crow_1.png",
-              "icon": "scene/thirsty_crow_1.png",
-              "json": "/res/thirsty_crow_1.json",
-              "type": "scene"
-            },
-            {
-              "cIcon": "scene/thirsty_crow_2.png",
-              "icon": "scene/thirsty_crow_2.png",
-              "json": "/res/thirsty_crow_2.json",
-              "type": "scene"
-            },
-            {
-              "cIcon": "scene/thirsty_crow_3.png",
-              "icon": "scene/thirsty_crow_3.png",
-              "json": "/res/thirsty_crow_3.json",
-              "type": "scene"
-            },
-            {
-              "cIcon": "scene/thirsty_crow_4.png",
-              "icon": "scene/thirsty_crow_4.png",
-              "json": "/res/thirsty_crow_4.json",
-              "type": "scene"
-            },
-            {
-              "cIcon": "scene/thirsty_crow_5.png",
-              "icon": "scene/thirsty_crow_5.png",
-              "json": "/res/thirsty_crow_5.json",
-              "type": "scene"
-            },
-            {
-              "cIcon": "scene/thirsty_crow_6.png",
-              "icon": "scene/thirsty_crow_6.png",
-              "json": "/res/thirsty_crow_6.json",
-              "type": "scene"
-            },
-            {
-              "cIcon": "scene/thirsty_crow_7.png",
-              "icon": "scene/thirsty_crow_7.png",
-              "json": "/res/thirsty_crow_7.json",
-              "type": "scene"
-            },
-            {
-              "cIcon": "scene/thirsty_crow_8.png",
-              "icon": "scene/thirsty_crow_8.png",
-              "json": "/res/thirsty_crow_8.json",
-              "type": "scene"
-            },
-            {
-              "cIcon": "scene/Village_01.png",
-              "icon": "scene/Village_01.png",
-              "json": "/res/village_page_01.json",
-              "type": "scene"
-            },
-            {
-              "cIcon": "scene/Village_02.png",
-              "icon": "scene/Village_02.png",
-              "json": "/res/village_Page_02.json",
-              "type": "scene"
-            },
-            {
-              "cIcon": "scene/Village_03.png",
-              "icon": "scene/Village_03.png",
-              "json": "/res/village_Page_03.json",
-              "type": "scene"
-            },
-            {
-              "cIcon": "scene/Village_04.png",
-              "icon": "scene/Village_04.png",
-              "json": "/res/village_Page_04.json",
-              "type": "scene"
-            },
-            {
-              "cIcon": "scene/Village_05.png",
-              "icon": "scene/Village_05.png",
-              "json": "/res/village_Page_05.json",
-              "type": "scene"
-            },
-            {
-              "cIcon": "scene/the_hungry_mouse_Page_01.png",
-              "icon": "scene/the_hungry_mouse_Page_01.png",
-              "json": "/res/the_hungry_mouse_page_01.json",
-              "type": "scene"
-            },
-            {
-              "cIcon": "scene/the_hungry_mouse_Page_02.png",
-              "icon": "scene/the_hungry_mouse_Page_02.png",
-              "json": "/res/the_hungry_mouse_page_02.json",
-              "type": "scene"
-            },
-            {
-              "cIcon": "scene/the_farm_house_Page_01.png",
-              "icon": "scene/the_farm_house_Page_01.png",
-              "json": "/res/the_farm_house_page_01.json",
-              "type": "scene"
-            },
-            {
-              "cIcon": "scene/the_farm_house_Page_02.png",
-              "icon": "scene/the_farm_house_Page_02.png",
-              "json": "/res/the_farm_house_Page_02.json",
-              "type": "scene" 
-            },
-            {
-              "cIcon": "scene/forest_01_64.png",
-              "icon": "scene/forest_01_64.png",
-              "json": "/res/forest_01.json",
-              "type": "scene" 
-            },
-            {
-              "cIcon": "scene/forest_02_64.png",
-              "icon": "scene/forest_02_64.png",
-              "json": "/res/forest_02.json",
-              "type": "scene" 
-            },
-            {
-              "cIcon": "scene/forest_03_64.png",
-              "icon": "scene/forest_03_64.png",
-              "json": "/res/forest_03.json",
-              "type": "scene" 
-            },
-            {
-              "cIcon": "scene/forest_04_64.png",
-              "icon": "scene/forest_04_64.png",
-              "json": "/res/forest_04.json",
-              "type": "scene" 
-            },
-            {
-              "cIcon": "scene/forest_05_64.png",
-              "icon": "scene/forest_05_64.png",
-              "json": "/res/forest_05.json",
-              "type": "scene" 
-            },
-            {
-              "cIcon": "scene/forest_06_64.png",
-              "icon": "scene/forest_06_64.png",
-              "json": "/res/forest_06.json",
-              "type": "scene" 
-            },
-            {
-              "cIcon": "scene/forest_07_64.png",
-              "icon": "scene/forest_07_64.png",
-              "json": "/res/forest_07.json",
-              "type": "scene" 
-            },
-            {
-              "cIcon": "scene/forest_08_64.png",
-              "icon": "scene/forest_08_64.png",
-              "json": "/res/forest_08.json",
-              "type": "scene" 
-            },
-            {
-              "cIcon": "scene/forest_09_64.png",
-              "icon": "scene/forest_09_64.png",
-              "json": "/res/forest_09.json",
-              "type": "scene" 
-            },
-            {
-              "cIcon": "scene/forest_10_64.png",
-              "icon": "scene/forest_10_64.png",
-              "json": "/res/forest_10.json",
-              "type": "scene"
-            },
-            {
-              "cIcon": "scene/water_scene_01.png",
-              "icon": "scene/water_scene_01.png",
-              "json": "/res/water_Scene_1.json",
-              "type": "scene" 
-            },
-            {
-              "cIcon": "scene/water_scene_02.png",
-              "icon": "scene/water_scene_02.png",
-              "json": "/res/water_Scene_2.json",
-              "type": "scene" 
-            },
-            {
-              "cIcon": "scene/water_scene_03.png",
-              "icon": "scene/water_scene_03.png",
-              "json": "/res/water_Scene_3.json",
-              "type": "scene" 
-            },
-            {
-              "cIcon": "scene/water_scene_04.png",
-              "icon": "scene/water_scene_04.png",
-              "json": "/res/water_Scene_4.json",
-              "type": "scene" 
-            },
-            {
-              "cIcon": "scene/desert_scene_01.png",
-              "icon": "scene/desert_scene_01.png",
-              "json": "/res/desert_Scene_1.json",
-              "type": "scene" 
-            },
-            {
-              "cIcon": "scene/desert_scene_02.png",
-              "icon": "scene/desert_scene_02.png",
-              "json": "/res/desert_Scene_2.json",
-              "type": "scene" 
-            },
-            {
-              "cIcon": "scene/desert_scene_03.png",
-              "icon": "scene/desert_scene_03.png",
-              "json": "/res/desert_Scene_3.json",
-              "type": "scene" 
-            },
-            {
-              "cIcon": "scene/desert_scene_04.png",
-              "icon": "scene/desert_scene_04.png",
-              "json": "/res/desert_Scene_4.json",
-              "type": "scene" 
-            },
-            {
-              "cIcon": "scene/desert_scene_05.png",
-              "icon": "scene/desert_scene_05.png",
-              "json": "/res/desert_Scene_5.json",
-              "type": "scene" 
-            },
-            {
-              "cIcon": "scene/desert_scene_06.png",
-              "icon": "scene/desert_scene_06.png",
-              "json": "/res/desert_Scene_6.json",
-              "type": "scene" 
-            },
-            {
-              "cIcon": "scene/story_01_01_64.png",
-              "icon": "scene/story_01_01_64.png",
-              "json": "/res/Scene_01.json",
-              "type": "scene" 
-            },
-            {
-              "cIcon": "scene/story_01_02_64.png",
-              "icon": "scene/story_01_02_64.png",
-              "json": "/res/Scene_02.json",
-              "type": "scene" 
-            },
-            {
-              "cIcon": "scene/story_01_03_64.png",
-              "icon": "scene/story_01_03_64.png",
-              "json": "/res/Scene_03.json",
-              "type": "scene" 
-            },
-            {
-              "cIcon": "scene/story_02_01_64.png",
-              "icon": "scene/story_02_01_64.png",
-              "json": "/res/Story_Scene_01.json",
-              "type": "scene" 
-            },
-            {
-              "cIcon": "scene/story_02_02_64.png",
-              "icon": "scene/story_02_02_64.png",
-              "json": "/res/Story_Scene_02.json",
-              "type": "scene" 
-            },
-            {
-              "cIcon": "scene/story_02_03_64.png",
-              "icon": "scene/story_02_03_64.png",
-              "json": "/res/Story_Scene_03.json",
-              "type": "scene" 
-            },
-            {
-              "cIcon": "scene/story_02_04_64.png",
-              "icon": "scene/story_02_04_64.png",
-              "json": "/res/Story_Scene_04.json",
-              "type": "scene" 
-            },
-            {
-              "cIcon": "scene/story_02_05_64.png",
-              "icon": "scene/story_02_05_64.png",
-              "json": "/res/Story_Scene_05.json",
-              "type": "scene" 
-            },
-            {
-              "cIcon": "scene/story_03_01_64.png",
-              "icon": "scene/story_03_01_64.png",
-              "json": "/res/colour_Scene_01.json",
-              "type": "scene" 
-            },
-            {
-              "cIcon": "scene/story_03_02_64.png",
-              "icon": "scene/story_03_02_64.png",
-              "json": "/res/colour_Scene_02.json",
-              "type": "scene" 
-            },
-            {
-              "cIcon": "scene/story_03_03_64.png",
-              "icon": "scene/story_03_03_64.png",
-              "json": "/res/colour_Scene_03.json",
-              "type": "scene" 
-            },
-            {
-              "cIcon": "scene/story_03_04_64.png",
-              "icon": "scene/story_03_04_64.png",
-              "json": "/res/colour_Scene_04.json",
-              "type": "scene" 
-            },
-            {
-              "cIcon": "scene/story_03_05_64.png",
-              "icon": "scene/story_03_05_64.png",
-              "json": "/res/colour_Scene_05.json",
-              "type": "scene" 
-            },
-            {
-              "cIcon": "scene/story_03_06_64.png",
-              "icon": "scene/story_03_06_64.png",
-              "json": "/res/colour_Scene_06.json",
-              "type": "scene" 
-            },
-            {
-              "cIcon": "scene/story_03_07_64.png",
-              "icon": "scene/story_03_07_64.png",
-              "json": "/res/colour_Scene_07.json",
-              "type": "scene" 
-            },
-            {
-              "cIcon": "scene/story_03_08_64.png",
-              "icon": "scene/story_03_08_64.png",
-              "json": "/res/colour_Scene_08.json",
-              "type": "scene" 
-            },
-            {
-              "cIcon": "scene/story_03_09_64.png",
-              "icon": "scene/story_03_09_64.png",
-              "json": "/res/colour_Scene_09.json",
-              "type": "scene" 
-            },
-            {
-              "cIcon": "scene/story_03_10_64.png",
-              "icon": "scene/story_03_10_64.png",
-              "json": "/res/colour_Scene_10.json",
-              "type": "scene" 
-            },
-            {
-              "cIcon": "scene/story_03_11_64.png",
-              "icon": "scene/story_03_11_64.png",
-              "json": "/res/colour_Scene_11.json",
-              "type": "scene" 
-            }
-          ]
-        }
+         }
       ]
     },
     {
       "name": "check",
       "cIcon": "icons/check_disabled.png",
       "icon": "icons/check.png"
-    },
-    {
-      "name": "text_done",
-      "icon": "icons/text_disabled.png"
-    },
-    {
-      "name": "record",
-      "icon": "icons/record_disabled.png"
-    },
-    {
-      "name": "play",
-      "icon": "icons/play_disabled.png"
     }
   ],
   "addText": [
@@ -2340,7 +2342,7 @@
     {
       "name": "plus",
       "icon": "icons/plus_done.png"
-    },    
+    },
     {
       "name": "text",
       "icon": "icons/text_done.png"
@@ -2355,132 +2357,117 @@
       "name": "play",
       "cIcon": "icons/play_disabled.png",
       "icon": "icons/play.png"
-    },    
+    },
     {
       "name": "check",
       "cIcon": "icons/check_onclick.png",
       "icon": "icons/check.png"
-    }        
+    }
   ],
   "Human_Skeleton": [
     {
-      "name": "translate",      
+      "name": "translate",
       "cIcon": "icons/move_onclick.png",
       "icon": "icons/move.png"
     },
     {
-      "name": "rotateScale",      
+      "name": "rotateScale",
       "cIcon": "icons/rotate_onclick.png",
       "icon": "icons/rotate.png"
     },
     {
-      "name": "scale",      
+      "name": "scale",
       "cIcon": "icons/scale_onclick.png",
       "icon": "icons/scale.png"
-    },            
-    {
-      "name": "flipX",      
-      "cIcon": "icons/flipX_onclick.png",
-      "icon": "icons/flipX.png"
     },
     {
-      "name": "delete",      
+      "name": "delete",
       "cIcon": "icons/delete_onclick.png",
       "icon": "icons/delete.png"
     },
     {
-      "name": "customize",      
+      "name": "customize",
       "cIcon": "icons/avatar_onclick.png",
       "icon": "icons/avatar.png"
     },
     {
-      "name": "animation",      
+      "name": "animation",
       "cIcon": "icons/animation_onclick.png",
       "icon": "icons/animation.png"
     }
   ],
   "animalskeleton": [
     {
-      "name": "translate",      
+      "name": "translate",
       "cIcon": "icons/move_onclick.png",
       "icon": "icons/move.png"
     },
     {
-      "name": "rotateScale",      
+      "name": "rotateScale",
       "cIcon": "icons/rotate_onclick.png",
       "icon": "icons/rotate.png"
     },
     {
-      "name": "scale",      
+      "name": "scale",
       "cIcon": "icons/scale_onclick.png",
       "icon": "icons/scale.png"
-    },            
-    {
-      "name": "flipX",      
-      "cIcon": "icons/flipX_onclick.png",
-      "icon": "icons/flipX.png"
     },
     {
-      "name": "delete",      
+      "name": "delete",
       "cIcon": "icons/delete_onclick.png",
       "icon": "icons/delete.png"
     },
     {
-      "name": "animation",      
+      "name": "animation",
       "cIcon": "icons/animation_onclick.png",
       "icon": "icons/animation.png"
     }
   ],
   "birdskeleton": [
     {
-      "name": "translate",      
+      "name": "translate",
       "cIcon": "icons/move_onclick.png",
       "icon": "icons/move.png"
     },
     {
-      "name": "rotateScale",      
+      "name": "rotateScale",
       "cIcon": "icons/rotate_onclick.png",
       "icon": "icons/rotate.png"
     },
     {
-      "name": "scale",      
+      "name": "scale",
       "cIcon": "icons/scale_onclick.png",
       "icon": "icons/scale.png"
-    },    
-    {
-      "name": "flipX",      
-      "cIcon": "icons/flipX_onclick.png",
-      "icon": "icons/flipX.png"
     },
     {
-      "name": "delete",      
+      "name": "delete",
       "cIcon": "icons/delete_onclick.png",
       "icon": "icons/delete.png"
     }
   ],
   "editObject": [
     {
-      "name": "translate",      
+      "name": "translate",
       "cIcon": "icons/move_onclick.png",
       "icon": "icons/move.png"
     },
     {
-      "name": "rotateScale",      
+      "name": "rotateScale",
       "cIcon": "icons/rotate_onclick.png",
       "icon": "icons/rotate.png"
     },
     {
-      "name": "scale",      
+      "name": "scale",
       "cIcon": "icons/scale_onclick.png",
       "icon": "icons/scale.png"
-    },    
+    },
     {
-      "name": "flipX",      
+      "name": "flipX",
       "cIcon": "icons/flipX_onclick.png",
       "icon": "icons/flipX.png"
     },
     {
-      "name": "delete",      
+      "name": "delete",
       "cIcon": "icons/delete_onclick.png",
       "icon": "icons/delete.png"
     }
@@ -2501,23 +2488,44 @@
   ],
   "editDefault": [
     {
-      "name": "back",      
+      "name": "back",
       "cIcon": "icons/save_goback_onclick.png",
       "icon": "icons/save_goback.png"
     }
   ],
   "editStory": [
     {
-      "name":"story",
+      "name": "story",
       "cIcon": "icons/plus_onclick.png",
       "icon": "icons/plus.png"
     },
     {
-      "name": "save",      
+      "name": "save",
       "cIcon": "icons/publish_onclick.png",
       "icon": "icons/publish.png"
-    }    
+    }
   ],
-  "blank": [
-  ]
+  "editPage": [
+    {
+      "name": "edit",
+      "cIcon": "icons/edit_onclick.png",
+      "icon": "icons/edit.png"
+    },
+    {
+      "name": "delete",
+      "cIcon": "icons/delete_onclick.png",
+      "icon": "icons/delete.png"
+    },
+    {
+      "name": "prev",
+      "cIcon": "icons/back_onclick.png",
+      "icon": "icons/back.png"
+    },
+    {
+      "name": "next",
+      "cIcon": "icons/next_arrow_onclick.png",
+      "icon": "icons/next_arrow.png"
+    }
+  ],
+  "blank": []
 }

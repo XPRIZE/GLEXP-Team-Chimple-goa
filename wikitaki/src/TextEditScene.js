@@ -51,16 +51,13 @@ var TextCreateLayer = cc.Layer.extend({
     updateText: function (sender, type) {
         switch (type) {
             case ccui.TextField.EVENT_ATTACH_WITH_IME:
-                cc.log("displayed keyboard");
                 break;
             case ccui.TextField.EVENT_DETACH_WITH_IME:
-                cc.log("closed keyboard");
                 if (cc.sys.isNative) {
                     self.closeEditor();
                 }
                 break;
             case ccui.TextField.EVENT_INSERT_TEXT:
-                cc.log("text entered");
                 this._text = sender.getString();
                 break;
         }
@@ -184,7 +181,6 @@ var TextEditScene = cc.Scene.extend({
     _text: null,
     ctor: function (text, textKey) {
         this._super();
-        cc.log("received:" + text);
         this._text = text;
         this._textKey = textKey;
     },
