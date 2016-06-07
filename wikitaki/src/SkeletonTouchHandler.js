@@ -5,9 +5,9 @@ chimple.SkeletonTouchHandler = function (context) {
     this.event = cc.EventListener.TOUCH_ONE_BY_ONE;
     this.swallowTouches = true;
     this._previousTouchLocation = null;
-    this._minCountToRightDirection = 3;
-    this._minCountToLeftDirection = 3;
-    this._minCountToChangeDirection = 3;
+    this._minCountToRightDirection = 5;
+    this._minCountToLeftDirection = 5;
+    this._minCountToChangeDirection = 5;
     this._flipTarget = false;
     this.onTouchBegan = function (touch, event) {
         var target = event.getCurrentTarget();
@@ -51,13 +51,14 @@ chimple.SkeletonTouchHandler = function (context) {
         }
 
         if (this._minCountToRightDirection > this._minCountToChangeDirection) {
-            this._minCountToChangeDirection = this._minCountToChangeDirection;
+            this._minCountToRightDirection = this._minCountToChangeDirection;
+            // cc.log("222222:_minCountToRightDirection: " + this._minCountToRightDirection);
         }
 
         if (this._minCountToLeftDirection > this._minCountToChangeDirection) {
             this._minCountToLeftDirection = this._minCountToChangeDirection;
-        }
-
+            // cc.log("222222:_minCountToLeftDirection: " + this._minCountToLeftDirection);
+        }       
     };
 
     this.flipAnimalSkeleton = function (target, location) {
@@ -78,7 +79,7 @@ chimple.SkeletonTouchHandler = function (context) {
         }
 
         if (this._minCountToRightDirection > this._minCountToChangeDirection) {
-            this._minCountToChangeDirection = this._minCountToChangeDirection;
+            this._minCountToRightDirection = this._minCountToChangeDirection;
         }
 
         if (this._minCountToLeftDirection > this._minCountToChangeDirection) {

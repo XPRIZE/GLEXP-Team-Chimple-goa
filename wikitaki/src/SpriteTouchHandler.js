@@ -47,9 +47,12 @@ chimple.SpriteTouchHandler = function (context) {
     };
 
     this.attachedCustomObject = function (child, target) {
-        var skeletonBoundingBox = child.getBoundingBoxToWorld();
-        var boundingBox = target.getBoundingBoxToWorld();
-        if (cc.rectIntersectsRect(boundingBox, skeletonBoundingBox)) {
+        var originalBoundingBox = child.getBoundingBoxToWorld();
+        var skeletonBoundingBox = new cc.rect(originalBoundingBox.x, originalBoundingBox.y, originalBoundingBox.width / 2, originalBoundingBox.height / 2);
+        var objectBoundingBox = target.getBoundingBoxToWorld();
+        var boundingBox = new cc.rect(objectBoundingBox.x, objectBoundingBox.y, objectBoundingBox.width/2, objectBoundingBox.height/2);
+        if (chimple.customSprites.indexOf(target.getName()) != -1 &&
+            cc.rectIntersectsRect(boundingBox, skeletonBoundingBox)) {
             var boneName = chimple.HAND_GEAR_LEFT;
             var bone = child.getBoneNode(boneName);
             var shouldProcess = true;
@@ -60,6 +63,7 @@ chimple.SpriteTouchHandler = function (context) {
                     if (bone.getVisibleSkins() && bone.getVisibleSkins().length > 0) {
                         var topSkin = bone.getVisibleSkins()[0];
                         var spriteToScene = new cc.Sprite(topSkin.getTexture());
+                        spriteToScene.setName(topSkin.getName());
                         spriteToScene.setPosition(50, 50);
                         var eventObj = new chimple.SpriteTouchHandler(contentPanelContext);
                         var listener = cc.EventListener.create(eventObj);
@@ -76,6 +80,7 @@ chimple.SpriteTouchHandler = function (context) {
                     var topSkin = bone.getSkins()[bone.getSkins().length - 1];
                     var spriteToScene = new cc.Sprite(topSkin.getTexture());
                     spriteToScene.setPosition(50, 50);
+                    spriteToScene.setName(topSkin.getName());
                     var eventObj = new chimple.SpriteTouchHandler(this._context);
                     var listener = cc.EventListener.create(eventObj);
                     cc.eventManager.addListener(listener, spriteToScene);
@@ -87,11 +92,11 @@ chimple.SpriteTouchHandler = function (context) {
                 bone.displaySkin(bone.getSkins()[bone.getSkins().length - 1], true);
             }
             var visibleCustomSkin = child.getBoneNode("hand_gear_left").getVisibleSkins();
-            if(child && child._userData) {
+            if (child && child._userData) {
                 child._userData.userCustomObjectSkin = {
                     bone: chimple.HAND_GEAR_LEFT,
                     skin: target.getName()
-                }   
+                }
             }
         }
     };

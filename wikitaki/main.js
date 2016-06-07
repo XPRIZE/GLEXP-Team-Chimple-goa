@@ -59,6 +59,9 @@ chimple.DEVICE_WIDTH = 640;
 chimple.DEVICE_HEIGHT = 450;
 chimple.HAND_GEAR_LEFT = "hand_gear_left";
 chimple.image = {};
+chimple.isHTML5 = function() {
+    return typeof document !== "undefined";
+};
 
 (function () {
     var d = document;
