@@ -1,0 +1,25 @@
+{
+    "project_type": "javascript",
+
+    "debugMode" : 1,
+    "showFPS" : true,
+    "frameRate" : 60,
+    "noCache" : false,
+    "id" : "gameCanvas",
+    "renderMode" : 0,
+    "engineDir":"frameworks/cocos2d-html5",
+
+    "modules" : ["cocos2d","external"],
+
+    "jsList" : [
+        "src/resource.js",
+        "src/load.js",
+        "src/MovableItem.js"
+        "src/playLevel1.js",
+        "src/playLevel2.js",
+        "src/playLevel3.js",
+        "src/playLevel4.js",
+        "src/playLevel5.js",
+        "src/playLevel6.js"
+    ]
+}
