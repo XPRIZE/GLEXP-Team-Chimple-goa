@@ -1,0 +1,489 @@
+{
+  "ID": "81b7afb4-858c-4be4-b32b-d65c584a8912",
+  "Version": "3.10.0.0",
+  "Name": "Scene_4",
+  "Content": {
+    "Content": {
+      "Animation": {
+        "Duration": 0,
+        "Speed": 1.0,
+        "Timelines": [],
+        "ctype": "TimelineActionData"
+      },
+      "AnimationList": [],
+      "ObjectData": {
+        "Tag": 27,
+        "Children": [
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "bg/night_bg.png",
+              "Plist": ""
+            },
+            "BlendFunc": {
+              "Src": 770,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 900.1779,
+              "Y": 899.9958
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.5001,
+              "Y": 0.5
+            },
+            "PreSize": {
+              "X": 1.0,
+              "Y": 1.0
+            },
+            "LeftMargin": 0.1779,
+            "RightMargin": -0.178,
+            "TopMargin": 0.0042,
+            "BottomMargin": -0.0042,
+            "Tag": 28,
+            "ActionTag": -1247976573,
+            "Size": {
+              "X": 1800.0,
+              "Y": 1800.0
+            },
+            "Name": "night_bg",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "ob/water/water_drop.png",
+              "Plist": ""
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 870.2061,
+              "Y": 296.9708
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.4834,
+              "Y": 0.165
+            },
+            "PreSize": {
+              "X": 0.6361,
+              "Y": 0.28
+            },
+            "LeftMargin": 297.7061,
+            "RightMargin": 357.2939,
+            "TopMargin": 1251.0293,
+            "BottomMargin": 44.9708,
+            "Tag": 30,
+            "ActionTag": -831581346,
+            "Size": {
+              "X": 1145.0,
+              "Y": 504.0
+            },
+            "Name": "water_drop",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "ob/fruit/fruit_3.png",
+              "Plist": ""
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 655.149,
+              "Y": 586.5029
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.364,
+              "Y": 0.3258
+            },
+            "PreSize": {
+              "X": 0.09,
+              "Y": 0.09
+            },
+            "LeftMargin": 574.149,
+            "RightMargin": 1063.8511,
+            "TopMargin": 1132.4971,
+            "BottomMargin": 505.5029,
+            "Tag": 31,
+            "ActionTag": 1165411012,
+            "Size": {
+              "X": 162.0,
+              "Y": 162.0
+            },
+            "Name": "fruit_3",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "ob/fruit/fruit_4.png",
+              "Plist": ""
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1070.3979,
+              "Y": 647.53
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.5947,
+              "Y": 0.3597
+            },
+            "PreSize": {
+              "X": 0.17,
+              "Y": 0.1167
+            },
+            "LeftMargin": 917.3979,
+            "RightMargin": 576.6021,
+            "TopMargin": 1047.47,
+            "BottomMargin": 542.53,
+            "Tag": 33,
+            "ActionTag": -727981171,
+            "Size": {
+              "X": 306.0,
+              "Y": 210.0
+            },
+            "Name": "fruit_4",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "ob/fruit/fruit_4.png",
+              "Plist": ""
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 986.6272,
+              "Y": 625.86
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.5481,
+              "Y": 0.3477
+            },
+            "PreSize": {
+              "X": 0.17,
+              "Y": 0.1167
+            },
+            "LeftMargin": 833.6272,
+            "RightMargin": 660.3728,
+            "TopMargin": 1069.14,
+            "BottomMargin": 520.86,
+            "Tag": 34,
+            "ActionTag": -1966565585,
+            "Size": {
+              "X": 306.0,
+              "Y": 210.0
+            },
+            "Name": "fruit_4",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "ob/fruit/fruit_1.png",
+              "Plist": ""
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1011.5601,
+              "Y": 570.1824
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.562,
+              "Y": 0.3168
+            },
+            "PreSize": {
+              "X": 0.065,
+              "Y": 0.065
+            },
+            "LeftMargin": 953.0601,
+            "RightMargin": 729.9399,
+            "TopMargin": 1171.3176,
+            "BottomMargin": 511.6824,
+            "Tag": 35,
+            "ActionTag": 1740355945,
+            "Size": {
+              "X": 117.0,
+              "Y": 117.0
+            },
+            "Name": "fruit_1",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "ob/fruit/fruit_3.png",
+              "Plist": ""
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1140.0348,
+              "Y": 573.0216
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.6334,
+              "Y": 0.3183
+            },
+            "PreSize": {
+              "X": 0.09,
+              "Y": 0.09
+            },
+            "LeftMargin": 1059.0348,
+            "RightMargin": 578.9652,
+            "TopMargin": 1145.9784,
+            "BottomMargin": 492.0216,
+            "Tag": 36,
+            "ActionTag": -526176763,
+            "Size": {
+              "X": 162.0,
+              "Y": 162.0
+            },
+            "Name": "fruit_3",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "ob/fruit/fruit_2.png",
+              "Plist": ""
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 797.7875,
+              "Y": 641.8723
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.4432,
+              "Y": 0.3566
+            },
+            "PreSize": {
+              "X": 0.09,
+              "Y": 0.1083
+            },
+            "LeftMargin": 716.7875,
+            "RightMargin": 921.2125,
+            "TopMargin": 1060.6277,
+            "BottomMargin": 544.3723,
+            "Tag": 32,
+            "ActionTag": -2029894559,
+            "Size": {
+              "X": 162.0,
+              "Y": 195.0
+            },
+            "Name": "fruit_2",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "ob/fruit/fruit_basket.png",
+              "Plist": ""
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 902.4852,
+              "Y": 464.7823
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.5014,
+              "Y": 0.2582
+            },
+            "PreSize": {
+              "X": 0.4011,
+              "Y": 0.1211
+            },
+            "LeftMargin": 541.4852,
+            "RightMargin": 536.5148,
+            "TopMargin": 1226.2178,
+            "BottomMargin": 355.7823,
+            "Tag": 29,
+            "ActionTag": -1055379386,
+            "Size": {
+              "X": 722.0,
+              "Y": 218.0
+            },
+            "Name": "fruit_basket",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "bg/rain.png",
+              "Plist": ""
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 917.7021,
+              "Y": 835.7141
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.5098,
+              "Y": 0.4643
+            },
+            "PreSize": {
+              "X": 1.02,
+              "Y": 1.07
+            },
+            "LeftMargin": -0.2979,
+            "RightMargin": -35.7021,
+            "TopMargin": 1.2859,
+            "BottomMargin": -127.2859,
+            "Tag": 37,
+            "ActionTag": 822365018,
+            "Size": {
+              "X": 1836.0,
+              "Y": 1926.0
+            },
+            "Name": "rain",
+            "ctype": "SpriteObjectData"
+          }
+        ],
+        "Size": {
+          "X": 1800.0,
+          "Y": 1800.0
+        },
+        "Name": "Scene",
+        "ctype": "SingleNodeObjectData"
+      },
+      "UsedResources": [
+        "bg/night_bg.png",
+        "bg/rain.png",
+        "ob/fruit/fruit_1.png",
+        "ob/fruit/fruit_2.png",
+        "ob/fruit/fruit_3.png",
+        "ob/fruit/fruit_4.png",
+        "ob/fruit/fruit_basket.png",
+        "ob/water/water_drop.png"
+      ],
+      "ctype": "GameFileData"
+    }
+  },
+  "Type": "Scene"
+}
