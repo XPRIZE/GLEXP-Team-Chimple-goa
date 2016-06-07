@@ -1,0 +1,807 @@
+{
+  "ID": "8b79a394-e2c5-4d5a-9554-d41daa8e4654",
+  "Version": "3.10.0.0",
+  "Name": "Scene_5",
+  "Content": {
+    "Content": {
+      "Animation": {
+        "Duration": 0,
+        "Speed": 1.0,
+        "Timelines": [],
+        "ctype": "TimelineActionData"
+      },
+      "AnimationList": [],
+      "ObjectData": {
+        "Tag": 38,
+        "Children": [
+          {
+            "ClipAble": false,
+            "BackColorAlpha": 247,
+            "ComboBoxIndex": 1,
+            "SingleColor": {
+              "G": 181,
+              "B": 49
+            },
+            "FirstColor": {
+              "R": 150,
+              "G": 200
+            },
+            "EndColor": {},
+            "ColorVector": {
+              "ScaleY": 1.0
+            },
+            "TouchEnable": true,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 0.0,
+              "Y": 697.0
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.0,
+              "Y": 0.3872
+            },
+            "PreSize": {
+              "X": 1.0,
+              "Y": 0.6128
+            },
+            "BottomMargin": 697.0,
+            "Tag": 39,
+            "ActionTag": -63961058,
+            "Size": {
+              "X": 1800.0,
+              "Y": 1103.0
+            },
+            "Name": "Panel",
+            "ctype": "PanelObjectData"
+          },
+          {
+            "ClipAble": false,
+            "ComboBoxIndex": 1,
+            "SingleColor": {
+              "R": 139,
+              "G": 85,
+              "B": 47
+            },
+            "FirstColor": {
+              "R": 150,
+              "G": 200
+            },
+            "EndColor": {},
+            "ColorVector": {
+              "ScaleY": 1.0
+            },
+            "TouchEnable": true,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "PreSize": {
+              "X": 1.0,
+              "Y": 0.3872
+            },
+            "TopMargin": 1103.0,
+            "Tag": 40,
+            "ActionTag": 1225697731,
+            "Size": {
+              "X": 1800.0,
+              "Y": 697.0
+            },
+            "Name": "Panel",
+            "ctype": "PanelObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "bg/ground_grass_3.png",
+              "Plist": ""
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 898.2943,
+              "Y": 1240.3513
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.4991,
+              "Y": 0.6891
+            },
+            "PreSize": {
+              "X": 0.9994,
+              "Y": 0.2794
+            },
+            "LeftMargin": -1.2057,
+            "RightMargin": 2.2057,
+            "TopMargin": 308.1487,
+            "BottomMargin": 988.8513,
+            "Tag": 46,
+            "ActionTag": -1804398427,
+            "Size": {
+              "X": 1799.0,
+              "Y": 503.0
+            },
+            "Name": "ground_grass_3",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "bg/ground_grass_4.png",
+              "Plist": ""
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 894.0795,
+              "Y": 1048.7537
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.4967,
+              "Y": 0.5826
+            },
+            "PreSize": {
+              "X": 0.9994,
+              "Y": 0.28
+            },
+            "LeftMargin": -5.4205,
+            "RightMargin": 6.4204,
+            "TopMargin": 499.2463,
+            "BottomMargin": 796.7537,
+            "Tag": 47,
+            "ActionTag": -1721793853,
+            "Size": {
+              "X": 1799.0,
+              "Y": 504.0
+            },
+            "Name": "ground_grass_4",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "ob/house/fence_3.png",
+              "Plist": ""
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 897.5392,
+              "Y": 856.73
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.4986,
+              "Y": 0.476
+            },
+            "PreSize": {
+              "X": 0.2139,
+              "Y": 0.1917
+            },
+            "LeftMargin": 705.0392,
+            "RightMargin": 709.9607,
+            "TopMargin": 770.77,
+            "BottomMargin": 684.23,
+            "Tag": 48,
+            "ActionTag": -1060610888,
+            "Size": {
+              "X": 385.0,
+              "Y": 345.0
+            },
+            "Name": "fence_3",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "ob/house/fence_1.png",
+              "Plist": ""
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 341.4604,
+              "Y": 869.4984
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.1897,
+              "Y": 0.4831
+            },
+            "PreSize": {
+              "X": 0.3822,
+              "Y": 0.1978
+            },
+            "LeftMargin": -2.5396,
+            "RightMargin": 1114.5396,
+            "TopMargin": 752.5016,
+            "BottomMargin": 691.4984,
+            "Tag": 41,
+            "ActionTag": 1329519059,
+            "Size": {
+              "X": 688.0,
+              "Y": 356.0
+            },
+            "Name": "fence_1",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "ob/house/fence_1.png",
+              "Plist": ""
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1456.8293,
+              "Y": 873.796
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.8093,
+              "Y": 0.4854
+            },
+            "PreSize": {
+              "X": 0.3822,
+              "Y": 0.1978
+            },
+            "LeftMargin": 1112.8293,
+            "RightMargin": -0.8293,
+            "TopMargin": 748.204,
+            "BottomMargin": 695.796,
+            "Tag": 42,
+            "ActionTag": 194481453,
+            "Size": {
+              "X": 688.0,
+              "Y": 356.0
+            },
+            "Name": "fence_1",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "ob/house/fence_4.png",
+              "Plist": ""
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 376.3505,
+              "Y": 695.8598
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.2091,
+              "Y": 0.3866
+            },
+            "PreSize": {
+              "X": 0.3822,
+              "Y": 0.1978
+            },
+            "LeftMargin": 32.3505,
+            "RightMargin": 1079.6494,
+            "TopMargin": 926.1402,
+            "BottomMargin": 517.8598,
+            "Tag": 44,
+            "ActionTag": -1414557280,
+            "Size": {
+              "X": 688.0,
+              "Y": 356.0
+            },
+            "Name": "fence_4",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "ob/house/fence_4.png",
+              "Plist": ""
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1418.78,
+              "Y": 688.7855
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.7882,
+              "Y": 0.3827
+            },
+            "PreSize": {
+              "X": 0.3822,
+              "Y": 0.1978
+            },
+            "LeftMargin": 1074.78,
+            "RightMargin": 37.22,
+            "TopMargin": 933.2145,
+            "BottomMargin": 510.7855,
+            "Tag": 45,
+            "ActionTag": -815630115,
+            "Size": {
+              "X": 688.0,
+              "Y": 356.0
+            },
+            "Name": "fence_4",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "ob/house/silly_goats_home.png",
+              "Plist": ""
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 283.7833,
+              "Y": 1257.9055
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.1577,
+              "Y": 0.6988
+            },
+            "PreSize": {
+              "X": 0.1039,
+              "Y": 0.0722
+            },
+            "LeftMargin": 190.2833,
+            "RightMargin": 1422.7168,
+            "TopMargin": 477.0945,
+            "BottomMargin": 1192.9055,
+            "Tag": 49,
+            "ActionTag": -599087697,
+            "Size": {
+              "X": 187.0,
+              "Y": 130.0
+            },
+            "Name": "hut",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "ob/house/silly_goats_home.png",
+              "Plist": ""
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 652.0931,
+              "Y": 1327.299
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.3623,
+              "Y": 0.7374
+            },
+            "PreSize": {
+              "X": 0.1039,
+              "Y": 0.0722
+            },
+            "LeftMargin": 558.5931,
+            "RightMargin": 1054.407,
+            "TopMargin": 407.701,
+            "BottomMargin": 1262.299,
+            "Tag": 50,
+            "ActionTag": -1641085032,
+            "Size": {
+              "X": 187.0,
+              "Y": 130.0
+            },
+            "Name": "hut",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FlipX": true,
+            "FileData": {
+              "Type": "Normal",
+              "Path": "ob/house/silly_goats_home.png",
+              "Plist": ""
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1147.665,
+              "Y": 1151.2031
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.6376,
+              "Y": 0.6396
+            },
+            "PreSize": {
+              "X": 0.1039,
+              "Y": 0.0722
+            },
+            "LeftMargin": 1054.165,
+            "RightMargin": 558.835,
+            "TopMargin": 583.7969,
+            "BottomMargin": 1086.2031,
+            "Tag": 51,
+            "ActionTag": -1598197485,
+            "Size": {
+              "X": 187.0,
+              "Y": 130.0
+            },
+            "Name": "hut",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FlipX": true,
+            "FileData": {
+              "Type": "Normal",
+              "Path": "ob/house/silly_goats_home.png",
+              "Plist": ""
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1533.6101,
+              "Y": 1170.2622
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.852,
+              "Y": 0.6501
+            },
+            "PreSize": {
+              "X": 0.1039,
+              "Y": 0.0722
+            },
+            "LeftMargin": 1440.1101,
+            "RightMargin": 172.8899,
+            "TopMargin": 564.7378,
+            "BottomMargin": 1105.2622,
+            "Tag": 52,
+            "ActionTag": -33493195,
+            "Size": {
+              "X": 187.0,
+              "Y": 130.0
+            },
+            "Name": "hut",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "ob/house/silly_goats_home.png",
+              "Plist": ""
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 404.3592,
+              "Y": 1408.5017
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.2246,
+              "Y": 0.7825
+            },
+            "PreSize": {
+              "X": 0.1039,
+              "Y": 0.0722
+            },
+            "LeftMargin": 310.8592,
+            "RightMargin": 1302.1409,
+            "TopMargin": 326.4983,
+            "BottomMargin": 1343.5017,
+            "Tag": 53,
+            "ActionTag": -1061554931,
+            "Size": {
+              "X": 187.0,
+              "Y": 130.0
+            },
+            "Name": "hut",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "ob/house/silly_goats_home.png",
+              "Plist": ""
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 933.2501,
+              "Y": 1384.6781
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.5185,
+              "Y": 0.7693
+            },
+            "PreSize": {
+              "X": 0.1039,
+              "Y": 0.0722
+            },
+            "LeftMargin": 839.7501,
+            "RightMargin": 773.25,
+            "TopMargin": 350.3219,
+            "BottomMargin": 1319.6781,
+            "Tag": 54,
+            "ActionTag": 783736337,
+            "Size": {
+              "X": 187.0,
+              "Y": 130.0
+            },
+            "Name": "hut",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "ob/sky/cloud_1.png",
+              "Plist": ""
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 513.949,
+              "Y": 1699.1539
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.2855,
+              "Y": 0.944
+            },
+            "PreSize": {
+              "X": 0.1583,
+              "Y": 0.0639
+            },
+            "LeftMargin": 371.449,
+            "RightMargin": 1143.551,
+            "TopMargin": 43.3461,
+            "BottomMargin": 1641.6539,
+            "Tag": 55,
+            "ActionTag": 835382848,
+            "Size": {
+              "X": 285.0,
+              "Y": 115.0
+            },
+            "Name": "cloud_1",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "ob/sky/cloud_1.png",
+              "Plist": ""
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1266.7854,
+              "Y": 1546.6812
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.7038,
+              "Y": 0.8593
+            },
+            "PreSize": {
+              "X": 0.1583,
+              "Y": 0.0639
+            },
+            "LeftMargin": 1124.2854,
+            "RightMargin": 390.7146,
+            "TopMargin": 195.8188,
+            "BottomMargin": 1489.1812,
+            "Tag": 56,
+            "ActionTag": 600348670,
+            "Size": {
+              "X": 285.0,
+              "Y": 115.0
+            },
+            "Name": "cloud_1",
+            "ctype": "SpriteObjectData"
+          }
+        ],
+        "Size": {
+          "X": 1800.0,
+          "Y": 1800.0
+        },
+        "Name": "Scene",
+        "ctype": "SingleNodeObjectData"
+      },
+      "UsedResources": [
+        "bg/ground_grass_3.png",
+        "bg/ground_grass_4.png",
+        "ob/house/fence_1.png",
+        "ob/sky/cloud_1.png",
+        "ob/house/fence_3.png",
+        "ob/house/fence_4.png",
+        "ob/house/silly_goats_home.png"
+      ],
+      "ctype": "GameFileData"
+    }
+  },
+  "Type": "Scene"
+}

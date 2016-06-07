@@ -573,6 +573,90 @@
               "icon": "scene/story_03_11_64.png",
               "json": "/res/colour_Scene_11.json",
               "type": "scene" 
+            },
+            {
+              "cIcon": "scene/aqua_scene_01.png",
+              "icon": "scene/aqua_scene_01.png",
+              "json": "/res/aqua_Scene_01.json",
+              "type": "scene" 
+            },
+            {
+              "cIcon": "scene/aqua_scene_02.png",
+              "icon": "scene/aqua_scene_02.png",
+              "json": "/res/aqua_Scene_02.json",
+              "type": "scene" 
+            },
+            {
+              "cIcon": "scene/aqua_scene_03.png",
+              "icon": "scene/aqua_scene_03.png",
+              "json": "/res/aqua_Scene_03.json",
+              "type": "scene" 
+            },
+            {
+              "cIcon": "scene/aqua_scene_04.png",
+              "icon": "scene/aqua_scene_04.png",
+              "json": "/res/aqua_Scene_04.json",
+              "type": "scene" 
+            },
+             {
+              "cIcon": "scene/Scene_01.png",
+              "icon": "scene/Scene_01.png",
+              "json": "/res/story_a_scene_01.json",
+              "type": "scene" 
+            },
+            {
+              "cIcon": "scene/Scene_02.png",
+              "icon": "scene/Scene_02.png",
+              "json": "/res/story_a_scene_02.json",
+              "type": "scene" 
+            },
+            {
+              "cIcon": "scene/Scene_03.png",
+              "icon": "scene/Scene_03.png",
+              "json": "/res/story_a_scene_03.json",
+              "type": "scene" 
+            },
+            {
+              "cIcon": "scene/Scene_04.png",
+              "icon": "scene/Scene_04.png",
+              "json": "/res/story_a_scene_04.json",
+              "type": "scene" 
+            },
+            {
+              "cIcon": "scene/Scene_05.png",
+              "icon": "scene/Scene_05.png",
+              "json": "/res/story_a_scene_05.json",
+              "type": "scene" 
+            },
+            {
+              "cIcon": "scene/Scene_1-01.png",
+              "icon": "scene/Scene_1-01.png",
+              "json": "/res/story_b_scene_1.json",
+              "type": "scene" 
+            },
+            {
+              "cIcon": "scene/Scene_2-01.png",
+              "icon": "scene/Scene_2-01.png",
+              "json": "/res/story_b_scene_2.json",
+              "type": "scene" 
+            },
+            {
+              "cIcon": "scene/Scene_3-01.png",
+              "icon": "scene/Scene_3-01.png",
+              "json": "/res/story_b_scene_3.json",
+              "type": "scene" 
+            },
+            {
+              "cIcon": "scene/Scene_4-01.png",
+              "icon": "scene/Scene_4-01.png",
+              "json": "/res/story_b_scene_4.json",
+              "type": "scene" 
+            },
+            {
+              "cIcon": "scene/Scene_5-01.png",
+              "icon": "scene/Scene_5-01.png",
+              "json": "/res/story_b_scene_5.json",
+              "type": "scene" 
             }
           ]
         }
@@ -1185,9 +1269,9 @@
       "icon": "icons/props.png",
       "categories": [         
          {
-          "name": "objects",
-          "cIcon": "icons/props_onclick.png",
-          "icon": "icons/props.png",
+          "name": "trees",
+          "cIcon": "icons/blink_onclick.png",
+          "icon": "icons/blink.png",
           "items": [
             {
               "cIcon": "ob/tree/branch.png",
@@ -1385,6 +1469,43 @@
               "png": "/res/ob/tree/trees6.png"
             },
             {
+              "cIcon": "ob/grass/dog_bone_grass_1.png",
+              "icon": "ob/grass/dog_bone_grass_1.png",
+              "png": "/res/ob/grass/dog_bone_grass_1.png"
+            },
+            {
+              "cIcon": "ob/grass/grass.png",
+              "icon": "ob/grass/grass.png",
+              "png": "/res/ob/grass/grass.png"
+            },
+            {
+              "cIcon": "ob/grass/grass_01.png",
+              "icon": "ob/grass/grass_01.png",
+              "png": "/res/ob/grass/grass_01.png"
+            },
+            {
+              "cIcon": "ob/grass/grass_02.png",
+              "icon": "ob/grass/grass_02.png",
+              "png": "/res/ob/grass/grass_02.png"
+            },
+            {
+              "cIcon": "ob/grass/grass_03.png",
+              "icon": "ob/grass/grass_03.png",
+              "png": "/res/ob/grass/grass_03.png"
+            },
+            {
+              "cIcon": "ob/grass/grass_04.png",
+              "icon": "ob/grass/grass_04.png",
+              "png": "/res/ob/grass/grass_04.png"
+            }
+         ]
+         },
+          {
+          "name": "trees",
+          "cIcon": "icons/props_onclick.png",
+          "icon": "icons/props.png",
+          "items": [
+            {
               "cIcon": "ob/bag/selfish_horse_bag_1.png",
               "icon": "ob/bag/selfish_horse_bag_1.png",
               "png": "/res/ob/bag/selfish_horse_bag_1.png"
@@ -1418,136 +1539,6 @@
               "cIcon": "ob/fruit/fox_crow_grapes.png",
               "icon": "ob/fruit/fox_crow_grapes.png",
               "png": "/res/ob/fruit/fox_crow_grapes.png"
-            },
-            {
-              "cIcon": "ob/grass/dog_bone_grass_1.png",
-              "icon": "ob/grass/dog_bone_grass_1.png",
-              "png": "/res/ob/grass/dog_bone_grass_1.png"
-            },
-            {
-              "cIcon": "ob/grass/grass.png",
-              "icon": "ob/grass/grass.png",
-              "png": "/res/ob/grass/grass.png"
-            },
-            {
-              "cIcon": "ob/grass/grass_01.png",
-              "icon": "ob/grass/grass_01.png",
-              "png": "/res/ob/grass/grass_01.png"
-            },
-            {
-              "cIcon": "ob/grass/grass_02.png",
-              "icon": "ob/grass/grass_02.png",
-              "png": "/res/ob/grass/grass_02.png"
-            },
-            {
-              "cIcon": "ob/grass/grass_03.png",
-              "icon": "ob/grass/grass_03.png",
-              "png": "/res/ob/grass/grass_03.png"
-            },
-            {
-              "cIcon": "ob/grass/grass_04.png",
-              "icon": "ob/grass/grass_04.png",
-              "png": "/res/ob/grass/grass_04.png"
-            },
-            {
-              "cIcon": "ob/hill/fox_crow_hill_1.png",
-              "icon": "ob/hill/fox_crow_hill_1.png",
-              "png": "/res/ob/hill/fox_crow_hill_1.png"
-            },
-            {
-              "cIcon": "ob/hill/fox_crow_hill_2.png",
-              "icon": "ob/hill/fox_crow_hill_2.png",
-              "png": "/res/ob/hill/fox_crow_hill_2.png"
-            },
-            {
-              "cIcon": "ob/hill/fox_crow_hill_3.png",
-              "icon": "ob/hill/fox_crow_hill_3.png",
-              "png": "/res/ob/hill/fox_crow_hill_3.png"
-            },
-            {
-              "cIcon": "ob/hill/fox_crow_hill_4.png",
-              "icon": "ob/hill/fox_crow_hill_4.png",
-              "png": "/res/ob/hill/fox_crow_hill_4.png"
-            },
-            {
-              "cIcon": "ob/hill/hill.png",
-              "icon": "ob/hill/hill.png",
-              "png": "/res/ob/hill/hill.png"
-            },
-            {
-              "cIcon": "ob/hill/small_hill_01.png",
-              "icon": "ob/hill/small_hill_01.png",
-              "png": "/res/ob/hill/small_hill_01.png"
-            },
-            {
-              "cIcon": "ob/hill/small_hill_02.png",
-              "icon": "ob/hill/small_hill_02.png",
-              "png": "/res/ob/hill/small_hill_02.png"
-            },
-            {
-              "cIcon": "ob/hill/thirsty_crow_grass_Hill.png",
-              "icon": "ob/hill/thirsty_crow_grass_Hill.png",
-              "png": "/res/ob/hill/thirsty_crow_grass_Hill.png"
-            },
-            {
-              "cIcon": "ob/hill/thirsty_crow_grass_Hill_01.png",
-              "icon": "ob/hill/thirsty_crow_grass_Hill_01.png",
-              "png": "/res/ob/hill/thirsty_crow_grass_Hill_01.png"
-            },
-            {
-              "cIcon": "ob/hill/thirsty_crow_grass_Hill_02.png",
-              "icon": "ob/hill/thirsty_crow_grass_Hill_02.png",
-              "png": "/res/ob/hill/thirsty_crow_grass_Hill_02.png"
-            },
-            {
-              "cIcon": "ob/hill/thirsty_crow_hill.png",
-              "icon": "ob/hill/thirsty_crow_hill.png",
-              "png": "/res/ob/hill/thirsty_crow_hill.png"
-            },
-            {
-              "cIcon": "ob/house/fox_crow_home.png",
-              "icon": "ob/house/fox_crow_home.png",
-              "png": "/res/ob/house/fox_crow_home.png"
-            },
-            {
-              "cIcon": "ob/house/house.png",
-              "icon": "ob/house/house.png",
-              "png": "/res/ob/house/house.png"
-            },
-            {
-              "cIcon": "ob/house/selfish_horse_building_1.png",
-              "icon": "ob/house/selfish_horse_building_1.png",
-              "png": "/res/ob/house/selfish_horse_building_1.png"
-            },
-            {
-              "cIcon": "ob/house/selfish_horse_building_2.png",
-              "icon": "ob/house/selfish_horse_building_2.png",
-              "png": "/res/ob/house/selfish_horse_building_2.png"
-            },
-            {
-              "cIcon": "ob/house/selfish_horse_building_3.png",
-              "icon": "ob/house/selfish_horse_building_3.png",
-              "png": "/res/ob/house/selfish_horse_building_3.png"
-            },
-            {
-              "cIcon": "ob/house/selfish_horse_building_4.png",
-              "icon": "ob/house/selfish_horse_building_4.png",
-              "png": "/res/ob/house/selfish_horse_building_4s.png"
-            },
-            {
-              "cIcon": "ob/house/silly_goats_home.png",
-              "icon": "ob/house/silly_goats_home.png",
-              "png": "/res/ob/house/silly_goats_home.png"
-            },
-            {
-              "cIcon": "ob/house/thirsty_crow_home.png",
-              "icon": "ob/house/thirsty_crow_home.png",
-              "png": "/res/ob/house/thirsty_crow_home.png"
-            },
-            {
-              "cIcon": "ob/house/cage.png",
-              "icon": "ob/house/cage.png",
-              "png": "/res/ob/house/cage.png"
             },
             {
               "cIcon": "ob/human/human_legs.png",
@@ -1609,61 +1600,7 @@
               "icon": "ob/stone/shell_wings_rock.png",
               "png": "/res/ob/stone/shell_wings_rock.png"
             },
-            {
-              "cIcon": "ob/vehicle/Ambulance.png",
-              "icon": "ob/vehicle/Ambulance.png",
-              "png": "/res/ob/vehicle/Ambulance.png"
-            },
-            {
-              "cIcon": "ob/vehicle/Auto.png",
-              "icon": "ob/vehicle/Auto.png",
-              "png": "/res/ob/vehicle/Auto.png"
-            },
-            {
-              "cIcon": "ob/vehicle/Bus.png",
-              "icon": "ob/vehicle/Bus.png",
-              "png": "/res/ob/vehicle/Bus.png"
-            },
-            {
-              "cIcon": "ob/vehicle/Car.png",
-              "icon": "ob/vehicle/Car.png",
-              "png": "/res/ob/vehicle/Car.png"
-            },
-            {
-              "cIcon": "ob/vehicle/Car_01.png",
-              "icon": "ob/vehicle/Car_01.png",
-              "png": "/res/ob/vehicle/Car_01.png"
-            },
-            {
-              "cIcon": "ob/vehicle/Jeep.png",
-              "icon": "ob/vehicle/Jeep.png",
-              "png": "/res/ob/vehicle/Jeep.png"
-            },
-            {
-              "cIcon": "ob/vehicle/Motocycle.png",
-              "icon": "ob/vehicle/Motocycle.png",
-              "png": "/res/ob/vehicle/Motocycle.png"
-            },
-            {
-              "cIcon": "ob/vehicle/Scooter.png",
-              "icon": "ob/vehicle/Scooter.png",
-              "png": "/res/ob/vehicle/Scooter.png"
-            },
-            {
-              "cIcon": "ob/vehicle/Truck.png",
-              "icon": "ob/vehicle/Truck.png",
-              "png": "/res/ob/vehicle/Truck.png"
-            },
-             {
-              "cIcon": "ob/vehicle/bullock_cart.png",
-              "icon": "ob/vehicle/bullock_cart.png",
-              "png": "/res/ob/vehicle/bullock_cart.png"
-            },
-             {
-              "cIcon": "ob/animal/snake.png",
-              "icon": "ob/animal/snake.png",
-              "png": "/res/ob/animal/snake.png"
-            },
+            
             {
               "cIcon": "ob/lab_instrument/Ammeter.png",
               "icon": "ob/lab_instrument/Ammeter.png",
@@ -1750,9 +1687,9 @@
               "png": "/res/ob/lab_instrument/ScrewGauge.png"
             },
             {
-              "cIcon": "ob/lab_instrument/Spactula.png",
-              "icon": "ob/lab_instrument/Spactula.png",
-              "png": "/res/ob/lab_instrument/Spactula.png"
+              "cIcon": "ob/lab_instrument/Spatula.png",
+              "icon": "ob/lab_instrument/Spatula.png",
+              "png": "/res/ob/lab_instrument/Spatula.png"
             },
             {
               "cIcon": "ob/lab_instrument/TestTube.png",
@@ -1813,7 +1750,15 @@
               "cIcon": "ob/music_instrument/Xylophone.png",
               "icon": "ob/music_instrument/Xylophone.png",
               "png": "/res/ob/music_instrument/Xylophone.png"
-            },
+            }
+            
+          ]
+         },
+          {
+          "name": "animals",
+          "cIcon": "icons/animal_walk_onclick.png",
+          "icon": "icons/animal_walk.png",
+          "items": [
             {
               "cIcon": "ob/animal/Alligator.png",
               "icon": "ob/animal/Alligator.png",
@@ -1925,8 +1870,8 @@
               "png": "/res/ob/animal/Fish_03.png"
             },
             {
-              "cIcon": "ob/animal/fox.png",
-              "icon": "ob/animal/fox.png",
+              "cIcon": "ob/animal/Fox.png",
+              "icon": "ob/animal/Fox.png",
               "png": "/res/ob/animal/fox.png"
             },
             {
@@ -1985,9 +1930,9 @@
               "png": "/res/ob/animal/Iguana.png"
             },
             {
-              "cIcon": "ob/animal/jaguar.png",
-              "icon": "ob/animal/jaguar.png",
-              "png": "/res/ob/animal/jaguar.png"
+              "cIcon": "ob/animal/Jaguar.png",
+              "icon": "ob/animal/Jaguar.png",
+              "png": "/res/ob/animal/Jaguar.png"
             },
             {
               "cIcon": "ob/animal/Kangaroo.png",
@@ -2060,9 +2005,9 @@
               "png": "/res/ob/animal/Pig.png"
             },
             {
-              "cIcon": "ob/animal/Pig(2).png",
-              "icon": "ob/animal/Pig(2).png",
-              "png": "/res/ob/animal/Pig(2).png"
+              "cIcon": "ob/animal/pig (2).png",
+              "icon": "ob/animal/pig (2).png",
+              "png": "/res/ob/animal/pig (2).png"
             },
             {
               "cIcon": "ob/animal/python.png",
@@ -2099,6 +2044,11 @@
               "icon": "ob/animal/sheep.png",
               "png": "/res/ob/animal/sheep.png"
             },
+             {
+              "cIcon": "ob/animal/snake.png",
+              "icon": "ob/animal/snake.png",
+              "png": "/res/ob/animal/snake.png"
+            },
             {
               "cIcon": "ob/animal/spider.png",
               "icon": "ob/animal/spider.png",
@@ -2125,8 +2075,8 @@
               "png": "/res/ob/animal/Tiger.png"
             },
             {
-              "cIcon": "ob/animal/tortoise.png",
-              "icon": "ob/animal/tortoise.png",
+              "cIcon": "ob/animal/Tortoise.png",
+              "icon": "ob/animal/Tortoise.png",
               "png": "/res/ob/animal/tortoise.png"
             },
             {
@@ -2163,7 +2113,15 @@
               "cIcon": "ob/animal/Zebra.png",
               "icon": "ob/animal/Zebra.png",
               "png": "/res/ob/animal/Zebra.png"
-            },
+            }
+          ]
+          },
+           {
+          "name": "birds",
+          "cIcon": "icons/bird_fly_onclick.png",
+          "icon": "icons/bird_fly.png",
+          "items": [
+            
             {
               "cIcon": "ob/bird/bat.png",
               "icon": "ob/bird/bat.png",
@@ -2235,9 +2193,9 @@
               "png": "/res/ob/bird/Owl.png"
             },
             {
-              "cIcon": "ob/bird/owl(2).png",
-              "icon": "ob/bird/owl(2).png",
-              "png": "/res/ob/bird/owl(2).png"
+              "cIcon": "ob/bird/owl (2).png",
+              "icon": "ob/bird/owl (2).png",
+              "png": "/res/ob/bird/owl (2).png"
             },
             {
               "cIcon": "ob/bird/Parrot.png",
@@ -2305,7 +2263,178 @@
               "png": "/res/ob/bird/woodpicker.png"
             }
           ]
-         }
+        },
+        {
+          "name": "home",
+          "cIcon": "icons/home_onclick.png",
+          "icon": "icons/home.png",
+          "items": [
+            {
+              "cIcon": "ob/house/fox_crow_home.png",
+              "icon": "ob/house/fox_crow_home.png",
+              "png": "/res/ob/house/fox_crow_home.png"
+            },
+            {
+              "cIcon": "ob/house/house.png",
+              "icon": "ob/house/house.png",
+              "png": "/res/ob/house/house.png"
+            },
+            {
+              "cIcon": "ob/house/selfish_horse_building_1.png",
+              "icon": "ob/house/selfish_horse_building_1.png",
+              "png": "/res/ob/house/selfish_horse_building_1.png"
+            },
+            {
+              "cIcon": "ob/house/selfish_horse_building_2.png",
+              "icon": "ob/house/selfish_horse_building_2.png",
+              "png": "/res/ob/house/selfish_horse_building_2.png"
+            },
+            {
+              "cIcon": "ob/house/selfish_horse_building_3.png",
+              "icon": "ob/house/selfish_horse_building_3.png",
+              "png": "/res/ob/house/selfish_horse_building_3.png"
+            },
+            {
+              "cIcon": "ob/house/selfish_horse_building_4.png",
+              "icon": "ob/house/selfish_horse_building_4.png",
+              "png": "/res/ob/house/selfish_horse_building_4s.png"
+            },
+            {
+              "cIcon": "ob/house/silly_goats_home.png",
+              "icon": "ob/house/silly_goats_home.png",
+              "png": "/res/ob/house/silly_goats_home.png"
+            },
+            {
+              "cIcon": "ob/house/thirsty_crow_home.png",
+              "icon": "ob/house/thirsty_crow_home.png",
+              "png": "/res/ob/house/thirsty_crow_home.png"
+            },
+            {
+              "cIcon": "ob/house/cage.png",
+              "icon": "ob/house/cage.png",
+              "png": "/res/ob/house/cage.png"
+            }
+          ]
+        },
+        {
+          "name": "hills",
+          "cIcon": "icons/help_onclick.png",
+          "icon": "icons/help.png",
+          "items": [
+            {
+              "cIcon": "ob/hill/fox_crow_hill_1.png",
+              "icon": "ob/hill/fox_crow_hill_1.png",
+              "png": "/res/ob/hill/fox_crow_hill_1.png"
+            },
+            {
+              "cIcon": "ob/hill/fox_crow_hill_2.png",
+              "icon": "ob/hill/fox_crow_hill_2.png",
+              "png": "/res/ob/hill/fox_crow_hill_2.png"
+            },
+            {
+              "cIcon": "ob/hill/fox_crow_hill_3.png",
+              "icon": "ob/hill/fox_crow_hill_3.png",
+              "png": "/res/ob/hill/fox_crow_hill_3.png"
+            },
+            {
+              "cIcon": "ob/hill/fox_crow_hill_4.png",
+              "icon": "ob/hill/fox_crow_hill_4.png",
+              "png": "/res/ob/hill/fox_crow_hill_4.png"
+            },
+            {
+              "cIcon": "ob/hill/hill.png",
+              "icon": "ob/hill/hill.png",
+              "png": "/res/ob/hill/hill.png"
+            },
+            {
+              "cIcon": "ob/hill/small_hill_01.png",
+              "icon": "ob/hill/small_hill_01.png",
+              "png": "/res/ob/hill/small_hill_01.png"
+            },
+            {
+              "cIcon": "ob/hill/small_hill_02.png",
+              "icon": "ob/hill/small_hill_02.png",
+              "png": "/res/ob/hill/small_hill_02.png"
+            },
+            {
+              "cIcon": "ob/hill/thirsty_crow_grass_Hill.png",
+              "icon": "ob/hill/thirsty_crow_grass_Hill.png",
+              "png": "/res/ob/hill/thirsty_crow_grass_Hill.png"
+            },
+            {
+              "cIcon": "ob/hill/thirsty_crow_grass_Hill_01.png",
+              "icon": "ob/hill/thirsty_crow_grass_Hill_01.png",
+              "png": "/res/ob/hill/thirsty_crow_grass_Hill_01.png"
+            },
+            {
+              "cIcon": "ob/hill/thirsty_crow_grass_Hill_02.png",
+              "icon": "ob/hill/thirsty_crow_grass_Hill_02.png",
+              "png": "/res/ob/hill/thirsty_crow_grass_Hill_02.png"
+            },
+            {
+              "cIcon": "ob/hill/thirsty_crow_hill.png",
+              "icon": "ob/hill/thirsty_crow_hill.png",
+              "png": "/res/ob/hill/thirsty_crow_hill.png"
+            }
+          ]
+        },
+        {
+          "name": "vehicles",
+          "cIcon": "icons/vehicle_onclick.png",
+          "icon": "icons/vehicle.png",
+          "items": [
+            {
+              "cIcon": "ob/vehicle/Ambulance.png",
+              "icon": "ob/vehicle/Ambulance.png",
+              "png": "/res/ob/vehicle/Ambulance.png"
+            },
+            {
+              "cIcon": "ob/vehicle/Auto.png",
+              "icon": "ob/vehicle/Auto.png",
+              "png": "/res/ob/vehicle/Auto.png"
+            },
+            {
+              "cIcon": "ob/vehicle/Bus.png",
+              "icon": "ob/vehicle/Bus.png",
+              "png": "/res/ob/vehicle/Bus.png"
+            },
+            {
+              "cIcon": "ob/vehicle/Car.png",
+              "icon": "ob/vehicle/Car.png",
+              "png": "/res/ob/vehicle/Car.png"
+            },
+            {
+              "cIcon": "ob/vehicle/Car_01.png",
+              "icon": "ob/vehicle/Car_01.png",
+              "png": "/res/ob/vehicle/Car_01.png"
+            },
+            {
+              "cIcon": "ob/vehicle/Jeep.png",
+              "icon": "ob/vehicle/Jeep.png",
+              "png": "/res/ob/vehicle/Jeep.png"
+            },
+            {
+              "cIcon": "ob/vehicle/Motocycle.png",
+              "icon": "ob/vehicle/Motocycle.png",
+              "png": "/res/ob/vehicle/Motocycle.png"
+            },
+            {
+              "cIcon": "ob/vehicle/Scooter.png",
+              "icon": "ob/vehicle/Scooter.png",
+              "png": "/res/ob/vehicle/Scooter.png"
+            },
+            {
+              "cIcon": "ob/vehicle/Truck.png",
+              "icon": "ob/vehicle/Truck.png",
+              "png": "/res/ob/vehicle/Truck.png"
+            },
+             {
+              "cIcon": "ob/vehicle/bullock_cart.png",
+              "icon": "ob/vehicle/bullock_cart.png",
+              "png": "/res/ob/vehicle/bullock_cart.png"
+            }
+          ]
+        }
       ]
     },
     {
