@@ -40,7 +40,7 @@ chimple.AbstractContentPanel = cc.LayerColor.extend({
             }
             var cScene = constructedScene;
             result.forEach(function (skeleton) {
-                if (skeleton && skeleton.getComponent('ComExtensionData').getCustomProperty()
+                if (skeleton && skeleton.getComponent('ComExtensionData') && skeleton.getComponent('ComExtensionData').getCustomProperty()
                     && skeleton.getComponent('ComExtensionData').getCustomProperty().userCustomObjectSkin) {
                     customSkinName = skeleton.getComponent('ComExtensionData').getCustomProperty().userCustomObjectSkin.skin;
                     var skinNodeArray = cScene.children.filter(function (d) { return d.getName() === customSkinName });

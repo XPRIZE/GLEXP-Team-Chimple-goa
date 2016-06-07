@@ -31,6 +31,7 @@ chimple.ContentPanel = chimple.AbstractContentPanel.extend({
 
    copyUserAddedObjectsToScene: function () {
         if (this._backLayer && this._backLayer.children && this._backLayer.children.length == 2) {
+            var backGroundChanged = false;
             var count = this._backLayer.children[0].children.length;
             for (var i = 0; i < count; i++) {
                 var element = this._backLayer.children[0].children[i];
@@ -39,6 +40,7 @@ chimple.ContentPanel = chimple.AbstractContentPanel.extend({
                     element.removeFromParent();
                     i--;
                     this._constructedScene.addChild(element);
+                    backGroundChanged = true;
                 }
 
                 chimple.customSprites.forEach(function (customSprite, index) {
@@ -50,7 +52,10 @@ chimple.ContentPanel = chimple.AbstractContentPanel.extend({
                 }, this);
 
             }
-            this._backLayer.children[0].removeFromParent(true);
+            if(backGroundChanged) {
+                this._backLayer.children[0].removeFromParent(true);    
+            }
+            
         }
 
         if (this._frontLayer && this._frontLayer.children && this._frontLayer.children.length > 0) {
@@ -172,12 +177,13 @@ chimple.ContentPanel = chimple.AbstractContentPanel.extend({
                     if (!cc.sys.isNative) {
                         child._renderCmd._dirtyFlag = 1;
                     }
-                } else if (child && child.getName().indexOf('background') == -1) {
+                } else if (child) {
                     var eventObj = new chimple.SpriteTouchHandler(this);
                     var listener = cc.EventListener.create(eventObj);
                     cc.eventManager.addListener(listener, child);
                 }
             }, this);
+            //else if (child && child.getName().indexOf('background') == -1) {
 
         }
     },
