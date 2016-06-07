@@ -29,7 +29,7 @@ chimple.ContentPanel = chimple.AbstractContentPanel.extend({
         cc.loader.cache[chimple.STORY_KEY] = chimple.story.items[chimple.pageIndex].scene;
     },
 
-   copyUserAddedObjectsToScene: function () {
+    copyUserAddedObjectsToScene: function () {
         if (this._backLayer && this._backLayer.children && this._backLayer.children.length == 2) {
             var backGroundChanged = false;
             var count = this._backLayer.children[0].children.length;
@@ -52,10 +52,10 @@ chimple.ContentPanel = chimple.AbstractContentPanel.extend({
                 }, this);
 
             }
-            if(backGroundChanged) {
-                this._backLayer.children[0].removeFromParent(true);    
+            if (backGroundChanged) {
+                this._backLayer.children[0].removeFromParent(true);
             }
-            
+
         }
 
         if (this._frontLayer && this._frontLayer.children && this._frontLayer.children.length > 0) {
@@ -133,7 +133,6 @@ chimple.ContentPanel = chimple.AbstractContentPanel.extend({
         }, this);
 
     },
-
 
     registerEventListenerForAllChildren: function () {
         this.children.forEach(function (element) {
@@ -526,13 +525,51 @@ chimple.ContentPanel = chimple.AbstractContentPanel.extend({
         chimple.ParseUtil.saveCharacterToJSON(configuration.json, load);
     },
 
-    enableTargetTransformForTarget: function (context, touch, target, location) {
-        if (context._moveAction) {
-            target.setPosition(location);
-        } else if (context._rotateAction) {
-            context.calcAngleAndRotationForTarget(touch, target);
-        } else if (context._scaleAction) {
-            context.calcScaleForTarget(context, touch, target);
+    zoomAll: function (context, touch, target) {
+        var nodePostion = target.getPosition();
+        var currentPosition = target.parent.convertToNodeSpace(touch.getLocation());
+        context._currentDiff = cc.pDistance(currentPosition, nodePostion);
+        if (context._lastDiff == null) {
+            context._lastDiff = context._currentDiff;
+        }
+        var distanceMoved = (context._currentDiff - context._lastDiff) / context._initialDiff;
+        context._lastDiff = context._currentDiff;
+        var computedScaleX = target.getScaleX() + distanceMoved * context._initialScaleX;
+        var computedScaleY = target.getScaleY() + distanceMoved * context._initialScaleY;
+        if (computedScaleX >= 1.0 && computedScaleX < 5.0) {
+            target.setScale(computedScaleX, computedScaleY);
+        }
+
+    },
+
+    enableTargetTransformForTarget: function (context, touch, target, location) {        
+        if (target.getName().indexOf("background") != -1) {            
+            if (context._moveAction) {
+                target.setPosition(location);
+            } else if (context._scaleAction) {
+                var sceneNode = null;
+                context.children.forEach(function (element) {
+                    if (element._name === 'FrontLayer' || element._name === 'BackLayer') {
+                        element.children.forEach(function (child) {
+                            if (child.getName() === 'Scene') {
+                                sceneNode = child;
+                            }
+                        }, context);
+                    }
+                }, context);
+
+                if (sceneNode) {
+                    context.zoomAll(context, touch, sceneNode)
+                }
+            }
+        } else {
+            if (context._moveAction) {
+                target.setPosition(location);
+            } else if (context._rotateAction) {
+                context.calcAngleAndRotationForTarget(touch, target);
+            } else if (context._scaleAction) {
+                context.calcScaleForTarget(context, touch, target);
+            }
         }
 
         if (!this._isRecordingStarted) {

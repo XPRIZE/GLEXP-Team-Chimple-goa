@@ -30,6 +30,9 @@ chimple.ObjectConfigPanel = cc.LayerColor.extend({
                 this.resetToMove();
             } else if (target.getName().indexOf("ChimpleCustomText") != -1) {
                 this.setButtonPanel(new chimple.ButtonPanel(new cc.p(0, 0), this.getContentSize(), 1, 7, this._configuration.editText, new chimple.ButtonHandler(this.buttonPressed, this)));
+            } else if (target.getName().indexOf("background") != -1) {
+                this.setButtonPanel(new chimple.ButtonPanel(new cc.p(0, 0), this.getContentSize(), 1, 7, this._configuration.editBackGroundObject, new chimple.ButtonHandler(this.buttonPressed, this)));
+                this.resetToMove();
             }
             else {
                 this.setButtonPanel(new chimple.ButtonPanel(new cc.p(0, 0), this.getContentSize(), 1, 7, this._configuration.editObject, new chimple.ButtonHandler(this.buttonPressed, this)));
@@ -45,6 +48,16 @@ chimple.ObjectConfigPanel = cc.LayerColor.extend({
         }
     },
     resetToMove: function () {
+        this._contentPanel._moveAction = true;
+        this._contentPanel._rotateAction = false;
+        this._contentPanel._scaleAction = false;
+        var moveButton = this._buttonPanel.getButtonByName("icons/move.png");
+        if (moveButton != null) {
+            moveButton.setHighlighted(true);
+        }
+    },
+
+    resetToMoveOnBackGround: function () {
         this._contentPanel._moveAction = true;
         this._contentPanel._rotateAction = false;
         this._contentPanel._scaleAction = false;

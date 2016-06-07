@@ -20,7 +20,7 @@ chimple.SpriteTouchHandler = function (context) {
             chimple.ParseUtil.drawBoundingBox(location, target);
             this._offsetYInTouch = locationInParent.y - target.getPosition().y;
             this._offsetXInTouch = locationInParent.x - target.getPosition().x;
-            this._previousTouchLocation = location;
+            this._previousTouchLocation = location;            
             return true;
         }
         return false;
@@ -50,7 +50,7 @@ chimple.SpriteTouchHandler = function (context) {
         var originalBoundingBox = child.getBoundingBoxToWorld();
         var skeletonBoundingBox = new cc.rect(originalBoundingBox.x, originalBoundingBox.y, originalBoundingBox.width / 2, originalBoundingBox.height / 2);
         var objectBoundingBox = target.getBoundingBoxToWorld();
-        var boundingBox = new cc.rect(objectBoundingBox.x, objectBoundingBox.y, objectBoundingBox.width/2, objectBoundingBox.height/2);
+        var boundingBox = new cc.rect(objectBoundingBox.x, objectBoundingBox.y, objectBoundingBox.width / 2, objectBoundingBox.height / 2);
         if (chimple.customSprites.indexOf(target.getName()) != -1 &&
             cc.rectIntersectsRect(boundingBox, skeletonBoundingBox)) {
             var boneName = chimple.HAND_GEAR_LEFT;
