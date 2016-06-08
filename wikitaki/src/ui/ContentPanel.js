@@ -542,24 +542,56 @@ chimple.ContentPanel = chimple.AbstractContentPanel.extend({
 
     },
 
-    enableTargetTransformForTarget: function (context, touch, target, location) {        
-        if (target.getName().indexOf("background") != -1) {            
+    enableTargetTransformForTarget: function (context, touch, target, location) {
+        if (target.getName().indexOf("background") != -1) {
             if (context._moveAction) {
-                target.setPosition(location);
-            } else if (context._scaleAction) {
-                var sceneNode = null;
-                context.children.forEach(function (element) {
-                    if (element._name === 'FrontLayer' || element._name === 'BackLayer') {
-                        element.children.forEach(function (child) {
-                            if (child.getName() === 'Scene') {
-                                sceneNode = child;
-                            }
-                        }, context);
-                    }
-                }, context);
+                if (!this._previousTouch) {
+                    this._previousTouch = touch.getLocationInView();
+                }
+                var locationPoint = touch.getLocationInView();
+                var deltaX = locationPoint.x - this._previousTouch.x;
+                var deltaY = locationPoint.y - this._previousTouch.y;
+                if (!this._sceneNode) {
+                    context.children.forEach(function (element) {
+                        if (element._name === 'FrontLayer' || element._name === 'BackLayer') {
+                            element.children.forEach(function (child) {
+                                if (child.getName() === 'Scene') {
+                                    this._sceneNode = child;
+                                }
+                            }, context);
+                        }
+                    }, context);
 
-                if (sceneNode) {
-                    context.zoomAll(context, touch, sceneNode)
+                }
+                if (this._sceneNode) {
+                    cc.log('this._sceneNode.getBoundingBox().height - Math.abs(this._sceneNode.getPosition().y)' + (this._sceneNode.getBoundingBox().height - Math.abs(this._sceneNode.getPosition().y + deltaY)));
+                    if (this._sceneNode.getBoundingBox().height - Math.abs(this._sceneNode.getPosition().y + deltaY) > 450 
+                        && (this._sceneNode.getPosition().y + deltaY) <= 0
+                        && (this._sceneNode.getPosition().x + deltaX) <= 0
+                        && this._sceneNode.getBoundingBox().width - Math.abs(this._sceneNode.getPosition().x) + deltaX > 450)
+                         {
+                        this._sceneNode.setPosition(cc.p(this._sceneNode.getPosition().x + deltaX, this._sceneNode.getPosition().y + deltaY));
+                    }
+
+                }
+                this._previousTouch = locationPoint;
+
+            } else if (context._scaleAction) {
+                if (!this._sceneNode) {
+                    context.children.forEach(function (element) {
+                        if (element._name === 'FrontLayer' || element._name === 'BackLayer') {
+                            element.children.forEach(function (child) {
+                                if (child.getName() === 'Scene') {
+                                    this._sceneNode = child;
+                                }
+                            }, context);
+                        }
+                    }, context);
+
+                }
+
+                if (this._sceneNode) {
+                    context.zoomAll(context, touch, this._sceneNode)
                 }
             }
         } else {
@@ -633,6 +665,8 @@ chimple.ContentPanel = chimple.AbstractContentPanel.extend({
     },
 
     enableEventsForAllOtherNodes: function (context, target, isEnabled) {
+        this._previousTouch = null;
+        this._sceneNode = null;
         target.parent.children.forEach(function (element) {
             cc.eventManager.resumeTarget(element, true);
         });
