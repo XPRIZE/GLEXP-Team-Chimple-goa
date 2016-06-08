@@ -98,6 +98,21 @@ chimple.ContentPanel = chimple.AbstractContentPanel.extend({
                 if (shouldSaveScene) {
                     this.loadAndSaveScene(this, fileToLoad);
                 }
+
+                if (this._constructedScene.parent.parent
+                    && chimple.story.items[chimple.pageIndex].scene.scaleX
+                    && chimple.story.items[chimple.pageIndex].scene.scaleY) {
+                    this._constructedScene.parent.parent.setScale(chimple.story.items[chimple.pageIndex].scene.scaleX,
+                        chimple.story.items[chimple.pageIndex].scene.scaleY);
+                }
+
+                if (this._constructedScene.parent.parent
+                    && chimple.story.items[chimple.pageIndex].scene.posX
+                    && chimple.story.items[chimple.pageIndex].scene.posY) {
+                    this._constructedScene.parent.parent.setPosition(cc.p(chimple.story.items[chimple.pageIndex].scene.posX,
+                        chimple.story.items[chimple.pageIndex].scene.posY));
+                }
+                
             }
         }
     },
@@ -539,8 +554,9 @@ chimple.ContentPanel = chimple.AbstractContentPanel.extend({
         var computedScaleY = target.getScaleY() + distanceMoved * context._initialScaleY;
         if (computedScaleX >= 1.0 && computedScaleX < 5.0) {
             target.setScale(computedScaleX, computedScaleY);
+            chimple.story.items[chimple.pageIndex].scene.scaleX = computedScaleX;
+            chimple.story.items[chimple.pageIndex].scene.scaleY = computedScaleY;
         }
-
     },
 
     enableTargetTransformForTarget: function (context, touch, target, location) {
@@ -565,14 +581,18 @@ chimple.ContentPanel = chimple.AbstractContentPanel.extend({
 
                 }
                 if (this._sceneNode) {
-                    cc.log('this._sceneNode.getBoundingBox().height - Math.abs(this._sceneNode.getPosition().y)' + (this._sceneNode.getBoundingBox().height - Math.abs(this._sceneNode.getPosition().y + deltaY)));
-                    if (this._sceneNode.getBoundingBox().height - Math.abs(this._sceneNode.getPosition().y + deltaY) > 450 
-                        && (this._sceneNode.getPosition().y + deltaY) <= 0
-                        && (this._sceneNode.getPosition().x + deltaX) <= 0
-                        && this._sceneNode.getBoundingBox().width - Math.abs(this._sceneNode.getPosition().x) + deltaX > 450)
-                         {
-                        this._sceneNode.setPosition(cc.p(this._sceneNode.getPosition().x + deltaX, this._sceneNode.getPosition().y + deltaY));
-                    }
+                    // cc.log('this._sceneNode.getBoundingBox().height - Math.abs(this._sceneNode.getPosition().y)' + (this._sceneNode.getBoundingBoxToWorld().height - Math.abs(this._sceneNode.getPosition().y + deltaY)));
+                    // if (this._sceneNode.getBoundingBoxToWorld().height - Math.abs(this._sceneNode.getPosition().y + deltaY) > 450 
+                    //     && (this._sceneNode.getPosition().y + deltaY) <= 0
+                    //     && (this._sceneNode.getPosition().x + deltaX) <= 0
+                    //     && this._sceneNode.getBoundingBoxToWorld().width - Math.abs(this._sceneNode.getPosition().x) + deltaX > 450)
+                    //      {
+
+                    // }
+
+                    this._sceneNode.parent.parent.setPosition(cc.p(this._sceneNode.parent.parent.getPosition().x + deltaX, this._sceneNode.parent.parent.getPosition().y + deltaY));
+                    chimple.story.items[chimple.pageIndex].scene.posX = this._sceneNode.parent.parent.getPosition().x;
+                    chimple.story.items[chimple.pageIndex].scene.posY = this._sceneNode.parent.parent.getPosition().y;
 
                 }
                 this._previousTouch = locationPoint;
@@ -592,7 +612,7 @@ chimple.ContentPanel = chimple.AbstractContentPanel.extend({
                 }
 
                 if (this._sceneNode) {
-                    context.zoomAll(context, touch, this._sceneNode)
+                    context.zoomAll(context, touch, this._sceneNode.parent.parent)
                 }
             }
         } else {
