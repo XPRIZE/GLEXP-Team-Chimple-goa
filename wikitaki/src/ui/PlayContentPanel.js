@@ -6,12 +6,12 @@ chimple.PlayContentPanel = chimple.AbstractContentPanel.extend({
         this.setPosition(position);
         this.loadScene();
     },
-    
-    changeScene: function() {
+
+    changeScene: function () {
         if (chimple.story != null && chimple.story.items[chimple.pageIndex].scene.Content != null) {
             this.putIntoCache();
             this.doPostLoadingProcessForScene(chimple.PLAY_KEY);
-        }        
+        }
     },
 
     loadScene: function () {
@@ -32,11 +32,22 @@ chimple.PlayContentPanel = chimple.AbstractContentPanel.extend({
         this._constructedScene = ccs.load(fileToLoad);
         if (this._constructedScene != null) {
             if (this._constructedScene.node) {
-                this.addChild(this._constructedScene.node);                
+                this.addChild(this._constructedScene.node);
                 if (!cc.sys.isNative) {
                     this._constructedScene.node._renderCmd._dirtyFlag = 1;
                 }
                 this.postProcessForSceneObjects(this._constructedScene.node);
+            }
+            if (chimple.story.items[chimple.pageIndex].scene.scaleX
+                && chimple.story.items[chimple.pageIndex].scene.scaleY) {
+                this.setScale(chimple.story.items[chimple.pageIndex].scene.scaleX,
+                    chimple.story.items[chimple.pageIndex].scene.scaleY);
+            }
+
+            if (chimple.story.items[chimple.pageIndex].scene.posX
+                && chimple.story.items[chimple.pageIndex].scene.posY) {
+                this.setPosition(cc.p(chimple.story.items[chimple.pageIndex].scene.posX,
+                    chimple.story.items[chimple.pageIndex].scene.posY));
             }
         }
     },
@@ -51,14 +62,14 @@ chimple.PlayContentPanel = chimple.AbstractContentPanel.extend({
                 if (element._userData && element._userData.colorSkins) {
                     chimple.CharacterUtil.colorSkins(element, element._userData.colorSkins);
                 }
-                
+
                 if (element._userData && element._userData.currentAnimationName) {
                     element._currentAnimationName = element._userData.currentAnimationName;
                 }
             }
         }, this);
-        
-        this.attachCustomObjectSkinToSkeleton(node);        
+
+        this.attachCustomObjectSkinToSkeleton(node);
     },
 
 
