@@ -8,6 +8,15 @@ chimple.CharacterUtil.displaySkins = function (character, skins) {
         if (bone != null) {
             bone.displaySkin(element.skin, true);
             bone.displaySkin(element.bone);
+            if(character._userData.skeletonConfigJson && character._userData.skeletonConfigJson.baseSkin) {
+                for (var boneName in character._userData.skeletonConfigJson.baseSkin) {
+                    var bone = character.getBoneNode(boneName);
+                    if (bone != null) {
+                        var skin = character._userData.skeletonConfigJson.baseSkin[boneName];
+                        bone.displaySkin(skin);
+                    }
+                }
+            }
         }
     }, this);
     chimple.ParseUtil.updateUserData(character._actionTag, 'visibleSkins', chimple.CharacterUtil.getVisibleSkins(character));
@@ -69,11 +78,31 @@ chimple.CharacterUtil.loadSkeletonConfig = function (skeleton, selectedConfigura
         skeleton._userData = comExtensionData.getCustomProperty();
         skeleton._actionTag = comExtensionData.getActionTag();
     }
-
-    cc.loader.loadJson('/res/characters/skeletonConfig/' + skeleton.getName() + '.json', function (error, data) {
+    var skeletonConfigJson;
+    if(selectedConfiguration && selectedConfiguration.skeletonConfigJson) {
+        skeletonConfigJson = selectedConfiguration.skeletonConfigJson;
+        skeleton._userData.skeletonConfigJson = skeletonConfigJson;
+    } else if(skeleton._userData && skeleton._userData.skeletonConfigJson) {
+        skeletonConfigJson = skeleton._userData.skeletonConfigName;
+    } else {
+        skeletonConfigJson = '/res/characters/skeletonConfig/' + skeleton.getName() + '.json';
+        skeleton._userData.skeletonConfigJson = skeletonConfigJson;
+    }
+    cc.loader.loadJson(skeletonConfigJson, function (error, data) {
         if (data != null) {
             skeleton._skeletonConfig = data;
             skeleton._currentAnimationName = data.animations[0].name;
+            chimple.ParseUtil.updateUserData(skeleton._actionTag, 'skeletonConfigJson', skeletonConfigJson);        
+            
+            if(data.baseSkin) {
+                for (var boneName in data.baseSkin) {
+                    var bone = skeleton.getBoneNode(boneName);
+                    if (bone != null) {
+                        var skin = data.baseSkin[boneName];
+                        bone.displaySkin(skin);
+                    }
+                }
+            }
             if (selectedConfiguration != null) {
                 
                 if (selectedConfiguration.colorSkins != null) {
@@ -106,6 +135,16 @@ chimple.CharacterUtil.applySkinNameMap = function (skeleton, configuration) {
                 bone.displaySkin(name);
             }
         }
+        if(skeleton._skeletonConfig.baseSkin) {
+            for (var boneName in skeleton._skeletonConfig.baseSkin) {
+                var bone = skeleton.getBoneNode(boneName);
+                if (bone != null) {
+                    var skin = skeleton._skeletonConfig.baseSkin[boneName];
+                    bone.displaySkin(skin);
+                }
+            }
+        }
+        
     }
     var uniqueCharacterID = null;
     if (configuration.favoriteSkins && configuration.favoriteSkins.length > 0) {

@@ -688,6 +688,23 @@
               ],
               "type": "character"
             },
+             {
+              "icon": "human/costume/austronaut_thumbnail.png",
+              "json": "/res/human_skeleton.json",
+              "skeletonConfigJson": "/res/characters/skeletonConfig/female_Human_Skeleton.json",              
+              "skinNameMap": "female_lawyer",
+              "colorSkins": [
+                {
+                        "skins": "bodySkin",
+                        "color": "#e5ad8f"                  
+                },
+                {
+                        "skins": "hairSkin",
+                        "color": "#000000"
+                }                
+              ],
+              "type": "character"
+            },
             {
               "icon": "human/costume/barber_thumbnail.png",
               "json": "/res/human_skeleton.json",
