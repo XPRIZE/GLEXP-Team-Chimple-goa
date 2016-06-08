@@ -29,6 +29,7 @@ chimple.ContentPanel = chimple.AbstractContentPanel.extend({
         cc.loader.cache[chimple.STORY_KEY] = chimple.story.items[chimple.pageIndex].scene;
     },
 
+    //this method should only work when background changes - at this point backLayer MUST have 2 children
     copyUserAddedObjectsToScene: function () {
         if (this._backLayer && this._backLayer.children && this._backLayer.children.length == 2) {
             var backGroundChanged = false;
