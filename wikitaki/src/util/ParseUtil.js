@@ -485,44 +485,65 @@ chimple.ParseUtil.cacheThumbnailForFavorites = function (skeleton) {
     renderer.cleanup();
 }
 
+chimple.ParseUtil.removeExistingBoundingBoxNodeByTag = function (tag, removeFromNode) {
+    if (!tag) {
+        tag = chimple.DEFAULT_BOUNDING_BOX_TAG;
+    }
 
-chimple.ParseUtil.drawBoundingBox = function (location, target) {
-    var box = null;
-    if (chimple.currentBoxShownForNode != null) {
-        var boundingBoxNode = chimple.currentBoxShownForNode.getChildByTag(chimple.DEFAULT_BOUNDING_BOX_TAG);
+    if (!removeFromNode) {
+        removeFromNode = chimple.currentTouchedNode;
+    }
+    if (removeFromNode) {
+        var boundingBoxNode = removeFromNode.getChildByTag(tag);
         if (boundingBoxNode) {
             boundingBoxNode.removeFromParent(true);
         }
-
     }
+}
+
+chimple.ParseUtil.drawBoundingBox = function (target, tag, color) {
+    var box = null;
+    //set up defaults for tag and color
+    if (!tag) {
+        tag = chimple.DEFAULT_BOUNDING_BOX_TAG;
+    }
+
+    if (!color) {
+        color = chimple.SECONDARY_COLOR;
+    }
+
+    this.removeExistingBoundingBoxNodeByTag(tag);
+
     if (target.getName().indexOf("Skeleton") != -1 || target.getName().indexOf("skeleton") != -1) {
         box = target.getBoundingBoxToWorld();
-
         var dn = new cc.DrawNode();
         dn.clear();
-        dn.tag = chimple.DEFAULT_BOUNDING_BOX_TAG;
+        dn.tag = tag;
         target.addChild(dn);
         if (target.getName().indexOf("birdskeleton") != -1) {
-            dn.drawRect(cc.p(-box.width / (Math.abs(target.getScaleX())), -box.height / (2 * Math.abs(target.getScaleX()))), cc.p(box.width / (2 * Math.abs(target.getScaleX())), box.height / Math.abs(target.getScaleX())), null, 3, chimple.SECONDARY_COLOR);
+            dn.drawRect(cc.p(-box.width / (Math.abs(target.getScaleX())), -box.height / (2 * Math.abs(target.getScaleX()))), cc.p(box.width / (2 * Math.abs(target.getScaleX())), box.height / Math.abs(target.getScaleX())), null, 3, color);
         } else {
-            dn.drawRect(cc.p(-box.width / (2 * Math.abs(target.getScaleX())), 0), cc.p(box.width / (2 * Math.abs(target.getScaleX())), box.height / Math.abs(target.getScaleX())), null, 3, chimple.SECONDARY_COLOR);
+            dn.drawRect(cc.p(-box.width / (2 * Math.abs(target.getScaleX())), 0), cc.p(box.width / (2 * Math.abs(target.getScaleX())), box.height / Math.abs(target.getScaleX())), null, 3, color);
         }
-        chimple.currentBoxShownForNode = target;
     } else {
         box = target.getBoundingBox();
         var dn = new cc.DrawNode();
         dn.clear();
-        dn.tag = chimple.DEFAULT_BOUNDING_BOX_TAG;
+        dn.tag = tag;
         target.addChild(dn);
-        dn.drawRect(cc.p(0, 0), cc.p(box.width / Math.abs(target.getScaleX()), box.height / Math.abs(target.getScaleX())), null, 3, chimple.SECONDARY_COLOR);
-        chimple.currentBoxShownForNode = target;
+        dn.drawRect(cc.p(0, 0), cc.p(box.width / Math.abs(target.getScaleX()), box.height / Math.abs(target.getScaleX())), null, 3, color);
     }
+
+    if (color == chimple.SECONDARY_COLOR) {
+        chimple.currentTouchedNode = target;
+    }
+
 }
 
 
 chimple.ParseUtil.deflate = function (chimpleStory) {
     // var Base64 = { _keyStr: "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=", encode: function (e) { var t = ""; var n, r, i, s, o, u, a; var f = 0; e = Base64._utf8_encode(e); while (f < e.length) { n = e.charCodeAt(f++); r = e.charCodeAt(f++); i = e.charCodeAt(f++); s = n >> 2; o = (n & 3) << 4 | r >> 4; u = (r & 15) << 2 | i >> 6; a = i & 63; if (isNaN(r)) { u = a = 64 } else if (isNaN(i)) { a = 64 } t = t + this._keyStr.charAt(s) + this._keyStr.charAt(o) + this._keyStr.charAt(u) + this._keyStr.charAt(a) } return t }, decode: function (e) { var t = ""; var n, r, i; var s, o, u, a; var f = 0; e = e.replace(/[^A-Za-z0-9\+\/\=]/g, ""); while (f < e.length) { s = this._keyStr.indexOf(e.charAt(f++)); o = this._keyStr.indexOf(e.charAt(f++)); u = this._keyStr.indexOf(e.charAt(f++)); a = this._keyStr.indexOf(e.charAt(f++)); n = s << 2 | o >> 4; r = (o & 15) << 4 | u >> 2; i = (u & 3) << 6 | a; t = t + String.fromCharCode(n); if (u != 64) { t = t + String.fromCharCode(r) } if (a != 64) { t = t + String.fromCharCode(i) } } t = Base64._utf8_decode(t); return t }, _utf8_encode: function (e) { e = e.replace(/\r\n/g, "\n"); var t = ""; for (var n = 0; n < e.length; n++) { var r = e.charCodeAt(n); if (r < 128) { t += String.fromCharCode(r) } else if (r > 127 && r < 2048) { t += String.fromCharCode(r >> 6 | 192); t += String.fromCharCode(r & 63 | 128) } else { t += String.fromCharCode(r >> 12 | 224); t += String.fromCharCode(r >> 6 & 63 | 128); t += String.fromCharCode(r & 63 | 128) } } return t }, _utf8_decode: function (e) { var t = ""; var n = 0; var r = c1 = c2 = 0; while (n < e.length) { r = e.charCodeAt(n); if (r < 128) { t += String.fromCharCode(r); n++ } else if (r > 191 && r < 224) { c2 = e.charCodeAt(n + 1); t += String.fromCharCode((r & 31) << 6 | c2 & 63); n += 2 } else { c2 = e.charCodeAt(n + 1); c3 = e.charCodeAt(n + 2); t += String.fromCharCode((r & 15) << 12 | (c2 & 63) << 6 | c3 & 63); n += 3 } } return t } }
-    
+
     // var compressed = JSONC.pack( chimpleStory );
     // return compressed;
 
@@ -540,11 +561,11 @@ chimple.ParseUtil.inflate = function (base64CompressedJSON) {
 
     var base64DecodedChimpleStoryJSON = LZString.decompressFromEncodedURIComponent(base64CompressedJSON);
     return JSON.parse(base64DecodedChimpleStoryJSON);
-    
+
     // var base64DecodedChimpleStoryJSON = Base64.decode(base64CompressedJSON);
     // var restoredBase64EncodedChimpleStoryJSON = pako.inflate(base64DecodedChimpleStoryJSON, { to: 'string' });
     // return JSON.parse(restoredBase64EncodedChimpleStoryJSON);
-    
+
     // var json = JSONC.unpack( base64CompressedJSON );
     // return json; 
 }

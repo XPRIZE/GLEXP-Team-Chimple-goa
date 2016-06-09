@@ -7,6 +7,7 @@ chimple.SECONDARY_COLOR = cc.color("#5895CC");
 chimple.DARK_SECONDARY_COLOR = cc.color("#5687B2");
 chimple.TERTIARY_COLOR = cc.color("#F6FF88");
 chimple.DEFAULT_BOUNDING_BOX_TAG = 999;
+chimple.DARK_BOUNDING_BOX_TAG = 998;
 var HelloWorldLayer = cc.Layer.extend({
     _contentPanel: null,
     _pageConfigPanel: null,

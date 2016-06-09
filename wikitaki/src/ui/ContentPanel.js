@@ -383,13 +383,7 @@ chimple.ContentPanel = chimple.AbstractContentPanel.extend({
             this.unscheduleUpdate();
         }
 
-        if (chimple.currentBoxShownForNode != null) {
-            var boundingBoxNode = chimple.currentBoxShownForNode.getChildByTag(chimple.DEFAULT_BOUNDING_BOX_TAG);
-            if (boundingBoxNode) {
-                boundingBoxNode.removeFromParent(true);
-            }
-
-        }
+        this.removeExistingBoundingBoxNodeByTag(chimple.DEFAULT_BOUNDING_BOX_TAG);
     },
 
     createTimeLinesForPlayAnimation: function (timelines) {

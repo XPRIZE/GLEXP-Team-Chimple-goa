@@ -17,42 +17,78 @@ chimple.SpriteTouchHandler = function (context) {
             this._context.addNodeToRecording(this._context, touch, target);
             this._context.constructConfigPanel(target);
             this._context._animationNode = target;
-            chimple.ParseUtil.drawBoundingBox(location, target);
+            chimple.ParseUtil.drawBoundingBox(target);
             this._offsetYInTouch = locationInParent.y - target.getPosition().y;
             this._offsetXInTouch = locationInParent.x - target.getPosition().x;
-            this._previousTouchLocation = location;            
+            this._previousTouchLocation = location;
             return true;
         }
         return false;
     };
 
     this.collisionDetectionWithSkeleton = function (target) {
-        this._context.children.forEach(function (element) {
-            if (element._name === 'FrontLayer' || element._name === 'BackLayer') {
-                element.children.forEach(function (child) {
-                    if (child.getName() === 'Scene') {
-                        child.children.forEach(function (subChild) {
-                            if (subChild.getName() === 'Human_Skeleton') {
-                                this.attachedCustomObject(subChild, target);
+        if (chimple.customSprites.indexOf(target.getName()) != -1) {
+            this._context.children.forEach(function (element) {
+                if (element._name === 'FrontLayer' || element._name === 'BackLayer') {
+                    element.children.forEach(function (child) {
+                        if (child.getName() === 'Scene') {
+                            child.children.forEach(function (subChild) {
+                                if (subChild.getName() === 'Human_Skeleton') {
+                                    this.attachedCustomObject(subChild, target);
+                                }
+                            }, this);
+                        } else {
+                            if (child.getName() === 'Human_Skeleton') {
+                                this.attachedCustomObject(child, target);
                             }
-                        }, this);
-                    } else {
-                        if (child.getName() === 'Human_Skeleton') {
-                            this.attachedCustomObject(child, target);
                         }
-                    }
-                }, this);
-            }
-        }, this);
+                    }, this);
+                }
+            }, this);
+        }
     };
+
+    this.performOverlapDetectionWithSkeleton = function (skeleton, target) {
+        var originalBoundingBox = skeleton.getBoundingBoxToWorld();
+        var skeletonBoundingBox = new cc.rect(originalBoundingBox.x, originalBoundingBox.y, originalBoundingBox.width / 2, originalBoundingBox.height / 2);
+        var objectBoundingBox = target.getBoundingBoxToWorld();
+        var boundingBox = new cc.rect(objectBoundingBox.x, objectBoundingBox.y, objectBoundingBox.width / 2, objectBoundingBox.height / 2);
+        if (cc.rectIntersectsRect(boundingBox, skeletonBoundingBox)) {
+            chimple.ParseUtil.drawBoundingBox(skeleton, chimple.DARK_BOUNDING_BOX_TAG, chimple.DARK_SECONDARY_COLOR);
+        } else {
+            chimple.ParseUtil.removeExistingBoundingBoxNodeByTag(chimple.DARK_BOUNDING_BOX_TAG, skeleton);
+        }
+    }
+
+    this.overlapDetectionWithSkeleton = function (target) {
+        if (chimple.customSprites.indexOf(target.getName()) != -1) {
+            this._context.children.forEach(function (element) {
+                if (element._name === 'FrontLayer' || element._name === 'BackLayer') {
+                    element.children.forEach(function (child) {
+                        if (child.getName() === 'Scene') {
+                            child.children.forEach(function (subChild) {
+                                if (subChild.getName() === 'Human_Skeleton') {
+                                    this.performOverlapDetectionWithSkeleton(subChild, target);
+                                }
+                            }, this);
+                        } else {
+                            if (child.getName() === 'Human_Skeleton') {
+                                this.performOverlapDetectionWithSkeleton(child, target);
+                            }
+                        }
+                    }, this);
+                }
+            }, this);
+        }
+    };
+
 
     this.attachedCustomObject = function (child, target) {
         var originalBoundingBox = child.getBoundingBoxToWorld();
         var skeletonBoundingBox = new cc.rect(originalBoundingBox.x, originalBoundingBox.y, originalBoundingBox.width / 2, originalBoundingBox.height / 2);
         var objectBoundingBox = target.getBoundingBoxToWorld();
         var boundingBox = new cc.rect(objectBoundingBox.x, objectBoundingBox.y, objectBoundingBox.width / 2, objectBoundingBox.height / 2);
-        if (chimple.customSprites.indexOf(target.getName()) != -1 &&
-            cc.rectIntersectsRect(boundingBox, skeletonBoundingBox)) {
+        if (cc.rectIntersectsRect(boundingBox, skeletonBoundingBox)) {
             var boneName = chimple.HAND_GEAR_LEFT;
             var bone = child.getBoneNode(boneName);
             var shouldProcess = true;
@@ -106,6 +142,7 @@ chimple.SpriteTouchHandler = function (context) {
         var location = target.parent.convertToNodeSpace(touch.getLocation());
         var locationTo = cc.p(location.x - this._offsetXInTouch, location.y - this._offsetYInTouch);
         this._context.enableTargetTransformForTarget(this._context, touch, target, locationTo);
+        this.overlapDetectionWithSkeleton(target);
         this._previousTouchLocation = location;
     };
 
