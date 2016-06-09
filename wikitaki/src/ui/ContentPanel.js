@@ -384,7 +384,7 @@ chimple.ContentPanel = chimple.AbstractContentPanel.extend({
             this.unscheduleUpdate();
         }
 
-        this.removeExistingBoundingBoxNodeByTag(chimple.DEFAULT_BOUNDING_BOX_TAG);
+        chimple.ParseUtil.removeExistingBoundingBoxNodeByTag(chimple.DEFAULT_BOUNDING_BOX_TAG);
     },
 
     createTimeLinesForPlayAnimation: function (timelines) {
