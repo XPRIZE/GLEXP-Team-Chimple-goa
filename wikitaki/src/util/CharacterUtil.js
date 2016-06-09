@@ -214,7 +214,10 @@ chimple.CharacterUtil.storeActionToTemporaryStore = function (node) {
         if (element.getName().indexOf("Skeleton") != -1 || element.getName().indexOf("skeleton") != -1) {
             var action = element._storedAction;
             if (action) {
-                element.runAction(action);
+                var curAction = element.actionManager.getActionByTag(element.tag, element);
+                if(!curAction) {
+                    element.runAction(action);
+                }                
             }
         }
     })
