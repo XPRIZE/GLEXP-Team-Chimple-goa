@@ -52,12 +52,12 @@ chimple.SkeletonTouchHandler = function (context) {
 
         if (this._minCountToRightDirection > this._minCountToChangeDirection) {
             this._minCountToRightDirection = this._minCountToChangeDirection;
-            // cc.log("222222:_minCountToRightDirection: " + this._minCountToRightDirection);
+            this._minCountToLeftDirection = 0;
         }
 
         if (this._minCountToLeftDirection > this._minCountToChangeDirection) {
             this._minCountToLeftDirection = this._minCountToChangeDirection;
-            // cc.log("222222:_minCountToLeftDirection: " + this._minCountToLeftDirection);
+            this._minCountToRightDirection = 0;
         }       
     };
 
@@ -80,12 +80,13 @@ chimple.SkeletonTouchHandler = function (context) {
 
         if (this._minCountToRightDirection > this._minCountToChangeDirection) {
             this._minCountToRightDirection = this._minCountToChangeDirection;
+            this._minCountToLeftDirection = 0;
         }
 
         if (this._minCountToLeftDirection > this._minCountToChangeDirection) {
             this._minCountToLeftDirection = this._minCountToChangeDirection;
+            this._minCountToRightDirection = 0;
         }
-
     };
 
     this.onTouchMoved = function (touch, event) {

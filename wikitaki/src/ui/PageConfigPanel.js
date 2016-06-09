@@ -49,7 +49,9 @@ chimple.PageConfigPanel = cc.LayerColor.extend({
             // this.disableOrEnableAllButtons(this._buttonPanel, true);
         } else {
             var selectedConfig = this._configuration.addObjects[selectedItem._selectedIndex];
-            this.constructTabBar(selectedConfig.categories);
+            if(selectedConfig) {
+                this.constructTabBar(selectedConfig.categories);
+            }            
         }
     },
 
