@@ -133,8 +133,9 @@ chimple.ContentPanel = chimple.AbstractContentPanel.extend({
             if (element.getName().indexOf("Skeleton") != -1 || element.getName().indexOf("skeleton") != -1) {
                 chimple.CharacterUtil.loadSkeletonConfig(element);
                 if (element._userData && element._userData.colorSkins) {
-                    chimple.CharacterUtil.colorSkins(element, element._userData.colorSkins);
-                }
+                    element._userData.colorSkins.forEach(function (colorSkin) {
+                        chimple.CharacterUtil.colorSkins(element, colorSkin);
+                })}
 
                 if (element._userData && element._userData.visibleSkins) {
                     chimple.CharacterUtil.displaySkins(element, element._userData.visibleSkins);

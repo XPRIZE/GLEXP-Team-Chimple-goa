@@ -83,7 +83,7 @@ chimple.CharacterUtil.loadSkeletonConfig = function (skeleton, selectedConfigura
         skeletonConfigJson = selectedConfiguration.skeletonConfigJson;
         skeleton._userData.skeletonConfigJson = skeletonConfigJson;
     } else if(skeleton._userData && skeleton._userData.skeletonConfigJson) {
-        skeletonConfigJson = skeleton._userData.skeletonConfigName;
+        skeletonConfigJson = skeleton._userData.skeletonConfigJson;
     } else {
         skeletonConfigJson = '/res/characters/skeletonConfig/' + skeleton.getName() + '.json';
         skeleton._userData.skeletonConfigJson = skeletonConfigJson;

@@ -60,8 +60,9 @@ chimple.PlayContentPanel = chimple.AbstractContentPanel.extend({
                     chimple.CharacterUtil.displaySkins(element, element._userData.visibleSkins);
                 }
                 if (element._userData && element._userData.colorSkins) {
-                    chimple.CharacterUtil.colorSkins(element, element._userData.colorSkins);
-                }
+                    element._userData.colorSkins.forEach(function (colorSkin) {
+                        chimple.CharacterUtil.colorSkins(element, colorSkin);
+                })}
 
                 if (element._userData && element._userData.currentAnimationName) {
                     element._currentAnimationName = element._userData.currentAnimationName;
