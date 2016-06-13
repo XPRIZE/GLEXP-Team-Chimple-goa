@@ -30,6 +30,8 @@
             "ColorVector": {
               "ScaleY": 1.0
             },
+            "Scale9Width": 1,
+            "Scale9Height": 1,
             "TouchEnable": true,
             "AnchorPoint": {},
             "Position": {
@@ -75,6 +77,8 @@
             "ColorVector": {
               "ScaleY": 1.0
             },
+            "Scale9Width": 1,
+            "Scale9Height": 1,
             "TouchEnable": true,
             "AnchorPoint": {},
             "Position": {
@@ -153,7 +157,7 @@
           {
             "FileData": {
               "Type": "Normal",
-              "Path": "bg/ground_grass_1.png",
+              "Path":  "bg/ground_grass_1.png",
               "Plist": ""
             },
             "BlendFunc": {
@@ -288,7 +292,7 @@
           {
             "FileData": {
               "Type": "Normal",
-              "Path":"ob/house/fence_3.png",
+              "Path": "ob/house/fence_3.png",
               "Plist": ""
             },
             "BlendFunc": {
@@ -345,306 +349,34 @@
               "ScaleY": 0.5
             },
             "Position": {
-              "X": 234.4662,
-              "Y": 1271.8081
+              "X": 229.0757,
+              "Y": 1314.9431
             },
             "Scale": {
-              "ScaleX": 1.0,
-              "ScaleY": 1.0
+              "ScaleX": 0.35,
+              "ScaleY": 0.35
             },
             "CColor": {},
             "IconVisible": false,
             "PrePosition": {
-              "X": 0.1303,
-              "Y": 0.7066
+              "X": 0.1273,
+              "Y": 0.7305
             },
             "PreSize": {
               "X": 0.1039,
               "Y": 0.0722
             },
-            "LeftMargin": 140.9662,
-            "RightMargin": 1472.0338,
-            "TopMargin": 463.1919,
-            "BottomMargin": 1206.8081,
+            "LeftMargin": -83.4243,
+            "RightMargin": 1258.4243,
+            "TopMargin": 270.5569,
+            "BottomMargin": 1100.4431,
             "Tag": 18,
             "ActionTag": 340288458,
             "Size": {
-              "X": 187.0,
-              "Y": 130.0
+              "X": 625.0,
+              "Y": 429.0
             },
             "Name": "hut_6",
-            "ctype": "SpriteObjectData"
-          },
-          {
-            "FileData": {
-              "Type": "Normal",
-              "Path": "ob/house/silly_goats_home.png",
-              "Plist": ""
-            },
-            "BlendFunc": {
-              "Src": 1,
-              "Dst": 771
-            },
-            "AnchorPoint": {
-              "ScaleX": 0.5,
-              "ScaleY": 0.5
-            },
-            "Position": {
-              "X": 509.6845,
-              "Y": 1390.6523
-            },
-            "Scale": {
-              "ScaleX": 1.0,
-              "ScaleY": 1.0
-            },
-            "CColor": {},
-            "IconVisible": false,
-            "PrePosition": {
-              "X": 0.2832,
-              "Y": 0.7726
-            },
-            "PreSize": {
-              "X": 0.1039,
-              "Y": 0.0722
-            },
-            "LeftMargin": 416.1845,
-            "RightMargin": 1196.8154,
-            "TopMargin": 344.3477,
-            "BottomMargin": 1325.6523,
-            "Tag": 19,
-            "ActionTag": -1831693508,
-            "Size": {
-              "X": 187.0,
-              "Y": 130.0
-            },
-            "Name": "hut_7",
-            "ctype": "SpriteObjectData"
-          },
-          {
-            "FileData": {
-              "Type": "Normal",
-              "Path": "ob/house/silly_goats_home.png",
-              "Plist": ""
-            },
-            "BlendFunc": {
-              "Src": 1,
-              "Dst": 771
-            },
-            "AnchorPoint": {
-              "ScaleX": 0.5,
-              "ScaleY": 0.5
-            },
-            "Position": {
-              "X": 809.9227,
-              "Y": 1340.6125
-            },
-            "Scale": {
-              "ScaleX": 1.0,
-              "ScaleY": 1.0
-            },
-            "CColor": {},
-            "IconVisible": false,
-            "PrePosition": {
-              "X": 0.45,
-              "Y": 0.7448
-            },
-            "PreSize": {
-              "X": 0.1039,
-              "Y": 0.0722
-            },
-            "LeftMargin": 716.4227,
-            "RightMargin": 896.5773,
-            "TopMargin": 394.3875,
-            "BottomMargin": 1275.6125,
-            "Tag": 20,
-            "ActionTag": -580183988,
-            "Size": {
-              "X": 187.0,
-              "Y": 130.0
-            },
-            "Name": "hut_8",
-            "ctype": "SpriteObjectData"
-          },
-          {
-            "FileData": {
-              "Type": "Normal",
-              "Path": "ob/house/silly_goats_home.png",
-              "Plist": ""
-            },
-            "BlendFunc": {
-              "Src": 1,
-              "Dst": 771
-            },
-            "AnchorPoint": {
-              "ScaleX": 0.5,
-              "ScaleY": 0.5
-            },
-            "Position": {
-              "X": 475.2823,
-              "Y": 1253.0432
-            },
-            "Scale": {
-              "ScaleX": 1.0,
-              "ScaleY": 1.0
-            },
-            "CColor": {},
-            "IconVisible": false,
-            "PrePosition": {
-              "X": 0.264,
-              "Y": 0.6961
-            },
-            "PreSize": {
-              "X": 0.1039,
-              "Y": 0.0722
-            },
-            "LeftMargin": 381.7823,
-            "RightMargin": 1231.2178,
-            "TopMargin": 481.9568,
-            "BottomMargin": 1188.0432,
-            "Tag": 21,
-            "ActionTag": 728599748,
-            "Size": {
-              "X": 187.0,
-              "Y": 130.0
-            },
-            "Name": "hut_9",
-            "ctype": "SpriteObjectData"
-          },
-          {
-            "FileData": {
-              "Type": "Normal",
-              "Path": "ob/house/silly_goats_home.png",
-              "Plist": ""
-            },
-            "BlendFunc": {
-              "Src": 1,
-              "Dst": 771
-            },
-            "AnchorPoint": {
-              "ScaleX": 0.5,
-              "ScaleY": 0.5
-            },
-            "Position": {
-              "X": 1094.5233,
-              "Y": 1365.6335
-            },
-            "Scale": {
-              "ScaleX": 1.0,
-              "ScaleY": 1.0
-            },
-            "CColor": {},
-            "IconVisible": false,
-            "PrePosition": {
-              "X": 0.6081,
-              "Y": 0.7587
-            },
-            "PreSize": {
-              "X": 0.1039,
-              "Y": 0.0722
-            },
-            "LeftMargin": 1001.0233,
-            "RightMargin": 611.9767,
-            "TopMargin": 369.3665,
-            "BottomMargin": 1300.6335,
-            "Tag": 22,
-            "ActionTag": -413312393,
-            "Size": {
-              "X": 187.0,
-              "Y": 130.0
-            },
-            "Name": "hut_10",
-            "ctype": "SpriteObjectData"
-          },
-          {
-            "FlipX": true,
-            "FileData": {
-              "Type": "Normal",
-              "Path": "ob/house/silly_goats_home.png",
-              "Plist": ""
-            },
-            "BlendFunc": {
-              "Src": 1,
-              "Dst": 771
-            },
-            "AnchorPoint": {
-              "ScaleX": 0.5,
-              "ScaleY": 0.5
-            },
-            "Position": {
-              "X": 1185.2205,
-              "Y": 1146.7087
-            },
-            "Scale": {
-              "ScaleX": 1.0,
-              "ScaleY": 1.0
-            },
-            "CColor": {},
-            "IconVisible": false,
-            "PrePosition": {
-              "X": 0.6585,
-              "Y": 0.6371
-            },
-            "PreSize": {
-              "X": 0.1039,
-              "Y": 0.0722
-            },
-            "LeftMargin": 1091.7205,
-            "RightMargin": 521.2795,
-            "TopMargin": 588.2913,
-            "BottomMargin": 1081.7087,
-            "Tag": 23,
-            "ActionTag": -1520442769,
-            "Size": {
-              "X": 187.0,
-              "Y": 130.0
-            },
-            "Name": "hut_11",
-            "ctype": "SpriteObjectData"
-          },
-          {
-            "FlipX": true,
-            "FileData": {
-              "Type": "Normal",
-              "Path": "ob/house/silly_goats_home.png",
-              "Plist": ""
-            },
-            "BlendFunc": {
-              "Src": 1,
-              "Dst": 771
-            },
-            "AnchorPoint": {
-              "ScaleX": 0.5,
-              "ScaleY": 0.5
-            },
-            "Position": {
-              "X": 1504.2247,
-              "Y": 1259.2993
-            },
-            "Scale": {
-              "ScaleX": 1.0,
-              "ScaleY": 1.0
-            },
-            "CColor": {},
-            "IconVisible": false,
-            "PrePosition": {
-              "X": 0.8357,
-              "Y": 0.6996
-            },
-            "PreSize": {
-              "X": 0.1039,
-              "Y": 0.0722
-            },
-            "LeftMargin": 1410.7247,
-            "RightMargin": 202.2753,
-            "TopMargin": 475.7007,
-            "BottomMargin": 1194.2993,
-            "Tag": 24,
-            "ActionTag": 1448946955,
-            "Size": {
-              "X": 187.0,
-              "Y": 130.0
-            },
-            "Name": "hut_12",
             "ctype": "SpriteObjectData"
           },
           {
@@ -736,6 +468,233 @@
             },
             "Name": "cloud_1_14",
             "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "ob/house/silly_goats_home.png",
+              "Plist": ""
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 525.1114,
+              "Y": 1271.8923
+            },
+            "Scale": {
+              "ScaleX": 0.35,
+              "ScaleY": 0.35
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.2917,
+              "Y": 0.7066
+            },
+            "PreSize": {
+              "X": 0.3472,
+              "Y": 0.2383
+            },
+            "LeftMargin": 212.6114,
+            "RightMargin": 962.3886,
+            "TopMargin": 313.6077,
+            "BottomMargin": 1057.3923,
+            "Tag": 18,
+            "ActionTag": 1564065865,
+            "Size": {
+              "X": 625.0,
+              "Y": 429.0
+            },
+            "Name": "home_1",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "ob/house/silly_goats_home.png",
+              "Plist": ""
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 778.5196,
+              "Y": 1382.4197
+            },
+            "Scale": {
+              "ScaleX": 0.35,
+              "ScaleY": 0.35
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.4325,
+              "Y": 0.768
+            },
+            "PreSize": {
+              "X": 0.3472,
+              "Y": 0.2383
+            },
+            "LeftMargin": 466.0196,
+            "RightMargin": 708.9805,
+            "TopMargin": 203.0803,
+            "BottomMargin": 1167.9197,
+            "Tag": 19,
+            "ActionTag": 1543187739,
+            "Size": {
+              "X": 625.0,
+              "Y": 429.0
+            },
+            "Name": "home_2",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "ob/house/silly_goats_home.png",
+              "Plist": ""
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1093.9287,
+              "Y": 1363.5485
+            },
+            "Scale": {
+              "ScaleX": 0.35,
+              "ScaleY": 0.35
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.6077,
+              "Y": 0.7575
+            },
+            "PreSize": {
+              "X": 0.3472,
+              "Y": 0.2383
+            },
+            "LeftMargin": 781.4287,
+            "RightMargin": 393.5713,
+            "TopMargin": 221.9515,
+            "BottomMargin": 1149.0485,
+            "Tag": 20,
+            "ActionTag": -218343299,
+            "Size": {
+              "X": 625.0,
+              "Y": 429.0
+            },
+            "Name": "home_3",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FlipX": true,
+            "FileData": {
+              "Type": "Normal",
+              "Path": "ob/house/silly_goats_home.png",
+              "Plist": ""
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1037.3158,
+              "Y": 1174.8407
+            },
+            "Scale": {
+              "ScaleX": 0.35,
+              "ScaleY": 0.35
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.5763,
+              "Y": 0.6527
+            },
+            "PreSize": {
+              "X": 0.3472,
+              "Y": 0.2383
+            },
+            "LeftMargin": 724.8158,
+            "RightMargin": 450.1842,
+            "TopMargin": 410.6593,
+            "BottomMargin": 960.3407,
+            "Tag": 21,
+            "ActionTag": -2020095628,
+            "Size": {
+              "X": 625.0,
+              "Y": 429.0
+            },
+            "Name": "home_4",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FlipX": true,
+            "FileData": {
+              "Type": "Normal",
+              "Path": "ob/house/silly_goats_home.png",
+              "Plist": ""
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1325.7682,
+              "Y": 1193.7119
+            },
+            "Scale": {
+              "ScaleX": 0.35,
+              "ScaleY": 0.35
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.7365,
+              "Y": 0.6632
+            },
+            "PreSize": {
+              "X": 0.3472,
+              "Y": 0.2383
+            },
+            "LeftMargin": 1013.2682,
+            "RightMargin": 161.7318,
+            "TopMargin": 391.7881,
+            "BottomMargin": 979.2119,
+            "Tag": 22,
+            "ActionTag": 1809153312,
+            "Size": {
+              "X": 625.0,
+              "Y": 429.0
+            },
+            "Name": "home_5",
+            "ctype": "SpriteObjectData"
           }
         ],
         "Size": {
@@ -746,11 +705,11 @@
         "ctype": "SingleNodeObjectData"
       },
       "UsedResources": [
-        "bg/ground_grass_1.png",
+         "bg/ground_grass_1.png",
         "bg/ground_grass_2.png",
         "ob/sky/cloud_1.png",
         "ob/house/fence_1.png",
-       "ob/house/fence_3.png",
+        "ob/house/fence_3.png",
         "ob/house/silly_goats_home.png"
       ],
       "ctype": "GameFileData"
