@@ -223,6 +223,17 @@ var Play2Layer = cc.Layer.extend({
                                resume_label.visible = true;
                                resume12_label.visible = true;
                                cc.director.pause();
+
+                                var menubutton =  new cc.Sprite(cc.spriteFrameCache.getSpriteFrame("menubutton.png")); 
+                                 menubutton.x = size.width/2 ;
+                                 menubutton.y = size.height/2 - menu.width/5;
+                                 menubutton.id = "menubutton";
+                                 self.addChild(menubutton,3);
+                                cc.eventManager.addListener(cc.EventListener.create({
+                                event: cc.EventListener.TOUCH_ONE_BY_ONE,
+                                swallowTouches:true,  
+                                onTouchBegan: this.onTouchBegan,}) ,menubutton);
+
                                cc.eventManager.addListener(cc.EventListener.create({
                                 event: cc.EventListener.TOUCH_ONE_BY_ONE,
                                     swallowTouches:true,  
