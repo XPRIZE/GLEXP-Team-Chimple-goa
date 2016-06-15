@@ -3,7 +3,7 @@ chimple.TextCreatePanel = cc.Layer.extend({
     ctor: function (width, height, position, existingText, callback, callbackContext) {
         this._super(width, height);
         cc.log('texgtcreate uibutton');
-        var backButton = new ccui.Button('icons/check.png', 'icons/check_onclick.png', null, ccui.Widget.PLIST_TEXTURE);
+        var backButton = new ccui.Button('icons/check.png', 'icons/check_onclick.png', 'icons/check_onclick.png', ccui.Widget.PLIST_TEXTURE);
         backButton.setPosition(cc.director.getWinSize().width * 0.8, cc.director.getWinSize().height * 0.9);
         backButton.addTouchEventListener(this.goBack, this);
         this.addChild(backButton);                

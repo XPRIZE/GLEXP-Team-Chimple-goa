@@ -49,7 +49,7 @@ chimple.AbstractContentPanel = cc.LayerColor.extend({
                         skinNode.removeFromParent();
                         var boneName = chimple.HAND_GEAR_LEFT;
                         var bone = skeleton.getBoneNode(boneName);
-                        bone.addSkin(skinNode);
+                        bone.addSkin(skinNode, true);
                         bone.displaySkin(bone.getSkins()[bone.getSkins().length - 1], true);
                     }, this);
                 } else if (skeleton && skeleton._userData && skeleton._userData.userCustomObjectSkin) {

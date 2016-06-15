@@ -19,7 +19,7 @@ chimple.CharacterUtil.displaySkins = function (character, skins) {
             });
             //find all resources to be loaded
             if (!skinLoaded) {
-                var resourceName = defaultFolder + "characters/" + character.getName() + "/" + element.skin + ".json";
+                var resourceName = defaultFolder + element.skin + ".json";
                 dynamicResources.push(resourceName);
                 skinBones.push({
                         boneName: element.bone,
@@ -30,9 +30,13 @@ chimple.CharacterUtil.displaySkins = function (character, skins) {
         }
     }, this);
 
-    cc.director.pushScene(new cc.LoaderScene());
+    if(!cc.sys.isNative) {
+        cc.director.pushScene(new cc.LoaderScene());
+    }
     cc.LoaderScene.preload(dynamicResources, function () {
-        cc.director.popScene();
+        if(!cc.sys.isNative) {
+            cc.director.popScene();
+        }
 
         skinBones.forEach(function (loadedRes) {
             if (!cc.sys.isNative) {
@@ -47,7 +51,7 @@ chimple.CharacterUtil.displaySkins = function (character, skins) {
             if (dynamicSkin.node) {
                 var bone = character.getBoneNode(loadedRes.boneName);
                 if(bone) {
-                    bone.addSkin(dynamicSkin.node);
+                    bone.addSkin(dynamicSkin.node, true);
                 }                
             }
         });
@@ -182,7 +186,7 @@ chimple.CharacterUtil.applySkinNameMap = function (skeleton, configuration) {
         var skinConfigMap = skeleton._skeletonConfig.skinNameMaps[configuration.skinNameMap];
         for (var property in skinConfigMap) {
             if (skinConfigMap.hasOwnProperty(property)) {
-                var resourceName = defaultFolder + "characters/" + skeleton.getName() + "/" + skinConfigMap[property] + ".json";
+                var resourceName = defaultFolder + skinConfigMap[property] + ".json";
                 dynamicResources.push(resourceName);
             }
         }
@@ -190,10 +194,12 @@ chimple.CharacterUtil.applySkinNameMap = function (skeleton, configuration) {
     }
 
     cc.log('dynamicResources:' + dynamicResources);
-    cc.director.pushScene(new cc.LoaderScene()); //TODO dummy right now later fix this
+    if(!cc.sys.isNative) {
+        cc.director.pushScene(new cc.LoaderScene()); //TODO dummy right now later fix this
+    } 
     cc.LoaderScene.preload(dynamicResources, function () {
-        cc.director.popScene();
         if (!cc.sys.isNative) {
+            cc.director.popScene();
             //resize all loaded contents
             dynamicResources.forEach(function (loadedResourceURL) {
                 if (loadedResourceURL && loadedResourceURL.indexOf(".png") == -1) {
@@ -207,12 +213,12 @@ chimple.CharacterUtil.applySkinNameMap = function (skeleton, configuration) {
 
         for (var property in skinConfigMap) {
             if (skinConfigMap.hasOwnProperty(property)) {
-                var resourceName = defaultFolder + "characters/" + skeleton.getName() + "/" + skinConfigMap[property] + ".json";
+                var resourceName = defaultFolder + skinConfigMap[property] + ".json";
                 var dynamicSkin = ccs.load(resourceName);
                 if (dynamicSkin.node) {
                     var bone = skeleton.getBoneNode(property);
                     if (bone) {
-                        bone.addSkin(dynamicSkin.node);
+                        bone.addSkin(dynamicSkin.node, true);
                         //bone.displaySkin(bone.getSkins()[bone.getSkins().length - 1], true);
                     }
                 }
