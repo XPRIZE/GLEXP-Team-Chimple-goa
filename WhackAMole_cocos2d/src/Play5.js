@@ -238,7 +238,7 @@ var Play5Layer = cc.Layer.extend({
                          }     
                              }
                            
-            return true;  
+            return false;  
         }
     
                    

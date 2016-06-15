@@ -25,25 +25,25 @@ var HelloWorldLayer = cc.Layer.extend({
        this.start_button.runAction(new cc.RepeatForever(seq));
 
         
-        // this.spriteSheet = new cc.SpriteBatchNode(res.whackAMole_Home_png);
-        // this.addChild(this.spriteSheet,2);
+        this.spriteSheet = new cc.SpriteBatchNode(res.whackAMole_Home_png);
+        this.addChild(this.spriteSheet,2);
 
-        // var animFrames = [];
-        // for (var i = 1; i < 12; i++) {
-        //     var str = "HomeSprite_" + i + ".png";
-        //     var frame = cc.spriteFrameCache.getSpriteFrame(str);
-        //     animFrames.push(frame);
-        // }
+        var animFrames = [];
+        for (var i = 1; i < 12; i++) {
+            var str = "HomeSprite_" + i + ".png";
+            var frame = cc.spriteFrameCache.getSpriteFrame(str);
+            animFrames.push(frame);
+        }
 
-        // var animation = new cc.Animation(animFrames, 0.1,10);
-        // this.runningAction = new cc.Animate(animation);
-        // this.sprite1 = new cc.Sprite(cc.spriteFrameCache.getSpriteFrame("HomeSprite_1.png"));
-        // this.sprite1.attr({x:(600/1280)*size.width, y:(500/800)*size.height});
-        // this.sprite1.runAction(this.runningAction);
-        // this.spriteSheet.addChild(this.sprite1,2);
+        var animation = new cc.Animation(animFrames, 0.1,5);
+        this.runningAction =  cc.animate(animation);
+        this.sprite1 = new cc.Sprite(cc.spriteFrameCache.getSpriteFrame("HomeSprite_1.png"));
+        this.sprite1.attr({x:(600/1280)*size.width, y:(500/800)*size.height});
+        this.sprite1.runAction(new cc.RepeatForever(this.runningAction));
+        this.spriteSheet.addChild(this.sprite1);
         
         
-    
+    //    this.animationHomeScreenObject(this.sprite1);
         
        cc.eventManager.addListener(cc.EventListener.create(  
     {
@@ -66,7 +66,30 @@ var HelloWorldLayer = cc.Layer.extend({
                                   });
                    }}
                              return true;
-                   }
+    },
+//      animationHomeScreenObject : function(spriteBubble){
+       
+//        // Load sprite frames to frame cache, add texture node
+   
+//        var spriteBubbleTexture = cc.textureCache.addImage(res.whackAMole_Home_png),
+//        spriteBubbleImages  = cc.SpriteBatchNode.create(spriteBubbleTexture);
+//        this.addChild(spriteBubbleImages);
+
+//        var animFrames = [];
+//        var str = "";
+//        for (var i = 1; i <= 11; i++) {
+//            str = "HomeSprite_" + i + ".png";
+//            var spriteFrame = cc.spriteFrameCache.getSpriteFrame(str);
+//            var animFrame = new cc.AnimationFrame();
+//            animFrame.initWithSpriteFrame(spriteFrame, 1);
+//            animFrames.push(animFrame);
+//        }
+       
+//        var animation = cc.Animation.create(animFrames, 0.1, 1);
+//        var animate   = cc.Animate.create(animation);
+       
+//        spriteBubble.runAction(animate);
+//    }
 });
 
 var HelloWorldScene = cc.Scene.extend({

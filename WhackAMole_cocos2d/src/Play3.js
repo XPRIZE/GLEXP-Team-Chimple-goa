@@ -251,7 +251,7 @@ var Play3Layer = cc.Layer.extend({
                             scoreLabel.setString("  Score: " + whack_score);
                          }     
                              }
-     return true;
+     return false;
  }
 });
 
