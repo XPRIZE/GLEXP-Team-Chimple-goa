@@ -22,13 +22,13 @@ chimple.ScrollableButtonPanel = cc.LayerColor.extend({
 
         if (!noPagination) {
             this._page.addEventListener(this.updateLeftRightButtons, this)
-
-            this._backButton = new ccui.Button("icons/left.png", "icons/left_onclick.png", null, ccui.Widget.PLIST_TEXTURE);
+            cc.log('button start');
+            this._backButton = new ccui.Button("icons/left.png", "icons/left_onclick.png", "icons/left_onclick.png", ccui.Widget.PLIST_TEXTURE);
             this._backButton.setPosition(size.width * 5 / 100, size.height / 2);
             this._backButton.addTouchEventListener(this.moveLeft, this);
             this.addChild(this._backButton);
-
-            this._nextButton = new ccui.Button("icons/right.png", "icons/right_onclick.png", null, ccui.Widget.PLIST_TEXTURE);
+            cc.log('button added');
+            this._nextButton = new ccui.Button("icons/right.png", "icons/right_onclick.png", "icons/right_onclick.png", ccui.Widget.PLIST_TEXTURE);
             this._nextButton.setPosition(size.width * 95 / 100, size.height / 2);
             this._nextButton.addTouchEventListener(this.moveRight, this);
             this.addChild(this._nextButton);
@@ -43,7 +43,12 @@ chimple.ScrollableButtonPanel = cc.LayerColor.extend({
         this._buttonHandler.selectButton(button);
     },
     getButtonByName: function (name) {
-        var pages = this._page.getPages();
+        var pages = null;
+        if (cc.sys.isNative) {
+            pages = this._page.getItems();
+        } else {
+            pages = this._page.getPages();
+        }
         for (var index = 0; index < pages.length; index++) {
             var page = pages[index];
             var button = page.getButtonByName(name);
@@ -54,7 +59,13 @@ chimple.ScrollableButtonPanel = cc.LayerColor.extend({
     },
 
     getButtonByIndex: function (buttonIndex) {
-        var pages = this._page.getPages();
+        var pages = null;
+        if (cc.sys.isNative) {
+            pages = this._page.getItems();
+        } else {
+            pages = this._page.getPages();
+        }
+
         var pageIndex = Math.floor(buttonIndex / (this._numButtonsPerRow * this._numButtonsPerColumn));
         var page = pages[pageIndex];
         var buttonInPage = buttonIndex - pageIndex * (this._numButtonsPerRow * this._numButtonsPerColumn);
@@ -68,45 +79,83 @@ chimple.ScrollableButtonPanel = cc.LayerColor.extend({
     moveLeft: function (sender, type) {
         switch (type) {
             case ccui.Widget.TOUCH_BEGAN:
-                if (this._page.getCurPageIndex() > 0) {
-                    this._page.scrollToPage(this._page.getCurPageIndex() - 1);
+                if (cc.sys.isNative) {
+                    if (this._page.getCurrentPageIndex() > 0) {
+                        this._page.scrollToPage(this._page.getCurrentPageIndex() - 1);
+                    }
+                    break;
+                } else {
+                    if (this._page.getCurPageIndex() > 0) {
+                        this._page.scrollToPage(this._page.getCurPageIndex() - 1);
+                    }
+                    break;
                 }
-                break;
         }
     },
 
     moveRight: function (sender, type) {
         switch (type) {
             case ccui.Widget.TOUCH_BEGAN:
-                if (this._page.getCurPageIndex() < this._page.getPages().length - 1) {
-                    this._page.scrollToPage(this._page.getCurPageIndex() + 1);
+                if (cc.sys.isNative) {
+                    if (this._page.getCurrentPageIndex() < this._page.getItems().length - 1) {
+                        this._page.scrollToPage(this._page.getCurrentPageIndex() + 1);
+                    }
+                    break;
+
+                } else {
+                    if (this._page.getCurPageIndex() < this._page.getPages().length - 1) {
+                        this._page.scrollToPage(this._page.getCurPageIndex() + 1);
+                    }
+                    break;
                 }
-                break;
         }
     },
 
     moveRightAutomatically: function (buttonIndex) {
         var pageIndex = Math.floor(buttonIndex / (this._numButtonsPerRow * this._numButtonsPerColumn));
-        if (pageIndex < this._page.getPages().length) {
-            this._page.scrollToPage(pageIndex);
+        if (cc.sys.isNative) {
+            if (pageIndex < this._page.getItems().length) {
+                this._page.scrollToPage(pageIndex);
+            }
+        } else {
+            if (pageIndex < this._page.getPages().length) {
+                this._page.scrollToPage(pageIndex);
+            }
         }
     },
 
     updateLeftRightButtons: function (sender, type) {
-        if (this._page.getCurPageIndex() <= 0) {
-            this._backButton.setEnabled(false);
-            this._backButton.setHighlighted(true);
+        cc.log(this._page);
+        if (cc.sys.isNative) {
+            if (this._page.getCurrentPageIndex() <= 0) {
+                this._backButton.setEnabled(false);
+                this._backButton.setHighlighted(true);
+            } else {
+                this._backButton.setEnabled(true);
+                this._backButton.setHighlighted(false);
+            }
+            if (this._page.getCurrentPageIndex() >= this._page.getItems().length - 1) {
+                this._nextButton.setEnabled(false);
+                this._nextButton.setHighlighted(true);
+            } else {
+                this._nextButton.setEnabled(true);
+                this._nextButton.setHighlighted(false);
+            }
         } else {
-            this._backButton.setEnabled(true);
-            this._backButton.setHighlighted(false);
-        }
-        if (this._page.getCurPageIndex() >= this._page.getPages().length - 1) {
-            this._nextButton.setEnabled(false);
-            this._nextButton.setHighlighted(true);
-        } else {
-            this._nextButton.setEnabled(true);
-            this._nextButton.setHighlighted(false);
+            if (this._page.getCurPageIndex() <= 0) {
+                this._backButton.setEnabled(false);
+                this._backButton.setHighlighted(true);
+            } else {
+                this._backButton.setEnabled(true);
+                this._backButton.setHighlighted(false);
+            }
+            if (this._page.getCurPageIndex() >= this._page.getPages().length - 1) {
+                this._nextButton.setEnabled(false);
+                this._nextButton.setHighlighted(true);
+            } else {
+                this._nextButton.setEnabled(true);
+                this._nextButton.setHighlighted(false);
+            }
         }
     }
-
 }); 

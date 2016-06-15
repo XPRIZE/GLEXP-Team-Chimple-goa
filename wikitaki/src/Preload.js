@@ -1,11 +1,11 @@
-var Preloader = cc.LoaderScene.extend({
+var Preloader = cc.Scene.extend({
     _className: "Preloader",
     /**
      * Contructor of cc.LoaderScene
      * @returns {boolean}
      */
     init: function () {
-        this._super();
+        // this._super();
         var self = this;
 
         //logo

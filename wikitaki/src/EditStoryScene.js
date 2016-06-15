@@ -18,11 +18,14 @@ var EditStoryLayer = cc.Layer.extend({
         this._contentPanelWidth = cc.director.getWinSize().height; //assuming landscape
         this._configPanelWidth = (cc.director.getWinSize().width - this._contentPanelWidth) / 2;
         this._configPanelHeight = cc.director.getWinSize().height;
+        cc.log('start editstorylayer');
         return true;
     },
 
     init: function () {
         if (chimple.storyConfigurationObject) {
+        cc.log('init editstorylayer');
+            
             //backgrounds, characters and pops, texts
             var mainConfigurationItems = Object.getOwnPropertyNames(chimple.storyConfigurationObject.addObjects);
             //Construct UI

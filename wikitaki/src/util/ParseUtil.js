@@ -134,7 +134,7 @@ chimple.ParseUtil.updateUserData = function (tag, dataKey, dataValue) {
 }
 
 chimple.ParseUtil.saveCharacterToJSON = function (fileToLoad, load) {
-    var resourcePath = fileToLoad.replace("/res/", "");
+    var resourcePath = fileToLoad.replace("res/", "");
     var skeletonObject = chimple.ParseUtil.constructJSONFromCharacter(load.node, resourcePath);
     // load.node.ActionTag = skeletonObject.ActionTag;
     chimple.ParseUtil.saveObjectToStoredScene(skeletonObject);
@@ -211,7 +211,7 @@ chimple.ParseUtil.constructJSONFromCCSprite = function (sprite) {
     object.FileData = {};
     object.FileData.Type = "Normal";
     if (sprite.getTexture().url != null) {
-        var path = sprite.getTexture().url.replace("/res/", "");
+        var path = sprite.getTexture().url.replace("res/", "");
         object.FileData.Path = path;
     }
     object.FileData.Plist = "";
@@ -472,16 +472,16 @@ chimple.ParseUtil.disableFavoriteChoiceIfCharacterAlreadyLoadedInPage = function
 
 chimple.ParseUtil.cacheThumbnailForFavorites = function (skeleton) {
     var renderer = new cc.RenderTexture(64 * 4, 64 * 4);
-    skeleton._renderCmd._dirtyFlag = 1;
+    // skeleton._renderCmd._dirtyFlag = 1;
     renderer.begin();
     skeleton.visit();
-    skeleton._renderCmd._dirtyFlag = 1;
+    // skeleton._renderCmd._dirtyFlag = 1;
     renderer.end();
     renderer.scaleY = -1;
-    skeleton._renderCmd._dirtyFlag = 1;
+    // skeleton._renderCmd._dirtyFlag = 1;
     var sprite = renderer.getSprite();
-    var cacheName = '/res/' + skeleton._userData.uniqueCharacterID + '.png';
-    cc.textureCache.cacheImage(cacheName, sprite.texture);
+    var cacheName = 'res/' + skeleton._userData.uniqueCharacterID + '.png';
+    // cc.textureCache.cacheImage(cacheName, sprite.texture);
     renderer.cleanup();
 }
 

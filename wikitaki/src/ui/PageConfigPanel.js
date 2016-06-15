@@ -133,16 +133,25 @@ chimple.PageConfigPanel = cc.LayerColor.extend({
     showLoadingScene: function (fileToLoad, context, doPostLoadingProcessFunction, args, shouldSaveScene) {
         if (cc.sys.isNative) {
             var dynamicResources = [fileToLoad];
-            Preloader.preload(dynamicResources, function () {
-                chimple.ParseUtil.changeSize(cc.loader.cache[fileToLoad], null, chimple.designScaleFactor);
-                cc.loader.cache[fileToLoad].ChimpleCompressed = true;
+            cc.LoaderScene.preload(dynamicResources, function () {
+                cc.log(cc.loader.getRes(fileToLoad));
+                cc.log(cc.loader.cache[fileToLoad]);
+                for (var key in cc.loader.cache) {
+                        cc.log("key:" + key);
+                        var element = cc.loader.cache[key];                        
+                        cc.log(key);
+                        cc.log(element);
+                        
+                }
+                // chimple.ParseUtil.changeSize(cc.loader.cache[fileToLoad], null, chimple.designScaleFactor);
+                // cc.loader.cache[fileToLoad].ChimpleCompressed = true;
 
                 doPostLoadingProcessFunction.call(context, args, shouldSaveScene);
             }, this);
         } else {
-            cc.director.pushScene(new Preloader()); //TODO dummy right now later fix this
+            cc.director.pushScene(new cc.LoaderScene()); //TODO dummy right now later fix this
             var dynamicResources = [fileToLoad];
-            Preloader.preload(dynamicResources, function () {
+            cc.LoaderScene.preload(dynamicResources, function () {
                 cc.director.popScene();
                 if (fileToLoad && fileToLoad.indexOf(".png") == -1) {
                     chimple.ParseUtil.changeSize(cc.loader.cache[fileToLoad], null, chimple.designScaleFactor);

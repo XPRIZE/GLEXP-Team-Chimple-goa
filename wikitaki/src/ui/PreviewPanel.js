@@ -1,6 +1,7 @@
 chimple.PreviewPanel = cc.LayerColor.extend({
     ctor: function (width, height, position, target, configuration, callback, callbackContext, isTab, contentPanel) {
         this._super(chimple.TERTIARY_COLOR, width, height);
+        cc.log('preview uibutton');
         var backButton = new ccui.Button('icons/back.png', 'icons/back_onclick.png', false, ccui.Widget.PLIST_TEXTURE);
         backButton.setPosition(128, height - 128);
         backButton.addTouchEventListener(this.goBack, this);
@@ -31,7 +32,7 @@ chimple.PreviewPanel = cc.LayerColor.extend({
         } else {
             this._scrolPanel = new chimple.ScrollableButtonPanel(cc.p(0, 0), cc.size(width * 2 / 3, height), 3, 4, configuration, callback, callbackContext);
             this.addChild(this._scrolPanel);
-
+            cc.log('uibutton previewpanale');
             this.main_backButton = new ccui.Button("icons/back.png", "icons/back_onclick.png", null, ccui.Widget.PLIST_TEXTURE);
             this.main_backButton.setPosition(width * 5 / 100, height * 95 / 100);
             this.main_backButton.addTouchEventListener(this.main_backButton_function, this);
@@ -99,10 +100,19 @@ chimple.PreviewPanel = cc.LayerColor.extend({
         this._targetParent.addChild(this._target);
         this._target.setPosition(this._targetPosition);
         this._target.setScale(this._targetScaleX, this._targetScaleY);
-        this._target.setRotation(this._targetRotationX, this._targetRotationY);
+        this._target.setRotation(this._targetRotationX);
         this._contentPanel._isRecordingPaused = false;
         this._contentPanel.registerEventListenerForChild(this._target);
 
         this.parent.removeChild(this, true);
     },
+    onEnter: function () {
+        this._super();
+        chimple.CharacterUtil.storeActionToTemporaryStore(this);
+    },
+
+    onExit: function () {
+        this._super();
+        chimple.CharacterUtil.restoreActionFromTemporaryStore(this);
+    }
 });

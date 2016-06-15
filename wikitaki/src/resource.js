@@ -1,30 +1,31 @@
 var chimple = chimple || {};
 
-var defaultFolder = "";
-var defaultMiscFolder = "/res/";
+var defaultFolder = "res/";
+var defaultMiscFolder = "res/";
 
 if (!cc.sys.isNative) {
     defaultFolder = "/res/";
+    defaultMiscFolder = "/res/";    
 }
 
 
 var res = {
-    thumbnails_png: "/res/thumbnails.png",
-    thumbnails_plist: "/res/thumbnails.plist",
-    human_skeleton_png: "/res/human_skeleton.png",
-    human_skeleton_plist: "/res/human_skeleton.plist",
-    animalskeleton_png: "/res/animalskeleton.png",
-    animalskeleton_plist: "/res/animalskeleton.plist",
-    animalskeleton_json: "/res/animalskeleton.json",
-    birdskeleton_png: "/res/birdskeleton.png",
-    birdskeleton_plist: "/res/birdskeleton.plist",
-    birdskeleton_json: "/res/birdskeleton.json",
-    HelloWorld_png: "/res/HelloWorld.png",
-    human_skeleton_json: "/res/human_skeleton.json",
-    play_png: "/res/play.png",
-    record_animation_png: "/res/recording.png",
-    record_animation_plist: "/res/recording.plist",
-
+    thumbnails_png: defaultMiscFolder + "thumbnails.png",
+    thumbnails_plist: defaultMiscFolder + "thumbnails.plist",
+    human_skeleton_png: defaultMiscFolder + "human_skeleton.png",
+    human_skeleton_plist: defaultMiscFolder + "human_skeleton.plist",
+    animalskeleton_png: defaultMiscFolder + "animalskeleton.png",
+    animalskeleton_plist: defaultMiscFolder + "animalskeleton.plist",
+    animalskeleton_json: defaultMiscFolder + "animalskeleton.json",
+    birdskeleton_png: defaultMiscFolder + "birdskeleton.png",
+    birdskeleton_plist: defaultMiscFolder + "birdskeleton.plist",
+    birdskeleton_json: defaultMiscFolder + "birdskeleton.json",
+    HelloWorld_png: defaultMiscFolder + "HelloWorld.png",
+    human_skeleton_json: defaultMiscFolder + "human_skeleton.json",
+    play_png: defaultMiscFolder + "play.png",
+    record_animation_png: defaultMiscFolder + "recording.png",
+    record_animation_plist: defaultMiscFolder + "recording.plist",
+    fox: defaultMiscFolder + "fox_stork_01.json"    
 };
 
 

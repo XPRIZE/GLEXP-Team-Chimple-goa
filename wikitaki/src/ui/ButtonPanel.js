@@ -15,16 +15,19 @@ chimple.ButtonPanel = ccui.Layout.extend({
                     if (index < configuration.length - pageIndex * (numButtonsPerRow * numButtonsPerColumn)) {
                         var item;
                         try {
-                            item = new ccui.Button(configuration[index]['icon'], configuration[index]['cIcon'], null, ccui.Widget.PLIST_TEXTURE);
+                            cc.log('uibutton buttonpanel start')
+                            cc.log(configuration[index]['icon']);
+                            item = new ccui.Button(configuration[index]['icon'], configuration[index]['icon'], configuration[index]['icon'], ccui.Widget.PLIST_TEXTURE);
                         } catch (error) {
                             cc.log(error);
-                            item = new ccui.Button('icons/my_pet.png', 'icons/my_pet_onclick.png', null, ccui.Widget.PLIST_TEXTURE);
+                            item = new ccui.Button('icons/my_pet.png', 'icons/my_pet_onclick.png', 'icons/my_pet_onclick.png', ccui.Widget.PLIST_TEXTURE);
                         }
 
                         if (configuration[index] && configuration[index]['uniqueCharacterID']) {
 
-                            var cacheName = '/res/' + configuration[index]['uniqueCharacterID'] + '.png';
-                            item = new ccui.Button(cacheName, cacheName, null, ccui.Widget.LOCAL_TEXTURE);
+                            var cacheName = 'res/' + configuration[index]['uniqueCharacterID'] + '.png';
+                            cc.log('uibutton button panel end');
+                            item = new ccui.Button(cacheName, cacheName, cacheName, ccui.Widget.LOCAL_TEXTURE);
                             item.setFlippedY(true);
                         }
 

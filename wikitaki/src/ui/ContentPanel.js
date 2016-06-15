@@ -523,9 +523,12 @@ chimple.ContentPanel = chimple.AbstractContentPanel.extend({
     },
 
     addCharacterToScene: function (configuration) {
+        cc.log(new Date());
         var load = ccs.load(configuration.json);
+        cc.log(new Date());
 
         chimple.CharacterUtil.loadSkeletonConfig(load.node, configuration);
+        cc.log(new Date());
 
         load.node.setPosition(this.getContentSize().width / 2, this.getContentSize().height / 6);
         load.node.setScale(0.5, 0.5);
@@ -533,7 +536,9 @@ chimple.ContentPanel = chimple.AbstractContentPanel.extend({
         this._frontLayer.addChild(load.node);
         load.node.runAction(load.action);
         this.registerEventListenerForChild(load.node);
+        cc.log(new Date());
         chimple.ParseUtil.saveCharacterToJSON(configuration.json, load);
+        cc.log(new Date());
     },
 
     zoomAll: function (context, touch, target) {

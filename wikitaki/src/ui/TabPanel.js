@@ -60,7 +60,8 @@ chimple.TabPanel = cc.LayerColor.extend({
                 this.addChild(this._panel);
 
                 // for tab panel
-                this.tabPanel_backButton = new ccui.Button("icons/back.png", "icons/back_onclick.png", null, ccui.Widget.PLIST_TEXTURE);
+                cc.log('uibutton');
+                this.tabPanel_backButton = new ccui.Button("icons/back.png", "icons/back_onclick.png", "icons/back_onclick.png", ccui.Widget.PLIST_TEXTURE);
                 this.tabPanel_backButton.setPosition(this._panelSize.width * 5 / 100, this._panelSize.height * 95 / 100);
                 this.tabPanel_backButton.addTouchEventListener(this.main_backButton_function, this);
                 this.addChild(this.tabPanel_backButton);

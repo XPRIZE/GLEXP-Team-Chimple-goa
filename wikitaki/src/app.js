@@ -159,6 +159,7 @@ var HelloWorldLayer = cc.Layer.extend({
 var HelloWorldScene = cc.Scene.extend({
     ctor: function () {
         this._super();
+        cc.log('hello');
         if (chimple.LAYER_INIT === false) {
             chimple.LAYER_INIT = true;
 
@@ -178,34 +179,34 @@ var HelloWorldScene = cc.Scene.extend({
     },
 
     retrieveStoryId: function () {
-        var storyIdToFetch = null;
-        var query_string = {};
-        var query = window.location.search.substring(1);
-        var vars = query.split("&");
-        for (var i = 0; i < vars.length; i++) {
-            var pair = vars[i].split("=");
-            // If first entry with this name
-            if (typeof query_string[pair[0]] === "undefined") {
-                query_string[pair[0]] = decodeURIComponent(pair[1]);
-                // If second entry with this name
-            } else if (typeof query_string[pair[0]] === "string") {
-                var arr = [query_string[pair[0]], decodeURIComponent(pair[1])];
-                query_string[pair[0]] = arr;
-                // If third or later entry with this name
-            } else {
-                query_string[pair[0]].push(decodeURIComponent(pair[1]));
-            }
-        }
-        if (query_string != null && query_string != undefined) {
-            storyIdToFetch = query_string['fesid'];
-            cc.log('storyid from queryString:' + storyIdToFetch);
-        } else {
-            cc.log('storyid from queryString: not recived');
-            storyIdToFetch = window.recipeId;
-            cc.log('storyid from window.recipeId: ' + storyIdToFetch);
-        }
+        // var storyIdToFetch = null;
+        // var query_string = {};
+        // var query = window.location.search.substring(1);
+        // var vars = query.split("&");
+        // for (var i = 0; i < vars.length; i++) {
+        //     var pair = vars[i].split("=");
+        //     // If first entry with this name
+        //     if (typeof query_string[pair[0]] === "undefined") {
+        //         query_string[pair[0]] = decodeURIComponent(pair[1]);
+        //         // If second entry with this name
+        //     } else if (typeof query_string[pair[0]] === "string") {
+        //         var arr = [query_string[pair[0]], decodeURIComponent(pair[1])];
+        //         query_string[pair[0]] = arr;
+        //         // If third or later entry with this name
+        //     } else {
+        //         query_string[pair[0]].push(decodeURIComponent(pair[1]));
+        //     }
+        // }
+        // if (query_string != null && query_string != undefined) {
+        //     storyIdToFetch = query_string['fesid'];
+        //     cc.log('storyid from queryString:' + storyIdToFetch);
+        // } else {
+        //     cc.log('storyid from queryString: not recived');
+        //     storyIdToFetch = window.recipeId;
+        //     cc.log('storyid from window.recipeId: ' + storyIdToFetch);
+        // }
 
-        return storyIdToFetch;
+        // return storyIdToFetch;
     },
 
     createNewStory: function () {
