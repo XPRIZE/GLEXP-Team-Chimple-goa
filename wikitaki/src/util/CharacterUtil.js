@@ -19,7 +19,7 @@ chimple.CharacterUtil.displaySkins = function (character, skins) {
             });
             //find all resources to be loaded
             if (!skinLoaded) {
-                var resourceName = defaultFolder + "characters/skeletonConfig/" + character.getName() + "/" + element.skin + ".json";
+                var resourceName = defaultFolder + "characters/" + character.getName() + "/" + element.skin + ".json";
                 dynamicResources.push(resourceName);
                 skinBones.push({
                         boneName: element.bone,
@@ -182,7 +182,7 @@ chimple.CharacterUtil.applySkinNameMap = function (skeleton, configuration) {
         var skinConfigMap = skeleton._skeletonConfig.skinNameMaps[configuration.skinNameMap];
         for (var property in skinConfigMap) {
             if (skinConfigMap.hasOwnProperty(property)) {
-                var resourceName = defaultFolder + "characters/skeletonConfig/" + skeleton.getName() + "/" + skinConfigMap[property] + ".json";
+                var resourceName = defaultFolder + "characters/" + skeleton.getName() + "/" + skinConfigMap[property] + ".json";
                 dynamicResources.push(resourceName);
             }
         }
@@ -207,7 +207,7 @@ chimple.CharacterUtil.applySkinNameMap = function (skeleton, configuration) {
 
         for (var property in skinConfigMap) {
             if (skinConfigMap.hasOwnProperty(property)) {
-                var resourceName = defaultFolder + "characters/skeletonConfig/" + skeleton.getName() + "/" + skinConfigMap[property] + ".json";
+                var resourceName = defaultFolder + "characters/" + skeleton.getName() + "/" + skinConfigMap[property] + ".json";
                 var dynamicSkin = ccs.load(resourceName);
                 if (dynamicSkin.node) {
                     var bone = skeleton.getBoneNode(property);
