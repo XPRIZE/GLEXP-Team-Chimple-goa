@@ -1,0 +1,25 @@
+{
+    "skinChoices": [],
+    "skinNameMaps": {
+         "snake" :{
+             "leg1" : "snake_body1",
+             "leg2" : "snake_body2",
+             "leg3" : "snake_body3",
+             "face" : "snake_face",
+             "left_eye": "snake_left_eye",
+             "right_eye" :"snake_right_eye"
+         }
+         
+    },
+     "colorSkins": {
+        "bodySkin": {
+            
+        }
+    },
+    "animations": [
+        {
+          "icon": "icons/add_qna.png",
+          "name": "snake_crawl"
+        }
+    ]
+}

@@ -1,0 +1,60 @@
+{
+    "skinChoices": [],
+    "skinNameMaps": {
+         "frog" :{
+             "body": "frog_body",
+             "face" : "frog_face",
+             "front_leg_right":"frog_front_leg_right",
+             "front_leg_left": "frog_front_leg_left",
+             "back_leg_left" : "frog_back_leg_left",
+             "back_leg_right" : "frog_back_leg_right"
+         },
+          "squirrel" :{
+             "body": "squirrel_body",
+             "face" : "squirrel_face",
+             "front_leg_right":"squirrel_front_leg_right",
+             "front_leg_left": "squirrel_front_leg_left",
+             "back_leg_left" : "squirrel_back_leg_left",
+             "back_leg_right" : "squirrel_back_leg_right",
+             "tail" : "squirrel_tail"
+         },
+         "rabbit" :{
+             "body": "rabbit_body",
+             "face" : "rabbit_face",
+             "front_leg_right":"rabbit_front_leg_right",
+             "front_leg_left": "rabbit_front_leg_left",
+             "back_leg_left" : "rabbit_back_leg_left",
+             "back_leg_right" : "rabbit_back_leg_right",
+             "tail" : "rabbit_tail"
+         },
+         "tortoise" :{
+             "body": "tortoise_body",
+             "face" : "tortoise_face",
+             "front_leg_right":"tortoise_front_leg_right",
+             "front_leg_left": "tortoise_front_leg_left",
+             "back_leg_left" : "tortoise_back_leg_left",
+             "back_leg_right" : "tortoise_back_leg_right",
+             "tail" : "tortoise_tail"
+         }
+         
+    },
+     "colorSkins": {
+        "bodySkin": {
+            
+        }
+    },
+    "animations": [
+        {
+          "icon": "icons/add_qna.png",
+          "name": "walk"
+        },
+        {
+          "icon": "icons/add_qna.png",
+          "name": "run"
+        },
+        {
+          "icon": "icons/add_qna.png",
+          "name": "jump"
+        }
+    ]
+}

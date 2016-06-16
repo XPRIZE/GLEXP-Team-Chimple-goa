@@ -1,0 +1,1494 @@
+{
+  "ID": "a4dd0cbc-2531-44ca-bd39-7ca20b6936ba",
+  "Version": "3.10.0.0",
+  "Name": "snake",
+  "Content": {
+    "Content": {
+      "Animation": {
+        "Duration": 25,
+        "Speed": 0.2,
+        "ActivedAnimationName": "snake_crawl",
+        "Timelines": [
+          {
+            "ActionTag": 1564641742,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": 326.7644,
+                "Y": -158.3944,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 326.7644,
+                "Y": -158.3944,
+                "FrameIndex": 5,
+                "EasingData": {
+                  "Type": 2
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 326.7644,
+                "Y": -158.3944,
+                "FrameIndex": 10,
+                "EasingData": {
+                  "Type": 2
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 326.7644,
+                "Y": -158.3944,
+                "FrameIndex": 15,
+                "EasingData": {
+                  "Type": 2
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 326.7644,
+                "Y": -158.3944,
+                "FrameIndex": 20,
+                "EasingData": {
+                  "Type": 2
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 326.7644,
+                "Y": -158.3944,
+                "FrameIndex": 25,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 1564641742,
+            "Property": "Scale",
+            "Frames": [
+              {
+                "X": 1.0,
+                "Y": 1.0,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 1.0,
+                "Y": 1.0,
+                "FrameIndex": 5,
+                "EasingData": {
+                  "Type": 2
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 1.0,
+                "Y": 1.0,
+                "FrameIndex": 10,
+                "EasingData": {
+                  "Type": 2
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 1.0,
+                "Y": 1.0,
+                "FrameIndex": 15,
+                "EasingData": {
+                  "Type": 2
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 1.0,
+                "Y": 1.0,
+                "FrameIndex": 20,
+                "EasingData": {
+                  "Type": 2
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 1.0,
+                "Y": 1.0,
+                "FrameIndex": 25,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 1564641742,
+            "Property": "RotationSkew",
+            "Frames": [
+              {
+                "X": 42.9268,
+                "Y": 42.9268,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 42.9268,
+                "Y": 42.9268,
+                "FrameIndex": 5,
+                "EasingData": {
+                  "Type": 2
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 78.6311,
+                "Y": 78.6311,
+                "FrameIndex": 10,
+                "EasingData": {
+                  "Type": 2
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 37.8217,
+                "Y": 37.8217,
+                "FrameIndex": 15,
+                "EasingData": {
+                  "Type": 2
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 78.6311,
+                "Y": 78.6311,
+                "FrameIndex": 20,
+                "EasingData": {
+                  "Type": 2
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 42.9268,
+                "Y": 42.9268,
+                "FrameIndex": 25,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 1054035606,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": 2.8696,
+                "Y": -37.731,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 2.8696,
+                "Y": -37.731,
+                "FrameIndex": 5,
+                "EasingData": {
+                  "Type": 2
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 2.8696,
+                "Y": -37.731,
+                "FrameIndex": 10,
+                "EasingData": {
+                  "Type": 2
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 2.8696,
+                "Y": -37.731,
+                "FrameIndex": 15,
+                "EasingData": {
+                  "Type": 2
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 2.8696,
+                "Y": -37.731,
+                "FrameIndex": 20,
+                "EasingData": {
+                  "Type": 2
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 2.8696,
+                "Y": -37.731,
+                "FrameIndex": 25,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 1054035606,
+            "Property": "Scale",
+            "Frames": [
+              {
+                "X": 1.0,
+                "Y": 1.0,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 1.0,
+                "Y": 1.0,
+                "FrameIndex": 5,
+                "EasingData": {
+                  "Type": 2
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 1.0,
+                "Y": 1.0,
+                "FrameIndex": 10,
+                "EasingData": {
+                  "Type": 2
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 1.0,
+                "Y": 1.0,
+                "FrameIndex": 15,
+                "EasingData": {
+                  "Type": 2
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 1.0,
+                "Y": 1.0,
+                "FrameIndex": 20,
+                "EasingData": {
+                  "Type": 2
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 1.0,
+                "Y": 1.0,
+                "FrameIndex": 25,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 1054035606,
+            "Property": "RotationSkew",
+            "Frames": [
+              {
+                "X": 64.2262,
+                "Y": 64.2262,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 67.2724,
+                "Y": 67.2724,
+                "FrameIndex": 5,
+                "EasingData": {
+                  "Type": 2
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 53.8055,
+                "Y": 53.8055,
+                "FrameIndex": 10,
+                "EasingData": {
+                  "Type": 2
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 68.0944,
+                "Y": 68.0944,
+                "FrameIndex": 15,
+                "EasingData": {
+                  "Type": 2
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 53.8055,
+                "Y": 53.8055,
+                "FrameIndex": 20,
+                "EasingData": {
+                  "Type": 2
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 64.2262,
+                "Y": 64.2262,
+                "FrameIndex": 25,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -970799100,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": 204.6883,
+                "Y": -5.4584,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -970799100,
+            "Property": "Scale",
+            "Frames": [
+              {
+                "X": 0.9999,
+                "Y": 1.0001,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -970799100,
+            "Property": "RotationSkew",
+            "Frames": [
+              {
+                "X": -250.6177,
+                "Y": 109.4154,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 563292261,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": 229.1632,
+                "Y": 46.8182,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 563292261,
+            "Property": "Scale",
+            "Frames": [
+              {
+                "X": 0.9999,
+                "Y": 1.0001,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 563292261,
+            "Property": "RotationSkew",
+            "Frames": [
+              {
+                "X": -65.6098,
+                "Y": -65.5532,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -1175059545,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": 576.3812,
+                "Y": -57.1471,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 576.3812,
+                "Y": -57.1471,
+                "FrameIndex": 5,
+                "EasingData": {
+                  "Type": 2
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 576.3812,
+                "Y": -57.1471,
+                "FrameIndex": 10,
+                "EasingData": {
+                  "Type": 2
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 576.3812,
+                "Y": -57.1471,
+                "FrameIndex": 15,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 576.3812,
+                "Y": -57.1471,
+                "FrameIndex": 20,
+                "EasingData": {
+                  "Type": 2
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 576.3812,
+                "Y": -57.1471,
+                "FrameIndex": 25,
+                "EasingData": {
+                  "Type": 2
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -1175059545,
+            "Property": "Scale",
+            "Frames": [
+              {
+                "X": 1.0,
+                "Y": 1.0,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 1.0,
+                "Y": 1.0,
+                "FrameIndex": 5,
+                "EasingData": {
+                  "Type": 2
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 1.0,
+                "Y": 1.0,
+                "FrameIndex": 10,
+                "EasingData": {
+                  "Type": 2
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 1.0,
+                "Y": 1.0,
+                "FrameIndex": 15,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 1.0,
+                "Y": 1.0,
+                "FrameIndex": 20,
+                "EasingData": {
+                  "Type": 2
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 1.0,
+                "Y": 1.0,
+                "FrameIndex": 25,
+                "EasingData": {
+                  "Type": 2
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -1175059545,
+            "Property": "RotationSkew",
+            "Frames": [
+              {
+                "X": 338.1216,
+                "Y": -741.8779,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 338.1216,
+                "Y": -741.8779,
+                "FrameIndex": 5,
+                "EasingData": {
+                  "Type": 2
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 334.1046,
+                "Y": -745.8949,
+                "FrameIndex": 10,
+                "EasingData": {
+                  "Type": 2
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 343.0728,
+                "Y": -736.9268,
+                "FrameIndex": 15,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 334.1046,
+                "Y": -745.8949,
+                "FrameIndex": 20,
+                "EasingData": {
+                  "Type": 2
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 338.1216,
+                "Y": -741.8779,
+                "FrameIndex": 25,
+                "EasingData": {
+                  "Type": 2
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 919802096,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": 407.5981,
+                "Y": 370.0929,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 407.5981,
+                "Y": 370.0929,
+                "FrameIndex": 5,
+                "EasingData": {
+                  "Type": 2
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 407.5981,
+                "Y": 370.0929,
+                "FrameIndex": 10,
+                "EasingData": {
+                  "Type": 2
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 407.5981,
+                "Y": 370.0929,
+                "FrameIndex": 15,
+                "EasingData": {
+                  "Type": 2
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 407.5981,
+                "Y": 370.0929,
+                "FrameIndex": 20,
+                "EasingData": {
+                  "Type": 2
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 407.5981,
+                "Y": 370.0929,
+                "FrameIndex": 25,
+                "EasingData": {
+                  "Type": 2
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 919802096,
+            "Property": "Scale",
+            "Frames": [
+              {
+                "X": 0.9999,
+                "Y": 1.0001,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.9999,
+                "Y": 1.0001,
+                "FrameIndex": 5,
+                "EasingData": {
+                  "Type": 2
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.9999,
+                "Y": 1.0001,
+                "FrameIndex": 10,
+                "EasingData": {
+                  "Type": 2
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.9999,
+                "Y": 1.0001,
+                "FrameIndex": 15,
+                "EasingData": {
+                  "Type": 2
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.9999,
+                "Y": 1.0001,
+                "FrameIndex": 20,
+                "EasingData": {
+                  "Type": 2
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.9999,
+                "Y": 1.0001,
+                "FrameIndex": 25,
+                "EasingData": {
+                  "Type": 2
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 919802096,
+            "Property": "RotationSkew",
+            "Frames": [
+              {
+                "X": 86.7649,
+                "Y": 86.7436,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 86.7649,
+                "Y": 86.7436,
+                "FrameIndex": 5,
+                "EasingData": {
+                  "Type": 2
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 86.7649,
+                "Y": 86.7436,
+                "FrameIndex": 10,
+                "EasingData": {
+                  "Type": 2
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 86.7649,
+                "Y": 86.7436,
+                "FrameIndex": 15,
+                "EasingData": {
+                  "Type": 2
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 86.7649,
+                "Y": 86.7436,
+                "FrameIndex": 20,
+                "EasingData": {
+                  "Type": 2
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 86.7649,
+                "Y": 86.7436,
+                "FrameIndex": 25,
+                "EasingData": {
+                  "Type": 2
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -1503773519,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": 514.962,
+                "Y": -128.1696,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -1503773519,
+            "Property": "Scale",
+            "Frames": [
+              {
+                "X": 1.0,
+                "Y": 1.0,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -1503773519,
+            "Property": "RotationSkew",
+            "Frames": [
+              {
+                "X": 270.0656,
+                "Y": -449.9257,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -561712190,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": 348.9669,
+                "Y": 3.6708,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -561712190,
+            "Property": "Scale",
+            "Frames": [
+              {
+                "X": 1.0,
+                "Y": 1.0,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -561712190,
+            "Property": "RotationSkew",
+            "Frames": [
+              {
+                "X": 269.9344,
+                "Y": -90.0708,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          }
+        ],
+        "ctype": "TimelineActionData"
+      },
+      "AnimationList": [
+        {
+          "StartIndex": 5,
+          "EndIndex": 25,
+          "Name": "snake_crawl",
+          "ctype": "AnimationInfoData"
+        }
+      ],
+      "ObjectData": {
+        "Length": 20.0,
+        "Position": {
+          "X": 0.0,
+          "Y": 0.0
+        },
+        "Scale": {
+          "ScaleX": 1.0,
+          "ScaleY": 1.0
+        },
+        "CColor": {},
+        "BlendFunc": {
+          "Src": 770,
+          "Dst": 771
+        },
+        "Tag": 83,
+        "Children": [
+          {
+            "Length": 667.0,
+            "Position": {
+              "X": 348.9669,
+              "Y": 3.6708
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "RotationSkewX": 269.9344,
+            "RotationSkewY": -90.0708,
+            "CColor": {},
+            "BlendFunc": {
+              "Src": 770,
+              "Dst": 771
+            },
+            "Tag": 98,
+            "Children": [
+              {
+                "Length": 355.0,
+                "Position": {
+                  "X": 514.962,
+                  "Y": -128.1696
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "RotationSkewX": 270.0656,
+                "RotationSkewY": -449.9257,
+                "CColor": {},
+                "BlendFunc": {
+                  "Src": 770,
+                  "Dst": 771
+                },
+                "Tag": 99,
+                "Children": [
+                  {
+                    "Length": 485.0,
+                    "Position": {
+                      "X": 407.5981,
+                      "Y": 370.0929
+                    },
+                    "Scale": {
+                      "ScaleX": 0.9999,
+                      "ScaleY": 1.0001
+                    },
+                    "RotationSkewX": 86.7649,
+                    "RotationSkewY": 86.7436,
+                    "CColor": {},
+                    "BlendFunc": {
+                      "Src": 770,
+                      "Dst": 771
+                    },
+                    "Tag": 93,
+                    "Children": [
+                      {
+                        "Length": 391.0,
+                        "Position": {
+                          "X": 2.8696,
+                          "Y": -37.731
+                        },
+                        "Scale": {
+                          "ScaleX": 1.0,
+                          "ScaleY": 1.0
+                        },
+                        "RotationSkewX": 64.2262,
+                        "RotationSkewY": 64.2262,
+                        "CColor": {},
+                        "BlendFunc": {
+                          "Src": 770,
+                          "Dst": 771
+                        },
+                        "Tag": 94,
+                        "Children": [
+                          {
+                            "Length": 270.0,
+                            "Position": {
+                              "X": 326.7644,
+                              "Y": -158.3944
+                            },
+                            "Scale": {
+                              "ScaleX": 1.0,
+                              "ScaleY": 1.0
+                            },
+                            "RotationSkewX": 42.9268,
+                            "RotationSkewY": 42.9268,
+                            "CColor": {},
+                            "BlendFunc": {
+                              "Src": 770,
+                              "Dst": 771
+                            },
+                            "Tag": 95,
+                            "Children": [
+                              {
+                                "FileData": {
+                                  "Type": "MarkedSubImage",
+                                  "Path": "Snake/snake_body3.png",
+                                  "Plist": "Snake.plist"
+                                },
+                                "BlendFunc": {
+                                  "Src": 770,
+                                  "Dst": 771
+                                },
+                                "AnchorPoint": {
+                                  "ScaleX": 0.5,
+                                  "ScaleY": 0.5
+                                },
+                                "Position": {
+                                  "X": 147.6473,
+                                  "Y": 110.9814
+                                },
+                                "Scale": {
+                                  "ScaleX": 0.9998,
+                                  "ScaleY": 1.0002
+                                },
+                                "RotationSkewX": -13.8944,
+                                "RotationSkewY": -13.9217,
+                                "CColor": {},
+                                "IconVisible": false,
+                                "PrePosition": {
+                                  "X": 0.0,
+                                  "Y": 0.0
+                                },
+                                "PreSize": {
+                                  "X": 0.0,
+                                  "Y": 0.0
+                                },
+                                "LeftMargin": -90.8527,
+                                "RightMargin": -386.1473,
+                                "TopMargin": -330.9814,
+                                "BottomMargin": -109.0186,
+                                "Tag": 86,
+                                "ActionTag": -436097050,
+                                "Size": {
+                                  "X": 477.0,
+                                  "Y": 440.0
+                                },
+                                "Name": "snake_body3",
+                                "ctype": "SpriteObjectData"
+                              }
+                            ],
+                            "ActionTag": 1564641742,
+                            "ZOrder": 3,
+                            "Size": {
+                              "X": 0.0,
+                              "Y": 0.0
+                            },
+                            "Name": "leg3",
+                            "ctype": "BoneNodeObjectData"
+                          },
+                          {
+                            "FileData": {
+                              "Type": "MarkedSubImage",
+                              "Path": "Snake/snake_body2.png",
+                              "Plist": "Snake.plist"
+                            },
+                            "BlendFunc": {
+                              "Src": 770,
+                              "Dst": 771
+                            },
+                            "AnchorPoint": {
+                              "ScaleX": 0.5,
+                              "ScaleY": 0.5
+                            },
+                            "Position": {
+                              "X": 164.8196,
+                              "Y": -8.6182
+                            },
+                            "Scale": {
+                              "ScaleX": 1.0002,
+                              "ScaleY": 0.9998
+                            },
+                            "RotationSkewX": 28.6359,
+                            "RotationSkewY": 28.6055,
+                            "CColor": {},
+                            "IconVisible": false,
+                            "PrePosition": {
+                              "X": 0.0,
+                              "Y": 0.0
+                            },
+                            "PreSize": {
+                              "X": 0.0,
+                              "Y": 0.0
+                            },
+                            "LeftMargin": -94.6804,
+                            "RightMargin": -424.3196,
+                            "TopMargin": -153.8818,
+                            "BottomMargin": -171.1182,
+                            "Tag": 85,
+                            "ActionTag": -1930093486,
+                            "Size": {
+                              "X": 519.0,
+                              "Y": 325.0
+                            },
+                            "Name": "snake_body2",
+                            "ctype": "SpriteObjectData"
+                          }
+                        ],
+                        "ActionTag": 1054035606,
+                        "ZOrder": 4,
+                        "Size": {
+                          "X": 0.0,
+                          "Y": 0.0
+                        },
+                        "Name": "leg2",
+                        "ctype": "BoneNodeObjectData"
+                      },
+                      {
+                        "FileData": {
+                          "Type": "MarkedSubImage",
+                          "Path": "Snake/snake_body1.png",
+                          "Plist": "Snake.plist"
+                        },
+                        "BlendFunc": {
+                          "Src": 770,
+                          "Dst": 771
+                        },
+                        "AnchorPoint": {
+                          "ScaleX": 0.5,
+                          "ScaleY": 0.5
+                        },
+                        "Position": {
+                          "X": 264.896,
+                          "Y": 88.4451
+                        },
+                        "Scale": {
+                          "ScaleX": 1.0001,
+                          "ScaleY": 0.9999
+                        },
+                        "RotationSkewX": -266.7736,
+                        "RotationSkewY": 93.2594,
+                        "CColor": {},
+                        "IconVisible": false,
+                        "PrePosition": {
+                          "X": 0.0,
+                          "Y": 0.0
+                        },
+                        "PreSize": {
+                          "X": 0.0,
+                          "Y": 0.0
+                        },
+                        "LeftMargin": 47.396,
+                        "RightMargin": -482.396,
+                        "TopMargin": -495.4451,
+                        "BottomMargin": -318.5549,
+                        "Tag": 84,
+                        "ActionTag": 1371927016,
+                        "Size": {
+                          "X": 435.0,
+                          "Y": 814.0
+                        },
+                        "Name": "snake_body1",
+                        "ctype": "SpriteObjectData"
+                      },
+                      {
+                        "Length": 259.0,
+                        "Position": {
+                          "X": 576.3812,
+                          "Y": -57.1471
+                        },
+                        "Scale": {
+                          "ScaleX": 1.0,
+                          "ScaleY": 1.0
+                        },
+                        "RotationSkewX": 338.1216,
+                        "RotationSkewY": -741.8779,
+                        "CColor": {},
+                        "BlendFunc": {
+                          "Src": 770,
+                          "Dst": 771
+                        },
+                        "Tag": 90,
+                        "Children": [
+                          {
+                            "FileData": {
+                              "Type": "MarkedSubImage",
+                              "Path": "Snake/snake_face.png",
+                              "Plist": "Snake.plist"
+                            },
+                            "BlendFunc": {
+                              "Src": 770,
+                              "Dst": 771
+                            },
+                            "AnchorPoint": {
+                              "ScaleX": 0.5,
+                              "ScaleY": 0.5
+                            },
+                            "Position": {
+                              "X": 133.9089,
+                              "Y": 39.6482
+                            },
+                            "Scale": {
+                              "ScaleX": 1.0002,
+                              "ScaleY": 0.9998
+                            },
+                            "RotationSkewX": -238.0888,
+                            "RotationSkewY": 121.9825,
+                            "CColor": {},
+                            "IconVisible": false,
+                            "PrePosition": {
+                              "X": 0.0,
+                              "Y": 0.0
+                            },
+                            "PreSize": {
+                              "X": 0.0,
+                              "Y": 0.0
+                            },
+                            "LeftMargin": -108.5911,
+                            "RightMargin": -376.4089,
+                            "TopMargin": -256.6482,
+                            "BottomMargin": -177.3518,
+                            "Tag": 88,
+                            "ActionTag": -680086089,
+                            "Size": {
+                              "X": 485.0,
+                              "Y": 434.0
+                            },
+                            "Name": "snake_face",
+                            "ctype": "SpriteObjectData"
+                          },
+                          {
+                            "Length": 122.0,
+                            "Position": {
+                              "X": 204.6883,
+                              "Y": -5.4584
+                            },
+                            "Scale": {
+                              "ScaleX": 0.9999,
+                              "ScaleY": 1.0001
+                            },
+                            "RotationSkewX": -250.6177,
+                            "RotationSkewY": 109.4154,
+                            "CColor": {},
+                            "BlendFunc": {
+                              "Src": 770,
+                              "Dst": 771
+                            },
+                            "Tag": 96,
+                            "Children": [
+                              {
+                                "FileData": {
+                                  "Type": "MarkedSubImage",
+                                  "Path": "Snake/snake_eye.png",
+                                  "Plist": "Snake.plist"
+                                },
+                                "BlendFunc": {
+                                  "Src": 770,
+                                  "Dst": 771
+                                },
+                                "AnchorPoint": {
+                                  "ScaleX": 0.5,
+                                  "ScaleY": 0.5
+                                },
+                                "Position": {
+                                  "X": 36.4081,
+                                  "Y": 6.6387
+                                },
+                                "Scale": {
+                                  "ScaleX": 1.0001,
+                                  "ScaleY": 0.9999
+                                },
+                                "RotationSkewX": 10.6411,
+                                "RotationSkewY": 10.599,
+                                "CColor": {},
+                                "IconVisible": false,
+                                "PrePosition": {
+                                  "X": 0.0,
+                                  "Y": 0.0
+                                },
+                                "PreSize": {
+                                  "X": 0.0,
+                                  "Y": 0.0
+                                },
+                                "LeftMargin": 0.9081,
+                                "RightMargin": -71.9081,
+                                "TopMargin": -42.1387,
+                                "BottomMargin": -28.8613,
+                                "Tag": 87,
+                                "ActionTag": -2117152008,
+                                "Size": {
+                                  "X": 71.0,
+                                  "Y": 71.0
+                                },
+                                "Name": "snake_left_eye",
+                                "ctype": "SpriteObjectData"
+                              }
+                            ],
+                            "ActionTag": -970799100,
+                            "ZOrder": 13,
+                            "Size": {
+                              "X": 0.0,
+                              "Y": 0.0
+                            },
+                            "Name": "left_eye",
+                            "ctype": "BoneNodeObjectData"
+                          },
+                          {
+                            "Length": 128.0,
+                            "Position": {
+                              "X": 229.1632,
+                              "Y": 46.8182
+                            },
+                            "Scale": {
+                              "ScaleX": 0.9999,
+                              "ScaleY": 1.0001
+                            },
+                            "RotationSkewX": -65.6098,
+                            "RotationSkewY": -65.5532,
+                            "CColor": {},
+                            "BlendFunc": {
+                              "Src": 770,
+                              "Dst": 771
+                            },
+                            "Tag": 97,
+                            "Children": [
+                              {
+                                "FileData": {
+                                  "Type": "MarkedSubImage",
+                                  "Path": "Snake/snake_eye.png",
+                                  "Plist": "Snake.plist"
+                                },
+                                "BlendFunc": {
+                                  "Src": 770,
+                                  "Dst": 771
+                                },
+                                "AnchorPoint": {
+                                  "ScaleX": 0.5,
+                                  "ScaleY": 0.5
+                                },
+                                "Position": {
+                                  "X": 34.6693,
+                                  "Y": -3.347
+                                },
+                                "Scale": {
+                                  "ScaleX": 1.0002,
+                                  "ScaleY": 0.9998
+                                },
+                                "RotationSkewX": -174.3691,
+                                "RotationSkewY": -174.4363,
+                                "CColor": {},
+                                "IconVisible": false,
+                                "PrePosition": {
+                                  "X": 0.0,
+                                  "Y": 0.0
+                                },
+                                "PreSize": {
+                                  "X": 0.0,
+                                  "Y": 0.0
+                                },
+                                "LeftMargin": -0.8307,
+                                "RightMargin": -70.1693,
+                                "TopMargin": -32.153,
+                                "BottomMargin": -38.847,
+                                "Tag": 100,
+                                "ActionTag": 1682389481,
+                                "Size": {
+                                  "X": 71.0,
+                                  "Y": 71.0
+                                },
+                                "Name": "snake_right_eye",
+                                "ctype": "SpriteObjectData"
+                              }
+                            ],
+                            "ActionTag": 563292261,
+                            "ZOrder": 14,
+                            "Size": {
+                              "X": 0.0,
+                              "Y": 0.0
+                            },
+                            "Name": "right_eye",
+                            "ctype": "BoneNodeObjectData"
+                          }
+                        ],
+                        "ActionTag": -1175059545,
+                        "ZOrder": 12,
+                        "Size": {
+                          "X": 0.0,
+                          "Y": 0.0
+                        },
+                        "Name": "face",
+                        "ctype": "BoneNodeObjectData"
+                      }
+                    ],
+                    "ActionTag": 919802096,
+                    "ZOrder": 5,
+                    "Size": {
+                      "X": 0.0,
+                      "Y": 0.0
+                    },
+                    "Name": "leg1",
+                    "ctype": "BoneNodeObjectData"
+                  }
+                ],
+                "ActionTag": -1503773519,
+                "ZOrder": 11,
+                "Size": {
+                  "X": 0.0,
+                  "Y": 0.0
+                },
+                "Name": "body",
+                "ctype": "BoneNodeObjectData"
+              }
+            ],
+            "ActionTag": -561712190,
+            "ZOrder": 10,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "main",
+            "ctype": "BoneNodeObjectData"
+          }
+        ],
+        "Size": {
+          "X": 0.0,
+          "Y": 0.0
+        },
+        "Name": "snake",
+        "ctype": "SkeletonNodeObjectData"
+      },
+      "UsedResources": [
+        "Snake.plist",
+        "Snake.png"
+      ],
+      "ctype": "GameFileData"
+    }
+  },
+  "Type": "Skeleton"
+}

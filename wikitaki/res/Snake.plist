@@ -1,0 +1,82 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+	<dict>
+		<key>frames</key>
+		<dict>
+			<key>Snake/snake_body1.png</key>
+			<dict>
+				<key>frame</key>
+				<string>{{0,0},{435,814}}</string>
+				<key>offset</key>
+				<string>{0,0}</string>
+				<key>rotated</key>
+				<false />
+				<key>sourceSize</key>
+				<string>{435,814}</string>
+			</dict>
+			<key>Snake/snake_body2.png</key>
+			<dict>
+				<key>frame</key>
+				<string>{{869,0},{519,325}}</string>
+				<key>offset</key>
+				<string>{0,0}</string>
+				<key>rotated</key>
+				<false />
+				<key>sourceSize</key>
+				<string>{519,325}</string>
+			</dict>
+			<key>Snake/snake_body3.png</key>
+			<dict>
+				<key>frame</key>
+				<string>{{435,485},{477,440}}</string>
+				<key>offset</key>
+				<string>{0,0}</string>
+				<key>rotated</key>
+				<true />
+				<key>sourceSize</key>
+				<string>{477,440}</string>
+			</dict>
+			<key>Snake/snake_eye.png</key>
+			<dict>
+				<key>frame</key>
+				<string>{{0,814},{71,71}}</string>
+				<key>offset</key>
+				<string>{0,0}</string>
+				<key>rotated</key>
+				<false />
+				<key>sourceSize</key>
+				<string>{71,71}</string>
+			</dict>
+			<key>Snake/snake_face.png</key>
+			<dict>
+				<key>frame</key>
+				<string>{{435,0},{485,434}}</string>
+				<key>offset</key>
+				<string>{0,0}</string>
+				<key>rotated</key>
+				<true />
+				<key>sourceSize</key>
+				<string>{485,434}</string>
+			</dict>
+		</dict>
+		<key>metadata</key>
+		<dict>
+			<key>format</key>
+			<integer>2</integer>
+			<key>textureFileName</key>
+			<string>Snake.png</string>
+			<key>realTextureFileName</key>
+			<string>Snake.png</string>
+			<key>size</key>
+			<string>{1388,962}</string>
+		</dict>
+		<key>texture</key>
+		<dict>
+			<key>width</key>
+			<integer>1388</integer>
+			<key>height</key>
+			<integer>962</integer>
+		</dict>
+	</dict>
+</plist>

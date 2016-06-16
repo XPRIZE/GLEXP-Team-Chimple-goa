@@ -1,0 +1,55 @@
+{
+    "skinChoices": [],
+    "skinNameMaps": {
+         "centipede":{
+             "head":"centipede_face",
+             "left_eye": "centipede_left_eye",
+             "right_eye": "centipede_right_eye",
+             "leg_1" : "centipede_1_leg",
+              "leg_2" : "centipede_2_leg",
+              "leg_3" : "centipede_3_leg",
+              "leg_4" : "centipede_4_leg",
+              "leg_5" : "centipede_5_leg",
+              "leg_6" : "centipede_6_leg",
+              "leg_7" : "centipede_7_leg",
+              "leg_8" : "centipede_8_leg"
+         },
+         "caterpillar":{
+             "head":"caterpillar_face",
+             "left_eye": "caterpillar_left_eye",
+              "right_eye": "caterpillar_right_eye",
+              "leg_1" : "caterpillar_1_leg",
+              "leg_2" : "caterpillar_2_leg",
+              "leg_3" : "caterpillar_3_leg",
+              "leg_4" : "caterpillar_4_leg",
+              "leg_5" : "caterpillar_5_leg",
+              "leg_6" : "caterpillar_6_leg",
+              "leg_7" : "caterpillar_7_leg",
+              "leg_8" : "caterpillar_8_leg"
+         },
+         "snake" :{
+             "leg1" : "snake_body1",
+             "leg2" : "snake_body2",
+             "leg3" : "snake_body3",
+             "face" : "snake_face",
+             "left_eye": "snake_left_eye",
+             "right_eye" :"snake_right_eye"
+         }
+         
+    },
+     "colorSkins": {
+        "bodySkin": {
+            
+        }
+    },
+    "animations": [
+        {
+          "icon": "icons/add_qna.png",
+          "name": "crawl"
+        },
+        {
+          "icon": "icons/add_qna.png",
+          "name": "snake_crawl"
+        }
+    ]
+}

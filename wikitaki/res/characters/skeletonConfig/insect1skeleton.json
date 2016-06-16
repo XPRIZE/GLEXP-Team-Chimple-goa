@@ -1,0 +1,60 @@
+{
+    "skinChoices": [],
+    "skinNameMaps": {
+       
+       "ant":{
+             "body":"ant_body_14",
+             "neck" :"ant_face",
+             "left_eye":"ant_left_eye",
+             "right_eye":"ant_right_eye",
+             "left_2_leg":"ant_left_2_leg",
+             "right_2_leg":"ant_right_2_leg",
+             "left_1_leg":"ant_left_1_leg",
+             "right_1_leg":"ant_right_1_leg",
+             "right_3_leg":"",
+             "left_3_leg":"",
+             "right_4_leg":"",
+             "left_4_leg":""
+             
+
+         },
+         "ladybug": {
+             "body":"ladybug_body_1",
+             "neck" : "ladybug_face",
+             "left_eye":"ladybug_left_eye",
+             "right_eye":"ladybug_right_eye",
+             "left_2_leg":"ladybug_left_2_leg",
+             "right_2_leg":"ladybug_right_2_leg",
+             "left_1_leg":"ladybug_left_1_leg",
+             "right_1_leg":"ladybug_right_1_leg",
+             "right_3_leg":"ladybug_right_3_leg",
+             "left_3_leg":"ladybug_left_3_leg",
+             "right_4_leg":"",
+             "left_4_leg":""
+         },
+         "spider":{
+              "body":"spider_body_2",
+              "neck" : "spider_face_4",
+              "left_eye":"spider_left_eye",
+              "right_eye":"spider_right_eye",
+              "left_2_leg":"spider_left_2_leg",
+              "right_2_leg":"spider_right_2_leg",
+              "right_3_leg":"spider_right_3_leg",
+              "left_3_leg":"spider_left_3_leg",
+              "right_4_leg":"spider_right_4_leg",
+             "left_4_leg":"spider_left_4_leg"
+
+         }
+    },
+     "colorSkins": {
+        "bodySkin": {
+            
+        }
+    },
+    "animations": [
+        {
+          "icon": "icons/add_qna.png",
+          "name": "crawl"
+        }
+    ]
+}
