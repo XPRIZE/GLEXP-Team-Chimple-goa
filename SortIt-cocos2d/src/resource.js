@@ -33,7 +33,7 @@ var res = {
     minClock_png: "res/level2/minClock.png",
     stand_png: "res/level2/stand.png",
     table_png: "res/level2/table.png",
-    tickingClock_mp3: "res/level2/table.mp3",
+    tickingClock_mp3: "res/level2/tickingClock.mp3",
     cake1_png: "res/level2/cake1.png",
     cake1t_png: "res/level2/cake1t.png",
     cake2_png: "res/level2/cake2.png",

@@ -52,46 +52,27 @@
  *
  */
 
-
 cc.game.onStart = function(){
-   
-   cc.view.adjustViewPort(true);
-   if(cc.sys.isNative)
-   {
-       if(cc.view.getFrameSize().width >= 640 && cc.view.getFrameSize().height >=640 )
-       {
-           var size;
-           if(cc.view.getFrameSize().width >= 640 && cc.view.getFrameSize().height >=640)
-           {
-               size = 1136;
-           }
-           else
-               size = 960;
-               
-           cc.view.setRealPixelResolution(640, size, cc.ResolutionPolicy.SHOW_ALL);
-       }
-       else
-       {
-           cc.view.setRealPixelResolution(320, 480, cc.ResolutionPolicy.SHOW_ALL);
-       }    
-   }
-   else
-   {
-            cc.view.setRealPixelResolution(1280,800,cc.ResolutionPolicy.SHOW_ALL);
-            cc.view.resizeWithBrowserSize(true);
-   }
-   
+    //if(!cc.sys.isNative && document.getElementById("cocosLoading")) //If referenced loading.js, please remove it
+     //   document.body.removeChild(document.getElementById("cocosLoading"));
 
-   // LoadingScene
-   // LevelStateScene
-   // Level_1_Scene
-
-
-   // cc.director.runScene(new loadScene());
-
-   
+    // Pass true to enable retina display, on Android disabled by default to improve performance
+    //cc.view.enableRetina(cc.sys.os === cc.sys.OS_IOS ? true : false);
+    // Adjust viewport meta
+    cc.view.adjustViewPort(true);
+    // Setup the resolution policy and design resolution size
+    //cc.view.setDesignResolutionSize(960, 640, cc.ResolutionPolicy.SHOW_ALL);
+    // Instead of set design resolution, you can also set the real pixel resolution size
+    // Uncomment the following line and delete the previous line.
+     cc.view.setRealPixelResolution(960, 640, cc.ResolutionPolicy.SHOW_ALL);
+    // The game will be resized when browser size change
+    cc.view.resizeWithBrowserSize(true);
+    //load resources
     cc.LoaderScene.preload(g_resources, function () {
-       cc.director.runScene(new loadScene());
-   }, this); 
+       // cc.director.setContentScaleFactor(1);
+        cc.director.runScene(new loadScene());
+    }, this);
 };
 cc.game.run();
+
+

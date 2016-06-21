@@ -9,17 +9,22 @@
     "renderMode" : 0,
     "engineDir":"frameworks/cocos2d-html5",
 
-    "modules" : ["cocos2d","external"],
+    "modules" : ["cocos2d"],
 
     "jsList" : [
         "src/resource.js",
         "src/load.js",
-        "src/MovableItem.js"
         "src/playLevel1.js",
         "src/playLevel2.js",
         "src/playLevel3.js",
         "src/playLevel4.js",
         "src/playLevel5.js",
-        "src/playLevel6.js"
+        "src/playLevel6.js",
+        "src/MovableItem1.js",
+        "src/MovableItem2.js",
+        "src/MovableItem3.js",
+        "src/MovableItem4.js",
+        "src/MovableItem5.js",
+        "src/MovableItem6.js"
     ]
 }
