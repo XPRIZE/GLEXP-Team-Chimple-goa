@@ -1003,7 +1003,7 @@ void PhysicsWorld::beforeSimulation(Node *node, const Mat4& parentToWorldTransfo
 {
     auto scaleX = nodeParentScaleX * node->getScaleX();
     auto scaleY = nodeParentScaleY * node->getScaleY();
-    auto rotation = parentRotation + node->getRotation();
+    auto rotation = parentRotation + node->getRotationSkewX();
 
     auto nodeToWorldTransform = parentToWorldTransform * node->getNodeToParentTransform();
 
@@ -1020,7 +1020,7 @@ void PhysicsWorld::beforeSimulation(Node *node, const Mat4& parentToWorldTransfo
 void PhysicsWorld::afterSimulation(Node *node, const Mat4& parentToWorldTransform, float parentRotation)
 {
     auto nodeToWorldTransform = parentToWorldTransform * node->getNodeToParentTransform();
-    auto nodeRotation = parentRotation + node->getRotation();
+    auto nodeRotation = parentRotation + node->getRotationSkewX();
 
     auto physicsBody = node->getPhysicsBody();
     if (physicsBody)

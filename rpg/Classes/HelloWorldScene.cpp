@@ -1,21 +1,116 @@
 #include "HelloWorldScene.h"
+#include "ui/CocosGUI.h"
+#include "editor-support/cocostudio/CocoStudio.h"
+#include "editor-support/cocostudio/ActionTimeline/CCSkeletonNode.h"
+#include "PhysicsShapeCache.h"
+#include "GestureLayer.hpp"
+#include <cmath>
+#include <map>
 
 USING_NS_CC;
 
 Scene* HelloWorld::createScene()
 {
     // 'scene' is an autorelease object
-    auto scene = Scene::create();
+    auto scene = Scene::createWithPhysics();
     
     // 'layer' is an autorelease object
     auto layer = HelloWorld::create();
-
+    
     // add layer as a child to scene
     scene->addChild(layer);
-
+    initPhysics(scene);
+    
     // return the scene
     return scene;
 }
+
+void HelloWorld::initPhysics(Scene* scene)
+{
+    scene->getPhysicsWorld()->setGravity(Vec2(0.0f, RPG_GRAVITY));
+    if(ENABLE_DEBUGDRAW) {
+        scene->getPhysicsWorld()->setDebugDrawMask(PhysicsWorld::DEBUGDRAW_ALL);
+    }
+}
+
+HelloWorld::HelloWorld() {
+    gesture_layer_ = NULL;
+    skeletonCharacter = NULL;
+}
+
+HelloWorld::~HelloWorld() {
+    delete skeletonCharacter;
+    delete stateMachine;
+}
+
+//TODO
+void HelloWorld::createRPGGame() {
+    //load scene statically for now, later load externally either using XML or JSON
+    loadGameScene();
+    
+    //create character
+    //cocostudio::timeline::SkeletonNode* mainGameCharacter = createMainGameCharacter();
+    createSkeletonCharacter();
+    cocostudio::timeline::SkeletonNode* mainGameCharacter = skeletonCharacter->getSkeletonNode();
+    addMainCharacterToScene(mainGameCharacter);
+    initializeStateMachine();
+}
+
+void HelloWorld::loadGameScene() {
+    Node *rootNode = CSLoader::createNode("MainScene.csb");
+    this->addChild(rootNode);
+    enablePhysicsBoundaries(rootNode);
+}
+
+
+void HelloWorld::enablePhysicsBoundaries(Node* rootNode) {
+    PhysicsShapeCache::getInstance()->addShapesWithFile("story.plist");
+    for (auto child : rootNode->getChildren()) {
+        CCLOG("%s", child->getName().c_str());
+        PhysicsShapeCache::getInstance()->setBodyOnSprite(child->getName(), (Sprite *)child);
+    }
+}
+
+void HelloWorld::createSkeletonCharacter() {
+    skeletonCharacter = new SkeletonCharacter();
+    skeletonCharacter->createSkeletonNode("human_skeleton.csb");
+    
+    
+}
+
+
+void HelloWorld::initializeStateMachine() {
+    stateMachine = StateMachine::getInstance();
+    stateMachine->addState(S_STANDING_STATE, skeletonCharacter);
+    stateMachine->addState(S_RUNNING_STATE, skeletonCharacter);
+    stateMachine->addState(S_JUMPING_STATE, skeletonCharacter);
+    stateMachine->addState(S_WALKING_STATE, skeletonCharacter);
+    stateMachine->addState(S_FALLING_STATE, skeletonCharacter);
+    
+    stateMachine->setInitialState(S_STANDING_STATE);
+    this->skeletonCharacter->setStateMachine(stateMachine);
+}
+
+void HelloWorld::addMainCharacterToScene(cocostudio::timeline::SkeletonNode* skeletonNode) {
+    auto visibleSize = Director::getInstance()->getVisibleSize();
+    Vec2 origin = Director::getInstance()->getVisibleOrigin();
+    
+    skeletonNode->setPosition(Vec2(origin.x + visibleSize.width/2, origin.y + visibleSize.height/2));
+    
+    this->addChild(skeletonNode);
+    
+    //change
+    auto followAction = Follow::create(skeletonNode, Rect(0,0,10240, 1800));
+    this->runAction(followAction);
+    
+    
+}
+
+void HelloWorld::initGestureLayer() {
+    gesture_layer_ = GestureLayer::create(this, callfuncO_selector(HelloWorld::OnGestureReceived));
+    this->addChild(gesture_layer_);
+}
+
 
 // on "init" you need to initialize your instance
 bool HelloWorld::init()
@@ -27,59 +122,432 @@ bool HelloWorld::init()
         return false;
     }
     
-    Size visibleSize = Director::getInstance()->getVisibleSize();
-    Vec2 origin = Director::getInstance()->getVisibleOrigin();
-
-    /////////////////////////////
-    // 2. add a menu item with "X" image, which is clicked to quit the program
-    //    you may modify it.
-
-    // add a "close" icon to exit the progress. it's an autorelease object
-    auto closeItem = MenuItemImage::create(
-                                           "CloseNormal.png",
-                                           "CloseSelected.png",
-                                           CC_CALLBACK_1(HelloWorld::menuCloseCallback, this));
+    createRPGGame();
     
-	closeItem->setPosition(Vec2(origin.x + visibleSize.width - closeItem->getContentSize().width/2 ,
-                                origin.y + closeItem->getContentSize().height/2));
-
-    // create menu, it's an autorelease object
-    auto menu = Menu::create(closeItem, NULL);
-    menu->setPosition(Vec2::ZERO);
-    this->addChild(menu, 1);
-
-    /////////////////////////////
-    // 3. add your codes below...
-
-    // add a label shows "Hello World"
-    // create and initialize a label
+    initGestureLayer();
     
-    auto label = Label::createWithTTF("Hello World", "fonts/Marker Felt.ttf", 24);
+    this->scheduleUpdate();
     
-    // position the label on the center of the screen
-    label->setPosition(Vec2(origin.x + visibleSize.width/2,
-                            origin.y + visibleSize.height - label->getContentSize().height));
-
-    // add the label as a child to this layer
-    this->addChild(label, 1);
-
-    // add "HelloWorld" splash screen"
-    auto sprite = Sprite::create("HelloWorld.png");
-
-    // position the sprite on the center of the screen
-    sprite->setPosition(Vec2(visibleSize.width/2 + origin.x, visibleSize.height/2 + origin.y));
-
-    // add the sprite as a child to this layer
-    this->addChild(sprite, 0);
     
     return true;
 }
+
+void HelloWorld::update(float dt) {
+    if(this->skeletonCharacter->getSkeletonInContactWithGround())
+    {
+        if(this->skeletonCharacter->isWalking) {
+            
+            if(checkTouchLeftOfCharacter(this->currentTouchPoint, this->skeletonCharacter->getSkeletonNode())) {
+                this->skeletonCharacter->getSkeletonNode()->getPhysicsBody()->setVelocity(Vec2(-MAIN_CHARACTER_FORCE,GRAVITY_VELOCITY_TO_STICK_TO_GROUND));
+            } else if (checkTouchRightOfCharacter(this->currentTouchPoint, this->skeletonCharacter->getSkeletonNode())) {
+                this->skeletonCharacter->getSkeletonNode()->getPhysicsBody()->setVelocity(Vec2(MAIN_CHARACTER_FORCE,GRAVITY_VELOCITY_TO_STICK_TO_GROUND));
+            }
+            
+            
+        } else if(this->skeletonCharacter->isRunning) {
+            
+            if(checkTouchLeftOfCharacter(this->currentTouchPoint, this->skeletonCharacter->getSkeletonNode())) {
+                this->skeletonCharacter->getSkeletonNode()->getPhysicsBody()->setVelocity(Vec2(-MAIN_CHARACTER_RUNNING_FORCE,GRAVITY_VELOCITY_TO_STICK_TO_GROUND));
+            } else if (checkTouchRightOfCharacter(this->currentTouchPoint, this->skeletonCharacter->getSkeletonNode())) {
+                this->skeletonCharacter->getSkeletonNode()->getPhysicsBody()->setVelocity(Vec2(MAIN_CHARACTER_RUNNING_FORCE,GRAVITY_VELOCITY_TO_STICK_TO_GROUND));
+            }
+            
+            
+        }
+    } else {
+        if(this->skeletonCharacter->isRunning || this->skeletonCharacter->isWalking) {
+            this->stateMachine->handleInput(S_FALLING_STATE, cocos2d::Vec2(0,0));
+        }
+    }
+    
+    if(this->skeletonCharacter->isJumping)
+    {
+        if(this->skeletonCharacter->isJumpingUp &&
+           this->skeletonCharacter->getSkeletonNode()->getPhysicsBody()->getVelocity().y <=0) {
+            this->skeletonCharacter->isJumpingUp = false;
+            this->skeletonCharacter->getSkeletonActionTimeLine()->play("jumpdownair", false);
+        }
+    }
+    
+}
+
+void HelloWorld::OnGestureReceived(Ref* sender)
+{
+    //CCLOG("%s", "OnGestureReceived");
+    GestureLayer* gesture_layer = (GestureLayer*)sender;
+    // call the respective gesture's handler
+    
+    this->currentTouchPoint = gesture_layer->GetTouchEnd();
+    switch(gesture_layer->GetGestureType())
+    {
+        case E_GESTURE_TAP:
+            HandleTap(gesture_layer->GetTouchEnd());
+            break;
+            
+        case E_GESTURE_HOLD:
+            HandleHold(gesture_layer->GetTouchEnd());
+            break;
+            
+        case E_GESTURE_SWIPE_UP:
+            HandleSwipeUp(gesture_layer->GetTouchEnd());
+            break;
+            
+        case E_GESTURE_SWIPE_DOWN:
+            HandleSwipeDown(gesture_layer->GetTouchEnd());
+            break;
+            
+        case E_GESTURE_SWIPE_LEFT:
+            HandleSwipeLeft(gesture_layer->GetTouchEnd());
+            break;
+            
+        case E_GESTURE_SWIPE_RIGHT:
+            HandleSwipeRight(gesture_layer->GetTouchEnd());
+            break;
+            
+        case E_GESTURE_TOUCH_ENDED:
+            HandleTouchedEnded(gesture_layer->GetTouchEnd());
+            break;
+            
+        default: E_GESTURE_NONE:
+            break;
+            
+    }
+}
+
+bool HelloWorld::checkTouchWithinBoundsOfCharacter(Point point, cocostudio::timeline::SkeletonNode* characterNode)
+{
+    //find out touch Location
+    Rect characterBoundingRect = characterNode->getBoundingBox();
+    
+    if(characterBoundingRect.containsPoint(characterNode->getParent()->convertToNodeSpace(point))) {
+        CCLOG("%s", "touch on Character");
+        if(this->skeletonCharacter->isRunning || this->skeletonCharacter->isWalking)
+        {
+            this->stateMachine->handleInput(S_STANDING_STATE, cocos2d::Vec2(0,0));
+            this->skeletonCharacter->getSkeletonNode()->getPhysicsBody()->resetForces();
+            this->skeletonCharacter->getSkeletonNode()->getPhysicsBody()->setVelocity(Vec2(0,0));
+        }
+        
+        //change mouse to different image
+        return true;
+    }
+    
+    return false;
+}
+
+bool HelloWorld::checkTouchVerticallyUpOnBoundsOfCharacter(Point point, cocostudio::timeline::SkeletonNode* characterNode)
+{
+    //find out touch Location
+    Vec2 characterPosition = characterNode->getParent()->convertToWorldSpace(characterNode->getPosition());
+    Rect characterBoundingRect = characterNode->getBoundingBox();
+    
+    Rect boundingRectUpCharacter = Rect((characterPosition.x - characterBoundingRect.size.width/2), characterPosition.y, characterBoundingRect.size.width, (Director::getInstance()->getWinSize().height - characterPosition.y));
+    
+    if(boundingRectUpCharacter.containsPoint(point)) {
+        return true;
+    }
+    
+    return false;
+}
+
+bool HelloWorld::checkTouchLeftOfCharacter(Point point, cocostudio::timeline::SkeletonNode* characterNode)
+{
+    //find out touch Location
+    Vec2 characterPosition = characterNode->getParent()->convertToWorldSpace(characterNode->getPosition());
+    
+    if(point.x < characterPosition.x) {
+        auto scaleX = this->skeletonCharacter->getSkeletonNode()->getScaleX();
+        if(scaleX < 0) {
+            scaleX = -scaleX;
+        }
+        this->skeletonCharacter->getSkeletonNode()->setScaleX(scaleX);
+        
+        return true;
+    }
+    return false;
+}
+
+bool HelloWorld::checkTouchRightOfCharacter(Point point, cocostudio::timeline::SkeletonNode* characterNode)
+{
+    //find out touch Location
+    Vec2 characterPosition = characterNode->getParent()->convertToWorldSpace(characterNode->getPosition());
+    
+    if(point.x >= characterPosition.x) {
+        auto scaleX = this->skeletonCharacter->getSkeletonNode()->getScaleX();
+        if(scaleX > 0) {
+            scaleX = -scaleX;
+        }
+        this->skeletonCharacter->getSkeletonNode()->setScaleX(scaleX);
+        
+        return true;
+    }
+    return false;
+}
+
+
+bool HelloWorld::checkHoldWithinWalkLimitOfCharacter(Point point, cocostudio::timeline::SkeletonNode* characterNode)
+{
+    //find out touch Location
+    Vec2 characterPosition = characterNode->getParent()->convertToWorldSpace(characterNode->getPosition());
+    Rect characterBoundingRect = characterNode->getBoundingBox();
+    
+    Rect boundingLeftRect = Rect((characterPosition.x - characterBoundingRect.size.width/2 - 2 * characterBoundingRect.size.width), 0, 2 * characterBoundingRect.size.width, characterPosition.y + characterBoundingRect.size.height);
+    
+    if(boundingLeftRect.containsPoint(point)) {
+        CCLOG("%s", "left walking area on hold");
+        //change mouse to different image
+        return true;
+    }
+    
+    Rect boundingRightRect = Rect((characterPosition.x + characterBoundingRect.size.width/2), 0, 2 * characterBoundingRect.size.width, characterPosition.y + characterBoundingRect.size.height);
+    
+    if(boundingRightRect.containsPoint(point)) {
+        CCLOG("%s", "right walking area on hold");
+        //change mouse to different image
+        return true;
+    }
+    
+    return false;
+}
+
+
+bool HelloWorld::checkHoldWithinSittingLimitOfCharacter(Point point, cocostudio::timeline::SkeletonNode* characterNode)
+{
+    //find out touch Location
+    Vec2 characterPosition = characterNode->getParent()->convertToWorldSpace(characterNode->getPosition());
+    Rect characterBoundingRect = characterNode->getBoundingBox();
+    
+    Rect boundingSittingRect = Rect((characterPosition.x - characterBoundingRect.size.width/2), 0,  characterBoundingRect.size.width, characterPosition.y);
+    
+    if(boundingSittingRect.containsPoint(point)) {
+        CCLOG("%s", "sitting area on hold");
+        //change mouse to different image
+        return true;
+    }
+    
+    
+    return false;
+}
+
+void HelloWorld::HoldOrDragBehaviour(Point position) {
+    if(this->skeletonCharacter->getSkeletonInContactWithGround())
+    {
+        Vec2 characterPosition = this->skeletonCharacter->getSkeletonNode()->getParent()->convertToWorldSpace(this->skeletonCharacter->getSkeletonNode()->getPosition());
+        
+        if(position.y >= 0 && position.y <= characterPosition.y + this->skeletonCharacter->getSkeletonNode()->getBoundingBox().size.height) {
+            //if within sitting boundary then sit
+            //elseif within walking boundary then walk
+            //else run
+            //0nly LEFT/RIGHT Horizontal force
+            
+            if(checkHoldWithinSittingLimitOfCharacter(position, this->skeletonCharacter->getSkeletonNode()))
+            {
+                CCLOG("%s", "Withing sitting area");
+            }
+            else if(checkHoldWithinWalkLimitOfCharacter(position, this->skeletonCharacter->getSkeletonNode())) {
+                //CCLOG("%s", "Withing walking area");
+                this->walkCharacterOnLeftOrRightDirection(position);
+            } else {
+                CCLOG("%s", "Withing running area");
+                this->runCharacterOnLeftOrRightDirection(position);
+            }
+            
+        } else {
+            //Same Force as TAP
+            if(this->skeletonCharacter->isJumping) {
+                return;
+            }
+            CCLOG("%s", "HOLDING WITH DRAG EFFECT..............");
+            this->skeletonCharacter->getSkeletonNode()->getPhysicsBody()->resetForces();
+            this->skeletonCharacter->getSkeletonNode()->getPhysicsBody()->setVelocity(Vec2(0,0));
+            this->applyImpulseOnSkeletonToJump(position);
+            
+        }
+        
+    } else {
+        //animate JUMP Down
+    }
+}
+
+//Handle Tap
+void HelloWorld::HandleHold(Point position)
+{
+    if(checkTouchWithinBoundsOfCharacter(position, this->skeletonCharacter->getSkeletonNode())) {
+        return;
+    };
+    this->HoldOrDragBehaviour(position);
+}
+
+
+void HelloWorld::walkCharacterOnLeftOrRightDirection(Point position) {
+    
+    Vec2 characterPosition = this->skeletonCharacter->getSkeletonNode()->getParent()->convertToWorldSpace(this->skeletonCharacter->getSkeletonNode()->getPosition());
+    
+    if(checkTouchLeftOfCharacter(position, this->skeletonCharacter->getSkeletonNode())) {
+        this->stateMachine->handleInput(S_WALKING_STATE, Vec2(-MAIN_CHARACTER_FORCE, 0));
+        this->skeletonCharacter->isWalking = true;
+        
+    } else if (checkTouchRightOfCharacter(position, this->skeletonCharacter->getSkeletonNode())){
+        this->stateMachine->handleInput(S_WALKING_STATE, Vec2(MAIN_CHARACTER_FORCE, 0));
+        this->skeletonCharacter->isWalking = true;
+    }
+    
+}
+
+
+void HelloWorld::runCharacterOnLeftOrRightDirection(Point position) {
+    
+    Vec2 characterPosition = this->skeletonCharacter->getSkeletonNode()->getParent()->convertToWorldSpace(this->skeletonCharacter->getSkeletonNode()->getPosition());
+    
+    if(checkTouchLeftOfCharacter(position, this->skeletonCharacter->getSkeletonNode())) {
+        this->stateMachine->handleInput(S_RUNNING_STATE, Vec2(-MAIN_CHARACTER_RUNNING_FORCE, GRAVITY_VELOCITY_TO_STICK_TO_GROUND));
+        CCLOG("%s", "Only Run Left!!!");
+        this->skeletonCharacter->isRunning = true;
+    } else if (checkTouchRightOfCharacter(position, this->skeletonCharacter->getSkeletonNode())) {
+        this->stateMachine->handleInput(S_RUNNING_STATE, Vec2(MAIN_CHARACTER_RUNNING_FORCE, GRAVITY_VELOCITY_TO_STICK_TO_GROUND));
+        CCLOG("%s", "Only Run Right!!!");
+        this->skeletonCharacter->isRunning = true;
+    }
+    
+}
+
+void HelloWorld::scheduleJumpUpEndCall(float timeToStart) {
+    this->scheduleOnce(schedule_selector(HelloWorld::startJumpUpEndingAnimation), timeToStart);
+}
+
+
+
+void HelloWorld::applyImpulseOnSkeletonToJump(Point position) {
+    CCLOG("%s", "applyImpulseOnSkeletonToJump");
+    Vec2 characterPosition = this->skeletonCharacter->getSkeletonNode()->getParent()->convertToWorldSpace(this->skeletonCharacter->getSkeletonNode()->getPosition());
+    
+    float angle = RPGConfig::calcuateAngleForJump(position, characterPosition);
+    float value = RPGConfig::calcuateVelocityForJump(position, characterPosition);
+    float timeToStart = RPGConfig::calcuateTimeToStartJumpUpAnimation(value, angle, JUMP_UP_ENDING_ANIMATION_FRAMES);
+    
+    this->scheduleJumpUpEndCall(timeToStart);
+    
+    if(checkTouchLeftOfCharacter(position, this->skeletonCharacter->getSkeletonNode())) {
+        this->stateMachine->handleInput(S_JUMPING_STATE, Vec2(-value * cos(angle * PI/RADIAN_TO_DEGREE), -value * sin(angle * PI/RADIAN_TO_DEGREE)));
+        
+    } else if (checkTouchRightOfCharacter(position, this->skeletonCharacter->getSkeletonNode())) {
+        this->stateMachine->handleInput(S_JUMPING_STATE, Vec2(value * cos(angle * PI/RADIAN_TO_DEGREE), value * sin(angle * PI/RADIAN_TO_DEGREE)));
+    }
+}
+
+void HelloWorld::startJumpUpEndingAnimation(float dt) {
+    this->skeletonCharacter->isJumpingUp = true;
+    //define function to be callback once initial jumping animation is over
+    std::function<void(void)> startJumpingDownAnimation = std::bind(&SkeletonCharacter::HandleJumpDownStartingAnimation, this->skeletonCharacter);
+    
+    this->skeletonCharacter->playJumpingUpEndingAnimation(startJumpingDownAnimation);
+}
+
+//Handle Tap
+void HelloWorld::HandleTap(Point position)
+{
+    if(this->skeletonCharacter->isJumping || this->skeletonCharacter->isRunning || this->skeletonCharacter->isWalking) {
+        return;
+    }
+    
+    if(checkTouchWithinBoundsOfCharacter(position, this->skeletonCharacter->getSkeletonNode())) {
+        return;
+    };
+    
+    CCLOG("%s", "Handle Tap!!!");
+    
+    this->HandleJumpWithAnimation();
+}
+
+void HelloWorld::HandlePostJumpUpAnimation() {
+    this->applyImpulseOnSkeletonToJump(this->currentTouchPoint);
+}
+
+
+void HelloWorld::HandleJumpWithAnimation() {
+    //define function to be callback once initial jumping animation is over
+    std::function<void(void)> startJumpingStateAfterJumpStartAnimation = std::bind(&HelloWorld::HandlePostJumpUpAnimation, this);
+    //start playing start jump animation
+    this->skeletonCharacter->playStartingJumpUpAnimation(startJumpingStateAfterJumpStartAnimation);
+}
+
+//Handle Swipe Up
+void HelloWorld::HandleSwipeUp(Point position) {
+    if(checkTouchWithinBoundsOfCharacter(position, this->skeletonCharacter->getSkeletonNode())) {
+        return;
+    };
+    
+    CCLOG("%s", "Handle Drag Up!!!");
+    
+    if(checkTouchVerticallyUpOnBoundsOfCharacter(position, this->skeletonCharacter->getSkeletonNode()))
+    {
+        stateMachine->handleInput(S_JUMPING_STATE, Vec2(0, MAIN_CHARACTER_VERTICAL_IMPULSE));
+    }
+}
+
+//Handle Swipe Down
+void HelloWorld::HandleSwipeDown(Point position) {
+    if(checkTouchWithinBoundsOfCharacter(position, this->skeletonCharacter->getSkeletonNode())) {
+        return;
+    };
+    
+    //CCLOG("%s", "Handle Drag Down!!!");
+    //go to standing and kill all force
+}
+
+
+//Handle Swipe Left
+void HelloWorld::HandleSwipeLeft(Point position) {
+    if(checkTouchWithinBoundsOfCharacter(position, this->skeletonCharacter->getSkeletonNode())) {
+        return;
+    };
+    
+    //CCLOG("%s", "Handle Drag Left!!!");
+    
+    this->HoldOrDragBehaviour(position);
+}
+
+void HelloWorld::HandleTouchedEnded(Point position) {
+    CCLOG("%s", "HandleTouchedEnded!!!");
+    if(this->skeletonCharacter->isRunning) {
+        
+        CCLOG("%s", "HandleTouchedEnded => on Ground!!! while running");
+        std::map<std::string,std::string> multiAnimationMap;
+        multiAnimationMap.insert(std::pair<std::string,std::string>("breakend","idle"));
+        
+        this->stateMachine->handleInput(S_STANDING_STATE, cocos2d::Vec2(0,0), multiAnimationMap);
+        this->skeletonCharacter->getSkeletonNode()->getPhysicsBody()->resetForces();
+        this->skeletonCharacter->getSkeletonNode()->getPhysicsBody()->setVelocity(Vec2(0,0));
+        
+    } else if(this->skeletonCharacter->getSkeletonInContactWithGround() || this->skeletonCharacter->isWalking) {
+        this->stateMachine->handleInput(S_STANDING_STATE, cocos2d::Vec2(0,0));
+        this->skeletonCharacter->getSkeletonNode()->getPhysicsBody()->resetForces();
+        this->skeletonCharacter->getSkeletonNode()->getPhysicsBody()->setVelocity(Vec2(0,0));
+        
+    }
+    
+    this->skeletonCharacter->isWalking = false;
+    this->skeletonCharacter->isRunning = false;
+}
+
+//Handle Swipe Right
+void HelloWorld::HandleSwipeRight(Point position) {
+    
+    if(checkTouchWithinBoundsOfCharacter(position, this->skeletonCharacter->getSkeletonNode())) {
+        return;
+    };
+    
+    //CCLOG("%s", "Handle Drag Right!!!");
+    
+    this->HoldOrDragBehaviour(position);
+}
+
 
 
 void HelloWorld::menuCloseCallback(Ref* pSender)
 {
     Director::getInstance()->end();
-
+    
 #if (CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
     exit(0);
 #endif
