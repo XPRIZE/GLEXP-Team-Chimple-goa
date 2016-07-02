@@ -39,13 +39,19 @@ private:
     
     bool checkHoldWithinSittingLimitOfCharacter(cocos2d::Point point, cocostudio::timeline::SkeletonNode* characterNode);
     
-    void applyImpulseOnSkeletonToJump(cocos2d::Point position);
+    void applyImpulseOnSkeletonToJumpOnHoldOrDrag(cocos2d::Point position);
+    
+    void applyImpulseOnSkeletonToJumpOnTap(cocos2d::Point position);
+    
+    void applyImpulseOnSkeletonToJump(cocos2d::Point position, float angle, float velocity, float timeToStart);
     
     void walkCharacterOnLeftOrRightDirection(cocos2d::Point position);
     
     void runCharacterOnLeftOrRightDirection(cocos2d::Point position);
     
-    void HoldOrDragBehaviour(cocos2d::Point position);
+    void HoldOrDragBehaviour(cocos2d::Point position);    
+    
+    void scheduleContinuousRotationCall(float timeToStart);
     
 public:
     static cocos2d::Scene* createScene();
@@ -73,6 +79,8 @@ public:
     
     void startJumpUpEndingAnimation(float dt);
     
+    void startContinuousRoationAnimation(float dt);
+    
     void update(float dt);
     
     void initializeStateMachine();
@@ -92,7 +100,15 @@ public:
     
     void HandleJumpWithAnimation();
     void HandlePostJumpUpAnimation();
+    
+    
+    void HandlePostJumpUpWithRotationAnimation();
+    
     void scheduleJumpUpEndCall(float time);
+    
+    void flipSkeletonDirection(cocos2d::Point point, cocostudio::timeline::SkeletonNode* characterNode);
+    
+    void HandleJumpWithContinueousRotation();
     
     // a selector callback
     void menuCloseCallback(cocos2d::Ref* pSender);

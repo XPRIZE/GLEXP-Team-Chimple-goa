@@ -33,13 +33,24 @@ public:
       
         assert (this->getTarget()->getSkeletonActionTimeLine() != NULL);
         
-        if (!the_map.empty()) {
+        for (std::map<std::string,std::string>::const_iterator it=the_map.begin(); it!=the_map.end(); ++it) {
+            
+        }
+        
+        if (!the_map.empty() && the_map.size() == 1) {
             for (std::map<std::string,std::string>::const_iterator it=the_map.begin(); it!=the_map.end(); ++it) {
-                this->getTarget()->getSkeletonActionTimeLine()->play(it->first, false);
                 this->getTarget()->getSkeletonActionTimeLine()->setLastFrameCallFunc([=](){
                     this->getTarget()->getSkeletonActionTimeLine()->clearLastFrameCallFunc();
-                    this->getTarget()->getSkeletonActionTimeLine()->play(it->second, true);
+                    assert (this->getTarget()->getSkeletonActionTimeLine() != NULL);
+
+                    if(this->getTarget()->getSkeletonActionTimeLine()->IsAnimationInfoExists(it->second)) {
+                        this->getTarget()->getSkeletonActionTimeLine()->play(it->second, true);
+                    }
                 });
+                if(this->getTarget()->getSkeletonActionTimeLine()->IsAnimationInfoExists(it->first)) {
+                    this->getTarget()->getSkeletonActionTimeLine()->play(it->first, false);
+                }
+                
             }
         } else {
             this->getTarget()->getSkeletonActionTimeLine()->play("idle", true);

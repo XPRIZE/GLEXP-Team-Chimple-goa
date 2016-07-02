@@ -37,6 +37,7 @@ public:
     void exit()  {
         CCLOG("%s", "Exit Jumping State");
         this->getTarget()->isJumping = false;
+        this->getTarget()->isJumpingAttemptedWhileDragging = false;
     }
     
     SkeletonCharacterState handleInput(SkeletonCharacterState command)  {

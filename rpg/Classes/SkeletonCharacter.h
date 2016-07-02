@@ -36,13 +36,17 @@ public:
     
     virtual void setSkeletonInContactWithGround(bool skeletonInContactWithGround);
     
-    virtual void playJumpingUpEndingAnimation(std::function<void ()> func);
+    virtual void playJumpingUpEndingAnimation();
+    
+    virtual void playJumpingContinuousRotationAnimation();
     
     virtual void playStartingJumpUpAnimation(std::function<void ()> func);
     
+    virtual void playStartingJumpUpWithRotationAnimation(std::function<void ()> func);
+    
     virtual void HandlePostJumpDownEndingAnimation();
     
-    virtual void HandleJumpDownStartingAnimation();
+    //virtual void HandleJumpDownStartingAnimation();
         
     bool isWalking;
 
@@ -51,13 +55,27 @@ public:
     bool isJumpingUp;
     
     bool isJumping;
+    
+    bool isJumpingAttemptedWhileDragging;
+    
+    bool isPlayingContinousRotationWhileJumping;
+    
+    /// Vector dot product.
+    static inline float cpvdot(const cocos2d::Vec2 v1, const cocos2d::Vec2 v2)
+    {
+        return v1.x*v2.x + v1.y*v2.y;
+    }
+
 
     
 protected:
         cocostudio::timeline::SkeletonNode* skeletonNode;
         cocostudio::timeline::ActionTimeline* skeletonActionTime;
-        StateMachine* stateMachine;
-        bool skeletonInContactWithGround;
+        StateMachine* stateMachine;        
+        unsigned int contactWithGround = 1;
+    
+    
+        virtual bool didSkeletonContactBeginDuringJumpingUp(cocos2d::PhysicsContact &contact);
     
 };
 
