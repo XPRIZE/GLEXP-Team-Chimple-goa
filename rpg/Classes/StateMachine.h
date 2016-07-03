@@ -22,7 +22,7 @@ public:
     
     virtual void setInitialState(SkeletonCharacterState initialState);
     virtual void addState(SkeletonCharacterState characterState, SkeletonCharacter* target);
-    virtual void handleInput(SkeletonCharacterState characterState, const cocos2d::Vec2 forceVector, const std::map<std::string, std::string>& the_map = std::map<std::string, std::string>());
+    virtual void handleInput(SkeletonCharacterState characterState, const cocos2d::Vec2 forceVector);
     virtual State* getCurrentState();
     
     

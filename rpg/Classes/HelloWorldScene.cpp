@@ -367,6 +367,12 @@ bool HelloWorld::checkHoldWithinSittingLimitOfCharacter(Point point, cocostudio:
 }
 
 void HelloWorld::HoldOrDragBehaviour(Point position) {
+    if(this->skeletonCharacter->isJumping || this->skeletonCharacter->isJumpingAttemptedWhileDragging) {
+        return;
+    }
+    
+    CCLOG("this->skeletonCharacter->getSkeletonInContactWithGround() %d", this->skeletonCharacter->getSkeletonInContactWithGround());
+    
     if(this->skeletonCharacter->getSkeletonInContactWithGround())
     {
         Vec2 characterPosition = this->skeletonCharacter->getSkeletonNode()->getParent()->convertToWorldSpace(this->skeletonCharacter->getSkeletonNode()->getPosition());
@@ -382,7 +388,7 @@ void HelloWorld::HoldOrDragBehaviour(Point position) {
                 CCLOG("%s", "Withing sitting area");
             }
             else if(checkHoldWithinWalkLimitOfCharacter(position, this->skeletonCharacter->getSkeletonNode())) {
-                //CCLOG("%s", "Withing walking area");
+                CCLOG("%s", "Withing walking area");
                 this->flipSkeletonDirection(position, this->skeletonCharacter->getSkeletonNode());
                 this->walkCharacterOnLeftOrRightDirection(position);
             } else {
@@ -393,8 +399,7 @@ void HelloWorld::HoldOrDragBehaviour(Point position) {
             
         } else {
             //Same Force as TAP
-            CCLOG("this->skeletonCharacter->isJumping %d", this->skeletonCharacter->isJumping);
-            CCLOG("this->skeletonCharacter->isJumpingAttemptedWhileDragging %d", this->skeletonCharacter->isJumpingAttemptedWhileDragging);
+
             if(this->skeletonCharacter->isJumping || this->skeletonCharacter->isJumpingAttemptedWhileDragging) {
                 return;
             }
@@ -402,7 +407,6 @@ void HelloWorld::HoldOrDragBehaviour(Point position) {
             this->skeletonCharacter->getSkeletonNode()->getPhysicsBody()->resetForces();
             this->skeletonCharacter->getSkeletonNode()->getPhysicsBody()->setVelocity(Vec2(0,0));
             this->flipSkeletonDirection(position, this->skeletonCharacter->getSkeletonNode());
-            //this->HandleJumpWithAnimation();
             this->HandleJumpWithContinueousRotation();
             this->skeletonCharacter->isJumpingAttemptedWhileDragging = true;
             
@@ -599,25 +603,23 @@ void HelloWorld::HandleSwipeLeft(Point position) {
 
 void HelloWorld::HandleTouchedEnded(Point position) {
     CCLOG("%s", "HandleTouchedEnded!!!");
-    if(this->skeletonCharacter->isRunning) {
+    if(!this->skeletonCharacter->isJumping) {
+        if(this->skeletonCharacter->isRunning) {
+            this->stateMachine->handleInput(S_STANDING_STATE, cocos2d::Vec2(0,0));
+            this->skeletonCharacter->getSkeletonNode()->getPhysicsBody()->resetForces();
+            this->skeletonCharacter->getSkeletonNode()->getPhysicsBody()->setVelocity(Vec2(0,0));
+            
+        } else if(this->skeletonCharacter->getSkeletonInContactWithGround() || this->skeletonCharacter->isWalking) {
+            this->stateMachine->handleInput(S_STANDING_STATE, cocos2d::Vec2(0,0));
+            this->skeletonCharacter->getSkeletonNode()->getPhysicsBody()->resetForces();
+            this->skeletonCharacter->getSkeletonNode()->getPhysicsBody()->setVelocity(Vec2(0,0));
+            
+        }
         
-        CCLOG("%s", "HandleTouchedEnded => on Ground!!! while running");
-        std::map<std::string,std::string> multiAnimationMap;
-        multiAnimationMap.insert(std::pair<std::string,std::string>("stop","idle"));
-        
-        this->stateMachine->handleInput(S_STANDING_STATE, cocos2d::Vec2(0,0), multiAnimationMap);
-        this->skeletonCharacter->getSkeletonNode()->getPhysicsBody()->resetForces();
-        this->skeletonCharacter->getSkeletonNode()->getPhysicsBody()->setVelocity(Vec2(0,0));
-        
-    } else if(this->skeletonCharacter->getSkeletonInContactWithGround() || this->skeletonCharacter->isWalking) {
-        this->stateMachine->handleInput(S_STANDING_STATE, cocos2d::Vec2(0,0));
-        this->skeletonCharacter->getSkeletonNode()->getPhysicsBody()->resetForces();
-        this->skeletonCharacter->getSkeletonNode()->getPhysicsBody()->setVelocity(Vec2(0,0));
+        this->skeletonCharacter->isWalking = false;
+        this->skeletonCharacter->isRunning = false;
         
     }
-    
-    this->skeletonCharacter->isWalking = false;
-    this->skeletonCharacter->isRunning = false;
 }
 
 //Handle Swipe Right

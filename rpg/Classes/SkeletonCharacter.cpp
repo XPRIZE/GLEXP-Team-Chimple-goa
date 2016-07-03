@@ -78,12 +78,31 @@ bool SkeletonCharacter::didSkeletonContactBeginDuringJumpingUp(PhysicsContact &c
     {
         return true;
     }
+    
+    CCLOG("Shape A category bit %d", contact.getShapeA()->getCategoryBitmask());
+    CCLOG("Shape B category bit %d", contact.getShapeB()->getCategoryBitmask());
+    
 
-    if((nodeA->getName() == HUMAN_SKELETON_NAME && (currentStateCommand == S_WALKING_STATE || currentStateCommand == S_RUNNING_STATE)) || (nodeB->getName() == HUMAN_SKELETON_NAME && (currentStateCommand == S_WALKING_STATE || currentStateCommand == S_RUNNING_STATE)))
+    if((nodeA->getName() == HUMAN_SKELETON_NAME && (currentStateCommand == S_WALKING_STATE || currentStateCommand == S_RUNNING_STATE)))
     {
+        if(contact.getShapeA()->getCategoryBitmask() == MAIN_CHARACTER_MASS_CATEGORY_MASK && contact.getShapeB()->getCategoryBitmask() == 3) {
+            return false;
+        }
         CCLOG("CONTACT BEGin check on State Command =>  %d", currentStateCommand);
         return true;
     }
+    
+    
+    if((nodeB->getName() == HUMAN_SKELETON_NAME && (currentStateCommand == S_WALKING_STATE || currentStateCommand == S_RUNNING_STATE)))
+    {
+        if(contact.getShapeB()->getCategoryBitmask() == MAIN_CHARACTER_MASS_CATEGORY_MASK && contact.getShapeA()->getCategoryBitmask() == 3) {
+            return false;
+        }
+        
+        CCLOG("CONTACT BEGin check on State Command =>  %d", currentStateCommand);
+        return true;
+    }
+
 
     return false;
 }
@@ -128,10 +147,18 @@ void SkeletonCharacter::createSkeletonNode(const std::string& filename) {
         // We we handle what happen when character collide with something else
         // if we return true, we say: collision happen please. => Top-Down Char Jump
         // otherwise, we say the engine to ignore this collision => Bottom-Up Char Jump
-        CCLOG("contact BEGAN!!! %d", this->stateMachine->getCurrentState()->getState());        
-        this->setSkeletonInContactWithGround(true);
+        CCLOG("contact BEGAN!!! %d", this->stateMachine->getCurrentState()->getState());
+        cocos2d::Node* nodeA = contact.getShapeA()->getBody()->getNode();
+        cocos2d::Node* nodeB = contact.getShapeB()->getBody()->getNode();
+        
+        if(nodeA->getName() == HUMAN_SKELETON_NAME  || nodeB->getName() == HUMAN_SKELETON_NAME)
+        {
+            this->setSkeletonInContactWithGround(true);
+        }
+        
         
         if(this->didSkeletonContactBeginDuringJumpingUp(contact, this->stateMachine->getCurrentState()->getState())) {
+            this->setSkeletonInContactWithGround(false);
             return false;
         }
         
@@ -144,7 +171,7 @@ void SkeletonCharacter::createSkeletonNode(const std::string& filename) {
                 if(this->isJumpingAttemptedWhileDragging && this->isPlayingContinousRotationWhileJumping) {
                     CCLOG("%s", "contact began after jump => while dragging");
                     
-                    this->getSkeletonActionTimeLine()->setTimeSpeed(0.5f);
+                    this->getSkeletonActionTimeLine()->setTimeSpeed(2.5f);
                     std::function<void(void)> jumpEndingAnimation = std::bind(&SkeletonCharacter::HandlePostJumpDownEndingAnimation, this);
                     
                     this->getSkeletonActionTimeLine()->setAnimationEndCallFunc(ROTATE_SKELETON, jumpEndingAnimation);
@@ -183,10 +210,16 @@ void SkeletonCharacter::createSkeletonNode(const std::string& filename) {
         // We we handle what happen when character collide with something else
         // if we return true, we say: collision happen please. => Top-Down Char Jump
         // otherwise, we say the engine to ignore this collision => Bottom-Up Char Jump
-//        auto nodeA = contact.getShapeA()->getBody()->getNode();
-//        auto nodeB = contact.getShapeB()->getBody()->getNode();        
+        auto nodeA = contact.getShapeA()->getBody()->getNode();
+        auto nodeB = contact.getShapeB()->getBody()->getNode();        
         CCLOG("%s", "contact ENDED!!!");
-        this->setSkeletonInContactWithGround(false);
+        
+        if(nodeA->getName() == HUMAN_SKELETON_NAME  || nodeB->getName() == HUMAN_SKELETON_NAME)
+        {
+            this->setSkeletonInContactWithGround(false);
+        }
+        
+
         
         if(this->stateMachine != NULL && this->stateMachine->getCurrentState() != NULL)
         {}
@@ -211,17 +244,21 @@ cocostudio::timeline::ActionTimeline* SkeletonCharacter::getSkeletonActionTimeLi
 
 
 bool SkeletonCharacter::getSkeletonInContactWithGround() {
-    if(this->contactWithGround == 1) {
+    if(this->contactWithGround <= 1) {
         return false;
     }
     return true;
-    //return this->skeletonInContactWithGround;
 }
 
 void SkeletonCharacter::setSkeletonInContactWithGround(bool skeletonInContactWithGround) {
+
     if(skeletonInContactWithGround) {
         this->contactWithGround = this->contactWithGround << 1  ;
     } else {
+        if(this->contactWithGround == 1) {
+            return;
+        }
+
         this->contactWithGround = this->contactWithGround >> 1;
     }    
 }

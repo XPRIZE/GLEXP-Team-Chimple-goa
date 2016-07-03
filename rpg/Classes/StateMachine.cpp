@@ -132,7 +132,7 @@ State* StateMachine::getCurrentState() {
     return currentState;
 }
 
-void StateMachine::handleInput(SkeletonCharacterState command, const cocos2d::Vec2 forceVector, const std::map<std::string, std::string>& the_map) {
+void StateMachine::handleInput(SkeletonCharacterState command, const cocos2d::Vec2 forceVector) {
     SkeletonCharacterState newCommand = currentState->handleInput(command);
     SkeletonCharacterState curCommand = currentState->getState();
     CCLOG("current command %s", enumToString(curCommand));

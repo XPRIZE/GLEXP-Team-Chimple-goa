@@ -28,7 +28,7 @@ public:
         
         this->getTarget()->isWalking = false;
         this->getTarget()->isRunning = false;
-
+        this->getTarget()->isJumpingAttemptedWhileDragging = false;
         //start animation
       
         assert (this->getTarget()->getSkeletonActionTimeLine() != NULL);
