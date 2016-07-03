@@ -59,7 +59,7 @@ void HelloWorld::createRPGGame() {
     initializeStateMachine();
 }
 
-void HelloWorld::loadGameScene() {
+void HelloWorld::loadGameScene() {    
     Node *rootNode = CSLoader::createNode("MainScene.csb");
     this->setSceneSize(rootNode->getContentSize());
     this->addChild(rootNode);
@@ -69,7 +69,8 @@ void HelloWorld::loadGameScene() {
 
 void HelloWorld::enablePhysicsBoundaries(Node* rootNode) {
 //    PhysicsShapeCache::getInstance()->addShapesWithFile("story.plist");
-    PhysicsShapeCache::getInstance()->addShapesWithFile("farm_house.plist");
+    //PhysicsShapeCache::getInstance()->addShapesWithFile("farm_house.plist");
+    PhysicsShapeCache::getInstance()->addShapesWithFile("camp.plist");
     std::regex pattern(".*(_[[:d:]])+");
     for (auto child : rootNode->getChildren()) {
         PhysicsShapeCache::getInstance()->setBodyOnSprite(child->getName(), (Sprite *)child);
@@ -78,15 +79,15 @@ void HelloWorld::enablePhysicsBoundaries(Node* rootNode) {
                 Sprite* sprite = dynamic_cast<Sprite*>(subChild);
                 if(sprite) {
                     auto matchingName = subChild->getName();
-                    if(regex_match(matchingName, pattern)) {
-                        std::size_t found = subChild->getName().find_last_of("_");
-                        matchingName = matchingName.substr(0,found);                        
-                    }
+//                    if(regex_match(matchingName, pattern)) {
+//                        std::size_t found = subChild->getName().find_last_of("_");
+//                        matchingName = matchingName.substr(0,found);                        
+//                    }
                     CCLOG("matching name: %s", matchingName.c_str());
                     PhysicsShapeCache::getInstance()->setBodyOnSprite(matchingName, (Sprite *)subChild);
                     auto body = subChild->getPhysicsBody();
                     if(body) {
-//                        CCLOG("category mask %d", body->getCategoryBitmask());    
+                        CCLOG("category mask %d", body->getCategoryBitmask());    
                     }
                     
                 }
@@ -246,7 +247,8 @@ void HelloWorld::OnGestureReceived(Ref* sender)
 bool HelloWorld::checkTouchWithinBoundsOfCharacter(Point point, cocostudio::timeline::SkeletonNode* characterNode)
 {
     //find out touch Location
-    Rect characterBoundingRect = characterNode->getBoundingBox();
+    //Rect characterBoundingRect = characterNode->getBoundingBox();
+    Rect characterBoundingRect = Rect(characterNode->getBoundingBox().origin.x, characterNode->getBoundingBox().origin.y, HUMAN_SKELETON_COLLISION_BOX_WIDTH, characterNode->getBoundingBox().size.height);
     
     if(characterBoundingRect.containsPoint(characterNode->getParent()->convertToNodeSpace(point))) {
         CCLOG("%s", "touch on Character");

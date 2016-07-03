@@ -101,17 +101,16 @@ void SkeletonCharacter::createSkeletonNode(const std::string& filename) {
     auto bone = this->skeletonNode->getBoneNode("body");
     bone->displaySkin("watchman_shirt", false);
     
-    //position skeleton
-    //skeletonNode->setPosition(Vec2(origin.x + visibleSize.width/2, origin.y + visibleSize.height/2));
-    
-    //game_world->addChild(skeletonNode);
     
     //create Physics body
-    auto physicsBody = PhysicsBody::createBox(this->skeletonNode->getBoundingBox().size, PHYSICSBODY_MATERIAL_DEFAULT, Vec2(0,this->skeletonNode->getBoundingBox().size.height/2));
+    
+    //auto physicsBody = PhysicsBody::createBox(this->skeletonNode->getBoundingBox().size, PHYSICSBODY_MATERIAL_DEFAULT, Vec2(0,this->skeletonNode->getBoundingBox().size.height/2));
+    
+    auto physicsBody = PhysicsBody::createBox(Size(HUMAN_SKELETON_COLLISION_BOX_WIDTH, this->skeletonNode->getBoundingBox().size.height), PHYSICSBODY_MATERIAL_DEFAULT, Vec2(0,this->skeletonNode->getBoundingBox().size.height/2));
     
     //set as dynamic
     physicsBody->setDynamic(DYNAMIC_BODY);
-    physicsBody->setMass(1.0f);
+    physicsBody->setMass(MAIN_CHARACTER_MASS);
     
     
     this->skeletonNode->setPhysicsBody(physicsBody);
@@ -119,12 +118,9 @@ void SkeletonCharacter::createSkeletonNode(const std::string& filename) {
     this->skeletonNode->getPhysicsBody()->setCollisionBitmask(MAIN_CHARACTER_MASS_COLLISION_MASK);
     this->skeletonNode->getPhysicsBody()->setCategoryBitmask(MAIN_CHARACTER_MASS_CATEGORY_MASK);
     this->skeletonNode->getPhysicsBody()->setContactTestBitmask(MAIN_CHARACTER_MASS_CONTACT_MASK);
-    this->skeletonNode->getPhysicsBody()->setLinearDamping(0.05f);
+    this->skeletonNode->getPhysicsBody()->setLinearDamping(MAIN_CHARACTER_MASS_DAMPING);
     
-    //        skeletonNode->getPhysicsBody()->setAngularDamping(0.05f);
-    this->skeletonNode->setScale(0.3f);
-    //auto followAction = Follow::create(skeletonNode, Rect(0,0,10240, 1800));
-    //game_world->runAction(followAction);
+    this->skeletonNode->setScale(MAIN_CHARACTER_SCALE);
     
     auto contactListener = EventListenerPhysicsContact::create();
     contactListener->onContactBegin = [=](PhysicsContact &contact) -> bool

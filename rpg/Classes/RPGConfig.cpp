@@ -35,6 +35,7 @@ void RPGConfig::LoadData()
 {
     // add Resources folder to search path. This is necessary when releasing for win32
     FileUtils::getInstance()->addSearchPath("Resources");
+    FileUtils::getInstance()->addSearchPath("Resources/farm");
     
     // load sound effects & background music
     
