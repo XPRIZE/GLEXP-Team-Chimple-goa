@@ -171,14 +171,19 @@ void SkeletonCharacter::createSkeletonNode(const std::string& filename) {
                 if(this->isJumpingAttemptedWhileDragging && this->isPlayingContinousRotationWhileJumping) {
                     CCLOG("%s", "contact began after jump => while dragging");
                     
-                    this->getSkeletonActionTimeLine()->setTimeSpeed(2.5f);
-                    std::function<void(void)> jumpEndingAnimation = std::bind(&SkeletonCharacter::HandlePostJumpDownEndingAnimation, this);
-                    
-                    this->getSkeletonActionTimeLine()->setAnimationEndCallFunc(ROTATE_SKELETON, jumpEndingAnimation);
+//                    this->getSkeletonActionTimeLine()->setTimeSpeed(2.0f);
+//                    std::function<void(void)> jumpEndingAnimation = std::bind(&SkeletonCharacter::HandlePostJumpDownEndingAnimation, this);
+//                    
+//                    this->getSkeletonActionTimeLine()->setAnimationEndCallFunc(ROTATE_SKELETON, jumpEndingAnimation);
 
                     this->getSkeletonActionTimeLine()->play(ROTATE_SKELETON, false);                    
                     
-                    this->isPlayingContinousRotationWhileJumping = false;                    
+                    this->isPlayingContinousRotationWhileJumping = false;
+                    
+                    this->stateMachine->handleInput(S_STANDING_STATE, cocos2d::Vec2(0,0));
+                    this->isRunning = false;
+                    this->isWalking = false;
+                    
                     
                 } else {
                     CCLOG("%s", "contact began after jump => NOOOOOOO dragging");
@@ -258,7 +263,8 @@ void SkeletonCharacter::setSkeletonInContactWithGround(bool skeletonInContactWit
         if(this->contactWithGround == 1) {
             return;
         }
-
+        
         this->contactWithGround = this->contactWithGround >> 1;
+        CCLOG("this->skeletonCharacter->getSkeletonInContactWithGround() after right shift %d", this->contactWithGround);
     }    
 }

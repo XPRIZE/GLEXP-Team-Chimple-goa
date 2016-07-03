@@ -618,7 +618,7 @@ void HelloWorld::HandleTouchedEnded(Point position) {
         
         this->skeletonCharacter->isWalking = false;
         this->skeletonCharacter->isRunning = false;
-        
+        this->stateMachine->handleInput(S_STANDING_STATE, cocos2d::Vec2(0,0));
     }
 }
 
