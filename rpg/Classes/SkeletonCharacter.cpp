@@ -132,7 +132,7 @@ void SkeletonCharacter::createSkeletonNode(const std::string& filename) {
         // We we handle what happen when character collide with something else
         // if we return true, we say: collision happen please. => Top-Down Char Jump
         // otherwise, we say the engine to ignore this collision => Bottom-Up Char Jump
-        CCLOG("contact BEGAN!!! %d", this->stateMachine->getCurrentState()->getState());
+        CCLOG("contact BEGAN!!! %d", this->stateMachine->getCurrentState()->getState());        
         this->setSkeletonInContactWithGround(true);
         
         if(this->didSkeletonContactBeginDuringJumpingUp(contact, this->stateMachine->getCurrentState()->getState())) {

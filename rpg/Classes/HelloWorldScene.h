@@ -53,6 +53,8 @@ private:
     
     void scheduleContinuousRotationCall(float timeToStart);
     
+    cocos2d::Size sceneSize;
+    
 public:
     static cocos2d::Scene* createScene();
     
@@ -110,11 +112,13 @@ public:
     
     void HandleJumpWithContinueousRotation();
     
-    // a selector callback
-    void menuCloseCallback(cocos2d::Ref* pSender);
-    
     // implement the "static create()" method manually
     CREATE_FUNC(HelloWorld);
+    
+    //set scene attributes
+    virtual void setSceneSize(const cocos2d::Size& size);
+    
+    virtual cocos2d::Size getSceneSize();
 };
 
 #endif // __HELLOWORLD_SCENE_H__

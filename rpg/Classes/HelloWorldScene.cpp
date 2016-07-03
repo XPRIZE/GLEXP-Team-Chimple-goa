@@ -38,6 +38,7 @@ void HelloWorld::initPhysics(Scene* scene)
 HelloWorld::HelloWorld() {
     gesture_layer_ = NULL;
     skeletonCharacter = NULL;
+    sceneSize = Size(0, 0);
 }
 
 HelloWorld::~HelloWorld() {
@@ -60,6 +61,7 @@ void HelloWorld::createRPGGame() {
 
 void HelloWorld::loadGameScene() {
     Node *rootNode = CSLoader::createNode("MainScene.csb");
+    this->setSceneSize(rootNode->getContentSize());
     this->addChild(rootNode);
     enablePhysicsBoundaries(rootNode);
 }
@@ -71,17 +73,21 @@ void HelloWorld::enablePhysicsBoundaries(Node* rootNode) {
     std::regex pattern(".*(_[[:d:]])+");
     for (auto child : rootNode->getChildren()) {
         PhysicsShapeCache::getInstance()->setBodyOnSprite(child->getName(), (Sprite *)child);
-        for (auto child1 : child->getChildren()) {
-            if(dynamic_cast<Sprite*>(child1)) {
-                Sprite* sprite = dynamic_cast<Sprite*>(child1);
+        for (auto subChild : child->getChildren()) {
+            if(dynamic_cast<Sprite*>(subChild)) {
+                Sprite* sprite = dynamic_cast<Sprite*>(subChild);
                 if(sprite) {
-                    auto matchingName = child1->getName();
+                    auto matchingName = subChild->getName();
                     if(regex_match(matchingName, pattern)) {
-                        std::size_t found = child1->getName().find_last_of("_");
+                        std::size_t found = subChild->getName().find_last_of("_");
                         matchingName = matchingName.substr(0,found);                        
                     }
                     CCLOG("matching name: %s", matchingName.c_str());
-                    PhysicsShapeCache::getInstance()->setBodyOnSprite(matchingName, (Sprite *)child1);
+                    PhysicsShapeCache::getInstance()->setBodyOnSprite(matchingName, (Sprite *)subChild);
+                    auto body = subChild->getPhysicsBody();
+                    if(body) {
+//                        CCLOG("category mask %d", body->getCategoryBitmask());    
+                    }
                     
                 }
             }
@@ -118,7 +124,7 @@ void HelloWorld::addMainCharacterToScene(cocostudio::timeline::SkeletonNode* ske
     this->addChild(skeletonNode);
     
     //change
-    auto followAction = Follow::create(skeletonNode, Rect(0,0,10240, 1800));
+    auto followAction = Follow::create(skeletonNode, Rect(0,0,this->getSceneSize().width, this->getSceneSize().height));
     this->runAction(followAction);
     
     
@@ -624,13 +630,13 @@ void HelloWorld::HandleSwipeRight(Point position) {
     this->HoldOrDragBehaviour(position);
 }
 
-
-
-void HelloWorld::menuCloseCallback(Ref* pSender)
-{
-    Director::getInstance()->end();
-    
-#if (CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
-    exit(0);
-#endif
+cocos2d::Size HelloWorld::getSceneSize() {
+    return this->sceneSize;
 }
+
+
+
+void HelloWorld::setSceneSize(const cocos2d::Size& size) {
+    this->sceneSize = size;
+}
+
