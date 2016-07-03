@@ -36,44 +36,29 @@ void SkeletonCharacter::setStateMachine(StateMachine* stateMachine) {
 
 
 void SkeletonCharacter::playStartingJumpUpAnimation(std::function<void ()> func) {
-    this->getSkeletonActionTimeLine()->setAnimationEndCallFunc("jump_up", func);
-    this->getSkeletonActionTimeLine()->play("jump_start", false);
-    this->getSkeletonActionTimeLine()->setLastFrameCallFunc([=](){
-        this->getSkeletonActionTimeLine()->clearLastFrameCallFunc();
-        this->getSkeletonActionTimeLine()->play("jump_up", false);
-    });
+    this->getSkeletonActionTimeLine()->setAnimationEndCallFunc(JUMP_START, func);
+    this->getSkeletonActionTimeLine()->play(JUMP_START, false);
 }
 
 
 void SkeletonCharacter::playStartingJumpUpWithRotationAnimation(std::function<void ()> func) {
-    this->getSkeletonActionTimeLine()->setAnimationEndCallFunc("jump_start", func);
-    this->getSkeletonActionTimeLine()->play("jump_start", false);
+    this->getSkeletonActionTimeLine()->setAnimationEndCallFunc(JUMP_START, func);
+    this->getSkeletonActionTimeLine()->play(JUMP_START, false);
 }
 
 
 void SkeletonCharacter::playJumpingUpEndingAnimation() {    
-    this->getSkeletonActionTimeLine()->play("jump_up_air", false);
+    this->getSkeletonActionTimeLine()->play(JUMP_MID, false);
 }
 
 
 void SkeletonCharacter::playJumpingContinuousRotationAnimation() {
-    this->getSkeletonActionTimeLine()->play("walk", false);
+    this->getSkeletonActionTimeLine()->play(ROTATE_SKELETON, false);
 }
-
-//void SkeletonCharacter::playJumpingUpEndingAnimation(std::function<void ()> func) {
-//    this->getSkeletonActionTimeLine()->setAnimationEndCallFunc("jump_up_air", func);
-//    this->getSkeletonActionTimeLine()->play("jump_up_air", false);
-//}
 
 StateMachine* SkeletonCharacter::getStateMachine() {
     return this->stateMachine;
 }
-
-//void SkeletonCharacter::HandleJumpDownStartingAnimation() {
-//    TO BE REMOVED => CODE IS MOVED TO update loop
-//    this->isJumpingUp = false;
-//    this->getSkeletonActionTimeLine()->play("jumpdownair", false);
-//}
 
 
 void SkeletonCharacter::HandlePostJumpDownEndingAnimation() {
@@ -82,17 +67,24 @@ void SkeletonCharacter::HandlePostJumpDownEndingAnimation() {
                     this->stateMachine->handleInput(S_STANDING_STATE, cocos2d::Vec2(0,0));
                     this->isRunning = false;
                     this->isWalking = false;
-
 }
 
 
-bool SkeletonCharacter::didSkeletonContactBeginDuringJumpingUp(PhysicsContact &contact) {
+bool SkeletonCharacter::didSkeletonContactBeginDuringJumpingUp(PhysicsContact &contact, SkeletonCharacterState currentStateCommand) {
     cocos2d::Node* nodeA = contact.getShapeA()->getBody()->getNode();
     cocos2d::Node* nodeB = contact.getShapeB()->getBody()->getNode();
     if((nodeA->getName() == HUMAN_SKELETON_NAME && contact.getShapeA()->getBody()->getVelocity().y > 0) ||
-       (nodeB->getName() == HUMAN_SKELETON_NAME && contact.getShapeB()->getBody()->getVelocity().y > 0)) {
+       (nodeB->getName() == HUMAN_SKELETON_NAME && contact.getShapeB()->getBody()->getVelocity().y > 0))
+    {
         return true;
     }
+
+    if((nodeA->getName() == HUMAN_SKELETON_NAME && (currentStateCommand == S_WALKING_STATE || currentStateCommand == S_RUNNING_STATE)) || (nodeB->getName() == HUMAN_SKELETON_NAME && (currentStateCommand == S_WALKING_STATE || currentStateCommand == S_RUNNING_STATE)))
+    {
+        CCLOG("CONTACT BEGin check on State Command =>  %d", currentStateCommand);
+        return true;
+    }
+
     return false;
 }
 
@@ -140,10 +132,10 @@ void SkeletonCharacter::createSkeletonNode(const std::string& filename) {
         // We we handle what happen when character collide with something else
         // if we return true, we say: collision happen please. => Top-Down Char Jump
         // otherwise, we say the engine to ignore this collision => Bottom-Up Char Jump
-        CCLOG("%s", "contact BEGAN!!!");
+        CCLOG("contact BEGAN!!! %d", this->stateMachine->getCurrentState()->getState());
         this->setSkeletonInContactWithGround(true);
         
-        if(this->didSkeletonContactBeginDuringJumpingUp(contact)) {
+        if(this->didSkeletonContactBeginDuringJumpingUp(contact, this->stateMachine->getCurrentState()->getState())) {
             return false;
         }
         
@@ -156,16 +148,12 @@ void SkeletonCharacter::createSkeletonNode(const std::string& filename) {
                 if(this->isJumpingAttemptedWhileDragging && this->isPlayingContinousRotationWhileJumping) {
                     CCLOG("%s", "contact began after jump => while dragging");
                     
-                    this->getSkeletonActionTimeLine()->setTimeSpeed(4.0f);
-                    
+                    this->getSkeletonActionTimeLine()->setTimeSpeed(0.5f);
                     std::function<void(void)> jumpEndingAnimation = std::bind(&SkeletonCharacter::HandlePostJumpDownEndingAnimation, this);
                     
-                    this->getSkeletonActionTimeLine()->setAnimationEndCallFunc("walk", jumpEndingAnimation);
-                    this->getSkeletonActionTimeLine()->play("walk", false);
-                    this->getSkeletonActionTimeLine()->setLastFrameCallFunc([=](){
-                        this->getSkeletonActionTimeLine()->clearLastFrameCallFunc();
-                        this->getSkeletonActionTimeLine()->gotoFrameAndPause(0);
-                    });
+                    this->getSkeletonActionTimeLine()->setAnimationEndCallFunc(ROTATE_SKELETON, jumpEndingAnimation);
+
+                    this->getSkeletonActionTimeLine()->play(ROTATE_SKELETON, false);                    
                     
                     this->isPlayingContinousRotationWhileJumping = false;                    
                     
@@ -174,8 +162,8 @@ void SkeletonCharacter::createSkeletonNode(const std::string& filename) {
                     
                     std::function<void(void)> jumpEndingAnimation = std::bind(&SkeletonCharacter::HandlePostJumpDownEndingAnimation, this);
                     
-                            this->getSkeletonActionTimeLine()->setAnimationEndCallFunc("jump_end", jumpEndingAnimation);
-                            this->getSkeletonActionTimeLine()->play("jump_end", false);
+                            this->getSkeletonActionTimeLine()->setAnimationEndCallFunc(JUMP_END, jumpEndingAnimation);
+                            this->getSkeletonActionTimeLine()->play(JUMP_END, false);
 
                 }
                 

@@ -34,7 +34,7 @@ public:
 
     }
     
-    virtual void enter(cocos2d::Vec2 forceVector, const std::map<std::string, std::string>& the_map = std::map<std::string, std::string>()) = 0;
+    virtual void enter(cocos2d::Vec2 forceVector, SkeletonCharacterState previousStateCommand) = 0;
     
     virtual void exit() = 0;
     

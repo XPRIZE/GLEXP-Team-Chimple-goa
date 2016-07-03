@@ -18,7 +18,7 @@ public:
     StandingState() {};
     ~StandingState() {};
     
-    void enter(cocos2d::Vec2 forceVector, const std::map<std::string, std::string>& the_map = std::map<std::string, std::string>())  {
+    void enter(cocos2d::Vec2 forceVector, SkeletonCharacterState previousStateCommand)  {
         CCLOG("%s", "Enter Standing State on object");
         assert (this->getTarget() != NULL);
         assert (this->getTarget()->getSkeletonNode() != NULL);
@@ -33,28 +33,20 @@ public:
       
         assert (this->getTarget()->getSkeletonActionTimeLine() != NULL);
         
-        for (std::map<std::string,std::string>::const_iterator it=the_map.begin(); it!=the_map.end(); ++it) {
+        if(previousStateCommand == S_RUNNING_STATE)
+        {
+            this->getTarget()->getSkeletonActionTimeLine()->setLastFrameCallFunc([=]() {
+                this->getTarget()->getSkeletonActionTimeLine()->clearLastFrameCallFunc();
+                assert (this->getTarget()->getSkeletonActionTimeLine() != NULL);
+                this->getTarget()->getSkeletonActionTimeLine()->play("idle", true);
+            });
             
-        }
-        
-        if (!the_map.empty() && the_map.size() == 1) {
-            for (std::map<std::string,std::string>::const_iterator it=the_map.begin(); it!=the_map.end(); ++it) {
-                this->getTarget()->getSkeletonActionTimeLine()->setLastFrameCallFunc([=](){
-                    this->getTarget()->getSkeletonActionTimeLine()->clearLastFrameCallFunc();
-                    assert (this->getTarget()->getSkeletonActionTimeLine() != NULL);
-
-                    if(this->getTarget()->getSkeletonActionTimeLine()->IsAnimationInfoExists(it->second)) {
-                        this->getTarget()->getSkeletonActionTimeLine()->play(it->second, true);
-                    }
-                });
-                if(this->getTarget()->getSkeletonActionTimeLine()->IsAnimationInfoExists(it->first)) {
-                    this->getTarget()->getSkeletonActionTimeLine()->play(it->first, false);
-                }
-                
-            }
+            
+            this->getTarget()->getSkeletonActionTimeLine()->play("stop", false);
+   
         } else {
             this->getTarget()->getSkeletonActionTimeLine()->play("idle", true);
-        }
+        }        
     }
     
     void exit()  {
@@ -83,7 +75,9 @@ public:
             {
                 return S_FALLING_STATE;
             }
-                
+            default:
+                return S_NONE_STATE;
+    
         };
         
         return command;

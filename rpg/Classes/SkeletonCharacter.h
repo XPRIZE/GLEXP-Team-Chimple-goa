@@ -75,7 +75,7 @@ protected:
         unsigned int contactWithGround = 1;
     
     
-        virtual bool didSkeletonContactBeginDuringJumpingUp(cocos2d::PhysicsContact &contact);
+        virtual bool didSkeletonContactBeginDuringJumpingUp(cocos2d::PhysicsContact &contact, SkeletonCharacterState currentStateCommand);
     
 };
 

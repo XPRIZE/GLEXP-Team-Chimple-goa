@@ -17,7 +17,7 @@ public:
     JumpingState() {};
     ~JumpingState() {};
         
-    void enter(cocos2d::Vec2 forceVector, const std::map<std::string, std::string>& the_map = std::map<std::string, std::string>())  {
+    void enter(cocos2d::Vec2 forceVector, SkeletonCharacterState previousStateCommand)  {
         CCLOG("%s", "Enter Jumping State");
 
         assert (this->getTarget() != NULL);
@@ -31,6 +31,7 @@ public:
         this->getTarget()->getSkeletonNode()->getPhysicsBody()->setVelocity(forceVector);
         
         this->getTarget()->isJumping = true;
+        //this->getTarget()->isJumpingUp = true;
         
     }
     
@@ -62,6 +63,8 @@ public:
             {
                 return S_FALLING_STATE;
             }
+            default:
+                return S_NONE_STATE;
                 
         };
         

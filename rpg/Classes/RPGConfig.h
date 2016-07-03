@@ -47,6 +47,10 @@
 
 
 #define HUMAN_SKELETON_NAME "Human_Skeleton"
+#define JUMP_START "jump_start"
+#define JUMP_END "jump_end"
+#define JUMP_MID "jump_mid"
+#define ROTATE_SKELETON "rotate"
 
 enum RPGGestureType
 {
@@ -62,11 +66,12 @@ enum RPGGestureType
 
 
 enum SkeletonCharacterState {
-    S_STANDING_STATE = 0,
-    S_WALKING_STATE = 1,
-    S_RUNNING_STATE = 2,
-    S_JUMPING_STATE = 3,
-    S_FALLING_STATE = 4
+    S_NONE_STATE = 0,
+    S_STANDING_STATE = 1,
+    S_WALKING_STATE = 2,
+    S_RUNNING_STATE = 3,
+    S_JUMPING_STATE = 4,
+    S_FALLING_STATE = 5
 };
 
 class RPGConfig

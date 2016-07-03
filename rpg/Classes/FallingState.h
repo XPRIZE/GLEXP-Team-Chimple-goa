@@ -15,7 +15,7 @@ public:
     FallingState() {};
     ~FallingState() {};
     
-    void enter(cocos2d::Vec2 forceVector, const std::map<std::string, std::string>& the_map = std::map<std::string, std::string>())  {
+    void enter(cocos2d::Vec2 forceVector, SkeletonCharacterState previousStateCommand)  {
         CCLOG("%s", "Enter Falling State on object");
         assert (this->getTarget() != NULL);
         assert (this->getTarget()->getSkeletonNode() != NULL);
@@ -56,6 +56,8 @@ public:
             {
                 return S_FALLING_STATE;
             }
+            default:
+                return S_NONE_STATE;
                 
         };
         

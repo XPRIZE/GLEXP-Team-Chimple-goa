@@ -151,6 +151,7 @@ bool HelloWorld::init()
 }
 
 void HelloWorld::update(float dt) {
+    
     if(this->skeletonCharacter->getSkeletonInContactWithGround())
     {
         if(this->skeletonCharacter->isWalking) {
@@ -185,12 +186,7 @@ void HelloWorld::update(float dt) {
             this->skeletonCharacter->isJumpingUp = false;
             if(!this->skeletonCharacter->isPlayingContinousRotationWhileJumping)
             {
-                this->skeletonCharacter->getSkeletonActionTimeLine()->play("jump_down_air", false);
-                this->skeletonCharacter->getSkeletonActionTimeLine()->setLastFrameCallFunc([=](){
-                    this->skeletonCharacter->getSkeletonActionTimeLine()->clearLastFrameCallFunc();
-                    this->skeletonCharacter->getSkeletonActionTimeLine()->play("jump_down", false);
-                });
-                
+                this->skeletonCharacter->getSkeletonActionTimeLine()->play(JUMP_END, false);                
             }
             
         }
@@ -389,6 +385,8 @@ void HelloWorld::HoldOrDragBehaviour(Point position) {
             
         } else {
             //Same Force as TAP
+            CCLOG("this->skeletonCharacter->isJumping %d", this->skeletonCharacter->isJumping);
+            CCLOG("this->skeletonCharacter->isJumpingAttemptedWhileDragging %d", this->skeletonCharacter->isJumpingAttemptedWhileDragging);
             if(this->skeletonCharacter->isJumping || this->skeletonCharacter->isJumpingAttemptedWhileDragging) {
                 return;
             }
@@ -526,12 +524,14 @@ void HelloWorld::HandleTap(Point position)
 }
 
 void HelloWorld::HandlePostJumpUpAnimation() {
+    this->skeletonCharacter->getSkeletonActionTimeLine()->clearLastFrameCallFunc();
     this->skeletonCharacter->getSkeletonActionTimeLine()->clearFrameEndCallFuncs();
     this->applyImpulseOnSkeletonToJumpOnTap(this->currentTouchPoint);
 }
 
 
 void HelloWorld::HandlePostJumpUpWithRotationAnimation() {
+    this->skeletonCharacter->getSkeletonActionTimeLine()->clearLastFrameCallFunc();
     this->skeletonCharacter->getSkeletonActionTimeLine()->clearFrameEndCallFuncs();
     this->applyImpulseOnSkeletonToJumpOnHoldOrDrag(this->currentTouchPoint);
 }
