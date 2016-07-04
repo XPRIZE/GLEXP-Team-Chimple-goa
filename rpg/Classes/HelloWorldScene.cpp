@@ -60,7 +60,7 @@ void HelloWorld::createRPGGame() {
 }
 
 void HelloWorld::loadGameScene() {    
-    Node *rootNode = CSLoader::createNode("MainScene.csb");
+    Node *rootNode = CSLoader::createNode("camp/camp_MainScene.csb");
     this->setSceneSize(rootNode->getContentSize());
     this->addChild(rootNode);
     enablePhysicsBoundaries(rootNode);
@@ -70,7 +70,7 @@ void HelloWorld::loadGameScene() {
 void HelloWorld::enablePhysicsBoundaries(Node* rootNode) {
 //    PhysicsShapeCache::getInstance()->addShapesWithFile("story.plist");
     //PhysicsShapeCache::getInstance()->addShapesWithFile("farm_house.plist");
-    PhysicsShapeCache::getInstance()->addShapesWithFile("camp.plist");
+    PhysicsShapeCache::getInstance()->addShapesWithFile("camp/camp.plist");
     std::regex pattern(".*(_[[:d:]])+");
     for (auto child : rootNode->getChildren()) {
         PhysicsShapeCache::getInstance()->setBodyOnSprite(child->getName(), (Sprite *)child);
@@ -181,7 +181,8 @@ void HelloWorld::update(float dt) {
             
         }
     } else {
-        if(this->skeletonCharacter->isRunning || this->skeletonCharacter->isWalking) {
+        if(this->skeletonCharacter->getSkeletonNode()->getPhysicsBody()->getVelocity().y <= 0 && (this->skeletonCharacter->isRunning || this->skeletonCharacter->isWalking)) {
+//            CCLOG("velocity before falling %f", this->skeletonCharacter->getSkeletonNode()->getPhysicsBody()->getVelocity().y);
             this->stateMachine->handleInput(S_FALLING_STATE, cocos2d::Vec2(0,0));
         }
     }
@@ -189,7 +190,7 @@ void HelloWorld::update(float dt) {
     if(this->skeletonCharacter->isJumping)
     {
         if(this->skeletonCharacter->isJumpingUp &&
-           this->skeletonCharacter->getSkeletonNode()->getPhysicsBody()->getVelocity().y <=0) {
+           this->skeletonCharacter->getSkeletonNode()->getPhysicsBody()->getVelocity().y <= 0) {
             this->skeletonCharacter->isJumpingUp = false;
             if(!this->skeletonCharacter->isPlayingContinousRotationWhileJumping)
             {
@@ -371,7 +372,6 @@ void HelloWorld::HoldOrDragBehaviour(Point position) {
         return;
     }
     
-    CCLOG("this->skeletonCharacter->getSkeletonInContactWithGround() %d", this->skeletonCharacter->getSkeletonInContactWithGround());
     
     if(this->skeletonCharacter->getSkeletonInContactWithGround())
     {
@@ -428,16 +428,14 @@ void HelloWorld::HandleHold(Point position)
 
 
 void HelloWorld::walkCharacterOnLeftOrRightDirection(Point position) {
-    
+    this->skeletonCharacter->isWalking = true;
     Vec2 characterPosition = this->skeletonCharacter->getSkeletonNode()->getParent()->convertToWorldSpace(this->skeletonCharacter->getSkeletonNode()->getPosition());
     
     if(checkTouchLeftOfCharacter(position, this->skeletonCharacter->getSkeletonNode())) {
         this->stateMachine->handleInput(S_WALKING_STATE, Vec2(-MAIN_CHARACTER_FORCE, 0));
-        this->skeletonCharacter->isWalking = true;
         
     } else if (checkTouchRightOfCharacter(position, this->skeletonCharacter->getSkeletonNode())){
         this->stateMachine->handleInput(S_WALKING_STATE, Vec2(MAIN_CHARACTER_FORCE, 0));
-        this->skeletonCharacter->isWalking = true;
     }
     
 }

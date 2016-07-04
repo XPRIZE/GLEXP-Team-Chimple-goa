@@ -36,6 +36,8 @@
 		3750CC6D1D2943E6003CCCAC /* main.csb in Resources */ = {isa = PBXBuildFile; fileRef = 3750CC5E1D2943E6003CCCAC /* main.csb */; };
 		3750CC6E1D2943E6003CCCAC /* MainScene.csb in Resources */ = {isa = PBXBuildFile; fileRef = 3750CC5F1D2943E6003CCCAC /* MainScene.csb */; };
 		3750CC6F1D2943E6003CCCAC /* MainScene.csb in Resources */ = {isa = PBXBuildFile; fileRef = 3750CC5F1D2943E6003CCCAC /* MainScene.csb */; };
+		376686461D2A42EA008E7FF0 /* camp in Resources */ = {isa = PBXBuildFile; fileRef = 376686451D2A42EA008E7FF0 /* camp */; };
+		376686471D2A42EA008E7FF0 /* camp in Resources */ = {isa = PBXBuildFile; fileRef = 376686451D2A42EA008E7FF0 /* camp */; };
 		37D117141D24D3F30064565A /* StateMachine.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 37D1170D1D24D3F30064565A /* StateMachine.cpp */; };
 		37D117151D24D3F30064565A /* StateMachine.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 37D1170D1D24D3F30064565A /* StateMachine.cpp */; };
 		37D1171D1D24D4100064565A /* SkeletonCharacter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 37D117181D24D4100064565A /* SkeletonCharacter.cpp */; };
@@ -184,6 +186,7 @@
 		3750CC5D1D2943E6003CCCAC /* main */ = {isa = PBXFileReference; lastKnownFileType = folder; path = main; sourceTree = "<group>"; };
 		3750CC5E1D2943E6003CCCAC /* main.csb */ = {isa = PBXFileReference; lastKnownFileType = file; path = main.csb; sourceTree = "<group>"; };
 		3750CC5F1D2943E6003CCCAC /* MainScene.csb */ = {isa = PBXFileReference; lastKnownFileType = file; path = MainScene.csb; sourceTree = "<group>"; };
+		376686451D2A42EA008E7FF0 /* camp */ = {isa = PBXFileReference; lastKnownFileType = folder; path = camp; sourceTree = "<group>"; };
 		37D1170C1D24D3F30064565A /* StateMachine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StateMachine.h; sourceTree = "<group>"; };
 		37D1170D1D24D3F30064565A /* StateMachine.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = StateMachine.cpp; sourceTree = "<group>"; };
 		37D1170E1D24D3F30064565A /* State.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = State.h; sourceTree = "<group>"; };
@@ -387,6 +390,7 @@
 		46880B7519C43A67006E1F66 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				376686451D2A42EA008E7FF0 /* camp */,
 				371B799B1D29326800D74BAE /* farm */,
 				46880B7619C43A67006E1F66 /* CloseNormal.png */,
 				46880B7719C43A67006E1F66 /* CloseSelected.png */,
@@ -639,6 +643,7 @@
 				5087E77E17EB970100C73F5D /* Default.png in Resources */,
 				37E19F751D265302003E8C62 /* farm_house.plist in Resources */,
 				3750CC601D2943E6003CCCAC /* background in Resources */,
+				376686461D2A42EA008E7FF0 /* camp in Resources */,
 				3750CC621D2943E6003CCCAC /* background.csb in Resources */,
 				521A8E6419F0C34300D177D7 /* Default-667h@2x.png in Resources */,
 				46880B7B19C43A67006E1F66 /* CloseNormal.png in Resources */,
@@ -655,6 +660,7 @@
 				46880B8219C43A67006E1F66 /* HelloWorld.png in Resources */,
 				370839DA1D28CC5C009A20EB /* Plist.png in Resources */,
 				3750CC671D2943E6003CCCAC /* foreground in Resources */,
+				376686471D2A42EA008E7FF0 /* camp in Resources */,
 				37D117501D24D47B0064565A /* human_spritesheet_03.plist in Resources */,
 				37D117541D24D47B0064565A /* human_spritesheet_04.plist in Resources */,
 				370839D61D28CC5C009A20EB /* human_skeleton.csb in Resources */,

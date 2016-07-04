@@ -34,7 +34,6 @@ public:
     
     virtual bool getSkeletonInContactWithGround();
     
-    virtual void setSkeletonInContactWithGround(bool skeletonInContactWithGround);
     
     virtual void playJumpingUpEndingAnimation();
     

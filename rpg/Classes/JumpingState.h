@@ -31,7 +31,6 @@ public:
         this->getTarget()->getSkeletonNode()->getPhysicsBody()->setVelocity(forceVector);
         
         this->getTarget()->isJumping = true;
-        //this->getTarget()->isJumpingUp = true;
         
     }
     

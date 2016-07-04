@@ -73,8 +73,8 @@ void SkeletonCharacter::HandlePostJumpDownEndingAnimation() {
 bool SkeletonCharacter::didSkeletonContactBeginDuringJumpingUp(PhysicsContact &contact, SkeletonCharacterState currentStateCommand) {
     cocos2d::Node* nodeA = contact.getShapeA()->getBody()->getNode();
     cocos2d::Node* nodeB = contact.getShapeB()->getBody()->getNode();
-    if((nodeA->getName() == HUMAN_SKELETON_NAME && contact.getShapeA()->getBody()->getVelocity().y > 0) ||
-       (nodeB->getName() == HUMAN_SKELETON_NAME && contact.getShapeB()->getBody()->getVelocity().y > 0))
+    if((nodeA->getName() == HUMAN_SKELETON_NAME && contact.getShapeA()->getBody()->getVelocity().y > -GRAVITY_VELOCITY_TO_STICK_TO_GROUND) ||
+       (nodeB->getName() == HUMAN_SKELETON_NAME && contact.getShapeB()->getBody()->getVelocity().y > -GRAVITY_VELOCITY_TO_STICK_TO_GROUND))
     {
         return true;
     }
@@ -124,13 +124,13 @@ void SkeletonCharacter::createSkeletonNode(const std::string& filename) {
     //create Physics body
     
     //auto physicsBody = PhysicsBody::createBox(this->skeletonNode->getBoundingBox().size, PHYSICSBODY_MATERIAL_DEFAULT, Vec2(0,this->skeletonNode->getBoundingBox().size.height/2));
+        
     
-    auto physicsBody = PhysicsBody::createBox(Size(HUMAN_SKELETON_COLLISION_BOX_WIDTH, this->skeletonNode->getBoundingBox().size.height), PHYSICSBODY_MATERIAL_DEFAULT, Vec2(0,this->skeletonNode->getBoundingBox().size.height/2));
+    auto physicsBody = PhysicsBody::createBox(Size(HUMAN_SKELETON_COLLISION_BOX_WIDTH, this->skeletonNode->getBoundingBox().size.height), PhysicsMaterial(0.1f, 0.0f, 1.0f), Vec2(0,this->skeletonNode->getBoundingBox().size.height/2));
     
     //set as dynamic
     physicsBody->setDynamic(DYNAMIC_BODY);
-    physicsBody->setMass(MAIN_CHARACTER_MASS);
-    
+    physicsBody->setMass(MAIN_CHARACTER_MASS);    
     
     this->skeletonNode->setPhysicsBody(physicsBody);
     this->skeletonNode->getPhysicsBody()->setRotationEnable(false);
@@ -148,17 +148,11 @@ void SkeletonCharacter::createSkeletonNode(const std::string& filename) {
         // if we return true, we say: collision happen please. => Top-Down Char Jump
         // otherwise, we say the engine to ignore this collision => Bottom-Up Char Jump
         CCLOG("contact BEGAN!!! %d", this->stateMachine->getCurrentState()->getState());
-        cocos2d::Node* nodeA = contact.getShapeA()->getBody()->getNode();
-        cocos2d::Node* nodeB = contact.getShapeB()->getBody()->getNode();
-        
-        if(nodeA->getName() == HUMAN_SKELETON_NAME  || nodeB->getName() == HUMAN_SKELETON_NAME)
-        {
-            this->setSkeletonInContactWithGround(true);
-        }
-        
+//        cocos2d::Node* nodeA = contact.getShapeA()->getBody()->getNode();
+//        cocos2d::Node* nodeB = contact.getShapeB()->getBody()->getNode();
+//        
         
         if(this->didSkeletonContactBeginDuringJumpingUp(contact, this->stateMachine->getCurrentState()->getState())) {
-            this->setSkeletonInContactWithGround(false);
             return false;
         }
         
@@ -216,18 +210,9 @@ void SkeletonCharacter::createSkeletonNode(const std::string& filename) {
         // if we return true, we say: collision happen please. => Top-Down Char Jump
         // otherwise, we say the engine to ignore this collision => Bottom-Up Char Jump
         auto nodeA = contact.getShapeA()->getBody()->getNode();
-        auto nodeB = contact.getShapeB()->getBody()->getNode();        
+        auto nodeB = contact.getShapeB()->getBody()->getNode();
+        CCLOG("velocity before falling %f", this->getSkeletonNode()->getPhysicsBody()->getVelocity().y);
         CCLOG("%s", "contact ENDED!!!");
-        
-        if(nodeA->getName() == HUMAN_SKELETON_NAME  || nodeB->getName() == HUMAN_SKELETON_NAME)
-        {
-            this->setSkeletonInContactWithGround(false);
-        }
-        
-
-        
-        if(this->stateMachine != NULL && this->stateMachine->getCurrentState() != NULL)
-        {}
         
         return true;
     };
@@ -249,22 +234,12 @@ cocostudio::timeline::ActionTimeline* SkeletonCharacter::getSkeletonActionTimeLi
 
 
 bool SkeletonCharacter::getSkeletonInContactWithGround() {
-    if(this->contactWithGround <= 1) {
+    
+    if(this->getSkeletonNode()->getPhysicsBody()->getVelocity().y < GRAVITY_VELOCITY_TO_STICK_TO_GROUND ||
+       this->getSkeletonNode()->getPhysicsBody()->getVelocity().y > -GRAVITY_VELOCITY_TO_STICK_TO_GROUND)
+    {
         return false;
-    }
-    return true;
-}
-
-void SkeletonCharacter::setSkeletonInContactWithGround(bool skeletonInContactWithGround) {
-
-    if(skeletonInContactWithGround) {
-        this->contactWithGround = this->contactWithGround << 1  ;
     } else {
-        if(this->contactWithGround == 1) {
-            return;
-        }
-        
-        this->contactWithGround = this->contactWithGround >> 1;
-        CCLOG("this->skeletonCharacter->getSkeletonInContactWithGround() after right shift %d", this->contactWithGround);
-    }    
+        return true;
+    }
 }
