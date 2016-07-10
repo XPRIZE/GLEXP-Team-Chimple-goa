@@ -17,10 +17,14 @@
 #ifndef SkeletonCharacter_h
 #define SkeletonCharacter_h
 
-class SkeletonCharacter {
+class SkeletonCharacter : public cocos2d::Node {
 public:
     SkeletonCharacter();
     virtual ~SkeletonCharacter();
+    
+    static SkeletonCharacter* create(const std::string& filename);
+    
+    virtual bool initializeSkeletonCharacter(const std::string& filename);
     
     virtual cocostudio::timeline::SkeletonNode* getSkeletonNode();
     
@@ -45,8 +49,6 @@ public:
     
     virtual void HandlePostJumpDownEndingAnimation();
     
-    //virtual void HandleJumpDownStartingAnimation();
-        
     bool isWalking;
 
     bool isRunning;
@@ -65,6 +67,7 @@ public:
         return v1.x*v2.x + v1.y*v2.y;
     }
 
+    virtual bool didSkeletonContactBeginDuringJumpingUp(cocos2d::PhysicsContact &contact, SkeletonCharacterState currentStateCommand);
 
     
 protected:
@@ -72,10 +75,7 @@ protected:
         cocostudio::timeline::ActionTimeline* skeletonActionTime;
         StateMachine* stateMachine;        
         unsigned int contactWithGround = 1;
-    
-    
-        virtual bool didSkeletonContactBeginDuringJumpingUp(cocos2d::PhysicsContact &contact, SkeletonCharacterState currentStateCommand);
-    
+        CC_SYNTHESIZE(std::string, key, Key);
 };
 
 #endif /* SkeletonCharacter_h */

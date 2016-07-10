@@ -13,6 +13,30 @@
 
 USING_NS_CC;
 
+SkeletonCharacter* SkeletonCharacter::create(const std::string& filename) {
+    auto skeletonCharacter = new SkeletonCharacter();
+    if (skeletonCharacter && skeletonCharacter->initializeSkeletonCharacter(filename)) {
+        skeletonCharacter->autorelease();
+        return skeletonCharacter;
+    }
+    CC_SAFE_DELETE(skeletonCharacter);
+    return nullptr;
+}
+
+bool SkeletonCharacter::initializeSkeletonCharacter(const std::string& filename) {
+    this->createSkeletonNode(filename);
+    this->setKey(MAIN_SKELETON_KEY);
+    this->setName(MAIN_SKELETON_KEY);
+    auto visibleSize = Director::getInstance()->getVisibleSize();
+    Vec2 origin = Director::getInstance()->getVisibleOrigin();
+    
+    this->skeletonNode->setPosition(Vec2(origin.x + visibleSize.width/2, origin.y + visibleSize.height/2));
+    
+    this->addChild(this->skeletonNode);
+    
+    return true;
+}
+
 SkeletonCharacter::SkeletonCharacter()
 {
     this->skeletonNode = NULL;
@@ -27,6 +51,7 @@ SkeletonCharacter::SkeletonCharacter()
 SkeletonCharacter::~SkeletonCharacter()
 {
     this->skeletonNode->release();
+    this->skeletonActionTime->release();
     delete stateMachine;
 }
 
@@ -79,30 +104,6 @@ bool SkeletonCharacter::didSkeletonContactBeginDuringJumpingUp(PhysicsContact &c
         return true;
     }
     
-    CCLOG("Shape A category bit %d", contact.getShapeA()->getCategoryBitmask());
-    CCLOG("Shape B category bit %d", contact.getShapeB()->getCategoryBitmask());
-    
-
-    if((nodeA->getName() == HUMAN_SKELETON_NAME && (currentStateCommand == S_WALKING_STATE || currentStateCommand == S_RUNNING_STATE)))
-    {
-        if(contact.getShapeA()->getCategoryBitmask() == MAIN_CHARACTER_MASS_CATEGORY_MASK && contact.getShapeB()->getCategoryBitmask() == 3) {
-            return false;
-        }
-        CCLOG("CONTACT BEGin check on State Command =>  %d", currentStateCommand);
-        return true;
-    }
-    
-    
-    if((nodeB->getName() == HUMAN_SKELETON_NAME && (currentStateCommand == S_WALKING_STATE || currentStateCommand == S_RUNNING_STATE)))
-    {
-        if(contact.getShapeB()->getCategoryBitmask() == MAIN_CHARACTER_MASS_CATEGORY_MASK && contact.getShapeA()->getCategoryBitmask() == 3) {
-            return false;
-        }
-        
-        CCLOG("CONTACT BEGin check on State Command =>  %d", currentStateCommand);
-        return true;
-    }
-
 
     return false;
 }
@@ -123,105 +124,22 @@ void SkeletonCharacter::createSkeletonNode(const std::string& filename) {
     
     //create Physics body
     
-    //auto physicsBody = PhysicsBody::createBox(this->skeletonNode->getBoundingBox().size, PHYSICSBODY_MATERIAL_DEFAULT, Vec2(0,this->skeletonNode->getBoundingBox().size.height/2));
-        
+//    auto physicsBody = PhysicsBody::createBox(this->skeletonNode->getBoundingBox().size, PHYSICSBODY_MATERIAL_DEFAULT, Vec2(0,this->skeletonNode->getBoundingBox().size.height/2));
+//    
     
-    auto physicsBody = PhysicsBody::createBox(Size(HUMAN_SKELETON_COLLISION_BOX_WIDTH, this->skeletonNode->getBoundingBox().size.height), PhysicsMaterial(0.1f, 0.0f, 1.0f), Vec2(0,this->skeletonNode->getBoundingBox().size.height/2));
+    auto physicsBody = PhysicsBody::createBox(Size(HUMAN_SKELETON_COLLISION_BOX_WIDTH, HUMAN_SKELETON_COLLISION_BOX_WIDTH), PHYSICSBODY_MATERIAL_DEFAULT, Vec2(0,HUMAN_SKELETON_COLLISION_BOX_WIDTH/2));
     
     //set as dynamic
     physicsBody->setDynamic(DYNAMIC_BODY);
     physicsBody->setMass(MAIN_CHARACTER_MASS);    
-    
     this->skeletonNode->setPhysicsBody(physicsBody);
     this->skeletonNode->getPhysicsBody()->setRotationEnable(false);
     this->skeletonNode->getPhysicsBody()->setCollisionBitmask(MAIN_CHARACTER_MASS_COLLISION_MASK);
-    this->skeletonNode->getPhysicsBody()->setCategoryBitmask(MAIN_CHARACTER_MASS_CATEGORY_MASK);
     this->skeletonNode->getPhysicsBody()->setContactTestBitmask(MAIN_CHARACTER_MASS_CONTACT_MASK);
     this->skeletonNode->getPhysicsBody()->setLinearDamping(MAIN_CHARACTER_MASS_DAMPING);
+    this->skeletonNode->getPhysicsBody()->setGroup(MAIN_CHARACTER_GROUP);
     
-    this->skeletonNode->setScale(MAIN_CHARACTER_SCALE);
-    
-    auto contactListener = EventListenerPhysicsContact::create();
-    contactListener->onContactBegin = [=](PhysicsContact &contact) -> bool
-    {
-        // We we handle what happen when character collide with something else
-        // if we return true, we say: collision happen please. => Top-Down Char Jump
-        // otherwise, we say the engine to ignore this collision => Bottom-Up Char Jump
-        CCLOG("contact BEGAN!!! %d", this->stateMachine->getCurrentState()->getState());
-//        cocos2d::Node* nodeA = contact.getShapeA()->getBody()->getNode();
-//        cocos2d::Node* nodeB = contact.getShapeB()->getBody()->getNode();
-//        
-        
-        if(this->didSkeletonContactBeginDuringJumpingUp(contact, this->stateMachine->getCurrentState()->getState())) {
-            return false;
-        }
-        
-        if(this->stateMachine != NULL && this->stateMachine->getCurrentState() != NULL)
-        {
-            if(this->stateMachine->getCurrentState()->getState() == S_JUMPING_STATE)
-            {
-                //made contact with ground - assumption this point
-                
-                if(this->isJumpingAttemptedWhileDragging && this->isPlayingContinousRotationWhileJumping) {
-                    CCLOG("%s", "contact began after jump => while dragging");
-                    
-//                    this->getSkeletonActionTimeLine()->setTimeSpeed(2.0f);
-//                    std::function<void(void)> jumpEndingAnimation = std::bind(&SkeletonCharacter::HandlePostJumpDownEndingAnimation, this);
-//                    
-//                    this->getSkeletonActionTimeLine()->setAnimationEndCallFunc(ROTATE_SKELETON, jumpEndingAnimation);
-
-                    this->getSkeletonActionTimeLine()->play(ROTATE_SKELETON, false);                    
-                    
-                    this->isPlayingContinousRotationWhileJumping = false;
-                    
-                    this->stateMachine->handleInput(S_STANDING_STATE, cocos2d::Vec2(0,0));
-                    this->isRunning = false;
-                    this->isWalking = false;
-                    
-                    
-                } else {
-                    CCLOG("%s", "contact began after jump => NOOOOOOO dragging");
-                    
-                    std::function<void(void)> jumpEndingAnimation = std::bind(&SkeletonCharacter::HandlePostJumpDownEndingAnimation, this);
-                    
-                            this->getSkeletonActionTimeLine()->setAnimationEndCallFunc(JUMP_END, jumpEndingAnimation);
-                            this->getSkeletonActionTimeLine()->play(JUMP_END, false);
-
-                }
-                
-            }
-        }
-        
-
-
-        return true;
-    };
-    
-    
-    contactListener->onContactPreSolve = [=](PhysicsContact &contact, PhysicsContactPreSolve& solve) -> bool
-    {
-        solve.setRestitution(0); //stop bounce
-        return true;
-    };
-    
-    contactListener->onContactSeparate = [=](PhysicsContact &contact) -> bool
-    {
-        // We we handle what happen when character collide with something else
-        // if we return true, we say: collision happen please. => Top-Down Char Jump
-        // otherwise, we say the engine to ignore this collision => Bottom-Up Char Jump
-        auto nodeA = contact.getShapeA()->getBody()->getNode();
-        auto nodeB = contact.getShapeB()->getBody()->getNode();
-        CCLOG("velocity before falling %f", this->getSkeletonNode()->getPhysicsBody()->getVelocity().y);
-        CCLOG("%s", "contact ENDED!!!");
-        
-        return true;
-    };
-    
-    
-    Director::getInstance()->getEventDispatcher()->addEventListenerWithSceneGraphPriority(contactListener, this->skeletonNode);
-    
-    
-    this->skeletonNode->retain();
+    this->skeletonNode->setScale(MAIN_CHARACTER_SCALE);    
 }
 
 cocostudio::timeline::SkeletonNode* SkeletonCharacter::getSkeletonNode() {

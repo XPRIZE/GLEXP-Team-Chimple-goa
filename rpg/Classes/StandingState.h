@@ -31,6 +31,10 @@ public:
         this->getTarget()->isJumpingAttemptedWhileDragging = false;
         this->getTarget()->isJumping = false;
         
+        //NOTIFY
+        
+        cocos2d::Director::getInstance()->getEventDispatcher()->dispatchCustomEvent( RPGConfig::MAIN_CHARACTER_VICINITY_CHECK_NOTIFICATION, this->getTarget());
+        
         //start animation
       
         assert (this->getTarget()->getSkeletonActionTimeLine() != NULL);
