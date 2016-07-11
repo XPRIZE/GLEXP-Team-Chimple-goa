@@ -49,9 +49,33 @@ void Sqlite3Helper::initializeConnection() {
     std::string pathToSQLConnection = FileUtils::getInstance()->fullPathForFilename(this->connectionUrl);
     
     assert(!pathToSQLConnection.empty());
-    int result;
+    CCLOG("pathToSQLConnection to android %s", pathToSQLConnection.c_str());
+    CCLOG("writable path to android %s", FileUtils::getInstance()->getWritablePath().c_str());
+    int result = 0;
     
-    result=sqlite3_open(pathToSQLConnection.c_str(),&this->dataBaseConnection);
+    #if (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
+        std::string dbPath = FileUtils::getInstance()->getWritablePath() + "camp.db3";
+        FILE* file = fopen(dbPath.c_str(), "r");
+        if (file == nullptr)
+        {
+            ssize_t size;
+            const char* data = (char*) FileUtils::getInstance()->getFileData(pathToSQLConnection, "rb", &size);
+            file = fopen(dbPath.c_str(), "wb");
+            fwrite(data, size, 1, file);
+            CC_SAFE_DELETE_ARRAY(data);
+        }
+        fclose(file);
+    
+
+        result=sqlite3_open(dbPath.c_str(),&this->dataBaseConnection);
+    
+    #else
+        
+       result=sqlite3_open(pathToSQLConnection.c_str(),&this->dataBaseConnection);
+    
+    #endif
+    
+    
     
     if(result == SQLITE_OK)
     {

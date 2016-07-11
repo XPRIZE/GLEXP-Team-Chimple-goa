@@ -10,6 +10,7 @@
 #define MessageReceiver_hpp
 
 #include <stdio.h>
+#include "cocos2d.h"
 
 class MessageContent;
 

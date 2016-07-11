@@ -137,7 +137,7 @@ public:
     static inline std::unordered_map<std::string, std::string> parseUserData(std::string userDataStr) {
         char *cstr = new char[userDataStr.length() + 1];
         strcpy(cstr, userDataStr.c_str());
-        char *token = std::strtok(cstr, ",");
+        char *token = strtok(cstr, ",");
         
         std::unordered_map<std::string, std::string> attributes;
         
@@ -146,7 +146,7 @@ public:
             std::string key = s.substr(0, s.find("="));
             std::string name = s.substr(s.find("=") + 1);
             attributes.insert({key,name});
-            token = std::strtok(NULL, ",");
+            token = strtok(NULL, ",");
         }
         
         delete [] cstr;

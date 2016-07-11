@@ -6,14 +6,13 @@
 //
 //
 
+#include <stdio.h>
 #include "sqlite3.h"
+#include "MessageContent.hpp"
 
 #ifndef Sqlite3Helper_hpp
 #define Sqlite3Helper_hpp
 
-#include <stdio.h>
-
-class MessageContent;
 
 class Sqlite3Helper {
 public:

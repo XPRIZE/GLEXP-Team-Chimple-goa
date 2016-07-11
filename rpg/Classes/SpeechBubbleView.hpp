@@ -10,10 +10,11 @@
 #define SpeechBubbleView_hpp
 
 #include <stdio.h>
+#include "cocos2d.h"
 #include <unordered_map>
-#include "UIButton.h"
 #include "ui/UIWidget.h"
 #include "ui/GUIExport.h"
+#include "cocos-ext.h"
 
 
 class SpeechBubbleView : public cocos2d::Node {
