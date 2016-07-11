@@ -12,7 +12,6 @@
 #include <regex>
 #include "cocostudio/CCComExtensionData.h"
 #include "ExternalSkeletonCharacter.h"
-#include "pugixml.hpp"
 #include "SpeechBubbleView.hpp"
 #include "MessageContent.hpp"
 

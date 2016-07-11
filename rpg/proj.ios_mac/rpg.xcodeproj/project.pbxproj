@@ -48,8 +48,6 @@
 		3750CC6F1D2943E6003CCCAC /* MainScene.csb in Resources */ = {isa = PBXBuildFile; fileRef = 3750CC5F1D2943E6003CCCAC /* MainScene.csb */; };
 		375C88981D30B5E400D92786 /* Sqlite3Helper.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 375C88961D30B5E400D92786 /* Sqlite3Helper.cpp */; };
 		375C88991D30B5E400D92786 /* Sqlite3Helper.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 375C88961D30B5E400D92786 /* Sqlite3Helper.cpp */; };
-		376BD7FC1D2C079100444316 /* pugixml.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 376BD7FA1D2C079100444316 /* pugixml.cpp */; };
-		376BD7FD1D2C079100444316 /* pugixml.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 376BD7FA1D2C079100444316 /* pugixml.cpp */; };
 		3796052D1D33827200B9E06D /* Button_Disable.png in Resources */ = {isa = PBXBuildFile; fileRef = 3796052A1D33827200B9E06D /* Button_Disable.png */; };
 		3796052E1D33827200B9E06D /* Button_Disable.png in Resources */ = {isa = PBXBuildFile; fileRef = 3796052A1D33827200B9E06D /* Button_Disable.png */; };
 		3796052F1D33827200B9E06D /* Button_Normal.png in Resources */ = {isa = PBXBuildFile; fileRef = 3796052B1D33827200B9E06D /* Button_Normal.png */; };
@@ -224,8 +222,6 @@
 		375C88961D30B5E400D92786 /* Sqlite3Helper.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Sqlite3Helper.cpp; sourceTree = "<group>"; };
 		375C88971D30B5E400D92786 /* Sqlite3Helper.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Sqlite3Helper.hpp; sourceTree = "<group>"; };
 		376BD7F91D2C079100444316 /* pugiconfig.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = pugiconfig.hpp; sourceTree = "<group>"; };
-		376BD7FA1D2C079100444316 /* pugixml.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = pugixml.cpp; sourceTree = "<group>"; };
-		376BD7FB1D2C079100444316 /* pugixml.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = pugixml.hpp; sourceTree = "<group>"; };
 		3796052A1D33827200B9E06D /* Button_Disable.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Button_Disable.png; sourceTree = "<group>"; };
 		3796052B1D33827200B9E06D /* Button_Normal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Button_Normal.png; sourceTree = "<group>"; };
 		3796052C1D33827200B9E06D /* Button_Press.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Button_Press.png; sourceTree = "<group>"; };
@@ -491,8 +487,6 @@
 				F3FFBF931D193319007FAF05 /* PhysicsShapeCache.cpp */,
 				F3FFBF941D193319007FAF05 /* PhysicsShapeCache.h */,
 				376BD7F91D2C079100444316 /* pugiconfig.hpp */,
-				376BD7FA1D2C079100444316 /* pugixml.cpp */,
-				376BD7FB1D2C079100444316 /* pugixml.hpp */,
 				37D1171A1D24D4100064565A /* RPGConfig.cpp */,
 				37D117191D24D4100064565A /* RPGConfig.h */,
 				37D117111D24D3F30064565A /* RunningState.h */,
@@ -779,7 +773,6 @@
 				3734F7AF1D2CFD39009DC72F /* sqlite3.c in Sources */,
 				F3FFBF951D193319007FAF05 /* PhysicsShapeCache.cpp in Sources */,
 				371342AA1D314DA70091F1E4 /* MessageReceiver.cpp in Sources */,
-				376BD7FC1D2C079100444316 /* pugixml.cpp in Sources */,
 				371342A51D314D9A0091F1E4 /* MessageSender.cpp in Sources */,
 				503AE10017EB989F00D1A890 /* AppController.mm in Sources */,
 				3730B84B1D2B62D600B74A16 /* ExternalSkeletonCharacter.cpp in Sources */,
@@ -795,7 +788,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				371342AB1D314DA70091F1E4 /* MessageReceiver.cpp in Sources */,
-				376BD7FD1D2C079100444316 /* pugixml.cpp in Sources */,
 				3725F4D41D31EBEB0000B851 /* MessageContent.cpp in Sources */,
 				37D117201D24D4100064565A /* RPGConfig.cpp in Sources */,
 				3725F4DA1D32585B0000B851 /* SpeechBubbleView.cpp in Sources */,
