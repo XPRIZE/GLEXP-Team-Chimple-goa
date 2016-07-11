@@ -1,19 +1,6 @@
 
 #include <unordered_map>
 #include "HelloWorldScene.h"
-#include "ui/CocosGUI.h"
-#include "editor-support/cocostudio/CocoStudio.h"
-#include "editor-support/cocostudio/ActionTimeline/CCSkeletonNode.h"
-#include "PhysicsShapeCache.h"
-#include "GestureLayer.hpp"
-#include <cmath>
-#include <map>
-#include <typeinfo>
-#include <regex>
-#include "cocostudio/CCComExtensionData.h"
-#include "ExternalSkeletonCharacter.h"
-#include "SpeechBubbleView.hpp"
-#include "MessageContent.hpp"
 
 
 USING_NS_CC;
