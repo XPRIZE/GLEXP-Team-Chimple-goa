@@ -11,6 +11,10 @@
 
 #include <stdio.h>
 #include <unordered_map>
+#include "UIButton.h"
+#include "ui/UIWidget.h"
+#include "ui/GUIExport.h"
+
 
 class SpeechBubbleView : public cocos2d::Node {
 public:
@@ -24,12 +28,14 @@ public:
     
     
     // touch listeners
-    virtual bool onTouchBegan(cocos2d::Touch * touch, cocos2d::Event* event);
-    virtual void touchEnded(cocos2d::Touch* touch, cocos2d::Event* event);
+//    virtual bool onTouchBegan(cocos2d::Touch * touch, cocos2d::Event* event);
+//    virtual void touchEnded(cocos2d::Touch* touch, cocos2d::Event* event);
 
+    virtual void dialogSelected(cocos2d::Ref* sender, cocos2d::ui::Widget::TouchEventType type);
     
 protected:
-    std::vector<cocos2d::Label*> texts;
+//    std::vector<cocos2d::Label*> texts;
+    std::vector<cocos2d::ui::Button*> textButtons;
 };
 
 #endif /* SpeechBubbleView_hpp */

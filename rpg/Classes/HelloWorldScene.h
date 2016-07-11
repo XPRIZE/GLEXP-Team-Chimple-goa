@@ -178,6 +178,8 @@ public:
     CC_SYNTHESIZE(std::string, physicsFile, PhysicsFile);
     
     CC_SYNTHESIZE(std::string, mainCharacterFile, MainCharacterFile);
+    
+    CC_SYNTHESIZE(bool, isSpeechBubbleAlreadyVisible, SpeechBubbleAlreadyVisible);
 };
 
 #endif // __HELLOWORLD_SCENE_H__

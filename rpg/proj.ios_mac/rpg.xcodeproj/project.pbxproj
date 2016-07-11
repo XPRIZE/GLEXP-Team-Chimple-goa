@@ -50,6 +50,12 @@
 		375C88991D30B5E400D92786 /* Sqlite3Helper.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 375C88961D30B5E400D92786 /* Sqlite3Helper.cpp */; };
 		376BD7FC1D2C079100444316 /* pugixml.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 376BD7FA1D2C079100444316 /* pugixml.cpp */; };
 		376BD7FD1D2C079100444316 /* pugixml.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 376BD7FA1D2C079100444316 /* pugixml.cpp */; };
+		3796052D1D33827200B9E06D /* Button_Disable.png in Resources */ = {isa = PBXBuildFile; fileRef = 3796052A1D33827200B9E06D /* Button_Disable.png */; };
+		3796052E1D33827200B9E06D /* Button_Disable.png in Resources */ = {isa = PBXBuildFile; fileRef = 3796052A1D33827200B9E06D /* Button_Disable.png */; };
+		3796052F1D33827200B9E06D /* Button_Normal.png in Resources */ = {isa = PBXBuildFile; fileRef = 3796052B1D33827200B9E06D /* Button_Normal.png */; };
+		379605301D33827200B9E06D /* Button_Normal.png in Resources */ = {isa = PBXBuildFile; fileRef = 3796052B1D33827200B9E06D /* Button_Normal.png */; };
+		379605311D33827200B9E06D /* Button_Press.png in Resources */ = {isa = PBXBuildFile; fileRef = 3796052C1D33827200B9E06D /* Button_Press.png */; };
+		379605321D33827200B9E06D /* Button_Press.png in Resources */ = {isa = PBXBuildFile; fileRef = 3796052C1D33827200B9E06D /* Button_Press.png */; };
 		37BA8A931D2A86B500501F0B /* basebody in Resources */ = {isa = PBXBuildFile; fileRef = 37BA8A921D2A86B500501F0B /* basebody */; };
 		37BA8A941D2A86B500501F0B /* basebody in Resources */ = {isa = PBXBuildFile; fileRef = 37BA8A921D2A86B500501F0B /* basebody */; };
 		37BA8A981D2A86D600501F0B /* camp in Resources */ = {isa = PBXBuildFile; fileRef = 37BA8A961D2A86D600501F0B /* camp */; };
@@ -220,6 +226,9 @@
 		376BD7F91D2C079100444316 /* pugiconfig.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = pugiconfig.hpp; sourceTree = "<group>"; };
 		376BD7FA1D2C079100444316 /* pugixml.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = pugixml.cpp; sourceTree = "<group>"; };
 		376BD7FB1D2C079100444316 /* pugixml.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = pugixml.hpp; sourceTree = "<group>"; };
+		3796052A1D33827200B9E06D /* Button_Disable.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Button_Disable.png; sourceTree = "<group>"; };
+		3796052B1D33827200B9E06D /* Button_Normal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Button_Normal.png; sourceTree = "<group>"; };
+		3796052C1D33827200B9E06D /* Button_Press.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Button_Press.png; sourceTree = "<group>"; };
 		37BA8A921D2A86B500501F0B /* basebody */ = {isa = PBXFileReference; lastKnownFileType = folder; path = basebody; sourceTree = "<group>"; };
 		37BA8A961D2A86D600501F0B /* camp */ = {isa = PBXFileReference; lastKnownFileType = folder; path = camp; sourceTree = "<group>"; };
 		37BA8A971D2A86D600501F0B /* human_skeleton.csb */ = {isa = PBXFileReference; lastKnownFileType = file; path = human_skeleton.csb; sourceTree = "<group>"; };
@@ -426,6 +435,9 @@
 		46880B7519C43A67006E1F66 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				3796052A1D33827200B9E06D /* Button_Disable.png */,
+				3796052B1D33827200B9E06D /* Button_Normal.png */,
+				3796052C1D33827200B9E06D /* Button_Press.png */,
 				37BA8A961D2A86D600501F0B /* camp */,
 				37BA8A971D2A86D600501F0B /* human_skeleton.csb */,
 				37BA8A921D2A86B500501F0B /* basebody */,
@@ -655,6 +667,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				379605311D33827200B9E06D /* Button_Press.png in Resources */,
 				37D1174D1D24D47B0064565A /* human_spritesheet_02.png in Resources */,
 				5087E78117EB970100C73F5D /* Icon-120.png in Resources */,
 				370839D91D28CC5C009A20EB /* Plist.png in Resources */,
@@ -687,6 +700,7 @@
 				37D1174F1D24D47B0064565A /* human_spritesheet_03.plist in Resources */,
 				5087E78017EB970100C73F5D /* Icon-114.png in Resources */,
 				37BA8A931D2A86B500501F0B /* basebody in Resources */,
+				3796052D1D33827200B9E06D /* Button_Disable.png in Resources */,
 				50EF62A217ECD613001EB2F8 /* Icon-29.png in Resources */,
 				50EF629617ECD46A001EB2F8 /* Icon-40.png in Resources */,
 				5087E78217EB970100C73F5D /* Icon-144.png in Resources */,
@@ -702,6 +716,7 @@
 				3750CC621D2943E6003CCCAC /* background.csb in Resources */,
 				521A8E6419F0C34300D177D7 /* Default-667h@2x.png in Resources */,
 				46880B7B19C43A67006E1F66 /* CloseNormal.png in Resources */,
+				3796052F1D33827200B9E06D /* Button_Normal.png in Resources */,
 				50EF629717ECD46A001EB2F8 /* Icon-58.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -727,9 +742,11 @@
 				37D117561D24D47B0064565A /* human_spritesheet_04.png in Resources */,
 				3750CC631D2943E6003CCCAC /* background.csb in Resources */,
 				503AE0F817EB97AB00D1A890 /* Icon.icns in Resources */,
+				379605321D33827200B9E06D /* Button_Press.png in Resources */,
 				37D117521D24D47B0064565A /* human_spritesheet_03.png in Resources */,
 				3750CC611D2943E6003CCCAC /* background in Resources */,
 				3EACC99019EE6D4300EB3C5E /* res in Resources */,
+				3796052E1D33827200B9E06D /* Button_Disable.png in Resources */,
 				3750CC6F1D2943E6003CCCAC /* MainScene.csb in Resources */,
 				37E0671B1D251138009DC42F /* forest.plist in Resources */,
 				37BA8A941D2A86B500501F0B /* basebody in Resources */,
@@ -741,6 +758,7 @@
 				46880B7E19C43A67006E1F66 /* CloseSelected.png in Resources */,
 				37D1174C1D24D47B0064565A /* human_spritesheet_02.plist in Resources */,
 				37D1174E1D24D47B0064565A /* human_spritesheet_02.png in Resources */,
+				379605301D33827200B9E06D /* Button_Normal.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

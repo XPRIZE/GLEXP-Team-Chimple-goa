@@ -71,16 +71,17 @@
 
 #define EVENT_DISPATCHER Director::getInstance()->getEventDispatcher()
 
-#define ADD_VICINITY_NOTIFICATION( __target__, __notification__, __handler__) EVENT_DISPATCHER->addEventListenerWithSceneGraphPriority(EventListenerCustom::create (__notification__, __handler__), __target__);
+#define SEND_MESSAGE_TEXT_DESTROYED ( __target__, __notification__, __handler__) EVENT_DISPATCHER->addEventListenerWithSceneGraphPriority(EventListenerCustom::create (__notification__, __handler__), __target__)
 
-#define RECEIVE_MESSAGE_FOR_TAP_ON_SPEAKABLE( __target__, __notification__, __handler__) EVENT_DISPATCHER->addEventListenerWithSceneGraphPriority(EventListenerCustom::create (__notification__, __handler__), __target__);
+#define ADD_VICINITY_NOTIFICATION( __target__, __notification__, __handler__) EVENT_DISPATCHER->addEventListenerWithSceneGraphPriority(EventListenerCustom::create (__notification__, __handler__), __target__)
 
-#define PROCESS_MESSAGE_AND_CREATE_UI( __target__, __notification__, __handler__) EVENT_DISPATCHER->addEventListenerWithSceneGraphPriority(EventListenerCustom::create (__notification__, __handler__), __target__);
+#define RECEIVE_MESSAGE_FOR_TAP_ON_SPEAKABLE( __target__, __notification__, __handler__) EVENT_DISPATCHER->addEventListenerWithSceneGraphPriority(EventListenerCustom::create (__notification__, __handler__), __target__)
 
-#define SEND_MESSAGE_FOR_TAP_ON_TEXT( __target__, __notification__, __handler__) EVENT_DISPATCHER->addEventListenerWithSceneGraphPriority(EventListenerCustom::create (__notification__, __handler__), __target__);
+#define PROCESS_MESSAGE_AND_CREATE_UI( __target__, __notification__, __handler__) EVENT_DISPATCHER->addEventListenerWithSceneGraphPriority(EventListenerCustom::create (__notification__, __handler__), __target__)
 
+#define SEND_MESSAGE_FOR_TAP_ON_TEXT( __target__, __notification__, __handler__) EVENT_DISPATCHER->addEventListenerWithSceneGraphPriority(EventListenerCustom::create (__notification__, __handler__), __target__)
 
-#define SEND_MESSAGE_FOR_TAP_ON_SPEAKABLE( __target__, __notification__, __handler__) EVENT_DISPATCHER->addEventListenerWithSceneGraphPriority(EventListenerCustom::create (__notification__, __handler__), __target__);
+#define SEND_MESSAGE_FOR_TAP_ON_SPEAKABLE( __target__, __notification__, __handler__) EVENT_DISPATCHER->addEventListenerWithSceneGraphPriority(EventListenerCustom::create (__notification__, __handler__), __target__)
 
 
 
@@ -163,7 +164,11 @@ public:
     
     static const char* RECEIVE_CUSTOM_MESSAGE_NOTIFICATION;
     
+    static const char* SPEECH_BUBBLE_DESTROYED_NOTIFICATION;
+    
     static const char* PROCESS_CUSTOM_MESSAGE_AND_CREATE_UI_NOTIFICATION;
+    
+    
     
 };
 
