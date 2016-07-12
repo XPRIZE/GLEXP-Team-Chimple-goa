@@ -45,12 +45,13 @@ inline const char* enumToString(SkeletonCharacterState v)
 {
     switch (v)
     {
-        case S_STANDING_STATE:   return "Standing";
+        case S_STANDING_STATE:  return "Standing";
         case S_WALKING_STATE:   return "Walking";
         case S_RUNNING_STATE:   return "Running";
         case S_JUMPING_STATE:   return "Jumping";
         case S_FALLING_STATE:   return "Falling";
-        default:      return "";
+        case S_NONE_STATE:      return "None";
+        default:                return "None";
     }
 }
 
@@ -58,7 +59,7 @@ inline const char* enumToString(SkeletonCharacterState v)
 
 void StateMachine::setInitialState(SkeletonCharacterState initialState) {
     currentState = states.at(enumToString(initialState));
-    currentState->enter(cocos2d::Vec2(0,0));
+    currentState->enter(cocos2d::Vec2(0,0), S_NONE_STATE);
 }
 
 
@@ -107,15 +108,22 @@ void StateMachine::addState(SkeletonCharacterState characterState, SkeletonChara
             
             
         case S_FALLING_STATE:
+        {
             auto fallingState = new FallingState();
             fallingState->setTarget(characterState, target);
             fallingState->setStateMachine(this);
             states.insert({enumToString(characterState), fallingState});
             break;
-
+            
+        }
+        
+        case S_NONE_STATE:
+        {
             break;
+        }
             
     }
+    
     
 }
 
@@ -124,7 +132,7 @@ State* StateMachine::getCurrentState() {
     return currentState;
 }
 
-void StateMachine::handleInput(SkeletonCharacterState command, const cocos2d::Vec2 forceVector, const std::map<std::string, std::string>& the_map) {
+void StateMachine::handleInput(SkeletonCharacterState command, const cocos2d::Vec2 forceVector) {
     SkeletonCharacterState newCommand = currentState->handleInput(command);
     SkeletonCharacterState curCommand = currentState->getState();
     CCLOG("current command %s", enumToString(curCommand));
@@ -135,7 +143,7 @@ void StateMachine::handleInput(SkeletonCharacterState command, const cocos2d::Ve
         if(states.count(enumToString(newCommand))) {
             currentState = states.at(enumToString(newCommand));
             if(currentState != NULL) {
-                currentState->enter(forceVector, the_map);
+                currentState->enter(forceVector, curCommand);
             }            
         }
         

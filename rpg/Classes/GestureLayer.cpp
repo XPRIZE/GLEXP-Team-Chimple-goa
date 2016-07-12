@@ -107,8 +107,8 @@ void GestureLayer::touchEnded(Touch *touch, Event *event)
     HandleEndTouch();
     
     // stop observing touch
-    is_touch_active_ = false;
-    isDragging = false;
+    this->is_touch_active_ = false;
+    this->isDragging = false;
 }
 
 void GestureLayer::DetermineHoldTouch() {
@@ -120,7 +120,7 @@ void GestureLayer::DetermineHoldTouch() {
     }
     
     //check if Hold (holding touch without moving for .5 sec delta)
-    if(touch_start_time_ > 0.05f && (touch_start_.fuzzyEquals(touch_end_, 1) || isDragging)) {
+    if(touch_start_time_ > 0.2f && (touch_start_.fuzzyEquals(touch_end_, 1) || isDragging)) {
         gesture_type_ = E_GESTURE_HOLD;
         CCLOG("%s", "holding mouse");
         (target_->*handler_)(this);

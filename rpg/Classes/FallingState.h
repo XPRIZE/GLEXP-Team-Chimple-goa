@@ -6,65 +6,27 @@
 //
 //
 
+#include <stdio.h>
+#include "State.h"
+#include "StateMachine.h"
+#include "SkeletonCharacter.h"
+
 #ifndef FallingState_h
 #define FallingState_h
 
 class FallingState :  public State {
     
 public:
-    FallingState() {};
-    ~FallingState() {};
+    FallingState();
+    ~FallingState();
     
-    void enter(cocos2d::Vec2 forceVector, const std::map<std::string, std::string>& the_map = std::map<std::string, std::string>())  {
-        CCLOG("%s", "Enter Falling State on object");
-        assert (this->getTarget() != NULL);
-        assert (this->getTarget()->getSkeletonNode() != NULL);
-        
-        this->getTarget()->isWalking = false;
-        this->getTarget()->isRunning = false;
-        
-        //start animation
-        
-        assert (this->getTarget()->getSkeletonActionTimeLine() != NULL);
-        
-        this->getTarget()->getSkeletonActionTimeLine()->play("idle", true);
-    }
+    virtual void enter(cocos2d::Vec2 forceVector, SkeletonCharacterState previousStateCommand);
     
-    void exit()  {
-        CCLOG("%s", "Exit Falling State");
-    }
+    virtual void exit();
     
-    SkeletonCharacterState handleInput(SkeletonCharacterState command)  {
-        switch(command) {
-            case S_WALKING_STATE:
-            {
-                return S_WALKING_STATE;
-            }
-            case S_RUNNING_STATE:
-            {
-                return S_RUNNING_STATE;
-            }
-            case S_JUMPING_STATE:
-            {
-                return S_JUMPING_STATE;
-            }
-            case S_STANDING_STATE:
-            {
-                return S_STANDING_STATE;
-            }
-            case S_FALLING_STATE:
-            {
-                return S_FALLING_STATE;
-            }
-                
-        };
-        
-        return command;
-    }
+    virtual SkeletonCharacterState handleInput(SkeletonCharacterState command);
     
-    SkeletonCharacterState getState()  {
-        return characterState;
-    }
+    virtual SkeletonCharacterState getState();
 };
 
 #endif /* FallingState_h */

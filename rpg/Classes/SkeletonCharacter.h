@@ -17,10 +17,14 @@
 #ifndef SkeletonCharacter_h
 #define SkeletonCharacter_h
 
-class SkeletonCharacter {
+class SkeletonCharacter : public cocos2d::Node {
 public:
     SkeletonCharacter();
     virtual ~SkeletonCharacter();
+    
+    static SkeletonCharacter* create(const std::string& filename);
+    
+    virtual bool initializeSkeletonCharacter(const std::string& filename);
     
     virtual cocostudio::timeline::SkeletonNode* getSkeletonNode();
     
@@ -34,16 +38,17 @@ public:
     
     virtual bool getSkeletonInContactWithGround();
     
-    virtual void setSkeletonInContactWithGround(bool skeletonInContactWithGround);
     
-    virtual void playJumpingUpEndingAnimation(std::function<void ()> func);
+    virtual void playJumpingUpEndingAnimation();
+    
+    virtual void playJumpingContinuousRotationAnimation();
     
     virtual void playStartingJumpUpAnimation(std::function<void ()> func);
     
+    virtual void playStartingJumpUpWithRotationAnimation(std::function<void ()> func);
+    
     virtual void HandlePostJumpDownEndingAnimation();
     
-    virtual void HandleJumpDownStartingAnimation();
-        
     bool isWalking;
 
     bool isRunning;
@@ -51,14 +56,20 @@ public:
     bool isJumpingUp;
     
     bool isJumping;
+    
+    bool isJumpingAttemptedWhileDragging;
+    
+    bool isPlayingContinousRotationWhileJumping;
+    
+    virtual bool didSkeletonContactBeginDuringJumpingUp(cocos2d::PhysicsContact &contact, SkeletonCharacterState currentStateCommand);
 
     
 protected:
         cocostudio::timeline::SkeletonNode* skeletonNode;
         cocostudio::timeline::ActionTimeline* skeletonActionTime;
-        StateMachine* stateMachine;
-        bool skeletonInContactWithGround;
-    
+        StateMachine* stateMachine;        
+        unsigned int contactWithGround = 1;
+        CC_SYNTHESIZE(std::string, key, Key);
 };
 
 #endif /* SkeletonCharacter_h */

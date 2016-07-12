@@ -256,7 +256,6 @@ void Follow::step(float dt)
         }
 
         Vec2 tempPos = _halfScreenSize - _followedNode->getPosition();
-
         _target->setPosition(clampf(tempPos.x, _leftBoundary, _rightBoundary),
                                    clampf(tempPos.y, _bottomBoundary, _topBoundary));
     }

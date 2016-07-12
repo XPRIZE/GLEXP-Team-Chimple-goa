@@ -4,115 +4,269 @@
 	<dict>
 		<key>frames</key>
 		<dict>
-			<key>layer_1_mountain_1.png</key>
+			<key>basebody/arm_hand_left.png</key>
 			<dict>
 				<key>frame</key>
-				<string>{{965,1609},{1373,1126}}</string>
+				<string>{{1816,679},{68,105}}</string>
 				<key>offset</key>
 				<string>{0,0}</string>
 				<key>rotated</key>
 				<true />
 				<key>sourceSize</key>
-				<string>{1373,1126}</string>
+				<string>{68,105}</string>
 			</dict>
-			<key>layer_1_mountain_2.png</key>
+			<key>basebody/arm_hand_right.png</key>
 			<dict>
 				<key>frame</key>
-				<string>{{2091,1373},{985,1126}}</string>
-				<key>offset</key>
-				<string>{0,0}</string>
-				<key>rotated</key>
-				<false />
-				<key>sourceSize</key>
-				<string>{985,1126}</string>
-			</dict>
-			<key>layer_1_mountain_3.png</key>
-			<dict>
-				<key>frame</key>
-				<string>{{2236,0},{985,1126}}</string>
-				<key>offset</key>
-				<string>{0,0}</string>
-				<key>rotated</key>
-				<false />
-				<key>sourceSize</key>
-				<string>{985,1126}</string>
-			</dict>
-			<key>layer_2_mountain_1.png</key>
-			<dict>
-				<key>frame</key>
-				<string>{{1110,0},{1373,1126}}</string>
+				<string>{{1816,747},{68,105}}</string>
 				<key>offset</key>
 				<string>{0,0}</string>
 				<key>rotated</key>
 				<true />
 				<key>sourceSize</key>
-				<string>{1373,1126}</string>
+				<string>{68,105}</string>
 			</dict>
-			<key>layer_2_mountain_2.png</key>
+			<key>basebody/arm_lower_left.png</key>
 			<dict>
 				<key>frame</key>
-				<string>{{3076,1126},{985,1126}}</string>
+				<string>{{1924,675},{48,220}}</string>
 				<key>offset</key>
 				<string>{0,0}</string>
 				<key>rotated</key>
 				<false />
 				<key>sourceSize</key>
-				<string>{985,1126}</string>
+				<string>{48,220}</string>
 			</dict>
-			<key>layer_6_tree_1.png</key>
+			<key>basebody/arm_lower_right.png</key>
 			<dict>
 				<key>frame</key>
-				<string>{{0,0},{1110,1609}}</string>
+				<string>{{1996,809},{48,220}}</string>
 				<key>offset</key>
-				<string>{13,0}</string>
+				<string>{0,0}</string>
 				<key>rotated</key>
 				<false />
 				<key>sourceSize</key>
-				<string>{1136,1609}</string>
+				<string>{48,220}</string>
 			</dict>
-			<key>layer_6_tree_2.png</key>
+			<key>basebody/arm_upper_left.png</key>
 			<dict>
 				<key>frame</key>
-				<string>{{0,1609},{965,1609}}</string>
+				<string>{{1947,0},{55,262}}</string>
 				<key>offset</key>
-				<string>{-7,0}</string>
+				<string>{0,0}</string>
 				<key>rotated</key>
 				<false />
 				<key>sourceSize</key>
-				<string>{979,1609}</string>
+				<string>{55,262}</string>
 			</dict>
-			<key>layer_6_tree_3.png</key>
+			<key>basebody/arm_upper_right.png</key>
 			<dict>
 				<key>frame</key>
-				<string>{{1609,2982},{880,1591}}</string>
+				<string>{{1947,262},{55,262}}</string>
 				<key>offset</key>
-				<string>{9,9}</string>
+				<string>{0,0}</string>
 				<key>rotated</key>
-				<true />
+				<false />
 				<key>sourceSize</key>
-				<string>{898,1609}</string>
+				<string>{55,262}</string>
 			</dict>
-			<key>layer_6_tree_4.png</key>
+			<key>basebody/boy_nose.png</key>
 			<dict>
 				<key>frame</key>
-				<string>{{0,3218},{241,1609}}</string>
+				<string>{{1401,0},{546,426}}</string>
 				<key>offset</key>
-				<string>{7,0}</string>
+				<string>{0,0}</string>
 				<key>rotated</key>
-				<true />
+				<false />
 				<key>sourceSize</key>
-				<string>{270,1609}</string>
+				<string>{546,426}</string>
 			</dict>
-			<key>ground.png</key>
+			<key>basebody/ear_round.png</key>
 			<dict>
 				<key>frame</key>
-				<string>{{0,3459},{519,506}}</string>
+				<string>{{1248,429},{138,175}}</string>
+				<key>offset</key>
+				<string>{0,0}</string>
+				<key>rotated</key>
+				<false />
+				<key>sourceSize</key>
+				<string>{138,175}</string>
+			</dict>
+			<key>basebody/eye_boy_outer.png</key>
+			<dict>
+				<key>frame</key>
+				<string>{{1972,771},{96,24}}</string>
 				<key>offset</key>
 				<string>{0,0}</string>
 				<key>rotated</key>
 				<true />
 				<key>sourceSize</key>
-				<string>{519,506}</string>
+				<string>{96,24}</string>
+			</dict>
+			<key>basebody/eyebrow_boy.png</key>
+			<dict>
+				<key>frame</key>
+				<string>{{1816,815},{110,64}}</string>
+				<key>offset</key>
+				<string>{0,0}</string>
+				<key>rotated</key>
+				<true />
+				<key>sourceSize</key>
+				<string>{110,64}</string>
+			</dict>
+			<key>basebody/face.png</key>
+			<dict>
+				<key>frame</key>
+				<string>{{0,0},{815,680}}</string>
+				<key>offset</key>
+				<string>{0,0}</string>
+				<key>rotated</key>
+				<false />
+				<key>sourceSize</key>
+				<string>{815,680}</string>
+			</dict>
+			<key>basebody/hair_mohawk.png</key>
+			<dict>
+				<key>frame</key>
+				<string>{{815,429},{433,246}}</string>
+				<key>offset</key>
+				<string>{0,0}</string>
+				<key>rotated</key>
+				<false />
+				<key>sourceSize</key>
+				<string>{433,246}</string>
+			</dict>
+			<key>basebody/motu_pant_hip.png</key>
+			<dict>
+				<key>frame</key>
+				<string>{{1401,426},{415,415}}</string>
+				<key>offset</key>
+				<string>{0,0}</string>
+				<key>rotated</key>
+				<false />
+				<key>sourceSize</key>
+				<string>{415,415}</string>
+			</dict>
+			<key>basebody/motu_pant_lower_left.png</key>
+			<dict>
+				<key>frame</key>
+				<string>{{1972,675},{30,96}}</string>
+				<key>offset</key>
+				<string>{0,0}</string>
+				<key>rotated</key>
+				<false />
+				<key>sourceSize</key>
+				<string>{30,96}</string>
+			</dict>
+			<key>basebody/motu_pant_lower_right.png</key>
+			<dict>
+				<key>frame</key>
+				<string>{{2002,713},{30,96}}</string>
+				<key>offset</key>
+				<string>{0,0}</string>
+				<key>rotated</key>
+				<false />
+				<key>sourceSize</key>
+				<string>{30,96}</string>
+			</dict>
+			<key>basebody/motu_pant_upper_left.png</key>
+			<dict>
+				<key>frame</key>
+				<string>{{2002,0},{36,147}}</string>
+				<key>offset</key>
+				<string>{0,0}</string>
+				<key>rotated</key>
+				<false />
+				<key>sourceSize</key>
+				<string>{36,147}</string>
+			</dict>
+			<key>basebody/motu_pant_upper_right.png</key>
+			<dict>
+				<key>frame</key>
+				<string>{{2002,147},{36,147}}</string>
+				<key>offset</key>
+				<string>{0,0}</string>
+				<key>rotated</key>
+				<false />
+				<key>sourceSize</key>
+				<string>{36,147}</string>
+			</dict>
+			<key>basebody/motu_shirt.png</key>
+			<dict>
+				<key>frame</key>
+				<string>{{815,0},{429,586}}</string>
+				<key>offset</key>
+				<string>{0,0}</string>
+				<key>rotated</key>
+				<true />
+				<key>sourceSize</key>
+				<string>{429,586}</string>
+			</dict>
+			<key>basebody/motu_shirt_sleave.png</key>
+			<dict>
+				<key>frame</key>
+				<string>{{1880,895},{64,105}}</string>
+				<key>offset</key>
+				<string>{0,0}</string>
+				<key>rotated</key>
+				<true />
+				<key>sourceSize</key>
+				<string>{64,105}</string>
+			</dict>
+			<key>basebody/motu_shoes_left.png</key>
+			<dict>
+				<key>frame</key>
+				<string>{{2002,294},{159,33}}</string>
+				<key>offset</key>
+				<string>{0,0}</string>
+				<key>rotated</key>
+				<true />
+				<key>sourceSize</key>
+				<string>{159,33}</string>
+			</dict>
+			<key>basebody/motu_shoes_right.png</key>
+			<dict>
+				<key>frame</key>
+				<string>{{2002,453},{159,33}}</string>
+				<key>offset</key>
+				<string>{0,0}</string>
+				<key>rotated</key>
+				<true />
+				<key>sourceSize</key>
+				<string>{159,33}</string>
+			</dict>
+			<key>basebody/mouth_smile.png</key>
+			<dict>
+				<key>frame</key>
+				<string>{{1816,426},{253,108}}</string>
+				<key>offset</key>
+				<string>{0,0}</string>
+				<key>rotated</key>
+				<true />
+				<key>sourceSize</key>
+				<string>{253,108}</string>
+			</dict>
+			<key>basebody/navyblue.png</key>
+			<dict>
+				<key>frame</key>
+				<string>{{2002,612},{43,101}}</string>
+				<key>offset</key>
+				<string>{0,0}</string>
+				<key>rotated</key>
+				<false />
+				<key>sourceSize</key>
+				<string>{43,101}</string>
+			</dict>
+			<key>basebody/neck.png</key>
+			<dict>
+				<key>frame</key>
+				<string>{{1924,524},{78,151}}</string>
+				<key>offset</key>
+				<string>{0,0}</string>
+				<key>rotated</key>
+				<false />
+				<key>sourceSize</key>
+				<string>{78,151}</string>
 			</dict>
 		</dict>
 		<key>metadata</key>
@@ -124,14 +278,14 @@
 			<key>realTextureFileName</key>
 			<string>Plist.png</string>
 			<key>size</key>
-			<string>{4061,3978}</string>
+			<string>{2045,1029}</string>
 		</dict>
 		<key>texture</key>
 		<dict>
 			<key>width</key>
-			<integer>4061</integer>
+			<integer>2045</integer>
 			<key>height</key>
-			<integer>3978</integer>
+			<integer>1029</integer>
 		</dict>
 	</dict>
 </plist>
