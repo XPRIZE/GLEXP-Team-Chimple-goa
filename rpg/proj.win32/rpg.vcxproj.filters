@@ -39,9 +39,6 @@
     <ClCompile Include="..\Classes\PhysicsShapeCache.cpp">
       <Filter>src</Filter>
     </ClCompile>
-    <ClCompile Include="..\Classes\pugixml.cpp">
-      <Filter>src</Filter>
-    </ClCompile>
     <ClCompile Include="..\Classes\RPGConfig.cpp">
       <Filter>src</Filter>
     </ClCompile>
@@ -58,6 +55,24 @@
       <Filter>src</Filter>
     </ClCompile>
     <ClCompile Include="..\Classes\sqlite3.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\StandingState.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\WalkingState.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\FallingState.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\JumpingState.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\RunningState.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\State.cpp">
       <Filter>src</Filter>
     </ClCompile>
   </ItemGroup>
@@ -93,12 +108,6 @@
       <Filter>src</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\PhysicsShapeCache.h">
-      <Filter>src</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\pugiconfig.hpp">
-      <Filter>src</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\pugixml.hpp">
       <Filter>src</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\RPGConfig.h">
