@@ -7,7 +7,9 @@
 //
 
 #include "RPGSprite.h"
+#include "RPGConfig.h"
 #include "SkeletonCharacter.h"
+#include "HelloWorldScene.h"
 
 USING_NS_CC;
 
@@ -38,6 +40,7 @@ bool RPGSprite::initialize(cocos2d::Sprite* sprite, std::unordered_map<std::stri
     this->setAttributes(attributes);
     this->addChild(this->sprite);
     
+    
     auto checkVicinityWithMainCharacter = [=] (EventCustom * event) {
         SkeletonCharacter* mainSkeleton =  (SkeletonCharacter* )event->getUserData();
         if(this->checkVicinityToMainSkeleton(mainSkeleton))
@@ -50,6 +53,17 @@ bool RPGSprite::initialize(cocos2d::Sprite* sprite, std::unordered_map<std::stri
     
     ADD_VICINITY_NOTIFICATION(this, RPGConfig::MAIN_CHARACTER_VICINITY_CHECK_NOTIFICATION, checkVicinityWithMainCharacter);
     
+    
+    auto tapOnClickableObjectEvent = [=] (EventCustom * event) {
+        EVENT_DISPATCHER->dispatchCustomEvent (RPGConfig::DISPATCH_CLEANUP_AND_SCENE_TRANSITION_NOTIFICATION);
+        
+        CCLOG("Received Tap on clickable object %s", event->getUserData());
+        Director::getInstance()->replaceScene(TransitionFade::create(1, HelloWorld::createScene("farmhouse"), cocos2d::Color3B::WHITE));
+
+    };
+    
+    SEND_MESSAGE_FOR_TAP_ON_SPEAKABLE(this, RPGConfig::TAP_ON_CLICKABLE_OBJECT_NOTIFICATION, tapOnClickableObjectEvent);
+
     this->scheduleUpdate();
     
     return true;
@@ -103,9 +117,8 @@ std::unordered_map<std::string, std::string> RPGSprite::getAttributes() {
 
 void RPGSprite::update(float dt) {
     if(!this->vicinityToMainCharacter) {
-        this->getSprite()->setPosition(this->getSprite()->getPosition().x + RPGConfig::externalSkeletonMoveDelta, this->getSprite()->getPosition().y);
         
-            cocos2d::Director::getInstance()->getEventDispatcher()->dispatchCustomEvent( RPGConfig::MAIN_CHARACTER_VICINITY_CHECK_NOTIFICATION, this);
+        cocos2d::Director::getInstance()->getEventDispatcher()->dispatchCustomEvent( RPGConfig::MAIN_CHARACTER_VICINITY_CHECK_NOTIFICATION, this);
     }
 }
 

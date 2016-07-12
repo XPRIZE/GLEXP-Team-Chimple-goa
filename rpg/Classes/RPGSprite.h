@@ -52,6 +52,7 @@ public:
     virtual void update(float dt);
         
     virtual bool checkVicinityToMainSkeleton(SkeletonCharacter* skeletonCharacter);
+    
 protected:
     cocos2d::Sprite* sprite;
     std::unordered_map<std::string, std::string> attributes;

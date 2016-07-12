@@ -79,9 +79,14 @@
 
 #define PROCESS_MESSAGE_AND_CREATE_UI( __target__, __notification__, __handler__) EVENT_DISPATCHER->addEventListenerWithSceneGraphPriority(EventListenerCustom::create (__notification__, __handler__), __target__)
 
+#define SEND_DISTACH_CLEAN_UP( __target__, __notification__, __handler__) EVENT_DISPATCHER->addEventListenerWithSceneGraphPriority(EventListenerCustom::create (__notification__, __handler__), __target__)
+
+
 #define SEND_MESSAGE_FOR_TAP_ON_TEXT( __target__, __notification__, __handler__) EVENT_DISPATCHER->addEventListenerWithSceneGraphPriority(EventListenerCustom::create (__notification__, __handler__), __target__)
 
 #define SEND_MESSAGE_FOR_TAP_ON_SPEAKABLE( __target__, __notification__, __handler__) EVENT_DISPATCHER->addEventListenerWithSceneGraphPriority(EventListenerCustom::create (__notification__, __handler__), __target__)
+
+#define SEND_TAP_ON_CLICKABLE_OBJECT ( __target__, __notification__, __handler__) EVENT_DISPATCHER->addEventListenerWithSceneGraphPriority(EventListenerCustom::create (__notification__, __handler__), __target__)
 
 
 
@@ -132,8 +137,6 @@ public:
     
     static int externalSkeletonMoveDelta;
     
-    static std::string initialMainSceneBase;
-    
     static inline std::unordered_map<std::string, std::string> parseUserData(std::string userDataStr) {
         char *cstr = new char[userDataStr.length() + 1];
         strcpy(cstr, userDataStr.c_str());
@@ -168,7 +171,9 @@ public:
     
     static const char* PROCESS_CUSTOM_MESSAGE_AND_CREATE_UI_NOTIFICATION;
     
+    static const char* TAP_ON_CLICKABLE_OBJECT_NOTIFICATION;
     
+    static const char* DISPATCH_CLEANUP_AND_SCENE_TRANSITION_NOTIFICATION;
     
 };
 

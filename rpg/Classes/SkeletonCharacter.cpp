@@ -50,9 +50,6 @@ SkeletonCharacter::SkeletonCharacter()
 
 SkeletonCharacter::~SkeletonCharacter()
 {
-    this->skeletonNode->release();
-    this->skeletonActionTime->release();
-    delete stateMachine;
 }
 
 void SkeletonCharacter::setStateMachine(StateMachine* stateMachine) {

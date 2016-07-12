@@ -30,7 +30,9 @@
 class GestureLayer;
 class MessageContent;
 
-typedef std::vector<ExternalSkeletonCharacter*> external_skeletons;    // or whatever you
+typedef std::vector<ExternalSkeletonCharacter*> external_skeletons;
+
+typedef std::vector<RPGSprite*> rpg_sprites;
 
 
 #define DIALOG_FILE "dialogFile"
@@ -103,6 +105,7 @@ private:
     
     external_skeletons externalSkeletons;
     
+    rpg_sprites rpgSprites;
     
     //reference to Layers
     cocos2d::Node* mainLayer;
@@ -112,15 +115,16 @@ private:
     //category bit mask for main skeleton
     int mainCharacterCategoryBitMask;
     
-    std::string baseDir;
+    std::string baseDir;        
     
 public:
-    static cocos2d::Scene* createScene();
+    static cocos2d::Scene* createScene(std::string sceneName);
+    static HelloWorld* create(std::string sceneName);
     
     HelloWorld();
     ~HelloWorld();
     
-    virtual bool init();
+    virtual bool init(std::string sceneName);
     
     void createRPGGame();
     
@@ -155,7 +159,7 @@ public:
     void HandleSwipeLeft(cocos2d::Point position);
     void HandleSwipeRight(cocos2d::Point position);
     void HandleTouchedEnded(cocos2d::Point position);
-    bool isTapOnSpeakableObject(cocos2d::Point position);
+    bool isTapOnSpeakableOrClickableObject(cocos2d::Point position);
     
     void HandleJumpWithAnimation();
     void HandlePostJumpUpAnimation();
@@ -168,10 +172,7 @@ public:
     void flipSkeletonDirection(cocos2d::Point point, cocostudio::timeline::SkeletonNode* characterNode);
     
     void HandleJumpWithContinueousRotation();
-    
-    // implement the "static create()" method manually
-    CREATE_FUNC(HelloWorld);
-    
+        
     //set scene attributes
     virtual void setSceneSize(const cocos2d::Size& size);
     
@@ -187,7 +188,7 @@ public:
     
     virtual bool handlePhysicsContactEventForOtherSkeletonCharacter(cocos2d::PhysicsContact &contact, cocos2d::Node* nodeA, cocos2d::Node* nodeB);
     
-    
+        
     CC_SYNTHESIZE(std::string, _baseDir, BaseDir);
     
     CC_SYNTHESIZE(std::string, dialogFile, DialogFile);

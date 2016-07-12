@@ -1,24 +1,36 @@
 
 #include <unordered_map>
 #include "HelloWorldScene.h"
-
+#include "RPGConfig.h"
 
 USING_NS_CC;
 
-Scene* HelloWorld::createScene()
+Scene* HelloWorld::createScene(std::string sceneName)
 {
     // 'scene' is an autorelease object
     auto scene = Scene::createWithPhysics();
     
     // 'layer' is an autorelease object
-    auto layer = HelloWorld::create();
+    auto layer = HelloWorld::create(sceneName);
     
     // add layer as a child to scene
     scene->addChild(layer);
     initPhysics(scene);
     
     // return the scene
+    
     return scene;
+}
+
+HelloWorld* HelloWorld::create(std::string sceneName)
+{
+    HelloWorld* helloWorldLayer = new (std::nothrow) HelloWorld();
+    if(helloWorldLayer && helloWorldLayer->init(sceneName)) {
+        helloWorldLayer->autorelease();
+        return helloWorldLayer;
+    }
+    CC_SAFE_DELETE(helloWorldLayer);
+    return nullptr;
 }
 
 void HelloWorld::initPhysics(Scene* scene)
@@ -38,15 +50,6 @@ HelloWorld::HelloWorld() {
 }
 
 HelloWorld::~HelloWorld() {
-    delete this->stateMachine;
-    delete this->sqlite3Helper;
-    
-    EVENT_DISPATCHER->removeCustomEventListeners("MAIN_CHARACTER_VICINITY_CHECK_NOTIFICATION");
-    EVENT_DISPATCHER->removeCustomEventListeners("SPEECH_MESSAGE_ON_TAP_NOTIFICATION");
-    EVENT_DISPATCHER->removeCustomEventListeners("SPEECH_MESSAGE_ON_TEXT_TAP_NOTIFICATION");
-    EVENT_DISPATCHER->removeCustomEventListeners("RECEIVE_CUSTOM_MESSAGE_NOTIFICATION");
-    EVENT_DISPATCHER->removeCustomEventListeners("SPEECH_BUBBLE_DESTROYED_NOTIFICATION");
-    EVENT_DISPATCHER->removeCustomEventListeners("PROCESS_CUSTOM_MESSAGE_AND_CREATE_UI_NOTIFICATION");    
 }
 
 //TODO
@@ -111,7 +114,7 @@ void HelloWorld::processMainLayerChildrenForCustomEvents() {
             
             RPGSprite* rpgSprite = RPGSprite::create(dynamic_cast<cocos2d::Sprite *>(node), attributes);
             this->mainLayer->addChild(rpgSprite);
-            //this->externalSkeletons.push_back(rpgSprite);
+            this->rpgSprites.push_back(rpgSprite);
             
         }
     }
@@ -224,7 +227,7 @@ void HelloWorld::initGestureLayer() {
 
 
 // on "init" you need to initialize your instance
-bool HelloWorld::init()
+bool HelloWorld::init(std::string sceneName)
 {
     //////////////////////////////
     // 1. super init first
@@ -235,7 +238,7 @@ bool HelloWorld::init()
     
     
     //set up current Base Dir to load resources from
-    this->setBaseDir(RPGConfig::initialMainSceneBase);
+    this->setBaseDir(sceneName);
     
     FileUtils::getInstance()->addSearchPath(this->getBaseDir());
     
@@ -287,6 +290,26 @@ void HelloWorld::registerMessageSenderAndReceiver() {
     };
     
     PROCESS_MESSAGE_AND_CREATE_UI(this, RPGConfig::PROCESS_CUSTOM_MESSAGE_AND_CREATE_UI_NOTIFICATION, processMessageEvent);
+    
+    
+    auto cleanUpResourcesEvent = [=] (EventCustom * event) {
+        //StateMachine::instanceFlag = false;
+        delete this->stateMachine;
+        delete this->sqlite3Helper;
+        
+        EVENT_DISPATCHER->removeCustomEventListeners("MAIN_CHARACTER_VICINITY_CHECK_NOTIFICATION");
+        EVENT_DISPATCHER->removeCustomEventListeners("SPEECH_MESSAGE_ON_TAP_NOTIFICATION");
+        EVENT_DISPATCHER->removeCustomEventListeners("SPEECH_MESSAGE_ON_TEXT_TAP_NOTIFICATION");
+        EVENT_DISPATCHER->removeCustomEventListeners("RECEIVE_CUSTOM_MESSAGE_NOTIFICATION");
+        EVENT_DISPATCHER->removeCustomEventListeners("SPEECH_BUBBLE_DESTROYED_NOTIFICATION");
+        EVENT_DISPATCHER->removeCustomEventListeners("PROCESS_CUSTOM_MESSAGE_AND_CREATE_UI_NOTIFICATION");
+        EVENT_DISPATCHER->removeCustomEventListeners("TAP_ON_CLICKABLE_OBJECT_NOTIFICATION");
+        EVENT_DISPATCHER->removeCustomEventListeners("DISPATCH_CLEANUP_AND_SCENE_TRANSITION_NOTIFICATION");
+
+    };
+    
+    SEND_DISTACH_CLEAN_UP(this, RPGConfig::DISPATCH_CLEANUP_AND_SCENE_TRANSITION_NOTIFICATION, cleanUpResourcesEvent);
+
 }
 
 
@@ -553,7 +576,7 @@ bool HelloWorld::checkHoldWithinSittingLimitOfCharacter(Point point, cocostudio:
 
 void HelloWorld::HoldOrDragBehaviour(Point position) {
     
-    if(this->isTapOnSpeakableObject(position)) {
+    if(this->isTapOnSpeakableOrClickableObject(position)) {
         return;
     }
 
@@ -714,7 +737,7 @@ void HelloWorld::startContinuousRoationAnimation(float dt) {
     this->skeletonCharacter->playJumpingContinuousRotationAnimation();
 }
 
-bool HelloWorld::isTapOnSpeakableObject(Point position) {
+bool HelloWorld::isTapOnSpeakableOrClickableObject(Point position) {
     
         if(this->getSpeechBubbleAlreadyVisible()) {
             return false;
@@ -732,13 +755,24 @@ bool HelloWorld::isTapOnSpeakableObject(Point position) {
             }
         }
 
+    
+        for (std::vector<RPGSprite*>::iterator it = this->rpgSprites.begin() ; it != this->rpgSprites.end(); ++it)
+        {
+            RPGSprite* rpgNode = *it;
+            if((rpgNode->getClickable() == "true" || rpgNode->getCanSpeak() == "true") && rpgNode->getSprite()->getBoundingBox().containsPoint(rpgNode->getSprite()->getParent()->convertToNodeSpace(position))) {
+                std::string s(rpgNode->getNextScene());
+                EVENT_DISPATCHER->dispatchCustomEvent(RPGConfig::TAP_ON_CLICKABLE_OBJECT_NOTIFICATION, static_cast<void*>(&s));
+                return true;
+            }            
+        }
+
     return false;
 }
 
 //Handle Tap
 void HelloWorld::HandleTap(Point position)
 {
-    if(this->isTapOnSpeakableObject(position)) {
+    if(this->isTapOnSpeakableOrClickableObject(position)) {
         //later launch custom event
         return;
     }

@@ -19,6 +19,7 @@ StateMachine* StateMachine::single = NULL;
 
 
 StateMachine::StateMachine() {
+    
 }
 
 
@@ -38,7 +39,8 @@ StateMachine* StateMachine:: getInstance() {
 }
 
 StateMachine::~StateMachine() {
-    
+    StateMachine::instanceFlag = false;
+    StateMachine::single = NULL;
 }
 
 inline const char* enumToString(SkeletonCharacterState v)

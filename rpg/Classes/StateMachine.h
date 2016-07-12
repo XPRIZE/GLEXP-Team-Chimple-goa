@@ -25,16 +25,14 @@ public:
     virtual void handleInput(SkeletonCharacterState characterState, const cocos2d::Vec2 forceVector);
     virtual State* getCurrentState();
     
-    
 protected:
     std::unordered_map<std::string, State*> states;
     State* currentState;
     
 private:
-    StateMachine();
-    static bool instanceFlag;
+    StateMachine();    
     static StateMachine *single;
-    
+    static bool instanceFlag;
 };
 
 #endif /* StateMachine_h */
