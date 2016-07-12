@@ -115,11 +115,12 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
       <IgnoreStandardIncludePath Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</IgnoreStandardIncludePath>
     </ClCompile>
     <ClCompile>
-      <PreprocessToFile Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</PreprocessToFile>
+      <PreprocessToFile Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</PreprocessToFile>
     </ClCompile>
     <ClCompile>
       <PreprocessSuppressLineNumbers Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</PreprocessSuppressLineNumbers>
     </ClCompile>
+    <Link />
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
@@ -158,19 +159,24 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
   <ItemGroup>
     <ClCompile Include="..\Classes\AppDelegate.cpp" />
     <ClCompile Include="..\Classes\ExternalSkeletonCharacter.cpp" />
+    <ClCompile Include="..\Classes\FallingState.cpp" />
     <ClCompile Include="..\Classes\GestureLayer.cpp" />
     <ClCompile Include="..\Classes\HelloWorldScene.cpp" />
+    <ClCompile Include="..\Classes\JumpingState.cpp" />
     <ClCompile Include="..\Classes\MessageContent.cpp" />
     <ClCompile Include="..\Classes\MessageReceiver.cpp" />
     <ClCompile Include="..\Classes\MessageSender.cpp" />
     <ClCompile Include="..\Classes\PhysicsShapeCache.cpp" />
-    <ClCompile Include="..\Classes\pugixml.cpp" />
     <ClCompile Include="..\Classes\RPGConfig.cpp" />
+    <ClCompile Include="..\Classes\RunningState.cpp" />
     <ClCompile Include="..\Classes\SkeletonCharacter.cpp" />
     <ClCompile Include="..\Classes\SpeechBubbleView.cpp" />
     <ClCompile Include="..\Classes\sqlite3.c" />
     <ClCompile Include="..\Classes\Sqlite3Helper.cpp" />
+    <ClCompile Include="..\Classes\StandingState.cpp" />
+    <ClCompile Include="..\Classes\State.cpp" />
     <ClCompile Include="..\Classes\StateMachine.cpp" />
+    <ClCompile Include="..\Classes\WalkingState.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -184,8 +190,6 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClInclude Include="..\Classes\MessageReceiver.hpp" />
     <ClInclude Include="..\Classes\MessageSender.hpp" />
     <ClInclude Include="..\Classes\PhysicsShapeCache.h" />
-    <ClInclude Include="..\Classes\pugiconfig.hpp" />
-    <ClInclude Include="..\Classes\pugixml.hpp" />
     <ClInclude Include="..\Classes\RPGConfig.h" />
     <ClInclude Include="..\Classes\RunningState.h" />
     <ClInclude Include="..\Classes\SkeletonCharacter.h" />
