@@ -69,7 +69,7 @@ typedef enum
 } FixtureType;
 
 
-class Polygon : public Ref
+class PolygonPE : public Ref
 {
 public:
     Point* vertices;
@@ -97,7 +97,7 @@ public:
     float radius;
     
     // for polygons / polyline
-    Vector<Polygon *> polygons;
+    Vector<PolygonPE *> polygons;
 };
 
 

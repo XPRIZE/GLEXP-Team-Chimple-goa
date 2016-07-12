@@ -110,7 +110,7 @@ bool PhysicsShapeCache::addShapesWithFile(const std::string &plist, float scaleF
                 const ValueVector &polygonsArray = fixturedata.at("polygons").asValueVector();
                 for (auto &polygonitem : polygonsArray)
                 {
-                    Polygon *poly = new Polygon();
+                    PolygonPE *poly = new PolygonPE();
                     fd->polygons.pushBack(poly);
                     auto &polygonArray = polygonitem.asValueVector();
                     poly->numVertices = (int)polygonArray.size();
