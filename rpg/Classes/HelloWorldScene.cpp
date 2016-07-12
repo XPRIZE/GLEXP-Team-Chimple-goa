@@ -40,6 +40,13 @@ HelloWorld::HelloWorld() {
 HelloWorld::~HelloWorld() {
     delete this->stateMachine;
     delete this->sqlite3Helper;
+    
+    EVENT_DISPATCHER->removeCustomEventListeners("MAIN_CHARACTER_VICINITY_CHECK_NOTIFICATION");
+    EVENT_DISPATCHER->removeCustomEventListeners("SPEECH_MESSAGE_ON_TAP_NOTIFICATION");
+    EVENT_DISPATCHER->removeCustomEventListeners("SPEECH_MESSAGE_ON_TEXT_TAP_NOTIFICATION");
+    EVENT_DISPATCHER->removeCustomEventListeners("RECEIVE_CUSTOM_MESSAGE_NOTIFICATION");
+    EVENT_DISPATCHER->removeCustomEventListeners("SPEECH_BUBBLE_DESTROYED_NOTIFICATION");
+    EVENT_DISPATCHER->removeCustomEventListeners("PROCESS_CUSTOM_MESSAGE_AND_CREATE_UI_NOTIFICATION");    
 }
 
 //TODO
@@ -137,7 +144,8 @@ void HelloWorld::addExternalCharacters(cocos2d::Node *rootNode) {
 
 void HelloWorld::enablePhysicsBoundaries(Node* rootNode) {
     PhysicsShapeCache::getInstance()->addShapesWithFile(this->getBaseDir()+"/"+this->getPhysicsFile());
-    std::regex pattern(".*(_[[:d:]])+");
+    //std::regex pattern(".*(_[[:d:]?[:d:]?])+");
+    std::regex pattern(".*(_[[:d:]+]+)+");
     for (auto child : rootNode->getChildren()) {
         PhysicsShapeCache::getInstance()->setBodyOnSprite(child->getName(), (Sprite *)child);
         for (auto subChild : child->getChildren()) {

@@ -18,11 +18,11 @@
                 <key>anchorpoint</key>
                 <string>{ 0.50000,0.50100 }</string>
                 <key>is_dynamic</key>
-                <false/>
+                <true/>
                 <key>affected_by_gravity</key>
-                <false/>
+                <true/>
                 <key>allows_rotation</key>
-                <false/>
+                <true/>
                 <key>linear_damping</key>
                 <real>0</real>
                 <key>velocity_limit</key>
@@ -46,11 +46,11 @@
                         <key>group</key>
                         <integer>0</integer>
                         <key>category_mask</key>
-                        <integer>1</integer>
+                        <integer>0</integer>
                         <key>collision_mask</key>
-                        <integer>2</integer>
+                        <integer>0</integer>
                         <key>contact_test_mask</key>
-                        <integer>2</integer>
+                        <integer>0</integer>
                         <key>fixture_type</key>
                         <string>POLYGON</string>
                         
@@ -355,7 +355,7 @@
             <key>barnhouse</key>
             <dict>
                 <key>anchorpoint</key>
-                <string>{ 0.49985,0.50000 }</string>
+                <string>{ 0.50000,0.50000 }</string>
                 <key>is_dynamic</key>
                 <false/>
                 <key>affected_by_gravity</key>
@@ -1526,11 +1526,11 @@
                         <key>group</key>
                         <integer>0</integer>
                         <key>category_mask</key>
-                        <integer>1</integer>
+                        <integer>0</integer>
                         <key>collision_mask</key>
-                        <integer>2</integer>
+                        <integer>0</integer>
                         <key>contact_test_mask</key>
-                        <integer>2</integer>
+                        <integer>0</integer>
                         <key>fixture_type</key>
                         <string>POLYGON</string>
                         
@@ -2146,11 +2146,11 @@
                         <key>group</key>
                         <integer>0</integer>
                         <key>category_mask</key>
-                        <integer>3</integer>
+                        <integer>1</integer>
                         <key>collision_mask</key>
                         <integer>2</integer>
                         <key>contact_test_mask</key>
-                        <integer>1</integer>
+                        <integer>2</integer>
                         <key>fixture_type</key>
                         <string>POLYGON</string>
                         
@@ -2158,7 +2158,7 @@
                         <array>
                             <array>
                                 <string>{ -1921.00000,6.00000 }</string>
-                                <string>{ 1925.00000,3.00000 }</string>
+                                <string>{ 1920.00000,-28.00000 }</string>
                                 <string>{ 1920.00000,-224.00000 }</string>
                                 <string>{ -1924.00000,-224.00000 }</string>
                             </array>
