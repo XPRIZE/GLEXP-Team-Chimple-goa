@@ -16,7 +16,7 @@ bool Sqlite3Helper::instanceFlag = false;
 Sqlite3Helper* Sqlite3Helper::shared = NULL;
 
 
-Sqlite3Helper::Sqlite3Helper(std::string connectionUrl) {
+Sqlite3Helper::Sqlite3Helper(std::string connectionUrl, std::string dbName) {
     //this->getBaseDir()+"/"+this->getDialogFile();
     
     assert (!connectionUrl.empty());
@@ -24,16 +24,17 @@ Sqlite3Helper::Sqlite3Helper(std::string connectionUrl) {
     this->dataBaseConnection = NULL;
     
     this->connectionUrl = connectionUrl;
+    this->dbName = dbName;
     
     this->initializeConnection();
 }
 
 
-Sqlite3Helper* Sqlite3Helper::getInstance(std::string connectionUrl) {
+Sqlite3Helper* Sqlite3Helper::getInstance(std::string connectionUrl, std::string dbName) {
     
     if(! instanceFlag)
     {
-        shared = new Sqlite3Helper(connectionUrl);
+        shared = new Sqlite3Helper(connectionUrl, dbName);
         instanceFlag = true;
         return shared;
     }
@@ -54,7 +55,7 @@ void Sqlite3Helper::initializeConnection() {
     int result = 0;
     
     #if (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
-        std::string dbPath = FileUtils::getInstance()->getWritablePath() + "camp.db3";
+        std::string dbPath = FileUtils::getInstance()->getWritablePath() + this->dbName;
         FILE* file = fopen(dbPath.c_str(), "r");
         if (file == nullptr)
         {

@@ -30,6 +30,8 @@
 		3725F4DA1D32585B0000B851 /* SpeechBubbleView.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3725F4D71D32585B0000B851 /* SpeechBubbleView.cpp */; };
 		3730B84B1D2B62D600B74A16 /* ExternalSkeletonCharacter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3730B84A1D2B62D600B74A16 /* ExternalSkeletonCharacter.cpp */; };
 		3730B84C1D2B62D600B74A16 /* ExternalSkeletonCharacter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3730B84A1D2B62D600B74A16 /* ExternalSkeletonCharacter.cpp */; };
+		373113311D34BDE300FEBCED /* RunningState.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 373113301D34BDE300FEBCED /* RunningState.cpp */; };
+		373113321D34BDE300FEBCED /* RunningState.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 373113301D34BDE300FEBCED /* RunningState.cpp */; };
 		3734F7AF1D2CFD39009DC72F /* sqlite3.c in Sources */ = {isa = PBXBuildFile; fileRef = 3734F7AD1D2CFD39009DC72F /* sqlite3.c */; };
 		3734F7B01D2CFD39009DC72F /* sqlite3.c in Sources */ = {isa = PBXBuildFile; fileRef = 3734F7AD1D2CFD39009DC72F /* sqlite3.c */; };
 		3750CC601D2943E6003CCCAC /* background in Resources */ = {isa = PBXBuildFile; fileRef = 3750CC581D2943E6003CCCAC /* background */; };
@@ -70,6 +72,8 @@
 		37BA8A991D2A86D600501F0B /* camp in Resources */ = {isa = PBXBuildFile; fileRef = 37BA8A961D2A86D600501F0B /* camp */; };
 		37BA8A9A1D2A86D600501F0B /* human_skeleton.csb in Resources */ = {isa = PBXBuildFile; fileRef = 37BA8A971D2A86D600501F0B /* human_skeleton.csb */; };
 		37BA8A9B1D2A86D600501F0B /* human_skeleton.csb in Resources */ = {isa = PBXBuildFile; fileRef = 37BA8A971D2A86D600501F0B /* human_skeleton.csb */; };
+		37C27B3A1D33E87600EAE2C6 /* farmhouse in Resources */ = {isa = PBXBuildFile; fileRef = 37C27B391D33E87600EAE2C6 /* farmhouse */; };
+		37C27B3B1D33E87600EAE2C6 /* farmhouse in Resources */ = {isa = PBXBuildFile; fileRef = 37C27B391D33E87600EAE2C6 /* farmhouse */; };
 		37D117141D24D3F30064565A /* StateMachine.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 37D1170D1D24D3F30064565A /* StateMachine.cpp */; };
 		37D117151D24D3F30064565A /* StateMachine.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 37D1170D1D24D3F30064565A /* StateMachine.cpp */; };
 		37D1171D1D24D4100064565A /* SkeletonCharacter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 37D117181D24D4100064565A /* SkeletonCharacter.cpp */; };
@@ -220,6 +224,7 @@
 		3725F4D81D32585B0000B851 /* SpeechBubbleView.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = SpeechBubbleView.hpp; sourceTree = "<group>"; };
 		3730B8481D2B62BD00B74A16 /* ExternalSkeletonCharacter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExternalSkeletonCharacter.h; sourceTree = "<group>"; };
 		3730B84A1D2B62D600B74A16 /* ExternalSkeletonCharacter.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ExternalSkeletonCharacter.cpp; sourceTree = "<group>"; };
+		373113301D34BDE300FEBCED /* RunningState.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = RunningState.cpp; sourceTree = "<group>"; };
 		3734F7AD1D2CFD39009DC72F /* sqlite3.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = sqlite3.c; sourceTree = "<group>"; };
 		3734F7AE1D2CFD39009DC72F /* sqlite3.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = sqlite3.h; sourceTree = "<group>"; };
 		3750CC581D2943E6003CCCAC /* background */ = {isa = PBXFileReference; lastKnownFileType = folder; path = background; sourceTree = "<group>"; };
@@ -231,7 +236,6 @@
 		3750CC5F1D2943E6003CCCAC /* MainScene.csb */ = {isa = PBXFileReference; lastKnownFileType = file; path = MainScene.csb; sourceTree = "<group>"; };
 		375C88961D30B5E400D92786 /* Sqlite3Helper.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Sqlite3Helper.cpp; sourceTree = "<group>"; };
 		375C88971D30B5E400D92786 /* Sqlite3Helper.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Sqlite3Helper.hpp; sourceTree = "<group>"; };
-		376BD7F91D2C079100444316 /* pugiconfig.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = pugiconfig.hpp; sourceTree = "<group>"; };
 		3796052A1D33827200B9E06D /* Button_Disable.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Button_Disable.png; sourceTree = "<group>"; };
 		3796052B1D33827200B9E06D /* Button_Normal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Button_Normal.png; sourceTree = "<group>"; };
 		3796052C1D33827200B9E06D /* Button_Press.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Button_Press.png; sourceTree = "<group>"; };
@@ -243,6 +247,7 @@
 		37BA8A921D2A86B500501F0B /* basebody */ = {isa = PBXFileReference; lastKnownFileType = folder; path = basebody; sourceTree = "<group>"; };
 		37BA8A961D2A86D600501F0B /* camp */ = {isa = PBXFileReference; lastKnownFileType = folder; path = camp; sourceTree = "<group>"; };
 		37BA8A971D2A86D600501F0B /* human_skeleton.csb */ = {isa = PBXFileReference; lastKnownFileType = file; path = human_skeleton.csb; sourceTree = "<group>"; };
+		37C27B391D33E87600EAE2C6 /* farmhouse */ = {isa = PBXFileReference; lastKnownFileType = folder; path = farmhouse; sourceTree = "<group>"; };
 		37D1170C1D24D3F30064565A /* StateMachine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StateMachine.h; sourceTree = "<group>"; };
 		37D1170D1D24D3F30064565A /* StateMachine.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = StateMachine.cpp; sourceTree = "<group>"; };
 		37D1170E1D24D3F30064565A /* State.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = State.h; sourceTree = "<group>"; };
@@ -446,6 +451,7 @@
 		46880B7519C43A67006E1F66 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				37C27B391D33E87600EAE2C6 /* farmhouse */,
 				3796052A1D33827200B9E06D /* Button_Disable.png */,
 				3796052B1D33827200B9E06D /* Button_Normal.png */,
 				3796052C1D33827200B9E06D /* Button_Press.png */,
@@ -507,9 +513,9 @@
 				371342A41D314D9A0091F1E4 /* MessageSender.hpp */,
 				F3FFBF931D193319007FAF05 /* PhysicsShapeCache.cpp */,
 				F3FFBF941D193319007FAF05 /* PhysicsShapeCache.h */,
-				376BD7F91D2C079100444316 /* pugiconfig.hpp */,
 				37D1171A1D24D4100064565A /* RPGConfig.cpp */,
 				37D117191D24D4100064565A /* RPGConfig.h */,
+				373113301D34BDE300FEBCED /* RunningState.cpp */,
 				37D117111D24D3F30064565A /* RunningState.h */,
 				37D117181D24D4100064565A /* SkeletonCharacter.cpp */,
 				37D117171D24D4100064565A /* SkeletonCharacter.h */,
@@ -519,8 +525,8 @@
 				3734F7AE1D2CFD39009DC72F /* sqlite3.h */,
 				375C88961D30B5E400D92786 /* Sqlite3Helper.cpp */,
 				375C88971D30B5E400D92786 /* Sqlite3Helper.hpp */,
-				37D1170F1D24D3F30064565A /* StandingState.h */,
 				379605421D33A7F400B9E06D /* StandingState.cpp */,
+				37D1170F1D24D3F30064565A /* StandingState.h */,
 				379605351D33916E00B9E06D /* State.cpp */,
 				37D1170E1D24D3F30064565A /* State.h */,
 				37D1170D1D24D3F30064565A /* StateMachine.cpp */,
@@ -708,6 +714,7 @@
 				371B799C1D29326800D74BAE /* farm in Resources */,
 				37D117511D24D47B0064565A /* human_spritesheet_03.png in Resources */,
 				521A8EA919F11F5000D177D7 /* fonts in Resources */,
+				37C27B3A1D33E87600EAE2C6 /* farmhouse in Resources */,
 				3750CC681D2943E6003CCCAC /* foreground.csb in Resources */,
 				50EF62A317ECD613001EB2F8 /* Icon-50.png in Resources */,
 				37D1174B1D24D47B0064565A /* human_spritesheet_02.plist in Resources */,
@@ -751,6 +758,7 @@
 				370839D61D28CC5C009A20EB /* human_skeleton1.csb in Resources */,
 				371B799D1D29326800D74BAE /* farm in Resources */,
 				37D117441D24D47B0064565A /* hand_gear in Resources */,
+				37C27B3B1D33E87600EAE2C6 /* farmhouse in Resources */,
 				3750CC691D2943E6003CCCAC /* foreground.csb in Resources */,
 				37D1174A1D24D47B0064565A /* human_spritesheet_01.png in Resources */,
 				37D117561D24D47B0064565A /* human_spritesheet_04.png in Resources */,
@@ -802,6 +810,7 @@
 				503AE10217EB989F00D1A890 /* RootViewController.mm in Sources */,
 				503AE10117EB989F00D1A890 /* main.m in Sources */,
 				375C88981D30B5E400D92786 /* Sqlite3Helper.cpp in Sources */,
+				373113311D34BDE300FEBCED /* RunningState.cpp in Sources */,
 				379605361D33916E00B9E06D /* State.cpp in Sources */,
 				3796053A1D33939400B9E06D /* FallingState.cpp in Sources */,
 				3796053D1D3396AD00B9E06D /* WalkingState.cpp in Sources */,
@@ -819,6 +828,7 @@
 				3725F4DA1D32585B0000B851 /* SpeechBubbleView.cpp in Sources */,
 				46880B8919C43A87006E1F66 /* AppDelegate.cpp in Sources */,
 				37D117151D24D3F30064565A /* StateMachine.cpp in Sources */,
+				373113321D34BDE300FEBCED /* RunningState.cpp in Sources */,
 				37D1171E1D24D4100064565A /* SkeletonCharacter.cpp in Sources */,
 				503AE10517EB98FF00D1A890 /* main.cpp in Sources */,
 				3796053E1D3396AD00B9E06D /* WalkingState.cpp in Sources */,
@@ -875,7 +885,7 @@
 					"$(SRCROOT)/../cocos2d/cocos/platform/ios/Simulation",
 				);
 				INFOPLIST_FILE = ios/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LIBRARY_SEARCH_PATHS = "";
 				OTHER_LDFLAGS = (
 					"$(_COCOS_LIB_IOS_BEGIN)",
@@ -911,7 +921,7 @@
 					"$(SRCROOT)/../cocos2d/cocos/platform/ios/Simulation",
 				);
 				INFOPLIST_FILE = ios/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LIBRARY_SEARCH_PATHS = "";
 				OTHER_LDFLAGS = (
 					"$(_COCOS_LIB_IOS_BEGIN)",

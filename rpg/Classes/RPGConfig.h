@@ -17,7 +17,7 @@
 #define SOUND_ENGINE CocosDenshion::SimpleAudioEngine::sharedEngine()
 #define MIN_GESTURE_DISTANCE 10
 #define RPG_GRAVITY -2000
-#define ENABLE_DEBUGDRAW false
+#define ENABLE_DEBUGDRAW true
 #define MAIN_CHARACTER_MASS 1.0f
 #define MAIN_CHARACTER_SCALE 0.3f
 #define MAIN_CHARACTER_MASS_DAMPING 0.05f

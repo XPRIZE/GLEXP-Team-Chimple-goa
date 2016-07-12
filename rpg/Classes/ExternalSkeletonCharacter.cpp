@@ -48,14 +48,16 @@ bool ExternalSkeletonCharacter::initializeExternalSkeletonCharacter(cocostudio::
         if(this->checkVicinityToMainSkeleton(mainSkeleton))
         {
             this->setVicinityToMainCharacter(true);
-            this->externalSkeletonActionTime->play("idle", true);
+            if(this->externalSkeletonActionTime != NULL) {
+                this->externalSkeletonActionTime->play("idle", true);
+            }
         } else {
             this->setVicinityToMainCharacter(false);
-            this->externalSkeletonActionTime->play(this->getDefaultAnimationName(), true);
+            if(this->externalSkeletonActionTime != NULL) {
+                this->externalSkeletonActionTime->play(this->getDefaultAnimationName(), true);
+            }
         }
-        
     };
-    
     
     ADD_VICINITY_NOTIFICATION(this, RPGConfig::MAIN_CHARACTER_VICINITY_CHECK_NOTIFICATION, checkVicinityWithMainCharacter);
 
@@ -91,7 +93,7 @@ void ExternalSkeletonCharacter::createAnimationAndPhysicsSupportForExternalSkele
         if(this->externalSkeletonActionTime != NULL) {
             this->externalSkeletonNode->runAction(this->externalSkeletonActionTime);
             this->externalSkeletonActionTime->gotoFrameAndPause(0);
-            if(!this->getDefaultAnimationName().empty()) {
+            if(this->externalSkeletonActionTime && !this->getDefaultAnimationName().empty()) {
                 this->externalSkeletonActionTime->play(this->getDefaultAnimationName(), true);
             }
         }
