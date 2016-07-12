@@ -11,6 +11,20 @@
 #include "Sqlite3Helper.hpp"
 #include "MessageSender.hpp"
 #include "MessageReceiver.hpp"
+#include "ui/CocosGUI.h"
+#include "editor-support/cocostudio/CocoStudio.h"
+#include "editor-support/cocostudio/ActionTimeline/CCSkeletonNode.h"
+#include "PhysicsShapeCache.h"
+#include "GestureLayer.hpp"
+#include <cmath>
+#include <map>
+#include <typeinfo>
+#include <regex>
+#include "cocostudio/CCComExtensionData.h"
+#include "ExternalSkeletonCharacter.h"
+#include "SpeechBubbleView.hpp"
+#include "MessageContent.hpp"
+
 
 class GestureLayer;
 class MessageContent;
@@ -178,6 +192,8 @@ public:
     CC_SYNTHESIZE(std::string, physicsFile, PhysicsFile);
     
     CC_SYNTHESIZE(std::string, mainCharacterFile, MainCharacterFile);
+    
+    CC_SYNTHESIZE(bool, isSpeechBubbleAlreadyVisible, SpeechBubbleAlreadyVisible);
 };
 
 #endif // __HELLOWORLD_SCENE_H__

@@ -1,20 +1,6 @@
 
 #include <unordered_map>
 #include "HelloWorldScene.h"
-#include "ui/CocosGUI.h"
-#include "editor-support/cocostudio/CocoStudio.h"
-#include "editor-support/cocostudio/ActionTimeline/CCSkeletonNode.h"
-#include "PhysicsShapeCache.h"
-#include "GestureLayer.hpp"
-#include <cmath>
-#include <map>
-#include <typeinfo>
-#include <regex>
-#include "cocostudio/CCComExtensionData.h"
-#include "ExternalSkeletonCharacter.h"
-#include "pugixml.hpp"
-#include "SpeechBubbleView.hpp"
-#include "MessageContent.hpp"
 
 
 USING_NS_CC;
@@ -48,6 +34,7 @@ HelloWorld::HelloWorld() {
     this->skeletonCharacter = NULL;
     this->sceneSize = Size(0, 0);
     this->mainCharacterCategoryBitMask = 1;
+    this->setSpeechBubbleAlreadyVisible(false);
 }
 
 HelloWorld::~HelloWorld() {
@@ -249,7 +236,15 @@ void HelloWorld::registerMessageSenderAndReceiver() {
     
     this->messageReceiver = MessageReceiver::getInstance();
     this->addChild(this->messageReceiver);
+
+    auto updateSpeechBubbleStatus = [=] (EventCustom * event) {
+        this->setSpeechBubbleAlreadyVisible(false);
+    };
     
+    EventListenerCustom* speechBubbleDestroyedEvent = EventListenerCustom::create(RPGConfig::SPEECH_BUBBLE_DESTROYED_NOTIFICATION, updateSpeechBubbleStatus);
+    
+    EVENT_DISPATCHER->addEventListenerWithSceneGraphPriority(speechBubbleDestroyedEvent, this);
+
     
     auto processMessageEvent = [=] (EventCustom * event) {
         std::vector<MessageContent*>*messages = reinterpret_cast<std::vector<MessageContent*>*>(event->getUserData());
@@ -677,6 +672,11 @@ void HelloWorld::startContinuousRoationAnimation(float dt) {
 }
 
 bool HelloWorld::isTapOnSpeakableObject(Point position) {
+    
+        if(this->getSpeechBubbleAlreadyVisible()) {
+            return false;
+        }
+    
         for (std::vector<ExternalSkeletonCharacter*>::iterator it = this->externalSkeletons.begin() ; it != this->externalSkeletons.end(); ++it)
         {
             ExternalSkeletonCharacter* eSkeleton = *it;
@@ -684,6 +684,7 @@ bool HelloWorld::isTapOnSpeakableObject(Point position) {
                 CCLOG("%s", "CLICKED ON Spekable External Skeleton dispatching speech message");
                 std::string s(eSkeleton->getKey());
                 EVENT_DISPATCHER->dispatchCustomEvent(RPGConfig::SPEECH_MESSAGE_ON_TAP_NOTIFICATION, static_cast<void*>(&s));
+                this->setSpeechBubbleAlreadyVisible(true);
                 return true;
             }
         }

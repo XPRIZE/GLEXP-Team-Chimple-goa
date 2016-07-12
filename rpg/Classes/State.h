@@ -6,6 +6,9 @@
 //
 //
 
+#include <stdio.h>
+#include "RPGConfig.h"
+
 class StateMachine;
 class SkeletonCharacter;
 
@@ -17,22 +20,13 @@ class State {
 
 public:
     
-    State() {
-        
-    };
+    State();
     
-    ~State() {};
+    ~State();
     
-    SkeletonCharacter* getTarget() {
-        return this->skeletonNode;
-    }
-    
+    virtual SkeletonCharacter* getTarget();
 
-    void setTarget(SkeletonCharacterState state, SkeletonCharacter*  target) {
-        this->characterState = state;
-        this->skeletonNode = target;
-
-    }
+    virtual void setTarget(SkeletonCharacterState state, SkeletonCharacter*  target);
     
     virtual void enter(cocos2d::Vec2 forceVector, SkeletonCharacterState previousStateCommand) = 0;
     
@@ -40,15 +34,11 @@ public:
     
     virtual SkeletonCharacterState handleInput(SkeletonCharacterState command) = 0;
     
-    void setStateMachine(StateMachine* stateMachine) {
-        this->stateMachine = stateMachine;
-    }
+    virtual void setStateMachine(StateMachine* stateMachine);
     
     virtual SkeletonCharacterState getState() = 0;
     
-    StateMachine* getStateMachine() {
-        return this->stateMachine;
-    }
+    virtual StateMachine* getStateMachine();
     
 protected:
     SkeletonCharacterState characterState;

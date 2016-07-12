@@ -61,12 +61,6 @@ public:
     
     bool isPlayingContinousRotationWhileJumping;
     
-    /// Vector dot product.
-    static inline float cpvdot(const cocos2d::Vec2 v1, const cocos2d::Vec2 v2)
-    {
-        return v1.x*v2.x + v1.y*v2.y;
-    }
-
     virtual bool didSkeletonContactBeginDuringJumpingUp(cocos2d::PhysicsContact &contact, SkeletonCharacterState currentStateCommand);
 
     

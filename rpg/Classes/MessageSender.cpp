@@ -69,6 +69,8 @@ bool MessageSender::initialize(Sqlite3Helper* sqlite3Helper) {
 void MessageSender::createMessagesForNodeWithKey(std::string key) {
     CCLOG("creating message for %s", key.c_str());
     std::vector<MessageContent *> messages = this->sqlite3Helper->findEventsByOwner(key.c_str());
+    assert(!key.empty());
+    CCLOG("query Key is %s", key.c_str());
     assert(messages.size() != 0);
     
     EVENT_DISPATCHER->dispatchCustomEvent(RPGConfig::RECEIVE_CUSTOM_MESSAGE_NOTIFICATION, static_cast<void*>(&messages));
@@ -79,6 +81,8 @@ void MessageSender::createMessagesForPreconditionId(int preConditionId) {
     std::vector<MessageContent *> messages = this->sqlite3Helper->findEventsByPreConditionEventId(preConditionId);
     if(messages.size() != 0) {
         EVENT_DISPATCHER->dispatchCustomEvent(RPGConfig::RECEIVE_CUSTOM_MESSAGE_NOTIFICATION, static_cast<void*>(&messages));    
+    } else {
+        EVENT_DISPATCHER->dispatchCustomEvent(RPGConfig::SPEECH_BUBBLE_DESTROYED_NOTIFICATION);
     }
     
     

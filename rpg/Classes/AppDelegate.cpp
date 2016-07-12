@@ -1,12 +1,13 @@
 #include "AppDelegate.h"
 #include "HelloWorldScene.h"
+#include "alphamon/SelectAlphamonScene.h"
 
 USING_NS_CC;
 
 static cocos2d::Size designResolutionSize = cocos2d::Size(2560, 1800);
-static cocos2d::Size smallResolutionSize = cocos2d::Size(480, 320);
-static cocos2d::Size mediumResolutionSize = cocos2d::Size(1024, 768);
-static cocos2d::Size largeResolutionSize = cocos2d::Size(2048, 1536);
+static cocos2d::Size smallResolutionSize = cocos2d::Size(640, 450);
+static cocos2d::Size mediumResolutionSize = cocos2d::Size(1024, 720);
+static cocos2d::Size largeResolutionSize = cocos2d::Size(2560, 1800);
 
 AppDelegate::AppDelegate() {
     
@@ -40,7 +41,7 @@ bool AppDelegate::applicationDidFinishLaunching() {
     auto glview = director->getOpenGLView();
     if(!glview) {
 #if (CC_TARGET_PLATFORM == CC_PLATFORM_WIN32) || (CC_TARGET_PLATFORM == CC_PLATFORM_MAC) || (CC_TARGET_PLATFORM == CC_PLATFORM_LINUX)
-        glview = GLViewImpl::createWithRect("rpg", cocos2d::Rect(0, 0, mediumResolutionSize.width, mediumResolutionSize.height));
+        glview = GLViewImpl::createWithRect("rpg", Rect(0, 0, mediumResolutionSize.width, mediumResolutionSize.height));
 #else
         glview = GLViewImpl::create("rpg");
 #endif
@@ -64,32 +65,19 @@ bool AppDelegate::applicationDidFinishLaunching() {
     auto frameSize = glview->getFrameSize();
     // if the frame's height is larger than the height of medium size.
     
-    //    if (frameSize.height > mediumResolutionSize.height)
-    //    {
-    //        director->setContentScaleFactor(MIN(largeResolutionSize.height/designResolutionSize.height, largeResolutionSize.width/designResolutionSize.width));
-    //    }
-    //    // if the frame's height is larger than the height of small size.
-    //    else if (frameSize.height > smallResolutionSize.height)
-    //    {
-    //        director->setContentScaleFactor(MIN(mediumResolutionSize.height/designResolutionSize.height, mediumResolutionSize.width/designResolutionSize.width));
-    //    }
-    //    // if the frame's height is smaller than the height of medium size.
-    //    else
-    //    {
-    //        director->setContentScaleFactor(MIN(smallResolutionSize.height/designResolutionSize.height, smallResolutionSize.width/designResolutionSize.width));
-    //    }
-    //
-    
     auto spriteCache = SpriteFrameCache::getInstance();
-    spriteCache->addSpriteFramesWithFile("human_spritesheet_01.plist");
-    spriteCache->addSpriteFramesWithFile("human_spritesheet_02.plist");
-    spriteCache->addSpriteFramesWithFile("human_spritesheet_03.plist");
-    spriteCache->addSpriteFramesWithFile("human_spritesheet_04.plist");
+//    spriteCache->addSpriteFramesWithFile("human_spritesheet_01.plist");
+//    spriteCache->addSpriteFramesWithFile("human_spritesheet_02.plist");
+//    spriteCache->addSpriteFramesWithFile("human_spritesheet_03.plist");
+//    spriteCache->addSpriteFramesWithFile("human_spritesheet_04.plist");
     
     register_all_packages();
     
     // create a scene. it's an autorelease object
-    auto scene = HelloWorld::createScene();
+    auto scene = SelectAlphamon::createScene();
+//    auto scene = Trace::createScene();
+    
+//    auto scene = HelloWorld::createScene();
     
     // run
     director->runWithScene(scene);

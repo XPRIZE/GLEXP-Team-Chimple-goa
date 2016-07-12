@@ -66,9 +66,10 @@ bool ExternalSkeletonCharacter::initializeExternalSkeletonCharacter(cocostudio::
 
 bool ExternalSkeletonCharacter::checkVicinityToMainSkeleton(SkeletonCharacter* skeletonCharacter) {
     Vec2 mainSkeletonPosition = skeletonCharacter->getSkeletonNode()->getPosition();
-    float distance = mainSkeletonPosition.getDistance(this->getExternalSkeletonNode()->getPosition());
+
+    float distance = mainSkeletonPosition.getDistance(this->getExternalSkeletonNode()->getPosition());    
     
-    if(distance >= -100 && distance <= 100) {
+    if(distance >= -300 && distance <= 300) {
         return true;
     }
     return false;
@@ -151,7 +152,10 @@ std::unordered_map<std::string, std::string> ExternalSkeletonCharacter::getAttri
 
 void ExternalSkeletonCharacter::update(float dt) {
     if(!this->vicinityToMainCharacter) {
-        this->setPosition(this->getPosition().x + RPGConfig::externalSkeletonMoveDelta, this->getPosition().y);
+        this->getExternalSkeletonNode()->setPosition(this->getExternalSkeletonNode()->getPosition().x + RPGConfig::externalSkeletonMoveDelta, this->getExternalSkeletonNode()->getPosition().y);
+        
+        cocos2d::Director::getInstance()->getEventDispatcher()->dispatchCustomEvent( RPGConfig::MAIN_CHARACTER_VICINITY_CHECK_NOTIFICATION, this);
+
     }    
 }
 

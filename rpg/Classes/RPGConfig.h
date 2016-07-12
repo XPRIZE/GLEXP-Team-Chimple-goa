@@ -17,7 +17,7 @@
 #define SOUND_ENGINE CocosDenshion::SimpleAudioEngine::sharedEngine()
 #define MIN_GESTURE_DISTANCE 10
 #define RPG_GRAVITY -2000
-#define ENABLE_DEBUGDRAW true
+#define ENABLE_DEBUGDRAW false
 #define MAIN_CHARACTER_MASS 1.0f
 #define MAIN_CHARACTER_SCALE 0.3f
 #define MAIN_CHARACTER_MASS_DAMPING 0.05f
@@ -71,16 +71,17 @@
 
 #define EVENT_DISPATCHER Director::getInstance()->getEventDispatcher()
 
-#define ADD_VICINITY_NOTIFICATION( __target__, __notification__, __handler__) EVENT_DISPATCHER->addEventListenerWithSceneGraphPriority(EventListenerCustom::create (__notification__, __handler__), __target__);
+#define SEND_MESSAGE_TEXT_DESTROYED ( __target__, __notification__, __handler__) EVENT_DISPATCHER->addEventListenerWithSceneGraphPriority(EventListenerCustom::create (__notification__, __handler__), __target__)
 
-#define RECEIVE_MESSAGE_FOR_TAP_ON_SPEAKABLE( __target__, __notification__, __handler__) EVENT_DISPATCHER->addEventListenerWithSceneGraphPriority(EventListenerCustom::create (__notification__, __handler__), __target__);
+#define ADD_VICINITY_NOTIFICATION( __target__, __notification__, __handler__) EVENT_DISPATCHER->addEventListenerWithSceneGraphPriority(EventListenerCustom::create (__notification__, __handler__), __target__)
 
-#define PROCESS_MESSAGE_AND_CREATE_UI( __target__, __notification__, __handler__) EVENT_DISPATCHER->addEventListenerWithSceneGraphPriority(EventListenerCustom::create (__notification__, __handler__), __target__);
+#define RECEIVE_MESSAGE_FOR_TAP_ON_SPEAKABLE( __target__, __notification__, __handler__) EVENT_DISPATCHER->addEventListenerWithSceneGraphPriority(EventListenerCustom::create (__notification__, __handler__), __target__)
 
-#define SEND_MESSAGE_FOR_TAP_ON_TEXT( __target__, __notification__, __handler__) EVENT_DISPATCHER->addEventListenerWithSceneGraphPriority(EventListenerCustom::create (__notification__, __handler__), __target__);
+#define PROCESS_MESSAGE_AND_CREATE_UI( __target__, __notification__, __handler__) EVENT_DISPATCHER->addEventListenerWithSceneGraphPriority(EventListenerCustom::create (__notification__, __handler__), __target__)
 
+#define SEND_MESSAGE_FOR_TAP_ON_TEXT( __target__, __notification__, __handler__) EVENT_DISPATCHER->addEventListenerWithSceneGraphPriority(EventListenerCustom::create (__notification__, __handler__), __target__)
 
-#define SEND_MESSAGE_FOR_TAP_ON_SPEAKABLE( __target__, __notification__, __handler__) EVENT_DISPATCHER->addEventListenerWithSceneGraphPriority(EventListenerCustom::create (__notification__, __handler__), __target__);
+#define SEND_MESSAGE_FOR_TAP_ON_SPEAKABLE( __target__, __notification__, __handler__) EVENT_DISPATCHER->addEventListenerWithSceneGraphPriority(EventListenerCustom::create (__notification__, __handler__), __target__)
 
 
 
@@ -136,7 +137,7 @@ public:
     static inline std::unordered_map<std::string, std::string> parseUserData(std::string userDataStr) {
         char *cstr = new char[userDataStr.length() + 1];
         strcpy(cstr, userDataStr.c_str());
-        char *token = std::strtok(cstr, ",");
+        char *token = strtok(cstr, ",");
         
         std::unordered_map<std::string, std::string> attributes;
         
@@ -145,7 +146,7 @@ public:
             std::string key = s.substr(0, s.find("="));
             std::string name = s.substr(s.find("=") + 1);
             attributes.insert({key,name});
-            token = std::strtok(NULL, ",");
+            token = strtok(NULL, ",");
         }
         
         delete [] cstr;
@@ -163,7 +164,11 @@ public:
     
     static const char* RECEIVE_CUSTOM_MESSAGE_NOTIFICATION;
     
+    static const char* SPEECH_BUBBLE_DESTROYED_NOTIFICATION;
+    
     static const char* PROCESS_CUSTOM_MESSAGE_AND_CREATE_UI_NOTIFICATION;
+    
+    
     
 };
 
