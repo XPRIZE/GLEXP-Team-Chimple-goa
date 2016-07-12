@@ -1,6 +1,6 @@
 #include "AppDelegate.h"
 #include "HelloWorldScene.h"
-#include "DuelScene.h"
+#include "alphamon/SelectAlphamonScene.h"
 
 USING_NS_CC;
 
@@ -60,17 +60,18 @@ bool AppDelegate::applicationDidFinishLaunching() {
     // if the frame's height is larger than the height of medium size.
     
     auto spriteCache = SpriteFrameCache::getInstance();
-    spriteCache->addSpriteFramesWithFile("human_spritesheet_01.plist");
-    spriteCache->addSpriteFramesWithFile("human_spritesheet_02.plist");
-    spriteCache->addSpriteFramesWithFile("human_spritesheet_03.plist");
-    spriteCache->addSpriteFramesWithFile("human_spritesheet_04.plist");
+//    spriteCache->addSpriteFramesWithFile("human_spritesheet_01.plist");
+//    spriteCache->addSpriteFramesWithFile("human_spritesheet_02.plist");
+//    spriteCache->addSpriteFramesWithFile("human_spritesheet_03.plist");
+//    spriteCache->addSpriteFramesWithFile("human_spritesheet_04.plist");
     
     register_all_packages();
     
     // create a scene. it's an autorelease object
-//    auto scene = DuelScene::createScene();
-
-    auto scene = HelloWorld::createScene();
+    auto scene = SelectAlphamon::createScene();
+//    auto scene = Trace::createScene();
+    
+//    auto scene = HelloWorld::createScene();
     
     // run
     director->runWithScene(scene);

@@ -13,7 +13,10 @@ USING_NS_CC;
 bool Alphabet::onTouchBegan(Touch* touch, Event* event){
     auto n = getParent()->convertTouchToNodeSpace(touch);
     auto rect = this->getBoundingBox();
-    
+    //adjust for the font height since baloo bhai has extra space
+    if(rect.size.height > _fontSize) {
+        rect.setRect(rect.origin.x, rect.origin.y + (rect.size.height - _fontSize) / 2, rect.size.width, _fontSize);
+    }
     if(rect.containsPoint(n))
     {
         CCLOG("onTouchBegan %c", _alphabet);
@@ -30,16 +33,46 @@ bool Alphabet::onTouchEnded(cocos2d::Touch *touch, cocos2d::Event *event) {
     
     if(rect.containsPoint(n))
     {
-        enableGlow(Color4B::BLUE);
+        selected(!isSelected());
     }
     return true;
 }
 
-Alphabet::Alphabet() {
-    auto listener1 = EventListenerTouchOneByOne::create();
-    listener1->onTouchBegan = CC_CALLBACK_2(Alphabet::onTouchBegan, this);
-    listener1->onTouchEnded = CC_CALLBACK_2(Alphabet::onTouchEnded, this);
-    _eventDispatcher->addEventListenerWithSceneGraphPriority(listener1, this);
+bool Alphabet::isSelected() {
+    return _selected;
+}
+
+void Alphabet::selected(bool value) {
+    _selected = value;
+    if(value) {
+        setTextColor(Color4B::BLUE);
+        EventCustom event("alphabet_pressed");
+        char *data = new char[1];
+        data[0] = _alphabet;
+        event.setUserData(data);
+        _eventDispatcher->dispatchEvent(&event);
+    } else {
+        setTextColor(Color4B::WHITE);
+    }
+}
+
+void Alphabet::enableTouch(bool value) {
+    _listener->setEnabled(value);
+}
+
+char Alphabet::getChar() {
+    return _alphabet;
+}
+
+Alphabet::Alphabet():
+_fontSize(0.0),
+_selected(false)
+{
+    _listener = EventListenerTouchOneByOne::create();
+    _listener->onTouchBegan = CC_CALLBACK_2(Alphabet::onTouchBegan, this);
+    _listener->onTouchEnded = CC_CALLBACK_2(Alphabet::onTouchEnded, this);
+    _eventDispatcher->addEventListenerWithSceneGraphPriority(_listener, this);
+    _selected = false;
 }
 
 Alphabet::~Alphabet() {}
@@ -56,8 +89,11 @@ Alphabet *Alphabet::createWithSize(char a, float fontSize) {
 
 bool Alphabet::initWithSize(char alphabet, float fontSize) {
     _alphabet = alphabet;
-    if (!Label::initWithTTF(std::string(1, _alphabet), "fonts/Marker Felt.ttf", 96)) {
+    _fontSize = fontSize;
+    if (!Label::initWithTTF(std::string(1, _alphabet), "fonts/BalooBhai-Regular.ttf", fontSize)) {
         return false;
     }
+    enableShadow();
+    
     return true;
 }
