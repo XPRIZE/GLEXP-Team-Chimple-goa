@@ -9,7 +9,6 @@
 #include <stdio.h>
 #include <cmath>
 #include "RPGConfig.h"
-#include "HelloWorldScene.h"
 #include "ExternalSkeletonCharacter.h"
 #include "SkeletonCharacter.h"
 

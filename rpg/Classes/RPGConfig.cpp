@@ -14,7 +14,7 @@ USING_NS_CC;
 
 Size RPGConfig::screenSize = cocos2d::Size::ZERO;
 int RPGConfig::externalSkeletonMoveDelta = -2.5f;
-std::string RPGConfig::initialMainSceneBase = "farmhouse";
+std::string RPGConfig::initialMainSceneBase = "camp";
 
 const char* RPGConfig::MAIN_CHARACTER_VICINITY_CHECK_NOTIFICATION = "MAIN_CHARACTER_VICINITY_CHECK_NOTIFICATION";
 

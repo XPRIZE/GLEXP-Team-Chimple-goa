@@ -24,6 +24,7 @@
 #include "ExternalSkeletonCharacter.h"
 #include "SpeechBubbleView.hpp"
 #include "MessageContent.hpp"
+#include "RPGSprite.h"
 
 
 class GestureLayer;
@@ -93,6 +94,8 @@ private:
     virtual void addExternalCharacters(cocos2d::Node *rootNode);
     
     virtual void processMessage(std::vector<MessageContent*>*messages);
+    
+    virtual void processMainLayerChildrenForCustomEvents();
     
     cocos2d::Size sceneSize;
     

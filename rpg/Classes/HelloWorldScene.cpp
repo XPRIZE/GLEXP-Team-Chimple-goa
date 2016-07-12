@@ -89,10 +89,33 @@ void HelloWorld::loadGameScene() {
     this->setSceneSize(rootNode->getContentSize());
     this->addChild(rootNode);
     this->parseScene(rootNode);
+    this->processMainLayerChildrenForCustomEvents();
     this->addExternalCharacters(rootNode);
     this->enablePhysicsBoundaries(rootNode);
 }
 
+
+void HelloWorld::processMainLayerChildrenForCustomEvents() {
+    assert(this->mainLayer != NULL);
+    //iterate thru all children
+    auto children = this->mainLayer->getChildren();
+    
+    for (std::vector<Node*>::iterator it = children.begin() ; it != children.end(); ++it) {
+        cocos2d::Node* node = *it;
+        //based on custom data create layers
+        cocostudio::ComExtensionData* data = (cocostudio::ComExtensionData*)node->getComponent("ComExtensionData");
+        if(data != NULL && !data->getCustomProperty().empty()) {
+            CCLOG("found user data for child %s", node->getName().c_str());
+            node->removeFromParent();
+            std::unordered_map<std::string, std::string> attributes = RPGConfig::parseUserData(data->getCustomProperty());
+            
+            RPGSprite* rpgSprite = RPGSprite::create(dynamic_cast<cocos2d::Sprite *>(node), attributes);
+            this->mainLayer->addChild(rpgSprite);
+            //this->externalSkeletons.push_back(rpgSprite);
+            
+        }
+    }
+}
 
 void HelloWorld::parseScene(cocos2d::Node *rootNode) {
     //iterate thru all children
@@ -102,7 +125,7 @@ void HelloWorld::parseScene(cocos2d::Node *rootNode) {
         cocos2d::Node* node = *it;
         //based on custom data create layers
         cocostudio::ComExtensionData* data = (cocostudio::ComExtensionData*)node->getComponent("ComExtensionData");
-        if(data) {
+        if(data != NULL) {
             CCLOG("%s", data->getCustomProperty().c_str());
             
             if(data->getCustomProperty() == MAIN_LAYER)
