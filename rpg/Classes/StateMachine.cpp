@@ -38,7 +38,7 @@ StateMachine* StateMachine:: getInstance() {
 }
 
 StateMachine::~StateMachine() {
-    states.clear();
+    
 }
 
 inline const char* enumToString(SkeletonCharacterState v)

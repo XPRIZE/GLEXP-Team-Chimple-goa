@@ -1,6 +1,10 @@
 /*
  * This file is auto-generated.  DO NOT MODIFY.
+<<<<<<< HEAD
+ * Original file: /Users/shyamalupadhyaya/Documents/Work/GLEXP-Team-Chimple/rpg/cocos2d/cocos/platform/android/java/src/com/enhance/gameservice/IGameTuningService.aidl
+=======
  * Original file: /Users/srikanth/dev/GLEXP-Team-Chimple/rpg/cocos2d/cocos/platform/android/java/src/com/enhance/gameservice/IGameTuningService.aidl
+>>>>>>> origin/master
  */
 package com.enhance.gameservice;
 public interface IGameTuningService extends android.os.IInterface

@@ -16,18 +16,19 @@
 
 class Sqlite3Helper {
 public:
-    static Sqlite3Helper* getInstance(std::string connectionUrl);    
+    static Sqlite3Helper* getInstance(std::string connectionUrl, std::string dbName);
     ~Sqlite3Helper();
     virtual std::vector<MessageContent*> findEventsByOwner(const char* owner);
     virtual std::vector<MessageContent*> findEventsByPreConditionEventId(int preConditionEventId);
     
 protected:
-    Sqlite3Helper(std::string connectionUrl);
+    Sqlite3Helper(std::string connectionUrl, std::string dbName);
     static bool instanceFlag;
     static Sqlite3Helper *shared;
     
     sqlite3 *dataBaseConnection=NULL;
     std::string connectionUrl;
+    std::string dbName;
     
     virtual void initializeConnection();
 };

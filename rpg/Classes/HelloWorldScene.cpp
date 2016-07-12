@@ -40,6 +40,13 @@ HelloWorld::HelloWorld() {
 HelloWorld::~HelloWorld() {
     delete this->stateMachine;
     delete this->sqlite3Helper;
+    
+    EVENT_DISPATCHER->removeCustomEventListeners("MAIN_CHARACTER_VICINITY_CHECK_NOTIFICATION");
+    EVENT_DISPATCHER->removeCustomEventListeners("SPEECH_MESSAGE_ON_TAP_NOTIFICATION");
+    EVENT_DISPATCHER->removeCustomEventListeners("SPEECH_MESSAGE_ON_TEXT_TAP_NOTIFICATION");
+    EVENT_DISPATCHER->removeCustomEventListeners("RECEIVE_CUSTOM_MESSAGE_NOTIFICATION");
+    EVENT_DISPATCHER->removeCustomEventListeners("SPEECH_BUBBLE_DESTROYED_NOTIFICATION");
+    EVENT_DISPATCHER->removeCustomEventListeners("PROCESS_CUSTOM_MESSAGE_AND_CREATE_UI_NOTIFICATION");    
 }
 
 //TODO
@@ -48,9 +55,11 @@ void HelloWorld::createRPGGame() {
     this->loadGameScene();
     
     //create Main Game Character
-    this->addMainCharacterToScene(this->getMainCharacterFile());
-    
-    this->initializeStateMachine();
+    CCLOG("this->getMainCharacterFile() %s", this->getMainCharacterFile().c_str());
+    if(!this->getMainCharacterFile().empty()) {
+        this->addMainCharacterToScene(this->getMainCharacterFile());
+        this->initializeStateMachine();
+    }    
 }
 
 void HelloWorld::loadGameScene() {
@@ -135,7 +144,8 @@ void HelloWorld::addExternalCharacters(cocos2d::Node *rootNode) {
 
 void HelloWorld::enablePhysicsBoundaries(Node* rootNode) {
     PhysicsShapeCache::getInstance()->addShapesWithFile(this->getBaseDir()+"/"+this->getPhysicsFile());
-    std::regex pattern(".*(_[[:d:]])+");
+    //std::regex pattern(".*(_[[:d:]?[:d:]?])+");
+    std::regex pattern(".*(_[[:d:]+]+)+");
     for (auto child : rootNode->getChildren()) {
         PhysicsShapeCache::getInstance()->setBodyOnSprite(child->getName(), (Sprite *)child);
         for (auto subChild : child->getChildren()) {
@@ -148,6 +158,7 @@ void HelloWorld::enablePhysicsBoundaries(Node* rootNode) {
                         matchingName = matchingName.substr(0,found);                        
                     }
                     PhysicsShapeCache::getInstance()->setBodyOnSprite(matchingName, (Sprite *)subChild);
+                    CCLOG("matchingName %s and sprite %s", matchingName.c_str(), subChild->getName().c_str());
                     auto body = subChild->getPhysicsBody();
                     if(body) {
                         this->mainCharacterCategoryBitMask = this->mainCharacterCategoryBitMask | body->getCategoryBitmask();
@@ -215,9 +226,10 @@ bool HelloWorld::init()
     
     //load specific sqlite3 file to bind all speakers with events
     
-    this->loadSqlite3FileForScene();
-    
-    this->registerMessageSenderAndReceiver();
+    if(!this->getDialogFile().empty()) {
+        this->loadSqlite3FileForScene();
+        this->registerMessageSenderAndReceiver();
+    }
     
     this->scheduleUpdate();
     
@@ -227,7 +239,7 @@ bool HelloWorld::init()
 
 void HelloWorld::loadSqlite3FileForScene() {
     
-    this->sqlite3Helper = Sqlite3Helper::getInstance(this->getBaseDir()+"/"+this->getDialogFile());    
+    this->sqlite3Helper = Sqlite3Helper::getInstance(this->getBaseDir()+"/"+this->getDialogFile(), this->getDialogFile());
 }
 
 void HelloWorld::registerMessageSenderAndReceiver() {
@@ -296,43 +308,46 @@ void HelloWorld::processMessage(std::vector<MessageContent*>*messages) {
 
 void HelloWorld::update(float dt) {
     
-    if(this->skeletonCharacter->getSkeletonInContactWithGround())
+    if(this->skeletonCharacter)
     {
-        if(this->skeletonCharacter->isWalking) {
-            this->flipSkeletonDirection(this->currentTouchPoint, this->skeletonCharacter->getSkeletonNode());
-            if(checkTouchLeftOfCharacter(this->currentTouchPoint, this->skeletonCharacter->getSkeletonNode())) {
-                this->skeletonCharacter->getSkeletonNode()->getPhysicsBody()->setVelocity(Vec2(-MAIN_CHARACTER_FORCE,GRAVITY_VELOCITY_TO_STICK_TO_GROUND));
-            } else if (checkTouchRightOfCharacter(this->currentTouchPoint, this->skeletonCharacter->getSkeletonNode())) {
-                this->skeletonCharacter->getSkeletonNode()->getPhysicsBody()->setVelocity(Vec2(MAIN_CHARACTER_FORCE,GRAVITY_VELOCITY_TO_STICK_TO_GROUND));
+        if(this->skeletonCharacter->getSkeletonInContactWithGround())
+        {
+            if(this->skeletonCharacter->isWalking) {
+                this->flipSkeletonDirection(this->currentTouchPoint, this->skeletonCharacter->getSkeletonNode());
+                if(checkTouchLeftOfCharacter(this->currentTouchPoint, this->skeletonCharacter->getSkeletonNode())) {
+                    this->skeletonCharacter->getSkeletonNode()->getPhysicsBody()->setVelocity(Vec2(-MAIN_CHARACTER_FORCE,GRAVITY_VELOCITY_TO_STICK_TO_GROUND));
+                } else if (checkTouchRightOfCharacter(this->currentTouchPoint, this->skeletonCharacter->getSkeletonNode())) {
+                    this->skeletonCharacter->getSkeletonNode()->getPhysicsBody()->setVelocity(Vec2(MAIN_CHARACTER_FORCE,GRAVITY_VELOCITY_TO_STICK_TO_GROUND));
+                }
+                
+                
+            } else if(this->skeletonCharacter->isRunning) {
+                this->flipSkeletonDirection(this->currentTouchPoint, this->skeletonCharacter->getSkeletonNode());
+                if(checkTouchLeftOfCharacter(this->currentTouchPoint, this->skeletonCharacter->getSkeletonNode())) {
+                    this->skeletonCharacter->getSkeletonNode()->getPhysicsBody()->setVelocity(Vec2(-MAIN_CHARACTER_RUNNING_FORCE,GRAVITY_VELOCITY_TO_STICK_TO_GROUND));
+                } else if (checkTouchRightOfCharacter(this->currentTouchPoint, this->skeletonCharacter->getSkeletonNode())) {
+                    this->skeletonCharacter->getSkeletonNode()->getPhysicsBody()->setVelocity(Vec2(MAIN_CHARACTER_RUNNING_FORCE,GRAVITY_VELOCITY_TO_STICK_TO_GROUND));
+                }
+                
+                
             }
-            
-            
-        } else if(this->skeletonCharacter->isRunning) {
-            this->flipSkeletonDirection(this->currentTouchPoint, this->skeletonCharacter->getSkeletonNode());
-            if(checkTouchLeftOfCharacter(this->currentTouchPoint, this->skeletonCharacter->getSkeletonNode())) {
-                this->skeletonCharacter->getSkeletonNode()->getPhysicsBody()->setVelocity(Vec2(-MAIN_CHARACTER_RUNNING_FORCE,GRAVITY_VELOCITY_TO_STICK_TO_GROUND));
-            } else if (checkTouchRightOfCharacter(this->currentTouchPoint, this->skeletonCharacter->getSkeletonNode())) {
-                this->skeletonCharacter->getSkeletonNode()->getPhysicsBody()->setVelocity(Vec2(MAIN_CHARACTER_RUNNING_FORCE,GRAVITY_VELOCITY_TO_STICK_TO_GROUND));
+        } else {
+            if(this->skeletonCharacter->getSkeletonNode()->getPhysicsBody()->getVelocity().y <= 0 && (this->skeletonCharacter->isRunning || this->skeletonCharacter->isWalking)) {
+                this->stateMachine->handleInput(S_FALLING_STATE, cocos2d::Vec2(0,0));
             }
-            
-            
         }
-    } else {
-        if(this->skeletonCharacter->getSkeletonNode()->getPhysicsBody()->getVelocity().y <= 0 && (this->skeletonCharacter->isRunning || this->skeletonCharacter->isWalking)) {
-            this->stateMachine->handleInput(S_FALLING_STATE, cocos2d::Vec2(0,0));
-        }
-    }
-    
-    if(this->skeletonCharacter->isJumping)
-    {
-        if(this->skeletonCharacter->isJumpingUp &&
-           this->skeletonCharacter->getSkeletonNode()->getPhysicsBody()->getVelocity().y <= 0) {
-            this->skeletonCharacter->isJumpingUp = false;
-            if(!this->skeletonCharacter->isPlayingContinousRotationWhileJumping)
-            {
-                this->skeletonCharacter->getSkeletonActionTimeLine()->play(JUMP_END, false);                
+        
+        if(this->skeletonCharacter->isJumping)
+        {
+            if(this->skeletonCharacter->isJumpingUp &&
+               this->skeletonCharacter->getSkeletonNode()->getPhysicsBody()->getVelocity().y <= 0) {
+                this->skeletonCharacter->isJumpingUp = false;
+                if(!this->skeletonCharacter->isPlayingContinousRotationWhileJumping)
+                {
+                    this->skeletonCharacter->getSkeletonActionTimeLine()->play(JUMP_END, false);
+                }
+                
             }
-            
         }
     }
     
@@ -571,6 +586,11 @@ void HelloWorld::HoldOrDragBehaviour(Point position) {
 //Handle Tap
 void HelloWorld::HandleHold(Point position)
 {
+    if(!this->skeletonCharacter)
+    {
+        return;
+    }
+
     if(checkTouchWithinBoundsOfCharacter(position, this->skeletonCharacter->getSkeletonNode())) {
         return;
     };
@@ -699,6 +719,12 @@ void HelloWorld::HandleTap(Point position)
         //later launch custom event
         return;
     }
+    
+    if(!this->skeletonCharacter)
+    {
+        return;
+    }
+    
     if(this->skeletonCharacter->isJumping || this->skeletonCharacter->isRunning || this->skeletonCharacter->isWalking) {
         return;
     }
@@ -744,6 +770,13 @@ void HelloWorld::HandleJumpWithAnimation() {
 
 //Handle Swipe Up
 void HelloWorld::HandleSwipeUp(Point position) {
+    
+    if(!this->skeletonCharacter)
+    {
+        return;
+    }
+
+    
     if(checkTouchWithinBoundsOfCharacter(position, this->skeletonCharacter->getSkeletonNode())) {
         return;
     };
@@ -758,6 +791,11 @@ void HelloWorld::HandleSwipeUp(Point position) {
 
 //Handle Swipe Down
 void HelloWorld::HandleSwipeDown(Point position) {
+    if(!this->skeletonCharacter)
+    {
+        return;
+    }
+
     if(checkTouchWithinBoundsOfCharacter(position, this->skeletonCharacter->getSkeletonNode())) {
         return;
     };
@@ -769,6 +807,11 @@ void HelloWorld::HandleSwipeDown(Point position) {
 
 //Handle Swipe Left
 void HelloWorld::HandleSwipeLeft(Point position) {
+    if(!this->skeletonCharacter)
+    {
+        return;
+    }
+
     if(checkTouchWithinBoundsOfCharacter(position, this->skeletonCharacter->getSkeletonNode())) {
         return;
     };
@@ -779,7 +822,12 @@ void HelloWorld::HandleSwipeLeft(Point position) {
 }
 
 void HelloWorld::HandleTouchedEnded(Point position) {
-    CCLOG("%s", "HandleTouchedEnded!!!");
+
+    if(!this->skeletonCharacter)
+    {
+        return;
+    }
+
     if(!this->skeletonCharacter->isJumping) {
         if(this->skeletonCharacter->isRunning) {
             this->stateMachine->handleInput(S_STANDING_STATE, cocos2d::Vec2(0,0));
@@ -801,6 +849,12 @@ void HelloWorld::HandleTouchedEnded(Point position) {
 
 //Handle Swipe Right
 void HelloWorld::HandleSwipeRight(Point position) {
+    
+    if(!this->skeletonCharacter)
+    {
+        return;
+    }
+
     
     if(checkTouchWithinBoundsOfCharacter(position, this->skeletonCharacter->getSkeletonNode())) {
         return;
