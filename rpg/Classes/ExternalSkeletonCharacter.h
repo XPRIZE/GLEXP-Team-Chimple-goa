@@ -54,6 +54,7 @@ public:
     virtual bool checkVicinityToMainSkeleton(SkeletonCharacter* skeletonCharacter);
 protected:
     cocostudio::timeline::SkeletonNode* externalSkeletonNode;
+    SkeletonCharacter* mainSkeleton;
     cocostudio::timeline::ActionTimeline* externalSkeletonActionTime;
     std::unordered_map<std::string, std::string> attributes;
     

@@ -41,12 +41,25 @@ void HelloWorld::initPhysics(Scene* scene)
     }
 }
 
-HelloWorld::HelloWorld() {
-    this->gesture_layer_ = NULL;
-    this->skeletonCharacter = NULL;
-    this->sceneSize = Size(0, 0);
-    this->mainCharacterCategoryBitMask = 1;
-    this->setSpeechBubbleAlreadyVisible(false);
+HelloWorld::HelloWorld()
+:gesture_layer_(nullptr),
+skeletonCharacter(nullptr),
+mainCharacterCategoryBitMask(1),
+isSpeechBubbleAlreadyVisible(false),
+sqlite3Helper(nullptr),
+stateMachine(nullptr),
+messageSender(nullptr),
+messageReceiver(nullptr),
+currentTouchPoint(0,0),
+mainLayer(nullptr),
+backgroundLayer(nullptr),
+foregroundLayer(nullptr),
+baseDir(""),
+dialogFile(""),
+physicsFile(""),
+mainCharacterFile(""),
+sceneSize(0,0)
+{
 }
 
 HelloWorld::~HelloWorld() {
@@ -303,8 +316,14 @@ void HelloWorld::registerMessageSenderAndReceiver() {
         EVENT_DISPATCHER->removeCustomEventListeners("TAP_ON_CLICKABLE_OBJECT_NOTIFICATION");
         EVENT_DISPATCHER->removeCustomEventListeners("DISPATCH_CLEANUP_AND_SCENE_TRANSITION_NOTIFICATION");
         
-        delete this->stateMachine;
-        delete this->sqlite3Helper;
+        if(this->stateMachine != nullptr) {
+            delete this->stateMachine;    
+        }
+        
+        if(this->sqlite3Helper != nullptr ) {
+            delete this->sqlite3Helper;
+        }
+        
     };
     
     SEND_DISTACH_CLEAN_UP(this, RPGConfig::DISPATCH_CLEANUP_AND_SCENE_TRANSITION_NOTIFICATION, cleanUpResourcesEvent);
@@ -758,7 +777,8 @@ bool HelloWorld::isTapOnSpeakableOrClickableObject(Point position) {
         for (std::vector<RPGSprite*>::iterator it = this->rpgSprites.begin() ; it != this->rpgSprites.end(); ++it)
         {
             RPGSprite* rpgNode = *it;
-            if((rpgNode->getClickable() == "true" || rpgNode->getCanSpeak() == "true") && rpgNode->getSprite()->getBoundingBox().containsPoint(rpgNode->getSprite()->getParent()->convertToNodeSpace(position))) {
+            CCLOG("checking vicinity to main character %d", rpgNode->getVicinityToMainCharacter());
+            if((rpgNode->getClickable() == "true" || rpgNode->getCanSpeak() == "true") && rpgNode->getVicinityToMainCharacter() == true && rpgNode->getSprite()->getBoundingBox().containsPoint(rpgNode->getSprite()->getParent()->convertToNodeSpace(position))) {
                 std::string s(rpgNode->getNextScene());
                 EVENT_DISPATCHER->dispatchCustomEvent(RPGConfig::TAP_ON_CLICKABLE_OBJECT_NOTIFICATION, static_cast<void*>(&s));
                 return true;

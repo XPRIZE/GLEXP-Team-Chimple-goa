@@ -15,6 +15,7 @@ USING_NS_CC;
 
 RPGSprite::RPGSprite() {
     this->sprite = NULL;
+    this->mainSkeleton = NULL;
 }
 
 
@@ -42,13 +43,8 @@ bool RPGSprite::initialize(cocos2d::Sprite* sprite, std::unordered_map<std::stri
     
     
     auto checkVicinityWithMainCharacter = [=] (EventCustom * event) {
-        SkeletonCharacter* mainSkeleton =  (SkeletonCharacter* )event->getUserData();
-        if(this->checkVicinityToMainSkeleton(mainSkeleton))
-        {
-            this->setVicinityToMainCharacter(true);
-        } else {
-            this->setVicinityToMainCharacter(false);
-        }
+        this->mainSkeleton = static_cast<SkeletonCharacter*>(event->getUserData());
+        this->checkVicinityToMainSkeleton(this->mainSkeleton);
     };
     
     ADD_VICINITY_NOTIFICATION(this, RPGConfig::MAIN_CHARACTER_VICINITY_CHECK_NOTIFICATION, checkVicinityWithMainCharacter);
@@ -118,20 +114,24 @@ std::unordered_map<std::string, std::string> RPGSprite::getAttributes() {
 }
 
 void RPGSprite::update(float dt) {
-    if(!this->vicinityToMainCharacter) {
+    if(!this->vicinityToMainCharacter && this->mainSkeleton != NULL) {
         
-        cocos2d::Director::getInstance()->getEventDispatcher()->dispatchCustomEvent( RPGConfig::MAIN_CHARACTER_VICINITY_CHECK_NOTIFICATION, this);
+        cocos2d::Director::getInstance()->getEventDispatcher()->dispatchCustomEvent( RPGConfig::MAIN_CHARACTER_VICINITY_CHECK_NOTIFICATION, this->mainSkeleton);
     }
 }
 
 bool RPGSprite::checkVicinityToMainSkeleton(SkeletonCharacter* skeletonCharacter) {
-    Vec2 mainSkeletonPosition = skeletonCharacter->getSkeletonNode()->getPosition();
+    Vec2 mainSkeletonPositionFromBottom = Point(skeletonCharacter->getSkeletonNode()->getPosition().x, skeletonCharacter->getSkeletonNode()->getPosition().y);
+    Vec2 mainSkeletonPositionFromTop = Point(skeletonCharacter->getSkeletonNode()->getPosition().x, skeletonCharacter->getSkeletonNode()->getPosition().y + skeletonCharacter->getSkeletonNode()->getBoundingBox().size.height);
     
-    float distance = mainSkeletonPosition.getDistance(this->getSprite()->getPosition());
+    float distanceFromTop= mainSkeletonPositionFromTop.getDistance(this->getSprite()->getPosition());
+    float distanceFromBottom = mainSkeletonPositionFromBottom.getDistance(this->getSprite()->getPosition());
     
-    if(distance >= -300 && distance <= 300) {
+    if((distanceFromTop >= -300 && distanceFromTop <= 300) || (distanceFromBottom >= -300 && distanceFromBottom <= 300)) {
+        this->setVicinityToMainCharacter(true);
         return true;
     }
+    this->setVicinityToMainCharacter(false);
     return false;
 
 }

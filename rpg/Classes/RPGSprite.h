@@ -18,6 +18,8 @@
 #ifndef RPGSprite_h
 #define RPGSprite_h
 
+class SkeletonCharacter;
+
 class RPGSprite : public cocos2d::Node {
 
 public:
@@ -56,8 +58,8 @@ public:
 protected:
     cocos2d::Sprite* sprite;
     std::unordered_map<std::string, std::string> attributes;
+    SkeletonCharacter* mainSkeleton;
     
-
 };
 
 #endif /* RPGSprite_h */

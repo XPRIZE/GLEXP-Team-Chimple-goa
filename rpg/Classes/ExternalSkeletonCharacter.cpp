@@ -17,6 +17,7 @@ USING_NS_CC;
 
 ExternalSkeletonCharacter::ExternalSkeletonCharacter() {
     this->externalSkeletonNode = NULL;
+    this->mainSkeleton = NULL;
     this->externalSkeletonActionTime = NULL;
     this->vicinityToMainCharacter = false;
 }
@@ -43,8 +44,9 @@ bool ExternalSkeletonCharacter::initializeExternalSkeletonCharacter(cocostudio::
     this->createAnimationAndPhysicsSupportForExternalSkeletonNode();
     
     auto checkVicinityWithMainCharacter = [=] (EventCustom * event) {
-       SkeletonCharacter* mainSkeleton =  (SkeletonCharacter* )event->getUserData();
-        if(this->checkVicinityToMainSkeleton(mainSkeleton))
+       this->mainSkeleton = static_cast<SkeletonCharacter*>(event->getUserData());
+
+        if(this->checkVicinityToMainSkeleton(this->mainSkeleton))
         {
             this->setVicinityToMainCharacter(true);
             if(this->externalSkeletonActionTime != NULL) {
@@ -66,14 +68,16 @@ bool ExternalSkeletonCharacter::initializeExternalSkeletonCharacter(cocostudio::
 }
 
 bool ExternalSkeletonCharacter::checkVicinityToMainSkeleton(SkeletonCharacter* skeletonCharacter) {
-    Vec2 mainSkeletonPosition = skeletonCharacter->getSkeletonNode()->getPosition();
+    Vec2 mainSkeletonPositionBottom = Point(skeletonCharacter->getSkeletonNode()->getPosition().x, skeletonCharacter->getSkeletonNode()->getPosition().y);
+    Vec2 mainSkeletonPositionTop = Point(skeletonCharacter->getSkeletonNode()->getPosition().x, skeletonCharacter->getSkeletonNode()->getPosition().y + skeletonCharacter->getSkeletonNode()->getBoundingBox().size.height);
 
-    float distance = mainSkeletonPosition.getDistance(this->getExternalSkeletonNode()->getPosition());    
+    float distanceFromBottom = mainSkeletonPositionBottom.getDistance(this->getExternalSkeletonNode()->getPosition());
+    float distanceFromTop = mainSkeletonPositionTop.getDistance(this->getExternalSkeletonNode()->getPosition());
     
-    if(distance >= -300 && distance <= 300) {
+    if((distanceFromTop >= -300 && distanceFromTop <= 300) || (distanceFromBottom >= -300 && distanceFromBottom <= 300)) {
         return true;
     }
-    return false;
+    return false;    
 }
 
 cocostudio::timeline::SkeletonNode* ExternalSkeletonCharacter::getExternalSkeletonNode() {
@@ -152,10 +156,10 @@ std::unordered_map<std::string, std::string> ExternalSkeletonCharacter::getAttri
 
 
 void ExternalSkeletonCharacter::update(float dt) {
-    if(!this->vicinityToMainCharacter) {
+    if(!this->vicinityToMainCharacter && this->mainSkeleton != NULL) {
         this->getExternalSkeletonNode()->setPosition(this->getExternalSkeletonNode()->getPosition().x + RPGConfig::externalSkeletonMoveDelta, this->getExternalSkeletonNode()->getPosition().y);
         
-        cocos2d::Director::getInstance()->getEventDispatcher()->dispatchCustomEvent( RPGConfig::MAIN_CHARACTER_VICINITY_CHECK_NOTIFICATION, this);
+        cocos2d::Director::getInstance()->getEventDispatcher()->dispatchCustomEvent( RPGConfig::MAIN_CHARACTER_VICINITY_CHECK_NOTIFICATION, this->mainSkeleton);
 
     }    
 }

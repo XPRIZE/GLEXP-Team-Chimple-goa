@@ -203,5 +203,7 @@ std::vector<MessageContent*> Sqlite3Helper::findEventsByPreConditionEventId(int 
 
 Sqlite3Helper::~Sqlite3Helper() {
     //close connection
-    sqlite3_close(this->dataBaseConnection);
+    if(!this->connectionUrl.empty() && this->dataBaseConnection != nullptr && !this->dbName.empty()) {
+        sqlite3_close(this->dataBaseConnection);
+    }    
 }

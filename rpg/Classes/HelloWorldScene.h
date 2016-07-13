@@ -58,11 +58,7 @@ private:
     MessageReceiver* messageReceiver;
     
     SkeletonCharacter* skeletonCharacter;
-    
-    bool _isFingerTouchedToScreen;
-    
-    float _xVelocity = 0;
-    
+        
     virtual bool checkTouchWithinBoundsOfCharacter(cocos2d::Point point, cocostudio::timeline::SkeletonNode* characterNode);
     
     virtual bool checkTouchVerticallyUpOnBoundsOfCharacter(cocos2d::Point point, cocostudio::timeline::SkeletonNode* characterNode);
@@ -114,8 +110,6 @@ private:
 
     //category bit mask for main skeleton
     int mainCharacterCategoryBitMask;
-    
-    std::string baseDir;        
     
 public:
     static cocos2d::Scene* createScene(std::string sceneName);
@@ -189,7 +183,7 @@ public:
     virtual bool handlePhysicsContactEventForOtherSkeletonCharacter(cocos2d::PhysicsContact &contact, cocos2d::Node* nodeA, cocos2d::Node* nodeB);
     
         
-    CC_SYNTHESIZE(std::string, _baseDir, BaseDir);
+    CC_SYNTHESIZE(std::string, baseDir, BaseDir);
     
     CC_SYNTHESIZE(std::string, dialogFile, DialogFile);
     
