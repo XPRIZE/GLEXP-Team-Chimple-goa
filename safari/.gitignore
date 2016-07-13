@@ -82,6 +82,10 @@ proj.android/libraries/*/.idea/*
 proj.android/libraries/*/*.iml
 proj.android/libraries/*/local.properties
 
+**/platform/android/java/bin/*
+**/platform/android/java/gen/*
+**/platform/android/java/local.properties
+**/proguard-project.txt
 
 *.apk
 **/Debug.win32/*
