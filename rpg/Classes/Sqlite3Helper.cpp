@@ -16,13 +16,12 @@ bool Sqlite3Helper::instanceFlag = false;
 Sqlite3Helper* Sqlite3Helper::shared = NULL;
 
 
-Sqlite3Helper::Sqlite3Helper(std::string connectionUrl, std::string dbName) {
-    //this->getBaseDir()+"/"+this->getDialogFile();
-    
+Sqlite3Helper::Sqlite3Helper(std::string connectionUrl, std::string dbName):
+dataBaseConnection(nullptr),
+connectionUrl(""),
+dbName("")
+{
     assert (!connectionUrl.empty());
-    
-    this->dataBaseConnection = NULL;
-    
     this->connectionUrl = connectionUrl;
     this->dbName = dbName;
     
@@ -203,7 +202,5 @@ std::vector<MessageContent*> Sqlite3Helper::findEventsByPreConditionEventId(int 
 
 Sqlite3Helper::~Sqlite3Helper() {
     //close connection
-    if(!this->connectionUrl.empty() && this->dataBaseConnection != nullptr && !this->dbName.empty()) {
-        sqlite3_close(this->dataBaseConnection);
-    }    
+    sqlite3_close(this->dataBaseConnection);
 }

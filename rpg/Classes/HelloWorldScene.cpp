@@ -319,10 +319,15 @@ void HelloWorld::registerMessageSenderAndReceiver() {
         if(this->stateMachine != nullptr) {
             delete this->stateMachine;    
         }
-        
+
+        Sqlite3Helper::instanceFlag = false;
+        Sqlite3Helper::shared = NULL;
+
         if(this->sqlite3Helper != nullptr ) {
             delete this->sqlite3Helper;
         }
+        
+
         
     };
     

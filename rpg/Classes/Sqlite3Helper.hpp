@@ -20,13 +20,14 @@ public:
     ~Sqlite3Helper();
     virtual std::vector<MessageContent*> findEventsByOwner(const char* owner);
     virtual std::vector<MessageContent*> findEventsByPreConditionEventId(int preConditionEventId);
-    
-protected:
-    Sqlite3Helper(std::string connectionUrl, std::string dbName);
+
     static bool instanceFlag;
     static Sqlite3Helper *shared;
+
+protected:
+    Sqlite3Helper(std::string connectionUrl, std::string dbName);
     
-    sqlite3 *dataBaseConnection=NULL;
+    sqlite3 *dataBaseConnection;
     std::string connectionUrl;
     std::string dbName;
     
