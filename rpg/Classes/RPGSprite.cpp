@@ -58,7 +58,9 @@ bool RPGSprite::initialize(cocos2d::Sprite* sprite, std::unordered_map<std::stri
         EVENT_DISPATCHER->dispatchCustomEvent (RPGConfig::DISPATCH_CLEANUP_AND_SCENE_TRANSITION_NOTIFICATION);
         
         CCLOG("Received Tap on clickable object %s", event->getUserData());
-        Director::getInstance()->replaceScene(TransitionFade::create(1, HelloWorld::createScene("farmhouse"), cocos2d::Color3B::WHITE));
+        std::string *pstr = static_cast<std::string *>(event->getUserData());
+
+        Director::getInstance()->replaceScene(TransitionFade::create(1, HelloWorld::createScene(*pstr), cocos2d::Color3B::WHITE));
 
     };
     

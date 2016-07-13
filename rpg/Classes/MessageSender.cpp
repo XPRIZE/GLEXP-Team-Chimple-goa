@@ -9,38 +9,22 @@
 #include "MessageSender.hpp"
 #include "RPGConfig.h"
 
-bool MessageSender::instanceFlag = false;
-MessageSender* MessageSender::shared = NULL;
-
 
 MessageSender::MessageSender(Sqlite3Helper* sqlite3Helper) {
-    
 }
 
 
 MessageSender::~MessageSender() {
-    
 }
 
 MessageSender* MessageSender::getInstance(Sqlite3Helper* sqlite3Helper) {
-    
-    if(! instanceFlag)
-    {
-        shared = new MessageSender(sqlite3Helper);
-        instanceFlag = true;
-        if(shared && shared->initialize(sqlite3Helper))
-        {
-            shared->autorelease();
-            return shared;
-        }
+    auto messageSender = new MessageSender(sqlite3Helper);
+    if (messageSender && messageSender->initialize(sqlite3Helper)) {
+        messageSender->autorelease();
+        return messageSender;
     }
-    else
-    {
-        return shared;
-    }
-    CC_SAFE_DELETE(shared);
+    CC_SAFE_DELETE(messageSender);
     return nullptr;
-
 }
 
            
@@ -68,6 +52,7 @@ bool MessageSender::initialize(Sqlite3Helper* sqlite3Helper) {
 
 void MessageSender::createMessagesForNodeWithKey(std::string key) {
     CCLOG("creating message for %s", key.c_str());
+    assert(this->sqlite3Helper != NULL);
     std::vector<MessageContent *> messages = this->sqlite3Helper->findEventsByOwner(key.c_str());
     assert(!key.empty());
     CCLOG("query Key is %s", key.c_str());
@@ -78,6 +63,7 @@ void MessageSender::createMessagesForNodeWithKey(std::string key) {
 
 void MessageSender::createMessagesForPreconditionId(int preConditionId) {
     CCLOG("call came with precondition %d", preConditionId);
+    assert(this->sqlite3Helper != NULL);
     std::vector<MessageContent *> messages = this->sqlite3Helper->findEventsByPreConditionEventId(preConditionId);
     if(messages.size() != 0) {
         EVENT_DISPATCHER->dispatchCustomEvent(RPGConfig::RECEIVE_CUSTOM_MESSAGE_NOTIFICATION, static_cast<void*>(&messages));    

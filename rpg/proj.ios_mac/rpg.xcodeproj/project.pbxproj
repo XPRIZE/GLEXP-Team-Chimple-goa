@@ -19,6 +19,8 @@
 		371342A51D314D9A0091F1E4 /* MessageSender.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 371342A31D314D9A0091F1E4 /* MessageSender.cpp */; };
 		371342AA1D314DA70091F1E4 /* MessageReceiver.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 371342A81D314DA70091F1E4 /* MessageReceiver.cpp */; };
 		371342AB1D314DA70091F1E4 /* MessageReceiver.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 371342A81D314DA70091F1E4 /* MessageReceiver.cpp */; };
+		3714CF9C1D353A3300C40550 /* camp_clothshop in Resources */ = {isa = PBXBuildFile; fileRef = 3714CF9B1D353A3300C40550 /* camp_clothshop */; };
+		3714CF9D1D353A3300C40550 /* camp_clothshop in Resources */ = {isa = PBXBuildFile; fileRef = 3714CF9B1D353A3300C40550 /* camp_clothshop */; };
 		3719E2701D34CB1500AB3CA7 /* Button_Disable.png in Resources */ = {isa = PBXBuildFile; fileRef = 3796052A1D33827200B9E06D /* Button_Disable.png */; };
 		3719E2711D34CB1500AB3CA7 /* Button_Normal.png in Resources */ = {isa = PBXBuildFile; fileRef = 3796052B1D33827200B9E06D /* Button_Normal.png */; };
 		3719E2721D34CB1500AB3CA7 /* Button_Press.png in Resources */ = {isa = PBXBuildFile; fileRef = 3796052C1D33827200B9E06D /* Button_Press.png */; };
@@ -268,6 +270,7 @@
 		371342A41D314D9A0091F1E4 /* MessageSender.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = MessageSender.hpp; sourceTree = "<group>"; };
 		371342A81D314DA70091F1E4 /* MessageReceiver.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MessageReceiver.cpp; sourceTree = "<group>"; };
 		371342A91D314DA70091F1E4 /* MessageReceiver.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = MessageReceiver.hpp; sourceTree = "<group>"; };
+		3714CF9B1D353A3300C40550 /* camp_clothshop */ = {isa = PBXFileReference; lastKnownFileType = folder; path = camp_clothshop; sourceTree = "<group>"; };
 		3719E2861D34E13200AB3CA7 /* RPGSprite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RPGSprite.h; sourceTree = "<group>"; };
 		3719E2871D34E14100AB3CA7 /* RPGSprite.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = RPGSprite.cpp; sourceTree = "<group>"; };
 		3725F4D11D31EBEB0000B851 /* MessageContent.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MessageContent.cpp; sourceTree = "<group>"; };
@@ -538,6 +541,7 @@
 		46880B7519C43A67006E1F66 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				3714CF9B1D353A3300C40550 /* camp_clothshop */,
 				37C27B391D33E87600EAE2C6 /* farmhouse */,
 				3796052A1D33827200B9E06D /* Button_Disable.png */,
 				3796052B1D33827200B9E06D /* Button_Normal.png */,
@@ -851,6 +855,7 @@
 				370839D91D28CC5C009A20EB /* Plist.png in Resources */,
 				5087E78617EB970100C73F5D /* Icon-76.png in Resources */,
 				F3AE94761D2D4A3C00395B44 /* mouth_ani in Resources */,
+				3714CF9C1D353A3300C40550 /* camp_clothshop in Resources */,
 				5087E77F17EB970100C73F5D /* Default@2x.png in Resources */,
 				F35736651D2F770E00518BFC /* battle_ground.csb in Resources */,
 				F350D9C81D223F6B009154DE /* hp_out.png in Resources */,
@@ -938,6 +943,7 @@
 				37D117561D24D47B0064565A /* human_spritesheet_04.png in Resources */,
 				F3AE94751D2D4A3C00395B44 /* mouth in Resources */,
 				503AE0F817EB97AB00D1A890 /* Icon.icns in Resources */,
+				3714CF9D1D353A3300C40550 /* camp_clothshop in Resources */,
 				F3AE94071D22550200395B44 /* star.png in Resources */,
 				F3AE94791D2D4A3C00395B44 /* nose in Resources */,
 				F3AE94281D23CF0300395B44 /* Layer.json in Resources */,

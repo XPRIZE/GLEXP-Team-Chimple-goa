@@ -21,10 +21,7 @@ typedef std::vector<MessageContent*> messages;
 
 class MessageSender : public cocos2d::Node {
 protected:
-    MessageSender(Sqlite3Helper* sqlite3Helper);
-    
-    static bool instanceFlag;
-    static MessageSender *shared;
+    MessageSender(Sqlite3Helper* sqlite3Helper);    
     Sqlite3Helper* sqlite3Helper;
     
 public:

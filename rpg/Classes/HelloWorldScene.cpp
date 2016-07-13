@@ -254,9 +254,9 @@ bool HelloWorld::init(std::string sceneName)
     
     if(!this->getDialogFile().empty()) {
         this->loadSqlite3FileForScene();
-        this->registerMessageSenderAndReceiver();
     }
     
+    this->registerMessageSenderAndReceiver();
     this->scheduleUpdate();
     
     
@@ -293,9 +293,6 @@ void HelloWorld::registerMessageSenderAndReceiver() {
     
     
     auto cleanUpResourcesEvent = [=] (EventCustom * event) {
-        //StateMachine::instanceFlag = false;
-        delete this->stateMachine;
-        delete this->sqlite3Helper;
         
         EVENT_DISPATCHER->removeCustomEventListeners("MAIN_CHARACTER_VICINITY_CHECK_NOTIFICATION");
         EVENT_DISPATCHER->removeCustomEventListeners("SPEECH_MESSAGE_ON_TAP_NOTIFICATION");
@@ -305,7 +302,9 @@ void HelloWorld::registerMessageSenderAndReceiver() {
         EVENT_DISPATCHER->removeCustomEventListeners("PROCESS_CUSTOM_MESSAGE_AND_CREATE_UI_NOTIFICATION");
         EVENT_DISPATCHER->removeCustomEventListeners("TAP_ON_CLICKABLE_OBJECT_NOTIFICATION");
         EVENT_DISPATCHER->removeCustomEventListeners("DISPATCH_CLEANUP_AND_SCENE_TRANSITION_NOTIFICATION");
-
+        
+        delete this->stateMachine;
+        delete this->sqlite3Helper;
     };
     
     SEND_DISTACH_CLEAN_UP(this, RPGConfig::DISPATCH_CLEANUP_AND_SCENE_TRANSITION_NOTIFICATION, cleanUpResourcesEvent);

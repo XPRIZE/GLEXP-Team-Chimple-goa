@@ -18,10 +18,6 @@ class MessageReceiver : public cocos2d::Node {
     
 protected:
     MessageReceiver();
-    
-    static bool instanceFlag;
-    static MessageReceiver *shared;
-    
 public:
     
     virtual bool initialize();
