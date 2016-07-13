@@ -37,6 +37,10 @@ public:
     
     virtual std::unordered_map<std::string, std::string> getAttributes();
     
+    CC_SYNTHESIZE(std::string, transitionToChild, TransitionToChild);
+    
+    CC_SYNTHESIZE(std::string, transitionToParent, TransitionToParent);
+    
     CC_SYNTHESIZE(std::string, nextScene, NextScene);
     
     CC_SYNTHESIZE(std::string, clickable, Clickable);
@@ -54,6 +58,8 @@ public:
     virtual void update(float dt);
         
     virtual bool checkVicinityToMainSkeleton(SkeletonCharacter* skeletonCharacter);
+    
+    virtual SkeletonCharacter* getMainSkeleton();
     
 protected:
     cocos2d::Sprite* sprite;

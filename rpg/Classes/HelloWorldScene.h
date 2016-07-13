@@ -112,13 +112,14 @@ private:
     int mainCharacterCategoryBitMask;
     
 public:
-    static cocos2d::Scene* createScene(std::string sceneName);
-    static HelloWorld* create(std::string sceneName);
+    static cocos2d::Scene* createScene(const std::string& sceneName, const std::string& skeletonXPos, const std::string& skeletonYPos, const std::string& transitToParent, const std::string& transitToChild);
+    
+    static HelloWorld* create(const std::string& sceneName, const std::string& skeletonXPos, const std::string& skeletonYPos, const std::string& transitToParent, const std::string& transitToChild);
     
     HelloWorld();
     ~HelloWorld();
     
-    virtual bool init(std::string sceneName);
+    virtual bool init(const std::string& sceneName, const std::string& skeletonXPos, const std::string& skeletonYPos, const std::string& transitToParent, const std::string& transitToChild);
     
     void createRPGGame();
     
@@ -129,6 +130,8 @@ public:
     cocostudio::timeline::SkeletonNode* createMainGameCharacter();
     
     virtual void addMainCharacterToScene(const std::string& filename);
+    
+    virtual void updatePositionForMainCharacter(const std::string& xPos, const std::string& yPos);
         
     void initGestureLayer();
     
@@ -192,6 +195,20 @@ public:
     CC_SYNTHESIZE(std::string, mainCharacterFile, MainCharacterFile);
     
     CC_SYNTHESIZE(bool, isSpeechBubbleAlreadyVisible, SpeechBubbleAlreadyVisible);
+    
+    CC_SYNTHESIZE(std::string, overrideMainCharacterXPos, OverrideMainCharacterXPos);
+    
+    CC_SYNTHESIZE(std::string, overrideMainCharacterYPos, OverrideMainCharacterYPos);
+    
+    CC_SYNTHESIZE(std::string, initialMainSkeletonY, InitialMainSkeletonY);
+    
+    CC_SYNTHESIZE(std::string, initialMainSkeletonX, InitialMainSkeletonX);
+    
+    CC_SYNTHESIZE(std::string, transitToParent, TransitToParent);
+    
+    CC_SYNTHESIZE(std::string, transitToChild, transitToChild);
+
+
 };
 
 #endif // __HELLOWORLD_SCENE_H__

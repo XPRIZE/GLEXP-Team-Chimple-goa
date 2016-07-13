@@ -1,17 +1,19 @@
 
+#include <iostream>
+#include <string>
 #include <unordered_map>
 #include "HelloWorldScene.h"
 #include "RPGConfig.h"
 
 USING_NS_CC;
 
-Scene* HelloWorld::createScene(std::string sceneName)
+Scene* HelloWorld::createScene(const std::string& sceneName, const std::string& skeletonXPos, const std::string& skeletonYPos, const std::string& transitToParent, const std::string& transitToChild)
 {
     // 'scene' is an autorelease object
     auto scene = Scene::createWithPhysics();
     
     // 'layer' is an autorelease object
-    auto layer = HelloWorld::create(sceneName);
+    auto layer = HelloWorld::create(sceneName, skeletonXPos, skeletonYPos, transitToParent, transitToChild);
     
     // add layer as a child to scene
     scene->addChild(layer);
@@ -22,10 +24,10 @@ Scene* HelloWorld::createScene(std::string sceneName)
     return scene;
 }
 
-HelloWorld* HelloWorld::create(std::string sceneName)
+HelloWorld* HelloWorld::create(const std::string& sceneName, const std::string& skeletonXPos, const std::string& skeletonYPos, const std::string& transitToParent, const std::string& transitToChild)
 {
     HelloWorld* helloWorldLayer = new (std::nothrow) HelloWorld();
-    if(helloWorldLayer && helloWorldLayer->init(sceneName)) {
+    if(helloWorldLayer && helloWorldLayer->init(sceneName, skeletonXPos, skeletonYPos, transitToParent, transitToChild)) {
         helloWorldLayer->autorelease();
         return helloWorldLayer;
     }
@@ -58,6 +60,12 @@ baseDir(""),
 dialogFile(""),
 physicsFile(""),
 mainCharacterFile(""),
+initialMainSkeletonX(""),
+initialMainSkeletonY(""),
+overrideMainCharacterXPos(""),
+overrideMainCharacterYPos(""),
+transitToChild(""),
+transitToParent(""),
 sceneSize(0,0)
 {
 }
@@ -74,8 +82,31 @@ void HelloWorld::createRPGGame() {
     CCLOG("this->getMainCharacterFile() %s", this->getMainCharacterFile().c_str());
     if(!this->getMainCharacterFile().empty()) {
         this->addMainCharacterToScene(this->getMainCharacterFile());
+        
+        if(this->getTransitToParent() == "true") {
+            this->updatePositionForMainCharacter(this->getOverrideMainCharacterXPos(), this->getOverrideMainCharacterYPos());
+        } else if(this->gettransitToChild() == "true") {
+            this->updatePositionForMainCharacter(this->getInitialMainSkeletonX(), this->getInitialMainSkeletonY());
+        } else {
+            this->updatePositionForMainCharacter(this->getInitialMainSkeletonX(), this->getInitialMainSkeletonY());
+        }
+        
         this->initializeStateMachine();
     }    
+}
+
+void HelloWorld::updatePositionForMainCharacter(const std::string &xPos, const std::string &yPos) {
+    if(!xPos.empty() && !yPos.empty()) {
+        
+        std::string::size_type xsz;     // alias of size_t
+        float fxPos = std::stof (xPos,&xsz);
+
+        std::string::size_type ysz;     // alias of size_t
+        float fyPos = std::stof (xPos,&ysz);
+        Vec2 origin = Director::getInstance()->getVisibleOrigin();
+        
+        this->skeletonCharacter->getSkeletonNode()->setPosition(Vec2(origin.x + fxPos, origin.y + fyPos));
+    }
 }
 
 void HelloWorld::loadGameScene() {
@@ -231,6 +262,10 @@ void HelloWorld::addMainCharacterToScene(const std::string& filename) {
 
     auto followAction = Follow::create(this->skeletonCharacter->getSkeletonNode(), Rect(0,0,this->getSceneSize().width, this->getSceneSize().height));
     this->mainLayer->runAction(followAction);
+    
+    auto char1 = Sprite::create("mainchar-02.png");
+    char1->setPosition(Vec2(300, 500));
+    this->mainLayer->addChild(char1);
 }
 
 void HelloWorld::initGestureLayer() {
@@ -240,7 +275,7 @@ void HelloWorld::initGestureLayer() {
 
 
 // on "init" you need to initialize your instance
-bool HelloWorld::init(std::string sceneName)
+bool HelloWorld::init(const std::string& sceneName, const std::string& skeletonXPos, const std::string& skeletonYPos, const std::string& transitToParent, const std::string& transitToChild)
 {
     //////////////////////////////
     // 1. super init first
@@ -252,7 +287,24 @@ bool HelloWorld::init(std::string sceneName)
     
     //set up current Base Dir to load resources from
     this->setBaseDir(sceneName);
+
+    if(!skeletonXPos.empty()) {
+        this->setOverrideMainCharacterXPos(skeletonXPos);
+    }
     
+    if(!skeletonYPos.empty()) {
+        this->setOverrideMainCharacterYPos(skeletonYPos);
+    }
+    
+    if(!transitToParent.empty()) {
+        this->setTransitToParent(transitToParent);
+    }
+
+    if(!transitToChild.empty()) {
+        this->settransitToChild(transitToChild);
+    }
+
+
     FileUtils::getInstance()->addSearchPath(this->getBaseDir());
     
 
@@ -785,7 +837,21 @@ bool HelloWorld::isTapOnSpeakableOrClickableObject(Point position) {
             CCLOG("checking vicinity to main character %d", rpgNode->getVicinityToMainCharacter());
             if((rpgNode->getClickable() == "true" || rpgNode->getCanSpeak() == "true") && rpgNode->getVicinityToMainCharacter() == true && rpgNode->getSprite()->getBoundingBox().containsPoint(rpgNode->getSprite()->getParent()->convertToNodeSpace(position))) {
                 std::string s(rpgNode->getNextScene());
-                EVENT_DISPATCHER->dispatchCustomEvent(RPGConfig::TAP_ON_CLICKABLE_OBJECT_NOTIFICATION, static_cast<void*>(&s));
+                std::string transitToChild(rpgNode->getTransitionToChild());
+                std::string transitToParent(rpgNode->getTransitionToParent());
+                std::string skeletonX = std::to_string(rpgNode->getMainSkeleton()->getSkeletonNode()->getPosition().x);
+                
+                std::string skeletonY = std::to_string(rpgNode->getMainSkeleton()->getSkeletonNode()->getPosition().y);
+                
+                std::vector<std::string> parameters;
+                parameters.push_back(s);
+                parameters.push_back(skeletonX);
+                parameters.push_back(skeletonY);
+                parameters.push_back(transitToParent);
+                parameters.push_back(transitToChild);
+                
+                EVENT_DISPATCHER->dispatchCustomEvent(RPGConfig::TAP_ON_CLICKABLE_OBJECT_NOTIFICATION, static_cast<void*>(&parameters));
+                
                 return true;
             }            
         }

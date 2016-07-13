@@ -54,9 +54,23 @@ bool RPGSprite::initialize(cocos2d::Sprite* sprite, std::unordered_map<std::stri
         EVENT_DISPATCHER->dispatchCustomEvent (RPGConfig::DISPATCH_CLEANUP_AND_SCENE_TRANSITION_NOTIFICATION);
         
         CCLOG("Received Tap on clickable object %s", event->getUserData());
-        std::string *pstr = static_cast<std::string *>(event->getUserData());
+        std::vector<std::string>*messages = static_cast<std::vector<std::string>*>(event->getUserData());
+        std::string nextScene = "";
+        std::string skeletonX = "";
+        std::string skeletonY = "";
+        std::string transitToParent = "";
+        std::string transitToChild = "";
+        
+        if(messages != NULL && messages->size() == 5)
+        {
+            nextScene = messages->at(0);
+            skeletonX = messages->at(1);
+            skeletonY = messages->at(2);
+            transitToParent = messages->at(3);
+            transitToChild = messages->at(4);
+        }
 
-        Director::getInstance()->replaceScene(TransitionFade::create(1, HelloWorld::createScene(*pstr), cocos2d::Color3B::WHITE));
+        Director::getInstance()->replaceScene(TransitionFade::create(1, HelloWorld::createScene(nextScene, skeletonX, skeletonY, transitToParent, transitToChild), cocos2d::Color3B::WHITE));
 
     };
     
@@ -134,4 +148,8 @@ bool RPGSprite::checkVicinityToMainSkeleton(SkeletonCharacter* skeletonCharacter
     this->setVicinityToMainCharacter(false);
     return false;
 
+}
+
+SkeletonCharacter* RPGSprite::getMainSkeleton() {
+    return this->mainSkeleton;
 }
