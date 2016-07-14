@@ -1,6 +1,5 @@
 #include "AppDelegate.h"
-#include "HelloWorldScene.h"
-#include "alphamon/SelectAlphamonScene.h"
+#include "StartMenuScene.h"
 
 USING_NS_CC;
 
@@ -94,12 +93,8 @@ bool AppDelegate::applicationDidFinishLaunching() {
     
     register_all_packages();
     
-    // create a scene. it's an autorelease object
-    auto scene = HelloWorld::createScene("camp","","","","");
-//    auto scene = SelectAlphamon::createScene();
-    
     // run
-    director->runWithScene(scene);
+    director->runWithScene(StartMenu::createScene());
     
     return true;
 }

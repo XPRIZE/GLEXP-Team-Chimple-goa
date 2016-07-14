@@ -115,6 +115,8 @@
 		F331ADC21D36BCCE00459E24 /* CharGenerator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F331ADB91D36BCCE00459E24 /* CharGenerator.cpp */; };
 		F331ADC31D36BCCE00459E24 /* DuelScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F331ADBB1D36BCCE00459E24 /* DuelScene.cpp */; };
 		F331ADC41D36BCCE00459E24 /* DuelScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F331ADBB1D36BCCE00459E24 /* DuelScene.cpp */; };
+		F331ADC91D378EF000459E24 /* StartMenuScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F331ADC71D378EF000459E24 /* StartMenuScene.cpp */; };
+		F331ADCA1D378EF000459E24 /* StartMenuScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F331ADC71D378EF000459E24 /* StartMenuScene.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -259,6 +261,8 @@
 		F331ADBA1D36BCCE00459E24 /* CharGenerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CharGenerator.h; sourceTree = "<group>"; };
 		F331ADBB1D36BCCE00459E24 /* DuelScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = DuelScene.cpp; sourceTree = "<group>"; };
 		F331ADBC1D36BCCE00459E24 /* DuelScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DuelScene.h; sourceTree = "<group>"; };
+		F331ADC71D378EF000459E24 /* StartMenuScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = StartMenuScene.cpp; sourceTree = "<group>"; };
+		F331ADCB1D37910900459E24 /* StartMenuScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StartMenuScene.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -434,6 +438,8 @@
 				F331AC441D36A7E200459E24 /* StateMachine.h */,
 				F331AC451D36A7E200459E24 /* WalkingState.cpp */,
 				F331AC461D36A7E200459E24 /* WalkingState.h */,
+				F331ADC71D378EF000459E24 /* StartMenuScene.cpp */,
+				F331ADCB1D37910900459E24 /* StartMenuScene.h */,
 			);
 			name = Classes;
 			path = ../Classes;
@@ -664,6 +670,7 @@
 				503AE10217EB989F00D1A890 /* RootViewController.mm in Sources */,
 				F331AC651D36A7E200459E24 /* RunningState.cpp in Sources */,
 				F331AC571D36A7E200459E24 /* MessageContent.cpp in Sources */,
+				F331ADC91D378EF000459E24 /* StartMenuScene.cpp in Sources */,
 				F331AC6B1D36A7E200459E24 /* sqlite3.c in Sources */,
 				F331AC591D36A7E200459E24 /* MessageReceiver.cpp in Sources */,
 				F331AC5D1D36A7E200459E24 /* PhysicsShapeCache.cpp in Sources */,
@@ -710,6 +717,7 @@
 				F331ADC41D36BCCE00459E24 /* DuelScene.cpp in Sources */,
 				F331ADC01D36BCCE00459E24 /* AlphabetGrid.cpp in Sources */,
 				F331AC761D36A7E200459E24 /* WalkingState.cpp in Sources */,
+				F331ADCA1D378EF000459E24 /* StartMenuScene.cpp in Sources */,
 				F331AC5E1D36A7E200459E24 /* PhysicsShapeCache.cpp in Sources */,
 				F331AC4E1D36A7E200459E24 /* ExternalSkeletonCharacter.cpp in Sources */,
 				F331AC661D36A7E200459E24 /* RunningState.cpp in Sources */,
