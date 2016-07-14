@@ -10,6 +10,15 @@
     <Filter Include="src">
       <UniqueIdentifier>{bb6c862e-70e9-49d9-81b7-3829a6f50471}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\alphamon">
+      <UniqueIdentifier>{d0c5d3fa-efb1-4b40-9d71-6cc6b0d35436}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\puzzle">
+      <UniqueIdentifier>{b4f62760-71a5-4a83-a16f-cbfb399817e9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\effects">
+      <UniqueIdentifier>{bb0feab0-c381-48b1-a900-4d269446bc51}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -21,6 +30,87 @@
     <ClCompile Include="..\Classes\HelloWorldScene.cpp">
       <Filter>src</Filter>
     </ClCompile>
+    <ClCompile Include="..\Classes\ExternalSkeletonCharacter.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\FallingState.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\GestureLayer.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\JumpingState.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\MessageContent.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\MessageReceiver.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\MessageSender.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\PhysicsShapeCache.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\RPGConfig.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\RPGSprite.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\RunningState.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\SkeletonCharacter.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\SpeechBubbleView.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\sqlite3.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Sqlite3Helper.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\StandingState.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\State.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\StateMachine.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\WalkingState.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\alphamon\Alphamon.cpp">
+      <Filter>src\alphamon</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\alphamon\HPMeter.cpp">
+      <Filter>src\alphamon</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\alphamon\SelectAlphamonScene.cpp">
+      <Filter>src\alphamon</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\puzzle\Alphabet.cpp">
+      <Filter>src\puzzle</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\puzzle\AlphabetGrid.cpp">
+      <Filter>src\puzzle</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\puzzle\CharGenerator.cpp">
+      <Filter>src\puzzle</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\puzzle\DuelScene.cpp">
+      <Filter>src\puzzle</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\effects\FShake.cpp">
+      <Filter>src\effects</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -31,6 +121,87 @@
     </ClInclude>
     <ClInclude Include="..\Classes\HelloWorldScene.h">
       <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\ExternalSkeletonCharacter.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\FallingState.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\GestureLayer.hpp">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\JumpingState.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\MessageContent.hpp">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\MessageReceiver.hpp">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\MessageSender.hpp">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\PhysicsShapeCache.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\RPGConfig.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\RPGSprite.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\RunningState.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\SkeletonCharacter.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\SpeechBubbleView.hpp">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\sqlite3.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Sqlite3Helper.hpp">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\StandingState.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\State.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\StateMachine.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\WalkingState.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\alphamon\Alphamon.h">
+      <Filter>src\alphamon</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\alphamon\HPMeter.h">
+      <Filter>src\alphamon</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\alphamon\SelectAlphamonScene.h">
+      <Filter>src\alphamon</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\puzzle\Alphabet.h">
+      <Filter>src\puzzle</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\puzzle\AlphabetGrid.h">
+      <Filter>src\puzzle</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\puzzle\CharGenerator.h">
+      <Filter>src\puzzle</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\puzzle\DuelScene.h">
+      <Filter>src\puzzle</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\effects\FShake.h">
+      <Filter>src\effects</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
