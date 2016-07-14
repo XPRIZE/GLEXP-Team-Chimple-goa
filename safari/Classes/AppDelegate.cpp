@@ -1,11 +1,12 @@
 #include "AppDelegate.h"
 #include "HelloWorldScene.h"
+#include "alphamon/SelectAlphamonScene.h"
 
 USING_NS_CC;
 
 static Size designResolutionSize = Size(2560, 1800);
 static Size smallResolutionSize = Size(640, 450);
-static Size mediumResolutionSize = Size(1024, 720);
+static Size mediumResolutionSize = Size(1280, 900);
 static Size largeResolutionSize = Size(2560, 1800);
 
 AppDelegate::AppDelegate() {
@@ -40,45 +41,50 @@ bool AppDelegate::applicationDidFinishLaunching() {
     auto glview = director->getOpenGLView();
     if(!glview) {
 #if (CC_TARGET_PLATFORM == CC_PLATFORM_WIN32) || (CC_TARGET_PLATFORM == CC_PLATFORM_MAC) || (CC_TARGET_PLATFORM == CC_PLATFORM_LINUX)
-        glview = GLViewImpl::createWithRect("rpg", cocos2d::Rect(0, 0, mediumResolutionSize.width, mediumResolutionSize.height));
+        glview = GLViewImpl::createWithRect("safari", cocos2d::Rect(0, 0, mediumResolutionSize.width, mediumResolutionSize.height));
 #else
-        glview = GLViewImpl::create("rpg");
+        glview = GLViewImpl::create("safari");
 #endif
+        
         director->setOpenGLView(glview);
     }
+    
+#if (CC_TARGET_PLATFORM == CC_PLATFORM_WIN32) || (CC_TARGET_PLATFORM == CC_PLATFORM_MAC) || (CC_TARGET_PLATFORM == CC_PLATFORM_LINUX)
+    glview->setDesignResolutionSize(designResolutionSize.width, designResolutionSize.height, ResolutionPolicy::SHOW_ALL);
+#else
+    glview->setDesignResolutionSize(designResolutionSize.width, designResolutionSize.height, ResolutionPolicy::FIXED_HEIGHT);
+#endif
+    
+    std::vector<std::string> searchPaths;
+    float scaleFactor = 1.0f;
+    Size frameSize = glview->getFrameSize();
+    
+    if (frameSize.height > mediumResolutionSize.height)
+    {
+        searchPaths.push_back("res/HDR");
+        scaleFactor = largeResolutionSize.height/designResolutionSize.height;
+    }
+    else if (frameSize.height > smallResolutionSize.height)
+    {
+        searchPaths.push_back("res/HD");
+        scaleFactor = mediumResolutionSize.height/designResolutionSize.height;
+    }
+    else
+    {
+        searchPaths.push_back("res/SD");
+        scaleFactor = smallResolutionSize.height/designResolutionSize.height;
+    }
+    
+    director->setContentScaleFactor(scaleFactor);
+    FileUtils::getInstance()->setSearchPaths(searchPaths);
+    
+    FileUtils::getInstance()->addSearchPath("res");
     
     // turn on display FPS
     director->setDisplayStats(true);
     
     // set FPS. the default value is 1.0/60 if you don't call this
     director->setAnimationInterval(1.0 / 60);
-    
-    // Set the design resolution
-#if (CC_TARGET_PLATFORM == CC_PLATFORM_WIN32) || (CC_TARGET_PLATFORM == CC_PLATFORM_MAC) || (CC_TARGET_PLATFORM == CC_PLATFORM_LINUX)
-    glview->setDesignResolutionSize(designResolutionSize.width, designResolutionSize.height, ResolutionPolicy::SHOW_ALL);
-#else
-    glview->setDesignResolutionSize(designResolutionSize.width, designResolutionSize.height, ResolutionPolicy::EXACT_FIT);
-#endif
-    
-    
-    auto frameSize = glview->getFrameSize();
-    // if the frame's height is larger than the height of medium size.
-    
-    //    if (frameSize.height > mediumResolutionSize.height)
-    //    {
-    //        director->setContentScaleFactor(MIN(largeResolutionSize.height/designResolutionSize.height, largeResolutionSize.width/designResolutionSize.width));
-    //    }
-    //    // if the frame's height is larger than the height of small size.
-    //    else if (frameSize.height > smallResolutionSize.height)
-    //    {
-    //        director->setContentScaleFactor(MIN(mediumResolutionSize.height/designResolutionSize.height, mediumResolutionSize.width/designResolutionSize.width));
-    //    }
-    //    // if the frame's height is smaller than the height of medium size.
-    //    else
-    //    {
-    //        director->setContentScaleFactor(MIN(smallResolutionSize.height/designResolutionSize.height, smallResolutionSize.width/designResolutionSize.width));
-    //    }
-    //
     
     auto spriteCache = SpriteFrameCache::getInstance();
     spriteCache->addSpriteFramesWithFile("human_spritesheet_01.plist");
@@ -90,6 +96,7 @@ bool AppDelegate::applicationDidFinishLaunching() {
     
     // create a scene. it's an autorelease object
     auto scene = HelloWorld::createScene("camp","","","","");
+//    auto scene = SelectAlphamon::createScene();
     
     // run
     director->runWithScene(scene);

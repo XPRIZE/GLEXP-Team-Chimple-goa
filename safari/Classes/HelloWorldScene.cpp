@@ -305,7 +305,7 @@ bool HelloWorld::init(const std::string& sceneName, const std::string& skeletonX
     }
 
 
-    FileUtils::getInstance()->addSearchPath(this->getBaseDir());
+    FileUtils::getInstance()->addSearchPath("res/" + this->getBaseDir());
     
 
     
