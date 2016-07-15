@@ -1,5 +1,5 @@
 #include "PatchTheWallScene.h"
-#include "cocostudio\CocoStudio.h"
+#include "editor-support/cocostudio/CocoStudio.h"
 #include "string.h"
 
 USING_NS_CC;
