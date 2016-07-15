@@ -117,6 +117,8 @@
 		F331ADC41D36BCCE00459E24 /* DuelScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F331ADBB1D36BCCE00459E24 /* DuelScene.cpp */; };
 		F331ADC91D378EF000459E24 /* StartMenuScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F331ADC71D378EF000459E24 /* StartMenuScene.cpp */; };
 		F331ADCA1D378EF000459E24 /* StartMenuScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F331ADC71D378EF000459E24 /* StartMenuScene.cpp */; };
+		F378D0EB1D38C09600769FA5 /* PatchTheWallScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F378D0E91D38C09600769FA5 /* PatchTheWallScene.cpp */; };
+		F378D0EC1D38C0BD00769FA5 /* PatchTheWallScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F378D0E91D38C09600769FA5 /* PatchTheWallScene.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -263,6 +265,8 @@
 		F331ADBC1D36BCCE00459E24 /* DuelScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DuelScene.h; sourceTree = "<group>"; };
 		F331ADC71D378EF000459E24 /* StartMenuScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = StartMenuScene.cpp; sourceTree = "<group>"; };
 		F331ADCB1D37910900459E24 /* StartMenuScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StartMenuScene.h; sourceTree = "<group>"; };
+		F378D0E91D38C09600769FA5 /* PatchTheWallScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = PatchTheWallScene.cpp; path = mini_games/PatchTheWallScene.cpp; sourceTree = "<group>"; };
+		F378D0EA1D38C09600769FA5 /* PatchTheWallScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PatchTheWallScene.h; path = mini_games/PatchTheWallScene.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -393,6 +397,7 @@
 		46880B8319C43A87006E1F66 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				F378D0E81D38C08400769FA5 /* mini_games */,
 				F331ADA01D36BBF700459E24 /* effects */,
 				F331AD8F1D36BBD800459E24 /* puzzle */,
 				F331AD821D36BBBC00459E24 /* alphamon */,
@@ -527,6 +532,15 @@
 				F331ADA61D36BCB900459E24 /* FShake.h */,
 			);
 			path = effects;
+			sourceTree = "<group>";
+		};
+		F378D0E81D38C08400769FA5 /* mini_games */ = {
+			isa = PBXGroup;
+			children = (
+				F378D0E91D38C09600769FA5 /* PatchTheWallScene.cpp */,
+				F378D0EA1D38C09600769FA5 /* PatchTheWallScene.h */,
+			);
+			name = mini_games;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -675,6 +689,7 @@
 				F331AC591D36A7E200459E24 /* MessageReceiver.cpp in Sources */,
 				F331AC5D1D36A7E200459E24 /* PhysicsShapeCache.cpp in Sources */,
 				503AE10117EB989F00D1A890 /* main.m in Sources */,
+				F378D0EB1D38C09600769FA5 /* PatchTheWallScene.cpp in Sources */,
 				F331AC671D36A7E200459E24 /* SkeletonCharacter.cpp in Sources */,
 				F331ADC11D36BCCE00459E24 /* CharGenerator.cpp in Sources */,
 				F331AC611D36A7E200459E24 /* RPGConfig.cpp in Sources */,
@@ -723,6 +738,7 @@
 				F331AC661D36A7E200459E24 /* RunningState.cpp in Sources */,
 				F331AC561D36A7E200459E24 /* JumpingState.cpp in Sources */,
 				F331AC641D36A7E200459E24 /* RPGSprite.cpp in Sources */,
+				F378D0EC1D38C0BD00769FA5 /* PatchTheWallScene.cpp in Sources */,
 				F331AC6C1D36A7E200459E24 /* sqlite3.c in Sources */,
 				F331AC521D36A7E200459E24 /* GestureLayer.cpp in Sources */,
 				F331AC621D36A7E200459E24 /* RPGConfig.cpp in Sources */,
