@@ -43,7 +43,7 @@ protected:
     HPMeter *_hpMeter;
     HPMeter *_powerMeter;
     cocos2d::DrawNode *_drawNode;
-    Node *_alphaNode;
+    cocos2d::Label *_alphaNode;
     int _hp;
     char _alphabet;
     cocos2d::EventListenerTouchOneByOne *_listener;    
