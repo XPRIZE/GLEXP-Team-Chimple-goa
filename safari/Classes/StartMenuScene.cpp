@@ -10,6 +10,7 @@
 #include "HelloWorldScene.h"
 #include "alphamon/SelectAlphamonScene.h"
 #include "mini_games/PatchTheWallScene.h"
+#include "mini_games/CrossTheBridgeScene.h"
 
 USING_NS_CC;
 
@@ -44,7 +45,11 @@ bool StartMenu::init() {
 		[&](Ref *sender) {
 		Director::getInstance()->replaceScene(PatchTheWall::createScene());
 	});
-	auto menu = Menu::create(menuItem1, menuItem2, menuItem3, NULL);
+	auto menuItem4 = MenuItemLabel::create(Label::createWithTTF("Cross the Bridge", "fonts/arial.ttf", 100),
+		[&](Ref *sender) {
+		Director::getInstance()->replaceScene(CrossTheBridge::createScene());
+	});
+	auto menu = Menu::create(menuItem1, menuItem2, menuItem3, menuItem4, NULL);
     menu->alignItemsVertically();
     
     addChild(menu);
