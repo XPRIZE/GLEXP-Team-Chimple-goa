@@ -40,7 +40,7 @@ bool AppDelegate::applicationDidFinishLaunching() {
     auto glview = director->getOpenGLView();
     if(!glview) {
 #if (CC_TARGET_PLATFORM == CC_PLATFORM_WIN32) || (CC_TARGET_PLATFORM == CC_PLATFORM_MAC) || (CC_TARGET_PLATFORM == CC_PLATFORM_LINUX)
-        glview = GLViewImpl::createWithRect("safari", cocos2d::Rect(0, 0, largeResolutionSize.width, largeResolutionSize.height));
+        glview = GLViewImpl::createWithRect("safari", cocos2d::Rect(0, 0, mediumResolutionSize.width, mediumResolutionSize.height));
 #else
         glview = GLViewImpl::create("safari");
 #endif
