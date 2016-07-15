@@ -8,7 +8,8 @@
 
 #include "StartMenuScene.h"
 #include "HelloWorldScene.h"
-#include "SelectAlphamonScene.h"
+#include "alphamon/SelectAlphamonScene.h"
+#include "mini_games/PatchTheWallScene.h"
 
 USING_NS_CC;
 
@@ -39,7 +40,11 @@ bool StartMenu::init() {
                                            [&](Ref *sender) {
                                                Director::getInstance()->replaceScene(SelectAlphamon::createScene());
                                            });
-    auto menu = Menu::create(menuItem1, menuItem2, NULL);
+	auto menuItem3 = MenuItemLabel::create(Label::createWithTTF("Patch The Wall", "fonts/arial.ttf", 100),
+		[&](Ref *sender) {
+		Director::getInstance()->replaceScene(PatchTheWall::createScene());
+	});
+	auto menu = Menu::create(menuItem1, menuItem2, menuItem3, NULL);
     menu->alignItemsVertically();
     
     addChild(menu);

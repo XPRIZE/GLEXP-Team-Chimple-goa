@@ -157,6 +157,7 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClCompile Include="..\Classes\MessageContent.cpp" />
     <ClCompile Include="..\Classes\MessageReceiver.cpp" />
     <ClCompile Include="..\Classes\MessageSender.cpp" />
+    <ClCompile Include="..\Classes\mini_games\PatchTheWallScene.cpp" />
     <ClCompile Include="..\Classes\PhysicsShapeCache.cpp" />
     <ClCompile Include="..\Classes\puzzle\Alphabet.cpp" />
     <ClCompile Include="..\Classes\puzzle\AlphabetGrid.cpp" />
@@ -170,6 +171,7 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClCompile Include="..\Classes\sqlite3.c" />
     <ClCompile Include="..\Classes\Sqlite3Helper.cpp" />
     <ClCompile Include="..\Classes\StandingState.cpp" />
+    <ClCompile Include="..\Classes\StartMenuScene.cpp" />
     <ClCompile Include="..\Classes\State.cpp" />
     <ClCompile Include="..\Classes\StateMachine.cpp" />
     <ClCompile Include="..\Classes\WalkingState.cpp" />
@@ -189,6 +191,7 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClInclude Include="..\Classes\MessageContent.hpp" />
     <ClInclude Include="..\Classes\MessageReceiver.hpp" />
     <ClInclude Include="..\Classes\MessageSender.hpp" />
+    <ClInclude Include="..\Classes\mini_games\PatchTheWallScene.h" />
     <ClInclude Include="..\Classes\PhysicsShapeCache.h" />
     <ClInclude Include="..\Classes\puzzle\Alphabet.h" />
     <ClInclude Include="..\Classes\puzzle\AlphabetGrid.h" />
@@ -202,6 +205,7 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClInclude Include="..\Classes\sqlite3.h" />
     <ClInclude Include="..\Classes\Sqlite3Helper.hpp" />
     <ClInclude Include="..\Classes\StandingState.h" />
+    <ClInclude Include="..\Classes\StartMenuScene.h" />
     <ClInclude Include="..\Classes\State.h" />
     <ClInclude Include="..\Classes\StateMachine.h" />
     <ClInclude Include="..\Classes\WalkingState.h" />

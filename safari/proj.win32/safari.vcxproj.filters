@@ -19,6 +19,9 @@
     <Filter Include="src\effects">
       <UniqueIdentifier>{bb0feab0-c381-48b1-a900-4d269446bc51}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\mini_games">
+      <UniqueIdentifier>{f2b38aba-52b4-4c8b-8e9f-bb7b69039baf}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -111,6 +114,12 @@
     <ClCompile Include="..\Classes\effects\FShake.cpp">
       <Filter>src\effects</Filter>
     </ClCompile>
+    <ClCompile Include="..\Classes\StartMenuScene.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\mini_games\PatchTheWallScene.cpp">
+      <Filter>src\mini_games</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -202,6 +211,12 @@
     </ClInclude>
     <ClInclude Include="..\Classes\effects\FShake.h">
       <Filter>src\effects</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\StartMenuScene.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\mini_games\PatchTheWallScene.h">
+      <Filter>src\mini_games</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
