@@ -40,7 +40,8 @@ LOCAL_SRC_FILES := hellocpp/main.cpp \
 					../../Classes/State.cpp \
 					../../Classes/StateMachine.cpp \
 					../../Classes/WalkingState.cpp \
-
+					../../Classes/mini_games/PatchTheWallScene.cpp \
+                    ../../Classes/StartMenuScene.cpp 
 LOCAL_C_INCLUDES := $(LOCAL_PATH)/../../Classes
 LOCAL_C_INCLUDES += $(LOCAL_PATH)/../../../extensions
 
