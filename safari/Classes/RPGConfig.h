@@ -9,8 +9,11 @@
 #ifndef RPGConfig_h
 #define RPGConfig_h
 
+#include <string>
+#include <sstream>
 #include "cocos2d.h"
 #include "SimpleAudioEngine.h"
+
 
 // Helper macros
 #define SCREEN_SIZE RPGConfig::screenSize
@@ -172,6 +175,14 @@ public:
     static const char* TAP_ON_CLICKABLE_OBJECT_NOTIFICATION;
     
     static const char* DISPATCH_CLEANUP_AND_SCENE_TRANSITION_NOTIFICATION;
+
+    template <typename T>
+    static inline std::string to_string(T value)
+    {
+        std::ostringstream os ;
+        os << value ;
+        return os.str() ;
+    }
     
 };
 

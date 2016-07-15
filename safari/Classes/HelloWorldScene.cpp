@@ -98,11 +98,8 @@ void HelloWorld::createRPGGame() {
 void HelloWorld::updatePositionForMainCharacter(const std::string &xPos, const std::string &yPos) {
     if(!xPos.empty() && !yPos.empty()) {
         
-        std::string::size_type xsz;     // alias of size_t
-        float fxPos = std::stof (xPos,&xsz);
-
-        std::string::size_type ysz;     // alias of size_t
-        float fyPos = std::stof (xPos,&ysz);
+        float fxPos = String::create(xPos)->floatValue();
+        float fyPos = String::create(yPos)->floatValue();
         Vec2 origin = Director::getInstance()->getVisibleOrigin();
         
         this->skeletonCharacter->getSkeletonNode()->setPosition(Vec2(origin.x + fxPos, origin.y + fyPos));
@@ -839,9 +836,8 @@ bool HelloWorld::isTapOnSpeakableOrClickableObject(Point position) {
                 std::string s(rpgNode->getNextScene());
                 std::string transitToChild(rpgNode->getTransitionToChild());
                 std::string transitToParent(rpgNode->getTransitionToParent());
-                std::string skeletonX = std::to_string(rpgNode->getMainSkeleton()->getSkeletonNode()->getPosition().x);
-                
-                std::string skeletonY = std::to_string(rpgNode->getMainSkeleton()->getSkeletonNode()->getPosition().y);
+                std::string skeletonX = RPGConfig::to_string(rpgNode->getMainSkeleton()->getSkeletonNode()->getPosition().x);
+                std::string skeletonY = RPGConfig::to_string(rpgNode->getMainSkeleton()->getSkeletonNode()->getPosition().y);
                 
                 std::vector<std::string> parameters;
                 parameters.push_back(s);
