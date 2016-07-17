@@ -27,19 +27,19 @@ public:
     
     virtual ~RPGSprite();
     
-    static RPGSprite* create(cocos2d::Sprite* sprite, std::unordered_map<std::string, std::string> attributes);
+    static RPGSprite* create(cocos2d::Node* sprite, std::unordered_map<std::string, std::string> attributes);
     
-    virtual bool initialize(cocos2d::Sprite* sprite, std::unordered_map<std::string, std::string> attributes);
+    virtual bool initialize(cocos2d::Node* sprite, std::unordered_map<std::string, std::string> attributes);
     
-    virtual cocos2d::Sprite* getSprite();
+    virtual cocos2d::Node* getSprite();
     
     virtual void setAttributes(std::unordered_map<std::string, std::string> attributes);
     
     virtual std::unordered_map<std::string, std::string> getAttributes();
     
-    CC_SYNTHESIZE(std::string, transitionToChild, TransitionToChild);
+    CC_SYNTHESIZE(std::string, posX, PosX);
     
-    CC_SYNTHESIZE(std::string, transitionToParent, TransitionToParent);
+    CC_SYNTHESIZE(std::string, posY, PosY);
     
     CC_SYNTHESIZE(std::string, nextScene, NextScene);
     
@@ -53,6 +53,8 @@ public:
     
     CC_SYNTHESIZE(std::string, key, Key);
     
+    CC_SYNTHESIZE(std::string, show, Show);
+    
     CC_SYNTHESIZE(bool, vicinityToMainCharacter, VicinityToMainCharacter);
     
     virtual void update(float dt);
@@ -62,7 +64,7 @@ public:
     virtual SkeletonCharacter* getMainSkeleton();
     
 protected:
-    cocos2d::Sprite* sprite;
+    cocos2d::Node* sprite;
     std::unordered_map<std::string, std::string> attributes;
     SkeletonCharacter* mainSkeleton;
     
