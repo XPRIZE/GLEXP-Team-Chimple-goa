@@ -1,6 +1,5 @@
 #include "AppDelegate.h"
-#include "HelloWorldScene.h"
-#include "alphamon/SelectAlphamonScene.h"
+#include "StartMenuScene.h"
 
 USING_NS_CC;
 
@@ -41,7 +40,7 @@ bool AppDelegate::applicationDidFinishLaunching() {
     auto glview = director->getOpenGLView();
     if(!glview) {
 #if (CC_TARGET_PLATFORM == CC_PLATFORM_WIN32) || (CC_TARGET_PLATFORM == CC_PLATFORM_MAC) || (CC_TARGET_PLATFORM == CC_PLATFORM_LINUX)
-        glview = GLViewImpl::createWithRect("safari", cocos2d::Rect(0, 0, smallResolutionSize.width, smallResolutionSize.height));
+        glview = GLViewImpl::createWithRect("safari", cocos2d::Rect(0, 0, mediumResolutionSize.width, mediumResolutionSize.height));
 #else
         glview = GLViewImpl::create("safari");
 #endif
@@ -95,12 +94,10 @@ bool AppDelegate::applicationDidFinishLaunching() {
     register_all_packages();
     
     // create a scene. it's an autorelease object
-    auto scene = HelloWorld::createScene("camp","","");
+//    auto scene = HelloWorld::createScene("camp","","");
 //    auto scene = SelectAlphamon::createScene();
     
-    // run
-    director->runWithScene(scene);
-    
+    director->runWithScene(StartMenu::createScene());    
     return true;
 }
 

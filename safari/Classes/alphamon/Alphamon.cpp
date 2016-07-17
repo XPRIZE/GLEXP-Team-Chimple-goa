@@ -45,11 +45,11 @@ bool Alphamon::initWithAlphabet(char alphabet) {
     addChild(_monster);
     _monster->setScale(0.6);
     
-    _alphaNode = _monster->getChildByName("BitmapFontLabel_1");
+    _alphaNode = static_cast<Label*>(_monster->getChildByName("BitmapFontLabel_1"));
     if(!_alphaNode) {
-        _alphaNode = _monster->getChildByName("BitmapFontLabel_2");
-        
+        _alphaNode = static_cast<Label*>(_monster->getChildByName("BitmapFontLabel_2"));
     }
+    
 //    auto alphaPosition = alphaNode->getPosition();
 //    alphaNode->setPosition(Vec2::ZERO);
 //    _monster->removeChild(alphaNode, false);
