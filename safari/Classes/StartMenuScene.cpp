@@ -36,7 +36,7 @@ bool StartMenu::init() {
     }
     auto menuItem1 = MenuItemLabel::create(Label::createWithTTF("Camp", "fonts/arial.ttf", 100),
                                            [&](Ref *sender) {
-                                               Director::getInstance()->replaceScene(HelloWorld::createScene("camp","","","",""));
+                                               Director::getInstance()->replaceScene(HelloWorld::createScene("camp","",""));
                                            });
     auto menuItem2 = MenuItemLabel::create(Label::createWithTTF("Alphamon", "fonts/arial.ttf", 100),
                                            [&](Ref *sender) {
