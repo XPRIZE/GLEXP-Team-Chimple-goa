@@ -13,7 +13,19 @@
 
 USING_NS_CC;
 
-RPGSprite::RPGSprite() {
+RPGSprite::RPGSprite():
+shouldSendShowTouchSign(false),
+showTouchSignNotificationSent(false),
+vicinityToMainCharacter(false),
+posX(""),
+posY(""),
+nextScene(""),
+interAct(""),
+fileName(""),
+defaultAnimationName(""),
+key(""),
+show("")
+{
     this->sprite = NULL;
     this->mainSkeleton = NULL;
 }
@@ -45,6 +57,12 @@ bool RPGSprite::initialize(cocos2d::Node* sprite, std::unordered_map<std::string
     auto checkVicinityWithMainCharacter = [=] (EventCustom * event) {
         this->mainSkeleton = static_cast<SkeletonCharacter*>(event->getUserData());
         this->checkVicinityToMainSkeleton(this->mainSkeleton);
+        
+        if(this->getVicinityToMainCharacter() && !this->getShowTouchSignNotificationSent()) {
+            this->setShowTouchSignNotificationSent(true);
+            EVENT_DISPATCHER->dispatchCustomEvent(RPGConfig::SEND_SHOW_TOUCH_POINT_SIGN_NOTIFICATION, static_cast<void*>(this->getSprite()));
+            
+        }
     };
     
     ADD_VICINITY_NOTIFICATION(this, RPGConfig::MAIN_CHARACTER_VICINITY_CHECK_NOTIFICATION, checkVicinityWithMainCharacter);
@@ -122,6 +140,15 @@ bool RPGSprite::checkVicinityToMainSkeleton(SkeletonCharacter* skeletonCharacter
     } else {
         this->setVicinityToMainCharacter(false);
         isNear = false;
+    }
+
+    
+    if((distanceFromTop >= -OBJECT_NEAR_BY_BOUNDING_BOX_WIDTH && distanceFromTop <= OBJECT_NEAR_BY_BOUNDING_BOX_WIDTH) || (distanceFromBottom >= -OBJECT_NEAR_BY_BOUNDING_BOX_WIDTH && distanceFromBottom <= OBJECT_NEAR_BY_BOUNDING_BOX_WIDTH)) {
+        this->setShouldSendShowTouchSign(true);
+        
+    } else {
+        this->setShouldSendShowTouchSign(false);
+        this->setShowTouchSignNotificationSent(false);
     }
 
 

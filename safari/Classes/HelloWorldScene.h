@@ -165,6 +165,7 @@ public:
     void HandleSwipeRight(cocos2d::Point position);
     void HandleTouchedEnded(cocos2d::Point position);
     bool isTapOnSpeakableOrClickableObject(cocos2d::Point position);
+    void sendBubbleDestroySignal();
     
     void HandleJumpWithAnimation();
     void HandlePostJumpUpAnimation();
@@ -203,7 +204,7 @@ public:
     
     virtual bool checkTapOnRPGSprite(RPGSprite* rpgNode, cocos2d::Point position);
     
-    virtual bool checkMainSkeletonCharacterNearRPGSprite(RPGSprite* rpgNode, cocos2d::Point position);
+    virtual void hideTouchPointSign();
     
     CC_SYNTHESIZE(std::string, sceneName, SceneName);
     

@@ -266,9 +266,11 @@ void HelloWorld::addMainCharacterToScene(const std::string& filename) {
     this->showTouchSignNode->setVisible(false);
     this->mainLayer->addChild(this->showTouchSignNode);
     
-//    auto char1 = Sprite::create("mainchar-02.png");
-//    char1->setPosition(Vec2(300, 500));
-//    this->mainLayer->addChild(char1);
+//    auto hero = SkeletonCharacter::create("hero_skeleton.csb");
+//    hero->setPosition(400,400);
+//    this->mainLayer->addChild(hero);
+    
+    
 }
 
 void HelloWorld::initGestureLayer() {
@@ -374,23 +376,25 @@ void HelloWorld::registerMessageSenderAndReceiver() {
 
     SEND_DISTACH_CLEAN_UP(this, RPGConfig::DISPATCH_CLEANUP_AND_SCENE_TRANSITION_NOTIFICATION, cleanUpResourcesEvent);
     
-    auto visibleSpriteEvent = [=] (EventCustom * event) {
-        std::string &showSprite = *(static_cast<std::string*>(event->getUserData()));
-        CCLOG("In visibleSpriteEvent %s", showSprite.c_str());
-        if(!showSprite.empty()) {
-            Node* showSpriteNode = this->mainLayer->getChildByName(showSprite);
-            RPGSprite* showRPGSpriteNode = dynamic_cast<RPGSprite *>(showSpriteNode);
-            if(showRPGSpriteNode != NULL) {
-                showRPGSpriteNode->setVisible(true);
-                if(showRPGSpriteNode->getSprite() != NULL) {
-                    showRPGSpriteNode->getSprite()->setVisible(true);
-                }
-            }
-        }
+    auto showTouchPointSign = [=] (EventCustom * event) {
+        Sprite* sprite = reinterpret_cast<Sprite*>(event->getUserData());
+        this->showTouchSignNode->setPosition(sprite->getPosition());
+        this->showTouchSignNode->setVisible(true);
+        auto scaleBy = ScaleBy::create(0.5, 1.2);
+        auto sequenceScale = Sequence::create(scaleBy, scaleBy->reverse(), nullptr);
+        auto repeatScaleAction = Repeat::create(sequenceScale, 5);
+        auto callbackStart = CallFunc::create(CC_CALLBACK_0(HelloWorld::hideTouchPointSign, this));
+        auto sequence = Sequence::create(repeatScaleAction, callbackStart, nullptr);
+        this->showTouchSignNode->runAction(sequence);
+        //hide after 5 sec
     };
-
     
-    EVENT_DISPATCHER->addEventListenerWithSceneGraphPriority(EventListenerCustom::create (RPGConfig::ON_TAP_VISIBLE_SPRITE_NOTIFICATION, visibleSpriteEvent), this);
+    SEND_SHOW_TOUCH_POINT_SIGNAL(this, RPGConfig::SEND_SHOW_TOUCH_POINT_SIGN_NOTIFICATION, showTouchPointSign);
+    
+}
+
+void HelloWorld::hideTouchPointSign() {
+    this->showTouchSignNode->setVisible(false);
 }
 
 void HelloWorld::processTextMessage(std::unordered_map<int, std::string> textMap, std::string ownerOfMessage)
@@ -483,25 +487,28 @@ void HelloWorld::processAnimationMessage(std::vector<MessageContent*>animationMe
             auto timeline =  CSLoader::createTimeline(content->getDialog());
             Node* animationSpriteNode = this->mainLayer->getChildByName(content->getOwner());
             RPGSprite* animationNode = dynamic_cast<RPGSprite *>(animationSpriteNode);
-
+            int conditionSatified = content->getConditionSatisfied();
             if(timeline != NULL && animationSpriteNode != NULL && animationNode != NULL )
             {
                 timeline->setLastFrameCallFunc([=]() {
                     timeline->clearLastFrameCallFunc();
                     CCLOG("ANIMATION FINISHED PLAYING do we have next %s", animationNode->getNextScene().c_str());
                     
-                    
-                    std::string nextScene = animationNode->getNextScene();
-                    std::string posX = animationNode->getPosX();
-                    std::string posY = animationNode->getPosY();
-                    
-                    if(!nextScene.empty() && !posX.empty() && !posY.empty())
+                    //check for key
+                    if(conditionSatified == 1)
                     {
-                        EVENT_DISPATCHER->dispatchCustomEvent (RPGConfig::DISPATCH_CLEANUP_AND_SCENE_TRANSITION_NOTIFICATION);
-
-                        Director::getInstance()->replaceScene(TransitionFade::create(1, HelloWorld::createScene(nextScene, posX, posY), cocos2d::Color3B::WHITE));
+                        std::string nextScene = animationNode->getNextScene();
+                        std::string posX = animationNode->getPosX();
+                        std::string posY = animationNode->getPosY();
                         
-                    }                    
+                        if(!nextScene.empty() && !posX.empty() && !posY.empty())
+                        {
+                            EVENT_DISPATCHER->dispatchCustomEvent (RPGConfig::DISPATCH_CLEANUP_AND_SCENE_TRANSITION_NOTIFICATION);
+                            
+                            Director::getInstance()->replaceScene(TransitionFade::create(1, HelloWorld::createScene(nextScene, posX, posY), cocos2d::Color3B::WHITE));
+                            
+                        }                                            
+                    }
                     
                 });
 
@@ -603,25 +610,6 @@ void HelloWorld::update(float dt) {
                 
             }
         }
-        
-        bool shouldShowTouchSignNode = false;
-        
-        for (std::vector<RPGSprite*>::iterator it = this->rpgSprites.begin() ; it != this->rpgSprites.end() && !shouldShowTouchSignNode; ++it)
-        {
-            RPGSprite* rpgNode = *it;
-            if(this->checkMainSkeletonCharacterNearRPGSprite(rpgNode, this->skeletonCharacter->getSkeletonNode()->getPosition())) {
-                this->showTouchSignNode->setPosition(rpgNode->getSprite()->getPosition());
-                shouldShowTouchSignNode = true;
-            }
-            
-        }
-        
-        if(shouldShowTouchSignNode) {
-             this->showTouchSignNode->setVisible(true);
-        } else {
-            this->showTouchSignNode->setVisible(false);
-        }
-        
     }
     
     this->moveBackGroundLayerInParallex();
@@ -807,6 +795,11 @@ void HelloWorld::HoldOrDragBehaviour(Point position) {
         return;
     }
 
+    if(this->getSpeechBubbleAlreadyVisible()) {
+        this->sendBubbleDestroySignal();
+        return;
+    }
+
     if(this->skeletonCharacter->isJumping || this->skeletonCharacter->isJumpingAttemptedWhileDragging) {
         return;
     }
@@ -964,6 +957,13 @@ void HelloWorld::startContinuousRoationAnimation(float dt) {
     this->skeletonCharacter->playJumpingContinuousRotationAnimation();
 }
 
+void HelloWorld::sendBubbleDestroySignal() {
+    if(this->getSpeechBubbleAlreadyVisible()) {
+        CCLOG("speech bubble destory");
+        EVENT_DISPATCHER->dispatchCustomEvent(RPGConfig::SEND_BUBBLE_DESTROY_NOTIFICATION);
+    }
+}
+
 bool HelloWorld::isTapOnSpeakableOrClickableObject(Point position) {
     
         if(this->getSpeechBubbleAlreadyVisible()) {
@@ -1010,19 +1010,6 @@ bool HelloWorld::isTapOnSpeakableOrClickableObject(Point position) {
     return false;
 }
 
-bool HelloWorld::checkMainSkeletonCharacterNearRPGSprite(RPGSprite* rpgNode, Point position) {
-    Vec2 characterPosition = this->skeletonCharacter->getSkeletonNode()->getParent()->convertToWorldSpace(this->skeletonCharacter->getSkeletonNode()->getPosition());
-
-    
-    Rect boundingBoxRect = Rect(rpgNode->getSprite()->getBoundingBox().origin.x - OBJECT_NEAR_BY_BOUNDING_BOX_WIDTH/2, rpgNode->getSprite()->getBoundingBox().origin.y - OBJECT_NEAR_BY_BOUNDING_BOX_WIDTH/2, OBJECT_NEAR_BY_BOUNDING_BOX_WIDTH, OBJECT_NEAR_BY_BOUNDING_BOX_WIDTH);
-    
-    if(rpgNode->getSprite()->isVisible() && rpgNode->getInterAct() == "true" && rpgNode->getVicinityToMainCharacter() == true && boundingBoxRect.containsPoint(this->skeletonCharacter->getSkeletonNode()->getPosition())) {
-        return true;
-    }
-    
-    return false;
-}
-
 bool HelloWorld::checkTapOnRPGSprite(RPGSprite* rpgNode, Point position) {
     
     Rect boundingBoxRect = Rect(rpgNode->getSprite()->getBoundingBox().origin.x, rpgNode->getSprite()->getBoundingBox().origin.y, rpgNode->getSprite()->getBoundingBox().size.width == 0 ? OBJECT_TAP_BOUNDING_BOX_WIDTH : rpgNode->getSprite()->getBoundingBox().size.width, rpgNode->getSprite()->getBoundingBox().size.height == 0 ? OBJECT_TAP_BOUNDING_BOX_WIDTH : rpgNode->getSprite()->getBoundingBox().size.height);
@@ -1039,6 +1026,11 @@ void HelloWorld::HandleTap(Point position)
 {
     if(this->isTapOnSpeakableOrClickableObject(position)) {
         //later launch custom event
+        return;
+    }
+    
+    if(this->getSpeechBubbleAlreadyVisible()) {
+        this->sendBubbleDestroySignal();
         return;
     }
     

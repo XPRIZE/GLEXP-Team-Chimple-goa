@@ -34,6 +34,8 @@ public:
 
     virtual void dialogSelected(cocos2d::Ref* sender, cocos2d::ui::Widget::TouchEventType type);
     
+    virtual void destroySpeechBubbles();
+    
 protected:
 //    std::vector<cocos2d::Label*> texts;
     std::vector<cocos2d::ui::Button*> textButtons;

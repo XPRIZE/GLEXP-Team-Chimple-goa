@@ -55,6 +55,10 @@ public:
     
     CC_SYNTHESIZE(bool, vicinityToMainCharacter, VicinityToMainCharacter);
     
+    CC_SYNTHESIZE(bool, shouldSendShowTouchSign, ShouldSendShowTouchSign);
+    
+    CC_SYNTHESIZE(bool, showTouchSignNotificationSent, ShowTouchSignNotificationSent);
+    
     virtual void update(float dt);
         
     virtual bool checkVicinityToMainSkeleton(SkeletonCharacter* skeletonCharacter);
