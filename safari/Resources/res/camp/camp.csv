@@ -1,0 +1,12 @@
+EVENT_ID,PRE_CONDITION_EVENT_ID,CONDITION,CONDITION_RESULT,ACTION,DIALOG,OWNER,PLAY_ANIMATION_IN_LOOP,PRE_OUTCOME_ANIMATION,POST_OUTCOME_ANIMATION,SCENE_NAME,SHOULD_DISPLAY_IN_BAG
+1,0,hammer,1,say,go to store,skeleton_1,,,,camp,
+2,0,hammer,1,say,go to repair,skeleton_1,,,,camp,
+3,0,hammer,1,say,well done,skeleton_1,,,,camp,
+4,0,hammer,0,say,find hammer and get key,skeleton_1,,,,camp,
+5,1,,0,say,I will go to store,main_character,,,,camp,
+6,1,,0,say,I will do something else,main_character,,,,camp,
+7,0,key,0,say,find key to open door,door,,,,camp,
+8,0,key,0,animation,door_shake,door,0,,,camp,0
+9,0,key,1,,,,,removeFromBag,,camp,1
+10,0,hammer,1,animation,break_glass,glass,0,hammer,KEY,camp,
+11,0,hammer,0,say,find hammer to break glass,glass,,,,camp,

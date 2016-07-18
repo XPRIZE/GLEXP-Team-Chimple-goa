@@ -123,6 +123,12 @@
     <ClCompile Include="..\Classes\mini_games\CrossTheBridgeScene.cpp">
       <Filter>src\mini_games</Filter>
     </ClCompile>
+    <ClCompile Include="..\Classes\mini_games\SmashTheRockLevelScene.cpp">
+      <Filter>src\mini_games</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\mini_games\SmashTheRockScene.cpp">
+      <Filter>src\mini_games</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -222,6 +228,12 @@
       <Filter>src\mini_games</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\mini_games\CrossTheBridgeScene.h">
+      <Filter>src\mini_games</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\mini_games\SmashTheRockLevelScene.h">
+      <Filter>src\mini_games</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\mini_games\SmashTheRockScene.h">
       <Filter>src\mini_games</Filter>
     </ClInclude>
   </ItemGroup>

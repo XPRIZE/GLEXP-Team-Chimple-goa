@@ -46,13 +46,18 @@ void Alphabet::selected(bool value) {
     _selected = value;
     if(value) {
         setTextColor(Color4B::BLUE);
-        EventCustom event("alphabet_pressed");
+        EventCustom event("alphabet_selected");
         char *data = new char[1];
         data[0] = _alphabet;
         event.setUserData(data);
         _eventDispatcher->dispatchEvent(&event);
     } else {
         setTextColor(Color4B::WHITE);
+        EventCustom event("alphabet_unselected");
+        char *data = new char[1];
+        data[0] = _alphabet;
+        event.setUserData(data);
+        _eventDispatcher->dispatchEvent(&event);
     }
 }
 

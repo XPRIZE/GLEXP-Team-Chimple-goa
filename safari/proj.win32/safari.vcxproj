@@ -159,6 +159,8 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClCompile Include="..\Classes\MessageSender.cpp" />
     <ClCompile Include="..\Classes\mini_games\CrossTheBridgeScene.cpp" />
     <ClCompile Include="..\Classes\mini_games\PatchTheWallScene.cpp" />
+    <ClCompile Include="..\Classes\mini_games\SmashTheRockLevelScene.cpp" />
+    <ClCompile Include="..\Classes\mini_games\SmashTheRockScene.cpp" />
     <ClCompile Include="..\Classes\PhysicsShapeCache.cpp" />
     <ClCompile Include="..\Classes\puzzle\Alphabet.cpp" />
     <ClCompile Include="..\Classes\puzzle\AlphabetGrid.cpp" />
@@ -194,6 +196,8 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClInclude Include="..\Classes\MessageSender.hpp" />
     <ClInclude Include="..\Classes\mini_games\CrossTheBridgeScene.h" />
     <ClInclude Include="..\Classes\mini_games\PatchTheWallScene.h" />
+    <ClInclude Include="..\Classes\mini_games\SmashTheRockLevelScene.h" />
+    <ClInclude Include="..\Classes\mini_games\SmashTheRockScene.h" />
     <ClInclude Include="..\Classes\PhysicsShapeCache.h" />
     <ClInclude Include="..\Classes\puzzle\Alphabet.h" />
     <ClInclude Include="..\Classes\puzzle\AlphabetGrid.h" />

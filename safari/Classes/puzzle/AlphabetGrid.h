@@ -20,7 +20,7 @@ public:
     std::vector<Alphabet *> getAlphabetsWhichMatch(char a);
     int getCountOfAlphabetsWhichMatch(char a);
     void enableTouch(bool value);
-    
+    void resize(GLfloat width, GLfloat height, int numRows, int numCols);    
 
 CC_CONSTRUCTOR_ACCESS:
     AlphabetGrid();
@@ -33,6 +33,7 @@ protected:
     GLfloat _width;
     GLfloat _height;
     Node *_alphabetLayer;
+    Node *_labelLayer;
     std::vector<std::vector<Alphabet *>> _alphabetMatrix;
     cocos2d::DrawNode *_overlay;
 };
