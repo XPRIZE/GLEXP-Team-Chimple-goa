@@ -42,13 +42,11 @@ public:
     CC_SYNTHESIZE(std::string, posY, PosY);
     
     CC_SYNTHESIZE(std::string, nextScene, NextScene);
-    
-    CC_SYNTHESIZE(std::string, clickable, Clickable);
+        
+    CC_SYNTHESIZE(std::string, interAct, InterAct);
     
     CC_SYNTHESIZE(std::string, fileName, FileName);
-    
-    CC_SYNTHESIZE(std::string, canSpeak, CanSpeak);
-    
+        
     CC_SYNTHESIZE(std::string, defaultAnimationName, DefaultAnimationName);
     
     CC_SYNTHESIZE(std::string, key, Key);

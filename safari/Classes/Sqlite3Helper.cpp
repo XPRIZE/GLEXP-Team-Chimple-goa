@@ -98,13 +98,17 @@ bool Sqlite3Helper::closeConnection() {
 
 void Sqlite3Helper::insertItemToMyBag(const char* island, const char* item) {
     sqlite3_stmt *res;
-    const char* querySQL = "INSERT INTO MY_BAG (ISLAND_NAME, ITEM) VALUES (?,?)";
+    const char* querySQL = " INSERT INTO MY_BAG (ISLAND_NAME, ITEM) SELECT ?,? WHERE NOT EXISTS (SELECT 1 FROM MY_BAG WHERE ISLAND_NAME = ? AND ITEM = ?) ";
+    
     int rc = sqlite3_prepare_v2(this->dataBaseConnection, querySQL, strlen(querySQL), &res, NULL);
     
     if( rc == SQLITE_OK ) {
         // bind the value        
         sqlite3_bind_text(res, 1, island, strlen(island), SQLITE_TRANSIENT);
         sqlite3_bind_text(res, 2, item, strlen(item), SQLITE_TRANSIENT);
+        sqlite3_bind_text(res, 3, island, strlen(island), SQLITE_TRANSIENT);
+        sqlite3_bind_text(res, 4, item, strlen(item), SQLITE_TRANSIENT);
+
         // commit
         int m = sqlite3_step(res);
         if(m == SQLITE_BUSY)
