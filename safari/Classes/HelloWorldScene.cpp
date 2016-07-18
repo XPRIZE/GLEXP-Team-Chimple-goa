@@ -1199,9 +1199,11 @@ void HelloWorld::setSceneSize(const cocos2d::Size& size) {
 
 bool HelloWorld::handlePhysicsContactEventForMainCharacter(PhysicsContact &contact, cocos2d::Node* nodeA, cocos2d::Node* nodeB)
 {
-    CCLOG("contact BEGAN Main Skeleton!!!");
+    CCLOG("contact current BEGAN Main Skeleton!!! %s", this->stateMachine->enumToString(this->stateMachine->getCurrentState()->getState()));
+    
     if(nodeA->getName() == HUMAN_SKELETON_NAME || nodeB->getName() == HUMAN_SKELETON_NAME)
     {
+        
         if(this->skeletonCharacter->didSkeletonContactBeginDuringJumpingUp(contact, this->stateMachine->getCurrentState()->getState())) {
             CCLOG("ignore contact while jumping up for Main Skeleton!!!");
             return false;
