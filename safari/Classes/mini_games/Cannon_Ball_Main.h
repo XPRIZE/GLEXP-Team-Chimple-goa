@@ -4,7 +4,7 @@
 #include "cocos2d.h"
 #include "Cannon_Ball_Listener.h"
 #include <vector>
-#include "cocostudio\CocoStudio.h"
+#include "editor-support/cocostudio/CocoStudio.h"
 
 class MainGame : public cocos2d::Layer
 {

@@ -1,6 +1,6 @@
 #include "Cannon_Ball_Main.h"
 #include "Cannon_Ball_Listener.h"
-#include "cocostudio\CocoStudio.h"
+#include "editor-support/cocostudio/CocoStudio.h"
 
 USING_NS_CC;
 
