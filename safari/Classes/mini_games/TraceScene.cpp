@@ -58,17 +58,20 @@ bool Trace::init(char alphabet) {
     if (!Layer::init()){
         return false;
     }
+	std::string path = "Alpha Kombat/";//std::string(path)
+	CCSpriteFrameCache::sharedSpriteFrameCache()->addSpriteFramesWithFile("Alphacombat.plist");
+	
 
 	CocosDenshion::SimpleAudioEngine::getInstance()->preloadEffect("bubble.mp3");
 	CCSpriteFrameCache::sharedSpriteFrameCache()->addSpriteFramesWithFile("restanimation.plist");
-	timeline = CSLoader::createTimeline("animation.csb");
+	timeline = CSLoader::createTimeline("mainanimation.csb");
 
 
 	Size visibleSize = Director::getInstance()->getVisibleSize();
 	Vec2 origin = Director::getInstance()->getVisibleOrigin();
 
-	std::string path = "Alpha Kombat/";//std::string(path)
-	auto _bg = CSLoader::createNode(std::string(path) + std::string("MainScene.csb"));
+	
+	auto _bg = CSLoader::createNode("Alphacombat.csb");
 	//_background->setPosition(Vec2(visibleSize.width / 2 + origin.x, visibleSize.height / 2 + origin.y));
 	addChild(_bg);
 
@@ -78,7 +81,7 @@ bool Trace::init(char alphabet) {
 	addChild(bg, 0);
 	*/
 	
-	Sprite* node = (Sprite *)CSLoader::createNode("animation.csb");
+	Sprite* node = (Sprite *)CSLoader::createNode("mainanimation.csb");
 	node->setPosition(Vec2(700, 200));
 	node->setScale(2);
 	this->addChild(node, 0);
