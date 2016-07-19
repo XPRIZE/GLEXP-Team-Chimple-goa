@@ -19,6 +19,9 @@ public:
 	cocostudio::timeline::SkeletonNode* skeletonNode;
 
 	cocos2d::Vector < cocos2d::Node *> blockRef;
+	cocos2d::Vector < cocos2d::Node *> rightRef;
+	cocos2d::Vector < cocos2d::Node *> wrongRef;
+	cocos2d::Vector <cocos2d::Label*> labelRef;
 	std::map<std::string, std::int32_t> alphabetMap;
 	
 	int key;
@@ -30,12 +33,14 @@ public:
 	virtual void onTouchCancelled(cocos2d::Touch *touch, cocos2d::Event * event);
 	cocos2d::Label* label1;
 	cocos2d::Label* label;
+	
+	cocos2d::Node* background;
 	cocos2d::ClippingNode* maskedFill = nullptr;
 	void update(float dt);
 	virtual void masking();
 	virtual void jump();
-	virtual void back();
-
+	virtual void hit();
+	
 	virtual void createSkeletonCharacter();
 	void addMainCharacterToScene(cocostudio::timeline::SkeletonNode* skeleton);
 	// implement the "static create()" method manually
