@@ -14,6 +14,7 @@
 #include "../alphamon/Alphamon.h"
 #include "../alphamon/SelectAlphamonScene.h"
 #include "../effects/FShake.h"
+#include "../menu/PointSystem.h"
 #include "ui/CocosGUI.h"
 #include "editor-support/cocostudio/CocoStudio.h"
 
