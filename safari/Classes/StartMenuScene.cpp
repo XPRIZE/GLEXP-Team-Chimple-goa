@@ -48,7 +48,8 @@ bool StartMenu::init() {
                                            [&](Ref *sender) {
                                                startScene(ALPHAMON_COMBAT);
                                            });
-	auto menuItem3 = MenuItemLabel::create(Label::createWithTTF("Patch The Wall", "fonts/arial.ttf", 100),
+//    auto menuItem2 = createMenu(ALPHAMON_COMBAT);
+    auto menuItem3 = MenuItemLabel::create(Label::createWithTTF("Patch The Wall", "fonts/arial.ttf", 100),
 		[&](Ref *sender) {
 		Director::getInstance()->replaceScene(PatchTheWall::createScene());
 	});
@@ -83,3 +84,12 @@ void StartMenu::startScene(std::string gameName, std::string firstParam, std::st
         Director::getInstance()->replaceScene(DuelScene::createScene(firstParam.at(0), secondParam.at(0)));
     }
 }
+
+MenuItem* StartMenu::createMenu(std::string name) {
+    return MenuItemLabel::create(Label::createWithTTF(name, "fonts/arial.ttf", 100),
+                          [&](Ref *sender) {
+                              startScene(name);
+                          });
+}
+
+
