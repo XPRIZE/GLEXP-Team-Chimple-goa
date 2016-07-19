@@ -12,6 +12,8 @@
 		1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; };
 		1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
 		288765A50DF7441C002DB57D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288765A40DF7441C002DB57D /* CoreGraphics.framework */; };
+		37C34D651D3DDFBB0047582C /* AlphamonSprite.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 37C34D641D3DDFBB0047582C /* AlphamonSprite.cpp */; };
+		37C34D661D3DDFBB0047582C /* AlphamonSprite.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 37C34D641D3DDFBB0047582C /* AlphamonSprite.cpp */; };
 		503AE0F817EB97AB00D1A890 /* Icon.icns in Resources */ = {isa = PBXBuildFile; fileRef = 503AE0F617EB97AB00D1A890 /* Icon.icns */; };
 		503AE10017EB989F00D1A890 /* AppController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 503AE0FB17EB989F00D1A890 /* AppController.mm */; };
 		503AE10117EB989F00D1A890 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 503AE0FC17EB989F00D1A890 /* main.m */; };
@@ -180,6 +182,8 @@
 		1D6058910D05DD3D006BFB54 /* safari-mobile.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "safari-mobile.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1DF5F4DF0D08C38300B7A737 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		288765A40DF7441C002DB57D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		37C34D631D3DDFAB0047582C /* AlphamonSprite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AlphamonSprite.h; sourceTree = "<group>"; };
+		37C34D641D3DDFBB0047582C /* AlphamonSprite.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AlphamonSprite.cpp; sourceTree = "<group>"; };
 		503AE0F617EB97AB00D1A890 /* Icon.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = Icon.icns; sourceTree = "<group>"; };
 		503AE0F717EB97AB00D1A890 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		503AE0FA17EB989F00D1A890 /* AppController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppController.h; path = ios/AppController.h; sourceTree = SOURCE_ROOT; };
@@ -462,6 +466,8 @@
 				F331AC321D36A7E200459E24 /* RPGConfig.h */,
 				F331AC331D36A7E200459E24 /* RPGSprite.cpp */,
 				F331AC341D36A7E200459E24 /* RPGSprite.h */,
+				37C34D631D3DDFAB0047582C /* AlphamonSprite.h */,
+				37C34D641D3DDFBB0047582C /* AlphamonSprite.cpp */,
 				F331AC351D36A7E200459E24 /* RunningState.cpp */,
 				F331AC361D36A7E200459E24 /* RunningState.h */,
 				F331AC371D36A7E200459E24 /* SkeletonCharacter.cpp */,
@@ -743,6 +749,7 @@
 			files = (
 				F331AC491D36A7E200459E24 /* AppDelegate.cpp in Sources */,
 				F331ADA71D36BCB900459E24 /* FShake.cpp in Sources */,
+				37C34D651D3DDFBB0047582C /* AlphamonSprite.cpp in Sources */,
 				503AE10017EB989F00D1A890 /* AppController.mm in Sources */,
 				F331AC691D36A7E200459E24 /* SpeechBubbleView.cpp in Sources */,
 				F331AC6F1D36A7E200459E24 /* StandingState.cpp in Sources */,
@@ -810,6 +817,7 @@
 				F331ADC01D36BCCE00459E24 /* AlphabetGrid.cpp in Sources */,
 				F331AC761D36A7E200459E24 /* WalkingState.cpp in Sources */,
 				F331ADCA1D378EF000459E24 /* StartMenuScene.cpp in Sources */,
+				37C34D661D3DDFBB0047582C /* AlphamonSprite.cpp in Sources */,
 				F331AC5E1D36A7E200459E24 /* PhysicsShapeCache.cpp in Sources */,
 				F331AC4E1D36A7E200459E24 /* ExternalSkeletonCharacter.cpp in Sources */,
 				F331AC661D36A7E200459E24 /* RunningState.cpp in Sources */,
