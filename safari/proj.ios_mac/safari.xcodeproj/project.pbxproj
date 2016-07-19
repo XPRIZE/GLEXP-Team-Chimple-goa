@@ -125,6 +125,8 @@
 		F378D0F71D39052100769FA5 /* CrossTheBridgeScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F378D0EE1D39050B00769FA5 /* CrossTheBridgeScene.cpp */; };
 		F378D0F81D39052400769FA5 /* SmashTheRockLevelScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F378D0F01D39050B00769FA5 /* SmashTheRockLevelScene.cpp */; };
 		F378D0F91D39052800769FA5 /* SmashTheRockScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F378D0F21D39050B00769FA5 /* SmashTheRockScene.cpp */; };
+		F3F33DFE1D3DCFA3007C17A8 /* PointSystem.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F3F33DFD1D3DCFA3007C17A8 /* PointSystem.cpp */; };
+		F3F33DFF1D3DCFA3007C17A8 /* PointSystem.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F3F33DFD1D3DCFA3007C17A8 /* PointSystem.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -155,6 +157,13 @@
 			proxyType = 1;
 			remoteGlobalIDString = A07A4C241783777C0073F6A7;
 			remoteInfo = "cocos2dx iOS";
+		};
+		F3F33DFA1D3DCDAE007C17A8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1AC6FAE5180E9839004C840B /* cocos2d_libs.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 507B40FD1C31BDD30067B53E;
+			remoteInfo = "libcocos2d tvOS";
 		};
 /* End PBXContainerItemProxy section */
 
@@ -279,6 +288,8 @@
 		F378D0F11D39050B00769FA5 /* SmashTheRockLevelScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SmashTheRockLevelScene.h; path = mini_games/SmashTheRockLevelScene.h; sourceTree = "<group>"; };
 		F378D0F21D39050B00769FA5 /* SmashTheRockScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = SmashTheRockScene.cpp; path = mini_games/SmashTheRockScene.cpp; sourceTree = "<group>"; };
 		F378D0F31D39050B00769FA5 /* SmashTheRockScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SmashTheRockScene.h; path = mini_games/SmashTheRockScene.h; sourceTree = "<group>"; };
+		F3F33DFC1D3DCF90007C17A8 /* PointSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PointSystem.h; sourceTree = "<group>"; };
+		F3F33DFD1D3DCFA3007C17A8 /* PointSystem.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PointSystem.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -353,6 +364,7 @@
 			children = (
 				1AC6FAF9180E9839004C840B /* libcocos2d Mac.a */,
 				1AC6FB07180E9839004C840B /* libcocos2d iOS.a */,
+				F3F33DFB1D3DCDAE007C17A8 /* libcocos2d tvOS.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -409,6 +421,7 @@
 		46880B8319C43A87006E1F66 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				F3F33DF81D3DCDAE007C17A8 /* menu */,
 				F378D0E81D38C08400769FA5 /* mini_games */,
 				F331ADA01D36BBF700459E24 /* effects */,
 				F331AD8F1D36BBD800459E24 /* puzzle */,
@@ -561,6 +574,15 @@
 			name = mini_games;
 			sourceTree = "<group>";
 		};
+		F3F33DF81D3DCDAE007C17A8 /* menu */ = {
+			isa = PBXGroup;
+			children = (
+				F3F33DFC1D3DCF90007C17A8 /* PointSystem.h */,
+				F3F33DFD1D3DCFA3007C17A8 /* PointSystem.cpp */,
+			);
+			path = menu;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -649,6 +671,13 @@
 			remoteRef = 1AC6FB06180E9839004C840B /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
+		F3F33DFB1D3DCDAE007C17A8 /* libcocos2d tvOS.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = "libcocos2d tvOS.a";
+			remoteRef = F3F33DFA1D3DCDAE007C17A8 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
 /* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
@@ -705,6 +734,7 @@
 				F331AC571D36A7E200459E24 /* MessageContent.cpp in Sources */,
 				F331ADC91D378EF000459E24 /* StartMenuScene.cpp in Sources */,
 				F331AC6B1D36A7E200459E24 /* sqlite3.c in Sources */,
+				F3F33DFE1D3DCFA3007C17A8 /* PointSystem.cpp in Sources */,
 				F331AC591D36A7E200459E24 /* MessageReceiver.cpp in Sources */,
 				F331AC5D1D36A7E200459E24 /* PhysicsShapeCache.cpp in Sources */,
 				503AE10117EB989F00D1A890 /* main.m in Sources */,
@@ -745,6 +775,7 @@
 				F331AC741D36A7E200459E24 /* StateMachine.cpp in Sources */,
 				F331ADB41D36BCC300459E24 /* SelectAlphamonScene.cpp in Sources */,
 				F331AC4A1D36A7E200459E24 /* AppDelegate.cpp in Sources */,
+				F3F33DFF1D3DCFA3007C17A8 /* PointSystem.cpp in Sources */,
 				503AE10517EB98FF00D1A890 /* main.cpp in Sources */,
 				F331AC541D36A7E200459E24 /* HelloWorldScene.cpp in Sources */,
 				F331AC6A1D36A7E200459E24 /* SpeechBubbleView.cpp in Sources */,

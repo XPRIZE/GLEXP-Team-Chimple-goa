@@ -44,7 +44,7 @@ THE SOFTWARE.
 #include "renderer/CCRenderer.h"
 #include "renderer/CCVertexIndexBuffer.h"
 #include "base/CCDirector.h"
-#include "deprecated/CCString.h"
+#include "base/ccUTF8.h"
 
 NS_CC_BEGIN
 namespace experimental {
@@ -177,7 +177,8 @@ void TMXLayer::draw(Renderer *renderer, const Mat4& transform, uint32_t flags)
         if(iter.second->getCount() > 0)
         {
             auto& cmd = _renderCommands[index++];
-            cmd.init(iter.first, _texture->getName(), getGLProgramState(), BlendFunc::ALPHA_NON_PREMULTIPLIED, iter.second, _modelViewTransform, flags);
+            auto blendfunc = _texture->hasPremultipliedAlpha() ? BlendFunc::ALPHA_PREMULTIPLIED : BlendFunc::ALPHA_NON_PREMULTIPLIED;
+            cmd.init(iter.first, _texture->getName(), getGLProgramState(), blendfunc, iter.second, _modelViewTransform, flags);
             renderer->addCommand(&cmd);
         }
     }
@@ -827,7 +828,7 @@ void TMXLayer::setTileGID(int gid, const Vec2& tileCoordinate, TMXTileFlags flag
     }
 }
 
-void TMXLayer::setupTileSprite(Sprite* sprite, Vec2 pos, int gid)
+void TMXLayer::setupTileSprite(Sprite* sprite, const Vec2& pos, int gid)
 {
     sprite->setPosition(getPositionAt(pos));
     sprite->setPositionZ((float)getVertexZForPos(pos));

@@ -5,6 +5,10 @@ LOCAL_MODULE := cocostudio_static
 
 LOCAL_MODULE_FILENAME := libcocostudio
 
+ifeq ($(USE_ARM_MODE),1)
+LOCAL_ARM_MODE := arm
+endif
+
 LOCAL_SRC_FILES := CCActionFrame.cpp \
 CCActionFrameEasing.cpp \
 CCActionManagerEx.cpp \
@@ -34,6 +38,7 @@ CCComController.cpp \
 CCComRender.cpp \
 CCInputDelegate.cpp \
 DictionaryHelper.cpp \
+LocalizationManager.cpp \
 CCSGUIReader.cpp \
 CCSSceneReader.cpp \
 TriggerBase.cpp \
@@ -81,6 +86,7 @@ ActionTimeline/CCSkinNode.cpp \
 FlatBuffersSerialize.cpp \
 WidgetCallBackHandlerProtocol.cpp \
 WidgetReader/ArmatureNodeReader/ArmatureNodeReader.cpp \
+WidgetReader/TabControlReader/TabControlReader.cpp \
 CCComExtensionData.cpp \
 CocoStudio.cpp
 

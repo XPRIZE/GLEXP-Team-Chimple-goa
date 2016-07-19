@@ -32,7 +32,7 @@ Scene *StartMenu::createScene() {
 }
 
 bool StartMenu::init() {
-    if (!LayerGradient::initWithColor(Color4B(255, 159, 0, 255), Color4B::WHITE)){
+    if (!LayerGradient::initWithColor(Color4B(255, 159, 0, 255), Color4B::BLUE)){
         return false;
     }
     auto menuItem1 = MenuItemLabel::create(Label::createWithTTF("Camp", "fonts/arial.ttf", 100),
@@ -63,6 +63,6 @@ bool StartMenu::init() {
     menu->alignItemsVertically();
     
     addChild(menu);
-
+    
     return true;
 }
