@@ -12,6 +12,7 @@
 #include "mini_games/PatchTheWallScene.h"
 #include "mini_games/CrossTheBridgeScene.h"
 #include "mini_games/SmashTheRockLevelScene.h"
+#include "mini_games/EndlessRunner.h"
 
 USING_NS_CC;
 
@@ -54,7 +55,11 @@ bool StartMenu::init() {
 		[&](Ref *sender) {
 		Director::getInstance()->replaceScene(SmashTheRockLevelScene::createScene());
 	});
-	auto menu = Menu::create(menuItem1, menuItem2, menuItem3, menuItem4, menuItem5, NULL);
+	auto menuItem7 = MenuItemLabel::create(Label::createWithTTF("EndlessRunner", "fonts/arial.ttf", 100),
+		[&](Ref *sender) {
+		Director::getInstance()->replaceScene(EndlessRunner::createScene());
+	});
+	auto menu = Menu::create(menuItem1, menuItem2, menuItem3, menuItem4, menuItem5,menuItem7, NULL);
     menu->alignItemsVertically();
     
     addChild(menu);
