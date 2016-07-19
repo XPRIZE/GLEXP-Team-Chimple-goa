@@ -13,6 +13,7 @@
 #include "mini_games/CrossTheBridgeScene.h"
 #include "mini_games/SmashTheRockLevelScene.h"
 #include "mini_games/EndlessRunner.h"
+#include "mini_games/TraceScene.h"
 
 USING_NS_CC;
 
@@ -59,7 +60,11 @@ bool StartMenu::init() {
 		[&](Ref *sender) {
 		Director::getInstance()->replaceScene(EndlessRunner::createScene());
 	});
-	auto menu = Menu::create(menuItem1, menuItem2, menuItem3, menuItem4, menuItem5,menuItem7, NULL);
+	auto menuItem8 = MenuItemLabel::create(Label::createWithTTF("Kung Fu Alpha", "fonts/arial.ttf", 100),
+		[&](Ref *sender) {
+		Director::getInstance()->replaceScene(Trace::createScene('a'));
+	});
+	auto menu = Menu::create(menuItem1, menuItem2, menuItem3, menuItem4, menuItem5, menuItem7, menuItem8, NULL);
     menu->alignItemsVertically();
     
     addChild(menu);
