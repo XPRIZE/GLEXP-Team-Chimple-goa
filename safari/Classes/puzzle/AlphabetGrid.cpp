@@ -73,7 +73,8 @@ void AlphabetGrid::setCharacters(std::vector<std::vector<char> > charArray) {
     const float squareHeight = _height / _numRows;
     for (int i = 0; i < _numRows; i++) {
         for (int j = 0; j < _numCols; j++) {
-            auto alphabet = Alphabet::createWithSize(charArray.at(i).at(j), squareWidth);
+            const float maxWidth = 600.0; //somehow OPENGL exception if more than this
+            auto alphabet = Alphabet::createWithSize(charArray.at(i).at(j), std::min(squareWidth, maxWidth));
             alphabet->setPosition(Vec2(j * squareWidth + squareWidth/2, i * squareHeight + squareHeight/2));
             _alphabetLayer->addChild(alphabet, 1);
             _alphabetMatrix[i][j] = alphabet;

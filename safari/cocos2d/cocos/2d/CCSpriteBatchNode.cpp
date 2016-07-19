@@ -29,12 +29,11 @@ THE SOFTWARE.
 #include "2d/CCSpriteBatchNode.h"
 #include "2d/CCSprite.h"
 #include "base/CCDirector.h"
+#include "base/CCProfiling.h"
+#include "base/ccUTF8.h"
 #include "renderer/CCTextureCache.h"
 #include "renderer/CCRenderer.h"
 #include "renderer/CCQuadCommand.h"
-
-#include "deprecated/CCString.h" // For StringUtils::format
-
 
 NS_CC_BEGIN
 
@@ -45,10 +44,14 @@ NS_CC_BEGIN
 SpriteBatchNode* SpriteBatchNode::createWithTexture(Texture2D* tex, ssize_t capacity/* = DEFAULT_CAPACITY*/)
 {
     SpriteBatchNode *batchNode = new (std::nothrow) SpriteBatchNode();
-    batchNode->initWithTexture(tex, capacity);
-    batchNode->autorelease();
-
-    return batchNode;
+    if(batchNode && batchNode->initWithTexture(tex, capacity))
+    {
+        batchNode->autorelease();
+        return batchNode;
+    }
+    
+    delete batchNode;
+    return nullptr;
 }
 
 /*
@@ -58,10 +61,14 @@ SpriteBatchNode* SpriteBatchNode::createWithTexture(Texture2D* tex, ssize_t capa
 SpriteBatchNode* SpriteBatchNode::create(const std::string& fileImage, ssize_t capacity/* = DEFAULT_CAPACITY*/)
 {
     SpriteBatchNode *batchNode = new (std::nothrow) SpriteBatchNode();
-    batchNode->initWithFile(fileImage, capacity);
-    batchNode->autorelease();
-
-    return batchNode;
+    if(batchNode && batchNode->initWithFile(fileImage, capacity))
+    {
+        batchNode->autorelease();
+        return batchNode;
+    }
+    
+    delete batchNode;
+    return nullptr;
 }
 
 /*
@@ -69,6 +76,11 @@ SpriteBatchNode* SpriteBatchNode::create(const std::string& fileImage, ssize_t c
 */
 bool SpriteBatchNode::initWithTexture(Texture2D *tex, ssize_t capacity/* = DEFAULT_CAPACITY*/)
 {
+    if(tex == nullptr)
+    {
+        return false;
+    }
+    
     CCASSERT(capacity>=0, "Capacity must be >= 0");
     
     _blendFunc = BlendFunc::ALPHA_PREMULTIPLIED;
@@ -78,7 +90,7 @@ bool SpriteBatchNode::initWithTexture(Texture2D *tex, ssize_t capacity/* = DEFAU
     }
     _textureAtlas = new (std::nothrow) TextureAtlas();
 
-    if (capacity == 0)
+    if (capacity <= 0)
     {
         capacity = DEFAULT_CAPACITY;
     }
@@ -148,13 +160,12 @@ void SpriteBatchNode::visit(Renderer *renderer, const Mat4 &parentTransform, uin
         // IMPORTANT:
         // To ease the migration to v3.0, we still support the Mat4 stack,
         // but it is deprecated and your code should not rely on it
-        Director* director = Director::getInstance();
-        director->pushMatrix(MATRIX_STACK_TYPE::MATRIX_STACK_MODELVIEW);
-        director->loadMatrix(MATRIX_STACK_TYPE::MATRIX_STACK_MODELVIEW, _modelViewTransform);
+        _director->pushMatrix(MATRIX_STACK_TYPE::MATRIX_STACK_MODELVIEW);
+        _director->loadMatrix(MATRIX_STACK_TYPE::MATRIX_STACK_MODELVIEW, _modelViewTransform);
         
         draw(renderer, _modelViewTransform, flags);
         
-        director->popMatrix(MATRIX_STACK_TYPE::MATRIX_STACK_MODELVIEW);
+        _director->popMatrix(MATRIX_STACK_TYPE::MATRIX_STACK_MODELVIEW);
         // FIX ME: Why need to set _orderOfArrival to 0??
         // Please refer to https://github.com/cocos2d/cocos2d-x/pull/6920
         //    setOrderOfArrival(0);
@@ -240,7 +251,7 @@ void SpriteBatchNode::removeAllChildrenWithCleanup(bool doCleanup)
     Node::removeAllChildrenWithCleanup(doCleanup);
 
     _descendants.clear();
-    _textureAtlas->removeAllQuads();
+    if (_textureAtlas) {_textureAtlas->removeAllQuads();}
 }
 
 //override sortAllChildren

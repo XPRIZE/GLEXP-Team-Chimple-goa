@@ -95,8 +95,14 @@ private:
     
     virtual void processMessage(std::vector<MessageContent*>*messages);
     
-    virtual void processMainLayerChildrenForCustomEvents();
+    virtual void processTextMessage(std::unordered_map<int, std::string> textMap, std::string ownerOfMessage);
     
+    virtual void processShowMessage(std::vector<MessageContent*>showMessages);
+    
+    virtual void processAnimationMessage(std::vector<MessageContent*>animationMessages);
+    
+    virtual void processMainLayerChildrenForCustomEvents();
+        
     cocos2d::Size sceneSize;
     
     //references to all external Skeletons
@@ -112,7 +118,7 @@ private:
 
     //category bit mask for main skeleton
     int mainCharacterCategoryBitMask;
-    
+        
 public:
     static cocos2d::Scene* createScene(const std::string& sceneName, const std::string& skeletonXPos, const std::string& skeletonYPos);
     
@@ -159,6 +165,7 @@ public:
     void HandleSwipeRight(cocos2d::Point position);
     void HandleTouchedEnded(cocos2d::Point position);
     bool isTapOnSpeakableOrClickableObject(cocos2d::Point position);
+    void sendBubbleDestroySignal();
     
     void HandleJumpWithAnimation();
     void HandlePostJumpUpAnimation();
@@ -197,7 +204,7 @@ public:
     
     virtual bool checkTapOnRPGSprite(RPGSprite* rpgNode, cocos2d::Point position);
     
-    virtual bool checkMainSkeletonCharacterNearRPGSprite(RPGSprite* rpgNode, cocos2d::Point position);
+    virtual void hideTouchPointSign();
     
     CC_SYNTHESIZE(std::string, sceneName, SceneName);
     

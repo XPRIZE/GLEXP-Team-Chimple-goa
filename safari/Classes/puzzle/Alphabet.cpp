@@ -45,14 +45,16 @@ bool Alphabet::isSelected() {
 void Alphabet::selected(bool value) {
     _selected = value;
     if(value) {
-        setTextColor(Color4B::BLUE);
+//        setTextColor(Color4B::BLUE);
+        setColor(Color3B::BLUE);
         EventCustom event("alphabet_selected");
         char *data = new char[1];
         data[0] = _alphabet;
         event.setUserData(data);
         _eventDispatcher->dispatchEvent(&event);
     } else {
-        setTextColor(Color4B::WHITE);
+//        setTextColor(Color4B::WHITE);
+        setColor(Color3B::WHITE);
         EventCustom event("alphabet_unselected");
         char *data = new char[1];
         data[0] = _alphabet;
@@ -96,9 +98,10 @@ bool Alphabet::initWithSize(char alphabet, float fontSize) {
     _alphabet = alphabet;
     _fontSize = fontSize;
     if (!Label::initWithTTF(std::string(1, _alphabet), "fonts/BalooBhai-Regular.ttf", fontSize)) {
+//    Label::setBMFontFilePath("english/baloo_bhai_english.fnt");
+//    Label::setString(std::string(1, _alphabet));
+//    setScale(fontSize / MAX_FONT_SIZE);
         return false;
     }
-    enableShadow();
-    
     return true;
 }

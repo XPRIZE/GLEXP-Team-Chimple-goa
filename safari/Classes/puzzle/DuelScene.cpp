@@ -7,22 +7,24 @@
 //
 
 #include "DuelScene.h"
+#include "../AppDelegate.h"
 #include "../alphamon/HPMeter.h"
 #include "AlphabetGrid.h"
 #include "CharGenerator.h"
 #include "../alphamon/Alphamon.h"
 #include "../alphamon/SelectAlphamonScene.h"
 #include "../effects/FShake.h"
+#include "../menu/PointSystem.h"
 #include "ui/CocosGUI.h"
 #include "editor-support/cocostudio/CocoStudio.h"
 
 USING_NS_CC;
 
+const std::string DuelScene::BG_NAME = "background_1";
 const std::string DuelScene::PANEL_NAME = "Panel_1";
-const std::string DuelScene::SLIDER_NAME = "Slider_2";
+const std::string DuelScene::SLIDER_BG_NAME = "Panel_2";
 const std::string DuelScene::LEFT_STAND_NAME = "rocks_2";
 const std::string DuelScene::RIGHT_STAND_NAME = "rocks_1";
-const int DuelScene::MAX_POINTS_PER_TURN = 20;
 
 DuelScene::DuelScene() :
 _turnNumber(0) {
@@ -67,16 +69,27 @@ bool DuelScene::init(char myMonChar, char otherMonChar)
     Size visibleSize = Director::getInstance()->getVisibleSize();
     Vec2 origin = Director::getInstance()->getVisibleOrigin();
 
+    auto bg = background->getChildByName(BG_NAME);
+    if(visibleSize.width > bg->getContentSize().width) {
+        background->setContentSize(visibleSize);
+        auto bgTile = Sprite::createWithSpriteFrame(static_cast<Sprite*>(bg)->getSpriteFrame());
+        bgTile->setPosition(bg->getPositionX() + bg->getContentSize().width - 10, bg->getPositionY());
+        background->addChild(bgTile, -1);
+    }
     const int numRows = MAX_ROWS;
     const int numCols = MAX_COLS;
     _grid = AlphabetGrid::create(SQUARE_WIDTH * numCols, SQUARE_WIDTH * numRows, numRows, numCols);
     auto panel = background->getChildByName(PANEL_NAME);
+    panel->setContentSize(Size(visibleSize.width, panel->getContentSize().height));
     panel->addChild(_grid);
     _grid->setPosition(Vec2((panel->getContentSize().width - SQUARE_WIDTH * numCols) / 2, (panel->getContentSize().height - SQUARE_WIDTH * numRows) / 2));
 
+    auto sliderBG = background->getChildByName(SLIDER_BG_NAME);
+    sliderBG->setContentSize(Size(visibleSize.width, sliderBG->getContentSize().height));
+
     _timer = HPMeter::createWithTextureAndPercent("battle_ground/bar_out.png", "battle_ground/bar_in.png", "battle_ground/clock.png", 100);
-    _timer->setPosition(Vec2(origin.x + visibleSize.width / 2, origin.y + visibleSize.height / 2));
-    addChild(_timer);
+    _timer->setPosition(Vec2(sliderBG->getContentSize().width / 2, sliderBG->getContentSize().height / 2));
+    sliderBG->addChild(_timer);
 
     _myMon = Alphamon::createWithAlphabet(myMonChar);
     auto leftStand = background->getChildByName(LEFT_STAND_NAME);
@@ -88,6 +101,7 @@ bool DuelScene::init(char myMonChar, char otherMonChar)
     
     _otherMon = Alphamon::createWithAlphabet(otherMonChar);
     auto rightStand = background->getChildByName(RIGHT_STAND_NAME);
+    rightStand->setPositionX(rightStand->getPositionX() + visibleSize.width - 2560.0);
     addChild(_otherMon);
     _otherMon->setPosition(rightStand->getPosition() + Vec2(0, 250));
     _otherMon->setHealth(100);
@@ -144,7 +158,7 @@ void DuelScene::startMyTurn() {
         
         _timer->runAction(Sequence::create(actionTimer, armMyMonFunc, NULL));
         _myMon->startMyTurn();
-        CCLOG("%s", TextureCache::sharedTextureCache()->getCachedTextureInfo().c_str());
+//        CCLOG("%s", TextureCache::sharedTextureCache()->getCachedTextureInfo().c_str());
     }
 }
 
@@ -171,7 +185,7 @@ void DuelScene::armMyMon() {
     for(auto alpha: matchingAlphabets) {
         CCLOG("meteor %c", alpha->getChar());
         auto particle = cocos2d::ParticleMeteor::create();
-        particle->setPosition(alpha->getPosition());
+        particle->setPosition(convertToNodeSpace(alpha->getParent()->convertToWorldSpace(alpha->getPosition())));
         addChild(particle);
         auto moveTo = JumpTo::create(2, _myMon->getPosition(), 25.0, 1);
         auto callbackJump = CallFunc::create(CC_CALLBACK_0(DuelScene::endMeteor, this, particle));

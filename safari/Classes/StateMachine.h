@@ -25,6 +25,21 @@ public:
     virtual void handleInput(SkeletonCharacterState characterState, const cocos2d::Vec2 forceVector);
     virtual State* getCurrentState();
     
+    inline const char* enumToString(SkeletonCharacterState v)
+    {
+        switch (v)
+        {
+            case S_STANDING_STATE:  return "Standing";
+            case S_WALKING_STATE:   return "Walking";
+            case S_RUNNING_STATE:   return "Running";
+            case S_JUMPING_STATE:   return "Jumping";
+            case S_FALLING_STATE:   return "Falling";
+            case S_NONE_STATE:      return "None";
+            default:                return "None";
+        }
+    }
+
+    
 protected:
     std::unordered_map<std::string, State*> states;
     State* currentState;

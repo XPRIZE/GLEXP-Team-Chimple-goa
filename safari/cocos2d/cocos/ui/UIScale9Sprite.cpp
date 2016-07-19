@@ -22,7 +22,7 @@
  THE SOFTWARE.
 ****************************************************************************/
 
-#include "UIScale9Sprite.h"
+#include "ui/UIScale9Sprite.h"
 #include "2d/CCSprite.h"
 #include "2d/CCSpriteFrameCache.h"
 #include "base/CCVector.h"
@@ -84,36 +84,50 @@ namespace ui {
     bool Scale9Sprite::initWithSpriteFrame(SpriteFrame* spriteFrame,
                                            const Rect& capInsets)
     {
-        Texture2D* texture = spriteFrame->getTexture();
-        CCASSERT(texture != NULL, "CCTexture must be not nil");
-        Sprite *sprite = Sprite::createWithSpriteFrame(spriteFrame);
-        CCASSERT(sprite != NULL, "sprite must be not nil");
-        bool pReturn = this->init(sprite,
-                                  spriteFrame->getRect(),
-                                  spriteFrame->isRotated(),
-                                  spriteFrame->getOffset(),
-                                  spriteFrame->getOriginalSize(),
-                                  capInsets);
-        return pReturn;
+        bool ret = false;
+        do {
+            Texture2D* texture = spriteFrame->getTexture();
+            CCASSERT(texture != nullptr, "Texture2D must be not null");
+            if(texture == nullptr) break;
+            
+            Sprite *sprite = Sprite::createWithSpriteFrame(spriteFrame);
+            CCASSERT(sprite != nullptr, "Sprite must be not null");
+            if(sprite == nullptr) break;
+            
+            ret = this->init(sprite,
+                                      spriteFrame->getRect(),
+                                      spriteFrame->isRotated(),
+                                      spriteFrame->getOffset(),
+                                      spriteFrame->getOriginalSize(),
+                                      capInsets);
+        } while (false);
+        
+        return ret;
     }
     bool Scale9Sprite::initWithSpriteFrame(SpriteFrame* spriteFrame)
     {
-        CCASSERT(spriteFrame != NULL, "Invalid spriteFrame for sprite");
+        CCASSERT(spriteFrame != nullptr, "Invalid spriteFrame for sprite");
         bool pReturn = this->initWithSpriteFrame(spriteFrame, Rect::ZERO);
         return pReturn;
     }
     bool Scale9Sprite::initWithSpriteFrameName(const std::string& spriteFrameName,
                                                const Rect& capInsets)
     {
-        CCASSERT((SpriteFrameCache::getInstance()) != NULL,
-                 "SpriteFrameCache::getInstance() must be non-NULL");
-
-        SpriteFrame *frame = SpriteFrameCache::getInstance()->getSpriteFrameByName(spriteFrameName);
-        CCASSERT(frame != NULL, "CCSpriteFrame must be non-NULL");
-
-        if (NULL == frame) return false;
-        bool pReturn = this->initWithSpriteFrame(frame, capInsets);
-        return pReturn;
+        bool ret = false;
+        do {
+            auto spriteFrameCache = SpriteFrameCache::getInstance();
+            CCASSERT(spriteFrameCache != nullptr,
+                     "SpriteFrameCache::getInstance() must be non-NULL");
+            if(spriteFrameCache == nullptr) break;
+            
+            SpriteFrame *frame = spriteFrameCache->getSpriteFrameByName(spriteFrameName);
+            CCASSERT(frame != nullptr, "CCSpriteFrame must be non-NULL");
+            if (frame == nullptr) break;
+            
+            ret = initWithSpriteFrame(frame, capInsets);
+        } while (false);
+        
+        return ret;
     }
     bool Scale9Sprite::initWithSpriteFrameName(const std::string& spriteFrameName)
     {
@@ -123,7 +137,7 @@ namespace ui {
 
     bool Scale9Sprite::init()
     {
-        return this->init(NULL, Rect::ZERO, Rect::ZERO);
+        return this->init(nullptr, Rect::ZERO, Rect::ZERO);
     }
 
     bool Scale9Sprite::init(Sprite* sprite, const Rect& rect, const Rect& capInsets)
@@ -198,16 +212,19 @@ namespace ui {
                                     const Rect& rect,
                                     const Rect& capInsets)
     {
-        Sprite *sprite = nullptr;
-        sprite = Sprite::create(file);
-        bool pReturn = this->init(sprite, rect, capInsets);
-        return pReturn;
+        CCASSERT(!file.empty(), "file must not be empty string!");
+        if(file.empty())
+        {
+            return false;
+        }
+        
+        auto sprite = Sprite::create(file);
+        return init(sprite, rect, capInsets);
     }
 
     bool Scale9Sprite::initWithFile(const std::string& file, const Rect& rect)
     {
-        bool pReturn = this->initWithFile(file, rect, Rect::ZERO);
-        return pReturn;
+        return initWithFile(file, rect, Rect::ZERO);
     }
 
     Scale9Sprite* Scale9Sprite::create()
@@ -219,7 +236,7 @@ namespace ui {
             return pReturn;
         }
         CC_SAFE_DELETE(pReturn);
-        return NULL;
+        return nullptr;
     }
 
     Scale9Sprite* Scale9Sprite::create(const std::string& file,
@@ -233,7 +250,7 @@ namespace ui {
             return pReturn;
         }
         CC_SAFE_DELETE(pReturn);
-        return NULL;
+        return nullptr;
     }
 
 
@@ -246,7 +263,7 @@ namespace ui {
             return pReturn;
         }
         CC_SAFE_DELETE(pReturn);
-        return NULL;
+        return nullptr;
     }
 
 
@@ -261,7 +278,7 @@ namespace ui {
             return pReturn;
         }
         CC_SAFE_DELETE(pReturn);
-        return NULL;
+        return nullptr;
     }
 
 
@@ -274,7 +291,7 @@ namespace ui {
             return pReturn;
         }
         CC_SAFE_DELETE(pReturn);
-        return NULL;
+        return nullptr;
     }
 
 
@@ -288,7 +305,7 @@ namespace ui {
             return pReturn;
         }
         CC_SAFE_DELETE(pReturn);
-        return NULL;
+        return nullptr;
     }
 
     Scale9Sprite* Scale9Sprite::createWithSpriteFrame(SpriteFrame* spriteFrame)
@@ -300,7 +317,7 @@ namespace ui {
             return pReturn;
         }
         CC_SAFE_DELETE(pReturn);
-        return NULL;
+        return nullptr;
     }
 
 
@@ -314,7 +331,7 @@ namespace ui {
             return pReturn;
         }
         CC_SAFE_DELETE(pReturn);
-        return NULL;
+        return nullptr;
     }
 
     Scale9Sprite* Scale9Sprite::createWithSpriteFrameName(const std::string& spriteFrameName)
@@ -328,8 +345,7 @@ namespace ui {
         CC_SAFE_DELETE(pReturn);
 
         log("Could not allocate Scale9Sprite()");
-        return NULL;
-
+        return nullptr;
     }
 
     void Scale9Sprite::cleanupSlicedSprites()
@@ -466,7 +482,11 @@ namespace ui {
         }
 
         applyBlendFunc();
-        this->setState(_brightState);
+        if (getGLProgramState()) {
+            _scale9Image->setGLProgramState(getGLProgramState());
+        } else {
+            this->setState(_brightState);
+        }
         if(this->_isPatch9)
         {
             size.width = size.width - 2;
@@ -531,7 +551,9 @@ namespace ui {
             auto vertices = this->calculateVertices(capInsets, originalSize, offsets);
             auto triangles = this->calculateTriangles(uv, vertices);
 
-            _scale9Image->getPolygonInfo().setTriangles(triangles);
+            auto polyInfo = _scale9Image->getPolygonInfo();
+            polyInfo.setTriangles(triangles);
+            _scale9Image->setPolygonInfo(polyInfo);
         }
     }
 
@@ -561,7 +583,7 @@ namespace ui {
             return pReturn;
         }
         CC_SAFE_DELETE(pReturn);
-        return NULL;
+        return nullptr;
     }
     
     Scale9Sprite::State Scale9Sprite::getState()const
@@ -587,16 +609,12 @@ namespace ui {
             break;
         }
         
-        if (nullptr != _scale9Image)
-        {
-            _scale9Image->setGLProgramState(glState);
-        }
-
+        setGLProgramState(glState);
         _brightState = state;
     }
 
 /** sets the opacity.
-    @warning If the texture has premultiplied alpha then, the R, G and B channels will be modifed.
+    @warning If the texture has premultiplied alpha then, the R, G and B channels will be modified.
     Values goes from 0 to 255, where 255 means fully opaque.
 */
 
@@ -840,7 +858,7 @@ namespace ui {
 
         this->cleanupSlicedSprites();
 
-        //we must invalide the transform when toggling scale9enabled
+        //we must invalid the transform when toggling scale9enabled
         _transformUpdated = _transformDirty = _inverseDirty = true;
 
         if (_scale9Enabled)
@@ -962,6 +980,20 @@ namespace ui {
             child->updateDisplayedOpacity(255);
         }
     }
+    
+    void Scale9Sprite::setGLProgram(GLProgram *glprogram) {
+        Node::setGLProgram(glprogram);
+        if (_scale9Image) {
+            _scale9Image->setGLProgram(glprogram);
+        }
+    }
+    
+    void Scale9Sprite::setGLProgramState(GLProgramState *glProgramState) {
+        Node::setGLProgramState(glProgramState);
+        if (_scale9Image) {
+            _scale9Image->setGLProgramState(glProgramState);
+        }
+    }
 
     Sprite* Scale9Sprite::getSprite()const
     {
@@ -1077,7 +1109,7 @@ namespace ui {
         auto atlasWidth = tex->getPixelsWide();
         auto atlasHeight = tex->getPixelsHigh();
 
-        //caculate texture coordinate
+        //calculate texture coordinate
         float leftWidth = 0, centerWidth = 0, rightWidth = 0;
         float topHeight = 0, centerHeight = 0, bottomHeight = 0;
 
@@ -1309,8 +1341,8 @@ namespace ui {
         CC_SAFE_DELETE_ARRAY(_sliceVertices);
         CC_SAFE_DELETE_ARRAY(_sliceIndices);
 
-        _sliceVertices = new V3F_C4B_T2F[slicedTotalVertexCount];
-        _sliceIndices = new unsigned short[slicedTotalIndices];
+        _sliceVertices = new (std::nothrow) V3F_C4B_T2F[slicedTotalVertexCount];
+        _sliceIndices = new (std::nothrow) unsigned short[slicedTotalIndices];
 
         unsigned short indicesStart = 0;
         const unsigned short indicesOffset = 6;

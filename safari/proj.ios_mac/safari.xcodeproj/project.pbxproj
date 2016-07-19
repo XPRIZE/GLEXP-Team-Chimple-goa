@@ -125,6 +125,14 @@
 		F378D0F71D39052100769FA5 /* CrossTheBridgeScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F378D0EE1D39050B00769FA5 /* CrossTheBridgeScene.cpp */; };
 		F378D0F81D39052400769FA5 /* SmashTheRockLevelScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F378D0F01D39050B00769FA5 /* SmashTheRockLevelScene.cpp */; };
 		F378D0F91D39052800769FA5 /* SmashTheRockScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F378D0F21D39050B00769FA5 /* SmashTheRockScene.cpp */; };
+		F3F33DFE1D3DCFA3007C17A8 /* PointSystem.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F3F33DFD1D3DCFA3007C17A8 /* PointSystem.cpp */; };
+		F3F33DFF1D3DCFA3007C17A8 /* PointSystem.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F3F33DFD1D3DCFA3007C17A8 /* PointSystem.cpp */; };
+		F3F33E061D3E0C03007C17A8 /* EndlessRunner.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F3F33E021D3E0C03007C17A8 /* EndlessRunner.cpp */; };
+		F3F33E071D3E0C03007C17A8 /* EndlessRunner.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F3F33E021D3E0C03007C17A8 /* EndlessRunner.cpp */; };
+		F3F33E081D3E0C03007C17A8 /* SpriteCreate.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F3F33E041D3E0C03007C17A8 /* SpriteCreate.cpp */; };
+		F3F33E091D3E0C03007C17A8 /* SpriteCreate.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F3F33E041D3E0C03007C17A8 /* SpriteCreate.cpp */; };
+		F3F33E0F1D3E1BA7007C17A8 /* TraceScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F3F33E0D1D3E1BA7007C17A8 /* TraceScene.cpp */; };
+		F3F33E111D3E1BB8007C17A8 /* TraceScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F3F33E0D1D3E1BA7007C17A8 /* TraceScene.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -155,6 +163,13 @@
 			proxyType = 1;
 			remoteGlobalIDString = A07A4C241783777C0073F6A7;
 			remoteInfo = "cocos2dx iOS";
+		};
+		F3F33DFA1D3DCDAE007C17A8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1AC6FAE5180E9839004C840B /* cocos2d_libs.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 507B40FD1C31BDD30067B53E;
+			remoteInfo = "libcocos2d tvOS";
 		};
 /* End PBXContainerItemProxy section */
 
@@ -279,6 +294,14 @@
 		F378D0F11D39050B00769FA5 /* SmashTheRockLevelScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SmashTheRockLevelScene.h; path = mini_games/SmashTheRockLevelScene.h; sourceTree = "<group>"; };
 		F378D0F21D39050B00769FA5 /* SmashTheRockScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = SmashTheRockScene.cpp; path = mini_games/SmashTheRockScene.cpp; sourceTree = "<group>"; };
 		F378D0F31D39050B00769FA5 /* SmashTheRockScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SmashTheRockScene.h; path = mini_games/SmashTheRockScene.h; sourceTree = "<group>"; };
+		F3F33DFC1D3DCF90007C17A8 /* PointSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PointSystem.h; sourceTree = "<group>"; };
+		F3F33DFD1D3DCFA3007C17A8 /* PointSystem.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PointSystem.cpp; sourceTree = "<group>"; };
+		F3F33E021D3E0C03007C17A8 /* EndlessRunner.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = EndlessRunner.cpp; path = mini_games/EndlessRunner.cpp; sourceTree = "<group>"; };
+		F3F33E031D3E0C03007C17A8 /* EndlessRunner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EndlessRunner.h; path = mini_games/EndlessRunner.h; sourceTree = "<group>"; };
+		F3F33E041D3E0C03007C17A8 /* SpriteCreate.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = SpriteCreate.cpp; path = mini_games/SpriteCreate.cpp; sourceTree = "<group>"; };
+		F3F33E051D3E0C03007C17A8 /* SpriteCreate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SpriteCreate.h; path = mini_games/SpriteCreate.h; sourceTree = "<group>"; };
+		F3F33E0D1D3E1BA7007C17A8 /* TraceScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = TraceScene.cpp; path = mini_games/TraceScene.cpp; sourceTree = "<group>"; };
+		F3F33E0E1D3E1BA7007C17A8 /* TraceScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TraceScene.h; path = mini_games/TraceScene.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -353,6 +376,7 @@
 			children = (
 				1AC6FAF9180E9839004C840B /* libcocos2d Mac.a */,
 				1AC6FB07180E9839004C840B /* libcocos2d iOS.a */,
+				F3F33DFB1D3DCDAE007C17A8 /* libcocos2d tvOS.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -409,6 +433,7 @@
 		46880B8319C43A87006E1F66 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				F3F33DF81D3DCDAE007C17A8 /* menu */,
 				F378D0E81D38C08400769FA5 /* mini_games */,
 				F331ADA01D36BBF700459E24 /* effects */,
 				F331AD8F1D36BBD800459E24 /* puzzle */,
@@ -549,6 +574,12 @@
 		F378D0E81D38C08400769FA5 /* mini_games */ = {
 			isa = PBXGroup;
 			children = (
+				F3F33E0D1D3E1BA7007C17A8 /* TraceScene.cpp */,
+				F3F33E0E1D3E1BA7007C17A8 /* TraceScene.h */,
+				F3F33E021D3E0C03007C17A8 /* EndlessRunner.cpp */,
+				F3F33E031D3E0C03007C17A8 /* EndlessRunner.h */,
+				F3F33E041D3E0C03007C17A8 /* SpriteCreate.cpp */,
+				F3F33E051D3E0C03007C17A8 /* SpriteCreate.h */,
 				F378D0EE1D39050B00769FA5 /* CrossTheBridgeScene.cpp */,
 				F378D0EF1D39050B00769FA5 /* CrossTheBridgeScene.h */,
 				F378D0F01D39050B00769FA5 /* SmashTheRockLevelScene.cpp */,
@@ -559,6 +590,15 @@
 				F378D0EA1D38C09600769FA5 /* PatchTheWallScene.h */,
 			);
 			name = mini_games;
+			sourceTree = "<group>";
+		};
+		F3F33DF81D3DCDAE007C17A8 /* menu */ = {
+			isa = PBXGroup;
+			children = (
+				F3F33DFC1D3DCF90007C17A8 /* PointSystem.h */,
+				F3F33DFD1D3DCFA3007C17A8 /* PointSystem.cpp */,
+			);
+			path = menu;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -649,6 +689,13 @@
 			remoteRef = 1AC6FB06180E9839004C840B /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
+		F3F33DFB1D3DCDAE007C17A8 /* libcocos2d tvOS.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = "libcocos2d tvOS.a";
+			remoteRef = F3F33DFA1D3DCDAE007C17A8 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
 /* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
@@ -704,7 +751,9 @@
 				F331AC651D36A7E200459E24 /* RunningState.cpp in Sources */,
 				F331AC571D36A7E200459E24 /* MessageContent.cpp in Sources */,
 				F331ADC91D378EF000459E24 /* StartMenuScene.cpp in Sources */,
+				F3F33E0F1D3E1BA7007C17A8 /* TraceScene.cpp in Sources */,
 				F331AC6B1D36A7E200459E24 /* sqlite3.c in Sources */,
+				F3F33DFE1D3DCFA3007C17A8 /* PointSystem.cpp in Sources */,
 				F331AC591D36A7E200459E24 /* MessageReceiver.cpp in Sources */,
 				F331AC5D1D36A7E200459E24 /* PhysicsShapeCache.cpp in Sources */,
 				503AE10117EB989F00D1A890 /* main.m in Sources */,
@@ -720,6 +769,7 @@
 				F331ADAF1D36BCC300459E24 /* Alphamon.cpp in Sources */,
 				F331AC631D36A7E200459E24 /* RPGSprite.cpp in Sources */,
 				F331AC511D36A7E200459E24 /* GestureLayer.cpp in Sources */,
+				F3F33E061D3E0C03007C17A8 /* EndlessRunner.cpp in Sources */,
 				F378D0F51D39050B00769FA5 /* SmashTheRockLevelScene.cpp in Sources */,
 				F331ADC31D36BCCE00459E24 /* DuelScene.cpp in Sources */,
 				F331AC551D36A7E200459E24 /* JumpingState.cpp in Sources */,
@@ -728,6 +778,7 @@
 				F331ADB11D36BCC300459E24 /* HPMeter.cpp in Sources */,
 				F331AC4D1D36A7E200459E24 /* ExternalSkeletonCharacter.cpp in Sources */,
 				F331AC531D36A7E200459E24 /* HelloWorldScene.cpp in Sources */,
+				F3F33E081D3E0C03007C17A8 /* SpriteCreate.cpp in Sources */,
 				F331AC4F1D36A7E200459E24 /* FallingState.cpp in Sources */,
 				F331ADBD1D36BCCE00459E24 /* Alphabet.cpp in Sources */,
 				F331AC6D1D36A7E200459E24 /* Sqlite3Helper.cpp in Sources */,
@@ -738,6 +789,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F3F33E091D3E0C03007C17A8 /* SpriteCreate.cpp in Sources */,
+				F3F33E071D3E0C03007C17A8 /* EndlessRunner.cpp in Sources */,
 				F331ADB21D36BCC300459E24 /* HPMeter.cpp in Sources */,
 				F331AC701D36A7E200459E24 /* StandingState.cpp in Sources */,
 				F331AC5C1D36A7E200459E24 /* MessageSender.cpp in Sources */,
@@ -745,6 +798,7 @@
 				F331AC741D36A7E200459E24 /* StateMachine.cpp in Sources */,
 				F331ADB41D36BCC300459E24 /* SelectAlphamonScene.cpp in Sources */,
 				F331AC4A1D36A7E200459E24 /* AppDelegate.cpp in Sources */,
+				F3F33DFF1D3DCFA3007C17A8 /* PointSystem.cpp in Sources */,
 				503AE10517EB98FF00D1A890 /* main.cpp in Sources */,
 				F331AC541D36A7E200459E24 /* HelloWorldScene.cpp in Sources */,
 				F331AC6A1D36A7E200459E24 /* SpeechBubbleView.cpp in Sources */,
@@ -773,6 +827,7 @@
 				F331AC681D36A7E200459E24 /* SkeletonCharacter.cpp in Sources */,
 				F331AC6E1D36A7E200459E24 /* Sqlite3Helper.cpp in Sources */,
 				F331ADC21D36BCCE00459E24 /* CharGenerator.cpp in Sources */,
+				F3F33E111D3E1BB8007C17A8 /* TraceScene.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

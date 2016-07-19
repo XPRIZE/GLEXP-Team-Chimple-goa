@@ -13,7 +13,19 @@
 
 USING_NS_CC;
 
-RPGSprite::RPGSprite() {
+RPGSprite::RPGSprite():
+shouldSendShowTouchSign(false),
+showTouchSignNotificationSent(false),
+vicinityToMainCharacter(false),
+posX(""),
+posY(""),
+nextScene(""),
+interAct(""),
+fileName(""),
+defaultAnimationName(""),
+key(""),
+show("")
+{
     this->sprite = NULL;
     this->mainSkeleton = NULL;
 }
@@ -45,52 +57,16 @@ bool RPGSprite::initialize(cocos2d::Node* sprite, std::unordered_map<std::string
     auto checkVicinityWithMainCharacter = [=] (EventCustom * event) {
         this->mainSkeleton = static_cast<SkeletonCharacter*>(event->getUserData());
         this->checkVicinityToMainSkeleton(this->mainSkeleton);
-    };
-    
-    ADD_VICINITY_NOTIFICATION(this, RPGConfig::MAIN_CHARACTER_VICINITY_CHECK_NOTIFICATION, checkVicinityWithMainCharacter);
-    
-    
-    auto tapOnClickableObjectEvent = [=] (EventCustom * event) {
-        std::vector<std::string>*messages = static_cast<std::vector<std::string>*>(event->getUserData());
-        std::string nextScene = "";
-        std::string skeletonX = "";
-        std::string skeletonY = "";
-        std::string showSprite = "";
         
-        if(this->getSprite()->isVisible() && this->vicinityToMainCharacter == true && messages != NULL && messages->size() == 4)
-        {
-            nextScene = messages->at(0);
-            skeletonX = messages->at(1);
-            skeletonY = messages->at(2);
-            showSprite = messages->at(3);
-            
-            if(!nextScene.empty()) {
-                if(!this->defaultAnimationName.empty()) {
-                    auto timeline =  CSLoader::createTimeline(this->getDefaultAnimationName());
-                    this->getSprite()->runAction(timeline);
-                    timeline->gotoFrameAndPlay(0, false);
-                    EVENT_DISPATCHER->dispatchCustomEvent (RPGConfig::DISPATCH_CLEANUP_AND_SCENE_TRANSITION_NOTIFICATION);
-
-                    Director::getInstance()->replaceScene(TransitionFade::create(1, HelloWorld::createScene(nextScene, skeletonX, skeletonY), cocos2d::Color3B::WHITE));
-                    
-                } else {
-                    EVENT_DISPATCHER->dispatchCustomEvent (RPGConfig::DISPATCH_CLEANUP_AND_SCENE_TRANSITION_NOTIFICATION);
-
-                    Director::getInstance()->replaceScene(TransitionFade::create(1, HelloWorld::createScene(nextScene, skeletonX, skeletonY), cocos2d::Color3B::WHITE));
-                }
-            } else {
-                //find children by name showSprite
-                std::string otherSprite (showSprite);
-                this->getSprite()->setVisible(false);
-                EVENT_DISPATCHER->dispatchCustomEvent(RPGConfig::ON_TAP_VISIBLE_SPRITE_NOTIFICATION, static_cast<void*>(&otherSprite));
-            }
+        if(this->getVicinityToMainCharacter() && !this->getShowTouchSignNotificationSent()) {
+            this->setShowTouchSignNotificationSent(true);
+            EVENT_DISPATCHER->dispatchCustomEvent(RPGConfig::SEND_SHOW_TOUCH_POINT_SIGN_NOTIFICATION, static_cast<void*>(this->getSprite()));
             
         }
     };
     
-    SEND_MESSAGE_FOR_TAP_ON_SPEAKABLE(this, RPGConfig::TAP_ON_CLICKABLE_OBJECT_NOTIFICATION, tapOnClickableObjectEvent);
+    ADD_VICINITY_NOTIFICATION(this, RPGConfig::MAIN_CHARACTER_VICINITY_CHECK_NOTIFICATION, checkVicinityWithMainCharacter);
     
-
     this->scheduleUpdate();
     
     return true;
@@ -116,21 +92,11 @@ void RPGSprite::setAttributes(std::unordered_map<std::string, std::string> attri
         this->setName(it->second);
     }
     
-    it = this->attributes.find("animation");
+    it = this->attributes.find("canInteract");
     if ( it != this->attributes.end() ) {
-        this->setDefaultAnimationName(it->second);
-    }
+        this->setInterAct(it->second);
+    }    
     
-    it = this->attributes.find("canSpeak");
-    if ( it != this->attributes.end() ) {
-        this->setCanSpeak(it->second);
-    }
-    
-    it = this->attributes.find("clickable");
-    if ( it != this->attributes.end() ) {
-        this->setClickable(it->second);
-    }
-
     it = this->attributes.find("nextScene");
     if ( it != this->attributes.end() ) {
         this->setNextScene(it->second);
@@ -146,13 +112,6 @@ void RPGSprite::setAttributes(std::unordered_map<std::string, std::string> attri
     if ( it != this->attributes.end() ) {
         this->setPosY(it->second);
     }
-
-    it = this->attributes.find("show");
-    if ( it != this->attributes.end() ) {
-        this->setShow(it->second);        
-    }
-
-
 }
 
 std::unordered_map<std::string, std::string> RPGSprite::getAttributes() {
@@ -181,6 +140,15 @@ bool RPGSprite::checkVicinityToMainSkeleton(SkeletonCharacter* skeletonCharacter
     } else {
         this->setVicinityToMainCharacter(false);
         isNear = false;
+    }
+
+    
+    if((distanceFromTop >= -OBJECT_NEAR_BY_BOUNDING_BOX_WIDTH && distanceFromTop <= OBJECT_NEAR_BY_BOUNDING_BOX_WIDTH) || (distanceFromBottom >= -OBJECT_NEAR_BY_BOUNDING_BOX_WIDTH && distanceFromBottom <= OBJECT_NEAR_BY_BOUNDING_BOX_WIDTH)) {
+        this->setShouldSendShowTouchSign(true);
+        
+    } else {
+        this->setShouldSendShowTouchSign(false);
+        this->setShowTouchSignNotificationSent(false);
     }
 
 

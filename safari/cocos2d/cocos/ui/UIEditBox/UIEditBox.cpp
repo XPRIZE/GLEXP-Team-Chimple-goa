@@ -23,8 +23,8 @@
  THE SOFTWARE.
  ****************************************************************************/
 
-#include "UIEditBox.h"
-#include "UIEditBoxImpl.h"
+#include "ui/UIEditBox/UIEditBox.h"
+#include "ui/UIEditBox/UIEditBoxImpl.h"
 
 NS_CC_BEGIN
 
@@ -36,7 +36,7 @@ EditBox::EditBox(void)
 : _editBoxImpl(nullptr)
 , _delegate(nullptr)
 , _editBoxInputMode(EditBox::InputMode::SINGLE_LINE)
-, _editBoxInputFlag(EditBox::InputFlag::INITIAL_CAPS_ALL_CHARACTERS)
+, _editBoxInputFlag(EditBox::InputFlag::LOWERCASE_ALL_CHARACTERS)
 , _keyboardReturnType(KeyboardReturnType::DEFAULT)
 , _backgroundSprite(nullptr)
 , _fontSize(-1)
@@ -71,7 +71,7 @@ EditBox* EditBox::create(const Size& size,
                          const std::string& normalSprite,
                         TextureResType texType /*= TextureResType::LOCAL*/)
 {
-    EditBox* pRet = new EditBox();
+    EditBox* pRet = new (std::nothrow) EditBox();
     
     if (pRet != nullptr && pRet->initWithSizeAndBackgroundSprite(size, normalSprite, texType))
     {
