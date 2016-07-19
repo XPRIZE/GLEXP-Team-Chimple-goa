@@ -135,6 +135,12 @@
     <ClCompile Include="..\Classes\puzzle\DuelScene.cpp">
       <Filter>src\puzzle</Filter>
     </ClCompile>
+    <ClCompile Include="..\Classes\mini_games\Cannon_Ball_Listener.cpp">
+      <Filter>src\mini_games</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\mini_games\Cannon_Ball_Main.cpp">
+      <Filter>src\mini_games</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -247,6 +253,12 @@
     </ClInclude>
     <ClInclude Include="..\Classes\puzzle\DuelScene.h">
       <Filter>src\puzzle</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\mini_games\Cannon_Ball_Listener.h">
+      <Filter>src\mini_games</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\mini_games\Cannon_Ball_Main.h">
+      <Filter>src\mini_games</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
