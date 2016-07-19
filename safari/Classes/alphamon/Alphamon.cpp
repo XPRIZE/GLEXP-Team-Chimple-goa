@@ -19,6 +19,7 @@ _monster(nullptr),
 _hpMeter(nullptr),
 _powerMeter(nullptr){
     _listener = EventListenerTouchOneByOne::create();
+    _listener->setSwallowTouches(true);
     _listener->onTouchBegan = CC_CALLBACK_2(Alphamon::onTouchBegan, this);
     _listener->onTouchEnded = CC_CALLBACK_2(Alphamon::onTouchEnded, this);
     _eventDispatcher->addEventListenerWithSceneGraphPriority(_listener, this);
