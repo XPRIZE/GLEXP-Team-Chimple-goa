@@ -1,4 +1,3 @@
-
 #include <iostream>
 #include <string>
 #include <unordered_map>
@@ -7,13 +6,13 @@
 
 USING_NS_CC;
 
-Scene* HelloWorld::createScene(const std::string& sceneName, const std::string& skeletonXPos, const std::string& skeletonYPos, const std::string& transitToParent, const std::string& transitToChild)
+Scene* HelloWorld::createScene(const std::string& sceneName, const std::string& skeletonXPos, const std::string& skeletonYPos)
 {
     // 'scene' is an autorelease object
     auto scene = Scene::createWithPhysics();
     
     // 'layer' is an autorelease object
-    auto layer = HelloWorld::create(sceneName, skeletonXPos, skeletonYPos, transitToParent, transitToChild);
+    auto layer = HelloWorld::create(sceneName, skeletonXPos, skeletonYPos);
     
     // add layer as a child to scene
     scene->addChild(layer);
@@ -24,10 +23,10 @@ Scene* HelloWorld::createScene(const std::string& sceneName, const std::string& 
     return scene;
 }
 
-HelloWorld* HelloWorld::create(const std::string& sceneName, const std::string& skeletonXPos, const std::string& skeletonYPos, const std::string& transitToParent, const std::string& transitToChild)
+HelloWorld* HelloWorld::create(const std::string& sceneName, const std::string& skeletonXPos, const std::string& skeletonYPos)
 {
     HelloWorld* helloWorldLayer = new (std::nothrow) HelloWorld();
-    if(helloWorldLayer && helloWorldLayer->init(sceneName, skeletonXPos, skeletonYPos, transitToParent, transitToChild)) {
+    if(helloWorldLayer && helloWorldLayer->init(sceneName, skeletonXPos, skeletonYPos)) {
         helloWorldLayer->autorelease();
         return helloWorldLayer;
     }
@@ -49,6 +48,7 @@ skeletonCharacter(nullptr),
 mainCharacterCategoryBitMask(1),
 isSpeechBubbleAlreadyVisible(false),
 sqlite3Helper(nullptr),
+showTouchSignNode(nullptr),
 stateMachine(nullptr),
 messageSender(nullptr),
 messageReceiver(nullptr),
@@ -62,11 +62,9 @@ physicsFile(""),
 mainCharacterFile(""),
 initialMainSkeletonX(""),
 initialMainSkeletonY(""),
-overrideMainCharacterXPos(""),
-overrideMainCharacterYPos(""),
-transitToChild(""),
-transitToParent(""),
-sceneSize(0,0)
+sceneSize(0,0),
+island(""),
+sceneName("")
 {
 }
 
@@ -74,7 +72,7 @@ HelloWorld::~HelloWorld() {
 }
 
 //TODO
-void HelloWorld::createRPGGame() {
+void HelloWorld::createRPGGame(const std::string& skeletonXPos, const std::string& skeletonYPos) {
     //load scene statically for now, later load externally either using XML or JSON
     this->loadGameScene();
     
@@ -82,13 +80,8 @@ void HelloWorld::createRPGGame() {
     CCLOG("this->getMainCharacterFile() %s", this->getMainCharacterFile().c_str());
     if(!this->getMainCharacterFile().empty()) {
         this->addMainCharacterToScene(this->getMainCharacterFile());
-        
-        if(this->getTransitToParent() == "true") {
-            this->updatePositionForMainCharacter(this->getOverrideMainCharacterXPos(), this->getOverrideMainCharacterYPos());
-        } else if(this->gettransitToChild() == "true") {
-            this->updatePositionForMainCharacter(this->getInitialMainSkeletonX(), this->getInitialMainSkeletonY());
-        } else {
-            this->updatePositionForMainCharacter(this->getInitialMainSkeletonX(), this->getInitialMainSkeletonY());
+        if(!skeletonXPos.empty() && !skeletonYPos.empty()) {
+            this->updatePositionForMainCharacter(skeletonXPos, skeletonYPos);
         }
         
         this->initializeStateMachine();
@@ -109,6 +102,10 @@ void HelloWorld::updatePositionForMainCharacter(const std::string &xPos, const s
 void HelloWorld::loadGameScene() {
     std::string mainSceneName = this->getBaseDir() + "_MainScene.csb";
     Node *rootNode = CSLoader::createNode(mainSceneName);
+    
+    //set up common database file
+    this->setDialogFile(GLOBAL_DB_NAME);
+    
     cocostudio::ComExtensionData* rootData = (cocostudio::ComExtensionData*)rootNode->getComponent("ComExtensionData");
     if(rootData != NULL && !rootData->getCustomProperty().empty())
     {
@@ -117,7 +114,6 @@ void HelloWorld::loadGameScene() {
         if ( it != sceneAttributes.end() ) {
             this->setDialogFile(it->second);
         }
-
 
         it = sceneAttributes.find(PHYSICS_FILE);
         if ( it != sceneAttributes.end() ) {
@@ -146,19 +142,25 @@ void HelloWorld::processMainLayerChildrenForCustomEvents() {
     
     for (std::vector<Node*>::iterator it = children.begin() ; it != children.end(); ++it) {
         cocos2d::Node* node = *it;
-        //based on custom data create layers
-        cocostudio::ComExtensionData* data = (cocostudio::ComExtensionData*)node->getComponent("ComExtensionData");
-        if(data != NULL && !data->getCustomProperty().empty()) {
-            CCLOG("found user data for child %s", node->getName().c_str());
-            node->removeFromParent();
-            std::unordered_map<std::string, std::string> attributes = RPGConfig::parseUserData(data->getCustomProperty());
-            
-            RPGSprite* rpgSprite = RPGSprite::create(dynamic_cast<cocos2d::Sprite *>(node), attributes);
-            this->mainLayer->addChild(rpgSprite);
-            this->rpgSprites.push_back(rpgSprite);
-            
-        }
+        this->processNodeWithCustomAttributes(node, this->mainLayer);
     }
+}
+
+void HelloWorld::processNodeWithCustomAttributes(Node* node, Node* parentNode) {
+    cocostudio::ComExtensionData* data = (cocostudio::ComExtensionData*)node->getComponent("ComExtensionData");
+    if(data != NULL && !data->getCustomProperty().empty()) {
+        CCLOG("found user data for child %s", node->getName().c_str());
+        
+        std::unordered_map<std::string, std::string> attributes = RPGConfig::parseUserData(data->getCustomProperty());
+        this->createRPGSprite(node, attributes, parentNode);
+    }
+}
+
+void HelloWorld::createRPGSprite(Node* node, std::unordered_map<std::string, std::string> attributes, Node* parentNode) {
+    node->removeFromParent();
+    RPGSprite* rpgSprite = RPGSprite::create(node, attributes);
+    parentNode->addChild(rpgSprite);
+    this->rpgSprites.push_back(rpgSprite);
 }
 
 void HelloWorld::parseScene(cocos2d::Node *rootNode) {
@@ -260,9 +262,15 @@ void HelloWorld::addMainCharacterToScene(const std::string& filename) {
     auto followAction = Follow::create(this->skeletonCharacter->getSkeletonNode(), Rect(0,0,this->getSceneSize().width, this->getSceneSize().height));
     this->mainLayer->runAction(followAction);
     
-    auto char1 = Sprite::create("mainchar-02.png");
-    char1->setPosition(Vec2(300, 500));
-    this->mainLayer->addChild(char1);
+    this->showTouchSignNode = Sprite::create("touchPointer.png");
+    this->showTouchSignNode->setVisible(false);
+    this->mainLayer->addChild(this->showTouchSignNode);
+    
+//    auto hero = SkeletonCharacter::create("hero_skeleton.csb");
+//    hero->setPosition(400,400);
+//    this->mainLayer->addChild(hero);
+    
+    
 }
 
 void HelloWorld::initGestureLayer() {
@@ -272,7 +280,7 @@ void HelloWorld::initGestureLayer() {
 
 
 // on "init" you need to initialize your instance
-bool HelloWorld::init(const std::string& sceneName, const std::string& skeletonXPos, const std::string& skeletonYPos, const std::string& transitToParent, const std::string& transitToChild)
+bool HelloWorld::init(const std::string& sceneName, const std::string& skeletonXPos, const std::string& skeletonYPos)
 {
     //////////////////////////////
     // 1. super init first
@@ -285,28 +293,12 @@ bool HelloWorld::init(const std::string& sceneName, const std::string& skeletonX
     //set up current Base Dir to load resources from
     this->setBaseDir(sceneName);
 
-    if(!skeletonXPos.empty()) {
-        this->setOverrideMainCharacterXPos(skeletonXPos);
-    }
+    this->setIsland("camp");
+    this->setSceneName(sceneName);
     
-    if(!skeletonYPos.empty()) {
-        this->setOverrideMainCharacterYPos(skeletonYPos);
-    }
-    
-    if(!transitToParent.empty()) {
-        this->setTransitToParent(transitToParent);
-    }
-
-    if(!transitToChild.empty()) {
-        this->settransitToChild(transitToChild);
-    }
-
-
     FileUtils::getInstance()->addSearchPath("res/" + this->getBaseDir());
     
-
-    
-    this->createRPGGame();
+    this->createRPGGame(skeletonXPos, skeletonYPos);
     
     this->initGestureLayer();
     
@@ -327,7 +319,7 @@ bool HelloWorld::init(const std::string& sceneName, const std::string& skeletonX
 
 void HelloWorld::loadSqlite3FileForScene() {
     
-    this->sqlite3Helper = Sqlite3Helper::getInstance(this->getBaseDir()+"/"+this->getDialogFile(), this->getDialogFile());
+    this->sqlite3Helper = Sqlite3Helper::getInstance("res/"+this->getDialogFile(), this->getDialogFile());
 }
 
 void HelloWorld::registerMessageSenderAndReceiver() {
@@ -356,13 +348,18 @@ void HelloWorld::registerMessageSenderAndReceiver() {
     
     auto cleanUpResourcesEvent = [=] (EventCustom * event) {
         
+        //update location in database
+        const char* island = this->getIsland().c_str();
+        const char* sceneName = this->getSceneName().c_str();
+        
+        this->sqlite3Helper->recordMainCharacterPositionInScene(island, sceneName, this->skeletonCharacter->getSkeletonNode()->getPosition().x, this->skeletonCharacter->getSkeletonNode()->getPosition().y);
+        
         EVENT_DISPATCHER->removeCustomEventListeners("MAIN_CHARACTER_VICINITY_CHECK_NOTIFICATION");
         EVENT_DISPATCHER->removeCustomEventListeners("SPEECH_MESSAGE_ON_TAP_NOTIFICATION");
         EVENT_DISPATCHER->removeCustomEventListeners("SPEECH_MESSAGE_ON_TEXT_TAP_NOTIFICATION");
         EVENT_DISPATCHER->removeCustomEventListeners("RECEIVE_CUSTOM_MESSAGE_NOTIFICATION");
         EVENT_DISPATCHER->removeCustomEventListeners("SPEECH_BUBBLE_DESTROYED_NOTIFICATION");
         EVENT_DISPATCHER->removeCustomEventListeners("PROCESS_CUSTOM_MESSAGE_AND_CREATE_UI_NOTIFICATION");
-        EVENT_DISPATCHER->removeCustomEventListeners("TAP_ON_CLICKABLE_OBJECT_NOTIFICATION");
         EVENT_DISPATCHER->removeCustomEventListeners("DISPATCH_CLEANUP_AND_SCENE_TRANSITION_NOTIFICATION");
         
         if(this->stateMachine != nullptr) {
@@ -375,31 +372,33 @@ void HelloWorld::registerMessageSenderAndReceiver() {
         if(this->sqlite3Helper != nullptr ) {
             delete this->sqlite3Helper;
         }
-        
+    };
 
-        
+    SEND_DISTACH_CLEAN_UP(this, RPGConfig::DISPATCH_CLEANUP_AND_SCENE_TRANSITION_NOTIFICATION, cleanUpResourcesEvent);
+    
+    auto showTouchPointSign = [=] (EventCustom * event) {
+        Sprite* sprite = reinterpret_cast<Sprite*>(event->getUserData());
+        this->showTouchSignNode->setPosition(sprite->getPosition());
+        this->showTouchSignNode->setVisible(true);
+        auto scaleBy = ScaleBy::create(0.5, 1.2);
+        auto sequenceScale = Sequence::create(scaleBy, scaleBy->reverse(), nullptr);
+        auto repeatScaleAction = Repeat::create(sequenceScale, 5);
+        auto callbackStart = CallFunc::create(CC_CALLBACK_0(HelloWorld::hideTouchPointSign, this));
+        auto sequence = Sequence::create(repeatScaleAction, callbackStart, nullptr);
+        this->showTouchSignNode->runAction(sequence);
+        //hide after 5 sec
     };
     
-    SEND_DISTACH_CLEAN_UP(this, RPGConfig::DISPATCH_CLEANUP_AND_SCENE_TRANSITION_NOTIFICATION, cleanUpResourcesEvent);
-
+    SEND_SHOW_TOUCH_POINT_SIGNAL(this, RPGConfig::SEND_SHOW_TOUCH_POINT_SIGN_NOTIFICATION, showTouchPointSign);
+    
 }
 
+void HelloWorld::hideTouchPointSign() {
+    this->showTouchSignNode->setVisible(false);
+}
 
-void HelloWorld::processMessage(std::vector<MessageContent*>*messages) {
-    std::unordered_map<int, std::string> textMap;
-    std::string ownerOfMessage;
-    for (std::vector<MessageContent* >::iterator it = messages->begin() ; it != messages->end(); ++it)
-    {
-        MessageContent* content = (MessageContent*) *it;
-        ownerOfMessage = content->getOwner();
-        textMap.insert({content->getEventId(),content->getDialog()});
-        delete content;
-    }
-    
-    
-    assert(!ownerOfMessage.empty());
-    assert(!textMap.empty());
-    
+void HelloWorld::processTextMessage(std::unordered_map<int, std::string> textMap, std::string ownerOfMessage)
+{
     //find node based on ownerOfMessage
     auto selectedNode = this->mainLayer->getChildByName(ownerOfMessage);
     assert(selectedNode != NULL);
@@ -407,10 +406,13 @@ void HelloWorld::processMessage(std::vector<MessageContent*>*messages) {
     //do dynamic cast
     bool isExternalCharacter = dynamic_cast<ExternalSkeletonCharacter *>(selectedNode);
     bool isSkeletonCharacter = dynamic_cast<SkeletonCharacter *>(selectedNode);
+    bool isRPGSprite = dynamic_cast<RPGSprite *>(selectedNode);
     if(isExternalCharacter) {
         ExternalSkeletonCharacter* character = dynamic_cast<ExternalSkeletonCharacter *>(selectedNode);
         Point touch_point = character->convertToWorldSpace(character->getExternalSkeletonNode()->getPosition());
         SpeechBubbleView* speechBubble = SpeechBubbleView::create(textMap, Point(touch_point.x, touch_point.y + character->getExternalSkeletonNode()->getBoundingBox().size.height));
+        
+        this->setSpeechBubbleAlreadyVisible(true);
         
         this->addChild(speechBubble, 1);
         
@@ -419,9 +421,150 @@ void HelloWorld::processMessage(std::vector<MessageContent*>*messages) {
         
         SpeechBubbleView* speechBubble = SpeechBubbleView::create(textMap, Point(touch_point.x, touch_point.y + this->skeletonCharacter->getSkeletonNode()->getBoundingBox().size.height));
         
+        this->setSpeechBubbleAlreadyVisible(true);
+        
         this->addChild(speechBubble, 1);
         
+    } else if(isRPGSprite) {
+        RPGSprite* sprite = dynamic_cast<RPGSprite *>(selectedNode);
+        Point touch_point = sprite->convertToWorldSpace(sprite->getSprite()->getPosition());
+        SpeechBubbleView* speechBubble = SpeechBubbleView::create(textMap, Point(touch_point.x, touch_point.y + sprite->getSprite()->getBoundingBox().size.height));
+        
+        this->setSpeechBubbleAlreadyVisible(true);
+        
+        this->addChild(speechBubble, 1);
     }
+}
+
+void HelloWorld::processShowMessage(std::vector<MessageContent*>showMessages) {
+    
+    for (std::vector<MessageContent* >::iterator it = showMessages.begin() ; it != showMessages.end(); ++it)
+    {
+        MessageContent* content = (MessageContent*) *it;
+        CCLOG("content owner %s", content->getOwner().c_str());
+        Node* ownerNode = this->mainLayer->getChildByName(content->getOwner());
+        if(ownerNode != NULL) {
+            RPGSprite* rpgSprite = dynamic_cast<RPGSprite *>(ownerNode);
+            if(rpgSprite != NULL) {
+                rpgSprite->getSprite()->setVisible(false);
+            }
+        }
+        
+        Node* showSpriteNode = this->mainLayer->getChildByName(content->getDialog());
+        RPGSprite* showRPGSpriteNode = dynamic_cast<RPGSprite *>(showSpriteNode);
+        if(showRPGSpriteNode != NULL) {
+            showRPGSpriteNode->setVisible(true);
+            if(showRPGSpriteNode->getSprite() != NULL) {
+                showRPGSpriteNode->getSprite()->setVisible(true);
+            }
+        }
+        
+        if(!content->getPreOutComeAction().empty()) {
+            CCLOG("content->getPreOutComeAction() %s", content->getPreOutComeAction().c_str());
+            this->sqlite3Helper->deleteItemFromMyBag(this->getIsland().c_str(), content->getPreOutComeAction().c_str());
+        }
+
+        if(!content->getPostOutComeAction().empty()) {
+            CCLOG("content->getPostOutComeAction() %s", content->getPostOutComeAction().c_str());
+            this->sqlite3Helper->insertItemToMyBag(this->getIsland().c_str(), content->getPostOutComeAction().c_str());
+        }
+        
+        delete content;
+    }
+}
+
+void HelloWorld::processAnimationMessage(std::vector<MessageContent*>animationMessages) {
+    
+    //CURRENTLY only one animation supported - TBD (later extend to play multiples)
+    
+    for (std::vector<MessageContent* >::iterator it = animationMessages.begin() ; animationMessages.size() == 1 && it != animationMessages.end(); ++it)
+    {
+        MessageContent* content = (MessageContent*) *it;
+        CCLOG("content owner %s", content->getOwner().c_str());
+        
+        //find out animation name
+        if(!content->getDialog().empty()) {
+            auto timeline =  CSLoader::createTimeline(content->getDialog());
+            Node* animationSpriteNode = this->mainLayer->getChildByName(content->getOwner());
+            RPGSprite* animationNode = dynamic_cast<RPGSprite *>(animationSpriteNode);
+            int conditionSatified = content->getConditionSatisfied();
+            if(timeline != NULL && animationSpriteNode != NULL && animationNode != NULL )
+            {
+                timeline->setLastFrameCallFunc([=]() {
+                    timeline->clearLastFrameCallFunc();
+                    CCLOG("ANIMATION FINISHED PLAYING do we have next %s", animationNode->getNextScene().c_str());
+                    
+                    //check for key
+                    if(conditionSatified == 1)
+                    {
+                        std::string nextScene = animationNode->getNextScene();
+                        std::string posX = animationNode->getPosX();
+                        std::string posY = animationNode->getPosY();
+                        
+                        if(!nextScene.empty() && !posX.empty() && !posY.empty())
+                        {
+                            EVENT_DISPATCHER->dispatchCustomEvent (RPGConfig::DISPATCH_CLEANUP_AND_SCENE_TRANSITION_NOTIFICATION);
+                            
+                            Director::getInstance()->replaceScene(TransitionFade::create(1, HelloWorld::createScene(nextScene, posX, posY), cocos2d::Color3B::WHITE));
+                            
+                        }                                            
+                    }
+                    
+                });
+
+                Node* animationSpriteNode = this->mainLayer->getChildByName(content->getOwner());
+                RPGSprite* animationNode = dynamic_cast<RPGSprite *>(animationSpriteNode);
+                if(animationNode != NULL) {
+                    animationNode->setVisible(true);
+                    if(animationNode->getSprite() != NULL) {
+                        animationNode->getSprite()->runAction(timeline);
+                        bool playInLoop = content->getPlayAnimationInLoop() == 1 ? true : false;
+                        timeline->gotoFrameAndPlay(0, playInLoop);
+                    }
+                }
+            }
+        }
+        delete content;
+    }
+}
+
+void HelloWorld::processMessage(std::vector<MessageContent*>*messages) {
+    std::unordered_map<int, std::string> textMap;
+    std::vector<MessageContent*>showMessages;
+    std::vector<MessageContent*>animationMessages;
+    std::string ownerOfMessage;
+    
+    for (std::vector<MessageContent* >::iterator it = messages->begin() ; it != messages->end(); ++it)
+    {
+        MessageContent* content = (MessageContent*) *it;
+        if(content->getAction() == "say") {
+            ownerOfMessage = content->getOwner();
+            assert(!ownerOfMessage.empty());
+            textMap.insert({content->getEventId(),content->getDialog()});
+            delete content;
+        }
+        else if(content->getAction() == "show") {
+            ownerOfMessage = content->getOwner();
+            showMessages.push_back(content);
+        }
+        else if(content->getAction() == "animation") {
+            ownerOfMessage = content->getOwner();
+            animationMessages.push_back(content);
+        }        
+    }
+    
+    if(!textMap.empty()) {
+        this->processTextMessage(textMap, ownerOfMessage);
+    }
+    
+    if(!showMessages.empty()) {
+        this->processShowMessage(showMessages);
+    }
+    
+    if(!animationMessages.empty()) {
+        this->processAnimationMessage(animationMessages);
+    }
+    
 }
 
 void HelloWorld::update(float dt) {
@@ -652,6 +795,11 @@ void HelloWorld::HoldOrDragBehaviour(Point position) {
         return;
     }
 
+    if(this->getSpeechBubbleAlreadyVisible()) {
+        this->sendBubbleDestroySignal();
+        return;
+    }
+
     if(this->skeletonCharacter->isJumping || this->skeletonCharacter->isJumpingAttemptedWhileDragging) {
         return;
     }
@@ -809,44 +957,51 @@ void HelloWorld::startContinuousRoationAnimation(float dt) {
     this->skeletonCharacter->playJumpingContinuousRotationAnimation();
 }
 
+void HelloWorld::sendBubbleDestroySignal() {
+    if(this->getSpeechBubbleAlreadyVisible()) {
+        CCLOG("speech bubble destory");
+        EVENT_DISPATCHER->dispatchCustomEvent(RPGConfig::SEND_BUBBLE_DESTROY_NOTIFICATION);
+    }
+}
+
 bool HelloWorld::isTapOnSpeakableOrClickableObject(Point position) {
     
         if(this->getSpeechBubbleAlreadyVisible()) {
             return false;
         }
     
-        for (std::vector<ExternalSkeletonCharacter*>::iterator it = this->externalSkeletons.begin() ; it != this->externalSkeletons.end(); ++it)
+        bool foundNode = false;
+    
+        for (std::vector<ExternalSkeletonCharacter*>::iterator it = this->externalSkeletons.begin() ; it != this->externalSkeletons.end() && !foundNode; ++it)
         {
             ExternalSkeletonCharacter* eSkeleton = *it;
             if(eSkeleton->getCanSpeak() == "true" && eSkeleton->getExternalSkeletonNode()->getBoundingBox().containsPoint(eSkeleton->getExternalSkeletonNode()->getParent()->convertToNodeSpace(position))) {
                 CCLOG("%s", "CLICKED ON Spekable External Skeleton dispatching speech message");
-                std::string s(eSkeleton->getKey());
-                EVENT_DISPATCHER->dispatchCustomEvent(RPGConfig::SPEECH_MESSAGE_ON_TAP_NOTIFICATION, static_cast<void*>(&s));
-                this->setSpeechBubbleAlreadyVisible(true);
-                return true;
+                
+                if(eSkeleton->getCanSpeak() == "true") {
+                    std::string s(eSkeleton->getKey());
+                    EVENT_DISPATCHER->dispatchCustomEvent(RPGConfig::SPEECH_MESSAGE_ON_TAP_NOTIFICATION, static_cast<void*>(&s));
+                    foundNode = true;
+                    return true;
+                }
             }
         }
 
+        foundNode = false;
     
-        for (std::vector<RPGSprite*>::iterator it = this->rpgSprites.begin() ; it != this->rpgSprites.end(); ++it)
+        for (std::vector<RPGSprite*>::iterator it = this->rpgSprites.begin() ; it != this->rpgSprites.end() && !foundNode; ++it)
         {
             RPGSprite* rpgNode = *it;
-            CCLOG("checking vicinity to main character %d", rpgNode->getVicinityToMainCharacter());
-            if((rpgNode->getClickable() == "true" || rpgNode->getCanSpeak() == "true") && rpgNode->getVicinityToMainCharacter() == true && rpgNode->getSprite()->getBoundingBox().containsPoint(rpgNode->getSprite()->getParent()->convertToNodeSpace(position))) {
-                std::string s(rpgNode->getNextScene());
-                std::string transitToChild(rpgNode->getTransitionToChild());
-                std::string transitToParent(rpgNode->getTransitionToParent());
-                std::string skeletonX = RPGConfig::to_string(rpgNode->getMainSkeleton()->getSkeletonNode()->getPosition().x);
-                std::string skeletonY = RPGConfig::to_string(rpgNode->getMainSkeleton()->getSkeletonNode()->getPosition().y);
+
+            if(this->checkTapOnRPGSprite(rpgNode, position)) {
                 
-                std::vector<std::string> parameters;
-                parameters.push_back(s);
-                parameters.push_back(skeletonX);
-                parameters.push_back(skeletonY);
-                parameters.push_back(transitToParent);
-                parameters.push_back(transitToChild);
-                
-                EVENT_DISPATCHER->dispatchCustomEvent(RPGConfig::TAP_ON_CLICKABLE_OBJECT_NOTIFICATION, static_cast<void*>(&parameters));
+                if(rpgNode->getInterAct() == "true") {
+                    std::string s(rpgNode->getKey());
+                    EVENT_DISPATCHER->dispatchCustomEvent(RPGConfig::SPEECH_MESSAGE_ON_TAP_NOTIFICATION, static_cast<void*>(&s));
+                    foundNode = true;
+                    return true;
+                }
+                foundNode = true;
                 
                 return true;
             }            
@@ -855,11 +1010,27 @@ bool HelloWorld::isTapOnSpeakableOrClickableObject(Point position) {
     return false;
 }
 
+bool HelloWorld::checkTapOnRPGSprite(RPGSprite* rpgNode, Point position) {
+    
+    Rect boundingBoxRect = Rect(rpgNode->getSprite()->getBoundingBox().origin.x, rpgNode->getSprite()->getBoundingBox().origin.y, rpgNode->getSprite()->getBoundingBox().size.width == 0 ? OBJECT_TAP_BOUNDING_BOX_WIDTH : rpgNode->getSprite()->getBoundingBox().size.width, rpgNode->getSprite()->getBoundingBox().size.height == 0 ? OBJECT_TAP_BOUNDING_BOX_WIDTH : rpgNode->getSprite()->getBoundingBox().size.height);
+    
+    if(rpgNode->getSprite()->isVisible() && rpgNode->getInterAct() == "true" && rpgNode->getVicinityToMainCharacter() == true && boundingBoxRect.containsPoint(rpgNode->getSprite()->getParent()->convertToNodeSpace(position))) {
+        return true;
+    }
+       
+    return false;
+}
+
 //Handle Tap
 void HelloWorld::HandleTap(Point position)
 {
     if(this->isTapOnSpeakableOrClickableObject(position)) {
         //later launch custom event
+        return;
+    }
+    
+    if(this->getSpeechBubbleAlreadyVisible()) {
+        this->sendBubbleDestroySignal();
         return;
     }
     
@@ -1020,10 +1191,13 @@ void HelloWorld::setSceneSize(const cocos2d::Size& size) {
 
 bool HelloWorld::handlePhysicsContactEventForMainCharacter(PhysicsContact &contact, cocos2d::Node* nodeA, cocos2d::Node* nodeB)
 {
-    CCLOG("contact BEGAN Main Skeleton!!!");
+    CCLOG("contact current BEGAN Main Skeleton!!! %s", this->stateMachine->enumToString(this->stateMachine->getCurrentState()->getState()));
+    
     if(nodeA->getName() == HUMAN_SKELETON_NAME || nodeB->getName() == HUMAN_SKELETON_NAME)
     {
+        
         if(this->skeletonCharacter->didSkeletonContactBeginDuringJumpingUp(contact, this->stateMachine->getCurrentState()->getState())) {
+            CCLOG("ignore contact while jumping up for Main Skeleton!!!");
             return false;
         }
         
@@ -1098,10 +1272,6 @@ void HelloWorld::registerPhysicsEventContactLister() {
         cocos2d::Node* nodeB = contact.getShapeB()->getBody()->getNode();
         
         
-//        CCLOG("nodeA name %s", nodeA->getName().c_str());
-//        CCLOG("nodeB name %s", nodeB->getName().c_str());
-        
-        
         //Dynamic cast
         bool isSkeletonNodeA = dynamic_cast<cocostudio::timeline::SkeletonNode *>(nodeA);
         bool isSkeletonNodeB = dynamic_cast<cocostudio::timeline::SkeletonNode *>(nodeB);
@@ -1126,12 +1296,24 @@ void HelloWorld::registerPhysicsEventContactLister() {
         return true;
     };
     
+    
     contactListener->onContactSeparate = [=](PhysicsContact &contact) -> bool
     {
+        //this->checkInSeparationWithGround(contact);
         return true;
     };
     
     
-    Director::getInstance()->getEventDispatcher()->addEventListenerWithSceneGraphPriority(contactListener, this);
-    
+    Director::getInstance()->getEventDispatcher()->addEventListenerWithSceneGraphPriority(contactListener, this);    
+}
+
+
+void HelloWorld::onExitTransitionDidStart() {
+    Node::onExitTransitionDidStart();
+    CCLOG("onExitTransitionDidStart");
+}
+
+void HelloWorld::onEnterTransitionDidFinish() {
+    Node::onEnterTransitionDidFinish();
+    CCLOG("onEnterTransitionDidFinish");
 }

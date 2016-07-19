@@ -11,7 +11,11 @@
 
 USING_NS_CC;
 
-AlphabetGrid::AlphabetGrid() {}
+AlphabetGrid::AlphabetGrid() :
+_alphabetLayer(nullptr),
+_labelLayer(nullptr)
+{
+}
 
 AlphabetGrid::~AlphabetGrid() {}
 
@@ -29,26 +33,39 @@ bool AlphabetGrid::initWithSize(GLfloat width, GLfloat height, int numRows, int 
     if (!Layer::init()) {
         return false;
     }
+    resize(width, height, numRows, numCols);
+    return true;
+};
+
+void AlphabetGrid::resize(GLfloat width, GLfloat height, int numRows, int numCols) {
     _numRows = numRows;
     _numCols = numCols;
     _width = width;
     _height = height;
+    if(_labelLayer) {
+        removeChild(_labelLayer);
+    }
+    _labelLayer = Node::create();
+    addChild(_labelLayer);
+    
+    if(_alphabetLayer) {
+        removeChild(_alphabetLayer);
+    }
     _alphabetLayer = Node::create();
+    addChild(_alphabetLayer);
+    
     _alphabetMatrix.resize(numRows, std::vector<Alphabet *>(numCols));
     
     const float squareWidth = width / numCols;
     const float squareHeight = height / numRows;
     for (int i = 0; i < numRows; i++) {
         for (int j = 0; j < numCols; j++) {
-            auto labelLayer = LayerColor::create(((i+j) % 2 ? Color4B(0xE8, 0x9F, 0x69, 255.0f) : Color4B(0xD1, 0x86, 0x54, 255.0f)), squareWidth, squareHeight);
-            labelLayer->setPosition(Vec2(j * squareWidth, i * squareHeight));
-            this->addChild(labelLayer);
+            auto label = LayerColor::create(((i+j) % 2 ? Color4B(0xE8, 0x9F, 0x69, 255.0f) : Color4B(0xD1, 0x86, 0x54, 255.0f)), squareWidth, squareHeight);
+            label->setPosition(Vec2(j * squareWidth, i * squareHeight));
+            _labelLayer->addChild(label);
         }
     }
-    
-    addChild(_alphabetLayer);
-    return true;
-};
+}
 
 void AlphabetGrid::setCharacters(std::vector<std::vector<char> > charArray) {
     _alphabetLayer->removeAllChildren();
@@ -56,7 +73,8 @@ void AlphabetGrid::setCharacters(std::vector<std::vector<char> > charArray) {
     const float squareHeight = _height / _numRows;
     for (int i = 0; i < _numRows; i++) {
         for (int j = 0; j < _numCols; j++) {
-            auto alphabet = Alphabet::createWithSize(charArray.at(i).at(j), squareWidth);
+            const float maxWidth = 600.0; //somehow OPENGL exception if more than this
+            auto alphabet = Alphabet::createWithSize(charArray.at(i).at(j), std::min(squareWidth, maxWidth));
             alphabet->setPosition(Vec2(j * squareWidth + squareWidth/2, i * squareHeight + squareHeight/2));
             _alphabetLayer->addChild(alphabet, 1);
             _alphabetMatrix[i][j] = alphabet;

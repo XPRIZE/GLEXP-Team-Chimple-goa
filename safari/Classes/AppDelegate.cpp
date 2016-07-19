@@ -40,7 +40,7 @@ bool AppDelegate::applicationDidFinishLaunching() {
     auto glview = director->getOpenGLView();
     if(!glview) {
 #if (CC_TARGET_PLATFORM == CC_PLATFORM_WIN32) || (CC_TARGET_PLATFORM == CC_PLATFORM_MAC) || (CC_TARGET_PLATFORM == CC_PLATFORM_LINUX)
-        glview = GLViewImpl::createWithRect("safari", cocos2d::Rect(0, 0, largeResolutionSize.width, largeResolutionSize.height));
+        glview = GLViewImpl::createWithRect("safari", cocos2d::Rect(0, 0, mediumResolutionSize.width, mediumResolutionSize.height));
 #else
         glview = GLViewImpl::create("safari");
 #endif
@@ -49,7 +49,7 @@ bool AppDelegate::applicationDidFinishLaunching() {
     }
     
 #if (CC_TARGET_PLATFORM == CC_PLATFORM_WIN32) || (CC_TARGET_PLATFORM == CC_PLATFORM_MAC) || (CC_TARGET_PLATFORM == CC_PLATFORM_LINUX)
-    glview->setDesignResolutionSize(designResolutionSize.width, designResolutionSize.height, ResolutionPolicy::SHOW_ALL);
+    glview->setDesignResolutionSize(designResolutionSize.width, designResolutionSize.height, ResolutionPolicy::FIXED_HEIGHT);
 #else
     glview->setDesignResolutionSize(designResolutionSize.width, designResolutionSize.height, ResolutionPolicy::FIXED_HEIGHT);
 #endif
@@ -93,9 +93,11 @@ bool AppDelegate::applicationDidFinishLaunching() {
     
     register_all_packages();
     
-    // run
-    director->runWithScene(StartMenu::createScene());
+    // create a scene. it's an autorelease object
+//    auto scene = HelloWorld::createScene("camp","","");
+//    auto scene = SelectAlphamon::createScene();
     
+    director->runWithScene(StartMenu::createScene());    
     return true;
 }
 

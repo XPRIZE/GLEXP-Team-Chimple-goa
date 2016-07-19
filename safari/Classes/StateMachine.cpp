@@ -18,7 +18,9 @@ bool StateMachine::instanceFlag = false;
 StateMachine* StateMachine::single = NULL;
 
 
-StateMachine::StateMachine() {
+StateMachine::StateMachine():
+currentState(nullptr)
+{
     
 }
 
@@ -42,22 +44,6 @@ StateMachine::~StateMachine() {
     StateMachine::instanceFlag = false;
     StateMachine::single = NULL;
 }
-
-inline const char* enumToString(SkeletonCharacterState v)
-{
-    switch (v)
-    {
-        case S_STANDING_STATE:  return "Standing";
-        case S_WALKING_STATE:   return "Walking";
-        case S_RUNNING_STATE:   return "Running";
-        case S_JUMPING_STATE:   return "Jumping";
-        case S_FALLING_STATE:   return "Falling";
-        case S_NONE_STATE:      return "None";
-        default:                return "None";
-    }
-}
-
-
 
 void StateMachine::setInitialState(SkeletonCharacterState initialState) {
     currentState = states.at(enumToString(initialState));
@@ -129,7 +115,6 @@ void StateMachine::addState(SkeletonCharacterState characterState, SkeletonChara
     
 }
 
-
 State* StateMachine::getCurrentState() {
     return currentState;
 }
@@ -139,6 +124,7 @@ void StateMachine::handleInput(SkeletonCharacterState command, const cocos2d::Ve
     SkeletonCharacterState curCommand = currentState->getState();
     CCLOG("current command %s", enumToString(curCommand));
     CCLOG("new next command %s", enumToString(newCommand));
+    
     if(newCommand != curCommand) {
         currentState->exit();
         CCLOG("starting %s", enumToString(newCommand));

@@ -1,11 +1,14 @@
 
 
-#include "SliderReader.h"
+#include "editor-support/cocostudio/WidgetReader/SliderReader/SliderReader.h"
 
 #include "ui/UISlider.h"
-#include "cocostudio/CocoLoader.h"
-#include "cocostudio/CSParseBinary_generated.h"
-#include "cocostudio/FlatBuffersSerialize.h"
+#include "2d/CCSpriteFrameCache.h"
+#include "platform/CCFileUtils.h"
+
+#include "editor-support/cocostudio/CocoLoader.h"
+#include "editor-support/cocostudio/CSParseBinary_generated.h"
+#include "editor-support/cocostudio/FlatBuffersSerialize.h"
 
 #include "tinyxml2.h"
 #include "flatbuffers/flatbuffers.h"

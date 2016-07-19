@@ -68,7 +68,6 @@ protected:
         cocostudio::timeline::SkeletonNode* skeletonNode;
         cocostudio::timeline::ActionTimeline* skeletonActionTime;
         StateMachine* stateMachine;        
-        unsigned int contactWithGround = 1;
         CC_SYNTHESIZE(std::string, key, Key);
 };
 

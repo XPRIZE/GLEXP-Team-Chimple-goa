@@ -22,6 +22,12 @@ public:
     CC_SYNTHESIZE(std::string, action, Action);
     CC_SYNTHESIZE(std::string, dialog, Dialog);
     CC_SYNTHESIZE(std::string, owner, Owner);
+    CC_SYNTHESIZE(int, conditionSatisfied, ConditionSatisfied);
+    CC_SYNTHESIZE(int, playAnimationInLoop, PlayAnimationInLoop);
+    CC_SYNTHESIZE(std::string, preOutComeAction, PreOutComeAction);
+    CC_SYNTHESIZE(std::string, postOutComeAction, PostOutComeAction);
+    CC_SYNTHESIZE(int, shouldDisplayInBag, ShouldDisplayInBag);
+    CC_SYNTHESIZE(std::string, sceneName, SceneName);
 };
 
 #endif /* MessageContent_hpp */

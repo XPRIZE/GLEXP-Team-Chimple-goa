@@ -1,5 +1,3 @@
-
-
 /****************************************************************************
 Copyright (c) 2008-2010 Ricardo Quesada
 Copyright (c) 2009      Valentin Milea
@@ -37,6 +35,7 @@ THE SOFTWARE.
 #include "base/CCDirector.h"
 #include "base/CCScheduler.h"
 #include "base/CCEventDispatcher.h"
+#include "base/ccUTF8.h"
 #include "2d/CCCamera.h"
 #include "2d/CCActionManager.h"
 #include "2d/CCScene.h"
@@ -45,7 +44,6 @@ THE SOFTWARE.
 #include "renderer/CCGLProgramState.h"
 #include "renderer/CCMaterial.h"
 #include "math/TransformUtils.h"
-#include "deprecated/CCString.h"
 
 
 #if CC_NODE_RENDER_SUBPIXEL
@@ -86,7 +84,8 @@ Node::Node()
 , _contentSizeDirty(true)
 , _transformDirty(true)
 , _inverseDirty(true)
-, _useAdditionalTransform(false)
+, _additionalTransform(nullptr)
+, _additionalTransformDirty(false)
 , _transformUpdated(true)
 // children (lazy allocs)
 // lazy alloc
@@ -135,7 +134,7 @@ Node::Node()
     ScriptEngineProtocol* engine = ScriptEngineManager::getInstance()->getScriptEngine();
     _scriptType = engine != nullptr ? engine->getScriptType() : kScriptTypeNone;
 #endif
-    _transform = _inverse = _additionalTransform = Mat4::IDENTITY;
+    _transform = _inverse = Mat4::IDENTITY;
 }
 
 Node * Node::create()
@@ -192,6 +191,8 @@ Node::~Node()
 
     CCASSERT(!_running, "Node still marked as running on node destruction! Was base class onExit() called in derived class onExit() implementations?");
     CC_SAFE_RELEASE(_eventDispatcher);
+
+    delete[] _additionalTransform;
 }
 
 bool Node::init()
@@ -215,9 +216,9 @@ void Node::cleanup()
     
     // actions
     this->stopAllActions();
-    this->unscheduleAllCallbacks();
-
     // timers
+    this->unscheduleAllCallbacks();
+    
     for( const auto &child: _children)
         child->cleanup();
 }
@@ -653,8 +654,9 @@ bool Node::isIgnoreAnchorPointForPosition() const
 {
     return _ignoreAnchorPointForPosition;
 }
+
 /// isRelativeAnchorPoint setter
-void Node::ignoreAnchorPointForPosition(bool newValue)
+void Node::setIgnoreAnchorPointForPosition(bool newValue)
 {
     if (newValue != _ignoreAnchorPointForPosition) 
     {
@@ -706,6 +708,16 @@ void Node::setOrderOfArrival(int orderOfArrival)
 
 void Node::setUserObject(Ref* userObject)
 {
+#if CC_ENABLE_GC_FOR_NATIVE_OBJECTS
+    auto sEngine = ScriptEngineManager::getInstance()->getScriptEngine();
+    if (sEngine)
+    {
+        if (userObject)
+            sEngine->retainScriptObject(this, userObject);
+        if (_userObject)
+            sEngine->releaseScriptObject(this, _userObject);
+    }
+#endif // CC_ENABLE_GC_FOR_NATIVE_OBJECTS
     CC_SAFE_RETAIN(userObject);
     CC_SAFE_RELEASE(_userObject);
     _userObject = userObject;
@@ -893,7 +905,7 @@ bool Node::doEnumerate(std::string name, std::function<bool (Node *)> callback) 
     }
     
     bool ret = false;
-    for (const auto& child : _children)
+    for (const auto& child : getChildren())
     {
         if (std::regex_match(child->_name, std::regex(searchName)))
         {
@@ -1073,6 +1085,13 @@ void Node::removeAllChildrenWithCleanup(bool cleanup)
         {
             child->cleanup();
         }
+#if CC_ENABLE_GC_FOR_NATIVE_OBJECTS
+        auto sEngine = ScriptEngineManager::getInstance()->getScriptEngine();
+        if (sEngine)
+        {
+            sEngine->releaseScriptObject(this, child);
+        }
+#endif // CC_ENABLE_GC_FOR_NATIVE_OBJECTS
         // set parent nil at the end
         child->setParent(nullptr);
     }
@@ -1097,7 +1116,14 @@ void Node::detachChild(Node *child, ssize_t childIndex, bool doCleanup)
     {
         child->cleanup();
     }
-
+    
+#if CC_ENABLE_GC_FOR_NATIVE_OBJECTS
+    auto sEngine = ScriptEngineManager::getInstance()->getScriptEngine();
+    if (sEngine)
+    {
+        sEngine->releaseScriptObject(this, child);
+    }
+#endif // CC_ENABLE_GC_FOR_NATIVE_OBJECTS
     // set parent nil at the end
     child->setParent(nullptr);
 
@@ -1108,6 +1134,13 @@ void Node::detachChild(Node *child, ssize_t childIndex, bool doCleanup)
 // helper used by reorderChild & add
 void Node::insertChild(Node* child, int z)
 {
+#if CC_ENABLE_GC_FOR_NATIVE_OBJECTS
+    auto sEngine = ScriptEngineManager::getInstance()->getScriptEngine();
+    if (sEngine)
+    {
+        sEngine->retainScriptObject(this, child);
+    }
+#endif // CC_ENABLE_GC_FOR_NATIVE_OBJECTS
     _transformUpdated = true;
     _reorderChildDirty = true;
     _children.pushBack(child);
@@ -1727,15 +1760,25 @@ const Mat4& Node::getNodeToParentTransform() const
                 _transform.m[13] += _transform.m[1] * -_anchorPointInPoints.x + _transform.m[5] * -_anchorPointInPoints.y;
             }
         }
-        
-        if (_useAdditionalTransform)
-        {
-            _transform = _transform * _additionalTransform;
-        }
-        
-        _transformDirty = false;
     }
-    
+
+    if (_additionalTransform)
+    {
+        // This is needed to support both Node::setNodeToParentTransform() and Node::setAdditionalTransform()
+        // at the same time. The scenario is this:
+        // at some point setNodeToParentTransform() is called.
+        // and later setAdditionalTransform() is called every time. And since _transform
+        // is being overwritten everyframe, _additionalTransform[1] is used to have a copy
+        // of the last "_trasform without _additionalTransform"
+        if (_transformDirty)
+            _additionalTransform[1] = _transform;
+
+        if (_transformUpdated)
+            _transform = _additionalTransform[1] * _additionalTransform[0];
+    }
+
+    _transformDirty = _additionalTransformDirty = false;
+
     return _transform;
 }
 
@@ -1744,6 +1787,10 @@ void Node::setNodeToParentTransform(const Mat4& transform)
     _transform = transform;
     _transformDirty = false;
     _transformUpdated = true;
+
+    if (_additionalTransform)
+        // _additionalTransform[1] has a copy of lastest transform
+        _additionalTransform[1] = transform;
 }
 
 void Node::setAdditionalTransform(const AffineTransform& additionalTransform)
@@ -1757,16 +1804,28 @@ void Node::setAdditionalTransform(Mat4* additionalTransform)
 {
     if (additionalTransform == nullptr)
     {
-        _useAdditionalTransform = false;
+        delete[] _additionalTransform;
+        _additionalTransform = nullptr;
     }
     else
     {
-        _additionalTransform = *additionalTransform;
-        _useAdditionalTransform = true;
+        if (!_additionalTransform) {
+            _additionalTransform = new Mat4[2];
+
+            // _additionalTransform[1] is used as a backup for _transform
+            _additionalTransform[1] = _transform;
+        }
+
+        _additionalTransform[0] = *additionalTransform;
     }
-    _transformUpdated = _transformDirty = _inverseDirty = true;
+    _transformUpdated = _additionalTransformDirty = _inverseDirty = true;
 }
 
+void Node::setAdditionalTransform(const Mat4& additionalTransform)
+{
+    Mat4* mat4= const_cast<Mat4*>(&additionalTransform);
+    setAdditionalTransform(mat4);
+}
 
 AffineTransform Node::getParentToNodeAffineTransform() const
 {

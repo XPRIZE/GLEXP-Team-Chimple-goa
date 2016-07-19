@@ -11,6 +11,8 @@
 #include "alphamon/SelectAlphamonScene.h"
 #include "mini_games/PatchTheWallScene.h"
 #include "mini_games/CrossTheBridgeScene.h"
+#include "mini_games/SmashTheRockLevelScene.h"
+#include "mini_games/EndlessRunner.h"
 
 USING_NS_CC;
 
@@ -30,12 +32,12 @@ Scene *StartMenu::createScene() {
 }
 
 bool StartMenu::init() {
-    if (!LayerGradient::initWithColor(Color4B(255, 159, 0, 255), Color4B::WHITE)){
+    if (!LayerGradient::initWithColor(Color4B(255, 159, 0, 255), Color4B::BLUE)){
         return false;
     }
     auto menuItem1 = MenuItemLabel::create(Label::createWithTTF("Camp", "fonts/arial.ttf", 100),
                                            [&](Ref *sender) {
-                                               Director::getInstance()->replaceScene(HelloWorld::createScene("camp","","","",""));
+                                               Director::getInstance()->replaceScene(HelloWorld::createScene("camp","",""));
                                            });
     auto menuItem2 = MenuItemLabel::create(Label::createWithTTF("Alphamon", "fonts/arial.ttf", 100),
                                            [&](Ref *sender) {
@@ -45,14 +47,22 @@ bool StartMenu::init() {
 		[&](Ref *sender) {
 		Director::getInstance()->replaceScene(PatchTheWall::createScene());
 	});
-	auto menuItem4 = MenuItemLabel::create(Label::createWithTTF("Cross the Bridge", "fonts/arial.ttf", 100),
+	auto menuItem4 = MenuItemLabel::create(Label::createWithTTF("Cross The Bridge", "fonts/arial.ttf", 100),
 		[&](Ref *sender) {
 		Director::getInstance()->replaceScene(CrossTheBridge::createScene());
 	});
-	auto menu = Menu::create(menuItem1, menuItem2, menuItem3, menuItem4, NULL);
+	auto menuItem5 = MenuItemLabel::create(Label::createWithTTF("Smash The Rock", "fonts/arial.ttf", 100),
+		[&](Ref *sender) {
+		Director::getInstance()->replaceScene(SmashTheRockLevelScene::createScene());
+	});
+	auto menuItem7 = MenuItemLabel::create(Label::createWithTTF("EndlessRunner", "fonts/arial.ttf", 100),
+		[&](Ref *sender) {
+		Director::getInstance()->replaceScene(EndlessRunner::createScene());
+	});
+	auto menu = Menu::create(menuItem1, menuItem2, menuItem3, menuItem4, menuItem5,menuItem7, NULL);
     menu->alignItemsVertically();
     
     addChild(menu);
-
+    
     return true;
 }

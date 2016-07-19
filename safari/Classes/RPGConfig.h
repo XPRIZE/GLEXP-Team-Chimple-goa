@@ -49,6 +49,9 @@
 #define HUMAN_SKELETON_COLLISION_BOX_WIDTH 300.0f
 #define JUMP_UP_ENDING_ANIMATION_FRAMES 15
 
+#define OBJECT_TAP_BOUNDING_BOX_WIDTH 300.0f
+
+#define OBJECT_NEAR_BY_BOUNDING_BOX_WIDTH 500.0f
 
 #define HUMAN_SKELETON_NAME "Human_Skeleton"
 #define JUMP_START "jump_start"
@@ -71,6 +74,7 @@
 #define SPEECH_TEXT_COLOR
 #define SPEECH_TEXT_FONT_SIZE 40
 
+#define GLOBAL_DB_NAME "safari.db3"
 
 #define EVENT_DISPATCHER Director::getInstance()->getEventDispatcher()
 
@@ -82,11 +86,20 @@
 
 #define PROCESS_MESSAGE_AND_CREATE_UI( __target__, __notification__, __handler__) EVENT_DISPATCHER->addEventListenerWithSceneGraphPriority(EventListenerCustom::create (__notification__, __handler__), __target__)
 
+#define SEND_SHOW_VISIBLE_SPRITE ( __target__, __notification__, __handler__) EVENT_DISPATCHER->addEventListenerWithSceneGraphPriority(EventListenerCustom::create (__notification__, __handler__), __target__)
+
+
 #define SEND_DISTACH_CLEAN_UP( __target__, __notification__, __handler__) EVENT_DISPATCHER->addEventListenerWithSceneGraphPriority(EventListenerCustom::create (__notification__, __handler__), __target__)
 
 #define SEND_MESSAGE_FOR_TAP_ON_TEXT( __target__, __notification__, __handler__) EVENT_DISPATCHER->addEventListenerWithSceneGraphPriority(EventListenerCustom::create (__notification__, __handler__), __target__)
 
+#define SEND_BUBBLE_DESTROY_SIGNAL( __target__, __notification__, __handler__) EVENT_DISPATCHER->addEventListenerWithSceneGraphPriority(EventListenerCustom::create (__notification__, __handler__), __target__)
+
+#define SEND_SHOW_TOUCH_POINT_SIGNAL( __target__, __notification__, __handler__) EVENT_DISPATCHER->addEventListenerWithSceneGraphPriority(EventListenerCustom::create (__notification__, __handler__), __target__)
+
+
 #define SEND_MESSAGE_FOR_TAP_ON_SPEAKABLE( __target__, __notification__, __handler__) EVENT_DISPATCHER->addEventListenerWithSceneGraphPriority(EventListenerCustom::create (__notification__, __handler__), __target__)
+
 
 
 
@@ -171,11 +184,15 @@ public:
     static const char* SPEECH_BUBBLE_DESTROYED_NOTIFICATION;
     
     static const char* PROCESS_CUSTOM_MESSAGE_AND_CREATE_UI_NOTIFICATION;
-    
-    static const char* TAP_ON_CLICKABLE_OBJECT_NOTIFICATION;
-    
+        
     static const char* DISPATCH_CLEANUP_AND_SCENE_TRANSITION_NOTIFICATION;
-
+    
+    static const char* ON_TAP_VISIBLE_SPRITE_NOTIFICATION;
+    
+    static const char* SEND_BUBBLE_DESTROY_NOTIFICATION;
+    
+    static const char* SEND_SHOW_TOUCH_POINT_SIGN_NOTIFICATION;
+    
     template <typename T>
     static inline std::string to_string(T value)
     {

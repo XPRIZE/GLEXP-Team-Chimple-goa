@@ -20,7 +20,7 @@
  */
 
 
-#include "CCProperties.h"
+#include "base/CCProperties.h"
 
 #include <string.h>
 
@@ -32,8 +32,6 @@
 #include "math/Mat4.h"
 #include "base/ccUTF8.h"
 #include "base/CCData.h"
-#include "deprecated/CCString.h"
-
 
 USING_NS_CC;
 
@@ -707,7 +705,7 @@ bool Properties::exists(const char* name) const
     return false;
 }
 
-static const bool isStringNumeric(const char* str)
+static bool isStringNumeric(const char* str)
 {
     CCASSERT(str, "invalid str");
 
@@ -995,7 +993,7 @@ bool Properties::getPath(const char* name, std::string* path) const
                 {
                     std::string relativePath = *dirPath;
                     relativePath.append(valueString);
-                    if (FileUtils::getInstance()->isFileExist(relativePath.c_str()))
+                    if (FileUtils::getInstance()->isFileExist(relativePath))
                     {
                         path->assign(relativePath);
                         return true;

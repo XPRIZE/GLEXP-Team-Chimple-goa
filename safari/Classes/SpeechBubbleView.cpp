@@ -82,6 +82,16 @@ bool SpeechBubbleView::initialize(std::unordered_map<int, std::string> textMap, 
 //    listenerTouches->onTouchEnded = CC_CALLBACK_2(SpeechBubbleView::touchEnded, this);
 //    this->getEventDispatcher()->addEventListenerWithSceneGraphPriority(listenerTouches, this);
 
+    //register for custom event
+    
+    auto bubbleDestoryMessageEvent = [=] (EventCustom * event) {
+        CCLOG("Received destory bubble");
+        this->destroySpeechBubbles();
+    };
+    
+    SEND_BUBBLE_DESTROY_SIGNAL(this, RPGConfig::SEND_BUBBLE_DESTROY_NOTIFICATION, bubbleDestoryMessageEvent);
+
+    
     return true;
 }
 
@@ -99,15 +109,8 @@ void SpeechBubbleView::dialogSelected(Ref* pSender, ui::Widget::TouchEventType e
             break;
         case ui::Widget::TouchEventType::ENDED:
         {
-
-            for (std::vector<Button*>::iterator it = this->textButtons.begin() ; it != this->textButtons.end(); ++it) {
-                Button* button =  *it;
-                button->removeFromParentAndCleanup(true);
-            }
-            this->removeFromParentAndCleanup(true);
-            EVENT_DISPATCHER->dispatchCustomEvent(RPGConfig::SPEECH_BUBBLE_DESTROYED_NOTIFICATION);            
+            this->destroySpeechBubbles();
             break;
-
         }
             
         case ui::Widget::TouchEventType::CANCELED:
@@ -116,6 +119,15 @@ void SpeechBubbleView::dialogSelected(Ref* pSender, ui::Widget::TouchEventType e
             break;
     }
     
+}
+
+void SpeechBubbleView::destroySpeechBubbles() {
+    for (std::vector<Button*>::iterator it = this->textButtons.begin() ; it != this->textButtons.end(); ++it) {
+        Button* button =  *it;
+        button->removeFromParentAndCleanup(true);
+    }
+    this->removeFromParentAndCleanup(true);
+    EVENT_DISPATCHER->dispatchCustomEvent(RPGConfig::SPEECH_BUBBLE_DESTROYED_NOTIFICATION);
 }
 
 //bool SpeechBubbleView::onTouchBegan(Touch *touch, Event *event)

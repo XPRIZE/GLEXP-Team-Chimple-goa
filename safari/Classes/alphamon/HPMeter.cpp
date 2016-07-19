@@ -35,6 +35,7 @@ bool HPMeter::initWithTextureAndPercent(const std::string &background, const std
 //    loadSlidBallTextureNormal(normalBall);
     setScale9Enabled(true);
     setPercent(percent);
+    setTouchEnabled(false);
     return true;
 }
 

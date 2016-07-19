@@ -13,6 +13,7 @@ USING_NS_CC;
 
 static CharGenerator* _singletonCharGenerator = nullptr;
 static const char* const a_to_z = "ABCDEFGHIJKLMNOPQRSTUVWXYZ" ;
+//static const char* const a_to_z = "ಅಆಇಈಉಊಋಌಎಏಐಒಓಔಕಖಗಘಙಚಛಜಝಞಟಠಡಢಣತಥದಧನಪಫಬಭಮಯರಱಲಳವಶಷಸಹ";
 
 CharGenerator* CharGenerator::getInstance()
 {

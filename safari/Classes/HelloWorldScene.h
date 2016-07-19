@@ -47,6 +47,8 @@ private:
     
     cocos2d::Point currentTouchPoint;
     
+    cocos2d::Sprite* showTouchSignNode;
+    
     GestureLayer* gesture_layer_;
     
     StateMachine* stateMachine;
@@ -93,8 +95,14 @@ private:
     
     virtual void processMessage(std::vector<MessageContent*>*messages);
     
-    virtual void processMainLayerChildrenForCustomEvents();
+    virtual void processTextMessage(std::unordered_map<int, std::string> textMap, std::string ownerOfMessage);
     
+    virtual void processShowMessage(std::vector<MessageContent*>showMessages);
+    
+    virtual void processAnimationMessage(std::vector<MessageContent*>animationMessages);
+    
+    virtual void processMainLayerChildrenForCustomEvents();
+        
     cocos2d::Size sceneSize;
     
     //references to all external Skeletons
@@ -110,18 +118,18 @@ private:
 
     //category bit mask for main skeleton
     int mainCharacterCategoryBitMask;
-    
+        
 public:
-    static cocos2d::Scene* createScene(const std::string& sceneName, const std::string& skeletonXPos, const std::string& skeletonYPos, const std::string& transitToParent, const std::string& transitToChild);
+    static cocos2d::Scene* createScene(const std::string& sceneName, const std::string& skeletonXPos, const std::string& skeletonYPos);
     
-    static HelloWorld* create(const std::string& sceneName, const std::string& skeletonXPos, const std::string& skeletonYPos, const std::string& transitToParent, const std::string& transitToChild);
+    static HelloWorld* create(const std::string& sceneName, const std::string& skeletonXPos, const std::string& skeletonYPos);
     
     HelloWorld();
     ~HelloWorld();
     
-    virtual bool init(const std::string& sceneName, const std::string& skeletonXPos, const std::string& skeletonYPos, const std::string& transitToParent, const std::string& transitToChild);
+    virtual bool init(const std::string& sceneName, const std::string& skeletonXPos, const std::string& skeletonYPos);
     
-    void createRPGGame();
+    void createRPGGame(const std::string& skeletonXPos, const std::string& skeletonYPos);
     
     void loadGameScene();
     
@@ -157,6 +165,7 @@ public:
     void HandleSwipeRight(cocos2d::Point position);
     void HandleTouchedEnded(cocos2d::Point position);
     bool isTapOnSpeakableOrClickableObject(cocos2d::Point position);
+    void sendBubbleDestroySignal();
     
     void HandleJumpWithAnimation();
     void HandlePostJumpUpAnimation();
@@ -185,7 +194,22 @@ public:
     
     virtual bool handlePhysicsContactEventForOtherSkeletonCharacter(cocos2d::PhysicsContact &contact, cocos2d::Node* nodeA, cocos2d::Node* nodeB);
     
-        
+    virtual void onEnterTransitionDidFinish();
+    
+    virtual void onExitTransitionDidStart();
+    
+    virtual void createRPGSprite(cocos2d::Node* node, std::unordered_map<std::string, std::string> attributes, cocos2d::Node* parentNode);
+    
+    virtual void processNodeWithCustomAttributes(Node* node, cocos2d::Node* parentNode);
+    
+    virtual bool checkTapOnRPGSprite(RPGSprite* rpgNode, cocos2d::Point position);
+    
+    virtual void hideTouchPointSign();
+    
+    CC_SYNTHESIZE(std::string, sceneName, SceneName);
+    
+    CC_SYNTHESIZE(std::string, island, Island);
+    
     CC_SYNTHESIZE(std::string, baseDir, BaseDir);
     
     CC_SYNTHESIZE(std::string, dialogFile, DialogFile);
@@ -196,19 +220,10 @@ public:
     
     CC_SYNTHESIZE(bool, isSpeechBubbleAlreadyVisible, SpeechBubbleAlreadyVisible);
     
-    CC_SYNTHESIZE(std::string, overrideMainCharacterXPos, OverrideMainCharacterXPos);
-    
-    CC_SYNTHESIZE(std::string, overrideMainCharacterYPos, OverrideMainCharacterYPos);
-    
     CC_SYNTHESIZE(std::string, initialMainSkeletonY, InitialMainSkeletonY);
     
     CC_SYNTHESIZE(std::string, initialMainSkeletonX, InitialMainSkeletonX);
     
-    CC_SYNTHESIZE(std::string, transitToParent, TransitToParent);
-    
-    CC_SYNTHESIZE(std::string, transitToChild, transitToChild);
-
-
 };
 
 #endif // __HELLOWORLD_SCENE_H__

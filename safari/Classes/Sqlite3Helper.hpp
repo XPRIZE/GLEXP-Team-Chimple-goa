@@ -18,9 +18,22 @@ class Sqlite3Helper {
 public:
     static Sqlite3Helper* getInstance(std::string connectionUrl, std::string dbName);
     ~Sqlite3Helper();
-    virtual std::vector<MessageContent*> findEventsByOwner(const char* owner);
-    virtual std::vector<MessageContent*> findEventsByPreConditionEventId(int preConditionEventId);
+    
+    //select queries
+    virtual std::vector<MessageContent*> findEventsByOwnerInScene(const char* owner, const char* sceneName);
+    virtual std::vector<MessageContent*> findEventsByPreConditionEventIdInScene(int preConditionEventId, const char* sceneName);
+    
+    virtual bool openConnection();
+    virtual bool closeConnection();
+    
+    //insert/update/delete queries
+    virtual void insertItemToMyBag(const char* island, const char* item);
 
+    virtual void deleteItemFromMyBag(const char* island, const char* item);
+    
+    
+    virtual void recordMainCharacterPositionInScene(const char* island, const char* sceneName, float xPos, float yPos);
+    
     static bool instanceFlag;
     static Sqlite3Helper *shared;
 
@@ -30,6 +43,7 @@ protected:
     sqlite3 *dataBaseConnection;
     std::string connectionUrl;
     std::string dbName;
+    std::string pathToSQLConnection;
     
     virtual void initializeConnection();
 };

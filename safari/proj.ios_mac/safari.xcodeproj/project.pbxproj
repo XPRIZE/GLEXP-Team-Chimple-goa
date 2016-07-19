@@ -117,6 +117,16 @@
 		F331ADC41D36BCCE00459E24 /* DuelScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F331ADBB1D36BCCE00459E24 /* DuelScene.cpp */; };
 		F331ADC91D378EF000459E24 /* StartMenuScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F331ADC71D378EF000459E24 /* StartMenuScene.cpp */; };
 		F331ADCA1D378EF000459E24 /* StartMenuScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F331ADC71D378EF000459E24 /* StartMenuScene.cpp */; };
+		F378D0EB1D38C09600769FA5 /* PatchTheWallScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F378D0E91D38C09600769FA5 /* PatchTheWallScene.cpp */; };
+		F378D0EC1D38C0BD00769FA5 /* PatchTheWallScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F378D0E91D38C09600769FA5 /* PatchTheWallScene.cpp */; };
+		F378D0F41D39050B00769FA5 /* CrossTheBridgeScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F378D0EE1D39050B00769FA5 /* CrossTheBridgeScene.cpp */; };
+		F378D0F51D39050B00769FA5 /* SmashTheRockLevelScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F378D0F01D39050B00769FA5 /* SmashTheRockLevelScene.cpp */; };
+		F378D0F61D39050B00769FA5 /* SmashTheRockScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F378D0F21D39050B00769FA5 /* SmashTheRockScene.cpp */; };
+		F378D0F71D39052100769FA5 /* CrossTheBridgeScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F378D0EE1D39050B00769FA5 /* CrossTheBridgeScene.cpp */; };
+		F378D0F81D39052400769FA5 /* SmashTheRockLevelScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F378D0F01D39050B00769FA5 /* SmashTheRockLevelScene.cpp */; };
+		F378D0F91D39052800769FA5 /* SmashTheRockScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F378D0F21D39050B00769FA5 /* SmashTheRockScene.cpp */; };
+		F3F33DFE1D3DCFA3007C17A8 /* PointSystem.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F3F33DFD1D3DCFA3007C17A8 /* PointSystem.cpp */; };
+		F3F33DFF1D3DCFA3007C17A8 /* PointSystem.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F3F33DFD1D3DCFA3007C17A8 /* PointSystem.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -147,6 +157,13 @@
 			proxyType = 1;
 			remoteGlobalIDString = A07A4C241783777C0073F6A7;
 			remoteInfo = "cocos2dx iOS";
+		};
+		F3F33DFA1D3DCDAE007C17A8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1AC6FAE5180E9839004C840B /* cocos2d_libs.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 507B40FD1C31BDD30067B53E;
+			remoteInfo = "libcocos2d tvOS";
 		};
 /* End PBXContainerItemProxy section */
 
@@ -263,6 +280,16 @@
 		F331ADBC1D36BCCE00459E24 /* DuelScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DuelScene.h; sourceTree = "<group>"; };
 		F331ADC71D378EF000459E24 /* StartMenuScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = StartMenuScene.cpp; sourceTree = "<group>"; };
 		F331ADCB1D37910900459E24 /* StartMenuScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StartMenuScene.h; sourceTree = "<group>"; };
+		F378D0E91D38C09600769FA5 /* PatchTheWallScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = PatchTheWallScene.cpp; path = mini_games/PatchTheWallScene.cpp; sourceTree = "<group>"; };
+		F378D0EA1D38C09600769FA5 /* PatchTheWallScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PatchTheWallScene.h; path = mini_games/PatchTheWallScene.h; sourceTree = "<group>"; };
+		F378D0EE1D39050B00769FA5 /* CrossTheBridgeScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = CrossTheBridgeScene.cpp; path = mini_games/CrossTheBridgeScene.cpp; sourceTree = "<group>"; };
+		F378D0EF1D39050B00769FA5 /* CrossTheBridgeScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CrossTheBridgeScene.h; path = mini_games/CrossTheBridgeScene.h; sourceTree = "<group>"; };
+		F378D0F01D39050B00769FA5 /* SmashTheRockLevelScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = SmashTheRockLevelScene.cpp; path = mini_games/SmashTheRockLevelScene.cpp; sourceTree = "<group>"; };
+		F378D0F11D39050B00769FA5 /* SmashTheRockLevelScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SmashTheRockLevelScene.h; path = mini_games/SmashTheRockLevelScene.h; sourceTree = "<group>"; };
+		F378D0F21D39050B00769FA5 /* SmashTheRockScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = SmashTheRockScene.cpp; path = mini_games/SmashTheRockScene.cpp; sourceTree = "<group>"; };
+		F378D0F31D39050B00769FA5 /* SmashTheRockScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SmashTheRockScene.h; path = mini_games/SmashTheRockScene.h; sourceTree = "<group>"; };
+		F3F33DFC1D3DCF90007C17A8 /* PointSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PointSystem.h; sourceTree = "<group>"; };
+		F3F33DFD1D3DCFA3007C17A8 /* PointSystem.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PointSystem.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -337,6 +364,7 @@
 			children = (
 				1AC6FAF9180E9839004C840B /* libcocos2d Mac.a */,
 				1AC6FB07180E9839004C840B /* libcocos2d iOS.a */,
+				F3F33DFB1D3DCDAE007C17A8 /* libcocos2d tvOS.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -393,6 +421,8 @@
 		46880B8319C43A87006E1F66 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				F3F33DF81D3DCDAE007C17A8 /* menu */,
+				F378D0E81D38C08400769FA5 /* mini_games */,
 				F331ADA01D36BBF700459E24 /* effects */,
 				F331AD8F1D36BBD800459E24 /* puzzle */,
 				F331AD821D36BBBC00459E24 /* alphamon */,
@@ -529,6 +559,30 @@
 			path = effects;
 			sourceTree = "<group>";
 		};
+		F378D0E81D38C08400769FA5 /* mini_games */ = {
+			isa = PBXGroup;
+			children = (
+				F378D0EE1D39050B00769FA5 /* CrossTheBridgeScene.cpp */,
+				F378D0EF1D39050B00769FA5 /* CrossTheBridgeScene.h */,
+				F378D0F01D39050B00769FA5 /* SmashTheRockLevelScene.cpp */,
+				F378D0F11D39050B00769FA5 /* SmashTheRockLevelScene.h */,
+				F378D0F21D39050B00769FA5 /* SmashTheRockScene.cpp */,
+				F378D0F31D39050B00769FA5 /* SmashTheRockScene.h */,
+				F378D0E91D38C09600769FA5 /* PatchTheWallScene.cpp */,
+				F378D0EA1D38C09600769FA5 /* PatchTheWallScene.h */,
+			);
+			name = mini_games;
+			sourceTree = "<group>";
+		};
+		F3F33DF81D3DCDAE007C17A8 /* menu */ = {
+			isa = PBXGroup;
+			children = (
+				F3F33DFC1D3DCF90007C17A8 /* PointSystem.h */,
+				F3F33DFD1D3DCFA3007C17A8 /* PointSystem.cpp */,
+			);
+			path = menu;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -617,6 +671,13 @@
 			remoteRef = 1AC6FB06180E9839004C840B /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
+		F3F33DFB1D3DCDAE007C17A8 /* libcocos2d tvOS.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = "libcocos2d tvOS.a";
+			remoteRef = F3F33DFA1D3DCDAE007C17A8 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
 /* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
@@ -668,13 +729,17 @@
 				F331AC691D36A7E200459E24 /* SpeechBubbleView.cpp in Sources */,
 				F331AC6F1D36A7E200459E24 /* StandingState.cpp in Sources */,
 				503AE10217EB989F00D1A890 /* RootViewController.mm in Sources */,
+				F378D0F41D39050B00769FA5 /* CrossTheBridgeScene.cpp in Sources */,
 				F331AC651D36A7E200459E24 /* RunningState.cpp in Sources */,
 				F331AC571D36A7E200459E24 /* MessageContent.cpp in Sources */,
 				F331ADC91D378EF000459E24 /* StartMenuScene.cpp in Sources */,
 				F331AC6B1D36A7E200459E24 /* sqlite3.c in Sources */,
+				F3F33DFE1D3DCFA3007C17A8 /* PointSystem.cpp in Sources */,
 				F331AC591D36A7E200459E24 /* MessageReceiver.cpp in Sources */,
 				F331AC5D1D36A7E200459E24 /* PhysicsShapeCache.cpp in Sources */,
 				503AE10117EB989F00D1A890 /* main.m in Sources */,
+				F378D0F61D39050B00769FA5 /* SmashTheRockScene.cpp in Sources */,
+				F378D0EB1D38C09600769FA5 /* PatchTheWallScene.cpp in Sources */,
 				F331AC671D36A7E200459E24 /* SkeletonCharacter.cpp in Sources */,
 				F331ADC11D36BCCE00459E24 /* CharGenerator.cpp in Sources */,
 				F331AC611D36A7E200459E24 /* RPGConfig.cpp in Sources */,
@@ -685,6 +750,7 @@
 				F331ADAF1D36BCC300459E24 /* Alphamon.cpp in Sources */,
 				F331AC631D36A7E200459E24 /* RPGSprite.cpp in Sources */,
 				F331AC511D36A7E200459E24 /* GestureLayer.cpp in Sources */,
+				F378D0F51D39050B00769FA5 /* SmashTheRockLevelScene.cpp in Sources */,
 				F331ADC31D36BCCE00459E24 /* DuelScene.cpp in Sources */,
 				F331AC551D36A7E200459E24 /* JumpingState.cpp in Sources */,
 				F331AC5B1D36A7E200459E24 /* MessageSender.cpp in Sources */,
@@ -705,9 +771,11 @@
 				F331ADB21D36BCC300459E24 /* HPMeter.cpp in Sources */,
 				F331AC701D36A7E200459E24 /* StandingState.cpp in Sources */,
 				F331AC5C1D36A7E200459E24 /* MessageSender.cpp in Sources */,
+				F378D0F91D39052800769FA5 /* SmashTheRockScene.cpp in Sources */,
 				F331AC741D36A7E200459E24 /* StateMachine.cpp in Sources */,
 				F331ADB41D36BCC300459E24 /* SelectAlphamonScene.cpp in Sources */,
 				F331AC4A1D36A7E200459E24 /* AppDelegate.cpp in Sources */,
+				F3F33DFF1D3DCFA3007C17A8 /* PointSystem.cpp in Sources */,
 				503AE10517EB98FF00D1A890 /* main.cpp in Sources */,
 				F331AC541D36A7E200459E24 /* HelloWorldScene.cpp in Sources */,
 				F331AC6A1D36A7E200459E24 /* SpeechBubbleView.cpp in Sources */,
@@ -715,6 +783,7 @@
 				F331AC721D36A7E200459E24 /* State.cpp in Sources */,
 				F331ADA81D36BCB900459E24 /* FShake.cpp in Sources */,
 				F331ADC41D36BCCE00459E24 /* DuelScene.cpp in Sources */,
+				F378D0F71D39052100769FA5 /* CrossTheBridgeScene.cpp in Sources */,
 				F331ADC01D36BCCE00459E24 /* AlphabetGrid.cpp in Sources */,
 				F331AC761D36A7E200459E24 /* WalkingState.cpp in Sources */,
 				F331ADCA1D378EF000459E24 /* StartMenuScene.cpp in Sources */,
@@ -723,10 +792,12 @@
 				F331AC661D36A7E200459E24 /* RunningState.cpp in Sources */,
 				F331AC561D36A7E200459E24 /* JumpingState.cpp in Sources */,
 				F331AC641D36A7E200459E24 /* RPGSprite.cpp in Sources */,
+				F378D0EC1D38C0BD00769FA5 /* PatchTheWallScene.cpp in Sources */,
 				F331AC6C1D36A7E200459E24 /* sqlite3.c in Sources */,
 				F331AC521D36A7E200459E24 /* GestureLayer.cpp in Sources */,
 				F331AC621D36A7E200459E24 /* RPGConfig.cpp in Sources */,
 				F331ADBE1D36BCCE00459E24 /* Alphabet.cpp in Sources */,
+				F378D0F81D39052400769FA5 /* SmashTheRockLevelScene.cpp in Sources */,
 				F331AC5A1D36A7E200459E24 /* MessageReceiver.cpp in Sources */,
 				F331AC501D36A7E200459E24 /* FallingState.cpp in Sources */,
 				F331ADB01D36BCC300459E24 /* Alphamon.cpp in Sources */,
