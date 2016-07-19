@@ -135,6 +135,9 @@
     <ClCompile Include="..\Classes\puzzle\DuelScene.cpp">
       <Filter>src\puzzle</Filter>
     </ClCompile>
+    <ClCompile Include="..\Classes\mini_games\TraceScene.cpp">
+      <Filter>src\mini_games</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -247,6 +250,9 @@
     </ClInclude>
     <ClInclude Include="..\Classes\puzzle\DuelScene.h">
       <Filter>src\puzzle</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\mini_games\TraceScene.h">
+      <Filter>src\mini_games</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
