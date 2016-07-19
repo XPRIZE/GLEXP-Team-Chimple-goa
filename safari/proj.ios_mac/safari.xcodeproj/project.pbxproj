@@ -135,6 +135,10 @@
 		F3F33E091D3E0C03007C17A8 /* SpriteCreate.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F3F33E041D3E0C03007C17A8 /* SpriteCreate.cpp */; };
 		F3F33E0F1D3E1BA7007C17A8 /* TraceScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F3F33E0D1D3E1BA7007C17A8 /* TraceScene.cpp */; };
 		F3F33E111D3E1BB8007C17A8 /* TraceScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F3F33E0D1D3E1BA7007C17A8 /* TraceScene.cpp */; };
+		F3F33E181D3E91C8007C17A8 /* Cannon_Ball_Listener.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F3F33E141D3E91C8007C17A8 /* Cannon_Ball_Listener.cpp */; };
+		F3F33E191D3E91C8007C17A8 /* Cannon_Ball_Main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F3F33E161D3E91C8007C17A8 /* Cannon_Ball_Main.cpp */; };
+		F3F33E1B1D3E924E007C17A8 /* Cannon_Ball_Listener.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F3F33E141D3E91C8007C17A8 /* Cannon_Ball_Listener.cpp */; };
+		F3F33E1C1D3E9251007C17A8 /* Cannon_Ball_Main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F3F33E161D3E91C8007C17A8 /* Cannon_Ball_Main.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -306,6 +310,10 @@
 		F3F33E051D3E0C03007C17A8 /* SpriteCreate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SpriteCreate.h; path = mini_games/SpriteCreate.h; sourceTree = "<group>"; };
 		F3F33E0D1D3E1BA7007C17A8 /* TraceScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = TraceScene.cpp; path = mini_games/TraceScene.cpp; sourceTree = "<group>"; };
 		F3F33E0E1D3E1BA7007C17A8 /* TraceScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TraceScene.h; path = mini_games/TraceScene.h; sourceTree = "<group>"; };
+		F3F33E141D3E91C8007C17A8 /* Cannon_Ball_Listener.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Cannon_Ball_Listener.cpp; path = mini_games/Cannon_Ball_Listener.cpp; sourceTree = "<group>"; };
+		F3F33E151D3E91C8007C17A8 /* Cannon_Ball_Listener.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Cannon_Ball_Listener.h; path = mini_games/Cannon_Ball_Listener.h; sourceTree = "<group>"; };
+		F3F33E161D3E91C8007C17A8 /* Cannon_Ball_Main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Cannon_Ball_Main.cpp; path = mini_games/Cannon_Ball_Main.cpp; sourceTree = "<group>"; };
+		F3F33E171D3E91C8007C17A8 /* Cannon_Ball_Main.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Cannon_Ball_Main.h; path = mini_games/Cannon_Ball_Main.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -580,6 +588,10 @@
 		F378D0E81D38C08400769FA5 /* mini_games */ = {
 			isa = PBXGroup;
 			children = (
+				F3F33E141D3E91C8007C17A8 /* Cannon_Ball_Listener.cpp */,
+				F3F33E151D3E91C8007C17A8 /* Cannon_Ball_Listener.h */,
+				F3F33E161D3E91C8007C17A8 /* Cannon_Ball_Main.cpp */,
+				F3F33E171D3E91C8007C17A8 /* Cannon_Ball_Main.h */,
 				F3F33E0D1D3E1BA7007C17A8 /* TraceScene.cpp */,
 				F3F33E0E1D3E1BA7007C17A8 /* TraceScene.h */,
 				F3F33E021D3E0C03007C17A8 /* EndlessRunner.cpp */,
@@ -748,6 +760,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F331AC491D36A7E200459E24 /* AppDelegate.cpp in Sources */,
+				F3F33E181D3E91C8007C17A8 /* Cannon_Ball_Listener.cpp in Sources */,
 				F331ADA71D36BCB900459E24 /* FShake.cpp in Sources */,
 				37C34D651D3DDFBB0047582C /* AlphamonSprite.cpp in Sources */,
 				503AE10017EB989F00D1A890 /* AppController.mm in Sources */,
@@ -776,6 +789,7 @@
 				F331ADAF1D36BCC300459E24 /* Alphamon.cpp in Sources */,
 				F331AC631D36A7E200459E24 /* RPGSprite.cpp in Sources */,
 				F331AC511D36A7E200459E24 /* GestureLayer.cpp in Sources */,
+				F3F33E191D3E91C8007C17A8 /* Cannon_Ball_Main.cpp in Sources */,
 				F3F33E061D3E0C03007C17A8 /* EndlessRunner.cpp in Sources */,
 				F378D0F51D39050B00769FA5 /* SmashTheRockLevelScene.cpp in Sources */,
 				F331ADC31D36BCCE00459E24 /* DuelScene.cpp in Sources */,
@@ -804,6 +818,7 @@
 				F378D0F91D39052800769FA5 /* SmashTheRockScene.cpp in Sources */,
 				F331AC741D36A7E200459E24 /* StateMachine.cpp in Sources */,
 				F331ADB41D36BCC300459E24 /* SelectAlphamonScene.cpp in Sources */,
+				F3F33E1C1D3E9251007C17A8 /* Cannon_Ball_Main.cpp in Sources */,
 				F331AC4A1D36A7E200459E24 /* AppDelegate.cpp in Sources */,
 				F3F33DFF1D3DCFA3007C17A8 /* PointSystem.cpp in Sources */,
 				503AE10517EB98FF00D1A890 /* main.cpp in Sources */,
@@ -834,6 +849,7 @@
 				F331ADB01D36BCC300459E24 /* Alphamon.cpp in Sources */,
 				F331AC681D36A7E200459E24 /* SkeletonCharacter.cpp in Sources */,
 				F331AC6E1D36A7E200459E24 /* Sqlite3Helper.cpp in Sources */,
+				F3F33E1B1D3E924E007C17A8 /* Cannon_Ball_Listener.cpp in Sources */,
 				F331ADC21D36BCCE00459E24 /* CharGenerator.cpp in Sources */,
 				F3F33E111D3E1BB8007C17A8 /* TraceScene.cpp in Sources */,
 			);
