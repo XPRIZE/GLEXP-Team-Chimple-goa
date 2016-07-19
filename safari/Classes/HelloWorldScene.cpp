@@ -2,8 +2,7 @@
 #include <string>
 #include <unordered_map>
 #include "HelloWorldScene.h"
-#include "RPGConfig.h"
-#include "Alphamon.h"
+#include "StartMenuScene.h"
 
 USING_NS_CC;
 
@@ -430,6 +429,12 @@ void HelloWorld::registerMessageSenderAndReceiver() {
     
 }
 
+void HelloWorld::transitionToDuelScene(char alphabet) {
+    std::string secondParam (1,alphabet);
+    StartMenu::startScene(DUEL_SCENE_NAME, "A", secondParam);
+}
+
+
 void HelloWorld::hideTouchPointSign() {
     this->showTouchSignNode->setVisible(false);
 }
@@ -570,8 +575,6 @@ void HelloWorld::processCustomAnimationMessage(std::vector<MessageContent*>custo
     for (std::vector<MessageContent* >::iterator it = customAnimationMessages.begin() ; customAnimationMessages.size() == 1 && it != customAnimationMessages.end(); ++it)
     {
         MessageContent* content = (MessageContent*) *it;
-        CCLOG("content owner %s", content->getOwner().c_str());
-        
         //find out animation name
         if(!content->getDialog().empty() && !content->getOwner().empty()) {            
             Node* node = this->mainLayer->getChildByName(content->getOwner());
@@ -579,11 +582,9 @@ void HelloWorld::processCustomAnimationMessage(std::vector<MessageContent*>custo
             if(alphamonAnimationNode) {
                 std::string animationMethod = content->getDialog();
                 Alphamon* alphamone = alphamonAnimationNode->getAlphaMon();
-  
                 
                 if(animationMethod == "shakeAction") {
-                    auto transitionToScene = CallFunc::create(CC_CALLBACK_0(HelloWorld::hideTouchPointSign, this));
-                    auto sequence = Sequence::create(alphamone->shakeAction(), transitionToScene, nullptr);
+                    auto sequence = Sequence::create(alphamone->shakeAction(), CallFunc::create(std::bind(&HelloWorld::transitionToDuelScene, this, alphamone->getAlphabet())), nullptr);
                     alphamonAnimationNode->runAction(sequence);
                 }
             }

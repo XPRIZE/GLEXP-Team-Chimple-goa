@@ -76,6 +76,8 @@
 
 #define GLOBAL_DB_NAME "safari.db3"
 
+#define DUEL_SCENE_NAME "DuelScene"
+
 #define EVENT_DISPATCHER Director::getInstance()->getEventDispatcher()
 
 #define SEND_MESSAGE_TEXT_DESTROYED ( __target__, __notification__, __handler__) EVENT_DISPATCHER->addEventListenerWithSceneGraphPriority(EventListenerCustom::create (__notification__, __handler__), __target__)

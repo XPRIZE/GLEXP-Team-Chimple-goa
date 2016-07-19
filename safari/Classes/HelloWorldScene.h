@@ -26,6 +26,9 @@
 #include "MessageContent.hpp"
 #include "RPGSprite.h"
 #include "AlphamonSprite.h"
+#include "Alphamon.h"
+
+
 
 
 class GestureLayer;
@@ -202,6 +205,8 @@ public:
     virtual bool checkTapOnRPGSprite(RPGSprite* rpgNode, cocos2d::Point position);
     
     virtual void hideTouchPointSign();
+    
+    virtual void transitionToDuelScene(char alphabet);
     
     virtual void addAlphaMonsters(cocos2d::Node *rootNode);
     
