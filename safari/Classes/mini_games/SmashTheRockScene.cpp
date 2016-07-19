@@ -1,8 +1,13 @@
 #include "SmashTheRockScene.h"
 #include "SmashTheRockLevelScene.h"
+
 #include "puzzle\CharGenerator.h"
 #include "cocostudio\CocoStudio.h"
 #include "cocostudio\ActionTimeline\CCSkeletonNode.h"  
+
+
+#include "editor-support/cocostudio/CocoStudio.h"
+
 #define COCOS2D_DEBUG 1
 
 USING_NS_CC;

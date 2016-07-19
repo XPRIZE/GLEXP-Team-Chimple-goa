@@ -3,7 +3,7 @@
 
 #include "cocos2d.h"
 #include "SkeletonCharacter.h"
-#include "cocostudio\ActionTimeline\CCSkeletonNode.h"
+#include "editor-support/cocostudio/CocoStudio.h"
 
 class SmashTheRock : public cocos2d::Layer
 {

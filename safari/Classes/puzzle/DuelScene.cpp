@@ -24,6 +24,15 @@ const std::string DuelScene::LEFT_STAND_NAME = "rocks_2";
 const std::string DuelScene::RIGHT_STAND_NAME = "rocks_1";
 const int DuelScene::MAX_POINTS_PER_TURN = 20;
 
+DuelScene::DuelScene() :
+_turnNumber(0) {
+    
+}
+
+DuelScene::~DuelScene() {
+    
+}
+
 Scene* DuelScene::createScene(char myMonChar, char otherMonChar)
 {
     auto scene = Scene::create();
@@ -58,13 +67,12 @@ bool DuelScene::init(char myMonChar, char otherMonChar)
     Size visibleSize = Director::getInstance()->getVisibleSize();
     Vec2 origin = Director::getInstance()->getVisibleOrigin();
 
-    const int numRows = 4;
-    const int numCols = 12;
-    const float squareLength = 200.0;
-    _grid = AlphabetGrid::create(squareLength * numCols, squareLength * numRows, numRows, numCols);
+    const int numRows = MAX_ROWS;
+    const int numCols = MAX_COLS;
+    _grid = AlphabetGrid::create(SQUARE_WIDTH * numCols, SQUARE_WIDTH * numRows, numRows, numCols);
     auto panel = background->getChildByName(PANEL_NAME);
     panel->addChild(_grid);
-    _grid->setPosition(Vec2((panel->getContentSize().width - squareLength * numCols) / 2, (panel->getContentSize().height - squareLength * numRows) / 2));
+    _grid->setPosition(Vec2((panel->getContentSize().width - SQUARE_WIDTH * numCols) / 2, (panel->getContentSize().height - SQUARE_WIDTH * numRows) / 2));
 
     _timer = HPMeter::createWithTextureAndPercent("battle_ground/bar_out.png", "battle_ground/bar_in.png", "battle_ground/clock.png", 100);
     _timer->setPosition(Vec2(origin.x + visibleSize.width / 2, origin.y + visibleSize.height / 2));
@@ -75,7 +83,8 @@ bool DuelScene::init(char myMonChar, char otherMonChar)
     _myMon->setPosition(leftStand->getPosition() + Vec2(0, 250));
     addChild(_myMon);
     _myMon->setHealth(100);
-    _eventDispatcher->addCustomEventListener("alphabet_pressed", CC_CALLBACK_1(DuelScene::onAlphabetSelected, this));
+    _eventDispatcher->addCustomEventListener("alphabet_selected", CC_CALLBACK_1(DuelScene::onAlphabetSelected, this));
+    _eventDispatcher->addCustomEventListener("alphabet_unselected", CC_CALLBACK_1(DuelScene::onAlphabetUnselected, this));
     
     _otherMon = Alphamon::createWithAlphabet(otherMonChar);
     auto rightStand = background->getChildByName(RIGHT_STAND_NAME);
@@ -111,7 +120,19 @@ void DuelScene::startMyTurn() {
         CCLOG("OtherMon game over");
         gameOver();
     } else {
-        auto charArray = CharGenerator::getInstance()->generateMatrixForChoosingAChar(_myMon->getAlphabet(), 4, 12, 50);
+        _turnNumber++;
+        int numCols = MAX_COLS;
+        int numRows = MAX_ROWS;
+        
+        if(_turnNumber < 2) {
+            numCols /= 4;
+            numRows /= 4;
+        } else if (_turnNumber < 4) {
+            numCols /= 2;
+            numRows /= 2;
+        }
+        auto charArray = CharGenerator::getInstance()->generateMatrixForChoosingAChar(_myMon->getAlphabet(), numRows, numCols, 50);
+        _grid->resize(SQUARE_WIDTH * MAX_COLS, SQUARE_WIDTH * MAX_ROWS, numRows, numCols);
         _grid->setCharacters(charArray);
         _grid->enableTouch(true);
         _powerIncr = 100 / _grid->getCountOfAlphabetsWhichMatch(_myMon->getAlphabet());
@@ -128,7 +149,7 @@ void DuelScene::startMyTurn() {
 }
 
 void DuelScene::gameOver() {
-    auto winner = (_myMon->getHealth() <= 0) ? _otherMon : _myMon;
+    auto winner = (_otherMon->getHealth() <= 0) ? _myMon : _otherMon;
     auto scaleBy = ScaleBy::create(1.0, 1.2);
     auto moveTo = MoveTo::create(1.0, Vec2(1280.0, 900.0));
     auto spawn = TargetedAction::create(winner, Spawn::createWithTwoActions(scaleBy, moveTo));
@@ -139,7 +160,8 @@ void DuelScene::gameOver() {
 
 void DuelScene::returnToPrevScene() {
     stopAllActions();
-    _eventDispatcher->removeCustomEventListeners("alphabet_pressed");
+    _eventDispatcher->removeCustomEventListeners("alphabet_selected");
+    _eventDispatcher->removeCustomEventListeners("alphabet_unselected");
     Director::getInstance()->replaceScene(SelectAlphamon::createScene());
 }
 
@@ -203,5 +225,15 @@ void DuelScene::onAlphabetSelected(EventCustom *event) {
         _myMon->changePower(_powerIncr);
     } else {
         _myMon->changePower(-_powerIncr);
+    }
+}
+
+void DuelScene::onAlphabetUnselected(EventCustom *event) {
+    char* buf = static_cast<char*>(event->getUserData());
+    CCLOG("Pressed %c",buf[0]);
+    if(_myMon->getAlphabet() == buf[0]) {
+        _myMon->changePower(-_powerIncr);
+    } else {
+        _myMon->changePower(_powerIncr);
     }
 }

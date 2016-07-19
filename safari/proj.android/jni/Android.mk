@@ -41,9 +41,13 @@ LOCAL_SRC_FILES := hellocpp/main.cpp \
 					../../Classes/StateMachine.cpp \
 					../../Classes/WalkingState.cpp \
 					../../Classes/mini_games/PatchTheWallScene.cpp \
+
 					../../Classes/mini_games/SmashTheRockScene.cpp \
 					../../Classes/mini_games/SmashTheRockLevelScene.cpp \
 					../../Classes/mini_games/CrossTheBridgeScene.cpp \
+					../../Classes/mini_games/CrossTheBridgeScene.cpp \
+					../../Classes/mini_games/SmashTheRockLevelScene.cpp \
+					../../Classes/mini_games/SmashTheRockScene.cpp \
                     ../../Classes/StartMenuScene.cpp 
 LOCAL_C_INCLUDES := $(LOCAL_PATH)/../../Classes
 LOCAL_C_INCLUDES += $(LOCAL_PATH)/../../../extensions

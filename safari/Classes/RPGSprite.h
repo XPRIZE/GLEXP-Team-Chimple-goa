@@ -27,31 +27,31 @@ public:
     
     virtual ~RPGSprite();
     
-    static RPGSprite* create(cocos2d::Sprite* sprite, std::unordered_map<std::string, std::string> attributes);
+    static RPGSprite* create(cocos2d::Node* sprite, std::unordered_map<std::string, std::string> attributes);
     
-    virtual bool initialize(cocos2d::Sprite* sprite, std::unordered_map<std::string, std::string> attributes);
+    virtual bool initialize(cocos2d::Node* sprite, std::unordered_map<std::string, std::string> attributes);
     
-    virtual cocos2d::Sprite* getSprite();
+    virtual cocos2d::Node* getSprite();
     
     virtual void setAttributes(std::unordered_map<std::string, std::string> attributes);
     
     virtual std::unordered_map<std::string, std::string> getAttributes();
     
-    CC_SYNTHESIZE(std::string, transitionToChild, TransitionToChild);
+    CC_SYNTHESIZE(std::string, posX, PosX);
     
-    CC_SYNTHESIZE(std::string, transitionToParent, TransitionToParent);
+    CC_SYNTHESIZE(std::string, posY, PosY);
     
     CC_SYNTHESIZE(std::string, nextScene, NextScene);
-    
-    CC_SYNTHESIZE(std::string, clickable, Clickable);
+        
+    CC_SYNTHESIZE(std::string, interAct, InterAct);
     
     CC_SYNTHESIZE(std::string, fileName, FileName);
-    
-    CC_SYNTHESIZE(std::string, canSpeak, CanSpeak);
-    
+        
     CC_SYNTHESIZE(std::string, defaultAnimationName, DefaultAnimationName);
     
     CC_SYNTHESIZE(std::string, key, Key);
+    
+    CC_SYNTHESIZE(std::string, show, Show);
     
     CC_SYNTHESIZE(bool, vicinityToMainCharacter, VicinityToMainCharacter);
     
@@ -62,7 +62,7 @@ public:
     virtual SkeletonCharacter* getMainSkeleton();
     
 protected:
-    cocos2d::Sprite* sprite;
+    cocos2d::Node* sprite;
     std::unordered_map<std::string, std::string> attributes;
     SkeletonCharacter* mainSkeleton;
     
