@@ -10,17 +10,17 @@
     <Filter Include="src">
       <UniqueIdentifier>{bb6c862e-70e9-49d9-81b7-3829a6f50471}</UniqueIdentifier>
     </Filter>
-    <Filter Include="src\alphamon">
-      <UniqueIdentifier>{d0c5d3fa-efb1-4b40-9d71-6cc6b0d35436}</UniqueIdentifier>
+    <Filter Include="src\mini_games">
+      <UniqueIdentifier>{684cf30e-10bb-4c7a-af3a-2304608412a3}</UniqueIdentifier>
     </Filter>
     <Filter Include="src\puzzle">
-      <UniqueIdentifier>{b4f62760-71a5-4a83-a16f-cbfb399817e9}</UniqueIdentifier>
+      <UniqueIdentifier>{88a1689e-310d-4237-938f-5b34660149aa}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\alphamon">
+      <UniqueIdentifier>{229347fd-1878-4ff9-b779-9e91102998ed}</UniqueIdentifier>
     </Filter>
     <Filter Include="src\effects">
-      <UniqueIdentifier>{bb0feab0-c381-48b1-a900-4d269446bc51}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="src\mini_games">
-      <UniqueIdentifier>{f2b38aba-52b4-4c8b-8e9f-bb7b69039baf}</UniqueIdentifier>
+      <UniqueIdentifier>{93c67490-6fbc-4d6b-8873-2210d1107f0a}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -81,6 +81,9 @@
     <ClCompile Include="..\Classes\StandingState.cpp">
       <Filter>src</Filter>
     </ClCompile>
+    <ClCompile Include="..\Classes\StartMenuScene.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
     <ClCompile Include="..\Classes\State.cpp">
       <Filter>src</Filter>
     </ClCompile>
@@ -90,6 +93,24 @@
     <ClCompile Include="..\Classes\WalkingState.cpp">
       <Filter>src</Filter>
     </ClCompile>
+    <ClCompile Include="..\Classes\mini_games\CrossTheBridgeScene.cpp">
+      <Filter>src\mini_games</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\mini_games\EndlessRunner.cpp">
+      <Filter>src\mini_games</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\mini_games\PatchTheWallScene.cpp">
+      <Filter>src\mini_games</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\mini_games\SmashTheRockLevelScene.cpp">
+      <Filter>src\mini_games</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\mini_games\SmashTheRockScene.cpp">
+      <Filter>src\mini_games</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\mini_games\SpriteCreate.cpp">
+      <Filter>src\mini_games</Filter>
+    </ClCompile>
     <ClCompile Include="..\Classes\alphamon\Alphamon.cpp">
       <Filter>src\alphamon</Filter>
     </ClCompile>
@@ -98,6 +119,9 @@
     </ClCompile>
     <ClCompile Include="..\Classes\alphamon\SelectAlphamonScene.cpp">
       <Filter>src\alphamon</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\effects\FShake.cpp">
+      <Filter>src\effects</Filter>
     </ClCompile>
     <ClCompile Include="..\Classes\puzzle\Alphabet.cpp">
       <Filter>src\puzzle</Filter>
@@ -110,30 +134,6 @@
     </ClCompile>
     <ClCompile Include="..\Classes\puzzle\DuelScene.cpp">
       <Filter>src\puzzle</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\effects\FShake.cpp">
-      <Filter>src\effects</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\StartMenuScene.cpp">
-      <Filter>src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\mini_games\PatchTheWallScene.cpp">
-      <Filter>src\mini_games</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\mini_games\CrossTheBridgeScene.cpp">
-      <Filter>src\mini_games</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\mini_games\SmashTheRockLevelScene.cpp">
-      <Filter>src\mini_games</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\mini_games\SmashTheRockScene.cpp">
-      <Filter>src\mini_games</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\mini_games\EndlessRunner.cpp">
-      <Filter>src\mini_games</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\mini_games\SpriteCreate.cpp">
-      <Filter>src\mini_games</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -194,6 +194,9 @@
     <ClInclude Include="..\Classes\StandingState.h">
       <Filter>src</Filter>
     </ClInclude>
+    <ClInclude Include="..\Classes\StartMenuScene.h">
+      <Filter>src</Filter>
+    </ClInclude>
     <ClInclude Include="..\Classes\State.h">
       <Filter>src</Filter>
     </ClInclude>
@@ -203,6 +206,24 @@
     <ClInclude Include="..\Classes\WalkingState.h">
       <Filter>src</Filter>
     </ClInclude>
+    <ClInclude Include="..\Classes\mini_games\CrossTheBridgeScene.h">
+      <Filter>src\mini_games</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\mini_games\EndlessRunner.h">
+      <Filter>src\mini_games</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\mini_games\PatchTheWallScene.h">
+      <Filter>src\mini_games</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\mini_games\SmashTheRockLevelScene.h">
+      <Filter>src\mini_games</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\mini_games\SmashTheRockScene.h">
+      <Filter>src\mini_games</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\mini_games\SpriteCreate.h">
+      <Filter>src\mini_games</Filter>
+    </ClInclude>
     <ClInclude Include="..\Classes\alphamon\Alphamon.h">
       <Filter>src\alphamon</Filter>
     </ClInclude>
@@ -211,6 +232,9 @@
     </ClInclude>
     <ClInclude Include="..\Classes\alphamon\SelectAlphamonScene.h">
       <Filter>src\alphamon</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\effects\FShake.h">
+      <Filter>src\effects</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\puzzle\Alphabet.h">
       <Filter>src\puzzle</Filter>
@@ -223,30 +247,6 @@
     </ClInclude>
     <ClInclude Include="..\Classes\puzzle\DuelScene.h">
       <Filter>src\puzzle</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\effects\FShake.h">
-      <Filter>src\effects</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\StartMenuScene.h">
-      <Filter>src</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\mini_games\PatchTheWallScene.h">
-      <Filter>src\mini_games</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\mini_games\CrossTheBridgeScene.h">
-      <Filter>src\mini_games</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\mini_games\SmashTheRockLevelScene.h">
-      <Filter>src\mini_games</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\mini_games\SmashTheRockScene.h">
-      <Filter>src\mini_games</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\mini_games\EndlessRunner.h">
-      <Filter>src\mini_games</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\mini_games\SpriteCreate.h">
-      <Filter>src\mini_games</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
