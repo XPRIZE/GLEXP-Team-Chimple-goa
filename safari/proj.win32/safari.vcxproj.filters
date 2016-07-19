@@ -129,6 +129,12 @@
     <ClCompile Include="..\Classes\mini_games\SmashTheRockScene.cpp">
       <Filter>src\mini_games</Filter>
     </ClCompile>
+    <ClCompile Include="..\Classes\mini_games\EndlessRunner.cpp">
+      <Filter>src\mini_games</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\mini_games\SpriteCreate.cpp">
+      <Filter>src\mini_games</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -234,6 +240,12 @@
       <Filter>src\mini_games</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\mini_games\SmashTheRockScene.h">
+      <Filter>src\mini_games</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\mini_games\EndlessRunner.h">
+      <Filter>src\mini_games</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\mini_games\SpriteCreate.h">
       <Filter>src\mini_games</Filter>
     </ClInclude>
   </ItemGroup>
