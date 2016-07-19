@@ -41,7 +41,8 @@ LOCAL_SRC_FILES := hellocpp/main.cpp \
 					../../Classes/StateMachine.cpp \
 					../../Classes/WalkingState.cpp \
 					../../Classes/mini_games/PatchTheWallScene.cpp \
-
+					../../Classes/mini_games/EndlessRunner.cpp \
+					../../Classes/mini_games/SpriteCreate.cpp \
 					../../Classes/mini_games/SmashTheRockScene.cpp \
 					../../Classes/mini_games/SmashTheRockLevelScene.cpp \
 					../../Classes/mini_games/CrossTheBridgeScene.cpp \
