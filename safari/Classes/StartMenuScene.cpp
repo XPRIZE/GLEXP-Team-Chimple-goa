@@ -74,7 +74,7 @@ void StartMenu::startScene(std::string gameName, std::string firstParam, std::st
     } else if(gameName == DUEL_SCENE) {
         Director::getInstance()->replaceScene(DuelScene::createScene(firstParam.at(0), secondParam.at(0)));
     } else if(gameName == CAMP) {
-        Director::getInstance()->replaceScene(HelloWorld::createScene("camp","",""));
+        Director::getInstance()->replaceScene(HelloWorld::createScene("camp"));
     } else if(gameName == PATCH_THE_WALL) {
         Director::getInstance()->replaceScene(PatchTheWall::createScene());
     } else if(gameName == CROSS_THE_BRIDGE) {

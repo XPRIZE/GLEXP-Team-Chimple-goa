@@ -6,13 +6,13 @@
 
 USING_NS_CC;
 
-Scene* HelloWorld::createScene(const std::string& sceneName, const std::string& skeletonXPos, const std::string& skeletonYPos)
+Scene* HelloWorld::createScene(const std::string& island)
 {
     // 'scene' is an autorelease object
     auto scene = Scene::createWithPhysics();
     
     // 'layer' is an autorelease object
-    auto layer = HelloWorld::create(sceneName, skeletonXPos, skeletonYPos);
+    auto layer = HelloWorld::create(island);
     
     // add layer as a child to scene
     scene->addChild(layer);
@@ -23,10 +23,10 @@ Scene* HelloWorld::createScene(const std::string& sceneName, const std::string& 
     return scene;
 }
 
-HelloWorld* HelloWorld::create(const std::string& sceneName, const std::string& skeletonXPos, const std::string& skeletonYPos)
+HelloWorld* HelloWorld::create(const std::string& island)
 {
     HelloWorld* helloWorldLayer = new (std::nothrow) HelloWorld();
-    if(helloWorldLayer && helloWorldLayer->init(sceneName, skeletonXPos, skeletonYPos)) {
+    if(helloWorldLayer && helloWorldLayer->init(island)) {
         helloWorldLayer->autorelease();
         return helloWorldLayer;
     }
@@ -56,15 +56,14 @@ currentTouchPoint(0,0),
 mainLayer(nullptr),
 backgroundLayer(nullptr),
 foregroundLayer(nullptr),
-baseDir(""),
-dialogFile(""),
 physicsFile(""),
 mainCharacterFile(""),
 initialMainSkeletonX(""),
 initialMainSkeletonY(""),
 sceneSize(0,0),
 island(""),
-sceneName("")
+sceneName(""),
+alphamonNodesCount(0)
 {
 }
 
@@ -72,72 +71,56 @@ HelloWorld::~HelloWorld() {
 }
 
 //TODO
-void HelloWorld::createRPGGame(const std::string& skeletonXPos, const std::string& skeletonYPos) {
-    //load scene statically for now, later load externally either using XML or JSON
+void HelloWorld::initializeSafari() {
+    
+    this->querySceneToLoadInIsland();
+    
     this->loadGameScene();
     
-    //create Main Game Character
-    CCLOG("this->getMainCharacterFile() %s", this->getMainCharacterFile().c_str());
-    if(!this->getMainCharacterFile().empty()) {
-        this->addMainCharacterToScene(this->getMainCharacterFile());
-        if(!skeletonXPos.empty() && !skeletonYPos.empty()) {
-            this->updatePositionForMainCharacter(skeletonXPos, skeletonYPos);
-        }
-        
-        this->initializeStateMachine();
-    }    
+    this->addMainCharacterToScene(this->getMainCharacterFile());
+    
+    this->updatePositionForMainCharacter();
+    
+    this->initializeStateMachine();
 }
 
-void HelloWorld::updatePositionForMainCharacter(const std::string &xPos, const std::string &yPos) {
-    if(!xPos.empty() && !yPos.empty()) {
-        
-        float fxPos = String::create(xPos)->floatValue();
-        float fyPos = String::create(yPos)->floatValue();
-        Vec2 origin = Director::getInstance()->getVisibleOrigin();
-        
-        this->skeletonCharacter->getSkeletonNode()->setPosition(Vec2(origin.x + fxPos, origin.y + fyPos));
-    }
+void HelloWorld::updatePositionForMainCharacter() {
+    auto visibleSize = Director::getInstance()->getVisibleSize();
+    Vec2 origin = Director::getInstance()->getVisibleOrigin();
+
+    
+    float xPos = this->getInitialMainSkeletonX().empty() ?  origin.x + visibleSize.width/2 : String::create(this->getInitialMainSkeletonX())->floatValue();
+    
+    float yPos = this->getInitialMainSkeletonY().empty() ?  origin.y + visibleSize.height/2 : String::create(this->getInitialMainSkeletonY())->floatValue();
+
+    
+    this->skeletonCharacter->getSkeletonNode()->setPosition(Vec2(xPos, yPos));
 }
 
 void HelloWorld::loadGameScene() {
-    std::string mainSceneName = this->getBaseDir() + "_MainScene.csb";
+    std::string mainSceneName = this->getSceneName() + "_MainScene.csb";
+    
     Node *rootNode = CSLoader::createNode(mainSceneName);
-    
-    //set up common database file
-    this->setDialogFile(GLOBAL_DB_NAME);
-    
-    cocostudio::ComExtensionData* rootData = (cocostudio::ComExtensionData*)rootNode->getComponent("ComExtensionData");
-    if(rootData != NULL && !rootData->getCustomProperty().empty())
-    {
-        std::unordered_map<std::string, std::string> sceneAttributes = RPGConfig::parseUserData(rootData->getCustomProperty());
-        std::unordered_map<std::string,std::string>::const_iterator it = sceneAttributes.find(DIALOG_FILE);
-        if ( it != sceneAttributes.end() ) {
-            this->setDialogFile(it->second);
-        }
-
-        it = sceneAttributes.find(PHYSICS_FILE);
-        if ( it != sceneAttributes.end() ) {
-            this->setPhysicsFile(it->second);
-        }
-        
-        it = sceneAttributes.find(MAIN_CHARACTER_FILE);
-        if ( it != sceneAttributes.end() ) {
-            this->setMainCharacterFile(it->second);
-        }
-    }
-    
     this->setSceneSize(rootNode->getContentSize());
     this->addChild(rootNode);
-    this->parseScene(rootNode);
+    
+    this->setPhysicsFile(this->getSceneName()+".plist");
+    
+    this->setMainCharacterFile(MAIN_CHARACTER_FILE);
+
+    this->setReferencesToGameLayers(rootNode);
+    
     this->initGestureLayer();
-    this->processMainLayerChildrenForCustomEvents();
-    this->addExternalCharacters(rootNode);
+    
+    this->processMainLayerNonAlphamonChildrenForCustomEvents();
+    
     this->calculateAlphamonNodesInScene(rootNode);
+    
     this->enablePhysicsBoundaries(rootNode);
 }
 
 
-void HelloWorld::processMainLayerChildrenForCustomEvents() {
+void HelloWorld::processMainLayerNonAlphamonChildrenForCustomEvents() {
     assert(this->mainLayer != NULL);
     //iterate thru all children
     auto children = this->mainLayer->getChildren();
@@ -151,13 +134,28 @@ void HelloWorld::processMainLayerChildrenForCustomEvents() {
 void HelloWorld::processNodeWithCustomAttributes(Node* node, Node* parentNode) {
     cocostudio::ComExtensionData* data = (cocostudio::ComExtensionData*)node->getComponent("ComExtensionData");
     if(data != NULL && !data->getCustomProperty().empty()) {
+        
         CCLOG("found user data for child %s", node->getName().c_str());
         
         std::regex pattern("\\b(alphamon)([^ ]*)");
         
         if(!regex_match(node->getName(), pattern)) {
-            std::unordered_map<std::string, std::string> attributes = RPGConfig::parseUserData(data->getCustomProperty());
-            this->createRPGSprite(node, attributes, parentNode);
+            //external skeleton (humans)
+            if(dynamic_cast<cocostudio::timeline::SkeletonNode *>(node)) {
+                node->removeFromParent();
+                
+                std::unordered_map<std::string, std::string> attributes = RPGConfig::parseUserData(data->getCustomProperty());
+                
+                ExternalSkeletonCharacter* externalSkeletonCharacter = ExternalSkeletonCharacter::create(dynamic_cast<cocostudio::timeline::SkeletonNode *>(node), attributes);
+                
+                this->mainLayer->addChild(externalSkeletonCharacter);
+                
+            } else {
+                
+                std::unordered_map<std::string, std::string> attributes = RPGConfig::parseUserData(data->getCustomProperty());
+                this->createRPGSprite(node, attributes, parentNode);
+                
+            }
         }
     }
 }
@@ -168,7 +166,7 @@ void HelloWorld::createRPGSprite(Node* node, std::unordered_map<std::string, std
     parentNode->addChild(rpgSprite);
 }
 
-void HelloWorld::parseScene(cocos2d::Node *rootNode) {
+void HelloWorld::setReferencesToGameLayers(cocos2d::Node *rootNode) {
     //iterate thru all children
     auto children = rootNode->getChildren();
     
@@ -237,31 +235,8 @@ void HelloWorld::createAlphaMonSprite(Node* node, std::unordered_map<std::string
     parentNode->addChild(alphaMonNode);
 }
 
-
-void HelloWorld::addExternalCharacters(cocos2d::Node *rootNode) {
-    auto children = rootNode->getChildren();
-    
-    for (std::vector<Node*>::iterator it = children.begin() ; it != children.end(); ++it) {
-        cocos2d::Node* node = *it;
-        //based on custom data create layers
-        cocostudio::ComExtensionData* data = (cocostudio::ComExtensionData*)node->getComponent("ComExtensionData");
-        if(data != NULL && dynamic_cast<cocostudio::timeline::SkeletonNode *>(node)) {
-            //remove node from parent
-            //create external skeleton character
-            node->removeFromParent();
-            std::unordered_map<std::string, std::string> attributes = RPGConfig::parseUserData(data->getCustomProperty());
-            
-            ExternalSkeletonCharacter* externalSkeletonCharacter = ExternalSkeletonCharacter::create(dynamic_cast<cocostudio::timeline::SkeletonNode *>(node), attributes);
-
-            //check for memory leak ----->>>>
-            this->mainLayer->addChild(externalSkeletonCharacter);
-        }
-    }
-}
-
 void HelloWorld::enablePhysicsBoundaries(Node* rootNode) {
-    PhysicsShapeCache::getInstance()->addShapesWithFile(this->getBaseDir()+"/"+this->getPhysicsFile());
-    //std::regex pattern(".*(_[[:d:]?[:d:]?])+");
+    PhysicsShapeCache::getInstance()->addShapesWithFile(this->getSceneName()+"/"+this->getPhysicsFile());
     std::regex pattern(".*(_[[:d:]+]+)+");
     for (auto child : rootNode->getChildren()) {
         PhysicsShapeCache::getInstance()->setBodyOnSprite(child->getName(), (Sprite *)child);
@@ -305,6 +280,7 @@ void HelloWorld::addMainCharacterToScene(const std::string& filename) {
     //create Main Game Character
     this->skeletonCharacter = SkeletonCharacter::create(filename);
     this->mainLayer->addChild(this->skeletonCharacter);
+    //initial category bit mask
     this->skeletonCharacter->getSkeletonNode()->getPhysicsBody()->setCategoryBitmask(this->mainCharacterCategoryBitMask);
 
     auto followAction = Follow::create(this->skeletonCharacter->getSkeletonNode(), Rect(0,0,this->getSceneSize().width, this->getSceneSize().height));
@@ -312,13 +288,7 @@ void HelloWorld::addMainCharacterToScene(const std::string& filename) {
     
     this->showTouchSignNode = Sprite::create("touchPointer.png");
     this->showTouchSignNode->setVisible(false);
-    this->mainLayer->addChild(this->showTouchSignNode);
-    
-//    auto hero = SkeletonCharacter::create("hero_skeleton.csb");
-//    hero->setPosition(400,400);
-//    this->mainLayer->addChild(hero);
-    
-    
+    this->mainLayer->addChild(this->showTouchSignNode);    
 }
 
 void HelloWorld::initGestureLayer() {
@@ -328,7 +298,7 @@ void HelloWorld::initGestureLayer() {
 
 
 // on "init" you need to initialize your instance
-bool HelloWorld::init(const std::string& sceneName, const std::string& skeletonXPos, const std::string& skeletonYPos)
+bool HelloWorld::init(const std::string& island)
 {
     //////////////////////////////
     // 1. super init first
@@ -337,37 +307,44 @@ bool HelloWorld::init(const std::string& sceneName, const std::string& skeletonX
         return false;
     }
     
-    
-    //set up current Base Dir to load resources from
-    this->setBaseDir(sceneName);
+    this->setIsland(island);
 
-    this->setIsland("camp");
-    this->setSceneName(sceneName);
+    //default sceneName should be the same as island and default search path
+    this->setSceneName(island);
+    FileUtils::getInstance()->addSearchPath("res/" + this->getIsland());
     
-    FileUtils::getInstance()->addSearchPath("res/" + this->getBaseDir());
+    this->loadSqlite3FileForScene();
     
-    this->createRPGGame(skeletonXPos, skeletonYPos);
+    this->initializeSafari();
     
     this->registerPhysicsEventContactLister();
     
-    //load specific sqlite3 file to bind all speakers with events
+    this->registerMessageSenderAndReceiver();
     
-    if(!this->getDialogFile().empty()) {
-        this->loadSqlite3FileForScene();
+    if(this->getAlphamonNodesCount() != 0) {
+        this->schedule(CC_SCHEDULE_SELECTOR(HelloWorld::createAlphaMons), 5.0f);
     }
     
-    this->registerMessageSenderAndReceiver();
-        
-    this->schedule(CC_SCHEDULE_SELECTOR(HelloWorld::createAlphaMons), 5.0f);
     this->scheduleUpdate();
     
     
     return true;
 }
 
-void HelloWorld::loadSqlite3FileForScene() {
+void HelloWorld::querySceneToLoadInIsland() {
+    SkeletonPosition* skeletonPosition = this->sqlite3Helper->findLastVisitedSceneInIsland(this->getIsland().c_str());
     
-    this->sqlite3Helper = Sqlite3Helper::getInstance("res/"+this->getDialogFile(), this->getDialogFile());
+    if(skeletonPosition != nullptr) {
+        this->setSceneName(skeletonPosition->getSceneName());
+        this->setInitialMainSkeletonX(skeletonPosition->getXPosition());
+        this->setInitialMainSkeletonY(skeletonPosition->getYPosition());
+        FileUtils::getInstance()->addSearchPath("res/" + this->getSceneName());
+    }
+}
+
+void HelloWorld::loadSqlite3FileForScene() {
+    String* connectionURL = String::createWithFormat("res/%s", GLOBAL_DB_NAME);
+    this->sqlite3Helper = Sqlite3Helper::getInstance(connectionURL->getCString());
 }
 
 void HelloWorld::registerMessageSenderAndReceiver() {
@@ -396,11 +373,11 @@ void HelloWorld::registerMessageSenderAndReceiver() {
     
     auto cleanUpResourcesEvent = [=] (EventCustom * event) {
         
-        //update location in database
-        const char* island = this->getIsland().c_str();
-        const char* sceneName = this->getSceneName().c_str();
-        
-        this->sqlite3Helper->recordMainCharacterPositionInScene(island, sceneName, this->skeletonCharacter->getSkeletonNode()->getPosition().x, this->skeletonCharacter->getSkeletonNode()->getPosition().y);
+//        //update location in database
+//        const char* island = this->getIsland().c_str();
+//        const char* sceneName = this->getSceneName().c_str();
+//        
+//        this->sqlite3Helper->recordMainCharacterPositionInScene(island, sceneName, this->skeletonCharacter->getSkeletonNode()->getPosition().x, this->skeletonCharacter->getSkeletonNode()->getPosition().y);
         
         EVENT_DISPATCHER->removeCustomEventListeners("MAIN_CHARACTER_VICINITY_CHECK_NOTIFICATION");
         EVENT_DISPATCHER->removeCustomEventListeners("SPEECH_MESSAGE_ON_TAP_NOTIFICATION");
@@ -544,9 +521,8 @@ void HelloWorld::processAnimationMessage(std::vector<MessageContent*>animationMe
             {
                 timeline->setLastFrameCallFunc([=]() {
                     timeline->clearLastFrameCallFunc();
-                    CCLOG("ANIMATION FINISHED PLAYING do we have next %s", animationNode->getNextScene().c_str());
                     
-                    if(!content->getCondition().empty() && content->getConditionSatisfied() == 1)
+                    if(content != NULL && !content->getCondition().empty() && content->getConditionSatisfied() == 1)
                     {
                         std::string nextScene = animationNode->getNextScene();
                         std::string posX = animationNode->getPosX();
@@ -554,9 +530,12 @@ void HelloWorld::processAnimationMessage(std::vector<MessageContent*>animationMe
                         
                         if(!nextScene.empty() && !posX.empty() && !posY.empty())
                         {
+                            this->sqlite3Helper->recordMainCharacterPositionInScene(this->getIsland().c_str(), nextScene.c_str(), String::create(posX)->floatValue(), String::create(posY)->floatValue());
+                            
                             EVENT_DISPATCHER->dispatchCustomEvent (RPGConfig::DISPATCH_CLEANUP_AND_SCENE_TRANSITION_NOTIFICATION);
                             
-                            Director::getInstance()->replaceScene(TransitionFade::create(1, HelloWorld::createScene(nextScene, posX, posY), cocos2d::Color3B::WHITE));
+                            
+                            Director::getInstance()->replaceScene(TransitionFade::create(1, HelloWorld::createScene(this->getIsland()), cocos2d::Color3B::WHITE));
                             
                         }
                     }
@@ -574,7 +553,6 @@ void HelloWorld::processAnimationMessage(std::vector<MessageContent*>animationMe
                 }
             }
         }
-        delete content;
     }
 }
 
@@ -1368,13 +1346,12 @@ void HelloWorld::onEnterTransitionDidFinish() {
 }
 
 void HelloWorld::createAlphaMons(float dt) {
-    int randomNumber = 1 + ( std::rand() % ( this->getAlphamonNodesCount()) );
-    std::string alphamonNodeName = StringUtils::format("%s_%d", "alphamon", randomNumber);
-    
-    //Generate random char
-    const char* const a_to_z = "BCDEFGHIJKLMNOPQRSTUVWXYZ" ;
-    int randomChar = rand() % 24;
-    char generatedChar = a_to_z[randomChar];
-    this->addAlphaMonsters(generatedChar, alphamonNodeName);
-
+        int randomNumber = 1 + ( std::rand() % ( this->getAlphamonNodesCount()) );
+        std::string alphamonNodeName = StringUtils::format("%s_%d", "alphamon", randomNumber);
+        
+        //Generate random char
+        const char* const a_to_z = "BCDEFGHIJKLMNOPQRSTUVWXYZ" ;
+        int randomChar = rand() % 24;
+        char generatedChar = a_to_z[randomChar];
+        this->addAlphaMonsters(generatedChar, alphamonNodeName);
 }

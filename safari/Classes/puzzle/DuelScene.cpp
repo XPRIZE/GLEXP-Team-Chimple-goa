@@ -94,9 +94,10 @@ bool DuelScene::init(char myMonChar, char otherMonChar)
 
     _myMon = Alphamon::createWithAlphabet(myMonChar);
     auto leftStand = background->getChildByName(LEFT_STAND_NAME);
-    _myMon->setPosition(leftStand->getPosition() + Vec2(0, 250));
+    _myMon->setPosition(leftStand->getPosition() + Vec2(0, 0));
     addChild(_myMon);
     _myMon->setHealth(100);
+    _myMon->setScale(0.7);
     _eventDispatcher->addCustomEventListener("alphabet_selected", CC_CALLBACK_1(DuelScene::onAlphabetSelected, this));
     _eventDispatcher->addCustomEventListener("alphabet_unselected", CC_CALLBACK_1(DuelScene::onAlphabetUnselected, this));
     
@@ -104,7 +105,8 @@ bool DuelScene::init(char myMonChar, char otherMonChar)
     auto rightStand = background->getChildByName(RIGHT_STAND_NAME);
     rightStand->setPositionX(rightStand->getPositionX() + visibleSize.width - 2560.0);
     addChild(_otherMon);
-    _otherMon->setPosition(rightStand->getPosition() + Vec2(0, 250));
+    _otherMon->setScale(0.7);
+    _otherMon->setPosition(rightStand->getPosition() + Vec2(0, 0));
     _otherMon->setHealth(100);
 //    auto lg = LayerGradient::create(Color4B(0.0, 0.0, 0.0, 128.0), Color4B(0.0, 0.0, 0.0, 0.0), Vec2(-1, 0));
 //    lg->changeWidthAndHeight(1280.0, 900.0);
