@@ -64,6 +64,13 @@ public:
     virtual bool checkVicinityToMainSkeleton(SkeletonCharacter* skeletonCharacter);
     
     virtual SkeletonCharacter* getMainSkeleton();
+
+    
+    virtual bool onTouchBegan(cocos2d::Touch * touch, cocos2d::Event* event);
+    
+    virtual void touchEnded(cocos2d::Touch* touch, cocos2d::Event* event);
+    
+
     
 protected:
     cocos2d::Node* sprite;
