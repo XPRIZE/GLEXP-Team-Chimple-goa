@@ -146,8 +146,8 @@ void AlphamonSprite::onAlphabetSelected(cocos2d::EventCustom *event) {
         s.erase(i, removeStr.length());
     }
     
-    
     this->isSelectedForBattle = true;
+    this->unschedule(CC_SCHEDULE_SELECTOR(AlphamonSprite::destoryAlphaMon));
     char* buf = static_cast<char*>(event->getUserData());
     if(alphabet == buf[0]) {
         EVENT_DISPATCHER->dispatchCustomEvent(RPGConfig::SPEECH_MESSAGE_ON_TAP_NOTIFICATION, static_cast<void*>(&s));
@@ -157,7 +157,6 @@ void AlphamonSprite::onAlphabetSelected(cocos2d::EventCustom *event) {
 
 void AlphamonSprite::destoryAlphaMon(float dt) {
     if(!this->getChildren().empty() && !this->isSelectedForBattle) {
-        CCLOG("Destorying alphamon");
         EVENT_DISPATCHER->removeCustomEventListeners("alphamon_pressed");
         this->removeFromParentAndCleanup(true);
     }

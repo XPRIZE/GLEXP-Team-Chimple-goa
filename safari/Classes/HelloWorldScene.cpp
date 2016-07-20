@@ -994,10 +994,10 @@ void HelloWorld::scheduleContinuousRotationCall(float timeToStart) {
 
 
 void HelloWorld::applyImpulseOnSkeletonToJumpOnHoldOrDrag(Point position) {
-    CCLOG("%s", "applyImpulseOnSkeletonToJumpOnHoldOrDrag");
+//    CCLOG("%s", "applyImpulseOnSkeletonToJumpOnHoldOrDrag");
     Vec2 characterPosition = this->skeletonCharacter->getSkeletonNode()->getParent()->convertToWorldSpace(this->skeletonCharacter->getSkeletonNode()->getPosition());
-    CCLOG("width %f", this->skeletonCharacter->getSkeletonNode()->getBoundingBox().size.width);
-    CCLOG("height %f", this->skeletonCharacter->getSkeletonNode()->getBoundingBox().size.height);
+//    CCLOG("width %f", this->skeletonCharacter->getSkeletonNode()->getBoundingBox().size.width);
+//    CCLOG("height %f", this->skeletonCharacter->getSkeletonNode()->getBoundingBox().size.height);
     float angle = RPGConfig::calcuateAngleForJump(position, characterPosition, 0.0f, 0.0f);
     float value = RPGConfig::calcuateVelocityForJump(position, characterPosition, angle, 0.0f, 0.0f);
     float timeToStart = RPGConfig::calcuateTimeToStartJumpUpAnimation(value, angle, JUMP_UP_ENDING_ANIMATION_FRAMES);
@@ -1011,12 +1011,11 @@ void HelloWorld::applyImpulseOnSkeletonToJumpOnHoldOrDrag(Point position) {
 void HelloWorld::applyImpulseOnSkeletonToJumpOnTap(Point position) {
     CCLOG("%s", "applyImpulseOnSkeletonToJumpOnTap");
     Vec2 characterPosition = this->skeletonCharacter->getSkeletonNode()->getParent()->convertToWorldSpace(this->skeletonCharacter->getSkeletonNode()->getPosition());
-    CCLOG("width %f", this->skeletonCharacter->getSkeletonNode()->getBoundingBox().size.width);
-    CCLOG("height %f", this->skeletonCharacter->getSkeletonNode()->getBoundingBox().size.height);
+//    CCLOG("width %f", this->skeletonCharacter->getSkeletonNode()->getBoundingBox().size.width);
+//    CCLOG("height %f", this->skeletonCharacter->getSkeletonNode()->getBoundingBox().size.height);
 
     float angle = RPGConfig::calcuateAngleForJump(position, characterPosition, 0.0f, 0.0f);
     float value = RPGConfig::calcuateVelocityForJump(position, characterPosition, angle, 0.0f, 0.0f);
-    CCLOG("impluse on jump %f", value);
     float timeToStart = RPGConfig::calcuateTimeToStartJumpUpAnimation(value, angle, JUMP_UP_ENDING_ANIMATION_FRAMES);
     
     this->scheduleJumpUpEndCall(timeToStart);
@@ -1376,8 +1375,6 @@ void HelloWorld::createAlphaMons(float dt) {
     const char* const a_to_z = "BCDEFGHIJKLMNOPQRSTUVWXYZ" ;
     int randomChar = rand() % 24;
     char generatedChar = a_to_z[randomChar];
-    CCLOG("111 generatedChar %c", generatedChar);
-    CCLOG("alphamonNodeName %s", alphamonNodeName.c_str());
     this->addAlphaMonsters(generatedChar, alphamonNodeName);
 
 }
