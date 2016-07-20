@@ -8,7 +8,6 @@
 
 #include "TraceScene.h"
 #include "editor-support/cocostudio/CocoStudio.h"
-#include "cocostudio/CocoStudio.h"
 #include "SimpleAudioEngine.h"
 
 
@@ -58,6 +57,9 @@ bool Trace::init(char alphabet) {
     if (!Layer::init()){
         return false;
     }
+	std::string path = "Alpha Kombat/";//std::string(path)
+	CCSpriteFrameCache::sharedSpriteFrameCache()->addSpriteFramesWithFile("-Alphacombat.plist");
+	
 
 	CocosDenshion::SimpleAudioEngine::getInstance()->preloadEffect("bubble.mp3");
 	CCSpriteFrameCache::sharedSpriteFrameCache()->addSpriteFramesWithFile("restanimation.plist");
@@ -67,11 +69,16 @@ bool Trace::init(char alphabet) {
 	Size visibleSize = Director::getInstance()->getVisibleSize();
 	Vec2 origin = Director::getInstance()->getVisibleOrigin();
 
-	auto bg = Sprite::create("bg.png");
+	
+	auto _bg = CSLoader::createNode("Alphacombat.csb");
+	//_background->setPosition(Vec2(visibleSize.width / 2 + origin.x, visibleSize.height / 2 + origin.y));
+	addChild(_bg);
+
+	/*auto bg = Sprite::create("bg.png");
 	bg->setPosition(Vec2(visibleSize.width / 2 + origin.x, visibleSize.height / 2 + origin.y));
 
 	addChild(bg, 0);
-
+	*/
 	
 	Sprite* node = (Sprite *)CSLoader::createNode("mainanimation.csb");
 	node->setPosition(Vec2(700, 200));
@@ -85,7 +92,7 @@ bool Trace::init(char alphabet) {
 	character->setScale(0.65);
 	this->addChild(character, 4);*/
 
-	std::string path = "Alpha Kombat/";//std::string(path)
+	//std::string path = "Alpha Kombat/";//std::string(path)
     _background = CSLoader::createNode(std::string(path) + alphabet +  std::string(".csb"));
 	//_background->setPosition(Vec2(visibleSize.width / 2 + origin.x, visibleSize.height / 2 + origin.y));
     addChild(_background);
@@ -181,7 +188,7 @@ void Trace::onTouchEnded(cocos2d::Touch *touch, cocos2d::Event *event) {
            
 			CCLOG("Finished All");
 			if (level == 25) {
-				level = 0;
+				level = -1;
 			}
 			
 			level++;
@@ -195,7 +202,7 @@ void Trace::onTouchEnded(cocos2d::Touch *touch, cocos2d::Event *event) {
 			CocosDenshion::SimpleAudioEngine::getInstance()->playEffect("bubble.mp3");
 			timeline->play("run", false);
 
-			timeline->setAnimationEndCallFunc("run", CC_CALLBACK_0(Trace::transit, this, level));
+			timeline->setAnimationEndCallFunc("run", CC_CALLBACK_0(Trace::transit,this, level));
 			
 			//std::chrono::seconds duration(5);
 			//std::this_thread::sleep_for(duration);

@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
     <Filter Include="win32">
@@ -21,6 +21,9 @@
     </Filter>
     <Filter Include="src\effects">
       <UniqueIdentifier>{93c67490-6fbc-4d6b-8873-2210d1107f0a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\menu">
+      <UniqueIdentifier>{83536741-7d1e-4315-a8b2-11d0bfdf05c7}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -135,14 +138,28 @@
     <ClCompile Include="..\Classes\puzzle\DuelScene.cpp">
       <Filter>src\puzzle</Filter>
     </ClCompile>
+    <ClCompile Include="..\Classes\mini_games\Cannon_Ball_Listener.cpp">
+      <Filter>src\mini_games</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\mini_games\Cannon_Ball_Main.cpp">
+      <Filter>src\mini_games</Filter>
+    </ClCompile>
     <ClCompile Include="..\Classes\mini_games\TraceScene.cpp">
       <Filter>src\mini_games</Filter>
     </ClCompile>
+<<<<<<< HEAD
     <ClCompile Include="..\Classes\mini_games\AlphamonFeedLevelScene.cpp">
       <Filter>src\mini_games</Filter>
     </ClCompile>
     <ClCompile Include="..\Classes\mini_games\AlphamonFeedScene.cpp">
       <Filter>src\mini_games</Filter>
+=======
+    <ClCompile Include="..\Classes\menu\MenuContext.cpp">
+      <Filter>src\menu</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\AlphamonSprite.cpp">
+      <Filter>src</Filter>
+>>>>>>> refs/remotes/origin/master
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -257,6 +274,12 @@
     <ClInclude Include="..\Classes\puzzle\DuelScene.h">
       <Filter>src\puzzle</Filter>
     </ClInclude>
+    <ClInclude Include="..\Classes\mini_games\Cannon_Ball_Listener.h">
+      <Filter>src\mini_games</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\mini_games\Cannon_Ball_Main.h">
+      <Filter>src\mini_games</Filter>
+    </ClInclude>
     <ClInclude Include="..\Classes\mini_games\TraceScene.h">
       <Filter>src\mini_games</Filter>
     </ClInclude>
@@ -265,6 +288,12 @@
     </ClInclude>
     <ClInclude Include="..\Classes\mini_games\AlphamonFeedScene.h">
       <Filter>src\mini_games</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\menu\MenuContext.h">
+      <Filter>src\menu</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\AlphamonSprite.h">
+      <Filter>src</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
