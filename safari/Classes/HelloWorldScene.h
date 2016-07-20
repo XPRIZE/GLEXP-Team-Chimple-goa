@@ -120,6 +120,8 @@ private:
     
     void processCustomAnimationMessage(std::vector<MessageContent*>animationMessages);
     
+    void processChangeSceneMessages(std::vector<MessageContent*>changeSceneMessages);
+    
     void processMainLayerNonAlphamonChildrenForCustomEvents();
     
     void querySceneToLoadInIsland();
