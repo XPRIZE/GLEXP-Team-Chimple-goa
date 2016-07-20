@@ -25,15 +25,14 @@
 #include "SpeechBubbleView.hpp"
 #include "MessageContent.hpp"
 #include "RPGSprite.h"
+#include "AlphamonSprite.h"
+#include "Alphamon.h"
+
+
 
 
 class GestureLayer;
 class MessageContent;
-
-typedef std::vector<ExternalSkeletonCharacter*> external_skeletons;
-
-typedef std::vector<RPGSprite*> rpg_sprites;
-
 
 #define DIALOG_FILE "dialogFile"
 #define PHYSICS_FILE "physicsFile"
@@ -101,15 +100,14 @@ private:
     
     virtual void processAnimationMessage(std::vector<MessageContent*>animationMessages);
     
+    virtual void processCustomAnimationMessage(std::vector<MessageContent*>animationMessages);
+    
     virtual void processMainLayerChildrenForCustomEvents();
         
     cocos2d::Size sceneSize;
     
     //references to all external Skeletons
     
-    external_skeletons externalSkeletons;
-    
-    rpg_sprites rpgSprites;
     
     //reference to Layers
     cocos2d::Node* mainLayer;
@@ -164,7 +162,7 @@ public:
     void HandleSwipeLeft(cocos2d::Point position);
     void HandleSwipeRight(cocos2d::Point position);
     void HandleTouchedEnded(cocos2d::Point position);
-    bool isTapOnSpeakableOrClickableObject(cocos2d::Point position);
+    bool isTapOnInterActObject(cocos2d::Point position);
     void sendBubbleDestroySignal();
     
     void HandleJumpWithAnimation();
@@ -200,11 +198,23 @@ public:
     
     virtual void createRPGSprite(cocos2d::Node* node, std::unordered_map<std::string, std::string> attributes, cocos2d::Node* parentNode);
     
+    virtual void createAlphaMonSprite(cocos2d::Node* node, std::unordered_map<std::string, std::string> attributes, cocos2d::Node* parentNode, char alphabet);
+    
     virtual void processNodeWithCustomAttributes(Node* node, cocos2d::Node* parentNode);
     
     virtual bool checkTapOnRPGSprite(RPGSprite* rpgNode, cocos2d::Point position);
     
     virtual void hideTouchPointSign();
+    
+    virtual void transitionToDuelScene(char alphabet);
+    
+    virtual void addAlphaMonsters(char alphabet, std::string alphamonNodeName);
+    
+    virtual void createAlphaMons(float dt);
+        
+    virtual void calculateAlphamonNodesInScene(cocos2d::Node *rootNode);
+        
+    CC_SYNTHESIZE(int, alphamonNodesCount, AlphamonNodesCount);
     
     CC_SYNTHESIZE(std::string, sceneName, SceneName);
     
