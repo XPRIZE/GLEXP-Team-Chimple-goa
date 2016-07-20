@@ -157,6 +157,8 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClCompile Include="..\Classes\MessageContent.cpp" />
     <ClCompile Include="..\Classes\MessageReceiver.cpp" />
     <ClCompile Include="..\Classes\MessageSender.cpp" />
+    <ClCompile Include="..\Classes\mini_games\AlphamonFeedLevelScene.cpp" />
+    <ClCompile Include="..\Classes\mini_games\AlphamonFeedScene.cpp" />
     <ClCompile Include="..\Classes\mini_games\CrossTheBridgeScene.cpp" />
     <ClCompile Include="..\Classes\mini_games\EndlessRunner.cpp" />
     <ClCompile Include="..\Classes\mini_games\PatchTheWallScene.cpp" />
@@ -197,6 +199,8 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClInclude Include="..\Classes\MessageContent.hpp" />
     <ClInclude Include="..\Classes\MessageReceiver.hpp" />
     <ClInclude Include="..\Classes\MessageSender.hpp" />
+    <ClInclude Include="..\Classes\mini_games\AlphamonFeedLevelScene.h" />
+    <ClInclude Include="..\Classes\mini_games\AlphamonFeedScene.h" />
     <ClInclude Include="..\Classes\mini_games\CrossTheBridgeScene.h" />
     <ClInclude Include="..\Classes\mini_games\EndlessRunner.h" />
     <ClInclude Include="..\Classes\mini_games\PatchTheWallScene.h" />

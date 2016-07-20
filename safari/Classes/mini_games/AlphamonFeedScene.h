@@ -13,8 +13,6 @@ public:
 	cocos2d::Node * sad;
 	cocos2d::Node * angry;
 	cocos2d::Node * laughing;
-	std::map<std::string, std::int32_t> alphabetMap;
-//	static std::string mapString;
     static cocos2d::Scene* createScene(std::string str);
 	cocostudio::timeline::ActionTimeline* alpha_animation;
     virtual bool init();
@@ -29,8 +27,6 @@ public:
 	bool flage = true;
 	bool flage_reverse = false;
 	cocos2d::Vector < cocos2d::Node *> fruitReff;
-    // a selector callback
-    void menuCloseCallback(cocos2d::Ref* pSender);
 	bool isTouching;
 	float touchPosition;
 	virtual bool onTouchBegan(cocos2d::Touch *touch, cocos2d::Event * event);

@@ -263,7 +263,7 @@ bool AlphamonFeedLevelScene::init()
 	sprite->setName("Z");
 	this->addChild(sprite, 0);
 
-
+	
 	CCLOG("##########################in level scene#####################");
 	return true;
 }

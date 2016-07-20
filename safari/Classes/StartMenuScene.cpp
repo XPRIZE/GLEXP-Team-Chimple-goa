@@ -15,6 +15,7 @@
 #include "mini_games/SmashTheRockLevelScene.h"
 #include "mini_games/EndlessRunner.h"
 #include "mini_games/TraceScene.h"
+#include "mini_games/AlphamonFeedLevelScene.h"
 
 USING_NS_CC;
 
@@ -68,7 +69,11 @@ bool StartMenu::init() {
 		[&](Ref *sender) {
 		Director::getInstance()->replaceScene(Trace::createScene('a'));
 	});
-	auto menu = Menu::create(menuItem1, menuItem2, menuItem3, menuItem4, menuItem5, menuItem7, menuItem8, NULL);
+	auto menuItem9 = MenuItemLabel::create(Label::createWithTTF("Alphamon Feed", "fonts/arial.ttf", 100),
+		[&](Ref *sender) {
+		Director::getInstance()->replaceScene(AlphamonFeedLevelScene::createScene());
+	});
+	auto menu = Menu::create(menuItem1, menuItem2, menuItem3, menuItem4, menuItem5, menuItem7, menuItem8, menuItem9, NULL);
     menu->alignItemsVertically();
     
     addChild(menu);

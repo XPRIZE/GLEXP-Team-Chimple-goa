@@ -138,6 +138,12 @@
     <ClCompile Include="..\Classes\mini_games\TraceScene.cpp">
       <Filter>src\mini_games</Filter>
     </ClCompile>
+    <ClCompile Include="..\Classes\mini_games\AlphamonFeedLevelScene.cpp">
+      <Filter>src\mini_games</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\mini_games\AlphamonFeedScene.cpp">
+      <Filter>src\mini_games</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -252,6 +258,12 @@
       <Filter>src\puzzle</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\mini_games\TraceScene.h">
+      <Filter>src\mini_games</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\mini_games\AlphamonFeedLevelScene.h">
+      <Filter>src\mini_games</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\mini_games\AlphamonFeedScene.h">
       <Filter>src\mini_games</Filter>
     </ClInclude>
   </ItemGroup>
