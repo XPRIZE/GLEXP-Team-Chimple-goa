@@ -136,7 +136,7 @@ bool MainGame::init()
 
 	this->schedule(schedule_selector(MainGame::letterCome), 2);
 
-	CCSpriteFrameCache::sharedSpriteFrameCache()->addSpriteFramesWithFile("cannonball_mainassetPlist.plist");
+	CCSpriteFrameCache::sharedSpriteFrameCache()->addSpriteFramesWithFile("cannonball_mainasset.plist");
 
 	this->scheduleUpdate();
 
@@ -150,7 +150,7 @@ void MainGame::startGame()	// starting of game
 	Size visibleSize = Director::getInstance()->getVisibleSize();
 	Vec2 origin = Director::getInstance()->getVisibleOrigin();
 
-	SpriteFrameCache::getInstance()->addSpriteFramesWithFile("cannonball_mainassetPlist.plist");
+	SpriteFrameCache::getInstance()->addSpriteFramesWithFile("cannonball_mainasset.plist");
 
 	// main background
 	auto mySprite = Sprite::createWithSpriteFrameName("cannonball/cannonball_mainasset/background_back.png");
@@ -324,7 +324,7 @@ void MainGame::letterCome(float d)
 
 		std::string value1 = "";
 		value1 += letterName;
-		Label *myLabel = Label::createWithBMFont("baloo_bhai.fnt", value1);
+		Label *myLabel = Label::createWithBMFont("english/baloo_bhai.fnt", value1);
 		myLabel->setPosition(MainGame::lettertmpPosition[val].x, MainGame::lettertmpPosition[val].y);
 		myLabel->setScale(.10, .10);
 		this->addChild(myLabel);
@@ -403,7 +403,7 @@ void MainGame::cannonLetterCome()	//cannon letter will come which will be dragge
 			val.append(".png");
 			}
 			*/
-			Label *myLabel = Label::createWithBMFont("baloo_bhai.fnt", val);
+			Label *myLabel = Label::createWithBMFont("english/baloo_bhai.fnt", val);
 			myLabel->setPosition(position[i].x, position[i].y);
 			myLabel->setScale(.08, .08);
 			this->addChild(myLabel);
@@ -459,10 +459,10 @@ void MainGame::cannonLetterCome()	//cannon letter will come which will be dragge
 			*/
 			val += letterName;
 
-			Label *myLabel = Label::createWithBMFont("baloo_bhai.fnt", val);
+			Label *myLabel = Label::createWithBMFont("english/baloo_bhai.fnt", val);
 			myLabel->setPosition(remchar->xP, remchar->yP);
 			myLabel->setScale(.10, .10);
-			this->addChild(myLabel);
+			self->addChild(myLabel);
 			MainGame::cannonLetter_actualImage[remcharPos] = myLabel;
 
 			LabelClass *let = LabelClass::createSpt(letterName, remchar->xP, remchar->yP, letterName, self);
@@ -532,7 +532,7 @@ void MainGame::startFire(EventListenerClass* letterObject, Node *mycannon)
 		LabelClass *fire = LabelClass::createSpt(letterObject->id, letterObject->getPositionX() - (letterObject->getContentSize().width * 2), letterObject->getPositionY(), letterObject->id, self);
 		MainGame::bulletArray.push_back(fire);
 
-		Label *myLabel = Label::createWithBMFont("baloo_bhai.fnt", val);
+		Label *myLabel = Label::createWithBMFont("english/baloo_bhai.fnt", val);
 		myLabel->setPosition(letterObject->getPositionX() - (letterObject->getContentSize().width * 2), letterObject->getPositionY());
 		myLabel->setScale(.10, .10);
 		self->addChild(myLabel);

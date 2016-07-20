@@ -144,6 +144,7 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     </PreLinkEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="..\Classes\AlphamonSprite.cpp" />
     <ClCompile Include="..\Classes\alphamon\Alphamon.cpp" />
     <ClCompile Include="..\Classes\alphamon\HPMeter.cpp" />
     <ClCompile Include="..\Classes\alphamon\SelectAlphamonScene.cpp" />
@@ -154,6 +155,7 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClCompile Include="..\Classes\GestureLayer.cpp" />
     <ClCompile Include="..\Classes\HelloWorldScene.cpp" />
     <ClCompile Include="..\Classes\JumpingState.cpp" />
+    <ClCompile Include="..\Classes\menu\MenuContext.cpp" />
     <ClCompile Include="..\Classes\MessageContent.cpp" />
     <ClCompile Include="..\Classes\MessageReceiver.cpp" />
     <ClCompile Include="..\Classes\MessageSender.cpp" />
@@ -186,6 +188,7 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\Classes\AlphamonSprite.h" />
     <ClInclude Include="..\Classes\alphamon\Alphamon.h" />
     <ClInclude Include="..\Classes\alphamon\HPMeter.h" />
     <ClInclude Include="..\Classes\alphamon\SelectAlphamonScene.h" />
@@ -196,6 +199,7 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClInclude Include="..\Classes\GestureLayer.hpp" />
     <ClInclude Include="..\Classes\HelloWorldScene.h" />
     <ClInclude Include="..\Classes\JumpingState.h" />
+    <ClInclude Include="..\Classes\menu\MenuContext.h" />
     <ClInclude Include="..\Classes\MessageContent.hpp" />
     <ClInclude Include="..\Classes\MessageReceiver.hpp" />
     <ClInclude Include="..\Classes\MessageSender.hpp" />
