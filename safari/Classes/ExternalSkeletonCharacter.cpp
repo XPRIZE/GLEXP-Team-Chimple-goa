@@ -142,12 +142,6 @@ void ExternalSkeletonCharacter::setAttributes(std::unordered_map<std::string, st
     if ( it != this->attributes.end() ) {
         this->setFileName(it->second);
     }
-        
-//    it = this->attributes.find("key");
-//    if ( it != this->attributes.end() ) {
-//        this->setKey(it->second);
-//        this->setName(it->second);
-//    }
     
     it = this->attributes.find("animation");
     if ( it != this->attributes.end() ) {

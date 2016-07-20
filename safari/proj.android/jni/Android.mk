@@ -49,9 +49,12 @@ LOCAL_SRC_FILES := hellocpp/main.cpp \
 					../../Classes/mini_games/TraceScene.cpp \
 					../../Classes/mini_games/AlphamonFeedLevelScene.cpp \
 					../../Classes/mini_games/AlphamonFeedScene.cpp \
+					../../Classes/mini_games/Cannon_Ball_Listener.cpp \
+					../../Classes/mini_games/Cannon_Ball_Main.cpp \
 					../../Classes/menu/MenuContext.cpp \
                     ../../Classes/StartMenuScene.cpp \
-                	../../Classes/AlphamonSprite.cpp 
+                	../../Classes/AlphamonSprite.cpp \
+                	../../Classes/SkeletonPosition.cpp
                                         
 LOCAL_C_INCLUDES := $(LOCAL_PATH)/../../Classes
 LOCAL_C_INCLUDES += $(LOCAL_PATH)/../../../extensions
