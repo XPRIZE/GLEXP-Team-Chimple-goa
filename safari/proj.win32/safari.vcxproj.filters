@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
     <Filter Include="win32">
@@ -147,11 +147,19 @@
     <ClCompile Include="..\Classes\mini_games\TraceScene.cpp">
       <Filter>src\mini_games</Filter>
     </ClCompile>
+<<<<<<< HEAD
+    <ClCompile Include="..\Classes\mini_games\AlphamonFeedLevelScene.cpp">
+      <Filter>src\mini_games</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\mini_games\AlphamonFeedScene.cpp">
+      <Filter>src\mini_games</Filter>
+=======
     <ClCompile Include="..\Classes\menu\MenuContext.cpp">
       <Filter>src\menu</Filter>
     </ClCompile>
     <ClCompile Include="..\Classes\AlphamonSprite.cpp">
       <Filter>src</Filter>
+>>>>>>> refs/remotes/origin/master
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -273,6 +281,12 @@
       <Filter>src\mini_games</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\mini_games\TraceScene.h">
+      <Filter>src\mini_games</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\mini_games\AlphamonFeedLevelScene.h">
+      <Filter>src\mini_games</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\mini_games\AlphamonFeedScene.h">
       <Filter>src\mini_games</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\menu\MenuContext.h">
