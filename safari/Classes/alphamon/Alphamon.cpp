@@ -44,7 +44,7 @@ bool Alphamon::initWithAlphabet(char alphabet) {
     _alphabet = alphabet;
     _monster = CSLoader::createNode(std::string("english/")+alphabet+".csb");
     addChild(_monster);
-    _monster->setScale(0.6);
+//    _monster->setScale(0.6);
     
     _alphaNode = static_cast<Label*>(_monster->getChildByName("BitmapFontLabel_1"));
     if(!_alphaNode) {

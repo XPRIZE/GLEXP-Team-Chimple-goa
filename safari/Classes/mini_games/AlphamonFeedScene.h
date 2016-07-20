@@ -2,7 +2,7 @@
 #define __ALPHAMONFEED_SCENE_H__
 
 #include "cocos2d.h"
-#include "cocostudio/CocoStudio.h"
+#include "editor-support/cocostudio/CocoStudio.h"
 #include "ui/CocosGUI.h"
 
 class AlphamonFeed : public cocos2d::Layer

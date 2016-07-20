@@ -142,6 +142,10 @@
 		F3913E321D3F46BE001B3038 /* HPMeter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F3913E2D1D3F46BE001B3038 /* HPMeter.cpp */; };
 		F3913E331D3F46BE001B3038 /* SelectAlphamonScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F3913E2E1D3F46BE001B3038 /* SelectAlphamonScene.cpp */; };
 		F3913E341D3F46BE001B3038 /* SelectAlphamonScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F3913E2E1D3F46BE001B3038 /* SelectAlphamonScene.cpp */; };
+		F39610B11D3F8FDB00D8DD13 /* AlphamonFeedLevelScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F39610AF1D3F8FDB00D8DD13 /* AlphamonFeedLevelScene.cpp */; };
+		F39610B21D3F8FDB00D8DD13 /* AlphamonFeedScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F39610B01D3F8FDB00D8DD13 /* AlphamonFeedScene.cpp */; };
+		F39610B41D3F905A00D8DD13 /* AlphamonFeedLevelScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F39610AF1D3F8FDB00D8DD13 /* AlphamonFeedLevelScene.cpp */; };
+		F39610B51D3F905D00D8DD13 /* AlphamonFeedScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F39610B01D3F8FDB00D8DD13 /* AlphamonFeedScene.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -320,6 +324,10 @@
 		F3913E2C1D3F46BE001B3038 /* Alphamon.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Alphamon.cpp; sourceTree = "<group>"; };
 		F3913E2D1D3F46BE001B3038 /* HPMeter.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = HPMeter.cpp; sourceTree = "<group>"; };
 		F3913E2E1D3F46BE001B3038 /* SelectAlphamonScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SelectAlphamonScene.cpp; sourceTree = "<group>"; };
+		F39610AD1D3F8FDB00D8DD13 /* AlphamonFeedLevelScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AlphamonFeedLevelScene.h; sourceTree = "<group>"; };
+		F39610AE1D3F8FDB00D8DD13 /* AlphamonFeedScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AlphamonFeedScene.h; sourceTree = "<group>"; };
+		F39610AF1D3F8FDB00D8DD13 /* AlphamonFeedLevelScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AlphamonFeedLevelScene.cpp; sourceTree = "<group>"; };
+		F39610B01D3F8FDB00D8DD13 /* AlphamonFeedScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AlphamonFeedScene.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -574,6 +582,10 @@
 		F3913DE91D3F4639001B3038 /* mini_games */ = {
 			isa = PBXGroup;
 			children = (
+				F39610AD1D3F8FDB00D8DD13 /* AlphamonFeedLevelScene.h */,
+				F39610AE1D3F8FDB00D8DD13 /* AlphamonFeedScene.h */,
+				F39610AF1D3F8FDB00D8DD13 /* AlphamonFeedLevelScene.cpp */,
+				F39610B01D3F8FDB00D8DD13 /* AlphamonFeedScene.cpp */,
 				F3913E051D3F46B1001B3038 /* Cannon_Ball_Listener.h */,
 				F3913E061D3F46B1001B3038 /* Cannon_Ball_Main.h */,
 				F3913E071D3F46B1001B3038 /* CrossTheBridgeScene.h */,
@@ -787,11 +799,13 @@
 				F3913DC61D3F461A001B3038 /* HelloWorldScene.cpp in Sources */,
 				F3913E211D3F46B1001B3038 /* SmashTheRockLevelScene.cpp in Sources */,
 				F3913E2F1D3F46BE001B3038 /* Alphamon.cpp in Sources */,
+				F39610B21D3F8FDB00D8DD13 /* AlphamonFeedScene.cpp in Sources */,
 				376FEE801D3F66380037393F /* SkeletonPosition.cpp in Sources */,
 				F3913DCE1D3F461A001B3038 /* MessageSender.cpp in Sources */,
 				F3913DE41D3F461A001B3038 /* StateMachine.cpp in Sources */,
 				F3913E191D3F46B1001B3038 /* Cannon_Ball_Main.cpp in Sources */,
 				F3913E011D3F46A5001B3038 /* CharGenerator.cpp in Sources */,
+				F39610B11D3F8FDB00D8DD13 /* AlphamonFeedLevelScene.cpp in Sources */,
 				F3913DE21D3F461A001B3038 /* State.cpp in Sources */,
 				F3913E1F1D3F46B1001B3038 /* PatchTheWallScene.cpp in Sources */,
 				F3913DDE1D3F461A001B3038 /* StandingState.cpp in Sources */,
@@ -845,9 +859,11 @@
 				F3913E181D3F46B1001B3038 /* Cannon_Ball_Listener.cpp in Sources */,
 				F3913E321D3F46BE001B3038 /* HPMeter.cpp in Sources */,
 				F3913E301D3F46BE001B3038 /* Alphamon.cpp in Sources */,
+				F39610B51D3F905D00D8DD13 /* AlphamonFeedScene.cpp in Sources */,
 				F3913DF01D3F4694001B3038 /* MenuContext.cpp in Sources */,
 				F3913DE31D3F461A001B3038 /* State.cpp in Sources */,
 				F3913DE51D3F461A001B3038 /* StateMachine.cpp in Sources */,
+				F39610B41D3F905A00D8DD13 /* AlphamonFeedLevelScene.cpp in Sources */,
 				F3913DE71D3F461A001B3038 /* WalkingState.cpp in Sources */,
 				F3913DC91D3F461A001B3038 /* JumpingState.cpp in Sources */,
 				F3913DE11D3F461A001B3038 /* StartMenuScene.cpp in Sources */,
