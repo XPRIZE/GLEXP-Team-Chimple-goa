@@ -14,7 +14,7 @@
 #include "../alphamon/Alphamon.h"
 #include "../alphamon/SelectAlphamonScene.h"
 #include "../effects/FShake.h"
-#include "../menu/PointSystem.h"
+#include "../menu/MenuContext.h"
 #include "ui/CocosGUI.h"
 #include "editor-support/cocostudio/CocoStudio.h"
 
@@ -32,7 +32,8 @@ _turnNumber(0) {
 }
 
 DuelScene::~DuelScene() {
-    
+    _eventDispatcher->removeCustomEventListeners("alphabet_selected");
+    _eventDispatcher->removeCustomEventListeners("alphabet_unselected");    
 }
 
 Scene* DuelScene::createScene(char myMonChar, char otherMonChar)
@@ -122,6 +123,9 @@ bool DuelScene::init(char myMonChar, char otherMonChar)
 ////    mouthTimeline->gotoFrameAndPlay(0, true);
 //    mouthTimeline->play("eat", true);
     
+    _menuContext = MenuContext::create();
+    addChild(_menuContext);
+    
     startMyTurn();
     return true;
 }
@@ -173,9 +177,7 @@ void DuelScene::gameOver() {
 }
 
 void DuelScene::returnToPrevScene() {
-    stopAllActions();
-    _eventDispatcher->removeCustomEventListeners("alphabet_selected");
-    _eventDispatcher->removeCustomEventListeners("alphabet_unselected");
+//    stopAllActions();
     Director::getInstance()->replaceScene(SelectAlphamon::createScene());
 }
 
@@ -240,6 +242,7 @@ void DuelScene::onAlphabetSelected(EventCustom *event) {
     } else {
         _myMon->changePower(-_powerIncr);
     }
+    _menuContext->pickAlphabet(_myMon->getAlphabet(), buf[0], true);
 }
 
 void DuelScene::onAlphabetUnselected(EventCustom *event) {
@@ -250,4 +253,5 @@ void DuelScene::onAlphabetUnselected(EventCustom *event) {
     } else {
         _myMon->changePower(_powerIncr);
     }
+    _menuContext->pickAlphabet(_myMon->getAlphabet(), buf[0], false);
 }
