@@ -12,6 +12,7 @@
 #include "cocos2d.h"
 #include "../alphamon/Alphamon.h"
 #include "../alphamon/HPMeter.h"
+#include "../menu/MenuContext.h"
 #include "AlphabetGrid.h"
 
 class DuelScene : public cocos2d::Node
@@ -35,6 +36,7 @@ protected:
     AlphabetGrid *_grid;
     int _powerIncr;
     int _turnNumber;
+    MenuContext* _menuContext;
     
     // a selector callback
     void menuCloseCallback(cocos2d::Ref *pSender);

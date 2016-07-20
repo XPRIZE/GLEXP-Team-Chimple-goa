@@ -127,8 +127,8 @@
 		F378D0F71D39052100769FA5 /* CrossTheBridgeScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F378D0EE1D39050B00769FA5 /* CrossTheBridgeScene.cpp */; };
 		F378D0F81D39052400769FA5 /* SmashTheRockLevelScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F378D0F01D39050B00769FA5 /* SmashTheRockLevelScene.cpp */; };
 		F378D0F91D39052800769FA5 /* SmashTheRockScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F378D0F21D39050B00769FA5 /* SmashTheRockScene.cpp */; };
-		F3F33DFE1D3DCFA3007C17A8 /* PointSystem.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F3F33DFD1D3DCFA3007C17A8 /* PointSystem.cpp */; };
-		F3F33DFF1D3DCFA3007C17A8 /* PointSystem.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F3F33DFD1D3DCFA3007C17A8 /* PointSystem.cpp */; };
+		F3F33DFE1D3DCFA3007C17A8 /* MenuContext.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F3F33DFD1D3DCFA3007C17A8 /* MenuContext.cpp */; };
+		F3F33DFF1D3DCFA3007C17A8 /* MenuContext.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F3F33DFD1D3DCFA3007C17A8 /* MenuContext.cpp */; };
 		F3F33E061D3E0C03007C17A8 /* EndlessRunner.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F3F33E021D3E0C03007C17A8 /* EndlessRunner.cpp */; };
 		F3F33E071D3E0C03007C17A8 /* EndlessRunner.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F3F33E021D3E0C03007C17A8 /* EndlessRunner.cpp */; };
 		F3F33E081D3E0C03007C17A8 /* SpriteCreate.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F3F33E041D3E0C03007C17A8 /* SpriteCreate.cpp */; };
@@ -302,8 +302,8 @@
 		F378D0F11D39050B00769FA5 /* SmashTheRockLevelScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SmashTheRockLevelScene.h; path = mini_games/SmashTheRockLevelScene.h; sourceTree = "<group>"; };
 		F378D0F21D39050B00769FA5 /* SmashTheRockScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = SmashTheRockScene.cpp; path = mini_games/SmashTheRockScene.cpp; sourceTree = "<group>"; };
 		F378D0F31D39050B00769FA5 /* SmashTheRockScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SmashTheRockScene.h; path = mini_games/SmashTheRockScene.h; sourceTree = "<group>"; };
-		F3F33DFC1D3DCF90007C17A8 /* PointSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PointSystem.h; sourceTree = "<group>"; };
-		F3F33DFD1D3DCFA3007C17A8 /* PointSystem.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PointSystem.cpp; sourceTree = "<group>"; };
+		F3F33DFC1D3DCF90007C17A8 /* MenuContext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuContext.h; sourceTree = "<group>"; };
+		F3F33DFD1D3DCFA3007C17A8 /* MenuContext.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MenuContext.cpp; sourceTree = "<group>"; };
 		F3F33E021D3E0C03007C17A8 /* EndlessRunner.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = EndlessRunner.cpp; path = mini_games/EndlessRunner.cpp; sourceTree = "<group>"; };
 		F3F33E031D3E0C03007C17A8 /* EndlessRunner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EndlessRunner.h; path = mini_games/EndlessRunner.h; sourceTree = "<group>"; };
 		F3F33E041D3E0C03007C17A8 /* SpriteCreate.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = SpriteCreate.cpp; path = mini_games/SpriteCreate.cpp; sourceTree = "<group>"; };
@@ -613,8 +613,8 @@
 		F3F33DF81D3DCDAE007C17A8 /* menu */ = {
 			isa = PBXGroup;
 			children = (
-				F3F33DFC1D3DCF90007C17A8 /* PointSystem.h */,
-				F3F33DFD1D3DCFA3007C17A8 /* PointSystem.cpp */,
+				F3F33DFC1D3DCF90007C17A8 /* MenuContext.h */,
+				F3F33DFD1D3DCFA3007C17A8 /* MenuContext.cpp */,
 			);
 			path = menu;
 			sourceTree = "<group>";
@@ -773,7 +773,7 @@
 				F331ADC91D378EF000459E24 /* StartMenuScene.cpp in Sources */,
 				F3F33E0F1D3E1BA7007C17A8 /* TraceScene.cpp in Sources */,
 				F331AC6B1D36A7E200459E24 /* sqlite3.c in Sources */,
-				F3F33DFE1D3DCFA3007C17A8 /* PointSystem.cpp in Sources */,
+				F3F33DFE1D3DCFA3007C17A8 /* MenuContext.cpp in Sources */,
 				F331AC591D36A7E200459E24 /* MessageReceiver.cpp in Sources */,
 				F331AC5D1D36A7E200459E24 /* PhysicsShapeCache.cpp in Sources */,
 				503AE10117EB989F00D1A890 /* main.m in Sources */,
@@ -820,7 +820,7 @@
 				F331ADB41D36BCC300459E24 /* SelectAlphamonScene.cpp in Sources */,
 				F3F33E1C1D3E9251007C17A8 /* Cannon_Ball_Main.cpp in Sources */,
 				F331AC4A1D36A7E200459E24 /* AppDelegate.cpp in Sources */,
-				F3F33DFF1D3DCFA3007C17A8 /* PointSystem.cpp in Sources */,
+				F3F33DFF1D3DCFA3007C17A8 /* MenuContext.cpp in Sources */,
 				503AE10517EB98FF00D1A890 /* main.cpp in Sources */,
 				F331AC541D36A7E200459E24 /* HelloWorldScene.cpp in Sources */,
 				F331AC6A1D36A7E200459E24 /* SpeechBubbleView.cpp in Sources */,
