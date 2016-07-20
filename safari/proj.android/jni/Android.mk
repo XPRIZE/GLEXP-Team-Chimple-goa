@@ -49,6 +49,7 @@ LOCAL_SRC_FILES := hellocpp/main.cpp \
 					../../Classes/mini_games/TraceScene.cpp \
 					../../Classes/mini_games/AlphamonFeedLevelScene.cpp \
 					../../Classes/mini_games/AlphamonFeedScene.cpp \
+					../../Classes/menu/MenuContext.cpp \
                     ../../Classes/StartMenuScene.cpp \
                 	../../Classes/AlphamonSprite.cpp 
                                         

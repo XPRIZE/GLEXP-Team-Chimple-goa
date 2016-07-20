@@ -197,7 +197,7 @@ bool AlphamonFeed::onTouchBegan(cocos2d::Touch *touch,cocos2d::Event * event)
 	touchPosition = touch->getLocation().x;
 	cocos2d::Node * target = event->getCurrentTarget();
 	auto  location = target->convertToNodeSpace(touch->getLocation());
-	CCRect targetRectangle =  CCRectMake(target->getPositionX()-100, target->getPositionY()-25, target->getContentSize().width, target->getContentSize().height);
+	CCRect targetRectangle =  CCRectMake(target->getPositionX()-100, target->getPositionY(), target->getContentSize().width, target->getContentSize().height);
 	if(targetRectangle.containsPoint(touch->getLocation())){
 		touchPosition = touch->getLocation().x;
 		for (int i = 0; i < legAnimation.size(); i++) {
