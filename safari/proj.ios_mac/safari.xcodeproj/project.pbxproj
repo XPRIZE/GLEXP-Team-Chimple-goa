@@ -13,6 +13,8 @@
 		1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
 		288765A50DF7441C002DB57D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288765A40DF7441C002DB57D /* CoreGraphics.framework */; };
 		294D0D641D0D56D500F7F5D4 /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 294D0D631D0D56D500F7F5D4 /* CoreText.framework */; };
+		376FEE801D3F66380037393F /* SkeletonPosition.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 376FEE7F1D3F66380037393F /* SkeletonPosition.cpp */; };
+		376FEE811D3F66380037393F /* SkeletonPosition.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 376FEE7F1D3F66380037393F /* SkeletonPosition.cpp */; };
 		3EACC98F19EE6D4300EB3C5E /* res in Resources */ = {isa = PBXBuildFile; fileRef = 3EACC98E19EE6D4300EB3C5E /* res */; };
 		3EACC99019EE6D4300EB3C5E /* res in Resources */ = {isa = PBXBuildFile; fileRef = 3EACC98E19EE6D4300EB3C5E /* res */; };
 		503AE0F817EB97AB00D1A890 /* Icon.icns in Resources */ = {isa = PBXBuildFile; fileRef = 503AE0F617EB97AB00D1A890 /* Icon.icns */; };
@@ -188,6 +190,8 @@
 		1DF5F4DF0D08C38300B7A737 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		288765A40DF7441C002DB57D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		294D0D631D0D56D500F7F5D4 /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.3.sdk/System/Library/Frameworks/CoreText.framework; sourceTree = DEVELOPER_DIR; };
+		376FEE7D1D3F66280037393F /* SkeletonPosition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SkeletonPosition.h; sourceTree = "<group>"; };
+		376FEE7F1D3F66380037393F /* SkeletonPosition.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SkeletonPosition.cpp; sourceTree = "<group>"; };
 		3EACC98E19EE6D4300EB3C5E /* res */ = {isa = PBXFileReference; lastKnownFileType = folder; path = res; sourceTree = "<group>"; };
 		503AE0F617EB97AB00D1A890 /* Icon.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = Icon.icns; sourceTree = "<group>"; };
 		503AE0F717EB97AB00D1A890 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -449,57 +453,59 @@
 		46880B8319C43A87006E1F66 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				F3913DEC1D3F4679001B3038 /* menu */,
-				F3913DEB1D3F466C001B3038 /* effects */,
-				F3913DEA1D3F4659001B3038 /* puzzle */,
-				F3913DE91D3F4639001B3038 /* mini_games */,
 				F3913DE81D3F4624001B3038 /* alphamon */,
-				F3913D8C1D3F461A001B3038 /* AlphamonSprite.h */,
-				F3913D8D1D3F461A001B3038 /* AppDelegate.h */,
-				F3913D8E1D3F461A001B3038 /* ExternalSkeletonCharacter.h */,
-				F3913D8F1D3F461A001B3038 /* FallingState.h */,
-				F3913D901D3F461A001B3038 /* HelloWorldScene.h */,
-				F3913D911D3F461A001B3038 /* JumpingState.h */,
-				F3913D921D3F461A001B3038 /* PhysicsShapeCache.h */,
-				F3913D931D3F461A001B3038 /* RPGConfig.h */,
-				F3913D941D3F461A001B3038 /* RPGSprite.h */,
-				F3913D951D3F461A001B3038 /* RunningState.h */,
-				F3913D961D3F461A001B3038 /* SkeletonCharacter.h */,
-				F3913D971D3F461A001B3038 /* sqlite3.h */,
-				F3913D981D3F461A001B3038 /* StandingState.h */,
-				F3913D991D3F461A001B3038 /* StartMenuScene.h */,
-				F3913D9A1D3F461A001B3038 /* State.h */,
-				F3913D9B1D3F461A001B3038 /* StateMachine.h */,
-				F3913D9C1D3F461A001B3038 /* WalkingState.h */,
-				F3913D9D1D3F461A001B3038 /* sqlite3.c */,
-				F3913D9E1D3F461A001B3038 /* GestureLayer.hpp */,
-				F3913D9F1D3F461A001B3038 /* MessageContent.hpp */,
-				F3913DA01D3F461A001B3038 /* MessageReceiver.hpp */,
-				F3913DA11D3F461A001B3038 /* MessageSender.hpp */,
-				F3913DA21D3F461A001B3038 /* SpeechBubbleView.hpp */,
-				F3913DA31D3F461A001B3038 /* Sqlite3Helper.hpp */,
 				F3913DA41D3F461A001B3038 /* AlphamonSprite.cpp */,
+				F3913D8C1D3F461A001B3038 /* AlphamonSprite.h */,
 				F3913DA51D3F461A001B3038 /* AppDelegate.cpp */,
+				F3913D8D1D3F461A001B3038 /* AppDelegate.h */,
+				F3913DEB1D3F466C001B3038 /* effects */,
 				F3913DA61D3F461A001B3038 /* ExternalSkeletonCharacter.cpp */,
+				F3913D8E1D3F461A001B3038 /* ExternalSkeletonCharacter.h */,
 				F3913DA71D3F461A001B3038 /* FallingState.cpp */,
+				F3913D8F1D3F461A001B3038 /* FallingState.h */,
 				F3913DA81D3F461A001B3038 /* GestureLayer.cpp */,
+				F3913D9E1D3F461A001B3038 /* GestureLayer.hpp */,
 				F3913DA91D3F461A001B3038 /* HelloWorldScene.cpp */,
+				F3913D901D3F461A001B3038 /* HelloWorldScene.h */,
 				F3913DAA1D3F461A001B3038 /* JumpingState.cpp */,
+				F3913D911D3F461A001B3038 /* JumpingState.h */,
+				F3913DEC1D3F4679001B3038 /* menu */,
 				F3913DAB1D3F461A001B3038 /* MessageContent.cpp */,
+				F3913D9F1D3F461A001B3038 /* MessageContent.hpp */,
 				F3913DAC1D3F461A001B3038 /* MessageReceiver.cpp */,
+				F3913DA01D3F461A001B3038 /* MessageReceiver.hpp */,
 				F3913DAD1D3F461A001B3038 /* MessageSender.cpp */,
+				F3913DA11D3F461A001B3038 /* MessageSender.hpp */,
+				F3913DE91D3F4639001B3038 /* mini_games */,
 				F3913DAE1D3F461A001B3038 /* PhysicsShapeCache.cpp */,
+				F3913D921D3F461A001B3038 /* PhysicsShapeCache.h */,
+				F3913DEA1D3F4659001B3038 /* puzzle */,
 				F3913DAF1D3F461A001B3038 /* RPGConfig.cpp */,
+				F3913D931D3F461A001B3038 /* RPGConfig.h */,
 				F3913DB01D3F461A001B3038 /* RPGSprite.cpp */,
+				F3913D941D3F461A001B3038 /* RPGSprite.h */,
 				F3913DB11D3F461A001B3038 /* RunningState.cpp */,
+				F3913D951D3F461A001B3038 /* RunningState.h */,
 				F3913DB21D3F461A001B3038 /* SkeletonCharacter.cpp */,
+				F3913D961D3F461A001B3038 /* SkeletonCharacter.h */,
+				376FEE7F1D3F66380037393F /* SkeletonPosition.cpp */,
+				376FEE7D1D3F66280037393F /* SkeletonPosition.h */,
 				F3913DB31D3F461A001B3038 /* SpeechBubbleView.cpp */,
+				F3913DA21D3F461A001B3038 /* SpeechBubbleView.hpp */,
+				F3913D9D1D3F461A001B3038 /* sqlite3.c */,
+				F3913D971D3F461A001B3038 /* sqlite3.h */,
 				F3913DB41D3F461A001B3038 /* Sqlite3Helper.cpp */,
+				F3913DA31D3F461A001B3038 /* Sqlite3Helper.hpp */,
 				F3913DB51D3F461A001B3038 /* StandingState.cpp */,
+				F3913D981D3F461A001B3038 /* StandingState.h */,
 				F3913DB61D3F461A001B3038 /* StartMenuScene.cpp */,
+				F3913D991D3F461A001B3038 /* StartMenuScene.h */,
 				F3913DB71D3F461A001B3038 /* State.cpp */,
+				F3913D9A1D3F461A001B3038 /* State.h */,
 				F3913DB81D3F461A001B3038 /* StateMachine.cpp */,
+				F3913D9B1D3F461A001B3038 /* StateMachine.h */,
 				F3913DB91D3F461A001B3038 /* WalkingState.cpp */,
+				F3913D9C1D3F461A001B3038 /* WalkingState.h */,
 			);
 			name = Classes;
 			path = ../Classes;
@@ -781,6 +787,7 @@
 				F3913DC61D3F461A001B3038 /* HelloWorldScene.cpp in Sources */,
 				F3913E211D3F46B1001B3038 /* SmashTheRockLevelScene.cpp in Sources */,
 				F3913E2F1D3F46BE001B3038 /* Alphamon.cpp in Sources */,
+				376FEE801D3F66380037393F /* SkeletonPosition.cpp in Sources */,
 				F3913DCE1D3F461A001B3038 /* MessageSender.cpp in Sources */,
 				F3913DE41D3F461A001B3038 /* StateMachine.cpp in Sources */,
 				F3913E191D3F46B1001B3038 /* Cannon_Ball_Main.cpp in Sources */,
@@ -850,6 +857,7 @@
 				F3913DDF1D3F461A001B3038 /* StandingState.cpp in Sources */,
 				F3913DDD1D3F461A001B3038 /* Sqlite3Helper.cpp in Sources */,
 				F3913DC11D3F461A001B3038 /* ExternalSkeletonCharacter.cpp in Sources */,
+				376FEE811D3F66380037393F /* SkeletonPosition.cpp in Sources */,
 				F3913DC71D3F461A001B3038 /* HelloWorldScene.cpp in Sources */,
 				F3913DC31D3F461A001B3038 /* FallingState.cpp in Sources */,
 				F3913E1E1D3F46B1001B3038 /* EndlessRunner.cpp in Sources */,

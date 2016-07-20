@@ -24,7 +24,7 @@ isSelectedForBattle(false)
 
 
 AlphamonSprite::~AlphamonSprite() {
-    
+    EVENT_DISPATCHER->removeCustomEventListeners("alphamon_pressed");
 }
 
 
@@ -45,6 +45,7 @@ bool AlphamonSprite::initialize(cocos2d::Node* node, std::unordered_map<std::str
     Alphamon* alphamon = Alphamon::createWithAlphabet(alphabet);
     String* alphamonName = String::createWithFormat("sel_%s", node->getName().c_str());
     alphamon->setName(alphamonName->getCString());
+    alphamon->setScale(MAIN_CHARACTER_SCALE);
     this->setAttributes(attributes);
     this->addChild(alphamon);
     this->setName(alphamonName->getCString());
@@ -147,7 +148,7 @@ void AlphamonSprite::onAlphabetSelected(cocos2d::EventCustom *event) {
     }
     
     this->isSelectedForBattle = true;
-    this->unschedule(CC_SCHEDULE_SELECTOR(AlphamonSprite::destoryAlphaMon));
+    
     char* buf = static_cast<char*>(event->getUserData());
     if(alphabet == buf[0]) {
         EVENT_DISPATCHER->dispatchCustomEvent(RPGConfig::SPEECH_MESSAGE_ON_TAP_NOTIFICATION, static_cast<void*>(&s));
@@ -156,8 +157,7 @@ void AlphamonSprite::onAlphabetSelected(cocos2d::EventCustom *event) {
 
 
 void AlphamonSprite::destoryAlphaMon(float dt) {
-    if(!this->getChildren().empty() && !this->isSelectedForBattle) {
-        EVENT_DISPATCHER->removeCustomEventListeners("alphamon_pressed");
+    if(!this->getChildren().empty() && !this->isSelectedForBattle) {        
         this->removeFromParentAndCleanup(true);
     }
     
