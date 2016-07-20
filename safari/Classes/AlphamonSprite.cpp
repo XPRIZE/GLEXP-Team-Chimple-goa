@@ -8,7 +8,7 @@
 
 #include "AlphamonSprite.h"
 #include "SkeletonCharacter.h"
-#include "Alphamon.h"
+#include "alphamon/Alphamon.h"
 
 USING_NS_CC;
 
