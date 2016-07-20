@@ -29,6 +29,7 @@ public:
     void startMyTurn();
     void endMyTurn();
     void enableTouch(bool value);
+    virtual cocos2d::Rect getBoundingBox() const override;
     
 CC_CONSTRUCTOR_ACCESS:
     Alphamon();

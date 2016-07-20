@@ -20,24 +20,21 @@
 #include <map>
 #include <typeinfo>
 #include <regex>
-#include "cocostudio/CCComExtensionData.h"
+#include "editor-support/cocostudio/CCComExtensionData.h"
 #include "ExternalSkeletonCharacter.h"
 #include "SpeechBubbleView.hpp"
 #include "MessageContent.hpp"
 #include "RPGSprite.h"
+#include "AlphamonSprite.h"
+#include "alphamon/Alphamon.h"
+#include "SkeletonPosition.h"
+
 
 
 class GestureLayer;
 class MessageContent;
 
-typedef std::vector<ExternalSkeletonCharacter*> external_skeletons;
-
-typedef std::vector<RPGSprite*> rpg_sprites;
-
-
-#define DIALOG_FILE "dialogFile"
-#define PHYSICS_FILE "physicsFile"
-#define MAIN_CHARACTER_FILE "mainCharacterFile"
+#define MAIN_CHARACTER_FILE "human_skeleton.csb"
 
 
 class HelloWorld : public cocos2d::Layer
@@ -60,76 +57,6 @@ private:
     MessageReceiver* messageReceiver;
     
     SkeletonCharacter* skeletonCharacter;
-        
-    virtual bool checkTouchWithinBoundsOfCharacter(cocos2d::Point point, cocostudio::timeline::SkeletonNode* characterNode);
-    
-    virtual bool checkTouchVerticallyUpOnBoundsOfCharacter(cocos2d::Point point, cocostudio::timeline::SkeletonNode* characterNode);
-    
-    virtual bool checkTouchLeftOfCharacter(cocos2d::Point point, cocostudio::timeline::SkeletonNode* characterNode);
-    
-    virtual bool checkTouchRightOfCharacter(cocos2d::Point point, cocostudio::timeline::SkeletonNode* characterNode);
-    
-    virtual bool checkHoldWithinWalkLimitOfCharacter(cocos2d::Point point, cocostudio::timeline::SkeletonNode* characterNode);
-    
-    virtual bool checkHoldWithinSittingLimitOfCharacter(cocos2d::Point point, cocostudio::timeline::SkeletonNode* characterNode);
-    
-    virtual void applyImpulseOnSkeletonToJumpOnHoldOrDrag(cocos2d::Point position);
-    
-    virtual void applyImpulseOnSkeletonToJumpOnTap(cocos2d::Point position);
-    
-    virtual void applyImpulseOnSkeletonToJump(cocos2d::Point position, float angle, float velocity, float timeToStart);
-    
-    virtual void walkCharacterOnLeftOrRightDirection(cocos2d::Point position);
-    
-    virtual void runCharacterOnLeftOrRightDirection(cocos2d::Point position);
-    
-    virtual void HoldOrDragBehaviour(cocos2d::Point position);
-    
-    virtual void scheduleContinuousRotationCall(float timeToStart);
-    
-    virtual void moveBackGroundLayerInParallex();
-    
-    virtual void parseScene(cocos2d::Node *rootNode);
-    
-    virtual void addExternalCharacters(cocos2d::Node *rootNode);
-    
-    virtual void processMessage(std::vector<MessageContent*>*messages);
-    
-    virtual void processTextMessage(std::unordered_map<int, std::string> textMap, std::string ownerOfMessage);
-    
-    virtual void processShowMessage(std::vector<MessageContent*>showMessages);
-    
-    virtual void processAnimationMessage(std::vector<MessageContent*>animationMessages);
-    
-    virtual void processMainLayerChildrenForCustomEvents();
-        
-    cocos2d::Size sceneSize;
-    
-    //references to all external Skeletons
-    
-    external_skeletons externalSkeletons;
-    
-    rpg_sprites rpgSprites;
-    
-    //reference to Layers
-    cocos2d::Node* mainLayer;
-    cocos2d::Node* backgroundLayer;
-    cocos2d::Node* foregroundLayer;
-
-    //category bit mask for main skeleton
-    int mainCharacterCategoryBitMask;
-        
-public:
-    static cocos2d::Scene* createScene(const std::string& sceneName, const std::string& skeletonXPos, const std::string& skeletonYPos);
-    
-    static HelloWorld* create(const std::string& sceneName, const std::string& skeletonXPos, const std::string& skeletonYPos);
-    
-    HelloWorld();
-    ~HelloWorld();
-    
-    virtual bool init(const std::string& sceneName, const std::string& skeletonXPos, const std::string& skeletonYPos);
-    
-    void createRPGGame(const std::string& skeletonXPos, const std::string& skeletonYPos);
     
     void loadGameScene();
     
@@ -137,10 +64,10 @@ public:
     
     cocostudio::timeline::SkeletonNode* createMainGameCharacter();
     
-    virtual void addMainCharacterToScene(const std::string& filename);
+    void addMainCharacterToScene(const std::string& filename);
     
-    virtual void updatePositionForMainCharacter(const std::string& xPos, const std::string& yPos);
-        
+    void updatePositionForMainCharacter();
+    
     void initGestureLayer();
     
     static void initPhysics(cocos2d::Scene* scene);
@@ -153,8 +80,49 @@ public:
     
     void initializeStateMachine();
     
-    //bind Gesture
-    void OnGestureReceived(Ref* sender);
+    bool checkTouchWithinBoundsOfCharacter(cocos2d::Point point, cocostudio::timeline::SkeletonNode* characterNode);
+    
+    bool checkTouchVerticallyUpOnBoundsOfCharacter(cocos2d::Point point, cocostudio::timeline::SkeletonNode* characterNode);
+    
+    bool checkTouchLeftOfCharacter(cocos2d::Point point, cocostudio::timeline::SkeletonNode* characterNode);
+    
+    bool checkTouchRightOfCharacter(cocos2d::Point point, cocostudio::timeline::SkeletonNode* characterNode);
+    
+    bool checkHoldWithinWalkLimitOfCharacter(cocos2d::Point point, cocostudio::timeline::SkeletonNode* characterNode);
+    
+    bool checkHoldWithinSittingLimitOfCharacter(cocos2d::Point point, cocostudio::timeline::SkeletonNode* characterNode);
+    
+    void applyImpulseOnSkeletonToJumpOnHoldOrDrag(cocos2d::Point position);
+    
+    void applyImpulseOnSkeletonToJumpOnTap(cocos2d::Point position);
+    
+    void applyImpulseOnSkeletonToJump(cocos2d::Point position, float angle, float velocity, float timeToStart);
+    
+    void walkCharacterOnLeftOrRightDirection(cocos2d::Point position);
+    
+    void runCharacterOnLeftOrRightDirection(cocos2d::Point position);
+    
+    void HoldOrDragBehaviour(cocos2d::Point position);
+    
+    void scheduleContinuousRotationCall(float timeToStart);
+    
+    void moveBackGroundLayerInParallex();
+    
+    void setReferencesToGameLayers(cocos2d::Node *rootNode);
+        
+    void processMessage(std::vector<MessageContent*>*messages);
+    
+    void processTextMessage(std::unordered_map<int, std::string> textMap, std::string ownerOfMessage);
+    
+    void processShowMessage(std::vector<MessageContent*>showMessages);
+    
+    void processAnimationMessage(std::vector<MessageContent*>animationMessages);
+    
+    void processCustomAnimationMessage(std::vector<MessageContent*>animationMessages);
+    
+    void processMainLayerNonAlphamonChildrenForCustomEvents();
+    
+    void querySceneToLoadInIsland();
     
     //Gesture Handler
     void HandleTap(cocos2d::Point position);
@@ -164,8 +132,55 @@ public:
     void HandleSwipeLeft(cocos2d::Point position);
     void HandleSwipeRight(cocos2d::Point position);
     void HandleTouchedEnded(cocos2d::Point position);
-    bool isTapOnSpeakableOrClickableObject(cocos2d::Point position);
+    bool isTapOnInterActObject(cocos2d::Point position);
     void sendBubbleDestroySignal();
+
+    
+    cocos2d::Size sceneSize;
+    
+    //references to all external Skeletons
+    
+    
+    //reference to Layers
+    cocos2d::Node* mainLayer;
+    cocos2d::Node* backgroundLayer;
+    cocos2d::Node* foregroundLayer;
+
+    //category bit mask for main skeleton
+    int mainCharacterCategoryBitMask;
+    
+    CC_SYNTHESIZE(int, alphamonNodesCount, AlphamonNodesCount);
+    
+    CC_SYNTHESIZE(std::string, sceneName, SceneName);
+    
+    CC_SYNTHESIZE(std::string, island, Island);
+    
+    CC_SYNTHESIZE(std::string, physicsFile, PhysicsFile);
+    
+    CC_SYNTHESIZE(std::string, mainCharacterFile, MainCharacterFile);
+    
+    CC_SYNTHESIZE(bool, isSpeechBubbleAlreadyVisible, SpeechBubbleAlreadyVisible);
+    
+    CC_SYNTHESIZE(std::string, initialMainSkeletonY, InitialMainSkeletonY);
+    
+    CC_SYNTHESIZE(std::string, initialMainSkeletonX, InitialMainSkeletonX);
+    
+public:
+    static cocos2d::Scene* createScene(const std::string& island);
+    
+    static HelloWorld* create(const std::string& island);
+    
+    HelloWorld();
+    ~HelloWorld();
+    
+    virtual bool init(const std::string& island);
+    
+    virtual void initializeSafari();
+    
+    
+    //bind Gesture
+    void OnGestureReceived(Ref* sender);
+    
     
     void HandleJumpWithAnimation();
     void HandlePostJumpUpAnimation();
@@ -200,29 +215,26 @@ public:
     
     virtual void createRPGSprite(cocos2d::Node* node, std::unordered_map<std::string, std::string> attributes, cocos2d::Node* parentNode);
     
+    virtual void createAlphaMonSprite(cocos2d::Node* node, std::unordered_map<std::string, std::string> attributes, cocos2d::Node* parentNode, char alphabet);
+    
     virtual void processNodeWithCustomAttributes(Node* node, cocos2d::Node* parentNode);
     
     virtual bool checkTapOnRPGSprite(RPGSprite* rpgNode, cocos2d::Point position);
     
     virtual void hideTouchPointSign();
     
-    CC_SYNTHESIZE(std::string, sceneName, SceneName);
+    virtual void transitionToDuelScene(char alphabet);
     
-    CC_SYNTHESIZE(std::string, island, Island);
+    virtual void addAlphaMonsters(char alphabet, std::string alphamonNodeName);
     
-    CC_SYNTHESIZE(std::string, baseDir, BaseDir);
+    virtual void createAlphaMons(float dt);
+        
+    virtual void calculateAlphamonNodesInScene(cocos2d::Node *rootNode);
     
-    CC_SYNTHESIZE(std::string, dialogFile, DialogFile);
     
-    CC_SYNTHESIZE(std::string, physicsFile, PhysicsFile);
     
-    CC_SYNTHESIZE(std::string, mainCharacterFile, MainCharacterFile);
-    
-    CC_SYNTHESIZE(bool, isSpeechBubbleAlreadyVisible, SpeechBubbleAlreadyVisible);
-    
-    CC_SYNTHESIZE(std::string, initialMainSkeletonY, InitialMainSkeletonY);
-    
-    CC_SYNTHESIZE(std::string, initialMainSkeletonX, InitialMainSkeletonX);
+        
+ 
     
 };
 

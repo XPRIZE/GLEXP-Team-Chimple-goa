@@ -3,7 +3,7 @@
 
 #include "cocos2d.h"
 #include "SpriteCreate.h"
-#include "cocostudio/CocoStudio.h"
+#include "editor-support/cocostudio/CocoStudio.h"
 using namespace cocos2d;
 
 class EndlessRunner : public cocos2d::Layer

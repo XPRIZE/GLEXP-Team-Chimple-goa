@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|Win32">
@@ -144,6 +144,7 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     </PreLinkEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="..\Classes\AlphamonSprite.cpp" />
     <ClCompile Include="..\Classes\alphamon\Alphamon.cpp" />
     <ClCompile Include="..\Classes\alphamon\HPMeter.cpp" />
     <ClCompile Include="..\Classes\alphamon\SelectAlphamonScene.cpp" />
@@ -154,15 +155,21 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClCompile Include="..\Classes\GestureLayer.cpp" />
     <ClCompile Include="..\Classes\HelloWorldScene.cpp" />
     <ClCompile Include="..\Classes\JumpingState.cpp" />
+    <ClCompile Include="..\Classes\menu\MenuContext.cpp" />
     <ClCompile Include="..\Classes\MessageContent.cpp" />
     <ClCompile Include="..\Classes\MessageReceiver.cpp" />
     <ClCompile Include="..\Classes\MessageSender.cpp" />
+    <ClCompile Include="..\Classes\mini_games\AlphamonFeedLevelScene.cpp" />
+    <ClCompile Include="..\Classes\mini_games\AlphamonFeedScene.cpp" />
+    <ClCompile Include="..\Classes\mini_games\Cannon_Ball_Listener.cpp" />
+    <ClCompile Include="..\Classes\mini_games\Cannon_Ball_Main.cpp" />
     <ClCompile Include="..\Classes\mini_games\CrossTheBridgeScene.cpp" />
     <ClCompile Include="..\Classes\mini_games\EndlessRunner.cpp" />
     <ClCompile Include="..\Classes\mini_games\PatchTheWallScene.cpp" />
     <ClCompile Include="..\Classes\mini_games\SmashTheRockLevelScene.cpp" />
     <ClCompile Include="..\Classes\mini_games\SmashTheRockScene.cpp" />
     <ClCompile Include="..\Classes\mini_games\SpriteCreate.cpp" />
+    <ClCompile Include="..\Classes\mini_games\TraceScene.cpp" />
     <ClCompile Include="..\Classes\PhysicsShapeCache.cpp" />
     <ClCompile Include="..\Classes\puzzle\Alphabet.cpp" />
     <ClCompile Include="..\Classes\puzzle\AlphabetGrid.cpp" />
@@ -183,6 +190,7 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\Classes\AlphamonSprite.h" />
     <ClInclude Include="..\Classes\alphamon\Alphamon.h" />
     <ClInclude Include="..\Classes\alphamon\HPMeter.h" />
     <ClInclude Include="..\Classes\alphamon\SelectAlphamonScene.h" />
@@ -193,15 +201,24 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClInclude Include="..\Classes\GestureLayer.hpp" />
     <ClInclude Include="..\Classes\HelloWorldScene.h" />
     <ClInclude Include="..\Classes\JumpingState.h" />
+    <ClInclude Include="..\Classes\menu\MenuContext.h" />
     <ClInclude Include="..\Classes\MessageContent.hpp" />
     <ClInclude Include="..\Classes\MessageReceiver.hpp" />
     <ClInclude Include="..\Classes\MessageSender.hpp" />
+<<<<<<< HEAD
+    <ClInclude Include="..\Classes\mini_games\AlphamonFeedLevelScene.h" />
+    <ClInclude Include="..\Classes\mini_games\AlphamonFeedScene.h" />
+=======
+    <ClInclude Include="..\Classes\mini_games\Cannon_Ball_Listener.h" />
+    <ClInclude Include="..\Classes\mini_games\Cannon_Ball_Main.h" />
+>>>>>>> refs/remotes/origin/master
     <ClInclude Include="..\Classes\mini_games\CrossTheBridgeScene.h" />
     <ClInclude Include="..\Classes\mini_games\EndlessRunner.h" />
     <ClInclude Include="..\Classes\mini_games\PatchTheWallScene.h" />
     <ClInclude Include="..\Classes\mini_games\SmashTheRockLevelScene.h" />
     <ClInclude Include="..\Classes\mini_games\SmashTheRockScene.h" />
     <ClInclude Include="..\Classes\mini_games\SpriteCreate.h" />
+    <ClInclude Include="..\Classes\mini_games\TraceScene.h" />
     <ClInclude Include="..\Classes\PhysicsShapeCache.h" />
     <ClInclude Include="..\Classes\puzzle\Alphabet.h" />
     <ClInclude Include="..\Classes\puzzle\AlphabetGrid.h" />

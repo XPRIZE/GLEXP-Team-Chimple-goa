@@ -1,9 +1,8 @@
 #include "SmashTheRockScene.h"
 #include "SmashTheRockLevelScene.h"
 
-#include "puzzle\CharGenerator.h"
-#include "cocostudio\CocoStudio.h"
-#include "cocostudio\ActionTimeline\CCSkeletonNode.h"  
+#include "../puzzle/CharGenerator.h"
+#include "editor-support/cocostudio/ActionTimeline/CCSkeletonNode.h"
 
 
 #include "editor-support/cocostudio/CocoStudio.h"

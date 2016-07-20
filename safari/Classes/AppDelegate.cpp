@@ -73,7 +73,8 @@ bool AppDelegate::applicationDidFinishLaunching() {
         searchPaths.push_back("res/SD");
         scaleFactor = smallResolutionSize.height/designResolutionSize.height;
     }
-    
+ 
+
     director->setContentScaleFactor(scaleFactor);
     FileUtils::getInstance()->setSearchPaths(searchPaths);
     

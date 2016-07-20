@@ -19,6 +19,7 @@ _monster(nullptr),
 _hpMeter(nullptr),
 _powerMeter(nullptr){
     _listener = EventListenerTouchOneByOne::create();
+    _listener->setSwallowTouches(true);
     _listener->onTouchBegan = CC_CALLBACK_2(Alphamon::onTouchBegan, this);
     _listener->onTouchEnded = CC_CALLBACK_2(Alphamon::onTouchEnded, this);
     _eventDispatcher->addEventListenerWithSceneGraphPriority(_listener, this);
@@ -43,7 +44,7 @@ bool Alphamon::initWithAlphabet(char alphabet) {
     _alphabet = alphabet;
     _monster = CSLoader::createNode(std::string("english/")+alphabet+".csb");
     addChild(_monster);
-    _monster->setScale(0.6);
+//    _monster->setScale(0.6);
     
     _alphaNode = static_cast<Label*>(_monster->getChildByName("BitmapFontLabel_1"));
     if(!_alphaNode) {
@@ -156,7 +157,7 @@ void Alphamon::enableTouch(bool value) {
 
 bool Alphamon::onTouchBegan(Touch* touch, Event* event){
     auto n = convertTouchToNodeSpace(touch);
-    auto rect = _alphaNode->getBoundingBox();
+    auto rect = getBoundingBox();
     //adjust for the font height since baloo bhai has extra space
     rect.setRect(rect.origin.x, rect.origin.y + rect.size.height / 3, rect.size.width, rect.size.height / 3);
     if(rect.containsPoint(n))
@@ -170,7 +171,7 @@ bool Alphamon::onTouchBegan(Touch* touch, Event* event){
 
 void Alphamon::onTouchEnded(cocos2d::Touch *touch, cocos2d::Event *event) {
     auto n = convertTouchToNodeSpace(touch);
-    auto rect = _alphaNode->getBoundingBox();
+    auto rect = getBoundingBox();
     
     if(rect.containsPoint(n))
     {
@@ -182,4 +183,8 @@ void Alphamon::onTouchEnded(cocos2d::Touch *touch, cocos2d::Event *event) {
         _eventDispatcher->dispatchEvent(&event);
 
     }
+}
+
+cocos2d::Rect Alphamon::getBoundingBox() const {
+    return _alphaNode->getBoundingBox();
 }

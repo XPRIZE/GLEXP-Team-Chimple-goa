@@ -42,7 +42,7 @@ public:
     
     CC_SYNTHESIZE(std::string, fileName, FileName);
         
-    CC_SYNTHESIZE(std::string, canSpeak, CanSpeak);
+    CC_SYNTHESIZE(std::string, interAct, InterAct);
     
     CC_SYNTHESIZE(std::string, defaultAnimationName, DefaultAnimationName);
     
@@ -50,8 +50,15 @@ public:
     
     virtual void update(float dt);
     
-    
     virtual bool checkVicinityToMainSkeleton(SkeletonCharacter* skeletonCharacter);
+    
+    // touch listeners
+    
+    virtual bool onTouchBegan(cocos2d::Touch * touch, cocos2d::Event* event);
+    
+    virtual void touchEnded(cocos2d::Touch* touch, cocos2d::Event* event);
+    
+    
 protected:
     cocostudio::timeline::SkeletonNode* externalSkeletonNode;
     SkeletonCharacter* mainSkeleton;

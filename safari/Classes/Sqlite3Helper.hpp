@@ -9,6 +9,9 @@
 #include <stdio.h>
 #include "sqlite3.h"
 #include "MessageContent.hpp"
+#include "SkeletonPosition.h"
+#include "RPGConfig.h"
+
 
 #ifndef Sqlite3Helper_hpp
 #define Sqlite3Helper_hpp
@@ -16,7 +19,7 @@
 
 class Sqlite3Helper {
 public:
-    static Sqlite3Helper* getInstance(std::string connectionUrl, std::string dbName);
+    static Sqlite3Helper* getInstance(std::string connectionUrl);
     ~Sqlite3Helper();
     
     //select queries
@@ -34,15 +37,16 @@ public:
     
     virtual void recordMainCharacterPositionInScene(const char* island, const char* sceneName, float xPos, float yPos);
     
+    virtual SkeletonPosition* findLastVisitedSceneInIsland(const char* island);
+    
     static bool instanceFlag;
     static Sqlite3Helper *shared;
 
 protected:
-    Sqlite3Helper(std::string connectionUrl, std::string dbName);
+    Sqlite3Helper(std::string connectionUrl);
     
     sqlite3 *dataBaseConnection;
     std::string connectionUrl;
-    std::string dbName;
     std::string pathToSQLConnection;
     
     virtual void initializeConnection();

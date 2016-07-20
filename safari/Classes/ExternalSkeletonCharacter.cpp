@@ -39,9 +39,20 @@ ExternalSkeletonCharacter* ExternalSkeletonCharacter::create(cocostudio::timelin
 
 bool ExternalSkeletonCharacter::initializeExternalSkeletonCharacter(cocostudio::timeline::SkeletonNode* skeletonNode, std::unordered_map<std::string, std::string> attributes) {
     this->externalSkeletonNode = skeletonNode;
+    this->setName(skeletonNode->getName());
     this->setAttributes(attributes);
-    this->addChild(this->externalSkeletonNode);
+    this->addChild(this->externalSkeletonNode);    
     this->createAnimationAndPhysicsSupportForExternalSkeletonNode();
+    
+    
+    //bind listeners
+    auto listenerTouches = EventListenerTouchOneByOne::create();
+    
+    listenerTouches->setSwallowTouches(true);
+    listenerTouches->onTouchBegan = CC_CALLBACK_2(ExternalSkeletonCharacter::onTouchBegan, this);
+    listenerTouches->onTouchEnded = CC_CALLBACK_2(ExternalSkeletonCharacter::touchEnded, this);
+    this->getEventDispatcher()->addEventListenerWithSceneGraphPriority(listenerTouches, this);
+
     
     auto checkVicinityWithMainCharacter = [=] (EventCustom * event) {
        this->mainSkeleton = static_cast<SkeletonCharacter*>(event->getUserData());
@@ -131,21 +142,15 @@ void ExternalSkeletonCharacter::setAttributes(std::unordered_map<std::string, st
     if ( it != this->attributes.end() ) {
         this->setFileName(it->second);
     }
-        
-    it = this->attributes.find("key");
-    if ( it != this->attributes.end() ) {
-        this->setKey(it->second);
-        this->setName(it->second);
-    }
     
     it = this->attributes.find("animation");
     if ( it != this->attributes.end() ) {
         this->setDefaultAnimationName(it->second);
     }
     
-    it = this->attributes.find("canSpeak");
+    it = this->attributes.find("canInterAct");
     if ( it != this->attributes.end() ) {
-        this->setCanSpeak(it->second);
+        this->setInterAct(it->second);
     }
 
 }
@@ -166,5 +171,21 @@ void ExternalSkeletonCharacter::update(float dt) {
 
 
 
+bool ExternalSkeletonCharacter::onTouchBegan(Touch *touch, Event *event)
+{
+    auto n = convertTouchToNodeSpace(touch);
+    if(this->getInterAct() == "true" && this->getExternalSkeletonNode()->getBoundingBox().containsPoint(n)) {
+        CCLOG("%s", "CLICKED ON Spekable External Skeleton dispatching speech message");
+        std::string s(this->getName());
+        EVENT_DISPATCHER->dispatchCustomEvent(RPGConfig::SPEECH_MESSAGE_ON_TAP_NOTIFICATION, static_cast<void*>(&s));
+        
+        return true;
+    }
+    return false;
+}
 
 
+void ExternalSkeletonCharacter::touchEnded(Touch *touch, Event *event)
+{
+    
+}

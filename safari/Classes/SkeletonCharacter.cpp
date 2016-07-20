@@ -25,13 +25,7 @@ SkeletonCharacter* SkeletonCharacter::create(const std::string& filename) {
 
 bool SkeletonCharacter::initializeSkeletonCharacter(const std::string& filename) {
     this->createSkeletonNode(filename);
-    this->setKey(MAIN_SKELETON_KEY);
     this->setName(MAIN_SKELETON_KEY);
-    auto visibleSize = Director::getInstance()->getVisibleSize();
-    Vec2 origin = Director::getInstance()->getVisibleOrigin();
-    
-    this->skeletonNode->setPosition(Vec2(origin.x + visibleSize.width/2, origin.y + visibleSize.height/2));
-    
     this->addChild(this->skeletonNode);
     
     return true;

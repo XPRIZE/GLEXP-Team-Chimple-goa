@@ -14,6 +14,7 @@
 #include "../alphamon/Alphamon.h"
 #include "../alphamon/SelectAlphamonScene.h"
 #include "../effects/FShake.h"
+#include "../menu/MenuContext.h"
 #include "ui/CocosGUI.h"
 #include "editor-support/cocostudio/CocoStudio.h"
 
@@ -31,7 +32,8 @@ _turnNumber(0) {
 }
 
 DuelScene::~DuelScene() {
-    
+    _eventDispatcher->removeCustomEventListeners("alphabet_selected");
+    _eventDispatcher->removeCustomEventListeners("alphabet_unselected");    
 }
 
 Scene* DuelScene::createScene(char myMonChar, char otherMonChar)
@@ -92,9 +94,10 @@ bool DuelScene::init(char myMonChar, char otherMonChar)
 
     _myMon = Alphamon::createWithAlphabet(myMonChar);
     auto leftStand = background->getChildByName(LEFT_STAND_NAME);
-    _myMon->setPosition(leftStand->getPosition() + Vec2(0, 250));
+    _myMon->setPosition(leftStand->getPosition() + Vec2(0, 0));
     addChild(_myMon);
     _myMon->setHealth(100);
+    _myMon->setScale(0.7);
     _eventDispatcher->addCustomEventListener("alphabet_selected", CC_CALLBACK_1(DuelScene::onAlphabetSelected, this));
     _eventDispatcher->addCustomEventListener("alphabet_unselected", CC_CALLBACK_1(DuelScene::onAlphabetUnselected, this));
     
@@ -102,7 +105,8 @@ bool DuelScene::init(char myMonChar, char otherMonChar)
     auto rightStand = background->getChildByName(RIGHT_STAND_NAME);
     rightStand->setPositionX(rightStand->getPositionX() + visibleSize.width - 2560.0);
     addChild(_otherMon);
-    _otherMon->setPosition(rightStand->getPosition() + Vec2(0, 250));
+    _otherMon->setScale(0.7);
+    _otherMon->setPosition(rightStand->getPosition() + Vec2(0, 0));
     _otherMon->setHealth(100);
 //    auto lg = LayerGradient::create(Color4B(0.0, 0.0, 0.0, 128.0), Color4B(0.0, 0.0, 0.0, 0.0), Vec2(-1, 0));
 //    lg->changeWidthAndHeight(1280.0, 900.0);
@@ -120,6 +124,9 @@ bool DuelScene::init(char myMonChar, char otherMonChar)
 //    amon->getChildByName("FileNode_4")->runAction(mouthTimeline);
 ////    mouthTimeline->gotoFrameAndPlay(0, true);
 //    mouthTimeline->play("eat", true);
+    
+    _menuContext = MenuContext::create();
+    addChild(_menuContext);
     
     startMyTurn();
     return true;
@@ -172,9 +179,7 @@ void DuelScene::gameOver() {
 }
 
 void DuelScene::returnToPrevScene() {
-    stopAllActions();
-    _eventDispatcher->removeCustomEventListeners("alphabet_selected");
-    _eventDispatcher->removeCustomEventListeners("alphabet_unselected");
+//    stopAllActions();
     Director::getInstance()->replaceScene(SelectAlphamon::createScene());
 }
 
@@ -239,6 +244,7 @@ void DuelScene::onAlphabetSelected(EventCustom *event) {
     } else {
         _myMon->changePower(-_powerIncr);
     }
+    _menuContext->pickAlphabet(_myMon->getAlphabet(), buf[0], true);
 }
 
 void DuelScene::onAlphabetUnselected(EventCustom *event) {
@@ -249,4 +255,5 @@ void DuelScene::onAlphabetUnselected(EventCustom *event) {
     } else {
         _myMon->changePower(_powerIncr);
     }
+    _menuContext->pickAlphabet(_myMon->getAlphabet(), buf[0], false);
 }
