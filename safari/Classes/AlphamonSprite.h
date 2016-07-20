@@ -55,11 +55,12 @@ public:
     
     virtual void onAlphabetSelected(cocos2d::EventCustom *event);
 
-    
+    virtual void destoryAlphaMon(float dt);
 protected:
     std::unordered_map<std::string, std::string> attributes;
     SkeletonCharacter* mainSkeleton;
     char alphabet;
+    bool isSelectedForBattle;
 
 };
 

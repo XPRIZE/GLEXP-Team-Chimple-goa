@@ -132,7 +132,7 @@ void HelloWorld::loadGameScene() {
     this->initGestureLayer();
     this->processMainLayerChildrenForCustomEvents();
     this->addExternalCharacters(rootNode);
-    this->addAlphaMonsters(rootNode);
+    this->calculateAlphamonNodesInScene(rootNode);
     this->enablePhysicsBoundaries(rootNode);
 }
 
@@ -193,37 +193,46 @@ void HelloWorld::parseScene(cocos2d::Node *rootNode) {
     }
 }
 
-void HelloWorld::addAlphaMonsters(cocos2d::Node *rootNode) {
+void HelloWorld::calculateAlphamonNodesInScene(cocos2d::Node *rootNode) {
     assert(this->mainLayer != NULL);
     //iterate thru all children and search for "alphamon"
     
     auto children = this->mainLayer->getChildren();
-    int i = 0;
+    int alphamonCounter = 0;
+    for (std::vector<Node*>::iterator it = children.begin() ; it != children.end(); ++it) {
+        cocos2d::Node* node = *it;
+        std::regex pattern("\\b(alphamon)([^ ]*)");
+        if(regex_match(node->getName(), pattern)) {
+            alphamonCounter++;
+        }
+    }
+    this->setAlphamonNodesCount(alphamonCounter);
+}
+
+void HelloWorld::addAlphaMonsters(char alphabet, std::string alphamonNodeName) {
+    assert(this->mainLayer != NULL);
+    //iterate thru all children and search for "alphamon"
+    
+    auto children = this->mainLayer->getChildren();
+    
     for (std::vector<Node*>::iterator it = children.begin() ; it != children.end(); ++it) {
         cocos2d::Node* node = *it;
         cocostudio::ComExtensionData* data = (cocostudio::ComExtensionData*)node->getComponent("ComExtensionData");
-        
-        std::regex pattern("\\b(alphamon)([^ ]*)");
-        if(regex_match(node->getName(), pattern)) {
-            
+        if(node->getName() == alphamonNodeName) {
             std::unordered_map<std::string, std::string> attributes;
             
             if(data != NULL && !data->getCustomProperty().empty()) {
-                CCLOG("found user data for child %s", node->getName().c_str());
+                CCLOG("found user data for alpha MONNNN %s", node->getName().c_str());
                 attributes = RPGConfig::parseUserData(data->getCustomProperty());
             }
-            if(i == 0) {
-                this->createAlphaMonSprite(node, attributes, this->mainLayer, 'B');
-            } else {
-                this->createAlphaMonSprite(node, attributes, this->mainLayer, 'C');
-            }
-            i++;
+            this->createAlphaMonSprite(node, attributes, this->mainLayer, alphabet);
         }
+
     }
 }
 
 void HelloWorld::createAlphaMonSprite(Node* node, std::unordered_map<std::string, std::string> attributes, Node* parentNode, char alphabet) {
-    node->removeFromParent();
+    //node->removeFromParent();
     AlphamonSprite* alphaMonNode = AlphamonSprite::create(node, attributes, alphabet);
     parentNode->addChild(alphaMonNode);
 }
@@ -348,6 +357,8 @@ bool HelloWorld::init(const std::string& sceneName, const std::string& skeletonX
     }
     
     this->registerMessageSenderAndReceiver();
+        
+    this->schedule(CC_SCHEDULE_SELECTOR(HelloWorld::createAlphaMons), 5.0f);
     this->scheduleUpdate();
     
     
@@ -571,13 +582,14 @@ void HelloWorld::processAnimationMessage(std::vector<MessageContent*>animationMe
 void HelloWorld::processCustomAnimationMessage(std::vector<MessageContent*>customAnimationMessages) {
     
     //CURRENTLY only one animation supported - TBD (later extend to play multiples)
-    
+    this->unschedule(CC_SCHEDULE_SELECTOR(HelloWorld::createAlphaMons));
     for (std::vector<MessageContent* >::iterator it = customAnimationMessages.begin() ; customAnimationMessages.size() == 1 && it != customAnimationMessages.end(); ++it)
     {
         MessageContent* content = (MessageContent*) *it;
         //find out animation name
-        if(!content->getDialog().empty() && !content->getOwner().empty()) {            
-            Node* node = this->mainLayer->getChildByName(content->getOwner());
+        if(!content->getDialog().empty() && !content->getOwner().empty()) {
+            String* alphamonName = String::createWithFormat("sel_%s", content->getOwner().c_str());
+            Node* node = this->mainLayer->getChildByName(alphamonName->getCString());
             AlphamonSprite* alphamonAnimationNode = dynamic_cast<AlphamonSprite *>(node);
             if(alphamonAnimationNode) {
                 std::string animationMethod = content->getDialog();
@@ -1354,4 +1366,18 @@ void HelloWorld::onExitTransitionDidStart() {
 void HelloWorld::onEnterTransitionDidFinish() {
     Node::onEnterTransitionDidFinish();
     CCLOG("onEnterTransitionDidFinish");
+}
+
+void HelloWorld::createAlphaMons(float dt) {
+    int randomNumber = 1 + ( std::rand() % ( this->getAlphamonNodesCount()) );
+    std::string alphamonNodeName = StringUtils::format("%s_%d", "alphamon", randomNumber);
+    
+    //Generate random char
+    const char* const a_to_z = "BCDEFGHIJKLMNOPQRSTUVWXYZ" ;
+    int randomChar = rand() % 24;
+    char generatedChar = a_to_z[randomChar];
+    CCLOG("111 generatedChar %c", generatedChar);
+    CCLOG("alphamonNodeName %s", alphamonNodeName.c_str());
+    this->addAlphaMonsters(generatedChar, alphamonNodeName);
+
 }

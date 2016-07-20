@@ -16,7 +16,8 @@ AlphamonSprite::AlphamonSprite():
 shouldSendShowTouchSign(false),
 showTouchSignNotificationSent(false),
 vicinityToMainCharacter(false),
-interAct("")
+interAct(""),
+isSelectedForBattle(false)
 {    
     this->mainSkeleton = NULL;
 }
@@ -42,10 +43,11 @@ AlphamonSprite* AlphamonSprite::create(cocos2d::Node* node, std::unordered_map<s
 bool AlphamonSprite::initialize(cocos2d::Node* node, std::unordered_map<std::string,std::string> attributes, char alphabet) {
     this->alphabet = alphabet;
     Alphamon* alphamon = Alphamon::createWithAlphabet(alphabet);
-    alphamon->setName(node->getName());
+    String* alphamonName = String::createWithFormat("sel_%s", node->getName().c_str());
+    alphamon->setName(alphamonName->getCString());
     this->setAttributes(attributes);
     this->addChild(alphamon);
-    this->setName(node->getName());
+    this->setName(alphamonName->getCString());
     alphamon->setPosition(node->getPosition());
     
     
@@ -65,6 +67,7 @@ bool AlphamonSprite::initialize(cocos2d::Node* node, std::unordered_map<std::str
     
     ADD_VICINITY_NOTIFICATION(this, RPGConfig::MAIN_CHARACTER_VICINITY_CHECK_NOTIFICATION, checkVicinityWithMainCharacter);
     
+    this->schedule(CC_SCHEDULE_SELECTOR(AlphamonSprite::destoryAlphaMon), 3.0f);
     this->scheduleUpdate();
     
     return true;
@@ -137,8 +140,26 @@ SkeletonCharacter* AlphamonSprite::getMainSkeleton() {
 
 void AlphamonSprite::onAlphabetSelected(cocos2d::EventCustom *event) {
     std::string s(this->getAlphaMon()->getName());
+    std::string removeStr("sel_");
+    std::string::size_type i = s.find(removeStr);
+    if (i != std::string::npos) {
+        s.erase(i, removeStr.length());
+    }
+    
+    
+    this->isSelectedForBattle = true;
     char* buf = static_cast<char*>(event->getUserData());
     if(alphabet == buf[0]) {
         EVENT_DISPATCHER->dispatchCustomEvent(RPGConfig::SPEECH_MESSAGE_ON_TAP_NOTIFICATION, static_cast<void*>(&s));
     }
+}
+
+
+void AlphamonSprite::destoryAlphaMon(float dt) {
+    if(!this->getChildren().empty() && !this->isSelectedForBattle) {
+        CCLOG("Destorying alphamon");
+        EVENT_DISPATCHER->removeCustomEventListeners("alphamon_pressed");
+        this->removeFromParentAndCleanup(true);
+    }
+    
 }

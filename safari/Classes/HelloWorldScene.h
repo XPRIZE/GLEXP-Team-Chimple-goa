@@ -208,7 +208,13 @@ public:
     
     virtual void transitionToDuelScene(char alphabet);
     
-    virtual void addAlphaMonsters(cocos2d::Node *rootNode);
+    virtual void addAlphaMonsters(char alphabet, std::string alphamonNodeName);
+    
+    virtual void createAlphaMons(float dt);
+        
+    virtual void calculateAlphamonNodesInScene(cocos2d::Node *rootNode);
+        
+    CC_SYNTHESIZE(int, alphamonNodesCount, AlphamonNodesCount);
     
     CC_SYNTHESIZE(std::string, sceneName, SceneName);
     
