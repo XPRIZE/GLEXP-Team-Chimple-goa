@@ -22,6 +22,9 @@
     <Filter Include="src\effects">
       <UniqueIdentifier>{93c67490-6fbc-4d6b-8873-2210d1107f0a}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\menu">
+      <UniqueIdentifier>{83536741-7d1e-4315-a8b2-11d0bfdf05c7}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -139,10 +142,16 @@
       <Filter>src\mini_games</Filter>
     </ClCompile>
     <ClCompile Include="..\Classes\mini_games\Cannon_Ball_Main.cpp">
-        <Filter>src\mini_games</Filter>
+      <Filter>src\mini_games</Filter>
     </ClCompile>
     <ClCompile Include="..\Classes\mini_games\TraceScene.cpp">
       <Filter>src\mini_games</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\menu\MenuContext.cpp">
+      <Filter>src\menu</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\AlphamonSprite.cpp">
+      <Filter>src</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -261,10 +270,16 @@
       <Filter>src\mini_games</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\mini_games\Cannon_Ball_Main.h">
-        <Filter>src\mini_games</Filter>
+      <Filter>src\mini_games</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\mini_games\TraceScene.h">
       <Filter>src\mini_games</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\menu\MenuContext.h">
+      <Filter>src\menu</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\AlphamonSprite.h">
+      <Filter>src</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
