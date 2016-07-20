@@ -8,7 +8,6 @@
 
 #include "TraceScene.h"
 #include "editor-support/cocostudio/CocoStudio.h"
-#include "cocostudio/CocoStudio.h"
 #include "SimpleAudioEngine.h"
 
 

@@ -53,7 +53,7 @@ bool GestureLayer::init(Ref* target, SEL_CallFuncO handler)
     this->handler_ = handler;
     
     auto listenerTouches = EventListenerTouchOneByOne::create();
-    listenerTouches->setSwallowTouches(true);
+    listenerTouches->setSwallowTouches(false);
     listenerTouches->onTouchBegan = CC_CALLBACK_2(GestureLayer::onTouchBegan, this);
     listenerTouches->onTouchMoved = CC_CALLBACK_2(GestureLayer::touchMoved, this);
     listenerTouches->onTouchEnded = CC_CALLBACK_2(GestureLayer::touchEnded, this);
