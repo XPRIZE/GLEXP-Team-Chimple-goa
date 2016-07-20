@@ -10,6 +10,7 @@
 #define MenuContext_h
 
 #include "cocos2d.h"
+#include <sstream>
 
 class MenuContext : public cocos2d::Node {
     
@@ -26,6 +27,15 @@ CC_CONSTRUCTOR_ACCESS:
 protected:
     int _points;
     cocos2d::Label* _label;
+
+    template <typename T>
+    static inline std::string to_string(T value)
+    {
+        std::ostringstream os ;
+        os << value ;
+        return os.str() ;
+    }
+    
 };
 
 #endif /* MenuContext_h */

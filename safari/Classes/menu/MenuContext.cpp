@@ -41,7 +41,7 @@ void MenuContext::pickAlphabet(char targetAlphabet, char chosenAlphabet, bool ch
     } else {
         _points--;
     }
-    _label->setString("Points: " + std::to_string(_points));
+    _label->setString("Points: " + to_string(_points));
 }
 
 void MenuContext::finalizePoints() {
