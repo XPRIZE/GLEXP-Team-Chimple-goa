@@ -26,7 +26,7 @@
 #include "MessageContent.hpp"
 #include "RPGSprite.h"
 #include "AlphamonSprite.h"
-#include "Alphamon.h"
+#include "alphamon/Alphamon.h"
 
 
 
