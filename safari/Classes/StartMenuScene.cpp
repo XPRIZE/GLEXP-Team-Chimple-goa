@@ -59,7 +59,7 @@ bool StartMenu::init() {
                              createMenu(CANNON_BALL),
                              createMenu(ENDLESS_RUNNER),
                              createMenu(KUNG_FU_ALPHA),
-							 createMenu(ALPHAMON_FEED)
+							 createMenu(ALPHAMON_FEED),
                              NULL);
     menu->alignItemsVertically();
     
