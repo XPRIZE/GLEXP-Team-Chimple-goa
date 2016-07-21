@@ -11,6 +11,7 @@
 
 #include "cocos2d.h"
 #include "HPMeter.h"
+#include "editor-support/cocostudio/CocoStudio.h"
 
 
 class Alphamon : public cocos2d::Node
@@ -18,6 +19,13 @@ class Alphamon : public cocos2d::Node
 public:
     static Alphamon *createWithAlphabet(char alphabet);
     void breatheAction();
+	void blinkAction();
+	void eatAction();
+	void walkAction();
+	void stopBlinkAction();
+	void stopEatAction();
+	void stopWalkAction();
+	cocos2d::Vector < cocos2d::Node *> getAlphamonChildren();
     cocos2d::ActionInterval *shakeAction();
     void setHealth(int value);
     int getHealth();
@@ -30,6 +38,9 @@ public:
     void endMyTurn();
     void enableTouch(bool value);
     virtual cocos2d::Rect getBoundingBox() const override;
+	void alphamonMouthAnimation(std::string animationName, bool loop = false);
+	void alphamonEyeAnimation(std::string animationName , bool loop = false);
+	void alphamonLegAnimation(std::string animationName, bool loop = false);
     
 CC_CONSTRUCTOR_ACCESS:
     Alphamon();
@@ -37,12 +48,15 @@ CC_CONSTRUCTOR_ACCESS:
     bool initWithAlphabet(char alphabet);
     bool onTouchBegan(cocos2d::Touch* touch, cocos2d::Event* event);
     void onTouchEnded(cocos2d::Touch* touch, cocos2d::Event* event);
-    
+
 protected:
     static const int MAX_HP;
     Node *_monster;
     HPMeter *_hpMeter;
     HPMeter *_powerMeter;
+	cocos2d::Vector <cocostudio::timeline::ActionTimeline *> mouthAnimation;
+	cocos2d::Vector <cocostudio::timeline::ActionTimeline *> legAnimation;
+	cocos2d::Vector <cocostudio::timeline::ActionTimeline *> eyeAnimation;
     cocos2d::DrawNode *_drawNode;
     cocos2d::Label *_alphaNode;
     int _hp;
