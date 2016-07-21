@@ -185,6 +185,93 @@ void Alphamon::onTouchEnded(cocos2d::Touch *touch, cocos2d::Event *event) {
     }
 }
 
+// eye animation parameter animation name = blink and loop 
+void Alphamon::alphamonEyeAnimation(std::string animationName, bool loop) {
+	Vector <Node*> children = _monster->getChildren();
+	for (auto item = children.rbegin(); item != children.rend(); ++item) {
+		Node * monsterItem = *item;
+		std::string str = monsterItem->getName().c_str();
+		if (str.find("eye") == 0) {
+			auto eyeTimeline = CSLoader::createTimeline(CCString::createWithFormat("eye_ani/%s.csb", str.c_str())->getCString());
+			monsterItem->runAction(eyeTimeline);
+			//eyeTimeline->gotoFrameAndPlay(0, true);
+			eyeTimeline->play(animationName, loop);
+			eyeAnimation.pushBack(eyeTimeline);
+			// add eye animation part
+		}
+	}
+}
+// leg animation parameter animation name = walk and loop 
+void Alphamon::alphamonLegAnimation(std::string animationName, bool loop) {
+	Vector <Node*> children = _monster->getChildren();
+	for (auto item = children.rbegin(); item != children.rend(); ++item) {
+		Node * monsterItem = *item;
+		std::string str = monsterItem->getName().c_str();
+		if (str.find("skate") == 0) {
+			auto legTimeline = CSLoader::createTimeline(CCString::createWithFormat("leg_ani/%s.csb", str.c_str())->getCString());
+			monsterItem->runAction(legTimeline);
+			legTimeline->play(animationName, loop);
+			legAnimation.pushBack(legTimeline);
+		}
+	}
+}
+// eye animation parameter animation name = eat  and spit
+//loop 
+void Alphamon::alphamonMouthAnimation(std::string animationName, bool loop) {
+	Vector <Node*> children = _monster->getChildren();
+	for (auto item = children.rbegin(); item != children.rend(); ++item) {
+		Node * monsterItem = *item;
+		std::string str = monsterItem->getName().c_str();
+		if (str.find("mouth") == 0) {
+			auto mouthTimeline = CSLoader::createTimeline(CCString::createWithFormat("mouth_ani/%s.csb", str.c_str())->getCString());
+			monsterItem->runAction(mouthTimeline);
+			mouthTimeline->play(animationName, loop);
+			mouthAnimation.pushBack(mouthTimeline);
+		}
+	}
+}
+
+void Alphamon::blinkAction() {
+	//continuous blinking action
+	alphamonEyeAnimation("blink", true);
+}
+
+void Alphamon::eatAction() {
+	//continuous eat action
+	alphamonMouthAnimation("eat", true);
+}
+
+void Alphamon::walkAction() {
+	//continuous walk action
+	alphamonLegAnimation("walk", true);
+}
+
+void Alphamon::stopBlinkAction() {
+	//stop blink action
+	for (int i = 0; i < eyeAnimation.size(); i++) {
+		eyeAnimation.at(i)->pause();
+	}
+}
+
+void Alphamon::stopEatAction() {
+	//stop eat action
+	for (int i = 0; i < mouthAnimation.size(); i++) {
+		mouthAnimation.at(i)->pause();
+	}
+}
+
+void Alphamon::stopWalkAction() {
+	//stop walk action
+	for (int i = 0; i < legAnimation.size(); i++) {
+		legAnimation.at(i)->pause();
+	}
+}
+
+cocos2d::Vector<cocos2d::Node*> Alphamon::getAlphamonChildren()
+{
+	return _monster->getChildren();
+}
+
 cocos2d::Rect Alphamon::getBoundingBox() const {
     return _alphaNode->getBoundingBox();
 }
