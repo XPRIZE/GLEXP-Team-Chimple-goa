@@ -32,7 +32,7 @@ public:
 	~LabelClass();
 	int flag;
 	float xP, yP;
-	char id;
+	char id, answer;
 	static LabelClass* createSpt(char spriteName, float x, float y, char, MainGame*);
 private:
 };
