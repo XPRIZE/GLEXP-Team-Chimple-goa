@@ -4,6 +4,7 @@
 #include "cocos2d.h"
 #include "editor-support/cocostudio/CocoStudio.h"
 #include "ui/CocosGUI.h"
+#include "../alphamon/Alphamon.h"
 
 class AlphamonFeed : public cocos2d::Layer
 {
@@ -19,7 +20,7 @@ public:
 	cocos2d::DrawNode * myBox;
 	cocos2d::Node * sprite;
 	cocos2d::Node * background;
-	cocos2d::Node * sprite1;
+	Alphamon * sprite1;
 	cocos2d::ui::Slider * slideBar;
 	cocos2d::Vector <cocostudio::timeline::ActionTimeline *> mouthAnimation;
 	cocos2d::Vector <cocostudio::timeline::ActionTimeline *> legAnimation;
