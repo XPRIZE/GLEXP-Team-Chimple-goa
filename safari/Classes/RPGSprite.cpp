@@ -92,12 +92,6 @@ void RPGSprite::setAttributes(std::unordered_map<std::string, std::string> attri
         this->setFileName(it->second);
     }
     
-//    it = this->attributes.find("key");
-//    if ( it != this->attributes.end() ) {
-//        this->setKey(it->second);
-//        this->setName(it->second);
-//    }
-    
     it = this->attributes.find("canInteract");
     if ( it != this->attributes.end() ) {
         this->setInterAct(it->second);
@@ -118,6 +112,12 @@ void RPGSprite::setAttributes(std::unordered_map<std::string, std::string> attri
     if ( it != this->attributes.end() ) {
         this->setPosY(it->second);
     }
+    
+    it = this->attributes.find("key");
+    if ( it != this->attributes.end() ) {
+        this->setKey(it->second);
+    }
+
 }
 
 std::unordered_map<std::string, std::string> RPGSprite::getAttributes() {
@@ -170,7 +170,6 @@ SkeletonCharacter* RPGSprite::getMainSkeleton() {
 bool RPGSprite::onTouchBegan(Touch *touch, Event *event)
 {
     auto n = convertTouchToNodeSpace(touch);
-        
     Rect boundingBoxRect = Rect(this->getSprite()->getBoundingBox().origin.x, this->getSprite()->getBoundingBox().origin.y, this->getSprite()->getBoundingBox().size.width == 0 ? OBJECT_TAP_BOUNDING_BOX_WIDTH : this->getSprite()->getBoundingBox().size.width, this->getSprite()->getBoundingBox().size.height == 0 ? OBJECT_TAP_BOUNDING_BOX_WIDTH : this->getSprite()->getBoundingBox().size.height);
     
     if(this->getSprite()->isVisible() && this->getInterAct() == "true" && this->getVicinityToMainCharacter() == true && boundingBoxRect.containsPoint(n)) {
@@ -182,7 +181,7 @@ bool RPGSprite::onTouchBegan(Touch *touch, Event *event)
 
 void RPGSprite::touchEnded(Touch *touch, Event *event)
 {
-    std::string s(this->getName());    
+    std::string s(!this->getKey().empty() ? this->getKey() : this->getName());
     EVENT_DISPATCHER->dispatchCustomEvent(RPGConfig::SPEECH_MESSAGE_ON_TAP_NOTIFICATION, static_cast<void*>(&s));
 
 }
