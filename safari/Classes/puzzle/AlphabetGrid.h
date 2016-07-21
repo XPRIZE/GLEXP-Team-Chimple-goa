@@ -34,7 +34,7 @@ protected:
     GLfloat _height;
     Node *_alphabetLayer;
     Node *_labelLayer;
-    std::vector<std::vector<Alphabet *>> _alphabetMatrix;
+    std::vector<std::vector<Alphabet *> > _alphabetMatrix;
     cocos2d::DrawNode *_overlay;
 };
 

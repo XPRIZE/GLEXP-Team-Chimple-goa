@@ -311,7 +311,7 @@ bool HelloWorld::init(const std::string& island)
 
     //default sceneName should be the same as island and default search path
     this->setSceneName(island);
-    FileUtils::getInstance()->addSearchPath("res/" + this->getIsland());
+    FileUtils::getInstance()->addSearchPath("res/" + this->getSceneName());
     
     this->loadSqlite3FileForScene();
     
@@ -503,6 +503,35 @@ void HelloWorld::processShowMessage(std::vector<MessageContent*>showMessages) {
     }
 }
 
+void HelloWorld::processChangeSceneMessages(std::vector<MessageContent*>changeSceneMessages) {
+    for (std::vector<MessageContent* >::iterator it = changeSceneMessages.begin() ; changeSceneMessages.size() == 1 && it != changeSceneMessages.end(); ++it)
+    {
+        MessageContent* content = (MessageContent*) *it;
+        CCLOG("content owner %s", content->getOwner().c_str());
+        
+        if(content != NULL && (content->getCondition().empty() || (!content->getCondition().empty() && content->getConditionSatisfied() == 1)))
+        {
+            Node* actor = this->mainLayer->getChildByName(content->getOwner());
+            RPGSprite* rpgActor = dynamic_cast<RPGSprite *>(actor);
+            
+            std::string nextScene = rpgActor->getNextScene();
+            std::string posX = rpgActor->getPosX();
+            std::string posY = rpgActor->getPosY();
+            
+            if(!nextScene.empty() && !posX.empty() && !posY.empty())
+            {
+                this->sqlite3Helper->recordMainCharacterPositionInScene(this->getIsland().c_str(), nextScene.c_str(), String::create(posX)->floatValue(), String::create(posY)->floatValue());
+                
+                EVENT_DISPATCHER->dispatchCustomEvent (RPGConfig::DISPATCH_CLEANUP_AND_SCENE_TRANSITION_NOTIFICATION);
+                
+                
+                Director::getInstance()->replaceScene(TransitionFade::create(1, HelloWorld::createScene(this->getIsland()), cocos2d::Color3B::WHITE));
+                
+            }
+        }
+    }
+}
+
 void HelloWorld::processAnimationMessage(std::vector<MessageContent*>animationMessages) {
     
     //CURRENTLY only one animation supported - TBD (later extend to play multiples)
@@ -522,7 +551,7 @@ void HelloWorld::processAnimationMessage(std::vector<MessageContent*>animationMe
                 timeline->setLastFrameCallFunc([=]() {
                     timeline->clearLastFrameCallFunc();
                     
-                    if(content != NULL && !content->getCondition().empty() && content->getConditionSatisfied() == 1)
+                    if(content != NULL && (content->getCondition().empty() || (!content->getCondition().empty() && content->getConditionSatisfied() == 1)))
                     {
                         std::string nextScene = animationNode->getNextScene();
                         std::string posX = animationNode->getPosX();
@@ -588,6 +617,7 @@ void HelloWorld::processMessage(std::vector<MessageContent*>*messages) {
     std::vector<MessageContent*>showMessages;
     std::vector<MessageContent*>animationMessages;
     std::vector<MessageContent*>customAnimationMessages;
+    std::vector<MessageContent*>changeSceneMessages;
     std::string ownerOfMessage;
     
     for (std::vector<MessageContent* >::iterator it = messages->begin() ; it != messages->end(); ++it)
@@ -611,6 +641,11 @@ void HelloWorld::processMessage(std::vector<MessageContent*>*messages) {
             ownerOfMessage = content->getOwner();
             customAnimationMessages.push_back(content);
         }
+        else if(content->getAction() == "changeScene") {
+            ownerOfMessage = content->getOwner();
+            changeSceneMessages.push_back(content);
+        }
+
         
     }
     
@@ -628,6 +663,10 @@ void HelloWorld::processMessage(std::vector<MessageContent*>*messages) {
     
     if(!customAnimationMessages.empty()) {
         this->processCustomAnimationMessage(customAnimationMessages);
+    }
+    
+    if(!changeSceneMessages.empty()) {
+        this->processChangeSceneMessages(changeSceneMessages);
     }
 
     this->hideTouchPointSign();

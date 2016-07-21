@@ -191,7 +191,7 @@ void DuelScene::armMyMon() {
         auto particle = cocos2d::ParticleMeteor::create();
         particle->setPosition(convertToNodeSpace(alpha->getParent()->convertToWorldSpace(alpha->getPosition())));
         addChild(particle);
-        auto moveTo = JumpTo::create(2, _myMon->getPosition(), 25.0, 1);
+        auto moveTo = JumpTo::create(0.5, _myMon->getPosition(), 25.0, 1);
         auto callbackJump = CallFunc::create(CC_CALLBACK_0(DuelScene::endMeteor, this, particle));
         
         auto sequence = Sequence::create(moveTo, callbackJump, NULL);
@@ -206,7 +206,7 @@ void DuelScene::attackOtherMon() {
     auto particle = cocos2d::ParticleMeteor::create();
     particle->setPosition(_myMon->getPosition());
     addChild(particle);
-    auto moveTo = TargetedAction::create(particle, JumpTo::create(2, _otherMon->getPosition(), 25.0, 1));
+    auto moveTo = TargetedAction::create(particle, JumpTo::create(0.5, _otherMon->getPosition(), 25.0, 1));
     auto callbackJump = CallFunc::create(CC_CALLBACK_0(DuelScene::endMeteor, this, particle));
     auto callbackAttack = CallFunc::create(CC_CALLBACK_0(DuelScene::attackMyMon, this));
     auto callbackReduceHP = CallFunc::create(CC_CALLBACK_0(DuelScene::reduceHP, this, _otherMon, _myMon->getPower() * MAX_POINTS_PER_TURN / 100));
@@ -219,7 +219,7 @@ void DuelScene::attackMyMon() {
     auto particle = cocos2d::ParticleMeteor::create();
     particle->setPosition(_otherMon->getPosition());
     addChild(particle);
-    auto moveTo = TargetedAction::create(particle, JumpTo::create(2, _myMon->getPosition(), 25.0, 1));
+    auto moveTo = TargetedAction::create(particle, JumpTo::create(0.5, _myMon->getPosition(), 25.0, 1));
     auto callbackJump = CallFunc::create(CC_CALLBACK_0(DuelScene::endMeteor, this, particle));
     auto callbackStart = CallFunc::create(CC_CALLBACK_0(DuelScene::startMyTurn, this));
     auto callbackReduceHP = CallFunc::create(CC_CALLBACK_0(DuelScene::reduceHP, this, _myMon, rand() % MAX_POINTS_PER_TURN));

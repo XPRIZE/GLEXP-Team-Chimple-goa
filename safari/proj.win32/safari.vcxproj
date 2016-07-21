@@ -205,13 +205,10 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClInclude Include="..\Classes\MessageContent.hpp" />
     <ClInclude Include="..\Classes\MessageReceiver.hpp" />
     <ClInclude Include="..\Classes\MessageSender.hpp" />
-<<<<<<< HEAD
     <ClInclude Include="..\Classes\mini_games\AlphamonFeedLevelScene.h" />
     <ClInclude Include="..\Classes\mini_games\AlphamonFeedScene.h" />
-=======
     <ClInclude Include="..\Classes\mini_games\Cannon_Ball_Listener.h" />
     <ClInclude Include="..\Classes\mini_games\Cannon_Ball_Main.h" />
->>>>>>> refs/remotes/origin/master
     <ClInclude Include="..\Classes\mini_games\CrossTheBridgeScene.h" />
     <ClInclude Include="..\Classes\mini_games\EndlessRunner.h" />
     <ClInclude Include="..\Classes\mini_games\PatchTheWallScene.h" />

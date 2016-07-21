@@ -91,6 +91,7 @@ LabelClass* LabelClass::createSpt(char spriteName, float x, float y, char charid
 	createSprite_pSprite->xP = x;
 	createSprite_pSprite->yP = y;
 	createSprite_pSprite->id = charid;
+	createSprite_pSprite->answer = 'o';
 	return createSprite_pSprite;
 //	CC_SAFE_DELETE(createSprite_pSprite);
 }
