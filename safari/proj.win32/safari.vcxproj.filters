@@ -1,99 +1,319 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <ClCompile Include="..\Classes\AlphamonSprite.cpp" />
-    <ClCompile Include="..\Classes\alphamon\Alphamon.cpp" />
-    <ClCompile Include="..\Classes\alphamon\HPMeter.cpp" />
-    <ClCompile Include="..\Classes\alphamon\SelectAlphamonScene.cpp" />
-    <ClCompile Include="..\Classes\AppDelegate.cpp" />
-    <ClCompile Include="..\Classes\effects\FShake.cpp" />
-    <ClCompile Include="..\Classes\ExternalSkeletonCharacter.cpp" />
-    <ClCompile Include="..\Classes\FallingState.cpp" />
-    <ClCompile Include="..\Classes\GestureLayer.cpp" />
-    <ClCompile Include="..\Classes\HelloWorldScene.cpp" />
-    <ClCompile Include="..\Classes\JumpingState.cpp" />
-    <ClCompile Include="..\Classes\menu\MenuContext.cpp" />
-    <ClCompile Include="..\Classes\MessageContent.cpp" />
-    <ClCompile Include="..\Classes\MessageReceiver.cpp" />
-    <ClCompile Include="..\Classes\MessageSender.cpp" />
-    <ClCompile Include="..\Classes\mini_games\AlphamonFeedLevelScene.cpp" />
-    <ClCompile Include="..\Classes\mini_games\AlphamonFeedScene.cpp" />
-    <ClCompile Include="..\Classes\mini_games\Cannon_Ball_Listener.cpp" />
-    <ClCompile Include="..\Classes\mini_games\Cannon_Ball_Main.cpp" />
-    <ClCompile Include="..\Classes\mini_games\CrossTheBridgeScene.cpp" />
-    <ClCompile Include="..\Classes\mini_games\EndlessRunner.cpp" />
-    <ClCompile Include="..\Classes\mini_games\PatchTheWallScene.cpp" />
-    <ClCompile Include="..\Classes\mini_games\SmashTheRockLevelScene.cpp" />
-    <ClCompile Include="..\Classes\mini_games\SmashTheRockScene.cpp" />
-    <ClCompile Include="..\Classes\mini_games\SpriteCreate.cpp" />
-    <ClCompile Include="..\Classes\PhysicsShapeCache.cpp" />
-    <ClCompile Include="..\Classes\puzzle\Alphabet.cpp" />
-    <ClCompile Include="..\Classes\puzzle\AlphabetGrid.cpp" />
-    <ClCompile Include="..\Classes\puzzle\CharGenerator.cpp" />
-    <ClCompile Include="..\Classes\puzzle\DuelScene.cpp" />
-    <ClCompile Include="..\Classes\RPGConfig.cpp" />
-    <ClCompile Include="..\Classes\RPGSprite.cpp" />
-    <ClCompile Include="..\Classes\RunningState.cpp" />
-    <ClCompile Include="..\Classes\SkeletonCharacter.cpp" />
-    <ClCompile Include="..\Classes\SkeletonPosition.cpp" />
-    <ClCompile Include="..\Classes\SpeechBubbleView.cpp" />
-    <ClCompile Include="..\Classes\sqlite3.c" />
-    <ClCompile Include="..\Classes\Sqlite3Helper.cpp" />
-    <ClCompile Include="..\Classes\StandingState.cpp" />
-    <ClCompile Include="..\Classes\StartMenuScene.cpp" />
-    <ClCompile Include="..\Classes\State.cpp" />
-    <ClCompile Include="..\Classes\StateMachine.cpp" />
-    <ClCompile Include="..\Classes\WalkingState.cpp" />
-    <ClCompile Include="main.cpp" />
-    <ClCompile Include="..\Classes\mini_games\TraceScene.cpp" />
+    <Filter Include="win32">
+      <UniqueIdentifier>{84a8ebd7-7cf0-47f6-b75e-d441df67da40}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="resource">
+      <UniqueIdentifier>{715254bc-d70b-4ec5-bf29-467dd3ace079}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src">
+      <UniqueIdentifier>{bb6c862e-70e9-49d9-81b7-3829a6f50471}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\mini_games">
+      <UniqueIdentifier>{684cf30e-10bb-4c7a-af3a-2304608412a3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\puzzle">
+      <UniqueIdentifier>{88a1689e-310d-4237-938f-5b34660149aa}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\alphamon">
+      <UniqueIdentifier>{229347fd-1878-4ff9-b779-9e91102998ed}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\effects">
+      <UniqueIdentifier>{93c67490-6fbc-4d6b-8873-2210d1107f0a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\menu">
+      <UniqueIdentifier>{83536741-7d1e-4315-a8b2-11d0bfdf05c7}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\Classes\AlphamonSprite.h" />
-    <ClInclude Include="..\Classes\alphamon\Alphamon.h" />
-    <ClInclude Include="..\Classes\alphamon\HPMeter.h" />
-    <ClInclude Include="..\Classes\alphamon\SelectAlphamonScene.h" />
-    <ClInclude Include="..\Classes\AppDelegate.h" />
-    <ClInclude Include="..\Classes\effects\FShake.h" />
-    <ClInclude Include="..\Classes\ExternalSkeletonCharacter.h" />
-    <ClInclude Include="..\Classes\FallingState.h" />
-    <ClInclude Include="..\Classes\GestureLayer.hpp" />
-    <ClInclude Include="..\Classes\HelloWorldScene.h" />
-    <ClInclude Include="..\Classes\JumpingState.h" />
-    <ClInclude Include="..\Classes\menu\MenuContext.h" />
-    <ClInclude Include="..\Classes\MessageContent.hpp" />
-    <ClInclude Include="..\Classes\MessageReceiver.hpp" />
-    <ClInclude Include="..\Classes\MessageSender.hpp" />
-    <ClInclude Include="..\Classes\mini_games\AlphamonFeedScene.h" />
-    <ClInclude Include="..\Classes\mini_games\Cannon_Ball_Listener.h" />
-    <ClInclude Include="..\Classes\mini_games\Cannon_Ball_Main.h" />
-    <ClInclude Include="..\Classes\mini_games\CrossTheBridgeScene.h" />
-    <ClInclude Include="..\Classes\mini_games\EndlessRunner.h" />
-    <ClInclude Include="..\Classes\mini_games\PatchTheWallScene.h" />
-    <ClInclude Include="..\Classes\mini_games\SmashTheRockLevelScene.h" />
-    <ClInclude Include="..\Classes\mini_games\SmashTheRockScene.h" />
-    <ClInclude Include="..\Classes\mini_games\SpriteCreate.h" />
-    <ClInclude Include="..\Classes\PhysicsShapeCache.h" />
-    <ClInclude Include="..\Classes\puzzle\Alphabet.h" />
-    <ClInclude Include="..\Classes\puzzle\AlphabetGrid.h" />
-    <ClInclude Include="..\Classes\puzzle\CharGenerator.h" />
-    <ClInclude Include="..\Classes\puzzle\DuelScene.h" />
-    <ClInclude Include="..\Classes\RPGConfig.h" />
-    <ClInclude Include="..\Classes\RPGSprite.h" />
-    <ClInclude Include="..\Classes\RunningState.h" />
-    <ClInclude Include="..\Classes\SkeletonCharacter.h" />
-    <ClInclude Include="..\Classes\SkeletonPosition.h" />
-    <ClInclude Include="..\Classes\SpeechBubbleView.hpp" />
-    <ClInclude Include="..\Classes\sqlite3.h" />
-    <ClInclude Include="..\Classes\Sqlite3Helper.hpp" />
-    <ClInclude Include="..\Classes\StandingState.h" />
-    <ClInclude Include="..\Classes\StartMenuScene.h" />
-    <ClInclude Include="..\Classes\State.h" />
-    <ClInclude Include="..\Classes\StateMachine.h" />
-    <ClInclude Include="..\Classes\WalkingState.h" />
-    <ClInclude Include="main.h" />
-    <ClInclude Include="..\Classes\mini_games\TraceScene.h" />
+    <ClCompile Include="main.cpp">
+      <Filter>win32</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\AppDelegate.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\HelloWorldScene.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\ExternalSkeletonCharacter.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\FallingState.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\GestureLayer.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\JumpingState.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\MessageContent.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\MessageReceiver.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\MessageSender.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\PhysicsShapeCache.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\RPGConfig.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\RPGSprite.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\RunningState.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\SkeletonCharacter.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\SpeechBubbleView.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\sqlite3.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Sqlite3Helper.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\StandingState.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\StartMenuScene.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\State.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\StateMachine.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\mini_games\CrossTheBridgeScene.cpp">
+      <Filter>src\mini_games</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\mini_games\EndlessRunner.cpp">
+      <Filter>src\mini_games</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\mini_games\PatchTheWallScene.cpp">
+      <Filter>src\mini_games</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\mini_games\SmashTheRockLevelScene.cpp">
+      <Filter>src\mini_games</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\mini_games\SmashTheRockScene.cpp">
+      <Filter>src\mini_games</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\mini_games\SpriteCreate.cpp">
+      <Filter>src\mini_games</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\alphamon\Alphamon.cpp">
+      <Filter>src\alphamon</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\alphamon\HPMeter.cpp">
+      <Filter>src\alphamon</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\alphamon\SelectAlphamonScene.cpp">
+      <Filter>src\alphamon</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\effects\FShake.cpp">
+      <Filter>src\effects</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\puzzle\Alphabet.cpp">
+      <Filter>src\puzzle</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\puzzle\AlphabetGrid.cpp">
+      <Filter>src\puzzle</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\puzzle\CharGenerator.cpp">
+      <Filter>src\puzzle</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\puzzle\DuelScene.cpp">
+      <Filter>src\puzzle</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\mini_games\Cannon_Ball_Listener.cpp">
+      <Filter>src\mini_games</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\mini_games\Cannon_Ball_Main.cpp">
+      <Filter>src\mini_games</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\mini_games\AlphamonFeedLevelScene.cpp">
+      <Filter>src\mini_games</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\mini_games\AlphamonFeedScene.cpp">
+      <Filter>src\mini_games</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\menu\MenuContext.cpp">
+      <Filter>src\menu</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\AlphamonSprite.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\SkeletonPosition.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\mini_games\TraceScene.cpp">
+      <Filter>src\mini_games</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\menu\MenuContext.cpp">
+      <Filter>src\menu</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\AlphamonSprite.cpp">
+	</ClCompile>
+    <ClCompile Include="..\Classes\WalkingState.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ResourceCompile Include="game.rc" />
+    <ClInclude Include="main.h">
+      <Filter>win32</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\AppDelegate.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\HelloWorldScene.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\ExternalSkeletonCharacter.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\FallingState.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\GestureLayer.hpp">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\JumpingState.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\MessageContent.hpp">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\MessageReceiver.hpp">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\MessageSender.hpp">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\PhysicsShapeCache.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\RPGConfig.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\RPGSprite.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\RunningState.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\SkeletonCharacter.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\SpeechBubbleView.hpp">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\sqlite3.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Sqlite3Helper.hpp">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\StandingState.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\StartMenuScene.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\State.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\StateMachine.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\WalkingState.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\mini_games\CrossTheBridgeScene.h">
+      <Filter>src\mini_games</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\mini_games\EndlessRunner.h">
+      <Filter>src\mini_games</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\mini_games\PatchTheWallScene.h">
+      <Filter>src\mini_games</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\mini_games\SmashTheRockLevelScene.h">
+      <Filter>src\mini_games</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\mini_games\SmashTheRockScene.h">
+      <Filter>src\mini_games</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\mini_games\SpriteCreate.h">
+      <Filter>src\mini_games</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\alphamon\Alphamon.h">
+      <Filter>src\alphamon</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\alphamon\HPMeter.h">
+      <Filter>src\alphamon</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\alphamon\SelectAlphamonScene.h">
+      <Filter>src\alphamon</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\effects\FShake.h">
+      <Filter>src\effects</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\puzzle\Alphabet.h">
+      <Filter>src\puzzle</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\puzzle\AlphabetGrid.h">
+      <Filter>src\puzzle</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\puzzle\CharGenerator.h">
+      <Filter>src\puzzle</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\puzzle\DuelScene.h">
+      <Filter>src\puzzle</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\mini_games\Cannon_Ball_Listener.h">
+      <Filter>src\mini_games</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\mini_games\Cannon_Ball_Main.h">
+      <Filter>src\mini_games</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\mini_games\AlphamonFeedLevelScene.h">
+      <Filter>src\mini_games</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\mini_games\AlphamonFeedScene.h">
+      <Filter>src\mini_games</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\menu\MenuContext.h">
+      <Filter>src\menu</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\AlphamonSprite.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\SkeletonPosition.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\mini_games\TraceScene.h">
+      <Filter>src\mini_games</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\menu\MenuContext.h">
+      <Filter>src\menu</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\AlphamonSprite.h">
+      <Filter>src</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="game.rc">
+      <Filter>resource</Filter>
+    </ResourceCompile>
   </ItemGroup>
 </Project>

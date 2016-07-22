@@ -5,6 +5,7 @@
 #include "editor-support/cocostudio/CocoStudio.h"
 #include "ui/CocosGUI.h"
 #include "../alphamon/Alphamon.h"
+#include "../menu/MenuContext.h"
 
 class AlphamonFeed : public cocos2d::Layer
 {
@@ -42,6 +43,10 @@ public:
     
     // implement the "static create()" method manually
     CREATE_FUNC(AlphamonFeed);
+
+
+protected:
+	MenuContext * menu;
 };
 
 #endif // __ALPHAMONFEED_SCENE_H__
