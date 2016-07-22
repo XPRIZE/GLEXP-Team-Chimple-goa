@@ -11,28 +11,28 @@
                 <key>spriteOffset</key>
                 <string>{0,0}</string>
                 <key>spriteSize</key>
-                <string>{2560,1800}</string>
+                <string>{640,450}</string>
                 <key>spriteSourceSize</key>
-                <string>{2560,1800}</string>
+                <string>{640,450}</string>
                 <key>textureRect</key>
-                <string>{{1,1},{2560,1800}}</string>
+                <string>{{1,1},{640,450}}</string>
                 <key>textureRotated</key>
-                <false/>
+                <true/>
             </dict>
             <key>cannonball/cannonball_mainasset/background_front.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
                 <key>spriteOffset</key>
-                <string>{-546,0}</string>
+                <string>{-136,0}</string>
                 <key>spriteSize</key>
-                <string>{1468,1800}</string>
+                <string>{368,450}</string>
                 <key>spriteSourceSize</key>
-                <string>{2560,1800}</string>
+                <string>{640,450}</string>
                 <key>textureRect</key>
-                <string>{{2563,1},{1468,1800}}</string>
+                <string>{{1,643},{368,450}}</string>
                 <key>textureRotated</key>
-                <false/>
+                <true/>
             </dict>
             <key>cannonball/cannonball_mainasset/cannon1.png</key>
             <dict>
@@ -41,11 +41,11 @@
                 <key>spriteOffset</key>
                 <string>{0,0}</string>
                 <key>spriteSize</key>
-                <string>{602,392}</string>
+                <string>{151,98}</string>
                 <key>spriteSourceSize</key>
-                <string>{602,392}</string>
+                <string>{151,98}</string>
                 <key>textureRect</key>
-                <string>{{1,1803},{602,392}}</string>
+                <string>{{1,1244},{151,98}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
@@ -56,13 +56,28 @@
                 <key>spriteOffset</key>
                 <string>{0,0}</string>
                 <key>spriteSize</key>
-                <string>{148,148}</string>
+                <string>{37,37}</string>
                 <key>spriteSourceSize</key>
-                <string>{148,148}</string>
+                <string>{37,37}</string>
                 <key>textureRect</key>
-                <string>{{942,1962},{148,148}}</string>
+                <string>{{240,1285},{37,37}}</string>
                 <key>textureRotated</key>
                 <false/>
+            </dict>
+            <key>cannonball/cannonball_mainasset/cannon_ball_rack.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{229,450}</string>
+                <key>spriteSourceSize</key>
+                <string>{229,450}</string>
+                <key>textureRect</key>
+                <string>{{1,1013},{229,450}}</string>
+                <key>textureRotated</key>
+                <true/>
             </dict>
             <key>cannonball/cannonball_mainasset/cannon_ball_rackpouch.png</key>
             <dict>
@@ -71,11 +86,11 @@
                 <key>spriteOffset</key>
                 <string>{0,0}</string>
                 <key>spriteSize</key>
-                <string>{157,157}</string>
+                <string>{39,39}</string>
                 <key>spriteSourceSize</key>
-                <string>{157,157}</string>
+                <string>{39,39}</string>
                 <key>textureRect</key>
-                <string>{{942,1803},{157,157}}</string>
+                <string>{{240,1244},{39,39}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
@@ -86,11 +101,11 @@
                 <key>spriteOffset</key>
                 <string>{0,0}</string>
                 <key>spriteSize</key>
-                <string>{335,371}</string>
+                <string>{84,93}</string>
                 <key>spriteSourceSize</key>
-                <string>{335,371}</string>
+                <string>{84,93}</string>
                 <key>textureRect</key>
-                <string>{{605,1803},{335,371}}</string>
+                <string>{{154,1244},{84,93}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
@@ -104,13 +119,13 @@
             <key>premultiplyAlpha</key>
             <false/>
             <key>realTextureFileName</key>
-            <string>cannonball_mainasset.png</string>
+            <string>cannonball_mainassetPlist.png</string>
             <key>size</key>
-            <string>{4032,2196}</string>
+            <string>{452,1343}</string>
             <key>smartupdate</key>
-            <string>$TexturePacker:SmartUpdate:d29184a0ea737e3d82a67b5805144349:fd9bee29651298f83b12edbfc79b8776:21c422b72f6d50f0d758872aa81ec96a$</string>
+            <string>$TexturePacker:SmartUpdate:9155cdae80be9047cddb3a772d06691e:7df18226f949baa3f92b0c9189da2d78:50450c61f018f872b2ad7865f0a8808f$</string>
             <key>textureFileName</key>
-            <string>cannonball_mainasset.png</string>
+            <string>cannonball_mainassetPlist.png</string>
         </dict>
     </dict>
 </plist>
