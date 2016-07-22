@@ -22,7 +22,7 @@
 #define RPG_GRAVITY -2000
 #define ENABLE_DEBUGDRAW true
 #define MAIN_CHARACTER_MASS 1.0f
-#define MAIN_CHARACTER_SCALE 0.3f
+#define MAIN_CHARACTER_SCALE 1.0f
 #define MAIN_CHARACTER_MASS_DAMPING 0.05f
 #define MAIN_CHARACTER_GROUP -1
 
@@ -46,18 +46,25 @@
 #define VERTICAL_JUMP_THRESHOLD 700.0f
 
 #define PERPENDICULAR_ANGLE 90.0f
-#define HUMAN_SKELETON_COLLISION_BOX_WIDTH 300.0f
+#define HUMAN_SKELETON_COLLISION_BOX_WIDTH 100.0f
 #define JUMP_UP_ENDING_ANIMATION_FRAMES 15
 
-#define OBJECT_TAP_BOUNDING_BOX_WIDTH 300.0f
+#define OBJECT_TAP_BOUNDING_BOX_WIDTH 650.0f
 
-#define OBJECT_NEAR_BY_BOUNDING_BOX_WIDTH 500.0f
+#define OBJECT_NEAR_BY_BOUNDING_BOX_WIDTH 650.0f
 
-#define HUMAN_SKELETON_NAME "Human_Skeleton"
+#define HUMAN_SKELETON_NAME "Skeleton"
 #define JUMP_START "jump_start"
-#define JUMP_END "jump_end"
-#define JUMP_MID "jump_mid"
+#define JUMP_END "jump_down"
+#define JUMP_FINISHED "jump_end"
+#define JUMP_MID "jump_up"
+#define ROLL_SKELETON "roll"
 #define ROTATE_SKELETON "rotate"
+#define IDLE "idle"
+#define WALK "walk"
+#define RUN "run"
+#define BREAK_ANIM "stop"
+
 
 
 #define MAIN_LAYER "main"
@@ -77,6 +84,10 @@
 #define GLOBAL_DB_NAME "safari.db3"
 
 #define DUEL_SCENE_NAME "DuelScene"
+
+#define TOUCH_POINTER_IMG "touchPointer.png"
+
+#define SWIPE_DELTA 200.0f
 
 #define EVENT_DISPATCHER Director::getInstance()->getEventDispatcher()
 
