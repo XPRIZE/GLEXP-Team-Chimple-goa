@@ -15,6 +15,27 @@ const std::vector<std::string> Alphabets = {"A","B","C","D", "E","F","G","H","I"
 
 int score;
 std::string alphaLevelString;
+
+AlphamonFeed::AlphamonFeed() {
+    
+}
+
+AlphamonFeed::~AlphamonFeed() {
+    _eventDispatcher->removeEventListener(listener);
+}
+
+
+AlphamonFeed* AlphamonFeed::create() {
+    AlphamonFeed* alphamonFeedLayer = new (std::nothrow) AlphamonFeed();
+    if(alphamonFeedLayer && alphamonFeedLayer->init()) {
+        alphamonFeedLayer->autorelease();
+        return alphamonFeedLayer;
+    }
+    CC_SAFE_DELETE(alphamonFeedLayer);
+    return nullptr;
+
+}
+
 cocos2d::Scene * AlphamonFeed::createScene(std::string str)
 {
 	alphaLevelString = str.c_str();
@@ -24,6 +45,8 @@ cocos2d::Scene * AlphamonFeed::createScene(std::string str)
 
 	return scene;
 }
+
+
 
 
 bool AlphamonFeed::init()
@@ -94,7 +117,7 @@ bool AlphamonFeed::init()
 			legReff.pushBack(monster);
 		}
 	}
-	auto listener = EventListenerTouchOneByOne::create();
+	listener = EventListenerTouchOneByOne::create();
 	listener->setSwallowTouches(true);
 	listener->onTouchBegan = CC_CALLBACK_2(AlphamonFeed::onTouchBegan, this);
 	listener->onTouchMoved = CC_CALLBACK_2(AlphamonFeed::onTouchMoved, this);

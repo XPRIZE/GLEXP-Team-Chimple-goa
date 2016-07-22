@@ -10,6 +10,11 @@
 class AlphamonFeed : public cocos2d::Layer
 {
 public:
+    AlphamonFeed();
+    ~AlphamonFeed();
+    
+    static AlphamonFeed* create();
+    
 	cocos2d::Rect monster;
 	cocos2d::Node * smile;
 	cocos2d::Node * sad;
@@ -40,13 +45,10 @@ public:
 
 	void showFruits(float dt);
 
-    
-    // implement the "static create()" method manually
-    CREATE_FUNC(AlphamonFeed);
-
 
 protected:
 	MenuContext * menu;
+    cocos2d::EventListenerTouchOneByOne* listener;
 };
 
 #endif // __ALPHAMONFEED_SCENE_H__
