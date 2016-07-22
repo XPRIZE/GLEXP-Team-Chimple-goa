@@ -30,6 +30,8 @@ public:
     
     virtual cocostudio::timeline::ActionTimeline* getSkeletonActionTimeLine();
     
+    virtual void setSkeletonActionTimeLine(cocostudio::timeline::ActionTimeline* timeline);
+    
     virtual void createSkeletonNode(const std::string& filename);
     
     virtual void setStateMachine(StateMachine* stateMachine);
@@ -49,6 +51,8 @@ public:
     
     virtual void HandlePostJumpDownEndingAnimation();
     
+    virtual void HandlePostJumpDownWithDragEndingAnimation();
+    
     bool isWalking;
 
     bool isRunning;
@@ -61,14 +65,20 @@ public:
     
     bool isPlayingContinousRotationWhileJumping;
     
+    bool isFalling;
+    
     virtual bool didSkeletonContactBeginDuringJumpingUp(cocos2d::PhysicsContact &contact, SkeletonCharacterState currentStateCommand);
-
+    
+    virtual void changeSkinForMouthBone(std::string bone, std::string skinName);
+    
+    virtual void configureCharacter();
     
 protected:
         cocostudio::timeline::SkeletonNode* skeletonNode;
         cocostudio::timeline::ActionTimeline* skeletonActionTime;
         StateMachine* stateMachine;        
         CC_SYNTHESIZE(std::string, key, Key);
+        CC_SYNTHESIZE(std::string, fileName, fileName);
 };
 
 #endif /* SkeletonCharacter_h */

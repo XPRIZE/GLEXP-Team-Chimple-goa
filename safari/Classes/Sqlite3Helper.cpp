@@ -392,7 +392,7 @@ SkeletonPosition* Sqlite3Helper::findLastVisitedSceneInIsland(const char* island
         std::string xPos( reinterpret_cast< char const* >(sqlite3_column_text(res, 2))) ;
         content->setXPosition(xPos);
 
-        std::string yPos( reinterpret_cast< char const* >(sqlite3_column_text(res, 2))) ;
+        std::string yPos( reinterpret_cast< char const* >(sqlite3_column_text(res, 3))) ;
         content->setYPosition(yPos);
         
         
