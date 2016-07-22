@@ -8,7 +8,6 @@
 
 #include "TraceScene.h"
 #include "editor-support/cocostudio/CocoStudio.h"
-#include "cocostudio/CocoStudio.h"
 #include "SimpleAudioEngine.h"
 
 
@@ -59,7 +58,7 @@ bool Trace::init(char alphabet) {
         return false;
     }
 	std::string path = "Alpha Kombat/";//std::string(path)
-	CCSpriteFrameCache::sharedSpriteFrameCache()->addSpriteFramesWithFile("Alphacombat.plist");
+	CCSpriteFrameCache::sharedSpriteFrameCache()->addSpriteFramesWithFile("-Alphacombat.plist");
 	
 
 	CocosDenshion::SimpleAudioEngine::getInstance()->preloadEffect("bubble.mp3");

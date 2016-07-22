@@ -20,13 +20,13 @@
 #include <map>
 #include <typeinfo>
 #include <regex>
-#include "cocostudio/CCComExtensionData.h"
+#include "editor-support/cocostudio/CCComExtensionData.h"
 #include "ExternalSkeletonCharacter.h"
 #include "SpeechBubbleView.hpp"
 #include "MessageContent.hpp"
 #include "RPGSprite.h"
 #include "AlphamonSprite.h"
-#include "Alphamon.h"
+#include "alphamon/Alphamon.h"
 
 
 
