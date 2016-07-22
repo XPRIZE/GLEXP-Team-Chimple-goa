@@ -76,6 +76,9 @@ bool Trace::init(char alphabet) {
 	//_background->setPosition(Vec2(visibleSize.width / 2 + origin.x, visibleSize.height / 2 + origin.y));
 	addChild(_bg);
 
+	_menuContext = MenuContext::create();
+	addChild(_menuContext, 4);
+
 	/*auto bg = Sprite::create("bg.png");
 	bg->setPosition(Vec2(visibleSize.width / 2 + origin.x, visibleSize.height / 2 + origin.y));
 
@@ -232,6 +235,8 @@ void Trace::onTouchEnded(cocos2d::Touch *touch, cocos2d::Event *event) {
 					_background->getChildByName(queryi)->runAction(sequenceDot);
 				}
 			}
+
+			_menuContext->pickAlphabet('A', 'A', true);
 
 
 			timeline->setAnimationEndCallFunc(randomAnimation, CC_CALLBACK_0(Trace::transit, this, level));

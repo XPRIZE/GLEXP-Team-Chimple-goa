@@ -10,6 +10,7 @@
 #define TraceScene_h
 
 #include "cocos2d.h"
+#include "../menu/MenuContext.h"
 
 
 class Trace : public cocos2d::Layer {
@@ -35,6 +36,8 @@ protected:
     bool _touchActive;
     void setupTouch();
     CC_SYNTHESIZE(int, _count, Count);
+
+	MenuContext *_menuContext;
     
 };
 
