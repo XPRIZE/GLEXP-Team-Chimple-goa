@@ -87,6 +87,8 @@ bool SmashTheRock::init()
 	centre->setAnchorPoint(Vec2(0.5,0));
     this->addChild(centre,1);
 
+	menu = MenuContext::create();
+	addChild(menu);
 	/*auto letterRock = (Sprite *)centre->getChildByName("letterboard");
 	letterRock->setGlobalZOrder(5);
 	auto boundary = (Sprite *)centre->getChildByName("boundary");
@@ -110,9 +112,9 @@ bool SmashTheRock::init()
 	auto block = Sprite::createWithSpriteFrameName("smash_de_rock/letter_normal.png");
 	//int blockWidth = block->getContentSize().width;
 	//int blockHeight = block->getContentSize().height;
-
+	int dis;
 	std::vector<std::vector<char>> charkey = CharGenerator::getInstance()->generateMatrixForChoosingAChar(mapString.at(0),3,11,50);
-
+	 dis = (230.0/2560)*visibleSize.width;
 	for (int i = 1; i < 4; i++)
 	{
 		int blockHeight = i*(block->getContentSize().height + 20) + 10;
@@ -123,7 +125,7 @@ bool SmashTheRock::init()
 			auto block1 = Sprite::createWithSpriteFrameName("smash_de_rock/letter_normal.png");
 			auto right = Sprite::createWithSpriteFrameName("smash_de_rock/letter_correct.png");
 			auto wrong = Sprite::createWithSpriteFrameName("smash_de_rock/letter_wrong.png");
-			int blockWidth = j*(block->getContentSize().width + 30) + 230;
+			int blockWidth = j*(block->getContentSize().width + 30) +dis;
 			sizej = block->getContentSize().width + 30;
 			CCLOG("sizej = %d", sizej);
 			block1->setAnchorPoint(Vec2(0.5, 0.5));
@@ -149,12 +151,13 @@ bool SmashTheRock::init()
 			std::string str = Alphabets.at(cocos2d::RandomHelper::random_int(key, (key + 20)) % 20).c_str();
 			char str1 = charkey.at(i-1).at(j-1);
 			std::string ttttt(&str1,1) ;
-			label = Label::createWithTTF(ttttt, "fonts/BalooBhai-Regular.ttf", 256);
+			label = Label::createWithBMFont("english/baloo_bhai.fnt", ttttt);
+			//label = Label::createWithTTF(ttttt, "fonts/BalooBhai-Regular.ttf", 256);
 			//CCLOG("alpha = %s",str.c_str());
-			label->setScale(0.6);
+			label->setScale(0.15);
 			label->setPositionX(blockWidth );
 			CCLOG("label x = %d", blockWidth);
-			label->setPositionY(blockHeight - 130);
+			label->setPositionY(blockHeight - 160);
 			label->setColor(ccc3(255, 255, 255));
 			label->enableShadow(Color4B::GRAY, Size(5, -5), -50);
 			label->setAnchorPoint(Vec2::ANCHOR_MIDDLE_BOTTOM);
@@ -272,11 +275,11 @@ void SmashTheRock::blast()
 	Vec2 origin = Director::getInstance()->getVisibleOrigin();
 
 	auto blast = centre->getChildByName("hit");
-	//blast->setGlobalZOrder(2);
+	blast->setGlobalZOrder(2);
 	auto action2 = Blink::create(0.25, 1);
 	blast->runAction(action2);
 	auto white = centre->getChildByName("white");
-	//white->setGlobalZOrder(2);
+	white->setGlobalZOrder(2);
 	auto action3 = Blink::create(0.25, 1);
 	white->runAction(action3);
 
@@ -286,9 +289,9 @@ void SmashTheRock::masking()
 	Size visibleSize = Director::getInstance()->getVisibleSize();
 	Vec2 origin = Director::getInstance()->getVisibleOrigin();
 
-	//label1 = Label::createWithBMFont("baloo_bhai.fnt", Alphabets.at(key).c_str());
-	label1 = Label::createWithTTF(Alphabets.at(key).c_str(), "fonts/BalooBhai-Regular.ttf", 256);
-	label1->setScale(3.7);
+	label1 = Label::createWithBMFont("english/baloo_bhai.fnt", Alphabets.at(key).c_str());
+//	label1 = Label::createWithTTF(Alphabets.at(key).c_str(), "fonts/BalooBhai-Regular.ttf", 256);
+	label1->setScale(0.8);
 
 	
 	const std::vector<std::string> rocks = { "smash_de_rock/cracktexture_00.png","smash_de_rock/cracktexture_01.png","smash_de_rock/cracktexture_02.png","smash_de_rock/cracktexture_03.png","smash_de_rock/cracktexture_04.png","smash_de_rock/cracktexture_05.png" };
@@ -300,7 +303,7 @@ void SmashTheRock::masking()
 
 	maskedFill->setAlphaThreshold(0.9);
 
-	maskedFill->addChild(target);
+	maskedFill->addChild(target,2);
 	//maskedFill->setGlobalZOrder(3);
 	maskedFill->setContentSize(cocos2d::Size(300, 300));
 	maskedFill->setPosition(Vec2(origin.x + (visibleSize.width / 2)  , origin.y + (visibleSize.height / 2) + 480));
@@ -325,7 +328,8 @@ void SmashTheRock::masking()
 
 //	target->setTextureRect(Rect(400, 400, 2000, 2000));
 	target->setAnchorPoint(Vec2(0.5, 0.5));
-	this->addChild(maskedFill);
+	this->addChild(maskedFill,2);
+	flag = true;
 	//maskedFill->setGlobalZOrder(3);
 }
 bool SmashTheRock::onTouchBegan(cocos2d::Touch *touch, cocos2d::Event * event)
@@ -335,18 +339,20 @@ bool SmashTheRock::onTouchBegan(cocos2d::Touch *touch, cocos2d::Event * event)
 	cocos2d::Node * target = event->getCurrentTarget();
 	auto  location = target->convertToNodeSpace(touch->getLocation());
 
-
-
+	Size visibleSize = Director::getInstance()->getVisibleSize();
+	int dis = (230.00 / 2560)*(visibleSize.width);
 	//	CCRect targetRectangle = CCRectMake(0,0, target->getContentSize().width, target->getContentSize().height);
-	if ( target->getBoundingBox().containsPoint( touch->getLocation()))
+	if ( target->getBoundingBox().containsPoint( touch->getLocation()) && flag )
 	{
+		menu->pickAlphabet((target->getName()).at(0), (mapString).at(0), true);
+		flag = false;
 		if (target->getName().compare(mapString.c_str()) == 0)
 		{
 			int indexj = (target->getPositionX());
 			int indexi = (target->getPositionY());
 			CCLOG("target x = %d", indexi);
-			int tempi = ((indexi + 120) / sizei)-1 ;
-			int tempj = ((indexj - 230) / sizej)-1;
+			int tempi = ((indexi + 150) / sizei)-1 ;
+			int tempj = ((indexj - (dis)) / sizej)-1;
 			CCLOG("tempi x = %d", tempi);
 			CCLOG("tempj x = %d", tempj);
 			val = ((tempi) * 11) + tempj;
@@ -370,8 +376,8 @@ bool SmashTheRock::onTouchBegan(cocos2d::Touch *touch, cocos2d::Event * event)
 			int indexj1 = (target->getPositionX());
 			int indexi1 = (target->getPositionY());
 			CCLOG("target x = %d", indexi1);
-			int tempi1 = ((indexi1 + 120) / sizei)-1;
-			int tempj1 = ((indexj1 - 230) / sizej)-1;
+			int tempi1 = ((indexi1 + 150) / sizei)-1;
+			int tempj1 = ((indexj1 - (dis)) / sizej)-1;
 			CCLOG("tempi1 x = %d", tempi1);
 			CCLOG("tempj1 x = %d", tempj1);
 			val1 = ((tempi1) * 11) + tempj1;
@@ -381,6 +387,13 @@ bool SmashTheRock::onTouchBegan(cocos2d::Touch *touch, cocos2d::Event * event)
 			CCLOG("size of label = %d", labelRef.size());
 			this->removeChild(labelRef.at(val1));
 			this->removeChild(blockRef.at(val1));
+			clickWrong++;
+			flag = true;
+			if (clickWrong == 5)
+			{
+				Director::getInstance()->replaceScene(SmashTheRockLevelScene::createScene());
+
+			}
 			
 			return false;
 		}

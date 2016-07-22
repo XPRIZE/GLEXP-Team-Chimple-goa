@@ -4,7 +4,7 @@
 #include "cocos2d.h"
 #include "SkeletonCharacter.h"
 #include "editor-support/cocostudio/CocoStudio.h"
-
+#include "../menu/MenuContext.h"
 class SmashTheRock : public cocos2d::Layer
 {
 public:
@@ -13,6 +13,8 @@ public:
 	virtual bool init();
 
 	int click = 0;
+	int clickWrong = 0;
+	bool flag = true;
     cocos2d::Sprite* target;
 	cocos2d::Node* character;
 	cocostudio::timeline::SkeletonNode* mainGameCharacter;
@@ -51,6 +53,9 @@ public:
 private:
 	SkeletonCharacter* skeletonCharacter;
 
+
+protected:
+	MenuContext * menu;
 
 	CREATE_FUNC(SmashTheRock);
 };
