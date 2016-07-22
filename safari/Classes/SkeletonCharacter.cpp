@@ -26,6 +26,7 @@ SkeletonCharacter* SkeletonCharacter::create(const std::string& filename) {
 bool SkeletonCharacter::initializeSkeletonCharacter(const std::string& filename) {
     this->createSkeletonNode(filename);
     this->setName(MAIN_SKELETON_KEY);
+    this->setfileName(filename);
     this->addChild(this->skeletonNode);
     
     return true;
@@ -40,6 +41,7 @@ SkeletonCharacter::SkeletonCharacter()
     this->isJumping = false;
     this->isJumpingAttemptedWhileDragging = false;
     this->isPlayingContinousRotationWhileJumping = false;
+    this->isFalling = false;
 }
 
 SkeletonCharacter::~SkeletonCharacter()
@@ -53,12 +55,14 @@ void SkeletonCharacter::setStateMachine(StateMachine* stateMachine) {
 
 void SkeletonCharacter::playStartingJumpUpAnimation(std::function<void ()> func) {
     this->getSkeletonActionTimeLine()->setAnimationEndCallFunc(JUMP_START, func);
+    this->getSkeletonActionTimeLine()->setTimeSpeed(4.0);
     this->getSkeletonActionTimeLine()->play(JUMP_START, false);
 }
 
 
 void SkeletonCharacter::playStartingJumpUpWithRotationAnimation(std::function<void ()> func) {
     this->getSkeletonActionTimeLine()->setAnimationEndCallFunc(JUMP_START, func);
+    this->getSkeletonActionTimeLine()->setTimeSpeed(4.0);
     this->getSkeletonActionTimeLine()->play(JUMP_START, false);
 }
 
@@ -69,12 +73,21 @@ void SkeletonCharacter::playJumpingUpEndingAnimation() {
 
 
 void SkeletonCharacter::playJumpingContinuousRotationAnimation() {
-    this->getSkeletonActionTimeLine()->play(ROTATE_SKELETON, false);
+    this->getSkeletonActionTimeLine()->play(ROTATE_SKELETON, true);
 }
 
 StateMachine* SkeletonCharacter::getStateMachine() {
     return this->stateMachine;
 }
+
+void SkeletonCharacter::HandlePostJumpDownWithDragEndingAnimation() {
+    this->getSkeletonActionTimeLine()->clearFrameEventCallFunc();
+    this->getSkeletonActionTimeLine()->setTimeSpeed(1.0f);
+    this->stateMachine->handleInput(S_WALKING_STATE, cocos2d::Vec2(0,0));
+    this->isRunning = false;
+    this->isWalking = false;
+}
+
 
 
 void SkeletonCharacter::HandlePostJumpDownEndingAnimation() {
@@ -109,14 +122,9 @@ void SkeletonCharacter::createSkeletonNode(const std::string& filename) {
     this->skeletonActionTime->gotoFrameAndPause(0);
     
     //attach skins
-    auto bone = this->skeletonNode->getBoneNode("body");
-    bone->displaySkin("watchman_shirt", false);
+    //auto bone = this->skeletonNode->getBoneNode("body");
+    //bone->displaySkin("watchman_shirt", false);
     
-    
-    //create Physics body
-    
-//    auto physicsBody = PhysicsBody::createBox(this->skeletonNode->getBoundingBox().size, PHYSICSBODY_MATERIAL_DEFAULT, Vec2(0,this->skeletonNode->getBoundingBox().size.height/2));
-//    
     
     auto physicsBody = PhysicsBody::createBox(Size(HUMAN_SKELETON_COLLISION_BOX_WIDTH, HUMAN_SKELETON_COLLISION_BOX_WIDTH), PHYSICSBODY_MATERIAL_DEFAULT, Vec2(0,HUMAN_SKELETON_COLLISION_BOX_WIDTH/2));
     
@@ -151,4 +159,39 @@ bool SkeletonCharacter::getSkeletonInContactWithGround() {
     } else {
         return true;
     }
+}
+
+void SkeletonCharacter::setSkeletonActionTimeLine(cocostudio::timeline::ActionTimeline* timeline) {
+    this->skeletonActionTime = timeline;    
+}
+
+
+void SkeletonCharacter::changeSkinForMouthBone(std::string bone, std::string skinName) {
+    cocostudio::timeline::BoneNode* mouth = this->getSkeletonNode()->getBoneNode(bone);
+    
+    bool isSkinExists = false;
+    cocostudio::timeline::SkinNode* referenceToSkin = nullptr;
+    for (std::vector<Node*>::iterator it = mouth->getSkins().begin() ; it != mouth->getSkins().end(); ++it) {
+        cocostudio::timeline::SkinNode* skin = *it;
+        if(skin->getName() == skinName) {
+            isSkinExists = true;
+            referenceToSkin = skin;
+            break;
+        }
+    }
+    
+    if(!isSkinExists) {
+        cocos2d::Sprite* mouthSkin = cocos2d::Sprite::createWithSpriteFrameName(skinName);
+        mouthSkin->setName(skinName);
+        mouthSkin->setAnchorPoint(Vec2(0,0));
+        mouth->addSkin(mouthSkin, true);
+        mouth->displaySkin(mouthSkin, true);
+    } else {
+        mouth->displaySkin(referenceToSkin, true);
+    }
+}
+
+
+void SkeletonCharacter::configureCharacter() {
+    
 }

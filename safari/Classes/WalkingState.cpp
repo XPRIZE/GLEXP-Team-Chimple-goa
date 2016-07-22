@@ -23,7 +23,7 @@ void WalkingState::enter(cocos2d::Vec2 forceVector, SkeletonCharacterState previ
     this->getTarget()->getSkeletonNode()->getPhysicsBody()->setVelocity(forceVector);
     
     //start walking animation
-    this->getTarget()->getSkeletonActionTimeLine()->play("walk", true);
+    this->getTarget()->getSkeletonActionTimeLine()->play(WALK, true);
 }
 
 void WalkingState::exit()  {
