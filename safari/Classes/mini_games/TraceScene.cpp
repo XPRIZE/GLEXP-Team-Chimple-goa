@@ -8,11 +8,14 @@
 
 #include "TraceScene.h"
 #include "editor-support/cocostudio/CocoStudio.h"
+#include "cocostudio/CocoStudio.h"
 #include "SimpleAudioEngine.h"
 
 
 
 char alpha[] = {'a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'};
+std::string animations[] = { "kick","punch","arm_sweep","jump_and_kick" };
+
 int level = 0;
 USING_NS_CC;
 
@@ -57,19 +60,18 @@ bool Trace::init(char alphabet) {
     if (!Layer::init()){
         return false;
     }
-	std::string path = "Alpha Kombat/";//std::string(path)
+
 	CCSpriteFrameCache::sharedSpriteFrameCache()->addSpriteFramesWithFile("-Alphacombat.plist");
-	
 
 	CocosDenshion::SimpleAudioEngine::getInstance()->preloadEffect("bubble.mp3");
-	CCSpriteFrameCache::sharedSpriteFrameCache()->addSpriteFramesWithFile("restanimation.plist");
-	timeline = CSLoader::createTimeline("mainanimation.csb");
+	CCSpriteFrameCache::sharedSpriteFrameCache()->addSpriteFramesWithFile("Alpha_kombat_plist.plist");
+	timeline = CSLoader::createTimeline("Character/Alpha_kombat_lion.csb");
 
 
 	Size visibleSize = Director::getInstance()->getVisibleSize();
 	Vec2 origin = Director::getInstance()->getVisibleOrigin();
 
-	
+	std::string path = "Alpha Kombat/";//std::string(path)
 	auto _bg = CSLoader::createNode("Alphacombat.csb");
 	//_background->setPosition(Vec2(visibleSize.width / 2 + origin.x, visibleSize.height / 2 + origin.y));
 	addChild(_bg);
@@ -80,17 +82,12 @@ bool Trace::init(char alphabet) {
 	addChild(bg, 0);
 	*/
 	
-	Sprite* node = (Sprite *)CSLoader::createNode("mainanimation.csb");
-	node->setPosition(Vec2(700, 200));
-	node->setScale(2);
+	Sprite* node = (Sprite *)CSLoader::createNode("Character/Alpha_kombat_lion.csb");
+	node->setPosition(Vec2(700,200));
+	node->setScale(1);
 	this->addChild(node, 0);
 	node->runAction(timeline);
 	
-
-	/*character = Sprite::createWithSpriteFrameName("main1.png");
-	character->setPosition(Vec2(1000, 1000));
-	character->setScale(0.65);
-	this->addChild(character, 4);*/
 
 	//std::string path = "Alpha Kombat/";//std::string(path)
     _background = CSLoader::createNode(std::string(path) + alphabet +  std::string(".csb"));
@@ -114,7 +111,8 @@ bool Trace::init(char alphabet) {
                 
 				CCLOG("child: %s", str.c_str());
                 foundNode = true;
-				//child->setVisible(true);
+				//child->setVisible(true); 
+				
                 nodeRow.push_back(child);
             }
         }
@@ -154,6 +152,7 @@ void Trace::setupTouch() {
         auto nextBall = _background->getChildByName(queryc);
 
         nextBall->setVisible(true);
+		setDotsVisibility(true);
         auto listener = EventListenerTouchOneByOne::create();
         listener->onTouchBegan = CC_CALLBACK_2(Trace::onTouchBegan, this);
         listener->onTouchEnded = CC_CALLBACK_2(Trace::onTouchEnded, this);
@@ -173,6 +172,8 @@ bool Trace::onTouchBegan(Touch* touch, Event* event){
 //        CCLOG("onTouchBegan");
         _currentNodeIndex = 0;
         _touchActive = true;
+		
+		setDotsVisibility(true);
         return true; // to indicate that we have consumed it.
     }
     
@@ -181,6 +182,8 @@ bool Trace::onTouchBegan(Touch* touch, Event* event){
 
 void Trace::onTouchEnded(cocos2d::Touch *touch, cocos2d::Event *event) {
 //    CCLOG("onTouchEnded");
+	
+	setDotsVisibility(false);
     if (++_currentNodeIndex >= _nodes[_currentStroke].size()) {
         _currentStroke++;
         setupTouch();
@@ -193,32 +196,46 @@ void Trace::onTouchEnded(cocos2d::Touch *touch, cocos2d::Event *event) {
 			
 			level++;
 			
-			removeChild(_background);
+			//removeChild(_background);
 
 			Size visibleSize = Director::getInstance()->getVisibleSize();
 			Vec2 origin = Director::getInstance()->getVisibleOrigin();
 
 			//this->removeChild(character, true);
 			CocosDenshion::SimpleAudioEngine::getInstance()->playEffect("bubble.mp3");
-			timeline->play("run", false);
 
-			timeline->setAnimationEndCallFunc("run", CC_CALLBACK_0(Trace::transit,this, level));
+
+			std::string randomAnimation = animations[RandomHelper::random_int(0, 3)];
+
+			timeline->play(randomAnimation, false);
+
 			
-			//std::chrono::seconds duration(5);
-			//std::this_thread::sleep_for(duration);
-			/*
-			transit(int level) {
-				//auto director = Director::getInstance();
-				auto scene = Trace::createScene(alpha[level]);
-				//Director::getInstance()->replaceScene(TransitionFlipX::create(2, scene));
-				Director::getInstance()->replaceScene(scene);
-			}*/
+
+			timeline->setAnimationEndCallFunc(randomAnimation, CC_CALLBACK_0(Trace::transit,this, level));
 			
 			
+			for (int j = 0; j<_nodes.size(); j++) {
+
+				//DelayTime::create(2 * j);
+				
+
+				for (int i = 0; i < _nodes[j].size(); i++) {
+					std::ostringstream sstreami;
+					sstreami << "dot_" << j + 1 << "_" << i + 1;
+					std::string queryi = sstreami.str();
+
+					_background->getChildByName(queryi)->setVisible(true);
+
+					//DelayTime::create(1 * i);
+					
+				}
 			
+
+			}
         }
     } else {
         event->getCurrentTarget()->setPosition(_nodes[_currentStroke][0]->getPosition());
+		setDotsVisibility(true);
     }
 }
 
@@ -228,21 +245,33 @@ void Trace::onTouchMoved(cocos2d::Touch *touch, cocos2d::Event *event) {
         auto n = convertTouchToNodeSpace(touch);
         event->getCurrentTarget()->setPosition(n);
         auto distance = n.distance(_nodes[_currentStroke][_currentNodeIndex]->getPosition());
-        if (distance > 120) {
+        if (distance > 130) {
             if(++_currentNodeIndex < _nodes[_currentStroke].size()) {
                 auto nextNode = _nodes[_currentStroke][_currentNodeIndex];
                 auto nextDistance = n.distance(nextNode->getPosition());
-                if(nextDistance < 120) {
+                if(nextDistance < 130) {
                     CCLOG("reached next");
+					
+					//set it visible
+					std::ostringstream sstreami;
+					sstreami << "dot_" << _currentStroke+1 << "_" << _currentNodeIndex;
+					std::string queryi = sstreami.str();
+
+					_background->getChildByName(queryi)->setVisible(false);
+					
                 } else {
                     CCLOG("failed");
                     event->getCurrentTarget()->setPosition(_nodes[_currentStroke][0]->getPosition());
+					
+					setDotsVisibility(false);
                     _touchActive = false;
                     _currentNodeIndex = 0;
                 }
             } else {
                 CCLOG("fell off the edge");
                 event->getCurrentTarget()->setPosition(_nodes[_currentStroke][0]->getPosition());
+				
+				setDotsVisibility(false);
                 _touchActive = false;
                 _currentNodeIndex = 0;
             }
@@ -256,3 +285,15 @@ void Trace::transit(int level) {
 	//Director::getInstance()->replaceScene(TransitionFlipX::create(2, scene));
 	Director::getInstance()->replaceScene(scene);
 }
+
+void Trace::setDotsVisibility(bool flag) {
+
+	for (int i = 0; i < _nodes[_currentStroke].size(); i++) {
+		std::ostringstream sstreami;
+		sstreami << "dot_" << _currentStroke + 1 << "_" << i + 1;
+		std::string queryi = sstreami.str();
+
+		_background->getChildByName(queryi)->setVisible(flag);
+	}
+}
+
