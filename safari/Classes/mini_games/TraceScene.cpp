@@ -8,6 +8,7 @@
 
 #include "TraceScene.h"
 #include "editor-support/cocostudio/CocoStudio.h"
+#include "cocostudio/CocoStudio.h"
 #include "SimpleAudioEngine.h"
 
 
@@ -74,6 +75,9 @@ bool Trace::init(char alphabet) {
 	auto _bg = CSLoader::createNode("Alphacombat.csb");
 	//_background->setPosition(Vec2(visibleSize.width / 2 + origin.x, visibleSize.height / 2 + origin.y));
 	addChild(_bg);
+
+	_menuContext = MenuContext::create();
+	addChild(_menuContext, 4);
 
 	/*auto bg = Sprite::create("bg.png");
 	bg->setPosition(Vec2(visibleSize.width / 2 + origin.x, visibleSize.height / 2 + origin.y));
@@ -206,31 +210,40 @@ void Trace::onTouchEnded(cocos2d::Touch *touch, cocos2d::Event *event) {
 
 			std::string randomAnimation = animations[RandomHelper::random_int(0, 3)];
 
+			
+
+
 			timeline->play(randomAnimation, false);
 
 			
-
-			timeline->setAnimationEndCallFunc(randomAnimation, CC_CALLBACK_0(Trace::transit,this, level));
 			
 			
-			for (int j = 0; j<_nodes.size(); j++) {
+			float delay = 0;
 
-				//DelayTime::create(2 * j);
-				
-
+			for (int j = 0; j < _nodes.size(); j++) {
 				for (int i = 0; i < _nodes[j].size(); i++) {
+					delay = delay + 0.05;
 					std::ostringstream sstreami;
 					sstreami << "dot_" << j + 1 << "_" << i + 1;
 					std::string queryi = sstreami.str();
 
-					_background->getChildByName(queryi)->setVisible(true);
+					auto visiblity = CallFunc::create([=] {
+						_background->getChildByName(queryi)->setVisible(true);
+					});
 
-					//DelayTime::create(1 * i);
-					
+					auto sequenceDot = Sequence::create(DelayTime::create(delay), visiblity, NULL);
+					_background->getChildByName(queryi)->runAction(sequenceDot);
 				}
-			
-
 			}
+
+			_menuContext->pickAlphabet('A', 'A', true);
+
+
+			timeline->setAnimationEndCallFunc(randomAnimation, CC_CALLBACK_0(Trace::transit, this, level));
+
+
+
+			
         }
     } else {
         event->getCurrentTarget()->setPosition(_nodes[_currentStroke][0]->getPosition());
