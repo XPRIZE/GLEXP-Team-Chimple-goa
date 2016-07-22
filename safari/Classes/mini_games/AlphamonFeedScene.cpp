@@ -6,6 +6,8 @@
 #include "editor-support/cocostudio/CocoStudio.h"
 #include "ui/CocosGUI.h"
 #include "../alphamon/Alphamon.h"
+#include "../puzzle/CharGenerator.h"
+
 
 USING_NS_CC;
 
@@ -13,6 +15,27 @@ const std::vector<std::string> Alphabets = {"A","B","C","D", "E","F","G","H","I"
 
 int score;
 std::string alphaLevelString;
+
+AlphamonFeed::AlphamonFeed() {
+    
+}
+
+AlphamonFeed::~AlphamonFeed() {
+    _eventDispatcher->removeEventListener(listener);
+}
+
+
+AlphamonFeed* AlphamonFeed::create() {
+    AlphamonFeed* alphamonFeedLayer = new (std::nothrow) AlphamonFeed();
+    if(alphamonFeedLayer && alphamonFeedLayer->init()) {
+        alphamonFeedLayer->autorelease();
+        return alphamonFeedLayer;
+    }
+    CC_SAFE_DELETE(alphamonFeedLayer);
+    return nullptr;
+
+}
+
 cocos2d::Scene * AlphamonFeed::createScene(std::string str)
 {
 	alphaLevelString = str.c_str();
@@ -22,6 +45,8 @@ cocos2d::Scene * AlphamonFeed::createScene(std::string str)
 
 	return scene;
 }
+
+
 
 
 bool AlphamonFeed::init()
@@ -92,7 +117,7 @@ bool AlphamonFeed::init()
 			legReff.pushBack(monster);
 		}
 	}
-	auto listener = EventListenerTouchOneByOne::create();
+	listener = EventListenerTouchOneByOne::create();
 	listener->setSwallowTouches(true);
 	listener->onTouchBegan = CC_CALLBACK_2(AlphamonFeed::onTouchBegan, this);
 	listener->onTouchMoved = CC_CALLBACK_2(AlphamonFeed::onTouchMoved, this);
@@ -104,22 +129,22 @@ bool AlphamonFeed::init()
 	this->schedule(schedule_selector(AlphamonFeed::showFruits), 1);
 	this->scheduleUpdate();
 
+	menu= MenuContext::create();
+	addChild(menu);
 	
     return true;
 }
 
 void AlphamonFeed::showFruits(float dt) {
-	std::vector<std::string> testAlphabet;
+	
+	auto fallingAlphaArray = CharGenerator::getInstance()->generateMatrixForChoosingAChar(alphaLevelString.at(0), 6, 1, 50);
 	Size visibleSize = Director::getInstance()->getVisibleSize();
-	for (int i = 0; i < 3; i++) {
-		testAlphabet.push_back(Alphabets.at(cocos2d::RandomHelper::random_int(0, 25) % 26).c_str());
-		testAlphabet.push_back(alphaLevelString.c_str());
-	}
-	auto str = testAlphabet.at(cocos2d::RandomHelper::random_int(0, 5)).c_str();
-	sprite = CSLoader::createNode(CCString::createWithFormat("alphabets fruits/%s.csb", str)->getCString());
-	sprite->setPositionX(cocos2d::RandomHelper::random_real(visibleSize.width*0.005, visibleSize.width*0.85));
+	auto str = fallingAlphaArray.at(cocos2d::RandomHelper::random_int(0, 5)).at(0);
+	std::string mystr(&str, 1);
+	sprite = CSLoader::createNode(CCString::createWithFormat("alphabets fruits/%c.csb", str)->getCString());
+	sprite->setPositionX(cocos2d::RandomHelper::random_real(visibleSize.width*0.20, visibleSize.width*0.85));
 	sprite->setPositionY(1800);
-	sprite->setName(str);
+	sprite->setName(mystr);
 	sprite->setContentSize(cocos2d::Size(200.0f, 200.0f));
 	auto moveBy = MoveBy::create(2, Vec2(0, -visibleSize.height-100));
 	sprite->runAction(moveBy);
@@ -135,6 +160,7 @@ void AlphamonFeed:: update(float dt) {
 			Rect fruit = CCRectMake(fruitReff.at(i)->getPositionX()-100, fruitReff.at(i)->getPositionY()-60, fruitReff.at(i)->getContentSize().width, fruitReff.at(i)->getContentSize().height);
 
 			if ((monster).intersectsRect(fruit)) {
+				menu->pickAlphabet((sprite1->getName()).at(0), (fruitReff.at(i)->getName()).at(0), true);
 				if ((sprite1->getName()).compare(fruitReff.at(i)->getName()) == 0) {	
 					sprite1->alphamonMouthAnimation("eat", false);
 					smile->setVisible(false);
@@ -146,6 +172,8 @@ void AlphamonFeed:: update(float dt) {
 					fruitReff.erase(i);
 				} else {
 					sprite1->alphamonMouthAnimation("spit", false);
+					auto animation = sprite1->shakeAction();
+					sprite1->runAction(animation);
 					smile->setVisible(false);
 					laughing->setVisible(false);
 					angry->setVisible(true);
@@ -167,7 +195,7 @@ void AlphamonFeed:: update(float dt) {
 		}
 	}
 	if ((slideBar->getPercent()) == 100) {
-		Director::getInstance()->replaceScene(TransitionPageTurn::create(1.0, AlphamonFeedLevelScene::createScene(), true));
+		Director::getInstance()->replaceScene(AlphamonFeedLevelScene::createScene());
 		
 	}
 }

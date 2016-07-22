@@ -54,3 +54,5 @@ std::vector<std::vector<char>> CharGenerator::generateMatrixForChoosingAChar(cha
     
     return matrix;
 }
+
+

@@ -10,6 +10,8 @@
 #define TraceScene_h
 
 #include "cocos2d.h"
+#include "../menu/MenuContext.h"
+
 
 class Trace : public cocos2d::Layer {
 public:
@@ -18,7 +20,7 @@ public:
     void onAlphabetSelected(cocos2d::EventCustom *event);
 	void transit(int level);
 	void setDotsVisibility(bool flag);
-
+	
 CC_CONSTRUCTOR_ACCESS:
     virtual bool init(char alphabet);
     Trace();
@@ -34,6 +36,8 @@ protected:
     bool _touchActive;
     void setupTouch();
     CC_SYNTHESIZE(int, _count, Count);
+
+	MenuContext *_menuContext;
     
 };
 
