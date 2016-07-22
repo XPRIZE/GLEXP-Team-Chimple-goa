@@ -79,10 +79,27 @@ bool SmashTheRock::init()
 	key = alphabetMap.at(mapString.c_str());
 
 
-    background = CSLoader::createNode("smash_de_rock/MainScene.csb");
+    background = CSLoader::createNode("smash_de_rock/bg.csb");
 	//background->setPosition(Point((visibleSize.width / 2) + origin.x, (visibleSize.height / 2) + origin.y));
 	this->addChild(background, 0);
 	
+	centre = CSLoader::createNode("smash_de_rock/center.csb");
+	centre->setPositionX(visibleSize.width / 2);
+	centre->setAnchorPoint(Vec2(0.5,0));
+    this->addChild(centre,1);
+
+	/*auto letterRock = (Sprite *)centre->getChildByName("letterboard");
+	letterRock->setGlobalZOrder(5);
+	auto boundary = (Sprite *)centre->getChildByName("boundary");
+	boundary->setGlobalZOrder(4);
+	auto punchHandLeft = (Sprite *)centre->getChildByName("boxing_gloves_left");
+	punchHandLeft->setGlobalZOrder(3);
+	auto punchHandRight = (Sprite *)centre->getChildByName("boxing_gloves_right");
+	punchHandRight->setGlobalZOrder(3);
+	
+	auto stone_bace = (Sprite *)centre->getChildByName("stone_bace");
+	stone_bace->setGlobalZOrder(0);*/
+
 
 	auto spritecache1 = SpriteFrameCache::getInstance();
 	spritecache1->addSpriteFramesWithFile("smash_de_rock/smashderock_01.plist");
@@ -99,7 +116,7 @@ bool SmashTheRock::init()
 
 	for (int i = 1; i < 4; i++)
 	{
-		int blockHeight = i*(block->getContentSize().height + 20) + 30;
+		int blockHeight = i*(block->getContentSize().height + 20) + 10;
 		sizei = block->getContentSize().height + 20;
 		CCLOG("sizei = %d", sizei);
 		for (int j = 1; j < 12; j++)
@@ -107,7 +124,7 @@ bool SmashTheRock::init()
 			auto block1 = Sprite::createWithSpriteFrameName("smash_de_rock/letter_normal.png");
 			auto right = Sprite::createWithSpriteFrameName("smash_de_rock/letter_correct.png");
 			auto wrong = Sprite::createWithSpriteFrameName("smash_de_rock/letter_wrong.png");
-			int blockWidth = j*(block->getContentSize().width + 30) + 50;
+			int blockWidth = j*(block->getContentSize().width + 30) + 230;
 			sizej = block->getContentSize().width + 30;
 			CCLOG("sizej = %d", sizej);
 			block1->setAnchorPoint(Vec2(0.5, 0.5));
@@ -124,9 +141,12 @@ bool SmashTheRock::init()
 			blockRef.pushBack(block1);
 			rightRef.pushBack(right);
 			wrongRef.pushBack(wrong);
-			this->addChild(block1);
-			this->addChild(right);
-			this->addChild(wrong);
+			this->addChild(block1,2);
+			//block1->setGlobalZOrder(6);
+			this->addChild(right, 2);
+		//	right->setGlobalZOrder(6);
+			this->addChild(wrong, 2);
+		//	wrong->setGlobalZOrder(6);
 			std::string str = Alphabets.at(cocos2d::RandomHelper::random_int(key, (key + 20)) % 20).c_str();
 			char str1 = charkey.at(i-1).at(j-1);
 			std::string ttttt(&str1,1) ;
@@ -141,8 +161,10 @@ bool SmashTheRock::init()
 			label->setAnchorPoint(Vec2::ANCHOR_MIDDLE_BOTTOM);
 			label->setName(ttttt);
 			labelRef.pushBack(label);
-			this->addChild(label,1);
-			
+			CCLOG("alpha = %d", labelRef.size());
+			this->addChild(label, 2);
+		//	label->setGlobalZOrder(6);
+
 			auto listener = EventListenerTouchOneByOne::create();
 			//listener->setSwallowTouches(true);
 			listener->onTouchBegan = CC_CALLBACK_2(SmashTheRock::onTouchBegan, this);
@@ -219,29 +241,24 @@ void SmashTheRock::jump()
 
 
 }
+
 void SmashTheRock :: hit()
 {
-	Size visibleSize = Director::getInstance()->getVisibleSize();
-	Vec2 origin = Director::getInstance()->getVisibleOrigin();
-	auto blast = Sprite::createWithSpriteFrameName("smash_de_rock/hit.png");
-	blast->setPosition(Vec2(origin.x + (visibleSize.width / 2) + 100, origin.y + (visibleSize.height / 2) + 450));
-	this->addChild(blast);
-	blast->setVisible(false);
-	auto action2 = Blink::create(0.25, 1);
-	//blast->runAction(action2);
-	auto tblast = TargetedAction::create(blast, action2);
-	auto boxLeft = background->getChildByName("boxing_gloves_left");
-	auto action = MoveBy::create(0.25, Point(-120, 250));
+	
+
+
+	auto boxLeft = centre->getChildByName("boxing_gloves_left");
+	auto action = MoveBy::create(0.25, Point(-380, 250));
 	auto rev = action->reverse();
-	auto boxRight = background->getChildByName("boxing_gloves_right");
-	auto action1 = MoveBy::create(0.25, Point(500, 250));
+	auto boxRight = centre->getChildByName("boxing_gloves_right");
+	auto action1 = MoveBy::create(0.25, Point(300, 250));
 	auto tRight = TargetedAction::create(boxRight, action1);
 	auto rev1 = tRight->reverse();
 	auto tRev1 = TargetedAction::create(boxRight, rev1); 
 	auto callbackStart = CallFunc::create(CC_CALLBACK_0(SmashTheRock::masking, this));
+	auto callbackStart1 = CallFunc::create(CC_CALLBACK_0(SmashTheRock::blast, this));
 
-
-	auto seq = Sequence::create(action, tblast, rev,  tRight, tblast, tRev1,  callbackStart, NULL);
+	auto seq = Sequence::create(callbackStart1,action,  rev,  tRight, callbackStart1, tRev1,  callbackStart, NULL);
 	boxLeft->runAction(seq);
 	//masking();
 	
@@ -250,7 +267,21 @@ void SmashTheRock :: hit()
 }
 
 
+void SmashTheRock::blast()
+{   
+	Size visibleSize = Director::getInstance()->getVisibleSize();
+	Vec2 origin = Director::getInstance()->getVisibleOrigin();
 
+	auto blast = centre->getChildByName("hit");
+	//blast->setGlobalZOrder(2);
+	auto action2 = Blink::create(0.25, 1);
+	blast->runAction(action2);
+	auto white = centre->getChildByName("white");
+	//white->setGlobalZOrder(2);
+	auto action3 = Blink::create(0.25, 1);
+	white->runAction(action3);
+
+}
 void SmashTheRock::masking()
 {
 	Size visibleSize = Director::getInstance()->getVisibleSize();
@@ -270,10 +301,10 @@ void SmashTheRock::masking()
 
 	maskedFill->setAlphaThreshold(0.9);
 
-	maskedFill->addChild(target,-1);
-	
+	maskedFill->addChild(target);
+	//maskedFill->setGlobalZOrder(3);
 	maskedFill->setContentSize(cocos2d::Size(300, 300));
-	maskedFill->setPosition(Vec2(origin.x + (visibleSize.width / 2) + 100 , origin.y + (visibleSize.height / 2) + 450));
+	maskedFill->setPosition(Vec2(origin.x + (visibleSize.width / 2)  , origin.y + (visibleSize.height / 2) + 480));
 	//maskedFill->setAnchorPoint(Vec2(0.5,0.5));
 	//Texture2D::TexParams tp = { GL_LINEAR, GL_LINEAR, GL_REPEAT, GL_REPEAT };
 	//maskedFill->draw();
@@ -296,6 +327,7 @@ void SmashTheRock::masking()
 //	target->setTextureRect(Rect(400, 400, 2000, 2000));
 	target->setAnchorPoint(Vec2(0.5, 0.5));
 	this->addChild(maskedFill);
+	//maskedFill->setGlobalZOrder(3);
 }
 bool SmashTheRock::onTouchBegan(cocos2d::Touch *touch, cocos2d::Event * event)
 {
@@ -314,13 +346,17 @@ bool SmashTheRock::onTouchBegan(cocos2d::Touch *touch, cocos2d::Event * event)
 			int indexj = (target->getPositionX());
 			int indexi = (target->getPositionY());
 			CCLOG("target x = %d", indexi);
-			int tempi = ((indexi - 100) / sizei) ;
-			int tempj = (indexj - 50) / sizej;
+			int tempi = ((indexi + 120) / sizei)-1 ;
+			int tempj = ((indexj - 230) / sizej)-1;
 			CCLOG("tempi x = %d", tempi);
 			CCLOG("tempj x = %d", tempj);
-			val = ((tempi) * 11) + tempj-1;
+			val = ((tempi) * 11) + tempj;
+			CCLOG("val x = %d", val);
+
 			auto showright = rightRef.at(val);
 			showright->setVisible(true);
+			this->removeChild(blockRef.at(val));
+
 			_eventDispatcher->removeEventListenersForTarget(target, false);
 			hit();
 			click++;
@@ -335,14 +371,18 @@ bool SmashTheRock::onTouchBegan(cocos2d::Touch *touch, cocos2d::Event * event)
 			int indexj1 = (target->getPositionX());
 			int indexi1 = (target->getPositionY());
 			CCLOG("target x = %d", indexi1);
-			int tempi1 = (indexi1 - 100) / sizei;
-			int tempj1 = (indexj1 - 50) / sizej;
+			int tempi1 = ((indexi1 + 120) / sizei)-1;
+			int tempj1 = ((indexj1 - 230) / sizej)-1;
 			CCLOG("tempi1 x = %d", tempi1);
 			CCLOG("tempj1 x = %d", tempj1);
-			val1 = ((tempi1) * 11) + tempj1-1;
+			val1 = ((tempi1) * 11) + tempj1;
+			CCLOG("val1 x = %d", val1);
 			auto showwrong = wrongRef.at(val1);
 			showwrong->setVisible(true);
+			CCLOG("size of label = %d", labelRef.size());
 			this->removeChild(labelRef.at(val1));
+			this->removeChild(blockRef.at(val1));
+			
 			return false;
 		}
 		
