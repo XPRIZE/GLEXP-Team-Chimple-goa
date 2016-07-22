@@ -5,6 +5,8 @@
 #include "AlphamonFeedLevelScene.h"
 #include "editor-support/cocostudio/CocoStudio.h"
 #include "ui/CocosGUI.h"
+#include "../alphamon/Alphamon.h"
+#include "../puzzle/CharGenerator.h"
 
 USING_NS_CC;
 
@@ -68,32 +70,9 @@ bool AlphamonFeed::init()
 	slideBar->setEnabled(false);
 	CCLOG("slider bar %d", slideBar->getPercent());// image->getPercent();
 	//loading Monster alphabet
-	sprite1 = CSLoader::createNode(CCString::createWithFormat("english/%s.csb", alphaLevelString.c_str())->getCString());
+	//sprite1 = CSLoader::createNode(CCString::createWithFormat("english/%s.csb", alphaLevelString.c_str())->getCString());
 
-	Vector <Node*> children = sprite1->getChildren();
-	for (auto item = children.rbegin(); item != children.rend(); ++item) {
-		Node * monster = *item;
-		std::string str = monster->getName().c_str();
-		if (str.find("mouth") == 0) {
-			CCLOG("child name = %s", str.c_str());
-			auto mouthTimeline = CSLoader::createTimeline(CCString::createWithFormat("mouth_ani/%s.csb", str.c_str())->getCString());
-			monster->runAction(mouthTimeline);
-			mouthAnimation.pushBack(mouthTimeline);
-		}
-		if (str.find("eye") == 0) {
-			auto eyeTimeline = CSLoader::createTimeline(CCString::createWithFormat("eye_ani/%s.csb", str.c_str())->getCString());
-			monster->runAction(eyeTimeline);
-			eyeTimeline->gotoFrameAndPlay(0, true);
-			// add eye animation part
-		}
-		if (str.find("skate") == 0) {
-			CCLOG("child name = %s", str.c_str());
-			auto legTimeline = CSLoader::createTimeline(CCString::createWithFormat("leg_ani/%s.csb", str.c_str())->getCString());
-			monster->runAction(legTimeline);
-			legAnimation.pushBack(legTimeline);
-			legReff.pushBack(monster);
-		}
-	}
+	sprite1 = Alphamon::createWithAlphabet(alphaLevelString.at(0));
 	sprite1->setScaleX(0.35);
 	sprite1->setScaleY(0.35);
 	sprite1->setPositionX(200);
@@ -102,20 +81,27 @@ bool AlphamonFeed::init()
 	sprite1->setContentSize(cocos2d::Size(300.0f, 400.0f));
 	this->addChild(sprite1,2);
 	//breath animination
-	auto scaleBy = ScaleBy::create(0.6, 1.07, 0.95);
-	auto rev = scaleBy->reverse();
-	auto seq = Sequence::create(scaleBy, rev, NULL);
-	auto forever = RepeatForever::create(seq);
-	sprite1->runAction(forever);
-
+	sprite1->breatheAction();
+	sprite1->alphamonEyeAnimation("blink", true);
+	//sprite1->enableTouch(true);
+	
+	auto children = sprite1->getAlphamonChildren();
+	for (auto item = children.rbegin(); item != children.rend(); ++item) {
+		Node * monster = *item;
+		std::string str = monster->getName().c_str();
+		if (str.find("skate") == 0) {
+			legReff.pushBack(monster);
+		}
+	}
 	auto listener = EventListenerTouchOneByOne::create();
 	listener->setSwallowTouches(true);
 	listener->onTouchBegan = CC_CALLBACK_2(AlphamonFeed::onTouchBegan, this);
 	listener->onTouchMoved = CC_CALLBACK_2(AlphamonFeed::onTouchMoved, this);
 	listener->onTouchEnded = CC_CALLBACK_2(AlphamonFeed::onTouchEnded, this);
 	listener->onTouchCancelled = CC_CALLBACK_2(AlphamonFeed::onTouchCancelled, this);
-	_eventDispatcher ->addEventListenerWithSceneGraphPriority(listener, sprite1);
+	_eventDispatcher->addEventListenerWithFixedPriority(listener, -1);
 	isTouching = false;
+
 	this->schedule(schedule_selector(AlphamonFeed::showFruits), 1);
 	this->scheduleUpdate();
 
@@ -125,6 +111,7 @@ bool AlphamonFeed::init()
 
 void AlphamonFeed::showFruits(float dt) {
 	std::vector<std::string> testAlphabet;
+	std::vector<char> testtt = CharGenerator::getInstance()->generateArrayForChoosingAChar(alphaLevelString.at(0), 5);
 	Size visibleSize = Director::getInstance()->getVisibleSize();
 	for (int i = 0; i < 3; i++) {
 		testAlphabet.push_back(Alphabets.at(cocos2d::RandomHelper::random_int(0, 25) % 26).c_str());
@@ -151,10 +138,7 @@ void AlphamonFeed:: update(float dt) {
 
 			if ((monster).intersectsRect(fruit)) {
 				if ((sprite1->getName()).compare(fruitReff.at(i)->getName()) == 0) {	
-					for (auto item = mouthAnimation.rbegin(); item != mouthAnimation.rend(); ++item) {
-						cocostudio::timeline::ActionTimeline * mouth = *item;
-						mouth->play("eat",false);
-					}
+					sprite1->alphamonMouthAnimation("eat", false);
 					smile->setVisible(false);
 					laughing->setVisible(true);
 					score = score + 10;
@@ -163,10 +147,7 @@ void AlphamonFeed:: update(float dt) {
 					this->removeChild(fruitReff.at(i));
 					fruitReff.erase(i);
 				} else {
-					for (auto item = mouthAnimation.rbegin(); item != mouthAnimation.rend(); ++item) {
-						cocostudio::timeline::ActionTimeline * mouth = *item;
-						mouth->play("spit", false);
-					}
+					sprite1->alphamonMouthAnimation("spit", false);
 					smile->setVisible(false);
 					laughing->setVisible(false);
 					angry->setVisible(true);
@@ -195,16 +176,14 @@ void AlphamonFeed:: update(float dt) {
 bool AlphamonFeed::onTouchBegan(cocos2d::Touch *touch,cocos2d::Event * event)
 {
 	touchPosition = touch->getLocation().x;
-	cocos2d::Node * target = event->getCurrentTarget();
+	cocos2d::Node * target = sprite1;
 	auto  location = target->convertToNodeSpace(touch->getLocation());
-	CCRect targetRectangle =  CCRectMake(target->getPositionX()-100, target->getPositionY()-25, target->getContentSize().width, target->getContentSize().height);
+	CCRect targetRectangle =  CCRectMake(target->getPositionX()-200, target->getPositionY(), target->getContentSize().width, target->getContentSize().height);
 	if(targetRectangle.containsPoint(touch->getLocation())){
+		CCLOG("touch began");
+		CCLOG("touch began X = %f", target->getPositionX());
 		touchPosition = touch->getLocation().x;
-		for (int i = 0; i < legAnimation.size(); i++) {
-			CCLOG("animation start");
-			//legAnimation.at(i)->gotoFrameAndPlay(0, true);
-			legAnimation.at(i)->play("walk", true);
-		}
+		sprite1->alphamonLegAnimation("walk", true);
 		return true;
 	}
 	return false;
@@ -213,12 +192,11 @@ bool AlphamonFeed::onTouchBegan(cocos2d::Touch *touch,cocos2d::Event * event)
 void AlphamonFeed::onTouchMoved(cocos2d::Touch *touch,cocos2d::Event * event)
 {
 
-	cocos2d::Node * target = event->getCurrentTarget();
+	cocos2d::Node * target = sprite1;
 	//bool flage = false;
 	if ((touch->getLocation().y < (target->getPositionY() + target->getContentSize().height)) && (touch->getLocation().x > 150 && touch->getLocation().x < (Director::getInstance()->getVisibleSize().width-200))) {
 		
 			int compare = touch->getLocation().x - touchPosition;
-			CCLOG("size of the leg array %d", legReff.size());
 			if (compare > 0 ) {
 				if (flage) {
 					flage = false;
@@ -228,7 +206,6 @@ void AlphamonFeed::onTouchMoved(cocos2d::Touch *touch,cocos2d::Event * event)
 						int leg_scale = legReff.at(i)->getScaleX();
 						legReff.at(i)->setScaleX(leg_scale * (-1.0));
 					}
-					//legAnimation.at(i)->gotoFrameAndPlay(0, false);
 				}	
 			}
 			else {
@@ -240,22 +217,7 @@ void AlphamonFeed::onTouchMoved(cocos2d::Touch *touch,cocos2d::Event * event)
 					}
 					flage_reverse = false;
 				}
-				
-				//legAnimation.at(i)->gotoFrameAndPlay(0, false);
 			}
-		//	legAnimation.at(i)->gotoFrameAndPlay(0, true);
-		
-
-		//int compare = touch->getLocation().x - target->getPositionX();
-		//	
-		//if (compare > 0) {
-		//	target->setScaleX(-0.5);
-		//}
-		//else {
-		//	target->setScaleX(0.5);
-		//}
-	
-	
 		target->setPositionX(touch->getLocation().x);
 	}else{
 		//target->setPositionX()
@@ -264,11 +226,7 @@ void AlphamonFeed::onTouchMoved(cocos2d::Touch *touch,cocos2d::Event * event)
 }
 void AlphamonFeed::onTouchEnded(cocos2d::Touch *touch,cocos2d::Event * event)
 {
-	for (int i = 0; i < legAnimation.size(); i++) {
-		CCLOG("animation start");
-		//legAnimation.at(i)->gotoFrameAndPlay(0, true);
-		legAnimation.at(i)->pause();
-	}
+	sprite1->stopWalkAction();
 	isTouching = false;
 }
 void AlphamonFeed::onTouchCancelled(cocos2d::Touch *touch,cocos2d::Event * event)

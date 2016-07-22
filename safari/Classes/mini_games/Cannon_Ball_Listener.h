@@ -15,10 +15,10 @@ public:
 	static EventListenerClass *cannon1Target, *cannon2Target, *cannon3Target, *cannon4Target;
 	static int cannon1, cannon2, cannon3, cannon4;
 	char id;
-	static EventListenerClass* createCannonBall(std::string spriteName, EventListenerClass*, EventListenerClass*, EventListenerClass*, EventListenerClass*, int, char, float, float, MainGame*);
+	static EventListenerClass* createCannonBall(std::string spriteName, EventListenerClass*, EventListenerClass*, EventListenerClass*, int, char, float, float, MainGame*);
 	static EventListenerClass* createCannon(std::string spriteName, int flag1, int currentShoot1, int totalShoot1, int);
 	static EventListenerClass* createSprite(std::string spriteName, float x, float y, char, MainGame*);
-	void addEvents(MainGame*, EventListenerClass*, EventListenerClass*, EventListenerClass*, EventListenerClass*);
+	void addEvents(MainGame*, EventListenerClass*, EventListenerClass*, EventListenerClass*);
 	void touchEvent(cocos2d::Touch* touch, cocos2d::Vec2 _p);
 	static void print(EventListenerClass*);
 
@@ -32,7 +32,7 @@ public:
 	~LabelClass();
 	int flag;
 	float xP, yP;
-	char id;
+	char id, answer;
 	static LabelClass* createSpt(char spriteName, float x, float y, char, MainGame*);
 private:
 };

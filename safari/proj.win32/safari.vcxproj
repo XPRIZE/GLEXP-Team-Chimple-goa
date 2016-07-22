@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|Win32">
@@ -179,6 +179,7 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClCompile Include="..\Classes\RPGSprite.cpp" />
     <ClCompile Include="..\Classes\RunningState.cpp" />
     <ClCompile Include="..\Classes\SkeletonCharacter.cpp" />
+    <ClCompile Include="..\Classes\SkeletonPosition.cpp" />
     <ClCompile Include="..\Classes\SpeechBubbleView.cpp" />
     <ClCompile Include="..\Classes\sqlite3.c" />
     <ClCompile Include="..\Classes\Sqlite3Helper.cpp" />
@@ -205,13 +206,10 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClInclude Include="..\Classes\MessageContent.hpp" />
     <ClInclude Include="..\Classes\MessageReceiver.hpp" />
     <ClInclude Include="..\Classes\MessageSender.hpp" />
-<<<<<<< HEAD
     <ClInclude Include="..\Classes\mini_games\AlphamonFeedLevelScene.h" />
     <ClInclude Include="..\Classes\mini_games\AlphamonFeedScene.h" />
-=======
     <ClInclude Include="..\Classes\mini_games\Cannon_Ball_Listener.h" />
     <ClInclude Include="..\Classes\mini_games\Cannon_Ball_Main.h" />
->>>>>>> refs/remotes/origin/master
     <ClInclude Include="..\Classes\mini_games\CrossTheBridgeScene.h" />
     <ClInclude Include="..\Classes\mini_games\EndlessRunner.h" />
     <ClInclude Include="..\Classes\mini_games\PatchTheWallScene.h" />
@@ -228,6 +226,7 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClInclude Include="..\Classes\RPGSprite.h" />
     <ClInclude Include="..\Classes\RunningState.h" />
     <ClInclude Include="..\Classes\SkeletonCharacter.h" />
+    <ClInclude Include="..\Classes\SkeletonPosition.h" />
     <ClInclude Include="..\Classes\SpeechBubbleView.hpp" />
     <ClInclude Include="..\Classes\sqlite3.h" />
     <ClInclude Include="..\Classes\Sqlite3Helper.hpp" />

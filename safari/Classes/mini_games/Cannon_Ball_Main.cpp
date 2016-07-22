@@ -57,91 +57,92 @@ bool MainGame::init()
 	MainGame::originX = origin.x;
 	MainGame::originY = origin.y;
 
-	p1.x = MainGame::originX + MainGame::width * 83 / 100;
-	p1.y = MainGame::originY + MainGame::height * 8 / 100;
+	p1.x = MainGame::originX + MainGame::width * 90 / 100;
+	p1.y = MainGame::originY + MainGame::height * 18 / 100;
 
-	p2.x = MainGame::originX + MainGame::width * 83 / 100;
-	p2.y = MainGame::originY + MainGame::height * 22 / 100;
+	p2.x = MainGame::originX + MainGame::width * 90 / 100;
+	p2.y = MainGame::originY + MainGame::height * 32 / 100;
 
-	p3.x = MainGame::originX + MainGame::width * 83 / 100;
-	p3.y = MainGame::originY + MainGame::height * 36 / 100;
+	p3.x = MainGame::originX + MainGame::width * 90 / 100;
+	p3.y = MainGame::originY + MainGame::height * 46 / 100;
 
-	p4.x = MainGame::originX + MainGame::width * 83 / 100;
-	p4.y = MainGame::originY + MainGame::height * 50 / 100;
+	p4.x = MainGame::originX + MainGame::width * 90 / 100;
+	p4.y = MainGame::originY + MainGame::height * 60 / 100;
 
-	p5.x = MainGame::originX + MainGame::width * 83 / 100;
-	p5.y = MainGame::originY + MainGame::height * 64 / 100;
+	p5.x = MainGame::originX + MainGame::width * 90 / 100;
+	p5.y = MainGame::originY + MainGame::height * 74 / 100;
 
-	p6.x = MainGame::originX + MainGame::width * 83 / 100;
+/*	p6.x = MainGame::originX + MainGame::width * 83 / 100;
 	p6.y = MainGame::originY + MainGame::height * 78 / 100;
 
 	p7.x = MainGame::originX + MainGame::width * 83 / 100;
 	p7.y = MainGame::originY + MainGame::height * 92 / 100;
+*/
+	p8.x = MainGame::originX + MainGame::width * 96 / 100;
+	p8.y = MainGame::originY + MainGame::height * 18 / 100;
 
-	p8.x = MainGame::originX + MainGame::width * 90 / 100;
-	p8.y = MainGame::originY + MainGame::height * 8 / 100;
+	p9.x = MainGame::originX + MainGame::width * 96 / 100;
+	p9.y = MainGame::originY + MainGame::height * 32 / 100;
 
-	p9.x = MainGame::originX + MainGame::width * 90 / 100;
-	p9.y = MainGame::originY + MainGame::height * 22 / 100;
+	p10.x = MainGame::originX + MainGame::width * 96 / 100;
+	p10.y = MainGame::originY + MainGame::height * 46 / 100;
 
-	p10.x = MainGame::originX + MainGame::width * 90 / 100;
-	p10.y = MainGame::originY + MainGame::height * 36 / 100;
+	p11.x = MainGame::originX + MainGame::width * 96 / 100;
+	p11.y = MainGame::originY + MainGame::height * 60 / 100;
 
-	p11.x = MainGame::originX + MainGame::width * 90 / 100;
-	p11.y = MainGame::originY + MainGame::height * 50 / 100;
+	p12.x = MainGame::originX + MainGame::width * 96 / 100;
+	p12.y = MainGame::originY + MainGame::height * 74 / 100;
 
-	p12.x = MainGame::originX + MainGame::width * 90 / 100;
-	p12.y = MainGame::originY + MainGame::height * 64 / 100;
-
-	p13.x = MainGame::originX + MainGame::width * 90 / 100;
+/*	p13.x = MainGame::originX + MainGame::width * 90 / 100;
 	p13.y = MainGame::originY + MainGame::height * 78 / 100;
 
 	p14.x = MainGame::originX + MainGame::width * 90 / 100;
 	p14.y = MainGame::originY + MainGame::height * 92 / 100;
-
+*/
 	position.push_back(p1);
 	position.push_back(p2);
 	position.push_back(p3);
 	position.push_back(p4);
 	position.push_back(p5);
-	position.push_back(p6);
-	position.push_back(p7);
+//	position.push_back(p6);
+//	position.push_back(p7);
 	position.push_back(p8);
 	position.push_back(p9);
 	position.push_back(p10);
 	position.push_back(p11);
 	position.push_back(p12);
-	position.push_back(p13);
-	position.push_back(p14);
+//	position.push_back(p13);
+//	position.push_back(p14);
 
 	p100.x = MainGame::originX;
-	p100.y = MainGame::originY + MainGame::height * 12 / 100;
+	p100.y = MainGame::originY + MainGame::height * 22 / 100;
 
 	p101.x = MainGame::originX;
-	p101.y = MainGame::originY + MainGame::height * 37 / 100;
+	p101.y = MainGame::originY + MainGame::height * 50 / 100;
 
 	p102.x = MainGame::originX;
-	p102.y = MainGame::originY + MainGame::height * 62 / 100;
+	p102.y = MainGame::originY + MainGame::height * 78 / 100;
 
-	p103.x = MainGame::originX;
-	p103.y = MainGame::originY + MainGame::height * 87 / 100;
+//	p103.x = MainGame::originX;
+//	p103.y = MainGame::originY + MainGame::height * 87 / 100;
 
 	letterPosition.push_back(p100);
 	letterPosition.push_back(p101);
 	letterPosition.push_back(p102);
-	letterPosition.push_back(p103);
+//	letterPosition.push_back(p103);
 
 	self = this;
 	startGame();
 
-	this->schedule(schedule_selector(MainGame::letterCome), 2);
+	this->schedule(schedule_selector(MainGame::letterCome), 3);
 
-	CCSpriteFrameCache::sharedSpriteFrameCache()->addSpriteFramesWithFile("cannonball_mainasset.plist");
+	CCSpriteFrameCache::sharedSpriteFrameCache()->addSpriteFramesWithFile("cannonball_mainassetPlist.plist");
 
 	this->scheduleUpdate();
 
 	return true;
 }
+
 
 void MainGame::startGame()	// starting of game
 {
@@ -150,17 +151,24 @@ void MainGame::startGame()	// starting of game
 	Size visibleSize = Director::getInstance()->getVisibleSize();
 	Vec2 origin = Director::getInstance()->getVisibleOrigin();
 
-	SpriteFrameCache::getInstance()->addSpriteFramesWithFile("cannonball_mainasset.plist");
+	SpriteFrameCache::getInstance()->addSpriteFramesWithFile("cannonball_mainassetPlist.plist");
 
 	// main background
 	auto mySprite = Sprite::createWithSpriteFrameName("cannonball/cannonball_mainasset/background_back.png");
-	mySprite->setPosition(visibleSize.width / 2, visibleSize.height / 2);
+	mySprite->setPosition(origin.x + visibleSize.width *43 /100, origin.y + visibleSize.height / 2);
 	this->addChild(mySprite);
+
+	auto rack = Sprite::createWithSpriteFrameName("cannonball/cannonball_mainasset/cannon_ball_rack.png");
+	rack->setPosition(origin.x + visibleSize.width * 85 / 100, origin.y + visibleSize.height / 2);
+	this->addChild(rack);
+
 
 	// front background
 	backGround_front = Sprite::createWithSpriteFrameName("cannonball/cannonball_mainasset/background_front.png");
-	backGround_front->setPosition(visibleSize.width / 2, visibleSize.height / 2);
+	backGround_front->setPosition(origin.x + visibleSize.width * 43 / 100, origin.y + visibleSize.height / 2);
 	this->addChild(backGround_front, 3);
+
+
 
 	for (int i = 0; i < position.size(); i++)
 	{
@@ -172,50 +180,50 @@ void MainGame::startGame()	// starting of game
 	//	layer 1
 	auto Layer1 = LayerGradient::create(Color4B(255, 0, 0, 255), Color4B(255, 0, 0, 255));
 	Layer1->setContentSize(Size(visibleSize.width, 5));
-	Layer1->setPosition(Vec2(0, origin.y + (visibleSize.height * 25 / 100)));
+	Layer1->setPosition(Vec2(0, origin.y + (visibleSize.height * 33.3 / 100)));
 	this->addChild(Layer1);
 
 	//	layer 2
 	auto Layer2 = LayerGradient::create(Color4B(0, 255, 0, 255), Color4B(0, 255, 0, 255));
 	Layer2->setContentSize(Size(visibleSize.width, 5));
-	Layer2->setPosition(Vec2(0, origin.y + (visibleSize.height * 50 / 100)));
+	Layer2->setPosition(Vec2(0, origin.y + (visibleSize.height * 66.6 / 100)));
 	this->addChild(Layer2);
 
 	//	layer 3
 	auto Layer3 = LayerGradient::create(Color4B(0, 0, 255, 255), Color4B(0, 0, 255, 255));
 	Layer3->setContentSize(Size(visibleSize.width, 5));
-	Layer3->setPosition(Vec2(0, origin.y + (visibleSize.height * 75 / 100)));
+	Layer3->setPosition(Vec2(0, origin.y + (visibleSize.height * 100 / 100)));
 	this->addChild(Layer3);
 
 	//	layer 4
-	auto Layer4 = LayerGradient::create(Color4B(0, 255, 255, 255), Color4B(0, 255, 255, 255));
+/*	auto Layer4 = LayerGradient::create(Color4B(0, 255, 255, 255), Color4B(0, 255, 255, 255));
 	Layer4->setContentSize(Size(visibleSize.width, 5));
 	Layer4->setPosition(Vec2(0, origin.y + (visibleSize.height * 100 / 100)));
 	this->addChild(Layer4);
-
+*/
 	cannon1 = EventListenerClass::createCannon("cannon1.png", 0, 0, 1, 0);
-	cannon1->setPosition(origin.x + (visibleSize.width * 65 / 100), origin.y + (visibleSize.height * 12 / 100));
+	cannon1->setPosition(origin.x + (visibleSize.width * 75 / 100), origin.y + (visibleSize.height * 22 / 100));
 	this->addChild(cannon1, 3);
 
 	cannon2 = EventListenerClass::createCannon("cannon1.png", 0, 0, 1, 1);
 	cannon2->setAnchorPoint(Vec2(.5, .5));
-	cannon2->setPosition(origin.x + (visibleSize.width * 65 / 100), origin.y + (visibleSize.height*37.5 / 100));
+	cannon2->setPosition(origin.x + (visibleSize.width * 75 / 100), origin.y + (visibleSize.height*50 / 100));
 	this->addChild(cannon2, 3);
 
 	cannon3 = EventListenerClass::createCannon("cannon1.png", 0, 0, 1, 2);
 	cannon3->setAnchorPoint(Vec2(.5, .5));
-	cannon3->setPosition(origin.x + (visibleSize.width * 65 / 100), origin.y + (visibleSize.height*62.5 / 100));
+	cannon3->setPosition(origin.x + (visibleSize.width * 75 / 100), origin.y + (visibleSize.height*78 / 100));
 	this->addChild(cannon3, 3);
 
-	cannon4 = EventListenerClass::createCannon("cannon1.png", 0, 0, 1, 3);
+/*	cannon4 = EventListenerClass::createCannon("cannon1.png", 0, 0, 1, 3);
 	cannon4->setAnchorPoint(Vec2(.5, .5));
 	cannon4->setPosition(origin.x + (visibleSize.width * 65 / 100), origin.y + (visibleSize.height*87.5 / 100));
 	this->addChild(cannon4, 3);
-
+*/
 	cannonArray.push_back(cannon1);
 	cannonArray.push_back(cannon2);
 	cannonArray.push_back(cannon3);
-	cannonArray.push_back(cannon4);
+//	cannonArray.push_back(cannon4);
 
 	cannonLetterCome();
 }
@@ -254,6 +262,7 @@ void MainGame::letterCome(float d)
 			{
 				this->removeChild(MainGame::cannonLetter_actualImage[i]);
 				MainGame::cannonLetter.erase(std::remove(MainGame::cannonLetter.begin(), MainGame::cannonLetter.end(), MainGame::cannonLetter[i]));
+				MainGame::cannonLetter_actualImage.erase(std::remove(MainGame::cannonLetter_actualImage.begin(), MainGame::cannonLetter_actualImage.end(), MainGame::cannonLetter_actualImage[i]));
 				//				MainGame::cannonLetter.erase(MainGame::cannonLetter.begin() + i);
 				i--;
 			}
@@ -342,14 +351,14 @@ void MainGame::letterCome(float d)
 		this->addChild(backGround_front);
 		*/
 
-		myLabel->runAction(MoveTo::create(30, Vec2(MainGame::width + 50, myLabel->getPosition().y)));
+		myLabel->runAction(MoveTo::create(40, Vec2(MainGame::width + 50, myLabel->getPosition().y)));
 		//		lett->runAction(Sequence::create(MoveTo::create(20, Vec2(lett->getPosition().x, 0)), CC_CALLBACK_1(removeLetter, this, lett)));
 		/*		auto callBack = CallFunc::create([&]() {
 		removeLetter(lett);
 		});
 		*/
 		auto callBack = CallFunc::create([this, lett]() { removeLetter(lett); });
-		auto moveto = MoveTo::create(30, Vec2(MainGame::width + 50, lett->getPosition().y));
+		auto moveto = MoveTo::create(40, Vec2(MainGame::width + 50, lett->getPosition().y));
 		auto seq = Sequence::create(moveto, callBack, NULL);
 		lett->runAction(seq);
 		//		lett.runAction(cc.sequence(cc.MoveTo.create(20, cc.p(lett.getPosition().x, 0)), cc.callFunc(self.removeLetter, this, lett)));
@@ -388,7 +397,7 @@ void MainGame::cannonLetterCome()	//cannon letter will come which will be dragge
 		for (int i = 0; i < position.size(); i++)
 		{
 			char letterName = chars[rand() % chars.size()];
-			EventListenerClass * e1 = EventListenerClass::createCannonBall("cannon_ball.png", cannon1, cannon2, cannon3, cannon4, i, letterName, position[i].x, position[i].y, self);
+			EventListenerClass * e1 = EventListenerClass::createCannonBall("cannon_ball.png", cannon1, cannon2, cannon3, i, letterName, position[i].x, position[i].y, self);
 			this->addChild(e1);
 			MainGame::cannon_ballArray.push_back(e1);
 
@@ -421,10 +430,18 @@ void MainGame::cannonLetterCome()	//cannon letter will come which will be dragge
 	{
 		int remcharPos;
 		LabelClass *remchar = NULL;
+		int flag = 0;
 		for (int i = 0; i < MainGame::cannonLetter.size(); i++)
 		{
 			LabelClass *eventCannonLetterObject = static_cast<LabelClass*>(MainGame::cannonLetter[i]);
-			if (eventCannonLetterObject->flag == 1)
+			if (eventCannonLetterObject->flag == 1 && eventCannonLetterObject->answer=='n')
+			{
+				remchar = eventCannonLetterObject;
+				remcharPos = i;
+				flag++;
+				break;
+			}
+			else if (eventCannonLetterObject->flag == 1 && eventCannonLetterObject->answer == 'y')
 			{
 				remchar = eventCannonLetterObject;
 				remcharPos = i;
@@ -443,8 +460,13 @@ void MainGame::cannonLetterCome()	//cannon letter will come which will be dragge
 
 		if (remchar != NULL)
 		{
-			char letterName = chars[rand() % chars.size()];
-			EventListenerClass *letter = EventListenerClass::createCannonBall("cannon_ball.png", cannon1, cannon2, cannon3, cannon4, remcharPos, letterName, remchar->xP, remchar->yP, self);
+			char letterName;
+			if (flag == 0)
+				letterName = chars[rand() % chars.size()];
+			else
+				letterName = remchar->id;
+
+			EventListenerClass *letter = EventListenerClass::createCannonBall("cannon_ball.png", cannon1, cannon2, cannon3, remcharPos, letterName, remchar->xP, remchar->yP, self);
 			MainGame::cannon_ballArray[remcharPos] = letter;
 			self->addChild(letter);
 
@@ -458,6 +480,7 @@ void MainGame::cannonLetterCome()	//cannon letter will come which will be dragge
 			}
 			*/
 			val += letterName;
+
 
 			Label *myLabel = Label::createWithBMFont("english/baloo_bhai.fnt", val);
 			myLabel->setPosition(remchar->xP, remchar->yP);
@@ -555,7 +578,9 @@ void MainGame::startFire(EventListenerClass* letterObject, Node *mycannon)
 			if (MainGame::cannonLetter[i]->id == letterObject->id)
 			{
 				self->removeChild(MainGame::cannonLetter_actualImage[i]);
+				self->removeChild(MainGame::cannon_ballArray[i]);
 				MainGame::cannonLetter[i]->flag = 1;
+				MainGame::cannonLetter[i]->answer = 'n';
 				break;
 			}
 		}
@@ -607,6 +632,7 @@ void MainGame::removeFire(EventListenerClass* letterObject, Label* removableFire
 			{
 				self->removeChild(MainGame::cannonLetter_actualImage[i]);
 				MainGame::cannonLetter[i]->flag = 1;
+				MainGame::cannonLetter[i]->answer = 'y';
 				break;
 			}
 		}
@@ -659,6 +685,7 @@ void MainGame::update(float dt)
 										self->removeChild(MainGame::cannonLetter_actualImage[y]);
 										self->removeChild(MainGame::cannon_ballArray[y]);
 										MainGame::cannonLetter[y]->flag = 1;
+										MainGame::cannonLetter[y]->answer = 'y';
 										break;
 									}
 								}
@@ -732,6 +759,8 @@ void MainGame::update(float dt)
 						if (MainGame::cannonLetter[k]->id == MainGame::bulletArray[j]->id)
 						{
 							MainGame::cannonLetter[k]->flag = 1;
+							MainGame::cannonLetter[k]->answer = 'y';
+
 							this->removeChild(MainGame::cannonLetter_actualImage[k]);
 
 							for (int m = 0; m < MainGame::cannonArray.size(); m++)
@@ -795,6 +824,7 @@ void MainGame::update(float dt)
 						if (MainGame::cannonLetter[k]->id == MainGame::bulletArray[j]->id)
 						{
 							MainGame::cannonLetter[k]->flag = 1;
+							MainGame::cannonLetter[k]->answer = 'n';
 							this->removeChild(MainGame::cannonLetter_actualImage[k]);
 
 							for (int m = 0; m < MainGame::cannonArray.size(); m++)
@@ -815,7 +845,7 @@ void MainGame::update(float dt)
 
 					auto timeline = CSLoader::createTimeline("cannonball_meteoranimation.csb");
 					Node *mycannon = (Node *)CSLoader::createNode("cannonball_meteoranimation.csb");
-					mycannon->setPosition(MainGame::letterArray[i]->getBoundingBox().origin.x + (MainGame::meteorArray_actualImage[i]->getContentSize().width / 3), MainGame::letterArray[i]->getBoundingBox().origin.y + (MainGame::meteorArray_actualImage[i]->getContentSize().height / 16));
+					mycannon->setPosition(MainGame::letterArray[i]->getBoundingBox().origin.x + (MainGame::meteorArray_actualImage[i]->getContentSize().width / 4), MainGame::letterArray[i]->getBoundingBox().origin.y + (MainGame::meteorArray_actualImage[i]->getContentSize().height / 16));
 					mycannon->setScale(.7, .7);
 					self->addChild(mycannon);	// add cannon animation
 					mycannon->runAction(timeline);

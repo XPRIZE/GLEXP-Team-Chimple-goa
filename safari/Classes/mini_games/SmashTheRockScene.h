@@ -35,12 +35,13 @@ public:
 	cocos2d::Label* label;
 	
 	cocos2d::Node* background;
+	cocos2d::Node* centre;
 	cocos2d::ClippingNode* maskedFill = nullptr;
 	void update(float dt);
 	virtual void masking();
 	virtual void jump();
 	virtual void hit();
-	
+	virtual void blast();
 	virtual void createSkeletonCharacter();
 	void addMainCharacterToScene(cocostudio::timeline::SkeletonNode* skeleton);
 	// implement the "static create()" method manually
