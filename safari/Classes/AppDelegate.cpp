@@ -58,7 +58,7 @@ bool AppDelegate::applicationDidFinishLaunching() {
     float scaleFactor = 1.0f;
     Size frameSize = glview->getFrameSize();
     
-/*    if (frameSize.height > mediumResolutionSize.height)
+    if (frameSize.height > mediumResolutionSize.height)
     {
         searchPaths.push_back("res/HDR");
         scaleFactor = largeResolutionSize.height/designResolutionSize.height;
@@ -73,10 +73,7 @@ bool AppDelegate::applicationDidFinishLaunching() {
         searchPaths.push_back("res/SD");
         scaleFactor = smallResolutionSize.height/designResolutionSize.height;
     }
- */
-
-	searchPaths.push_back("res/HDR");
-	scaleFactor = largeResolutionSize.height / designResolutionSize.height;
+ 
 
     director->setContentScaleFactor(scaleFactor);
     FileUtils::getInstance()->setSearchPaths(searchPaths);

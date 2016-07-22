@@ -13,7 +13,8 @@ USING_NS_CC;
 
 AlphabetGrid::AlphabetGrid() :
 _alphabetLayer(nullptr),
-_labelLayer(nullptr)
+_labelLayer(nullptr),
+_alphabetMatrix(NULL)
 {
 }
 
@@ -54,6 +55,7 @@ void AlphabetGrid::resize(GLfloat width, GLfloat height, int numRows, int numCol
     _alphabetLayer = Node::create();
     addChild(_alphabetLayer);
     
+    _alphabetMatrix.clear();
     _alphabetMatrix.resize(numRows, std::vector<Alphabet *>(numCols));
     
     const float squareWidth = width / numCols;
@@ -77,7 +79,8 @@ void AlphabetGrid::setCharacters(std::vector<std::vector<char> > charArray) {
             auto alphabet = Alphabet::createWithSize(charArray.at(i).at(j), std::min(squareWidth, maxWidth));
             alphabet->setPosition(Vec2(j * squareWidth + squareWidth/2, i * squareHeight + squareHeight/2));
             _alphabetLayer->addChild(alphabet, 1);
-            _alphabetMatrix[i][j] = alphabet;
+            auto a = _alphabetMatrix[i];
+            _alphabetMatrix.at(i).at(j) = alphabet;
         }
     }    
 }

@@ -159,6 +159,8 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClCompile Include="..\Classes\MessageContent.cpp" />
     <ClCompile Include="..\Classes\MessageReceiver.cpp" />
     <ClCompile Include="..\Classes\MessageSender.cpp" />
+    <ClCompile Include="..\Classes\mini_games\AlphamonFeedLevelScene.cpp" />
+    <ClCompile Include="..\Classes\mini_games\AlphamonFeedScene.cpp" />
     <ClCompile Include="..\Classes\mini_games\Cannon_Ball_Listener.cpp" />
     <ClCompile Include="..\Classes\mini_games\Cannon_Ball_Main.cpp" />
     <ClCompile Include="..\Classes\mini_games\CrossTheBridgeScene.cpp" />
@@ -177,6 +179,7 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClCompile Include="..\Classes\RPGSprite.cpp" />
     <ClCompile Include="..\Classes\RunningState.cpp" />
     <ClCompile Include="..\Classes\SkeletonCharacter.cpp" />
+    <ClCompile Include="..\Classes\SkeletonPosition.cpp" />
     <ClCompile Include="..\Classes\SpeechBubbleView.cpp" />
     <ClCompile Include="..\Classes\sqlite3.c" />
     <ClCompile Include="..\Classes\Sqlite3Helper.cpp" />
@@ -203,6 +206,8 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClInclude Include="..\Classes\MessageContent.hpp" />
     <ClInclude Include="..\Classes\MessageReceiver.hpp" />
     <ClInclude Include="..\Classes\MessageSender.hpp" />
+    <ClInclude Include="..\Classes\mini_games\AlphamonFeedLevelScene.h" />
+    <ClInclude Include="..\Classes\mini_games\AlphamonFeedScene.h" />
     <ClInclude Include="..\Classes\mini_games\Cannon_Ball_Listener.h" />
     <ClInclude Include="..\Classes\mini_games\Cannon_Ball_Main.h" />
     <ClInclude Include="..\Classes\mini_games\CrossTheBridgeScene.h" />
@@ -221,6 +226,7 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClInclude Include="..\Classes\RPGSprite.h" />
     <ClInclude Include="..\Classes\RunningState.h" />
     <ClInclude Include="..\Classes\SkeletonCharacter.h" />
+    <ClInclude Include="..\Classes\SkeletonPosition.h" />
     <ClInclude Include="..\Classes\SpeechBubbleView.hpp" />
     <ClInclude Include="..\Classes\sqlite3.h" />
     <ClInclude Include="..\Classes\Sqlite3Helper.hpp" />

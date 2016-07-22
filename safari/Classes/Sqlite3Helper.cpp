@@ -8,7 +8,7 @@
 
 #include "Sqlite3Helper.hpp"
 #include "cocos2d.h"
-#include "MessageContent.hpp"
+
 USING_NS_CC;
 
 
@@ -16,25 +16,23 @@ bool Sqlite3Helper::instanceFlag = false;
 Sqlite3Helper* Sqlite3Helper::shared = NULL;
 
 
-Sqlite3Helper::Sqlite3Helper(std::string connectionUrl, std::string dbName):
+Sqlite3Helper::Sqlite3Helper(std::string connectionUrl):
 dataBaseConnection(nullptr),
-connectionUrl(""),
-dbName("")
+connectionUrl("")
 {
     assert (!connectionUrl.empty());
     this->connectionUrl = connectionUrl;
-    this->dbName = dbName;
     
     this->initializeConnection();
 }
 
 
 
-Sqlite3Helper* Sqlite3Helper::getInstance(std::string connectionUrl, std::string dbName) {
+Sqlite3Helper* Sqlite3Helper::getInstance(std::string connectionUrl) {
     
     if(! instanceFlag)
     {
-        shared = new Sqlite3Helper(connectionUrl, dbName);
+        shared = new Sqlite3Helper(connectionUrl);
         instanceFlag = true;
         return shared;
     }
@@ -53,7 +51,7 @@ void Sqlite3Helper::initializeConnection() {
     CCLOG("pathToSQLConnection to database %s", pathToSQLConnection.c_str());
     
     #if (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
-        std::string dbPath = FileUtils::getInstance()->getWritablePath() + this->dbName;
+        std::string dbPath = FileUtils::getInstance()->getWritablePath() + GLOBAL_DB_NAME;
         FILE* file = fopen(dbPath.c_str(), "r");
         if (file == nullptr)
         {
@@ -357,6 +355,56 @@ std::vector<MessageContent*> Sqlite3Helper::findEventsByPreConditionEventIdInSce
     return messages;
     
 }
+
+SkeletonPosition* Sqlite3Helper::findLastVisitedSceneInIsland(const char* island) {
+    /* Create SQL statement */
+    
+    sqlite3_stmt *res;
+    int rc = 0;
+    
+    const char* querySQL = "SELECT ISLAND_NAME, SCENE_NAME, X_POSITION, Y_POSITION FROM SKELETON_POSITIONS WHERE ISLAND_NAME=@island LIMIT 1";
+    
+    
+    /* Execute SQL statement */
+    
+    rc = sqlite3_prepare_v2(this->dataBaseConnection, querySQL, -1, &res, 0);
+    
+    if (rc == SQLITE_OK) {
+        
+        int index = sqlite3_bind_parameter_index(res, "@island");
+        sqlite3_bind_text(res, index, island,-1, SQLITE_TRANSIENT);        
+        
+    } else {
+        fprintf(stderr, "Failed to execute statement: %s\n", sqlite3_errmsg(this->dataBaseConnection));
+    }
+    
+    SkeletonPosition* content = nullptr;
+    
+    while(sqlite3_step(res) == SQLITE_ROW)
+    {
+        content = new SkeletonPosition();
+        std::string islandName( reinterpret_cast< char const* >(sqlite3_column_text(res, 0))) ;
+        content->setIslandName(islandName);
+        
+        std::string sceneName( reinterpret_cast< char const* >(sqlite3_column_text(res, 1))) ;
+        content->setSceneName(sceneName);
+
+        std::string xPos( reinterpret_cast< char const* >(sqlite3_column_text(res, 2))) ;
+        content->setXPosition(xPos);
+
+        std::string yPos( reinterpret_cast< char const* >(sqlite3_column_text(res, 2))) ;
+        content->setYPosition(yPos);
+        
+        
+    }
+    
+    
+    sqlite3_finalize(res);
+    
+    return content;
+    
+}
+
 
 
 Sqlite3Helper::~Sqlite3Helper() {

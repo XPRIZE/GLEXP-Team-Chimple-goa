@@ -16,6 +16,7 @@
 #include "mini_games/EndlessRunner.h"
 #include "mini_games/Cannon_Ball_Main.h"
 #include "mini_games/TraceScene.h"
+#include "mini_games/AlphamonFeedLevelScene.h"
 
 USING_NS_CC;
 
@@ -28,6 +29,7 @@ static const std::string SMASH_THE_ROCK = "Smash The Rock";
 static const std::string CANNON_BALL = "Cannon Ball";
 static const std::string ENDLESS_RUNNER = "EndlessRunner";
 static const std::string KUNG_FU_ALPHA = "Kung Fu Alpha";
+static const std::string ALPHAMON_FEED = "Alphamon Feed";
 
 
 StartMenu::StartMenu(){
@@ -57,6 +59,7 @@ bool StartMenu::init() {
                              createMenu(CANNON_BALL),
                              createMenu(ENDLESS_RUNNER),
                              createMenu(KUNG_FU_ALPHA),
+							 createMenu(ALPHAMON_FEED),
                              NULL);
     menu->alignItemsVertically();
     
@@ -71,7 +74,7 @@ void StartMenu::startScene(std::string gameName, std::string firstParam, std::st
     } else if(gameName == DUEL_SCENE) {
         Director::getInstance()->replaceScene(DuelScene::createScene(firstParam.at(0), secondParam.at(0)));
     } else if(gameName == CAMP) {
-        Director::getInstance()->replaceScene(HelloWorld::createScene("camp","",""));
+        Director::getInstance()->replaceScene(HelloWorld::createScene("camp"));
     } else if(gameName == PATCH_THE_WALL) {
         Director::getInstance()->replaceScene(PatchTheWall::createScene());
     } else if(gameName == CROSS_THE_BRIDGE) {
@@ -86,6 +89,8 @@ void StartMenu::startScene(std::string gameName, std::string firstParam, std::st
         Director::getInstance()->replaceScene(EndlessRunner::createScene());
     } else if(gameName == KUNG_FU_ALPHA) {
         Director::getInstance()->replaceScene(Trace::createScene('a'));
+    } else if(gameName == ALPHAMON_FEED) {
+        Director::getInstance()->replaceScene(AlphamonFeedLevelScene::createScene());
     } else {
         CCLOG("Failed starting scene: %s", gameName.c_str());
     }

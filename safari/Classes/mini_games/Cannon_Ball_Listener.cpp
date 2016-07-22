@@ -32,7 +32,7 @@ LabelClass::~LabelClass()
 EventListenerClass* EventListenerClass::createCannonBall(std::string spriteName, EventListenerClass* e1, EventListenerClass* e2, EventListenerClass* e3, EventListenerClass* e4, int spriteInd, char spriteId, float x, float y, MainGame *callerObject)
 {
 	EventListenerClass* createCannonBall_pSprite = new EventListenerClass();
-	CCSpriteFrameCache::sharedSpriteFrameCache()->addSpriteFramesWithFile("cannonball_mainassetPlist.plist");
+	CCSpriteFrameCache::sharedSpriteFrameCache()->addSpriteFramesWithFile("cannonball_mainasset.plist");
 	std::string val = "cannonball/cannonball_mainasset/";
 	val.append(spriteName);
 	if (createCannonBall_pSprite->initWithSpriteFrameName(val))
@@ -60,7 +60,7 @@ EventListenerClass* EventListenerClass::createCannonBall(std::string spriteName,
 EventListenerClass* EventListenerClass::createSprite(std::string spriteName, float x, float y, char charid, MainGame *callerObject)
 {
 	EventListenerClass *createSprite_pSprite = new EventListenerClass();
-	CCSpriteFrameCache::sharedSpriteFrameCache()->addSpriteFramesWithFile("cannonball_mainassetPlist.plist");
+	CCSpriteFrameCache::sharedSpriteFrameCache()->addSpriteFramesWithFile("cannonball_mainasset.plist");
 	std::string val = "cannonball/cannonball_mainasset/";
 //	CCSpriteFrameCache::sharedSpriteFrameCache()->addSpriteFramesWithFile("cannonball/Game_screen.plist");
 //	std::string val = "background_asset/";
@@ -91,6 +91,7 @@ LabelClass* LabelClass::createSpt(char spriteName, float x, float y, char charid
 	createSprite_pSprite->xP = x;
 	createSprite_pSprite->yP = y;
 	createSprite_pSprite->id = charid;
+	createSprite_pSprite->answer = 'o';
 	return createSprite_pSprite;
 //	CC_SAFE_DELETE(createSprite_pSprite);
 }
@@ -98,7 +99,7 @@ LabelClass* LabelClass::createSpt(char spriteName, float x, float y, char charid
 EventListenerClass * EventListenerClass::createCannon(std::string spriteName, int flag1, int currentShoot1, int totalShoot1, int id)
 {
 	EventListenerClass* createCannon_pSprite = new EventListenerClass();
-	CCSpriteFrameCache::sharedSpriteFrameCache()->addSpriteFramesWithFile("cannonball_mainassetPlist.plist");
+	CCSpriteFrameCache::sharedSpriteFrameCache()->addSpriteFramesWithFile("cannonball_mainasset.plist");
 	std::string val = "cannonball/cannonball_mainasset/";
 	val.append(spriteName);
 	if (createCannon_pSprite->initWithSpriteFrameName(val))

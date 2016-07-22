@@ -17,6 +17,7 @@ public:
     static Trace *create(char alphabet);
     void onAlphabetSelected(cocos2d::EventCustom *event);
 	void transit(int level);
+	void setDotsVisibility(bool flag);
 
 CC_CONSTRUCTOR_ACCESS:
     virtual bool init(char alphabet);
