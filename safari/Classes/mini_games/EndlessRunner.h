@@ -14,9 +14,9 @@ protected:
 	std::vector<Sprite*> allBeforeStartBlocks;
 	std::pair<float, float> position;
 	std::vector<Label*> allLabels;
-	std::vector<SpriteCreate*> allBoard;
-	std::vector<SpriteCreate*> allMonster;
-
+	std::vector<Sprite*> allMonster;
+	Label *letterOnBoard;
+	bool initBool = true;
 	Size visibleSize;
 	Vec2 origin;
 	Sprite* leftBarrier;
@@ -83,7 +83,7 @@ protected:
 		int SecondLayerRightIntersectMode = 2;
 		int leftIntersectMode = 4;
 
-		int PathMovingSpeed = 460;
+		int PathMovingSpeed = 600;
 
 		int Layer1Speed = 100;
 		int Layer2Speed = 230;
@@ -112,13 +112,13 @@ protected:
 	int SecondLayerCounterMid = 1;
 	int SecondLayerModes = 0;
 	SpriteCreate* currentSecondLayerRock;
-	int SecondLayerSpacing = 0;
+	int SecondLayerSpacing = 2;
 
 	bool jumpMode = false;
 
-	std::string mountainMidImages[4] = { "pathmid_1.png", "pathmid_2.png", "pathmid_3.png", "pathmid_4.png" };
-	std::string treeLayer4[3] = { "layer_4_tree_01.png", "layer_4_tree_02.png", "layer_4_tree_03.png" };
-	std::string treeLayer6[4] = { "layer_6_tree_01.png", "layer_6_tree_02.png", "layer_6_tree_03.png", "layer_6_tree_04.png" };
+	std::string mountainMidImages[4] = { "endlessrunner/pathmid_1.png", "endlessrunner/pathmid_2.png", "endlessrunner/pathmid_3.png", "endlessrunner/pathmid_4.png" };
+	std::string treeLayer4[3] = { "endlessrunner/layer_4_tree_01.png", "endlessrunner/layer_4_tree_02.png", "endlessrunner/layer_4_tree_03.png" };
+	std::string treeLayer6[4] = { "endlessrunner/layer_6_tree_01.png", "endlessrunner/layer_6_tree_02.png", "endlessrunner/layer_6_tree_03.png", "endlessrunner/layer_6_tree_04.png" };
 
 	Sprite* currentlayer1Sprite;
 	Sprite* currentlayer2Sprite;
@@ -127,6 +127,8 @@ protected:
 	Sprite* currentlayer5Sprite;
 	Sprite* currentlayer6Sprite;
 	Sprite* currentlayer7Sprite;
+
+	Sprite* happyMan;
 
 	struct Character {
 		Sprite* character;
@@ -137,7 +139,7 @@ protected:
 		int jumpPosition = 0;
 		bool Clicked = false;
 		float fallingTime = 0.9;
-		float upTime = 0.9;
+		float upTime = 0.4;
 		MoveTo* fallDownAction;
 		bool groundTouchFlag = false;
 		cocostudio::timeline::ActionTimeline *action;
@@ -156,16 +158,16 @@ public:
 
 	void beforeInitBackgroundScene();
 	void sceneBackgroundFlow();
-	
-	Sprite* CreateSprites(std::string name , int PositionX , int positionY , float scaleX, float scaleY, int zOrder,std::string vectorType);
+
+	Sprite* CreateSprites(std::string name, int PositionX, int positionY, float scaleX, float scaleY, int zOrder, std::string vectorType);
 	void mountainLayer1();
 
 	void removePathBlockTouchByLeftBarrier();
 	void startingIntersectMode();
-	
+
 	void AddRocksInFirstLayerPath();
 	void AddRocksInSecondLayerPath();
-	
+
 	SpriteCreate* addUpperLayerStartSpriteRock(SpriteCreate* SpriteObject, std::string MountainType, int positionY, int zOrder, int xCordinateforBlankSpace);
 
 	float setPositionX(SpriteCreate* SpriteObject);
@@ -174,9 +176,9 @@ public:
 	void CreateMonsterWithLetter(float dt);
 	void sceneTree1Flow(float dt);
 	void sceneTree2Flow(float dt);
-	
+
 	void FallDownCharacter();
-	void stillCharacterOnPath();
+	void stillCharacterOnPath(float delta);
 
 	// a selector callback
 	void addEvents(cocos2d::Sprite*);
