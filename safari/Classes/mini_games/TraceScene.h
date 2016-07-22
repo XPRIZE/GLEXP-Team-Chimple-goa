@@ -11,6 +11,7 @@
 
 #include "cocos2d.h"
 
+
 class Trace : public cocos2d::Layer {
 public:
     static cocos2d::Scene* createScene(char alphabet);
@@ -18,7 +19,7 @@ public:
     void onAlphabetSelected(cocos2d::EventCustom *event);
 	void transit(int level);
 	void setDotsVisibility(bool flag);
-
+	
 CC_CONSTRUCTOR_ACCESS:
     virtual bool init(char alphabet);
     Trace();
