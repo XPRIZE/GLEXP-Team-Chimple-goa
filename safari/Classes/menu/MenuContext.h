@@ -11,6 +11,7 @@
 
 #include "cocos2d.h"
 #include <sstream>
+#include "ui/CocosGUI.h"
 
 class MenuContext : public cocos2d::Node {
     
@@ -26,7 +27,12 @@ CC_CONSTRUCTOR_ACCESS:
     
 protected:
     int _points;
+    bool _menuSelected;
     cocos2d::Label* _label;
+    cocos2d::ui::Button* _menuButton;
+    cocos2d::ui::Button* _menu;
+    cocos2d::LayerColor* _greyLayer;
+    void expandMenu(Ref* pSender, cocos2d::ui::Widget::TouchEventType eEventType);
 
     template <typename T>
     static inline std::string to_string(T value)
