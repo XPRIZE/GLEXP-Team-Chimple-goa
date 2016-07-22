@@ -55,16 +55,4 @@ std::vector<std::vector<char>> CharGenerator::generateMatrixForChoosingAChar(cha
     return matrix;
 }
 
-std::vector<char> CharGenerator::generateArrayForChoosingAChar(char alpha, int size)
-{
-	std::vector<char> charArray;
-	for (int i = 0; i < size / 2; i++) {
-			int randomNumber = rand() % 25;
-			charArray.push_back(a_to_z[randomNumber]);
-			charArray.push_back(alpha);
-		}
-	if (size % 2 != 0) {
-		charArray.push_back(alpha);
-	}
-	return charArray;
-}
+

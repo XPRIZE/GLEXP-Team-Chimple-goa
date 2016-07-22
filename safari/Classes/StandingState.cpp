@@ -38,15 +38,17 @@ void StandingState::enter(cocos2d::Vec2 forceVector, SkeletonCharacterState prev
         this->getTarget()->getSkeletonActionTimeLine()->setLastFrameCallFunc([=]() {
             this->getTarget()->getSkeletonActionTimeLine()->clearLastFrameCallFunc();
             assert (this->getTarget()->getSkeletonActionTimeLine() != NULL);
-            this->getTarget()->getSkeletonActionTimeLine()->play("idle", true);
+            this->getTarget()->getSkeletonActionTimeLine()->play(IDLE, true);
         });
         
         
-        this->getTarget()->getSkeletonActionTimeLine()->play("stop", false);
+        this->getTarget()->getSkeletonActionTimeLine()->play(BREAK_ANIM, false);
         
     } else {
-        this->getTarget()->getSkeletonActionTimeLine()->play("idle", true);
+        this->getTarget()->getSkeletonActionTimeLine()->play(IDLE, true);
     }
+    
+    this->getTarget()->changeSkinForMouthBone("mouth","hero/normal.png");
 }
 
 void StandingState::exit()  {

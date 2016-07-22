@@ -2,7 +2,7 @@
 #define _SPRITECREATE_HPP_
 
 #include "cocos2d.h"
-#include "cocostudio/CocoStudio.h"
+#include "editor-support/cocostudio/CocoStudio.h"
 class SpriteCreate : public cocos2d::Sprite
 {
 public:

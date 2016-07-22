@@ -61,7 +61,7 @@ bool ExternalSkeletonCharacter::initializeExternalSkeletonCharacter(cocostudio::
         {
             this->setVicinityToMainCharacter(true);
             if(this->externalSkeletonActionTime != NULL) {
-                this->externalSkeletonActionTime->play("idle", true);
+                this->externalSkeletonActionTime->play(IDLE, true);
             }
         } else {
             this->setVicinityToMainCharacter(false);
