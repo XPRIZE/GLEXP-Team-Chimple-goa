@@ -56,6 +56,7 @@ public:
 	void removeFire(EventListenerClass *, cocos2d::Label *, Node *);
 	virtual bool init();
 	void update(float dt);
+
 	// implement the "static create()" method manually
 	CREATE_FUNC(MainGame);
 };
