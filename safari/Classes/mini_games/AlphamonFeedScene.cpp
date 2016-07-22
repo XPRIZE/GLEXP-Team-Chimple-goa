@@ -6,6 +6,7 @@
 #include "editor-support/cocostudio/CocoStudio.h"
 #include "ui/CocosGUI.h"
 #include "../alphamon/Alphamon.h"
+#include "../puzzle/CharGenerator.h"
 
 USING_NS_CC;
 
@@ -110,6 +111,7 @@ bool AlphamonFeed::init()
 
 void AlphamonFeed::showFruits(float dt) {
 	std::vector<std::string> testAlphabet;
+	std::vector<char> testtt = CharGenerator::getInstance()->generateArrayForChoosingAChar(alphaLevelString.at(0), 5);
 	Size visibleSize = Director::getInstance()->getVisibleSize();
 	for (int i = 0; i < 3; i++) {
 		testAlphabet.push_back(Alphabets.at(cocos2d::RandomHelper::random_int(0, 25) % 26).c_str());
