@@ -27,7 +27,7 @@ protected:
 	Sprite* leftBarrierForBigObject;
 	Sprite* upBarrier;
 	double xSizeArray[7] = { 1.0,0.4,0.6,0.8,0.5,1.2,1.4 };
-	char letters[36] = { 'A','B','C','A','D','E','A','F','G','A','A','A','B','B','B','B','C','C','C','C','D','D','D','D','E','E','E','E','F','F','F','F','G','G','G','G' };
+	char letters[36] = {'A','A','A','B','B','B','C','C','C','A','A','A','B','B','B','C','C','C','A','A','A','B','B','B','C','C','C','A','A','A','B','B','B','C','C','C'};
 	char tempChar = 'A';
 	struct mountainTypeObject {
 		std::string startLandPart = "startLand";
@@ -141,8 +141,8 @@ protected:
 		bool stillCheckFalg = true;
 		int jumpPosition = 0;
 		bool Clicked = false;
-		float fallingTime = 0.9;
-		float upTime = 0.4;
+		double fallingTime = 0.9;
+		double upTime = 0.4;
 		MoveTo* fallDownAction;
 		bool groundTouchFlag = false;
 		cocostudio::timeline::ActionTimeline *action;

@@ -179,6 +179,7 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClCompile Include="..\Classes\RPGSprite.cpp" />
     <ClCompile Include="..\Classes\RunningState.cpp" />
     <ClCompile Include="..\Classes\SkeletonCharacter.cpp" />
+    <ClCompile Include="..\Classes\SkeletonConfiguration.cpp" />
     <ClCompile Include="..\Classes\SkeletonPosition.cpp" />
     <ClCompile Include="..\Classes\SpeechBubbleView.cpp" />
     <ClCompile Include="..\Classes\sqlite3.c" />
@@ -225,6 +226,7 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClInclude Include="..\Classes\RPGSprite.h" />
     <ClInclude Include="..\Classes\RunningState.h" />
     <ClInclude Include="..\Classes\SkeletonCharacter.h" />
+    <ClInclude Include="..\Classes\SkeletonConfiguration.h" />
     <ClInclude Include="..\Classes\SkeletonPosition.h" />
     <ClInclude Include="..\Classes\SpeechBubbleView.hpp" />
     <ClInclude Include="..\Classes\sqlite3.h" />
