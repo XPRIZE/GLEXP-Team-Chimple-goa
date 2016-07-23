@@ -23,12 +23,13 @@ class MessageSender : public cocos2d::Node {
 protected:
     MessageSender(Sqlite3Helper* sqlite3Helper);    
     Sqlite3Helper* sqlite3Helper;
+    std::string sceneName;
     
 public:
     
-    virtual bool initialize(Sqlite3Helper* sqlite3Helper);
+    virtual bool initialize(Sqlite3Helper* sqlite3Helper, std::string sceneName);
     
-    static MessageSender* getInstance(Sqlite3Helper* sqlite3Helper);
+    static MessageSender* getInstance(Sqlite3Helper* sqlite3Helper, std::string sceneName);
     ~MessageSender();
         
     virtual void createMessagesForNodeWithKey(std::string key);

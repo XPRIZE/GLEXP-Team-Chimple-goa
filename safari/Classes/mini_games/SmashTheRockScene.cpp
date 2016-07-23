@@ -213,7 +213,7 @@ void SmashTheRock::createSkeletonCharacter()
 {
 	CCLOG("hello");
 	skeletonCharacter = new SkeletonCharacter();
-	skeletonCharacter->createSkeletonNode("human_skeleton.csb");
+	skeletonCharacter->createSkeletonNode(NULL, "", "", "human_skeleton.csb");
 }
 
 void SmashTheRock::addMainCharacterToScene(cocostudio::timeline::SkeletonNode* skeletonNode) {

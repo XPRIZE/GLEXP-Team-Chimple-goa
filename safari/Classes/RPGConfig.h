@@ -23,6 +23,7 @@
 #define ENABLE_DEBUGDRAW true
 #define MAIN_CHARACTER_MASS 1.0f
 #define MAIN_CHARACTER_SCALE 1.0f
+#define EXTERNAL_CHARACTER_SCALE 0.3f
 #define MAIN_CHARACTER_MASS_DAMPING 0.05f
 #define MAIN_CHARACTER_GROUP -1
 
@@ -53,7 +54,7 @@
 
 #define OBJECT_NEAR_BY_BOUNDING_BOX_WIDTH 650.0f
 
-#define HUMAN_SKELETON_NAME "Skeleton"
+#define HUMAN_SKELETON_NAME "Hero"
 #define JUMP_START "jump_start"
 #define JUMP_END "jump_down"
 #define JUMP_FINISHED "jump_end"
@@ -70,7 +71,7 @@
 #define MAIN_LAYER "main"
 #define BACK_GROUND_LAYER "background"
 #define FORE_GROUND_LAYER "foreground"
-#define MAIN_SKELETON_KEY "main_character"
+#define MAIN_SKELETON_KEY "Hero"
 
 #define HORIZONTAL_PARALLEX_RATIO 0.7f
 #define VERTICAL_PARALLEX_RATIO 0.7f
@@ -88,6 +89,17 @@
 #define TOUCH_POINTER_IMG "touchPointer.png"
 
 #define SWIPE_DELTA 200.0f
+
+
+#define HERO "Hero"
+#define ANCHOR_X "anchorX"
+#define ANCHOR_Y "anchorY"
+
+#define HALF_POINT "0.5"
+#define ONE_POINT "1.0"
+#define ZERO_POINT "0.0"
+
+#define HERO_HIP "hip"
 
 #define EVENT_DISPATCHER Director::getInstance()->getEventDispatcher()
 
@@ -120,13 +132,13 @@
 enum RPGGestureType
 {
     E_GESTURE_NONE = 0,
-    E_GESTURE_TAP,
-    E_GESTURE_HOLD,
-    E_GESTURE_SWIPE_UP,
-    E_GESTURE_SWIPE_DOWN,
-    E_GESTURE_SWIPE_LEFT,
-    E_GESTURE_SWIPE_RIGHT,
-    E_GESTURE_TOUCH_ENDED,
+    E_GESTURE_TAP = 1,
+    E_GESTURE_HOLD = 2,
+    E_GESTURE_SWIPE_UP = 3,
+    E_GESTURE_SWIPE_DOWN = 4,
+    E_GESTURE_SWIPE_LEFT = 5,
+    E_GESTURE_SWIPE_RIGHT = 6,
+    E_GESTURE_TOUCH_ENDED= 7
 };
 
 
@@ -142,8 +154,8 @@ enum SkeletonCharacterState {
 class RPGConfig
 {
 private:
-    RPGConfig();
-    ~RPGConfig();
+    static const std::map<std::string, std::map<std::string, std::map<std::string, std::string>>> skeletonConfigs;
+    static const std::map<std::string, std::map<std::string, std::map<std::string, std::string>>> createSkeletonConfigsAtLoad();
     
 public:
     // initialise common global data here
@@ -213,6 +225,9 @@ public:
         os << value ;
         return os.str() ;
     }
+    
+    static std::map<std::string, std::map<std::string, std::string>> getSkeletonConfigMap(std::string key);
+
     
 };
 

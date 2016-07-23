@@ -59,15 +59,17 @@ private:
     
     MenuContext* menuContext;
     
+    SkeletonPosition* skeletonPositionInLastVisitedScene;
+    
     void loadGameScene();
     
     void enablePhysicsBoundaries(Node* rootNode);
     
     cocostudio::timeline::SkeletonNode* createMainGameCharacter();
     
-    void addMainCharacterToScene(const std::string& filename);
+    void addMainCharacterToScene(const std::string& filename, cocos2d::Node* node);
     
-    void updatePositionForMainCharacter();
+    void updatePositionAndCategoryBitMaskMainCharacter();
     
     void initGestureLayer();
     
@@ -159,24 +161,18 @@ private:
     CC_SYNTHESIZE(std::string, island, Island);
     
     CC_SYNTHESIZE(std::string, physicsFile, PhysicsFile);
-    
-    CC_SYNTHESIZE(std::string, mainCharacterFile, MainCharacterFile);
-    
+        
     CC_SYNTHESIZE(bool, isSpeechBubbleAlreadyVisible, SpeechBubbleAlreadyVisible);
     
-    CC_SYNTHESIZE(std::string, initialMainSkeletonY, InitialMainSkeletonY);
-    
-    CC_SYNTHESIZE(std::string, initialMainSkeletonX, InitialMainSkeletonX);
-    
 public:
-    static cocos2d::Scene* createScene(const std::string& island);
+    static cocos2d::Scene* createScene(const std::string& island, const std::string& sceneName);
     
-    static HelloWorld* create(const std::string& island);
+    static HelloWorld* create(const std::string& island, const std::string& sceneName);
     
     HelloWorld();
     ~HelloWorld();
     
-    virtual bool init(const std::string& island);
+    virtual bool init(const std::string& island, const std::string& sceneName);
     
     virtual void initializeSafari();
     

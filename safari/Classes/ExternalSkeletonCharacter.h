@@ -26,15 +26,15 @@ public:
     ExternalSkeletonCharacter();
     virtual ~ExternalSkeletonCharacter();
     
-    static ExternalSkeletonCharacter* create(cocostudio::timeline::SkeletonNode* skeletonNode, std::unordered_map<std::string, std::string> attributes);
+    static ExternalSkeletonCharacter* create(cocos2d::Node* node, std::unordered_map<std::string, std::string> attributes);
     
-    virtual bool initializeExternalSkeletonCharacter(cocostudio::timeline::SkeletonNode* skeletonNode, std::unordered_map<std::string, std::string> attributes);
+    virtual bool initializeExternalSkeletonCharacter(cocos2d::Node* node, std::unordered_map<std::string, std::string> attributes);
     
     virtual cocostudio::timeline::SkeletonNode* getExternalSkeletonNode();
     
     virtual cocostudio::timeline::ActionTimeline* getExternalSkeletonActionTimeLine();
     
-    virtual void createAnimationAndPhysicsSupportForExternalSkeletonNode();
+    
     
     virtual void setAttributes(std::unordered_map<std::string, std::string> attributes);
     
@@ -66,6 +66,8 @@ protected:
     std::unordered_map<std::string, std::string> attributes;
     
     CC_SYNTHESIZE(bool, vicinityToMainCharacter, VicinityToMainCharacter);
+    
+    void createExternalSkeletonNode(cocos2d::Node* node, const std::string& filename);
     
 };
 
