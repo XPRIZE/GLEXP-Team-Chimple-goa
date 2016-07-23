@@ -1,6 +1,7 @@
 #include "EndlessRunner.h"
 #include <vector>
 #include "SpriteCreate.h"
+
 #define COCOS2D_DEBUG 1
 
 using namespace std;
@@ -40,8 +41,10 @@ bool EndlessRunner::init()
 	visibleSize = Director::getInstance()->getVisibleSize();
 	origin = Director::getInstance()->getVisibleOrigin();
 
-	LayerYcoord.firstLayer = (int)(visibleSize.height * 13 / 100) + origin.y;
-	LayerYcoord.secondLayer = (int)(visibleSize.height * 26 / 100) + origin.y;
+	_menuContext = MenuContext::create();
+	addChild(_menuContext,20);
+	LayerYcoord.firstLayer = (int)(visibleSize.height * 11 / 100) + origin.y;
+	LayerYcoord.secondLayer = (int)(visibleSize.height * 22 / 100) + origin.y;
 	LayerYcoord.thirdLayer = (int)(visibleSize.height * 39 / 100) + origin.y;
 	LayerYcoord.fourLayer = (int)(visibleSize.height * 52 / 100) + origin.y;
 
@@ -86,7 +89,11 @@ bool EndlessRunner::init()
 	boardDisplay->setPosition(Vec2((visibleSize.width / 2) + origin.x, (visibleSize.height + origin.y) - (visibleSize.height * 0.07)));
 	this->addChild(boardDisplay, 20);
 
-	letterOnBoard = Label::createWithTTF(tempChar, "fonts/Marker Felt.ttf", 130);
+	std::ostringstream sstreamc;
+	sstreamc << tempChar;
+	std::string letterTemp = sstreamc.str();
+
+	letterOnBoard = Label::createWithTTF(letterTemp, "fonts/Marker Felt.ttf", 130);
 	letterOnBoard->setPosition(Vec2((visibleSize.width / 2) + origin.x, (visibleSize.height + origin.y) - (visibleSize.height * 0.08)));
 	this->addChild(letterOnBoard, 20);
 
@@ -280,9 +287,13 @@ void EndlessRunner::startingIntersectMode() {
 
 		if (boxs.intersectsRect(allLabels[i]->getBoundingBox()))//.intersectsRect(Character.character->getChildren().at(0)->getBoundingBox()))
 		{
-			if (allLabels[i]->getName() == tempChar) {
-				for (std::size_t k = 0; k <allMonster.size(); k++) {
+			std::ostringstream sstreamc;
+			sstreamc << tempChar;
+			std::string letterTemp = sstreamc.str();
 
+			if (allLabels[i]->getName() == letterTemp) {
+				for (std::size_t k = 0; k <allMonster.size(); k++) {
+					_menuContext->pickAlphabet(tempChar,allLabels[i]->getName()[0], true);
 					if (allMonster[k]->getTag() == allLabels[i]->getTag()) {
 						this->removeChild(allLabels[i]);
 						allLabels.erase(allLabels.begin() + i);
@@ -296,7 +307,7 @@ void EndlessRunner::startingIntersectMode() {
 			}
 			else {
 				for (std::size_t k = 0; k <allMonster.size(); k++) {
-
+					_menuContext->pickAlphabet(tempChar,allLabels[i]->getName()[0], true);
 					if (allMonster[k]->getTag() == allLabels[i]->getTag()) {
 						Character.action->play("worng_catch", false);
 						this->removeChild(allLabels[i]);
@@ -691,7 +702,7 @@ SpriteCreate* EndlessRunner::addUpperLayerStartSpriteRock(SpriteCreate* SpriteOb
 	extra->setScaleX(10.0);
 	extra->setAnchorPoint(Vec2(0, 0));
 	extra->setPosition(Vec2(EndlessRunner::setPositionX(SpriteObject), positionY));
-	extra->setScaleY(currentImage->getContentSize().height * 0.70);
+	extra->setScaleY(20);
 	this->addChild(extra, zOrderPathLayer.character);
 	allBeforeStartBlocks.push_back(extra);
 	extra->runAction(MoveTo::create(EndlessRunner::movingTime(currentImage), Vec2(leftBarrier->getPosition().x + origin.x, positionY)));
@@ -791,24 +802,28 @@ void EndlessRunner::CreateMonsterWithLetter(float dt) {
 	Rect parent, boxs;
 
 	int Index = EndlessRunner::randmValueIncludeBoundery(0, (sizeof(letters) / sizeof(letters[0])) - 1);
-	std::string letterOnBoard = letters[Index];
-
-	auto label = Label::createWithTTF(letterOnBoard, "fonts/Marker Felt.ttf", 80);
+	char letterOnBoard = letters[Index];
+	
+	std::ostringstream sstreamc;
+	sstreamc << letterOnBoard;
+	std::string letterTemp = sstreamc.str();
+	
+	auto label = Label::createWithTTF(letterTemp, "fonts/Marker Felt.ttf", 80);
 	label->setTextColor(Color4B(255, 255, 255, 255));
-	label->setName(letterOnBoard);
+	label->setName(letterTemp);
 	label->enableShadow(Color4B::BLACK, Size(5, -5), 1);
 	//setContentSize(cocos2d::Size(88, 58));
 	label->setTag(Character.uniqueId);
 	monsterImage->setTag(Character.uniqueId);
 
 	if (SecondLayerModes == LayerMode.SecondLayerRightIntersectMode) {
-		monsterImage->setPosition(Vec2(rightBarrier->getPosition().x + origin.x, (visibleSize.height * 65 / 100) + origin.y));
+		monsterImage->setPosition(Vec2(rightBarrier->getPosition().x + origin.x, (visibleSize.height * 60 / 100) + origin.y));
 	}
 	else if (FirstLayerModes == LayerMode.FirstLayerRightIntersectMode) {
-		monsterImage->setPosition(Vec2(rightBarrier->getPosition().x + origin.x, (visibleSize.height * 50 / 100) + origin.y));
+		monsterImage->setPosition(Vec2(rightBarrier->getPosition().x + origin.x, (visibleSize.height * 46 / 100) + origin.y));
 	}
 	else {
-		monsterImage->setPosition(Vec2(rightBarrier->getPosition().x + origin.x, (visibleSize.height * 50 / 100) + origin.y));
+		monsterImage->setPosition(Vec2(rightBarrier->getPosition().x + origin.x, (visibleSize.height * 46 / 100) + origin.y));
 	}
 	parent = monsterImage->getBoundingBox();
 	boxs = Rect(parent.origin.x + (box.origin.x), parent.origin.y + (box.origin.y), box.size.width, box.size.height);
