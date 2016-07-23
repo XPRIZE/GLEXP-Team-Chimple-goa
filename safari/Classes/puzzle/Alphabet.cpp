@@ -7,6 +7,8 @@
 //
 
 #include "Alphabet.h"
+#include "../menu/MenuContext.h"
+#include "../lang/LangUtil.h"
 
 USING_NS_CC;
 
@@ -48,7 +50,7 @@ void Alphabet::selected(bool value) {
 //        setTextColor(Color4B::BLUE);
         setColor(Color3B::BLUE);
         EventCustom event("alphabet_selected");
-        char *data = new char[1];
+        wchar_t *data = new wchar_t[1];
         data[0] = _alphabet;
         event.setUserData(data);
         _eventDispatcher->dispatchEvent(&event);
@@ -56,7 +58,7 @@ void Alphabet::selected(bool value) {
 //        setTextColor(Color4B::WHITE);
         setColor(Color3B::WHITE);
         EventCustom event("alphabet_unselected");
-        char *data = new char[1];
+        wchar_t *data = new wchar_t[1];
         data[0] = _alphabet;
         event.setUserData(data);
         _eventDispatcher->dispatchEvent(&event);
@@ -67,7 +69,7 @@ void Alphabet::enableTouch(bool value) {
     _listener->setEnabled(value);
 }
 
-char Alphabet::getChar() {
+wchar_t Alphabet::getChar() {
     return _alphabet;
 }
 
@@ -84,7 +86,7 @@ _selected(false)
 
 Alphabet::~Alphabet() {}
 
-Alphabet *Alphabet::createWithSize(char a, float fontSize) {
+Alphabet *Alphabet::createWithSize(wchar_t a, float fontSize) {
     Alphabet *alphabet = new (std::nothrow) Alphabet();
     if(alphabet && alphabet->initWithSize(a, fontSize)) {
         alphabet->autorelease();
@@ -94,14 +96,19 @@ Alphabet *Alphabet::createWithSize(char a, float fontSize) {
     return nullptr;
 }
 
-bool Alphabet::initWithSize(char alphabet, float fontSize) {
+bool Alphabet::initWithSize(wchar_t alphabet, float fontSize) {
     _alphabet = alphabet;
     _fontSize = fontSize;
-    if (!Label::initWithTTF(std::string(1, _alphabet), "fonts/BalooBhai-Regular.ttf", fontSize)) {
-//    Label::setBMFontFilePath("english/baloo_bhai_english.fnt");
-//    Label::setString(std::string(1, _alphabet));
-//    setScale(fontSize / MAX_FONT_SIZE);
-        return false;
-    }
+//    if (!Label::initWithTTF(std::string(1, _alphabet), "fonts/BalooBhai-Regular.ttf", fontSize)) {
+//    if(MenuContext::LANG == "eng") {
+//        Label::setBMFontFilePath("english/baloo_bhai_hdr.fnt");
+//    } else if(MenuContext::LANG == "kan") {
+//        Label::setBMFontFilePath("kannada/kar shivarama.fnt");
+//    }
+    Label::setBMFontFilePath(LangUtil::getInstance()->getBMFontFileName());
+    Label::setString(LangUtil::convertUTF16CharToString(alphabet));
+    setScale(fontSize / MAX_FONT_SIZE);
+//        return false;
+//    }
     return true;
 }

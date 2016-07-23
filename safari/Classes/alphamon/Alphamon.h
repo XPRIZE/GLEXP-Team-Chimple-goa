@@ -17,7 +17,7 @@
 class Alphamon : public cocos2d::Node
 {
 public:
-    static Alphamon *createWithAlphabet(char alphabet);
+    static Alphamon *createWithAlphabet(wchar_t alphabet);
     void breatheAction();
 	void blinkAction();
 	void eatAction();
@@ -33,7 +33,7 @@ public:
     void setPower(int value);
     int getPower();
     void changePower(int value);
-    char getAlphabet();
+    wchar_t getAlphabet();
     void startMyTurn();
     void endMyTurn();
     void enableTouch(bool value);
@@ -45,7 +45,7 @@ public:
 CC_CONSTRUCTOR_ACCESS:
     Alphamon();
     virtual ~Alphamon();
-    bool initWithAlphabet(char alphabet);
+    bool initWithAlphabet(wchar_t alphabet);
     bool onTouchBegan(cocos2d::Touch* touch, cocos2d::Event* event);
     void onTouchEnded(cocos2d::Touch* touch, cocos2d::Event* event);
 
@@ -60,7 +60,7 @@ protected:
     cocos2d::DrawNode *_drawNode;
     cocos2d::Label *_alphaNode;
     int _hp;
-    char _alphabet;
+    wchar_t _alphabet;
     cocos2d::EventListenerTouchOneByOne *_listener;    
 };
 

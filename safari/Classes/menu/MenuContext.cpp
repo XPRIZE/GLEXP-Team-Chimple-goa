@@ -13,9 +13,11 @@
 USING_NS_CC;
 using namespace cocos2d::ui;
 
-MenuContext* MenuContext::create() {
+const std::string MenuContext::LANG = "kan";
+
+MenuContext* MenuContext::create(Node* main) {
     MenuContext* menuContext = new (std::nothrow) MenuContext();
-    if(menuContext && menuContext->init()) {
+    if(menuContext && menuContext->init(main)) {
         menuContext->autorelease();
         return menuContext;
     }
@@ -24,11 +26,11 @@ MenuContext* MenuContext::create() {
     
 }
 
-bool MenuContext::init() {
+bool MenuContext::init(Node* main) {
     if(!Node::init()) {
         return false;
     }
-    
+    _main = main;
     Size visibleSize = Director::getInstance()->getVisibleSize();
     Vec2 origin = Director::getInstance()->getVisibleOrigin();
 
@@ -44,16 +46,33 @@ bool MenuContext::init() {
     return true;
 }
 
+void MenuContext::pauseNodeAndDescendants(Node *pNode)
+{
+    pNode->pause();
+    for(const auto &child : pNode->getChildren())
+    {
+        this->pauseNodeAndDescendants(child);
+    }
+}
+// resume nodes
+void MenuContext::resumeNodeAndDescendants(Node *pNode)
+{
+    pNode->resume();
+    for(const auto &child : pNode->getChildren())
+    {
+        this->resumeNodeAndDescendants(child);
+    }
+}
+
 void MenuContext::expandMenu(cocos2d::Ref *pSender, cocos2d::ui::Widget::TouchEventType eEventType) {
     if(eEventType == cocos2d::ui::Widget::TouchEventType::ENDED) {
         Button* clickedButton = dynamic_cast<Button *>(pSender);
         if(clickedButton == _menuButton) {
             if(_menuSelected) {
-                removeChild(_menu);
-                _menu = nullptr;
-                removeChild(_greyLayer);
-                _greyLayer = nullptr;
-                _menuSelected = false;
+                auto moveTo = MoveTo::create(0.5, _menuButton->getPosition());
+                auto elastic = EaseBackIn::create(moveTo);
+                auto callbackRemoveMenu = CallFunc::create(CC_CALLBACK_0(MenuContext::removeMenu, this));
+                _menu->runAction(Sequence::create(elastic, callbackRemoveMenu, NULL));
             } else {
                 Size visibleSize = Director::getInstance()->getVisibleSize();
                 _greyLayer = LayerColor::create(Color4B(128.0, 128.0, 128.0, 128.0));
@@ -66,12 +85,22 @@ void MenuContext::expandMenu(cocos2d::Ref *pSender, cocos2d::ui::Widget::TouchEv
                 auto moveTo = MoveTo::create(0.5, Vec2(150, _menuButton->getPosition().y));
                 auto elastic = EaseBackOut::create(moveTo);
                 _menu->runAction(elastic);
+                pauseNodeAndDescendants(_main);
                 _menuSelected = true;
             }
         } else if (clickedButton == _menu) {
             Director::getInstance()->replaceScene(StartMenu::createScene());
         }
     }
+}
+
+void MenuContext::removeMenu() {
+    removeChild(_menu);
+    _menu = nullptr;
+    removeChild(_greyLayer);
+    _greyLayer = nullptr;
+    resumeNodeAndDescendants(_main);
+    _menuSelected = false;
 }
 
 void MenuContext::pickAlphabet(char targetAlphabet, char chosenAlphabet, bool choose, cocos2d::Vec2 position) {

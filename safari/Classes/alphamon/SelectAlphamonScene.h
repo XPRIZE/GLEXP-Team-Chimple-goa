@@ -24,8 +24,8 @@ CC_CONSTRUCTOR_ACCESS:
     virtual ~SelectAlphamon();
     
 protected:
-    char _firstChar;
-    char _secondChar;
+    wchar_t _firstChar;
+    wchar_t _secondChar;
 };
 
 #endif /* SelectAlphamonScene_h */

@@ -15,6 +15,8 @@ Scene* EndlessRunner::createScene()
 	Scene* scene = Scene::create();
 	auto layer = EndlessRunner::create();
 	scene->addChild(layer);
+    layer->_menuContext = MenuContext::create(layer);
+    scene->addChild(layer->_menuContext);    
 	return scene;
 }
 
@@ -27,9 +29,6 @@ bool EndlessRunner::init()
 	
 	visibleSize = Director::getInstance()->getVisibleSize();
 	origin = Director::getInstance()->getVisibleOrigin();
-
-	_menuContext = MenuContext::create();
-	this->addChild(_menuContext,zOrderPathLayer.character);
 
 	LayerYcoord.firstLayer = (int)(visibleSize.height * 11 / 100) + origin.y;
 

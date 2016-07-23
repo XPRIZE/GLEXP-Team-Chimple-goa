@@ -16,6 +16,10 @@ Scene* HelloWorld::createScene(const std::string& island, const std::string& sce
     
     // add layer as a child to scene
     scene->addChild(layer);
+
+    layer->menuContext = MenuContext::create(layer);
+    scene->addChild(layer->menuContext);
+
     initPhysics(scene);
     
     // return the scene
@@ -338,9 +342,6 @@ bool HelloWorld::init(const std::string& island, const std::string& sceneName)
     
     this->scheduleUpdate();
     
-    this->menuContext = MenuContext::create();
-    this->addChild(this->menuContext);
-
     return true;
 }
 
