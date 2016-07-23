@@ -8,7 +8,7 @@
 
 #ifndef LangUtil_h
 #define LangUtil_h
-
+#include <cocos2d.h>
 class LangUtil {
 public:
     static std::string convertUTF16CharToString(wchar_t alpha);

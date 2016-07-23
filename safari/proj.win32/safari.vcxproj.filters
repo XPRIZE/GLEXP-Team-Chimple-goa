@@ -25,6 +25,9 @@
     <Filter Include="src\menu">
       <UniqueIdentifier>{83536741-7d1e-4315-a8b2-11d0bfdf05c7}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\lang">
+      <UniqueIdentifier>{5347c0b3-082d-4b46-b3f3-9193ce98832b}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -170,6 +173,15 @@
     <ClCompile Include="..\Classes\SkeletonConfiguration.cpp">
       <Filter>src</Filter>
     </ClCompile>
+    <ClCompile Include="..\Classes\lang\EnglishUtil.cpp">
+      <Filter>src\lang</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\lang\KannadaUtil.cpp">
+      <Filter>src\lang</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\lang\LangUtil.cpp">
+      <Filter>src\lang</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -312,6 +324,15 @@
     </ClInclude>
     <ClInclude Include="..\Classes\SkeletonConfiguration.h">
       <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\lang\EnglishUtil.h">
+      <Filter>src\lang</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\lang\KannadaUtil.h">
+      <Filter>src\lang</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\lang\LangUtil.h">
+      <Filter>src\lang</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
