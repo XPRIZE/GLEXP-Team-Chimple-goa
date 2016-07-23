@@ -9,6 +9,7 @@
 #include "Alphamon.h"
 #include "../effects/FShake.h"
 #include "editor-support/cocostudio/CocoStudio.h"
+#include "../lang/LangUtil.h"
 
 USING_NS_CC;
 
@@ -29,7 +30,7 @@ Alphamon::~Alphamon() {
     
 }
 
-Alphamon *Alphamon::createWithAlphabet(char alphabet) {
+Alphamon *Alphamon::createWithAlphabet(wchar_t alphabet) {
     Alphamon *alphamon = new (std::nothrow) Alphamon();
     if(alphamon && alphamon->initWithAlphabet(alphabet)) {
         alphamon->autorelease();
@@ -40,9 +41,13 @@ Alphamon *Alphamon::createWithAlphabet(char alphabet) {
     
 }
 
-bool Alphamon::initWithAlphabet(char alphabet) {
+bool Alphamon::initWithAlphabet(wchar_t alphabet) {
     _alphabet = alphabet;
-    _monster = CSLoader::createNode(std::string("english/")+alphabet+".csb");
+//    static const std::map<wchar_t, std::string> langMap = {{L'ಅ',"a"},{L'ಆ',"aa"},{L'ಎ',"ae"},{L'ಐ',"aee"},{L'ಉ',"u"}};
+//    std::string langAlphabet = langMap.at(alpha);
+    std::string animFile = LangUtil::getInstance()->getMonsterAnimationFileName(alphabet);
+    _monster = CSLoader::createNode(animFile);
+    setName(LangUtil::convertUTF16CharToString(alphabet));
     addChild(_monster);
 //    _monster->setScale(0.6);
     
@@ -65,7 +70,7 @@ bool Alphamon::initWithAlphabet(char alphabet) {
 //    target->setTextureRect(Rect(0, 0, 1400, 1400));
 //    _monster->addChild(maskedFill, -1);
 //    _monster->setAnchorPoint(Vec2::ANCHOR_MIDDLE_BOTTOM);
-    auto timeline =  CSLoader::createTimeline(std::string("english/")+alphabet+".csb");
+    auto timeline =  CSLoader::createTimeline(animFile);
     _monster->runAction(timeline);
     timeline->gotoFrameAndPlay(0, true);
     setAnchorPoint(Vec2::ANCHOR_MIDDLE_BOTTOM);
@@ -101,7 +106,7 @@ void Alphamon::setHealth(int value) {
         _hpMeter = HPMeter::createWithPercent(_hp); //currently points are percentage
         _hpMeter->setAnchorPoint(Vec2::ANCHOR_MIDDLE_BOTTOM);
         addChild(_hpMeter);
-        _hpMeter->setPosition(Vec2(0, 425));
+        _hpMeter->setPosition(Vec2(0, 600));
     } else {
         auto timer = ActionTween::create(1, "percent", _hpMeter->getPercent(), value);
         _hpMeter->runAction(timer);        
@@ -130,13 +135,15 @@ void Alphamon::changePower(int value) {
     setPower(_powerMeter->getPercent() + value);
 }
 
-char Alphamon::getAlphabet() {
+wchar_t Alphamon::getAlphabet() {
     return _alphabet;
 }
 
 void Alphamon::startMyTurn() {
     _powerMeter = HPMeter::createWithPercent(0);
-    _powerMeter->setPosition(Vec2(0, -250));
+    _powerMeter->setRotation(-90);
+    _powerMeter->setAnchorPoint(Vec2::ANCHOR_BOTTOM_LEFT);
+    _powerMeter->setPosition(Vec2(-300, 0));
     addChild(_powerMeter);
 }
 
@@ -177,7 +184,7 @@ void Alphamon::onTouchEnded(cocos2d::Touch *touch, cocos2d::Event *event) {
     {
 //        CCLOG("onTouchEnded %c", _alphabet);
         EventCustom event("alphamon_pressed");
-        char *data = new char[1];
+        wchar_t *data = new wchar_t[1];
         data[0] = _alphabet;
         event.setUserData(data);
         _eventDispatcher->dispatchEvent(&event);

@@ -111,7 +111,7 @@ bool SmashTheRock::init()
 	//int blockWidth = block->getContentSize().width;
 	//int blockHeight = block->getContentSize().height;
 
-	std::vector<std::vector<char>> charkey = CharGenerator::getInstance()->generateMatrixForChoosingAChar(mapString.at(0),3,11,50);
+	std::vector<std::vector<wchar_t>> charkey = CharGenerator::getInstance()->generateMatrixForChoosingAChar(mapString.at(0),3,11,50);
 
 	for (int i = 1; i < 4; i++)
 	{

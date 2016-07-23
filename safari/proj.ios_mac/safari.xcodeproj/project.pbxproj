@@ -146,6 +146,12 @@
 		F39610B21D3F8FDB00D8DD13 /* AlphamonFeedScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F39610B01D3F8FDB00D8DD13 /* AlphamonFeedScene.cpp */; };
 		F39610B41D3F905A00D8DD13 /* AlphamonFeedLevelScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F39610AF1D3F8FDB00D8DD13 /* AlphamonFeedLevelScene.cpp */; };
 		F39610B51D3F905D00D8DD13 /* AlphamonFeedScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F39610B01D3F8FDB00D8DD13 /* AlphamonFeedScene.cpp */; };
+		F3CA26EA1D43C069006EBDC6 /* LangUtil.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F3CA26E81D43C069006EBDC6 /* LangUtil.cpp */; };
+		F3CA26EB1D43C069006EBDC6 /* LangUtil.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F3CA26E81D43C069006EBDC6 /* LangUtil.cpp */; };
+		F3CA26EE1D43C0A9006EBDC6 /* EnglishUtil.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F3CA26ED1D43C0A9006EBDC6 /* EnglishUtil.cpp */; };
+		F3CA26EF1D43C0A9006EBDC6 /* EnglishUtil.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F3CA26ED1D43C0A9006EBDC6 /* EnglishUtil.cpp */; };
+		F3CA26F11D43DA17006EBDC6 /* KannadaUtil.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F3CA26F01D43DA17006EBDC6 /* KannadaUtil.cpp */; };
+		F3CA26F21D43DA17006EBDC6 /* KannadaUtil.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F3CA26F01D43DA17006EBDC6 /* KannadaUtil.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -328,6 +334,12 @@
 		F39610AE1D3F8FDB00D8DD13 /* AlphamonFeedScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AlphamonFeedScene.h; sourceTree = "<group>"; };
 		F39610AF1D3F8FDB00D8DD13 /* AlphamonFeedLevelScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AlphamonFeedLevelScene.cpp; sourceTree = "<group>"; };
 		F39610B01D3F8FDB00D8DD13 /* AlphamonFeedScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AlphamonFeedScene.cpp; sourceTree = "<group>"; };
+		F3CA26E81D43C069006EBDC6 /* LangUtil.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LangUtil.cpp; sourceTree = "<group>"; };
+		F3CA26E91D43C069006EBDC6 /* LangUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LangUtil.h; sourceTree = "<group>"; };
+		F3CA26EC1D43C097006EBDC6 /* EnglishUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EnglishUtil.h; sourceTree = "<group>"; };
+		F3CA26ED1D43C0A9006EBDC6 /* EnglishUtil.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = EnglishUtil.cpp; sourceTree = "<group>"; };
+		F3CA26F01D43DA17006EBDC6 /* KannadaUtil.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = KannadaUtil.cpp; sourceTree = "<group>"; };
+		F3CA26F31D43DA25006EBDC6 /* KannadaUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KannadaUtil.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -461,6 +473,7 @@
 		46880B8319C43A87006E1F66 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				F3CA26E21D43B73C006EBDC6 /* lang */,
 				F3913DE81D3F4624001B3038 /* alphamon */,
 				F3913DA41D3F461A001B3038 /* AlphamonSprite.cpp */,
 				F3913D8C1D3F461A001B3038 /* AlphamonSprite.h */,
@@ -641,6 +654,19 @@
 			path = menu;
 			sourceTree = "<group>";
 		};
+		F3CA26E21D43B73C006EBDC6 /* lang */ = {
+			isa = PBXGroup;
+			children = (
+				F3CA26E81D43C069006EBDC6 /* LangUtil.cpp */,
+				F3CA26F01D43DA17006EBDC6 /* KannadaUtil.cpp */,
+				F3CA26F31D43DA25006EBDC6 /* KannadaUtil.h */,
+				F3CA26E91D43C069006EBDC6 /* LangUtil.h */,
+				F3CA26EC1D43C097006EBDC6 /* EnglishUtil.h */,
+				F3CA26ED1D43C0A9006EBDC6 /* EnglishUtil.cpp */,
+			);
+			path = lang;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -817,6 +843,7 @@
 				F3913DD81D3F461A001B3038 /* SkeletonCharacter.cpp in Sources */,
 				F3913E031D3F46A5001B3038 /* DuelScene.cpp in Sources */,
 				F3913DBA1D3F461A001B3038 /* sqlite3.c in Sources */,
+				F3CA26F11D43DA17006EBDC6 /* KannadaUtil.cpp in Sources */,
 				F3913DDA1D3F461A001B3038 /* SpeechBubbleView.cpp in Sources */,
 				F3913DD21D3F461A001B3038 /* RPGConfig.cpp in Sources */,
 				F3913DE01D3F461A001B3038 /* StartMenuScene.cpp in Sources */,
@@ -826,7 +853,9 @@
 				F3913DEF1D3F4694001B3038 /* MenuContext.cpp in Sources */,
 				F3913E251D3F46B1001B3038 /* SpriteCreate.cpp in Sources */,
 				F3913DFD1D3F46A5001B3038 /* Alphabet.cpp in Sources */,
+				F3CA26EA1D43C069006EBDC6 /* LangUtil.cpp in Sources */,
 				F3913E231D3F46B1001B3038 /* SmashTheRockScene.cpp in Sources */,
+				F3CA26EE1D43C0A9006EBDC6 /* EnglishUtil.cpp in Sources */,
 				F3913DCA1D3F461A001B3038 /* MessageContent.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -862,6 +891,7 @@
 				F39610B51D3F905D00D8DD13 /* AlphamonFeedScene.cpp in Sources */,
 				F3913DF01D3F4694001B3038 /* MenuContext.cpp in Sources */,
 				F3913DE31D3F461A001B3038 /* State.cpp in Sources */,
+				F3CA26EF1D43C0A9006EBDC6 /* EnglishUtil.cpp in Sources */,
 				F3913DE51D3F461A001B3038 /* StateMachine.cpp in Sources */,
 				F39610B41D3F905A00D8DD13 /* AlphamonFeedLevelScene.cpp in Sources */,
 				F3913DE71D3F461A001B3038 /* WalkingState.cpp in Sources */,
@@ -874,9 +904,11 @@
 				F3913DDD1D3F461A001B3038 /* Sqlite3Helper.cpp in Sources */,
 				F3913DC11D3F461A001B3038 /* ExternalSkeletonCharacter.cpp in Sources */,
 				376FEE811D3F66380037393F /* SkeletonPosition.cpp in Sources */,
+				F3CA26EB1D43C069006EBDC6 /* LangUtil.cpp in Sources */,
 				F3913DC71D3F461A001B3038 /* HelloWorldScene.cpp in Sources */,
 				F3913DC31D3F461A001B3038 /* FallingState.cpp in Sources */,
 				F3913E1E1D3F46B1001B3038 /* EndlessRunner.cpp in Sources */,
+				F3CA26F21D43DA17006EBDC6 /* KannadaUtil.cpp in Sources */,
 				F3913E021D3F46A5001B3038 /* CharGenerator.cpp in Sources */,
 				F3913E201D3F46B1001B3038 /* PatchTheWallScene.cpp in Sources */,
 				F3913E281D3F46B1001B3038 /* TraceScene.cpp in Sources */,

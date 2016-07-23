@@ -9,8 +9,10 @@
 #include "SelectAlphamonScene.h"
 #include "Alphamon.h"
 #include "../puzzle/DuelScene.h"
+#include "../lang/LangUtil.h"
 
-static const char* const a_to_z = "ABCDEFGHIJKLMNOPQRSTUVWXYZ" ;
+//static const char* const a_to_z = "ABCDEFGHIJKLMNOPQRSTUVWXYZ" ;
+static const wchar_t* const a_to_z = L"ಅಆಇಈಉಊಋಌಎಏಐಒಓಔಕಖಗಘಙಚಛಜಝಞಟಠಡಢಣತಥದಧನಪಫಬಭಮಯರಱಲಳವಶಷಸಹ";
 
 USING_NS_CC;
 
@@ -43,13 +45,12 @@ bool SelectAlphamon::init() {
     int count = 0;
     const int numRows = 4;
     const int numCols = 7;
-    const int numChars = 26;
+    const int numChars = LangUtil::getInstance()->getNumberOfCharacters();
     for (int i = 0; i < numRows; i++) {
         for (int j = 0; j < numCols; j++) {
-            auto alphamon = Alphamon::createWithAlphabet(a_to_z[count]);
+            auto alphamon = Alphamon::createWithAlphabet(LangUtil::getInstance()->getAllCharacters()[count]);
             alphamon->setPosition(Vec2(origin.x + visibleSize.width * (j + 0.5 )/ numCols, origin.y + visibleSize.height * (1 - (i + 0.5)/ numRows)));
             alphamon->setScale(0.4);
-            alphamon->setName(std::string(1, a_to_z[count]));
             addChild(alphamon);
             if(++count >= numChars) {
                 goto theEnd;
@@ -60,19 +61,19 @@ theEnd: return true;
 }
 
 void SelectAlphamon::onAlphabetSelected(EventCustom *event) {
-    char* buf = static_cast<char*>(event->getUserData());
+    wchar_t* buf = static_cast<wchar_t*>(event->getUserData());
     
     if(_firstChar == 0) {
         _firstChar = buf[0];
-        auto firstMon = getChildByName(std::string(1, _firstChar));
+        auto firstMon = getChildByName(LangUtil::convertUTF16CharToString(_firstChar));
         firstMon->setScale(0.5);
     } else if(_firstChar == buf[0]) {
-        auto firstMon = getChildByName(std::string(1, _firstChar));
+        auto firstMon = getChildByName(LangUtil::convertUTF16CharToString(_firstChar));
         firstMon->setScale(0.4);
         _firstChar = 0;
     } else {
         _secondChar = buf[0];
-        auto secondMon = getChildByName(std::string(1, _secondChar));
+        auto secondMon = getChildByName(LangUtil::convertUTF16CharToString(_secondChar));
         secondMon->setScale(0.5);
         _eventDispatcher->removeCustomEventListeners("alphamon_pressed");
         Director::getInstance()->replaceScene(TransitionSplitCols::create(1, DuelScene::createScene(_firstChar, _secondChar)));

@@ -6,6 +6,7 @@
 //
 //
 
+#include <math.h>
 #include "DuelScene.h"
 #include "../AppDelegate.h"
 #include "../alphamon/HPMeter.h"
@@ -36,18 +37,21 @@ DuelScene::~DuelScene() {
     _eventDispatcher->removeCustomEventListeners("alphabet_unselected");    
 }
 
-Scene* DuelScene::createScene(char myMonChar, char otherMonChar)
+Scene* DuelScene::createScene(wchar_t myMonChar, wchar_t otherMonChar)
 {
     auto scene = Scene::create();
     
     auto layer = DuelScene::create(myMonChar, otherMonChar);
     
     scene->addChild(layer);
+
+    layer->_menuContext = MenuContext::create(layer);
+    scene->addChild(layer->_menuContext);
     
     return scene;
 }
 
-DuelScene* DuelScene::create(char myMonChar, char otherMonChar)
+DuelScene* DuelScene::create(wchar_t myMonChar, wchar_t otherMonChar)
 {
     DuelScene* duelScene = new (std::nothrow) DuelScene();
     if(duelScene && duelScene->init(myMonChar, otherMonChar))
@@ -59,7 +63,7 @@ DuelScene* DuelScene::create(char myMonChar, char otherMonChar)
     return nullptr;
 }
 
-bool DuelScene::init(char myMonChar, char otherMonChar)
+bool DuelScene::init(wchar_t myMonChar, wchar_t otherMonChar)
 {
     if (!Node::init()) {
         return false;
@@ -94,18 +98,19 @@ bool DuelScene::init(char myMonChar, char otherMonChar)
 
     _myMon = Alphamon::createWithAlphabet(myMonChar);
     auto leftStand = background->getChildByName(LEFT_STAND_NAME);
+    leftStand->setPositionX(leftStand->getPositionX() + 150.0);
     _myMon->setPosition(leftStand->getPosition() + Vec2(0, 0));
     addChild(_myMon);
     _myMon->setHealth(100);
-    _myMon->setScale(0.7);
+//    _myMon->setScale(0.7);
     _eventDispatcher->addCustomEventListener("alphabet_selected", CC_CALLBACK_1(DuelScene::onAlphabetSelected, this));
     _eventDispatcher->addCustomEventListener("alphabet_unselected", CC_CALLBACK_1(DuelScene::onAlphabetUnselected, this));
     
     _otherMon = Alphamon::createWithAlphabet(otherMonChar);
     auto rightStand = background->getChildByName(RIGHT_STAND_NAME);
-    rightStand->setPositionX(rightStand->getPositionX() + visibleSize.width - 2560.0);
+    rightStand->setPositionX(rightStand->getPositionX() + visibleSize.width - 2560.0 - 150.0);
     addChild(_otherMon);
-    _otherMon->setScale(0.7);
+//    _otherMon->setScale(0.7);
     _otherMon->setPosition(rightStand->getPosition() + Vec2(0, 0));
     _otherMon->setHealth(100);
 //    auto lg = LayerGradient::create(Color4B(0.0, 0.0, 0.0, 128.0), Color4B(0.0, 0.0, 0.0, 0.0), Vec2(-1, 0));
@@ -125,8 +130,6 @@ bool DuelScene::init(char myMonChar, char otherMonChar)
 ////    mouthTimeline->gotoFrameAndPlay(0, true);
 //    mouthTimeline->play("eat", true);
     
-    _menuContext = MenuContext::create();
-    addChild(_menuContext);
     
     startMyTurn();
     return true;
@@ -155,7 +158,7 @@ void DuelScene::startMyTurn() {
         _grid->resize(SQUARE_WIDTH * MAX_COLS, SQUARE_WIDTH * MAX_ROWS, numRows, numCols);
         _grid->setCharacters(charArray);
         _grid->enableTouch(true);
-        _powerIncr = 100 / _grid->getCountOfAlphabetsWhichMatch(_myMon->getAlphabet());
+        _powerIncr = ceil(100.0 / _grid->getCountOfAlphabetsWhichMatch(_myMon->getAlphabet()));
 
         _timer->setPercent(100);
         
@@ -237,7 +240,7 @@ void DuelScene::endMeteor(Node* node) {
 }
 
 void DuelScene::onAlphabetSelected(EventCustom *event) {
-    char* buf = static_cast<char*>(event->getUserData());
+    wchar_t* buf = static_cast<wchar_t*>(event->getUserData());
     CCLOG("Pressed %c",buf[0]);
     if(_myMon->getAlphabet() == buf[0]) {
         _myMon->changePower(_powerIncr);
@@ -248,7 +251,7 @@ void DuelScene::onAlphabetSelected(EventCustom *event) {
 }
 
 void DuelScene::onAlphabetUnselected(EventCustom *event) {
-    char* buf = static_cast<char*>(event->getUserData());
+    wchar_t* buf = static_cast<wchar_t*>(event->getUserData());
     CCLOG("Pressed %c",buf[0]);
     if(_myMon->getAlphabet() == buf[0]) {
         _myMon->changePower(-_powerIncr);
