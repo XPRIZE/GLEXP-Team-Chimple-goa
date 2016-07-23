@@ -12,6 +12,7 @@
 #include "editor-support/cocostudio/ActionTimeline/CCActionTimeline.h"
 #include "RPGConfig.h"
 #include "StateMachine.h"
+#include "Sqlite3Helper.hpp"
 
 
 #ifndef SkeletonCharacter_h
@@ -22,9 +23,9 @@ public:
     SkeletonCharacter();
     virtual ~SkeletonCharacter();
     
-    static SkeletonCharacter* create(const std::string& filename);
+    static SkeletonCharacter* create(cocos2d::Node* node, const std::string& island, const std::string& sceneName, const std::string& filename, Sqlite3Helper* sqlite3Helper);
     
-    virtual bool initializeSkeletonCharacter(const std::string& filename);
+    virtual bool initializeSkeletonCharacter(cocos2d::Node* node, const std::string& island, const std::string& sceneName, const std::string& filename, Sqlite3Helper* sqlite3Helper);
     
     virtual cocostudio::timeline::SkeletonNode* getSkeletonNode();
     
@@ -32,7 +33,7 @@ public:
     
     virtual void setSkeletonActionTimeLine(cocostudio::timeline::ActionTimeline* timeline);
     
-    virtual void createSkeletonNode(const std::string& filename);
+    virtual void createSkeletonNode(cocos2d::Node* node, const std::string& island, const std::string& sceneName, const std::string& filename);
     
     virtual void setStateMachine(StateMachine* stateMachine);
     
@@ -69,16 +70,20 @@ public:
     
     virtual bool didSkeletonContactBeginDuringJumpingUp(cocos2d::PhysicsContact &contact, SkeletonCharacterState currentStateCommand);
     
-    virtual void changeSkinForMouthBone(std::string bone, std::string skinName);
+    virtual void changeSkinForBone(std::string bone, std::string skinName, std::string anchorX = ZERO_POINT, std::string anchorY = ZERO_POINT);
     
     virtual void configureCharacter();
     
 protected:
         cocostudio::timeline::SkeletonNode* skeletonNode;
         cocostudio::timeline::ActionTimeline* skeletonActionTime;
-        StateMachine* stateMachine;        
+        StateMachine* stateMachine;
+        Sqlite3Helper* sqlite3Helper;
         CC_SYNTHESIZE(std::string, key, Key);
         CC_SYNTHESIZE(std::string, fileName, fileName);
+    
+        CC_SYNTHESIZE(std::string, islandName, IslandName);
+        CC_SYNTHESIZE(std::string, sceneName, SceneName);
 };
 
 #endif /* SkeletonCharacter_h */

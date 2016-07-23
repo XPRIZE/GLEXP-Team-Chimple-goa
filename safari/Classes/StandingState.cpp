@@ -48,7 +48,7 @@ void StandingState::enter(cocos2d::Vec2 forceVector, SkeletonCharacterState prev
         this->getTarget()->getSkeletonActionTimeLine()->play(IDLE, true);
     }
     
-    this->getTarget()->changeSkinForMouthBone("mouth","hero/normal.png");
+    this->getTarget()->changeSkinForBone("mouth","hero/mouth/normal.png");
 }
 
 void StandingState::exit()  {

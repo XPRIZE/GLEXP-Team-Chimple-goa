@@ -40,6 +40,7 @@ LOCAL_SRC_FILES := hellocpp/main.cpp \
 					../../Classes/State.cpp \
 					../../Classes/StateMachine.cpp \
 					../../Classes/WalkingState.cpp \
+					../../Classes/SkeletonConfiguration.cpp \
 					../../Classes/mini_games/PatchTheWallScene.cpp \
 					../../Classes/mini_games/EndlessRunner.cpp \
 					../../Classes/mini_games/SpriteCreate.cpp \
