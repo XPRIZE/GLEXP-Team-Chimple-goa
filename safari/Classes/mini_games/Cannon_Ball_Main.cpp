@@ -34,6 +34,8 @@ Scene* MainGame::createScene()
 	auto scene = Scene::create();
 	auto layer = MainGame::create();
 	scene->addChild(layer);
+    layer->_menuContext = MenuContext::create(layer);
+    scene->addChild(layer->_menuContext);
 
 	//	backGround_front = NULL;
 
@@ -162,13 +164,10 @@ void MainGame::startGame()	// starting of game
 	rack->setPosition(origin.x + visibleSize.width * 85 / 100, origin.y + visibleSize.height / 2);
 	this->addChild(rack);
 
-
 	// front background
 	backGround_front = Sprite::createWithSpriteFrameName("cannonball/cannonball_mainasset/background_front.png");
 	backGround_front->setPosition(origin.x + visibleSize.width * 43 / 100, origin.y + visibleSize.height / 2);
 	this->addChild(backGround_front, 3);
-
-
 
 	for (int i = 0; i < position.size(); i++)
 	{
@@ -792,6 +791,8 @@ void MainGame::update(float dt)
 					this->removeChild(MainGame::meteorArray_actualImage[i]);
 					this->removeChild(MainGame::bulletArray_Animation[j]);
 
+					_menuContext->pickAlphabet(MainGame::letterArray[i]->id, bulletArray[j]->id, true);
+
 					int it = find(MainGame::bulletArray.begin(), MainGame::bulletArray.end(), MainGame::bulletArray[j]) - MainGame::bulletArray.begin();	//find bullet index in bulletarray 
 					MainGame::bulletArray_actualImage.erase(MainGame::bulletArray_actualImage.begin() + it);
 
@@ -842,6 +843,7 @@ void MainGame::update(float dt)
 						}
 					}
 
+					_menuContext->pickAlphabet(MainGame::letterArray[i]->id, bulletArray[j]->id, true);
 
 					auto timeline = CSLoader::createTimeline("cannonball_meteoranimation.csb");
 					Node *mycannon = (Node *)CSLoader::createNode("cannonball_meteoranimation.csb");

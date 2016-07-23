@@ -40,6 +40,7 @@ LOCAL_SRC_FILES := hellocpp/main.cpp \
 					../../Classes/State.cpp \
 					../../Classes/StateMachine.cpp \
 					../../Classes/WalkingState.cpp \
+					../../Classes/SkeletonConfiguration.cpp \
 					../../Classes/mini_games/PatchTheWallScene.cpp \
 					../../Classes/mini_games/EndlessRunner.cpp \
 					../../Classes/mini_games/SpriteCreate.cpp \
@@ -57,8 +58,8 @@ LOCAL_SRC_FILES := hellocpp/main.cpp \
 					../../Classes/lang/KannadaUtil.cpp \
                     ../../Classes/StartMenuScene.cpp \
                 	../../Classes/AlphamonSprite.cpp \
-                	../../Classes/SkeletonPosition.cpp
-                                        
+                	../../Classes/SkeletonConfiguration.cpp \
+                	../../Classes/SkeletonPosition.cpp                                        
 LOCAL_C_INCLUDES := $(LOCAL_PATH)/../../Classes
 LOCAL_C_INCLUDES += $(LOCAL_PATH)/../../../extensions
 

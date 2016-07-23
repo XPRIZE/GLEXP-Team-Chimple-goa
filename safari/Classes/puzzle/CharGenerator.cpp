@@ -57,3 +57,5 @@ std::vector<std::vector<wchar_t>> CharGenerator::generateMatrixForChoosingAChar(
     
     return matrix;
 }
+
+

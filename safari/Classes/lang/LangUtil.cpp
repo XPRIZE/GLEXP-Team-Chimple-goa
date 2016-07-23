@@ -19,7 +19,7 @@ LangUtil::~LangUtil() {
 }
 
 LangUtil* LangUtil::getInstance() {
-    static LangUtil* instance = new KannadaUtil();
+    static LangUtil* instance = new EnglishUtil();
     return instance;
 }
 

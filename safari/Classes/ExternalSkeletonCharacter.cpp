@@ -26,9 +26,9 @@ ExternalSkeletonCharacter::~ExternalSkeletonCharacter() {
 }
 
 
-ExternalSkeletonCharacter* ExternalSkeletonCharacter::create(cocostudio::timeline::SkeletonNode* skeletonNode, std::unordered_map<std::string, std::string> attributes) {
+ExternalSkeletonCharacter* ExternalSkeletonCharacter::create(cocos2d::Node* node, std::unordered_map<std::string, std::string> attributes) {
     auto externalSkeletonCharacter = new ExternalSkeletonCharacter();
-    if (externalSkeletonCharacter && externalSkeletonCharacter->initializeExternalSkeletonCharacter(skeletonNode, attributes)) {
+    if (externalSkeletonCharacter && externalSkeletonCharacter->initializeExternalSkeletonCharacter(node, attributes)) {
         externalSkeletonCharacter->autorelease();
         return externalSkeletonCharacter;
     }
@@ -37,13 +37,13 @@ ExternalSkeletonCharacter* ExternalSkeletonCharacter::create(cocostudio::timelin
 }
 
 
-bool ExternalSkeletonCharacter::initializeExternalSkeletonCharacter(cocostudio::timeline::SkeletonNode* skeletonNode, std::unordered_map<std::string, std::string> attributes) {
-    this->externalSkeletonNode = skeletonNode;
-    this->setName(skeletonNode->getName());
+bool ExternalSkeletonCharacter::initializeExternalSkeletonCharacter(cocos2d::Node* node, std::unordered_map<std::string, std::string> attributes) {
+    node->removeFromParent();
+    this->setName(node->getName());
     this->setAttributes(attributes);
-    this->addChild(this->externalSkeletonNode);    
-    this->createAnimationAndPhysicsSupportForExternalSkeletonNode();
-    
+    this->createExternalSkeletonNode(node, this->getFileName());
+    this->addChild(this->externalSkeletonNode);
+    this->externalSkeletonNode->setPosition(node->getPosition());
     
     //bind listeners
     auto listenerTouches = EventListenerTouchOneByOne::create();
@@ -61,11 +61,11 @@ bool ExternalSkeletonCharacter::initializeExternalSkeletonCharacter(cocostudio::
         {
             this->setVicinityToMainCharacter(true);
             if(this->externalSkeletonActionTime != NULL) {
-                this->externalSkeletonActionTime->play("idle", true);
+                this->externalSkeletonActionTime->play(IDLE, true);
             }
         } else {
             this->setVicinityToMainCharacter(false);
-            if(this->externalSkeletonActionTime != NULL) {
+            if(this->externalSkeletonActionTime != NULL && !this->getDefaultAnimationName().empty()) {
                 this->externalSkeletonActionTime->play(this->getDefaultAnimationName(), true);
             }
         }
@@ -99,20 +99,20 @@ cocostudio::timeline::ActionTimeline* ExternalSkeletonCharacter::getExternalSkel
     return this->externalSkeletonActionTime;
 }
 
-void ExternalSkeletonCharacter::createAnimationAndPhysicsSupportForExternalSkeletonNode() {
+void ExternalSkeletonCharacter::createExternalSkeletonNode(cocos2d::Node* node, const std::string& filename) {
     
+    node->removeFromParent();
     //create Skeleton
-    if(!this->getFileName().empty()) {
-        this->externalSkeletonActionTime = (cocostudio::timeline::ActionTimeline*) CSLoader::createTimeline(this->getFileName());
-        if(this->externalSkeletonActionTime != NULL) {
-            this->externalSkeletonNode->runAction(this->externalSkeletonActionTime);
-            this->externalSkeletonActionTime->gotoFrameAndPause(0);
-            if(this->externalSkeletonActionTime && !this->getDefaultAnimationName().empty()) {
-                this->externalSkeletonActionTime->play(this->getDefaultAnimationName(), true);
-            }
+    this->externalSkeletonNode = (cocostudio::timeline::SkeletonNode*) CSLoader::createNode(filename);
+    this->externalSkeletonActionTime = (cocostudio::timeline::ActionTimeline*) CSLoader::createTimeline(filename);
+    
+    if(this->externalSkeletonActionTime != NULL) {
+        this->externalSkeletonNode->runAction(this->externalSkeletonActionTime);
+        this->externalSkeletonActionTime->gotoFrameAndPause(0);
+        if(this->externalSkeletonActionTime && !this->getDefaultAnimationName().empty()) {
+            this->externalSkeletonActionTime->play(this->getDefaultAnimationName(), true);
         }
     }
-    
     
     //enable physics and collisions
     
@@ -122,7 +122,7 @@ void ExternalSkeletonCharacter::createAnimationAndPhysicsSupportForExternalSkele
     //set as dynamic
     physicsBody->setDynamic(DYNAMIC_BODY);
     physicsBody->setMass(MAIN_CHARACTER_MASS);
-    this->externalSkeletonNode->setName(this->getName());
+    this->externalSkeletonNode->setName(node->getName());
     this->externalSkeletonNode->setPhysicsBody(physicsBody);
     this->externalSkeletonNode->getPhysicsBody()->setRotationEnable(false);
     this->externalSkeletonNode->getPhysicsBody()->setCollisionBitmask(MAIN_CHARACTER_MASS_CATEGORY_MASK);
@@ -131,14 +131,14 @@ void ExternalSkeletonCharacter::createAnimationAndPhysicsSupportForExternalSkele
     this->externalSkeletonNode->getPhysicsBody()->setLinearDamping(MAIN_CHARACTER_MASS_DAMPING);
     this->externalSkeletonNode->getPhysicsBody()->setGroup(MAIN_CHARACTER_GROUP);
     
-    this->externalSkeletonNode->setScale(MAIN_CHARACTER_SCALE);
+    this->externalSkeletonNode->setScale(EXTERNAL_CHARACTER_SCALE);
 }
 
 void ExternalSkeletonCharacter::setAttributes(std::unordered_map<std::string, std::string> attributes) {
     this->attributes = attributes;
     //process it
     
-    std::unordered_map<std::string,std::string>::const_iterator it = this->attributes.find("filename");
+    std::unordered_map<std::string,std::string>::const_iterator it = this->attributes.find("fileName");
     if ( it != this->attributes.end() ) {
         this->setFileName(it->second);
     }
@@ -148,7 +148,7 @@ void ExternalSkeletonCharacter::setAttributes(std::unordered_map<std::string, st
         this->setDefaultAnimationName(it->second);
     }
     
-    it = this->attributes.find("canInterAct");
+    it = this->attributes.find("canInteract");
     if ( it != this->attributes.end() ) {
         this->setInterAct(it->second);
     }

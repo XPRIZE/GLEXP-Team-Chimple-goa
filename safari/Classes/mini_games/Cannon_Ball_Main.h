@@ -5,6 +5,7 @@
 #include "Cannon_Ball_Listener.h"
 #include <vector>
 #include "editor-support/cocostudio/CocoStudio.h"
+#include "../menu/MenuContext.h"
 
 class MainGame : public cocos2d::Layer
 {
@@ -59,5 +60,8 @@ public:
 
 	// implement the "static create()" method manually
 	CREATE_FUNC(MainGame);
+
+protected:
+	MenuContext* _menuContext;
 };
 #endif // __MAINGAME_SCENE_H__

@@ -13,6 +13,8 @@
 		1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
 		288765A50DF7441C002DB57D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288765A40DF7441C002DB57D /* CoreGraphics.framework */; };
 		294D0D641D0D56D500F7F5D4 /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 294D0D631D0D56D500F7F5D4 /* CoreText.framework */; };
+		370A3DB41D43428D00676C50 /* SkeletonConfiguration.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 370A3DB31D43428D00676C50 /* SkeletonConfiguration.cpp */; };
+		370A3DB51D43428D00676C50 /* SkeletonConfiguration.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 370A3DB31D43428D00676C50 /* SkeletonConfiguration.cpp */; };
 		376FEE801D3F66380037393F /* SkeletonPosition.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 376FEE7F1D3F66380037393F /* SkeletonPosition.cpp */; };
 		376FEE811D3F66380037393F /* SkeletonPosition.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 376FEE7F1D3F66380037393F /* SkeletonPosition.cpp */; };
 		3EACC98F19EE6D4300EB3C5E /* res in Resources */ = {isa = PBXBuildFile; fileRef = 3EACC98E19EE6D4300EB3C5E /* res */; };
@@ -200,6 +202,8 @@
 		1DF5F4DF0D08C38300B7A737 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		288765A40DF7441C002DB57D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		294D0D631D0D56D500F7F5D4 /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.3.sdk/System/Library/Frameworks/CoreText.framework; sourceTree = DEVELOPER_DIR; };
+		370A3DB11D43427A00676C50 /* SkeletonConfiguration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SkeletonConfiguration.h; sourceTree = "<group>"; };
+		370A3DB31D43428D00676C50 /* SkeletonConfiguration.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SkeletonConfiguration.cpp; sourceTree = "<group>"; };
 		376FEE7D1D3F66280037393F /* SkeletonPosition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SkeletonPosition.h; sourceTree = "<group>"; };
 		376FEE7F1D3F66380037393F /* SkeletonPosition.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SkeletonPosition.cpp; sourceTree = "<group>"; };
 		3EACC98E19EE6D4300EB3C5E /* res */ = {isa = PBXFileReference; lastKnownFileType = folder; path = res; sourceTree = "<group>"; };
@@ -527,6 +531,8 @@
 				F3913D9B1D3F461A001B3038 /* StateMachine.h */,
 				F3913DB91D3F461A001B3038 /* WalkingState.cpp */,
 				F3913D9C1D3F461A001B3038 /* WalkingState.h */,
+				370A3DB11D43427A00676C50 /* SkeletonConfiguration.h */,
+				370A3DB31D43428D00676C50 /* SkeletonConfiguration.cpp */,
 			);
 			name = Classes;
 			path = ../Classes;
@@ -830,6 +836,7 @@
 				F3913DCE1D3F461A001B3038 /* MessageSender.cpp in Sources */,
 				F3913DE41D3F461A001B3038 /* StateMachine.cpp in Sources */,
 				F3913E191D3F46B1001B3038 /* Cannon_Ball_Main.cpp in Sources */,
+				370A3DB41D43428D00676C50 /* SkeletonConfiguration.cpp in Sources */,
 				F3913E011D3F46A5001B3038 /* CharGenerator.cpp in Sources */,
 				F39610B11D3F8FDB00D8DD13 /* AlphamonFeedLevelScene.cpp in Sources */,
 				F3913DE21D3F461A001B3038 /* State.cpp in Sources */,
@@ -892,6 +899,7 @@
 				F3913DF01D3F4694001B3038 /* MenuContext.cpp in Sources */,
 				F3913DE31D3F461A001B3038 /* State.cpp in Sources */,
 				F3CA26EF1D43C0A9006EBDC6 /* EnglishUtil.cpp in Sources */,
+				370A3DB51D43428D00676C50 /* SkeletonConfiguration.cpp in Sources */,
 				F3913DE51D3F461A001B3038 /* StateMachine.cpp in Sources */,
 				F39610B41D3F905A00D8DD13 /* AlphamonFeedLevelScene.cpp in Sources */,
 				F3913DE71D3F461A001B3038 /* WalkingState.cpp in Sources */,

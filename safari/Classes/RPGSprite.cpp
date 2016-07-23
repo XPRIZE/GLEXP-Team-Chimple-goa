@@ -59,7 +59,6 @@ bool RPGSprite::initialize(cocos2d::Node* sprite, std::unordered_map<std::string
     listenerTouches->onTouchEnded = CC_CALLBACK_2(RPGSprite::touchEnded, this);
     this->getEventDispatcher()->addEventListenerWithSceneGraphPriority(listenerTouches, this);
     
-    
     auto checkVicinityWithMainCharacter = [=] (EventCustom * event) {
         this->mainSkeleton = static_cast<SkeletonCharacter*>(event->getUserData());
         this->checkVicinityToMainSkeleton(this->mainSkeleton);
@@ -118,6 +117,10 @@ void RPGSprite::setAttributes(std::unordered_map<std::string, std::string> attri
         this->setKey(it->second);
     }
 
+    it = this->attributes.find("transitToGameScene");
+    if ( it != this->attributes.end() ) {
+        this->setTransitToGameScene(it->second);
+    }
 }
 
 std::unordered_map<std::string, std::string> RPGSprite::getAttributes() {
@@ -169,9 +172,25 @@ SkeletonCharacter* RPGSprite::getMainSkeleton() {
 
 bool RPGSprite::onTouchBegan(Touch *touch, Event *event)
 {
-    auto n = convertTouchToNodeSpace(touch);
-    Rect boundingBoxRect = Rect(this->getSprite()->getBoundingBox().origin.x, this->getSprite()->getBoundingBox().origin.y, this->getSprite()->getBoundingBox().size.width == 0 ? OBJECT_TAP_BOUNDING_BOX_WIDTH : this->getSprite()->getBoundingBox().size.width, this->getSprite()->getBoundingBox().size.height == 0 ? OBJECT_TAP_BOUNDING_BOX_WIDTH : this->getSprite()->getBoundingBox().size.height);
+    auto n = this->convertTouchToNodeSpace(touch);
+    Rect boundingBoxRect = Rect::ZERO;
     
+    if(this->getSprite()->getBoundingBox().size.width == 0 && this->getSprite()->getBoundingBox().size.height == 0)
+    {
+        if(this->getSprite()->getChildren().size() == 1) {
+            n = this->getSprite()->convertTouchToNodeSpace(touch);
+            boundingBoxRect = this->getSprite()->getChildren().at(0)->getBoundingBox();
+        }
+    } else {
+        boundingBoxRect = this->getSprite()->getBoundingBox();
+    }
+    
+    
+    this->getVicinityToMainCharacter();
+//    
+//    
+//    Rect boundingBoxRect = Rect(this->getSprite()->getBoundingBox().origin.x, this->getSprite()->getBoundingBox().origin.y, this->getSprite()->getBoundingBox().size.width == 0 ? OBJECT_TAP_BOUNDING_BOX_WIDTH : this->getSprite()->getBoundingBox().size.width, this->getSprite()->getBoundingBox().size.height == 0 ? OBJECT_TAP_BOUNDING_BOX_WIDTH : this->getSprite()->getBoundingBox().size.height);
+//    
     if(this->getSprite()->isVisible() && this->getInterAct() == "true" && this->getVicinityToMainCharacter() == true && boundingBoxRect.containsPoint(n)) {
         return true;
     }

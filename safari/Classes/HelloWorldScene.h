@@ -28,13 +28,12 @@
 #include "AlphamonSprite.h"
 #include "alphamon/Alphamon.h"
 #include "SkeletonPosition.h"
-
-
+#include "menu/MenuContext.h"
 
 class GestureLayer;
 class MessageContent;
 
-#define MAIN_CHARACTER_FILE "human_skeleton.csb"
+#define MAIN_CHARACTER_FILE "hero_skeleton.csb"
 
 
 class HelloWorld : public cocos2d::Layer
@@ -58,15 +57,19 @@ private:
     
     SkeletonCharacter* skeletonCharacter;
     
+    MenuContext* menuContext;
+    
+    SkeletonPosition* skeletonPositionInLastVisitedScene;
+    
     void loadGameScene();
     
     void enablePhysicsBoundaries(Node* rootNode);
     
     cocostudio::timeline::SkeletonNode* createMainGameCharacter();
     
-    void addMainCharacterToScene(const std::string& filename);
+    void addMainCharacterToScene(const std::string& filename, cocos2d::Node* node);
     
-    void updatePositionForMainCharacter();
+    void updatePositionAndCategoryBitMaskMainCharacter();
     
     void initGestureLayer();
     
@@ -74,7 +77,7 @@ private:
     
     void startJumpUpEndingAnimation(float dt);
     
-    void startContinuousRoationAnimation(float dt);
+    void startContinuousRotationAnimation(float dt);
     
     void update(float dt);
     
@@ -82,7 +85,7 @@ private:
     
     bool checkTouchWithinBoundsOfCharacter(cocos2d::Point point, cocostudio::timeline::SkeletonNode* characterNode);
     
-    bool checkTouchVerticallyUpOnBoundsOfCharacter(cocos2d::Point point, cocostudio::timeline::SkeletonNode* characterNode);
+    bool checkTouchVerticallyUpOnBoundsOfCharacter(cocos2d::Point point, cocostudio::timeline::SkeletonNode* characterNode, float delta);
     
     bool checkTouchLeftOfCharacter(cocos2d::Point point, cocostudio::timeline::SkeletonNode* characterNode);
     
@@ -158,24 +161,18 @@ private:
     CC_SYNTHESIZE(std::string, island, Island);
     
     CC_SYNTHESIZE(std::string, physicsFile, PhysicsFile);
-    
-    CC_SYNTHESIZE(std::string, mainCharacterFile, MainCharacterFile);
-    
+        
     CC_SYNTHESIZE(bool, isSpeechBubbleAlreadyVisible, SpeechBubbleAlreadyVisible);
     
-    CC_SYNTHESIZE(std::string, initialMainSkeletonY, InitialMainSkeletonY);
-    
-    CC_SYNTHESIZE(std::string, initialMainSkeletonX, InitialMainSkeletonX);
-    
 public:
-    static cocos2d::Scene* createScene(const std::string& island);
+    static cocos2d::Scene* createScene(const std::string& island, const std::string& sceneName);
     
-    static HelloWorld* create(const std::string& island);
+    static HelloWorld* create(const std::string& island, const std::string& sceneName);
     
     HelloWorld();
     ~HelloWorld();
     
-    virtual bool init(const std::string& island);
+    virtual bool init(const std::string& island, const std::string& sceneName);
     
     virtual void initializeSafari();
     

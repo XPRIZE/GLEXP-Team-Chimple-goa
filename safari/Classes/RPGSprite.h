@@ -41,6 +41,8 @@ public:
     
     CC_SYNTHESIZE(std::string, posY, PosY);
     
+    CC_SYNTHESIZE(std::string, transitToGameScene, TransitToGameScene);
+    
     CC_SYNTHESIZE(std::string, nextScene, NextScene);
         
     CC_SYNTHESIZE(std::string, interAct, InterAct);

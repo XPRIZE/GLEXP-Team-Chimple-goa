@@ -21,7 +21,7 @@ void RunningState::enter(cocos2d::Vec2 forceVector, SkeletonCharacterState previ
     
     this->getTarget()->getSkeletonNode()->getPhysicsBody()->setVelocity(forceVector);
     
-    this->getTarget()->getSkeletonActionTimeLine()->play("run", true);
+    this->getTarget()->getSkeletonActionTimeLine()->play(RUN, true);
 }
 
 void RunningState::exit()  {

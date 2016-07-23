@@ -1,66 +1,97 @@
 #include "CrossTheBridgeScene.h"
 #include "SimpleAudioEngine.h"
 #include "math.h"
-#include "editor-support/cocostudio/CocoStudio.h"
+
 
 USING_NS_CC;
 
 Scene* CrossTheBridge::createScene()
 {
-    // 'scene' is an autorelease object
-    auto scene = Scene::create();
+	// 'scene' is an autorelease object
+	auto scene = Scene::create();
+
+	// 'layer' is an autorelease object
+	auto layer = CrossTheBridge::create();
+
+	// add layer as a child to scene
+	scene->addChild(layer);
+
+    layer->_menuContext = MenuContext::create(layer);
+    scene->addChild(layer->_menuContext);
     
-    // 'layer' is an autorelease object
-    auto layer = CrossTheBridge::create();
-
-    // add layer as a child to scene
-    scene->addChild(layer);
-
-    // return the scene
-    return scene;
+	// return the scene
+	return scene;
 }
 
 // on 'init' you need to initialize your instance
 bool CrossTheBridge::init()
 {
-	//SpriteFrameCache::getInstance()->addSpriteFramesWithFile("crossthebridge.plist");
+	SpriteFrameCache::getInstance()->addSpriteFramesWithFile("crossthebridge.plist");
 	auto visibleSize = Director::getInstance()->getVisibleSize();
 	Vec2 origin = Director::getInstance()->getVisibleOrigin();
 
-    // 1. super init first
-    if ( !Layer::init() )
-    {
-        return false;
-    }
+	// 1. super init first
+	if (!Layer::init())
+	{
+		return false;
+	}
 	auto closeItem = MenuItemImage::create(
-                                           "CloseNormal.png",
-                                           "CloseSelected.png",
-                                            CC_CALLBACK_1(CrossTheBridge::menuCloseCallback, this));
-    
-    closeItem->setPosition(Vec2(origin.x + visibleSize.width - closeItem->getContentSize().width/2 ,
-                                origin.y + closeItem->getContentSize().height/2));
+		"CloseNormal.png",
+		"CloseSelected.png",
+		CC_CALLBACK_1(CrossTheBridge::menuCloseCallback, this));
 
-    //create menu, it's an autorelease object
-    auto menu = Menu::create(closeItem, NULL);
-    menu->setPosition(Vec2::ZERO);
-    this->addChild(menu, 1);
+	closeItem->setPosition(Vec2(origin.x + visibleSize.width - closeItem->getContentSize().width / 2,
+		origin.y + closeItem->getContentSize().height / 2));
+
+	//create menu, it's an autorelease object
+	auto menu = Menu::create(closeItem, NULL);
+	menu->setPosition(Vec2::ZERO);
+	this->addChild(menu, 1);
 	this->scheduleUpdate();
-    /////////////////////////////
-    // 3. add your codes below...
-	
-	auto gameBG = CSLoader::createNode("CrossTheBridge.csb");
-	this->addChild(gameBG,1);
+	/////////////////////////////
+	// 3. add your codes below...
+	/*auto Score_Label = Label::createWithTTF("SCORE:", "fonts/Marker Felt.ttf", 120);
+	Score_Label->setPosition(Vec2(visibleSize.width *.825 + origin.x, visibleSize.height* .94 + origin.y));
+	this->addChild(Score_Label, 3);
 
-	pathClose_right= (Sprite *)gameBG->getChildByName("path_up_right");
+	std::ostringstream sstreamb;
+	sstreamb << mainScore;
+	std::string query = sstreamb.str();
+
+	myGameScoreLabel = Label::createWithTTF(query, "fonts/Marker Felt.ttf", 120);
+	myGameScoreLabel->setPosition(Vec2(visibleSize.width *.926 + origin.x, visibleSize.height* .94 + origin.y));
+	this->addChild(myGameScoreLabel, 3);*/
+
+	auto gameBG = (Sprite *)CSLoader::createNode("crossthebridge/MainScene.csb");
+	this->addChild(gameBG, 1);
+
+	Sprite* house_wall = (Sprite *)gameBG->getChildByName("house_Wall");
+	house_wall->setGlobalZOrder(3);
+	house_wall->setPosition(Vec2(house_wall->getPosition().x + origin.x, house_wall->getPosition().y - 5 + origin.y));
+
+	Sprite* house_front = (Sprite *)gameBG->getChildByName("house_front_1");
+	house_front->setGlobalZOrder(3);
+	house_front->setPosition(Vec2(house_front->getPosition().x + origin.x, house_front->getPosition().y - 5 + origin.y));
+
+	//Sprite* water_image = (Sprite *)gameBG->getChildByName("water_image_1");
+	//water_image->setGlobalZOrder(4);
+
+	water_splash = CSLoader::createTimeline("crossthebridge/watersplash.csb");
+	splash = (Sprite *)CSLoader::createNode("crossthebridge/watersplash.csb");
+	this->addChild(splash, 16);
+	splash->setGlobalZOrder(16);
+	splash->runAction(water_splash);
+
+	pathClose_right = (Sprite *)gameBG->getChildByName("path_up_right");
 	pathClose_left = (Sprite *)gameBG->getChildByName("path_up_left");
-	pathOpen_right= (Sprite *)gameBG->getChildByName("path_down_right");
+	pathOpen_right = (Sprite *)gameBG->getChildByName("path_down_right");
 	pathOpen_left = (Sprite *)gameBG->getChildByName("path_down_left");
 
 	pathOpen_right->setVisible(false);
 	pathOpen_left->setVisible(false);
 
-	Sprite* transparentBG = Sprite::create("Pixel.png");
-	transparentBG->setPosition(Vec2(0 + origin.x,0 + origin.y));
+	Sprite* transparentBG = Sprite::create("Crossthebridge/Pixel.png");
+	transparentBG->setPosition(Vec2(0 + origin.x, 0 + origin.y));
 	transparentBG->setAnchorPoint(Vec2(0, 0));
 	transparentBG->setScaleX(2560);
 	transparentBG->setScaleY(1800);
@@ -69,18 +100,18 @@ bool CrossTheBridge::init()
 	addEvents(transparentBG);
 
 	sceneMaking();
-	this->schedule(schedule_selector(CrossTheBridge::monsGeneration), RandomHelper::random_int(4, 8));
+	this->schedule(schedule_selector(CrossTheBridge::monsGeneration), RandomHelper::random_int(7, 11));
 	this->schedule(schedule_selector(CrossTheBridge::alphabetGeneration), positionGap_Alpha[RandomHelper::random_int(0, 21)]);
-    this->schedule(schedule_selector(CrossTheBridge::comboFiveDynamicShuffle),5.0f); 
-    this->schedule(schedule_selector(CrossTheBridge::letterDisplayCombinationMethod), 10.0f);
-    return true;
+	this->schedule(schedule_selector(CrossTheBridge::comboFiveDynamicShuffle), 5.0f);
+	//this->schedule(schedule_selector(CrossTheBridge::letterDisplayCombinationMethod), 40.0f);
+	return true;
 }
 void CrossTheBridge::menuCloseCallback(Ref* pSender)
 {
-    Director::getInstance()->end();
+	Director::getInstance()->end();
 
 #if (CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
-    exit(0);
+	exit(0);
 #endif
 }
 
@@ -89,33 +120,31 @@ void CrossTheBridge::sceneMaking()
 	Vec2 origin = Director::getInstance()->getVisibleOrigin();
 	auto visibleSize = Director::getInstance()->getVisibleSize();
 
-    cubeAtRest = Sprite::create("4.png");
-	cubeAtRest->setPosition(Vec2(750 + origin.x, (visibleSize.height*0.49 )+ origin.y));
+	cubeAtRest = Sprite::create("Crossthebridge/border.png");
+	cubeAtRest->setPosition(Vec2(630 + origin.x, (visibleSize.height*0.47) + origin.y));
 	cubeAtRest->setAnchorPoint(Vec2(0, 0));
 	this->addChild(cubeAtRest, 1);
+	cubeAtRest->setScale(0.9, 1);
 	cubeAtRest->setVisible(false);
 
-	barrierRight = Sprite::create("barrier.png");
-	barrierRight->setPosition(Vec2(visibleSize.width+50+origin.x,( visibleSize.height*0.01) + origin.y));
+	barrierRight = Sprite::create("Crossthebridge/barrier.png");
+	barrierRight->setPosition(Vec2(visibleSize.width + 50 + origin.x, (visibleSize.height*0.01) + origin.y));
 	barrierRight->setAnchorPoint(Vec2(0, 0));
 	this->addChild(barrierRight, 1);
 
-	barrierRight_1 = Sprite::create("barrier.png");
-	barrierRight_1->setPosition(Vec2(visibleSize.width+ 150 + origin.x, (visibleSize.height*0.01) + origin.y));
-	barrierRight_1->setAnchorPoint(Vec2(0, 0));
-	this->addChild(barrierRight_1, 3);
-
-	barrierLeft = Sprite::create("barrier.png");
-	barrierLeft->setPosition(Vec2(-180+origin.x, (visibleSize.height*0.01) + origin.y));
+	barrierLeft = Sprite::create("Crossthebridge/barrier.png");
+	barrierLeft->setPosition(Vec2(40 + origin.x, (visibleSize.height*0.01) + origin.y));
 	barrierLeft->setAnchorPoint(Vec2(0, 0));
 	this->addChild(barrierLeft, 1);
+	barrierLeft->setVisible(false);
 
-	barrierFlat = Sprite::create("barrier.png");
-	barrierFlat->setPosition(Vec2(0 + origin.x, 250+origin.y));
+	barrierFlat = Sprite::create("Crossthebridge/barrier.png");
+	barrierFlat->setPosition(Vec2(0 + origin.x, 370 + origin.y));
 	barrierFlat->setAnchorPoint(Vec2(0, 0));
-	this->addChild(barrierFlat, 3);
+	this->addChild(barrierFlat, 1);
 	barrierFlat->setRotation(90.0f);
-	barrierFlat->setVisible(true);
+	barrierFlat->setVisible(false);
+
 
 	letterDisplayCombinationMethod(2.0f);
 	alphabetGeneration(2.0f);
@@ -131,7 +160,6 @@ void CrossTheBridge::update(float delta) {
 	removeObjectFromScene_Alpha();
 	removeObjectFromScene_Mons();
 
-    removeMonsAtRightMost();
 }
 void CrossTheBridge::letterDisplayCombinationMethod(float dt)
 {
@@ -142,94 +170,95 @@ void CrossTheBridge::letterDisplayCombinationMethod(float dt)
 
 	comboFive[0] = letterToDisplay;
 	comboFive[1] = letterAZ[RandomHelper::random_int(0, 25)];
-	comboFive[2] = letterAZ[RandomHelper::random_int(0, 25)];
+	comboFive[2] = letterToDisplay;
 	comboFive[3] = letterAZ[RandomHelper::random_int(0, 25)];
 	comboFive[4] = letterToDisplay;
+	comboFive[5] = letterAZ[RandomHelper::random_int(0, 25)];
 
-	if (letterIsThere )
+	for (auto i = 0; i < 7; i++)
 	{
-		this->removeChild(displayLetter, true);
-	}
-	    letterIsThere = true;
-	    displayLetter = Label::createWithTTF(letterToDisplay, "fonts/Marker Felt.ttf", 150);
-		displayLetter->setPosition(Vec2(letterDisplayPosition[3].first + origin.x, letterDisplayPosition[6].second + origin.y));
+		std::ostringstream sstreamb;
+		sstreamb << letterToDisplay;
+		std::string letterDisplay = sstreamb.str();
+
+		Label* displayLetter = Label::createWithTTF(letterDisplay, "fonts/Marker Felt.ttf", 150);
+		displayLetter->setPosition(Vec2(letterDisplayPosition[i].first + origin.x, letterDisplayPosition[i].second + origin.y));
 		this->addChild(displayLetter, 3);
-	
+		letterContainer.push_back(displayLetter);
+	}
 }
 void CrossTheBridge::comboFiveDynamicShuffle(float dt)
 {
 	comboFive[1] = letterAZ[RandomHelper::random_int(0, 25)];
-	comboFive[2] = letterAZ[RandomHelper::random_int(0, 25)];
 	comboFive[3] = letterAZ[RandomHelper::random_int(0, 25)];
-	//comboFive[4] = letterAZ[RandomHelper::random_int(0, 25)];
+	comboFive[5] = letterAZ[RandomHelper::random_int(0, 25)];
 }
 
 void CrossTheBridge::alphabetGeneration(float dt)
 {
 	Vec2 origin = Director::getInstance()->getVisibleOrigin();
 	auto visibleSize = Director::getInstance()->getVisibleSize();
-	
-	
-				int rand_2 = RandomHelper::random_int(0, 4);
-				randomInAlpha = comboFive[rand_2];
 
-				Sprite* amon = (Sprite *)CSLoader::createNode("english/"+randomInAlpha+".csb");
-				this->addChild(amon, 3);
-				amon->setScale(0.28);
-				amon->setContentSize(cocos2d::Size(200, 200));
-				amon->setPosition(Vec2(barrierRight->getPosition().x + origin.x, (visibleSize.height*0.49) + origin.y));
-				//Alphabet = amon;
-				amon->setName("Alphabet");
-				std::string str = amon->getName().c_str();
-				
-				alphaContainer.push_back(amon);
-				Vector <Node*> children = amon->getChildren();
-				for (auto item = children.rbegin(); item != children.rend(); ++item)
-				{
-					Node *monster = *item;
-					std::string str = monster->getName().c_str();
-					if (str.find("mouth") == 0)
-					{
-						auto mouthTimeline = CSLoader::createTimeline(CCString::createWithFormat("mouth_ani/%s.csb", str.c_str())->getCString());
-						monster->runAction(mouthTimeline);
-						mouthTimeline->gotoFrameAndPlay(0, true);
+	int rand_2 = RandomHelper::random_int(0, 5);
+	auto randomInAlpha = comboFive[rand_2];
 
-					}
-					if (str.find("eye") == 0)
-					{
-						auto  eyeTimeline = CSLoader::createTimeline(CCString::createWithFormat("eye_ani/%s.csb", str.c_str())->getCString());
-						monster->runAction(eyeTimeline);
-						eyeTimeline->gotoFrameAndPlay(0, true);
-					}
-					if (str.find("skate") == 0)
-					{
-						auto  eyeTimeline = CSLoader::createTimeline(CCString::createWithFormat("leg_ani/%s.csb", str.c_str())->getCString());
-						monster->runAction(eyeTimeline);
-						eyeTimeline->gotoFrameAndPlay(0, true);
-					}
-				}
-				leftMove_Alpha(amon, RandomHelper::random_int(7, 14), -180.0f, ((visibleSize.height*0.49) + origin.y));
+	std::ostringstream sstreamb;
+	sstreamb << randomInAlpha;
+	std::string randomAlpha = sstreamb.str();
+
+	Sprite* amon = (Sprite *)CSLoader::createNode("english/" + randomAlpha + ".csb");
+	this->addChild(amon, 3);
+	amon->setScale(0.28);
+	amon->setContentSize(cocos2d::Size(200, 200));
+	amon->setPosition(Vec2(barrierRight->getPosition().x + origin.x, (visibleSize.height*0.47) + origin.y));
+	amon->setName(randomAlpha);
+	std::string str = amon->getName().c_str();
+
+	alphaContainer.push_back(amon);
+	Vector <Node*> children = amon->getChildren();
+	for (auto item = children.rbegin(); item != children.rend(); ++item)
+	{
+		Node *monster = *item;
+		std::string str = monster->getName().c_str();
+		if (str.find("mouth") == 0)
+		{
+			auto mouthTimeline = CSLoader::createTimeline(CCString::createWithFormat("mouth_ani/%s.csb", str.c_str())->getCString());
+			monster->runAction(mouthTimeline);
+			mouthTimeline->gotoFrameAndPlay(0, true);
+		}
+		if (str.find("eye") == 0)
+		{
+			auto  eyeTimeline = CSLoader::createTimeline(CCString::createWithFormat("eye_ani/%s.csb", str.c_str())->getCString());
+			monster->runAction(eyeTimeline);
+			eyeTimeline->gotoFrameAndPlay(0, true);
+		}
+		if (str.find("skate") == 0)
+		{
+			auto  eyeTimeline = CSLoader::createTimeline(CCString::createWithFormat("leg_ani/%s.csb", str.c_str())->getCString());
+			monster->runAction(eyeTimeline);
+			eyeTimeline->gotoFrameAndPlay(0, true);
+		}
 	}
-	
+	leftMove_Alpha(amon, RandomHelper::random_int(8, 12), -180.0f, ((visibleSize.height*0.47) + origin.y));
+}
+
 void CrossTheBridge::monsGeneration(float dt) {
+
 	Vec2 origin = Director::getInstance()->getVisibleOrigin();
 	auto visibleSize = Director::getInstance()->getVisibleSize();
 
-	cocostudio::timeline::ActionTimeline *enemy_walk = CSLoader::createTimeline("enemy_animation.csb");
-	Sprite* monster = (Sprite *)CSLoader::createNode("enemy_animation.csb");
-	monster->setPosition(Vec2(barrierRight->getPosition().x+ origin.x, (visibleSize.height*0.605) + origin.y));
+	cocostudio::timeline::ActionTimeline *enemy_walk = CSLoader::createTimeline("crossthebridge/enemy_01.csb");
+	Sprite* monster = (Sprite *)CSLoader::createNode("crossthebridge/enemy_01.csb");
+	monster->setPosition(Vec2(barrierRight->getPosition().x + origin.x, (visibleSize.height*0.472) + origin.y));
+	monster->setContentSize(cocos2d::Size(200.0f,200.0f));
 	monster->setScale(0.30);
 	this->addChild(monster, 3);
 	monster->runAction(enemy_walk);
 	enemy_walk->setTimeSpeed(1.5);
-	monster->setName("Monster");
-	//enemy_walk->gotoFrameAndPlay(0, true);
-	enemy_walk->play("Walking", true);
-	//Monster = monster;
+	enemy_walk->gotoFrameAndPlay(0, true);
 	monsContainer.push_back(monster);
 
-	leftMove_Mons(monster, RandomHelper::random_int(5, 10),-180, ((visibleSize.height*0.605) + origin.y));
-	
+	leftMove_Mons(monster, RandomHelper::random_int(7, 10), -180, ((visibleSize.height*0.468) + origin.y));
 }
 
 void CrossTheBridge::alphaDeletion()
@@ -238,8 +267,52 @@ void CrossTheBridge::alphaDeletion()
 	auto visibleSize = Director::getInstance()->getVisibleSize();
 	for (int i = 0; i< alphaContainer.size(); i++)
 	{
-		if (alphaContainer[i]->boundingBox().intersectsRect(barrierLeft->boundingBox()))
+
+		if (alphaContainer[i]->getBoundingBox().intersectsRect(barrierLeft->getBoundingBox()))
 		{
+			std::ostringstream sstreamb;
+			sstreamb << comboFive[0];
+			std::string comboValue = sstreamb.str();
+
+			if (!alphaContainer[i]->getName().compare(comboValue))
+			{
+				if (letterDisplayCounter < 7)
+				{
+					letterContainer[letterDisplayCounter]->setOpacity(130);
+					letterDisplayCounter++;
+				}
+				_menuContext->pickAlphabet(comboFive[0],alphaContainer[i]->getName()[0],true);
+				
+				//	_menuContext->pickAlphabet(alphaContainer[i]->getName(), alphaContainer[i]->getName(),true);
+				/*  mainScore = mainScore + 5;
+
+				std::ostringstream sstreamb;
+				sstreamb << mainScore;
+				std::string query = sstreamb.str();
+
+				myGameScoreLabel->setString(query);*/
+			}
+			else
+			{
+				_menuContext->pickAlphabet(comboFive[0], alphaContainer[i]->getName()[0], true);
+				/*	mainScore = mainScore - 1;
+
+				std::ostringstream sstreamb;
+				sstreamb << mainScore;
+				std::string query = sstreamb.str();
+
+				myGameScoreLabel->setString(query);*/
+			}
+			if (letterDisplayCounter == 7)
+			{
+				for (std::size_t i = 0; i <letterContainer.size(); i++)
+				{
+					this->removeChild(letterContainer[i], true);
+				}
+				letterContainer.clear();
+				letterDisplayCounter = 0;
+				letterDisplayCombinationMethod(2.0);
+			}
 			this->removeChild(alphaContainer[i], true);
 			alphaContainer.erase(alphaContainer.begin() + i);
 		}
@@ -253,21 +326,19 @@ void CrossTheBridge::monsDeletion()
 
 	for (int i = 0; i< monsContainer.size(); i++)
 	{
-		if (monsContainer[i]->boundingBox().intersectsRect(barrierLeft->boundingBox()))
+		if (monsContainer[i]->getBoundingBox().intersectsRect(barrierLeft->getBoundingBox()))
 		{
+
+			_menuContext->pickAlphabet('A','B', true);
+			/*	mainScore = mainScore - 1;
+			std::ostringstream sstreamb;
+			sstreamb << mainScore;
+			std::string query = sstreamb.str();
+
+			myGameScoreLabel->setString(query);*/
+
 			this->removeChild(monsContainer[i], true);
 			monsContainer.erase(monsContainer.begin() + i);
-					/*MoveTo *nodeAction = MoveTo::create(4.0, Vec2(2400, (visibleSize.height*0.610) + origin.y));
-					EaseBackOut *sequence_A = EaseBackOut::create(nodeAction);*/
-			
-			//monsContainer[i]->runAction(MoveTo::create(1.0, Vec2(600, (visibleSize.height*0.610) + origin.y)));
-				/*	auto sequance_B = CallFunc::create([=]() { 
-							this->removeChild(monsContainer[i], true);
-							monsContainer.erase(monsContainer.begin() + i);
-					});
-					auto main_sequence = Sequence::create(sequence_A,NULL);
-					monsContainer[i]->runAction(main_sequence);
-*/
 		}
 	}
 
@@ -276,9 +347,8 @@ void CrossTheBridge::checkIntersectWithAlpha()
 {
 	for (int i = 0; i < alphaContainer.size(); i++)
 	{
-		if (alphaContainer[i]->boundingBox().intersectsRect(cubeAtRest->boundingBox()) && openFlag)
+		if (alphaContainer[i]->getBoundingBox().intersectsRect(cubeAtRest->getBoundingBox()) && openFlag)
 		{
-			int index = i;
 			auto sequence_A = MoveTo::create(2, Vec2(alphaContainer[i]->getPosition().x, 400));
 			auto main_sequence = Sequence::create(sequence_A, NULL);
 			alphaContainer[i]->runAction(main_sequence);
@@ -288,9 +358,10 @@ void CrossTheBridge::checkIntersectWithAlpha()
 }
 void CrossTheBridge::checkIntersectWithMons()
 {
-	for (int i = 0; i < monsContainer.size(); i++)
+	for (int i = 0; i<monsContainer.size(); i++)
 	{
-		if (monsContainer[i]->boundingBox().intersectsRect(cubeAtRest->boundingBox()) && openFlag)
+		Rect monster = monsContainer[i]->getBoundingBox();
+		if (monster.intersectsRect(cubeAtRest->getBoundingBox()) && openFlag)
 		{
 			auto sequence_A = MoveTo::create(2, Vec2(monsContainer[i]->getPosition().x, 400));
 			auto main_sequence = Sequence::create(sequence_A, NULL);
@@ -300,38 +371,31 @@ void CrossTheBridge::checkIntersectWithMons()
 }
 void CrossTheBridge::removeObjectFromScene_Alpha()
 {
+	Vec2 origin = Director::getInstance()->getVisibleOrigin();
+	auto visibleSize = Director::getInstance()->getVisibleSize();
 	for (int i = 0; i < alphaContainer.size(); i++)
 	{
-		if (alphaContainer[i]->boundingBox().intersectsRect(barrierFlat->boundingBox()))
+		if (alphaContainer[i]->getBoundingBox().intersectsRect(barrierFlat->getBoundingBox()))
 		{
+			splash->setPosition(Vec2(alphaContainer[i]->getPosition().x + origin.x, alphaContainer[i]->getPosition().y + origin.y));
+			water_splash->gotoFrameAndPlay(0, false);
 			this->removeChild(alphaContainer[i], true);
 			alphaContainer.erase(alphaContainer.begin() + i);
-			//CCLOG("No of mnster in World : %d", monsContainer.size());
-			
-		}
-	}
-}
-void CrossTheBridge::removeMonsAtRightMost()
-{
-	for (int i = 0; i < monsContainer.size(); i++)
-	{
-		if (monsContainer[i]->boundingBox().intersectsRect(barrierRight_1->boundingBox()))
-		{
-			this->removeChild(monsContainer[i], true);
-			monsContainer.erase(monsContainer.begin() + i);
-			//CCLOG("No of mnster in World : %d", monsContainer.size());
 		}
 	}
 }
 void CrossTheBridge::removeObjectFromScene_Mons()
 {
+	Vec2 origin = Director::getInstance()->getVisibleOrigin();
+	auto visibleSize = Director::getInstance()->getVisibleSize();
 	for (int i = 0; i < monsContainer.size(); i++)
 	{
-		if (monsContainer[i]->boundingBox().intersectsRect(barrierFlat->boundingBox()))
+		if (monsContainer[i]->getBoundingBox().intersectsRect(barrierFlat->getBoundingBox()))
 		{
+			splash->setPosition(Vec2(monsContainer[i]->getPosition().x + origin.x, monsContainer[i]->getPosition().y + origin.y));
+			water_splash->gotoFrameAndPlay(0, false);
 			this->removeChild(monsContainer[i], true);
 			monsContainer.erase(monsContainer.begin() + i);
-			//CCLOG("No of mnster in World : %d", monsContainer.size());
 		}
 	}
 }
@@ -356,8 +420,8 @@ void CrossTheBridge::addEvents(Sprite* callerObject)
 		Point locationInNode = target->convertToNodeSpace(touch->getLocation());
 		Size s = target->getContentSize();
 		Rect rect = Rect(0, 0, s.width, s.height);
-		
-		auto sequance_A = CallFunc::create([=](){
+
+		auto sequance_A = CallFunc::create([=]() {
 			if (rect.containsPoint(locationInNode))
 			{
 				openFlag = true;
@@ -367,13 +431,13 @@ void CrossTheBridge::addEvents(Sprite* callerObject)
 				pathClose_left->setVisible(false);
 				oneSecondClick = true;
 			}});
-		auto sequance_B = CallFunc::create([=]() 
+		auto sequance_B = CallFunc::create([=]()
 		{
 			oneSecondClick = false;
 		});
 		if (!oneSecondClick)
 		{
-			auto main_sequence = Sequence::create(sequance_A,DelayTime::create(0.22f),sequance_B,NULL);
+			auto main_sequence = Sequence::create(sequance_A, DelayTime::create(0.22f), sequance_B, NULL);
 			target->runAction(main_sequence);
 		}
 		return true;
@@ -386,8 +450,6 @@ void CrossTheBridge::addEvents(Sprite* callerObject)
 		pathOpen_left->setVisible(false);
 		pathClose_right->setVisible(true);
 		pathClose_left->setVisible(true);
-		/*pathOpen->setVisible(false);
-		pathClose->setVisible(true);*/
 	};
 	cocos2d::Director::getInstance()->getEventDispatcher()->addEventListenerWithSceneGraphPriority(listener, callerObject);
 }
