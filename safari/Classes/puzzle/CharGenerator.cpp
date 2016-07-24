@@ -13,9 +13,6 @@
 USING_NS_CC;
 
 static CharGenerator* _singletonCharGenerator = nullptr;
-//static const wchar_t* const a_to_z = "ABCDEFGHIJKLMNOPQRSTUVWXYZ" ;
-//static const wchar_t* const a_to_z = "ಅಆಇಈಉಊಋಌಎಏಐಒಓಔಕಖಗಘಙಚಛಜಝಞಟಠಡಢಣತಥದಧನಪಫಬಭಮಯರಱಲಳವಶಷಸಹ";
-static const wchar_t* const a_to_z = L"ಅಆಎಐಉ";
 
 CharGenerator* CharGenerator::getInstance()
 {
@@ -58,4 +55,9 @@ std::vector<std::vector<wchar_t>> CharGenerator::generateMatrixForChoosingAChar(
     return matrix;
 }
 
+wchar_t CharGenerator::generateAChar() {
+    int numChar = LangUtil::getInstance()->getNumberOfCharacters();
+    int randomNumber = rand() % (numChar - 1);
+    return LangUtil::getInstance()->getAllCharacters()[randomNumber];
+}
 
