@@ -29,6 +29,7 @@
 #include "alphamon/Alphamon.h"
 #include "SkeletonPosition.h"
 #include "menu/MenuContext.h"
+#include "LanguageManager.h"
 
 class GestureLayer;
 class MessageContent;
@@ -50,6 +51,8 @@ private:
     StateMachine* stateMachine;
     
     Sqlite3Helper* sqlite3Helper;
+    
+    LanguageManager* languageManger;
     
     MessageSender* messageSender;
     

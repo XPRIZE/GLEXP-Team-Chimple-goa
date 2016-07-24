@@ -16,7 +16,6 @@
 #include "ui/GUIExport.h"
 #include "cocos-ext.h"
 
-
 class SpeechBubbleView : public cocos2d::Node {
 public:
     SpeechBubbleView();

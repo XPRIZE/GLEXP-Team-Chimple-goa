@@ -328,6 +328,17 @@ bool HelloWorld::init(const std::string& island, const std::string& sceneName)
     
     FileUtils::getInstance()->addSearchPath("res/" + this->getSceneName());
     
+    //Added for testing purpose - remove later....
+    this->languageManger = LanguageManager::getInstance();
+    auto defaultStr = this->languageManger->translateString("Hello world!");
+    CCLOG("defaultStr translatedString %s", defaultStr.c_str());
+
+    
+    this->languageManger->changeLanguage(SupportedLanguages::GERMAN);
+    auto translatedString = this->languageManger->translateString("Hello world!");
+    CCLOG("translatedString %s", translatedString.c_str());
+    //testing
+    
     this->loadSqlite3FileForScene();
     
     this->initializeSafari();
@@ -403,7 +414,13 @@ void HelloWorld::registerMessageSenderAndReceiver() {
         if(this->stateMachine != nullptr) {
             delete this->stateMachine;    
         }
-
+        
+        LanguageManager::_instance = NULL;
+        
+        if(this->languageManger != nullptr) {
+            delete this->languageManger;
+        }
+        
         Sqlite3Helper::instanceFlag = false;
         Sqlite3Helper::shared = NULL;
 
@@ -463,7 +480,6 @@ void HelloWorld::processTextMessage(std::unordered_map<int, std::string> textMap
         Point touch_point = this->skeletonCharacter->convertToWorldSpace(this->skeletonCharacter->getSkeletonNode()->getPosition());
         
         SpeechBubbleView* speechBubble = SpeechBubbleView::create(textMap, Point(touch_point.x, touch_point.y + this->skeletonCharacter->getSkeletonNode()->getBoundingBox().size.height));
-        
         this->setSpeechBubbleAlreadyVisible(true);
         
         this->addChild(speechBubble, 1);
@@ -472,7 +488,6 @@ void HelloWorld::processTextMessage(std::unordered_map<int, std::string> textMap
         RPGSprite* sprite = dynamic_cast<RPGSprite *>(selectedNode);
         Point touch_point = sprite->convertToWorldSpace(sprite->getSprite()->getPosition());
         SpeechBubbleView* speechBubble = SpeechBubbleView::create(textMap, Point(touch_point.x, touch_point.y + sprite->getSprite()->getBoundingBox().size.height));
-        
         this->setSpeechBubbleAlreadyVisible(true);
         
         this->addChild(speechBubble, 1);
@@ -642,7 +657,13 @@ void HelloWorld::processMessage(std::vector<MessageContent*>*messages) {
         if(content->getAction() == "say") {
             ownerOfMessage = content->getOwner();
             assert(!ownerOfMessage.empty());
-            textMap.insert({content->getEventId(),content->getDialog()});
+            std::string translatedString = this->languageManger->translateString(content->getDialog());
+            if(!translatedString.empty()) {
+                textMap.insert({content->getEventId(),translatedString});
+            } else {
+                textMap.insert({content->getEventId(),content->getDialog()});
+            }
+            
             delete content;
         }
         else if(content->getAction() == "show") {
@@ -743,10 +764,15 @@ void HelloWorld::update(float dt) {
 
 
 void HelloWorld::moveBackGroundLayerInParallex() {
-    this->backgroundLayer->setPositionX(this->mainLayer->getPosition().x * HORIZONTAL_PARALLEX_RATIO);
-    this->backgroundLayer->setPositionY(this->mainLayer->getPosition().y * VERTICAL_PARALLEX_RATIO);
-    this->foregroundLayer->setPositionX(this->mainLayer->getPosition().x);
-    this->foregroundLayer->setPositionY(this->mainLayer->getPosition().y);
+    if(this->backgroundLayer != NULL) {
+        this->backgroundLayer->setPositionX(this->mainLayer->getPosition().x * HORIZONTAL_PARALLEX_RATIO);
+        this->backgroundLayer->setPositionY(this->mainLayer->getPosition().y * VERTICAL_PARALLEX_RATIO);
+    }
+    
+    if(this->foregroundLayer != NULL) {
+        this->foregroundLayer->setPositionX(this->mainLayer->getPosition().x);
+        this->foregroundLayer->setPositionY(this->mainLayer->getPosition().y);
+    }
 }
 
 void HelloWorld::OnGestureReceived(Ref* sender)
