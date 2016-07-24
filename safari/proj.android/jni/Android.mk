@@ -58,8 +58,8 @@ LOCAL_SRC_FILES := hellocpp/main.cpp \
 					../../Classes/lang/KannadaUtil.cpp \
                     ../../Classes/StartMenuScene.cpp \
                 	../../Classes/AlphamonSprite.cpp \
-                	../../Classes/SkeletonConfiguration.cpp \
-                	../../Classes/SkeletonPosition.cpp                                        
+                	../../Classes/SkeletonPosition.cpp  
+                	                                      
 LOCAL_C_INCLUDES := $(LOCAL_PATH)/../../Classes
 LOCAL_C_INCLUDES += $(LOCAL_PATH)/../../../extensions
 
