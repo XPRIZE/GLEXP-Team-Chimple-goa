@@ -18,7 +18,10 @@ const int Alphamon::MAX_HP = 100;
 Alphamon::Alphamon():
 _monster(nullptr),
 _hpMeter(nullptr),
-_powerMeter(nullptr){
+_powerMeter(nullptr),
+_hp(0),
+_power(0)
+{
     _listener = EventListenerTouchOneByOne::create();
     _listener->setSwallowTouches(true);
     _listener->onTouchBegan = CC_CALLBACK_2(Alphamon::onTouchBegan, this);
@@ -93,6 +96,9 @@ void Alphamon::breatheAction() {
     auto seq = Sequence::create(scaleBy, rev, NULL);
     auto forever = RepeatForever::create(seq);
     _monster->runAction(forever);
+
+    auto blinkAction = CallFunc::create(CC_CALLBACK_0(Alphamon::alphamonEyeAnimation, this, "blink", false));
+    _monster->runAction(RepeatForever::create(Sequence::create(DelayTime::create(5 + (rand() % 60) / 30.0 ), blinkAction, NULL)));
 }
 
 ActionInterval *Alphamon::shakeAction() {
@@ -122,9 +128,11 @@ void Alphamon::changeHealth(int value) {
 }
 
 void Alphamon::setPower(int value) {
-//    auto timer = ActionTween::create(1, "percent", _powerMeter->getPercent(), value);
-//    _powerMeter->runAction(timer);
-    _powerMeter->setPercent(value);
+    _power = value;
+    if(_powerMeter) {
+        auto timer = ActionTween::create(1, "percent", _powerMeter->getPercent(), value);
+        _powerMeter->runAction(timer);
+    }
 }
 
 int Alphamon::getPower() {
@@ -132,7 +140,25 @@ int Alphamon::getPower() {
 }
 
 void Alphamon::changePower(int value) {
-    setPower(_powerMeter->getPercent() + value);
+    setPower(_power + value);
+}
+
+void Alphamon::showPower() {
+    if(!_powerMeter) {
+        _powerMeter = HPMeter::createWithPercent(0);
+        _powerMeter->setRotation(-90);
+        _powerMeter->setAnchorPoint(Vec2::ANCHOR_BOTTOM_LEFT);
+        _powerMeter->setPosition(Vec2(-300, 0));
+        addChild(_powerMeter);
+        setPower(_power);
+    }
+}
+
+void Alphamon::hidePower() {
+    if(_powerMeter) {
+        removeChild(_powerMeter);
+        _powerMeter = nullptr;
+    }
 }
 
 wchar_t Alphamon::getAlphabet() {
@@ -140,11 +166,7 @@ wchar_t Alphamon::getAlphabet() {
 }
 
 void Alphamon::startMyTurn() {
-    _powerMeter = HPMeter::createWithPercent(0);
-    _powerMeter->setRotation(-90);
-    _powerMeter->setAnchorPoint(Vec2::ANCHOR_BOTTOM_LEFT);
-    _powerMeter->setPosition(Vec2(-300, 0));
-    addChild(_powerMeter);
+    setPower(0);
 }
 
 void Alphamon::endMyTurn() {
@@ -152,10 +174,7 @@ void Alphamon::endMyTurn() {
         removeChild(_drawNode);
         _drawNode = nullptr;
     }
-    if(_powerMeter) {
-        removeChild(_powerMeter);
-        _powerMeter = nullptr;
-    }
+    hidePower();
 }
 
 void Alphamon::enableTouch(bool value) {
@@ -281,4 +300,8 @@ cocos2d::Vector<cocos2d::Node*> Alphamon::getAlphamonChildren()
 
 cocos2d::Rect Alphamon::getBoundingBox() const {
     return _alphaNode->getBoundingBox();
+}
+
+cocos2d::Vec2 Alphamon::getCenterPosition() {
+    return Vec2(getPositionX(), getPositionY() + _alphaNode->getContentSize().height / 2);
 }

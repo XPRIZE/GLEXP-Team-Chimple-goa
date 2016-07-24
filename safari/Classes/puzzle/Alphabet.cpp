@@ -9,6 +9,7 @@
 #include "Alphabet.h"
 #include "../menu/MenuContext.h"
 #include "../lang/LangUtil.h"
+#include "SimpleAudioEngine.h"
 
 USING_NS_CC;
 
@@ -22,6 +23,8 @@ bool Alphabet::onTouchBegan(Touch* touch, Event* event){
     if(rect.containsPoint(n))
     {
         CCLOG("onTouchBegan %c", _alphabet);
+        auto audio = CocosDenshion::SimpleAudioEngine::getInstance();
+        audio->playEffect(LangUtil::getInstance()->getAlphabetSoundFileName(_alphabet));
         return true; // to indicate that we have consumed it.
     }
     

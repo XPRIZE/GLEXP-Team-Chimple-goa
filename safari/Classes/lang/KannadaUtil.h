@@ -17,6 +17,8 @@ public:
     virtual int getNumberOfCharacters() override;
     virtual std::string getMonsterAnimationFileName(wchar_t alpha) override;
     virtual std::string getBMFontFileName() override;
+    virtual const char* getAlphabetSoundFileName(wchar_t alpha) override;
+    virtual const char* getPhoneticSoundFileName(wchar_t alpha) override;
     virtual ~KannadaUtil();
     KannadaUtil();
 };
