@@ -23,7 +23,8 @@ interAct(""),
 fileName(""),
 defaultAnimationName(""),
 key(""),
-show("")
+show(""),
+transitToGameScene("")
 {
     this->sprite = NULL;
     this->mainSkeleton = NULL;
