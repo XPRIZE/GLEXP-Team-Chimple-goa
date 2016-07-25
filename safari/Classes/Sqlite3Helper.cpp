@@ -8,7 +8,7 @@
 
 #include "Sqlite3Helper.hpp"
 #include "cocos2d.h"
-#include "MessageContent.hpp"
+
 USING_NS_CC;
 
 
@@ -16,25 +16,23 @@ bool Sqlite3Helper::instanceFlag = false;
 Sqlite3Helper* Sqlite3Helper::shared = NULL;
 
 
-Sqlite3Helper::Sqlite3Helper(std::string connectionUrl, std::string dbName):
+Sqlite3Helper::Sqlite3Helper(std::string connectionUrl):
 dataBaseConnection(nullptr),
-connectionUrl(""),
-dbName("")
+connectionUrl("")
 {
     assert (!connectionUrl.empty());
     this->connectionUrl = connectionUrl;
-    this->dbName = dbName;
     
     this->initializeConnection();
 }
 
 
 
-Sqlite3Helper* Sqlite3Helper::getInstance(std::string connectionUrl, std::string dbName) {
+Sqlite3Helper* Sqlite3Helper::getInstance(std::string connectionUrl) {
     
     if(! instanceFlag)
     {
-        shared = new Sqlite3Helper(connectionUrl, dbName);
+        shared = new Sqlite3Helper(connectionUrl);
         instanceFlag = true;
         return shared;
     }
@@ -53,7 +51,7 @@ void Sqlite3Helper::initializeConnection() {
     CCLOG("pathToSQLConnection to database %s", pathToSQLConnection.c_str());
     
     #if (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
-        std::string dbPath = FileUtils::getInstance()->getWritablePath() + this->dbName;
+        std::string dbPath = FileUtils::getInstance()->getWritablePath() + GLOBAL_DB_NAME;
         FILE* file = fopen(dbPath.c_str(), "r");
         if (file == nullptr)
         {
@@ -357,6 +355,196 @@ std::vector<MessageContent*> Sqlite3Helper::findEventsByPreConditionEventIdInSce
     return messages;
     
 }
+
+SkeletonPosition* Sqlite3Helper::findLastVisitedSceneInIsland(const char* island, const char* sceneName) {
+    /* Create SQL statement */
+    
+    sqlite3_stmt *res;
+    int rc = 0;
+    const char* querySQL = "";
+    bool isSceneNamePresent = strlen(sceneName) != 0;
+    
+    if (!isSceneNamePresent) {
+        querySQL = "SELECT ISLAND_NAME, SCENE_NAME, X_POSITION, Y_POSITION FROM SKELETON_POSITIONS WHERE ISLAND_NAME=@island LIMIT 1";
+    } else {
+        querySQL = "SELECT ISLAND_NAME, SCENE_NAME, X_POSITION, Y_POSITION FROM SKELETON_POSITIONS WHERE ISLAND_NAME=@island AND SCENE_NAME = @sceneName LIMIT 1";
+        
+    }
+    
+    /* Execute SQL statement */
+    
+    rc = sqlite3_prepare_v2(this->dataBaseConnection, querySQL, -1, &res, 0);
+    
+    if (rc == SQLITE_OK) {
+        
+        int index = sqlite3_bind_parameter_index(res, "@island");
+        sqlite3_bind_text(res, index, island,-1, SQLITE_TRANSIENT);
+        
+        if(isSceneNamePresent) {
+            int index2 = sqlite3_bind_parameter_index(res, "@sceneName");
+            sqlite3_bind_text(res, index2, sceneName,-1, SQLITE_TRANSIENT);
+            
+        }
+        
+    } else {
+        fprintf(stderr, "Failed to execute statement: %s\n", sqlite3_errmsg(this->dataBaseConnection));
+    }
+    
+    SkeletonPosition* content = nullptr;
+    
+    while(sqlite3_step(res) == SQLITE_ROW)
+    {
+        content = new SkeletonPosition();
+        std::string islandName( reinterpret_cast< char const* >(sqlite3_column_text(res, 0))) ;
+        content->setIslandName(islandName);
+        
+        std::string sceneName( reinterpret_cast< char const* >(sqlite3_column_text(res, 1))) ;
+        content->setSceneName(sceneName);
+
+        std::string xPos( reinterpret_cast< char const* >(sqlite3_column_text(res, 2))) ;
+        content->setXPosition(xPos);
+
+        std::string yPos( reinterpret_cast< char const* >(sqlite3_column_text(res, 3))) ;
+        content->setYPosition(yPos);
+        
+        
+    }
+    sqlite3_finalize(res);
+    return content;
+}
+
+
+std::vector<SkeletonConfiguration*> Sqlite3Helper::loadSkeletonConfigurationInScene(const char* island, const char* sceneName, const char* skeletonName) {
+ 
+    /* Create SQL statement */
+    
+    sqlite3_stmt *res;
+    int rc = 0;
+    
+    const char* querySQL =  "SELECT ISLAND_NAME, SCENE_NAME, SKELETON_NAME, BONE_NAME, SKIN_NAME, IMAGE_NAME, SKIN_ANCHOR_X, SKIN_ANCHOR_Y FROM SKELETON_CONFIGURATION WHERE ISLAND_NAME = @islandName AND SCENE_NAME = @sceneName AND SKELETON_NAME = @skeletonName COLLATE NOCASE";
+    
+    
+    /* Execute SQL statement */
+    
+    rc = sqlite3_prepare_v2(this->dataBaseConnection, querySQL, -1, &res, 0);
+    
+    if (rc == SQLITE_OK) {
+        
+        int islandName_Index = sqlite3_bind_parameter_index(res, "@islandName");
+        sqlite3_bind_text(res, islandName_Index, island,-1, SQLITE_TRANSIENT);
+        
+        int sceneName_Index = sqlite3_bind_parameter_index(res, "@sceneName");
+        sqlite3_bind_text(res, sceneName_Index, sceneName,-1, SQLITE_TRANSIENT);
+        
+        
+        int skeletonName_Index = sqlite3_bind_parameter_index(res, "@skeletonName");
+        sqlite3_bind_text(res, skeletonName_Index, skeletonName,-1, SQLITE_TRANSIENT);
+        
+        
+    } else {
+        fprintf(stderr, "Failed to execute statement: %s\n", sqlite3_errmsg(this->dataBaseConnection));
+    }
+    
+    std::vector<SkeletonConfiguration*> configurations;
+    while(sqlite3_step(res) == SQLITE_ROW)
+    {
+        SkeletonConfiguration* configuration = new SkeletonConfiguration();
+        std::string islandName( reinterpret_cast< char const* >(sqlite3_column_text(res, 0))) ;
+        configuration->setIslandName(islandName);
+
+        
+        std::string sceneName( reinterpret_cast< char const* >(sqlite3_column_text(res, 1))) ;
+        configuration->setSceneName(sceneName);
+
+        std::string skeletonName( reinterpret_cast< char const* >(sqlite3_column_text(res, 2))) ;
+        configuration->setSkeletonName(skeletonName);
+
+        std::string boneName( reinterpret_cast< char const* >(sqlite3_column_text(res, 3))) ;
+        configuration->setBoneName(boneName);
+
+        std::string skinName( reinterpret_cast< char const* >(sqlite3_column_text(res, 4))) ;
+        configuration->setSkinName(skinName);
+        
+        std::string imageName( reinterpret_cast< char const* >(sqlite3_column_text(res, 5))) ;
+        configuration->setImageName(imageName);
+
+        std::string skinAnchorX( reinterpret_cast< char const* >(sqlite3_column_text(res, 6))) ;
+        configuration->setSkinAnchorX(skinAnchorX);
+
+        std::string skinAnchorY( reinterpret_cast< char const* >(sqlite3_column_text(res, 7))) ;
+        configuration->setSkinAnchorY(skinAnchorY);
+        
+        configurations.push_back(configuration);
+        
+    }
+    
+    
+    sqlite3_finalize(res);
+    
+    return configurations;
+}
+
+
+void Sqlite3Helper::insertSkinForBoneForSkeletonInScene(const char* island, const char* sceneName, const char* skeletonName, const char* boneName, const char* skinName, const char* imageName, const char* skinAnchorX, const char* skinAnchorY) {
+    
+    sqlite3_stmt *res;
+    const char* queryUpdateSQL = "UPDATE OR IGNORE SKELETON_CONFIGURATION SET SKIN_NAME=?, IMAGE_NAME = ?,SKIN_ANCHOR_X=?, SKIN_ANCHOR_Y= ? WHERE ISLAND_NAME = ? AND SCENE_NAME = ? AND SKELETON_NAME = ? AND BONE_NAME = ?";
+    
+    int rc = sqlite3_prepare(this->dataBaseConnection, queryUpdateSQL, strlen(queryUpdateSQL), &res, 0);
+    int rowsAffected = 0;
+    if( rc == SQLITE_OK ) {
+        // bind the value
+        sqlite3_bind_text(res, 1, skinName, strlen(skinName), 0);
+        sqlite3_bind_text(res, 2, imageName, strlen(imageName), 0);
+        sqlite3_bind_text(res, 3, skinAnchorX, strlen(skinAnchorX), 0);
+        sqlite3_bind_text(res, 4, skinAnchorY, strlen(skinAnchorY), 0);
+        sqlite3_bind_text(res, 5, island, strlen(island), 0);
+        sqlite3_bind_text(res, 6, sceneName, strlen(sceneName), 0);
+        sqlite3_bind_text(res, 7, skeletonName, strlen(skeletonName), 0);
+        sqlite3_bind_text(res, 8, boneName, strlen(boneName), 0);
+        
+        // commit
+        if(sqlite3_step(res) == SQLITE_DONE) {
+            rowsAffected = sqlite3_changes(this->dataBaseConnection);
+        }
+        sqlite3_finalize(res);
+        
+    }
+    else {
+        fprintf(stderr, "Failed to execute statement: %s\n", sqlite3_errmsg(this->dataBaseConnection));
+    }
+    
+    CCLOG("rowsAffected %d", rowsAffected);
+    
+    if(rowsAffected == 0) {
+        const char* queryInsertSQL = "INSERT OR IGNORE INTO SKELETON_CONFIGURATION (ISLAND_NAME, SCENE_NAME, SKELETON_NAME, BONE_NAME, SKIN_NAME, IMAGE_NAME, SKIN_ANCHOR_X, SKIN_ANCHOR_Y) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+        
+        rc = sqlite3_prepare_v2(this->dataBaseConnection, queryInsertSQL, strlen(queryInsertSQL), &res, 0);
+        
+        if( rc == SQLITE_OK ) {
+            // bind the value
+            sqlite3_bind_text(res, 1, island, strlen(island), 0);
+            sqlite3_bind_text(res, 2, sceneName, strlen(sceneName), 0);
+            sqlite3_bind_text(res, 3, skeletonName, strlen(skeletonName), 0);
+            sqlite3_bind_text(res, 4, boneName, strlen(boneName), 0);
+            sqlite3_bind_text(res, 5, skinName, strlen(skinName), 0);
+            sqlite3_bind_text(res, 6, imageName, strlen(imageName), 0);
+            sqlite3_bind_text(res, 7, skinAnchorX, strlen(skinAnchorX), 0);
+            sqlite3_bind_text(res, 8, skinAnchorY, strlen(skinAnchorY), 0);
+            
+            
+            // commit
+            sqlite3_step(res);
+            sqlite3_finalize(res);
+        }
+        else {
+            fprintf(stderr, "Failed to execute statement: %s\n", sqlite3_errmsg(this->dataBaseConnection));
+        }
+    }
+    
+}
+
+
 
 
 Sqlite3Helper::~Sqlite3Helper() {

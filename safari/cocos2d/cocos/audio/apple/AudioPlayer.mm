@@ -27,8 +27,8 @@
 
 #import <Foundation/Foundation.h>
 
-#include "AudioPlayer.h"
-#include "AudioCache.h"
+#include "audio/apple/AudioPlayer.h"
+#include "audio/apple/AudioCache.h"
 #include "platform/CCFileUtils.h"
 #import <AudioToolbox/ExtendedAudioFile.h>
 
@@ -145,7 +145,7 @@ void AudioPlayer::rotateBufferThread(int offsetFrame)
     ALint bufferProcessed = 0;
     ExtAudioFileRef extRef = nullptr;
     
-    NSString *fileFullPath = [[NSString alloc] initWithCString:_audioCache->_fileFullPath.c_str() encoding:[NSString defaultCStringEncoding]];
+    NSString *fileFullPath = [[NSString alloc] initWithCString:_audioCache->_fileFullPath.c_str() encoding:NSUTF8StringEncoding];
     auto fileURL = (CFURLRef)[[NSURL alloc] initFileURLWithPath:fileFullPath];
     [fileFullPath release];
     char* tmpBuffer = (char*)malloc(_audioCache->_queBufferBytes);

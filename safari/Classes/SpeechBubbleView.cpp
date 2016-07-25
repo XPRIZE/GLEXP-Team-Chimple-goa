@@ -35,6 +35,7 @@ SpeechBubbleView* SpeechBubbleView::create(std::unordered_map<int, std::string> 
 bool SpeechBubbleView::initialize(std::unordered_map<int, std::string> textMap, Point position) {
     int delta = 0;
     int priority = 1;
+    
     for ( auto it = textMap.begin(); it != textMap.end(); ++it ) {
         
         auto button = Button::create("Button_Normal.png", "Button_Press.png", "Button_Disable.png", ui::Widget::TextureResType::LOCAL);
@@ -50,8 +51,8 @@ bool SpeechBubbleView::initialize(std::unordered_map<int, std::string> textMap, 
         auto lbl_size = button->getTitleRenderer()->getContentSize();
         button->setContentSize(
                                Size(
-                                    lbl_size.width * 1.1f,
-                                    lbl_size.height * 1.1f
+                                    lbl_size.width * 1.5f,
+                                    lbl_size.height * 1.5f
                                     )
                                );
         
@@ -82,6 +83,16 @@ bool SpeechBubbleView::initialize(std::unordered_map<int, std::string> textMap, 
 //    listenerTouches->onTouchEnded = CC_CALLBACK_2(SpeechBubbleView::touchEnded, this);
 //    this->getEventDispatcher()->addEventListenerWithSceneGraphPriority(listenerTouches, this);
 
+    //register for custom event
+    
+    auto bubbleDestoryMessageEvent = [=] (EventCustom * event) {
+        CCLOG("Received destory bubble");
+        this->destroySpeechBubbles();
+    };
+    
+    SEND_BUBBLE_DESTROY_SIGNAL(this, RPGConfig::SEND_BUBBLE_DESTROY_NOTIFICATION, bubbleDestoryMessageEvent);
+
+    
     return true;
 }
 
@@ -99,15 +110,8 @@ void SpeechBubbleView::dialogSelected(Ref* pSender, ui::Widget::TouchEventType e
             break;
         case ui::Widget::TouchEventType::ENDED:
         {
-
-            for (std::vector<Button*>::iterator it = this->textButtons.begin() ; it != this->textButtons.end(); ++it) {
-                Button* button =  *it;
-                button->removeFromParentAndCleanup(true);
-            }
-            this->removeFromParentAndCleanup(true);
-            EVENT_DISPATCHER->dispatchCustomEvent(RPGConfig::SPEECH_BUBBLE_DESTROYED_NOTIFICATION);            
+            this->destroySpeechBubbles();
             break;
-
         }
             
         case ui::Widget::TouchEventType::CANCELED:
@@ -117,6 +121,16 @@ void SpeechBubbleView::dialogSelected(Ref* pSender, ui::Widget::TouchEventType e
     }
     
 }
+
+void SpeechBubbleView::destroySpeechBubbles() {
+    for (std::vector<Button*>::iterator it = this->textButtons.begin() ; it != this->textButtons.end(); ++it) {
+        Button* button =  *it;
+        button->removeFromParentAndCleanup(true);
+    }
+    this->removeFromParentAndCleanup(true);
+    EVENT_DISPATCHER->dispatchCustomEvent(RPGConfig::SPEECH_BUBBLE_DESTROYED_NOTIFICATION);
+}
+
 
 //bool SpeechBubbleView::onTouchBegan(Touch *touch, Event *event)
 //{

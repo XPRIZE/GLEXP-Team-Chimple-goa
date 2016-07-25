@@ -2,20 +2,24 @@
 #include <string>
 #include <unordered_map>
 #include "HelloWorldScene.h"
-#include "RPGConfig.h"
+#include "StartMenuScene.h"
 
 USING_NS_CC;
 
-Scene* HelloWorld::createScene(const std::string& sceneName, const std::string& skeletonXPos, const std::string& skeletonYPos)
+Scene* HelloWorld::createScene(const std::string& island, const std::string& sceneName)
 {
     // 'scene' is an autorelease object
     auto scene = Scene::createWithPhysics();
     
     // 'layer' is an autorelease object
-    auto layer = HelloWorld::create(sceneName, skeletonXPos, skeletonYPos);
+    auto layer = HelloWorld::create(island, sceneName);
     
     // add layer as a child to scene
     scene->addChild(layer);
+
+    layer->menuContext = MenuContext::create(layer);
+    scene->addChild(layer->menuContext);
+
     initPhysics(scene);
     
     // return the scene
@@ -23,10 +27,10 @@ Scene* HelloWorld::createScene(const std::string& sceneName, const std::string& 
     return scene;
 }
 
-HelloWorld* HelloWorld::create(const std::string& sceneName, const std::string& skeletonXPos, const std::string& skeletonYPos)
+HelloWorld* HelloWorld::create(const std::string& island, const std::string& sceneName)
 {
     HelloWorld* helloWorldLayer = new (std::nothrow) HelloWorld();
-    if(helloWorldLayer && helloWorldLayer->init(sceneName, skeletonXPos, skeletonYPos)) {
+    if(helloWorldLayer && helloWorldLayer->init(island, sceneName)) {
         helloWorldLayer->autorelease();
         return helloWorldLayer;
     }
@@ -56,15 +60,12 @@ currentTouchPoint(0,0),
 mainLayer(nullptr),
 backgroundLayer(nullptr),
 foregroundLayer(nullptr),
-baseDir(""),
-dialogFile(""),
 physicsFile(""),
-mainCharacterFile(""),
-initialMainSkeletonX(""),
-initialMainSkeletonY(""),
 sceneSize(0,0),
 island(""),
-sceneName("")
+sceneName(""),
+alphamonNodesCount(0),
+skeletonPositionInLastVisitedScene(nullptr)
 {
 }
 
@@ -72,70 +73,57 @@ HelloWorld::~HelloWorld() {
 }
 
 //TODO
-void HelloWorld::createRPGGame(const std::string& skeletonXPos, const std::string& skeletonYPos) {
-    //load scene statically for now, later load externally either using XML or JSON
+void HelloWorld::initializeSafari() {
+    
+    this->querySceneToLoadInIsland();
+    
     this->loadGameScene();
     
-    //create Main Game Character
-    CCLOG("this->getMainCharacterFile() %s", this->getMainCharacterFile().c_str());
-    if(!this->getMainCharacterFile().empty()) {
-        this->addMainCharacterToScene(this->getMainCharacterFile());
-        if(!skeletonXPos.empty() && !skeletonYPos.empty()) {
-            this->updatePositionForMainCharacter(skeletonXPos, skeletonYPos);
-        }
-        
-        this->initializeStateMachine();
-    }    
+    this->initializeStateMachine();
 }
 
-void HelloWorld::updatePositionForMainCharacter(const std::string &xPos, const std::string &yPos) {
-    if(!xPos.empty() && !yPos.empty()) {
+void HelloWorld::updatePositionAndCategoryBitMaskMainCharacter() {
+    
+    this->skeletonCharacter->getSkeletonNode()->getPhysicsBody()->setCategoryBitmask(this->mainCharacterCategoryBitMask);
+    
+    if(this->skeletonPositionInLastVisitedScene &&
+       !this->skeletonPositionInLastVisitedScene->getXPosition().empty() &&
+       !this->skeletonPositionInLastVisitedScene->getYPosition().empty()) {
         
-        float fxPos = String::create(xPos)->floatValue();
-        float fyPos = String::create(yPos)->floatValue();
-        Vec2 origin = Director::getInstance()->getVisibleOrigin();
+        float xPos = String::create(this->skeletonPositionInLastVisitedScene->getXPosition())->floatValue();
+        float yPos = String::create(this->skeletonPositionInLastVisitedScene->getYPosition())->floatValue();
+        if(xPos != 0.0f && yPos != 0.0f) {
+            this->skeletonCharacter->getSkeletonNode()->setPosition(Vec2(xPos, yPos));
+        }
         
-        this->skeletonCharacter->getSkeletonNode()->setPosition(Vec2(origin.x + fxPos, origin.y + fyPos));
     }
 }
 
 void HelloWorld::loadGameScene() {
-    std::string mainSceneName = this->getBaseDir() + "_MainScene.csb";
+    
+    std::string mainSceneName = this->getSceneName() + ".csb";
+    
     Node *rootNode = CSLoader::createNode(mainSceneName);
-    
-    //set up common database file
-    this->setDialogFile(GLOBAL_DB_NAME);
-    
-    cocostudio::ComExtensionData* rootData = (cocostudio::ComExtensionData*)rootNode->getComponent("ComExtensionData");
-    if(rootData != NULL && !rootData->getCustomProperty().empty())
-    {
-        std::unordered_map<std::string, std::string> sceneAttributes = RPGConfig::parseUserData(rootData->getCustomProperty());
-        std::unordered_map<std::string,std::string>::const_iterator it = sceneAttributes.find(DIALOG_FILE);
-        if ( it != sceneAttributes.end() ) {
-            this->setDialogFile(it->second);
-        }
-
-        it = sceneAttributes.find(PHYSICS_FILE);
-        if ( it != sceneAttributes.end() ) {
-            this->setPhysicsFile(it->second);
-        }
-        
-        it = sceneAttributes.find(MAIN_CHARACTER_FILE);
-        if ( it != sceneAttributes.end() ) {
-            this->setMainCharacterFile(it->second);
-        }
-    }
-    
     this->setSceneSize(rootNode->getContentSize());
     this->addChild(rootNode);
-    this->parseScene(rootNode);
-    this->processMainLayerChildrenForCustomEvents();
-    this->addExternalCharacters(rootNode);
+    
+    this->setPhysicsFile(this->getSceneName()+".plist");
+
+    this->setReferencesToGameLayers(rootNode);
+    
+    this->initGestureLayer();
+    
+    this->processMainLayerNonAlphamonChildrenForCustomEvents();
+    
+    this->calculateAlphamonNodesInScene(rootNode);
+    
     this->enablePhysicsBoundaries(rootNode);
+    
+    this->updatePositionAndCategoryBitMaskMainCharacter();
 }
 
 
-void HelloWorld::processMainLayerChildrenForCustomEvents() {
+void HelloWorld::processMainLayerNonAlphamonChildrenForCustomEvents() {
     assert(this->mainLayer != NULL);
     //iterate thru all children
     auto children = this->mainLayer->getChildren();
@@ -149,10 +137,39 @@ void HelloWorld::processMainLayerChildrenForCustomEvents() {
 void HelloWorld::processNodeWithCustomAttributes(Node* node, Node* parentNode) {
     cocostudio::ComExtensionData* data = (cocostudio::ComExtensionData*)node->getComponent("ComExtensionData");
     if(data != NULL && !data->getCustomProperty().empty()) {
+        
         CCLOG("found user data for child %s", node->getName().c_str());
         
-        std::unordered_map<std::string, std::string> attributes = RPGConfig::parseUserData(data->getCustomProperty());
-        this->createRPGSprite(node, attributes, parentNode);
+        std::regex pattern("\\b(alphamon)([^ ]*)");
+        
+        if(!regex_match(node->getName(), pattern)) {
+            
+            std::unordered_map<std::string, std::string> attributes = RPGConfig::parseUserData(data->getCustomProperty());
+
+            std::regex skeletonFile ("\\b(.*)_skeleton.csb");
+            std::unordered_map<std::string,std::string>::const_iterator it = attributes.find("fileName");
+            if ( it != attributes.end() ) {
+                std::string fileName(it->second);
+                if(regex_match(fileName, skeletonFile)) {
+                    //process hero node
+                    if(node->getName() == MAIN_SKELETON_KEY) {
+                        //create Hero character
+                        this->addMainCharacterToScene(fileName, node);
+                        
+                    } else  {
+                        //create external characters
+                        ExternalSkeletonCharacter* externalSkeletonCharacter = ExternalSkeletonCharacter::create(node, attributes);
+                        
+                        this->mainLayer->addChild(externalSkeletonCharacter);
+ 
+                    }
+                }
+            } else {
+                std::unordered_map<std::string, std::string> attributes = RPGConfig::parseUserData(data->getCustomProperty());
+                this->createRPGSprite(node, attributes, parentNode);
+                
+            }
+        }
     }
 }
 
@@ -160,10 +177,10 @@ void HelloWorld::createRPGSprite(Node* node, std::unordered_map<std::string, std
     node->removeFromParent();
     RPGSprite* rpgSprite = RPGSprite::create(node, attributes);
     parentNode->addChild(rpgSprite);
-    this->rpgSprites.push_back(rpgSprite);
+    
 }
 
-void HelloWorld::parseScene(cocos2d::Node *rootNode) {
+void HelloWorld::setReferencesToGameLayers(cocos2d::Node *rootNode) {
     //iterate thru all children
     auto children = rootNode->getChildren();
     
@@ -188,32 +205,51 @@ void HelloWorld::parseScene(cocos2d::Node *rootNode) {
     }
 }
 
+void HelloWorld::calculateAlphamonNodesInScene(cocos2d::Node *rootNode) {
+    assert(this->mainLayer != NULL);
+    //iterate thru all children and search for "alphamon"
+    
+    auto children = this->mainLayer->getChildren();
+    int alphamonCounter = 0;
+    for (std::vector<Node*>::iterator it = children.begin() ; it != children.end(); ++it) {
+        cocos2d::Node* node = *it;
+        std::regex pattern("\\b(alphamon)([^ ]*)");
+        if(regex_match(node->getName(), pattern)) {
+            alphamonCounter++;
+        }
+    }
+    this->setAlphamonNodesCount(alphamonCounter);
+}
 
-void HelloWorld::addExternalCharacters(cocos2d::Node *rootNode) {
-    auto children = rootNode->getChildren();
+void HelloWorld::addAlphaMonsters(char alphabet, std::string alphamonNodeName) {
+    assert(this->mainLayer != NULL);
+    //iterate thru all children and search for "alphamon"
+    
+    auto children = this->mainLayer->getChildren();
     
     for (std::vector<Node*>::iterator it = children.begin() ; it != children.end(); ++it) {
         cocos2d::Node* node = *it;
-        //based on custom data create layers
         cocostudio::ComExtensionData* data = (cocostudio::ComExtensionData*)node->getComponent("ComExtensionData");
-        if(data != NULL && dynamic_cast<cocostudio::timeline::SkeletonNode *>(node)) {
-            //remove node from parent
-            //create external skeleton character
-            node->removeFromParent();
-            std::unordered_map<std::string, std::string> attributes = RPGConfig::parseUserData(data->getCustomProperty());
+        if(node->getName() == alphamonNodeName) {
+            std::unordered_map<std::string, std::string> attributes;
             
-            ExternalSkeletonCharacter* externalSkeletonCharacter = ExternalSkeletonCharacter::create(dynamic_cast<cocostudio::timeline::SkeletonNode *>(node), attributes);
-
-            //check for memory leak ----->>>>
-            this->mainLayer->addChild(externalSkeletonCharacter);
-            this->externalSkeletons.push_back(externalSkeletonCharacter);
+            if(data != NULL && !data->getCustomProperty().empty()) {
+                CCLOG("found user data for alpha MONNNN %s", node->getName().c_str());
+                attributes = RPGConfig::parseUserData(data->getCustomProperty());
+            }
+            this->createAlphaMonSprite(node, attributes, this->mainLayer, alphabet);
         }
+
     }
 }
 
+void HelloWorld::createAlphaMonSprite(Node* node, std::unordered_map<std::string, std::string> attributes, Node* parentNode, char alphabet) {
+    AlphamonSprite* alphaMonNode = AlphamonSprite::create(node, attributes, alphabet);
+    parentNode->addChild(alphaMonNode);
+}
+
 void HelloWorld::enablePhysicsBoundaries(Node* rootNode) {
-    PhysicsShapeCache::getInstance()->addShapesWithFile(this->getBaseDir()+"/"+this->getPhysicsFile());
-    //std::regex pattern(".*(_[[:d:]?[:d:]?])+");
+    PhysicsShapeCache::getInstance()->addShapesWithFile(this->getSceneName()+"/"+this->getPhysicsFile());
     std::regex pattern(".*(_[[:d:]+]+)+");
     for (auto child : rootNode->getChildren()) {
         PhysicsShapeCache::getInstance()->setBodyOnSprite(child->getName(), (Sprite *)child);
@@ -227,7 +263,6 @@ void HelloWorld::enablePhysicsBoundaries(Node* rootNode) {
                         matchingName = matchingName.substr(0,found);                        
                     }
                     PhysicsShapeCache::getInstance()->setBodyOnSprite(matchingName, (Sprite *)subChild);
-                    CCLOG("matchingName %s and sprite %s", matchingName.c_str(), subChild->getName().c_str());
                     auto body = subChild->getPhysicsBody();
                     if(body) {
                         this->mainCharacterCategoryBitMask = this->mainCharacterCategoryBitMask | body->getCategoryBitmask();
@@ -242,43 +277,42 @@ void HelloWorld::enablePhysicsBoundaries(Node* rootNode) {
 
 void HelloWorld::initializeStateMachine() {
     this->stateMachine = StateMachine::getInstance();
-    this->stateMachine->addState(S_STANDING_STATE, skeletonCharacter);
-    this->stateMachine->addState(S_RUNNING_STATE, skeletonCharacter);
-    this->stateMachine->addState(S_JUMPING_STATE, skeletonCharacter);
-    this->stateMachine->addState(S_WALKING_STATE, skeletonCharacter);
-    this->stateMachine->addState(S_FALLING_STATE, skeletonCharacter);
+    assert(this->skeletonCharacter != NULL);
+    this->stateMachine->addState(S_STANDING_STATE, this->skeletonCharacter);
+    this->stateMachine->addState(S_RUNNING_STATE, this->skeletonCharacter);
+    this->stateMachine->addState(S_JUMPING_STATE, this->skeletonCharacter);
+    this->stateMachine->addState(S_WALKING_STATE, this->skeletonCharacter);
+    this->stateMachine->addState(S_FALLING_STATE, this->skeletonCharacter);
     
     this->stateMachine->setInitialState(S_STANDING_STATE);
+    
     this->skeletonCharacter->setStateMachine(stateMachine);
 }
 
-void HelloWorld::addMainCharacterToScene(const std::string& filename) {
+void HelloWorld::addMainCharacterToScene(const std::string& filename, cocos2d::Node* node) {
     
     //create Main Game Character
-    this->skeletonCharacter = SkeletonCharacter::create(filename);
+    this->skeletonCharacter = SkeletonCharacter::create(node, this->getIsland(), this->getSceneName(), filename, this->sqlite3Helper);
     this->mainLayer->addChild(this->skeletonCharacter);
-    this->skeletonCharacter->getSkeletonNode()->getPhysicsBody()->setCategoryBitmask(this->mainCharacterCategoryBitMask);
+
 
     auto followAction = Follow::create(this->skeletonCharacter->getSkeletonNode(), Rect(0,0,this->getSceneSize().width, this->getSceneSize().height));
     this->mainLayer->runAction(followAction);
     
-    this->showTouchSignNode = Sprite::create("touchPointer.png");
+    this->showTouchSignNode = Sprite::create(TOUCH_POINTER_IMG);
+    this->showTouchSignNode->setScale(0.5, 0.5);
     this->showTouchSignNode->setVisible(false);
-    this->mainLayer->addChild(this->showTouchSignNode);
-    
-//    auto char1 = Sprite::create("mainchar-02.png");
-//    char1->setPosition(Vec2(300, 500));
-//    this->mainLayer->addChild(char1);
+    this->mainLayer->addChild(this->showTouchSignNode);    
 }
 
 void HelloWorld::initGestureLayer() {
     gesture_layer_ = GestureLayer::create(this, callfuncO_selector(HelloWorld::OnGestureReceived));
-    this->addChild(gesture_layer_);
+    this->mainLayer->addChild(gesture_layer_);
 }
 
 
 // on "init" you need to initialize your instance
-bool HelloWorld::init(const std::string& sceneName, const std::string& skeletonXPos, const std::string& skeletonYPos)
+bool HelloWorld::init(const std::string& island, const std::string& sceneName)
 {
     //////////////////////////////
     // 1. super init first
@@ -287,41 +321,58 @@ bool HelloWorld::init(const std::string& sceneName, const std::string& skeletonX
         return false;
     }
     
-    
-    //set up current Base Dir to load resources from
-    this->setBaseDir(sceneName);
+    this->setIsland(island);
 
-    this->setIsland("camp");
-    this->setSceneName(sceneName);
+    //default sceneName should be the same as island and default search path
+    !sceneName.empty() ? this->setSceneName(sceneName) : this->setSceneName(island);
     
-    FileUtils::getInstance()->addSearchPath("res/" + this->getBaseDir());
+    FileUtils::getInstance()->addSearchPath("res/" + this->getSceneName());
     
-    this->createRPGGame(skeletonXPos, skeletonYPos);
+    //Added for testing purpose - remove later....
+    this->languageManger = LanguageManager::getInstance();
+    auto defaultStr = this->languageManger->translateString("Hello world!");
+    CCLOG("defaultStr translatedString %s", defaultStr.c_str());
+
     
-    this->initGestureLayer();
+    this->languageManger->changeLanguage(SupportedLanguages::GERMAN);
+    auto translatedString = this->languageManger->translateString("Hello world!");
+    CCLOG("translatedString %s", translatedString.c_str());
+    //testing
+    
+    this->loadSqlite3FileForScene();
+    
+    this->initializeSafari();
     
     this->registerPhysicsEventContactLister();
     
-    //load specific sqlite3 file to bind all speakers with events
+    this->registerMessageSenderAndReceiver();
     
-    if(!this->getDialogFile().empty()) {
-        this->loadSqlite3FileForScene();
+    if(this->getAlphamonNodesCount() != 0) {
+        //this->schedule(CC_SCHEDULE_SELECTOR(HelloWorld::createAlphaMons), 5.0f);
     }
     
-    this->registerMessageSenderAndReceiver();
     this->scheduleUpdate();
-    
     
     return true;
 }
 
-void HelloWorld::loadSqlite3FileForScene() {
+void HelloWorld::querySceneToLoadInIsland() {
+    this->skeletonPositionInLastVisitedScene = this->sqlite3Helper->findLastVisitedSceneInIsland(this->getIsland().c_str(), this->getSceneName().c_str());
     
-    this->sqlite3Helper = Sqlite3Helper::getInstance("res/"+this->getDialogFile(), this->getDialogFile());
+    if(this->skeletonPositionInLastVisitedScene != nullptr) {
+        this->setSceneName(this->skeletonPositionInLastVisitedScene->getSceneName());
+        FileUtils::getInstance()->addSearchPath("res/" + this->getSceneName());
+    }
+}
+
+void HelloWorld::loadSqlite3FileForScene() {
+    std::string sqlite3FileName = this->getSceneName() + ".db3";
+    String* connectionURL = String::createWithFormat("res/%s/%s", this->getSceneName().c_str(), sqlite3FileName.c_str());
+    this->sqlite3Helper = Sqlite3Helper::getInstance(connectionURL->getCString());
 }
 
 void HelloWorld::registerMessageSenderAndReceiver() {
-    this->messageSender = MessageSender::getInstance(this->sqlite3Helper);
+    this->messageSender = MessageSender::getInstance(this->sqlite3Helper, this->getSceneName());
     this->addChild(this->messageSender);
     
     this->messageReceiver = MessageReceiver::getInstance();
@@ -346,11 +397,11 @@ void HelloWorld::registerMessageSenderAndReceiver() {
     
     auto cleanUpResourcesEvent = [=] (EventCustom * event) {
         
-        //update location in database
-        const char* island = this->getIsland().c_str();
-        const char* sceneName = this->getSceneName().c_str();
-        
-        this->sqlite3Helper->recordMainCharacterPositionInScene(island, sceneName, this->skeletonCharacter->getSkeletonNode()->getPosition().x, this->skeletonCharacter->getSkeletonNode()->getPosition().y);
+//        //update location in database
+//        const char* island = this->getIsland().c_str();
+//        const char* sceneName = this->getSceneName().c_str();
+//        
+        this->sqlite3Helper->recordMainCharacterPositionInScene(this->island.c_str(), this->sceneName.c_str(), this->skeletonCharacter->getSkeletonNode()->getPosition().x, this->skeletonCharacter->getSkeletonNode()->getPosition().y);
         
         EVENT_DISPATCHER->removeCustomEventListeners("MAIN_CHARACTER_VICINITY_CHECK_NOTIFICATION");
         EVENT_DISPATCHER->removeCustomEventListeners("SPEECH_MESSAGE_ON_TAP_NOTIFICATION");
@@ -363,7 +414,13 @@ void HelloWorld::registerMessageSenderAndReceiver() {
         if(this->stateMachine != nullptr) {
             delete this->stateMachine;    
         }
-
+        
+        LanguageManager::_instance = NULL;
+        
+        if(this->languageManger != nullptr) {
+            delete this->languageManger;
+        }
+        
         Sqlite3Helper::instanceFlag = false;
         Sqlite3Helper::shared = NULL;
 
@@ -374,23 +431,30 @@ void HelloWorld::registerMessageSenderAndReceiver() {
 
     SEND_DISTACH_CLEAN_UP(this, RPGConfig::DISPATCH_CLEANUP_AND_SCENE_TRANSITION_NOTIFICATION, cleanUpResourcesEvent);
     
-    auto visibleSpriteEvent = [=] (EventCustom * event) {
-        std::string &showSprite = *(static_cast<std::string*>(event->getUserData()));
-        CCLOG("In visibleSpriteEvent %s", showSprite.c_str());
-        if(!showSprite.empty()) {
-            Node* showSpriteNode = this->mainLayer->getChildByName(showSprite);
-            RPGSprite* showRPGSpriteNode = dynamic_cast<RPGSprite *>(showSpriteNode);
-            if(showRPGSpriteNode != NULL) {
-                showRPGSpriteNode->setVisible(true);
-                if(showRPGSpriteNode->getSprite() != NULL) {
-                    showRPGSpriteNode->getSprite()->setVisible(true);
-                }
-            }
-        }
+    auto showTouchPointSign = [=] (EventCustom * event) {
+        Sprite* sprite = reinterpret_cast<Sprite*>(event->getUserData());
+        this->showTouchSignNode->setPosition(sprite->getPosition());
+        this->showTouchSignNode->setVisible(true);
+        auto scaleBy = ScaleBy::create(0.5, 1.2);
+        auto sequenceScale = Sequence::create(scaleBy, scaleBy->reverse(), nullptr);
+        auto repeatScaleAction = Repeat::create(sequenceScale, 5);
+        auto callbackStart = CallFunc::create(CC_CALLBACK_0(HelloWorld::hideTouchPointSign, this));
+        auto sequence = Sequence::create(repeatScaleAction, callbackStart, nullptr);
+        this->showTouchSignNode->runAction(sequence);
     };
-
     
-    EVENT_DISPATCHER->addEventListenerWithSceneGraphPriority(EventListenerCustom::create (RPGConfig::ON_TAP_VISIBLE_SPRITE_NOTIFICATION, visibleSpriteEvent), this);
+    SEND_SHOW_TOUCH_POINT_SIGNAL(this, RPGConfig::SEND_SHOW_TOUCH_POINT_SIGN_NOTIFICATION, showTouchPointSign);
+    
+}
+
+void HelloWorld::transitionToDuelScene(char alphabet) {
+    std::string secondParam (1,alphabet);
+    StartMenu::startScene(DUEL_SCENE_NAME, "A", secondParam);
+}
+
+
+void HelloWorld::hideTouchPointSign() {
+    this->showTouchSignNode->setVisible(false);
 }
 
 void HelloWorld::processTextMessage(std::unordered_map<int, std::string> textMap, std::string ownerOfMessage)
@@ -416,7 +480,6 @@ void HelloWorld::processTextMessage(std::unordered_map<int, std::string> textMap
         Point touch_point = this->skeletonCharacter->convertToWorldSpace(this->skeletonCharacter->getSkeletonNode()->getPosition());
         
         SpeechBubbleView* speechBubble = SpeechBubbleView::create(textMap, Point(touch_point.x, touch_point.y + this->skeletonCharacter->getSkeletonNode()->getBoundingBox().size.height));
-        
         this->setSpeechBubbleAlreadyVisible(true);
         
         this->addChild(speechBubble, 1);
@@ -425,7 +488,6 @@ void HelloWorld::processTextMessage(std::unordered_map<int, std::string> textMap
         RPGSprite* sprite = dynamic_cast<RPGSprite *>(selectedNode);
         Point touch_point = sprite->convertToWorldSpace(sprite->getSprite()->getPosition());
         SpeechBubbleView* speechBubble = SpeechBubbleView::create(textMap, Point(touch_point.x, touch_point.y + sprite->getSprite()->getBoundingBox().size.height));
-        
         this->setSpeechBubbleAlreadyVisible(true);
         
         this->addChild(speechBubble, 1);
@@ -469,6 +531,36 @@ void HelloWorld::processShowMessage(std::vector<MessageContent*>showMessages) {
     }
 }
 
+void HelloWorld::processChangeSceneMessages(std::vector<MessageContent*>changeSceneMessages) {
+    for (std::vector<MessageContent* >::iterator it = changeSceneMessages.begin() ; changeSceneMessages.size() == 1 && it != changeSceneMessages.end(); ++it)
+    {
+        MessageContent* content = (MessageContent*) *it;
+        CCLOG("content owner %s", content->getOwner().c_str());
+        
+        if(content != NULL && (content->getCondition().empty() || (!content->getCondition().empty() && content->getConditionSatisfied() == 1)))
+        {
+            Node* actor = this->mainLayer->getChildByName(content->getOwner());
+            RPGSprite* rpgActor = dynamic_cast<RPGSprite *>(actor);
+            
+            std::string nextScene = rpgActor->getNextScene();
+            
+            std::string transitToGameScene = rpgActor->getTransitToGameScene();
+            
+            if(!nextScene.empty())
+            {
+                EVENT_DISPATCHER->dispatchCustomEvent (RPGConfig::DISPATCH_CLEANUP_AND_SCENE_TRANSITION_NOTIFICATION);
+                
+                StartMenu::startScene(this->getIsland(),nextScene);
+                
+            } else if(!transitToGameScene.empty()) {
+                EVENT_DISPATCHER->dispatchCustomEvent (RPGConfig::DISPATCH_CLEANUP_AND_SCENE_TRANSITION_NOTIFICATION);
+                
+                StartMenu::startScene(transitToGameScene);                
+            }
+        }
+    }
+}
+
 void HelloWorld::processAnimationMessage(std::vector<MessageContent*>animationMessages) {
     
     //CURRENTLY only one animation supported - TBD (later extend to play multiples)
@@ -483,26 +575,30 @@ void HelloWorld::processAnimationMessage(std::vector<MessageContent*>animationMe
             auto timeline =  CSLoader::createTimeline(content->getDialog());
             Node* animationSpriteNode = this->mainLayer->getChildByName(content->getOwner());
             RPGSprite* animationNode = dynamic_cast<RPGSprite *>(animationSpriteNode);
-
             if(timeline != NULL && animationSpriteNode != NULL && animationNode != NULL )
             {
                 timeline->setLastFrameCallFunc([=]() {
                     timeline->clearLastFrameCallFunc();
-                    CCLOG("ANIMATION FINISHED PLAYING do we have next %s", animationNode->getNextScene().c_str());
                     
-                    
-                    std::string nextScene = animationNode->getNextScene();
-                    std::string posX = animationNode->getPosX();
-                    std::string posY = animationNode->getPosY();
-                    
-                    if(!nextScene.empty() && !posX.empty() && !posY.empty())
+                    if(content != NULL && (content->getCondition().empty() || (!content->getCondition().empty() && content->getConditionSatisfied() == 1)))
                     {
-                        EVENT_DISPATCHER->dispatchCustomEvent (RPGConfig::DISPATCH_CLEANUP_AND_SCENE_TRANSITION_NOTIFICATION);
-
-                        Director::getInstance()->replaceScene(TransitionFade::create(1, HelloWorld::createScene(nextScene, posX, posY), cocos2d::Color3B::WHITE));
+                        std::string nextScene = animationNode->getNextScene();
+                        std::string transitToGameScene = animationNode->getTransitToGameScene();
                         
-                    }                    
-                    
+                        if(!nextScene.empty())
+                        {
+                            
+                            EVENT_DISPATCHER->dispatchCustomEvent (RPGConfig::DISPATCH_CLEANUP_AND_SCENE_TRANSITION_NOTIFICATION);
+                            
+                            StartMenu::startScene(this->getIsland(),nextScene);
+                            
+                        } else if(!transitToGameScene.empty()) {
+                            EVENT_DISPATCHER->dispatchCustomEvent (RPGConfig::DISPATCH_CLEANUP_AND_SCENE_TRANSITION_NOTIFICATION);
+                            
+                            StartMenu::startScene(transitToGameScene);
+                            
+                        }
+                    }
                 });
 
                 Node* animationSpriteNode = this->mainLayer->getChildByName(content->getOwner());
@@ -517,7 +613,33 @@ void HelloWorld::processAnimationMessage(std::vector<MessageContent*>animationMe
                 }
             }
         }
-        delete content;
+    }
+}
+
+
+void HelloWorld::processCustomAnimationMessage(std::vector<MessageContent*>customAnimationMessages) {
+    
+    //CURRENTLY only one animation supported - TBD (later extend to play multiples)
+    this->unschedule(CC_SCHEDULE_SELECTOR(HelloWorld::createAlphaMons));
+    for (std::vector<MessageContent* >::iterator it = customAnimationMessages.begin() ; customAnimationMessages.size() == 1 && it != customAnimationMessages.end(); ++it)
+    {
+        MessageContent* content = (MessageContent*) *it;
+        //find out animation name
+        if(!content->getDialog().empty() && !content->getOwner().empty()) {
+            String* alphamonName = String::createWithFormat("sel_%s", content->getOwner().c_str());
+            Node* node = this->mainLayer->getChildByName(alphamonName->getCString());
+            AlphamonSprite* alphamonAnimationNode = dynamic_cast<AlphamonSprite *>(node);
+            if(alphamonAnimationNode) {
+                std::string animationMethod = content->getDialog();
+                Alphamon* alphamone = alphamonAnimationNode->getAlphaMon();
+                
+                if(animationMethod == "shakeAction") {
+                    auto sequence = Sequence::create(alphamone->shakeAction(), CallFunc::create(std::bind(&HelloWorld::transitionToDuelScene, this, alphamone->getAlphabet())), nullptr);
+                    alphamonAnimationNode->runAction(sequence);
+                }
+            }
+            delete content;
+        }
     }
 }
 
@@ -525,6 +647,8 @@ void HelloWorld::processMessage(std::vector<MessageContent*>*messages) {
     std::unordered_map<int, std::string> textMap;
     std::vector<MessageContent*>showMessages;
     std::vector<MessageContent*>animationMessages;
+    std::vector<MessageContent*>customAnimationMessages;
+    std::vector<MessageContent*>changeSceneMessages;
     std::string ownerOfMessage;
     
     for (std::vector<MessageContent* >::iterator it = messages->begin() ; it != messages->end(); ++it)
@@ -533,7 +657,13 @@ void HelloWorld::processMessage(std::vector<MessageContent*>*messages) {
         if(content->getAction() == "say") {
             ownerOfMessage = content->getOwner();
             assert(!ownerOfMessage.empty());
-            textMap.insert({content->getEventId(),content->getDialog()});
+            std::string translatedString = this->languageManger->translateString(content->getDialog());
+            if(!translatedString.empty()) {
+                textMap.insert({content->getEventId(),translatedString});
+            } else {
+                textMap.insert({content->getEventId(),content->getDialog()});
+            }
+            
             delete content;
         }
         else if(content->getAction() == "show") {
@@ -543,7 +673,17 @@ void HelloWorld::processMessage(std::vector<MessageContent*>*messages) {
         else if(content->getAction() == "animation") {
             ownerOfMessage = content->getOwner();
             animationMessages.push_back(content);
-        }        
+        }
+        else if(content->getAction() == "customAnimation") {
+            ownerOfMessage = content->getOwner();
+            customAnimationMessages.push_back(content);
+        }
+        else if(content->getAction() == "changeScene") {
+            ownerOfMessage = content->getOwner();
+            changeSceneMessages.push_back(content);
+        }
+
+        
     }
     
     if(!textMap.empty()) {
@@ -557,6 +697,16 @@ void HelloWorld::processMessage(std::vector<MessageContent*>*messages) {
     if(!animationMessages.empty()) {
         this->processAnimationMessage(animationMessages);
     }
+    
+    if(!customAnimationMessages.empty()) {
+        this->processCustomAnimationMessage(customAnimationMessages);
+    }
+    
+    if(!changeSceneMessages.empty()) {
+        this->processChangeSceneMessages(changeSceneMessages);
+    }
+
+    this->hideTouchPointSign();
     
 }
 
@@ -582,11 +732,14 @@ void HelloWorld::update(float dt) {
                 } else if (checkTouchRightOfCharacter(this->currentTouchPoint, this->skeletonCharacter->getSkeletonNode())) {
                     this->skeletonCharacter->getSkeletonNode()->getPhysicsBody()->setVelocity(Vec2(MAIN_CHARACTER_RUNNING_FORCE,GRAVITY_VELOCITY_TO_STICK_TO_GROUND));
                 }
-                
-                
             }
+            else if (this->skeletonCharacter->isFalling) {
+                this->stateMachine->handleInput(S_STANDING_STATE, cocos2d::Vec2(0,0));
+            }
+            
         } else {
-            if(this->skeletonCharacter->getSkeletonNode()->getPhysicsBody()->getVelocity().y <= 0 && (this->skeletonCharacter->isRunning || this->skeletonCharacter->isWalking)) {
+            if(this->skeletonCharacter->getSkeletonNode()->getPhysicsBody()->getVelocity().y <= 0 &&
+               this->skeletonCharacter->isJumping == false) {
                 this->stateMachine->handleInput(S_FALLING_STATE, cocos2d::Vec2(0,0));
             }
         }
@@ -603,25 +756,6 @@ void HelloWorld::update(float dt) {
                 
             }
         }
-        
-        bool shouldShowTouchSignNode = false;
-        
-        for (std::vector<RPGSprite*>::iterator it = this->rpgSprites.begin() ; it != this->rpgSprites.end() && !shouldShowTouchSignNode; ++it)
-        {
-            RPGSprite* rpgNode = *it;
-            if(this->checkMainSkeletonCharacterNearRPGSprite(rpgNode, this->skeletonCharacter->getSkeletonNode()->getPosition())) {
-                this->showTouchSignNode->setPosition(rpgNode->getSprite()->getPosition());
-                shouldShowTouchSignNode = true;
-            }
-            
-        }
-        
-        if(shouldShowTouchSignNode) {
-             this->showTouchSignNode->setVisible(true);
-        } else {
-            this->showTouchSignNode->setVisible(false);
-        }
-        
     }
     
     this->moveBackGroundLayerInParallex();
@@ -630,10 +764,15 @@ void HelloWorld::update(float dt) {
 
 
 void HelloWorld::moveBackGroundLayerInParallex() {
-    this->backgroundLayer->setPositionX(this->mainLayer->getPosition().x * HORIZONTAL_PARALLEX_RATIO);
-    this->backgroundLayer->setPositionY(this->mainLayer->getPosition().y * VERTICAL_PARALLEX_RATIO);
-    this->foregroundLayer->setPositionX(this->mainLayer->getPosition().x);
-    this->foregroundLayer->setPositionY(this->mainLayer->getPosition().y);
+    if(this->backgroundLayer != NULL) {
+        this->backgroundLayer->setPositionX(this->mainLayer->getPosition().x * HORIZONTAL_PARALLEX_RATIO);
+        this->backgroundLayer->setPositionY(this->mainLayer->getPosition().y * VERTICAL_PARALLEX_RATIO);
+    }
+    
+    if(this->foregroundLayer != NULL) {
+        this->foregroundLayer->setPositionX(this->mainLayer->getPosition().x);
+        this->foregroundLayer->setPositionY(this->mainLayer->getPosition().y);
+    }
 }
 
 void HelloWorld::OnGestureReceived(Ref* sender)
@@ -701,13 +840,13 @@ bool HelloWorld::checkTouchWithinBoundsOfCharacter(Point point, cocostudio::time
     return false;
 }
 
-bool HelloWorld::checkTouchVerticallyUpOnBoundsOfCharacter(Point point, cocostudio::timeline::SkeletonNode* characterNode)
+bool HelloWorld::checkTouchVerticallyUpOnBoundsOfCharacter(Point point, cocostudio::timeline::SkeletonNode* characterNode, float delta)
 {
     //find out touch Location
     Vec2 characterPosition = characterNode->getParent()->convertToWorldSpace(characterNode->getPosition());
     Rect characterBoundingRect = characterNode->getBoundingBox();
     
-    Rect boundingRectUpCharacter = Rect((characterPosition.x - characterBoundingRect.size.width/2), characterPosition.y, characterBoundingRect.size.width, (Director::getInstance()->getWinSize().height - characterPosition.y));
+    Rect boundingRectUpCharacter = Rect((characterPosition.x - characterBoundingRect.size.width/2 - delta), characterPosition.y, characterBoundingRect.size.width + 2 * delta, (Director::getInstance()->getWinSize().height - characterPosition.y));
     
     if(boundingRectUpCharacter.containsPoint(point)) {
         return true;
@@ -803,7 +942,12 @@ bool HelloWorld::checkHoldWithinSittingLimitOfCharacter(Point point, cocostudio:
 
 void HelloWorld::HoldOrDragBehaviour(Point position) {
     
-    if(this->isTapOnSpeakableOrClickableObject(position)) {
+    if(this->isTapOnInterActObject(position)) {
+        return;
+    }
+
+    if(this->getSpeechBubbleAlreadyVisible()) {
+        this->sendBubbleDestroySignal();
         return;
     }
 
@@ -846,9 +990,16 @@ void HelloWorld::HoldOrDragBehaviour(Point position) {
             this->skeletonCharacter->getSkeletonNode()->getPhysicsBody()->resetForces();
             this->skeletonCharacter->getSkeletonNode()->getPhysicsBody()->setVelocity(Vec2(0,0));
             this->flipSkeletonDirection(position, this->skeletonCharacter->getSkeletonNode());
-            this->HandleJumpWithContinueousRotation();
-            this->skeletonCharacter->isJumpingAttemptedWhileDragging = true;
-            
+
+            if(checkTouchVerticallyUpOnBoundsOfCharacter(position, this->skeletonCharacter->getSkeletonNode(), SWIPE_DELTA))
+            {
+                this->HandleJumpWithAnimation();
+                this->skeletonCharacter->isJumpingAttemptedWhileDragging = false;
+            }
+            else {
+              this->HandleJumpWithContinueousRotation();
+                this->skeletonCharacter->isJumpingAttemptedWhileDragging = true;
+            }
         }
         
     } else {
@@ -907,15 +1058,15 @@ void HelloWorld::scheduleJumpUpEndCall(float timeToStart) {
 
 
 void HelloWorld::scheduleContinuousRotationCall(float timeToStart) {
-    this->scheduleOnce(schedule_selector(HelloWorld::startContinuousRoationAnimation), timeToStart);
+    this->scheduleOnce(schedule_selector(HelloWorld::startContinuousRotationAnimation), timeToStart);
 }
 
 
 void HelloWorld::applyImpulseOnSkeletonToJumpOnHoldOrDrag(Point position) {
-    CCLOG("%s", "applyImpulseOnSkeletonToJumpOnHoldOrDrag");
+//    CCLOG("%s", "applyImpulseOnSkeletonToJumpOnHoldOrDrag");
     Vec2 characterPosition = this->skeletonCharacter->getSkeletonNode()->getParent()->convertToWorldSpace(this->skeletonCharacter->getSkeletonNode()->getPosition());
-    CCLOG("width %f", this->skeletonCharacter->getSkeletonNode()->getBoundingBox().size.width);
-    CCLOG("height %f", this->skeletonCharacter->getSkeletonNode()->getBoundingBox().size.height);
+//    CCLOG("width %f", this->skeletonCharacter->getSkeletonNode()->getBoundingBox().size.width);
+//    CCLOG("height %f", this->skeletonCharacter->getSkeletonNode()->getBoundingBox().size.height);
     float angle = RPGConfig::calcuateAngleForJump(position, characterPosition, 0.0f, 0.0f);
     float value = RPGConfig::calcuateVelocityForJump(position, characterPosition, angle, 0.0f, 0.0f);
     float timeToStart = RPGConfig::calcuateTimeToStartJumpUpAnimation(value, angle, JUMP_UP_ENDING_ANIMATION_FRAMES);
@@ -929,12 +1080,11 @@ void HelloWorld::applyImpulseOnSkeletonToJumpOnHoldOrDrag(Point position) {
 void HelloWorld::applyImpulseOnSkeletonToJumpOnTap(Point position) {
     CCLOG("%s", "applyImpulseOnSkeletonToJumpOnTap");
     Vec2 characterPosition = this->skeletonCharacter->getSkeletonNode()->getParent()->convertToWorldSpace(this->skeletonCharacter->getSkeletonNode()->getPosition());
-    CCLOG("width %f", this->skeletonCharacter->getSkeletonNode()->getBoundingBox().size.width);
-    CCLOG("height %f", this->skeletonCharacter->getSkeletonNode()->getBoundingBox().size.height);
+//    CCLOG("width %f", this->skeletonCharacter->getSkeletonNode()->getBoundingBox().size.width);
+//    CCLOG("height %f", this->skeletonCharacter->getSkeletonNode()->getBoundingBox().size.height);
 
     float angle = RPGConfig::calcuateAngleForJump(position, characterPosition, 0.0f, 0.0f);
     float value = RPGConfig::calcuateVelocityForJump(position, characterPosition, angle, 0.0f, 0.0f);
-    CCLOG("impluse on jump %f", value);
     float timeToStart = RPGConfig::calcuateTimeToStartJumpUpAnimation(value, angle, JUMP_UP_ENDING_ANIMATION_FRAMES);
     
     this->scheduleJumpUpEndCall(timeToStart);
@@ -958,68 +1108,23 @@ void HelloWorld::startJumpUpEndingAnimation(float dt) {
 }
 
 
-void HelloWorld::startContinuousRoationAnimation(float dt) {
+void HelloWorld::startContinuousRotationAnimation(float dt) {
     this->skeletonCharacter->isJumpingUp = true;
     this->skeletonCharacter->isPlayingContinousRotationWhileJumping = true;
     this->skeletonCharacter->playJumpingContinuousRotationAnimation();
 }
 
-bool HelloWorld::isTapOnSpeakableOrClickableObject(Point position) {
-    
-        if(this->getSpeechBubbleAlreadyVisible()) {
-            return false;
-        }
-    
-        bool foundNode = false;
-    
-        for (std::vector<ExternalSkeletonCharacter*>::iterator it = this->externalSkeletons.begin() ; it != this->externalSkeletons.end() && !foundNode; ++it)
-        {
-            ExternalSkeletonCharacter* eSkeleton = *it;
-            if(eSkeleton->getCanSpeak() == "true" && eSkeleton->getExternalSkeletonNode()->getBoundingBox().containsPoint(eSkeleton->getExternalSkeletonNode()->getParent()->convertToNodeSpace(position))) {
-                CCLOG("%s", "CLICKED ON Spekable External Skeleton dispatching speech message");
-                
-                if(eSkeleton->getCanSpeak() == "true") {
-                    std::string s(eSkeleton->getKey());
-                    EVENT_DISPATCHER->dispatchCustomEvent(RPGConfig::SPEECH_MESSAGE_ON_TAP_NOTIFICATION, static_cast<void*>(&s));
-                    foundNode = true;
-                    return true;
-                }
-            }
-        }
-
-        foundNode = false;
-    
-        for (std::vector<RPGSprite*>::iterator it = this->rpgSprites.begin() ; it != this->rpgSprites.end() && !foundNode; ++it)
-        {
-            RPGSprite* rpgNode = *it;
-
-            if(this->checkTapOnRPGSprite(rpgNode, position)) {
-                
-                if(rpgNode->getInterAct() == "true") {
-                    std::string s(rpgNode->getKey());
-                    EVENT_DISPATCHER->dispatchCustomEvent(RPGConfig::SPEECH_MESSAGE_ON_TAP_NOTIFICATION, static_cast<void*>(&s));
-                    foundNode = true;
-                    return true;
-                }
-                foundNode = true;
-                
-                return true;
-            }            
-        }
-
-    return false;
+void HelloWorld::sendBubbleDestroySignal() {
+    if(this->getSpeechBubbleAlreadyVisible()) {
+        CCLOG("speech bubble destory");
+        EVENT_DISPATCHER->dispatchCustomEvent(RPGConfig::SEND_BUBBLE_DESTROY_NOTIFICATION);
+    }
 }
 
-bool HelloWorld::checkMainSkeletonCharacterNearRPGSprite(RPGSprite* rpgNode, Point position) {
-    Vec2 characterPosition = this->skeletonCharacter->getSkeletonNode()->getParent()->convertToWorldSpace(this->skeletonCharacter->getSkeletonNode()->getPosition());
-
-    
-    Rect boundingBoxRect = Rect(rpgNode->getSprite()->getBoundingBox().origin.x - OBJECT_NEAR_BY_BOUNDING_BOX_WIDTH/2, rpgNode->getSprite()->getBoundingBox().origin.y - OBJECT_NEAR_BY_BOUNDING_BOX_WIDTH/2, OBJECT_NEAR_BY_BOUNDING_BOX_WIDTH, OBJECT_NEAR_BY_BOUNDING_BOX_WIDTH);
-    
-    if(rpgNode->getSprite()->isVisible() && rpgNode->getInterAct() == "true" && rpgNode->getVicinityToMainCharacter() == true && boundingBoxRect.containsPoint(this->skeletonCharacter->getSkeletonNode()->getPosition())) {
-        return true;
+bool HelloWorld::isTapOnInterActObject(Point position) {
+    if(this->getSpeechBubbleAlreadyVisible()) {
+        return false;
     }
-    
     return false;
 }
 
@@ -1037,8 +1142,13 @@ bool HelloWorld::checkTapOnRPGSprite(RPGSprite* rpgNode, Point position) {
 //Handle Tap
 void HelloWorld::HandleTap(Point position)
 {
-    if(this->isTapOnSpeakableOrClickableObject(position)) {
+    if(this->isTapOnInterActObject(position)) {
         //later launch custom event
+        return;
+    }
+    
+    if(this->getSpeechBubbleAlreadyVisible()) {
+        this->sendBubbleDestroySignal();
         return;
     }
     
@@ -1063,6 +1173,7 @@ void HelloWorld::HandleTap(Point position)
 void HelloWorld::HandlePostJumpUpAnimation() {
     this->skeletonCharacter->getSkeletonActionTimeLine()->clearLastFrameCallFunc();
     this->skeletonCharacter->getSkeletonActionTimeLine()->clearFrameEndCallFuncs();
+    this->skeletonCharacter->getSkeletonActionTimeLine()->setTimeSpeed(1.0f);
     this->applyImpulseOnSkeletonToJumpOnTap(this->currentTouchPoint);
 }
 
@@ -1070,6 +1181,7 @@ void HelloWorld::HandlePostJumpUpAnimation() {
 void HelloWorld::HandlePostJumpUpWithRotationAnimation() {
     this->skeletonCharacter->getSkeletonActionTimeLine()->clearLastFrameCallFunc();
     this->skeletonCharacter->getSkeletonActionTimeLine()->clearFrameEndCallFuncs();
+    this->skeletonCharacter->getSkeletonActionTimeLine()->setTimeSpeed(1.0);
     this->applyImpulseOnSkeletonToJumpOnHoldOrDrag(this->currentTouchPoint);
 }
 
@@ -1105,7 +1217,7 @@ void HelloWorld::HandleSwipeUp(Point position) {
     
     CCLOG("%s", "Handle Drag Up!!!");
     
-    if(checkTouchVerticallyUpOnBoundsOfCharacter(position, this->skeletonCharacter->getSkeletonNode()))
+    if(checkTouchVerticallyUpOnBoundsOfCharacter(position, this->skeletonCharacter->getSkeletonNode(), 0.0f))
     {
         stateMachine->handleInput(S_JUMPING_STATE, Vec2(0, MAIN_CHARACTER_VERTICAL_IMPULSE));
     }
@@ -1141,6 +1253,7 @@ void HelloWorld::HandleSwipeLeft(Point position) {
     //CCLOG("%s", "Handle Drag Left!!!");
     
     this->HoldOrDragBehaviour(position);
+    
 }
 
 void HelloWorld::HandleTouchedEnded(Point position) {
@@ -1161,11 +1274,17 @@ void HelloWorld::HandleTouchedEnded(Point position) {
             this->skeletonCharacter->getSkeletonNode()->getPhysicsBody()->resetForces();
             this->skeletonCharacter->getSkeletonNode()->getPhysicsBody()->setVelocity(Vec2(0,0));
             
+        } else if(this->skeletonCharacter->getSkeletonInContactWithGround()) {
+            this->skeletonCharacter->isWalking = false;
+            this->skeletonCharacter->isRunning = false;
+            this->stateMachine->handleInput(S_STANDING_STATE, cocos2d::Vec2(0,0));
+        } else {
+            this->skeletonCharacter->isWalking = false;
+            this->skeletonCharacter->isRunning = false;
+            this->stateMachine->handleInput(S_FALLING_STATE, cocos2d::Vec2(0,0));
+
         }
         
-        this->skeletonCharacter->isWalking = false;
-        this->skeletonCharacter->isRunning = false;
-        this->stateMachine->handleInput(S_STANDING_STATE, cocos2d::Vec2(0,0));
     }
 }
 
@@ -1216,28 +1335,21 @@ bool HelloWorld::handlePhysicsContactEventForMainCharacter(PhysicsContact &conta
             {
                 //made contact with ground - assumption this point
                 if(this->skeletonCharacter->isJumpingAttemptedWhileDragging && this->skeletonCharacter->isPlayingContinousRotationWhileJumping) {
-                    //CCLOG("%s", "contact began after jump => while dragging");
                     
-                    //                    this->getSkeletonActionTimeLine()->setTimeSpeed(2.0f);
-                    //                    std::function<void(void)> jumpEndingAnimation = std::bind(&SkeletonCharacter::HandlePostJumpDownEndingAnimation, this);
-                    //
-                    //                    this->getSkeletonActionTimeLine()->setAnimationEndCallFunc(ROTATE_SKELETON, jumpEndingAnimation);
+                    this->skeletonCharacter->getSkeletonActionTimeLine()->setTimeSpeed(4.0f);
                     
-                    this->skeletonCharacter->getSkeletonActionTimeLine()->play(ROTATE_SKELETON, false);
+                     std::function<void(void)> jumpEndingAnimation = std::bind(&SkeletonCharacter::HandlePostJumpDownEndingAnimation, this->skeletonCharacter);
                     
-                    this->skeletonCharacter->isPlayingContinousRotationWhileJumping = false;
+                     this->skeletonCharacter->getSkeletonActionTimeLine()->setAnimationEndCallFunc(ROLL_SKELETON, jumpEndingAnimation);
                     
-                    this->stateMachine->handleInput(S_STANDING_STATE, cocos2d::Vec2(0,0));
-                    this->skeletonCharacter->isRunning = false;
-                    this->skeletonCharacter->isWalking = false;
-                    
+                    this->skeletonCharacter->getSkeletonActionTimeLine()->play(ROLL_SKELETON, false);
                     
                 } else {
                     //CCLOG("%s", "contact began after jump => NOOOOOOO dragging");
                     std::function<void(void)> jumpEndingAnimation = std::bind(&SkeletonCharacter::HandlePostJumpDownEndingAnimation, this->skeletonCharacter);
                     
-                    this->skeletonCharacter->getSkeletonActionTimeLine()->setAnimationEndCallFunc(JUMP_END, jumpEndingAnimation);
-                    this->skeletonCharacter->getSkeletonActionTimeLine()->play(JUMP_END, false);
+                    this->skeletonCharacter->getSkeletonActionTimeLine()->setAnimationEndCallFunc(JUMP_FINISHED, jumpEndingAnimation);
+                    this->skeletonCharacter->getSkeletonActionTimeLine()->play(JUMP_FINISHED, false);
                 }
             }
         }
@@ -1324,4 +1436,15 @@ void HelloWorld::onExitTransitionDidStart() {
 void HelloWorld::onEnterTransitionDidFinish() {
     Node::onEnterTransitionDidFinish();
     CCLOG("onEnterTransitionDidFinish");
+}
+
+void HelloWorld::createAlphaMons(float dt) {
+        int randomNumber = 1 + ( std::rand() % ( this->getAlphamonNodesCount()) );
+        std::string alphamonNodeName = StringUtils::format("%s_%d", "alphamon", randomNumber);
+        
+        //Generate random char
+        const char* const a_to_z = "BCDEFGHIJKLMNOPQRSTUVWXYZ" ;
+        int randomChar = rand() % 24;
+        char generatedChar = a_to_z[randomChar];
+        this->addAlphaMonsters(generatedChar, alphamonNodeName);
 }

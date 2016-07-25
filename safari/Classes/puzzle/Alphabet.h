@@ -13,24 +13,25 @@
 class Alphabet : public cocos2d::Label
 {
 public:
-    static Alphabet *createWithSize(char alphabet, float fontSize);
+    static Alphabet *createWithSize(wchar_t alphabet, float fontSize);
     bool isSelected();
     void selected(bool value);
-    char getChar();
+    wchar_t getChar();
     void enableTouch(bool value);
     
 CC_CONSTRUCTOR_ACCESS:
     Alphabet();
     virtual ~Alphabet();
-    bool initWithSize(char alphabet, float fontSize);
+    bool initWithSize(wchar_t alphabet, float fontSize);
     bool onTouchBegan(cocos2d::Touch* touch, cocos2d::Event* event);
     bool onTouchEnded(cocos2d::Touch* touch, cocos2d::Event* event);
     
 protected:
-    char _alphabet;
+    wchar_t _alphabet;
     bool _selected;
     float _fontSize;
     cocos2d::EventListenerTouchOneByOne *_listener;
+    constexpr static const float MAX_FONT_SIZE = 800.0;
 };
 
 #endif /* Alphabet_h */

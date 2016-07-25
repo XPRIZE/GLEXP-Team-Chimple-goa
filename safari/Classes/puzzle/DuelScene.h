@@ -12,21 +12,22 @@
 #include "cocos2d.h"
 #include "../alphamon/Alphamon.h"
 #include "../alphamon/HPMeter.h"
+#include "../menu/MenuContext.h"
 #include "AlphabetGrid.h"
 
 class DuelScene : public cocos2d::Node
 {
 public:
-    static cocos2d::Scene* createScene(char myMonChar, char otherMonChar);
+    static cocos2d::Scene* createScene(wchar_t myMonChar, wchar_t otherMonChar);
 
-    static DuelScene *create(char myMonChar, char otherMonChar);
+    static DuelScene *create(wchar_t myMonChar, wchar_t otherMonChar);
     virtual void onAlphabetSelected(cocos2d::EventCustom *eventCustom);
     virtual void onAlphabetUnselected(cocos2d::EventCustom *eventCustom);
     
 CC_CONSTRUCTOR_ACCESS:
     DuelScene();
     ~DuelScene();
-    bool init(char myMonChar, char otherMonChar);
+    bool init(wchar_t myMonChar, wchar_t otherMonChar);
     
 protected:
     Alphamon *_myMon;
@@ -35,6 +36,7 @@ protected:
     AlphabetGrid *_grid;
     int _powerIncr;
     int _turnNumber;
+    MenuContext* _menuContext;
     
     // a selector callback
     void menuCloseCallback(cocos2d::Ref *pSender);
@@ -50,17 +52,15 @@ protected:
     void gameOver();
     void returnToPrevScene();
 
-private:
+    static const std::string BG_NAME;
     static const std::string PANEL_NAME;
-    static const std::string SLIDER_NAME;
+    static const std::string SLIDER_BG_NAME;
     static const std::string LEFT_STAND_NAME;
     static const std::string RIGHT_STAND_NAME;
-    static const int MAX_POINTS_PER_TURN;
+    static const int MAX_POINTS_PER_TURN = 20;
     static const int MAX_ROWS = 4;
     static const int MAX_COLS = 12;
     constexpr static const GLfloat SQUARE_WIDTH = 200.0;
-    
-    
 };
 
 #endif /* DuelScene_h */

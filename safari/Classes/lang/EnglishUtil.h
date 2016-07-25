@@ -1,0 +1,26 @@
+//
+//  EnglishUtil.h
+//  safari
+//
+//  Created by Srikanth Talapadi on 23/07/16.
+//
+//
+
+#ifndef EnglishUtil_h
+#define EnglishUtil_h
+
+#include "LangUtil.h"
+
+class EnglishUtil : public LangUtil {
+public:
+    virtual const wchar_t* getAllCharacters() override;
+    virtual int getNumberOfCharacters() override;
+    virtual std::string getMonsterAnimationFileName(wchar_t alpha) override;
+    virtual std::string getBMFontFileName() override;
+    virtual const char* getAlphabetSoundFileName(wchar_t alpha) override;
+    virtual const char* getPhoneticSoundFileName(wchar_t alpha) override;
+    virtual ~EnglishUtil();
+    EnglishUtil();
+};
+
+#endif /* EnglishUtil_h */

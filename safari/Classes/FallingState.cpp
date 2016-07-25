@@ -16,7 +16,7 @@ void FallingState::enter(cocos2d::Vec2 forceVector, SkeletonCharacterState previ
     CCLOG("%s", "Enter Falling State on object");
     assert (this->getTarget() != NULL);
     assert (this->getTarget()->getSkeletonNode() != NULL);
-    
+    this->getTarget()->isFalling = true;
     this->getTarget()->isWalking = false;
     this->getTarget()->isRunning = false;
     this->getTarget()->isJumpingAttemptedWhileDragging = false;
@@ -24,11 +24,13 @@ void FallingState::enter(cocos2d::Vec2 forceVector, SkeletonCharacterState previ
     
     assert (this->getTarget()->getSkeletonActionTimeLine() != NULL);
     
-    this->getTarget()->getSkeletonActionTimeLine()->play("idle", true);
+    this->getTarget()->changeSkinForBone("mouth", "hero/mouth/o.png");
+    this->getTarget()->getSkeletonActionTimeLine()->play(JUMP_END, false);
 }
 
 void FallingState::exit()  {
     CCLOG("%s", "Exit Falling State");
+    this->getTarget()->isFalling = false;
 }
 
 SkeletonCharacterState FallingState::handleInput(SkeletonCharacterState command)  {

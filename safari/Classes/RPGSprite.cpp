@@ -9,11 +9,22 @@
 #include "RPGSprite.h"
 #include "RPGConfig.h"
 #include "SkeletonCharacter.h"
-#include "HelloWorldScene.h"
 
 USING_NS_CC;
 
-RPGSprite::RPGSprite() {
+RPGSprite::RPGSprite():
+shouldSendShowTouchSign(false),
+showTouchSignNotificationSent(false),
+vicinityToMainCharacter(false),
+posX(""),
+posY(""),
+nextScene(""),
+interAct(""),
+fileName(""),
+defaultAnimationName(""),
+key(""),
+show("")
+{
     this->sprite = NULL;
     this->mainSkeleton = NULL;
 }
@@ -38,13 +49,25 @@ RPGSprite* RPGSprite::create(cocos2d::Node* sprite, std::unordered_map<std::stri
 
 bool RPGSprite::initialize(cocos2d::Node* sprite, std::unordered_map<std::string,std::string> attributes) {
     this->sprite = sprite;
+    this->setName(sprite->getName());
     this->setAttributes(attributes);
     this->addChild(this->sprite);
     
+    auto listenerTouches = EventListenerTouchOneByOne::create();
+    listenerTouches->setSwallowTouches(true);
+    listenerTouches->onTouchBegan = CC_CALLBACK_2(RPGSprite::onTouchBegan, this);
+    listenerTouches->onTouchEnded = CC_CALLBACK_2(RPGSprite::touchEnded, this);
+    this->getEventDispatcher()->addEventListenerWithSceneGraphPriority(listenerTouches, this);
     
     auto checkVicinityWithMainCharacter = [=] (EventCustom * event) {
         this->mainSkeleton = static_cast<SkeletonCharacter*>(event->getUserData());
         this->checkVicinityToMainSkeleton(this->mainSkeleton);
+        
+        if(this->getVicinityToMainCharacter() && !this->getShowTouchSignNotificationSent()) {
+            this->setShowTouchSignNotificationSent(true);
+            EVENT_DISPATCHER->dispatchCustomEvent(RPGConfig::SEND_SHOW_TOUCH_POINT_SIGN_NOTIFICATION, static_cast<void*>(this->getSprite()));
+            
+        }
     };
     
     ADD_VICINITY_NOTIFICATION(this, RPGConfig::MAIN_CHARACTER_VICINITY_CHECK_NOTIFICATION, checkVicinityWithMainCharacter);
@@ -68,12 +91,6 @@ void RPGSprite::setAttributes(std::unordered_map<std::string, std::string> attri
         this->setFileName(it->second);
     }
     
-    it = this->attributes.find("key");
-    if ( it != this->attributes.end() ) {
-        this->setKey(it->second);
-        this->setName(it->second);
-    }
-    
     it = this->attributes.find("canInteract");
     if ( it != this->attributes.end() ) {
         this->setInterAct(it->second);
@@ -93,6 +110,16 @@ void RPGSprite::setAttributes(std::unordered_map<std::string, std::string> attri
     it = this->attributes.find("posY");
     if ( it != this->attributes.end() ) {
         this->setPosY(it->second);
+    }
+    
+    it = this->attributes.find("key");
+    if ( it != this->attributes.end() ) {
+        this->setKey(it->second);
+    }
+
+    it = this->attributes.find("transitToGameScene");
+    if ( it != this->attributes.end() ) {
+        this->setTransitToGameScene(it->second);
     }
 }
 
@@ -124,6 +151,15 @@ bool RPGSprite::checkVicinityToMainSkeleton(SkeletonCharacter* skeletonCharacter
         isNear = false;
     }
 
+    
+    if((distanceFromTop >= -OBJECT_NEAR_BY_BOUNDING_BOX_WIDTH && distanceFromTop <= OBJECT_NEAR_BY_BOUNDING_BOX_WIDTH) || (distanceFromBottom >= -OBJECT_NEAR_BY_BOUNDING_BOX_WIDTH && distanceFromBottom <= OBJECT_NEAR_BY_BOUNDING_BOX_WIDTH)) {
+        this->setShouldSendShowTouchSign(true);
+        
+    } else {
+        this->setShouldSendShowTouchSign(false);
+        this->setShowTouchSignNotificationSent(false);
+    }
+
 
     return isNear;
 
@@ -131,4 +167,40 @@ bool RPGSprite::checkVicinityToMainSkeleton(SkeletonCharacter* skeletonCharacter
 
 SkeletonCharacter* RPGSprite::getMainSkeleton() {
     return this->mainSkeleton;
+}
+
+
+bool RPGSprite::onTouchBegan(Touch *touch, Event *event)
+{
+    auto n = this->convertTouchToNodeSpace(touch);
+    Rect boundingBoxRect = Rect::ZERO;
+    
+    if(this->getSprite()->getBoundingBox().size.width == 0 && this->getSprite()->getBoundingBox().size.height == 0)
+    {
+        if(this->getSprite()->getChildren().size() == 1) {
+            n = this->getSprite()->convertTouchToNodeSpace(touch);
+            boundingBoxRect = this->getSprite()->getChildren().at(0)->getBoundingBox();
+        }
+    } else {
+        boundingBoxRect = this->getSprite()->getBoundingBox();
+    }
+    
+    
+    this->getVicinityToMainCharacter();
+//    
+//    
+//    Rect boundingBoxRect = Rect(this->getSprite()->getBoundingBox().origin.x, this->getSprite()->getBoundingBox().origin.y, this->getSprite()->getBoundingBox().size.width == 0 ? OBJECT_TAP_BOUNDING_BOX_WIDTH : this->getSprite()->getBoundingBox().size.width, this->getSprite()->getBoundingBox().size.height == 0 ? OBJECT_TAP_BOUNDING_BOX_WIDTH : this->getSprite()->getBoundingBox().size.height);
+//    
+    if(this->getSprite()->isVisible() && this->getInterAct() == "true" && this->getVicinityToMainCharacter() == true && boundingBoxRect.containsPoint(n)) {
+        return true;
+    }
+    
+    return false;
+}
+
+void RPGSprite::touchEnded(Touch *touch, Event *event)
+{
+    std::string s(!this->getKey().empty() ? this->getKey() : this->getName());
+    EVENT_DISPATCHER->dispatchCustomEvent(RPGConfig::SPEECH_MESSAGE_ON_TAP_NOTIFICATION, static_cast<void*>(&s));
+
 }

@@ -9,30 +9,60 @@
                 <key>aliases</key>
                 <array/>
                 <key>spriteOffset</key>
-                <string>{0,-5}</string>
+                <string>{0,0}</string>
                 <key>spriteSize</key>
-                <string>{3248,106}</string>
+                <string>{3248,116}</string>
                 <key>spriteSourceSize</key>
                 <string>{3248,116}</string>
                 <key>textureRect</key>
-                <string>{{0,0},{3248,106}}</string>
+                <string>{{1,1},{3248,116}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>smash_de_rock/boxing gloves.png</key>
+            <key>smash_de_rock/boxing_gloves.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
                 <key>spriteOffset</key>
-                <string>{9,-4}</string>
+                <string>{0,0}</string>
                 <key>spriteSize</key>
-                <string>{442,466}</string>
+                <string>{460,474}</string>
                 <key>spriteSourceSize</key>
                 <string>{460,474}</string>
                 <key>textureRect</key>
-                <string>{{2432,1503},{442,466}}</string>
+                <string>{{2059,933},{460,474}}</string>
                 <key>textureRotated</key>
-                <true/>
+                <false/>
+            </dict>
+            <key>smash_de_rock/broken_01.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{214,89}</string>
+                <key>spriteSourceSize</key>
+                <string>{214,89}</string>
+                <key>textureRect</key>
+                <string>{{3254,16},{214,89}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+            <key>smash_de_rock/broken_02.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{253,90}</string>
+                <key>spriteSourceSize</key>
+                <string>{253,90}</string>
+                <key>textureRect</key>
+                <string>{{2059,1843},{253,90}}</string>
+                <key>textureRotated</key>
+                <false/>
             </dict>
             <key>smash_de_rock/brush.png</key>
             <dict>
@@ -45,24 +75,24 @@
                 <key>spriteSourceSize</key>
                 <string>{798,110}</string>
                 <key>textureRect</key>
-                <string>{{2218,912},{798,110}}</string>
+                <string>{{2477,1524},{798,110}}</string>
                 <key>textureRotated</key>
-                <true/>
+                <false/>
             </dict>
             <key>smash_de_rock/brushcolor.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
                 <key>spriteOffset</key>
-                <string>{0,-2}</string>
+                <string>{0,0}</string>
                 <key>spriteSize</key>
-                <string>{798,104}</string>
+                <string>{798,110}</string>
                 <key>spriteSourceSize</key>
                 <string>{798,110}</string>
                 <key>textureRect</key>
-                <string>{{2328,912},{798,104}}</string>
+                <string>{{2477,1639},{798,110}}</string>
                 <key>textureRotated</key>
-                <true/>
+                <false/>
             </dict>
             <key>smash_de_rock/cracktexture_00.png</key>
             <dict>
@@ -75,7 +105,7 @@
                 <key>spriteSourceSize</key>
                 <string>{1024,1024}</string>
                 <key>textureRect</key>
-                <string>{{0,912},{1024,1024}}</string>
+                <string>{{1,933},{1024,1024}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
@@ -90,7 +120,7 @@
                 <key>spriteSourceSize</key>
                 <string>{1024,1024}</string>
                 <key>textureRect</key>
-                <string>{{1024,912},{1024,1024}}</string>
+                <string>{{1030,933},{1024,1024}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
@@ -105,7 +135,7 @@
                 <key>spriteSourceSize</key>
                 <string>{1049,150}</string>
                 <key>textureRect</key>
-                <string>{{3887,0},{1049,150}}</string>
+                <string>{{3898,751},{1049,150}}</string>
                 <key>textureRotated</key>
                 <true/>
             </dict>
@@ -120,7 +150,7 @@
                 <key>spriteSourceSize</key>
                 <string>{1353,1397}</string>
                 <key>textureRect</key>
-                <string>{{2534,106},{1353,1397}}</string>
+                <string>{{2540,122},{1353,1397}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
@@ -135,9 +165,9 @@
                 <key>spriteSourceSize</key>
                 <string>{177,182}</string>
                 <key>textureRect</key>
-                <string>{{3720,1705},{177,182}}</string>
+                <string>{{3711,1524},{177,182}}</string>
                 <key>textureRotated</key>
-                <false/>
+                <true/>
             </dict>
             <key>smash_de_rock/letter_normal.png</key>
             <dict>
@@ -150,9 +180,9 @@
                 <key>spriteSourceSize</key>
                 <string>{177,182}</string>
                 <key>textureRect</key>
-                <string>{{2048,1710},{177,182}}</string>
+                <string>{{3711,1706},{177,182}}</string>
                 <key>textureRotated</key>
-                <false/>
+                <true/>
             </dict>
             <key>smash_de_rock/letter_wrong.png</key>
             <dict>
@@ -165,9 +195,9 @@
                 <key>spriteSourceSize</key>
                 <string>{200,202}</string>
                 <key>textureRect</key>
-                <string>{{3720,1503},{200,202}}</string>
+                <string>{{2477,1754},{200,202}}</string>
                 <key>textureRotated</key>
-                <false/>
+                <true/>
             </dict>
             <key>smash_de_rock/letterboard.png</key>
             <dict>
@@ -180,7 +210,7 @@
                 <key>spriteSourceSize</key>
                 <string>{2534,806}</string>
                 <key>textureRect</key>
-                <string>{{0,106},{2534,806}}</string>
+                <string>{{1,122},{2534,806}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
@@ -191,11 +221,11 @@
                 <key>spriteOffset</key>
                 <string>{0,0}</string>
                 <key>spriteSize</key>
-                <string>{745,170}</string>
+                <string>{745,172}</string>
                 <key>spriteSourceSize</key>
                 <string>{745,172}</string>
                 <key>textureRect</key>
-                <string>{{2048,912},{745,170}}</string>
+                <string>{{3898,1},{745,172}}</string>
                 <key>textureRotated</key>
                 <true/>
             </dict>
@@ -206,11 +236,11 @@
                 <key>spriteOffset</key>
                 <string>{0,0}</string>
                 <key>spriteSize</key>
-                <string>{411,426}</string>
+                <string>{413,426}</string>
                 <key>spriteSourceSize</key>
                 <string>{413,426}</string>
                 <key>textureRect</key>
-                <string>{{2898,1503},{411,426}}</string>
+                <string>{{2059,1412},{413,426}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
@@ -219,15 +249,30 @@
                 <key>aliases</key>
                 <array/>
                 <key>spriteOffset</key>
-                <string>{0,8}</string>
+                <string>{0,0}</string>
                 <key>spriteSize</key>
-                <string>{411,410}</string>
+                <string>{413,426}</string>
                 <key>spriteSourceSize</key>
                 <string>{413,426}</string>
                 <key>textureRect</key>
-                <string>{{3309,1503},{411,410}}</string>
+                <string>{{3280,1524},{413,426}}</string>
                 <key>textureRotated</key>
-                <false/>
+                <true/>
+            </dict>
+            <key>smash_de_rock/white.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{10,500}</string>
+                <key>spriteSourceSize</key>
+                <string>{10,500}</string>
+                <key>textureRect</key>
+                <string>{{3254,1},{10,500}}</string>
+                <key>textureRotated</key>
+                <true/>
             </dict>
         </dict>
         <key>metadata</key>
@@ -241,9 +286,9 @@
             <key>realTextureFileName</key>
             <string>smashderock_01.png</string>
             <key>size</key>
-            <string>{4037,1945}</string>
+            <string>{4071,1958}</string>
             <key>smartupdate</key>
-            <string>$TexturePacker:SmartUpdate:c253e16ebca9d05f590aade3b957bfbf:392f9f68cf6520bcc6a93b7bf425b14e:e76ffe27229e2bee7afbc36b6228d966$</string>
+            <string>$TexturePacker:SmartUpdate:55ddf16c3752f443f66891da3d0e6f2d:55b2739ec2623b94d0cce406ba95d8f0:e76ffe27229e2bee7afbc36b6228d966$</string>
             <key>textureFileName</key>
             <string>smashderock_01.png</string>
         </dict>

@@ -41,6 +41,8 @@ public:
     
     CC_SYNTHESIZE(std::string, posY, PosY);
     
+    CC_SYNTHESIZE(std::string, transitToGameScene, TransitToGameScene);
+    
     CC_SYNTHESIZE(std::string, nextScene, NextScene);
         
     CC_SYNTHESIZE(std::string, interAct, InterAct);
@@ -55,11 +57,22 @@ public:
     
     CC_SYNTHESIZE(bool, vicinityToMainCharacter, VicinityToMainCharacter);
     
+    CC_SYNTHESIZE(bool, shouldSendShowTouchSign, ShouldSendShowTouchSign);
+    
+    CC_SYNTHESIZE(bool, showTouchSignNotificationSent, ShowTouchSignNotificationSent);
+    
     virtual void update(float dt);
         
     virtual bool checkVicinityToMainSkeleton(SkeletonCharacter* skeletonCharacter);
     
     virtual SkeletonCharacter* getMainSkeleton();
+
+    
+    virtual bool onTouchBegan(cocos2d::Touch * touch, cocos2d::Event* event);
+    
+    virtual void touchEnded(cocos2d::Touch* touch, cocos2d::Event* event);
+    
+
     
 protected:
     cocos2d::Node* sprite;

@@ -13,7 +13,8 @@ USING_NS_CC;
 
 AlphabetGrid::AlphabetGrid() :
 _alphabetLayer(nullptr),
-_labelLayer(nullptr)
+_labelLayer(nullptr),
+_alphabetMatrix(NULL)
 {
 }
 
@@ -54,6 +55,7 @@ void AlphabetGrid::resize(GLfloat width, GLfloat height, int numRows, int numCol
     _alphabetLayer = Node::create();
     addChild(_alphabetLayer);
     
+    _alphabetMatrix.clear();
     _alphabetMatrix.resize(numRows, std::vector<Alphabet *>(numCols));
     
     const float squareWidth = width / numCols;
@@ -67,21 +69,23 @@ void AlphabetGrid::resize(GLfloat width, GLfloat height, int numRows, int numCol
     }
 }
 
-void AlphabetGrid::setCharacters(std::vector<std::vector<char> > charArray) {
+void AlphabetGrid::setCharacters(std::vector<std::vector<wchar_t> > charArray) {
     _alphabetLayer->removeAllChildren();
     const float squareWidth = _width / _numCols;
     const float squareHeight = _height / _numRows;
     for (int i = 0; i < _numRows; i++) {
         for (int j = 0; j < _numCols; j++) {
-            auto alphabet = Alphabet::createWithSize(charArray.at(i).at(j), squareWidth);
+            const float maxWidth = 600.0; //somehow OPENGL exception if more than this
+            auto alphabet = Alphabet::createWithSize(charArray.at(i).at(j), std::min(squareWidth, maxWidth));
             alphabet->setPosition(Vec2(j * squareWidth + squareWidth/2, i * squareHeight + squareHeight/2));
             _alphabetLayer->addChild(alphabet, 1);
-            _alphabetMatrix[i][j] = alphabet;
+            auto a = _alphabetMatrix[i];
+            _alphabetMatrix.at(i).at(j) = alphabet;
         }
     }    
 }
 
-std::vector<Alphabet *> AlphabetGrid::getAlphabetsWhichMatch(char a) {
+std::vector<Alphabet *> AlphabetGrid::getAlphabetsWhichMatch(wchar_t a) {
     std::vector<Alphabet *> matchingAlphabets = std::vector<Alphabet *>();
     for (int i = 0; i < _numRows; i++) {
         for (int j = 0; j < _numCols; j++) {
@@ -95,7 +99,7 @@ std::vector<Alphabet *> AlphabetGrid::getAlphabetsWhichMatch(char a) {
     return matchingAlphabets;
 }
 
-int AlphabetGrid::getCountOfAlphabetsWhichMatch(char a) {
+int AlphabetGrid::getCountOfAlphabetsWhichMatch(wchar_t a) {
     int count = 0;
     for (int i = 0; i < _numRows; i++) {
         for (int j = 0; j < _numCols; j++) {

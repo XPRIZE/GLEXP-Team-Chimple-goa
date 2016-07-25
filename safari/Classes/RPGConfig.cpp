@@ -12,8 +12,11 @@
 
 USING_NS_CC;
 
-Size RPGConfig::screenSize = cocos2d::Size::ZERO;
-int RPGConfig::externalSkeletonMoveDelta = -2.5f;
+Size RPGConfig::screenSize = Director::getInstance()->getWinSize();
+int RPGConfig::externalSkeletonMoveDelta = 0.0f;
+
+const std::map<std::string, std::map<std::string, std::map<std::string, std::string>>>  RPGConfig::skeletonConfigs = RPGConfig::createSkeletonConfigsAtLoad();
+
 
 const char* RPGConfig::MAIN_CHARACTER_VICINITY_CHECK_NOTIFICATION = "MAIN_CHARACTER_VICINITY_CHECK_NOTIFICATION";
 
@@ -32,33 +35,9 @@ const char* RPGConfig::DISPATCH_CLEANUP_AND_SCENE_TRANSITION_NOTIFICATION = "DIS
 
 const char* RPGConfig::ON_TAP_VISIBLE_SPRITE_NOTIFICATION = "ON_TAP_VISIBLE_SPRITE_NOTIFICATION";
 
+const char* RPGConfig::SEND_BUBBLE_DESTROY_NOTIFICATION = "SEND_BUBBLE_DESTROY_NOTIFICATION";
 
-
-RPGConfig::RPGConfig() {
-}
-
-
-RPGConfig::~RPGConfig() {
-    
-}
-
-void RPGConfig::Init()
-{
-    srand(time(0));
-    auto director = Director::getInstance();
-    screenSize = director->getWinSize();
-}
-
-
-void RPGConfig::LoadData()
-{
-    // add Resources folder to search path. This is necessary when releasing for win32
-    FileUtils::getInstance()->addSearchPath("Resources");    
-    
-    // load sound effects & background music
-    
-    // create and add animations
-}
+const char* RPGConfig::SEND_SHOW_TOUCH_POINT_SIGN_NOTIFICATION = "SEND_SHOW_TOUCH_POINT_SIGN_NOTIFICATION";
 
 float RPGConfig::calcuateVelocityForJump(cocos2d::Point point1, cocos2d::Point point2, float angle, float xOffSet, float yOffSet) {
     float velocity = 0.0f;
@@ -136,4 +115,24 @@ float RPGConfig::calcuateTimeToStartJumpUpAnimation(float velocity, float angle,
     float timeToStartAnimation = TotalTime * 0.5 - numberOfFramesInAnimation/Director::getInstance()->getFrameRate();
     
     return timeToStartAnimation;
+}
+
+const std::map<std::string, std::map<std::string, std::map<std::string, std::string>>> RPGConfig::createSkeletonConfigsAtLoad() {
+    std::map<std::string, std::map<std::string, std::map<std::string, std::string>>> skeletonConfigsMap;
+    std::map<std::string, std::map<std::string, std::string>> heroMap;
+    
+    std::map<std::string, std::string> hipAnchors;
+    
+    hipAnchors.insert(std::make_pair(ANCHOR_X, HALF_POINT));
+    hipAnchors.insert(std::make_pair(ANCHOR_Y, ONE_POINT));
+    heroMap.insert( std::make_pair(HERO_HIP, hipAnchors));
+    
+    skeletonConfigsMap.insert(std::make_pair(HERO, heroMap));
+    
+    return skeletonConfigsMap;
+}
+
+
+std::map<std::string, std::map<std::string, std::string>> RPGConfig::getSkeletonConfigMap(std::string key) {
+    return RPGConfig::skeletonConfigs.at(key);
 }

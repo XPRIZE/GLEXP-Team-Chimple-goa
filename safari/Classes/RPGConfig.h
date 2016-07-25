@@ -22,7 +22,8 @@
 #define RPG_GRAVITY -2000
 #define ENABLE_DEBUGDRAW true
 #define MAIN_CHARACTER_MASS 1.0f
-#define MAIN_CHARACTER_SCALE 0.3f
+#define MAIN_CHARACTER_SCALE 1.0f
+#define EXTERNAL_CHARACTER_SCALE 0.3f
 #define MAIN_CHARACTER_MASS_DAMPING 0.05f
 #define MAIN_CHARACTER_GROUP -1
 
@@ -46,24 +47,31 @@
 #define VERTICAL_JUMP_THRESHOLD 700.0f
 
 #define PERPENDICULAR_ANGLE 90.0f
-#define HUMAN_SKELETON_COLLISION_BOX_WIDTH 300.0f
+#define HUMAN_SKELETON_COLLISION_BOX_WIDTH 100.0f
 #define JUMP_UP_ENDING_ANIMATION_FRAMES 15
 
-#define OBJECT_TAP_BOUNDING_BOX_WIDTH 300.0f
+#define OBJECT_TAP_BOUNDING_BOX_WIDTH 650.0f
 
-#define OBJECT_NEAR_BY_BOUNDING_BOX_WIDTH 1000.0f
+#define OBJECT_NEAR_BY_BOUNDING_BOX_WIDTH 650.0f
 
-#define HUMAN_SKELETON_NAME "Human_Skeleton"
+#define HUMAN_SKELETON_NAME "Hero"
 #define JUMP_START "jump_start"
-#define JUMP_END "jump_end"
-#define JUMP_MID "jump_mid"
+#define JUMP_END "jump_down"
+#define JUMP_FINISHED "jump_end"
+#define JUMP_MID "jump_up"
+#define ROLL_SKELETON "roll"
 #define ROTATE_SKELETON "rotate"
+#define IDLE "idle"
+#define WALK "walk"
+#define RUN "run"
+#define BREAK_ANIM "stop"
+
 
 
 #define MAIN_LAYER "main"
 #define BACK_GROUND_LAYER "background"
 #define FORE_GROUND_LAYER "foreground"
-#define MAIN_SKELETON_KEY "main_character"
+#define MAIN_SKELETON_KEY "Hero"
 
 #define HORIZONTAL_PARALLEX_RATIO 0.7f
 #define VERTICAL_PARALLEX_RATIO 0.7f
@@ -72,9 +80,26 @@
 #define SPEECH_TEXT_WIDTH 350.0f
 #define SPEECH_TEXT_HEIGHT 200.0f
 #define SPEECH_TEXT_COLOR
-#define SPEECH_TEXT_FONT_SIZE 40
+#define SPEECH_TEXT_FONT_SIZE 50
 
 #define GLOBAL_DB_NAME "safari.db3"
+
+#define DUEL_SCENE_NAME "DuelScene"
+
+#define TOUCH_POINTER_IMG "touchPointer.png"
+
+#define SWIPE_DELTA 200.0f
+
+
+#define HERO "Hero"
+#define ANCHOR_X "anchorX"
+#define ANCHOR_Y "anchorY"
+
+#define HALF_POINT "0.5"
+#define ONE_POINT "1.0"
+#define ZERO_POINT "0.0"
+
+#define HERO_HIP "hip"
 
 #define EVENT_DISPATCHER Director::getInstance()->getEventDispatcher()
 
@@ -93,23 +118,32 @@
 
 #define SEND_MESSAGE_FOR_TAP_ON_TEXT( __target__, __notification__, __handler__) EVENT_DISPATCHER->addEventListenerWithSceneGraphPriority(EventListenerCustom::create (__notification__, __handler__), __target__)
 
+#define SEND_BUBBLE_DESTROY_SIGNAL( __target__, __notification__, __handler__) EVENT_DISPATCHER->addEventListenerWithSceneGraphPriority(EventListenerCustom::create (__notification__, __handler__), __target__)
+
+#define SEND_SHOW_TOUCH_POINT_SIGNAL( __target__, __notification__, __handler__) EVENT_DISPATCHER->addEventListenerWithSceneGraphPriority(EventListenerCustom::create (__notification__, __handler__), __target__)
+
 
 #define SEND_MESSAGE_FOR_TAP_ON_SPEAKABLE( __target__, __notification__, __handler__) EVENT_DISPATCHER->addEventListenerWithSceneGraphPriority(EventListenerCustom::create (__notification__, __handler__), __target__)
 
 
-
+enum SupportedLanguages
+{
+    ENGLISH = 0,
+    KANNADA = 1,
+    GERMAN = 2
+};
 
 
 enum RPGGestureType
 {
     E_GESTURE_NONE = 0,
-    E_GESTURE_TAP,
-    E_GESTURE_HOLD,
-    E_GESTURE_SWIPE_UP,
-    E_GESTURE_SWIPE_DOWN,
-    E_GESTURE_SWIPE_LEFT,
-    E_GESTURE_SWIPE_RIGHT,
-    E_GESTURE_TOUCH_ENDED,
+    E_GESTURE_TAP = 1,
+    E_GESTURE_HOLD = 2,
+    E_GESTURE_SWIPE_UP = 3,
+    E_GESTURE_SWIPE_DOWN = 4,
+    E_GESTURE_SWIPE_LEFT = 5,
+    E_GESTURE_SWIPE_RIGHT = 6,
+    E_GESTURE_TOUCH_ENDED= 7
 };
 
 
@@ -125,8 +159,8 @@ enum SkeletonCharacterState {
 class RPGConfig
 {
 private:
-    RPGConfig();
-    ~RPGConfig();
+    static const std::map<std::string, std::map<std::string, std::map<std::string, std::string>>> skeletonConfigs;
+    static const std::map<std::string, std::map<std::string, std::map<std::string, std::string>>> createSkeletonConfigsAtLoad();
     
 public:
     // initialise common global data here
@@ -185,6 +219,10 @@ public:
     
     static const char* ON_TAP_VISIBLE_SPRITE_NOTIFICATION;
     
+    static const char* SEND_BUBBLE_DESTROY_NOTIFICATION;
+    
+    static const char* SEND_SHOW_TOUCH_POINT_SIGN_NOTIFICATION;
+    
     template <typename T>
     static inline std::string to_string(T value)
     {
@@ -192,6 +230,9 @@ public:
         os << value ;
         return os.str() ;
     }
+    
+    static std::map<std::string, std::map<std::string, std::string>> getSkeletonConfigMap(std::string key);
+
     
 };
 

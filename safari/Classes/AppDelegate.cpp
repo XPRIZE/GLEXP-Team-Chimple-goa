@@ -49,7 +49,7 @@ bool AppDelegate::applicationDidFinishLaunching() {
     }
     
 #if (CC_TARGET_PLATFORM == CC_PLATFORM_WIN32) || (CC_TARGET_PLATFORM == CC_PLATFORM_MAC) || (CC_TARGET_PLATFORM == CC_PLATFORM_LINUX)
-    glview->setDesignResolutionSize(designResolutionSize.width, designResolutionSize.height, ResolutionPolicy::SHOW_ALL);
+    glview->setDesignResolutionSize(designResolutionSize.width, designResolutionSize.height, ResolutionPolicy::FIXED_HEIGHT);
 #else
     glview->setDesignResolutionSize(designResolutionSize.width, designResolutionSize.height, ResolutionPolicy::FIXED_HEIGHT);
 #endif
@@ -73,7 +73,8 @@ bool AppDelegate::applicationDidFinishLaunching() {
         searchPaths.push_back("res/SD");
         scaleFactor = smallResolutionSize.height/designResolutionSize.height;
     }
-    
+ 
+
     director->setContentScaleFactor(scaleFactor);
     FileUtils::getInstance()->setSearchPaths(searchPaths);
     
@@ -94,10 +95,8 @@ bool AppDelegate::applicationDidFinishLaunching() {
     register_all_packages();
     
     // create a scene. it's an autorelease object
-//    auto scene = HelloWorld::createScene("camp","","");
-//    auto scene = SelectAlphamon::createScene();
-    
-    director->runWithScene(StartMenu::createScene());    
+    director->runWithScene(StartMenu::createScene());
+    Application::getInstance()->getCurrentLanguage();
     return true;
 }
 
