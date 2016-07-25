@@ -27,6 +27,7 @@ protected:
 	Sprite* leftBarrierForBigObject;
 	Sprite* upBarrier;
 	double xSizeArray[7] = { 1.0,0.4,0.6,0.8,0.5,1.2,1.4 };
+
 	char letters[36] = { 'A','A','A','B','B','B','C','C','C','A','A','A','B','B','B','C','C','C','A','A','A','B','B','B','C','C','C','A','A','A','B','B','B','C','C','C' };
 	char tempChar = 'A';
 	struct mountainTypeObject {
