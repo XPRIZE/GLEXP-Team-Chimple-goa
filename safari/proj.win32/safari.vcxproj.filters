@@ -182,6 +182,18 @@
     <ClCompile Include="..\Classes\lang\LangUtil.cpp">
       <Filter>src\lang</Filter>
     </ClCompile>
+    <ClCompile Include="..\Classes\Entry.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\I18nUtils.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\LanguageManager.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\MO.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -333,6 +345,21 @@
     </ClInclude>
     <ClInclude Include="..\Classes\lang\LangUtil.h">
       <Filter>src\lang</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Entry.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\I18nDefine.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\I18nUtils.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\LanguageManager.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\MO.h">
+      <Filter>src</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
