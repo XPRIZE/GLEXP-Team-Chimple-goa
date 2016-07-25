@@ -24,6 +24,10 @@ std::string EnglishUtil::getMonsterAnimationFileName(wchar_t alpha) {
     return std::string("english/") + convertUTF16CharToString(alpha) +".csb";
 }
 
+std::string EnglishUtil::getSpecialAnimationFileName(wchar_t alpha, std::string suffix) {
+    return std::string("english/") + suffix + "/" + convertUTF16CharToString(alpha) +".csb";
+}
+
 std::string EnglishUtil::getBMFontFileName() {
     return "english/baloo_bhai_hdr.fnt";
 }
