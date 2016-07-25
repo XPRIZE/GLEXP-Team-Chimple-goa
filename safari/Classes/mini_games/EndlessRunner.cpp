@@ -1,14 +1,12 @@
 #include "EndlessRunner.h"
 #include <vector>
 #include "SpriteCreate.h"
+#include "StartMenuScene.h"
 
 #define COCOS2D_DEBUG 1
 
 using namespace std;
 USING_NS_CC;
-
-DrawNode* aa;
-DrawNode* bb;
 
 Scene* EndlessRunner::createScene()
 {
@@ -24,8 +22,10 @@ bool EndlessRunner::init()
 {
 	if (!Layer::init()) { return false; }
 
-	CCSpriteFrameCache* framecache = CCSpriteFrameCache::sharedSpriteFrameCache();
-	framecache->addSpriteFramesWithFile("endlessrunner/endlessrunner.plist");
+	CCSpriteFrameCache* framecache1 = CCSpriteFrameCache::sharedSpriteFrameCache();
+	framecache1->addSpriteFramesWithFile("endlessrunner/endlessrunner_01.plist");
+	CCSpriteFrameCache* framecache2 = CCSpriteFrameCache::sharedSpriteFrameCache();
+	framecache2->addSpriteFramesWithFile("endlessrunner/endlessrunner_02.plist");
 
 	visibleSize = Director::getInstance()->getVisibleSize();
 	origin = Director::getInstance()->getVisibleOrigin();
@@ -59,14 +59,29 @@ bool EndlessRunner::init()
 	Character.character->setScale(1.2);
 	Character.action->play("run", true);
 
-	auto happyManAction = CSLoader::createTimeline("endlessrunner/happy_mad.csb");
-	happyMan = (Sprite *)CSLoader::createNode("endlessrunner/happy_mad.csb");
-	happyMan->setPosition(Vec2((visibleSize.width * 5 / 100) + origin.x, (visibleSize.height + origin.y) - (visibleSize.height * 0.18)));
-	this->addChild(happyMan, zOrderPathLayer.layer7);
-	happyMan->runAction(happyManAction);
-	happyManAction->gotoFrameAndPlay(0, true);
-	happyMan->getChildByName("mad")->setVisible(false);
-	happyMan->getChildByName("happy")->setVisible(true);
+	happyManAction = CSLoader::createTimeline("endlessrunner/happy_mad.csb");
+	hpUiCatchAction = CSLoader::createTimeline("endlessrunner/catch_score.csb");
+	
+	auto rotate1 = CSLoader::createTimeline("endlessrunner/life.csb");
+	auto rotate2 = CSLoader::createTimeline("endlessrunner/life.csb");
+	auto rotate3 = CSLoader::createTimeline("endlessrunner/life.csb");
+	auto rotate4 = CSLoader::createTimeline("endlessrunner/life.csb");
+	auto rotate5 = CSLoader::createTimeline("endlessrunner/life.csb");
+
+	hpUi = (Sprite *)CSLoader::createNode("endlessrunner/hp_ui.csb");
+	hpUi->setPosition(Vec2((visibleSize.width * 3 / 100) + origin.x,(visibleSize.height + origin.y) - (visibleSize.height * 0.38)));
+	hpUi->setScale(0.7);
+	this->addChild(hpUi, zOrderPathLayer.layer7);
+	hpUi->runAction(hpUiCatchAction);
+	hpUi->getChildByName("happy_mad")->setScale(1.2);
+	hpUi->getChildByName("life_1")->runAction(rotate1);	rotate1->play("rotate", true);
+	hpUi->getChildByName("life_2")->runAction(rotate2); rotate2->play("rotate", true);
+	hpUi->getChildByName("life_3")->runAction(rotate3); rotate3->play("rotate", true);
+	hpUi->getChildByName("life_4")->runAction(rotate4); rotate4->play("rotate", true);
+	hpUi->getChildByName("life_5")->runAction(rotate5); rotate5->play("rotate", true);
+	
+	hpUi->runAction(happyManAction);
+	happyManAction->play("happy_idle",true);
 
 	auto boardDisplay = (Sprite *)CSLoader::createNode("endlessrunner/letter_board.csb");
 	boardDisplay->setPosition(Vec2((visibleSize.width / 2) + origin.x, (visibleSize.height + origin.y) - (visibleSize.height * 0.07)));
@@ -134,6 +149,13 @@ void EndlessRunner::update(float delta) {
 	EndlessRunner::startingIntersectMode();
 
 	EndlessRunner::removePathBlockTouchByLeftBarrier();
+
+	if (counterAlphabets == 10 || counterLife == 1) {
+		auto redirectScene = CallFunc::create([=]() {Director::getInstance()->replaceScene(StartMenu::createScene()); });
+		auto main_Sequence = Sequence::create(DelayTime::create(0.5), redirectScene, NULL);
+		this->runAction(main_Sequence);
+
+	}
 }
 
 void EndlessRunner::FallDownCharacter() {
@@ -153,16 +175,8 @@ void EndlessRunner::stillCharacterOnPath(float delta) {
 		Rect parent = Character.character->getBoundingBox();
 		Rect boxs = Rect(parent.origin.x + box.origin.x, parent.origin.y + box.origin.y, box.size.width*1.2, box.size.height*1.2);
 
-		if (aa != NULL)
-		{
-			this->removeChild(aa);
-		}
-		aa = DrawNode::create();
-		this->addChild(aa, 20);
-			//aa->drawRect(Vec2(boxs.origin.x, boxs.origin.y), Vec2(boxs.origin.x +boxs.size.width*1.2, boxs.origin.y + boxs.size.height*1.2), Color4F(255, 255, 255, 22));
 		if (boxs.intersectsRect(allPathBlocks[i]->getBoundingBox())) {
 			if (allPathBlocks[i]->LayerTypeName == mountainLayerTypes.FirstLayer && !LayerMode.gapMode) {
-				//	CCLOG("FIRST LAYER ");
 				Character.character->setPositionY(LayerYcoord.firstLayer + 15);
 				if (Character.groundTouchFlag) {
 					Character.groundTouchFlag = false;
@@ -171,7 +185,7 @@ void EndlessRunner::stillCharacterOnPath(float delta) {
 
 					auto A = CallFunc::create([=]() {Character.action->play("jump_end", false); });
 
-					auto B = CallFunc::create([=]() {Character.action->play("run", true); });
+					auto B = CallFunc::create([=]() {Character.action->play("run", true);});
 
 					auto main_Sequence = Sequence::create(A, B, NULL);
 					Character.character->runAction(main_Sequence);
@@ -179,7 +193,6 @@ void EndlessRunner::stillCharacterOnPath(float delta) {
 				}
 			}
 			else if (allPathBlocks[i]->LayerTypeName == mountainLayerTypes.SecondLayer && !LayerMode.gapMode) {
-				//CCLOG("SECOND LAYER ");
 				Character.character->setPositionY((visibleSize.height * 23 / 100) + origin.y);
 
 				if (Character.groundTouchFlag) {
@@ -200,7 +213,7 @@ void EndlessRunner::stillCharacterOnPath(float delta) {
 				}
 			}
 			else if (allPathBlocks[i]->LayerTypeName == mountainLayerTypes.gap && !LayerMode.gapMode ) {
-			//	CCLOG("GAP MODE IS THIS");
+		
 				LayerMode.gapMode = true;
 				Character.onAir = false;
 			
@@ -209,6 +222,12 @@ void EndlessRunner::stillCharacterOnPath(float delta) {
 				Character.character->runAction(downMovement);
 				Character.Clicked = true;
 				Character.stillCheckFalg = false;
+				
+				counterLife = counterLife - 1 ;
+				std::ostringstream sstreamc; sstreamc << "life_"<<counterLife; std::string counterLife = sstreamc.str();
+				hpUi->getChildByName(counterLife)->stopAllActions();
+				hpUi->getChildByName(counterLife)->getChildByName("life_on")->setVisible(false);
+				hpUi->getChildByName(counterLife)->getChildByName("life_off")->setVisible(true);
 
 				auto setPositionOnPath = CallFunc::create([=]() {
 					Character.character->stopAction(downMovement);
@@ -266,14 +285,6 @@ void EndlessRunner::startingIntersectMode() {
 		Rect boxs = Rect(parent.origin.x + (box.origin.x), parent.origin.y + (box.origin.y), box.size.width*1.2, box.size.height*1.2);
 		Rect label = allLabels[i]->getBoundingBox();
 
-		if (bb != NULL)
-		{
-			this->removeChild(bb);
-		}
-		bb = DrawNode::create();
-		this->addChild(bb, 20);
-			//	bb->drawRect(Vec2(boxs.origin.x, boxs.origin.y), Vec2(boxs.origin.x + boxs.size.width*1.2, boxs.origin.y + boxs.size.height*1.2), Color4F(255, 255, 255, 22));
-
 		if (boxs.intersectsRect(allLabels[i]->getBoundingBox()))//.intersectsRect(Character.character->getChildren().at(0)->getBoundingBox()))
 		{
 			std::ostringstream sstreamc;
@@ -281,28 +292,46 @@ void EndlessRunner::startingIntersectMode() {
 			std::string letterTemp = sstreamc.str();
 
 			if (allLabels[i]->getName() == letterTemp) {
+				
 				_menuContext->pickAlphabet(tempChar, allLabels[i]->getName()[0], true);
+				counterAlphabets = counterAlphabets + 1;
+				std::ostringstream counterForLetter;	counterForLetter << counterAlphabets; std::string counterValue = counterForLetter.str();
+				hpUiCatchAction->play(counterValue,false);
+				hpUi->getChildByName("happy_mad")->setScale(1.2);
+				
+				auto highScale = CallFunc::create([=]() { happyManAction->play("change_mad_happy", false);});
+				auto smallScale = CallFunc::create([=]() {happyManAction->play("happy_idle", true); });
+				auto scaleVary = Sequence::create(highScale,DelayTime::create(1.3),smallScale,NULL);
+				hpUi->getChildByName("happy_mad")->runAction(scaleVary);
+
 				for (std::size_t k = 0; k <allMonster.size(); k++) {
 					if (allMonster[k]->getTag() == allLabels[i]->getTag()) {
 						this->removeChild(allLabels[i]);
 						allLabels.erase(allLabels.begin() + i);
 						Character.action->play("correct_catch", false);
 						allMonster[k]->getChildByName("monster_egg")->setVisible(false);
-						happyMan->getChildByName("mad")->setVisible(false);
-						happyMan->getChildByName("happy")->setVisible(true);
+						hpUi->getChildByName("happy_mad")->getChildByName("happy")->setVisible(true);	
+						hpUi->getChildByName("happy_mad")->getChildByName("mad")->setVisible(false);
 						allMonster[k]->runAction(MoveBy::create(3, Vec2((visibleSize.width * 90 / 100) + origin.x, (visibleSize.height * 70 / 100) + origin.y)));
 					}
 				}
 			}
 			else {
 				_menuContext->pickAlphabet(tempChar, allLabels[i]->getName()[0], true);
+				hpUi->getChildByName("happy_mad")->setScale(1);
+
+				auto highScale = CallFunc::create([=]() { happyManAction->play("change_happy_mad", false); });
+				auto smallScale = CallFunc::create([=]() {happyManAction->play("mad_idle", true); });
+				auto scaleVary = Sequence::create(highScale, DelayTime::create(1.3), smallScale, NULL);
+				hpUi->getChildByName("happy_mad")->runAction(scaleVary);
+
 				for (std::size_t k = 0; k <allMonster.size(); k++) {
 					if (allMonster[k]->getTag() == allLabels[i]->getTag()) {
 						Character.action->play("worng_catch", false);
 						this->removeChild(allLabels[i]);
 						allLabels.erase(allLabels.begin() + i);
-						happyMan->getChildByName("happy")->setVisible(false);
-						happyMan->getChildByName("mad")->setVisible(true);
+						hpUi->getChildByName("happy_mad")->getChildByName("mad")->setVisible(true);
+						hpUi->getChildByName("happy_mad")->getChildByName("happy")->setVisible(false);
 						allMonster[k]->getChildByName("monster_egg")->setVisible(false);
 						allMonster[k]->getChildByName("monster_egg_crack")->setVisible(true);
 						allMonster[k]->runAction(MoveBy::create(3, Vec2((visibleSize.width * 90 / 100) + origin.x, (visibleSize.height * 70 / 100) + origin.y)));
@@ -311,24 +340,29 @@ void EndlessRunner::startingIntersectMode() {
 			}
 		}
 	}
+	if (flagLifeDemo) {
+		for (std::size_t i = 0; i < allBeforeStartBlocks.size(); i++) {
+			
+			auto box = Character.character->getChildByName("floor_3")->getBoundingBox();
+			Rect parent = Character.character->getBoundingBox();
+			Rect boxs = Rect(parent.origin.x + (box.origin.x), parent.origin.y + (box.origin.y), box.size.width, box.size.height);
 
-	for (std::size_t i = 0; i < allBeforeStartBlocks.size(); i++) {
-
-		auto box = Character.character->getChildByName("floor_3")->getBoundingBox();
-		Rect parent = Character.character->getBoundingBox();
-		Rect boxs = Rect(parent.origin.x + (box.origin.x), parent.origin.y + (box.origin.y), box.size.width, box.size.height);
-
-		if (boxs.intersectsRect(allBeforeStartBlocks[i]->getBoundingBox())) {
-
-			auto blink = Blink::create(2, 10);
-			auto visible = CallFunc::create([=]() {
-				Character.character->setVisible(true);
-			});
-			auto blinking = Sequence::create(blink, visible, NULL);
-			Character.character->runAction(blinking);
-
-			CCLOG("INTERSET MAN ");
-
+			if (boxs.intersectsRect(allBeforeStartBlocks[i]->getBoundingBox())) {
+				flagLifeDemo = false;
+				counterLife = counterLife - 1;
+				std::ostringstream sstreamc; sstreamc << "life_" << counterLife; std::string counterLife = sstreamc.str();
+				hpUi->getChildByName(counterLife)->stopAllActions();
+				hpUi->getChildByName(counterLife)->getChildByName("life_on")->setVisible(false);
+				hpUi->getChildByName(counterLife)->getChildByName("life_off")->setVisible(true);
+				auto blink = Blink::create(2, 10);
+				auto visible = CallFunc::create([=]() {
+					Character.character->setVisible(true);
+					flagLifeDemo = true;
+				});
+				auto blinking = Sequence::create(blink, visible, NULL);
+				Character.character->runAction(blinking);
+				CCLOG("INTERSET MAN");
+			}
 		}
 	}
 }
