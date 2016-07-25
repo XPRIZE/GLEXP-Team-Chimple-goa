@@ -53,8 +53,9 @@ wchar_t CharGenerator::generateAChar() {
     return LangUtil::getInstance()->getAllCharacters()[randomNumber];
 }
 
-std::vector<std::vector<wchar_t>> CharGenerator::generateCharMatrix(int numRows, int numCols) {
+std::vector<std::vector<wchar_t>> CharGenerator::generateCharMatrix(int numRows, int numCols, bool distinct) {
     int numChar = LangUtil::getInstance()->getNumberOfCharacters();
+    auto allChars = LangUtil::getInstance()->getAllCharacters();
     std::vector<std::vector<wchar_t>> matrix(numRows, std::vector<wchar_t>(numCols));
     for (int i = 0; i < numRows; i++) {
         for (int j = 0; j < numCols; j++) {
