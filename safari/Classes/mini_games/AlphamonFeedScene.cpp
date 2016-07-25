@@ -101,9 +101,9 @@ bool AlphamonFeed::init()
 	//sprite1 = CSLoader::createNode(CCString::createWithFormat("english/%s.csb", alphaLevelString.c_str())->getCString());
 
 	sprite1 = Alphamon::createWithAlphabet(alphaLevelString.at(0));
-	//sprite1->setScaleX(0.35);
-	//sprite1->setScaleY(0.35);
-	sprite1->setPositionX(200);
+	sprite1->setScaleX(0.85);
+	sprite1->setScaleY(0.85);
+	sprite1->setPositionX(300);
 	sprite1->setPositionY(50);
 	sprite1->setName(alphaLevelString.c_str());
 	sprite1->setContentSize(cocos2d::Size(300.0f, 400.0f));
@@ -147,7 +147,7 @@ void AlphamonFeed::showFruits(float dt) {
 	sprite->setPositionX(cocos2d::RandomHelper::random_real(visibleSize.width*0.20, visibleSize.width*0.85));
 	sprite->setPositionY(1800);
 	sprite->setName(mystr);
-	sprite->setContentSize(cocos2d::Size(200.0f, 200.0f));
+	sprite->setContentSize(cocos2d::Size(150.0f, 150.0f));
 	auto moveBy = MoveBy::create(2, Vec2(0, -visibleSize.height-100));
 	sprite->runAction(moveBy);
 	
@@ -158,7 +158,7 @@ void AlphamonFeed::showFruits(float dt) {
 void AlphamonFeed:: update(float dt) { 
 	if (fruitReff.size() != 0) {
 		for (int i = 0; i < fruitReff.size(); i++) {
-			monster = CCRectMake(sprite1->getPositionX()-(sprite1->getContentSize().width/4), sprite1->getPositionY(), sprite1->getContentSize().width/2, sprite1->getContentSize().height/2); //+(sprite1->getContentSize().height/4)
+			monster = CCRectMake(sprite1->getPositionX()-(sprite1->getContentSize().width/2), sprite1->getPositionY(), sprite1->getContentSize().width/2, sprite1->getContentSize().height/2); //+(sprite1->getContentSize().height/4)
 			Rect fruit = CCRectMake(fruitReff.at(i)->getPositionX()-100, fruitReff.at(i)->getPositionY()-60, fruitReff.at(i)->getContentSize().width, fruitReff.at(i)->getContentSize().height);
 
 			if ((monster).intersectsRect(fruit)) {
