@@ -123,6 +123,7 @@ LanguageType Application::getCurrentLanguage()
     if ([languageCode isEqualToString:@"uk"]) return LanguageType::UKRAINIAN;
     if ([languageCode isEqualToString:@"ro"]) return LanguageType::ROMANIAN;
     if ([languageCode isEqualToString:@"bg"]) return LanguageType::BULGARIAN;
+    if ([languageCode isEqualToString:@"ka"]) return LanguageType::KANNADA;
     return LanguageType::ENGLISH;
 
 }

@@ -13,9 +13,9 @@
 
 USING_NS_CC;
 
-SkeletonCharacter* SkeletonCharacter::create(const std::string& filename) {
+SkeletonCharacter* SkeletonCharacter::create(cocos2d::Node* node, const std::string& island, const std::string& sceneName, const std::string& filename, Sqlite3Helper* sqlite3Helper) {
     auto skeletonCharacter = new SkeletonCharacter();
-    if (skeletonCharacter && skeletonCharacter->initializeSkeletonCharacter(filename)) {
+    if (skeletonCharacter && skeletonCharacter->initializeSkeletonCharacter(node, island, sceneName, filename, sqlite3Helper)) {
         skeletonCharacter->autorelease();
         return skeletonCharacter;
     }
@@ -23,9 +23,12 @@ SkeletonCharacter* SkeletonCharacter::create(const std::string& filename) {
     return nullptr;
 }
 
-bool SkeletonCharacter::initializeSkeletonCharacter(const std::string& filename) {
-    this->createSkeletonNode(filename);
-    this->setName(MAIN_SKELETON_KEY);
+bool SkeletonCharacter::initializeSkeletonCharacter(cocos2d::Node* node, const std::string& island, const std::string& sceneName, const std::string& filename, Sqlite3Helper* sqlite3Helper) {
+    this->sqlite3Helper = sqlite3Helper;
+    this->setIslandName(island);
+    this->setSceneName(sceneName);
+    this->setName(node->getName());
+    this->createSkeletonNode(node, island, sceneName, filename);
     this->setfileName(filename);
     this->addChild(this->skeletonNode);
     
@@ -35,6 +38,9 @@ bool SkeletonCharacter::initializeSkeletonCharacter(const std::string& filename)
 SkeletonCharacter::SkeletonCharacter()
 {
     this->skeletonNode = NULL;
+    this->sqlite3Helper = NULL;
+    this->islandName = "";
+    this->sceneName = "";
     this->isWalking = false;
     this->isRunning = false;
     this->isJumpingUp = false;
@@ -51,7 +57,6 @@ SkeletonCharacter::~SkeletonCharacter()
 void SkeletonCharacter::setStateMachine(StateMachine* stateMachine) {
     this->stateMachine = stateMachine;
 }
-
 
 void SkeletonCharacter::playStartingJumpUpAnimation(std::function<void ()> func) {
     this->getSkeletonActionTimeLine()->setAnimationEndCallFunc(JUMP_START, func);
@@ -112,19 +117,28 @@ bool SkeletonCharacter::didSkeletonContactBeginDuringJumpingUp(PhysicsContact &c
     return false;
 }
 
-void SkeletonCharacter::createSkeletonNode(const std::string& filename) {
+void SkeletonCharacter::createSkeletonNode(cocos2d::Node* node, const std::string& island, const std::string& sceneName, const std::string& filename) {
     //get Origin and VisibleSize
+    
+    if(node != NULL) {
+        node->removeFromParent();
+    }
+    
     
     //create Skeleton
     this->skeletonNode = (cocostudio::timeline::SkeletonNode*) CSLoader::createNode(filename);
+    
+    if(node != NULL) {
+        this->getSkeletonNode()->setName(node->getName());
+        this->getSkeletonNode()->setPosition(node->getPosition());
+    }
+
+    
     this->skeletonActionTime = (cocostudio::timeline::ActionTimeline*) CSLoader::createTimeline(filename);
     this->skeletonNode->runAction(this->skeletonActionTime);
     this->skeletonActionTime->gotoFrameAndPause(0);
     
-    //attach skins
-    //auto bone = this->skeletonNode->getBoneNode("body");
-    //bone->displaySkin("watchman_shirt", false);
-    
+//    this->configureCharacter();
     
     auto physicsBody = PhysicsBody::createBox(Size(HUMAN_SKELETON_COLLISION_BOX_WIDTH, HUMAN_SKELETON_COLLISION_BOX_WIDTH), PHYSICSBODY_MATERIAL_DEFAULT, Vec2(0,HUMAN_SKELETON_COLLISION_BOX_WIDTH/2));
     
@@ -166,32 +180,62 @@ void SkeletonCharacter::setSkeletonActionTimeLine(cocostudio::timeline::ActionTi
 }
 
 
-void SkeletonCharacter::changeSkinForMouthBone(std::string bone, std::string skinName) {
-    cocostudio::timeline::BoneNode* mouth = this->getSkeletonNode()->getBoneNode(bone);
+void SkeletonCharacter::changeSkinForBone(std::string bone, std::string skinName, std::string anchorX, std::string anchorY) {
+    cocostudio::timeline::BoneNode* boneNode = this->getSkeletonNode()->getBoneNode(bone);
     
-    bool isSkinExists = false;
-    cocostudio::timeline::SkinNode* referenceToSkin = nullptr;
-    for (std::vector<Node*>::iterator it = mouth->getSkins().begin() ; it != mouth->getSkins().end(); ++it) {
-        cocostudio::timeline::SkinNode* skin = *it;
-        if(skin->getName() == skinName) {
-            isSkinExists = true;
-            referenceToSkin = skin;
-            break;
+    if(boneNode != NULL) {
+        bool isSkinExists = false;
+        
+        cocostudio::timeline::SkinNode* referenceToSkin = nullptr;
+        for (std::vector<Node*>::iterator it = boneNode->getSkins().begin() ; it != boneNode->getSkins().end(); ++it) {
+            cocostudio::timeline::SkinNode* skin = *it;
+            if(skin->getName() == skinName) {
+                isSkinExists = true;
+                referenceToSkin = skin;
+                break;
+            }
         }
-    }
-    
-    if(!isSkinExists) {
-        cocos2d::Sprite* mouthSkin = cocos2d::Sprite::createWithSpriteFrameName(skinName);
-        mouthSkin->setName(skinName);
-        mouthSkin->setAnchorPoint(Vec2(0,0));
-        mouth->addSkin(mouthSkin, true);
-        mouth->displaySkin(mouthSkin, true);
-    } else {
-        mouth->displaySkin(referenceToSkin, true);
+        
+        if(!isSkinExists) {
+            cocos2d::Sprite* boneSkin = cocos2d::Sprite::createWithSpriteFrameName(skinName);
+            boneSkin->setName(skinName);
+            
+            float xAnchor = String::create(anchorX)->floatValue();
+            float yAnchor = String::create(anchorY)->floatValue();
+            
+            boneSkin->setAnchorPoint(Vec2(xAnchor,yAnchor));
+            boneNode->addSkin(boneSkin, true);
+            boneNode->displaySkin(boneSkin, true);
+        } else {
+            boneNode->displaySkin(referenceToSkin, true);
+        }
+
     }
 }
 
 
 void SkeletonCharacter::configureCharacter() {
+    //load database and find out all bones for this skeleton
+    std::vector<SkeletonConfiguration*> skeletonConfiguration = this->sqlite3Helper->loadSkeletonConfigurationInScene(this->getIslandName().c_str(), this->getSceneName().c_str(), this->getName().c_str());
     
+    std::map<std::string, std::map<std::string, std::string>> loadedBoneConfig = RPGConfig::getSkeletonConfigMap(this->getName());
+    
+    for (std::vector<SkeletonConfiguration*>::iterator it = skeletonConfiguration.begin() ; it != skeletonConfiguration.end(); ++it) {
+        SkeletonConfiguration* config = *it;
+        
+        std::string anchorX = config->getSkinAnchorX();
+        std::string anchorY = config->getSkinAnchorY();
+        
+        if(config->getSkinAnchorX().empty() || config->getSkinAnchorY().empty()) {
+            std::map<std::string, std::string> skinAnchorMap = loadedBoneConfig.at(config->getBoneName());
+            if(skinAnchorMap.size() > 0) {
+                anchorX = skinAnchorMap.at(ANCHOR_X);
+                anchorY = skinAnchorMap.at(ANCHOR_Y);
+            }
+        }
+        
+        this->changeSkinForBone(config->getBoneName(), config->getImageName(), anchorX, anchorY);
+        
+        ;
+    }        
 }

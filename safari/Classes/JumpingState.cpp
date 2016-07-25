@@ -27,7 +27,7 @@ void JumpingState::enter(cocos2d::Vec2 forceVector, SkeletonCharacterState previ
     
     this->getTarget()->isJumping = true;
  
-    this->getTarget()->changeSkinForMouthBone("mouth","hero/happy.png");
+    this->getTarget()->changeSkinForBone("mouth","hero/mouth/happy.png");
 
 }
 

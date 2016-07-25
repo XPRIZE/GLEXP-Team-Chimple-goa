@@ -27,7 +27,7 @@ protected:
 	Sprite* leftBarrierForBigObject;
 	Sprite* upBarrier;
 	double xSizeArray[7] = { 1.0,0.4,0.6,0.8,0.5,1.2,1.4 };
-	char letters[10] = {'A','B','C','A','D','E','A','F','G','A'};
+	char letters[36] = { 'A','B','C','A','D','E','A','F','G','A','A','A','B','B','B','B','C','C','C','C','D','D','D','D','E','E','E','E','F','F','F','F','G','G','G','G' };
 	char tempChar = 'A';
 	struct mountainTypeObject {
 		std::string startLandPart = "startLand";

@@ -7,6 +7,7 @@
 #include "ui/CocosGUI.h"
 #include "../alphamon/Alphamon.h"
 #include "../puzzle/CharGenerator.h"
+#include "../lang/LangUtil.h"
 
 
 USING_NS_CC;
@@ -42,6 +43,9 @@ cocos2d::Scene * AlphamonFeed::createScene(std::string str)
 	auto scene = Scene::create();
 	auto layer = AlphamonFeed::create();
 	scene->addChild(layer);
+
+    layer->menu = MenuContext::create(layer);
+    scene->addChild(layer->menu);
 
 	return scene;
 }
@@ -128,9 +132,6 @@ bool AlphamonFeed::init()
 
 	this->schedule(schedule_selector(AlphamonFeed::showFruits), 1);
 	this->scheduleUpdate();
-
-	menu= MenuContext::create();
-	addChild(menu);
 	
     return true;
 }
@@ -140,7 +141,7 @@ void AlphamonFeed::showFruits(float dt) {
 	auto fallingAlphaArray = CharGenerator::getInstance()->generateMatrixForChoosingAChar(alphaLevelString.at(0), 6, 1, 50);
 	Size visibleSize = Director::getInstance()->getVisibleSize();
 	auto str = fallingAlphaArray.at(cocos2d::RandomHelper::random_int(0, 5)).at(0);
-	std::string mystr(&str, 1);
+    auto mystr = LangUtil::convertUTF16CharToString(str);
 	sprite = CSLoader::createNode(CCString::createWithFormat("alphabets fruits/%c.csb", str)->getCString());
 	sprite->setPositionX(cocos2d::RandomHelper::random_real(visibleSize.width*0.20, visibleSize.width*0.85));
 	sprite->setPositionY(1800);

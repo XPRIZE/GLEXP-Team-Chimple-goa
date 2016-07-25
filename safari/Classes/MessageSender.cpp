@@ -17,9 +17,9 @@ MessageSender::MessageSender(Sqlite3Helper* sqlite3Helper) {
 MessageSender::~MessageSender() {
 }
 
-MessageSender* MessageSender::getInstance(Sqlite3Helper* sqlite3Helper) {
+MessageSender* MessageSender::getInstance(Sqlite3Helper* sqlite3Helper,std::string sceneName) {
     auto messageSender = new MessageSender(sqlite3Helper);
-    if (messageSender && messageSender->initialize(sqlite3Helper)) {
+    if (messageSender && messageSender->initialize(sqlite3Helper, sceneName)) {
         messageSender->autorelease();
         return messageSender;
     }
@@ -28,9 +28,9 @@ MessageSender* MessageSender::getInstance(Sqlite3Helper* sqlite3Helper) {
 }
 
            
-bool MessageSender::initialize(Sqlite3Helper* sqlite3Helper) {
+bool MessageSender::initialize(Sqlite3Helper* sqlite3Helper, std::string sceneName) {
     this->sqlite3Helper = sqlite3Helper;
-    
+    this->sceneName = sceneName;
     auto sendMessageEvent = [=] (EventCustom * event) {
         std::string &key = *(static_cast<std::string*>(event->getUserData()));
         this->createMessagesForNodeWithKey(key);
@@ -53,19 +53,20 @@ bool MessageSender::initialize(Sqlite3Helper* sqlite3Helper) {
 void MessageSender::createMessagesForNodeWithKey(std::string key) {
     CCLOG("creating message for %s", key.c_str());
     assert(this->sqlite3Helper != NULL);
-    std::vector<MessageContent *> messages = this->sqlite3Helper->findEventsByOwnerInScene(key.c_str(), "camp");
+    std::vector<MessageContent *> messages = this->sqlite3Helper->findEventsByOwnerInScene(key.c_str(), this->sceneName.c_str());
     assert(!key.empty());
     CCLOG("query Key is %s", key.c_str());
-    assert(messages.size() != 0);
-    
-    EVENT_DISPATCHER->dispatchCustomEvent(RPGConfig::RECEIVE_CUSTOM_MESSAGE_NOTIFICATION, static_cast<void*>(&messages));
+
+    if(messages.size() != 0) {
+        EVENT_DISPATCHER->dispatchCustomEvent(RPGConfig::RECEIVE_CUSTOM_MESSAGE_NOTIFICATION, static_cast<void*>(&messages));        
+    }
 }
 
 void MessageSender::createMessagesForPreconditionId(int preConditionId) {
     CCLOG("call came with precondition %d", preConditionId);
     assert(this->sqlite3Helper != NULL);
     
-    std::vector<MessageContent *> messages = this->sqlite3Helper->findEventsByPreConditionEventIdInScene(preConditionId, "camp");
+    std::vector<MessageContent *> messages = this->sqlite3Helper->findEventsByPreConditionEventIdInScene(preConditionId, this->sceneName.c_str());
     if(messages.size() != 0) {
         EVENT_DISPATCHER->dispatchCustomEvent(RPGConfig::RECEIVE_CUSTOM_MESSAGE_NOTIFICATION, static_cast<void*>(&messages));    
     } else {

@@ -4,7 +4,7 @@
 #include "../puzzle/CharGenerator.h"
 #include "editor-support/cocostudio/ActionTimeline/CCSkeletonNode.h"
 
-
+#include "../menu/MenuContext.h"
 #include "editor-support/cocostudio/CocoStudio.h"
 
 #define COCOS2D_DEBUG 1
@@ -28,6 +28,10 @@ Scene* SmashTheRock::createScene(std::string st )
 
 	// add layer as a child to scene
 	scene->addChild(layer);
+    
+    layer->menu = MenuContext::create(layer);
+    scene->addChild(layer->menu);
+    
 
 	// return the scene
 	return scene;
@@ -87,8 +91,6 @@ bool SmashTheRock::init()
 	centre->setAnchorPoint(Vec2(0.5,0));
     this->addChild(centre,1);
 
-	menu = MenuContext::create();
-	addChild(menu);
 	/*auto letterRock = (Sprite *)centre->getChildByName("letterboard");
 	letterRock->setGlobalZOrder(5);
 	auto boundary = (Sprite *)centre->getChildByName("boundary");
@@ -112,9 +114,9 @@ bool SmashTheRock::init()
 	auto block = Sprite::createWithSpriteFrameName("smash_de_rock/letter_normal.png");
 	//int blockWidth = block->getContentSize().width;
 	//int blockHeight = block->getContentSize().height;
-	int dis;
-	std::vector<std::vector<char>> charkey = CharGenerator::getInstance()->generateMatrixForChoosingAChar(mapString.at(0),3,11,50);
-	 dis = (230.0/2560)*visibleSize.width;
+	std::vector<std::vector<wchar_t>> charkey = CharGenerator::getInstance()->generateMatrixForChoosingAChar(mapString.at(0),3,11,50);
+
+	int dis = (230.0/2560)*visibleSize.width;
 	for (int i = 1; i < 4; i++)
 	{
 		int blockHeight = i*(block->getContentSize().height + 20) + 10;
@@ -213,7 +215,7 @@ void SmashTheRock::createSkeletonCharacter()
 {
 	CCLOG("hello");
 	skeletonCharacter = new SkeletonCharacter();
-	skeletonCharacter->createSkeletonNode("human_skeleton.csb");
+	skeletonCharacter->createSkeletonNode(NULL, "", "", "human_skeleton.csb");
 }
 
 void SmashTheRock::addMainCharacterToScene(cocostudio::timeline::SkeletonNode* skeletonNode) {

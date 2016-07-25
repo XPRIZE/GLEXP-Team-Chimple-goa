@@ -69,7 +69,7 @@ void AlphabetGrid::resize(GLfloat width, GLfloat height, int numRows, int numCol
     }
 }
 
-void AlphabetGrid::setCharacters(std::vector<std::vector<char> > charArray) {
+void AlphabetGrid::setCharacters(std::vector<std::vector<wchar_t> > charArray) {
     _alphabetLayer->removeAllChildren();
     const float squareWidth = _width / _numCols;
     const float squareHeight = _height / _numRows;
@@ -85,7 +85,7 @@ void AlphabetGrid::setCharacters(std::vector<std::vector<char> > charArray) {
     }    
 }
 
-std::vector<Alphabet *> AlphabetGrid::getAlphabetsWhichMatch(char a) {
+std::vector<Alphabet *> AlphabetGrid::getAlphabetsWhichMatch(wchar_t a) {
     std::vector<Alphabet *> matchingAlphabets = std::vector<Alphabet *>();
     for (int i = 0; i < _numRows; i++) {
         for (int j = 0; j < _numCols; j++) {
@@ -99,7 +99,7 @@ std::vector<Alphabet *> AlphabetGrid::getAlphabetsWhichMatch(char a) {
     return matchingAlphabets;
 }
 
-int AlphabetGrid::getCountOfAlphabetsWhichMatch(char a) {
+int AlphabetGrid::getCountOfAlphabetsWhichMatch(wchar_t a) {
     int count = 0;
     for (int i = 0; i < _numRows; i++) {
         for (int j = 0; j < _numCols; j++) {

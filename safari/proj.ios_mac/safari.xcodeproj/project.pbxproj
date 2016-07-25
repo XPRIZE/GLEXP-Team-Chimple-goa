@@ -13,8 +13,18 @@
 		1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
 		288765A50DF7441C002DB57D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288765A40DF7441C002DB57D /* CoreGraphics.framework */; };
 		294D0D641D0D56D500F7F5D4 /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 294D0D631D0D56D500F7F5D4 /* CoreText.framework */; };
+		370A3DB41D43428D00676C50 /* SkeletonConfiguration.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 370A3DB31D43428D00676C50 /* SkeletonConfiguration.cpp */; };
+		370A3DB51D43428D00676C50 /* SkeletonConfiguration.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 370A3DB31D43428D00676C50 /* SkeletonConfiguration.cpp */; };
+		371829371D44CA570013E3C4 /* I18nUtils.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 371829311D44CA570013E3C4 /* I18nUtils.cpp */; };
+		371829381D44CA570013E3C4 /* I18nUtils.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 371829311D44CA570013E3C4 /* I18nUtils.cpp */; };
+		371829391D44CA570013E3C4 /* MO.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 371829331D44CA570013E3C4 /* MO.cpp */; };
+		3718293A1D44CA570013E3C4 /* MO.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 371829331D44CA570013E3C4 /* MO.cpp */; };
+		3718293B1D44CA570013E3C4 /* Entry.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 371829351D44CA570013E3C4 /* Entry.cpp */; };
+		3718293C1D44CA570013E3C4 /* Entry.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 371829351D44CA570013E3C4 /* Entry.cpp */; };
 		376FEE801D3F66380037393F /* SkeletonPosition.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 376FEE7F1D3F66380037393F /* SkeletonPosition.cpp */; };
 		376FEE811D3F66380037393F /* SkeletonPosition.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 376FEE7F1D3F66380037393F /* SkeletonPosition.cpp */; };
+		37DF03DA1D44B8D4007252C6 /* LanguageManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 37DF03D91D44B8D4007252C6 /* LanguageManager.cpp */; };
+		37DF03DB1D44B8D4007252C6 /* LanguageManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 37DF03D91D44B8D4007252C6 /* LanguageManager.cpp */; };
 		3EACC98F19EE6D4300EB3C5E /* res in Resources */ = {isa = PBXBuildFile; fileRef = 3EACC98E19EE6D4300EB3C5E /* res */; };
 		3EACC99019EE6D4300EB3C5E /* res in Resources */ = {isa = PBXBuildFile; fileRef = 3EACC98E19EE6D4300EB3C5E /* res */; };
 		503AE0F817EB97AB00D1A890 /* Icon.icns in Resources */ = {isa = PBXBuildFile; fileRef = 503AE0F617EB97AB00D1A890 /* Icon.icns */; };
@@ -146,6 +156,12 @@
 		F39610B21D3F8FDB00D8DD13 /* AlphamonFeedScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F39610B01D3F8FDB00D8DD13 /* AlphamonFeedScene.cpp */; };
 		F39610B41D3F905A00D8DD13 /* AlphamonFeedLevelScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F39610AF1D3F8FDB00D8DD13 /* AlphamonFeedLevelScene.cpp */; };
 		F39610B51D3F905D00D8DD13 /* AlphamonFeedScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F39610B01D3F8FDB00D8DD13 /* AlphamonFeedScene.cpp */; };
+		F3CA26EA1D43C069006EBDC6 /* LangUtil.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F3CA26E81D43C069006EBDC6 /* LangUtil.cpp */; };
+		F3CA26EB1D43C069006EBDC6 /* LangUtil.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F3CA26E81D43C069006EBDC6 /* LangUtil.cpp */; };
+		F3CA26EE1D43C0A9006EBDC6 /* EnglishUtil.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F3CA26ED1D43C0A9006EBDC6 /* EnglishUtil.cpp */; };
+		F3CA26EF1D43C0A9006EBDC6 /* EnglishUtil.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F3CA26ED1D43C0A9006EBDC6 /* EnglishUtil.cpp */; };
+		F3CA26F11D43DA17006EBDC6 /* KannadaUtil.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F3CA26F01D43DA17006EBDC6 /* KannadaUtil.cpp */; };
+		F3CA26F21D43DA17006EBDC6 /* KannadaUtil.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F3CA26F01D43DA17006EBDC6 /* KannadaUtil.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -194,8 +210,19 @@
 		1DF5F4DF0D08C38300B7A737 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		288765A40DF7441C002DB57D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		294D0D631D0D56D500F7F5D4 /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.3.sdk/System/Library/Frameworks/CoreText.framework; sourceTree = DEVELOPER_DIR; };
+		370A3DB11D43427A00676C50 /* SkeletonConfiguration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SkeletonConfiguration.h; sourceTree = "<group>"; };
+		370A3DB31D43428D00676C50 /* SkeletonConfiguration.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SkeletonConfiguration.cpp; sourceTree = "<group>"; };
+		371829301D44CA570013E3C4 /* I18nDefine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = I18nDefine.h; sourceTree = "<group>"; };
+		371829311D44CA570013E3C4 /* I18nUtils.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = I18nUtils.cpp; sourceTree = "<group>"; };
+		371829321D44CA570013E3C4 /* I18nUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = I18nUtils.h; sourceTree = "<group>"; };
+		371829331D44CA570013E3C4 /* MO.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MO.cpp; sourceTree = "<group>"; };
+		371829341D44CA570013E3C4 /* MO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MO.h; sourceTree = "<group>"; };
+		371829351D44CA570013E3C4 /* Entry.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Entry.cpp; sourceTree = "<group>"; };
+		371829361D44CA570013E3C4 /* Entry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Entry.h; sourceTree = "<group>"; };
 		376FEE7D1D3F66280037393F /* SkeletonPosition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SkeletonPosition.h; sourceTree = "<group>"; };
 		376FEE7F1D3F66380037393F /* SkeletonPosition.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SkeletonPosition.cpp; sourceTree = "<group>"; };
+		37DF03D81D44B8C3007252C6 /* LanguageManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LanguageManager.h; sourceTree = "<group>"; };
+		37DF03D91D44B8D4007252C6 /* LanguageManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LanguageManager.cpp; sourceTree = "<group>"; };
 		3EACC98E19EE6D4300EB3C5E /* res */ = {isa = PBXFileReference; lastKnownFileType = folder; path = res; sourceTree = "<group>"; };
 		503AE0F617EB97AB00D1A890 /* Icon.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = Icon.icns; sourceTree = "<group>"; };
 		503AE0F717EB97AB00D1A890 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -328,6 +355,12 @@
 		F39610AE1D3F8FDB00D8DD13 /* AlphamonFeedScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AlphamonFeedScene.h; sourceTree = "<group>"; };
 		F39610AF1D3F8FDB00D8DD13 /* AlphamonFeedLevelScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AlphamonFeedLevelScene.cpp; sourceTree = "<group>"; };
 		F39610B01D3F8FDB00D8DD13 /* AlphamonFeedScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AlphamonFeedScene.cpp; sourceTree = "<group>"; };
+		F3CA26E81D43C069006EBDC6 /* LangUtil.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LangUtil.cpp; sourceTree = "<group>"; };
+		F3CA26E91D43C069006EBDC6 /* LangUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LangUtil.h; sourceTree = "<group>"; };
+		F3CA26EC1D43C097006EBDC6 /* EnglishUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EnglishUtil.h; sourceTree = "<group>"; };
+		F3CA26ED1D43C0A9006EBDC6 /* EnglishUtil.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = EnglishUtil.cpp; sourceTree = "<group>"; };
+		F3CA26F01D43DA17006EBDC6 /* KannadaUtil.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = KannadaUtil.cpp; sourceTree = "<group>"; };
+		F3CA26F31D43DA25006EBDC6 /* KannadaUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KannadaUtil.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -449,6 +482,20 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		3718292E1D44CA3C0013E3C4 /* i18n */ = {
+			isa = PBXGroup;
+			children = (
+				371829301D44CA570013E3C4 /* I18nDefine.h */,
+				371829311D44CA570013E3C4 /* I18nUtils.cpp */,
+				371829321D44CA570013E3C4 /* I18nUtils.h */,
+				371829331D44CA570013E3C4 /* MO.cpp */,
+				371829341D44CA570013E3C4 /* MO.h */,
+				371829351D44CA570013E3C4 /* Entry.cpp */,
+				371829361D44CA570013E3C4 /* Entry.h */,
+			);
+			name = i18n;
+			sourceTree = "<group>";
+		};
 		46880B7519C43A67006E1F66 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
@@ -461,6 +508,10 @@
 		46880B8319C43A87006E1F66 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				3718292E1D44CA3C0013E3C4 /* i18n */,
+				37DF03D81D44B8C3007252C6 /* LanguageManager.h */,
+				37DF03D91D44B8D4007252C6 /* LanguageManager.cpp */,
+				F3CA26E21D43B73C006EBDC6 /* lang */,
 				F3913DE81D3F4624001B3038 /* alphamon */,
 				F3913DA41D3F461A001B3038 /* AlphamonSprite.cpp */,
 				F3913D8C1D3F461A001B3038 /* AlphamonSprite.h */,
@@ -514,6 +565,8 @@
 				F3913D9B1D3F461A001B3038 /* StateMachine.h */,
 				F3913DB91D3F461A001B3038 /* WalkingState.cpp */,
 				F3913D9C1D3F461A001B3038 /* WalkingState.h */,
+				370A3DB11D43427A00676C50 /* SkeletonConfiguration.h */,
+				370A3DB31D43428D00676C50 /* SkeletonConfiguration.cpp */,
 			);
 			name = Classes;
 			path = ../Classes;
@@ -639,6 +692,19 @@
 				F3913DEE1D3F4694001B3038 /* MenuContext.cpp */,
 			);
 			path = menu;
+			sourceTree = "<group>";
+		};
+		F3CA26E21D43B73C006EBDC6 /* lang */ = {
+			isa = PBXGroup;
+			children = (
+				F3CA26E81D43C069006EBDC6 /* LangUtil.cpp */,
+				F3CA26F01D43DA17006EBDC6 /* KannadaUtil.cpp */,
+				F3CA26F31D43DA25006EBDC6 /* KannadaUtil.h */,
+				F3CA26E91D43C069006EBDC6 /* LangUtil.h */,
+				F3CA26EC1D43C097006EBDC6 /* EnglishUtil.h */,
+				F3CA26ED1D43C0A9006EBDC6 /* EnglishUtil.cpp */,
+			);
+			path = lang;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -804,8 +870,11 @@
 				F3913DCE1D3F461A001B3038 /* MessageSender.cpp in Sources */,
 				F3913DE41D3F461A001B3038 /* StateMachine.cpp in Sources */,
 				F3913E191D3F46B1001B3038 /* Cannon_Ball_Main.cpp in Sources */,
+				37DF03DA1D44B8D4007252C6 /* LanguageManager.cpp in Sources */,
+				370A3DB41D43428D00676C50 /* SkeletonConfiguration.cpp in Sources */,
 				F3913E011D3F46A5001B3038 /* CharGenerator.cpp in Sources */,
 				F39610B11D3F8FDB00D8DD13 /* AlphamonFeedLevelScene.cpp in Sources */,
+				371829371D44CA570013E3C4 /* I18nUtils.cpp in Sources */,
 				F3913DE21D3F461A001B3038 /* State.cpp in Sources */,
 				F3913E1F1D3F46B1001B3038 /* PatchTheWallScene.cpp in Sources */,
 				F3913DDE1D3F461A001B3038 /* StandingState.cpp in Sources */,
@@ -815,9 +884,12 @@
 				503AE10117EB989F00D1A890 /* main.m in Sources */,
 				F3913DDC1D3F461A001B3038 /* Sqlite3Helper.cpp in Sources */,
 				F3913DD81D3F461A001B3038 /* SkeletonCharacter.cpp in Sources */,
+				3718293B1D44CA570013E3C4 /* Entry.cpp in Sources */,
 				F3913E031D3F46A5001B3038 /* DuelScene.cpp in Sources */,
 				F3913DBA1D3F461A001B3038 /* sqlite3.c in Sources */,
+				F3CA26F11D43DA17006EBDC6 /* KannadaUtil.cpp in Sources */,
 				F3913DDA1D3F461A001B3038 /* SpeechBubbleView.cpp in Sources */,
+				371829391D44CA570013E3C4 /* MO.cpp in Sources */,
 				F3913DD21D3F461A001B3038 /* RPGConfig.cpp in Sources */,
 				F3913DE01D3F461A001B3038 /* StartMenuScene.cpp in Sources */,
 				F3913E1D1D3F46B1001B3038 /* EndlessRunner.cpp in Sources */,
@@ -826,7 +898,9 @@
 				F3913DEF1D3F4694001B3038 /* MenuContext.cpp in Sources */,
 				F3913E251D3F46B1001B3038 /* SpriteCreate.cpp in Sources */,
 				F3913DFD1D3F46A5001B3038 /* Alphabet.cpp in Sources */,
+				F3CA26EA1D43C069006EBDC6 /* LangUtil.cpp in Sources */,
 				F3913E231D3F46B1001B3038 /* SmashTheRockScene.cpp in Sources */,
+				F3CA26EE1D43C0A9006EBDC6 /* EnglishUtil.cpp in Sources */,
 				F3913DCA1D3F461A001B3038 /* MessageContent.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -862,21 +936,29 @@
 				F39610B51D3F905D00D8DD13 /* AlphamonFeedScene.cpp in Sources */,
 				F3913DF01D3F4694001B3038 /* MenuContext.cpp in Sources */,
 				F3913DE31D3F461A001B3038 /* State.cpp in Sources */,
+				F3CA26EF1D43C0A9006EBDC6 /* EnglishUtil.cpp in Sources */,
+				370A3DB51D43428D00676C50 /* SkeletonConfiguration.cpp in Sources */,
 				F3913DE51D3F461A001B3038 /* StateMachine.cpp in Sources */,
 				F39610B41D3F905A00D8DD13 /* AlphamonFeedLevelScene.cpp in Sources */,
 				F3913DE71D3F461A001B3038 /* WalkingState.cpp in Sources */,
 				F3913DC91D3F461A001B3038 /* JumpingState.cpp in Sources */,
 				F3913DE11D3F461A001B3038 /* StartMenuScene.cpp in Sources */,
+				37DF03DB1D44B8D4007252C6 /* LanguageManager.cpp in Sources */,
 				F3913E221D3F46B1001B3038 /* SmashTheRockLevelScene.cpp in Sources */,
 				F3913DCF1D3F461A001B3038 /* MessageSender.cpp in Sources */,
+				371829381D44CA570013E3C4 /* I18nUtils.cpp in Sources */,
 				F3913DFE1D3F46A5001B3038 /* Alphabet.cpp in Sources */,
+				3718293A1D44CA570013E3C4 /* MO.cpp in Sources */,
 				F3913DDF1D3F461A001B3038 /* StandingState.cpp in Sources */,
 				F3913DDD1D3F461A001B3038 /* Sqlite3Helper.cpp in Sources */,
 				F3913DC11D3F461A001B3038 /* ExternalSkeletonCharacter.cpp in Sources */,
 				376FEE811D3F66380037393F /* SkeletonPosition.cpp in Sources */,
+				F3CA26EB1D43C069006EBDC6 /* LangUtil.cpp in Sources */,
 				F3913DC71D3F461A001B3038 /* HelloWorldScene.cpp in Sources */,
 				F3913DC31D3F461A001B3038 /* FallingState.cpp in Sources */,
 				F3913E1E1D3F46B1001B3038 /* EndlessRunner.cpp in Sources */,
+				F3CA26F21D43DA17006EBDC6 /* KannadaUtil.cpp in Sources */,
+				3718293C1D44CA570013E3C4 /* Entry.cpp in Sources */,
 				F3913E021D3F46A5001B3038 /* CharGenerator.cpp in Sources */,
 				F3913E201D3F46B1001B3038 /* PatchTheWallScene.cpp in Sources */,
 				F3913E281D3F46B1001B3038 /* TraceScene.cpp in Sources */,

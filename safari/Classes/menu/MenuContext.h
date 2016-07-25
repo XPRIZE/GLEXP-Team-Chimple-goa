@@ -16,23 +16,28 @@
 class MenuContext : public cocos2d::Node {
     
 public:
-    static MenuContext* create();
+    static MenuContext* create(Node *main);
     void pickAlphabet(char targetAlphabet, char chosenAlphabet, bool choose = true, cocos2d::Vec2 position = cocos2d::Vec2::ZERO);
     void finalizePoints();
+    static const std::string LANG;
 
 CC_CONSTRUCTOR_ACCESS:
     MenuContext();
     virtual ~MenuContext();
-    bool init();
+    bool init(Node* main);
     
 protected:
     int _points;
     bool _menuSelected;
+    cocos2d::Node* _main;
     cocos2d::Label* _label;
     cocos2d::ui::Button* _menuButton;
     cocos2d::ui::Button* _menu;
     cocos2d::LayerColor* _greyLayer;
     void expandMenu(Ref* pSender, cocos2d::ui::Widget::TouchEventType eEventType);
+    void pauseNodeAndDescendants(Node *pNode);
+    void resumeNodeAndDescendants(Node *pNode);
+    void removeMenu();
 
     template <typename T>
     static inline std::string to_string(T value)

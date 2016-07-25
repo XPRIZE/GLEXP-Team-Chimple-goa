@@ -39,6 +39,8 @@ Scene *Trace::createScene(char alphabet) {
     auto scene = Scene::create();
     auto layer = Trace::create(alphabet);
     scene->addChild(layer);
+    layer->_menuContext = MenuContext::create(layer);
+    scene->addChild(layer->_menuContext);    
     return scene;
 }
 
@@ -74,9 +76,6 @@ bool Trace::init(char alphabet) {
 	auto _bg = CSLoader::createNode("Alphacombat.csb");
 	//_background->setPosition(Vec2(visibleSize.width / 2 + origin.x, visibleSize.height / 2 + origin.y));
 	addChild(_bg);
-
-	_menuContext = MenuContext::create();
-	addChild(_menuContext, 4);
 
 	/*auto bg = Sprite::create("bg.png");
 	bg->setPosition(Vec2(visibleSize.width / 2 + origin.x, visibleSize.height / 2 + origin.y));

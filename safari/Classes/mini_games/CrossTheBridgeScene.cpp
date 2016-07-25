@@ -16,6 +16,9 @@ Scene* CrossTheBridge::createScene()
 	// add layer as a child to scene
 	scene->addChild(layer);
 
+    layer->_menuContext = MenuContext::create(layer);
+    scene->addChild(layer->_menuContext);
+    
 	// return the scene
 	return scene;
 }
@@ -61,9 +64,6 @@ bool CrossTheBridge::init()
 
 	auto gameBG = (Sprite *)CSLoader::createNode("crossthebridge/MainScene.csb");
 	this->addChild(gameBG, 1);
-
-	_menuContext = MenuContext::create();
-	this->addChild(_menuContext, 10);
 
 	Sprite* house_wall = (Sprite *)gameBG->getChildByName("house_Wall");
 	house_wall->setGlobalZOrder(3);

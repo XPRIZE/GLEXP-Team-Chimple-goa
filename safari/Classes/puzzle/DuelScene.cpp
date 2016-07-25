@@ -6,6 +6,7 @@
 //
 //
 
+#include <math.h>
 #include "DuelScene.h"
 #include "../AppDelegate.h"
 #include "../alphamon/HPMeter.h"
@@ -36,18 +37,21 @@ DuelScene::~DuelScene() {
     _eventDispatcher->removeCustomEventListeners("alphabet_unselected");    
 }
 
-Scene* DuelScene::createScene(char myMonChar, char otherMonChar)
+Scene* DuelScene::createScene(wchar_t myMonChar, wchar_t otherMonChar)
 {
     auto scene = Scene::create();
     
     auto layer = DuelScene::create(myMonChar, otherMonChar);
     
     scene->addChild(layer);
+
+    layer->_menuContext = MenuContext::create(layer);
+    scene->addChild(layer->_menuContext);
     
     return scene;
 }
 
-DuelScene* DuelScene::create(char myMonChar, char otherMonChar)
+DuelScene* DuelScene::create(wchar_t myMonChar, wchar_t otherMonChar)
 {
     DuelScene* duelScene = new (std::nothrow) DuelScene();
     if(duelScene && duelScene->init(myMonChar, otherMonChar))
@@ -59,7 +63,7 @@ DuelScene* DuelScene::create(char myMonChar, char otherMonChar)
     return nullptr;
 }
 
-bool DuelScene::init(char myMonChar, char otherMonChar)
+bool DuelScene::init(wchar_t myMonChar, wchar_t otherMonChar)
 {
     if (!Node::init()) {
         return false;
@@ -94,18 +98,19 @@ bool DuelScene::init(char myMonChar, char otherMonChar)
 
     _myMon = Alphamon::createWithAlphabet(myMonChar);
     auto leftStand = background->getChildByName(LEFT_STAND_NAME);
+    leftStand->setPositionX(leftStand->getPositionX() + 150.0);
     _myMon->setPosition(leftStand->getPosition() + Vec2(0, 0));
     addChild(_myMon);
     _myMon->setHealth(100);
-    _myMon->setScale(0.7);
+//    _myMon->setScale(0.7);
     _eventDispatcher->addCustomEventListener("alphabet_selected", CC_CALLBACK_1(DuelScene::onAlphabetSelected, this));
     _eventDispatcher->addCustomEventListener("alphabet_unselected", CC_CALLBACK_1(DuelScene::onAlphabetUnselected, this));
     
     _otherMon = Alphamon::createWithAlphabet(otherMonChar);
     auto rightStand = background->getChildByName(RIGHT_STAND_NAME);
-    rightStand->setPositionX(rightStand->getPositionX() + visibleSize.width - 2560.0);
+    rightStand->setPositionX(rightStand->getPositionX() + visibleSize.width - 2560.0 - 150.0);
     addChild(_otherMon);
-    _otherMon->setScale(0.7);
+//    _otherMon->setScale(0.7);
     _otherMon->setPosition(rightStand->getPosition() + Vec2(0, 0));
     _otherMon->setHealth(100);
 //    auto lg = LayerGradient::create(Color4B(0.0, 0.0, 0.0, 128.0), Color4B(0.0, 0.0, 0.0, 0.0), Vec2(-1, 0));
@@ -125,8 +130,6 @@ bool DuelScene::init(char myMonChar, char otherMonChar)
 ////    mouthTimeline->gotoFrameAndPlay(0, true);
 //    mouthTimeline->play("eat", true);
     
-    _menuContext = MenuContext::create();
-    addChild(_menuContext);
     
     startMyTurn();
     return true;
@@ -134,10 +137,8 @@ bool DuelScene::init(char myMonChar, char otherMonChar)
 
 void DuelScene::startMyTurn() {
     if(_myMon->getHealth() <= 0) {
-        CCLOG("MyMon game over");
         gameOver();
     } else if (_otherMon->getHealth() <= 0) {
-        CCLOG("OtherMon game over");
         gameOver();
     } else {
         _turnNumber++;
@@ -155,7 +156,7 @@ void DuelScene::startMyTurn() {
         _grid->resize(SQUARE_WIDTH * MAX_COLS, SQUARE_WIDTH * MAX_ROWS, numRows, numCols);
         _grid->setCharacters(charArray);
         _grid->enableTouch(true);
-        _powerIncr = 100 / _grid->getCountOfAlphabetsWhichMatch(_myMon->getAlphabet());
+        _powerIncr = ceil(100.0 / _grid->getCountOfAlphabetsWhichMatch(_myMon->getAlphabet()));
 
         _timer->setPercent(100);
         
@@ -187,11 +188,10 @@ void DuelScene::armMyMon() {
     _grid->enableTouch(false);
     auto matchingAlphabets = _grid->getAlphabetsWhichMatch(_myMon->getAlphabet());
     for(auto alpha: matchingAlphabets) {
-        CCLOG("meteor %c", alpha->getChar());
         auto particle = cocos2d::ParticleMeteor::create();
         particle->setPosition(convertToNodeSpace(alpha->getParent()->convertToWorldSpace(alpha->getPosition())));
         addChild(particle);
-        auto moveTo = JumpTo::create(0.5, _myMon->getPosition(), 25.0, 1);
+        auto moveTo = JumpTo::create(0.5, _myMon->getCenterPosition(), 25.0, 1);
         auto callbackJump = CallFunc::create(CC_CALLBACK_0(DuelScene::endMeteor, this, particle));
         
         auto sequence = Sequence::create(moveTo, callbackJump, NULL);
@@ -199,14 +199,16 @@ void DuelScene::armMyMon() {
         
     }
     auto callbackAttack = CallFunc::create(CC_CALLBACK_0(DuelScene::attackOtherMon, this));
-    this->runAction(Sequence::create(DelayTime::create(2), callbackAttack, nullptr));
+    auto callbackShowPower = TargetedAction::create(_myMon, CallFunc::create(CC_CALLBACK_0(Alphamon::showPower, _myMon)));
+    
+    this->runAction(Sequence::create(DelayTime::create(1), callbackShowPower, DelayTime::create(1), callbackAttack, nullptr));
 }
 
 void DuelScene::attackOtherMon() {
     auto particle = cocos2d::ParticleMeteor::create();
-    particle->setPosition(_myMon->getPosition());
+    particle->setPosition(_myMon->getCenterPosition());
     addChild(particle);
-    auto moveTo = TargetedAction::create(particle, JumpTo::create(0.5, _otherMon->getPosition(), 25.0, 1));
+    auto moveTo = TargetedAction::create(particle, JumpTo::create(0.5, _otherMon->getCenterPosition(), 25.0, 1));
     auto callbackJump = CallFunc::create(CC_CALLBACK_0(DuelScene::endMeteor, this, particle));
     auto callbackAttack = CallFunc::create(CC_CALLBACK_0(DuelScene::attackMyMon, this));
     auto callbackReduceHP = CallFunc::create(CC_CALLBACK_0(DuelScene::reduceHP, this, _otherMon, _myMon->getPower() * MAX_POINTS_PER_TURN / 100));
@@ -217,9 +219,9 @@ void DuelScene::attackOtherMon() {
 
 void DuelScene::attackMyMon() {
     auto particle = cocos2d::ParticleMeteor::create();
-    particle->setPosition(_otherMon->getPosition());
+    particle->setPosition(_otherMon->getCenterPosition());
     addChild(particle);
-    auto moveTo = TargetedAction::create(particle, JumpTo::create(0.5, _myMon->getPosition(), 25.0, 1));
+    auto moveTo = TargetedAction::create(particle, JumpTo::create(0.5, _myMon->getCenterPosition(), 25.0, 1));
     auto callbackJump = CallFunc::create(CC_CALLBACK_0(DuelScene::endMeteor, this, particle));
     auto callbackStart = CallFunc::create(CC_CALLBACK_0(DuelScene::startMyTurn, this));
     auto callbackReduceHP = CallFunc::create(CC_CALLBACK_0(DuelScene::reduceHP, this, _myMon, rand() % MAX_POINTS_PER_TURN));
@@ -237,8 +239,7 @@ void DuelScene::endMeteor(Node* node) {
 }
 
 void DuelScene::onAlphabetSelected(EventCustom *event) {
-    char* buf = static_cast<char*>(event->getUserData());
-    CCLOG("Pressed %c",buf[0]);
+    wchar_t* buf = static_cast<wchar_t*>(event->getUserData());
     if(_myMon->getAlphabet() == buf[0]) {
         _myMon->changePower(_powerIncr);
     } else {
@@ -248,8 +249,7 @@ void DuelScene::onAlphabetSelected(EventCustom *event) {
 }
 
 void DuelScene::onAlphabetUnselected(EventCustom *event) {
-    char* buf = static_cast<char*>(event->getUserData());
-    CCLOG("Pressed %c",buf[0]);
+    wchar_t* buf = static_cast<wchar_t*>(event->getUserData());
     if(_myMon->getAlphabet() == buf[0]) {
         _myMon->changePower(-_powerIncr);
     } else {

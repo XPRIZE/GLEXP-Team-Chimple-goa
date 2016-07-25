@@ -8,12 +8,11 @@
 
 #include <math.h>
 #include "CharGenerator.h"
+#include "../lang/LangUtil.h"
 
 USING_NS_CC;
 
 static CharGenerator* _singletonCharGenerator = nullptr;
-static const char* const a_to_z = "ABCDEFGHIJKLMNOPQRSTUVWXYZ" ;
-//static const char* const a_to_z = "ಅಆಇಈಉಊಋಌಎಏಐಒಓಔಕಖಗಘಙಚಛಜಝಞಟಠಡಢಣತಥದಧನಪಫಬಭಮಯರಱಲಳವಶಷಸಹ";
 
 CharGenerator* CharGenerator::getInstance()
 {
@@ -35,13 +34,14 @@ bool CharGenerator::init()
     return true;
 }
 
-std::vector<std::vector<char>> CharGenerator::generateMatrixForChoosingAChar(char alpha, int numRows, int numCols, int minPercentOfOccurence)
+std::vector<std::vector<wchar_t>> CharGenerator::generateMatrixForChoosingAChar(wchar_t alpha, int numRows, int numCols, int minPercentOfOccurence)
 {
-    std::vector<std::vector<char>> matrix(numRows, std::vector<char>(numCols));
+    int numChar = LangUtil::getInstance()->getNumberOfCharacters();
+    std::vector<std::vector<wchar_t>> matrix(numRows, std::vector<wchar_t>(numCols));
     for (int i = 0; i < numRows; i++) {
         for (int j = 0; j < numCols; j++) {
-            int randomNumber = rand() % 25;
-            matrix[i][j] = a_to_z[randomNumber];
+            int randomNumber = rand() % (numChar - 1);
+            matrix[i][j] = LangUtil::getInstance()->getAllCharacters()[randomNumber];
         }
     }
     
@@ -55,4 +55,9 @@ std::vector<std::vector<char>> CharGenerator::generateMatrixForChoosingAChar(cha
     return matrix;
 }
 
+wchar_t CharGenerator::generateAChar() {
+    int numChar = LangUtil::getInstance()->getNumberOfCharacters();
+    int randomNumber = rand() % (numChar - 1);
+    return LangUtil::getInstance()->getAllCharacters()[randomNumber];
+}
 
