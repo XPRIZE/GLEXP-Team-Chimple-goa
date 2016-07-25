@@ -174,7 +174,7 @@ bool Trace::onTouchBegan(Touch* touch, Event* event){
         _currentNodeIndex = 0;
         _touchActive = true;
 		
-		setDotsVisibility(true);
+		//setDotsVisibility(true);
         return true; // to indicate that we have consumed it.
     }
     
@@ -208,19 +208,19 @@ void Trace::onTouchEnded(cocos2d::Touch *touch, cocos2d::Event *event) {
 
 			std::string randomAnimation = animations[RandomHelper::random_int(0, 3)];
 
-			
+			_menuContext->pickAlphabet('A', 'A', true);
 
 
 			timeline->play(randomAnimation, false);
 
-			
-			
-			
-			float delay = 0;
+
+
+
+			float delay = 0.08;
 
 			for (int j = 0; j < _nodes.size(); j++) {
 				for (int i = 0; i < _nodes[j].size(); i++) {
-					delay = delay + 0.05;
+
 					std::ostringstream sstreami;
 					sstreami << "dot_" << j + 1 << "_" << i + 1;
 					std::string queryi = sstreami.str();
@@ -231,15 +231,16 @@ void Trace::onTouchEnded(cocos2d::Touch *touch, cocos2d::Event *event) {
 
 					auto sequenceDot = Sequence::create(DelayTime::create(delay), visiblity, NULL);
 					_background->getChildByName(queryi)->runAction(sequenceDot);
+					delay = delay + 0.08;
 				}
 			}
 
-			_menuContext->pickAlphabet('A', 'A', true);
-
-
-			timeline->setAnimationEndCallFunc(randomAnimation, CC_CALLBACK_0(Trace::transit, this, level));
-
-
+			auto redirectToNextLevel = CallFunc::create([=] {
+				Trace::transit(level);
+			});
+			auto redirect = Sequence::create(DelayTime::create(delay), redirectToNextLevel, NULL);
+			this->runAction(redirect);
+			
 
 			
         }
@@ -273,7 +274,7 @@ void Trace::onTouchMoved(cocos2d::Touch *touch, cocos2d::Event *event) {
                     CCLOG("failed");
                     event->getCurrentTarget()->setPosition(_nodes[_currentStroke][0]->getPosition());
 					
-					setDotsVisibility(false);
+					//setDotsVisibility(false);
                     _touchActive = false;
                     _currentNodeIndex = 0;
                 }
