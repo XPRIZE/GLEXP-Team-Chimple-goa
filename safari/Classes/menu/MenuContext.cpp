@@ -15,10 +15,11 @@ using namespace cocos2d::ui;
 
 const std::string MenuContext::LANG = "kan";
 
-MenuContext* MenuContext::create(Node* main) {
+MenuContext* MenuContext::create(Node* main, bool launchCustomEventOnExit) {
     MenuContext* menuContext = new (std::nothrow) MenuContext();
     if(menuContext && menuContext->init(main)) {
         menuContext->autorelease();
+        menuContext->_launchCustomEventOnExit = launchCustomEventOnExit;
         return menuContext;
     }
     CC_SAFE_DELETE(menuContext);
@@ -89,7 +90,14 @@ void MenuContext::expandMenu(cocos2d::Ref *pSender, cocos2d::ui::Widget::TouchEv
                 _menuSelected = true;
             }
         } else if (clickedButton == _menu) {
-            Director::getInstance()->replaceScene(StartMenu::createScene());
+            if(_launchCustomEventOnExit) {
+                EventCustom event("on_menu_exit");
+                _eventDispatcher->dispatchEvent(&event);
+
+            } else {
+                Director::getInstance()->replaceScene(StartMenu::createScene());
+            }
+            
         }
     }
 }
