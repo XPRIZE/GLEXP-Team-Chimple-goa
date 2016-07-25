@@ -11,9 +11,8 @@ public:
 	~SpriteCreate();
 
 	std::string currentRockName, NextRockName, LayerTypeName;
-	bool touchEvent;
-
-	static SpriteCreate* createSprite(std::string spriteName, int postionX, int postionY, float anchorX, float anchorY, std::string currentRockName, std::string NextRockName, std::string LayerTypeName, bool touchEvent);
+	
+	static SpriteCreate* createSprite(std::string spriteName, int postionX, int postionY, float anchorX, float anchorY, std::string currentRockName, std::string NextRockName, std::string LayerTypeName);
 
 private:
 };

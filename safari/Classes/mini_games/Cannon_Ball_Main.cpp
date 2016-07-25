@@ -34,6 +34,8 @@ Scene* MainGame::createScene()
 	auto scene = Scene::create();
 	auto layer = MainGame::create();
 	scene->addChild(layer);
+    layer->_menuContext = MenuContext::create(layer);
+    scene->addChild(layer->_menuContext);
 
 	//	backGround_front = NULL;
 
@@ -166,10 +168,6 @@ void MainGame::startGame()	// starting of game
 	backGround_front = Sprite::createWithSpriteFrameName("cannonball/cannonball_mainasset/background_front.png");
 	backGround_front->setPosition(origin.x + visibleSize.width * 43 / 100, origin.y + visibleSize.height / 2);
 	this->addChild(backGround_front, 3);
-
-	_menuContext = MenuContext::create();
-	addChild(_menuContext, 4);
-
 
 	for (int i = 0; i < position.size(); i++)
 	{

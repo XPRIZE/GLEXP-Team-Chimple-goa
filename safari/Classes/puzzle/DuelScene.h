@@ -18,16 +18,16 @@
 class DuelScene : public cocos2d::Node
 {
 public:
-    static cocos2d::Scene* createScene(char myMonChar, char otherMonChar);
+    static cocos2d::Scene* createScene(wchar_t myMonChar, wchar_t otherMonChar);
 
-    static DuelScene *create(char myMonChar, char otherMonChar);
+    static DuelScene *create(wchar_t myMonChar, wchar_t otherMonChar);
     virtual void onAlphabetSelected(cocos2d::EventCustom *eventCustom);
     virtual void onAlphabetUnselected(cocos2d::EventCustom *eventCustom);
     
 CC_CONSTRUCTOR_ACCESS:
     DuelScene();
     ~DuelScene();
-    bool init(char myMonChar, char otherMonChar);
+    bool init(wchar_t myMonChar, wchar_t otherMonChar);
     
 protected:
     Alphamon *_myMon;

@@ -40,6 +40,7 @@ LOCAL_SRC_FILES := hellocpp/main.cpp \
 					../../Classes/State.cpp \
 					../../Classes/StateMachine.cpp \
 					../../Classes/WalkingState.cpp \
+					../../Classes/SkeletonConfiguration.cpp \
 					../../Classes/mini_games/PatchTheWallScene.cpp \
 					../../Classes/mini_games/EndlessRunner.cpp \
 					../../Classes/mini_games/SpriteCreate.cpp \
@@ -52,10 +53,17 @@ LOCAL_SRC_FILES := hellocpp/main.cpp \
 					../../Classes/mini_games/Cannon_Ball_Listener.cpp \
 					../../Classes/mini_games/Cannon_Ball_Main.cpp \
 					../../Classes/menu/MenuContext.cpp \
+					../../Classes/lang/LangUtil.cpp \
+					../../Classes/lang/EnglishUtil.cpp \
+					../../Classes/lang/KannadaUtil.cpp \
                     ../../Classes/StartMenuScene.cpp \
                 	../../Classes/AlphamonSprite.cpp \
-                	../../Classes/SkeletonPosition.cpp
-                                        
+                	../../Classes/SkeletonPosition.cpp  \
+                	../../Classes/I18nUtils.cpp  \
+                	../../Classes/MO.cpp  \
+                	../../Classes/Entry.cpp  \
+                	../../Classes/LanguageManager.cpp               	                	                	                	                	                
+                	
 LOCAL_C_INCLUDES := $(LOCAL_PATH)/../../Classes
 LOCAL_C_INCLUDES += $(LOCAL_PATH)/../../../extensions
 

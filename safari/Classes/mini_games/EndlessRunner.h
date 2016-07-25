@@ -3,12 +3,15 @@
 
 #include "cocos2d.h"
 #include "SpriteCreate.h"
+#include "../menu/MenuContext.h"
 #include "editor-support/cocostudio/CocoStudio.h"
 using namespace cocos2d;
 
 class EndlessRunner : public cocos2d::Layer
 {
 protected:
+
+	MenuContext *_menuContext;
 	std::vector<SpriteCreate*> allPathBlocks; // Vector Array Which Carries all Path Blocks
 	std::vector<Sprite*> allSceneObject;
 	std::vector<Sprite*> allBeforeStartBlocks;
@@ -24,8 +27,8 @@ protected:
 	Sprite* leftBarrierForBigObject;
 	Sprite* upBarrier;
 	double xSizeArray[7] = { 1.0,0.4,0.6,0.8,0.5,1.2,1.4 };
-	std::string letters[10] = { "A","B","C","A","D","E","A","F","G","A" };
-	std::string tempChar = "A";
+	char letters[36] = { 'A','B','C','A','D','E','A','F','G','A','A','A','B','B','B','B','C','C','C','C','D','D','D','D','E','E','E','E','F','F','F','F','G','G','G','G' };
+	char tempChar = 'A';
 	struct mountainTypeObject {
 		std::string startLandPart = "startLand";
 		std::string midLandPart = "midLand";

@@ -117,6 +117,10 @@ void RPGSprite::setAttributes(std::unordered_map<std::string, std::string> attri
         this->setKey(it->second);
     }
 
+    it = this->attributes.find("transitToGameScene");
+    if ( it != this->attributes.end() ) {
+        this->setTransitToGameScene(it->second);
+    }
 }
 
 std::unordered_map<std::string, std::string> RPGSprite::getAttributes() {
