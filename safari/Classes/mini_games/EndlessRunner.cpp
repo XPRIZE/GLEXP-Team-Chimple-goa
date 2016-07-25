@@ -471,7 +471,7 @@ void EndlessRunner::AddRocksInFirstLayerPath() {
 		allPathBlocks.push_back(currentImage);
 		currentFirstLayerRock = currentImage;
 		currentImage->setScaleY(11);
-		//currentImage->setOpacity(1);
+		currentImage->setOpacity(0);
 		position = EndlessRunner::movingUpto(LayerYcoord.groundLevel);
 		currentFirstLayerRock->runAction(MoveTo::create(EndlessRunner::movingTime(currentFirstLayerRock), Vec2(leftBarrier->getPosition().x + origin.x, position.second)));
 		FirstLayerModes = 1;
