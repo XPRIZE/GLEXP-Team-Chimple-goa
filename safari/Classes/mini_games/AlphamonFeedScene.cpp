@@ -101,9 +101,9 @@ bool AlphamonFeed::init()
 	//sprite1 = CSLoader::createNode(CCString::createWithFormat("english/%s.csb", alphaLevelString.c_str())->getCString());
 
 	sprite1 = Alphamon::createWithAlphabet(alphaLevelString.at(0));
-	sprite1->setScaleX(0.35);
-	sprite1->setScaleY(0.35);
-	sprite1->setPositionX(200);
+	sprite1->setScaleX(0.85);
+	sprite1->setScaleY(0.85);
+	sprite1->setPositionX(300);
 	sprite1->setPositionY(50);
 	sprite1->setName(alphaLevelString.c_str());
 	sprite1->setContentSize(cocos2d::Size(300.0f, 400.0f));
@@ -142,11 +142,12 @@ void AlphamonFeed::showFruits(float dt) {
 	Size visibleSize = Director::getInstance()->getVisibleSize();
 	auto str = fallingAlphaArray.at(cocos2d::RandomHelper::random_int(0, 5)).at(0);
     auto mystr = LangUtil::convertUTF16CharToString(str);
-	sprite = CSLoader::createNode(CCString::createWithFormat("alphabets fruits/%c.csb", str)->getCString());
+	auto path = LangUtil::getInstance()->getSpecialAnimationFileName(str,"alphabets fruits");
+	sprite = CSLoader::createNode(path);
 	sprite->setPositionX(cocos2d::RandomHelper::random_real(visibleSize.width*0.20, visibleSize.width*0.85));
 	sprite->setPositionY(1800);
 	sprite->setName(mystr);
-	sprite->setContentSize(cocos2d::Size(200.0f, 200.0f));
+	sprite->setContentSize(cocos2d::Size(150.0f, 150.0f));
 	auto moveBy = MoveBy::create(2, Vec2(0, -visibleSize.height-100));
 	sprite->runAction(moveBy);
 	
@@ -157,10 +158,14 @@ void AlphamonFeed::showFruits(float dt) {
 void AlphamonFeed:: update(float dt) { 
 	if (fruitReff.size() != 0) {
 		for (int i = 0; i < fruitReff.size(); i++) {
-			monster = CCRectMake(sprite1->getPositionX()-(sprite1->getContentSize().width/4), sprite1->getPositionY(), sprite1->getContentSize().width/2, sprite1->getContentSize().height/2); //+(sprite1->getContentSize().height/4)
+			monster = CCRectMake(sprite1->getPositionX()-(sprite1->getContentSize().width/2), sprite1->getPositionY(), sprite1->getContentSize().width/2, sprite1->getContentSize().height/2); //+(sprite1->getContentSize().height/4)
 			Rect fruit = CCRectMake(fruitReff.at(i)->getPositionX()-100, fruitReff.at(i)->getPositionY()-60, fruitReff.at(i)->getContentSize().width, fruitReff.at(i)->getContentSize().height);
 
 			if ((monster).intersectsRect(fruit)) {
+				audio = CocosDenshion::SimpleAudioEngine::getInstance();
+				auto soundPath = (fruitReff.at(i)->getName()).at(0);
+				auto path = LangUtil::getInstance()->getAlphabetSoundFileName(soundPath);
+				audio->playEffect(path.c_str(), false);
 				menu->pickAlphabet((sprite1->getName()).at(0), (fruitReff.at(i)->getName()).at(0), true);
 				if ((sprite1->getName()).compare(fruitReff.at(i)->getName()) == 0) {	
 					sprite1->alphamonMouthAnimation("eat", false);
