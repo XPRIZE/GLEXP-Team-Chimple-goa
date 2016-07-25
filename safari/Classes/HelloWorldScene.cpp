@@ -300,7 +300,7 @@ void HelloWorld::addMainCharacterToScene(const std::string& filename, cocos2d::N
     this->mainLayer->runAction(followAction);
     
     this->showTouchSignNode = Sprite::create(TOUCH_POINTER_IMG);
-    this->showTouchSignNode->setScale(0.5, 0.5);
+    this->showTouchSignNode->setScale(0.5f, 0.5f);
     this->showTouchSignNode->setVisible(false);
     this->mainLayer->addChild(this->showTouchSignNode);    
 }
@@ -422,6 +422,7 @@ void HelloWorld::transitionToDuelScene(char alphabet) {
 
 void HelloWorld::hideTouchPointSign() {
     this->showTouchSignNode->setVisible(false);
+    this->showTouchSignNode->setScale(0.5f, 0.5f);
 }
 
 void HelloWorld::processTextMessage(std::unordered_map<int, std::string> textMap, std::string ownerOfMessage)

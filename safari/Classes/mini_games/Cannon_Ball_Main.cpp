@@ -5,15 +5,15 @@
 USING_NS_CC;
 
 std::vector<LabelClass*> MainGame::cannonLetter;
-std::vector<Label*> MainGame::cannonLetter_actualImage;
+std::vector<Alphabet*> MainGame::cannonLetter_actualImage;
 
 std::vector<LabelClass*> MainGame::bulletArray;
-std::vector<Label*> MainGame::bulletArray_actualImage;
+std::vector<Alphabet*> MainGame::bulletArray_actualImage;
 
 std::vector<EventListenerClass*> MainGame::cannon_ballArray;
 std::vector<EventListenerClass*> MainGame::cannonArray;
 
-std::vector<cocos2d::Label*> MainGame::meteorArray_actualImage;
+std::vector<Alphabet*> MainGame::meteorArray_actualImage;
 std::vector<EventListenerClass*> MainGame::letterArray;
 std::vector<LabelClass*> MainGame::meteorArray;
 std::vector<cocos2d::Node*> MainGame::bulletArray_Animation;
@@ -332,9 +332,10 @@ void MainGame::letterCome(float d)
 
 		std::string value1 = "";
 		value1 += letterName;
-		Label *myLabel = Label::createWithBMFont("english/baloo_bhai.fnt", value1);
+//		Label *myLabel = Label::createWithBMFont("english/baloo_bhai_hdr.fnt", value1);
+		Alphabet *myLabel = Alphabet::createWithSize(letterName, 200);
 		myLabel->setPosition(MainGame::lettertmpPosition[val].x, MainGame::lettertmpPosition[val].y);
-		myLabel->setScale(.10, .10);
+//		myLabel->setScale(.10, .10);
 		this->addChild(myLabel);
 		MainGame::meteorArray_actualImage.push_back(myLabel);
 
@@ -403,18 +404,14 @@ void MainGame::cannonLetterCome()	//cannon letter will come which will be dragge
 			//			LabelClass *e2;
 			std::string val = "";
 			val += letterName;
-			/*			if (letterName == 'A')
-			val = "A .png";
-			else
-			{
-			val = letterName;
-			val.append(".png");
-			}
-			*/
-			Label *myLabel = Label::createWithBMFont("english/baloo_bhai.fnt", val);
+
+//			Label *myLabel = Label::createWithBMFont("english/baloo_bhai_hdr.fnt", val);
+			Alphabet *myLabel = Alphabet::createWithSize(letterName, 200);
 			myLabel->setPosition(position[i].x, position[i].y);
-			myLabel->setScale(.08, .08);
 			this->addChild(myLabel);
+//			myLabel->setScale(.08, .08);
+
+			
 			MainGame::cannonLetter_actualImage.push_back(myLabel);
 
 			LabelClass *lb = LabelClass::createSpt(letterName, position[i].x, position[i].y, letterName, self);
@@ -481,9 +478,10 @@ void MainGame::cannonLetterCome()	//cannon letter will come which will be dragge
 			val += letterName;
 
 
-			Label *myLabel = Label::createWithBMFont("english/baloo_bhai.fnt", val);
+//			Label *myLabel = Label::createWithBMFont("english/baloo_bhai_hdr.fnt", val);
+			Alphabet *myLabel = Alphabet::createWithSize(letterName, 200);
 			myLabel->setPosition(remchar->xP, remchar->yP);
-			myLabel->setScale(.10, .10);
+//			myLabel->setScale(.10, .10);
 			self->addChild(myLabel);
 			MainGame::cannonLetter_actualImage[remcharPos] = myLabel;
 
@@ -554,9 +552,10 @@ void MainGame::startFire(EventListenerClass* letterObject, Node *mycannon)
 		LabelClass *fire = LabelClass::createSpt(letterObject->id, letterObject->getPositionX() - (letterObject->getContentSize().width * 2), letterObject->getPositionY(), letterObject->id, self);
 		MainGame::bulletArray.push_back(fire);
 
-		Label *myLabel = Label::createWithBMFont("english/baloo_bhai.fnt", val);
+//		Label *myLabel = Label::createWithBMFont("english/baloo_bhai_hdr.fnt", val);
+		Alphabet *myLabel = Alphabet::createWithSize(letterObject->id, 200);
 		myLabel->setPosition(letterObject->getPositionX() - (letterObject->getContentSize().width * 2), letterObject->getPositionY());
-		myLabel->setScale(.10, .10);
+//		myLabel->setScale(.10, .10);
 		self->addChild(myLabel);
 		MainGame::bulletArray_actualImage.push_back(myLabel);
 
@@ -600,7 +599,7 @@ void MainGame::meteorBlast(Node *nd)
 	self->removeChild(nd);
 }
 
-void MainGame::removeFire(EventListenerClass* letterObject, Label* removableFire, Node *fireAnimation)
+void MainGame::removeFire(EventListenerClass* letterObject, Alphabet* removableFire, Node *fireAnimation)
 {
 	self->removeChild(removableFire);
 	self->removeChild(fireAnimation);
@@ -671,12 +670,24 @@ void MainGame::update(float dt)
 
 					if (MainGame::cannonArray[i]->flag == 1)
 					{
+						for (int y = 0; y < MainGame::cannon_ballArray.size(); y++)
+						{
+							Rect re = MainGame::cannonArray[i]->getBoundingBox();
+							if (re.intersectsRect(MainGame::cannon_ballArray[y]->getBoundingBox()))
+							{
+								self->removeChild(MainGame::cannon_ballArray[y]);
+								self->removeChild(MainGame::cannonLetter_actualImage[y]);
+								MainGame::cannonLetter[y]->flag = 1;
+								MainGame::cannonLetter[y]->answer = 'n';
+								break;
+							}
+						}
+
 						for (int x = 0; x < MainGame::bulletArray.size(); x++)
 						{
 							if (MainGame::bulletArray_actualImage[x]->getPositionY() >= (MainGame::cannonArray[i]->getPositionY() - MainGame::cannonArray[i]->getContentSize().height / 2) &&
 								MainGame::bulletArray_actualImage[x]->getPositionY() <= (MainGame::cannonArray[i]->getPositionY() + MainGame::cannonArray[i]->getContentSize().height / 2))
 							{
-
 								for (int y = 0; y < MainGame::cannonLetter.size(); y++)
 								{
 									if (MainGame::cannonLetter[y]->id == MainGame::bulletArray[x]->id)
@@ -684,7 +695,7 @@ void MainGame::update(float dt)
 										self->removeChild(MainGame::cannonLetter_actualImage[y]);
 										self->removeChild(MainGame::cannon_ballArray[y]);
 										MainGame::cannonLetter[y]->flag = 1;
-										MainGame::cannonLetter[y]->answer = 'y';
+										MainGame::cannonLetter[y]->answer = 'n';
 										break;
 									}
 								}
