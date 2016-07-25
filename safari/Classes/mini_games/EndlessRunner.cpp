@@ -205,7 +205,7 @@ void EndlessRunner::stillCharacterOnPath(float delta) {
 				Character.character->runAction(MoveBy::create(0.8, Vec2(-Character.character->getContentSize().width, -(visibleSize.height * 0.4))));
 				Character.Clicked = true;
 				LayerMode.gapMode = true;
-				Character.stillCheckFalg = false;
+//				Character.stillCheckFalg = false;
 			}
 		}
 		else {
