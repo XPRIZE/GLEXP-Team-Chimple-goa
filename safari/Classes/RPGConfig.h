@@ -214,9 +214,7 @@ public:
     static const char* SPEECH_BUBBLE_DESTROYED_NOTIFICATION;
     
     static const char* PROCESS_CUSTOM_MESSAGE_AND_CREATE_UI_NOTIFICATION;
-        
-    static const char* DISPATCH_CLEANUP_AND_SCENE_TRANSITION_NOTIFICATION;
-    
+            
     static const char* ON_TAP_VISIBLE_SPRITE_NOTIFICATION;
     
     static const char* SEND_BUBBLE_DESTROY_NOTIFICATION;

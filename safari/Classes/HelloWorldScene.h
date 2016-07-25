@@ -142,8 +142,9 @@ private:
     void HandleTouchedEnded(cocos2d::Point position);
     bool isTapOnInterActObject(cocos2d::Point position);
     void sendBubbleDestroySignal();
-
-    
+    void transitToHome();
+    void changeScene(std::string nextScene = "", bool isMiniGame = false);
+    void cleanUpResources();
     cocos2d::Size sceneSize;
     
     //references to all external Skeletons
