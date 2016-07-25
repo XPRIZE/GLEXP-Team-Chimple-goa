@@ -19,6 +19,7 @@ public:
     static void destroyInstance();
     
     std::vector<std::vector<wchar_t>> generateMatrixForChoosingAChar(wchar_t alpha, int numRows, int numCols, int minPercentOfOccurence = 10);
+    wchar_t generateAChar();
 protected:
     bool init();
 };

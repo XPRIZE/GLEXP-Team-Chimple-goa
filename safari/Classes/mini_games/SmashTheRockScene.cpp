@@ -119,8 +119,8 @@ bool SmashTheRock::init()
 	int dis = (230.0/2560)*visibleSize.width;
 	for (int i = 1; i < 4; i++)
 	{
-		int blockHeight = i*(block->getContentSize().height + 20) + 10;
-		sizei = block->getContentSize().height + 20;
+		int blockHeight = i*(block->getContentSize().height + 30) + 0;
+		sizei = block->getContentSize().height + 30;
 		CCLOG("sizei = %d", sizei);
 		for (int j = 1; j < 12; j++)
 		{
@@ -241,18 +241,13 @@ void SmashTheRock::jump()
 	auto action = MoveBy::create(1.5, Point(-1100, 0));
 	mainGameCharacter->runAction(action);
 	
-
-
-
 }
 
 void SmashTheRock :: hit()
 {
 	
-
-
 	auto boxLeft = centre->getChildByName("boxing_gloves_left");
-	auto action = MoveBy::create(0.25, Point(-380, 250));
+	auto action = MoveBy::create(0.25, Point(-250, 250));
 	auto rev = action->reverse();
 	auto boxRight = centre->getChildByName("boxing_gloves_right");
 	auto action1 = MoveBy::create(0.25, Point(300, 250));
@@ -265,7 +260,6 @@ void SmashTheRock :: hit()
 	auto seq = Sequence::create(callbackStart1,action,  rev,  tRight, callbackStart1, tRev1,  callbackStart, NULL);
 	boxLeft->runAction(seq);
 	//masking();
-	
 	
 	
 }
@@ -284,6 +278,16 @@ void SmashTheRock::blast()
 	white->setGlobalZOrder(2);
 	auto action3 = Blink::create(0.25, 1);
 	white->runAction(action3);
+
+	if (click == 3)
+	{
+		auto rock1 = centre->getChildByName("broken_01");
+		auto rock2 = centre->getChildByName("broken_02");
+	//	auto rock3 = centre->getChildByName("broken_02");
+	//	auto rock3 = centre->getChildByName("broken_02");
+		rock1->setVisible(true);
+		rock2->setVisible(true);
+	}
 
 }
 void SmashTheRock::masking()
@@ -353,7 +357,7 @@ bool SmashTheRock::onTouchBegan(cocos2d::Touch *touch, cocos2d::Event * event)
 			int indexj = (target->getPositionX());
 			int indexi = (target->getPositionY());
 			CCLOG("target x = %d", indexi);
-			int tempi = ((indexi + 150) / sizei)-1 ;
+			int tempi = ((indexi + 160) / sizei)-1 ;
 			int tempj = ((indexj - (dis)) / sizej)-1;
 			CCLOG("tempi x = %d", tempi);
 			CCLOG("tempj x = %d", tempj);
@@ -378,7 +382,7 @@ bool SmashTheRock::onTouchBegan(cocos2d::Touch *touch, cocos2d::Event * event)
 			int indexj1 = (target->getPositionX());
 			int indexi1 = (target->getPositionY());
 			CCLOG("target x = %d", indexi1);
-			int tempi1 = ((indexi1 + 150) / sizei)-1;
+			int tempi1 = ((indexi1 + 160) / sizei)-1;
 			int tempj1 = ((indexj1 - (dis)) / sizej)-1;
 			CCLOG("tempi1 x = %d", tempi1);
 			CCLOG("tempj1 x = %d", tempj1);

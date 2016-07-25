@@ -35,6 +35,7 @@ SpeechBubbleView* SpeechBubbleView::create(std::unordered_map<int, std::string> 
 bool SpeechBubbleView::initialize(std::unordered_map<int, std::string> textMap, Point position) {
     int delta = 0;
     int priority = 1;
+    
     for ( auto it = textMap.begin(); it != textMap.end(); ++it ) {
         
         auto button = Button::create("Button_Normal.png", "Button_Press.png", "Button_Disable.png", ui::Widget::TextureResType::LOCAL);
@@ -50,8 +51,8 @@ bool SpeechBubbleView::initialize(std::unordered_map<int, std::string> textMap, 
         auto lbl_size = button->getTitleRenderer()->getContentSize();
         button->setContentSize(
                                Size(
-                                    lbl_size.width * 1.1f,
-                                    lbl_size.height * 1.1f
+                                    lbl_size.width * 1.5f,
+                                    lbl_size.height * 1.5f
                                     )
                                );
         
@@ -129,6 +130,7 @@ void SpeechBubbleView::destroySpeechBubbles() {
     this->removeFromParentAndCleanup(true);
     EVENT_DISPATCHER->dispatchCustomEvent(RPGConfig::SPEECH_BUBBLE_DESTROYED_NOTIFICATION);
 }
+
 
 //bool SpeechBubbleView::onTouchBegan(Touch *touch, Event *event)
 //{

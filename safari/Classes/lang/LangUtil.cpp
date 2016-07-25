@@ -9,6 +9,7 @@
 #include "LangUtil.h"
 #include "EnglishUtil.h"
 #include "KannadaUtil.h"
+#include "cocos2d.h"
 
 LangUtil::LangUtil() {
     

@@ -95,7 +95,8 @@ bool AppDelegate::applicationDidFinishLaunching() {
     register_all_packages();
     
     // create a scene. it's an autorelease object
-    director->runWithScene(StartMenu::createScene());    
+    director->runWithScene(StartMenu::createScene());
+    Application::getInstance()->getCurrentLanguage();
     return true;
 }
 

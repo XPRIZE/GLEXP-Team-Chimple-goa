@@ -80,7 +80,7 @@
 #define SPEECH_TEXT_WIDTH 350.0f
 #define SPEECH_TEXT_HEIGHT 200.0f
 #define SPEECH_TEXT_COLOR
-#define SPEECH_TEXT_FONT_SIZE 40
+#define SPEECH_TEXT_FONT_SIZE 50
 
 #define GLOBAL_DB_NAME "safari.db3"
 
@@ -126,7 +126,12 @@
 #define SEND_MESSAGE_FOR_TAP_ON_SPEAKABLE( __target__, __notification__, __handler__) EVENT_DISPATCHER->addEventListenerWithSceneGraphPriority(EventListenerCustom::create (__notification__, __handler__), __target__)
 
 
-
+enum SupportedLanguages
+{
+    ENGLISH = 0,
+    KANNADA = 1,
+    GERMAN = 2
+};
 
 
 enum RPGGestureType

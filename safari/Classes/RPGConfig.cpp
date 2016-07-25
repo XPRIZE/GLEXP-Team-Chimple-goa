@@ -13,7 +13,7 @@
 USING_NS_CC;
 
 Size RPGConfig::screenSize = Director::getInstance()->getWinSize();
-int RPGConfig::externalSkeletonMoveDelta = -2.5f;
+int RPGConfig::externalSkeletonMoveDelta = 0.0f;
 
 const std::map<std::string, std::map<std::string, std::map<std::string, std::string>>>  RPGConfig::skeletonConfigs = RPGConfig::createSkeletonConfigsAtLoad();
 

@@ -6,7 +6,8 @@
 //
 //
 #include <stdio.h>
-#include <cocos2d.h>
+#include "cocos2d.h"
+
 #ifndef SkeletonConfiguration_h
 #define SkeletonConfiguration_h
 

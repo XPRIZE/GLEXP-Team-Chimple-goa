@@ -137,10 +137,8 @@ bool DuelScene::init(wchar_t myMonChar, wchar_t otherMonChar)
 
 void DuelScene::startMyTurn() {
     if(_myMon->getHealth() <= 0) {
-        CCLOG("MyMon game over");
         gameOver();
     } else if (_otherMon->getHealth() <= 0) {
-        CCLOG("OtherMon game over");
         gameOver();
     } else {
         _turnNumber++;
@@ -190,11 +188,10 @@ void DuelScene::armMyMon() {
     _grid->enableTouch(false);
     auto matchingAlphabets = _grid->getAlphabetsWhichMatch(_myMon->getAlphabet());
     for(auto alpha: matchingAlphabets) {
-        CCLOG("meteor %c", alpha->getChar());
         auto particle = cocos2d::ParticleMeteor::create();
         particle->setPosition(convertToNodeSpace(alpha->getParent()->convertToWorldSpace(alpha->getPosition())));
         addChild(particle);
-        auto moveTo = JumpTo::create(0.5, _myMon->getPosition(), 25.0, 1);
+        auto moveTo = JumpTo::create(0.5, _myMon->getCenterPosition(), 25.0, 1);
         auto callbackJump = CallFunc::create(CC_CALLBACK_0(DuelScene::endMeteor, this, particle));
         
         auto sequence = Sequence::create(moveTo, callbackJump, NULL);
@@ -202,14 +199,16 @@ void DuelScene::armMyMon() {
         
     }
     auto callbackAttack = CallFunc::create(CC_CALLBACK_0(DuelScene::attackOtherMon, this));
-    this->runAction(Sequence::create(DelayTime::create(2), callbackAttack, nullptr));
+    auto callbackShowPower = TargetedAction::create(_myMon, CallFunc::create(CC_CALLBACK_0(Alphamon::showPower, _myMon)));
+    
+    this->runAction(Sequence::create(DelayTime::create(1), callbackShowPower, DelayTime::create(1), callbackAttack, nullptr));
 }
 
 void DuelScene::attackOtherMon() {
     auto particle = cocos2d::ParticleMeteor::create();
-    particle->setPosition(_myMon->getPosition());
+    particle->setPosition(_myMon->getCenterPosition());
     addChild(particle);
-    auto moveTo = TargetedAction::create(particle, JumpTo::create(0.5, _otherMon->getPosition(), 25.0, 1));
+    auto moveTo = TargetedAction::create(particle, JumpTo::create(0.5, _otherMon->getCenterPosition(), 25.0, 1));
     auto callbackJump = CallFunc::create(CC_CALLBACK_0(DuelScene::endMeteor, this, particle));
     auto callbackAttack = CallFunc::create(CC_CALLBACK_0(DuelScene::attackMyMon, this));
     auto callbackReduceHP = CallFunc::create(CC_CALLBACK_0(DuelScene::reduceHP, this, _otherMon, _myMon->getPower() * MAX_POINTS_PER_TURN / 100));
@@ -220,9 +219,9 @@ void DuelScene::attackOtherMon() {
 
 void DuelScene::attackMyMon() {
     auto particle = cocos2d::ParticleMeteor::create();
-    particle->setPosition(_otherMon->getPosition());
+    particle->setPosition(_otherMon->getCenterPosition());
     addChild(particle);
-    auto moveTo = TargetedAction::create(particle, JumpTo::create(0.5, _myMon->getPosition(), 25.0, 1));
+    auto moveTo = TargetedAction::create(particle, JumpTo::create(0.5, _myMon->getCenterPosition(), 25.0, 1));
     auto callbackJump = CallFunc::create(CC_CALLBACK_0(DuelScene::endMeteor, this, particle));
     auto callbackStart = CallFunc::create(CC_CALLBACK_0(DuelScene::startMyTurn, this));
     auto callbackReduceHP = CallFunc::create(CC_CALLBACK_0(DuelScene::reduceHP, this, _myMon, rand() % MAX_POINTS_PER_TURN));
@@ -241,7 +240,6 @@ void DuelScene::endMeteor(Node* node) {
 
 void DuelScene::onAlphabetSelected(EventCustom *event) {
     wchar_t* buf = static_cast<wchar_t*>(event->getUserData());
-    CCLOG("Pressed %c",buf[0]);
     if(_myMon->getAlphabet() == buf[0]) {
         _myMon->changePower(_powerIncr);
     } else {
@@ -252,7 +250,6 @@ void DuelScene::onAlphabetSelected(EventCustom *event) {
 
 void DuelScene::onAlphabetUnselected(EventCustom *event) {
     wchar_t* buf = static_cast<wchar_t*>(event->getUserData());
-    CCLOG("Pressed %c",buf[0]);
     if(_myMon->getAlphabet() == buf[0]) {
         _myMon->changePower(-_powerIncr);
     } else {
