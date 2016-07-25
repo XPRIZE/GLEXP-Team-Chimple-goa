@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
     <Filter Include="win32">
@@ -24,6 +24,9 @@
     </Filter>
     <Filter Include="src\menu">
       <UniqueIdentifier>{83536741-7d1e-4315-a8b2-11d0bfdf05c7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\lang">
+      <UniqueIdentifier>{43f96781-39ea-43b9-a692-bc81c88411be}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -163,8 +166,32 @@
       <Filter>src\menu</Filter>
     </ClCompile>
     <ClCompile Include="..\Classes\AlphamonSprite.cpp">
-	</ClCompile>
+    </ClCompile>
     <ClCompile Include="..\Classes\WalkingState.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\lang\EnglishUtil.cpp">
+      <Filter>src\lang</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\lang\KannadaUtil.cpp">
+      <Filter>src\lang</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\lang\LangUtil.cpp">
+      <Filter>src\lang</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Entry.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\I18nUtils.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\LanguageManager.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\MO.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\SkeletonConfiguration.cpp">
       <Filter>src</Filter>
     </ClCompile>
   </ItemGroup>
@@ -286,9 +313,6 @@
     <ClInclude Include="..\Classes\mini_games\Cannon_Ball_Main.h">
       <Filter>src\mini_games</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\mini_games\AlphamonFeedLevelScene.h">
-      <Filter>src\mini_games</Filter>
-    </ClInclude>
     <ClInclude Include="..\Classes\mini_games\AlphamonFeedScene.h">
       <Filter>src\mini_games</Filter>
     </ClInclude>
@@ -308,6 +332,33 @@
       <Filter>src\menu</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\AlphamonSprite.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\lang\EnglishUtil.h">
+      <Filter>src\lang</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\lang\KannadaUtil.h">
+      <Filter>src\lang</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\lang\LangUtil.h">
+      <Filter>src\lang</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Entry.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\I18nDefine.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\I18nUtils.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\LanguageManager.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\MO.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\SkeletonConfiguration.h">
       <Filter>src</Filter>
     </ClInclude>
   </ItemGroup>
