@@ -17,7 +17,7 @@ Scene* HelloWorld::createScene(const std::string& island, const std::string& sce
     // add layer as a child to scene
     scene->addChild(layer);
 
-    layer->menuContext = MenuContext::create(layer);
+    layer->menuContext = MenuContext::create(layer, true);
     scene->addChild(layer->menuContext);
 
     initPhysics(scene);
@@ -300,7 +300,7 @@ void HelloWorld::addMainCharacterToScene(const std::string& filename, cocos2d::N
     this->mainLayer->runAction(followAction);
     
     this->showTouchSignNode = Sprite::create(TOUCH_POINTER_IMG);
-    this->showTouchSignNode->setScale(0.5, 0.5);
+    this->showTouchSignNode->setScale(0.5f, 0.5f);
     this->showTouchSignNode->setVisible(false);
     this->mainLayer->addChild(this->showTouchSignNode);    
 }
@@ -395,42 +395,6 @@ void HelloWorld::registerMessageSenderAndReceiver() {
     PROCESS_MESSAGE_AND_CREATE_UI(this, RPGConfig::PROCESS_CUSTOM_MESSAGE_AND_CREATE_UI_NOTIFICATION, processMessageEvent);
     
     
-    auto cleanUpResourcesEvent = [=] (EventCustom * event) {
-        
-//        //update location in database
-//        const char* island = this->getIsland().c_str();
-//        const char* sceneName = this->getSceneName().c_str();
-//        
-        this->sqlite3Helper->recordMainCharacterPositionInScene(this->island.c_str(), this->sceneName.c_str(), this->skeletonCharacter->getSkeletonNode()->getPosition().x, this->skeletonCharacter->getSkeletonNode()->getPosition().y);
-        
-        EVENT_DISPATCHER->removeCustomEventListeners("MAIN_CHARACTER_VICINITY_CHECK_NOTIFICATION");
-        EVENT_DISPATCHER->removeCustomEventListeners("SPEECH_MESSAGE_ON_TAP_NOTIFICATION");
-        EVENT_DISPATCHER->removeCustomEventListeners("SPEECH_MESSAGE_ON_TEXT_TAP_NOTIFICATION");
-        EVENT_DISPATCHER->removeCustomEventListeners("RECEIVE_CUSTOM_MESSAGE_NOTIFICATION");
-        EVENT_DISPATCHER->removeCustomEventListeners("SPEECH_BUBBLE_DESTROYED_NOTIFICATION");
-        EVENT_DISPATCHER->removeCustomEventListeners("PROCESS_CUSTOM_MESSAGE_AND_CREATE_UI_NOTIFICATION");
-        EVENT_DISPATCHER->removeCustomEventListeners("DISPATCH_CLEANUP_AND_SCENE_TRANSITION_NOTIFICATION");
-        
-        if(this->stateMachine != nullptr) {
-            delete this->stateMachine;    
-        }
-        
-        LanguageManager::_instance = NULL;
-        
-        if(this->languageManger != nullptr) {
-            delete this->languageManger;
-        }
-        
-        Sqlite3Helper::instanceFlag = false;
-        Sqlite3Helper::shared = NULL;
-
-        if(this->sqlite3Helper != nullptr ) {
-            delete this->sqlite3Helper;
-        }
-    };
-
-    SEND_DISTACH_CLEAN_UP(this, RPGConfig::DISPATCH_CLEANUP_AND_SCENE_TRANSITION_NOTIFICATION, cleanUpResourcesEvent);
-    
     auto showTouchPointSign = [=] (EventCustom * event) {
         Sprite* sprite = reinterpret_cast<Sprite*>(event->getUserData());
         this->showTouchSignNode->setPosition(sprite->getPosition());
@@ -445,6 +409,9 @@ void HelloWorld::registerMessageSenderAndReceiver() {
     
     SEND_SHOW_TOUCH_POINT_SIGNAL(this, RPGConfig::SEND_SHOW_TOUCH_POINT_SIGN_NOTIFICATION, showTouchPointSign);
     
+    this->getEventDispatcher()->addCustomEventListener("on_menu_exit", CC_CALLBACK_0(HelloWorld::transitToHome, this));
+
+    
 }
 
 void HelloWorld::transitionToDuelScene(char alphabet) {
@@ -455,6 +422,7 @@ void HelloWorld::transitionToDuelScene(char alphabet) {
 
 void HelloWorld::hideTouchPointSign() {
     this->showTouchSignNode->setVisible(false);
+    this->showTouchSignNode->setScale(0.5f, 0.5f);
 }
 
 void HelloWorld::processTextMessage(std::unordered_map<int, std::string> textMap, std::string ownerOfMessage)
@@ -548,15 +516,58 @@ void HelloWorld::processChangeSceneMessages(std::vector<MessageContent*>changeSc
             
             if(!nextScene.empty())
             {
-                EVENT_DISPATCHER->dispatchCustomEvent (RPGConfig::DISPATCH_CLEANUP_AND_SCENE_TRANSITION_NOTIFICATION);
-                
-                StartMenu::startScene(this->getIsland(),nextScene);
+                this->changeScene(nextScene, false);
                 
             } else if(!transitToGameScene.empty()) {
-                EVENT_DISPATCHER->dispatchCustomEvent (RPGConfig::DISPATCH_CLEANUP_AND_SCENE_TRANSITION_NOTIFICATION);
-                
-                StartMenu::startScene(transitToGameScene);                
+                this->changeScene(transitToGameScene, false);
             }
+        }
+    }
+}
+
+void HelloWorld::transitToHome() {
+    this->cleanUpResources();
+    Director::getInstance()->replaceScene(StartMenu::createScene());
+}
+
+void HelloWorld::cleanUpResources() {
+    this->sqlite3Helper->recordMainCharacterPositionInScene(this->island.c_str(), this->sceneName.c_str(), this->skeletonCharacter->getSkeletonNode()->getPosition().x, this->skeletonCharacter->getSkeletonNode()->getPosition().y);
+    
+    EVENT_DISPATCHER->removeCustomEventListeners("MAIN_CHARACTER_VICINITY_CHECK_NOTIFICATION");
+    EVENT_DISPATCHER->removeCustomEventListeners("SPEECH_MESSAGE_ON_TAP_NOTIFICATION");
+    EVENT_DISPATCHER->removeCustomEventListeners("SPEECH_MESSAGE_ON_TEXT_TAP_NOTIFICATION");
+    EVENT_DISPATCHER->removeCustomEventListeners("RECEIVE_CUSTOM_MESSAGE_NOTIFICATION");
+    EVENT_DISPATCHER->removeCustomEventListeners("SPEECH_BUBBLE_DESTROYED_NOTIFICATION");
+    EVENT_DISPATCHER->removeCustomEventListeners("PROCESS_CUSTOM_MESSAGE_AND_CREATE_UI_NOTIFICATION");
+    EVENT_DISPATCHER->removeCustomEventListeners("on_menu_exit");
+    
+    if(this->stateMachine != nullptr) {
+        delete this->stateMachine;
+    }
+    
+    LanguageManager::_instance = NULL;
+    
+    if(this->languageManger != nullptr) {
+        delete this->languageManger;
+    }
+    
+    Sqlite3Helper::instanceFlag = false;
+    Sqlite3Helper::shared = NULL;
+    
+    if(this->sqlite3Helper != nullptr ) {
+        delete this->sqlite3Helper;
+    }
+   
+}
+
+void HelloWorld::changeScene(std::string nextScene, bool isMiniGame) {
+    this->cleanUpResources();
+    
+    if(!nextScene.empty()) {
+        if(isMiniGame) {
+            StartMenu::startScene(nextScene);
+        } else {
+            StartMenu::startScene(this->getIsland(),nextScene);
         }
     }
 }
@@ -587,16 +598,9 @@ void HelloWorld::processAnimationMessage(std::vector<MessageContent*>animationMe
                         
                         if(!nextScene.empty())
                         {
-                            
-                            EVENT_DISPATCHER->dispatchCustomEvent (RPGConfig::DISPATCH_CLEANUP_AND_SCENE_TRANSITION_NOTIFICATION);
-                            
-                            StartMenu::startScene(this->getIsland(),nextScene);
-                            
+                            this->changeScene(nextScene, false);
                         } else if(!transitToGameScene.empty()) {
-                            EVENT_DISPATCHER->dispatchCustomEvent (RPGConfig::DISPATCH_CLEANUP_AND_SCENE_TRANSITION_NOTIFICATION);
-                            
-                            StartMenu::startScene(transitToGameScene);
-                            
+                            this->changeScene(transitToGameScene, true);
                         }
                     }
                 });

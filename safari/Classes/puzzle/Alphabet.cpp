@@ -24,7 +24,7 @@ bool Alphabet::onTouchBegan(Touch* touch, Event* event){
     {
         CCLOG("onTouchBegan %c", _alphabet);
         auto audio = CocosDenshion::SimpleAudioEngine::getInstance();
-        audio->playEffect(LangUtil::getInstance()->getAlphabetSoundFileName(_alphabet));
+        audio->playEffect(LangUtil::getInstance()->getAlphabetSoundFileName(_alphabet).c_str());
         return true; // to indicate that we have consumed it.
     }
     

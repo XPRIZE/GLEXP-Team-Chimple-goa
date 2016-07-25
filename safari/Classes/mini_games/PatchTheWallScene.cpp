@@ -32,11 +32,11 @@ bool PatchTheWall::init()
 	}
 	Size visibleSize = Director::getInstance()->getVisibleSize();
 	Vec2 origin = Director::getInstance()->getVisibleOrigin();
-	auto temp = CSLoader::createNode("MainScene.csb");
+	auto temp = CSLoader::createNode("patchthewall.csb");
 	auto alpha1 = temp->getChildren();
 	this->addChild(temp);
 	SpriteFrameCache *spriteCache = SpriteFrameCache::getInstance();
-	spriteCache->addSpriteFramesWithFile("fort_plist");
+	spriteCache->addSpriteFramesWithFile("fort_plist.plist");
 
 	// position the sprite on the center of the screen
 	this->schedule(schedule_selector(PatchTheWall::Blast), 5.0f);
@@ -71,10 +71,9 @@ bool PatchTheWall::init()
 			gameX.push_back(gridwidth);
 			gameY.push_back(gridheight);
 			breakFlag.push_back(false);
-	//gameX.push_Back(gridwidth);
-//			gameY.pushBack(gridheight);
+
 		}
-	}
+	} 
 	// add the sprite as a child to this layer
 	return true;
 }
@@ -92,7 +91,6 @@ bool PatchTheWall::onTouchBegan(cocos2d::Touch *touch, cocos2d::Event * event)
 		PatchTheWall::x = parentNode->getPositionX();
 		PatchTheWall::y = parentNode->getPositionY();
 		CCLOG("touch");
-		//CCLOG("touchdshfdtj= %d",gameX.size());
 		return true;
 	}
 
@@ -119,15 +117,6 @@ void PatchTheWall::onTouchMoved(cocos2d::Touch *touch, cocos2d::Event * event)
 			blastAlphaReff.erase(i);
 			PatchTheWall::no->setOpacity(0);
 			flag = true;
-			/*for (int j = 0; j < crackReff.size(); j++) {
-				if ((crackReff.at(j)->getName()).compare(blastAlphaReff.at(i)->getName()) == 0)
-				{
-					this->removeChild(crackReff.at(j));
-					crackReff.erase(j);
-					blastAlphaReff.erase(i);
-				}
-			}*/
-
 		}
 
 	}

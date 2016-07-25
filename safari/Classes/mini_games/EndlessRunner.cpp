@@ -15,18 +15,18 @@ Scene* EndlessRunner::createScene()
 	Scene* scene = Scene::create();
 	auto layer = EndlessRunner::create();
 	scene->addChild(layer);
-    layer->_menuContext = MenuContext::create(layer);
-    scene->addChild(layer->_menuContext);    
+	layer->_menuContext = MenuContext::create(layer);
+	scene->addChild(layer->_menuContext);
 	return scene;
 }
 
 bool EndlessRunner::init()
 {
-	if (!Layer::init()){return false;}
+	if (!Layer::init()) { return false; }
 
- 	CCSpriteFrameCache* framecache = CCSpriteFrameCache::sharedSpriteFrameCache();
+	CCSpriteFrameCache* framecache = CCSpriteFrameCache::sharedSpriteFrameCache();
 	framecache->addSpriteFramesWithFile("endlessrunner/endlessrunner.plist");
-	
+
 	visibleSize = Director::getInstance()->getVisibleSize();
 	origin = Director::getInstance()->getVisibleOrigin();
 
@@ -41,7 +41,7 @@ bool EndlessRunner::init()
 	SceneLayerYCoordinate.layer7 = (int)((visibleSize.height * 0 / 100) + origin.y);
 
 	LayerGradient* GRadent = LayerGradient::create(Color4B(255, 255, 255, 255), Color4B(255, 255, 255, 255));
-	this->addChild(GRadent,0);
+	this->addChild(GRadent, 0);
 
 	EndlessRunner::addEvents(EndlessRunner::CreateSprites("endlessrunner/bgTouchImage.png", origin.x, origin.y, visibleSize.width, visibleSize.height, 0, "IMG"));
 	leftBarrier = EndlessRunner::CreateSprites("endlessrunner/barrier.png", (visibleSize.width * -15 / 100) + origin.x, (visibleSize.height * 0) + origin.y, 1, 1, 0, "IMG");
@@ -54,7 +54,7 @@ bool EndlessRunner::init()
 	Character.action = CSLoader::createTimeline("endlessrunner/main_char.csb");
 	Character.character = (Sprite *)CSLoader::createNode("endlessrunner/main_char.csb");
 	Character.character->setPosition(Vec2((visibleSize.width * 25 / 100) + origin.x, LayerYcoord.firstLayer));
-	this->addChild(Character.character,zOrderPathLayer.character);
+	this->addChild(Character.character, zOrderPathLayer.character);
 	Character.character->runAction(Character.action);
 	Character.character->setScale(1.1);
 	Character.action->play("run", true);
@@ -70,14 +70,14 @@ bool EndlessRunner::init()
 
 	auto boardDisplay = (Sprite *)CSLoader::createNode("endlessrunner/letter_board.csb");
 	boardDisplay->setPosition(Vec2((visibleSize.width / 2) + origin.x, (visibleSize.height + origin.y) - (visibleSize.height * 0.07)));
-	this->addChild(boardDisplay, zOrderPathLayer.layer7);
+	this->addChild(boardDisplay, zOrderPathLayer.secondLayer);
 
-	tempChar = letters[EndlessRunner::randmValueIncludeBoundery(0,35)];
+	tempChar = letters[EndlessRunner::randmValueIncludeBoundery(0, 35)];
 	std::ostringstream sstreamc; 	sstreamc << tempChar;  std::string letterTemp = sstreamc.str();
 
 	letterOnBoard = Label::createWithTTF(letterTemp, "fonts/Marker Felt.ttf", 130);
 	letterOnBoard->setPosition(Vec2((visibleSize.width / 2) + origin.x, (visibleSize.height + origin.y) - (visibleSize.height * 0.08)));
-	this->addChild(letterOnBoard,zOrderPathLayer.layer7);
+	this->addChild(letterOnBoard, zOrderPathLayer.secondLayer);
 
 	EndlessRunner::beforeInitBackgroundScene();
 	EndlessRunner::sceneBackgroundFlow();
@@ -86,15 +86,15 @@ bool EndlessRunner::init()
 	int MountainRandomvalue = 0;
 	int startPosition = origin.x;
 
-	for (int i = 0; i <= 12; i++) {
+	for (int i = 0; i <= 15; i++) {
 		MountainRandomvalue = EndlessRunner::randmValueIncludeBoundery(0, (sizeof(mountainMidImages) / sizeof(mountainMidImages[0])) - 1);
-		mountain = SpriteCreate::createSprite(mountainMidImages[MountainRandomvalue], startPosition,origin.y, 0, 0, mountainTypeObject.midLandPart, mountainTypeObject.midLandPart, mountainLayerTypes.FirstLayer);
+		mountain = SpriteCreate::createSprite(mountainMidImages[MountainRandomvalue], startPosition, origin.y, 0, 0, mountainTypeObject.midLandPart, mountainTypeObject.midLandPart, mountainLayerTypes.FirstLayer);
 		this->addChild(mountain, zOrderPathLayer.firstLayer);
 		mountain->setName("MidLand");
-		if (i == 12) {mountain->setName("LastInit"); mountain->NextRockName = mountainTypeObject.endLandPart;}
+		if (i == 15) { mountain->setName("LastInit"); mountain->NextRockName = mountainTypeObject.endLandPart; }
 		startPosition = startPosition + mountain->getContentSize().width - LayerMode.tolerence;
 		allPathBlocks.push_back(mountain);
-		mountain->runAction(MoveTo::create(EndlessRunner::movingTime(mountain), Vec2((leftBarrier->getPosition().x),origin.y)));
+		mountain->runAction(MoveTo::create(EndlessRunner::movingTime(mountain), Vec2((leftBarrier->getPosition().x), origin.y)));
 	}
 	jumpMode = false;
 	Character.onAir = true;
@@ -158,19 +158,18 @@ void EndlessRunner::stillCharacterOnPath(float delta) {
 		aa = DrawNode::create();
 		this->addChild(aa, 20);
 		//	aa->drawRect(Vec2(boxs.origin.x, boxs.origin.y), Vec2(boxs.origin.x +boxs.size.width, boxs.origin.y + boxs.size.height), Color4F(255, 255, 255, 22));
-
 		if (boxs.intersectsRect(allPathBlocks[i]->getBoundingBox())) {
 			if (allPathBlocks[i]->LayerTypeName == mountainLayerTypes.FirstLayer && !LayerMode.gapMode) {
 				//	CCLOG("FIRST LAYER ");
-				Character.character->setPositionY(LayerYcoord.firstLayer+15);
+				Character.character->setPositionY(LayerYcoord.firstLayer + 15);
 				if (Character.groundTouchFlag) {
 					Character.groundTouchFlag = false;
 					Character.Clicked = false;
 					Character.character->stopAction(Character.fallDownAction);
 
-					auto A = CallFunc::create([=]() {Character.action->play("jump_end", false);});
+					auto A = CallFunc::create([=]() {Character.action->play("jump_end", false); });
 
-					auto B = CallFunc::create([=]() {Character.action->play("run", true);});
+					auto B = CallFunc::create([=]() {Character.action->play("run", true); });
 
 					auto main_Sequence = Sequence::create(A, B, NULL);
 					Character.character->runAction(main_Sequence);
@@ -200,11 +199,13 @@ void EndlessRunner::stillCharacterOnPath(float delta) {
 			}
 			else if (allPathBlocks[i]->LayerTypeName == mountainLayerTypes.gap) {
 				//CCLOG("GAP ");
+				Character.onAir = false;
 				Character.character->stopAction(Character.fallDownAction);
 				Character.action->play("drop", true);
-				Character.character->runAction(MoveBy::create(5, Vec2(-Character.character->getContentSize().width, -(visibleSize.height * 0.25))));
+				Character.character->runAction(MoveBy::create(0.8, Vec2(-Character.character->getContentSize().width, -(visibleSize.height * 0.4))));
 				Character.Clicked = true;
 				LayerMode.gapMode = true;
+				//				Character.stillCheckFalg = false;
 			}
 		}
 		else {
@@ -227,6 +228,9 @@ void EndlessRunner::startingIntersectMode() {
 			}
 			EndlessRunner::AddRocksInFirstLayerPath();
 		}
+	}
+	else {
+		CCLOG("GAP PE GIR GAYA");
 	}
 
 	if (SecondLayerModes == LayerMode.SecondLayerRightIntersectMode) {
@@ -350,7 +354,7 @@ void EndlessRunner::mountainLayer1() {
 	}
 
 	if (!rightBarrier->getBoundingBox().intersectsRect(currentlayer3Sprite->getBoundingBox())) {
-		auto layer3bush = EndlessRunner::CreateSprites("endlessrunner/layer_3_bush.png", rightBarrier->getPosition().x - LayerMode.tolerence, SceneLayerYCoordinate.layer3,1, 1, zOrderPathLayer.layer3, "bgElement");
+		auto layer3bush = EndlessRunner::CreateSprites("endlessrunner/layer_3_bush.png", rightBarrier->getPosition().x - LayerMode.tolerence, SceneLayerYCoordinate.layer3, 1, 1, zOrderPathLayer.layer3, "bgElement");
 		currentlayer3Sprite = layer3bush;
 		currentlayer3Sprite->runAction(MoveTo::create(EndlessRunner::movingTimes(currentlayer3Sprite, LayerMode.Layer3Speed), Vec2(leftBarrierForBigObject->getPosition().x, SceneLayerYCoordinate.layer3)));
 	}
@@ -384,14 +388,14 @@ void EndlessRunner::beforeInitBackgroundScene() {
 
 	int newtolerence = 0;
 
-	auto layer0ground = EndlessRunner::CreateSprites("endlessrunner/ground.png",origin.x, origin.y,visibleSize.width,1,zOrderPathLayer.layer0,"none");
+	auto layer0ground = EndlessRunner::CreateSprites("endlessrunner/ground.png", origin.x, origin.y, visibleSize.width, 1, zOrderPathLayer.layer0, "none");
 
 	for (int i = 0; i < 3; i++) {
 		newtolerence = newtolerence + (LayerMode.tolerence);
-		auto layer1mountain = EndlessRunner::CreateSprites("endlessrunner/layer_1_mountain.png",origin.x, origin.y,1,1,zOrderPathLayer.layer1, "bgElement");
+		auto layer1mountain = EndlessRunner::CreateSprites("endlessrunner/layer_1_mountain.png", origin.x, origin.y, 1, 1, zOrderPathLayer.layer1, "bgElement");
 		layer1mountain->setPosition(Vec2(origin.x + (layer1mountain->getContentSize().width * i) - newtolerence - layer1mountain->getContentSize().width / 2, SceneLayerYCoordinate.layer1));
 		layer1mountain->runAction(MoveTo::create(EndlessRunner::movingTimes(layer1mountain, LayerMode.Layer1Speed), Vec2(leftBarrierForBigObject->getPosition().x, SceneLayerYCoordinate.layer1)));
-		if (i == 2) { layer1mountain->setScaleX(1.5);}
+		if (i == 2) { layer1mountain->setScaleX(1.5); }
 	}
 	newtolerence = 0;
 	for (int i = 0; i < 2; i++) {
@@ -408,7 +412,7 @@ void EndlessRunner::beforeInitBackgroundScene() {
 		auto layer3 = EndlessRunner::CreateSprites("endlessrunner/layer_3_bush.png", origin.x, origin.y, 1, 1, zOrderPathLayer.layer3, "bgElement");
 		layer3->setPosition(Vec2(origin.x + (layer3->getContentSize().width * i) - newtolerence, SceneLayerYCoordinate.layer3));
 		layer3->runAction(MoveTo::create(EndlessRunner::movingTimes(layer3, LayerMode.Layer3Speed), Vec2(leftBarrierForBigObject->getPosition().x, SceneLayerYCoordinate.layer3)));
-		if (i == 1) {layer3->setScaleX(1.5);}
+		if (i == 1) { layer3->setScaleX(1.5); }
 	}
 	newtolerence = 0;
 	for (int i = 0; i < 4; i++) {
@@ -419,7 +423,7 @@ void EndlessRunner::beforeInitBackgroundScene() {
 	}
 	newtolerence = 0;
 	for (int i = 0; i < 2; i++) {
-		auto layer5 = EndlessRunner::CreateSprites("endlessrunner/layer_5_bush.png",origin.x, origin.y, 1, 1, zOrderPathLayer.layer5, "bgElement");
+		auto layer5 = EndlessRunner::CreateSprites("endlessrunner/layer_5_bush.png", origin.x, origin.y, 1, 1, zOrderPathLayer.layer5, "bgElement");
 		newtolerence = newtolerence + (LayerMode.tolerence * 2);
 		layer5->setPosition(Vec2(origin.x + (layer5->getContentSize().width * i) - newtolerence, SceneLayerYCoordinate.layer5));
 		layer5->runAction(MoveTo::create(EndlessRunner::movingTimes(layer5, LayerMode.Layer5Speed), Vec2(leftBarrierForBigObject->getPosition().x, SceneLayerYCoordinate.layer5)));
@@ -449,6 +453,7 @@ void EndlessRunner::AddRocksInFirstLayerPath() {
 		allPathBlocks.push_back(currentImage);
 		currentFirstLayerRock = currentImage;
 		currentImage->setScaleY(11);
+		currentImage->setOpacity(0);
 		position = EndlessRunner::movingUpto(LayerYcoord.groundLevel);
 		currentFirstLayerRock->runAction(MoveTo::create(EndlessRunner::movingTime(currentFirstLayerRock), Vec2(leftBarrier->getPosition().x + origin.x, position.second)));
 		FirstLayerModes = 1;
@@ -575,18 +580,18 @@ SpriteCreate* EndlessRunner::addUpperLayerStartSpriteRock(SpriteCreate* SpriteOb
 	SpriteCreate* currentImage = SpriteCreate::createSprite("endlessrunner/path_left_lands.png", EndlessRunner::setPositionX(SpriteObject), positionY, 0, 0, mountainTypeObject.startLandPart, mountainTypeObject.midLandPart, MountainType);
 	this->addChild(currentImage, zOrder);
 	allPathBlocks.push_back(currentImage);
-	auto extra = EndlessRunner::CreateSprites("endlessrunner/bgTouchImage.png", EndlessRunner::setPositionX(SpriteObject), positionY,10,20,zOrderPathLayer.character,"blinkBlock");
+	auto extra = EndlessRunner::CreateSprites("endlessrunner/bgTouchImage.png", EndlessRunner::setPositionX(SpriteObject), positionY, 10, 20, zOrderPathLayer.character, "blinkBlock");
 	extra->runAction(MoveTo::create(EndlessRunner::movingTime(currentImage), Vec2(leftBarrier->getPosition().x + origin.x, positionY)));
 	return currentImage;
 }
 
 float EndlessRunner::movingTime(SpriteCreate* SpriteObject) {
-	if (leftBarrier->getPosition().x < 0) {return ((SpriteObject->getPosition().x + std::abs(leftBarrier->getPosition().x)) / LayerMode.PathMovingSpeed);}
+	if (leftBarrier->getPosition().x < 0) { return ((SpriteObject->getPosition().x + std::abs(leftBarrier->getPosition().x)) / LayerMode.PathMovingSpeed); }
 	return ((SpriteObject->getPosition().x - std::abs(leftBarrier->getPosition().x)) / LayerMode.PathMovingSpeed);
 }
 
 float EndlessRunner::movingTimes(Sprite* SpriteObject, int Speed) {
-	if (leftBarrierForBigObject->getPosition().x < 0) {return ((SpriteObject->getPosition().x + std::abs(leftBarrierForBigObject->getPosition().x)) / Speed);}
+	if (leftBarrierForBigObject->getPosition().x < 0) { return ((SpriteObject->getPosition().x + std::abs(leftBarrierForBigObject->getPosition().x)) / Speed); }
 	return ((SpriteObject->getPosition().x - std::abs(leftBarrierForBigObject->getPosition().x)) / Speed);
 }
 
@@ -600,8 +605,8 @@ float EndlessRunner::setPositionX(SpriteCreate* SpriteObject) {
 
 int EndlessRunner::randmValueIncludeBoundery(int min, int max) {
 	int maxValue = max, minValue = min;
-	if (min > max) { maxValue = min;  minValue = max;	}
-	else if (min == max) { return min;}
+	if (min > max) { maxValue = min;  minValue = max; }
+	else if (min == max) { return min; }
 	return (rand() % (maxValue - minValue + 1) + minValue);
 }
 
@@ -655,12 +660,12 @@ void EndlessRunner::CreateMonsterWithLetter(float dt) {
 
 	int Index = EndlessRunner::randmValueIncludeBoundery(0, (sizeof(letters) / sizeof(letters[0])) - 1);
 	char letterOnBoard = letters[Index];
-	
+
 	std::ostringstream sstreamc;	sstreamc << letterOnBoard;	std::string letterTemp = sstreamc.str();
-	
+
 	auto label = Label::createWithTTF(letterTemp, "fonts/Marker Felt.ttf", 80);
 	label->setName(letterTemp);
-	label->enableShadow(Color4B::BLACK, Size(8, -6),5);
+	label->enableShadow(Color4B::BLACK, Size(8, -6), 5);
 	label->setTag(Character.uniqueId);
 	monsterImage->setTag(Character.uniqueId);
 
@@ -677,11 +682,11 @@ void EndlessRunner::CreateMonsterWithLetter(float dt) {
 	auto boxs = Rect(parent.origin.x + (box.origin.x), parent.origin.y + (box.origin.y), box.size.width, box.size.height);
 	label->setPosition(Vec2(boxs.origin.x + (box.size.width / 2), boxs.origin.y + (box.size.height / 2)));
 
-	this->addChild(monsterImage, zOrderPathLayer.secondLayer);
-	this->addChild(label, zOrderPathLayer.secondLayer);
-	
-	monsterImage-> runAction(MoveTo::create((monsterImage->getPosition().x + std::abs(leftBarrier->getPosition().x)) / LayerMode.PathMovingSpeed, Vec2(leftBarrier->getPosition().x + origin.x, monsterImage->getPosition().y)));
-	label-> runAction(MoveTo::create((label->getPosition().x + std::abs(leftBarrier->getPosition().x)) / LayerMode.PathMovingSpeed, Vec2(leftBarrier->getPosition().x + origin.x, label->getPosition().y)));
+	this->addChild(monsterImage, zOrderPathLayer.firstLayer);
+	this->addChild(label, zOrderPathLayer.firstLayer);
+
+	monsterImage->runAction(MoveTo::create((monsterImage->getPosition().x + std::abs(leftBarrier->getPosition().x)) / LayerMode.PathMovingSpeed, Vec2(leftBarrier->getPosition().x + origin.x, monsterImage->getPosition().y)));
+	label->runAction(MoveTo::create((label->getPosition().x + std::abs(leftBarrier->getPosition().x)) / LayerMode.PathMovingSpeed, Vec2(leftBarrier->getPosition().x + origin.x, label->getPosition().y)));
 
 	Character.uniqueId = Character.uniqueId + 1;
 	allMonster.push_back(monsterImage);

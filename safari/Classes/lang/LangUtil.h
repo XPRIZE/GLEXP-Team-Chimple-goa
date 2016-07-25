@@ -19,9 +19,10 @@ public:
     virtual const wchar_t* getAllCharacters() = 0;
     virtual int getNumberOfCharacters() = 0;
     virtual std::string getMonsterAnimationFileName(wchar_t alpha) = 0;
+    virtual std::string getSpecialAnimationFileName(wchar_t alpha, std::string suffix) =0;
     virtual std::string getBMFontFileName() = 0;
-    virtual const char* getAlphabetSoundFileName(wchar_t alpha) = 0;
-    virtual const char* getPhoneticSoundFileName(wchar_t alpha) = 0;
+    virtual std::string getAlphabetSoundFileName(wchar_t alpha) = 0;
+    virtual std::string getPhoneticSoundFileName(wchar_t alpha) = 0;
     
 protected:
     LangUtil();

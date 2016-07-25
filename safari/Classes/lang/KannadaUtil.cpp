@@ -71,21 +71,26 @@ int KannadaUtil::getNumberOfCharacters() {
 
 std::string KannadaUtil::getMonsterAnimationFileName(wchar_t alpha) {
  
-    return std::string("Kannada/")+ langMap.at(alpha) +".csb";
+    return std::string("kannada/")+ langMap.at(alpha) +".csb";
 }
+
+std::string KannadaUtil::getSpecialAnimationFileName(wchar_t alpha, std::string suffix) {
+    return std::string("kannada/") + suffix + "/" + convertUTF16CharToString(alpha) +".csb";
+}
+
 
 std::string KannadaUtil::getBMFontFileName() {
     return "kannada/kar shivarama.fnt";
 }
 
-const char* KannadaUtil::getAlphabetSoundFileName(wchar_t alpha) {
+std::string KannadaUtil::getAlphabetSoundFileName(wchar_t alpha) {
     auto fileName = std::string("kannada/sounds/") + langMap.at(alpha) +".m4a";
-    return fileName.c_str();
+    return fileName;
 }
 
-const char* KannadaUtil::getPhoneticSoundFileName(wchar_t alpha) {
+std::string KannadaUtil::getPhoneticSoundFileName(wchar_t alpha) {
     auto fileName = std::string("kannada/sounds/") + langMap.at(alpha) +".m4a";
-    return fileName.c_str();
+    return fileName;
 }
 
 
