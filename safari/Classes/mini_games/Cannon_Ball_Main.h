@@ -6,6 +6,7 @@
 #include <vector>
 #include "editor-support/cocostudio/CocoStudio.h"
 #include "../menu/MenuContext.h"
+#include "../puzzle/Alphabet.h"
 
 class MainGame : public cocos2d::Layer
 {
@@ -24,15 +25,15 @@ public:
 	std::vector<Position> lettertmpPosition;
 
 	static std::vector<LabelClass*> cannonLetter;
-	static std::vector<cocos2d::Label*> cannonLetter_actualImage;
+	static std::vector<Alphabet*> cannonLetter_actualImage;
 
 	static std::vector<LabelClass*> bulletArray;
-	static std::vector<cocos2d::Label*> bulletArray_actualImage;
+	static std::vector<Alphabet*> bulletArray_actualImage;
 
 	static std::vector<EventListenerClass*> cannonArray;
 	static std::vector<EventListenerClass*> cannon_ballArray;
 
-	static std::vector<cocos2d::Label*> meteorArray_actualImage;
+	static std::vector<Alphabet*> meteorArray_actualImage;
 	static std::vector<EventListenerClass*> letterArray;
 	static std::vector<LabelClass*> meteorArray;
 
@@ -54,7 +55,7 @@ public:
 	void cannonLetterCome();
 	void letterCome(float d);
 	void removeLetter(EventListenerClass *);
-	void removeFire(EventListenerClass *, cocos2d::Label *, Node *);
+	void removeFire(EventListenerClass *, Alphabet *, Node *);
 	virtual bool init();
 	void update(float dt);
 
