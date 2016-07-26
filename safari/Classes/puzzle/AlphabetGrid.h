@@ -20,7 +20,8 @@ public:
     std::vector<Alphabet *> getAlphabetsWhichMatch(wchar_t a);
     int getCountOfAlphabetsWhichMatch(wchar_t a);
     void enableTouch(bool value);
-    void resize(GLfloat width, GLfloat height, int numRows, int numCols);    
+    void resize(GLfloat width, GLfloat height, int numRows, int numCols);
+    bool onTouchBegan(cocos2d::Touch* touch, cocos2d::Event* event);
 
 CC_CONSTRUCTOR_ACCESS:
     AlphabetGrid();

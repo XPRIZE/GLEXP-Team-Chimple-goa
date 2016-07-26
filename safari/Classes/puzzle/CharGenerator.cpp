@@ -78,11 +78,11 @@ std::vector<std::vector<wchar_t>> CharGenerator::generateCharMatrix(int numRows,
     return matrix;
 }
 
-wchar_t CharGenerator::generateAnotherChar(wchar_t* currentChars) {
+wchar_t CharGenerator::generateAnotherChar(std::vector<wchar_t> currentChars) {
     auto allCharVector = getAllChars();
-    for (int i = 0; currentChars[i] != '\0'; i++) {
+    for (int i = 0; i < currentChars.size(); i++) {
         for (int j = 0; j < allCharVector.size(); j++) {
-            if(currentChars[i] == allCharVector.at(j)) {
+            if(currentChars.at(i) == allCharVector.at(j)) {
                 allCharVector.erase(allCharVector.begin() + j);
             }
         }
