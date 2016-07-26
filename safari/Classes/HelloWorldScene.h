@@ -30,7 +30,7 @@
 #include "SkeletonPosition.h"
 #include "menu/MenuContext.h"
 #include "LanguageManager.h"
-#include "CharGenerator.h"
+#include "puzzle/CharGenerator.h"
 
 class GestureLayer;
 class MessageContent;
