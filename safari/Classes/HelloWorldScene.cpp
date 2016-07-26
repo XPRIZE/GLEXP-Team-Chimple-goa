@@ -300,7 +300,7 @@ void HelloWorld::addMainCharacterToScene(const std::string& filename, cocos2d::N
     this->mainLayer->runAction(followAction);
     
     this->showTouchSignNode = Sprite::create(TOUCH_POINTER_IMG);
-    this->showTouchSignNode->setScale(0.5, 0.5);
+    this->showTouchSignNode->setScale(0.5f, 0.5f);
     this->showTouchSignNode->setVisible(false);
     this->mainLayer->addChild(this->showTouchSignNode);    
 }
@@ -422,6 +422,7 @@ void HelloWorld::transitionToDuelScene(char alphabet) {
 
 void HelloWorld::hideTouchPointSign() {
     this->showTouchSignNode->setVisible(false);
+    this->showTouchSignNode->setScale(0.5f, 0.5f);
 }
 
 void HelloWorld::processTextMessage(std::unordered_map<int, std::string> textMap, std::string ownerOfMessage)
@@ -592,7 +593,7 @@ void HelloWorld::processAnimationMessage(std::vector<MessageContent*>animationMe
                     
                     if(content != NULL && (content->getCondition().empty() || (!content->getCondition().empty() && content->getConditionSatisfied() == 1)))
                     {
-                        std::string nextScene = animationNode->getNextScene();
+                        std::string nextScene = animationNode->getNextScene();                        
                         std::string transitToGameScene = animationNode->getTransitToGameScene();
                         
                         if(!nextScene.empty())
@@ -736,7 +737,7 @@ void HelloWorld::update(float dt) {
                     this->skeletonCharacter->getSkeletonNode()->getPhysicsBody()->setVelocity(Vec2(MAIN_CHARACTER_RUNNING_FORCE,GRAVITY_VELOCITY_TO_STICK_TO_GROUND));
                 }
             }
-            else if (this->skeletonCharacter->isFalling) {
+            else if (this->skeletonCharacter->isFalling && this->stateMachine != NULL) {
                 this->stateMachine->handleInput(S_STANDING_STATE, cocos2d::Vec2(0,0));
             }
             

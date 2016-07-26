@@ -63,7 +63,6 @@ LOCAL_SRC_FILES := hellocpp/main.cpp \
                 	../../Classes/MO.cpp  \
                 	../../Classes/Entry.cpp  \
                 	../../Classes/LanguageManager.cpp               	                	                	                	                	                
-                	
 LOCAL_C_INCLUDES := $(LOCAL_PATH)/../../Classes
 LOCAL_C_INCLUDES += $(LOCAL_PATH)/../../../extensions
 

@@ -7,6 +7,7 @@
 //
 
 #include <math.h>
+#include <algorithm>
 #include "CharGenerator.h"
 #include "../lang/LangUtil.h"
 
@@ -56,11 +57,31 @@ wchar_t CharGenerator::generateAChar() {
 std::vector<std::vector<wchar_t>> CharGenerator::generateCharMatrix(int numRows, int numCols, bool distinct) {
     int numChar = LangUtil::getInstance()->getNumberOfCharacters();
     auto allChars = LangUtil::getInstance()->getAllCharacters();
+    std::vector<wchar_t> allCharVector;
+    allCharVector.clear();
+    for (int i = 0; i < numChar; i++) {
+        allCharVector.push_back(allChars[i]);
+    }
     std::vector<std::vector<wchar_t>> matrix(numRows, std::vector<wchar_t>(numCols));
     for (int i = 0; i < numRows; i++) {
         for (int j = 0; j < numCols; j++) {
-            int randomNumber = rand() % (numChar - 1);
-            matrix[i][j] = LangUtil::getInstance()->getAllCharacters()[randomNumber];
+            int randomNumber = 0;
+            if(numChar > 1) {
+                randomNumber = rand() % (numChar - 1);
+            }
+            matrix[i][j] = allCharVector.at(randomNumber);
+            if(distinct) {
+                allCharVector.erase(allCharVector.begin() + randomNumber);
+                numChar--;
+                if(numChar <= 0) {
+                    numChar = LangUtil::getInstance()->getNumberOfCharacters();
+                    auto allChars = LangUtil::getInstance()->getAllCharacters();
+                    allCharVector.clear();
+                    for (int i = 0; i < numChar; i++) {
+                        allCharVector.push_back(allChars[i]);
+                    }
+                }
+            }
         }
     }
     return matrix;
