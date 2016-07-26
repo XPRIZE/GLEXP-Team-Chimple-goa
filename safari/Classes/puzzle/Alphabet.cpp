@@ -22,25 +22,34 @@ bool Alphabet::onTouchBegan(Touch* touch, Event* event){
     }
     if(rect.containsPoint(n))
     {
-        CCLOG("onTouchBegan %c", _alphabet);
+        selected(!isSelected());
         auto audio = CocosDenshion::SimpleAudioEngine::getInstance();
         audio->playEffect(LangUtil::getInstance()->getAlphabetSoundFileName(_alphabet).c_str());
+        if(touchBeganCallback) {
+            touchBeganCallback(touch, event);
+        }
         return true; // to indicate that we have consumed it.
     }
     
     return false; // we did not consume this event, pass thru.
 }
 
-bool Alphabet::onTouchEnded(cocos2d::Touch *touch, cocos2d::Event *event) {
-    CCLOG("onTouchEnded %c", _alphabet);
+void Alphabet::onTouchEnded(cocos2d::Touch *touch, cocos2d::Event *event) {
     auto n = getParent()->convertTouchToNodeSpace(touch);
     auto rect = this->getBoundingBox();
     
     if(rect.containsPoint(n))
     {
-        selected(!isSelected());
+        if(touchEndedCallback) {
+            touchEndedCallback(touch, event);
+        }
     }
-    return true;
+}
+
+void Alphabet::onTouchMoved(cocos2d::Touch *touch, cocos2d::Event *event) {
+    if(touchMovedCallback) {
+        touchMovedCallback(touch, event);
+    }
 }
 
 bool Alphabet::isSelected() {
@@ -50,16 +59,12 @@ bool Alphabet::isSelected() {
 void Alphabet::selected(bool value) {
     _selected = value;
     if(value) {
-//        setTextColor(Color4B::BLUE);
-        setColor(Color3B::BLUE);
         EventCustom event("alphabet_selected");
         wchar_t *data = new wchar_t[1];
         data[0] = _alphabet;
         event.setUserData(data);
         _eventDispatcher->dispatchEvent(&event);
     } else {
-//        setTextColor(Color4B::WHITE);
-        setColor(Color3B::WHITE);
         EventCustom event("alphabet_unselected");
         wchar_t *data = new wchar_t[1];
         data[0] = _alphabet;
@@ -78,11 +83,15 @@ wchar_t Alphabet::getChar() {
 
 Alphabet::Alphabet():
 _fontSize(0.0),
-_selected(false)
+_selected(false),
+touchBeganCallback(NULL),
+touchMovedCallback(NULL),
+touchEndedCallback(NULL)
 {
     _listener = EventListenerTouchOneByOne::create();
     _listener->onTouchBegan = CC_CALLBACK_2(Alphabet::onTouchBegan, this);
     _listener->onTouchEnded = CC_CALLBACK_2(Alphabet::onTouchEnded, this);
+    _listener->onTouchMoved = CC_CALLBACK_2(Alphabet::onTouchMoved, this);
     _eventDispatcher->addEventListenerWithSceneGraphPriority(_listener, this);
     _selected = false;
 }
