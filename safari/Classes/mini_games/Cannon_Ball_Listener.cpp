@@ -1,5 +1,6 @@
 #include "Cannon_Ball_Listener.h"
 #include "Cannon_Ball_Main.h"
+#include "../puzzle/Alphabet.h"
 
 using namespace cocos2d;
 
@@ -179,7 +180,7 @@ void EventListenerClass::addEvents(MainGame *callerObject, EventListenerClass* t
 	listener->onTouchMoved = [&](cocos2d::Touch* touch, cocos2d::Event* event)
 	{
 		EventListenerClass* target = static_cast<EventListenerClass*>(event->getCurrentTarget());
-		auto letterSprite = static_cast<Label*>(callerObject->cannonLetter_actualImage[target->spriteIndex]);
+		auto letterSprite = static_cast<Alphabet*>(callerObject->cannonLetter_actualImage[target->spriteIndex]);
 
 		target->setPosition(target->getPosition() + touch->getDelta());
 		letterSprite->setPosition(target->getPosition() + touch->getDelta());
@@ -294,8 +295,8 @@ void EventListenerClass::addEvents(MainGame *callerObject, EventListenerClass* t
 		EventListenerClass* target = static_cast<EventListenerClass*>(event->getCurrentTarget());
 		target->setPosition(target->getPosition() + touch->getDelta());
 
-		auto letterSprite = static_cast<Label*>(callerObject->cannonLetter_actualImage[target->spriteIndex]);
-		letterSprite->setPosition(target->getPosition() + touch->getDelta());
+//		auto letterSprite = static_cast<Alphabet*>(callerObject->cannonLetter_actualImage[target->spriteIndex]);
+//		letterSprite->setPosition(target->getPosition() + touch->getDelta());
 
 		Rect targetRect = target->getBoundingBox();
 
@@ -394,9 +395,9 @@ void EventListenerClass::addEvents(MainGame *callerObject, EventListenerClass* t
 			auto target = static_cast<EventListenerClass*>(event->getCurrentTarget());
 			target->runAction(MoveTo::create(.2, Vec2(target->xP, target->yP)));
 
-			Label* letterSprite = static_cast<Label*>(callerObject->cannonLetter_actualImage[target->spriteIndex]);
+//			Alphabet* letterSprite = static_cast<Alphabet*>(callerObject->cannonLetter_actualImage[target->spriteIndex]);
 
-			letterSprite->runAction(MoveTo::create(.2, Vec2(target->xP, target->yP)));
+//			letterSprite->runAction(MoveTo::create(.2, Vec2(target->xP, target->yP)));
 		}
 	};
 	

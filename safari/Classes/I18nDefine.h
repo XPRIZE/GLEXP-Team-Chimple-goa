@@ -29,10 +29,6 @@
 #define i18nFormat(format, ...) I18nUtils::getInstance()->formatMatch(format, ##__VA_ARGS__)
 #define i18nFormatStr(format, ...) I18nUtils::getInstance()->formatMatch(format.c_str(), ##__VA_ARGS__)
 
-
-#ifdef _MSC_VER
-#define snprintf _snprintf
-typedef unsigned long ssize_t;
-#endif
+typedef unsigned long sssize_t;
 
 #endif /* defined(__I18N__I18nDefine_H__) */

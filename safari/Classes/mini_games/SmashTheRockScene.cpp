@@ -1,11 +1,13 @@
 #include "SmashTheRockScene.h"
 #include "SmashTheRockLevelScene.h"
-
+#include "../effects/FShake.h"
 #include "../puzzle/CharGenerator.h"
 #include "editor-support/cocostudio/ActionTimeline/CCSkeletonNode.h"
 
 #include "../menu/MenuContext.h"
 #include "editor-support/cocostudio/CocoStudio.h"
+#include "../lang/LangUtil.h"
+#include "SimpleAudioEngine.h" 
 
 #define COCOS2D_DEBUG 1
 
@@ -150,10 +152,10 @@ bool SmashTheRock::init()
 		//	right->setGlobalZOrder(6);
 			this->addChild(wrong, 2);
 		//	wrong->setGlobalZOrder(6);
-			std::string str = Alphabets.at(cocos2d::RandomHelper::random_int(key, (key + 20)) % 20).c_str();
+		//	std::string str = Alphabets.at(cocos2d::RandomHelper::random_int(key, (key + 20)) % 20).c_str();
 			char str1 = charkey.at(i-1).at(j-1);
 			std::string ttttt(&str1,1) ;
-			label = Label::createWithBMFont("english/baloo_bhai.fnt", ttttt);
+			label = Label::createWithBMFont(LangUtil::getInstance()->getBMFontFileName(), ttttt);
 			//label = Label::createWithTTF(ttttt, "fonts/BalooBhai-Regular.ttf", 256);
 			//CCLOG("alpha = %s",str.c_str());
 			label->setScale(0.15);
@@ -215,7 +217,7 @@ void SmashTheRock::createSkeletonCharacter()
 {
 	CCLOG("hello");
 	skeletonCharacter = new SkeletonCharacter();
-	skeletonCharacter->createSkeletonNode(NULL, "", "", "human_skeleton.csb");
+//	skeletonCharacter->createSkeletonNode(NULL, "", "", "human_skeleton.csb");
 }
 
 void SmashTheRock::addMainCharacterToScene(cocostudio::timeline::SkeletonNode* skeletonNode) {
@@ -295,7 +297,7 @@ void SmashTheRock::masking()
 	Size visibleSize = Director::getInstance()->getVisibleSize();
 	Vec2 origin = Director::getInstance()->getVisibleOrigin();
 
-	label1 = Label::createWithBMFont("english/baloo_bhai.fnt", Alphabets.at(key).c_str());
+	label1 = Label::createWithBMFont(LangUtil::getInstance()->getBMFontFileName(), Alphabets.at(key).c_str());
 //	label1 = Label::createWithTTF(Alphabets.at(key).c_str(), "fonts/BalooBhai-Regular.ttf", 256);
 	label1->setScale(0.8);
 
@@ -340,13 +342,17 @@ void SmashTheRock::masking()
 }
 bool SmashTheRock::onTouchBegan(cocos2d::Touch *touch, cocos2d::Event * event)
 {
+
 	//isTouching = true;
 	//	touchPosition = touch->getLocation().x;
 	cocos2d::Node * target = event->getCurrentTarget();
 	auto  location = target->convertToNodeSpace(touch->getLocation());
-
 	Size visibleSize = Director::getInstance()->getVisibleSize();
 	int dis = (230.00 / 2560)*(visibleSize.width);
+
+	auto audio = CocosDenshion::SimpleAudioEngine::getInstance();
+	
+	
 	//	CCRect targetRectangle = CCRectMake(0,0, target->getContentSize().width, target->getContentSize().height);
 	if ( target->getBoundingBox().containsPoint( touch->getLocation()) && flag )
 	{
@@ -363,6 +369,10 @@ bool SmashTheRock::onTouchBegan(cocos2d::Touch *touch, cocos2d::Event * event)
 			CCLOG("tempj x = %d", tempj);
 			val = ((tempi) * 11) + tempj;
 			CCLOG("val x = %d", val);
+			CCLOG("sound = %s", target->getName().c_str());
+			auto sound = (target->getName()).at(0);
+			auto path = LangUtil::getInstance()->getAlphabetSoundFileName(sound);
+			audio->playEffect(path.c_str(), false);
 
 			auto showright = rightRef.at(val);
 			showright->setVisible(true);
@@ -390,11 +400,16 @@ bool SmashTheRock::onTouchBegan(cocos2d::Touch *touch, cocos2d::Event * event)
 			CCLOG("val1 x = %d", val1);
 			auto showwrong = wrongRef.at(val1);
 			showwrong->setVisible(true);
-			CCLOG("size of label = %d", labelRef.size());
+			
 			this->removeChild(labelRef.at(val1));
 			this->removeChild(blockRef.at(val1));
 			clickWrong++;
 			flag = true;
+			auto sound = (target->getName()).at(0);
+			auto path = LangUtil::getInstance()->getAlphabetSoundFileName(sound);
+			audio->playEffect(path.c_str(), false);
+			FShake* shake = FShake::actionWithDuration(1.0f, 10.0f);
+			maskedFill->runAction(shake);
 			if (clickWrong == 5)
 			{
 				Director::getInstance()->replaceScene(SmashTheRockLevelScene::createScene());
