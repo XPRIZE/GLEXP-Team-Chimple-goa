@@ -16,7 +16,7 @@
 class MenuContext : public cocos2d::Node {
     
 public:
-    static MenuContext* create(Node *main);
+    static MenuContext* create(Node *main, bool lauchCustomEventOnExit = false);
     void pickAlphabet(char targetAlphabet, char chosenAlphabet, bool choose = true, cocos2d::Vec2 position = cocos2d::Vec2::ZERO);
     void finalizePoints();
     static const std::string LANG;
@@ -29,6 +29,7 @@ CC_CONSTRUCTOR_ACCESS:
 protected:
     int _points;
     bool _menuSelected;
+    bool _launchCustomEventOnExit;
     cocos2d::Node* _main;
     cocos2d::Label* _label;
     cocos2d::ui::Button* _menuButton;

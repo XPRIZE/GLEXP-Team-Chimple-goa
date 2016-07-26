@@ -20,7 +20,7 @@ public:
     
     std::vector<std::vector<wchar_t>> generateMatrixForChoosingAChar(wchar_t alpha, int numRows, int numCols, int minPercentOfOccurence = 10);
     wchar_t generateAChar();
-    std::vector<std::vector<wchar_t>> generateCharMatrix(int numRows, int numCols);
+    std::vector<std::vector<wchar_t>> generateCharMatrix(int numRows, int numCols, bool distinct = true);
 protected:
     bool init();
 };
