@@ -102,16 +102,8 @@ Alphabet *Alphabet::createWithSize(wchar_t a, float fontSize) {
 bool Alphabet::initWithSize(wchar_t alphabet, float fontSize) {
     _alphabet = alphabet;
     _fontSize = fontSize;
-//    if (!Label::initWithTTF(std::string(1, _alphabet), "fonts/BalooBhai-Regular.ttf", fontSize)) {
-//    if(MenuContext::LANG == "eng") {
-//        Label::setBMFontFilePath("english/baloo_bhai_hdr.fnt");
-//    } else if(MenuContext::LANG == "kan") {
-//        Label::setBMFontFilePath("kannada/kar shivarama.fnt");
-//    }
     Label::setBMFontFilePath(LangUtil::getInstance()->getBMFontFileName());
     Label::setString(LangUtil::convertUTF16CharToString(alphabet));
     setScale(fontSize / MAX_FONT_SIZE);
-//        return false;
-//    }
     return true;
 }

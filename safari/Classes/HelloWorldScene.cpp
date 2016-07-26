@@ -83,19 +83,21 @@ void HelloWorld::initializeSafari() {
 }
 
 void HelloWorld::updatePositionAndCategoryBitMaskMainCharacter() {
-    
-    this->skeletonCharacter->getSkeletonNode()->getPhysicsBody()->setCategoryBitmask(this->mainCharacterCategoryBitMask);
-    
-    if(this->skeletonPositionInLastVisitedScene &&
-       !this->skeletonPositionInLastVisitedScene->getXPosition().empty() &&
-       !this->skeletonPositionInLastVisitedScene->getYPosition().empty()) {
+    if(this->skeletonCharacter)
+    {
+        this->skeletonCharacter->getSkeletonNode()->getPhysicsBody()->setCategoryBitmask(this->mainCharacterCategoryBitMask);
         
-        float xPos = String::create(this->skeletonPositionInLastVisitedScene->getXPosition())->floatValue();
-        float yPos = String::create(this->skeletonPositionInLastVisitedScene->getYPosition())->floatValue();
-        if(xPos != 0.0f && yPos != 0.0f) {
-            this->skeletonCharacter->getSkeletonNode()->setPosition(Vec2(xPos, yPos));
+        if(this->skeletonPositionInLastVisitedScene &&
+           !this->skeletonPositionInLastVisitedScene->getXPosition().empty() &&
+           !this->skeletonPositionInLastVisitedScene->getYPosition().empty()) {
+            
+            float xPos = String::create(this->skeletonPositionInLastVisitedScene->getXPosition())->floatValue();
+            float yPos = String::create(this->skeletonPositionInLastVisitedScene->getYPosition())->floatValue();
+            if(xPos != 0.0f && yPos != 0.0f) {
+                this->skeletonCharacter->getSkeletonNode()->setPosition(Vec2(xPos, yPos));
+            }
+            
         }
-        
     }
 }
 
@@ -348,7 +350,7 @@ bool HelloWorld::init(const std::string& island, const std::string& sceneName)
     this->registerMessageSenderAndReceiver();
     
     if(this->getAlphamonNodesCount() != 0) {
-        //this->schedule(CC_SCHEDULE_SELECTOR(HelloWorld::createAlphaMons), 5.0f);
+        this->schedule(CC_SCHEDULE_SELECTOR(HelloWorld::createAlphaMons), 30.0f);
     }
     
     this->scheduleUpdate();
@@ -411,11 +413,19 @@ void HelloWorld::registerMessageSenderAndReceiver() {
     
     this->getEventDispatcher()->addCustomEventListener("on_menu_exit", CC_CALLBACK_0(HelloWorld::transitToHome, this));
 
-    
+    this->getEventDispatcher()->addCustomEventListener("alphamon_destroyed", CC_CALLBACK_1(HelloWorld::alphamonDestroyed, this));
+}
+
+void HelloWorld::alphamonDestroyed(EventCustom* event) {
+    std::string &alphamon = *(static_cast<std::string*>(event->getUserData()));
+    activeAlphamonNodes.erase(std::remove(activeAlphamonNodes.begin(), activeAlphamonNodes.end(), alphamon), activeAlphamonNodes.end());
+
 }
 
 void HelloWorld::transitionToDuelScene(char alphabet) {
+    this->cleanUpResources();
     std::string secondParam (1,alphabet);
+    
     StartMenu::startScene(DUEL_SCENE_NAME, "A", secondParam);
 }
 
@@ -540,6 +550,8 @@ void HelloWorld::cleanUpResources() {
     EVENT_DISPATCHER->removeCustomEventListeners("SPEECH_BUBBLE_DESTROYED_NOTIFICATION");
     EVENT_DISPATCHER->removeCustomEventListeners("PROCESS_CUSTOM_MESSAGE_AND_CREATE_UI_NOTIFICATION");
     EVENT_DISPATCHER->removeCustomEventListeners("on_menu_exit");
+    EVENT_DISPATCHER->removeCustomEventListeners("alphamon_destroyed");
+    
     
     if(this->stateMachine != nullptr) {
         delete this->stateMachine;
@@ -758,7 +770,7 @@ void HelloWorld::update(float dt) {
                     this->skeletonCharacter->getSkeletonActionTimeLine()->play(JUMP_END, false);
                 }
                 
-            }
+            } 
         }
     }
     
@@ -1161,7 +1173,8 @@ void HelloWorld::HandleTap(Point position)
         return;
     }
     
-    if(this->skeletonCharacter->isJumping || this->skeletonCharacter->isRunning || this->skeletonCharacter->isWalking) {
+    if(this->skeletonCharacter->isJumping || this->skeletonCharacter->isRunning || this->skeletonCharacter->isWalking)
+    {
         return;
     }
     
@@ -1391,7 +1404,7 @@ void HelloWorld::registerPhysicsEventContactLister() {
         // We we handle what happen when character collide with something else
         // if we return true, we say: collision happen please. => Top-Down Char Jump
         // otherwise, we say the engine to ignore this collision => Bottom-Up Char Jump
-        //CCLOG("contact BEGAN!!! %d", this->stateMachine->getCurrentState()->getState());
+        CCLOG("contact BEGAN 1111!!! %d", this->stateMachine->getCurrentState()->getState());
         cocos2d::Node* nodeA = contact.getShapeA()->getBody()->getNode();
         cocos2d::Node* nodeB = contact.getShapeB()->getBody()->getNode();
         
@@ -1431,24 +1444,21 @@ void HelloWorld::registerPhysicsEventContactLister() {
     Director::getInstance()->getEventDispatcher()->addEventListenerWithSceneGraphPriority(contactListener, this);    
 }
 
-
-void HelloWorld::onExitTransitionDidStart() {
-    Node::onExitTransitionDidStart();
-    CCLOG("onExitTransitionDidStart");
-}
-
-void HelloWorld::onEnterTransitionDidFinish() {
-    Node::onEnterTransitionDidFinish();
-    CCLOG("onEnterTransitionDidFinish");
+std::string HelloWorld::generateNearestAlphamon() {
+    int randomNumber = 1 + ( std::rand() % ( this->getAlphamonNodesCount()) );
+    std::string alphamonNodeName = StringUtils::format("%s_%d", "alphamon", randomNumber);
+    if(std::find(activeAlphamonNodes.begin(), activeAlphamonNodes.end(), alphamonNodeName) != activeAlphamonNodes.end()) {
+        return generateNearestAlphamon();
+    } else {
+        return alphamonNodeName;
+    }
 }
 
 void HelloWorld::createAlphaMons(float dt) {
-        int randomNumber = 1 + ( std::rand() % ( this->getAlphamonNodesCount()) );
-        std::string alphamonNodeName = StringUtils::format("%s_%d", "alphamon", randomNumber);
-        
-        //Generate random char
-        const char* const a_to_z = "BCDEFGHIJKLMNOPQRSTUVWXYZ" ;
-        int randomChar = rand() % 24;
-        char generatedChar = a_to_z[randomChar];
+        std::string alphamonNodeName = this->generateNearestAlphamon();
+        CCLOG("sdagasdg alphamonNodeName %s", alphamonNodeName.c_str());
+        activeAlphamonNodes.push_back(alphamonNodeName);
+    
+        wchar_t generatedChar = CharGenerator::getInstance()->generateAChar();
         this->addAlphaMonsters(generatedChar, alphamonNodeName);
 }
