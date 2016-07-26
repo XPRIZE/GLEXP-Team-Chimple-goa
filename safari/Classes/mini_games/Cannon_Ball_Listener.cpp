@@ -180,10 +180,10 @@ void EventListenerClass::addEvents(MainGame *callerObject, EventListenerClass* t
 	listener->onTouchMoved = [&](cocos2d::Touch* touch, cocos2d::Event* event)
 	{
 		EventListenerClass* target = static_cast<EventListenerClass*>(event->getCurrentTarget());
-		auto letterSprite = static_cast<Alphabet*>(callerObject->cannonLetter_actualImage[target->spriteIndex]);
+//		auto letterSprite = static_cast<Alphabet*>(callerObject->cannonLetter_actualImage[target->spriteIndex]);
 
 		target->setPosition(target->getPosition() + touch->getDelta());
-		letterSprite->setPosition(target->getPosition() + touch->getDelta());
+//		letterSprite->setPosition(target->getPosition() + touch->getDelta());
 
 
 /*		EventListenerClass* target = static_cast<EventListenerClass*>(event->getCurrentTarget());
@@ -318,7 +318,7 @@ void EventListenerClass::addEvents(MainGame *callerObject, EventListenerClass* t
 			auto seq = Sequence::create(moveto, callback, NULL);
 			target->runAction(seq);
 
-			callerObject->cannonLetter_actualImage[target->spriteIndex]->runAction(MoveTo::create(.2, Vec2(cannon1Target->getPositionX() + (cannon1Target->getContentSize().width / 4), cannon1Target->getPositionY())));
+//			callerObject->cannonLetter_actualImage[target->spriteIndex]->runAction(MoveTo::create(.2, Vec2(cannon1Target->getPositionX() + (cannon1Target->getContentSize().width / 4), cannon1Target->getPositionY())));
 			cannon1Target->flag = 1;
 
 			cocos2d::Director::getInstance()->getEventDispatcher()->removeEventListenersForTarget(target, true);
@@ -340,7 +340,7 @@ void EventListenerClass::addEvents(MainGame *callerObject, EventListenerClass* t
 			auto seq = Sequence::create(moveto, callback, NULL);
 			target->runAction(seq);
 
-			callerObject->cannonLetter_actualImage[target->spriteIndex]->runAction(MoveTo::create(.2, Vec2(cannon2Target->getPositionX() + (cannon2Target->getContentSize().width / 4), cannon2Target->getPositionY())));
+//			callerObject->cannonLetter_actualImage[target->spriteIndex]->runAction(MoveTo::create(.2, Vec2(cannon2Target->getPositionX() + (cannon2Target->getContentSize().width / 4), cannon2Target->getPositionY())));
 			cannon2Target->flag = 1;
 
 			cocos2d::Director::getInstance()->getEventDispatcher()->removeEventListenersForTarget(target, true);
@@ -363,7 +363,7 @@ void EventListenerClass::addEvents(MainGame *callerObject, EventListenerClass* t
 			auto seq = Sequence::create(moveto, callback, NULL);
 			target->runAction(seq);
 
-			callerObject->cannonLetter_actualImage[target->spriteIndex]->runAction(MoveTo::create(.2, Vec2(cannon3Target->getPositionX() + (cannon3Target->getContentSize().width / 4), cannon3Target->getPositionY())));
+//			callerObject->cannonLetter_actualImage[target->spriteIndex]->runAction(MoveTo::create(.2, Vec2(cannon3Target->getPositionX() + (cannon3Target->getContentSize().width / 4), cannon3Target->getPositionY())));
 			cannon3Target->flag = 1;
 			cocos2d::Director::getInstance()->getEventDispatcher()->removeEventListenersForTarget(target, true);
 		}
@@ -385,7 +385,7 @@ void EventListenerClass::addEvents(MainGame *callerObject, EventListenerClass* t
 			auto seq = Sequence::create(moveto, callback, NULL);
 			target->runAction(seq);
 
-			callerObject->cannonLetter_actualImage[target->spriteIndex]->runAction(MoveTo::create(.2, Vec2(cannon4Target->getPositionX() + (cannon4Target->getContentSize().width / 4), cannon4Target->getPositionY())));
+//			callerObject->cannonLetter_actualImage[target->spriteIndex]->runAction(MoveTo::create(.2, Vec2(cannon4Target->getPositionX() + (cannon4Target->getContentSize().width / 4), cannon4Target->getPositionY())));
 			cannon4Target->flag = 1;
 
 			cocos2d::Director::getInstance()->getEventDispatcher()->removeEventListenersForTarget(target, true);
