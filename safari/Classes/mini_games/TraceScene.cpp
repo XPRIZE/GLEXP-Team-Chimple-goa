@@ -9,6 +9,7 @@
 #include "TraceScene.h"
 #include "editor-support/cocostudio/CocoStudio.h"
 #include "SimpleAudioEngine.h"
+#include "../lang/LangUtil.h"
 
 
 
@@ -64,10 +65,11 @@ bool Trace::init(char alphabet) {
 
 	CCSpriteFrameCache::sharedSpriteFrameCache()->addSpriteFramesWithFile("-Alphacombat.plist");
 
-	CocosDenshion::SimpleAudioEngine::getInstance()->preloadEffect("bubble.mp3");
+	//CocosDenshion::SimpleAudioEngine::getInstance()->preloadEffect("bubble.mp3");
 	CCSpriteFrameCache::sharedSpriteFrameCache()->addSpriteFramesWithFile("Alpha_kombat_lion.plist");
 	timeline = CSLoader::createTimeline("Character/Alpha_kombat_lion.csb");
 
+	
 
 	Size visibleSize = Director::getInstance()->getVisibleSize();
 	Vec2 origin = Director::getInstance()->getVisibleOrigin();
@@ -195,7 +197,7 @@ void Trace::onTouchEnded(cocos2d::Touch *touch, cocos2d::Event *event) {
 				level = -1;
 			}
 			
-			level++;
+			
 			
 			//removeChild(_background);
 
@@ -203,7 +205,7 @@ void Trace::onTouchEnded(cocos2d::Touch *touch, cocos2d::Event *event) {
 			Vec2 origin = Director::getInstance()->getVisibleOrigin();
 
 			//this->removeChild(character, true);
-			CocosDenshion::SimpleAudioEngine::getInstance()->playEffect("bubble.mp3");
+			//CocosDenshion::SimpleAudioEngine::getInstance()->playEffect("bubble.mp3");
 
 
 			std::string randomAnimation = animations[RandomHelper::random_int(0, 3)];
@@ -235,10 +237,17 @@ void Trace::onTouchEnded(cocos2d::Touch *touch, cocos2d::Event *event) {
 				}
 			}
 
+			
 			auto redirectToNextLevel = CallFunc::create([=] {
 				Trace::transit(level);
 			});
 			auto redirect = Sequence::create(DelayTime::create(delay), redirectToNextLevel, NULL);
+			
+			auto audio = CocosDenshion::SimpleAudioEngine::getInstance();
+			auto path = LangUtil::getInstance()->getAlphabetSoundFileName(alpha[level]);
+			audio->playEffect(path.c_str(), false);
+
+			level++;
 			this->runAction(redirect);
 			
 
