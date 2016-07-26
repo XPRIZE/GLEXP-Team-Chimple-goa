@@ -593,7 +593,7 @@ void HelloWorld::processAnimationMessage(std::vector<MessageContent*>animationMe
                     
                     if(content != NULL && (content->getCondition().empty() || (!content->getCondition().empty() && content->getConditionSatisfied() == 1)))
                     {
-                        std::string nextScene = animationNode->getNextScene();
+                        std::string nextScene = animationNode->getNextScene();                        
                         std::string transitToGameScene = animationNode->getTransitToGameScene();
                         
                         if(!nextScene.empty())
@@ -737,7 +737,7 @@ void HelloWorld::update(float dt) {
                     this->skeletonCharacter->getSkeletonNode()->getPhysicsBody()->setVelocity(Vec2(MAIN_CHARACTER_RUNNING_FORCE,GRAVITY_VELOCITY_TO_STICK_TO_GROUND));
                 }
             }
-            else if (this->skeletonCharacter->isFalling) {
+            else if (this->skeletonCharacter->isFalling && this->stateMachine != NULL) {
                 this->stateMachine->handleInput(S_STANDING_STATE, cocos2d::Vec2(0,0));
             }
             

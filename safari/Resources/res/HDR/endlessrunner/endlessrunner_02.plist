@@ -4,303 +4,48 @@
     <dict>
         <key>frames</key>
         <dict>
-            <key>endlessrunner/barrier.png</key>
+            <key>endlessrunner/life_catch.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
                 <key>spriteOffset</key>
                 <string>{0,0}</string>
                 <key>spriteSize</key>
-                <string>{2,1800}</string>
+                <string>{430,923}</string>
                 <key>spriteSourceSize</key>
-                <string>{2,1800}</string>
+                <string>{430,923}</string>
                 <key>textureRect</key>
-                <string>{{1378,3853},{2,1800}}</string>
-                <key>textureRotated</key>
-                <true/>
-            </dict>
-            <key>endlessrunner/bgTouchImage.png</key>
-            <dict>
-                <key>aliases</key>
-                <array/>
-                <key>spriteOffset</key>
-                <string>{0,0}</string>
-                <key>spriteSize</key>
-                <string>{1,1}</string>
-                <key>spriteSourceSize</key>
-                <string>{1,1}</string>
-                <key>textureRect</key>
-                <string>{{3634,3418},{1,1}}</string>
+                <string>{{0,0},{430,923}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>endlessrunner/board.png</key>
+            <key>endlessrunner/life_off.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
                 <key>spriteOffset</key>
                 <string>{0,0}</string>
                 <key>spriteSize</key>
-                <string>{300,127}</string>
+                <string>{139,127}</string>
                 <key>spriteSourceSize</key>
-                <string>{300,127}</string>
+                <string>{139,127}</string>
                 <key>textureRect</key>
-                <string>{{2756,3611},{300,127}}</string>
+                <string>{{840,1171},{139,127}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>endlessrunner/gapw.png</key>
+            <key>endlessrunner/life_on.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
                 <key>spriteOffset</key>
                 <string>{0,0}</string>
                 <key>spriteSize</key>
-                <string>{450,20}</string>
+                <string>{139,127}</string>
                 <key>spriteSourceSize</key>
-                <string>{450,20}</string>
+                <string>{139,127}</string>
                 <key>textureRect</key>
-                <string>{{2746,884},{450,20}}</string>
-                <key>textureRotated</key>
-                <true/>
-            </dict>
-            <key>endlessrunner/ground.png</key>
-            <dict>
-                <key>aliases</key>
-                <array/>
-                <key>spriteOffset</key>
-                <string>{0,0}</string>
-                <key>spriteSize</key>
-                <string>{1,500}</string>
-                <key>spriteSourceSize</key>
-                <string>{1,500}</string>
-                <key>textureRect</key>
-                <string>{{3950,0},{1,500}}</string>
-                <key>textureRotated</key>
-                <false/>
-            </dict>
-            <key>endlessrunner/happy_eye.png</key>
-            <dict>
-                <key>aliases</key>
-                <array/>
-                <key>spriteOffset</key>
-                <string>{0,0}</string>
-                <key>spriteSize</key>
-                <string>{104,69}</string>
-                <key>spriteSourceSize</key>
-                <string>{104,69}</string>
-                <key>textureRect</key>
-                <string>{{2756,3741},{104,69}}</string>
-                <key>textureRotated</key>
-                <false/>
-            </dict>
-            <key>endlessrunner/happy_head.png</key>
-            <dict>
-                <key>aliases</key>
-                <array/>
-                <key>spriteOffset</key>
-                <string>{0,0}</string>
-                <key>spriteSize</key>
-                <string>{166,340}</string>
-                <key>spriteSourceSize</key>
-                <string>{166,340}</string>
-                <key>textureRect</key>
-                <string>{{3638,3159},{166,340}}</string>
-                <key>textureRotated</key>
-                <true/>
-            </dict>
-            <key>endlessrunner/happy_mouth.png</key>
-            <dict>
-                <key>aliases</key>
-                <array/>
-                <key>spriteOffset</key>
-                <string>{0,0}</string>
-                <key>spriteSize</key>
-                <string>{198,61}</string>
-                <key>spriteSourceSize</key>
-                <string>{198,61}</string>
-                <key>textureRect</key>
-                <string>{{3954,0},{198,61}}</string>
-                <key>textureRotated</key>
-                <true/>
-            </dict>
-            <key>endlessrunner/layer_1_mountain.png</key>
-            <dict>
-                <key>aliases</key>
-                <array/>
-                <key>spriteOffset</key>
-                <string>{0,0}</string>
-                <key>spriteSize</key>
-                <string>{1374,1126}</string>
-                <key>spriteSourceSize</key>
-                <string>{1374,1126}</string>
-                <key>textureRect</key>
-                <string>{{2001,1830},{1374,1126}}</string>
-                <key>textureRotated</key>
-                <true/>
-            </dict>
-            <key>endlessrunner/layer_2_mountain.png</key>
-            <dict>
-                <key>aliases</key>
-                <array/>
-                <key>spriteOffset</key>
-                <string>{0,0}</string>
-                <key>spriteSize</key>
-                <string>{1374,1126}</string>
-                <key>spriteSourceSize</key>
-                <string>{1374,1126}</string>
-                <key>textureRect</key>
-                <string>{{2821,0},{1374,1126}}</string>
-                <key>textureRotated</key>
-                <true/>
-            </dict>
-            <key>endlessrunner/layer_3_bush.png</key>
-            <dict>
-                <key>aliases</key>
-                <array/>
-                <key>spriteOffset</key>
-                <string>{0,0}</string>
-                <key>spriteSize</key>
-                <string>{1375,381}</string>
-                <key>spriteSourceSize</key>
-                <string>{1375,381}</string>
-                <key>textureRect</key>
-                <string>{{0,3480},{1375,381}}</string>
-                <key>textureRotated</key>
-                <false/>
-            </dict>
-            <key>endlessrunner/layer_4_tree_01.png</key>
-            <dict>
-                <key>aliases</key>
-                <array/>
-                <key>spriteOffset</key>
-                <string>{0,0}</string>
-                <key>spriteSize</key>
-                <string>{943,1636}</string>
-                <key>spriteSourceSize</key>
-                <string>{943,1636}</string>
-                <key>textureRect</key>
-                <string>{{1065,884},{943,1636}}</string>
-                <key>textureRotated</key>
-                <true/>
-            </dict>
-            <key>endlessrunner/layer_4_tree_02.png</key>
-            <dict>
-                <key>aliases</key>
-                <array/>
-                <key>spriteOffset</key>
-                <string>{0,0}</string>
-                <key>spriteSize</key>
-                <string>{267,1634}</string>
-                <key>spriteSourceSize</key>
-                <string>{267,1634}</string>
-                <key>textureRect</key>
-                <string>{{3379,1377},{267,1634}}</string>
-                <key>textureRotated</key>
-                <false/>
-            </dict>
-            <key>endlessrunner/layer_4_tree_03.png</key>
-            <dict>
-                <key>aliases</key>
-                <array/>
-                <key>spriteOffset</key>
-                <string>{0,0}</string>
-                <key>spriteSize</key>
-                <string>{943,1636}</string>
-                <key>spriteSourceSize</key>
-                <string>{943,1636}</string>
-                <key>textureRect</key>
-                <string>{{1055,1830},{943,1636}}</string>
-                <key>textureRotated</key>
-                <false/>
-            </dict>
-            <key>endlessrunner/layer_5_bush.png</key>
-            <dict>
-                <key>aliases</key>
-                <array/>
-                <key>spriteOffset</key>
-                <string>{0,0}</string>
-                <key>spriteSize</key>
-                <string>{1375,381}</string>
-                <key>spriteSourceSize</key>
-                <string>{1375,381}</string>
-                <key>textureRect</key>
-                <string>{{3649,1377},{1375,381}}</string>
-                <key>textureRotated</key>
-                <true/>
-            </dict>
-            <key>endlessrunner/layer_6_tree_01.png</key>
-            <dict>
-                <key>aliases</key>
-                <array/>
-                <key>spriteOffset</key>
-                <string>{0,0}</string>
-                <key>spriteSize</key>
-                <string>{1052,1728}</string>
-                <key>spriteSourceSize</key>
-                <string>{1052,1728}</string>
-                <key>textureRect</key>
-                <string>{{0,1749},{1052,1728}}</string>
-                <key>textureRotated</key>
-                <false/>
-            </dict>
-            <key>endlessrunner/layer_6_tree_02.png</key>
-            <dict>
-                <key>aliases</key>
-                <array/>
-                <key>spriteOffset</key>
-                <string>{0,0}</string>
-                <key>spriteSize</key>
-                <string>{246,1868}</string>
-                <key>spriteSourceSize</key>
-                <string>{246,1868}</string>
-                <key>textureRect</key>
-                <string>{{3130,1377},{246,1868}}</string>
-                <key>textureRotated</key>
-                <false/>
-            </dict>
-            <key>endlessrunner/layer_6_tree_03.png</key>
-            <dict>
-                <key>aliases</key>
-                <array/>
-                <key>spriteOffset</key>
-                <string>{0,0}</string>
-                <key>spriteSize</key>
-                <string>{881,1753}</string>
-                <key>spriteSourceSize</key>
-                <string>{881,1753}</string>
-                <key>textureRect</key>
-                <string>{{1065,0},{881,1753}}</string>
-                <key>textureRotated</key>
-                <true/>
-            </dict>
-            <key>endlessrunner/layer_6_tree_04.png</key>
-            <dict>
-                <key>aliases</key>
-                <array/>
-                <key>spriteOffset</key>
-                <string>{0,0}</string>
-                <key>spriteSize</key>
-                <string>{1062,1746}</string>
-                <key>spriteSourceSize</key>
-                <string>{1062,1746}</string>
-                <key>textureRect</key>
-                <string>{{0,0},{1062,1746}}</string>
-                <key>textureRotated</key>
-                <false/>
-            </dict>
-            <key>endlessrunner/layer_7_bush.png</key>
-            <dict>
-                <key>aliases</key>
-                <array/>
-                <key>spriteOffset</key>
-                <string>{0,0}</string>
-                <key>spriteSize</key>
-                <string>{1375,381}</string>
-                <key>spriteSourceSize</key>
-                <string>{1375,381}</string>
-                <key>textureRect</key>
-                <string>{{1378,3469},{1375,381}}</string>
+                <string>{{824,1301},{139,127}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
@@ -315,9 +60,9 @@
                 <key>spriteSourceSize</key>
                 <string>{88,97}</string>
                 <key>textureRect</key>
-                <string>{{3908,2755},{88,97}}</string>
+                <string>{{837,937},{88,97}}</string>
                 <key>textureRotated</key>
-                <false/>
+                <true/>
             </dict>
             <key>endlessrunner/mad_head.png</key>
             <dict>
@@ -330,7 +75,7 @@
                 <key>spriteSourceSize</key>
                 <string>{166,340}</string>
                 <key>textureRect</key>
-                <string>{{3638,3328},{166,340}}</string>
+                <string>{{0,1185},{166,340}}</string>
                 <key>textureRotated</key>
                 <true/>
             </dict>
@@ -345,9 +90,9 @@
                 <key>spriteSourceSize</key>
                 <string>{187,42}</string>
                 <key>textureRect</key>
-                <string>{{2769,884},{187,42}}</string>
+                <string>{{0,1354},{187,42}}</string>
                 <key>textureRotated</key>
-                <true/>
+                <false/>
             </dict>
             <key>endlessrunner/main_hand.png</key>
             <dict>
@@ -360,7 +105,7 @@
                 <key>spriteSourceSize</key>
                 <string>{61,79}</string>
                 <key>textureRect</key>
-                <string>{{2834,1520},{61,79}}</string>
+                <string>{{937,937},{61,79}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
@@ -375,7 +120,7 @@
                 <key>spriteSourceSize</key>
                 <string>{132,140}</string>
                 <key>textureRect</key>
-                <string>{{2834,1377},{132,140}}</string>
+                <string>{{840,1028},{132,140}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
@@ -390,9 +135,9 @@
                 <key>spriteSourceSize</key>
                 <string>{72,30}</string>
                 <key>textureRect</key>
-                <string>{{3327,3248},{72,30}}</string>
+                <string>{{258,1354},{72,30}}</string>
                 <key>textureRotated</key>
-                <true/>
+                <false/>
             </dict>
             <key>endlessrunner/main_leg_right.png</key>
             <dict>
@@ -405,7 +150,7 @@
                 <key>spriteSourceSize</key>
                 <string>{72,30}</string>
                 <key>textureRect</key>
-                <string>{{3327,3595},{72,30}}</string>
+                <string>{{258,1387},{72,30}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
@@ -420,9 +165,9 @@
                 <key>spriteSourceSize</key>
                 <string>{174,257}</string>
                 <key>textureRect</key>
-                <string>{{3327,3418},{174,257}}</string>
+                <string>{{663,1036},{174,257}}</string>
                 <key>textureRotated</key>
-                <true/>
+                <false/>
             </dict>
             <key>endlessrunner/monster_red_egg.png</key>
             <dict>
@@ -435,7 +180,7 @@
                 <key>spriteSourceSize</key>
                 <string>{127,157}</string>
                 <key>textureRect</key>
-                <string>{{2704,1454},{127,157}}</string>
+                <string>{{879,164},{127,157}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
@@ -450,9 +195,9 @@
                 <key>spriteSourceSize</key>
                 <string>{127,158}</string>
                 <key>textureRect</key>
-                <string>{{3534,3595},{127,158}}</string>
+                <string>{{663,1296},{127,158}}</string>
                 <key>textureRotated</key>
-                <false/>
+                <true/>
             </dict>
             <key>endlessrunner/monster_red_eye.png</key>
             <dict>
@@ -465,7 +210,7 @@
                 <key>spriteSourceSize</key>
                 <string>{38,42}</string>
                 <key>textureRect</key>
-                <string>{{3908,2855},{38,42}}</string>
+                <string>{{333,1363},{38,42}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
@@ -480,9 +225,9 @@
                 <key>spriteSourceSize</key>
                 <string>{170,183}</string>
                 <key>textureRect</key>
-                <string>{{3059,3652},{170,183}}</string>
+                <string>{{837,570},{170,183}}</string>
                 <key>textureRotated</key>
-                <true/>
+                <false/>
             </dict>
             <key>endlessrunner/monster_red_leg_left.png</key>
             <dict>
@@ -495,9 +240,9 @@
                 <key>spriteSourceSize</key>
                 <string>{44,58}</string>
                 <key>textureRect</key>
-                <string>{{3587,3418},{44,58}}</string>
+                <string>{{343,1276},{44,58}}</string>
                 <key>textureRotated</key>
-                <false/>
+                <true/>
             </dict>
             <key>endlessrunner/monster_red_leg_right.png</key>
             <dict>
@@ -510,7 +255,7 @@
                 <key>spriteSourceSize</key>
                 <string>{38,55}</string>
                 <key>textureRect</key>
-                <string>{{2704,1774},{38,55}}</string>
+                <string>{{120,1399},{38,55}}</string>
                 <key>textureRotated</key>
                 <true/>
             </dict>
@@ -525,7 +270,7 @@
                 <key>spriteSourceSize</key>
                 <string>{88,58}</string>
                 <key>textureRect</key>
-                <string>{{3954,201},{88,58}}</string>
+                <string>{{343,1185},{88,58}}</string>
                 <key>textureRotated</key>
                 <true/>
             </dict>
@@ -540,7 +285,7 @@
                 <key>spriteSourceSize</key>
                 <string>{128,161}</string>
                 <key>textureRect</key>
-                <string>{{3403,3595},{128,161}}</string>
+                <string>{{879,0},{128,161}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
@@ -555,7 +300,7 @@
                 <key>spriteSourceSize</key>
                 <string>{125,157}</string>
                 <key>textureRect</key>
-                <string>{{2704,1614},{125,157}}</string>
+                <string>{{879,324},{125,157}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
@@ -570,7 +315,7 @@
                 <key>spriteSourceSize</key>
                 <string>{37,43}</string>
                 <key>textureRect</key>
-                <string>{{2756,3813},{37,43}}</string>
+                <string>{{343,1323},{37,43}}</string>
                 <key>textureRotated</key>
                 <true/>
             </dict>
@@ -585,9 +330,9 @@
                 <key>spriteSourceSize</key>
                 <string>{55,65}</string>
                 <key>textureRect</key>
-                <string>{{2969,1377},{55,65}}</string>
+                <string>{{190,1354},{55,65}}</string>
                 <key>textureRotated</key>
-                <false/>
+                <true/>
             </dict>
             <key>endlessrunner/monster_yellow_head.png</key>
             <dict>
@@ -600,7 +345,7 @@
                 <key>spriteSourceSize</key>
                 <string>{155,178}</string>
                 <key>textureRect</key>
-                <string>{{3245,3652},{155,178}}</string>
+                <string>{{837,756},{155,178}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
@@ -615,7 +360,7 @@
                 <key>spriteSourceSize</key>
                 <string>{38,58}</string>
                 <key>textureRect</key>
-                <string>{{3068,3207},{38,58}}</string>
+                <string>{{0,1399},{38,58}}</string>
                 <key>textureRotated</key>
                 <true/>
             </dict>
@@ -630,9 +375,9 @@
                 <key>spriteSourceSize</key>
                 <string>{38,56}</string>
                 <key>textureRect</key>
-                <string>{{2769,1074},{38,56}}</string>
+                <string>{{61,1399},{38,56}}</string>
                 <key>textureRotated</key>
-                <false/>
+                <true/>
             </dict>
             <key>endlessrunner/monster_yellow_wing.png</key>
             <dict>
@@ -645,7 +390,7 @@
                 <key>spriteSourceSize</key>
                 <string>{97,71}</string>
                 <key>textureRect</key>
-                <string>{{3403,3759},{97,71}}</string>
+                <string>{{879,484},{97,71}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
@@ -660,7 +405,7 @@
                 <key>spriteSourceSize</key>
                 <string>{401,256}</string>
                 <key>textureRect</key>
-                <string>{{2001,3207},{401,256}}</string>
+                <string>{{0,926},{401,256}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
@@ -675,7 +420,7 @@
                 <key>spriteSourceSize</key>
                 <string>{401,256}</string>
                 <key>textureRect</key>
-                <string>{{2405,3207},{401,256}}</string>
+                <string>{{433,0},{401,256}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
@@ -690,9 +435,9 @@
                 <key>spriteSourceSize</key>
                 <string>{401,256}</string>
                 <key>textureRect</key>
-                <string>{{3649,2755},{401,256}}</string>
+                <string>{{433,259},{401,256}}</string>
                 <key>textureRotated</key>
-                <true/>
+                <false/>
             </dict>
             <key>endlessrunner/pathmid_2.png</key>
             <dict>
@@ -705,9 +450,9 @@
                 <key>spriteSourceSize</key>
                 <string>{401,256}</string>
                 <key>textureRect</key>
-                <string>{{2809,3207},{401,256}}</string>
+                <string>{{433,518},{401,256}}</string>
                 <key>textureRotated</key>
-                <true/>
+                <false/>
             </dict>
             <key>endlessrunner/pathmid_3.png</key>
             <dict>
@@ -720,9 +465,9 @@
                 <key>spriteSourceSize</key>
                 <string>{401,256}</string>
                 <key>textureRect</key>
-                <string>{{3068,3248},{401,256}}</string>
+                <string>{{433,777},{401,256}}</string>
                 <key>textureRotated</key>
-                <true/>
+                <false/>
             </dict>
             <key>endlessrunner/pathmid_4.png</key>
             <dict>
@@ -735,7 +480,7 @@
                 <key>spriteSourceSize</key>
                 <string>{401,256}</string>
                 <key>textureRect</key>
-                <string>{{3379,3014},{401,256}}</string>
+                <string>{{404,1036},{401,256}}</string>
                 <key>textureRotated</key>
                 <true/>
             </dict>
@@ -750,7 +495,7 @@
                 <key>spriteSourceSize</key>
                 <string>{39,567}</string>
                 <key>textureRect</key>
-                <string>{{2704,884},{39,567}}</string>
+                <string>{{837,0},{39,567}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
@@ -765,7 +510,7 @@
                 <key>spriteSourceSize</key>
                 <string>{10,10}</string>
                 <key>textureRect</key>
-                <string>{{4018,0},{10,10}}</string>
+                <string>{{404,926},{10,10}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
@@ -779,13 +524,13 @@
             <key>premultiplyAlpha</key>
             <false/>
             <key>realTextureFileName</key>
-            <string>endlessrunner.png</string>
+            <string>endlessrunner_02.png</string>
             <key>size</key>
-            <string>{4030,3861}</string>
+            <string>{1007,1437}</string>
             <key>smartupdate</key>
-            <string>$TexturePacker:SmartUpdate:8e0ef54e9e84afe1b026a0d04445a3aa:9b888ac331506ec15be3944bb522c1af:616bbfc4152373ef6c9c8316027dcae3$</string>
+            <string>$TexturePacker:SmartUpdate:c958a7a95d04800a9c7f570537f22b3d:1ab2716018362d652aec99e4a72a66ce:493c9bbcbf17bc263554cfec40bfb55c$</string>
             <key>textureFileName</key>
-            <string>endlessrunner.png</string>
+            <string>endlessrunner_02.png</string>
         </dict>
     </dict>
 </plist>
