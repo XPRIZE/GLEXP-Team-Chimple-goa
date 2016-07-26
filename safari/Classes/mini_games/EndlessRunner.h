@@ -26,7 +26,14 @@ protected:
 	Sprite* rightBarrier;
 	Sprite* leftBarrierForBigObject;
 	Sprite* upBarrier;
+	Sprite* hpUi;
+	cocostudio::timeline::ActionTimeline *hpUiCatchAction;
+	cocostudio::timeline::ActionTimeline *happyManAction;
 	double xSizeArray[7] = { 1.0,0.4,0.6,0.8,0.5,1.2,1.4 };
+	int counterAlphabets = 0;
+	int counterLife = 6;
+	bool flagAnimationHappyMan = false;
+	bool flagLifeDemo = true;
 	char letters[36] = { 'A','A','A','B','B','B','C','C','C','A','A','A','B','B','B','C','C','C','A','A','A','B','B','B','C','C','C','A','A','A','B','B','B','C','C','C' };
 	char tempChar = 'A';
 	struct mountainTypeObject {
@@ -130,8 +137,6 @@ protected:
 	Sprite* currentlayer5Sprite;
 	Sprite* currentlayer6Sprite;
 	Sprite* currentlayer7Sprite;
-
-	Sprite* happyMan;
 
 	struct Character {
 		Sprite* character;

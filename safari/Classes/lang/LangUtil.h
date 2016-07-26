@@ -8,7 +8,6 @@
 
 #ifndef LangUtil_h
 #define LangUtil_h
-
 #include "cocos2d.h"
 
 class LangUtil {
