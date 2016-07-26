@@ -123,9 +123,10 @@ void PatchTheWall::onTouchMoved(cocos2d::Touch *touch, cocos2d::Event * event)
 	for (int i = 0; i < blastAlphaReff.size(); i++)
 	{
 		auto my_point = blastAlphaReff.at(i)->getPosition();
-		_menuContext->pickAlphabet(blastAlphaReff.at(i)->getName().at(0), PatchTheWall::no->getName().at(0), true);
+	
 		if ((PatchTheWall::no->getBoundingBox()).containsPoint(my_point) && ((PatchTheWall::no->getName()).compare(blastAlphaReff.at(i)->getName()) == 0))
 		{
+			_menuContext->pickAlphabet(blastAlphaReff.at(i)->getName().at(0), PatchTheWall::no->getName().at(0), true);
 			CCLOG("overlap");
 			CCLOG("lsfaff %f = ", (crackReff.at(i)->getPositionX()-95)/280);
 			int splash = (crackReff.at(i)->getPositionX() - 95) / 280;
