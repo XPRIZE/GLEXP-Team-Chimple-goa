@@ -111,7 +111,7 @@ protected:
 		int Layer6Speed = 400;
 		int Layer7Speed = 400;
 
-		int tolerence = 100;
+		int tolerence = 200;
 		int heightJump = 350;
 		bool gapMode = false;
 
