@@ -1,6 +1,10 @@
 #include "CrossTheBridgeScene.h"
 #include "SimpleAudioEngine.h"
 #include "math.h"
+#include "../alphamon/Alphamon.h"
+#include "../puzzle/CharGenerator.h"
+#include "../lang/LangUtil.h"
+#include "SimpleAudioEngine.h"
 
 
 USING_NS_CC;
@@ -48,19 +52,6 @@ bool CrossTheBridge::init()
 	menu->setPosition(Vec2::ZERO);
 	this->addChild(menu, 1);
 	this->scheduleUpdate();
-	/////////////////////////////
-	// 3. add your codes below...
-	/*auto Score_Label = Label::createWithTTF("SCORE:", "fonts/Marker Felt.ttf", 120);
-	Score_Label->setPosition(Vec2(visibleSize.width *.825 + origin.x, visibleSize.height* .94 + origin.y));
-	this->addChild(Score_Label, 3);
-
-	std::ostringstream sstreamb;
-	sstreamb << mainScore;
-	std::string query = sstreamb.str();
-
-	myGameScoreLabel = Label::createWithTTF(query, "fonts/Marker Felt.ttf", 120);
-	myGameScoreLabel->setPosition(Vec2(visibleSize.width *.926 + origin.x, visibleSize.height* .94 + origin.y));
-	this->addChild(myGameScoreLabel, 3);*/
 
 	auto gameBG = (Sprite *)CSLoader::createNode("crossthebridge/MainScene.csb");
 	this->addChild(gameBG, 1);
@@ -100,9 +91,8 @@ bool CrossTheBridge::init()
 	addEvents(transparentBG);
 
 	sceneMaking();
-	this->schedule(schedule_selector(CrossTheBridge::monsGeneration), RandomHelper::random_int(7, 11));
+	this->schedule(schedule_selector(CrossTheBridge::monsGeneration), RandomHelper::random_int(8, 11));
 	this->schedule(schedule_selector(CrossTheBridge::alphabetGeneration), positionGap_Alpha[RandomHelper::random_int(0, 21)]);
-	this->schedule(schedule_selector(CrossTheBridge::comboFiveDynamicShuffle), 5.0f);
 	//this->schedule(schedule_selector(CrossTheBridge::letterDisplayCombinationMethod), 40.0f);
 	return true;
 }
@@ -133,13 +123,13 @@ void CrossTheBridge::sceneMaking()
 	this->addChild(barrierRight, 1);
 
 	barrierLeft = Sprite::create("Crossthebridge/barrier.png");
-	barrierLeft->setPosition(Vec2(40 + origin.x, (visibleSize.height*0.01) + origin.y));
+	barrierLeft->setPosition(Vec2(40 + origin.x, (visibleSize.height*0.46) + origin.y));
 	barrierLeft->setAnchorPoint(Vec2(0, 0));
 	this->addChild(barrierLeft, 1);
 	barrierLeft->setVisible(false);
 
 	barrierFlat = Sprite::create("Crossthebridge/barrier.png");
-	barrierFlat->setPosition(Vec2(0 + origin.x, 370 + origin.y));
+	barrierFlat->setPosition(Vec2(10 + origin.x, 370 + origin.y));
 	barrierFlat->setAnchorPoint(Vec2(0, 0));
 	this->addChild(barrierFlat, 1);
 	barrierFlat->setRotation(90.0f);
@@ -166,32 +156,18 @@ void CrossTheBridge::letterDisplayCombinationMethod(float dt)
 	Vec2 origin = Director::getInstance()->getVisibleOrigin();
 	auto visibleSize = Director::getInstance()->getVisibleSize();
 
-	auto letterToDisplay = letterAZ[RandomHelper::random_int(0, 25)];
-
-	comboFive[0] = letterToDisplay;
-	comboFive[1] = letterAZ[RandomHelper::random_int(0, 25)];
-	comboFive[2] = letterToDisplay;
-	comboFive[3] = letterAZ[RandomHelper::random_int(0, 25)];
-	comboFive[4] = letterToDisplay;
-	comboFive[5] = letterAZ[RandomHelper::random_int(0, 25)];
+	comboFive = CharGenerator::getInstance()->generateMatrixForChoosingAChar(letterToDisplay,20,1,50);
 
 	for (auto i = 0; i < 7; i++)
 	{
 		std::ostringstream sstreamb;
 		sstreamb << letterToDisplay;
 		std::string letterDisplay = sstreamb.str();
-
-		Label* displayLetter = Label::createWithTTF(letterDisplay, "fonts/Marker Felt.ttf", 150);
+		Alphabet *displayLetter = Alphabet::createWithSize(letterToDisplay,220);
 		displayLetter->setPosition(Vec2(letterDisplayPosition[i].first + origin.x, letterDisplayPosition[i].second + origin.y));
 		this->addChild(displayLetter, 3);
 		letterContainer.push_back(displayLetter);
 	}
-}
-void CrossTheBridge::comboFiveDynamicShuffle(float dt)
-{
-	comboFive[1] = letterAZ[RandomHelper::random_int(0, 25)];
-	comboFive[3] = letterAZ[RandomHelper::random_int(0, 25)];
-	comboFive[5] = letterAZ[RandomHelper::random_int(0, 25)];
 }
 
 void CrossTheBridge::alphabetGeneration(float dt)
@@ -199,47 +175,27 @@ void CrossTheBridge::alphabetGeneration(float dt)
 	Vec2 origin = Director::getInstance()->getVisibleOrigin();
 	auto visibleSize = Director::getInstance()->getVisibleSize();
 
-	int rand_2 = RandomHelper::random_int(0, 5);
-	auto randomInAlpha = comboFive[rand_2];
-
-	std::ostringstream sstreamb;
-	sstreamb << randomInAlpha;
-	std::string randomAlpha = sstreamb.str();
-
-	Sprite* amon = (Sprite *)CSLoader::createNode("english/" + randomAlpha + ".csb");
-	this->addChild(amon, 3);
-	amon->setScale(0.28);
-	amon->setContentSize(cocos2d::Size(200, 200));
-	amon->setPosition(Vec2(barrierRight->getPosition().x + origin.x, (visibleSize.height*0.47) + origin.y));
-	amon->setName(randomAlpha);
-	std::string str = amon->getName().c_str();
-
-	alphaContainer.push_back(amon);
-	Vector <Node*> children = amon->getChildren();
-	for (auto item = children.rbegin(); item != children.rend(); ++item)
-	{
-		Node *monster = *item;
-		std::string str = monster->getName().c_str();
-		if (str.find("mouth") == 0)
-		{
-			auto mouthTimeline = CSLoader::createTimeline(CCString::createWithFormat("mouth_ani/%s.csb", str.c_str())->getCString());
-			monster->runAction(mouthTimeline);
-			mouthTimeline->gotoFrameAndPlay(0, true);
-		}
-		if (str.find("eye") == 0)
-		{
-			auto  eyeTimeline = CSLoader::createTimeline(CCString::createWithFormat("eye_ani/%s.csb", str.c_str())->getCString());
-			monster->runAction(eyeTimeline);
-			eyeTimeline->gotoFrameAndPlay(0, true);
-		}
-		if (str.find("skate") == 0)
-		{
-			auto  eyeTimeline = CSLoader::createTimeline(CCString::createWithFormat("leg_ani/%s.csb", str.c_str())->getCString());
-			monster->runAction(eyeTimeline);
-			eyeTimeline->gotoFrameAndPlay(0, true);
-		}
+	auto name = comboFive.at(alphabetCounter).at(0);
+	alphabetCounter++;
+	auto mystr = LangUtil::convertUTF16CharToString(name);
+	if (alphabetCounter == 20) {
+		comboFive = CharGenerator::getInstance()->generateMatrixForChoosingAChar(letterToDisplay, 20, 1, 50);
+		alphabetCounter = 0;
 	}
-	leftMove_Alpha(amon, RandomHelper::random_int(8, 12), -180.0f, ((visibleSize.height*0.47) + origin.y));
+	Alphamon* alphaMon = Alphamon::createWithAlphabet(name);
+	alphaMon->setPosition(Vec2((barrierRight->getPosition().x + origin.x), (visibleSize.height*0.47) + origin.y));
+	this->addChild(alphaMon, 3);
+	
+	alphaMon->setScale(0.55);
+	alphaMon->setContentSize(cocos2d::Size(20, 300));
+	alphaMon->setName(mystr);
+	alphaContainer.push_back(alphaMon);
+
+	alphaMon->blinkAction();
+	alphaMon->eatAction();
+	alphaMon->walkAction();
+
+   leftMove_Alpha(alphaMon, 8, -180.0f, ((visibleSize.height*0.47) + origin.y));
 }
 
 void CrossTheBridge::monsGeneration(float dt) {
@@ -257,8 +213,7 @@ void CrossTheBridge::monsGeneration(float dt) {
 	enemy_walk->setTimeSpeed(1.5);
 	enemy_walk->gotoFrameAndPlay(0, true);
 	monsContainer.push_back(monster);
-
-	leftMove_Mons(monster, RandomHelper::random_int(7, 10), -180, ((visibleSize.height*0.468) + origin.y));
+	leftMove_Mons(monster, 10, -180, ((visibleSize.height*0.468) + origin.y));
 }
 
 void CrossTheBridge::alphaDeletion()
@@ -267,41 +222,28 @@ void CrossTheBridge::alphaDeletion()
 	auto visibleSize = Director::getInstance()->getVisibleSize();
 	for (int i = 0; i< alphaContainer.size(); i++)
 	{
+		auto alphaBox = CCRectMake(alphaContainer[i]->getPositionX(), alphaContainer[i]->getPositionY(), alphaContainer[i]->getContentSize().width, alphaContainer[i]->getContentSize().height);
 
-		if (alphaContainer[i]->getBoundingBox().intersectsRect(barrierLeft->getBoundingBox()))
+		if (alphaBox.intersectsRect(barrierLeft->getBoundingBox()))
 		{
 			std::ostringstream sstreamb;
-			sstreamb << comboFive[0];
+			sstreamb << letterToDisplay;
 			std::string comboValue = sstreamb.str();
 
 			if (!alphaContainer[i]->getName().compare(comboValue))
 			{
 				if (letterDisplayCounter < 7)
 				{
-					letterContainer[letterDisplayCounter]->setOpacity(130);
+					letterContainer[letterDisplayCounter]->setColor(cocos2d::Color3B(255, 215, 0));
 					letterDisplayCounter++;
 				}
-				_menuContext->pickAlphabet(comboFive[0],alphaContainer[i]->getName()[0],true);
-				
+				_menuContext->pickAlphabet(letterToDisplay,alphaContainer[i]->getName()[0],true);
 				//	_menuContext->pickAlphabet(alphaContainer[i]->getName(), alphaContainer[i]->getName(),true);
-				/*  mainScore = mainScore + 5;
-
-				std::ostringstream sstreamb;
-				sstreamb << mainScore;
-				std::string query = sstreamb.str();
-
-				myGameScoreLabel->setString(query);*/
+				
 			}
 			else
 			{
-				_menuContext->pickAlphabet(comboFive[0], alphaContainer[i]->getName()[0], true);
-				/*	mainScore = mainScore - 1;
-
-				std::ostringstream sstreamb;
-				sstreamb << mainScore;
-				std::string query = sstreamb.str();
-
-				myGameScoreLabel->setString(query);*/
+				_menuContext->pickAlphabet(letterToDisplay, alphaContainer[i]->getName()[0], true);
 			}
 			if (letterDisplayCounter == 7)
 			{
@@ -328,15 +270,7 @@ void CrossTheBridge::monsDeletion()
 	{
 		if (monsContainer[i]->getBoundingBox().intersectsRect(barrierLeft->getBoundingBox()))
 		{
-
-			_menuContext->pickAlphabet('A','B', true);
-			/*	mainScore = mainScore - 1;
-			std::ostringstream sstreamb;
-			sstreamb << mainScore;
-			std::string query = sstreamb.str();
-
-			myGameScoreLabel->setString(query);*/
-
+			_menuContext->pickAlphabet(letterToDisplay,'Mon', true);
 			this->removeChild(monsContainer[i], true);
 			monsContainer.erase(monsContainer.begin() + i);
 		}
@@ -346,9 +280,12 @@ void CrossTheBridge::monsDeletion()
 void CrossTheBridge::checkIntersectWithAlpha()
 {
 	for (int i = 0; i < alphaContainer.size(); i++)
-	{
-		if (alphaContainer[i]->getBoundingBox().intersectsRect(cubeAtRest->getBoundingBox()) && openFlag)
-		{
+	{	
+		auto alphaBox = CCRectMake(alphaContainer[i]->getPositionX(), alphaContainer[i]->getPositionY(), alphaContainer[i]->getContentSize().width, alphaContainer[i]->getContentSize().height);
+		
+		if (alphaBox.intersectsRect(cubeAtRest->getBoundingBox()) && openFlag)
+		{		
+			CCLOG("INTERSET WITH CUBE ON BRIDGE ");
 			auto sequence_A = MoveTo::create(2, Vec2(alphaContainer[i]->getPosition().x, 400));
 			auto main_sequence = Sequence::create(sequence_A, NULL);
 			alphaContainer[i]->runAction(main_sequence);
@@ -375,10 +312,16 @@ void CrossTheBridge::removeObjectFromScene_Alpha()
 	auto visibleSize = Director::getInstance()->getVisibleSize();
 	for (int i = 0; i < alphaContainer.size(); i++)
 	{
-		if (alphaContainer[i]->getBoundingBox().intersectsRect(barrierFlat->getBoundingBox()))
+		auto alphaBox = CCRectMake(alphaContainer[i]->getPositionX(), alphaContainer[i]->getPositionY(), alphaContainer[i]->getContentSize().width, alphaContainer[i]->getContentSize().height);
+
+		if (alphaBox.intersectsRect(barrierFlat->getBoundingBox()))
 		{
 			splash->setPosition(Vec2(alphaContainer[i]->getPosition().x + origin.x, alphaContainer[i]->getPosition().y + origin.y));
 			water_splash->gotoFrameAndPlay(0, false);
+
+			auto audio = CocosDenshion::SimpleAudioEngine::getInstance();
+			audio->playEffect("crossthebridge/misc/splash.wav", false);
+
 			this->removeChild(alphaContainer[i], true);
 			alphaContainer.erase(alphaContainer.begin() + i);
 		}
@@ -394,13 +337,17 @@ void CrossTheBridge::removeObjectFromScene_Mons()
 		{
 			splash->setPosition(Vec2(monsContainer[i]->getPosition().x + origin.x, monsContainer[i]->getPosition().y + origin.y));
 			water_splash->gotoFrameAndPlay(0, false);
+
+			auto audio = CocosDenshion::SimpleAudioEngine::getInstance();
+			audio->playEffect("crossthebridge/misc/splash.wav", false);
+
 			this->removeChild(monsContainer[i], true);
 			monsContainer.erase(monsContainer.begin() + i);
 		}
 	}
 }
 
-void CrossTheBridge::leftMove_Alpha(Sprite* spriteAlphabet, int time, float positionX, float positionY)
+void CrossTheBridge::leftMove_Alpha(Alphamon* spriteAlphabet, int time, float positionX, float positionY)
 {
 	spriteAlphabet->runAction(MoveTo::create(time, Vec2(positionX, positionY)));
 }
