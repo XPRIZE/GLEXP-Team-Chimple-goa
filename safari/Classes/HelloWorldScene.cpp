@@ -175,8 +175,8 @@ void HelloWorld::processNodeWithCustomAttributes(Node* node, Node* parentNode) {
     }
 }
 
-void HelloWorld::createRPGSprite(Node* node, std::unordered_map<std::string, std::string> attributes, Node* parentNode) {
-    node->removeFromParent();
+void HelloWorld::createRPGSprite(Node* node, std::unordered_map<std::string, std::string> attributes, Node* parentNode)
+{
     RPGSprite* rpgSprite = RPGSprite::create(node, attributes);
     parentNode->addChild(rpgSprite);
     
@@ -296,7 +296,6 @@ void HelloWorld::addMainCharacterToScene(const std::string& filename, cocos2d::N
     //create Main Game Character
     this->skeletonCharacter = SkeletonCharacter::create(node, this->getIsland(), this->getSceneName(), filename, this->sqlite3Helper);
     this->mainLayer->addChild(this->skeletonCharacter);
-
 
     auto followAction = Follow::create(this->skeletonCharacter->getSkeletonNode(), Rect(0,0,this->getSceneSize().width, this->getSceneSize().height));
     this->mainLayer->runAction(followAction);
@@ -529,14 +528,10 @@ void HelloWorld::processChangeSceneMessages(std::vector<MessageContent*>changeSc
             
             std::string nextScene = rpgActor->getNextScene();
             
-            std::string transitToGameScene = rpgActor->getTransitToGameScene();
             
             if(!nextScene.empty())
             {
-                this->changeScene(nextScene, false);
-                
-            } else if(!transitToGameScene.empty()) {
-                this->changeScene(transitToGameScene, false);
+                this->changeScene(nextScene, false);                
             }
         }
     }
@@ -548,7 +543,14 @@ void HelloWorld::transitToHome() {
 }
 
 void HelloWorld::cleanUpResources() {
-    this->sqlite3Helper->recordMainCharacterPositionInScene(this->island.c_str(), this->sceneName.c_str(), this->skeletonCharacter->getSkeletonNode()->getPosition().x, this->skeletonCharacter->getSkeletonNode()->getPosition().y);
+    
+    Vec2 origin = Director::getInstance()->getVisibleOrigin();
+    float xPos = this->skeletonCharacter->getSkeletonNode()->getPosition().x < 0 ? Director::getInstance()->getWinSize().width/2  : this->skeletonCharacter->getSkeletonNode()->getPosition().x > this->getSceneSize().width ? Director::getInstance()->getWinSize().width/2 : this->skeletonCharacter->getSkeletonNode()->getPosition().x;
+    
+    float yPos = this->skeletonCharacter->getSkeletonNode()->getPosition().y < 0 ? 300 : this->skeletonCharacter->getSkeletonNode()->getPosition().y;
+        
+    
+    this->sqlite3Helper->recordMainCharacterPositionInScene(this->island.c_str(), this->sceneName.c_str(), xPos, yPos);
     
     EVENT_DISPATCHER->removeCustomEventListeners("MAIN_CHARACTER_VICINITY_CHECK_NOTIFICATION");
     EVENT_DISPATCHER->removeCustomEventListeners("SPEECH_MESSAGE_ON_TAP_NOTIFICATION");
@@ -584,9 +586,9 @@ void HelloWorld::changeScene(std::string nextScene, bool isMiniGame) {
     
     if(!nextScene.empty()) {
         if(isMiniGame) {
-            StartMenu::startScene(nextScene);
+            Director::getInstance()->replaceScene(TransitionFade::create(3.0, HelloWorld::createScene(nextScene,""), Color3B::BLACK));            
         } else {
-            StartMenu::startScene(this->getIsland(),nextScene);
+            Director::getInstance()->replaceScene(TransitionFade::create(3.0, HelloWorld::createScene(this->getIsland(),nextScene), Color3B::BLACK));
         }
     }
 }
@@ -613,13 +615,10 @@ void HelloWorld::processAnimationMessage(std::vector<MessageContent*>animationMe
                     if(content != NULL && (content->getCondition().empty() || (!content->getCondition().empty() && content->getConditionSatisfied() == 1)))
                     {
                         std::string nextScene = animationNode->getNextScene();                        
-                        std::string transitToGameScene = animationNode->getTransitToGameScene();
                         
                         if(!nextScene.empty())
                         {
                             this->changeScene(nextScene, false);
-                        } else if(!transitToGameScene.empty()) {
-                            this->changeScene(transitToGameScene, true);
                         }
                     }
                 });
@@ -737,10 +736,19 @@ void HelloWorld::update(float dt) {
     
     if(this->skeletonCharacter)
     {
+        if(this->skeletonCharacter->getSkeletonNode() != NULL && (this->skeletonCharacter->getSkeletonNode()->getPositionX() < 0 || this->skeletonCharacter->getSkeletonNode()->getPositionY() < 0 || this->skeletonCharacter->getSkeletonNode()->getPositionX() > this->getSceneSize().width)) {
+            this->pause();
+            this->skeletonCharacter->setVisible(false);
+            this->skeletonCharacter->getSkeletonNode()->stopAllActions();
+            this->changeScene(this->getSceneName(), false);
+            return;
+        }
+        
         if(this->skeletonCharacter->getSkeletonInContactWithGround())
         {
             if(this->skeletonCharacter->isWalking) {
                 this->flipSkeletonDirection(this->currentTouchPoint, this->skeletonCharacter->getSkeletonNode());
+                CCLOG("this->currentTouchPoint %f", this->currentTouchPoint.x);
                 if(checkTouchLeftOfCharacter(this->currentTouchPoint, this->skeletonCharacter->getSkeletonNode())) {
                     this->skeletonCharacter->getSkeletonNode()->getPhysicsBody()->setVelocity(Vec2(-MAIN_CHARACTER_FORCE,GRAVITY_VELOCITY_TO_STICK_TO_GROUND));
                 } else if (checkTouchRightOfCharacter(this->currentTouchPoint, this->skeletonCharacter->getSkeletonNode())) {
@@ -750,6 +758,7 @@ void HelloWorld::update(float dt) {
                 
             } else if(this->skeletonCharacter->isRunning) {
                 this->flipSkeletonDirection(this->currentTouchPoint, this->skeletonCharacter->getSkeletonNode());
+                CCLOG("this->currentTouchPoint %f", this->currentTouchPoint.x);
                 if(checkTouchLeftOfCharacter(this->currentTouchPoint, this->skeletonCharacter->getSkeletonNode())) {
                     this->skeletonCharacter->getSkeletonNode()->getPhysicsBody()->setVelocity(Vec2(-MAIN_CHARACTER_RUNNING_FORCE,GRAVITY_VELOCITY_TO_STICK_TO_GROUND));
                 } else if (checkTouchRightOfCharacter(this->currentTouchPoint, this->skeletonCharacter->getSkeletonNode())) {

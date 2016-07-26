@@ -49,6 +49,7 @@ RPGSprite* RPGSprite::create(cocos2d::Node* sprite, std::unordered_map<std::stri
 
 
 bool RPGSprite::initialize(cocos2d::Node* sprite, std::unordered_map<std::string,std::string> attributes) {
+    sprite->removeFromParent();
     this->sprite = sprite;
     this->setName(sprite->getName());
     this->setAttributes(attributes);

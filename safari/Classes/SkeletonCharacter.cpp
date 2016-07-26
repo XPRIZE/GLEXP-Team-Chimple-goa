@@ -86,21 +86,25 @@ StateMachine* SkeletonCharacter::getStateMachine() {
 }
 
 void SkeletonCharacter::HandlePostJumpDownWithDragEndingAnimation() {
-    this->getSkeletonActionTimeLine()->clearFrameEventCallFunc();
-    this->getSkeletonActionTimeLine()->setTimeSpeed(1.0f);
-    this->stateMachine->handleInput(S_WALKING_STATE, cocos2d::Vec2(0,0));
-    this->isRunning = false;
-    this->isWalking = false;
+    if(this->isVisible()) {
+        this->getSkeletonActionTimeLine()->clearFrameEventCallFunc();
+        this->getSkeletonActionTimeLine()->setTimeSpeed(1.0f);
+        this->stateMachine->handleInput(S_WALKING_STATE, cocos2d::Vec2(0,0));
+        this->isRunning = false;
+        this->isWalking = false;        
+    }
 }
 
 
 
 void SkeletonCharacter::HandlePostJumpDownEndingAnimation() {
-                    this->getSkeletonActionTimeLine()->clearFrameEventCallFunc();
-                    this->getSkeletonActionTimeLine()->setTimeSpeed(1.0f);
-                    this->stateMachine->handleInput(S_STANDING_STATE, cocos2d::Vec2(0,0));
-                    this->isRunning = false;
-                    this->isWalking = false;
+    if(this->isVisible()) {
+        this->getSkeletonActionTimeLine()->clearFrameEventCallFunc();
+        this->getSkeletonActionTimeLine()->setTimeSpeed(1.0f);
+        this->stateMachine->handleInput(S_STANDING_STATE, cocos2d::Vec2(0,0));
+        this->isRunning = false;
+        this->isWalking = false;
+    }
 }
 
 
