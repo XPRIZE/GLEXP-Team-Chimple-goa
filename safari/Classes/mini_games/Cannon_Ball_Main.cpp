@@ -259,10 +259,10 @@ void MainGame::letterCome(float d)
 		{
 			if (MainGame::cannonLetter[i] != NULL)
 			{
-				this->removeChild(MainGame::cannonLetter_actualImage[i]);
+				this->removeChild(MainGame::cannon_ballArray[i]);
+				MainGame::cannon_ballArray.erase(std::remove(MainGame::cannon_ballArray.begin(), MainGame::cannon_ballArray.end(), MainGame::cannon_ballArray[i]));
 				MainGame::cannonLetter.erase(std::remove(MainGame::cannonLetter.begin(), MainGame::cannonLetter.end(), MainGame::cannonLetter[i]));
 				MainGame::cannonLetter_actualImage.erase(std::remove(MainGame::cannonLetter_actualImage.begin(), MainGame::cannonLetter_actualImage.end(), MainGame::cannonLetter_actualImage[i]));
-				//				MainGame::cannonLetter.erase(MainGame::cannonLetter.begin() + i);
 				i--;
 			}
 		}
@@ -401,16 +401,14 @@ void MainGame::cannonLetterCome()	//cannon letter will come which will be dragge
 			this->addChild(e1);
 			MainGame::cannon_ballArray.push_back(e1);
 
-			//			LabelClass *e2;
 			std::string val = "";
 			val += letterName;
 
 //			Label *myLabel = Label::createWithBMFont("english/baloo_bhai_hdr.fnt", val);
 			Alphabet *myLabel = Alphabet::createWithSize(letterName, 200);
-			myLabel->setPosition(position[i].x, position[i].y);
-			this->addChild(myLabel);
+			myLabel->setPosition(e1->getBoundingBox().size.width/2 , e1->getBoundingBox().size.height/2);
+			e1->addChild(myLabel);
 //			myLabel->setScale(.08, .08);
-
 			
 			MainGame::cannonLetter_actualImage.push_back(myLabel);
 
@@ -467,22 +465,14 @@ void MainGame::cannonLetterCome()	//cannon letter will come which will be dragge
 			self->addChild(letter);
 
 			std::string val = "";
-			/*			if (letterName == 'A')
-			val = "A .png";
-			else
-			{
-			val = letterName;
-			val.append(".png");
-			}
-			*/
 			val += letterName;
 
 
 //			Label *myLabel = Label::createWithBMFont("english/baloo_bhai_hdr.fnt", val);
 			Alphabet *myLabel = Alphabet::createWithSize(letterName, 200);
-			myLabel->setPosition(remchar->xP, remchar->yP);
+			myLabel->setPosition(letter->getBoundingBox().size.width / 2, letter->getBoundingBox().size.height / 2);
 //			myLabel->setScale(.10, .10);
-			self->addChild(myLabel);
+			letter->addChild(myLabel);
 			MainGame::cannonLetter_actualImage[remcharPos] = myLabel;
 
 			LabelClass *let = LabelClass::createSpt(letterName, remchar->xP, remchar->yP, letterName, self);
@@ -531,15 +521,7 @@ void MainGame::startFire(EventListenerClass* letterObject, Node *mycannon)
 	{
 		std::string val = "";
 		val += letterObject->id;
-		/*		if (letterObject->id == 'A')
-		value = "A .png";
-		else
-		{
-		value = letterObject->id;
-		value.append(".png");
-		}
-		*/
-		// bullet animation
+
 		cocostudio::timeline::ActionTimeline *timeline = CSLoader::createTimeline("cannonball_cannonballanimation.csb");
 		Node *mycannon1 = (Node *)CSLoader::createNode("cannonball_cannonballanimation.csb");
 		mycannon1->setPosition(letterObject->getPositionX() - (letterObject->getContentSize().width * 2), letterObject->getPositionY());
@@ -575,7 +557,6 @@ void MainGame::startFire(EventListenerClass* letterObject, Node *mycannon)
 		{
 			if (MainGame::cannonLetter[i]->id == letterObject->id)
 			{
-				self->removeChild(MainGame::cannonLetter_actualImage[i]);
 				self->removeChild(MainGame::cannon_ballArray[i]);
 				MainGame::cannonLetter[i]->flag = 1;
 				MainGame::cannonLetter[i]->answer = 'n';
@@ -628,7 +609,6 @@ void MainGame::removeFire(EventListenerClass* letterObject, Alphabet* removableF
 		{
 			if (MainGame::cannonLetter[i]->id == removableFire_id)
 			{
-				self->removeChild(MainGame::cannonLetter_actualImage[i]);
 				MainGame::cannonLetter[i]->flag = 1;
 				MainGame::cannonLetter[i]->answer = 'y';
 				break;
@@ -676,7 +656,6 @@ void MainGame::update(float dt)
 							if (re.intersectsRect(MainGame::cannon_ballArray[y]->getBoundingBox()))
 							{
 								self->removeChild(MainGame::cannon_ballArray[y]);
-								self->removeChild(MainGame::cannonLetter_actualImage[y]);
 								MainGame::cannonLetter[y]->flag = 1;
 								MainGame::cannonLetter[y]->answer = 'n';
 								break;
@@ -692,7 +671,6 @@ void MainGame::update(float dt)
 								{
 									if (MainGame::cannonLetter[y]->id == MainGame::bulletArray[x]->id)
 									{
-										self->removeChild(MainGame::cannonLetter_actualImage[y]);
 										self->removeChild(MainGame::cannon_ballArray[y]);
 										MainGame::cannonLetter[y]->flag = 1;
 										MainGame::cannonLetter[y]->answer = 'n';
@@ -771,8 +749,6 @@ void MainGame::update(float dt)
 							MainGame::cannonLetter[k]->flag = 1;
 							MainGame::cannonLetter[k]->answer = 'y';
 
-							this->removeChild(MainGame::cannonLetter_actualImage[k]);
-
 							for (int m = 0; m < MainGame::cannonArray.size(); m++)
 							{
 								if (MainGame::cannonArray[m]->placedNumber == MainGame::cannon_ballArray[k]->placedNumber)
@@ -837,7 +813,6 @@ void MainGame::update(float dt)
 						{
 							MainGame::cannonLetter[k]->flag = 1;
 							MainGame::cannonLetter[k]->answer = 'n';
-							this->removeChild(MainGame::cannonLetter_actualImage[k]);
 
 							for (int m = 0; m < MainGame::cannonArray.size(); m++)
 							{
