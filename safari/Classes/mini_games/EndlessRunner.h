@@ -5,6 +5,11 @@
 #include "SpriteCreate.h"
 #include "../menu/MenuContext.h"
 #include "editor-support/cocostudio/CocoStudio.h"
+#include "../puzzle/CharGenerator.h"
+#include "../puzzle/Alphabet.h"
+#include "../lang/LangUtil.h"
+#include "SimpleAudioEngine.h"
+
 using namespace cocos2d;
 
 class EndlessRunner : public cocos2d::Layer
@@ -18,8 +23,10 @@ protected:
 	std::pair<float, float> position;
 	std::vector<Label*> allLabels;
 	std::vector<Sprite*> allMonster;
-	Label *letterOnBoard;
+	Alphabet *letterOnBoard;
 	bool initBool = true;
+	bool popUp = true;
+	CocosDenshion::SimpleAudioEngine* audioBg;
 	Size visibleSize;
 	Vec2 origin;
 	Sprite* leftBarrier;
@@ -34,8 +41,9 @@ protected:
 	int counterLife = 6;
 	bool flagAnimationHappyMan = false;
 	bool flagLifeDemo = true;
-	char letters[36] = { 'A','A','A','B','B','B','C','C','C','A','A','A','B','B','B','C','C','C','A','A','A','B','B','B','C','C','C','A','A','A','B','B','B','C','C','C' };
-	char tempChar = 'A';
+	std::vector<std::vector<wchar_t>> letters;
+	int counterLetter = 0;
+	wchar_t tempChar = 'B';
 	struct mountainTypeObject {
 		std::string startLandPart = "startLand";
 		std::string midLandPart = "midLand";
