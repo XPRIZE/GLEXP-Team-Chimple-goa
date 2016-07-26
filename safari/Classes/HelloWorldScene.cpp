@@ -398,18 +398,20 @@ void HelloWorld::registerMessageSenderAndReceiver() {
     
     
     auto showTouchPointSign = [=] (EventCustom * event) {
+        this->resetTouchPointSign();
         Sprite* sprite = reinterpret_cast<Sprite*>(event->getUserData());
         this->showTouchSignNode->setPosition(sprite->getPosition());
         this->showTouchSignNode->setVisible(true);
         auto scaleBy = ScaleBy::create(0.5, 1.2);
         auto sequenceScale = Sequence::create(scaleBy, scaleBy->reverse(), nullptr);
         auto repeatScaleAction = Repeat::create(sequenceScale, 5);
-        auto callbackStart = CallFunc::create(CC_CALLBACK_0(HelloWorld::hideTouchPointSign, this));
+        auto callbackStart = CallFunc::create(CC_CALLBACK_0(HelloWorld::resetTouchPointSign, this));
         auto sequence = Sequence::create(repeatScaleAction, callbackStart, nullptr);
         this->showTouchSignNode->runAction(sequence);
     };
     
     SEND_SHOW_TOUCH_POINT_SIGNAL(this, RPGConfig::SEND_SHOW_TOUCH_POINT_SIGN_NOTIFICATION, showTouchPointSign);
+
     
     this->getEventDispatcher()->addCustomEventListener("on_menu_exit", CC_CALLBACK_0(HelloWorld::transitToHome, this));
 
@@ -428,6 +430,11 @@ void HelloWorld::transitionToDuelScene(char alphabet) {
     
     StartMenu::startScene(DUEL_SCENE_NAME, "A", secondParam);
 }
+
+void HelloWorld::resetTouchPointSign() {
+    this->showTouchSignNode->setScale(0.5f, 0.5f);
+}
+
 
 
 void HelloWorld::hideTouchPointSign() {

@@ -156,6 +156,8 @@ private:
     void createAlphaMons(float dt);
     
     void calculateAlphamonNodesInScene(cocos2d::Node *rootNode);
+    
+    void resetTouchPointSign();
 
     cocos2d::Size sceneSize;
     
