@@ -21,7 +21,7 @@ public:
     std::vector<std::vector<wchar_t>> generateMatrixForChoosingAChar(wchar_t alpha, int numRows, int numCols, int minPercentOfOccurence = 10);
     wchar_t generateAChar();
     std::vector<std::vector<wchar_t>> generateCharMatrix(int numRows, int numCols, bool distinct = false);
-    wchar_t generateAnotherChar(wchar_t* currentChars);
+    wchar_t generateAnotherChar(std::vector<wchar_t> currentChars);
 protected:
     bool init();
     std::vector<wchar_t> getAllChars();
