@@ -3,18 +3,23 @@
 
 #include "cocos2d.h"
 #include <vector>
+#include "../menu/MenuContext.h"
 
 class PatchTheWall : public cocos2d::Layer
 {
 public:
 	static float x, y;
+	MenuContext *_menuContext;
 	bool flag;
 	bool flag1 = true;
+	int score = 0;
 	static cocos2d::Node *no;
+	cocos2d::ui::Slider * slideBar;
     static cocos2d::Scene* createScene();
 	cocos2d::Node* coolSprite;
 	virtual void Blast(float dt);
     virtual bool init();
+	std::vector<std::vector<wchar_t>> matrix;
 	float randx, randy;
     // a selector callback
     void menuCloseCallback(cocos2d::Ref* pSender);

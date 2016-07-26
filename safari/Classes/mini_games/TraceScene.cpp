@@ -65,7 +65,7 @@ bool Trace::init(char alphabet) {
 	CCSpriteFrameCache::sharedSpriteFrameCache()->addSpriteFramesWithFile("-Alphacombat.plist");
 
 	CocosDenshion::SimpleAudioEngine::getInstance()->preloadEffect("bubble.mp3");
-	CCSpriteFrameCache::sharedSpriteFrameCache()->addSpriteFramesWithFile("Alpha_kombat_plist.plist");
+	CCSpriteFrameCache::sharedSpriteFrameCache()->addSpriteFramesWithFile("Alpha_kombat_lion.plist");
 	timeline = CSLoader::createTimeline("Character/Alpha_kombat_lion.csb");
 
 

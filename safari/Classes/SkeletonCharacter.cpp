@@ -140,7 +140,7 @@ void SkeletonCharacter::createSkeletonNode(cocos2d::Node* node, const std::strin
     
 //    this->configureCharacter();
     
-    auto physicsBody = PhysicsBody::createBox(Size(HUMAN_SKELETON_COLLISION_BOX_WIDTH, HUMAN_SKELETON_COLLISION_BOX_WIDTH), PHYSICSBODY_MATERIAL_DEFAULT, Vec2(0,HUMAN_SKELETON_COLLISION_BOX_WIDTH/2));
+    auto physicsBody = PhysicsBody::createBox(Size(HUMAN_SKELETON_COLLISION_BOX_WIDTH, HUMAN_SKELETON_COLLISION_BOX_HEIGHT), PHYSICSBODY_MATERIAL_DEFAULT, Vec2(0,HUMAN_SKELETON_COLLISION_BOX_HEIGHT/2));
     
     //set as dynamic
     physicsBody->setDynamic(DYNAMIC_BODY);
