@@ -7,6 +7,7 @@
 #include "editor-support/cocostudio/CocoStudio.h"
 #include "../menu/MenuContext.h"
 #include "../puzzle/Alphabet.h"
+#include "../puzzle/CharGenerator.h"
 
 class MainGame : public cocos2d::Layer
 {
@@ -43,6 +44,7 @@ public:
 	static Node *meteor_meteor_strike_node;
 	static cocostudio::timeline::ActionTimeline *meteor_meteor_strike_timeline;
 
+	wchar_t MainChars[10];
 
 	static cocos2d::Scene* createScene();
 
