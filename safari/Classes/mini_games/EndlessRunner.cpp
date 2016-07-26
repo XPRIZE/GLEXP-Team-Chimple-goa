@@ -29,9 +29,14 @@ bool EndlessRunner::init()
 
 	visibleSize = Director::getInstance()->getVisibleSize();
 	origin = Director::getInstance()->getVisibleOrigin();
-
 	LayerYcoord.firstLayer = (int)(visibleSize.height * 11 / 100) + origin.y;
+	
+	letters = CharGenerator::getInstance()->generateMatrixForChoosingAChar(tempChar,21, 1, 70);
 
+	//CocosDenshion::SimpleAudioEngine::sharedEngine()->playBackgroundMusic("endlessrunner/sound/jungleMusic.wav", true);
+	audioBg = CocosDenshion::SimpleAudioEngine::getInstance();
+	audioBg->playEffect("endlessrunner/sound/jungleMusic.wav", true);
+	
 	SceneLayerYCoordinate.layer1 = (int)((visibleSize.height * 18 / 100) + origin.y);
 	SceneLayerYCoordinate.layer2 = (int)((visibleSize.height * 15 / 100) + origin.y);
 	SceneLayerYCoordinate.layer3 = (int)((visibleSize.height * 13 / 100) + origin.y);
@@ -87,10 +92,7 @@ bool EndlessRunner::init()
 	boardDisplay->setPosition(Vec2((visibleSize.width / 2) + origin.x, (visibleSize.height + origin.y) - (visibleSize.height * 0.07)));
 	this->addChild(boardDisplay, zOrderPathLayer.secondLayer);
 
-	tempChar = letters[EndlessRunner::randmValueIncludeBoundery(0, 35)];
-	std::ostringstream sstreamc; 	sstreamc << tempChar;  std::string letterTemp = sstreamc.str();
-
-	letterOnBoard = Label::createWithTTF(letterTemp, "fonts/Marker Felt.ttf", 130);
+	letterOnBoard =  Alphabet::createWithSize(tempChar, 200);
 	letterOnBoard->setPosition(Vec2((visibleSize.width / 2) + origin.x, (visibleSize.height + origin.y) - (visibleSize.height * 0.08)));
 	letterOnBoard->enableShadow(Color4B::BLACK, Size(8, -6), 5);
 	this->addChild(letterOnBoard, zOrderPathLayer.secondLayer);
@@ -149,12 +151,12 @@ void EndlessRunner::update(float delta) {
 	EndlessRunner::startingIntersectMode();
 
 	EndlessRunner::removePathBlockTouchByLeftBarrier();
-
+	
 	if (counterAlphabets == 10 || counterLife == 1) {
 		auto redirectScene = CallFunc::create([=]() {Director::getInstance()->replaceScene(StartMenu::createScene()); });
-		auto main_Sequence = Sequence::create(DelayTime::create(0.5), redirectScene, NULL);
+		auto clearAllComponent = CallFunc::create([=]() {audioBg->stopAllEffects(); this->unscheduleUpdate();  this->removeAllChildrenWithCleanup(true); });
+		auto main_Sequence = Sequence::create(DelayTime::create(0.5), clearAllComponent, redirectScene, NULL);
 		this->runAction(main_Sequence);
-
 	}
 }
 
@@ -213,7 +215,7 @@ void EndlessRunner::stillCharacterOnPath(float delta) {
 				}
 			}
 			else if (allPathBlocks[i]->LayerTypeName == mountainLayerTypes.gap && !LayerMode.gapMode ) {
-		
+				
 				LayerMode.gapMode = true;
 				Character.onAir = false;
 			
@@ -249,7 +251,7 @@ void EndlessRunner::stillCharacterOnPath(float delta) {
 			}
 		}
 		else {
-			Character.character->setPositionY(Character.character->getPositionY() - (0.65));
+			Character.character->setPositionY(Character.character->getPositionY() - (0.8));
 		}
 	}
 }
@@ -287,23 +289,37 @@ void EndlessRunner::startingIntersectMode() {
 
 		if (boxs.intersectsRect(allLabels[i]->getBoundingBox()))//.intersectsRect(Character.character->getChildren().at(0)->getBoundingBox()))
 		{
-			std::ostringstream sstreamc;
-			sstreamc << tempChar;
-			std::string letterTemp = sstreamc.str();
-
-			if (allLabels[i]->getName() == letterTemp) {
+			
+			auto mystr = LangUtil::convertUTF16CharToString(tempChar);
+			if (allLabels[i]->getName() == mystr) {
 				
+				if (popUp) {
+					auto highScale = CallFunc::create([=]() { happyManAction->play("happy_pop", false); });
+					auto smallScale = CallFunc::create([=]() {happyManAction->play("happy_idle", true); });
+					auto scaleVary = Sequence::create(highScale, DelayTime::create(1.3), smallScale, NULL);
+					hpUi->getChildByName("happy_mad")->runAction(scaleVary);
+				}
+				else {
+					popUp = false;
+				}
+
 				_menuContext->pickAlphabet(tempChar, allLabels[i]->getName()[0], true);
+
+				auto audio = CocosDenshion::SimpleAudioEngine::getInstance();
+				auto path = LangUtil::getInstance()->getAlphabetSoundFileName(allLabels[i]->getName()[0]);
+				audio->playEffect(path.c_str(), false);
+
 				counterAlphabets = counterAlphabets + 1;
 				std::ostringstream counterForLetter;	counterForLetter << counterAlphabets; std::string counterValue = counterForLetter.str();
 				hpUiCatchAction->play(counterValue,false);
 				hpUi->getChildByName("happy_mad")->setScale(1.2);
-				
-				auto highScale = CallFunc::create([=]() { happyManAction->play("change_mad_happy", false);});
-				auto smallScale = CallFunc::create([=]() {happyManAction->play("happy_idle", true); });
-				auto scaleVary = Sequence::create(highScale,DelayTime::create(1.3),smallScale,NULL);
-				hpUi->getChildByName("happy_mad")->runAction(scaleVary);
-
+				if (!popUp) {
+					auto highScale = CallFunc::create([=]() { happyManAction->play("change_mad_happy", false);});
+					auto smallScale = CallFunc::create([=]() {happyManAction->play("happy_idle", true); });
+					auto scaleVary = Sequence::create(highScale,DelayTime::create(1.3),smallScale,NULL);
+					hpUi->getChildByName("happy_mad")->runAction(scaleVary);
+					popUp = true;
+				}
 				for (std::size_t k = 0; k <allMonster.size(); k++) {
 					if (allMonster[k]->getTag() == allLabels[i]->getTag()) {
 						this->removeChild(allLabels[i]);
@@ -319,14 +335,30 @@ void EndlessRunner::startingIntersectMode() {
 			else {
 				_menuContext->pickAlphabet(tempChar, allLabels[i]->getName()[0], true);
 				hpUi->getChildByName("happy_mad")->setScale(1);
+				
+				if (!popUp) {
+					auto highScale = CallFunc::create([=]() { happyManAction->play("mad_pop", false); });
+					auto smallScale = CallFunc::create([=]() {happyManAction->play("mad_idle", true); });
+					auto scaleVary = Sequence::create(highScale, DelayTime::create(1.3), smallScale, NULL);
+					hpUi->getChildByName("happy_mad")->runAction(scaleVary);
+				}
+				else {
+					popUp = true;
+				}
 
-				auto highScale = CallFunc::create([=]() { happyManAction->play("change_happy_mad", false); });
-				auto smallScale = CallFunc::create([=]() {happyManAction->play("mad_idle", true); });
-				auto scaleVary = Sequence::create(highScale, DelayTime::create(1.3), smallScale, NULL);
-				hpUi->getChildByName("happy_mad")->runAction(scaleVary);
-
+				auto audio = CocosDenshion::SimpleAudioEngine::getInstance();
+				auto path = LangUtil::getInstance()->getAlphabetSoundFileName(allLabels[i]->getName()[0]);
+				audio->playEffect(path.c_str(), false);
+				if (popUp) {
+					auto highScale = CallFunc::create([=]() { happyManAction->play("change_happy_mad", false); });
+					auto smallScale = CallFunc::create([=]() {happyManAction->play("mad_idle", true); });
+					auto scaleVary = Sequence::create(highScale, DelayTime::create(1.3), smallScale, NULL);
+					hpUi->getChildByName("happy_mad")->runAction(scaleVary);
+					popUp = false;
+				}
 				for (std::size_t k = 0; k <allMonster.size(); k++) {
 					if (allMonster[k]->getTag() == allLabels[i]->getTag()) {
+
 						Character.action->play("worng_catch", false);
 						this->removeChild(allLabels[i]);
 						allLabels.erase(allLabels.begin() + i);
@@ -390,7 +422,7 @@ void EndlessRunner::sceneBackgroundFlow() {
 }
 
 void EndlessRunner::mountainLayer1() {
-	//Endless Monutain Running Code
+	//Endless Monutain Running Code 
 	if (!rightBarrier->getBoundingBox().intersectsRect(currentlayer1Sprite->getBoundingBox())) {
 		int xSizeIndexRange = EndlessRunner::randmValueIncludeBoundery(0, 6);
 		auto layer1Mountain = EndlessRunner::CreateSprites("endlessrunner/layer_1_mountain.png", rightBarrier->getPosition().x - LayerMode.tolerence, SceneLayerYCoordinate.layer1, xSizeArray[xSizeIndexRange], 1, zOrderPathLayer.layer1, "bgElement");
@@ -707,14 +739,16 @@ void EndlessRunner::CreateMonsterWithLetter(float dt) {
 	monsterImage->setScale(1.175);
 	Rect box = monsterImage->getChildByName("monster_egg")->getBoundingBox();
 	monsterImage->runAction(timeline);  timeline->gotoFrameAndPlay(0);
-
-	int Index = EndlessRunner::randmValueIncludeBoundery(0, (sizeof(letters) / sizeof(letters[0])) - 1);
-	char letterOnBoard = letters[Index];
-
-	std::ostringstream sstreamc;	sstreamc << letterOnBoard;	std::string letterTemp = sstreamc.str();
-
-	auto label = Label::createWithTTF(letterTemp, "fonts/Marker Felt.ttf", 110);
-	label->setName(letterTemp);
+	
+	auto str = letters.at(counterLetter).at(0);
+	counterLetter++;
+	if (counterLetter == 21) {
+		letters = CharGenerator::getInstance()->generateMatrixForChoosingAChar(tempChar, 21, 1, 70);
+		counterLetter = 0;
+	}
+	auto mystr = LangUtil::convertUTF16CharToString(str);
+	auto label = Alphabet::createWithSize(str,200);
+	label->setName(mystr);
 	label->enableShadow(Color4B::BLACK, Size(8, -6), 5);
 	label->setTag(Character.uniqueId);
 	monsterImage->setTag(Character.uniqueId);
