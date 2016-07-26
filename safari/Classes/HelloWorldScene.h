@@ -30,6 +30,7 @@
 #include "SkeletonPosition.h"
 #include "menu/MenuContext.h"
 #include "LanguageManager.h"
+#include "CharGenerator.h"
 
 class GestureLayer;
 class MessageContent;
@@ -145,10 +146,20 @@ private:
     void transitToHome();
     void changeScene(std::string nextScene = "", bool isMiniGame = false);
     void cleanUpResources();
+    void alphamonDestroyed(EventCustom* event);
+    std::string generateNearestAlphamon();
+    
+    void transitionToDuelScene(char alphabet);
+    
+    void addAlphaMonsters(char alphabet, std::string alphamonNodeName);
+    
+    void createAlphaMons(float dt);
+    
+    void calculateAlphamonNodesInScene(cocos2d::Node *rootNode);
+
     cocos2d::Size sceneSize;
     
-    //references to all external Skeletons
-    
+    std::vector<std::string> activeAlphamonNodes;
     
     //reference to Layers
     cocos2d::Node* mainLayer;
@@ -212,10 +223,6 @@ public:
     
     virtual bool handlePhysicsContactEventForOtherSkeletonCharacter(cocos2d::PhysicsContact &contact, cocos2d::Node* nodeA, cocos2d::Node* nodeB);
     
-    virtual void onEnterTransitionDidFinish();
-    
-    virtual void onExitTransitionDidStart();
-    
     virtual void createRPGSprite(cocos2d::Node* node, std::unordered_map<std::string, std::string> attributes, cocos2d::Node* parentNode);
     
     virtual void createAlphaMonSprite(cocos2d::Node* node, std::unordered_map<std::string, std::string> attributes, cocos2d::Node* parentNode, char alphabet);
@@ -226,18 +233,6 @@ public:
     
     virtual void hideTouchPointSign();
     
-    virtual void transitionToDuelScene(char alphabet);
-    
-    virtual void addAlphaMonsters(char alphabet, std::string alphamonNodeName);
-    
-    virtual void createAlphaMons(float dt);
-        
-    virtual void calculateAlphamonNodesInScene(cocos2d::Node *rootNode);
-    
-    
-    
-        
- 
     
 };
 
