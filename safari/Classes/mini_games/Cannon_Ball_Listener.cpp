@@ -300,7 +300,12 @@ void EventListenerClass::addEvents(MainGame *callerObject, EventListenerClass* t
 
 		Rect targetRect = target->getBoundingBox();
 
-		if (cannon1 == 1 && targetRect.intersectsRect(cannon1Target->getBoundingBox()) && cannon1Target->flag == 0)
+		Rect targetRect_1 = Rect(cannon1Target->getBoundingBox().origin.x * 120 / 100, cannon1Target->getBoundingBox().origin.y, cannon1Target->getBoundingBox().size.width, cannon1Target->getBoundingBox().size.height);
+		Rect targetRect_2 = Rect(cannon2Target->getBoundingBox().origin.x * 120 / 100, cannon2Target->getBoundingBox().origin.y, cannon2Target->getBoundingBox().size.width, cannon2Target->getBoundingBox().size.height);
+		Rect targetRect_3 = Rect(cannon3Target->getBoundingBox().origin.x * 120 / 100, cannon3Target->getBoundingBox().origin.y, cannon3Target->getBoundingBox().size.width, cannon3Target->getBoundingBox().size.height);
+//		Rect targetRect_4 = Rect(cannon4Target->getBoundingBox().origin.x * 120 / 100, cannon4Target->getBoundingBox().origin.y, cannon4Target->getBoundingBox().size.width, cannon4Target->getBoundingBox().size.height);
+
+		if (cannon1 == 1 && targetRect.intersectsRect(targetRect_1) && cannon1Target->flag == 0)
 		{
 			target->placedNumber = 0;
 
@@ -323,7 +328,7 @@ void EventListenerClass::addEvents(MainGame *callerObject, EventListenerClass* t
 
 			cocos2d::Director::getInstance()->getEventDispatcher()->removeEventListenersForTarget(target, true);
 		}
-		else if (cannon2 == 1 && targetRect.intersectsRect(cannon2Target->getBoundingBox()) && cannon2Target->flag == 0)
+		else if (cannon2 == 1 && targetRect.intersectsRect(targetRect_2) && cannon2Target->flag == 0)
 		{
 			target->placedNumber = 1;
 			for (int i = 0; i < MainGame::cannonArray.size(); i++)
@@ -345,7 +350,7 @@ void EventListenerClass::addEvents(MainGame *callerObject, EventListenerClass* t
 
 			cocos2d::Director::getInstance()->getEventDispatcher()->removeEventListenersForTarget(target, true);
 		}
-		else if (cannon3 == 1 && targetRect.intersectsRect(cannon3Target->getBoundingBox()) && cannon3Target->flag == 0)
+		else if (cannon3 == 1 && targetRect.intersectsRect(targetRect_3) && cannon3Target->flag == 0)
 		{
 			target->placedNumber = 2;
 
@@ -367,7 +372,7 @@ void EventListenerClass::addEvents(MainGame *callerObject, EventListenerClass* t
 			cannon3Target->flag = 1;
 			cocos2d::Director::getInstance()->getEventDispatcher()->removeEventListenersForTarget(target, true);
 		}
-		else if (cannon4 == 1 && targetRect.intersectsRect(cannon4Target->getBoundingBox()) && cannon4Target->flag == 0)
+/*		else if (cannon4 == 1 && targetRect.intersectsRect(cannon4Target->getBoundingBox()) && cannon4Target->flag == 0)
 		{
 			//			callerObject::cannon_ballArray[target->spriteIndex]->placedNumber = 4;
 			target->placedNumber = 3;
@@ -390,7 +395,7 @@ void EventListenerClass::addEvents(MainGame *callerObject, EventListenerClass* t
 
 			cocos2d::Director::getInstance()->getEventDispatcher()->removeEventListenersForTarget(target, true);
 		}
-		else
+*/		else
 		{
 			auto target = static_cast<EventListenerClass*>(event->getCurrentTarget());
 			target->runAction(MoveTo::create(.2, Vec2(target->xP, target->yP)));
