@@ -1014,6 +1014,14 @@ void HelloWorld::HoldOrDragBehaviour(Point position) {
     }
 
     if(this->skeletonCharacter->isJumping || this->skeletonCharacter->isJumpingAttemptedWhileDragging) {
+
+        if(this->skeletonCharacter->getSkeletonNode()->getPhysicsBody()->getVelocity().y == 0 )
+        {
+            this->stateMachine->handleInput(S_STANDING_STATE, cocos2d::Vec2(0,0));
+            this->skeletonCharacter->getSkeletonNode()->getPhysicsBody()->resetForces();
+            this->skeletonCharacter->getSkeletonNode()->getPhysicsBody()->setVelocity(Vec2(0,0));
+        }
+
         return;
     }
     
@@ -1062,10 +1070,7 @@ void HelloWorld::HoldOrDragBehaviour(Point position) {
               this->HandleJumpWithContinueousRotation();
                 this->skeletonCharacter->isJumpingAttemptedWhileDragging = true;
             }
-        }
-        
-    } else {
-        //animate JUMP Down
+        }    
     }
 }
 
@@ -1132,7 +1137,7 @@ void HelloWorld::applyImpulseOnSkeletonToJumpOnHoldOrDrag(Point position) {
     float angle = RPGConfig::calcuateAngleForJump(position, characterPosition, 0.0f, 0.0f);
     float value = RPGConfig::calcuateVelocityForJump(position, characterPosition, angle, 0.0f, 0.0f);
     float timeToStart = RPGConfig::calcuateTimeToStartJumpUpAnimation(value, angle, JUMP_UP_ENDING_ANIMATION_FRAMES);
-    
+    CCLOG("timeToStarttimeToStart 111 %f", timeToStart);
     this->scheduleContinuousRotationCall(0.0f);
     this->applyImpulseOnSkeletonToJump(position, angle, value, timeToStart);
     
@@ -1148,7 +1153,7 @@ void HelloWorld::applyImpulseOnSkeletonToJumpOnTap(Point position) {
     float angle = RPGConfig::calcuateAngleForJump(position, characterPosition, 0.0f, 0.0f);
     float value = RPGConfig::calcuateVelocityForJump(position, characterPosition, angle, 0.0f, 0.0f);
     float timeToStart = RPGConfig::calcuateTimeToStartJumpUpAnimation(value, angle, JUMP_UP_ENDING_ANIMATION_FRAMES);
-    
+    CCLOG("timeToStarttimeToStart %f", timeToStart);
     this->scheduleJumpUpEndCall(timeToStart);
     this->applyImpulseOnSkeletonToJump(position, angle, value, timeToStart);    
 }
@@ -1221,6 +1226,15 @@ void HelloWorld::HandleTap(Point position)
     
     if(this->skeletonCharacter->isJumping || this->skeletonCharacter->isRunning || this->skeletonCharacter->isWalking)
     {
+        if(this->skeletonCharacter->getSkeletonNode()->getPhysicsBody()->getVelocity().y == 0 )
+        {
+            this->stateMachine->handleInput(S_STANDING_STATE, cocos2d::Vec2(0,0));
+            this->skeletonCharacter->getSkeletonNode()->getPhysicsBody()->resetForces();
+            this->skeletonCharacter->getSkeletonNode()->getPhysicsBody()->setVelocity(Vec2(0,0));
+            
+        }
+        
+
         return;
     }
     
