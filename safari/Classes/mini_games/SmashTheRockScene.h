@@ -45,6 +45,7 @@ public:
 	virtual void jump();
 	virtual void hit();
 	virtual void blast();
+	virtual void change(float dt);
 	virtual void createSkeletonCharacter();
 	
 	void addMainCharacterToScene(cocostudio::timeline::SkeletonNode* skeleton);

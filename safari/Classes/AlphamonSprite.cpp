@@ -28,7 +28,7 @@ AlphamonSprite::~AlphamonSprite() {
 }
 
 
-AlphamonSprite* AlphamonSprite::create(cocos2d::Node* node, std::unordered_map<std::string, std::string> attributes, char alphabet)
+AlphamonSprite* AlphamonSprite::create(cocos2d::Node* node, std::unordered_map<std::string, std::string> attributes, wchar_t alphabet)
 {
     auto alphaMonSprite = new AlphamonSprite();
     if (alphaMonSprite && alphaMonSprite->initialize(node, attributes, alphabet)) {
@@ -40,7 +40,7 @@ AlphamonSprite* AlphamonSprite::create(cocos2d::Node* node, std::unordered_map<s
 }
 
 
-bool AlphamonSprite::initialize(cocos2d::Node* node, std::unordered_map<std::string,std::string> attributes, char alphabet) {
+bool AlphamonSprite::initialize(cocos2d::Node* node, std::unordered_map<std::string,std::string> attributes, wchar_t alphabet) {
     this->alphabet = alphabet;
     Alphamon* alphamon = Alphamon::createWithAlphabet(alphabet);
     String* alphamonName = String::createWithFormat("sel_%s", node->getName().c_str());
@@ -157,7 +157,7 @@ void AlphamonSprite::onAlphabetSelected(cocos2d::EventCustom *event) {
     
     this->isSelectedForBattle = true;
     
-    char* buf = static_cast<char*>(event->getUserData());
+    wchar_t* buf = static_cast<wchar_t*>(event->getUserData());
     if(alphabet == buf[0]) {
         EVENT_DISPATCHER->dispatchCustomEvent(RPGConfig::SPEECH_MESSAGE_ON_TAP_NOTIFICATION, static_cast<void*>(&s));
     }

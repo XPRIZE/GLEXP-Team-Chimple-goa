@@ -149,9 +149,9 @@ private:
     void alphamonDestroyed(EventCustom* event);
     std::string generateNearestAlphamon();
     
-    void transitionToDuelScene(char alphabet);
+    void transitionToDuelScene(wchar_t alphabet);
     
-    void addAlphaMonsters(char alphabet, std::string alphamonNodeName);
+    void addAlphaMonsters(wchar_t alphabet, std::string alphamonNodeName);
     
     void createAlphaMons(float dt);
     
@@ -229,7 +229,7 @@ public:
     
     virtual void createRPGSprite(cocos2d::Node* node, std::unordered_map<std::string, std::string> attributes, cocos2d::Node* parentNode);
     
-    virtual void createAlphaMonSprite(cocos2d::Node* node, std::unordered_map<std::string, std::string> attributes, cocos2d::Node* parentNode, char alphabet);
+    virtual void createAlphaMonSprite(cocos2d::Node* node, std::unordered_map<std::string, std::string> attributes, cocos2d::Node* parentNode, wchar_t alphabet);
     
     virtual void processNodeWithCustomAttributes(Node* node, cocos2d::Node* parentNode);
     
