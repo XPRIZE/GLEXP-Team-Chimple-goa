@@ -13,7 +13,8 @@
 
 
 
-char alpha[] = {'a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'};
+auto alpha = LangUtil::getInstance()->getAllCharacters();
+//char alpha[] = {'a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'};
 std::string animations[] = { "kick","punch","arm_sweep","jump_and_kick" };
 
 int level = 0;
@@ -36,16 +37,16 @@ Trace::~Trace() {
 
 cocostudio::timeline::ActionTimeline *timeline;
 
-Scene *Trace::createScene(char alphabet) {
+Scene *Trace::createScene(int alphabet) {
     auto scene = Scene::create();
-    auto layer = Trace::create(alphabet);
+    auto layer = Trace::create(alpha[alphabet]);
     scene->addChild(layer);
     layer->_menuContext = MenuContext::create(layer);
     scene->addChild(layer->_menuContext);    
     return scene;
 }
 
-Trace *Trace::create(char alphabet) {
+Trace *Trace::create(wchar_t alphabet) {
     Trace *trace = new (std::nothrow) Trace();
     if(trace && trace->init(alphabet)) {
         trace->autorelease();
@@ -56,7 +57,7 @@ Trace *Trace::create(char alphabet) {
 
 }
 
-bool Trace::init(char alphabet) {
+bool Trace::init(wchar_t alphabet) {
 	
 
     if (!Layer::init()){
@@ -66,7 +67,9 @@ bool Trace::init(char alphabet) {
 	CCSpriteFrameCache::sharedSpriteFrameCache()->addSpriteFramesWithFile("-Alphacombat.plist");
 
 	//CocosDenshion::SimpleAudioEngine::getInstance()->preloadEffect("bubble.mp3");
-	CCSpriteFrameCache::sharedSpriteFrameCache()->addSpriteFramesWithFile("Alpha_kombat_lion.plist");
+
+	//loading lion animation
+	CCSpriteFrameCache::sharedSpriteFrameCache()->addSpriteFramesWithFile("Character/Alpha_kombat_plist.plist");
 	timeline = CSLoader::createTimeline("Character/Alpha_kombat_lion.csb");
 
 	
@@ -74,7 +77,7 @@ bool Trace::init(char alphabet) {
 	Size visibleSize = Director::getInstance()->getVisibleSize();
 	Vec2 origin = Director::getInstance()->getVisibleOrigin();
 
-	std::string path = "Alpha Kombat/";//std::string(path)
+	std::string path = "english/Alpha Kombat/";//std::string(path)
 	auto _bg = CSLoader::createNode("Alphacombat.csb");
 	//_background->setPosition(Vec2(visibleSize.width / 2 + origin.x, visibleSize.height / 2 + origin.y));
 	addChild(_bg);
@@ -93,7 +96,8 @@ bool Trace::init(char alphabet) {
 	
 
 	//std::string path = "Alpha Kombat/";//std::string(path)
-    _background = CSLoader::createNode(std::string(path) + alphabet +  std::string(".csb"));
+    //_background = CSLoader::createNode(std::string(path) + alphabet +  std::string(".csb"));
+	_background = CSLoader::createNode(LangUtil::getInstance()->getSpecialAnimationFileName(alphabet, "Alpha Kombat"));
 	//_background->setPosition(Vec2(visibleSize.width / 2 + origin.x, visibleSize.height / 2 + origin.y));
     addChild(_background);
 
@@ -301,7 +305,7 @@ void Trace::onTouchMoved(cocos2d::Touch *touch, cocos2d::Event *event) {
 
 void Trace::transit(int level) {
 	//auto director = Director::getInstance();
-	auto scene = Trace::createScene(alpha[level]);
+	auto scene = Trace::createScene(level);
 	//Director::getInstance()->replaceScene(TransitionFlipX::create(2, scene));
 	Director::getInstance()->replaceScene(scene);
 }
