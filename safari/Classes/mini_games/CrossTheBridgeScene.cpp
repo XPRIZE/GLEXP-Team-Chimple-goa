@@ -91,7 +91,7 @@ bool CrossTheBridge::init()
 	addEvents(transparentBG);
 
 	sceneMaking();
-	this->schedule(schedule_selector(CrossTheBridge::monsGeneration), RandomHelper::random_int(8, 11));
+	this->schedule(schedule_selector(CrossTheBridge::monsGeneration), 12);
 	this->schedule(schedule_selector(CrossTheBridge::alphabetGeneration), positionGap_Alpha[RandomHelper::random_int(0, 21)]);
 	//this->schedule(schedule_selector(CrossTheBridge::letterDisplayCombinationMethod), 40.0f);
 	return true;
@@ -128,6 +128,12 @@ void CrossTheBridge::sceneMaking()
 	this->addChild(barrierLeft, 1);
 	barrierLeft->setVisible(false);
 
+	alphaSoundBarrier = Sprite::create("Crossthebridge/barrier.png");
+	alphaSoundBarrier->setPosition(Vec2(1150 + origin.x, (visibleSize.height*0.47) + origin.y));
+	alphaSoundBarrier->setAnchorPoint(Vec2(0, 0));
+	this->addChild(alphaSoundBarrier, 3);
+	alphaSoundBarrier->setVisible(false);
+
 	barrierFlat = Sprite::create("Crossthebridge/barrier.png");
 	barrierFlat->setPosition(Vec2(10 + origin.x, 370 + origin.y));
 	barrierFlat->setAnchorPoint(Vec2(0, 0));
@@ -135,7 +141,14 @@ void CrossTheBridge::sceneMaking()
 	barrierFlat->setRotation(90.0f);
 	barrierFlat->setVisible(false);
 
-
+	/*barrierLowerSide = Sprite::create("Crossthebridge/barrier.png");
+	barrierLowerSide->setPosition(Vec2(34 + origin.x,400 + origin.y));
+	barrierLowerSide->setAnchorPoint(Vec2(0, 0));
+	this->addChild(barrierLowerSide, 3);
+	barrierLowerSide->setRotation(38.0f);
+	barrierLowerSide->setScaleY(0.14);
+	barrierLowerSide->setVisible(true);
+*/
 	letterDisplayCombinationMethod(2.0f);
 	alphabetGeneration(2.0f);
 }
@@ -149,6 +162,8 @@ void CrossTheBridge::update(float delta) {
 
 	removeObjectFromScene_Alpha();
 	removeObjectFromScene_Mons();
+
+	alphaLoud();
 
 }
 void CrossTheBridge::letterDisplayCombinationMethod(float dt)
@@ -238,7 +253,6 @@ void CrossTheBridge::alphaDeletion()
 					letterDisplayCounter++;
 				}
 				_menuContext->pickAlphabet(letterToDisplay,alphaContainer[i]->getName()[0],true);
-				//	_menuContext->pickAlphabet(alphaContainer[i]->getName(), alphaContainer[i]->getName(),true);
 				
 			}
 			else
@@ -277,6 +291,22 @@ void CrossTheBridge::monsDeletion()
 	}
 
 }
+
+void CrossTheBridge::alphaLoud()
+{
+	for (int i = 0; i < alphaContainer.size(); i++)
+	{
+		auto alphaBox = CCRectMake(alphaContainer[i]->getPositionX(), alphaContainer[i]->getPositionY(), alphaContainer[i]->getContentSize().width, alphaContainer[i]->getContentSize().height);
+		if (alphaBox.intersectsRect(alphaSoundBarrier->getBoundingBox()))
+		{
+			auto Sequences = Sequence::create(ScaleTo::create(0.17,0.62),DelayTime::create(0.07),ScaleTo::create(0.17,0.55),NULL);
+			alphaContainer[i]->runAction(Sequences);
+			auto audio = CocosDenshion::SimpleAudioEngine::getInstance();
+			auto path = LangUtil::getInstance()->getAlphabetSoundFileName(alphaContainer[i]->getName()[0]);
+			audio->playEffect(path.c_str(),false);
+		}
+	}
+}
 void CrossTheBridge::checkIntersectWithAlpha()
 {
 	for (int i = 0; i < alphaContainer.size(); i++)
@@ -284,8 +314,7 @@ void CrossTheBridge::checkIntersectWithAlpha()
 		auto alphaBox = CCRectMake(alphaContainer[i]->getPositionX(), alphaContainer[i]->getPositionY(), alphaContainer[i]->getContentSize().width, alphaContainer[i]->getContentSize().height);
 		
 		if (alphaBox.intersectsRect(cubeAtRest->getBoundingBox()) && openFlag)
-		{		
-			CCLOG("INTERSET WITH CUBE ON BRIDGE ");
+		{
 			auto sequence_A = MoveTo::create(2, Vec2(alphaContainer[i]->getPosition().x, 400));
 			auto main_sequence = Sequence::create(sequence_A, NULL);
 			alphaContainer[i]->runAction(main_sequence);
