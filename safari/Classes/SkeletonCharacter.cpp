@@ -86,21 +86,25 @@ StateMachine* SkeletonCharacter::getStateMachine() {
 }
 
 void SkeletonCharacter::HandlePostJumpDownWithDragEndingAnimation() {
-    this->getSkeletonActionTimeLine()->clearFrameEventCallFunc();
-    this->getSkeletonActionTimeLine()->setTimeSpeed(1.0f);
-    this->stateMachine->handleInput(S_WALKING_STATE, cocos2d::Vec2(0,0));
-    this->isRunning = false;
-    this->isWalking = false;
+    if(this->isVisible()) {
+        this->getSkeletonActionTimeLine()->clearFrameEventCallFunc();
+        this->getSkeletonActionTimeLine()->setTimeSpeed(1.0f);
+        this->stateMachine->handleInput(S_WALKING_STATE, cocos2d::Vec2(0,0));
+        this->isRunning = false;
+        this->isWalking = false;        
+    }
 }
 
 
 
 void SkeletonCharacter::HandlePostJumpDownEndingAnimation() {
-                    this->getSkeletonActionTimeLine()->clearFrameEventCallFunc();
-                    this->getSkeletonActionTimeLine()->setTimeSpeed(1.0f);
-                    this->stateMachine->handleInput(S_STANDING_STATE, cocos2d::Vec2(0,0));
-                    this->isRunning = false;
-                    this->isWalking = false;
+    if(this->isVisible()) {
+        this->getSkeletonActionTimeLine()->clearFrameEventCallFunc();
+        this->getSkeletonActionTimeLine()->setTimeSpeed(1.0f);
+        this->stateMachine->handleInput(S_STANDING_STATE, cocos2d::Vec2(0,0));
+        this->isRunning = false;
+        this->isWalking = false;
+    }
 }
 
 
@@ -140,7 +144,7 @@ void SkeletonCharacter::createSkeletonNode(cocos2d::Node* node, const std::strin
     
 //    this->configureCharacter();
     
-    auto physicsBody = PhysicsBody::createBox(Size(HUMAN_SKELETON_COLLISION_BOX_WIDTH, HUMAN_SKELETON_COLLISION_BOX_WIDTH), PHYSICSBODY_MATERIAL_DEFAULT, Vec2(0,HUMAN_SKELETON_COLLISION_BOX_WIDTH/2));
+    auto physicsBody = PhysicsBody::createBox(Size(HUMAN_SKELETON_COLLISION_BOX_WIDTH, HUMAN_SKELETON_COLLISION_BOX_HEIGHT), PHYSICSBODY_MATERIAL_DEFAULT, Vec2(0,HUMAN_SKELETON_COLLISION_BOX_HEIGHT/2));
     
     //set as dynamic
     physicsBody->setDynamic(DYNAMIC_BODY);
