@@ -150,6 +150,8 @@ void HelloWorld::processNodeWithCustomAttributes(Node* node, Node* parentNode) {
 
             std::regex skeletonFile ("\\b(.*)_skeleton.csb");
             std::unordered_map<std::string,std::string>::const_iterator it = attributes.find("fileName");
+            std::unordered_map<std::string,std::string>::const_iterator itLeft = attributes.find("left");
+            std::unordered_map<std::string,std::string>::const_iterator itRight = attributes.find("right");
             if ( it != attributes.end() ) {
                 std::string fileName(it->second);
                 if(regex_match(fileName, skeletonFile)) {
@@ -161,12 +163,34 @@ void HelloWorld::processNodeWithCustomAttributes(Node* node, Node* parentNode) {
                     } else  {
                         //create external characters
                         ExternalSkeletonCharacter* externalSkeletonCharacter = ExternalSkeletonCharacter::create(node, attributes);
-                        
                         this->mainLayer->addChild(externalSkeletonCharacter);
- 
+
                     }
                 }
-            } else {
+            } else if(itLeft != attributes.end()) {
+                auto physicsBody = PhysicsBody::createBox(Size(INVISIBLE_BOUNDARY_WIDTH, this->getSceneSize().height), PHYSICSBODY_MATERIAL_DEFAULT, Vec2(INVISIBLE_LEFT_BOUNDARY_OFFSET,this->getSceneSize().height/2));
+                physicsBody->setDynamic(false);
+                physicsBody->setMass(INFINITY);
+                node->setPhysicsBody(physicsBody);
+                
+                node->getPhysicsBody()->setRotationEnable(false);
+                node->getPhysicsBody()->setCategoryBitmask(INVISIBLE_BOUNDARY_CATEGORY_BITMASK);
+                node->getPhysicsBody()->setCollisionBitmask(INVISIBLE_BOUNDARY_COLLISION_BITMASK);
+                node->getPhysicsBody()->setContactTestBitmask(INVISIBLE_BOUNDARY_CONTACT_BITMASK);
+                
+            } else if(itRight != attributes.end()) {
+                auto physicsBody = PhysicsBody::createBox(Size(INVISIBLE_BOUNDARY_WIDTH, this->getSceneSize().height), PHYSICSBODY_MATERIAL_DEFAULT, Vec2(INVISIBLE_RIGHT_BOUNDARY_OFFSET,this->getSceneSize().height/2));
+                physicsBody->setDynamic(false);
+                physicsBody->setMass(INFINITY);
+                node->setPhysicsBody(physicsBody);
+                node->getPhysicsBody()->setRotationEnable(false);
+                node->getPhysicsBody()->setCategoryBitmask(INVISIBLE_BOUNDARY_CATEGORY_BITMASK);
+                node->getPhysicsBody()->setCollisionBitmask(INVISIBLE_BOUNDARY_CONTACT_BITMASK);
+                node->getPhysicsBody()->setContactTestBitmask(INVISIBLE_BOUNDARY_CONTACT_BITMASK);
+                
+                
+            }            
+            else {
                 std::unordered_map<std::string, std::string> attributes = RPGConfig::parseUserData(data->getCustomProperty());
                 this->createRPGSprite(node, attributes, parentNode);
                 
@@ -1404,12 +1428,12 @@ bool HelloWorld::handlePhysicsContactEventForOtherSkeletonCharacter(PhysicsConta
     bool isSkeletonNodeB = dynamic_cast<cocostudio::timeline::SkeletonNode *>(nodeB);
     
     if(isSkeletonNodeA && contact.getShapeB()->getCollisionBitmask() == 3) {
-        CCLOG("contact BEGAN external sekleton!!!");
+//        CCLOG("contact BEGAN external sekleton!!!");
         nodeA->setScaleX(-nodeA->getScaleX());
         RPGConfig::externalSkeletonMoveDelta = -RPGConfig::externalSkeletonMoveDelta;
         
     } else if(isSkeletonNodeB && contact.getShapeA()->getCollisionBitmask() == 3) {
-        CCLOG("contact BEGAN external sekleton!!!");
+//        CCLOG("contact BEGAN external sekleton!!!");
         nodeB->setScaleX(-nodeB->getScaleX());
         RPGConfig::externalSkeletonMoveDelta = -RPGConfig::externalSkeletonMoveDelta;
 
@@ -1426,7 +1450,7 @@ void HelloWorld::registerPhysicsEventContactLister() {
         // We we handle what happen when character collide with something else
         // if we return true, we say: collision happen please. => Top-Down Char Jump
         // otherwise, we say the engine to ignore this collision => Bottom-Up Char Jump
-        CCLOG("contact BEGAN 1111!!! %d", this->stateMachine->getCurrentState()->getState());
+//        CCLOG("contact BEGAN 1111!!! %d", this->stateMachine->getCurrentState()->getState());
         cocos2d::Node* nodeA = contact.getShapeA()->getBody()->getNode();
         cocos2d::Node* nodeB = contact.getShapeB()->getBody()->getNode();
         
@@ -1510,7 +1534,6 @@ void HelloWorld::createAlphaMons(float dt) {
             bool isAlphamonAlreadyPresent = std::find(activeAlphamonNodes.begin(), activeAlphamonNodes.end(), alphamonNodeName) != activeAlphamonNodes.end();
             
             if(!isAlphamonAlreadyPresent) {
-                CCLOG("sdagasdg alphamonNodeName %s", alphamonNodeName.c_str());
                 activeAlphamonNodes.push_back(alphamonNodeName);
                 wchar_t generatedChar = CharGenerator::getInstance()->generateAChar();
                 this->addAlphaMonsters(generatedChar, alphamonNodeName);

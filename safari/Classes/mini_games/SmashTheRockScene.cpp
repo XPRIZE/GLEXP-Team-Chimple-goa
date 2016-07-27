@@ -174,6 +174,7 @@ bool SmashTheRock::init()
 			auto listener = EventListenerTouchOneByOne::create();
 			//listener->setSwallowTouches(true);
 			label->touchBeganCallback = CC_CALLBACK_2(SmashTheRock::onTouchBegan, this);
+			label->touchEndedCallback = CC_CALLBACK_2(SmashTheRock::onTouchEnded, this);
 		//	listener->onTouchBegan = CC_CALLBACK_2(SmashTheRock::onTouchBegan, this);
 			//listener->onTouchCancelled = CC_CALLBACK_2(SmashTheRock::onTouchCancelled, this);
 			//_eventDispatcher->addEventListenerWithSceneGraphPriority(listener, label);
@@ -191,7 +192,7 @@ bool SmashTheRock::init()
 	//addMainCharacterToScene(mainGameCharacter);
 
 	masking();
-	click++;
+//	click++;
 	this->scheduleUpdate();
 
 	return true;
@@ -303,7 +304,7 @@ void SmashTheRock::masking()
 	label1->setScale(1.5);
 
 	
-	const std::vector<std::string> rocks = { "smash_de_rock/cracktexture_00.png","smash_de_rock/cracktexture_01.png","smash_de_rock/cracktexture_02.png","smash_de_rock/cracktexture_03.png","smash_de_rock/cracktexture_04.png","smash_de_rock/cracktexture_05.png" };
+	const std::vector<std::string> rocks = { "smash_de_rock/cracktexture_00.png","smash_de_rock/cracktexture_01.png","smash_de_rock/cracktexture_02.png","smash_de_rock/cracktexture_03.png","smash_de_rock/cracktexture_04.png","smash_de_rock/cracktexture_05.png","smash_de_rock/cracktexture_05.png" };
     target = Sprite::createWithSpriteFrameName(rocks.at(click).c_str());
 	
 	CCLOG("rock = %s", rocks.at(click).c_str());
@@ -340,8 +341,22 @@ void SmashTheRock::masking()
 	this->addChild(maskedFill,2);
 	flag = true;
 	//maskedFill->setGlobalZOrder(3);
-}
+	if (click == 6)
+	{
+		//auto white = centre->getChildByName("white");
+		//white->setPosition(200, 300);
+		//this->addChild(white);
+		_eventDispatcher->removeEventListenersForTarget(label, false);
+		this->scheduleOnce(schedule_selector(SmashTheRock::change), 2.0f);
+		
+	}
 
+}
+void SmashTheRock::change(float dt)
+{
+	stopAllActions();
+	Director::getInstance()->replaceScene(SmashTheRockLevelScene::createScene());
+}
 
 bool SmashTheRock::onTouchBegan(cocos2d::Touch *touch, cocos2d::Event * event)
 {
@@ -377,11 +392,6 @@ bool SmashTheRock::onTouchBegan(cocos2d::Touch *touch, cocos2d::Event * event)
 			hit();
 			click++;
 			
-			if (click == 6)
-			{
-			Director::getInstance()->replaceScene(SmashTheRockLevelScene::createScene());
-
-			}
 		}
 		else
 		{
@@ -405,11 +415,7 @@ bool SmashTheRock::onTouchBegan(cocos2d::Touch *touch, cocos2d::Event * event)
 			FShake* shake = FShake::actionWithDuration(1.0f, 10.0f);
 			maskedFill->runAction(shake);
 			
-			if (clickWrong == 3)
-			{
-				Director::getInstance()->replaceScene(SmashTheRockLevelScene::createScene());
-				
-			}
+			
 			
 			return false;
 		}
@@ -429,7 +435,9 @@ void SmashTheRock::onTouchMoved(cocos2d::Touch *touch, cocos2d::Event * event)
 }
 void SmashTheRock::onTouchEnded(cocos2d::Touch *touch, cocos2d::Event * event)
 {
+	CCLOG("wwwwwwwwww");
 	//isTouching = false;
+
 }
 void SmashTheRock::onTouchCancelled(cocos2d::Touch *touch, cocos2d::Event * event)
 {

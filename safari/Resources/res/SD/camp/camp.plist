@@ -45,7 +45,7 @@
 		<key>main_treehouse4</key>
 		<dict>
 			<key>anchorpoint</key>
-			<string>{ 0.49959,0.50028 }</string>
+			<string>{ 0.49959,0.50000 }</string>
 			<key>is_dynamic</key>
 			<false />
 			<key>affected_by_gravity</key>
@@ -250,9 +250,9 @@
 					<key>category_mask</key>
 					<integer>1</integer>
 					<key>collision_mask</key>
-					<integer>3</integer>
+					<integer>2</integer>
 					<key>contact_test_mask</key>
-					<integer>3</integer>
+					<integer>2</integer>
 					<key>fixture_type</key>
 					<string>POLYGON</string>
 					<key>polygons</key>
@@ -279,9 +279,9 @@
 					<key>category_mask</key>
 					<integer>1</integer>
 					<key>collision_mask</key>
-					<integer>3</integer>
+					<integer>2</integer>
 					<key>contact_test_mask</key>
-					<integer>3</integer>
+					<integer>2</integer>
 					<key>fixture_type</key>
 					<string>POLYGON</string>
 					<key>polygons</key>
@@ -401,7 +401,7 @@
 		<key>main_pot</key>
 		<dict>
 			<key>anchorpoint</key>
-			<string>{ 0.50000,0.50100 }</string>
+			<string>{ 0.50000,0.50000 }</string>
 			<key>is_dynamic</key>
 			<false />
 			<key>affected_by_gravity</key>
@@ -440,40 +440,31 @@
 					<key>polygons</key>
 					<array>
 						<array>
-							<string>{ -10.50000,48.62500 }</string>
-							<string>{ 3.50000,49.12500 }</string>
-							<string>{ 19.25000,45.37500 }</string>
-							<string>{ 31.50000,20.37500 }</string>
-							<string>{ 31.25000,6.62500 }</string>
-							<string>{ -29.75000,5.87500 }</string>
-							<string>{ -31.25000,26.62500 }</string>
-							<string>{ -26.25000,41.12500 }</string>
+							<string>{ 32.37500,-9.87500 }</string>
+							<string>{ 28.37500,-17.12500 }</string>
+							<string>{ 11.12500,2.87500 }</string>
+							<string>{ 21.12500,2.87500 }</string>
+							<string>{ 30.12500,-0.37500 }</string>
 						</array>
 						<array>
-							<string>{ -63.50000,-52.87500 }</string>
-							<string>{ -63.50000,-20.62500 }</string>
-							<string>{ -40.00000,6.12500 }</string>
-							<string>{ -29.75000,5.87500 }</string>
-							<string>{ 63.00000,-15.12500 }</string>
-							<string>{ 62.00000,-53.37500 }</string>
+							<string>{ -25.62500,1.37500 }</string>
+							<string>{ -13.37500,3.62500 }</string>
+							<string>{ 11.12500,2.87500 }</string>
+							<string>{ 28.37500,-17.12500 }</string>
+							<string>{ 28.37500,-27.37500 }</string>
+							<string>{ -29.62500,-27.12500 }</string>
+							<string>{ -32.12500,-12.62500 }</string>
+							<string>{ -32.12500,-2.62500 }</string>
 						</array>
 						<array>
-							<string>{ 31.50000,20.37500 }</string>
-							<string>{ 19.25000,45.37500 }</string>
-							<string>{ 29.00000,35.62500 }</string>
-						</array>
-						<array>
-							<string>{ -54.75000,0.37500 }</string>
-							<string>{ -40.00000,6.12500 }</string>
-							<string>{ -63.50000,-20.62500 }</string>
-							<string>{ -63.50000,-10.62500 }</string>
-						</array>
-						<array>
-							<string>{ 63.00000,-15.12500 }</string>
-							<string>{ -29.75000,5.87500 }</string>
-							<string>{ 31.25000,6.62500 }</string>
-							<string>{ 48.25000,3.62500 }</string>
-							<string>{ 56.50000,-1.62500 }</string>
+							<string>{ 16.37500,12.37500 }</string>
+							<string>{ 11.12500,2.87500 }</string>
+							<string>{ -13.37500,3.62500 }</string>
+							<string>{ -16.62500,12.87500 }</string>
+							<string>{ -13.87500,20.12500 }</string>
+							<string>{ -4.62500,25.12500 }</string>
+							<string>{ 6.12500,24.37500 }</string>
+							<string>{ 13.87500,21.12500 }</string>
 						</array>
 					</array>
 				</dict>
@@ -482,7 +473,7 @@
 		<key>main_tree1</key>
 		<dict>
 			<key>anchorpoint</key>
-			<string>{ 0.50000,0.50000 }</string>
+			<string>{ 0.50021,0.50023 }</string>
 			<key>is_dynamic</key>
 			<false />
 			<key>affected_by_gravity</key>
@@ -565,7 +556,7 @@
 		<key>main_tree3</key>
 		<dict>
 			<key>anchorpoint</key>
-			<string>{ 0.49966,0.50000 }</string>
+			<string>{ 0.50000,0.50000 }</string>
 			<key>is_dynamic</key>
 			<false />
 			<key>affected_by_gravity</key>
@@ -604,10 +595,10 @@
 					<key>polygons</key>
 					<array>
 						<array>
-							<string>{ -56.12500,105.00000 }</string>
-							<string>{ -76.37500,117.75000 }</string>
-							<string>{ 163.37500,112.75000 }</string>
-							<string>{ 145.37500,100.00000 }</string>
+							<string>{ -61.75000,112.87500 }</string>
+							<string>{ -82.00000,125.62500 }</string>
+							<string>{ 157.75000,120.62500 }</string>
+							<string>{ 139.75000,107.87500 }</string>
 						</array>
 					</array>
 				</dict>
@@ -633,10 +624,10 @@
 					<key>polygons</key>
 					<array>
 						<array>
-							<string>{ -2.12500,15.75000 }</string>
-							<string>{ -144.87500,21.50000 }</string>
-							<string>{ -152.87500,35.25000 }</string>
-							<string>{ 7.87500,30.00000 }</string>
+							<string>{ 8.25000,37.12500 }</string>
+							<string>{ -134.50000,42.87500 }</string>
+							<string>{ -142.50000,56.62500 }</string>
+							<string>{ 18.25000,51.37500 }</string>
 						</array>
 					</array>
 				</dict>
@@ -662,10 +653,10 @@
 					<key>polygons</key>
 					<array>
 						<array>
-							<string>{ -13.12500,-48.75000 }</string>
-							<string>{ -23.87500,-42.25000 }</string>
-							<string>{ 86.62500,-46.75000 }</string>
-							<string>{ 74.62500,-54.75000 }</string>
+							<string>{ -15.25000,-37.62500 }</string>
+							<string>{ -26.00000,-31.12500 }</string>
+							<string>{ 84.50000,-35.62500 }</string>
+							<string>{ 72.50000,-43.62500 }</string>
 						</array>
 					</array>
 				</dict>
@@ -1035,10 +1026,10 @@
 					<key>polygons</key>
 					<array>
 						<array>
-							<string>{ -119.87500,-23.87500 }</string>
-							<string>{ 120.87500,-23.87500 }</string>
-							<string>{ 120.87500,-92.87500 }</string>
-							<string>{ -119.87500,-93.12500 }</string>
+							<string>{ 139.87500,-28.12500 }</string>
+							<string>{ 140.12500,-93.62500 }</string>
+							<string>{ -139.37500,-93.62500 }</string>
+							<string>{ -139.37500,-28.12500 }</string>
 						</array>
 					</array>
 				</dict>
