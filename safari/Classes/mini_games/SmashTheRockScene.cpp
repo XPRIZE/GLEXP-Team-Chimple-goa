@@ -8,7 +8,7 @@
 #include "editor-support/cocostudio/CocoStudio.h"
 #include "../lang/LangUtil.h"
 #include "SimpleAudioEngine.h" 
-
+#include "../puzzle/Alphabet.h"
 #define COCOS2D_DEBUG 1
 
 USING_NS_CC;
@@ -155,13 +155,14 @@ bool SmashTheRock::init()
 		//	std::string str = Alphabets.at(cocos2d::RandomHelper::random_int(key, (key + 20)) % 20).c_str();
 			char str1 = charkey.at(i-1).at(j-1);
 			std::string ttttt(&str1,1) ;
-			label = Label::createWithBMFont(LangUtil::getInstance()->getBMFontFileName(), ttttt);
+			//label = Label::createWithBMFont(LangUtil::getInstance()->getBMFontFileName(), ttttt);
 			//label = Label::createWithTTF(ttttt, "fonts/BalooBhai-Regular.ttf", 256);
 			//CCLOG("alpha = %s",str.c_str());
-			label->setScale(0.15);
+			Alphabet *label = Alphabet::createWithSize(str1, 200);
+		//	label->setScale(0.15);
 			label->setPositionX(blockWidth );
 			CCLOG("label x = %d", blockWidth);
-			label->setPositionY(blockHeight - 160);
+			label->setPositionY(blockHeight - 130);
 			label->setColor(ccc3(255, 255, 255));
 			label->enableShadow(Color4B::GRAY, Size(5, -5), -50);
 			label->setAnchorPoint(Vec2::ANCHOR_MIDDLE_BOTTOM);
@@ -170,12 +171,12 @@ bool SmashTheRock::init()
 			CCLOG("alpha = %d", labelRef.size());
 			this->addChild(label, 2);
 		//	label->setGlobalZOrder(6);
-
 			auto listener = EventListenerTouchOneByOne::create();
 			//listener->setSwallowTouches(true);
-			listener->onTouchBegan = CC_CALLBACK_2(SmashTheRock::onTouchBegan, this);
-			listener->onTouchCancelled = CC_CALLBACK_2(SmashTheRock::onTouchCancelled, this);
-			_eventDispatcher->addEventListenerWithSceneGraphPriority(listener, label);
+			label->touchBeganCallback = CC_CALLBACK_2(SmashTheRock::onTouchBegan, this);
+		//	listener->onTouchBegan = CC_CALLBACK_2(SmashTheRock::onTouchBegan, this);
+			//listener->onTouchCancelled = CC_CALLBACK_2(SmashTheRock::onTouchCancelled, this);
+			//_eventDispatcher->addEventListenerWithSceneGraphPriority(listener, label);
 		}
 		
 	}
@@ -296,10 +297,10 @@ void SmashTheRock::masking()
 {
 	Size visibleSize = Director::getInstance()->getVisibleSize();
 	Vec2 origin = Director::getInstance()->getVisibleOrigin();
-
-	label1 = Label::createWithBMFont(LangUtil::getInstance()->getBMFontFileName(), Alphabets.at(key).c_str());
+	Alphabet *label1 = Alphabet::createWithSize((Alphabets.at(key)).at(0), 200);
+//	label1 = Label::createWithBMFont(LangUtil::getInstance()->getBMFontFileName(), Alphabets.at(key).c_str());
 //	label1 = Label::createWithTTF(Alphabets.at(key).c_str(), "fonts/BalooBhai-Regular.ttf", 256);
-	label1->setScale(0.8);
+	label1->setScale(1.5);
 
 	
 	const std::vector<std::string> rocks = { "smash_de_rock/cracktexture_00.png","smash_de_rock/cracktexture_01.png","smash_de_rock/cracktexture_02.png","smash_de_rock/cracktexture_03.png","smash_de_rock/cracktexture_04.png","smash_de_rock/cracktexture_05.png" };
@@ -340,6 +341,8 @@ void SmashTheRock::masking()
 	flag = true;
 	//maskedFill->setGlobalZOrder(3);
 }
+
+
 bool SmashTheRock::onTouchBegan(cocos2d::Touch *touch, cocos2d::Event * event)
 {
 
@@ -350,9 +353,6 @@ bool SmashTheRock::onTouchBegan(cocos2d::Touch *touch, cocos2d::Event * event)
 	Size visibleSize = Director::getInstance()->getVisibleSize();
 	int dis = (230.00 / 2560)*(visibleSize.width);
 
-	auto audio = CocosDenshion::SimpleAudioEngine::getInstance();
-	
-	
 	//	CCRect targetRectangle = CCRectMake(0,0, target->getContentSize().width, target->getContentSize().height);
 	if ( target->getBoundingBox().containsPoint( touch->getLocation()) && flag )
 	{
@@ -369,21 +369,17 @@ bool SmashTheRock::onTouchBegan(cocos2d::Touch *touch, cocos2d::Event * event)
 			CCLOG("tempj x = %d", tempj);
 			val = ((tempi) * 11) + tempj;
 			CCLOG("val x = %d", val);
-			CCLOG("sound = %s", target->getName().c_str());
-			auto sound = (target->getName()).at(0);
-			auto path = LangUtil::getInstance()->getAlphabetSoundFileName(sound);
-			audio->playEffect(path.c_str(), false);
-
-			auto showright = rightRef.at(val);
+            auto showright = rightRef.at(val);
 			showright->setVisible(true);
 			this->removeChild(blockRef.at(val));
 
 			_eventDispatcher->removeEventListenersForTarget(target, false);
 			hit();
 			click++;
+			
 			if (click == 6)
 			{
-				Director::getInstance()->replaceScene(SmashTheRockLevelScene::createScene());
+			Director::getInstance()->replaceScene(SmashTheRockLevelScene::createScene());
 
 			}
 		}
@@ -404,16 +400,15 @@ bool SmashTheRock::onTouchBegan(cocos2d::Touch *touch, cocos2d::Event * event)
 			this->removeChild(labelRef.at(val1));
 			this->removeChild(blockRef.at(val1));
 			clickWrong++;
+			CCLOG("clickwrong = %d", clickWrong);
 			flag = true;
-			auto sound = (target->getName()).at(0);
-			auto path = LangUtil::getInstance()->getAlphabetSoundFileName(sound);
-			audio->playEffect(path.c_str(), false);
 			FShake* shake = FShake::actionWithDuration(1.0f, 10.0f);
 			maskedFill->runAction(shake);
-			if (clickWrong == 5)
+			
+			if (clickWrong == 3)
 			{
 				Director::getInstance()->replaceScene(SmashTheRockLevelScene::createScene());
-
+				
 			}
 			
 			return false;
