@@ -16,7 +16,7 @@
             <key>grass_desk</key>
             <dict>
                 <key>anchorpoint</key>
-                <string>{ 0.50026,0.50000 }</string>
+                <string>{ 0.50000,0.50000 }</string>
                 <key>is_dynamic</key>
                 <false/>
                 <key>affected_by_gravity</key>
@@ -57,10 +57,10 @@
                         <key>polygons</key>
                         <array>
                             <array>
-                                <string>{ 954.50000,129.00000 }</string>
-                                <string>{ 954.50000,60.00000 }</string>
-                                <string>{ -955.50000,60.00000 }</string>
-                                <string>{ -955.50000,129.00000 }</string>
+                                <string>{ 842.50000,72.50000 }</string>
+                                <string>{ -842.50000,82.50000 }</string>
+                                <string>{ -842.50000,151.50000 }</string>
+                                <string>{ 849.50000,146.50000 }</string>
                             </array>
                         </array>
                         
@@ -72,7 +72,7 @@
             <key>doghouse</key>
             <dict>
                 <key>anchorpoint</key>
-                <string>{ 0.50073,0.49941 }</string>
+                <string>{ 0.50000,0.50000 }</string>
                 <key>is_dynamic</key>
                 <false/>
                 <key>affected_by_gravity</key>
@@ -113,16 +113,16 @@
                         <key>polygons</key>
                         <array>
                             <array>
-                                <string>{ -5.50000,376.50000 }</string>
-                                <string>{ -6.50000,422.50000 }</string>
-                                <string>{ 341.50000,208.50000 }</string>
-                                <string>{ 317.50000,177.50000 }</string>
+                                <string>{ -7.00000,280.00000 }</string>
+                                <string>{ -6.00000,312.00000 }</string>
+                                <string>{ 252.00000,153.00000 }</string>
+                                <string>{ 234.00000,131.00000 }</string>
                             </array>
                             <array>
-                                <string>{ -5.50000,376.50000 }</string>
-                                <string>{ -319.50000,184.50000 }</string>
-                                <string>{ -338.50000,211.50000 }</string>
-                                <string>{ -6.50000,422.50000 }</string>
+                                <string>{ -254.00000,157.00000 }</string>
+                                <string>{ -6.00000,312.00000 }</string>
+                                <string>{ -7.00000,280.00000 }</string>
+                                <string>{ -239.00000,135.00000 }</string>
                             </array>
                         </array>
                         
@@ -134,7 +134,7 @@
             <key>grass_square</key>
             <dict>
                 <key>anchorpoint</key>
-                <string>{ 0.50000,0.49800 }</string>
+                <string>{ 0.50000,0.50300 }</string>
                 <key>is_dynamic</key>
                 <false/>
                 <key>affected_by_gravity</key>
@@ -175,10 +175,10 @@
                         <key>polygons</key>
                         <array>
                             <array>
-                                <string>{ -164.00000,102.50000 }</string>
-                                <string>{ 214.00000,102.50000 }</string>
-                                <string>{ 171.00000,63.50000 }</string>
-                                <string>{ -233.00000,62.50000 }</string>
+                                <string>{ -123.00000,67.50000 }</string>
+                                <string>{ 131.00000,68.50000 }</string>
+                                <string>{ 132.00000,24.50000 }</string>
+                                <string>{ -125.00000,21.50000 }</string>
                             </array>
                         </array>
                         
@@ -231,122 +231,10 @@
                         <key>polygons</key>
                         <array>
                             <array>
-                                <string>{ 308.00000,179.00000 }</string>
-                                <string>{ 308.00000,122.00000 }</string>
-                                <string>{ -310.00000,122.00000 }</string>
-                                <string>{ -310.00000,179.00000 }</string>
-                            </array>
-                        </array>
-                        
-                    </dict>
-
-                </array>
-            </dict>
-
-            <key>cart</key>
-            <dict>
-                <key>anchorpoint</key>
-                <string>{ 0.50100,0.50000 }</string>
-                <key>is_dynamic</key>
-                <false/>
-                <key>affected_by_gravity</key>
-                <false/>
-                <key>allows_rotation</key>
-                <false/>
-                <key>linear_damping</key>
-                <real>0</real>
-                <key>velocity_limit</key>
-                <real>1000000</real>
-                <key>angular_damping</key>
-                <real>0</real>
-                <key>angular_velocity_limit</key>
-                <real>1000000</real>
-                <key>fixtures</key>
-                <array>
-
-                    <dict>
-                        <key>density</key>
-                        <real>1</real>
-                        <key>restitution</key>
-                        <real>0.200000003</real>
-                        <key>friction</key>
-                        <real>0.699999988</real>
-                        <key>tag</key>
-                        <integer>0</integer>
-                        <key>group</key>
-                        <integer>0</integer>
-                        <key>category_mask</key>
-                        <integer>1</integer>
-                        <key>collision_mask</key>
-                        <integer>2</integer>
-                        <key>contact_test_mask</key>
-                        <integer>2</integer>
-                        <key>fixture_type</key>
-                        <string>POLYGON</string>
-                        
-                        <key>polygons</key>
-                        <array>
-                            <array>
-                                <string>{ 106.50000,97.00000 }</string>
-                                <string>{ -244.50000,97.00000 }</string>
-                                <string>{ -244.50000,112.00000 }</string>
-                                <string>{ 108.50000,112.00000 }</string>
-                            </array>
-                        </array>
-                        
-                    </dict>
-
-                </array>
-            </dict>
-
-            <key>cart1</key>
-            <dict>
-                <key>anchorpoint</key>
-                <string>{ 0.50062,0.49900 }</string>
-                <key>is_dynamic</key>
-                <false/>
-                <key>affected_by_gravity</key>
-                <false/>
-                <key>allows_rotation</key>
-                <false/>
-                <key>linear_damping</key>
-                <real>0</real>
-                <key>velocity_limit</key>
-                <real>1000000</real>
-                <key>angular_damping</key>
-                <real>0</real>
-                <key>angular_velocity_limit</key>
-                <real>1000000</real>
-                <key>fixtures</key>
-                <array>
-
-                    <dict>
-                        <key>density</key>
-                        <real>1</real>
-                        <key>restitution</key>
-                        <real>0.200000003</real>
-                        <key>friction</key>
-                        <real>0.699999988</real>
-                        <key>tag</key>
-                        <integer>0</integer>
-                        <key>group</key>
-                        <integer>0</integer>
-                        <key>category_mask</key>
-                        <integer>1</integer>
-                        <key>collision_mask</key>
-                        <integer>2</integer>
-                        <key>contact_test_mask</key>
-                        <integer>2</integer>
-                        <key>fixture_type</key>
-                        <string>POLYGON</string>
-                        
-                        <key>polygons</key>
-                        <array>
-                            <array>
-                                <string>{ 403.50000,84.50000 }</string>
-                                <string>{ -273.50000,85.50000 }</string>
-                                <string>{ -273.50000,125.50000 }</string>
-                                <string>{ 403.50000,126.50000 }</string>
+                                <string>{ 219.50000,155.00000 }</string>
+                                <string>{ 219.50000,98.00000 }</string>
+                                <string>{ -218.50000,99.00000 }</string>
+                                <string>{ -218.50000,156.00000 }</string>
                             </array>
                         </array>
                         
@@ -358,7 +246,7 @@
             <key>cabin_animal</key>
             <dict>
                 <key>anchorpoint</key>
-                <string>{ 0.49962,0.50000 }</string>
+                <string>{ 0.50000,0.50000 }</string>
                 <key>is_dynamic</key>
                 <false/>
                 <key>affected_by_gravity</key>
@@ -399,10 +287,66 @@
                         <key>polygons</key>
                         <array>
                             <array>
-                                <string>{ -518.50000,-171.00000 }</string>
-                                <string>{ -39.50000,-170.00000 }</string>
-                                <string>{ -41.50000,-210.00000 }</string>
-                                <string>{ -518.50000,-211.00000 }</string>
+                                <string>{ -31.00000,-214.00000 }</string>
+                                <string>{ -417.00000,-212.00000 }</string>
+                                <string>{ -416.00000,-173.00000 }</string>
+                                <string>{ -30.00000,-174.00000 }</string>
+                            </array>
+                        </array>
+                        
+                    </dict>
+
+                </array>
+            </dict>
+
+            <key>door</key>
+            <dict>
+                <key>anchorpoint</key>
+                <string>{ 0.50000,0.50000 }</string>
+                <key>is_dynamic</key>
+                <false/>
+                <key>affected_by_gravity</key>
+                <false/>
+                <key>allows_rotation</key>
+                <false/>
+                <key>linear_damping</key>
+                <real>0</real>
+                <key>velocity_limit</key>
+                <real>1000000</real>
+                <key>angular_damping</key>
+                <real>0</real>
+                <key>angular_velocity_limit</key>
+                <real>1000000</real>
+                <key>fixtures</key>
+                <array>
+
+                    <dict>
+                        <key>density</key>
+                        <real>1</real>
+                        <key>restitution</key>
+                        <real>0.200000003</real>
+                        <key>friction</key>
+                        <real>0.699999988</real>
+                        <key>tag</key>
+                        <integer>0</integer>
+                        <key>group</key>
+                        <integer>0</integer>
+                        <key>category_mask</key>
+                        <integer>1</integer>
+                        <key>collision_mask</key>
+                        <integer>2</integer>
+                        <key>contact_test_mask</key>
+                        <integer>2</integer>
+                        <key>fixture_type</key>
+                        <string>POLYGON</string>
+                        
+                        <key>polygons</key>
+                        <array>
+                            <array>
+                                <string>{ 451.50000,323.50000 }</string>
+                                <string>{ -448.50000,329.50000 }</string>
+                                <string>{ -448.50000,369.50000 }</string>
+                                <string>{ 455.50000,369.50000 }</string>
                             </array>
                         </array>
                         
@@ -414,7 +358,7 @@
             <key>floor</key>
             <dict>
                 <key>anchorpoint</key>
-                <string>{ 0.50000,0.49892 }</string>
+                <string>{ 0.50000,0.50000 }</string>
                 <key>is_dynamic</key>
                 <false/>
                 <key>affected_by_gravity</key>
@@ -455,10 +399,10 @@
                         <key>polygons</key>
                         <array>
                             <array>
-                                <string>{ 1278.50000,-33.50000 }</string>
-                                <string>{ 1278.50000,-231.50000 }</string>
-                                <string>{ -1280.50000,-234.50000 }</string>
-                                <string>{ -1282.50000,-32.50000 }</string>
+                                <string>{ -748.00000,-215.00000 }</string>
+                                <string>{ -750.00000,-15.00000 }</string>
+                                <string>{ 789.00000,-15.00000 }</string>
+                                <string>{ 789.00000,-216.00000 }</string>
                             </array>
                         </array>
                         
