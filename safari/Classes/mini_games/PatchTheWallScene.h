@@ -10,7 +10,7 @@ class PatchTheWall : public cocos2d::Layer
 public:
 	static float x, y;
 	MenuContext *_menuContext;
-	bool flag;
+	int flag;
 	bool flag1 = true;
 	int score = 0;
 	static cocos2d::Node *no;

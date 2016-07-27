@@ -166,7 +166,7 @@ public:
 
 	// METHOD LIST 
 	static cocos2d::Scene* createScene();
-
+	~EndlessRunner();
 	virtual bool init();
 	float movingTime(SpriteCreate* SpriteObject);
 	float movingTimes(cocos2d::Sprite* SpriteObject, int Speed);
