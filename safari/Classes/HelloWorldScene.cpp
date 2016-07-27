@@ -83,19 +83,21 @@ void HelloWorld::initializeSafari() {
 }
 
 void HelloWorld::updatePositionAndCategoryBitMaskMainCharacter() {
-    
-    this->skeletonCharacter->getSkeletonNode()->getPhysicsBody()->setCategoryBitmask(this->mainCharacterCategoryBitMask);
-    
-    if(this->skeletonPositionInLastVisitedScene &&
-       !this->skeletonPositionInLastVisitedScene->getXPosition().empty() &&
-       !this->skeletonPositionInLastVisitedScene->getYPosition().empty()) {
+    if(this->skeletonCharacter)
+    {
+        this->skeletonCharacter->getSkeletonNode()->getPhysicsBody()->setCategoryBitmask(this->mainCharacterCategoryBitMask);
         
-        float xPos = String::create(this->skeletonPositionInLastVisitedScene->getXPosition())->floatValue();
-        float yPos = String::create(this->skeletonPositionInLastVisitedScene->getYPosition())->floatValue();
-        if(xPos != 0.0f && yPos != 0.0f) {
-            this->skeletonCharacter->getSkeletonNode()->setPosition(Vec2(xPos, yPos));
+        if(this->skeletonPositionInLastVisitedScene &&
+           !this->skeletonPositionInLastVisitedScene->getXPosition().empty() &&
+           !this->skeletonPositionInLastVisitedScene->getYPosition().empty()) {
+            
+            float xPos = String::create(this->skeletonPositionInLastVisitedScene->getXPosition())->floatValue();
+            float yPos = String::create(this->skeletonPositionInLastVisitedScene->getYPosition())->floatValue();
+            if(xPos != 0.0f && yPos != 0.0f) {
+                this->skeletonCharacter->getSkeletonNode()->setPosition(Vec2(xPos, yPos));
+            }
+            
         }
-        
     }
 }
 
@@ -173,8 +175,8 @@ void HelloWorld::processNodeWithCustomAttributes(Node* node, Node* parentNode) {
     }
 }
 
-void HelloWorld::createRPGSprite(Node* node, std::unordered_map<std::string, std::string> attributes, Node* parentNode) {
-    node->removeFromParent();
+void HelloWorld::createRPGSprite(Node* node, std::unordered_map<std::string, std::string> attributes, Node* parentNode)
+{
     RPGSprite* rpgSprite = RPGSprite::create(node, attributes);
     parentNode->addChild(rpgSprite);
     
@@ -295,7 +297,6 @@ void HelloWorld::addMainCharacterToScene(const std::string& filename, cocos2d::N
     this->skeletonCharacter = SkeletonCharacter::create(node, this->getIsland(), this->getSceneName(), filename, this->sqlite3Helper);
     this->mainLayer->addChild(this->skeletonCharacter);
 
-
     auto followAction = Follow::create(this->skeletonCharacter->getSkeletonNode(), Rect(0,0,this->getSceneSize().width, this->getSceneSize().height));
     this->mainLayer->runAction(followAction);
     
@@ -348,7 +349,7 @@ bool HelloWorld::init(const std::string& island, const std::string& sceneName)
     this->registerMessageSenderAndReceiver();
     
     if(this->getAlphamonNodesCount() != 0) {
-        //this->schedule(CC_SCHEDULE_SELECTOR(HelloWorld::createAlphaMons), 5.0f);
+        this->schedule(CC_SCHEDULE_SELECTOR(HelloWorld::createAlphaMons), 30.0f);
     }
     
     this->scheduleUpdate();
@@ -396,28 +397,43 @@ void HelloWorld::registerMessageSenderAndReceiver() {
     
     
     auto showTouchPointSign = [=] (EventCustom * event) {
+        this->resetTouchPointSign();
         Sprite* sprite = reinterpret_cast<Sprite*>(event->getUserData());
         this->showTouchSignNode->setPosition(sprite->getPosition());
         this->showTouchSignNode->setVisible(true);
         auto scaleBy = ScaleBy::create(0.5, 1.2);
         auto sequenceScale = Sequence::create(scaleBy, scaleBy->reverse(), nullptr);
         auto repeatScaleAction = Repeat::create(sequenceScale, 5);
-        auto callbackStart = CallFunc::create(CC_CALLBACK_0(HelloWorld::hideTouchPointSign, this));
+        auto callbackStart = CallFunc::create(CC_CALLBACK_0(HelloWorld::resetTouchPointSign, this));
         auto sequence = Sequence::create(repeatScaleAction, callbackStart, nullptr);
         this->showTouchSignNode->runAction(sequence);
     };
     
     SEND_SHOW_TOUCH_POINT_SIGNAL(this, RPGConfig::SEND_SHOW_TOUCH_POINT_SIGN_NOTIFICATION, showTouchPointSign);
+
     
     this->getEventDispatcher()->addCustomEventListener("on_menu_exit", CC_CALLBACK_0(HelloWorld::transitToHome, this));
 
-    
+    this->getEventDispatcher()->addCustomEventListener("alphamon_destroyed", CC_CALLBACK_1(HelloWorld::alphamonDestroyed, this));
+}
+
+void HelloWorld::alphamonDestroyed(EventCustom* event) {
+    std::string &alphamon = *(static_cast<std::string*>(event->getUserData()));
+    activeAlphamonNodes.erase(std::remove(activeAlphamonNodes.begin(), activeAlphamonNodes.end(), alphamon), activeAlphamonNodes.end());
+
 }
 
 void HelloWorld::transitionToDuelScene(char alphabet) {
+    this->cleanUpResources();
     std::string secondParam (1,alphabet);
+    
     StartMenu::startScene(DUEL_SCENE_NAME, "A", secondParam);
 }
+
+void HelloWorld::resetTouchPointSign() {
+    this->showTouchSignNode->setScale(0.5f, 0.5f);
+}
+
 
 
 void HelloWorld::hideTouchPointSign() {
@@ -512,14 +528,10 @@ void HelloWorld::processChangeSceneMessages(std::vector<MessageContent*>changeSc
             
             std::string nextScene = rpgActor->getNextScene();
             
-            std::string transitToGameScene = rpgActor->getTransitToGameScene();
             
             if(!nextScene.empty())
             {
-                this->changeScene(nextScene, false);
-                
-            } else if(!transitToGameScene.empty()) {
-                this->changeScene(transitToGameScene, false);
+                this->changeScene(nextScene, false);                
             }
         }
     }
@@ -531,7 +543,14 @@ void HelloWorld::transitToHome() {
 }
 
 void HelloWorld::cleanUpResources() {
-    this->sqlite3Helper->recordMainCharacterPositionInScene(this->island.c_str(), this->sceneName.c_str(), this->skeletonCharacter->getSkeletonNode()->getPosition().x, this->skeletonCharacter->getSkeletonNode()->getPosition().y);
+    
+    Vec2 origin = Director::getInstance()->getVisibleOrigin();
+    float xPos = this->skeletonCharacter->getSkeletonNode()->getPosition().x < 0 ? Director::getInstance()->getWinSize().width/2  : this->skeletonCharacter->getSkeletonNode()->getPosition().x > this->getSceneSize().width ? Director::getInstance()->getWinSize().width/2 : this->skeletonCharacter->getSkeletonNode()->getPosition().x;
+    
+    float yPos = this->skeletonCharacter->getSkeletonNode()->getPosition().y < 0 ? 300 : this->skeletonCharacter->getSkeletonNode()->getPosition().y;
+        
+    
+    this->sqlite3Helper->recordMainCharacterPositionInScene(this->island.c_str(), this->sceneName.c_str(), xPos, yPos);
     
     EVENT_DISPATCHER->removeCustomEventListeners("MAIN_CHARACTER_VICINITY_CHECK_NOTIFICATION");
     EVENT_DISPATCHER->removeCustomEventListeners("SPEECH_MESSAGE_ON_TAP_NOTIFICATION");
@@ -540,6 +559,8 @@ void HelloWorld::cleanUpResources() {
     EVENT_DISPATCHER->removeCustomEventListeners("SPEECH_BUBBLE_DESTROYED_NOTIFICATION");
     EVENT_DISPATCHER->removeCustomEventListeners("PROCESS_CUSTOM_MESSAGE_AND_CREATE_UI_NOTIFICATION");
     EVENT_DISPATCHER->removeCustomEventListeners("on_menu_exit");
+    EVENT_DISPATCHER->removeCustomEventListeners("alphamon_destroyed");
+    
     
     if(this->stateMachine != nullptr) {
         delete this->stateMachine;
@@ -565,9 +586,9 @@ void HelloWorld::changeScene(std::string nextScene, bool isMiniGame) {
     
     if(!nextScene.empty()) {
         if(isMiniGame) {
-            StartMenu::startScene(nextScene);
+            Director::getInstance()->replaceScene(TransitionFade::create(3.0, HelloWorld::createScene(nextScene,""), Color3B::BLACK));            
         } else {
-            StartMenu::startScene(this->getIsland(),nextScene);
+            Director::getInstance()->replaceScene(TransitionFade::create(3.0, HelloWorld::createScene(this->getIsland(),nextScene), Color3B::BLACK));
         }
     }
 }
@@ -594,13 +615,10 @@ void HelloWorld::processAnimationMessage(std::vector<MessageContent*>animationMe
                     if(content != NULL && (content->getCondition().empty() || (!content->getCondition().empty() && content->getConditionSatisfied() == 1)))
                     {
                         std::string nextScene = animationNode->getNextScene();                        
-                        std::string transitToGameScene = animationNode->getTransitToGameScene();
                         
                         if(!nextScene.empty())
                         {
                             this->changeScene(nextScene, false);
-                        } else if(!transitToGameScene.empty()) {
-                            this->changeScene(transitToGameScene, true);
                         }
                     }
                 });
@@ -718,10 +736,19 @@ void HelloWorld::update(float dt) {
     
     if(this->skeletonCharacter)
     {
+        if(this->skeletonCharacter->getSkeletonNode() != NULL && (this->skeletonCharacter->getSkeletonNode()->getPositionX() < 0 || this->skeletonCharacter->getSkeletonNode()->getPositionY() < 0 || this->skeletonCharacter->getSkeletonNode()->getPositionX() > this->getSceneSize().width)) {
+            this->pause();
+            this->skeletonCharacter->setVisible(false);
+            this->skeletonCharacter->getSkeletonNode()->stopAllActions();
+            this->changeScene(this->getSceneName(), false);
+            return;
+        }
+        
         if(this->skeletonCharacter->getSkeletonInContactWithGround())
         {
             if(this->skeletonCharacter->isWalking) {
                 this->flipSkeletonDirection(this->currentTouchPoint, this->skeletonCharacter->getSkeletonNode());
+                CCLOG("this->currentTouchPoint %f", this->currentTouchPoint.x);
                 if(checkTouchLeftOfCharacter(this->currentTouchPoint, this->skeletonCharacter->getSkeletonNode())) {
                     this->skeletonCharacter->getSkeletonNode()->getPhysicsBody()->setVelocity(Vec2(-MAIN_CHARACTER_FORCE,GRAVITY_VELOCITY_TO_STICK_TO_GROUND));
                 } else if (checkTouchRightOfCharacter(this->currentTouchPoint, this->skeletonCharacter->getSkeletonNode())) {
@@ -731,6 +758,7 @@ void HelloWorld::update(float dt) {
                 
             } else if(this->skeletonCharacter->isRunning) {
                 this->flipSkeletonDirection(this->currentTouchPoint, this->skeletonCharacter->getSkeletonNode());
+                CCLOG("this->currentTouchPoint %f", this->currentTouchPoint.x);
                 if(checkTouchLeftOfCharacter(this->currentTouchPoint, this->skeletonCharacter->getSkeletonNode())) {
                     this->skeletonCharacter->getSkeletonNode()->getPhysicsBody()->setVelocity(Vec2(-MAIN_CHARACTER_RUNNING_FORCE,GRAVITY_VELOCITY_TO_STICK_TO_GROUND));
                 } else if (checkTouchRightOfCharacter(this->currentTouchPoint, this->skeletonCharacter->getSkeletonNode())) {
@@ -758,7 +786,7 @@ void HelloWorld::update(float dt) {
                     this->skeletonCharacter->getSkeletonActionTimeLine()->play(JUMP_END, false);
                 }
                 
-            }
+            } 
         }
     }
     
@@ -1161,7 +1189,8 @@ void HelloWorld::HandleTap(Point position)
         return;
     }
     
-    if(this->skeletonCharacter->isJumping || this->skeletonCharacter->isRunning || this->skeletonCharacter->isWalking) {
+    if(this->skeletonCharacter->isJumping || this->skeletonCharacter->isRunning || this->skeletonCharacter->isWalking)
+    {
         return;
     }
     
@@ -1391,7 +1420,7 @@ void HelloWorld::registerPhysicsEventContactLister() {
         // We we handle what happen when character collide with something else
         // if we return true, we say: collision happen please. => Top-Down Char Jump
         // otherwise, we say the engine to ignore this collision => Bottom-Up Char Jump
-        //CCLOG("contact BEGAN!!! %d", this->stateMachine->getCurrentState()->getState());
+        CCLOG("contact BEGAN 1111!!! %d", this->stateMachine->getCurrentState()->getState());
         cocos2d::Node* nodeA = contact.getShapeA()->getBody()->getNode();
         cocos2d::Node* nodeB = contact.getShapeB()->getBody()->getNode();
         
@@ -1431,24 +1460,21 @@ void HelloWorld::registerPhysicsEventContactLister() {
     Director::getInstance()->getEventDispatcher()->addEventListenerWithSceneGraphPriority(contactListener, this);    
 }
 
-
-void HelloWorld::onExitTransitionDidStart() {
-    Node::onExitTransitionDidStart();
-    CCLOG("onExitTransitionDidStart");
-}
-
-void HelloWorld::onEnterTransitionDidFinish() {
-    Node::onEnterTransitionDidFinish();
-    CCLOG("onEnterTransitionDidFinish");
+std::string HelloWorld::generateNearestAlphamon() {
+    int randomNumber = 1 + ( std::rand() % ( this->getAlphamonNodesCount()) );
+    std::string alphamonNodeName = StringUtils::format("%s_%d", "alphamon", randomNumber);
+    if(std::find(activeAlphamonNodes.begin(), activeAlphamonNodes.end(), alphamonNodeName) != activeAlphamonNodes.end()) {
+        return generateNearestAlphamon();
+    } else {
+        return alphamonNodeName;
+    }
 }
 
 void HelloWorld::createAlphaMons(float dt) {
-        int randomNumber = 1 + ( std::rand() % ( this->getAlphamonNodesCount()) );
-        std::string alphamonNodeName = StringUtils::format("%s_%d", "alphamon", randomNumber);
-        
-        //Generate random char
-        const char* const a_to_z = "BCDEFGHIJKLMNOPQRSTUVWXYZ" ;
-        int randomChar = rand() % 24;
-        char generatedChar = a_to_z[randomChar];
+        std::string alphamonNodeName = this->generateNearestAlphamon();
+        CCLOG("sdagasdg alphamonNodeName %s", alphamonNodeName.c_str());
+        activeAlphamonNodes.push_back(alphamonNodeName);
+    
+        wchar_t generatedChar = CharGenerator::getInstance()->generateAChar();
         this->addAlphaMonsters(generatedChar, alphamonNodeName);
 }

@@ -29,6 +29,9 @@ float MainGame::originX;
 float MainGame::originY;
 MainGame* MainGame::self;
 
+int letterComespeed;
+int tweenSpeed;
+
 Scene* MainGame::createScene()
 {
 	auto scene = Scene::create();
@@ -50,6 +53,22 @@ bool MainGame::init()
 	}
 
 	//	auto cannonAnimation = CSLoader::createTimeline("res/cannon.csb");
+
+	MainGame::cannonLetter.clear();
+	MainGame::cannonLetter_actualImage.clear();
+
+	MainGame::bulletArray.clear();
+	MainGame::bulletArray_actualImage.clear();
+
+	MainGame::cannon_ballArray.clear();
+	MainGame::cannonArray.clear();
+
+	MainGame::meteorArray_actualImage.clear();
+	MainGame::letterArray.clear();
+	MainGame::meteorArray.clear();
+	MainGame::bulletArray_Animation.clear();
+
+	MainChars.clear();
 
 	Size visibleSize = Director::getInstance()->getVisibleSize();
 	Vec2 origin = Director::getInstance()->getVisibleOrigin();
@@ -136,7 +155,10 @@ bool MainGame::init()
 	self = this;
 	startGame();
 
-	this->schedule(schedule_selector(MainGame::letterCome), 3);
+	letterComespeed = 5;
+	tweenSpeed = 40;
+
+	this->schedule(schedule_selector(MainGame::letterCome), letterComespeed);
 
 	CCSpriteFrameCache::sharedSpriteFrameCache()->addSpriteFramesWithFile("cannonball_mainassetPlist.plist");
 
@@ -180,7 +202,7 @@ void MainGame::startGame()	// starting of game
 	auto Layer1 = LayerGradient::create(Color4B(255, 0, 0, 255), Color4B(255, 0, 0, 255));
 	Layer1->setContentSize(Size(visibleSize.width, 5));
 	Layer1->setPosition(Vec2(0, origin.y + (visibleSize.height * 33.3 / 100)));
-	this->addChild(Layer1);
+//	this->addChild(Layer1);
 
 	//	layer 2
 	auto Layer2 = LayerGradient::create(Color4B(0, 255, 0, 255), Color4B(0, 255, 0, 255));
@@ -189,17 +211,7 @@ void MainGame::startGame()	// starting of game
 	this->addChild(Layer2);
 
 	//	layer 3
-	auto Layer3 = LayerGradient::create(Color4B(0, 0, 255, 255), Color4B(0, 0, 255, 255));
-	Layer3->setContentSize(Size(visibleSize.width, 5));
-	Layer3->setPosition(Vec2(0, origin.y + (visibleSize.height * 100 / 100)));
-	this->addChild(Layer3);
 
-	//	layer 4
-/*	auto Layer4 = LayerGradient::create(Color4B(0, 255, 255, 255), Color4B(0, 255, 255, 255));
-	Layer4->setContentSize(Size(visibleSize.width, 5));
-	Layer4->setPosition(Vec2(0, origin.y + (visibleSize.height * 100 / 100)));
-	this->addChild(Layer4);
-*/
 	cannon1 = EventListenerClass::createCannon("cannon1.png", 0, 0, 1, 0);
 	cannon1->setPosition(origin.x + (visibleSize.width * 75 / 100), origin.y + (visibleSize.height * 22 / 100));
 	this->addChild(cannon1, 3);
@@ -214,15 +226,9 @@ void MainGame::startGame()	// starting of game
 	cannon3->setPosition(origin.x + (visibleSize.width * 75 / 100), origin.y + (visibleSize.height*78 / 100));
 	this->addChild(cannon3, 3);
 
-/*	cannon4 = EventListenerClass::createCannon("cannon1.png", 0, 0, 1, 3);
-	cannon4->setAnchorPoint(Vec2(.5, .5));
-	cannon4->setPosition(origin.x + (visibleSize.width * 65 / 100), origin.y + (visibleSize.height*87.5 / 100));
-	this->addChild(cannon4, 3);
-*/
 	cannonArray.push_back(cannon1);
 	cannonArray.push_back(cannon2);
 	cannonArray.push_back(cannon3);
-//	cannonArray.push_back(cannon4);
 
 	cannonLetterCome();
 }
@@ -234,7 +240,7 @@ void MainGame::letterCome(float d)
 		for (int i = 0; i < MainGame::letterArray.size(); i++)
 		{
 			this->removeChild(MainGame::letterArray[i]);
-			this->removeChild(MainGame::meteorArray_actualImage[i]);
+//			this->removeChild(MainGame::meteorArray_actualImage[i]);
 
 			MainGame::meteorArray_actualImage.erase(std::remove(MainGame::meteorArray_actualImage.begin(), MainGame::meteorArray_actualImage.end(), MainGame::meteorArray_actualImage[i]));
 			MainGame::meteorArray.erase(std::remove(MainGame::meteorArray.begin(), MainGame::meteorArray.end(), MainGame::meteorArray[i]));
@@ -273,8 +279,9 @@ void MainGame::letterCome(float d)
 	if (MainGame::letterArray.size() < MainGame::cannonArray.size())
 	{
 		int flag = 0;
-		std::vector<char> chars = { 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z' };
+//		std::vector<char> chars = { 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z' };
 		char letterName;
+		std::vector<wchar_t> chars = MainChars[0];
 
 		while (flag == 0)
 		{
@@ -311,7 +318,7 @@ void MainGame::letterCome(float d)
 
 		int val = rand() % MainGame::lettertmpPosition.size();
 		EventListenerClass *lett = EventListenerClass::createSprite("cannonball/cannonball_mainasset/meteor.png", MainGame::lettertmpPosition[val].x, MainGame::lettertmpPosition[val].y, letterName, self);
-		lett->setScale(.7, .7);
+//		lett->setScale(.7, .7);
 		this->addChild(lett);
 		MainGame::letterArray.push_back(lett);
 
@@ -333,36 +340,21 @@ void MainGame::letterCome(float d)
 		std::string value1 = "";
 		value1 += letterName;
 //		Label *myLabel = Label::createWithBMFont("english/baloo_bhai_hdr.fnt", value1);
-		Alphabet *myLabel = Alphabet::createWithSize(letterName, 200);
-		myLabel->setPosition(MainGame::lettertmpPosition[val].x, MainGame::lettertmpPosition[val].y);
+		Alphabet *myLabel = Alphabet::createWithSize(letterName, 300);
+		myLabel->setPosition(lett->getBoundingBox().size.width / 2, lett->getBoundingBox().size.height / 2.2);
+//		myLabel->setPosition(MainGame::lettertmpPosition[val].x, MainGame::lettertmpPosition[val].y);
 //		myLabel->setScale(.10, .10);
-		this->addChild(myLabel);
+		lett->addChild(myLabel);
 		MainGame::meteorArray_actualImage.push_back(myLabel);
 
 		MainGame::lettertmpPosition.erase(MainGame::lettertmpPosition.begin() + val);
 
-		/*		if (backGround_front != NULL)
-		{
-		this->removeChild(backGround_front);
-		}
+//		myLabel->runAction(MoveTo::create(40, Vec2(MainGame::width + 50, myLabel->getPosition().y)));
 
-		backGround_front = Sprite::createWithSpriteFrameName("background_front.png");
-		backGround_front->setPosition(width / 2, height / 2);
-		this->addChild(backGround_front);
-		*/
-
-		myLabel->runAction(MoveTo::create(40, Vec2(MainGame::width + 50, myLabel->getPosition().y)));
-		//		lett->runAction(Sequence::create(MoveTo::create(20, Vec2(lett->getPosition().x, 0)), CC_CALLBACK_1(removeLetter, this, lett)));
-		/*		auto callBack = CallFunc::create([&]() {
-		removeLetter(lett);
-		});
-		*/
 		auto callBack = CallFunc::create([this, lett]() { removeLetter(lett); });
-		auto moveto = MoveTo::create(40, Vec2(MainGame::width + 50, lett->getPosition().y));
+		auto moveto = MoveTo::create(tweenSpeed, Vec2(MainGame::width + 50, lett->getPosition().y));
 		auto seq = Sequence::create(moveto, callBack, NULL);
 		lett->runAction(seq);
-		//		lett.runAction(cc.sequence(cc.MoveTo.create(20, cc.p(lett.getPosition().x, 0)), cc.callFunc(self.removeLetter, this, lett)));
-
 	}
 }
 
@@ -389,14 +381,18 @@ void MainGame::removeLetter(EventListenerClass *img)
 
 void MainGame::cannonLetterCome()	//cannon letter will come which will be dragged on the cannon
 {
-	std::vector<char> chars = { 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z' };
+//	std::vector<char> chars = { 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z' };
 
 	if (MainGame::cannonLetter.size() == 0)
 	{
+
+		MainChars = CharGenerator::getInstance()->generateCharMatrix(1, 10, true);
+		std::vector<wchar_t> tmpMainChars = MainChars[0];
+
 		MainGame::cannon_ballArray.clear();
 		for (int i = 0; i < position.size(); i++)
 		{
-			char letterName = chars[rand() % chars.size()];
+			char letterName = tmpMainChars[i];
 			EventListenerClass * e1 = EventListenerClass::createCannonBall("cannon_ball.png", cannon1, cannon2, cannon3, i, letterName, position[i].x, position[i].y, self);
 			this->addChild(e1);
 			MainGame::cannon_ballArray.push_back(e1);
@@ -416,7 +412,7 @@ void MainGame::cannonLetterCome()	//cannon letter will come which will be dragge
 			//			lb->setScale(.25, .25);
 			//			this->addChild(lb, 20);
 
-			chars.erase(std::remove(chars.begin(), chars.end(), letterName));
+//			chars.erase(std::remove(chars.begin(), chars.end(), letterName));
 			MainGame::cannonLetter.push_back(lb);
 		}
 	}
@@ -439,9 +435,10 @@ void MainGame::cannonLetterCome()	//cannon letter will come which will be dragge
 			{
 				remchar = eventCannonLetterObject;
 				remcharPos = i;
+				break;
 			}
 
-			for (int j = 0; j < chars.size(); j++)
+/*			for (int j = 0; j < chars.size(); j++)
 			{
 				if (chars[j] == eventCannonLetterObject->id)
 				{
@@ -450,13 +447,17 @@ void MainGame::cannonLetterCome()	//cannon letter will come which will be dragge
 					break;
 				}
 			}
-		}
+*/		}
 
 		if (remchar != NULL)
 		{
 			char letterName;
 			if (flag == 0)
-				letterName = chars[rand() % chars.size()];
+			{
+				wchar_t lett = CharGenerator::getInstance()->generateAnotherChar(MainChars[0]);
+				MainChars[0][remcharPos] = lett;
+				letterName = (char)lett;
+			}
 			else
 				letterName = remchar->id;
 
@@ -634,8 +635,8 @@ void MainGame::update(float dt)
 			{
 				auto timeline = CSLoader::createTimeline("cannonball_cannonanimation.csb");
 				Node *mycannon = (Node *)CSLoader::createNode("cannonball_cannonanimation.csb");
-				mycannon->setPosition(MainGame::letterArray[j]->getBoundingBox().origin.x + (MainGame::meteorArray_actualImage[j]->getContentSize().width / 3), MainGame::letterArray[j]->getBoundingBox().origin.y + (MainGame::meteorArray_actualImage[j]->getContentSize().height / 16));
-				mycannon->setScale(.5, .5);
+				mycannon->setPosition(MainGame::letterArray[j]->getBoundingBox().origin.x + (MainGame::letterArray[j]->getContentSize().width / 2), MainGame::letterArray[j]->getBoundingBox().origin.y + (MainGame::letterArray[j]->getContentSize().height / 2));
+//				mycannon->setScale(.5, .5);
 				self->addChild(mycannon);	// add cannon animation
 				mycannon->runAction(timeline);
 				timeline->gotoFrameAndPlay(46, false);
@@ -646,7 +647,7 @@ void MainGame::update(float dt)
 				{
 					this->removeChild(MainGame::letterArray[j]);
 					this->removeChild(MainGame::cannonArray[i]);
-					this->removeChild(MainGame::meteorArray_actualImage[j]);
+//					this->removeChild(MainGame::meteorArray_actualImage[j]);
 
 					if (MainGame::cannonArray[i]->flag == 1)
 					{
@@ -696,6 +697,13 @@ void MainGame::update(float dt)
 					MainGame::letterArray.erase(std::remove(MainGame::letterArray.begin(), MainGame::letterArray.end(), MainGame::letterArray[j]));
 					MainGame::meteorArray.erase(std::remove(MainGame::meteorArray.begin(), MainGame::meteorArray.end(), MainGame::meteorArray[j]));
 					MainGame::meteorArray_actualImage.erase(std::remove(MainGame::meteorArray_actualImage.begin(), MainGame::meteorArray_actualImage.end(), MainGame::meteorArray_actualImage[j]));
+
+					if (MainGame::cannonArray.size() == 1)
+					{
+						tweenSpeed = 15;
+						letterComespeed = 1;
+					}
+
 					//					MainGame::letterArray.erase(MainGame::letterArray.begin() + j);
 					//					MainGame::meteorArray.erase(MainGame::meteorArray.begin() + j);
 
@@ -714,7 +722,7 @@ void MainGame::update(float dt)
 						MainGame::lettertmpPosition.push_back(p99);
 					}
 					this->removeChild(MainGame::letterArray[j]);
-					this->removeChild(MainGame::meteorArray_actualImage[j]);
+//					this->removeChild(MainGame::meteorArray_actualImage[j]);
 					//					MainGame::letterArray.erase(MainGame::letterArray.begin()+j);
 					//					MainGame::meteorArray.erase(MainGame::meteorArray.begin()+j);
 					MainGame::letterArray.erase(std::remove(MainGame::letterArray.begin(), MainGame::letterArray.end(), MainGame::letterArray[j]));
@@ -737,9 +745,11 @@ void MainGame::update(float dt)
 			{
 				break;
 			}
-			Rect targetRect = MainGame::letterArray[i]->getBoundingBox();
-			if (targetRect.intersectsRect(MainGame::bulletArray_actualImage[j]->getBoundingBox()))
+//			Rect targetRect = MainGame::letterArray[i]->getBoundingBox();
+			Rect targetRect = Rect(MainGame::bulletArray_Animation[j]->getBoundingBox().origin.x - (MainGame::bulletArray_Animation[j]->getChildByName("blaze")->getContentSize().width / 2) , MainGame::bulletArray_Animation[j]->getBoundingBox().origin.y, MainGame::bulletArray_Animation[j]->getChildByName("blaze")->getContentSize().width, MainGame::bulletArray_Animation[j]->getChildByName("blaze")->getContentSize().height);
+			if (targetRect.intersectsRect(MainGame::letterArray[i]->getBoundingBox()))
 			{
+				CCLOG("%f", MainGame::bulletArray_Animation[j]->getChildByName("blaze")->getContentSize().width );
 				if (MainGame::letterArray[i]->id == MainGame::bulletArray[j]->id)
 				{
 					for (int k = 0; k < MainGame::cannonLetter.size(); k++)
@@ -765,8 +775,8 @@ void MainGame::update(float dt)
 
 					auto timeline = CSLoader::createTimeline("cannonball_meteoranimation.csb");
 					Node *mycannon = (Node *)CSLoader::createNode("cannonball_meteoranimation.csb");
-					mycannon->setPosition(MainGame::letterArray[i]->getBoundingBox().origin.x + (MainGame::meteorArray_actualImage[i]->getContentSize().width / 3), MainGame::letterArray[i]->getBoundingBox().origin.y + (MainGame::meteorArray_actualImage[i]->getContentSize().height / 16));
-					mycannon->setScale(.7, .7);
+					mycannon->setPosition(MainGame::letterArray[i]->getBoundingBox().origin.x + (MainGame::letterArray[i]->getContentSize().width), MainGame::letterArray[i]->getBoundingBox().origin.y + (MainGame::letterArray[i]->getContentSize().height / 2));
+//					mycannon->setScale(.7, .7);
 					self->addChild(mycannon);	// add cannon animation
 					mycannon->runAction(timeline);
 					timeline->gotoFrameAndPlay(00, false);
@@ -775,7 +785,7 @@ void MainGame::update(float dt)
 
 					this->removeChild(MainGame::bulletArray_actualImage[j]);
 					this->removeChild(MainGame::letterArray[i]);
-					this->removeChild(MainGame::meteorArray_actualImage[i]);
+//					this->removeChild(MainGame::meteorArray_actualImage[i]);
 					this->removeChild(MainGame::bulletArray_Animation[j]);
 
 					_menuContext->pickAlphabet(MainGame::letterArray[i]->id, bulletArray[j]->id, true);
@@ -830,11 +840,11 @@ void MainGame::update(float dt)
 					}
 
 					_menuContext->pickAlphabet(MainGame::letterArray[i]->id, bulletArray[j]->id, true);
-
+						
 					auto timeline = CSLoader::createTimeline("cannonball_meteoranimation.csb");
 					Node *mycannon = (Node *)CSLoader::createNode("cannonball_meteoranimation.csb");
-					mycannon->setPosition(MainGame::letterArray[i]->getBoundingBox().origin.x + (MainGame::meteorArray_actualImage[i]->getContentSize().width / 4), MainGame::letterArray[i]->getBoundingBox().origin.y + (MainGame::meteorArray_actualImage[i]->getContentSize().height / 16));
-					mycannon->setScale(.7, .7);
+					mycannon->setPosition(MainGame::letterArray[i]->getBoundingBox().origin.x + (MainGame::letterArray[i]->getContentSize().width), MainGame::letterArray[i]->getBoundingBox().origin.y + (MainGame::letterArray[i]->getContentSize().height / 2));
+//					mycannon->setScale(.7, .7);
 					self->addChild(mycannon);	// add cannon animation
 					mycannon->runAction(timeline);
 					timeline->gotoFrameAndPlay(40, false);
