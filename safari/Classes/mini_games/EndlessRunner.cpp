@@ -57,7 +57,7 @@ bool EndlessRunner::init()
 	leftBarrier = EndlessRunner::CreateSprites("endlessrunner/barrier.png", (visibleSize.width * -15 / 100) + origin.x, (visibleSize.height * 0) + origin.y, 1, 1, 0, "IMG");
 
 	leftBarrierForBigObject = EndlessRunner::CreateSprites("endlessrunner/barrier.png", (visibleSize.width * -70 / 100) + origin.x, (visibleSize.height * 0) + origin.y, 1, 1, 0, "IMG");
-	rightBarrier = EndlessRunner::CreateSprites("endlessrunner/barrier.png", (visibleSize.width * 120 / 100) + origin.x, (visibleSize.height * 0) + origin.y, 1, 1, 0, "IMG");
+	rightBarrier = EndlessRunner::CreateSprites("endlessrunner/barrier.png", (visibleSize.width * 80 / 100) + origin.x, (visibleSize.height * 0) + origin.y, 1, 1, 0, "IMG");
 	upBarrier = EndlessRunner::CreateSprites("endlessrunner/bgTouchImage.png", origin.x, origin.y + (visibleSize.height * 110 / 100), visibleSize.width, 1, 0, "IMG");
 	upBarrier->setAnchorPoint(Vec2(0, 1));
 
@@ -144,6 +144,8 @@ void EndlessRunner::update(float delta) {
 		}
 	}
 
+
+
 	if (Character.onAir) {
 		EndlessRunner::FallDownCharacter();
 	}
@@ -177,7 +179,7 @@ void EndlessRunner::FallDownCharacter() {
 void EndlessRunner::stillCharacterOnPath(float delta) {
 
 	for (std::size_t i = 0; i < allPathBlocks.size(); i++) {
-		auto man = Character.character;
+		
 		auto box = Character.character->getChildByName("floor_2")->getBoundingBox();
 		Rect parent = Character.character->getBoundingBox();
 		Rect boxs = Rect(parent.origin.x + box.origin.x, parent.origin.y + box.origin.y, box.size.width*1.2, box.size.height*1.2);
@@ -220,7 +222,7 @@ void EndlessRunner::stillCharacterOnPath(float delta) {
 				}
 			}
 			else if (allPathBlocks[i]->LayerTypeName == mountainLayerTypes.gap && !LayerMode.gapMode ) {
-				
+				CCLOG("HOW MANY TIME GAP COME");
 				LayerMode.gapMode = true;
 				Character.onAir = false;
 			
@@ -253,7 +255,7 @@ void EndlessRunner::stillCharacterOnPath(float delta) {
 				auto main_Sequence = Sequence::create(DelayTime::create(0.8),setPositionOnPath, blink, visible, NULL);
 				Character.character->runAction(main_Sequence);
 				
-			}
+			} 
 		}
 		else {
 			Character.character->setPositionY(Character.character->getPositionY() - (0.8));
@@ -284,6 +286,17 @@ void EndlessRunner::startingIntersectMode() {
 			EndlessRunner::AddRocksInSecondLayerPath();
 		}
 	}
+
+	for (std::size_t i = 0; i < allGapBlocks.size(); i++) {
+		auto box = Character.character->getChildByName("floor_2")->getBoundingBox();
+		Rect parent = Character.character->getBoundingBox();
+		Rect boxs = Rect(parent.origin.x + box.origin.x, parent.origin.y + box.origin.y, box.size.width*1.2, box.size.height*1.2);
+
+		if (boxs.intersectsRect(allGapBlocks[i]->getBoundingBox())) {
+			CCLOG("I AM INTERSECTING WITH NEW GAP");
+		}
+	}
+
 
 	for (std::size_t i = 0; i < allLabels.size(); i++) {
 
@@ -537,14 +550,18 @@ void EndlessRunner::AddRocksInFirstLayerPath() {
 
 	if (currentFirstLayerRock->NextRockName == mountainTypeObject.gapLand) {
 
-		SpriteCreate* currentImage = SpriteCreate::createSprite("endlessrunner/gapw.png", (currentFirstLayerRock->getPosition().x + currentFirstLayerRock->getContentSize().width), LayerYcoord.groundLevel + origin.y, 0, 0, mountainTypeObject.gapLand, mountainTypeObject.startLandPart, mountainLayerTypes.gap);
+		SpriteCreate* currentImage = SpriteCreate::createSprite("endlessrunner/gapw.png", (currentFirstLayerRock->getPosition().x + currentFirstLayerRock->getContentSize().width), LayerYcoord.groundLevel, 0, 0, mountainTypeObject.gapLand, mountainTypeObject.startLandPart, mountainLayerTypes.gap);
 		this->addChild(currentImage, zOrderPathLayer.firstLayer);
-		allPathBlocks.push_back(currentImage);
+//		allPathBlocks.push_back(currentImage);
+
+		auto extra = EndlessRunner::CreateSprites("endlessrunner/gapw.png", (currentFirstLayerRock->getPosition().x + currentFirstLayerRock->getContentSize().width),LayerYcoord.firstLayer,1,1,zOrderPathLayer.character,"gapBlocks");
+		extra->runAction(MoveTo::create(EndlessRunner::movingTime(currentImage), Vec2(leftBarrier->getPosition().x, LayerYcoord.firstLayer)));
+
 		currentFirstLayerRock = currentImage;
 		currentImage->setScaleY(11);
 		currentImage->setOpacity(0);
 		position = EndlessRunner::movingUpto(LayerYcoord.groundLevel);
-		currentFirstLayerRock->runAction(MoveTo::create(EndlessRunner::movingTime(currentFirstLayerRock), Vec2(leftBarrier->getPosition().x + origin.x, position.second)));
+		currentFirstLayerRock->runAction(MoveTo::create(EndlessRunner::movingTime(currentFirstLayerRock), Vec2(leftBarrier->getPosition().x, position.second)));
 		FirstLayerModes = 1;
 		FirstLayerstartFlag = false;
 	}
@@ -659,6 +676,8 @@ Sprite* EndlessRunner::CreateSprites(std::string name, int PositionX, int positi
 	}
 	if (vectorType == "blinkBlock") {
 		allBeforeStartBlocks.push_back(sprite);
+	}if (vectorType == "gapBlocks") {
+		allGapBlocks.push_back(sprite);
 	}
 	return sprite;
 }

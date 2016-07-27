@@ -22,6 +22,7 @@ protected:
 	std::vector<SpriteCreate*> allPathBlocks; // Vector Array Which Carries all Path Blocks
 	std::vector<Sprite*> allSceneObject;
 	std::vector<Sprite*> allBeforeStartBlocks;
+	std::vector<Sprite*> allGapBlocks;
 	std::pair<float, float> position;
 	std::vector<Label*> allLabels;
 	std::vector<Sprite*> allMonster;
