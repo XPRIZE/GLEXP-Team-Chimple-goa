@@ -194,6 +194,12 @@
     <ClCompile Include="..\Classes\MO.cpp">
       <Filter>src</Filter>
     </ClCompile>
+    <ClCompile Include="..\Classes\MapIsland.cpp">
+      <Filter>src\puzzle</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\MapScene.cpp">
+      <Filter>src\puzzle</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -360,6 +366,12 @@
     </ClInclude>
     <ClInclude Include="..\Classes\MO.h">
       <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\MapIsland.h">
+      <Filter>src\puzzle</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\MapScene.h">
+      <Filter>src\puzzle</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
