@@ -81,7 +81,7 @@ bool CrossTheBridge::init()
 	pathOpen_right->setVisible(false);
 	pathOpen_left->setVisible(false);
 
-	Sprite* transparentBG = Sprite::create("Crossthebridge/Pixel.png");
+	Sprite* transparentBG = Sprite::create("crossthebridge/Pixel.png");
 	transparentBG->setPosition(Vec2(0 + origin.x, 0 + origin.y));
 	transparentBG->setAnchorPoint(Vec2(0, 0));
 	transparentBG->setScaleX(2560);
@@ -110,45 +110,45 @@ void CrossTheBridge::sceneMaking()
 	Vec2 origin = Director::getInstance()->getVisibleOrigin();
 	auto visibleSize = Director::getInstance()->getVisibleSize();
 
-	cubeAtRest = Sprite::create("Crossthebridge/border.png");
+	cubeAtRest = Sprite::create("crossthebridge/border.png");
 	cubeAtRest->setPosition(Vec2(630 + origin.x, (visibleSize.height*0.47) + origin.y));
 	cubeAtRest->setAnchorPoint(Vec2(0, 0));
 	this->addChild(cubeAtRest, 1);
 	cubeAtRest->setScale(0.9, 1);
 	cubeAtRest->setVisible(false);
 
-	barrierRight = Sprite::create("Crossthebridge/barrier.png");
+	barrierRight = Sprite::create("crossthebridge/barrier.png");
 	barrierRight->setPosition(Vec2(visibleSize.width + 50 + origin.x, (visibleSize.height*0.01) + origin.y));
 	barrierRight->setAnchorPoint(Vec2(0, 0));
 	this->addChild(barrierRight, 1);
 
-	barrierLeft = Sprite::create("Crossthebridge/barrier.png");
+	barrierLeft = Sprite::create("crossthebridge/barrier.png");
 	barrierLeft->setPosition(Vec2(40 + origin.x, (visibleSize.height*0.46) + origin.y));
 	barrierLeft->setAnchorPoint(Vec2(0, 0));
 	this->addChild(barrierLeft, 1);
 	barrierLeft->setVisible(false);
 
-	alphaSoundBarrier = Sprite::create("Crossthebridge/barrier.png");
+	alphaSoundBarrier = Sprite::create("crossthebridge/barrier.png");
 	alphaSoundBarrier->setPosition(Vec2(1150 + origin.x, (visibleSize.height*0.47) + origin.y));
 	alphaSoundBarrier->setAnchorPoint(Vec2(0, 0));
 	this->addChild(alphaSoundBarrier, 3);
 	alphaSoundBarrier->setVisible(false);
 
-	barrierFlat = Sprite::create("Crossthebridge/barrier.png");
+	barrierFlat = Sprite::create("crossthebridge/barrier.png");
 	barrierFlat->setPosition(Vec2(10 + origin.x, 370 + origin.y));
 	barrierFlat->setAnchorPoint(Vec2(0, 0));
 	this->addChild(barrierFlat, 1);
 	barrierFlat->setRotation(90.0f);
 	barrierFlat->setVisible(false);
 
-	/*barrierLowerSide = Sprite::create("Crossthebridge/barrier.png");
-	barrierLowerSide->setPosition(Vec2(34 + origin.x,400 + origin.y));
+	barrierLowerSide = Sprite::create("Crossthebridge/barrier.png");
+	barrierLowerSide->setPosition(Vec2(80 + origin.x,400 + origin.y));
 	barrierLowerSide->setAnchorPoint(Vec2(0, 0));
 	this->addChild(barrierLowerSide, 3);
-	barrierLowerSide->setRotation(38.0f);
-	barrierLowerSide->setScaleY(0.14);
-	barrierLowerSide->setVisible(true);
-*/
+	barrierLowerSide->setRotation(47.0f);
+	barrierLowerSide->setScaleY(0.18);
+	barrierLowerSide->setVisible(false);
+
 	letterDisplayCombinationMethod(2.0f);
 	alphabetGeneration(2.0f);
 }
@@ -162,6 +162,8 @@ void CrossTheBridge::update(float delta) {
 
 	removeObjectFromScene_Alpha();
 	removeObjectFromScene_Mons();
+
+	alphaIntersectBridgeCurve();
 
 	alphaLoud();
 
@@ -372,6 +374,33 @@ void CrossTheBridge::removeObjectFromScene_Mons()
 
 			this->removeChild(monsContainer[i], true);
 			monsContainer.erase(monsContainer.begin() + i);
+		}
+	}
+}
+void CrossTheBridge::alphaIntersectBridgeCurve()
+{
+	for (int i = 0; i < alphaContainer.size(); i++)
+	{
+		auto alphaBox = CCRectMake(alphaContainer[i]->getPositionX(), alphaContainer[i]->getPositionY(), alphaContainer[i]->getContentSize().width, alphaContainer[i]->getContentSize().height);
+		if (alphaBox.intersectsRect(barrierLowerSide->getBoundingBox()) )
+		{
+			auto sequence_A = MoveTo::create(2, Vec2(alphaContainer[i]->getPosition().x, 300));
+			auto main_sequence = Sequence::create(sequence_A, NULL);
+			alphaContainer[i]->runAction(main_sequence);
+		}
+	}
+}
+
+void CrossTheBridge::monsIntersectBridgeCurve()
+{
+	for (int i = 0; i<monsContainer.size(); i++)
+	{
+		Rect monster = monsContainer[i]->getBoundingBox();
+		if (monster.intersectsRect(barrierLowerSide->getBoundingBox()) )
+		{
+			auto sequence_A = MoveTo::create(2, Vec2(monsContainer[i]->getPosition().x, 300));
+			auto main_sequence = Sequence::create(sequence_A, NULL);
+			monsContainer[i]->runAction(main_sequence);
 		}
 	}
 }
