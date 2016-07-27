@@ -35,6 +35,7 @@ bool PatchTheWall::init()
 	{
 		return false;
 	}
+	flag = -1;
 	Size visibleSize = Director::getInstance()->getVisibleSize();
 	Vec2 origin = Director::getInstance()->getVisibleOrigin();
 
@@ -111,6 +112,7 @@ bool PatchTheWall::onTouchBegan(cocos2d::Touch *touch, cocos2d::Event * event)
 		PatchTheWall::x = parentNode->getPositionX();
 		PatchTheWall::y = parentNode->getPositionY();
 		CCLOG("touch");
+		flag = 0;
 		return true;
 	}
 
@@ -119,6 +121,8 @@ bool PatchTheWall::onTouchBegan(cocos2d::Touch *touch, cocos2d::Event * event)
 void PatchTheWall::onTouchMoved(cocos2d::Touch *touch, cocos2d::Event * event)
 {
 	PatchTheWall::no->setPosition(touch->getLocation());
+	if(flag==0)
+		flag = -1;
 	CCLOG("box size = %f", PatchTheWall::no->getContentSize().width);
 	for (int i = 0; i < blastAlphaReff.size(); i++)
 	{
@@ -126,9 +130,9 @@ void PatchTheWall::onTouchMoved(cocos2d::Touch *touch, cocos2d::Event * event)
 	
 		if ((PatchTheWall::no->getBoundingBox()).containsPoint(my_point) && ((PatchTheWall::no->getName()).compare(blastAlphaReff.at(i)->getName()) == 0))
 		{
-			_menuContext->pickAlphabet(blastAlphaReff.at(i)->getName().at(0), PatchTheWall::no->getName().at(0), true);
+			_menuContext->pickAlphabet(PatchTheWall::no->getName().at(0), blastAlphaReff.at(i)->getName().at(0), true);
 			CCLOG("overlap");
-			CCLOG("lsfaff %f = ", (crackReff.at(i)->getPositionX()-95)/280);
+			CCLOG("lsfaff %f = ", (crackReff.at(i)->getPositionX() - 95) / 280);
 			int splash = (crackReff.at(i)->getPositionX() - 95) / 280;
 			breakFlag.at(splash) = false;
 			// fades in the sprite in 1 seconds 
@@ -140,25 +144,34 @@ void PatchTheWall::onTouchMoved(cocos2d::Touch *touch, cocos2d::Event * event)
 			PatchTheWall::no->setOpacity(0);
 			score = score + 5;
 			slideBar->setPercent(score);
-			flag = true;
+			flag = 1;
 		}
-
 	}
 }
 void PatchTheWall::onTouchEnded(cocos2d::Touch *touch, cocos2d::Event * event)
 {
-	if (flag) {
+	if (flag==1) {
 		flag1 = true;
-		flag = false;
+		flag = -1;
+//		PatchTheWall::no->runAction(MoveTo::create(3, Vec2(PatchTheWall::x, PatchTheWall::y)));
 		PatchTheWall::no->setPositionX(PatchTheWall::x);
 		PatchTheWall::no->setPositionY(PatchTheWall::y);
 		PatchTheWall::no->setOpacity(255);
 	}
-	else
+	else if(flag==0)
 	{
 		flag1 = true;
+		flag = -1;
+	}
+	else if(flag==-1)
+	{
+		flag = -1;
+		flag1 = true;
 		PatchTheWall::no->runAction(MoveTo::create(3, Vec2(PatchTheWall::x, PatchTheWall::y)));
-
+//		PatchTheWall::no->setPositionX(PatchTheWall::x);
+//		PatchTheWall::no->setPositionY(PatchTheWall::y);
+		PatchTheWall::no->setOpacity(255);
+		_menuContext->pickAlphabet('A', 'B', true);
 	}
 
 	//isTouching = false;

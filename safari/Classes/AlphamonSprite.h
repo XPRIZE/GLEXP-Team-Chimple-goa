@@ -43,6 +43,8 @@ public:
         
     CC_SYNTHESIZE(bool, vicinityToMainCharacter, VicinityToMainCharacter);
     
+    CC_SYNTHESIZE(bool, nearByToMainCharacter, NearByToMainCharacter);
+    
     CC_SYNTHESIZE(bool, shouldSendShowTouchSign, ShouldSendShowTouchSign);
     
     CC_SYNTHESIZE(bool, showTouchSignNotificationSent, ShowTouchSignNotificationSent);

@@ -155,7 +155,11 @@ private:
     
     void createAlphaMons(float dt);
     
+    bool checkIfAlphamonNodeNearBy(std::string alphamonNodeName);
+    
     void calculateAlphamonNodesInScene(cocos2d::Node *rootNode);
+    
+    void resetTouchPointSign();
 
     cocos2d::Size sceneSize;
     

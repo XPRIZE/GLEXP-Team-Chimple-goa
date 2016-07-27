@@ -29,6 +29,9 @@ float MainGame::originX;
 float MainGame::originY;
 MainGame* MainGame::self;
 
+int letterComespeed;
+int tweenSpeed;
+
 Scene* MainGame::createScene()
 {
 	auto scene = Scene::create();
@@ -50,6 +53,22 @@ bool MainGame::init()
 	}
 
 	//	auto cannonAnimation = CSLoader::createTimeline("res/cannon.csb");
+
+	MainGame::cannonLetter.clear();
+	MainGame::cannonLetter_actualImage.clear();
+
+	MainGame::bulletArray.clear();
+	MainGame::bulletArray_actualImage.clear();
+
+	MainGame::cannon_ballArray.clear();
+	MainGame::cannonArray.clear();
+
+	MainGame::meteorArray_actualImage.clear();
+	MainGame::letterArray.clear();
+	MainGame::meteorArray.clear();
+	MainGame::bulletArray_Animation.clear();
+
+	MainChars.clear();
 
 	Size visibleSize = Director::getInstance()->getVisibleSize();
 	Vec2 origin = Director::getInstance()->getVisibleOrigin();
@@ -136,7 +155,10 @@ bool MainGame::init()
 	self = this;
 	startGame();
 
-	this->schedule(schedule_selector(MainGame::letterCome), 3);
+	letterComespeed = 5;
+	tweenSpeed = 40;
+
+	this->schedule(schedule_selector(MainGame::letterCome), letterComespeed);
 
 	CCSpriteFrameCache::sharedSpriteFrameCache()->addSpriteFramesWithFile("cannonball_mainassetPlist.plist");
 
@@ -180,7 +202,7 @@ void MainGame::startGame()	// starting of game
 	auto Layer1 = LayerGradient::create(Color4B(255, 0, 0, 255), Color4B(255, 0, 0, 255));
 	Layer1->setContentSize(Size(visibleSize.width, 5));
 	Layer1->setPosition(Vec2(0, origin.y + (visibleSize.height * 33.3 / 100)));
-	this->addChild(Layer1);
+//	this->addChild(Layer1);
 
 	//	layer 2
 	auto Layer2 = LayerGradient::create(Color4B(0, 255, 0, 255), Color4B(0, 255, 0, 255));
@@ -189,10 +211,6 @@ void MainGame::startGame()	// starting of game
 	this->addChild(Layer2);
 
 	//	layer 3
-	auto Layer3 = LayerGradient::create(Color4B(0, 0, 255, 255), Color4B(0, 0, 255, 255));
-	Layer3->setContentSize(Size(visibleSize.width, 5));
-	Layer3->setPosition(Vec2(0, origin.y + (visibleSize.height * 100 / 100)));
-	this->addChild(Layer3);
 
 	cannon1 = EventListenerClass::createCannon("cannon1.png", 0, 0, 1, 0);
 	cannon1->setPosition(origin.x + (visibleSize.width * 75 / 100), origin.y + (visibleSize.height * 22 / 100));
@@ -261,8 +279,9 @@ void MainGame::letterCome(float d)
 	if (MainGame::letterArray.size() < MainGame::cannonArray.size())
 	{
 		int flag = 0;
-		std::vector<char> chars = { 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z' };
+//		std::vector<char> chars = { 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z' };
 		char letterName;
+		std::vector<wchar_t> chars = MainChars[0];
 
 		while (flag == 0)
 		{
@@ -333,7 +352,7 @@ void MainGame::letterCome(float d)
 //		myLabel->runAction(MoveTo::create(40, Vec2(MainGame::width + 50, myLabel->getPosition().y)));
 
 		auto callBack = CallFunc::create([this, lett]() { removeLetter(lett); });
-		auto moveto = MoveTo::create(40, Vec2(MainGame::width + 50, lett->getPosition().y));
+		auto moveto = MoveTo::create(tweenSpeed, Vec2(MainGame::width + 50, lett->getPosition().y));
 		auto seq = Sequence::create(moveto, callBack, NULL);
 		lett->runAction(seq);
 	}
@@ -362,28 +381,18 @@ void MainGame::removeLetter(EventListenerClass *img)
 
 void MainGame::cannonLetterCome()	//cannon letter will come which will be dragged on the cannon
 {
-	std::vector<char> chars = { 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z' };
+//	std::vector<char> chars = { 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z' };
 
 	if (MainGame::cannonLetter.size() == 0)
 	{
 
-		std::vector<std::vector<wchar_t>> aa = CharGenerator::getInstance()->generateCharMatrix(2, 5, true);
-		int k = 0;
-
-		for (int i = 0; i < 2; i++)
-		{
-			for (int j = 0; j < 5; j++)
-			{
-				MainChars[k] = aa[i][j];
-				k++;
-			}
-		}
-
+		MainChars = CharGenerator::getInstance()->generateCharMatrix(1, 10, true);
+		std::vector<wchar_t> tmpMainChars = MainChars[0];
 
 		MainGame::cannon_ballArray.clear();
 		for (int i = 0; i < position.size(); i++)
 		{
-			char letterName = chars[rand() % chars.size()];
+			char letterName = tmpMainChars[i];
 			EventListenerClass * e1 = EventListenerClass::createCannonBall("cannon_ball.png", cannon1, cannon2, cannon3, i, letterName, position[i].x, position[i].y, self);
 			this->addChild(e1);
 			MainGame::cannon_ballArray.push_back(e1);
@@ -403,7 +412,7 @@ void MainGame::cannonLetterCome()	//cannon letter will come which will be dragge
 			//			lb->setScale(.25, .25);
 			//			this->addChild(lb, 20);
 
-			chars.erase(std::remove(chars.begin(), chars.end(), letterName));
+//			chars.erase(std::remove(chars.begin(), chars.end(), letterName));
 			MainGame::cannonLetter.push_back(lb);
 		}
 	}
@@ -426,9 +435,10 @@ void MainGame::cannonLetterCome()	//cannon letter will come which will be dragge
 			{
 				remchar = eventCannonLetterObject;
 				remcharPos = i;
+				break;
 			}
 
-			for (int j = 0; j < chars.size(); j++)
+/*			for (int j = 0; j < chars.size(); j++)
 			{
 				if (chars[j] == eventCannonLetterObject->id)
 				{
@@ -437,13 +447,17 @@ void MainGame::cannonLetterCome()	//cannon letter will come which will be dragge
 					break;
 				}
 			}
-		}
+*/		}
 
 		if (remchar != NULL)
 		{
 			char letterName;
 			if (flag == 0)
-				letterName = chars[rand() % chars.size()];
+			{
+				wchar_t lett = CharGenerator::getInstance()->generateAnotherChar(MainChars[0]);
+				MainChars[0][remcharPos] = lett;
+				letterName = (char)lett;
+			}
 			else
 				letterName = remchar->id;
 
@@ -683,6 +697,13 @@ void MainGame::update(float dt)
 					MainGame::letterArray.erase(std::remove(MainGame::letterArray.begin(), MainGame::letterArray.end(), MainGame::letterArray[j]));
 					MainGame::meteorArray.erase(std::remove(MainGame::meteorArray.begin(), MainGame::meteorArray.end(), MainGame::meteorArray[j]));
 					MainGame::meteorArray_actualImage.erase(std::remove(MainGame::meteorArray_actualImage.begin(), MainGame::meteorArray_actualImage.end(), MainGame::meteorArray_actualImage[j]));
+
+					if (MainGame::cannonArray.size() == 1)
+					{
+						tweenSpeed = 15;
+						letterComespeed = 1;
+					}
+
 					//					MainGame::letterArray.erase(MainGame::letterArray.begin() + j);
 					//					MainGame::meteorArray.erase(MainGame::meteorArray.begin() + j);
 

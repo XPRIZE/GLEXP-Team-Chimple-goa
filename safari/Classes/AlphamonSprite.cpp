@@ -59,16 +59,21 @@ bool AlphamonSprite::initialize(cocos2d::Node* node, std::unordered_map<std::str
         this->mainSkeleton = static_cast<SkeletonCharacter*>(event->getUserData());
         this->checkVicinityToMainSkeleton(this->mainSkeleton);
         
-        if(this->getVicinityToMainCharacter() && !this->getShowTouchSignNotificationSent()) {
+        
+        if(this->getNearByToMainCharacter() && !this->getShowTouchSignNotificationSent()) {
             this->setShowTouchSignNotificationSent(true);
             EVENT_DISPATCHER->dispatchCustomEvent(RPGConfig::SEND_SHOW_TOUCH_POINT_SIGN_NOTIFICATION, static_cast<void*>(this->getAlphaMon()));
-            
+        }
+        
+        if(this->getVicinityToMainCharacter() && !this->getShowTouchSignNotificationSent()) {
+            this->setShowTouchSignNotificationSent(true);
+            EVENT_DISPATCHER->dispatchCustomEvent(RPGConfig::SEND_SHOW_TOUCH_POINT_SIGN_NOTIFICATION, static_cast<void*>(this->getAlphaMon()));            
         }
     };
     
     ADD_VICINITY_NOTIFICATION(this, RPGConfig::MAIN_CHARACTER_VICINITY_CHECK_NOTIFICATION, checkVicinityWithMainCharacter);
     
-    this->schedule(CC_SCHEDULE_SELECTOR(AlphamonSprite::destoryAlphaMon), 20.0f);
+    this->schedule(CC_SCHEDULE_SELECTOR(AlphamonSprite::destoryAlphaMon), ALPHAMON_DESTRUCTION_FREQUENCY);
     this->scheduleUpdate();
     
     return true;
@@ -114,6 +119,7 @@ bool AlphamonSprite::checkVicinityToMainSkeleton(SkeletonCharacter* skeletonChar
     
     if((distanceFromTop >= -OBJECT_TAP_BOUNDING_BOX_WIDTH && distanceFromTop <= OBJECT_TAP_BOUNDING_BOX_WIDTH) || (distanceFromBottom >= -OBJECT_TAP_BOUNDING_BOX_WIDTH && distanceFromBottom <= OBJECT_TAP_BOUNDING_BOX_WIDTH)) {
         this->setVicinityToMainCharacter(true);
+        this->setShouldSendShowTouchSign(true);
         isNear = true;
         
     } else {
@@ -124,8 +130,10 @@ bool AlphamonSprite::checkVicinityToMainSkeleton(SkeletonCharacter* skeletonChar
     
     if((distanceFromTop >= -OBJECT_NEAR_BY_BOUNDING_BOX_WIDTH && distanceFromTop <= OBJECT_NEAR_BY_BOUNDING_BOX_WIDTH) || (distanceFromBottom >= -OBJECT_NEAR_BY_BOUNDING_BOX_WIDTH && distanceFromBottom <= OBJECT_NEAR_BY_BOUNDING_BOX_WIDTH)) {
         this->setShouldSendShowTouchSign(true);
+        this->setNearByToMainCharacter(true);
         
     } else {
+        this->setNearByToMainCharacter(false);
         this->setShouldSendShowTouchSign(false);
         this->setShowTouchSignNotificationSent(false);
     }
