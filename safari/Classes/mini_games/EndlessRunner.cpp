@@ -39,7 +39,6 @@ bool EndlessRunner::init()
 	
 	letters = CharGenerator::getInstance()->generateMatrixForChoosingAChar(tempChar,21, 1, 70);
 
-	//CocosDenshion::SimpleAudioEngine::sharedEngine()->playBackgroundMusic("endlessrunner/sound/jungleMusic.wav", true);
 	audioBg = CocosDenshion::SimpleAudioEngine::getInstance();
 	audioBg->playEffect("endlessrunner/sound/jungleMusic.wav", true);
 	
