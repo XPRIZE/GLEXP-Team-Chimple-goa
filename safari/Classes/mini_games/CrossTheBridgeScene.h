@@ -34,10 +34,11 @@ public:
 	void removeObjectFromScene_Alpha();
 	void removeObjectFromScene_Mons();
 
+	void alphaLoud();
+
 	void letterDisplayCombinationMethod(float dt);
 
 	virtual void addEvents(Sprite* touchSprite);
-
 	// a selector callback
 	void menuCloseCallback(cocos2d::Ref* pSender);
 
@@ -51,6 +52,7 @@ protected:
 	Sprite* pathOpen_right;
 	Sprite* pathOpen_left;
 	Sprite* splash;
+	Sprite* alphaSoundBarrier;
 
 	MenuContext *_menuContext;
 
