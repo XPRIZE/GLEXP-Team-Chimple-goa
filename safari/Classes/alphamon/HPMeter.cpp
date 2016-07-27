@@ -30,7 +30,9 @@ bool HPMeter::initWithTextureAndPercent(const std::string &background, const std
     if(!Slider::init()) {
         return false;
     }
-    loadBarTexture(background);
+    if(!background.empty()) {
+        loadBarTexture(background);
+    }
     loadProgressBarTexture(innerBar);
 //    loadSlidBallTextureNormal(normalBall);
     setScale9Enabled(true);

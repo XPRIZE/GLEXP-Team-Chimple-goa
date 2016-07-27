@@ -12,6 +12,7 @@
 #include "cocos2d.h"
 #include <sstream>
 #include "ui/CocosGUI.h"
+#include "../alphamon/HPMeter.h"
 
 class MenuContext : public cocos2d::Node {
     
@@ -32,6 +33,7 @@ protected:
     bool _launchCustomEventOnExit;
     cocos2d::Node* _main;
     cocos2d::Label* _label;
+    HPMeter* _pointMeter;
     cocos2d::ui::Button* _menuButton;
     cocos2d::ui::Button* _menu;
     cocos2d::LayerColor* _greyLayer;

@@ -26,9 +26,8 @@ bool Alphabet::onTouchBegan(Touch* touch, Event* event){
         auto audio = CocosDenshion::SimpleAudioEngine::getInstance();
         audio->playEffect(LangUtil::getInstance()->getAlphabetSoundFileName(_alphabet).c_str());
         if(touchBeganCallback) {
-            touchBeganCallback(touch, event);
+            return touchBeganCallback(touch, event);
         }
-        return true; // to indicate that we have consumed it.
     }
     
     return false; // we did not consume this event, pass thru.

@@ -13,7 +13,7 @@
 USING_NS_CC;
 using namespace cocos2d::ui;
 
-const std::string MenuContext::LANG = "kan";
+static const int MAX_POINTS_TO_SHOW = 16;
 
 MenuContext* MenuContext::create(Node* main, bool launchCustomEventOnExit) {
     MenuContext* menuContext = new (std::nothrow) MenuContext();
@@ -43,6 +43,10 @@ bool MenuContext::init(Node* main) {
     _label = Label::createWithTTF("Points: 0", "fonts/arial.ttf", 50);
     _label->setPosition(Vec2(125, 125));
     _menuButton->addChild(_label);
+    
+    _pointMeter = HPMeter::createWithTextureAndPercent("", "menu/coinstack.png", "", 0);
+    _pointMeter->setPosition(Vec2(128, 256));
+    _menuButton->addChild(_pointMeter);
     
     return true;
 }
@@ -79,7 +83,7 @@ void MenuContext::expandMenu(cocos2d::Ref *pSender, cocos2d::ui::Widget::TouchEv
                 _greyLayer = LayerColor::create(Color4B(128.0, 128.0, 128.0, 128.0));
                 _greyLayer->setContentSize(visibleSize);
                 addChild(_greyLayer, -1);
-                _menu = Button::create("menu/close.png", "menu/close.png", "menu/close.png", Widget::TextureResType::LOCAL);
+                _menu = Button::create("menu/back.png", "menu/back.png", "menu/back.png", Widget::TextureResType::LOCAL);
                 _menu->addTouchEventListener(CC_CALLBACK_2(MenuContext::expandMenu, this));
                 _menu->setPosition(_menuButton->getPosition());
                 addChild(_menu);
@@ -114,8 +118,12 @@ void MenuContext::removeMenu() {
 void MenuContext::pickAlphabet(char targetAlphabet, char chosenAlphabet, bool choose, cocos2d::Vec2 position) {
     if((choose && targetAlphabet == chosenAlphabet) || (!choose && targetAlphabet != chosenAlphabet)) {
         _points++;
+        _menuButton->loadTextureNormal("menu/happy.png");
+        _pointMeter->setPercent(_pointMeter->getPercent() + 100 / MAX_POINTS_TO_SHOW);
     } else {
         _points--;
+        _menuButton->loadTextureNormal("menu/frown.png");
+        _pointMeter->setPercent(_pointMeter->getPercent() - 100 / MAX_POINTS_TO_SHOW);
     }
     _label->setString("Points: " + to_string(_points));
 }
