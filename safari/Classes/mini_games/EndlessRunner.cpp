@@ -18,6 +18,12 @@ Scene* EndlessRunner::createScene()
 	return scene;
 }
 
+EndlessRunner::~EndlessRunner(void)
+{
+	audioBg->stopAllEffects();
+	this->removeAllChildrenWithCleanup(true);
+}
+
 bool EndlessRunner::init()
 {
 	if (!Layer::init()) { return false; }
@@ -225,12 +231,12 @@ void EndlessRunner::stillCharacterOnPath(float delta) {
 				Character.Clicked = true;
 				Character.stillCheckFalg = false;
 				
-				counterLife = counterLife - 1 ;
+				counterLife = counterLife - 1;
 				std::ostringstream sstreamc; sstreamc << "life_"<<counterLife; std::string counterLife = sstreamc.str();
 				hpUi->getChildByName(counterLife)->stopAllActions();
 				hpUi->getChildByName(counterLife)->getChildByName("life_on")->setVisible(false);
 				hpUi->getChildByName(counterLife)->getChildByName("life_off")->setVisible(true);
-
+				
 				auto setPositionOnPath = CallFunc::create([=]() {
 					Character.character->stopAction(downMovement);
 					Character.character->setPositionY(LayerYcoord.firstLayer + 15);

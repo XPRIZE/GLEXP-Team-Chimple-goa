@@ -111,7 +111,7 @@ protected:
 		int Layer6Speed = 400;
 		int Layer7Speed = 400;
 
-		int tolerence = 200;
+		int tolerence = 100;
 		int heightJump = 350;
 		bool gapMode = false;
 
@@ -166,7 +166,7 @@ public:
 
 	// METHOD LIST 
 	static cocos2d::Scene* createScene();
-
+	~EndlessRunner();
 	virtual bool init();
 	float movingTime(SpriteCreate* SpriteObject);
 	float movingTimes(cocos2d::Sprite* SpriteObject, int Speed);
