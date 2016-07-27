@@ -36,7 +36,7 @@ bool EndlessRunner::init()
 	visibleSize = Director::getInstance()->getVisibleSize();
 	origin = Director::getInstance()->getVisibleOrigin();
 	LayerYcoord.firstLayer = (int)(visibleSize.height * 11 / 100) + origin.y;
-	
+	tempChar = CharGenerator::getInstance()->generateAChar();
 	letters = CharGenerator::getInstance()->generateMatrixForChoosingAChar(tempChar,21, 1, 70);
 
 	audioBg = CocosDenshion::SimpleAudioEngine::getInstance();
@@ -96,7 +96,7 @@ bool EndlessRunner::init()
 	auto boardDisplay = (Sprite *)CSLoader::createNode("endlessrunner/letter_board.csb");
 	boardDisplay->setPosition(Vec2((visibleSize.width / 2) + origin.x, (visibleSize.height + origin.y) - (visibleSize.height * 0.07)));
 	this->addChild(boardDisplay, zOrderPathLayer.secondLayer);
-
+	
 	letterOnBoard =  Alphabet::createWithSize(tempChar, 200);
 	letterOnBoard->setPosition(Vec2((visibleSize.width / 2) + origin.x, (visibleSize.height + origin.y) - (visibleSize.height * 0.08)));
 	letterOnBoard->enableShadow(Color4B::BLACK, Size(8, -6), 5);
@@ -310,9 +310,9 @@ void EndlessRunner::startingIntersectMode() {
 
 				_menuContext->pickAlphabet(tempChar, allLabels[i]->getName()[0], true);
 
-				auto audio = CocosDenshion::SimpleAudioEngine::getInstance();
+			/*	auto audio = CocosDenshion::SimpleAudioEngine::getInstance();
 				auto path = LangUtil::getInstance()->getAlphabetSoundFileName(allLabels[i]->getName()[0]);
-				audio->playEffect(path.c_str(), false);
+				audio->playEffect(path.c_str(), false);*/
 
 				counterAlphabets = counterAlphabets + 1;
 				std::ostringstream counterForLetter;	counterForLetter << counterAlphabets; std::string counterValue = counterForLetter.str();
@@ -351,9 +351,9 @@ void EndlessRunner::startingIntersectMode() {
 					popUp = true;
 				}
 
-				auto audio = CocosDenshion::SimpleAudioEngine::getInstance();
-				auto path = LangUtil::getInstance()->getAlphabetSoundFileName(allLabels[i]->getName()[0]);
-				audio->playEffect(path.c_str(), false);
+				//auto audio = CocosDenshion::SimpleAudioEngine::getInstance();
+				//auto path = LangUtil::getInstance()->getAlphabetSoundFileName(allLabels[i]->getName()[0]);
+				//audio->playEffect(path.c_str(), false);
 				if (popUp) {
 					auto highScale = CallFunc::create([=]() { happyManAction->play("change_happy_mad", false); });
 					auto smallScale = CallFunc::create([=]() {happyManAction->play("mad_idle", true); });

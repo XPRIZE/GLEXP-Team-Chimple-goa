@@ -17,6 +17,8 @@ class EndlessRunner : public cocos2d::Layer
 protected:
 
 	MenuContext *_menuContext;
+	wchar_t tempChar;
+	
 	std::vector<SpriteCreate*> allPathBlocks; // Vector Array Which Carries all Path Blocks
 	std::vector<Sprite*> allSceneObject;
 	std::vector<Sprite*> allBeforeStartBlocks;
@@ -43,7 +45,7 @@ protected:
 	bool flagLifeDemo = true;
 	std::vector<std::vector<wchar_t>> letters;
 	int counterLetter = 0;
-	wchar_t tempChar = 'B';
+	
 	struct mountainTypeObject {
 		std::string startLandPart = "startLand";
 		std::string midLandPart = "midLand";
