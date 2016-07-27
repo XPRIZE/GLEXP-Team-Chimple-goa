@@ -55,13 +55,8 @@ wchar_t CharGenerator::generateAChar() {
 }
 
 std::vector<std::vector<wchar_t>> CharGenerator::generateCharMatrix(int numRows, int numCols, bool distinct) {
-    int numChar = LangUtil::getInstance()->getNumberOfCharacters();
-    auto allChars = LangUtil::getInstance()->getAllCharacters();
-    std::vector<wchar_t> allCharVector;
-    allCharVector.clear();
-    for (int i = 0; i < numChar; i++) {
-        allCharVector.push_back(allChars[i]);
-    }
+    auto allCharVector = getAllChars();
+    int numChar = allCharVector.size();
     std::vector<std::vector<wchar_t>> matrix(numRows, std::vector<wchar_t>(numCols));
     for (int i = 0; i < numRows; i++) {
         for (int j = 0; j < numCols; j++) {
@@ -74,16 +69,40 @@ std::vector<std::vector<wchar_t>> CharGenerator::generateCharMatrix(int numRows,
                 allCharVector.erase(allCharVector.begin() + randomNumber);
                 numChar--;
                 if(numChar <= 0) {
-                    numChar = LangUtil::getInstance()->getNumberOfCharacters();
-                    auto allChars = LangUtil::getInstance()->getAllCharacters();
-                    allCharVector.clear();
-                    for (int i = 0; i < numChar; i++) {
-                        allCharVector.push_back(allChars[i]);
-                    }
+                    allCharVector = getAllChars();
+                    numChar = allCharVector.size();
                 }
             }
         }
     }
     return matrix;
 }
+
+wchar_t CharGenerator::generateAnotherChar(wchar_t* currentChars) {
+    auto allCharVector = getAllChars();
+    for (int i = 0; currentChars[i] != '\0'; i++) {
+        for (int j = 0; j < allCharVector.size(); j++) {
+            if(currentChars[i] == allCharVector.at(j)) {
+                allCharVector.erase(allCharVector.begin() + j);
+            }
+        }
+    }
+    int randomNumber = 0;
+    if(allCharVector.size() > 1) {
+        randomNumber = rand() % (allCharVector.size() - 1);
+    }
+    return allCharVector.at(randomNumber);
+}
+
+std::vector<wchar_t> CharGenerator::getAllChars() {
+    int numChar = LangUtil::getInstance()->getNumberOfCharacters();
+    auto allChars = LangUtil::getInstance()->getAllCharacters();
+    std::vector<wchar_t> allCharVector;
+    allCharVector.clear();
+    for (int i = 0; i < numChar; i++) {
+        allCharVector.push_back(allChars[i]);
+    }
+    return allCharVector;
+}
+
 
