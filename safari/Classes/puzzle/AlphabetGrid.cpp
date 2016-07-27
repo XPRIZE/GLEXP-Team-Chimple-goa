@@ -78,12 +78,24 @@ void AlphabetGrid::setCharacters(std::vector<std::vector<wchar_t> > charArray) {
             const float maxWidth = 600.0; //somehow OPENGL exception if more than this
             auto alphabet = Alphabet::createWithSize(charArray.at(i).at(j), std::min(squareWidth, maxWidth));
             alphabet->setPosition(Vec2(j * squareWidth + squareWidth/2, i * squareHeight + squareHeight/2));
+            alphabet->touchBeganCallback = CC_CALLBACK_2(AlphabetGrid::onTouchBegan, this);
             _alphabetLayer->addChild(alphabet, 1);
             auto a = _alphabetMatrix[i];
             _alphabetMatrix.at(i).at(j) = alphabet;
         }
     }    
 }
+
+bool AlphabetGrid::onTouchBegan(Touch* touch, Event* event){
+    Alphabet* alpha = static_cast<Alphabet*>(event->getCurrentTarget());
+    if(alpha->isSelected()) {
+        alpha->setColor(Color3B::BLUE);
+    } else {
+        alpha->setColor(Color3B::WHITE);
+    }
+    return true;
+}
+
 
 std::vector<Alphabet *> AlphabetGrid::getAlphabetsWhichMatch(wchar_t a) {
     std::vector<Alphabet *> matchingAlphabets = std::vector<Alphabet *>();

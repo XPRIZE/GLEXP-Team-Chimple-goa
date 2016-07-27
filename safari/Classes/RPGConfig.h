@@ -52,9 +52,9 @@
 #define HUMAN_SKELETON_COLLISION_BOX_HEIGHT 250.0f
 #define JUMP_UP_ENDING_ANIMATION_FRAMES 15
 
-#define OBJECT_TAP_BOUNDING_BOX_WIDTH 650.0f
+#define OBJECT_TAP_BOUNDING_BOX_WIDTH 200.0f
 
-#define OBJECT_NEAR_BY_BOUNDING_BOX_WIDTH 650.0f
+#define OBJECT_NEAR_BY_BOUNDING_BOX_WIDTH 400.0f
 
 #define HUMAN_SKELETON_NAME "Hero"
 #define JUMP_START "jump_start"
@@ -102,6 +102,8 @@
 #define ZERO_POINT "0.0"
 
 #define HERO_HIP "hip"
+
+#define MAP_FILE "map.csb"
 
 #define EVENT_DISPATCHER Director::getInstance()->getEventDispatcher()
 
@@ -222,7 +224,7 @@ public:
     static const char* SEND_BUBBLE_DESTROY_NOTIFICATION;
     
     static const char* SEND_SHOW_TOUCH_POINT_SIGN_NOTIFICATION;
-    
+        
     template <typename T>
     static inline std::string to_string(T value)
     {

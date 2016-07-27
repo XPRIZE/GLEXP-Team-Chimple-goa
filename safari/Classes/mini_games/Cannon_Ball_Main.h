@@ -44,7 +44,7 @@ public:
 	static Node *meteor_meteor_strike_node;
 	static cocostudio::timeline::ActionTimeline *meteor_meteor_strike_timeline;
 
-	wchar_t MainChars[10];
+	std::vector<std::vector<wchar_t>> MainChars;
 
 	static cocos2d::Scene* createScene();
 
