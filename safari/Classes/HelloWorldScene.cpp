@@ -349,7 +349,7 @@ bool HelloWorld::init(const std::string& island, const std::string& sceneName)
     this->registerMessageSenderAndReceiver();
     
     if(this->getAlphamonNodesCount() != 0) {
-        this->schedule(CC_SCHEDULE_SELECTOR(HelloWorld::createAlphaMons), 30.0f);
+        this->schedule(CC_SCHEDULE_SELECTOR(HelloWorld::createAlphaMons), ALPHAMON_CREATE_FREQUENCY);
     }
     
     this->scheduleUpdate();
@@ -547,7 +547,11 @@ void HelloWorld::cleanUpResources() {
     Vec2 origin = Director::getInstance()->getVisibleOrigin();
     float xPos = this->skeletonCharacter->getSkeletonNode()->getPosition().x < 0 ? Director::getInstance()->getWinSize().width/2  : this->skeletonCharacter->getSkeletonNode()->getPosition().x > this->getSceneSize().width ? Director::getInstance()->getWinSize().width/2 : this->skeletonCharacter->getSkeletonNode()->getPosition().x;
     
-    float yPos = this->skeletonCharacter->getSkeletonNode()->getPosition().y < 0 ? 300 : this->skeletonCharacter->getSkeletonNode()->getPosition().y;
+    float yPos = this->skeletonCharacter->getSkeletonNode()->getPosition().y < 0 ? Y_OFFSET_IF_HERO_DISAPPER : this->skeletonCharacter->getSkeletonNode()->getPosition().y;
+    
+    if(this->skeletonCharacter->getSkeletonNode()->getPosition().y < 0) {
+        xPos = xPos - X_OFFSET_IF_HERO_DISAPPER;
+    }
         
     
     this->sqlite3Helper->recordMainCharacterPositionInScene(this->island.c_str(), this->sceneName.c_str(), xPos, yPos);
@@ -586,8 +590,10 @@ void HelloWorld::changeScene(std::string nextScene, bool isMiniGame) {
     
     if(!nextScene.empty()) {
         if(isMiniGame) {
+            this->skeletonCharacter->getSkeletonNode()->stopAllActions();
             Director::getInstance()->replaceScene(TransitionFade::create(3.0, HelloWorld::createScene(nextScene,""), Color3B::BLACK));            
         } else {
+            this->skeletonCharacter->getSkeletonNode()->stopAllActions();
             Director::getInstance()->replaceScene(TransitionFade::create(3.0, HelloWorld::createScene(this->getIsland(),nextScene), Color3B::BLACK));
         }
     }
@@ -1460,21 +1466,56 @@ void HelloWorld::registerPhysicsEventContactLister() {
     Director::getInstance()->getEventDispatcher()->addEventListenerWithSceneGraphPriority(contactListener, this);    
 }
 
-std::string HelloWorld::generateNearestAlphamon() {
-    int randomNumber = 1 + ( std::rand() % ( this->getAlphamonNodesCount()) );
-    std::string alphamonNodeName = StringUtils::format("%s_%d", "alphamon", randomNumber);
-    if(std::find(activeAlphamonNodes.begin(), activeAlphamonNodes.end(), alphamonNodeName) != activeAlphamonNodes.end()) {
-        return generateNearestAlphamon();
-    } else {
-        return alphamonNodeName;
+bool HelloWorld::checkIfAlphamonNodeNearBy(std::string alphamonNodeName) {
+    bool isAlphamonNearBy = false;
+    
+    Node* alphamonNode = this->mainLayer->getChildByName(alphamonNodeName);
+    
+    if(alphamonNode != NULL)
+    {
+        Vec2 mainSkeletonPositionFromBottom = Point(this->skeletonCharacter->getSkeletonNode()->getPosition().x, this->skeletonCharacter->getSkeletonNode()->getPosition().y);
+        Vec2 mainSkeletonPositionFromTop = Point(this->skeletonCharacter->getSkeletonNode()->getPosition().x, this->skeletonCharacter->getSkeletonNode()->getPosition().y + skeletonCharacter->getSkeletonNode()->getBoundingBox().size.height);
+        
+        float distanceFromTop= mainSkeletonPositionFromTop.getDistance(alphamonNode->getPosition());
+        float distanceFromBottom = mainSkeletonPositionFromBottom.getDistance(alphamonNode->getPosition());
+        
+        if((distanceFromTop >= -OBJECT_NEAR_BY_BOUNDING_BOX_WIDTH && distanceFromTop <= OBJECT_NEAR_BY_BOUNDING_BOX_WIDTH) || (distanceFromBottom >= -OBJECT_NEAR_BY_BOUNDING_BOX_WIDTH && distanceFromBottom <= OBJECT_NEAR_BY_BOUNDING_BOX_WIDTH)) {
+            isAlphamonNearBy = true;
+        }
     }
+    
+    return isAlphamonNearBy;
+}
+
+std::string HelloWorld::generateNearestAlphamon() {
+    
+    //loop thru all alphamons
+    std::string alphamonNodeName = "";
+    for (int i = 1; i < this->getAlphamonNodesCount(); i++) {
+        
+        alphamonNodeName = StringUtils::format("%s_%d", "alphamon", i);
+        bool isNearBy = this->checkIfAlphamonNodeNearBy(alphamonNodeName);
+        bool isAlphamonAlreadyPresent = std::find(activeAlphamonNodes.begin(), activeAlphamonNodes.end(), alphamonNodeName) != activeAlphamonNodes.end();
+        
+        if(isNearBy && !isAlphamonAlreadyPresent) {
+            break;
+        }
+    }    
+    return alphamonNodeName;
 }
 
 void HelloWorld::createAlphaMons(float dt) {
         std::string alphamonNodeName = this->generateNearestAlphamon();
-        CCLOG("sdagasdg alphamonNodeName %s", alphamonNodeName.c_str());
-        activeAlphamonNodes.push_back(alphamonNodeName);
-    
-        wchar_t generatedChar = CharGenerator::getInstance()->generateAChar();
-        this->addAlphaMonsters(generatedChar, alphamonNodeName);
+        if(!alphamonNodeName.empty()) {
+            bool isAlphamonAlreadyPresent = std::find(activeAlphamonNodes.begin(), activeAlphamonNodes.end(), alphamonNodeName) != activeAlphamonNodes.end();
+            
+            if(!isAlphamonAlreadyPresent) {
+                CCLOG("sdagasdg alphamonNodeName %s", alphamonNodeName.c_str());
+                activeAlphamonNodes.push_back(alphamonNodeName);
+                wchar_t generatedChar = CharGenerator::getInstance()->generateAChar();
+                this->addAlphaMonsters(generatedChar, alphamonNodeName);
+                
+            }
+            
+        }
 }
