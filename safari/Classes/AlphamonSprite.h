@@ -29,9 +29,9 @@ public:
     
     virtual ~AlphamonSprite();
     
-    static AlphamonSprite* create(cocos2d::Node* sprite, std::unordered_map<std::string, std::string> attributes, char alphabet);
+    static AlphamonSprite* create(cocos2d::Node* sprite, std::unordered_map<std::string, std::string> attributes, wchar_t alphabet);
     
-    virtual bool initialize(cocos2d::Node* sprite, std::unordered_map<std::string, std::string> attributes, char alphabet);
+    virtual bool initialize(cocos2d::Node* sprite, std::unordered_map<std::string, std::string> attributes, wchar_t alphabet);
     
     virtual Alphamon* getAlphaMon();
     
@@ -61,7 +61,7 @@ public:
 protected:
     std::unordered_map<std::string, std::string> attributes;
     SkeletonCharacter* mainSkeleton;
-    char alphabet;
+    wchar_t alphabet;
     bool isSelectedForBattle;
 
 };
