@@ -150,6 +150,8 @@ void HelloWorld::processNodeWithCustomAttributes(Node* node, Node* parentNode) {
 
             std::regex skeletonFile ("\\b(.*)_skeleton.csb");
             std::unordered_map<std::string,std::string>::const_iterator it = attributes.find("fileName");
+            std::unordered_map<std::string,std::string>::const_iterator itLeft = attributes.find("left");
+            std::unordered_map<std::string,std::string>::const_iterator itRight = attributes.find("right");
             if ( it != attributes.end() ) {
                 std::string fileName(it->second);
                 if(regex_match(fileName, skeletonFile)) {
@@ -161,12 +163,34 @@ void HelloWorld::processNodeWithCustomAttributes(Node* node, Node* parentNode) {
                     } else  {
                         //create external characters
                         ExternalSkeletonCharacter* externalSkeletonCharacter = ExternalSkeletonCharacter::create(node, attributes);
-                        
                         this->mainLayer->addChild(externalSkeletonCharacter);
- 
+
                     }
                 }
-            } else {
+            } else if(itLeft != attributes.end()) {
+                auto physicsBody = PhysicsBody::createBox(Size(INVISIBLE_BOUNDARY_WIDTH, this->getSceneSize().height), PHYSICSBODY_MATERIAL_DEFAULT, Vec2(INVISIBLE_LEFT_BOUNDARY_OFFSET,this->getSceneSize().height/2));
+                physicsBody->setDynamic(false);
+                physicsBody->setMass(INFINITY);
+                node->setPhysicsBody(physicsBody);
+                
+                node->getPhysicsBody()->setRotationEnable(false);
+                node->getPhysicsBody()->setCategoryBitmask(INVISIBLE_BOUNDARY_CATEGORY_BITMASK);
+                node->getPhysicsBody()->setCollisionBitmask(INVISIBLE_BOUNDARY_COLLISION_BITMASK);
+                node->getPhysicsBody()->setContactTestBitmask(INVISIBLE_BOUNDARY_CONTACT_BITMASK);
+                
+            } else if(itRight != attributes.end()) {
+                auto physicsBody = PhysicsBody::createBox(Size(INVISIBLE_BOUNDARY_WIDTH, this->getSceneSize().height), PHYSICSBODY_MATERIAL_DEFAULT, Vec2(INVISIBLE_RIGHT_BOUNDARY_OFFSET,this->getSceneSize().height/2));
+                physicsBody->setDynamic(false);
+                physicsBody->setMass(INFINITY);
+                node->setPhysicsBody(physicsBody);
+                node->getPhysicsBody()->setRotationEnable(false);
+                node->getPhysicsBody()->setCategoryBitmask(INVISIBLE_BOUNDARY_CATEGORY_BITMASK);
+                node->getPhysicsBody()->setCollisionBitmask(INVISIBLE_BOUNDARY_CONTACT_BITMASK);
+                node->getPhysicsBody()->setContactTestBitmask(INVISIBLE_BOUNDARY_CONTACT_BITMASK);
+                
+                
+            }            
+            else {
                 std::unordered_map<std::string, std::string> attributes = RPGConfig::parseUserData(data->getCustomProperty());
                 this->createRPGSprite(node, attributes, parentNode);
                 
@@ -223,7 +247,7 @@ void HelloWorld::calculateAlphamonNodesInScene(cocos2d::Node *rootNode) {
     this->setAlphamonNodesCount(alphamonCounter);
 }
 
-void HelloWorld::addAlphaMonsters(char alphabet, std::string alphamonNodeName) {
+void HelloWorld::addAlphaMonsters(wchar_t alphabet, std::string alphamonNodeName) {
     assert(this->mainLayer != NULL);
     //iterate thru all children and search for "alphamon"
     
@@ -245,7 +269,7 @@ void HelloWorld::addAlphaMonsters(char alphabet, std::string alphamonNodeName) {
     }
 }
 
-void HelloWorld::createAlphaMonSprite(Node* node, std::unordered_map<std::string, std::string> attributes, Node* parentNode, char alphabet) {
+void HelloWorld::createAlphaMonSprite(Node* node, std::unordered_map<std::string, std::string> attributes, Node* parentNode, wchar_t alphabet) {
     AlphamonSprite* alphaMonNode = AlphamonSprite::create(node, attributes, alphabet);
     parentNode->addChild(alphaMonNode);
 }
@@ -349,7 +373,7 @@ bool HelloWorld::init(const std::string& island, const std::string& sceneName)
     this->registerMessageSenderAndReceiver();
     
     if(this->getAlphamonNodesCount() != 0) {
-        this->schedule(CC_SCHEDULE_SELECTOR(HelloWorld::createAlphaMons), 30.0f);
+        this->schedule(CC_SCHEDULE_SELECTOR(HelloWorld::createAlphaMons), ALPHAMON_CREATE_FREQUENCY);
     }
     
     this->scheduleUpdate();
@@ -423,7 +447,7 @@ void HelloWorld::alphamonDestroyed(EventCustom* event) {
 
 }
 
-void HelloWorld::transitionToDuelScene(char alphabet) {
+void HelloWorld::transitionToDuelScene(wchar_t alphabet) {
     this->cleanUpResources();
     std::string secondParam (1,alphabet);
     
@@ -547,7 +571,11 @@ void HelloWorld::cleanUpResources() {
     Vec2 origin = Director::getInstance()->getVisibleOrigin();
     float xPos = this->skeletonCharacter->getSkeletonNode()->getPosition().x < 0 ? Director::getInstance()->getWinSize().width/2  : this->skeletonCharacter->getSkeletonNode()->getPosition().x > this->getSceneSize().width ? Director::getInstance()->getWinSize().width/2 : this->skeletonCharacter->getSkeletonNode()->getPosition().x;
     
-    float yPos = this->skeletonCharacter->getSkeletonNode()->getPosition().y < 0 ? 300 : this->skeletonCharacter->getSkeletonNode()->getPosition().y;
+    float yPos = this->skeletonCharacter->getSkeletonNode()->getPosition().y < 0 ? Y_OFFSET_IF_HERO_DISAPPER : this->skeletonCharacter->getSkeletonNode()->getPosition().y;
+    
+    if(this->skeletonCharacter->getSkeletonNode()->getPosition().y < 0) {
+        xPos = xPos - X_OFFSET_IF_HERO_DISAPPER;
+    }
         
     
     this->sqlite3Helper->recordMainCharacterPositionInScene(this->island.c_str(), this->sceneName.c_str(), xPos, yPos);
@@ -586,8 +614,10 @@ void HelloWorld::changeScene(std::string nextScene, bool isMiniGame) {
     
     if(!nextScene.empty()) {
         if(isMiniGame) {
+            this->skeletonCharacter->getSkeletonNode()->stopAllActions();
             Director::getInstance()->replaceScene(TransitionFade::create(3.0, HelloWorld::createScene(nextScene,""), Color3B::BLACK));            
         } else {
+            this->skeletonCharacter->getSkeletonNode()->stopAllActions();
             Director::getInstance()->replaceScene(TransitionFade::create(3.0, HelloWorld::createScene(this->getIsland(),nextScene), Color3B::BLACK));
         }
     }
@@ -1398,12 +1428,12 @@ bool HelloWorld::handlePhysicsContactEventForOtherSkeletonCharacter(PhysicsConta
     bool isSkeletonNodeB = dynamic_cast<cocostudio::timeline::SkeletonNode *>(nodeB);
     
     if(isSkeletonNodeA && contact.getShapeB()->getCollisionBitmask() == 3) {
-        CCLOG("contact BEGAN external sekleton!!!");
+//        CCLOG("contact BEGAN external sekleton!!!");
         nodeA->setScaleX(-nodeA->getScaleX());
         RPGConfig::externalSkeletonMoveDelta = -RPGConfig::externalSkeletonMoveDelta;
         
     } else if(isSkeletonNodeB && contact.getShapeA()->getCollisionBitmask() == 3) {
-        CCLOG("contact BEGAN external sekleton!!!");
+//        CCLOG("contact BEGAN external sekleton!!!");
         nodeB->setScaleX(-nodeB->getScaleX());
         RPGConfig::externalSkeletonMoveDelta = -RPGConfig::externalSkeletonMoveDelta;
 
@@ -1420,7 +1450,7 @@ void HelloWorld::registerPhysicsEventContactLister() {
         // We we handle what happen when character collide with something else
         // if we return true, we say: collision happen please. => Top-Down Char Jump
         // otherwise, we say the engine to ignore this collision => Bottom-Up Char Jump
-        CCLOG("contact BEGAN 1111!!! %d", this->stateMachine->getCurrentState()->getState());
+//        CCLOG("contact BEGAN 1111!!! %d", this->stateMachine->getCurrentState()->getState());
         cocos2d::Node* nodeA = contact.getShapeA()->getBody()->getNode();
         cocos2d::Node* nodeB = contact.getShapeB()->getBody()->getNode();
         
@@ -1460,21 +1490,55 @@ void HelloWorld::registerPhysicsEventContactLister() {
     Director::getInstance()->getEventDispatcher()->addEventListenerWithSceneGraphPriority(contactListener, this);    
 }
 
-std::string HelloWorld::generateNearestAlphamon() {
-    int randomNumber = 1 + ( std::rand() % ( this->getAlphamonNodesCount()) );
-    std::string alphamonNodeName = StringUtils::format("%s_%d", "alphamon", randomNumber);
-    if(std::find(activeAlphamonNodes.begin(), activeAlphamonNodes.end(), alphamonNodeName) != activeAlphamonNodes.end()) {
-        return generateNearestAlphamon();
-    } else {
-        return alphamonNodeName;
+bool HelloWorld::checkIfAlphamonNodeNearBy(std::string alphamonNodeName) {
+    bool isAlphamonNearBy = false;
+    
+    Node* alphamonNode = this->mainLayer->getChildByName(alphamonNodeName);
+    
+    if(alphamonNode != NULL)
+    {
+        Vec2 mainSkeletonPositionFromBottom = Point(this->skeletonCharacter->getSkeletonNode()->getPosition().x, this->skeletonCharacter->getSkeletonNode()->getPosition().y);
+        Vec2 mainSkeletonPositionFromTop = Point(this->skeletonCharacter->getSkeletonNode()->getPosition().x, this->skeletonCharacter->getSkeletonNode()->getPosition().y + skeletonCharacter->getSkeletonNode()->getBoundingBox().size.height);
+        
+        float distanceFromTop= mainSkeletonPositionFromTop.getDistance(alphamonNode->getPosition());
+        float distanceFromBottom = mainSkeletonPositionFromBottom.getDistance(alphamonNode->getPosition());
+        
+        if((distanceFromTop >= -OBJECT_NEAR_BY_BOUNDING_BOX_WIDTH && distanceFromTop <= OBJECT_NEAR_BY_BOUNDING_BOX_WIDTH) || (distanceFromBottom >= -OBJECT_NEAR_BY_BOUNDING_BOX_WIDTH && distanceFromBottom <= OBJECT_NEAR_BY_BOUNDING_BOX_WIDTH)) {
+            isAlphamonNearBy = true;
+        }
     }
+    
+    return isAlphamonNearBy;
+}
+
+std::string HelloWorld::generateNearestAlphamon() {
+    
+    //loop thru all alphamons
+    std::string alphamonNodeName = "";
+    for (int i = 1; i < this->getAlphamonNodesCount(); i++) {
+        
+        alphamonNodeName = StringUtils::format("%s_%d", "alphamon", i);
+        bool isNearBy = this->checkIfAlphamonNodeNearBy(alphamonNodeName);
+        bool isAlphamonAlreadyPresent = std::find(activeAlphamonNodes.begin(), activeAlphamonNodes.end(), alphamonNodeName) != activeAlphamonNodes.end();
+        
+        if(isNearBy && !isAlphamonAlreadyPresent) {
+            break;
+        }
+    }    
+    return alphamonNodeName;
 }
 
 void HelloWorld::createAlphaMons(float dt) {
         std::string alphamonNodeName = this->generateNearestAlphamon();
-        CCLOG("sdagasdg alphamonNodeName %s", alphamonNodeName.c_str());
-        activeAlphamonNodes.push_back(alphamonNodeName);
-    
-        wchar_t generatedChar = CharGenerator::getInstance()->generateAChar();
-        this->addAlphaMonsters(generatedChar, alphamonNodeName);
+        if(!alphamonNodeName.empty()) {
+            bool isAlphamonAlreadyPresent = std::find(activeAlphamonNodes.begin(), activeAlphamonNodes.end(), alphamonNodeName) != activeAlphamonNodes.end();
+            
+            if(!isAlphamonAlreadyPresent) {
+                activeAlphamonNodes.push_back(alphamonNodeName);
+                wchar_t generatedChar = CharGenerator::getInstance()->generateAChar();
+                this->addAlphaMonsters(generatedChar, alphamonNodeName);
+                
+            }
+            
+        }
 }

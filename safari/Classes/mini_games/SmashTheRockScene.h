@@ -27,6 +27,7 @@ public:
 	std::map<std::string, std::int32_t> alphabetMap;
 	
 	int key;
+	int count;
 	// a selector callback
 	// void menuCloseCallback(cocos2d::Ref* pSender);
 	virtual bool onTouchBegan(cocos2d::Touch *touch, cocos2d::Event * event);
@@ -44,7 +45,9 @@ public:
 	virtual void jump();
 	virtual void hit();
 	virtual void blast();
+	virtual void change(float dt);
 	virtual void createSkeletonCharacter();
+	
 	void addMainCharacterToScene(cocostudio::timeline::SkeletonNode* skeleton);
 	// implement the "static create()" method manually
 

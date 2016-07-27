@@ -15,14 +15,14 @@
 
 class Trace : public cocos2d::Layer {
 public:
-    static cocos2d::Scene* createScene(char alphabet);
-    static Trace *create(char alphabet);
+    static cocos2d::Scene* createScene(int alphabet);
+    static Trace *create(wchar_t alphabet);
     void onAlphabetSelected(cocos2d::EventCustom *event);
 	void transit(int level);
 	void setDotsVisibility(bool flag);
 	
 CC_CONSTRUCTOR_ACCESS:
-    virtual bool init(char alphabet);
+    virtual bool init(wchar_t alphabet);
     Trace();
     virtual ~Trace();
     bool onTouchBegan(cocos2d::Touch* touch, cocos2d::Event* event);

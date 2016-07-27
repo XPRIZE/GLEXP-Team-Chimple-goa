@@ -61,8 +61,8 @@ static const std::map<wchar_t, std::string> langMap = {
 
 
 const wchar_t* KannadaUtil::getAllCharacters() {
-    static const wchar_t* allCharacters = L"ಅಆಇಈಉಊಋಌಎಏಐಒಓಔಕಖಗಘಙಚಛಜಝಞಟಠಡಢಣತಥದಧನಪಫಬಭಮಯರಱಲಳವಶಷಸಹ";
-    return allCharacters;
+    static const wchar_t* allKannadaCharacters = L"ಅಆಇಈಉಊಋಌಎಏಐಒಓಔಕಖಗಘಙಚಛಜಝಞಟಠಡಢಣತಥದಧನಪಫಬಭಮಯರಱಲಳವಶಷಸಹ";
+    return allKannadaCharacters;
 }
 
 int KannadaUtil::getNumberOfCharacters() {
