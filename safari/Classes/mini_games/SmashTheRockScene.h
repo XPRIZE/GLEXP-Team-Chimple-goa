@@ -14,6 +14,7 @@ public:
 
 	int click = 0;
 	int clickWrong = 0;
+	wchar_t mychar;
 	bool flag = true;
     cocos2d::Sprite* target;
 	cocos2d::Node* character;

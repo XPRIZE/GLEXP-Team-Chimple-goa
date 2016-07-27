@@ -116,7 +116,8 @@ bool SmashTheRock::init()
 	auto block = Sprite::createWithSpriteFrameName("smash_de_rock/letter_normal.png");
 	//int blockWidth = block->getContentSize().width;
 	//int blockHeight = block->getContentSize().height;
-	std::vector<std::vector<wchar_t>> charkey = CharGenerator::getInstance()->generateMatrixForChoosingAChar(mapString.at(0),3,11,50);
+	mychar = CharGenerator::getInstance()->generateAChar();
+	std::vector<std::vector<wchar_t>> charkey = CharGenerator::getInstance()->generateMatrixForChoosingAChar(mychar,3,11,50);
 
 	int dis = (230.0/2560)*visibleSize.width;
 	for (int i = 1; i < 4; i++)
@@ -153,8 +154,8 @@ bool SmashTheRock::init()
 			this->addChild(wrong, 2);
 		//	wrong->setGlobalZOrder(6);
 		//	std::string str = Alphabets.at(cocos2d::RandomHelper::random_int(key, (key + 20)) % 20).c_str();
-			char str1 = charkey.at(i-1).at(j-1);
-			std::string ttttt(&str1,1) ;
+			wchar_t str1 = charkey.at(i-1).at(j-1);
+			//std::string ttttt(&str1,1) ;
 			//label = Label::createWithBMFont(LangUtil::getInstance()->getBMFontFileName(), ttttt);
 			//label = Label::createWithTTF(ttttt, "fonts/BalooBhai-Regular.ttf", 256);
 			//CCLOG("alpha = %s",str.c_str());
@@ -166,7 +167,8 @@ bool SmashTheRock::init()
 			label->setColor(ccc3(255, 255, 255));
 			label->enableShadow(Color4B::GRAY, Size(5, -5), -50);
 			label->setAnchorPoint(Vec2::ANCHOR_MIDDLE_BOTTOM);
-			label->setName(ttttt);
+			auto mystr = LangUtil::convertUTF16CharToString(mychar);
+			label->setName(mystr);
 			labelRef.pushBack(label);
 			CCLOG("alpha = %d", labelRef.size());
 			this->addChild(label, 2);
@@ -298,7 +300,7 @@ void SmashTheRock::masking()
 {
 	Size visibleSize = Director::getInstance()->getVisibleSize();
 	Vec2 origin = Director::getInstance()->getVisibleOrigin();
-	Alphabet *label1 = Alphabet::createWithSize((Alphabets.at(key)).at(0), 200);
+	Alphabet *label1 = Alphabet::createWithSize(mychar, 200);
 //	label1 = Label::createWithBMFont(LangUtil::getInstance()->getBMFontFileName(), Alphabets.at(key).c_str());
 //	label1 = Label::createWithTTF(Alphabets.at(key).c_str(), "fonts/BalooBhai-Regular.ttf", 256);
 	label1->setScale(1.5);
@@ -367,13 +369,13 @@ bool SmashTheRock::onTouchBegan(cocos2d::Touch *touch, cocos2d::Event * event)
 	auto  location = target->convertToNodeSpace(touch->getLocation());
 	Size visibleSize = Director::getInstance()->getVisibleSize();
 	int dis = (230.00 / 2560)*(visibleSize.width);
-
+	auto mystr = LangUtil::convertUTF16CharToString(mychar);
 	//	CCRect targetRectangle = CCRectMake(0,0, target->getContentSize().width, target->getContentSize().height);
 	if ( target->getBoundingBox().containsPoint( touch->getLocation()) && flag )
 	{
-		menu->pickAlphabet((target->getName()).at(0), (mapString).at(0), true);
+		menu->pickAlphabet((target->getName()).at(0), mychar, true);
 		flag = false;
-		if (target->getName().compare(mapString.c_str()) == 0)
+		if (target->getName().compare(mystr.c_str()) == 0)
 		{
 			int indexj = (target->getPositionX());
 			int indexi = (target->getPositionY());
