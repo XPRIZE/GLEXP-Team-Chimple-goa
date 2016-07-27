@@ -1,0 +1,124 @@
+//
+//  MapScene.cpp
+//  safari
+//
+//  Created by Shyamal  Upadhyaya on 26/07/16.
+//
+//
+
+#include "MapScene.h"
+
+USING_NS_CC;
+
+Scene* MapScene::createScene()
+{
+    // 'scene' is an autorelease object
+    auto scene = Scene::create();
+    
+    // 'layer' is an autorelease object
+    auto layer = MapScene::create();
+    
+    // add layer as a child to scene
+    scene->addChild(layer);
+    
+    layer->menuContext = MenuContext::create(layer, true);
+    scene->addChild(layer->menuContext);
+    
+    // return the scene
+    
+    return scene;
+}
+
+MapScene* MapScene::create()
+{
+    MapScene* mapLayer = new (std::nothrow) MapScene();
+    if(mapLayer && mapLayer->init()) {
+        mapLayer->autorelease();
+        return mapLayer;
+    }
+    CC_SAFE_DELETE(mapLayer);
+    return nullptr;
+}
+
+
+MapScene::MapScene():
+menuContext(nullptr)
+{
+}
+
+MapScene::~MapScene() {
+}
+
+bool MapScene::init()
+{
+    //////////////////////////////
+    // 1. super init first
+    if ( !Layer::init() )
+    {
+        return false;
+    }
+    
+    FileUtils::getInstance()->addSearchPath("res/map");
+    
+    this->languageManger = LanguageManager::getInstance();
+
+    
+    this->loadMap();
+    
+    return true;
+}
+
+
+void MapScene::loadMap() {
+    Node *rootNode = CSLoader::createNode(MAP_FILE);
+    this->addChild(rootNode);
+    this->processChildNodes(rootNode);
+}
+
+
+void MapScene::processChildNodes(cocos2d::Node *rootNode) {
+    //iterate thru all children
+    auto children = rootNode->getChildren();
+    Node* mainLayer = NULL;
+    for (std::vector<Node*>::iterator it = children.begin() ; it != children.end(); ++it) {
+        cocos2d::Node* node = *it;
+        //based on custom data create layers
+        cocostudio::ComExtensionData* data = (cocostudio::ComExtensionData*)node->getComponent("ComExtensionData");
+        if(data != NULL) {
+            CCLOG("%s", data->getCustomProperty().c_str());
+            
+            if(data->getCustomProperty() == MAIN_LAYER)
+            {
+                mainLayer = node;
+            }
+        }
+    }
+    
+    assert(mainLayer != NULL);
+    //iterate thru all children
+    auto mapChildren = mainLayer->getChildren();
+
+    for (std::vector<Node*>::iterator it = mapChildren.begin() ; it != mapChildren.end(); ++it) {
+        cocos2d::Node* node = *it;
+        
+        cocostudio::ComExtensionData* data = (cocostudio::ComExtensionData*)node->getComponent("ComExtensionData");
+        if(data != NULL && !data->getCustomProperty().empty()) {
+            std::unordered_map<std::string, std::string> attributes = RPGConfig::parseUserData(data->getCustomProperty());
+            
+            std::unordered_map<std::string,std::string>::const_iterator it = attributes.find("text");
+            if ( it != attributes.end() ) {
+                //process text
+                std::string mapText = this->languageManger->translateString(it->second);
+                cocos2d::Label* label = Label::createWithTTF(mapText, "fonts/arial.ttf", 50);
+                label->setPosition(node->getPosition());
+                mainLayer->addChild(label);                
+            } else {
+                MapIsland* island = MapIsland::create(node, attributes);
+                mainLayer->addChild(island);
+            }
+
+        }
+        
+    }
+    
+}
