@@ -73,7 +73,7 @@ bool AlphamonSprite::initialize(cocos2d::Node* node, std::unordered_map<std::str
     
     ADD_VICINITY_NOTIFICATION(this, RPGConfig::MAIN_CHARACTER_VICINITY_CHECK_NOTIFICATION, checkVicinityWithMainCharacter);
     
-    this->schedule(CC_SCHEDULE_SELECTOR(AlphamonSprite::destoryAlphaMon), 20.0f);
+    this->schedule(CC_SCHEDULE_SELECTOR(AlphamonSprite::destoryAlphaMon), ALPHAMON_DESTRUCTION_FREQUENCY);
     this->scheduleUpdate();
     
     return true;

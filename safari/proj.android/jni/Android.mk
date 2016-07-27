@@ -56,13 +56,15 @@ LOCAL_SRC_FILES := hellocpp/main.cpp \
 					../../Classes/lang/LangUtil.cpp \
 					../../Classes/lang/EnglishUtil.cpp \
 					../../Classes/lang/KannadaUtil.cpp \
-                    ../../Classes/StartMenuScene.cpp \
-                	../../Classes/AlphamonSprite.cpp \
-                	../../Classes/SkeletonPosition.cpp  \
-                	../../Classes/I18nUtils.cpp  \
-                	../../Classes/MO.cpp  \
-                	../../Classes/Entry.cpp  \
-                	../../Classes/LanguageManager.cpp               	                	                	                	                	                
+		                      ../../Classes/StartMenuScene.cpp \
+                		       ../../Classes/AlphamonSprite.cpp \
+		                	../../Classes/SkeletonPosition.cpp  \
+               			 	../../Classes/I18nUtils.cpp  \
+		                	../../Classes/MO.cpp  \
+		                	../../Classes/Entry.cpp  \
+	               		 	../../Classes/LanguageManager.cpp \
+					../../Classes/MapScene.cpp \
+					../../Classes/MapIsland.cpp	
 LOCAL_C_INCLUDES := $(LOCAL_PATH)/../../Classes
 LOCAL_C_INCLUDES += $(LOCAL_PATH)/../../../extensions
 
