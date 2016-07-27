@@ -19,6 +19,7 @@ public:
     static Trace *create(wchar_t alphabet);
     void onAlphabetSelected(cocos2d::EventCustom *event);
 	void transit(int level);
+	void resetLevel();
 	void setDotsVisibility(bool flag);
 	
 CC_CONSTRUCTOR_ACCESS:

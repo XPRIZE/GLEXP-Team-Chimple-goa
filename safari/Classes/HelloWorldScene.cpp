@@ -247,7 +247,7 @@ void HelloWorld::calculateAlphamonNodesInScene(cocos2d::Node *rootNode) {
     this->setAlphamonNodesCount(alphamonCounter);
 }
 
-void HelloWorld::addAlphaMonsters(char alphabet, std::string alphamonNodeName) {
+void HelloWorld::addAlphaMonsters(wchar_t alphabet, std::string alphamonNodeName) {
     assert(this->mainLayer != NULL);
     //iterate thru all children and search for "alphamon"
     
@@ -269,7 +269,7 @@ void HelloWorld::addAlphaMonsters(char alphabet, std::string alphamonNodeName) {
     }
 }
 
-void HelloWorld::createAlphaMonSprite(Node* node, std::unordered_map<std::string, std::string> attributes, Node* parentNode, char alphabet) {
+void HelloWorld::createAlphaMonSprite(Node* node, std::unordered_map<std::string, std::string> attributes, Node* parentNode, wchar_t alphabet) {
     AlphamonSprite* alphaMonNode = AlphamonSprite::create(node, attributes, alphabet);
     parentNode->addChild(alphaMonNode);
 }
@@ -447,7 +447,7 @@ void HelloWorld::alphamonDestroyed(EventCustom* event) {
 
 }
 
-void HelloWorld::transitionToDuelScene(char alphabet) {
+void HelloWorld::transitionToDuelScene(wchar_t alphabet) {
     this->cleanUpResources();
     std::string secondParam (1,alphabet);
     

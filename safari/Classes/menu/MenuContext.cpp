@@ -44,7 +44,7 @@ bool MenuContext::init(Node* main) {
     _label->setPosition(Vec2(125, 125));
     _menuButton->addChild(_label);
     
-    _pointMeter = HPMeter::createWithTextureAndPercent("", "menu/coinstack.png", "", 0);
+    _pointMeter = HPMeter::createWithTextureAndPercent("menu/blank.png", "menu/coinstack.png", "", 0);
     _pointMeter->setPosition(Vec2(128, 256));
     _menuButton->addChild(_pointMeter);
     
@@ -118,12 +118,22 @@ void MenuContext::removeMenu() {
 void MenuContext::pickAlphabet(char targetAlphabet, char chosenAlphabet, bool choose, cocos2d::Vec2 position) {
     if((choose && targetAlphabet == chosenAlphabet) || (!choose && targetAlphabet != chosenAlphabet)) {
         _points++;
-        _menuButton->loadTextureNormal("menu/happy.png");
-        _pointMeter->setPercent(_pointMeter->getPercent() + 100 / MAX_POINTS_TO_SHOW);
+        auto sequence = Sequence::create(
+            CallFunc::create(CC_CALLBACK_0(MenuContext::happyFace, this)),
+            CallFunc::create(CC_CALLBACK_0(MenuContext::increasePoints, this, 1)),
+            DelayTime::create(1),
+            CallFunc::create(CC_CALLBACK_0(MenuContext::normalFace, this)),
+            NULL);
+        runAction(sequence);
     } else {
         _points--;
-        _menuButton->loadTextureNormal("menu/frown.png");
-        _pointMeter->setPercent(_pointMeter->getPercent() - 100 / MAX_POINTS_TO_SHOW);
+        auto sequence = Sequence::create(
+                                         CallFunc::create(CC_CALLBACK_0(MenuContext::sadFace, this)),
+                                         CallFunc::create(CC_CALLBACK_0(MenuContext::increasePoints, this, -1)),
+                                         DelayTime::create(1),
+                                         CallFunc::create(CC_CALLBACK_0(MenuContext::normalFace, this)),
+                                         NULL);
+        runAction(sequence);
     }
     _label->setString("Points: " + to_string(_points));
 }
@@ -131,6 +141,23 @@ void MenuContext::pickAlphabet(char targetAlphabet, char chosenAlphabet, bool ch
 void MenuContext::finalizePoints() {
     
 }
+
+void MenuContext::increasePoints(int points) {
+    _pointMeter->setPercent(_pointMeter->getPercent() + points * 100 / MAX_POINTS_TO_SHOW);
+}
+
+void MenuContext::happyFace() {
+    _menuButton->loadTextureNormal("menu/happy.png");
+}
+
+void MenuContext::sadFace() {
+    _menuButton->loadTextureNormal("menu/frown.png");
+}
+
+void MenuContext::normalFace() {
+    _menuButton->loadTextureNormal("menu/menu.png");
+}
+
 
 MenuContext::MenuContext() :
 _points(0),
