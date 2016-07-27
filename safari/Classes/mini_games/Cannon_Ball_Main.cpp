@@ -155,9 +155,6 @@ bool MainGame::init()
 	self = this;
 	startGame();
 
-	letterComespeed = 5;
-	tweenSpeed = 40;
-
 	this->schedule(schedule_selector(MainGame::letterCome), letterComespeed);
 
 	CCSpriteFrameCache::sharedSpriteFrameCache()->addSpriteFramesWithFile("cannonball_mainassetPlist.plist");
@@ -208,7 +205,7 @@ void MainGame::startGame()	// starting of game
 	auto Layer2 = LayerGradient::create(Color4B(0, 255, 0, 255), Color4B(0, 255, 0, 255));
 	Layer2->setContentSize(Size(visibleSize.width, 5));
 	Layer2->setPosition(Vec2(0, origin.y + (visibleSize.height * 66.6 / 100)));
-	this->addChild(Layer2);
+//	this->addChild(Layer2);
 
 	//	layer 3
 
@@ -229,6 +226,10 @@ void MainGame::startGame()	// starting of game
 	cannonArray.push_back(cannon1);
 	cannonArray.push_back(cannon2);
 	cannonArray.push_back(cannon3);
+
+	MainChars = CharGenerator::getInstance()->generateCharMatrix(1, 10, true);
+	letterComespeed = 5;
+	tweenSpeed = 40;
 
 	cannonLetterCome();
 }
@@ -385,8 +386,6 @@ void MainGame::cannonLetterCome()	//cannon letter will come which will be dragge
 
 	if (MainGame::cannonLetter.size() == 0)
 	{
-
-		MainChars = CharGenerator::getInstance()->generateCharMatrix(1, 10, true);
 		std::vector<wchar_t> tmpMainChars = MainChars[0];
 
 		MainGame::cannon_ballArray.clear();
@@ -401,8 +400,9 @@ void MainGame::cannonLetterCome()	//cannon letter will come which will be dragge
 			val += letterName;
 
 //			Label *myLabel = Label::createWithBMFont("english/baloo_bhai_hdr.fnt", val);
-			Alphabet *myLabel = Alphabet::createWithSize(letterName, 200);
+			Alphabet *myLabel = Alphabet::createWithSize(tmpMainChars[i], 200);
 			myLabel->setPosition(e1->getBoundingBox().size.width/2 , e1->getBoundingBox().size.height/2);
+
 			e1->addChild(myLabel);
 //			myLabel->setScale(.08, .08);
 			
@@ -611,7 +611,7 @@ void MainGame::removeFire(EventListenerClass* letterObject, Alphabet* removableF
 			if (MainGame::cannonLetter[i]->id == removableFire_id)
 			{
 				MainGame::cannonLetter[i]->flag = 1;
-				MainGame::cannonLetter[i]->answer = 'y';
+				MainGame::cannonLetter[i]->answer = 'n';
 				break;
 			}
 		}
