@@ -41,6 +41,10 @@ protected:
     void pauseNodeAndDescendants(Node *pNode);
     void resumeNodeAndDescendants(Node *pNode);
     void removeMenu();
+    void increasePoints(int points);
+    void happyFace();
+    void sadFace();
+    void normalFace();
 
     template <typename T>
     static inline std::string to_string(T value)
