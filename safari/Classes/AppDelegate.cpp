@@ -1,5 +1,6 @@
 #include "AppDelegate.h"
 #include "MapScene.h"
+#include "StartMenuScene.h"
 
 USING_NS_CC;
 
@@ -95,7 +96,7 @@ bool AppDelegate::applicationDidFinishLaunching() {
     register_all_packages();
     
     // create a scene. it's an autorelease object
-    director->runWithScene(MapScene::createScene());
+    director->runWithScene(StartMenu::createScene());
     Application::getInstance()->getCurrentLanguage();
     return true;
 }
