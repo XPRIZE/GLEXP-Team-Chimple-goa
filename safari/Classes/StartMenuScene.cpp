@@ -76,7 +76,13 @@ void StartMenu::startScene(std::string gameName, std::string firstParam, std::st
     if(gameName == ALPHAMON_COMBAT) {
         Director::getInstance()->replaceScene(SelectAlphamon::createScene());
     } else if(gameName == DUEL_SCENE) {
-        Director::getInstance()->replaceScene(DuelScene::createScene(firstParam.at(0), secondParam.at(0)));
+        std::u16string firstParamUTF16;
+        StringUtils::UTF8ToUTF16(firstParam, firstParamUTF16);
+
+        std::u16string secondParamUTF16;
+        StringUtils::UTF8ToUTF16(secondParam, secondParamUTF16);
+
+        Director::getInstance()->replaceScene(DuelScene::createScene(firstParamUTF16.at(0), secondParamUTF16.at(0)));
     }
 //    else if(gameName == CAMP) {
 //        Director::getInstance()->replaceScene(HelloWorld::createScene(gameName,firstParam));
