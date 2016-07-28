@@ -98,7 +98,7 @@ bool EndlessRunner::init()
 	this->addChild(boardDisplay, zOrderPathLayer.secondLayer);
 	
 	letterOnBoard =  Alphabet::createWithSize(tempChar, 300);
-	letterOnBoard->setPosition(Vec2((visibleSize.width / 2) + origin.x, (visibleSize.height + origin.y) - (visibleSize.height * 0.08)));
+	letterOnBoard->setPosition(Vec2((visibleSize.width / 2) + origin.x,(visibleSize.height + origin.y) - (visibleSize.height * 0.07)));
 	letterOnBoard->enableShadow(Color4B::BLACK, Size(8, -6), 5);
 	this->addChild(letterOnBoard, zOrderPathLayer.secondLayer);
 
@@ -316,7 +316,6 @@ void EndlessRunner::startingIntersectMode() {
 				else {
 					popUp = false;
 				}
-//				wchar_t m = allLabels[i]->getName();
 				_menuContext->pickAlphabet(tempChar,allLabels[i]->getChar(), true);
 
 			/*	auto audio = CocosDenshion::SimpleAudioEngine::getInstance();
@@ -798,7 +797,7 @@ void EndlessRunner::CreateMonsterWithLetter(float dt) {
 	}
 	auto parent = monsterImage->getBoundingBox();
 	auto boxs = Rect(parent.origin.x + (box.origin.x), parent.origin.y + (box.origin.y), box.size.width, box.size.height);
-	label->setPosition(Vec2(boxs.origin.x + (box.size.width / 2), boxs.origin.y + (box.size.height / 2)));
+	label->setPosition(Vec2(boxs.origin.x + (box.size.width / 2), boxs.origin.y + (box.size.height / 2)+20));
 
 	this->addChild(monsterImage, zOrderPathLayer.firstLayer);
 	this->addChild(label, zOrderPathLayer.firstLayer);
