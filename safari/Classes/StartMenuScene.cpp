@@ -12,7 +12,7 @@
 #include "puzzle/DuelScene.h"
 #include "mini_games/PatchTheWallScene.h"
 #include "mini_games/CrossTheBridgeScene.h"
-#include "mini_games/SmashTheRockLevelScene.h"
+#include "mini_games/SmashTheRockScene.h"
 #include "mini_games/EndlessRunner.h"
 #include "mini_games/Cannon_Ball_Main.h"
 #include "mini_games/TraceScene.h"
@@ -94,7 +94,7 @@ void StartMenu::startScene(std::string gameName, std::string firstParam, std::st
     } else if(gameName == PATCH_THE_WALL) {
         Director::getInstance()->replaceScene(PatchTheWall::createScene());
     } else if(gameName == SMASH_THE_ROCK) {
-        Director::getInstance()->replaceScene(SmashTheRockLevelScene::createScene());
+        Director::getInstance()->replaceScene(SmashTheRock::createScene());
     } else if(gameName == CANNON_BALL) {
         Director::getInstance()->replaceScene(MainGame::createScene());
     } else if(gameName == ENDLESS_RUNNER) {
