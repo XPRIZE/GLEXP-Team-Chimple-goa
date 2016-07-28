@@ -24,6 +24,7 @@ isSelectedForBattle(false)
 
 
 AlphamonSprite::~AlphamonSprite() {
+    CCLOG("removed AlphamonSprite => alphamon_pressed");
     EVENT_DISPATCHER->removeCustomEventListeners("alphamon_pressed");
 }
 
@@ -177,7 +178,7 @@ void AlphamonSprite::destoryAlphaMon(float dt) {
 
         event.setUserData(&s);
         _eventDispatcher->dispatchEvent(&event);
-
+        CCLOG("removed AlphamonSprite");
         this->removeFromParentAndCleanup(true);
     }
     

@@ -8,12 +8,13 @@
 class SmashTheRock : public cocos2d::Layer
 {
 public:
-	static cocos2d::Scene* createScene(std::string st);
+	static cocos2d::Scene* createScene();
 
 	virtual bool init();
 
 	int click = 0;
 	int clickWrong = 0;
+	wchar_t mychar;
 	bool flag = true;
     cocos2d::Sprite* target;
 	cocos2d::Node* character;

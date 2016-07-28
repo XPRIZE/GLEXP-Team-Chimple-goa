@@ -70,7 +70,7 @@ public:
     
     virtual bool didSkeletonContactBeginDuringJumpingUp(cocos2d::PhysicsContact &contact, SkeletonCharacterState currentStateCommand);
     
-    virtual void changeSkinForBone(std::string bone, std::string skinName, std::string anchorX = ZERO_POINT, std::string anchorY = ZERO_POINT);
+    virtual void changeSkinForBone(std::string bone, std::string skinName, std::string imageName, std::string anchorX = ZERO_POINT, std::string anchorY = ZERO_POINT);
     
     virtual void configureCharacter();
     
