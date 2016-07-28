@@ -8,7 +8,7 @@
 class SmashTheRock : public cocos2d::Layer
 {
 public:
-	static cocos2d::Scene* createScene(std::string st);
+	static cocos2d::Scene* createScene();
 
 	virtual bool init();
 
