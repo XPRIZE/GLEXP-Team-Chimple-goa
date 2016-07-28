@@ -114,7 +114,7 @@ void CrossTheBridge::sceneMaking()
 	auto visibleSize = Director::getInstance()->getVisibleSize();
 
 	cubeAtRest = Sprite::create("crossthebridge/border.png");
-	setAllSpriteProperties(cubeAtRest, 1, (630/ visibleSize.width)*visibleSize.width, visibleSize.height*0.47, false, 0, 0,0.9, 1);
+	setAllSpriteProperties(cubeAtRest, 1, (635/ visibleSize.width)*visibleSize.width, visibleSize.height*0.47, true, 0, 0,0.9, 1);
 	/*cubeAtRest->setPosition(Vec2(630 + origin.x, (visibleSize.height*0.47) + origin.y));
 	cubeAtRest->setAnchorPoint(Vec2(0, 0));
 	this->addChild(cubeAtRest, 1);*/
@@ -193,7 +193,7 @@ void CrossTheBridge::letterDisplayCombinationMethod(float dt)
 {
 	Vec2 origin = Director::getInstance()->getVisibleOrigin();
 	auto visibleSize = Director::getInstance()->getVisibleSize();
-
+	letterToDisplay=CharGenerator::getInstance()->generateAChar();
 	comboFive = CharGenerator::getInstance()->generateMatrixForChoosingAChar(letterToDisplay,20,1,50);
 
 	for (auto i = 0; i < 7; i++)
@@ -225,7 +225,7 @@ void CrossTheBridge::alphabetGeneration(float dt)
 	alphaMon->setPosition(Vec2((barrierRight->getPosition().x + origin.x), (visibleSize.height*0.47) + origin.y));
 	this->addChild(alphaMon, 10);
 	
-	alphaMon->setScale(0.55);
+	alphaMon->setScale(0.70);
 	alphaMon->setContentSize(cocos2d::Size(20, 300));
 	alphaMon->setName(mystr);
 	alphaContainer.push_back(alphaMon);
@@ -266,15 +266,12 @@ void CrossTheBridge::alphaDeletion()
 
 		if (alphaBox.intersectsRect(barrierLeft->getBoundingBox()))
 		{
-			std::ostringstream sstreamb;
-			sstreamb << letterToDisplay;
-			std::string comboValue = sstreamb.str();
-
-			if (!alphaContainer[i]->getName().compare(comboValue))
+			if (alphaContainer[i]->getAlphabet() == letterToDisplay)
 			{
 				if (letterDisplayCounter < 7 && pointGenerater)
 				{
-					_menuContext->pickAlphabet(letterToDisplay, alphaContainer[i]->getName()[0], true);
+					_menuContext->pickAlphabet(letterToDisplay, alphaContainer[i]->getAlphabet(), true);
+
 					letterContainer[letterDisplayCounter]->setColor(cocos2d::Color3B(255, 215, 0));
 					letterDisplayCounter++;
 					pointGenerater = false;
@@ -286,9 +283,10 @@ void CrossTheBridge::alphaDeletion()
 			}
 			else
 			{
-				_menuContext->pickAlphabet(letterToDisplay, alphaContainer[i]->getName()[0], true);
+				_menuContext->pickAlphabet(letterToDisplay, alphaContainer[i]->getAlphabet(), true);
 				alphaBackFlag = false;
 				auto moveBack = CallFunc::create([=]() {
+					alphaContainer[i]->setContentSize(cocos2d::Size(-4.0f,-4.0f));
 					MoveBy *nodeAction = MoveBy::create(3.2, Vec2(visibleSize.width*1.16, 0));
 					EaseBackOut *easeAction = EaseBackOut::create(nodeAction);
 					alphaContainer[i]->runAction(easeAction);
@@ -327,6 +325,7 @@ void CrossTheBridge::monsDeletion()
 			_menuContext->pickAlphabet(letterToDisplay,'1', true);
 			monsterBackFlag = false;
 			auto moveBack = CallFunc::create([=]() {
+			monsContainer[i]->setContentSize(cocos2d::Size(0.0f,0.0f));
 			MoveBy *nodeAction = MoveBy::create(2.6, Vec2(visibleSize.width*1.16, 0));
 			EaseBackOut *easeAction = EaseBackOut::create(nodeAction);
 			monsContainer[i]->runAction(easeAction);
@@ -337,7 +336,6 @@ void CrossTheBridge::monsDeletion()
 			this->runAction(monsterSequence);
 		}
 	}
-
 }
 
 void CrossTheBridge::alphaLoud()
@@ -347,11 +345,11 @@ void CrossTheBridge::alphaLoud()
 		auto alphaBox = CCRectMake(alphaContainer[i]->getPositionX(), alphaContainer[i]->getPositionY(), alphaContainer[i]->getContentSize().width, alphaContainer[i]->getContentSize().height);
 		if (alphaBox.intersectsRect(alphaSoundBarrier->getBoundingBox()))
 		{
-			auto Sequences = Sequence::create(ScaleTo::create(0.17,0.62),DelayTime::create(0.07),ScaleTo::create(0.17,0.55),NULL);
+			auto Sequences = Sequence::create(ScaleTo::create(0.17,0.80),DelayTime::create(0.07),ScaleTo::create(0.17,0.70),NULL);
 			alphaContainer[i]->runAction(Sequences);
-			auto audio = CocosDenshion::SimpleAudioEngine::getInstance();
-			auto path = LangUtil::getInstance()->getAlphabetSoundFileName(alphaContainer[i]->getName()[0]);
-			audio->playEffect(path.c_str(),false);
+			//auto audio = CocosDenshion::SimpleAudioEngine::getInstance();
+			//auto path = LangUtil::getInstance()->getAlphabetSoundFileName(alphaContainer[i]->getName()[0]);
+			////audio->playEffect(path.c_str(),false);
 		}
 	}
 }

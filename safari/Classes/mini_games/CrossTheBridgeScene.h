@@ -86,7 +86,7 @@ protected:
 	int letterDisplayCounter = 0;
 
 	Label* myGameScoreLabel;
-	char letterToDisplay = 'A';
+	wchar_t letterToDisplay;
 
 	cocostudio::timeline::ActionTimeline *water_splash;
 
