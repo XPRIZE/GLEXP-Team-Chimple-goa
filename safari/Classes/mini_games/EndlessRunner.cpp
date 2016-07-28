@@ -175,7 +175,7 @@ void EndlessRunner::update(float delta) {
 	}
 	aa = DrawNode::create();
 	this->addChild(aa, 20);
-	aa->drawRect(Vec2(parent.origin.x+box.origin.x, parent.origin.y + box.origin.y), Vec2(parent.origin.x + box.origin.x + box.size.width, parent.origin.y + box.origin.y + box.size.height), Color4F(255, 255, 255, 22));
+//	aa->drawRect(Vec2(parent.origin.x+box.origin.x, parent.origin.y + box.origin.y), Vec2(parent.origin.x + box.origin.x + box.size.width, parent.origin.y + box.origin.y + box.size.height), Color4F(255, 255, 255, 22));
 }
 
 void EndlessRunner::FallDownCharacter() {
@@ -199,7 +199,6 @@ void EndlessRunner::stillCharacterOnPath(float delta) {
 			if (allPathBlocks[i]->LayerTypeName == mountainLayerTypes.FirstLayer && !LayerMode.gapMode) {
 				Character.character->setPosition(Vec2((visibleSize.width * 25 / 100) + origin.x, LayerYcoord.firstLayer + 15));
 				if (Character.groundTouchFlag) {
-					gapFlag = true;
 					Character.groundTouchFlag = false;
 					Character.Clicked = false;
 					Character.character->stopAction(Character.fallDownAction);
@@ -210,8 +209,8 @@ void EndlessRunner::stillCharacterOnPath(float delta) {
 
 					auto main_Sequence = Sequence::create(A, B, NULL);
 					Character.character->runAction(main_Sequence);
-
 				}
+				gapFlag = true;
 			}
 			else if (allPathBlocks[i]->LayerTypeName == mountainLayerTypes.SecondLayer && !LayerMode.gapMode) {
 				Character.character->setPosition(Vec2((visibleSize.width * 25 / 100) + origin.x, (visibleSize.height * 23 / 100) + origin.y));
@@ -799,10 +798,10 @@ void EndlessRunner::CreateMonsterWithLetter(float dt) {
 	monsterImage->setTag(Character.uniqueId);
 
 	if (SecondLayerModes == LayerMode.SecondLayerRightIntersectMode) {
-		monsterImage->setPosition(Vec2(rightBarrier->getPosition().x + origin.x, (visibleSize.height * 58.5 / 100) + origin.y));
+		monsterImage->setPosition(Vec2(rightBarrier->getPosition().x + origin.x, (visibleSize.height * 58.8 / 100) + origin.y));
 	}
 	else if (FirstLayerModes == LayerMode.FirstLayerRightIntersectMode) {
-		monsterImage->setPosition(Vec2(rightBarrier->getPosition().x + origin.x, (visibleSize.height * 47 / 100) + origin.y));
+		monsterImage->setPosition(Vec2(rightBarrier->getPosition().x + origin.x, (visibleSize.height * 47.3 / 100) + origin.y));
 	}
 	else {
 		monsterImage->setPosition(Vec2(rightBarrier->getPosition().x + origin.x, (visibleSize.height * 47 / 100) + origin.y));
