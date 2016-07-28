@@ -114,7 +114,7 @@ void CrossTheBridge::sceneMaking()
 	auto visibleSize = Director::getInstance()->getVisibleSize();
 
 	cubeAtRest = Sprite::create("crossthebridge/border.png");
-	setAllSpriteProperties(cubeAtRest, 1, (635/ visibleSize.width)*visibleSize.width, visibleSize.height*0.47, true, 0, 0,0.9, 1);
+	setAllSpriteProperties(cubeAtRest, 1, (635/ visibleSize.width)*visibleSize.width, visibleSize.height*0.47, false, 0, 0,0.9, 1);
 	/*cubeAtRest->setPosition(Vec2(630 + origin.x, (visibleSize.height*0.47) + origin.y));
 	cubeAtRest->setAnchorPoint(Vec2(0, 0));
 	this->addChild(cubeAtRest, 1);*/
@@ -198,9 +198,10 @@ void CrossTheBridge::letterDisplayCombinationMethod(float dt)
 
 	for (auto i = 0; i < 7; i++)
 	{
+		/*
 		std::ostringstream sstreamb;
 		sstreamb << letterToDisplay;
-		std::string letterDisplay = sstreamb.str();
+		std::string letterDisplay = sstreamb.str();*/
 		Alphabet *displayLetter = Alphabet::createWithSize(letterToDisplay,220);
 		displayLetter->setPosition(Vec2(letterDisplayPosition[i].first + origin.x, letterDisplayPosition[i].second + origin.y));
 		this->addChild(displayLetter, 3);
@@ -307,8 +308,6 @@ void CrossTheBridge::alphaDeletion()
 				letterDisplayCounter = 0;
 				letterDisplayCombinationMethod(2.0);
 			}
-		/*	this->removeChild(alphaContainer[i], true);
-			alphaContainer.erase(alphaContainer.begin() + i);*/
 		}
 	}
 
@@ -347,9 +346,9 @@ void CrossTheBridge::alphaLoud()
 		{
 			auto Sequences = Sequence::create(ScaleTo::create(0.17,0.80),DelayTime::create(0.07),ScaleTo::create(0.17,0.70),NULL);
 			alphaContainer[i]->runAction(Sequences);
-			//auto audio = CocosDenshion::SimpleAudioEngine::getInstance();
-			//auto path = LangUtil::getInstance()->getAlphabetSoundFileName(alphaContainer[i]->getName()[0]);
-			////audio->playEffect(path.c_str(),false);
+			/*auto audio = CocosDenshion::SimpleAudioEngine::getInstance();
+			auto path = LangUtil::getInstance()->getAlphabetSoundFileName(alphaContainer[i]->getName()[0]);
+			audio->playEffect(path.c_str(),false);*/
 		}
 	}
 }
