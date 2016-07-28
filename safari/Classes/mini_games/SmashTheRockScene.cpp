@@ -136,7 +136,6 @@ bool SmashTheRock::init()
 		//	label->setScale(0.15);
 			label->setPositionX(blockWidth );
 			auto letter = label->getString();
-			CCLOG("label getString = %s",letter);
 			label->setPositionY(blockHeight - 130);
 			label->setColor(ccc3(255, 255, 255));
 			label->enableShadow(Color4B::GRAY, Size(5, -5), -50);
