@@ -435,11 +435,11 @@ void MainGame::loadCannon(EventListenerClass* letterObject)
 	timeline->gotoFrameAndPause(0);
 	timeline->play("cannon_shoot", false);
 	timeline->setAnimationEndCallFunc("cannon_shoot", CC_CALLBACK_0(MainGame::startFire, this, letterObject, mycannon));
+	MainGame::audioBg->playEffect("cannonball/gamesound/cannonshoot.wav", false);
 }
 
 void MainGame::startFire(EventListenerClass* letterObject, Node *mycannon)
 {
-	MainGame::audioBg->playEffect("cannonball/gamesound/cannonshoot.wav", false);
 	self->removeChild(mycannon);	// remove cannon animation
 	int flag = 0;
 	for (int i = 0; i < MainGame::cannonArray.size(); i++)

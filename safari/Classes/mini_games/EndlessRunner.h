@@ -17,15 +17,19 @@ class EndlessRunner : public cocos2d::Layer
 protected:
 
 	MenuContext *_menuContext;
+	wchar_t tempChar;
+	
 	std::vector<SpriteCreate*> allPathBlocks; // Vector Array Which Carries all Path Blocks
 	std::vector<Sprite*> allSceneObject;
 	std::vector<Sprite*> allBeforeStartBlocks;
+	std::vector<Sprite*> allGapBlocks;
 	std::pair<float, float> position;
-	std::vector<Label*> allLabels;
+	std::vector<Alphabet*> allLabels;
 	std::vector<Sprite*> allMonster;
 	Alphabet *letterOnBoard;
 	bool initBool = true;
 	bool popUp = true;
+	bool gapFlag = true;
 	CocosDenshion::SimpleAudioEngine* audioBg;
 	Size visibleSize;
 	Vec2 origin;
@@ -43,7 +47,7 @@ protected:
 	bool flagLifeDemo = true;
 	std::vector<std::vector<wchar_t>> letters;
 	int counterLetter = 0;
-	wchar_t tempChar = 'B';
+	
 	struct mountainTypeObject {
 		std::string startLandPart = "startLand";
 		std::string midLandPart = "midLand";

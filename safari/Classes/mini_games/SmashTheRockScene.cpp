@@ -75,10 +75,10 @@ bool SmashTheRock::init()
 	auto punchHandLeft = (Sprite *)centre->getChildByName("boxing_gloves_left");
 	punchHandLeft->setGlobalZOrder(3);
 	auto punchHandRight = (Sprite *)centre->getChildByName("boxing_gloves_right");
-	punchHandRight->setGlobalZOrder(3);
+	punchHandRight->setGlobalZOrder(3);*/
 	
-	auto stone_bace = (Sprite *)centre->getChildByName("stone_bace");
-	stone_bace->setGlobalZOrder(0);*/
+	//auto stone_bace = (Sprite *)centre->getChildByName("stone_bace");
+	//stone_bace->setGlobalZOrder(0);
 
 
 	auto spritecache1 = SpriteFrameCache::getInstance();
@@ -121,7 +121,7 @@ bool SmashTheRock::init()
 			rightRef.pushBack(right);
 			wrongRef.pushBack(wrong);
 			this->addChild(block1,2);
-			//block1->setGlobalZOrder(6);
+		//	block1->setGlobalZOrder(6);
 			this->addChild(right, 2);
 		//	right->setGlobalZOrder(6);
 			this->addChild(wrong, 2);
@@ -144,8 +144,8 @@ bool SmashTheRock::init()
 			label->setName(mystr);
 			labelRef.pushBack(label);
 			CCLOG("alpha = %d", labelRef.size());
-			this->addChild(label, 2);
-		//	label->setGlobalZOrder(6);
+			this->addChild(label,2);
+	//		label->setGlobalZOrder(6);
 			auto listener = EventListenerTouchOneByOne::create();
 			//listener->setSwallowTouches(true);
 			label->touchBeganCallback = CC_CALLBACK_2(SmashTheRock::onTouchBegan, this);
@@ -212,13 +212,9 @@ void SmashTheRock::jump()
 	auto visibleSize = Director::getInstance()->getVisibleSize();
 	Vec2 origin = Director::getInstance()->getVisibleOrigin();
 
-	cocostudio::timeline::ActionTimeline *timeLine = CSLoader::createTimeline("human_skeleton.csb");
-	timeLine->retain(); //released later on
-	mainGameCharacter->runAction(timeLine);
-	timeLine->setTimeSpeed(1.5);
-	timeLine->play("run", true);
-	auto action = MoveBy::create(1.5, Point(-1100, 0));
-	mainGameCharacter->runAction(action);
+	auto audio = CocosDenshion::SimpleAudioEngine::getInstance();
+	//audio->playEffect("smash_de_rock/PUNCH.mp3", false);
+
 	
 }
 
@@ -235,8 +231,8 @@ void SmashTheRock :: hit()
 	auto tRev1 = TargetedAction::create(boxRight, rev1); 
 	auto callbackStart = CallFunc::create(CC_CALLBACK_0(SmashTheRock::masking, this));
 	auto callbackStart1 = CallFunc::create(CC_CALLBACK_0(SmashTheRock::blast, this));
-
-	auto seq = Sequence::create(callbackStart1,action,  rev,  tRight, callbackStart1, tRev1,  callbackStart, NULL);
+	auto callbackStart2 = CallFunc::create(CC_CALLBACK_0(SmashTheRock::jump, this));
+	auto seq = Sequence::create(callbackStart1,action, callbackStart2,  rev,  tRight, callbackStart1, callbackStart2, tRev1,  callbackStart, NULL);
 	boxLeft->runAction(seq);
 	//masking();
 	
@@ -321,11 +317,15 @@ void SmashTheRock::masking()
 	//maskedFill->setGlobalZOrder(3);
 	if (click == 5)
 	{
+		this->removeChild(target);
+		this->removeChild(maskedFill);
+		this->removeChild(label1);
 		for (int i = 0; i < labelRef.size(); i++)
 		{
 			this->removeChild(labelRef.at(i));
 		}
-		_eventDispatcher->removeEventListenersForTarget(label, false);
+		
+	
 		this->scheduleOnce(schedule_selector(SmashTheRock::change), 2.0f);
 		
 	}
