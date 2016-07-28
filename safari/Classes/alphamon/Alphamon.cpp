@@ -46,8 +46,6 @@ Alphamon *Alphamon::createWithAlphabet(wchar_t alphabet) {
 
 bool Alphamon::initWithAlphabet(wchar_t alphabet) {
     _alphabet = alphabet;
-//    static const std::map<wchar_t, std::string> langMap = {{L'ಅ',"a"},{L'ಆ',"aa"},{L'ಎ',"ae"},{L'ಐ',"aee"},{L'ಉ',"u"}};
-//    std::string langAlphabet = langMap.at(alpha);
     std::string animFile = LangUtil::getInstance()->getMonsterAnimationFileName(alphabet);
     _monster = CSLoader::createNode(animFile);
     setName(LangUtil::convertUTF16CharToString(alphabet));
