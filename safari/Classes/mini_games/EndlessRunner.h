@@ -29,6 +29,7 @@ protected:
 	Alphabet *letterOnBoard;
 	bool initBool = true;
 	bool popUp = true;
+	bool gapFlag = true;
 	CocosDenshion::SimpleAudioEngine* audioBg;
 	Size visibleSize;
 	Vec2 origin;

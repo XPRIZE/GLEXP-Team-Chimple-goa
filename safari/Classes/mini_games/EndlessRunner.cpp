@@ -57,13 +57,13 @@ bool EndlessRunner::init()
 	leftBarrier = EndlessRunner::CreateSprites("endlessrunner/barrier.png", (visibleSize.width * -15 / 100) + origin.x, (visibleSize.height * 0) + origin.y, 1, 1, 0, "IMG");
 
 	leftBarrierForBigObject = EndlessRunner::CreateSprites("endlessrunner/barrier.png", (visibleSize.width * -70 / 100) + origin.x, (visibleSize.height * 0) + origin.y, 1, 1, 0, "IMG");
-	rightBarrier = EndlessRunner::CreateSprites("endlessrunner/barrier.png", (visibleSize.width * 80 / 100) + origin.x, (visibleSize.height * 0) + origin.y, 1, 1, 0, "IMG");
+	rightBarrier = EndlessRunner::CreateSprites("endlessrunner/barrier.png", (visibleSize.width * 120 / 100) + origin.x, (visibleSize.height * 0) + origin.y, 1, 1, 0, "IMG");
 	upBarrier = EndlessRunner::CreateSprites("endlessrunner/bgTouchImage.png", origin.x, origin.y + (visibleSize.height * 110 / 100), visibleSize.width, 1, 0, "IMG");
 	upBarrier->setAnchorPoint(Vec2(0, 1));
 
 	Character.action = CSLoader::createTimeline("endlessrunner/main_char.csb");
 	Character.character = (Sprite *)CSLoader::createNode("endlessrunner/main_char.csb");
-	Character.character->setPosition(Vec2((visibleSize.width * 25 / 100) + origin.x, LayerYcoord.firstLayer));
+	Character.character->setPosition(Vec2((visibleSize.width * 25 / 100) + origin.x,LayerYcoord.firstLayer));
 	this->addChild(Character.character, zOrderPathLayer.character);
 	Character.character->runAction(Character.action);
 	Character.character->setScale(1.2);
@@ -186,8 +186,9 @@ void EndlessRunner::stillCharacterOnPath(float delta) {
 
 		if (boxs.intersectsRect(allPathBlocks[i]->getBoundingBox())) {
 			if (allPathBlocks[i]->LayerTypeName == mountainLayerTypes.FirstLayer && !LayerMode.gapMode) {
-				Character.character->setPositionY(LayerYcoord.firstLayer + 15);
+				Character.character->setPosition(Vec2((visibleSize.width * 25 / 100) + origin.x, LayerYcoord.firstLayer + 15));
 				if (Character.groundTouchFlag) {
+					gapFlag = true;
 					Character.groundTouchFlag = false;
 					Character.Clicked = false;
 					Character.character->stopAction(Character.fallDownAction);
@@ -202,7 +203,7 @@ void EndlessRunner::stillCharacterOnPath(float delta) {
 				}
 			}
 			else if (allPathBlocks[i]->LayerTypeName == mountainLayerTypes.SecondLayer && !LayerMode.gapMode) {
-				Character.character->setPositionY((visibleSize.height * 23 / 100) + origin.y);
+				Character.character->setPosition(Vec2((visibleSize.width * 25 / 100) + origin.x, (visibleSize.height * 23 / 100) + origin.y));
 
 				if (Character.groundTouchFlag) {
 					Character.groundTouchFlag = false;
@@ -221,41 +222,6 @@ void EndlessRunner::stillCharacterOnPath(float delta) {
 					Character.character->runAction(main_Sequence);
 				}
 			}
-			else if (allPathBlocks[i]->LayerTypeName == mountainLayerTypes.gap && !LayerMode.gapMode ) {
-				CCLOG("HOW MANY TIME GAP COME");
-				LayerMode.gapMode = true;
-				Character.onAir = false;
-			
-				Character.action->play("drop", true);
-				auto downMovement = MoveBy::create(0.6, Vec2(-Character.character->getContentSize().width, -(visibleSize.height * 0.4)));
-				Character.character->runAction(downMovement);
-				Character.Clicked = true;
-				Character.stillCheckFalg = false;
-				
-				counterLife = counterLife - 1;
-				std::ostringstream sstreamc; sstreamc << "life_"<<counterLife; std::string counterLife = sstreamc.str();
-				hpUi->getChildByName(counterLife)->stopAllActions();
-				hpUi->getChildByName(counterLife)->getChildByName("life_on")->setVisible(false);
-				hpUi->getChildByName(counterLife)->getChildByName("life_off")->setVisible(true);
-				
-				auto setPositionOnPath = CallFunc::create([=]() {
-					Character.character->stopAction(downMovement);
-					Character.character->setPositionY(LayerYcoord.firstLayer + 15);
-					Character.action->play("run", true);
-					Character.Clicked = false;
-					Character.stillCheckFalg = true;
-					LayerMode.gapMode = false;
-				});
-
-				auto blink = Blink::create(2, 10);
-				auto visible = CallFunc::create([=]() {
-					Character.character->setVisible(true);
-				});
-				
-				auto main_Sequence = Sequence::create(DelayTime::create(0.8),setPositionOnPath, blink, visible, NULL);
-				Character.character->runAction(main_Sequence);
-				
-			} 
 		}
 		else {
 			Character.character->setPositionY(Character.character->getPositionY() - (0.8));
@@ -286,17 +252,48 @@ void EndlessRunner::startingIntersectMode() {
 			EndlessRunner::AddRocksInSecondLayerPath();
 		}
 	}
+	if (gapFlag) {
+		for (std::size_t i = 0; i < allGapBlocks.size(); i++) {
+			auto box = Character.character->getChildByName("floor_2")->getBoundingBox();
+			Rect parent = Character.character->getBoundingBox();
+			Rect boxs = Rect(parent.origin.x + box.origin.x, parent.origin.y + box.origin.y, box.size.width*1.2, box.size.height*1.2);
 
-	for (std::size_t i = 0; i < allGapBlocks.size(); i++) {
-		auto box = Character.character->getChildByName("floor_2")->getBoundingBox();
-		Rect parent = Character.character->getBoundingBox();
-		Rect boxs = Rect(parent.origin.x + box.origin.x, parent.origin.y + box.origin.y, box.size.width*1.2, box.size.height*1.2);
+			if (boxs.intersectsRect(allGapBlocks[i]->getBoundingBox())) {
+			
+				gapFlag = false;
+				LayerMode.gapMode = true;
+				Character.onAir = false;
 
-		if (boxs.intersectsRect(allGapBlocks[i]->getBoundingBox())) {
-			CCLOG("I AM INTERSECTING WITH NEW GAP");
+				Character.action->play("drop", true);
+				auto downMovement = MoveTo::create(0.8, Vec2(visibleSize.width * 0.20 + origin.x,+ origin.y));
+				Character.fallDownAction = downMovement;
+				Character.character->runAction(Character.fallDownAction);
+				Character.Clicked = true;
+			
+				counterLife = counterLife - 1;
+				std::ostringstream sstreamc; sstreamc << "life_" << counterLife; std::string counterLife = sstreamc.str();
+				hpUi->getChildByName(counterLife)->stopAllActions();
+				hpUi->getChildByName(counterLife)->getChildByName("life_on")->setVisible(false);
+				hpUi->getChildByName(counterLife)->getChildByName("life_off")->setVisible(true);
+
+				auto setPositionOnPath = CallFunc::create([=]() {
+					Character.character->setPositionY(LayerYcoord.firstLayer + 15);
+					Character.action->play("run", true);
+					Character.Clicked = false;
+					LayerMode.gapMode = false;
+				});
+
+				auto blink = Blink::create(2, 10);
+				auto visible = CallFunc::create([=]() {
+					Character.character->setVisible(true);
+				});
+
+				auto main_Sequence = Sequence::create(DelayTime::create(0.8), setPositionOnPath, blink, visible, NULL);
+				Character.character->runAction(main_Sequence);
+
+			}
 		}
 	}
-
 
 	for (std::size_t i = 0; i < allLabels.size(); i++) {
 
@@ -305,9 +302,8 @@ void EndlessRunner::startingIntersectMode() {
 		Rect boxs = Rect(parent.origin.x + (box.origin.x), parent.origin.y + (box.origin.y), box.size.width*1.2, box.size.height*1.2);
 		Rect label = allLabels[i]->getBoundingBox();
 
-		if (boxs.intersectsRect(allLabels[i]->getBoundingBox()))//.intersectsRect(Character.character->getChildren().at(0)->getBoundingBox()))
+		if (boxs.intersectsRect(allLabels[i]->getBoundingBox()))
 		{
-			
 			auto mystr = LangUtil::convertUTF16CharToString(tempChar);
 			if (allLabels[i]->getName() == mystr) {
 				
@@ -320,8 +316,8 @@ void EndlessRunner::startingIntersectMode() {
 				else {
 					popUp = false;
 				}
-
-				_menuContext->pickAlphabet(tempChar, allLabels[i]->getName()[0], true);
+//				wchar_t m = allLabels[i]->getName();
+				_menuContext->pickAlphabet(tempChar,allLabels[i]->getName()[0], true);
 
 			/*	auto audio = CocosDenshion::SimpleAudioEngine::getInstance();
 				auto path = LangUtil::getInstance()->getAlphabetSoundFileName(allLabels[i]->getName()[0]);
@@ -743,6 +739,20 @@ void EndlessRunner::removePathBlockTouchByLeftBarrier() {
 		{
 			this->removeChild(allMonster[i]);
 			allMonster.erase(allMonster.begin() + i);
+		}
+	}
+	for (std::size_t i = 0; i < allGapBlocks.size(); i++) {
+		if (allGapBlocks[i]->getBoundingBox().intersectsRect(leftBarrier->getBoundingBox()))
+		{
+			this->removeChild(allGapBlocks[i]);
+			allGapBlocks.erase(allGapBlocks.begin() + i);
+		}
+	}
+	for (std::size_t i = 0; i < allBeforeStartBlocks.size(); i++) {
+		if (allBeforeStartBlocks[i]->getBoundingBox().intersectsRect(leftBarrier->getBoundingBox()))
+		{
+			this->removeChild(allBeforeStartBlocks[i]);
+			allBeforeStartBlocks.erase(allBeforeStartBlocks.begin() + i);
 		}
 	}
 }
