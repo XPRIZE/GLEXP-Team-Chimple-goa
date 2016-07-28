@@ -117,6 +117,8 @@ bool Alphabet::initWithSize(wchar_t alphabet, float fontSize) {
     Label::setBMFontFilePath(LangUtil::getInstance()->getBMFontFileName());
     Label::setString(LangUtil::convertUTF16CharToString(alphabet));
     setScale(fontSize / MAX_FONT_SIZE);
-    setAnchorPoint(Vec2(0.5, 0.65));
+    if(LangUtil::getInstance()->getLang() == "kan") {
+        setAnchorPoint(Vec2(0.5, 0.65));
+    }
     return true;
 }
