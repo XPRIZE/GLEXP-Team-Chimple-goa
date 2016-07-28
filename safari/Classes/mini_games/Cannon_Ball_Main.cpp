@@ -155,7 +155,7 @@ bool MainGame::init()
 	backGround_front->setPosition(origin.x + visibleSize.width * 43 / 100, origin.y + visibleSize.height / 2);
 	this->addChild(backGround_front, 3);
 
-	MainGame::audioBg->playEffect("cannonball/gamesound/background.wav", true);
+	MainGame::audioBg->playEffect("cannonball/gamesound/background1.wav", true);
 
 	startGame();
 
