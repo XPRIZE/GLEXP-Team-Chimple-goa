@@ -60,14 +60,14 @@ void SkeletonCharacter::setStateMachine(StateMachine* stateMachine) {
 
 void SkeletonCharacter::playStartingJumpUpAnimation(std::function<void ()> func) {
     this->getSkeletonActionTimeLine()->setAnimationEndCallFunc(JUMP_START, func);
-    this->getSkeletonActionTimeLine()->setTimeSpeed(4.0);
+    this->getSkeletonActionTimeLine()->setTimeSpeed(4.0f);
     this->getSkeletonActionTimeLine()->play(JUMP_START, false);
 }
 
 
 void SkeletonCharacter::playStartingJumpUpWithRotationAnimation(std::function<void ()> func) {
     this->getSkeletonActionTimeLine()->setAnimationEndCallFunc(JUMP_START, func);
-    this->getSkeletonActionTimeLine()->setTimeSpeed(4.0);
+    this->getSkeletonActionTimeLine()->setTimeSpeed(4.0f);
     this->getSkeletonActionTimeLine()->play(JUMP_START, false);
 }
 
@@ -135,8 +135,10 @@ void SkeletonCharacter::createSkeletonNode(cocos2d::Node* node, const std::strin
     if(node != NULL) {
         this->getSkeletonNode()->setName(node->getName());
         this->getSkeletonNode()->setPosition(node->getPosition());
+        this->skeletonNode->setLocalZOrder(1000);
     }
-
+    
+    this->setLocalZOrder(1000);
     
     this->skeletonActionTime = (cocostudio::timeline::ActionTimeline*) CSLoader::createTimeline(filename);
     this->skeletonNode->runAction(this->skeletonActionTime);
@@ -184,7 +186,7 @@ void SkeletonCharacter::setSkeletonActionTimeLine(cocostudio::timeline::ActionTi
 }
 
 
-void SkeletonCharacter::changeSkinForBone(std::string bone, std::string skinName, std::string anchorX, std::string anchorY) {
+void SkeletonCharacter::changeSkinForBone(std::string bone, std::string skinName, std::string imageName, std::string anchorX, std::string anchorY) {
     cocostudio::timeline::BoneNode* boneNode = this->getSkeletonNode()->getBoneNode(bone);
     
     if(boneNode != NULL) {
@@ -200,20 +202,26 @@ void SkeletonCharacter::changeSkinForBone(std::string bone, std::string skinName
             }
         }
         
-        if(!isSkinExists) {
-            cocos2d::Sprite* boneSkin = cocos2d::Sprite::createWithSpriteFrameName(skinName);
-            boneSkin->setName(skinName);
-            
+        if(isSkinExists) {
+            cocos2d::Sprite* boneSkin = cocos2d::Sprite::createWithSpriteFrameName(imageName);
+            boneSkin->setName(imageName);
             float xAnchor = String::create(anchorX)->floatValue();
             float yAnchor = String::create(anchorY)->floatValue();
             
+            if(xAnchor == 0.0f) {
+                xAnchor = referenceToSkin->getAnchorPoint().x;
+            }
+            
+            if(yAnchor == 0.0f) {
+                yAnchor = referenceToSkin->getAnchorPoint().y;
+            }
+
+            
+            boneSkin->setPosition(referenceToSkin->getPosition());
             boneSkin->setAnchorPoint(Vec2(xAnchor,yAnchor));
             boneNode->addSkin(boneSkin, true);
             boneNode->displaySkin(boneSkin, true);
-        } else {
-            boneNode->displaySkin(referenceToSkin, true);
         }
-
     }
 }
 

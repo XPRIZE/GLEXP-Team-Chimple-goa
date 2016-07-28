@@ -8,6 +8,7 @@
 
 #include <math.h>
 #include "DuelScene.h"
+#include "../GameScene.h"
 #include "../AppDelegate.h"
 #include "../alphamon/HPMeter.h"
 #include "AlphabetGrid.h"
@@ -39,15 +40,9 @@ DuelScene::~DuelScene() {
 
 Scene* DuelScene::createScene(wchar_t myMonChar, wchar_t otherMonChar)
 {
-    auto scene = Scene::create();
-    
     auto layer = DuelScene::create(myMonChar, otherMonChar);
-    
-    scene->addChild(layer);
-
-    layer->_menuContext = MenuContext::create(layer);
-    scene->addChild(layer->_menuContext);
-    
+    auto scene = GameScene::createWithChild(layer, "AlphamonCombat");
+    layer->_menuContext = scene->getMenuContext();
     return scene;
 }
 

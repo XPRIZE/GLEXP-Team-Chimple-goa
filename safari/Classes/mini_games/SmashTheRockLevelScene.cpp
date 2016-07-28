@@ -300,7 +300,7 @@ bool SmashTheRockLevelScene::onTouchBegan(cocos2d::Touch *touch, cocos2d::Event 
 
 			// run
 		//	director->runWithScene(scene);
-			Director::getInstance()->replaceScene(SmashTheRock::createScene(childNode->getName().c_str()));
+		//	Director::getInstance()->replaceScene(SmashTheRock::createScene(childNode->getName().c_str()));
 			return false;
 		}
 	}
