@@ -292,7 +292,7 @@ bool AlphamonFeedLevelScene::onTouchBegan(cocos2d::Touch *touch, cocos2d::Event 
 
 			// run
 		//	director->runWithScene(scene);
-			Director::getInstance()->replaceScene(TransitionPageTurn::create(1.0, AlphamonFeed::createScene(childNode->getName().c_str()), false));
+			Director::getInstance()->replaceScene(TransitionPageTurn::create(1.0, AlphamonFeed::createScene(), false));
 			return false;
 		}
 	}
