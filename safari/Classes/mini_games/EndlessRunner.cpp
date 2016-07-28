@@ -7,7 +7,7 @@
 
 using namespace std;
 USING_NS_CC;
-
+DrawNode* aa;
 Scene* EndlessRunner::createScene()
 {
 	Scene* scene = Scene::create();
@@ -79,7 +79,7 @@ bool EndlessRunner::init()
 	auto rotate5 = CSLoader::createTimeline("endlessrunner/life.csb");
 
 	hpUi = (Sprite *)CSLoader::createNode("endlessrunner/hp_ui.csb");
-	hpUi->setPosition(Vec2((visibleSize.width * 3 / 100) + origin.x,(visibleSize.height + origin.y) - (visibleSize.height * 0.38)));
+	hpUi->setPosition(Vec2((visibleSize.width * 0.005) + origin.x,(visibleSize.height + origin.y) - (visibleSize.height * 0.38)));
 	hpUi->setScale(0.7);
 	this->addChild(hpUi, zOrderPathLayer.layer7);
 	hpUi->runAction(hpUiCatchAction);
@@ -165,6 +165,17 @@ void EndlessRunner::update(float delta) {
 		auto main_Sequence = Sequence::create(DelayTime::create(0.5), clearAllComponent, redirectScene, NULL);
 		this->runAction(main_Sequence);
 	}
+
+	auto box = Character.character->getChildByName("floor_2")->getBoundingBox();
+	Rect parent = Character.character->getBoundingBox();
+
+	if (aa != NULL)
+	{
+		this->removeChild(aa);
+	}
+	aa = DrawNode::create();
+	this->addChild(aa, 20);
+	aa->drawRect(Vec2(parent.origin.x+box.origin.x, parent.origin.y + box.origin.y), Vec2(parent.origin.x + box.origin.x + box.size.width, parent.origin.y + box.origin.y + box.size.height), Color4F(255, 255, 255, 22));
 }
 
 void EndlessRunner::FallDownCharacter() {
@@ -265,7 +276,7 @@ void EndlessRunner::startingIntersectMode() {
 				Character.onAir = false;
 
 				Character.action->play("drop", true);
-				auto downMovement = MoveTo::create(0.8, Vec2(visibleSize.width * 0.20 + origin.x,+ origin.y));
+				auto downMovement = MoveTo::create(0.6, Vec2(visibleSize.width * 0.20 + origin.x,+ origin.y));
 				Character.fallDownAction = downMovement;
 				Character.character->runAction(Character.fallDownAction);
 				Character.Clicked = true;
@@ -288,7 +299,7 @@ void EndlessRunner::startingIntersectMode() {
 					Character.character->setVisible(true);
 				});
 
-				auto main_Sequence = Sequence::create(DelayTime::create(0.8), setPositionOnPath, blink, visible, NULL);
+				auto main_Sequence = Sequence::create(DelayTime::create(0.6), setPositionOnPath, blink, visible, NULL);
 				Character.character->runAction(main_Sequence);
 
 			}
@@ -552,6 +563,7 @@ void EndlessRunner::AddRocksInFirstLayerPath() {
 		auto extra = EndlessRunner::CreateSprites("endlessrunner/gapw.png", (currentFirstLayerRock->getPosition().x + currentFirstLayerRock->getContentSize().width),LayerYcoord.firstLayer,1,1,zOrderPathLayer.character,"gapBlocks");
 		extra->runAction(MoveTo::create(EndlessRunner::movingTime(currentImage), Vec2(leftBarrier->getPosition().x, LayerYcoord.firstLayer)));
 		extra->setOpacity(0);
+		//extra->setScaleX(0.96);
 		currentFirstLayerRock = currentImage;
 		currentImage->setScaleY(11);
 		currentImage->setOpacity(0);
