@@ -24,7 +24,7 @@ protected:
 	std::vector<Sprite*> allBeforeStartBlocks;
 	std::vector<Sprite*> allGapBlocks;
 	std::pair<float, float> position;
-	std::vector<Label*> allLabels;
+	std::vector<Alphabet*> allLabels;
 	std::vector<Sprite*> allMonster;
 	Alphabet *letterOnBoard;
 	bool initBool = true;

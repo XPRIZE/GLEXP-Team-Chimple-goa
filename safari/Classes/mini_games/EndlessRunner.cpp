@@ -97,7 +97,7 @@ bool EndlessRunner::init()
 	boardDisplay->setPosition(Vec2((visibleSize.width / 2) + origin.x, (visibleSize.height + origin.y) - (visibleSize.height * 0.07)));
 	this->addChild(boardDisplay, zOrderPathLayer.secondLayer);
 	
-	letterOnBoard =  Alphabet::createWithSize(tempChar, 200);
+	letterOnBoard =  Alphabet::createWithSize(tempChar, 300);
 	letterOnBoard->setPosition(Vec2((visibleSize.width / 2) + origin.x, (visibleSize.height + origin.y) - (visibleSize.height * 0.08)));
 	letterOnBoard->enableShadow(Color4B::BLACK, Size(8, -6), 5);
 	this->addChild(letterOnBoard, zOrderPathLayer.secondLayer);
@@ -317,7 +317,7 @@ void EndlessRunner::startingIntersectMode() {
 					popUp = false;
 				}
 //				wchar_t m = allLabels[i]->getName();
-				_menuContext->pickAlphabet(tempChar,allLabels[i]->getName()[0], true);
+				_menuContext->pickAlphabet(tempChar,allLabels[i]->getChar(), true);
 
 			/*	auto audio = CocosDenshion::SimpleAudioEngine::getInstance();
 				auto path = LangUtil::getInstance()->getAlphabetSoundFileName(allLabels[i]->getName()[0]);
@@ -347,7 +347,7 @@ void EndlessRunner::startingIntersectMode() {
 				}
 			}
 			else {
-				_menuContext->pickAlphabet(tempChar, allLabels[i]->getName()[0], true);
+				_menuContext->pickAlphabet(tempChar, allLabels[i]->getChar(), true);
 				hpUi->getChildByName("happy_mad")->setScale(1);
 				
 				if (!popUp) {
@@ -552,7 +552,7 @@ void EndlessRunner::AddRocksInFirstLayerPath() {
 
 		auto extra = EndlessRunner::CreateSprites("endlessrunner/gapw.png", (currentFirstLayerRock->getPosition().x + currentFirstLayerRock->getContentSize().width),LayerYcoord.firstLayer,1,1,zOrderPathLayer.character,"gapBlocks");
 		extra->runAction(MoveTo::create(EndlessRunner::movingTime(currentImage), Vec2(leftBarrier->getPosition().x, LayerYcoord.firstLayer)));
-
+		extra->setOpacity(0);
 		currentFirstLayerRock = currentImage;
 		currentImage->setScaleY(11);
 		currentImage->setOpacity(0);
@@ -781,7 +781,7 @@ void EndlessRunner::CreateMonsterWithLetter(float dt) {
 		counterLetter = 0;
 	}
 	auto mystr = LangUtil::convertUTF16CharToString(str);
-	auto label = Alphabet::createWithSize(str,200);
+	auto label = Alphabet::createWithSize(str,300);
 	label->setName(mystr);
 	label->enableShadow(Color4B::BLACK, Size(8, -6), 5);
 	label->setTag(Character.uniqueId);
