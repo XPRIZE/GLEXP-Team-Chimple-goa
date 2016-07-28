@@ -8,14 +8,11 @@
 #include "../alphamon/Alphamon.h"
 #include "../puzzle/CharGenerator.h"
 #include "../lang/LangUtil.h"
-
+#include "../StartMenuScene.h"
 
 USING_NS_CC;
 
-const std::vector<std::string> Alphabets = {"A","B","C","D", "E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"};
 
-int score;
-std::string alphaLevelString;
 
 AlphamonFeed::AlphamonFeed() {
     
@@ -37,9 +34,9 @@ AlphamonFeed* AlphamonFeed::create() {
 
 }
 
-cocos2d::Scene * AlphamonFeed::createScene(std::string str)
+cocos2d::Scene * AlphamonFeed::createScene()
 {
-	alphaLevelString = str.c_str();
+	//alphaLevelString = str.c_str();
 	auto scene = Scene::create();
 	auto layer = AlphamonFeed::create();
 	scene->addChild(layer);
@@ -99,13 +96,14 @@ bool AlphamonFeed::init()
 	CCLOG("slider bar %d", slideBar->getPercent());// image->getPercent();
 	//loading Monster alphabet
 	//sprite1 = CSLoader::createNode(CCString::createWithFormat("english/%s.csb", alphaLevelString.c_str())->getCString());
-
-	sprite1 = Alphamon::createWithAlphabet(alphaLevelString.at(0));
+	mychar = CharGenerator::getInstance()->generateAChar();
+	std::string mycharString = LangUtil::convertUTF16CharToString(mychar);
+	sprite1 = Alphamon::createWithAlphabet(mychar);//alphaLevelString.at(0));
 	sprite1->setScaleX(0.85);
 	sprite1->setScaleY(0.85);
 	sprite1->setPositionX(300);
 	sprite1->setPositionY(50);
-	sprite1->setName(alphaLevelString.c_str());
+	sprite1->setName(mycharString.c_str());
 	sprite1->setContentSize(cocos2d::Size(300.0f, 400.0f));
 	this->addChild(sprite1,2);
 	//breath animination
@@ -138,7 +136,7 @@ bool AlphamonFeed::init()
 
 void AlphamonFeed::showFruits(float dt) {
 	
-	auto fallingAlphaArray = CharGenerator::getInstance()->generateMatrixForChoosingAChar(alphaLevelString.at(0), 6, 1, 50);
+	auto fallingAlphaArray = CharGenerator::getInstance()->generateMatrixForChoosingAChar(mychar, 6, 1, 50);
 	Size visibleSize = Director::getInstance()->getVisibleSize();
 	auto str = fallingAlphaArray.at(cocos2d::RandomHelper::random_int(0, 5)).at(0);
     auto mystr = LangUtil::convertUTF16CharToString(str);
@@ -201,7 +199,7 @@ void AlphamonFeed:: update(float dt) {
 		}
 	}
 	if ((slideBar->getPercent()) == 100) {
-		Director::getInstance()->replaceScene(AlphamonFeedLevelScene::createScene());
+		Director::getInstance()->replaceScene(StartMenu::createScene());
 		
 	}
 }

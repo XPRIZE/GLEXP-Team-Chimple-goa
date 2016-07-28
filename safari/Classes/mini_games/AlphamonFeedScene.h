@@ -15,13 +15,14 @@ public:
     ~AlphamonFeed();
     
     static AlphamonFeed* create();
-    
+	wchar_t mychar;
+	int score;
 	cocos2d::Rect monster;
 	cocos2d::Node * smile;
 	cocos2d::Node * sad;
 	cocos2d::Node * angry;
 	cocos2d::Node * laughing;
-    static cocos2d::Scene* createScene(std::string str);
+    static cocos2d::Scene* createScene();
 	cocostudio::timeline::ActionTimeline* alpha_animation;
     virtual bool init();
 	cocos2d::DrawNode * myBox;

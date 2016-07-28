@@ -16,7 +16,7 @@
 #include "mini_games/EndlessRunner.h"
 #include "mini_games/Cannon_Ball_Main.h"
 #include "mini_games/TraceScene.h"
-#include "mini_games/AlphamonFeedLevelScene.h"
+#include "mini_games/AlphamonFeedScene.h"
 
 USING_NS_CC;
 
@@ -96,7 +96,7 @@ void StartMenu::startScene(std::string gameName, std::string firstParam, std::st
     } else if(gameName == KUNG_FU_ALPHA) {
         Director::getInstance()->replaceScene(Trace::createScene(0));
     } else if(gameName == ALPHAMON_FEED) {
-        Director::getInstance()->replaceScene(AlphamonFeedLevelScene::createScene());
+        Director::getInstance()->replaceScene(AlphamonFeed::createScene());
     } else {
         if(!gameName.empty()) {
             Director::getInstance()->replaceScene(HelloWorld::createScene(gameName,firstParam));
