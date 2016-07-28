@@ -140,21 +140,6 @@ bool MainGame::init()
 
 	self = this;
 
-	SpriteFrameCache::getInstance()->addSpriteFramesWithFile("cannonball_mainassetPlist.plist");
-	// main background
-	auto mySprite = Sprite::createWithSpriteFrameName("cannonball/cannonball_mainasset/background_back.png");
-	mySprite->setPosition(origin.x + visibleSize.width * 43 / 100, origin.y + visibleSize.height / 2);
-	this->addChild(mySprite);
-
-	auto rack = Sprite::createWithSpriteFrameName("cannonball/cannonball_mainasset/cannon_ball_rack.png");
-	rack->setPosition(origin.x + visibleSize.width * 85 / 100, origin.y + visibleSize.height / 2);
-	this->addChild(rack);
-
-	// front background
-	backGround_front = Sprite::createWithSpriteFrameName("cannonball/cannonball_mainasset/background_front.png");
-	backGround_front->setPosition(origin.x + visibleSize.width * 43 / 100, origin.y + visibleSize.height / 2);
-	this->addChild(backGround_front, 3);
-
 	MainGame::audioBg->playEffect("cannonball/gamesound/background1.wav", true);
 
 	startGame();
@@ -175,6 +160,22 @@ void MainGame::startGame()	// starting of game
 
 	Size visibleSize = Director::getInstance()->getVisibleSize();
 	Vec2 origin = Director::getInstance()->getVisibleOrigin();
+
+	SpriteFrameCache::getInstance()->addSpriteFramesWithFile("cannonball_mainassetPlist.plist");
+	// main background
+	auto mySprite = Sprite::createWithSpriteFrameName("cannonball/cannonball_mainasset/background_back.png");
+	mySprite->setPosition(origin.x + visibleSize.width * 43 / 100, origin.y + visibleSize.height / 2);
+	this->addChild(mySprite);
+
+	auto rack = Sprite::createWithSpriteFrameName("cannonball/cannonball_mainasset/cannon_ball_rack.png");
+	rack->setPosition(origin.x + visibleSize.width * 85 / 100, origin.y + visibleSize.height / 2);
+	this->addChild(rack);
+
+	// front background
+	backGround_front = Sprite::createWithSpriteFrameName("cannonball/cannonball_mainasset/background_front.png");
+	backGround_front->setPosition(origin.x + visibleSize.width * 43 / 100, origin.y + visibleSize.height / 2);
+	this->addChild(backGround_front, 3);
+
 
 	for (int i = 0; i < position.size(); i++)
 	{
