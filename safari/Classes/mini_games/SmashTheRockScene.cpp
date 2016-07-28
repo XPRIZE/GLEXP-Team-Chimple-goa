@@ -9,6 +9,7 @@
 #include "../lang/LangUtil.h"
 #include "SimpleAudioEngine.h" 
 #include "../puzzle/Alphabet.h"
+#include "../StartMenuScene.h"
 #define COCOS2D_DEBUG 1
 
 USING_NS_CC;
@@ -134,8 +135,8 @@ bool SmashTheRock::init()
 			Alphabet *label = Alphabet::createWithSize(str1, 200);
 		//	label->setScale(0.15);
 			label->setPositionX(blockWidth );
-			auto letter = label->getChar();
-			CCLOG("label x = %d", blockWidth);
+			auto letter = label->getString();
+			CCLOG("label getString = %s",letter);
 			label->setPositionY(blockHeight - 130);
 			label->setColor(ccc3(255, 255, 255));
 			label->enableShadow(Color4B::GRAY, Size(5, -5), -50);
@@ -260,12 +261,15 @@ void SmashTheRock::blast()
 
 	if (click == 5)
 	{
-		auto rock1 = centre->getChildByName("broken_01");
-		auto rock2 = centre->getChildByName("broken_02");
-	//	auto rock3 = centre->getChildByName("broken_02");
-	//	auto rock3 = centre->getChildByName("broken_02");
-		rock1->setVisible(true);
-		rock2->setVisible(true);
+		Vector <Node*> children = centre->getChildren();
+		for (auto item = children.rbegin(); item != children.rend(); ++item) {
+			Node * monsterItem = *item;
+			std::string str = monsterItem->getName().c_str();
+			if ((str.compare("broken_01") == 0) || (str.compare("broken_02") == 0)) {
+				monsterItem->setVisible(true);
+			}
+		}
+		
 	}
 
 }
@@ -331,7 +335,7 @@ void SmashTheRock::masking()
 void SmashTheRock::change(float dt)
 {
 	stopAllActions();
-	Director::getInstance()->replaceScene(SmashTheRockLevelScene::createScene());
+	Director::getInstance()->replaceScene(StartMenu::createScene());
 }
 
 bool SmashTheRock::onTouchBegan(cocos2d::Touch *touch, cocos2d::Event * event)
