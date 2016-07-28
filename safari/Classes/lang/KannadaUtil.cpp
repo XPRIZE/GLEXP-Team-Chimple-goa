@@ -75,7 +75,7 @@ std::string KannadaUtil::getMonsterAnimationFileName(wchar_t alpha) {
 }
 
 std::string KannadaUtil::getSpecialAnimationFileName(wchar_t alpha, std::string suffix) {
-    return std::string("kannada/") + suffix + "/" + convertUTF16CharToString(alpha) +".csb";
+    return std::string("kannada/") + suffix + "/" + langMap.at(alpha) +".csb";
 }
 
 

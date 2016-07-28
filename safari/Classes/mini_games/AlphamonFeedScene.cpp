@@ -233,7 +233,8 @@ void AlphamonFeed::onTouchMoved(cocos2d::Touch *touch,cocos2d::Event * event)
 					flage_reverse = true;
 					CCLOG("scale");
 					for (int i = 0; i < legReff.size(); i++) {
-						int leg_scale = legReff.at(i)->getScaleX();
+						float leg_scale = legReff.at(i)->getScaleX();
+						//CCLOG("leg_scale = %d",leg_scale);
 						legReff.at(i)->setScaleX(leg_scale * (-1.0));
 					}
 				}	
@@ -242,7 +243,7 @@ void AlphamonFeed::onTouchMoved(cocos2d::Touch *touch,cocos2d::Event * event)
 				if (flage_reverse) {
 					flage = true;
 					for (int i = 0; i < legReff.size(); i++) {
-						int leg_scale = legReff.at(i)->getScaleX();
+						float leg_scale = legReff.at(i)->getScaleX();
 						legReff.at(i)->setScaleX(leg_scale * (-1.0));
 					}
 					flage_reverse = false;
