@@ -8,6 +8,12 @@
 
 #include "KannadaUtil.h"
 
+#if (CC_TARGET_PLATFORM == CC_PLATFORM_WIN32)
+static const char* audioExt = ".wav";
+#else
+static const char* audioExt = ".m4a";
+#endif
+
 static const std::map<wchar_t, std::string> langMap = {
     {L'\x0c85',"a"},
     {L'\x0c86',"aa"},
@@ -84,13 +90,15 @@ std::string KannadaUtil::getBMFontFileName() {
 }
 
 std::string KannadaUtil::getAlphabetSoundFileName(wchar_t alpha) {
-    auto fileName = std::string("kannada/sounds/") + langMap.at(alpha) +".m4a";
-    return fileName;
+	auto lowerCase = tolower(alpha);
+	auto someString = convertUTF16CharToString(lowerCase);
+	auto fileName = std::string("kannada/sounds/") + someString + audioExt;
+	return fileName; 
 }
 
 std::string KannadaUtil::getPhoneticSoundFileName(wchar_t alpha) {
-    auto fileName = std::string("kannada/sounds/") + langMap.at(alpha) +".m4a";
-    return fileName;
+	auto fileName = std::string("kannada/sounds/") + langMap.at(alpha) + ".m4a";
+	return fileName;
 }
 
 std::string KannadaUtil::getLang() {

@@ -97,13 +97,16 @@ bool AlphamonFeed::init()
 	//loading Monster alphabet
 	//sprite1 = CSLoader::createNode(CCString::createWithFormat("english/%s.csb", alphaLevelString.c_str())->getCString());
 	mychar = CharGenerator::getInstance()->generateAChar();
-	std::string mycharString = LangUtil::convertUTF16CharToString(mychar);
+	std::stringstream ss;
+	ss << mychar;
+	std::string mycharString = ss.str();
+	//std::string mycharString = LangUtil::convertUTF16CharToString(mychar);
 	sprite1 = Alphamon::createWithAlphabet(mychar);//alphaLevelString.at(0));
 	sprite1->setScaleX(0.85);
 	sprite1->setScaleY(0.85);
 	sprite1->setPositionX(300);
 	sprite1->setPositionY(50);
-	sprite1->setName(mycharString.c_str());
+	sprite1->setName(mycharString);
 	sprite1->setContentSize(cocos2d::Size(300.0f, 400.0f));
 	this->addChild(sprite1,2);
 	//breath animination
@@ -139,7 +142,10 @@ void AlphamonFeed::showFruits(float dt) {
 	auto fallingAlphaArray = CharGenerator::getInstance()->generateMatrixForChoosingAChar(mychar, 6, 1, 50);
 	Size visibleSize = Director::getInstance()->getVisibleSize();
 	auto str = fallingAlphaArray.at(cocos2d::RandomHelper::random_int(0, 5)).at(0);
-    auto mystr = LangUtil::convertUTF16CharToString(str);
+	std::stringstream ss;
+	ss << str;
+	std::string mystr = ss.str();
+   // auto mystr = LangUtil::convertUTF16CharToString(str);
 	auto path = LangUtil::getInstance()->getSpecialAnimationFileName(str,"alphabets fruits");
 	sprite = CSLoader::createNode(path);
 	sprite->setPositionX(cocos2d::RandomHelper::random_real(visibleSize.width*0.20, visibleSize.width*0.85));
@@ -161,10 +167,16 @@ void AlphamonFeed:: update(float dt) {
 
 			if ((monster).intersectsRect(fruit)) {
 				audio = CocosDenshion::SimpleAudioEngine::getInstance();
-				auto soundPath = (fruitReff.at(i)->getName()).at(0);
-				auto path = LangUtil::getInstance()->getAlphabetSoundFileName(soundPath);
+				auto soundPath = (fruitReff.at(i)->getName());
+				std::string::size_type sz;   // alias of size_t
+				int i_dec = std::stoi(soundPath, &sz);
+				wchar_t testing = (wchar_t)i_dec;
+				auto path = LangUtil::getInstance()->getAlphabetSoundFileName(testing);
 				audio->playEffect(path.c_str(), false);
-				menu->pickAlphabet((sprite1->getName()).at(0), (fruitReff.at(i)->getName()).at(0), true);
+				int mySpriteName = std::stoi(sprite1->getName(), &sz);
+				wchar_t monster = (wchar_t)mySpriteName;
+			//	menu->pickAlphabet((sprite1->getName()).at(0), (fruitReff.at(i)->getName()).at(0), true);
+				menu->pickAlphabet(monster, testing, true);
 				if ((sprite1->getName()).compare(fruitReff.at(i)->getName()) == 0) {	
 					sprite1->alphamonMouthAnimation("eat", false);
 					smile->setVisible(false);
