@@ -22,14 +22,17 @@
 
 USING_NS_CC;
 
-const std::string DuelScene::BG_NAME = "background_1";
-const std::string DuelScene::PANEL_NAME = "Panel_1";
+const std::string DuelScene::BG_NAME = "background";
+const std::string DuelScene::PANEL_NAME = "alphabet";
 const std::string DuelScene::SLIDER_BG_NAME = "Panel_2";
-const std::string DuelScene::LEFT_STAND_NAME = "rocks_2";
-const std::string DuelScene::RIGHT_STAND_NAME = "rocks_1";
+const std::string DuelScene::LEFT_STAND_NAME = "rock_green";
+const std::string DuelScene::RIGHT_STAND_NAME = "rock_red";
 
 DuelScene::DuelScene() :
-_turnNumber(0) {
+_turnNumber(0),
+_timer(nullptr),
+_timerAnimation(nullptr)
+{
     
 }
 
@@ -84,35 +87,29 @@ bool DuelScene::init(wchar_t myMonChar, wchar_t otherMonChar)
     panel->addChild(_grid);
     _grid->setPosition(Vec2((panel->getContentSize().width - SQUARE_WIDTH * numCols) / 2, (panel->getContentSize().height - SQUARE_WIDTH * numRows) / 2));
 
-    auto sliderBG = background->getChildByName(SLIDER_BG_NAME);
-    sliderBG->setContentSize(Size(visibleSize.width, sliderBG->getContentSize().height));
-
-    _timer = HPMeter::createWithTextureAndPercent("battle_ground/bar_out.png", "battle_ground/bar_in.png", "battle_ground/clock.png", 100);
-    _timer->setPosition(Vec2(sliderBG->getContentSize().width / 2, sliderBG->getContentSize().height / 2));
-    sliderBG->addChild(_timer);
+    _timer = background->getChildByName("FileNode_1");
+    _timerPosition = _timer->getPosition();
+    _timerAnimation = CSLoader::createTimeline("battle_ground/timer.csb");
+    _timer->runAction(_timerAnimation);
+    _timerAnimation->setLastFrameCallFunc(CC_CALLBACK_0(DuelScene::armMyMon, this));
+    _timerAnimation->setTimeSpeed(0.1);
+//    _timer->setVisible(false);
+    _timer->setPosition(Vec2(_timerPosition.x, visibleSize.height + 150));
 
     _myMon = Alphamon::createWithAlphabet(myMonChar);
     auto leftStand = background->getChildByName(LEFT_STAND_NAME);
-    leftStand->setPositionX(leftStand->getPositionX() + 150.0);
-    _myMon->setPosition(leftStand->getPosition() + Vec2(0, 0));
+    _myMon->setPosition(leftStand->getPosition() + Vec2(0, 40));
     addChild(_myMon);
-    _myMon->setHealth(100);
-//    _myMon->setScale(0.7);
+    _myMon->setHealth(100, "green");
     _eventDispatcher->addCustomEventListener("alphabet_selected", CC_CALLBACK_1(DuelScene::onAlphabetSelected, this));
     _eventDispatcher->addCustomEventListener("alphabet_unselected", CC_CALLBACK_1(DuelScene::onAlphabetUnselected, this));
     
     _otherMon = Alphamon::createWithAlphabet(otherMonChar);
     auto rightStand = background->getChildByName(RIGHT_STAND_NAME);
-    rightStand->setPositionX(rightStand->getPositionX() + visibleSize.width - 2560.0 - 150.0);
     addChild(_otherMon);
-//    _otherMon->setScale(0.7);
-    _otherMon->setPosition(rightStand->getPosition() + Vec2(0, 0));
-    _otherMon->setHealth(100);
-//    auto lg = LayerGradient::create(Color4B(0.0, 0.0, 0.0, 128.0), Color4B(0.0, 0.0, 0.0, 0.0), Vec2(-1, 0));
-//    lg->changeWidthAndHeight(1280.0, 900.0);
-//    addChild(lg);
-    
-    
+    _otherMon->setPosition(rightStand->getPosition() + Vec2(0, 40));
+    _otherMon->setHealth(100, "red");
+
 //    auto amon = CSLoader::createNode("english/A.csb");
 //    addChild(amon);
 //    amon->setScale(0.5);
@@ -150,17 +147,16 @@ void DuelScene::startMyTurn() {
         auto charArray = CharGenerator::getInstance()->generateMatrixForChoosingAChar(_myMon->getAlphabet(), numRows, numCols, 50);
         _grid->resize(SQUARE_WIDTH * MAX_COLS, SQUARE_WIDTH * MAX_ROWS, numRows, numCols);
         _grid->setCharacters(charArray);
-        _grid->enableTouch(true);
+        _grid->enableTouch(false);
         _powerIncr = ceil(100.0 / _grid->getCountOfAlphabetsWhichMatch(_myMon->getAlphabet()));
-
-        _timer->setPercent(100);
         
-        auto actionTimer = ActionTween::create(10, "percent", 100.0, 0.0);
-        auto armMyMonFunc = CallFunc::create(CC_CALLBACK_0(DuelScene::armMyMon, this));
-        
-        _timer->runAction(Sequence::create(actionTimer, armMyMonFunc, NULL));
+        _timerAnimation->gotoFrameAndPause(1);
+        auto moveTo = MoveTo::create(2.0, _timerPosition);
+        auto elastic = EaseElasticOut::create(moveTo);
+        auto timerCallback = CallFunc::create(CC_CALLBACK_0(cocostudio::timeline::ActionTimeline::play, _timerAnimation, "timer", false));
+        auto gridCallback = CallFunc::create(CC_CALLBACK_0(AlphabetGrid::enableTouch, _grid, true));
+        _timer->runAction(Sequence::create(elastic, gridCallback, timerCallback, NULL));
         _myMon->startMyTurn();
-//        CCLOG("%s", TextureCache::sharedTextureCache()->getCachedTextureInfo().c_str());
     }
 }
 
@@ -186,17 +182,23 @@ void DuelScene::armMyMon() {
         auto particle = cocos2d::ParticleMeteor::create();
         particle->setPosition(convertToNodeSpace(alpha->getParent()->convertToWorldSpace(alpha->getPosition())));
         addChild(particle);
-        auto moveTo = JumpTo::create(0.5, _myMon->getCenterPosition(), 25.0, 1);
+        auto myMonPosition = _myMon->getCenterPosition();
+        if(LangUtil::getInstance()->getLang() == "kan") {
+            myMonPosition = Vec2(myMonPosition.x, myMonPosition.y - 180);
+        }
+        auto moveTo = JumpTo::create(0.5, myMonPosition, 25.0, 1);
         auto callbackJump = CallFunc::create(CC_CALLBACK_0(DuelScene::endMeteor, this, particle));
         
         auto sequence = Sequence::create(moveTo, callbackJump, NULL);
         particle->runAction(sequence);
         
     }
+    Size visibleSize = Director::getInstance()->getVisibleSize();
+    auto moveTimerTo = TargetedAction::create(_timer, EaseElasticIn::create(MoveTo::create(1.0, Vec2(_timerPosition.x, visibleSize.height + 150))));
     auto callbackAttack = CallFunc::create(CC_CALLBACK_0(DuelScene::attackOtherMon, this));
-    auto callbackShowPower = TargetedAction::create(_myMon, CallFunc::create(CC_CALLBACK_0(Alphamon::showPower, _myMon)));
+    auto callbackShowPower = TargetedAction::create(_myMon, CallFunc::create(CC_CALLBACK_0(Alphamon::showPower, _myMon, true)));
     
-    this->runAction(Sequence::create(DelayTime::create(1), callbackShowPower, DelayTime::create(1), callbackAttack, nullptr));
+    this->runAction(Sequence::create(DelayTime::create(1), moveTimerTo, callbackShowPower, DelayTime::create(1), callbackAttack, nullptr));
 }
 
 void DuelScene::attackOtherMon() {
@@ -205,11 +207,20 @@ void DuelScene::attackOtherMon() {
     addChild(particle);
     auto moveTo = TargetedAction::create(particle, JumpTo::create(0.5, _otherMon->getCenterPosition(), 25.0, 1));
     auto callbackJump = CallFunc::create(CC_CALLBACK_0(DuelScene::endMeteor, this, particle));
-    auto callbackAttack = CallFunc::create(CC_CALLBACK_0(DuelScene::attackMyMon, this));
+    auto callbackAttack = CallFunc::create(CC_CALLBACK_0(DuelScene::armOtherMon, this));
     auto callbackReduceHP = CallFunc::create(CC_CALLBACK_0(DuelScene::reduceHP, this, _otherMon, _myMon->getPower() * MAX_POINTS_PER_TURN / 100));
-    auto sequence = Sequence::create(moveTo, callbackJump, _otherMon->shakeAction(), callbackReduceHP, callbackAttack, NULL);
+    auto sequence = Sequence::create(moveTo, callbackJump, _otherMon->shakeAction(), callbackReduceHP, DelayTime::create(1.0), callbackAttack, NULL);
     runAction(sequence);
     _myMon->endMyTurn();
+}
+
+void DuelScene::armOtherMon() {
+    auto otherPower = rand() % MAX_POINTS_PER_TURN;
+    _otherMon->setPower(otherPower);
+    auto callbackShowPower = CallFunc::create(CC_CALLBACK_0(Alphamon::showPower, _otherMon, false));
+    auto callbackAttack = CallFunc::create(CC_CALLBACK_0(DuelScene::attackMyMon, this));
+    auto sequence = Sequence::create(callbackShowPower, DelayTime::create(1.0),  callbackAttack, NULL);
+    runAction(sequence);
 }
 
 void DuelScene::attackMyMon() {
@@ -219,8 +230,9 @@ void DuelScene::attackMyMon() {
     auto moveTo = TargetedAction::create(particle, JumpTo::create(0.5, _myMon->getCenterPosition(), 25.0, 1));
     auto callbackJump = CallFunc::create(CC_CALLBACK_0(DuelScene::endMeteor, this, particle));
     auto callbackStart = CallFunc::create(CC_CALLBACK_0(DuelScene::startMyTurn, this));
-    auto callbackReduceHP = CallFunc::create(CC_CALLBACK_0(DuelScene::reduceHP, this, _myMon, rand() % MAX_POINTS_PER_TURN));
-    auto sequence = Sequence::create(moveTo, callbackJump, _myMon->shakeAction(), callbackReduceHP, callbackStart, NULL);
+    auto callbackReduceHP = CallFunc::create(CC_CALLBACK_0(DuelScene::reduceHP, this, _myMon, _otherMon->getPower()));
+    auto callbackEndTurn = CallFunc::create(CC_CALLBACK_0(Alphamon::endMyTurn, _otherMon));
+    auto sequence = Sequence::create(moveTo, callbackJump, _myMon->shakeAction(), callbackReduceHP, DelayTime::create(1.0), callbackEndTurn, callbackStart, NULL);
     runAction(sequence);
     
 }

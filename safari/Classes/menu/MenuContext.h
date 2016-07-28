@@ -33,7 +33,7 @@ protected:
     bool _launchCustomEventOnExit;
     cocos2d::Node* _main;
     cocos2d::Label* _label;
-    HPMeter* _pointMeter;
+    cocos2d::ui::Slider * _pointMeter;
     cocos2d::ui::Button* _menuButton;
     cocos2d::ui::Button* _menu;
     cocos2d::LayerColor* _greyLayer;

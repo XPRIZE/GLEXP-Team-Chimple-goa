@@ -44,7 +44,11 @@ bool MenuContext::init(Node* main) {
     _label->setPosition(Vec2(125, 125));
     _menuButton->addChild(_label);
     
-    _pointMeter = HPMeter::createWithTextureAndPercent("menu/blank.png", "menu/coinstack.png", "", 0);
+    _pointMeter = Slider::create();
+    _pointMeter->loadBarTexture("menu/blank.png");
+    _pointMeter->loadProgressBarTexture("menu/coinstack.png");
+    _pointMeter->setScale9Enabled(true);
+    _pointMeter->setTouchEnabled(false);
     _pointMeter->setPosition(Vec2(128, 256));
     _menuButton->addChild(_pointMeter);
     

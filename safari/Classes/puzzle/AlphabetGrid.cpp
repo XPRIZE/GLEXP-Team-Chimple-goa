@@ -62,7 +62,7 @@ void AlphabetGrid::resize(GLfloat width, GLfloat height, int numRows, int numCol
     const float squareHeight = height / numRows;
     for (int i = 0; i < numRows; i++) {
         for (int j = 0; j < numCols; j++) {
-            auto label = LayerColor::create(((i+j) % 2 ? Color4B(0xE8, 0x9F, 0x69, 255.0f) : Color4B(0xD1, 0x86, 0x54, 255.0f)), squareWidth, squareHeight);
+            auto label = LayerColor::create(((i+j) % 2 ? Color4B(0x60, 0xA5, 0x37, 255.0f) : Color4B(0x75, 0xBF, 0x45, 255.0f)), squareWidth, squareHeight);
             label->setPosition(Vec2(j * squareWidth, i * squareHeight));
             _labelLayer->addChild(label);
         }
@@ -137,8 +137,10 @@ void AlphabetGrid::enableTouch(bool value) {
             _overlay = nullptr;
         }
     } else {
-        _overlay = DrawNode::create();
-        _overlay->drawSolidRect(Vec2::ZERO, Vec2(_width, _height), Color4F(128.0, 128.0, 128.0, 128.0));
-        addChild(_overlay, 1);
+        if(!_overlay) {
+            _overlay = DrawNode::create();
+            _overlay->drawSolidRect(Vec2::ZERO, Vec2(_width, _height), Color4F(128.0, 128.0, 128.0, 128.0));
+            addChild(_overlay, 1);
+        }
     }
 }
