@@ -68,14 +68,14 @@ bool SmashTheRock::init()
 	centre->setAnchorPoint(Vec2(0.5,0));
     this->addChild(centre,1);
 
-	auto letterRock = (Sprite *)centre->getChildByName("letterboard");
+	/*auto letterRock = (Sprite *)centre->getChildByName("letterboard");
 	letterRock->setGlobalZOrder(5);
 	auto boundary = (Sprite *)centre->getChildByName("boundary");
 	boundary->setGlobalZOrder(4);
 	auto punchHandLeft = (Sprite *)centre->getChildByName("boxing_gloves_left");
 	punchHandLeft->setGlobalZOrder(3);
 	auto punchHandRight = (Sprite *)centre->getChildByName("boxing_gloves_right");
-	punchHandRight->setGlobalZOrder(3);
+	punchHandRight->setGlobalZOrder(3);*/
 	
 	//auto stone_bace = (Sprite *)centre->getChildByName("stone_bace");
 	//stone_bace->setGlobalZOrder(0);
@@ -121,11 +121,11 @@ bool SmashTheRock::init()
 			rightRef.pushBack(right);
 			wrongRef.pushBack(wrong);
 			this->addChild(block1,2);
-			block1->setGlobalZOrder(6);
+		//	block1->setGlobalZOrder(6);
 			this->addChild(right, 2);
-			right->setGlobalZOrder(6);
+		//	right->setGlobalZOrder(6);
 			this->addChild(wrong, 2);
-			wrong->setGlobalZOrder(6);
+		//	wrong->setGlobalZOrder(6);
 		//	std::string str = Alphabets.at(cocos2d::RandomHelper::random_int(key, (key + 20)) % 20).c_str();
 			wchar_t str1 = charkey.at(i-1).at(j-1);
 			//std::string ttttt(&str1,1) ;
@@ -144,8 +144,8 @@ bool SmashTheRock::init()
 			label->setName(mystr);
 			labelRef.pushBack(label);
 			CCLOG("alpha = %d", labelRef.size());
-			this->addChild(label, 5);
-			label->setGlobalZOrder(6);
+			this->addChild(label,2);
+	//		label->setGlobalZOrder(6);
 			auto listener = EventListenerTouchOneByOne::create();
 			//listener->setSwallowTouches(true);
 			label->touchBeganCallback = CC_CALLBACK_2(SmashTheRock::onTouchBegan, this);
