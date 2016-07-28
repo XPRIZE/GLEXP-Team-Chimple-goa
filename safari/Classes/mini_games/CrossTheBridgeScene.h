@@ -36,6 +36,9 @@ public:
 
 	void alphaLoud();
 
+	void alphaIntersectBridgeCurve();
+	void monsIntersectBridgeCurve();
+
 	void letterDisplayCombinationMethod(float dt);
 
 	virtual void addEvents(Sprite* touchSprite);
@@ -53,7 +56,7 @@ protected:
 	Sprite* pathOpen_left;
 	Sprite* splash;
 	Sprite* alphaSoundBarrier;
-
+	Sprite* barrierLowerSide;
 	MenuContext *_menuContext;
 
 	std::vector<Alphamon*> alphaContainer;
@@ -66,19 +69,22 @@ protected:
 	std::pair<float, float> letterDisplayPosition[8] = { { 183.73,110.17 },{ 547.81,110.17 },{ 912.08, 110.17 },
 	{ 1277.22,110.17 } ,{ 1642.29,110.17 } ,{ 2006.91,110.17 } ,
 	{ 2371.68,110.17 } ,{ 2734.87,110.17 } };
+	
 	bool openFlag = false;
 	bool letterIsThere = false;
 	bool oneSecondClick = false;
+	
 	int mainScore = 0;
-	Label* myGameScoreLabel;
-	char letterToDisplay = 'A';
 	int alphabetCounter = 0;
 	int letterDisplayCounter = 0;
+
+	Label* myGameScoreLabel;
+	char letterToDisplay = 'A';
+
 	cocostudio::timeline::ActionTimeline *water_splash;
+
 	// implement the "static create()" method manually
 	CREATE_FUNC(CrossTheBridge);
-
-
 };
 
 #endif // __CROSSTHEBRIDGE_SCENE_H__
