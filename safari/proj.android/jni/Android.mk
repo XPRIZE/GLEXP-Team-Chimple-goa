@@ -63,6 +63,7 @@ LOCAL_SRC_FILES := hellocpp/main.cpp \
 		                	../../Classes/MO.cpp  \
 		                	../../Classes/Entry.cpp  \
 	               		 	../../Classes/LanguageManager.cpp \
+	               		 	../../Classes/GameScene.cpp \
 					../../Classes/MapScene.cpp \
 					../../Classes/MapIsland.cpp	
 LOCAL_C_INCLUDES := $(LOCAL_PATH)/../../Classes
