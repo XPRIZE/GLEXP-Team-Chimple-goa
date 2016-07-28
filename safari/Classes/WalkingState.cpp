@@ -23,7 +23,10 @@ void WalkingState::enter(cocos2d::Vec2 forceVector, SkeletonCharacterState previ
     this->getTarget()->getSkeletonNode()->getPhysicsBody()->setVelocity(forceVector);
     
     //start walking animation
+    this->getTarget()->changeSkinForBone("mouth", "mouth","hero/mouth/normal.png");
+    this->getTarget()->getSkeletonActionTimeLine()->setTimeSpeed(1.0f);
     this->getTarget()->getSkeletonActionTimeLine()->play(WALK, true);
+    
 }
 
 void WalkingState::exit()  {

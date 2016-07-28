@@ -74,6 +74,8 @@
 		D6B0611B1803AB670077942B /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6B0611A1803AB670077942B /* CoreMotion.framework */; };
 		ED545A7C1B68A1F400C3958E /* libiconv.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = ED545A7B1B68A1F400C3958E /* libiconv.dylib */; };
 		ED545A7E1B68A1FA00C3958E /* libiconv.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = ED545A7D1B68A1FA00C3958E /* libiconv.dylib */; };
+		F33905071D49B84000090367 /* GameScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F33905061D49B84000090367 /* GameScene.cpp */; };
+		F33905081D49B84000090367 /* GameScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F33905061D49B84000090367 /* GameScene.cpp */; };
 		F3913DBA1D3F461A001B3038 /* sqlite3.c in Sources */ = {isa = PBXBuildFile; fileRef = F3913D9D1D3F461A001B3038 /* sqlite3.c */; };
 		F3913DBB1D3F461A001B3038 /* sqlite3.c in Sources */ = {isa = PBXBuildFile; fileRef = F3913D9D1D3F461A001B3038 /* sqlite3.c */; };
 		F3913DBC1D3F461A001B3038 /* AlphamonSprite.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F3913DA41D3F461A001B3038 /* AlphamonSprite.cpp */; };
@@ -277,6 +279,8 @@
 		D6B0611A1803AB670077942B /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk/System/Library/Frameworks/CoreMotion.framework; sourceTree = DEVELOPER_DIR; };
 		ED545A7B1B68A1F400C3958E /* libiconv.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libiconv.dylib; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.4.sdk/usr/lib/libiconv.dylib; sourceTree = DEVELOPER_DIR; };
 		ED545A7D1B68A1FA00C3958E /* libiconv.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libiconv.dylib; path = usr/lib/libiconv.dylib; sourceTree = SDKROOT; };
+		F33905041D49B82E00090367 /* GameScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameScene.h; sourceTree = "<group>"; };
+		F33905061D49B84000090367 /* GameScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GameScene.cpp; sourceTree = "<group>"; };
 		F3913D8C1D3F461A001B3038 /* AlphamonSprite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AlphamonSprite.h; sourceTree = "<group>"; };
 		F3913D8D1D3F461A001B3038 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		F3913D8E1D3F461A001B3038 /* ExternalSkeletonCharacter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExternalSkeletonCharacter.h; sourceTree = "<group>"; };
@@ -579,6 +583,8 @@
 				37C7E1EA1D47CEFB005C89C0 /* MapScene.cpp */,
 				37C7E1ED1D47D666005C89C0 /* MapIsland.h */,
 				37C7E1EE1D47D673005C89C0 /* MapIsland.cpp */,
+				F33905041D49B82E00090367 /* GameScene.h */,
+				F33905061D49B84000090367 /* GameScene.cpp */,
 			);
 			name = Classes;
 			path = ../Classes;
@@ -891,6 +897,7 @@
 				371829371D44CA570013E3C4 /* I18nUtils.cpp in Sources */,
 				F3913DE21D3F461A001B3038 /* State.cpp in Sources */,
 				F3913E1F1D3F46B1001B3038 /* PatchTheWallScene.cpp in Sources */,
+				F33905071D49B84000090367 /* GameScene.cpp in Sources */,
 				F3913DDE1D3F461A001B3038 /* StandingState.cpp in Sources */,
 				F3913DC81D3F461A001B3038 /* JumpingState.cpp in Sources */,
 				F3913DFF1D3F46A5001B3038 /* AlphabetGrid.cpp in Sources */,
@@ -969,6 +976,7 @@
 				F3913DDD1D3F461A001B3038 /* Sqlite3Helper.cpp in Sources */,
 				F3913DC11D3F461A001B3038 /* ExternalSkeletonCharacter.cpp in Sources */,
 				376FEE811D3F66380037393F /* SkeletonPosition.cpp in Sources */,
+				F33905081D49B84000090367 /* GameScene.cpp in Sources */,
 				F3CA26EB1D43C069006EBDC6 /* LangUtil.cpp in Sources */,
 				F3913DC71D3F461A001B3038 /* HelloWorldScene.cpp in Sources */,
 				F3913DC31D3F461A001B3038 /* FallingState.cpp in Sources */,

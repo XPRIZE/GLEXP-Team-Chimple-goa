@@ -11,9 +11,6 @@
 #include "../puzzle/DuelScene.h"
 #include "../lang/LangUtil.h"
 
-//static const char* const a_to_z = "ABCDEFGHIJKLMNOPQRSTUVWXYZ" ;
-static const wchar_t* const a_to_z = L"ಅಆಇಈಉಊಋಌಎಏಐಒಓಔಕಖಗಘಙಚಛಜಝಞಟಠಡಢಣತಥದಧನಪಫಬಭಮಯರಱಲಳವಶಷಸಹ";
-
 USING_NS_CC;
 
 SelectAlphamon::SelectAlphamon() :
@@ -43,9 +40,9 @@ bool SelectAlphamon::init() {
     Vec2 origin = Director::getInstance()->getVisibleOrigin();
 
     int count = 0;
-    const int numRows = 4;
-    const int numCols = 7;
     const int numChars = LangUtil::getInstance()->getNumberOfCharacters();
+    const int numCols = 7;
+    const int numRows = ceil((float)numChars / numCols);
     for (int i = 0; i < numRows; i++) {
         for (int j = 0; j < numCols; j++) {
             auto alphamon = Alphamon::createWithAlphabet(LangUtil::getInstance()->getAllCharacters()[count]);
