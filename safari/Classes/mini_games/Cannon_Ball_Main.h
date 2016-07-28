@@ -8,6 +8,7 @@
 #include "../menu/MenuContext.h"
 #include "../puzzle/Alphabet.h"
 #include "../puzzle/CharGenerator.h"
+#include "SimpleAudioEngine.h"
 
 class MainGame : public cocos2d::Layer
 {
@@ -30,6 +31,9 @@ public:
 
 	static std::vector<LabelClass*> bulletArray;
 	static std::vector<Alphabet*> bulletArray_actualImage;
+	static std::vector<cocos2d::Node*> bulletArray_Animation;
+	static std::vector<CocosDenshion::SimpleAudioEngine*> bulletSound;
+	static std::vector<unsigned int> bulletSound_ID;
 
 	static std::vector<EventListenerClass*> cannonArray;
 	static std::vector<EventListenerClass*> cannon_ballArray;
@@ -38,11 +42,12 @@ public:
 	static std::vector<EventListenerClass*> letterArray;
 	static std::vector<LabelClass*> meteorArray;
 
-	static std::vector<cocos2d::Node*> bulletArray_Animation;
 	static MainGame *self;
 
 	static Node *meteor_meteor_strike_node;
 	static cocostudio::timeline::ActionTimeline *meteor_meteor_strike_timeline;
+
+	static CocosDenshion::SimpleAudioEngine* audioBg;
 
 	std::vector<std::vector<wchar_t>> MainChars;
 
