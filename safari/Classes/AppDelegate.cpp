@@ -1,7 +1,7 @@
 #include "AppDelegate.h"
 #include "MapScene.h"
 #include "StartMenuScene.h"
-#include "SafariAnalyticsManager.h"
+#include "lang/SafariAnalyticsManager.h"
 
 USING_NS_CC;
 
