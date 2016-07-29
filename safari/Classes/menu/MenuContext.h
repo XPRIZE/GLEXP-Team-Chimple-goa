@@ -13,6 +13,7 @@
 #include <sstream>
 #include "ui/CocosGUI.h"
 #include "../alphamon/HPMeter.h"
+#include "editor-support/cocostudio/CocoStudio.h"
 
 class MenuContext : public cocos2d::Node {
     
@@ -21,7 +22,7 @@ public:
     void pickAlphabet(char targetAlphabet, char chosenAlphabet, bool choose = true, cocos2d::Vec2 position = cocos2d::Vec2::ZERO);
     void finalizePoints();
     static const std::string LANG;
-    void jumpOut(std::string nodeCsbName, bool frameAnimate, float duration);
+    Node* jumpOut(std::string nodeCsbName, bool frameAnimate, float duration);
 
 CC_CONSTRUCTOR_ACCESS:
     MenuContext();
@@ -41,6 +42,7 @@ protected:
     void expandMenu(Ref* pSender, cocos2d::ui::Widget::TouchEventType eEventType);
     void pauseNodeAndDescendants(Node *pNode);
     void resumeNodeAndDescendants(Node *pNode);
+    void playAnimationTemp(cocostudio::timeline::ActionTimeline* timeline);
     void removeMenu();
     void increasePoints(int points);
     void happyFace();

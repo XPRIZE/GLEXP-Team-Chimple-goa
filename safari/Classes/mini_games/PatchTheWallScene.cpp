@@ -11,7 +11,6 @@ USING_NS_CC;
 
 float PatchTheWall::x;
 float PatchTheWall::y;
-cocos2d::Node* PatchTheWall::no;
 
 
 Scene* PatchTheWall::createScene()
@@ -110,13 +109,13 @@ bool PatchTheWall::onTouchBegan(cocos2d::Touch *touch, cocos2d::Event * event)
 	Point touchPosition = parentNode->convertToNodeSpace(touch->getLocation());
 	if (parentNode->getBoundingBox().containsPoint(touch->getLocation()) && flag1) {
 		flag1 = false;
-		PatchTheWall::no = parentNode;
+		no = (Alphabet*)parentNode;
 		PatchTheWall::x = parentNode->getPositionX();
 		PatchTheWall::y = parentNode->getPositionY();
 		//CCLOG("touch");
 
 		auto audio = CocosDenshion::SimpleAudioEngine::getInstance();
-		auto path = LangUtil::getInstance()->getAlphabetSoundFileName(PatchTheWall::no->getName()[0]);
+		auto path = LangUtil::getInstance()->getAlphabetSoundFileName(no->getChar());
 		audio->playEffect(path.c_str(), false);
 		flag = 0;
 		return true;
@@ -126,17 +125,17 @@ bool PatchTheWall::onTouchBegan(cocos2d::Touch *touch, cocos2d::Event * event)
 }
 void PatchTheWall::onTouchMoved(cocos2d::Touch *touch, cocos2d::Event * event)
 {
-	PatchTheWall::no->setPosition(touch->getLocation());
+	no->setPosition(touch->getLocation());
 	if(flag==0)
 		flag = -1;
-	//CCLOG("box size = %f", PatchTheWall::no->getContentSize().width);
+	//CCLOG("box size = %f", no->getContentSize().width);
 	for (int i = 0; i < blastAlphaReff.size(); i++)
 	{
 		auto my_point = blastAlphaReff.at(i)->getPosition();
 	
-		if ((PatchTheWall::no->getBoundingBox()).containsPoint(my_point) && ((PatchTheWall::no->getName()).compare(blastAlphaReff.at(i)->getName()) == 0))
+		if ((no->getBoundingBox()).containsPoint(my_point) && ((no->getChar()) == (blastAlphaReff.at(i)->getChar())))
 		{
-			_menuContext->pickAlphabet(PatchTheWall::no->getName().at(0), blastAlphaReff.at(i)->getName().at(0), true);
+			_menuContext->pickAlphabet(no->getChar(), blastAlphaReff.at(i)->getChar(), true);
 			//CCLOG("overlap");
 			//CCLOG("lsfaff %f = ", (crackReff.at(i)->getPositionX() - 95) / 280);
 		
@@ -144,15 +143,17 @@ void PatchTheWall::onTouchMoved(cocos2d::Touch *touch, cocos2d::Event * event)
 			//auto path = LangUtil::getInstance()->getAlphabetSoundFileName('A');
 			//audio->playEffect(path.c_str(), false);
 
-			int splash = (crackReff.at(i)->getPositionX() - 95) / 280;
-			breakFlag.at(splash) = false;
+			int splash = ((crackReff.at(i)->getPositionX() - 95) / 280)-1;
+			int splash1 = ((crackReff.at(i)->getPositionY() - 418) / 240)-1;
+			int val1 = ((splash1) * 5) + splash;
+			breakFlag.at(val1) = false;
 			// fades in the sprite in 1 seconds 
 			auto fadeIn = FadeOut::create(1.0f);
 			blastAlphaReff.at(i)->runAction(fadeIn);
 			this->removeChild(crackReff.at(i));
 			crackReff.erase(i);
 			blastAlphaReff.erase(i);
-			PatchTheWall::no->setOpacity(0);
+			no->setOpacity(0);
 			score = score + 5;
 			slideBar->setPercent(score);
 			flag = 1;
@@ -162,26 +163,29 @@ void PatchTheWall::onTouchMoved(cocos2d::Touch *touch, cocos2d::Event * event)
 void PatchTheWall::onTouchEnded(cocos2d::Touch *touch, cocos2d::Event * event)
 {
 	if (flag==1) {
-		flag1 = true;
+		//flag1 = true;
 		flag = -1;
-//		PatchTheWall::no->runAction(MoveTo::create(3, Vec2(PatchTheWall::x, PatchTheWall::y)));
-		PatchTheWall::no->setPositionX(PatchTheWall::x);
-		PatchTheWall::no->setPositionY(PatchTheWall::y);
-		PatchTheWall::no->setOpacity(255);
+//		no->runAction(MoveTo::create(3, Vec2(PatchTheWall::x, PatchTheWall::y)));
+		no->setPositionX(PatchTheWall::x);
+		no->setPositionY(PatchTheWall::y);
+		no->setOpacity(255);
+		this->scheduleOnce(schedule_selector(PatchTheWall::gridTouch), 1.0f);
 	}
 	else if(flag==0)
 	{
-		flag1 = true;
+	//	flag1 = true;
 		flag = -1;
+		this->scheduleOnce(schedule_selector(PatchTheWall::gridTouch), 1.0f);
 	}
 	else if(flag==-1)
 	{
 		flag = -1;
-		flag1 = true;
-		PatchTheWall::no->runAction(MoveTo::create(2, Vec2(PatchTheWall::x, PatchTheWall::y)));
-//		PatchTheWall::no->setPositionX(PatchTheWall::x);
-//		PatchTheWall::no->setPositionY(PatchTheWall::y);
-		PatchTheWall::no->setOpacity(255);
+		//flag1 = true;
+		this->scheduleOnce(schedule_selector(PatchTheWall::gridTouch), 2.0f);
+		no->runAction(MoveTo::create(2, Vec2(PatchTheWall::x, PatchTheWall::y)));
+//		no->setPositionX(PatchTheWall::x);
+//		no->setPositionY(PatchTheWall::y);
+		no->setOpacity(255);
 		_menuContext->pickAlphabet('A', 'B', true);
 	}
 
@@ -240,6 +244,10 @@ void PatchTheWall::Blast(float dt) {
 	else {
 		this->Blast(0.0);
 	}
+}
+void PatchTheWall::gridTouch(float dt)
+{
+	flag1 = true;
 }
 void PatchTheWall::menuCloseCallback(Ref* pSender)
 {
