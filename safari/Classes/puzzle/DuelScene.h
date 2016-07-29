@@ -46,6 +46,7 @@ protected:
     void endMeteor(Node *node);
     void reduceHP(Alphamon *amon, int numPoints);
     
+    void startDuel();
     void startMyTurn();
     void armMyMon();
     void attackOtherMon();

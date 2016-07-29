@@ -122,9 +122,22 @@ bool DuelScene::init(wchar_t myMonChar, wchar_t otherMonChar)
 ////    mouthTimeline->gotoFrameAndPlay(0, true);
 //    mouthTimeline->play("eat", true);
     
+//    auto book = CSLoader::createNode("booknode.csb");
+//    auto bookAnim = CSLoader::createTimeline("booknode.csb");
+//    book->runAction(bookAnim);
+//    book->setPosition(1200, 600);
+////    bookAnim->play("book", true);
+//    bookAnim->gotoFrameAndPlay(0, true);
+//    addChild(book);
+
+    setOnEnterCallback(CC_CALLBACK_0(DuelScene::startDuel, this));
     
-    startMyTurn();
     return true;
+}
+
+void DuelScene::startDuel() {
+    _menuContext->jumpOut("booknode.csb", true, 5);
+    startMyTurn();
 }
 
 void DuelScene::startMyTurn() {

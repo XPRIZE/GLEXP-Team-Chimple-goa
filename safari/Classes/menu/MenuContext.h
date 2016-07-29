@@ -21,6 +21,7 @@ public:
     void pickAlphabet(char targetAlphabet, char chosenAlphabet, bool choose = true, cocos2d::Vec2 position = cocos2d::Vec2::ZERO);
     void finalizePoints();
     static const std::string LANG;
+    void jumpOut(std::string nodeCsbName, bool frameAnimate, float duration);
 
 CC_CONSTRUCTOR_ACCESS:
     MenuContext();
