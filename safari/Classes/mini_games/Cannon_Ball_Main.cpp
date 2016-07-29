@@ -472,8 +472,8 @@ void MainGame::startFire(EventListenerClass* letterObject, Node *mycannon)
 		timeline->play("cannonblaze", true);
 		MainGame::bulletArray_Animation.push_back(mycannon1);
 
-		CocosDenshion::SimpleAudioEngine *blazeSound = CocosDenshion::SimpleAudioEngine::getInstance();
-		unsigned int number =  blazeSound->playEffect("cannonball/gamesound/blaze.wav", true, 1, 1, .2);
+//		CocosDenshion::SimpleAudioEngine *blazeSound = CocosDenshion::SimpleAudioEngine::getInstance();
+//		unsigned int number =  blazeSound->playEffect("cannonball/gamesound/blaze.wav", true, 1, 1, .2);
 
 		LabelClass *fire = LabelClass::createSpt(letterObject->id, letterObject->getPositionX() - (letterObject->getContentSize().width * 2), letterObject->getPositionY(), letterObject->id, self);
 		MainGame::bulletArray.push_back(fire);
