@@ -20,7 +20,7 @@ Scene* CrossTheBridge::createScene()
 	// add layer as a child to scene
 	scene->addChild(layer);
 
-    layer->_menuContext = MenuContext::create(layer);
+    layer->_menuContext = MenuContext::create(layer, CrossTheBridge::gameName());
     scene->addChild(layer->_menuContext);
     
 	// return the scene

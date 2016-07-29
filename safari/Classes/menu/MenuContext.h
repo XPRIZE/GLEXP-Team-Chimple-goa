@@ -17,7 +17,7 @@
 class MenuContext : public cocos2d::Node {
     
 public:
-    static MenuContext* create(Node *main, bool lauchCustomEventOnExit = false);
+    static MenuContext* create(Node *main, std::string gameName = "", bool lauchCustomEventOnExit = false);
     void pickAlphabet(char targetAlphabet, char chosenAlphabet, bool choose = true, cocos2d::Vec2 position = cocos2d::Vec2::ZERO);
     void finalizePoints();
     static const std::string LANG;
@@ -45,6 +45,7 @@ protected:
     void happyFace();
     void sadFace();
     void normalFace();
+    std::string gameName;
 
     template <typename T>
     static inline std::string to_string(T value)

@@ -68,6 +68,8 @@ public:
 
 	// implement the "static create()" method manually
 	CREATE_FUNC(MainGame);
+    
+    static const char* gameName() { return "Cannon Ball"; };
 
 protected:
 	MenuContext* _menuContext;

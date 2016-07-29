@@ -13,7 +13,7 @@ Scene* EndlessRunner::createScene()
 	Scene* scene = Scene::create();
 	auto layer = EndlessRunner::create();
 	scene->addChild(layer);
-	layer->_menuContext = MenuContext::create(layer);
+    layer->_menuContext = MenuContext::create(layer, EndlessRunner::gameName());
 	scene->addChild(layer->_menuContext);
 	return scene;
 }

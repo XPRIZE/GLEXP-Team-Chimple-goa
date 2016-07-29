@@ -43,7 +43,7 @@ Scene *Trace::createScene(int alphabet) {
     auto scene = Scene::create();
     auto layer = Trace::create(alpha[alphabet]);
     scene->addChild(layer);
-    layer->_menuContext = MenuContext::create(layer, true);
+    layer->_menuContext = MenuContext::create(layer, Trace::classname(), true);
     scene->addChild(layer->_menuContext);    
     return scene;
 }

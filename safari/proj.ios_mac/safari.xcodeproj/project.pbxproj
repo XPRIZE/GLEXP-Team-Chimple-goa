@@ -21,6 +21,8 @@
 		3718293A1D44CA570013E3C4 /* MO.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 371829331D44CA570013E3C4 /* MO.cpp */; };
 		3718293B1D44CA570013E3C4 /* Entry.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 371829351D44CA570013E3C4 /* Entry.cpp */; };
 		3718293C1D44CA570013E3C4 /* Entry.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 371829351D44CA570013E3C4 /* Entry.cpp */; };
+		373CBBA11D4A69960002BAE1 /* SafariAnalyticsManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 373CBBA01D4A69960002BAE1 /* SafariAnalyticsManager.cpp */; };
+		373CBBA21D4A69960002BAE1 /* SafariAnalyticsManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 373CBBA01D4A69960002BAE1 /* SafariAnalyticsManager.cpp */; };
 		376FEE801D3F66380037393F /* SkeletonPosition.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 376FEE7F1D3F66380037393F /* SkeletonPosition.cpp */; };
 		376FEE811D3F66380037393F /* SkeletonPosition.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 376FEE7F1D3F66380037393F /* SkeletonPosition.cpp */; };
 		37C7E1EB1D47CEFB005C89C0 /* MapScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 37C7E1EA1D47CEFB005C89C0 /* MapScene.cpp */; };
@@ -225,6 +227,8 @@
 		371829341D44CA570013E3C4 /* MO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MO.h; sourceTree = "<group>"; };
 		371829351D44CA570013E3C4 /* Entry.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Entry.cpp; sourceTree = "<group>"; };
 		371829361D44CA570013E3C4 /* Entry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Entry.h; sourceTree = "<group>"; };
+		373CBB9E1D4A69810002BAE1 /* SafariAnalyticsManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SafariAnalyticsManager.h; sourceTree = "<group>"; };
+		373CBBA01D4A69960002BAE1 /* SafariAnalyticsManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SafariAnalyticsManager.cpp; sourceTree = "<group>"; };
 		376FEE7D1D3F66280037393F /* SkeletonPosition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SkeletonPosition.h; sourceTree = "<group>"; };
 		376FEE7F1D3F66380037393F /* SkeletonPosition.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SkeletonPosition.cpp; sourceTree = "<group>"; };
 		37C7E1E81D47CEEB005C89C0 /* MapScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapScene.h; sourceTree = "<group>"; };
@@ -716,6 +720,8 @@
 			isa = PBXGroup;
 			children = (
 				F3CA26E81D43C069006EBDC6 /* LangUtil.cpp */,
+				373CBB9E1D4A69810002BAE1 /* SafariAnalyticsManager.h */,
+				373CBBA01D4A69960002BAE1 /* SafariAnalyticsManager.cpp */,
 				F3CA26F01D43DA17006EBDC6 /* KannadaUtil.cpp */,
 				F3CA26F31D43DA25006EBDC6 /* KannadaUtil.h */,
 				F3CA26E91D43C069006EBDC6 /* LangUtil.h */,
@@ -922,6 +928,7 @@
 				F3913DC21D3F461A001B3038 /* FallingState.cpp in Sources */,
 				F3913DF31D3F469C001B3038 /* FShake.cpp in Sources */,
 				F3913DEF1D3F4694001B3038 /* MenuContext.cpp in Sources */,
+				373CBBA11D4A69960002BAE1 /* SafariAnalyticsManager.cpp in Sources */,
 				F3913E251D3F46B1001B3038 /* SpriteCreate.cpp in Sources */,
 				F3913DFD1D3F46A5001B3038 /* Alphabet.cpp in Sources */,
 				F3CA26EA1D43C069006EBDC6 /* LangUtil.cpp in Sources */,
@@ -938,6 +945,7 @@
 				F3913E261D3F46B1001B3038 /* SpriteCreate.cpp in Sources */,
 				F3913E1A1D3F46B1001B3038 /* Cannon_Ball_Main.cpp in Sources */,
 				F3913DBF1D3F461A001B3038 /* AppDelegate.cpp in Sources */,
+				373CBBA21D4A69960002BAE1 /* SafariAnalyticsManager.cpp in Sources */,
 				F3913DBD1D3F461A001B3038 /* AlphamonSprite.cpp in Sources */,
 				F3913DDB1D3F461A001B3038 /* SpeechBubbleView.cpp in Sources */,
 				503AE10517EB98FF00D1A890 /* main.cpp in Sources */,

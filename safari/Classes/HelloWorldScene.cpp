@@ -17,7 +17,7 @@ Scene* HelloWorld::createScene(const std::string& island, const std::string& sce
     // add layer as a child to scene
     scene->addChild(layer);
 
-    layer->menuContext = MenuContext::create(layer, true);
+    layer->menuContext = MenuContext::create(layer, HelloWorld::gameName(), true);
     scene->addChild(layer->menuContext);
 
     initPhysics(scene);
