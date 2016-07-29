@@ -30,6 +30,8 @@ Scene* CrossTheBridge::createScene()
 // on 'init' you need to initialize your instance
 bool CrossTheBridge::init()
 {
+	
+
 	auto visibleSize = Director::getInstance()->getVisibleSize();
 	Vec2 origin = Director::getInstance()->getVisibleOrigin();
 
@@ -99,6 +101,11 @@ bool CrossTheBridge::init()
 	//this->schedule(schedule_selector(CrossTheBridge::letterDisplayCombinationMethod), 40.0f);
 	return true;
 }
+
+CrossTheBridge::~CrossTheBridge() {
+	//gameMelody->stopAllEffects();
+}
+
 void CrossTheBridge::menuCloseCallback(Ref* pSender)
 {
 	Director::getInstance()->end();
@@ -110,6 +117,13 @@ void CrossTheBridge::menuCloseCallback(Ref* pSender)
 
 void CrossTheBridge::sceneMaking()
 {
+	
+	/*gameMelody = CocosDenshion::SimpleAudioEngine::getInstance();
+	gameMelody->playEffect("crossthebridge/misc/splash.wav", true);*/
+
+    gameMelody = CocosDenshion::SimpleAudioEngine::getInstance();
+	gameMelody->playEffect("crossthebridge/misc/crossTheBridgeMelody.wav", true);
+
 	Vec2 origin = Director::getInstance()->getVisibleOrigin();
 	auto visibleSize = Director::getInstance()->getVisibleSize();
 
@@ -146,6 +160,7 @@ void CrossTheBridge::sceneMaking()
 	//this->addChild(alphaSoundBarrier, 3);
 	//alphaSoundBarrier->setVisible(false);
 
+
 	barrierFlat = Sprite::create("crossthebridge/barrier.png");
 	setAllSpriteProperties(barrierFlat, 1, ((10 / visibleSize.width)*visibleSize.width), ((370 / visibleSize.height)*visibleSize.height), false, 0, 90.0f, 1, 1);
 	//barrierFlat->setRotation(90.0f);
@@ -155,7 +170,7 @@ void CrossTheBridge::sceneMaking()
 	barrierFlat->setRotation(90.0f);
 	barrierFlat->setVisible(false);*/
 
-	barrierLowerSide = Sprite::create("Crossthebridge/barrier.png");
+	barrierLowerSide = Sprite::create("crossthebridge/barrier.png");
 	setAllSpriteProperties(barrierLowerSide, 3, ((80 / visibleSize.width)*visibleSize.width), ((400 / visibleSize.height)*visibleSize.height), false, 0, 47.0f, 1, 0.18f);
 	//barrierLowerSide->setRotation(47.0f);
 	/*barrierLowerSide->setPosition(Vec2(80 + origin.x,400 + origin.y));
@@ -346,9 +361,9 @@ void CrossTheBridge::alphaLoud()
 		{
 			auto Sequences = Sequence::create(ScaleTo::create(0.17,0.80),DelayTime::create(0.07),ScaleTo::create(0.17,0.70),NULL);
 			alphaContainer[i]->runAction(Sequences);
-			/*auto audio = CocosDenshion::SimpleAudioEngine::getInstance();
-			auto path = LangUtil::getInstance()->getAlphabetSoundFileName(alphaContainer[i]->getName()[0]);
-			audio->playEffect(path.c_str(),false);*/
+			auto audio = CocosDenshion::SimpleAudioEngine::getInstance();
+			auto path = LangUtil::getInstance()->getAlphabetSoundFileName(alphaContainer[i]->getAlphabet());
+			audio->playEffect(path.c_str(),false);
 		}
 	}
 }
