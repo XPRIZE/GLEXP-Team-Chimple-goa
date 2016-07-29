@@ -6,6 +6,7 @@
 #include "../menu/MenuContext.h"
 #include "../alphamon/Alphamon.h"
 #include "../puzzle/Alphabet.h"
+#include "SimpleAudioEngine.h"
 
 using namespace cocos2d;
 
@@ -14,6 +15,9 @@ class CrossTheBridge : public cocos2d::Layer
 public:
 
 	static cocos2d::Scene* createScene();
+
+	virtual ~CrossTheBridge();
+
 	virtual bool init();
 	virtual void sceneMaking();
 
@@ -63,6 +67,7 @@ protected:
 	Sprite* alphaSoundBarrier;
 	Sprite* barrierLowerSide;
 	MenuContext *_menuContext;
+	CocosDenshion::SimpleAudioEngine* gameMelody;
 
 	std::vector<Alphamon*> alphaContainer;
 	std::vector<cocos2d::Sprite*> monsContainer;
