@@ -38,9 +38,8 @@ bool EndlessRunner::init()
 	LayerYcoord.firstLayer = (int)(visibleSize.height * 11 / 100) + origin.y;
 	tempChar = CharGenerator::getInstance()->generateAChar();
 	letters = CharGenerator::getInstance()->generateMatrixForChoosingAChar(tempChar,21, 1, 70);
-
 	audioBg = CocosDenshion::SimpleAudioEngine::getInstance();
-	audioBg->playEffect("endlessrunner/sound/jungleMusic.wav", true);
+	audioBg->playEffect("endlessrunner/sound/african_drum.wav", true);
 	
 	SceneLayerYCoordinate.layer1 = (int)((visibleSize.height * 18 / 100) + origin.y);
 	SceneLayerYCoordinate.layer2 = (int)((visibleSize.height * 15 / 100) + origin.y);
@@ -68,7 +67,7 @@ bool EndlessRunner::init()
 	Character.character->runAction(Character.action);
 	Character.character->setScale(1.2);
 	Character.action->play("run", true);
-
+	Character.character->getChildByName("net")->setVisible(false);
 	happyManAction = CSLoader::createTimeline("endlessrunner/happy_mad.csb");
 	hpUiCatchAction = CSLoader::createTimeline("endlessrunner/catch_score.csb");
 	
@@ -175,7 +174,7 @@ void EndlessRunner::update(float delta) {
 	}
 	aa = DrawNode::create();
 	this->addChild(aa, 20);
-	aa->drawRect(Vec2(parent.origin.x+box.origin.x, parent.origin.y + box.origin.y), Vec2(parent.origin.x + box.origin.x + box.size.width, parent.origin.y + box.origin.y + box.size.height), Color4F(255, 255, 255, 22));
+//	aa->drawRect(Vec2(parent.origin.x+box.origin.x, parent.origin.y + box.origin.y), Vec2(parent.origin.x + box.origin.x + box.size.width, parent.origin.y + box.origin.y + box.size.height), Color4F(255, 255, 255, 22));
 }
 
 void EndlessRunner::FallDownCharacter() {
@@ -199,7 +198,6 @@ void EndlessRunner::stillCharacterOnPath(float delta) {
 			if (allPathBlocks[i]->LayerTypeName == mountainLayerTypes.FirstLayer && !LayerMode.gapMode) {
 				Character.character->setPosition(Vec2((visibleSize.width * 25 / 100) + origin.x, LayerYcoord.firstLayer + 15));
 				if (Character.groundTouchFlag) {
-					gapFlag = true;
 					Character.groundTouchFlag = false;
 					Character.Clicked = false;
 					Character.character->stopAction(Character.fallDownAction);
@@ -210,8 +208,8 @@ void EndlessRunner::stillCharacterOnPath(float delta) {
 
 					auto main_Sequence = Sequence::create(A, B, NULL);
 					Character.character->runAction(main_Sequence);
-
 				}
+				gapFlag = true;
 			}
 			else if (allPathBlocks[i]->LayerTypeName == mountainLayerTypes.SecondLayer && !LayerMode.gapMode) {
 				Character.character->setPosition(Vec2((visibleSize.width * 25 / 100) + origin.x, (visibleSize.height * 23 / 100) + origin.y));
@@ -329,9 +327,9 @@ void EndlessRunner::startingIntersectMode() {
 				}
 				_menuContext->pickAlphabet(tempChar,allLabels[i]->getChar(), true);
 
-			/*	auto audio = CocosDenshion::SimpleAudioEngine::getInstance();
-				auto path = LangUtil::getInstance()->getAlphabetSoundFileName(allLabels[i]->getName()[0]);
-				audio->playEffect(path.c_str(), false);*/
+				auto audio = CocosDenshion::SimpleAudioEngine::getInstance();
+				auto path = LangUtil::getInstance()->getAlphabetSoundFileName(allLabels[i]->getChar());
+				audio->playEffect(path.c_str(), false);
 
 				counterAlphabets = counterAlphabets + 1;
 				std::ostringstream counterForLetter;	counterForLetter << counterAlphabets; std::string counterValue = counterForLetter.str();
@@ -370,9 +368,9 @@ void EndlessRunner::startingIntersectMode() {
 					popUp = true;
 				}
 
-				//auto audio = CocosDenshion::SimpleAudioEngine::getInstance();
-				//auto path = LangUtil::getInstance()->getAlphabetSoundFileName(allLabels[i]->getName()[0]);
-				//audio->playEffect(path.c_str(), false);
+				auto audio = CocosDenshion::SimpleAudioEngine::getInstance();
+				auto path = LangUtil::getInstance()->getAlphabetSoundFileName(allLabels[i]->getChar());
+				audio->playEffect(path.c_str(), false);
 				if (popUp) {
 					auto highScale = CallFunc::create([=]() { happyManAction->play("change_happy_mad", false); });
 					auto smallScale = CallFunc::create([=]() {happyManAction->play("mad_idle", true); });
@@ -695,6 +693,7 @@ SpriteCreate* EndlessRunner::addUpperLayerStartSpriteRock(SpriteCreate* SpriteOb
 	allPathBlocks.push_back(currentImage);
 	auto extra = EndlessRunner::CreateSprites("endlessrunner/bgTouchImage.png", EndlessRunner::setPositionX(SpriteObject), positionY, 10, 20, zOrderPathLayer.character, "blinkBlock");
 	extra->runAction(MoveTo::create(EndlessRunner::movingTime(currentImage), Vec2(leftBarrier->getPosition().x + origin.x, positionY)));
+	extra->setVisible(false);
 	return currentImage;
 }
 
@@ -781,8 +780,10 @@ void EndlessRunner::CreateMonsterWithLetter(float dt) {
 		timeline = CSLoader::createTimeline("endlessrunner/monster_red.csb");
 		monsterImage = (Sprite *)CSLoader::createNode("endlessrunner/monster_red.csb");
 	}
+	auto nameLand = currentFirstLayerRock->currentRockName;
 	monsterImage->setScale(1.175);
 	Rect box = monsterImage->getChildByName("monster_egg")->getBoundingBox();
+	monsterImage->getChildByName("letter")->setVisible(false);
 	monsterImage->runAction(timeline);  timeline->gotoFrameAndPlay(0);
 	
 	auto str = letters.at(counterLetter).at(0);
@@ -799,13 +800,16 @@ void EndlessRunner::CreateMonsterWithLetter(float dt) {
 	monsterImage->setTag(Character.uniqueId);
 
 	if (SecondLayerModes == LayerMode.SecondLayerRightIntersectMode) {
-		monsterImage->setPosition(Vec2(rightBarrier->getPosition().x + origin.x, (visibleSize.height * 58.5 / 100) + origin.y));
+		monsterImage->setPosition(Vec2(rightBarrier->getPosition().x, (visibleSize.height * 58.8 / 100) + origin.y));
 	}
 	else if (FirstLayerModes == LayerMode.FirstLayerRightIntersectMode) {
-		monsterImage->setPosition(Vec2(rightBarrier->getPosition().x + origin.x, (visibleSize.height * 47 / 100) + origin.y));
+		monsterImage->setPosition(Vec2(rightBarrier->getPosition().x, (visibleSize.height * 47.3 / 100) + origin.y));
+		if (nameLand == "endLand") {
+			monsterImage->setPositionX(rightBarrier->getPosition().x - 500); }
 	}
 	else {
-		monsterImage->setPosition(Vec2(rightBarrier->getPosition().x + origin.x, (visibleSize.height * 47 / 100) + origin.y));
+		monsterImage->setPosition(Vec2(rightBarrier->getPosition().x, (visibleSize.height * 47 / 100) + origin.y));
+		if (nameLand == "gapLand") { monsterImage->setPositionX(rightBarrier->getPosition().x + 500); }
 	}
 	auto parent = monsterImage->getBoundingBox();
 	auto boxs = Rect(parent.origin.x + (box.origin.x), parent.origin.y + (box.origin.y), box.size.width, box.size.height);

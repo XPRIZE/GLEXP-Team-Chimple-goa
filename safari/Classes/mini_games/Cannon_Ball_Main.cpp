@@ -36,6 +36,15 @@ MainGame* MainGame::self;
 int letterComespeed;
 int tweenSpeed;
 
+MainGame:: MainGame() {
+
+}
+
+MainGame:: ~MainGame() {
+	MainGame::audioBg->stopAllEffects();
+}
+
+
 Scene* MainGame::createScene()
 {
 	auto scene = Scene::create();
@@ -468,7 +477,7 @@ void MainGame::startFire(EventListenerClass* letterObject, Node *mycannon)
 		MainGame::bulletArray_Animation.push_back(mycannon1);
 
 		CocosDenshion::SimpleAudioEngine *blazeSound = CocosDenshion::SimpleAudioEngine::getInstance();
-		unsigned int number =  blazeSound->playEffect("cannonball/gamesound/blaze.wav", true);
+		unsigned int number =  blazeSound->playEffect("cannonball/gamesound/blaze.wav", true, 1, 1, .2);
 
 		MainGame::bulletSound.push_back(blazeSound);
 		MainGame::bulletSound_ID.push_back(number);
@@ -478,18 +487,17 @@ void MainGame::startFire(EventListenerClass* letterObject, Node *mycannon)
 
 //		Label *myLabel = Label::createWithBMFont("english/baloo_bhai_hdr.fnt", val);
 		Alphabet *myLabel = Alphabet::createWithSize(letterObject->id, 200);
-		myLabel->setPosition(letterObject->getPositionX() - (letterObject->getContentSize().width * 2), letterObject->getPositionY());
+		myLabel->setPosition(letterObject->getPositionX() - (letterObject->getContentSize().width * 2.8), letterObject->getPositionY());
 //		myLabel->setScale(.10, .10);
 		self->addChild(myLabel);
 		MainGame::bulletArray_actualImage.push_back(myLabel);
 
-		auto moveto_animation = MoveTo::create(5, Vec2(200, myLabel->getPosition().y));
+		auto moveto_animation = MoveTo::create(5, Vec2(10, myLabel->getPosition().y));
 		mycannon1->runAction(moveto_animation);
-
 
 		auto callBack = CallFunc::create([this, letterObject, myLabel, mycannon1]() { removeFire(letterObject, myLabel, mycannon1); });
 
-		auto moveto = MoveTo::create(5, Vec2(200, myLabel->getPosition().y));
+		auto moveto = MoveTo::create(4.7, Vec2(10, myLabel->getPosition().y));
 		auto seq = Sequence::create(moveto, callBack, NULL);
 		myLabel->runAction(seq);
 	}
@@ -726,7 +734,8 @@ void MainGame::update(float dt)
 					//				timeline->play("forcefield", false);
 					timeline->setAnimationEndCallFunc("meteor_blast", CC_CALLBACK_0(MainGame::meteorBlast, this, mycannon));
 					MainGame::bulletSound[j]->stopEffect(MainGame::bulletSound_ID[j]);
-					MainGame::audioBg->playEffect("cannonball/gamesound/meteorblast.wav", false);
+					MainGame::audioBg->playEffect("cannonball/gamesound/meteorblast.wav", false, 1, 1, .2);
+
 					this->removeChild(MainGame::bulletArray_actualImage[j]);
 					this->removeChild(MainGame::letterArray[i]);
 //					this->removeChild(MainGame::meteorArray_actualImage[i]);
@@ -777,8 +786,6 @@ void MainGame::update(float dt)
 									MainGame::cannonArray[m]->flag = 0;
 									break;
 								}
-								//								if (MainGame::cannonArray[MainGame::cannon_ballArray[k]->placedNumber] != NULL)
-								//									MainGame::cannonArray[MainGame::cannon_ballArray[k]->placedNumber]->flag = 0;
 							}
 							this->removeChild(MainGame::cannon_ballArray[k]);
 							break;
@@ -796,9 +803,9 @@ void MainGame::update(float dt)
 					timeline->gotoFrameAndPlay(40, false);
 
 					timeline->setAnimationEndCallFunc("meteor_strike", CC_CALLBACK_0(MainGame::meteorBlast, this, mycannon));
-//					MainGame::bulletSound[j]->stopEffect(MainGame::bulletArray_actualImage[j]->getPositionY());
+
 					MainGame::bulletSound[j]->stopEffect(MainGame::bulletSound_ID[j]);
-					MainGame::audioBg->playEffect("cannonball/gamesound/meteorstrike.wav", false);
+					MainGame::audioBg->playEffect("cannonball/gamesound/meteorstrike.wav", false, 1, 1, .2);
 
 					this->removeChild(MainGame::bulletArray_actualImage[j]);
 					this->removeChild(MainGame::bulletArray_Animation[j]);
