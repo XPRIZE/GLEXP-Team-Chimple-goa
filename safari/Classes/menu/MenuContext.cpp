@@ -10,6 +10,7 @@
 #include "ui/CocosGUI.h"
 #include "../StartMenuScene.h"
 #include "../lang/SafariAnalyticsManager.h"
+#include "editor-support/cocostudio/CocoStudio.h"
 
 USING_NS_CC;
 using namespace cocos2d::ui;
@@ -166,6 +167,36 @@ void MenuContext::sadFace() {
 
 void MenuContext::normalFace() {
     _menuButton->loadTextureNormal("menu/menu.png");
+}
+
+Node* MenuContext::jumpOut(std::string nodeCsbName, bool frameAnimate, float duration) {
+    auto node = CSLoader::createNode(nodeCsbName);
+    auto pos = _menuButton->getPosition();
+    node->setPosition(pos);
+    node->setScale(0.2);
+    Size visibleSize = Director::getInstance()->getVisibleSize();
+    Vec2 origin = Director::getInstance()->getVisibleOrigin();
+    
+    auto jumpTo = MoveTo::create(duration, Vec2(origin.x + visibleSize.width / 2, origin.y + visibleSize.height / 2));
+    auto elastic = EaseBackOut::create(jumpTo);
+    auto scaleTo = ScaleTo::create(duration, 1);
+    if(frameAnimate) {
+        cocostudio::timeline::ActionTimeline* anim = CSLoader::createTimeline(nodeCsbName);
+        node->runAction(anim);
+        anim->gotoFrameAndPause(0);
+        auto spawn = Spawn::create(elastic, scaleTo, NULL);
+        auto callback = CC_CALLBACK_0(MenuContext::playAnimationTemp, this, anim);
+        auto sequence = Sequence::create(spawn, CallFunc::create(callback), NULL);
+        node->runAction(sequence);
+    } else {
+        auto spawn = Spawn::create(elastic, scaleTo, NULL);
+        node->runAction(spawn);
+    }
+    return node;
+}
+
+void MenuContext::playAnimationTemp(cocostudio::timeline::ActionTimeline* timeline) {
+    timeline->gotoFrameAndPlay(1, false);
 }
 
 

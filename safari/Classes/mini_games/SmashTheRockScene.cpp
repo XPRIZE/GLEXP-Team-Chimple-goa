@@ -7,7 +7,7 @@
 #include "../menu/MenuContext.h"
 #include "editor-support/cocostudio/CocoStudio.h"
 #include "../lang/LangUtil.h"
-#include "SimpleAudioEngine.h" 
+
 #include "../puzzle/Alphabet.h"
 #include "../StartMenuScene.h"
 #define COCOS2D_DEBUG 1
@@ -20,6 +20,15 @@ int val1;
 int sizei;
 int sizej;
 std::string mapString;
+SmashTheRock::SmashTheRock()
+{
+
+}
+SmashTheRock::~SmashTheRock()
+{
+	audio->pauseBackgroundMusic();
+
+}
 Scene* SmashTheRock::createScene()
 {
 	
@@ -52,13 +61,7 @@ bool SmashTheRock::init()
 
 	Size visibleSize = Director::getInstance()->getVisibleSize();
 	Vec2 origin = Director::getInstance()->getVisibleOrigin();
-	//CCLOG("size %f", visibleSize);
-	//CCLOG("origin %f", origin);
 	
-
-	//key = alphabetMap.at(mapString.c_str());
-
-
     background = CSLoader::createNode("smash_de_rock/bg.csb");
 	//background->setPosition(Point((visibleSize.width / 2) + origin.x, (visibleSize.height / 2) + origin.y));
 	this->addChild(background, 0);
@@ -136,7 +139,7 @@ bool SmashTheRock::init()
 		//	label->setScale(0.15);
 			label->setPositionX(blockWidth );
 			auto letter = label->getString();
-			label->setPositionY(blockHeight - 130);
+			label->setPositionY(blockHeight - 150);
 			label->setColor(ccc3(255, 255, 255));
 			label->enableShadow(Color4B::GRAY, Size(5, -5), -50);
 			label->setAnchorPoint(Vec2::ANCHOR_MIDDLE_BOTTOM);
@@ -159,35 +162,16 @@ bool SmashTheRock::init()
 
 	
 
-
-
-	//createSkeletonCharacter();
-	//mainGameCharacter = skeletonCharacter->getSkeletonNode();
-	//mainGameCharacter->setContentSize(cocos2d::Size(200.0f, 600.0f));
-	//addMainCharacterToScene(mainGameCharacter);
-
+    audio = CocosDenshion::SimpleAudioEngine::getInstance();
+	audio->playBackgroundMusic("smash_de_rock/Smash Rock  BG sound.wav", true);
+	audio->setEffectsVolume(1.0f);
 	masking();
-//	click++;
-	this->scheduleUpdate();
 
 	return true;
 }
 void SmashTheRock::update(float dt)
 {
-	if (maskedFill != nullptr) {
-	//	CCLOG("mainGameCharacter = %f", maskedFill->getBoundingBox().origin.x);
-		//if (mainGameCharacter->getBoundingBox().intersectsRect(maskedFill->getBoundingBox())) {
-			//mainGameCharacter->pause();
-				
-			//mainGameCharacter->skel
-			//cocostudio::timeline::ActionTimeline *timeLine = CSLoader::createTimeline("human_skeleton.csb");
-			//timeLine->retain();
-			//mainGameCharacter->runAction(timeLine);
-			//timeLine->gotoFrameAndPause(0);
-			//timeLine->play("run", true);
-
-		//}
-	}
+	
 	
 }
 void SmashTheRock::createSkeletonCharacter()
@@ -317,9 +301,15 @@ void SmashTheRock::masking()
 	//maskedFill->setGlobalZOrder(3);
 	if (click == 5)
 	{
-		this->removeChild(target);
-		this->removeChild(maskedFill);
-		this->removeChild(label1);
+		auto audio = CocosDenshion::SimpleAudioEngine::getInstance();
+		audio->playEffect("smash_de_rock/Concrete break.wav", false);
+		audio->setEffectsVolume(10.0f);
+		//maskedFill->removeChild(target);
+		for (int i = 0; i < 6; i++)
+		{
+			this->removeChild(maskedFill);
+		}
+		//this->removeChild(label1);
 		for (int i = 0; i < labelRef.size(); i++)
 		{
 			this->removeChild(labelRef.at(i));

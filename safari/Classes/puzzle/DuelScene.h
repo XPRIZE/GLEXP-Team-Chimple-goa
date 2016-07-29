@@ -30,9 +30,12 @@ CC_CONSTRUCTOR_ACCESS:
     bool init(wchar_t myMonChar, wchar_t otherMonChar);
     
 protected:
+    wchar_t _myMonChar;
+    wchar_t _otherMonChar;
     Alphamon *_myMon;
     Alphamon *_otherMon;
     Node *_timer;
+    Node* _background;
     cocostudio::timeline::ActionTimeline* _timerAnimation;
     cocos2d::Vec2 _timerPosition;
     AlphabetGrid *_grid;
@@ -46,6 +49,7 @@ protected:
     void endMeteor(Node *node);
     void reduceHP(Alphamon *amon, int numPoints);
     
+    void startDuel();
     void startMyTurn();
     void armMyMon();
     void attackOtherMon();
@@ -53,6 +57,9 @@ protected:
     void attackMyMon();
     void gameOver();
     void returnToPrevScene();
+    void playAnimationTemp(cocostudio::timeline::ActionTimeline* timeline);
+    void appearMyMon();
+    void appearOtherMon();
 
     static const std::string BG_NAME;
     static const std::string PANEL_NAME;
