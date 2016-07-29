@@ -53,6 +53,9 @@ bool CrossTheBridge::init()
 	//auto menu = Menu::create(closeItem, NULL);
 	//menu->setPosition(Vec2::ZERO);
 	//this->addChild(menu, 1);
+	gameMelody = CocosDenshion::SimpleAudioEngine::getInstance();
+	gameMelody->playEffect("crossthebridge/misc/crossTheBridgeMelody.wav", true);
+
 
 	this->scheduleUpdate();
 
@@ -74,7 +77,23 @@ bool CrossTheBridge::init()
 	splash = (Sprite *)CSLoader::createNode("crossthebridge/watersplash.csb");
 	this->addChild(splash, 16);
 	splash->setGlobalZOrder(16);
+	splash->setVisible(false);
 	splash->runAction(water_splash);
+
+	punch = CSLoader::createTimeline("crossthebridge/punch.csb");
+	punchForBack = (Sprite *)CSLoader::createNode("crossthebridge/punch.csb");
+	this->addChild(punchForBack, 16);
+	punchForBack->setGlobalZOrder(16);
+	punchForBack->runAction(punch);
+	punchForBack->setVisible(false);
+	punch->setTimeSpeed(2);
+
+	smoke = CSLoader::createTimeline("crossthebridge/blast.csb");
+	zeher = (Sprite *)CSLoader::createNode("crossthebridge/blast.csb");
+	this->addChild(zeher, 16);
+	zeher->setGlobalZOrder(16);
+	//zeher->setVisible(false);
+	zeher->runAction(smoke);
 
 	pathClose_right = (Sprite *)gameBG->getChildByName("path_up_right");
 	pathClose_left = (Sprite *)gameBG->getChildByName("path_up_left");
@@ -103,7 +122,8 @@ bool CrossTheBridge::init()
 }
 
 CrossTheBridge::~CrossTheBridge() {
-	//gameMelody->stopAllEffects();
+	gameMelody->stopAllEffects();
+	this->removeAllChildrenWithCleanup(true);
 }
 
 void CrossTheBridge::menuCloseCallback(Ref* pSender)
@@ -118,12 +138,6 @@ void CrossTheBridge::menuCloseCallback(Ref* pSender)
 void CrossTheBridge::sceneMaking()
 {
 	
-	/*gameMelody = CocosDenshion::SimpleAudioEngine::getInstance();
-	gameMelody->playEffect("crossthebridge/misc/splash.wav", true);*/
-
-    gameMelody = CocosDenshion::SimpleAudioEngine::getInstance();
-	gameMelody->playEffect("crossthebridge/misc/crossTheBridgeMelody.wav", true);
-
 	Vec2 origin = Director::getInstance()->getVisibleOrigin();
 	auto visibleSize = Director::getInstance()->getVisibleSize();
 
@@ -287,7 +301,6 @@ void CrossTheBridge::alphaDeletion()
 				if (letterDisplayCounter < 7 && pointGenerater)
 				{
 					_menuContext->pickAlphabet(letterToDisplay, alphaContainer[i]->getAlphabet(), true);
-
 					letterContainer[letterDisplayCounter]->setColor(cocos2d::Color3B(255, 215, 0));
 					letterDisplayCounter++;
 					pointGenerater = false;
@@ -299,19 +312,30 @@ void CrossTheBridge::alphaDeletion()
 			}
 			else
 			{
-				_menuContext->pickAlphabet(letterToDisplay, alphaContainer[i]->getAlphabet(), true);
-				alphaBackFlag = false;
-				auto moveBack = CallFunc::create([=]() {
-					alphaContainer[i]->setContentSize(cocos2d::Size(-4.0f,-4.0f));
-					MoveBy *nodeAction = MoveBy::create(3.2, Vec2(visibleSize.width*1.16, 0));
-					EaseBackOut *easeAction = EaseBackOut::create(nodeAction);
-					alphaContainer[i]->runAction(easeAction);
-				});
-				auto deleteAlphaMonster = CallFunc::create([=]() { this->removeChild(alphaContainer[i], true); alphaContainer.erase(alphaContainer.begin() + i); });
-				auto alphaBackFlagChange = CallFunc::create([=]() {alphaBackFlag = true; });
-				auto monsterSequence = Sequence::create(moveBack, DelayTime::create(2.5f), deleteAlphaMonster, alphaBackFlagChange, NULL);
-				this->runAction(monsterSequence);
+			
+					punchForBack->setVisible(true);
+					punchForBack->setPosition(Vec2(302.02 + origin.x, 960.51 + origin.y));
+					punch->gotoFrameAndPlay(0, false);
 
+					zeher->setPosition(Vec2(250.37 + origin.x, 1005.53 + origin.y));
+					smoke->gotoFrameAndPlay(0, false);
+
+					auto audio = CocosDenshion::SimpleAudioEngine::getInstance();
+					audio->playEffect("crossthebridge/misc/punch.wav", false);
+
+					_menuContext->pickAlphabet(letterToDisplay, alphaContainer[i]->getAlphabet(), true);
+					alphaBackFlag = false;
+					auto moveBack = CallFunc::create([=]() {
+						alphaContainer[i]->setContentSize(cocos2d::Size(-4.0f, -4.0f));
+						MoveBy *nodeAction = MoveBy::create(3.2, Vec2(visibleSize.width*1.16, 0));
+						EaseBackOut *easeAction = EaseBackOut::create(nodeAction);
+						alphaContainer[i]->runAction(easeAction);
+					});
+					auto deleteAlphaMonster = CallFunc::create([=]() { this->removeChild(alphaContainer[i], true); alphaContainer.erase(alphaContainer.begin() + i); });
+					auto alphaBackFlagChange = CallFunc::create([=]() {alphaBackFlag = true; });
+					auto monsterSequence = Sequence::create(moveBack, DelayTime::create(2.5f), deleteAlphaMonster, alphaBackFlagChange, NULL);
+					this->runAction(monsterSequence);
+			
 			}
 			if (letterDisplayCounter == 7)
 			{
@@ -336,6 +360,16 @@ void CrossTheBridge::monsDeletion()
 	{
 		if (monsContainer[i]->getBoundingBox().intersectsRect(barrierLeft->getBoundingBox()))
 		{
+			punchForBack->setVisible(true);
+			punchForBack->setPosition(Vec2(302.02 + origin.x, 960.51 + origin.y));
+			punch->gotoFrameAndPlay(0, false);
+
+			zeher->setPosition(Vec2(250.37 + origin.x, 1005.53 + origin.y));
+			smoke->gotoFrameAndPlay(0, false);
+
+			auto audio = CocosDenshion::SimpleAudioEngine::getInstance();
+			audio->playEffect("crossthebridge/misc/punch.wav", false);
+
 			_menuContext->pickAlphabet(letterToDisplay,'1', true);
 			monsterBackFlag = false;
 			auto moveBack = CallFunc::create([=]() {
@@ -421,6 +455,7 @@ void CrossTheBridge::removeObjectFromScene_Alpha()
 
 		if (alphaBox.intersectsRect(barrierFlat->getBoundingBox()))
 		{
+			splash->setVisible(true);
 			splash->setPosition(Vec2(alphaContainer[i]->getPosition().x + origin.x, alphaContainer[i]->getPosition().y + origin.y));
 			water_splash->gotoFrameAndPlay(0, false);
 
@@ -440,6 +475,7 @@ void CrossTheBridge::removeObjectFromScene_Mons()
 	{
 		if (monsContainer[i]->getBoundingBox().intersectsRect(barrierFlat->getBoundingBox()))
 		{
+			splash->setVisible(true);
 			splash->setPosition(Vec2(monsContainer[i]->getPosition().x + origin.x, monsContainer[i]->getPosition().y + origin.y));
 			water_splash->gotoFrameAndPlay(0, false);
 

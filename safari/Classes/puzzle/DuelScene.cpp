@@ -75,7 +75,21 @@ bool DuelScene::init(wchar_t myMonChar, wchar_t otherMonChar)
     Vec2 origin = Director::getInstance()->getVisibleOrigin();
 
     auto bg = _background->getChildByName(BG_NAME);
-    bg->setPosition(Vec2(bg->getPositionX() + (visibleSize.width - 2560) / 2, bg->getPositionY()));
+    float offsetX = (visibleSize.width - 2560) / 2;
+    bg->setPositionX(bg->getPositionX() + offsetX);
+    auto extra1 = _background->getChildByName("background_extra_1");
+    extra1->setPositionX(extra1->getPositionX() + offsetX);
+    auto extra2 = _background->getChildByName("background_extra_2");
+    extra2->setPositionX(extra2->getPositionX() + offsetX);
+    auto upper = _background->getChildByName("upper");
+    upper->setPositionX(upper->getPositionX() + offsetX);
+    _timer = _background->getChildByName("FileNode_1");
+    _timer->setPositionX(_timer->getPositionX() + offsetX);
+    _timer->setPosition(Vec2(_timerPosition.x, visibleSize.height + 150));
+
+    auto right = _background->getChildByName(RIGHT_STAND_NAME);
+    right->setPositionX(right->getPositionX() + offsetX);
+    
     const int numRows = MAX_ROWS;
     const int numCols = MAX_COLS;
     _grid = AlphabetGrid::create(SQUARE_WIDTH * numCols, SQUARE_WIDTH * numRows, numRows, numCols);
@@ -84,14 +98,12 @@ bool DuelScene::init(wchar_t myMonChar, wchar_t otherMonChar)
     panel->addChild(_grid);
     _grid->setPosition(Vec2((panel->getContentSize().width - SQUARE_WIDTH * numCols) / 2, (panel->getContentSize().height - SQUARE_WIDTH * numRows) / 2));
 
-    _timer = _background->getChildByName("FileNode_1");
     _timerPosition = _timer->getPosition();
     _timerAnimation = CSLoader::createTimeline("battle_ground/timer.csb");
     _timer->runAction(_timerAnimation);
     _timerAnimation->setLastFrameCallFunc(CC_CALLBACK_0(DuelScene::armMyMon, this));
     _timerAnimation->setTimeSpeed(0.1);
 //    _timer->setVisible(false);
-    _timer->setPosition(Vec2(_timerPosition.x, visibleSize.height + 150));
 
     _eventDispatcher->addCustomEventListener("alphabet_selected", CC_CALLBACK_1(DuelScene::onAlphabetSelected, this));
     _eventDispatcher->addCustomEventListener("alphabet_unselected", CC_CALLBACK_1(DuelScene::onAlphabetUnselected, this));
