@@ -301,6 +301,9 @@ void SmashTheRock::masking()
 	//maskedFill->setGlobalZOrder(3);
 	if (click == 5)
 	{
+		auto audio = CocosDenshion::SimpleAudioEngine::getInstance();
+		audio->playEffect("smash_de_rock/Concrete break.wav", false);
+		audio->setEffectsVolume(10.0f);
 		//maskedFill->removeChild(target);
 		for (int i = 0; i < 6; i++)
 		{
