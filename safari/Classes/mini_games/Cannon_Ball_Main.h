@@ -35,8 +35,6 @@ public:
 	static std::vector<LabelClass*> bulletArray;
 	static std::vector<Alphabet*> bulletArray_actualImage;
 	static std::vector<cocos2d::Node*> bulletArray_Animation;
-	static std::vector<CocosDenshion::SimpleAudioEngine*> bulletSound;
-	static std::vector<unsigned int> bulletSound_ID;
 
 	static std::vector<EventListenerClass*> cannonArray;
 	static std::vector<EventListenerClass*> cannon_ballArray;
