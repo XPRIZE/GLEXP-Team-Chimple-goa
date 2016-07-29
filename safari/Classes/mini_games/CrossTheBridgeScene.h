@@ -66,6 +66,8 @@ protected:
 	Sprite* pathOpen_right;
 	Sprite* pathOpen_left;
 	Sprite* splash;
+	Sprite* punchForBack;
+	Sprite* zeher;
 	Sprite* alphaSoundBarrier;
 	Sprite* barrierLowerSide;
 	MenuContext *_menuContext;
@@ -96,6 +98,8 @@ protected:
 	wchar_t letterToDisplay;
 
 	cocostudio::timeline::ActionTimeline *water_splash;
+	cocostudio::timeline::ActionTimeline *punch;
+	cocostudio::timeline::ActionTimeline *smoke;
 
 	// implement the "static create()" method manually
 	CREATE_FUNC(CrossTheBridge);
