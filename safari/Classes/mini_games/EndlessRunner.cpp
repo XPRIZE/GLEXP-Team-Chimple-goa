@@ -7,13 +7,13 @@
 
 using namespace std;
 USING_NS_CC;
-
+DrawNode* aa;
 Scene* EndlessRunner::createScene()
 {
 	Scene* scene = Scene::create();
 	auto layer = EndlessRunner::create();
 	scene->addChild(layer);
-	layer->_menuContext = MenuContext::create(layer);
+    layer->_menuContext = MenuContext::create(layer, EndlessRunner::gameName());
 	scene->addChild(layer->_menuContext);
 	return scene;
 }
@@ -36,11 +36,10 @@ bool EndlessRunner::init()
 	visibleSize = Director::getInstance()->getVisibleSize();
 	origin = Director::getInstance()->getVisibleOrigin();
 	LayerYcoord.firstLayer = (int)(visibleSize.height * 11 / 100) + origin.y;
-	
+	tempChar = CharGenerator::getInstance()->generateAChar();
 	letters = CharGenerator::getInstance()->generateMatrixForChoosingAChar(tempChar,21, 1, 70);
-
 	audioBg = CocosDenshion::SimpleAudioEngine::getInstance();
-	audioBg->playEffect("endlessrunner/sound/jungleMusic.wav", true);
+	audioBg->playEffect("endlessrunner/sound/african_drum.wav", true);
 	
 	SceneLayerYCoordinate.layer1 = (int)((visibleSize.height * 18 / 100) + origin.y);
 	SceneLayerYCoordinate.layer2 = (int)((visibleSize.height * 15 / 100) + origin.y);
@@ -63,12 +62,12 @@ bool EndlessRunner::init()
 
 	Character.action = CSLoader::createTimeline("endlessrunner/main_char.csb");
 	Character.character = (Sprite *)CSLoader::createNode("endlessrunner/main_char.csb");
-	Character.character->setPosition(Vec2((visibleSize.width * 25 / 100) + origin.x, LayerYcoord.firstLayer));
+	Character.character->setPosition(Vec2((visibleSize.width * 25 / 100) + origin.x,LayerYcoord.firstLayer));
 	this->addChild(Character.character, zOrderPathLayer.character);
 	Character.character->runAction(Character.action);
 	Character.character->setScale(1.2);
 	Character.action->play("run", true);
-
+	Character.character->getChildByName("net")->setVisible(false);
 	happyManAction = CSLoader::createTimeline("endlessrunner/happy_mad.csb");
 	hpUiCatchAction = CSLoader::createTimeline("endlessrunner/catch_score.csb");
 	
@@ -79,7 +78,7 @@ bool EndlessRunner::init()
 	auto rotate5 = CSLoader::createTimeline("endlessrunner/life.csb");
 
 	hpUi = (Sprite *)CSLoader::createNode("endlessrunner/hp_ui.csb");
-	hpUi->setPosition(Vec2((visibleSize.width * 3 / 100) + origin.x,(visibleSize.height + origin.y) - (visibleSize.height * 0.38)));
+	hpUi->setPosition(Vec2((visibleSize.width * 0.005) + origin.x,(visibleSize.height + origin.y) - (visibleSize.height * 0.38)));
 	hpUi->setScale(0.7);
 	this->addChild(hpUi, zOrderPathLayer.layer7);
 	hpUi->runAction(hpUiCatchAction);
@@ -96,9 +95,9 @@ bool EndlessRunner::init()
 	auto boardDisplay = (Sprite *)CSLoader::createNode("endlessrunner/letter_board.csb");
 	boardDisplay->setPosition(Vec2((visibleSize.width / 2) + origin.x, (visibleSize.height + origin.y) - (visibleSize.height * 0.07)));
 	this->addChild(boardDisplay, zOrderPathLayer.secondLayer);
-
-	letterOnBoard =  Alphabet::createWithSize(tempChar, 200);
-	letterOnBoard->setPosition(Vec2((visibleSize.width / 2) + origin.x, (visibleSize.height + origin.y) - (visibleSize.height * 0.08)));
+	
+	letterOnBoard =  Alphabet::createWithSize(tempChar, 300);
+	letterOnBoard->setPosition(Vec2((visibleSize.width / 2) + origin.x,(visibleSize.height + origin.y) - (visibleSize.height * 0.07)));
 	letterOnBoard->enableShadow(Color4B::BLACK, Size(8, -6), 5);
 	this->addChild(letterOnBoard, zOrderPathLayer.secondLayer);
 
@@ -144,6 +143,8 @@ void EndlessRunner::update(float delta) {
 		}
 	}
 
+
+
 	if (Character.onAir) {
 		EndlessRunner::FallDownCharacter();
 	}
@@ -163,6 +164,17 @@ void EndlessRunner::update(float delta) {
 		auto main_Sequence = Sequence::create(DelayTime::create(0.5), clearAllComponent, redirectScene, NULL);
 		this->runAction(main_Sequence);
 	}
+
+	auto box = Character.character->getChildByName("floor_2")->getBoundingBox();
+	Rect parent = Character.character->getBoundingBox();
+
+	if (aa != NULL)
+	{
+		this->removeChild(aa);
+	}
+	aa = DrawNode::create();
+	this->addChild(aa, 20);
+//	aa->drawRect(Vec2(parent.origin.x+box.origin.x, parent.origin.y + box.origin.y), Vec2(parent.origin.x + box.origin.x + box.size.width, parent.origin.y + box.origin.y + box.size.height), Color4F(255, 255, 255, 22));
 }
 
 void EndlessRunner::FallDownCharacter() {
@@ -177,14 +189,14 @@ void EndlessRunner::FallDownCharacter() {
 void EndlessRunner::stillCharacterOnPath(float delta) {
 
 	for (std::size_t i = 0; i < allPathBlocks.size(); i++) {
-		auto man = Character.character;
+		
 		auto box = Character.character->getChildByName("floor_2")->getBoundingBox();
 		Rect parent = Character.character->getBoundingBox();
 		Rect boxs = Rect(parent.origin.x + box.origin.x, parent.origin.y + box.origin.y, box.size.width*1.2, box.size.height*1.2);
 
 		if (boxs.intersectsRect(allPathBlocks[i]->getBoundingBox())) {
 			if (allPathBlocks[i]->LayerTypeName == mountainLayerTypes.FirstLayer && !LayerMode.gapMode) {
-				Character.character->setPositionY(LayerYcoord.firstLayer + 15);
+				Character.character->setPosition(Vec2((visibleSize.width * 25 / 100) + origin.x, LayerYcoord.firstLayer + 15));
 				if (Character.groundTouchFlag) {
 					Character.groundTouchFlag = false;
 					Character.Clicked = false;
@@ -196,11 +208,11 @@ void EndlessRunner::stillCharacterOnPath(float delta) {
 
 					auto main_Sequence = Sequence::create(A, B, NULL);
 					Character.character->runAction(main_Sequence);
-
 				}
+				gapFlag = true;
 			}
 			else if (allPathBlocks[i]->LayerTypeName == mountainLayerTypes.SecondLayer && !LayerMode.gapMode) {
-				Character.character->setPositionY((visibleSize.height * 23 / 100) + origin.y);
+				Character.character->setPosition(Vec2((visibleSize.width * 25 / 100) + origin.x, (visibleSize.height * 23 / 100) + origin.y));
 
 				if (Character.groundTouchFlag) {
 					Character.groundTouchFlag = false;
@@ -218,41 +230,6 @@ void EndlessRunner::stillCharacterOnPath(float delta) {
 					auto main_Sequence = Sequence::create(A, B, NULL);
 					Character.character->runAction(main_Sequence);
 				}
-			}
-			else if (allPathBlocks[i]->LayerTypeName == mountainLayerTypes.gap && !LayerMode.gapMode ) {
-				
-				LayerMode.gapMode = true;
-				Character.onAir = false;
-			
-				Character.action->play("drop", true);
-				auto downMovement = MoveBy::create(0.6, Vec2(-Character.character->getContentSize().width, -(visibleSize.height * 0.4)));
-				Character.character->runAction(downMovement);
-				Character.Clicked = true;
-				Character.stillCheckFalg = false;
-				
-				counterLife = counterLife - 1;
-				std::ostringstream sstreamc; sstreamc << "life_"<<counterLife; std::string counterLife = sstreamc.str();
-				hpUi->getChildByName(counterLife)->stopAllActions();
-				hpUi->getChildByName(counterLife)->getChildByName("life_on")->setVisible(false);
-				hpUi->getChildByName(counterLife)->getChildByName("life_off")->setVisible(true);
-				
-				auto setPositionOnPath = CallFunc::create([=]() {
-					Character.character->stopAction(downMovement);
-					Character.character->setPositionY(LayerYcoord.firstLayer + 15);
-					Character.action->play("run", true);
-					Character.Clicked = false;
-					Character.stillCheckFalg = true;
-					LayerMode.gapMode = false;
-				});
-
-				auto blink = Blink::create(2, 10);
-				auto visible = CallFunc::create([=]() {
-					Character.character->setVisible(true);
-				});
-				
-				auto main_Sequence = Sequence::create(DelayTime::create(0.8),setPositionOnPath, blink, visible, NULL);
-				Character.character->runAction(main_Sequence);
-				
 			}
 		}
 		else {
@@ -284,6 +261,48 @@ void EndlessRunner::startingIntersectMode() {
 			EndlessRunner::AddRocksInSecondLayerPath();
 		}
 	}
+	if (gapFlag) {
+		for (std::size_t i = 0; i < allGapBlocks.size(); i++) {
+			auto box = Character.character->getChildByName("floor_2")->getBoundingBox();
+			Rect parent = Character.character->getBoundingBox();
+			Rect boxs = Rect(parent.origin.x + box.origin.x, parent.origin.y + box.origin.y, box.size.width*1.2, box.size.height*1.2);
+
+			if (boxs.intersectsRect(allGapBlocks[i]->getBoundingBox())) {
+			
+				gapFlag = false;
+				LayerMode.gapMode = true;
+				Character.onAir = false;
+
+				Character.action->play("drop", true);
+				auto downMovement = MoveTo::create(0.6, Vec2(visibleSize.width * 0.20 + origin.x,+ origin.y));
+				Character.fallDownAction = downMovement;
+				Character.character->runAction(Character.fallDownAction);
+				Character.Clicked = true;
+			
+				counterLife = counterLife - 1;
+				std::ostringstream sstreamc; sstreamc << "life_" << counterLife; std::string counterLife = sstreamc.str();
+				hpUi->getChildByName(counterLife)->stopAllActions();
+				hpUi->getChildByName(counterLife)->getChildByName("life_on")->setVisible(false);
+				hpUi->getChildByName(counterLife)->getChildByName("life_off")->setVisible(true);
+
+				auto setPositionOnPath = CallFunc::create([=]() {
+					Character.character->setPositionY(LayerYcoord.firstLayer + 15);
+					Character.action->play("run", true);
+					Character.Clicked = false;
+					LayerMode.gapMode = false;
+				});
+
+				auto blink = Blink::create(2, 10);
+				auto visible = CallFunc::create([=]() {
+					Character.character->setVisible(true);
+				});
+
+				auto main_Sequence = Sequence::create(DelayTime::create(0.6), setPositionOnPath, blink, visible, NULL);
+				Character.character->runAction(main_Sequence);
+
+			}
+		}
+	}
 
 	for (std::size_t i = 0; i < allLabels.size(); i++) {
 
@@ -292,9 +311,8 @@ void EndlessRunner::startingIntersectMode() {
 		Rect boxs = Rect(parent.origin.x + (box.origin.x), parent.origin.y + (box.origin.y), box.size.width*1.2, box.size.height*1.2);
 		Rect label = allLabels[i]->getBoundingBox();
 
-		if (boxs.intersectsRect(allLabels[i]->getBoundingBox()))//.intersectsRect(Character.character->getChildren().at(0)->getBoundingBox()))
+		if (boxs.intersectsRect(allLabels[i]->getBoundingBox()))
 		{
-			
 			auto mystr = LangUtil::convertUTF16CharToString(tempChar);
 			if (allLabels[i]->getName() == mystr) {
 				
@@ -307,11 +325,10 @@ void EndlessRunner::startingIntersectMode() {
 				else {
 					popUp = false;
 				}
-
-				_menuContext->pickAlphabet(tempChar, allLabels[i]->getName()[0], true);
+				_menuContext->pickAlphabet(tempChar,allLabels[i]->getChar(), true);
 
 				auto audio = CocosDenshion::SimpleAudioEngine::getInstance();
-				auto path = LangUtil::getInstance()->getAlphabetSoundFileName(allLabels[i]->getName()[0]);
+				auto path = LangUtil::getInstance()->getAlphabetSoundFileName(allLabels[i]->getChar());
 				audio->playEffect(path.c_str(), false);
 
 				counterAlphabets = counterAlphabets + 1;
@@ -338,7 +355,7 @@ void EndlessRunner::startingIntersectMode() {
 				}
 			}
 			else {
-				_menuContext->pickAlphabet(tempChar, allLabels[i]->getName()[0], true);
+				_menuContext->pickAlphabet(tempChar, allLabels[i]->getChar(), true);
 				hpUi->getChildByName("happy_mad")->setScale(1);
 				
 				if (!popUp) {
@@ -352,7 +369,7 @@ void EndlessRunner::startingIntersectMode() {
 				}
 
 				auto audio = CocosDenshion::SimpleAudioEngine::getInstance();
-				auto path = LangUtil::getInstance()->getAlphabetSoundFileName(allLabels[i]->getName()[0]);
+				auto path = LangUtil::getInstance()->getAlphabetSoundFileName(allLabels[i]->getChar());
 				audio->playEffect(path.c_str(), false);
 				if (popUp) {
 					auto highScale = CallFunc::create([=]() { happyManAction->play("change_happy_mad", false); });
@@ -537,14 +554,19 @@ void EndlessRunner::AddRocksInFirstLayerPath() {
 
 	if (currentFirstLayerRock->NextRockName == mountainTypeObject.gapLand) {
 
-		SpriteCreate* currentImage = SpriteCreate::createSprite("endlessrunner/gapw.png", (currentFirstLayerRock->getPosition().x + currentFirstLayerRock->getContentSize().width), LayerYcoord.groundLevel + origin.y, 0, 0, mountainTypeObject.gapLand, mountainTypeObject.startLandPart, mountainLayerTypes.gap);
+		SpriteCreate* currentImage = SpriteCreate::createSprite("endlessrunner/gapw.png", (currentFirstLayerRock->getPosition().x + currentFirstLayerRock->getContentSize().width), LayerYcoord.groundLevel, 0, 0, mountainTypeObject.gapLand, mountainTypeObject.startLandPart, mountainLayerTypes.gap);
 		this->addChild(currentImage, zOrderPathLayer.firstLayer);
-		allPathBlocks.push_back(currentImage);
+//		allPathBlocks.push_back(currentImage);
+
+		auto extra = EndlessRunner::CreateSprites("endlessrunner/gapw.png", (currentFirstLayerRock->getPosition().x + currentFirstLayerRock->getContentSize().width),LayerYcoord.firstLayer,1,1,zOrderPathLayer.character,"gapBlocks");
+		extra->runAction(MoveTo::create(EndlessRunner::movingTime(currentImage), Vec2(leftBarrier->getPosition().x, LayerYcoord.firstLayer)));
+		extra->setOpacity(0);
+		//extra->setScaleX(0.96);
 		currentFirstLayerRock = currentImage;
 		currentImage->setScaleY(11);
 		currentImage->setOpacity(0);
 		position = EndlessRunner::movingUpto(LayerYcoord.groundLevel);
-		currentFirstLayerRock->runAction(MoveTo::create(EndlessRunner::movingTime(currentFirstLayerRock), Vec2(leftBarrier->getPosition().x + origin.x, position.second)));
+		currentFirstLayerRock->runAction(MoveTo::create(EndlessRunner::movingTime(currentFirstLayerRock), Vec2(leftBarrier->getPosition().x, position.second)));
 		FirstLayerModes = 1;
 		FirstLayerstartFlag = false;
 	}
@@ -659,6 +681,8 @@ Sprite* EndlessRunner::CreateSprites(std::string name, int PositionX, int positi
 	}
 	if (vectorType == "blinkBlock") {
 		allBeforeStartBlocks.push_back(sprite);
+	}if (vectorType == "gapBlocks") {
+		allGapBlocks.push_back(sprite);
 	}
 	return sprite;
 }
@@ -669,6 +693,7 @@ SpriteCreate* EndlessRunner::addUpperLayerStartSpriteRock(SpriteCreate* SpriteOb
 	allPathBlocks.push_back(currentImage);
 	auto extra = EndlessRunner::CreateSprites("endlessrunner/bgTouchImage.png", EndlessRunner::setPositionX(SpriteObject), positionY, 10, 20, zOrderPathLayer.character, "blinkBlock");
 	extra->runAction(MoveTo::create(EndlessRunner::movingTime(currentImage), Vec2(leftBarrier->getPosition().x + origin.x, positionY)));
+	extra->setVisible(false);
 	return currentImage;
 }
 
@@ -726,6 +751,20 @@ void EndlessRunner::removePathBlockTouchByLeftBarrier() {
 			allMonster.erase(allMonster.begin() + i);
 		}
 	}
+	for (std::size_t i = 0; i < allGapBlocks.size(); i++) {
+		if (allGapBlocks[i]->getBoundingBox().intersectsRect(leftBarrier->getBoundingBox()))
+		{
+			this->removeChild(allGapBlocks[i]);
+			allGapBlocks.erase(allGapBlocks.begin() + i);
+		}
+	}
+	for (std::size_t i = 0; i < allBeforeStartBlocks.size(); i++) {
+		if (allBeforeStartBlocks[i]->getBoundingBox().intersectsRect(leftBarrier->getBoundingBox()))
+		{
+			this->removeChild(allBeforeStartBlocks[i]);
+			allBeforeStartBlocks.erase(allBeforeStartBlocks.begin() + i);
+		}
+	}
 }
 
 void EndlessRunner::CreateMonsterWithLetter(float dt) {
@@ -741,8 +780,10 @@ void EndlessRunner::CreateMonsterWithLetter(float dt) {
 		timeline = CSLoader::createTimeline("endlessrunner/monster_red.csb");
 		monsterImage = (Sprite *)CSLoader::createNode("endlessrunner/monster_red.csb");
 	}
+	auto nameLand = currentFirstLayerRock->currentRockName;
 	monsterImage->setScale(1.175);
 	Rect box = monsterImage->getChildByName("monster_egg")->getBoundingBox();
+	monsterImage->getChildByName("letter")->setVisible(false);
 	monsterImage->runAction(timeline);  timeline->gotoFrameAndPlay(0);
 	
 	auto str = letters.at(counterLetter).at(0);
@@ -752,24 +793,27 @@ void EndlessRunner::CreateMonsterWithLetter(float dt) {
 		counterLetter = 0;
 	}
 	auto mystr = LangUtil::convertUTF16CharToString(str);
-	auto label = Alphabet::createWithSize(str,200);
+	auto label = Alphabet::createWithSize(str,300);
 	label->setName(mystr);
 	label->enableShadow(Color4B::BLACK, Size(8, -6), 5);
 	label->setTag(Character.uniqueId);
 	monsterImage->setTag(Character.uniqueId);
 
 	if (SecondLayerModes == LayerMode.SecondLayerRightIntersectMode) {
-		monsterImage->setPosition(Vec2(rightBarrier->getPosition().x + origin.x, (visibleSize.height * 58.5 / 100) + origin.y));
+		monsterImage->setPosition(Vec2(rightBarrier->getPosition().x, (visibleSize.height * 58.8 / 100) + origin.y));
 	}
 	else if (FirstLayerModes == LayerMode.FirstLayerRightIntersectMode) {
-		monsterImage->setPosition(Vec2(rightBarrier->getPosition().x + origin.x, (visibleSize.height * 47 / 100) + origin.y));
+		monsterImage->setPosition(Vec2(rightBarrier->getPosition().x, (visibleSize.height * 47.3 / 100) + origin.y));
+		if (nameLand == "endLand") {
+			monsterImage->setPositionX(rightBarrier->getPosition().x - 500); }
 	}
 	else {
-		monsterImage->setPosition(Vec2(rightBarrier->getPosition().x + origin.x, (visibleSize.height * 47 / 100) + origin.y));
+		monsterImage->setPosition(Vec2(rightBarrier->getPosition().x, (visibleSize.height * 47 / 100) + origin.y));
+		if (nameLand == "gapLand") { monsterImage->setPositionX(rightBarrier->getPosition().x + 500); }
 	}
 	auto parent = monsterImage->getBoundingBox();
 	auto boxs = Rect(parent.origin.x + (box.origin.x), parent.origin.y + (box.origin.y), box.size.width, box.size.height);
-	label->setPosition(Vec2(boxs.origin.x + (box.size.width / 2), boxs.origin.y + (box.size.height / 2)));
+	label->setPosition(Vec2(boxs.origin.x + (box.size.width / 2), boxs.origin.y + (box.size.height / 2)+20));
 
 	this->addChild(monsterImage, zOrderPathLayer.firstLayer);
 	this->addChild(label, zOrderPathLayer.firstLayer);

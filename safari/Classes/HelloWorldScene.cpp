@@ -17,7 +17,7 @@ Scene* HelloWorld::createScene(const std::string& island, const std::string& sce
     // add layer as a child to scene
     scene->addChild(layer);
 
-    layer->menuContext = MenuContext::create(layer, true);
+    layer->menuContext = MenuContext::create(layer, HelloWorld::gameName(), true);
     scene->addChild(layer->menuContext);
 
     initPhysics(scene);
@@ -52,7 +52,6 @@ skeletonCharacter(nullptr),
 mainCharacterCategoryBitMask(1),
 isSpeechBubbleAlreadyVisible(false),
 sqlite3Helper(nullptr),
-showTouchSignNode(nullptr),
 stateMachine(nullptr),
 messageSender(nullptr),
 messageReceiver(nullptr),
@@ -324,10 +323,6 @@ void HelloWorld::addMainCharacterToScene(const std::string& filename, cocos2d::N
     auto followAction = Follow::create(this->skeletonCharacter->getSkeletonNode(), Rect(0,0,this->getSceneSize().width, this->getSceneSize().height));
     this->mainLayer->runAction(followAction);
     
-    this->showTouchSignNode = Sprite::create(TOUCH_POINTER_IMG);
-    this->showTouchSignNode->setScale(0.5f, 0.5f);
-    this->showTouchSignNode->setVisible(false);
-    this->mainLayer->addChild(this->showTouchSignNode);    
 }
 
 void HelloWorld::initGestureLayer() {
@@ -393,7 +388,7 @@ void HelloWorld::querySceneToLoadInIsland() {
 void HelloWorld::loadSqlite3FileForScene() {
     std::string sqlite3FileName = this->getSceneName() + ".db3";
     String* connectionURL = String::createWithFormat("res/%s/%s", this->getSceneName().c_str(), sqlite3FileName.c_str());
-    this->sqlite3Helper = Sqlite3Helper::getInstance(connectionURL->getCString());
+    this->sqlite3Helper = Sqlite3Helper::getInstance(connectionURL->getCString(), sqlite3FileName);
 }
 
 void HelloWorld::registerMessageSenderAndReceiver() {
@@ -421,16 +416,20 @@ void HelloWorld::registerMessageSenderAndReceiver() {
     
     
     auto showTouchPointSign = [=] (EventCustom * event) {
-        this->resetTouchPointSign();
+        auto showTouchSignNode =  Sprite::create(TOUCH_POINTER_IMG);
+        showTouchSignNode->setScale(0.5f, 0.5f);
+        this->mainLayer->addChild(showTouchSignNode);
+        showTouchSignNode->setVisible(false);
+        
         Sprite* sprite = reinterpret_cast<Sprite*>(event->getUserData());
-        this->showTouchSignNode->setPosition(sprite->getPosition());
-        this->showTouchSignNode->setVisible(true);
+        showTouchSignNode->setPosition(sprite->getPosition());
+        showTouchSignNode->setVisible(true);
         auto scaleBy = ScaleBy::create(0.5, 1.2);
         auto sequenceScale = Sequence::create(scaleBy, scaleBy->reverse(), nullptr);
         auto repeatScaleAction = Repeat::create(sequenceScale, 5);
-        auto callbackStart = CallFunc::create(CC_CALLBACK_0(HelloWorld::resetTouchPointSign, this));
+        auto callbackStart = CallFunc::create(CC_CALLBACK_0(HelloWorld::resetTouchPointSign, this, showTouchSignNode));
         auto sequence = Sequence::create(repeatScaleAction, callbackStart, nullptr);
-        this->showTouchSignNode->runAction(sequence);
+        showTouchSignNode->runAction(sequence);
     };
     
     SEND_SHOW_TOUCH_POINT_SIGNAL(this, RPGConfig::SEND_SHOW_TOUCH_POINT_SIGN_NOTIFICATION, showTouchPointSign);
@@ -454,15 +453,8 @@ void HelloWorld::transitionToDuelScene(wchar_t alphabet) {
     StartMenu::startScene(DUEL_SCENE_NAME, firstParam, secondParam);
 }
 
-void HelloWorld::resetTouchPointSign() {
-    this->showTouchSignNode->setScale(0.5f, 0.5f);
-}
-
-
-
-void HelloWorld::hideTouchPointSign() {
-    this->showTouchSignNode->setVisible(false);
-    this->showTouchSignNode->setScale(0.5f, 0.5f);
+void HelloWorld::resetTouchPointSign(Sprite* touchSprite) {
+    touchSprite->removeFromParentAndCleanup(true);
 }
 
 void HelloWorld::processTextMessage(std::unordered_map<int, std::string> textMap, std::string ownerOfMessage)
@@ -757,9 +749,6 @@ void HelloWorld::processMessage(std::vector<MessageContent*>*messages) {
     if(!changeSceneMessages.empty()) {
         this->processChangeSceneMessages(changeSceneMessages);
     }
-
-    this->hideTouchPointSign();
-    
 }
 
 void HelloWorld::update(float dt) {
@@ -884,10 +873,10 @@ bool HelloWorld::checkTouchWithinBoundsOfCharacter(Point point, cocostudio::time
 {
     //find out touch Location
     //Rect characterBoundingRect = characterNode->getBoundingBox();
-    Rect characterBoundingRect = Rect(characterNode->getBoundingBox().origin.x, characterNode->getBoundingBox().origin.y, HUMAN_SKELETON_COLLISION_BOX_WIDTH, HUMAN_SKELETON_COLLISION_BOX_WIDTH);
+    Rect characterBoundingRect = Rect(characterNode->getBoundingBox().origin.x, characterNode->getBoundingBox().origin.y, characterNode->getBoundingBox().size.width, characterNode->getBoundingBox().size.height);
+    
     
     if(characterBoundingRect.containsPoint(characterNode->getParent()->convertToNodeSpace(point))) {
-        CCLOG("%s", "touch on Character");
         if(this->skeletonCharacter->isRunning || this->skeletonCharacter->isWalking)
         {
             this->stateMachine->handleInput(S_STANDING_STATE, cocos2d::Vec2(0,0));
@@ -1014,6 +1003,14 @@ void HelloWorld::HoldOrDragBehaviour(Point position) {
     }
 
     if(this->skeletonCharacter->isJumping || this->skeletonCharacter->isJumpingAttemptedWhileDragging) {
+
+        if(this->skeletonCharacter->getSkeletonNode()->getPhysicsBody()->getVelocity().y == 0 )
+        {
+            this->stateMachine->handleInput(S_STANDING_STATE, cocos2d::Vec2(0,0));
+            this->skeletonCharacter->getSkeletonNode()->getPhysicsBody()->resetForces();
+            this->skeletonCharacter->getSkeletonNode()->getPhysicsBody()->setVelocity(Vec2(0,0));
+        }
+
         return;
     }
     
@@ -1062,10 +1059,7 @@ void HelloWorld::HoldOrDragBehaviour(Point position) {
               this->HandleJumpWithContinueousRotation();
                 this->skeletonCharacter->isJumpingAttemptedWhileDragging = true;
             }
-        }
-        
-    } else {
-        //animate JUMP Down
+        }    
     }
 }
 
@@ -1132,7 +1126,7 @@ void HelloWorld::applyImpulseOnSkeletonToJumpOnHoldOrDrag(Point position) {
     float angle = RPGConfig::calcuateAngleForJump(position, characterPosition, 0.0f, 0.0f);
     float value = RPGConfig::calcuateVelocityForJump(position, characterPosition, angle, 0.0f, 0.0f);
     float timeToStart = RPGConfig::calcuateTimeToStartJumpUpAnimation(value, angle, JUMP_UP_ENDING_ANIMATION_FRAMES);
-    
+    CCLOG("timeToStarttimeToStart 111 %f", timeToStart);
     this->scheduleContinuousRotationCall(0.0f);
     this->applyImpulseOnSkeletonToJump(position, angle, value, timeToStart);
     
@@ -1148,7 +1142,7 @@ void HelloWorld::applyImpulseOnSkeletonToJumpOnTap(Point position) {
     float angle = RPGConfig::calcuateAngleForJump(position, characterPosition, 0.0f, 0.0f);
     float value = RPGConfig::calcuateVelocityForJump(position, characterPosition, angle, 0.0f, 0.0f);
     float timeToStart = RPGConfig::calcuateTimeToStartJumpUpAnimation(value, angle, JUMP_UP_ENDING_ANIMATION_FRAMES);
-    
+    CCLOG("timeToStarttimeToStart %f", timeToStart);
     this->scheduleJumpUpEndCall(timeToStart);
     this->applyImpulseOnSkeletonToJump(position, angle, value, timeToStart);    
 }
@@ -1221,6 +1215,15 @@ void HelloWorld::HandleTap(Point position)
     
     if(this->skeletonCharacter->isJumping || this->skeletonCharacter->isRunning || this->skeletonCharacter->isWalking)
     {
+        if(this->skeletonCharacter->getSkeletonNode()->getPhysicsBody()->getVelocity().y == 0 )
+        {
+            this->stateMachine->handleInput(S_STANDING_STATE, cocos2d::Vec2(0,0));
+            this->skeletonCharacter->getSkeletonNode()->getPhysicsBody()->resetForces();
+            this->skeletonCharacter->getSkeletonNode()->getPhysicsBody()->setVelocity(Vec2(0,0));
+            
+        }
+        
+
         return;
     }
     

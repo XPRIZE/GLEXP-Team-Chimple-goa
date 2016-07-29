@@ -8,6 +8,12 @@
 
 #include "KannadaUtil.h"
 
+#if (CC_TARGET_PLATFORM == CC_PLATFORM_WIN32)
+static const char* audioExt = ".wav";
+#else
+static const char* audioExt = ".m4a";
+#endif
+
 static const std::map<wchar_t, std::string> langMap = {
     {L'\x0c85',"a"},
     {L'\x0c86',"aa"},
@@ -24,7 +30,7 @@ static const std::map<wchar_t, std::string> langMap = {
     {L'\x0C93',"oo"},
     {L'\x0C94',"au"},
     {L'\x0C95',"ka"},
-    {L'\x0C96',"khs"},
+    {L'\x0C96',"kha"},
     {L'\x0C97',"ga"},
     {L'\x0C98',"gha"},
     {L'\x0C99',"nga"},
@@ -32,12 +38,12 @@ static const std::map<wchar_t, std::string> langMap = {
     {L'\x0C9B',"chha"},
     {L'\x0C9C',"ja"},
     {L'\x0C9D',"jha"},
-    {L'\x0C9E',"nya"},
+    {L'\x0C9E',"naa"},
     {L'\x0C9F',"tya"},
     {L'\x0CA0',"tyha"},
     {L'\x0CA1',"dya"},
     {L'\x0CA2',"dyha"},
-    {L'\x0CA3',"naa"},
+    {L'\x0CA3',"nya"},
     {L'\x0CA4',"ta"},
     {L'\x0CA5',"tha"},
     {L'\x0CA6',"da"},
@@ -61,12 +67,12 @@ static const std::map<wchar_t, std::string> langMap = {
 
 
 const wchar_t* KannadaUtil::getAllCharacters() {
-    static const wchar_t* allKannadaCharacters = L"\x0c85\x0c86\x0c87\x0c88\x0c89\x0C8A\x0C8B\x0CE0\x0C8E\x0C8F\x0C90\x0C92\x0C93\x0C94\x0C95\x0C96\x0C97\x0C98\x0C99\x0C9A\x0C9B\x0C9C\x0C9D\x0C9E\x0C9F\x0CA0\x0CA1\x0CA2\x0CA3\x0CA4\x0CA5\x0CA6\x0CA7\x0CA8\x0CAA\x0CAB\x0CAC\x0CAD\x0CAE\x0CAF\x0CB0\x0CB2\x0CB3\x0CB5\x0CB6\x0CB7\x0CB8\x0CB9";
+    static const wchar_t* allKannadaCharacters = L"\x0c85\x0c86\x0c87\x0c88\x0c89\x0C8A\x0C8B\x0CE0\x0C8E\x0C8F\x0C90\x0C92\x0C93\x0C94\x0C95\x0C96\x0C97\x0C98\x0C99\x0C9A\x0C9B\x0C9C\x0C9D\x0C9E\x0C9F\x0CA0\x0CA1\x0CA2\x0CA3\x0CA4\x0CA5\x0CA6\x0CA7\x0CA8\x0CAA\x0CAB\x0CAC\x0CAD\x0CAE\x0CAF\x0CB0\x0CB2\x0CB5\x0CB6\x0CB7\x0CB8\x0CB9\x0CB3";
     return allKannadaCharacters;
 }
 
 int KannadaUtil::getNumberOfCharacters() {
-    return 49;
+    return 48;
 }
 
 std::string KannadaUtil::getMonsterAnimationFileName(wchar_t alpha) {
@@ -75,7 +81,7 @@ std::string KannadaUtil::getMonsterAnimationFileName(wchar_t alpha) {
 }
 
 std::string KannadaUtil::getSpecialAnimationFileName(wchar_t alpha, std::string suffix) {
-    return std::string("kannada/") + suffix + "/" + convertUTF16CharToString(alpha) +".csb";
+    return std::string("kannada/") + suffix + "/" + langMap.at(alpha) +".csb";
 }
 
 
@@ -84,8 +90,8 @@ std::string KannadaUtil::getBMFontFileName() {
 }
 
 std::string KannadaUtil::getAlphabetSoundFileName(wchar_t alpha) {
-    auto fileName = std::string("kannada/sounds/") + langMap.at(alpha) +".m4a";
-    return fileName;
+	auto fileName = std::string("kannada/sounds/") + langMap.at(alpha) + ".wav";//audioExt;
+	return fileName; 
 }
 
 std::string KannadaUtil::getPhoneticSoundFileName(wchar_t alpha) {
@@ -93,6 +99,9 @@ std::string KannadaUtil::getPhoneticSoundFileName(wchar_t alpha) {
     return fileName;
 }
 
+std::string KannadaUtil::getLang() {
+    return "kan";
+}
 
 KannadaUtil::KannadaUtil() {
     

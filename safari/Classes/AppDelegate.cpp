@@ -1,5 +1,7 @@
 #include "AppDelegate.h"
 #include "MapScene.h"
+#include "StartMenuScene.h"
+#include "lang/SafariAnalyticsManager.h"
 
 USING_NS_CC;
 
@@ -14,6 +16,7 @@ AppDelegate::AppDelegate() {
 
 AppDelegate::~AppDelegate()
 {
+    CCLOG("111");
 }
 
 //if you want a different context,just modify the value of glContextAttrs
@@ -34,13 +37,14 @@ static int register_all_packages()
     return 0; //flag for packages manager
 }
 
+
 bool AppDelegate::applicationDidFinishLaunching() {
     // initialize director
     auto director = Director::getInstance();
     auto glview = director->getOpenGLView();
     if(!glview) {
 #if (CC_TARGET_PLATFORM == CC_PLATFORM_WIN32) || (CC_TARGET_PLATFORM == CC_PLATFORM_MAC) || (CC_TARGET_PLATFORM == CC_PLATFORM_LINUX)
-        glview = GLViewImpl::createWithRect("safari", cocos2d::Rect(0, 0, mediumResolutionSize.width, mediumResolutionSize.height));
+        glview = GLViewImpl::createWithRect("safari", cocos2d::Rect(0, 0, mediumResolutionSize.width + 300, mediumResolutionSize.height));
 #else
         glview = GLViewImpl::create("safari");
 #endif
@@ -94,8 +98,10 @@ bool AppDelegate::applicationDidFinishLaunching() {
     
     register_all_packages();
     
+    SafariAnalyticsManager::getInstance();
+    
     // create a scene. it's an autorelease object
-    director->runWithScene(MapScene::createScene());
+    director->runWithScene(StartMenu::createScene());
     Application::getInstance()->getCurrentLanguage();
     return true;
 }

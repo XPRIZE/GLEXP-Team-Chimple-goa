@@ -8,6 +8,7 @@
 #include "../menu/MenuContext.h"
 #include "../puzzle/Alphabet.h"
 #include "../puzzle/CharGenerator.h"
+#include "SimpleAudioEngine.h"
 
 class MainGame : public cocos2d::Layer
 {
@@ -18,6 +19,9 @@ public:
 	}p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14, p100, p101, p102, p103;
 
 	static float height, width, originX, originY;
+
+	MainGame();
+	~MainGame();
 
 	cocos2d::Sprite* backGround_front;
 	static EventListenerClass* cannon1, *cannon2, *cannon3, *cannon4;
@@ -30,6 +34,9 @@ public:
 
 	static std::vector<LabelClass*> bulletArray;
 	static std::vector<Alphabet*> bulletArray_actualImage;
+	static std::vector<cocos2d::Node*> bulletArray_Animation;
+	static std::vector<CocosDenshion::SimpleAudioEngine*> bulletSound;
+	static std::vector<unsigned int> bulletSound_ID;
 
 	static std::vector<EventListenerClass*> cannonArray;
 	static std::vector<EventListenerClass*> cannon_ballArray;
@@ -38,11 +45,12 @@ public:
 	static std::vector<EventListenerClass*> letterArray;
 	static std::vector<LabelClass*> meteorArray;
 
-	static std::vector<cocos2d::Node*> bulletArray_Animation;
 	static MainGame *self;
 
 	static Node *meteor_meteor_strike_node;
 	static cocostudio::timeline::ActionTimeline *meteor_meteor_strike_timeline;
+
+	static CocosDenshion::SimpleAudioEngine* audioBg;
 
 	std::vector<std::vector<wchar_t>> MainChars;
 
@@ -63,6 +71,8 @@ public:
 
 	// implement the "static create()" method manually
 	CREATE_FUNC(MainGame);
+    
+    static const char* gameName() { return "Cannon Ball"; };
 
 protected:
 	MenuContext* _menuContext;

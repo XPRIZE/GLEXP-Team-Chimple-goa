@@ -45,8 +45,6 @@ private:
     
     cocos2d::Point currentTouchPoint;
     
-    cocos2d::Sprite* showTouchSignNode;
-    
     GestureLayer* gesture_layer_;
     
     StateMachine* stateMachine;
@@ -159,7 +157,7 @@ private:
     
     void calculateAlphamonNodesInScene(cocos2d::Node *rootNode);
     
-    void resetTouchPointSign();
+    void resetTouchPointSign(cocos2d::Sprite* touchPointer);
 
     cocos2d::Size sceneSize;
     
@@ -233,11 +231,9 @@ public:
     
     virtual void processNodeWithCustomAttributes(Node* node, cocos2d::Node* parentNode);
     
-    virtual bool checkTapOnRPGSprite(RPGSprite* rpgNode, cocos2d::Point position);
+    virtual bool checkTapOnRPGSprite(RPGSprite* rpgNode, cocos2d::Point position);    
     
-    virtual void hideTouchPointSign();
-    
-    
+    static const char* gameName() { return "Safari RPG";}
 };
 
 #endif // __HELLOWORLD_SCENE_H__

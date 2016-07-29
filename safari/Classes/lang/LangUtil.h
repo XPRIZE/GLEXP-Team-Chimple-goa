@@ -22,6 +22,7 @@ public:
     virtual std::string getBMFontFileName() = 0;
     virtual std::string getAlphabetSoundFileName(wchar_t alpha) = 0;
     virtual std::string getPhoneticSoundFileName(wchar_t alpha) = 0;
+    virtual std::string getLang() = 0;
     
 protected:
     LangUtil();
