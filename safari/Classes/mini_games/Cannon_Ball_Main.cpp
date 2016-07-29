@@ -17,7 +17,9 @@ std::vector<Alphabet*> MainGame::meteorArray_actualImage;
 std::vector<EventListenerClass*> MainGame::letterArray;
 std::vector<LabelClass*> MainGame::meteorArray;
 std::vector<cocos2d::Node*> MainGame::bulletArray_Animation;
+std::vector<unsigned int> MainGame::bulletSound_ID;
 
+std::vector<CocosDenshion::SimpleAudioEngine*> MainGame::bulletSound;
 CocosDenshion::SimpleAudioEngine* MainGame::audioBg;
 
 EventListenerClass* MainGame::cannon1;
@@ -246,6 +248,8 @@ void MainGame::letterCome(float d)
 		for (int i = 0; i < MainGame::bulletArray.size(); i++)
 		{
 			this->removeChild(MainGame::bulletArray_actualImage[i]);
+			MainGame::bulletSound[i]->stopAllEffects();
+			MainGame::bulletSound.erase(std::remove(MainGame::bulletSound.begin(), MainGame::bulletSound.end(), MainGame::bulletSound[i]));
 			MainGame::bulletArray_actualImage.erase(std::remove(MainGame::bulletArray_actualImage.begin(), MainGame::bulletArray_actualImage.end(), MainGame::bulletArray_actualImage[i]));
 			MainGame::bulletArray.erase(std::remove(MainGame::bulletArray.begin(), MainGame::bulletArray.end(), MainGame::bulletArray[i]));
 			MainGame::bulletArray_Animation.erase(std::remove(MainGame::bulletArray_Animation.begin(), MainGame::bulletArray_Animation.end(), MainGame::bulletArray_Animation[i]));
@@ -475,6 +479,9 @@ void MainGame::startFire(EventListenerClass* letterObject, Node *mycannon)
 		CocosDenshion::SimpleAudioEngine *blazeSound = CocosDenshion::SimpleAudioEngine::getInstance();
 		unsigned int number =  blazeSound->playEffect("cannonball/gamesound/blaze.wav", true, 1, 1, .2);
 
+		MainGame::bulletSound.push_back(blazeSound);
+		MainGame::bulletSound_ID.push_back(number);
+
 		LabelClass *fire = LabelClass::createSpt(letterObject->id, letterObject->getPositionX() - (letterObject->getContentSize().width * 2), letterObject->getPositionY(), letterObject->id, self);
 		MainGame::bulletArray.push_back(fire);
 
@@ -529,8 +536,11 @@ void MainGame::removeFire(EventListenerClass* letterObject, Alphabet* removableF
 	self->removeChild(fireAnimation);
 	int it = find(MainGame::bulletArray_actualImage.begin(), MainGame::bulletArray_actualImage.end(), removableFire) - MainGame::bulletArray_actualImage.begin();	//find bullet index in bulletarray 
 	wchar_t removableFire_id = MainGame::bulletArray[it]->id;
+	MainGame::bulletSound[it]->stopEffect(MainGame::bulletSound_ID[it]);
+	MainGame::bulletSound.erase(MainGame::bulletSound.begin() + it);
 	MainGame::bulletArray_actualImage.erase(std::remove(MainGame::bulletArray_actualImage.begin(), MainGame::bulletArray_actualImage.end(), removableFire));
 	MainGame::bulletArray.erase(MainGame::bulletArray.begin() + it);
+	MainGame::bulletSound_ID.erase(MainGame::bulletSound_ID.begin() + it);
 	MainGame::bulletArray_Animation.erase(std::remove(MainGame::bulletArray_Animation.begin(), MainGame::bulletArray_Animation.end(), fireAnimation));
 
 
@@ -717,14 +727,18 @@ void MainGame::update(float dt)
 					auto timeline = CSLoader::createTimeline("cannonball_meteoranimation.csb");
 					Node *mycannon = (Node *)CSLoader::createNode("cannonball_meteoranimation.csb");
 					mycannon->setPosition(MainGame::letterArray[i]->getBoundingBox().origin.x + (MainGame::letterArray[i]->getContentSize().width), MainGame::letterArray[i]->getBoundingBox().origin.y + (MainGame::letterArray[i]->getContentSize().height / 2));
+//					mycannon->setScale(.7, .7);
 					self->addChild(mycannon);	// add cannon animation
 					mycannon->runAction(timeline);
 					timeline->gotoFrameAndPlay(00, false);
+					//				timeline->play("forcefield", false);
 					timeline->setAnimationEndCallFunc("meteor_blast", CC_CALLBACK_0(MainGame::meteorBlast, this, mycannon));
+					MainGame::bulletSound[j]->stopEffect(MainGame::bulletSound_ID[j]);
 					MainGame::audioBg->playEffect("cannonball/gamesound/meteorblast.wav", false, 1, 1, .2);
 
 					this->removeChild(MainGame::bulletArray_actualImage[j]);
 					this->removeChild(MainGame::letterArray[i]);
+//					this->removeChild(MainGame::meteorArray_actualImage[i]);
 					this->removeChild(MainGame::bulletArray_Animation[j]);
 
 					_menuContext->pickAlphabet(MainGame::letterArray[i]->id, bulletArray[j]->id, true);
@@ -732,8 +746,12 @@ void MainGame::update(float dt)
 					int it = find(MainGame::bulletArray.begin(), MainGame::bulletArray.end(), MainGame::bulletArray[j]) - MainGame::bulletArray.begin();	//find bullet index in bulletarray 
 					MainGame::bulletArray_actualImage.erase(MainGame::bulletArray_actualImage.begin() + it);
 
+					MainGame::bulletSound_ID.erase(std::remove(MainGame::bulletSound_ID.begin(), MainGame::bulletSound_ID.end(), MainGame::bulletSound_ID[j]));
+					MainGame::bulletSound.erase(std::remove(MainGame::bulletSound.begin(), MainGame::bulletSound.end(), MainGame::bulletSound[j]));
 					MainGame::bulletArray.erase(std::remove(MainGame::bulletArray.begin(), MainGame::bulletArray.end(), MainGame::bulletArray[j]));
 					MainGame::bulletArray_Animation.erase(std::remove(MainGame::bulletArray_Animation.begin(), MainGame::bulletArray_Animation.end(), MainGame::bulletArray_Animation[j]));
+					//					MainGame::bulletArray.erase(MainGame::bulletArray.begin()+j);
+					//					MainGame::bulletArray_Animation.erase(MainGame::bulletArray_Animation.begin() + j);
 
 					if (MainGame::lettertmpPosition.size() < MainGame::cannonArray.size())
 					{
@@ -786,7 +804,7 @@ void MainGame::update(float dt)
 
 					timeline->setAnimationEndCallFunc("meteor_strike", CC_CALLBACK_0(MainGame::meteorBlast, this, mycannon));
 
-
+					MainGame::bulletSound[j]->stopEffect(MainGame::bulletSound_ID[j]);
 					MainGame::audioBg->playEffect("cannonball/gamesound/meteorstrike.wav", false, 1, 1, .2);
 
 					this->removeChild(MainGame::bulletArray_actualImage[j]);
@@ -794,6 +812,8 @@ void MainGame::update(float dt)
 
 					int it = find(MainGame::bulletArray.begin(), MainGame::bulletArray.end(), MainGame::bulletArray[j]) - MainGame::bulletArray.begin();	//find bullet index in bulletarray 
 					MainGame::bulletArray_actualImage.erase(MainGame::bulletArray_actualImage.begin() + it);
+					MainGame::bulletSound_ID.erase(MainGame::bulletSound_ID.begin() + it);
+					MainGame::bulletSound.erase(std::remove(MainGame::bulletSound.begin(), MainGame::bulletSound.end(), MainGame::bulletSound[j]));
 					MainGame::bulletArray.erase(std::remove(MainGame::bulletArray.begin(), MainGame::bulletArray.end(), MainGame::bulletArray[j]));
 					MainGame::bulletArray_Animation.erase(std::remove(MainGame::bulletArray_Animation.begin(), MainGame::bulletArray_Animation.end(), MainGame::bulletArray_Animation[j]));
 
