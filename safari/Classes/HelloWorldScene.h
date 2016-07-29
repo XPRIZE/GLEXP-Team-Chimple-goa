@@ -233,6 +233,7 @@ public:
     
     virtual bool checkTapOnRPGSprite(RPGSprite* rpgNode, cocos2d::Point position);    
     
+    static const char* gameName() { return "Safari RPG";}
 };
 
 #endif // __HELLOWORLD_SCENE_H__

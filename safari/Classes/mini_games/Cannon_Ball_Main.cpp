@@ -41,7 +41,7 @@ Scene* MainGame::createScene()
 	auto scene = Scene::create();
 	auto layer = MainGame::create();
 	scene->addChild(layer);
-    layer->_menuContext = MenuContext::create(layer);
+    layer->_menuContext = MenuContext::create(layer, MainGame::gameName());
     scene->addChild(layer->_menuContext);
 
 	//	backGround_front = NULL;

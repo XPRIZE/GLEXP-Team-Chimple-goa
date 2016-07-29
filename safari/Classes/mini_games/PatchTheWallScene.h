@@ -36,6 +36,8 @@ public:
 	virtual void onTouchCancelled(cocos2d::Touch *touch, cocos2d::Event * event);
     // implement the "static create()" method manually
     CREATE_FUNC(PatchTheWall);
+    
+    static const char* gameName() { return "Patch The Wall";}
 };
 
 #endif // __PATCHTHEWALL_SCENE_H__

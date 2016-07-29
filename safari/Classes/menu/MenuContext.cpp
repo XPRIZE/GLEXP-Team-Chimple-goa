@@ -9,17 +9,19 @@
 #include "MenuContext.h"
 #include "ui/CocosGUI.h"
 #include "../StartMenuScene.h"
+#include "../lang/SafariAnalyticsManager.h"
 
 USING_NS_CC;
 using namespace cocos2d::ui;
 
 static const int MAX_POINTS_TO_SHOW = 16;
 
-MenuContext* MenuContext::create(Node* main, bool launchCustomEventOnExit) {
+MenuContext* MenuContext::create(Node* main, std::string gameName, bool launchCustomEventOnExit) {
     MenuContext* menuContext = new (std::nothrow) MenuContext();
     if(menuContext && menuContext->init(main)) {
         menuContext->autorelease();
         menuContext->_launchCustomEventOnExit = launchCustomEventOnExit;
+        menuContext->gameName = gameName;
         return menuContext;
     }
     CC_SAFE_DELETE(menuContext);
@@ -44,7 +46,11 @@ bool MenuContext::init(Node* main) {
     _label->setPosition(Vec2(125, 125));
     _menuButton->addChild(_label);
     
-    _pointMeter = HPMeter::createWithTextureAndPercent("menu/blank.png", "menu/coinstack.png", "", 0);
+    _pointMeter = Slider::create();
+    _pointMeter->loadBarTexture("menu/blank.png");
+    _pointMeter->loadProgressBarTexture("menu/coinstack.png");
+    _pointMeter->setScale9Enabled(true);
+    _pointMeter->setTouchEnabled(false);
     _pointMeter->setPosition(Vec2(128, 256));
     _menuButton->addChild(_pointMeter);
     
@@ -136,6 +142,10 @@ void MenuContext::pickAlphabet(char targetAlphabet, char chosenAlphabet, bool ch
         runAction(sequence);
     }
     _label->setString("Points: " + to_string(_points));
+    std::string targetAlphabetStr (1, targetAlphabet);
+    std::string chosenAlphabetStr (1, chosenAlphabet);
+
+    SafariAnalyticsManager::getInstance()->insertAnalyticsInfo(targetAlphabetStr.c_str(), chosenAlphabetStr.c_str(), gameName.c_str());
 }
 
 void MenuContext::finalizePoints() {

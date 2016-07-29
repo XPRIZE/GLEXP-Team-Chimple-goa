@@ -52,7 +52,7 @@ public:
 	void addMainCharacterToScene(cocostudio::timeline::SkeletonNode* skeleton);
 	// implement the "static create()" method manually
 
-
+    static const char* gameName() { return "Smash The Rock";}
 
 private:
 	SkeletonCharacter* skeletonCharacter;

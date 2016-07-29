@@ -41,7 +41,7 @@ cocos2d::Scene * AlphamonFeed::createScene()
 	auto layer = AlphamonFeed::create();
 	scene->addChild(layer);
 
-    layer->menu = MenuContext::create(layer);
+    layer->menu = MenuContext::create(layer, AlphamonFeed::gameName());
     scene->addChild(layer->menu);
 
 	return scene;

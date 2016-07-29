@@ -48,6 +48,8 @@ public:
 	virtual void addEvents(Sprite* touchSprite);
 	// a selector callback
 	void menuCloseCallback(cocos2d::Ref* pSender);
+    
+    static const char* gameName() { return "Cross The Bridge";};
 
 protected:
 	Sprite* cubeAtRest;
@@ -86,7 +88,7 @@ protected:
 	int letterDisplayCounter = 0;
 
 	Label* myGameScoreLabel;
-	char letterToDisplay = 'A';
+	wchar_t letterToDisplay;
 
 	cocostudio::timeline::ActionTimeline *water_splash;
 
