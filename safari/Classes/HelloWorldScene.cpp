@@ -17,7 +17,7 @@ Scene* HelloWorld::createScene(const std::string& island, const std::string& sce
     // add layer as a child to scene
     scene->addChild(layer);
 
-    layer->menuContext = MenuContext::create(layer, true);
+    layer->menuContext = MenuContext::create(layer, HelloWorld::gameName(), true);
     scene->addChild(layer->menuContext);
 
     initPhysics(scene);
@@ -388,7 +388,7 @@ void HelloWorld::querySceneToLoadInIsland() {
 void HelloWorld::loadSqlite3FileForScene() {
     std::string sqlite3FileName = this->getSceneName() + ".db3";
     String* connectionURL = String::createWithFormat("res/%s/%s", this->getSceneName().c_str(), sqlite3FileName.c_str());
-    this->sqlite3Helper = Sqlite3Helper::getInstance(connectionURL->getCString());
+    this->sqlite3Helper = Sqlite3Helper::getInstance(connectionURL->getCString(), sqlite3FileName);
 }
 
 void HelloWorld::registerMessageSenderAndReceiver() {

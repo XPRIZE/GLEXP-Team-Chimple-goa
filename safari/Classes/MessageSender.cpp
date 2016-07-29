@@ -58,7 +58,10 @@ void MessageSender::createMessagesForNodeWithKey(std::string key) {
     CCLOG("query Key is %s", key.c_str());
 
     if(messages.size() != 0) {
+        CCLOG("message found for query key %s", key.c_str());
         EVENT_DISPATCHER->dispatchCustomEvent(RPGConfig::RECEIVE_CUSTOM_MESSAGE_NOTIFICATION, static_cast<void*>(&messages));        
+    } else {
+        CCLOG("NO message found for query key !!! ALERT %s", key.c_str());
     }
 }
 

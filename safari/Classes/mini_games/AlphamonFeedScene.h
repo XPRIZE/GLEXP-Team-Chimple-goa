@@ -42,7 +42,7 @@ public:
 	virtual void onTouchMoved(cocos2d::Touch *touch, cocos2d::Event * event);
 	virtual void onTouchEnded(cocos2d::Touch *touch, cocos2d::Event * event);
 	virtual void onTouchCancelled(cocos2d::Touch *touch, cocos2d::Event * event);
-
+    static const char* gameName() { return "Alphamon Feed";}
 	virtual void update(float dt);
 
 	void showFruits(float dt);

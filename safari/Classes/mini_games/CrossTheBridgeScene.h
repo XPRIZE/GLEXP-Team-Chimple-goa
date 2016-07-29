@@ -6,6 +6,7 @@
 #include "../menu/MenuContext.h"
 #include "../alphamon/Alphamon.h"
 #include "../puzzle/Alphabet.h"
+#include "SimpleAudioEngine.h"
 
 using namespace cocos2d;
 
@@ -14,6 +15,9 @@ class CrossTheBridge : public cocos2d::Layer
 public:
 
 	static cocos2d::Scene* createScene();
+
+	virtual ~CrossTheBridge();
+
 	virtual bool init();
 	virtual void sceneMaking();
 
@@ -48,6 +52,8 @@ public:
 	virtual void addEvents(Sprite* touchSprite);
 	// a selector callback
 	void menuCloseCallback(cocos2d::Ref* pSender);
+    
+    static const char* gameName() { return "Cross The Bridge";};
 
 protected:
 	Sprite* cubeAtRest;
@@ -63,6 +69,7 @@ protected:
 	Sprite* alphaSoundBarrier;
 	Sprite* barrierLowerSide;
 	MenuContext *_menuContext;
+	CocosDenshion::SimpleAudioEngine* gameMelody;
 
 	std::vector<Alphamon*> alphaContainer;
 	std::vector<cocos2d::Sprite*> monsContainer;
@@ -86,7 +93,7 @@ protected:
 	int letterDisplayCounter = 0;
 
 	Label* myGameScoreLabel;
-	char letterToDisplay = 'A';
+	wchar_t letterToDisplay;
 
 	cocostudio::timeline::ActionTimeline *water_splash;
 

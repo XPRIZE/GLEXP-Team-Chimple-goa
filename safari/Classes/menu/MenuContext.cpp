@@ -9,17 +9,20 @@
 #include "MenuContext.h"
 #include "ui/CocosGUI.h"
 #include "../StartMenuScene.h"
+#include "../lang/SafariAnalyticsManager.h"
+#include "editor-support/cocostudio/CocoStudio.h"
 
 USING_NS_CC;
 using namespace cocos2d::ui;
 
 static const int MAX_POINTS_TO_SHOW = 16;
 
-MenuContext* MenuContext::create(Node* main, bool launchCustomEventOnExit) {
+MenuContext* MenuContext::create(Node* main, std::string gameName, bool launchCustomEventOnExit) {
     MenuContext* menuContext = new (std::nothrow) MenuContext();
     if(menuContext && menuContext->init(main)) {
         menuContext->autorelease();
         menuContext->_launchCustomEventOnExit = launchCustomEventOnExit;
+        menuContext->gameName = gameName;
         return menuContext;
     }
     CC_SAFE_DELETE(menuContext);
@@ -44,7 +47,11 @@ bool MenuContext::init(Node* main) {
     _label->setPosition(Vec2(125, 125));
     _menuButton->addChild(_label);
     
-    _pointMeter = HPMeter::createWithTextureAndPercent("menu/blank.png", "menu/coinstack.png", "", 0);
+    _pointMeter = Slider::create();
+    _pointMeter->loadBarTexture("menu/blank.png");
+    _pointMeter->loadProgressBarTexture("menu/coinstack.png");
+    _pointMeter->setScale9Enabled(true);
+    _pointMeter->setTouchEnabled(false);
     _pointMeter->setPosition(Vec2(128, 256));
     _menuButton->addChild(_pointMeter);
     
@@ -136,6 +143,10 @@ void MenuContext::pickAlphabet(char targetAlphabet, char chosenAlphabet, bool ch
         runAction(sequence);
     }
     _label->setString("Points: " + to_string(_points));
+    std::string targetAlphabetStr (1, targetAlphabet);
+    std::string chosenAlphabetStr (1, chosenAlphabet);
+
+    SafariAnalyticsManager::getInstance()->insertAnalyticsInfo(targetAlphabetStr.c_str(), chosenAlphabetStr.c_str(), gameName.c_str());
 }
 
 void MenuContext::finalizePoints() {
@@ -156,6 +167,32 @@ void MenuContext::sadFace() {
 
 void MenuContext::normalFace() {
     _menuButton->loadTextureNormal("menu/menu.png");
+}
+
+void MenuContext::jumpOut(std::string nodeCsbName, bool frameAnimate, float duration) {
+    auto node = CSLoader::createNode(nodeCsbName);
+    auto pos = _menuButton->getPosition();
+    node->setPosition(pos);
+    node->setScale(0.2);
+    addChild(node);
+    Size visibleSize = Director::getInstance()->getVisibleSize();
+    Vec2 origin = Director::getInstance()->getVisibleOrigin();
+    
+    auto jumpTo = MoveTo::create(duration, Vec2(origin.x + visibleSize.width / 2, origin.y + visibleSize.height / 2));
+    auto elastic = EaseBackOut::create(jumpTo);
+    auto scaleTo = ScaleTo::create(duration, 1.0);
+    if(frameAnimate) {
+        cocostudio::timeline::ActionTimeline* anim = CSLoader::createTimeline(nodeCsbName);
+        node->runAction(anim);
+        anim->gotoFrameAndPause(0);
+        auto spawn = Spawn::create(elastic, scaleTo, NULL);
+        auto callback = CC_CALLBACK_0(cocostudio::timeline::ActionTimeline::resume, anim);
+        auto sequence = Sequence::create(spawn, CallFunc::create(callback), NULL);
+        node->runAction(sequence);
+    } else {
+        auto spawn = Spawn::create(elastic, scaleTo, NULL);
+        node->runAction(spawn);
+    }
 }
 
 

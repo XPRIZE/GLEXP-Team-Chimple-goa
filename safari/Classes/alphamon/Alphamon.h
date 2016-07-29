@@ -27,13 +27,13 @@ public:
 	void stopWalkAction();
 	cocos2d::Vector < cocos2d::Node *> getAlphamonChildren();
     cocos2d::ActionInterval *shakeAction();
-    void setHealth(int value);
+    void setHealth(int value, std::string color = "green");
     int getHealth();
     void changeHealth(int value);
     void setPower(int value);
     int getPower();
     void changePower(int value);
-    void showPower();
+    void showPower(bool left = true);
     void hidePower();
     wchar_t getAlphabet();
     void startMyTurn();
