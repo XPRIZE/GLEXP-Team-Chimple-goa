@@ -244,9 +244,9 @@ void MenuContext::videoPlayStart(std::string gameName)
 {
 #if (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID || CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
 	experimental::ui::VideoPlayer* vp = experimental::ui::VideoPlayer::create();
-	vp->setContentSize(Size(2560, 1800));
+	vp->setContentSize(Size(Director::getInstance()->getVisibleSize().width, Director::getInstance()->getVisibleSize().height));
 	vp->setFileName(gameName+".mp4");
-	vp->setPosition(Vec2(2560 / 2, 1800 / 2));
+	vp->setPosition(Vec2(Director::getInstance()->getVisibleSize().width / 2, Director::getInstance()->getVisibleSize().height / 2));
 	vp->setAnchorPoint(Vec2::ANCHOR_MIDDLE);
 	vp->play();
 	vp->setName("video");
