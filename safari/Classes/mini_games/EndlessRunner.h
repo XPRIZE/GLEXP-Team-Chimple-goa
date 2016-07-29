@@ -105,7 +105,7 @@ protected:
 		int SecondLayerRightIntersectMode = 2;
 		int leftIntersectMode = 4;
 
-		int PathMovingSpeed = 680;
+		int PathMovingSpeed = 600;
 
 		int Layer1Speed = 100;
 		int Layer2Speed = 230;

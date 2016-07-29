@@ -68,7 +68,7 @@ public:
     
     bool isFalling;
     
-    virtual bool didSkeletonContactBeginDuringJumpingUp(cocos2d::PhysicsContact &contact, SkeletonCharacterState currentStateCommand);
+    virtual bool didSkeletonContactBeginDuringJumpingUp(cocos2d::PhysicsContact &contact, SkeletonCharacterState currentStateCommand, float sceneWidth);
     
     virtual void changeSkinForBone(std::string bone, std::string skinName, std::string imageName, std::string anchorX = ZERO_POINT, std::string anchorY = ZERO_POINT);
     

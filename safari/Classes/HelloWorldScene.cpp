@@ -1389,7 +1389,7 @@ bool HelloWorld::handlePhysicsContactEventForMainCharacter(PhysicsContact &conta
     if(nodeA->getName() == HUMAN_SKELETON_NAME || nodeB->getName() == HUMAN_SKELETON_NAME)
     {
         
-        if(this->skeletonCharacter->didSkeletonContactBeginDuringJumpingUp(contact, this->stateMachine->getCurrentState()->getState())) {
+        if(this->skeletonCharacter->didSkeletonContactBeginDuringJumpingUp(contact, this->stateMachine->getCurrentState()->getState(), this->getSceneSize().width)) {
             CCLOG("ignore contact while jumping up for Main Skeleton!!!");
             return false;
         }
