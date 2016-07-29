@@ -11,13 +11,13 @@
                 <key>spriteOffset</key>
                 <string>{0,0}</string>
                 <key>spriteSize</key>
-                <string>{164,234}</string>
+                <string>{327,234}</string>
                 <key>spriteSourceSize</key>
-                <string>{164,234}</string>
+                <string>{327,234}</string>
                 <key>textureRect</key>
-                <string>{{259,1},{164,234}}</string>
+                <string>{{259,1},{327,234}}</string>
                 <key>textureRotated</key>
-                <false/>
+                <true/>
             </dict>
             <key>crossthebridge/base_path_left.png</key>
             <dict>
@@ -30,9 +30,9 @@
                 <key>spriteSourceSize</key>
                 <string>{258,235}</string>
                 <key>textureRect</key>
-                <string>{{141,1157},{258,235}}</string>
+                <string>{{1,1538},{258,235}}</string>
                 <key>textureRotated</key>
-                <false/>
+                <true/>
             </dict>
             <key>crossthebridge/base_path_right.png</key>
             <dict>
@@ -49,6 +49,81 @@
                 <key>textureRotated</key>
                 <true/>
             </dict>
+            <key>crossthebridge/blast.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{-58,82}</string>
+                <key>spriteSize</key>
+                <string>{3,3}</string>
+                <key>spriteSourceSize</key>
+                <string>{119,167}</string>
+                <key>textureRect</key>
+                <string>{{433,1205},{3,3}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+            <key>crossthebridge/blast_01.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{119,167}</string>
+                <key>spriteSourceSize</key>
+                <string>{119,167}</string>
+                <key>textureRect</key>
+                <string>{{294,1210},{119,167}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+            <key>crossthebridge/blast_02.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{131,151}</string>
+                <key>spriteSourceSize</key>
+                <string>{131,151}</string>
+                <key>textureRect</key>
+                <string>{{238,1548},{131,151}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+            <key>crossthebridge/blast_03.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{119,167}</string>
+                <key>spriteSourceSize</key>
+                <string>{119,167}</string>
+                <key>textureRect</key>
+                <string>{{295,1379},{119,167}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+            <key>crossthebridge/blast_04.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{63,170}</string>
+                <key>spriteSourceSize</key>
+                <string>{63,170}</string>
+                <key>textureRect</key>
+                <string>{{371,1548},{63,170}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
             <key>crossthebridge/bottom_path.png</key>
             <dict>
                 <key>aliases</key>
@@ -60,7 +135,7 @@
                 <key>spriteSourceSize</key>
                 <string>{184,137}</string>
                 <key>textureRect</key>
-                <string>{{259,512},{184,137}}</string>
+                <string>{{294,1024},{184,137}}</string>
                 <key>textureRotated</key>
                 <true/>
             </dict>
@@ -75,7 +150,7 @@
                 <key>spriteSourceSize</key>
                 <string>{251,223}</string>
                 <key>textureRect</key>
-                <string>{{1,1538},{251,223}}</string>
+                <string>{{248,771},{251,223}}</string>
                 <key>textureRotated</key>
                 <true/>
             </dict>
@@ -86,11 +161,11 @@
                 <key>spriteOffset</key>
                 <string>{0,0}</string>
                 <key>spriteSize</key>
-                <string>{185,75}</string>
+                <string>{179,55}</string>
                 <key>spriteSourceSize</key>
-                <string>{185,75}</string>
+                <string>{179,55}</string>
                 <key>textureRect</key>
-                <string>{{226,1533},{185,75}}</string>
+                <string>{{433,1024},{179,55}}</string>
                 <key>textureRotated</key>
                 <true/>
             </dict>
@@ -105,7 +180,22 @@
                 <key>spriteSourceSize</key>
                 <string>{66,246}</string>
                 <key>textureRect</key>
-                <string>{{47,1394},{66,246}}</string>
+                <string>{{47,1401},{66,246}}</string>
+                <key>textureRotated</key>
+                <true/>
+            </dict>
+            <key>crossthebridge/door_extra.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{66,246}</string>
+                <key>spriteSourceSize</key>
+                <string>{66,246}</string>
+                <key>textureRect</key>
+                <string>{{47,1469},{66,246}}</string>
                 <key>textureRotated</key>
                 <true/>
             </dict>
@@ -131,11 +221,11 @@
                 <key>spriteOffset</key>
                 <string>{0,0}</string>
                 <key>spriteSize</key>
-                <string>{188,63}</string>
+                <string>{352,63}</string>
                 <key>spriteSourceSize</key>
-                <string>{188,63}</string>
+                <string>{352,63}</string>
                 <key>textureRect</key>
-                <string>{{303,1533},{188,63}}</string>
+                <string>{{141,772},{352,63}}</string>
                 <key>textureRotated</key>
                 <true/>
             </dict>
@@ -150,7 +240,7 @@
                 <key>spriteSourceSize</key>
                 <string>{224,383}</string>
                 <key>textureRect</key>
-                <string>{{141,772},{224,383}}</string>
+                <string>{{259,330},{224,383}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
@@ -165,7 +255,7 @@
                 <key>spriteSourceSize</key>
                 <string>{151,273}</string>
                 <key>textureRect</key>
-                <string>{{259,237},{151,273}}</string>
+                <string>{{141,1126},{151,273}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
@@ -180,7 +270,7 @@
                 <key>spriteSourceSize</key>
                 <string>{8,273}</string>
                 <key>textureRect</key>
-                <string>{{412,237},{8,273}}</string>
+                <string>{{485,330},{8,273}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
@@ -195,7 +285,7 @@
                 <key>spriteSourceSize</key>
                 <string>{54,140}</string>
                 <key>textureRect</key>
-                <string>{{368,1536},{54,140}}</string>
+                <string>{{436,1501},{54,140}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
@@ -206,11 +296,11 @@
                 <key>spriteOffset</key>
                 <string>{0,0}</string>
                 <key>spriteSize</key>
-                <string>{164,19}</string>
+                <string>{327,19}</string>
                 <key>spriteSourceSize</key>
-                <string>{164,19}</string>
+                <string>{327,19}</string>
                 <key>textureRect</key>
-                <string>{{398,512},{164,19}}</string>
+                <string>{{206,772},{327,19}}</string>
                 <key>textureRotated</key>
                 <true/>
             </dict>
@@ -225,9 +315,9 @@
                 <key>spriteSourceSize</key>
                 <string>{258,19}</string>
                 <key>textureRect</key>
-                <string>{{47,1512},{258,19}}</string>
+                <string>{{227,772},{258,19}}</string>
                 <key>textureRotated</key>
-                <false/>
+                <true/>
             </dict>
             <key>crossthebridge/path_right.png</key>
             <dict>
@@ -255,9 +345,24 @@
                 <key>spriteSourceSize</key>
                 <string>{140,55}</string>
                 <key>textureRect</key>
-                <string>{{368,1394},{140,55}}</string>
+                <string>{{238,1784},{140,55}}</string>
                 <key>textureRotated</key>
-                <true/>
+                <false/>
+            </dict>
+            <key>crossthebridge/punch.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{126,81}</string>
+                <key>spriteSourceSize</key>
+                <string>{126,81}</string>
+                <key>textureRect</key>
+                <string>{{238,1701},{126,81}}</string>
+                <key>textureRotated</key>
+                <false/>
             </dict>
             <key>crossthebridge/water_01.png</key>
             <dict>
@@ -270,7 +375,7 @@
                 <key>spriteSourceSize</key>
                 <string>{121,48}</string>
                 <key>textureRect</key>
-                <string>{{367,768},{121,48}}</string>
+                <string>{{436,1643},{121,48}}</string>
                 <key>textureRotated</key>
                 <true/>
             </dict>
@@ -285,9 +390,9 @@
                 <key>spriteSourceSize</key>
                 <string>{73,35}</string>
                 <key>textureRect</key>
-                <string>{{367,891},{73,35}}</string>
+                <string>{{1,1798},{73,35}}</string>
                 <key>textureRotated</key>
-                <true/>
+                <false/>
             </dict>
             <key>crossthebridge/water_03.png</key>
             <dict>
@@ -300,9 +405,9 @@
                 <key>spriteSourceSize</key>
                 <string>{134,68}</string>
                 <key>textureRect</key>
-                <string>{{259,698},{134,68}}</string>
+                <string>{{416,1365},{134,68}}</string>
                 <key>textureRotated</key>
-                <false/>
+                <true/>
             </dict>
             <key>crossthebridge/water_04.png</key>
             <dict>
@@ -315,9 +420,9 @@
                 <key>spriteSourceSize</key>
                 <string>{153,65}</string>
                 <key>textureRect</key>
-                <string>{{226,1723},{153,65}}</string>
+                <string>{{415,1210},{153,65}}</string>
                 <key>textureRotated</key>
-                <false/>
+                <true/>
             </dict>
             <key>crossthebridge/water_05.png</key>
             <dict>
@@ -330,7 +435,7 @@
                 <key>spriteSourceSize</key>
                 <string>{234,48}</string>
                 <key>textureRect</key>
-                <string>{{47,1462},{234,48}}</string>
+                <string>{{259,715},{234,48}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
@@ -361,9 +466,9 @@
             <key>realTextureFileName</key>
             <string>crossthebridge.png</string>
             <key>size</key>
-            <string>{424,1790}</string>
+            <string>{494,1840}</string>
             <key>smartupdate</key>
-            <string>$TexturePacker:SmartUpdate:8c12dd16af97f2125f76f06750390c7e:2f0400ee6a0fe4d0031a67149ea52d84:e267eb256da7605b9a0d83ea16d5a81c$</string>
+            <string>$TexturePacker:SmartUpdate:6ff15ce73e1c7c7ab475c49301d09572:0709fcf250ca82498b45e8b4947d9031:e267eb256da7605b9a0d83ea16d5a81c$</string>
             <key>textureFileName</key>
             <string>crossthebridge.png</string>
         </dict>
