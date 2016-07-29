@@ -783,7 +783,7 @@ void EndlessRunner::CreateMonsterWithLetter(float dt) {
 	auto nameLand = currentFirstLayerRock->currentRockName;
 	monsterImage->setScale(1.175);
 	Rect box = monsterImage->getChildByName("monster_egg")->getBoundingBox();
-	monsterImage->getChildByName("letter")->setVisible(false);
+
 	monsterImage->runAction(timeline);  timeline->gotoFrameAndPlay(0);
 	
 	auto str = letters.at(counterLetter).at(0);

@@ -632,17 +632,17 @@ void HelloWorld::processAnimationMessage(std::vector<MessageContent*>animationMe
             if(timeline != NULL && animationSpriteNode != NULL && animationNode != NULL )
             {
                 timeline->setLastFrameCallFunc([=]() {
-                    timeline->clearLastFrameCallFunc();
-                    
                     if(content != NULL && (content->getCondition().empty() || (!content->getCondition().empty() && content->getConditionSatisfied() == 1)))
                     {
-                        std::string nextScene = animationNode->getNextScene();                        
+                        std::string nextScene = animationNode->getNextScene();
                         
                         if(!nextScene.empty())
                         {
+                            CCLOG("calling changeScene for nextScene %s", nextScene.c_str());
                             this->changeScene(nextScene, false);
                         }
                     }
+                    timeline->clearLastFrameCallFunc();
                 });
 
                 Node* animationSpriteNode = this->mainLayer->getChildByName(content->getOwner());
@@ -1389,7 +1389,7 @@ bool HelloWorld::handlePhysicsContactEventForMainCharacter(PhysicsContact &conta
     if(nodeA->getName() == HUMAN_SKELETON_NAME || nodeB->getName() == HUMAN_SKELETON_NAME)
     {
         
-        if(this->skeletonCharacter->didSkeletonContactBeginDuringJumpingUp(contact, this->stateMachine->getCurrentState()->getState())) {
+        if(this->skeletonCharacter->didSkeletonContactBeginDuringJumpingUp(contact, this->stateMachine->getCurrentState()->getState(), this->getSceneSize().width)) {
             CCLOG("ignore contact while jumping up for Main Skeleton!!!");
             return false;
         }
