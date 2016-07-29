@@ -217,7 +217,7 @@ public:
         
     virtual void registerPhysicsEventContactLister();
     
-    virtual void loadSqlite3FileForScene();
+    virtual void loadSqlite3FileForIsland();
     
     virtual void registerMessageSenderAndReceiver();
     

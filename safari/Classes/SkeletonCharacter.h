@@ -72,11 +72,15 @@ public:
     
     virtual void changeSkinForBone(std::string bone, std::string skinName, std::string imageName, std::string anchorX = ZERO_POINT, std::string anchorY = ZERO_POINT);
     
+    virtual void changeSkinForMouthBone(std::string bone, std::string skinName, std::string imageName, std::string anchorX = ZERO_POINT, std::string anchorY = ZERO_POINT);
+    
     virtual void configureCharacter();
     
 protected:
         cocostudio::timeline::SkeletonNode* skeletonNode;
         cocostudio::timeline::ActionTimeline* skeletonActionTime;
+        cocostudio::timeline::SkinNode* mouthSkin;
+    
         StateMachine* stateMachine;
         Sqlite3Helper* sqlite3Helper;
         CC_SYNTHESIZE(std::string, key, Key);

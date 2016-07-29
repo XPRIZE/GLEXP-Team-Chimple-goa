@@ -50,7 +50,7 @@ void StandingState::enter(cocos2d::Vec2 forceVector, SkeletonCharacterState prev
         this->getTarget()->getSkeletonActionTimeLine()->play(IDLE, true);
     }
     
-    this->getTarget()->changeSkinForBone("mouth", "mouth","hero/mouth/normal.png");
+    this->getTarget()->changeSkinForMouthBone("mouth", "mouth","hero/mouth/normal.png");
     this->getTarget()->getSkeletonActionTimeLine()->setTimeSpeed(1.0f);
 }
 

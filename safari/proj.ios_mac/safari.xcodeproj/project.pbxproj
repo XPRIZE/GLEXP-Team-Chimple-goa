@@ -23,6 +23,8 @@
 		3718293C1D44CA570013E3C4 /* Entry.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 371829351D44CA570013E3C4 /* Entry.cpp */; };
 		373CBBA11D4A69960002BAE1 /* SafariAnalyticsManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 373CBBA01D4A69960002BAE1 /* SafariAnalyticsManager.cpp */; };
 		373CBBA21D4A69960002BAE1 /* SafariAnalyticsManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 373CBBA01D4A69960002BAE1 /* SafariAnalyticsManager.cpp */; };
+		3740A16B1D4BC0B400B2B2F3 /* GameMapScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3740A16A1D4BC0B400B2B2F3 /* GameMapScene.cpp */; };
+		3740A16C1D4BC0B400B2B2F3 /* GameMapScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3740A16A1D4BC0B400B2B2F3 /* GameMapScene.cpp */; };
 		376FEE801D3F66380037393F /* SkeletonPosition.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 376FEE7F1D3F66380037393F /* SkeletonPosition.cpp */; };
 		376FEE811D3F66380037393F /* SkeletonPosition.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 376FEE7F1D3F66380037393F /* SkeletonPosition.cpp */; };
 		37C7E1EB1D47CEFB005C89C0 /* MapScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 37C7E1EA1D47CEFB005C89C0 /* MapScene.cpp */; };
@@ -229,6 +231,8 @@
 		371829361D44CA570013E3C4 /* Entry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Entry.h; sourceTree = "<group>"; };
 		373CBB9E1D4A69810002BAE1 /* SafariAnalyticsManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SafariAnalyticsManager.h; sourceTree = "<group>"; };
 		373CBBA01D4A69960002BAE1 /* SafariAnalyticsManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SafariAnalyticsManager.cpp; sourceTree = "<group>"; };
+		3740A1681D4BC0A700B2B2F3 /* GameMapScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameMapScene.h; sourceTree = "<group>"; };
+		3740A16A1D4BC0B400B2B2F3 /* GameMapScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GameMapScene.cpp; sourceTree = "<group>"; };
 		376FEE7D1D3F66280037393F /* SkeletonPosition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SkeletonPosition.h; sourceTree = "<group>"; };
 		376FEE7F1D3F66380037393F /* SkeletonPosition.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SkeletonPosition.cpp; sourceTree = "<group>"; };
 		37C7E1E81D47CEEB005C89C0 /* MapScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapScene.h; sourceTree = "<group>"; };
@@ -589,6 +593,8 @@
 				37C7E1EE1D47D673005C89C0 /* MapIsland.cpp */,
 				F33905041D49B82E00090367 /* GameScene.h */,
 				F33905061D49B84000090367 /* GameScene.cpp */,
+				3740A1681D4BC0A700B2B2F3 /* GameMapScene.h */,
+				3740A16A1D4BC0B400B2B2F3 /* GameMapScene.cpp */,
 			);
 			name = Classes;
 			path = ../Classes;
@@ -931,6 +937,7 @@
 				373CBBA11D4A69960002BAE1 /* SafariAnalyticsManager.cpp in Sources */,
 				F3913E251D3F46B1001B3038 /* SpriteCreate.cpp in Sources */,
 				F3913DFD1D3F46A5001B3038 /* Alphabet.cpp in Sources */,
+				3740A16B1D4BC0B400B2B2F3 /* GameMapScene.cpp in Sources */,
 				F3CA26EA1D43C069006EBDC6 /* LangUtil.cpp in Sources */,
 				F3913E231D3F46B1001B3038 /* SmashTheRockScene.cpp in Sources */,
 				F3CA26EE1D43C0A9006EBDC6 /* EnglishUtil.cpp in Sources */,
@@ -959,6 +966,7 @@
 				F3913DD91D3F461A001B3038 /* SkeletonCharacter.cpp in Sources */,
 				F3913DD31D3F461A001B3038 /* RPGConfig.cpp in Sources */,
 				F3913DF41D3F469C001B3038 /* FShake.cpp in Sources */,
+				3740A16C1D4BC0B400B2B2F3 /* GameMapScene.cpp in Sources */,
 				F3913E1C1D3F46B1001B3038 /* CrossTheBridgeScene.cpp in Sources */,
 				F3913E241D3F46B1001B3038 /* SmashTheRockScene.cpp in Sources */,
 				37C7E1EC1D47CEFB005C89C0 /* MapScene.cpp in Sources */,

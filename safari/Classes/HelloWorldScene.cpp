@@ -344,10 +344,13 @@ bool HelloWorld::init(const std::string& island, const std::string& sceneName)
     this->setIsland(island);
 
     //default sceneName should be the same as island and default search path
-    !sceneName.empty() ? this->setSceneName(sceneName) : this->setSceneName(island);
-    
-    FileUtils::getInstance()->addSearchPath("res/" + this->getSceneName());
-    
+    if(!sceneName.empty()) {
+        this->setSceneName(sceneName);
+        FileUtils::getInstance()->addSearchPath("res/" + this->getSceneName());
+    } else {
+        FileUtils::getInstance()->addSearchPath("res/" + this->getIsland());
+    }
+        
     //Added for testing purpose - remove later....
     this->languageManger = LanguageManager::getInstance();
     auto defaultStr = this->languageManger->translateString("Hello world!");
@@ -359,7 +362,7 @@ bool HelloWorld::init(const std::string& island, const std::string& sceneName)
     CCLOG("translatedString %s", translatedString.c_str());
     //testing
     
-    this->loadSqlite3FileForScene();
+    this->loadSqlite3FileForIsland();
     
     this->initializeSafari();
     
@@ -379,15 +382,22 @@ bool HelloWorld::init(const std::string& island, const std::string& sceneName)
 void HelloWorld::querySceneToLoadInIsland() {
     this->skeletonPositionInLastVisitedScene = this->sqlite3Helper->findLastVisitedSceneInIsland(this->getIsland().c_str(), this->getSceneName().c_str());
     
-    if(this->skeletonPositionInLastVisitedScene != nullptr) {
+    if(this->skeletonPositionInLastVisitedScene != NULL) {
         this->setSceneName(this->skeletonPositionInLastVisitedScene->getSceneName());
         FileUtils::getInstance()->addSearchPath("res/" + this->getSceneName());
+    } else {
+        if(!this->getSceneName().empty()) {
+            FileUtils::getInstance()->addSearchPath("res/" + this->getSceneName());
+        } else {
+            this->setSceneName(this->getIsland());
+            FileUtils::getInstance()->addSearchPath("res/" + this->getIsland());
+        }
     }
 }
 
-void HelloWorld::loadSqlite3FileForScene() {
-    std::string sqlite3FileName = this->getSceneName() + ".db3";
-    String* connectionURL = String::createWithFormat("res/%s/%s", this->getSceneName().c_str(), sqlite3FileName.c_str());
+void HelloWorld::loadSqlite3FileForIsland() {
+    std::string sqlite3FileName = this->getIsland() + ".db3";
+    String* connectionURL = String::createWithFormat("res/%s/%s", this->getIsland().c_str(), sqlite3FileName.c_str());
     this->sqlite3Helper = Sqlite3Helper::getInstance(connectionURL->getCString(), sqlite3FileName);
 }
 
