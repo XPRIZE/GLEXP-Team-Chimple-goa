@@ -207,6 +207,8 @@ public:
 	CREATE_FUNC(EndlessRunner);
 
 	void update(float) override;
+    
+    static const char* gameName() { return "Endless Runner";}
 };
 
 #endif // __ENDLESSRUNNER_SCENE_H__

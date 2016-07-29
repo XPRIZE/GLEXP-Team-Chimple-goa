@@ -1,6 +1,7 @@
 #include "AppDelegate.h"
 #include "MapScene.h"
 #include "StartMenuScene.h"
+#include "lang/SafariAnalyticsManager.h"
 
 USING_NS_CC;
 
@@ -15,6 +16,7 @@ AppDelegate::AppDelegate() {
 
 AppDelegate::~AppDelegate()
 {
+    CCLOG("111");
 }
 
 //if you want a different context,just modify the value of glContextAttrs
@@ -34,6 +36,7 @@ static int register_all_packages()
 {
     return 0; //flag for packages manager
 }
+
 
 bool AppDelegate::applicationDidFinishLaunching() {
     // initialize director
@@ -94,6 +97,8 @@ bool AppDelegate::applicationDidFinishLaunching() {
     spriteCache->addSpriteFramesWithFile("human_spritesheet_04.plist");
     
     register_all_packages();
+    
+    SafariAnalyticsManager::getInstance();
     
     // create a scene. it's an autorelease object
     director->runWithScene(StartMenu::createScene());

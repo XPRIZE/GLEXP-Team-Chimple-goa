@@ -20,6 +20,9 @@ public:
 
 	static float height, width, originX, originY;
 
+	MainGame();
+	~MainGame();
+
 	cocos2d::Sprite* backGround_front;
 	static EventListenerClass* cannon1, *cannon2, *cannon3, *cannon4;
 	std::vector<Position> position;
@@ -68,6 +71,8 @@ public:
 
 	// implement the "static create()" method manually
 	CREATE_FUNC(MainGame);
+    
+    static const char* gameName() { return "Cannon Ball"; };
 
 protected:
 	MenuContext* _menuContext;

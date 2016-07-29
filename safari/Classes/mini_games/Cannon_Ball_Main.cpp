@@ -36,12 +36,21 @@ MainGame* MainGame::self;
 int letterComespeed;
 int tweenSpeed;
 
+MainGame:: MainGame() {
+
+}
+
+MainGame:: ~MainGame() {
+	MainGame::audioBg->stopAllEffects();
+}
+
+
 Scene* MainGame::createScene()
 {
 	auto scene = Scene::create();
 	auto layer = MainGame::create();
 	scene->addChild(layer);
-    layer->_menuContext = MenuContext::create(layer);
+    layer->_menuContext = MenuContext::create(layer, MainGame::gameName());
     scene->addChild(layer->_menuContext);
 
 	//	backGround_front = NULL;
@@ -796,7 +805,7 @@ void MainGame::update(float dt)
 					timeline->gotoFrameAndPlay(40, false);
 
 					timeline->setAnimationEndCallFunc("meteor_strike", CC_CALLBACK_0(MainGame::meteorBlast, this, mycannon));
-//					MainGame::bulletSound[j]->stopEffect(MainGame::bulletArray_actualImage[j]->getPositionY());
+
 					MainGame::bulletSound[j]->stopEffect(MainGame::bulletSound_ID[j]);
 					MainGame::audioBg->playEffect("cannonball/gamesound/meteorstrike.wav", false);
 

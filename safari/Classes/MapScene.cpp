@@ -21,7 +21,7 @@ Scene* MapScene::createScene()
     // add layer as a child to scene
     scene->addChild(layer);
     
-    layer->menuContext = MenuContext::create(layer, true);
+    layer->menuContext = MenuContext::create(layer);
     scene->addChild(layer->menuContext);
     
     // return the scene

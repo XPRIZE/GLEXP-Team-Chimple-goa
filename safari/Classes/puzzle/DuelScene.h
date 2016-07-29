@@ -32,7 +32,9 @@ CC_CONSTRUCTOR_ACCESS:
 protected:
     Alphamon *_myMon;
     Alphamon *_otherMon;
-    HPMeter *_timer;
+    Node *_timer;
+    cocostudio::timeline::ActionTimeline* _timerAnimation;
+    cocos2d::Vec2 _timerPosition;
     AlphabetGrid *_grid;
     int _powerIncr;
     int _turnNumber;
@@ -44,6 +46,7 @@ protected:
     void endMeteor(Node *node);
     void reduceHP(Alphamon *amon, int numPoints);
     
+    void startDuel();
     void startMyTurn();
     void armMyMon();
     void attackOtherMon();

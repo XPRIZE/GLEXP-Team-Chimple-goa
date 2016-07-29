@@ -32,7 +32,7 @@ Scene* SmashTheRock::createScene()
 	// add layer as a child to scene
 	scene->addChild(layer);
     
-    layer->menu = MenuContext::create(layer);
+    layer->menu = MenuContext::create(layer, SmashTheRock::gameName());
     scene->addChild(layer->menu);
     
 

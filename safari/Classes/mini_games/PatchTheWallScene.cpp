@@ -24,7 +24,8 @@ Scene* PatchTheWall::createScene()
 
 	// add layer as a child to scene
 	scene->addChild(layer);
-	layer->_menuContext = MenuContext::create(layer);
+    CCLOG("class name %s", typeid(layer).name());
+    layer->_menuContext = MenuContext::create(layer, PatchTheWall::gameName());
 	scene->addChild(layer->_menuContext);
 	// return the scene
 	return scene;

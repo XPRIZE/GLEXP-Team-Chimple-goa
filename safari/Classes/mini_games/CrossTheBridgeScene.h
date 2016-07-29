@@ -52,6 +52,8 @@ public:
 	virtual void addEvents(Sprite* touchSprite);
 	// a selector callback
 	void menuCloseCallback(cocos2d::Ref* pSender);
+    
+    static const char* gameName() { return "Cross The Bridge";};
 
 protected:
 	Sprite* cubeAtRest;

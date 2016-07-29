@@ -11,7 +11,7 @@
 USING_NS_CC;
 
 HPMeter *HPMeter::createWithPercent(int percent) {
-    return HPMeter::createWithTextureAndPercent("hp_out.png", "hp_in.png", "battle_ground/clock.png", percent);
+    return HPMeter::createWithTextureAndPercent("battle_ground/white_bar.png", "battle_ground/green_bar.png", "", percent);
 }
 
 HPMeter *HPMeter::createWithTextureAndPercent(const std::string &background, const std::string &innerBar, const std::string &normalBall, int percent) {
@@ -31,9 +31,9 @@ bool HPMeter::initWithTextureAndPercent(const std::string &background, const std
         return false;
     }
     if(!background.empty()) {
-        loadBarTexture(background);
+        loadBarTexture(background, TextureResType::PLIST);
     }
-    loadProgressBarTexture(innerBar);
+    loadProgressBarTexture(innerBar, TextureResType::PLIST);
 //    loadSlidBallTextureNormal(normalBall);
     setScale9Enabled(true);
     setPercent(percent);
