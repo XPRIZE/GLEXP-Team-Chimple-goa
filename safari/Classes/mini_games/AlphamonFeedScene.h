@@ -7,6 +7,7 @@
 #include "../alphamon/Alphamon.h"
 #include "../menu/MenuContext.h"
 #include "SimpleAudioEngine.h"
+#include "ui/UIVideoPlayer.h"
 
 class AlphamonFeed : public cocos2d::Layer
 {
@@ -52,6 +53,7 @@ protected:
 	MenuContext * menu;
     cocos2d::EventListenerTouchOneByOne* listener;
 	CocosDenshion::SimpleAudioEngine * audio;
+
 	
 };
 
