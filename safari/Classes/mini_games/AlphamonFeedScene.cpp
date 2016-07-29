@@ -9,7 +9,7 @@
 #include "../puzzle/CharGenerator.h"
 #include "../lang/LangUtil.h"
 #include "../StartMenuScene.h"
-
+#include "ui/UIVideoPlayer.h"
 USING_NS_CC;
 
 
