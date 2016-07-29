@@ -50,6 +50,13 @@ protected:
     void normalFace();
     std::string gameName;
 
+#if (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID || CC_TARGET_PLATFORM == CC_PLATFORM_IOS)  
+	void videoEventCallback(Ref* sender, cocos2d::experimental::ui::VideoPlayer::EventType eventType);
+#endif 
+
+	void videoPlayStart(std::string gameName);
+	void videoPlayOverCallback();
+
     template <typename T>
     static inline std::string to_string(T value)
     {

@@ -169,6 +169,46 @@ void MenuContext::normalFace() {
     _menuButton->loadTextureNormal("menu/menu.png");
 }
 
+#if (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID || CC_TARGET_PLATFORM == CC_PLATFORM_IOS)  
+void MenuContext::videoEventCallback(Ref* sender, cocos2d::experimental::ui::VideoPlayer::EventType eventType) {
+	switch (eventType) {
+	case cocos2d::experimental::ui::VideoPlayer::EventType::PLAYING:
+		break;
+	case cocos2d::experimental::ui::VideoPlayer::EventType::PAUSED:
+		break;
+	case cocos2d::experimental::ui::VideoPlayer::EventType::STOPPED:
+		break;
+	case cocos2d::experimental::ui::VideoPlayer::EventType::COMPLETED:
+		videoPlayOverCallback();
+		break;
+	default:
+		break;
+	}
+}
+#endif  
+
+void MenuContext::videoPlayStart(std::string gameName)
+{
+#if (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID || CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
+	experimental::ui::VideoPlayer* vp = experimental::ui::VideoPlayer::create();
+	vp->setContentSize(Size(2560, 1800));
+	vp->setFileName(gameName+".mp4");
+	vp->setPosition(Vec2(2560 / 2, 1800 / 2));
+	vp->setAnchorPoint(Vec2::ANCHOR_MIDDLE);
+	vp->play();
+	vp->setName("video");
+	this->addChild(vp, 0);
+	vp->addEventListener(CC_CALLBACK_2(MenuContext::videoEventCallback, this));
+#endif
+
+}
+
+void MenuContext::videoPlayOverCallback() {
+#if (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID || CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
+	this->removeChildByName("video");
+#endif 
+}
+
 Node* MenuContext::jumpOut(std::string nodeCsbName, bool frameAnimate, float duration) {
     auto node = CSLoader::createNode(nodeCsbName);
     auto pos = _menuButton->getPosition();

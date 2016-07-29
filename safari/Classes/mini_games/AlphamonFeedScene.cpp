@@ -130,22 +130,7 @@ bool AlphamonFeed::init()
 	listener->onTouchCancelled = CC_CALLBACK_2(AlphamonFeed::onTouchCancelled, this);
 	_eventDispatcher->addEventListenerWithFixedPriority(listener, -1);
 	isTouching = false;
-	/*
-	#if (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID || CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
-	experimental::ui::VideoPlayer* vp = experimental::ui::VideoPlayer::create();
-
-	// VideoPlayer::create();
-	vp->setContentSize(Size(2560, 1800));
-	vp->setFileName("smash_the_rock.mp4");
-	vp->setPosition(Vec2(2560 / 2, 1800 / 2));
-	vp->setAnchorPoint(Vec2::ANCHOR_MIDDLE);
-	//vp->setFullScreenEnabled(false);
-	//vp->setKeepAspectRatioEnabled(true);
-	vp->play();
-	this->addChild(vp, 0);
-	#endif
-	*/
-
+	
 	this->schedule(schedule_selector(AlphamonFeed::showFruits), 1);
 	this->scheduleUpdate();
 	
