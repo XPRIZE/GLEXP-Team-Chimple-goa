@@ -8,11 +8,15 @@
 #include <stdio.h>
 #include "cocos2d.h"
 #include "RPGConfig.h"
-#include "MapIsland.h"
+#include "HelloWorldScene.h"
 #include "menu/MenuContext.h"
 #include "LanguageManager.h"
 #include "editor-support/cocostudio/CocoStudio.h"
 #include "editor-support/cocostudio/CCComExtensionData.h"
+#include "ui/UIWidget.h"
+#include "ui/GUIExport.h"
+#include "cocos-ext.h"
+
 
 #ifndef MapScene_h
 #define MapScene_h
@@ -33,6 +37,7 @@ private:
     LanguageManager* languageManger;
     void loadMap();
     void processChildNodes(cocos2d::Node *rootNode);
+    void islandSelected(Ref* pSender, ui::Widget::TouchEventType eEventType);
     
 };
 
