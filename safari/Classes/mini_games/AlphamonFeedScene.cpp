@@ -169,11 +169,11 @@ void AlphamonFeed:: update(float dt) {
 				audio = CocosDenshion::SimpleAudioEngine::getInstance();
 				auto soundPath = (fruitReff.at(i)->getName());
 				std::string::size_type sz;   // alias of size_t
-				int i_dec = std::stoi(soundPath, &sz);
+				int i_dec = atoi(soundPath.c_str());//std::stoi(soundPath, &sz);
 				wchar_t testing = (wchar_t)i_dec;
 				auto path = LangUtil::getInstance()->getAlphabetSoundFileName(testing);
 				audio->playEffect(path.c_str(), false);
-				int mySpriteName = std::stoi(sprite1->getName(), &sz);
+				int mySpriteName = atoi(sprite1->getName().c_str());//std::stoi(sprite1->getName(), &sz);
 				wchar_t monster = (wchar_t)mySpriteName;
 			//	menu->pickAlphabet((sprite1->getName()).at(0), (fruitReff.at(i)->getName()).at(0), true);
 				menu->pickAlphabet(monster, testing, true);

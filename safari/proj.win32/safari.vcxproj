@@ -162,6 +162,7 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClCompile Include="..\Classes\lang\EnglishUtil.cpp" />
     <ClCompile Include="..\Classes\lang\KannadaUtil.cpp" />
     <ClCompile Include="..\Classes\lang\LangUtil.cpp" />
+    <ClCompile Include="..\Classes\lang\SafariAnalyticsManager.cpp" />
     <ClCompile Include="..\Classes\MapIsland.cpp" />
     <ClCompile Include="..\Classes\MapScene.cpp" />
     <ClCompile Include="..\Classes\menu\MenuContext.cpp" />
@@ -221,6 +222,7 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClInclude Include="..\Classes\lang\EnglishUtil.h" />
     <ClInclude Include="..\Classes\lang\KannadaUtil.h" />
     <ClInclude Include="..\Classes\lang\LangUtil.h" />
+    <ClInclude Include="..\Classes\lang\SafariAnalyticsManager.h" />
     <ClInclude Include="..\Classes\MapIsland.h" />
     <ClInclude Include="..\Classes\MapScene.h" />
     <ClInclude Include="..\Classes\menu\MenuContext.h" />
