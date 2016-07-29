@@ -9,11 +9,8 @@
 #include "MenuContext.h"
 #include "ui/CocosGUI.h"
 #include "../StartMenuScene.h"
-<<<<<<< Updated upstream
 #include "../lang/SafariAnalyticsManager.h"
-=======
 #include "editor-support/cocostudio/CocoStudio.h"
->>>>>>> Stashed changes
 
 USING_NS_CC;
 using namespace cocos2d::ui;
