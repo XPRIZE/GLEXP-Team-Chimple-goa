@@ -141,7 +141,7 @@ private:
     void HandleTouchedEnded(cocos2d::Point position);
     bool isTapOnInterActObject(cocos2d::Point position);
     void sendBubbleDestroySignal();
-    void transitToHome();
+    void transitToMenu(EventCustom* event);
     void changeScene(std::string nextScene = "", bool isMiniGame = false);
     void cleanUpResources();
     void alphamonDestroyed(EventCustom* event);

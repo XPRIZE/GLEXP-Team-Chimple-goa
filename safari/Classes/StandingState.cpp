@@ -35,12 +35,11 @@ void StandingState::enter(cocos2d::Vec2 forceVector, SkeletonCharacterState prev
     
     if(previousStateCommand == S_RUNNING_STATE)
     {
-        this->getTarget()->getSkeletonActionTimeLine()->setLastFrameCallFunc([=]() {
-            this->getTarget()->getSkeletonActionTimeLine()->clearLastFrameCallFunc();
+        this->getTarget()->getSkeletonActionTimeLine()->setLastFrameCallFunc([=]() {            
             if(this->getTarget()->getSkeletonActionTimeLine()) {
                 this->getTarget()->getSkeletonActionTimeLine()->play(IDLE, true);    
             }
-            
+            this->getTarget()->getSkeletonActionTimeLine()->clearLastFrameCallFunc();
         });
         
         

@@ -3,6 +3,8 @@
 #include <unordered_map>
 #include "HelloWorldScene.h"
 #include "StartMenuScene.h"
+#include "GameMapScene.h"
+#include "MapScene.h"
 
 USING_NS_CC;
 
@@ -445,7 +447,7 @@ void HelloWorld::registerMessageSenderAndReceiver() {
     SEND_SHOW_TOUCH_POINT_SIGNAL(this, RPGConfig::SEND_SHOW_TOUCH_POINT_SIGN_NOTIFICATION, showTouchPointSign);
 
     
-    this->getEventDispatcher()->addCustomEventListener("on_menu_exit", CC_CALLBACK_0(HelloWorld::transitToHome, this));
+    this->getEventDispatcher()->addCustomEventListener("on_menu_exit", CC_CALLBACK_1(HelloWorld::transitToMenu, this));
 
     this->getEventDispatcher()->addCustomEventListener("alphamon_destroyed", CC_CALLBACK_1(HelloWorld::alphamonDestroyed, this));
 }
@@ -563,9 +565,17 @@ void HelloWorld::processChangeSceneMessages(std::vector<MessageContent*>changeSc
     }
 }
 
-void HelloWorld::transitToHome() {
+void HelloWorld::transitToMenu(EventCustom * event) {
+    std::string &menuName = *(static_cast<std::string*>(event->getUserData()));
     this->cleanUpResources();
-    Director::getInstance()->replaceScene(StartMenu::createScene());
+    if(menuName == GAME_MAP_MENU) {
+        Director::getInstance()->replaceScene(TransitionFade::create(2.0, GameMapScene::createScene(), Color3B::BLACK));
+    } else if(menuName == MAP_MENU) {
+        Director::getInstance()->replaceScene(TransitionFade::create(2.0, MapScene::createScene(), Color3B::BLACK));
+    } else {
+        Director::getInstance()->replaceScene(TransitionFade::create(2.0, StartMenu::createScene()));
+    }
+    
 }
 
 void HelloWorld::cleanUpResources() {
@@ -1247,18 +1257,20 @@ void HelloWorld::HandleTap(Point position)
 }
 
 void HelloWorld::HandlePostJumpUpAnimation() {
-    this->skeletonCharacter->getSkeletonActionTimeLine()->clearLastFrameCallFunc();
-    this->skeletonCharacter->getSkeletonActionTimeLine()->clearFrameEndCallFuncs();
     this->skeletonCharacter->getSkeletonActionTimeLine()->setTimeSpeed(1.0f);
     this->applyImpulseOnSkeletonToJumpOnTap(this->currentTouchPoint);
+    this->skeletonCharacter->getSkeletonActionTimeLine()->clearLastFrameCallFunc();
+    this->skeletonCharacter->getSkeletonActionTimeLine()->clearFrameEndCallFuncs();
+
 }
 
 
 void HelloWorld::HandlePostJumpUpWithRotationAnimation() {
-    this->skeletonCharacter->getSkeletonActionTimeLine()->clearLastFrameCallFunc();
-    this->skeletonCharacter->getSkeletonActionTimeLine()->clearFrameEndCallFuncs();
     this->skeletonCharacter->getSkeletonActionTimeLine()->setTimeSpeed(1.0);
     this->applyImpulseOnSkeletonToJumpOnHoldOrDrag(this->currentTouchPoint);
+    this->skeletonCharacter->getSkeletonActionTimeLine()->clearLastFrameCallFunc();
+    this->skeletonCharacter->getSkeletonActionTimeLine()->clearFrameEndCallFuncs();
+
 }
 
 
