@@ -28,6 +28,7 @@
 		376FEE801D3F66380037393F /* SkeletonPosition.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 376FEE7F1D3F66380037393F /* SkeletonPosition.cpp */; };
 		376FEE811D3F66380037393F /* SkeletonPosition.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 376FEE7F1D3F66380037393F /* SkeletonPosition.cpp */; };
 		37B35F9B1D4C743A00BBD743 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37B35F9A1D4C743A00BBD743 /* MediaPlayer.framework */; };
+		37B35F9D1D4C824100BBD743 /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37B35F9C1D4C824100BBD743 /* CoreMedia.framework */; };
 		37C7E1EB1D47CEFB005C89C0 /* MapScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 37C7E1EA1D47CEFB005C89C0 /* MapScene.cpp */; };
 		37C7E1EC1D47CEFB005C89C0 /* MapScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 37C7E1EA1D47CEFB005C89C0 /* MapScene.cpp */; };
 		37C7E1EF1D47D673005C89C0 /* MapIsland.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 37C7E1EE1D47D673005C89C0 /* MapIsland.cpp */; };
@@ -237,6 +238,7 @@
 		376FEE7D1D3F66280037393F /* SkeletonPosition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SkeletonPosition.h; sourceTree = "<group>"; };
 		376FEE7F1D3F66380037393F /* SkeletonPosition.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SkeletonPosition.cpp; sourceTree = "<group>"; };
 		37B35F9A1D4C743A00BBD743 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.3.sdk/System/Library/Frameworks/MediaPlayer.framework; sourceTree = DEVELOPER_DIR; };
+		37B35F9C1D4C824100BBD743 /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
 		37C7E1E81D47CEEB005C89C0 /* MapScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapScene.h; sourceTree = "<group>"; };
 		37C7E1EA1D47CEFB005C89C0 /* MapScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MapScene.cpp; sourceTree = "<group>"; };
 		37C7E1ED1D47D666005C89C0 /* MapIsland.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapIsland.h; sourceTree = "<group>"; };
@@ -412,6 +414,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				37B35F9D1D4C824100BBD743 /* CoreMedia.framework in Frameworks */,
 				ED545A7E1B68A1FA00C3958E /* libiconv.dylib in Frameworks */,
 				1AC6FB21180E996B004C840B /* libcocos2d Mac.a in Frameworks */,
 				5087E76717EB910900C73F5D /* libz.dylib in Frameworks */,
@@ -481,6 +484,7 @@
 		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				37B35F9C1D4C824100BBD743 /* CoreMedia.framework */,
 				37B35F9A1D4C743A00BBD743 /* MediaPlayer.framework */,
 				294D0D631D0D56D500F7F5D4 /* CoreText.framework */,
 				ED545A7D1B68A1FA00C3958E /* libiconv.dylib */,
