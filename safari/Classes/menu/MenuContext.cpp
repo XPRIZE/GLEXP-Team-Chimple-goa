@@ -9,6 +9,8 @@
 #include "MenuContext.h"
 #include "ui/CocosGUI.h"
 #include "../StartMenuScene.h"
+#include "../MapScene.h"
+#include "../GameMapScene.h"
 #include "../lang/SafariAnalyticsManager.h"
 #include "editor-support/cocostudio/CocoStudio.h"
 
@@ -106,13 +108,13 @@ void MenuContext::expandMenu(cocos2d::Ref *pSender, cocos2d::ui::Widget::TouchEv
                 
                 
                 _mapMenu = this->createMenuItem("menu/map.png", "menu/map.png", "menu/map.png", 2 * POINTS_TO_LEFT);
-                //_menu->addTouchEventListener(CC_CALLBACK_2(MenuContext::expandMenu, this));
+                _mapMenu->addTouchEventListener(CC_CALLBACK_2(MenuContext::showMap, this));
                 
                 _bookMenu = this->createMenuItem("menu/book.png", "menu/book.png", "menu/book.png", 3 * POINTS_TO_LEFT);
                 //_menu->addTouchEventListener(CC_CALLBACK_2(MenuContext::expandMenu, this));
 
-                _gamesMenu = this->createMenuItem("menu/clothes.png", "menu/clothes.png", "menu/clothes.png", 4 * POINTS_TO_LEFT);
-                //_menu->addTouchEventListener(CC_CALLBACK_2(MenuContext::expandMenu, this));
+                _gamesMenu = this->createMenuItem("menu/backpack_icon.png", "menu/backpack_icon.png", "menu/backpack_icon.png", 4 * POINTS_TO_LEFT);
+                _gamesMenu->addTouchEventListener(CC_CALLBACK_2(MenuContext::showGamesMenu, this));
 
                 _exitMenu = Button::create("menu/back.png", "menu/back.png", "menu/back.png", Widget::TextureResType::LOCAL);
                 _exitMenu->addTouchEventListener(CC_CALLBACK_2(MenuContext::expandMenu, this));
@@ -127,9 +129,10 @@ void MenuContext::expandMenu(cocos2d::Ref *pSender, cocos2d::ui::Widget::TouchEv
             }
         } else if (clickedButton == _exitMenu) {
             if(_launchCustomEventOnExit) {
+                std::string menuName(EXIT_MENU);
                 EventCustom event("on_menu_exit");
+                event.setUserData(static_cast<void*>(&menuName));
                 _eventDispatcher->dispatchEvent(&event);
-
             } else {
                 Director::getInstance()->replaceScene(StartMenu::createScene());
             }
@@ -291,6 +294,39 @@ Node* MenuContext::jumpOut(std::string nodeCsbName, bool frameAnimate, float dur
 void MenuContext::playAnimationTemp(cocostudio::timeline::ActionTimeline* timeline) {
     timeline->gotoFrameAndPlay(1, false);
 }
+
+
+
+void MenuContext::showMap(cocos2d::Ref *pSender, cocos2d::ui::Widget::TouchEventType eEventType) {
+    if(eEventType == cocos2d::ui::Widget::TouchEventType::ENDED) {
+        if(_launchCustomEventOnExit) {
+            std::string menuName(MAP_MENU);
+            EventCustom event("on_menu_exit");
+            event.setUserData(static_cast<void*>(&menuName));
+            _eventDispatcher->dispatchEvent(&event);
+        } else {
+            Director::getInstance()->replaceScene(TransitionFade::create(2.0, MapScene::createScene(), Color3B::BLACK));
+        }
+
+    }
+}
+
+void MenuContext::showGamesMenu(cocos2d::Ref *pSender, cocos2d::ui::Widget::TouchEventType eEventType) {
+    if(eEventType == cocos2d::ui::Widget::TouchEventType::ENDED) {
+        if(_launchCustomEventOnExit) {
+            std::string menuName(GAME_MAP_MENU);
+            EventCustom event("on_menu_exit");
+            event.setUserData(static_cast<void*>(&menuName));
+            _eventDispatcher->dispatchEvent(&event);
+            
+        } else {
+           Director::getInstance()->replaceScene(TransitionFade::create(2.0, GameMapScene::createScene(), Color3B::BLACK));
+        }
+    }
+}
+
+
+
 
 
 MenuContext::MenuContext() :

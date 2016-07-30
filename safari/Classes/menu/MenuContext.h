@@ -15,6 +15,14 @@
 #include "../alphamon/HPMeter.h"
 #include "editor-support/cocostudio/CocoStudio.h"
 
+#define GAME_MAP_MENU "GameMapScene"
+#define HELP_MENU "HelpScene"
+#define EXIT_MENU "StartMenuScene"
+#define MAP_MENU "MapScene"
+#define BOOK_MENU "BookScene"
+#define BAG_PACK_MENU "BagpackScene"
+
+
 class MenuContext : public cocos2d::Node {
     
 public:
@@ -49,6 +57,9 @@ protected:
     void pauseNodeAndDescendants(Node *pNode);
     void resumeNodeAndDescendants(Node *pNode);
     void playAnimationTemp(cocostudio::timeline::ActionTimeline* timeline);
+    void showMap(cocos2d::Ref *pSender, cocos2d::ui::Widget::TouchEventType eEventType);
+    void showGamesMenu(cocos2d::Ref *pSender, cocos2d::ui::Widget::TouchEventType eEventType);
+    
     void removeMenu();
     void increasePoints(int points);
     void happyFace();

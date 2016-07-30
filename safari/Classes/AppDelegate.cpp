@@ -1,6 +1,7 @@
 #include "AppDelegate.h"
 #include "MapScene.h"
 #include "StartMenuScene.h"
+#include "GameMapScene.h"
 #include "lang/SafariAnalyticsManager.h"
 
 USING_NS_CC;
@@ -16,7 +17,6 @@ AppDelegate::AppDelegate() {
 
 AppDelegate::~AppDelegate()
 {
-    CCLOG("111");
 }
 
 //if you want a different context,just modify the value of glContextAttrs

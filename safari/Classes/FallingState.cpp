@@ -24,7 +24,7 @@ void FallingState::enter(cocos2d::Vec2 forceVector, SkeletonCharacterState previ
     
     assert (this->getTarget()->getSkeletonActionTimeLine() != NULL);
     
-    this->getTarget()->changeSkinForBone("mouth", "mouth", "hero/mouth/o.png");
+    this->getTarget()->changeSkinForMouthBone("mouth", "mouth", "hero/mouth/o.png");
     this->getTarget()->getSkeletonActionTimeLine()->play(JUMP_END, false);
 }
 
