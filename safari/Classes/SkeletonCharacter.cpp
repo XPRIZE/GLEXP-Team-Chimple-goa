@@ -48,6 +48,7 @@ SkeletonCharacter::SkeletonCharacter()
     this->isJumpingAttemptedWhileDragging = false;
     this->isPlayingContinousRotationWhileJumping = false;
     this->isFalling = false;
+    this->mouthSkin = NULL;
 }
 
 SkeletonCharacter::~SkeletonCharacter()
@@ -108,12 +109,15 @@ void SkeletonCharacter::HandlePostJumpDownEndingAnimation() {
 }
 
 
-bool SkeletonCharacter::didSkeletonContactBeginDuringJumpingUp(PhysicsContact &contact, SkeletonCharacterState currentStateCommand) {
+bool SkeletonCharacter::didSkeletonContactBeginDuringJumpingUp(PhysicsContact &contact, SkeletonCharacterState currentStateCommand, float sceneWidth) {
     cocos2d::Node* nodeA = contact.getShapeA()->getBody()->getNode();
     cocos2d::Node* nodeB = contact.getShapeB()->getBody()->getNode();
     if((nodeA->getName() == HUMAN_SKELETON_NAME && contact.getShapeA()->getBody()->getVelocity().y > -GRAVITY_VELOCITY_TO_STICK_TO_GROUND) ||
        (nodeB->getName() == HUMAN_SKELETON_NAME && contact.getShapeB()->getBody()->getVelocity().y > -GRAVITY_VELOCITY_TO_STICK_TO_GROUND))
     {
+        if(this->getSkeletonNode()->getPosition().x <= 500.0f || this->getSkeletonNode()->getPosition().x >= sceneWidth - 500.0f) {
+            return false;
+        }
         return true;
     }
     
@@ -185,24 +189,65 @@ void SkeletonCharacter::setSkeletonActionTimeLine(cocostudio::timeline::ActionTi
     this->skeletonActionTime = timeline;    
 }
 
+void SkeletonCharacter::changeSkinForMouthBone(std::string bone, std::string skinName, std::string imageName, std::string anchorX, std::string anchorY) {
+    
+    cocostudio::timeline::BoneNode* boneNode = this->getSkeletonNode()->getBoneNode(bone);
+    
+    if(boneNode != NULL) {
+        if(this->mouthSkin == NULL) {
+            for (std::vector<Node*>::iterator it = boneNode->getSkins().begin() ; it != boneNode->getSkins().end(); ++it) {
+                cocostudio::timeline::SkinNode* skin = *it;
+                if(skin->getName() == skinName) {
+                    this->mouthSkin = skin;
+                    break;
+                }
+            }
+            
+        }
+        
+        
+        if(this->mouthSkin != NULL) {
+            cocos2d::Sprite* boneSkin = cocos2d::Sprite::createWithSpriteFrameName(imageName);
+            boneSkin->setName(imageName);
+            float xAnchor = String::create(anchorX)->floatValue();
+            float yAnchor = String::create(anchorY)->floatValue();
+            
+            if(xAnchor == 0.0f) {
+                xAnchor = this->mouthSkin->getAnchorPoint().x;
+            }
+            
+            if(yAnchor == 0.0f) {
+                yAnchor = this->mouthSkin->getAnchorPoint().y;
+            }
+            
+            
+            boneSkin->setPosition(this->mouthSkin->getPosition());
+            boneSkin->setAnchorPoint(Vec2(xAnchor,yAnchor));
+            boneNode->addSkin(boneSkin, true);
+            boneNode->displaySkin(boneSkin, true);
+
+        }
+        
+    }
+    
+}
+
 
 void SkeletonCharacter::changeSkinForBone(std::string bone, std::string skinName, std::string imageName, std::string anchorX, std::string anchorY) {
     cocostudio::timeline::BoneNode* boneNode = this->getSkeletonNode()->getBoneNode(bone);
     
     if(boneNode != NULL) {
-        bool isSkinExists = false;
         
         cocostudio::timeline::SkinNode* referenceToSkin = nullptr;
         for (std::vector<Node*>::iterator it = boneNode->getSkins().begin() ; it != boneNode->getSkins().end(); ++it) {
             cocostudio::timeline::SkinNode* skin = *it;
             if(skin->getName() == skinName) {
-                isSkinExists = true;
                 referenceToSkin = skin;
                 break;
             }
         }
         
-        if(isSkinExists) {
+        if(referenceToSkin != NULL) {
             cocos2d::Sprite* boneSkin = cocos2d::Sprite::createWithSpriteFrameName(imageName);
             boneSkin->setName(imageName);
             float xAnchor = String::create(anchorX)->floatValue();

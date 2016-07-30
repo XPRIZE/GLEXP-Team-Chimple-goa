@@ -141,7 +141,7 @@ private:
     void HandleTouchedEnded(cocos2d::Point position);
     bool isTapOnInterActObject(cocos2d::Point position);
     void sendBubbleDestroySignal();
-    void transitToHome();
+    void transitToMenu(EventCustom* event);
     void changeScene(std::string nextScene = "", bool isMiniGame = false);
     void cleanUpResources();
     void alphamonDestroyed(EventCustom* event);
@@ -167,7 +167,7 @@ private:
     cocos2d::Node* mainLayer;
     cocos2d::Node* backgroundLayer;
     cocos2d::Node* foregroundLayer;
-
+    
     //category bit mask for main skeleton
     int mainCharacterCategoryBitMask;
     
@@ -217,7 +217,7 @@ public:
         
     virtual void registerPhysicsEventContactLister();
     
-    virtual void loadSqlite3FileForScene();
+    virtual void loadSqlite3FileForIsland();
     
     virtual void registerMessageSenderAndReceiver();
     

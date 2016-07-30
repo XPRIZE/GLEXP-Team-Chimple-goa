@@ -274,7 +274,7 @@ void EndlessRunner::startingIntersectMode() {
 				Character.onAir = false;
 
 				Character.action->play("drop", true);
-				auto downMovement = MoveTo::create(0.6, Vec2(visibleSize.width * 0.20 + origin.x,+ origin.y));
+				auto downMovement = MoveTo::create(0.6, Vec2(visibleSize.width * 0.20 + origin.x,origin.y));
 				Character.fallDownAction = downMovement;
 				Character.character->runAction(Character.fallDownAction);
 				Character.Clicked = true;
@@ -297,7 +297,7 @@ void EndlessRunner::startingIntersectMode() {
 					Character.character->setVisible(true);
 				});
 
-				auto main_Sequence = Sequence::create(DelayTime::create(0.6), setPositionOnPath, blink, visible, NULL);
+				auto main_Sequence = Sequence::create(DelayTime::create(0.8), setPositionOnPath, blink, visible, NULL);
 				Character.character->runAction(main_Sequence);
 
 			}
@@ -563,7 +563,7 @@ void EndlessRunner::AddRocksInFirstLayerPath() {
 		extra->setOpacity(0);
 		//extra->setScaleX(0.96);
 		currentFirstLayerRock = currentImage;
-		currentImage->setScaleY(11);
+	//	currentImage->setScaleY(11);
 		currentImage->setOpacity(0);
 		position = EndlessRunner::movingUpto(LayerYcoord.groundLevel);
 		currentFirstLayerRock->runAction(MoveTo::create(EndlessRunner::movingTime(currentFirstLayerRock), Vec2(leftBarrier->getPosition().x, position.second)));
@@ -783,7 +783,7 @@ void EndlessRunner::CreateMonsterWithLetter(float dt) {
 	auto nameLand = currentFirstLayerRock->currentRockName;
 	monsterImage->setScale(1.175);
 	Rect box = monsterImage->getChildByName("monster_egg")->getBoundingBox();
-	monsterImage->getChildByName("letter")->setVisible(false);
+
 	monsterImage->runAction(timeline);  timeline->gotoFrameAndPlay(0);
 	
 	auto str = letters.at(counterLetter).at(0);
