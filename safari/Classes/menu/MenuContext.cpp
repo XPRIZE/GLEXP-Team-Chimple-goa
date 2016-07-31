@@ -113,7 +113,7 @@ void MenuContext::expandMenu(cocos2d::Ref *pSender, cocos2d::ui::Widget::TouchEv
                 _bookMenu = this->createMenuItem("menu/book.png", "menu/book.png", "menu/book.png", 3 * POINTS_TO_LEFT);
                 //_menu->addTouchEventListener(CC_CALLBACK_2(MenuContext::expandMenu, this));
 
-                _gamesMenu = this->createMenuItem("menu/backpack_icon.png", "menu/backpack_icon.png", "menu/backpack_icon.png", 4 * POINTS_TO_LEFT);
+                _gamesMenu = this->createMenuItem("menu/game.png", "menu/game.png", "menu/game.png", 4 * POINTS_TO_LEFT);
                 _gamesMenu->addTouchEventListener(CC_CALLBACK_2(MenuContext::showGamesMenu, this));
 
                 _exitMenu = Button::create("menu/back.png", "menu/back.png", "menu/back.png", Widget::TextureResType::LOCAL);

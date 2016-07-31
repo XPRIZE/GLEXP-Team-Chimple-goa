@@ -84,7 +84,8 @@ bool DuelScene::init(wchar_t myMonChar, wchar_t otherMonChar)
     auto upper = _background->getChildByName("upper");
     upper->setPositionX(upper->getPositionX() + offsetX);
     _timer = _background->getChildByName("FileNode_1");
-    _timer->setPositionX(_timer->getPositionX() + offsetX);
+    _timer->setPosition(Vec2(_timer->getPositionX() + offsetX, visibleSize.height * 3 / 4));
+    _timerPosition = _timer->getPosition();
     _timer->setPosition(Vec2(_timerPosition.x, visibleSize.height + 150));
 
     auto right = _background->getChildByName(RIGHT_STAND_NAME);
@@ -98,7 +99,6 @@ bool DuelScene::init(wchar_t myMonChar, wchar_t otherMonChar)
     panel->addChild(_grid);
     _grid->setPosition(Vec2((panel->getContentSize().width - SQUARE_WIDTH * numCols) / 2, (panel->getContentSize().height - SQUARE_WIDTH * numRows) / 2));
 
-    _timerPosition = _timer->getPosition();
     _timerAnimation = CSLoader::createTimeline("battle_ground/timer.csb");
     _timer->runAction(_timerAnimation);
     _timerAnimation->setLastFrameCallFunc(CC_CALLBACK_0(DuelScene::armMyMon, this));
