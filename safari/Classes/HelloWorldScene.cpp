@@ -378,6 +378,9 @@ bool HelloWorld::init(const std::string& island, const std::string& sceneName)
     
     this->scheduleUpdate();
     
+    CocosDenshion::SimpleAudioEngine::getInstance()->playBackgroundMusic("sounds/Adagio teru (ft. teru).m4a", true);
+    CocosDenshion::SimpleAudioEngine::getInstance()->setEffectsVolume(1.0f);
+    
     return true;
 }
 
@@ -601,6 +604,7 @@ void HelloWorld::cleanUpResources() {
     EVENT_DISPATCHER->removeCustomEventListeners("on_menu_exit");
     EVENT_DISPATCHER->removeCustomEventListeners("alphamon_destroyed");
     
+    CocosDenshion::SimpleAudioEngine::getInstance()->pauseBackgroundMusic();
     
     if(this->stateMachine != nullptr) {
         delete this->stateMachine;
