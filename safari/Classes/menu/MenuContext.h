@@ -59,6 +59,7 @@ protected:
     void playAnimationTemp(cocostudio::timeline::ActionTimeline* timeline);
     void showMap(cocos2d::Ref *pSender, cocos2d::ui::Widget::TouchEventType eEventType);
     void showGamesMenu(cocos2d::Ref *pSender, cocos2d::ui::Widget::TouchEventType eEventType);
+    void showHelp(cocos2d::Ref *pSender, cocos2d::ui::Widget::TouchEventType eEventType);
     
     void removeMenu();
     void increasePoints(int points);
