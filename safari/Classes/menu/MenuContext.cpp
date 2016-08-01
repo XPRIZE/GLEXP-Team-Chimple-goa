@@ -104,7 +104,7 @@ void MenuContext::expandMenu(cocos2d::Ref *pSender, cocos2d::ui::Widget::TouchEv
                 addChild(_greyLayer, -1);
                 
                 _helpMenu = this->createMenuItem("menu/help.png", "menu/help.png", "menu/help.png",POINTS_TO_LEFT);
-                //_menu->addTouchEventListener(CC_CALLBACK_2(MenuContext::expandMenu, this));
+                _helpMenu->addTouchEventListener(CC_CALLBACK_2(MenuContext::showHelp, this));
                 
                 
                 _mapMenu = this->createMenuItem("menu/map.png", "menu/map.png", "menu/map.png", 2 * POINTS_TO_LEFT);
@@ -127,6 +127,8 @@ void MenuContext::expandMenu(cocos2d::Ref *pSender, cocos2d::ui::Widget::TouchEv
                 pauseNodeAndDescendants(_main);
                 _menuSelected = true;
             }
+        } else if (clickedButton == _helpMenu) {
+            
         } else if (clickedButton == _exitMenu) {
             if(_launchCustomEventOnExit) {
                 std::string menuName(EXIT_MENU);
@@ -295,6 +297,16 @@ void MenuContext::playAnimationTemp(cocostudio::timeline::ActionTimeline* timeli
     timeline->gotoFrameAndPlay(1, false);
 }
 
+void MenuContext::showHelp(cocos2d::Ref *pSender, cocos2d::ui::Widget::TouchEventType eEventType) {
+    if(eEventType == cocos2d::ui::Widget::TouchEventType::ENDED) {
+        auto chimp = CSLoader::createNode("chimpanzee.csb");
+        auto anim = CSLoader::createTimeline("chimpanzee.csb");
+        chimp->setPosition(1280, 500);
+        addChild(chimp);
+        chimp->runAction(anim);
+        anim->play("talk", true);
+    }
+}
 
 
 void MenuContext::showMap(cocos2d::Ref *pSender, cocos2d::ui::Widget::TouchEventType eEventType) {
