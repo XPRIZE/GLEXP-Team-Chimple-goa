@@ -51,7 +51,7 @@ void HelloWorld::initPhysics(Scene* scene)
 HelloWorld::HelloWorld()
 :gesture_layer_(nullptr),
 skeletonCharacter(nullptr),
-mainCharacterCategoryBitMask(1),
+mainCharacterCategoryBitMask(INVISIBLE_BOUNDARY_CATEGORY_BITMASK),
 isSpeechBubbleAlreadyVisible(false),
 sqlite3Helper(nullptr),
 stateMachine(nullptr),
