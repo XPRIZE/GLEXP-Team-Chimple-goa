@@ -179,7 +179,7 @@ cocostudio::timeline::ActionTimeline* SkeletonCharacter::getSkeletonActionTimeLi
 
 
 bool SkeletonCharacter::getSkeletonInContactWithGround() {
-    
+    CCLOG("stick to ground this->getSkeletonNode()->getPhysicsBody()->getVelocity().y %f", this->getSkeletonNode()->getPhysicsBody()->getVelocity().y);
     if(this->getSkeletonNode()->getPhysicsBody()->getVelocity().y < GRAVITY_VELOCITY_TO_STICK_TO_GROUND ||
        this->getSkeletonNode()->getPhysicsBody()->getVelocity().y > -GRAVITY_VELOCITY_TO_STICK_TO_GROUND)
     {

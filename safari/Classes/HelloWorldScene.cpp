@@ -766,7 +766,7 @@ void HelloWorld::update(float dt) {
         {
             if(this->skeletonCharacter->isWalking) {
                 this->flipSkeletonDirection(this->currentTouchPoint, this->skeletonCharacter->getSkeletonNode());
-                CCLOG("this->currentTouchPoint %f", this->currentTouchPoint.x);
+//                CCLOG("this->currentTouchPoint %f", this->currentTouchPoint.x);
                 if(checkTouchLeftOfCharacter(this->currentTouchPoint, this->skeletonCharacter->getSkeletonNode())) {
                     this->skeletonCharacter->getSkeletonNode()->getPhysicsBody()->setVelocity(Vec2(-MAIN_CHARACTER_FORCE,GRAVITY_VELOCITY_TO_STICK_TO_GROUND));
                 } else if (checkTouchRightOfCharacter(this->currentTouchPoint, this->skeletonCharacter->getSkeletonNode())) {
@@ -776,7 +776,7 @@ void HelloWorld::update(float dt) {
                 
             } else if(this->skeletonCharacter->isRunning) {
                 this->flipSkeletonDirection(this->currentTouchPoint, this->skeletonCharacter->getSkeletonNode());
-                CCLOG("this->currentTouchPoint %f", this->currentTouchPoint.x);
+//                CCLOG("this->currentTouchPoint %f", this->currentTouchPoint.x);
                 if(checkTouchLeftOfCharacter(this->currentTouchPoint, this->skeletonCharacter->getSkeletonNode())) {
                     this->skeletonCharacter->getSkeletonNode()->getPhysicsBody()->setVelocity(Vec2(-MAIN_CHARACTER_RUNNING_FORCE,GRAVITY_VELOCITY_TO_STICK_TO_GROUND));
                 } else if (checkTouchRightOfCharacter(this->currentTouchPoint, this->skeletonCharacter->getSkeletonNode())) {
@@ -788,8 +788,9 @@ void HelloWorld::update(float dt) {
             }
             
         } else {
-            if(this->skeletonCharacter->getSkeletonNode()->getPhysicsBody()->getVelocity().y <= 0 &&
+            if(this->skeletonCharacter->getSkeletonNode()->getPhysicsBody()->getVelocity().y <=GRAVITY_VELOCITY_TO_STICK_TO_GROUND &&
                this->skeletonCharacter->isJumping == false) {
+                CCLOG("this->skeletonCharacter->getSkeletonNode()->getPhysicsBody()->getVelocity().y %f", this->skeletonCharacter->getSkeletonNode()->getPhysicsBody()->getVelocity().y);
                 this->stateMachine->handleInput(S_FALLING_STATE, cocos2d::Vec2(0,0));
             }
         }

@@ -211,6 +211,9 @@ void RPGSprite::touchEnded(Touch *touch, Event *event)
 {
     std::string s(!this->getKey().empty() ? this->getKey() : this->getName());
     EVENT_DISPATCHER->dispatchCustomEvent(RPGConfig::SPEECH_MESSAGE_ON_TAP_NOTIFICATION, static_cast<void*>(&s));
-    this->touchPointerNode->setVisible(false);
+    if(this->touchPointerNode != NULL) {
+        this->touchPointerNode->setVisible(false);
+    }
+    
 
 }
