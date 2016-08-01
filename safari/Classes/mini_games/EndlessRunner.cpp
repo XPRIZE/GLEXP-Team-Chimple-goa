@@ -259,6 +259,7 @@ void EndlessRunner::startingIntersectMode() {
 		}
 	}
 	if (gapFlag) {
+		CCLOG("GAP MODE IS ON");
 		for (std::size_t i = 0; i < allGapBlocks.size(); i++) {
 			auto box = Character.character->getChildByName("floor_2")->getBoundingBox();
 			Rect parent = Character.character->getBoundingBox();
@@ -558,14 +559,14 @@ void EndlessRunner::AddRocksInFirstLayerPath() {
 
 		SpriteCreate* currentImage = SpriteCreate::createSprite("endlessrunner/gapw.png", (currentFirstLayerRock->getPosition().x + currentFirstLayerRock->getContentSize().width), LayerYcoord.groundLevel, 0, 0, mountainTypeObject.gapLand, mountainTypeObject.startLandPart, mountainLayerTypes.gap);
 		this->addChild(currentImage, zOrderPathLayer.firstLayer);
-//		allPathBlocks.push_back(currentImage);
+		allPathBlocks.push_back(currentImage);
 
 		auto extra = EndlessRunner::CreateSprites("endlessrunner/gapw.png", (currentFirstLayerRock->getPosition().x + currentFirstLayerRock->getContentSize().width),LayerYcoord.firstLayer,1,1,zOrderPathLayer.character,"gapBlocks");
 		extra->runAction(MoveTo::create(EndlessRunner::movingTime(currentImage), Vec2(leftBarrier->getPosition().x, LayerYcoord.firstLayer)));
 		extra->setOpacity(0);
 		//extra->setScaleX(0.96);
 		currentFirstLayerRock = currentImage;
-	//	currentImage->setScaleY(11);
+		//currentImage->setScaleY(11);
 		currentImage->setOpacity(0);
 		position = EndlessRunner::movingUpto(LayerYcoord.groundLevel);
 		currentFirstLayerRock->runAction(MoveTo::create(EndlessRunner::movingTime(currentFirstLayerRock), Vec2(leftBarrier->getPosition().x, position.second)));
