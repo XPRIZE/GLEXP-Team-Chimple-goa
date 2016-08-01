@@ -16,6 +16,7 @@ USING_NS_CC;
 using namespace cocos2d::ui;
 
 static const int MAX_POINTS_TO_SHOW = 16;
+static const int POINTS_TO_LEFT = 300.0f;
 
 MenuContext* MenuContext::create(Node* main, std::string gameName, bool launchCustomEventOnExit) {
     MenuContext* menuContext = new (std::nothrow) MenuContext();
@@ -84,23 +85,47 @@ void MenuContext::expandMenu(cocos2d::Ref *pSender, cocos2d::ui::Widget::TouchEv
                 auto moveTo = MoveTo::create(0.5, _menuButton->getPosition());
                 auto elastic = EaseBackIn::create(moveTo);
                 auto callbackRemoveMenu = CallFunc::create(CC_CALLBACK_0(MenuContext::removeMenu, this));
-                _menu->runAction(Sequence::create(elastic, callbackRemoveMenu, NULL));
+                
+                auto targetHelpCloseAction = TargetedAction::create(_helpMenu, elastic);
+                auto targetBookCloseAction = TargetedAction::create(_mapMenu, elastic);
+                auto targetMapCloseAction = TargetedAction::create(_bookMenu, elastic);
+                auto targetExitCloseAction = TargetedAction::create(_exitMenu, elastic);
+                auto targetGamesCloseAction = TargetedAction::create(_gamesMenu, elastic);
+                
+                auto spawnAction = Spawn::create(targetHelpCloseAction,targetMapCloseAction,targetBookCloseAction,targetGamesCloseAction,targetExitCloseAction,nullptr);
+                
+                _exitMenu->runAction(Sequence::create(spawnAction, callbackRemoveMenu, NULL));
             } else {
                 Size visibleSize = Director::getInstance()->getVisibleSize();
                 _greyLayer = LayerColor::create(Color4B(128.0, 128.0, 128.0, 128.0));
                 _greyLayer->setContentSize(visibleSize);
                 addChild(_greyLayer, -1);
-                _menu = Button::create("menu/back.png", "menu/back.png", "menu/back.png", Widget::TextureResType::LOCAL);
-                _menu->addTouchEventListener(CC_CALLBACK_2(MenuContext::expandMenu, this));
-                _menu->setPosition(_menuButton->getPosition());
-                addChild(_menu);
+                
+                _helpMenu = this->createMenuItem("menu/help.png", "menu/help.png", "menu/help.png",POINTS_TO_LEFT);
+                //_menu->addTouchEventListener(CC_CALLBACK_2(MenuContext::expandMenu, this));
+                
+                
+                _mapMenu = this->createMenuItem("menu/map.png", "menu/map.png", "menu/map.png", 2 * POINTS_TO_LEFT);
+                //_menu->addTouchEventListener(CC_CALLBACK_2(MenuContext::expandMenu, this));
+                
+                _bookMenu = this->createMenuItem("menu/book.png", "menu/book.png", "menu/book.png", 3 * POINTS_TO_LEFT);
+                //_menu->addTouchEventListener(CC_CALLBACK_2(MenuContext::expandMenu, this));
+
+                _gamesMenu = this->createMenuItem("menu/clothes.png", "menu/clothes.png", "menu/clothes.png", 4 * POINTS_TO_LEFT);
+                //_menu->addTouchEventListener(CC_CALLBACK_2(MenuContext::expandMenu, this));
+
+                _exitMenu = Button::create("menu/back.png", "menu/back.png", "menu/back.png", Widget::TextureResType::LOCAL);
+                _exitMenu->addTouchEventListener(CC_CALLBACK_2(MenuContext::expandMenu, this));
+                _exitMenu->setPosition(_menuButton->getPosition());
+                addChild(_exitMenu);
+
                 auto moveTo = MoveTo::create(0.5, Vec2(150, _menuButton->getPosition().y));
                 auto elastic = EaseBackOut::create(moveTo);
-                _menu->runAction(elastic);
+                _exitMenu->runAction(elastic);
                 pauseNodeAndDescendants(_main);
                 _menuSelected = true;
             }
-        } else if (clickedButton == _menu) {
+        } else if (clickedButton == _exitMenu) {
             if(_launchCustomEventOnExit) {
                 EventCustom event("on_menu_exit");
                 _eventDispatcher->dispatchEvent(&event);
@@ -113,9 +138,37 @@ void MenuContext::expandMenu(cocos2d::Ref *pSender, cocos2d::ui::Widget::TouchEv
     }
 }
 
+cocos2d::ui::Button* MenuContext::createMenuItem(const std::string normalImage,
+                                 const std::string selectedImage ,
+                                 const std::string disableImage,
+                                 float xPosOffSet) {
+    cocos2d::ui::Button* _menu = Button::create(normalImage, selectedImage, disableImage, Widget::TextureResType::LOCAL);
+    _menu->setPosition(_menuButton->getPosition());
+    addChild(_menu);
+    
+    auto moveTo = MoveTo::create(0.5, Vec2(_menuButton->getPosition().x - xPosOffSet, _menuButton->getPosition().y));
+    auto elastic = EaseBackOut::create(moveTo);
+    _menu->runAction(elastic);
+    
+    return _menu;
+}
+
 void MenuContext::removeMenu() {
-    removeChild(_menu);
-    _menu = nullptr;
+    removeChild(_exitMenu);
+    _exitMenu = nullptr;
+    
+    removeChild(_helpMenu);
+    _helpMenu = nullptr;
+
+    removeChild(_bookMenu);
+    _bookMenu = nullptr;
+
+    removeChild(_mapMenu);
+    _mapMenu = nullptr;
+
+    removeChild(_gamesMenu);
+    _gamesMenu = nullptr;
+
     removeChild(_greyLayer);
     _greyLayer = nullptr;
     resumeNodeAndDescendants(_main);
@@ -167,6 +220,46 @@ void MenuContext::sadFace() {
 
 void MenuContext::normalFace() {
     _menuButton->loadTextureNormal("menu/menu.png");
+}
+
+#if (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID || CC_TARGET_PLATFORM == CC_PLATFORM_IOS)  
+void MenuContext::videoEventCallback(Ref* sender, cocos2d::experimental::ui::VideoPlayer::EventType eventType) {
+	switch (eventType) {
+	case cocos2d::experimental::ui::VideoPlayer::EventType::PLAYING:
+		break;
+	case cocos2d::experimental::ui::VideoPlayer::EventType::PAUSED:
+		break;
+	case cocos2d::experimental::ui::VideoPlayer::EventType::STOPPED:
+		break;
+	case cocos2d::experimental::ui::VideoPlayer::EventType::COMPLETED:
+		videoPlayOverCallback();
+		break;
+	default:
+		break;
+	}
+}
+#endif  
+
+void MenuContext::videoPlayStart(std::string gameName)
+{
+#if (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID || CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
+	experimental::ui::VideoPlayer* vp = experimental::ui::VideoPlayer::create();
+	vp->setContentSize(Size(2560, 1800));
+	vp->setFileName(gameName+".mp4");
+	vp->setPosition(Vec2(2560 / 2, 1800 / 2));
+	vp->setAnchorPoint(Vec2::ANCHOR_MIDDLE);
+	vp->play();
+	vp->setName("video");
+	this->addChild(vp, 0);
+	vp->addEventListener(CC_CALLBACK_2(MenuContext::videoEventCallback, this));
+#endif
+
+}
+
+void MenuContext::videoPlayOverCallback() {
+#if (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID || CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
+	this->removeChildByName("video");
+#endif 
 }
 
 Node* MenuContext::jumpOut(std::string nodeCsbName, bool frameAnimate, float duration) {

@@ -9,7 +9,7 @@
 #include "../puzzle/CharGenerator.h"
 #include "../lang/LangUtil.h"
 #include "../StartMenuScene.h"
-
+#include "ui/UIVideoPlayer.h"
 USING_NS_CC;
 
 
@@ -130,7 +130,7 @@ bool AlphamonFeed::init()
 	listener->onTouchCancelled = CC_CALLBACK_2(AlphamonFeed::onTouchCancelled, this);
 	_eventDispatcher->addEventListenerWithFixedPriority(listener, -1);
 	isTouching = false;
-
+	
 	this->schedule(schedule_selector(AlphamonFeed::showFruits), 1);
 	this->scheduleUpdate();
 	

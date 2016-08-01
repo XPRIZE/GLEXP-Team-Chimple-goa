@@ -167,7 +167,7 @@ private:
     cocos2d::Node* mainLayer;
     cocos2d::Node* backgroundLayer;
     cocos2d::Node* foregroundLayer;
-
+    
     //category bit mask for main skeleton
     int mainCharacterCategoryBitMask;
     

@@ -29,6 +29,8 @@ CC_CONSTRUCTOR_ACCESS:
     virtual ~MenuContext();
     bool init(Node* main);
     
+    
+    
 protected:
     int _points;
     bool _menuSelected;
@@ -37,7 +39,11 @@ protected:
     cocos2d::Label* _label;
     cocos2d::ui::Slider * _pointMeter;
     cocos2d::ui::Button* _menuButton;
-    cocos2d::ui::Button* _menu;
+    cocos2d::ui::Button* _exitMenu;
+    cocos2d::ui::Button* _helpMenu;
+    cocos2d::ui::Button* _mapMenu;
+    cocos2d::ui::Button* _bookMenu;
+    cocos2d::ui::Button* _gamesMenu;
     cocos2d::LayerColor* _greyLayer;
     void expandMenu(Ref* pSender, cocos2d::ui::Widget::TouchEventType eEventType);
     void pauseNodeAndDescendants(Node *pNode);
@@ -50,6 +56,13 @@ protected:
     void normalFace();
     std::string gameName;
 
+#if (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID || CC_TARGET_PLATFORM == CC_PLATFORM_IOS)  
+	void videoEventCallback(Ref* sender, cocos2d::experimental::ui::VideoPlayer::EventType eventType);
+#endif 
+
+	void videoPlayStart(std::string gameName);
+	void videoPlayOverCallback();
+
     template <typename T>
     static inline std::string to_string(T value)
     {
@@ -57,6 +70,11 @@ protected:
         os << value ;
         return os.str() ;
     }
+    
+    cocos2d::ui::Button* createMenuItem(const std::string normalImage,
+                        const std::string selectedImage ,
+                        const std::string disableImage,
+                        float xPosOffSet);
     
 };
 
