@@ -20,6 +20,7 @@ public:
     virtual std::string getBMFontFileName() override;
     virtual std::string getAlphabetSoundFileName(wchar_t alpha) override;
     virtual std::string getPhoneticSoundFileName(wchar_t alpha) override;
+    virtual std::string getDir() override;
     virtual std::string getLang() override;
     virtual ~KannadaUtil();
     KannadaUtil();

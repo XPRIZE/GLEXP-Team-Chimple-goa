@@ -23,6 +23,7 @@ public:
     virtual std::string getAlphabetSoundFileName(wchar_t alpha) = 0;
     virtual std::string getPhoneticSoundFileName(wchar_t alpha) = 0;
     virtual std::string getLang() = 0;
+    virtual std::string getDir() = 0;
     
 protected:
     LangUtil();
