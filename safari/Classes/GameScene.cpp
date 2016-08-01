@@ -42,7 +42,7 @@ bool GameScene::initWithChild(Node *node, std::string name) {
     _name = name;
     _child = node;
     addChild(node);
-    _menuContext = MenuContext::create(node);
+    _menuContext = MenuContext::create(node, name);
     addChild(_menuContext);
     _langUtil = LangUtil::getInstance();
     return true;
