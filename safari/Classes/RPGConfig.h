@@ -20,7 +20,7 @@
 #define SOUND_ENGINE CocosDenshion::SimpleAudioEngine::sharedEngine()
 #define MIN_GESTURE_DISTANCE 10
 #define RPG_GRAVITY -2000
-#define ENABLE_DEBUGDRAW false
+#define ENABLE_DEBUGDRAW true
 #define MAIN_CHARACTER_MASS 1.0f
 #define ALPHAMON_CHARACTER_SCALE 0.5f
 #define MAIN_CHARACTER_SCALE 1.0f
@@ -38,6 +38,7 @@
 #define MAIN_CHARACTER_IMPULSE_ADJUSTMENT_ON_TAP 0.8f
 #define GRAVITY_VELOCITY_TO_STICK_TO_GROUND -10.0f
 
+#define GROUND_CATEGORY_MASK 3
 #define MAIN_CHARACTER_MASS_COLLISION_MASK 3
 #define MAIN_CHARACTER_MASS_CATEGORY_MASK 7
 #define MAIN_CHARACTER_MASS_CONTACT_MASK 1
@@ -238,6 +239,10 @@ public:
     static const char* SEND_BUBBLE_DESTROY_NOTIFICATION;
     
     static const char* SEND_SHOW_TOUCH_POINT_SIGN_NOTIFICATION;
+    
+    static const char* ON_MENU_EXIT_NOTIFICATION;
+    
+    static const char* ON_ALPHAMON_PRESSED_NOTIFICATION;
         
     template <typename T>
     static inline std::string to_string(T value)

@@ -167,7 +167,7 @@ void AlphamonSprite::onAlphabetSelected(cocos2d::EventCustom *event) {
 
 void AlphamonSprite::destoryAlphaMon(float dt) {
     if(!this->getChildren().empty() && !this->isSelectedForBattle) {
-        EventCustom event("alphamon_destroyed");
+        EventCustom event(RPGConfig::ON_ALPHAMON_PRESSED_NOTIFICATION);
         std::string s(this->getAlphaMon()->getName());
         std::string removeStr("sel_");
         std::string::size_type i = s.find(removeStr);
