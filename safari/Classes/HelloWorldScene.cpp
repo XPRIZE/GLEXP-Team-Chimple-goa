@@ -373,7 +373,7 @@ bool HelloWorld::init(const std::string& island, const std::string& sceneName)
     this->registerMessageSenderAndReceiver();
     
     if(this->getAlphamonNodesCount() != 0) {
-        this->schedule(CC_SCHEDULE_SELECTOR(HelloWorld::createAlphaMons), ALPHAMON_CREATE_FREQUENCY);
+//        this->schedule(CC_SCHEDULE_SELECTOR(HelloWorld::createAlphaMons), ALPHAMON_CREATE_FREQUENCY);
     }
     
     this->scheduleUpdate();
@@ -688,7 +688,7 @@ void HelloWorld::processAnimationMessage(std::vector<MessageContent*>animationMe
 void HelloWorld::processCustomAnimationMessage(std::vector<MessageContent*>customAnimationMessages) {
     
     //CURRENTLY only one animation supported - TBD (later extend to play multiples)
-    this->unschedule(CC_SCHEDULE_SELECTOR(HelloWorld::createAlphaMons));
+//    this->unschedule(CC_SCHEDULE_SELECTOR(HelloWorld::createAlphaMons));
     for (std::vector<MessageContent* >::iterator it = customAnimationMessages.begin() ; customAnimationMessages.size() == 1 && it != customAnimationMessages.end(); ++it)
     {
         MessageContent* content = (MessageContent*) *it;
