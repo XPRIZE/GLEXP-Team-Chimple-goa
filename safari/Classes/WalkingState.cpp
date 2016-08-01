@@ -31,6 +31,7 @@ void WalkingState::enter(cocos2d::Vec2 forceVector, SkeletonCharacterState previ
 
 void WalkingState::exit()  {
     CCLOG("%s", "Exit Walking State");
+    this->getTarget()->getSkeletonActionTimeLine()->gotoFrameAndPause(0);
     this->getTarget()->isWalking = false;
 }
 

@@ -57,6 +57,7 @@ void StandingState::enter(cocos2d::Vec2 forceVector, SkeletonCharacterState prev
 void StandingState::exit()  {
     CCLOG("%s", "Exit Standing State");
     this->getTarget()->isStanding = false;
+    this->getTarget()->getSkeletonActionTimeLine()->gotoFrameAndPause(0);
 }
 
 SkeletonCharacterState StandingState::handleInput(SkeletonCharacterState command)  {
