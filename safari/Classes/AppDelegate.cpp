@@ -1,5 +1,8 @@
 #include "AppDelegate.h"
 #include "MapScene.h"
+#include "StartMenuScene.h"
+#include "GameMapScene.h"
+#include "lang/SafariAnalyticsManager.h"
 
 USING_NS_CC;
 
@@ -33,6 +36,7 @@ static int register_all_packages()
 {
     return 0; //flag for packages manager
 }
+
 
 bool AppDelegate::applicationDidFinishLaunching() {
     // initialize director
@@ -94,8 +98,10 @@ bool AppDelegate::applicationDidFinishLaunching() {
     
     register_all_packages();
     
+    SafariAnalyticsManager::getInstance();
+    
     // create a scene. it's an autorelease object
-    director->runWithScene(MapScene::createScene());
+    director->runWithScene(StartMenu::createScene());
     Application::getInstance()->getCurrentLanguage();
     return true;
 }
@@ -105,7 +111,7 @@ void AppDelegate::applicationDidEnterBackground() {
     Director::getInstance()->stopAnimation();
     
     // if you use SimpleAudioEngine, it must be pause
-    // SimpleAudioEngine::getInstance()->pauseBackgroundMusic();
+     CocosDenshion::SimpleAudioEngine::getInstance()->pauseBackgroundMusic();
 }
 
 // this function will be called when the app is active again
@@ -113,5 +119,5 @@ void AppDelegate::applicationWillEnterForeground() {
     Director::getInstance()->startAnimation();
     
     // if you use SimpleAudioEngine, it must resume here
-    // SimpleAudioEngine::getInstance()->resumeBackgroundMusic();
+     CocosDenshion::SimpleAudioEngine::getInstance()->resumeBackgroundMusic();
 }

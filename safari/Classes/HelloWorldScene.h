@@ -45,8 +45,6 @@ private:
     
     cocos2d::Point currentTouchPoint;
     
-    cocos2d::Sprite* showTouchSignNode;
-    
     GestureLayer* gesture_layer_;
     
     StateMachine* stateMachine;
@@ -143,7 +141,7 @@ private:
     void HandleTouchedEnded(cocos2d::Point position);
     bool isTapOnInterActObject(cocos2d::Point position);
     void sendBubbleDestroySignal();
-    void transitToHome();
+    void transitToMenu(EventCustom* event);
     void changeScene(std::string nextScene = "", bool isMiniGame = false);
     void cleanUpResources();
     void alphamonDestroyed(EventCustom* event);
@@ -159,7 +157,7 @@ private:
     
     void calculateAlphamonNodesInScene(cocos2d::Node *rootNode);
     
-    void resetTouchPointSign();
+    void resetTouchPointSign(cocos2d::Sprite* touchPointer);
 
     cocos2d::Size sceneSize;
     
@@ -169,7 +167,7 @@ private:
     cocos2d::Node* mainLayer;
     cocos2d::Node* backgroundLayer;
     cocos2d::Node* foregroundLayer;
-
+    
     //category bit mask for main skeleton
     int mainCharacterCategoryBitMask;
     
@@ -219,7 +217,7 @@ public:
         
     virtual void registerPhysicsEventContactLister();
     
-    virtual void loadSqlite3FileForScene();
+    virtual void loadSqlite3FileForIsland();
     
     virtual void registerMessageSenderAndReceiver();
     
@@ -233,11 +231,9 @@ public:
     
     virtual void processNodeWithCustomAttributes(Node* node, cocos2d::Node* parentNode);
     
-    virtual bool checkTapOnRPGSprite(RPGSprite* rpgNode, cocos2d::Point position);
+    virtual bool checkTapOnRPGSprite(RPGSprite* rpgNode, cocos2d::Point position);    
     
-    virtual void hideTouchPointSign();
-    
-    
+    static const char* gameName() { return "Safari RPG";}
 };
 
 #endif // __HELLOWORLD_SCENE_H__

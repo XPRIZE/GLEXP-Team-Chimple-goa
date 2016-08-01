@@ -7,8 +7,9 @@
 #include "../menu/MenuContext.h"
 #include "editor-support/cocostudio/CocoStudio.h"
 #include "../lang/LangUtil.h"
-#include "SimpleAudioEngine.h" 
+
 #include "../puzzle/Alphabet.h"
+#include "../StartMenuScene.h"
 #define COCOS2D_DEBUG 1
 
 USING_NS_CC;
@@ -19,9 +20,18 @@ int val1;
 int sizei;
 int sizej;
 std::string mapString;
-Scene* SmashTheRock::createScene(std::string st )
+SmashTheRock::SmashTheRock()
 {
-	mapString = st.c_str();
+
+}
+SmashTheRock::~SmashTheRock()
+{
+	audio->pauseBackgroundMusic();
+
+}
+Scene* SmashTheRock::createScene()
+{
+	
 	// 'scene' is an autorelease object
 	auto scene = Scene::create();
 
@@ -31,7 +41,7 @@ Scene* SmashTheRock::createScene(std::string st )
 	// add layer as a child to scene
 	scene->addChild(layer);
     
-    layer->menu = MenuContext::create(layer);
+    layer->menu = MenuContext::create(layer, SmashTheRock::gameName());
     scene->addChild(layer->menu);
     
 
@@ -51,39 +61,7 @@ bool SmashTheRock::init()
 
 	Size visibleSize = Director::getInstance()->getVisibleSize();
 	Vec2 origin = Director::getInstance()->getVisibleOrigin();
-	//CCLOG("size %f", visibleSize);
-	//CCLOG("origin %f", origin);
-	/////////////////////////////
-	alphabetMap.insert(std::pair<std::string, std::int32_t>("A", 0));
-	alphabetMap.insert(std::pair<std::string, std::int32_t>("B", 1));
-	alphabetMap.insert(std::pair<std::string, std::int32_t>("C", 2));
-	alphabetMap.insert(std::pair<std::string, std::int32_t>("D", 3));
-	alphabetMap.insert(std::pair<std::string, std::int32_t>("E", 4));
-	alphabetMap.insert(std::pair<std::string, std::int32_t>("F", 5));
-	alphabetMap.insert(std::pair<std::string, std::int32_t>("G", 6));
-	alphabetMap.insert(std::pair<std::string, std::int32_t>("H", 7));
-	alphabetMap.insert(std::pair<std::string, std::int32_t>("I", 8));
-	alphabetMap.insert(std::pair<std::string, std::int32_t>("J", 9));
-	alphabetMap.insert(std::pair<std::string, std::int32_t>("K", 10));
-	alphabetMap.insert(std::pair<std::string, std::int32_t>("L", 11));
-	alphabetMap.insert(std::pair<std::string, std::int32_t>("M", 12));
-	alphabetMap.insert(std::pair<std::string, std::int32_t>("N", 13));
-	alphabetMap.insert(std::pair<std::string, std::int32_t>("O", 14));
-	alphabetMap.insert(std::pair<std::string, std::int32_t>("P", 15));
-	alphabetMap.insert(std::pair<std::string, std::int32_t>("Q", 16));
-	alphabetMap.insert(std::pair<std::string, std::int32_t>("R", 17));
-	alphabetMap.insert(std::pair<std::string, std::int32_t>("S", 18));
-	alphabetMap.insert(std::pair<std::string, std::int32_t>("T", 19));
-	alphabetMap.insert(std::pair<std::string, std::int32_t>("U", 20));
-	alphabetMap.insert(std::pair<std::string, std::int32_t>("V", 21));
-	alphabetMap.insert(std::pair<std::string, std::int32_t>("W", 22));
-	alphabetMap.insert(std::pair<std::string, std::int32_t>("X", 23));
-	alphabetMap.insert(std::pair<std::string, std::int32_t>("Y", 24));
-	alphabetMap.insert(std::pair<std::string, std::int32_t>("Z", 25));
-
-	key = alphabetMap.at(mapString.c_str());
-
-
+	
     background = CSLoader::createNode("smash_de_rock/bg.csb");
 	//background->setPosition(Point((visibleSize.width / 2) + origin.x, (visibleSize.height / 2) + origin.y));
 	this->addChild(background, 0);
@@ -100,10 +78,10 @@ bool SmashTheRock::init()
 	auto punchHandLeft = (Sprite *)centre->getChildByName("boxing_gloves_left");
 	punchHandLeft->setGlobalZOrder(3);
 	auto punchHandRight = (Sprite *)centre->getChildByName("boxing_gloves_right");
-	punchHandRight->setGlobalZOrder(3);
+	punchHandRight->setGlobalZOrder(3);*/
 	
-	auto stone_bace = (Sprite *)centre->getChildByName("stone_bace");
-	stone_bace->setGlobalZOrder(0);*/
+	//auto stone_bace = (Sprite *)centre->getChildByName("stone_bace");
+	//stone_bace->setGlobalZOrder(0);
 
 
 	auto spritecache1 = SpriteFrameCache::getInstance();
@@ -111,12 +89,11 @@ bool SmashTheRock::init()
 	auto spritecache2 = SpriteFrameCache::getInstance();
 	spritecache2->addSpriteFramesWithFile("smash_de_rock/smashderock_02.plist");
 
-	//auto spritecache = SpriteFrameCache::getInstance();
-	//spritecache->addSpriteFramesWithFile("smashderock.plist");
+	
 	auto block = Sprite::createWithSpriteFrameName("smash_de_rock/letter_normal.png");
-	//int blockWidth = block->getContentSize().width;
-	//int blockHeight = block->getContentSize().height;
-	std::vector<std::vector<wchar_t>> charkey = CharGenerator::getInstance()->generateMatrixForChoosingAChar(mapString.at(0),3,11,50);
+
+	mychar = CharGenerator::getInstance()->generateAChar();
+	std::vector<std::vector<wchar_t>> charkey = CharGenerator::getInstance()->generateMatrixForChoosingAChar(mychar,3,11,50);
 
 	int dis = (230.0/2560)*visibleSize.width;
 	for (int i = 1; i < 4; i++)
@@ -147,30 +124,31 @@ bool SmashTheRock::init()
 			rightRef.pushBack(right);
 			wrongRef.pushBack(wrong);
 			this->addChild(block1,2);
-			//block1->setGlobalZOrder(6);
+		//	block1->setGlobalZOrder(6);
 			this->addChild(right, 2);
 		//	right->setGlobalZOrder(6);
 			this->addChild(wrong, 2);
 		//	wrong->setGlobalZOrder(6);
 		//	std::string str = Alphabets.at(cocos2d::RandomHelper::random_int(key, (key + 20)) % 20).c_str();
-			char str1 = charkey.at(i-1).at(j-1);
-			std::string ttttt(&str1,1) ;
+			wchar_t str1 = charkey.at(i-1).at(j-1);
+			//std::string ttttt(&str1,1) ;
 			//label = Label::createWithBMFont(LangUtil::getInstance()->getBMFontFileName(), ttttt);
 			//label = Label::createWithTTF(ttttt, "fonts/BalooBhai-Regular.ttf", 256);
 			//CCLOG("alpha = %s",str.c_str());
 			Alphabet *label = Alphabet::createWithSize(str1, 200);
 		//	label->setScale(0.15);
 			label->setPositionX(blockWidth );
-			CCLOG("label x = %d", blockWidth);
-			label->setPositionY(blockHeight - 130);
+			auto letter = label->getString();
+			label->setPositionY(blockHeight - 150);
 			label->setColor(ccc3(255, 255, 255));
 			label->enableShadow(Color4B::GRAY, Size(5, -5), -50);
 			label->setAnchorPoint(Vec2::ANCHOR_MIDDLE_BOTTOM);
-			label->setName(ttttt);
+			auto mystr = LangUtil::convertUTF16CharToString(mychar);
+			label->setName(mystr);
 			labelRef.pushBack(label);
 			CCLOG("alpha = %d", labelRef.size());
-			this->addChild(label, 2);
-		//	label->setGlobalZOrder(6);
+			this->addChild(label,2);
+	//		label->setGlobalZOrder(6);
 			auto listener = EventListenerTouchOneByOne::create();
 			//listener->setSwallowTouches(true);
 			label->touchBeganCallback = CC_CALLBACK_2(SmashTheRock::onTouchBegan, this);
@@ -184,35 +162,16 @@ bool SmashTheRock::init()
 
 	
 
-
-
-	//createSkeletonCharacter();
-	//mainGameCharacter = skeletonCharacter->getSkeletonNode();
-	//mainGameCharacter->setContentSize(cocos2d::Size(200.0f, 600.0f));
-	//addMainCharacterToScene(mainGameCharacter);
-
+    audio = CocosDenshion::SimpleAudioEngine::getInstance();
+	audio->playBackgroundMusic("smash_de_rock/Smash Rock  BG sound.wav", true);
+	audio->setEffectsVolume(1.0f);
 	masking();
-//	click++;
-	this->scheduleUpdate();
 
 	return true;
 }
 void SmashTheRock::update(float dt)
 {
-	if (maskedFill != nullptr) {
-	//	CCLOG("mainGameCharacter = %f", maskedFill->getBoundingBox().origin.x);
-		//if (mainGameCharacter->getBoundingBox().intersectsRect(maskedFill->getBoundingBox())) {
-			//mainGameCharacter->pause();
-				
-			//mainGameCharacter->skel
-			//cocostudio::timeline::ActionTimeline *timeLine = CSLoader::createTimeline("human_skeleton.csb");
-			//timeLine->retain();
-			//mainGameCharacter->runAction(timeLine);
-			//timeLine->gotoFrameAndPause(0);
-			//timeLine->play("run", true);
-
-		//}
-	}
+	
 	
 }
 void SmashTheRock::createSkeletonCharacter()
@@ -237,13 +196,9 @@ void SmashTheRock::jump()
 	auto visibleSize = Director::getInstance()->getVisibleSize();
 	Vec2 origin = Director::getInstance()->getVisibleOrigin();
 
-	cocostudio::timeline::ActionTimeline *timeLine = CSLoader::createTimeline("human_skeleton.csb");
-	timeLine->retain(); //released later on
-	mainGameCharacter->runAction(timeLine);
-	timeLine->setTimeSpeed(1.5);
-	timeLine->play("run", true);
-	auto action = MoveBy::create(1.5, Point(-1100, 0));
-	mainGameCharacter->runAction(action);
+	auto audio = CocosDenshion::SimpleAudioEngine::getInstance();
+	//audio->playEffect("smash_de_rock/PUNCH.mp3", false);
+
 	
 }
 
@@ -260,8 +215,8 @@ void SmashTheRock :: hit()
 	auto tRev1 = TargetedAction::create(boxRight, rev1); 
 	auto callbackStart = CallFunc::create(CC_CALLBACK_0(SmashTheRock::masking, this));
 	auto callbackStart1 = CallFunc::create(CC_CALLBACK_0(SmashTheRock::blast, this));
-
-	auto seq = Sequence::create(callbackStart1,action,  rev,  tRight, callbackStart1, tRev1,  callbackStart, NULL);
+	auto callbackStart2 = CallFunc::create(CC_CALLBACK_0(SmashTheRock::jump, this));
+	auto seq = Sequence::create(callbackStart1,action, callbackStart2,  rev,  tRight, callbackStart1, callbackStart2, tRev1,  callbackStart, NULL);
 	boxLeft->runAction(seq);
 	//masking();
 	
@@ -283,14 +238,17 @@ void SmashTheRock::blast()
 	auto action3 = Blink::create(0.25, 1);
 	white->runAction(action3);
 
-	if (click == 3)
+	if (click == 5)
 	{
-		auto rock1 = centre->getChildByName("broken_01");
-		auto rock2 = centre->getChildByName("broken_02");
-	//	auto rock3 = centre->getChildByName("broken_02");
-	//	auto rock3 = centre->getChildByName("broken_02");
-		rock1->setVisible(true);
-		rock2->setVisible(true);
+		Vector <Node*> children = centre->getChildren();
+		for (auto item = children.rbegin(); item != children.rend(); ++item) {
+			Node * monsterItem = *item;
+			std::string str = monsterItem->getName().c_str();
+			if ((str.compare("broken_01") == 0) || (str.compare("broken_02") == 0)) {
+				monsterItem->setVisible(true);
+			}
+		}
+		
 	}
 
 }
@@ -298,7 +256,7 @@ void SmashTheRock::masking()
 {
 	Size visibleSize = Director::getInstance()->getVisibleSize();
 	Vec2 origin = Director::getInstance()->getVisibleOrigin();
-	Alphabet *label1 = Alphabet::createWithSize((Alphabets.at(key)).at(0), 200);
+	Alphabet *label1 = Alphabet::createWithSize(mychar, 200);
 //	label1 = Label::createWithBMFont(LangUtil::getInstance()->getBMFontFileName(), Alphabets.at(key).c_str());
 //	label1 = Label::createWithTTF(Alphabets.at(key).c_str(), "fonts/BalooBhai-Regular.ttf", 256);
 	label1->setScale(1.5);
@@ -341,12 +299,23 @@ void SmashTheRock::masking()
 	this->addChild(maskedFill,2);
 	flag = true;
 	//maskedFill->setGlobalZOrder(3);
-	if (click == 6)
+	if (click == 5)
 	{
-		//auto white = centre->getChildByName("white");
-		//white->setPosition(200, 300);
-		//this->addChild(white);
-		_eventDispatcher->removeEventListenersForTarget(label, false);
+		auto audio = CocosDenshion::SimpleAudioEngine::getInstance();
+		audio->playEffect("smash_de_rock/Concrete break.wav", false);
+		audio->setEffectsVolume(10.0f);
+		//maskedFill->removeChild(target);
+		for (int i = 0; i < 6; i++)
+		{
+			this->removeChild(maskedFill);
+		}
+		//this->removeChild(label1);
+		for (int i = 0; i < labelRef.size(); i++)
+		{
+			this->removeChild(labelRef.at(i));
+		}
+		
+	
 		this->scheduleOnce(schedule_selector(SmashTheRock::change), 2.0f);
 		
 	}
@@ -355,7 +324,7 @@ void SmashTheRock::masking()
 void SmashTheRock::change(float dt)
 {
 	stopAllActions();
-	Director::getInstance()->replaceScene(SmashTheRockLevelScene::createScene());
+	Director::getInstance()->replaceScene(StartMenu::createScene());
 }
 
 bool SmashTheRock::onTouchBegan(cocos2d::Touch *touch, cocos2d::Event * event)
@@ -363,17 +332,18 @@ bool SmashTheRock::onTouchBegan(cocos2d::Touch *touch, cocos2d::Event * event)
 
 	//isTouching = true;
 	//	touchPosition = touch->getLocation().x;
-	cocos2d::Node * target = event->getCurrentTarget();
+	Alphabet * target =(Alphabet *) event->getCurrentTarget();
 	auto  location = target->convertToNodeSpace(touch->getLocation());
 	Size visibleSize = Director::getInstance()->getVisibleSize();
 	int dis = (230.00 / 2560)*(visibleSize.width);
-
+	auto mystr = LangUtil::convertUTF16CharToString(mychar);
+	auto myletter = target->getChar();
 	//	CCRect targetRectangle = CCRectMake(0,0, target->getContentSize().width, target->getContentSize().height);
 	if ( target->getBoundingBox().containsPoint( touch->getLocation()) && flag )
 	{
-		menu->pickAlphabet((target->getName()).at(0), (mapString).at(0), true);
+		menu->pickAlphabet(myletter, mychar, true);
 		flag = false;
-		if (target->getName().compare(mapString.c_str()) == 0)
+		if (myletter == mychar)
 		{
 			int indexj = (target->getPositionX());
 			int indexi = (target->getPositionY());

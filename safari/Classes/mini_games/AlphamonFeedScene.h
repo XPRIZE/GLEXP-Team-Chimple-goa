@@ -7,6 +7,7 @@
 #include "../alphamon/Alphamon.h"
 #include "../menu/MenuContext.h"
 #include "SimpleAudioEngine.h"
+#include "ui/UIVideoPlayer.h"
 
 class AlphamonFeed : public cocos2d::Layer
 {
@@ -15,13 +16,14 @@ public:
     ~AlphamonFeed();
     
     static AlphamonFeed* create();
-    
+	wchar_t mychar;
+	int score;
 	cocos2d::Rect monster;
 	cocos2d::Node * smile;
 	cocos2d::Node * sad;
 	cocos2d::Node * angry;
 	cocos2d::Node * laughing;
-    static cocos2d::Scene* createScene(std::string str);
+    static cocos2d::Scene* createScene();
 	cocostudio::timeline::ActionTimeline* alpha_animation;
     virtual bool init();
 	cocos2d::DrawNode * myBox;
@@ -41,7 +43,7 @@ public:
 	virtual void onTouchMoved(cocos2d::Touch *touch, cocos2d::Event * event);
 	virtual void onTouchEnded(cocos2d::Touch *touch, cocos2d::Event * event);
 	virtual void onTouchCancelled(cocos2d::Touch *touch, cocos2d::Event * event);
-
+    static const char* gameName() { return "Alphamon Feed";}
 	virtual void update(float dt);
 
 	void showFruits(float dt);
@@ -51,6 +53,7 @@ protected:
 	MenuContext * menu;
     cocos2d::EventListenerTouchOneByOne* listener;
 	CocosDenshion::SimpleAudioEngine * audio;
+
 	
 };
 

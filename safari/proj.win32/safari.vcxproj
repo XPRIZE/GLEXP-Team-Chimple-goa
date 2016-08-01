@@ -153,6 +153,7 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClCompile Include="..\Classes\Entry.cpp" />
     <ClCompile Include="..\Classes\ExternalSkeletonCharacter.cpp" />
     <ClCompile Include="..\Classes\FallingState.cpp" />
+    <ClCompile Include="..\Classes\GameScene.cpp" />
     <ClCompile Include="..\Classes\GestureLayer.cpp" />
     <ClCompile Include="..\Classes\HelloWorldScene.cpp" />
     <ClCompile Include="..\Classes\I18nUtils.cpp" />
@@ -161,6 +162,7 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClCompile Include="..\Classes\lang\EnglishUtil.cpp" />
     <ClCompile Include="..\Classes\lang\KannadaUtil.cpp" />
     <ClCompile Include="..\Classes\lang\LangUtil.cpp" />
+    <ClCompile Include="..\Classes\lang\SafariAnalyticsManager.cpp" />
     <ClCompile Include="..\Classes\MapIsland.cpp" />
     <ClCompile Include="..\Classes\MapScene.cpp" />
     <ClCompile Include="..\Classes\menu\MenuContext.cpp" />
@@ -210,6 +212,7 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClInclude Include="..\Classes\Entry.h" />
     <ClInclude Include="..\Classes\ExternalSkeletonCharacter.h" />
     <ClInclude Include="..\Classes\FallingState.h" />
+    <ClInclude Include="..\Classes\GameScene.h" />
     <ClInclude Include="..\Classes\GestureLayer.hpp" />
     <ClInclude Include="..\Classes\HelloWorldScene.h" />
     <ClInclude Include="..\Classes\I18nDefine.h" />
@@ -219,6 +222,7 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClInclude Include="..\Classes\lang\EnglishUtil.h" />
     <ClInclude Include="..\Classes\lang\KannadaUtil.h" />
     <ClInclude Include="..\Classes\lang\LangUtil.h" />
+    <ClInclude Include="..\Classes\lang\SafariAnalyticsManager.h" />
     <ClInclude Include="..\Classes\MapIsland.h" />
     <ClInclude Include="..\Classes\MapScene.h" />
     <ClInclude Include="..\Classes\menu\MenuContext.h" />

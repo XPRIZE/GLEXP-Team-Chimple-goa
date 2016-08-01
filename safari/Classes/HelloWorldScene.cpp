@@ -3,6 +3,8 @@
 #include <unordered_map>
 #include "HelloWorldScene.h"
 #include "StartMenuScene.h"
+#include "GameMapScene.h"
+#include "MapScene.h"
 
 USING_NS_CC;
 
@@ -17,7 +19,7 @@ Scene* HelloWorld::createScene(const std::string& island, const std::string& sce
     // add layer as a child to scene
     scene->addChild(layer);
 
-    layer->menuContext = MenuContext::create(layer, true);
+    layer->menuContext = MenuContext::create(layer, HelloWorld::gameName(), true);
     scene->addChild(layer->menuContext);
 
     initPhysics(scene);
@@ -52,7 +54,6 @@ skeletonCharacter(nullptr),
 mainCharacterCategoryBitMask(1),
 isSpeechBubbleAlreadyVisible(false),
 sqlite3Helper(nullptr),
-showTouchSignNode(nullptr),
 stateMachine(nullptr),
 messageSender(nullptr),
 messageReceiver(nullptr),
@@ -324,10 +325,6 @@ void HelloWorld::addMainCharacterToScene(const std::string& filename, cocos2d::N
     auto followAction = Follow::create(this->skeletonCharacter->getSkeletonNode(), Rect(0,0,this->getSceneSize().width, this->getSceneSize().height));
     this->mainLayer->runAction(followAction);
     
-    this->showTouchSignNode = Sprite::create(TOUCH_POINTER_IMG);
-    this->showTouchSignNode->setScale(0.5f, 0.5f);
-    this->showTouchSignNode->setVisible(false);
-    this->mainLayer->addChild(this->showTouchSignNode);    
 }
 
 void HelloWorld::initGestureLayer() {
@@ -349,10 +346,13 @@ bool HelloWorld::init(const std::string& island, const std::string& sceneName)
     this->setIsland(island);
 
     //default sceneName should be the same as island and default search path
-    !sceneName.empty() ? this->setSceneName(sceneName) : this->setSceneName(island);
-    
-    FileUtils::getInstance()->addSearchPath("res/" + this->getSceneName());
-    
+    if(!sceneName.empty()) {
+        this->setSceneName(sceneName);
+        FileUtils::getInstance()->addSearchPath("res/" + this->getSceneName());
+    } else {
+        FileUtils::getInstance()->addSearchPath("res/" + this->getIsland());
+    }
+        
     //Added for testing purpose - remove later....
     this->languageManger = LanguageManager::getInstance();
     auto defaultStr = this->languageManger->translateString("Hello world!");
@@ -364,7 +364,7 @@ bool HelloWorld::init(const std::string& island, const std::string& sceneName)
     CCLOG("translatedString %s", translatedString.c_str());
     //testing
     
-    this->loadSqlite3FileForScene();
+    this->loadSqlite3FileForIsland();
     
     this->initializeSafari();
     
@@ -378,22 +378,32 @@ bool HelloWorld::init(const std::string& island, const std::string& sceneName)
     
     this->scheduleUpdate();
     
+    CocosDenshion::SimpleAudioEngine::getInstance()->playBackgroundMusic("sounds/Adagio teru (ft. teru).m4a", true);
+    CocosDenshion::SimpleAudioEngine::getInstance()->setEffectsVolume(1.0f);
+    
     return true;
 }
 
 void HelloWorld::querySceneToLoadInIsland() {
     this->skeletonPositionInLastVisitedScene = this->sqlite3Helper->findLastVisitedSceneInIsland(this->getIsland().c_str(), this->getSceneName().c_str());
     
-    if(this->skeletonPositionInLastVisitedScene != nullptr) {
+    if(this->skeletonPositionInLastVisitedScene != NULL) {
         this->setSceneName(this->skeletonPositionInLastVisitedScene->getSceneName());
         FileUtils::getInstance()->addSearchPath("res/" + this->getSceneName());
+    } else {
+        if(!this->getSceneName().empty()) {
+            FileUtils::getInstance()->addSearchPath("res/" + this->getSceneName());
+        } else {
+            this->setSceneName(this->getIsland());
+            FileUtils::getInstance()->addSearchPath("res/" + this->getIsland());
+        }
     }
 }
 
-void HelloWorld::loadSqlite3FileForScene() {
-    std::string sqlite3FileName = this->getSceneName() + ".db3";
-    String* connectionURL = String::createWithFormat("res/%s/%s", this->getSceneName().c_str(), sqlite3FileName.c_str());
-    this->sqlite3Helper = Sqlite3Helper::getInstance(connectionURL->getCString());
+void HelloWorld::loadSqlite3FileForIsland() {
+    std::string sqlite3FileName = this->getIsland() + ".db3";
+    String* connectionURL = String::createWithFormat("res/%s/%s", this->getIsland().c_str(), sqlite3FileName.c_str());
+    this->sqlite3Helper = Sqlite3Helper::getInstance(connectionURL->getCString(), sqlite3FileName);
 }
 
 void HelloWorld::registerMessageSenderAndReceiver() {
@@ -421,22 +431,26 @@ void HelloWorld::registerMessageSenderAndReceiver() {
     
     
     auto showTouchPointSign = [=] (EventCustom * event) {
-        this->resetTouchPointSign();
+        auto showTouchSignNode =  Sprite::create(TOUCH_POINTER_IMG);
+        showTouchSignNode->setScale(0.5f, 0.5f);
+        this->mainLayer->addChild(showTouchSignNode);
+        showTouchSignNode->setVisible(false);
+        
         Sprite* sprite = reinterpret_cast<Sprite*>(event->getUserData());
-        this->showTouchSignNode->setPosition(sprite->getPosition());
-        this->showTouchSignNode->setVisible(true);
+        showTouchSignNode->setPosition(sprite->getPosition());
+        showTouchSignNode->setVisible(true);
         auto scaleBy = ScaleBy::create(0.5, 1.2);
         auto sequenceScale = Sequence::create(scaleBy, scaleBy->reverse(), nullptr);
         auto repeatScaleAction = Repeat::create(sequenceScale, 5);
-        auto callbackStart = CallFunc::create(CC_CALLBACK_0(HelloWorld::resetTouchPointSign, this));
+        auto callbackStart = CallFunc::create(CC_CALLBACK_0(HelloWorld::resetTouchPointSign, this, showTouchSignNode));
         auto sequence = Sequence::create(repeatScaleAction, callbackStart, nullptr);
-        this->showTouchSignNode->runAction(sequence);
+        showTouchSignNode->runAction(sequence);
     };
     
     SEND_SHOW_TOUCH_POINT_SIGNAL(this, RPGConfig::SEND_SHOW_TOUCH_POINT_SIGN_NOTIFICATION, showTouchPointSign);
 
     
-    this->getEventDispatcher()->addCustomEventListener("on_menu_exit", CC_CALLBACK_0(HelloWorld::transitToHome, this));
+    this->getEventDispatcher()->addCustomEventListener("on_menu_exit", CC_CALLBACK_1(HelloWorld::transitToMenu, this));
 
     this->getEventDispatcher()->addCustomEventListener("alphamon_destroyed", CC_CALLBACK_1(HelloWorld::alphamonDestroyed, this));
 }
@@ -449,20 +463,13 @@ void HelloWorld::alphamonDestroyed(EventCustom* event) {
 
 void HelloWorld::transitionToDuelScene(wchar_t alphabet) {
     this->cleanUpResources();
-    std::string secondParam (1,alphabet);
-    
-    StartMenu::startScene(DUEL_SCENE_NAME, "A", secondParam);
+    std::string firstParam = LangUtil::getInstance()->convertUTF16CharToString(CharGenerator::getInstance()->generateAChar());
+    std::string secondParam = LangUtil::getInstance()->convertUTF16CharToString(alphabet);
+    StartMenu::startScene(DUEL_SCENE_NAME, firstParam, secondParam);
 }
 
-void HelloWorld::resetTouchPointSign() {
-    this->showTouchSignNode->setScale(0.5f, 0.5f);
-}
-
-
-
-void HelloWorld::hideTouchPointSign() {
-    this->showTouchSignNode->setVisible(false);
-    this->showTouchSignNode->setScale(0.5f, 0.5f);
+void HelloWorld::resetTouchPointSign(Sprite* touchSprite) {
+    touchSprite->removeFromParentAndCleanup(true);
 }
 
 void HelloWorld::processTextMessage(std::unordered_map<int, std::string> textMap, std::string ownerOfMessage)
@@ -561,9 +568,17 @@ void HelloWorld::processChangeSceneMessages(std::vector<MessageContent*>changeSc
     }
 }
 
-void HelloWorld::transitToHome() {
+void HelloWorld::transitToMenu(EventCustom * event) {
+    std::string &menuName = *(static_cast<std::string*>(event->getUserData()));
     this->cleanUpResources();
-    Director::getInstance()->replaceScene(StartMenu::createScene());
+    if(menuName == GAME_MAP_MENU) {
+        Director::getInstance()->replaceScene(TransitionFade::create(2.0, GameMapScene::createScene(), Color3B::BLACK));
+    } else if(menuName == MAP_MENU) {
+        Director::getInstance()->replaceScene(TransitionFade::create(2.0, MapScene::createScene(), Color3B::BLACK));
+    } else {
+        Director::getInstance()->replaceScene(TransitionFade::create(2.0, StartMenu::createScene()));
+    }
+    
 }
 
 void HelloWorld::cleanUpResources() {
@@ -589,6 +604,7 @@ void HelloWorld::cleanUpResources() {
     EVENT_DISPATCHER->removeCustomEventListeners("on_menu_exit");
     EVENT_DISPATCHER->removeCustomEventListeners("alphamon_destroyed");
     
+    CocosDenshion::SimpleAudioEngine::getInstance()->pauseBackgroundMusic();
     
     if(this->stateMachine != nullptr) {
         delete this->stateMachine;
@@ -640,17 +656,17 @@ void HelloWorld::processAnimationMessage(std::vector<MessageContent*>animationMe
             if(timeline != NULL && animationSpriteNode != NULL && animationNode != NULL )
             {
                 timeline->setLastFrameCallFunc([=]() {
-                    timeline->clearLastFrameCallFunc();
-                    
                     if(content != NULL && (content->getCondition().empty() || (!content->getCondition().empty() && content->getConditionSatisfied() == 1)))
                     {
-                        std::string nextScene = animationNode->getNextScene();                        
+                        std::string nextScene = animationNode->getNextScene();
                         
                         if(!nextScene.empty())
                         {
+                            CCLOG("calling changeScene for nextScene %s", nextScene.c_str());
                             this->changeScene(nextScene, false);
                         }
                     }
+                    timeline->clearLastFrameCallFunc();
                 });
 
                 Node* animationSpriteNode = this->mainLayer->getChildByName(content->getOwner());
@@ -757,9 +773,6 @@ void HelloWorld::processMessage(std::vector<MessageContent*>*messages) {
     if(!changeSceneMessages.empty()) {
         this->processChangeSceneMessages(changeSceneMessages);
     }
-
-    this->hideTouchPointSign();
-    
 }
 
 void HelloWorld::update(float dt) {
@@ -884,10 +897,10 @@ bool HelloWorld::checkTouchWithinBoundsOfCharacter(Point point, cocostudio::time
 {
     //find out touch Location
     //Rect characterBoundingRect = characterNode->getBoundingBox();
-    Rect characterBoundingRect = Rect(characterNode->getBoundingBox().origin.x, characterNode->getBoundingBox().origin.y, HUMAN_SKELETON_COLLISION_BOX_WIDTH, HUMAN_SKELETON_COLLISION_BOX_WIDTH);
+    Rect characterBoundingRect = Rect(characterNode->getBoundingBox().origin.x, characterNode->getBoundingBox().origin.y, characterNode->getBoundingBox().size.width, characterNode->getBoundingBox().size.height);
+    
     
     if(characterBoundingRect.containsPoint(characterNode->getParent()->convertToNodeSpace(point))) {
-        CCLOG("%s", "touch on Character");
         if(this->skeletonCharacter->isRunning || this->skeletonCharacter->isWalking)
         {
             this->stateMachine->handleInput(S_STANDING_STATE, cocos2d::Vec2(0,0));
@@ -1014,6 +1027,14 @@ void HelloWorld::HoldOrDragBehaviour(Point position) {
     }
 
     if(this->skeletonCharacter->isJumping || this->skeletonCharacter->isJumpingAttemptedWhileDragging) {
+
+        if(this->skeletonCharacter->getSkeletonNode()->getPhysicsBody()->getVelocity().y == 0 )
+        {
+            this->stateMachine->handleInput(S_STANDING_STATE, cocos2d::Vec2(0,0));
+            this->skeletonCharacter->getSkeletonNode()->getPhysicsBody()->resetForces();
+            this->skeletonCharacter->getSkeletonNode()->getPhysicsBody()->setVelocity(Vec2(0,0));
+        }
+
         return;
     }
     
@@ -1062,10 +1083,7 @@ void HelloWorld::HoldOrDragBehaviour(Point position) {
               this->HandleJumpWithContinueousRotation();
                 this->skeletonCharacter->isJumpingAttemptedWhileDragging = true;
             }
-        }
-        
-    } else {
-        //animate JUMP Down
+        }    
     }
 }
 
@@ -1132,7 +1150,7 @@ void HelloWorld::applyImpulseOnSkeletonToJumpOnHoldOrDrag(Point position) {
     float angle = RPGConfig::calcuateAngleForJump(position, characterPosition, 0.0f, 0.0f);
     float value = RPGConfig::calcuateVelocityForJump(position, characterPosition, angle, 0.0f, 0.0f);
     float timeToStart = RPGConfig::calcuateTimeToStartJumpUpAnimation(value, angle, JUMP_UP_ENDING_ANIMATION_FRAMES);
-    
+    CCLOG("timeToStarttimeToStart 111 %f", timeToStart);
     this->scheduleContinuousRotationCall(0.0f);
     this->applyImpulseOnSkeletonToJump(position, angle, value, timeToStart);
     
@@ -1148,7 +1166,7 @@ void HelloWorld::applyImpulseOnSkeletonToJumpOnTap(Point position) {
     float angle = RPGConfig::calcuateAngleForJump(position, characterPosition, 0.0f, 0.0f);
     float value = RPGConfig::calcuateVelocityForJump(position, characterPosition, angle, 0.0f, 0.0f);
     float timeToStart = RPGConfig::calcuateTimeToStartJumpUpAnimation(value, angle, JUMP_UP_ENDING_ANIMATION_FRAMES);
-    
+    CCLOG("timeToStarttimeToStart %f", timeToStart);
     this->scheduleJumpUpEndCall(timeToStart);
     this->applyImpulseOnSkeletonToJump(position, angle, value, timeToStart);    
 }
@@ -1221,6 +1239,15 @@ void HelloWorld::HandleTap(Point position)
     
     if(this->skeletonCharacter->isJumping || this->skeletonCharacter->isRunning || this->skeletonCharacter->isWalking)
     {
+        if(this->skeletonCharacter->getSkeletonNode()->getPhysicsBody()->getVelocity().y == 0 )
+        {
+            this->stateMachine->handleInput(S_STANDING_STATE, cocos2d::Vec2(0,0));
+            this->skeletonCharacter->getSkeletonNode()->getPhysicsBody()->resetForces();
+            this->skeletonCharacter->getSkeletonNode()->getPhysicsBody()->setVelocity(Vec2(0,0));
+            
+        }
+        
+
         return;
     }
     
@@ -1234,18 +1261,20 @@ void HelloWorld::HandleTap(Point position)
 }
 
 void HelloWorld::HandlePostJumpUpAnimation() {
-    this->skeletonCharacter->getSkeletonActionTimeLine()->clearLastFrameCallFunc();
-    this->skeletonCharacter->getSkeletonActionTimeLine()->clearFrameEndCallFuncs();
     this->skeletonCharacter->getSkeletonActionTimeLine()->setTimeSpeed(1.0f);
     this->applyImpulseOnSkeletonToJumpOnTap(this->currentTouchPoint);
+    this->skeletonCharacter->getSkeletonActionTimeLine()->clearLastFrameCallFunc();
+    this->skeletonCharacter->getSkeletonActionTimeLine()->clearFrameEndCallFuncs();
+
 }
 
 
 void HelloWorld::HandlePostJumpUpWithRotationAnimation() {
-    this->skeletonCharacter->getSkeletonActionTimeLine()->clearLastFrameCallFunc();
-    this->skeletonCharacter->getSkeletonActionTimeLine()->clearFrameEndCallFuncs();
     this->skeletonCharacter->getSkeletonActionTimeLine()->setTimeSpeed(1.0);
     this->applyImpulseOnSkeletonToJumpOnHoldOrDrag(this->currentTouchPoint);
+    this->skeletonCharacter->getSkeletonActionTimeLine()->clearLastFrameCallFunc();
+    this->skeletonCharacter->getSkeletonActionTimeLine()->clearFrameEndCallFuncs();
+
 }
 
 
@@ -1386,7 +1415,7 @@ bool HelloWorld::handlePhysicsContactEventForMainCharacter(PhysicsContact &conta
     if(nodeA->getName() == HUMAN_SKELETON_NAME || nodeB->getName() == HUMAN_SKELETON_NAME)
     {
         
-        if(this->skeletonCharacter->didSkeletonContactBeginDuringJumpingUp(contact, this->stateMachine->getCurrentState()->getState())) {
+        if(this->skeletonCharacter->didSkeletonContactBeginDuringJumpingUp(contact, this->stateMachine->getCurrentState()->getState(), this->getSceneSize().width)) {
             CCLOG("ignore contact while jumping up for Main Skeleton!!!");
             return false;
         }

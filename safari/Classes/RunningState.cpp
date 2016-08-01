@@ -21,12 +21,15 @@ void RunningState::enter(cocos2d::Vec2 forceVector, SkeletonCharacterState previ
     
     this->getTarget()->getSkeletonNode()->getPhysicsBody()->setVelocity(forceVector);
     
+    this->getTarget()->changeSkinForMouthBone("mouth", "mouth","hero/mouth/normal.png");
     this->getTarget()->getSkeletonActionTimeLine()->play(RUN, true);
+    this->getTarget()->getSkeletonActionTimeLine()->setTimeSpeed(1.0f);
 }
 
 void RunningState::exit()  {
     CCLOG("%s", "Exit Running State");
     this->getTarget()->isRunning = false;
+    this->getTarget()->getSkeletonActionTimeLine()->setTimeSpeed(1.0f);
 }
 
 SkeletonCharacterState RunningState::handleInput(SkeletonCharacterState command)  {

@@ -5,15 +5,17 @@
 #include "SkeletonCharacter.h"
 #include "editor-support/cocostudio/CocoStudio.h"
 #include "../menu/MenuContext.h"
+#include "SimpleAudioEngine.h" 
 class SmashTheRock : public cocos2d::Layer
 {
 public:
-	static cocos2d::Scene* createScene(std::string st);
+	static cocos2d::Scene* createScene();
 
 	virtual bool init();
 
 	int click = 0;
 	int clickWrong = 0;
+	wchar_t mychar;
 	bool flag = true;
     cocos2d::Sprite* target;
 	cocos2d::Node* character;
@@ -28,6 +30,7 @@ public:
 	
 	int key;
 	int count;
+	CocosDenshion::SimpleAudioEngine* audio ;
 	// a selector callback
 	// void menuCloseCallback(cocos2d::Ref* pSender);
 	virtual bool onTouchBegan(cocos2d::Touch *touch, cocos2d::Event * event);
@@ -40,6 +43,8 @@ public:
 	cocos2d::Node* background;
 	cocos2d::Node* centre;
 	cocos2d::ClippingNode* maskedFill = nullptr;
+	SmashTheRock();
+	~SmashTheRock();
 	void update(float dt);
 	virtual void masking();
 	virtual void jump();
@@ -51,7 +56,7 @@ public:
 	void addMainCharacterToScene(cocostudio::timeline::SkeletonNode* skeleton);
 	// implement the "static create()" method manually
 
-
+    static const char* gameName() { return "Smash The Rock";}
 
 private:
 	SkeletonCharacter* skeletonCharacter;

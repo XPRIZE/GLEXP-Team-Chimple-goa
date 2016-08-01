@@ -16,23 +16,23 @@ bool Sqlite3Helper::instanceFlag = false;
 Sqlite3Helper* Sqlite3Helper::shared = NULL;
 
 
-Sqlite3Helper::Sqlite3Helper(std::string connectionUrl):
+Sqlite3Helper::Sqlite3Helper(std::string connectionUrl, std::string dbName):
 dataBaseConnection(nullptr),
 connectionUrl("")
 {
     assert (!connectionUrl.empty());
     this->connectionUrl = connectionUrl;
-    
+    this->dbName = dbName;
     this->initializeConnection();
 }
 
 
 
-Sqlite3Helper* Sqlite3Helper::getInstance(std::string connectionUrl) {
+Sqlite3Helper* Sqlite3Helper::getInstance(std::string connectionUrl, std::string dbName) {
     
     if(! instanceFlag)
     {
-        shared = new Sqlite3Helper(connectionUrl);
+        shared = new Sqlite3Helper(connectionUrl,dbName);
         instanceFlag = true;
         return shared;
     }
@@ -51,7 +51,7 @@ void Sqlite3Helper::initializeConnection() {
     CCLOG("pathToSQLConnection to database %s", pathToSQLConnection.c_str());
     
     #if (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
-        std::string dbPath = FileUtils::getInstance()->getWritablePath() + GLOBAL_DB_NAME;
+        std::string dbPath = FileUtils::getInstance()->getWritablePath() + this->dbName;
         FILE* file = fopen(dbPath.c_str(), "r");
         if (file == nullptr)
         {
@@ -63,7 +63,7 @@ void Sqlite3Helper::initializeConnection() {
         }
         fclose(file);
         this->pathToSQLConnection = dbPath;
-    
+        CCLOG("ANDROID pathToSQLConnection to database %s", pathToSQLConnection.c_str());
     #else
         
        this->pathToSQLConnection = pathToSQLConnection;

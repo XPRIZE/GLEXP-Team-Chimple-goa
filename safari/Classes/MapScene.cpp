@@ -21,7 +21,7 @@ Scene* MapScene::createScene()
     // add layer as a child to scene
     scene->addChild(layer);
     
-    layer->menuContext = MenuContext::create(layer, true);
+    layer->menuContext = MenuContext::create(layer);
     scene->addChild(layer->menuContext);
     
     // return the scene
@@ -101,6 +101,8 @@ void MapScene::processChildNodes(cocos2d::Node *rootNode) {
     for (std::vector<Node*>::iterator it = mapChildren.begin() ; it != mapChildren.end(); ++it) {
         cocos2d::Node* node = *it;
         
+        
+        
         cocostudio::ComExtensionData* data = (cocostudio::ComExtensionData*)node->getComponent("ComExtensionData");
         if(data != NULL && !data->getCustomProperty().empty()) {
             std::unordered_map<std::string, std::string> attributes = RPGConfig::parseUserData(data->getCustomProperty());
@@ -113,12 +115,42 @@ void MapScene::processChildNodes(cocos2d::Node *rootNode) {
                 label->setPosition(node->getPosition());
                 mainLayer->addChild(label);                
             } else {
-                MapIsland* island = MapIsland::create(node, attributes);
-                mainLayer->addChild(island);
+                //bind events
+                cocos2d::ui::Button* button = dynamic_cast<cocos2d::ui::Button *>(node);
+                if(button) {
+                    button->addTouchEventListener(CC_CALLBACK_2(MapScene::islandSelected, this));
+                }
             }
 
         }
         
+    }
+    
+}
+
+
+
+void MapScene::islandSelected(Ref* pSender, ui::Widget::TouchEventType eEventType)
+{
+    cocos2d::ui::Button* clickedButton = dynamic_cast<cocos2d::ui::Button *>(pSender);
+    switch (eEventType) {
+        case ui::Widget::TouchEventType::BEGAN:
+        {
+            Director::getInstance()->replaceScene(TransitionFade::create(3.0, HelloWorld::createScene(clickedButton->getName().c_str(),""), Color3B::BLACK));
+
+            break;
+        }
+        case ui::Widget::TouchEventType::MOVED:
+            break;
+        case ui::Widget::TouchEventType::ENDED:
+        {
+            break;
+        }
+            
+        case ui::Widget::TouchEventType::CANCELED:
+            break;
+        default:
+            break;
     }
     
 }

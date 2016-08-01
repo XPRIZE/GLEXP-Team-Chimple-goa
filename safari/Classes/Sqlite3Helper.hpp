@@ -19,7 +19,7 @@
 
 class Sqlite3Helper {
 public:
-    static Sqlite3Helper* getInstance(std::string connectionUrl);
+    static Sqlite3Helper* getInstance(std::string connectionUrl, std::string dbName);
     ~Sqlite3Helper();
     
     //select queries
@@ -48,10 +48,11 @@ public:
     static Sqlite3Helper *shared;
 
 protected:
-    Sqlite3Helper(std::string connectionUrl);
+    Sqlite3Helper(std::string connectionUrl, std::string dbName);
     
     sqlite3 *dataBaseConnection;
     std::string connectionUrl;
+    std::string dbName;
     std::string pathToSQLConnection;
     
     virtual void initializeConnection();

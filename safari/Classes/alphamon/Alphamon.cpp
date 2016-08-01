@@ -46,8 +46,6 @@ Alphamon *Alphamon::createWithAlphabet(wchar_t alphabet) {
 
 bool Alphamon::initWithAlphabet(wchar_t alphabet) {
     _alphabet = alphabet;
-//    static const std::map<wchar_t, std::string> langMap = {{L'ಅ',"a"},{L'ಆ',"aa"},{L'ಎ',"ae"},{L'ಐ',"aee"},{L'ಉ',"u"}};
-//    std::string langAlphabet = langMap.at(alpha);
     std::string animFile = LangUtil::getInstance()->getMonsterAnimationFileName(alphabet);
     _monster = CSLoader::createNode(animFile);
     setName(LangUtil::convertUTF16CharToString(alphabet));
@@ -106,13 +104,14 @@ ActionInterval *Alphamon::shakeAction() {
     return TargetedAction::create(_monster, shake);
 }
 
-void Alphamon::setHealth(int value) {
+void Alphamon::setHealth(int value, std::string color) {
     _hp = value;
     if(!_hpMeter) {
-        _hpMeter = HPMeter::createWithPercent(_hp); //currently points are percentage
+        _hpMeter = HPMeter::createWithTextureAndPercent("battle_ground/white_bar.png", "battle_ground/" + color + "_bar.png", "", _hp); //currently points are percentage
         _hpMeter->setAnchorPoint(Vec2::ANCHOR_MIDDLE_BOTTOM);
         addChild(_hpMeter);
         _hpMeter->setPosition(Vec2(0, 600));
+        _hpMeter->setScaleX(0.7);
     } else {
         auto timer = ActionTween::create(1, "percent", _hpMeter->getPercent(), value);
         _hpMeter->runAction(timer);        
@@ -143,12 +142,17 @@ void Alphamon::changePower(int value) {
     setPower(_power + value);
 }
 
-void Alphamon::showPower() {
+void Alphamon::showPower(bool left) {
     if(!_powerMeter) {
-        _powerMeter = HPMeter::createWithPercent(0);
+        _powerMeter = HPMeter::createWithTextureAndPercent("battle_ground/white_bar.png", "battle_ground/yellow_bar.png", "", 0);
         _powerMeter->setRotation(-90);
         _powerMeter->setAnchorPoint(Vec2::ANCHOR_BOTTOM_LEFT);
-        _powerMeter->setPosition(Vec2(-300, 0));
+        if(left) {
+            _powerMeter->setPosition(Vec2(-300, 0));
+        } else {
+            _powerMeter->setPosition(Vec2(300, 0));            
+        }
+        _powerMeter->setScaleX(0.7);
         addChild(_powerMeter);
         setPower(_power);
     }
