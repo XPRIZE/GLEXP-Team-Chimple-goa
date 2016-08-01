@@ -153,6 +153,7 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClCompile Include="..\Classes\Entry.cpp" />
     <ClCompile Include="..\Classes\ExternalSkeletonCharacter.cpp" />
     <ClCompile Include="..\Classes\FallingState.cpp" />
+    <ClCompile Include="..\Classes\GameMapScene.cpp" />
     <ClCompile Include="..\Classes\GameScene.cpp" />
     <ClCompile Include="..\Classes\GestureLayer.cpp" />
     <ClCompile Include="..\Classes\HelloWorldScene.cpp" />
@@ -212,6 +213,7 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClInclude Include="..\Classes\Entry.h" />
     <ClInclude Include="..\Classes\ExternalSkeletonCharacter.h" />
     <ClInclude Include="..\Classes\FallingState.h" />
+    <ClInclude Include="..\Classes\GameMapScene.h" />
     <ClInclude Include="..\Classes\GameScene.h" />
     <ClInclude Include="..\Classes\GestureLayer.hpp" />
     <ClInclude Include="..\Classes\HelloWorldScene.h" />
