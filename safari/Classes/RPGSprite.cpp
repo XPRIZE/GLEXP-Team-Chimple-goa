@@ -195,8 +195,6 @@ bool RPGSprite::onTouchBegan(Touch *touch, Event *event)
         boundingBoxRect = this->getSprite()->getBoundingBox();
     }
     
-    
-    this->getVicinityToMainCharacter();
     if(this->getSprite()->isVisible() && this->getInterAct() == "true" && this->getVicinityToMainCharacter() == true && boundingBoxRect.containsPoint(n)) {
         return true;
     }

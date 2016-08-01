@@ -145,6 +145,12 @@ void GameMapScene::islandSelected(Ref* pSender, ui::Widget::TouchEventType eEven
     switch (eEventType) {
         case ui::Widget::TouchEventType::BEGAN:
         {
+            break;
+        }
+        case ui::Widget::TouchEventType::MOVED:
+            break;
+        case ui::Widget::TouchEventType::ENDED:
+        {
             if(clickedButton->getName() == PATCH_THE_WALL) {
                 Director::getInstance()->replaceScene(PatchTheWall::createScene());
             } else if(clickedButton->getName() == CROSS_THE_BRIDGE) {
@@ -162,12 +168,7 @@ void GameMapScene::islandSelected(Ref* pSender, ui::Widget::TouchEventType eEven
             } else if(clickedButton->getName() == ALPHAMON_FEED) {
                 Director::getInstance()->replaceScene(AlphamonFeed::createScene());
             }
-            break;
-        }
-        case ui::Widget::TouchEventType::MOVED:
-            break;
-        case ui::Widget::TouchEventType::ENDED:
-        {
+
             break;
         }
             

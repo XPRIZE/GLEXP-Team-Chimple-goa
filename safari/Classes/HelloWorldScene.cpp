@@ -51,7 +51,7 @@ void HelloWorld::initPhysics(Scene* scene)
 HelloWorld::HelloWorld()
 :gesture_layer_(nullptr),
 skeletonCharacter(nullptr),
-mainCharacterCategoryBitMask(1),
+mainCharacterCategoryBitMask(INVISIBLE_BOUNDARY_CATEGORY_BITMASK),
 isSpeechBubbleAlreadyVisible(false),
 sqlite3Helper(nullptr),
 stateMachine(nullptr),
@@ -977,7 +977,7 @@ bool HelloWorld::checkHoldWithinWalkLimitOfCharacter(Point point, cocostudio::ti
     Vec2 characterPosition = characterNode->getParent()->convertToWorldSpace(characterNode->getPosition());
     Rect characterBoundingRect = characterNode->getBoundingBox();
     
-    Rect boundingLeftRect = Rect((characterPosition.x - characterBoundingRect.size.width/2 - 2 * characterBoundingRect.size.width), 0, 2 * characterBoundingRect.size.width, characterPosition.y + characterBoundingRect.size.height);
+    Rect boundingLeftRect = Rect((characterPosition.x - characterBoundingRect.size.width/2 - 4 * characterBoundingRect.size.width), 0, 4 * characterBoundingRect.size.width, characterPosition.y + characterBoundingRect.size.height);
     
     if(boundingLeftRect.containsPoint(point)) {
         CCLOG("%s", "left walking area on hold");
@@ -985,11 +985,26 @@ bool HelloWorld::checkHoldWithinWalkLimitOfCharacter(Point point, cocostudio::ti
         return true;
     }
     
-    Rect boundingRightRect = Rect((characterPosition.x + characterBoundingRect.size.width/2), 0, 2 * characterBoundingRect.size.width, characterPosition.y + characterBoundingRect.size.height);
+    Rect boundingRightRect = Rect((characterPosition.x + characterBoundingRect.size.width/2), 0, 4 * characterBoundingRect.size.width, characterPosition.y + characterBoundingRect.size.height);
     
     if(boundingRightRect.containsPoint(point)) {
         CCLOG("%s", "right walking area on hold");
         //change mouse to different image
+        return true;
+    }
+    
+    return false;
+}
+
+bool HelloWorld::checkHoldWithinRunningLimitOfCharacter(Point point, cocostudio::timeline::SkeletonNode* characterNode)
+{
+    //find out touch Location
+    Vec2 characterPosition = characterNode->getParent()->convertToWorldSpace(characterNode->getPosition());
+    Rect characterBoundingRect = characterNode->getBoundingBox();
+    
+    Rect boundingRect = Rect((characterPosition.x - characterBoundingRect.size.width/2 - 4 * characterBoundingRect.size.width), 0, 8 * characterBoundingRect.size.width, characterPosition.y + characterBoundingRect.size.height);
+
+    if(!boundingRect.containsPoint(point)) {
         return true;
     }
     
@@ -1049,7 +1064,12 @@ void HelloWorld::HoldOrDragBehaviour(Point position) {
             //else run
             //0nly LEFT/RIGHT Horizontal force
             
-            if(checkHoldWithinSittingLimitOfCharacter(position, this->skeletonCharacter->getSkeletonNode()))
+            if(checkTouchWithinBoundsOfCharacter(position, this->skeletonCharacter->getSkeletonNode())) {
+                this->stateMachine->handleInput(S_STANDING_STATE, cocos2d::Vec2(0,0));
+                this->skeletonCharacter->getSkeletonNode()->getPhysicsBody()->resetForces();
+                this->skeletonCharacter->getSkeletonNode()->getPhysicsBody()->setVelocity(Vec2(0,0));
+            }
+            else if(checkHoldWithinSittingLimitOfCharacter(position, this->skeletonCharacter->getSkeletonNode()))
             {
                 CCLOG("%s", "Withing sitting area");
             }
@@ -1057,10 +1077,15 @@ void HelloWorld::HoldOrDragBehaviour(Point position) {
                 CCLOG("%s", "Withing walking area");
                 this->flipSkeletonDirection(position, this->skeletonCharacter->getSkeletonNode());
                 this->walkCharacterOnLeftOrRightDirection(position);
-            } else {
+            } else if(checkHoldWithinRunningLimitOfCharacter(position, this->skeletonCharacter->getSkeletonNode())){
                 CCLOG("%s", "Withing running area");
                 this->flipSkeletonDirection(position, this->skeletonCharacter->getSkeletonNode());
                 this->runCharacterOnLeftOrRightDirection(position);
+            } else {
+                this->stateMachine->handleInput(S_STANDING_STATE, cocos2d::Vec2(0,0));
+                this->skeletonCharacter->getSkeletonNode()->getPhysicsBody()->resetForces();
+                this->skeletonCharacter->getSkeletonNode()->getPhysicsBody()->setVelocity(Vec2(0,0));
+
             }
             
         } else {
@@ -1203,7 +1228,7 @@ void HelloWorld::sendBubbleDestroySignal() {
 
 bool HelloWorld::isTapOnInterActObject(Point position) {
     if(this->getSpeechBubbleAlreadyVisible()) {
-        return false;
+        return true;
     }
     return false;
 }

@@ -115,14 +115,16 @@ bool SkeletonCharacter::didSkeletonContactBeginDuringJumpingUp(PhysicsContact &c
     if((nodeA->getName() == HUMAN_SKELETON_NAME && contact.getShapeA()->getBody()->getVelocity().y > -GRAVITY_VELOCITY_TO_STICK_TO_GROUND) ||
        (nodeB->getName() == HUMAN_SKELETON_NAME && contact.getShapeB()->getBody()->getVelocity().y > -GRAVITY_VELOCITY_TO_STICK_TO_GROUND))
     {
-        float limit  = X_OFFSET_IF_HERO_DISAPPER;
-        if(this->getSkeletonNode()->getPosition().x <= limit || this->getSkeletonNode()->getPosition().x >= sceneWidth - limit) {
-            return false;
+        if((nodeA->getName() == HUMAN_SKELETON_NAME && nodeB->getPhysicsBody()->getCategoryBitmask() == INVISIBLE_BOUNDARY_CATEGORY_BITMASK) || (nodeB->getName() == HUMAN_SKELETON_NAME && nodeA->getPhysicsBody()->getCategoryBitmask() == INVISIBLE_BOUNDARY_CATEGORY_BITMASK)) {
+
+            float limit  = X_OFFSET_IF_HERO_DISAPPER;
+            if(this->getSkeletonNode()->getPosition().x <= limit || this->getSkeletonNode()->getPosition().x >= sceneWidth - limit) {
+                return false;
+            }
         }
         return true;
     }
     
-
     return false;
 }
 
