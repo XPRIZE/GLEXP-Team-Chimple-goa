@@ -95,6 +95,8 @@ private:
     
     bool checkHoldWithinWalkLimitOfCharacter(cocos2d::Point point, cocostudio::timeline::SkeletonNode* characterNode);
     
+    bool checkHoldWithinRunningLimitOfCharacter(cocos2d::Point point, cocostudio::timeline::SkeletonNode* characterNode);
+    
     bool checkHoldWithinSittingLimitOfCharacter(cocos2d::Point point, cocostudio::timeline::SkeletonNode* characterNode);
     
     void applyImpulseOnSkeletonToJumpOnHoldOrDrag(cocos2d::Point position);
