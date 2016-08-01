@@ -99,6 +99,10 @@ std::string KannadaUtil::getPhoneticSoundFileName(wchar_t alpha) {
     return fileName;
 }
 
+std::string KannadaUtil::getDir() {
+    return "kannada";
+}
+
 std::string KannadaUtil::getLang() {
     return "kan";
 }

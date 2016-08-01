@@ -69,6 +69,24 @@ void SafariAnalyticsManager::insertAnalyticsInfo(const char* targetAlphabet, con
     
 }
 
+bool SafariAnalyticsManager::wasGamePlayedBefore(const char* appName) {
+    sqlite3_stmt *res;
+    int rc = 0;
+    const char* querySQL = "SELECT APP_NAME FROM ANALYTICS_INFO WHERE APP_NAME = @app_name";
+    
+    rc = sqlite3_prepare_v2(this->dataBaseConnection, querySQL, -1, &res, 0);
+    
+    if (rc == SQLITE_OK) {
+        int index = sqlite3_bind_parameter_index(res, "@app_name");
+        sqlite3_bind_text(res, index, appName, -1, SQLITE_TRANSIENT);
+    } else {
+        fprintf(stderr, "Failed to execute statement: %s\n", sqlite3_errmsg(this->dataBaseConnection));
+    }
+    if(sqlite3_step(res) == SQLITE_ROW) {
+        return true;
+    }
+    return false;
+}
 
 
 SafariAnalyticsManager::~SafariAnalyticsManager() {

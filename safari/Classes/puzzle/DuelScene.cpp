@@ -84,7 +84,8 @@ bool DuelScene::init(wchar_t myMonChar, wchar_t otherMonChar)
     auto upper = _background->getChildByName("upper");
     upper->setPositionX(upper->getPositionX() + offsetX);
     _timer = _background->getChildByName("FileNode_1");
-    _timer->setPositionX(_timer->getPositionX() + offsetX);
+    _timer->setPosition(Vec2(_timer->getPositionX() + offsetX, visibleSize.height * 3 / 4));
+    _timerPosition = _timer->getPosition();
     _timer->setPosition(Vec2(_timerPosition.x, visibleSize.height + 150));
 
     auto right = _background->getChildByName(RIGHT_STAND_NAME);
@@ -98,7 +99,6 @@ bool DuelScene::init(wchar_t myMonChar, wchar_t otherMonChar)
     panel->addChild(_grid);
     _grid->setPosition(Vec2((panel->getContentSize().width - SQUARE_WIDTH * numCols) / 2, (panel->getContentSize().height - SQUARE_WIDTH * numRows) / 2));
 
-    _timerPosition = _timer->getPosition();
     _timerAnimation = CSLoader::createTimeline("battle_ground/timer.csb");
     _timer->runAction(_timerAnimation);
     _timerAnimation->setLastFrameCallFunc(CC_CALLBACK_0(DuelScene::armMyMon, this));
@@ -135,32 +135,26 @@ bool DuelScene::init(wchar_t myMonChar, wchar_t otherMonChar)
 }
 
 void DuelScene::startDuel() {
-        auto node = CSLoader::createNode("booknode.csb");
-        auto pos = Vec2(2300, 1600);
-        node->setPosition(pos);
+    auto node = CSLoader::createNode("booknode.csb");
+    auto pos = Vec2(2300, 1600);
+    node->setPosition(pos);
     addChild(node);
-        node->setScale(0.2);
-        Size visibleSize = Director::getInstance()->getVisibleSize();
-        Vec2 origin = Director::getInstance()->getVisibleOrigin();
-        
-        auto jumpTo = MoveTo::create(1, Vec2(origin.x + visibleSize.width / 2, origin.y + visibleSize.height / 2));
-        auto elastic = EaseBackOut::create(jumpTo);
-        auto scaleTo = ScaleTo::create(1, 1);
-            cocostudio::timeline::ActionTimeline* anim = CSLoader::createTimeline("booknode.csb");
-            node->runAction(anim);
-            anim->gotoFrameAndPause(0);
-            auto spawn = Spawn::create(elastic, scaleTo, NULL);
-            auto callback = CC_CALLBACK_0(DuelScene::playAnimationTemp, this, anim);
+    node->setScale(0.2);
+    Size visibleSize = Director::getInstance()->getVisibleSize();
+    Vec2 origin = Director::getInstance()->getVisibleOrigin();
+
+    auto jumpTo = MoveTo::create(1, Vec2(origin.x + visibleSize.width / 2, origin.y + visibleSize.height / 2));
+    auto scaleTo = ScaleTo::create(1, 1);
+        cocostudio::timeline::ActionTimeline* anim = CSLoader::createTimeline("booknode.csb");
+        node->runAction(anim);
+        auto spawn = Spawn::create(scaleTo, jumpTo, NULL);
+    auto callbackOpen = CallFunc::create(CC_CALLBACK_0(cocostudio::timeline::ActionTimeline::play, anim, "book_open", false));
+    auto callbackClose = CallFunc::create(CC_CALLBACK_0(cocostudio::timeline::ActionTimeline::play, anim, "book_close", false));
+    anim->setAnimationEndCallFunc("book_open", CC_CALLBACK_0(DuelScene::appearMyMon, this));
+
     auto fade = FadeOut::create(1.0);
-    auto sequence = Sequence::create(TargetedAction::create(node, spawn), CallFunc::create(callback), DelayTime::create(1.0), TargetedAction::create(node, fade), NULL);
+    auto sequence = Sequence::create(TargetedAction::create(node, spawn), callbackOpen, DelayTime::create(1.0), callbackClose, TargetedAction::create(node, fade), NULL);
     runAction(sequence);
-
-    
-}
-
-void DuelScene::playAnimationTemp(cocostudio::timeline::ActionTimeline* timeline) {
-    timeline->gotoFrameAndPlay(1, false);
-    timeline->setLastFrameCallFunc(CC_CALLBACK_0(DuelScene::appearMyMon, this));
 }
 
 void DuelScene::appearMyMon() {
@@ -188,7 +182,7 @@ void DuelScene::appearMyMon() {
     auto otherMonJumpTo = MoveTo::create(1, rightStand->getPosition() + Vec2(0, 40));
     
     
-    runAction(Sequence::create(TargetedAction::create(_myMon, monSpawn), TargetedAction::create(_otherMon, otherMonJumpTo), CallFunc::create(CC_CALLBACK_0(DuelScene::startMyTurn, this)), NULL));
+    runAction(Sequence::create(TargetedAction::create(_myMon, monSpawn), TargetedAction::create(_otherMon, otherMonJumpTo), CallFunc::create(CC_CALLBACK_0(MenuContext::showStartupHelp, _menuContext)),  CallFunc::create(CC_CALLBACK_0(DuelScene::startMyTurn, this)), NULL));
     
 }
 

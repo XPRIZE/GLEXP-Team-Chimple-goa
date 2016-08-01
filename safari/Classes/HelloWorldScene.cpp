@@ -378,6 +378,9 @@ bool HelloWorld::init(const std::string& island, const std::string& sceneName)
     
     this->scheduleUpdate();
     
+    CocosDenshion::SimpleAudioEngine::getInstance()->playBackgroundMusic("sounds/Adagio teru (ft. teru).m4a", true);
+    CocosDenshion::SimpleAudioEngine::getInstance()->setEffectsVolume(1.0f);
+    
     return true;
 }
 
@@ -447,9 +450,9 @@ void HelloWorld::registerMessageSenderAndReceiver() {
     SEND_SHOW_TOUCH_POINT_SIGNAL(this, RPGConfig::SEND_SHOW_TOUCH_POINT_SIGN_NOTIFICATION, showTouchPointSign);
 
     
-    this->getEventDispatcher()->addCustomEventListener("on_menu_exit", CC_CALLBACK_1(HelloWorld::transitToMenu, this));
+    this->getEventDispatcher()->addCustomEventListener(RPGConfig::ON_MENU_EXIT_NOTIFICATION, CC_CALLBACK_1(HelloWorld::transitToMenu, this));
 
-    this->getEventDispatcher()->addCustomEventListener("alphamon_destroyed", CC_CALLBACK_1(HelloWorld::alphamonDestroyed, this));
+    this->getEventDispatcher()->addCustomEventListener(RPGConfig::ON_ALPHAMON_PRESSED_NOTIFICATION, CC_CALLBACK_1(HelloWorld::alphamonDestroyed, this));
 }
 
 void HelloWorld::alphamonDestroyed(EventCustom* event) {
@@ -592,15 +595,16 @@ void HelloWorld::cleanUpResources() {
     
     this->sqlite3Helper->recordMainCharacterPositionInScene(this->island.c_str(), this->sceneName.c_str(), xPos, yPos);
     
-    EVENT_DISPATCHER->removeCustomEventListeners("MAIN_CHARACTER_VICINITY_CHECK_NOTIFICATION");
-    EVENT_DISPATCHER->removeCustomEventListeners("SPEECH_MESSAGE_ON_TAP_NOTIFICATION");
-    EVENT_DISPATCHER->removeCustomEventListeners("SPEECH_MESSAGE_ON_TEXT_TAP_NOTIFICATION");
-    EVENT_DISPATCHER->removeCustomEventListeners("RECEIVE_CUSTOM_MESSAGE_NOTIFICATION");
-    EVENT_DISPATCHER->removeCustomEventListeners("SPEECH_BUBBLE_DESTROYED_NOTIFICATION");
-    EVENT_DISPATCHER->removeCustomEventListeners("PROCESS_CUSTOM_MESSAGE_AND_CREATE_UI_NOTIFICATION");
-    EVENT_DISPATCHER->removeCustomEventListeners("on_menu_exit");
-    EVENT_DISPATCHER->removeCustomEventListeners("alphamon_destroyed");
+    EVENT_DISPATCHER->removeCustomEventListeners(RPGConfig::MAIN_CHARACTER_VICINITY_CHECK_NOTIFICATION);
+    EVENT_DISPATCHER->removeCustomEventListeners(RPGConfig::SPEECH_MESSAGE_ON_TAP_NOTIFICATION);
+    EVENT_DISPATCHER->removeCustomEventListeners(RPGConfig::SPEECH_MESSAGE_ON_TEXT_TAP_NOTIFICATION);
+    EVENT_DISPATCHER->removeCustomEventListeners(RPGConfig::RECEIVE_CUSTOM_MESSAGE_NOTIFICATION);
+    EVENT_DISPATCHER->removeCustomEventListeners(RPGConfig::SPEECH_BUBBLE_DESTROYED_NOTIFICATION);
+    EVENT_DISPATCHER->removeCustomEventListeners(RPGConfig::PROCESS_CUSTOM_MESSAGE_AND_CREATE_UI_NOTIFICATION);
+    EVENT_DISPATCHER->removeCustomEventListeners(RPGConfig::ON_MENU_EXIT_NOTIFICATION);
+    EVENT_DISPATCHER->removeCustomEventListeners(RPGConfig::ON_ALPHAMON_PRESSED_NOTIFICATION);
     
+    CocosDenshion::SimpleAudioEngine::getInstance()->pauseBackgroundMusic();
     
     if(this->stateMachine != nullptr) {
         delete this->stateMachine;
@@ -1439,6 +1443,19 @@ bool HelloWorld::handlePhysicsContactEventForMainCharacter(PhysicsContact &conta
                     this->skeletonCharacter->getSkeletonActionTimeLine()->setAnimationEndCallFunc(JUMP_FINISHED, jumpEndingAnimation);
                     this->skeletonCharacter->getSkeletonActionTimeLine()->play(JUMP_FINISHED, false);
                 }
+            } else if(this->stateMachine->getCurrentState()->getState() == S_WALKING_STATE || this->stateMachine->getCurrentState()->getState() == S_RUNNING_STATE) {
+                
+                if((nodeA->getName() != HUMAN_SKELETON_NAME && nodeA->getPhysicsBody()->getCategoryBitmask() != GROUND_CATEGORY_MASK) ||
+                   (nodeB->getName() != HUMAN_SKELETON_NAME && nodeB->getPhysicsBody()->getCategoryBitmask() != GROUND_CATEGORY_MASK)) {
+                    
+                    float limit = X_OFFSET_IF_HERO_DISAPPER
+                    if(this->skeletonCharacter->getSkeletonNode()->getPosition().x <= limit || this->skeletonCharacter->getSkeletonNode()->getPosition().x >= this->getSceneSize().width - limit) {
+                        return true;
+                    }
+                    
+                    return false;
+                }
+                
             }
         }
     }
@@ -1452,12 +1469,12 @@ bool HelloWorld::handlePhysicsContactEventForOtherSkeletonCharacter(PhysicsConta
     bool isSkeletonNodeA = dynamic_cast<cocostudio::timeline::SkeletonNode *>(nodeA);
     bool isSkeletonNodeB = dynamic_cast<cocostudio::timeline::SkeletonNode *>(nodeB);
     
-    if(isSkeletonNodeA && contact.getShapeB()->getCollisionBitmask() == 3) {
+    if(isSkeletonNodeA && contact.getShapeB()->getCollisionBitmask() == GROUND_CATEGORY_MASK) {
 //        CCLOG("contact BEGAN external sekleton!!!");
         nodeA->setScaleX(-nodeA->getScaleX());
         RPGConfig::externalSkeletonMoveDelta = -RPGConfig::externalSkeletonMoveDelta;
         
-    } else if(isSkeletonNodeB && contact.getShapeA()->getCollisionBitmask() == 3) {
+    } else if(isSkeletonNodeB && contact.getShapeA()->getCollisionBitmask() == GROUND_CATEGORY_MASK) {
 //        CCLOG("contact BEGAN external sekleton!!!");
         nodeB->setScaleX(-nodeB->getScaleX());
         RPGConfig::externalSkeletonMoveDelta = -RPGConfig::externalSkeletonMoveDelta;

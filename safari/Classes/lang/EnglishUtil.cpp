@@ -49,6 +49,10 @@ std::string EnglishUtil::getPhoneticSoundFileName(wchar_t alpha) {
     return fileName;
 }
 
+std::string EnglishUtil::getDir() {
+    return "english";
+}
+
 std::string EnglishUtil::getLang() {
     return "eng";
 }
