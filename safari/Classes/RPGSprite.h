@@ -56,20 +56,11 @@ public:
     CC_SYNTHESIZE(std::string, show, Show);
     
     CC_SYNTHESIZE(bool, vicinityToMainCharacter, VicinityToMainCharacter);
-    
-    CC_SYNTHESIZE(bool, nearByToMainCharacter, NearByToMainCharacter);
-    
-    CC_SYNTHESIZE(bool, shouldSendShowTouchSign, ShouldSendShowTouchSign);
-    
-    CC_SYNTHESIZE(bool, showTouchSignNotificationSent, ShowTouchSignNotificationSent);
-    
-    virtual void update(float dt);
         
-    virtual bool checkVicinityToMainSkeleton(SkeletonCharacter* skeletonCharacter);
-    
+    virtual void update(float dt);
+
     virtual SkeletonCharacter* getMainSkeleton();
 
-    
     virtual bool onTouchBegan(cocos2d::Touch * touch, cocos2d::Event* event);
     
     virtual void touchEnded(cocos2d::Touch* touch, cocos2d::Event* event);
@@ -80,7 +71,10 @@ protected:
     cocos2d::Node* sprite;
     std::unordered_map<std::string, std::string> attributes;
     SkeletonCharacter* mainSkeleton;
-    
+    cocos2d::Sprite* touchPointerNode;
+    void checkVicinityToMainSkeleton(SkeletonCharacter* skeletonCharacter);
+    void showTouchPointer();
+    void destroyTouchPointer();    
 };
 
 #endif /* RPGSprite_h */

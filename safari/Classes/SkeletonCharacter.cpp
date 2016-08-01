@@ -49,6 +49,7 @@ SkeletonCharacter::SkeletonCharacter()
     this->isPlayingContinousRotationWhileJumping = false;
     this->isFalling = false;
     this->mouthSkin = NULL;
+    this->isStanding = false;
 }
 
 SkeletonCharacter::~SkeletonCharacter()

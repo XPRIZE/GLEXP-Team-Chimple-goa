@@ -13,12 +13,11 @@
 USING_NS_CC;
 
 AlphamonSprite::AlphamonSprite():
-shouldSendShowTouchSign(false),
-showTouchSignNotificationSent(false),
 vicinityToMainCharacter(false),
 interAct(""),
 isSelectedForBattle(false)
 {    
+    this->touchPointerNode = NULL;    
     this->mainSkeleton = NULL;
 }
 
@@ -54,25 +53,15 @@ bool AlphamonSprite::initialize(cocos2d::Node* node, std::unordered_map<std::str
     
     
     this->getEventDispatcher()->addCustomEventListener("alphamon_pressed", CC_CALLBACK_1(AlphamonSprite::onAlphabetSelected, this));
-
     
     auto checkVicinityWithMainCharacter = [=] (EventCustom * event) {
         this->mainSkeleton = static_cast<SkeletonCharacter*>(event->getUserData());
         this->checkVicinityToMainSkeleton(this->mainSkeleton);
         
-        
-        if(this->getNearByToMainCharacter() && !this->getShowTouchSignNotificationSent()) {
-            this->setShowTouchSignNotificationSent(true);
-            EVENT_DISPATCHER->dispatchCustomEvent(RPGConfig::SEND_SHOW_TOUCH_POINT_SIGN_NOTIFICATION, static_cast<void*>(this->getAlphaMon()));
-        }
-        
-        if(this->getVicinityToMainCharacter() && !this->getShowTouchSignNotificationSent()) {
-            this->setShowTouchSignNotificationSent(true);
-            EVENT_DISPATCHER->dispatchCustomEvent(RPGConfig::SEND_SHOW_TOUCH_POINT_SIGN_NOTIFICATION, static_cast<void*>(this->getAlphaMon()));            
-        }
     };
     
     ADD_VICINITY_NOTIFICATION(this, RPGConfig::MAIN_CHARACTER_VICINITY_CHECK_NOTIFICATION, checkVicinityWithMainCharacter);
+
     
     this->schedule(CC_SCHEDULE_SELECTOR(AlphamonSprite::destoryAlphaMon), ALPHAMON_DESTRUCTION_FREQUENCY);
     this->scheduleUpdate();
@@ -104,14 +93,12 @@ std::unordered_map<std::string, std::string> AlphamonSprite::getAttributes() {
 }
 
 void AlphamonSprite::update(float dt) {
-    if(!this->vicinityToMainCharacter && this->mainSkeleton != NULL) {
-        
-        EVENT_DISPATCHER->dispatchCustomEvent( RPGConfig::MAIN_CHARACTER_VICINITY_CHECK_NOTIFICATION, this->mainSkeleton);
+    if(!this->vicinityToMainCharacter && this->mainSkeleton != NULL && !this->mainSkeleton->isStanding) {
+        this->checkVicinityToMainSkeleton(this->mainSkeleton);
     }
 }
 
-bool AlphamonSprite::checkVicinityToMainSkeleton(SkeletonCharacter* skeletonCharacter) {
-    bool isNear = false;
+void AlphamonSprite::checkVicinityToMainSkeleton(SkeletonCharacter* skeletonCharacter) {
     Vec2 mainSkeletonPositionFromBottom = Point(skeletonCharacter->getSkeletonNode()->getPosition().x, skeletonCharacter->getSkeletonNode()->getPosition().y);
     Vec2 mainSkeletonPositionFromTop = Point(skeletonCharacter->getSkeletonNode()->getPosition().x, skeletonCharacter->getSkeletonNode()->getPosition().y + skeletonCharacter->getSkeletonNode()->getBoundingBox().size.height);
     
@@ -120,33 +107,50 @@ bool AlphamonSprite::checkVicinityToMainSkeleton(SkeletonCharacter* skeletonChar
     
     if((distanceFromTop >= -OBJECT_TAP_BOUNDING_BOX_WIDTH && distanceFromTop <= OBJECT_TAP_BOUNDING_BOX_WIDTH) || (distanceFromBottom >= -OBJECT_TAP_BOUNDING_BOX_WIDTH && distanceFromBottom <= OBJECT_TAP_BOUNDING_BOX_WIDTH)) {
         this->setVicinityToMainCharacter(true);
-        this->setShouldSendShowTouchSign(true);
-        isNear = true;
+        this->showTouchPointer();
         
     } else {
         this->setVicinityToMainCharacter(false);
-        isNear = false;
     }
     
     
     if((distanceFromTop >= -OBJECT_NEAR_BY_BOUNDING_BOX_WIDTH && distanceFromTop <= OBJECT_NEAR_BY_BOUNDING_BOX_WIDTH) || (distanceFromBottom >= -OBJECT_NEAR_BY_BOUNDING_BOX_WIDTH && distanceFromBottom <= OBJECT_NEAR_BY_BOUNDING_BOX_WIDTH)) {
-        this->setShouldSendShowTouchSign(true);
-        this->setNearByToMainCharacter(true);
+        if(!this->vicinityToMainCharacter) {
+            this->showTouchPointer();    
+        }
         
-    } else {
-        this->setNearByToMainCharacter(false);
-        this->setShouldSendShowTouchSign(false);
-        this->setShowTouchSignNotificationSent(false);
     }
-    
-    
-    return isNear;
-    
 }
 
 SkeletonCharacter* AlphamonSprite::getMainSkeleton() {
     return this->mainSkeleton;
 }
+
+void AlphamonSprite::destroyTouchPointer() {
+    if(this->touchPointerNode != NULL) {
+        this->touchPointerNode->removeFromParent();
+        this->touchPointerNode = NULL;
+    }
+}
+
+void AlphamonSprite::showTouchPointer() {
+    if(this->touchPointerNode == NULL)
+    {
+        this->touchPointerNode =  Sprite::create(TOUCH_POINTER_IMG);
+        this->touchPointerNode->setScale(0.5f, 0.5f);
+        this->touchPointerNode->setPosition(this->getPosition());
+        this->addChild(this->touchPointerNode);
+        this->touchPointerNode->setVisible(true);
+        
+        auto scaleBy = ScaleBy::create(0.5, 1.2);
+        auto sequenceScale = Sequence::create(scaleBy, scaleBy->reverse(), nullptr);
+        auto repeatScaleAction = Repeat::create(sequenceScale, 5);
+        auto callbackStart = CallFunc::create(CC_CALLBACK_0(AlphamonSprite::destroyTouchPointer, this));
+        auto sequence = Sequence::create(repeatScaleAction, callbackStart, nullptr);
+        this->touchPointerNode->runAction(sequence);
+    }
+}
+
 
 void AlphamonSprite::onAlphabetSelected(cocos2d::EventCustom *event) {
     std::string s(this->getAlphaMon()->getName());
