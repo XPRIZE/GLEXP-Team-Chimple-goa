@@ -10,7 +10,6 @@
 #include "ui/CocosGUI.h"
 #include "../StartMenuScene.h"
 #include "../MapScene.h"
-#include "../GameMapScene.h"
 #include "../lang/SafariAnalyticsManager.h"
 #include "editor-support/cocostudio/CocoStudio.h"
 #include "SimpleAudioEngine.h"
@@ -119,8 +118,8 @@ void MenuContext::expandMenu(cocos2d::Ref *pSender, cocos2d::ui::Widget::TouchEv
                 _mapMenu->addTouchEventListener(CC_CALLBACK_2(MenuContext::showMap, this));
                 
                 _bookMenu = this->createMenuItem("menu/book.png", "menu/book.png", "menu/book.png", 3 * POINTS_TO_LEFT);
-                //_menu->addTouchEventListener(CC_CALLBACK_2(MenuContext::expandMenu, this));
-
+                //_bookMenu->addTouchEventListener(CC_CALLBACK_2(MenuContext::showScore, this));
+                
                 _gamesMenu = this->createMenuItem("menu/game.png", "menu/game.png", "menu/game.png", 4 * POINTS_TO_LEFT);
                 _gamesMenu->addTouchEventListener(CC_CALLBACK_2(MenuContext::showGamesMenu, this));
 
@@ -382,6 +381,16 @@ void MenuContext::showGamesMenu(cocos2d::Ref *pSender, cocos2d::ui::Widget::Touc
 
 
 
+void MenuContext::showScore() {
+    //compute score
+    addGreyLayer();
+    pauseNodeAndDescendants(_main);
+    Size visibleSize = Director::getInstance()->getVisibleSize();
+    Vec2 origin = Director::getInstance()->getVisibleOrigin();
+    auto scoreNode = ScoreBoardContext::create(_points, this->gameName);
+    scoreNode->setPosition(Vec2(origin.x + visibleSize.width / 2, origin.y + visibleSize.height / 2));
+    addChild(scoreNode);
+}
 
 
 MenuContext::MenuContext() :

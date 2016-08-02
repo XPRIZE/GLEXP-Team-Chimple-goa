@@ -120,6 +120,7 @@
 
 #define MAP_FILE "map.csb"
 #define GAME_MAP_FILE "gamemap.csb"
+#define SCORE_BOARD_FILE "scoreboard.csb"
 
 #define EVENT_DISPATCHER Director::getInstance()->getEventDispatcher()
 

@@ -324,7 +324,7 @@ void SmashTheRock::masking()
 void SmashTheRock::change(float dt)
 {
 	stopAllActions();
-	Director::getInstance()->replaceScene(StartMenu::createScene());
+	menu->showScore();
 }
 
 bool SmashTheRock::onTouchBegan(cocos2d::Touch *touch, cocos2d::Event * event)

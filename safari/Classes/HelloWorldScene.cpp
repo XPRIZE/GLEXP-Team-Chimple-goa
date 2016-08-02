@@ -551,7 +551,7 @@ void HelloWorld::transitToMenu(EventCustom * event) {
     } else if(menuName == MAP_MENU) {
         Director::getInstance()->replaceScene(TransitionFade::create(2.0, MapScene::createScene(), Color3B::BLACK));
     } else {
-        Director::getInstance()->replaceScene(TransitionFade::create(2.0, StartMenu::createScene()));
+        menuContext->showScore();
     }
     
 }

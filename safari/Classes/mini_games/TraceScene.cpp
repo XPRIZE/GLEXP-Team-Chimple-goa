@@ -320,7 +320,7 @@ void Trace::transit(int level) {
 
 void Trace::resetLevel() {
 	level = 0;
-	Director::getInstance()->replaceScene(StartMenu::createScene());
+	_menuContext->showScore();
 }
 void Trace::setDotsVisibility(bool flag) {
 

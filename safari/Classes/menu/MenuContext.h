@@ -14,6 +14,7 @@
 #include "ui/CocosGUI.h"
 #include "../alphamon/HPMeter.h"
 #include "editor-support/cocostudio/CocoStudio.h"
+#include "ScoreBoardContext.h"
 
 #define GAME_MAP_MENU "GameMapScene"
 #define HELP_MENU "HelpScene"
@@ -22,7 +23,7 @@
 #define BOOK_MENU "BookScene"
 #define BAG_PACK_MENU "BagpackScene"
 
-
+class GameMapScene;
 class MenuContext : public cocos2d::Node {
     
 public:
@@ -32,6 +33,7 @@ public:
     static const std::string LANG;
     Node* jumpOut(std::string nodeCsbName, float duration, cocos2d::Vec2 position, std::string animationName = "");
     void showStartupHelp();
+    void showScore();
 
 CC_CONSTRUCTOR_ACCESS:
     MenuContext();
@@ -71,6 +73,7 @@ protected:
     void happyFace();
     void sadFace();
     void normalFace();
+    
     std::string gameName;
 
 #if (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID || CC_TARGET_PLATFORM == CC_PLATFORM_IOS)  
