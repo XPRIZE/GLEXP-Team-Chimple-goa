@@ -3,7 +3,6 @@
 #include "StartMenuScene.h"
 #include "GameMapScene.h"
 #include "lang/SafariAnalyticsManager.h"
-#include "ScoreBoardContext.h"
 
 USING_NS_CC;
 
