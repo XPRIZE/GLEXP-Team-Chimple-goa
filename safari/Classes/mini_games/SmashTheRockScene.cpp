@@ -93,32 +93,38 @@ bool SmashTheRock::init()
 	auto block = Sprite::createWithSpriteFrameName("smash_de_rock/letter_normal.png");
 
 	mychar = CharGenerator::getInstance()->generateAChar();
-	std::vector<std::vector<wchar_t>> charkey = CharGenerator::getInstance()->generateMatrixForChoosingAChar(mychar,3,11,50);
+	std::vector<std::vector<wchar_t>> charkey = CharGenerator::getInstance()->generateMatrixForChoosingAChar(mychar,2,9,50);
 
-	int dis = (230.0/2560)*visibleSize.width;
-	for (int i = 1; i < 4; i++)
+	int dis = (160.0/2560)*visibleSize.width;
+	for (int i = 1; i < 3; i++)
 	{
-		int blockHeight = i*(block->getContentSize().height + 30) + 0;
-		sizei = block->getContentSize().height + 30;
+		int blockHeight = i*(block->getContentSize().height + 110) + 10;
+		sizei = (block->getContentSize().height + 110);
 		CCLOG("sizei = %d", sizei);
-		for (int j = 1; j < 12; j++)
+		for (int j = 1; j < 10; j++)
 		{
 			auto block1 = Sprite::createWithSpriteFrameName("smash_de_rock/letter_normal.png");
 			auto right = Sprite::createWithSpriteFrameName("smash_de_rock/letter_correct.png");
 			auto wrong = Sprite::createWithSpriteFrameName("smash_de_rock/letter_wrong.png");
-			int blockWidth = j*(block->getContentSize().width + 30) +dis;
-			sizej = block->getContentSize().width + 30;
+			int blockWidth = j*(block->getContentSize().width + 80) +dis;
+			sizej = (block->getContentSize().width + 80);
 			CCLOG("sizej = %d", sizej);
 			block1->setAnchorPoint(Vec2(0.5, 0.5));
 			block1->setPositionX(blockWidth);
 			block1->setPositionY(blockHeight);
+			block1->setScaleX(1.3);
+			block1->setScaleY(1.2);
 			right->setAnchorPoint(Vec2(0.5, 0.5));
 			right->setPositionX(blockWidth);
 			right->setPositionY(blockHeight);
+			right->setScaleX(1.3);
+			right->setScaleY(1.2);
 			right->setVisible(false);
 			wrong->setAnchorPoint(Vec2(0.5, 0.5));
 			wrong->setPositionX(blockWidth);
 			wrong->setPositionY(blockHeight);
+			wrong->setScaleX(1.3);
+			wrong->setScaleY(1.2);
 			wrong->setVisible(false);
 			blockRef.pushBack(block1);
 			rightRef.pushBack(right);
@@ -139,12 +145,13 @@ bool SmashTheRock::init()
 		//	label->setScale(0.15);
 			label->setPositionX(blockWidth );
 			auto letter = label->getString();
-			label->setPositionY(blockHeight - 150);
+			label->setPositionY(blockHeight - 210);
 			label->setColor(ccc3(255, 255, 255));
 			label->enableShadow(Color4B::GRAY, Size(5, -5), -50);
 			label->setAnchorPoint(Vec2::ANCHOR_MIDDLE_BOTTOM);
 			auto mystr = LangUtil::convertUTF16CharToString(mychar);
 			label->setName(mystr);
+			label->setScale(0.35);
 			labelRef.pushBack(label);
 			CCLOG("alpha = %d", labelRef.size());
 			this->addChild(label,2);
@@ -335,7 +342,7 @@ bool SmashTheRock::onTouchBegan(cocos2d::Touch *touch, cocos2d::Event * event)
 	Alphabet * target =(Alphabet *) event->getCurrentTarget();
 	auto  location = target->convertToNodeSpace(touch->getLocation());
 	Size visibleSize = Director::getInstance()->getVisibleSize();
-	int dis = (230.00 / 2560)*(visibleSize.width);
+	int dis = (160.00 / 2560)*(visibleSize.width);
 	auto mystr = LangUtil::convertUTF16CharToString(mychar);
 	auto myletter = target->getChar();
 	//	CCRect targetRectangle = CCRectMake(0,0, target->getContentSize().width, target->getContentSize().height);
@@ -348,11 +355,11 @@ bool SmashTheRock::onTouchBegan(cocos2d::Touch *touch, cocos2d::Event * event)
 			int indexj = (target->getPositionX());
 			int indexi = (target->getPositionY());
 			CCLOG("target x = %d", indexi);
-			int tempi = ((indexi + 160) / sizei)-1 ;
+			int tempi = ((indexi + 200) / sizei)-1 ;
 			int tempj = ((indexj - (dis)) / sizej)-1;
 			CCLOG("tempi x = %d", tempi);
 			CCLOG("tempj x = %d", tempj);
-			val = ((tempi) * 11) + tempj;
+			val = ((tempi) * 9) + tempj;
 			CCLOG("val x = %d", val);
             auto showright = rightRef.at(val);
 			showright->setVisible(true);
@@ -368,11 +375,11 @@ bool SmashTheRock::onTouchBegan(cocos2d::Touch *touch, cocos2d::Event * event)
 			int indexj1 = (target->getPositionX());
 			int indexi1 = (target->getPositionY());
 			CCLOG("target x = %d", indexi1);
-			int tempi1 = ((indexi1 + 160) / sizei)-1;
+			int tempi1 = ((indexi1 + 200) / sizei)-1;
 			int tempj1 = ((indexj1 - (dis)) / sizej)-1;
 			CCLOG("tempi1 x = %d", tempi1);
 			CCLOG("tempj1 x = %d", tempj1);
-			val1 = ((tempi1) * 11) + tempj1;
+			val1 = ((tempi1) * 9) + tempj1;
 			CCLOG("val1 x = %d", val1);
 			auto showwrong = wrongRef.at(val1);
 			showwrong->setVisible(true);

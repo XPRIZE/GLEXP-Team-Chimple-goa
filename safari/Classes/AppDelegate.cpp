@@ -101,7 +101,7 @@ bool AppDelegate::applicationDidFinishLaunching() {
     SafariAnalyticsManager::getInstance();
     
     // create a scene. it's an autorelease object
-    director->runWithScene(StartMenu::createScene());
+    director->runWithScene(GameMapScene::createScene());
     Application::getInstance()->getCurrentLanguage();
     return true;
 }

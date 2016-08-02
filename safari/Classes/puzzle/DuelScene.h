@@ -66,7 +66,7 @@ protected:
     static const std::string SLIDER_BG_NAME;
     static const std::string LEFT_STAND_NAME;
     static const std::string RIGHT_STAND_NAME;
-    static const int MAX_POINTS_PER_TURN = 20;
+    static const int MAX_POINTS_PER_TURN = 25;
     static const int MAX_ROWS = 4;
     static const int MAX_COLS = 12;
     constexpr static const GLfloat SQUARE_WIDTH = 200.0;

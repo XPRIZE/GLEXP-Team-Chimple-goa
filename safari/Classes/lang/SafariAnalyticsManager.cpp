@@ -7,7 +7,7 @@
 //
 
 #include "SafariAnalyticsManager.h"
-
+#include "LangUtil.h"
 
 
 USING_NS_CC;
@@ -69,6 +69,94 @@ void SafariAnalyticsManager::insertAnalyticsInfo(const char* targetAlphabet, con
     
 }
 
+void SafariAnalyticsManager::insertAlphabet(wchar_t alphabet) {
+    sqlite3_stmt *res;
+    std::string alphaString = LangUtil::convertUTF16CharToString(alphabet);
+    const char* alphaStr = alphaString.c_str();
+    const char* querySQL = " INSERT INTO ALPHABET_LEARNT (ALPHABET) VALUES (?)";
+    
+    int rc = sqlite3_prepare_v2(this->dataBaseConnection, querySQL, strlen(querySQL), &res, NULL);
+    
+    if( rc == SQLITE_OK ) {
+        // bind the value
+        
+        sqlite3_bind_text(res, 1, alphaStr, strlen(alphaStr), SQLITE_TRANSIENT);
+        
+        // commit
+        int m = sqlite3_step(res);
+        if(m == SQLITE_BUSY)
+        {
+            fprintf(stderr, "Failed to execute statement: %s\n", sqlite3_errmsg(this->dataBaseConnection));
+        }
+        
+        if(m == SQLITE_ERROR) {
+            fprintf(stderr, "Failed to execute statement: %s\n", sqlite3_errmsg(this->dataBaseConnection));
+        }
+        
+        if(m == SQLITE_MISUSE) {
+            fprintf(stderr, "Failed to execute statement: %s\n", sqlite3_errmsg(this->dataBaseConnection));
+        }
+        sqlite3_finalize(res);
+    }
+    else {
+        fprintf(stderr, "Failed to execute statement: %s\n", sqlite3_errmsg(this->dataBaseConnection));
+    }
+}
+
+std::vector<wchar_t> SafariAnalyticsManager::getAlphabets() {
+    sqlite3_stmt *res;
+    int rc = 0;
+    const char* querySQL = "SELECT ALPHABET FROM ALPHABET_LEARNT";
+    
+    rc = sqlite3_prepare_v2(this->dataBaseConnection, querySQL, -1, &res, 0);
+    std::vector<wchar_t> alphabets = std::vector<wchar_t>();
+    while(sqlite3_step(res) == SQLITE_ROW) {
+        std::string alphabetString( reinterpret_cast< char const* >(sqlite3_column_text(res, 0))) ;
+        alphabets.push_back(LangUtil::convertStringToUTF16Char(alphabetString));
+    }
+    return alphabets;
+}
+
+bool SafariAnalyticsManager::doesAlphabetExist(wchar_t alphabet) {
+    sqlite3_stmt *res;
+    int rc = 0;
+    std::string alphaString = LangUtil::convertUTF16CharToString(alphabet);
+    const char* alphaStr = alphaString.c_str();
+
+    const char* querySQL = "SELECT ALPHABET FROM ALPHABET_LEARNT WHERE ALPHABET = @alpha";
+    rc = sqlite3_prepare_v2(this->dataBaseConnection, querySQL, -1, &res, 0);
+
+    if (rc == SQLITE_OK) {
+        int index = sqlite3_bind_parameter_index(res, "@alpha");
+        sqlite3_bind_text(res, index, alphaStr, strlen(alphaStr), SQLITE_TRANSIENT);
+    } else {
+        fprintf(stderr, "Failed to execute statement: %s\n", sqlite3_errmsg(this->dataBaseConnection));
+    }
+    if(sqlite3_step(res) == SQLITE_ROW) {
+        return true;
+    }
+    return false;
+    
+}
+
+bool SafariAnalyticsManager::wasGamePlayedBefore(const char* appName) {
+    sqlite3_stmt *res;
+    int rc = 0;
+    const char* querySQL = "SELECT APP_NAME FROM ANALYTICS_INFO WHERE APP_NAME = @app_name";
+    
+    rc = sqlite3_prepare_v2(this->dataBaseConnection, querySQL, -1, &res, 0);
+    
+    if (rc == SQLITE_OK) {
+        int index = sqlite3_bind_parameter_index(res, "@app_name");
+        sqlite3_bind_text(res, index, appName, -1, SQLITE_TRANSIENT);
+    } else {
+        fprintf(stderr, "Failed to execute statement: %s\n", sqlite3_errmsg(this->dataBaseConnection));
+    }
+    if(sqlite3_step(res) == SQLITE_ROW) {
+        return true;
+    }
+    return false;
+}
 
 
 SafariAnalyticsManager::~SafariAnalyticsManager() {

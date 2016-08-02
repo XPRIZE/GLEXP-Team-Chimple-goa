@@ -95,6 +95,8 @@ private:
     
     bool checkHoldWithinWalkLimitOfCharacter(cocos2d::Point point, cocostudio::timeline::SkeletonNode* characterNode);
     
+    bool checkHoldWithinRunningLimitOfCharacter(cocos2d::Point point, cocostudio::timeline::SkeletonNode* characterNode);
+    
     bool checkHoldWithinSittingLimitOfCharacter(cocos2d::Point point, cocostudio::timeline::SkeletonNode* characterNode);
     
     void applyImpulseOnSkeletonToJumpOnHoldOrDrag(cocos2d::Point position);
@@ -157,8 +159,6 @@ private:
     
     void calculateAlphamonNodesInScene(cocos2d::Node *rootNode);
     
-    void resetTouchPointSign(cocos2d::Sprite* touchPointer);
-
     cocos2d::Size sceneSize;
     
     std::vector<std::string> activeAlphamonNodes;
