@@ -183,6 +183,11 @@ void MenuContext::removeMenu() {
         
         removeChild(_gamesMenu);
         _gamesMenu = nullptr;
+        
+        if(_chimp) {
+            removeChild(_chimp);
+            _chimp = nullptr;
+        }
     }
 
     if(_greyLayer) {
@@ -329,24 +334,26 @@ void MenuContext::chimpHelp() {
         listener->setSwallowTouches(true);
         listener->onTouchBegan = CC_CALLBACK_2(MenuContext::onChimpTouchBegan, this);
         listener->onTouchEnded = CC_CALLBACK_2(MenuContext::onChimpTouchEnded, this);
-        _eventDispatcher->addEventListenerWithFixedPriority(listener, 1);
+        _eventDispatcher->addEventListenerWithSceneGraphPriority(listener, _chimp);
         
         runAction(Sequence::create(DelayTime::create(2), CallFunc::create(CC_CALLBACK_0(MenuContext::tellHelp, this)), NULL));
     }
 }
 
 void MenuContext::tellHelp() {
-    cocostudio::timeline::ActionTimeline* anim = CSLoader::createTimeline("chimpanzee.csb");
-    _chimp->runAction(anim);
-    anim->play("talk", true);
-//    auto audio = CocosDenshion::SimpleAudioEngine::getInstance();
-//    audio->playEffect((LangUtil::getInstance()->getDir() + "/sounds/help/" + gameName + "m4a").c_str());
-
-    int audioId = AudioEngine::play2d((LangUtil::getInstance()->getDir() + "/sounds/help/" + gameName + ".m4a").c_str());
-    if(audioId >= 0) {
-        AudioEngine::setFinishCallback(audioId, CC_CALLBACK_0(MenuContext::stopTellHelp, this));
-    } else {
-        stopTellHelp();
+    if(_chimp) {
+        cocostudio::timeline::ActionTimeline* anim = CSLoader::createTimeline("chimpanzee.csb");
+        _chimp->runAction(anim);
+        anim->play("talk", true);
+        //    auto audio = CocosDenshion::SimpleAudioEngine::getInstance();
+        //    audio->playEffect((LangUtil::getInstance()->getDir() + "/sounds/help/" + gameName + "m4a").c_str());
+        
+        int audioId = AudioEngine::play2d((LangUtil::getInstance()->getDir() + "/sounds/help/" + gameName + ".m4a").c_str());
+        if(audioId >= 0) {
+            AudioEngine::setFinishCallback(audioId, CC_CALLBACK_0(MenuContext::stopTellHelp, this));
+        } else {
+            stopTellHelp();
+        }
     }
 }
 
@@ -362,8 +369,10 @@ bool MenuContext::onChimpTouchBegan(Touch* touch, Event* event){
 }
 
 void MenuContext::onChimpTouchEnded(cocos2d::Touch *touch, cocos2d::Event *event) {
-    removeChild(_chimp);
-    _chimp = nullptr;
+    if(_chimp) {
+        removeChild(_chimp);
+        _chimp = nullptr;
+    }
     removeMenu();
 }
 
