@@ -44,7 +44,6 @@ cocos2d::Scene * AlphamonFeed::createScene()
 
     layer->menu = MenuContext::create(layer, AlphamonFeed::gameName());
     scene->addChild(layer->menu);
-
 	return scene;
 }
 
@@ -132,14 +131,21 @@ bool AlphamonFeed::init()
 	_eventDispatcher->addEventListenerWithFixedPriority(listener, -1);
 	isTouching = false;
 	
-	this->schedule(schedule_selector(AlphamonFeed::showFruits), 1);
-	this->scheduleUpdate();
-
 	backgroundMusic = CocosDenshion::SimpleAudioEngine::getInstance();
 	backgroundMusic->playBackgroundMusic("sounds/alphamonfeed.wav", true);
 	backgroundMusic->setBackgroundMusicVolume(0.50f);
-	
+	setonEnterTransitionDidFinishCallback(CC_CALLBACK_0(AlphamonFeed::startGame, this));
+
     return true;
+}
+
+void AlphamonFeed::startGame() {
+	runAction(Sequence::create(CallFunc::create(CC_CALLBACK_0(MenuContext::showStartupHelp, menu)), CallFunc::create(CC_CALLBACK_0(AlphamonFeed::callingFruits, this)), NULL));
+}
+void AlphamonFeed::callingFruits()
+{
+	this->schedule(schedule_selector(AlphamonFeed::showFruits), 1);
+	this->scheduleUpdate();
 }
 
 void AlphamonFeed::showFruits(float dt) {
@@ -244,7 +250,7 @@ void AlphamonFeed::onTouchMoved(cocos2d::Touch *touch,cocos2d::Event * event)
 
 	cocos2d::Node * target = sprite1;
 	//bool flage = false;
-	if ((touch->getLocation().y < (target->getPositionY() + target->getContentSize().height)) && (touch->getLocation().x > 150 && touch->getLocation().x < (Director::getInstance()->getVisibleSize().width-200))) {
+	if ( (touch->getLocation().x > 150 && touch->getLocation().x < (Director::getInstance()->getVisibleSize().width-200))) {
 		
 			int compare = touch->getLocation().x - touchPosition;
 			if (compare > 0 ) {
