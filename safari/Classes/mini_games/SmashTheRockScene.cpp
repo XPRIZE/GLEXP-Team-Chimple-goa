@@ -71,6 +71,7 @@ bool SmashTheRock::init()
 	centre->setAnchorPoint(Vec2(0.5,0));
     this->addChild(centre,1);
 
+	setonEnterTransitionDidFinishCallback(CC_CALLBACK_0(SmashTheRock::startGame, this));
 	/*auto letterRock = (Sprite *)centre->getChildByName("letterboard");
 	letterRock->setGlobalZOrder(5);
 	auto boundary = (Sprite *)centre->getChildByName("boundary");
@@ -84,18 +85,37 @@ bool SmashTheRock::init()
 	//stone_bace->setGlobalZOrder(0);
 
 
+			
+
+	return true;
+}
+void SmashTheRock::update(float dt)
+{
+	
+	
+}
+void SmashTheRock::startGame() {
+	runAction(Sequence::create(CallFunc::create(CC_CALLBACK_0(MenuContext::showStartupHelp, menu)), CallFunc::create(CC_CALLBACK_0(SmashTheRock::begin, this)), NULL));
+}
+
+void SmashTheRock::begin()
+{
+	Size visibleSize = Director::getInstance()->getVisibleSize();
+	Vec2 origin = Director::getInstance()->getVisibleOrigin();
+
+
 	auto spritecache1 = SpriteFrameCache::getInstance();
 	spritecache1->addSpriteFramesWithFile("smash_de_rock/smashderock_01.plist");
 	auto spritecache2 = SpriteFrameCache::getInstance();
 	spritecache2->addSpriteFramesWithFile("smash_de_rock/smashderock_02.plist");
 
-	
+
 	auto block = Sprite::createWithSpriteFrameName("smash_de_rock/letter_normal.png");
 
 	mychar = CharGenerator::getInstance()->generateAChar();
-	std::vector<std::vector<wchar_t>> charkey = CharGenerator::getInstance()->generateMatrixForChoosingAChar(mychar,2,9,50);
+	std::vector<std::vector<wchar_t>> charkey = CharGenerator::getInstance()->generateMatrixForChoosingAChar(mychar, 2, 9, 50);
 
-	int dis = (160.0/2560)*visibleSize.width;
+	int dis = (160.0 / 2560)*visibleSize.width;
 	for (int i = 1; i < 3; i++)
 	{
 		int blockHeight = i*(block->getContentSize().height + 110) + 10;
@@ -106,7 +126,7 @@ bool SmashTheRock::init()
 			auto block1 = Sprite::createWithSpriteFrameName("smash_de_rock/letter_normal.png");
 			auto right = Sprite::createWithSpriteFrameName("smash_de_rock/letter_correct.png");
 			auto wrong = Sprite::createWithSpriteFrameName("smash_de_rock/letter_wrong.png");
-			int blockWidth = j*(block->getContentSize().width + 80) +dis;
+			int blockWidth = j*(block->getContentSize().width + 80) + dis;
 			sizej = (block->getContentSize().width + 80);
 			CCLOG("sizej = %d", sizej);
 			block1->setAnchorPoint(Vec2(0.5, 0.5));
@@ -129,21 +149,21 @@ bool SmashTheRock::init()
 			blockRef.pushBack(block1);
 			rightRef.pushBack(right);
 			wrongRef.pushBack(wrong);
-			this->addChild(block1,2);
-		//	block1->setGlobalZOrder(6);
+			this->addChild(block1, 2);
+			//	block1->setGlobalZOrder(6);
 			this->addChild(right, 2);
-		//	right->setGlobalZOrder(6);
+			//	right->setGlobalZOrder(6);
 			this->addChild(wrong, 2);
-		//	wrong->setGlobalZOrder(6);
-		//	std::string str = Alphabets.at(cocos2d::RandomHelper::random_int(key, (key + 20)) % 20).c_str();
-			wchar_t str1 = charkey.at(i-1).at(j-1);
+			//	wrong->setGlobalZOrder(6);
+			//	std::string str = Alphabets.at(cocos2d::RandomHelper::random_int(key, (key + 20)) % 20).c_str();
+			wchar_t str1 = charkey.at(i - 1).at(j - 1);
 			//std::string ttttt(&str1,1) ;
 			//label = Label::createWithBMFont(LangUtil::getInstance()->getBMFontFileName(), ttttt);
 			//label = Label::createWithTTF(ttttt, "fonts/BalooBhai-Regular.ttf", 256);
 			//CCLOG("alpha = %s",str.c_str());
 			Alphabet *label = Alphabet::createWithSize(str1, 200);
-		//	label->setScale(0.15);
-			label->setPositionX(blockWidth );
+			//	label->setScale(0.15);
+			label->setPositionX(blockWidth);
 			auto letter = label->getString();
 			label->setPositionY(blockHeight - 210);
 			label->setColor(ccc3(255, 255, 255));
@@ -154,32 +174,25 @@ bool SmashTheRock::init()
 			label->setScale(0.35);
 			labelRef.pushBack(label);
 			CCLOG("alpha = %d", labelRef.size());
-			this->addChild(label,2);
-	//		label->setGlobalZOrder(6);
+			this->addChild(label, 2);
+			//		label->setGlobalZOrder(6);
 			auto listener = EventListenerTouchOneByOne::create();
 			//listener->setSwallowTouches(true);
 			label->touchBeganCallback = CC_CALLBACK_2(SmashTheRock::onTouchBegan, this);
 			label->touchEndedCallback = CC_CALLBACK_2(SmashTheRock::onTouchEnded, this);
-		//	listener->onTouchBegan = CC_CALLBACK_2(SmashTheRock::onTouchBegan, this);
+			//	listener->onTouchBegan = CC_CALLBACK_2(SmashTheRock::onTouchBegan, this);
 			//listener->onTouchCancelled = CC_CALLBACK_2(SmashTheRock::onTouchCancelled, this);
 			//_eventDispatcher->addEventListenerWithSceneGraphPriority(listener, label);
 		}
-		
+
 	}
 
-	
 
-    audio = CocosDenshion::SimpleAudioEngine::getInstance();
+
+	audio = CocosDenshion::SimpleAudioEngine::getInstance();
 	//audio->playBackgroundMusic("smash_de_rock/Smash Rock  BG sound.wav", true);
 	//audio->setEffectsVolume(1.0f);
 	masking();
-
-	return true;
-}
-void SmashTheRock::update(float dt)
-{
-	
-	
 }
 void SmashTheRock::createSkeletonCharacter()
 {
