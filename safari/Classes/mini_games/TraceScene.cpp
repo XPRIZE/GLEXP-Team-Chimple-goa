@@ -142,7 +142,14 @@ bool Trace::init(wchar_t alphabet) {
 
 	touches = _nodes.size();
     setupTouch();
+	if (level == 0) {
+		setonEnterTransitionDidFinishCallback(CC_CALLBACK_0(Trace::startGame, this));
+	}
     return true;
+}
+
+void Trace::startGame() {
+	runAction(Sequence::create(CallFunc::create(CC_CALLBACK_0(MenuContext::showStartupHelp,_menuContext)), NULL));
 }
 
 void Trace::setupTouch() {
@@ -323,7 +330,7 @@ void Trace::transit(int level) {
 
 void Trace::resetLevel() {
 	level = 0;
-	Director::getInstance()->replaceScene(StartMenu::createScene());
+	_menuContext->showScore();
 }
 void Trace::setDotsVisibility(bool flag) {
 

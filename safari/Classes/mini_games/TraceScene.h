@@ -29,7 +29,7 @@ CC_CONSTRUCTOR_ACCESS:
     bool onTouchBegan(cocos2d::Touch* touch, cocos2d::Event* event);
     void onTouchEnded(cocos2d::Touch* touch, cocos2d::Event* event);
     void onTouchMoved(cocos2d::Touch* touch, cocos2d::Event* event);
-    
+	void startGame();
     static const char* classname() { return "Trace Alphabet";}
 protected:
     int _currentNodeIndex;

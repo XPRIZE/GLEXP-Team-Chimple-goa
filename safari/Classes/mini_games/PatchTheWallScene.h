@@ -19,6 +19,8 @@ public:
 	bool flag1 = true;
 	int score = 0;
 	Alphabet *no;
+	void startGame();
+	void callingBlast();
 	cocos2d::ui::Slider * slideBar;
     static cocos2d::Scene* createScene();
 	cocos2d::Node* coolSprite;

@@ -225,8 +225,7 @@ void AlphamonFeed:: update(float dt) {
 	if ((slideBar->getPercent()) == 100) {
 		unscheduleUpdate();
 		gameOver();
-		//Director::getInstance()->replaceScene(StartMenu::createScene());
-		
+        menu->showScore();
 	}
 }
 bool AlphamonFeed::onTouchBegan(cocos2d::Touch *touch,cocos2d::Event * event)

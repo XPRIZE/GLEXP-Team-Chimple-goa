@@ -20,7 +20,8 @@ public:
 
 	virtual bool init();
 	virtual void sceneMaking();
-
+	void allUpdateMethod();
+	void startGame();
 	virtual void leftMove_Alpha(Alphamon* spriteAlphabet, int time, float positionX, float positionY);
 	virtual void leftMove_Mons(Sprite* spriteAlphabet, int time, float positionX, float positionY);
 
