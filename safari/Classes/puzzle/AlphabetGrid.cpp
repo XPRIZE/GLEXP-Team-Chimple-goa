@@ -139,7 +139,7 @@ void AlphabetGrid::enableTouch(bool value) {
     } else {
         if(!_overlay) {
             _overlay = DrawNode::create();
-            _overlay->drawSolidRect(Vec2::ZERO, Vec2(_width, _height), Color4F(128.0, 128.0, 128.0, 128.0));
+            _overlay->drawSolidRect(Vec2::ZERO, Vec2(_width, _height), Color4F(128.0, 128.0, 128.0, 32.0));
             addChild(_overlay, 1);
         }
     }

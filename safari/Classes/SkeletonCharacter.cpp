@@ -49,6 +49,7 @@ SkeletonCharacter::SkeletonCharacter()
     this->isPlayingContinousRotationWhileJumping = false;
     this->isFalling = false;
     this->mouthSkin = NULL;
+    this->isStanding = false;
 }
 
 SkeletonCharacter::~SkeletonCharacter()
@@ -178,7 +179,6 @@ cocostudio::timeline::ActionTimeline* SkeletonCharacter::getSkeletonActionTimeLi
 
 
 bool SkeletonCharacter::getSkeletonInContactWithGround() {
-    
     if(this->getSkeletonNode()->getPhysicsBody()->getVelocity().y < GRAVITY_VELOCITY_TO_STICK_TO_GROUND ||
        this->getSkeletonNode()->getPhysicsBody()->getVelocity().y > -GRAVITY_VELOCITY_TO_STICK_TO_GROUND)
     {

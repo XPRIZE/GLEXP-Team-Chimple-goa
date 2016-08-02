@@ -9,6 +9,7 @@ class PatchTheWall : public cocos2d::Layer
 {
 public:
 	static float x, y;
+	void update(float dt);
 	MenuContext *_menuContext;
 	int flag;
 	bool flag1 = true;

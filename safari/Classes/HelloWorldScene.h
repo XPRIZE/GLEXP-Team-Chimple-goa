@@ -159,8 +159,6 @@ private:
     
     void calculateAlphamonNodesInScene(cocos2d::Node *rootNode);
     
-    void resetTouchPointSign(cocos2d::Sprite* touchPointer);
-
     cocos2d::Size sceneSize;
     
     std::vector<std::string> activeAlphamonNodes;
