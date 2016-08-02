@@ -49,9 +49,9 @@ bool MenuContext::init(Node* main) {
     _menuButton->setPosition(Vec2(origin.x + visibleSize.width - 150, origin.y + visibleSize.height - 150));
     addChild(_menuButton, 1);
     
-    _label = Label::createWithTTF("Points: 0", "fonts/arial.ttf", 50);
-    _label->setPosition(Vec2(125, 125));
-    _menuButton->addChild(_label);
+//    _label = Label::createWithTTF("Points: 0", "fonts/arial.ttf", 50);
+//    _label->setPosition(Vec2(125, 125));
+//    _menuButton->addChild(_label);
     
     _pointMeter = Slider::create();
     _pointMeter->loadBarTexture("menu/blank.png");
@@ -212,11 +212,15 @@ void MenuContext::pickAlphabet(char targetAlphabet, char chosenAlphabet, bool ch
                                          NULL);
         runAction(sequence);
     }
-    _label->setString("Points: " + to_string(_points));
+//    _label->setString("Points: " + to_string(_points));
     std::string targetAlphabetStr (1, targetAlphabet);
     std::string chosenAlphabetStr (1, chosenAlphabet);
 
     SafariAnalyticsManager::getInstance()->insertAnalyticsInfo(targetAlphabetStr.c_str(), chosenAlphabetStr.c_str(), gameName.c_str());
+}
+
+int MenuContext::getPoints() {
+    return _points;
 }
 
 void MenuContext::finalizePoints() {
@@ -259,10 +263,14 @@ void MenuContext::videoEventCallback(Ref* sender, cocos2d::experimental::ui::Vid
 
 void MenuContext::videoPlayStart(std::string gameName)
 {
+    std::string videoName = "generic";
+    if(!gameName.empty()) {
+        videoName = gameName;
+    }
 #if (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID || CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
 	experimental::ui::VideoPlayer* vp = experimental::ui::VideoPlayer::create();
 	vp->setContentSize(Size(Director::getInstance()->getVisibleSize().width, Director::getInstance()->getVisibleSize().height));
-	vp->setFileName("help/" + gameName+".webm");
+	vp->setFileName("help/" + videoName +".webm");
 	vp->setPosition(Vec2(Director::getInstance()->getVisibleSize().width / 2, Director::getInstance()->getVisibleSize().height / 2));
 	vp->setAnchorPoint(Vec2::ANCHOR_MIDDLE);
 	vp->play();
