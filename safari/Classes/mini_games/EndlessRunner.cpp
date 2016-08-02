@@ -168,7 +168,7 @@ void EndlessRunner::update(float delta) {
 	EndlessRunner::removePathBlockTouchByLeftBarrier();
 	
 	if (counterAlphabets == 10 || counterLife == 1) {
-		Director::getInstance()->replaceScene(StartMenu::createScene());
+		_menuContext->showScore();
 	}
 
 	auto box = Character.character->getChildByName("floor_2")->getBoundingBox();

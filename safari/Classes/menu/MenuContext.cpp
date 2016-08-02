@@ -10,7 +10,6 @@
 #include "ui/CocosGUI.h"
 #include "../StartMenuScene.h"
 #include "../MapScene.h"
-#include "../GameMapScene.h"
 #include "../lang/SafariAnalyticsManager.h"
 #include "editor-support/cocostudio/CocoStudio.h"
 #include "../alphamon/SelectAlphamonScene.h"
@@ -125,14 +124,9 @@ void MenuContext::expandMenu(cocos2d::Ref *pSender, cocos2d::ui::Widget::TouchEv
                 _gamesMenu = this->createMenuItem("menu/game.png", "menu/game.png", "menu/game.png", 4 * POINTS_TO_LEFT);
                 _gamesMenu->addTouchEventListener(CC_CALLBACK_2(MenuContext::showGamesMenu, this));
 
-//                _exitMenu = Button::create("menu/back.png", "menu/back.png", "menu/back.png", Widget::TextureResType::LOCAL);
-//                _exitMenu->addTouchEventListener(CC_CALLBACK_2(MenuContext::expandMenu, this));
-//                _exitMenu->setPosition(_menuButton->getPosition());
-//                addChild(_exitMenu);
 
                 auto moveTo = MoveTo::create(0.5, Vec2(150, _menuButton->getPosition().y));
                 auto elastic = EaseBackOut::create(moveTo);
-//                _exitMenu->runAction(elastic);
                 pauseNodeAndDescendants(_main);
                 _menuSelected = true;
             }
@@ -418,6 +412,16 @@ void MenuContext::showGamesMenu(cocos2d::Ref *pSender, cocos2d::ui::Widget::Touc
 
 
 
+void MenuContext::showScore() {
+    //compute score
+    addGreyLayer();
+    pauseNodeAndDescendants(_main);
+    Size visibleSize = Director::getInstance()->getVisibleSize();
+    Vec2 origin = Director::getInstance()->getVisibleOrigin();
+    auto scoreNode = ScoreBoardContext::create(_points, this->gameName);
+    scoreNode->setPosition(Vec2(origin.x + visibleSize.width / 2, origin.y + visibleSize.height / 2));
+    addChild(scoreNode);
+}
 
 
 MenuContext::MenuContext() :
