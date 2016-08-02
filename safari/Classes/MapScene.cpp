@@ -136,14 +136,14 @@ void MapScene::islandSelected(Ref* pSender, ui::Widget::TouchEventType eEventTyp
     switch (eEventType) {
         case ui::Widget::TouchEventType::BEGAN:
         {
-            Director::getInstance()->replaceScene(TransitionFade::create(3.0, HelloWorld::createScene(clickedButton->getName().c_str(),""), Color3B::BLACK));
-
             break;
         }
         case ui::Widget::TouchEventType::MOVED:
             break;
         case ui::Widget::TouchEventType::ENDED:
         {
+            Director::getInstance()->replaceScene(TransitionFade::create(3.0, HelloWorld::createScene(clickedButton->getName().c_str(),""), Color3B::BLACK));            
+            
             break;
         }
             

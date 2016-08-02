@@ -25,6 +25,12 @@ int EnglishUtil::getNumberOfCharacters() {
     return 26;
 }
 
+const std::vector<int> EnglishUtil::getNumCharsInRows() {
+    static const int en[] = {26};
+    static const std::vector<int> englishNumCharsInRows(en, en + 1);
+    return englishNumCharsInRows;
+}
+
 std::string EnglishUtil::getMonsterAnimationFileName(wchar_t alpha) {
     return std::string("english/") + convertUTF16CharToString(alpha) +".csb";
 }
@@ -47,6 +53,10 @@ std::string EnglishUtil::getAlphabetSoundFileName(wchar_t alpha) {
 std::string EnglishUtil::getPhoneticSoundFileName(wchar_t alpha) {
     auto fileName = std::string("english/sounds/") + convertUTF16CharToString(tolower(alpha)) + audioExt;
     return fileName;
+}
+
+std::string EnglishUtil::getDir() {
+    return "english";
 }
 
 std::string EnglishUtil::getLang() {

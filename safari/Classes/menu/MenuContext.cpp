@@ -13,9 +13,13 @@
 #include "../GameMapScene.h"
 #include "../lang/SafariAnalyticsManager.h"
 #include "editor-support/cocostudio/CocoStudio.h"
+#include "../alphamon/SelectAlphamonScene.h"
+#include "SimpleAudioEngine.h"
+#include "AudioEngine.h"
 
 USING_NS_CC;
 using namespace cocos2d::ui;
+using namespace experimental;
 
 static const int MAX_POINTS_TO_SHOW = 16;
 static const int POINTS_TO_LEFT = 300.0f;
@@ -79,6 +83,15 @@ void MenuContext::resumeNodeAndDescendants(Node *pNode)
     }
 }
 
+void MenuContext::addGreyLayer() {
+    if(!_greyLayer) {
+        Size visibleSize = Director::getInstance()->getVisibleSize();
+        _greyLayer = LayerColor::create(Color4B(128.0, 128.0, 128.0, 200.0));
+        _greyLayer->setContentSize(visibleSize);
+        addChild(_greyLayer, -1);
+    }
+}
+
 void MenuContext::expandMenu(cocos2d::Ref *pSender, cocos2d::ui::Widget::TouchEventType eEventType) {
     if(eEventType == cocos2d::ui::Widget::TouchEventType::ENDED) {
         Button* clickedButton = dynamic_cast<Button *>(pSender);
@@ -88,21 +101,17 @@ void MenuContext::expandMenu(cocos2d::Ref *pSender, cocos2d::ui::Widget::TouchEv
                 auto elastic = EaseBackIn::create(moveTo);
                 auto callbackRemoveMenu = CallFunc::create(CC_CALLBACK_0(MenuContext::removeMenu, this));
                 
-                auto targetHelpCloseAction = TargetedAction::create(_helpMenu, elastic);
-                auto targetBookCloseAction = TargetedAction::create(_mapMenu, elastic);
-                auto targetMapCloseAction = TargetedAction::create(_bookMenu, elastic);
-                auto targetExitCloseAction = TargetedAction::create(_exitMenu, elastic);
+                auto targetHelpCloseAction = TargetedAction::create(_helpMenu, elastic->clone());
+                auto targetBookCloseAction = TargetedAction::create(_mapMenu, elastic->clone());
+                auto targetMapCloseAction = TargetedAction::create(_bookMenu, elastic->clone());
+//                auto targetExitCloseAction = TargetedAction::create(_exitMenu, elastic);
                 auto targetGamesCloseAction = TargetedAction::create(_gamesMenu, elastic);
                 
-                auto spawnAction = Spawn::create(targetHelpCloseAction,targetMapCloseAction,targetBookCloseAction,targetGamesCloseAction,targetExitCloseAction,nullptr);
+                auto spawnAction = Spawn::create(targetHelpCloseAction,targetMapCloseAction,targetBookCloseAction,targetGamesCloseAction,nullptr);
                 
-                _exitMenu->runAction(Sequence::create(spawnAction, callbackRemoveMenu, NULL));
+                runAction(Sequence::create(spawnAction, callbackRemoveMenu, NULL));
             } else {
-                Size visibleSize = Director::getInstance()->getVisibleSize();
-                _greyLayer = LayerColor::create(Color4B(128.0, 128.0, 128.0, 128.0));
-                _greyLayer->setContentSize(visibleSize);
-                addChild(_greyLayer, -1);
-                
+                addGreyLayer();
                 _helpMenu = this->createMenuItem("menu/help.png", "menu/help.png", "menu/help.png",POINTS_TO_LEFT);
                 _helpMenu->addTouchEventListener(CC_CALLBACK_2(MenuContext::showHelp, this));
                 
@@ -111,19 +120,19 @@ void MenuContext::expandMenu(cocos2d::Ref *pSender, cocos2d::ui::Widget::TouchEv
                 _mapMenu->addTouchEventListener(CC_CALLBACK_2(MenuContext::showMap, this));
                 
                 _bookMenu = this->createMenuItem("menu/book.png", "menu/book.png", "menu/book.png", 3 * POINTS_TO_LEFT);
-                //_menu->addTouchEventListener(CC_CALLBACK_2(MenuContext::expandMenu, this));
+                _bookMenu->addTouchEventListener(CC_CALLBACK_2(MenuContext::showBook, this));
 
                 _gamesMenu = this->createMenuItem("menu/game.png", "menu/game.png", "menu/game.png", 4 * POINTS_TO_LEFT);
                 _gamesMenu->addTouchEventListener(CC_CALLBACK_2(MenuContext::showGamesMenu, this));
 
-                _exitMenu = Button::create("menu/back.png", "menu/back.png", "menu/back.png", Widget::TextureResType::LOCAL);
-                _exitMenu->addTouchEventListener(CC_CALLBACK_2(MenuContext::expandMenu, this));
-                _exitMenu->setPosition(_menuButton->getPosition());
-                addChild(_exitMenu);
+//                _exitMenu = Button::create("menu/back.png", "menu/back.png", "menu/back.png", Widget::TextureResType::LOCAL);
+//                _exitMenu->addTouchEventListener(CC_CALLBACK_2(MenuContext::expandMenu, this));
+//                _exitMenu->setPosition(_menuButton->getPosition());
+//                addChild(_exitMenu);
 
                 auto moveTo = MoveTo::create(0.5, Vec2(150, _menuButton->getPosition().y));
                 auto elastic = EaseBackOut::create(moveTo);
-                _exitMenu->runAction(elastic);
+//                _exitMenu->runAction(elastic);
                 pauseNodeAndDescendants(_main);
                 _menuSelected = true;
             }
@@ -159,23 +168,27 @@ cocos2d::ui::Button* MenuContext::createMenuItem(const std::string normalImage,
 }
 
 void MenuContext::removeMenu() {
-    removeChild(_exitMenu);
-    _exitMenu = nullptr;
-    
-    removeChild(_helpMenu);
-    _helpMenu = nullptr;
+    if(_menuSelected) {
+        removeChild(_exitMenu);
+        _exitMenu = nullptr;
+        
+        removeChild(_helpMenu);
+        _helpMenu = nullptr;
+        
+        removeChild(_bookMenu);
+        _bookMenu = nullptr;
+        
+        removeChild(_mapMenu);
+        _mapMenu = nullptr;
+        
+        removeChild(_gamesMenu);
+        _gamesMenu = nullptr;
+    }
 
-    removeChild(_bookMenu);
-    _bookMenu = nullptr;
-
-    removeChild(_mapMenu);
-    _mapMenu = nullptr;
-
-    removeChild(_gamesMenu);
-    _gamesMenu = nullptr;
-
-    removeChild(_greyLayer);
-    _greyLayer = nullptr;
+    if(_greyLayer) {
+        removeChild(_greyLayer);
+        _greyLayer = nullptr;
+    }
     resumeNodeAndDescendants(_main);
     _menuSelected = false;
 }
@@ -250,13 +263,15 @@ void MenuContext::videoPlayStart(std::string gameName)
 #if (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID || CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
 	experimental::ui::VideoPlayer* vp = experimental::ui::VideoPlayer::create();
 	vp->setContentSize(Size(Director::getInstance()->getVisibleSize().width, Director::getInstance()->getVisibleSize().height));
-	vp->setFileName(gameName+".mp4");
+	vp->setFileName("help/" + gameName+".webm");
 	vp->setPosition(Vec2(Director::getInstance()->getVisibleSize().width / 2, Director::getInstance()->getVisibleSize().height / 2));
 	vp->setAnchorPoint(Vec2::ANCHOR_MIDDLE);
 	vp->play();
 	vp->setName("video");
 	this->addChild(vp, 0);
 	vp->addEventListener(CC_CALLBACK_2(MenuContext::videoEventCallback, this));
+#else
+    videoPlayOverCallback();
 #endif
 
 }
@@ -267,44 +282,99 @@ void MenuContext::videoPlayOverCallback() {
 #endif 
 }
 
-Node* MenuContext::jumpOut(std::string nodeCsbName, bool frameAnimate, float duration) {
+Node* MenuContext::jumpOut(std::string nodeCsbName, float duration, Vec2 position, std::string animationName) {
     auto node = CSLoader::createNode(nodeCsbName);
     auto pos = _menuButton->getPosition();
     node->setPosition(pos);
     node->setScale(0.2);
-    Size visibleSize = Director::getInstance()->getVisibleSize();
-    Vec2 origin = Director::getInstance()->getVisibleOrigin();
+    addChild(node);
     
-    auto jumpTo = MoveTo::create(duration, Vec2(origin.x + visibleSize.width / 2, origin.y + visibleSize.height / 2));
-    auto elastic = EaseBackOut::create(jumpTo);
+    auto jumpTo = MoveTo::create(duration, position);
     auto scaleTo = ScaleTo::create(duration, 1);
-    if(frameAnimate) {
+    if(!animationName.empty()) {
         cocostudio::timeline::ActionTimeline* anim = CSLoader::createTimeline(nodeCsbName);
         node->runAction(anim);
-        anim->gotoFrameAndPause(0);
-        auto spawn = Spawn::create(elastic, scaleTo, NULL);
-        auto callback = CC_CALLBACK_0(MenuContext::playAnimationTemp, this, anim);
-        auto sequence = Sequence::create(spawn, CallFunc::create(callback), NULL);
-        node->runAction(sequence);
+        auto callback = CC_CALLBACK_0(cocostudio::timeline::ActionTimeline::play, anim, animationName, false);
+        auto spawn = Spawn::create(jumpTo, scaleTo, CallFunc::create(callback), NULL);
+        node->runAction(spawn);
     } else {
-        auto spawn = Spawn::create(elastic, scaleTo, NULL);
+        auto spawn = Spawn::create(jumpTo, scaleTo, NULL);
         node->runAction(spawn);
     }
     return node;
 }
 
-void MenuContext::playAnimationTemp(cocostudio::timeline::ActionTimeline* timeline) {
-    timeline->gotoFrameAndPlay(1, false);
-}
-
 void MenuContext::showHelp(cocos2d::Ref *pSender, cocos2d::ui::Widget::TouchEventType eEventType) {
     if(eEventType == cocos2d::ui::Widget::TouchEventType::ENDED) {
-        auto chimp = CSLoader::createNode("chimpanzee.csb");
-        auto anim = CSLoader::createTimeline("chimpanzee.csb");
-        chimp->setPosition(1280, 500);
-        addChild(chimp);
-        chimp->runAction(anim);
-        anim->play("talk", true);
+        chimpHelp();
+    }
+}
+
+void MenuContext::showStartupHelp() {
+    if(!SafariAnalyticsManager::getInstance()->wasGamePlayedBefore(gameName.c_str())) {
+        addGreyLayer();
+        pauseNodeAndDescendants(_main);
+        chimpHelp();
+    }
+}
+
+void MenuContext::chimpHelp() {
+    Size visibleSize = Director::getInstance()->getVisibleSize();
+    Vec2 origin = Director::getInstance()->getVisibleOrigin();
+    if(!_chimp) {
+        _chimp = jumpOut("chimpanzee.csb", 2, Vec2(origin.x + visibleSize.width / 2, origin.y + visibleSize.height / 4), "jump");
+        //    auto callback = CC_CALLBACK_0(MenuContext::tellHelp, this);
+        //    auto wait = CC_CALLBACK_0(MenuContext::waitForAudioLoad, this, LangUtil::getInstance()->getDir() + "/sounds/help/" + gameName + ".m4a", callback);
+        auto listener = EventListenerTouchOneByOne::create();
+        listener->setSwallowTouches(true);
+        listener->onTouchBegan = CC_CALLBACK_2(MenuContext::onChimpTouchBegan, this);
+        listener->onTouchEnded = CC_CALLBACK_2(MenuContext::onChimpTouchEnded, this);
+        _eventDispatcher->addEventListenerWithFixedPriority(<#cocos2d::EventListener *listener#>, <#int fixedPriority#>) (listener, );
+        
+        runAction(Sequence::create(DelayTime::create(2), CallFunc::create(CC_CALLBACK_0(MenuContext::tellHelp, this)), NULL));
+    }
+}
+
+void MenuContext::tellHelp() {
+    cocostudio::timeline::ActionTimeline* anim = CSLoader::createTimeline("chimpanzee.csb");
+    _chimp->runAction(anim);
+    anim->play("talk", true);
+//    auto audio = CocosDenshion::SimpleAudioEngine::getInstance();
+//    audio->playEffect((LangUtil::getInstance()->getDir() + "/sounds/help/" + gameName + "m4a").c_str());
+
+    int audioId = AudioEngine::play2d((LangUtil::getInstance()->getDir() + "/sounds/help/" + gameName + ".m4a").c_str());
+    if(audioId >= 0) {
+        AudioEngine::setFinishCallback(audioId, CC_CALLBACK_0(MenuContext::stopTellHelp, this));
+    } else {
+        stopTellHelp();
+    }
+}
+
+void MenuContext::stopTellHelp() {
+    if(_chimp) {
+        _chimp->stopAllActions();
+    }
+    videoPlayStart(gameName);
+}
+
+bool MenuContext::onChimpTouchBegan(Touch* touch, Event* event){
+    return true;
+}
+
+void MenuContext::onChimpTouchEnded(cocos2d::Touch *touch, cocos2d::Event *event) {
+    removeChild(_chimp);
+    _chimp = nullptr;
+    removeMenu();
+}
+
+
+void MenuContext::waitForAudioLoad(std::string audioFileName, std::function<void(bool isSuccess)>callback) {
+    AudioEngine::preload(audioFileName.c_str(), callback);
+}
+
+void MenuContext::showBook(cocos2d::Ref *pSender, cocos2d::ui::Widget::TouchEventType eEventType) {
+    if(eEventType == cocos2d::ui::Widget::TouchEventType::ENDED) {
+        Director::getInstance()->replaceScene(TransitionFade::create(2.0, SelectAlphamon::createScene(), Color3B::BLACK));
     }
 }
 
@@ -345,7 +415,8 @@ MenuContext::MenuContext() :
 _points(0),
 _label(nullptr),
 _menuSelected(false),
-_greyLayer(nullptr)
+_greyLayer(nullptr),
+_chimp(nullptr)
 {
     
 }
