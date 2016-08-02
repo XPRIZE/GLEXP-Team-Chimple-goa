@@ -50,6 +50,7 @@ public:
 	virtual void jump();
 	virtual void hit();
 	virtual void blast();
+	virtual void begin();
 	virtual void change(float dt);
 	virtual void createSkeletonCharacter();
 	
@@ -60,11 +61,11 @@ public:
 
 private:
 	SkeletonCharacter* skeletonCharacter;
-
+	
 
 protected:
 	MenuContext * menu;
-
+	void startGame();
 	CREATE_FUNC(SmashTheRock);
 };
 
