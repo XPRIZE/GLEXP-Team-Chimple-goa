@@ -27,6 +27,7 @@ Scene* CrossTheBridge::createScene()
 // on 'init' you need to initialize your instance
 bool CrossTheBridge::init()
 {
+
 	//SpriteFrameCache::getInstance()->addSpriteFramesWithFile("crossthebridge.plist");
 	// 1. super init first
 	if (!Layer::init())
@@ -37,7 +38,7 @@ bool CrossTheBridge::init()
 	gameMelody = CocosDenshion::SimpleAudioEngine::getInstance();
 	gameMelody->playEffect("endlessrunner/sound/african_drum.wav", true);
 
-	this->scheduleUpdate();
+	
 
 	auto gameBG = CSLoader::createNode("crossthebridge/MainScene.csb");
 	this->addChild(gameBG, 1);
@@ -103,8 +104,7 @@ bool CrossTheBridge::init()
 	addEvents(transparentBG);
 
 	sceneMaking();
-	this->schedule(schedule_selector(CrossTheBridge::monsGeneration), 17);
-	this->schedule(schedule_selector(CrossTheBridge::alphabetGeneration), 6);
+	setonEnterTransitionDidFinishCallback(CC_CALLBACK_0(CrossTheBridge::startGame, this));
 	return true;
 }
 
@@ -120,6 +120,16 @@ void CrossTheBridge::menuCloseCallback(Ref* pSender)
 #if (CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
 	exit(0);
 #endif
+}
+
+void CrossTheBridge::startGame() {
+	runAction(Sequence::create(CallFunc::create(CC_CALLBACK_0(MenuContext::showStartupHelp, _menuContext)), CallFunc::create(CC_CALLBACK_0(CrossTheBridge::allUpdateMethod, this)), NULL));
+}
+
+void CrossTheBridge::allUpdateMethod() {
+	this->schedule(schedule_selector(CrossTheBridge::monsGeneration), 17);
+	this->schedule(schedule_selector(CrossTheBridge::alphabetGeneration), 6);
+	this->scheduleUpdate();
 }
 
 void CrossTheBridge::sceneMaking()
@@ -174,19 +184,20 @@ void CrossTheBridge::letterDisplayCombinationMethod()
 	Vec2 origin = Director::getInstance()->getVisibleOrigin();
 	auto visibleSize = Director::getInstance()->getVisibleSize();
 	letterToDisplay = CharGenerator::getInstance()->generateAChar();
-	comboFive = CharGenerator::getInstance()->generateMatrixForChoosingAChar(letterToDisplay, 20, 1, 90);
+	comboFive = CharGenerator::getInstance()->generateMatrixForChoosingAChar(letterToDisplay, 20, 1, 70);
 
 	letterOnBoard = Alphabet::createWithSize(letterToDisplay, 220);
 	letterOnBoard->setPosition(Vec2(visibleSize.width/2 + origin.x, visibleSize.height*0.929 + origin.y));
-	letterOnBoard->setScale(0.37);
+	letterOnBoard->setScale(0.35);
 	this->addChild(letterOnBoard, 3);
 
-	for (auto i = 0; i < 7; i++)
+	for (auto i = 0; i < 8; i++)
 	{
 		Alphabet *displayLetter = Alphabet::createWithSize(letterToDisplay, 220);
 		displayLetter->setPosition(Vec2(letterDisplayPosition[i].first + origin.x, letterDisplayPosition[i].second + origin.y));
 		this->addChild(displayLetter, 3);
 		displayLetter->setVisible(false);
+		displayLetter->setScale(0.34);
 		letterContainer.push_back(displayLetter);
 	}
 }
@@ -243,7 +254,7 @@ void CrossTheBridge::alphaDeletion()
 		{
 			if (alphaContainer[i]->getAlphabet() == letterToDisplay)
 			{
-				if (letterDisplayCounter < 7 && pointGenerater)
+				if (letterDisplayCounter < 8 && pointGenerater)
 				{
 					_menuContext->pickAlphabet(letterToDisplay, alphaContainer[i]->getAlphabet(), true);
 					sparkle->setVisible(true);
@@ -281,7 +292,7 @@ void CrossTheBridge::alphaDeletion()
 				auto monsterSequence = Sequence::create(moveBack, DelayTime::create(2.5f), deleteAlphaMonster, alphaBackFlagChange, NULL);
 				this->runAction(monsterSequence);
 			}
-			if (letterDisplayCounter == 7)
+			if (letterDisplayCounter == 8)
 			{
 				auto clearLetter = CallFunc::create([=]() {
 					for (std::size_t i = 0; i <letterContainer.size(); i++)
