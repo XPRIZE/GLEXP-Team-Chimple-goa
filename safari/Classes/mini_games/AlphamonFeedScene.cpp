@@ -19,6 +19,7 @@ AlphamonFeed::AlphamonFeed() {
 }
 
 AlphamonFeed::~AlphamonFeed() {
+	backgroundMusic->stopBackgroundMusic();
     _eventDispatcher->removeEventListener(listener);
 }
 
@@ -43,7 +44,6 @@ cocos2d::Scene * AlphamonFeed::createScene()
 
     layer->menu = MenuContext::create(layer, AlphamonFeed::gameName());
     scene->addChild(layer->menu);
-
 	return scene;
 }
 
@@ -111,7 +111,7 @@ bool AlphamonFeed::init()
 	this->addChild(sprite1,2);
 	//breath animination
 	sprite1->breatheAction();
-	sprite1->alphamonEyeAnimation("blink", true);
+	//sprite1->alphamonEyeAnimation("blink", true);
 	//sprite1->enableTouch(true);
 	
 	auto children = sprite1->getAlphamonChildren();
@@ -131,10 +131,21 @@ bool AlphamonFeed::init()
 	_eventDispatcher->addEventListenerWithFixedPriority(listener, -1);
 	isTouching = false;
 	
+	backgroundMusic = CocosDenshion::SimpleAudioEngine::getInstance();
+	backgroundMusic->playBackgroundMusic("sounds/alphamonfeed.wav", true);
+	backgroundMusic->setBackgroundMusicVolume(0.50f);
+	setonEnterTransitionDidFinishCallback(CC_CALLBACK_0(AlphamonFeed::startGame, this));
+
+    return true;
+}
+
+void AlphamonFeed::startGame() {
+	runAction(Sequence::create(CallFunc::create(CC_CALLBACK_0(MenuContext::showStartupHelp, menu)), CallFunc::create(CC_CALLBACK_0(AlphamonFeed::callingFruits, this)), NULL));
+}
+void AlphamonFeed::callingFruits()
+{
 	this->schedule(schedule_selector(AlphamonFeed::showFruits), 1);
 	this->scheduleUpdate();
-	
-    return true;
 }
 
 void AlphamonFeed::showFruits(float dt) {
@@ -188,6 +199,7 @@ void AlphamonFeed:: update(float dt) {
 					fruitReff.erase(i);
 				} else {
 					sprite1->alphamonMouthAnimation("spit", false);
+					sprite1->alphamonEyeAnimation("angry1",false);
 					auto animation = sprite1->shakeAction();
 					sprite1->runAction(animation);
 					smile->setVisible(false);
@@ -211,7 +223,8 @@ void AlphamonFeed:: update(float dt) {
 		}
 	}
 	if ((slideBar->getPercent()) == 100) {
-		//Director::getInstance()->replaceScene(StartMenu::createScene());
+		unscheduleUpdate();
+		gameOver();
         menu->showScore();
 	}
 }
@@ -236,7 +249,7 @@ void AlphamonFeed::onTouchMoved(cocos2d::Touch *touch,cocos2d::Event * event)
 
 	cocos2d::Node * target = sprite1;
 	//bool flage = false;
-	if ((touch->getLocation().y < (target->getPositionY() + target->getContentSize().height)) && (touch->getLocation().x > 150 && touch->getLocation().x < (Director::getInstance()->getVisibleSize().width-200))) {
+	if ( (touch->getLocation().x > 150 && touch->getLocation().x < (Director::getInstance()->getVisibleSize().width-200))) {
 		
 			int compare = touch->getLocation().x - touchPosition;
 			if (compare > 0 ) {
@@ -277,4 +290,17 @@ void AlphamonFeed::onTouchCancelled(cocos2d::Touch *touch,cocos2d::Event * event
 	onTouchEnded(touch, event);
 }
 
+void AlphamonFeed::gameOver() {
+	auto scaleBy = ScaleBy::create(1.0, 1.5);
+	auto moveTo = MoveTo::create(1.0, Vec2(Director::getInstance()->getVisibleSize().width/2, Director::getInstance()->getVisibleSize().height/ 2));
+	auto spawn = TargetedAction::create(sprite1, Spawn::createWithTwoActions(scaleBy, moveTo));
+	auto callbackStart = CallFunc::create(CC_CALLBACK_0(AlphamonFeed::returnToPrevScene, this));
+	auto sequence = Sequence::createWithTwoActions(spawn, callbackStart);
+	sprite1->runAction(sequence);
+}
+
+void AlphamonFeed::returnToPrevScene() {
+	//    stopAllActions();
+	Director::getInstance()->replaceScene(StartMenu::createScene());
+}
 

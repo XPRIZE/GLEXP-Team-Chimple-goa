@@ -66,6 +66,7 @@ protected:
 	Sprite* pathOpen_right;
 	Sprite* pathOpen_left;
 	Sprite* splash;
+	Alphabet* letterOnBoard;
 	Sprite* punchForBack;
 	Sprite* zeher;
 	Sprite* sparkle;

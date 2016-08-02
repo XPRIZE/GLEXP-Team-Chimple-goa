@@ -5,15 +5,22 @@
 #include <vector>
 #include "../menu/MenuContext.h"
 #include "../puzzle/Alphabet.h"
+#include "SimpleAudioEngine.h"
 class PatchTheWall : public cocos2d::Layer
 {
 public:
+	PatchTheWall();
+	~PatchTheWall();
 	static float x, y;
+	CocosDenshion::SimpleAudioEngine * backgroundMusic;
+	void update(float dt);
 	MenuContext *_menuContext;
 	int flag;
 	bool flag1 = true;
 	int score = 0;
 	Alphabet *no;
+	void startGame();
+	void callingBlast();
 	cocos2d::ui::Slider * slideBar;
     static cocos2d::Scene* createScene();
 	cocos2d::Node* coolSprite;

@@ -25,7 +25,9 @@ public:
     virtual bool init();
     void insertAnalyticsInfo(const char* targetAlphabet, const char* chosenAlphabet, const char* appName);
     bool wasGamePlayedBefore(const char* appName);
-    
+    void insertAlphabet(wchar_t alphabet);
+    std::vector<wchar_t> getAlphabets();
+    bool doesAlphabetExist(wchar_t alphabet);
 private:
     SafariAnalyticsManager();
     bool openConnection(std::string pathToSQLConnection);

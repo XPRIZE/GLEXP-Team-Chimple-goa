@@ -4,6 +4,7 @@
 #include "../puzzle/Alphabet.h"
 #include "../lang/LangUtil.h"
 #include "SimpleAudioEngine.h"
+#include "../StartMenuScene.h"
 #include "string.h"
 
 USING_NS_CC;
@@ -11,8 +12,12 @@ USING_NS_CC;
 
 float PatchTheWall::x;
 float PatchTheWall::y;
+PatchTheWall::PatchTheWall() {
 
-
+}
+PatchTheWall::~PatchTheWall() {
+	backgroundMusic->stopBackgroundMusic();
+}
 Scene* PatchTheWall::createScene()
 {
 	// 'scene' is an autorelease object
@@ -55,11 +60,14 @@ bool PatchTheWall::init()
 	alphagrids->setPositionX(visibleSize.width - alphagrids->getContentSize().width/2);
 	alphagrids->setPositionY(visibleSize.height/2);
 	this->addChild(alphagrids, 6);
+
+	backgroundMusic = CocosDenshion::SimpleAudioEngine::getInstance();
+	backgroundMusic->playBackgroundMusic("sounds/patchthewall.mp3", true);
 	 
 	matrix = CharGenerator::getInstance()->generateCharMatrix(3, 7);
 
 	// position the sprite on the center of the screen
-	this->schedule(schedule_selector(PatchTheWall::Blast), 5.0f);
+	
 	for (int i = 0; i < 7; i++) {
 		int hegbox = (i * 175) + 300;
 		for (int j = 0; j < 3; j++)
@@ -96,11 +104,21 @@ bool PatchTheWall::init()
 
 		}
 	} 
+	//this->scheduleUpdate();
 	// add the sprite as a child to this layer
+	setonEnterTransitionDidFinishCallback(CC_CALLBACK_0(PatchTheWall::startGame, this));
+
 	return true;
 }
 
-
+void PatchTheWall::startGame() {
+	runAction(Sequence::create(CallFunc::create(CC_CALLBACK_0(MenuContext::showStartupHelp, _menuContext)), CallFunc::create(CC_CALLBACK_0(PatchTheWall::callingBlast, this)), NULL));
+}
+void PatchTheWall::callingBlast()
+{
+	this->schedule(schedule_selector(PatchTheWall::Blast), 5.0f);
+	this->scheduleUpdate();
+}
 bool PatchTheWall::onTouchBegan(cocos2d::Touch *touch, cocos2d::Event * event)
 {
 	//CCLOG("touchdshfdtj= %d", gameX.size());
@@ -156,6 +174,7 @@ void PatchTheWall::onTouchMoved(cocos2d::Touch *touch, cocos2d::Event * event)
 			no->setOpacity(0);
 			score = score + 5;
 			slideBar->setPercent(score);
+			
 			flag = 1;
 		}
 	}
@@ -183,8 +202,6 @@ void PatchTheWall::onTouchEnded(cocos2d::Touch *touch, cocos2d::Event * event)
 		//flag1 = true;
 		this->scheduleOnce(schedule_selector(PatchTheWall::gridTouch), 2.0f);
 		no->runAction(MoveTo::create(2, Vec2(PatchTheWall::x, PatchTheWall::y)));
-//		no->setPositionX(PatchTheWall::x);
-//		no->setPositionY(PatchTheWall::y);
 		no->setOpacity(255);
 		_menuContext->pickAlphabet('A', 'B', true);
 	}
@@ -194,6 +211,12 @@ void PatchTheWall::onTouchEnded(cocos2d::Touch *touch, cocos2d::Event * event)
 void PatchTheWall::onTouchCancelled(cocos2d::Touch *touch, cocos2d::Event * event)
 {
 	onTouchEnded(touch, event);
+}
+void PatchTheWall::update(float dt) {
+	if (slideBar->getPercent() == 100) {
+		Director::getInstance()->replaceScene(StartMenu::createScene());
+	}
+	
 }
 
 void PatchTheWall::fort(float dt) {

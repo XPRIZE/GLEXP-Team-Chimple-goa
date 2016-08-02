@@ -16,6 +16,8 @@
 int touches ;
 
 auto alpha = LangUtil::getInstance()->getAllCharacters();
+
+
 //char alpha[] = {'a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'};
 std::string animations[] = { "kick","punch","arm_sweep","jump_and_kick" };
 
@@ -68,7 +70,8 @@ bool Trace::init(wchar_t alphabet) {
 
 	CCSpriteFrameCache::sharedSpriteFrameCache()->addSpriteFramesWithFile("-Alphacombat.plist");
 	this->getEventDispatcher()->addCustomEventListener("on_menu_exit", CC_CALLBACK_0(Trace::resetLevel, this));
-	//CocosDenshion::SimpleAudioEngine::getInstance()->preloadEffect("bubble.mp3");
+	CocosDenshion::SimpleAudioEngine::getInstance()->preloadEffect("TraceMusic.wav");
+	CocosDenshion::SimpleAudioEngine::getInstance()->playEffect("TraceMusic.wav", true);
 
 	//loading lion animation
 	CCSpriteFrameCache::sharedSpriteFrameCache()->addSpriteFramesWithFile("Character/Alpha_kombat_plist.plist");
@@ -201,7 +204,7 @@ void Trace::onTouchEnded(cocos2d::Touch *touch, cocos2d::Event *event) {
            
 			CCLOG("Finished All");
 			
-			if (level == 25) {
+			if (level == 47) {
 				level = -1;
 			}
 
