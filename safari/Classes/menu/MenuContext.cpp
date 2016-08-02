@@ -49,9 +49,9 @@ bool MenuContext::init(Node* main) {
     _menuButton->setPosition(Vec2(origin.x + visibleSize.width - 150, origin.y + visibleSize.height - 150));
     addChild(_menuButton, 1);
     
-    _label = Label::createWithTTF("Points: 0", "fonts/arial.ttf", 50);
-    _label->setPosition(Vec2(125, 125));
-    _menuButton->addChild(_label);
+//    _label = Label::createWithTTF("Points: 0", "fonts/arial.ttf", 50);
+//    _label->setPosition(Vec2(125, 125));
+//    _menuButton->addChild(_label);
     
     _pointMeter = Slider::create();
     _pointMeter->loadBarTexture("menu/blank.png");
@@ -212,7 +212,7 @@ void MenuContext::pickAlphabet(char targetAlphabet, char chosenAlphabet, bool ch
                                          NULL);
         runAction(sequence);
     }
-    _label->setString("Points: " + to_string(_points));
+//    _label->setString("Points: " + to_string(_points));
     std::string targetAlphabetStr (1, targetAlphabet);
     std::string chosenAlphabetStr (1, chosenAlphabet);
 
