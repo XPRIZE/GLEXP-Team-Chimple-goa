@@ -37,6 +37,8 @@ CC_CONSTRUCTOR_ACCESS:
     MenuContext();
     virtual ~MenuContext();
     bool init(Node* main);
+    bool onChimpTouchBegan(cocos2d::Touch* touch, cocos2d::Event* event);
+    void onChimpTouchEnded(cocos2d::Touch* touch, cocos2d::Event* event);
     
     
     
