@@ -184,19 +184,20 @@ void CrossTheBridge::letterDisplayCombinationMethod()
 	Vec2 origin = Director::getInstance()->getVisibleOrigin();
 	auto visibleSize = Director::getInstance()->getVisibleSize();
 	letterToDisplay = CharGenerator::getInstance()->generateAChar();
-	comboFive = CharGenerator::getInstance()->generateMatrixForChoosingAChar(letterToDisplay, 20, 1, 90);
+	comboFive = CharGenerator::getInstance()->generateMatrixForChoosingAChar(letterToDisplay, 20, 1, 70);
 
 	letterOnBoard = Alphabet::createWithSize(letterToDisplay, 220);
 	letterOnBoard->setPosition(Vec2(visibleSize.width/2 + origin.x, visibleSize.height*0.929 + origin.y));
-	letterOnBoard->setScale(0.37);
+	letterOnBoard->setScale(0.35);
 	this->addChild(letterOnBoard, 3);
 
-	for (auto i = 0; i < 7; i++)
+	for (auto i = 0; i < 8; i++)
 	{
 		Alphabet *displayLetter = Alphabet::createWithSize(letterToDisplay, 220);
 		displayLetter->setPosition(Vec2(letterDisplayPosition[i].first + origin.x, letterDisplayPosition[i].second + origin.y));
 		this->addChild(displayLetter, 3);
 		displayLetter->setVisible(false);
+		displayLetter->setScale(0.34);
 		letterContainer.push_back(displayLetter);
 	}
 }
@@ -253,7 +254,7 @@ void CrossTheBridge::alphaDeletion()
 		{
 			if (alphaContainer[i]->getAlphabet() == letterToDisplay)
 			{
-				if (letterDisplayCounter < 7 && pointGenerater)
+				if (letterDisplayCounter < 8 && pointGenerater)
 				{
 					_menuContext->pickAlphabet(letterToDisplay, alphaContainer[i]->getAlphabet(), true);
 					sparkle->setVisible(true);
@@ -291,7 +292,7 @@ void CrossTheBridge::alphaDeletion()
 				auto monsterSequence = Sequence::create(moveBack, DelayTime::create(2.5f), deleteAlphaMonster, alphaBackFlagChange, NULL);
 				this->runAction(monsterSequence);
 			}
-			if (letterDisplayCounter == 7)
+			if (letterDisplayCounter == 8)
 			{
 				auto clearLetter = CallFunc::create([=]() {
 					for (std::size_t i = 0; i <letterContainer.size(); i++)
