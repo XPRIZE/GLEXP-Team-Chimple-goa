@@ -47,14 +47,16 @@ public:
 	virtual void update(float dt);
 
 	void showFruits(float dt);
-
+	void startGame();
 
 protected:
 	MenuContext * menu;
+	MenuContext* _menuContext;
     cocos2d::EventListenerTouchOneByOne* listener;
 	CocosDenshion::SimpleAudioEngine * audio;
 	CocosDenshion::SimpleAudioEngine * backgroundMusic;
 	void gameOver();
+	void callingFruits();
 	void returnToPrevScene();
 };
 
