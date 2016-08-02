@@ -27,6 +27,7 @@ Scene* CrossTheBridge::createScene()
 // on 'init' you need to initialize your instance
 bool CrossTheBridge::init()
 {
+
 	//SpriteFrameCache::getInstance()->addSpriteFramesWithFile("crossthebridge.plist");
 	// 1. super init first
 	if (!Layer::init())
@@ -37,7 +38,7 @@ bool CrossTheBridge::init()
 	gameMelody = CocosDenshion::SimpleAudioEngine::getInstance();
 	gameMelody->playEffect("endlessrunner/sound/african_drum.wav", true);
 
-	this->scheduleUpdate();
+	
 
 	auto gameBG = CSLoader::createNode("crossthebridge/MainScene.csb");
 	this->addChild(gameBG, 1);
@@ -103,8 +104,7 @@ bool CrossTheBridge::init()
 	addEvents(transparentBG);
 
 	sceneMaking();
-	this->schedule(schedule_selector(CrossTheBridge::monsGeneration), 17);
-	this->schedule(schedule_selector(CrossTheBridge::alphabetGeneration), 6);
+	setonEnterTransitionDidFinishCallback(CC_CALLBACK_0(CrossTheBridge::startGame, this));
 	return true;
 }
 
@@ -120,6 +120,16 @@ void CrossTheBridge::menuCloseCallback(Ref* pSender)
 #if (CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
 	exit(0);
 #endif
+}
+
+void CrossTheBridge::startGame() {
+	runAction(Sequence::create(CallFunc::create(CC_CALLBACK_0(MenuContext::showStartupHelp, _menuContext)), CallFunc::create(CC_CALLBACK_0(CrossTheBridge::allUpdateMethod, this)), NULL));
+}
+
+void CrossTheBridge::allUpdateMethod() {
+	this->schedule(schedule_selector(CrossTheBridge::monsGeneration), 17);
+	this->schedule(schedule_selector(CrossTheBridge::alphabetGeneration), 6);
+	this->scheduleUpdate();
 }
 
 void CrossTheBridge::sceneMaking()
