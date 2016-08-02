@@ -15,6 +15,14 @@
 #include "../alphamon/HPMeter.h"
 #include "editor-support/cocostudio/CocoStudio.h"
 
+#define GAME_MAP_MENU "GameMapScene"
+#define HELP_MENU "HelpScene"
+#define EXIT_MENU "StartMenuScene"
+#define MAP_MENU "MapScene"
+#define BOOK_MENU "BookScene"
+#define BAG_PACK_MENU "BagpackScene"
+
+
 class MenuContext : public cocos2d::Node {
     
 public:
@@ -22,7 +30,8 @@ public:
     void pickAlphabet(char targetAlphabet, char chosenAlphabet, bool choose = true, cocos2d::Vec2 position = cocos2d::Vec2::ZERO);
     void finalizePoints();
     static const std::string LANG;
-    Node* jumpOut(std::string nodeCsbName, bool frameAnimate, float duration);
+    Node* jumpOut(std::string nodeCsbName, float duration, cocos2d::Vec2 position, std::string animationName = "");
+    void showStartupHelp();
 
 CC_CONSTRUCTOR_ACCESS:
     MenuContext();
@@ -45,10 +54,18 @@ protected:
     cocos2d::ui::Button* _bookMenu;
     cocos2d::ui::Button* _gamesMenu;
     cocos2d::LayerColor* _greyLayer;
+    cocos2d::Node* _chimp;
     void expandMenu(Ref* pSender, cocos2d::ui::Widget::TouchEventType eEventType);
     void pauseNodeAndDescendants(Node *pNode);
     void resumeNodeAndDescendants(Node *pNode);
-    void playAnimationTemp(cocostudio::timeline::ActionTimeline* timeline);
+    void showMap(cocos2d::Ref *pSender, cocos2d::ui::Widget::TouchEventType eEventType);
+    void showGamesMenu(cocos2d::Ref *pSender, cocos2d::ui::Widget::TouchEventType eEventType);
+    void showHelp(cocos2d::Ref *pSender, cocos2d::ui::Widget::TouchEventType eEventType);
+    void waitForAudioLoad(std::string audioFileName, std::function<void(bool isSuccess)>callback);
+    void chimpHelp();
+    void tellHelp();
+    void stopTellHelp();
+    void addGreyLayer();
     void removeMenu();
     void increasePoints(int points);
     void happyFace();

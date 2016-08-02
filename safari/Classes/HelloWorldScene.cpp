@@ -3,6 +3,8 @@
 #include <unordered_map>
 #include "HelloWorldScene.h"
 #include "StartMenuScene.h"
+#include "GameMapScene.h"
+#include "MapScene.h"
 
 USING_NS_CC;
 
@@ -344,10 +346,13 @@ bool HelloWorld::init(const std::string& island, const std::string& sceneName)
     this->setIsland(island);
 
     //default sceneName should be the same as island and default search path
-    !sceneName.empty() ? this->setSceneName(sceneName) : this->setSceneName(island);
-    
-    FileUtils::getInstance()->addSearchPath("res/" + this->getSceneName());
-    
+    if(!sceneName.empty()) {
+        this->setSceneName(sceneName);
+        FileUtils::getInstance()->addSearchPath("res/" + this->getSceneName());
+    } else {
+        FileUtils::getInstance()->addSearchPath("res/" + this->getIsland());
+    }
+        
     //Added for testing purpose - remove later....
     this->languageManger = LanguageManager::getInstance();
     auto defaultStr = this->languageManger->translateString("Hello world!");
@@ -359,7 +364,7 @@ bool HelloWorld::init(const std::string& island, const std::string& sceneName)
     CCLOG("translatedString %s", translatedString.c_str());
     //testing
     
-    this->loadSqlite3FileForScene();
+    this->loadSqlite3FileForIsland();
     
     this->initializeSafari();
     
@@ -368,10 +373,13 @@ bool HelloWorld::init(const std::string& island, const std::string& sceneName)
     this->registerMessageSenderAndReceiver();
     
     if(this->getAlphamonNodesCount() != 0) {
-        this->schedule(CC_SCHEDULE_SELECTOR(HelloWorld::createAlphaMons), ALPHAMON_CREATE_FREQUENCY);
+//        this->schedule(CC_SCHEDULE_SELECTOR(HelloWorld::createAlphaMons), ALPHAMON_CREATE_FREQUENCY);
     }
     
     this->scheduleUpdate();
+    
+    CocosDenshion::SimpleAudioEngine::getInstance()->playBackgroundMusic("sounds/Adagio teru (ft. teru).m4a", true);
+    CocosDenshion::SimpleAudioEngine::getInstance()->setEffectsVolume(1.0f);
     
     return true;
 }
@@ -379,15 +387,22 @@ bool HelloWorld::init(const std::string& island, const std::string& sceneName)
 void HelloWorld::querySceneToLoadInIsland() {
     this->skeletonPositionInLastVisitedScene = this->sqlite3Helper->findLastVisitedSceneInIsland(this->getIsland().c_str(), this->getSceneName().c_str());
     
-    if(this->skeletonPositionInLastVisitedScene != nullptr) {
+    if(this->skeletonPositionInLastVisitedScene != NULL) {
         this->setSceneName(this->skeletonPositionInLastVisitedScene->getSceneName());
         FileUtils::getInstance()->addSearchPath("res/" + this->getSceneName());
+    } else {
+        if(!this->getSceneName().empty()) {
+            FileUtils::getInstance()->addSearchPath("res/" + this->getSceneName());
+        } else {
+            this->setSceneName(this->getIsland());
+            FileUtils::getInstance()->addSearchPath("res/" + this->getIsland());
+        }
     }
 }
 
-void HelloWorld::loadSqlite3FileForScene() {
-    std::string sqlite3FileName = this->getSceneName() + ".db3";
-    String* connectionURL = String::createWithFormat("res/%s/%s", this->getSceneName().c_str(), sqlite3FileName.c_str());
+void HelloWorld::loadSqlite3FileForIsland() {
+    std::string sqlite3FileName = this->getIsland() + ".db3";
+    String* connectionURL = String::createWithFormat("res/%s/%s", this->getIsland().c_str(), sqlite3FileName.c_str());
     this->sqlite3Helper = Sqlite3Helper::getInstance(connectionURL->getCString(), sqlite3FileName);
 }
 
@@ -435,9 +450,9 @@ void HelloWorld::registerMessageSenderAndReceiver() {
     SEND_SHOW_TOUCH_POINT_SIGNAL(this, RPGConfig::SEND_SHOW_TOUCH_POINT_SIGN_NOTIFICATION, showTouchPointSign);
 
     
-    this->getEventDispatcher()->addCustomEventListener("on_menu_exit", CC_CALLBACK_0(HelloWorld::transitToHome, this));
+    this->getEventDispatcher()->addCustomEventListener(RPGConfig::ON_MENU_EXIT_NOTIFICATION, CC_CALLBACK_1(HelloWorld::transitToMenu, this));
 
-    this->getEventDispatcher()->addCustomEventListener("alphamon_destroyed", CC_CALLBACK_1(HelloWorld::alphamonDestroyed, this));
+    this->getEventDispatcher()->addCustomEventListener(RPGConfig::ON_ALPHAMON_PRESSED_NOTIFICATION, CC_CALLBACK_1(HelloWorld::alphamonDestroyed, this));
 }
 
 void HelloWorld::alphamonDestroyed(EventCustom* event) {
@@ -553,9 +568,17 @@ void HelloWorld::processChangeSceneMessages(std::vector<MessageContent*>changeSc
     }
 }
 
-void HelloWorld::transitToHome() {
+void HelloWorld::transitToMenu(EventCustom * event) {
+    std::string &menuName = *(static_cast<std::string*>(event->getUserData()));
     this->cleanUpResources();
-    Director::getInstance()->replaceScene(StartMenu::createScene());
+    if(menuName == GAME_MAP_MENU) {
+        Director::getInstance()->replaceScene(TransitionFade::create(2.0, GameMapScene::createScene(), Color3B::BLACK));
+    } else if(menuName == MAP_MENU) {
+        Director::getInstance()->replaceScene(TransitionFade::create(2.0, MapScene::createScene(), Color3B::BLACK));
+    } else {
+        Director::getInstance()->replaceScene(TransitionFade::create(2.0, StartMenu::createScene()));
+    }
+    
 }
 
 void HelloWorld::cleanUpResources() {
@@ -572,15 +595,16 @@ void HelloWorld::cleanUpResources() {
     
     this->sqlite3Helper->recordMainCharacterPositionInScene(this->island.c_str(), this->sceneName.c_str(), xPos, yPos);
     
-    EVENT_DISPATCHER->removeCustomEventListeners("MAIN_CHARACTER_VICINITY_CHECK_NOTIFICATION");
-    EVENT_DISPATCHER->removeCustomEventListeners("SPEECH_MESSAGE_ON_TAP_NOTIFICATION");
-    EVENT_DISPATCHER->removeCustomEventListeners("SPEECH_MESSAGE_ON_TEXT_TAP_NOTIFICATION");
-    EVENT_DISPATCHER->removeCustomEventListeners("RECEIVE_CUSTOM_MESSAGE_NOTIFICATION");
-    EVENT_DISPATCHER->removeCustomEventListeners("SPEECH_BUBBLE_DESTROYED_NOTIFICATION");
-    EVENT_DISPATCHER->removeCustomEventListeners("PROCESS_CUSTOM_MESSAGE_AND_CREATE_UI_NOTIFICATION");
-    EVENT_DISPATCHER->removeCustomEventListeners("on_menu_exit");
-    EVENT_DISPATCHER->removeCustomEventListeners("alphamon_destroyed");
+    EVENT_DISPATCHER->removeCustomEventListeners(RPGConfig::MAIN_CHARACTER_VICINITY_CHECK_NOTIFICATION);
+    EVENT_DISPATCHER->removeCustomEventListeners(RPGConfig::SPEECH_MESSAGE_ON_TAP_NOTIFICATION);
+    EVENT_DISPATCHER->removeCustomEventListeners(RPGConfig::SPEECH_MESSAGE_ON_TEXT_TAP_NOTIFICATION);
+    EVENT_DISPATCHER->removeCustomEventListeners(RPGConfig::RECEIVE_CUSTOM_MESSAGE_NOTIFICATION);
+    EVENT_DISPATCHER->removeCustomEventListeners(RPGConfig::SPEECH_BUBBLE_DESTROYED_NOTIFICATION);
+    EVENT_DISPATCHER->removeCustomEventListeners(RPGConfig::PROCESS_CUSTOM_MESSAGE_AND_CREATE_UI_NOTIFICATION);
+    EVENT_DISPATCHER->removeCustomEventListeners(RPGConfig::ON_MENU_EXIT_NOTIFICATION);
+    EVENT_DISPATCHER->removeCustomEventListeners(RPGConfig::ON_ALPHAMON_PRESSED_NOTIFICATION);
     
+    CocosDenshion::SimpleAudioEngine::getInstance()->pauseBackgroundMusic();
     
     if(this->stateMachine != nullptr) {
         delete this->stateMachine;
@@ -664,7 +688,7 @@ void HelloWorld::processAnimationMessage(std::vector<MessageContent*>animationMe
 void HelloWorld::processCustomAnimationMessage(std::vector<MessageContent*>customAnimationMessages) {
     
     //CURRENTLY only one animation supported - TBD (later extend to play multiples)
-    this->unschedule(CC_SCHEDULE_SELECTOR(HelloWorld::createAlphaMons));
+//    this->unschedule(CC_SCHEDULE_SELECTOR(HelloWorld::createAlphaMons));
     for (std::vector<MessageContent* >::iterator it = customAnimationMessages.begin() ; customAnimationMessages.size() == 1 && it != customAnimationMessages.end(); ++it)
     {
         MessageContent* content = (MessageContent*) *it;
@@ -1237,18 +1261,20 @@ void HelloWorld::HandleTap(Point position)
 }
 
 void HelloWorld::HandlePostJumpUpAnimation() {
-    this->skeletonCharacter->getSkeletonActionTimeLine()->clearLastFrameCallFunc();
-    this->skeletonCharacter->getSkeletonActionTimeLine()->clearFrameEndCallFuncs();
     this->skeletonCharacter->getSkeletonActionTimeLine()->setTimeSpeed(1.0f);
     this->applyImpulseOnSkeletonToJumpOnTap(this->currentTouchPoint);
+    this->skeletonCharacter->getSkeletonActionTimeLine()->clearLastFrameCallFunc();
+    this->skeletonCharacter->getSkeletonActionTimeLine()->clearFrameEndCallFuncs();
+
 }
 
 
 void HelloWorld::HandlePostJumpUpWithRotationAnimation() {
-    this->skeletonCharacter->getSkeletonActionTimeLine()->clearLastFrameCallFunc();
-    this->skeletonCharacter->getSkeletonActionTimeLine()->clearFrameEndCallFuncs();
     this->skeletonCharacter->getSkeletonActionTimeLine()->setTimeSpeed(1.0);
     this->applyImpulseOnSkeletonToJumpOnHoldOrDrag(this->currentTouchPoint);
+    this->skeletonCharacter->getSkeletonActionTimeLine()->clearLastFrameCallFunc();
+    this->skeletonCharacter->getSkeletonActionTimeLine()->clearFrameEndCallFuncs();
+
 }
 
 
@@ -1417,6 +1443,19 @@ bool HelloWorld::handlePhysicsContactEventForMainCharacter(PhysicsContact &conta
                     this->skeletonCharacter->getSkeletonActionTimeLine()->setAnimationEndCallFunc(JUMP_FINISHED, jumpEndingAnimation);
                     this->skeletonCharacter->getSkeletonActionTimeLine()->play(JUMP_FINISHED, false);
                 }
+            } else if(this->stateMachine->getCurrentState()->getState() == S_WALKING_STATE || this->stateMachine->getCurrentState()->getState() == S_RUNNING_STATE) {
+                
+                if((nodeA->getName() != HUMAN_SKELETON_NAME && nodeA->getPhysicsBody()->getCategoryBitmask() != GROUND_CATEGORY_MASK) ||
+                   (nodeB->getName() != HUMAN_SKELETON_NAME && nodeB->getPhysicsBody()->getCategoryBitmask() != GROUND_CATEGORY_MASK)) {
+                    
+                    float limit = X_OFFSET_IF_HERO_DISAPPER
+                    if(this->skeletonCharacter->getSkeletonNode()->getPosition().x <= limit || this->skeletonCharacter->getSkeletonNode()->getPosition().x >= this->getSceneSize().width - limit) {
+                        return true;
+                    }
+                    
+                    return false;
+                }
+                
             }
         }
     }
@@ -1430,12 +1469,12 @@ bool HelloWorld::handlePhysicsContactEventForOtherSkeletonCharacter(PhysicsConta
     bool isSkeletonNodeA = dynamic_cast<cocostudio::timeline::SkeletonNode *>(nodeA);
     bool isSkeletonNodeB = dynamic_cast<cocostudio::timeline::SkeletonNode *>(nodeB);
     
-    if(isSkeletonNodeA && contact.getShapeB()->getCollisionBitmask() == 3) {
+    if(isSkeletonNodeA && contact.getShapeB()->getCollisionBitmask() == GROUND_CATEGORY_MASK) {
 //        CCLOG("contact BEGAN external sekleton!!!");
         nodeA->setScaleX(-nodeA->getScaleX());
         RPGConfig::externalSkeletonMoveDelta = -RPGConfig::externalSkeletonMoveDelta;
         
-    } else if(isSkeletonNodeB && contact.getShapeA()->getCollisionBitmask() == 3) {
+    } else if(isSkeletonNodeB && contact.getShapeA()->getCollisionBitmask() == GROUND_CATEGORY_MASK) {
 //        CCLOG("contact BEGAN external sekleton!!!");
         nodeB->setScaleX(-nodeB->getScaleX());
         RPGConfig::externalSkeletonMoveDelta = -RPGConfig::externalSkeletonMoveDelta;

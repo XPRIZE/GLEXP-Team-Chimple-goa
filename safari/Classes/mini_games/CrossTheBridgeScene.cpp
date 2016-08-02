@@ -4,8 +4,7 @@
 #include "../alphamon/Alphamon.h"
 #include "../puzzle/CharGenerator.h"
 #include "../lang/LangUtil.h"
-#include "SimpleAudioEngine.h"
-
+//#include "SimpleAudioEngine.h"
 
 USING_NS_CC;
 
@@ -19,43 +18,24 @@ Scene* CrossTheBridge::createScene()
 
 	// add layer as a child to scene
 	scene->addChild(layer);
-
     layer->_menuContext = MenuContext::create(layer, CrossTheBridge::gameName());
     scene->addChild(layer->_menuContext);
-    
-	// return the scene
+  
 	return scene;
 }
 
 // on 'init' you need to initialize your instance
 bool CrossTheBridge::init()
 {
-	
-
-	auto visibleSize = Director::getInstance()->getVisibleSize();
-	Vec2 origin = Director::getInstance()->getVisibleOrigin();
-
 	SpriteFrameCache::getInstance()->addSpriteFramesWithFile("crossthebridge.plist");
 	// 1. super init first
 	if (!Layer::init())
 	{
 		return false;
 	}
-	//auto closeItem = MenuItemImage::create(
-	//	"CloseNormal.png",
-	//	"CloseSelected.png",
-	//	CC_CALLBACK_1(CrossTheBridge::menuCloseCallback, this));
-
-	//closeItem->setPosition(Vec2(origin.x + visibleSize.width - closeItem->getContentSize().width / 2,
-	//	origin.y + closeItem->getContentSize().height / 2));
-
-	////create menu, it's an autorelease object
-	//auto menu = Menu::create(closeItem, NULL);
-	//menu->setPosition(Vec2::ZERO);
-	//this->addChild(menu, 1);
+	
 	gameMelody = CocosDenshion::SimpleAudioEngine::getInstance();
-	gameMelody->playEffect("crossthebridge/misc/crossTheBridgeMelody.wav", true);
-
+	gameMelody->playEffect("endlessrunner/sound/african_drum.wav", true);
 
 	this->scheduleUpdate();
 
@@ -69,9 +49,6 @@ bool CrossTheBridge::init()
 	Sprite* house_front = (Sprite *)gameBG->getChildByName("house_front_1");
 	house_front->setGlobalZOrder(3);
 	house_front->setPosition(Vec2(house_front->getPosition().x + origin.x, house_front->getPosition().y - 5 + origin.y));
-
-	//Sprite* water_image = (Sprite *)gameBG->getChildByName("water_image_1");
-	//water_image->setGlobalZOrder(4);
 
 	water_splash = CSLoader::createTimeline("crossthebridge/watersplash.csb");
 	splash = (Sprite *)CSLoader::createNode("crossthebridge/watersplash.csb");
@@ -92,8 +69,15 @@ bool CrossTheBridge::init()
 	zeher = (Sprite *)CSLoader::createNode("crossthebridge/blast.csb");
 	this->addChild(zeher, 16);
 	zeher->setGlobalZOrder(16);
-	//zeher->setVisible(false);
+	zeher->setVisible(false);
 	zeher->runAction(smoke);
+
+	star = CSLoader::createTimeline("crossthebridge/stars.csb");
+	sparkle = (Sprite *)CSLoader::createNode("crossthebridge/stars.csb");
+	this->addChild(sparkle, 16);
+	sparkle->setGlobalZOrder(16);
+	sparkle->setVisible(false);
+	sparkle->runAction(star);
 
 	pathClose_right = (Sprite *)gameBG->getChildByName("path_up_right");
 	pathClose_left = (Sprite *)gameBG->getChildByName("path_up_left");
@@ -105,19 +89,12 @@ bool CrossTheBridge::init()
 
 	Sprite* transparentBG = Sprite::create("crossthebridge/Pixel.png");
 	setAllSpriteProperties(transparentBG, 3, 0, 0, false, 0, 0,2560, 1800);
-	/*transparentBG->setScaleX(2560);
-	transparentBG->setScaleY(1800);*/
 	
-	//transparentBG->setPosition(Vec2(0 + origin.x, 0 + origin.y));
-	//transparentBG->setAnchorPoint(Vec2(0, 0));
-	//this->addChild(transparentBG, 2);
-
 	addEvents(transparentBG);
 
 	sceneMaking();
 	this->schedule(schedule_selector(CrossTheBridge::monsGeneration), 17);
 	this->schedule(schedule_selector(CrossTheBridge::alphabetGeneration),6);
-	//this->schedule(schedule_selector(CrossTheBridge::letterDisplayCombinationMethod), 40.0f);
 	return true;
 }
 
@@ -137,64 +114,28 @@ void CrossTheBridge::menuCloseCallback(Ref* pSender)
 
 void CrossTheBridge::sceneMaking()
 {
-	
-	Vec2 origin = Director::getInstance()->getVisibleOrigin();
-	auto visibleSize = Director::getInstance()->getVisibleSize();
-
 	cubeAtRest = Sprite::create("crossthebridge/border.png");
 	setAllSpriteProperties(cubeAtRest, 1, (635/ visibleSize.width)*visibleSize.width, visibleSize.height*0.47, false, 0, 0,0.9, 1);
-	/*cubeAtRest->setPosition(Vec2(630 + origin.x, (visibleSize.height*0.47) + origin.y));
-	cubeAtRest->setAnchorPoint(Vec2(0, 0));
-	this->addChild(cubeAtRest, 1);*/
-	//cubeAtRest->setScale(0.9, 1);
-	//cubeAtRest->setVisible(false);
-
+	
 	barrierRight = Sprite::create("crossthebridge/barrier.png");
 	setAllSpriteProperties(barrierRight, 1, visibleSize.width + ((50 / visibleSize.width)*visibleSize.width), (visibleSize.height*0.01), false, 0, 0, 1, 1);
-	//barrierRight->setPosition(Vec2(visibleSize.width + 50 + origin.x, (visibleSize.height*0.01) + origin.y));
-	//barrierRight->setAnchorPoint(Vec2(0, 0));
-	//this->addChild(barrierRight, 1);
-
+	
 	barrierLeft = Sprite::create("crossthebridge/barrier.png");
 	setAllSpriteProperties(barrierLeft, 1,(visibleSize.width*0.090), (visibleSize.height*0.46), false, 0, 0, 1, 1);
-	/*barrierLeft->setPosition(Vec2(40 + origin.x, (visibleSize.height*0.46) + origin.y));
-	barrierLeft->setAnchorPoint(Vec2(0, 0));
-	this->addChild(barrierLeft, 1);
-	barrierLeft->setVisible(false);*/
 
-	
 	barrierExtreamLeft = Sprite::create("crossthebridge/barrier.png");
 	setAllSpriteProperties(barrierExtreamLeft, 10, (0), (visibleSize.height*0.46), false, 0, 0, 1, 1);
 
-
 	alphaSoundBarrier = Sprite::create("crossthebridge/barrier.png");
 	setAllSpriteProperties(alphaSoundBarrier, 3, ((1150 / visibleSize.width)*visibleSize.width), (visibleSize.height*0.47), false, 0, 0, 1, 1);
-	//alphaSoundBarrier->setPosition(Vec2(1150 + origin.x, (visibleSize.height*0.47) + origin.y));
-	//alphaSoundBarrier->setAnchorPoint(Vec2(0, 0));
-	//this->addChild(alphaSoundBarrier, 3);
-	//alphaSoundBarrier->setVisible(false);
-
-
+	
 	barrierFlat = Sprite::create("crossthebridge/barrier.png");
 	setAllSpriteProperties(barrierFlat, 1, ((10 / visibleSize.width)*visibleSize.width), ((370 / visibleSize.height)*visibleSize.height), false, 0, 90.0f, 1, 1);
-	//barrierFlat->setRotation(90.0f);
-	/*barrierFlat->setPosition(Vec2(10 + origin.x, 370 + origin.y));
-	barrierFlat->setAnchorPoint(Vec2(0, 0));
-	this->addChild(barrierFlat, 1);
-	barrierFlat->setRotation(90.0f);
-	barrierFlat->setVisible(false);*/
-
+	
 	barrierLowerSide = Sprite::create("crossthebridge/barrier.png");
 	setAllSpriteProperties(barrierLowerSide, 3, ((80 / visibleSize.width)*visibleSize.width), ((400 / visibleSize.height)*visibleSize.height), false, 0, 47.0f, 1, 0.18f);
-	//barrierLowerSide->setRotation(47.0f);
-	/*barrierLowerSide->setPosition(Vec2(80 + origin.x,400 + origin.y));
-	barrierLowerSide->setAnchorPoint(Vec2(0, 0));
-	this->addChild(barrierLowerSide, 3);
-	barrierLowerSide->setRotation(47.0f);
-	barrierLowerSide->setScaleY(0.18);
-	barrierLowerSide->setVisible(true);*/
-
-	letterDisplayCombinationMethod(2.0f);
+	
+	letterDisplayCombinationMethod();
 	alphabetGeneration(2.0f);
 }
 
@@ -218,19 +159,15 @@ void CrossTheBridge::update(float delta) {
 	alphaLoud();
 
 }
-void CrossTheBridge::letterDisplayCombinationMethod(float dt)
+void CrossTheBridge::letterDisplayCombinationMethod()
 {
 	Vec2 origin = Director::getInstance()->getVisibleOrigin();
 	auto visibleSize = Director::getInstance()->getVisibleSize();
 	letterToDisplay=CharGenerator::getInstance()->generateAChar();
-	comboFive = CharGenerator::getInstance()->generateMatrixForChoosingAChar(letterToDisplay,20,1,50);
+	comboFive = CharGenerator::getInstance()->generateMatrixForChoosingAChar(letterToDisplay,20,1,90);
 
 	for (auto i = 0; i < 7; i++)
 	{
-		/*
-		std::ostringstream sstreamb;
-		sstreamb << letterToDisplay;
-		std::string letterDisplay = sstreamb.str();*/
 		Alphabet *displayLetter = Alphabet::createWithSize(letterToDisplay,220);
 		displayLetter->setPosition(Vec2(letterDisplayPosition[i].first + origin.x, letterDisplayPosition[i].second + origin.y));
 		this->addChild(displayLetter, 3);
@@ -248,7 +185,7 @@ void CrossTheBridge::alphabetGeneration(float dt)
 	auto mystr = LangUtil::convertUTF16CharToString(name);
 	if (alphabetCounter == 20)
 	{
-		comboFive = CharGenerator::getInstance()->generateMatrixForChoosingAChar(letterToDisplay, 20, 1, 50);
+		comboFive = CharGenerator::getInstance()->generateMatrixForChoosingAChar(letterToDisplay, 20, 1, 90);
 		alphabetCounter = 0;
 	}
 	Alphamon* alphaMon = Alphamon::createWithAlphabet(name);
@@ -269,16 +206,10 @@ void CrossTheBridge::alphabetGeneration(float dt)
 
 void CrossTheBridge::monsGeneration(float dt) {
 
-	Vec2 origin = Director::getInstance()->getVisibleOrigin();
-	auto visibleSize = Director::getInstance()->getVisibleSize();
-
 	cocostudio::timeline::ActionTimeline *enemy_walk = CSLoader::createTimeline("crossthebridge/enemy_01.csb");
 	Sprite* monster = (Sprite *)CSLoader::createNode("crossthebridge/enemy_01.csb");
 	setAllSpriteProperties(monster, 3, (barrierRight->getPosition().x), ((visibleSize.height*0.472)), true, 0, 0, 0.30f, 0.30f);
-	//monster->setPosition(Vec2(barrierRight->getPosition().x + origin.x, (visibleSize.height*0.472) + origin.y));
 	monster->setContentSize(cocos2d::Size(200.0f,200.0f));
-	//monster->setScale(0.30);
-	//this->addChild(monster, 3);
 	monster->runAction(enemy_walk);
 	enemy_walk->setTimeSpeed(1.5);
 	enemy_walk->gotoFrameAndPlay(0, true);
@@ -288,8 +219,7 @@ void CrossTheBridge::monsGeneration(float dt) {
 
 void CrossTheBridge::alphaDeletion()
 {
-	Vec2 origin = Director::getInstance()->getVisibleOrigin();
-	auto visibleSize = Director::getInstance()->getVisibleSize();
+	
 	for (int i = 0; i< alphaContainer.size(); i++)
 	{
 		auto alphaBox = CCRectMake(alphaContainer[i]->getPositionX(), alphaContainer[i]->getPositionY(), alphaContainer[i]->getContentSize().width, alphaContainer[i]->getContentSize().height);
@@ -301,22 +231,21 @@ void CrossTheBridge::alphaDeletion()
 				if (letterDisplayCounter < 7 && pointGenerater)
 				{
 					_menuContext->pickAlphabet(letterToDisplay, alphaContainer[i]->getAlphabet(), true);
+					sparkle->setVisible(true);
+					sparkle->setPosition(Vec2(letterContainer[letterDisplayCounter]->getPosition().x + origin.x, letterContainer[letterDisplayCounter]->getPosition().y + origin.y));
+					star->gotoFrameAndPlay(0, false);
 					letterContainer[letterDisplayCounter]->setColor(cocos2d::Color3B(255, 215, 0));
 					letterDisplayCounter++;
 					pointGenerater = false;
 				}
-				//	_menuContext->pickAlphabet(letterToDisplay, alphaContainer[i]->getName()[0], true);
-				
-			/*	this->removeChild(alphaContainer[i], true);
-				alphaContainer.erase(alphaContainer.begin() + i);*/
 			}
 			else
 			{
-			
 					punchForBack->setVisible(true);
 					punchForBack->setPosition(Vec2(302.02 + origin.x, 960.51 + origin.y));
 					punch->gotoFrameAndPlay(0, false);
 
+					zeher->setVisible(true);
 					zeher->setPosition(Vec2(250.37 + origin.x, 1005.53 + origin.y));
 					smoke->gotoFrameAndPlay(0, false);
 
@@ -335,17 +264,19 @@ void CrossTheBridge::alphaDeletion()
 					auto alphaBackFlagChange = CallFunc::create([=]() {alphaBackFlag = true; });
 					auto monsterSequence = Sequence::create(moveBack, DelayTime::create(2.5f), deleteAlphaMonster, alphaBackFlagChange, NULL);
 					this->runAction(monsterSequence);
-			
 			}
-			if (letterDisplayCounter == 7)
+			if (letterDisplayCounter ==7)
 			{
+				auto clearLetter = CallFunc::create([=]() {
 				for (std::size_t i = 0; i <letterContainer.size(); i++)
 				{
 					this->removeChild(letterContainer[i], true);
 				}
 				letterContainer.clear();
 				letterDisplayCounter = 0;
-				letterDisplayCombinationMethod(2.0);
+				});
+				auto delayInCallingMethod = Sequence::create(DelayTime::create(1.5f), clearLetter, CallFunc::create([=]() {letterDisplayCombinationMethod(); }), NULL);
+				this->runAction(delayInCallingMethod);
 			}
 		}
 	}
@@ -353,9 +284,6 @@ void CrossTheBridge::alphaDeletion()
 }
 void CrossTheBridge::monsDeletion()
 {
-	Vec2 origin = Director::getInstance()->getVisibleOrigin();
-	auto visibleSize = Director::getInstance()->getVisibleSize();
-
 	for (int i = 0; i< monsContainer.size(); i++)
 	{
 		if (monsContainer[i]->getBoundingBox().intersectsRect(barrierLeft->getBoundingBox()))
@@ -364,6 +292,7 @@ void CrossTheBridge::monsDeletion()
 			punchForBack->setPosition(Vec2(302.02 + origin.x, 960.51 + origin.y));
 			punch->gotoFrameAndPlay(0, false);
 
+			zeher->setVisible(true);
 			zeher->setPosition(Vec2(250.37 + origin.x, 1005.53 + origin.y));
 			smoke->gotoFrameAndPlay(0, false);
 
@@ -414,7 +343,6 @@ void CrossTheBridge::checkIntersectWithAlpha()
 			alphaContainer[i]->runAction(main_sequence);
 		}
 	}
-
 }
 
 void CrossTheBridge::rightAlphaMonDelete()
@@ -447,8 +375,6 @@ void CrossTheBridge::checkIntersectWithMons()
 }
 void CrossTheBridge::removeObjectFromScene_Alpha()
 {
-	Vec2 origin = Director::getInstance()->getVisibleOrigin();
-	auto visibleSize = Director::getInstance()->getVisibleSize();
 	for (int i = 0; i < alphaContainer.size(); i++)
 	{
 		auto alphaBox = CCRectMake(alphaContainer[i]->getPositionX(), alphaContainer[i]->getPositionY(), alphaContainer[i]->getContentSize().width, alphaContainer[i]->getContentSize().height);
@@ -469,8 +395,6 @@ void CrossTheBridge::removeObjectFromScene_Alpha()
 }
 void CrossTheBridge::removeObjectFromScene_Mons()
 {
-	Vec2 origin = Director::getInstance()->getVisibleOrigin();
-	auto visibleSize = Director::getInstance()->getVisibleSize();
 	for (int i = 0; i < monsContainer.size(); i++)
 	{
 		if (monsContainer[i]->getBoundingBox().intersectsRect(barrierFlat->getBoundingBox()))
@@ -571,9 +495,6 @@ void CrossTheBridge::addEvents(Sprite* callerObject)
 
 void CrossTheBridge::setAllSpriteProperties(Sprite* sprite, int zOrder, float posX, float posY, bool visibility, float anchorPoint, float rotation, float scaleX, float scaleY)
 {
-	Vec2 origin = Director::getInstance()->getVisibleOrigin();
-	auto visibleSize = Director::getInstance()->getVisibleSize();
-
 	sprite->setPosition(Vec2(posX + origin.x, posY + origin.y));
 	sprite->setAnchorPoint(Vec2(anchorPoint, anchorPoint));
 	sprite->setScaleX(scaleX);

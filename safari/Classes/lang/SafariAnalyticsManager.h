@@ -24,6 +24,7 @@ public:
     virtual ~SafariAnalyticsManager();
     virtual bool init();
     void insertAnalyticsInfo(const char* targetAlphabet, const char* chosenAlphabet, const char* appName);
+    bool wasGamePlayedBefore(const char* appName);
     
 private:
     SafariAnalyticsManager();
