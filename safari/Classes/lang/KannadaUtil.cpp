@@ -115,6 +115,11 @@ std::string KannadaUtil::getLang() {
     return "kan";
 }
 
+std::string KannadaUtil::getDir() {
+    return "kannada";
+}
+
+
 KannadaUtil::KannadaUtil() {
     
 }
