@@ -206,6 +206,9 @@
     <ClCompile Include="..\Classes\lang\SafariAnalyticsManager.cpp">
       <Filter>src\lang</Filter>
     </ClCompile>
+    <ClCompile Include="..\Classes\GameMapScene.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -384,6 +387,9 @@
     </ClInclude>
     <ClInclude Include="..\Classes\lang\SafariAnalyticsManager.h">
       <Filter>src\lang</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\GameMapScene.h">
+      <Filter>src</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

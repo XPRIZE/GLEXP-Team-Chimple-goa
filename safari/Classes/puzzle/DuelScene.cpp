@@ -44,7 +44,7 @@ DuelScene::~DuelScene() {
 Scene* DuelScene::createScene(wchar_t myMonChar, wchar_t otherMonChar)
 {
     auto layer = DuelScene::create(myMonChar, otherMonChar);
-    auto scene = GameScene::createWithChild(layer, "AlphamonCombat");
+    auto scene = GameScene::createWithChild(layer, "alphamon_duel");
     layer->_menuContext = scene->getMenuContext();
     return scene;
 }
@@ -102,7 +102,7 @@ bool DuelScene::init(wchar_t myMonChar, wchar_t otherMonChar)
     _timerAnimation = CSLoader::createTimeline("battle_ground/timer.csb");
     _timer->runAction(_timerAnimation);
     _timerAnimation->setLastFrameCallFunc(CC_CALLBACK_0(DuelScene::armMyMon, this));
-    _timerAnimation->setTimeSpeed(0.1);
+    _timerAnimation->setTimeSpeed(0.2);
 //    _timer->setVisible(false);
 
     _eventDispatcher->addCustomEventListener("alphabet_selected", CC_CALLBACK_1(DuelScene::onAlphabetSelected, this));
@@ -200,12 +200,13 @@ void DuelScene::startMyTurn() {
         int numCols = MAX_COLS;
         int numRows = MAX_ROWS;
         
-        if(_turnNumber < 2) {
+        if(_turnNumber < 3) {
             numCols /= 4;
             numRows /= 4;
-        } else if (_turnNumber < 4) {
+        } else {
             numCols /= 2;
             numRows /= 2;
+            _timerAnimation->setTimeSpeed(0.1);
         }
         auto charArray = CharGenerator::getInstance()->generateMatrixForChoosingAChar(_myMon->getAlphabet(), numRows, numCols, 50);
         _grid->resize(SQUARE_WIDTH * MAX_COLS, SQUARE_WIDTH * MAX_ROWS, numRows, numCols);

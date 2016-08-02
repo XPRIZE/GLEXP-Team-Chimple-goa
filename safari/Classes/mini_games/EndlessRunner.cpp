@@ -306,14 +306,12 @@ void EndlessRunner::startingIntersectMode() {
 
 		auto box = Character.character->getChildByName("net")->getBoundingBox();
 		Rect parent = Character.character->getBoundingBox();
-		Rect boxs = Rect(parent.origin.x + (box.origin.x), parent.origin.y + (box.origin.y), box.size.width*1.2, box.size.height*1.2);
-		Rect label = allLabels[i]->getBoundingBox();
+		Rect netBoxs = Rect(parent.origin.x + (box.origin.x), parent.origin.y + (box.origin.y), box.size.width*1.2, box.size.height*1.2);
 
-		//Rect parentMonster = allMonster[i]->getBoundingBox();
-		//auto letterBox = allMonster[i]->getChildByName("letter")->getBoundingBox();
-		//auto monsterLetter = Rect(parentMonster.origin.x + (letterBox.origin.x), parentMonster.origin.y + (letterBox.origin.y), letterBox.size.width, letterBox.size.height);
+		Rect letteBox = allLabels[i]->getBoundingBox();
+		Rect newLetterBox = Rect(letteBox.origin.x-30, letteBox.origin.y+(letteBox.size.height/2), letteBox.size.width,30);
 
-		if (boxs.intersectsRect(allLabels[i]->getBoundingBox()))
+		if (netBoxs.intersectsRect(newLetterBox))
 		{
 			auto mystr = LangUtil::convertUTF16CharToString(tempChar);
 			if (allLabels[i]->getName() == mystr) {

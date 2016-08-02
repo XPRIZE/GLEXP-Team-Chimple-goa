@@ -30,3 +30,7 @@ std::string LangUtil::convertUTF16CharToString(wchar_t alpha) {
     cocos2d::StringUtils::UTF16ToUTF8(u16s, u8);
     return u8;
 }
+
+wchar_t LangUtil::convertStringToUTF16Char(std::string alphaString) {
+    return alphaString.c_str()[0];
+}

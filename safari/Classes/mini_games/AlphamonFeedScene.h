@@ -53,8 +53,9 @@ protected:
 	MenuContext * menu;
     cocos2d::EventListenerTouchOneByOne* listener;
 	CocosDenshion::SimpleAudioEngine * audio;
-
-	
+	CocosDenshion::SimpleAudioEngine * backgroundMusic;
+	void gameOver();
+	void returnToPrevScene();
 };
 
 #endif // __ALPHAMONFEED_SCENE_H__

@@ -13,6 +13,7 @@
 #include "../GameMapScene.h"
 #include "../lang/SafariAnalyticsManager.h"
 #include "editor-support/cocostudio/CocoStudio.h"
+#include "../alphamon/SelectAlphamonScene.h"
 #include "SimpleAudioEngine.h"
 #include "AudioEngine.h"
 
@@ -85,7 +86,7 @@ void MenuContext::resumeNodeAndDescendants(Node *pNode)
 void MenuContext::addGreyLayer() {
     if(!_greyLayer) {
         Size visibleSize = Director::getInstance()->getVisibleSize();
-        _greyLayer = LayerColor::create(Color4B(128.0, 128.0, 128.0, 128.0));
+        _greyLayer = LayerColor::create(Color4B(128.0, 128.0, 128.0, 200.0));
         _greyLayer->setContentSize(visibleSize);
         addChild(_greyLayer, -1);
     }
@@ -100,15 +101,15 @@ void MenuContext::expandMenu(cocos2d::Ref *pSender, cocos2d::ui::Widget::TouchEv
                 auto elastic = EaseBackIn::create(moveTo);
                 auto callbackRemoveMenu = CallFunc::create(CC_CALLBACK_0(MenuContext::removeMenu, this));
                 
-                auto targetHelpCloseAction = TargetedAction::create(_helpMenu, elastic);
-                auto targetBookCloseAction = TargetedAction::create(_mapMenu, elastic);
-                auto targetMapCloseAction = TargetedAction::create(_bookMenu, elastic);
-                auto targetExitCloseAction = TargetedAction::create(_exitMenu, elastic);
+                auto targetHelpCloseAction = TargetedAction::create(_helpMenu, elastic->clone());
+                auto targetBookCloseAction = TargetedAction::create(_mapMenu, elastic->clone());
+                auto targetMapCloseAction = TargetedAction::create(_bookMenu, elastic->clone());
+//                auto targetExitCloseAction = TargetedAction::create(_exitMenu, elastic);
                 auto targetGamesCloseAction = TargetedAction::create(_gamesMenu, elastic);
                 
-                auto spawnAction = Spawn::create(targetHelpCloseAction,targetMapCloseAction,targetBookCloseAction,targetGamesCloseAction,targetExitCloseAction,nullptr);
+                auto spawnAction = Spawn::create(targetHelpCloseAction,targetMapCloseAction,targetBookCloseAction,targetGamesCloseAction,nullptr);
                 
-                _exitMenu->runAction(Sequence::create(spawnAction, callbackRemoveMenu, NULL));
+                runAction(Sequence::create(spawnAction, callbackRemoveMenu, NULL));
             } else {
                 addGreyLayer();
                 _helpMenu = this->createMenuItem("menu/help.png", "menu/help.png", "menu/help.png",POINTS_TO_LEFT);
@@ -119,19 +120,19 @@ void MenuContext::expandMenu(cocos2d::Ref *pSender, cocos2d::ui::Widget::TouchEv
                 _mapMenu->addTouchEventListener(CC_CALLBACK_2(MenuContext::showMap, this));
                 
                 _bookMenu = this->createMenuItem("menu/book.png", "menu/book.png", "menu/book.png", 3 * POINTS_TO_LEFT);
-                //_menu->addTouchEventListener(CC_CALLBACK_2(MenuContext::expandMenu, this));
+                _bookMenu->addTouchEventListener(CC_CALLBACK_2(MenuContext::showBook, this));
 
                 _gamesMenu = this->createMenuItem("menu/game.png", "menu/game.png", "menu/game.png", 4 * POINTS_TO_LEFT);
                 _gamesMenu->addTouchEventListener(CC_CALLBACK_2(MenuContext::showGamesMenu, this));
 
-                _exitMenu = Button::create("menu/back.png", "menu/back.png", "menu/back.png", Widget::TextureResType::LOCAL);
-                _exitMenu->addTouchEventListener(CC_CALLBACK_2(MenuContext::expandMenu, this));
-                _exitMenu->setPosition(_menuButton->getPosition());
-                addChild(_exitMenu);
+//                _exitMenu = Button::create("menu/back.png", "menu/back.png", "menu/back.png", Widget::TextureResType::LOCAL);
+//                _exitMenu->addTouchEventListener(CC_CALLBACK_2(MenuContext::expandMenu, this));
+//                _exitMenu->setPosition(_menuButton->getPosition());
+//                addChild(_exitMenu);
 
                 auto moveTo = MoveTo::create(0.5, Vec2(150, _menuButton->getPosition().y));
                 auto elastic = EaseBackOut::create(moveTo);
-                _exitMenu->runAction(elastic);
+//                _exitMenu->runAction(elastic);
                 pauseNodeAndDescendants(_main);
                 _menuSelected = true;
             }
@@ -262,7 +263,7 @@ void MenuContext::videoPlayStart(std::string gameName)
 #if (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID || CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
 	experimental::ui::VideoPlayer* vp = experimental::ui::VideoPlayer::create();
 	vp->setContentSize(Size(Director::getInstance()->getVisibleSize().width, Director::getInstance()->getVisibleSize().height));
-	vp->setFileName(gameName+".mp4");
+	vp->setFileName("help/" + gameName+".webm");
 	vp->setPosition(Vec2(Director::getInstance()->getVisibleSize().width / 2, Director::getInstance()->getVisibleSize().height / 2));
 	vp->setAnchorPoint(Vec2::ANCHOR_MIDDLE);
 	vp->play();
@@ -279,7 +280,6 @@ void MenuContext::videoPlayOverCallback() {
 #if (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID || CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
 	this->removeChildByName("video");
 #endif 
-    removeMenu();
 }
 
 Node* MenuContext::jumpOut(std::string nodeCsbName, float duration, Vec2 position, std::string animationName) {
@@ -321,11 +321,18 @@ void MenuContext::showStartupHelp() {
 void MenuContext::chimpHelp() {
     Size visibleSize = Director::getInstance()->getVisibleSize();
     Vec2 origin = Director::getInstance()->getVisibleOrigin();
-    
-    _chimp = jumpOut("chimpanzee.csb", 2, Vec2(origin.x + visibleSize.width / 2, origin.y + visibleSize.height / 4), "jump");
-//    auto callback = CC_CALLBACK_0(MenuContext::tellHelp, this);
-//    auto wait = CC_CALLBACK_0(MenuContext::waitForAudioLoad, this, LangUtil::getInstance()->getDir() + "/sounds/help/" + gameName + ".m4a", callback);
-    runAction(Sequence::create(DelayTime::create(2), CallFunc::create(CC_CALLBACK_0(MenuContext::tellHelp, this)), NULL));
+    if(!_chimp) {
+        _chimp = jumpOut("chimpanzee.csb", 2, Vec2(origin.x + visibleSize.width / 2, origin.y + visibleSize.height / 4), "jump");
+        //    auto callback = CC_CALLBACK_0(MenuContext::tellHelp, this);
+        //    auto wait = CC_CALLBACK_0(MenuContext::waitForAudioLoad, this, LangUtil::getInstance()->getDir() + "/sounds/help/" + gameName + ".m4a", callback);
+        auto listener = EventListenerTouchOneByOne::create();
+        listener->setSwallowTouches(true);
+        listener->onTouchBegan = CC_CALLBACK_2(MenuContext::onChimpTouchBegan, this);
+        listener->onTouchEnded = CC_CALLBACK_2(MenuContext::onChimpTouchEnded, this);
+        _eventDispatcher->addEventListenerWithFixedPriority(listener, 1);
+        
+        runAction(Sequence::create(DelayTime::create(2), CallFunc::create(CC_CALLBACK_0(MenuContext::tellHelp, this)), NULL));
+    }
 }
 
 void MenuContext::tellHelp() {
@@ -344,13 +351,33 @@ void MenuContext::tellHelp() {
 }
 
 void MenuContext::stopTellHelp() {
-    removeChild(_chimp);
+    if(_chimp) {
+        _chimp->stopAllActions();
+    }
     videoPlayStart(gameName);
 }
+
+bool MenuContext::onChimpTouchBegan(Touch* touch, Event* event){
+    return true;
+}
+
+void MenuContext::onChimpTouchEnded(cocos2d::Touch *touch, cocos2d::Event *event) {
+    removeChild(_chimp);
+    _chimp = nullptr;
+    removeMenu();
+}
+
 
 void MenuContext::waitForAudioLoad(std::string audioFileName, std::function<void(bool isSuccess)>callback) {
     AudioEngine::preload(audioFileName.c_str(), callback);
 }
+
+void MenuContext::showBook(cocos2d::Ref *pSender, cocos2d::ui::Widget::TouchEventType eEventType) {
+    if(eEventType == cocos2d::ui::Widget::TouchEventType::ENDED) {
+        Director::getInstance()->replaceScene(TransitionFade::create(2.0, SelectAlphamon::createScene(), Color3B::BLACK));
+    }
+}
+
 
 void MenuContext::showMap(cocos2d::Ref *pSender, cocos2d::ui::Widget::TouchEventType eEventType) {
     if(eEventType == cocos2d::ui::Widget::TouchEventType::ENDED) {
@@ -388,7 +415,8 @@ MenuContext::MenuContext() :
 _points(0),
 _label(nullptr),
 _menuSelected(false),
-_greyLayer(nullptr)
+_greyLayer(nullptr),
+_chimp(nullptr)
 {
     
 }
