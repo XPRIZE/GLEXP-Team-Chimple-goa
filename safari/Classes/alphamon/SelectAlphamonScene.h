@@ -12,7 +12,7 @@
 #include "cocos2d.h"
 #include "Alphamon.h"
 
-class SelectAlphamon : public cocos2d::LayerGradient {
+class SelectAlphamon : public cocos2d::ui::ScrollView {
 public:
     static cocos2d::Scene* createScene();
     CREATE_FUNC(SelectAlphamon);
@@ -24,6 +24,7 @@ CC_CONSTRUCTOR_ACCESS:
     virtual ~SelectAlphamon();
     
 protected:
+    cocos2d::Layer* _layer;
     wchar_t _firstChar;
     wchar_t _secondChar;
 };

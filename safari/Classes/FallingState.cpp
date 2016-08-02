@@ -31,6 +31,7 @@ void FallingState::enter(cocos2d::Vec2 forceVector, SkeletonCharacterState previ
 void FallingState::exit()  {
     CCLOG("%s", "Exit Falling State");
     this->getTarget()->isFalling = false;
+    this->getTarget()->getSkeletonActionTimeLine()->gotoFrameAndPause(0);
 }
 
 SkeletonCharacterState FallingState::handleInput(SkeletonCharacterState command)  {

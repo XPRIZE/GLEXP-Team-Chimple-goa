@@ -34,7 +34,10 @@ const char* RPGConfig::ON_TAP_VISIBLE_SPRITE_NOTIFICATION = "ON_TAP_VISIBLE_SPRI
 
 const char* RPGConfig::SEND_BUBBLE_DESTROY_NOTIFICATION = "SEND_BUBBLE_DESTROY_NOTIFICATION";
 
-const char* RPGConfig::SEND_SHOW_TOUCH_POINT_SIGN_NOTIFICATION = "SEND_SHOW_TOUCH_POINT_SIGN_NOTIFICATION";
+const char* RPGConfig::ON_MENU_EXIT_NOTIFICATION = "on_menu_exit";
+
+const char* RPGConfig::ON_ALPHAMON_PRESSED_NOTIFICATION = "alphamon_destroyed";
+
 
 float RPGConfig::calcuateVelocityForJump(cocos2d::Point point1, cocos2d::Point point2, float angle, float xOffSet, float yOffSet) {
     float velocity = 0.0f;
