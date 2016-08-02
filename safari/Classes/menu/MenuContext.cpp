@@ -219,6 +219,10 @@ void MenuContext::pickAlphabet(char targetAlphabet, char chosenAlphabet, bool ch
     SafariAnalyticsManager::getInstance()->insertAnalyticsInfo(targetAlphabetStr.c_str(), chosenAlphabetStr.c_str(), gameName.c_str());
 }
 
+int MenuContext::getPoints() {
+    return _points;
+}
+
 void MenuContext::finalizePoints() {
     
 }
@@ -259,10 +263,14 @@ void MenuContext::videoEventCallback(Ref* sender, cocos2d::experimental::ui::Vid
 
 void MenuContext::videoPlayStart(std::string gameName)
 {
+    std::string videoName = "generic";
+    if(!gameName.empty()) {
+        videoName = gameName;
+    }
 #if (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID || CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
 	experimental::ui::VideoPlayer* vp = experimental::ui::VideoPlayer::create();
 	vp->setContentSize(Size(Director::getInstance()->getVisibleSize().width, Director::getInstance()->getVisibleSize().height));
-	vp->setFileName("help/" + gameName+".webm");
+	vp->setFileName("help/" + videoName +".webm");
 	vp->setPosition(Vec2(Director::getInstance()->getVisibleSize().width / 2, Director::getInstance()->getVisibleSize().height / 2));
 	vp->setAnchorPoint(Vec2::ANCHOR_MIDDLE);
 	vp->play();
