@@ -29,6 +29,7 @@ class MenuContext : public cocos2d::Node {
 public:
     static MenuContext* create(Node *main, std::string gameName = "", bool lauchCustomEventOnExit = false);
     void pickAlphabet(char targetAlphabet, char chosenAlphabet, bool choose = true, cocos2d::Vec2 position = cocos2d::Vec2::ZERO);
+    int getPoints();
     void finalizePoints();
     static const std::string LANG;
     Node* jumpOut(std::string nodeCsbName, float duration, cocos2d::Vec2 position, std::string animationName = "");
