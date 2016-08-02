@@ -26,7 +26,7 @@ SmashTheRock::SmashTheRock()
 }
 SmashTheRock::~SmashTheRock()
 {
-	audio->pauseBackgroundMusic();
+	audio->stopBackgroundMusic();
 
 }
 Scene* SmashTheRock::createScene()
@@ -170,8 +170,8 @@ bool SmashTheRock::init()
 	
 
     audio = CocosDenshion::SimpleAudioEngine::getInstance();
-	audio->playBackgroundMusic("smash_de_rock/Smash Rock  BG sound.wav", true);
-	audio->setEffectsVolume(1.0f);
+	//audio->playBackgroundMusic("smash_de_rock/Smash Rock  BG sound.wav", true);
+	//audio->setEffectsVolume(1.0f);
 	masking();
 
 	return true;
@@ -308,9 +308,9 @@ void SmashTheRock::masking()
 	//maskedFill->setGlobalZOrder(3);
 	if (click == 5)
 	{
-		auto audio = CocosDenshion::SimpleAudioEngine::getInstance();
-		audio->playEffect("smash_de_rock/Concrete break.wav", false);
-		audio->setEffectsVolume(10.0f);
+		auto audio1 = CocosDenshion::SimpleAudioEngine::getInstance();
+		audio1->playEffect("smash_de_rock/Concrete break.wav", false);
+		audio1->setEffectsVolume(10.0f);
 		//maskedFill->removeChild(target);
 		for (int i = 0; i < 6; i++)
 		{
