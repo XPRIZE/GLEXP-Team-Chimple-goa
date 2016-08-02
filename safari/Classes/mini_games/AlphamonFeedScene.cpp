@@ -19,6 +19,7 @@ AlphamonFeed::AlphamonFeed() {
 }
 
 AlphamonFeed::~AlphamonFeed() {
+	backgroundMusic->stopBackgroundMusic();
     _eventDispatcher->removeEventListener(listener);
 }
 
@@ -111,7 +112,7 @@ bool AlphamonFeed::init()
 	this->addChild(sprite1,2);
 	//breath animination
 	sprite1->breatheAction();
-	sprite1->alphamonEyeAnimation("blink", true);
+	//sprite1->alphamonEyeAnimation("blink", true);
 	//sprite1->enableTouch(true);
 	
 	auto children = sprite1->getAlphamonChildren();
@@ -133,6 +134,10 @@ bool AlphamonFeed::init()
 	
 	this->schedule(schedule_selector(AlphamonFeed::showFruits), 1);
 	this->scheduleUpdate();
+
+	backgroundMusic = CocosDenshion::SimpleAudioEngine::getInstance();
+	backgroundMusic->playBackgroundMusic("sounds/alphamonfeed.wav", true);
+	backgroundMusic->setBackgroundMusicVolume(0.50f);
 	
     return true;
 }
@@ -188,6 +193,7 @@ void AlphamonFeed:: update(float dt) {
 					fruitReff.erase(i);
 				} else {
 					sprite1->alphamonMouthAnimation("spit", false);
+					sprite1->alphamonEyeAnimation("angry1",false);
 					auto animation = sprite1->shakeAction();
 					sprite1->runAction(animation);
 					smile->setVisible(false);
@@ -211,7 +217,9 @@ void AlphamonFeed:: update(float dt) {
 		}
 	}
 	if ((slideBar->getPercent()) == 100) {
-		Director::getInstance()->replaceScene(StartMenu::createScene());
+		unscheduleUpdate();
+		gameOver();
+		//Director::getInstance()->replaceScene(StartMenu::createScene());
 		
 	}
 }
@@ -277,4 +285,17 @@ void AlphamonFeed::onTouchCancelled(cocos2d::Touch *touch,cocos2d::Event * event
 	onTouchEnded(touch, event);
 }
 
+void AlphamonFeed::gameOver() {
+	auto scaleBy = ScaleBy::create(1.0, 1.5);
+	auto moveTo = MoveTo::create(1.0, Vec2(Director::getInstance()->getVisibleSize().width/2, Director::getInstance()->getVisibleSize().height/ 2));
+	auto spawn = TargetedAction::create(sprite1, Spawn::createWithTwoActions(scaleBy, moveTo));
+	auto callbackStart = CallFunc::create(CC_CALLBACK_0(AlphamonFeed::returnToPrevScene, this));
+	auto sequence = Sequence::createWithTwoActions(spawn, callbackStart);
+	sprite1->runAction(sequence);
+}
+
+void AlphamonFeed::returnToPrevScene() {
+	//    stopAllActions();
+	Director::getInstance()->replaceScene(StartMenu::createScene());
+}
 

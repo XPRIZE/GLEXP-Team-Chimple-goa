@@ -51,7 +51,7 @@ void HelloWorld::initPhysics(Scene* scene)
 HelloWorld::HelloWorld()
 :gesture_layer_(nullptr),
 skeletonCharacter(nullptr),
-mainCharacterCategoryBitMask(1),
+mainCharacterCategoryBitMask(INVISIBLE_BOUNDARY_CATEGORY_BITMASK),
 isSpeechBubbleAlreadyVisible(false),
 sqlite3Helper(nullptr),
 stateMachine(nullptr),
@@ -429,27 +429,6 @@ void HelloWorld::registerMessageSenderAndReceiver() {
     
     PROCESS_MESSAGE_AND_CREATE_UI(this, RPGConfig::PROCESS_CUSTOM_MESSAGE_AND_CREATE_UI_NOTIFICATION, processMessageEvent);
     
-    
-    auto showTouchPointSign = [=] (EventCustom * event) {
-        auto showTouchSignNode =  Sprite::create(TOUCH_POINTER_IMG);
-        showTouchSignNode->setScale(0.5f, 0.5f);
-        this->mainLayer->addChild(showTouchSignNode);
-        showTouchSignNode->setVisible(false);
-        
-        Sprite* sprite = reinterpret_cast<Sprite*>(event->getUserData());
-        showTouchSignNode->setPosition(sprite->getPosition());
-        showTouchSignNode->setVisible(true);
-        auto scaleBy = ScaleBy::create(0.5, 1.2);
-        auto sequenceScale = Sequence::create(scaleBy, scaleBy->reverse(), nullptr);
-        auto repeatScaleAction = Repeat::create(sequenceScale, 5);
-        auto callbackStart = CallFunc::create(CC_CALLBACK_0(HelloWorld::resetTouchPointSign, this, showTouchSignNode));
-        auto sequence = Sequence::create(repeatScaleAction, callbackStart, nullptr);
-        showTouchSignNode->runAction(sequence);
-    };
-    
-    SEND_SHOW_TOUCH_POINT_SIGNAL(this, RPGConfig::SEND_SHOW_TOUCH_POINT_SIGN_NOTIFICATION, showTouchPointSign);
-
-    
     this->getEventDispatcher()->addCustomEventListener(RPGConfig::ON_MENU_EXIT_NOTIFICATION, CC_CALLBACK_1(HelloWorld::transitToMenu, this));
 
     this->getEventDispatcher()->addCustomEventListener(RPGConfig::ON_ALPHAMON_PRESSED_NOTIFICATION, CC_CALLBACK_1(HelloWorld::alphamonDestroyed, this));
@@ -466,10 +445,6 @@ void HelloWorld::transitionToDuelScene(wchar_t alphabet) {
     std::string firstParam = LangUtil::getInstance()->convertUTF16CharToString(CharGenerator::getInstance()->generateAChar());
     std::string secondParam = LangUtil::getInstance()->convertUTF16CharToString(alphabet);
     StartMenu::startScene(DUEL_SCENE_NAME, firstParam, secondParam);
-}
-
-void HelloWorld::resetTouchPointSign(Sprite* touchSprite) {
-    touchSprite->removeFromParentAndCleanup(true);
 }
 
 void HelloWorld::processTextMessage(std::unordered_map<int, std::string> textMap, std::string ownerOfMessage)
@@ -791,7 +766,7 @@ void HelloWorld::update(float dt) {
         {
             if(this->skeletonCharacter->isWalking) {
                 this->flipSkeletonDirection(this->currentTouchPoint, this->skeletonCharacter->getSkeletonNode());
-                CCLOG("this->currentTouchPoint %f", this->currentTouchPoint.x);
+//                CCLOG("this->currentTouchPoint %f", this->currentTouchPoint.x);
                 if(checkTouchLeftOfCharacter(this->currentTouchPoint, this->skeletonCharacter->getSkeletonNode())) {
                     this->skeletonCharacter->getSkeletonNode()->getPhysicsBody()->setVelocity(Vec2(-MAIN_CHARACTER_FORCE,GRAVITY_VELOCITY_TO_STICK_TO_GROUND));
                 } else if (checkTouchRightOfCharacter(this->currentTouchPoint, this->skeletonCharacter->getSkeletonNode())) {
@@ -801,7 +776,7 @@ void HelloWorld::update(float dt) {
                 
             } else if(this->skeletonCharacter->isRunning) {
                 this->flipSkeletonDirection(this->currentTouchPoint, this->skeletonCharacter->getSkeletonNode());
-                CCLOG("this->currentTouchPoint %f", this->currentTouchPoint.x);
+//                CCLOG("this->currentTouchPoint %f", this->currentTouchPoint.x);
                 if(checkTouchLeftOfCharacter(this->currentTouchPoint, this->skeletonCharacter->getSkeletonNode())) {
                     this->skeletonCharacter->getSkeletonNode()->getPhysicsBody()->setVelocity(Vec2(-MAIN_CHARACTER_RUNNING_FORCE,GRAVITY_VELOCITY_TO_STICK_TO_GROUND));
                 } else if (checkTouchRightOfCharacter(this->currentTouchPoint, this->skeletonCharacter->getSkeletonNode())) {
@@ -813,8 +788,9 @@ void HelloWorld::update(float dt) {
             }
             
         } else {
-            if(this->skeletonCharacter->getSkeletonNode()->getPhysicsBody()->getVelocity().y <= 0 &&
+            if(this->skeletonCharacter->getSkeletonNode()->getPhysicsBody()->getVelocity().y <=GRAVITY_VELOCITY_TO_STICK_TO_GROUND &&
                this->skeletonCharacter->isJumping == false) {
+                CCLOG("this->skeletonCharacter->getSkeletonNode()->getPhysicsBody()->getVelocity().y %f", this->skeletonCharacter->getSkeletonNode()->getPhysicsBody()->getVelocity().y);
                 this->stateMachine->handleInput(S_FALLING_STATE, cocos2d::Vec2(0,0));
             }
         }
@@ -977,7 +953,7 @@ bool HelloWorld::checkHoldWithinWalkLimitOfCharacter(Point point, cocostudio::ti
     Vec2 characterPosition = characterNode->getParent()->convertToWorldSpace(characterNode->getPosition());
     Rect characterBoundingRect = characterNode->getBoundingBox();
     
-    Rect boundingLeftRect = Rect((characterPosition.x - characterBoundingRect.size.width/2 - 2 * characterBoundingRect.size.width), 0, 2 * characterBoundingRect.size.width, characterPosition.y + characterBoundingRect.size.height);
+    Rect boundingLeftRect = Rect((characterPosition.x - characterBoundingRect.size.width/2 - 4 * characterBoundingRect.size.width), 0, 4 * characterBoundingRect.size.width, characterPosition.y + characterBoundingRect.size.height);
     
     if(boundingLeftRect.containsPoint(point)) {
         CCLOG("%s", "left walking area on hold");
@@ -985,11 +961,26 @@ bool HelloWorld::checkHoldWithinWalkLimitOfCharacter(Point point, cocostudio::ti
         return true;
     }
     
-    Rect boundingRightRect = Rect((characterPosition.x + characterBoundingRect.size.width/2), 0, 2 * characterBoundingRect.size.width, characterPosition.y + characterBoundingRect.size.height);
+    Rect boundingRightRect = Rect((characterPosition.x + characterBoundingRect.size.width/2), 0, 4 * characterBoundingRect.size.width, characterPosition.y + characterBoundingRect.size.height);
     
     if(boundingRightRect.containsPoint(point)) {
         CCLOG("%s", "right walking area on hold");
         //change mouse to different image
+        return true;
+    }
+    
+    return false;
+}
+
+bool HelloWorld::checkHoldWithinRunningLimitOfCharacter(Point point, cocostudio::timeline::SkeletonNode* characterNode)
+{
+    //find out touch Location
+    Vec2 characterPosition = characterNode->getParent()->convertToWorldSpace(characterNode->getPosition());
+    Rect characterBoundingRect = characterNode->getBoundingBox();
+    
+    Rect boundingRect = Rect((characterPosition.x - characterBoundingRect.size.width/2 - 4 * characterBoundingRect.size.width), 0, 8 * characterBoundingRect.size.width, characterPosition.y + characterBoundingRect.size.height);
+
+    if(!boundingRect.containsPoint(point)) {
         return true;
     }
     
@@ -1049,7 +1040,12 @@ void HelloWorld::HoldOrDragBehaviour(Point position) {
             //else run
             //0nly LEFT/RIGHT Horizontal force
             
-            if(checkHoldWithinSittingLimitOfCharacter(position, this->skeletonCharacter->getSkeletonNode()))
+            if(checkTouchWithinBoundsOfCharacter(position, this->skeletonCharacter->getSkeletonNode())) {
+                this->stateMachine->handleInput(S_STANDING_STATE, cocos2d::Vec2(0,0));
+                this->skeletonCharacter->getSkeletonNode()->getPhysicsBody()->resetForces();
+                this->skeletonCharacter->getSkeletonNode()->getPhysicsBody()->setVelocity(Vec2(0,0));
+            }
+            else if(checkHoldWithinSittingLimitOfCharacter(position, this->skeletonCharacter->getSkeletonNode()))
             {
                 CCLOG("%s", "Withing sitting area");
             }
@@ -1057,10 +1053,15 @@ void HelloWorld::HoldOrDragBehaviour(Point position) {
                 CCLOG("%s", "Withing walking area");
                 this->flipSkeletonDirection(position, this->skeletonCharacter->getSkeletonNode());
                 this->walkCharacterOnLeftOrRightDirection(position);
-            } else {
+            } else if(checkHoldWithinRunningLimitOfCharacter(position, this->skeletonCharacter->getSkeletonNode())){
                 CCLOG("%s", "Withing running area");
                 this->flipSkeletonDirection(position, this->skeletonCharacter->getSkeletonNode());
                 this->runCharacterOnLeftOrRightDirection(position);
+            } else {
+                this->stateMachine->handleInput(S_STANDING_STATE, cocos2d::Vec2(0,0));
+                this->skeletonCharacter->getSkeletonNode()->getPhysicsBody()->resetForces();
+                this->skeletonCharacter->getSkeletonNode()->getPhysicsBody()->setVelocity(Vec2(0,0));
+
             }
             
         } else {
@@ -1203,7 +1204,7 @@ void HelloWorld::sendBubbleDestroySignal() {
 
 bool HelloWorld::isTapOnInterActObject(Point position) {
     if(this->getSpeechBubbleAlreadyVisible()) {
-        return false;
+        return true;
     }
     return false;
 }

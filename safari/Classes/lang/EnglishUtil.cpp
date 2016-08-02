@@ -25,6 +25,12 @@ int EnglishUtil::getNumberOfCharacters() {
     return 26;
 }
 
+const std::vector<int> EnglishUtil::getNumCharsInRows() {
+    static const int en[] = {26};
+    static const std::vector<int> englishNumCharsInRows(en, en + 1);
+    return englishNumCharsInRows;
+}
+
 std::string EnglishUtil::getMonsterAnimationFileName(wchar_t alpha) {
     return std::string("english/") + convertUTF16CharToString(alpha) +".csb";
 }

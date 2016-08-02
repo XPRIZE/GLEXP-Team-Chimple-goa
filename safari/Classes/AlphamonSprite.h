@@ -41,17 +41,11 @@ public:
     
     CC_SYNTHESIZE(std::string, interAct, InterAct);
         
-    CC_SYNTHESIZE(bool, vicinityToMainCharacter, VicinityToMainCharacter);
-    
-    CC_SYNTHESIZE(bool, nearByToMainCharacter, NearByToMainCharacter);
-    
-    CC_SYNTHESIZE(bool, shouldSendShowTouchSign, ShouldSendShowTouchSign);
-    
-    CC_SYNTHESIZE(bool, showTouchSignNotificationSent, ShowTouchSignNotificationSent);
+    CC_SYNTHESIZE(bool, vicinityToMainCharacter, VicinityToMainCharacter);    
     
     virtual void update(float dt);
     
-    virtual bool checkVicinityToMainSkeleton(SkeletonCharacter* skeletonCharacter);
+    virtual void checkVicinityToMainSkeleton(SkeletonCharacter* skeletonCharacter);
     
     virtual SkeletonCharacter* getMainSkeleton();
     
@@ -61,9 +55,11 @@ public:
 protected:
     std::unordered_map<std::string, std::string> attributes;
     SkeletonCharacter* mainSkeleton;
+    cocos2d::Sprite* touchPointerNode;
     wchar_t alphabet;
     bool isSelectedForBattle;
-
+    void showTouchPointer();
+    void destroyTouchPointer();
 };
 
 #endif /* AlphamonSprite_h */

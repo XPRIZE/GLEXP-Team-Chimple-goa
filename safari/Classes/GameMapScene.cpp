@@ -144,6 +144,10 @@ void GameMapScene::islandSelected(Ref* pSender, ui::Widget::TouchEventType eEven
     cocos2d::ui::Button* clickedButton = dynamic_cast<cocos2d::ui::Button *>(pSender);
     switch (eEventType) {
         case ui::Widget::TouchEventType::BEGAN:
+            break;
+        case ui::Widget::TouchEventType::MOVED:
+            break;
+        case ui::Widget::TouchEventType::ENDED:
         {
             if(clickedButton->getName() == PATCH_THE_WALL) {
                 Director::getInstance()->replaceScene(PatchTheWall::createScene());
@@ -162,12 +166,6 @@ void GameMapScene::islandSelected(Ref* pSender, ui::Widget::TouchEventType eEven
             } else if(clickedButton->getName() == ALPHAMON_FEED) {
                 Director::getInstance()->replaceScene(AlphamonFeed::createScene());
             }
-            break;
-        }
-        case ui::Widget::TouchEventType::MOVED:
-            break;
-        case ui::Widget::TouchEventType::ENDED:
-        {
             break;
         }
             
