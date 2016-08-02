@@ -280,7 +280,6 @@ void MenuContext::videoPlayOverCallback() {
 #if (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID || CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
 	this->removeChildByName("video");
 #endif 
-    removeMenu();
 }
 
 Node* MenuContext::jumpOut(std::string nodeCsbName, float duration, Vec2 position, std::string animationName) {
@@ -326,6 +325,12 @@ void MenuContext::chimpHelp() {
         _chimp = jumpOut("chimpanzee.csb", 2, Vec2(origin.x + visibleSize.width / 2, origin.y + visibleSize.height / 4), "jump");
         //    auto callback = CC_CALLBACK_0(MenuContext::tellHelp, this);
         //    auto wait = CC_CALLBACK_0(MenuContext::waitForAudioLoad, this, LangUtil::getInstance()->getDir() + "/sounds/help/" + gameName + ".m4a", callback);
+        auto listener = EventListenerTouchOneByOne::create();
+        listener->setSwallowTouches(true);
+        listener->onTouchBegan = CC_CALLBACK_2(MenuContext::onChimpTouchBegan, this);
+        listener->onTouchEnded = CC_CALLBACK_2(MenuContext::onChimpTouchEnded, this);
+        _eventDispatcher->addEventListenerWithFixedPriority(<#cocos2d::EventListener *listener#>, <#int fixedPriority#>) (listener, );
+        
         runAction(Sequence::create(DelayTime::create(2), CallFunc::create(CC_CALLBACK_0(MenuContext::tellHelp, this)), NULL));
     }
 }
@@ -346,10 +351,22 @@ void MenuContext::tellHelp() {
 }
 
 void MenuContext::stopTellHelp() {
-    removeChild(_chimp);
-    _chimp = nullptr;
+    if(_chimp) {
+        _chimp->stopAllActions();
+    }
     videoPlayStart(gameName);
 }
+
+bool MenuContext::onChimpTouchBegan(Touch* touch, Event* event){
+    return true;
+}
+
+void MenuContext::onChimpTouchEnded(cocos2d::Touch *touch, cocos2d::Event *event) {
+    removeChild(_chimp);
+    _chimp = nullptr;
+    removeMenu();
+}
+
 
 void MenuContext::waitForAudioLoad(std::string audioFileName, std::function<void(bool isSuccess)>callback) {
     AudioEngine::preload(audioFileName.c_str(), callback);
@@ -398,7 +415,8 @@ MenuContext::MenuContext() :
 _points(0),
 _label(nullptr),
 _menuSelected(false),
-_greyLayer(nullptr)
+_greyLayer(nullptr),
+_chimp(nullptr)
 {
     
 }
