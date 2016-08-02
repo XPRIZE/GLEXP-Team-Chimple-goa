@@ -118,15 +118,24 @@ bool EndlessRunner::init()
 		startPosition = startPosition + mountain->getContentSize().width - LayerMode.tolerence;
 		allPathBlocks.push_back(mountain);
 		mountain->runAction(MoveTo::create(EndlessRunner::movingTime(mountain), Vec2((leftBarrier->getPosition().x), origin.y)));
-	}
-	jumpMode = false;
-	Character.onAir = true;
+		}
+		jumpMode = false;
+		Character.onAir = true;
+		setonEnterTransitionDidFinishCallback(CC_CALLBACK_0(EndlessRunner::startGame, this));
+	
+		return true;
+}
+
+void EndlessRunner::scheduleMethod() {
 	this->schedule(schedule_selector(EndlessRunner::sceneTree1Flow), 2.5f);
 	this->schedule(schedule_selector(EndlessRunner::sceneTree2Flow), 1.4f);
 	this->schedule(schedule_selector(EndlessRunner::CreateMonsterWithLetter), 6.0f);
 
 	this->scheduleUpdate();
-	return true;
+}
+
+void EndlessRunner::startGame() {
+	runAction(Sequence::create(CallFunc::create(CC_CALLBACK_0(MenuContext::showStartupHelp, _menuContext)), CallFunc::create(CC_CALLBACK_0(EndlessRunner::scheduleMethod, this)), NULL));
 }
 
 void EndlessRunner::update(float delta) {
