@@ -10,7 +10,6 @@
 #include "cocos2d.h"
 #include "RPGConfig.h"
 #include "StartMenuScene.h"
-#include "menu/MenuContext.h"
 #include "LanguageManager.h"
 #include "editor-support/cocostudio/CocoStudio.h"
 #include "editor-support/cocostudio/CCComExtensionData.h"
@@ -21,6 +20,7 @@
 
 #ifndef GameMapScene_h
 #define GameMapScene_h
+class MenuContext;
 
 class GameMapScene : public cocos2d::Layer {
 public:

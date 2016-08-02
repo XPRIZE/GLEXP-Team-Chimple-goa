@@ -25,6 +25,8 @@
 		373CBBA21D4A69960002BAE1 /* SafariAnalyticsManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 373CBBA01D4A69960002BAE1 /* SafariAnalyticsManager.cpp */; };
 		3740A16B1D4BC0B400B2B2F3 /* GameMapScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3740A16A1D4BC0B400B2B2F3 /* GameMapScene.cpp */; };
 		3740A16C1D4BC0B400B2B2F3 /* GameMapScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3740A16A1D4BC0B400B2B2F3 /* GameMapScene.cpp */; };
+		37533C951D507580008EEFD9 /* ScoreBoardContent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 37533C941D507580008EEFD9 /* ScoreBoardContent.cpp */; };
+		37533C961D507580008EEFD9 /* ScoreBoardContent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 37533C941D507580008EEFD9 /* ScoreBoardContent.cpp */; };
 		376FEE801D3F66380037393F /* SkeletonPosition.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 376FEE7F1D3F66380037393F /* SkeletonPosition.cpp */; };
 		376FEE811D3F66380037393F /* SkeletonPosition.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 376FEE7F1D3F66380037393F /* SkeletonPosition.cpp */; };
 		37B35F9B1D4C743A00BBD743 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37B35F9A1D4C743A00BBD743 /* MediaPlayer.framework */; };
@@ -235,6 +237,8 @@
 		373CBBA01D4A69960002BAE1 /* SafariAnalyticsManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SafariAnalyticsManager.cpp; sourceTree = "<group>"; };
 		3740A1681D4BC0A700B2B2F3 /* GameMapScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameMapScene.h; sourceTree = "<group>"; };
 		3740A16A1D4BC0B400B2B2F3 /* GameMapScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GameMapScene.cpp; sourceTree = "<group>"; };
+		37533C921D50756E008EEFD9 /* ScoreBoardContext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScoreBoardContext.h; sourceTree = "<group>"; };
+		37533C941D507580008EEFD9 /* ScoreBoardContent.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ScoreBoardContent.cpp; sourceTree = "<group>"; };
 		376FEE7D1D3F66280037393F /* SkeletonPosition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SkeletonPosition.h; sourceTree = "<group>"; };
 		376FEE7F1D3F66380037393F /* SkeletonPosition.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SkeletonPosition.cpp; sourceTree = "<group>"; };
 		37B35F9A1D4C743A00BBD743 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.3.sdk/System/Library/Frameworks/MediaPlayer.framework; sourceTree = DEVELOPER_DIR; };
@@ -725,6 +729,8 @@
 			isa = PBXGroup;
 			children = (
 				F3913DED1D3F4694001B3038 /* MenuContext.h */,
+				37533C941D507580008EEFD9 /* ScoreBoardContent.cpp */,
+				37533C921D50756E008EEFD9 /* ScoreBoardContext.h */,
 				F3913DEE1D3F4694001B3038 /* MenuContext.cpp */,
 			);
 			path = menu;
@@ -902,6 +908,7 @@
 				F3913E171D3F46B1001B3038 /* Cannon_Ball_Listener.cpp in Sources */,
 				F3913E331D3F46BE001B3038 /* SelectAlphamonScene.cpp in Sources */,
 				503AE10217EB989F00D1A890 /* RootViewController.mm in Sources */,
+				37533C951D507580008EEFD9 /* ScoreBoardContent.cpp in Sources */,
 				37C7E1EF1D47D673005C89C0 /* MapIsland.cpp in Sources */,
 				F3913E271D3F46B1001B3038 /* TraceScene.cpp in Sources */,
 				F3913DD61D3F461A001B3038 /* RunningState.cpp in Sources */,
@@ -1003,6 +1010,7 @@
 				3718293A1D44CA570013E3C4 /* MO.cpp in Sources */,
 				F3913DDF1D3F461A001B3038 /* StandingState.cpp in Sources */,
 				F3913DDD1D3F461A001B3038 /* Sqlite3Helper.cpp in Sources */,
+				37533C961D507580008EEFD9 /* ScoreBoardContent.cpp in Sources */,
 				F3913DC11D3F461A001B3038 /* ExternalSkeletonCharacter.cpp in Sources */,
 				376FEE811D3F66380037393F /* SkeletonPosition.cpp in Sources */,
 				F33905081D49B84000090367 /* GameScene.cpp in Sources */,
