@@ -329,7 +329,7 @@ void MenuContext::chimpHelp() {
         listener->setSwallowTouches(true);
         listener->onTouchBegan = CC_CALLBACK_2(MenuContext::onChimpTouchBegan, this);
         listener->onTouchEnded = CC_CALLBACK_2(MenuContext::onChimpTouchEnded, this);
-        _eventDispatcher->addEventListenerWithFixedPriority(<#cocos2d::EventListener *listener#>, <#int fixedPriority#>) (listener, );
+        _eventDispatcher->addEventListenerWithFixedPriority(listener, 1);
         
         runAction(Sequence::create(DelayTime::create(2), CallFunc::create(CC_CALLBACK_0(MenuContext::tellHelp, this)), NULL));
     }
