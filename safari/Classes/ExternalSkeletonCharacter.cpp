@@ -85,7 +85,7 @@ bool ExternalSkeletonCharacter::checkVicinityToMainSkeleton(SkeletonCharacter* s
     float distanceFromBottom = mainSkeletonPositionBottom.getDistance(this->getExternalSkeletonNode()->getPosition());
     float distanceFromTop = mainSkeletonPositionTop.getDistance(this->getExternalSkeletonNode()->getPosition());
     
-    if((distanceFromTop >= -300 && distanceFromTop <= 300) || (distanceFromBottom >= -300 && distanceFromBottom <= 300)) {
+    if((distanceFromTop >= -OBJECT_TAP_BOUNDING_BOX_WIDTH && distanceFromTop <= OBJECT_TAP_BOUNDING_BOX_WIDTH) || (distanceFromBottom >= -OBJECT_TAP_BOUNDING_BOX_WIDTH && distanceFromBottom <= OBJECT_TAP_BOUNDING_BOX_WIDTH)) {
         return true;
     }
     return false;    
@@ -175,10 +175,6 @@ bool ExternalSkeletonCharacter::onTouchBegan(Touch *touch, Event *event)
 {
     auto n = convertTouchToNodeSpace(touch);
     if(this->getInterAct() == "true" && this->getExternalSkeletonNode()->getBoundingBox().containsPoint(n)) {
-        CCLOG("%s", "CLICKED ON Spekable External Skeleton dispatching speech message");
-        std::string s(this->getName());
-        EVENT_DISPATCHER->dispatchCustomEvent(RPGConfig::SPEECH_MESSAGE_ON_TAP_NOTIFICATION, static_cast<void*>(&s));
-        
         return true;
     }
     return false;
@@ -187,5 +183,7 @@ bool ExternalSkeletonCharacter::onTouchBegan(Touch *touch, Event *event)
 
 void ExternalSkeletonCharacter::touchEnded(Touch *touch, Event *event)
 {
-    
+    CCLOG("%s", "CLICKED ON Spekable External Skeleton dispatching speech message");
+    std::string s(this->getName());
+    EVENT_DISPATCHER->dispatchCustomEvent(RPGConfig::SPEECH_MESSAGE_ON_TAP_NOTIFICATION, static_cast<void*>(&s));
 }
