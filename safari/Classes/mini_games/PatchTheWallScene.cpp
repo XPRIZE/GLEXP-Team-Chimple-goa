@@ -12,7 +12,12 @@ USING_NS_CC;
 
 float PatchTheWall::x;
 float PatchTheWall::y;
+PatchTheWall::PatchTheWall() {
 
+}
+PatchTheWall::~PatchTheWall() {
+	backgroundMusic->stopBackgroundMusic();
+}
 Scene* PatchTheWall::createScene()
 {
 	// 'scene' is an autorelease object
@@ -55,6 +60,9 @@ bool PatchTheWall::init()
 	alphagrids->setPositionX(visibleSize.width - alphagrids->getContentSize().width/2);
 	alphagrids->setPositionY(visibleSize.height/2);
 	this->addChild(alphagrids, 6);
+
+	backgroundMusic = CocosDenshion::SimpleAudioEngine::getInstance();
+	backgroundMusic->playBackgroundMusic("sounds/patchthewall.mp3", true);
 	 
 	matrix = CharGenerator::getInstance()->generateCharMatrix(3, 7);
 

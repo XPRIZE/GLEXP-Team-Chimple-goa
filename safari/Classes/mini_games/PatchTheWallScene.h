@@ -5,10 +5,14 @@
 #include <vector>
 #include "../menu/MenuContext.h"
 #include "../puzzle/Alphabet.h"
+#include "SimpleAudioEngine.h"
 class PatchTheWall : public cocos2d::Layer
 {
 public:
+	PatchTheWall();
+	~PatchTheWall();
 	static float x, y;
+	CocosDenshion::SimpleAudioEngine * backgroundMusic;
 	void update(float dt);
 	MenuContext *_menuContext;
 	int flag;
