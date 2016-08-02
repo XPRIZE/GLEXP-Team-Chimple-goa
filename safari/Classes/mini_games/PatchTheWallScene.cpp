@@ -67,7 +67,7 @@ bool PatchTheWall::init()
 	matrix = CharGenerator::getInstance()->generateCharMatrix(3, 7);
 
 	// position the sprite on the center of the screen
-	this->schedule(schedule_selector(PatchTheWall::Blast), 5.0f);
+	
 	for (int i = 0; i < 7; i++) {
 		int hegbox = (i * 175) + 300;
 		for (int j = 0; j < 3; j++)
@@ -104,11 +104,21 @@ bool PatchTheWall::init()
 
 		}
 	} 
-	this->scheduleUpdate();
+	//this->scheduleUpdate();
 	// add the sprite as a child to this layer
+	setonEnterTransitionDidFinishCallback(CC_CALLBACK_0(PatchTheWall::startGame, this));
+
 	return true;
 }
 
+void PatchTheWall::startGame() {
+	runAction(Sequence::create(CallFunc::create(CC_CALLBACK_0(MenuContext::showStartupHelp, _menuContext)), CallFunc::create(CC_CALLBACK_0(PatchTheWall::callingBlast, this)), NULL));
+}
+void PatchTheWall::callingBlast()
+{
+	this->schedule(schedule_selector(PatchTheWall::Blast), 5.0f);
+	this->scheduleUpdate();
+}
 bool PatchTheWall::onTouchBegan(cocos2d::Touch *touch, cocos2d::Event * event)
 {
 	//CCLOG("touchdshfdtj= %d", gameX.size());

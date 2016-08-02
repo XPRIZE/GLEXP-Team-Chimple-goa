@@ -145,17 +145,22 @@ bool MainGame::init()
 
 	MainGame::audioBg->playEffect("cannonball/gamesound/background1.wav", true);
 
-	startGame();
-
-	this->schedule(schedule_selector(MainGame::letterCome), letterComespeed);
-
-	CCSpriteFrameCache::sharedSpriteFrameCache()->addSpriteFramesWithFile("cannonball_mainassetPlist.plist");
-
-	this->scheduleUpdate();
+	setonEnterTransitionDidFinishCallback(CC_CALLBACK_0(MainGame::PlayVideo, this));
 
 	return true;
 }
 
+void MainGame::PlayVideo()
+{
+	runAction(Sequence::create(CallFunc::create(CC_CALLBACK_0(MenuContext::showStartupHelp, _menuContext)), CallFunc::create(CC_CALLBACK_0(MainGame::AfterPlayVideo, this)), NULL));
+}
+
+void MainGame::AfterPlayVideo()
+{
+	startGame();
+	self->schedule(schedule_selector(MainGame::letterCome), letterComespeed);
+	self->scheduleUpdate();
+} 
 
 void MainGame::startGame()	// starting of game
 {
