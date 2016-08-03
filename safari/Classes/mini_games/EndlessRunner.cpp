@@ -136,7 +136,8 @@ void EndlessRunner::scheduleMethod() {
 }
 
 void EndlessRunner::startGame() {
-	runAction(Sequence::create(CallFunc::create(CC_CALLBACK_0(MenuContext::showStartupHelp, _menuContext)), CallFunc::create(CC_CALLBACK_0(EndlessRunner::scheduleMethod, this)), NULL));
+    _menuContext->showStartupHelp(CC_CALLBACK_0(EndlessRunner::scheduleMethod, this));
+//	runAction(Sequence::create(CallFunc::create(CC_CALLBACK_0(MenuContext::showStartupHelp, _menuContext)), CallFunc::create(CC_CALLBACK_0(EndlessRunner::scheduleMethod, this)), NULL));
 }
 
 void EndlessRunner::update(float delta) {
@@ -275,10 +276,10 @@ void EndlessRunner::startingIntersectMode() {
 				Character.onAir = false;
 				Character.stillCheckFalg = false;
 
-				Character.action->play("drop", true);
+			/*	Character.action->play("drop", true);
 				auto downMovement = MoveTo::create(0.5, Vec2(visibleSize.width * 0.20 + origin.x,origin.y-400));
 				Character.fallDownAction = downMovement;
-				Character.character->runAction(Character.fallDownAction);
+				Character.character->runAction(Character.fallDownAction);*/
 				Character.Clicked = true;
 			
 				counterLife = counterLife - 1;
@@ -286,10 +287,20 @@ void EndlessRunner::startingIntersectMode() {
 				hpUi->getChildByName(counterLife)->stopAllActions();
 				hpUi->getChildByName(counterLife)->getChildByName("life_on")->setVisible(false);
 				hpUi->getChildByName(counterLife)->getChildByName("life_off")->setVisible(true);
+				
+				this->removeChild(Character.character);
+
+				Character.action = CSLoader::createTimeline("endlessrunner/main_char.csb");
+				Character.character = (Sprite *)CSLoader::createNode("endlessrunner/main_char.csb");
+				this->addChild(Character.character, zOrderPathLayer.character);
+				Character.character->runAction(Character.action);
+				Character.character->setScale(1.2);
+				Character.character->setVisible(false);
 
 				auto setPositionOnPath = CallFunc::create([=]() {
-					Character.character->setPositionY(LayerYcoord.firstLayer + 15);
+					Character.character->setPosition(Vec2((visibleSize.width * 25 / 100) + origin.x, LayerYcoord.firstLayer+15));
 					Character.action->play("run", true);
+					Character.character->getChildByName("net")->setVisible(false);
 					Character.Clicked = false;
 					LayerMode.gapMode = false;
 					Character.stillCheckFalg = true;

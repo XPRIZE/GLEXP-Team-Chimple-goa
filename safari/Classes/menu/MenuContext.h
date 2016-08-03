@@ -33,7 +33,7 @@ public:
     void finalizePoints();
     static const std::string LANG;
     Node* jumpOut(std::string nodeCsbName, float duration, cocos2d::Vec2 position, std::string animationName = "");
-    void showStartupHelp();
+    void showStartupHelp(std::function<void()> callback = nullptr);
     void showScore();
     bool isGamePaused();
 
@@ -82,6 +82,7 @@ protected:
     void normalFace();
     
     std::string gameName;
+    std::function<void()> _startupCallback;
 
 #if (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID || CC_TARGET_PLATFORM == CC_PLATFORM_IOS)  
 	void videoEventCallback(Ref* sender, cocos2d::experimental::ui::VideoPlayer::EventType eventType);

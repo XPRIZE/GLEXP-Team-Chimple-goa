@@ -19,6 +19,7 @@
 #include "../menu/MenuContext.h"
 #include "ui/CocosGUI.h"
 #include "editor-support/cocostudio/CocoStudio.h"
+#include "../StartMenuScene.h"
 
 USING_NS_CC;
 
@@ -44,7 +45,7 @@ DuelScene::~DuelScene() {
 Scene* DuelScene::createScene(wchar_t myMonChar, wchar_t otherMonChar)
 {
     auto layer = DuelScene::create(myMonChar, otherMonChar);
-    auto scene = GameScene::createWithChild(layer, "alphamon_duel");
+    auto scene = GameScene::createWithChild(layer, ALPHAMON_COMBAT);
     layer->_menuContext = scene->getMenuContext();
     return scene;
 }
@@ -181,9 +182,12 @@ void DuelScene::appearMyMon() {
     
     auto otherMonJumpTo = MoveTo::create(1, rightStand->getPosition() + Vec2(0, 40));
     
+    runAction(Sequence::create(TargetedAction::create(_myMon, monSpawn), TargetedAction::create(_otherMon, otherMonJumpTo), CallFunc::create(CC_CALLBACK_0(DuelScene::initial, this)), NULL));
     
-    runAction(Sequence::create(TargetedAction::create(_myMon, monSpawn), TargetedAction::create(_otherMon, otherMonJumpTo), CallFunc::create(CC_CALLBACK_0(MenuContext::showStartupHelp, _menuContext)),  CallFunc::create(CC_CALLBACK_0(DuelScene::startMyTurn, this)), NULL));
-    
+}
+
+void DuelScene::initial() {
+    _menuContext->showStartupHelp(CC_CALLBACK_0(DuelScene::startMyTurn, this));
 }
 
 void DuelScene::appearOtherMon() {

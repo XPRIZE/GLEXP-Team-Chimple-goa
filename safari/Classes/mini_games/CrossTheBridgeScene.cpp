@@ -34,12 +34,6 @@ bool CrossTheBridge::init()
 	{
 		return false;
 	}
-
-	gameMelody = CocosDenshion::SimpleAudioEngine::getInstance();
-	gameMelody->playEffect("endlessrunner/sound/african_drum.wav", true);
-
-	
-
 	auto gameBG = CSLoader::createNode("crossthebridge/MainScene.csb");
 	this->addChild(gameBG, 1);
 
@@ -54,24 +48,31 @@ bool CrossTheBridge::init()
 	//setAllSpriteProperties(letterBoard, 3, visibleSize.width / 2, 1703.02, true, 0.5, 0, 0.6, 0.6);
 
 	Sprite* house_wall = (Sprite *)gameBG->getChildByName("house_Wall");
-	house_wall->setGlobalZOrder(3);
+	house_wall->setGlobalZOrder(1);
 	house_wall->setPosition(Vec2(house_wall->getPosition().x + origin.x, house_wall->getPosition().y - 5 + origin.y));
 
 	Sprite* house_front = (Sprite *)gameBG->getChildByName("house_front_1");
-	house_front->setGlobalZOrder(3);
+	house_front->setGlobalZOrder(1);
 	house_front->setPosition(Vec2(house_front->getPosition().x + origin.x, house_front->getPosition().y - 5 + origin.y));
 
 	water_splash = CSLoader::createTimeline("crossthebridge/watersplash.csb");
 	splash = (Sprite *)CSLoader::createNode("crossthebridge/watersplash.csb");
-	this->addChild(splash, 16);
-	splash->setGlobalZOrder(16);
+	this->addChild(splash, 8);
+	splash->setGlobalZOrder(8);
 	splash->setVisible(false);
 	splash->runAction(water_splash);
 
+	/*mons_water_splash = CSLoader::createTimeline("crossthebridge/watersplash.csb");
+	monsFallSplash = (Sprite *)CSLoader::createNode("crossthebridge/watersplash.csb");
+	this->addChild(monsFallSplash, 8);
+	monsFallSplash->setGlobalZOrder(8);
+	monsFallSplash->setVisible(false);
+	monsFallSplash->runAction(mons_water_splash);*/
+
 	punch = CSLoader::createTimeline("crossthebridge/punch.csb");
 	punchForBack = (Sprite *)CSLoader::createNode("crossthebridge/punch.csb");
-	this->addChild(punchForBack, 16);
-	punchForBack->setGlobalZOrder(16);
+	this->addChild(punchForBack, 8);
+	punchForBack->setGlobalZOrder(8);
 	punchForBack->runAction(punch);
 	punchForBack->setVisible(false);
 	punch->setTimeSpeed(2);
@@ -85,8 +86,8 @@ bool CrossTheBridge::init()
 
 	star = CSLoader::createTimeline("crossthebridge/stars.csb");
 	sparkle = (Sprite *)CSLoader::createNode("crossthebridge/stars.csb");
-	this->addChild(sparkle, 16);
-	sparkle->setGlobalZOrder(16);
+	this->addChild(sparkle, 8);
+	sparkle->setGlobalZOrder(8);
 	sparkle->setVisible(false);
 	sparkle->runAction(star);
 
@@ -127,6 +128,8 @@ void CrossTheBridge::startGame() {
 }
 
 void CrossTheBridge::allUpdateMethod() {
+	gameMelody = CocosDenshion::SimpleAudioEngine::getInstance();
+	gameMelody->playEffect("endlessrunner/sound/african_drum.wav", true);
 	this->schedule(schedule_selector(CrossTheBridge::monsGeneration), 17);
 	this->schedule(schedule_selector(CrossTheBridge::alphabetGeneration), 6);
 	this->scheduleUpdate();
@@ -135,7 +138,7 @@ void CrossTheBridge::allUpdateMethod() {
 void CrossTheBridge::sceneMaking()
 {
 	cubeAtRest = Sprite::create("crossthebridge/border.png");
-	setAllSpriteProperties(cubeAtRest, 1, (635 / visibleSize.width)*visibleSize.width, visibleSize.height*0.47, false, 0, 0, 0.9, 1);
+	setAllSpriteProperties(cubeAtRest, 1, (640 / visibleSize.width)*visibleSize.width, visibleSize.height*0.47, false, 0, 0, 0.9, 1);
 
 	barrierRight = Sprite::create("crossthebridge/barrier.png");
 	setAllSpriteProperties(barrierRight, 1, visibleSize.width + ((50 / visibleSize.width)*visibleSize.width), (visibleSize.height*0.01), false, 0, 0, 1, 1);
@@ -150,7 +153,7 @@ void CrossTheBridge::sceneMaking()
 	setAllSpriteProperties(alphaSoundBarrier, 3, ((1150 / visibleSize.width)*visibleSize.width), (visibleSize.height*0.47), false, 0, 0, 1, 1);
 
 	barrierFlat = Sprite::create("crossthebridge/barrier.png");
-	setAllSpriteProperties(barrierFlat, 1, ((10 / visibleSize.width)*visibleSize.width), ((370 / visibleSize.height)*visibleSize.height), false, 0, 90.0f, 1, 1);
+	setAllSpriteProperties(barrierFlat, 1, ((10 / visibleSize.width)*visibleSize.width), ((400 / visibleSize.height)*visibleSize.height), false, 0, 90.0f, 1, 1);
 
 	barrierLowerSide = Sprite::create("crossthebridge/barrier.png");
 	setAllSpriteProperties(barrierLowerSide, 3, ((80 / visibleSize.width)*visibleSize.width), ((400 / visibleSize.height)*visibleSize.height), false, 0, 47.0f, 1, 0.18f);
@@ -173,6 +176,7 @@ void CrossTheBridge::update(float delta) {
 	removeObjectFromScene_Mons();
 
 	alphaIntersectBridgeCurve();
+	monsIntersectBridgeCurve();
 
 	rightAlphaMonDelete();
 
@@ -187,7 +191,7 @@ void CrossTheBridge::letterDisplayCombinationMethod()
 	comboFive = CharGenerator::getInstance()->generateMatrixForChoosingAChar(letterToDisplay, 20, 1, 70);
 
 	letterOnBoard = Alphabet::createWithSize(letterToDisplay, 220);
-	letterOnBoard->setPosition(Vec2(visibleSize.width/2 + origin.x, visibleSize.height*0.929 + origin.y));
+	letterOnBoard->setPosition(Vec2(visibleSize.width / 2 + origin.x, visibleSize.height*0.929 + origin.y));
 	letterOnBoard->setScale(0.35);
 	this->addChild(letterOnBoard, 3);
 
@@ -217,7 +221,7 @@ void CrossTheBridge::alphabetGeneration(float dt)
 	}
 	Alphamon* alphaMon = Alphamon::createWithAlphabet(name);
 	alphaMon->setPosition(Vec2((barrierRight->getPosition().x + origin.x), (visibleSize.height*0.47) + origin.y));
-	this->addChild(alphaMon, 10);
+	this->addChild(alphaMon, 1);
 
 	alphaMon->setScale(0.70);
 	alphaMon->setContentSize(cocos2d::Size(20, 300));
@@ -234,7 +238,7 @@ void CrossTheBridge::alphabetGeneration(float dt)
 void CrossTheBridge::monsGeneration(float dt) {
 	cocostudio::timeline::ActionTimeline *enemy_walk = CSLoader::createTimeline("crossthebridge/enemy_01.csb");
 	Sprite* monster = (Sprite *)CSLoader::createNode("crossthebridge/enemy_01.csb");
-	setAllSpriteProperties(monster, 3, (barrierRight->getPosition().x), ((visibleSize.height*0.472)), true, 0, 0, 0.30f, 0.30f);
+	setAllSpriteProperties(monster, 1, (barrierRight->getPosition().x), ((visibleSize.height*0.472)), true, 0, 0, 0.30f, 0.30f);
 	monster->setContentSize(cocos2d::Size(200.0f, 200.0f));
 	monster->runAction(enemy_walk);
 	enemy_walk->setTimeSpeed(1.5);
@@ -302,6 +306,7 @@ void CrossTheBridge::alphaDeletion()
 					this->removeChild(letterOnBoard, true);
 					letterContainer.clear();
 					letterDisplayCounter = 0;
+					_menuContext->showScore();
 				});
 				auto delayInCallingMethod = Sequence::create(DelayTime::create(1.5f), clearLetter, CallFunc::create([=]() { letterDisplayCombinationMethod(); }), NULL);
 				this->runAction(delayInCallingMethod);
@@ -394,7 +399,7 @@ void CrossTheBridge::checkIntersectWithMons()
 		Rect monster = monsContainer[i]->getBoundingBox();
 		if (monster.intersectsRect(cubeAtRest->getBoundingBox()) && openFlag)
 		{
-			auto sequence_A = MoveTo::create(2, Vec2(monsContainer[i]->getPosition().x, 400));
+			auto sequence_A = MoveTo::create(2.15, Vec2(monsContainer[i]->getPosition().x, 400));
 			auto main_sequence = Sequence::create(sequence_A, NULL);
 			monsContainer[i]->runAction(main_sequence);
 		}
