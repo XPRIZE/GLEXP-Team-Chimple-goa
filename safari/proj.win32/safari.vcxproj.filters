@@ -209,9 +209,6 @@
     <ClCompile Include="..\Classes\GameMapScene.cpp">
       <Filter>src</Filter>
     </ClCompile>
-    <ClCompile Include="..\Classes\menu\ScoreBoardContent.cpp">
-      <Filter>src\menu</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -393,9 +390,6 @@
     </ClInclude>
     <ClInclude Include="..\Classes\GameMapScene.h">
       <Filter>src</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\menu\ScoreBoardContext.h">
-      <Filter>src\menu</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

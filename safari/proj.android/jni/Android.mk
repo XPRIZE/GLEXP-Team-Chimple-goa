@@ -68,7 +68,7 @@ LOCAL_SRC_FILES := hellocpp/main.cpp \
 					../../Classes/MapIsland.cpp	\
 					../../Classes/lang/SafariAnalyticsManager.cpp \
 					../../Classes/GameMapScene.cpp \
-					../../Classes/menu/ScoreBoardContent.cpp 
+					../../Classes/menu/ScoreBoardContext.cpp 
 
 LOCAL_C_INCLUDES := $(LOCAL_PATH)/../../Classes
 LOCAL_C_INCLUDES += $(LOCAL_PATH)/../../../extensions
