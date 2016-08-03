@@ -119,6 +119,8 @@ void GameMapScene::processChildNodes(cocos2d::Node *rootNode) {
             
             if(gameName == "Trace Alphabet") {
                 gameName = KUNG_FU_ALPHA;
+            } else if(gameName == "Endless Runner") {
+                gameName = ENDLESS_RUNNER;
             }
             
             cocos2d::ui::Button* button = dynamic_cast<cocos2d::ui::Button *>(node);
