@@ -82,9 +82,6 @@ void MenuContext::resumeNodeAndDescendants(Node *pNode)
     {
         this->resumeNodeAndDescendants(child);
     }
-    _gameIsPaused = false;
-    AudioEngine::stopAll();
-    CocosDenshion::SimpleAudioEngine::getInstance()->resumeBackgroundMusic();
 }
 
 void MenuContext::addGreyLayer() {
@@ -194,6 +191,13 @@ void MenuContext::removeMenu() {
         _greyLayer = nullptr;
     }
     resumeNodeAndDescendants(_main);
+    _gameIsPaused = false;
+    AudioEngine::stopAll();
+    CocosDenshion::SimpleAudioEngine::getInstance()->resumeBackgroundMusic();
+    if(_startupCallback) {
+        _startupCallback();
+        _startupCallback = nullptr;
+    }
     _menuSelected = false;
 }
 
@@ -322,11 +326,14 @@ void MenuContext::showHelp(cocos2d::Ref *pSender, cocos2d::ui::Widget::TouchEven
     }
 }
 
-void MenuContext::showStartupHelp() {
+void MenuContext::showStartupHelp(std::function<void()> callback) {
     if(!SafariAnalyticsManager::getInstance()->wasGamePlayedBefore(gameName.c_str())) {
+        _startupCallback = callback;
         addGreyLayer();
         pauseNodeAndDescendants(_main);
         chimpHelp();
+    } else {
+        callback();
     }
 }
 
@@ -431,7 +438,7 @@ void MenuContext::showScore() {
     pauseNodeAndDescendants(_main);
     Size visibleSize = Director::getInstance()->getVisibleSize();
     Vec2 origin = Director::getInstance()->getVisibleOrigin();
-    auto scoreNode = ScoreBoardContext::create(_points, this->gameName);
+    auto scoreNode = ScoreBoardContext::create(_points * 100/MAX_POINTS_TO_SHOW, this->gameName);
     scoreNode->setPosition(Vec2(origin.x + visibleSize.width / 2, origin.y + visibleSize.height / 2));
     addChild(scoreNode);
 }
@@ -448,7 +455,8 @@ _menuSelected(false),
 _greyLayer(nullptr),
 _chimp(nullptr),
 _chimpAudioId(0),
-_gameIsPaused(false)
+_gameIsPaused(false),
+_startupCallback(nullptr)
 {
     
 }

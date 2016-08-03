@@ -13,7 +13,7 @@
 #include "../StartMenuScene.h"
 
 
-int touches ;
+int touches;
 
 auto alpha = LangUtil::getInstance()->getAllCharacters();
 
@@ -149,7 +149,12 @@ bool Trace::init(wchar_t alphabet) {
 }
 
 void Trace::startGame() {
-	runAction(Sequence::create(CallFunc::create(CC_CALLBACK_0(MenuContext::showStartupHelp,_menuContext)), NULL));
+    _menuContext->showStartupHelp(CC_CALLBACK_0(Trace::dummy, this));
+//	runAction(Sequence::create(CallFunc::create(CC_CALLBACK_0(MenuContext::showStartupHelp,_menuContext)), NULL));
+}
+
+void Trace::dummy() {
+    
 }
 
 void Trace::setupTouch() {
@@ -227,7 +232,7 @@ void Trace::onTouchEnded(cocos2d::Touch *touch, cocos2d::Event *event) {
 
 			std::string randomAnimation = animations[RandomHelper::random_int(0, 3)];
 
-	//		_menuContext->pickAlphabet('A', 'A', true);
+			_menuContext->pickAlphabet('A', 'A', true);
 
 
 			timeline->play(randomAnimation, false);
@@ -330,7 +335,7 @@ void Trace::transit(int level) {
 
 void Trace::resetLevel() {
 	level = 0;
-	_menuContext->showScore();
+    Director::getInstance()->replaceScene(Trace::createScene(0));
 }
 void Trace::setDotsVisibility(bool flag) {
 

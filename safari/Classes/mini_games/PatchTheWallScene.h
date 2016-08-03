@@ -6,6 +6,8 @@
 #include "../menu/MenuContext.h"
 #include "../puzzle/Alphabet.h"
 #include "SimpleAudioEngine.h"
+#include "../StartMenuScene.h"
+
 class PatchTheWall : public cocos2d::Layer
 {
 public:
@@ -45,7 +47,7 @@ public:
     // implement the "static create()" method manually
     CREATE_FUNC(PatchTheWall);
     
-    static const char* gameName() { return "Patch The Wall";}
+    static const char* gameName() { return PATCH_THE_WALL.c_str();}
 };
 
 #endif // __PATCHTHEWALL_SCENE_H__

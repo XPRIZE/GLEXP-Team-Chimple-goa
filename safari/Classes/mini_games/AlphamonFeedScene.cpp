@@ -141,8 +141,7 @@ void AlphamonFeed::startGame() {
 	backgroundMusic = CocosDenshion::SimpleAudioEngine::getInstance();
 	backgroundMusic->playBackgroundMusic("sounds/alphamonfeed.wav", true);
 	backgroundMusic->setBackgroundMusicVolume(0.50f);
-    menu->showStartupHelp();
-    callingFruits();
+    menu->showStartupHelp(CC_CALLBACK_0(AlphamonFeed::callingFruits, this));
 //	runAction(Sequence::create(CallFunc::create(CC_CALLBACK_0(MenuContext::showStartupHelp, menu)), CallFunc::create(CC_CALLBACK_0(AlphamonFeed::callingFruits, this)), NULL));
 }
 void AlphamonFeed::callingFruits()

@@ -150,7 +150,8 @@ bool MainGame::init()
 
 void MainGame::PlayVideo()
 {
-	runAction(Sequence::create(CallFunc::create(CC_CALLBACK_0(MenuContext::showStartupHelp, _menuContext)), CallFunc::create(CC_CALLBACK_0(MainGame::AfterPlayVideo, this)), NULL));
+    _menuContext->showStartupHelp(CC_CALLBACK_0(MainGame::AfterPlayVideo, this));
+//	runAction(Sequence::create(CallFunc::create(CC_CALLBACK_0(MenuContext::showStartupHelp, _menuContext)), CallFunc::create(CC_CALLBACK_0(MainGame::AfterPlayVideo, this)), NULL));
 }
 
 void MainGame::AfterPlayVideo()

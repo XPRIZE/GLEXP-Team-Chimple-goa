@@ -16,17 +16,9 @@
 #include "mini_games/Cannon_Ball_Main.h"
 #include "mini_games/TraceScene.h"
 #include "mini_games/AlphamonFeedScene.h"
+#include "StartMenuScene.h"
 
 USING_NS_CC;
-
-static const std::string PATCH_THE_WALL = "Patch The Wall";
-static const std::string CROSS_THE_BRIDGE = "Cross The Bridge";
-static const std::string SMASH_THE_ROCK = "Smash The Rock";
-static const std::string CANNON_BALL = "Cannon Ball";
-static const std::string ENDLESS_RUNNER = "Endless Runner";
-static const std::string KUNG_FU_ALPHA = "Trace Alphabet";
-static const std::string ALPHAMON_FEED = "Alphamon Feed";
-
 
 Scene* GameMapScene::createScene()
 {
@@ -124,6 +116,12 @@ void GameMapScene::processChildNodes(cocos2d::Node *rootNode) {
         cocostudio::ComExtensionData* data = (cocostudio::ComExtensionData*)node->getComponent("ComExtensionData");
         if(data != NULL && !data->getCustomProperty().empty()) {
             std::string gameName = data->getCustomProperty();
+            
+            if(gameName == "Trace Alphabet") {
+                gameName = KUNG_FU_ALPHA;
+            } else if(gameName == "Endless Runner") {
+                gameName = ENDLESS_RUNNER;
+            }
             
             cocos2d::ui::Button* button = dynamic_cast<cocos2d::ui::Button *>(node);
             button->setName(gameName);
