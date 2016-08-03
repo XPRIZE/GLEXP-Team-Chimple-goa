@@ -97,12 +97,12 @@ std::string KannadaUtil::getBMFontFileName() {
 }
 
 std::string KannadaUtil::getAlphabetSoundFileName(wchar_t alpha) {
-	auto fileName = std::string("kannada/sounds/") + langMap.at(alpha) + ".wav";//audioExt;
+	auto fileName = std::string("kannada/sounds/") + langMap.at(alpha) + audioExt;
 	return fileName; 
 }
 
 std::string KannadaUtil::getPhoneticSoundFileName(wchar_t alpha) {
-    auto fileName = std::string("kannada/sounds/") + langMap.at(alpha) +".m4a";
+    auto fileName = std::string("kannada/sounds/") + langMap.at(alpha) + audioExt;
     return fileName;
 }
 

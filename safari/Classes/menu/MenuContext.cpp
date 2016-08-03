@@ -66,6 +66,8 @@ bool MenuContext::init(Node* main) {
 
 void MenuContext::pauseNodeAndDescendants(Node *pNode)
 {
+    _gameIsPaused = true;
+    CocosDenshion::SimpleAudioEngine::getInstance()->pauseBackgroundMusic();
     pNode->pause();
     for(const auto &child : pNode->getChildren())
     {
@@ -80,6 +82,9 @@ void MenuContext::resumeNodeAndDescendants(Node *pNode)
     {
         this->resumeNodeAndDescendants(child);
     }
+    _gameIsPaused = false;
+    AudioEngine::stopAll();
+    CocosDenshion::SimpleAudioEngine::getInstance()->resumeBackgroundMusic();
 }
 
 void MenuContext::addGreyLayer() {
@@ -431,13 +436,19 @@ void MenuContext::showScore() {
     addChild(scoreNode);
 }
 
+bool MenuContext::isGamePaused() {
+    return _gameIsPaused;
+}
+
 
 MenuContext::MenuContext() :
 _points(0),
 _label(nullptr),
 _menuSelected(false),
 _greyLayer(nullptr),
-_chimp(nullptr)
+_chimp(nullptr),
+_chimpAudioId(0),
+_gameIsPaused(false)
 {
     
 }
