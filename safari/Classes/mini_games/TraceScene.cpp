@@ -149,7 +149,12 @@ bool Trace::init(wchar_t alphabet) {
 }
 
 void Trace::startGame() {
-	runAction(Sequence::create(CallFunc::create(CC_CALLBACK_0(MenuContext::showStartupHelp,_menuContext)), NULL));
+    _menuContext->showStartupHelp(CC_CALLBACK_0(Trace::dummy, this));
+//	runAction(Sequence::create(CallFunc::create(CC_CALLBACK_0(MenuContext::showStartupHelp,_menuContext)), NULL));
+}
+
+void Trace::dummy() {
+    
 }
 
 void Trace::setupTouch() {

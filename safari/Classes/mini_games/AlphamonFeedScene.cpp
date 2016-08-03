@@ -140,8 +140,7 @@ bool AlphamonFeed::init()
 }
 
 void AlphamonFeed::startGame() {
-    menu->showStartupHelp();
-    callingFruits();
+    menu->showStartupHelp(CC_CALLBACK_0(AlphamonFeed::callingFruits, this));
 //	runAction(Sequence::create(CallFunc::create(CC_CALLBACK_0(MenuContext::showStartupHelp, menu)), CallFunc::create(CC_CALLBACK_0(AlphamonFeed::callingFruits, this)), NULL));
 }
 void AlphamonFeed::callingFruits()
