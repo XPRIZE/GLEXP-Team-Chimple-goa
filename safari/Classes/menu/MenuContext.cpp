@@ -276,15 +276,24 @@ void MenuContext::videoPlayStart(std::string gameName)
     if(!gameName.empty()) {
         videoName = gameName;
     }
+	auto tv = Sprite::create("TV.png");
+	tv->setScaleX(0.73);
+	tv->setScaleY(0.70);
+	tv->setAnchorPoint(Vec2::ANCHOR_MIDDLE);
+	tv->setPosition(Vec2(Director::getInstance()->getVisibleSize().width / 2, Director::getInstance()->getVisibleSize().height / 2));
+	tv->setName("tv");
 #if (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID || CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
+	//auto sprite = CCSprite::create("TV.png");
+	//sprite->setPosition(Vec2(Director::getInstance()->getVisibleSize().width / 2, Director::getInstance()->getVisibleSize().height / 2));
 	experimental::ui::VideoPlayer* vp = experimental::ui::VideoPlayer::create();
-	vp->setContentSize(Size(Director::getInstance()->getVisibleSize().width, Director::getInstance()->getVisibleSize().height));
+	this->addChild(tv, 2);
+	vp->setContentSize(cocos2d::Size((tv->getContentSize().width *0.73)-200, (tv->getContentSize().height*0.7) - 180 ));
 	vp->setFileName("help/" + videoName +".webm");
 	vp->setPosition(Vec2(Director::getInstance()->getVisibleSize().width / 2, Director::getInstance()->getVisibleSize().height / 2));
 	vp->setAnchorPoint(Vec2::ANCHOR_MIDDLE);
 	vp->play();
 	vp->setName("video");
-	this->addChild(vp, 0);
+	this->addChild(vp, 2);
 	vp->addEventListener(CC_CALLBACK_2(MenuContext::videoEventCallback, this));
 #else
     videoPlayOverCallback();
@@ -295,6 +304,7 @@ void MenuContext::videoPlayStart(std::string gameName)
 void MenuContext::videoPlayOverCallback() {
 #if (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID || CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
 	this->removeChildByName("video");
+	this->removeChildByName("tv");
 #endif 
 }
 
