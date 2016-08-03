@@ -124,7 +124,8 @@ void CrossTheBridge::menuCloseCallback(Ref* pSender)
 }
 
 void CrossTheBridge::startGame() {
-	runAction(Sequence::create(CallFunc::create(CC_CALLBACK_0(MenuContext::showStartupHelp, _menuContext)), CallFunc::create(CC_CALLBACK_0(CrossTheBridge::allUpdateMethod, this)), NULL));
+	_menuContext->showStartupHelp(CC_CALLBACK_0(CrossTheBridge::allUpdateMethod, this));
+	//runAction(Sequence::create(CallFunc::create(CC_CALLBACK_0(MenuContext::showStartupHelp, _menuContext)), CallFunc::create(CC_CALLBACK_0(CrossTheBridge::allUpdateMethod, this)), NULL));
 }
 
 void CrossTheBridge::allUpdateMethod() {
