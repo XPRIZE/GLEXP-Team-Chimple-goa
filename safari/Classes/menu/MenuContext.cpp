@@ -277,8 +277,8 @@ void MenuContext::videoPlayStart(std::string gameName)
         videoName = gameName;
     }
 	auto tv = Sprite::create("TV.png");
-	tv->setScaleX(0.75);
-	tv->setScaleY(0.75);
+	tv->setScaleX(0.73);
+	tv->setScaleY(0.70);
 	tv->setAnchorPoint(Vec2::ANCHOR_MIDDLE);
 	tv->setPosition(Vec2(Director::getInstance()->getVisibleSize().width / 2, Director::getInstance()->getVisibleSize().height / 2));
 	tv->setName("tv");
@@ -287,7 +287,7 @@ void MenuContext::videoPlayStart(std::string gameName)
 	//sprite->setPosition(Vec2(Director::getInstance()->getVisibleSize().width / 2, Director::getInstance()->getVisibleSize().height / 2));
 	experimental::ui::VideoPlayer* vp = experimental::ui::VideoPlayer::create();
 	this->addChild(tv, 2);
-	vp->setContentSize(cocos2d::Size((tv->getContentSize().width *0.75)-200, (tv->getContentSize().height*0.75) - 180 ));
+	vp->setContentSize(cocos2d::Size((tv->getContentSize().width *0.73)-200, (tv->getContentSize().height*0.7) - 180 ));
 	vp->setFileName("help/" + videoName +".webm");
 	vp->setPosition(Vec2(Director::getInstance()->getVisibleSize().width / 2, Director::getInstance()->getVisibleSize().height / 2));
 	vp->setAnchorPoint(Vec2::ANCHOR_MIDDLE);
