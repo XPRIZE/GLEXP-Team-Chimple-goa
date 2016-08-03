@@ -116,7 +116,7 @@ bool Trace::init(wchar_t alphabet) {
             auto str = child->getName();
 			
 			std::ostringstream sstreami;
-			sstreami << "Node_" << i ;
+			sstreami << "dot_" << i ;
 			std::string queryi = sstreami.str();
 
             if (str.find(queryi) != std::string::npos) {
