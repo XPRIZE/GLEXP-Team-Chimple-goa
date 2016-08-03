@@ -131,7 +131,6 @@ bool AlphamonFeed::init()
 	_eventDispatcher->addEventListenerWithFixedPriority(listener, -1);
 	isTouching = false;
 	
-	
 	setonEnterTransitionDidFinishCallback(CC_CALLBACK_0(AlphamonFeed::startGame, this));
 
     return true;
