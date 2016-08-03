@@ -167,6 +167,7 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClCompile Include="..\Classes\MapIsland.cpp" />
     <ClCompile Include="..\Classes\MapScene.cpp" />
     <ClCompile Include="..\Classes\menu\MenuContext.cpp" />
+    <ClCompile Include="..\Classes\menu\ScoreBoardContent.cpp" />
     <ClCompile Include="..\Classes\MessageContent.cpp" />
     <ClCompile Include="..\Classes\MessageReceiver.cpp" />
     <ClCompile Include="..\Classes\MessageSender.cpp" />
@@ -228,6 +229,7 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClInclude Include="..\Classes\MapIsland.h" />
     <ClInclude Include="..\Classes\MapScene.h" />
     <ClInclude Include="..\Classes\menu\MenuContext.h" />
+    <ClInclude Include="..\Classes\menu\ScoreBoardContext.h" />
     <ClInclude Include="..\Classes\MessageContent.hpp" />
     <ClInclude Include="..\Classes\MessageReceiver.hpp" />
     <ClInclude Include="..\Classes\MessageSender.hpp" />
