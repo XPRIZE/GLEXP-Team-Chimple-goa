@@ -11,7 +11,7 @@
 
 #include "cocos2d.h"
 #include "../menu/MenuContext.h"
-
+#include "../StartMenuScene.h"
 
 class Trace : public cocos2d::Layer {
 public:
@@ -21,6 +21,7 @@ public:
 	void transit(int level);
 	void resetLevel();
 	void setDotsVisibility(bool flag);
+    void dummy();
 	
 CC_CONSTRUCTOR_ACCESS:
     virtual bool init(wchar_t alphabet);
@@ -30,7 +31,7 @@ CC_CONSTRUCTOR_ACCESS:
     void onTouchEnded(cocos2d::Touch* touch, cocos2d::Event* event);
     void onTouchMoved(cocos2d::Touch* touch, cocos2d::Event* event);
 	void startGame();
-    static const char* classname() { return "Trace Alphabet";}
+    static const char* classname() { return KUNG_FU_ALPHA.c_str();}
 protected:
     int _currentNodeIndex;
     int _currentStroke;

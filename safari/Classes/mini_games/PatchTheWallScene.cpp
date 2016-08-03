@@ -112,7 +112,8 @@ bool PatchTheWall::init()
 }
 
 void PatchTheWall::startGame() {
-	runAction(Sequence::create(CallFunc::create(CC_CALLBACK_0(MenuContext::showStartupHelp, _menuContext)), CallFunc::create(CC_CALLBACK_0(PatchTheWall::callingBlast, this)), NULL));
+    _menuContext->showStartupHelp(CC_CALLBACK_0(PatchTheWall::callingBlast, this));
+//	runAction(Sequence::create(CallFunc::create(CC_CALLBACK_0(MenuContext::showStartupHelp, _menuContext)), CallFunc::create(CC_CALLBACK_0(PatchTheWall::callingBlast, this)), NULL));
 }
 void PatchTheWall::callingBlast()
 {
@@ -214,7 +215,7 @@ void PatchTheWall::onTouchCancelled(cocos2d::Touch *touch, cocos2d::Event * even
 }
 void PatchTheWall::update(float dt) {
 	if (slideBar->getPercent() == 100) {
-		Director::getInstance()->replaceScene(StartMenu::createScene());
+        _menuContext->showScore();
 	}
 	
 }

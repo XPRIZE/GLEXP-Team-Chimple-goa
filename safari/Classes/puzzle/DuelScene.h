@@ -60,6 +60,7 @@ protected:
     void playAnimationTemp(cocostudio::timeline::ActionTimeline* timeline);
     void appearMyMon();
     void appearOtherMon();
+    void initial();
 
     static const std::string BG_NAME;
     static const std::string PANEL_NAME;

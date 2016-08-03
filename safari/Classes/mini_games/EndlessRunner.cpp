@@ -136,7 +136,8 @@ void EndlessRunner::scheduleMethod() {
 }
 
 void EndlessRunner::startGame() {
-	runAction(Sequence::create(CallFunc::create(CC_CALLBACK_0(MenuContext::showStartupHelp, _menuContext)), CallFunc::create(CC_CALLBACK_0(EndlessRunner::scheduleMethod, this)), NULL));
+    _menuContext->showStartupHelp(CC_CALLBACK_0(EndlessRunner::scheduleMethod, this));
+//	runAction(Sequence::create(CallFunc::create(CC_CALLBACK_0(MenuContext::showStartupHelp, _menuContext)), CallFunc::create(CC_CALLBACK_0(EndlessRunner::scheduleMethod, this)), NULL));
 }
 
 void EndlessRunner::update(float delta) {

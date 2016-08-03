@@ -181,9 +181,12 @@ void DuelScene::appearMyMon() {
     
     auto otherMonJumpTo = MoveTo::create(1, rightStand->getPosition() + Vec2(0, 40));
     
+    runAction(Sequence::create(TargetedAction::create(_myMon, monSpawn), TargetedAction::create(_otherMon, otherMonJumpTo), CallFunc::create(CC_CALLBACK_0(DuelScene::initial, this)), NULL));
     
-    runAction(Sequence::create(TargetedAction::create(_myMon, monSpawn), TargetedAction::create(_otherMon, otherMonJumpTo), CallFunc::create(CC_CALLBACK_0(MenuContext::showStartupHelp, _menuContext)),  CallFunc::create(CC_CALLBACK_0(DuelScene::startMyTurn, this)), NULL));
-    
+}
+
+void DuelScene::initial() {
+    _menuContext->showStartupHelp(CC_CALLBACK_0(DuelScene::startMyTurn, this));
 }
 
 void DuelScene::appearOtherMon() {

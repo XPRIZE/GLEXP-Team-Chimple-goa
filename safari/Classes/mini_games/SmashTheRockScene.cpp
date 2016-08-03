@@ -89,13 +89,16 @@ bool SmashTheRock::init()
 
 	return true;
 }
+
 void SmashTheRock::update(float dt)
 {
 	
 	
 }
+
 void SmashTheRock::startGame() {
-	runAction(Sequence::create(CallFunc::create(CC_CALLBACK_0(MenuContext::showStartupHelp, menu)), CallFunc::create(CC_CALLBACK_0(SmashTheRock::begin, this)), NULL));
+    menu->showStartupHelp(CC_CALLBACK_0(SmashTheRock::begin, this));
+//	runAction(Sequence::create(CallFunc::create(CC_CALLBACK_0(MenuContext::showStartupHelp, menu)), CallFunc::create(CC_CALLBACK_0(SmashTheRock::begin, this)), NULL));
 }
 
 void SmashTheRock::begin()

@@ -143,8 +143,6 @@ bool MainGame::init()
 
 	self = this;
 
-	MainGame::audioBg->playEffect("cannonball/gamesound/background1.wav", true);
-
 	setonEnterTransitionDidFinishCallback(CC_CALLBACK_0(MainGame::PlayVideo, this));
 
 	return true;
@@ -152,11 +150,13 @@ bool MainGame::init()
 
 void MainGame::PlayVideo()
 {
-	runAction(Sequence::create(CallFunc::create(CC_CALLBACK_0(MenuContext::showStartupHelp, _menuContext)), CallFunc::create(CC_CALLBACK_0(MainGame::AfterPlayVideo, this)), NULL));
+    _menuContext->showStartupHelp(CC_CALLBACK_0(MainGame::AfterPlayVideo, this));
+//	runAction(Sequence::create(CallFunc::create(CC_CALLBACK_0(MenuContext::showStartupHelp, _menuContext)), CallFunc::create(CC_CALLBACK_0(MainGame::AfterPlayVideo, this)), NULL));
 }
 
 void MainGame::AfterPlayVideo()
 {
+	MainGame::audioBg->playEffect("cannonball/gamesound/background1.wav", true);
 	startGame();
 	self->schedule(schedule_selector(MainGame::letterCome), letterComespeed);
 	self->scheduleUpdate();
@@ -689,6 +689,10 @@ void MainGame::update(float dt)
 					this->removeChild(MainGame::bulletArray_Animation[j]);
 
 					_menuContext->pickAlphabet(MainGame::letterArray[i]->id, bulletArray[j]->id, true);
+
+					int score = _menuContext->getPoints();
+					if (score == 10)
+						_menuContext->showScore();
 
 					int it = find(MainGame::bulletArray.begin(), MainGame::bulletArray.end(), MainGame::bulletArray[j]) - MainGame::bulletArray.begin();	//find bullet index in bulletarray 
 					MainGame::bulletArray_actualImage.erase(MainGame::bulletArray_actualImage.begin() + it);
