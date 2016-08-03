@@ -94,6 +94,9 @@ void MenuContext::addGreyLayer() {
 }
 
 void MenuContext::expandMenu(cocos2d::Ref *pSender, cocos2d::ui::Widget::TouchEventType eEventType) {
+    if(_chimp) {
+        return;
+    }
     if(eEventType == cocos2d::ui::Widget::TouchEventType::ENDED) {
         Button* clickedButton = dynamic_cast<Button *>(pSender);
         if(clickedButton == _menuButton) {
