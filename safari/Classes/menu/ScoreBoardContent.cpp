@@ -100,10 +100,13 @@ void ScoreBoardContext::processChildNodes(cocos2d::Node *rootNode) {
                 Sprite* sprite = dynamic_cast<Sprite *>(node);
                 if(action == "show_one") {
                     this->starOne = sprite;
+                    this->starOne->setVisible(false);
                 } else if(action == "show_two") {
                     this->starTwo = sprite;
+                    this->starTwo->setVisible(false);
                 } else if(action == "show_three") {
                     this->starThree = sprite;
+                    this->starThree->setVisible(false);
                 }
             }
         }
