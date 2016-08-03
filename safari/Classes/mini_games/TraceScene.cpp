@@ -13,7 +13,7 @@
 #include "../StartMenuScene.h"
 
 
-int touches ;
+int touches;
 
 auto alpha = LangUtil::getInstance()->getAllCharacters();
 
@@ -232,7 +232,7 @@ void Trace::onTouchEnded(cocos2d::Touch *touch, cocos2d::Event *event) {
 
 			std::string randomAnimation = animations[RandomHelper::random_int(0, 3)];
 
-	//		_menuContext->pickAlphabet('A', 'A', true);
+			_menuContext->pickAlphabet('A', 'A', true);
 
 
 			timeline->play(randomAnimation, false);
