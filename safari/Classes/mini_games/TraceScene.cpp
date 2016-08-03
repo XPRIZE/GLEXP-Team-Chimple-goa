@@ -70,8 +70,8 @@ bool Trace::init(wchar_t alphabet) {
 
 	CCSpriteFrameCache::sharedSpriteFrameCache()->addSpriteFramesWithFile("-Alphacombat.plist");
 	this->getEventDispatcher()->addCustomEventListener("on_menu_exit", CC_CALLBACK_0(Trace::resetLevel, this));
-	CocosDenshion::SimpleAudioEngine::getInstance()->preloadEffect("TraceMusic.wav");
-	CocosDenshion::SimpleAudioEngine::getInstance()->playEffect("TraceMusic.wav", true);
+	CocosDenshion::SimpleAudioEngine::getInstance()->preloadBackgroundMusic ("TraceMusic.wav");
+	CocosDenshion::SimpleAudioEngine::getInstance()->playBackgroundMusic("TraceMusic.wav", true);
 
 	//loading lion animation
 	CCSpriteFrameCache::sharedSpriteFrameCache()->addSpriteFramesWithFile("Character/Alpha_kombat_plist.plist");
@@ -116,7 +116,7 @@ bool Trace::init(wchar_t alphabet) {
             auto str = child->getName();
 			
 			std::ostringstream sstreami;
-			sstreami << "Node_" << i ;
+			sstreami << "dot_" << i ;
 			std::string queryi = sstreami.str();
 
             if (str.find(queryi) != std::string::npos) {

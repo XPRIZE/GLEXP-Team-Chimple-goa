@@ -35,6 +35,7 @@ public:
     Node* jumpOut(std::string nodeCsbName, float duration, cocos2d::Vec2 position, std::string animationName = "");
     void showStartupHelp();
     void showScore();
+    bool isGamePaused();
 
 CC_CONSTRUCTOR_ACCESS:
     MenuContext();
@@ -48,6 +49,7 @@ CC_CONSTRUCTOR_ACCESS:
 protected:
     int _points;
     bool _menuSelected;
+    bool _gameIsPaused;
     bool _launchCustomEventOnExit;
     cocos2d::Node* _main;
     cocos2d::Label* _label;
@@ -60,6 +62,7 @@ protected:
     cocos2d::ui::Button* _gamesMenu;
     cocos2d::LayerColor* _greyLayer;
     cocos2d::Node* _chimp;
+    int _chimpAudioId;
     void expandMenu(Ref* pSender, cocos2d::ui::Widget::TouchEventType eEventType);
     void pauseNodeAndDescendants(Node *pNode);
     void resumeNodeAndDescendants(Node *pNode);
