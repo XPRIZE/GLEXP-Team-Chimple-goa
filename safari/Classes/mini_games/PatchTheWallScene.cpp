@@ -215,7 +215,7 @@ void PatchTheWall::onTouchCancelled(cocos2d::Touch *touch, cocos2d::Event * even
 }
 void PatchTheWall::update(float dt) {
 	if (slideBar->getPercent() == 100) {
-		Director::getInstance()->replaceScene(StartMenu::createScene());
+        _menuContext->showScore();
 	}
 	
 }
