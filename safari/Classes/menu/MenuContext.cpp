@@ -10,7 +10,6 @@
 #include "ui/CocosGUI.h"
 #include "../StartMenuScene.h"
 #include "../MapScene.h"
-#include "../GameMapScene.h"
 #include "../lang/SafariAnalyticsManager.h"
 #include "editor-support/cocostudio/CocoStudio.h"
 #include "../alphamon/SelectAlphamonScene.h"
@@ -50,9 +49,9 @@ bool MenuContext::init(Node* main) {
     _menuButton->setPosition(Vec2(origin.x + visibleSize.width - 150, origin.y + visibleSize.height - 150));
     addChild(_menuButton, 1);
     
-    _label = Label::createWithTTF("Points: 0", "fonts/arial.ttf", 50);
-    _label->setPosition(Vec2(125, 125));
-    _menuButton->addChild(_label);
+//    _label = Label::createWithTTF("Points: 0", "fonts/arial.ttf", 50);
+//    _label->setPosition(Vec2(125, 125));
+//    _menuButton->addChild(_label);
     
     _pointMeter = Slider::create();
     _pointMeter->loadBarTexture("menu/blank.png");
@@ -67,6 +66,8 @@ bool MenuContext::init(Node* main) {
 
 void MenuContext::pauseNodeAndDescendants(Node *pNode)
 {
+    _gameIsPaused = true;
+    CocosDenshion::SimpleAudioEngine::getInstance()->pauseBackgroundMusic();
     pNode->pause();
     for(const auto &child : pNode->getChildren())
     {
@@ -81,6 +82,9 @@ void MenuContext::resumeNodeAndDescendants(Node *pNode)
     {
         this->resumeNodeAndDescendants(child);
     }
+    _gameIsPaused = false;
+    AudioEngine::stopAll();
+    CocosDenshion::SimpleAudioEngine::getInstance()->resumeBackgroundMusic();
 }
 
 void MenuContext::addGreyLayer() {
@@ -125,14 +129,9 @@ void MenuContext::expandMenu(cocos2d::Ref *pSender, cocos2d::ui::Widget::TouchEv
                 _gamesMenu = this->createMenuItem("menu/game.png", "menu/game.png", "menu/game.png", 4 * POINTS_TO_LEFT);
                 _gamesMenu->addTouchEventListener(CC_CALLBACK_2(MenuContext::showGamesMenu, this));
 
-//                _exitMenu = Button::create("menu/back.png", "menu/back.png", "menu/back.png", Widget::TextureResType::LOCAL);
-//                _exitMenu->addTouchEventListener(CC_CALLBACK_2(MenuContext::expandMenu, this));
-//                _exitMenu->setPosition(_menuButton->getPosition());
-//                addChild(_exitMenu);
 
                 auto moveTo = MoveTo::create(0.5, Vec2(150, _menuButton->getPosition().y));
                 auto elastic = EaseBackOut::create(moveTo);
-//                _exitMenu->runAction(elastic);
                 pauseNodeAndDescendants(_main);
                 _menuSelected = true;
             }
@@ -218,11 +217,15 @@ void MenuContext::pickAlphabet(char targetAlphabet, char chosenAlphabet, bool ch
                                          NULL);
         runAction(sequence);
     }
-    _label->setString("Points: " + to_string(_points));
+//    _label->setString("Points: " + to_string(_points));
     std::string targetAlphabetStr (1, targetAlphabet);
     std::string chosenAlphabetStr (1, chosenAlphabet);
 
     SafariAnalyticsManager::getInstance()->insertAnalyticsInfo(targetAlphabetStr.c_str(), chosenAlphabetStr.c_str(), gameName.c_str());
+}
+
+int MenuContext::getPoints() {
+    return _points;
 }
 
 void MenuContext::finalizePoints() {
@@ -265,10 +268,14 @@ void MenuContext::videoEventCallback(Ref* sender, cocos2d::experimental::ui::Vid
 
 void MenuContext::videoPlayStart(std::string gameName)
 {
+    std::string videoName = "generic";
+    if(!gameName.empty()) {
+        videoName = gameName;
+    }
 #if (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID || CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
 	experimental::ui::VideoPlayer* vp = experimental::ui::VideoPlayer::create();
 	vp->setContentSize(Size(Director::getInstance()->getVisibleSize().width, Director::getInstance()->getVisibleSize().height));
-	vp->setFileName("help/" + gameName+".webm");
+	vp->setFileName("help/" + videoName +".webm");
 	vp->setPosition(Vec2(Director::getInstance()->getVisibleSize().width / 2, Director::getInstance()->getVisibleSize().height / 2));
 	vp->setAnchorPoint(Vec2::ANCHOR_MIDDLE);
 	vp->play();
@@ -418,6 +425,20 @@ void MenuContext::showGamesMenu(cocos2d::Ref *pSender, cocos2d::ui::Widget::Touc
 
 
 
+void MenuContext::showScore() {
+    //compute score
+    addGreyLayer();
+    pauseNodeAndDescendants(_main);
+    Size visibleSize = Director::getInstance()->getVisibleSize();
+    Vec2 origin = Director::getInstance()->getVisibleOrigin();
+    auto scoreNode = ScoreBoardContext::create(_points, this->gameName);
+    scoreNode->setPosition(Vec2(origin.x + visibleSize.width / 2, origin.y + visibleSize.height / 2));
+    addChild(scoreNode);
+}
+
+bool MenuContext::isGamePaused() {
+    return _gameIsPaused;
+}
 
 
 MenuContext::MenuContext() :
@@ -425,7 +446,9 @@ _points(0),
 _label(nullptr),
 _menuSelected(false),
 _greyLayer(nullptr),
-_chimp(nullptr)
+_chimp(nullptr),
+_chimpAudioId(0),
+_gameIsPaused(false)
 {
     
 }

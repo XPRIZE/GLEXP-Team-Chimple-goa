@@ -140,7 +140,9 @@ bool AlphamonFeed::init()
 }
 
 void AlphamonFeed::startGame() {
-	runAction(Sequence::create(CallFunc::create(CC_CALLBACK_0(MenuContext::showStartupHelp, menu)), CallFunc::create(CC_CALLBACK_0(AlphamonFeed::callingFruits, this)), NULL));
+    menu->showStartupHelp();
+    callingFruits();
+//	runAction(Sequence::create(CallFunc::create(CC_CALLBACK_0(MenuContext::showStartupHelp, menu)), CallFunc::create(CC_CALLBACK_0(AlphamonFeed::callingFruits, this)), NULL));
 }
 void AlphamonFeed::callingFruits()
 {
@@ -170,65 +172,67 @@ void AlphamonFeed::showFruits(float dt) {
 	fruitReff.pushBack(sprite);
 }
 
-void AlphamonFeed:: update(float dt) { 
-	if (fruitReff.size() != 0) {
-		for (int i = 0; i < fruitReff.size(); i++) {
-			monster = CCRectMake(sprite1->getPositionX()-(sprite1->getContentSize().width/2), sprite1->getPositionY(), sprite1->getContentSize().width/2, sprite1->getContentSize().height/2); //+(sprite1->getContentSize().height/4)
-			Rect fruit = CCRectMake(fruitReff.at(i)->getPositionX()-100, fruitReff.at(i)->getPositionY()-60, fruitReff.at(i)->getContentSize().width, fruitReff.at(i)->getContentSize().height);
-
-			if ((monster).intersectsRect(fruit)) {
-				audio = CocosDenshion::SimpleAudioEngine::getInstance();
-				auto soundPath = (fruitReff.at(i)->getName());
-				std::string::size_type sz;   // alias of size_t
-				int i_dec = atoi(soundPath.c_str());//std::stoi(soundPath, &sz);
-				wchar_t testing = (wchar_t)i_dec;
-				auto path = LangUtil::getInstance()->getAlphabetSoundFileName(testing);
-				audio->playEffect(path.c_str(), false);
-				int mySpriteName = atoi(sprite1->getName().c_str());//std::stoi(sprite1->getName(), &sz);
-				wchar_t monster = (wchar_t)mySpriteName;
-			//	menu->pickAlphabet((sprite1->getName()).at(0), (fruitReff.at(i)->getName()).at(0), true);
-				menu->pickAlphabet(monster, testing, true);
-				if ((sprite1->getName()).compare(fruitReff.at(i)->getName()) == 0) {	
-					sprite1->alphamonMouthAnimation("eat", false);
-					smile->setVisible(false);
-					laughing->setVisible(true);
-					score = score + 10;
-					slideBar->setPercent(score);
-					angry->setVisible(false);
-					this->removeChild(fruitReff.at(i));
-					fruitReff.erase(i);
-				} else {
-					sprite1->alphamonMouthAnimation("spit", false);
-					sprite1->alphamonEyeAnimation("angry1",false);
-					auto animation = sprite1->shakeAction();
-					sprite1->runAction(animation);
-					smile->setVisible(false);
-					laughing->setVisible(false);
-					angry->setVisible(true);
-					score = score - 10;
-					if (score < 0) {
-						score = 0;
-					}
-					slideBar->setPercent(score);
-					this->removeChild(fruitReff.at(i));
-					fruitReff.erase(i);
-				}
-			}
-
-			if (fruitReff.at(i)->getPositionY() < -10) {
-				this->removeChild(fruitReff.at(i));
-				fruitReff.erase(i);
-			}
-			//alpha_animation->pause();
-		}
-	}
-	if ((slideBar->getPercent()) == 100) {
-		unscheduleUpdate();
-		gameOver();
-		//Director::getInstance()->replaceScene(StartMenu::createScene());
-		
-	}
+void AlphamonFeed:: update(float dt) {
+    if(!menu->isGamePaused()) {
+        if (fruitReff.size() != 0) {
+            for (int i = 0; i < fruitReff.size(); i++) {
+                monster = CCRectMake(sprite1->getPositionX()-(sprite1->getContentSize().width/2), sprite1->getPositionY(), sprite1->getContentSize().width/2, sprite1->getContentSize().height/2); //+(sprite1->getContentSize().height/4)
+                Rect fruit = CCRectMake(fruitReff.at(i)->getPositionX()-100, fruitReff.at(i)->getPositionY()-60, fruitReff.at(i)->getContentSize().width, fruitReff.at(i)->getContentSize().height);
+                
+                if ((monster).intersectsRect(fruit)) {
+                    audio = CocosDenshion::SimpleAudioEngine::getInstance();
+                    auto soundPath = (fruitReff.at(i)->getName());
+                    std::string::size_type sz;   // alias of size_t
+                    int i_dec = atoi(soundPath.c_str());//std::stoi(soundPath, &sz);
+                    wchar_t testing = (wchar_t)i_dec;
+                    auto path = LangUtil::getInstance()->getAlphabetSoundFileName(testing);
+                    audio->playEffect(path.c_str(), false);
+                    int mySpriteName = atoi(sprite1->getName().c_str());//std::stoi(sprite1->getName(), &sz);
+                    wchar_t monster = (wchar_t)mySpriteName;
+                    //	menu->pickAlphabet((sprite1->getName()).at(0), (fruitReff.at(i)->getName()).at(0), true);
+                    menu->pickAlphabet(monster, testing, true);
+                    if ((sprite1->getName()).compare(fruitReff.at(i)->getName()) == 0) {
+                        sprite1->alphamonMouthAnimation("eat", false);
+                        smile->setVisible(false);
+                        laughing->setVisible(true);
+                        score = score + 10;
+                        slideBar->setPercent(score);
+                        angry->setVisible(false);
+                        this->removeChild(fruitReff.at(i));
+                        fruitReff.erase(i);
+                    } else {
+                        sprite1->alphamonMouthAnimation("spit", false);
+                        sprite1->alphamonEyeAnimation("angry1",false);
+                        auto animation = sprite1->shakeAction();
+                        sprite1->runAction(animation);
+                        smile->setVisible(false);
+                        laughing->setVisible(false);
+                        angry->setVisible(true);
+                        score = score - 10;
+                        if (score < 0) {
+                            score = 0;
+                        }
+                        slideBar->setPercent(score);
+                        this->removeChild(fruitReff.at(i));
+                        fruitReff.erase(i);
+                    }
+                }
+                
+                if (fruitReff.at(i)->getPositionY() < -10) {
+                    this->removeChild(fruitReff.at(i));
+                    fruitReff.erase(i);
+                }
+                //alpha_animation->pause();
+            }
+        }
+        if ((slideBar->getPercent()) == 100) {
+            unscheduleUpdate();
+            gameOver();
+            menu->showScore();
+        }        
+    }
 }
+
 bool AlphamonFeed::onTouchBegan(cocos2d::Touch *touch,cocos2d::Event * event)
 {
 	touchPosition = touch->getLocation().x;
