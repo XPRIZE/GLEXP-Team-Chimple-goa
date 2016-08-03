@@ -118,7 +118,7 @@ void SmashTheRock::begin()
 	mychar = CharGenerator::getInstance()->generateAChar();
 	std::vector<std::vector<wchar_t>> charkey = CharGenerator::getInstance()->generateMatrixForChoosingAChar(mychar, 2, 9, 50);
 
-	int dis = (160.0 / 2560)*visibleSize.width;
+	int dis = (180.0 / 2560)*visibleSize.width;
 	for (int i = 1; i < 3; i++)
 	{
 		int blockHeight = i*(block->getContentSize().height + 110) + 10;
@@ -358,7 +358,7 @@ bool SmashTheRock::onTouchBegan(cocos2d::Touch *touch, cocos2d::Event * event)
 	Alphabet * target =(Alphabet *) event->getCurrentTarget();
 	auto  location = target->convertToNodeSpace(touch->getLocation());
 	Size visibleSize = Director::getInstance()->getVisibleSize();
-	int dis = (160.00 / 2560)*(visibleSize.width);
+	int dis = (180.00 / 2560)*(visibleSize.width);
 	auto mystr = LangUtil::convertUTF16CharToString(mychar);
 	auto myletter = target->getChar();
 	//	CCRect targetRectangle = CCRectMake(0,0, target->getContentSize().width, target->getContentSize().height);
