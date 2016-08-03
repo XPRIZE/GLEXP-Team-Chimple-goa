@@ -19,6 +19,7 @@
 #include "../menu/MenuContext.h"
 #include "ui/CocosGUI.h"
 #include "editor-support/cocostudio/CocoStudio.h"
+#include "../StartMenuScene.h"
 
 USING_NS_CC;
 
@@ -44,7 +45,7 @@ DuelScene::~DuelScene() {
 Scene* DuelScene::createScene(wchar_t myMonChar, wchar_t otherMonChar)
 {
     auto layer = DuelScene::create(myMonChar, otherMonChar);
-    auto scene = GameScene::createWithChild(layer, "alphamon_duel");
+    auto scene = GameScene::createWithChild(layer, ALPHAMON_COMBAT);
     layer->_menuContext = scene->getMenuContext();
     return scene;
 }
