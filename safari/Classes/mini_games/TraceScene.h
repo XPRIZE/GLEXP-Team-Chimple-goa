@@ -21,6 +21,7 @@ public:
 	void transit(int level);
 	void resetLevel();
 	void setDotsVisibility(bool flag);
+    void dummy();
 	
 CC_CONSTRUCTOR_ACCESS:
     virtual bool init(wchar_t alphabet);

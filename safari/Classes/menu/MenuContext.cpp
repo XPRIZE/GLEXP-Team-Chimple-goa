@@ -82,9 +82,6 @@ void MenuContext::resumeNodeAndDescendants(Node *pNode)
     {
         this->resumeNodeAndDescendants(child);
     }
-    _gameIsPaused = false;
-    AudioEngine::stopAll();
-    CocosDenshion::SimpleAudioEngine::getInstance()->resumeBackgroundMusic();
 }
 
 void MenuContext::addGreyLayer() {
@@ -194,6 +191,13 @@ void MenuContext::removeMenu() {
         _greyLayer = nullptr;
     }
     resumeNodeAndDescendants(_main);
+    _gameIsPaused = false;
+    AudioEngine::stopAll();
+    CocosDenshion::SimpleAudioEngine::getInstance()->resumeBackgroundMusic();
+    if(_startupCallback) {
+        _startupCallback();
+        _startupCallback = nullptr;
+    }
     _menuSelected = false;
 }
 
@@ -272,15 +276,24 @@ void MenuContext::videoPlayStart(std::string gameName)
     if(!gameName.empty()) {
         videoName = gameName;
     }
+	auto tv = Sprite::create("TV.png");
+	tv->setScaleX(0.73);
+	tv->setScaleY(0.70);
+	tv->setAnchorPoint(Vec2::ANCHOR_MIDDLE);
+	tv->setPosition(Vec2(Director::getInstance()->getVisibleSize().width / 2, Director::getInstance()->getVisibleSize().height / 2));
+	tv->setName("tv");
 #if (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID || CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
+	//auto sprite = CCSprite::create("TV.png");
+	//sprite->setPosition(Vec2(Director::getInstance()->getVisibleSize().width / 2, Director::getInstance()->getVisibleSize().height / 2));
 	experimental::ui::VideoPlayer* vp = experimental::ui::VideoPlayer::create();
-	vp->setContentSize(Size(Director::getInstance()->getVisibleSize().width, Director::getInstance()->getVisibleSize().height));
+	this->addChild(tv, 2);
+	vp->setContentSize(cocos2d::Size((tv->getContentSize().width *0.73)-200, (tv->getContentSize().height*0.7) - 180 ));
 	vp->setFileName("help/" + videoName +".webm");
 	vp->setPosition(Vec2(Director::getInstance()->getVisibleSize().width / 2, Director::getInstance()->getVisibleSize().height / 2));
 	vp->setAnchorPoint(Vec2::ANCHOR_MIDDLE);
 	vp->play();
 	vp->setName("video");
-	this->addChild(vp, 0);
+	this->addChild(vp, 2);
 	vp->addEventListener(CC_CALLBACK_2(MenuContext::videoEventCallback, this));
 #else
     videoPlayOverCallback();
@@ -291,6 +304,7 @@ void MenuContext::videoPlayStart(std::string gameName)
 void MenuContext::videoPlayOverCallback() {
 #if (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID || CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
 	this->removeChildByName("video");
+	this->removeChildByName("tv");
 #endif 
 }
 
@@ -322,11 +336,14 @@ void MenuContext::showHelp(cocos2d::Ref *pSender, cocos2d::ui::Widget::TouchEven
     }
 }
 
-void MenuContext::showStartupHelp() {
+void MenuContext::showStartupHelp(std::function<void()> callback) {
     if(!SafariAnalyticsManager::getInstance()->wasGamePlayedBefore(gameName.c_str())) {
+        _startupCallback = callback;
         addGreyLayer();
         pauseNodeAndDescendants(_main);
         chimpHelp();
+    } else {
+        callback();
     }
 }
 
@@ -448,7 +465,8 @@ _menuSelected(false),
 _greyLayer(nullptr),
 _chimp(nullptr),
 _chimpAudioId(0),
-_gameIsPaused(false)
+_gameIsPaused(false),
+_startupCallback(nullptr)
 {
     
 }
