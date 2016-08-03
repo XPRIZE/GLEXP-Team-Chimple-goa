@@ -54,8 +54,9 @@ public:
 	// a selector callback
 	void menuCloseCallback(cocos2d::Ref* pSender);
 
-	static const char* gameName() { return "Cross The Bridge"; };
-
+	//static const char* gameName() { return "Cross The Bridge"; };
+	static const char* gameName() { return CROSS_THE_BRIDGE.c_str(); };
+	
 protected:
 	Sprite* cubeAtRest;
 	Sprite* barrierRight;
