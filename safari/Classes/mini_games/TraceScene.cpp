@@ -335,7 +335,7 @@ void Trace::transit(int level) {
 
 void Trace::resetLevel() {
 	level = 0;
-    Director::getInstance()->replaceScene(Trace::createScene(0));
+    Director::getInstance()->replaceScene(GameMapScene::createScene());
 }
 void Trace::setDotsVisibility(bool flag) {
 
