@@ -53,8 +53,8 @@ public:
 	virtual void addEvents(Sprite* touchSprite);
 	// a selector callback
 	void menuCloseCallback(cocos2d::Ref* pSender);
-    
-    static const char* gameName() { return "Cross The Bridge";};
+
+	static const char* gameName() { return "Cross The Bridge"; };
 
 protected:
 	Sprite* cubeAtRest;
@@ -67,6 +67,7 @@ protected:
 	Sprite* pathOpen_right;
 	Sprite* pathOpen_left;
 	Sprite* splash;
+	Sprite* monsFallSplash;
 	Alphabet* letterOnBoard;
 	Sprite* punchForBack;
 	Sprite* zeher;
@@ -83,12 +84,12 @@ protected:
 	std::vector<cocos2d::Sprite*> monsContainer;
 	std::vector<Alphabet*> letterContainer;
 
-	char letterAZ[26] = {'A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'};
+	char letterAZ[26] = { 'A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z' };
 	std::vector<std::vector<wchar_t>> comboFive;
 	std::pair<float, float> letterDisplayPosition[8] = { { 183.73,110.17 },{ 547.81,110.17 },{ 912.08, 110.17 },
 	{ 1277.22,110.17 } ,{ 1642.29,110.17 } ,{ 2006.91,110.17 } ,
 	{ 2371.68,110.17 } ,{ 2734.87,110.17 } };
-	
+
 	bool openFlag = false;
 	bool letterIsThere = false;
 	bool oneSecondClick = false;
@@ -103,6 +104,7 @@ protected:
 	wchar_t letterToDisplay;
 
 	cocostudio::timeline::ActionTimeline *water_splash;
+	cocostudio::timeline::ActionTimeline *mons_water_splash;
 	cocostudio::timeline::ActionTimeline *punch;
 	cocostudio::timeline::ActionTimeline *smoke;
 	cocostudio::timeline::ActionTimeline *star;
