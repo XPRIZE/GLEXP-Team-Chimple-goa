@@ -17,6 +17,7 @@
 #include "mini_games/TraceScene.h"
 #include "mini_games/AlphamonFeedScene.h"
 #include "StartMenuScene.h"
+#include "mini_games/Baja.h"
 
 USING_NS_CC;
 
@@ -158,7 +159,7 @@ void GameMapScene::islandSelected(Ref* pSender, ui::Widget::TouchEventType eEven
             } else if(clickedButton->getName() == CANNON_BALL) {
                 Director::getInstance()->replaceScene(MainGame::createScene());
             } else if(clickedButton->getName() == ENDLESS_RUNNER) {
-                Director::getInstance()->replaceScene(EndlessRunner::createScene());
+                Director::getInstance()->replaceScene(Baja::createScene());
             } else if(clickedButton->getName() == KUNG_FU_ALPHA) {
                 Director::getInstance()->replaceScene(Trace::createScene(0));
             } else if(clickedButton->getName() == ALPHAMON_FEED) {
