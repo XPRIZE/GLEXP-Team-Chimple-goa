@@ -159,7 +159,7 @@ void GameMapScene::islandSelected(Ref* pSender, ui::Widget::TouchEventType eEven
             } else if(clickedButton->getName() == CANNON_BALL) {
                 Director::getInstance()->replaceScene(MainGame::createScene());
             } else if(clickedButton->getName() == ENDLESS_RUNNER) {
-                Director::getInstance()->replaceScene(Baja::createScene());
+                Director::getInstance()->replaceScene(EndlessRunner::createScene());
             } else if(clickedButton->getName() == KUNG_FU_ALPHA) {
                 Director::getInstance()->replaceScene(Trace::createScene(0));
             } else if(clickedButton->getName() == ALPHAMON_FEED) {
