@@ -56,7 +56,8 @@ bool Wembley::init() {
 
 	//std::string path = "english/Alpha Kombat/";//std::string(path)
 	auto _bg = CSLoader::createNode("wembley/wembleybg.csb");
-	//_bg->setPosition(Vec2(visibleSize.width / 2 + origin.x, visibleSize.height / 2 + origin.y));
+	_bg->setPosition(Vec2(visibleSize.width / 2 + origin.x, visibleSize.height / 2 + origin.y));
+	_bg->setAnchorPoint(Vec2(0.5, 0.5));
 	addChild(_bg);
 
 	/*auto bg = Sprite::create("bg.png");
