@@ -169,8 +169,7 @@ void SmashTheRock::begin()
 			label->setPositionX(blockWidth);
 			auto letter = label->getString();
 			label->setPositionY(blockHeight - 320);
-			label->setColor(ccc3(255, 255, 255));
-			label->enableShadow(Color4B::GRAY, Size(5, -5), -50);
+			
 			label->setAnchorPoint(Vec2::ANCHOR_MIDDLE_BOTTOM);
 			auto mystr = LangUtil::convertUTF16CharToString(mychar);
 			label->setName(mystr);
