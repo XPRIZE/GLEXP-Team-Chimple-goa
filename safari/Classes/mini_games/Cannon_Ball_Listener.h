@@ -16,7 +16,7 @@ public:
 	static int cannon1, cannon2, cannon3, cannon4;
 	wchar_t id;
 	static EventListenerClass* createCannonBall(std::string spriteName, EventListenerClass*, EventListenerClass*, EventListenerClass*, int, wchar_t, float, float, MainGame*);
-	static EventListenerClass* createCannon(std::string spriteName, int flag1, int currentShoot1, int totalShoot1, int);
+	static EventListenerClass* createCannon(std::string spriteName, int flag1, int currentShoot1, int totalShoot1, int, float, float);
 	static EventListenerClass* createSprite(std::string spriteName, float x, float y, wchar_t, MainGame*);
 	void addEvents(MainGame*, EventListenerClass*, EventListenerClass*, EventListenerClass*);
 	void touchEvent(cocos2d::Touch* touch, cocos2d::Vec2 _p);

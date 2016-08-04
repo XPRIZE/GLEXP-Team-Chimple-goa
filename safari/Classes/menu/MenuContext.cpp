@@ -10,7 +10,6 @@
 #include "ui/CocosGUI.h"
 #include "../StartMenuScene.h"
 #include "../MapScene.h"
-#include "../GameMapScene.h"
 #include "../lang/SafariAnalyticsManager.h"
 #include "editor-support/cocostudio/CocoStudio.h"
 #include "../alphamon/SelectAlphamonScene.h"
@@ -50,9 +49,9 @@ bool MenuContext::init(Node* main) {
     _menuButton->setPosition(Vec2(origin.x + visibleSize.width - 150, origin.y + visibleSize.height - 150));
     addChild(_menuButton, 1);
     
-    _label = Label::createWithTTF("Points: 0", "fonts/arial.ttf", 50);
-    _label->setPosition(Vec2(125, 125));
-    _menuButton->addChild(_label);
+//    _label = Label::createWithTTF("Points: 0", "fonts/arial.ttf", 50);
+//    _label->setPosition(Vec2(125, 125));
+//    _menuButton->addChild(_label);
     
     _pointMeter = Slider::create();
     _pointMeter->loadBarTexture("menu/blank.png");
@@ -67,6 +66,8 @@ bool MenuContext::init(Node* main) {
 
 void MenuContext::pauseNodeAndDescendants(Node *pNode)
 {
+    _gameIsPaused = true;
+    CocosDenshion::SimpleAudioEngine::getInstance()->pauseBackgroundMusic();
     pNode->pause();
     for(const auto &child : pNode->getChildren())
     {
@@ -93,6 +94,9 @@ void MenuContext::addGreyLayer() {
 }
 
 void MenuContext::expandMenu(cocos2d::Ref *pSender, cocos2d::ui::Widget::TouchEventType eEventType) {
+    if(_chimp) {
+        return;
+    }
     if(eEventType == cocos2d::ui::Widget::TouchEventType::ENDED) {
         Button* clickedButton = dynamic_cast<Button *>(pSender);
         if(clickedButton == _menuButton) {
@@ -125,14 +129,9 @@ void MenuContext::expandMenu(cocos2d::Ref *pSender, cocos2d::ui::Widget::TouchEv
                 _gamesMenu = this->createMenuItem("menu/game.png", "menu/game.png", "menu/game.png", 4 * POINTS_TO_LEFT);
                 _gamesMenu->addTouchEventListener(CC_CALLBACK_2(MenuContext::showGamesMenu, this));
 
-//                _exitMenu = Button::create("menu/back.png", "menu/back.png", "menu/back.png", Widget::TextureResType::LOCAL);
-//                _exitMenu->addTouchEventListener(CC_CALLBACK_2(MenuContext::expandMenu, this));
-//                _exitMenu->setPosition(_menuButton->getPosition());
-//                addChild(_exitMenu);
 
                 auto moveTo = MoveTo::create(0.5, Vec2(150, _menuButton->getPosition().y));
                 auto elastic = EaseBackOut::create(moveTo);
-//                _exitMenu->runAction(elastic);
                 pauseNodeAndDescendants(_main);
                 _menuSelected = true;
             }
@@ -183,6 +182,11 @@ void MenuContext::removeMenu() {
         
         removeChild(_gamesMenu);
         _gamesMenu = nullptr;
+        
+        if(_chimp) {
+            removeChild(_chimp);
+            _chimp = nullptr;
+        }
     }
 
     if(_greyLayer) {
@@ -190,6 +194,13 @@ void MenuContext::removeMenu() {
         _greyLayer = nullptr;
     }
     resumeNodeAndDescendants(_main);
+    _gameIsPaused = false;
+    AudioEngine::stopAll();
+    CocosDenshion::SimpleAudioEngine::getInstance()->resumeBackgroundMusic();
+    if(_startupCallback) {
+        _startupCallback();
+        _startupCallback = nullptr;
+    }
     _menuSelected = false;
 }
 
@@ -213,11 +224,15 @@ void MenuContext::pickAlphabet(char targetAlphabet, char chosenAlphabet, bool ch
                                          NULL);
         runAction(sequence);
     }
-    _label->setString("Points: " + to_string(_points));
+//    _label->setString("Points: " + to_string(_points));
     std::string targetAlphabetStr (1, targetAlphabet);
     std::string chosenAlphabetStr (1, chosenAlphabet);
 
     SafariAnalyticsManager::getInstance()->insertAnalyticsInfo(targetAlphabetStr.c_str(), chosenAlphabetStr.c_str(), gameName.c_str());
+}
+
+int MenuContext::getPoints() {
+    return _points;
 }
 
 void MenuContext::finalizePoints() {
@@ -260,15 +275,28 @@ void MenuContext::videoEventCallback(Ref* sender, cocos2d::experimental::ui::Vid
 
 void MenuContext::videoPlayStart(std::string gameName)
 {
+    std::string videoName = "generic";
+    if(!gameName.empty()) {
+        videoName = gameName;
+    }
+	auto tv = Sprite::create("TV.png");
+	tv->setScaleX(0.73);
+	tv->setScaleY(0.70);
+	tv->setAnchorPoint(Vec2::ANCHOR_MIDDLE);
+	tv->setPosition(Vec2(Director::getInstance()->getVisibleSize().width / 2, Director::getInstance()->getVisibleSize().height / 2));
+	tv->setName("tv");
 #if (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID || CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
+	//auto sprite = CCSprite::create("TV.png");
+	//sprite->setPosition(Vec2(Director::getInstance()->getVisibleSize().width / 2, Director::getInstance()->getVisibleSize().height / 2));
 	experimental::ui::VideoPlayer* vp = experimental::ui::VideoPlayer::create();
-	vp->setContentSize(Size(Director::getInstance()->getVisibleSize().width, Director::getInstance()->getVisibleSize().height));
-	vp->setFileName("help/" + gameName+".webm");
+	this->addChild(tv, 2);
+	vp->setContentSize(cocos2d::Size((tv->getContentSize().width *0.73)-200, (tv->getContentSize().height*0.7) - 180 ));
+	vp->setFileName("help/" + videoName +".webm");
 	vp->setPosition(Vec2(Director::getInstance()->getVisibleSize().width / 2, Director::getInstance()->getVisibleSize().height / 2));
 	vp->setAnchorPoint(Vec2::ANCHOR_MIDDLE);
 	vp->play();
 	vp->setName("video");
-	this->addChild(vp, 0);
+	this->addChild(vp, 2);
 	vp->addEventListener(CC_CALLBACK_2(MenuContext::videoEventCallback, this));
 #else
     videoPlayOverCallback();
@@ -279,8 +307,8 @@ void MenuContext::videoPlayStart(std::string gameName)
 void MenuContext::videoPlayOverCallback() {
 #if (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID || CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
 	this->removeChildByName("video");
+	this->removeChildByName("tv");
 #endif 
-    removeMenu();
 }
 
 Node* MenuContext::jumpOut(std::string nodeCsbName, float duration, Vec2 position, std::string animationName) {
@@ -311,11 +339,14 @@ void MenuContext::showHelp(cocos2d::Ref *pSender, cocos2d::ui::Widget::TouchEven
     }
 }
 
-void MenuContext::showStartupHelp() {
+void MenuContext::showStartupHelp(std::function<void()> callback) {
     if(!SafariAnalyticsManager::getInstance()->wasGamePlayedBefore(gameName.c_str())) {
+        _startupCallback = callback;
         addGreyLayer();
         pauseNodeAndDescendants(_main);
         chimpHelp();
+    } else {
+        callback();
     }
 }
 
@@ -326,30 +357,52 @@ void MenuContext::chimpHelp() {
         _chimp = jumpOut("chimpanzee.csb", 2, Vec2(origin.x + visibleSize.width / 2, origin.y + visibleSize.height / 4), "jump");
         //    auto callback = CC_CALLBACK_0(MenuContext::tellHelp, this);
         //    auto wait = CC_CALLBACK_0(MenuContext::waitForAudioLoad, this, LangUtil::getInstance()->getDir() + "/sounds/help/" + gameName + ".m4a", callback);
+        auto listener = EventListenerTouchOneByOne::create();
+        listener->setSwallowTouches(true);
+        listener->onTouchBegan = CC_CALLBACK_2(MenuContext::onChimpTouchBegan, this);
+        listener->onTouchEnded = CC_CALLBACK_2(MenuContext::onChimpTouchEnded, this);
+        _eventDispatcher->addEventListenerWithSceneGraphPriority(listener, _chimp);
+        
         runAction(Sequence::create(DelayTime::create(2), CallFunc::create(CC_CALLBACK_0(MenuContext::tellHelp, this)), NULL));
     }
 }
 
 void MenuContext::tellHelp() {
-    cocostudio::timeline::ActionTimeline* anim = CSLoader::createTimeline("chimpanzee.csb");
-    _chimp->runAction(anim);
-    anim->play("talk", true);
-//    auto audio = CocosDenshion::SimpleAudioEngine::getInstance();
-//    audio->playEffect((LangUtil::getInstance()->getDir() + "/sounds/help/" + gameName + "m4a").c_str());
-
-    int audioId = AudioEngine::play2d((LangUtil::getInstance()->getDir() + "/sounds/help/" + gameName + ".m4a").c_str());
-    if(audioId >= 0) {
-        AudioEngine::setFinishCallback(audioId, CC_CALLBACK_0(MenuContext::stopTellHelp, this));
-    } else {
-        stopTellHelp();
+    if(_chimp) {
+        cocostudio::timeline::ActionTimeline* anim = CSLoader::createTimeline("chimpanzee.csb");
+        _chimp->runAction(anim);
+        anim->play("talk", true);
+        //    auto audio = CocosDenshion::SimpleAudioEngine::getInstance();
+        //    audio->playEffect((LangUtil::getInstance()->getDir() + "/sounds/help/" + gameName + "m4a").c_str());
+        
+        int audioId = AudioEngine::play2d((LangUtil::getInstance()->getDir() + "/sounds/help/" + gameName + ".m4a").c_str());
+        if(audioId >= 0) {
+            AudioEngine::setFinishCallback(audioId, CC_CALLBACK_0(MenuContext::stopTellHelp, this));
+        } else {
+            stopTellHelp();
+        }
     }
 }
 
 void MenuContext::stopTellHelp() {
-    removeChild(_chimp);
-    _chimp = nullptr;
+    if(_chimp) {
+        _chimp->stopAllActions();
+    }
     videoPlayStart(gameName);
 }
+
+bool MenuContext::onChimpTouchBegan(Touch* touch, Event* event){
+    return true;
+}
+
+void MenuContext::onChimpTouchEnded(cocos2d::Touch *touch, cocos2d::Event *event) {
+    if(_chimp) {
+        removeChild(_chimp);
+        _chimp = nullptr;
+    }
+    removeMenu();
+}
+
 
 void MenuContext::waitForAudioLoad(std::string audioFileName, std::function<void(bool isSuccess)>callback) {
     AudioEngine::preload(audioFileName.c_str(), callback);
@@ -392,13 +445,31 @@ void MenuContext::showGamesMenu(cocos2d::Ref *pSender, cocos2d::ui::Widget::Touc
 
 
 
+void MenuContext::showScore() {
+    //compute score
+    addGreyLayer();
+    pauseNodeAndDescendants(_main);
+    Size visibleSize = Director::getInstance()->getVisibleSize();
+    Vec2 origin = Director::getInstance()->getVisibleOrigin();
+    auto scoreNode = ScoreBoardContext::create(_points * 100/MAX_POINTS_TO_SHOW, this->gameName);
+    scoreNode->setPosition(Vec2(origin.x + visibleSize.width / 2, origin.y + visibleSize.height / 2));
+    addChild(scoreNode);
+}
+
+bool MenuContext::isGamePaused() {
+    return _gameIsPaused;
+}
 
 
 MenuContext::MenuContext() :
 _points(0),
 _label(nullptr),
 _menuSelected(false),
-_greyLayer(nullptr)
+_greyLayer(nullptr),
+_chimp(nullptr),
+_chimpAudioId(0),
+_gameIsPaused(false),
+_startupCallback(nullptr)
 {
     
 }

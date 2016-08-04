@@ -118,7 +118,14 @@ bool EndlessRunner::init()
 		startPosition = startPosition + mountain->getContentSize().width - LayerMode.tolerence;
 		allPathBlocks.push_back(mountain);
 		mountain->runAction(MoveTo::create(EndlessRunner::movingTime(mountain), Vec2((leftBarrier->getPosition().x), origin.y)));
-	}
+		}
+		
+		setonEnterTransitionDidFinishCallback(CC_CALLBACK_0(EndlessRunner::startGame, this));
+	
+		return true;
+}
+
+void EndlessRunner::scheduleMethod() {
 	jumpMode = false;
 	Character.onAir = true;
 	this->schedule(schedule_selector(EndlessRunner::sceneTree1Flow), 2.5f);
@@ -126,7 +133,11 @@ bool EndlessRunner::init()
 	this->schedule(schedule_selector(EndlessRunner::CreateMonsterWithLetter), 6.0f);
 
 	this->scheduleUpdate();
-	return true;
+}
+
+void EndlessRunner::startGame() {
+    _menuContext->showStartupHelp(CC_CALLBACK_0(EndlessRunner::scheduleMethod, this));
+//	runAction(Sequence::create(CallFunc::create(CC_CALLBACK_0(MenuContext::showStartupHelp, _menuContext)), CallFunc::create(CC_CALLBACK_0(EndlessRunner::scheduleMethod, this)), NULL));
 }
 
 void EndlessRunner::update(float delta) {
@@ -159,19 +170,11 @@ void EndlessRunner::update(float delta) {
 	EndlessRunner::removePathBlockTouchByLeftBarrier();
 	
 	if (counterAlphabets == 10 || counterLife == 1) {
-		Director::getInstance()->replaceScene(StartMenu::createScene());
+		_menuContext->showScore();
 	}
 
 	auto box = Character.character->getChildByName("floor_2")->getBoundingBox();
 	Rect parent = Character.character->getBoundingBox();
-
-	if (aa != NULL)
-	{
-		this->removeChild(aa);
-	}
-	aa = DrawNode::create();
-	this->addChild(aa, 20);
-//	aa->drawRect(Vec2(parent.origin.x+box.origin.x, parent.origin.y + box.origin.y), Vec2(parent.origin.x + box.origin.x + box.size.width, parent.origin.y + box.origin.y + box.size.height), Color4F(255, 255, 255, 22));
 }
 
 void EndlessRunner::FallDownCharacter() {
@@ -184,7 +187,7 @@ void EndlessRunner::FallDownCharacter() {
 }
 
 void EndlessRunner::stillCharacterOnPath(float delta) {
-
+	
 	for (std::size_t i = 0; i < allPathBlocks.size(); i++) {
 		
 		auto box = Character.character->getChildByName("floor_2")->getBoundingBox();
@@ -192,6 +195,7 @@ void EndlessRunner::stillCharacterOnPath(float delta) {
 		Rect boxs = Rect(parent.origin.x + box.origin.x, parent.origin.y + box.origin.y, box.size.width*1.2, box.size.height*1.2);
 
 		if (boxs.intersectsRect(allPathBlocks[i]->getBoundingBox())) {
+			
 			if (allPathBlocks[i]->LayerTypeName == mountainLayerTypes.FirstLayer && !LayerMode.gapMode) {
 				Character.character->setPosition(Vec2((visibleSize.width * 25 / 100) + origin.x, LayerYcoord.firstLayer + 15));
 				if (Character.groundTouchFlag) {
@@ -259,22 +263,23 @@ void EndlessRunner::startingIntersectMode() {
 		}
 	}
 	if (gapFlag) {
-		CCLOG("GAP MODE IS ON");
+	
 		for (std::size_t i = 0; i < allGapBlocks.size(); i++) {
 			auto box = Character.character->getChildByName("floor_2")->getBoundingBox();
 			Rect parent = Character.character->getBoundingBox();
 			Rect boxs = Rect(parent.origin.x + box.origin.x, parent.origin.y + box.origin.y, box.size.width*1.2, box.size.height*1.2);
 
 			if (boxs.intersectsRect(allGapBlocks[i]->getBoundingBox())) {
-			
+				CCLOG("GAP MODE IS ON");
 				gapFlag = false;
 				LayerMode.gapMode = true;
 				Character.onAir = false;
+				Character.stillCheckFalg = false;
 
-				Character.action->play("drop", true);
-				auto downMovement = MoveTo::create(0.6, Vec2(visibleSize.width * 0.20 + origin.x,origin.y));
+			/*	Character.action->play("drop", true);
+				auto downMovement = MoveTo::create(0.5, Vec2(visibleSize.width * 0.20 + origin.x,origin.y-400));
 				Character.fallDownAction = downMovement;
-				Character.character->runAction(Character.fallDownAction);
+				Character.character->runAction(Character.fallDownAction);*/
 				Character.Clicked = true;
 			
 				counterLife = counterLife - 1;
@@ -282,15 +287,26 @@ void EndlessRunner::startingIntersectMode() {
 				hpUi->getChildByName(counterLife)->stopAllActions();
 				hpUi->getChildByName(counterLife)->getChildByName("life_on")->setVisible(false);
 				hpUi->getChildByName(counterLife)->getChildByName("life_off")->setVisible(true);
+				
+				this->removeChild(Character.character);
+
+				Character.action = CSLoader::createTimeline("endlessrunner/main_char.csb");
+				Character.character = (Sprite *)CSLoader::createNode("endlessrunner/main_char.csb");
+				this->addChild(Character.character, zOrderPathLayer.character);
+				Character.character->runAction(Character.action);
+				Character.character->setScale(1.2);
+				Character.character->setVisible(false);
 
 				auto setPositionOnPath = CallFunc::create([=]() {
-					Character.character->setPositionY(LayerYcoord.firstLayer + 15);
+					Character.character->setPosition(Vec2((visibleSize.width * 25 / 100) + origin.x, LayerYcoord.firstLayer+15));
 					Character.action->play("run", true);
+					Character.character->getChildByName("net")->setVisible(false);
 					Character.Clicked = false;
 					LayerMode.gapMode = false;
+					Character.stillCheckFalg = true;
 				});
 
-				auto blink = Blink::create(2, 10);
+				auto blink = Blink::create(1,10);
 				auto visible = CallFunc::create([=]() {
 					Character.character->setVisible(true);
 				});

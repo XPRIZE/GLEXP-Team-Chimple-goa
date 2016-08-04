@@ -9,6 +9,7 @@
 #include "../puzzle/Alphabet.h"
 #include "../lang/LangUtil.h"
 #include "SimpleAudioEngine.h"
+#include "../StartMenuScene.h"
 
 using namespace cocos2d;
 
@@ -172,6 +173,7 @@ public:
 	static cocos2d::Scene* createScene();
 	~EndlessRunner();
 	virtual bool init();
+	
 	float movingTime(SpriteCreate* SpriteObject);
 	float movingTimes(cocos2d::Sprite* SpriteObject, int Speed);
 	std::pair<float, float> movingUpto(float positionY);
@@ -181,7 +183,8 @@ public:
 
 	Sprite* CreateSprites(std::string name, int PositionX, int positionY, float scaleX, float scaleY, int zOrder, std::string vectorType);
 	void mountainLayer1();
-
+	void scheduleMethod();
+	void startGame();
 	void removePathBlockTouchByLeftBarrier();
 	void startingIntersectMode();
 
@@ -208,7 +211,7 @@ public:
 
 	void update(float) override;
     
-    static const char* gameName() { return "Endless Runner";}
+    static const char* gameName() { return ENDLESS_RUNNER.c_str();}
 };
 
 #endif // __ENDLESSRUNNER_SCENE_H__

@@ -8,6 +8,7 @@
 #include "../menu/MenuContext.h"
 #include "SimpleAudioEngine.h"
 #include "ui/UIVideoPlayer.h"
+#include "../StartMenuScene.h"
 
 class AlphamonFeed : public cocos2d::Layer
 {
@@ -43,18 +44,20 @@ public:
 	virtual void onTouchMoved(cocos2d::Touch *touch, cocos2d::Event * event);
 	virtual void onTouchEnded(cocos2d::Touch *touch, cocos2d::Event * event);
 	virtual void onTouchCancelled(cocos2d::Touch *touch, cocos2d::Event * event);
-    static const char* gameName() { return "Alphamon Feed";}
+    static const char* gameName() { return ALPHAMON_FEED.c_str();}
 	virtual void update(float dt);
 
 	void showFruits(float dt);
-
+	void startGame();
 
 protected:
 	MenuContext * menu;
+	MenuContext* _menuContext;
     cocos2d::EventListenerTouchOneByOne* listener;
 	CocosDenshion::SimpleAudioEngine * audio;
 	CocosDenshion::SimpleAudioEngine * backgroundMusic;
 	void gameOver();
+	void callingFruits();
 	void returnToPrevScene();
 };
 

@@ -28,7 +28,7 @@ void RunningState::enter(cocos2d::Vec2 forceVector, SkeletonCharacterState previ
 
 void RunningState::exit()  {
     CCLOG("%s", "Exit Running State");
-    this->getTarget()->getSkeletonActionTimeLine()->gotoFrameAndPause(0);
+    //this->getTarget()->getSkeletonActionTimeLine()->gotoFrameAndPause(0);
     this->getTarget()->isRunning = false;
     this->getTarget()->getSkeletonActionTimeLine()->setTimeSpeed(1.0f);
 }

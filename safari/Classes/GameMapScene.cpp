@@ -16,17 +16,9 @@
 #include "mini_games/Cannon_Ball_Main.h"
 #include "mini_games/TraceScene.h"
 #include "mini_games/AlphamonFeedScene.h"
+#include "StartMenuScene.h"
 
 USING_NS_CC;
-
-static const std::string PATCH_THE_WALL = "Patch The Wall";
-static const std::string CROSS_THE_BRIDGE = "Cross The Bridge";
-static const std::string SMASH_THE_ROCK = "Smash The Rock";
-static const std::string CANNON_BALL = "Cannon Ball";
-static const std::string ENDLESS_RUNNER = "Endless Runner";
-static const std::string KUNG_FU_ALPHA = "Trace Alphabet";
-static const std::string ALPHAMON_FEED = "Alphamon Feed";
-
 
 Scene* GameMapScene::createScene()
 {
@@ -125,6 +117,12 @@ void GameMapScene::processChildNodes(cocos2d::Node *rootNode) {
         if(data != NULL && !data->getCustomProperty().empty()) {
             std::string gameName = data->getCustomProperty();
             
+            if(gameName == "Trace Alphabet") {
+                gameName = KUNG_FU_ALPHA;
+            } else if(gameName == "Endless Runner") {
+                gameName = ENDLESS_RUNNER;
+            }
+            
             cocos2d::ui::Button* button = dynamic_cast<cocos2d::ui::Button *>(node);
             button->setName(gameName);
             if(button) {
@@ -162,7 +160,7 @@ void GameMapScene::islandSelected(Ref* pSender, ui::Widget::TouchEventType eEven
             } else if(clickedButton->getName() == ENDLESS_RUNNER) {
                 Director::getInstance()->replaceScene(EndlessRunner::createScene());
             } else if(clickedButton->getName() == KUNG_FU_ALPHA) {
-                Director::getInstance()->replaceScene(Trace::createScene(1));
+                Director::getInstance()->replaceScene(Trace::createScene(0));
             } else if(clickedButton->getName() == ALPHAMON_FEED) {
                 Director::getInstance()->replaceScene(AlphamonFeed::createScene());
             }

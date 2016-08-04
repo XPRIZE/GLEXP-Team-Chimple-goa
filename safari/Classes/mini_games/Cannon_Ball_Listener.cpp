@@ -7,12 +7,10 @@ using namespace cocos2d;
 EventListenerClass* EventListenerClass::cannon1Target;
 EventListenerClass* EventListenerClass::cannon2Target;
 EventListenerClass* EventListenerClass::cannon3Target;
-EventListenerClass* EventListenerClass::cannon4Target;
 
 int EventListenerClass::cannon1;
 int EventListenerClass::cannon2;
 int EventListenerClass::cannon3;
-int EventListenerClass::cannon4;
 
 EventListenerClass::EventListenerClass()
 {
@@ -62,9 +60,7 @@ EventListenerClass* EventListenerClass::createSprite(std::string spriteName, flo
 	EventListenerClass *createSprite_pSprite = new EventListenerClass();
 	CCSpriteFrameCache::sharedSpriteFrameCache()->addSpriteFramesWithFile("cannonball_mainassetPlist.plist");
 	std::string val = "cannonball/cannonball_mainasset/";
-//	CCSpriteFrameCache::sharedSpriteFrameCache()->addSpriteFramesWithFile("cannonball/Game_screen.plist");
-//	std::string val = "background_asset/";
-//	val.append(spriteName);
+
 	if (createSprite_pSprite->initWithSpriteFrameName(spriteName))
 	{
 		createSprite_pSprite->setPosition(x, y);
@@ -85,18 +81,15 @@ LabelClass* LabelClass::createSpt(wchar_t spriteName, float x, float y, wchar_t 
 	std::string val = "";
 	val += spriteName;
 
-//	createSprite_pSprite = (LabelClass *)Label::createWithBMFont("baloo_bhai.fnt", val);
-//	createSprite_pSprite->setPosition(x, y);
 	createSprite_pSprite->flag = 0;
 	createSprite_pSprite->xP = x;
 	createSprite_pSprite->yP = y;
 	createSprite_pSprite->id = charid;
 	createSprite_pSprite->answer = 'o';
 	return createSprite_pSprite;
-//	CC_SAFE_DELETE(createSprite_pSprite);
 }
 
-EventListenerClass * EventListenerClass::createCannon(std::string spriteName, int flag1, int currentShoot1, int totalShoot1, int id)
+EventListenerClass * EventListenerClass::createCannon(std::string spriteName, int flag1, int currentShoot1, int totalShoot1, int id, float x, float y)
 {
 	EventListenerClass* createCannon_pSprite = new EventListenerClass();
 	CCSpriteFrameCache::sharedSpriteFrameCache()->addSpriteFramesWithFile("cannonball_mainassetPlist.plist");
@@ -104,6 +97,7 @@ EventListenerClass * EventListenerClass::createCannon(std::string spriteName, in
 	val.append(spriteName);
 	if (createCannon_pSprite->initWithSpriteFrameName(val))
 	{
+		createCannon_pSprite->setPosition(x, y);
 		createCannon_pSprite->flag = flag1;
 		createCannon_pSprite->currentShoot = currentShoot1;
 		createCannon_pSprite->totalShoot = totalShoot1;
@@ -120,10 +114,6 @@ void EventListenerClass::addEvents(MainGame *callerObject, EventListenerClass* t
 	auto listener = cocos2d::EventListenerTouchOneByOne::create();
 	listener->setSwallowTouches(true);
 
-	int overlapped = 0;
-
-//	int cannon1 = 0, cannon2 = 0, cannon3 = 0, cannon4 = 0;
-
 	listener->onTouchBegan = [&](cocos2d::Touch* touch, cocos2d::Event* event)
 	{
 		auto target = static_cast<Sprite*>(event->getCurrentTarget());
@@ -133,7 +123,7 @@ void EventListenerClass::addEvents(MainGame *callerObject, EventListenerClass* t
 
 		if (rect.containsPoint(locationInNode))
 		{
-			cannon1 = 0, cannon2 = 0, cannon3 = 0, cannon4 = 0;
+			cannon1 = 0, cannon2 = 0, cannon3 = 0;
 			for (int i = 0; i < callerObject->cannonArray.size(); i++)
 			{
 				if (callerObject->cannonArray[i]->cannonID == 0)
@@ -148,31 +138,8 @@ void EventListenerClass::addEvents(MainGame *callerObject, EventListenerClass* t
 				{
 					cannon3 = 1;
 				}
-				if (callerObject->cannonArray[i]->cannonID == 3)
-				{
-					cannon4 = 1;
-				}
 			}
-/*			for (int i = 0; i < target1->self_reference->getChildrenCount(); i++)
-			{
-				if (target1->getChildren().contains(trans1))
-				{
-					cannon1 = 1;
-				}
-				if (target1->getChildren().at(i) == trans2)
-				{
-					cannon2 = 1;
-				}
-				if (target1->getChildren().at(i) == trans3)
-				{
-					cannon3 = 1;
-				}
-				if (target1->getChildren().at(i) == trans4)
-				{
-					cannon4 = 1;
-				}
-			}
-	*/		return true;
+			return true;
 		}
 		return false;
 	};
@@ -180,132 +147,21 @@ void EventListenerClass::addEvents(MainGame *callerObject, EventListenerClass* t
 	listener->onTouchMoved = [&](cocos2d::Touch* touch, cocos2d::Event* event)
 	{
 		EventListenerClass* target = static_cast<EventListenerClass*>(event->getCurrentTarget());
-//		auto letterSprite = static_cast<Alphabet*>(callerObject->cannonLetter_actualImage[target->spriteIndex]);
-
 		target->setPosition(target->getPosition() + touch->getDelta());
-//		letterSprite->setPosition(target->getPosition() + touch->getDelta());
-
-
-/*		EventListenerClass* target = static_cast<EventListenerClass*>(event->getCurrentTarget());
-		target->setPosition(target->getPosition() + touch->getDelta());
-
-		auto letterSprite = static_cast<Label*>(callerObject->cannonLetter_actualImage[target->spriteIndex]);
-		letterSprite->setPosition(target->getPosition() + touch->getDelta());
-
-		Rect targetRect = target->getBoundingBox();
-
-		if (cannon1==1 && targetRect.intersectsRect(cannon1Target->getBoundingBox()) && cannon1Target->flag == 0)
-		{
-			target->placedNumber = 0;
-
-			for (int i = 0; i < MainGame::cannonArray.size(); i++)
-			{
-				if (MainGame::cannonArray[i]->cannonID == 0)
-				{
-					MainGame::cannonArray[i]->placedNumber = 0;
-					break;
-				}
-			}
-
-			auto callback = CallFunc::create([this, target, callerObject]() { callerObject->loadCannon(target); });
-			auto moveto = MoveTo::create(.2, Vec2(cannon1Target->getPositionX() + (cannon1Target->getContentSize().width / 4), cannon1Target->getPositionY()));
-			auto seq = Sequence::create(moveto, callback, NULL);
-			target->runAction(seq);
-
-			callerObject->cannonLetter_actualImage[target->spriteIndex]->runAction(MoveTo::create(.2, Vec2(cannon1Target->getPositionX() + (cannon1Target->getContentSize().width / 4), cannon1Target->getPositionY())));
-			overlapped = 1;
-			cannon1Target->flag = 1;
-
-			cocos2d::Director::getInstance()->getEventDispatcher()->removeEventListenersForTarget(target, true);
-		}
-		else if (cannon2 == 1 && targetRect.intersectsRect(cannon2Target->getBoundingBox()) && cannon2Target->flag == 0)
-		{
-			target->placedNumber = 1;
-			for (int i = 0; i < MainGame::cannonArray.size(); i++)
-			{
-				if (MainGame::cannonArray[i]->cannonID == 1)
-				{
-					MainGame::cannonArray[i]->placedNumber = 1;
-					break;
-				}
-			}
-
-			auto callback = CallFunc::create([this, target, callerObject]() { callerObject->loadCannon(target); });
-			auto moveto = MoveTo::create(.2, Vec2(cannon2Target->getPositionX() + (cannon2Target->getContentSize().width / 4), cannon2Target->getPositionY()));
-			auto seq = Sequence::create(moveto, callback, NULL);
-			target->runAction(seq);
-
-			callerObject->cannonLetter_actualImage[target->spriteIndex]->runAction(MoveTo::create(.2, Vec2(cannon2Target->getPositionX() + (cannon2Target->getContentSize().width / 4), cannon2Target->getPositionY())));
-			overlapped = 1;
-			cannon2Target->flag = 1;
-
-			cocos2d::Director::getInstance()->getEventDispatcher()->removeEventListenersForTarget(target, true);
-		}
-		else if (cannon3 == 1 && targetRect.intersectsRect(cannon3Target->getBoundingBox()) && cannon3Target->flag == 0)
-		{
-			target->placedNumber = 2;
-
-			for (int i = 0; i < MainGame::cannonArray.size(); i++)
-			{
-				if (MainGame::cannonArray[i]->cannonID == 2)
-				{
-					MainGame::cannonArray[i]->placedNumber = 2;
-					break;
-				}
-			}
-
-			auto callback = CallFunc::create([this, target, callerObject]() { callerObject->loadCannon(target); });
-			auto moveto = MoveTo::create(.2, Vec2(cannon3Target->getPositionX() + (cannon3Target->getContentSize().width / 4), cannon3Target->getPositionY()));
-			auto seq = Sequence::create(moveto, callback, NULL);
-			target->runAction(seq);
-
-			callerObject->cannonLetter_actualImage[target->spriteIndex]->runAction(MoveTo::create(.2, Vec2(cannon3Target->getPositionX() + (cannon3Target->getContentSize().width / 4), cannon3Target->getPositionY())));
-			overlapped = 1;
-			cannon3Target->flag = 1;
-			cocos2d::Director::getInstance()->getEventDispatcher()->removeEventListenersForTarget(target, true);
-		}
-		else if (cannon4 == 1 && targetRect.intersectsRect(cannon4Target->getBoundingBox()) && cannon4Target->flag == 0)
-		{
-//			callerObject::cannon_ballArray[target->spriteIndex]->placedNumber = 4;
-			target->placedNumber = 3;
-			for (int i = 0; i < MainGame::cannonArray.size(); i++)
-			{
-				if (MainGame::cannonArray[i]->cannonID == 3)
-				{
-					MainGame::cannonArray[i]->placedNumber = 3;
-					break;
-				}
-			}
-
-			auto callback = CallFunc::create([this, target, callerObject]() { callerObject->loadCannon(target); });
-			auto moveto = MoveTo::create(.2, Vec2(cannon4Target->getPositionX() + (cannon4Target->getContentSize().width / 4), cannon4Target->getPositionY()));
-			auto seq = Sequence::create(moveto, callback, NULL);
-			target->runAction(seq);
-
-			callerObject->cannonLetter_actualImage[target->spriteIndex]->runAction(MoveTo::create(.2, Vec2(cannon4Target->getPositionX() + (cannon4Target->getContentSize().width / 4), cannon4Target->getPositionY())));
-			overlapped = 1;
-			cannon4Target->flag = 1;
-
-			cocos2d::Director::getInstance()->getEventDispatcher()->removeEventListenersForTarget(target, true);
-		}
-*/	};
+	};
 
 	listener->onTouchEnded = [&](cocos2d::Touch* touch, cocos2d::Event* event)
 	{
 		EventListenerClass* target = static_cast<EventListenerClass*>(event->getCurrentTarget());
 		target->setPosition(target->getPosition() + touch->getDelta());
 
-//		auto letterSprite = static_cast<Alphabet*>(callerObject->cannonLetter_actualImage[target->spriteIndex]);
-//		letterSprite->setPosition(target->getPosition() + touch->getDelta());
-
 		Rect targetRect = target->getBoundingBox();
 
-//		Rect targetRect_1 = Rect(cannon1Target->getBoundingBox().origin.x * 120 / 100, cannon1Target->getBoundingBox().origin.y, cannon1Target->getBoundingBox().size.width, cannon1Target->getBoundingBox().size.height);
-//		Rect targetRect_2 = Rect(cannon2Target->getBoundingBox().origin.x * 120 / 100, cannon2Target->getBoundingBox().origin.y, cannon2Target->getBoundingBox().size.width, cannon2Target->getBoundingBox().size.height);
-//		Rect targetRect_3 = Rect(cannon3Target->getBoundingBox().origin.x * 120 / 100, cannon3Target->getBoundingBox().origin.y, cannon3Target->getBoundingBox().size.width, cannon3Target->getBoundingBox().size.height);
-//		Rect targetRect_4 = Rect(cannon4Target->getBoundingBox().origin.x * 120 / 100, cannon4Target->getBoundingBox().origin.y, cannon4Target->getBoundingBox().size.width, cannon4Target->getBoundingBox().size.height);
+		Rect targetRect1 = Rect(cannon1Target->getPositionX(), cannon1Target->getPositionY() - cannon1Target->getContentSize().height / 4, cannon1Target->getBoundingBox().size.width*37/100, cannon1Target->getBoundingBox().size.height / 2);
+		Rect targetRect2 = Rect(cannon2Target->getPositionX(), cannon2Target->getPositionY() - cannon2Target->getContentSize().height / 4, cannon2Target->getBoundingBox().size.width * 37 / 100, cannon2Target->getBoundingBox().size.height / 2);
+		Rect targetRect3 = Rect(cannon3Target->getPositionX(), cannon3Target->getPositionY() - cannon3Target->getContentSize().height / 4, cannon3Target->getBoundingBox().size.width * 37 / 100, cannon3Target->getBoundingBox().size.height / 2);
 
-		if (cannon1 == 1 && targetRect.intersectsRect(cannon1Target->getBoundingBox()) && cannon1Target->flag == 0)
+		if (cannon1 == 1 && targetRect1.intersectsRect(target->getBoundingBox()) && cannon1Target->flag == 0)
 		{
 			target->placedNumber = 0;
 
@@ -318,17 +174,20 @@ void EventListenerClass::addEvents(MainGame *callerObject, EventListenerClass* t
 				}
 			}
 
-			auto callback = CallFunc::create([this, target, callerObject]() { callerObject->loadCannon(target); });
+			auto callback = CallFunc::create([this, target, callerObject]() { 
+				target->setOpacity(0); 
+				target->getChildren().at(0)->setOpacity(0);
+				callerObject->loadCannon(target); });
+
 			auto moveto = MoveTo::create(.2, Vec2(cannon1Target->getPositionX() + (cannon1Target->getContentSize().width / 4), cannon1Target->getPositionY()));
 			auto seq = Sequence::create(moveto, callback, NULL);
 			target->runAction(seq);
 
-//			callerObject->cannonLetter_actualImage[target->spriteIndex]->runAction(MoveTo::create(.2, Vec2(cannon1Target->getPositionX() + (cannon1Target->getContentSize().width / 4), cannon1Target->getPositionY())));
 			cannon1Target->flag = 1;
 
 			cocos2d::Director::getInstance()->getEventDispatcher()->removeEventListenersForTarget(target, true);
 		}
-		else if (cannon2 == 1 && targetRect.intersectsRect(cannon2Target->getBoundingBox()) && cannon2Target->flag == 0)
+		else if (cannon2 == 1 && targetRect2.intersectsRect(target->getBoundingBox()) && cannon2Target->flag == 0)
 		{
 			target->placedNumber = 1;
 			for (int i = 0; i < MainGame::cannonArray.size(); i++)
@@ -340,17 +199,20 @@ void EventListenerClass::addEvents(MainGame *callerObject, EventListenerClass* t
 				}
 			}
 
-			auto callback = CallFunc::create([this, target, callerObject]() { callerObject->loadCannon(target); });
+			auto callback = CallFunc::create([this, target, callerObject]() { 
+				target->setOpacity(0); 
+				target->getChildren().at(0)->setOpacity(0);
+				callerObject->loadCannon(target); });
+
 			auto moveto = MoveTo::create(.2, Vec2(cannon2Target->getPositionX() + (cannon2Target->getContentSize().width / 4), cannon2Target->getPositionY()));
 			auto seq = Sequence::create(moveto, callback, NULL);
 			target->runAction(seq);
 
-//			callerObject->cannonLetter_actualImage[target->spriteIndex]->runAction(MoveTo::create(.2, Vec2(cannon2Target->getPositionX() + (cannon2Target->getContentSize().width / 4), cannon2Target->getPositionY())));
 			cannon2Target->flag = 1;
 
 			cocos2d::Director::getInstance()->getEventDispatcher()->removeEventListenersForTarget(target, true);
 		}
-		else if (cannon3 == 1 && targetRect.intersectsRect(cannon3Target->getBoundingBox()) && cannon3Target->flag == 0)
+		else if (cannon3 == 1 && targetRect3.intersectsRect(target->getBoundingBox()) && cannon3Target->flag == 0)
 		{
 			target->placedNumber = 2;
 
@@ -363,46 +225,21 @@ void EventListenerClass::addEvents(MainGame *callerObject, EventListenerClass* t
 				}
 			}
 
-			auto callback = CallFunc::create([this, target, callerObject]() { callerObject->loadCannon(target); });
+			auto callback = CallFunc::create([this, target, callerObject]() { 
+				target->setOpacity(0); 
+				target->getChildren().at(0)->setOpacity(0);
+				callerObject->loadCannon(target); });
 			auto moveto = MoveTo::create(.2, Vec2(cannon3Target->getPositionX() + (cannon3Target->getContentSize().width / 4), cannon3Target->getPositionY()));
 			auto seq = Sequence::create(moveto, callback, NULL);
 			target->runAction(seq);
 
-//			callerObject->cannonLetter_actualImage[target->spriteIndex]->runAction(MoveTo::create(.2, Vec2(cannon3Target->getPositionX() + (cannon3Target->getContentSize().width / 4), cannon3Target->getPositionY())));
 			cannon3Target->flag = 1;
 			cocos2d::Director::getInstance()->getEventDispatcher()->removeEventListenersForTarget(target, true);
 		}
-/*		else if (cannon4 == 1 && targetRect.intersectsRect(cannon4Target->getBoundingBox()) && cannon4Target->flag == 0)
-		{
-			//			callerObject::cannon_ballArray[target->spriteIndex]->placedNumber = 4;
-			target->placedNumber = 3;
-			for (int i = 0; i < MainGame::cannonArray.size(); i++)
-			{
-				if (MainGame::cannonArray[i]->cannonID == 3)
-				{
-					MainGame::cannonArray[i]->placedNumber = 3;
-					break;
-				}
-			}
-
-			auto callback = CallFunc::create([this, target, callerObject]() { callerObject->loadCannon(target); });
-			auto moveto = MoveTo::create(.2, Vec2(cannon4Target->getPositionX() + (cannon4Target->getContentSize().width / 4), cannon4Target->getPositionY()));
-			auto seq = Sequence::create(moveto, callback, NULL);
-			target->runAction(seq);
-
-//			callerObject->cannonLetter_actualImage[target->spriteIndex]->runAction(MoveTo::create(.2, Vec2(cannon4Target->getPositionX() + (cannon4Target->getContentSize().width / 4), cannon4Target->getPositionY())));
-			cannon4Target->flag = 1;
-
-			cocos2d::Director::getInstance()->getEventDispatcher()->removeEventListenersForTarget(target, true);
-		}
-*/		else
+		else
 		{
 			auto target = static_cast<EventListenerClass*>(event->getCurrentTarget());
 			target->runAction(MoveTo::create(.2, Vec2(target->xP, target->yP)));
-
-//			Alphabet* letterSprite = static_cast<Alphabet*>(callerObject->cannonLetter_actualImage[target->spriteIndex]);
-
-//			letterSprite->runAction(MoveTo::create(.2, Vec2(target->xP, target->yP)));
 		}
 	};
 	
@@ -411,13 +248,8 @@ void EventListenerClass::addEvents(MainGame *callerObject, EventListenerClass* t
 
 void EventListenerClass::print(EventListenerClass* eve)
 {
-	CCLOG("yes");
-	CCLOG("%d", eve->xP);
 }
 
 void EventListenerClass::touchEvent(cocos2d::Touch* touch, cocos2d::Vec2 _p)
 {
-	CCLOG("yes");
 }
-//    Size visibleSize = Director::getInstance()->getVisibleSize();
-//    Vec2 origin = Director::getInstance()->getVisibleOrigin();
