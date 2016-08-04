@@ -119,7 +119,7 @@ void EndlessRunner::scheduleMethod() {
 	this->schedule(schedule_selector(EndlessRunner::sceneTree1Flow), 2.5f);
 	this->schedule(schedule_selector(EndlessRunner::sceneTree2Flow), 1.4f);
 	this->schedule(schedule_selector(EndlessRunner::CreateMonsterWithLetter), 6.0f);
-	this->schedule(schedule_selector(EndlessRunner::addFirstBlockSecondLayer), randmValueIncludeBoundery(8,10));
+	this->schedule(schedule_selector(EndlessRunner::addFirstBlockSecondLayer), randmValueIncludeBoundery(10,13));
 
 	this->scheduleUpdate();
 }
