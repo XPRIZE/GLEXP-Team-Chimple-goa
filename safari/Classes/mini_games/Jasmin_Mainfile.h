@@ -2,6 +2,7 @@
 #define __Jasmin_Mainfile_SCENE_H__
 
 #include "cocos2d.h"
+#include "lang/TextGenerator.h"
 
 class Jasmin_Mainfile : public cocos2d::Layer
 {

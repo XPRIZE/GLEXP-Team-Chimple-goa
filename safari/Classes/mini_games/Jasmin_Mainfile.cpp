@@ -1,4 +1,5 @@
 #include "Jasmin_Mainfile.h"
+#include "editor-support/cocostudio/CocoStudio.h"
 
 USING_NS_CC;
 
@@ -32,17 +33,19 @@ bool Jasmin_Mainfile::init()
 	Jasmin_Mainfile::originX = origin.x;
 	Jasmin_Mainfile::originY = origin.y;
 
-	auto sp = Sprite::create("HelloWorld.png");
-	sp->setPosition(visibleSize.width/2, visibleSize.height/2);
-	sp->runAction(Liquid::create(2, Size(32, 24), 1, 20));
-	this->addChild(sp);
+	auto bg = CSLoader::createNode("jasmine/jasminemainscene.csb");
+	bg->setPosition(Vec2(origin.x + visibleSize.width/2, origin.y + visibleSize.height/2));
+	bg->setAnchorPoint(Vec2(.5, .5));
+	this->addChild(bg);
 
-//	startGame();
+	startGame();
 
     return true;
 }
 
-void startGame()
+void Jasmin_Mainfile::startGame()
 {
-
+	auto tg = TextGenerator::getInstance();
+	auto str = tg->generateAWord();
+	auto matrix = tg->generateMatrix(str, 2, 8);
 }
