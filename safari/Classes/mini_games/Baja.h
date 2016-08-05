@@ -2,6 +2,8 @@
 #define __BAJA_SCENE_H__
 
 #include "cocos2d.h"
+#include "../StartMenuScene.h"
+
 using namespace cocos2d;
 
 class Baja : public cocos2d::Layer
@@ -24,8 +26,7 @@ public:
 	// implement the "static create()" method manually
 	CREATE_FUNC(Baja);
 	void update(float) override;
-
-	static const char* gameName() { return ENDLESS_RUNNER.c_str(); }
+	static const char* gameName() { return BAJA.c_str(); }
 };
 
 #endif // __BAJA_SCENE_H__
