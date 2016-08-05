@@ -2,6 +2,8 @@
 #define __BAJA_SCENE_H__
 
 #include "cocos2d.h"
+#include "../StartMenuScene.h"
+
 using namespace cocos2d;
 
 class Baja : public cocos2d::Layer
@@ -12,7 +14,7 @@ protected:
 	std::vector<Sprite*> allPathBlocks;
 	Size visibleSize;
 	Vec2 origin;
-
+	bool initBool = true;
 public:
 	static cocos2d::Scene* createScene();
 
@@ -24,8 +26,7 @@ public:
 	// implement the "static create()" method manually
 	CREATE_FUNC(Baja);
 	void update(float) override;
-
-
+	static const char* gameName() { return BAJA.c_str(); }
 };
 
 #endif // __BAJA_SCENE_H__

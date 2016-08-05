@@ -30,16 +30,35 @@ bool Baja::init()
 	addChild(label, 1);
 
 	topBarrier = setSpriteProperties("endlessrunner/barrier.png", origin.x, origin.y + visibleSize.height + 200,1,2,0,0,90,0);
-	currentPathBlock = setSpriteProperties("bajapath1.png", origin.x + visibleSize.width / 2, topBarrier->getPositionY(), 1, 1, 0.5, 0, 0, 0);
-	bottomBarrier = setSpriteProperties("endlessrunner/barrier.png", origin.x, origin.y - currentPathBlock->getContentSize().height*1.2, 1, 2, 0, 0, 90, 0);
-	currentPathBlock->runAction(MoveTo::create(movingTime(currentPathBlock,400),Vec2(currentPathBlock->getPositionX(),bottomBarrier->getPositionY())));
-	allPathBlocks.push_back(currentPathBlock);
+	bottomBarrier = setSpriteProperties("endlessrunner/barrier.png", origin.x, origin.y - visibleSize.height * 0.3, 1, 2, 0, 0, 90, 0);
+
+	int startPosition = origin.y;
+	for (int i = 0; i <= 14; i++) {
+		std::ostringstream pathIndex;	pathIndex << "bajapath" << randmValueIncludeBoundery(1, 6) << ".png"; std::string blockName = pathIndex.str();
+		auto newPathBlock = setSpriteProperties(blockName, origin.x + visibleSize.width / 2, startPosition, 1, 1, 0.5, 0, 0, 0);
+		newPathBlock->setName("InitpathBlock");
+		if (i == 14) { newPathBlock->setName("LastInitPath");}
+		startPosition = startPosition + newPathBlock->getContentSize().height - 100; currentPathBlock = newPathBlock;
+		currentPathBlock->runAction(MoveTo::create(movingTime(currentPathBlock, 400), Vec2(currentPathBlock->getPositionX(), bottomBarrier->getPositionY())));
+		allPathBlocks.push_back(currentPathBlock);
+	}
 
 	this->scheduleUpdate();
 	return true;
 }
 
 void Baja::update(float delta) {
+
+	if (initBool) {
+		for (std::size_t i = 0; i < allPathBlocks.size(); i++) {
+			if (topBarrier->getBoundingBox().intersectsRect(allPathBlocks[i]->getBoundingBox())) {
+				if (allPathBlocks[i]->getName() == "LastInitPath") {
+					currentPathBlock = allPathBlocks[i];
+					initBool = false;
+				}
+			}
+		}
+	}
 
 	for (size_t i = 0; i < allPathBlocks.size() ;  i++) {
 		if (bottomBarrier->getBoundingBox().intersectsRect(allPathBlocks[i]->getBoundingBox())) {
@@ -48,7 +67,7 @@ void Baja::update(float delta) {
 		}
 	}
 
-	if (!topBarrier->getBoundingBox().intersectsRect(currentPathBlock->getBoundingBox())) {
+	if (!topBarrier->getBoundingBox().intersectsRect(currentPathBlock->getBoundingBox()) && !initBool) {
 		
 		std::ostringstream pathIndex;	pathIndex <<"bajapath"<<randmValueIncludeBoundery(1,6)<<".png"; std::string blockName = pathIndex.str();
 		auto newPathBlock = setSpriteProperties(blockName, origin.x + visibleSize.width / 2, topBarrier->getPositionY()-100, 1, 1, 0.5, 0, 0, 0);
