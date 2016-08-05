@@ -148,6 +148,7 @@ void GameMapScene::islandSelected(Ref* pSender, ui::Widget::TouchEventType eEven
             break;
         case ui::Widget::TouchEventType::ENDED:
         {
+            clickedButton->setEnabled(false);
             if(clickedButton->getName() == PATCH_THE_WALL) {
                 Director::getInstance()->replaceScene(PatchTheWall::createScene());
             } else if(clickedButton->getName() == CROSS_THE_BRIDGE) {

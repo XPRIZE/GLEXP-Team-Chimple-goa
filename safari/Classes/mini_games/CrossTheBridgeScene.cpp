@@ -4,7 +4,6 @@
 #include "../alphamon/Alphamon.h"
 #include "../puzzle/CharGenerator.h"
 #include "../lang/LangUtil.h"
-//#include "SimpleAudioEngine.h"
 
 USING_NS_CC;
 
@@ -61,13 +60,6 @@ bool CrossTheBridge::init()
 	splash->setGlobalZOrder(8);
 	splash->setVisible(false);
 	splash->runAction(water_splash);
-
-	/*mons_water_splash = CSLoader::createTimeline("crossthebridge/watersplash.csb");
-	monsFallSplash = (Sprite *)CSLoader::createNode("crossthebridge/watersplash.csb");
-	this->addChild(monsFallSplash, 8);
-	monsFallSplash->setGlobalZOrder(8);
-	monsFallSplash->setVisible(false);
-	monsFallSplash->runAction(mons_water_splash);*/
 
 	punch = CSLoader::createTimeline("crossthebridge/punch.csb");
 	punchForBack = (Sprite *)CSLoader::createNode("crossthebridge/punch.csb");
@@ -131,8 +123,7 @@ void CrossTheBridge::startGame() {
 void CrossTheBridge::allUpdateMethod() {
 	gameMelody = CocosDenshion::SimpleAudioEngine::getInstance();
 	gameMelody->playEffect("endlessrunner/sound/african_drum.wav", true);
-	this->schedule(schedule_selector(CrossTheBridge::monsGeneration), 17);
-	this->schedule(schedule_selector(CrossTheBridge::alphabetGeneration), 6);
+	this->schedule(schedule_selector(CrossTheBridge::alphabetAndMonsterGeneration), 6);
 	this->scheduleUpdate();
 }
 
@@ -160,7 +151,7 @@ void CrossTheBridge::sceneMaking()
 	setAllSpriteProperties(barrierLowerSide, 3, ((80 / visibleSize.width)*visibleSize.width), ((400 / visibleSize.height)*visibleSize.height), false, 0, 47.0f, 1, 0.18f);
 
 	letterDisplayCombinationMethod();
-	alphabetGeneration(2.0f);
+	alphabetAndMonsterGeneration(2.0f);
 }
 
 void CrossTheBridge::update(float delta) {
@@ -182,7 +173,6 @@ void CrossTheBridge::update(float delta) {
 	rightAlphaMonDelete();
 
 	alphaLoud();
-
 }
 void CrossTheBridge::letterDisplayCombinationMethod()
 {
@@ -207,47 +197,49 @@ void CrossTheBridge::letterDisplayCombinationMethod()
 	}
 }
 
-void CrossTheBridge::alphabetGeneration(float dt)
+void CrossTheBridge::alphabetAndMonsterGeneration(float dt)
 {
-	Vec2 origin = Director::getInstance()->getVisibleOrigin();
-	auto visibleSize = Director::getInstance()->getVisibleSize();
-
-	auto name = comboFive.at(alphabetCounter).at(0);
-	alphabetCounter++;
-	auto mystr = LangUtil::convertUTF16CharToString(name);
-	if (alphabetCounter == 20)
+	if (enemyCreateCounter % 4 == 0)
 	{
-		comboFive = CharGenerator::getInstance()->generateMatrixForChoosingAChar(letterToDisplay, 20, 1, 90);
-		alphabetCounter = 0;
+		cocostudio::timeline::ActionTimeline *enemy_walk = CSLoader::createTimeline("crossthebridge/enemy_01.csb");
+		Sprite* monster = (Sprite *)CSLoader::createNode("crossthebridge/enemy_01.csb");
+		setAllSpriteProperties(monster, 1, (barrierRight->getPosition().x), ((visibleSize.height*0.472)), true, 0, 0, 0.30f, 0.30f);
+		monster->setContentSize(cocos2d::Size(200.0f, 200.0f));
+		monster->runAction(enemy_walk);
+		enemy_walk->setTimeSpeed(1.5);
+		enemy_walk->gotoFrameAndPlay(0, true);
+		monsContainer.push_back(monster);
+		leftMove_Mons(monster, 10, 0, ((visibleSize.height*0.468) + origin.y));
+
+		enemyCreateCounter = enemyCreateCounter + RandomHelper::random_int(1, 3);
+    }
+else {
+		auto name = comboFive.at(alphabetCounter).at(0);
+		alphabetCounter++;
+		auto mystr = LangUtil::convertUTF16CharToString(name);
+		if (alphabetCounter == 20)
+			{
+				comboFive = CharGenerator::getInstance()->generateMatrixForChoosingAChar(letterToDisplay, 20, 1, 90);
+				alphabetCounter = 0;
+			}
+		Alphamon* alphaMon = Alphamon::createWithAlphabet(name);
+		alphaMon->setPosition(Vec2((barrierRight->getPosition().x + origin.x), (visibleSize.height*0.47) + origin.y));
+		this->addChild(alphaMon, 1);
+
+		alphaMon->setScale(0.70);
+		alphaMon->setContentSize(cocos2d::Size(20, 300));
+		alphaMon->setName(mystr);
+		alphaContainer.push_back(alphaMon);
+
+		alphaMon->blinkAction();
+		alphaMon->eatAction();
+		alphaMon->walkAction();
+
+		enemyCreateCounter = enemyCreateCounter + RandomHelper::random_int(1, 3);
+	
+		leftMove_Alpha(alphaMon, 10, 0.0f, ((visibleSize.height*0.47) + origin.y));
 	}
-	Alphamon* alphaMon = Alphamon::createWithAlphabet(name);
-	alphaMon->setPosition(Vec2((barrierRight->getPosition().x + origin.x), (visibleSize.height*0.47) + origin.y));
-	this->addChild(alphaMon, 1);
-
-	alphaMon->setScale(0.70);
-	alphaMon->setContentSize(cocos2d::Size(20, 300));
-	alphaMon->setName(mystr);
-	alphaContainer.push_back(alphaMon);
-
-	alphaMon->blinkAction();
-	alphaMon->eatAction();
-	alphaMon->walkAction();
-
-	leftMove_Alpha(alphaMon, 9, -180.0f, ((visibleSize.height*0.47) + origin.y));
 }
-
-void CrossTheBridge::monsGeneration(float dt) {
-	cocostudio::timeline::ActionTimeline *enemy_walk = CSLoader::createTimeline("crossthebridge/enemy_01.csb");
-	Sprite* monster = (Sprite *)CSLoader::createNode("crossthebridge/enemy_01.csb");
-	setAllSpriteProperties(monster, 1, (barrierRight->getPosition().x), ((visibleSize.height*0.472)), true, 0, 0, 0.30f, 0.30f);
-	monster->setContentSize(cocos2d::Size(200.0f, 200.0f));
-	monster->runAction(enemy_walk);
-	enemy_walk->setTimeSpeed(1.5);
-	enemy_walk->gotoFrameAndPlay(0, true);
-	monsContainer.push_back(monster);
-	leftMove_Mons(monster, 10, -180, ((visibleSize.height*0.468) + origin.y));
-}
-
 void CrossTheBridge::alphaDeletion()
 {
 
