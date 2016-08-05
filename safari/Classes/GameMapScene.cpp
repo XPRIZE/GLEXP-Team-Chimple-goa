@@ -17,6 +17,7 @@
 #include "mini_games/TraceScene.h"
 #include "mini_games/AlphamonFeedScene.h"
 #include "StartMenuScene.h"
+#include "mini_games/Baja.h"
 
 USING_NS_CC;
 

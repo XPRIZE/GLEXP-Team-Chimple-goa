@@ -129,13 +129,13 @@ bool MainGame::init()
 	position.push_back(p12);
 
 	p100.x = MainGame::originX;
-	p100.y = MainGame::originY + MainGame::height * 22 / 100;
+	p100.y = MainGame::originY + MainGame::height * 15 / 100;
 
 	p101.x = MainGame::originX;
 	p101.y = MainGame::originY + MainGame::height * 50 / 100;
 
 	p102.x = MainGame::originX;
-	p102.y = MainGame::originY + MainGame::height * 78 / 100;
+	p102.y = MainGame::originY + MainGame::height * 85 / 100;
 
 	letterPosition.push_back(p100);
 	letterPosition.push_back(p101);
@@ -158,6 +158,7 @@ void MainGame::AfterPlayVideo()
 {
 	MainGame::audioBg->playEffect("cannonball/gamesound/background1.wav", true);
 	startGame();
+	letterCome(1);
 	self->schedule(schedule_selector(MainGame::letterCome), letterComespeed);
 	self->scheduleUpdate();
 } 
@@ -193,18 +194,24 @@ void MainGame::startGame()	// starting of game
 		this->addChild(mm);
 	}
 
-	cannon1 = EventListenerClass::createCannon("cannon1.png", 0, 0, 1, 0, origin.x + (visibleSize.width * 75 / 100), origin.y + (visibleSize.height * 22 / 100));
+	cannon1 = EventListenerClass::createCannon("cannon1.png", 0, 0, 1, 0, origin.x + (visibleSize.width * 73 / 100), origin.y + (visibleSize.height * 15 / 100));
 	this->addChild(cannon1, 3);
 
-	cannon2 = EventListenerClass::createCannon("cannon1.png", 0, 0, 1, 1, origin.x + (visibleSize.width * 75 / 100), origin.y + (visibleSize.height * 50 / 100));
+	cannon2 = EventListenerClass::createCannon("cannon1.png", 0, 0, 1, 1, origin.x + (visibleSize.width * 73 / 100), origin.y + (visibleSize.height * 50 / 100));
 	this->addChild(cannon2, 3);
 
-	cannon3 = EventListenerClass::createCannon("cannon1.png", 0, 0, 1, 2, origin.x + (visibleSize.width * 75 / 100), origin.y + (visibleSize.height * 78 / 100));
+	cannon3 = EventListenerClass::createCannon("cannon1.png", 0, 0, 1, 2, origin.x + (visibleSize.width * 73 / 100), origin.y + (visibleSize.height * 85 / 100));
 	this->addChild(cannon3, 3);
 
 	cannonArray.push_back(cannon1);
 	cannonArray.push_back(cannon2);
 	cannonArray.push_back(cannon3);
+
+	auto layer = LayerGradient::create(Color4B(255, 0, 0, 255), Color4B(255, 0, 255, 255));
+	layer->setContentSize(Size(cannon1->getBoundingBox().size.width, cannon1->getBoundingBox().size.height));
+	layer->setPosition(Vec2(cannon1->getPositionX()- cannon1->getBoundingBox().size.width/2, cannon1->getPositionY() - cannon1->getContentSize().height / 2));
+//	this->addChild(layer, 20);
+
 
 	MainChars = CharGenerator::getInstance()->generateCharMatrix(1, 10, true);
 	letterComespeed = 5;
