@@ -12,7 +12,7 @@ protected:
 	std::vector<Sprite*> allPathBlocks;
 	Size visibleSize;
 	Vec2 origin;
-
+	bool initBool = true;
 public:
 	static cocos2d::Scene* createScene();
 
@@ -25,7 +25,7 @@ public:
 	CREATE_FUNC(Baja);
 	void update(float) override;
 
-
+	static const char* gameName() { return ENDLESS_RUNNER.c_str(); }
 };
 
 #endif // __BAJA_SCENE_H__
