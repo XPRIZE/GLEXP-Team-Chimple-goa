@@ -176,6 +176,10 @@
 		F3CA26EF1D43C0A9006EBDC6 /* EnglishUtil.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F3CA26ED1D43C0A9006EBDC6 /* EnglishUtil.cpp */; };
 		F3CA26F11D43DA17006EBDC6 /* KannadaUtil.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F3CA26F01D43DA17006EBDC6 /* KannadaUtil.cpp */; };
 		F3CA26F21D43DA17006EBDC6 /* KannadaUtil.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F3CA26F01D43DA17006EBDC6 /* KannadaUtil.cpp */; };
+		F3E427EE1D54440200D22421 /* WordScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F3E427ED1D54440200D22421 /* WordScene.cpp */; };
+		F3E427EF1D54440200D22421 /* WordScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F3E427ED1D54440200D22421 /* WordScene.cpp */; };
+		F3E427F31D54452800D22421 /* TextGenerator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F3E427F21D54452800D22421 /* TextGenerator.cpp */; };
+		F3E427F41D54452800D22421 /* TextGenerator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F3E427F21D54452800D22421 /* TextGenerator.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -389,6 +393,10 @@
 		F3CA26ED1D43C0A9006EBDC6 /* EnglishUtil.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = EnglishUtil.cpp; sourceTree = "<group>"; };
 		F3CA26F01D43DA17006EBDC6 /* KannadaUtil.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = KannadaUtil.cpp; sourceTree = "<group>"; };
 		F3CA26F31D43DA25006EBDC6 /* KannadaUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KannadaUtil.h; sourceTree = "<group>"; };
+		F3E427ED1D54440200D22421 /* WordScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = WordScene.cpp; sourceTree = "<group>"; };
+		F3E427F11D54441100D22421 /* WordScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WordScene.h; sourceTree = "<group>"; };
+		F3E427F21D54452800D22421 /* TextGenerator.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TextGenerator.cpp; sourceTree = "<group>"; };
+		F3E427F51D54453D00D22421 /* TextGenerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextGenerator.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -712,6 +720,8 @@
 				F3913DFA1D3F46A5001B3038 /* AlphabetGrid.cpp */,
 				F3913DFB1D3F46A5001B3038 /* CharGenerator.cpp */,
 				F3913DFC1D3F46A5001B3038 /* DuelScene.cpp */,
+				F3E427ED1D54440200D22421 /* WordScene.cpp */,
+				F3E427F11D54441100D22421 /* WordScene.h */,
 			);
 			path = puzzle;
 			sourceTree = "<group>";
@@ -747,6 +757,8 @@
 				F3CA26E91D43C069006EBDC6 /* LangUtil.h */,
 				F3CA26EC1D43C097006EBDC6 /* EnglishUtil.h */,
 				F3CA26ED1D43C0A9006EBDC6 /* EnglishUtil.cpp */,
+				F3E427F21D54452800D22421 /* TextGenerator.cpp */,
+				F3E427F51D54453D00D22421 /* TextGenerator.h */,
 			);
 			path = lang;
 			sourceTree = "<group>";
@@ -922,6 +934,7 @@
 				F3913DE41D3F461A001B3038 /* StateMachine.cpp in Sources */,
 				F3913E191D3F46B1001B3038 /* Cannon_Ball_Main.cpp in Sources */,
 				37DF03DA1D44B8D4007252C6 /* LanguageManager.cpp in Sources */,
+				F3E427EE1D54440200D22421 /* WordScene.cpp in Sources */,
 				370A3DB41D43428D00676C50 /* SkeletonConfiguration.cpp in Sources */,
 				37C7E1EB1D47CEFB005C89C0 /* MapScene.cpp in Sources */,
 				F3913E011D3F46A5001B3038 /* CharGenerator.cpp in Sources */,
@@ -930,6 +943,7 @@
 				F3913DE21D3F461A001B3038 /* State.cpp in Sources */,
 				F3913E1F1D3F46B1001B3038 /* PatchTheWallScene.cpp in Sources */,
 				F33905071D49B84000090367 /* GameScene.cpp in Sources */,
+				F3E427F31D54452800D22421 /* TextGenerator.cpp in Sources */,
 				F3913DDE1D3F461A001B3038 /* StandingState.cpp in Sources */,
 				F3913DC81D3F461A001B3038 /* JumpingState.cpp in Sources */,
 				F3913DFF1D3F46A5001B3038 /* AlphabetGrid.cpp in Sources */,
@@ -976,6 +990,7 @@
 				F3913E341D3F46BE001B3038 /* SelectAlphamonScene.cpp in Sources */,
 				F3913DCD1D3F461A001B3038 /* MessageReceiver.cpp in Sources */,
 				F3913DD11D3F461A001B3038 /* PhysicsShapeCache.cpp in Sources */,
+				F3E427EF1D54440200D22421 /* WordScene.cpp in Sources */,
 				37C7E1F01D47D673005C89C0 /* MapIsland.cpp in Sources */,
 				F3913DBB1D3F461A001B3038 /* sqlite3.c in Sources */,
 				F3913DD91D3F461A001B3038 /* SkeletonCharacter.cpp in Sources */,
@@ -1013,6 +1028,7 @@
 				37533C961D507580008EEFD9 /* ScoreBoardContent.cpp in Sources */,
 				F3913DC11D3F461A001B3038 /* ExternalSkeletonCharacter.cpp in Sources */,
 				376FEE811D3F66380037393F /* SkeletonPosition.cpp in Sources */,
+				F3E427F41D54452800D22421 /* TextGenerator.cpp in Sources */,
 				F33905081D49B84000090367 /* GameScene.cpp in Sources */,
 				F3CA26EB1D43C069006EBDC6 /* LangUtil.cpp in Sources */,
 				F3913DC71D3F461A001B3038 /* HelloWorldScene.cpp in Sources */,
