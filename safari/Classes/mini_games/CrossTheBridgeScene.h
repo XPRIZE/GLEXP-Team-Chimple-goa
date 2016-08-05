@@ -27,8 +27,7 @@ public:
 
 	virtual void update(float dt);
 
-	virtual void alphabetGeneration(float dt);
-	virtual void monsGeneration(float dt);
+	virtual void alphabetAndMonsterGeneration(float dt);
 
 	virtual void alphaDeletion();
 	virtual void monsDeletion();
@@ -68,7 +67,6 @@ protected:
 	Sprite* pathOpen_right;
 	Sprite* pathOpen_left;
 	Sprite* splash;
-	Sprite* monsFallSplash;
 	Alphabet* letterOnBoard;
 	Sprite* punchForBack;
 	Sprite* zeher;
@@ -100,12 +98,12 @@ protected:
 	int mainScore = 0;
 	int alphabetCounter = 0;
 	int letterDisplayCounter = 0;
+	int enemyCreateCounter = 1;
 
 	Label* myGameScoreLabel;
 	wchar_t letterToDisplay;
 
 	cocostudio::timeline::ActionTimeline *water_splash;
-	cocostudio::timeline::ActionTimeline *mons_water_splash;
 	cocostudio::timeline::ActionTimeline *punch;
 	cocostudio::timeline::ActionTimeline *smoke;
 	cocostudio::timeline::ActionTimeline *star;
