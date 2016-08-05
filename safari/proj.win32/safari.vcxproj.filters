@@ -215,6 +215,12 @@
     <ClCompile Include="..\Classes\mini_games\Baja.cpp">
       <Filter>src\mini_games</Filter>
     </ClCompile>
+    <ClCompile Include="..\Classes\mini_games\Jasmin_Listenerfile.cpp">
+      <Filter>src\mini_games</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\mini_games\Jasmin_Mainfile.cpp">
+      <Filter>src\mini_games</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -401,6 +407,12 @@
       <Filter>src\menu</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\mini_games\Baja.h">
+      <Filter>src\mini_games</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\mini_games\Jasmin_Listenerfile.h">
+      <Filter>src\mini_games</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\mini_games\Jasmin_Mainfile.h">
       <Filter>src\mini_games</Filter>
     </ClInclude>
   </ItemGroup>
