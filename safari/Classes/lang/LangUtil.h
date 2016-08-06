@@ -12,6 +12,7 @@
 #include "RPGConfig.h"
 #include "I18nUtils.h"
 
+class WordManager;
 class LangUtil {
 public:
     static LangUtil* _instance;
@@ -30,7 +31,7 @@ public:
     virtual std::string getPhoneticSoundFileName(wchar_t alpha) = 0;
     virtual std::string getLang() = 0;
     virtual std::string getDir() = 0;
-    
+    virtual void initializeWordManager() = 0;
     
     std::string translateString(std::string input);
     void changeLanguage(SupportedLanguages lang);
@@ -40,7 +41,7 @@ public:
     
 protected:
     LangUtil();
-    
+    WordManager* wordManager;
     SupportedLanguages currentLanguage;
 };
 

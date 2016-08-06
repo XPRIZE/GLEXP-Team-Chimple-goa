@@ -36,7 +36,7 @@ private:
     MenuContext* menuContext;
     void loadGameMap();
     void processChildNodes(cocos2d::Node *rootNode);
-    void islandSelected(Ref* pSender, ui::Widget::TouchEventType eEventType);
+    void islandSelected(Ref* pSender, cocos2d::ui::Widget::TouchEventType eEventType);
     
 };
 
