@@ -10,7 +10,6 @@
 #include "cocos2d.h"
 #include "RPGConfig.h"
 #include "StartMenuScene.h"
-#include "LanguageManager.h"
 #include "editor-support/cocostudio/CocoStudio.h"
 #include "editor-support/cocostudio/CCComExtensionData.h"
 #include "ui/UIWidget.h"
@@ -35,7 +34,6 @@ CC_CONSTRUCTOR_ACCESS:
     
 private:
     MenuContext* menuContext;
-    LanguageManager* languageManger;
     void loadGameMap();
     void processChildNodes(cocos2d::Node *rootNode);
     void islandSelected(Ref* pSender, ui::Widget::TouchEventType eEventType);
