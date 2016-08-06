@@ -48,6 +48,12 @@ std::string LangUtil::translateString(std::string input) {
 }
 
 void LangUtil::changeLanguage(SupportedLanguages lang) {
+    
+    if(this->wordManager != NULL) {
+        delete this->wordManager;
+        WordManager::destroyInstance();
+    }
+    
     switch (lang) {
         case SupportedLanguages::ENGLISH:
         {
@@ -64,6 +70,7 @@ void LangUtil::changeLanguage(SupportedLanguages lang) {
         }
         case SupportedLanguages::GERMAN:
         {
+            LangUtil::_instance = new KannadaUtil();
             Data germanMoData = FileUtils::getInstance()->getDataFromFile("res/de.mo");
             I18N::I18nUtils::getInstance()->addMO(germanMoData.getBytes());
             break;

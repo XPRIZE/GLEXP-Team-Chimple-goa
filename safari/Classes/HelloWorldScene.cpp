@@ -588,12 +588,6 @@ void HelloWorld::cleanUpResources() {
         delete this->stateMachine;
     }
     
-    LangUtil::_instance = NULL;
-    
-    if(this->currentLangUtil != nullptr) {
-        delete this->currentLangUtil;
-    }
-    
     Sqlite3Helper::instanceFlag = false;
     Sqlite3Helper::shared = NULL;
     
