@@ -69,10 +69,7 @@ bool GameMapScene::init()
         return false;
     }
     
-    FileUtils::getInstance()->addSearchPath("res/gamemap");
-    
-    this->languageManger = LanguageManager::getInstance();
-    
+    FileUtils::getInstance()->addSearchPath("res/gamemap");    
     
     this->loadGameMap();
     
