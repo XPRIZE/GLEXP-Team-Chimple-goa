@@ -57,19 +57,22 @@ LOCAL_SRC_FILES := hellocpp/main.cpp \
 					../../Classes/lang/LangUtil.cpp \
 					../../Classes/lang/EnglishUtil.cpp \
 					../../Classes/lang/KannadaUtil.cpp \
-		                      ../../Classes/StartMenuScene.cpp \
-                		       ../../Classes/AlphamonSprite.cpp \
-		                	../../Classes/SkeletonPosition.cpp  \
-               			 	../../Classes/I18nUtils.cpp  \
-		                	../../Classes/MO.cpp  \
-		                	../../Classes/Entry.cpp  \
-	               		 	../../Classes/LanguageManager.cpp \
-	               		 	../../Classes/GameScene.cpp \
+					../../Classes/StartMenuScene.cpp \
+					../../Classes/AlphamonSprite.cpp \
+					../../Classes/SkeletonPosition.cpp  \
+               		../../Classes/I18nUtils.cpp  \
+		        	../../Classes/MO.cpp  \
+		         	../../Classes/Entry.cpp  \
+	               	../../Classes/LanguageManager.cpp \
+	               	../../Classes/GameScene.cpp \
 					../../Classes/MapScene.cpp \
 					../../Classes/MapIsland.cpp	\
 					../../Classes/lang/SafariAnalyticsManager.cpp \
 					../../Classes/GameMapScene.cpp \
-					../../Classes/menu/ScoreBoardContent.cpp 
+					../../Classes/menu/ScoreBoardContent.cpp \
+					../../Classes/lang/WordManager.cpp \
+					../../Classes/WordSprite.cpp 					
+										
 
 LOCAL_C_INCLUDES := $(LOCAL_PATH)/../../Classes
 LOCAL_C_INCLUDES += $(LOCAL_PATH)/../../../extensions

@@ -81,6 +81,8 @@ void HelloWorld::initializeSafari() {
     this->loadGameScene();
     
     this->initializeStateMachine();
+    
+    this->loadWords();
 }
 
 void HelloWorld::updatePositionAndCategoryBitMaskMainCharacter() {
@@ -123,6 +125,42 @@ void HelloWorld::loadGameScene() {
     this->enablePhysicsBoundaries(rootNode);
     
     this->updatePositionAndCategoryBitMaskMainCharacter();
+}
+
+
+void HelloWorld::loadWords() {
+    std::string wordFile = !this->getSceneName().empty() ? this->getSceneName(): this->getIsland();
+    std::string filePath = "res/" + wordFile + "/" + wordFile + "_words.json";
+    
+    
+    std::string jsonData = FileUtils::getInstance()->getStringFromFile(filePath);
+    
+    CCLOG("%s\n", jsonData.c_str());
+    
+    rapidjson::Document d;
+    d.Parse<0>(jsonData.c_str());
+    if (d.HasParseError()) {
+        CCLOG("GetParseError %u\n",d.GetParseError());
+    } else {
+        if (d != NULL && d.IsArray()) {
+            for (rapidjson::SizeType i = 0; i < d.Size(); ++i) {
+                auto nodeName = d[i]["node"].GetString();
+                auto word = d[i]["word"].GetString();
+                CCLOG("node-%s, word=%s", nodeName, word);
+                Node* node = this->mainLayer->getChildByName(nodeName);
+                if(node != NULL && word) {
+                    this->createWordSprite(node, word, this->mainLayer);
+                }
+            }
+        }
+    }
+
+}
+
+void HelloWorld::createWordSprite(Node* node, std::string word, Node* parentNode)
+{
+    WordSprite* wordSprite = WordSprite::create(node, word);
+    parentNode->addChild(wordSprite);
 }
 
 

@@ -31,6 +31,8 @@
 #include "menu/MenuContext.h"
 #include "lang/LangUtil.h"
 #include "puzzle/CharGenerator.h"
+#include "external/json/document.h"
+#include "WordSprite.h"
 
 class GestureLayer;
 class MessageContent;
@@ -158,6 +160,10 @@ private:
     bool checkIfAlphamonNodeNearBy(std::string alphamonNodeName);
     
     void calculateAlphamonNodesInScene(cocos2d::Node *rootNode);
+    
+    void loadWords();
+    
+    void createWordSprite(cocos2d::Node* node, std::string word, cocos2d::Node* parentNode);
     
     cocos2d::Size sceneSize;
     

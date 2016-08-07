@@ -23,6 +23,8 @@
 		3718293A1D44CA570013E3C4 /* MO.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 371829331D44CA570013E3C4 /* MO.cpp */; };
 		3718293B1D44CA570013E3C4 /* Entry.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 371829351D44CA570013E3C4 /* Entry.cpp */; };
 		3718293C1D44CA570013E3C4 /* Entry.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 371829351D44CA570013E3C4 /* Entry.cpp */; };
+		3729BEAD1D57111100148BD5 /* WordSprite.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3729BEAC1D57111100148BD5 /* WordSprite.cpp */; };
+		3729BEAE1D57111100148BD5 /* WordSprite.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3729BEAC1D57111100148BD5 /* WordSprite.cpp */; };
 		373CBBA11D4A69960002BAE1 /* SafariAnalyticsManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 373CBBA01D4A69960002BAE1 /* SafariAnalyticsManager.cpp */; };
 		373CBBA21D4A69960002BAE1 /* SafariAnalyticsManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 373CBBA01D4A69960002BAE1 /* SafariAnalyticsManager.cpp */; };
 		3740A16B1D4BC0B400B2B2F3 /* GameMapScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3740A16A1D4BC0B400B2B2F3 /* GameMapScene.cpp */; };
@@ -241,6 +243,8 @@
 		371829341D44CA570013E3C4 /* MO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MO.h; sourceTree = "<group>"; };
 		371829351D44CA570013E3C4 /* Entry.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Entry.cpp; sourceTree = "<group>"; };
 		371829361D44CA570013E3C4 /* Entry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Entry.h; sourceTree = "<group>"; };
+		3729BEAA1D57110000148BD5 /* WordSprite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WordSprite.h; sourceTree = "<group>"; };
+		3729BEAC1D57111100148BD5 /* WordSprite.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = WordSprite.cpp; sourceTree = "<group>"; };
 		373CBB9E1D4A69810002BAE1 /* SafariAnalyticsManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SafariAnalyticsManager.h; sourceTree = "<group>"; };
 		373CBBA01D4A69960002BAE1 /* SafariAnalyticsManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SafariAnalyticsManager.cpp; sourceTree = "<group>"; };
 		3740A1681D4BC0A700B2B2F3 /* GameMapScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameMapScene.h; sourceTree = "<group>"; };
@@ -587,6 +591,8 @@
 				F3913D931D3F461A001B3038 /* RPGConfig.h */,
 				F3913DB01D3F461A001B3038 /* RPGSprite.cpp */,
 				F3913D941D3F461A001B3038 /* RPGSprite.h */,
+				3729BEAA1D57110000148BD5 /* WordSprite.h */,
+				3729BEAC1D57111100148BD5 /* WordSprite.cpp */,
 				F3913DB11D3F461A001B3038 /* RunningState.cpp */,
 				F3913D951D3F461A001B3038 /* RunningState.h */,
 				F3913DB21D3F461A001B3038 /* SkeletonCharacter.cpp */,
@@ -974,6 +980,7 @@
 				F3913E251D3F46B1001B3038 /* SpriteCreate.cpp in Sources */,
 				F3913DFD1D3F46A5001B3038 /* Alphabet.cpp in Sources */,
 				3740A16B1D4BC0B400B2B2F3 /* GameMapScene.cpp in Sources */,
+				3729BEAD1D57111100148BD5 /* WordSprite.cpp in Sources */,
 				F3CA26EA1D43C069006EBDC6 /* LangUtil.cpp in Sources */,
 				F3913E231D3F46B1001B3038 /* SmashTheRockScene.cpp in Sources */,
 				F3CA26EE1D43C0A9006EBDC6 /* EnglishUtil.cpp in Sources */,
@@ -1000,6 +1007,7 @@
 				F3E427EF1D54440200D22421 /* WordScene.cpp in Sources */,
 				37C7E1F01D47D673005C89C0 /* MapIsland.cpp in Sources */,
 				F3913DBB1D3F461A001B3038 /* sqlite3.c in Sources */,
+				3729BEAE1D57111100148BD5 /* WordSprite.cpp in Sources */,
 				F3913DD91D3F461A001B3038 /* SkeletonCharacter.cpp in Sources */,
 				F3913DD31D3F461A001B3038 /* RPGConfig.cpp in Sources */,
 				F3913DF41D3F469C001B3038 /* FShake.cpp in Sources */,
