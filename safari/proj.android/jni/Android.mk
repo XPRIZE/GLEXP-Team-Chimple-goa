@@ -29,6 +29,9 @@ LOCAL_SRC_FILES := hellocpp/main.cpp \
 					../../Classes/puzzle/AlphabetGrid.cpp \
 					../../Classes/puzzle/CharGenerator.cpp \
 					../../Classes/puzzle/DuelScene.cpp \
+					../../Classes/puzzle/WordScene.cpp \
+					../../Classes/puzzle/Grapheme.cpp \
+					../../Classes/puzzle/GraphemeGrid.cpp \
 					../../Classes/RPGConfig.cpp \
 					../../Classes/RPGSprite.cpp \
 					../../Classes/RunningState.cpp \
@@ -56,14 +59,15 @@ LOCAL_SRC_FILES := hellocpp/main.cpp \
 					../../Classes/lang/LangUtil.cpp \
 					../../Classes/lang/EnglishUtil.cpp \
 					../../Classes/lang/KannadaUtil.cpp \
-		                      ../../Classes/StartMenuScene.cpp \
-                		       ../../Classes/AlphamonSprite.cpp \
-		                	../../Classes/SkeletonPosition.cpp  \
-               			 	../../Classes/I18nUtils.cpp  \
-		                	../../Classes/MO.cpp  \
-		                	../../Classes/Entry.cpp  \
-	               		 	../../Classes/LanguageManager.cpp \
-	               		 	../../Classes/GameScene.cpp \
+					../../Classes/lang/TextGenerator.cpp \
+					../../Classes/StartMenuScene.cpp \
+					../../Classes/AlphamonSprite.cpp \
+					../../Classes/SkeletonPosition.cpp  \
+					../../Classes/I18nUtils.cpp  \
+					../../Classes/MO.cpp  \
+					../../Classes/Entry.cpp  \
+					../../Classes/LanguageManager.cpp \
+					../../Classes/GameScene.cpp \
 					../../Classes/MapScene.cpp \
 					../../Classes/MapIsland.cpp	\
 					../../Classes/lang/SafariAnalyticsManager.cpp \

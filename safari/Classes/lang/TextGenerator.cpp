@@ -59,8 +59,18 @@ std::string TextGenerator::generateAWord() {
 }
 
 
-int TextGenerator::getNumCharactersInString(std::string word) {
+int TextGenerator::getNumGraphemesInString(std::string word) {
     return 5;
+}
+
+std::vector<std::string> TextGenerator::getGraphemes(std::string word) {
+    std::vector<std::string> graphemes;
+    graphemes.push_back("A");
+    graphemes.push_back("P");
+    graphemes.push_back("P");
+    graphemes.push_back("L");
+    graphemes.push_back("E");
+    return graphemes;
 }
 
 std::vector<std::string> TextGenerator::getAllChars() {

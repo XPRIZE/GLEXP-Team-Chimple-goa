@@ -9,6 +9,8 @@
 #include "WordScene.h"
 #include "../GameScene.h"
 #include "../lang/TextGenerator.h"
+#include "GraphemeGrid.h"
+#include "Grapheme.h"
 
 USING_NS_CC;
 
@@ -28,7 +30,6 @@ WordScene* WordScene::create() {
     }
     CC_SAFE_DELETE(word);
     return nullptr;
-    
 }
 
 WordScene::WordScene() {
@@ -44,14 +45,109 @@ bool WordScene::init() {
         return false;
     }
     auto tg = TextGenerator::getInstance();
-    auto str = tg->generateAWord();
-    auto matrix = tg->generateMatrix(str, 2, 8);
-    for (int i = 0; i < 2; i++) {
-        for (int j = 0; j < 8; j++) {
-            auto label = Label::createWithTTF(matrix[i][j], "fonts/arial.ttf", 100);
-            label->setPosition(Vec2(200 + j * 400, 200 + i * 400));
-            addChild(label);
+    _word = tg->generateAWord();
+    _answerGraphemes = tg->getGraphemes(_word);
+    _numGraphemes = _answerGraphemes.size();
+
+    addChild(loadNode());
+    createGrid();
+    createAnswer();
+    createChoice();
+    _eventDispatcher->addCustomEventListener("grapheme_anim_done", CC_CALLBACK_0(WordScene::checkAnswer, this));
+    return true;
+}
+
+void WordScene::createGrid() {
+    Size visibleSize = Director::getInstance()->getVisibleSize();
+    _matrix = TextGenerator::getInstance()->generateMatrix(_word, 2, 8);
+    _grid = GraphemeGrid::create(visibleSize.width, getGridHeight(), getGridNumRows(), getGridNumCols(), getGridBackground(), _matrix);
+    _grid->setPosition(0, 0);
+    addChild(_grid);
+    _grid->touchEndedCallback = CC_CALLBACK_2(WordScene::onTouchEnded, this);
+}
+
+int WordScene::getGridHeight() {
+    return 600;
+}
+
+int WordScene::getGridNumRows() {
+    return 2;
+}
+
+int WordScene::getGridNumCols() {
+    return 8;
+}
+
+std::string WordScene::getGridBackground() {
+    return "smash_de_rock/letter_correct.png";
+}
+
+Node* WordScene::loadNode() {
+    auto background = CSLoader::createNode("smash_de_rock/MainScene.csb");
+    return background;
+}
+
+void WordScene::createAnswer() {
+    auto label = ui::Text::create();
+    label->setString(_word);
+    label->setFontSize(200);
+    _answer = Node::create();
+    _answer->addChild(label);
+    _answer->setPosition(Vec2(1280, 1600));
+    addChild(_answer);
+    
+}
+
+void WordScene::createChoice() {
+    _choice = Node::create();
+    _choice->setPosition(Vec2(1280, 900));
+    addChild(_choice);
+    for (int i = 0; i < _numGraphemes; i++) {
+        auto choiceNode = Node::create();
+        choiceNode->setPosition(Vec2(i * 200, 0));
+        _answerVector.push_back(std::pair<Node*, Grapheme*>(choiceNode, nullptr));
+        _choice->addChild(choiceNode);
+    }
+}
+
+void WordScene::onTouchEnded(cocos2d::Touch *touch, cocos2d::Event *event) {
+    auto grapheme = static_cast<Grapheme*>(event->getCurrentTarget());
+    if(grapheme->isSelected()) {
+        for (auto it = _answerVector.begin() ; it != _answerVector.end(); ++it) {
+            if((*it).second == grapheme) {
+                *it = std::pair<Node*, Grapheme*>((*it).first, nullptr);
+                grapheme->selected(false);
+                grapheme->animateToPositionAndChangeBackground(grapheme->getPrevPosition());
+                return;
+            }
+        }
+    } else {
+        for (auto it = _answerVector.begin() ; it != _answerVector.end(); ++it) {
+            if((*it).second == nullptr) {
+                auto targetNode = (*it).first;
+                *it = std::pair<Node*, Grapheme*>(targetNode, grapheme);
+                auto tPos = targetNode->getParent()->convertToWorldSpace(targetNode->getPosition());
+                grapheme->selected(true);
+                grapheme->animateToPositionAndChangeBackground(_grid->convertToNodeSpace(tPos));
+                return;
+            }
         }
     }
-    return true;
+}
+
+void WordScene::checkAnswer() {
+    for (auto i = 0; i < _answerGraphemes.size(); i++) {
+        auto grapheme = _answerVector.at(i).second;
+        if(grapheme == nullptr || grapheme->getGraphemeString() != _answerGraphemes.at(i)) {
+            return;
+        }
+    }
+    if(_grid->getNumberOfActionsRunning() > 1) {
+        return;
+    }
+    gameOver();
+}
+
+void WordScene::gameOver() {
+    _menuContext->showScore();
 }

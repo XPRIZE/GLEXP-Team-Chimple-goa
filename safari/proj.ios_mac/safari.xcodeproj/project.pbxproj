@@ -170,6 +170,10 @@
 		F39610B21D3F8FDB00D8DD13 /* AlphamonFeedScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F39610B01D3F8FDB00D8DD13 /* AlphamonFeedScene.cpp */; };
 		F39610B41D3F905A00D8DD13 /* AlphamonFeedLevelScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F39610AF1D3F8FDB00D8DD13 /* AlphamonFeedLevelScene.cpp */; };
 		F39610B51D3F905D00D8DD13 /* AlphamonFeedScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F39610B01D3F8FDB00D8DD13 /* AlphamonFeedScene.cpp */; };
+		F3C711CA1D56F28D000DBBE5 /* GraphemeGrid.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F3C711C91D56F28D000DBBE5 /* GraphemeGrid.cpp */; };
+		F3C711CB1D56F28D000DBBE5 /* GraphemeGrid.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F3C711C91D56F28D000DBBE5 /* GraphemeGrid.cpp */; };
+		F3C711D01D576128000DBBE5 /* Grapheme.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F3C711CF1D576128000DBBE5 /* Grapheme.cpp */; };
+		F3C711D11D576128000DBBE5 /* Grapheme.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F3C711CF1D576128000DBBE5 /* Grapheme.cpp */; };
 		F3CA26EA1D43C069006EBDC6 /* LangUtil.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F3CA26E81D43C069006EBDC6 /* LangUtil.cpp */; };
 		F3CA26EB1D43C069006EBDC6 /* LangUtil.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F3CA26E81D43C069006EBDC6 /* LangUtil.cpp */; };
 		F3CA26EE1D43C0A9006EBDC6 /* EnglishUtil.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F3CA26ED1D43C0A9006EBDC6 /* EnglishUtil.cpp */; };
@@ -387,6 +391,10 @@
 		F39610AE1D3F8FDB00D8DD13 /* AlphamonFeedScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AlphamonFeedScene.h; sourceTree = "<group>"; };
 		F39610AF1D3F8FDB00D8DD13 /* AlphamonFeedLevelScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AlphamonFeedLevelScene.cpp; sourceTree = "<group>"; };
 		F39610B01D3F8FDB00D8DD13 /* AlphamonFeedScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AlphamonFeedScene.cpp; sourceTree = "<group>"; };
+		F3C711C91D56F28D000DBBE5 /* GraphemeGrid.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GraphemeGrid.cpp; sourceTree = "<group>"; };
+		F3C711CD1D56F29B000DBBE5 /* GraphemeGrid.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GraphemeGrid.h; sourceTree = "<group>"; };
+		F3C711CE1D57611C000DBBE5 /* Grapheme.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Grapheme.h; sourceTree = "<group>"; };
+		F3C711CF1D576128000DBBE5 /* Grapheme.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Grapheme.cpp; sourceTree = "<group>"; };
 		F3CA26E81D43C069006EBDC6 /* LangUtil.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LangUtil.cpp; sourceTree = "<group>"; };
 		F3CA26E91D43C069006EBDC6 /* LangUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LangUtil.h; sourceTree = "<group>"; };
 		F3CA26EC1D43C097006EBDC6 /* EnglishUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EnglishUtil.h; sourceTree = "<group>"; };
@@ -718,10 +726,14 @@
 				F3913DF81D3F46A5001B3038 /* DuelScene.h */,
 				F3913DF91D3F46A5001B3038 /* Alphabet.cpp */,
 				F3913DFA1D3F46A5001B3038 /* AlphabetGrid.cpp */,
+				F3C711C91D56F28D000DBBE5 /* GraphemeGrid.cpp */,
 				F3913DFB1D3F46A5001B3038 /* CharGenerator.cpp */,
 				F3913DFC1D3F46A5001B3038 /* DuelScene.cpp */,
 				F3E427ED1D54440200D22421 /* WordScene.cpp */,
 				F3E427F11D54441100D22421 /* WordScene.h */,
+				F3C711CD1D56F29B000DBBE5 /* GraphemeGrid.h */,
+				F3C711CE1D57611C000DBBE5 /* Grapheme.h */,
+				F3C711CF1D576128000DBBE5 /* Grapheme.cpp */,
 			);
 			path = puzzle;
 			sourceTree = "<group>";
@@ -951,11 +963,13 @@
 				503AE10117EB989F00D1A890 /* main.m in Sources */,
 				F3913DDC1D3F461A001B3038 /* Sqlite3Helper.cpp in Sources */,
 				F3913DD81D3F461A001B3038 /* SkeletonCharacter.cpp in Sources */,
+				F3C711D01D576128000DBBE5 /* Grapheme.cpp in Sources */,
 				3718293B1D44CA570013E3C4 /* Entry.cpp in Sources */,
 				F3913E031D3F46A5001B3038 /* DuelScene.cpp in Sources */,
 				F3913DBA1D3F461A001B3038 /* sqlite3.c in Sources */,
 				F3CA26F11D43DA17006EBDC6 /* KannadaUtil.cpp in Sources */,
 				F3913DDA1D3F461A001B3038 /* SpeechBubbleView.cpp in Sources */,
+				F3C711CA1D56F28D000DBBE5 /* GraphemeGrid.cpp in Sources */,
 				371829391D44CA570013E3C4 /* MO.cpp in Sources */,
 				F3913DD21D3F461A001B3038 /* RPGConfig.cpp in Sources */,
 				F3913DE01D3F461A001B3038 /* StartMenuScene.cpp in Sources */,
@@ -978,6 +992,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F3C711CB1D56F28D000DBBE5 /* GraphemeGrid.cpp in Sources */,
 				F3913E261D3F46B1001B3038 /* SpriteCreate.cpp in Sources */,
 				F3913E1A1D3F46B1001B3038 /* Cannon_Ball_Main.cpp in Sources */,
 				F3913DBF1D3F461A001B3038 /* AppDelegate.cpp in Sources */,
@@ -1014,6 +1029,7 @@
 				370A3DB51D43428D00676C50 /* SkeletonConfiguration.cpp in Sources */,
 				F3913DE51D3F461A001B3038 /* StateMachine.cpp in Sources */,
 				F39610B41D3F905A00D8DD13 /* AlphamonFeedLevelScene.cpp in Sources */,
+				F3C711D11D576128000DBBE5 /* Grapheme.cpp in Sources */,
 				F3913DE71D3F461A001B3038 /* WalkingState.cpp in Sources */,
 				F3913DC91D3F461A001B3038 /* JumpingState.cpp in Sources */,
 				F3913DE11D3F461A001B3038 /* StartMenuScene.cpp in Sources */,
