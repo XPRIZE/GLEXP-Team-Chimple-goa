@@ -13,6 +13,8 @@
 		1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
 		288765A50DF7441C002DB57D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288765A40DF7441C002DB57D /* CoreGraphics.framework */; };
 		294D0D641D0D56D500F7F5D4 /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 294D0D631D0D56D500F7F5D4 /* CoreText.framework */; };
+		3707E8AF1D558C9A00168A0C /* WordManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3707E8AE1D558C9A00168A0C /* WordManager.cpp */; };
+		3707E8B01D558C9A00168A0C /* WordManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3707E8AE1D558C9A00168A0C /* WordManager.cpp */; };
 		370A3DB41D43428D00676C50 /* SkeletonConfiguration.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 370A3DB31D43428D00676C50 /* SkeletonConfiguration.cpp */; };
 		370A3DB51D43428D00676C50 /* SkeletonConfiguration.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 370A3DB31D43428D00676C50 /* SkeletonConfiguration.cpp */; };
 		371829371D44CA570013E3C4 /* I18nUtils.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 371829311D44CA570013E3C4 /* I18nUtils.cpp */; };
@@ -21,6 +23,8 @@
 		3718293A1D44CA570013E3C4 /* MO.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 371829331D44CA570013E3C4 /* MO.cpp */; };
 		3718293B1D44CA570013E3C4 /* Entry.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 371829351D44CA570013E3C4 /* Entry.cpp */; };
 		3718293C1D44CA570013E3C4 /* Entry.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 371829351D44CA570013E3C4 /* Entry.cpp */; };
+		3729BEAD1D57111100148BD5 /* WordSprite.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3729BEAC1D57111100148BD5 /* WordSprite.cpp */; };
+		3729BEAE1D57111100148BD5 /* WordSprite.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3729BEAC1D57111100148BD5 /* WordSprite.cpp */; };
 		373CBBA11D4A69960002BAE1 /* SafariAnalyticsManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 373CBBA01D4A69960002BAE1 /* SafariAnalyticsManager.cpp */; };
 		373CBBA21D4A69960002BAE1 /* SafariAnalyticsManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 373CBBA01D4A69960002BAE1 /* SafariAnalyticsManager.cpp */; };
 		3740A16B1D4BC0B400B2B2F3 /* GameMapScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3740A16A1D4BC0B400B2B2F3 /* GameMapScene.cpp */; };
@@ -232,6 +236,8 @@
 		1DF5F4DF0D08C38300B7A737 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		288765A40DF7441C002DB57D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		294D0D631D0D56D500F7F5D4 /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.3.sdk/System/Library/Frameworks/CoreText.framework; sourceTree = DEVELOPER_DIR; };
+		3707E8AC1D558C8900168A0C /* WordManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WordManager.h; sourceTree = "<group>"; };
+		3707E8AE1D558C9A00168A0C /* WordManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = WordManager.cpp; sourceTree = "<group>"; };
 		370A3DB11D43427A00676C50 /* SkeletonConfiguration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SkeletonConfiguration.h; sourceTree = "<group>"; };
 		370A3DB31D43428D00676C50 /* SkeletonConfiguration.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SkeletonConfiguration.cpp; sourceTree = "<group>"; };
 		371829301D44CA570013E3C4 /* I18nDefine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = I18nDefine.h; sourceTree = "<group>"; };
@@ -241,6 +247,8 @@
 		371829341D44CA570013E3C4 /* MO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MO.h; sourceTree = "<group>"; };
 		371829351D44CA570013E3C4 /* Entry.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Entry.cpp; sourceTree = "<group>"; };
 		371829361D44CA570013E3C4 /* Entry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Entry.h; sourceTree = "<group>"; };
+		3729BEAA1D57110000148BD5 /* WordSprite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WordSprite.h; sourceTree = "<group>"; };
+		3729BEAC1D57111100148BD5 /* WordSprite.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = WordSprite.cpp; sourceTree = "<group>"; };
 		373CBB9E1D4A69810002BAE1 /* SafariAnalyticsManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SafariAnalyticsManager.h; sourceTree = "<group>"; };
 		373CBBA01D4A69960002BAE1 /* SafariAnalyticsManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SafariAnalyticsManager.cpp; sourceTree = "<group>"; };
 		3740A1681D4BC0A700B2B2F3 /* GameMapScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameMapScene.h; sourceTree = "<group>"; };
@@ -591,6 +599,8 @@
 				F3913D931D3F461A001B3038 /* RPGConfig.h */,
 				F3913DB01D3F461A001B3038 /* RPGSprite.cpp */,
 				F3913D941D3F461A001B3038 /* RPGSprite.h */,
+				3729BEAA1D57110000148BD5 /* WordSprite.h */,
+				3729BEAC1D57111100148BD5 /* WordSprite.cpp */,
 				F3913DB11D3F461A001B3038 /* RunningState.cpp */,
 				F3913D951D3F461A001B3038 /* RunningState.h */,
 				F3913DB21D3F461A001B3038 /* SkeletonCharacter.cpp */,
@@ -764,6 +774,8 @@
 				F3CA26E81D43C069006EBDC6 /* LangUtil.cpp */,
 				373CBB9E1D4A69810002BAE1 /* SafariAnalyticsManager.h */,
 				373CBBA01D4A69960002BAE1 /* SafariAnalyticsManager.cpp */,
+				3707E8AC1D558C8900168A0C /* WordManager.h */,
+				3707E8AE1D558C9A00168A0C /* WordManager.cpp */,
 				F3CA26F01D43DA17006EBDC6 /* KannadaUtil.cpp */,
 				F3CA26F31D43DA25006EBDC6 /* KannadaUtil.h */,
 				F3CA26E91D43C069006EBDC6 /* LangUtil.h */,
@@ -943,6 +955,7 @@
 				F39610B21D3F8FDB00D8DD13 /* AlphamonFeedScene.cpp in Sources */,
 				376FEE801D3F66380037393F /* SkeletonPosition.cpp in Sources */,
 				F3913DCE1D3F461A001B3038 /* MessageSender.cpp in Sources */,
+				3707E8AF1D558C9A00168A0C /* WordManager.cpp in Sources */,
 				F3913DE41D3F461A001B3038 /* StateMachine.cpp in Sources */,
 				F3913E191D3F46B1001B3038 /* Cannon_Ball_Main.cpp in Sources */,
 				37DF03DA1D44B8D4007252C6 /* LanguageManager.cpp in Sources */,
@@ -981,6 +994,7 @@
 				F3913E251D3F46B1001B3038 /* SpriteCreate.cpp in Sources */,
 				F3913DFD1D3F46A5001B3038 /* Alphabet.cpp in Sources */,
 				3740A16B1D4BC0B400B2B2F3 /* GameMapScene.cpp in Sources */,
+				3729BEAD1D57111100148BD5 /* WordSprite.cpp in Sources */,
 				F3CA26EA1D43C069006EBDC6 /* LangUtil.cpp in Sources */,
 				F3913E231D3F46B1001B3038 /* SmashTheRockScene.cpp in Sources */,
 				F3CA26EE1D43C0A9006EBDC6 /* EnglishUtil.cpp in Sources */,
@@ -1008,6 +1022,7 @@
 				F3E427EF1D54440200D22421 /* WordScene.cpp in Sources */,
 				37C7E1F01D47D673005C89C0 /* MapIsland.cpp in Sources */,
 				F3913DBB1D3F461A001B3038 /* sqlite3.c in Sources */,
+				3729BEAE1D57111100148BD5 /* WordSprite.cpp in Sources */,
 				F3913DD91D3F461A001B3038 /* SkeletonCharacter.cpp in Sources */,
 				F3913DD31D3F461A001B3038 /* RPGConfig.cpp in Sources */,
 				F3913DF41D3F469C001B3038 /* FShake.cpp in Sources */,
@@ -1016,6 +1031,7 @@
 				F3913E241D3F46B1001B3038 /* SmashTheRockScene.cpp in Sources */,
 				37C7E1EC1D47CEFB005C89C0 /* MapScene.cpp in Sources */,
 				F3913E041D3F46A5001B3038 /* DuelScene.cpp in Sources */,
+				3707E8B01D558C9A00168A0C /* WordManager.cpp in Sources */,
 				F3913E001D3F46A5001B3038 /* AlphabetGrid.cpp in Sources */,
 				F3913DD51D3F461A001B3038 /* RPGSprite.cpp in Sources */,
 				F3913DC51D3F461A001B3038 /* GestureLayer.cpp in Sources */,

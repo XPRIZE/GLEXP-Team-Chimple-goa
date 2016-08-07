@@ -347,6 +347,8 @@ std::vector<MessageContent*> Sqlite3Helper::findEventsByPreConditionEventIdInSce
         content->setSceneName(sceneName);
         
         content->setShouldDisplayInBag(sqlite3_column_int(res,11));
+        
+        messages.push_back(content);
     }
     
     

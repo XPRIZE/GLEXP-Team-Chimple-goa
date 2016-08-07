@@ -1,29 +1,17 @@
 //
-//  RPGSprite.cpp
-//  rpg
+//  WordSprite.cpp
+//  safari
 //
-//  Created by Shyamal  Upadhyaya on 12/07/16.
+//  Created by Shyamal  Upadhyaya on 07/08/16.
 //
 //
 
-#include "RPGSprite.h"
-#include "RPGConfig.h"
-#include "SkeletonCharacter.h"
+#include "WordSprite.h"
 
 USING_NS_CC;
 
-RPGSprite::RPGSprite():
-vicinityToMainCharacter(false),
-posX(""),
-posY(""),
-nextScene(""),
-interAct(""),
-fileName(""),
-defaultAnimationName(""),
-key(""),
-show(""),
-transitToGameScene(""),
-actionTimeLine(NULL)
+WordSprite::WordSprite():
+vicinityToMainCharacter(false)
 {
     this->touchPointerNode = NULL;
     this->sprite = NULL;
@@ -31,34 +19,34 @@ actionTimeLine(NULL)
 }
 
 
-RPGSprite::~RPGSprite() {
+WordSprite::~WordSprite() {
     
 }
 
 
-RPGSprite* RPGSprite::create(cocos2d::Node* sprite, std::unordered_map<std::string, std::string> attributes)
+WordSprite* WordSprite::create(cocos2d::Node* sprite, std::string word)
 {
-    auto rpgSprite = new RPGSprite();
-    if (rpgSprite && rpgSprite->initialize(sprite, attributes)) {
-        rpgSprite->autorelease();
-        return rpgSprite;
+    auto wordSprite = new WordSprite();
+    if (wordSprite && wordSprite->initialize(sprite, word)) {
+        wordSprite->autorelease();
+        return wordSprite;
     }
-    CC_SAFE_DELETE(rpgSprite);
+    CC_SAFE_DELETE(wordSprite);
     return nullptr;
 }
 
 
-bool RPGSprite::initialize(cocos2d::Node* sprite, std::unordered_map<std::string,std::string> attributes) {
+bool WordSprite::initialize(cocos2d::Node* sprite, std::string word) {
     sprite->removeFromParent();
     this->sprite = sprite;
     this->setName(sprite->getName());
-    this->setAttributes(attributes);
+    this->word = word;
     this->addChild(this->sprite);
     
     auto listenerTouches = EventListenerTouchOneByOne::create();
     listenerTouches->setSwallowTouches(true);
-    listenerTouches->onTouchBegan = CC_CALLBACK_2(RPGSprite::onTouchBegan, this);
-    listenerTouches->onTouchEnded = CC_CALLBACK_2(RPGSprite::touchEnded, this);
+    listenerTouches->onTouchBegan = CC_CALLBACK_2(WordSprite::onTouchBegan, this);
+    listenerTouches->onTouchEnded = CC_CALLBACK_2(WordSprite::touchEnded, this);
     this->getEventDispatcher()->addEventListenerWithSceneGraphPriority(listenerTouches, this);
     
     auto checkVicinityWithMainCharacter = [=] (EventCustom * event) {
@@ -69,70 +57,24 @@ bool RPGSprite::initialize(cocos2d::Node* sprite, std::unordered_map<std::string
     
     ADD_VICINITY_NOTIFICATION(this, RPGConfig::MAIN_CHARACTER_VICINITY_CHECK_NOTIFICATION, checkVicinityWithMainCharacter);
 
-    
-    
     this->scheduleUpdate();
     
     return true;
-
+    
 }
 
-cocos2d::Node* RPGSprite::getSprite() {
+cocos2d::Node* WordSprite::getSprite() {
     return this->sprite;
 }
 
-void RPGSprite::setAttributes(std::unordered_map<std::string, std::string> attributes) {
-    this->attributes = attributes;
-    //process it
-    
-    std::unordered_map<std::string,std::string>::const_iterator it = this->attributes.find("filename");
-    if ( it != this->attributes.end() ) {
-        this->setFileName(it->second);
-    }
-    
-    it = this->attributes.find("canInteract");
-    if ( it != this->attributes.end() ) {
-        this->setInterAct(it->second);
-    }    
-    
-    it = this->attributes.find("nextScene");
-    if ( it != this->attributes.end() ) {
-        this->setNextScene(it->second);
-    }
-    
-    it = this->attributes.find("posX");
-    if ( it != this->attributes.end() ) {
-        this->setPosX(it->second);
-    }
 
-    
-    it = this->attributes.find("posY");
-    if ( it != this->attributes.end() ) {
-        this->setPosY(it->second);
-    }
-    
-    it = this->attributes.find("key");
-    if ( it != this->attributes.end() ) {
-        this->setKey(it->second);
-    }
-
-    it = this->attributes.find("transitToGameScene");
-    if ( it != this->attributes.end() ) {
-        this->setTransitToGameScene(it->second);
-    }
-}
-
-std::unordered_map<std::string, std::string> RPGSprite::getAttributes() {
-    return this->attributes;
-}
-
-void RPGSprite::update(float dt) {
+void WordSprite::update(float dt) {
     if(!this->getVicinityToMainCharacter() && this->mainSkeleton != NULL && !this->mainSkeleton->isStanding) {
         this->checkVicinityToMainSkeleton(this->mainSkeleton);
     }
 }
 
-void RPGSprite::checkVicinityToMainSkeleton(SkeletonCharacter* skeletonCharacter) {
+void WordSprite::checkVicinityToMainSkeleton(SkeletonCharacter* skeletonCharacter) {
     Vec2 mainSkeletonPositionFromBottom = Point(skeletonCharacter->getSkeletonNode()->getPosition().x, skeletonCharacter->getSkeletonNode()->getPosition().y);
     Vec2 mainSkeletonPositionFromTop = Point(skeletonCharacter->getSkeletonNode()->getPosition().x, skeletonCharacter->getSkeletonNode()->getPosition().y + skeletonCharacter->getSkeletonNode()->getBoundingBox().size.height);
     
@@ -145,7 +87,7 @@ void RPGSprite::checkVicinityToMainSkeleton(SkeletonCharacter* skeletonCharacter
     } else {
         this->setVicinityToMainCharacter(false);
     }
-
+    
     
     if((distanceFromTop >= -OBJECT_NEAR_BY_BOUNDING_BOX_WIDTH && distanceFromTop <= OBJECT_NEAR_BY_BOUNDING_BOX_WIDTH) || (distanceFromBottom >= -OBJECT_NEAR_BY_BOUNDING_BOX_WIDTH && distanceFromBottom <= OBJECT_NEAR_BY_BOUNDING_BOX_WIDTH)) {
         if(!this->vicinityToMainCharacter) {
@@ -155,14 +97,14 @@ void RPGSprite::checkVicinityToMainSkeleton(SkeletonCharacter* skeletonCharacter
 }
 
 
-void RPGSprite::destroyTouchPointer() {
+void WordSprite::destroyTouchPointer() {
     if(this->touchPointerNode != NULL) {
         this->touchPointerNode->removeFromParent();
         this->touchPointerNode = NULL;
     }
 }
 
-void RPGSprite::showTouchPointer() {
+void WordSprite::showTouchPointer() {
     if(this->sprite && this->sprite->isVisible() && this->touchPointerNode == NULL)
     {
         this->touchPointerNode =  Sprite::create(TOUCH_POINTER_IMG);
@@ -174,25 +116,18 @@ void RPGSprite::showTouchPointer() {
         auto scaleBy = ScaleBy::create(0.5, 1.2);
         auto sequenceScale = Sequence::create(scaleBy, scaleBy->reverse(), nullptr);
         auto repeatScaleAction = Repeat::create(sequenceScale, 5);
-        auto callbackStart = CallFunc::create(CC_CALLBACK_0(RPGSprite::destroyTouchPointer, this));
+        auto callbackStart = CallFunc::create(CC_CALLBACK_0(WordSprite::destroyTouchPointer, this));
         auto sequence = Sequence::create(repeatScaleAction, callbackStart, nullptr);
-        this->touchPointerNode->runAction(sequence);        
+        this->touchPointerNode->runAction(sequence);
     }
 }
 
-SkeletonCharacter* RPGSprite::getMainSkeleton() {
+SkeletonCharacter* WordSprite::getMainSkeleton() {
     return this->mainSkeleton;
 }
 
-void RPGSprite::setActionTimeLine(cocostudio::timeline::ActionTimeline* timeline) {
-    this->actionTimeLine = timeline;
-}
 
-cocostudio::timeline::ActionTimeline* RPGSprite::getActionTimeLine() {
-    return this->actionTimeLine;
-}
-
-bool RPGSprite::onTouchBegan(Touch *touch, Event *event)
+bool WordSprite::onTouchBegan(Touch *touch, Event *event)
 {
     auto n = this->convertTouchToNodeSpace(touch);
     Rect boundingBoxRect = Rect::ZERO;
@@ -207,21 +142,18 @@ bool RPGSprite::onTouchBegan(Touch *touch, Event *event)
         boundingBoxRect = this->getSprite()->getBoundingBox();
     }
     
-    if(this->getSprite()->isVisible() && this->getInterAct() == "true" && this->getVicinityToMainCharacter() == true && boundingBoxRect.containsPoint(n)) {
-
+    if(this->getSprite()->isVisible() && this->getVicinityToMainCharacter() == true && boundingBoxRect.containsPoint(n)) {
+        
         return true;
     }
     
     return false;
 }
 
-void RPGSprite::touchEnded(Touch *touch, Event *event)
+void WordSprite::touchEnded(Touch *touch, Event *event)
 {
-    std::string s(!this->getKey().empty() ? this->getKey() : this->getName());
-    EVENT_DISPATCHER->dispatchCustomEvent(RPGConfig::SPEECH_MESSAGE_ON_TAP_NOTIFICATION, static_cast<void*>(&s));
+    CCLOG("PLAYING GAME WITH WORD %s", this->word.c_str());
     if(this->touchPointerNode != NULL) {
         this->touchPointerNode->setVisible(false);
     }
-    
-
 }

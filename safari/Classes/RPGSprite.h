@@ -65,10 +65,14 @@ public:
     
     virtual void touchEnded(cocos2d::Touch* touch, cocos2d::Event* event);
     
+    virtual cocostudio::timeline::ActionTimeline* getActionTimeLine();
+    
+    virtual void setActionTimeLine(cocostudio::timeline::ActionTimeline* timeline);
 
     
 protected:
     cocos2d::Node* sprite;
+    cocostudio::timeline::ActionTimeline* actionTimeLine;
     std::unordered_map<std::string, std::string> attributes;
     SkeletonCharacter* mainSkeleton;
     cocos2d::Sprite* touchPointerNode;
