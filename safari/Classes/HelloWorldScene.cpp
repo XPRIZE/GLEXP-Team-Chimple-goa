@@ -99,7 +99,15 @@ void HelloWorld::updatePositionAndCategoryBitMaskMainCharacter() {
             if(xPos != 0.0f && yPos != 0.0f) {
                 this->skeletonCharacter->getSkeletonNode()->setPosition(Vec2(xPos, yPos));
             }
-            
+        } else {
+            if(this->island == this->sceneName) {
+                float xPosInIsland = UserDefault::getInstance()->getFloatForKey(SKELETON_POSITION_IN_PARENT_ISLAND_X);
+                float yPosInIsland = UserDefault::getInstance()->getFloatForKey(SKELETON_POSITION_IN_PARENT_ISLAND_Y);
+                if(xPosInIsland != 0.0f && yPosInIsland != 0.0f) {
+                    this->skeletonCharacter->getSkeletonNode()->setPosition(Vec2(xPosInIsland, yPosInIsland));
+                }
+                
+            }
         }
     }
 }
@@ -137,16 +145,16 @@ void HelloWorld::loadWords() {
     
     CCLOG("%s\n", jsonData.c_str());
     
-    rapidjson::Document d;
-    d.Parse<0>(jsonData.c_str());
-    if (d.HasParseError()) {
-        CCLOG("GetParseError %u\n",d.GetParseError());
+    rapidjson::Document jsonDoc;
+    jsonDoc.Parse<0>(jsonData.c_str());
+    if (jsonDoc.HasParseError()) {
+        CCLOG("GetParseError %u\n",jsonDoc.GetParseError());
     } else {
-        if (d != NULL && d.IsArray()) {
-            for (rapidjson::SizeType i = 0; i < d.Size(); ++i) {
-                auto nodeName = d[i]["node"].GetString();
-                auto word = d[i]["word"].GetString();
-                CCLOG("node-%s, word=%s", nodeName, word);
+        if (jsonDoc != NULL && jsonDoc.IsArray()) {
+            for (rapidjson::SizeType i = 0; i < jsonDoc.Size(); ++i) {
+                auto nodeName = jsonDoc[i]["node"].GetString();
+                auto word = jsonDoc[i]["word"].GetString();
+                CCLOG("node=%s, word=%s", nodeName, word);
                 Node* node = this->mainLayer->getChildByName(nodeName);
                 if(node != NULL && word) {
                     this->createWordSprite(node, word, this->mainLayer);
@@ -607,7 +615,12 @@ void HelloWorld::cleanUpResources() {
     if(this->skeletonCharacter->getSkeletonNode()->getPosition().y < 0) {
         xPos = xPos - X_OFFSET_IF_HERO_DISAPPER;
     }
-        
+    
+    //record position in main Island in UserDefault
+    if(this->island == this->sceneName) {
+        UserDefault::getInstance()->setFloatForKey(SKELETON_POSITION_IN_PARENT_ISLAND_X, xPos);
+        UserDefault::getInstance()->setFloatForKey(SKELETON_POSITION_IN_PARENT_ISLAND_Y, yPos);
+    }
     
     this->sqlite3Helper->recordMainCharacterPositionInScene(this->island.c_str(), this->sceneName.c_str(), xPos, yPos);
     
