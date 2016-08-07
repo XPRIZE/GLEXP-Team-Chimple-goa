@@ -49,7 +49,7 @@ bool WordManager::init()
     CCLOG("pathToSQLConnection to database %s", pathToSQLConnection.c_str());
     
 #if (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
-    std::string dbPath = FileUtils::getInstance()->getWritablePath() + LangUtil::getInstance()->getLang()  + "_" + words.db3;
+    std::string dbPath = FileUtils::getInstance()->getWritablePath() + LangUtil::getInstance()->getLang()  + "_words.db3";
     FILE* file = fopen(dbPath.c_str(), "r");
     if (file == nullptr)
     {
