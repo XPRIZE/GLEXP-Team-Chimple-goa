@@ -43,6 +43,8 @@
 		37AB48961D587ECD00B0B525 /* Jasmin_Listenerfile.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 37AB48861D587E7700B0B525 /* Jasmin_Listenerfile.cpp */; };
 		37AB48971D587ECD00B0B525 /* Jasmin_Mainfile.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 37AB48871D587E7700B0B525 /* Jasmin_Mainfile.cpp */; };
 		37AB48981D587ECD00B0B525 /* Wembley.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 37AB48881D587E7700B0B525 /* Wembley.cpp */; };
+		37AB489B1D588CFE00B0B525 /* WordInfo.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 37AB489A1D588CFE00B0B525 /* WordInfo.cpp */; };
+		37AB489C1D588CFE00B0B525 /* WordInfo.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 37AB489A1D588CFE00B0B525 /* WordInfo.cpp */; };
 		37B35F9B1D4C743A00BBD743 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37B35F9A1D4C743A00BBD743 /* MediaPlayer.framework */; };
 		37B35F9D1D4C824100BBD743 /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37B35F9C1D4C824100BBD743 /* CoreMedia.framework */; };
 		37C7E1EB1D47CEFB005C89C0 /* MapScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 37C7E1EA1D47CEFB005C89C0 /* MapScene.cpp */; };
@@ -277,6 +279,8 @@
 		37AB48911D587EAF00B0B525 /* Jasmin_Listenerfile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Jasmin_Listenerfile.h; path = ../Classes/mini_games/Jasmin_Listenerfile.h; sourceTree = "<group>"; };
 		37AB48921D587EAF00B0B525 /* Jasmin_Mainfile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Jasmin_Mainfile.h; path = ../Classes/mini_games/Jasmin_Mainfile.h; sourceTree = "<group>"; };
 		37AB48931D587EB000B0B525 /* Wembley.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Wembley.h; path = ../Classes/mini_games/Wembley.h; sourceTree = "<group>"; };
+		37AB48991D588CED00B0B525 /* WordInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WordInfo.h; sourceTree = "<group>"; };
+		37AB489A1D588CFE00B0B525 /* WordInfo.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = WordInfo.cpp; sourceTree = "<group>"; };
 		37B35F9A1D4C743A00BBD743 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.3.sdk/System/Library/Frameworks/MediaPlayer.framework; sourceTree = DEVELOPER_DIR; };
 		37B35F9C1D4C824100BBD743 /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
 		37C7E1E81D47CEEB005C89C0 /* MapScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapScene.h; sourceTree = "<group>"; };
@@ -806,6 +810,8 @@
 				373CBBA01D4A69960002BAE1 /* SafariAnalyticsManager.cpp */,
 				3707E8AC1D558C8900168A0C /* WordManager.h */,
 				3707E8AE1D558C9A00168A0C /* WordManager.cpp */,
+				37AB489A1D588CFE00B0B525 /* WordInfo.cpp */,
+				37AB48991D588CED00B0B525 /* WordInfo.h */,
 				F3CA26F01D43DA17006EBDC6 /* KannadaUtil.cpp */,
 				F3CA26F31D43DA25006EBDC6 /* KannadaUtil.h */,
 				F3CA26E91D43C069006EBDC6 /* LangUtil.h */,
@@ -1019,6 +1025,7 @@
 				F3913DDA1D3F461A001B3038 /* SpeechBubbleView.cpp in Sources */,
 				F3C711CA1D56F28D000DBBE5 /* GraphemeGrid.cpp in Sources */,
 				371829391D44CA570013E3C4 /* MO.cpp in Sources */,
+				37AB489B1D588CFE00B0B525 /* WordInfo.cpp in Sources */,
 				F3913DD21D3F461A001B3038 /* RPGConfig.cpp in Sources */,
 				F3913DE01D3F461A001B3038 /* StartMenuScene.cpp in Sources */,
 				F3913E1D1D3F46B1001B3038 /* EndlessRunner.cpp in Sources */,
@@ -1109,6 +1116,7 @@
 				F3CA26F21D43DA17006EBDC6 /* KannadaUtil.cpp in Sources */,
 				3718293C1D44CA570013E3C4 /* Entry.cpp in Sources */,
 				F3913E021D3F46A5001B3038 /* CharGenerator.cpp in Sources */,
+				37AB489C1D588CFE00B0B525 /* WordInfo.cpp in Sources */,
 				F3913E201D3F46B1001B3038 /* PatchTheWallScene.cpp in Sources */,
 				F3913E281D3F46B1001B3038 /* TraceScene.cpp in Sources */,
 			);

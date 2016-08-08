@@ -153,6 +153,7 @@ bool WordSprite::onTouchBegan(Touch *touch, Event *event)
 void WordSprite::touchEnded(Touch *touch, Event *event)
 {
     CCLOG("PLAYING GAME WITH WORD %s", this->word.c_str());
+    WordInfo* wordInfo = LangUtil::getInstance()->loadLanguageSpecificWordMappingForAWord(this->word.c_str());
     if(this->touchPointerNode != NULL) {
         this->touchPointerNode->setVisible(false);
     }
