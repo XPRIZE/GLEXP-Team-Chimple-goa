@@ -9,6 +9,7 @@
 #include "GameMapScene.h"
 #include "alphamon/SelectAlphamonScene.h"
 #include "puzzle/DuelScene.h"
+#include "puzzle/WordScene.h"
 #include "mini_games/PatchTheWallScene.h"
 #include "mini_games/CrossTheBridgeScene.h"
 #include "mini_games/SmashTheRockScene.h"
