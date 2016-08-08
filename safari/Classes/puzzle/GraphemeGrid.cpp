@@ -60,13 +60,18 @@ void GraphemeGrid::resize(GLfloat width, GLfloat height, int numRows, int numCol
             auto tile = Sprite::createWithSpriteFrameName(_spriteName);
             tile->setPosition(Vec2((j + 0.5) * squareWidth, (i + 0.5) * squareHeight));
             addChild(tile);
-            auto grapheme = Grapheme::create(graphemes.at(i).at(j));
+            auto grapheme = createAndAddGrapheme(graphemes.at(i).at(j));
             grapheme->setPosition(Vec2((j + 0.5) * squareWidth, (i + 0.5) * squareHeight));
-            addChild(grapheme);
             grapheme->touchEndedCallback = CC_CALLBACK_2(GraphemeGrid::onTouchEnded, this);
             _graphemeMatrix.at(i).at(j) = grapheme;
         }
     }
+}
+
+Grapheme* GraphemeGrid::createAndAddGrapheme(std::string graphemeString) {
+    auto grapheme = Grapheme::create(graphemeString);
+    addChild(grapheme);
+    return grapheme;
 }
 
 int GraphemeGrid::getNumberOfActionsRunning() {

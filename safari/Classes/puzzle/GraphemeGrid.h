@@ -30,6 +30,8 @@ CC_CONSTRUCTOR_ACCESS:
     void onTouchMoved(cocos2d::Touch* touch, cocos2d::Event* event);
 
 protected:
+    Grapheme* createAndAddGrapheme(std::string graphemeString);
+
     int _numRows;
     int _numCols;
     GLfloat _width;

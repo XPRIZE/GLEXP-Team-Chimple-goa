@@ -105,9 +105,13 @@ void WordScene::createChoice() {
     for (int i = 0; i < _numGraphemes; i++) {
         auto choiceNode = Node::create();
         choiceNode->setPosition(Vec2(i * 200, 0));
-        _answerVector.push_back(std::pair<Node*, Grapheme*>(choiceNode, nullptr));
-        _choice->addChild(choiceNode);
+        addChoice(choiceNode);
     }
+}
+
+void WordScene::addChoice(Node* choice) {
+    _answerVector.push_back(std::pair<Node*, Grapheme*>(choice, nullptr));
+    _choice->addChild(choice);
 }
 
 void WordScene::onTouchEnded(cocos2d::Touch *touch, cocos2d::Event *event) {
