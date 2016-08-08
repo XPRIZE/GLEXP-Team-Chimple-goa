@@ -64,9 +64,13 @@ std::string EnglishUtil::getLang() {
 }
 
 EnglishUtil::EnglishUtil() {
-    
+    this->initializeWordManager();
 }
 
-EnglishUtil::~EnglishUtil() {
-    
+EnglishUtil::~EnglishUtil() {    
+}
+
+
+void EnglishUtil::initializeWordManager() {
+    this->wordManager = WordManager::getInstance();
 }

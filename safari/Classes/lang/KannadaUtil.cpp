@@ -116,9 +116,12 @@ std::string KannadaUtil::getLang() {
 }
 
 KannadaUtil::KannadaUtil() {
-    
+    this->initializeWordManager();
 }
 
 KannadaUtil::~KannadaUtil() {
-    
+}
+
+void KannadaUtil::initializeWordManager() {
+    this->wordManager = WordManager::getInstance();
 }

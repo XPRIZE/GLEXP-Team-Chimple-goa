@@ -22,7 +22,8 @@ fileName(""),
 defaultAnimationName(""),
 key(""),
 show(""),
-transitToGameScene("")
+transitToGameScene(""),
+actionTimeLine(NULL)
 {
     this->touchPointerNode = NULL;
     this->sprite = NULL;
@@ -183,6 +184,13 @@ SkeletonCharacter* RPGSprite::getMainSkeleton() {
     return this->mainSkeleton;
 }
 
+void RPGSprite::setActionTimeLine(cocostudio::timeline::ActionTimeline* timeline) {
+    this->actionTimeLine = timeline;
+}
+
+cocostudio::timeline::ActionTimeline* RPGSprite::getActionTimeLine() {
+    return this->actionTimeLine;
+}
 
 bool RPGSprite::onTouchBegan(Touch *touch, Event *event)
 {
