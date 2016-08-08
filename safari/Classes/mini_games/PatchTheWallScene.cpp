@@ -47,6 +47,7 @@ bool PatchTheWall::init()
 
 	auto temp = CSLoader::createNode("patchthewall.csb");
 	auto alpha1 = temp->getChildren();
+	//temp->setPositionX(-500)
 	this->addChild(temp);
 
 	slideBar = (cocos2d::ui::Slider *)(temp->getChildByName("Slider_3"));
@@ -64,23 +65,24 @@ bool PatchTheWall::init()
 	backgroundMusic = CocosDenshion::SimpleAudioEngine::getInstance();
 	backgroundMusic->playBackgroundMusic("sounds/patchthewall.mp3", true);
 	 
-	matrix = CharGenerator::getInstance()->generateCharMatrix(3, 7);
+	matrix = CharGenerator::getInstance()->generateCharMatrix(3, 5);
 
 	// position the sprite on the center of the screen
 	
-	for (int i = 0; i < 7; i++) {
-		int hegbox = (i * 175) + 300;
+	for (int i = 0; i < 5; i++) {
+		int hegbox = (i * 210)+420 ;
 		for (int j = 0; j < 3; j++)
 		{
 			int randgen = cocos2d::RandomHelper::random_int(0, 25);
 			//const char* level = Alphabets.at(randgen).c_str();
-			int weibox = visibleSize.width -200 - (j * 276);
+			int weibox = visibleSize.width -200- (j * 340);
 			auto mystr = LangUtil::convertUTF16CharToString(matrix[j][i]);
-			auto label  = Alphabet::createWithSize(matrix[j][i], 200);
+			auto label  = Alphabet::createWithSize(matrix[j][i], 300);
+			
 			//auto label = Label::createWithTTF(matrix[j][i], "letters.ttf", 200);
 			label->setPositionX(weibox);
 			label->setPositionY(hegbox);
-			label->setColor(ccc3(132, 131, 131));
+			label->setColor(ccc3(73, 39, 20));
 			label->setAnchorPoint(Vec2(0.5, 0.5));
 			label->setName(mystr);
 			this->addChild(label, 7);
@@ -91,13 +93,13 @@ bool PatchTheWall::init()
 			listener->onTouchEnded = CC_CALLBACK_2(PatchTheWall::onTouchEnded, this);
 			listener->onTouchCancelled = CC_CALLBACK_2(PatchTheWall::onTouchCancelled, this);
 			cocos2d::Director::getInstance()->getEventDispatcher()->addEventListenerWithSceneGraphPriority(listener, label);
-		}
+		}	
 	}
 
 	for (int ii = 1; ii < 6; ii++) {
-		float gridwidth = (ii * 280) + 95;
+		float gridwidth = (ii * 250) + 95;
 		for (int jj = 1; jj < 5; jj++) {
-			float gridheight = (jj * 240) + 418;
+			float gridheight = (jj * 220) + 418;
 			gameX.push_back(gridwidth);
 			gameY.push_back(gridheight);
 			breakFlag.push_back(false);
@@ -136,7 +138,10 @@ bool PatchTheWall::onTouchBegan(cocos2d::Touch *touch, cocos2d::Event * event)
 		auto audio = CocosDenshion::SimpleAudioEngine::getInstance();
 		auto path = LangUtil::getInstance()->getAlphabetSoundFileName(no->getChar());
 		audio->playEffect(path.c_str(), false);
+
 		flag = 0;
+		auto touchaction = ScaleTo::create(0.1, .7);
+		no->runAction(touchaction);
 		return true;
 	}
 
@@ -155,15 +160,8 @@ void PatchTheWall::onTouchMoved(cocos2d::Touch *touch, cocos2d::Event * event)
 		if ((no->getBoundingBox()).containsPoint(my_point) && ((no->getChar()) == (blastAlphaReff.at(i)->getChar())))
 		{
 			_menuContext->pickAlphabet(no->getChar(), blastAlphaReff.at(i)->getChar(), true);
-			//CCLOG("overlap");
-			//CCLOG("lsfaff %f = ", (crackReff.at(i)->getPositionX() - 95) / 280);
-		
-			//auto audio = CocosDenshion::SimpleAudioEngine::getInstance();
-			//auto path = LangUtil::getInstance()->getAlphabetSoundFileName('A');
-			//audio->playEffect(path.c_str(), false);
-
-			int splash = ((crackReff.at(i)->getPositionX() - 95) / 280)-1;
-			int splash1 = ((crackReff.at(i)->getPositionY() - 418) / 240)-1;
+			int splash = ((crackReff.at(i)->getPositionX() - 95) / 250)-1;
+			int splash1 = ((crackReff.at(i)->getPositionY() - 418) / 220)-1;
 			int val1 = ((splash1) * 5) + splash;
 			breakFlag.at(val1) = false;
 			// fades in the sprite in 1 seconds 
@@ -206,6 +204,8 @@ void PatchTheWall::onTouchEnded(cocos2d::Touch *touch, cocos2d::Event * event)
 		no->setOpacity(255);
 		_menuContext->pickAlphabet('A', 'B', true);
 	}
+	auto touchaction = ScaleTo::create(1, .375);
+	no->runAction(touchaction);
 
 	//isTouching = false;
 }
@@ -236,14 +236,14 @@ void PatchTheWall::fort(float dt) {
 	crackReff.pushBack(block);
 	
 	//auto label = Label::createWithTTF(level, "letters.ttf", 200);
-	int i = cocos2d::RandomHelper::random_int(0, 6);
+	int i = cocos2d::RandomHelper::random_int(0, 4);
 	int j = cocos2d::RandomHelper::random_int(0, 2);
-	auto mystr = LangUtil::convertUTF16CharToString(matrix[j][i]);
-	auto label = Alphabet::createWithSize(matrix[j][i], 200);
+	//auto mystr = LangUtil::convertUTF16CharToString(matrix[j][i]);
+	auto label = Alphabet::createWithSize(matrix[j][i], 300);
 	label->setPositionX(randx);
 	label->setPositionY(randy);
 	label->setColor(ccc3(218, 239, 237));
-	label->setName(mystr);
+	//label->setName(mystr);
 	this->addChild(label, 4);
 	blastAlphaReff.pushBack(label);
 }
@@ -262,7 +262,11 @@ void PatchTheWall::Blast(float dt) {
 		blastImage->setPositionX(randx - 250);
 		blastImage->setPositionY(randy - 250);
 		this->addChild(blastImage);
+
 		alpha_animation->gotoFrameAndPlay(0, false);
+		auto audioBg = CocosDenshion::SimpleAudioEngine::getInstance();
+		audioBg->playEffect("cannonball/gamesound/meteorblast.wav", false, 1, 1, .2);
+
 		this->scheduleOnce(schedule_selector(PatchTheWall::fort), 1.0f);
 	}
 	else {
