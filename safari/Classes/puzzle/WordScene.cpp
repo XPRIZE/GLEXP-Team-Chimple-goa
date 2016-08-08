@@ -50,10 +50,10 @@ bool WordScene::init() {
     _numGraphemes = _answerGraphemes.size();
 
     addChild(loadNode());
-    createGrid();
     createAnswer();
     createChoice();
-    _eventDispatcher->addCustomEventListener("grapheme_anim_done", CC_CALLBACK_0(WordScene::checkAnswer, this));
+	createGrid();
+	_eventDispatcher->addCustomEventListener("grapheme_anim_done", CC_CALLBACK_0(WordScene::checkAnswer, this));
     return true;
 }
 
@@ -140,18 +140,24 @@ void WordScene::onTouchEnded(cocos2d::Touch *touch, cocos2d::Event *event) {
 }
 
 void WordScene::checkAnswer() {
-    for (auto i = 0; i < _answerGraphemes.size(); i++) {
-        auto grapheme = _answerVector.at(i).second;
-        if(grapheme == nullptr || grapheme->getGraphemeString() != _answerGraphemes.at(i)) {
-            return;
-        }
-    }
     if(_grid->getNumberOfActionsRunning() > 1) {
         return;
     }
-    gameOver();
+    bool correct = true;
+    for (auto i = 0; i < _answerGraphemes.size(); i++) {
+        auto grapheme = _answerVector.at(i).second;
+        if(grapheme == nullptr) {
+            return;
+        }
+        if(grapheme->getGraphemeString() != _answerGraphemes.at(i)) {
+            correct = false;
+        }
+    }
+    gameOver(correct);
 }
 
-void WordScene::gameOver() {
-    _menuContext->showScore();
+void WordScene::gameOver(bool correct) {
+    if(correct) {
+        _menuContext->showScore();        
+    }
 }
