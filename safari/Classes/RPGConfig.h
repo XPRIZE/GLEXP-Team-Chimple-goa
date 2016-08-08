@@ -122,6 +122,9 @@
 #define GAME_MAP_FILE "gamemap.csb"
 #define SCORE_BOARD_FILE "scoreboard.csb"
 
+#define SKELETON_POSITION_IN_PARENT_ISLAND_X "skeleton_pos_in_island_X"
+#define SKELETON_POSITION_IN_PARENT_ISLAND_Y "skeleton_pos_in_island_Y"
+
 #define EVENT_DISPATCHER Director::getInstance()->getEventDispatcher()
 
 #define SEND_MESSAGE_TEXT_DESTROYED ( __target__, __notification__, __handler__) EVENT_DISPATCHER->addEventListenerWithSceneGraphPriority(EventListenerCustom::create (__notification__, __handler__), __target__)

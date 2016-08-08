@@ -212,6 +212,24 @@
     <ClCompile Include="..\Classes\menu\ScoreBoardContent.cpp">
       <Filter>src\menu</Filter>
     </ClCompile>
+    <ClCompile Include="..\Classes\mini_games\Baja.cpp">
+      <Filter>src\mini_games</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\mini_games\Jasmin_Listenerfile.cpp">
+      <Filter>src\mini_games</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\mini_games\Jasmin_Mainfile.cpp">
+      <Filter>src\mini_games</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\mini_games\Wembley.cpp">
+      <Filter>src\mini_games</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\puzzle\WordScene.cpp">
+      <Filter>src\puzzle</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\lang\TextGenerator.cpp">
+      <Filter>src\lang</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -396,6 +414,24 @@
     </ClInclude>
     <ClInclude Include="..\Classes\menu\ScoreBoardContext.h">
       <Filter>src\menu</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\mini_games\Baja.h">
+      <Filter>src\mini_games</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\mini_games\Jasmin_Listenerfile.h">
+      <Filter>src\mini_games</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\mini_games\Jasmin_Mainfile.h">
+      <Filter>src\mini_games</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\mini_games\Wembley.h">
+      <Filter>src\mini_games</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\puzzle\WordScene.h">
+      <Filter>src\puzzle</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\lang\TextGenerator.h">
+      <Filter>src\lang</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

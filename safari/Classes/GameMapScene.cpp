@@ -17,6 +17,7 @@
 #include "mini_games/TraceScene.h"
 #include "mini_games/AlphamonFeedScene.h"
 #include "StartMenuScene.h"
+#include "mini_games/Baja.h"
 
 USING_NS_CC;
 
@@ -68,10 +69,7 @@ bool GameMapScene::init()
         return false;
     }
     
-    FileUtils::getInstance()->addSearchPath("res/gamemap");
-    
-    this->languageManger = LanguageManager::getInstance();
-    
+    FileUtils::getInstance()->addSearchPath("res/gamemap");    
     
     this->loadGameMap();
     
@@ -147,6 +145,7 @@ void GameMapScene::islandSelected(Ref* pSender, ui::Widget::TouchEventType eEven
             break;
         case ui::Widget::TouchEventType::ENDED:
         {
+            clickedButton->setEnabled(false);
             if(clickedButton->getName() == PATCH_THE_WALL) {
                 Director::getInstance()->replaceScene(PatchTheWall::createScene());
             } else if(clickedButton->getName() == CROSS_THE_BRIDGE) {
