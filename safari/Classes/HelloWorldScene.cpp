@@ -81,6 +81,8 @@ void HelloWorld::initializeSafari() {
     this->loadGameScene();
     
     this->initializeStateMachine();
+    
+    this->loadWords();
 }
 
 void HelloWorld::updatePositionAndCategoryBitMaskMainCharacter() {
@@ -97,7 +99,15 @@ void HelloWorld::updatePositionAndCategoryBitMaskMainCharacter() {
             if(xPos != 0.0f && yPos != 0.0f) {
                 this->skeletonCharacter->getSkeletonNode()->setPosition(Vec2(xPos, yPos));
             }
-            
+        } else {
+            if(this->island == this->sceneName) {
+                float xPosInIsland = UserDefault::getInstance()->getFloatForKey(SKELETON_POSITION_IN_PARENT_ISLAND_X);
+                float yPosInIsland = UserDefault::getInstance()->getFloatForKey(SKELETON_POSITION_IN_PARENT_ISLAND_Y);
+                if(xPosInIsland != 0.0f && yPosInIsland != 0.0f) {
+                    this->skeletonCharacter->getSkeletonNode()->setPosition(Vec2(xPosInIsland, yPosInIsland));
+                }
+                
+            }
         }
     }
 }
@@ -123,6 +133,42 @@ void HelloWorld::loadGameScene() {
     this->enablePhysicsBoundaries(rootNode);
     
     this->updatePositionAndCategoryBitMaskMainCharacter();
+}
+
+
+void HelloWorld::loadWords() {
+    std::string wordFile = !this->getSceneName().empty() ? this->getSceneName(): this->getIsland();
+    std::string filePath = "res/" + wordFile + "/" + wordFile + "_words.json";
+    
+    
+    std::string jsonData = FileUtils::getInstance()->getStringFromFile(filePath);
+    
+    CCLOG("%s\n", jsonData.c_str());
+    
+    rapidjson::Document jsonDoc;
+    jsonDoc.Parse<0>(jsonData.c_str());
+    if (jsonDoc.HasParseError()) {
+        CCLOG("GetParseError %u\n",jsonDoc.GetParseError());
+    } else {
+        if (jsonDoc != NULL && jsonDoc.IsArray()) {
+            for (rapidjson::SizeType i = 0; i < jsonDoc.Size(); ++i) {
+                auto nodeName = jsonDoc[i]["node"].GetString();
+                auto word = jsonDoc[i]["word"].GetString();
+                CCLOG("node=%s, word=%s", nodeName, word);
+                Node* node = this->mainLayer->getChildByName(nodeName);
+                if(node != NULL && word) {
+                    this->createWordSprite(node, word, this->mainLayer);
+                }
+            }
+        }
+    }
+
+}
+
+void HelloWorld::createWordSprite(Node* node, std::string word, Node* parentNode)
+{
+    WordSprite* wordSprite = WordSprite::create(node, word);
+    parentNode->addChild(wordSprite);
 }
 
 
@@ -569,7 +615,12 @@ void HelloWorld::cleanUpResources() {
     if(this->skeletonCharacter->getSkeletonNode()->getPosition().y < 0) {
         xPos = xPos - X_OFFSET_IF_HERO_DISAPPER;
     }
-        
+    
+    //record position in main Island in UserDefault
+    if(this->island == this->sceneName) {
+        UserDefault::getInstance()->setFloatForKey(SKELETON_POSITION_IN_PARENT_ISLAND_X, xPos);
+        UserDefault::getInstance()->setFloatForKey(SKELETON_POSITION_IN_PARENT_ISLAND_Y, yPos);
+    }
     
     this->sqlite3Helper->recordMainCharacterPositionInScene(this->island.c_str(), this->sceneName.c_str(), xPos, yPos);
     
