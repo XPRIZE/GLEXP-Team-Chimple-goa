@@ -6,6 +6,8 @@
 //
 //
 
+#include "cocos2d.h"
+
 #ifndef TextGenerator_h
 #define TextGenerator_h
 #include "cocos2d.h"

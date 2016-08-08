@@ -194,6 +194,8 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClCompile Include="..\Classes\puzzle\AlphabetGrid.cpp" />
     <ClCompile Include="..\Classes\puzzle\CharGenerator.cpp" />
     <ClCompile Include="..\Classes\puzzle\DuelScene.cpp" />
+    <ClCompile Include="..\Classes\puzzle\Grapheme.cpp" />
+    <ClCompile Include="..\Classes\puzzle\GraphemeGrid.cpp" />
     <ClCompile Include="..\Classes\puzzle\WordScene.cpp" />
     <ClCompile Include="..\Classes\RPGConfig.cpp" />
     <ClCompile Include="..\Classes\RPGSprite.cpp" />
@@ -263,6 +265,8 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClInclude Include="..\Classes\puzzle\AlphabetGrid.h" />
     <ClInclude Include="..\Classes\puzzle\CharGenerator.h" />
     <ClInclude Include="..\Classes\puzzle\DuelScene.h" />
+    <ClInclude Include="..\Classes\puzzle\Grapheme.h" />
+    <ClInclude Include="..\Classes\puzzle\GraphemeGrid.h" />
     <ClInclude Include="..\Classes\puzzle\WordScene.h" />
     <ClInclude Include="..\Classes\RPGConfig.h" />
     <ClInclude Include="..\Classes\RPGSprite.h" />
