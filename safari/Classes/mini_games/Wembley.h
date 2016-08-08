@@ -1,5 +1,5 @@
-#ifndef __Jasmin_Mainfile_SCENE_H__
-#define __Jasmin_Mainfile_SCENE_H__
+#ifndef Wembley_SCENE_H__
+#define Wembley_SCENE_H__
 
 #include "cocos2d.h"
 #include "lang/TextGenerator.h"
