@@ -13,13 +13,11 @@
 #define COCOS2D_DEBUG 1
 
 USING_NS_CC;
-const std::vector<std::string> Alphabets = { "A","B","C","D", "E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z" };
 int key;
 int val;
 int val1;
 int sizei;
 int sizej;
-std::string mapString;
 SmashTheRock::SmashTheRock()
 {
 
@@ -298,26 +296,6 @@ void SmashTheRock::masking()
 	//maskedFill->setGlobalZOrder(3);
 	maskedFill->setContentSize(cocos2d::Size(300, 300));
 	maskedFill->setPosition(Vec2(origin.x + (visibleSize.width / 2)  , origin.y + (visibleSize.height / 2) + 480));
-	//maskedFill->setAnchorPoint(Vec2(0.5,0.5));
-	//Texture2D::TexParams tp = { GL_LINEAR, GL_LINEAR, GL_REPEAT, GL_REPEAT };
-	//maskedFill->draw();
-
-/*	auto myBox = DrawNode::create();
-	Vec2 vertices[] =
-	{
-		Vec2(maskedFill->getPositionX() , maskedFill->getPositionY()  + maskedFill->getContentSize().height),
-		Vec2(maskedFill->getContentSize().width + maskedFill->getPositionX(), maskedFill->getPositionY()  + maskedFill->getContentSize().height),
-		Vec2(maskedFill->getContentSize().width + maskedFill->getPositionX() , maskedFill->getPositionY() ),
-		Vec2(maskedFill->getPositionX() , maskedFill->getPositionY() )
-	};
-	myBox->drawPolygon(vertices, 4, Color4F(3.0f, 0.3f, 0.3f, 1), 3, Color4F(0.2f, 0.2f, 0.2f, 1));
-
-	this->addChild(myBox, 2);*/
-
-
-	//target->getTexture()->setTexParameters(tp);
-
-//	target->setTextureRect(Rect(400, 400, 2000, 2000));
 	target->setAnchorPoint(Vec2(0.5, 0.5));
 	this->addChild(maskedFill,2);
 	flag = true;
