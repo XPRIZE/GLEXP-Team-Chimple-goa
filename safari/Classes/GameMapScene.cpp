@@ -16,6 +16,7 @@
 #include "mini_games/EndlessRunner.h"
 #include "mini_games/Cannon_Ball_Main.h"
 #include "mini_games/Jasmin_Mainfile.h"
+#include "mini_games/jazz.h"
 #include "mini_games/TraceScene.h"
 #include "mini_games/AlphamonFeedScene.h"
 #include "StartMenuScene.h"
@@ -157,7 +158,7 @@ void GameMapScene::islandSelected(Ref* pSender, ui::Widget::TouchEventType eEven
             } else if(clickedButton->getName() == PATCH_THE_WALL) {
                 Director::getInstance()->replaceScene(PatchTheWall::createScene());
             } else if(clickedButton->getName() == SMASH_THE_ROCK) {
-                Director::getInstance()->replaceScene(SmashTheRock::createScene());
+                Director::getInstance()->replaceScene(jazz::createScene());
             } else if(clickedButton->getName() == CANNON_BALL) {
                 Director::getInstance()->replaceScene(Jasmin_Mainfile::createScene());
             } else if(clickedButton->getName() == ENDLESS_RUNNER) {
