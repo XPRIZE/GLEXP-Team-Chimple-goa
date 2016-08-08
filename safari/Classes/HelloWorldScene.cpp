@@ -138,32 +138,21 @@ void HelloWorld::loadGameScene() {
 
 void HelloWorld::loadWords() {
     std::string wordFile = !this->getSceneName().empty() ? this->getSceneName(): this->getIsland();
-    std::string filePath = "res/" + wordFile + "/" + wordFile + "_words.json";
     
+    std::map<std::string,std::string> mapping = this->sqlite3Helper->loadNodeWordMapping(wordFile.c_str());
     
-    std::string jsonData = FileUtils::getInstance()->getStringFromFile(filePath);
-    
-    CCLOG("%s\n", jsonData.c_str());
-    
-    rapidjson::Document jsonDoc;
-    jsonDoc.Parse<0>(jsonData.c_str());
-    if (jsonDoc.HasParseError()) {
-        CCLOG("GetParseError %u\n",jsonDoc.GetParseError());
-    } else {
-        if (jsonDoc.IsArray()) {
-            for (rapidjson::SizeType i = 0; i < jsonDoc.Size(); ++i) {
-                auto nodeName = jsonDoc[i]["node"].GetString();
-                auto word = jsonDoc[i]["word"].GetString();
-                
-                CCLOG("node=%s, word=%s", nodeName, word);
-                Node* node = this->mainLayer->getChildByName(nodeName);
-                if(node != NULL && word) {
-                    this->createWordSprite(node, word, this->mainLayer);
-                }
-            }
-        }
-    }
+    std::map<std::string, std::string>::iterator it;
 
+    for(it = mapping.begin(); it != mapping.end(); it++) {
+        std::string word  = it->first;
+        std::string nodeName = it->second;
+        
+        CCLOG("node=%s, word=%s", nodeName.c_str(), word.c_str());
+        Node* node = this->mainLayer->getChildByName(nodeName.c_str());
+        if(node != NULL && !word.empty()) {
+            this->createWordSprite(node, word, this->mainLayer);
+        }
+    }    
 }
 
 void HelloWorld::createWordSprite(Node* node, std::string word, Node* parentNode)

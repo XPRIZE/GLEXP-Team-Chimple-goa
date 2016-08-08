@@ -11,6 +11,7 @@
 #include "cocos2d.h"
 #include "RPGConfig.h"
 #include "I18nUtils.h"
+#include "WordInfo.h"
 
 class WordManager;
 class LangUtil {
@@ -32,6 +33,7 @@ public:
     virtual std::string getLang() = 0;
     virtual std::string getDir() = 0;
     virtual void initializeWordManager() = 0;
+    virtual WordInfo* loadLanguageSpecificWordMappingForAWord(const char* word);
     
     std::string translateString(std::string input);
     void changeLanguage(SupportedLanguages lang);

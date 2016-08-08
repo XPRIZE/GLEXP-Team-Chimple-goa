@@ -87,6 +87,50 @@ bool WordManager::openConnection(std::string pathToSQLConnection) {
     return isConnectionOpenSuccessfully;
 }
 
+
+WordInfo* WordManager::loadLanguageSpecificWordMappingForAWord(const char* word) {
+    
+    /* Create SQL statement */
+    
+    sqlite3_stmt *res;
+    int rc = 0;
+    
+    const char* querySQL =  "SELECT WORD_IN_ENGLISH, UTF_CONVERSION FROM LANG_SPECIFIC_WORD_MAPPINGS WHERE WORD_IN_ENGLISH = @wordName COLLATE NOCASE";
+    
+    
+    /* Execute SQL statement */
+    
+    rc = sqlite3_prepare_v2(this->dataBaseConnection, querySQL, -1, &res, 0);
+    
+    if (rc == SQLITE_OK) {
+        
+        int wordName_Index = sqlite3_bind_parameter_index(res, "@wordName");
+        sqlite3_bind_text(res, wordName_Index, word,-1, SQLITE_TRANSIENT);
+        
+    } else {
+        fprintf(stderr, "Failed to execute statement: %s\n", sqlite3_errmsg(this->dataBaseConnection));
+    }
+    
+    WordInfo* wordInfo = NULL;
+    
+    while(sqlite3_step(res) == SQLITE_ROW)
+    {
+        wordInfo = new WordInfo();
+        std::string wordInEnglish( reinterpret_cast< char const* >(sqlite3_column_text(res, 0))) ;
+        wordInfo->setWordInEnglish(wordInEnglish);
+        
+        
+        std::string utfConversion( reinterpret_cast< char const* >(sqlite3_column_text(res, 1))) ;
+        wordInfo->setUtfConversion(utfConversion);
+        
+    }
+    
+    sqlite3_finalize(res);
+    
+    return wordInfo;
+}
+
+
 bool WordManager::closeConnection() {
     //close connection
     sqlite3_close(this->dataBaseConnection);
