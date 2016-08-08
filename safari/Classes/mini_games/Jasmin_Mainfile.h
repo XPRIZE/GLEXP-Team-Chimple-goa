@@ -2,8 +2,8 @@
 #define __Jasmin_Mainfile_SCENE_H__
 
 #include "cocos2d.h"
-#include "lang/TextGenerator.h"
-#include "puzzle/WordScene.h"
+#include "../lang/TextGenerator.h"
+#include "../puzzle/WordScene.h"
 #include "../GameScene.h"
 
 class Jasmin_Mainfile : public WordScene

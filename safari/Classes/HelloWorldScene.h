@@ -31,7 +31,6 @@
 #include "menu/MenuContext.h"
 #include "lang/LangUtil.h"
 #include "puzzle/CharGenerator.h"
-#include "external/json/document.h"
 #include "WordSprite.h"
 
 class GestureLayer;
