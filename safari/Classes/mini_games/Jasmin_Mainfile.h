@@ -3,19 +3,19 @@
 
 #include "cocos2d.h"
 #include "lang/TextGenerator.h"
+#include "puzzle/WordScene.h"
+#include "../GameScene.h"
 
-class Jasmin_Mainfile : public cocos2d::Layer
+class Jasmin_Mainfile : public WordScene
 {
 public:
-    static cocos2d::Scene* createScene();
+	static cocos2d::Scene* createScene(); 
+	static Jasmin_Mainfile *create();
 
-	static float height, width, originX, originY;
-
-    virtual bool init();
-	void startGame();
-
-    // implement the "static create()" method manually
-    CREATE_FUNC(Jasmin_Mainfile);
+protected:
+	cocos2d::Node* loadNode() override;
+	std::string getGridBackground() override;
+	void createChoice() override;
 };
 
 #endif // __Jasmin_Mainfile_SCENE_H__
