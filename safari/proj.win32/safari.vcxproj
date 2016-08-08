@@ -165,6 +165,7 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClCompile Include="..\Classes\lang\LangUtil.cpp" />
     <ClCompile Include="..\Classes\lang\SafariAnalyticsManager.cpp" />
     <ClCompile Include="..\Classes\lang\TextGenerator.cpp" />
+    <ClCompile Include="..\Classes\lang\WordManager.cpp" />
     <ClCompile Include="..\Classes\MapIsland.cpp" />
     <ClCompile Include="..\Classes\MapScene.cpp" />
     <ClCompile Include="..\Classes\menu\MenuContext.cpp" />
@@ -208,6 +209,7 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClCompile Include="..\Classes\State.cpp" />
     <ClCompile Include="..\Classes\StateMachine.cpp" />
     <ClCompile Include="..\Classes\WalkingState.cpp" />
+    <ClCompile Include="..\Classes\WordSprite.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -233,6 +235,7 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClInclude Include="..\Classes\lang\LangUtil.h" />
     <ClInclude Include="..\Classes\lang\SafariAnalyticsManager.h" />
     <ClInclude Include="..\Classes\lang\TextGenerator.h" />
+    <ClInclude Include="..\Classes\lang\WordManager.h" />
     <ClInclude Include="..\Classes\MapIsland.h" />
     <ClInclude Include="..\Classes\MapScene.h" />
     <ClInclude Include="..\Classes\menu\MenuContext.h" />
@@ -275,6 +278,7 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClInclude Include="..\Classes\State.h" />
     <ClInclude Include="..\Classes\StateMachine.h" />
     <ClInclude Include="..\Classes\WalkingState.h" />
+    <ClInclude Include="..\Classes\WordSprite.h" />
     <ClInclude Include="main.h" />
   </ItemGroup>
   <ItemGroup>
