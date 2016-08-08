@@ -150,10 +150,11 @@ void HelloWorld::loadWords() {
     if (jsonDoc.HasParseError()) {
         CCLOG("GetParseError %u\n",jsonDoc.GetParseError());
     } else {
-        if (jsonDoc != NULL && jsonDoc.IsArray()) {
+        if (jsonDoc.IsArray()) {
             for (rapidjson::SizeType i = 0; i < jsonDoc.Size(); ++i) {
                 auto nodeName = jsonDoc[i]["node"].GetString();
                 auto word = jsonDoc[i]["word"].GetString();
+                
                 CCLOG("node=%s, word=%s", nodeName, word);
                 Node* node = this->mainLayer->getChildByName(nodeName);
                 if(node != NULL && word) {
