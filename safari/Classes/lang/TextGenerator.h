@@ -8,7 +8,7 @@
 
 #ifndef TextGenerator_h
 #define TextGenerator_h
-
+#include "cocos2d.h"
 class TextGenerator {
 public:
     static TextGenerator* getInstance();
