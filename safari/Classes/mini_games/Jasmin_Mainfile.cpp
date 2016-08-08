@@ -17,12 +17,29 @@ Node* Jasmin_Mainfile::loadNode() {
 }
 
 void Jasmin_Mainfile::createChoice() {
+	float wid = Director::getInstance()->getVisibleSize().width;
+
 	_choice = Node::create();
-	_choice->setPosition(Vec2(1280, 900));
+	_choice->setPosition(Vec2(wid*15/100, 900));
 	addChild(_choice);
+
+
+	float gap;
+	_numGraphemes = 6;
+	if (_numGraphemes == 2)
+		gap = wid * 70 / 100;
+	else if (_numGraphemes == 3)
+		gap = wid * 34 / 100;
+	else if (_numGraphemes == 4)
+		gap = wid * 22 / 100;
+	else if (_numGraphemes == 5)
+		gap = wid * 17/100;
+	else if (_numGraphemes == 6)
+		gap = wid * 14 / 100;
+
 	for (int i = 0; i < _numGraphemes; i++) {
-		auto choiceNode = Sprite::createWithSpriteFrameName("jasmine/seed pouch.png");
-		choiceNode->setPosition(Vec2(i * 200, 0));
+		auto choiceNode = Sprite::createWithSpriteFrameName("jasmine/seedpouch.png");
+		choiceNode->setPosition(Vec2(i * gap, 0));
 		addChoice(choiceNode);
 	}
 }
