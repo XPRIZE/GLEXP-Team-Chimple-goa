@@ -13,6 +13,12 @@ Scene* jazz::createScene() {
 
 Node* jazz::loadNode() {
 	auto node = CSLoader::createNode("jazz/MainScene.csb");
+	Size visibleSize = Director::getInstance()->getVisibleSize();
+
+	if (visibleSize.width > 2560) {
+		auto myGameWidth = (visibleSize.width - 2560) / 2;
+		node->setPositionX(myGameWidth);
+	}
 	return node;
 }
 
@@ -30,7 +36,7 @@ void jazz::createChoice() {
 	for (int i = 0; i < _numGraphemes; i++) {
 		auto choiceNode = Sprite::createWithSpriteFrameName("jazz/drum.png");
 	//	choiceNode->setPosition(Vec2(i * 400, 0));
-		choiceNode->setPosition(Vec2((i + 0.5) * squareWidth, 0));
+		choiceNode->setPosition(Vec2((i + 2.1) * (squareWidth-220), 0));
 		addChoice(choiceNode);
 	}
 }
