@@ -15,6 +15,8 @@
 #include "RPGConfig.h"
 #include "StateMachine.h"
 #include "SkeletonCharacter.h"
+#include "lang/LangUtil.h"
+#include "lang/WordInfo.h"
 
 
 #ifndef WordSprite_h

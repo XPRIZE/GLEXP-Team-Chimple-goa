@@ -95,3 +95,7 @@ std::string LangUtil::translateTwoParameterizedString(std::string parameterizedS
 }
 
 
+WordInfo* LangUtil::loadLanguageSpecificWordMappingForAWord(const char* word) {
+    return this->wordManager->loadLanguageSpecificWordMappingForAWord(word);
+}
+

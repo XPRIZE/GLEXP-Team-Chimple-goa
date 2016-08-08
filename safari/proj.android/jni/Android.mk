@@ -75,7 +75,8 @@ LOCAL_SRC_FILES := hellocpp/main.cpp \
 					../../Classes/GameMapScene.cpp \
 					../../Classes/menu/ScoreBoardContent.cpp \
 					../../Classes/lang/WordManager.cpp \
-					../../Classes/WordSprite.cpp
+					../../Classes/WordSprite.cpp \
+					../../Classes/lang/WordInfo.cpp \
 										
 
 LOCAL_C_INCLUDES := $(LOCAL_PATH)/../../Classes
