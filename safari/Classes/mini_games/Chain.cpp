@@ -33,8 +33,10 @@ bool Chain::init()
 	{
 		return false;
 	}
-	auto gameBG = CSLoader::createNode("crossthebridge/MainScene.csb");
-	this->addChild(gameBG, 1);
+
+	auto chain = CSLoader::createNode("chain/chain.csb");
+	this->addChild(chain, 0);
+	//chain->setAnchorPoint(Vec2(0.5,0.5));
 
 	return true;
 }

@@ -50,10 +50,10 @@ bool WordScene::init() {
     _numGraphemes = _answerGraphemes.size();
 
     addChild(loadNode());
-    createGrid();
     createAnswer();
     createChoice();
-    _eventDispatcher->addCustomEventListener("grapheme_anim_done", CC_CALLBACK_0(WordScene::checkAnswer, this));
+	createGrid();
+	_eventDispatcher->addCustomEventListener("grapheme_anim_done", CC_CALLBACK_0(WordScene::checkAnswer, this));
     return true;
 }
 

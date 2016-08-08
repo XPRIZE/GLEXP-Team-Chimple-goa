@@ -103,6 +103,7 @@
 #define DUEL_SCENE_NAME "DuelScene"
 
 #define TOUCH_POINTER_IMG "touchPointer.png"
+#define SEARCH_POINTER_IMG "search.png"
 
 #define SWIPE_DELTA 200.0f
 #define Y_OFFSET_IF_HERO_DISAPPER 300.0f
