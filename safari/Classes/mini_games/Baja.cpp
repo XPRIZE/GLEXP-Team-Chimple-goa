@@ -19,29 +19,27 @@ bool Baja::init()
 	CCSpriteFrameCache* framecache2 = CCSpriteFrameCache::sharedSpriteFrameCache();
 	framecache2->addSpriteFramesWithFile("endlessrunner/endlessrunner_01.plist");
 
-	visibleSize = Director::getInstance()->getVisibleSize();
-	origin = Director::getInstance()->getVisibleOrigin();
+	auto timeline = CSLoader::createTimeline("baja/baja.csb");
+	auto myPath = CSLoader::createNode("baja/baja.csb");
+
+	_visibleSize = Director::getInstance()->getVisibleSize();
+	_origin = Director::getInstance()->getVisibleOrigin();
 	this->addChild(LayerGradient::create(Color4B(0,100,0, 255), Color4B(255, 255, 255, 255)),0);
 
-	auto label = Label::createWithTTF("BAJA GAME", "fonts/Marker Felt.ttf",200);
-
-	label->setPosition(Vec2(origin.x + visibleSize.width / 2,origin.y + visibleSize.height - label->getContentSize().height));
-	label->setColor(Color3B(255, 255, 255));
-	addChild(label, 1);
-
-	topBarrier = setSpriteProperties("endlessrunner/barrier.png", origin.x, origin.y + visibleSize.height + 200,1,2,0,0,90,0);
-	bottomBarrier = setSpriteProperties("endlessrunner/barrier.png", origin.x, origin.y - visibleSize.height * 0.3, 1, 2, 0, 0, 90, 0);
-
-	int startPosition = origin.y;
+	_topBarrier = setSpriteProperties("endlessrunner/barrier.png", _origin.x, _origin.y + _visibleSize.height + 200,1,2,0,0,90,0);
+	_bottomBarrier = setSpriteProperties("endlessrunner/barrier.png", _origin.x, _origin.y - _visibleSize.height * 0.3, 1, 2, 0, 0, 90, 0);
+	
+	int startPosition = _origin.y;
 	for (int i = 0; i <= 14; i++) {
-		std::ostringstream pathIndex;	pathIndex << "bajapath" << randmValueIncludeBoundery(1, 6) << ".png"; std::string blockName = pathIndex.str();
-		auto newPathBlock = setSpriteProperties(blockName, origin.x + visibleSize.width / 2, startPosition, 1, 1, 0.5, 0, 0, 0);
+		std::ostringstream pathIndex;	pathIndex << "baja/bajapath" << randmValueIncludeBoundery(1, 6) << ".png"; std::string blockName = pathIndex.str();
+		auto newPathBlock = setSpriteProperties(blockName, _origin.x + _visibleSize.width / 2, startPosition, 1, 1, 0.5, 0, 0, 0);
 		newPathBlock->setName("InitpathBlock");
 		if (i == 14) { newPathBlock->setName("LastInitPath");}
-		startPosition = startPosition + newPathBlock->getContentSize().height - 100; currentPathBlock = newPathBlock;
-		currentPathBlock->runAction(MoveTo::create(movingTime(currentPathBlock, 400), Vec2(currentPathBlock->getPositionX(), bottomBarrier->getPositionY())));
-		allPathBlocks.push_back(currentPathBlock);
+		startPosition = startPosition + newPathBlock->getContentSize().height - 100; _currentPathBlock = newPathBlock;
+		_currentPathBlock->runAction(MoveTo::create(movingTime(_currentPathBlock, 400), Vec2(_currentPathBlock->getPositionX(), _bottomBarrier->getPositionY())));
+		_allPathBlocks.push_back(_currentPathBlock);
 	}
+
 
 	this->scheduleUpdate();
 	return true;
@@ -49,33 +47,32 @@ bool Baja::init()
 
 void Baja::update(float delta) {
 
-	if (initBool) {
-		for (std::size_t i = 0; i < allPathBlocks.size(); i++) {
-			if (topBarrier->getBoundingBox().intersectsRect(allPathBlocks[i]->getBoundingBox())) {
-				if (allPathBlocks[i]->getName() == "LastInitPath") {
-					currentPathBlock = allPathBlocks[i];
-					initBool = false;
+	if (_initBool) {
+		for (std::size_t i = 0; i < _allPathBlocks.size(); i++) {
+			if (_topBarrier->getBoundingBox().intersectsRect(_allPathBlocks[i]->getBoundingBox())) {
+				if (_allPathBlocks[i]->getName() == "LastInitPath") {
+					_currentPathBlock = _allPathBlocks[i];
+					_initBool = false;
 				}
 			}
 		}
 	}
 
-	for (size_t i = 0; i < allPathBlocks.size() ;  i++) {
-		if (bottomBarrier->getBoundingBox().intersectsRect(allPathBlocks[i]->getBoundingBox())) {
-			this->removeChild(allPathBlocks[i]);
-			allPathBlocks.erase(allPathBlocks.begin() + i);
+	for (size_t i = 0; i < _allPathBlocks.size() ;  i++) {
+		if (_bottomBarrier->getBoundingBox().intersectsRect(_allPathBlocks[i]->getBoundingBox())) {
+			this->removeChild(_allPathBlocks[i]);
+			_allPathBlocks.erase(_allPathBlocks.begin() + i);
 		}
 	}
 
-	if (!topBarrier->getBoundingBox().intersectsRect(currentPathBlock->getBoundingBox()) && !initBool) {
+	if (!_topBarrier->getBoundingBox().intersectsRect(_currentPathBlock->getBoundingBox()) && !_initBool) {
 		
-		std::ostringstream pathIndex;	pathIndex <<"bajapath"<<randmValueIncludeBoundery(1,6)<<".png"; std::string blockName = pathIndex.str();
-		auto newPathBlock = setSpriteProperties(blockName, origin.x + visibleSize.width / 2, topBarrier->getPositionY()-100, 1, 1, 0.5, 0, 0, 0);
-		currentPathBlock = newPathBlock;
-		currentPathBlock->runAction(MoveTo::create(movingTime(currentPathBlock, 400), Vec2(currentPathBlock->getPositionX(), bottomBarrier->getPositionY())));
-		allPathBlocks.push_back(currentPathBlock);
+		std::ostringstream pathIndex;	pathIndex <<"baja/bajapath"<<randmValueIncludeBoundery(1,6)<<".png"; std::string blockName = pathIndex.str();
+		auto newPathBlock = setSpriteProperties(blockName, _origin.x + _visibleSize.width / 2, _topBarrier->getPositionY()-100, 1, 1, 0.5, 0, 0, 0);
+		_currentPathBlock = newPathBlock;
+		_currentPathBlock->runAction(MoveTo::create(movingTime(_currentPathBlock, 400), Vec2(_currentPathBlock->getPositionX(), _bottomBarrier->getPositionY())));
+		_allPathBlocks.push_back(_currentPathBlock);
 	}
-
 }
 
 Sprite* Baja::setSpriteProperties(std::string frameName,float positionX, float positionY, float scaleX, float scaleY, float anchorX, float anchorY, float rotation,int zorder) {
@@ -98,8 +95,8 @@ int Baja::randmValueIncludeBoundery(int min, int max) {
 
 float Baja::movingTime(Sprite * ImageObject, int speed)
 {
-	if (bottomBarrier->getPositionY() > 0) {
-		return((ImageObject->getPosition().y - std::abs(bottomBarrier->getPosition().y)) / speed);
+	if (_bottomBarrier->getPositionY() > 0) {
+		return((ImageObject->getPosition().y - std::abs(_bottomBarrier->getPosition().y)) / speed);
 	}
-	return((ImageObject->getPosition().y + std::abs(bottomBarrier->getPosition().y)) / speed);
+	return((ImageObject->getPosition().y + std::abs(_bottomBarrier->getPosition().y)) / speed);
 }

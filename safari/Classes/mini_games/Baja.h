@@ -3,6 +3,7 @@
 
 #include "cocos2d.h"
 #include "../StartMenuScene.h"
+#include "editor-support/cocostudio/CocoStudio.h"
 
 using namespace cocos2d;
 
@@ -10,14 +11,14 @@ class Baja : public cocos2d::Layer
 {
 
 protected:
-	Sprite* topBarrier, *bottomBarrier, *currentPathBlock;
-	std::vector<Sprite*> allPathBlocks;
-	Size visibleSize;
-	Vec2 origin;
-	bool initBool = true;
+	Sprite* _topBarrier, *_bottomBarrier, *_currentPathBlock;
+	std::vector<Sprite*> _allPathBlocks;
+	Size _visibleSize;
+	Vec2 _origin;
+	bool _initBool = true;
+
 public:
 	static cocos2d::Scene* createScene();
-
 	virtual bool init();
 	Sprite* setSpriteProperties(std::string frameName,float positionX,float positionY,float scaleX, float scaleY, float anchorX, float anchorY,float rotation,int zorder);
 	float movingTime(Sprite* ImageObject,int speed);
