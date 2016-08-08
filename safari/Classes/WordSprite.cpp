@@ -107,7 +107,7 @@ void WordSprite::destroyTouchPointer() {
 void WordSprite::showTouchPointer() {
     if(this->sprite && this->sprite->isVisible() && this->touchPointerNode == NULL)
     {
-        this->touchPointerNode =  Sprite::create(TOUCH_POINTER_IMG);
+        this->touchPointerNode =  Sprite::create(SEARCH_POINTER_IMG);
         this->touchPointerNode->setScale(0.5f, 0.5f);
         this->touchPointerNode->setPosition(this->sprite->getPosition());
         this->addChild(this->touchPointerNode);
