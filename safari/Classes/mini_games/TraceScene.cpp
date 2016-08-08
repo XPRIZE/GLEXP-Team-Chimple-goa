@@ -15,8 +15,6 @@
 
 int touches;
 
-auto alpha = LangUtil::getInstance()->getAllCharacters();
-
 
 //char alpha[] = {'a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'};
 std::string animations[] = { "kick","punch","arm_sweep","jump_and_kick" };
@@ -42,6 +40,7 @@ Trace::~Trace() {
 cocostudio::timeline::ActionTimeline *timeline;
 
 Scene *Trace::createScene(int alphabet) {
+    auto alpha = LangUtil::getInstance()->getAllCharacters();
     auto scene = Scene::create();
     auto layer = Trace::create(alpha[alphabet]);
     scene->addChild(layer);
@@ -266,6 +265,7 @@ void Trace::onTouchEnded(cocos2d::Touch *touch, cocos2d::Event *event) {
 			auto redirect = Sequence::create(DelayTime::create(delay), redirectToNextLevel, NULL);
 			
 			auto audio = CocosDenshion::SimpleAudioEngine::getInstance();
+            auto alpha = LangUtil::getInstance()->getAllCharacters();
 			auto path = LangUtil::getInstance()->getAlphabetSoundFileName(alpha[level]);
 			audio->playEffect(path.c_str(), false);
 

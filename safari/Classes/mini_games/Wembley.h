@@ -1,37 +1,21 @@
-//
-//  Wembley.h
-//  
-//
-//  Created by Jyoti Prakash on 04/08/16.
-//
-//
-
-#ifndef Wembley_h
-#define Wembley_h
+#ifndef Wembley_SCENE_H__
+#define Wembley_SCENE_H__
 
 #include "cocos2d.h"
-#include "../menu/MenuContext.h"
+#include "../lang/TextGenerator.h"
 
-
-class Wembley : public cocos2d::Layer {
+class Wembley : public cocos2d::Layer
+{
 public:
 	static cocos2d::Scene* createScene();
-	
 
-CC_CONSTRUCTOR_ACCESS:
+	static float height, width, originX, originY;
+
 	virtual bool init();
-	Wembley();
-	virtual ~Wembley();
-	bool onTouchBegan(cocos2d::Touch* touch, cocos2d::Event* event);
-	void onTouchEnded(cocos2d::Touch* touch, cocos2d::Event* event);
-	void onTouchMoved(cocos2d::Touch* touch, cocos2d::Event* event);
-	
-protected:
-	bool _touchActive;
-	void setupTouch();
-	CC_SYNTHESIZE(int, _count, Count);
-	
+	void startGame();
+
+	// implement the "static create()" method manually
 	CREATE_FUNC(Wembley);
 };
 
-#endif /* Wembley_h */
+#endif // Wembley_SCENE_H__
