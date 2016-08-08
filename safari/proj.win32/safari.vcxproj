@@ -164,6 +164,8 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClCompile Include="..\Classes\lang\KannadaUtil.cpp" />
     <ClCompile Include="..\Classes\lang\LangUtil.cpp" />
     <ClCompile Include="..\Classes\lang\SafariAnalyticsManager.cpp" />
+    <ClCompile Include="..\Classes\lang\TextGenerator.cpp" />
+    <ClCompile Include="..\Classes\lang\WordManager.cpp" />
     <ClCompile Include="..\Classes\MapIsland.cpp" />
     <ClCompile Include="..\Classes\MapScene.cpp" />
     <ClCompile Include="..\Classes\menu\MenuContext.cpp" />
@@ -178,17 +180,23 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClCompile Include="..\Classes\mini_games\Cannon_Ball_Main.cpp" />
     <ClCompile Include="..\Classes\mini_games\CrossTheBridgeScene.cpp" />
     <ClCompile Include="..\Classes\mini_games\EndlessRunner.cpp" />
+    <ClCompile Include="..\Classes\mini_games\Jasmin_Listenerfile.cpp" />
+    <ClCompile Include="..\Classes\mini_games\Jasmin_Mainfile.cpp" />
     <ClCompile Include="..\Classes\mini_games\PatchTheWallScene.cpp" />
     <ClCompile Include="..\Classes\mini_games\SmashTheRockLevelScene.cpp" />
     <ClCompile Include="..\Classes\mini_games\SmashTheRockScene.cpp" />
     <ClCompile Include="..\Classes\mini_games\SpriteCreate.cpp" />
     <ClCompile Include="..\Classes\mini_games\TraceScene.cpp" />
+    <ClCompile Include="..\Classes\mini_games\Wembley.cpp" />
     <ClCompile Include="..\Classes\MO.cpp" />
     <ClCompile Include="..\Classes\PhysicsShapeCache.cpp" />
     <ClCompile Include="..\Classes\puzzle\Alphabet.cpp" />
     <ClCompile Include="..\Classes\puzzle\AlphabetGrid.cpp" />
     <ClCompile Include="..\Classes\puzzle\CharGenerator.cpp" />
     <ClCompile Include="..\Classes\puzzle\DuelScene.cpp" />
+    <ClCompile Include="..\Classes\puzzle\Grapheme.cpp" />
+    <ClCompile Include="..\Classes\puzzle\GraphemeGrid.cpp" />
+    <ClCompile Include="..\Classes\puzzle\WordScene.cpp" />
     <ClCompile Include="..\Classes\RPGConfig.cpp" />
     <ClCompile Include="..\Classes\RPGSprite.cpp" />
     <ClCompile Include="..\Classes\RunningState.cpp" />
@@ -203,6 +211,7 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClCompile Include="..\Classes\State.cpp" />
     <ClCompile Include="..\Classes\StateMachine.cpp" />
     <ClCompile Include="..\Classes\WalkingState.cpp" />
+    <ClCompile Include="..\Classes\WordSprite.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -227,6 +236,8 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClInclude Include="..\Classes\lang\KannadaUtil.h" />
     <ClInclude Include="..\Classes\lang\LangUtil.h" />
     <ClInclude Include="..\Classes\lang\SafariAnalyticsManager.h" />
+    <ClInclude Include="..\Classes\lang\TextGenerator.h" />
+    <ClInclude Include="..\Classes\lang\WordManager.h" />
     <ClInclude Include="..\Classes\MapIsland.h" />
     <ClInclude Include="..\Classes\MapScene.h" />
     <ClInclude Include="..\Classes\menu\MenuContext.h" />
@@ -240,17 +251,23 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClInclude Include="..\Classes\mini_games\Cannon_Ball_Main.h" />
     <ClInclude Include="..\Classes\mini_games\CrossTheBridgeScene.h" />
     <ClInclude Include="..\Classes\mini_games\EndlessRunner.h" />
+    <ClInclude Include="..\Classes\mini_games\Jasmin_Listenerfile.h" />
+    <ClInclude Include="..\Classes\mini_games\Jasmin_Mainfile.h" />
     <ClInclude Include="..\Classes\mini_games\PatchTheWallScene.h" />
     <ClInclude Include="..\Classes\mini_games\SmashTheRockLevelScene.h" />
     <ClInclude Include="..\Classes\mini_games\SmashTheRockScene.h" />
     <ClInclude Include="..\Classes\mini_games\SpriteCreate.h" />
     <ClInclude Include="..\Classes\mini_games\TraceScene.h" />
+    <ClInclude Include="..\Classes\mini_games\Wembley.h" />
     <ClInclude Include="..\Classes\MO.h" />
     <ClInclude Include="..\Classes\PhysicsShapeCache.h" />
     <ClInclude Include="..\Classes\puzzle\Alphabet.h" />
     <ClInclude Include="..\Classes\puzzle\AlphabetGrid.h" />
     <ClInclude Include="..\Classes\puzzle\CharGenerator.h" />
     <ClInclude Include="..\Classes\puzzle\DuelScene.h" />
+    <ClInclude Include="..\Classes\puzzle\Grapheme.h" />
+    <ClInclude Include="..\Classes\puzzle\GraphemeGrid.h" />
+    <ClInclude Include="..\Classes\puzzle\WordScene.h" />
     <ClInclude Include="..\Classes\RPGConfig.h" />
     <ClInclude Include="..\Classes\RPGSprite.h" />
     <ClInclude Include="..\Classes\RunningState.h" />
@@ -265,6 +282,7 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClInclude Include="..\Classes\State.h" />
     <ClInclude Include="..\Classes\StateMachine.h" />
     <ClInclude Include="..\Classes\WalkingState.h" />
+    <ClInclude Include="..\Classes\WordSprite.h" />
     <ClInclude Include="main.h" />
   </ItemGroup>
   <ItemGroup>

@@ -60,7 +60,7 @@ bool MapScene::init()
     
     FileUtils::getInstance()->addSearchPath("res/map");
     
-    this->languageManger = LanguageManager::getInstance();
+    this->currentLangUtil = LangUtil::getInstance();
 
     
     this->loadMap();
@@ -110,7 +110,7 @@ void MapScene::processChildNodes(cocos2d::Node *rootNode) {
             std::unordered_map<std::string,std::string>::const_iterator it = attributes.find("text");
             if ( it != attributes.end() ) {
                 //process text
-                std::string mapText = this->languageManger->translateString(it->second);
+                std::string mapText = this->currentLangUtil->translateString(it->second);
                 cocos2d::Label* label = Label::createWithTTF(mapText, "fonts/arial.ttf", 50);
                 label->setPosition(node->getPosition());
                 mainLayer->addChild(label);                
