@@ -427,6 +427,10 @@
 		F39A19CB1D589F81008B397D /* Baja.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Baja.cpp; sourceTree = "<group>"; };
 		F39A19CC1D589F81008B397D /* Baja.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Baja.h; sourceTree = "<group>"; };
 		F39A19CD1D589F81008B397D /* Chain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Chain.h; sourceTree = "<group>"; };
+		F39A19DC1D58A3C7008B397D /* checked.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = checked.h; sourceTree = "<group>"; };
+		F39A19DD1D58A3C7008B397D /* core.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = core.h; sourceTree = "<group>"; };
+		F39A19DE1D58A3C7008B397D /* unchecked.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = unchecked.h; sourceTree = "<group>"; };
+		F39A19DF1D58A3CF008B397D /* utf8.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = utf8.h; sourceTree = "<group>"; };
 		F3C711C91D56F28D000DBBE5 /* GraphemeGrid.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GraphemeGrid.cpp; sourceTree = "<group>"; };
 		F3C711CD1D56F29B000DBBE5 /* GraphemeGrid.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GraphemeGrid.h; sourceTree = "<group>"; };
 		F3C711CE1D57611C000DBBE5 /* Grapheme.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Grapheme.h; sourceTree = "<group>"; };
@@ -592,6 +596,7 @@
 		46880B8319C43A87006E1F66 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				F39A19DA1D58A364008B397D /* ext */,
 				3718292E1D44CA3C0013E3C4 /* i18n */,
 				37DF03D81D44B8C3007252C6 /* LanguageManager.h */,
 				37DF03D91D44B8D4007252C6 /* LanguageManager.cpp */,
@@ -806,6 +811,25 @@
 				F3913DEE1D3F4694001B3038 /* MenuContext.cpp */,
 			);
 			path = menu;
+			sourceTree = "<group>";
+		};
+		F39A19DA1D58A364008B397D /* ext */ = {
+			isa = PBXGroup;
+			children = (
+				F39A19DF1D58A3CF008B397D /* utf8.h */,
+				F39A19DB1D58A3B1008B397D /* utf8 */,
+			);
+			path = ext;
+			sourceTree = "<group>";
+		};
+		F39A19DB1D58A3B1008B397D /* utf8 */ = {
+			isa = PBXGroup;
+			children = (
+				F39A19DC1D58A3C7008B397D /* checked.h */,
+				F39A19DD1D58A3C7008B397D /* core.h */,
+				F39A19DE1D58A3C7008B397D /* unchecked.h */,
+			);
+			path = utf8;
 			sourceTree = "<group>";
 		};
 		F3CA26E21D43B73C006EBDC6 /* lang */ = {

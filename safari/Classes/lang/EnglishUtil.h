@@ -25,7 +25,8 @@ public:
     virtual std::string getLang() override;    
     virtual std::string getDir() override;
     virtual void initializeWordManager() override;
-    
+    virtual bool isGraphemeStart(uint32_t prevCodePoint, uint32_t currentCodePoint)override;
+
     virtual ~EnglishUtil();
     EnglishUtil();
 };
