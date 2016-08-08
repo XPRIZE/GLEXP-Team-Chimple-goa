@@ -8,6 +8,7 @@
 
 #ifndef TextGenerator_h
 #define TextGenerator_h
+#include "cocos2d.h"
 
 class TextGenerator {
 public:
@@ -16,7 +17,8 @@ public:
     
     std::vector<std::vector<std::string>> generateMatrix(std::string word, int numRows, int numCols);
     std::string generateAWord();
-    int getNumCharactersInString(std::string word);
+    int getNumGraphemesInString(std::string word);
+    std::vector<std::string> getGraphemes(std::string word);
 protected:
     std::vector<std::string> getAllChars();
     std::map<int, int> getRandomLocations(int numLoc, int totalNum);

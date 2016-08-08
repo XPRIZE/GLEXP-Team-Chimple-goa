@@ -230,6 +230,12 @@
     <ClCompile Include="..\Classes\lang\TextGenerator.cpp">
       <Filter>src\lang</Filter>
     </ClCompile>
+    <ClCompile Include="..\Classes\lang\WordManager.cpp">
+      <Filter>src\lang</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\WordSprite.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -432,6 +438,12 @@
     </ClInclude>
     <ClInclude Include="..\Classes\lang\TextGenerator.h">
       <Filter>src\lang</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\lang\WordManager.h">
+      <Filter>src\lang</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\WordSprite.h">
+      <Filter>src</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
