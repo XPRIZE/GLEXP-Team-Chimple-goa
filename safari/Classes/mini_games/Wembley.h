@@ -2,7 +2,7 @@
 #define Wembley_SCENE_H__
 
 #include "cocos2d.h"
-#include "lang/TextGenerator.h"
+#include "../lang/TextGenerator.h"
 
 class Wembley : public cocos2d::Layer
 {
