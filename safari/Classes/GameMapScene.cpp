@@ -9,14 +9,17 @@
 #include "GameMapScene.h"
 #include "alphamon/SelectAlphamonScene.h"
 #include "puzzle/DuelScene.h"
+#include "puzzle/WordScene.h"
 #include "mini_games/PatchTheWallScene.h"
 #include "mini_games/CrossTheBridgeScene.h"
 #include "mini_games/SmashTheRockScene.h"
 #include "mini_games/EndlessRunner.h"
 #include "mini_games/Cannon_Ball_Main.h"
+#include "mini_games/Jasmin_Mainfile.h"
 #include "mini_games/TraceScene.h"
 #include "mini_games/AlphamonFeedScene.h"
 #include "StartMenuScene.h"
+#include "mini_games/Baja.h"
 
 USING_NS_CC;
 
@@ -68,10 +71,7 @@ bool GameMapScene::init()
         return false;
     }
     
-    FileUtils::getInstance()->addSearchPath("res/gamemap");
-    
-    this->languageManger = LanguageManager::getInstance();
-    
+    FileUtils::getInstance()->addSearchPath("res/gamemap");    
     
     this->loadGameMap();
     
@@ -147,6 +147,7 @@ void GameMapScene::islandSelected(Ref* pSender, ui::Widget::TouchEventType eEven
             break;
         case ui::Widget::TouchEventType::ENDED:
         {
+            clickedButton->setEnabled(false);
             if(clickedButton->getName() == PATCH_THE_WALL) {
                 Director::getInstance()->replaceScene(PatchTheWall::createScene());
             } else if(clickedButton->getName() == CROSS_THE_BRIDGE) {
@@ -156,7 +157,7 @@ void GameMapScene::islandSelected(Ref* pSender, ui::Widget::TouchEventType eEven
             } else if(clickedButton->getName() == SMASH_THE_ROCK) {
                 Director::getInstance()->replaceScene(SmashTheRock::createScene());
             } else if(clickedButton->getName() == CANNON_BALL) {
-                Director::getInstance()->replaceScene(MainGame::createScene());
+                Director::getInstance()->replaceScene(Jasmin_Mainfile::createScene());
             } else if(clickedButton->getName() == ENDLESS_RUNNER) {
                 Director::getInstance()->replaceScene(EndlessRunner::createScene());
             } else if(clickedButton->getName() == KUNG_FU_ALPHA) {

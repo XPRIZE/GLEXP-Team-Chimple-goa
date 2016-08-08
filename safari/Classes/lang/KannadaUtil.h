@@ -10,6 +10,7 @@
 #define KannadaUtil_h
 
 #include "LangUtil.h"
+#include "WordManager.h"
 
 class KannadaUtil : public LangUtil {
 public:
@@ -23,8 +24,9 @@ public:
     virtual std::string getPhoneticSoundFileName(wchar_t alpha) override;
     virtual std::string getDir() override;
     virtual std::string getLang() override;
+    virtual void initializeWordManager() override;
     virtual ~KannadaUtil();
-    KannadaUtil();
+    KannadaUtil();    
 };
 
 #endif /* KannadaUtil_h */

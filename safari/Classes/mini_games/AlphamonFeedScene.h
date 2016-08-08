@@ -38,7 +38,7 @@ public:
 	bool flage = true;
 	bool flage_reverse = false;
 	cocos2d::Vector < cocos2d::Node *> fruitReff;
-	bool isTouching;
+	
 	float touchPosition;
 	virtual bool onTouchBegan(cocos2d::Touch *touch, cocos2d::Event * event);
 	virtual void onTouchMoved(cocos2d::Touch *touch, cocos2d::Event * event);
@@ -51,6 +51,7 @@ public:
 	void startGame();
 
 protected:
+	bool isTouching;
 	MenuContext * menu;
 	MenuContext* _menuContext;
     cocos2d::EventListenerTouchOneByOne* listener;
