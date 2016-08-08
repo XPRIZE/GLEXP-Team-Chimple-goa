@@ -166,13 +166,13 @@ void SmashTheRock::begin()
 			//	label->setScale(0.15);
 			label->setPositionX(blockWidth);
 			auto letter = label->getString();
-			label->setPositionY(blockHeight - 320);
+			label->setPositionY(blockHeight - 230);
 			
 			label->setAnchorPoint(Vec2::ANCHOR_MIDDLE_BOTTOM);
 			auto mystr = LangUtil::convertUTF16CharToString(mychar);
 			label->setName(mystr);
 			label->setScaleX(0.35);
-			label->setScaleY(0.5);
+			label->setScaleY(0.45);
 			labelRef.pushBack(label);
 			CCLOG("alpha = %d", labelRef.size());
 			this->addChild(label, 2);
