@@ -242,6 +242,12 @@
     <ClCompile Include="..\Classes\puzzle\GraphemeGrid.cpp">
       <Filter>src\puzzle</Filter>
     </ClCompile>
+    <ClCompile Include="..\Classes\mini_games\jazz.cpp">
+      <Filter>src\mini_games</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\lang\WordInfo.cpp">
+      <Filter>src\lang</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -456,6 +462,12 @@
     </ClInclude>
     <ClInclude Include="..\Classes\puzzle\GraphemeGrid.h">
       <Filter>src\puzzle</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\mini_games\jazz.h">
+      <Filter>src\mini_games</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\lang\WordInfo.h">
+      <Filter>src\lang</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

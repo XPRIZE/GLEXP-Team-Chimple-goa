@@ -106,6 +106,16 @@ std::string KannadaUtil::getPhoneticSoundFileName(wchar_t alpha) {
     return fileName;
 }
 
+bool KannadaUtil::isGraphemeStart(uint32_t prevCodePoint, uint32_t currentCodePoint) {
+    if(prevCodePoint == 0x0CCD) {
+        return false;
+    }
+    if(currentCodePoint >= 0x0C82 && currentCodePoint <= 0x0CB9) {
+        return true;
+    }
+    return false;
+}
+
 std::string KannadaUtil::getDir()
 {
 	return "kannada";

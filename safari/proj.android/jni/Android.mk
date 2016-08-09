@@ -56,6 +56,7 @@ LOCAL_SRC_FILES := hellocpp/main.cpp \
 					../../Classes/mini_games/Cannon_Ball_Listener.cpp \
 					../../Classes/mini_games/Cannon_Ball_Main.cpp \
 					../../Classes/mini_games/Jasmin_Mainfile.cpp \
+					../../Classes/mini_games/Chain.cpp \
 					../../Classes/menu/MenuContext.cpp \
 					../../Classes/lang/LangUtil.cpp \
 					../../Classes/lang/EnglishUtil.cpp \
@@ -75,7 +76,8 @@ LOCAL_SRC_FILES := hellocpp/main.cpp \
 					../../Classes/GameMapScene.cpp \
 					../../Classes/menu/ScoreBoardContent.cpp \
 					../../Classes/lang/WordManager.cpp \
-					../../Classes/WordSprite.cpp
+					../../Classes/WordSprite.cpp \
+					../../Classes/lang/WordInfo.cpp \
 										
 
 LOCAL_C_INCLUDES := $(LOCAL_PATH)/../../Classes

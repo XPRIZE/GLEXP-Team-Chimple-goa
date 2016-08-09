@@ -32,6 +32,17 @@ WordScene* WordScene::create() {
     return nullptr;
 }
 
+WordScene* WordScene::createWithWord(std::string wordStr) {
+    WordScene* word = new (std::nothrow) WordScene();
+    if(word && word->initWithWord(wordStr))
+    {
+        word->autorelease();
+        return word;
+    }
+    CC_SAFE_DELETE(word);
+    return nullptr;
+}
+
 WordScene::WordScene() {
     
 }
@@ -41,20 +52,27 @@ WordScene::~WordScene() {
 }
 
 bool WordScene::init() {
+    auto tg = TextGenerator::getInstance();
+    auto word = tg->generateAWord();
+    return initWithWord(word);
+}
+
+bool WordScene::initWithWord(std::string word) {
     if(!Node::init()) {
         return false;
     }
+    _word = word;
     auto tg = TextGenerator::getInstance();
-    _word = tg->generateAWord();
     _answerGraphemes = tg->getGraphemes(_word);
     _numGraphemes = _answerGraphemes.size();
-
+    
     addChild(loadNode());
-    createGrid();
     createAnswer();
     createChoice();
+    createGrid();
     _eventDispatcher->addCustomEventListener("grapheme_anim_done", CC_CALLBACK_0(WordScene::checkAnswer, this));
     return true;
+    
 }
 
 void WordScene::createGrid() {
@@ -140,18 +158,24 @@ void WordScene::onTouchEnded(cocos2d::Touch *touch, cocos2d::Event *event) {
 }
 
 void WordScene::checkAnswer() {
-    for (auto i = 0; i < _answerGraphemes.size(); i++) {
-        auto grapheme = _answerVector.at(i).second;
-        if(grapheme == nullptr || grapheme->getGraphemeString() != _answerGraphemes.at(i)) {
-            return;
-        }
-    }
     if(_grid->getNumberOfActionsRunning() > 1) {
         return;
     }
-    gameOver();
+    bool correct = true;
+    for (auto i = 0; i < _answerGraphemes.size(); i++) {
+        auto grapheme = _answerVector.at(i).second;
+        if(grapheme == nullptr) {
+            return;
+        }
+        if(grapheme->getGraphemeString() != _answerGraphemes.at(i)) {
+            correct = false;
+        }
+    }
+    gameOver(correct);
 }
 
-void WordScene::gameOver() {
-    _menuContext->showScore();
+void WordScene::gameOver(bool correct) {
+    if(correct) {
+        _menuContext->showScore();        
+    }
 }
