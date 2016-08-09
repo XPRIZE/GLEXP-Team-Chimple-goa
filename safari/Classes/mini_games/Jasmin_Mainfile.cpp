@@ -17,12 +17,19 @@ Node* Jasmin_Mainfile::loadNode() {
 }
 
 void Jasmin_Mainfile::createAnswer() {
+
+	Size _size = Director::getInstance()->getVisibleSize();
+
+	auto _node = CSLoader::createNode("jasmine/hint.csb");
+	_node->setPosition(Vec2(_size.width/2, _size.height - _node->getBoundingBox().size.height));
+	addChild(_node);
+
 	auto label = ui::Text::create();
 	label->setString(_word);
 	label->setFontSize(200);
 	_answer = Node::create();
 	_answer->addChild(label);
-	_answer->setPosition(Vec2(1280, 1600));
+	_answer->setPosition(Vec2(_size.width / 2, _size.height*92/100));
 	addChild(_answer);
 
 }
