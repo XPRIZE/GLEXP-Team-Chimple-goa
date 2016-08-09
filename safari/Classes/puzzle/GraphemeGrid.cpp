@@ -18,16 +18,16 @@ touchBeganCallback(NULL),
 touchMovedCallback(NULL),
 touchEndedCallback(NULL)
 {
-    
+    _graphemeUnselectedBackground = "";
+    _graphemeSelectedBackground = "";    
 }
 
 GraphemeGrid::~GraphemeGrid() {
-    
 }
 
-GraphemeGrid* GraphemeGrid::create(GLfloat width, GLfloat height, int numRows, int numCols, std::string spriteName, std::vector<std::vector<std::string>> graphemes) {
+GraphemeGrid* GraphemeGrid::create(GLfloat width, GLfloat height, int numRows, int numCols, std::string spriteName, std::vector<std::vector<std::string>> graphemes, std::string graphemeUnselectedBackground, std::string graphemeSelectedBackground) {
     GraphemeGrid *graphemeGrid = new (std::nothrow) GraphemeGrid();
-    if(graphemeGrid && graphemeGrid->init(width, height, numRows, numCols,  spriteName, graphemes)) {
+    if(graphemeGrid && graphemeGrid->init(width, height, numRows, numCols,  spriteName, graphemes, graphemeUnselectedBackground, graphemeSelectedBackground)) {
         graphemeGrid->autorelease();
         return graphemeGrid;
     }
@@ -36,11 +36,13 @@ GraphemeGrid* GraphemeGrid::create(GLfloat width, GLfloat height, int numRows, i
 
 }
 
-bool GraphemeGrid::init(GLfloat width, GLfloat height, int numRows, int numCols, std::string spriteName, std::vector<std::vector<std::string>> graphemes) {
+bool GraphemeGrid::init(GLfloat width, GLfloat height, int numRows, int numCols, std::string spriteName, std::vector<std::vector<std::string>> graphemes, std::string graphemeUnselectedBackground, std::string graphemeSelectedBackground) {
     if (!Layer::init()) {
         return false;
     }
     _spriteName = spriteName;
+    _graphemeUnselectedBackground = graphemeUnselectedBackground;
+    _graphemeSelectedBackground = graphemeSelectedBackground;
     resize(width, height, numRows, numCols, graphemes);
     return true;
     
@@ -68,9 +70,25 @@ void GraphemeGrid::resize(GLfloat width, GLfloat height, int numRows, int numCol
     }
 }
 
+void GraphemeGrid::setGraphemeSelectedBackground(std::string spriteName) {
+    _graphemeSelectedBackground = spriteName;
+}
+
+void GraphemeGrid::setGraphemeUnselectedBackground(std::string spriteName) {
+    _graphemeUnselectedBackground = spriteName;
+}
+
 Grapheme* GraphemeGrid::createAndAddGrapheme(std::string graphemeString) {
     auto grapheme = Grapheme::create(graphemeString);
     addChild(grapheme);
+    if(!_graphemeUnselectedBackground.empty()) {
+        auto bg = Sprite::createWithSpriteFrameName(_graphemeUnselectedBackground);
+        grapheme->setUnselectedBackground(bg);
+    }
+    if(!_graphemeSelectedBackground.empty()) {
+        auto bg = Sprite::createWithSpriteFrameName(_graphemeSelectedBackground);
+        grapheme->setSelectedBackground(bg);
+    }
     return grapheme;
 }
 
