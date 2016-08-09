@@ -78,7 +78,15 @@ bool WordScene::initWithWord(std::string word) {
 void WordScene::createGrid() {
     Size visibleSize = Director::getInstance()->getVisibleSize();
     _matrix = TextGenerator::getInstance()->generateMatrix(_word, 2, 8);
-    _grid = GraphemeGrid::create(visibleSize.width, getGridHeight(), getGridNumRows(), getGridNumCols(), getGridBackground(), _matrix);
+    _grid = GraphemeGrid::create(visibleSize.width, getGridHeight(), getGridNumRows(), getGridNumCols(), getGridBackground(), _matrix, getGraphemeUnselectedBackground(), getGraphemeSelectedBackground());
+    auto unselBg = getGraphemeUnselectedBackground();
+    if(!unselBg.empty()) {
+        _grid->setGraphemeUnselectedBackground(unselBg);
+    }
+    auto selBg = getGraphemeSelectedBackground();
+    if(!selBg.empty()) {
+        _grid->setGraphemeSelectedBackground(selBg);
+    }
     _grid->setPosition(0, 0);
     addChild(_grid);
     _grid->touchEndedCallback = CC_CALLBACK_2(WordScene::onTouchEnded, this);
@@ -99,6 +107,15 @@ int WordScene::getGridNumCols() {
 std::string WordScene::getGridBackground() {
     return "smash_de_rock/letter_correct.png";
 }
+
+std::string WordScene::getGraphemeUnselectedBackground() {
+    return "";
+}
+
+std::string WordScene::getGraphemeSelectedBackground() {
+    return "";
+}
+
 
 Node* WordScene::loadNode() {
     auto background = CSLoader::createNode("smash_de_rock/MainScene.csb");
