@@ -3,24 +3,26 @@
 #define __Chain_SCENE_H__
 
 #include "cocos2d.h"
-#include "editor-support/cocostudio/CocoStudio.h"
-#include "../menu/MenuContext.h"
-#include "../alphamon/Alphamon.h"
-#include "../puzzle/Alphabet.h"
-#include "SimpleAudioEngine.h"
+#include "../lang/TextGenerator.h"
+#include "../puzzle/WordScene.h"
+#include "../GameScene.h"
 
 using namespace cocos2d;
 
-
-class Chain : public cocos2d::Layer
+class Chain : public WordScene
 {
 public:
 	static cocos2d::Scene* createScene();
+	static Chain *create();
+	//virtual bool init();
 
-	virtual bool init();
+protected:
+	cocos2d::Node* loadNode() override;
+	std::string getGridBackground() override;
+	void createChoice() override;
 
 	// implement the "static create()" method manually
-	CREATE_FUNC(Chain);
+	//CREATE_FUNC(Chain);
 };
 
 #endif // __Chain_SCENE_H__

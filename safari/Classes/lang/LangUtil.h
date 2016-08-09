@@ -34,7 +34,7 @@ public:
     virtual std::string getDir() = 0;
     virtual void initializeWordManager() = 0;
     virtual WordInfo* loadLanguageSpecificWordMappingForAWord(const char* word);
-    
+    virtual bool isGraphemeStart(uint32_t prevCodePoint, uint32_t currentCodePoint) = 0;
     std::string translateString(std::string input);
     void changeLanguage(SupportedLanguages lang);
     std::string translateParameterizedString(std::string input, std::string param);
