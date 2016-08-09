@@ -14,9 +14,11 @@
 
 class GraphemeGrid: public cocos2d::Layer {
 public:
-    static GraphemeGrid *create(GLfloat width, GLfloat height, int numRows, int numCols, std::string spriteName, std::vector<std::vector<std::string>> graphemes);
+    static GraphemeGrid *create(GLfloat width, GLfloat height, int numRows, int numCols, std::string spriteName, std::vector<std::vector<std::string>> graphemes, std::string graphemeUnselectedBackground, std::string graphemeSelectedBackground);
     void resize(GLfloat width, GLfloat height, int numRows, int numCols, std::vector<std::vector<std::string>> graphemes);
     int getNumberOfActionsRunning();
+    void setGraphemeUnselectedBackground(std::string spriteName);
+    void setGraphemeSelectedBackground(std::string spriteName);
     std::function<bool(cocos2d::Touch*, cocos2d::Event*)> touchBeganCallback;
     std::function<void(cocos2d::Touch*, cocos2d::Event*)> touchMovedCallback;
     std::function<void(cocos2d::Touch*, cocos2d::Event*)> touchEndedCallback;
@@ -24,7 +26,7 @@ public:
 CC_CONSTRUCTOR_ACCESS:
     GraphemeGrid();
     virtual ~GraphemeGrid();
-    bool init(GLfloat width, GLfloat height, int numRows, int numCols, std::string spriteName, std::vector<std::vector<std::string>> graphemes);
+    bool init(GLfloat width, GLfloat height, int numRows, int numCols, std::string spriteName, std::vector<std::vector<std::string>> graphemes, std::string graphemeUnselectedBackground, std::string graphemeSelectedBackground);
     bool onTouchBegan(cocos2d::Touch* touch, cocos2d::Event* event);
     void onTouchEnded(cocos2d::Touch* touch, cocos2d::Event* event);
     void onTouchMoved(cocos2d::Touch* touch, cocos2d::Event* event);
@@ -38,6 +40,8 @@ protected:
     GLfloat _height;
     std::string _spriteName;
     std::vector<std::vector<Grapheme*> > _graphemeMatrix;
+    std::string _graphemeUnselectedBackground;
+    std::string _graphemeSelectedBackground;
 
 };
 

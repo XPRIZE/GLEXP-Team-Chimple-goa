@@ -40,6 +40,8 @@ protected:
     virtual int getGridNumRows();
     virtual int getGridNumCols();
     virtual std::string getGridBackground();
+    virtual std::string getGraphemeUnselectedBackground();
+    virtual std::string getGraphemeSelectedBackground();
 
     MenuContext* _menuContext;
     GraphemeGrid* _grid;
