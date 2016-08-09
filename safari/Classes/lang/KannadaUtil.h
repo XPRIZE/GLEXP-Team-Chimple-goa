@@ -25,6 +25,8 @@ public:
     virtual std::string getDir() override;
     virtual std::string getLang() override;
     virtual void initializeWordManager() override;
+    virtual bool isGraphemeStart(uint32_t prevCodePoint, uint32_t currentCodePoint)override;
+
     virtual ~KannadaUtil();
     KannadaUtil();    
 };

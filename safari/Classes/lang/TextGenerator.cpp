@@ -8,6 +8,7 @@
 
 #include "TextGenerator.h"
 #include "LangUtil.h"
+#include "../ext/utf8.h"
 
 static TextGenerator* _singletonTextGenerator = nullptr;
 
@@ -60,16 +61,26 @@ std::string TextGenerator::generateAWord() {
 
 
 int TextGenerator::getNumGraphemesInString(std::string word) {
-    return 5;
+    return getGraphemes(word).size();
 }
 
 std::vector<std::string> TextGenerator::getGraphemes(std::string word) {
     std::vector<std::string> graphemes;
-    graphemes.push_back("A");
-    graphemes.push_back("P");
-    graphemes.push_back("P");
-    graphemes.push_back("L");
-    graphemes.push_back("E");
+    auto wordChar = word.c_str();
+    auto end = wordChar + word.length();
+    auto graphemeBegin = wordChar;
+    uint32_t prevCodePoint = 0;
+    while(wordChar != end) {
+        auto cp = utf8::peek_next(wordChar, end);
+        if(prevCodePoint && LangUtil::getInstance()->isGraphemeStart(prevCodePoint, cp)) {
+            auto str = std::string(graphemeBegin, wordChar);
+            graphemes.push_back(str);
+            graphemeBegin = wordChar;
+        }
+        prevCodePoint = utf8::next(wordChar, end);
+    }
+    auto str = std::string(graphemeBegin, wordChar);
+    graphemes.push_back(str);
     return graphemes;
 }
 
