@@ -50,11 +50,11 @@ void Wembley::createChoice() {
 	for (int i = 0; i < _numGraphemes; i++) {
 		
 		auto choiceNode = Sprite::createWithSpriteFrameName("wembley/char.png");
-		choiceNode->setPosition(Vec2((i + 0.5) * squareWidth, hei * 63 / 100));
+		choiceNode->setPosition(Vec2((i + 0.4) * squareWidth, hei * 63 / 100));
 		addChild(choiceNode);
 
 		auto dotBall = Sprite::createWithSpriteFrameName("wembley/balldash.png");
-		dotBall->setPosition(Vec2((i + 0.5) * squareWidth, 0));
+		dotBall->setPosition(Vec2((i + 0.7) * squareWidth, hei * -10/100));
 		addChoice(dotBall);
 	}
 }
