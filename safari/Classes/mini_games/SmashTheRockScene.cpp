@@ -13,13 +13,11 @@
 #define COCOS2D_DEBUG 1
 
 USING_NS_CC;
-const std::vector<std::string> Alphabets = { "A","B","C","D", "E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z" };
 int key;
 int val;
 int val1;
 int sizei;
 int sizej;
-std::string mapString;
 SmashTheRock::SmashTheRock()
 {
 
@@ -71,6 +69,7 @@ bool SmashTheRock::init()
 	centre->setAnchorPoint(Vec2(0.5,0));
     this->addChild(centre,1);
 
+	setonEnterTransitionDidFinishCallback(CC_CALLBACK_0(SmashTheRock::startGame, this));
 	/*auto letterRock = (Sprite *)centre->getChildByName("letterboard");
 	letterRock->setGlobalZOrder(5);
 	auto boundary = (Sprite *)centre->getChildByName("boundary");
@@ -84,102 +83,117 @@ bool SmashTheRock::init()
 	//stone_bace->setGlobalZOrder(0);
 
 
+			
+
+	return true;
+}
+
+void SmashTheRock::update(float dt)
+{
+	
+	
+}
+
+void SmashTheRock::startGame() {
+    menu->showStartupHelp(CC_CALLBACK_0(SmashTheRock::begin, this));
+//	runAction(Sequence::create(CallFunc::create(CC_CALLBACK_0(MenuContext::showStartupHelp, menu)), CallFunc::create(CC_CALLBACK_0(SmashTheRock::begin, this)), NULL));
+}
+
+void SmashTheRock::begin()
+{
+	Size visibleSize = Director::getInstance()->getVisibleSize();
+	Vec2 origin = Director::getInstance()->getVisibleOrigin();
+
+
 	auto spritecache1 = SpriteFrameCache::getInstance();
 	spritecache1->addSpriteFramesWithFile("smash_de_rock/smashderock_01.plist");
 	auto spritecache2 = SpriteFrameCache::getInstance();
 	spritecache2->addSpriteFramesWithFile("smash_de_rock/smashderock_02.plist");
 
-	
+
 	auto block = Sprite::createWithSpriteFrameName("smash_de_rock/letter_normal.png");
 
 	mychar = CharGenerator::getInstance()->generateAChar();
-	std::vector<std::vector<wchar_t>> charkey = CharGenerator::getInstance()->generateMatrixForChoosingAChar(mychar,2,9,50);
+	std::vector<std::vector<wchar_t>> charkey = CharGenerator::getInstance()->generateMatrixForChoosingAChar(mychar, 2, 7, 50);
 
-	int dis = (160.0/2560)*visibleSize.width;
+	int dis = (220.0 / 2560)*visibleSize.width;
 	for (int i = 1; i < 3; i++)
 	{
 		int blockHeight = i*(block->getContentSize().height + 110) + 10;
 		sizei = (block->getContentSize().height + 110);
 		CCLOG("sizei = %d", sizei);
-		for (int j = 1; j < 10; j++)
+		for (int j = 1; j < 8; j++)
 		{
 			auto block1 = Sprite::createWithSpriteFrameName("smash_de_rock/letter_normal.png");
 			auto right = Sprite::createWithSpriteFrameName("smash_de_rock/letter_correct.png");
 			auto wrong = Sprite::createWithSpriteFrameName("smash_de_rock/letter_wrong.png");
-			int blockWidth = j*(block->getContentSize().width + 80) +dis;
-			sizej = (block->getContentSize().width + 80);
+			int blockWidth = j*(block->getContentSize().width + 140) + dis;
+			sizej = (block->getContentSize().width + 140);
 			CCLOG("sizej = %d", sizej);
 			block1->setAnchorPoint(Vec2(0.5, 0.5));
 			block1->setPositionX(blockWidth);
 			block1->setPositionY(blockHeight);
-			block1->setScaleX(1.3);
-			block1->setScaleY(1.2);
+			block1->setScaleX(1.6);
+			block1->setScaleY(1.4);
 			right->setAnchorPoint(Vec2(0.5, 0.5));
 			right->setPositionX(blockWidth);
 			right->setPositionY(blockHeight);
-			right->setScaleX(1.3);
-			right->setScaleY(1.2);
+			right->setScaleX(1.6);
+			right->setScaleY(1.4);
 			right->setVisible(false);
 			wrong->setAnchorPoint(Vec2(0.5, 0.5));
 			wrong->setPositionX(blockWidth);
 			wrong->setPositionY(blockHeight);
-			wrong->setScaleX(1.3);
-			wrong->setScaleY(1.2);
+			wrong->setScaleX(1.6);
+			wrong->setScaleY(1.4);
 			wrong->setVisible(false);
 			blockRef.pushBack(block1);
 			rightRef.pushBack(right);
 			wrongRef.pushBack(wrong);
-			this->addChild(block1,2);
-		//	block1->setGlobalZOrder(6);
+			this->addChild(block1, 2);
+			//	block1->setGlobalZOrder(6);
 			this->addChild(right, 2);
-		//	right->setGlobalZOrder(6);
+			//	right->setGlobalZOrder(6);
 			this->addChild(wrong, 2);
-		//	wrong->setGlobalZOrder(6);
-		//	std::string str = Alphabets.at(cocos2d::RandomHelper::random_int(key, (key + 20)) % 20).c_str();
-			wchar_t str1 = charkey.at(i-1).at(j-1);
+			//	wrong->setGlobalZOrder(6);
+			//	std::string str = Alphabets.at(cocos2d::RandomHelper::random_int(key, (key + 20)) % 20).c_str();
+			wchar_t str1 = charkey.at(i - 1).at(j - 1);
 			//std::string ttttt(&str1,1) ;
 			//label = Label::createWithBMFont(LangUtil::getInstance()->getBMFontFileName(), ttttt);
 			//label = Label::createWithTTF(ttttt, "fonts/BalooBhai-Regular.ttf", 256);
 			//CCLOG("alpha = %s",str.c_str());
 			Alphabet *label = Alphabet::createWithSize(str1, 200);
-		//	label->setScale(0.15);
-			label->setPositionX(blockWidth );
+			//	label->setScale(0.15);
+			label->setPositionX(blockWidth);
 			auto letter = label->getString();
-			label->setPositionY(blockHeight - 210);
-			label->setColor(ccc3(255, 255, 255));
-			label->enableShadow(Color4B::GRAY, Size(5, -5), -50);
+			label->setPositionY(blockHeight - 230);
+			
 			label->setAnchorPoint(Vec2::ANCHOR_MIDDLE_BOTTOM);
 			auto mystr = LangUtil::convertUTF16CharToString(mychar);
 			label->setName(mystr);
-			label->setScale(0.35);
+			label->setScaleX(0.35);
+			label->setScaleY(0.45);
 			labelRef.pushBack(label);
 			CCLOG("alpha = %d", labelRef.size());
-			this->addChild(label,2);
-	//		label->setGlobalZOrder(6);
+			this->addChild(label, 2);
+			//		label->setGlobalZOrder(6);
 			auto listener = EventListenerTouchOneByOne::create();
 			//listener->setSwallowTouches(true);
 			label->touchBeganCallback = CC_CALLBACK_2(SmashTheRock::onTouchBegan, this);
 			label->touchEndedCallback = CC_CALLBACK_2(SmashTheRock::onTouchEnded, this);
-		//	listener->onTouchBegan = CC_CALLBACK_2(SmashTheRock::onTouchBegan, this);
+			//	listener->onTouchBegan = CC_CALLBACK_2(SmashTheRock::onTouchBegan, this);
 			//listener->onTouchCancelled = CC_CALLBACK_2(SmashTheRock::onTouchCancelled, this);
 			//_eventDispatcher->addEventListenerWithSceneGraphPriority(listener, label);
 		}
-		
+
 	}
 
-	
 
-    audio = CocosDenshion::SimpleAudioEngine::getInstance();
+
+	audio = CocosDenshion::SimpleAudioEngine::getInstance();
 	//audio->playBackgroundMusic("smash_de_rock/Smash Rock  BG sound.wav", true);
 	//audio->setEffectsVolume(1.0f);
 	masking();
-
-	return true;
-}
-void SmashTheRock::update(float dt)
-{
-	
-	
 }
 void SmashTheRock::createSkeletonCharacter()
 {
@@ -282,26 +296,6 @@ void SmashTheRock::masking()
 	//maskedFill->setGlobalZOrder(3);
 	maskedFill->setContentSize(cocos2d::Size(300, 300));
 	maskedFill->setPosition(Vec2(origin.x + (visibleSize.width / 2)  , origin.y + (visibleSize.height / 2) + 480));
-	//maskedFill->setAnchorPoint(Vec2(0.5,0.5));
-	//Texture2D::TexParams tp = { GL_LINEAR, GL_LINEAR, GL_REPEAT, GL_REPEAT };
-	//maskedFill->draw();
-
-/*	auto myBox = DrawNode::create();
-	Vec2 vertices[] =
-	{
-		Vec2(maskedFill->getPositionX() , maskedFill->getPositionY()  + maskedFill->getContentSize().height),
-		Vec2(maskedFill->getContentSize().width + maskedFill->getPositionX(), maskedFill->getPositionY()  + maskedFill->getContentSize().height),
-		Vec2(maskedFill->getContentSize().width + maskedFill->getPositionX() , maskedFill->getPositionY() ),
-		Vec2(maskedFill->getPositionX() , maskedFill->getPositionY() )
-	};
-	myBox->drawPolygon(vertices, 4, Color4F(3.0f, 0.3f, 0.3f, 1), 3, Color4F(0.2f, 0.2f, 0.2f, 1));
-
-	this->addChild(myBox, 2);*/
-
-
-	//target->getTexture()->setTexParameters(tp);
-
-//	target->setTextureRect(Rect(400, 400, 2000, 2000));
 	target->setAnchorPoint(Vec2(0.5, 0.5));
 	this->addChild(maskedFill,2);
 	flag = true;
@@ -331,7 +325,7 @@ void SmashTheRock::masking()
 void SmashTheRock::change(float dt)
 {
 	stopAllActions();
-	Director::getInstance()->replaceScene(StartMenu::createScene());
+	menu->showScore();
 }
 
 bool SmashTheRock::onTouchBegan(cocos2d::Touch *touch, cocos2d::Event * event)
@@ -342,7 +336,7 @@ bool SmashTheRock::onTouchBegan(cocos2d::Touch *touch, cocos2d::Event * event)
 	Alphabet * target =(Alphabet *) event->getCurrentTarget();
 	auto  location = target->convertToNodeSpace(touch->getLocation());
 	Size visibleSize = Director::getInstance()->getVisibleSize();
-	int dis = (160.00 / 2560)*(visibleSize.width);
+	int dis = (220.00 / 2560)*(visibleSize.width);
 	auto mystr = LangUtil::convertUTF16CharToString(mychar);
 	auto myletter = target->getChar();
 	//	CCRect targetRectangle = CCRectMake(0,0, target->getContentSize().width, target->getContentSize().height);
@@ -355,11 +349,11 @@ bool SmashTheRock::onTouchBegan(cocos2d::Touch *touch, cocos2d::Event * event)
 			int indexj = (target->getPositionX());
 			int indexi = (target->getPositionY());
 			CCLOG("target x = %d", indexi);
-			int tempi = ((indexi + 200) / sizei)-1 ;
+			int tempi = ((indexi + 310) / sizei)-1 ;
 			int tempj = ((indexj - (dis)) / sizej)-1;
 			CCLOG("tempi x = %d", tempi);
 			CCLOG("tempj x = %d", tempj);
-			val = ((tempi) * 9) + tempj;
+			val = ((tempi) * 7) + tempj;
 			CCLOG("val x = %d", val);
             auto showright = rightRef.at(val);
 			showright->setVisible(true);
@@ -375,11 +369,11 @@ bool SmashTheRock::onTouchBegan(cocos2d::Touch *touch, cocos2d::Event * event)
 			int indexj1 = (target->getPositionX());
 			int indexi1 = (target->getPositionY());
 			CCLOG("target x = %d", indexi1);
-			int tempi1 = ((indexi1 + 200) / sizei)-1;
+			int tempi1 = ((indexi1 + 310) / sizei)-1;
 			int tempj1 = ((indexj1 - (dis)) / sizej)-1;
 			CCLOG("tempi1 x = %d", tempi1);
 			CCLOG("tempj1 x = %d", tempj1);
-			val1 = ((tempi1) * 9) + tempj1;
+			val1 = ((tempi1) * 7) + tempj1;
 			CCLOG("val1 x = %d", val1);
 			auto showwrong = wrongRef.at(val1);
 			showwrong->setVisible(true);

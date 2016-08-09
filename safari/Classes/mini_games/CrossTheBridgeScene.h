@@ -20,14 +20,14 @@ public:
 
 	virtual bool init();
 	virtual void sceneMaking();
-
+	void allUpdateMethod();
+	void startGame();
 	virtual void leftMove_Alpha(Alphamon* spriteAlphabet, int time, float positionX, float positionY);
 	virtual void leftMove_Mons(Sprite* spriteAlphabet, int time, float positionX, float positionY);
 
 	virtual void update(float dt);
 
-	virtual void alphabetGeneration(float dt);
-	virtual void monsGeneration(float dt);
+	virtual void alphabetAndMonsterGeneration(float dt);
 
 	virtual void alphaDeletion();
 	virtual void monsDeletion();
@@ -52,9 +52,10 @@ public:
 	virtual void addEvents(Sprite* touchSprite);
 	// a selector callback
 	void menuCloseCallback(cocos2d::Ref* pSender);
-    
-    static const char* gameName() { return "Cross The Bridge";};
 
+	//static const char* gameName() { return "Cross The Bridge"; };
+	static const char* gameName() { return CROSS_THE_BRIDGE.c_str(); };
+	
 protected:
 	Sprite* cubeAtRest;
 	Sprite* barrierRight;
@@ -66,6 +67,7 @@ protected:
 	Sprite* pathOpen_right;
 	Sprite* pathOpen_left;
 	Sprite* splash;
+	Alphabet* letterOnBoard;
 	Sprite* punchForBack;
 	Sprite* zeher;
 	Sprite* sparkle;
@@ -81,12 +83,12 @@ protected:
 	std::vector<cocos2d::Sprite*> monsContainer;
 	std::vector<Alphabet*> letterContainer;
 
-	char letterAZ[26] = {'A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'};
+	char letterAZ[26] = { 'A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z' };
 	std::vector<std::vector<wchar_t>> comboFive;
 	std::pair<float, float> letterDisplayPosition[8] = { { 183.73,110.17 },{ 547.81,110.17 },{ 912.08, 110.17 },
 	{ 1277.22,110.17 } ,{ 1642.29,110.17 } ,{ 2006.91,110.17 } ,
 	{ 2371.68,110.17 } ,{ 2734.87,110.17 } };
-	
+
 	bool openFlag = false;
 	bool letterIsThere = false;
 	bool oneSecondClick = false;
@@ -96,6 +98,7 @@ protected:
 	int mainScore = 0;
 	int alphabetCounter = 0;
 	int letterDisplayCounter = 0;
+	int enemyCreateCounter = 1;
 
 	Label* myGameScoreLabel;
 	wchar_t letterToDisplay;

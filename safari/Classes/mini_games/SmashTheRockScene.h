@@ -6,6 +6,8 @@
 #include "editor-support/cocostudio/CocoStudio.h"
 #include "../menu/MenuContext.h"
 #include "SimpleAudioEngine.h" 
+#include "../StartMenuScene.h"
+
 class SmashTheRock : public cocos2d::Layer
 {
 public:
@@ -50,21 +52,22 @@ public:
 	virtual void jump();
 	virtual void hit();
 	virtual void blast();
+	virtual void begin();
 	virtual void change(float dt);
 	virtual void createSkeletonCharacter();
 	
 	void addMainCharacterToScene(cocostudio::timeline::SkeletonNode* skeleton);
 	// implement the "static create()" method manually
 
-    static const char* gameName() { return "Smash The Rock";}
+    static const char* gameName() { return SMASH_THE_ROCK.c_str();}
 
 private:
 	SkeletonCharacter* skeletonCharacter;
-
+	
 
 protected:
 	MenuContext * menu;
-
+	void startGame();
 	CREATE_FUNC(SmashTheRock);
 };
 

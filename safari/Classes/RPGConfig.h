@@ -103,6 +103,7 @@
 #define DUEL_SCENE_NAME "DuelScene"
 
 #define TOUCH_POINTER_IMG "touchPointer.png"
+#define SEARCH_POINTER_IMG "search.png"
 
 #define SWIPE_DELTA 200.0f
 #define Y_OFFSET_IF_HERO_DISAPPER 300.0f
@@ -120,6 +121,10 @@
 
 #define MAP_FILE "map.csb"
 #define GAME_MAP_FILE "gamemap.csb"
+#define SCORE_BOARD_FILE "scoreboard.csb"
+
+#define SKELETON_POSITION_IN_PARENT_ISLAND_X "skeleton_pos_in_island_X"
+#define SKELETON_POSITION_IN_PARENT_ISLAND_Y "skeleton_pos_in_island_Y"
 
 #define EVENT_DISPATCHER Director::getInstance()->getEventDispatcher()
 

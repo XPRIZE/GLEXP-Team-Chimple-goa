@@ -14,6 +14,7 @@
 #include "ui/CocosGUI.h"
 #include "../alphamon/HPMeter.h"
 #include "editor-support/cocostudio/CocoStudio.h"
+#include "ScoreBoardContext.h"
 
 #define GAME_MAP_MENU "GameMapScene"
 #define HELP_MENU "HelpScene"
@@ -22,16 +23,19 @@
 #define BOOK_MENU "BookScene"
 #define BAG_PACK_MENU "BagpackScene"
 
-
+class GameMapScene;
 class MenuContext : public cocos2d::Node {
     
 public:
     static MenuContext* create(Node *main, std::string gameName = "", bool lauchCustomEventOnExit = false);
     void pickAlphabet(char targetAlphabet, char chosenAlphabet, bool choose = true, cocos2d::Vec2 position = cocos2d::Vec2::ZERO);
+    int getPoints();
     void finalizePoints();
     static const std::string LANG;
     Node* jumpOut(std::string nodeCsbName, float duration, cocos2d::Vec2 position, std::string animationName = "");
-    void showStartupHelp();
+    void showStartupHelp(std::function<void()> callback = nullptr);
+    void showScore();
+    bool isGamePaused();
 
 CC_CONSTRUCTOR_ACCESS:
     MenuContext();
@@ -45,6 +49,7 @@ CC_CONSTRUCTOR_ACCESS:
 protected:
     int _points;
     bool _menuSelected;
+    bool _gameIsPaused;
     bool _launchCustomEventOnExit;
     cocos2d::Node* _main;
     cocos2d::Label* _label;
@@ -57,6 +62,7 @@ protected:
     cocos2d::ui::Button* _gamesMenu;
     cocos2d::LayerColor* _greyLayer;
     cocos2d::Node* _chimp;
+    int _chimpAudioId;
     void expandMenu(Ref* pSender, cocos2d::ui::Widget::TouchEventType eEventType);
     void pauseNodeAndDescendants(Node *pNode);
     void resumeNodeAndDescendants(Node *pNode);
@@ -74,7 +80,9 @@ protected:
     void happyFace();
     void sadFace();
     void normalFace();
+    
     std::string gameName;
+    std::function<void()> _startupCallback;
 
 #if (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID || CC_TARGET_PLATFORM == CC_PLATFORM_IOS)  
 	void videoEventCallback(Ref* sender, cocos2d::experimental::ui::VideoPlayer::EventType eventType);

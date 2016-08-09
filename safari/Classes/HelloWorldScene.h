@@ -29,8 +29,9 @@
 #include "alphamon/Alphamon.h"
 #include "SkeletonPosition.h"
 #include "menu/MenuContext.h"
-#include "LanguageManager.h"
+#include "lang/LangUtil.h"
 #include "puzzle/CharGenerator.h"
+#include "WordSprite.h"
 
 class GestureLayer;
 class MessageContent;
@@ -51,7 +52,7 @@ private:
     
     Sqlite3Helper* sqlite3Helper;
     
-    LanguageManager* languageManger;
+    LangUtil* currentLangUtil;
     
     MessageSender* messageSender;
     
@@ -158,6 +159,10 @@ private:
     bool checkIfAlphamonNodeNearBy(std::string alphamonNodeName);
     
     void calculateAlphamonNodesInScene(cocos2d::Node *rootNode);
+    
+    void loadWords();
+    
+    void createWordSprite(cocos2d::Node* node, std::string word, cocos2d::Node* parentNode);
     
     cocos2d::Size sceneSize;
     

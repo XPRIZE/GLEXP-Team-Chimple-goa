@@ -10,6 +10,7 @@
 #define EnglishUtil_h
 
 #include "LangUtil.h"
+#include "WordManager.h"
 
 class EnglishUtil : public LangUtil {
 public:
@@ -23,6 +24,9 @@ public:
     virtual std::string getPhoneticSoundFileName(wchar_t alpha) override;
     virtual std::string getLang() override;    
     virtual std::string getDir() override;
+    virtual void initializeWordManager() override;
+    virtual bool isGraphemeStart(uint32_t prevCodePoint, uint32_t currentCodePoint)override;
+
     virtual ~EnglishUtil();
     EnglishUtil();
 };

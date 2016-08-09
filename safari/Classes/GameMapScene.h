@@ -10,8 +10,6 @@
 #include "cocos2d.h"
 #include "RPGConfig.h"
 #include "StartMenuScene.h"
-#include "menu/MenuContext.h"
-#include "LanguageManager.h"
 #include "editor-support/cocostudio/CocoStudio.h"
 #include "editor-support/cocostudio/CCComExtensionData.h"
 #include "ui/UIWidget.h"
@@ -21,6 +19,7 @@
 
 #ifndef GameMapScene_h
 #define GameMapScene_h
+class MenuContext;
 
 class GameMapScene : public cocos2d::Layer {
 public:
@@ -35,10 +34,9 @@ CC_CONSTRUCTOR_ACCESS:
     
 private:
     MenuContext* menuContext;
-    LanguageManager* languageManger;
     void loadGameMap();
     void processChildNodes(cocos2d::Node *rootNode);
-    void islandSelected(Ref* pSender, ui::Widget::TouchEventType eEventType);
+    void islandSelected(Ref* pSender, cocos2d::ui::Widget::TouchEventType eEventType);
     
 };
 

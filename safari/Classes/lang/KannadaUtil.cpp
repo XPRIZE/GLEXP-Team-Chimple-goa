@@ -97,17 +97,28 @@ std::string KannadaUtil::getBMFontFileName() {
 }
 
 std::string KannadaUtil::getAlphabetSoundFileName(wchar_t alpha) {
-	auto fileName = std::string("kannada/sounds/") + langMap.at(alpha) + ".wav";//audioExt;
+	auto fileName = std::string("kannada/sounds/") + langMap.at(alpha) + audioExt;
 	return fileName; 
 }
 
 std::string KannadaUtil::getPhoneticSoundFileName(wchar_t alpha) {
-    auto fileName = std::string("kannada/sounds/") + langMap.at(alpha) +".m4a";
+    auto fileName = std::string("kannada/sounds/") + langMap.at(alpha) + audioExt;
     return fileName;
 }
 
-std::string KannadaUtil::getDir() {
-    return "kannada";
+bool KannadaUtil::isGraphemeStart(uint32_t prevCodePoint, uint32_t currentCodePoint) {
+    if(prevCodePoint == 0x0CCD) {
+        return false;
+    }
+    if(currentCodePoint >= 0x0C82 && currentCodePoint <= 0x0CB9) {
+        return true;
+    }
+    return false;
+}
+
+std::string KannadaUtil::getDir()
+{
+	return "kannada";
 }
 
 std::string KannadaUtil::getLang() {
@@ -115,9 +126,12 @@ std::string KannadaUtil::getLang() {
 }
 
 KannadaUtil::KannadaUtil() {
-    
+    this->initializeWordManager();
 }
 
 KannadaUtil::~KannadaUtil() {
-    
+}
+
+void KannadaUtil::initializeWordManager() {
+    this->wordManager = WordManager::getInstance();
 }

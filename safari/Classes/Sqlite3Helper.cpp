@@ -347,6 +347,8 @@ std::vector<MessageContent*> Sqlite3Helper::findEventsByPreConditionEventIdInSce
         content->setSceneName(sceneName);
         
         content->setShouldDisplayInBag(sqlite3_column_int(res,11));
+        
+        messages.push_back(content);
     }
     
     
@@ -542,6 +544,46 @@ void Sqlite3Helper::insertSkinForBoneForSkeletonInScene(const char* island, cons
         }
     }
     
+}
+
+
+std::map<std::string,std::string> Sqlite3Helper::loadNodeWordMapping(const char* sceneName) {
+    /* Create SQL statement */
+    
+    sqlite3_stmt *res;
+    int rc = 0;
+    
+    const char* querySQL =  "SELECT WORD_IN_ENGLISH, NODE_NAME FROM NODE_WORD_MAPPING WHERE SCENE_NAME = @sceneName COLLATE NOCASE";
+    
+    
+    /* Execute SQL statement */
+    
+    rc = sqlite3_prepare_v2(this->dataBaseConnection, querySQL, -1, &res, 0);
+    
+    if (rc == SQLITE_OK) {
+        
+        int sceneName_Index = sqlite3_bind_parameter_index(res, "@sceneName");
+        sqlite3_bind_text(res, sceneName_Index, sceneName,-1, SQLITE_TRANSIENT);
+        
+    } else {
+        fprintf(stderr, "Failed to execute statement: %s\n", sqlite3_errmsg(this->dataBaseConnection));
+    }
+    
+    
+    std::map<std::string, std::string> mappings;
+    while(sqlite3_step(res) == SQLITE_ROW)
+    {
+        std::string wordInEnglish( reinterpret_cast< char const* >(sqlite3_column_text(res, 0))) ;
+        std::string nodeName( reinterpret_cast< char const* >(sqlite3_column_text(res, 1))) ;
+        
+        
+        mappings.insert(std::make_pair(wordInEnglish, nodeName));
+        
+    };
+    
+    
+    sqlite3_finalize(res);
+    return mappings;
 }
 
 

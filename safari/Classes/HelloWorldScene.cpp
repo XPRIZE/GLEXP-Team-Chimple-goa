@@ -81,6 +81,8 @@ void HelloWorld::initializeSafari() {
     this->loadGameScene();
     
     this->initializeStateMachine();
+    
+    this->loadWords();
 }
 
 void HelloWorld::updatePositionAndCategoryBitMaskMainCharacter() {
@@ -97,7 +99,15 @@ void HelloWorld::updatePositionAndCategoryBitMaskMainCharacter() {
             if(xPos != 0.0f && yPos != 0.0f) {
                 this->skeletonCharacter->getSkeletonNode()->setPosition(Vec2(xPos, yPos));
             }
-            
+        } else {
+            if(this->island == this->sceneName) {
+                float xPosInIsland = UserDefault::getInstance()->getFloatForKey(SKELETON_POSITION_IN_PARENT_ISLAND_X);
+                float yPosInIsland = UserDefault::getInstance()->getFloatForKey(SKELETON_POSITION_IN_PARENT_ISLAND_Y);
+                if(xPosInIsland != 0.0f && yPosInIsland != 0.0f) {
+                    this->skeletonCharacter->getSkeletonNode()->setPosition(Vec2(xPosInIsland, yPosInIsland));
+                }
+                
+            }
         }
     }
 }
@@ -123,6 +133,32 @@ void HelloWorld::loadGameScene() {
     this->enablePhysicsBoundaries(rootNode);
     
     this->updatePositionAndCategoryBitMaskMainCharacter();
+}
+
+
+void HelloWorld::loadWords() {
+    std::string wordFile = !this->getSceneName().empty() ? this->getSceneName(): this->getIsland();
+    
+    std::map<std::string,std::string> mapping = this->sqlite3Helper->loadNodeWordMapping(wordFile.c_str());
+    
+    std::map<std::string, std::string>::iterator it;
+
+    for(it = mapping.begin(); it != mapping.end(); it++) {
+        std::string word  = it->first;
+        std::string nodeName = it->second;
+        
+        CCLOG("node=%s, word=%s", nodeName.c_str(), word.c_str());
+        Node* node = this->mainLayer->getChildByName(nodeName.c_str());
+        if(node != NULL && !word.empty()) {
+            this->createWordSprite(node, word, this->mainLayer);
+        }
+    }    
+}
+
+void HelloWorld::createWordSprite(Node* node, std::string word, Node* parentNode)
+{
+    WordSprite* wordSprite = WordSprite::create(node, word);
+    parentNode->addChild(wordSprite);
 }
 
 
@@ -354,13 +390,13 @@ bool HelloWorld::init(const std::string& island, const std::string& sceneName)
     }
         
     //Added for testing purpose - remove later....
-    this->languageManger = LanguageManager::getInstance();
-    auto defaultStr = this->languageManger->translateString("Hello world!");
+    this->currentLangUtil = LangUtil::getInstance();
+    auto defaultStr = this->currentLangUtil->translateString("Hello world!");
     CCLOG("defaultStr translatedString %s", defaultStr.c_str());
 
     
-    this->languageManger->changeLanguage(SupportedLanguages::GERMAN);
-    auto translatedString = this->languageManger->translateString("Hello world!");
+    this->currentLangUtil->changeLanguage(SupportedLanguages::GERMAN);
+    auto translatedString = this->currentLangUtil->translateString("Hello world!");
     CCLOG("translatedString %s", translatedString.c_str());
     //testing
     
@@ -517,6 +553,9 @@ void HelloWorld::processShowMessage(std::vector<MessageContent*>showMessages) {
             this->sqlite3Helper->insertItemToMyBag(this->getIsland().c_str(), content->getPostOutComeAction().c_str());
         }
         
+        //execute any other condition based on this pre-condition
+        this->messageSender->createMessagesForPreconditionId(content->getEventId());
+        
         delete content;
     }
 }
@@ -551,7 +590,7 @@ void HelloWorld::transitToMenu(EventCustom * event) {
     } else if(menuName == MAP_MENU) {
         Director::getInstance()->replaceScene(TransitionFade::create(2.0, MapScene::createScene(), Color3B::BLACK));
     } else {
-        Director::getInstance()->replaceScene(TransitionFade::create(2.0, StartMenu::createScene()));
+        menuContext->showScore();
     }
     
 }
@@ -566,7 +605,12 @@ void HelloWorld::cleanUpResources() {
     if(this->skeletonCharacter->getSkeletonNode()->getPosition().y < 0) {
         xPos = xPos - X_OFFSET_IF_HERO_DISAPPER;
     }
-        
+    
+    //record position in main Island in UserDefault
+    if(this->island == this->sceneName) {
+        UserDefault::getInstance()->setFloatForKey(SKELETON_POSITION_IN_PARENT_ISLAND_X, xPos);
+        UserDefault::getInstance()->setFloatForKey(SKELETON_POSITION_IN_PARENT_ISLAND_Y, yPos);
+    }
     
     this->sqlite3Helper->recordMainCharacterPositionInScene(this->island.c_str(), this->sceneName.c_str(), xPos, yPos);
     
@@ -583,12 +627,6 @@ void HelloWorld::cleanUpResources() {
     
     if(this->stateMachine != nullptr) {
         delete this->stateMachine;
-    }
-    
-    LanguageManager::_instance = NULL;
-    
-    if(this->languageManger != nullptr) {
-        delete this->languageManger;
     }
     
     Sqlite3Helper::instanceFlag = false;
@@ -625,9 +663,19 @@ void HelloWorld::processAnimationMessage(std::vector<MessageContent*>animationMe
         
         //find out animation name
         if(!content->getDialog().empty()) {
-            auto timeline =  CSLoader::createTimeline(content->getDialog());
             Node* animationSpriteNode = this->mainLayer->getChildByName(content->getOwner());
             RPGSprite* animationNode = dynamic_cast<RPGSprite *>(animationSpriteNode);
+            cocostudio::timeline::ActionTimeline* timeline = NULL;
+            bool timeLineExists = false;
+            if(animationNode->getActionTimeLine() == NULL) {
+                timeline =  CSLoader::createTimeline(content->getDialog());
+                animationNode->setActionTimeLine(timeline);
+                timeLineExists = false;
+            } else {
+                timeline = animationNode->getActionTimeLine();
+                timeLineExists = true;
+            }
+            
             if(timeline != NULL && animationSpriteNode != NULL && animationNode != NULL )
             {
                 timeline->setLastFrameCallFunc([=]() {
@@ -649,7 +697,10 @@ void HelloWorld::processAnimationMessage(std::vector<MessageContent*>animationMe
                 if(animationNode != NULL) {
                     animationNode->setVisible(true);
                     if(animationNode->getSprite() != NULL) {
-                        animationNode->getSprite()->runAction(timeline);
+                        if(!timeLineExists) {
+                            animationNode->getSprite()->runAction(timeline);
+                        }
+                        
                         bool playInLoop = content->getPlayAnimationInLoop() == 1 ? true : false;
                         timeline->gotoFrameAndPlay(0, playInLoop);
                     }
@@ -700,7 +751,7 @@ void HelloWorld::processMessage(std::vector<MessageContent*>*messages) {
         if(content->getAction() == "say") {
             ownerOfMessage = content->getOwner();
             assert(!ownerOfMessage.empty());
-            std::string translatedString = this->languageManger->translateString(content->getDialog());
+            std::string translatedString = this->currentLangUtil->translateString(content->getDialog());
             if(!translatedString.empty()) {
                 textMap.insert({content->getEventId(),translatedString});
             } else {

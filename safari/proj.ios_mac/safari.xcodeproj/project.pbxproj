@@ -13,6 +13,8 @@
 		1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
 		288765A50DF7441C002DB57D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288765A40DF7441C002DB57D /* CoreGraphics.framework */; };
 		294D0D641D0D56D500F7F5D4 /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 294D0D631D0D56D500F7F5D4 /* CoreText.framework */; };
+		3707E8AF1D558C9A00168A0C /* WordManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3707E8AE1D558C9A00168A0C /* WordManager.cpp */; };
+		3707E8B01D558C9A00168A0C /* WordManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3707E8AE1D558C9A00168A0C /* WordManager.cpp */; };
 		370A3DB41D43428D00676C50 /* SkeletonConfiguration.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 370A3DB31D43428D00676C50 /* SkeletonConfiguration.cpp */; };
 		370A3DB51D43428D00676C50 /* SkeletonConfiguration.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 370A3DB31D43428D00676C50 /* SkeletonConfiguration.cpp */; };
 		371829371D44CA570013E3C4 /* I18nUtils.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 371829311D44CA570013E3C4 /* I18nUtils.cpp */; };
@@ -21,12 +23,18 @@
 		3718293A1D44CA570013E3C4 /* MO.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 371829331D44CA570013E3C4 /* MO.cpp */; };
 		3718293B1D44CA570013E3C4 /* Entry.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 371829351D44CA570013E3C4 /* Entry.cpp */; };
 		3718293C1D44CA570013E3C4 /* Entry.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 371829351D44CA570013E3C4 /* Entry.cpp */; };
+		3729BEAD1D57111100148BD5 /* WordSprite.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3729BEAC1D57111100148BD5 /* WordSprite.cpp */; };
+		3729BEAE1D57111100148BD5 /* WordSprite.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3729BEAC1D57111100148BD5 /* WordSprite.cpp */; };
 		373CBBA11D4A69960002BAE1 /* SafariAnalyticsManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 373CBBA01D4A69960002BAE1 /* SafariAnalyticsManager.cpp */; };
 		373CBBA21D4A69960002BAE1 /* SafariAnalyticsManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 373CBBA01D4A69960002BAE1 /* SafariAnalyticsManager.cpp */; };
 		3740A16B1D4BC0B400B2B2F3 /* GameMapScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3740A16A1D4BC0B400B2B2F3 /* GameMapScene.cpp */; };
 		3740A16C1D4BC0B400B2B2F3 /* GameMapScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3740A16A1D4BC0B400B2B2F3 /* GameMapScene.cpp */; };
+		37533C951D507580008EEFD9 /* ScoreBoardContent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 37533C941D507580008EEFD9 /* ScoreBoardContent.cpp */; };
+		37533C961D507580008EEFD9 /* ScoreBoardContent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 37533C941D507580008EEFD9 /* ScoreBoardContent.cpp */; };
 		376FEE801D3F66380037393F /* SkeletonPosition.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 376FEE7F1D3F66380037393F /* SkeletonPosition.cpp */; };
 		376FEE811D3F66380037393F /* SkeletonPosition.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 376FEE7F1D3F66380037393F /* SkeletonPosition.cpp */; };
+		37AB489B1D588CFE00B0B525 /* WordInfo.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 37AB489A1D588CFE00B0B525 /* WordInfo.cpp */; };
+		37AB489C1D588CFE00B0B525 /* WordInfo.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 37AB489A1D588CFE00B0B525 /* WordInfo.cpp */; };
 		37B35F9B1D4C743A00BBD743 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37B35F9A1D4C743A00BBD743 /* MediaPlayer.framework */; };
 		37B35F9D1D4C824100BBD743 /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37B35F9C1D4C824100BBD743 /* CoreMedia.framework */; };
 		37C7E1EB1D47CEFB005C89C0 /* MapScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 37C7E1EA1D47CEFB005C89C0 /* MapScene.cpp */; };
@@ -168,12 +176,32 @@
 		F39610B21D3F8FDB00D8DD13 /* AlphamonFeedScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F39610B01D3F8FDB00D8DD13 /* AlphamonFeedScene.cpp */; };
 		F39610B41D3F905A00D8DD13 /* AlphamonFeedLevelScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F39610AF1D3F8FDB00D8DD13 /* AlphamonFeedLevelScene.cpp */; };
 		F39610B51D3F905D00D8DD13 /* AlphamonFeedScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F39610B01D3F8FDB00D8DD13 /* AlphamonFeedScene.cpp */; };
+		F39A19CE1D589F81008B397D /* Chain.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F39A19C21D589F81008B397D /* Chain.cpp */; };
+		F39A19CF1D589F81008B397D /* Jasmin_Mainfile.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F39A19C31D589F81008B397D /* Jasmin_Mainfile.cpp */; };
+		F39A19D01D589F81008B397D /* jazz.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F39A19C51D589F81008B397D /* jazz.cpp */; };
+		F39A19D11D589F81008B397D /* Wembley.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F39A19C81D589F81008B397D /* Wembley.cpp */; };
+		F39A19D21D589F81008B397D /* Jasmin_Listenerfile.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F39A19C91D589F81008B397D /* Jasmin_Listenerfile.cpp */; };
+		F39A19D31D589F81008B397D /* Baja.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F39A19CB1D589F81008B397D /* Baja.cpp */; };
+		F39A19D41D589FEE008B397D /* Chain.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F39A19C21D589F81008B397D /* Chain.cpp */; };
+		F39A19D51D589FF1008B397D /* Jasmin_Mainfile.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F39A19C31D589F81008B397D /* Jasmin_Mainfile.cpp */; };
+		F39A19D61D589FF4008B397D /* jazz.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F39A19C51D589F81008B397D /* jazz.cpp */; };
+		F39A19D71D589FF7008B397D /* Wembley.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F39A19C81D589F81008B397D /* Wembley.cpp */; };
+		F39A19D81D589FFA008B397D /* Jasmin_Listenerfile.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F39A19C91D589F81008B397D /* Jasmin_Listenerfile.cpp */; };
+		F39A19D91D589FFC008B397D /* Baja.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F39A19CB1D589F81008B397D /* Baja.cpp */; };
+		F3C711CA1D56F28D000DBBE5 /* GraphemeGrid.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F3C711C91D56F28D000DBBE5 /* GraphemeGrid.cpp */; };
+		F3C711CB1D56F28D000DBBE5 /* GraphemeGrid.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F3C711C91D56F28D000DBBE5 /* GraphemeGrid.cpp */; };
+		F3C711D01D576128000DBBE5 /* Grapheme.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F3C711CF1D576128000DBBE5 /* Grapheme.cpp */; };
+		F3C711D11D576128000DBBE5 /* Grapheme.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F3C711CF1D576128000DBBE5 /* Grapheme.cpp */; };
 		F3CA26EA1D43C069006EBDC6 /* LangUtil.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F3CA26E81D43C069006EBDC6 /* LangUtil.cpp */; };
 		F3CA26EB1D43C069006EBDC6 /* LangUtil.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F3CA26E81D43C069006EBDC6 /* LangUtil.cpp */; };
 		F3CA26EE1D43C0A9006EBDC6 /* EnglishUtil.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F3CA26ED1D43C0A9006EBDC6 /* EnglishUtil.cpp */; };
 		F3CA26EF1D43C0A9006EBDC6 /* EnglishUtil.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F3CA26ED1D43C0A9006EBDC6 /* EnglishUtil.cpp */; };
 		F3CA26F11D43DA17006EBDC6 /* KannadaUtil.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F3CA26F01D43DA17006EBDC6 /* KannadaUtil.cpp */; };
 		F3CA26F21D43DA17006EBDC6 /* KannadaUtil.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F3CA26F01D43DA17006EBDC6 /* KannadaUtil.cpp */; };
+		F3E427EE1D54440200D22421 /* WordScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F3E427ED1D54440200D22421 /* WordScene.cpp */; };
+		F3E427EF1D54440200D22421 /* WordScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F3E427ED1D54440200D22421 /* WordScene.cpp */; };
+		F3E427F31D54452800D22421 /* TextGenerator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F3E427F21D54452800D22421 /* TextGenerator.cpp */; };
+		F3E427F41D54452800D22421 /* TextGenerator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F3E427F21D54452800D22421 /* TextGenerator.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -222,6 +250,8 @@
 		1DF5F4DF0D08C38300B7A737 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		288765A40DF7441C002DB57D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		294D0D631D0D56D500F7F5D4 /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.3.sdk/System/Library/Frameworks/CoreText.framework; sourceTree = DEVELOPER_DIR; };
+		3707E8AC1D558C8900168A0C /* WordManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WordManager.h; sourceTree = "<group>"; };
+		3707E8AE1D558C9A00168A0C /* WordManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = WordManager.cpp; sourceTree = "<group>"; };
 		370A3DB11D43427A00676C50 /* SkeletonConfiguration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SkeletonConfiguration.h; sourceTree = "<group>"; };
 		370A3DB31D43428D00676C50 /* SkeletonConfiguration.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SkeletonConfiguration.cpp; sourceTree = "<group>"; };
 		371829301D44CA570013E3C4 /* I18nDefine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = I18nDefine.h; sourceTree = "<group>"; };
@@ -231,12 +261,18 @@
 		371829341D44CA570013E3C4 /* MO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MO.h; sourceTree = "<group>"; };
 		371829351D44CA570013E3C4 /* Entry.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Entry.cpp; sourceTree = "<group>"; };
 		371829361D44CA570013E3C4 /* Entry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Entry.h; sourceTree = "<group>"; };
+		3729BEAA1D57110000148BD5 /* WordSprite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WordSprite.h; sourceTree = "<group>"; };
+		3729BEAC1D57111100148BD5 /* WordSprite.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = WordSprite.cpp; sourceTree = "<group>"; };
 		373CBB9E1D4A69810002BAE1 /* SafariAnalyticsManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SafariAnalyticsManager.h; sourceTree = "<group>"; };
 		373CBBA01D4A69960002BAE1 /* SafariAnalyticsManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SafariAnalyticsManager.cpp; sourceTree = "<group>"; };
 		3740A1681D4BC0A700B2B2F3 /* GameMapScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameMapScene.h; sourceTree = "<group>"; };
 		3740A16A1D4BC0B400B2B2F3 /* GameMapScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GameMapScene.cpp; sourceTree = "<group>"; };
+		37533C921D50756E008EEFD9 /* ScoreBoardContext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScoreBoardContext.h; sourceTree = "<group>"; };
+		37533C941D507580008EEFD9 /* ScoreBoardContent.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ScoreBoardContent.cpp; sourceTree = "<group>"; };
 		376FEE7D1D3F66280037393F /* SkeletonPosition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SkeletonPosition.h; sourceTree = "<group>"; };
 		376FEE7F1D3F66380037393F /* SkeletonPosition.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SkeletonPosition.cpp; sourceTree = "<group>"; };
+		37AB48991D588CED00B0B525 /* WordInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WordInfo.h; sourceTree = "<group>"; };
+		37AB489A1D588CFE00B0B525 /* WordInfo.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = WordInfo.cpp; sourceTree = "<group>"; };
 		37B35F9A1D4C743A00BBD743 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.3.sdk/System/Library/Frameworks/MediaPlayer.framework; sourceTree = DEVELOPER_DIR; };
 		37B35F9C1D4C824100BBD743 /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
 		37C7E1E81D47CEEB005C89C0 /* MapScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapScene.h; sourceTree = "<group>"; };
@@ -379,12 +415,36 @@
 		F39610AE1D3F8FDB00D8DD13 /* AlphamonFeedScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AlphamonFeedScene.h; sourceTree = "<group>"; };
 		F39610AF1D3F8FDB00D8DD13 /* AlphamonFeedLevelScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AlphamonFeedLevelScene.cpp; sourceTree = "<group>"; };
 		F39610B01D3F8FDB00D8DD13 /* AlphamonFeedScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AlphamonFeedScene.cpp; sourceTree = "<group>"; };
+		F39A19C21D589F81008B397D /* Chain.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Chain.cpp; sourceTree = "<group>"; };
+		F39A19C31D589F81008B397D /* Jasmin_Mainfile.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Jasmin_Mainfile.cpp; sourceTree = "<group>"; };
+		F39A19C41D589F81008B397D /* Jasmin_Mainfile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Jasmin_Mainfile.h; sourceTree = "<group>"; };
+		F39A19C51D589F81008B397D /* jazz.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = jazz.cpp; sourceTree = "<group>"; };
+		F39A19C61D589F81008B397D /* jazz.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = jazz.h; sourceTree = "<group>"; };
+		F39A19C71D589F81008B397D /* Wembley.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Wembley.h; sourceTree = "<group>"; };
+		F39A19C81D589F81008B397D /* Wembley.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Wembley.cpp; sourceTree = "<group>"; };
+		F39A19C91D589F81008B397D /* Jasmin_Listenerfile.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Jasmin_Listenerfile.cpp; sourceTree = "<group>"; };
+		F39A19CA1D589F81008B397D /* Jasmin_Listenerfile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Jasmin_Listenerfile.h; sourceTree = "<group>"; };
+		F39A19CB1D589F81008B397D /* Baja.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Baja.cpp; sourceTree = "<group>"; };
+		F39A19CC1D589F81008B397D /* Baja.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Baja.h; sourceTree = "<group>"; };
+		F39A19CD1D589F81008B397D /* Chain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Chain.h; sourceTree = "<group>"; };
+		F39A19DC1D58A3C7008B397D /* checked.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = checked.h; sourceTree = "<group>"; };
+		F39A19DD1D58A3C7008B397D /* core.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = core.h; sourceTree = "<group>"; };
+		F39A19DE1D58A3C7008B397D /* unchecked.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = unchecked.h; sourceTree = "<group>"; };
+		F39A19DF1D58A3CF008B397D /* utf8.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = utf8.h; sourceTree = "<group>"; };
+		F3C711C91D56F28D000DBBE5 /* GraphemeGrid.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GraphemeGrid.cpp; sourceTree = "<group>"; };
+		F3C711CD1D56F29B000DBBE5 /* GraphemeGrid.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GraphemeGrid.h; sourceTree = "<group>"; };
+		F3C711CE1D57611C000DBBE5 /* Grapheme.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Grapheme.h; sourceTree = "<group>"; };
+		F3C711CF1D576128000DBBE5 /* Grapheme.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Grapheme.cpp; sourceTree = "<group>"; };
 		F3CA26E81D43C069006EBDC6 /* LangUtil.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LangUtil.cpp; sourceTree = "<group>"; };
 		F3CA26E91D43C069006EBDC6 /* LangUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LangUtil.h; sourceTree = "<group>"; };
 		F3CA26EC1D43C097006EBDC6 /* EnglishUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EnglishUtil.h; sourceTree = "<group>"; };
 		F3CA26ED1D43C0A9006EBDC6 /* EnglishUtil.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = EnglishUtil.cpp; sourceTree = "<group>"; };
 		F3CA26F01D43DA17006EBDC6 /* KannadaUtil.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = KannadaUtil.cpp; sourceTree = "<group>"; };
 		F3CA26F31D43DA25006EBDC6 /* KannadaUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KannadaUtil.h; sourceTree = "<group>"; };
+		F3E427ED1D54440200D22421 /* WordScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = WordScene.cpp; sourceTree = "<group>"; };
+		F3E427F11D54441100D22421 /* WordScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WordScene.h; sourceTree = "<group>"; };
+		F3E427F21D54452800D22421 /* TextGenerator.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TextGenerator.cpp; sourceTree = "<group>"; };
+		F3E427F51D54453D00D22421 /* TextGenerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextGenerator.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -536,6 +596,7 @@
 		46880B8319C43A87006E1F66 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				F39A19DA1D58A364008B397D /* ext */,
 				3718292E1D44CA3C0013E3C4 /* i18n */,
 				37DF03D81D44B8C3007252C6 /* LanguageManager.h */,
 				37DF03D91D44B8D4007252C6 /* LanguageManager.cpp */,
@@ -571,6 +632,8 @@
 				F3913D931D3F461A001B3038 /* RPGConfig.h */,
 				F3913DB01D3F461A001B3038 /* RPGSprite.cpp */,
 				F3913D941D3F461A001B3038 /* RPGSprite.h */,
+				3729BEAA1D57110000148BD5 /* WordSprite.h */,
+				3729BEAC1D57111100148BD5 /* WordSprite.cpp */,
 				F3913DB11D3F461A001B3038 /* RunningState.cpp */,
 				F3913D951D3F461A001B3038 /* RunningState.h */,
 				F3913DB21D3F461A001B3038 /* SkeletonCharacter.cpp */,
@@ -671,6 +734,18 @@
 		F3913DE91D3F4639001B3038 /* mini_games */ = {
 			isa = PBXGroup;
 			children = (
+				F39A19C21D589F81008B397D /* Chain.cpp */,
+				F39A19C31D589F81008B397D /* Jasmin_Mainfile.cpp */,
+				F39A19C41D589F81008B397D /* Jasmin_Mainfile.h */,
+				F39A19C51D589F81008B397D /* jazz.cpp */,
+				F39A19C61D589F81008B397D /* jazz.h */,
+				F39A19C71D589F81008B397D /* Wembley.h */,
+				F39A19C81D589F81008B397D /* Wembley.cpp */,
+				F39A19C91D589F81008B397D /* Jasmin_Listenerfile.cpp */,
+				F39A19CA1D589F81008B397D /* Jasmin_Listenerfile.h */,
+				F39A19CB1D589F81008B397D /* Baja.cpp */,
+				F39A19CC1D589F81008B397D /* Baja.h */,
+				F39A19CD1D589F81008B397D /* Chain.h */,
 				F39610AD1D3F8FDB00D8DD13 /* AlphamonFeedLevelScene.h */,
 				F39610AE1D3F8FDB00D8DD13 /* AlphamonFeedScene.h */,
 				F39610AF1D3F8FDB00D8DD13 /* AlphamonFeedLevelScene.cpp */,
@@ -706,8 +781,14 @@
 				F3913DF81D3F46A5001B3038 /* DuelScene.h */,
 				F3913DF91D3F46A5001B3038 /* Alphabet.cpp */,
 				F3913DFA1D3F46A5001B3038 /* AlphabetGrid.cpp */,
+				F3C711C91D56F28D000DBBE5 /* GraphemeGrid.cpp */,
 				F3913DFB1D3F46A5001B3038 /* CharGenerator.cpp */,
 				F3913DFC1D3F46A5001B3038 /* DuelScene.cpp */,
+				F3E427ED1D54440200D22421 /* WordScene.cpp */,
+				F3E427F11D54441100D22421 /* WordScene.h */,
+				F3C711CD1D56F29B000DBBE5 /* GraphemeGrid.h */,
+				F3C711CE1D57611C000DBBE5 /* Grapheme.h */,
+				F3C711CF1D576128000DBBE5 /* Grapheme.cpp */,
 			);
 			path = puzzle;
 			sourceTree = "<group>";
@@ -725,9 +806,30 @@
 			isa = PBXGroup;
 			children = (
 				F3913DED1D3F4694001B3038 /* MenuContext.h */,
+				37533C941D507580008EEFD9 /* ScoreBoardContent.cpp */,
+				37533C921D50756E008EEFD9 /* ScoreBoardContext.h */,
 				F3913DEE1D3F4694001B3038 /* MenuContext.cpp */,
 			);
 			path = menu;
+			sourceTree = "<group>";
+		};
+		F39A19DA1D58A364008B397D /* ext */ = {
+			isa = PBXGroup;
+			children = (
+				F39A19DF1D58A3CF008B397D /* utf8.h */,
+				F39A19DB1D58A3B1008B397D /* utf8 */,
+			);
+			path = ext;
+			sourceTree = "<group>";
+		};
+		F39A19DB1D58A3B1008B397D /* utf8 */ = {
+			isa = PBXGroup;
+			children = (
+				F39A19DC1D58A3C7008B397D /* checked.h */,
+				F39A19DD1D58A3C7008B397D /* core.h */,
+				F39A19DE1D58A3C7008B397D /* unchecked.h */,
+			);
+			path = utf8;
 			sourceTree = "<group>";
 		};
 		F3CA26E21D43B73C006EBDC6 /* lang */ = {
@@ -736,11 +838,17 @@
 				F3CA26E81D43C069006EBDC6 /* LangUtil.cpp */,
 				373CBB9E1D4A69810002BAE1 /* SafariAnalyticsManager.h */,
 				373CBBA01D4A69960002BAE1 /* SafariAnalyticsManager.cpp */,
+				3707E8AC1D558C8900168A0C /* WordManager.h */,
+				3707E8AE1D558C9A00168A0C /* WordManager.cpp */,
+				37AB489A1D588CFE00B0B525 /* WordInfo.cpp */,
+				37AB48991D588CED00B0B525 /* WordInfo.h */,
 				F3CA26F01D43DA17006EBDC6 /* KannadaUtil.cpp */,
 				F3CA26F31D43DA25006EBDC6 /* KannadaUtil.h */,
 				F3CA26E91D43C069006EBDC6 /* LangUtil.h */,
 				F3CA26EC1D43C097006EBDC6 /* EnglishUtil.h */,
 				F3CA26ED1D43C0A9006EBDC6 /* EnglishUtil.cpp */,
+				F3E427F21D54452800D22421 /* TextGenerator.cpp */,
+				F3E427F51D54453D00D22421 /* TextGenerator.h */,
 			);
 			path = lang;
 			sourceTree = "<group>";
@@ -896,15 +1004,19 @@
 				F3913DC41D3F461A001B3038 /* GestureLayer.cpp in Sources */,
 				503AE10017EB989F00D1A890 /* AppController.mm in Sources */,
 				F3913DE61D3F461A001B3038 /* WalkingState.cpp in Sources */,
+				F39A19CF1D589F81008B397D /* Jasmin_Mainfile.cpp in Sources */,
 				F3913E1B1D3F46B1001B3038 /* CrossTheBridgeScene.cpp in Sources */,
 				F3913E311D3F46BE001B3038 /* HPMeter.cpp in Sources */,
+				F39A19D31D589F81008B397D /* Baja.cpp in Sources */,
 				F3913DBE1D3F461A001B3038 /* AppDelegate.cpp in Sources */,
 				F3913E171D3F46B1001B3038 /* Cannon_Ball_Listener.cpp in Sources */,
 				F3913E331D3F46BE001B3038 /* SelectAlphamonScene.cpp in Sources */,
 				503AE10217EB989F00D1A890 /* RootViewController.mm in Sources */,
+				37533C951D507580008EEFD9 /* ScoreBoardContent.cpp in Sources */,
 				37C7E1EF1D47D673005C89C0 /* MapIsland.cpp in Sources */,
 				F3913E271D3F46B1001B3038 /* TraceScene.cpp in Sources */,
 				F3913DD61D3F461A001B3038 /* RunningState.cpp in Sources */,
+				F39A19D01D589F81008B397D /* jazz.cpp in Sources */,
 				F3913DC01D3F461A001B3038 /* ExternalSkeletonCharacter.cpp in Sources */,
 				F3913DC61D3F461A001B3038 /* HelloWorldScene.cpp in Sources */,
 				F3913E211D3F46B1001B3038 /* SmashTheRockLevelScene.cpp in Sources */,
@@ -912,9 +1024,13 @@
 				F39610B21D3F8FDB00D8DD13 /* AlphamonFeedScene.cpp in Sources */,
 				376FEE801D3F66380037393F /* SkeletonPosition.cpp in Sources */,
 				F3913DCE1D3F461A001B3038 /* MessageSender.cpp in Sources */,
+				3707E8AF1D558C9A00168A0C /* WordManager.cpp in Sources */,
+				F39A19D21D589F81008B397D /* Jasmin_Listenerfile.cpp in Sources */,
 				F3913DE41D3F461A001B3038 /* StateMachine.cpp in Sources */,
 				F3913E191D3F46B1001B3038 /* Cannon_Ball_Main.cpp in Sources */,
 				37DF03DA1D44B8D4007252C6 /* LanguageManager.cpp in Sources */,
+				F3E427EE1D54440200D22421 /* WordScene.cpp in Sources */,
+				F39A19CE1D589F81008B397D /* Chain.cpp in Sources */,
 				370A3DB41D43428D00676C50 /* SkeletonConfiguration.cpp in Sources */,
 				37C7E1EB1D47CEFB005C89C0 /* MapScene.cpp in Sources */,
 				F3913E011D3F46A5001B3038 /* CharGenerator.cpp in Sources */,
@@ -923,6 +1039,7 @@
 				F3913DE21D3F461A001B3038 /* State.cpp in Sources */,
 				F3913E1F1D3F46B1001B3038 /* PatchTheWallScene.cpp in Sources */,
 				F33905071D49B84000090367 /* GameScene.cpp in Sources */,
+				F3E427F31D54452800D22421 /* TextGenerator.cpp in Sources */,
 				F3913DDE1D3F461A001B3038 /* StandingState.cpp in Sources */,
 				F3913DC81D3F461A001B3038 /* JumpingState.cpp in Sources */,
 				F3913DFF1D3F46A5001B3038 /* AlphabetGrid.cpp in Sources */,
@@ -930,12 +1047,16 @@
 				503AE10117EB989F00D1A890 /* main.m in Sources */,
 				F3913DDC1D3F461A001B3038 /* Sqlite3Helper.cpp in Sources */,
 				F3913DD81D3F461A001B3038 /* SkeletonCharacter.cpp in Sources */,
+				F3C711D01D576128000DBBE5 /* Grapheme.cpp in Sources */,
 				3718293B1D44CA570013E3C4 /* Entry.cpp in Sources */,
+				F39A19D11D589F81008B397D /* Wembley.cpp in Sources */,
 				F3913E031D3F46A5001B3038 /* DuelScene.cpp in Sources */,
 				F3913DBA1D3F461A001B3038 /* sqlite3.c in Sources */,
 				F3CA26F11D43DA17006EBDC6 /* KannadaUtil.cpp in Sources */,
 				F3913DDA1D3F461A001B3038 /* SpeechBubbleView.cpp in Sources */,
+				F3C711CA1D56F28D000DBBE5 /* GraphemeGrid.cpp in Sources */,
 				371829391D44CA570013E3C4 /* MO.cpp in Sources */,
+				37AB489B1D588CFE00B0B525 /* WordInfo.cpp in Sources */,
 				F3913DD21D3F461A001B3038 /* RPGConfig.cpp in Sources */,
 				F3913DE01D3F461A001B3038 /* StartMenuScene.cpp in Sources */,
 				F3913E1D1D3F46B1001B3038 /* EndlessRunner.cpp in Sources */,
@@ -946,6 +1067,7 @@
 				F3913E251D3F46B1001B3038 /* SpriteCreate.cpp in Sources */,
 				F3913DFD1D3F46A5001B3038 /* Alphabet.cpp in Sources */,
 				3740A16B1D4BC0B400B2B2F3 /* GameMapScene.cpp in Sources */,
+				3729BEAD1D57111100148BD5 /* WordSprite.cpp in Sources */,
 				F3CA26EA1D43C069006EBDC6 /* LangUtil.cpp in Sources */,
 				F3913E231D3F46B1001B3038 /* SmashTheRockScene.cpp in Sources */,
 				F3CA26EE1D43C0A9006EBDC6 /* EnglishUtil.cpp in Sources */,
@@ -957,20 +1079,27 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F3C711CB1D56F28D000DBBE5 /* GraphemeGrid.cpp in Sources */,
 				F3913E261D3F46B1001B3038 /* SpriteCreate.cpp in Sources */,
 				F3913E1A1D3F46B1001B3038 /* Cannon_Ball_Main.cpp in Sources */,
 				F3913DBF1D3F461A001B3038 /* AppDelegate.cpp in Sources */,
 				373CBBA21D4A69960002BAE1 /* SafariAnalyticsManager.cpp in Sources */,
 				F3913DBD1D3F461A001B3038 /* AlphamonSprite.cpp in Sources */,
 				F3913DDB1D3F461A001B3038 /* SpeechBubbleView.cpp in Sources */,
+				F39A19D71D589FF7008B397D /* Wembley.cpp in Sources */,
+				F39A19D81D589FFA008B397D /* Jasmin_Listenerfile.cpp in Sources */,
 				503AE10517EB98FF00D1A890 /* main.cpp in Sources */,
 				F3913DD71D3F461A001B3038 /* RunningState.cpp in Sources */,
 				F3913DCB1D3F461A001B3038 /* MessageContent.cpp in Sources */,
 				F3913E341D3F46BE001B3038 /* SelectAlphamonScene.cpp in Sources */,
 				F3913DCD1D3F461A001B3038 /* MessageReceiver.cpp in Sources */,
+				F39A19D41D589FEE008B397D /* Chain.cpp in Sources */,
 				F3913DD11D3F461A001B3038 /* PhysicsShapeCache.cpp in Sources */,
+				F39A19D61D589FF4008B397D /* jazz.cpp in Sources */,
+				F3E427EF1D54440200D22421 /* WordScene.cpp in Sources */,
 				37C7E1F01D47D673005C89C0 /* MapIsland.cpp in Sources */,
 				F3913DBB1D3F461A001B3038 /* sqlite3.c in Sources */,
+				3729BEAE1D57111100148BD5 /* WordSprite.cpp in Sources */,
 				F3913DD91D3F461A001B3038 /* SkeletonCharacter.cpp in Sources */,
 				F3913DD31D3F461A001B3038 /* RPGConfig.cpp in Sources */,
 				F3913DF41D3F469C001B3038 /* FShake.cpp in Sources */,
@@ -979,6 +1108,7 @@
 				F3913E241D3F46B1001B3038 /* SmashTheRockScene.cpp in Sources */,
 				37C7E1EC1D47CEFB005C89C0 /* MapScene.cpp in Sources */,
 				F3913E041D3F46A5001B3038 /* DuelScene.cpp in Sources */,
+				3707E8B01D558C9A00168A0C /* WordManager.cpp in Sources */,
 				F3913E001D3F46A5001B3038 /* AlphabetGrid.cpp in Sources */,
 				F3913DD51D3F461A001B3038 /* RPGSprite.cpp in Sources */,
 				F3913DC51D3F461A001B3038 /* GestureLayer.cpp in Sources */,
@@ -992,6 +1122,7 @@
 				370A3DB51D43428D00676C50 /* SkeletonConfiguration.cpp in Sources */,
 				F3913DE51D3F461A001B3038 /* StateMachine.cpp in Sources */,
 				F39610B41D3F905A00D8DD13 /* AlphamonFeedLevelScene.cpp in Sources */,
+				F3C711D11D576128000DBBE5 /* Grapheme.cpp in Sources */,
 				F3913DE71D3F461A001B3038 /* WalkingState.cpp in Sources */,
 				F3913DC91D3F461A001B3038 /* JumpingState.cpp in Sources */,
 				F3913DE11D3F461A001B3038 /* StartMenuScene.cpp in Sources */,
@@ -1003,16 +1134,21 @@
 				3718293A1D44CA570013E3C4 /* MO.cpp in Sources */,
 				F3913DDF1D3F461A001B3038 /* StandingState.cpp in Sources */,
 				F3913DDD1D3F461A001B3038 /* Sqlite3Helper.cpp in Sources */,
+				37533C961D507580008EEFD9 /* ScoreBoardContent.cpp in Sources */,
 				F3913DC11D3F461A001B3038 /* ExternalSkeletonCharacter.cpp in Sources */,
 				376FEE811D3F66380037393F /* SkeletonPosition.cpp in Sources */,
+				F3E427F41D54452800D22421 /* TextGenerator.cpp in Sources */,
 				F33905081D49B84000090367 /* GameScene.cpp in Sources */,
 				F3CA26EB1D43C069006EBDC6 /* LangUtil.cpp in Sources */,
 				F3913DC71D3F461A001B3038 /* HelloWorldScene.cpp in Sources */,
 				F3913DC31D3F461A001B3038 /* FallingState.cpp in Sources */,
+				F39A19D91D589FFC008B397D /* Baja.cpp in Sources */,
 				F3913E1E1D3F46B1001B3038 /* EndlessRunner.cpp in Sources */,
 				F3CA26F21D43DA17006EBDC6 /* KannadaUtil.cpp in Sources */,
+				F39A19D51D589FF1008B397D /* Jasmin_Mainfile.cpp in Sources */,
 				3718293C1D44CA570013E3C4 /* Entry.cpp in Sources */,
 				F3913E021D3F46A5001B3038 /* CharGenerator.cpp in Sources */,
+				37AB489C1D588CFE00B0B525 /* WordInfo.cpp in Sources */,
 				F3913E201D3F46B1001B3038 /* PatchTheWallScene.cpp in Sources */,
 				F3913E281D3F46B1001B3038 /* TraceScene.cpp in Sources */,
 			);

@@ -13,9 +13,9 @@
 #include "../StartMenuScene.h"
 
 
-int touches ;
+int touches;
 
-auto alpha = LangUtil::getInstance()->getAllCharacters();
+
 //char alpha[] = {'a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'};
 std::string animations[] = { "kick","punch","arm_sweep","jump_and_kick" };
 
@@ -40,6 +40,7 @@ Trace::~Trace() {
 cocostudio::timeline::ActionTimeline *timeline;
 
 Scene *Trace::createScene(int alphabet) {
+    auto alpha = LangUtil::getInstance()->getAllCharacters();
     auto scene = Scene::create();
     auto layer = Trace::create(alpha[alphabet]);
     scene->addChild(layer);
@@ -68,7 +69,8 @@ bool Trace::init(wchar_t alphabet) {
 
 	CCSpriteFrameCache::sharedSpriteFrameCache()->addSpriteFramesWithFile("-Alphacombat.plist");
 	this->getEventDispatcher()->addCustomEventListener("on_menu_exit", CC_CALLBACK_0(Trace::resetLevel, this));
-	//CocosDenshion::SimpleAudioEngine::getInstance()->preloadEffect("bubble.mp3");
+	CocosDenshion::SimpleAudioEngine::getInstance()->preloadBackgroundMusic ("TraceMusic.wav");
+	CocosDenshion::SimpleAudioEngine::getInstance()->playBackgroundMusic("TraceMusic.wav", true);
 
 	//loading lion animation
 	CCSpriteFrameCache::sharedSpriteFrameCache()->addSpriteFramesWithFile("Character/Alpha_kombat_plist.plist");
@@ -113,7 +115,7 @@ bool Trace::init(wchar_t alphabet) {
             auto str = child->getName();
 			
 			std::ostringstream sstreami;
-			sstreami << "Node_" << i ;
+			sstreami << "dot_" << i ;
 			std::string queryi = sstreami.str();
 
             if (str.find(queryi) != std::string::npos) {
@@ -139,7 +141,19 @@ bool Trace::init(wchar_t alphabet) {
 
 	touches = _nodes.size();
     setupTouch();
+	if (level == 0) {
+		setonEnterTransitionDidFinishCallback(CC_CALLBACK_0(Trace::startGame, this));
+	}
     return true;
+}
+
+void Trace::startGame() {
+    _menuContext->showStartupHelp(CC_CALLBACK_0(Trace::dummy, this));
+//	runAction(Sequence::create(CallFunc::create(CC_CALLBACK_0(MenuContext::showStartupHelp,_menuContext)), NULL));
+}
+
+void Trace::dummy() {
+    
 }
 
 void Trace::setupTouch() {
@@ -201,7 +215,7 @@ void Trace::onTouchEnded(cocos2d::Touch *touch, cocos2d::Event *event) {
            
 			CCLOG("Finished All");
 			
-			if (level == 25) {
+			if (level == 47) {
 				level = -1;
 			}
 
@@ -217,7 +231,7 @@ void Trace::onTouchEnded(cocos2d::Touch *touch, cocos2d::Event *event) {
 
 			std::string randomAnimation = animations[RandomHelper::random_int(0, 3)];
 
-	//		_menuContext->pickAlphabet('A', 'A', true);
+			_menuContext->pickAlphabet('A', 'A', true);
 
 
 			timeline->play(randomAnimation, false);
@@ -251,6 +265,7 @@ void Trace::onTouchEnded(cocos2d::Touch *touch, cocos2d::Event *event) {
 			auto redirect = Sequence::create(DelayTime::create(delay), redirectToNextLevel, NULL);
 			
 			auto audio = CocosDenshion::SimpleAudioEngine::getInstance();
+            auto alpha = LangUtil::getInstance()->getAllCharacters();
 			auto path = LangUtil::getInstance()->getAlphabetSoundFileName(alpha[level]);
 			audio->playEffect(path.c_str(), false);
 
@@ -320,7 +335,7 @@ void Trace::transit(int level) {
 
 void Trace::resetLevel() {
 	level = 0;
-	Director::getInstance()->replaceScene(StartMenu::createScene());
+    Director::getInstance()->replaceScene(GameMapScene::createScene());
 }
 void Trace::setDotsVisibility(bool flag) {
 

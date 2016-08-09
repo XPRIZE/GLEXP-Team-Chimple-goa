@@ -9,24 +9,21 @@
 #include "GameMapScene.h"
 #include "alphamon/SelectAlphamonScene.h"
 #include "puzzle/DuelScene.h"
+#include "puzzle/WordScene.h"
 #include "mini_games/PatchTheWallScene.h"
 #include "mini_games/CrossTheBridgeScene.h"
 #include "mini_games/SmashTheRockScene.h"
 #include "mini_games/EndlessRunner.h"
 #include "mini_games/Cannon_Ball_Main.h"
+#include "mini_games/Jasmin_Mainfile.h"
+#include "mini_games/jazz.h"
 #include "mini_games/TraceScene.h"
 #include "mini_games/AlphamonFeedScene.h"
+#include "StartMenuScene.h"
+#include "mini_games/Baja.h"
+#include "mini_games/Chain.h"
 
 USING_NS_CC;
-
-static const std::string PATCH_THE_WALL = "Patch The Wall";
-static const std::string CROSS_THE_BRIDGE = "Cross The Bridge";
-static const std::string SMASH_THE_ROCK = "Smash The Rock";
-static const std::string CANNON_BALL = "Cannon Ball";
-static const std::string ENDLESS_RUNNER = "Endless Runner";
-static const std::string KUNG_FU_ALPHA = "Trace Alphabet";
-static const std::string ALPHAMON_FEED = "Alphamon Feed";
-
 
 Scene* GameMapScene::createScene()
 {
@@ -76,10 +73,7 @@ bool GameMapScene::init()
         return false;
     }
     
-    FileUtils::getInstance()->addSearchPath("res/gamemap");
-    
-    this->languageManger = LanguageManager::getInstance();
-    
+    FileUtils::getInstance()->addSearchPath("res/gamemap");    
     
     this->loadGameMap();
     
@@ -125,6 +119,12 @@ void GameMapScene::processChildNodes(cocos2d::Node *rootNode) {
         if(data != NULL && !data->getCustomProperty().empty()) {
             std::string gameName = data->getCustomProperty();
             
+            if(gameName == "Trace Alphabet") {
+                gameName = KUNG_FU_ALPHA;
+            } else if(gameName == "Endless Runner") {
+                gameName = ENDLESS_RUNNER;
+            }
+            
             cocos2d::ui::Button* button = dynamic_cast<cocos2d::ui::Button *>(node);
             button->setName(gameName);
             if(button) {
@@ -149,20 +149,22 @@ void GameMapScene::islandSelected(Ref* pSender, ui::Widget::TouchEventType eEven
             break;
         case ui::Widget::TouchEventType::ENDED:
         {
+            clickedButton->setEnabled(false);
             if(clickedButton->getName() == PATCH_THE_WALL) {
                 Director::getInstance()->replaceScene(PatchTheWall::createScene());
             } else if(clickedButton->getName() == CROSS_THE_BRIDGE) {
                 Director::getInstance()->replaceScene(CrossTheBridge::createScene());
+				//Director::getInstance()->replaceScene(Chain::createScene());
             } else if(clickedButton->getName() == PATCH_THE_WALL) {
                 Director::getInstance()->replaceScene(PatchTheWall::createScene());
             } else if(clickedButton->getName() == SMASH_THE_ROCK) {
-                Director::getInstance()->replaceScene(SmashTheRock::createScene());
+                Director::getInstance()->replaceScene(jazz::createScene());
             } else if(clickedButton->getName() == CANNON_BALL) {
-                Director::getInstance()->replaceScene(MainGame::createScene());
+                Director::getInstance()->replaceScene(Jasmin_Mainfile::createScene());
             } else if(clickedButton->getName() == ENDLESS_RUNNER) {
                 Director::getInstance()->replaceScene(EndlessRunner::createScene());
             } else if(clickedButton->getName() == KUNG_FU_ALPHA) {
-                Director::getInstance()->replaceScene(Trace::createScene(1));
+                Director::getInstance()->replaceScene(Trace::createScene(0));
             } else if(clickedButton->getName() == ALPHAMON_FEED) {
                 Director::getInstance()->replaceScene(AlphamonFeed::createScene());
             }

@@ -11,13 +11,13 @@
                 <key>spriteOffset</key>
                 <string>{0,0}</string>
                 <key>spriteSize</key>
-                <string>{475,901}</string>
+                <string>{534,533}</string>
                 <key>spriteSourceSize</key>
-                <string>{475,901}</string>
+                <string>{534,533}</string>
                 <key>textureRect</key>
-                <string>{{1287,1},{475,901}}</string>
+                <string>{{775,1},{534,533}}</string>
                 <key>textureRotated</key>
-                <false/>
+                <true/>
             </dict>
             <key>black_timebar.png</key>
             <dict>
@@ -30,9 +30,24 @@
                 <key>spriteSourceSize</key>
                 <string>{503,52}</string>
                 <key>textureRect</key>
-                <string>{{111,904},{503,52}}</string>
+                <string>{{775,537},{503,52}}</string>
                 <key>textureRotated</key>
                 <false/>
+            </dict>
+            <key>brick.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{207,90}</string>
+                <key>spriteSourceSize</key>
+                <string>{207,90}</string>
+                <key>textureRect</key>
+                <string>{{775,643},{207,90}}</string>
+                <key>textureRotated</key>
+                <true/>
             </dict>
             <key>crack.png</key>
             <dict>
@@ -41,11 +56,26 @@
                 <key>spriteOffset</key>
                 <string>{0,0}</string>
                 <key>spriteSize</key>
-                <string>{96,108}</string>
+                <string>{96,109}</string>
                 <key>spriteSourceSize</key>
-                <string>{96,108}</string>
+                <string>{96,109}</string>
                 <key>textureRect</key>
-                <string>{{1,904},{96,108}}</string>
+                <string>{{867,643},{96,109}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+            <key>fort.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{932,772}</string>
+                <key>spriteSourceSize</key>
+                <string>{932,772}</string>
+                <key>textureRect</key>
+                <string>{{1,1},{932,772}}</string>
                 <key>textureRotated</key>
                 <true/>
             </dict>
@@ -60,22 +90,7 @@
                 <key>spriteSourceSize</key>
                 <string>{499,60}</string>
                 <key>textureRect</key>
-                <string>{{616,904},{499,50}}</string>
-                <key>textureRotated</key>
-                <false/>
-            </dict>
-            <key>scene.png</key>
-            <dict>
-                <key>aliases</key>
-                <array/>
-                <key>spriteOffset</key>
-                <string>{0,0}</string>
-                <key>spriteSize</key>
-                <string>{1284,901}</string>
-                <key>spriteSourceSize</key>
-                <string>{1284,901}</string>
-                <key>textureRect</key>
-                <string>{{1,1},{1284,901}}</string>
+                <string>{{775,591},{499,50}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
@@ -91,9 +106,9 @@
             <key>realTextureFileName</key>
             <string>fort_plist.png</string>
             <key>size</key>
-            <string>{1763,1001}</string>
+            <string>{1309,934}</string>
             <key>smartupdate</key>
-            <string>$TexturePacker:SmartUpdate:3aa9b78d66c98116c6967f4e39c87ed7:3359df043f69d07833a34921534080c3:a86366906121364c233bf5719a71f892$</string>
+            <string>$TexturePacker:SmartUpdate:3e840d7cce8a0f9bfaf085488d9eb058:13863cac2732f48a87bfd22c6ae77e87:a86366906121364c233bf5719a71f892$</string>
             <key>textureFileName</key>
             <string>fort_plist.png</string>
         </dict>

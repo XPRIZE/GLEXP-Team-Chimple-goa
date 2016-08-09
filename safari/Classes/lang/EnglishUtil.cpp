@@ -55,6 +55,11 @@ std::string EnglishUtil::getPhoneticSoundFileName(wchar_t alpha) {
     return fileName;
 }
 
+bool EnglishUtil::isGraphemeStart(uint32_t prevCodePoint, uint32_t currentCodePoint) {
+    return true;
+}
+
+
 std::string EnglishUtil::getDir() {
     return "english";
 }
@@ -64,9 +69,13 @@ std::string EnglishUtil::getLang() {
 }
 
 EnglishUtil::EnglishUtil() {
-    
+    this->initializeWordManager();
 }
 
-EnglishUtil::~EnglishUtil() {
-    
+EnglishUtil::~EnglishUtil() {    
+}
+
+
+void EnglishUtil::initializeWordManager() {
+    this->wordManager = WordManager::getInstance();
 }

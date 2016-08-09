@@ -124,6 +124,8 @@ void EventListenerClass::addEvents(MainGame *callerObject, EventListenerClass* t
 		if (rect.containsPoint(locationInNode))
 		{
 			cannon1 = 0, cannon2 = 0, cannon3 = 0;
+			target->setScale(2, 2);
+			target->setZOrder(2);
 			for (int i = 0; i < callerObject->cannonArray.size(); i++)
 			{
 				if (callerObject->cannonArray[i]->cannonID == 0)
@@ -157,7 +159,11 @@ void EventListenerClass::addEvents(MainGame *callerObject, EventListenerClass* t
 
 		Rect targetRect = target->getBoundingBox();
 
-		if (cannon1 == 1 && targetRect.intersectsRect(cannon1Target->getBoundingBox()) && cannon1Target->flag == 0)
+		Rect targetRect1 = Rect(cannon1Target->getPositionX() - cannon1Target->getBoundingBox().size.width / 2, cannon1Target->getPositionY() - cannon1Target->getContentSize().height / 2, cannon1Target->getBoundingBox().size.width, cannon1Target->getBoundingBox().size.height);
+		Rect targetRect2 = Rect(cannon2Target->getPositionX() - cannon2Target->getBoundingBox().size.width / 2, cannon2Target->getPositionY() - cannon2Target->getContentSize().height / 2, cannon2Target->getBoundingBox().size.width, cannon2Target->getBoundingBox().size.height);
+		Rect targetRect3 = Rect(cannon3Target->getPositionX() - cannon3Target->getBoundingBox().size.width / 2, cannon3Target->getPositionY() - cannon3Target->getContentSize().height / 2, cannon3Target->getBoundingBox().size.width, cannon3Target->getBoundingBox().size.height);
+
+		if (cannon1 == 1 && targetRect1.intersectsRect(target->getBoundingBox()) && cannon1Target->flag == 0)
 		{
 			target->placedNumber = 0;
 
@@ -170,7 +176,11 @@ void EventListenerClass::addEvents(MainGame *callerObject, EventListenerClass* t
 				}
 			}
 
-			auto callback = CallFunc::create([this, target, callerObject]() { callerObject->loadCannon(target); });
+			auto callback = CallFunc::create([this, target, callerObject]() { 
+				target->setOpacity(0); 
+				target->getChildren().at(0)->setOpacity(0);
+				callerObject->loadCannon(target); });
+
 			auto moveto = MoveTo::create(.2, Vec2(cannon1Target->getPositionX() + (cannon1Target->getContentSize().width / 4), cannon1Target->getPositionY()));
 			auto seq = Sequence::create(moveto, callback, NULL);
 			target->runAction(seq);
@@ -179,7 +189,7 @@ void EventListenerClass::addEvents(MainGame *callerObject, EventListenerClass* t
 
 			cocos2d::Director::getInstance()->getEventDispatcher()->removeEventListenersForTarget(target, true);
 		}
-		else if (cannon2 == 1 && targetRect.intersectsRect(cannon2Target->getBoundingBox()) && cannon2Target->flag == 0)
+		else if (cannon2 == 1 && targetRect2.intersectsRect(target->getBoundingBox()) && cannon2Target->flag == 0)
 		{
 			target->placedNumber = 1;
 			for (int i = 0; i < MainGame::cannonArray.size(); i++)
@@ -191,7 +201,11 @@ void EventListenerClass::addEvents(MainGame *callerObject, EventListenerClass* t
 				}
 			}
 
-			auto callback = CallFunc::create([this, target, callerObject]() { callerObject->loadCannon(target); });
+			auto callback = CallFunc::create([this, target, callerObject]() { 
+				target->setOpacity(0); 
+				target->getChildren().at(0)->setOpacity(0);
+				callerObject->loadCannon(target); });
+
 			auto moveto = MoveTo::create(.2, Vec2(cannon2Target->getPositionX() + (cannon2Target->getContentSize().width / 4), cannon2Target->getPositionY()));
 			auto seq = Sequence::create(moveto, callback, NULL);
 			target->runAction(seq);
@@ -200,7 +214,7 @@ void EventListenerClass::addEvents(MainGame *callerObject, EventListenerClass* t
 
 			cocos2d::Director::getInstance()->getEventDispatcher()->removeEventListenersForTarget(target, true);
 		}
-		else if (cannon3 == 1 && targetRect.intersectsRect(cannon3Target->getBoundingBox()) && cannon3Target->flag == 0)
+		else if (cannon3 == 1 && targetRect3.intersectsRect(target->getBoundingBox()) && cannon3Target->flag == 0)
 		{
 			target->placedNumber = 2;
 
@@ -213,7 +227,10 @@ void EventListenerClass::addEvents(MainGame *callerObject, EventListenerClass* t
 				}
 			}
 
-			auto callback = CallFunc::create([this, target, callerObject]() { callerObject->loadCannon(target); });
+			auto callback = CallFunc::create([this, target, callerObject]() { 
+				target->setOpacity(0); 
+				target->getChildren().at(0)->setOpacity(0);
+				callerObject->loadCannon(target); });
 			auto moveto = MoveTo::create(.2, Vec2(cannon3Target->getPositionX() + (cannon3Target->getContentSize().width / 4), cannon3Target->getPositionY()));
 			auto seq = Sequence::create(moveto, callback, NULL);
 			target->runAction(seq);
@@ -225,6 +242,8 @@ void EventListenerClass::addEvents(MainGame *callerObject, EventListenerClass* t
 		{
 			auto target = static_cast<EventListenerClass*>(event->getCurrentTarget());
 			target->runAction(MoveTo::create(.2, Vec2(target->xP, target->yP)));
+			target->setScale(1, 1);
+			target->setZOrder(1);
 		}
 	};
 	
