@@ -32,6 +32,17 @@ WordScene* WordScene::create() {
     return nullptr;
 }
 
+WordScene* WordScene::createWithWord(std::string wordStr) {
+    WordScene* word = new (std::nothrow) WordScene();
+    if(word && word->initWithWord(wordStr))
+    {
+        word->autorelease();
+        return word;
+    }
+    CC_SAFE_DELETE(word);
+    return nullptr;
+}
+
 WordScene::WordScene() {
     
 }
@@ -41,20 +52,27 @@ WordScene::~WordScene() {
 }
 
 bool WordScene::init() {
+    auto tg = TextGenerator::getInstance();
+    auto word = tg->generateAWord();
+    return initWithWord(word);
+}
+
+bool WordScene::initWithWord(std::string word) {
     if(!Node::init()) {
         return false;
     }
+    _word = word;
     auto tg = TextGenerator::getInstance();
-    _word = tg->generateAWord();
     _answerGraphemes = tg->getGraphemes(_word);
     _numGraphemes = _answerGraphemes.size();
-
+    
     addChild(loadNode());
     createAnswer();
     createChoice();
-	createGrid();
-	_eventDispatcher->addCustomEventListener("grapheme_anim_done", CC_CALLBACK_0(WordScene::checkAnswer, this));
+    createGrid();
+    _eventDispatcher->addCustomEventListener("grapheme_anim_done", CC_CALLBACK_0(WordScene::checkAnswer, this));
     return true;
+    
 }
 
 void WordScene::createGrid() {
