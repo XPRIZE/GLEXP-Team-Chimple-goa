@@ -107,7 +107,7 @@ void WordSprite::destroyTouchPointer() {
 void WordSprite::showTouchPointer() {
     if(this->sprite && this->sprite->isVisible() && this->touchPointerNode == NULL)
     {
-        this->touchPointerNode =  Sprite::create(TOUCH_POINTER_IMG);
+        this->touchPointerNode =  Sprite::create(SEARCH_POINTER_IMG);
         this->touchPointerNode->setScale(0.5f, 0.5f);
         this->touchPointerNode->setPosition(this->sprite->getPosition());
         this->addChild(this->touchPointerNode);
@@ -153,6 +153,7 @@ bool WordSprite::onTouchBegan(Touch *touch, Event *event)
 void WordSprite::touchEnded(Touch *touch, Event *event)
 {
     CCLOG("PLAYING GAME WITH WORD %s", this->word.c_str());
+    WordInfo* wordInfo = LangUtil::getInstance()->loadLanguageSpecificWordMappingForAWord(this->word.c_str());
     if(this->touchPointerNode != NULL) {
         this->touchPointerNode->setVisible(false);
     }

@@ -44,6 +44,8 @@ public:
     
     virtual SkeletonPosition* findLastVisitedSceneInIsland(const char* island, const char* sceneName);
     
+    virtual std::map<std::string,std::string> loadNodeWordMapping(const char* sceneName);
+    
     static bool instanceFlag;
     static Sqlite3Helper *shared;
 

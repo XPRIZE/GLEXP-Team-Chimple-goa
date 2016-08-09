@@ -31,7 +31,7 @@ protected:
     virtual void createGrid();
     virtual void createAnswer();
     virtual void createChoice();
-    virtual void gameOver();
+    virtual void gameOver(bool correct);
     virtual void addChoice(Node* choice);
     
     virtual int getGridHeight();

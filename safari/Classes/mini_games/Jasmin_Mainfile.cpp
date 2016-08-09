@@ -16,13 +16,30 @@ Node* Jasmin_Mainfile::loadNode() {
 	return node;
 }
 
+void Jasmin_Mainfile::createAnswer() {
+	auto label = ui::Text::create();
+	label->setString(_word);
+	label->setFontSize(200);
+	_answer = Node::create();
+	_answer->addChild(label);
+	_answer->setPosition(Vec2(1280, 1600));
+	addChild(_answer);
+
+}
+
 void Jasmin_Mainfile::createChoice() {
+	float wid = Director::getInstance()->getVisibleSize().width;
+	float hei = Director::getInstance()->getVisibleSize().height;
+
 	_choice = Node::create();
-	_choice->setPosition(Vec2(1280, 900));
+	_choice->setPosition(Vec2(0, hei*43/100));
 	addChild(_choice);
+
+	const float squareWidth = Director::getInstance()->getVisibleSize().width / _numGraphemes;
+
 	for (int i = 0; i < _numGraphemes; i++) {
-		auto choiceNode = Sprite::createWithSpriteFrameName("jasmine/seed pouch.png");
-		choiceNode->setPosition(Vec2(i * 200, 0));
+		auto choiceNode = Sprite::createWithSpriteFrameName("jasmine/seedpouch.png");
+		choiceNode->setPosition(Vec2((i + 0.5) * squareWidth, 0));
 		addChoice(choiceNode);
 	}
 }
