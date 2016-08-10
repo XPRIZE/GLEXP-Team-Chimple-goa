@@ -77,7 +77,7 @@ bool WordScene::initWithWord(std::string word) {
 
 void WordScene::createGrid() {
     Size visibleSize = Director::getInstance()->getVisibleSize();
-    _matrix = TextGenerator::getInstance()->generateMatrix(_word, 2, 8);
+    _matrix = TextGenerator::getInstance()->generateMatrix(_word, getGridNumRows(), getGridNumCols());
     _grid = GraphemeGrid::create(visibleSize.width, getGridHeight(), getGridNumRows(), getGridNumCols(), getGridBackground(), _matrix, getGraphemeUnselectedBackground(), getGraphemeSelectedBackground());
     auto unselBg = getGraphemeUnselectedBackground();
     if(!unselBg.empty()) {

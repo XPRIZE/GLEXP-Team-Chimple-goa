@@ -30,6 +30,7 @@ LOCAL_SRC_FILES := hellocpp/main.cpp \
 					../../Classes/puzzle/CharGenerator.cpp \
 					../../Classes/puzzle/DuelScene.cpp \
 					../../Classes/puzzle/WordScene.cpp \
+					../../Classes/puzzle/WordBoard.cpp \
 					../../Classes/puzzle/Grapheme.cpp \
 					../../Classes/puzzle/GraphemeGrid.cpp \
 					../../Classes/RPGConfig.cpp \
@@ -58,6 +59,7 @@ LOCAL_SRC_FILES := hellocpp/main.cpp \
 					../../Classes/mini_games/Jasmin_Mainfile.cpp \
 					../../Classes/mini_games/Chain.cpp \
 					../../Classes/mini_games/jazz.cpp \
+					../../Classes/mini_games/Wembley.cpp \
 					../../Classes/menu/MenuContext.cpp \
 					../../Classes/lang/LangUtil.cpp \
 					../../Classes/lang/EnglishUtil.cpp \
