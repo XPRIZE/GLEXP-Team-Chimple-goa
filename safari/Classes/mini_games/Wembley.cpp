@@ -2,6 +2,7 @@
 #include "editor-support/cocostudio/CocoStudio.h"
 
 
+
 USING_NS_CC;
 
 Scene* Wembley::createScene() {
@@ -30,6 +31,8 @@ void Wembley::createAnswer() {
 	auto label = ui::Text::create();
 	label->setString(_word);
 	label->setFontSize(200);
+	label->setFontName("fonts/arial.ttf");
+	label->setTextColor(Color4B::BLUE);
 	_answer = Node::create();
 	_answer->addChild(label);
 	_answer->setPosition(Vec2(_size.width / 2, _size.height * 88 / 100));
@@ -60,7 +63,20 @@ void Wembley::createChoice() {
 }
 
 std::string Wembley::getGridBackground() {
+	return "wembley/ballshade.png";
+}
+
+std::string Wembley::getGraphemeUnselectedBackground() {
+	
 	return "wembley/ball.png";
+}
+
+std::string Wembley::getGraphemeSelectedBackground() {
+	return "wembley/ball.png";
+}
+
+int Wembley::getGridHeight() {
+	return 800;
 }
 
 Wembley* Wembley::create() {
