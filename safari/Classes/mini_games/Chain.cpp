@@ -30,6 +30,11 @@ Chain::Chain(void)
 
 }
 
+GraphemeGrid* Chain::createGraphemeGrid(GLfloat width, GLfloat height, int numRows, int numCols, std::string spriteName, std::vector<std::vector<std::string>> graphemes, std::string graphemeUnselectedBackground, std::string graphemeSelectedBackground)
+{
+	return ChainGrid::create(width, height, numRows, numCols, spriteName, graphemes, graphemeUnselectedBackground, graphemeSelectedBackground);
+}
+
 Node* Chain::loadNode() {
 	auto node = CSLoader::createNode("chain/chain.csb");
 
@@ -86,6 +91,16 @@ treeRight->setAnchorPoint(Vec2(0, 0.5));
 std::string Chain::getGridBackground() {
 	return "chain/letterpanel.png";
 }
+
+std::string Chain::getGraphemeUnselectedBackground() {
+	return "";
+}
+
+std::string Chain::getGraphemeSelectedBackground() {
+	return "chain/monkey.png";
+}
+
+
 Chain* Chain::create() {
 	Chain* word = new (std::nothrow) Chain();
 	if (word && word->init())
@@ -113,3 +128,59 @@ Chain* Chain::create() {
 //
 //	return true;
 //}
+
+ChainGrid* ChainGrid::create(GLfloat width, GLfloat height, int numRows, int numCols, std::string spriteName, std::vector<std::vector<std::string>> graphemes, std::string graphemeUnselectedBackground, std::string graphemeSelectedBackground) {
+	ChainGrid *graphemeGrid = new (std::nothrow) ChainGrid();
+	if (graphemeGrid && graphemeGrid->init(width, height, numRows, numCols, spriteName, graphemes, graphemeUnselectedBackground, graphemeSelectedBackground)) {
+		graphemeGrid->autorelease();
+		return graphemeGrid;
+	}
+	CC_SAFE_DELETE(graphemeGrid);
+	return nullptr;
+
+}
+
+bool ChainGrid::init(GLfloat width, GLfloat height, int numRows, int numCols, std::string spriteName, std::vector<std::vector<std::string>> graphemes, std::string graphemeUnselectedBackground, std::string graphemeSelectedBackground) {
+	if (!GraphemeGrid::init(width, height, numRows, numCols, spriteName, graphemes, graphemeUnselectedBackground, graphemeSelectedBackground)) {
+		return false;
+	}
+	return true;
+}
+
+Grapheme* ChainGrid::createGrapheme(std::string graphemeString) {
+	return ChainGrapheme::create(graphemeString);
+}
+
+ChainGrapheme* ChainGrapheme::create(std::string graphemeString) {
+	ChainGrapheme *grapheme = new (std::nothrow) ChainGrapheme();
+	if (grapheme && grapheme->init(graphemeString)) {
+		grapheme->autorelease();
+		return grapheme;
+	}
+	CC_SAFE_DELETE(grapheme);
+	return nullptr;
+}
+
+bool ChainGrapheme::init(std::string graphemeString) {
+	if (!Grapheme::init(graphemeString)) {
+		return false;
+	}
+	return true;
+}
+
+void ChainGrapheme::animateToPositionAndChangeBackground(cocos2d::Vec2 toPosition) {
+	_prevPosition = getPosition();
+	if (!_selected) {
+		auto moveTo = MoveTo::create(1.0, toPosition);
+		auto callback = CallFunc::create(CC_CALLBACK_0(Grapheme::changeBackground, this));
+		auto sequence = Sequence::create(moveTo, callback, NULL);
+		runAction(sequence);
+	}
+	else 
+	{
+		changeBackground();
+		auto moveTo = MoveTo::create(1.0, toPosition);
+		runAction(moveTo);
+	}
+
+}
