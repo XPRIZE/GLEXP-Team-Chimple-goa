@@ -16,6 +16,11 @@ protected:
 	cocos2d::Node* loadNode() override;
 	std::string getGridBackground() override;
 	void createChoice() override;
+	void gameOver(bool correct);
+	std::vector<Node*> _gorilla;
+	Node* _animate;
+	cocostudio::timeline::ActionTimeline * _blinkAnimation;
+	void blinking(std::string animationName, bool loop);
 };
 
 #endif // __JAZZ_SCENE_H__
