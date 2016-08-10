@@ -18,6 +18,7 @@ class WordScene : public cocos2d::Node {
 public:
     static cocos2d::Scene* createScene();
     static WordScene *create();
+    static WordScene *createWithWord(std::string wordStr);
     virtual void onTouchEnded(cocos2d::Touch* touch, cocos2d::Event* event);
     virtual void checkAnswer();
 
@@ -25,6 +26,7 @@ CC_CONSTRUCTOR_ACCESS:
     WordScene();
     virtual ~WordScene();
     bool init();
+    bool initWithWord(std::string word);
     
 protected:
     virtual cocos2d::Node* loadNode();
@@ -38,6 +40,8 @@ protected:
     virtual int getGridNumRows();
     virtual int getGridNumCols();
     virtual std::string getGridBackground();
+    virtual std::string getGraphemeUnselectedBackground();
+    virtual std::string getGraphemeSelectedBackground();
 
     MenuContext* _menuContext;
     GraphemeGrid* _grid;

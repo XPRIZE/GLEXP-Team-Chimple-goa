@@ -4,78 +4,108 @@
     <dict>
         <key>frames</key>
         <dict>
-            <key>wembley/ball.png</key>
+            <key>common_screen/alphabet_box.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
                 <key>spriteOffset</key>
                 <string>{0,0}</string>
                 <key>spriteSize</key>
-                <string>{302,302}</string>
+                <string>{1136,397}</string>
                 <key>spriteSourceSize</key>
-                <string>{302,302}</string>
+                <string>{1136,397}</string>
                 <key>textureRect</key>
-                <string>{{1,573},{302,302}}</string>
+                <string>{{1,1},{1136,397}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>wembley/balldash.png</key>
+            <key>common_screen/letter_box.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
                 <key>spriteOffset</key>
                 <string>{0,0}</string>
                 <key>spriteSize</key>
-                <string>{305,305}</string>
+                <string>{296,286}</string>
                 <key>spriteSourceSize</key>
-                <string>{305,305}</string>
+                <string>{296,286}</string>
                 <key>textureRect</key>
-                <string>{{517,327},{305,305}}</string>
-                <key>textureRotated</key>
-                <false/>
-            </dict>
-            <key>wembley/ballshade.png</key>
-            <dict>
-                <key>aliases</key>
-                <array/>
-                <key>spriteOffset</key>
-                <string>{0,0}</string>
-                <key>spriteSize</key>
-                <string>{300,300}</string>
-                <key>spriteSourceSize</key>
-                <string>{300,300}</string>
-                <key>textureRect</key>
-                <string>{{305,634},{300,300}}</string>
-                <key>textureRotated</key>
-                <false/>
-            </dict>
-            <key>wembley/char.png</key>
-            <dict>
-                <key>aliases</key>
-                <array/>
-                <key>spriteOffset</key>
-                <string>{0,0}</string>
-                <key>spriteSize</key>
-                <string>{244,514}</string>
-                <key>spriteSourceSize</key>
-                <string>{244,514}</string>
-                <key>textureRect</key>
-                <string>{{1,327},{244,514}}</string>
+                <string>{{1139,1},{296,286}}</string>
                 <key>textureRotated</key>
                 <true/>
             </dict>
-            <key>wembley/net.png</key>
+            <key>common_screen/letter_hole.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
                 <key>spriteOffset</key>
-                <string>{1,-8}</string>
+                <string>{0,0}</string>
                 <key>spriteSize</key>
-                <string>{848,324}</string>
+                <string>{507,177}</string>
                 <key>spriteSourceSize</key>
-                <string>{862,362}</string>
+                <string>{507,177}</string>
                 <key>textureRect</key>
-                <string>{{1,1},{848,324}}</string>
+                <string>{{1427,1},{507,177}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+            <key>common_screen/sand_particle.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{85,45}</string>
+                <key>spriteSourceSize</key>
+                <string>{85,45}</string>
+                <key>textureRect</key>
+                <string>{{1449,180},{85,45}}</string>
+                <key>textureRotated</key>
+                <true/>
+            </dict>
+            <key>common_screen/sand_particle_01.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{81,27}</string>
+                <key>spriteSourceSize</key>
+                <string>{81,27}</string>
+                <key>textureRect</key>
+                <string>{{1449,267},{81,27}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+            <key>common_screen/sand_particle_02.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{113,20}</string>
+                <key>spriteSourceSize</key>
+                <string>{113,20}</string>
+                <key>textureRect</key>
+                <string>{{1427,180},{113,20}}</string>
+                <key>textureRotated</key>
+                <true/>
+            </dict>
+            <key>common_screen/water.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{604,88}</string>
+                <key>spriteSourceSize</key>
+                <string>{604,88}</string>
+                <key>textureRect</key>
+                <string>{{1139,299},{604,88}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
@@ -89,13 +119,13 @@
             <key>premultiplyAlpha</key>
             <false/>
             <key>realTextureFileName</key>
-            <string>wembley.png</string>
+            <string>common_screen.png</string>
             <key>size</key>
-            <string>{850,935}</string>
+            <string>{1935,399}</string>
             <key>smartupdate</key>
-            <string>$TexturePacker:SmartUpdate:ec3c5f50274552c318e046cf7470309e:ed4505b5d168a1aa575fc24340fc8bf7:cfce23dd01c0bbbbc6990219af36ea7c$</string>
+            <string>$TexturePacker:SmartUpdate:c65ae96555c0534b94a35a174593bf2d:5d5dd98a0fb1154184e718803d4e693c:8c060770db5b8bd1a6d5229fb43ad238$</string>
             <key>textureFileName</key>
-            <string>wembley.png</string>
+            <string>common_screen.png</string>
         </dict>
     </dict>
 </plist>
