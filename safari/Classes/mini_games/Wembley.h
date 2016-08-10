@@ -17,6 +17,9 @@ protected:
 	std::string getGridBackground() override;
 	void createChoice() override;
 	void createAnswer() override;
+	std::string getGraphemeUnselectedBackground() override;
+	std::string getGraphemeSelectedBackground() override;
+	int getGridHeight()  override;
 };
 
 #endif // Wembley_SCENE_H__
