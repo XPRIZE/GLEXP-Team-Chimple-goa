@@ -78,3 +78,18 @@ void WordBoard::createGrid() {
     _grid->setPosition(0, 100);
 }
 
+void WordBoard::createChoice() {
+    Size visibleSize = Director::getInstance()->getVisibleSize();
+    const float squareWidth = visibleSize.width / _numGraphemes;
+    _choice = Node::create();
+    _choice->setPosition(Vec2(0, 1000));
+    addChild(_choice);
+    for (int i = 0; i < _numGraphemes; i++) {
+        auto choiceNode = Node::create();
+        choiceNode->setPosition(Vec2((i + 0.5 ) * squareWidth , 0));
+        auto hole = Sprite::createWithSpriteFrameName("common_screen/letter_hole.png");
+        hole->setPosition(Vec2(0, -100));
+        choiceNode->addChild(hole);
+        addChoice(choiceNode);
+    }
+}

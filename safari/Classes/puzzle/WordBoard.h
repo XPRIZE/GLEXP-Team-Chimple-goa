@@ -28,7 +28,7 @@ protected:
     std::string getGridBackground() override;
     Node* loadNode() override;
     void createGrid() override;
-    
+    void createChoice() override;
 };
 
 
