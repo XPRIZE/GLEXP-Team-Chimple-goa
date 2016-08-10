@@ -53,15 +53,18 @@ void GraphemeGrid::resize(GLfloat width, GLfloat height, int numRows, int numCol
     _numCols = numCols;
     _width = width;
     _height = height;
+    
     const float squareWidth = width / numCols;
     const float squareHeight = height / numRows;
     _graphemeMatrix.clear();
     _graphemeMatrix.resize(numRows, std::vector<Grapheme*>(numCols));
     for (int i = 0; i < numRows; i++) {
         for (int j = 0; j < numCols; j++) {
-            auto tile = Sprite::createWithSpriteFrameName(_spriteName);
-            tile->setPosition(Vec2((j + 0.5) * squareWidth, (i + 0.5) * squareHeight));
-            addChild(tile);
+            if(!_spriteName.empty()) {
+                auto tile = Sprite::createWithSpriteFrameName(_spriteName);
+                tile->setPosition(Vec2((j + 0.5) * squareWidth, (i + 0.5) * squareHeight));
+                addChild(tile);
+            }
             auto grapheme = createAndAddGrapheme(graphemes.at(i).at(j));
             grapheme->setPosition(Vec2((j + 0.5) * squareWidth, (i + 0.5) * squareHeight));
             grapheme->touchEndedCallback = CC_CALLBACK_2(GraphemeGrid::onTouchEnded, this);
