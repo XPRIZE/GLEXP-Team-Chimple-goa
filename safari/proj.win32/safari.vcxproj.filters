@@ -248,6 +248,9 @@
     <ClCompile Include="..\Classes\lang\WordInfo.cpp">
       <Filter>src\lang</Filter>
     </ClCompile>
+    <ClCompile Include="..\Classes\mini_games\Chain.cpp">
+      <Filter>src\mini_games</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -468,6 +471,9 @@
     </ClInclude>
     <ClInclude Include="..\Classes\lang\WordInfo.h">
       <Filter>src\lang</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\mini_games\Chain.h">
+      <Filter>src\mini_games</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

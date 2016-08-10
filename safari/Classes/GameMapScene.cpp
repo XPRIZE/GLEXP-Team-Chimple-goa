@@ -156,8 +156,8 @@ void GameMapScene::islandSelected(Ref* pSender, ui::Widget::TouchEventType eEven
             if(clickedButton->getName() == PATCH_THE_WALL) {
                 Director::getInstance()->replaceScene(WordBoard::createScene());
             } else if(clickedButton->getName() == CROSS_THE_BRIDGE) {
-                Director::getInstance()->replaceScene(CrossTheBridge::createScene());
-				//Director::getInstance()->replaceScene(Chain::createScene());
+                //Director::getInstance()->replaceScene(CrossTheBridge::createScene());
+				Director::getInstance()->replaceScene(Chain::createScene());
             } else if(clickedButton->getName() == PATCH_THE_WALL) {
                 Director::getInstance()->replaceScene(PatchTheWall::createScene());
             } else if(clickedButton->getName() == SMASH_THE_ROCK) {
