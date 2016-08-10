@@ -165,6 +165,7 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClCompile Include="..\Classes\lang\LangUtil.cpp" />
     <ClCompile Include="..\Classes\lang\SafariAnalyticsManager.cpp" />
     <ClCompile Include="..\Classes\lang\TextGenerator.cpp" />
+    <ClCompile Include="..\Classes\lang\WordInfo.cpp" />
     <ClCompile Include="..\Classes\lang\WordManager.cpp" />
     <ClCompile Include="..\Classes\MapIsland.cpp" />
     <ClCompile Include="..\Classes\MapScene.cpp" />
@@ -178,6 +179,7 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClCompile Include="..\Classes\mini_games\Baja.cpp" />
     <ClCompile Include="..\Classes\mini_games\Cannon_Ball_Listener.cpp" />
     <ClCompile Include="..\Classes\mini_games\Cannon_Ball_Main.cpp" />
+    <ClCompile Include="..\Classes\mini_games\Chain.cpp" />
     <ClCompile Include="..\Classes\mini_games\CrossTheBridgeScene.cpp" />
     <ClCompile Include="..\Classes\mini_games\EndlessRunner.cpp" />
     <ClCompile Include="..\Classes\mini_games\Jasmin_Listenerfile.cpp" />
@@ -238,6 +240,7 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClInclude Include="..\Classes\lang\LangUtil.h" />
     <ClInclude Include="..\Classes\lang\SafariAnalyticsManager.h" />
     <ClInclude Include="..\Classes\lang\TextGenerator.h" />
+    <ClInclude Include="..\Classes\lang\WordInfo.h" />
     <ClInclude Include="..\Classes\lang\WordManager.h" />
     <ClInclude Include="..\Classes\MapIsland.h" />
     <ClInclude Include="..\Classes\MapScene.h" />
@@ -250,6 +253,7 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClInclude Include="..\Classes\mini_games\Baja.h" />
     <ClInclude Include="..\Classes\mini_games\Cannon_Ball_Listener.h" />
     <ClInclude Include="..\Classes\mini_games\Cannon_Ball_Main.h" />
+    <ClInclude Include="..\Classes\mini_games\Chain.h" />
     <ClInclude Include="..\Classes\mini_games\CrossTheBridgeScene.h" />
     <ClInclude Include="..\Classes\mini_games\EndlessRunner.h" />
     <ClInclude Include="..\Classes\mini_games\Jasmin_Listenerfile.h" />
