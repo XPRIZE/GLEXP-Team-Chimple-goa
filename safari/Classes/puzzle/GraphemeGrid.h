@@ -40,6 +40,7 @@ protected:
     GLfloat _height;
     std::string _spriteName;
     std::vector<std::vector<Grapheme*> > _graphemeMatrix;
+    Node* _tileLayer;
     std::string _graphemeUnselectedBackground;
     std::string _graphemeSelectedBackground;
 
