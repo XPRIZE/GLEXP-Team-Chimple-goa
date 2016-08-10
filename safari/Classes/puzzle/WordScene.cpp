@@ -66,7 +66,8 @@ bool WordScene::initWithWord(std::string word) {
     _answerGraphemes = tg->getGraphemes(_word);
     _numGraphemes = _answerGraphemes.size();
     
-    addChild(loadNode());
+    _background = loadNode();
+    addChild(_background);
     createAnswer();
     createChoice();
     createGrid();

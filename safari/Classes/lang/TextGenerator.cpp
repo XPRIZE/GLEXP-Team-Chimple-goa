@@ -57,7 +57,15 @@ std::map<int, int> TextGenerator::getRandomLocations(int numLoc, int totalNum) {
 }
 
 std::string TextGenerator::generateAWord() {
-    return "APPLES";
+    static std::vector<std::string> words;
+    words.push_back("A");
+    words.push_back("IT");
+    words.push_back("ZOO");
+    words.push_back("CODE");
+    words.push_back("TIGHT");
+    words.push_back("BUBBLE");
+
+    return words.at(rand() % 6);
 }
 
 
