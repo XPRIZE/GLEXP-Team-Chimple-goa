@@ -1,5 +1,6 @@
 #include <iostream>
 #include <string>
+#include <regex>
 #include <unordered_map>
 #include "HelloWorldScene.h"
 #include "StartMenuScene.h"
@@ -68,6 +69,7 @@ sceneName(""),
 alphamonNodesCount(0),
 skeletonPositionInLastVisitedScene(nullptr)
 {
+    this->stateMachine = NULL;
 }
 
 HelloWorld::~HelloWorld() {
@@ -120,7 +122,7 @@ void HelloWorld::loadGameScene() {
     this->setSceneSize(rootNode->getContentSize());
     this->addChild(rootNode);
     
-    this->setPhysicsFile(this->getSceneName()+".plist");
+    this->setPhysicsFile(this->getSceneName()+"_physics.plist");
 
     this->setReferencesToGameLayers(rootNode);
     
@@ -311,21 +313,58 @@ void HelloWorld::createAlphaMonSprite(Node* node, std::unordered_map<std::string
 }
 
 void HelloWorld::enablePhysicsBoundaries(Node* rootNode) {
-    PhysicsShapeCache::getInstance()->addShapesWithFile(this->getSceneName()+"/"+this->getPhysicsFile());
+    bool fileProcessed = PhysicsShapeCache::getInstance()->addShapesWithFile(this->getSceneName()+"/"+this->getPhysicsFile())
+    ;
+    
+    if(!fileProcessed) {
+        this->setPhysicsFile(this->getSceneName()+".plist");
+        fileProcessed = PhysicsShapeCache::getInstance()->addShapesWithFile(this->getSceneName()+"/"+this->getPhysicsFile())
+        ;        
+    }
     std::regex pattern(".*(_[[:d:]+]+)+");
     for (auto child : rootNode->getChildren()) {
+        CCLOG("processing child %s", child->getName().c_str());
         PhysicsShapeCache::getInstance()->setBodyOnSprite(child->getName(), (Sprite *)child);
-        for (auto subChild : child->getChildren()) {
-            if(dynamic_cast<Sprite*>(subChild)) {
-                Sprite* sprite = dynamic_cast<Sprite*>(subChild);
-                if(sprite) {
-                    auto matchingName = subChild->getName();
-                    if(regex_match(matchingName, pattern)) {
-                        std::size_t found = subChild->getName().find_last_of("_");
-                        matchingName = matchingName.substr(0,found);                        
+        if(child->getChildrenCount() > 0) {
+            for (auto subChild : child->getChildren()) {
+                CCLOG("processing subchild %s", subChild->getName().c_str());
+                if(dynamic_cast<Sprite*>(subChild)) {
+                    Sprite* sprite = dynamic_cast<Sprite*>(subChild);
+                    if(sprite) {
+                        auto matchingName = subChild->getName();
+                        
+                        do {
+                            std::size_t found = matchingName.find_last_of("_");
+                            matchingName = matchingName.substr(0,found);
+                        } while(regex_match(matchingName, pattern));
+                        
+                        CCLOG("matchingName %s", matchingName.c_str());
+                        PhysicsShapeCache::getInstance()->setBodyOnSprite(matchingName, (Sprite *)subChild);
+                        auto body = subChild->getPhysicsBody();
+                        if(body) {
+                            this->mainCharacterCategoryBitMask = this->mainCharacterCategoryBitMask | body->getCategoryBitmask();
+                        }
+                        
                     }
-                    PhysicsShapeCache::getInstance()->setBodyOnSprite(matchingName, (Sprite *)subChild);
-                    auto body = subChild->getPhysicsBody();
+                    
+                    if(sprite->getChildrenCount() > 0) {
+                        this->enablePhysicsBoundaries(sprite);
+                    }
+                }
+            }
+        } else {
+            if(dynamic_cast<Sprite*>(child)) {
+                Sprite* sprite = dynamic_cast<Sprite*>(child);
+                if(sprite) {
+                    std::string matchingName = child->getName();
+                    do {
+                        std::size_t found = matchingName.find_last_of("_");
+                        matchingName = matchingName.substr(0,found);
+                    } while(regex_match(matchingName, pattern));
+                    
+                    CCLOG("matchingName %s", matchingName.c_str());
+                    PhysicsShapeCache::getInstance()->setBodyOnSprite(matchingName, (Sprite *)child);
+                    auto body = child->getPhysicsBody();
                     if(body) {
                         this->mainCharacterCategoryBitMask = this->mainCharacterCategoryBitMask | body->getCategoryBitmask();
                     }
@@ -1103,7 +1142,7 @@ void HelloWorld::HoldOrDragBehaviour(Point position) {
         return;
     }
     
-    if(this->stateMachine->getCurrentState()->getState() == S_FALLING_STATE) {
+    if(this->stateMachine != NULL && this->stateMachine->getCurrentState()->getState() == S_FALLING_STATE) {
         return;
     }
     
@@ -1318,7 +1357,7 @@ void HelloWorld::HandleTap(Point position)
         return;
     }
     
-    if(this->stateMachine->getCurrentState()->getState() == S_FALLING_STATE) {
+    if(this->stateMachine != NULL && this->stateMachine->getCurrentState()->getState() == S_FALLING_STATE) {
         return;
     }
     
@@ -1519,6 +1558,13 @@ bool HelloWorld::handlePhysicsContactEventForMainCharacter(PhysicsContact &conta
                 
                 if((nodeA->getName() != HUMAN_SKELETON_NAME && nodeA->getPhysicsBody()->getCategoryBitmask() != GROUND_CATEGORY_MASK) ||
                    (nodeB->getName() != HUMAN_SKELETON_NAME && nodeB->getPhysicsBody()->getCategoryBitmask() != GROUND_CATEGORY_MASK)) {
+
+                    if((nodeA->getName() != HUMAN_SKELETON_NAME && nodeA->getPhysicsBody()->getCategoryBitmask() == NON_PASS_THRU_CATEGORY_MASK) ||
+                       (nodeB->getName() != HUMAN_SKELETON_NAME && nodeB->getPhysicsBody()->getCategoryBitmask() == NON_PASS_THRU_CATEGORY_MASK)) {
+                        return true;
+                    }
+
+                    
                     
                     float limit = X_OFFSET_IF_HERO_DISAPPER
                     if(this->skeletonCharacter->getSkeletonNode()->getPosition().x <= limit || this->skeletonCharacter->getSkeletonNode()->getPosition().x >= this->getSceneSize().width - limit) {
