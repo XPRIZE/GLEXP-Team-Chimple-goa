@@ -15,9 +15,9 @@
                 <key>spriteSourceSize</key>
                 <string>{487,468}</string>
                 <key>textureRect</key>
-                <string>{{2563,305},{487,468}}</string>
+                <string>{{2563,589},{487,468}}</string>
                 <key>textureRotated</key>
-                <true/>
+                <false/>
             </dict>
             <key>baja/bajabluecar2.png</key>
             <dict>
@@ -30,9 +30,54 @@
                 <key>spriteSourceSize</key>
                 <string>{487,468}</string>
                 <key>textureRect</key>
-                <string>{{2563,794},{487,468}}</string>
+                <string>{{2563,1059},{487,468}}</string>
                 <key>textureRotated</key>
                 <false/>
+            </dict>
+            <key>baja/bajadisplayboard.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{1801,301}</string>
+                <key>spriteSourceSize</key>
+                <string>{1801,301}</string>
+                <key>textureRect</key>
+                <string>{{1,1822},{1801,301}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+            <key>baja/bajafuelbar.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{1111,61}</string>
+                <key>spriteSourceSize</key>
+                <string>{1111,61}</string>
+                <key>textureRect</key>
+                <string>{{1,2125},{1111,61}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+            <key>baja/bajafuelbarbg.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{292,1517}</string>
+                <key>spriteSourceSize</key>
+                <string>{292,1517}</string>
+                <key>textureRect</key>
+                <string>{{2564,295},{292,1517}}</string>
+                <key>textureRotated</key>
+                <true/>
             </dict>
             <key>baja/bajagreencar1.png</key>
             <dict>
@@ -45,7 +90,7 @@
                 <key>spriteSourceSize</key>
                 <string>{487,468}</string>
                 <key>textureRect</key>
-                <string>{{3033,1},{487,468}}</string>
+                <string>{{3052,589},{487,468}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
@@ -60,7 +105,22 @@
                 <key>spriteSourceSize</key>
                 <string>{487,468}</string>
                 <key>textureRect</key>
-                <string>{{2563,1264},{487,468}}</string>
+                <string>{{3052,1059},{487,468}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+            <key>baja/bajapanelboard.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{1801,301}</string>
+                <key>spriteSourceSize</key>
+                <string>{1801,301}</string>
+                <key>textureRect</key>
+                <string>{{1804,1822},{1801,301}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
@@ -165,9 +225,9 @@
                 <key>spriteSourceSize</key>
                 <string>{486,468}</string>
                 <key>textureRect</key>
-                <string>{{3052,471},{486,468}}</string>
+                <string>{{3541,589},{486,468}}</string>
                 <key>textureRotated</key>
-                <true/>
+                <false/>
             </dict>
             <key>baja/bajaredcar2.png</key>
             <dict>
@@ -180,9 +240,114 @@
                 <key>spriteSourceSize</key>
                 <string>{486,468}</string>
                 <key>textureRect</key>
-                <string>{{3052,959},{486,468}}</string>
+                <string>{{3541,1059},{486,468}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+            <key>baja/bajawanswer.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{256,256}</string>
+                <key>spriteSourceSize</key>
+                <string>{256,256}</string>
+                <key>textureRect</key>
+                <string>{{3232,1529},{256,256}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+            <key>baja/bajawd.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{237,324}</string>
+                <key>spriteSourceSize</key>
+                <string>{237,324}</string>
+                <key>textureRect</key>
+                <string>{{2906,1529},{237,324}}</string>
                 <key>textureRotated</key>
                 <true/>
+            </dict>
+            <key>baja/bajawdp.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{252,341}</string>
+                <key>spriteSourceSize</key>
+                <string>{252,341}</string>
+                <key>textureRect</key>
+                <string>{{2563,1529},{252,341}}</string>
+                <key>textureRotated</key>
+                <true/>
+            </dict>
+            <key>baja/bajawordbarbg.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{1517,292}</string>
+                <key>spriteSourceSize</key>
+                <string>{1517,292}</string>
+                <key>textureRect</key>
+                <string>{{2564,1},{1517,292}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+            <key>baja/barrier.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{2,2}</string>
+                <key>spriteSourceSize</key>
+                <string>{2,2}</string>
+                <key>textureRect</key>
+                <string>{{1114,2125},{2,2}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+            <key>baja/button.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{125,157}</string>
+                <key>spriteSourceSize</key>
+                <string>{125,157}</string>
+                <key>textureRect</key>
+                <string>{{3490,1529},{125,157}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+            <key>baja/button1.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{109,137}</string>
+                <key>spriteSourceSize</key>
+                <string>{109,137}</string>
+                <key>textureRect</key>
+                <string>{{3617,1529},{109,137}}</string>
+                <key>textureRotated</key>
+                <false/>
             </dict>
         </dict>
         <key>metadata</key>
@@ -196,9 +361,9 @@
             <key>realTextureFileName</key>
             <string>baja.png</string>
             <key>size</key>
-            <string>{3521,1821}</string>
+            <string>{4082,2187}</string>
             <key>smartupdate</key>
-            <string>$TexturePacker:SmartUpdate:ada82bf30ec0767df87bc9e838aa3b00:fe8e6c9dbedbb33c828e2a15987c9cbf:34de676cd16a0fc45644292207984957$</string>
+            <string>$TexturePacker:SmartUpdate:feb804a812cb2c453ff1f73ec3218c78:d9646912d2410386fb880e9e3c3d4a51:34de676cd16a0fc45644292207984957$</string>
             <key>textureFileName</key>
             <string>baja.png</string>
         </dict>
