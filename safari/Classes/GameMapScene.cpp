@@ -24,6 +24,7 @@
 #include "mini_games/Chain.h"
 #include "puzzle/PegWord.h"
 #include "puzzle/WordBoard.h"
+#include "mini_games/Wembley.h"
 
 USING_NS_CC;
 
@@ -166,7 +167,9 @@ void GameMapScene::islandSelected(Ref* pSender, ui::Widget::TouchEventType eEven
             } else if(clickedButton->getName() == ENDLESS_RUNNER) {
                 Director::getInstance()->replaceScene(EndlessRunner::createScene());
             } else if(clickedButton->getName() == KUNG_FU_ALPHA) {
-                Director::getInstance()->replaceScene(Trace::createScene(0));
+                //Director::getInstance()->replaceScene(Trace::createScene(0));
+				Director::getInstance()->replaceScene(Wembley::createScene());
+				
             } else if(clickedButton->getName() == ALPHAMON_FEED) {
                 Director::getInstance()->replaceScene(AlphamonFeed::createScene());
             }
