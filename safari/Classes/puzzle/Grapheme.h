@@ -14,12 +14,12 @@
 class Grapheme : public cocos2d::Node {
 public:
     static Grapheme* create(std::string graphemeString);
-    void setSelectedBackground(Node* selectedBackground);
-    void setUnselectedBackground(Node* unSelectedBackground);
+	virtual void setSelectedBackground(Node* selectedBackground);
+	virtual void setUnselectedBackground(Node* unSelectedBackground);
     void selected(bool sel);
     bool isSelected();
-    void animateToPositionAndChangeBackground(cocos2d::Vec2 toPosition);
-    void changeBackground();
+    virtual void animateToPositionAndChangeBackground(cocos2d::Vec2 toPosition);
+	virtual void changeBackground();
     cocos2d::Vec2 getPrevPosition();
     std::string getGraphemeString();
     std::function<bool(cocos2d::Touch*, cocos2d::Event*)> touchBeganCallback;

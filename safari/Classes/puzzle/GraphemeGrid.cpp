@@ -81,8 +81,12 @@ void GraphemeGrid::setGraphemeUnselectedBackground(std::string spriteName) {
     _graphemeUnselectedBackground = spriteName;
 }
 
+Grapheme* GraphemeGrid::createGrapheme(std::string graphemeString) {
+	return Grapheme::create(graphemeString);
+}
+
 Grapheme* GraphemeGrid::createAndAddGrapheme(std::string graphemeString) {
-    auto grapheme = Grapheme::create(graphemeString);
+	auto grapheme = createGrapheme(graphemeString);
     addChild(grapheme);
     if(!_graphemeUnselectedBackground.empty()) {
         auto bg = Sprite::createWithSpriteFrameName(_graphemeUnselectedBackground);

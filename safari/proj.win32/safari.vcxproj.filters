@@ -251,6 +251,9 @@
     <ClCompile Include="..\Classes\mini_games\Chain.cpp">
       <Filter>src\mini_games</Filter>
     </ClCompile>
+    <ClCompile Include="..\Classes\puzzle\WordBoard.cpp">
+      <Filter>src\puzzle</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -474,6 +477,9 @@
     </ClInclude>
     <ClInclude Include="..\Classes\mini_games\Chain.h">
       <Filter>src\mini_games</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\puzzle\WordBoard.h">
+      <Filter>src\puzzle</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
