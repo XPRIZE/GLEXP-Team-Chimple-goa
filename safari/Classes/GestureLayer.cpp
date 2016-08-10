@@ -93,7 +93,7 @@ void GestureLayer::touchMoved(Touch *touch, Event *event)
     touch_end_ = touch_point;
     // start observing touch
     is_touch_active_ = true;
-    //isDragging = true;
+    isDragging = true;
     HandleTouch();
 }
 
@@ -101,14 +101,14 @@ void GestureLayer::touchEnded(Touch *touch, Event *event)
 {
     Point touch_point = touch->getLocationInView();
     touch_point = Director::getInstance()->convertToGL(touch_point);
-    
+    this->isDragging = false;
     // save subsequent touch
     touch_end_ = touch_point;
     HandleEndTouch();
     
     // stop observing touch
     this->is_touch_active_ = false;
-    this->isDragging = false;
+    
 }
 
 void GestureLayer::DetermineHoldTouch() {
@@ -137,16 +137,14 @@ void GestureLayer::update(float dt) {
 }
 
 void GestureLayer::HandleEndTouch() {
-    
     // check for a single tap
-    if(!this->isDragging && touch_start_.fuzzyEquals(touch_end_, 1)) {
+    if(touch_start_time_ <= 0.2f && !this->isDragging && touch_start_.fuzzyEquals(touch_end_, 1)) {
         gesture_type_ = E_GESTURE_TAP;
         (target_->*handler_)(this);
         is_touch_active_ = false;
         return;
     }
 
-    
     gesture_type_ = E_GESTURE_TOUCH_ENDED;
     (target_->*handler_)(this);
 }
@@ -160,27 +158,11 @@ void GestureLayer::HandleTouch()
         return;
     }
     
-    // check for a single tap
-    if(touch_start_.fuzzyEquals(touch_end_, 1)) {
-        gesture_type_ = E_GESTURE_TAP;
-        (target_->*handler_)(this);
-        is_touch_active_ = false;
-        return;        
-    }
-
     // calculate distance between first and last touch
     Point touch_difference = touch_end_ - touch_start_;
     
-    // horizontal swipe
-    if(fabs(touch_difference.x) > MIN_GESTURE_DISTANCE)
-    {
-        gesture_type_ = (touch_difference.x > 0) ? E_GESTURE_SWIPE_RIGHT : E_GESTURE_SWIPE_LEFT;
-        (target_->*handler_)(this);
-        isDragging = true;
-        return;
-    }
     // vertical swipe
-    if(fabs(touch_difference.y) > MIN_GESTURE_DISTANCE)
+    if(fabs(touch_difference.y) > MIN_GESTURE_DISTANCE_UP)
     {
         gesture_type_ = (touch_difference.y > 0) ? E_GESTURE_SWIPE_UP : E_GESTURE_SWIPE_DOWN;
         (target_->*handler_)(this);
