@@ -16,6 +16,7 @@ protected:
 	cocos2d::Node* loadNode() override;
 	std::string getGridBackground() override;
 	void createChoice() override;
+	void createAnswer() override;
 };
 
 #endif // __Jasmin_Mainfile_SCENE_H__

@@ -8,6 +8,7 @@
 
 #include "TextGenerator.h"
 #include "LangUtil.h"
+#include "../ext/utf8.h"
 
 static TextGenerator* _singletonTextGenerator = nullptr;
 
@@ -41,35 +42,54 @@ std::vector<std::vector<std::string>> TextGenerator::generateMatrix(std::string 
     return matrix;
 }
 
-/*
- * Currently returns non-random
- * TODO: change to random
- */
-
 std::map<int, int> TextGenerator::getRandomLocations(int numLoc, int totalNum) {
     std::map<int, int> locChars;
+    if(numLoc >= totalNum) {
+        return locChars;
+    }
     for (int i = 0; i < numLoc; i++) {
-        locChars.insert(std::pair<int,int>(i, i));
+        auto randLoc = rand() % totalNum;
+        for (auto iter = locChars.find(randLoc); iter != locChars.end(); iter = locChars.find(++randLoc % totalNum)) { }
+        
+        locChars.insert(std::pair<int,int>(randLoc % totalNum, i));
     }
     return locChars;
 }
 
 std::string TextGenerator::generateAWord() {
-    return "APPLE";
+    static std::vector<std::string> words;
+    words.push_back("A");
+    words.push_back("IT");
+    words.push_back("ZOO");
+    words.push_back("CODE");
+    words.push_back("TIGHT");
+    words.push_back("BUBBLE");
+
+    return words.at(rand() % 6);
 }
 
 
 int TextGenerator::getNumGraphemesInString(std::string word) {
-    return 5;
+    return getGraphemes(word).size();
 }
 
 std::vector<std::string> TextGenerator::getGraphemes(std::string word) {
     std::vector<std::string> graphemes;
-    graphemes.push_back("A");
-    graphemes.push_back("P");
-    graphemes.push_back("P");
-    graphemes.push_back("L");
-    graphemes.push_back("E");
+    auto wordChar = word.c_str();
+    auto end = wordChar + word.length();
+    auto graphemeBegin = wordChar;
+    uint32_t prevCodePoint = 0;
+    while(wordChar != end) {
+        auto cp = utf8::peek_next(wordChar, end);
+        if(prevCodePoint && LangUtil::getInstance()->isGraphemeStart(prevCodePoint, cp)) {
+            auto str = std::string(graphemeBegin, wordChar);
+            graphemes.push_back(str);
+            graphemeBegin = wordChar;
+        }
+        prevCodePoint = utf8::next(wordChar, end);
+    }
+    auto str = std::string(graphemeBegin, wordChar);
+    graphemes.push_back(str);
     return graphemes;
 }
 

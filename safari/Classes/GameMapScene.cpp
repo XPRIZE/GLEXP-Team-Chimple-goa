@@ -16,10 +16,15 @@
 #include "mini_games/EndlessRunner.h"
 #include "mini_games/Cannon_Ball_Main.h"
 #include "mini_games/Jasmin_Mainfile.h"
+#include "mini_games/jazz.h"
 #include "mini_games/TraceScene.h"
 #include "mini_games/AlphamonFeedScene.h"
 #include "StartMenuScene.h"
 #include "mini_games/Baja.h"
+#include "mini_games/Chain.h"
+#include "puzzle/PegWord.h"
+#include "puzzle/WordBoard.h"
+#include "mini_games/Wembley.h"
 
 USING_NS_CC;
 
@@ -149,19 +154,22 @@ void GameMapScene::islandSelected(Ref* pSender, ui::Widget::TouchEventType eEven
         {
             clickedButton->setEnabled(false);
             if(clickedButton->getName() == PATCH_THE_WALL) {
-                Director::getInstance()->replaceScene(PatchTheWall::createScene());
+                Director::getInstance()->replaceScene(WordBoard::createScene());
             } else if(clickedButton->getName() == CROSS_THE_BRIDGE) {
-                Director::getInstance()->replaceScene(CrossTheBridge::createScene());
+                //Director::getInstance()->replaceScene(CrossTheBridge::createScene());
+				Director::getInstance()->replaceScene(Chain::createScene());
             } else if(clickedButton->getName() == PATCH_THE_WALL) {
                 Director::getInstance()->replaceScene(PatchTheWall::createScene());
             } else if(clickedButton->getName() == SMASH_THE_ROCK) {
-                Director::getInstance()->replaceScene(SmashTheRock::createScene());
+                Director::getInstance()->replaceScene(jazz::createScene());
             } else if(clickedButton->getName() == CANNON_BALL) {
                 Director::getInstance()->replaceScene(Jasmin_Mainfile::createScene());
             } else if(clickedButton->getName() == ENDLESS_RUNNER) {
                 Director::getInstance()->replaceScene(Baja::createScene());
             } else if(clickedButton->getName() == KUNG_FU_ALPHA) {
-                Director::getInstance()->replaceScene(Trace::createScene(0));
+                //Director::getInstance()->replaceScene(Trace::createScene(0));
+				Director::getInstance()->replaceScene(Wembley::createScene());
+				
             } else if(clickedButton->getName() == ALPHAMON_FEED) {
                 Director::getInstance()->replaceScene(AlphamonFeed::createScene());
             }
