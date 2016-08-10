@@ -29,6 +29,7 @@ Chain::Chain(void)
 
 
 }
+
 Node* Chain::loadNode() {
 	auto node = CSLoader::createNode("chain/chain.csb");
 

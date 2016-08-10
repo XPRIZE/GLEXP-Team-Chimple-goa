@@ -14,6 +14,7 @@ class Chain : public WordScene
 public:
 	static cocos2d::Scene* createScene();
 	static Chain *create();
+	Chain();
 	 ~Chain();
 	
 	//virtual bool init();
