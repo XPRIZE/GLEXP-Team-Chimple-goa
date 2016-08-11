@@ -17,6 +17,7 @@
 #include "mini_games/Cannon_Ball_Main.h"
 #include "mini_games/TraceScene.h"
 #include "mini_games/AlphamonFeedScene.h"
+#include "mini_games/BajaWordScene.h"
 
 USING_NS_CC;
 
@@ -82,7 +83,7 @@ void StartMenu::startScene(std::string gameName, std::string firstParam, std::st
     } else if(gameName == CANNON_BALL) {
         Director::getInstance()->replaceScene(MainGame::createScene());
     } else if(gameName == ENDLESS_RUNNER) {
-        Director::getInstance()->replaceScene(EndlessRunner::createScene());
+        Director::getInstance()->replaceScene(BajaWordScene::createScene());
     } else if(gameName == KUNG_FU_ALPHA) {
         Director::getInstance()->replaceScene(Trace::createScene(0));
     } else if(gameName == ALPHAMON_FEED) {

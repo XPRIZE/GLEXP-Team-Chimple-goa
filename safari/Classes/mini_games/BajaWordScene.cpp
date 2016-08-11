@@ -19,9 +19,9 @@ Node* BajaWordScene::loadNode() {
 	node->setPosition(Vec2(visibleSize.width / 2 + origin.x, visibleSize.height / 2 + origin.y));
 	node->setAnchorPoint(Vec2(0.5, 0.5));
 	
-	auto _fuelBar = (cocos2d::ui::LoadingBar*)(node->getChildByName("LoadingBar"));
+	_fuelBar = (cocos2d::ui::LoadingBar*)(node->getChildByName("LoadingBar"));
 	_fuelBar->setPercent(0);
-
+	
 	return node;
 }
 
@@ -86,3 +86,16 @@ BajaWordScene* BajaWordScene::create() {
 	return nullptr;
 }
 
+void BajaWordScene::gameOver(bool correct) {
+	if (correct) {
+		float fuelPer = 0, delay=0;
+
+		while (fuelPer <= 100)
+		{
+			auto sequenceFuel = Sequence::create(DelayTime::create(delay), CallFunc::create([=]() { _fuelBar->setPercent(fuelPer); }), NULL);
+			fuelPer++;	delay = delay + 0.03;
+			_fuelBar->runAction(sequenceFuel);
+		}
+		this->runAction(Sequence::create(DelayTime::create(delay), CallFunc::create([=]() { Director::getInstance()->replaceScene(Baja::createScene()); }), NULL));
+	}
+}

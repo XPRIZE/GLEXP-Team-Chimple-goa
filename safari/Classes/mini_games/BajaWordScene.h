@@ -5,10 +5,12 @@
 #include "../lang/TextGenerator.h"
 #include "../puzzle/WordScene.h"
 #include "../GameScene.h"
+#include "../mini_games/Baja.h"
 
 class BajaWordScene : public WordScene
 {
 public:
+	cocos2d::ui::LoadingBar* _fuelBar;
 	static cocos2d::Scene* createScene();
 	static BajaWordScene *create();
 
@@ -19,6 +21,7 @@ protected:
 	void createAnswer() override;
 	std::string getGraphemeUnselectedBackground() override;
 	std::string getGraphemeSelectedBackground() override;
+	void gameOver(bool correct) override;
 	int getGridHeight()  override;
 };
 

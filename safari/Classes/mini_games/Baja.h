@@ -2,6 +2,7 @@
 #define __BAJA_SCENE_H__
 
 #include "cocos2d.h"
+#include "../menu/MenuContext.h"
 #include "../StartMenuScene.h"
 #include "editor-support/cocostudio/CocoStudio.h"
 #include "cocostudio/CocoStudio.h"
@@ -13,6 +14,7 @@ class Baja : public cocos2d::Layer
 {
 
 protected:
+	MenuContext *_menuContext;
 	Sprite* _topBarrier, *_bottomBarrier, *_currentPathBlock;
 	std::vector<Sprite*> _allPathBlocks;
 	std::vector<Node*> _allCar;
@@ -42,7 +44,7 @@ public:
 	// implement the "static create()" method manually
 	CREATE_FUNC(Baja);
 	void update(float) override;
-	static const char* gameName() { return BAJA.c_str(); }
+	static const char* gameName() { return ENDLESS_RUNNER.c_str(); }
 };
 
 #endif // __BAJA_SCENE_H__

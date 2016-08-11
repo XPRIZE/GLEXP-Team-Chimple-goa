@@ -4,9 +4,12 @@ USING_NS_CC;
 
 Scene* Baja::createScene()
 {
+	
 	auto scene = Scene::create();
 	auto layer = Baja::create();
 	scene->addChild(layer);
+	layer->_menuContext = MenuContext::create(layer, Baja::gameName());
+	scene->addChild(layer->_menuContext);
 	return scene;
 }
 
@@ -29,11 +32,11 @@ bool Baja::init()
 	auto loader = CSLoader::createNode("baja/bajafuelmeter.csb");
 	addChild(loader,1);
 	_fuelBar = (cocos2d::ui::LoadingBar*)(loader->getChildren()).at(1);	_fuelBar->setPercent(100);
-	loader->setPosition(Vec2(_origin.x + _visibleSize.width * 0.13, _origin.y + _visibleSize.height * 0.50));
+	loader->setPosition(Vec2(_origin.x + _visibleSize.width * 0.10, _origin.y + _visibleSize.height * 0.50));
 	
-	this->schedule(schedule_selector(Baja::carMidGenerate), randmValueIncludeBoundery(1, 10));
+	this->schedule(schedule_selector(Baja::carMidGenerate), randmValueIncludeBoundery(2, 10));
 	this->schedule(schedule_selector(Baja::carLeftGenerate), randmValueIncludeBoundery(1, 10));
-	this->schedule(schedule_selector(Baja::carRightGenerate), randmValueIncludeBoundery(1,10));
+	this->schedule(schedule_selector(Baja::carRightGenerate), randmValueIncludeBoundery(5,15));
 	this->schedule(schedule_selector(Baja::fuelMeterMethod), 0.2f);
 
 	this->scheduleUpdate();
@@ -64,24 +67,27 @@ void Baja::update(float delta) {
 			});
 			auto blinking = Sequence::create(blink, visible, NULL);
 			_userCar->runAction(blinking);
+			_fuelBar->setPercent(_fuelBar->getPercent() - 7);
 		}
 	}
-
+/*
 	if (_leftCar != NULL && _midCar != NULL && _rightCar != NULL) {
-		if (_leftCar->getBoundingBox().intersectsRect(_topBarrier->getBoundingBox()) && _midCar->getBoundingBox().intersectsRect(_topBarrier->getBoundingBox()) && _rightCar->getBoundingBox().intersectsRect(_topBarrier->getBoundingBox())) {
-			int indexNum = randmValueIncludeBoundery(1, 3);
-			_leftCar->setName("left");	_midCar->setName("mid"); _rightCar->setName("right");
-			int leftIndex, midIndex, rightIndex;
-			for (int i = 0; i < _allCar.size(); i++) {
-				if (_allCar[i]->getName() == "left") { leftIndex = i; }
-				if (_allCar[i]->getName() == "mid") { midIndex = i; }
-				if (_allCar[i]->getName() == "right") { rightIndex = i; }
+		
+			if (_leftCar->getBoundingBox().intersectsRect(_topBarrier->getBoundingBox()) && _midCar->getBoundingBox().intersectsRect(_topBarrier->getBoundingBox()) && _rightCar->getBoundingBox().intersectsRect(_topBarrier->getBoundingBox())) {
+				int indexNum = randmValueIncludeBoundery(1, 3);
+				_leftCar->setName("left");	_midCar->setName("mid"); _rightCar->setName("right");
+				int leftIndex, midIndex, rightIndex;
+				for (int i = 0; i < _allCar.size(); i++) {
+					if (_allCar[i]->getName() == "left") { leftIndex = i; }
+					if (_allCar[i]->getName() == "mid") { midIndex = i; }
+					if (_allCar[i]->getName() == "right") { rightIndex = i; }
+				}
+				this->removeChild(_allCar[midIndex]);
+				_midCar = NULL;  _allCar.erase(_allCar.begin() + midIndex);
+				_leftCar = NULL; _rightCar = NULL;
 			}
-			this->removeChild(_allCar[midIndex]);
-			_midCar = NULL;  _allCar.erase(_allCar.begin() + midIndex);
-			_leftCar = NULL; _rightCar = NULL;
-		}
-	}
+		
+	}*/
 
 	for(std::size_t i = 0; i < _allCar.size(); i++){
 		if (_allCar[i]->getBoundingBox().intersectsRect(_bottomBarrier->getBoundingBox()))
@@ -180,7 +186,12 @@ void Baja::carRightGenerate(float dt)
 
 void Baja::fuelMeterMethod(float dt)
 {
-	if (_fuelBar->getPercent() <= 0) { _fuelBar->setPercent(100); }  _fuelBar->setPercent(_fuelBar->getPercent() - 0.4);
+	if (_fuelBar->getPercent() <= 0) {
+		
+		_menuContext->showScore();
+		_fuelBar->setPercent(100); 
+	}
+	_fuelBar->setPercent(_fuelBar->getPercent() - 0.4);
 }
 
 void Baja::addInitPath() {
