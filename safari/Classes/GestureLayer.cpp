@@ -101,11 +101,11 @@ void GestureLayer::touchEnded(Touch *touch, Event *event)
 {
     Point touch_point = touch->getLocationInView();
     touch_point = Director::getInstance()->convertToGL(touch_point);
-    this->isDragging = false;
+    
     // save subsequent touch
     touch_end_ = touch_point;
     HandleEndTouch();
-    
+    this->isDragging = false;
     // stop observing touch
     this->is_touch_active_ = false;
     
