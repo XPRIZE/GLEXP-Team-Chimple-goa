@@ -22,6 +22,8 @@
 #include "StartMenuScene.h"
 #include "mini_games/Baja.h"
 #include "mini_games/Chain.h"
+#include "puzzle/PegWord.h"
+#include "puzzle/WordBoard.h"
 #include "mini_games/Wembley.h"
 
 USING_NS_CC;
@@ -152,10 +154,10 @@ void GameMapScene::islandSelected(Ref* pSender, ui::Widget::TouchEventType eEven
         {
             clickedButton->setEnabled(false);
             if(clickedButton->getName() == PATCH_THE_WALL) {
-                Director::getInstance()->replaceScene(PatchTheWall::createScene());
+                Director::getInstance()->replaceScene(WordBoard::createScene());
             } else if(clickedButton->getName() == CROSS_THE_BRIDGE) {
-                Director::getInstance()->replaceScene(CrossTheBridge::createScene());
-				//Director::getInstance()->replaceScene(Chain::createScene());
+                //Director::getInstance()->replaceScene(CrossTheBridge::createScene());
+				Director::getInstance()->replaceScene(Chain::createScene());
             } else if(clickedButton->getName() == PATCH_THE_WALL) {
                 Director::getInstance()->replaceScene(PatchTheWall::createScene());
             } else if(clickedButton->getName() == SMASH_THE_ROCK) {

@@ -42,21 +42,30 @@ std::vector<std::vector<std::string>> TextGenerator::generateMatrix(std::string 
     return matrix;
 }
 
-/*
- * Currently returns non-random
- * TODO: change to random
- */
-
 std::map<int, int> TextGenerator::getRandomLocations(int numLoc, int totalNum) {
     std::map<int, int> locChars;
+    if(numLoc >= totalNum) {
+        return locChars;
+    }
     for (int i = 0; i < numLoc; i++) {
-        locChars.insert(std::pair<int,int>(i, i));
+        auto randLoc = rand() % totalNum;
+        for (auto iter = locChars.find(randLoc); iter != locChars.end(); iter = locChars.find(++randLoc % totalNum)) { }
+        
+        locChars.insert(std::pair<int,int>(randLoc % totalNum, i));
     }
     return locChars;
 }
 
 std::string TextGenerator::generateAWord() {
-    return "APPLE";
+    static std::vector<std::string> words;
+    words.push_back("A");
+    words.push_back("IT");
+    words.push_back("ZOO");
+    words.push_back("CODE");
+    words.push_back("TIGHT");
+    words.push_back("BUBBLE");
+
+    return words.at(rand() % 6);
 }
 
 

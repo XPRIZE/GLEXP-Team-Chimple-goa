@@ -42,9 +42,12 @@ protected:
     virtual std::string getGridBackground();
     virtual std::string getGraphemeUnselectedBackground();
     virtual std::string getGraphemeSelectedBackground();
+	virtual GraphemeGrid* createGraphemeGrid(GLfloat width, GLfloat height, int numRows, int numCols, std::string spriteName, std::vector<std::vector<std::string>> graphemes, std::string graphemeUnselectedBackground, std::string graphemeSelectedBackground);
+
 
     MenuContext* _menuContext;
     GraphemeGrid* _grid;
+    Node* _background;
     Node* _answer;
     Node* _choice;
     std::string _word;

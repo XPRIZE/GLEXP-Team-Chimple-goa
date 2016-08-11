@@ -46,11 +46,17 @@ std::string Grapheme::getGraphemeString() {
 void Grapheme::setSelectedBackground(Node* selectedBackground) {
     _selectedBackground = selectedBackground;
     addChild(_selectedBackground, -1);
+	if (!_selected) {
+		_selectedBackground->setVisible(false);
+	}
 }
 
 void Grapheme::setUnselectedBackground(Node* unSelectedBackground) {
     _unselectedBackground = unSelectedBackground;
     addChild(_unselectedBackground, -1);
+	if (_selected) {
+		_selectedBackground->setVisible(false);
+	}
 }
 
 void Grapheme::selected(bool sel) {

@@ -35,6 +35,8 @@ void JumpingState::exit()  {
     CCLOG("%s", "Exit Jumping State");
     this->getTarget()->isJumping = false;
     this->getTarget()->isJumpingAttemptedWhileDragging = false;
+    CCLOG("pausing all animation on node in jumping");
+    this->getTarget()->getSkeletonActionTimeLine()->pause();
     //this->getTarget()->getSkeletonActionTimeLine()->gotoFrameAndPause(0);
 }
 

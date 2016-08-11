@@ -23,7 +23,6 @@ void FallingState::enter(cocos2d::Vec2 forceVector, SkeletonCharacterState previ
     //start animation
     
     assert (this->getTarget()->getSkeletonActionTimeLine() != NULL);
-    
     this->getTarget()->changeSkinForMouthBone("mouth", "mouth", "hero/mouth/o.png");
     this->getTarget()->getSkeletonActionTimeLine()->play(JUMP_END, false);
 }
@@ -31,7 +30,8 @@ void FallingState::enter(cocos2d::Vec2 forceVector, SkeletonCharacterState previ
 void FallingState::exit()  {
     CCLOG("%s", "Exit Falling State");
     this->getTarget()->isFalling = false;
-    //this->getTarget()->getSkeletonActionTimeLine()->gotoFrameAndPause(0);
+    CCLOG("pausing all animation on node in falling");
+    this->getTarget()->getSkeletonActionTimeLine()->pause();
 }
 
 SkeletonCharacterState FallingState::handleInput(SkeletonCharacterState command)  {
