@@ -1,6 +1,6 @@
 #include "Jasmin_Mainfile.h"
 #include "editor-support/cocostudio/CocoStudio.h"
-
+#include "RPGConfig.h"
 
 USING_NS_CC;
 
