@@ -88,11 +88,16 @@ void Jasmin_Mainfile::gameOver(bool correct) {
 		{
 			int random_val = std::rand() % (4 - 1 + 1) + 1;
 
-			auto tree = CSLoader::createNode("jasmine/plant" + std::to_string(random_val) + ".csb");
+			std::ostringstream fileName(std::ostringstream::ate);
+			fileName.str("jasmine/plant");
+			fileName << random_val;
+			fileName << ".csb";
+
+			auto tree = CSLoader::createNode(fileName.str());
 			tree->setPosition(Vec2(_positionX[item], _positionY[item]));
 			addChoice(tree);
 
-			auto animation = CSLoader::createTimeline("jasmine/plant" + std::to_string(random_val) + ".csb");
+			auto animation = CSLoader::createTimeline(fileName.str());
 			tree->runAction(animation);
 			animation->play("wrong", false);
 //			animation->setAnimationEndCallFunc("wrong", CC_CALLBACK_0(Jasmin_Mainfile::startFire, this, tree, random_val));

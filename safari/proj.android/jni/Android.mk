@@ -33,6 +33,7 @@ LOCAL_SRC_FILES := hellocpp/main.cpp \
 					../../Classes/puzzle/WordBoard.cpp \
 					../../Classes/puzzle/Grapheme.cpp \
 					../../Classes/puzzle/GraphemeGrid.cpp \
+					../../Classes/puzzle/PegWord.cpp \
 					../../Classes/RPGConfig.cpp \
 					../../Classes/RPGSprite.cpp \
 					../../Classes/RunningState.cpp \
