@@ -1,4 +1,4 @@
-//
+﻿//
 //  TextGenerator.cpp
 //  safari
 //

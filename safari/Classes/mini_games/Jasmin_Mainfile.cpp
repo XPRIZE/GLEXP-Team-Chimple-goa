@@ -41,19 +41,55 @@ void Jasmin_Mainfile::createChoice() {
 	_choice = Node::create();
 	_choice->setPosition(Vec2(0, hei*43/100));
 	addChild(_choice);
-
 	const float squareWidth = Director::getInstance()->getVisibleSize().width / _numGraphemes;
 
 	for (int i = 0; i < _numGraphemes; i++) {
 		auto choiceNode = Sprite::createWithSpriteFrameName("jasmine/seedpouch.png");
 		choiceNode->setPosition(Vec2((i + 0.5) * squareWidth, 0));
 		addChoice(choiceNode);
+
+		_fileSequence.push_back(choiceNode->getBoundingBox());
 	}
 }
 
 std::string Jasmin_Mainfile::getGridBackground() {
 	return "jasmine/tile.png";
 }
+
+void Jasmin_Mainfile::gameOver(bool correct) {
+	if (correct) {
+		for (int item = 0; item < _fileSequence.size(); ++item)
+		{
+			int random_val = std::rand() % (4 - 1 + 1) + 1;
+
+			auto tree = CSLoader::createNode("jasmine/plant" + std::to_string(random_val) + ".csb");
+			tree->setPosition(Vec2(_fileSequence[item].origin.x , _fileSequence[item].origin.y));
+			addChild(tree);
+
+			auto animation = CSLoader::createTimeline("jasmine/plant"+ std::to_string(random_val) +".csb");
+			tree->runAction(animation);
+			animation->play("correct", false);
+			animation->setAnimationEndCallFunc("correct", CC_CALLBACK_0(Jasmin_Mainfile::startFire, this, tree, random_val));
+		}
+	}
+}
+
+void Jasmin_Mainfile::startFire(Node *nd, int random_val)
+{	//	flower
+	auto animation = CSLoader::createTimeline("jasmine/flower" + std::to_string(random_val) + ".csb");
+	Vector <Node*> children = nd->getChildren();
+
+	for (auto item = children.rbegin(); item != children.rend(); ++item) {
+		Node * monsterItem = *item;
+		std::string str = monsterItem->getName().c_str();
+		if (str.find("flower") == 0) {
+			auto eyeTimeline = CSLoader::createTimeline("jasmine/flower2.csb");
+			monsterItem->runAction(eyeTimeline);
+			eyeTimeline->play("bloom", false);
+		}
+	}
+}
+
 
 Jasmin_Mainfile* Jasmin_Mainfile::create() {
 	Jasmin_Mainfile* word = new (std::nothrow) Jasmin_Mainfile();
