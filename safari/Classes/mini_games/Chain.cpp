@@ -36,7 +36,7 @@ GraphemeGrid* Chain::createGraphemeGrid(GLfloat width, GLfloat height, int numRo
 }
 
 Node* Chain::loadNode() {
-	auto node = CSLoader::createNode("chain/chain.csb");
+	node = CSLoader::createNode("chain/chain.csb");
 
 	gameBg = node;
 	Vector <Node*> children = gameBg->getChildren();
@@ -57,7 +57,7 @@ void Chain::createChoice() {
 float wid = visibleSize.width;
 float hei = visibleSize.height;
  
-_numGraphemes = 3;
+//_numGraphemes = 3;
 
 Sprite* sampleMonkey = (Sprite *)gameBg->getChildByName("monkey_22");
 Sprite* rope = (Sprite *)gameBg->getChildByName("toprope_20");
@@ -77,23 +77,25 @@ treeLeft->setAnchorPoint(Vec2(1, 0.5));
 treeRight->setAnchorPoint(Vec2(0, 0.5));
 
 	_choice = Node::create();
-	_choice->setPosition(Vec2(partition, (hei*.60)));
+	_choice->setPosition(Vec2(partition+ (sampleMonkey->getBoundingBox().size.width/2), (hei*.62)));
 	addChild(_choice);
 	for (int i = 0; i < _numGraphemes; i++) {
 		//auto choiceNode = Node::create();
 		auto choiceNode = Sprite::createWithSpriteFrameName("chain/monkey.png");
-		choiceNode->setPosition(Vec2(i * sampleMonkey->getBoundingBox().size.width, 0));
-		choiceNode->setScale(0.7);
-		choiceNode->setAnchorPoint(Vec2(0, 0.5));
+		choiceNode->setPosition(Vec2(i * sampleMonkey->getBoundingBox().size.width, 50));
+		choiceNode->setScale(0.8);
+		choiceNode->setVisible(false);
+		choiceNodeContainer.push_back(choiceNode);
 		addChoice(choiceNode);
 	}
+
 }
 std::string Chain::getGridBackground() {
-	return "chain/letterpanel.png";
+	return "chain/block.png";
 }
 
 std::string Chain::getGraphemeUnselectedBackground() {
-	return "";
+	return "chain/letterpanel.png";
 }
 
 std::string Chain::getGraphemeSelectedBackground() {
@@ -111,23 +113,13 @@ Chain* Chain::create() {
 	CC_SAFE_DELETE(word);
 	return nullptr;
 }
-//// on 'init' you need to initialize your instance
-//bool Chain::init()
-//{
-//	//SpriteFrameCache::getInstance()->addSpriteFramesWithFile("crossthebridge.plist");
-//
-//	// 1. super init first
-//	if (!Layer::init())
-//	{
-//		return false;
-//	}
-//
-//	auto chain = CSLoader::createNode("chain/chain.csb");
-//	this->addChild(chain, 0);
-//	//chain->setAnchorPoint(Vec2(0.5,0.5));
-//
-//	return true;
-//}
+
+void Chain::gameOver(bool correct)
+{
+	if (correct) {
+		_menuContext->showScore();
+	}
+}
 
 ChainGrid* ChainGrid::create(GLfloat width, GLfloat height, int numRows, int numCols, std::string spriteName, std::vector<std::vector<std::string>> graphemes, std::string graphemeUnselectedBackground, std::string graphemeSelectedBackground) {
 	ChainGrid *graphemeGrid = new (std::nothrow) ChainGrid();
@@ -151,6 +143,26 @@ Grapheme* ChainGrid::createGrapheme(std::string graphemeString) {
 	return ChainGrapheme::create(graphemeString);
 }
 
+//Grapheme* ChainGrid::createAndAddGrapheme(std::string graphemeString) {
+//	auto grapheme = createGrapheme(graphemeString);
+//	addChild(grapheme);
+//	if (!_graphemeUnselectedBackground.empty()) {
+//		auto bg = Sprite::createWithSpriteFrameName(_graphemeUnselectedBackground);
+//		grapheme->setUnselectedBackground(bg);
+//	}
+//	if (!_graphemeSelectedBackground.empty()) {
+//		/*auto bg = Sprite::createWithSpriteFrameName(_graphemeSelectedBackground);
+//		grapheme->setSelectedBackground(bg);*/
+//		auto monkeytEat= CSLoader::createTimeline("chain/monkeyflip.csb");
+//		Sprite* bg =  (Sprite *)CSLoader::createNode("chain/monkeyflip.csb");
+//		bg->runAction(monkeytEat);
+//		//splash->setPosition(Vec2(alphaContainer[i]->getPosition().x + origin.x, alphaContainer[i]->getPosition().y + origin.y));
+//		//monkeytEat->gotoFrameAndPlay(0, true);
+//		grapheme->setSelectedBackground(bg);
+//	}
+//	return grapheme;
+//}
+
 ChainGrapheme* ChainGrapheme::create(std::string graphemeString) {
 	ChainGrapheme *grapheme = new (std::nothrow) ChainGrapheme();
 	if (grapheme && grapheme->init(graphemeString)) {
@@ -171,16 +183,31 @@ bool ChainGrapheme::init(std::string graphemeString) {
 void ChainGrapheme::animateToPositionAndChangeBackground(cocos2d::Vec2 toPosition) {
 	_prevPosition = getPosition();
 	if (!_selected) {
+	
 		auto moveTo = MoveTo::create(1.0, toPosition);
+	//	auto scaleTo = ScaleTo::create(1.0, 0.2);
 		auto callback = CallFunc::create(CC_CALLBACK_0(Grapheme::changeBackground, this));
 		auto sequence = Sequence::create(moveTo, callback, NULL);
 		runAction(sequence);
+	//	letterBG->runAction(scaleTo);
 	}
 	else 
 	{
 		changeBackground();
 		auto moveTo = MoveTo::create(1.0, toPosition);
+		//auto scaleTo = ScaleTo::create(1.0, 0.8);
 		runAction(moveTo);
+		//letterBG->runAction(scaleTo);
 	}
 
+}
+void ChainGrapheme::setSelectedBackground(Node* selectedBackground)
+{
+	_selectedBackground = selectedBackground;
+	letterBG = selectedBackground;
+	addChild(_selectedBackground, -1);
+	if (!_selected) {
+		_selectedBackground->setVisible(false);
+		_selectedBackground->setScale(0.8);
+	}
 }
