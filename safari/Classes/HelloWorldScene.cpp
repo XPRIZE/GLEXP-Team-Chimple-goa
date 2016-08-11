@@ -877,7 +877,6 @@ void HelloWorld::update(float dt) {
         } else {
             if(this->skeletonCharacter->getSkeletonNode()->getPhysicsBody()->getVelocity().y <=GRAVITY_VELOCITY_TO_STICK_TO_GROUND &&
                this->skeletonCharacter->isJumping == false) {
-                CCLOG("falling herererererer %f", this->skeletonCharacter->getSkeletonNode()->getPhysicsBody()->getVelocity().y);
                 this->stateMachine->handleInput(S_FALLING_STATE, cocos2d::Vec2(0,0));
             }
         }
@@ -1142,6 +1141,11 @@ void HelloWorld::HoldOrDragBehaviour(Point position) {
         return;
     }
     
+    if(this->skeletonCharacter->isFalling) {
+        return;
+    }
+    
+    
     if(this->stateMachine != NULL && this->stateMachine->getCurrentState()->getState() == S_FALLING_STATE) {
         return;
     }
@@ -1357,6 +1361,11 @@ void HelloWorld::HandleTap(Point position)
         return;
     }
     
+    if(this->skeletonCharacter->isFalling) {
+        return;
+    }
+
+    
     if(this->stateMachine != NULL && this->stateMachine->getCurrentState()->getState() == S_FALLING_STATE) {
         return;
     }
@@ -1418,6 +1427,10 @@ void HelloWorld::HandleSwipeUp(Point position) {
         return;
     };
     
+    if(this->skeletonCharacter->isFalling) {
+        return;
+    }
+
     if(this->stateMachine->getCurrentState()->getState() == S_FALLING_STATE) {
         return;
     }
@@ -1442,6 +1455,10 @@ void HelloWorld::HandleSwipeDown(Point position) {
         return;
     };
     
+    if(this->skeletonCharacter->isFalling) {
+        return;
+    }
+
     if(this->stateMachine->getCurrentState()->getState() == S_FALLING_STATE) {
         return;
     }
