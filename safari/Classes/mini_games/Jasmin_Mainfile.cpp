@@ -1,6 +1,6 @@
 #include "Jasmin_Mainfile.h"
 #include "editor-support/cocostudio/CocoStudio.h"
-
+#include "RPGConfig.h"
 
 USING_NS_CC;
 
@@ -42,13 +42,15 @@ void Jasmin_Mainfile::createChoice() {
 	_choice->setPosition(Vec2(0, hei*43/100));
 	addChild(_choice);
 	const float squareWidth = Director::getInstance()->getVisibleSize().width / _numGraphemes;
+	const float squareHeight = Director::getInstance()->getVisibleSize().height;
 
 	for (int i = 0; i < _numGraphemes; i++) {
 		auto choiceNode = Sprite::createWithSpriteFrameName("jasmine/seedpouch.png");
 		choiceNode->setPosition(Vec2((i + 0.5) * squareWidth, 0));
 		addChoice(choiceNode);
 
-		_fileSequence.push_back(choiceNode->getBoundingBox());
+		_positionX.push_back((i + 0.5) * squareWidth);
+		_positionY.push_back(squareHeight * 5 / 100);
 	}
 }
 
@@ -58,32 +60,61 @@ std::string Jasmin_Mainfile::getGridBackground() {
 
 void Jasmin_Mainfile::gameOver(bool correct) {
 	if (correct) {
-		for (int item = 0; item < _fileSequence.size(); ++item)
+		float hei = Director::getInstance()->getVisibleSize().height;
+		for (int item = 0; item < _positionX.size(); ++item)
 		{
 			int random_val = std::rand() % (4 - 1 + 1) + 1;
 
-			auto tree = CSLoader::createNode("jasmine/plant" + std::to_string(random_val) + ".csb");
-			tree->setPosition(Vec2(_fileSequence[item].origin.x , _fileSequence[item].origin.y));
+			std::ostringstream fileName (std::ostringstream::ate);
+			fileName.str("jasmine/plant");
+			fileName << random_val;
+			fileName << ".csb";
+
+			std::string s = fileName.str();
+
+			auto tree = CSLoader::createNode(fileName.str());
+			tree->setPosition(Vec2(_positionX[item] , hei*47/100));
 			addChild(tree);
 
-			auto animation = CSLoader::createTimeline("jasmine/plant"+ std::to_string(random_val) +".csb");
+			auto animation = CSLoader::createTimeline(fileName.str());
 			tree->runAction(animation);
 			animation->play("correct", false);
 			animation->setAnimationEndCallFunc("correct", CC_CALLBACK_0(Jasmin_Mainfile::startFire, this, tree, random_val));
 		}
 	}
+	else
+	{
+		for (int item = 0; item < _positionX.size(); ++item)
+		{
+			int random_val = std::rand() % (4 - 1 + 1) + 1;
+
+			auto tree = CSLoader::createNode("jasmine/plant" + std::to_string(random_val) + ".csb");
+			tree->setPosition(Vec2(_positionX[item], _positionY[item]));
+			addChoice(tree);
+
+			auto animation = CSLoader::createTimeline("jasmine/plant" + std::to_string(random_val) + ".csb");
+			tree->runAction(animation);
+			animation->play("wrong", false);
+//			animation->setAnimationEndCallFunc("wrong", CC_CALLBACK_0(Jasmin_Mainfile::startFire, this, tree, random_val));
+		}
+	}
 }
 
 void Jasmin_Mainfile::startFire(Node *nd, int random_val)
-{	//	flower
-	auto animation = CSLoader::createTimeline("jasmine/flower" + std::to_string(random_val) + ".csb");
+{
+//	auto animation = CSLoader::createTimeline("jasmine/flower" + std::to_string(random_val) + ".csb");
 	Vector <Node*> children = nd->getChildren();
 
 	for (auto item = children.rbegin(); item != children.rend(); ++item) {
 		Node * monsterItem = *item;
 		std::string str = monsterItem->getName().c_str();
 		if (str.find("flower") == 0) {
-			auto eyeTimeline = CSLoader::createTimeline("jasmine/flower2.csb");
+			std::ostringstream fileName (std::ostringstream::ate);
+			fileName.str("jasmine/flower");
+			fileName << random_val;
+			fileName << ".csb";
+
+			auto eyeTimeline = CSLoader::createTimeline(fileName.str());
 			monsterItem->runAction(eyeTimeline);
 			eyeTimeline->play("bloom", false);
 		}
