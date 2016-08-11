@@ -16,19 +16,22 @@ public:
     static cocos2d::Scene* createScene();
     static WordBoard* create();
     static WordBoard* createWithWord(std::string wordStr);
+    void checkAnswer() override;
     
 CC_CONSTRUCTOR_ACCESS:
     WordBoard();
     virtual ~WordBoard();
     
 protected:
+    bool _timerStarted;
     int getGridHeight() override;
     int getGridNumRows() override;
     int getGridNumCols() override;
     std::string getGridBackground() override;
     Node* loadNode() override;
     void createGrid() override;
-    
+    void createChoice() override;
+    void gameOver(bool correct) override;
 };
 
 

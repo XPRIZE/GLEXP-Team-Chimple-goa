@@ -40,7 +40,8 @@ WordBoard* WordBoard::createWithWord(std::string wordStr) {
     return nullptr;
 }
 
-WordBoard::WordBoard() {
+WordBoard::WordBoard() :
+_timerStarted(false){
     
 }
 
@@ -66,10 +67,6 @@ std::string WordBoard::getGridBackground() {
 
 Node* WordBoard::loadNode() {
     auto background = CSLoader::createNode("common_screen/MainScene.csb");
-    auto water = background->getChildByName("Node_1");
-//    water->setPosition(0, -1800);
-    auto moveTo = MoveTo::create(5.0, Vec2(0, 1800));
-    water->runAction(moveTo);
     return background;
 }
 
@@ -78,3 +75,33 @@ void WordBoard::createGrid() {
     _grid->setPosition(0, 100);
 }
 
+void WordBoard::createChoice() {
+    Size visibleSize = Director::getInstance()->getVisibleSize();
+    const float squareWidth = visibleSize.width / _numGraphemes;
+    _choice = Node::create();
+    _choice->setPosition(Vec2(0, 1000));
+    addChild(_choice);
+    for (int i = 0; i < _numGraphemes; i++) {
+        auto choiceNode = Node::create();
+        choiceNode->setPosition(Vec2((i + 0.5 ) * squareWidth , 0));
+        auto hole = Sprite::createWithSpriteFrameName("common_screen/letter_hole.png");
+        hole->setPosition(Vec2(0, -100));
+        choiceNode->addChild(hole);
+        addChoice(choiceNode);
+    }
+}
+
+void WordBoard::checkAnswer() {
+    WordScene::checkAnswer();
+    if(!_timerStarted) {
+        _timerStarted = true;
+        auto water = _background->getChildByName("Node_1");
+        auto moveTo = MoveTo::create(5.0 * _numGraphemes, Vec2(0, 1600));
+        auto callback = CallFunc::create(CC_CALLBACK_0(WordBoard::gameOver, this, false));
+        water->runAction(Sequence::create(moveTo, callback, NULL));
+    }
+}
+
+void WordBoard::gameOver(bool correct) {
+    _menuContext->showScore();
+}

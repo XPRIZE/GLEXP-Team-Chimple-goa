@@ -43,6 +43,8 @@ bool GraphemeGrid::init(GLfloat width, GLfloat height, int numRows, int numCols,
     _spriteName = spriteName;
     _graphemeUnselectedBackground = graphemeUnselectedBackground;
     _graphemeSelectedBackground = graphemeSelectedBackground;
+    _tileLayer = Node::create();
+    addChild(_tileLayer);
     resize(width, height, numRows, numCols, graphemes);
     return true;
     
@@ -63,7 +65,7 @@ void GraphemeGrid::resize(GLfloat width, GLfloat height, int numRows, int numCol
             if(!_spriteName.empty()) {
                 auto tile = Sprite::createWithSpriteFrameName(_spriteName);
                 tile->setPosition(Vec2((j + 0.5) * squareWidth, (i + 0.5) * squareHeight));
-                addChild(tile);
+                _tileLayer->addChild(tile);
             }
             auto grapheme = createAndAddGrapheme(graphemes.at(i).at(j));
             grapheme->setPosition(Vec2((j + 0.5) * squareWidth, (i + 0.5) * squareHeight));

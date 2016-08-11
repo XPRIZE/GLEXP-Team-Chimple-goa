@@ -47,6 +47,7 @@ protected:
 
     MenuContext* _menuContext;
     GraphemeGrid* _grid;
+    Node* _background;
     Node* _answer;
     Node* _choice;
     std::string _word;

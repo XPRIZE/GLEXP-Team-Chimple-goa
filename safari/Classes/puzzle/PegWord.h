@@ -10,6 +10,8 @@
 #define PegWord_h
 
 #include "WordScene.h"
+#include "GraphemeGrid.h"
+#include "Grapheme.h"
 
 class PegWord : public WordScene {
 public:
@@ -27,7 +29,30 @@ protected:
     int getGridNumCols() override;
     std::string getGridBackground() override;
     Node* loadNode() override;
+    void createAnswer() override;
+    void createGrid() override;
+    void createChoice() override;
+    GraphemeGrid* createGraphemeGrid(GLfloat width, GLfloat height, int numRows, int numCols, std::string spriteName, std::vector<std::vector<std::string>> graphemes, std::string graphemeUnselectedBackground, std::string graphemeSelectedBackground) override;
+};
 
+class PegGrid : public GraphemeGrid {
+public:
+    static PegGrid *create(GLfloat width, GLfloat height, int numRows, int numCols, std::string spriteName, std::vector<std::vector<std::string>> graphemes, std::string graphemeUnselectedBackground, std::string graphemeSelectedBackground);
+    void resize(GLfloat width, GLfloat height, int numRows, int numCols, std::vector<std::vector<std::string>> graphemes) override;
+
+CC_CONSTRUCTOR_ACCESS:
+    bool init(GLfloat width, GLfloat height, int numRows, int numCols, std::string spriteName, std::vector<std::vector<std::string>> graphemes, std::string graphemeUnselectedBackground, std::string graphemeSelectedBackground);
+protected:
+    Grapheme* createGrapheme(std::string graphemeString) override;
+};
+
+class PegGrapheme : public Grapheme {
+public:
+    static PegGrapheme* create(std::string graphemeString);
+    void onEnterTransitionDidFinish() override;
+
+CC_CONSTRUCTOR_ACCESS:
+    bool init(std::string graphemeString);
 };
 
 #endif /* PegWord_h */

@@ -11,12 +11,20 @@ class Jasmin_Mainfile : public WordScene
 public:
 	static cocos2d::Scene* createScene(); 
 	static Jasmin_Mainfile *create();
-
+	void startFire(Node *, int);
+	
 protected:
 	cocos2d::Node* loadNode() override;
 	std::string getGridBackground() override;
 	void createChoice() override;
 	void createAnswer() override;
+	void gameOver(bool correct);
+	std::vector<Node*> _treeArray;
+	std::vector<cocostudio::timeline::ActionTimeline*> _animationTimeline;
+	std::vector<cocos2d::Sprite*> _fileSequence;
+	Node* _tree;
+	std::vector<float> _positionX;
+	std::vector<float> _positionY;
 };
 
 #endif // __Jasmin_Mainfile_SCENE_H__
