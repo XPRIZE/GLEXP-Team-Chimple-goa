@@ -1,6 +1,6 @@
 #include "Jasmin_Mainfile.h"
 #include "editor-support/cocostudio/CocoStudio.h"
-
+#include "RPGConfig.h"
 
 USING_NS_CC;
 
@@ -62,11 +62,11 @@ void Jasmin_Mainfile::gameOver(bool correct) {
 		{
 			int random_val = std::rand() % (4 - 1 + 1) + 1;
 
-			auto tree = CSLoader::createNode("jasmine/plant" + std::to_string(random_val) + ".csb");
+			auto tree = CSLoader::createNode("jasmine/plant" + RPGConfig::to_string(random_val) + ".csb");
 			tree->setPosition(Vec2(_fileSequence[item].origin.x , _fileSequence[item].origin.y));
 			addChild(tree);
 
-			auto animation = CSLoader::createTimeline("jasmine/plant"+ std::to_string(random_val) +".csb");
+			auto animation = CSLoader::createTimeline("jasmine/plant"+ RPGConfig::to_string(random_val) +".csb");
 			tree->runAction(animation);
 			animation->play("correct", false);
 			animation->setAnimationEndCallFunc("correct", CC_CALLBACK_0(Jasmin_Mainfile::startFire, this, tree, random_val));
@@ -76,7 +76,7 @@ void Jasmin_Mainfile::gameOver(bool correct) {
 
 void Jasmin_Mainfile::startFire(Node *nd, int random_val)
 {	//	flower
-	auto animation = CSLoader::createTimeline("jasmine/flower" + std::to_string(random_val) + ".csb");
+	auto animation = CSLoader::createTimeline("jasmine/flower" + RPGConfig::to_string(random_val) + ".csb");
 	Vector <Node*> children = nd->getChildren();
 
 	for (auto item = children.rbegin(); item != children.rend(); ++item) {
