@@ -164,6 +164,8 @@ private:
     
     void createWordSprite(cocos2d::Node* node, std::string word, cocos2d::Node* parentNode);
     
+    void handleCharacterMovement(cocos2d::Point position);
+    
     cocos2d::Size sceneSize;
     
     std::vector<std::string> activeAlphamonNodes;
