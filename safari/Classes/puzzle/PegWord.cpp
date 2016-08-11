@@ -8,6 +8,7 @@
 
 #include "PegWord.h"
 #include "../GameScene.h"
+#include "../lang/TextGenerator.h"
 
 USING_NS_CC;
 
@@ -70,7 +71,21 @@ void PegWord::createAnswer() {
 }
 
 void PegWord::createGrid() {
-    WordScene::createGrid();
+    Size visibleSize = Director::getInstance()->getVisibleSize();
+    std::vector<std::vector<std::string>> _matrix;
+    _matrix.push_back(TextGenerator::getInstance()->getGraphemes(_word));
+    _grid = createGraphemeGrid(visibleSize.width, getGridHeight(), getGridNumRows(), getGridNumCols(), getGridBackground(), _matrix, getGraphemeUnselectedBackground(), getGraphemeSelectedBackground());
+    auto unselBg = getGraphemeUnselectedBackground();
+    if(!unselBg.empty()) {
+        _grid->setGraphemeUnselectedBackground(unselBg);
+    }
+    auto selBg = getGraphemeSelectedBackground();
+    if(!selBg.empty()) {
+        _grid->setGraphemeSelectedBackground(selBg);
+    }
+    _grid->setPosition(Vec2(0, visibleSize.height / 2));
+    addChild(_grid);
+    _grid->touchEndedCallback = CC_CALLBACK_2(WordScene::onTouchEnded, this);
 }
 
 void PegWord::createChoice() {
@@ -82,6 +97,7 @@ void PegWord::createChoice() {
     for (int i = 0; i < _numGraphemes; i++) {
         auto choiceNode = ui::Text::create();
         choiceNode->setFontSize(600);
+        choiceNode->setTextColor(Color4B(209, 157, 113, 255));
         choiceNode->setString(_answerGraphemes.at(i));
         choiceNode->setPosition(Vec2((i + 0.5) * width, 0));
         addChoice(choiceNode);
@@ -89,8 +105,7 @@ void PegWord::createChoice() {
 }
 
 Node* PegWord::loadNode() {
-    auto background = CSLoader::createNode("farmhouse/farmhouse.csb");
-    background->setPosition(Vec2(-2560, 0));
+    auto background = CSLoader::createNode("common_screen/MainScene.csb");
     return background;
 }
 
@@ -123,6 +138,27 @@ bool PegGrid::init(GLfloat width, GLfloat height, int numRows, int numCols, std:
     return true;
 }
 
+void PegGrid::resize(GLfloat width, GLfloat height, int numRows, int numCols, std::vector<std::vector<std::string>> graphemes) {
+    Size visibleSize = Director::getInstance()->getVisibleSize();
+    const float squareWidth = visibleSize.width / numCols;
+    _numRows = numRows;
+    _numCols = numCols;
+    _width = width;
+    _height = height;
+    _graphemeMatrix.clear();
+    _graphemeMatrix.resize(numRows, std::vector<Grapheme*>(numCols));
+    for (int i = 0; i < numRows; i++) {
+        for (int j = 0; j < numCols; j++) {
+            auto grapheme = createGrapheme(graphemes.at(i).at(j));
+            addChild(grapheme);
+            grapheme->setPosition(Vec2((j + 0.5) * squareWidth, 0));
+            grapheme->touchEndedCallback = CC_CALLBACK_2(GraphemeGrid::onTouchEnded, this);
+            _graphemeMatrix.at(i).at(j) = grapheme;
+        }
+    }
+}
+
+
 Grapheme* PegGrid::createGrapheme(std::string graphemeString) {
     return PegGrapheme::create(graphemeString);
 }
@@ -148,3 +184,9 @@ bool PegGrapheme::init(std::string graphemeString) {
     _text->setFontSize(600);
     return true;
 }
+
+void PegGrapheme::onEnterTransitionDidFinish() {
+    Grapheme::onEnterTransitionDidFinish();
+    _eventDispatcher->pauseEventListenersForTarget(this);
+}
+
