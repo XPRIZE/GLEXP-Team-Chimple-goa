@@ -33,6 +33,7 @@ LOCAL_SRC_FILES := hellocpp/main.cpp \
 					../../Classes/puzzle/WordBoard.cpp \
 					../../Classes/puzzle/Grapheme.cpp \
 					../../Classes/puzzle/GraphemeGrid.cpp \
+					../../Classes/puzzle/PegWord.cpp \
 					../../Classes/RPGConfig.cpp \
 					../../Classes/RPGSprite.cpp \
 					../../Classes/RunningState.cpp \
@@ -60,6 +61,8 @@ LOCAL_SRC_FILES := hellocpp/main.cpp \
 					../../Classes/mini_games/Chain.cpp \
 					../../Classes/mini_games/jazz.cpp \
 					../../Classes/mini_games/Wembley.cpp \
+					../../Classes/mini_games/Baja.cpp \
+					../../Classes/mini_games/BajaWordScene.cpp \
 					../../Classes/menu/MenuContext.cpp \
 					../../Classes/lang/LangUtil.cpp \
 					../../Classes/lang/EnglishUtil.cpp \
