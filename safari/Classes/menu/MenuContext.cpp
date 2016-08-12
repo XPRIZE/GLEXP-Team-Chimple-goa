@@ -15,6 +15,7 @@
 #include "../alphamon/SelectAlphamonScene.h"
 #include "SimpleAudioEngine.h"
 #include "AudioEngine.h"
+#include "ScrollableGameMapScene.hpp"
 
 USING_NS_CC;
 using namespace cocos2d::ui;
@@ -144,7 +145,7 @@ void MenuContext::expandMenu(cocos2d::Ref *pSender, cocos2d::ui::Widget::TouchEv
                 event.setUserData(static_cast<void*>(&menuName));
                 _eventDispatcher->dispatchEvent(&event);
             } else {
-                Director::getInstance()->replaceScene(StartMenu::createScene());
+//                Director::getInstance()->replaceScene(StartMenu::createScene());
             }
             
         }
@@ -438,7 +439,7 @@ void MenuContext::showGamesMenu(cocos2d::Ref *pSender, cocos2d::ui::Widget::Touc
             _eventDispatcher->dispatchEvent(&event);
             
         } else {
-           Director::getInstance()->replaceScene(TransitionFade::create(2.0, GameMapScene::createScene(), Color3B::BLACK));
+           Director::getInstance()->replaceScene(TransitionFade::create(2.0, ScrollableGameMapScene::createScene(), Color3B::BLACK));
         }
     }
 }
