@@ -5,7 +5,6 @@
 #include "../menu/MenuContext.h"
 #include "../StartMenuScene.h"
 #include "editor-support/cocostudio/CocoStudio.h"
-#include "cocostudio/CocoStudio.h"
 #include "ui/CocosGUI.h"
 
 using namespace cocos2d;

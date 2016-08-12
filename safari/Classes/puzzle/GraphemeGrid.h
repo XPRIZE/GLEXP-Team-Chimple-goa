@@ -15,7 +15,7 @@
 class GraphemeGrid: public cocos2d::Layer {
 public:
     static GraphemeGrid *create(GLfloat width, GLfloat height, int numRows, int numCols, std::string spriteName, std::vector<std::vector<std::string>> graphemes, std::string graphemeUnselectedBackground, std::string graphemeSelectedBackground);
-    void resize(GLfloat width, GLfloat height, int numRows, int numCols, std::vector<std::vector<std::string>> graphemes);
+    virtual void resize(GLfloat width, GLfloat height, int numRows, int numCols, std::vector<std::vector<std::string>> graphemes);
     int getNumberOfActionsRunning();
 	virtual void setGraphemeUnselectedBackground(std::string spriteName);
 	virtual void setGraphemeSelectedBackground(std::string spriteName);
