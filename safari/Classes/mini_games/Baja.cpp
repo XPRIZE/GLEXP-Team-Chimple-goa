@@ -26,13 +26,10 @@ bool Baja::init()
 	_origin = Director::getInstance()->getVisibleOrigin();
 	addInitPath();
 
-	_userCar = carGenerate(_origin.x + _visibleSize.width * 0.50,300,"redcaranimation",30,2);
-	userCarControl(_userCar);
-	
 	auto loader = CSLoader::createNode("baja/bajafuelmeter.csb");
 	addChild(loader,1);
 	_fuelBar = (cocos2d::ui::LoadingBar*)(loader->getChildren()).at(1);	_fuelBar->setPercent(100);
-	loader->setPosition(Vec2(_origin.x + _visibleSize.width * 0.10, _origin.y + _visibleSize.height * 0.50));
+	loader->setPosition(Vec2(_currentPathBlock->getPositionX() - (_currentPathBlock->getContentSize().width*0.42), _origin.y + _visibleSize.height * 0.50));
 	
 	this->schedule(schedule_selector(Baja::carMidLeftGenerate),3.0f);
 	this->schedule(schedule_selector(Baja::carRightGenerate),5.0f);
@@ -99,7 +96,7 @@ void Baja::userCarControl(Node* userCar1) {
 	Node* node1 = CSLoader::createNode("baja/bajabutton.csb");
 	this->addChild(node1, 1);
 	auto leftButton = static_cast<cocos2d::ui::Button *>(node1->getChildByName("Button"));
-	leftButton->setPosition(Vec2(_origin.x + _visibleSize.width * 0.825, 300));  leftButton->setFlippedX(true);
+	leftButton->setPosition(Vec2(_currentPathBlock->getPositionX() + (_currentPathBlock->getContentSize().width*0.38), 300));  leftButton->setFlippedX(true);
 	if (leftButton != NULL) {
 		leftButton->addClickEventListener([=](Ref *) {
 			if (_positionFlag) {
@@ -121,7 +118,7 @@ void Baja::userCarControl(Node* userCar1) {
 	Node* node2 = CSLoader::createNode("baja/bajabutton.csb");
 	this->addChild(node2, 1);
 	auto rightButton = static_cast<cocos2d::ui::Button *>(node2->getChildByName("Button"));
-	rightButton->setPosition(Vec2(_origin.x + _visibleSize.width * 0.91, 300));
+	rightButton->setPosition(Vec2(_currentPathBlock->getPositionX() + (_currentPathBlock->getContentSize().width*0.46), 300));
 	if (rightButton != NULL) {
 		rightButton->addClickEventListener([=](Ref *) {
 			if (_positionFlag) {
@@ -144,15 +141,16 @@ void Baja::userCarControl(Node* userCar1) {
 void Baja::carMidLeftGenerate(float dt)
 {
 	int decisionPath = randmValueIncludeBoundery(0,1);
+	
 	if(decisionPath == 0){
 		std::string carArray[2] = { "greencaranimation","bluecaranimation" };
-		auto userCarLeft = carGenerate(_origin.x + _visibleSize.width * 0.29, _topBarrier->getPositionY(), carArray[randmValueIncludeBoundery(0, 1)], 30, 1);
+		auto userCarLeft = carGenerate(_currentPathBlock->getPositionX() - (_currentPathBlock->getContentSize().width*0.24) , _topBarrier->getPositionY(), carArray[randmValueIncludeBoundery(0, 1)], 30, 1);
 		userCarLeft->runAction(MoveTo::create(carMovingTime(userCarLeft, 650), Vec2(userCarLeft->getPositionX(), _bottomBarrier->getPositionY())));
 		_leftCar = userCarLeft;	_allCar.push_back(userCarLeft);
 	}
 	else {
 		std::string carArray[2] = { "bluecaranimation","greencaranimation" };
-		auto userCarMid = carGenerate(_origin.x + _visibleSize.width * 0.50, _topBarrier->getPositionY(), carArray[randmValueIncludeBoundery(0, 1)], 30, 1);
+		auto userCarMid = carGenerate(_currentPathBlock->getPositionX(), _topBarrier->getPositionY(), carArray[randmValueIncludeBoundery(0, 1)], 30, 1);
 		userCarMid->runAction(MoveTo::create(carMovingTime(userCarMid, 650), Vec2(userCarMid->getPositionX(), _bottomBarrier->getPositionY())));
 		_midCar = userCarMid;	_allCar.push_back(userCarMid);
 	}
@@ -161,7 +159,7 @@ void Baja::carMidLeftGenerate(float dt)
 void Baja::carRightGenerate(float dt)
 {
 	std::string carArray[2] = {"bluecaranimation","greencaranimation"};
-	auto userCarRight = carGenerate(_origin.x + _visibleSize.width * 0.71,_topBarrier->getPositionY(), carArray[randmValueIncludeBoundery(0, 1)], 30, 1);
+	auto userCarRight = carGenerate(_currentPathBlock->getPositionX() + (_currentPathBlock->getContentSize().width*0.24),_topBarrier->getPositionY(), carArray[randmValueIncludeBoundery(0, 1)], 30, 1);
 	userCarRight->runAction(MoveTo::create(carMovingTime(userCarRight,650), Vec2(userCarRight->getPositionX(), _bottomBarrier->getPositionY())));
 	_rightCar = userCarRight;	_allCar.push_back(userCarRight);
 }
@@ -192,6 +190,9 @@ void Baja::addInitPath() {
 		_currentPathBlock->runAction(MoveTo::create(movingTime(_currentPathBlock, 800), Vec2(_currentPathBlock->getPositionX(), _bottomBarrier->getPositionY())));
 		_allPathBlocks.push_back(_currentPathBlock);
 	}
+
+	_userCar = carGenerate(_origin.x + _visibleSize.width * 0.50, 300, "redcaranimation", 30, 2);
+	userCarControl(_userCar);
 }
 
 Sprite* Baja::setSpriteProperties(std::string frameName,float positionX, float positionY, float scaleX, float scaleY, float anchorX, float anchorY, float rotation,int zorder) {
