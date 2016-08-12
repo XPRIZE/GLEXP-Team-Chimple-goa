@@ -88,6 +88,8 @@
 		D6B0611B1803AB670077942B /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6B0611A1803AB670077942B /* CoreMotion.framework */; };
 		ED545A7C1B68A1F400C3958E /* libiconv.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = ED545A7B1B68A1F400C3958E /* libiconv.dylib */; };
 		ED545A7E1B68A1FA00C3958E /* libiconv.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = ED545A7D1B68A1FA00C3958E /* libiconv.dylib */; };
+		F3154EC81D5C7F2D00049F42 /* BajaWordScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F3154EC61D5C7F2D00049F42 /* BajaWordScene.cpp */; };
+		F3154ECA1D5C7F3200049F42 /* BajaWordScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F3154EC61D5C7F2D00049F42 /* BajaWordScene.cpp */; };
 		F33905071D49B84000090367 /* GameScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F33905061D49B84000090367 /* GameScene.cpp */; };
 		F33905081D49B84000090367 /* GameScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F33905061D49B84000090367 /* GameScene.cpp */; };
 		F3913DBA1D3F461A001B3038 /* sqlite3.c in Sources */ = {isa = PBXBuildFile; fileRef = F3913D9D1D3F461A001B3038 /* sqlite3.c */; };
@@ -188,6 +190,10 @@
 		F39A19D71D589FF7008B397D /* Wembley.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F39A19C81D589F81008B397D /* Wembley.cpp */; };
 		F39A19D81D589FFA008B397D /* Jasmin_Listenerfile.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F39A19C91D589F81008B397D /* Jasmin_Listenerfile.cpp */; };
 		F39A19D91D589FFC008B397D /* Baja.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F39A19CB1D589F81008B397D /* Baja.cpp */; };
+		F39A19E51D59CC04008B397D /* PegWord.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F39A19E41D59CC04008B397D /* PegWord.cpp */; };
+		F39A19E61D59CC04008B397D /* PegWord.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F39A19E41D59CC04008B397D /* PegWord.cpp */; };
+		F39A19EB1D59E8D1008B397D /* WordBoard.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F39A19EA1D59E8D1008B397D /* WordBoard.cpp */; };
+		F39A19EC1D59E8D1008B397D /* WordBoard.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F39A19EA1D59E8D1008B397D /* WordBoard.cpp */; };
 		F3C711CA1D56F28D000DBBE5 /* GraphemeGrid.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F3C711C91D56F28D000DBBE5 /* GraphemeGrid.cpp */; };
 		F3C711CB1D56F28D000DBBE5 /* GraphemeGrid.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F3C711C91D56F28D000DBBE5 /* GraphemeGrid.cpp */; };
 		F3C711D01D576128000DBBE5 /* Grapheme.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F3C711CF1D576128000DBBE5 /* Grapheme.cpp */; };
@@ -327,6 +333,8 @@
 		D6B0611A1803AB670077942B /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk/System/Library/Frameworks/CoreMotion.framework; sourceTree = DEVELOPER_DIR; };
 		ED545A7B1B68A1F400C3958E /* libiconv.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libiconv.dylib; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.4.sdk/usr/lib/libiconv.dylib; sourceTree = DEVELOPER_DIR; };
 		ED545A7D1B68A1FA00C3958E /* libiconv.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libiconv.dylib; path = usr/lib/libiconv.dylib; sourceTree = SDKROOT; };
+		F3154EC61D5C7F2D00049F42 /* BajaWordScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BajaWordScene.cpp; sourceTree = "<group>"; };
+		F3154EC71D5C7F2D00049F42 /* BajaWordScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BajaWordScene.h; sourceTree = "<group>"; };
 		F33905041D49B82E00090367 /* GameScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameScene.h; sourceTree = "<group>"; };
 		F33905061D49B84000090367 /* GameScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GameScene.cpp; sourceTree = "<group>"; };
 		F3913D8C1D3F461A001B3038 /* AlphamonSprite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AlphamonSprite.h; sourceTree = "<group>"; };
@@ -431,6 +439,10 @@
 		F39A19DD1D58A3C7008B397D /* core.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = core.h; sourceTree = "<group>"; };
 		F39A19DE1D58A3C7008B397D /* unchecked.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = unchecked.h; sourceTree = "<group>"; };
 		F39A19DF1D58A3CF008B397D /* utf8.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = utf8.h; sourceTree = "<group>"; };
+		F39A19E41D59CC04008B397D /* PegWord.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PegWord.cpp; sourceTree = "<group>"; };
+		F39A19E81D59CC13008B397D /* PegWord.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PegWord.h; sourceTree = "<group>"; };
+		F39A19E91D59E8BC008B397D /* WordBoard.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WordBoard.h; sourceTree = "<group>"; };
+		F39A19EA1D59E8D1008B397D /* WordBoard.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = WordBoard.cpp; sourceTree = "<group>"; };
 		F3C711C91D56F28D000DBBE5 /* GraphemeGrid.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GraphemeGrid.cpp; sourceTree = "<group>"; };
 		F3C711CD1D56F29B000DBBE5 /* GraphemeGrid.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GraphemeGrid.h; sourceTree = "<group>"; };
 		F3C711CE1D57611C000DBBE5 /* Grapheme.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Grapheme.h; sourceTree = "<group>"; };
@@ -734,6 +746,8 @@
 		F3913DE91D3F4639001B3038 /* mini_games */ = {
 			isa = PBXGroup;
 			children = (
+				F3154EC61D5C7F2D00049F42 /* BajaWordScene.cpp */,
+				F3154EC71D5C7F2D00049F42 /* BajaWordScene.h */,
 				F39A19C21D589F81008B397D /* Chain.cpp */,
 				F39A19C31D589F81008B397D /* Jasmin_Mainfile.cpp */,
 				F39A19C41D589F81008B397D /* Jasmin_Mainfile.h */,
@@ -789,6 +803,10 @@
 				F3C711CD1D56F29B000DBBE5 /* GraphemeGrid.h */,
 				F3C711CE1D57611C000DBBE5 /* Grapheme.h */,
 				F3C711CF1D576128000DBBE5 /* Grapheme.cpp */,
+				F39A19E41D59CC04008B397D /* PegWord.cpp */,
+				F39A19E81D59CC13008B397D /* PegWord.h */,
+				F39A19E91D59E8BC008B397D /* WordBoard.h */,
+				F39A19EA1D59E8D1008B397D /* WordBoard.cpp */,
 			);
 			path = puzzle;
 			sourceTree = "<group>";
@@ -1024,10 +1042,12 @@
 				F39610B21D3F8FDB00D8DD13 /* AlphamonFeedScene.cpp in Sources */,
 				376FEE801D3F66380037393F /* SkeletonPosition.cpp in Sources */,
 				F3913DCE1D3F461A001B3038 /* MessageSender.cpp in Sources */,
+				F39A19EB1D59E8D1008B397D /* WordBoard.cpp in Sources */,
 				3707E8AF1D558C9A00168A0C /* WordManager.cpp in Sources */,
 				F39A19D21D589F81008B397D /* Jasmin_Listenerfile.cpp in Sources */,
 				F3913DE41D3F461A001B3038 /* StateMachine.cpp in Sources */,
 				F3913E191D3F46B1001B3038 /* Cannon_Ball_Main.cpp in Sources */,
+				F39A19E51D59CC04008B397D /* PegWord.cpp in Sources */,
 				37DF03DA1D44B8D4007252C6 /* LanguageManager.cpp in Sources */,
 				F3E427EE1D54440200D22421 /* WordScene.cpp in Sources */,
 				F39A19CE1D589F81008B397D /* Chain.cpp in Sources */,
@@ -1055,6 +1075,7 @@
 				F3CA26F11D43DA17006EBDC6 /* KannadaUtil.cpp in Sources */,
 				F3913DDA1D3F461A001B3038 /* SpeechBubbleView.cpp in Sources */,
 				F3C711CA1D56F28D000DBBE5 /* GraphemeGrid.cpp in Sources */,
+				F3154EC81D5C7F2D00049F42 /* BajaWordScene.cpp in Sources */,
 				371829391D44CA570013E3C4 /* MO.cpp in Sources */,
 				37AB489B1D588CFE00B0B525 /* WordInfo.cpp in Sources */,
 				F3913DD21D3F461A001B3038 /* RPGConfig.cpp in Sources */,
@@ -1116,6 +1137,7 @@
 				F3913E321D3F46BE001B3038 /* HPMeter.cpp in Sources */,
 				F3913E301D3F46BE001B3038 /* Alphamon.cpp in Sources */,
 				F39610B51D3F905D00D8DD13 /* AlphamonFeedScene.cpp in Sources */,
+				F39A19E61D59CC04008B397D /* PegWord.cpp in Sources */,
 				F3913DF01D3F4694001B3038 /* MenuContext.cpp in Sources */,
 				F3913DE31D3F461A001B3038 /* State.cpp in Sources */,
 				F3CA26EF1D43C0A9006EBDC6 /* EnglishUtil.cpp in Sources */,
@@ -1126,6 +1148,7 @@
 				F3913DE71D3F461A001B3038 /* WalkingState.cpp in Sources */,
 				F3913DC91D3F461A001B3038 /* JumpingState.cpp in Sources */,
 				F3913DE11D3F461A001B3038 /* StartMenuScene.cpp in Sources */,
+				F39A19EC1D59E8D1008B397D /* WordBoard.cpp in Sources */,
 				37DF03DB1D44B8D4007252C6 /* LanguageManager.cpp in Sources */,
 				F3913E221D3F46B1001B3038 /* SmashTheRockLevelScene.cpp in Sources */,
 				F3913DCF1D3F461A001B3038 /* MessageSender.cpp in Sources */,
@@ -1137,6 +1160,7 @@
 				37533C961D507580008EEFD9 /* ScoreBoardContent.cpp in Sources */,
 				F3913DC11D3F461A001B3038 /* ExternalSkeletonCharacter.cpp in Sources */,
 				376FEE811D3F66380037393F /* SkeletonPosition.cpp in Sources */,
+				F3154ECA1D5C7F3200049F42 /* BajaWordScene.cpp in Sources */,
 				F3E427F41D54452800D22421 /* TextGenerator.cpp in Sources */,
 				F33905081D49B84000090367 /* GameScene.cpp in Sources */,
 				F3CA26EB1D43C069006EBDC6 /* LangUtil.cpp in Sources */,
