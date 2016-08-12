@@ -11,7 +11,9 @@ class Jasmin_Mainfile : public WordScene
 public:
 	static cocos2d::Scene* createScene(); 
 	static Jasmin_Mainfile *create();
-	void startFire(Node *, int);
+	void startFlowerAnimation(Node *, int, int);
+	void removeAnimation(Node *);
+	void showScore();
 	
 protected:
 	cocos2d::Node* loadNode() override;
