@@ -36,14 +36,13 @@ public:
 	void addInitPath();
 	void userCarControl(Node* userCar);
 
-	void carLeftGenerate(float dt);
-	void carMidGenerate(float dt);
+	void carMidLeftGenerate(float dt);
 	void carRightGenerate(float dt);
 	void fuelMeterMethod(float dt);
 	// implement the "static create()" method manually
 	CREATE_FUNC(Baja);
 	void update(float) override;
-	static const char* gameName() { return ENDLESS_RUNNER.c_str(); }
+	
 };
 
 #endif // __BAJA_SCENE_H__

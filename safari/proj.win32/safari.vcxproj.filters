@@ -257,6 +257,9 @@
     <ClCompile Include="..\Classes\mini_games\BajaWordScene.cpp">
       <Filter>src\mini_games</Filter>
     </ClCompile>
+    <ClCompile Include="..\Classes\puzzle\PegWord.cpp">
+      <Filter>src\puzzle</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -486,6 +489,9 @@
     </ClInclude>
     <ClInclude Include="..\Classes\mini_games\BajaWordScene.h">
       <Filter>src\mini_games</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\puzzle\PegWord.h">
+      <Filter>src\puzzle</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
