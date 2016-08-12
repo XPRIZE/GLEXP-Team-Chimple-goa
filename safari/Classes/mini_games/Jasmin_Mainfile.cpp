@@ -79,7 +79,7 @@ void Jasmin_Mainfile::gameOver(bool correct) {
 			auto animation = CSLoader::createTimeline(fileName.str());
 			tree->runAction(animation);
 			animation->play("correct", false);
-			animation->setAnimationEndCallFunc("correct", CC_CALLBACK_0(Jasmin_Mainfile::startFlowerAnimation, this, tree, random_val));
+			animation->setAnimationEndCallFunc("correct", CC_CALLBACK_0(Jasmin_Mainfile::startFlowerAnimation, this, tree, random_val, item));
 		}
 	}
 	else
@@ -110,7 +110,7 @@ void Jasmin_Mainfile::removeAnimation(Node *nd)
 	removeChild(nd);
 }
 
-void Jasmin_Mainfile::startFlowerAnimation(Node *nd, int random_val)
+void Jasmin_Mainfile::startFlowerAnimation(Node *nd, int random_val, int animationNumber)
 {
 	Vector <Node*> children = nd->getChildren();
 
@@ -126,10 +126,17 @@ void Jasmin_Mainfile::startFlowerAnimation(Node *nd, int random_val)
 			auto eyeTimeline = CSLoader::createTimeline(fileName.str());
 			monsterItem->runAction(eyeTimeline);
 			eyeTimeline->play("bloom", false);
+
+			if(animationNumber==_numGraphemes-1)
+			eyeTimeline->setAnimationEndCallFunc("bloom", CC_CALLBACK_0(Jasmin_Mainfile::showScore, this));
 		}
 	}
 }
 
+void Jasmin_Mainfile::showScore()
+{
+	_menuContext->showScore();
+}
 
 Jasmin_Mainfile* Jasmin_Mainfile::create() {
 	Jasmin_Mainfile* word = new (std::nothrow) Jasmin_Mainfile();
