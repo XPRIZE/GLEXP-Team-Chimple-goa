@@ -25,18 +25,15 @@ static const std::string KUNG_FU_ALPHA = "Kung Fu Alpha";
 static const std::string ALPHAMON_FEED = "Alphamon Feed";
 static const std::string BAJA = "Baja";
 
-class StartMenu : public cocos2d::LayerGradient {
+class StartMenu {
 public:
-    static cocos2d::Scene* createScene();
     static void startScene(std::string gameName, std::string firstParam = "", std::string secondParam = "", std::string thirdParam = "");
-    static cocos2d::MenuItem* createMenu(std::string name);
-    CREATE_FUNC(StartMenu);
+    static const std::vector<std::string> getGameNames();
+    
     
 CC_CONSTRUCTOR_ACCESS:
-    virtual bool init();
     StartMenu();
-    virtual ~StartMenu();
-    
+    virtual ~StartMenu();    
 };
 
 #endif /* StartMenuScene_h */

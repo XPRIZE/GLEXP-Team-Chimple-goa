@@ -70,6 +70,7 @@ alphamonNodesCount(0),
 skeletonPositionInLastVisitedScene(nullptr)
 {
     this->stateMachine = NULL;
+    this->skeletonCharacter = NULL;
 }
 
 HelloWorld::~HelloWorld() {
@@ -115,10 +116,18 @@ void HelloWorld::updatePositionAndCategoryBitMaskMainCharacter() {
 }
 
 void HelloWorld::loadGameScene() {
-    
+    std::string buildPath;
     std::string mainSceneName = this->getSceneName() + ".csb";
+    if(!sceneName.empty()) {
+        this->setSceneName(sceneName);
+        buildPath = this->getSceneName();
+    } else {
+        buildPath = this->getIsland();
+    }
     
-    Node *rootNode = CSLoader::createNode(mainSceneName);
+    
+    Node *rootNode = CSLoader::createNode(buildPath + "/" + mainSceneName);
+//    Node *rootNode = CSLoader::createNode(mainSceneName);
     this->setSceneSize(rootNode->getContentSize());
     this->addChild(rootNode);
     
@@ -328,7 +337,8 @@ void HelloWorld::enablePhysicsBoundaries(Node* rootNode) {
         if(child->getChildrenCount() > 0) {
             for (auto subChild : child->getChildren()) {
                 CCLOG("processing subchild %s", subChild->getName().c_str());
-                if(dynamic_cast<Sprite*>(subChild)) {
+                Sprite* sprite = dynamic_cast<Sprite*>(subChild);
+                if(sprite) {
                     Sprite* sprite = dynamic_cast<Sprite*>(subChild);
                     if(sprite) {
                         auto matchingName = subChild->getName();
@@ -347,6 +357,11 @@ void HelloWorld::enablePhysicsBoundaries(Node* rootNode) {
                         
                     }
                     
+                    if(sprite->getChildrenCount() > 0) {
+                        this->enablePhysicsBoundaries(sprite);
+                    }
+                } else {
+                    Node* sprite = dynamic_cast<Node*>(subChild);
                     if(sprite->getChildrenCount() > 0) {
                         this->enablePhysicsBoundaries(sprite);
                     }
@@ -420,13 +435,13 @@ bool HelloWorld::init(const std::string& island, const std::string& sceneName)
     this->setIsland(island);
 
     //default sceneName should be the same as island and default search path
-    if(!sceneName.empty()) {
-        this->setSceneName(sceneName);
-        FileUtils::getInstance()->addSearchPath("res/" + this->getSceneName());
-    } else {
-        FileUtils::getInstance()->addSearchPath("res/" + this->getIsland());
-    }
-        
+//    if(!sceneName.empty()) {
+//        this->setSceneName(sceneName);
+//        FileUtils::getInstance()->addSearchPath("res/" + this->getSceneName());
+//    } else {
+//        FileUtils::getInstance()->addSearchPath("res/" + this->getIsland());
+//    }
+    
     //Added for testing purpose - remove later....
     this->currentLangUtil = LangUtil::getInstance();
     auto defaultStr = this->currentLangUtil->translateString("Hello world!");
@@ -996,6 +1011,10 @@ bool HelloWorld::checkTouchVerticallyUpOnBoundsOfCharacter(Point point, cocostud
 void HelloWorld::flipSkeletonDirection(Point point, cocostudio::timeline::SkeletonNode* characterNode)
 {
     //find out touch Location
+    if(!this->skeletonCharacter) {
+        return;
+    }
+    
     Vec2 characterPosition = characterNode->getParent()->convertToWorldSpace(characterNode->getPosition());
     auto scaleX = this->skeletonCharacter->getSkeletonNode()->getScaleX();
     if(point.x < characterPosition.x) {
