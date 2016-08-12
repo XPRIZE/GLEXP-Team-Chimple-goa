@@ -17,12 +17,11 @@ protected:
 	Sprite* _topBarrier, *_bottomBarrier, *_currentPathBlock;
 	std::vector<Sprite*> _allPathBlocks;
 	std::vector<Node*> _allCar;
-	Size _visibleSize;
-	Vec2 _origin;
 	bool _initBool = true,_positionFlag=true;
 	std::string _positionCar = "mid";
-	Node *_leftCar, *_midCar, *_rightCar , *_userCar;
+	Node *_userCar;
 	cocos2d::ui::LoadingBar* _fuelBar;
+
 public:
 	static cocos2d::Scene* createScene();
 	virtual bool init();
@@ -33,7 +32,7 @@ public:
 	float carMovingTime(Node* ImageObject, int speed);
 
 	int randmValueIncludeBoundery(int min, int max);
-	void addInitPath();
+	void addInitPath(Size visibleSize, Vec2 origin);
 	void userCarControl(Node* userCar);
 
 	void carMidLeftGenerate(float dt);
