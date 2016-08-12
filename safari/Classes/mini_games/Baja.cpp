@@ -8,7 +8,7 @@ Scene* Baja::createScene()
 	auto scene = Scene::create();
 	auto layer = Baja::create();
 	scene->addChild(layer);
-	layer->_menuContext = MenuContext::create(layer, "BajaRacing");
+	layer->_menuContext = MenuContext::create(layer,"BajaRacing");
 	scene->addChild(layer->_menuContext);
 	return scene;
 }
@@ -34,8 +34,8 @@ bool Baja::init()
 	_fuelBar = (cocos2d::ui::LoadingBar*)(loader->getChildren()).at(1);	_fuelBar->setPercent(100);
 	loader->setPosition(Vec2(_origin.x + _visibleSize.width * 0.10, _origin.y + _visibleSize.height * 0.50));
 	
-	this->schedule(schedule_selector(Baja::carMidLeftGenerate), randmValueIncludeBoundery(1, 5));
-	this->schedule(schedule_selector(Baja::carRightGenerate), randmValueIncludeBoundery(1,10));
+	this->schedule(schedule_selector(Baja::carMidLeftGenerate),3.0f);
+	this->schedule(schedule_selector(Baja::carRightGenerate),5.0f);
 	this->schedule(schedule_selector(Baja::fuelMeterMethod), 0.2f);
 
 	this->scheduleUpdate();
