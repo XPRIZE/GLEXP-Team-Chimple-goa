@@ -53,12 +53,32 @@ bool ScrollableGameMapScene::init() {
         return false;
     }
     
-    
-    std::string ICONS = ICON_FOLDER;
-    
     Size visibleSize = Director::getInstance()->getVisibleSize();
     Vec2 origin = Director::getInstance()->getVisibleOrigin();
+    std::string ICONS = ICON_FOLDER;
     
+    auto spriteCache = SpriteFrameCache::getInstance();
+    spriteCache->addSpriteFramesWithFile("gamemap/gamemap.plist");
+    
+    
+    Texture2D *texture = Director::getInstance()->getTextureCache()->addImage("gamemap/game_tile.png");
+    Texture2D::TexParams tp = {GL_LINEAR, GL_LINEAR, GL_REPEAT, GL_REPEAT};
+    texture->setTexParameters(&tp);
+    Sprite *backgroundSpriteMapTile = Sprite::createWithTexture(texture, Rect(0, 0, visibleSize.width, visibleSize.height));
+    backgroundSpriteMapTile->setPosition(Vec2( visibleSize.width/2, visibleSize.height/2 ));
+    addChild(backgroundSpriteMapTile);
+    
+    Sprite* backgroundSpriteMap = Sprite::createWithSpriteFrameName("gamemap/game_map_bg2.png");
+    backgroundSpriteMap->setPosition(Vec2(visibleSize.width/2, visibleSize.height/2));
+    addChild(backgroundSpriteMap);
+
+    Sprite* backgroundSpriteSide = Sprite::createWithSpriteFrameName("gamemap/side.png");
+    backgroundSpriteSide->setAnchorPoint(Vec2(0,0));
+    backgroundSpriteSide->setPosition(Vec2(0,0));
+    addChild(backgroundSpriteSide);
+
+    
+        
     _layer = Layer::create();
     
     std::vector<std::string> games = StartMenu::getGameNames();
@@ -79,7 +99,8 @@ bool ScrollableGameMapScene::init() {
                     
                     std::string buttonNormalIcon = ICONS + "/" + games.at(index)+".png";
                     std::string buttonPressedIcon = ICONS + "/" + games.at(index)+"_pressed.png";
-                    cocos2d::ui::Button* button = ui::Button::create(buttonNormalIcon, buttonPressedIcon);
+                    std::string buttonDisabledIcon = ICONS + "/" + games.at(index)+"_diabled.png";
+                    cocos2d::ui::Button* button = ui::Button::create(buttonNormalIcon, buttonPressedIcon, buttonDisabledIcon);
                     button->setName(games.at(index));
                     button->setPosition(Vec2(k * visibleSize.width + (j + 0.5) * visibleSize.width / numCols, visibleSize.height - (2 * i + initialYOffSet) * (visibleSize.height / numCols) - 30));
                     
