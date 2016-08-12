@@ -105,7 +105,7 @@ void PegWord::createChoice() {
 }
 
 Node* PegWord::loadNode() {
-    auto background = CSLoader::createNode("common_screen/MainScene.csb");
+    auto background = CSLoader::createNode("cafe/cafe.csb");
     return background;
 }
 
@@ -113,6 +113,28 @@ Node* PegWord::loadNode() {
 GraphemeGrid* PegWord::createGraphemeGrid(GLfloat width, GLfloat height, int numRows, int numCols, std::string spriteName, std::vector<std::vector<std::string>> graphemes, std::string graphemeUnselectedBackground, std::string graphemeSelectedBackground)
 {
     return PegGrid::create(width, height, numRows, numCols, spriteName, graphemes, graphemeUnselectedBackground, graphemeSelectedBackground);
+}
+
+void PegWord::onTouchEnded(cocos2d::Touch *touch, cocos2d::Event *event) {
+    auto grapheme = static_cast<Grapheme*>(event->getCurrentTarget());
+    auto graphemeText = grapheme->getTextInGrapheme();
+    auto graphemeRect = graphemeText->getBoundingBox();
+    auto graphemeRectInWorld = Rect(grapheme->convertToWorldSpace(graphemeRect.origin), graphemeRect.size);
+    
+    for (auto it = _answerVector.begin() ; it != _answerVector.end(); ++it) {
+        if((*it).second == nullptr) {
+            auto targetNode = (*it).first;
+            auto targetRect = targetNode->getBoundingBox();
+            auto targetRectInWorld = Rect(targetNode->getParent()->convertToWorldSpace(targetRect.origin), targetRect.size);
+            if(graphemeRectInWorld.intersectsRect(targetRectInWorld)) {
+                *it = std::pair<Node*, Grapheme*>(targetNode, grapheme);
+                auto tPos = targetNode->getParent()->convertToWorldSpace(targetNode->getPosition());
+                grapheme->selected(true);
+                grapheme->animateToPositionAndChangeBackground(_grid->convertToNodeSpace(tPos));
+                return;
+            }
+        }
+    }
 }
 
 
@@ -188,5 +210,34 @@ bool PegGrapheme::init(std::string graphemeString) {
 void PegGrapheme::onEnterTransitionDidFinish() {
     Grapheme::onEnterTransitionDidFinish();
     _eventDispatcher->pauseEventListenersForTarget(this);
+    float x = 400 - rand() % 800;
+    float y = 200 - rand() % 400;
+    if(y < 0) {
+        y -= 400;
+    } else {
+        y += 400;
+    }
+    auto moveTo = MoveTo::create(1.0, Vec2(getPositionX() + x, getPositionY() + y));
+    auto callback = CallFunc::create(CC_CALLBACK_0(PegGrapheme::initialAnimationDone, this));
+    runAction(Sequence::create(moveTo, callback, NULL));
+}
+
+void PegGrapheme::initialAnimationDone() {
+    _eventDispatcher->resumeEventListenersForTarget(this);
+}
+
+bool PegGrapheme::onTouchBegan(Touch* touch, Event* event){
+    return Grapheme::onTouchBegan(touch, event);
+}
+
+void PegGrapheme::onTouchEnded(cocos2d::Touch *touch, cocos2d::Event *event) {
+    Grapheme::onTouchEnded(touch, event);
+    
+}
+
+void PegGrapheme::onTouchMoved(cocos2d::Touch *touch, cocos2d::Event *event) {
+    Grapheme::onTouchMoved(touch, event);
+    auto n = getParent()->convertTouchToNodeSpace(touch);
+    setPosition(n);
 }
 

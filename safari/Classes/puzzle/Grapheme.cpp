@@ -118,6 +118,9 @@ void Grapheme::onTouchMoved(cocos2d::Touch *touch, cocos2d::Event *event) {
     }
 }
 
+ui::Text* Grapheme::getTextInGrapheme() {
+    return _text;
+}
 
 Grapheme::Grapheme() :
 _selected(false),

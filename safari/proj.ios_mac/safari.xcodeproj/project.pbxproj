@@ -25,6 +25,8 @@
 		3718293C1D44CA570013E3C4 /* Entry.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 371829351D44CA570013E3C4 /* Entry.cpp */; };
 		3729BEAD1D57111100148BD5 /* WordSprite.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3729BEAC1D57111100148BD5 /* WordSprite.cpp */; };
 		3729BEAE1D57111100148BD5 /* WordSprite.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3729BEAC1D57111100148BD5 /* WordSprite.cpp */; };
+		3737087F1D5D868D0023E04A /* ScrollableGameMapScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3737087D1D5D868C0023E04A /* ScrollableGameMapScene.cpp */; };
+		373708801D5D868D0023E04A /* ScrollableGameMapScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3737087D1D5D868C0023E04A /* ScrollableGameMapScene.cpp */; };
 		373CBBA11D4A69960002BAE1 /* SafariAnalyticsManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 373CBBA01D4A69960002BAE1 /* SafariAnalyticsManager.cpp */; };
 		373CBBA21D4A69960002BAE1 /* SafariAnalyticsManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 373CBBA01D4A69960002BAE1 /* SafariAnalyticsManager.cpp */; };
 		3740A16B1D4BC0B400B2B2F3 /* GameMapScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3740A16A1D4BC0B400B2B2F3 /* GameMapScene.cpp */; };
@@ -269,6 +271,8 @@
 		371829361D44CA570013E3C4 /* Entry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Entry.h; sourceTree = "<group>"; };
 		3729BEAA1D57110000148BD5 /* WordSprite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WordSprite.h; sourceTree = "<group>"; };
 		3729BEAC1D57111100148BD5 /* WordSprite.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = WordSprite.cpp; sourceTree = "<group>"; };
+		3737087D1D5D868C0023E04A /* ScrollableGameMapScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ScrollableGameMapScene.cpp; sourceTree = "<group>"; };
+		3737087E1D5D868D0023E04A /* ScrollableGameMapScene.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = ScrollableGameMapScene.hpp; sourceTree = "<group>"; };
 		373CBB9E1D4A69810002BAE1 /* SafariAnalyticsManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SafariAnalyticsManager.h; sourceTree = "<group>"; };
 		373CBBA01D4A69960002BAE1 /* SafariAnalyticsManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SafariAnalyticsManager.cpp; sourceTree = "<group>"; };
 		3740A1681D4BC0A700B2B2F3 /* GameMapScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameMapScene.h; sourceTree = "<group>"; };
@@ -677,6 +681,8 @@
 				F33905041D49B82E00090367 /* GameScene.h */,
 				F33905061D49B84000090367 /* GameScene.cpp */,
 				3740A1681D4BC0A700B2B2F3 /* GameMapScene.h */,
+				3737087D1D5D868C0023E04A /* ScrollableGameMapScene.cpp */,
+				3737087E1D5D868D0023E04A /* ScrollableGameMapScene.hpp */,
 				3740A16A1D4BC0B400B2B2F3 /* GameMapScene.cpp */,
 			);
 			name = Classes;
@@ -1058,6 +1064,7 @@
 				371829371D44CA570013E3C4 /* I18nUtils.cpp in Sources */,
 				F3913DE21D3F461A001B3038 /* State.cpp in Sources */,
 				F3913E1F1D3F46B1001B3038 /* PatchTheWallScene.cpp in Sources */,
+				3737087F1D5D868D0023E04A /* ScrollableGameMapScene.cpp in Sources */,
 				F33905071D49B84000090367 /* GameScene.cpp in Sources */,
 				F3E427F31D54452800D22421 /* TextGenerator.cpp in Sources */,
 				F3913DDE1D3F461A001B3038 /* StandingState.cpp in Sources */,
@@ -1120,6 +1127,7 @@
 				F3E427EF1D54440200D22421 /* WordScene.cpp in Sources */,
 				37C7E1F01D47D673005C89C0 /* MapIsland.cpp in Sources */,
 				F3913DBB1D3F461A001B3038 /* sqlite3.c in Sources */,
+				373708801D5D868D0023E04A /* ScrollableGameMapScene.cpp in Sources */,
 				3729BEAE1D57111100148BD5 /* WordSprite.cpp in Sources */,
 				F3913DD91D3F461A001B3038 /* SkeletonCharacter.cpp in Sources */,
 				F3913DD31D3F461A001B3038 /* RPGConfig.cpp in Sources */,
