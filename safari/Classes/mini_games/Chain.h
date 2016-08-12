@@ -16,21 +16,25 @@ class Chain : public WordScene
 public:
 	static cocos2d::Scene* createScene();
 	static Chain *create();
+	//void onTouchEnded(cocos2d::Touch* touch, cocos2d::Event* event);
 	Chain();
-	 ~Chain();
+	~Chain();
 	
 	//virtual bool init();
 
 protected:
 	cocos2d::Node* loadNode() override;
+	Node* node;
 	std::string getGraphemeUnselectedBackground() override;
 	std::string getGraphemeSelectedBackground() override;
 	std::string getGridBackground() override;
 	GraphemeGrid* createGraphemeGrid(GLfloat width, GLfloat height, int numRows, int numCols, std::string spriteName, std::vector<std::vector<std::string>> graphemes, std::string graphemeUnselectedBackground, std::string graphemeSelectedBackground) override;
 	void createChoice() override;
 	Node* gameBg;
+	void gameOver(bool correct) override;
 	Size visibleSize = Director::getInstance()->getVisibleSize();
 	Vec2 origin = Director::getInstance()->getVisibleOrigin();
+	std::vector<Sprite*> choiceNodeContainer;
 
 
 	// implement the "static create()" method manually
@@ -47,6 +51,7 @@ CC_CONSTRUCTOR_ACCESS:
 
 protected:
 	Grapheme* createGrapheme(std::string graphemeString) override;
+   // Grapheme* createAndAddGrapheme(std::string graphemeString) override;
 
 };
 
@@ -54,9 +59,12 @@ class ChainGrapheme : public Grapheme
 {
 public:
 	static ChainGrapheme* create(std::string graphemeString);
+    void setSelectedBackground(Node* selectedBackground) override;
 	void animateToPositionAndChangeBackground(cocos2d::Vec2 toPosition) override;
 CC_CONSTRUCTOR_ACCESS:
 	bool init(std::string graphemeString);
+protected:
+	Node* letterBG;
 };
 
 #endif // __Chain_SCENE_H__
