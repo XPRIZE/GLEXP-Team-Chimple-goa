@@ -18,6 +18,7 @@ public:
     static cocos2d::Scene* createScene();
     static PegWord* create();
     static PegWord* createWithWord(std::string wordStr);
+    virtual void onTouchEnded(cocos2d::Touch* touch, cocos2d::Event* event) override;
 
 CC_CONSTRUCTOR_ACCESS:
     PegWord();
@@ -53,6 +54,12 @@ public:
 
 CC_CONSTRUCTOR_ACCESS:
     bool init(std::string graphemeString);
+    bool onTouchBegan(cocos2d::Touch* touch, cocos2d::Event* event) override;
+    void onTouchEnded(cocos2d::Touch* touch, cocos2d::Event* event) override;
+    void onTouchMoved(cocos2d::Touch* touch, cocos2d::Event* event) override;
+
+protected:
+    void initialAnimationDone();
 };
 
 #endif /* PegWord_h */
