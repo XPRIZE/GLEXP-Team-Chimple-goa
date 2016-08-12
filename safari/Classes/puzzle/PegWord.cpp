@@ -105,7 +105,7 @@ void PegWord::createChoice() {
 }
 
 Node* PegWord::loadNode() {
-    auto background = CSLoader::createNode("common_screen/MainScene.csb");
+    auto background = CSLoader::createNode("cafe/cafe.csb");
     return background;
 }
 
