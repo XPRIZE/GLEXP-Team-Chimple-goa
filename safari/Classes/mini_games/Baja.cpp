@@ -8,7 +8,7 @@ Scene* Baja::createScene()
 	auto scene = Scene::create();
 	auto layer = Baja::create();
 	scene->addChild(layer);
-	layer->_menuContext = MenuContext::create(layer, Baja::gameName());
+	layer->_menuContext = MenuContext::create(layer, "BajaRacing");
 	scene->addChild(layer->_menuContext);
 	return scene;
 }
@@ -34,9 +34,8 @@ bool Baja::init()
 	_fuelBar = (cocos2d::ui::LoadingBar*)(loader->getChildren()).at(1);	_fuelBar->setPercent(100);
 	loader->setPosition(Vec2(_origin.x + _visibleSize.width * 0.10, _origin.y + _visibleSize.height * 0.50));
 	
-	this->schedule(schedule_selector(Baja::carMidGenerate), randmValueIncludeBoundery(2, 10));
-	this->schedule(schedule_selector(Baja::carLeftGenerate), randmValueIncludeBoundery(1, 10));
-	this->schedule(schedule_selector(Baja::carRightGenerate), randmValueIncludeBoundery(5,15));
+	this->schedule(schedule_selector(Baja::carMidLeftGenerate), randmValueIncludeBoundery(1, 5));
+	this->schedule(schedule_selector(Baja::carRightGenerate), randmValueIncludeBoundery(1,10));
 	this->schedule(schedule_selector(Baja::fuelMeterMethod), 0.2f);
 
 	this->scheduleUpdate();
@@ -70,24 +69,6 @@ void Baja::update(float delta) {
 			_fuelBar->setPercent(_fuelBar->getPercent() - 7);
 		}
 	}
-/*
-	if (_leftCar != NULL && _midCar != NULL && _rightCar != NULL) {
-		
-			if (_leftCar->getBoundingBox().intersectsRect(_topBarrier->getBoundingBox()) && _midCar->getBoundingBox().intersectsRect(_topBarrier->getBoundingBox()) && _rightCar->getBoundingBox().intersectsRect(_topBarrier->getBoundingBox())) {
-				int indexNum = randmValueIncludeBoundery(1, 3);
-				_leftCar->setName("left");	_midCar->setName("mid"); _rightCar->setName("right");
-				int leftIndex, midIndex, rightIndex;
-				for (int i = 0; i < _allCar.size(); i++) {
-					if (_allCar[i]->getName() == "left") { leftIndex = i; }
-					if (_allCar[i]->getName() == "mid") { midIndex = i; }
-					if (_allCar[i]->getName() == "right") { rightIndex = i; }
-				}
-				this->removeChild(_allCar[midIndex]);
-				_midCar = NULL;  _allCar.erase(_allCar.begin() + midIndex);
-				_leftCar = NULL; _rightCar = NULL;
-			}
-		
-	}*/
 
 	for(std::size_t i = 0; i < _allCar.size(); i++){
 		if (_allCar[i]->getBoundingBox().intersectsRect(_bottomBarrier->getBoundingBox()))
@@ -160,20 +141,21 @@ void Baja::userCarControl(Node* userCar1) {
 	}
 }
 
-void Baja::carLeftGenerate(float dt)
+void Baja::carMidLeftGenerate(float dt)
 {
-	std::string carArray[2] = {"greencaranimation","bluecaranimation" };
-	auto userCarLeft = carGenerate(_origin.x + _visibleSize.width * 0.29, _topBarrier->getPositionY(), carArray[randmValueIncludeBoundery(0,1)], 30, 1);
-	userCarLeft->runAction(MoveTo::create(carMovingTime(userCarLeft, 650), Vec2(userCarLeft->getPositionX(), _bottomBarrier->getPositionY())));
-	_leftCar = userCarLeft;	_allCar.push_back(userCarLeft);
-}
-
-void Baja::carMidGenerate(float dt)
-{
-	std::string carArray[2] = {"bluecaranimation","greencaranimation"};
-	auto userCarMid = carGenerate(_origin.x + _visibleSize.width * 0.50, _topBarrier->getPositionY(), carArray[randmValueIncludeBoundery(0,1)], 30, 1);
-	userCarMid->runAction(MoveTo::create(carMovingTime(userCarMid,650), Vec2(userCarMid->getPositionX(), _bottomBarrier->getPositionY())));
-	_midCar = userCarMid;	_allCar.push_back(userCarMid);
+	int decisionPath = randmValueIncludeBoundery(0,1);
+	if(decisionPath == 0){
+		std::string carArray[2] = { "greencaranimation","bluecaranimation" };
+		auto userCarLeft = carGenerate(_origin.x + _visibleSize.width * 0.29, _topBarrier->getPositionY(), carArray[randmValueIncludeBoundery(0, 1)], 30, 1);
+		userCarLeft->runAction(MoveTo::create(carMovingTime(userCarLeft, 650), Vec2(userCarLeft->getPositionX(), _bottomBarrier->getPositionY())));
+		_leftCar = userCarLeft;	_allCar.push_back(userCarLeft);
+	}
+	else {
+		std::string carArray[2] = { "bluecaranimation","greencaranimation" };
+		auto userCarMid = carGenerate(_origin.x + _visibleSize.width * 0.50, _topBarrier->getPositionY(), carArray[randmValueIncludeBoundery(0, 1)], 30, 1);
+		userCarMid->runAction(MoveTo::create(carMovingTime(userCarMid, 650), Vec2(userCarMid->getPositionX(), _bottomBarrier->getPositionY())));
+		_midCar = userCarMid;	_allCar.push_back(userCarMid);
+	}
 }
 
 void Baja::carRightGenerate(float dt)

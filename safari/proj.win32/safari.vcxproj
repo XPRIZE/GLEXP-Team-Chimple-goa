@@ -200,6 +200,7 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClCompile Include="..\Classes\puzzle\DuelScene.cpp" />
     <ClCompile Include="..\Classes\puzzle\Grapheme.cpp" />
     <ClCompile Include="..\Classes\puzzle\GraphemeGrid.cpp" />
+    <ClCompile Include="..\Classes\puzzle\PegWord.cpp" />
     <ClCompile Include="..\Classes\puzzle\WordBoard.cpp" />
     <ClCompile Include="..\Classes\puzzle\WordScene.cpp" />
     <ClCompile Include="..\Classes\RPGConfig.cpp" />
@@ -276,6 +277,7 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClInclude Include="..\Classes\puzzle\DuelScene.h" />
     <ClInclude Include="..\Classes\puzzle\Grapheme.h" />
     <ClInclude Include="..\Classes\puzzle\GraphemeGrid.h" />
+    <ClInclude Include="..\Classes\puzzle\PegWord.h" />
     <ClInclude Include="..\Classes\puzzle\WordBoard.h" />
     <ClInclude Include="..\Classes\puzzle\WordScene.h" />
     <ClInclude Include="..\Classes\RPGConfig.h" />
