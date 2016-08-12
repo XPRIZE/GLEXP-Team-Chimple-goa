@@ -177,6 +177,7 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClCompile Include="..\Classes\mini_games\AlphamonFeedLevelScene.cpp" />
     <ClCompile Include="..\Classes\mini_games\AlphamonFeedScene.cpp" />
     <ClCompile Include="..\Classes\mini_games\Baja.cpp" />
+    <ClCompile Include="..\Classes\mini_games\BajaWordScene.cpp" />
     <ClCompile Include="..\Classes\mini_games\Cannon_Ball_Listener.cpp" />
     <ClCompile Include="..\Classes\mini_games\Cannon_Ball_Main.cpp" />
     <ClCompile Include="..\Classes\mini_games\Chain.cpp" />
@@ -253,6 +254,7 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClInclude Include="..\Classes\MessageSender.hpp" />
     <ClInclude Include="..\Classes\mini_games\AlphamonFeedScene.h" />
     <ClInclude Include="..\Classes\mini_games\Baja.h" />
+    <ClInclude Include="..\Classes\mini_games\BajaWordScene.h" />
     <ClInclude Include="..\Classes\mini_games\Cannon_Ball_Listener.h" />
     <ClInclude Include="..\Classes\mini_games\Cannon_Ball_Main.h" />
     <ClInclude Include="..\Classes\mini_games\Chain.h" />

@@ -22,6 +22,7 @@ public:
 	virtual void changeBackground();
     cocos2d::Vec2 getPrevPosition();
     std::string getGraphemeString();
+    cocos2d::ui::Text* getTextInGrapheme();
     std::function<bool(cocos2d::Touch*, cocos2d::Event*)> touchBeganCallback;
     std::function<void(cocos2d::Touch*, cocos2d::Event*)> touchMovedCallback;
     std::function<void(cocos2d::Touch*, cocos2d::Event*)> touchEndedCallback;
@@ -30,9 +31,9 @@ CC_CONSTRUCTOR_ACCESS:
     Grapheme();
     virtual ~Grapheme();
     bool init(std::string graphemeString);
-    bool onTouchBegan(cocos2d::Touch* touch, cocos2d::Event* event);
-    void onTouchEnded(cocos2d::Touch* touch, cocos2d::Event* event);
-    void onTouchMoved(cocos2d::Touch* touch, cocos2d::Event* event);
+    virtual bool onTouchBegan(cocos2d::Touch* touch, cocos2d::Event* event);
+    virtual void onTouchEnded(cocos2d::Touch* touch, cocos2d::Event* event);
+    virtual void onTouchMoved(cocos2d::Touch* touch, cocos2d::Event* event);
 
 protected:
     std::string _graphemeString;

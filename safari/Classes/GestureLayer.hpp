@@ -51,6 +51,7 @@ protected:
     Point touch_start_;
     Point touch_end_;
     bool isDragging;
+    bool isHoldingTouch;
     
     //time when touch starts
     float touch_start_time_;

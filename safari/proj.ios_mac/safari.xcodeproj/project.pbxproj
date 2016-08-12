@@ -88,6 +88,8 @@
 		D6B0611B1803AB670077942B /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6B0611A1803AB670077942B /* CoreMotion.framework */; };
 		ED545A7C1B68A1F400C3958E /* libiconv.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = ED545A7B1B68A1F400C3958E /* libiconv.dylib */; };
 		ED545A7E1B68A1FA00C3958E /* libiconv.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = ED545A7D1B68A1FA00C3958E /* libiconv.dylib */; };
+		F3154EC81D5C7F2D00049F42 /* BajaWordScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F3154EC61D5C7F2D00049F42 /* BajaWordScene.cpp */; };
+		F3154ECA1D5C7F3200049F42 /* BajaWordScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F3154EC61D5C7F2D00049F42 /* BajaWordScene.cpp */; };
 		F33905071D49B84000090367 /* GameScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F33905061D49B84000090367 /* GameScene.cpp */; };
 		F33905081D49B84000090367 /* GameScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F33905061D49B84000090367 /* GameScene.cpp */; };
 		F3913DBA1D3F461A001B3038 /* sqlite3.c in Sources */ = {isa = PBXBuildFile; fileRef = F3913D9D1D3F461A001B3038 /* sqlite3.c */; };
@@ -331,6 +333,8 @@
 		D6B0611A1803AB670077942B /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk/System/Library/Frameworks/CoreMotion.framework; sourceTree = DEVELOPER_DIR; };
 		ED545A7B1B68A1F400C3958E /* libiconv.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libiconv.dylib; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.4.sdk/usr/lib/libiconv.dylib; sourceTree = DEVELOPER_DIR; };
 		ED545A7D1B68A1FA00C3958E /* libiconv.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libiconv.dylib; path = usr/lib/libiconv.dylib; sourceTree = SDKROOT; };
+		F3154EC61D5C7F2D00049F42 /* BajaWordScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BajaWordScene.cpp; sourceTree = "<group>"; };
+		F3154EC71D5C7F2D00049F42 /* BajaWordScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BajaWordScene.h; sourceTree = "<group>"; };
 		F33905041D49B82E00090367 /* GameScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameScene.h; sourceTree = "<group>"; };
 		F33905061D49B84000090367 /* GameScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GameScene.cpp; sourceTree = "<group>"; };
 		F3913D8C1D3F461A001B3038 /* AlphamonSprite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AlphamonSprite.h; sourceTree = "<group>"; };
@@ -742,6 +746,8 @@
 		F3913DE91D3F4639001B3038 /* mini_games */ = {
 			isa = PBXGroup;
 			children = (
+				F3154EC61D5C7F2D00049F42 /* BajaWordScene.cpp */,
+				F3154EC71D5C7F2D00049F42 /* BajaWordScene.h */,
 				F39A19C21D589F81008B397D /* Chain.cpp */,
 				F39A19C31D589F81008B397D /* Jasmin_Mainfile.cpp */,
 				F39A19C41D589F81008B397D /* Jasmin_Mainfile.h */,
@@ -1069,6 +1075,7 @@
 				F3CA26F11D43DA17006EBDC6 /* KannadaUtil.cpp in Sources */,
 				F3913DDA1D3F461A001B3038 /* SpeechBubbleView.cpp in Sources */,
 				F3C711CA1D56F28D000DBBE5 /* GraphemeGrid.cpp in Sources */,
+				F3154EC81D5C7F2D00049F42 /* BajaWordScene.cpp in Sources */,
 				371829391D44CA570013E3C4 /* MO.cpp in Sources */,
 				37AB489B1D588CFE00B0B525 /* WordInfo.cpp in Sources */,
 				F3913DD21D3F461A001B3038 /* RPGConfig.cpp in Sources */,
@@ -1153,6 +1160,7 @@
 				37533C961D507580008EEFD9 /* ScoreBoardContent.cpp in Sources */,
 				F3913DC11D3F461A001B3038 /* ExternalSkeletonCharacter.cpp in Sources */,
 				376FEE811D3F66380037393F /* SkeletonPosition.cpp in Sources */,
+				F3154ECA1D5C7F3200049F42 /* BajaWordScene.cpp in Sources */,
 				F3E427F41D54452800D22421 /* TextGenerator.cpp in Sources */,
 				F33905081D49B84000090367 /* GameScene.cpp in Sources */,
 				F3CA26EB1D43C069006EBDC6 /* LangUtil.cpp in Sources */,

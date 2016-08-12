@@ -1145,11 +1145,6 @@ void HelloWorld::HoldOrDragBehaviour(Point position) {
         return;
     }
     
-    
-    if(this->stateMachine != NULL && this->stateMachine->getCurrentState()->getState() == S_FALLING_STATE) {
-        return;
-    }
-    
     this->handleCharacterMovement(position);
 }
 
@@ -1364,12 +1359,7 @@ void HelloWorld::HandleTap(Point position)
     if(this->skeletonCharacter->isFalling) {
         return;
     }
-
-    
-    if(this->stateMachine != NULL && this->stateMachine->getCurrentState()->getState() == S_FALLING_STATE) {
-        return;
-    }
-    
+        
     
     if(checkTouchWithinBoundsOfCharacter(position, this->skeletonCharacter->getSkeletonNode()) || checkHoldWithinSittingLimitOfCharacter(position, this->skeletonCharacter->getSkeletonNode())) {
         return;
@@ -1430,13 +1420,6 @@ void HelloWorld::HandleSwipeUp(Point position) {
     if(this->skeletonCharacter->isFalling) {
         return;
     }
-
-    if(this->stateMachine->getCurrentState()->getState() == S_FALLING_STATE) {
-        return;
-    }
-
-    
-//    CCLOG("%s", "Handle Swipe Up!!!");
     
     if(checkTouchVerticallyUpOnBoundsOfCharacter(position, this->skeletonCharacter->getSkeletonNode(), 0.0f))
     {
@@ -1459,10 +1442,6 @@ void HelloWorld::HandleSwipeDown(Point position) {
         return;
     }
 
-    if(this->stateMachine->getCurrentState()->getState() == S_FALLING_STATE) {
-        return;
-    }
-    
 }
 
 

@@ -254,6 +254,9 @@
     <ClCompile Include="..\Classes\puzzle\WordBoard.cpp">
       <Filter>src\puzzle</Filter>
     </ClCompile>
+    <ClCompile Include="..\Classes\mini_games\BajaWordScene.cpp">
+      <Filter>src\mini_games</Filter>
+    </ClCompile>
     <ClCompile Include="..\Classes\puzzle\PegWord.cpp">
       <Filter>src\puzzle</Filter>
     </ClCompile>
@@ -483,6 +486,9 @@
     </ClInclude>
     <ClInclude Include="..\Classes\puzzle\WordBoard.h">
       <Filter>src\puzzle</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\mini_games\BajaWordScene.h">
+      <Filter>src\mini_games</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\puzzle\PegWord.h">
       <Filter>src\puzzle</Filter>
