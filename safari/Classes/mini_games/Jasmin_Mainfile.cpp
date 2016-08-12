@@ -59,8 +59,8 @@ std::string Jasmin_Mainfile::getGridBackground() {
 }
 
 void Jasmin_Mainfile::gameOver(bool correct) {
+	float hei = Director::getInstance()->getVisibleSize().height;
 	if (correct) {
-		float hei = Director::getInstance()->getVisibleSize().height;
 		for (int item = 0; item < _positionX.size(); ++item)
 		{
 			int random_val = std::rand() % (4 - 1 + 1) + 1;
@@ -79,7 +79,7 @@ void Jasmin_Mainfile::gameOver(bool correct) {
 			auto animation = CSLoader::createTimeline(fileName.str());
 			tree->runAction(animation);
 			animation->play("correct", false);
-			animation->setAnimationEndCallFunc("correct", CC_CALLBACK_0(Jasmin_Mainfile::startFire, this, tree, random_val));
+			animation->setAnimationEndCallFunc("correct", CC_CALLBACK_0(Jasmin_Mainfile::startFlowerAnimation, this, tree, random_val));
 		}
 	}
 	else
@@ -100,14 +100,18 @@ void Jasmin_Mainfile::gameOver(bool correct) {
 			auto animation = CSLoader::createTimeline(fileName.str());
 			tree->runAction(animation);
 			animation->play("wrong", false);
-//			animation->setAnimationEndCallFunc("wrong", CC_CALLBACK_0(Jasmin_Mainfile::startFire, this, tree, random_val));
+			animation->setAnimationEndCallFunc("wrong", CC_CALLBACK_0(Jasmin_Mainfile::removeAnimation, this, tree));
 		}
 	}
 }
 
-void Jasmin_Mainfile::startFire(Node *nd, int random_val)
+void Jasmin_Mainfile::removeAnimation(Node *nd)
 {
-//	auto animation = CSLoader::createTimeline("jasmine/flower" + std::to_string(random_val) + ".csb");
+	removeChild(nd);
+}
+
+void Jasmin_Mainfile::startFlowerAnimation(Node *nd, int random_val)
+{
 	Vector <Node*> children = nd->getChildren();
 
 	for (auto item = children.rbegin(); item != children.rend(); ++item) {
