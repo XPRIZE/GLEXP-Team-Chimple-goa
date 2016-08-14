@@ -1,3 +1,11 @@
+//
+//  HippoScene.h inherite WordScene class
+//  safari
+//
+//  Created by KiranKumar CS on 08/08/16.
+//
+
+
 #ifndef __HIPPO_SCENE_H__
 #define __HIPPO_SCENE_H__
 
@@ -6,17 +14,23 @@
 #include "../puzzle/WordScene.h"
 #include "../GameScene.h"
 
+
 class Hippo : public WordScene
 {
 public:
+	//Hippo * _hippo;
+	boolean _gameContinue;
 	static cocos2d::Scene* createScene();
 	static Hippo *create();
 	std::vector<Node*> _gapNodes1;
 	float _movingPositionX;
 	float _movingPositionY;
+	Node * _catNode1;
+	cocostudio::timeline::ActionTimeline * _catAnimation1;
 	std::vector<float> _stringPositionX1;
 	std::vector<float> _stringPositionY1;
 protected:
+	
 	cocos2d::Node* loadNode() override;
 	std::string getGridBackground() override;
 	void createChoice() override;

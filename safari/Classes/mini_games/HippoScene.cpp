@@ -1,3 +1,11 @@
+//
+//  HippoScene.cpp
+//  safari
+//
+//  Created by KiranKumar CS on 08/08/16.
+//
+
+
 #include "HippoScene.h"
 #include "HippoGameScene.h"
 
@@ -71,7 +79,15 @@ void Hippo::createAnswer()
 void Hippo::gameOver(bool correct)
 {
 	if (correct) {
-
+		auto lastCharInfo = _gapNodes1.at(_numGraphemes - 1);
+		auto moveTo = MoveBy::create(3, Vec2(lastCharInfo->getPositionX() - (_catNode1->getPositionX() ), 0));
+		_catAnimation1->play("catanim", true);
+		runAction(Sequence::create(TargetedAction::create(_catNode1, moveTo), CallFunc::create([=]() {
+			_catAnimation1->pause();
+			_gameContinue = true;
+		}), NULL));
+		//_catNode1->runAction(moveTo);
+		//_catAnimation1->play("catanim", true);
 	}
 }
 
