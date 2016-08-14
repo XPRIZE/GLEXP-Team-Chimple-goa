@@ -5,12 +5,14 @@
 #include "../lang/TextGenerator.h"
 #include "../puzzle/WordScene.h"
 #include "../GameScene.h"
+#include "StartMenuScene.h"
 
 class jazz : public WordScene
 {
 public:
 	static cocos2d::Scene* createScene(); 
 	static jazz *create();
+    static const char* gameName() { return JAZZ.c_str();}
 
 protected:
 	cocos2d::Node* loadNode() override;

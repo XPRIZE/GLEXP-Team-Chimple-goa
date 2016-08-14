@@ -11,8 +11,8 @@
 
 #include "cocos2d.h"
 
-static const std::string DUEL_SCENE = "DuelScene";
-static const std::string ALPHAMON_COMBAT = "AlphamonCombat";
+static const std::string DUEL_SCENE = "book";
+static const std::string ALPHAMON_COMBAT = "book";
 static const std::string CAMP = "camp";
 static const std::string FARM_HOUSE = "farmhouse";
 static const std::string MINING_BG = "miningbg";
@@ -23,7 +23,14 @@ static const std::string CANNON_BALL = "Cannon Ball";
 static const std::string ENDLESS_RUNNER = "EndlessRunner";
 static const std::string KUNG_FU_ALPHA = "Kung Fu Alpha";
 static const std::string ALPHAMON_FEED = "Alphamon Feed";
-static const std::string BAJA = "Baja";
+static const std::string BAJA = "baja";
+static const std::string CHAIN = "chain";
+static const std::string WEMBLEY = "wembley";
+static const std::string JAZZ = "jazz";
+static const std::string JASMINE = "jasmine";
+
+
+
 
 class StartMenu {
 public:

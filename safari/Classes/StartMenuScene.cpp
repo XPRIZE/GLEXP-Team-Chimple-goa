@@ -18,6 +18,11 @@
 #include "mini_games/TraceScene.h"
 #include "mini_games/AlphamonFeedScene.h"
 #include "mini_games/BajaWordScene.h"
+#include "mini_games/Jasmin_Mainfile.h"
+#include "mini_games/jazz.h"
+#include "mini_games/Chain.h"
+#include "mini_games/Wembley.h"
+
 
 USING_NS_CC;
 
@@ -39,8 +44,11 @@ const std::vector<std::string> StartMenu::getGameNames() {
     gameNames.push_back(ENDLESS_RUNNER);
     gameNames.push_back(KUNG_FU_ALPHA);
     gameNames.push_back(ALPHAMON_FEED);
-//    gameNames.push_back(BAJA);
-    
+    gameNames.push_back(BAJA);
+    gameNames.push_back(CHAIN);
+    gameNames.push_back(WEMBLEY);
+    gameNames.push_back(JAZZ);
+    gameNames.push_back(JASMINE);    
     return gameNames;
 
 }
@@ -74,13 +82,19 @@ void StartMenu::startScene(std::string gameName, std::string firstParam, std::st
         Director::getInstance()->replaceScene(Trace::createScene(0));
     } else if(gameName == ALPHAMON_FEED) {
         Director::getInstance()->replaceScene(AlphamonFeed::createScene());
-    } else {
-        if(!gameName.empty()) {
-            Director::getInstance()->replaceScene(HelloWorld::createScene(gameName,firstParam));
-        } else {
-            CCLOG("Failed starting scene: %s", gameName.c_str());
-        }
-        
+    } else if(gameName == BAJA) {
+        Director::getInstance()->replaceScene(BajaWordScene::createScene());
+    } else if(gameName == JASMINE) {
+        Director::getInstance()->replaceScene(Jasmin_Mainfile::createScene());
+    } else if(gameName == WEMBLEY) {
+        Director::getInstance()->replaceScene(Wembley::createScene());
+    } else if(gameName == JAZZ) {
+        Director::getInstance()->replaceScene(jazz::createScene());
+    } else if(gameName == CHAIN) {
+        Director::getInstance()->replaceScene(Chain::createScene());
+    }
+    else {
+        CCLOG("Failed starting scene: %s", gameName.c_str());
     }
 }
 
