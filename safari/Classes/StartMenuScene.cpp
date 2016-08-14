@@ -39,8 +39,11 @@ const std::vector<std::string> StartMenu::getGameNames() {
     gameNames.push_back(ENDLESS_RUNNER);
     gameNames.push_back(KUNG_FU_ALPHA);
     gameNames.push_back(ALPHAMON_FEED);
-//    gameNames.push_back(BAJA);
-    
+    gameNames.push_back(BAJA);
+    gameNames.push_back(CHAIN);
+    gameNames.push_back(WEMBLEY);
+    gameNames.push_back(JAZZ);
+    gameNames.push_back(JASMINE);    
     return gameNames;
 
 }
@@ -74,7 +77,10 @@ void StartMenu::startScene(std::string gameName, std::string firstParam, std::st
         Director::getInstance()->replaceScene(Trace::createScene(0));
     } else if(gameName == ALPHAMON_FEED) {
         Director::getInstance()->replaceScene(AlphamonFeed::createScene());
-    } else {
+    } else if(gameName == BAJA) {
+        Director::getInstance()->replaceScene(BajaWordScene::createScene());
+    }
+    else {
         if(!gameName.empty()) {
             Director::getInstance()->replaceScene(HelloWorld::createScene(gameName,firstParam));
         } else {

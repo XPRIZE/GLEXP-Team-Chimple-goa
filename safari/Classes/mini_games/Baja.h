@@ -42,6 +42,7 @@ public:
 	CREATE_FUNC(Baja);
 	void update(float) override;
 	
+    static const char* gameName() { return BAJA.c_str();}
 };
 
 #endif // __BAJA_SCENE_H__

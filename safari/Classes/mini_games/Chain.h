@@ -20,6 +20,8 @@ public:
 	Chain();
 	~Chain();
 	
+    
+    static const char* gameName() { return CHAIN.c_str();}
 	//virtual bool init();
 
 protected:
