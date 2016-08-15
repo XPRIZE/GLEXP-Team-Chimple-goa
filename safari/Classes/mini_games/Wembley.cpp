@@ -50,16 +50,36 @@ void Wembley::createChoice() {
 
 	const float squareWidth = Director::getInstance()->getVisibleSize().width / _numGraphemes;
 	
+	_timeline.resize(_numGraphemes);
+	_character.resize(_numGraphemes); 
+	_clickBalls.resize(_numGraphemes);
+	_finish = 0;
+	
 	for (int i = 0; i < _numGraphemes; i++) {
-		
-		auto choiceNode = Sprite::createWithSpriteFrameName("wembley/char.png");
-		choiceNode->setPosition(Vec2((i + 0.4) * squareWidth, hei * 63 / 100));
-		addChild(choiceNode);
+			
 
+		_timeline[i] = CSLoader::createTimeline("wembley/char.csb");
+		_character[i] = CSLoader::createNode("wembley/char.csb");
+		_character[i]->setPosition(Vec2((i + 0.4) * squareWidth, hei * 48 / 100));
+		_character[i]->setAnchorPoint(Vec2(0.5, 0.5));
+		addChild(_character[i], 0);
+		_character[i]->runAction(_timeline[i]);
+		_timeline[i]->play("front_idle", true);
+		
 		auto dotBall = Sprite::createWithSpriteFrameName("wembley/balldash.png");
 		dotBall->setPosition(Vec2((i + 0.7) * squareWidth, hei * -10/100));
 		addChoice(dotBall);
 	}
+	
+	_goalkeepertimeline = CSLoader::createTimeline("wembley/char.csb");
+	_goalKeeper = CSLoader::createNode("wembley/char.csb");
+	_goalKeeper->setPosition(Vec2((wid * 50) / 100, (hei * 69) / 100));
+	_goalKeeper->setScaleY(0.5);
+	addChild(_goalKeeper);
+	_goalKeeper->runAction(_goalkeepertimeline);
+	_goalkeepertimeline->play("front_idle", true);
+
+	
 }
 
 std::string Wembley::getGridBackground() {
@@ -90,3 +110,111 @@ Wembley* Wembley::create() {
 	return nullptr;
 }
 
+void Wembley::gameOver(bool correct) {
+	if (correct) {
+		//_menuContext->showScore();
+
+		float wid = Director::getInstance()->getVisibleSize().width;
+		float hei = Director::getInstance()->getVisibleSize().height;
+		
+
+		auto delay = DelayTime::create(1.0f);
+		//auto callback = CallFunc::create(CC_CALLBACK_0(Grapheme::changeBackground, this));
+		
+		auto moveTo = MoveBy::create(0.7, Vec2((wid * 10) / 100, 0));
+		//auto sequence = Sequence::create(moveTo, delay, moveTo->reverse(), delay, moveTo, delay, moveTo->reverse(), nullptr);
+		
+	
+		auto sequence = Sequence::create(
+			moveTo, delay, 
+			moveTo, delay, 
+			moveTo, delay,
+			moveTo, delay,
+			moveTo, delay,
+			moveTo, delay
+			, nullptr);
+
+		_clickBallInitialPoints.resize(_numGraphemes);
+		//auto moveTo = MoveBy::create(0.7, Vec2((wid * 10) / 100, 0));
+		//_goalKeeper->runAction(sequence);
+		
+		
+		for (int i = 0; i < _numGraphemes; i++) {
+			cocos2d::Point tempPoint;
+			tempPoint.x = _answerVector.at(i).first->getPosition().x;
+
+			tempPoint.y = -1 * _answerVector.at(i).first->getPosition().y;
+
+			_clickBallInitialPoints[i] = tempPoint; //setPoint(_answerVector.at(i).first->getPosition().x, _answerVector.at(i).first->getPosition().y);
+			CCLOG("Point %d: %f %f", i, _answerVector.at(i).first->getPosition().x, _answerVector.at(i).first->getPosition().y);
+		
+			
+			
+		}
+		//_answerVector.at(0).first->setScale(0.5);
+		//_answerVector.clear();
+		
+		_choice->removeAllChildrenWithCleanup(true);
+		
+		for (int i = 0; i < _numGraphemes; i++) {
+			_timeline[i]->play("back_idle", true);
+			reorderChild(_character[i], 1);
+			_answerVector.at(i).second->setVisible(false);	
+
+
+			_clickBalls[i] = cocos2d::Sprite::create("wembley/ball.png");
+			_clickBalls[i]->setPosition(Vec2(_clickBallInitialPoints.at(i).x, hei * 55 / 100));
+			_clickBalls[i]->setScale(0.3);
+			_clickBalls[i]->setTag(i);
+			addChild(_clickBalls[i], 1);
+			addEventsBall(_clickBalls[i]);
+			
+		}
+
+		
+		_finish = 1;
+
+		
+	}
+	else {
+	
+
+	}
+}
+
+
+void Wembley::addEventsBall(cocos2d::Sprite* callerObject)
+{
+	
+	auto listener = cocos2d::EventListenerTouchOneByOne::create();
+	listener->setSwallowTouches(false);
+
+	listener->onTouchBegan = [=](cocos2d::Touch* touch, cocos2d::Event* event)
+	{
+		auto target = event->getCurrentTarget();
+		Point locationInNode = target->convertToNodeSpace(touch->getLocation());
+		Size s = target->getContentSize();
+		Rect rect = Rect(0, 0, s.width, s.height);
+		if (target->getBoundingBox().containsPoint(touch->getLocation())) {
+
+			float wid = Director::getInstance()->getVisibleSize().width;
+			float hei = Director::getInstance()->getVisibleSize().height;
+			
+			auto moveTo = MoveTo::create(0.7, Vec2((wid * RandomHelper::random_int(20, 70)) / 100, (hei * RandomHelper::random_int(77, 90)) / 100));
+			
+			
+			auto removeBall = CallFunc::create([=]() {
+				
+				removeChild(target);				
+			});
+
+			auto sequence = Sequence::create(moveTo, removeBall, nullptr);
+			target->runAction(sequence);
+
+		}
+		return true;
+	};
+	
+	_eventDispatcher->addEventListenerWithSceneGraphPriority(listener, callerObject);
+	
+}
