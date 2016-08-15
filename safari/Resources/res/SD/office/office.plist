@@ -4,6 +4,21 @@
     <dict>
         <key>frames</key>
         <dict>
+            <key>office/office_mainground/almirah-1.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{48,109}</string>
+                <key>spriteSourceSize</key>
+                <string>{48,109}</string>
+                <key>textureRect</key>
+                <string>{{70,1388},{48,109}}</string>
+                <key>textureRotated</key>
+                <true/>
+            </dict>
             <key>office/office_mainground/almirah.png</key>
             <dict>
                 <key>aliases</key>
@@ -19,22 +34,7 @@
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>office/office_mainground/almirah_01.png</key>
-            <dict>
-                <key>aliases</key>
-                <array/>
-                <key>spriteOffset</key>
-                <string>{0,0}</string>
-                <key>spriteSize</key>
-                <string>{48,109}</string>
-                <key>spriteSourceSize</key>
-                <string>{48,109}</string>
-                <key>textureRect</key>
-                <string>{{70,1388},{48,109}}</string>
-                <key>textureRotated</key>
-                <true/>
-            </dict>
-            <key>office/office_mainground/book_1.png</key>
+            <key>office/office_mainground/book-1.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
@@ -49,7 +49,7 @@
                 <key>textureRotated</key>
                 <true/>
             </dict>
-            <key>office/office_mainground/book_2.png</key>
+            <key>office/office_mainground/book-2.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
@@ -64,7 +64,7 @@
                 <key>textureRotated</key>
                 <true/>
             </dict>
-            <key>office/office_mainground/book_3.png</key>
+            <key>office/office_mainground/book-3.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
@@ -79,7 +79,7 @@
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>office/office_mainground/book_blue.png</key>
+            <key>office/office_mainground/book-blue.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
@@ -94,7 +94,7 @@
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>office/office_mainground/book_brown.png</key>
+            <key>office/office_mainground/book-brown.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
@@ -109,7 +109,7 @@
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>office/office_mainground/book_green.png</key>
+            <key>office/office_mainground/book-green.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
@@ -124,7 +124,7 @@
                 <key>textureRotated</key>
                 <true/>
             </dict>
-            <key>office/office_mainground/book_grey.png</key>
+            <key>office/office_mainground/book-grey.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
@@ -154,6 +154,21 @@
                 <key>textureRotated</key>
                 <true/>
             </dict>
+            <key>office/office_mainground/building-1.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{53,246}</string>
+                <key>spriteSourceSize</key>
+                <string>{53,246}</string>
+                <key>textureRect</key>
+                <string>{{39,817},{53,246}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
             <key>office/office_mainground/building.png</key>
             <dict>
                 <key>aliases</key>
@@ -166,21 +181,6 @@
                 <string>{85,235}</string>
                 <key>textureRect</key>
                 <string>{{144,1},{85,235}}</string>
-                <key>textureRotated</key>
-                <false/>
-            </dict>
-            <key>office/office_mainground/building_01.png</key>
-            <dict>
-                <key>aliases</key>
-                <array/>
-                <key>spriteOffset</key>
-                <string>{0,0}</string>
-                <key>spriteSize</key>
-                <string>{53,246}</string>
-                <key>spriteSourceSize</key>
-                <string>{53,246}</string>
-                <key>textureRect</key>
-                <string>{{39,817},{53,246}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
@@ -214,6 +214,36 @@
                 <key>textureRotated</key>
                 <true/>
             </dict>
+            <key>office/office_mainground/chair-01.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{65,97}</string>
+                <key>spriteSourceSize</key>
+                <string>{65,97}</string>
+                <key>textureRect</key>
+                <string>{{172,1438},{65,97}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+            <key>office/office_mainground/chair-02.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{58,92}</string>
+                <key>spriteSourceSize</key>
+                <string>{58,92}</string>
+                <key>textureRect</key>
+                <string>{{94,1005},{58,92}}</string>
+                <key>textureRotated</key>
+                <true/>
+            </dict>
             <key>office/office_mainground/chair.png</key>
             <dict>
                 <key>aliases</key>
@@ -229,35 +259,20 @@
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>office/office_mainground/chair_01.png</key>
+            <key>office/office_mainground/computer-front.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
                 <key>spriteOffset</key>
                 <string>{0,0}</string>
                 <key>spriteSize</key>
-                <string>{65,97}</string>
+                <string>{45,37}</string>
                 <key>spriteSourceSize</key>
-                <string>{65,97}</string>
+                <string>{45,37}</string>
                 <key>textureRect</key>
-                <string>{{172,1438},{65,97}}</string>
+                <string>{{140,1563},{45,37}}</string>
                 <key>textureRotated</key>
                 <false/>
-            </dict>
-            <key>office/office_mainground/chair_02.png</key>
-            <dict>
-                <key>aliases</key>
-                <array/>
-                <key>spriteOffset</key>
-                <string>{0,0}</string>
-                <key>spriteSize</key>
-                <string>{58,92}</string>
-                <key>spriteSourceSize</key>
-                <string>{58,92}</string>
-                <key>textureRect</key>
-                <string>{{94,1005},{58,92}}</string>
-                <key>textureRotated</key>
-                <true/>
             </dict>
             <key>office/office_mainground/computer.png</key>
             <dict>
@@ -274,18 +289,18 @@
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>office/office_mainground/computer_front.png</key>
+            <key>office/office_mainground/cutton-scrolling.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
                 <key>spriteOffset</key>
                 <string>{0,0}</string>
                 <key>spriteSize</key>
-                <string>{45,37}</string>
+                <string>{95,160}</string>
                 <key>spriteSourceSize</key>
-                <string>{45,37}</string>
+                <string>{95,160}</string>
                 <key>textureRect</key>
-                <string>{{140,1563},{45,37}}</string>
+                <string>{{139,452},{95,160}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
@@ -301,21 +316,6 @@
                 <string>{36,274}</string>
                 <key>textureRect</key>
                 <string>{{1,817},{36,274}}</string>
-                <key>textureRotated</key>
-                <false/>
-            </dict>
-            <key>office/office_mainground/cutton_scrolling.png</key>
-            <dict>
-                <key>aliases</key>
-                <array/>
-                <key>spriteOffset</key>
-                <string>{0,0}</string>
-                <key>spriteSize</key>
-                <string>{95,160}</string>
-                <key>spriteSourceSize</key>
-                <string>{95,160}</string>
-                <key>textureRect</key>
-                <string>{{139,452},{95,160}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
@@ -349,7 +349,7 @@
                 <key>textureRotated</key>
                 <true/>
             </dict>
-            <key>office/office_mainground/employee_desk.png</key>
+            <key>office/office_mainground/employee-desk.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
@@ -364,7 +364,7 @@
                 <key>textureRotated</key>
                 <true/>
             </dict>
-            <key>office/office_mainground/floor_1.png</key>
+            <key>office/office_mainground/floor-1.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
@@ -379,7 +379,7 @@
                 <key>textureRotated</key>
                 <true/>
             </dict>
-            <key>office/office_mainground/floor_2.png</key>
+            <key>office/office_mainground/floor-2.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
@@ -424,6 +424,66 @@
                 <key>textureRotated</key>
                 <false/>
             </dict>
+            <key>office/office_mainground/lamp-01.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{36,38}</string>
+                <key>spriteSourceSize</key>
+                <string>{36,38}</string>
+                <key>textureRect</key>
+                <string>{{201,1537},{36,38}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+            <key>office/office_mainground/lamp-02.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{24,27}</string>
+                <key>spriteSourceSize</key>
+                <string>{24,27}</string>
+                <key>textureRect</key>
+                <string>{{172,1537},{24,27}}</string>
+                <key>textureRotated</key>
+                <true/>
+            </dict>
+            <key>office/office_mainground/lamp-03.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{30,35}</string>
+                <key>spriteSourceSize</key>
+                <string>{30,35}</string>
+                <key>textureRect</key>
+                <string>{{140,1526},{30,35}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+            <key>office/office_mainground/lamp-big.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{54,105}</string>
+                <key>spriteSourceSize</key>
+                <string>{54,105}</string>
+                <key>textureRect</key>
+                <string>{{48,1224},{54,105}}</string>
+                <key>textureRotated</key>
+                <true/>
+            </dict>
             <key>office/office_mainground/lamp.png</key>
             <dict>
                 <key>aliases</key>
@@ -439,65 +499,20 @@
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>office/office_mainground/lamp_01.png</key>
+            <key>office/office_mainground/lights-1.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
                 <key>spriteOffset</key>
-                <string>{0,0}</string>
+                <string>{-1,0}</string>
                 <key>spriteSize</key>
-                <string>{36,38}</string>
+                <string>{88,86}</string>
                 <key>spriteSourceSize</key>
-                <string>{36,38}</string>
+                <string>{90,88}</string>
                 <key>textureRect</key>
-                <string>{{201,1537},{36,38}}</string>
+                <string>{{82,1438},{88,86}}</string>
                 <key>textureRotated</key>
                 <false/>
-            </dict>
-            <key>office/office_mainground/lamp_02.png</key>
-            <dict>
-                <key>aliases</key>
-                <array/>
-                <key>spriteOffset</key>
-                <string>{0,0}</string>
-                <key>spriteSize</key>
-                <string>{24,27}</string>
-                <key>spriteSourceSize</key>
-                <string>{24,27}</string>
-                <key>textureRect</key>
-                <string>{{172,1537},{24,27}}</string>
-                <key>textureRotated</key>
-                <true/>
-            </dict>
-            <key>office/office_mainground/lamp_03.png</key>
-            <dict>
-                <key>aliases</key>
-                <array/>
-                <key>spriteOffset</key>
-                <string>{0,0}</string>
-                <key>spriteSize</key>
-                <string>{30,35}</string>
-                <key>spriteSourceSize</key>
-                <string>{30,35}</string>
-                <key>textureRect</key>
-                <string>{{140,1526},{30,35}}</string>
-                <key>textureRotated</key>
-                <false/>
-            </dict>
-            <key>office/office_mainground/lamp_big.png</key>
-            <dict>
-                <key>aliases</key>
-                <array/>
-                <key>spriteOffset</key>
-                <string>{0,0}</string>
-                <key>spriteSize</key>
-                <string>{54,105}</string>
-                <key>spriteSourceSize</key>
-                <string>{54,105}</string>
-                <key>textureRect</key>
-                <string>{{48,1224},{54,105}}</string>
-                <key>textureRotated</key>
-                <true/>
             </dict>
             <key>office/office_mainground/lights.png</key>
             <dict>
@@ -514,22 +529,7 @@
                 <key>textureRotated</key>
                 <true/>
             </dict>
-            <key>office/office_mainground/lights_01.png</key>
-            <dict>
-                <key>aliases</key>
-                <array/>
-                <key>spriteOffset</key>
-                <string>{-1,0}</string>
-                <key>spriteSize</key>
-                <string>{88,86}</string>
-                <key>spriteSourceSize</key>
-                <string>{90,88}</string>
-                <key>textureRect</key>
-                <string>{{82,1438},{88,86}}</string>
-                <key>textureRotated</key>
-                <false/>
-            </dict>
-            <key>office/office_mainground/patch_blue.png</key>
+            <key>office/office_mainground/patch-blue.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
@@ -544,7 +544,7 @@
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>office/office_mainground/patch_green.png</key>
+            <key>office/office_mainground/patch-green.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
@@ -559,7 +559,7 @@
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>office/office_mainground/patch_red.png</key>
+            <key>office/office_mainground/patch-red.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
@@ -574,7 +574,7 @@
                 <key>textureRotated</key>
                 <true/>
             </dict>
-            <key>office/office_mainground/patch_yellow.png</key>
+            <key>office/office_mainground/patch-yellow.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
@@ -604,7 +604,7 @@
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>office/office_mainground/small_table.png</key>
+            <key>office/office_mainground/small-table.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
@@ -634,6 +634,66 @@
                 <key>textureRotated</key>
                 <true/>
             </dict>
+            <key>office/office_mainground/table-1.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{212,79}</string>
+                <key>spriteSourceSize</key>
+                <string>{212,79}</string>
+                <key>textureRect</key>
+                <string>{{115,614},{212,79}}</string>
+                <key>textureRotated</key>
+                <true/>
+            </dict>
+            <key>office/office_mainground/table-2.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{155,78}</string>
+                <key>spriteSourceSize</key>
+                <string>{155,78}</string>
+                <key>textureRect</key>
+                <string>{{129,1065},{155,78}}</string>
+                <key>textureRotated</key>
+                <true/>
+            </dict>
+            <key>office/office_mainground/table-3.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{158,79}</string>
+                <key>spriteSourceSize</key>
+                <string>{158,79}</string>
+                <key>textureRect</key>
+                <string>{{1,1442},{158,79}}</string>
+                <key>textureRotated</key>
+                <true/>
+            </dict>
+            <key>office/office_mainground/table-4.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{157,79}</string>
+                <key>spriteSourceSize</key>
+                <string>{157,79}</string>
+                <key>textureRect</key>
+                <string>{{48,1065},{157,79}}</string>
+                <key>textureRotated</key>
+                <true/>
+            </dict>
             <key>office/office_mainground/table.png</key>
             <dict>
                 <key>aliases</key>
@@ -649,67 +709,7 @@
                 <key>textureRotated</key>
                 <true/>
             </dict>
-            <key>office/office_mainground/table_01.png</key>
-            <dict>
-                <key>aliases</key>
-                <array/>
-                <key>spriteOffset</key>
-                <string>{0,0}</string>
-                <key>spriteSize</key>
-                <string>{212,79}</string>
-                <key>spriteSourceSize</key>
-                <string>{212,79}</string>
-                <key>textureRect</key>
-                <string>{{115,614},{212,79}}</string>
-                <key>textureRotated</key>
-                <true/>
-            </dict>
-            <key>office/office_mainground/table_02.png</key>
-            <dict>
-                <key>aliases</key>
-                <array/>
-                <key>spriteOffset</key>
-                <string>{0,0}</string>
-                <key>spriteSize</key>
-                <string>{155,78}</string>
-                <key>spriteSourceSize</key>
-                <string>{155,78}</string>
-                <key>textureRect</key>
-                <string>{{129,1065},{155,78}}</string>
-                <key>textureRotated</key>
-                <true/>
-            </dict>
-            <key>office/office_mainground/table_03.png</key>
-            <dict>
-                <key>aliases</key>
-                <array/>
-                <key>spriteOffset</key>
-                <string>{0,0}</string>
-                <key>spriteSize</key>
-                <string>{158,79}</string>
-                <key>spriteSourceSize</key>
-                <string>{158,79}</string>
-                <key>textureRect</key>
-                <string>{{1,1442},{158,79}}</string>
-                <key>textureRotated</key>
-                <true/>
-            </dict>
-            <key>office/office_mainground/table_04.png</key>
-            <dict>
-                <key>aliases</key>
-                <array/>
-                <key>spriteOffset</key>
-                <string>{0,0}</string>
-                <key>spriteSize</key>
-                <string>{157,79}</string>
-                <key>spriteSourceSize</key>
-                <string>{157,79}</string>
-                <key>textureRect</key>
-                <string>{{48,1065},{157,79}}</string>
-                <key>textureRotated</key>
-                <true/>
-            </dict>
-            <key>office/office_mainground/tool_glass.png</key>
+            <key>office/office_mainground/tool-glass.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
@@ -724,7 +724,7 @@
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>office/office_mainground/tool_glass_01.png</key>
+            <key>office/office_mainground/toolglass-1.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
@@ -769,7 +769,7 @@
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>office/office_mainground/water_tank.png</key>
+            <key>office/office_mainground/water-tank.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
@@ -784,22 +784,7 @@
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>office/office_mainground/wood_shelf.png</key>
-            <dict>
-                <key>aliases</key>
-                <array/>
-                <key>spriteOffset</key>
-                <string>{0,0}</string>
-                <key>spriteSize</key>
-                <string>{127,11}</string>
-                <key>spriteSourceSize</key>
-                <string>{127,11}</string>
-                <key>textureRect</key>
-                <string>{{216,793},{127,11}}</string>
-                <key>textureRotated</key>
-                <true/>
-            </dict>
-            <key>office/office_mainground/wood_shelf_small.png</key>
+            <key>office/office_mainground/wood-shelf-small.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
@@ -811,6 +796,21 @@
                 <string>{38,5}</string>
                 <key>textureRect</key>
                 <string>{{231,1},{38,5}}</string>
+                <key>textureRotated</key>
+                <true/>
+            </dict>
+            <key>office/office_mainground/wood-shelf.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{127,11}</string>
+                <key>spriteSourceSize</key>
+                <string>{127,11}</string>
+                <key>textureRect</key>
+                <string>{{216,793},{127,11}}</string>
                 <key>textureRotated</key>
                 <true/>
             </dict>
@@ -828,7 +828,7 @@
             <key>size</key>
             <string>{238,1601}</string>
             <key>smartupdate</key>
-            <string>$TexturePacker:SmartUpdate:37a129d71f4665dc292012591ca09919:b9eca1cb2d0268a7553f04b3315b3fb0:72ca970a2fd04730547b32f2863596a4$</string>
+            <string>$TexturePacker:SmartUpdate:e7068759f8dc5415ea2cb05a0bb01881:d29461b06a995eaa92c1e2f14dd71837:72ca970a2fd04730547b32f2863596a4$</string>
             <key>textureFileName</key>
             <string>office.png</string>
         </dict>

@@ -70,7 +70,6 @@ alphamonNodesCount(0),
 skeletonPositionInLastVisitedScene(nullptr)
 {
     this->stateMachine = NULL;
-    this->skeletonCharacter = NULL;
 }
 
 HelloWorld::~HelloWorld() {
@@ -127,7 +126,6 @@ void HelloWorld::loadGameScene() {
     
     
     Node *rootNode = CSLoader::createNode(buildPath + "/" + mainSceneName);
-//    Node *rootNode = CSLoader::createNode(mainSceneName);
     this->setSceneSize(rootNode->getContentSize());
     this->addChild(rootNode);
     
@@ -202,9 +200,12 @@ void HelloWorld::processNodeWithCustomAttributes(Node* node, Node* parentNode) {
             std::unordered_map<std::string,std::string>::const_iterator itRight = attributes.find("right");
             if ( it != attributes.end() ) {
                 std::string fileName(it->second);
+                fileName = std::regex_replace(fileName, std::regex("^ +| +$|( ) +"), "$1");
+
                 if(regex_match(fileName, skeletonFile)) {
                     //process hero node
-                    if(node->getName() == MAIN_SKELETON_KEY) {
+                    std::string value = std::regex_replace(node->getName(), std::regex("^ +| +$|( ) +"), "$1");
+                    if(value == MAIN_SKELETON_KEY) {
                         //create Hero character
                         this->addMainCharacterToScene(fileName, node);
                         
@@ -264,14 +265,15 @@ void HelloWorld::setReferencesToGameLayers(cocos2d::Node *rootNode) {
         cocostudio::ComExtensionData* data = (cocostudio::ComExtensionData*)node->getComponent("ComExtensionData");
         if(data != NULL) {
 //            CCLOG("%s", data->getCustomProperty().c_str());
-            
-            if(data->getCustomProperty() == MAIN_LAYER)
+            std::string value = std::regex_replace(data->getCustomProperty(), std::regex("^ +| +$|( ) +"), "$1");
+
+            if(value == MAIN_LAYER)
             {
                 this->mainLayer = node;
-            } else if(data->getCustomProperty() == BACK_GROUND_LAYER)
+            } else if(value == BACK_GROUND_LAYER)
             {
                 this->backgroundLayer = node;
-            } else if(data->getCustomProperty() == FORE_GROUND_LAYER)
+            } else if(value == FORE_GROUND_LAYER)
             {
                 this->foregroundLayer = node;
             }
@@ -342,6 +344,8 @@ void HelloWorld::enablePhysicsBoundaries(Node* rootNode) {
                     Sprite* sprite = dynamic_cast<Sprite*>(subChild);
                     if(sprite) {
                         auto matchingName = subChild->getName();
+                        
+                        std::string v1 = subChild->getName();
                         
                         do {
                             std::size_t found = matchingName.find_last_of("_");
