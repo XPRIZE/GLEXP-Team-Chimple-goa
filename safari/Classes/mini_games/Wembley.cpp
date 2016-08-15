@@ -171,7 +171,7 @@ void Wembley::gameOver(bool correct) {
 			
 		}
 
-		
+		_answerVector.clear();
 		_finish = 1;
 
 		
