@@ -17,47 +17,42 @@
 #include "mini_games/Cannon_Ball_Main.h"
 #include "mini_games/TraceScene.h"
 #include "mini_games/AlphamonFeedScene.h"
+#include "mini_games/BajaWordScene.h"
+#include "mini_games/Jasmin_Mainfile.h"
+#include "mini_games/jazz.h"
+#include "mini_games/Chain.h"
+#include "mini_games/Wembley.h"
+
 
 USING_NS_CC;
 
 
 StartMenu::StartMenu(){
-    
 }
 
 StartMenu::~StartMenu() {
     
 }
 
-Scene *StartMenu::createScene() {
-    auto scene = Scene::create();
-    auto layer = StartMenu::create();
-    scene->addChild(layer);
-    return scene;
+const std::vector<std::string> StartMenu::getGameNames() {
+    std::vector<std::string> gameNames;
+    gameNames.push_back(ALPHAMON_COMBAT);
+    gameNames.push_back(PATCH_THE_WALL);
+    gameNames.push_back(CROSS_THE_BRIDGE);
+    gameNames.push_back(SMASH_THE_ROCK);
+    gameNames.push_back(CANNON_BALL);
+    gameNames.push_back(ENDLESS_RUNNER);
+    gameNames.push_back(KUNG_FU_ALPHA);
+    gameNames.push_back(ALPHAMON_FEED);
+    gameNames.push_back(BAJA);
+    gameNames.push_back(CHAIN);
+    gameNames.push_back(WEMBLEY);
+    gameNames.push_back(JAZZ);
+    gameNames.push_back(JASMINE);    
+    return gameNames;
+
 }
 
-bool StartMenu::init() {
-    if (!LayerGradient::initWithColor(Color4B(255, 159, 0, 255), Color4B::BLUE)){
-        return false;
-    }
-	auto menu = Menu::create(createMenu(CAMP),
-                             createMenu(FARM_HOUSE),
-                             createMenu(MINING_BG),
-                             createMenu(ALPHAMON_COMBAT),
-                             createMenu(PATCH_THE_WALL),
-                             createMenu(CROSS_THE_BRIDGE),
-                             createMenu(SMASH_THE_ROCK),
-                             createMenu(CANNON_BALL),
-                             createMenu(ENDLESS_RUNNER),
-                             createMenu(KUNG_FU_ALPHA),
-							 createMenu(ALPHAMON_FEED),
-                             NULL);
-    menu->alignItemsVertically();
-    
-    addChild(menu);
-    
-    return true;
-}
 
 void StartMenu::startScene(std::string gameName, std::string firstParam, std::string secondParam, std::string thirdParam) {
     if(gameName == ALPHAMON_COMBAT) {
@@ -82,27 +77,24 @@ void StartMenu::startScene(std::string gameName, std::string firstParam, std::st
     } else if(gameName == CANNON_BALL) {
         Director::getInstance()->replaceScene(MainGame::createScene());
     } else if(gameName == ENDLESS_RUNNER) {
-        Director::getInstance()->replaceScene(EndlessRunner::createScene());
+        Director::getInstance()->replaceScene(BajaWordScene::createScene());
     } else if(gameName == KUNG_FU_ALPHA) {
         Director::getInstance()->replaceScene(Trace::createScene(0));
     } else if(gameName == ALPHAMON_FEED) {
         Director::getInstance()->replaceScene(AlphamonFeed::createScene());
-    } else {
-        if(!gameName.empty()) {
-            Director::getInstance()->replaceScene(HelloWorld::createScene(gameName,firstParam));
-        } else {
-            CCLOG("Failed starting scene: %s", gameName.c_str());
-        }
-        
+    } else if(gameName == BAJA) {
+        Director::getInstance()->replaceScene(BajaWordScene::createScene());
+    } else if(gameName == JASMINE) {
+        Director::getInstance()->replaceScene(Jasmin_Mainfile::createScene());
+    } else if(gameName == WEMBLEY) {
+        Director::getInstance()->replaceScene(Wembley::createScene());
+    } else if(gameName == JAZZ) {
+        Director::getInstance()->replaceScene(jazz::createScene());
+    } else if(gameName == CHAIN) {
+        Director::getInstance()->replaceScene(Chain::createScene());
+    }
+    else {
+        CCLOG("Failed starting scene: %s", gameName.c_str());
     }
 }
-
-MenuItem* StartMenu::createMenu(std::string name) {
-    return MenuItemLabel::create(Label::createWithTTF(name, "fonts/arial.ttf", 100),
-                          [&](Ref *sender) {
-                              auto labelName = (static_cast<cocos2d::MenuItemLabel*>(sender))->getString();
-                              startScene(labelName);
-                          });
-}
-
 

@@ -1,4 +1,4 @@
-//
+﻿//
 //  TextGenerator.cpp
 //  safari
 //
@@ -44,7 +44,7 @@ std::vector<std::vector<std::string>> TextGenerator::generateMatrix(std::string 
 
 std::map<int, int> TextGenerator::getRandomLocations(int numLoc, int totalNum) {
     std::map<int, int> locChars;
-    if(numLoc >= totalNum) {
+    if(numLoc > totalNum) {
         return locChars;
     }
     for (int i = 0; i < numLoc; i++) {
