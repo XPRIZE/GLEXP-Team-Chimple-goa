@@ -27,6 +27,8 @@ bool Grapheme::init(std::string graphemeString) {
     _graphemeString = graphemeString;
     _text = ui::Text::create();
     _text->setFontSize(200);
+	_text->setFontName("fonts/arial.ttf");
+	_text->setTextColor(Color4B::BLUE);
     _text->setString(graphemeString);
     addChild(_text);
 
