@@ -44,6 +44,9 @@ void Wembley::createChoice() {
 	float wid = Director::getInstance()->getVisibleSize().width;
 	float hei = Director::getInstance()->getVisibleSize().height;
 
+	CocosDenshion::SimpleAudioEngine::getInstance()->preloadBackgroundMusic("./sounds/kick.wav");
+	CocosDenshion::SimpleAudioEngine::getInstance()->playBackgroundMusic("./sounds/applause.wav", true);
+	CocosDenshion::SimpleAudioEngine::getInstance()->playEffect("./sounds/applause.wav");
 	_choice = Node::create();
 	_choice->setPosition(Vec2(0, hei * 63 / 100));
 	addChild(_choice);
@@ -197,6 +200,8 @@ void Wembley::addEventsBall(cocos2d::Sprite* callerObject)
 		Rect rect = Rect(0, 0, s.width, s.height);
 		if (target->getBoundingBox().containsPoint(touch->getLocation())) {
 
+			CocosDenshion::SimpleAudioEngine::getInstance()->playEffect("./sounds/kick.wav");
+
 			float wid = Director::getInstance()->getVisibleSize().width;
 			float hei = Director::getInstance()->getVisibleSize().height;
 			
@@ -207,7 +212,7 @@ void Wembley::addEventsBall(cocos2d::Sprite* callerObject)
 				
 				removeChild(target);				
 			});
-
+			
 			auto sequence = Sequence::create(moveTo, removeBall, nullptr);
 			target->runAction(sequence);
 
