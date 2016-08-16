@@ -1037,7 +1037,10 @@ void HelloWorld::flipSkeletonDirection(Point point, cocostudio::timeline::Skelet
             scaleX = -scaleX;
             this->skeletonCharacter->getSkeletonNode()->setScaleX(scaleX);
             CCLOG("pausing all animation on node");
-            this->skeletonCharacter->getSkeletonActionTimeLine()->pause();
+            if(this->skeletonCharacter->getSkeletonActionTimeLine() != NULL) {
+                this->skeletonCharacter->getSkeletonActionTimeLine()->pause();
+            }
+            
             this->stateMachine->handleInput(S_STANDING_STATE, cocos2d::Vec2(0,0));
             this->skeletonCharacter->isRunning = false;
             this->skeletonCharacter->isWalking = false;
