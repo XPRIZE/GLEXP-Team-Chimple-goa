@@ -20,7 +20,7 @@ public:
 	HippoGame();
 	~HippoGame();
 	int _wordLength;
-	float _sceneToScenDiff = 0.0f;
+	float _sceneToScenDiff = 0.0f, _distanceY= 0.0f;
 	bool _layerChange = false;
 	static HippoGame* _hippoGame;
 	static HippoGame* create();
@@ -31,10 +31,10 @@ public:
 	cocostudio::timeline::ActionTimeline * _catAnimation;
 	std::vector<float> _stringPositionX;
 	std::vector<float> _stringPositionY;
-	void createBuilding(cocos2d::Layer * myLayer);
-	void buildingMovingAction();
-	void stringGap(cocos2d::Layer * myLayer);
-	void afterStringGap(cocos2d::Layer * myLayer);
+	void createBuilding(cocos2d::Layer * myLayer, std::string str);
+	void buildingMovingAction(std::string str);
+	void stringGap(cocos2d::Layer * myLayer, std::string str);
+	void afterStringGap(cocos2d::Layer * myLayer, std::string str);
 	void sceneMovingAction();
 protected:
 	cocos2d::Sprite* _backgroundBarrier, *_movingBarrier, *_sceneMovingBarrier, *_checkBox;
@@ -45,5 +45,6 @@ protected:
 	cocos2d::Layer * _buildingLayer, *_catLayer, *_buildingLayer2,* _buildingLayer1, *_buildingLayer3, *_buildingLayer4, *_buildingLayer5;
 	void generateBuildingLayer();
 	void catMovement();
+	bool _checkUpDown = true;
 };
 #endif 

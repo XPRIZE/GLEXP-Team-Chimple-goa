@@ -60,7 +60,7 @@ std::string Hippo::getGraphemeUnselectedBackground() {
 	return "hippo/button_clicked.png";
 }
 std::string Hippo::getGraphemeSelectedBackground() {
-	return "hippo/button.png";
+	return "hippo/block.png";
 }
 
 void Hippo::createAnswer()
@@ -81,11 +81,25 @@ void Hippo::gameOver(bool correct)
 	if (correct) {
 		auto lastCharInfo = _gapNodes1.at(_numGraphemes - 1);
 		CCLOG("cat position %f", (_catNode1->getPositionX()));
-		auto moveTo = MoveBy::create(3, Vec2(lastCharInfo->getPositionX() - (_catNode1->getPositionX() ), 0));
+		auto moveTo = MoveBy::create(3, Vec2(lastCharInfo->getPositionX() - (_catNode1->getPositionX() ), lastCharInfo->getPositionY()- _movingPositionY+ lastCharInfo->getContentSize().height/2));
 		_catAnimation1->play("catanim", true);
+		auto child = _catNode1->getChildByName("Node");
+		if (_state.compare("up") == 0) {
+			//child->setRotationX(45.0f);
+			child->setRotation(-50.0f);
+		}
+		else if (_state.compare("down") == 0) {
+			child->setRotation(50.0f);
+		}
+		else {
+			child->setRotation(0);
+		}
+
 		runAction(Sequence::create(TargetedAction::create(_catNode1, moveTo), CallFunc::create([=]() {
 			_catAnimation1->pause();
+			child->setRotation(0);
 			_gameContinue = true;
+			_state = "";
 		}), NULL));
 		//_catNode1->runAction(moveTo);
 		//_catAnimation1->play("catanim", true);

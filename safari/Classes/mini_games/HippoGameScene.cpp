@@ -55,7 +55,7 @@ bool HippoGame::init()
 	}
 	_xPos = 0;
 	_yPos = 900;
-	this->addChild(LayerGradient::create(Color4B(255, 219, 161, 255), Color4B(255, 255, 255, 255)), 0);
+	this->addChild(LayerGradient::create(Color4B(255, 255, 255, 255), Color4B(255, 219, 161, 255)), 0);
 	auto node = CSLoader::createNode("hippo/hippo.csb");
 	this->addChild(node);
 	_backgroundBarrier = Sprite::create("crossthebridge/barrier.png");
@@ -98,7 +98,7 @@ bool HippoGame::init()
 	return true;
 }
 
-void HippoGame::createBuilding(cocos2d::Layer * myLayer)
+void HippoGame::createBuilding(cocos2d::Layer * myLayer, std::string str)
 {
 	/*if (_xPos > Director::getInstance()->getVisibleSize().width) {
 
@@ -118,10 +118,10 @@ void HippoGame::createBuilding(cocos2d::Layer * myLayer)
 		//	buildingLayer2->addChild(build2);
 		_xPos = build1->getContentSize().width  + build1->getPositionX();
 //	}
-	stringGap(myLayer);
+	stringGap(myLayer, str);
 }
 
-void HippoGame::buildingMovingAction()
+void HippoGame::buildingMovingAction(std::string str)
 {
 	float distanceX = _movingBarrier->getPositionX() - _backgroundBarrier->getPositionX() ;
 	float distanceY = 0;
@@ -139,18 +139,19 @@ void HippoGame::buildingMovingAction()
 		hippo->_catNode1 = _catLayer;
 		hippo->_catAnimation1 = _catAnimation;
 		hippo->_movingPositionX = distanceX;
-		hippo->_movingPositionY = distanceY;
+		hippo->_movingPositionY = _distanceY;
 		hippo->_stringPositionX1 = _stringPositionX;
 		hippo->_stringPositionY1 = _stringPositionY;
 		hippo->_gapNodes1 = _gapNodes;
 		hippo->initWithWord(_randomWord);
+		hippo->_state = str;
 		this->addChild(hippo, 1);
 		
 	}), NULL));
 	
 }
 
-void HippoGame::stringGap(cocos2d::Layer * myLayer)
+void HippoGame::stringGap(cocos2d::Layer * myLayer, std::string str)
 {
 	if (_xPos > Director::getInstance()->getVisibleSize().width) {
 
@@ -163,10 +164,12 @@ void HippoGame::stringGap(cocos2d::Layer * myLayer)
 	int randomNumber = text->getGraphemes(_randomWord).size();
 	_wordLength = randomNumber;
 	CCLOG("string size %d", _wordLength);
-
+	_distanceY = _yPos;
 	_checkBox= Sprite::create("crossthebridge/barrier.png");
 	_checkBox->setPosition(Vec2(_xPos-100, _yPos));
 	myLayer->addChild(_checkBox);
+
+	float gapWidth;
 	while (randomNumber != 0) {
 		auto gap = Sprite::createWithSpriteFrameName("hippo/block.png");
 		//gap->setOpacity(100);
@@ -174,8 +177,9 @@ void HippoGame::stringGap(cocos2d::Layer * myLayer)
 	//	gap->setAnchorPoint(Vec2(0, 1));
 		_stringPositionX.push_back(_xPos );
 		_stringPositionY.push_back(_yPos);
-		_gapNodes.push_back((Node*)gap);
+		
 		gap->setVisible(false);
+		gapWidth = gap->getContentSize().width / 2;
 		myLayer->addChild(gap);
 		if (((int)ceil(_wordLength / 2.0)) == randomNumber) {
 			_movingBarrier = Sprite::create("crossthebridge/barrier.png");
@@ -186,26 +190,28 @@ void HippoGame::stringGap(cocos2d::Layer * myLayer)
 
 		//	buildingLayer2->addChild(gap);
 		_xPos = gap->getContentSize().width + gap->getPositionX() ;
-		//if (str.compare("stright") == 0) {
-		//	//no change
-		//}
-		//else if (str.compare("up") == 0) {
-		//	_yPos = gap->getContentSize().height/2.5 + gap->getPositionY();
-		//}
-		//else if (str.compare("down") == 0) {
-		//	yPos = -gap->getContentSize().height + gap->getPositionY();
-		//}
-		//yPos			= gap->getContentSize().height + gap->getPositionY();
+		if (str.compare("stright") == 0) {
+			//no change
+		}
+		else if (str.compare("up") == 0) {
+			_yPos = gap->getContentSize().height/1.2 + gap->getPositionY();
+		}
+		else if (str.compare("down") == 0) {
+			//gap->setPosition(Vec2(_xPos, _yPos));
+			_yPos = -gap->getContentSize().height / 5.5 + gap->getPositionY();
+		}
+	//	
+		_gapNodes.push_back((Node*)gap);
 		randomNumber--;
 	}
-	
-	afterStringGap(myLayer);
+	_xPos = _xPos - gapWidth;
+	afterStringGap(myLayer, str);
 }
 
-void HippoGame::afterStringGap(cocos2d::Layer * myLayer)
+void HippoGame::afterStringGap(cocos2d::Layer * myLayer, std::string str)
 {
 	auto build1 = Sprite::createWithSpriteFrameName("hippo/b3.png");
-	build1->setPosition(Vec2(_xPos-(build1->getContentSize().width*0.19), _yPos));
+	build1->setPosition(Vec2(_xPos, _yPos)); //-(build1->getContentSize().width*0.19)
 	build1->setAnchorPoint(Vec2(0, 1));
 	myLayer->addChild(build1);
 	_sceneMovingBarrier = Sprite::create("crossthebridge/barrier.png");
@@ -214,17 +220,23 @@ void HippoGame::afterStringGap(cocos2d::Layer * myLayer)
 	CCLOG("after string gap %f", _sceneMovingBarrier->getPositionX());
 	myLayer->addChild(_sceneMovingBarrier);
 	_xPos = build1->getContentSize().width + build1->getPositionX();
-	//if (_wordLength < 4) {
-		auto build2 = Sprite::createWithSpriteFrameName("hippo/b3.png");
-		build2->setPosition(Vec2(_xPos - (build2->getContentSize().width*0.19), _yPos));
+		auto build2 = Sprite::createWithSpriteFrameName("hippo/b2.png");
+		build2->setPosition(Vec2(_xPos , _yPos));//- (build2->getContentSize().width*0.19)
 		build2->setAnchorPoint(Vec2(0, 1));
 		_xPos = build2->getContentSize().width + build2->getPositionX();
 		myLayer->addChild(build2);
-//	}
+		myLayer->setContentSize(Size(_xPos, 1800));
+	if (_wordLength < 4) {
+		auto build2 = Sprite::createWithSpriteFrameName("hippo/b1.png");
+		build2->setPosition(Vec2(_xPos, _yPos));//- (build2->getContentSize().width*0.19)
+		build2->setAnchorPoint(Vec2(0, 1));
+		_xPos = build2->getContentSize().width + build2->getPositionX();
+		myLayer->addChild(build2);
+	}
 
-	buildingMovingAction();
+	buildingMovingAction(str);
 	
-	myLayer->setContentSize(Size(_xPos,1800));
+	//myLayer->setContentSize(Size(_xPos,1800));
 	if (!_layerChange) {
 		_buildingLayer1->setPositionX(_xPos);
 	} else{
@@ -265,7 +277,15 @@ void HippoGame::update(float ft) {
 				_gapNodes.clear();
 				
 				_buildingLayer1->removeAllChildren();
-				createBuilding(_buildingLayer1);
+				if (_checkUpDown) {
+					createBuilding(_buildingLayer1, "up");
+					_checkUpDown = false;
+				}
+				else {
+					createBuilding(_buildingLayer1, "down");
+					_checkUpDown = true;
+				}
+				
 				_layerChange = true;
 				/*runAction(Sequence::create(CallFunc::create([=]() {
 					sceneMovingAction();
@@ -280,7 +300,7 @@ void HippoGame::update(float ft) {
 				_gapNodes.clear();
 				
 				_buildingLayer->removeAllChildren();
-				createBuilding(_buildingLayer);
+				createBuilding(_buildingLayer,"stright");
 				_layerChange = false;
 			/*	runAction(Sequence::create(CallFunc::create([=]() {
 					sceneMovingAction();
@@ -317,7 +337,7 @@ void HippoGame::update(float ft) {
 
 void HippoGame::generateBuildingLayer()
 {
-	createBuilding(_buildingLayer);
+	createBuilding(_buildingLayer,"stright");
 	//buildingMovingAction();
 }
 
