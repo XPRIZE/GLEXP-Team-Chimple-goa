@@ -20,7 +20,9 @@ protected:
 	void createChoice() override;
 	void gameOver(bool correct);
 	std::vector<Node*> _gorilla;
+	std::vector<cocostudio::timeline::ActionTimeline *> _jumping;
 	Node* _animate;
+	cocostudio::timeline::ActionTimeline * _animation;
 	cocostudio::timeline::ActionTimeline * _blinkAnimation;
 	void blinking(std::string animationName, bool loop);
 };
