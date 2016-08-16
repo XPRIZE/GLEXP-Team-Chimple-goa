@@ -89,6 +89,6 @@ void MapIsland::touchEnded(Touch *touch, Event *event)
 {
 //    Director::getInstance()->replaceScene(TransitionFade::create(3.0, HelloWorld::createScene(this->getIsland(),""), Color3B::BLACK));
     
-    Director::getInstance()->replaceScene(TransitionFade::create(3.0, HelloWorld::createScene("office",""), Color3B::BLACK));
+    Director::getInstance()->replaceScene(TransitionFade::create(3.0, HelloWorld::createScene("club",""), Color3B::BLACK));
     
 }
