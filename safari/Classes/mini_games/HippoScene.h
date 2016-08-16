@@ -19,7 +19,7 @@ class Hippo : public WordScene
 {
 public:
 	//Hippo * _hippo;
-	boolean _gameContinue;
+	bool _gameContinue;
 	static cocos2d::Scene* createScene();
 	static Hippo *create();
 	std::vector<Node*> _gapNodes1;
