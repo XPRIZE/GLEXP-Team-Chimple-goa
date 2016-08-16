@@ -14,7 +14,7 @@
 #include "editor-support/cocostudio/CocoStudio.h"
 #include "ui/CocosGUI.h"
 #include "StartMenuScene.h"
-#include "../Classes/menu/MenuContext.h"
+#include "menu/MenuContext.h"
 
 #define ICON_FOLDER "gameicons"
 #define NUMBER_OF_BUTTONS_ROWS 2

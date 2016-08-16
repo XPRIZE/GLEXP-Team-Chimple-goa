@@ -48,7 +48,7 @@ WordScene::WordScene() {
 }
 
 WordScene::~WordScene() {
-    
+    _eventDispatcher->removeCustomEventListeners("grapheme_anim_done");
 }
 
 bool WordScene::init() {
