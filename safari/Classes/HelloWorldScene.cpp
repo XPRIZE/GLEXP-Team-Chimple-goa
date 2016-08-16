@@ -495,7 +495,7 @@ void HelloWorld::querySceneToLoadInIsland() {
 
 void HelloWorld::loadSqlite3FileForIsland() {
     std::string sqlite3FileName = this->getIsland() + ".db3";
-    String* connectionURL = String::createWithFormat("res/%s/%s", this->getIsland().c_str(), sqlite3FileName.c_str());
+    String* connectionURL = String::createWithFormat("/res/%s/%s", this->getIsland().c_str(), sqlite3FileName.c_str());
     this->sqlite3Helper = Sqlite3Helper::getInstance(connectionURL->getCString(), sqlite3FileName);
 }
 
@@ -1037,7 +1037,10 @@ void HelloWorld::flipSkeletonDirection(Point point, cocostudio::timeline::Skelet
             scaleX = -scaleX;
             this->skeletonCharacter->getSkeletonNode()->setScaleX(scaleX);
             CCLOG("pausing all animation on node");
-            this->skeletonCharacter->getSkeletonActionTimeLine()->pause();
+            if(this->skeletonCharacter->getSkeletonActionTimeLine() != NULL) {
+                this->skeletonCharacter->getSkeletonActionTimeLine()->pause();
+            }
+            
             this->stateMachine->handleInput(S_STANDING_STATE, cocos2d::Vec2(0,0));
             this->skeletonCharacter->isRunning = false;
             this->skeletonCharacter->isWalking = false;
