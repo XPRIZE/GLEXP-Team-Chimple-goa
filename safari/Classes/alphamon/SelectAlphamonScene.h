@@ -10,13 +10,16 @@
 #define SelectAlphamonScene_h
 
 #include "cocos2d.h"
+#include "StartMenuScene.h"
 #include "Alphamon.h"
 
 class SelectAlphamon : public cocos2d::ui::ScrollView {
 public:
     static cocos2d::Scene* createScene();
     CREATE_FUNC(SelectAlphamon);
-    void onAlphabetSelected(cocos2d::EventCustom *event);
+    void onAlphabetSelected(cocos2d::EventCustom *event);    
+    
+    static const char* gameName() { return ALPHAMON_COMBAT.c_str();}
 
 CC_CONSTRUCTOR_ACCESS:
     virtual bool init();

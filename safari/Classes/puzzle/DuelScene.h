@@ -24,6 +24,8 @@ public:
     virtual void onAlphabetSelected(cocos2d::EventCustom *eventCustom);
     virtual void onAlphabetUnselected(cocos2d::EventCustom *eventCustom);
     
+    static const char* gameName() { return DUEL_SCENE.c_str();}
+    
 CC_CONSTRUCTOR_ACCESS:
     DuelScene();
     ~DuelScene();

@@ -37,8 +37,8 @@ void StandingState::enter(cocos2d::Vec2 forceVector, SkeletonCharacterState prev
     if(previousStateCommand == S_RUNNING_STATE)
     {
         this->getTarget()->getSkeletonActionTimeLine()->setLastFrameCallFunc([=]() {            
-            if(this->getTarget()->getSkeletonActionTimeLine()) {
-                this->getTarget()->getSkeletonActionTimeLine()->play(IDLE, true);    
+            if(this->getTarget()->getSkeletonActionTimeLine() && this->getTarget()->isStanding) {
+                this->getTarget()->getSkeletonActionTimeLine()->play(IDLE, true);
             }
             this->getTarget()->getSkeletonActionTimeLine()->clearLastFrameCallFunc();
         });
@@ -57,6 +57,8 @@ void StandingState::enter(cocos2d::Vec2 forceVector, SkeletonCharacterState prev
 void StandingState::exit()  {
     CCLOG("%s", "Exit Standing State");
     this->getTarget()->isStanding = false;
+    CCLOG("pausing all animation on node in standing");
+    this->getTarget()->getSkeletonActionTimeLine()->pause();
     //this->getTarget()->getSkeletonActionTimeLine()->gotoFrameAndPause(0);
 }
 

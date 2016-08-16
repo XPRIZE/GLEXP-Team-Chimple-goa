@@ -1,7 +1,7 @@
 #include "AppDelegate.h"
 #include "MapScene.h"
 #include "StartMenuScene.h"
-#include "GameMapScene.h"
+#include "ScrollableGameMapScene.hpp"
 #include "lang/SafariAnalyticsManager.h"
 
 USING_NS_CC;
@@ -44,7 +44,7 @@ bool AppDelegate::applicationDidFinishLaunching() {
     auto glview = director->getOpenGLView();
     if(!glview) {
 #if (CC_TARGET_PLATFORM == CC_PLATFORM_WIN32) || (CC_TARGET_PLATFORM == CC_PLATFORM_MAC) || (CC_TARGET_PLATFORM == CC_PLATFORM_LINUX)
-        glview = GLViewImpl::createWithRect("safari", cocos2d::Rect(0, 0, mediumResolutionSize.width, mediumResolutionSize.height));
+        glview = GLViewImpl::createWithRect("safari", cocos2d::Rect(0, 0, 1024, 720));
 #else
         glview = GLViewImpl::create("safari");
 #endif
@@ -101,7 +101,7 @@ bool AppDelegate::applicationDidFinishLaunching() {
     SafariAnalyticsManager::getInstance();
     
     // create a scene. it's an autorelease object
-    director->runWithScene(GameMapScene::createScene());
+    director->runWithScene(ScrollableGameMapScene::createScene());
     Application::getInstance()->getCurrentLanguage();
     return true;
 }

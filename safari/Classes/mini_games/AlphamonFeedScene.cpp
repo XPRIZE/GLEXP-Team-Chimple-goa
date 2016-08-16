@@ -315,6 +315,5 @@ void AlphamonFeed::gameOver() {
 
 void AlphamonFeed::returnToPrevScene() {
 	//    stopAllActions();
-	Director::getInstance()->replaceScene(StartMenu::createScene());
 }
 

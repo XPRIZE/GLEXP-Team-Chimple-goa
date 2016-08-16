@@ -15,7 +15,7 @@
                 <key>spriteSourceSize</key>
                 <string>{302,302}</string>
                 <key>textureRect</key>
-                <string>{{1158,1},{302,302}}</string>
+                <string>{{308,327},{302,302}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
@@ -30,7 +30,7 @@
                 <key>spriteSourceSize</key>
                 <string>{305,305}</string>
                 <key>textureRect</key>
-                <string>{{851,1},{305,305}}</string>
+                <string>{{1,327},{305,305}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
@@ -45,7 +45,127 @@
                 <key>spriteSourceSize</key>
                 <string>{300,300}</string>
                 <key>textureRect</key>
-                <string>{{1462,1},{300,300}}</string>
+                <string>{{612,327},{300,300}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+            <key>wembley/body_back.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{120,176}</string>
+                <key>spriteSourceSize</key>
+                <string>{120,176}</string>
+                <key>textureRect</key>
+                <string>{{343,631},{120,176}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+            <key>wembley/body_front.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{124,182}</string>
+                <key>spriteSourceSize</key>
+                <string>{124,182}</string>
+                <key>textureRect</key>
+                <string>{{217,634},{124,182}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+            <key>wembley/foot.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{56,28}</string>
+                <key>spriteSourceSize</key>
+                <string>{56,28}</string>
+                <key>textureRect</key>
+                <string>{{851,181},{56,28}}</string>
+                <key>textureRotated</key>
+                <true/>
+            </dict>
+            <key>wembley/head_back.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{214,234}</string>
+                <key>spriteSourceSize</key>
+                <string>{214,234}</string>
+                <key>textureRect</key>
+                <string>{{612,629},{214,234}}</string>
+                <key>textureRotated</key>
+                <true/>
+            </dict>
+            <key>wembley/head_front.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{201,214}</string>
+                <key>spriteSourceSize</key>
+                <string>{201,214}</string>
+                <key>textureRect</key>
+                <string>{{1,634},{201,214}}</string>
+                <key>textureRotated</key>
+                <true/>
+            </dict>
+            <key>wembley/left_hand.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{51,81}</string>
+                <key>spriteSourceSize</key>
+                <string>{51,81}</string>
+                <key>textureRect</key>
+                <string>{{465,734},{51,81}}</string>
+                <key>textureRotated</key>
+                <true/>
+            </dict>
+            <key>wembley/lower_hand.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{80,39}</string>
+                <key>spriteSourceSize</key>
+                <string>{80,39}</string>
+                <key>textureRect</key>
+                <string>{{848,758},{80,39}}</string>
+                <key>textureRotated</key>
+                <true/>
+            </dict>
+            <key>wembley/lower_leg.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{40,87}</string>
+                <key>spriteSourceSize</key>
+                <string>{40,87}</string>
+                <key>textureRect</key>
+                <string>{{851,92},{40,87}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
@@ -64,6 +184,66 @@
                 <key>textureRotated</key>
                 <false/>
             </dict>
+            <key>wembley/pant.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{123,101}</string>
+                <key>spriteSourceSize</key>
+                <string>{123,101}</string>
+                <key>textureRect</key>
+                <string>{{465,631},{123,101}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+            <key>wembley/right_hand.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{51,81}</string>
+                <key>spriteSourceSize</key>
+                <string>{51,81}</string>
+                <key>textureRect</key>
+                <string>{{848,675},{51,81}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+            <key>wembley/upper_arm.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{44,64}</string>
+                <key>spriteSourceSize</key>
+                <string>{44,64}</string>
+                <key>textureRect</key>
+                <string>{{848,629},{44,64}}</string>
+                <key>textureRotated</key>
+                <true/>
+            </dict>
+            <key>wembley/upper_leg.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{58,89}</string>
+                <key>spriteSourceSize</key>
+                <string>{58,89}</string>
+                <key>textureRect</key>
+                <string>{{851,1},{58,89}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
         </dict>
         <key>metadata</key>
         <dict>
@@ -76,9 +256,9 @@
             <key>realTextureFileName</key>
             <string>wembley.png</string>
             <key>size</key>
-            <string>{1763,326}</string>
+            <string>{913,844}</string>
             <key>smartupdate</key>
-            <string>$TexturePacker:SmartUpdate:a323d14bf43cc05d43d5a2ea2df0ff9d:124c08de8c6021acc7db9f6357bc489d:cfce23dd01c0bbbbc6990219af36ea7c$</string>
+            <string>$TexturePacker:SmartUpdate:6e2b8f43bbf644db917f3e4ac656625d:fac8bcbdc65922b9e8fe80fb9b1f2f98:cfce23dd01c0bbbbc6990219af36ea7c$</string>
             <key>textureFileName</key>
             <string>wembley.png</string>
         </dict>
