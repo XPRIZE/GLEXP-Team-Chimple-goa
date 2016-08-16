@@ -188,7 +188,7 @@ void Wembley::gameOver(bool correct) {
 
 void Wembley::addEventsBall(cocos2d::Sprite* callerObject)
 {
-	
+	static int kicks = 0;
 	auto listener = cocos2d::EventListenerTouchOneByOne::create();
 	listener->setSwallowTouches(false);
 
@@ -212,9 +212,52 @@ void Wembley::addEventsBall(cocos2d::Sprite* callerObject)
 				
 				removeChild(target);				
 			});
+
+			auto kickBall = CallFunc::create([=]() {
+
+				//auto kickTimeline = CSLoader::createTimeline("wembley/char.csb");
+				//auto kick = CSLoader::createNode("wembley/char.csb");
+				//kick->setPosition(Vec2(target->getPosition()));
+
+				//addChild(kick);
+				//target->runAction(kickTimeline);
+				//_character[target->getTag()]->runAction(_timeline[target->getTag()]);
+				_timeline[target->getTag()]->play("kick", false);
+				kicks++;
+				CCLOG("kicks %d", kicks);
+				//kickTimeline->play("kick", false);
+			});
+
+			auto idleCharacter = CallFunc::create([=]() {
+
+				//auto kickTimeline = CSLoader::createTimeline("wembley/char.csb");
+				//auto kick = CSLoader::createNode("wembley/char.csb");
+				//kick->setPosition(Vec2(target->getPosition()));
+
+				//addChild(kick);
+				//target->runAction(kickTimeline);
+				//_character[target->getTag()]->runAction(_timeline[target->getTag()]);
+				_timeline[target->getTag()]->play("back_idle", true);
+				//kickTimeline->play("kick", false);
+			});
+			auto delay = DelayTime::create(0.5f);
+			//_menuContext->showScore();
 			
-			auto sequence = Sequence::create(moveTo, removeBall, nullptr);
-			target->runAction(sequence);
+			auto sequence = Sequence::create(kickBall, moveTo, removeBall, nullptr);
+		
+			if(kicks<_numGraphemes-1)
+				target->runAction(sequence);
+			else {
+				auto endGame = CallFunc::create([=]() {
+
+					_menuContext->showScore();
+				});
+				auto sequence = Sequence::create(kickBall, moveTo, removeBall,  endGame, nullptr);
+				target->runAction(sequence);
+				
+			}
+
+			
 
 		}
 		return true;

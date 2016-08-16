@@ -15,7 +15,7 @@ public:
     static const char* gameName() { return WEMBLEY.c_str();}
     
 protected:
-	void Wembley::addEventsBall(cocos2d::Sprite* callerObject);
+	void addEventsBall(cocos2d::Sprite* callerObject);
 	cocos2d::Node* loadNode() override;
 	std::string getGridBackground() override;
 	void createChoice() override;
