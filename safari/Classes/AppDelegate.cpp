@@ -1,7 +1,7 @@
 #include "AppDelegate.h"
 #include "MapScene.h"
 #include "StartMenuScene.h"
-#include "GameMapScene.h"
+#include "ScrollableGameMapScene.hpp"
 #include "lang/SafariAnalyticsManager.h"
 
 USING_NS_CC;
@@ -101,7 +101,7 @@ bool AppDelegate::applicationDidFinishLaunching() {
     SafariAnalyticsManager::getInstance();
     
     // create a scene. it's an autorelease object
-    director->runWithScene(GameMapScene::createScene());
+    director->runWithScene(ScrollableGameMapScene::createScene());
     Application::getInstance()->getCurrentLanguage();
     return true;
 }
