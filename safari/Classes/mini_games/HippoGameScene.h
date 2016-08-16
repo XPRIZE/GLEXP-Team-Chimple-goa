@@ -19,6 +19,7 @@ public:
 	//Hippo * _hippo;
 	HippoGame();
 	~HippoGame();
+	int _wordLength;
 	float _sceneToScenDiff = 0.0f;
 	bool _layerChange = false;
 	static HippoGame* _hippoGame;

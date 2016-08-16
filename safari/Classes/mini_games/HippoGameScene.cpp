@@ -161,8 +161,8 @@ void HippoGame::stringGap(cocos2d::Layer * myLayer)
 	CCLOG("string   %s ", _randomWord.c_str());
 
 	int randomNumber = text->getGraphemes(_randomWord).size();
-	int size = randomNumber;
-	CCLOG("string size %d", size);
+	_wordLength = randomNumber;
+	CCLOG("string size %d", _wordLength);
 
 	_checkBox= Sprite::create("crossthebridge/barrier.png");
 	_checkBox->setPosition(Vec2(_xPos-100, _yPos));
@@ -177,7 +177,7 @@ void HippoGame::stringGap(cocos2d::Layer * myLayer)
 		_gapNodes.push_back((Node*)gap);
 		gap->setVisible(false);
 		myLayer->addChild(gap);
-		if (((int)ceil(size / 2.0)) == randomNumber) {
+		if (((int)ceil(_wordLength / 2.0)) == randomNumber) {
 			_movingBarrier = Sprite::create("crossthebridge/barrier.png");
 			_movingBarrier->setPosition(Vec2(_xPos,_yPos));
 			_movingBarrier->setVisible(false);
@@ -213,8 +213,17 @@ void HippoGame::afterStringGap(cocos2d::Layer * myLayer)
 	_sceneMovingBarrier->setVisible(false);
 	CCLOG("after string gap %f", _sceneMovingBarrier->getPositionX());
 	myLayer->addChild(_sceneMovingBarrier);
-	buildingMovingAction();
 	_xPos = build1->getContentSize().width + build1->getPositionX();
+	//if (_wordLength < 4) {
+		auto build2 = Sprite::createWithSpriteFrameName("hippo/b3.png");
+		build2->setPosition(Vec2(_xPos - (build2->getContentSize().width*0.19), _yPos));
+		build2->setAnchorPoint(Vec2(0, 1));
+		_xPos = build2->getContentSize().width + build2->getPositionX();
+		myLayer->addChild(build2);
+//	}
+
+	buildingMovingAction();
+	
 	myLayer->setContentSize(Size(_xPos,1800));
 	if (!_layerChange) {
 		_buildingLayer1->setPositionX(_xPos);
@@ -290,6 +299,19 @@ void HippoGame::update(float ft) {
 			}), NULL));*/
 			
 		}
+	}
+
+	if (_catLayer->getPositionX() < 0) {
+		if (!_catAnimation->isPlaying()) {
+			_catAnimation->play("catanim", false);
+		}
+		_catLayer->setPositionX(0);
+	}
+	if ((_catLayer->getPositionX() + _catNode->getContentSize().width + 450) > Director::getInstance()->getVisibleSize().width) {
+		if (!_catAnimation->isPlaying()) {
+			_catAnimation->play("catanim", false);
+		}
+		_catLayer->setPositionX(Director::getInstance()->getVisibleSize().width - _catNode->getContentSize().width - 450);
 	}
 }
 
