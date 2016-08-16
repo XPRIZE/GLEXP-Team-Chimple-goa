@@ -21,6 +21,7 @@
 #include "mini_games/AlphamonFeedScene.h"
 #include "StartMenuScene.h"
 #include "mini_games/Baja.h"
+#include "mini_games/HippoGameScene.h"
 #include "mini_games/Chain.h"
 #include "puzzle/PegWord.h"
 #include "puzzle/WordBoard.h"
@@ -90,7 +91,6 @@ void GameMapScene::loadGameMap() {
     this->addChild(rootNode);
     this->processChildNodes(rootNode);
 }
-
 
 void GameMapScene::processChildNodes(cocos2d::Node *rootNode) {
     //iterate thru all children
@@ -166,13 +166,13 @@ void GameMapScene::islandSelected(Ref* pSender, ui::Widget::TouchEventType eEven
             } else if(clickedButton->getName() == CANNON_BALL) {
                 Director::getInstance()->replaceScene(Jasmin_Mainfile::createScene());
             } else if(clickedButton->getName() == ENDLESS_RUNNER) {
-                Director::getInstance()->replaceScene(BajaWordScene::createScene());
+                Director::getInstance()->replaceScene(EndlessRunner::createScene());
             } else if(clickedButton->getName() == KUNG_FU_ALPHA) {
                 //Director::getInstance()->replaceScene(Trace::createScene(0));
 				Director::getInstance()->replaceScene(Wembley::createScene());
 				
             } else if(clickedButton->getName() == ALPHAMON_FEED) {
-                Director::getInstance()->replaceScene(AlphamonFeed::createScene());
+                Director::getInstance()->replaceScene(HippoGame::createScene());
             }
             break;
         }

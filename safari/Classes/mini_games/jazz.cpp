@@ -38,9 +38,9 @@ void jazz::createChoice() {
 		auto choiceNode = Sprite::createWithSpriteFrameName("jazz/drum.png");
 		choiceNode->setAnchorPoint(Vec2(0.5, 0.7));
 		//	choiceNode->setPosition(Vec2(i * 400, 0));
-		choiceNode->setPosition(Vec2((i + 1.1) * (squareWidth - 120), 100));
+		choiceNode->setPosition(Vec2((i + 0.5) * (squareWidth), 100));
 		_animate = CSLoader::createNode("jazz/gorilla.csb");
-		_animate->setPosition(Vec2((i + 1.1) * (squareWidth - 120), 100));
+		_animate->setPosition(Vec2((i + 0.5) * (squareWidth), 100));
 		_gorilla.push_back(_animate);
 		_choice->addChild(_animate);
 		auto animation = CSLoader::createTimeline("jazz/gorilla.csb");

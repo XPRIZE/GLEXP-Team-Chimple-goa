@@ -183,6 +183,8 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClCompile Include="..\Classes\mini_games\Chain.cpp" />
     <ClCompile Include="..\Classes\mini_games\CrossTheBridgeScene.cpp" />
     <ClCompile Include="..\Classes\mini_games\EndlessRunner.cpp" />
+    <ClCompile Include="..\Classes\mini_games\HippoGameScene.cpp" />
+    <ClCompile Include="..\Classes\mini_games\HippoScene.cpp" />
     <ClCompile Include="..\Classes\mini_games\Jasmin_Listenerfile.cpp" />
     <ClCompile Include="..\Classes\mini_games\Jasmin_Mainfile.cpp" />
     <ClCompile Include="..\Classes\mini_games\jazz.cpp" />
@@ -206,6 +208,7 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClCompile Include="..\Classes\RPGConfig.cpp" />
     <ClCompile Include="..\Classes\RPGSprite.cpp" />
     <ClCompile Include="..\Classes\RunningState.cpp" />
+    <ClCompile Include="..\Classes\ScrollableGameMapScene.cpp" />
     <ClCompile Include="..\Classes\SkeletonCharacter.cpp" />
     <ClCompile Include="..\Classes\SkeletonConfiguration.cpp" />
     <ClCompile Include="..\Classes\SkeletonPosition.cpp" />
@@ -260,6 +263,8 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClInclude Include="..\Classes\mini_games\Chain.h" />
     <ClInclude Include="..\Classes\mini_games\CrossTheBridgeScene.h" />
     <ClInclude Include="..\Classes\mini_games\EndlessRunner.h" />
+    <ClInclude Include="..\Classes\mini_games\HippoGameScene.h" />
+    <ClInclude Include="..\Classes\mini_games\HippoScene.h" />
     <ClInclude Include="..\Classes\mini_games\Jasmin_Listenerfile.h" />
     <ClInclude Include="..\Classes\mini_games\Jasmin_Mainfile.h" />
     <ClInclude Include="..\Classes\mini_games\jazz.h" />
@@ -283,6 +288,7 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClInclude Include="..\Classes\RPGConfig.h" />
     <ClInclude Include="..\Classes\RPGSprite.h" />
     <ClInclude Include="..\Classes\RunningState.h" />
+    <ClInclude Include="..\Classes\ScrollableGameMapScene.hpp" />
     <ClInclude Include="..\Classes\SkeletonCharacter.h" />
     <ClInclude Include="..\Classes\SkeletonConfiguration.h" />
     <ClInclude Include="..\Classes\SkeletonPosition.h" />
