@@ -21,6 +21,7 @@
 #include "mini_games/AlphamonFeedScene.h"
 #include "StartMenuScene.h"
 #include "mini_games/Baja.h"
+#include "mini_games/HippoGameScene.h"
 #include "mini_games/Chain.h"
 #include "puzzle/PegWord.h"
 #include "puzzle/WordBoard.h"
@@ -171,7 +172,7 @@ void GameMapScene::islandSelected(Ref* pSender, ui::Widget::TouchEventType eEven
 				Director::getInstance()->replaceScene(Wembley::createScene());
 				
             } else if(clickedButton->getName() == ALPHAMON_FEED) {
-                Director::getInstance()->replaceScene(AlphamonFeed::createScene());
+                Director::getInstance()->replaceScene(HippoGame::createScene());
             }
             break;
         }
