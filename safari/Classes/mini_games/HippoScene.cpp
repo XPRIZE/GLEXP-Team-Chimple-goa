@@ -80,6 +80,7 @@ void Hippo::gameOver(bool correct)
 {
 	if (correct) {
 		auto lastCharInfo = _gapNodes1.at(_numGraphemes - 1);
+		CCLOG("cat position %f", (_catNode1->getPositionX()));
 		auto moveTo = MoveBy::create(3, Vec2(lastCharInfo->getPositionX() - (_catNode1->getPositionX() ), 0));
 		_catAnimation1->play("catanim", true);
 		runAction(Sequence::create(TargetedAction::create(_catNode1, moveTo), CallFunc::create([=]() {

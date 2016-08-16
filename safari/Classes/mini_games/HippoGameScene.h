@@ -36,12 +36,13 @@ public:
 	void afterStringGap(cocos2d::Layer * myLayer);
 	void sceneMovingAction();
 protected:
-	cocos2d::Sprite* _backgroundBarrier, *_movingBarrier, *_sceneMovingBarrier;
+	cocos2d::Sprite* _backgroundBarrier, *_movingBarrier, *_sceneMovingBarrier, *_checkBox;
 	MenuContext* _menuContext;
 	void update(float ft) override;
 	float _xPos, _yPos;
 	std::string _randomWord;
 	cocos2d::Layer * _buildingLayer, *_catLayer, *_buildingLayer2,* _buildingLayer1, *_buildingLayer3, *_buildingLayer4, *_buildingLayer5;
 	void generateBuildingLayer();
+	void catMovement();
 };
 #endif 
