@@ -156,12 +156,17 @@ void HelloWorld::loadWords() {
         std::string word  = it->first;
         std::string nodeName = it->second;
         
-//        CCLOG("node=%s, word=%s", nodeName.c_str(), word.c_str());
+        CCLOG("node=%s, word=%s", nodeName.c_str(), word.c_str());
         Node* node = this->mainLayer->getChildByName(nodeName.c_str());
         if(node != NULL && !word.empty()) {
             this->createWordSprite(node, word, this->mainLayer);
+        } else {
+            node = this->foregroundLayer->getChildByName(nodeName.c_str());
+            if(node != NULL && !word.empty()) {
+                this->createWordSprite(node, word, this->foregroundLayer);
+            }
         }
-    }    
+    }
 }
 
 void HelloWorld::createWordSprite(Node* node, std::string word, Node* parentNode)
@@ -449,11 +454,11 @@ bool HelloWorld::init(const std::string& island, const std::string& sceneName)
     //Added for testing purpose - remove later....
     this->currentLangUtil = LangUtil::getInstance();
     auto defaultStr = this->currentLangUtil->translateString("Hello world!");
-//    CCLOG("defaultStr translatedString %s", defaultStr.c_str());
+//  CCLOG("defaultStr translatedString %s", defaultStr.c_str());
 
     
-    this->currentLangUtil->changeLanguage(SupportedLanguages::GERMAN);
-    auto translatedString = this->currentLangUtil->translateString("Hello world!");
+    //this->currentLangUtil->changeLanguage(SupportedLanguages::GERMAN);
+    //auto translatedString = this->currentLangUtil->translateString("Hello world!");
 //    CCLOG("translatedString %s", translatedString.c_str());
     //testing
     
@@ -525,6 +530,11 @@ void HelloWorld::registerMessageSenderAndReceiver() {
     this->getEventDispatcher()->addCustomEventListener(RPGConfig::ON_MENU_EXIT_NOTIFICATION, CC_CALLBACK_1(HelloWorld::transitToMenu, this));
 
     this->getEventDispatcher()->addCustomEventListener(RPGConfig::ON_ALPHAMON_PRESSED_NOTIFICATION, CC_CALLBACK_1(HelloWorld::alphamonDestroyed, this));
+    
+    
+    this->getEventDispatcher()->addCustomEventListener(RPGConfig::ON_WORD_INFO_NOTIFICATION, CC_CALLBACK_1(HelloWorld::changeWordScene, this));
+    
+    
 }
 
 void HelloWorld::alphamonDestroyed(EventCustom* event) {
@@ -655,21 +665,23 @@ void HelloWorld::transitToMenu(EventCustom * event) {
 void HelloWorld::cleanUpResources() {
     
     Vec2 origin = Director::getInstance()->getVisibleOrigin();
-    float xPos = this->skeletonCharacter->getSkeletonNode()->getPosition().x < 0 ? Director::getInstance()->getWinSize().width/2  : this->skeletonCharacter->getSkeletonNode()->getPosition().x > this->getSceneSize().width ? Director::getInstance()->getWinSize().width/2 : this->skeletonCharacter->getSkeletonNode()->getPosition().x;
-    
-    float yPos = this->skeletonCharacter->getSkeletonNode()->getPosition().y < 0 ? Y_OFFSET_IF_HERO_DISAPPER : this->skeletonCharacter->getSkeletonNode()->getPosition().y;
-    
-    if(this->skeletonCharacter->getSkeletonNode()->getPosition().y < 0) {
-        xPos = xPos - X_OFFSET_IF_HERO_DISAPPER;
+    if(this->skeletonCharacter != NULL) {
+        float xPos = this->skeletonCharacter->getSkeletonNode()->getPosition().x < 0 ? Director::getInstance()->getWinSize().width/2  : this->skeletonCharacter->getSkeletonNode()->getPosition().x > this->getSceneSize().width ? Director::getInstance()->getWinSize().width/2 : this->skeletonCharacter->getSkeletonNode()->getPosition().x;
+        
+        float yPos = this->skeletonCharacter->getSkeletonNode()->getPosition().y < 0 ? Y_OFFSET_IF_HERO_DISAPPER : this->skeletonCharacter->getSkeletonNode()->getPosition().y;
+        
+        if(this->skeletonCharacter->getSkeletonNode()->getPosition().y < 0) {
+            xPos = xPos - X_OFFSET_IF_HERO_DISAPPER;
+        }
+        
+        //record position in main Island in UserDefault
+        if(this->island == this->sceneName) {
+            UserDefault::getInstance()->setFloatForKey(SKELETON_POSITION_IN_PARENT_ISLAND_X, xPos);
+            UserDefault::getInstance()->setFloatForKey(SKELETON_POSITION_IN_PARENT_ISLAND_Y, yPos);
+        }
+        
+        this->sqlite3Helper->recordMainCharacterPositionInScene(this->island.c_str(), this->sceneName.c_str(), xPos, yPos);        
     }
-    
-    //record position in main Island in UserDefault
-    if(this->island == this->sceneName) {
-        UserDefault::getInstance()->setFloatForKey(SKELETON_POSITION_IN_PARENT_ISLAND_X, xPos);
-        UserDefault::getInstance()->setFloatForKey(SKELETON_POSITION_IN_PARENT_ISLAND_Y, yPos);
-    }
-    
-    this->sqlite3Helper->recordMainCharacterPositionInScene(this->island.c_str(), this->sceneName.c_str(), xPos, yPos);
     
     EVENT_DISPATCHER->removeCustomEventListeners(RPGConfig::MAIN_CHARACTER_VICINITY_CHECK_NOTIFICATION);
     EVENT_DISPATCHER->removeCustomEventListeners(RPGConfig::SPEECH_MESSAGE_ON_TAP_NOTIFICATION);
@@ -679,6 +691,7 @@ void HelloWorld::cleanUpResources() {
     EVENT_DISPATCHER->removeCustomEventListeners(RPGConfig::PROCESS_CUSTOM_MESSAGE_AND_CREATE_UI_NOTIFICATION);
     EVENT_DISPATCHER->removeCustomEventListeners(RPGConfig::ON_MENU_EXIT_NOTIFICATION);
     EVENT_DISPATCHER->removeCustomEventListeners(RPGConfig::ON_ALPHAMON_PRESSED_NOTIFICATION);
+    EVENT_DISPATCHER->removeCustomEventListeners(RPGConfig::ON_WORD_INFO_NOTIFICATION);
     
     CocosDenshion::SimpleAudioEngine::getInstance()->pauseBackgroundMusic();
     
@@ -708,6 +721,14 @@ void HelloWorld::changeScene(std::string nextScene, bool isMiniGame) {
         }
     }
 }
+
+void HelloWorld::changeWordScene(EventCustom * event) {
+    std::string &word = *(static_cast<std::string*>(event->getUserData()));
+    this->cleanUpResources();
+    CCLOG("changeWordScene %s", word.c_str());
+    Director::getInstance()->replaceScene(TransitionFade::create(3.0, WordBoard::createScene(), Color3B::BLACK));
+}
+
 
 void HelloWorld::processAnimationMessage(std::vector<MessageContent*>animationMessages) {
     
