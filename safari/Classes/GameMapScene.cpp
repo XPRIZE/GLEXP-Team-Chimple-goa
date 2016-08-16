@@ -91,7 +91,6 @@ void GameMapScene::loadGameMap() {
     this->processChildNodes(rootNode);
 }
 
-
 void GameMapScene::processChildNodes(cocos2d::Node *rootNode) {
     //iterate thru all children
     auto children = rootNode->getChildren();
@@ -166,7 +165,7 @@ void GameMapScene::islandSelected(Ref* pSender, ui::Widget::TouchEventType eEven
             } else if(clickedButton->getName() == CANNON_BALL) {
                 Director::getInstance()->replaceScene(Jasmin_Mainfile::createScene());
             } else if(clickedButton->getName() == ENDLESS_RUNNER) {
-                Director::getInstance()->replaceScene(BajaWordScene::createScene());
+                Director::getInstance()->replaceScene(EndlessRunner::createScene());
             } else if(clickedButton->getName() == KUNG_FU_ALPHA) {
                 //Director::getInstance()->replaceScene(Trace::createScene(0));
 				Director::getInstance()->replaceScene(Wembley::createScene());

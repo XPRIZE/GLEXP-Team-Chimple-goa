@@ -161,7 +161,7 @@ void ScrollableGameMapScene::gameSelected(Ref* pSender, ui::Widget::TouchEventTy
             } else if(clickedButton->getName() == CANNON_BALL) {
                 Director::getInstance()->replaceScene(Jasmin_Mainfile::createScene());
             } else if(clickedButton->getName() == ENDLESS_RUNNER) {
-                Director::getInstance()->replaceScene(BajaWordScene::createScene());
+                Director::getInstance()->replaceScene(EndlessRunner::createScene());
             } else if(clickedButton->getName() == KUNG_FU_ALPHA) {
                 Director::getInstance()->replaceScene(Trace::createScene(0));
             } else if(clickedButton->getName() == ALPHAMON_FEED) {
