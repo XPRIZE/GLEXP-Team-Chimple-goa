@@ -48,21 +48,20 @@ void jazz::createChoice() {
 		_jumping.push_back(_animation);
 		_animate->runAction(_animation);
 		_animation->play("jumping", true);
-	//	blinking("blinking", true);
+	//blinking("blinking", true);
 		auto blinkAction = CallFunc::create(CC_CALLBACK_0(jazz::blinking, this, "blinking", false));
-	    _animate->runAction(RepeatForever::create(Sequence::create(DelayTime::create(5 + (rand() % 60) / 30.0), blinkAction, NULL)));
+	    _animate->runAction(RepeatForever::create(Sequence::create(DelayTime::create(2+(rand() % 60) / 30.0), blinkAction, NULL)));
 	     addChoice(choiceNode);
 	}
 	
 }
 void jazz::blinking(std::string animationName, bool loop)
 {
-	
-	//_blinkAnimation = CSLoader::createTimeline("jazz/gorilla.csb");
-	for (auto obj = _jumping.rbegin(); obj != _jumping.rend(); ++obj)
+	for (auto item = _gorilla.rbegin(); item != _gorilla.rend(); ++item)
 	{
-		_blinkAnimation = *obj;
-		//_animate->runAction(_blinkAnimation);
+		Node * gorilla = *item;
+		_blinkAnimation = CSLoader::createTimeline("jazz/gorilla.csb");
+		gorilla->runAction(_blinkAnimation);
 		_blinkAnimation->play(animationName, loop);
 	}
 }
