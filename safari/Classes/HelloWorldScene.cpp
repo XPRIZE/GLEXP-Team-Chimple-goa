@@ -264,7 +264,6 @@ void HelloWorld::setReferencesToGameLayers(cocos2d::Node *rootNode) {
         //based on custom data create layers
         cocostudio::ComExtensionData* data = (cocostudio::ComExtensionData*)node->getComponent("ComExtensionData");
         if(data != NULL) {
-//            CCLOG("%s", data->getCustomProperty().c_str());
             std::string value = std::regex_replace(data->getCustomProperty(), std::regex("^ +| +$|( ) +"), "$1");
 
             if(value == MAIN_LAYER)
@@ -279,6 +278,7 @@ void HelloWorld::setReferencesToGameLayers(cocos2d::Node *rootNode) {
             }
         }
     }
+    assert(this->mainLayer != NULL);
 }
 
 void HelloWorld::calculateAlphamonNodesInScene(cocos2d::Node *rootNode) {
@@ -482,20 +482,20 @@ void HelloWorld::querySceneToLoadInIsland() {
     
     if(this->skeletonPositionInLastVisitedScene != NULL) {
         this->setSceneName(this->skeletonPositionInLastVisitedScene->getSceneName());
-        FileUtils::getInstance()->addSearchPath("res/" + this->getSceneName());
+//        FileUtils::getInstance()->addSearchPath("res/" + this->getSceneName());
     } else {
         if(!this->getSceneName().empty()) {
-            FileUtils::getInstance()->addSearchPath("res/" + this->getSceneName());
+//            FileUtils::getInstance()->addSearchPath("res/" + this->getSceneName());
         } else {
             this->setSceneName(this->getIsland());
-            FileUtils::getInstance()->addSearchPath("res/" + this->getIsland());
+//            FileUtils::getInstance()->addSearchPath("res/" + this->getIsland());
         }
     }
 }
 
 void HelloWorld::loadSqlite3FileForIsland() {
     std::string sqlite3FileName = this->getIsland() + ".db3";
-    String* connectionURL = String::createWithFormat("/res/%s/%s", this->getIsland().c_str(), sqlite3FileName.c_str());
+    String* connectionURL = String::createWithFormat("res/%s/%s", this->getIsland().c_str(), sqlite3FileName.c_str());
     this->sqlite3Helper = Sqlite3Helper::getInstance(connectionURL->getCString(), sqlite3FileName);
 }
 
