@@ -288,7 +288,7 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClInclude Include="..\Classes\RPGConfig.h" />
     <ClInclude Include="..\Classes\RPGSprite.h" />
     <ClInclude Include="..\Classes\RunningState.h" />
-    <ClInclude Include="..\Classes\ScrollableGameMapScene.hpp" />
+    <ClInclude Include="..\Classes\scrollablegamemapscene.hpp" />
     <ClInclude Include="..\Classes\SkeletonCharacter.h" />
     <ClInclude Include="..\Classes\SkeletonConfiguration.h" />
     <ClInclude Include="..\Classes\SkeletonPosition.h" />
