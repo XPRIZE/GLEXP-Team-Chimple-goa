@@ -28,6 +28,7 @@
 #include "puzzle/WordBoard.h"
 #include "mini_games/Wembley.h"
 #include "mini_games/BajaWordScene.h"
+#include "mini_games/HippoGameScene.h"
 USING_NS_CC;
 
 ScrollableGameMapScene::ScrollableGameMapScene()
@@ -161,11 +162,11 @@ void ScrollableGameMapScene::gameSelected(Ref* pSender, ui::Widget::TouchEventTy
             } else if(clickedButton->getName() == CANNON_BALL) {
                 Director::getInstance()->replaceScene(Jasmin_Mainfile::createScene());
             } else if(clickedButton->getName() == ENDLESS_RUNNER) {
-                Director::getInstance()->replaceScene(BajaWordScene::createScene());
+                Director::getInstance()->replaceScene(EndlessRunner::createScene());
             } else if(clickedButton->getName() == KUNG_FU_ALPHA) {
                 Director::getInstance()->replaceScene(Trace::createScene(0));
             } else if(clickedButton->getName() == ALPHAMON_FEED) {
-                Director::getInstance()->replaceScene(AlphamonFeed::createScene());
+                Director::getInstance()->replaceScene(HippoGame::createScene());
             } else if(clickedButton->getName() == BAJA) {
                 Director::getInstance()->replaceScene(BajaWordScene::createScene());
             } else if(clickedButton->getName() == ALPHAMON_COMBAT) {
