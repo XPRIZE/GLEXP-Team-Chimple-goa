@@ -260,6 +260,9 @@
     <ClCompile Include="..\Classes\puzzle\PegWord.cpp">
       <Filter>src\puzzle</Filter>
     </ClCompile>
+    <ClCompile Include="..\Classes\ScrollableGameMapScene.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -492,6 +495,9 @@
     </ClInclude>
     <ClInclude Include="..\Classes\puzzle\PegWord.h">
       <Filter>src\puzzle</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\ScrollableGameMapScene.hpp">
+      <Filter>src</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
