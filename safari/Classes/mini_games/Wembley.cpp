@@ -1,51 +1,268 @@
 #include "Wembley.h"
 #include "editor-support/cocostudio/CocoStudio.h"
 
+
+
 USING_NS_CC;
 
-float Wembley::height;
-float Wembley::width;
-float Wembley::originX;
-float Wembley::originY;
-
-Scene* Wembley::createScene()
-{
-	auto scene = Scene::create();
+Scene* Wembley::createScene() {
 	auto layer = Wembley::create();
-	scene->addChild(layer);
-
+	auto scene = GameScene::createWithChild(layer, "wembley");
+	layer->_menuContext = scene->getMenuContext();
 	return scene;
 }
 
-// on "init" you need to initialize your instance
-bool Wembley::init()
-{
-	if (!Layer::init())
-	{
-		return false;
-	}
+Node* Wembley::loadNode() {
 
 	Size visibleSize = Director::getInstance()->getVisibleSize();
 	Vec2 origin = Director::getInstance()->getVisibleOrigin();
+	
+	auto node = CSLoader::createNode("wembley/wembleybg.csb");
+	node->setPosition(Vec2(visibleSize.width / 2 + origin.x, visibleSize.height/2 + origin.y));
+	node->setAnchorPoint(Vec2(0.5, 0.5));
 
-	Wembley::height = visibleSize.height;
-	Wembley::width = visibleSize.width;
-	Wembley::originX = origin.x;
-	Wembley::originY = origin.y;
-
-	auto bg = CSLoader::createNode("wembley/wembleybg.csb");
-	bg->setPosition(Vec2(origin.x + visibleSize.width / 2, origin.y + visibleSize.height / 2));
-	bg->setAnchorPoint(Vec2(.5, .5));
-	this->addChild(bg);
-
-	startGame();
-
-	return true;
+	return node;
 }
 
-void Wembley::startGame()
+void Wembley::createAnswer() {
+
+	Size _size = Director::getInstance()->getVisibleSize();
+
+	auto label = ui::Text::create();
+	label->setString(_word);
+	label->setFontSize(200);
+	label->setFontName("fonts/arial.ttf");
+	label->setTextColor(Color4B::BLUE);
+	_answer = Node::create();
+	_answer->addChild(label);
+	_answer->setPosition(Vec2(_size.width / 2, _size.height * 88 / 100));
+	addChild(_answer);
+
+}
+
+void Wembley::createChoice() {
+	float wid = Director::getInstance()->getVisibleSize().width;
+	float hei = Director::getInstance()->getVisibleSize().height;
+
+	CocosDenshion::SimpleAudioEngine::getInstance()->preloadBackgroundMusic("./sounds/kick.wav");
+	CocosDenshion::SimpleAudioEngine::getInstance()->playBackgroundMusic("./sounds/applause.wav", true);
+	CocosDenshion::SimpleAudioEngine::getInstance()->playEffect("./sounds/applause.wav");
+	_choice = Node::create();
+	_choice->setPosition(Vec2(0, hei * 63 / 100));
+	addChild(_choice);
+
+	const float squareWidth = Director::getInstance()->getVisibleSize().width / _numGraphemes;
+	
+	_timeline.resize(_numGraphemes);
+	_character.resize(_numGraphemes); 
+	_clickBalls.resize(_numGraphemes);
+	_finish = 0;
+	
+	for (int i = 0; i < _numGraphemes; i++) {
+			
+
+		_timeline[i] = CSLoader::createTimeline("wembley/char.csb");
+		_character[i] = CSLoader::createNode("wembley/char.csb");
+		_character[i]->setPosition(Vec2((i + 0.4) * squareWidth, hei * 48 / 100));
+		_character[i]->setAnchorPoint(Vec2(0.5, 0.5));
+		addChild(_character[i], 0);
+		_character[i]->runAction(_timeline[i]);
+		_timeline[i]->play("front_idle", true);
+		
+		auto dotBall = Sprite::createWithSpriteFrameName("wembley/balldash.png");
+		dotBall->setPosition(Vec2((i + 0.7) * squareWidth, hei * -10/100));
+		addChoice(dotBall);
+	}
+	
+	_goalkeepertimeline = CSLoader::createTimeline("wembley/char.csb");
+	_goalKeeper = CSLoader::createNode("wembley/char.csb");
+	_goalKeeper->setPosition(Vec2((wid * 50) / 100, (hei * 69) / 100));
+	_goalKeeper->setScaleY(0.5);
+	addChild(_goalKeeper);
+	_goalKeeper->runAction(_goalkeepertimeline);
+	_goalkeepertimeline->play("front_idle", true);
+
+	
+}
+
+std::string Wembley::getGridBackground() {
+	return "wembley/ballshade.png";
+}
+
+std::string Wembley::getGraphemeUnselectedBackground() {
+	
+	return "wembley/ball.png";
+}
+
+std::string Wembley::getGraphemeSelectedBackground() {
+	return "wembley/ball.png";
+}
+
+int Wembley::getGridHeight() {
+	return 800;
+}
+
+Wembley* Wembley::create() {
+	Wembley* word = new (std::nothrow) Wembley();
+	if (word && word->init())
+	{
+		word->autorelease();
+		return word;
+	}
+	CC_SAFE_DELETE(word);
+	return nullptr;
+}
+
+void Wembley::gameOver(bool correct) {
+	if (correct) {
+		//_menuContext->showScore();
+
+		float wid = Director::getInstance()->getVisibleSize().width;
+		float hei = Director::getInstance()->getVisibleSize().height;
+		
+
+		auto delay = DelayTime::create(1.0f);
+		//auto callback = CallFunc::create(CC_CALLBACK_0(Grapheme::changeBackground, this));
+		
+		auto moveTo = MoveBy::create(0.7, Vec2((wid * 10) / 100, 0));
+		//auto sequence = Sequence::create(moveTo, delay, moveTo->reverse(), delay, moveTo, delay, moveTo->reverse(), nullptr);
+		
+	
+		auto sequence = Sequence::create(
+			moveTo, delay, 
+			moveTo, delay, 
+			moveTo, delay,
+			moveTo, delay,
+			moveTo, delay,
+			moveTo, delay
+			, nullptr);
+
+		_clickBallInitialPoints.resize(_numGraphemes);
+		//auto moveTo = MoveBy::create(0.7, Vec2((wid * 10) / 100, 0));
+		//_goalKeeper->runAction(sequence);
+		
+		
+		for (int i = 0; i < _numGraphemes; i++) {
+			cocos2d::Point tempPoint;
+			tempPoint.x = _answerVector.at(i).first->getPosition().x;
+
+			tempPoint.y = -1 * _answerVector.at(i).first->getPosition().y;
+
+			_clickBallInitialPoints[i] = tempPoint; //setPoint(_answerVector.at(i).first->getPosition().x, _answerVector.at(i).first->getPosition().y);
+			CCLOG("Point %d: %f %f", i, _answerVector.at(i).first->getPosition().x, _answerVector.at(i).first->getPosition().y);
+		
+			
+			
+		}
+		//_answerVector.at(0).first->setScale(0.5);
+		//_answerVector.clear();
+		
+		_choice->removeAllChildrenWithCleanup(true);
+		
+		for (int i = 0; i < _numGraphemes; i++) {
+			_timeline[i]->play("back_idle", true);
+			reorderChild(_character[i], 1);
+			_answerVector.at(i).second->setVisible(false);	
+
+
+			_clickBalls[i] = cocos2d::Sprite::create("wembley/ball.png");
+			_clickBalls[i]->setPosition(Vec2(_clickBallInitialPoints.at(i).x, hei * 55 / 100));
+			_clickBalls[i]->setScale(0.3);
+			_clickBalls[i]->setTag(i);
+			addChild(_clickBalls[i], 1);
+			addEventsBall(_clickBalls[i]);
+			
+		}
+
+		_answerVector.clear();
+		_finish = 1;
+
+		
+	}
+	else {
+	
+
+	}
+}
+
+
+void Wembley::addEventsBall(cocos2d::Sprite* callerObject)
 {
-	auto tg = TextGenerator::getInstance();
-	auto str = tg->generateAWord();
-	auto matrix = tg->generateMatrix(str, 2, 8);
+	static int kicks = 0;
+	auto listener = cocos2d::EventListenerTouchOneByOne::create();
+	listener->setSwallowTouches(false);
+
+	listener->onTouchBegan = [=](cocos2d::Touch* touch, cocos2d::Event* event)
+	{
+		auto target = event->getCurrentTarget();
+		Point locationInNode = target->convertToNodeSpace(touch->getLocation());
+		Size s = target->getContentSize();
+		Rect rect = Rect(0, 0, s.width, s.height);
+		if (target->getBoundingBox().containsPoint(touch->getLocation())) {
+
+			CocosDenshion::SimpleAudioEngine::getInstance()->playEffect("./sounds/kick.wav");
+
+			float wid = Director::getInstance()->getVisibleSize().width;
+			float hei = Director::getInstance()->getVisibleSize().height;
+			
+			auto moveTo = MoveTo::create(0.7, Vec2((wid * RandomHelper::random_int(20, 70)) / 100, (hei * RandomHelper::random_int(77, 90)) / 100));
+			
+			
+			auto removeBall = CallFunc::create([=]() {
+				
+				removeChild(target);				
+			});
+
+			auto kickBall = CallFunc::create([=]() {
+
+				//auto kickTimeline = CSLoader::createTimeline("wembley/char.csb");
+				//auto kick = CSLoader::createNode("wembley/char.csb");
+				//kick->setPosition(Vec2(target->getPosition()));
+
+				//addChild(kick);
+				//target->runAction(kickTimeline);
+				//_character[target->getTag()]->runAction(_timeline[target->getTag()]);
+				_timeline[target->getTag()]->play("kick", false);
+				kicks++;
+				CCLOG("kicks %d", kicks);
+				//kickTimeline->play("kick", false);
+			});
+
+			auto idleCharacter = CallFunc::create([=]() {
+
+				//auto kickTimeline = CSLoader::createTimeline("wembley/char.csb");
+				//auto kick = CSLoader::createNode("wembley/char.csb");
+				//kick->setPosition(Vec2(target->getPosition()));
+
+				//addChild(kick);
+				//target->runAction(kickTimeline);
+				//_character[target->getTag()]->runAction(_timeline[target->getTag()]);
+				_timeline[target->getTag()]->play("back_idle", true);
+				//kickTimeline->play("kick", false);
+			});
+			auto delay = DelayTime::create(0.5f);
+			//_menuContext->showScore();
+			
+			auto sequence = Sequence::create(kickBall, moveTo, removeBall, nullptr);
+		
+			if(kicks<_numGraphemes-1)
+				target->runAction(sequence);
+			else {
+				auto endGame = CallFunc::create([=]() {
+
+					_menuContext->showScore();
+				});
+				auto sequence = Sequence::create(kickBall, moveTo, removeBall,  endGame, nullptr);
+				target->runAction(sequence);
+				
+			}
+
+			
+
+		}
+		return true;
+	};
+	
+	_eventDispatcher->addEventListenerWithSceneGraphPriority(listener, callerObject);
+	
 }

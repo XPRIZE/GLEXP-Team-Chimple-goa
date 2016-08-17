@@ -6,7 +6,7 @@ $(call import-add-path,$(LOCAL_PATH)/../../cocos2d)
 $(call import-add-path,$(LOCAL_PATH)/../../cocos2d/external)
 $(call import-add-path,$(LOCAL_PATH)/../../cocos2d/cocos)
 
-LOCAL_MODULE := cocos2dcpp_shared
+LOCAL_MODULE := cocos2dcpp
 
 LOCAL_MODULE_FILENAME := libcocos2dcpp
 
@@ -30,8 +30,10 @@ LOCAL_SRC_FILES := hellocpp/main.cpp \
 					../../Classes/puzzle/CharGenerator.cpp \
 					../../Classes/puzzle/DuelScene.cpp \
 					../../Classes/puzzle/WordScene.cpp \
+					../../Classes/puzzle/WordBoard.cpp \
 					../../Classes/puzzle/Grapheme.cpp \
 					../../Classes/puzzle/GraphemeGrid.cpp \
+					../../Classes/puzzle/PegWord.cpp \
 					../../Classes/RPGConfig.cpp \
 					../../Classes/RPGSprite.cpp \
 					../../Classes/RunningState.cpp \
@@ -56,6 +58,13 @@ LOCAL_SRC_FILES := hellocpp/main.cpp \
 					../../Classes/mini_games/Cannon_Ball_Listener.cpp \
 					../../Classes/mini_games/Cannon_Ball_Main.cpp \
 					../../Classes/mini_games/Jasmin_Mainfile.cpp \
+					../../Classes/mini_games/Chain.cpp \
+					../../Classes/mini_games/jazz.cpp \
+					../../Classes/mini_games/Wembley.cpp \
+					../../Classes/mini_games/Baja.cpp \
+					../../Classes/mini_games/BajaWordScene.cpp \
+					../../Classes/mini_games/HippoGameScene.cpp \
+					../../Classes/mini_games/HippoScene.cpp \
 					../../Classes/menu/MenuContext.cpp \
 					../../Classes/lang/LangUtil.cpp \
 					../../Classes/lang/EnglishUtil.cpp \
@@ -75,8 +84,9 @@ LOCAL_SRC_FILES := hellocpp/main.cpp \
 					../../Classes/GameMapScene.cpp \
 					../../Classes/menu/ScoreBoardContent.cpp \
 					../../Classes/lang/WordManager.cpp \
-					../../Classes/WordSprite.cpp
-										
+					../../Classes/WordSprite.cpp \
+					../../Classes/lang/WordInfo.cpp \
+					../../Classes/ScrollableGameMapScene.cpp										
 
 LOCAL_C_INCLUDES := $(LOCAL_PATH)/../../Classes
 LOCAL_C_INCLUDES += $(LOCAL_PATH)/../../../extensions

@@ -27,6 +27,78 @@ THE SOFTWARE.
 package org.cocos2dx.cpp;
 
 import org.cocos2dx.lib.Cocos2dxActivity;
+import android.app.Activity;
+import android.content.Intent;
+import android.content.pm.ActivityInfo;
+import android.os.Bundle;
+import android.os.Handler;
+import android.util.Log;
+
 
 public class AppActivity extends Cocos2dxActivity {
+ //  static {
+ //    	System.out.println("Loaded library");
+ //        System.loadLibrary("MyGame");
+ //    }
+    
+	// public static Activity _activity;
+
+	// private Handler handler = null;
+
+	// @Override
+	// protected void onCreate(Bundle savedInstanceState) {
+	// 	super.onCreate(savedInstanceState);
+
+	// 	// Save activity instance
+	// 	_activity = this;
+	// 	handler = new Handler(getMainLooper());
+		
+	// 	setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
+	// }
+
+	// @Override
+	// public void onActivityResult(int requestCode, int resultCode, Intent data) {
+	// 	super.onActivityResult(requestCode, resultCode, data);
+	// 	if (resultCode == Activity.RESULT_OK) {
+	// 		final String photoUrl = data.getStringExtra(Utility.PHOTO_DESTINATION_URL);
+	// 		System.out.println("got result:" + photoUrl);
+
+	// 		handler.postDelayed(new Runnable() {
+	// 			public void run() {
+	// 				if (!photoUrl.isEmpty()) {
+	// 					execute(photoUrl);
+	// 				}
+	// 			}
+	// 		}, 100 * 1);
+
+	// 	} else {
+	// 		handler.postDelayed(new Runnable() {
+	// 			public void run() {
+	// 				execute("CANCELLED");
+	// 			}
+	// 		}, 100 * 1);
+			
+	// 	}
+	// }
+
+	// public static native boolean photoDestinationURL(String path);
+
+	// private void execute(final String photoUrl) {
+	// 	new Thread(new Runnable() {
+	// 		public void run() {
+	// 			System.out.println("comes and calling desimation with :" + photoUrl);
+	// 			photoDestinationURL(photoUrl);
+	// 		}
+	// 	}).start();
+	// }
+
+	// public static void takePhoto() {
+	// 	String tag = "Take Photo";
+	// 	String message = "I've been called from C++";
+	// 	Log.d(tag, "Showing alert dialog: " + message);
+
+	// 	Intent startCameraActivity = new Intent(_activity, CameraActivity.class);
+	// 	_activity.startActivityForResult(startCameraActivity, 0);
+
+	// }
 }

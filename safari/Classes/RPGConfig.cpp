@@ -38,6 +38,9 @@ const char* RPGConfig::ON_MENU_EXIT_NOTIFICATION = "on_menu_exit";
 
 const char* RPGConfig::ON_ALPHAMON_PRESSED_NOTIFICATION = "alphamon_destroyed";
 
+const char* RPGConfig::ON_WORD_INFO_NOTIFICATION = "on_word_selected";
+
+
 
 float RPGConfig::calcuateVelocityForJump(cocos2d::Point point1, cocos2d::Point point2, float angle, float xOffSet, float yOffSet) {
     float velocity = 0.0f;
@@ -45,13 +48,27 @@ float RPGConfig::calcuateVelocityForJump(cocos2d::Point point1, cocos2d::Point p
     double touchPointDifferenceX = point1.x - point2.x - xOffSet;
     double touchPointDifferneceY = point1.y - point2.y - yOffSet;
     
-    if(touchPointDifferenceX > HORIZONTAL_JUMP_THRESHOLD)
+    CCLOG("computed before touchPointDifferenceX %f", touchPointDifferenceX);
+    CCLOG("computed before touchPointDifferneceY %f", touchPointDifferneceY);
+
+    
+    if(std::abs(touchPointDifferenceX) > HORIZONTAL_JUMP_THRESHOLD)
     {
-        touchPointDifferenceX = HORIZONTAL_JUMP_THRESHOLD;
+        if(touchPointDifferenceX < 0) {
+            touchPointDifferenceX = -HORIZONTAL_JUMP_THRESHOLD;
+        } else {
+            touchPointDifferenceX = HORIZONTAL_JUMP_THRESHOLD;
+        }
+        
     }
     
-    if(touchPointDifferneceY > VERTICAL_JUMP_THRESHOLD) {
-        touchPointDifferneceY = VERTICAL_JUMP_THRESHOLD;
+    if(std::abs(touchPointDifferneceY) > VERTICAL_JUMP_THRESHOLD) {
+        if(touchPointDifferneceY < 0) {
+            touchPointDifferneceY = -VERTICAL_JUMP_THRESHOLD;
+        } else {
+            touchPointDifferneceY = VERTICAL_JUMP_THRESHOLD;
+        }
+        
     }
     
     CCLOG("computed touchPointDifferenceX %f", touchPointDifferenceX);

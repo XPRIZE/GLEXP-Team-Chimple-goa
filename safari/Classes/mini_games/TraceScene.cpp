@@ -295,7 +295,14 @@ void Trace::onTouchMoved(cocos2d::Touch *touch, cocos2d::Event *event) {
             if(++_currentNodeIndex < _nodes[_currentStroke].size()) {
                 auto nextNode = _nodes[_currentStroke][_currentNodeIndex];
                 auto nextDistance = n.distance(nextNode->getPosition());
-                if(nextDistance < 130) {
+				
+				int lastReached;
+				if(_currentNodeIndex  == _nodes[_currentStroke].size())
+					lastReached = 5;
+				else
+					lastReached = 130;
+
+                if(nextDistance < lastReached) {
                     CCLOG("reached next");
 					
 					//set it visible

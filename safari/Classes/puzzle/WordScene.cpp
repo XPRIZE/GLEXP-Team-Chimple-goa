@@ -32,35 +32,67 @@ WordScene* WordScene::create() {
     return nullptr;
 }
 
+WordScene* WordScene::createWithWord(std::string wordStr) {
+    WordScene* word = new (std::nothrow) WordScene();
+    if(word && word->initWithWord(wordStr))
+    {
+        word->autorelease();
+        return word;
+    }
+    CC_SAFE_DELETE(word);
+    return nullptr;
+}
+
 WordScene::WordScene() {
     
 }
 
 WordScene::~WordScene() {
-    
+    _eventDispatcher->removeCustomEventListeners("grapheme_anim_done");
 }
 
 bool WordScene::init() {
+    auto tg = TextGenerator::getInstance();
+    auto word = tg->generateAWord();
+    return initWithWord(word);
+}
+
+bool WordScene::initWithWord(std::string word) {
     if(!Node::init()) {
         return false;
     }
+    _word = word;
     auto tg = TextGenerator::getInstance();
-    _word = tg->generateAWord();
     _answerGraphemes = tg->getGraphemes(_word);
     _numGraphemes = _answerGraphemes.size();
-
-    addChild(loadNode());
-    createGrid();
+    
+    _background = loadNode();
+    addChild(_background);
     createAnswer();
     createChoice();
+    createGrid();
     _eventDispatcher->addCustomEventListener("grapheme_anim_done", CC_CALLBACK_0(WordScene::checkAnswer, this));
     return true;
+    
+}
+
+GraphemeGrid* WordScene::createGraphemeGrid(GLfloat width, GLfloat height, int numRows, int numCols, std::string spriteName, std::vector<std::vector<std::string>> graphemes, std::string graphemeUnselectedBackground, std::string graphemeSelectedBackground)
+{
+	return GraphemeGrid::create(width, height, numRows, numCols, spriteName, graphemes, graphemeUnselectedBackground, graphemeSelectedBackground);
 }
 
 void WordScene::createGrid() {
     Size visibleSize = Director::getInstance()->getVisibleSize();
-    _matrix = TextGenerator::getInstance()->generateMatrix(_word, 2, 8);
-    _grid = GraphemeGrid::create(visibleSize.width, getGridHeight(), getGridNumRows(), getGridNumCols(), getGridBackground(), _matrix);
+    _matrix = TextGenerator::getInstance()->generateMatrix(_word, getGridNumRows(), getGridNumCols());
+    _grid = createGraphemeGrid(visibleSize.width, getGridHeight(), getGridNumRows(), getGridNumCols(), getGridBackground(), _matrix, getGraphemeUnselectedBackground(), getGraphemeSelectedBackground());
+    auto unselBg = getGraphemeUnselectedBackground();
+    if(!unselBg.empty()) {
+        _grid->setGraphemeUnselectedBackground(unselBg);
+    }
+    auto selBg = getGraphemeSelectedBackground();
+    if(!selBg.empty()) {
+        _grid->setGraphemeSelectedBackground(selBg);
+    }
     _grid->setPosition(0, 0);
     addChild(_grid);
     _grid->touchEndedCallback = CC_CALLBACK_2(WordScene::onTouchEnded, this);
@@ -81,6 +113,15 @@ int WordScene::getGridNumCols() {
 std::string WordScene::getGridBackground() {
     return "smash_de_rock/letter_correct.png";
 }
+
+std::string WordScene::getGraphemeUnselectedBackground() {
+    return "";
+}
+
+std::string WordScene::getGraphemeSelectedBackground() {
+    return "";
+}
+
 
 Node* WordScene::loadNode() {
     auto background = CSLoader::createNode("smash_de_rock/MainScene.csb");
@@ -140,18 +181,24 @@ void WordScene::onTouchEnded(cocos2d::Touch *touch, cocos2d::Event *event) {
 }
 
 void WordScene::checkAnswer() {
-    for (auto i = 0; i < _answerGraphemes.size(); i++) {
-        auto grapheme = _answerVector.at(i).second;
-        if(grapheme == nullptr || grapheme->getGraphemeString() != _answerGraphemes.at(i)) {
-            return;
-        }
-    }
     if(_grid->getNumberOfActionsRunning() > 1) {
         return;
     }
-    gameOver();
+    bool correct = true;
+    for (auto i = 0; i < _answerGraphemes.size(); i++) {
+        auto grapheme = _answerVector.at(i).second;
+        if(grapheme == nullptr) {
+            return;
+        }
+        if(grapheme->getGraphemeString() != _answerGraphemes.at(i)) {
+            correct = false;
+        }
+    }
+    gameOver(correct);
 }
 
-void WordScene::gameOver() {
-    _menuContext->showScore();
+void WordScene::gameOver(bool correct) {
+    if(correct) {
+        _menuContext->showScore();        
+    }
 }
