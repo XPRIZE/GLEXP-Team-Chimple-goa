@@ -64,6 +64,7 @@ void jazz::blinking(std::string animationName, bool loop)
 		_blinkingRef.push_back(_blinkAnimation);
 		gorilla->runAction(_blinkAnimation);
 		_blinkAnimation->play(animationName, loop);
+		
 	}
 }
 void jazz::gameOver(bool correct) {
@@ -89,6 +90,7 @@ void jazz::gameOver(bool correct) {
 			auto druming = CSLoader::createTimeline("jazz/gorilla.csb");
 			gorilla->runAction(druming);
 			druming->play("druming", true);
+			this->scheduleOnce(schedule_selector(jazz::showScore), 5.0f);
 		//	druming->setAnimationEndCallFunc("druming", CC_CALLBACK_0(jazz::showScore, this));
 
 	    }
@@ -110,13 +112,14 @@ void jazz::gameOver(bool correct) {
 			auto druming = CSLoader::createTimeline("jazz/gorilla.csb");
 			gorilla->runAction(druming);
 			druming->play("sad", true);
+			this->scheduleOnce(schedule_selector(jazz::showScore), 5.0f);
 		//	druming->setAnimationEndCallFunc("sad", CC_CALLBACK_0(jazz::showScore, this));
 
 		}
 	}
 	
 }
-void jazz::showScore()
+void jazz::showScore(float dt)
 {
 	_menuContext->showScore();
 }

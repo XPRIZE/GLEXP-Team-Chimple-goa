@@ -13,7 +13,7 @@ public:
 	static cocos2d::Scene* createScene(); 
 	static jazz *create();
     static const char* gameName() { return JAZZ.c_str();}
-	void showScore();
+	void showScore(float dt);
 
 
 protected:
