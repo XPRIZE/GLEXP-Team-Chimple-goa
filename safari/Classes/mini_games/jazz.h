@@ -13,6 +13,8 @@ public:
 	static cocos2d::Scene* createScene(); 
 	static jazz *create();
     static const char* gameName() { return JAZZ.c_str();}
+	void showScore();
+
 
 protected:
 	cocos2d::Node* loadNode() override;
@@ -20,7 +22,8 @@ protected:
 	void createChoice() override;
 	void gameOver(bool correct);
 	std::vector<Node*> _gorilla;
-	std::vector<cocostudio::timeline::ActionTimeline *> _jumping;
+	std::vector<cocostudio::timeline::ActionTimeline *> _jumpingRef;
+	std::vector<cocostudio::timeline::ActionTimeline *> _blinkingRef;
 	Node* _animate;
 	cocostudio::timeline::ActionTimeline * _animation;
 	cocostudio::timeline::ActionTimeline * _blinkAnimation;
