@@ -248,6 +248,8 @@ public:
     static const char* ON_MENU_EXIT_NOTIFICATION;
     
     static const char* ON_ALPHAMON_PRESSED_NOTIFICATION;
+    
+    static const char* ON_WORD_INFO_NOTIFICATION;
         
     template <typename T>
     static inline std::string to_string(T value)

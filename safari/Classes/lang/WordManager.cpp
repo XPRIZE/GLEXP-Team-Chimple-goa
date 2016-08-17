@@ -16,7 +16,7 @@ USING_NS_CC;
 static WordManager* _instance = 0;
 
 
-WordManager::WordManager() {
+WordManager::WordManager(): pathToSQLConnection("") {
     
 }
 
@@ -74,6 +74,7 @@ bool WordManager::init()
 
 bool WordManager::openConnection(std::string pathToSQLConnection) {
     bool isConnectionOpenSuccessfully = false;
+    this->pathToSQLConnection = pathToSQLConnection;
     int result=sqlite3_open(pathToSQLConnection.c_str(),&this->dataBaseConnection);
     if(result == SQLITE_OK)
     {
@@ -94,7 +95,7 @@ WordInfo* WordManager::loadLanguageSpecificWordMappingForAWord(const char* word)
     
     sqlite3_stmt *res;
     int rc = 0;
-    
+    CCLOG("this->pathToSQLConnection %s", this->pathToSQLConnection.c_str());
     const char* querySQL =  "SELECT WORD_IN_ENGLISH, UTF_CONVERSION FROM LANG_SPECIFIC_WORD_MAPPINGS WHERE WORD_IN_ENGLISH = @wordName COLLATE NOCASE";
     
     
