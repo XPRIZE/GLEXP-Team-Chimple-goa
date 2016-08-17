@@ -43,6 +43,8 @@
 		37C7E1EC1D47CEFB005C89C0 /* MapScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 37C7E1EA1D47CEFB005C89C0 /* MapScene.cpp */; };
 		37C7E1EF1D47D673005C89C0 /* MapIsland.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 37C7E1EE1D47D673005C89C0 /* MapIsland.cpp */; };
 		37C7E1F01D47D673005C89C0 /* MapIsland.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 37C7E1EE1D47D673005C89C0 /* MapIsland.cpp */; };
+		37D7F41D1D641B1C00B0C0CE /* PhotoCaptureScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 37D7F41B1D641B1C00B0C0CE /* PhotoCaptureScene.cpp */; };
+		37D7F41E1D641B1C00B0C0CE /* PhotoCaptureScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 37D7F41B1D641B1C00B0C0CE /* PhotoCaptureScene.cpp */; };
 		37DF03DA1D44B8D4007252C6 /* LanguageManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 37DF03D91D44B8D4007252C6 /* LanguageManager.cpp */; };
 		37DF03DB1D44B8D4007252C6 /* LanguageManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 37DF03D91D44B8D4007252C6 /* LanguageManager.cpp */; };
 		3EACC98F19EE6D4300EB3C5E /* res in Resources */ = {isa = PBXBuildFile; fileRef = 3EACC98E19EE6D4300EB3C5E /* res */; };
@@ -293,6 +295,8 @@
 		37C7E1EA1D47CEFB005C89C0 /* MapScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MapScene.cpp; sourceTree = "<group>"; };
 		37C7E1ED1D47D666005C89C0 /* MapIsland.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapIsland.h; sourceTree = "<group>"; };
 		37C7E1EE1D47D673005C89C0 /* MapIsland.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MapIsland.cpp; sourceTree = "<group>"; };
+		37D7F41B1D641B1C00B0C0CE /* PhotoCaptureScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PhotoCaptureScene.cpp; sourceTree = "<group>"; };
+		37D7F41C1D641B1C00B0C0CE /* PhotoCaptureScene.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = PhotoCaptureScene.hpp; sourceTree = "<group>"; };
 		37DF03D81D44B8C3007252C6 /* LanguageManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LanguageManager.h; sourceTree = "<group>"; };
 		37DF03D91D44B8D4007252C6 /* LanguageManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LanguageManager.cpp; sourceTree = "<group>"; };
 		3EACC98E19EE6D4300EB3C5E /* res */ = {isa = PBXFileReference; lastKnownFileType = folder; path = res; sourceTree = "<group>"; };
@@ -638,6 +642,8 @@
 				F3913DA81D3F461A001B3038 /* GestureLayer.cpp */,
 				F3913D9E1D3F461A001B3038 /* GestureLayer.hpp */,
 				F3913DA91D3F461A001B3038 /* HelloWorldScene.cpp */,
+				37D7F41B1D641B1C00B0C0CE /* PhotoCaptureScene.cpp */,
+				37D7F41C1D641B1C00B0C0CE /* PhotoCaptureScene.hpp */,
 				F3913D901D3F461A001B3038 /* HelloWorldScene.h */,
 				F3913DAA1D3F461A001B3038 /* JumpingState.cpp */,
 				F3913D911D3F461A001B3038 /* JumpingState.h */,
@@ -1053,6 +1059,7 @@
 				37C7E1EF1D47D673005C89C0 /* MapIsland.cpp in Sources */,
 				F3913E271D3F46B1001B3038 /* TraceScene.cpp in Sources */,
 				F3913DD61D3F461A001B3038 /* RunningState.cpp in Sources */,
+				37D7F41D1D641B1C00B0C0CE /* PhotoCaptureScene.cpp in Sources */,
 				F39A19D01D589F81008B397D /* jazz.cpp in Sources */,
 				F3913DC01D3F461A001B3038 /* ExternalSkeletonCharacter.cpp in Sources */,
 				F3913DC61D3F461A001B3038 /* HelloWorldScene.cpp in Sources */,
@@ -1180,6 +1187,7 @@
 				F3913DDF1D3F461A001B3038 /* StandingState.cpp in Sources */,
 				F3913DDD1D3F461A001B3038 /* Sqlite3Helper.cpp in Sources */,
 				37533C961D507580008EEFD9 /* ScoreBoardContent.cpp in Sources */,
+				37D7F41E1D641B1C00B0C0CE /* PhotoCaptureScene.cpp in Sources */,
 				F3154ED81D62F76800049F42 /* HippoScene.cpp in Sources */,
 				F3913DC11D3F461A001B3038 /* ExternalSkeletonCharacter.cpp in Sources */,
 				376FEE811D3F66380037393F /* SkeletonPosition.cpp in Sources */,

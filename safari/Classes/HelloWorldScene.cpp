@@ -115,17 +115,14 @@ void HelloWorld::updatePositionAndCategoryBitMaskMainCharacter() {
 }
 
 void HelloWorld::loadGameScene() {
-    std::string buildPath;
     std::string mainSceneName = this->getSceneName() + ".csb";
     if(!sceneName.empty()) {
         this->setSceneName(sceneName);
-        buildPath = this->getSceneName();
     } else {
-        buildPath = this->getIsland();
     }
     
     
-    Node *rootNode = CSLoader::createNode(buildPath + "/" + mainSceneName);
+    Node *rootNode = CSLoader::createNode(mainSceneName);
     this->setSceneSize(rootNode->getContentSize());
     this->addChild(rootNode);
     
@@ -442,14 +439,18 @@ bool HelloWorld::init(const std::string& island, const std::string& sceneName)
     }
     
     this->setIsland(island);
+    if(!sceneName.empty()) {
+        this->setSceneName(sceneName);
+    }
+    
 
     //default sceneName should be the same as island and default search path
-//    if(!sceneName.empty()) {
-//        this->setSceneName(sceneName);
-//        FileUtils::getInstance()->addSearchPath("res/" + this->getSceneName());
-//    } else {
-//        FileUtils::getInstance()->addSearchPath("res/" + this->getIsland());
-//    }
+    if(!sceneName.empty()) {
+        this->setSceneName(sceneName);
+        FileUtils::getInstance()->addSearchPath("res/" + this->getSceneName());
+    } else {
+        FileUtils::getInstance()->addSearchPath("res/" + this->getIsland());
+    }
     
     //Added for testing purpose - remove later....
     this->currentLangUtil = LangUtil::getInstance();
@@ -487,13 +488,13 @@ void HelloWorld::querySceneToLoadInIsland() {
     
     if(this->skeletonPositionInLastVisitedScene != NULL) {
         this->setSceneName(this->skeletonPositionInLastVisitedScene->getSceneName());
-//        FileUtils::getInstance()->addSearchPath("res/" + this->getSceneName());
+        FileUtils::getInstance()->addSearchPath("res/" + this->getSceneName());
     } else {
         if(!this->getSceneName().empty()) {
-//            FileUtils::getInstance()->addSearchPath("res/" + this->getSceneName());
+            FileUtils::getInstance()->addSearchPath("res/" + this->getSceneName());
         } else {
             this->setSceneName(this->getIsland());
-//            FileUtils::getInstance()->addSearchPath("res/" + this->getIsland());
+            FileUtils::getInstance()->addSearchPath("res/" + this->getIsland());
         }
     }
 }
@@ -522,6 +523,7 @@ void HelloWorld::registerMessageSenderAndReceiver() {
     
     auto processMessageEvent = [=] (EventCustom * event) {
         std::vector<MessageContent*>*messages = reinterpret_cast<std::vector<MessageContent*>*>(event->getUserData());
+        Director::getInstance()->getEventDispatcher()->pauseEventListenersForTarget(this);
         this->processMessage(messages);
     };
     
@@ -854,8 +856,6 @@ void HelloWorld::processMessage(std::vector<MessageContent*>*messages) {
             ownerOfMessage = content->getOwner();
             changeSceneMessages.push_back(content);
         }
-
-        
     }
     
     if(!textMap.empty()) {
