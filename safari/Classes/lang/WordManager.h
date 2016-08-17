@@ -29,7 +29,7 @@ private:
     WordManager();
     bool openConnection(std::string pathToSQLConnection);
     bool closeConnection();
-    
+    std::string pathToSQLConnection;
     sqlite3 *dataBaseConnection;
 };
 

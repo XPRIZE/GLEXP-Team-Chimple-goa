@@ -45,48 +45,53 @@ void jazz::createChoice() {
 		_gorilla.push_back(_animate);
 		_choice->addChild(_animate);
 		_animation = CSLoader::createTimeline("jazz/gorilla.csb");
-		_jumping.push_back(_animation);
+		_jumpingRef.push_back(_animation);
 		_animate->runAction(_animation);
 		_animation->play("jumping", true);
-	//	blinking("blinking", true);
+	//blinking("blinking", true);
 		auto blinkAction = CallFunc::create(CC_CALLBACK_0(jazz::blinking, this, "blinking", false));
-	    _animate->runAction(RepeatForever::create(Sequence::create(DelayTime::create(5 + (rand() % 60) / 30.0), blinkAction, NULL)));
+	    _animate->runAction(RepeatForever::create(Sequence::create(DelayTime::create(2), blinkAction, NULL)));
 	     addChoice(choiceNode);
 	}
 	
 }
 void jazz::blinking(std::string animationName, bool loop)
 {
-	
-	//_blinkAnimation = CSLoader::createTimeline("jazz/gorilla.csb");
-	for (auto obj = _jumping.rbegin(); obj != _jumping.rend(); ++obj)
+	for (auto item = _gorilla.rbegin(); item != _gorilla.rend(); ++item)
 	{
-		_blinkAnimation = *obj;
-		//_animate->runAction(_blinkAnimation);
+		Node * gorilla = *item;
+		_blinkAnimation = CSLoader::createTimeline("jazz/gorilla.csb");
+		_blinkingRef.push_back(_blinkAnimation);
+		gorilla->runAction(_blinkAnimation);
 		_blinkAnimation->play(animationName, loop);
 	}
 }
 void jazz::gameOver(bool correct) {
 	if (correct) {
-		//_menuContext->showScore();
-		for ( auto obj= _jumping.rbegin(); obj != _jumping.rend() ; ++ obj )
+		
+		for ( auto obj= _jumpingRef.rbegin(); obj != _jumpingRef.rend() ; ++ obj )
 		{
 			cocostudio::timeline::ActionTimeline * jump = *obj;
 			jump->stop();
 		}
 
+		for (auto obj = _blinkingRef.rbegin(); obj != _blinkingRef.rend(); ++obj)
+		{
+			cocostudio::timeline::ActionTimeline * jump = *obj;
+			jump->stop();
+		}
 
 		for (auto item = _gorilla.rbegin(); item != _gorilla.rend(); ++item)
 		{
 			
 			Node * gorilla = *item;
-			_animation->stop();
 			gorilla->setScale(0.75);
 			auto druming = CSLoader::createTimeline("jazz/gorilla.csb");
 			gorilla->runAction(druming);
 			druming->play("druming", true);
-			
-	}
+		//	druming->setAnimationEndCallFunc("druming", CC_CALLBACK_0(jazz::showScore, this));
+
+	    }
 		
 		//auto sprite = animate->getChildByName("gorilla");
 		//sprite->setPosition();
@@ -101,16 +106,20 @@ void jazz::gameOver(bool correct) {
 		{
 
 			Node * gorilla = *item;
-			_animation->stop();
 			gorilla->setScale(0.75);
 			auto druming = CSLoader::createTimeline("jazz/gorilla.csb");
 			gorilla->runAction(druming);
 			druming->play("sad", true);
+		//	druming->setAnimationEndCallFunc("sad", CC_CALLBACK_0(jazz::showScore, this));
 
 		}
 	}
+	
 }
-
+void jazz::showScore()
+{
+	_menuContext->showScore();
+}
 
 std::string jazz::getGridBackground() {
 	return "jazz/drum_below.png";

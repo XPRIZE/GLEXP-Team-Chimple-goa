@@ -32,6 +32,7 @@
 #include "lang/LangUtil.h"
 #include "puzzle/CharGenerator.h"
 #include "WordSprite.h"
+#include "puzzle/WordBoard.h"
 
 class GestureLayer;
 class MessageContent;
@@ -165,6 +166,8 @@ private:
     void createWordSprite(cocos2d::Node* node, std::string word, cocos2d::Node* parentNode);
     
     void handleCharacterMovement(cocos2d::Point position);
+    
+    void changeWordScene(EventCustom * event);
     
     cocos2d::Size sceneSize;
     

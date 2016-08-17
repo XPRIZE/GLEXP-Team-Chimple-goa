@@ -154,6 +154,16 @@ void WordSprite::touchEnded(Touch *touch, Event *event)
 {
     CCLOG("PLAYING GAME WITH WORD %s", this->word.c_str());
     WordInfo* wordInfo = LangUtil::getInstance()->loadLanguageSpecificWordMappingForAWord(this->word.c_str());
+    if(wordInfo != NULL) {
+        std::string utfWord = wordInfo->getUtfConversion();
+        CCLOG("UTF word %s", utfWord.c_str());
+    
+        EventCustom event(RPGConfig::ON_WORD_INFO_NOTIFICATION);
+        std::string s(utfWord);
+        event.setUserData(&s);
+        _eventDispatcher->dispatchEvent(&event);        
+    }
+    
     if(this->touchPointerNode != NULL) {
         this->touchPointerNode->setVisible(false);
     }
