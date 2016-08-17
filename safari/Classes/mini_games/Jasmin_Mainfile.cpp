@@ -94,8 +94,8 @@ void Jasmin_Mainfile::gameOver(bool correct) {
 			fileName << ".csb";
 
 			auto tree = CSLoader::createNode(fileName.str());
-			tree->setPosition(Vec2(_positionX[item], _positionY[item]));
-			addChoice(tree);
+			tree->setPosition(Vec2(_positionX[item], hei * 47 / 100));
+			addChild(tree);
 
 			auto animation = CSLoader::createTimeline(fileName.str());
 			tree->runAction(animation);
