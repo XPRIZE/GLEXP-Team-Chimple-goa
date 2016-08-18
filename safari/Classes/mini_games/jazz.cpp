@@ -3,7 +3,14 @@
 
 
 USING_NS_CC;
+jazz::jazz()
+{
 
+}
+jazz::~jazz()
+{
+
+}
 Scene* jazz::createScene() {
 	auto layer = jazz::create();
 	auto scene = GameScene::createWithChild(layer, "jazz");
