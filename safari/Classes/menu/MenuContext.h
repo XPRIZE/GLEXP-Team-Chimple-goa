@@ -15,6 +15,7 @@
 #include "../alphamon/HPMeter.h"
 #include "editor-support/cocostudio/CocoStudio.h"
 #include "ScoreBoardContext.h"
+#include "../lang/SafariAnalyticsManager.h"
 
 #define GAME_MAP_MENU "GameMapScene"
 #define HELP_MENU "HelpScene"
@@ -23,7 +24,7 @@
 #define BOOK_MENU "BookScene"
 #define BAG_PACK_MENU "BagpackScene"
 
-class GameMapScene;
+class ScrollableGameMapScene;
 class MenuContext : public cocos2d::Node {
     
 public:
@@ -60,6 +61,7 @@ protected:
     cocos2d::ui::Button* _mapMenu;
     cocos2d::ui::Button* _bookMenu;
     cocos2d::ui::Button* _gamesMenu;
+    cocos2d::ui::Button* _photoMenu;
     cocos2d::LayerColor* _greyLayer;
     cocos2d::Node* _chimp;
     int _chimpAudioId;
