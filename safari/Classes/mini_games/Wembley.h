@@ -13,7 +13,7 @@ public:
 	static cocos2d::Scene* createScene();
 	static Wembley *create();
     static const char* gameName() { return WEMBLEY.c_str();}
-    
+	~Wembley();
 protected:
 	void addEventsBall(cocos2d::Sprite* callerObject);
 	cocos2d::Node* loadNode() override;
@@ -31,6 +31,7 @@ protected:
 	std::vector<cocos2d::Point> _clickBallInitialPoints;
 	std::vector<cocos2d::Sprite* > _clickBalls;
 	int _finish;
+	
 };
 
 #endif // Wembley_SCENE_H__

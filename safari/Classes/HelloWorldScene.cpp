@@ -202,11 +202,11 @@ void HelloWorld::processNodeWithCustomAttributes(Node* node, Node* parentNode) {
             std::unordered_map<std::string,std::string>::const_iterator itRight = attributes.find("right");
             if ( it != attributes.end() ) {
                 std::string fileName(it->second);
-                fileName = std::regex_replace(fileName, std::regex("^ +| +$|( ) +"), "$1");
+            //    fileName = std::regex_replace(fileName, std::regex("^ +| +$|( ) +"), "$1");
 
                 if(regex_match(fileName, skeletonFile)) {
                     //process hero node
-                    std::string value = std::regex_replace(node->getName(), std::regex("^ +| +$|( ) +"), "$1");
+					std::string value = node->getName();// std::regex_replace(node->getName(), std::regex("^ +| +$|( ) +"), "$1");
                     if(RPGConfig::compareCaseInsensitive(value,HUMAN_SKELETON_NAME)) {
                         //create Hero character
                         this->addMainCharacterToScene(fileName, node);
@@ -266,7 +266,7 @@ void HelloWorld::setReferencesToGameLayers(cocos2d::Node *rootNode) {
         //based on custom data create layers
         cocostudio::ComExtensionData* data = (cocostudio::ComExtensionData*)node->getComponent("ComExtensionData");
         if(data != NULL) {
-            std::string value = std::regex_replace(data->getCustomProperty(), std::regex("^ +| +$|( ) +"), "$1");
+			std::string value = data->getCustomProperty();// std::regex_replace(data->getCustomProperty(), std::regex("^ +| +$|( ) +"), "$1");
 
             if(value == MAIN_LAYER)
             {
@@ -334,9 +334,9 @@ void HelloWorld::enablePhysicsBoundaries(Node* rootNode) {
         fileProcessed = PhysicsShapeCache::getInstance()->addShapesWithFile(this->getSceneName()+"/"+this->getPhysicsFile())
         ;        
     }
-    std::regex pattern(".*(_[[:d:]+]+)+");
-    for (auto child : rootNode->getChildren()) {
+    for (Node* child : rootNode->getChildren()) {
         CCLOG("processing child %s", child->getName().c_str());
+        
         PhysicsShapeCache::getInstance()->setBodyOnSprite(child->getName(), (Sprite *)child);
         if(child->getChildrenCount() > 0) {
             for (auto subChild : child->getChildren()) {
@@ -346,16 +346,11 @@ void HelloWorld::enablePhysicsBoundaries(Node* rootNode) {
                     Sprite* sprite = dynamic_cast<Sprite*>(subChild);
                     if(sprite) {
                         auto matchingName = subChild->getName();
-                        
-                        std::string v1 = subChild->getName();
-                        
-                        do {
-                            std::size_t found = matchingName.find_last_of("_");
-                            matchingName = matchingName.substr(0,found);
-                        } while(regex_match(matchingName, pattern));
-                        
-                        CCLOG("matchingName %s", matchingName.c_str());
-                        PhysicsShapeCache::getInstance()->setBodyOnSprite(matchingName, (Sprite *)subChild);
+                        std::string textureFileName = sprite->getTexture()->getPath();
+                        std::size_t found = textureFileName.find_last_of("/");
+                        textureFileName = textureFileName.substr(found+1);
+                        PhysicsShapeCache::getInstance()->setBodyOnSprite(textureFileName, (Sprite *)subChild);
+                        CCLOG("processing textureFileName %s", textureFileName.c_str());
                         auto body = subChild->getPhysicsBody();
                         if(body) {
                             this->mainCharacterCategoryBitMask = this->mainCharacterCategoryBitMask | body->getCategoryBitmask();
@@ -381,14 +376,12 @@ void HelloWorld::enablePhysicsBoundaries(Node* rootNode) {
             if(dynamic_cast<Sprite*>(child)) {
                 Sprite* sprite = dynamic_cast<Sprite*>(child);
                 if(sprite) {
-                    std::string matchingName = child->getName();
-                    do {
-                        std::size_t found = matchingName.find_last_of("_");
-                        matchingName = matchingName.substr(0,found);
-                    } while(regex_match(matchingName, pattern));
+                    std::string textureFileName = sprite->getTexture()->getPath();
+                    std::size_t found = textureFileName.find_last_of("/");
+                    textureFileName = textureFileName.substr(found+1);
+                    CCLOG("processing textureFileName %s", textureFileName.c_str());
+                    PhysicsShapeCache::getInstance()->setBodyOnSprite(textureFileName, (Sprite *)child);
                     
-                    CCLOG("matchingName %s", matchingName.c_str());
-                    PhysicsShapeCache::getInstance()->setBodyOnSprite(matchingName, (Sprite *)child);
                     auto body = child->getPhysicsBody();
                     if(body) {
                         this->mainCharacterCategoryBitMask = this->mainCharacterCategoryBitMask | body->getCategoryBitmask();
@@ -732,7 +725,7 @@ void HelloWorld::changeWordScene(EventCustom * event) {
     std::string &word = *(static_cast<std::string*>(event->getUserData()));
     this->cleanUpResources();
     CCLOG("changeWordScene %s", word.c_str());
-    Director::getInstance()->replaceScene(TransitionFade::create(3.0, WordBoard::createScene(), Color3B::BLACK));
+    Director::getInstance()->replaceScene(TransitionFade::create(3.0, WordBoard::createSceneWithWordInIslandAndSceneName(word, this->getIsland(), this->getSceneName()), Color3B::BLACK));
 }
 
 

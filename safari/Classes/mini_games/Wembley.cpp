@@ -44,9 +44,9 @@ void Wembley::createChoice() {
 	float wid = Director::getInstance()->getVisibleSize().width;
 	float hei = Director::getInstance()->getVisibleSize().height;
 
-	CocosDenshion::SimpleAudioEngine::getInstance()->preloadBackgroundMusic("./sounds/kick.wav");
-	CocosDenshion::SimpleAudioEngine::getInstance()->playBackgroundMusic("./sounds/applause.wav", true);
-	CocosDenshion::SimpleAudioEngine::getInstance()->playEffect("./sounds/applause.wav");
+	CocosDenshion::SimpleAudioEngine::getInstance()->preloadBackgroundMusic("sounds/kick.wav");
+	CocosDenshion::SimpleAudioEngine::getInstance()->playBackgroundMusic("sounds/applause.mp3", true);
+	CocosDenshion::SimpleAudioEngine::getInstance()->playEffect("sounds/applause.mp3");
 	_choice = Node::create();
 	_choice->setPosition(Vec2(0, hei * 63 / 100));
 	addChild(_choice);
@@ -57,6 +57,7 @@ void Wembley::createChoice() {
 	_character.resize(_numGraphemes); 
 	_clickBalls.resize(_numGraphemes);
 	_finish = 0;
+	
 	
 	for (int i = 0; i < _numGraphemes; i++) {
 			
@@ -166,9 +167,9 @@ void Wembley::gameOver(bool correct) {
 			_answerVector.at(i).second->setVisible(false);	
 
 
-			_clickBalls[i] = cocos2d::Sprite::create("wembley/ball.png");
+			_clickBalls[i] = cocos2d::Sprite::createWithSpriteFrameName("wembley/ball.png");
 			_clickBalls[i]->setPosition(Vec2(_clickBallInitialPoints.at(i).x, hei * 55 / 100));
-			_clickBalls[i]->setScale(0.3);
+			_clickBalls[i]->setScale(0.6);
 			_clickBalls[i]->setTag(i);
 			addChild(_clickBalls[i], 0);
 			addEventsBall(_clickBalls[i]);
@@ -250,7 +251,8 @@ void Wembley::addEventsBall(cocos2d::Sprite* callerObject)
 				target->runAction(sequence);
 			else {
 				auto endGame = CallFunc::create([=]() {
-
+					 kicks = 0;
+					 _finish = 0;
 					_menuContext->showScore();
 				});
 				auto sequence = Sequence::create(kickBall, moveTo, removeBall,  endGame, nullptr);
@@ -266,4 +268,9 @@ void Wembley::addEventsBall(cocos2d::Sprite* callerObject)
 	
 	_eventDispatcher->addEventListenerWithSceneGraphPriority(listener, callerObject);
 	
+}
+
+Wembley::~Wembley(void) {
+
+	_finish = 0;
 }

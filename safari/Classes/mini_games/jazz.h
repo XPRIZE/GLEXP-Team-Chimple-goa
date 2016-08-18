@@ -6,7 +6,7 @@
 #include "../puzzle/WordScene.h"
 #include "../GameScene.h"
 #include "StartMenuScene.h"
-
+#include "SimpleAudioEngine.h" 
 class jazz : public WordScene
 {
 public:
@@ -14,7 +14,9 @@ public:
 	static jazz *create();
     static const char* gameName() { return JAZZ.c_str();}
 	void showScore(float dt);
-
+	CocosDenshion::SimpleAudioEngine* _audioCorrect;
+	jazz();
+	~jazz();
 
 protected:
 	cocos2d::Node* loadNode() override;

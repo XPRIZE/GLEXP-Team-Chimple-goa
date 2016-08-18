@@ -15,6 +15,7 @@ class WordBoard : public WordScene {
 public:
     static cocos2d::Scene* createScene();
     static cocos2d::Scene* createSceneWithWord(std::string wordStr);
+    static cocos2d::Scene* createSceneWithWordInIslandAndSceneName(std::string wordStr, std::string island, std::string sceneName);
     static WordBoard* create();
     static WordBoard* createWithWord(std::string wordStr);
     void checkAnswer() override;

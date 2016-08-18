@@ -7,13 +7,14 @@
 //
 
 #include "ScoreBoardContext.h"
+#include "HelloWorldScene.h"
 
 USING_NS_CC;
 
-ScoreBoardContext* ScoreBoardContext::create(int points, std::string gameName)
+ScoreBoardContext* ScoreBoardContext::create(int points, std::string gameName, std::string sceneName)
 {
     ScoreBoardContext* scoreBoard = new (std::nothrow) ScoreBoardContext();
-    if(scoreBoard && scoreBoard->init(points, gameName)) {
+    if(scoreBoard && scoreBoard->init(points, gameName, sceneName)) {
         scoreBoard->autorelease();
         return scoreBoard;
     }
@@ -31,7 +32,7 @@ _points(0)
 ScoreBoardContext::~ScoreBoardContext() {
 }
 
-bool ScoreBoardContext::init(int points, std::string gameName)
+bool ScoreBoardContext::init(int points, std::string gameName, std::string sceneName)
 {
     //////////////////////////////
     // 1. super init first
@@ -43,6 +44,7 @@ bool ScoreBoardContext::init(int points, std::string gameName)
     FileUtils::getInstance()->addSearchPath("res/scoreboard");
     this->_points = points;
     this->_gameName = gameName;
+    this->_sceneName = sceneName;
     this->createScoreBoard();
     
     return true;
@@ -129,6 +131,14 @@ void ScoreBoardContext::showStars() {
 
 }
 
+void ScoreBoardContext::transit() {
+    if(!this->_sceneName.empty()) {
+        Director::getInstance()->replaceScene(TransitionFade::create(3.0, HelloWorld::createScene(this->_gameName,this->_sceneName), Color3B::BLACK));
+
+    } else {
+        StartMenu::startScene(this->_gameName);
+    }
+}
 
 void ScoreBoardContext::buttonClicked(Ref* pSender, ui::Widget::TouchEventType eEventType)
 {
@@ -142,14 +152,19 @@ void ScoreBoardContext::buttonClicked(Ref* pSender, ui::Widget::TouchEventType e
             break;
         case ui::Widget::TouchEventType::ENDED:
         {
-            if(clickedButton->getName() == "close") {
-                StartMenu::startScene(this->_gameName);
+            if(clickedButton->getName() == "close") {                
+                this->transit();
             }
             else if(clickedButton->getName() == "home") {
-                Director::getInstance()->replaceScene(TransitionFade::create(1.0, ScrollableGameMapScene::createScene(), Color3B::BLACK));
+                if(!this->_sceneName.empty()) {
+                    Director::getInstance()->replaceScene(TransitionFade::create(3.0, HelloWorld::createScene("camp",""), Color3B::BLACK));
+                    
+                } else {
+                    Director::getInstance()->replaceScene(TransitionFade::create(1.0, ScrollableGameMapScene::createScene(), Color3B::BLACK));
+                }
             }
             else  {
-                StartMenu::startScene(this->_gameName);
+                this->transit();
             }
             
             break;

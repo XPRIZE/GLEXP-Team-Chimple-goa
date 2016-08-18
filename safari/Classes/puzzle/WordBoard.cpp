@@ -25,6 +25,13 @@ cocos2d::Scene* WordBoard::createSceneWithWord(std::string wordStr) {
     return scene;
 }
 
+cocos2d::Scene* WordBoard::createSceneWithWordInIslandAndSceneName(std::string wordStr, std::string island, std::string sceneName) {
+    auto layer = WordBoard::createWithWord(wordStr);
+    auto scene = GameScene::createWithChildForIslandAndSceneName(layer, island, sceneName);
+    layer->_menuContext = scene->getMenuContext();
+    return scene;
+}
+
 
 WordBoard* WordBoard::create() {
     WordBoard* word = new (std::nothrow) WordBoard();
