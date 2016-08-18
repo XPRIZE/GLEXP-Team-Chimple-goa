@@ -41,7 +41,7 @@ GraphemeGrid* Chain::createGraphemeGrid(GLfloat width, GLfloat height, int numRo
 Node* Chain::loadNode() {
 	std::string chainSceneType[] = { "monkey","elephant","flamingo" };
 	Chain::_SS = chainSceneType[RandomHelper::random_int(0, 2)];
-	//Chain::_SS = "flamingo";
+	Chain::_SS = "flamingo";
 	if (!Chain::_SS.compare("monkey"))
 	{
 		_node = CSLoader::createNode("chain/chain.csb");
@@ -102,6 +102,7 @@ void Chain::createChoice() {
 			//auto choiceNode = Sprite::createWithSpriteFrameName("chain/monkey.png");
 			choiceNode->setPosition(Vec2(i*sampleMonkey->getBoundingBox().size.width, 40));
 			choiceNode->setScale(0.8);
+			choiceNode->setAnchorPoint(Vec2(0.1, 0.5));
 			choiceNode->setVisible(true);
 			addChoice(choiceNode);
 		}
@@ -197,57 +198,58 @@ void Chain::gameOver(bool correct)
 
 		if (!Chain::_SS.compare("monkey"))
 		{
-			auto callShowScore = CCCallFunc::create([=] {
-				_menuContext->showScore();
-			});
-			auto callAnimation = CCCallFunc::create([=] {
-				for (int i = 0; i < _numGraphemes; i++) {
-					auto timeLine = CSLoader::createTimeline("chain/animation.csb");
-					_answerVector.at(i).second->runAction(timeLine);
-					timeLine->play("monkeyeat", true);
-					_answerVector.at(i).second->getChildren().at(0)->setAnchorPoint(Vec2(0.5, 0.185));
-					timeLine->setTimeSpeed(0.5);
-				}
-			});
-			this->runAction(Sequence::create(DelayTime::create(1), callAnimation, DelayTime::create(5), callShowScore, NULL));
+					auto callShowScore = CCCallFunc::create([=] {
+						_menuContext->showScore();
+					});
+					auto callAnimation = CCCallFunc::create([=] {
+						for (int i = 0; i < _numGraphemes; i++) {
+							auto timeLine = CSLoader::createTimeline("chain/animation.csb");
+							_answerVector.at(i).second->getChildren().at(1)->getChildren().at(0)->setAnchorPoint(Vec2(0.509, 0.33));
+							_answerVector.at(i).second->runAction(timeLine);
+							timeLine->play("monkeyeat", true);
+					
+							timeLine->setTimeSpeed(0.5);
+						}
+					});
+					this->runAction(Sequence::create(DelayTime::create(1), callAnimation, DelayTime::create(5), callShowScore, NULL));
 		}
 		else if (!Chain::_SS.compare("elephant"))
 		{
-			auto callShowScore = CCCallFunc::create([=]
-			{
-				_menuContext->showScore();
-			});
-			auto eleAnimation = CCCallFunc::create([=] {
-				for (std::size_t i = 0; i < _eleContainer.size(); i++)
-				{
-					cocostudio::timeline::ActionTimeline *timeline = CSLoader::createTimeline("chain/elephant.csb");
-					_eleContainer[i]->runAction(timeline);
-					timeline->play("elephant", true);
-					timeline->setTimeSpeed(0.5);
-				}
-			});
-			this->runAction(Sequence::create(DelayTime::create(1), eleAnimation, DelayTime::create(5), callShowScore, NULL));
+					auto callShowScore = CCCallFunc::create([=]
+					{
+						_menuContext->showScore();
+					});
+					auto eleAnimation = CCCallFunc::create([=] {
+						for (std::size_t i = 0; i < _eleContainer.size(); i++)
+						{
+							cocostudio::timeline::ActionTimeline *timeline = CSLoader::createTimeline("chain/elephant.csb");
+							_eleContainer[i]->runAction(timeline);
+							timeline->play("elephant", true);
+							timeline->setTimeSpeed(0.5);
+						}
+					});
+					this->runAction(Sequence::create(DelayTime::create(1), eleAnimation, DelayTime::create(5), callShowScore, NULL));
 		}
 		else if (!Chain::_SS.compare("flamingo"))
 		{
-			auto callShowScore = CCCallFunc::create([=]
-			{
-				_menuContext->showScore();
-				_choice->removeAllChildrenWithCleanup(true);
-			});
-			auto flamingoAnimation = CCCallFunc::create([=] {
+					auto callShowScore = CCCallFunc::create([=]
+					{
+						_menuContext->showScore();
+						_choice->removeAllChildrenWithCleanup(true);
+					});
+					auto flamingoAnimation = CCCallFunc::create([=] {
 
-				for (std::size_t i = 0; i < _flamContainer.size(); i++)
-				{
-					_answerVector.at(i).second->setVisible(false);
-					cocostudio::timeline::ActionTimeline *timeline = CSLoader::createTimeline("chain/flemingo.csb");
-					_flamContainer[i]->runAction(timeline);
-					timeline->play("flamingo", true);
-					auto moveTo = MoveTo::create(RandomHelper::random_int(1, 5), Vec2(visibleSize.width - 200, 1500));
-					_flamContainer[i]->runAction(moveTo);
-				}
-			});
-			this->runAction(Sequence::create(DelayTime::create(1), flamingoAnimation, DelayTime::create(5), callShowScore, NULL));
+						for (std::size_t i = 0; i < _flamContainer.size(); i++)
+						{
+							_answerVector.at(i).second->setVisible(false);
+							cocostudio::timeline::ActionTimeline *timeline = CSLoader::createTimeline("chain/flemingo.csb");
+							_flamContainer[i]->runAction(timeline);
+							timeline->play("flamingo", true);
+							auto moveTo = MoveTo::create(RandomHelper::random_int(1, 5), Vec2(visibleSize.width - 200, 1500));
+							_flamContainer[i]->runAction(moveTo);
+						}
+					});
+					this->runAction(Sequence::create(DelayTime::create(1), flamingoAnimation, DelayTime::create(5), callShowScore, NULL));
 		}
 	}
 }
@@ -353,6 +355,6 @@ void ChainGrapheme::setSelectedBackground(Node* selectedBackground)
 	}
 	_monkeyTimeline = CSLoader::createTimeline("chain/animation.csb");
 	_selectedBackground->runAction(_monkeyTimeline);
+	_selectedBackground->getChildren().at(0)->setAnchorPoint(Vec2(0.47, 0.33));
 	_selectedBackground->setScale(0.3);
-	_selectedBackground->getChildren().at(0)->setAnchorPoint(Vec2(0.5, 0.185));
 }
