@@ -24,12 +24,13 @@ using namespace experimental;
 static const int MAX_POINTS_TO_SHOW = 16;
 static const int POINTS_TO_LEFT = 300.0f;
 
-MenuContext* MenuContext::create(Node* main, std::string gameName, bool launchCustomEventOnExit) {
+MenuContext* MenuContext::create(Node* main, std::string gameName, bool launchCustomEventOnExit, std::string sceneName) {
     MenuContext* menuContext = new (std::nothrow) MenuContext();
     if(menuContext && menuContext->init(main)) {
         menuContext->autorelease();
         menuContext->_launchCustomEventOnExit = launchCustomEventOnExit;
         menuContext->gameName = gameName;
+        menuContext->sceneName = sceneName;
         return menuContext;
     }
     CC_SAFE_DELETE(menuContext);
@@ -469,7 +470,7 @@ void MenuContext::showScore() {
     pauseNodeAndDescendants(_main);
     Size visibleSize = Director::getInstance()->getVisibleSize();
     Vec2 origin = Director::getInstance()->getVisibleOrigin();
-    auto scoreNode = ScoreBoardContext::create(_points * 100/MAX_POINTS_TO_SHOW, this->gameName);
+    auto scoreNode = ScoreBoardContext::create(_points * 100/MAX_POINTS_TO_SHOW, this->gameName, this->sceneName);
     scoreNode->setPosition(Vec2(origin.x + visibleSize.width / 2, origin.y + visibleSize.height / 2));
     addChild(scoreNode);
 }

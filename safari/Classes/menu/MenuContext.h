@@ -28,7 +28,8 @@ class ScrollableGameMapScene;
 class MenuContext : public cocos2d::Node {
     
 public:
-    static MenuContext* create(Node *main, std::string gameName = "", bool lauchCustomEventOnExit = false);
+    static MenuContext* create(Node *main, std::string gameName = "", bool lauchCustomEventOnExit = false, std::string sceneName = "");
+    
     void pickAlphabet(char targetAlphabet, char chosenAlphabet, bool choose = true, cocos2d::Vec2 position = cocos2d::Vec2::ZERO);
     int getPoints();
     void finalizePoints();
@@ -84,6 +85,7 @@ protected:
     void normalFace();
     
     std::string gameName;
+    std::string sceneName;
     std::function<void()> _startupCallback;
 
 #if (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID || CC_TARGET_PLATFORM == CC_PLATFORM_IOS)  
