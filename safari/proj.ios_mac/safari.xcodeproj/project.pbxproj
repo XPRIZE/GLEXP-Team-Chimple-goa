@@ -29,6 +29,10 @@
 		373708801D5D868D0023E04A /* ScrollableGameMapScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3737087D1D5D868C0023E04A /* ScrollableGameMapScene.cpp */; };
 		373CBBA11D4A69960002BAE1 /* SafariAnalyticsManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 373CBBA01D4A69960002BAE1 /* SafariAnalyticsManager.cpp */; };
 		373CBBA21D4A69960002BAE1 /* SafariAnalyticsManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 373CBBA01D4A69960002BAE1 /* SafariAnalyticsManager.cpp */; };
+		374017591D65BD4A00BE86DF /* CatGameScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 374017551D65BD4A00BE86DF /* CatGameScene.cpp */; };
+		3740175A1D65BD4A00BE86DF /* CatGameScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 374017551D65BD4A00BE86DF /* CatGameScene.cpp */; };
+		3740175B1D65BD4A00BE86DF /* CatScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 374017571D65BD4A00BE86DF /* CatScene.cpp */; };
+		3740175C1D65BD4A00BE86DF /* CatScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 374017571D65BD4A00BE86DF /* CatScene.cpp */; };
 		3740A16B1D4BC0B400B2B2F3 /* GameMapScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3740A16A1D4BC0B400B2B2F3 /* GameMapScene.cpp */; };
 		3740A16C1D4BC0B400B2B2F3 /* GameMapScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3740A16A1D4BC0B400B2B2F3 /* GameMapScene.cpp */; };
 		37533C951D507580008EEFD9 /* ScoreBoardContent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 37533C941D507580008EEFD9 /* ScoreBoardContent.cpp */; };
@@ -94,10 +98,6 @@
 		ED545A7E1B68A1FA00C3958E /* libiconv.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = ED545A7D1B68A1FA00C3958E /* libiconv.dylib */; };
 		F3154EC81D5C7F2D00049F42 /* BajaWordScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F3154EC61D5C7F2D00049F42 /* BajaWordScene.cpp */; };
 		F3154ECA1D5C7F3200049F42 /* BajaWordScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F3154EC61D5C7F2D00049F42 /* BajaWordScene.cpp */; };
-		F3154ED41D62F70600049F42 /* HippoGameScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F3154ED01D62F70600049F42 /* HippoGameScene.cpp */; };
-		F3154ED51D62F70600049F42 /* HippoScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F3154ED21D62F70600049F42 /* HippoScene.cpp */; };
-		F3154ED71D62F76500049F42 /* HippoGameScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F3154ED01D62F70600049F42 /* HippoGameScene.cpp */; };
-		F3154ED81D62F76800049F42 /* HippoScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F3154ED21D62F70600049F42 /* HippoScene.cpp */; };
 		F33905071D49B84000090367 /* GameScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F33905061D49B84000090367 /* GameScene.cpp */; };
 		F33905081D49B84000090367 /* GameScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F33905061D49B84000090367 /* GameScene.cpp */; };
 		F3913DBA1D3F461A001B3038 /* sqlite3.c in Sources */ = {isa = PBXBuildFile; fileRef = F3913D9D1D3F461A001B3038 /* sqlite3.c */; };
@@ -283,6 +283,10 @@
 		3737087E1D5D868D0023E04A /* ScrollableGameMapScene.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = ScrollableGameMapScene.hpp; sourceTree = "<group>"; };
 		373CBB9E1D4A69810002BAE1 /* SafariAnalyticsManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SafariAnalyticsManager.h; sourceTree = "<group>"; };
 		373CBBA01D4A69960002BAE1 /* SafariAnalyticsManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SafariAnalyticsManager.cpp; sourceTree = "<group>"; };
+		374017551D65BD4A00BE86DF /* CatGameScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CatGameScene.cpp; sourceTree = "<group>"; };
+		374017561D65BD4A00BE86DF /* CatGameScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CatGameScene.h; sourceTree = "<group>"; };
+		374017571D65BD4A00BE86DF /* CatScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CatScene.cpp; sourceTree = "<group>"; };
+		374017581D65BD4A00BE86DF /* CatScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CatScene.h; sourceTree = "<group>"; };
 		3740A1681D4BC0A700B2B2F3 /* GameMapScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameMapScene.h; sourceTree = "<group>"; };
 		3740A16A1D4BC0B400B2B2F3 /* GameMapScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GameMapScene.cpp; sourceTree = "<group>"; };
 		37533C921D50756E008EEFD9 /* ScoreBoardContext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScoreBoardContext.h; sourceTree = "<group>"; };
@@ -349,10 +353,6 @@
 		ED545A7D1B68A1FA00C3958E /* libiconv.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libiconv.dylib; path = usr/lib/libiconv.dylib; sourceTree = SDKROOT; };
 		F3154EC61D5C7F2D00049F42 /* BajaWordScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BajaWordScene.cpp; sourceTree = "<group>"; };
 		F3154EC71D5C7F2D00049F42 /* BajaWordScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BajaWordScene.h; sourceTree = "<group>"; };
-		F3154ED01D62F70600049F42 /* HippoGameScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = HippoGameScene.cpp; sourceTree = "<group>"; };
-		F3154ED11D62F70600049F42 /* HippoGameScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HippoGameScene.h; sourceTree = "<group>"; };
-		F3154ED21D62F70600049F42 /* HippoScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = HippoScene.cpp; sourceTree = "<group>"; };
-		F3154ED31D62F70600049F42 /* HippoScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HippoScene.h; sourceTree = "<group>"; };
 		F33905041D49B82E00090367 /* GameScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameScene.h; sourceTree = "<group>"; };
 		F33905061D49B84000090367 /* GameScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GameScene.cpp; sourceTree = "<group>"; };
 		F3913D8C1D3F461A001B3038 /* AlphamonSprite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AlphamonSprite.h; sourceTree = "<group>"; };
@@ -770,11 +770,11 @@
 		F3913DE91D3F4639001B3038 /* mini_games */ = {
 			isa = PBXGroup;
 			children = (
-				F3154ED01D62F70600049F42 /* HippoGameScene.cpp */,
-				F3154ED11D62F70600049F42 /* HippoGameScene.h */,
-				F3154ED21D62F70600049F42 /* HippoScene.cpp */,
-				F3154ED31D62F70600049F42 /* HippoScene.h */,
 				F3154EC61D5C7F2D00049F42 /* BajaWordScene.cpp */,
+				374017551D65BD4A00BE86DF /* CatGameScene.cpp */,
+				374017561D65BD4A00BE86DF /* CatGameScene.h */,
+				374017571D65BD4A00BE86DF /* CatScene.cpp */,
+				374017581D65BD4A00BE86DF /* CatScene.h */,
 				F3154EC71D5C7F2D00049F42 /* BajaWordScene.h */,
 				F39A19C21D589F81008B397D /* Chain.cpp */,
 				F39A19C31D589F81008B397D /* Jasmin_Mainfile.cpp */,
@@ -1056,9 +1056,9 @@
 				F3913E1B1D3F46B1001B3038 /* CrossTheBridgeScene.cpp in Sources */,
 				F3913E311D3F46BE001B3038 /* HPMeter.cpp in Sources */,
 				F39A19D31D589F81008B397D /* Baja.cpp in Sources */,
-				F3154ED41D62F70600049F42 /* HippoGameScene.cpp in Sources */,
 				F3913DBE1D3F461A001B3038 /* AppDelegate.cpp in Sources */,
 				F3913E171D3F46B1001B3038 /* Cannon_Ball_Listener.cpp in Sources */,
+				374017591D65BD4A00BE86DF /* CatGameScene.cpp in Sources */,
 				F3913E331D3F46BE001B3038 /* SelectAlphamonScene.cpp in Sources */,
 				503AE10217EB989F00D1A890 /* RootViewController.mm in Sources */,
 				37533C951D507580008EEFD9 /* ScoreBoardContent.cpp in Sources */,
@@ -1076,10 +1076,10 @@
 				F3913DCE1D3F461A001B3038 /* MessageSender.cpp in Sources */,
 				F39A19EB1D59E8D1008B397D /* WordBoard.cpp in Sources */,
 				3707E8AF1D558C9A00168A0C /* WordManager.cpp in Sources */,
-				F3154ED51D62F70600049F42 /* HippoScene.cpp in Sources */,
 				F39A19D21D589F81008B397D /* Jasmin_Listenerfile.cpp in Sources */,
 				F3913DE41D3F461A001B3038 /* StateMachine.cpp in Sources */,
 				F3913E191D3F46B1001B3038 /* Cannon_Ball_Main.cpp in Sources */,
+				3740175B1D65BD4A00BE86DF /* CatScene.cpp in Sources */,
 				F39A19E51D59CC04008B397D /* PegWord.cpp in Sources */,
 				37DF03DA1D44B8D4007252C6 /* LanguageManager.cpp in Sources */,
 				F3E427EE1D54440200D22421 /* WordScene.cpp in Sources */,
@@ -1154,6 +1154,7 @@
 				F3913DD11D3F461A001B3038 /* PhysicsShapeCache.cpp in Sources */,
 				F39A19D61D589FF4008B397D /* jazz.cpp in Sources */,
 				F3E427EF1D54440200D22421 /* WordScene.cpp in Sources */,
+				3740175C1D65BD4A00BE86DF /* CatScene.cpp in Sources */,
 				37C7E1F01D47D673005C89C0 /* MapIsland.cpp in Sources */,
 				F3913DBB1D3F461A001B3038 /* sqlite3.c in Sources */,
 				373708801D5D868D0023E04A /* ScrollableGameMapScene.cpp in Sources */,
@@ -1196,10 +1197,9 @@
 				F3913DDD1D3F461A001B3038 /* Sqlite3Helper.cpp in Sources */,
 				37533C961D507580008EEFD9 /* ScoreBoardContent.cpp in Sources */,
 				37D7F41E1D641B1C00B0C0CE /* PhotoCaptureScene.cpp in Sources */,
-				F3154ED81D62F76800049F42 /* HippoScene.cpp in Sources */,
 				F3913DC11D3F461A001B3038 /* ExternalSkeletonCharacter.cpp in Sources */,
+				3740175A1D65BD4A00BE86DF /* CatGameScene.cpp in Sources */,
 				376FEE811D3F66380037393F /* SkeletonPosition.cpp in Sources */,
-				F3154ED71D62F76500049F42 /* HippoGameScene.cpp in Sources */,
 				F3154ECA1D5C7F3200049F42 /* BajaWordScene.cpp in Sources */,
 				F3E427F41D54452800D22421 /* TextGenerator.cpp in Sources */,
 				F33905081D49B84000090367 /* GameScene.cpp in Sources */,
