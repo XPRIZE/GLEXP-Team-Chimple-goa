@@ -202,6 +202,8 @@
 		F39A19E61D59CC04008B397D /* PegWord.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F39A19E41D59CC04008B397D /* PegWord.cpp */; };
 		F39A19EB1D59E8D1008B397D /* WordBoard.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F39A19EA1D59E8D1008B397D /* WordBoard.cpp */; };
 		F39A19EC1D59E8D1008B397D /* WordBoard.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F39A19EA1D59E8D1008B397D /* WordBoard.cpp */; };
+		F3BF31A71D656604009404F2 /* Spirograph.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F3BF31A61D656604009404F2 /* Spirograph.cpp */; };
+		F3BF31A81D656604009404F2 /* Spirograph.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F3BF31A61D656604009404F2 /* Spirograph.cpp */; };
 		F3C711CA1D56F28D000DBBE5 /* GraphemeGrid.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F3C711C91D56F28D000DBBE5 /* GraphemeGrid.cpp */; };
 		F3C711CB1D56F28D000DBBE5 /* GraphemeGrid.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F3C711C91D56F28D000DBBE5 /* GraphemeGrid.cpp */; };
 		F3C711D01D576128000DBBE5 /* Grapheme.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F3C711CF1D576128000DBBE5 /* Grapheme.cpp */; };
@@ -459,6 +461,8 @@
 		F39A19E81D59CC13008B397D /* PegWord.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PegWord.h; sourceTree = "<group>"; };
 		F39A19E91D59E8BC008B397D /* WordBoard.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WordBoard.h; sourceTree = "<group>"; };
 		F39A19EA1D59E8D1008B397D /* WordBoard.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = WordBoard.cpp; sourceTree = "<group>"; };
+		F3BF31A61D656604009404F2 /* Spirograph.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Spirograph.cpp; sourceTree = "<group>"; };
+		F3BF31AA1D65661D009404F2 /* Spirograph.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Spirograph.h; sourceTree = "<group>"; };
 		F3C711C91D56F28D000DBBE5 /* GraphemeGrid.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GraphemeGrid.cpp; sourceTree = "<group>"; };
 		F3C711CD1D56F29B000DBBE5 /* GraphemeGrid.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GraphemeGrid.h; sourceTree = "<group>"; };
 		F3C711CE1D57611C000DBBE5 /* Grapheme.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Grapheme.h; sourceTree = "<group>"; };
@@ -806,6 +810,8 @@
 				F3913E141D3F46B1001B3038 /* SmashTheRockScene.cpp */,
 				F3913E151D3F46B1001B3038 /* SpriteCreate.cpp */,
 				F3913E161D3F46B1001B3038 /* TraceScene.cpp */,
+				F3BF31A61D656604009404F2 /* Spirograph.cpp */,
+				F3BF31AA1D65661D009404F2 /* Spirograph.h */,
 			);
 			path = mini_games;
 			sourceTree = "<group>";
@@ -1078,6 +1084,7 @@
 				37DF03DA1D44B8D4007252C6 /* LanguageManager.cpp in Sources */,
 				F3E427EE1D54440200D22421 /* WordScene.cpp in Sources */,
 				F39A19CE1D589F81008B397D /* Chain.cpp in Sources */,
+				F3BF31A71D656604009404F2 /* Spirograph.cpp in Sources */,
 				370A3DB41D43428D00676C50 /* SkeletonConfiguration.cpp in Sources */,
 				37C7E1EB1D47CEFB005C89C0 /* MapScene.cpp in Sources */,
 				F3913E011D3F46A5001B3038 /* CharGenerator.cpp in Sources */,
@@ -1141,6 +1148,7 @@
 				F3913DD71D3F461A001B3038 /* RunningState.cpp in Sources */,
 				F3913DCB1D3F461A001B3038 /* MessageContent.cpp in Sources */,
 				F3913E341D3F46BE001B3038 /* SelectAlphamonScene.cpp in Sources */,
+				F3BF31A81D656604009404F2 /* Spirograph.cpp in Sources */,
 				F3913DCD1D3F461A001B3038 /* MessageReceiver.cpp in Sources */,
 				F39A19D41D589FEE008B397D /* Chain.cpp in Sources */,
 				F3913DD11D3F461A001B3038 /* PhysicsShapeCache.cpp in Sources */,
