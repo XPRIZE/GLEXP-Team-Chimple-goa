@@ -202,11 +202,11 @@ void HelloWorld::processNodeWithCustomAttributes(Node* node, Node* parentNode) {
             std::unordered_map<std::string,std::string>::const_iterator itRight = attributes.find("right");
             if ( it != attributes.end() ) {
                 std::string fileName(it->second);
-                fileName = std::regex_replace(fileName, std::regex("^ +| +$|( ) +"), "$1");
+            //    fileName = std::regex_replace(fileName, std::regex("^ +| +$|( ) +"), "$1");
 
                 if(regex_match(fileName, skeletonFile)) {
                     //process hero node
-                    std::string value = std::regex_replace(node->getName(), std::regex("^ +| +$|( ) +"), "$1");
+					std::string value = node->getName();// std::regex_replace(node->getName(), std::regex("^ +| +$|( ) +"), "$1");
                     if(RPGConfig::compareCaseInsensitive(value,HUMAN_SKELETON_NAME)) {
                         //create Hero character
                         this->addMainCharacterToScene(fileName, node);
@@ -266,7 +266,7 @@ void HelloWorld::setReferencesToGameLayers(cocos2d::Node *rootNode) {
         //based on custom data create layers
         cocostudio::ComExtensionData* data = (cocostudio::ComExtensionData*)node->getComponent("ComExtensionData");
         if(data != NULL) {
-            std::string value = std::regex_replace(data->getCustomProperty(), std::regex("^ +| +$|( ) +"), "$1");
+			std::string value = data->getCustomProperty();// std::regex_replace(data->getCustomProperty(), std::regex("^ +| +$|( ) +"), "$1");
 
             if(value == MAIN_LAYER)
             {
