@@ -334,9 +334,9 @@ void HelloWorld::enablePhysicsBoundaries(Node* rootNode) {
         fileProcessed = PhysicsShapeCache::getInstance()->addShapesWithFile(this->getSceneName()+"/"+this->getPhysicsFile())
         ;        
     }
-    std::regex pattern(".*(_[[:d:]+]+)+");
-    for (auto child : rootNode->getChildren()) {
+    for (Node* child : rootNode->getChildren()) {
         CCLOG("processing child %s", child->getName().c_str());
+        
         PhysicsShapeCache::getInstance()->setBodyOnSprite(child->getName(), (Sprite *)child);
         if(child->getChildrenCount() > 0) {
             for (auto subChild : child->getChildren()) {
@@ -346,16 +346,11 @@ void HelloWorld::enablePhysicsBoundaries(Node* rootNode) {
                     Sprite* sprite = dynamic_cast<Sprite*>(subChild);
                     if(sprite) {
                         auto matchingName = subChild->getName();
+                        std::string textureFileName = sprite->getTexture()->getPath();
+                        std::size_t found = textureFileName.find_last_of("/");
+                        textureFileName = textureFileName.substr(found+1);
+                        PhysicsShapeCache::getInstance()->setBodyOnSprite(textureFileName, (Sprite *)subChild);
                         
-                        std::string v1 = subChild->getName();
-                        
-                        do {
-                            std::size_t found = matchingName.find_last_of("_");
-                            matchingName = matchingName.substr(0,found);
-                        } while(regex_match(matchingName, pattern));
-                        
-                        CCLOG("matchingName %s", matchingName.c_str());
-                        PhysicsShapeCache::getInstance()->setBodyOnSprite(matchingName, (Sprite *)subChild);
                         auto body = subChild->getPhysicsBody();
                         if(body) {
                             this->mainCharacterCategoryBitMask = this->mainCharacterCategoryBitMask | body->getCategoryBitmask();
@@ -381,14 +376,11 @@ void HelloWorld::enablePhysicsBoundaries(Node* rootNode) {
             if(dynamic_cast<Sprite*>(child)) {
                 Sprite* sprite = dynamic_cast<Sprite*>(child);
                 if(sprite) {
-                    std::string matchingName = child->getName();
-                    do {
-                        std::size_t found = matchingName.find_last_of("_");
-                        matchingName = matchingName.substr(0,found);
-                    } while(regex_match(matchingName, pattern));
+                    std::string textureFileName = sprite->getTexture()->getPath();
+                    std::size_t found = textureFileName.find_last_of("/");
+                    textureFileName = textureFileName.substr(found+1);
+                    PhysicsShapeCache::getInstance()->setBodyOnSprite(textureFileName, (Sprite *)child);
                     
-                    CCLOG("matchingName %s", matchingName.c_str());
-                    PhysicsShapeCache::getInstance()->setBodyOnSprite(matchingName, (Sprite *)child);
                     auto body = child->getPhysicsBody();
                     if(body) {
                         this->mainCharacterCategoryBitMask = this->mainCharacterCategoryBitMask | body->getCategoryBitmask();
