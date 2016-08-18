@@ -14,7 +14,7 @@
 #include "ui/UIWidget.h"
 #include "ui/GUIExport.h"
 #include "cocos-ext.h"
-#include "GameMapScene.h"
+#include "ScrollableGameMapScene.hpp"
 #include "StartMenuScene.h"
 
 #ifndef ScoreBoardContext_h

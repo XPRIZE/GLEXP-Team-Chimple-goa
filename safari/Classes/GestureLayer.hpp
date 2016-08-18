@@ -57,6 +57,9 @@ protected:
     float touch_start_time_;
     
     RPGGestureType gesture_type_;
+    
+public:
+    void disableAllTouch();
 };
 
 

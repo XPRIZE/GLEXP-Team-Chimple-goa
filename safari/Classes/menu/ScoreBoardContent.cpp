@@ -146,7 +146,7 @@ void ScoreBoardContext::buttonClicked(Ref* pSender, ui::Widget::TouchEventType e
                 StartMenu::startScene(this->_gameName);
             }
             else if(clickedButton->getName() == "home") {
-                Director::getInstance()->replaceScene(TransitionFade::create(1.0, GameMapScene::createScene(), Color3B::BLACK));
+                Director::getInstance()->replaceScene(TransitionFade::create(1.0, ScrollableGameMapScene::createScene(), Color3B::BLACK));
             }
             else  {
                 StartMenu::startScene(this->_gameName);

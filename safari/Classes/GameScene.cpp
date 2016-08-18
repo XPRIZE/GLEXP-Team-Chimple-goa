@@ -8,6 +8,10 @@
 
 #include "GameScene.h"
 
+/*
+ *
+ * DEPRECATED = Please use ScrollbleGameMapScene
+ */
 USING_NS_CC;
 
 GameScene::GameScene() :

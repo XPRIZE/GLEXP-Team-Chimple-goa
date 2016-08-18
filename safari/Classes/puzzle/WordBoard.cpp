@@ -18,6 +18,14 @@ cocos2d::Scene* WordBoard::createScene() {
     return scene;
 }
 
+cocos2d::Scene* WordBoard::createSceneWithWord(std::string wordStr) {
+    auto layer = WordBoard::createWithWord(wordStr);
+    auto scene = GameScene::createWithChild(layer, "wordBoard");
+    layer->_menuContext = scene->getMenuContext();
+    return scene;
+}
+
+
 WordBoard* WordBoard::create() {
     WordBoard* word = new (std::nothrow) WordBoard();
     if(word && word->init())
