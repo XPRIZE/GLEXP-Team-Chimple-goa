@@ -1,13 +1,13 @@
 //
-//  HippoScene.h inherite WordScene class
+//  CatScene.h inherite WordScene class
 //  safari
 //
 //  Created by KiranKumar CS on 08/08/16.
 //
 
 
-#ifndef __HIPPO_SCENE_H__
-#define __HIPPO_SCENE_H__
+#ifndef __CAT_SCENE_H__
+#define __CAT_SCENE_H__
 
 #include "cocos2d.h"
 #include "../lang/TextGenerator.h"
@@ -15,16 +15,15 @@
 #include "../GameScene.h"
 
 
-class Hippo : public WordScene
+class Cat : public WordScene
 {
 public:
-	//Hippo * _hippo;
 	bool _gameContinue;
-	static cocos2d::Scene* createScene();
-	static Hippo *create();
+	std::string _state;
+	static Cat *create();
 	std::vector<Node*> _gapNodes1;
-	float _movingPositionX;
-	float _movingPositionY;
+	float _movingPositionX, _blockSetPosY = 0.0f;
+	float _movingPositionY, _posAfterGap, _posAfterGapX;
 	Node * _catNode1;
 	cocostudio::timeline::ActionTimeline * _catAnimation1;
 	std::vector<float> _stringPositionX1;

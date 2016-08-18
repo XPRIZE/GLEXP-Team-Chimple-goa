@@ -87,7 +87,8 @@ LOCAL_SRC_FILES := hellocpp/main.cpp \
 					../../Classes/WordSprite.cpp \
 					../../Classes/lang/WordInfo.cpp \
 					../../Classes/ScrollableGameMapScene.cpp \
-					../../Classes/PhotoCaptureScene.cpp										
+					../../Classes/PhotoCaptureScene.cpp \
+					../../Classes/mini_games/Spirograph.cpp									
 
 LOCAL_C_INCLUDES := $(LOCAL_PATH)/../../Classes
 LOCAL_C_INCLUDES += $(LOCAL_PATH)/../../../extensions
