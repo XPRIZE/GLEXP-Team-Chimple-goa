@@ -103,9 +103,7 @@ bool AppDelegate::applicationDidFinishLaunching() {
     
     #if (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
         std::string userPhotoUrl = safariManager->getLatestUserPhoto();
-            CCLOG("userPhotoUrl 222222 %s", userPhotoUrl.c_str());
         if(!userPhotoUrl.empty()) {
-            CCLOG("userPhotoUrl 1111 %s", userPhotoUrl.c_str());
             Director::getInstance()->getTextureCache()->addImage(userPhotoUrl);
             director->runWithScene(ScrollableGameMapScene::createScene());
         } else {
