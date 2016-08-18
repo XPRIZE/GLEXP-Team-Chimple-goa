@@ -225,9 +225,8 @@ public:
         return attributes;
     }
 
-    
     static bool compareCaseInsensitive(std::string str1, std::string str2) {
-        if (strcasecmp(str1.c_str(), str2.c_str()) == 0) {
+        if (strcmp(str1.c_str(), str2.c_str()) == 0) {
             return true;
         }
         return false;
