@@ -44,9 +44,9 @@ void Wembley::createChoice() {
 	float wid = Director::getInstance()->getVisibleSize().width;
 	float hei = Director::getInstance()->getVisibleSize().height;
 
-	CocosDenshion::SimpleAudioEngine::getInstance()->preloadBackgroundMusic("./sounds/kick.wav");
-	CocosDenshion::SimpleAudioEngine::getInstance()->playBackgroundMusic("./sounds/applause.mp3", true);
-	CocosDenshion::SimpleAudioEngine::getInstance()->playEffect("./sounds/applause.mp3");
+	CocosDenshion::SimpleAudioEngine::getInstance()->preloadBackgroundMusic("sounds/kick.wav");
+	CocosDenshion::SimpleAudioEngine::getInstance()->playBackgroundMusic("sounds/applause.mp3", true);
+	CocosDenshion::SimpleAudioEngine::getInstance()->playEffect("sounds/applause.mp3");
 	_choice = Node::create();
 	_choice->setPosition(Vec2(0, hei * 63 / 100));
 	addChild(_choice);
@@ -252,6 +252,7 @@ void Wembley::addEventsBall(cocos2d::Sprite* callerObject)
 			else {
 				auto endGame = CallFunc::create([=]() {
 					 kicks = 0;
+					 _finish = 0;
 					_menuContext->showScore();
 				});
 				auto sequence = Sequence::create(kickBall, moveTo, removeBall,  endGame, nullptr);
@@ -267,4 +268,9 @@ void Wembley::addEventsBall(cocos2d::Sprite* callerObject)
 	
 	_eventDispatcher->addEventListenerWithSceneGraphPriority(listener, callerObject);
 	
+}
+
+Wembley::~Wembley(void) {
+
+	_finish = 0;
 }
