@@ -113,10 +113,10 @@ void SkeletonCharacter::HandlePostJumpDownEndingAnimation() {
 bool SkeletonCharacter::didSkeletonContactBeginDuringJumpingUp(PhysicsContact &contact, SkeletonCharacterState currentStateCommand, float sceneWidth) {
     cocos2d::Node* nodeA = contact.getShapeA()->getBody()->getNode();
     cocos2d::Node* nodeB = contact.getShapeB()->getBody()->getNode();
-    if((nodeA->getName() == HUMAN_SKELETON_NAME && contact.getShapeA()->getBody()->getVelocity().y > -GRAVITY_VELOCITY_TO_STICK_TO_GROUND) ||
-       (nodeB->getName() == HUMAN_SKELETON_NAME && contact.getShapeB()->getBody()->getVelocity().y > -GRAVITY_VELOCITY_TO_STICK_TO_GROUND))
+    if((RPGConfig::compareCaseInsensitive(nodeA->getName(),HUMAN_SKELETON_NAME) && contact.getShapeA()->getBody()->getVelocity().y > -GRAVITY_VELOCITY_TO_STICK_TO_GROUND) ||
+       (RPGConfig::compareCaseInsensitive(nodeB->getName(),HUMAN_SKELETON_NAME) && contact.getShapeB()->getBody()->getVelocity().y > -GRAVITY_VELOCITY_TO_STICK_TO_GROUND))
     {
-        if((nodeA->getName() == HUMAN_SKELETON_NAME && nodeB->getPhysicsBody()->getCategoryBitmask() == INVISIBLE_BOUNDARY_CATEGORY_BITMASK) || (nodeB->getName() == HUMAN_SKELETON_NAME && nodeA->getPhysicsBody()->getCategoryBitmask() == INVISIBLE_BOUNDARY_CATEGORY_BITMASK)) {
+        if((RPGConfig::compareCaseInsensitive(nodeA->getName(),HUMAN_SKELETON_NAME) && nodeB->getPhysicsBody()->getCategoryBitmask() == INVISIBLE_BOUNDARY_CATEGORY_BITMASK) || (RPGConfig::compareCaseInsensitive(nodeB->getName(),HUMAN_SKELETON_NAME) && nodeA->getPhysicsBody()->getCategoryBitmask() == INVISIBLE_BOUNDARY_CATEGORY_BITMASK)) {
 
             float limit  = X_OFFSET_IF_HERO_DISAPPER;
             if(this->getSkeletonNode()->getPosition().x <= limit || this->getSkeletonNode()->getPosition().x >= sceneWidth - limit) {

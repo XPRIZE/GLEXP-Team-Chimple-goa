@@ -207,7 +207,7 @@ void HelloWorld::processNodeWithCustomAttributes(Node* node, Node* parentNode) {
                 if(regex_match(fileName, skeletonFile)) {
                     //process hero node
                     std::string value = std::regex_replace(node->getName(), std::regex("^ +| +$|( ) +"), "$1");
-                    if(value == MAIN_SKELETON_KEY) {
+                    if(RPGConfig::compareCaseInsensitive(value,HUMAN_SKELETON_NAME)) {
                         //create Hero character
                         this->addMainCharacterToScene(fileName, node);
                         
@@ -367,9 +367,13 @@ void HelloWorld::enablePhysicsBoundaries(Node* rootNode) {
                         this->enablePhysicsBoundaries(sprite);
                     }
                 } else {
-                    Node* sprite = dynamic_cast<Node*>(subChild);
-                    if(sprite->getChildrenCount() > 0) {
-                        this->enablePhysicsBoundaries(sprite);
+                    bool isSkeletonCharacter = dynamic_cast<SkeletonCharacter *>(subChild);
+                    bool isExternalCharacter = dynamic_cast<ExternalSkeletonCharacter *>(subChild);
+                    if(!(isSkeletonCharacter || isExternalCharacter)) {
+                        Node* sprite = dynamic_cast<Node*>(subChild);
+                        if(sprite->getChildrenCount() > 0) {
+                            this->enablePhysicsBoundaries(sprite);
+                        }
                     }
                 }
             }
@@ -1566,7 +1570,8 @@ bool HelloWorld::handlePhysicsContactEventForMainCharacter(PhysicsContact &conta
 {
     CCLOG("contact current BEGAN Main Skeleton!!! %s", this->stateMachine->enumToString(this->stateMachine->getCurrentState()->getState()));
     
-    if(nodeA->getName() == HUMAN_SKELETON_NAME || nodeB->getName() == HUMAN_SKELETON_NAME)
+    if(RPGConfig::compareCaseInsensitive(nodeA->getName(),HUMAN_SKELETON_NAME) ||
+       RPGConfig::compareCaseInsensitive(nodeB->getName(),HUMAN_SKELETON_NAME))
     {
         
         if(this->skeletonCharacter->didSkeletonContactBeginDuringJumpingUp(contact, this->stateMachine->getCurrentState()->getState(), this->getSceneSize().width)) {
@@ -1664,7 +1669,8 @@ void HelloWorld::registerPhysicsEventContactLister() {
         
         if(isSkeletonNodeA || isSkeletonNodeB)
         {
-            if(nodeA->getName() == HUMAN_SKELETON_NAME || nodeB->getName() == HUMAN_SKELETON_NAME)
+            if(RPGConfig::compareCaseInsensitive(nodeA->getName(),HUMAN_SKELETON_NAME) ||
+               RPGConfig::compareCaseInsensitive(nodeB->getName(),HUMAN_SKELETON_NAME))
             {
                 return this->handlePhysicsContactEventForMainCharacter(contact, nodeA, nodeB);
             } else {
