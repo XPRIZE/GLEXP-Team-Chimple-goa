@@ -11,15 +11,15 @@
 # staircase up/down formate
 */
 #include "CatGameScene.h"
-#include "HippoScene.h"
+#include "CatScene.h"
 #include "../lang/TextGenerator.h"
 #include "math.h"
 
 USING_NS_CC;
-Hippo * hippo1;
+Cat * hippo1;
 CatGame::CatGame()
 {
-	//Hippo * hippo1 = new (std::nothrow) Hippo();
+	//Cat * hippo1 = new (std::nothrow) Cat();
 }
 
 CatGame::~CatGame()
@@ -28,7 +28,7 @@ CatGame::~CatGame()
 
 CatGame * CatGame::create()
 {
-	//Hippo* hippo1 = new (std::nothrow) Hippo();
+	//Cat* hippo1 = new (std::nothrow) Cat();
 	CatGame* hippoGame = new(std::nothrow) CatGame();
 	if (hippoGame && hippoGame->init())
 	{
@@ -152,7 +152,7 @@ void CatGame::tailAnimation()
 
 void CatGame::catMovement()
 {
-		hippo1 = new (std::nothrow) Hippo();
+		hippo1 = new (std::nothrow) Cat();
 		hippo1->_catNode1 = _catLayer;
 		hippo1->_catAnimation1 = _catAnimation;
 		hippo1->_movingPositionX =  0;

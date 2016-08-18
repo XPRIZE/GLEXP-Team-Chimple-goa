@@ -46,7 +46,6 @@ protected:
 	bool _checkUpDown = true;
 	float _blockSetPosY = 0.0f;
 	void update(float ft) override;
-	void sceneMovingAction();
 	void buildingAfterGap();
 	//bool _isUpdated = false;
 };
