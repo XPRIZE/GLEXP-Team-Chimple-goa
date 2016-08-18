@@ -50,7 +50,7 @@ void jazz::createChoice() {
 		_animation->play("jumping", true);
 	//blinking("blinking", true);
 		auto blinkAction = CallFunc::create(CC_CALLBACK_0(jazz::blinking, this, "blinking", false));
-	    _animate->runAction(RepeatForever::create(Sequence::create(DelayTime::create(2), blinkAction, NULL)));
+	    _animate->runAction(RepeatForever::create(Sequence::create(DelayTime::create(2 + (rand() % 60) / 15), blinkAction, NULL)));
 	     addChoice(choiceNode);
 	}
 	
@@ -69,8 +69,12 @@ void jazz::blinking(std::string animationName, bool loop)
 }
 void jazz::gameOver(bool correct) {
 	if (correct) {
-		
-		for ( auto obj= _jumpingRef.rbegin(); obj != _jumpingRef.rend() ; ++ obj )
+		for (auto item = _gorilla.rbegin(); item != _gorilla.rend(); ++item)
+		{
+			Node * gorilla = *item;
+			gorilla->stopAllActions();
+		}
+		/*for ( auto obj= _jumpingRef.rbegin(); obj != _jumpingRef.rend() ; ++ obj )
 		{
 			cocostudio::timeline::ActionTimeline * jump = *obj;
 			jump->stop();
@@ -80,7 +84,7 @@ void jazz::gameOver(bool correct) {
 		{
 			cocostudio::timeline::ActionTimeline * jump = *obj;
 			jump->stop();
-		}
+		}*/
 
 		for (auto item = _gorilla.rbegin(); item != _gorilla.rend(); ++item)
 		{
@@ -90,7 +94,7 @@ void jazz::gameOver(bool correct) {
 			auto druming = CSLoader::createTimeline("jazz/gorilla.csb");
 			gorilla->runAction(druming);
 			druming->play("druming", true);
-			this->scheduleOnce(schedule_selector(jazz::showScore), 5.0f);
+		//	this->scheduleOnce(schedule_selector(jazz::showScore), 5.0f);
 		//	druming->setAnimationEndCallFunc("druming", CC_CALLBACK_0(jazz::showScore, this));
 
 	    }
