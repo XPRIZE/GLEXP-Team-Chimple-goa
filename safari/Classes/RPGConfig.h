@@ -21,7 +21,7 @@
 #define MIN_GESTURE_DISTANCE 30
 #define MIN_GESTURE_DISTANCE_UP 30
 #define RPG_GRAVITY -2000
-#define ENABLE_DEBUGDRAW true
+#define ENABLE_DEBUGDRAW false
 #define MAIN_CHARACTER_MASS 1.0f
 #define ALPHAMON_CHARACTER_SCALE 0.5f
 #define MAIN_CHARACTER_SCALE 1.0f
@@ -90,7 +90,6 @@
 #define MAIN_LAYER "main"
 #define BACK_GROUND_LAYER "background"
 #define FORE_GROUND_LAYER "foreground"
-#define MAIN_SKELETON_KEY "Hero"
 
 #define HORIZONTAL_PARALLEX_RATIO 0.7f
 #define VERTICAL_PARALLEX_RATIO 0.7f
@@ -226,6 +225,12 @@ public:
         return attributes;
     }
 
+    static bool compareCaseInsensitive(std::string str1, std::string str2) {
+        if (strcmp(str1.c_str(), str2.c_str()) == 0) {
+            return true;
+        }
+        return false;
+    }
     
     
     //notifications

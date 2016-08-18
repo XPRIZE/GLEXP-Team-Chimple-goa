@@ -191,6 +191,7 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClCompile Include="..\Classes\mini_games\PatchTheWallScene.cpp" />
     <ClCompile Include="..\Classes\mini_games\SmashTheRockLevelScene.cpp" />
     <ClCompile Include="..\Classes\mini_games\SmashTheRockScene.cpp" />
+    <ClCompile Include="..\Classes\mini_games\Spirograph.cpp" />
     <ClCompile Include="..\Classes\mini_games\SpriteCreate.cpp" />
     <ClCompile Include="..\Classes\mini_games\TraceScene.cpp" />
     <ClCompile Include="..\Classes\mini_games\Wembley.cpp" />
@@ -271,6 +272,7 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClInclude Include="..\Classes\mini_games\PatchTheWallScene.h" />
     <ClInclude Include="..\Classes\mini_games\SmashTheRockLevelScene.h" />
     <ClInclude Include="..\Classes\mini_games\SmashTheRockScene.h" />
+    <ClInclude Include="..\Classes\mini_games\Spirograph.h" />
     <ClInclude Include="..\Classes\mini_games\SpriteCreate.h" />
     <ClInclude Include="..\Classes\mini_games\TraceScene.h" />
     <ClInclude Include="..\Classes\mini_games\Wembley.h" />

@@ -28,13 +28,17 @@ public:
     void insertAlphabet(wchar_t alphabet);
     std::vector<wchar_t> getAlphabets();
     bool doesAlphabetExist(wchar_t alphabet);
+    
+    //capture user photo
+    void addPhoto(const char* url);
+    std::string getLatestUserPhoto();
 private:
     SafariAnalyticsManager();
     bool openConnection(std::string pathToSQLConnection);
     bool closeConnection();
     
     sqlite3 *dataBaseConnection;
+};
 
 #endif /* SafariAnalyticsManager_h */
 
-};

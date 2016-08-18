@@ -115,17 +115,14 @@ void HelloWorld::updatePositionAndCategoryBitMaskMainCharacter() {
 }
 
 void HelloWorld::loadGameScene() {
-    std::string buildPath;
     std::string mainSceneName = this->getSceneName() + ".csb";
     if(!sceneName.empty()) {
         this->setSceneName(sceneName);
-        buildPath = this->getSceneName();
     } else {
-        buildPath = this->getIsland();
     }
     
     
-    Node *rootNode = CSLoader::createNode(buildPath + "/" + mainSceneName);
+    Node *rootNode = CSLoader::createNode(mainSceneName);
     this->setSceneSize(rootNode->getContentSize());
     this->addChild(rootNode);
     
@@ -210,7 +207,7 @@ void HelloWorld::processNodeWithCustomAttributes(Node* node, Node* parentNode) {
                 if(regex_match(fileName, skeletonFile)) {
                     //process hero node
                     std::string value = std::regex_replace(node->getName(), std::regex("^ +| +$|( ) +"), "$1");
-                    if(value == MAIN_SKELETON_KEY) {
+                    if(RPGConfig::compareCaseInsensitive(value,HUMAN_SKELETON_NAME)) {
                         //create Hero character
                         this->addMainCharacterToScene(fileName, node);
                         
@@ -370,9 +367,13 @@ void HelloWorld::enablePhysicsBoundaries(Node* rootNode) {
                         this->enablePhysicsBoundaries(sprite);
                     }
                 } else {
-                    Node* sprite = dynamic_cast<Node*>(subChild);
-                    if(sprite->getChildrenCount() > 0) {
-                        this->enablePhysicsBoundaries(sprite);
+                    bool isSkeletonCharacter = dynamic_cast<SkeletonCharacter *>(subChild);
+                    bool isExternalCharacter = dynamic_cast<ExternalSkeletonCharacter *>(subChild);
+                    if(!(isSkeletonCharacter || isExternalCharacter)) {
+                        Node* sprite = dynamic_cast<Node*>(subChild);
+                        if(sprite->getChildrenCount() > 0) {
+                            this->enablePhysicsBoundaries(sprite);
+                        }
                     }
                 }
             }
@@ -442,14 +443,18 @@ bool HelloWorld::init(const std::string& island, const std::string& sceneName)
     }
     
     this->setIsland(island);
+    if(!sceneName.empty()) {
+        this->setSceneName(sceneName);
+    }
+    
 
     //default sceneName should be the same as island and default search path
-//    if(!sceneName.empty()) {
-//        this->setSceneName(sceneName);
-//        FileUtils::getInstance()->addSearchPath("res/" + this->getSceneName());
-//    } else {
-//        FileUtils::getInstance()->addSearchPath("res/" + this->getIsland());
-//    }
+    if(!sceneName.empty()) {
+        this->setSceneName(sceneName);
+        FileUtils::getInstance()->addSearchPath("res/" + this->getSceneName());
+    } else {
+        FileUtils::getInstance()->addSearchPath("res/" + this->getIsland());
+    }
     
     //Added for testing purpose - remove later....
     this->currentLangUtil = LangUtil::getInstance();
@@ -487,13 +492,13 @@ void HelloWorld::querySceneToLoadInIsland() {
     
     if(this->skeletonPositionInLastVisitedScene != NULL) {
         this->setSceneName(this->skeletonPositionInLastVisitedScene->getSceneName());
-//        FileUtils::getInstance()->addSearchPath("res/" + this->getSceneName());
+        FileUtils::getInstance()->addSearchPath("res/" + this->getSceneName());
     } else {
         if(!this->getSceneName().empty()) {
-//            FileUtils::getInstance()->addSearchPath("res/" + this->getSceneName());
+            FileUtils::getInstance()->addSearchPath("res/" + this->getSceneName());
         } else {
             this->setSceneName(this->getIsland());
-//            FileUtils::getInstance()->addSearchPath("res/" + this->getIsland());
+            FileUtils::getInstance()->addSearchPath("res/" + this->getIsland());
         }
     }
 }
@@ -522,6 +527,7 @@ void HelloWorld::registerMessageSenderAndReceiver() {
     
     auto processMessageEvent = [=] (EventCustom * event) {
         std::vector<MessageContent*>*messages = reinterpret_cast<std::vector<MessageContent*>*>(event->getUserData());
+        Director::getInstance()->getEventDispatcher()->pauseEventListenersForTarget(this);
         this->processMessage(messages);
     };
     
@@ -726,7 +732,7 @@ void HelloWorld::changeWordScene(EventCustom * event) {
     std::string &word = *(static_cast<std::string*>(event->getUserData()));
     this->cleanUpResources();
     CCLOG("changeWordScene %s", word.c_str());
-    Director::getInstance()->replaceScene(TransitionFade::create(3.0, WordBoard::createScene(), Color3B::BLACK));
+    Director::getInstance()->replaceScene(TransitionFade::create(3.0, WordBoard::createSceneWithWordInIslandAndSceneName(word, this->getIsland(), this->getSceneName()), Color3B::BLACK));
 }
 
 
@@ -854,8 +860,6 @@ void HelloWorld::processMessage(std::vector<MessageContent*>*messages) {
             ownerOfMessage = content->getOwner();
             changeSceneMessages.push_back(content);
         }
-
-        
     }
     
     if(!textMap.empty()) {
@@ -1566,7 +1570,8 @@ bool HelloWorld::handlePhysicsContactEventForMainCharacter(PhysicsContact &conta
 {
     CCLOG("contact current BEGAN Main Skeleton!!! %s", this->stateMachine->enumToString(this->stateMachine->getCurrentState()->getState()));
     
-    if(nodeA->getName() == HUMAN_SKELETON_NAME || nodeB->getName() == HUMAN_SKELETON_NAME)
+    if(RPGConfig::compareCaseInsensitive(nodeA->getName(),HUMAN_SKELETON_NAME) ||
+       RPGConfig::compareCaseInsensitive(nodeB->getName(),HUMAN_SKELETON_NAME))
     {
         
         if(this->skeletonCharacter->didSkeletonContactBeginDuringJumpingUp(contact, this->stateMachine->getCurrentState()->getState(), this->getSceneSize().width)) {
@@ -1664,7 +1669,8 @@ void HelloWorld::registerPhysicsEventContactLister() {
         
         if(isSkeletonNodeA || isSkeletonNodeB)
         {
-            if(nodeA->getName() == HUMAN_SKELETON_NAME || nodeB->getName() == HUMAN_SKELETON_NAME)
+            if(RPGConfig::compareCaseInsensitive(nodeA->getName(),HUMAN_SKELETON_NAME) ||
+               RPGConfig::compareCaseInsensitive(nodeB->getName(),HUMAN_SKELETON_NAME))
             {
                 return this->handlePhysicsContactEventForMainCharacter(contact, nodeA, nodeB);
             } else {

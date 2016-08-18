@@ -27,6 +27,7 @@
 #include "mini_games/Wembley.h"
 #include "mini_games/BajaWordScene.h"
 #include "mini_games/CatGameScene.h"
+#include "mini_games/Spirograph.h"
 
 USING_NS_CC;
 
@@ -155,7 +156,7 @@ void GameMapScene::islandSelected(Ref* pSender, ui::Widget::TouchEventType eEven
         {
             clickedButton->setEnabled(false);
             if(clickedButton->getName() == PATCH_THE_WALL) {
-                Director::getInstance()->replaceScene(PegWord::createScene());
+                Director::getInstance()->replaceScene(Spirograph::createScene());
             } else if(clickedButton->getName() == CROSS_THE_BRIDGE) {
                 //Director::getInstance()->replaceScene(CrossTheBridge::createScene());
 				Director::getInstance()->replaceScene(Chain::createScene());

@@ -16,6 +16,7 @@
 class GameScene : public cocos2d::Scene {
 public:
     static GameScene* createWithChild(Node* node, std::string name);
+    static GameScene* createWithChildForIslandAndSceneName(Node *node, std::string island, std::string sceneName);
     MenuContext* getMenuContext();
     LangUtil* getLangUtil();
     
@@ -23,10 +24,12 @@ CC_CONSTRUCTOR_ACCESS:
     GameScene();
     virtual ~GameScene();
     bool initWithChild(Node* node, std::string name);
+    bool initWithChildForIslandAndSceneName(Node *node, std::string name, std::string sceneName);
     
 protected:
     Node* _child;
     std::string _name;
+    std::string _sceneName;
     MenuContext* _menuContext;
     LangUtil* _langUtil;
 };
