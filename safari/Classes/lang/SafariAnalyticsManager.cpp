@@ -192,6 +192,52 @@ bool SafariAnalyticsManager::init()
     return true;
 }
 
+void SafariAnalyticsManager::addPhoto(const char* url) {
+    sqlite3_stmt *res;
+    const char* querySQL = " INSERT INTO LOGIN_PHOTOS (PHOTO_URL) VALUES (?)";
+    
+    int rc = sqlite3_prepare_v2(this->dataBaseConnection, querySQL, strlen(querySQL), &res, NULL);
+    if( rc == SQLITE_OK ) {
+        // bind the value
+        
+        sqlite3_bind_text(res, 1, url, strlen(url), SQLITE_TRANSIENT);
+        
+        // commit
+        int m = sqlite3_step(res);
+        if(m == SQLITE_BUSY)
+        {
+            fprintf(stderr, "Failed to execute statement: %s\n", sqlite3_errmsg(this->dataBaseConnection));
+        }
+        
+        if(m == SQLITE_ERROR) {
+            fprintf(stderr, "Failed to execute statement: %s\n", sqlite3_errmsg(this->dataBaseConnection));
+        }
+        
+        if(m == SQLITE_MISUSE) {
+            fprintf(stderr, "Failed to execute statement: %s\n", sqlite3_errmsg(this->dataBaseConnection));
+        }
+        sqlite3_finalize(res);
+    }
+    else {
+        fprintf(stderr, "Failed to execute statement: %s\n", sqlite3_errmsg(this->dataBaseConnection));
+    }
+}
+
+
+std::string SafariAnalyticsManager::getLatestUserPhoto() {
+    std::string photoUrl = "";
+    sqlite3_stmt *res;
+    int rc = 0;
+    const char* querySQL = "SELECT PHOTO_URL FROM LOGIN_PHOTOS ORDER BY ROWID ASC LIMIT 1";
+    
+    rc = sqlite3_prepare_v2(this->dataBaseConnection, querySQL, -1, &res, 0);
+    
+    if(sqlite3_step(res) == SQLITE_ROW) {
+        photoUrl =  reinterpret_cast< char const* >(sqlite3_column_text(res, 0));
+    }
+    
+    return photoUrl;
+}
 
 bool SafariAnalyticsManager::openConnection(std::string pathToSQLConnection) {
     bool isConnectionOpenSuccessfully = false;

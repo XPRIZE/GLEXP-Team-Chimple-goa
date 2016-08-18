@@ -3,6 +3,7 @@
 #include "StartMenuScene.h"
 #include "ScrollableGameMapScene.hpp"
 #include "lang/SafariAnalyticsManager.h"
+#include "PhotoCaptureScene.hpp"
 
 USING_NS_CC;
 
@@ -98,10 +99,20 @@ bool AppDelegate::applicationDidFinishLaunching() {
     
     register_all_packages();
     
-    SafariAnalyticsManager::getInstance();
+    SafariAnalyticsManager* safariManager = SafariAnalyticsManager::getInstance();
     
-    // create a scene. it's an autorelease object
-    director->runWithScene(ScrollableGameMapScene::createScene());
+    #if (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
+        std::string userPhotoUrl = safariManager->getLatestUserPhoto();
+        if(!userPhotoUrl.empty()) {
+            Director::getInstance()->getTextureCache()->addImage(userPhotoUrl);
+            director->runWithScene(ScrollableGameMapScene::createScene());
+        } else {
+            director->runWithScene(PhotoCaptureScene::createScene());
+        }
+    #else
+        director->runWithScene(ScrollableGameMapScene::createScene());
+    #endif
+    
     Application::getInstance()->getCurrentLanguage();
     return true;
 }

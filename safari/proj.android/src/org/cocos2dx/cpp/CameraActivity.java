@@ -38,6 +38,7 @@ public class CameraActivity extends Activity {
 
 	private void cameraIntent() {
 		Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+		takePictureIntent.putExtra("android.intent.extras.CAMERA_FACING", android.hardware.Camera.CameraInfo.CAMERA_FACING_FRONT);
 		File destination = null;
 		try {
 			destination = createImageFile();
@@ -87,7 +88,7 @@ public class CameraActivity extends Activity {
 		}
 	}
 
-	public static Bitmap decodeSampledBitmapFromFile(String path, int reqWidth, int reqHeight) { 
+public static Bitmap decodeSampledBitmapFromFile(String path, int reqWidth, int reqHeight) { 
 		// First decode with inJustDecodeBounds=true to check dimensions
 		final BitmapFactory.Options options = new BitmapFactory.Options();
 		options.inJustDecodeBounds = true;
@@ -118,12 +119,12 @@ public class CameraActivity extends Activity {
 		options.inJustDecodeBounds = false;
 
 		Bitmap scaledBitMap = BitmapFactory.decodeFile(path, options);
-		
+
+		scaledBitMap = Utility.MakeSquare(scaledBitMap, true, 256);
 		FileOutputStream out = null;
 		try {
 		    out = new FileOutputStream(path);
-		    scaledBitMap.compress(Bitmap.CompressFormat.PNG, 100, out); // bmp is your Bitmap instance
-		    // PNG is a lossless format, the compression factor (100) is ignored
+		    scaledBitMap.compress(Bitmap.CompressFormat.JPEG, 100, out); // bmp is your Bitmap instance
 		} catch (Exception e) {
 		    e.printStackTrace();
 		} finally {
@@ -138,6 +139,7 @@ public class CameraActivity extends Activity {
 		
 		return scaledBitMap;
 	}
+		
 	
 	private void onCaptureImageResultCancelled() {
 		mHandler.post(new Runnable() {

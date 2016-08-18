@@ -172,3 +172,8 @@ void GestureLayer::HandleTouch()
         return;
     }
 }
+
+
+void GestureLayer::disableAllTouch() {
+    
+}
