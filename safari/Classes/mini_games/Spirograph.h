@@ -17,6 +17,9 @@ public:
     static cocos2d::Scene* createScene();
     static Spirograph *create();
     virtual void update(float dt) override;
+	int cx, cy;
+
+
 
 CC_CONSTRUCTOR_ACCESS:
     Spirograph();
@@ -30,8 +33,7 @@ protected:
     float _R, _r, _rho, _spirality, _step, _t;
     int _limit;
     cocos2d::DrawNode* _drawNode;
-    cocos2d::Vec2 _pos;
-    
+    cocos2d::Vec2 _pos;    
 };
 
 #endif /* Spirograph_h */

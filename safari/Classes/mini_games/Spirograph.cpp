@@ -37,23 +37,27 @@ _t(0.0)
 Spirograph::~Spirograph() { }
 
 bool Spirograph::init() {
-    _step = 0.01;
-    _R = random(0.1, 500.0);
-    _r = random(0.1, 500.0);
-    _rho = random(0.1, 500.0);
+    _step = 0.15;
+    _R = 380;
+    _r = 130;
+    _rho = 130;
     _spirality = random(0.0, 1.0);
     _limit = rand() % 1000;
-//    _R = 300.0;
-//    _r = 50.0;
-//    _rho = 30.0;
-//    _spirality = 0.0;
-//    _limit = 2;
+
     Size visibleSize = Director::getInstance()->getVisibleSize();
     _drawNode = DrawNode::create();
     _drawNode->setPosition(visibleSize.width / 2, visibleSize.height / 2);
     addChild(_drawNode);
+
     _pos = trace();
-    _t = _step;
+    _t = 0;
+
+	_pos.x = visibleSize.width / 4 + _pos.x;
+	_pos.y = visibleSize.height / 4 + _pos.y;
+
+	cx = visibleSize.width / 4;
+	cy = visibleSize.height / 4;
+
     scheduleUpdate();
     return true;
 }
@@ -61,8 +65,12 @@ bool Spirograph::init() {
 void Spirograph::update(float dt) {
     if(_t < _limit*2*M_PI){
         Vec2 newPos = trace();
-        _drawNode->drawLine(_pos, newPos, Color4F::GREEN);
-        _t += _step;
+		newPos.x += cx;
+		newPos.y += cy;
+
+	    _drawNode->drawLine(_pos, newPos, Color4F::BLUE);
+
+        _t += M_PI/10;
         _pos = newPos;
     }
 }
@@ -72,7 +80,7 @@ Vec2 Spirograph::trace() {
     float s = 1 + _spirality*(log(_t + 1.0) - 1.0);
     p.x = (_R - _r) * cos(_t) + _rho * cos((_R - _r) / _r * _t);
     p.y = (_R - _r) * sin(_t) - _rho * sin((_R - _r) / _r * _t);
-    return s * p;
+    return p;
 }
 
 float Spirograph::random(float min, float max) {
