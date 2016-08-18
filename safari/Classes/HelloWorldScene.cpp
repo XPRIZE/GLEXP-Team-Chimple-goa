@@ -732,7 +732,7 @@ void HelloWorld::changeWordScene(EventCustom * event) {
     std::string &word = *(static_cast<std::string*>(event->getUserData()));
     this->cleanUpResources();
     CCLOG("changeWordScene %s", word.c_str());
-    Director::getInstance()->replaceScene(TransitionFade::create(3.0, WordBoard::createScene(), Color3B::BLACK));
+    Director::getInstance()->replaceScene(TransitionFade::create(3.0, WordBoard::createSceneWithWordInIslandAndSceneName(word, this->getIsland(), this->getSceneName()), Color3B::BLACK));
 }
 
 
