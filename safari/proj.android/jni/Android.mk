@@ -65,6 +65,7 @@ LOCAL_SRC_FILES := hellocpp/main.cpp \
 					../../Classes/mini_games/BajaWordScene.cpp \
 					../../Classes/mini_games/HippoGameScene.cpp \
 					../../Classes/mini_games/HippoScene.cpp \
+					../../Classes/mini_games/Spirograph.cpp \
 					../../Classes/menu/MenuContext.cpp \
 					../../Classes/lang/LangUtil.cpp \
 					../../Classes/lang/EnglishUtil.cpp \
