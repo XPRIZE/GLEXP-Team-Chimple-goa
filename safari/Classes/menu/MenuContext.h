@@ -24,7 +24,7 @@
 #define BOOK_MENU "BookScene"
 #define BAG_PACK_MENU "BagpackScene"
 
-class GameMapScene;
+class ScrollableGameMapScene;
 class MenuContext : public cocos2d::Node {
     
 public:
