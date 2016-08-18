@@ -40,6 +40,7 @@ std::string Hippo::getGridBackground() {
 void Hippo::createChoice()
 {
 	_choice = Node::create();
+	_choice->setName("createChoice");
 //	_choice->setPosition(Vec2(1280, 900));
 	addChild(_choice);
 	for (int i = 0; i < _numGraphemes; i++) {
@@ -48,8 +49,10 @@ void Hippo::createChoice()
 		//choiceNode->setAnchorPoint(Vec2(0, 1));
 		//choiceNode->setPosition(Vec2(i * 200, 0));//HippoGame::stringPosition.at(i)
 		choiceNode->setOpacity(100);
+		choiceNode->setName("hippo_block");
 		float x = _gapNodes1.at(i)->getPositionX() - _movingPositionX;
-		float y = _gapNodes1.at(i)->getPositionY();
+		float y = _gapNodes1.at(i)->getPositionY() + _blockSetPosY;
+		_posAfterGapX = x;
 		choiceNode->setPosition(x, y);
 	//	choiceNode->setPosition(_stringPositionX1.at(i), _stringPositionY1.at(i));
 		addChoice(choiceNode);
@@ -79,19 +82,35 @@ void Hippo::createAnswer()
 void Hippo::gameOver(bool correct)
 {
 	if (correct) {
-		auto lastCharInfo = _gapNodes1.at(_numGraphemes - 1);
-		CCLOG("cat position %f", (_catNode1->getPositionX()));
-		auto moveTo = MoveBy::create(3, Vec2(lastCharInfo->getPositionX() - (_catNode1->getPositionX() ), lastCharInfo->getPositionY()- _movingPositionY+ lastCharInfo->getContentSize().height/2));
-		_catAnimation1->play("catanim", true);
-		auto child = _catNode1->getChildByName("Node");
+		auto moveTo = MoveBy::create(3, Vec2(_posAfterGapX , _posAfterGap - _movingPositionY));
+	//	_catAnimation1->play("catanim", true);
+		//runAction(Sequence::create(TargetedAction::create(_catNode1, moveTo), CallFunc::create([=]() {
+			//_catAnimation1->pause();
+		//	child->setRotation(0);
+			_gameContinue = true;
+			_state = "";
+	//	}), NULL));
+		//auto lastCharInfo = _gapNodes1.at(_numGraphemes - 1);
+	/*	auto child = _catNode1->getChildByName("Node");
+		float x = child->getPositionX();
+		cocos2d::MoveBy* moveTo;
+		
+		/*CCLOG(" last block position %f", (lastCharInfo->getPositionY()));
+		CCLOG("cat movements %f", lastCharInfo->getPositionY() - _movingPositionY + lastCharInfo->getContentSize().height / 2);
+		CCLOG("cat movements aaaaaaaa %f", _posAfterGap - _movingPositionY);
 		if (_state.compare("up") == 0) {
-			//child->setRotationX(45.0f);
+			moveTo = MoveBy::create(3, Vec2(_posAfterGapX - x, _posAfterGap - _movingPositionY));
+			_catAnimation1->play("catanim", true);
 			child->setRotation(-50.0f);
 		}
 		else if (_state.compare("down") == 0) {
+			moveTo = MoveBy::create(3, Vec2(_posAfterGapX , _posAfterGap - _movingPositionY));
+			_catAnimation1->play("catanim", true);
 			child->setRotation(50.0f);
 		}
 		else {
+			moveTo = MoveBy::create(3, Vec2(_posAfterGapX - x, _posAfterGap - _movingPositionY));
+			_catAnimation1->play("catanim", true);
 			child->setRotation(0);
 		}
 
@@ -103,6 +122,7 @@ void Hippo::gameOver(bool correct)
 		}), NULL));
 		//_catNode1->runAction(moveTo);
 		//_catAnimation1->play("catanim", true);
+		*/
 	}
 }
 

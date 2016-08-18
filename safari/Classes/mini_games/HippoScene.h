@@ -24,8 +24,8 @@ public:
 	static cocos2d::Scene* createScene();
 	static Hippo *create();
 	std::vector<Node*> _gapNodes1;
-	float _movingPositionX;
-	float _movingPositionY;
+	float _movingPositionX, _blockSetPosY = 0.0f;
+	float _movingPositionY, _posAfterGap, _posAfterGapX;
 	Node * _catNode1;
 	cocostudio::timeline::ActionTimeline * _catAnimation1;
 	std::vector<float> _stringPositionX1;

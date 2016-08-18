@@ -20,8 +20,9 @@ public:
 	HippoGame();
 	~HippoGame();
 	int _wordLength;
-	float _sceneToScenDiff = 0.0f, _distanceY= 0.0f;
+	float _sceneToScenDiff = 0.0f, _distanceY= 0.0f, _positionAfterGap = 0.0f;
 	bool _layerChange = false;
+	bool _sceneRunFirst = true;
 	static HippoGame* _hippoGame;
 	static HippoGame* create();
 	static cocos2d::Scene* createScene();
@@ -34,6 +35,7 @@ public:
 	void createBuilding(cocos2d::Layer * myLayer, std::string str);
 	void buildingMovingAction(std::string str);
 	void stringGap(cocos2d::Layer * myLayer, std::string str);
+	void stringGap();
 	void afterStringGap(cocos2d::Layer * myLayer, std::string str);
 	void sceneMovingAction();
 protected:
@@ -42,9 +44,11 @@ protected:
 	void update(float ft) override;
 	float _xPos, _yPos;
 	std::string _randomWord;
-	cocos2d::Layer * _buildingLayer, *_catLayer, *_buildingLayer2,* _buildingLayer1, *_buildingLayer3, *_buildingLayer4, *_buildingLayer5;
+	cocos2d::Layer * _buildingLayer, *_catLayer, *_buildingLayer2,* _buildingLayer1, *_buildingLayer3, *_buildingLayer4, *_buildingLayer5, *_hippoLayer;
 	void generateBuildingLayer();
 	void catMovement();
 	bool _checkUpDown = true;
+	float _blockSetPosY = 0.0f;
+	//bool _isUpdated = false;
 };
 #endif 
