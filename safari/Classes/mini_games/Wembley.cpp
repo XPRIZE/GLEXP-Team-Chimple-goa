@@ -58,6 +58,7 @@ void Wembley::createChoice() {
 	_clickBalls.resize(_numGraphemes);
 	_finish = 0;
 	
+	
 	for (int i = 0; i < _numGraphemes; i++) {
 			
 
@@ -250,7 +251,7 @@ void Wembley::addEventsBall(cocos2d::Sprite* callerObject)
 				target->runAction(sequence);
 			else {
 				auto endGame = CallFunc::create([=]() {
-
+					 kicks = 0;
 					_menuContext->showScore();
 				});
 				auto sequence = Sequence::create(kickBall, moveTo, removeBall,  endGame, nullptr);
