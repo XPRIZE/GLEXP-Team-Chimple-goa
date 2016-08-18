@@ -119,6 +119,7 @@ public static Bitmap decodeSampledBitmapFromFile(String path, int reqWidth, int 
 		options.inJustDecodeBounds = false;
 
 		Bitmap scaledBitMap = BitmapFactory.decodeFile(path, options);
+
 		scaledBitMap = Utility.MakeSquare(scaledBitMap, true, 256);
 		FileOutputStream out = null;
 		try {

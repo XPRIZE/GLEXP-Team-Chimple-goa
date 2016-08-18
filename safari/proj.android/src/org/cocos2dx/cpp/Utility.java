@@ -47,6 +47,8 @@ public class Utility {
 		// Convert ByteArray to Bitmap
 		width = bitPic.getWidth();
 		height = bitPic.getHeight();
+		System.out.println("111 bitpic width:" + width);
+		System.out.println("111 bitpic height:" + height);
 
 		// Perform matrix rotations/mirrors depending on camera that took the
 		// photo
@@ -59,20 +61,31 @@ public class Utility {
 		}
 
 		matrix.postRotate(90);
-
+		Bitmap bitPicFinal = null;
 		// Create new Bitmap out of the old one
-		Bitmap bitPicFinal = Bitmap.createBitmap(bitPic, 0, 0, width, height, matrix, true);
+		bitPicFinal = Bitmap.createBitmap(bitPic, 0, 0, width, height, matrix, true);		
 		bitPic.recycle();
 		int desWidth;
 		int desHeight;
 		desWidth = bitPicFinal.getWidth();
 		desHeight = desWidth;
-
+	
 		Matrix matrix1 = new Matrix();
-		matrix1.setRotate(-90);		
+			
+		Bitmap croppedBitmap = null;
+    	if (bitPicFinal.getWidth() > bitPicFinal.getHeight()) {
+    		desHeight = bitPicFinal.getHeight();
+			int startingY = bitPicFinal.getWidth() / 2 - bitPicFinal.getHeight() / 2;
+			if(startingY + desHeight > bitPicFinal.getHeight()) {
+				startingY = 0;
+			}			
+			matrix1.setRotate(180);
+			croppedBitmap = Bitmap.createBitmap(bitPicFinal, 0, startingY, desHeight, desHeight, matrix1, true);		
+    	} else {			
+    		matrix1.setRotate(-90);
+			croppedBitmap = Bitmap.createBitmap(bitPicFinal, 0, bitPicFinal.getHeight() / 2 - bitPicFinal.getWidth() / 2, desWidth, desHeight, matrix1, true);
 		
-		Bitmap croppedBitmap = Bitmap.createBitmap(bitPicFinal, 0,
-				bitPicFinal.getHeight() / 2 - bitPicFinal.getWidth() / 2, desWidth, desHeight, matrix1, true);
+    	}				
 		croppedBitmap = Bitmap.createScaledBitmap(croppedBitmap, finalWidth, finalWidth, true);
 		return croppedBitmap;
 	}
