@@ -350,7 +350,7 @@ void HelloWorld::enablePhysicsBoundaries(Node* rootNode) {
                         std::size_t found = textureFileName.find_last_of("/");
                         textureFileName = textureFileName.substr(found+1);
                         PhysicsShapeCache::getInstance()->setBodyOnSprite(textureFileName, (Sprite *)subChild);
-                        
+                        CCLOG("processing textureFileName %s", textureFileName.c_str());
                         auto body = subChild->getPhysicsBody();
                         if(body) {
                             this->mainCharacterCategoryBitMask = this->mainCharacterCategoryBitMask | body->getCategoryBitmask();
@@ -379,6 +379,7 @@ void HelloWorld::enablePhysicsBoundaries(Node* rootNode) {
                     std::string textureFileName = sprite->getTexture()->getPath();
                     std::size_t found = textureFileName.find_last_of("/");
                     textureFileName = textureFileName.substr(found+1);
+                    CCLOG("processing textureFileName %s", textureFileName.c_str());
                     PhysicsShapeCache::getInstance()->setBodyOnSprite(textureFileName, (Sprite *)child);
                     
                     auto body = child->getPhysicsBody();
