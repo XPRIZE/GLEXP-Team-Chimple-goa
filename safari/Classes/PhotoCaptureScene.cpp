@@ -77,7 +77,6 @@ bool PhotoCaptureScene::init()
     {
         return false;
     }
-    this->photoSprite = nullptr;
     
     auto visibleSize = Director::getInstance()->getVisibleSize();
     Vec2 origin = Director::getInstance()->getVisibleOrigin();
@@ -87,21 +86,19 @@ bool PhotoCaptureScene::init()
 
     Texture2D::TexParams tp = {GL_LINEAR, GL_LINEAR, GL_REPEAT, GL_REPEAT};
     texture->setTexParameters(&tp);
-    Sprite *backgroundSpriteMapTile = Sprite::createWithTexture(texture, Rect(0, 0, visibleSize.width * 1, visibleSize.height));
-    backgroundSpriteMapTile->setPosition(Vec2( 1 * visibleSize.width/2, visibleSize.height/2 ));
-    addChild(backgroundSpriteMapTile);
+    this->backgroundSpriteMapTile = Sprite::createWithTexture(texture, Rect(0, 0, visibleSize.width * 1, visibleSize.height));
+    this->backgroundSpriteMapTile->setPosition(Vec2( 1 * visibleSize.width/2, visibleSize.height/2 ));
+    addChild(this->backgroundSpriteMapTile);
     
     
+    std::string buttonNormalIcon = "menu/camera.png";
+    std::string buttonPressedIcon = "menu/camera_disabled.png";
+    this->photoButton = ui::Button::create(buttonNormalIcon, buttonPressedIcon);
+    this->photoButton->setName("photo_button");
+    this->photoButton->setPosition(Vec2(visibleSize.width/2, visibleSize.height/2));
+    this->photoButton->addTouchEventListener(CC_CALLBACK_2(PhotoCaptureScene::takePhoto, this));
+    addChild(this->photoButton);
     
-    std::string buttonNormalIcon = "CloseNormal.png";
-    std::string buttonPressedIcon = "CloseSelected.png";
-    cocos2d::ui::Button* button = ui::Button::create(buttonNormalIcon, buttonPressedIcon);
-    button->setName("photo_button");
-    button->setScale(4.0f);
-    button->setPosition(Vec2(visibleSize.width/2, visibleSize.height/2));    
-    button->addTouchEventListener(CC_CALLBACK_2(PhotoCaptureScene::takePhoto, this));
-    addChild(button);
-  
     return true;
 }
 
@@ -114,7 +111,17 @@ void PhotoCaptureScene::takePhoto(Ref* pSender, ui::Widget::TouchEventType eEven
             break;
         case ui::Widget::TouchEventType::ENDED:
         {
-            CCLOG("Call take photo");
+            this->backgroundSpriteMapTile->setVisible(false);
+            this->photoButton->setVisible(false);
+            Node* loadingNode = CSLoader::createNode("loading/loading.csb");
+            auto visibleSize = Director::getInstance()->getVisibleSize();
+            loadingNode->setPosition(visibleSize.width/2,visibleSize.height/2);
+            addChild(loadingNode);
+            
+            cocostudio::timeline::ActionTimeline* loadingAnimation = CSLoader::createTimeline("loading/loading.csb");
+            loadingNode->runAction(loadingAnimation);
+            loadingAnimation->play("loading", true);
+                        
             #if (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
                 cocos2d::JniMethodInfo methodInfo;
                 this->schedule(CC_SCHEDULE_SELECTOR(PhotoCaptureScene::createSprite), 1.0);

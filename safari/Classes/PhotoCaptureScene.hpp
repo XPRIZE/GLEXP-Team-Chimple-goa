@@ -29,10 +29,8 @@ public:
     static std::string photoUrl;
     
 private:
-    cocos2d::Sprite* photoSprite;
-    cocos2d::DrawNode *_overlay;
-    cocos2d::DrawNode *_overlayOuter;
-    
+    cocos2d::Sprite *backgroundSpriteMapTile;
+    cocos2d::ui::Button* photoButton;
     void takePhoto(cocos2d::Ref* pSender, cocos2d::ui::Widget::TouchEventType eEventType);
 };
 
