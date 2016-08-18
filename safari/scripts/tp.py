@@ -20,6 +20,10 @@ for subdir in os.walk(dirname + os.path.sep + "cocosstudio" + os.path.sep + dirn
 	if imagedirname == '':
 		imagedirname = subdirname
 	else:
-		os.rmdir(dirname + os.path.sep + "Resources" + os.path.sep + "res" + os.path.sep + subdirname)
+		if(os.path.exists(dirname + os.path.sep + "Resources" + os.path.sep + "res" + os.path.sep + subdirname)):
+			os.rmdir(dirname + os.path.sep + "Resources" + os.path.sep + "res" + os.path.sep + subdirname)
 	print "Creating TexturePacker files for: " + subdirname + "/" + imagedirname
-	check_call(["TexturePacker", "--format", "cocos2d-x", "--max-size", "4096", "--algorithm", "MaxRects", "--maxrects-heuristics", "Best", "--data", dirname + "/Resources/res/{v}/" + subdirname + "/" + imagedirname + ".plist", "--png-opt-level", "1", "--sheet", dirname + "/Resources/res/{v}/" + subdirname + "/" + imagedirname + ".png", "--variant", "1:HDR", "--variant", "0.5:HD", "--variant", "0.25:SD", "--prepend-folder-name", dirname + "/cocosstudio/" + subdirname], stderr=STDOUT)
+	param = ["TexturePacker", "--format", "cocos2d-x", "--max-size", "4096", "--algorithm", "MaxRects", "--maxrects-heuristics", "Best", "--data", dirname + "/Resources/res/{v}/" + subdirname + "/" + imagedirname + ".plist", "--png-opt-level", "1", "--sheet", dirname + "/Resources/res/{v}/" + subdirname + "/" + imagedirname + ".png", "--variant", "1:HDR", "--variant", "0.5:HD", "--variant", "0.25:SD", "--prepend-folder-name"]
+	param.extend(glob(dirname + os.path.sep + "cocosstudio" + os.path.sep + subdirname + os.path.sep + "*.png"))
+	print param
+	check_call(param, stderr=STDOUT)
