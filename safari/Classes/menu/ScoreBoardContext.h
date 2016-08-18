@@ -23,10 +23,10 @@
 class ScoreBoardContext : public cocos2d::Layer {
 public:
     
-    static ScoreBoardContext* create(int points, std::string gameName);
+    static ScoreBoardContext* create(int points, std::string gameName, std::string sceneName = "");
     
 CC_CONSTRUCTOR_ACCESS:
-    virtual bool init(int points, std::string gameName);
+    virtual bool init(int points, std::string gameName, std::string sceneName);
     ScoreBoardContext();
     virtual ~ScoreBoardContext();
     
@@ -34,11 +34,13 @@ private:
     void createScoreBoard();
     void processChildNodes(cocos2d::Node *rootNode);
     void buttonClicked(Ref* pSender, cocos2d::ui::Widget::TouchEventType eEventType);
+    void transit();
     void showStars();
     cocos2d::Node* starOne;
     cocos2d::Node* starTwo;
     cocos2d::Node* starThree;
     std::string _gameName;
+    std::string _sceneName;
     int _points;
     
 };
