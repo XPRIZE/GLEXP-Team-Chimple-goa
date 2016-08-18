@@ -70,7 +70,8 @@ void Wembley::createChoice() {
 		_timeline[i]->play("front_idle", true);
 		
 		auto dotBall = Sprite::createWithSpriteFrameName("wembley/balldash.png");
-		dotBall->setPosition(Vec2((i + 0.7) * squareWidth, hei * -10/100));
+		dotBall->setPosition(Vec2((i + 0.4) * squareWidth, hei * -10/100));
+		//dotBall->setPosition(Vec2((i + 0.4) * squareWidth, hei * 48 / 100));
 		addChoice(dotBall);
 	}
 	
@@ -169,7 +170,7 @@ void Wembley::gameOver(bool correct) {
 			_clickBalls[i]->setPosition(Vec2(_clickBallInitialPoints.at(i).x, hei * 55 / 100));
 			_clickBalls[i]->setScale(0.3);
 			_clickBalls[i]->setTag(i);
-			addChild(_clickBalls[i], 1);
+			addChild(_clickBalls[i], 0);
 			addEventsBall(_clickBalls[i]);
 			
 		}
