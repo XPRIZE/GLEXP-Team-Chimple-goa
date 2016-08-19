@@ -115,17 +115,14 @@ void HelloWorld::updatePositionAndCategoryBitMaskMainCharacter() {
 }
 
 void HelloWorld::loadGameScene() {
-    std::string buildPath;
     std::string mainSceneName = this->getSceneName() + ".csb";
     if(!sceneName.empty()) {
         this->setSceneName(sceneName);
-        buildPath = this->getSceneName();
     } else {
-        buildPath = this->getIsland();
     }
     
     
-    Node *rootNode = CSLoader::createNode(buildPath + "/" + mainSceneName);
+    Node *rootNode = CSLoader::createNode(mainSceneName);
     this->setSceneSize(rootNode->getContentSize());
     this->addChild(rootNode);
     
@@ -156,12 +153,17 @@ void HelloWorld::loadWords() {
         std::string word  = it->first;
         std::string nodeName = it->second;
         
-//        CCLOG("node=%s, word=%s", nodeName.c_str(), word.c_str());
+        CCLOG("node=%s, word=%s", nodeName.c_str(), word.c_str());
         Node* node = this->mainLayer->getChildByName(nodeName.c_str());
         if(node != NULL && !word.empty()) {
             this->createWordSprite(node, word, this->mainLayer);
+        } else {
+            node = this->foregroundLayer->getChildByName(nodeName.c_str());
+            if(node != NULL && !word.empty()) {
+                this->createWordSprite(node, word, this->foregroundLayer);
+            }
         }
-    }    
+    }
 }
 
 void HelloWorld::createWordSprite(Node* node, std::string word, Node* parentNode)
@@ -200,12 +202,12 @@ void HelloWorld::processNodeWithCustomAttributes(Node* node, Node* parentNode) {
             std::unordered_map<std::string,std::string>::const_iterator itRight = attributes.find("right");
             if ( it != attributes.end() ) {
                 std::string fileName(it->second);
-                fileName = std::regex_replace(fileName, std::regex("^ +| +$|( ) +"), "$1");
+            //    fileName = std::regex_replace(fileName, std::regex("^ +| +$|( ) +"), "$1");
 
                 if(regex_match(fileName, skeletonFile)) {
                     //process hero node
-                    std::string value = std::regex_replace(node->getName(), std::regex("^ +| +$|( ) +"), "$1");
-                    if(value == MAIN_SKELETON_KEY) {
+					std::string value = node->getName();// std::regex_replace(node->getName(), std::regex("^ +| +$|( ) +"), "$1");
+                    if(RPGConfig::compareCaseInsensitive(value,HUMAN_SKELETON_NAME)) {
                         //create Hero character
                         this->addMainCharacterToScene(fileName, node);
                         
@@ -264,8 +266,7 @@ void HelloWorld::setReferencesToGameLayers(cocos2d::Node *rootNode) {
         //based on custom data create layers
         cocostudio::ComExtensionData* data = (cocostudio::ComExtensionData*)node->getComponent("ComExtensionData");
         if(data != NULL) {
-//            CCLOG("%s", data->getCustomProperty().c_str());
-            std::string value = std::regex_replace(data->getCustomProperty(), std::regex("^ +| +$|( ) +"), "$1");
+			std::string value = data->getCustomProperty();// std::regex_replace(data->getCustomProperty(), std::regex("^ +| +$|( ) +"), "$1");
 
             if(value == MAIN_LAYER)
             {
@@ -279,6 +280,7 @@ void HelloWorld::setReferencesToGameLayers(cocos2d::Node *rootNode) {
             }
         }
     }
+    assert(this->mainLayer != NULL);
 }
 
 void HelloWorld::calculateAlphamonNodesInScene(cocos2d::Node *rootNode) {
@@ -333,8 +335,9 @@ void HelloWorld::enablePhysicsBoundaries(Node* rootNode) {
         ;        
     }
     std::regex pattern(".*(_[[:d:]+]+)+");
-    for (auto child : rootNode->getChildren()) {
+    for (Node* child : rootNode->getChildren()) {
         CCLOG("processing child %s", child->getName().c_str());
+        
         PhysicsShapeCache::getInstance()->setBodyOnSprite(child->getName(), (Sprite *)child);
         if(child->getChildrenCount() > 0) {
             for (auto subChild : child->getChildren()) {
@@ -344,16 +347,16 @@ void HelloWorld::enablePhysicsBoundaries(Node* rootNode) {
                     Sprite* sprite = dynamic_cast<Sprite*>(subChild);
                     if(sprite) {
                         auto matchingName = subChild->getName();
-                        
                         std::string v1 = subChild->getName();
                         
                         do {
-                            std::size_t found = matchingName.find_last_of("_");
-                            matchingName = matchingName.substr(0,found);
-                        } while(regex_match(matchingName, pattern));
+                                std::size_t found = matchingName.find_last_of("_");
+                                matchingName = matchingName.substr(0,found);
+                           } while(regex_match(matchingName, pattern));
                         
                         CCLOG("matchingName %s", matchingName.c_str());
                         PhysicsShapeCache::getInstance()->setBodyOnSprite(matchingName, (Sprite *)subChild);
+
                         auto body = subChild->getPhysicsBody();
                         if(body) {
                             this->mainCharacterCategoryBitMask = this->mainCharacterCategoryBitMask | body->getCategoryBitmask();
@@ -365,9 +368,13 @@ void HelloWorld::enablePhysicsBoundaries(Node* rootNode) {
                         this->enablePhysicsBoundaries(sprite);
                     }
                 } else {
-                    Node* sprite = dynamic_cast<Node*>(subChild);
-                    if(sprite->getChildrenCount() > 0) {
-                        this->enablePhysicsBoundaries(sprite);
+                    bool isSkeletonCharacter = dynamic_cast<SkeletonCharacter *>(subChild);
+                    bool isExternalCharacter = dynamic_cast<ExternalSkeletonCharacter *>(subChild);
+                    if(!(isSkeletonCharacter || isExternalCharacter)) {
+                        Node* sprite = dynamic_cast<Node*>(subChild);
+                        if(sprite->getChildrenCount() > 0) {
+                            this->enablePhysicsBoundaries(sprite);
+                        }
                     }
                 }
             }
@@ -383,6 +390,7 @@ void HelloWorld::enablePhysicsBoundaries(Node* rootNode) {
                     
                     CCLOG("matchingName %s", matchingName.c_str());
                     PhysicsShapeCache::getInstance()->setBodyOnSprite(matchingName, (Sprite *)child);
+
                     auto body = child->getPhysicsBody();
                     if(body) {
                         this->mainCharacterCategoryBitMask = this->mainCharacterCategoryBitMask | body->getCategoryBitmask();
@@ -437,23 +445,27 @@ bool HelloWorld::init(const std::string& island, const std::string& sceneName)
     }
     
     this->setIsland(island);
+    if(!sceneName.empty()) {
+        this->setSceneName(sceneName);
+    }
+    
 
     //default sceneName should be the same as island and default search path
-//    if(!sceneName.empty()) {
-//        this->setSceneName(sceneName);
-//        FileUtils::getInstance()->addSearchPath("res/" + this->getSceneName());
-//    } else {
-//        FileUtils::getInstance()->addSearchPath("res/" + this->getIsland());
-//    }
+    if(!sceneName.empty()) {
+        this->setSceneName(sceneName);
+        FileUtils::getInstance()->addSearchPath("res/" + this->getSceneName());
+    } else {
+        FileUtils::getInstance()->addSearchPath("res/" + this->getIsland());
+    }
     
     //Added for testing purpose - remove later....
     this->currentLangUtil = LangUtil::getInstance();
     auto defaultStr = this->currentLangUtil->translateString("Hello world!");
-//    CCLOG("defaultStr translatedString %s", defaultStr.c_str());
+//  CCLOG("defaultStr translatedString %s", defaultStr.c_str());
 
     
-    this->currentLangUtil->changeLanguage(SupportedLanguages::GERMAN);
-    auto translatedString = this->currentLangUtil->translateString("Hello world!");
+    //this->currentLangUtil->changeLanguage(SupportedLanguages::GERMAN);
+    //auto translatedString = this->currentLangUtil->translateString("Hello world!");
 //    CCLOG("translatedString %s", translatedString.c_str());
     //testing
     
@@ -517,6 +529,7 @@ void HelloWorld::registerMessageSenderAndReceiver() {
     
     auto processMessageEvent = [=] (EventCustom * event) {
         std::vector<MessageContent*>*messages = reinterpret_cast<std::vector<MessageContent*>*>(event->getUserData());
+        Director::getInstance()->getEventDispatcher()->pauseEventListenersForTarget(this);
         this->processMessage(messages);
     };
     
@@ -525,6 +538,11 @@ void HelloWorld::registerMessageSenderAndReceiver() {
     this->getEventDispatcher()->addCustomEventListener(RPGConfig::ON_MENU_EXIT_NOTIFICATION, CC_CALLBACK_1(HelloWorld::transitToMenu, this));
 
     this->getEventDispatcher()->addCustomEventListener(RPGConfig::ON_ALPHAMON_PRESSED_NOTIFICATION, CC_CALLBACK_1(HelloWorld::alphamonDestroyed, this));
+    
+    
+    this->getEventDispatcher()->addCustomEventListener(RPGConfig::ON_WORD_INFO_NOTIFICATION, CC_CALLBACK_1(HelloWorld::changeWordScene, this));
+    
+    
 }
 
 void HelloWorld::alphamonDestroyed(EventCustom* event) {
@@ -655,21 +673,23 @@ void HelloWorld::transitToMenu(EventCustom * event) {
 void HelloWorld::cleanUpResources() {
     
     Vec2 origin = Director::getInstance()->getVisibleOrigin();
-    float xPos = this->skeletonCharacter->getSkeletonNode()->getPosition().x < 0 ? Director::getInstance()->getWinSize().width/2  : this->skeletonCharacter->getSkeletonNode()->getPosition().x > this->getSceneSize().width ? Director::getInstance()->getWinSize().width/2 : this->skeletonCharacter->getSkeletonNode()->getPosition().x;
-    
-    float yPos = this->skeletonCharacter->getSkeletonNode()->getPosition().y < 0 ? Y_OFFSET_IF_HERO_DISAPPER : this->skeletonCharacter->getSkeletonNode()->getPosition().y;
-    
-    if(this->skeletonCharacter->getSkeletonNode()->getPosition().y < 0) {
-        xPos = xPos - X_OFFSET_IF_HERO_DISAPPER;
+    if(this->skeletonCharacter != NULL) {
+        float xPos = this->skeletonCharacter->getSkeletonNode()->getPosition().x < 0 ? Director::getInstance()->getWinSize().width/2  : this->skeletonCharacter->getSkeletonNode()->getPosition().x > this->getSceneSize().width ? Director::getInstance()->getWinSize().width/2 : this->skeletonCharacter->getSkeletonNode()->getPosition().x;
+        
+        float yPos = this->skeletonCharacter->getSkeletonNode()->getPosition().y < 0 ? Y_OFFSET_IF_HERO_DISAPPER : this->skeletonCharacter->getSkeletonNode()->getPosition().y;
+        
+        if(this->skeletonCharacter->getSkeletonNode()->getPosition().y < 0) {
+            xPos = xPos - X_OFFSET_IF_HERO_DISAPPER;
+        }
+        
+        //record position in main Island in UserDefault
+        if(this->island == this->sceneName) {
+            UserDefault::getInstance()->setFloatForKey(SKELETON_POSITION_IN_PARENT_ISLAND_X, xPos);
+            UserDefault::getInstance()->setFloatForKey(SKELETON_POSITION_IN_PARENT_ISLAND_Y, yPos);
+        }
+        
+        this->sqlite3Helper->recordMainCharacterPositionInScene(this->island.c_str(), this->sceneName.c_str(), xPos, yPos);        
     }
-    
-    //record position in main Island in UserDefault
-    if(this->island == this->sceneName) {
-        UserDefault::getInstance()->setFloatForKey(SKELETON_POSITION_IN_PARENT_ISLAND_X, xPos);
-        UserDefault::getInstance()->setFloatForKey(SKELETON_POSITION_IN_PARENT_ISLAND_Y, yPos);
-    }
-    
-    this->sqlite3Helper->recordMainCharacterPositionInScene(this->island.c_str(), this->sceneName.c_str(), xPos, yPos);
     
     EVENT_DISPATCHER->removeCustomEventListeners(RPGConfig::MAIN_CHARACTER_VICINITY_CHECK_NOTIFICATION);
     EVENT_DISPATCHER->removeCustomEventListeners(RPGConfig::SPEECH_MESSAGE_ON_TAP_NOTIFICATION);
@@ -679,6 +699,7 @@ void HelloWorld::cleanUpResources() {
     EVENT_DISPATCHER->removeCustomEventListeners(RPGConfig::PROCESS_CUSTOM_MESSAGE_AND_CREATE_UI_NOTIFICATION);
     EVENT_DISPATCHER->removeCustomEventListeners(RPGConfig::ON_MENU_EXIT_NOTIFICATION);
     EVENT_DISPATCHER->removeCustomEventListeners(RPGConfig::ON_ALPHAMON_PRESSED_NOTIFICATION);
+    EVENT_DISPATCHER->removeCustomEventListeners(RPGConfig::ON_WORD_INFO_NOTIFICATION);
     
     CocosDenshion::SimpleAudioEngine::getInstance()->pauseBackgroundMusic();
     
@@ -708,6 +729,14 @@ void HelloWorld::changeScene(std::string nextScene, bool isMiniGame) {
         }
     }
 }
+
+void HelloWorld::changeWordScene(EventCustom * event) {
+    std::string &word = *(static_cast<std::string*>(event->getUserData()));
+    this->cleanUpResources();
+    CCLOG("changeWordScene %s", word.c_str());
+    Director::getInstance()->replaceScene(TransitionFade::create(3.0, WordBoard::createSceneWithWordInIslandAndSceneName(word, this->getIsland(), this->getSceneName()), Color3B::BLACK));
+}
+
 
 void HelloWorld::processAnimationMessage(std::vector<MessageContent*>animationMessages) {
     
@@ -833,8 +862,6 @@ void HelloWorld::processMessage(std::vector<MessageContent*>*messages) {
             ownerOfMessage = content->getOwner();
             changeSceneMessages.push_back(content);
         }
-
-        
     }
     
     if(!textMap.empty()) {
@@ -1037,7 +1064,10 @@ void HelloWorld::flipSkeletonDirection(Point point, cocostudio::timeline::Skelet
             scaleX = -scaleX;
             this->skeletonCharacter->getSkeletonNode()->setScaleX(scaleX);
             CCLOG("pausing all animation on node");
-            this->skeletonCharacter->getSkeletonActionTimeLine()->pause();
+            if(this->skeletonCharacter->getSkeletonActionTimeLine() != NULL) {
+                this->skeletonCharacter->getSkeletonActionTimeLine()->pause();
+            }
+            
             this->stateMachine->handleInput(S_STANDING_STATE, cocos2d::Vec2(0,0));
             this->skeletonCharacter->isRunning = false;
             this->skeletonCharacter->isWalking = false;
@@ -1542,7 +1572,8 @@ bool HelloWorld::handlePhysicsContactEventForMainCharacter(PhysicsContact &conta
 {
     CCLOG("contact current BEGAN Main Skeleton!!! %s", this->stateMachine->enumToString(this->stateMachine->getCurrentState()->getState()));
     
-    if(nodeA->getName() == HUMAN_SKELETON_NAME || nodeB->getName() == HUMAN_SKELETON_NAME)
+    if(RPGConfig::compareCaseInsensitive(nodeA->getName(),HUMAN_SKELETON_NAME) ||
+       RPGConfig::compareCaseInsensitive(nodeB->getName(),HUMAN_SKELETON_NAME))
     {
         
         if(this->skeletonCharacter->didSkeletonContactBeginDuringJumpingUp(contact, this->stateMachine->getCurrentState()->getState(), this->getSceneSize().width)) {
@@ -1640,7 +1671,8 @@ void HelloWorld::registerPhysicsEventContactLister() {
         
         if(isSkeletonNodeA || isSkeletonNodeB)
         {
-            if(nodeA->getName() == HUMAN_SKELETON_NAME || nodeB->getName() == HUMAN_SKELETON_NAME)
+            if(RPGConfig::compareCaseInsensitive(nodeA->getName(),HUMAN_SKELETON_NAME) ||
+               RPGConfig::compareCaseInsensitive(nodeB->getName(),HUMAN_SKELETON_NAME))
             {
                 return this->handlePhysicsContactEventForMainCharacter(contact, nodeA, nodeB);
             } else {

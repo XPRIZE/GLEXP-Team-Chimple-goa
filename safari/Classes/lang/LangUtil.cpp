@@ -15,7 +15,7 @@ USING_NS_CC;
 LangUtil* LangUtil::_instance = 0;
 
 LangUtil::LangUtil() {
-    I18N::I18nUtils::getInstance();   
+    I18N::I18nUtils::getInstance();
 }
 
 LangUtil::~LangUtil() {
@@ -24,7 +24,13 @@ LangUtil::~LangUtil() {
 
 LangUtil* LangUtil::getInstance() {
     if(!_instance) {
-        _instance = new EnglishUtil();
+        _instance = new KannadaUtil();
+        auto ss = FileUtils::getInstance()->getStringFromFile(_instance->getDir() + "/words.txt");
+        std::stringstream stream(ss);
+        std::string line;
+        while (std::getline(stream, line)) {
+            _instance->_wordList.push_back(line);
+        }
     }
     return _instance;
 }
@@ -40,7 +46,9 @@ wchar_t LangUtil::convertStringToUTF16Char(std::string alphaString) {
     return alphaString.c_str()[0];
 }
 
-
+std::string LangUtil::getAWord() {
+    return _wordList.at(rand() % _wordList.size());
+}
 
 
 std::string LangUtil::translateString(std::string input) {

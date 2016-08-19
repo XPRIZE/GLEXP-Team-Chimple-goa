@@ -21,12 +21,13 @@
 #include "mini_games/AlphamonFeedScene.h"
 #include "StartMenuScene.h"
 #include "mini_games/Baja.h"
-#include "mini_games/HippoGameScene.h"
 #include "mini_games/Chain.h"
 #include "puzzle/PegWord.h"
 #include "puzzle/WordBoard.h"
 #include "mini_games/Wembley.h"
 #include "mini_games/BajaWordScene.h"
+#include "mini_games/CatGameScene.h"
+#include "mini_games/Spirograph.h"
 
 USING_NS_CC;
 
@@ -92,7 +93,6 @@ void GameMapScene::loadGameMap() {
     this->processChildNodes(rootNode);
 }
 
-
 void GameMapScene::processChildNodes(cocos2d::Node *rootNode) {
     //iterate thru all children
     auto children = rootNode->getChildren();
@@ -156,7 +156,7 @@ void GameMapScene::islandSelected(Ref* pSender, ui::Widget::TouchEventType eEven
         {
             clickedButton->setEnabled(false);
             if(clickedButton->getName() == PATCH_THE_WALL) {
-                Director::getInstance()->replaceScene(PegWord::createScene());
+                Director::getInstance()->replaceScene(Spirograph::createScene());
             } else if(clickedButton->getName() == CROSS_THE_BRIDGE) {
                 //Director::getInstance()->replaceScene(CrossTheBridge::createScene());
 				Director::getInstance()->replaceScene(Chain::createScene());
@@ -167,13 +167,13 @@ void GameMapScene::islandSelected(Ref* pSender, ui::Widget::TouchEventType eEven
             } else if(clickedButton->getName() == CANNON_BALL) {
                 Director::getInstance()->replaceScene(Jasmin_Mainfile::createScene());
             } else if(clickedButton->getName() == ENDLESS_RUNNER) {
-                Director::getInstance()->replaceScene(BajaWordScene::createScene());
+                Director::getInstance()->replaceScene(EndlessRunner::createScene());
             } else if(clickedButton->getName() == KUNG_FU_ALPHA) {
                 //Director::getInstance()->replaceScene(Trace::createScene(0));
 				Director::getInstance()->replaceScene(Wembley::createScene());
 				
             } else if(clickedButton->getName() == ALPHAMON_FEED) {
-                Director::getInstance()->replaceScene(HippoGame::createScene());
+                Director::getInstance()->replaceScene(CatGame::createScene());
             }
             break;
         }

@@ -8,8 +8,13 @@
 
 USING_NS_CC;
 
+std::string Chain::_SS;
+
 Scene* Chain::createScene()
 {
+	CCSpriteFrameCache* framecache1 = CCSpriteFrameCache::sharedSpriteFrameCache();
+	framecache1->addSpriteFramesWithFile("chain/chain.plist");
+	//Chain::_SS = "flamingo";
 	// 'layer' is an autorelease object
 	auto layer = Chain::create();
 
@@ -21,12 +26,10 @@ Scene* Chain::createScene()
 }
 Chain::~Chain(void)
 {
-	
 
 }
 Chain::Chain(void)
 {
-
 
 }
 
@@ -36,7 +39,21 @@ GraphemeGrid* Chain::createGraphemeGrid(GLfloat width, GLfloat height, int numRo
 }
 
 Node* Chain::loadNode() {
-	_node = CSLoader::createNode("chain/chain.csb");
+	std::string chainSceneType[] = { "monkey","elephant","flamingo" };
+	Chain::_SS = chainSceneType[RandomHelper::random_int(0, 2)];
+	//Chain::_SS = "elephant";
+	if (!Chain::_SS.compare("monkey"))
+	{
+		_node = CSLoader::createNode("chain/chain.csb");
+	}
+	else if (!Chain::_SS.compare("elephant"))
+	{
+		_node = CSLoader::createNode("chain/chain01.csb");
+	}
+	else if (!Chain::_SS.compare("flamingo"))
+	{
+		_node = CSLoader::createNode("chain/chain02.csb");
+	}
 
 	_gameBg = _node;
 	Vector <Node*> children = _gameBg->getChildren();
@@ -48,50 +65,95 @@ Node* Chain::loadNode() {
 			monsterItem->setVisible(false);
 		}
 		CCLOG("name : %s", str.c_str());
-		}
-
+	}
 	return _node;
 }
 void Chain::createChoice() {
-	
-float wid = visibleSize.width;
-float hei = visibleSize.height;
- 
-//_numGraphemes = 1;
 
-Sprite* sampleMonkey = (Sprite *)_gameBg->getChildByName("monkey_15_1_2");
-Sprite* rope = (Sprite *)_gameBg->getChildByName("toprope_12");
-auto choicePanel = sampleMonkey->getBoundingBox().size.width * _numGraphemes;
-auto partition = (wid - choicePanel) / 2;
-auto ropeLength =  choicePanel+60;
-auto ropeScaleInX = ropeLength / rope->getBoundingBox().size.width;
-rope->setPosition(Vec2(partition-30,rope->getPosition().y+40));
-rope->setAnchorPoint(Vec2(0, 0.5));
-rope->setScaleX(ropeScaleInX);
+	float wid = visibleSize.width;
+	float hei = visibleSize.height;
 
-Sprite* treeLeft = (Sprite *)_gameBg->getChildByName("maintree_14");
-Sprite* treeRight= (Sprite *)_gameBg->getChildByName("maintree_13");
-treeLeft->setPosition(Vec2(partition, treeLeft->getPosition().y));
-treeRight->setPosition(Vec2(partition+ choicePanel, treeRight->getPosition().y));
-treeLeft->setAnchorPoint(Vec2(1, 0.5));
-treeRight->setAnchorPoint(Vec2(0, 0.5));
+//	_numGraphemes = 3;
+	if (!Chain::_SS.compare("monkey"))
+	{
+		Sprite* wordPanel = (Sprite *)_gameBg->getChildByName("wordpanel_21");
+		wordPanel->setPosition(Vec2(visibleSize.width/2,wordPanel->getPosition().y));
+		Sprite* sampleMonkey = (Sprite *)_gameBg->getChildByName("monkey_15_1_2");
+		Sprite* rope = (Sprite *)_gameBg->getChildByName("toprope_12");
+		auto choicePanel = sampleMonkey->getBoundingBox().size.width * _numGraphemes;
+		auto partition = (wid - choicePanel) / 2;
+		auto ropeLength = choicePanel + 60;
+		auto ropeScaleInX = ropeLength / rope->getBoundingBox().size.width;
+		rope->setPosition(Vec2(partition - 30, rope->getPosition().y + 40));
+		rope->setAnchorPoint(Vec2(0, 0.5));
+		rope->setScaleX(ropeScaleInX);
 
-	_choice = Node::create();
-	_choice->setPosition(Vec2(partition+ (sampleMonkey->getBoundingBox().size.width/2), (hei*.58)));
-	addChild(_choice);
-	
-	for (int i = 0; i < _numGraphemes; i++) {
-		auto choiceNode = Node::create();
-		//auto choiceNode = Sprite::createWithSpriteFrameName("chain/monkey.png");
-		choiceNode->setPosition(Vec2(i * sampleMonkey->getBoundingBox().size.width, 40));
-		choiceNode->setScale(0.8);
-		choiceNode->setVisible(true);
-		addChoice(choiceNode);
+		Sprite* treeLeft = (Sprite *)_gameBg->getChildByName("maintree_14");
+		Sprite* treeRight = (Sprite *)_gameBg->getChildByName("maintree_13");
+		treeLeft->setPosition(Vec2(partition, treeLeft->getPosition().y));
+		treeRight->setPosition(Vec2(partition + choicePanel, treeRight->getPosition().y));
+		treeLeft->setAnchorPoint(Vec2(1, 0.5));
+		treeRight->setAnchorPoint(Vec2(0, 0.5));
+
+		_choice = Node::create();
+		_choice->setPosition(Vec2(partition + (sampleMonkey->getBoundingBox().size.width / 2), (hei*.58)));
+		addChild(_choice);
+
+		for (int i = 0; i < _numGraphemes; i++) {
+			auto choiceNode = Node::create();
+			//auto choiceNode = Sprite::createWithSpriteFrameName("chain/monkey.png");
+			choiceNode->setPosition(Vec2(i*sampleMonkey->getBoundingBox().size.width, 40));
+			choiceNode->setScale(0.8);
+			choiceNode->setAnchorPoint(Vec2(0.1, 0.5));
+			choiceNode->setVisible(true);
+			addChoice(choiceNode);
+		}
 	}
+	else if (!Chain::_SS.compare("elephant"))
+	{
+		Sprite* wordPanel = (Sprite *)_gameBg->getChildByName("wordpanel_21");
+		wordPanel->setPosition(Vec2(visibleSize.width / 2, wordPanel->getPosition().y));
+		Sprite* ele = (Sprite *)_gameBg->getChildByName("ele_35");
+		ele->setVisible(false);
+		auto gap = Director::getInstance()->getVisibleSize().width / _numGraphemes;
+		_choice = Node::create();
+		_choice->setPosition(Vec2(0, (hei*.56)));
+		addChild(_choice);
 
+		for (int i = 0; i < _numGraphemes; i++) {
+			//auto choiceNode = Node::create();
+			auto choiceNode = CSLoader::createNode("chain/elephant.csb");
+			choiceNode->setPosition(Vec2((i + 0.4)*gap, 0));
+			choiceNode->getChildren().at(0)->setAnchorPoint(Vec2(0.47, 0.25));
+			choiceNode->setScale(0.8);
+			choiceNode->setVisible(true);
+			addChoice(choiceNode);
+			_eleContainer.push_back(choiceNode);
+
+		}
+	}
+	else if (!Chain::_SS.compare("flamingo"))
+	{
+		Sprite* wordPanel = (Sprite *)_gameBg->getChildByName("wordpanel_21");
+		wordPanel->setPosition(Vec2(visibleSize.width / 2, wordPanel->getPosition().y));
+		auto gap = Director::getInstance()->getVisibleSize().width / _numGraphemes;
+		_choice = Node::create();
+		_choice->setPosition(Vec2(0, (hei*.58)));
+		addChild(_choice);
+
+		for (int i = 0; i < _numGraphemes; i++) {
+			auto choiceNode = CSLoader::createNode("chain/flemingo.csb");
+			choiceNode->setPosition(Vec2((i + 0.4)*gap, 00));
+			choiceNode->getChildren().at(0)->setAnchorPoint(Vec2(0.50, 0.6));
+			choiceNode->setScale(0.8);
+			choiceNode->setVisible(true);
+			addChoice(choiceNode);
+			_flamContainer.push_back(choiceNode);
+		}
+	}
 }
 std::string Chain::getGridBackground() {
-	return "chain/block.png"; 
+	return "chain/block.png";
 }
 
 std::string Chain::getGraphemeUnselectedBackground() {
@@ -99,10 +161,19 @@ std::string Chain::getGraphemeUnselectedBackground() {
 }
 
 std::string Chain::getGraphemeSelectedBackground() {
-	return "chain/animation.csb";
+	if (!Chain::_SS.compare("monkey"))
+	{
+		return "chain/animation.csb";
+	}
+	else if (!Chain::_SS.compare("elephant"))
+	{
+		return "";
+	}
+	else if (!Chain::_SS.compare("flamingo"))
+	{
+		return "";
+	}
 }
-
-
 Chain* Chain::create() {
 	Chain* word = new (std::nothrow) Chain();
 	if (word && word->init())
@@ -120,32 +191,68 @@ void Chain::createAnswer() {
 	label->setFontSize(200);
 	_answer = Node::create();
 	_answer->addChild(label);
-	_answer->setPosition(Vec2(visibleSize.width/2, visibleSize.height*.935));
+	_answer->setPosition(Vec2(visibleSize.width / 2, visibleSize.height*.935));
 	addChild(_answer);
-
 }
-
-
 void Chain::gameOver(bool correct)
 {
 	if (correct) {
-		//_menuContext->showScore();
-		//_answerVector.at(0).second->setScale(0.5);
-		auto callShowScore = CCCallFunc::create([=] {
-			_menuContext->showScore();
-			});
-		auto callAnimation = CCCallFunc::create([=] {
-			for (int i = 0; i < _numGraphemes; i++) {
-				auto timeLine = CSLoader::createTimeline("chain/animation.csb");
-				//_monkeyTimeline->setTimeSpeed(0.5);
-				_answerVector.at(i).second->runAction(timeLine);
-				timeLine->play("monkeyeat", true);
-				_answerVector.at(i).second->getChildren().at(0)->setAnchorPoint(Vec2(0.5, 0.185));
-				timeLine->setTimeSpeed(0.7);
-			}
-		});
-		this->runAction(Sequence::create(DelayTime::create(1), callAnimation, DelayTime::create(8), callShowScore, NULL));
 
+		if (!Chain::_SS.compare("monkey"))
+		{
+					auto callShowScore = CCCallFunc::create([=] {
+						_menuContext->showScore();
+					});
+					auto callAnimation = CCCallFunc::create([=] {
+						for (int i = 0; i < _numGraphemes; i++) {
+							auto timeLine = CSLoader::createTimeline("chain/animation.csb");
+							_answerVector.at(i).second->getChildren().at(1)->getChildren().at(0)->setAnchorPoint(Vec2(0.509, 0.33));
+							_answerVector.at(i).second->runAction(timeLine);
+							timeLine->play("monkeyeat", true);
+					
+							timeLine->setTimeSpeed(0.5);
+						}
+					});
+					this->runAction(Sequence::create(DelayTime::create(1), callAnimation, DelayTime::create(5), callShowScore, NULL));
+		}
+		else if (!Chain::_SS.compare("elephant"))
+		{
+					auto callShowScore = CCCallFunc::create([=]
+					{
+						_menuContext->showScore();
+					});
+					auto eleAnimation = CCCallFunc::create([=] {
+						for (std::size_t i = 0; i < _eleContainer.size(); i++)
+						{
+							cocostudio::timeline::ActionTimeline *timeline = CSLoader::createTimeline("chain/elephant.csb");
+							_eleContainer[i]->runAction(timeline);
+							timeline->play("elephant", true);
+							timeline->setTimeSpeed(0.5);
+						}
+					});
+					this->runAction(Sequence::create(DelayTime::create(1), eleAnimation, DelayTime::create(5), callShowScore, NULL));
+		}
+		else if (!Chain::_SS.compare("flamingo"))
+		{
+					auto callShowScore = CCCallFunc::create([=]
+					{
+						_menuContext->showScore();
+						_choice->removeAllChildrenWithCleanup(true);
+					});
+					auto flamingoAnimation = CCCallFunc::create([=] {
+
+						for (std::size_t i = 0; i < _flamContainer.size(); i++)
+						{
+							_answerVector.at(i).second->setVisible(false);
+							cocostudio::timeline::ActionTimeline *timeline = CSLoader::createTimeline("chain/flemingo.csb");
+							_flamContainer[i]->runAction(timeline);
+							timeline->play("flamingo", true);
+							auto moveTo = MoveTo::create(RandomHelper::random_int(1, 5), Vec2(visibleSize.width - 200, 1500));
+							_flamContainer[i]->runAction(moveTo);
+						}
+					});
+					this->runAction(Sequence::create(DelayTime::create(1), flamingoAnimation, DelayTime::create(5), callShowScore, NULL));
+		}
 	}
 }
 
@@ -157,7 +264,6 @@ ChainGrid* ChainGrid::create(GLfloat width, GLfloat height, int numRows, int num
 	}
 	CC_SAFE_DELETE(graphemeGrid);
 	return nullptr;
-
 }
 
 bool ChainGrid::init(GLfloat width, GLfloat height, int numRows, int numCols, std::string spriteName, std::vector<std::vector<std::string>> graphemes, std::string graphemeUnselectedBackground, std::string graphemeSelectedBackground) {
@@ -179,8 +285,17 @@ Grapheme* ChainGrid::createAndAddGrapheme(std::string graphemeString) {
 		grapheme->setUnselectedBackground(bg);
 	}
 	if (!_graphemeSelectedBackground.empty()) {
-		auto bg = CSLoader::createNode("chain/animation.csb");
-		grapheme->setSelectedBackground(bg);
+		if (!Chain::_SS.compare("monkey"))
+		{
+			auto bg = CSLoader::createNode("chain/animation.csb");
+			grapheme->setSelectedBackground(bg);
+		}
+		else if (!Chain::_SS.compare("elephant"))
+		{
+		}
+		else if (!Chain::_SS.compare("flamingo"))
+		{
+		}
 	}
 	return grapheme;
 }
@@ -206,23 +321,30 @@ bool ChainGrapheme::init(std::string graphemeString) {
 void ChainGrapheme::animateToPositionAndChangeBackground(cocos2d::Vec2 toPosition) {
 	_prevPosition = getPosition();
 	if (!_selected) {
-	
+
 		auto moveTo = MoveTo::create(0.5, toPosition);
-		auto scaleTo = ScaleTo::create(0.5, 0.3);
 		auto callback = CallFunc::create(CC_CALLBACK_0(Grapheme::changeBackground, this));
 		auto sequence = Sequence::create(moveTo, callback, NULL);
 		runAction(sequence);
-		_letterBG->runAction(scaleTo);
-		_monkeyTimeline->play("monkeyflip", false);
+		if (!Chain::_SS.compare("monkey"))
+		{
+			auto scaleTo = ScaleTo::create(0.5, 0.3);
+			_letterBG->runAction(scaleTo);
+			_monkeyTimeline->play("monkeyflip", false);
+		}
+
 	}
-	else 
+	else
 	{
 		changeBackground();
 		auto moveTo = MoveTo::create(0.5, toPosition);
-		auto scaleTo = ScaleTo::create(0.5, 0.8);
 		runAction(moveTo);
-		_letterBG->runAction(scaleTo);
-		_monkeyTimeline->play("monkeyflip", false);
+		if (!Chain::_SS.compare("monkey"))
+		{
+			auto scaleTo = ScaleTo::create(0.5, 0.8);
+			_letterBG->runAction(scaleTo);
+			_monkeyTimeline->play("monkeyflip", false);
+		}
 	}
 }
 void ChainGrapheme::setSelectedBackground(Node* selectedBackground)
@@ -235,6 +357,6 @@ void ChainGrapheme::setSelectedBackground(Node* selectedBackground)
 	}
 	_monkeyTimeline = CSLoader::createTimeline("chain/animation.csb");
 	_selectedBackground->runAction(_monkeyTimeline);
+	_selectedBackground->getChildren().at(0)->setAnchorPoint(Vec2(0.47, 0.33));
 	_selectedBackground->setScale(0.3);
-	_selectedBackground->getChildren().at(0)->setAnchorPoint(Vec2(0.5,0.185));
 }

@@ -19,6 +19,13 @@
 
 #ifndef GameMapScene_h
 #define GameMapScene_h
+
+/*
+ *
+ * DEPRECATED = Please use ScrollbleGameMapScene
+ */
+
+
 class MenuContext;
 
 class GameMapScene : public cocos2d::Layer {

@@ -6,7 +6,7 @@ $(call import-add-path,$(LOCAL_PATH)/../../cocos2d)
 $(call import-add-path,$(LOCAL_PATH)/../../cocos2d/external)
 $(call import-add-path,$(LOCAL_PATH)/../../cocos2d/cocos)
 
-LOCAL_MODULE := cocos2dcpp_shared
+LOCAL_MODULE := cocos2dcpp
 
 LOCAL_MODULE_FILENAME := libcocos2dcpp
 
@@ -63,8 +63,8 @@ LOCAL_SRC_FILES := hellocpp/main.cpp \
 					../../Classes/mini_games/Wembley.cpp \
 					../../Classes/mini_games/Baja.cpp \
 					../../Classes/mini_games/BajaWordScene.cpp \
-					../../Classes/mini_games/HippoGameScene.cpp \
-					../../Classes/mini_games/HippoScene.cpp \
+					../../Classes/mini_games/CatGameScene.cpp \
+					../../Classes/mini_games/CatScene.cpp \
 					../../Classes/menu/MenuContext.cpp \
 					../../Classes/lang/LangUtil.cpp \
 					../../Classes/lang/EnglishUtil.cpp \
@@ -85,8 +85,10 @@ LOCAL_SRC_FILES := hellocpp/main.cpp \
 					../../Classes/menu/ScoreBoardContent.cpp \
 					../../Classes/lang/WordManager.cpp \
 					../../Classes/WordSprite.cpp \
-					../../Classes/lang/WordInfo.cpp
-										
+					../../Classes/lang/WordInfo.cpp \
+					../../Classes/ScrollableGameMapScene.cpp \
+					../../Classes/PhotoCaptureScene.cpp \
+					../../Classes/mini_games/Spirograph.cpp									
 
 LOCAL_C_INCLUDES := $(LOCAL_PATH)/../../Classes
 LOCAL_C_INCLUDES += $(LOCAL_PATH)/../../../extensions

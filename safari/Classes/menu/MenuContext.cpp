@@ -24,12 +24,13 @@ using namespace experimental;
 static const int MAX_POINTS_TO_SHOW = 16;
 static const int POINTS_TO_LEFT = 300.0f;
 
-MenuContext* MenuContext::create(Node* main, std::string gameName, bool launchCustomEventOnExit) {
+MenuContext* MenuContext::create(Node* main, std::string gameName, bool launchCustomEventOnExit, std::string sceneName) {
     MenuContext* menuContext = new (std::nothrow) MenuContext();
     if(menuContext && menuContext->init(main)) {
         menuContext->autorelease();
         menuContext->_launchCustomEventOnExit = launchCustomEventOnExit;
         menuContext->gameName = gameName;
+        menuContext->sceneName = sceneName;
         return menuContext;
     }
     CC_SAFE_DELETE(menuContext);
@@ -110,11 +111,16 @@ void MenuContext::expandMenu(cocos2d::Ref *pSender, cocos2d::ui::Widget::TouchEv
                 auto targetBookCloseAction = TargetedAction::create(_mapMenu, elastic->clone());
                 auto targetMapCloseAction = TargetedAction::create(_bookMenu, elastic->clone());
 //                auto targetExitCloseAction = TargetedAction::create(_exitMenu, elastic);
-                auto targetGamesCloseAction = TargetedAction::create(_gamesMenu, elastic);
+                auto targetGamesCloseAction = TargetedAction::create(_gamesMenu, elastic->clone());
+                if(_photoMenu) {
+                    auto targetPhotoCloseAction = TargetedAction::create(_photoMenu, elastic->clone());
+                    auto spawnAction = Spawn::create(targetHelpCloseAction,targetMapCloseAction,targetBookCloseAction,targetGamesCloseAction,targetPhotoCloseAction, nullptr);
+                        runAction(Sequence::create(spawnAction, callbackRemoveMenu, NULL));
+                } else {
+                    auto spawnAction = Spawn::create(targetHelpCloseAction,targetMapCloseAction,targetBookCloseAction,targetGamesCloseAction,nullptr);
+                        runAction(Sequence::create(spawnAction, callbackRemoveMenu, NULL));
+                }
                 
-                auto spawnAction = Spawn::create(targetHelpCloseAction,targetMapCloseAction,targetBookCloseAction,targetGamesCloseAction,nullptr);
-                
-                runAction(Sequence::create(spawnAction, callbackRemoveMenu, NULL));
             } else {
                 addGreyLayer();
                 _helpMenu = this->createMenuItem("menu/help.png", "menu/help.png", "menu/help.png",POINTS_TO_LEFT);
@@ -130,7 +136,13 @@ void MenuContext::expandMenu(cocos2d::Ref *pSender, cocos2d::ui::Widget::TouchEv
                 _gamesMenu = this->createMenuItem("menu/game.png", "menu/game.png", "menu/game.png", 4 * POINTS_TO_LEFT);
                 _gamesMenu->addTouchEventListener(CC_CALLBACK_2(MenuContext::showGamesMenu, this));
 
-
+                std::string latestPhotoPath = SafariAnalyticsManager::getInstance()->getLatestUserPhoto();
+                
+                if(!latestPhotoPath.empty()) {
+                    CCLOG("got path for menu %s", latestPhotoPath.c_str());
+                    _photoMenu = this->createMenuItem(latestPhotoPath, latestPhotoPath, latestPhotoPath, 5 * POINTS_TO_LEFT);
+                }
+                
                 auto moveTo = MoveTo::create(0.5, Vec2(150, _menuButton->getPosition().y));
                 auto elastic = EaseBackOut::create(moveTo);
                 pauseNodeAndDescendants(_main);
@@ -183,6 +195,12 @@ void MenuContext::removeMenu() {
         
         removeChild(_gamesMenu);
         _gamesMenu = nullptr;
+        
+        if(_photoMenu) {
+            removeChild(_photoMenu);
+            _photoMenu = nullptr;
+        }
+
         
         if(_chimp) {
             removeChild(_chimp);
@@ -452,7 +470,7 @@ void MenuContext::showScore() {
     pauseNodeAndDescendants(_main);
     Size visibleSize = Director::getInstance()->getVisibleSize();
     Vec2 origin = Director::getInstance()->getVisibleOrigin();
-    auto scoreNode = ScoreBoardContext::create(_points * 100/MAX_POINTS_TO_SHOW, this->gameName);
+    auto scoreNode = ScoreBoardContext::create(_points * 100/MAX_POINTS_TO_SHOW, this->gameName, this->sceneName);
     scoreNode->setPosition(Vec2(origin.x + visibleSize.width / 2, origin.y + visibleSize.height / 2));
     addChild(scoreNode);
 }
@@ -470,7 +488,8 @@ _greyLayer(nullptr),
 _chimp(nullptr),
 _chimpAudioId(0),
 _gameIsPaused(false),
-_startupCallback(nullptr)
+_startupCallback(nullptr),
+_photoMenu(nullptr)
 {
     
 }

@@ -90,7 +90,6 @@
 #define MAIN_LAYER "main"
 #define BACK_GROUND_LAYER "background"
 #define FORE_GROUND_LAYER "foreground"
-#define MAIN_SKELETON_KEY "Hero"
 
 #define HORIZONTAL_PARALLEX_RATIO 0.7f
 #define VERTICAL_PARALLEX_RATIO 0.7f
@@ -226,6 +225,12 @@ public:
         return attributes;
     }
 
+    static bool compareCaseInsensitive(std::string str1, std::string str2) {
+        if (strcmp(str1.c_str(), str2.c_str()) == 0) {
+            return true;
+        }
+        return false;
+    }
     
     
     //notifications
@@ -248,6 +253,8 @@ public:
     static const char* ON_MENU_EXIT_NOTIFICATION;
     
     static const char* ON_ALPHAMON_PRESSED_NOTIFICATION;
+    
+    static const char* ON_WORD_INFO_NOTIFICATION;
         
     template <typename T>
     static inline std::string to_string(T value)

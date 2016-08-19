@@ -8,6 +8,7 @@ Scene* Jasmin_Mainfile::createScene() {
 	auto layer = Jasmin_Mainfile::create();
 	auto scene = GameScene::createWithChild(layer, "jasmine");
 	layer->_menuContext = scene->getMenuContext();
+
 	return scene;
 }
 
@@ -35,6 +36,10 @@ void Jasmin_Mainfile::createAnswer() {
 }
 
 void Jasmin_Mainfile::createChoice() {
+
+	audioBg = CocosDenshion::SimpleAudioEngine::getInstance();
+	audioBg->playEffect("jasmine/jasmin_background.mp3", true);
+
 	float wid = Director::getInstance()->getVisibleSize().width;
 	float hei = Director::getInstance()->getVisibleSize().height;
 
@@ -61,6 +66,7 @@ std::string Jasmin_Mainfile::getGridBackground() {
 void Jasmin_Mainfile::gameOver(bool correct) {
 	float hei = Director::getInstance()->getVisibleSize().height;
 	if (correct) {
+		_grid->touchEndedCallback = nullptr;
 		for (int item = 0; item < _positionX.size(); ++item)
 		{
 			int random_val = std::rand() % (4 - 1 + 1) + 1;
@@ -94,8 +100,8 @@ void Jasmin_Mainfile::gameOver(bool correct) {
 			fileName << ".csb";
 
 			auto tree = CSLoader::createNode(fileName.str());
-			tree->setPosition(Vec2(_positionX[item], _positionY[item]));
-			addChoice(tree);
+			tree->setPosition(Vec2(_positionX[item], hei * 47 / 100));
+			addChild(tree);
 
 			auto animation = CSLoader::createTimeline(fileName.str());
 			tree->runAction(animation);
@@ -135,7 +141,8 @@ void Jasmin_Mainfile::startFlowerAnimation(Node *nd, int random_val, int animati
 
 void Jasmin_Mainfile::showScore()
 {
-	_menuContext->showScore();
+	audioBg->stopAllEffects();
+	Director::getInstance()->replaceScene(Spirograph::createScene());
 }
 
 Jasmin_Mainfile* Jasmin_Mainfile::create() {
@@ -147,4 +154,9 @@ Jasmin_Mainfile* Jasmin_Mainfile::create() {
 	}
 	CC_SAFE_DELETE(word);
 	return nullptr;
+}
+
+Jasmin_Mainfile::~Jasmin_Mainfile(void) {
+	audioBg->stopAllEffects();
+
 }

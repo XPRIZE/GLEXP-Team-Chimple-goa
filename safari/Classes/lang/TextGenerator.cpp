@@ -24,7 +24,8 @@ TextGenerator* TextGenerator::getInstance() {
 
 std::vector<std::vector<std::string>> TextGenerator::generateMatrix(std::string word, int numRows, int numCols) {
     auto allChars = getAllChars();
-    int wordLength = word.length();
+    auto wordVec = getGraphemes(word);
+    int wordLength = wordVec.size();
     int matrixLength = numRows * numCols;
     auto locChars = getRandomLocations(wordLength, matrixLength);
     std::vector<std::vector<std::string>> matrix(numRows, std::vector<std::string>(numCols));
@@ -33,7 +34,7 @@ std::vector<std::vector<std::string>> TextGenerator::generateMatrix(std::string 
             int numElement = numCols * i + j;
             auto iter = locChars.find(numElement);
             if(iter != locChars.end()) {
-                matrix[i][j] = word.substr(iter->second, 1);
+                matrix[i][j] = wordVec.at(iter->second);
             } else {
                 matrix[i][j] = allChars[rand() % LangUtil::getInstance()->getNumberOfCharacters()];
             }
@@ -57,15 +58,7 @@ std::map<int, int> TextGenerator::getRandomLocations(int numLoc, int totalNum) {
 }
 
 std::string TextGenerator::generateAWord() {
-    static std::vector<std::string> words;
-    words.push_back("A");
-    words.push_back("IT");
-    words.push_back("ZOO");
-    words.push_back("CODE");
-    words.push_back("TIGHT");
-    words.push_back("BUBBLE");
-
-    return words.at(rand() % 6);
+    return LangUtil::getInstance()->getAWord();
 }
 
 

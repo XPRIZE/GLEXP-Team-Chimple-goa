@@ -21,8 +21,10 @@ protected:
 	std::string _positionCar = "mid";
 	Node *_userCar;
 	cocos2d::ui::LoadingBar* _fuelBar;
+	CocosDenshion::SimpleAudioEngine* audioBg;
 
 public:
+	~Baja();
 	static cocos2d::Scene* createScene();
 	virtual bool init();
 	Sprite* setSpriteProperties(std::string frameName,float positionX,float positionY,float scaleX, float scaleY, float anchorX, float anchorY,float rotation,int zorder);

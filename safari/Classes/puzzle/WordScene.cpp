@@ -48,7 +48,6 @@ WordScene::WordScene() {
 }
 
 WordScene::~WordScene() {
-    
 }
 
 bool WordScene::init() {
@@ -71,9 +70,18 @@ bool WordScene::initWithWord(std::string word) {
     createAnswer();
     createChoice();
     createGrid();
-    _eventDispatcher->addCustomEventListener("grapheme_anim_done", CC_CALLBACK_0(WordScene::checkAnswer, this));
     return true;
     
+}
+
+void WordScene::onExitTransitionDidStart() {
+    Node::onExitTransitionDidStart();
+    _eventDispatcher->removeCustomEventListeners("grapheme_anim_done");
+}
+
+void WordScene::onEnterTransitionDidFinish() {
+    Node::onEnterTransitionDidFinish();
+    _eventDispatcher->addCustomEventListener("grapheme_anim_done", CC_CALLBACK_0(WordScene::checkAnswer, this));
 }
 
 GraphemeGrid* WordScene::createGraphemeGrid(GLfloat width, GLfloat height, int numRows, int numCols, std::string spriteName, std::vector<std::vector<std::string>> graphemes, std::string graphemeUnselectedBackground, std::string graphemeSelectedBackground)
@@ -129,12 +137,14 @@ Node* WordScene::loadNode() {
 }
 
 void WordScene::createAnswer() {
+	Size visibleSize = Director::getInstance()->getVisibleSize();
+
     auto label = ui::Text::create();
     label->setString(_word);
     label->setFontSize(200);
     _answer = Node::create();
     _answer->addChild(label);
-    _answer->setPosition(Vec2(1280, 1600));
+    _answer->setPosition(Vec2(visibleSize.width / 2, 1600));
     addChild(_answer);
     
 }

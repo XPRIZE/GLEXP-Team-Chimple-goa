@@ -242,12 +242,6 @@
     <ClCompile Include="..\Classes\puzzle\GraphemeGrid.cpp">
       <Filter>src\puzzle</Filter>
     </ClCompile>
-    <ClCompile Include="..\Classes\mini_games\HippoScene.cpp">
-      <Filter>src\mini_games</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\mini_games\HippoGameScene.cpp">
-      <Filter>src\mini_games</Filter>
-</ClCompile>
     <ClCompile Include="..\Classes\mini_games\jazz.cpp">
       <Filter>src\mini_games</Filter>
     </ClCompile>
@@ -268,6 +262,15 @@
     </ClCompile>
     <ClCompile Include="..\Classes\ScrollableGameMapScene.cpp">
       <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\mini_games\CatGameScene.cpp">
+      <Filter>src\mini_games</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\mini_games\CatScene.cpp">
+	<Filter>src\mini_games</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\mini_games\Spirograph.cpp">
+      <Filter>src\mini_games</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -484,19 +487,11 @@
     <ClInclude Include="..\Classes\puzzle\GraphemeGrid.h">
       <Filter>src\puzzle</Filter>
     </ClInclude>
-
-    <ClInclude Include="..\Classes\mini_games\HippoScene.h">
-      <Filter>src\mini_games</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\mini_games\HippoGameScene.h">
-      <Filter>src\mini_games</Filter>
-  </ClInclude>
     <ClInclude Include="..\Classes\mini_games\jazz.h">
       <Filter>src\mini_games</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\lang\WordInfo.h">
       <Filter>src\lang</Filter>
-
     </ClInclude>
     <ClInclude Include="..\Classes\mini_games\Chain.h">
       <Filter>src\mini_games</Filter>
@@ -512,6 +507,15 @@
     </ClInclude>
     <ClInclude Include="..\Classes\ScrollableGameMapScene.hpp">
       <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\mini_games\CatGameScene.h">
+      <Filter>src\mini_games</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\mini_games\CatScene.h">
+ 		<Filter>src\mini_games</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\mini_games\Spirograph.h">
+      <Filter>src\mini_games</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
