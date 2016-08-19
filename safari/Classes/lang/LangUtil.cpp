@@ -24,7 +24,7 @@ LangUtil::~LangUtil() {
 
 LangUtil* LangUtil::getInstance() {
     if(!_instance) {
-        _instance = new EnglishUtil();
+        _instance = new KannadaUtil();
         auto ss = FileUtils::getInstance()->getStringFromFile(_instance->getDir() + "/words.txt");
         std::stringstream stream(ss);
         std::string line;

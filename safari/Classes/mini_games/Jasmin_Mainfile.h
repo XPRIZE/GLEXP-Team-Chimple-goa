@@ -5,6 +5,7 @@
 #include "../lang/TextGenerator.h"
 #include "../puzzle/WordScene.h"
 #include "../GameScene.h"
+#include "Spirograph.h"
 
 class Jasmin_Mainfile : public WordScene
 {
