@@ -136,7 +136,7 @@ void Jasmin_Mainfile::startFlowerAnimation(Node *nd, int random_val, int animati
 
 void Jasmin_Mainfile::showScore()
 {
-	_menuContext->showScore();
+	Director::getInstance()->runWithScene(Spirograph::createScene());
 }
 
 Jasmin_Mainfile* Jasmin_Mainfile::create() {

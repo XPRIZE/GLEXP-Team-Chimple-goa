@@ -13,7 +13,7 @@ USING_NS_CC;
 
 cocos2d::Scene* Spirograph::createScene() {
     auto layer = Spirograph::create();
-    auto scene = GameScene::createWithChild(layer, "spirograph");
+    auto scene = GameScene::createWithChild(layer, "jasmine");
     layer->_menuContext = scene->getMenuContext();
     return scene;
 }
@@ -64,6 +64,8 @@ bool Spirograph::init() {
     _drawNode = DrawNode::create();
     _drawNode->setPosition(visibleSize.width / 2, visibleSize.height / 2);
     addChild(_drawNode);
+//	_drawNode->setLineWidth(5);
+
 
 	auto _listener = EventListenerTouchOneByOne::create();
 	_listener->setSwallowTouches(true);
@@ -111,7 +113,10 @@ bool Spirograph::onTouchBegan(Touch *touch, Event *event)
 		_innercircle1->setVisible(false);
 		_innercircle2->setVisible(false);
 		_innercircle3->setVisible(false);
-		_eventDispatcher->removeAllEventListeners();
+		_eventDispatcher->removeEventListenersForTarget(_innercircle1);
+		_eventDispatcher->removeEventListenersForTarget(_innercircle2);
+		_eventDispatcher->removeEventListenersForTarget(_innercircle3);
+
 		startGame();
 		return true;
 	}
@@ -129,6 +134,11 @@ void Spirograph::update(float dt) {
         _t += M_PI/_divPI;
         _pos = newPos;
     }
+	else
+	{
+		this->unscheduleUpdate();
+		_menuContext->showScore();
+	}
 }
 
 Vec2 Spirograph::trace() {
