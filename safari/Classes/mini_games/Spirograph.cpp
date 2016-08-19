@@ -34,9 +34,14 @@ _t(0.0)
 {
 }
 
-Spirograph::~Spirograph() { }
+Spirograph::~Spirograph() {
+	audioBg->stopAllEffects();
+}
 
 bool Spirograph::init() {
+	audioBg = CocosDenshion::SimpleAudioEngine::getInstance();
+	audioBg->playEffect("cannonball/gamesound/background1.wav", true);
+
 	Size visibleSize = Director::getInstance()->getVisibleSize();
 
 	auto node = CSLoader::createNode("jasmine/jasmine_win.csb");
