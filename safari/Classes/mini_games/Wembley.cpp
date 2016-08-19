@@ -28,11 +28,13 @@ void Wembley::createAnswer() {
 
 	Size _size = Director::getInstance()->getVisibleSize();
 	reorderChild(_background, -2);
-
 	auto label = ui::Text::create();
 	label->setString(_word);
 	label->setFontSize(200);
-	label->setFontName("fonts/arial.ttf");
+
+	if (LangUtil::getInstance()->getLang() == "eng") {
+		label->setFontName("fonts/arial.ttf");
+	}
 	label->setTextColor(Color4B::BLUE);
 	_answer = Node::create();
 	_answer->addChild(label);
