@@ -11,6 +11,7 @@
 
 #include "cocos2d.h"
 #include "../menu/MenuContext.h"
+#include "SimpleAudioEngine.h"
 
 class Spirograph : public cocos2d::Node {
 public:
@@ -18,6 +19,7 @@ public:
     static Spirograph *create();
     virtual void update(float dt) override;
 	int cx, cy, _divPI;
+	CocosDenshion::SimpleAudioEngine* audioBg;
 
 	cocos2d::Sprite *_innercircle1, *_innercircle2, *_innercircle3;
 	bool onTouchBegan(cocos2d::Touch* touch, cocos2d::Event* event);
