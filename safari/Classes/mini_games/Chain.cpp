@@ -41,7 +41,7 @@ GraphemeGrid* Chain::createGraphemeGrid(GLfloat width, GLfloat height, int numRo
 Node* Chain::loadNode() {
 	std::string chainSceneType[] = { "monkey","elephant","flamingo" };
 	Chain::_SS = chainSceneType[RandomHelper::random_int(0, 2)];
-	Chain::_SS = "flamingo";
+	//Chain::_SS = "elephant";
 	if (!Chain::_SS.compare("monkey"))
 	{
 		_node = CSLoader::createNode("chain/chain.csb");
@@ -76,6 +76,8 @@ void Chain::createChoice() {
 //	_numGraphemes = 3;
 	if (!Chain::_SS.compare("monkey"))
 	{
+		Sprite* wordPanel = (Sprite *)_gameBg->getChildByName("wordpanel_21");
+		wordPanel->setPosition(Vec2(visibleSize.width/2,wordPanel->getPosition().y));
 		Sprite* sampleMonkey = (Sprite *)_gameBg->getChildByName("monkey_15_1_2");
 		Sprite* rope = (Sprite *)_gameBg->getChildByName("toprope_12");
 		auto choicePanel = sampleMonkey->getBoundingBox().size.width * _numGraphemes;
@@ -109,6 +111,8 @@ void Chain::createChoice() {
 	}
 	else if (!Chain::_SS.compare("elephant"))
 	{
+		Sprite* wordPanel = (Sprite *)_gameBg->getChildByName("wordpanel_21");
+		wordPanel->setPosition(Vec2(visibleSize.width / 2, wordPanel->getPosition().y));
 		Sprite* ele = (Sprite *)_gameBg->getChildByName("ele_35");
 		ele->setVisible(false);
 		auto gap = Director::getInstance()->getVisibleSize().width / _numGraphemes;
@@ -124,16 +128,14 @@ void Chain::createChoice() {
 			choiceNode->setScale(0.8);
 			choiceNode->setVisible(true);
 			addChoice(choiceNode);
-			/*	cocostudio::timeline::ActionTimeline *timeline = CSLoader::createTimeline("chain/elephant.csb");
-			choiceNode->runAction(timeline);
-			timeline->play("elephant", true);*/
-
 			_eleContainer.push_back(choiceNode);
 
 		}
 	}
 	else if (!Chain::_SS.compare("flamingo"))
 	{
+		Sprite* wordPanel = (Sprite *)_gameBg->getChildByName("wordpanel_21");
+		wordPanel->setPosition(Vec2(visibleSize.width / 2, wordPanel->getPosition().y));
 		auto gap = Director::getInstance()->getVisibleSize().width / _numGraphemes;
 		_choice = Node::create();
 		_choice->setPosition(Vec2(0, (hei*.58)));
