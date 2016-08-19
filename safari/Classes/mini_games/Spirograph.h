@@ -17,9 +17,11 @@ public:
     static cocos2d::Scene* createScene();
     static Spirograph *create();
     virtual void update(float dt) override;
-	int cx, cy;
+	int cx, cy, _divPI;
 
-
+	cocos2d::Sprite *_innercircle1, *_innercircle2, *_innercircle3;
+	bool onTouchBegan(cocos2d::Touch* touch, cocos2d::Event* event);
+	void startGame();
 
 CC_CONSTRUCTOR_ACCESS:
     Spirograph();

@@ -61,6 +61,7 @@ std::string Jasmin_Mainfile::getGridBackground() {
 void Jasmin_Mainfile::gameOver(bool correct) {
 	float hei = Director::getInstance()->getVisibleSize().height;
 	if (correct) {
+		_grid->touchEndedCallback = nullptr;
 		for (int item = 0; item < _positionX.size(); ++item)
 		{
 			int random_val = std::rand() % (4 - 1 + 1) + 1;
