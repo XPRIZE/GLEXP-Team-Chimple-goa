@@ -9,6 +9,7 @@ jazz::jazz()
 }
 jazz::~jazz()
 {
+	_audioCorrect->stopAllEffects();
 	for (auto item = _gorilla.rbegin(); item != _gorilla.rend(); ++item)
 	{
 		Node * gorilla = *item;
