@@ -24,6 +24,7 @@ std::string Cat::getGridBackground() {
 
 void Cat::createChoice()
 {
+	CCLOG("createChoice");
 	_choice = Node::create();
 	_choice->setName("createChoice");
 	addChild(_choice);
@@ -32,7 +33,25 @@ void Cat::createChoice()
 		choiceNode->setOpacity(100);
 		choiceNode->setName("hippo_block");
 		float x = _gapNodes1.at(i)->getPositionX() - _movingPositionX;
-		float y = _gapNodes1.at(i)->getPositionY() + _blockSetPosY;
+		float y;
+		if (_state.compare("up") == 0) {
+		//	_upCounting++;
+		//	if (i != 0) {
+				y = _gapNodes1.at(i)->getPositionY() - (choiceNode->getContentSize().width * (_upCount-1));
+			//	y = _gapNodes1.at(i)->getPositionY();
+		//	}
+		//	else {
+		//		y = _gapNodes1.at(i)->getPositionY();
+		//				}
+			//y = _gapNodes1.at(i)->getPositionY() - _blockSetPosY - choiceNode->getContentSize().width;
+		}
+		else if (_state.compare("down") == 0) {
+			y = _gapNodes1.at(i)->getPositionY() - (choiceNode->getContentSize().width * (_downCount-1));
+		}
+		else
+			{
+			y = _gapNodes1.at(i)->getPositionY() ;
+					}
 		_posAfterGapX = x;
 		choiceNode->setPosition(x, y);
 		addChoice(choiceNode);
@@ -46,8 +65,13 @@ std::string Cat::getGraphemeSelectedBackground() {
 	return "hippo/block.png";
 }
 
+void Cat::gameExit()
+{
+}
+
 void Cat::createAnswer()
 {
+	CCLOG("createAnswer");
 	auto label = ui::Text::create();
 	label->setString(_word);
 	label->setFontSize(100);
