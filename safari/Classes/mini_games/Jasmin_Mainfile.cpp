@@ -155,3 +155,8 @@ Jasmin_Mainfile* Jasmin_Mainfile::create() {
 	CC_SAFE_DELETE(word);
 	return nullptr;
 }
+
+Jasmin_Mainfile::~Jasmin_Mainfile(void) {
+	audioBg->stopAllEffects();
+
+}
