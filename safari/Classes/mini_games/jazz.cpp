@@ -27,6 +27,8 @@ Node* jazz::loadNode() {
 	auto node = CSLoader::createNode("jazz/MainScene.csb");
 	Size visibleSize = Director::getInstance()->getVisibleSize();
 
+	_audioCorrect = CocosDenshion::SimpleAudioEngine::getInstance();
+
 	if (visibleSize.width > 2560) {
 		auto myGameWidth = (visibleSize.width - 2560) / 2;
 		node->setPositionX(myGameWidth);
@@ -102,7 +104,6 @@ void jazz::gameOver(bool correct) {
 			cocostudio::timeline::ActionTimeline * jump = *obj;
 			jump->stop();
 		}*/
-		_audioCorrect = CocosDenshion::SimpleAudioEngine::getInstance();
 		_audioCorrect->playEffect("sounds/drum.wav", true);
 		for (auto item = _gorilla.rbegin(); item != _gorilla.rend(); ++item)
 		{
