@@ -98,7 +98,8 @@ void jazz::gameOver(bool correct) {
 			cocostudio::timeline::ActionTimeline * jump = *obj;
 			jump->stop();
 		}*/
-
+		_audioCorrect = CocosDenshion::SimpleAudioEngine::getInstance();
+		_audioCorrect->playEffect("sounds/drum.wav", true);
 		for (auto item = _gorilla.rbegin(); item != _gorilla.rend(); ++item)
 		{
 			
@@ -107,8 +108,6 @@ void jazz::gameOver(bool correct) {
 			auto druming = CSLoader::createTimeline("jazz/gorilla.csb");
 			gorilla->runAction(druming);
 			druming->play("druming", true);
-			_audioCorrect = CocosDenshion::SimpleAudioEngine::getInstance();
-			_audioCorrect->playEffect("sounds/drum.wav",true);
 			this->scheduleOnce(schedule_selector(jazz::showScore), 5.0f);
 		//	druming->setAnimationEndCallFunc("druming", CC_CALLBACK_0(jazz::showScore, this));
 
