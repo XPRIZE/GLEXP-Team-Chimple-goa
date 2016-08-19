@@ -27,6 +27,7 @@ Node* Wembley::loadNode() {
 void Wembley::createAnswer() {
 
 	Size _size = Director::getInstance()->getVisibleSize();
+	reorderChild(_background, -2);
 
 	auto label = ui::Text::create();
 	label->setString(_word);
@@ -79,8 +80,8 @@ void Wembley::createChoice() {
 	_goalkeepertimeline = CSLoader::createTimeline("wembley/char.csb");
 	_goalKeeper = CSLoader::createNode("wembley/char.csb");
 	_goalKeeper->setPosition(Vec2((wid * 50) / 100, (hei * 69) / 100));
-	_goalKeeper->setScaleY(0.5);
-	addChild(_goalKeeper);
+	_goalKeeper->setScale(0.5, 0.5);
+	addChild(_goalKeeper, -1);
 	_goalKeeper->runAction(_goalkeepertimeline);
 	_goalkeepertimeline->play("front_idle", true);
 
