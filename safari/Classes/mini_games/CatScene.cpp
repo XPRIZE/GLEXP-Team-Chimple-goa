@@ -19,7 +19,7 @@ Node* Cat::loadNode() {
 
 
 std::string Cat::getGridBackground() {
-	return "hippo/button.png";
+	return "hippo/button_clicked.png";
 }
 
 void Cat::createChoice()
@@ -59,7 +59,7 @@ void Cat::createChoice()
 }
 
 std::string Cat::getGraphemeUnselectedBackground() {
-	return "hippo/button_clicked.png";
+	return "hippo/button.png";
 }
 std::string Cat::getGraphemeSelectedBackground() {
 	return "hippo/block.png";
@@ -74,8 +74,8 @@ void Cat::createAnswer()
 	CCLOG("createAnswer");
 	auto label = ui::Text::create();
 	label->setString(_word);
-	label->setFontSize(100);
-	label->setPosition(Vec2());
+	label->setFontSize(200);
+	//label->setPosition(Vec2());
 	_answer = Sprite::createWithSpriteFrameName("hippo/board.png");
 	_answer->addChild(label);
 	label->setPosition(Vec2(_answer->getContentSize().width/2, _answer->getContentSize().height/2));

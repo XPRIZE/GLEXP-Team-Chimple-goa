@@ -77,7 +77,7 @@ bool CatGame::init()
 	this->addChild(test1, 1);
 	this->scheduleUpdate();
 	tailAnimation();
-	auto followAction = Follow::createWithOffset(_catNode, -(Director::getInstance()->getVisibleSize().width*0.24),90);
+	auto followAction = Follow::createWithOffset(_catNode, -(Director::getInstance()->getVisibleSize().width*0.24), 50);
 	_catLayer->runAction(followAction);
 	//createBuilding();
 	generateBuildingLayer("stright");
