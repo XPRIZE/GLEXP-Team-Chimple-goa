@@ -5,11 +5,6 @@
 //  Created by KiranKumar CS on 08/08/16.
 //
 
-/*
-# set cat movement (after correct word)
-# background scene movement
-# staircase up/down formate
-*/
 #include "CatGameScene.h"
 #include "CatScene.h"
 #include "../lang/TextGenerator.h"
@@ -71,26 +66,26 @@ bool CatGame::init()
 	_catLayer->setPositionX(0);
 	_catLayer->setContentSize(Size(200, 200));
 	this->addChild(_catLayer);
-	_catNode = CSLoader::createNode("hippo/catanim.csb");
+	_catNode = CSLoader::createNode("hippo/catanimation.csb");
+//	_catNode->setPosition(Vec2(600,900));
 	_catNode->setContentSize(Size(200, 200));
 	_catLayer->addChild(_catNode, 1);
-	_catAnimation = CSLoader::createTimeline("hippo/catanim.csb");
+	_catAnimation = CSLoader::createTimeline("hippo/catanimation.csb");
 	_catNode->runAction(_catAnimation);
 	auto test1 = (Node *)LayerColor::create(Color4B(128, 128, 128, 200.0));
 	test1->setContentSize(Size(Director::getInstance()->getVisibleSize().width, 600));
 	this->addChild(test1, 1);
 	this->scheduleUpdate();
 	tailAnimation();
-	auto followAction = Follow::createWithOffset(_catNode, -(Director::getInstance()->getVisibleSize().width*0.23438), 90);
+	auto followAction = Follow::createWithOffset(_catNode, -(Director::getInstance()->getVisibleSize().width*0.24),90);
 	_catLayer->runAction(followAction);
 	//createBuilding();
-	CCLOG("size = %f", Director::getInstance()->getVisibleSize().width);
-	generateBuildingLayer();
+	generateBuildingLayer("stright");
 	return true;
 }
 
 
-void CatGame::generateBuildingLayer()
+void CatGame::generateBuildingLayer(std::string str)
 {
 	int randNum = RandomHelper::random_int(0, 4);
 	auto build1 = Sprite::createWithSpriteFrameName(_buildingPath.at(randNum).c_str());
@@ -104,28 +99,24 @@ void CatGame::generateBuildingLayer()
 		_backgroundBarrier->setPosition(Vec2(_xPos, _yPos));
 		this->addChild(_backgroundBarrier);
 	}
-	stringGap();
+	stringGap(str);
 }
 
-void CatGame::stringGap()
+void CatGame::stringGap(std::string str)
 {
-	_gapNodes.clear();
 	auto text = TextGenerator::getInstance();
 	_randomWord = text->generateAWord();
 	CCLOG("string   %s ", _randomWord.c_str());
-
+	_gapNodes.clear();
 	int randomNumber = text->getGraphemes(_randomWord).size();
 	_wordLength = randomNumber;
 	CCLOG("string size %d", _wordLength);
 	_distanceY = _yPos;
-	_checkBox = Sprite::create("crossthebridge/barrier.png");
-	_checkBox->setPosition(Vec2(_xPos - 100, _yPos));
-	_checkBox->setVisible(false);
-	_buildingLayer->addChild(_checkBox);
 	_movingBarrier = Sprite::create("crossthebridge/barrier.png");
 	_movingBarrier->setPosition(Vec2(_xPos, _yPos));
 	_movingBarrier->setVisible(false);
 	_buildingLayer->addChild(_movingBarrier);
+	_xPos = _xPos + 30;
 	float gapWidth;
 	while (randomNumber != 0) {
 		auto gap = Sprite::createWithSpriteFrameName("hippo/block.png");
@@ -137,35 +128,57 @@ void CatGame::stringGap()
 		gapWidth = gap->getContentSize().width / 2;
 		_buildingLayer->addChild(gap);
 		_xPos = gap->getContentSize().width + gap->getPositionX();
+		if (str.compare("stright") == 0) {
+			//no change
+		}
+		else if (str.compare("up") == 0) {
+			//_upCount++;
+			_yPos = gap->getContentSize().height / 1.2 + gap->getPositionY();
+		}
+		else if (str.compare("down") == 0) {
+		//	//gap->setPosition(Vec2(_xPos, _yPos));
+			_yPos = -gap->getContentSize().height / 5.5 + gap->getPositionY();
+		}
 		_gapNodes.push_back((Node*)gap);
 		randomNumber--;
 	}
+	if (str.compare("up") == 0) {
+		_upCount++;
+	}
+	if (str.compare("down") == 0) {
+		_downCount++;
+	}
 	_xPos = _xPos - gapWidth;
 	_positionAfterGap = _yPos;
-	buildingAfterGap();
+	buildingAfterGap(str);
 }
 
 void CatGame::tailAnimation()
 {
-	_catTailAnimation = CSLoader::createTimeline("hippo/catanim.csb");
+	_catTailAnimation = CSLoader::createTimeline("hippo/catanimation.csb");
 	_catNode->runAction(_catTailAnimation);
 	_catTailAnimation->play("tail", true);
 }
 
-void CatGame::catMovement()
+void CatGame::catMovement(std::string str)
 {
+	_gameState = str;
 		hippo1 = new (std::nothrow) Cat();
+		hippo1->_upCount = _upCount;
+		hippo1->_downCount = _downCount;
+		hippo1->_state = str;
 		hippo1->_catNode1 = _catLayer;
 		hippo1->_catAnimation1 = _catAnimation;
 		hippo1->_movingPositionX = _previousX;
 		hippo1->_movingPositionY = _distanceY;
 		hippo1->_stringPositionX1 = _stringPositionX;
 		hippo1->_stringPositionY1 = _stringPositionY;
-		hippo1->_blockSetPosY = _blockSetPosY;
+		hippo1->_blockSetPosY = -_positionAfterGap + _previousY;
 		hippo1->_gapNodes1 = _gapNodes;
 		hippo1->initWithWord(_randomWord);
 		hippo1->_posAfterGap = _positionAfterGap;
 		this->addChild(hippo1, 1);
+		
 
 }
 
@@ -180,29 +193,76 @@ void CatGame::update(float ft) {
 			for (int i = 0; i < _gapNodes.size(); i++) {
 				_gapNodes.at(i)->setVisible(true);
 			}
-			generateBuildingLayer();
-			float distanceX = _movingBarrier->getPositionX() - _backgroundBarrier->getPositionX() ;
-			auto moveBy = MoveBy::create(3, Vec2(-distanceX+_previousX,0));
-			runAction(Sequence::create(TargetedAction::create(_buildingLayer, moveBy), CallFunc::create([=]() {
-			_previousX = distanceX;
-			_catAnimation->pause();
-			tailAnimation();
-			catMovement();
-			}), NULL));
+		//	_gapNodes.clear();
+			_score++;
+			if (_gameState.compare("down") == 0) {
+				float yPosition = _positionAfterGap;
+				generateBuildingLayer("down");
+				float distanceX = _checkBox->getPositionX() - _movingBarrier->getPositionX();
+				float distanceX1 = _movingBarrier->getPositionX() - _backgroundBarrier->getPositionX();
+				auto moveBy = MoveBy::create(3, Vec2(-(2 * distanceX), -yPosition + _previousY));
+				auto moveBy1 = MoveBy::create(3, Vec2(-distanceX1 + _previousX+ (2 * distanceX), 0));
+				runAction(Sequence::create(TargetedAction::create(_buildingLayer, moveBy), TargetedAction::create(_buildingLayer, moveBy1),  CallFunc::create([=]() {
+					_previousX = distanceX1;
+					_previousY = yPosition;
+					_catAnimation->pause();
+					tailAnimation();
+					catMovement("down");
+				}), NULL));
+				
+			}
+			else if (_gameState.compare("up") == 0) {
+				float yPosition = _positionAfterGap;
+				generateBuildingLayer("stright");
+				float distanceX = _checkBox->getPositionX() - _movingBarrier->getPositionX();
+				float distanceX1 = _movingBarrier->getPositionX() - _backgroundBarrier->getPositionX();
+				auto moveBy = MoveBy::create(3, Vec2(-(2 * distanceX), -yPosition + _previousY));
+				auto moveBy1 = MoveBy::create(3, Vec2(-distanceX1 + _previousX + (2 * distanceX), 0));
+				runAction(Sequence::create(TargetedAction::create(_buildingLayer, moveBy), TargetedAction::create(_buildingLayer, moveBy1), CallFunc::create([=]() {
+					_previousX = distanceX1;
+					_previousY = yPosition;
+					_catAnimation->pause();
+					tailAnimation();
+					if (_score == 5) {
+						_menuContext->showScore();
+					}
+					catMovement("stright");
+				}), NULL));
+
+			}else {
+				float yPosition = _positionAfterGap;
+				generateBuildingLayer("stright");
+				float distanceX = _movingBarrier->getPositionX() - _backgroundBarrier->getPositionX();
+				auto moveBy = MoveBy::create(3, Vec2(-distanceX + _previousX, -yPosition + _previousY));
+				runAction(Sequence::create(TargetedAction::create(_buildingLayer, moveBy), CallFunc::create([=]() {
+					_previousX = distanceX;
+					_previousY = yPosition;
+					_catAnimation->pause();
+					tailAnimation();
+					catMovement("stright");
+					if (_score == 5) {
+						_menuContext->showScore();
+					}
+				}), NULL));
+						}
 		}
 	}
 }
 
-void CatGame::buildingAfterGap()
+void CatGame::buildingAfterGap(std::string str)
 {
 	int randNum = RandomHelper::random_int(0, 4);
+	_checkBox = Sprite::create("crossthebridge/barrier.png");
+	_checkBox->setPosition(Vec2(_xPos, _yPos));
+	_checkBox->setVisible(false);
+	_buildingLayer->addChild(_checkBox);
 	auto build2 = Sprite::createWithSpriteFrameName(_buildingPath.at(randNum).c_str());
 	build2->setPosition(Vec2(_xPos, _yPos));
 	build2->setAnchorPoint(Vec2(0, 1));
 	_buildingLayer->addChild(build2);
 	_xPos = build2->getContentSize().width + build2->getPositionX();
 	if (_sceneRunFirst) {
-		catMovement();
+		catMovement(str);
 		_sceneRunFirst = false;
 	}
 }
