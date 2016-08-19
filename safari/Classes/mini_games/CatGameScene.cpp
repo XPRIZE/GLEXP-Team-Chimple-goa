@@ -81,9 +81,10 @@ bool CatGame::init()
 	this->addChild(test1, 1);
 	this->scheduleUpdate();
 	tailAnimation();
-	auto followAction = Follow::createWithOffset(_catNode, -600,90);
+	auto followAction = Follow::createWithOffset(_catNode, -(Director::getInstance()->getVisibleSize().width*0.23438), 90);
 	_catLayer->runAction(followAction);
 	//createBuilding();
+	CCLOG("size = %f", Director::getInstance()->getVisibleSize().width);
 	generateBuildingLayer();
 	return true;
 }
@@ -108,6 +109,7 @@ void CatGame::generateBuildingLayer()
 
 void CatGame::stringGap()
 {
+	_gapNodes.clear();
 	auto text = TextGenerator::getInstance();
 	_randomWord = text->generateAWord();
 	CCLOG("string   %s ", _randomWord.c_str());
@@ -155,7 +157,7 @@ void CatGame::catMovement()
 		hippo1 = new (std::nothrow) Cat();
 		hippo1->_catNode1 = _catLayer;
 		hippo1->_catAnimation1 = _catAnimation;
-		hippo1->_movingPositionX =  0;
+		hippo1->_movingPositionX = _previousX;
 		hippo1->_movingPositionY = _distanceY;
 		hippo1->_stringPositionX1 = _stringPositionX;
 		hippo1->_stringPositionY1 = _stringPositionY;

@@ -65,7 +65,6 @@ LOCAL_SRC_FILES := hellocpp/main.cpp \
 					../../Classes/mini_games/BajaWordScene.cpp \
 					../../Classes/mini_games/CatGameScene.cpp \
 					../../Classes/mini_games/CatScene.cpp \
-					../../Classes/mini_games/Spirograph.cpp \
 					../../Classes/menu/MenuContext.cpp \
 					../../Classes/lang/LangUtil.cpp \
 					../../Classes/lang/EnglishUtil.cpp \
@@ -89,7 +88,7 @@ LOCAL_SRC_FILES := hellocpp/main.cpp \
 					../../Classes/lang/WordInfo.cpp \
 					../../Classes/ScrollableGameMapScene.cpp \
 					../../Classes/PhotoCaptureScene.cpp \
-												
+					../../Classes/mini_games/Spirograph.cpp									
 
 LOCAL_C_INCLUDES := $(LOCAL_PATH)/../../Classes
 LOCAL_C_INCLUDES += $(LOCAL_PATH)/../../../extensions
