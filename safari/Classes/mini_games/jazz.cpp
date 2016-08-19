@@ -79,6 +79,10 @@ void jazz::blinking(std::string animationName, bool loop)
 		
 	}
 }
+int jazz::getGridHeight()
+{
+	return 700;
+}
 void jazz::gameOver(bool correct) {
 	if (correct) {
 		_grid->touchEndedCallback = nullptr;
