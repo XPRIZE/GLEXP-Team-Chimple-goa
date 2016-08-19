@@ -4,11 +4,10 @@ USING_NS_CC;
 
 Scene* Baja::createScene()
 {
-	
 	auto scene = Scene::create();
 	auto layer = Baja::create();
 	scene->addChild(layer);
-	layer->_menuContext = MenuContext::create(layer,"BajaRacing");
+	layer->_menuContext = MenuContext::create(layer,"baja");
 	scene->addChild(layer->_menuContext);
 	return scene;
 }
