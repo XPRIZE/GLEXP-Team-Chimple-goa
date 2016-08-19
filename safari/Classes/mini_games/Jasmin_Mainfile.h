@@ -6,6 +6,7 @@
 #include "../puzzle/WordScene.h"
 #include "../GameScene.h"
 #include "Spirograph.h"
+#include "SimpleAudioEngine.h"
 
 class Jasmin_Mainfile : public WordScene
 {
@@ -15,9 +16,11 @@ public:
 	void startFlowerAnimation(Node *, int, int);
 	void removeAnimation(Node *);
 	void showScore();
+	
     static const char* gameName() { return JASMINE.c_str();}
 	
 protected:
+	CocosDenshion::SimpleAudioEngine* audioBg;
 	cocos2d::Node* loadNode() override;
 	std::string getGridBackground() override;
 	void createChoice() override;
