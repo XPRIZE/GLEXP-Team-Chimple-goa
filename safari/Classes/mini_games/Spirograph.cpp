@@ -35,14 +35,15 @@ _t(0.0)
 }
 
 Spirograph::~Spirograph() {
-	audioBg->stopAllEffects();
+//	audioBg->stopAllEffects();
 }
 
 bool Spirograph::init() {
-	audioBg = CocosDenshion::SimpleAudioEngine::getInstance();
-	audioBg->playEffect("cannonball/gamesound/background1.wav", true);
-
 	Size visibleSize = Director::getInstance()->getVisibleSize();
+
+	audioBg = CocosDenshion::SimpleAudioEngine::getInstance();
+	audioBg->playEffect("jasmine/jasmin_background.mp3", true);
+
 
 	auto node = CSLoader::createNode("jasmine/jasmine_win.csb");
 	node->setPosition(Vec2(visibleSize.width/2, visibleSize.height/2));
