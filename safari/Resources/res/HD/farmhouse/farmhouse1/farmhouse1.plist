@@ -4,633 +4,663 @@
     <dict>
         <key>frames</key>
         <dict>
-            <key>gamemap/alphafeed.png</key>
+            <key>farmhouse/farmhouse1/backgrass.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
                 <key>spriteOffset</key>
-                <string>{3,-5}</string>
+                <string>{0,0}</string>
                 <key>spriteSize</key>
-                <string>{226,225}</string>
+                <string>{375,241}</string>
                 <key>spriteSourceSize</key>
-                <string>{256,257}</string>
+                <string>{375,241}</string>
                 <key>textureRect</key>
-                <string>{{1672,778},{226,225}}</string>
+                <string>{{1100,1658},{375,241}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+            <key>farmhouse/farmhouse1/barnhouse_door.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{529,378}</string>
+                <key>spriteSourceSize</key>
+                <string>{529,378}</string>
+                <key>textureRect</key>
+                <string>{{1116,1},{529,378}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+            <key>farmhouse/farmhouse1/barnhouse_door1.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{625,130}</string>
+                <key>spriteSourceSize</key>
+                <string>{625,130}</string>
+                <key>textureRect</key>
+                <string>{{505,848},{625,130}}</string>
                 <key>textureRotated</key>
                 <true/>
             </dict>
-            <key>gamemap/alphafeed_disabled.png</key>
+            <key>farmhouse/farmhouse1/barnhouse_door2.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
                 <key>spriteOffset</key>
                 <string>{0,0}</string>
                 <key>spriteSize</key>
-                <string>{225,225}</string>
+                <string>{196,332}</string>
                 <key>spriteSourceSize</key>
-                <string>{225,225}</string>
+                <string>{196,332}</string>
                 <key>textureRect</key>
-                <string>{{2416,457},{225,225}}</string>
+                <string>{{510,1601},{196,332}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>gamemap/alphafeed_pressed.png</key>
+            <key>farmhouse/farmhouse1/basket.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
                 <key>spriteOffset</key>
                 <string>{0,0}</string>
                 <key>spriteSize</key>
-                <string>{256,257}</string>
+                <string>{64,81}</string>
                 <key>spriteSourceSize</key>
-                <string>{256,257}</string>
+                <string>{64,81}</string>
                 <key>textureRect</key>
-                <string>{{703,322},{256,257}}</string>
+                <string>{{1869,1279},{64,81}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>gamemap/alphakombat.png</key>
+            <key>farmhouse/farmhouse1/big_tree.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
                 <key>spriteOffset</key>
-                <string>{3,-5}</string>
+                <string>{0,0}</string>
                 <key>spriteSize</key>
-                <string>{226,225}</string>
+                <string>{771,845}</string>
                 <key>spriteSourceSize</key>
-                <string>{256,257}</string>
+                <string>{771,845}</string>
                 <key>textureRect</key>
-                <string>{{1798,1},{226,225}}</string>
+                <string>{{1,1},{771,845}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+            <key>farmhouse/farmhouse1/bucket.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{105,113}</string>
+                <key>spriteSourceSize</key>
+                <string>{105,113}</string>
+                <key>textureRect</key>
+                <string>{{381,1790},{105,113}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+            <key>farmhouse/farmhouse1/cart.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{401,195}</string>
+                <key>spriteSourceSize</key>
+                <string>{401,195}</string>
+                <key>textureRect</key>
+                <string>{{1161,1256},{401,195}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+            <key>farmhouse/farmhouse1/cart_01.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{413,195}</string>
+                <key>spriteSourceSize</key>
+                <string>{413,195}</string>
+                <key>textureRect</key>
+                <string>{{1161,1059},{413,195}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+            <key>farmhouse/farmhouse1/cloud1.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{543,150}</string>
+                <key>spriteSourceSize</key>
+                <string>{543,150}</string>
+                <key>textureRect</key>
+                <string>{{722,848},{543,150}}</string>
                 <key>textureRotated</key>
                 <true/>
             </dict>
-            <key>gamemap/alphakombat_disabled.png</key>
+            <key>farmhouse/farmhouse1/cloud2.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
                 <key>spriteOffset</key>
                 <string>{0,0}</string>
                 <key>spriteSize</key>
-                <string>{225,225}</string>
+                <string>{378,143}</string>
                 <key>spriteSourceSize</key>
-                <string>{225,225}</string>
+                <string>{378,143}</string>
                 <key>textureRect</key>
-                <string>{{2447,229},{225,225}}</string>
+                <string>{{1,1790},{378,143}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>gamemap/alphakombat_pressed.png</key>
+            <key>farmhouse/farmhouse1/colortree.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
                 <key>spriteOffset</key>
                 <string>{0,0}</string>
                 <key>spriteSize</key>
-                <string>{256,257}</string>
+                <string>{502,628}</string>
                 <key>spriteSourceSize</key>
-                <string>{256,257}</string>
+                <string>{502,628}</string>
                 <key>textureRect</key>
-                <string>{{703,581},{256,257}}</string>
+                <string>{{1,848},{502,628}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>gamemap/baja.png</key>
-            <dict>
-                <key>aliases</key>
-                <array/>
-                <key>spriteOffset</key>
-                <string>{2,-6}</string>
-                <key>spriteSize</key>
-                <string>{226,229}</string>
-                <key>spriteSourceSize</key>
-                <string>{256,257}</string>
-                <key>textureRect</key>
-                <string>{{1219,778},{226,229}}</string>
-                <key>textureRotated</key>
-                <false/>
-            </dict>
-            <key>gamemap/baja_disabled.png</key>
+            <key>farmhouse/farmhouse1/farm_house_door.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
                 <key>spriteOffset</key>
                 <string>{0,0}</string>
                 <key>spriteSize</key>
-                <string>{223,227}</string>
+                <string>{191,293}</string>
                 <key>spriteSourceSize</key>
-                <string>{223,227}</string>
+                <string>{191,293}</string>
                 <key>textureRect</key>
-                <string>{{1447,778},{223,227}}</string>
-                <key>textureRotated</key>
-                <false/>
-            </dict>
-            <key>gamemap/baja_pressed.png</key>
-            <dict>
-                <key>aliases</key>
-                <array/>
-                <key>spriteOffset</key>
-                <string>{0,0}</string>
-                <key>spriteSize</key>
-                <string>{256,257}</string>
-                <key>spriteSourceSize</key>
-                <string>{256,257}</string>
-                <key>textureRect</key>
-                <string>{{961,322},{256,257}}</string>
-                <key>textureRotated</key>
-                <false/>
-            </dict>
-            <key>gamemap/book.png</key>
-            <dict>
-                <key>aliases</key>
-                <array/>
-                <key>spriteOffset</key>
-                <string>{2,-6}</string>
-                <key>spriteSize</key>
-                <string>{226,225}</string>
-                <key>spriteSourceSize</key>
-                <string>{256,257}</string>
-                <key>textureRect</key>
-                <string>{{1735,519},{226,225}}</string>
+                <string>{{1534,1495},{191,293}}</string>
                 <key>textureRotated</key>
                 <true/>
             </dict>
-            <key>gamemap/book_disabled.png</key>
+            <key>farmhouse/farmhouse1/farm_house_door_01.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
                 <key>spriteOffset</key>
                 <string>{0,0}</string>
                 <key>spriteSize</key>
-                <string>{223,223}</string>
+                <string>{214,303}</string>
                 <key>spriteSourceSize</key>
-                <string>{223,223}</string>
+                <string>{214,303}</string>
                 <key>textureRect</key>
-                <string>{{2807,683},{223,223}}</string>
-                <key>textureRotated</key>
-                <false/>
-            </dict>
-            <key>gamemap/book_pressed.png</key>
-            <dict>
-                <key>aliases</key>
-                <array/>
-                <key>spriteOffset</key>
-                <string>{0,0}</string>
-                <key>spriteSize</key>
-                <string>{256,257}</string>
-                <key>spriteSourceSize</key>
-                <string>{256,257}</string>
-                <key>textureRect</key>
-                <string>{{1024,1},{256,257}}</string>
-                <key>textureRotated</key>
-                <false/>
-            </dict>
-            <key>gamemap/cannonshoot.png</key>
-            <dict>
-                <key>aliases</key>
-                <array/>
-                <key>spriteOffset</key>
-                <string>{3,-5}</string>
-                <key>spriteSize</key>
-                <string>{226,225}</string>
-                <key>spriteSourceSize</key>
-                <string>{256,257}</string>
-                <key>textureRect</key>
-                <string>{{1899,747},{226,225}}</string>
+                <string>{{1564,1279},{214,303}}</string>
                 <key>textureRotated</key>
                 <true/>
             </dict>
-            <key>gamemap/cannonshoot_disabled.png</key>
+            <key>farmhouse/farmhouse1/frontgrass.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
                 <key>spriteOffset</key>
                 <string>{0,0}</string>
                 <key>spriteSize</key>
-                <string>{225,225}</string>
+                <string>{258,100}</string>
                 <key>spriteSourceSize</key>
-                <string>{225,225}</string>
+                <string>{258,100}</string>
                 <key>textureRect</key>
-                <string>{{2479,1},{225,225}}</string>
-                <key>textureRotated</key>
-                <false/>
-            </dict>
-            <key>gamemap/cannonshoot_pressed.png</key>
-            <dict>
-                <key>aliases</key>
-                <array/>
-                <key>spriteOffset</key>
-                <string>{0,0}</string>
-                <key>spriteSize</key>
-                <string>{256,257}</string>
-                <key>spriteSourceSize</key>
-                <string>{256,257}</string>
-                <key>textureRect</key>
-                <string>{{961,581},{256,257}}</string>
-                <key>textureRotated</key>
-                <false/>
-            </dict>
-            <key>gamemap/chain.png</key>
-            <dict>
-                <key>aliases</key>
-                <array/>
-                <key>spriteOffset</key>
-                <string>{2,-6}</string>
-                <key>spriteSize</key>
-                <string>{226,225}</string>
-                <key>spriteSourceSize</key>
-                <string>{256,257}</string>
-                <key>textureRect</key>
-                <string>{{1962,519},{226,225}}</string>
+                <string>{{1830,1620},{258,100}}</string>
                 <key>textureRotated</key>
                 <true/>
             </dict>
-            <key>gamemap/chain_disabled.png</key>
+            <key>farmhouse/farmhouse1/granary_door.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
                 <key>spriteOffset</key>
                 <string>{0,0}</string>
                 <key>spriteSize</key>
-                <string>{223,223}</string>
+                <string>{488,285}</string>
                 <key>spriteSourceSize</key>
-                <string>{223,223}</string>
+                <string>{488,285}</string>
                 <key>textureRect</key>
-                <string>{{2870,455},{223,223}}</string>
-                <key>textureRotated</key>
-                <false/>
-            </dict>
-            <key>gamemap/chain_pressed.png</key>
-            <dict>
-                <key>aliases</key>
-                <array/>
-                <key>spriteOffset</key>
-                <string>{0,0}</string>
-                <key>spriteSize</key>
-                <string>{256,257}</string>
-                <key>spriteSourceSize</key>
-                <string>{256,257}</string>
-                <key>textureRect</key>
-                <string>{{1219,260},{256,257}}</string>
-                <key>textureRotated</key>
-                <false/>
-            </dict>
-            <key>gamemap/crossthebridge.png</key>
-            <dict>
-                <key>aliases</key>
-                <array/>
-                <key>spriteOffset</key>
-                <string>{3,-5}</string>
-                <key>spriteSize</key>
-                <string>{226,225}</string>
-                <key>spriteSourceSize</key>
-                <string>{256,257}</string>
-                <key>textureRect</key>
-                <string>{{2126,747},{226,225}}</string>
+                <string>{{874,785},{488,285}}</string>
                 <key>textureRotated</key>
                 <true/>
             </dict>
-            <key>gamemap/crossthebridge_disabled.png</key>
+            <key>farmhouse/farmhouse1/granary_door_01.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
                 <key>spriteOffset</key>
                 <string>{0,0}</string>
                 <key>spriteSize</key>
-                <string>{225,225}</string>
+                <string>{227,260}</string>
                 <key>spriteSourceSize</key>
-                <string>{225,225}</string>
+                <string>{227,260}</string>
                 <key>textureRect</key>
-                <string>{{2580,684},{225,225}}</string>
-                <key>textureRotated</key>
-                <false/>
-            </dict>
-            <key>gamemap/crossthebridge_pressed.png</key>
-            <dict>
-                <key>aliases</key>
-                <array/>
-                <key>spriteOffset</key>
-                <string>{0,0}</string>
-                <key>spriteSize</key>
-                <string>{256,257}</string>
-                <key>spriteSourceSize</key>
-                <string>{256,257}</string>
-                <key>textureRect</key>
-                <string>{{1282,1},{256,257}}</string>
-                <key>textureRotated</key>
-                <false/>
-            </dict>
-            <key>gamemap/EndlessRunner.png</key>
-            <dict>
-                <key>aliases</key>
-                <array/>
-                <key>spriteOffset</key>
-                <string>{3,-5}</string>
-                <key>spriteSize</key>
-                <string>{226,225}</string>
-                <key>spriteSourceSize</key>
-                <string>{256,257}</string>
-                <key>textureRect</key>
-                <string>{{1993,229},{226,225}}</string>
+                <string>{{874,1275},{227,260}}</string>
                 <key>textureRotated</key>
                 <true/>
             </dict>
-            <key>gamemap/EndlessRunner_disabled.png</key>
+            <key>farmhouse/farmhouse1/granaryhouse1.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
                 <key>spriteOffset</key>
                 <string>{0,0}</string>
                 <key>spriteSize</key>
-                <string>{225,225}</string>
+                <string>{340,782}</string>
                 <key>spriteSourceSize</key>
-                <string>{225,225}</string>
+                <string>{340,782}</string>
                 <key>textureRect</key>
-                <string>{{2643,456},{225,225}}</string>
+                <string>{{774,1},{340,782}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>gamemap/EndlessRunner_pressed.png</key>
+            <key>farmhouse/farmhouse1/granaryhouse_door.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
                 <key>spriteOffset</key>
                 <string>{0,0}</string>
                 <key>spriteSize</key>
-                <string>{256,257}</string>
+                <string>{507,310}</string>
                 <key>spriteSourceSize</key>
-                <string>{256,257}</string>
+                <string>{507,310}</string>
                 <key>textureRect</key>
-                <string>{{1219,519},{256,257}}</string>
+                <string>{{1,1478},{507,310}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>gamemap/game_map_bg2.png</key>
+            <key>farmhouse/farmhouse1/green_button.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
                 <key>spriteOffset</key>
                 <string>{0,0}</string>
                 <key>spriteSize</key>
-                <string>{982,480}</string>
+                <string>{32,32}</string>
                 <key>spriteSourceSize</key>
-                <string>{982,480}</string>
+                <string>{32,32}</string>
                 <key>textureRect</key>
-                <string>{{1,1},{982,480}}</string>
+                <string>{{1682,1853},{32,32}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+            <key>farmhouse/farmhouse1/hill1.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{333,309}</string>
+                <key>spriteSourceSize</key>
+                <string>{333,309}</string>
+                <key>textureRect</key>
+                <string>{{1628,388},{333,309}}</string>
                 <key>textureRotated</key>
                 <true/>
             </dict>
-            <key>gamemap/game_map_tile.png</key>
+            <key>farmhouse/farmhouse1/hill2.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
                 <key>spriteOffset</key>
                 <string>{0,0}</string>
                 <key>spriteSize</key>
-                <string>{129,129}</string>
+                <string>{374,376}</string>
                 <key>spriteSourceSize</key>
-                <string>{129,129}</string>
+                <string>{374,376}</string>
                 <key>textureRect</key>
-                <string>{{483,834},{129,129}}</string>
-                <key>textureRotated</key>
-                <false/>
-            </dict>
-            <key>gamemap/jasmine.png</key>
-            <dict>
-                <key>aliases</key>
-                <array/>
-                <key>spriteOffset</key>
-                <string>{2,-6}</string>
-                <key>spriteSize</key>
-                <string>{226,225}</string>
-                <key>spriteSourceSize</key>
-                <string>{256,257}</string>
-                <key>textureRect</key>
-                <string>{{2025,1},{226,225}}</string>
+                <string>{{722,1504},{374,376}}</string>
                 <key>textureRotated</key>
                 <true/>
             </dict>
-            <key>gamemap/jasmine_disabled.png</key>
+            <key>farmhouse/farmhouse1/hut.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
                 <key>spriteOffset</key>
                 <string>{0,0}</string>
                 <key>spriteSize</key>
-                <string>{223,223}</string>
+                <string>{324,510}</string>
                 <key>spriteSourceSize</key>
-                <string>{223,223}</string>
+                <string>{324,510}</string>
                 <key>textureRect</key>
-                <string>{{2901,228},{223,223}}</string>
-                <key>textureRotated</key>
-                <false/>
-            </dict>
-            <key>gamemap/jasmine_pressed.png</key>
-            <dict>
-                <key>aliases</key>
-                <array/>
-                <key>spriteOffset</key>
-                <string>{0,0}</string>
-                <key>spriteSize</key>
-                <string>{256,257}</string>
-                <key>spriteSourceSize</key>
-                <string>{256,257}</string>
-                <key>textureRect</key>
-                <string>{{1477,260},{256,257}}</string>
-                <key>textureRotated</key>
-                <false/>
-            </dict>
-            <key>gamemap/jazz.png</key>
-            <dict>
-                <key>aliases</key>
-                <array/>
-                <key>spriteOffset</key>
-                <string>{2,-6}</string>
-                <key>spriteSize</key>
-                <string>{226,225}</string>
-                <key>spriteSourceSize</key>
-                <string>{256,257}</string>
-                <key>textureRect</key>
-                <string>{{2189,457},{226,225}}</string>
+                <string>{{1116,381},{324,510}}</string>
                 <key>textureRotated</key>
                 <true/>
             </dict>
-            <key>gamemap/jazz_disabled.png</key>
+            <key>farmhouse/farmhouse1/mango.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
                 <key>spriteOffset</key>
                 <string>{0,0}</string>
                 <key>spriteSize</key>
-                <string>{223,223}</string>
+                <string>{29,50}</string>
                 <key>spriteSourceSize</key>
-                <string>{223,223}</string>
+                <string>{29,50}</string>
                 <key>textureRect</key>
-                <string>{{2933,1},{223,223}}</string>
+                <string>{{1100,1504},{29,50}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>gamemap/jazz_pressed.png</key>
+            <key>farmhouse/farmhouse1/milkbottle.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
                 <key>spriteOffset</key>
                 <string>{0,0}</string>
                 <key>spriteSize</key>
-                <string>{256,257}</string>
+                <string>{49,111}</string>
                 <key>spriteSourceSize</key>
-                <string>{256,257}</string>
+                <string>{49,111}</string>
                 <key>textureRect</key>
-                <string>{{1540,1},{256,257}}</string>
+                <string>{{548,1475},{49,111}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>gamemap/patchthewall.png</key>
+            <key>farmhouse/farmhouse1/power_house_door.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
                 <key>spriteOffset</key>
-                <string>{3,-5}</string>
+                <string>{0,0}</string>
                 <key>spriteSize</key>
-                <string>{226,225}</string>
+                <string>{108,172}</string>
                 <key>spriteSourceSize</key>
-                <string>{256,257}</string>
+                <string>{108,172}</string>
                 <key>textureRect</key>
-                <string>{{2220,229},{226,225}}</string>
+                <string>{{1720,1688},{108,172}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+            <key>farmhouse/farmhouse1/red_button.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{32,32}</string>
+                <key>spriteSourceSize</key>
+                <string>{32,32}</string>
+                <key>textureRect</key>
+                <string>{{599,1475},{32,32}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+            <key>farmhouse/farmhouse1/sky_pattern2.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{751,83}</string>
+                <key>spriteSourceSize</key>
+                <string>{751,83}</string>
+                <key>textureRect</key>
+                <string>{{637,848},{751,83}}</string>
                 <key>textureRotated</key>
                 <true/>
             </dict>
-            <key>gamemap/patchthewall_disabled.png</key>
+            <key>farmhouse/farmhouse1/small_tree.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
                 <key>spriteOffset</key>
                 <string>{0,0}</string>
                 <key>spriteSize</key>
-                <string>{225,225}</string>
+                <string>{163,241}</string>
                 <key>spriteSourceSize</key>
-                <string>{225,225}</string>
+                <string>{163,241}</string>
                 <key>textureRect</key>
-                <string>{{2674,228},{225,225}}</string>
-                <key>textureRotated</key>
-                <false/>
-            </dict>
-            <key>gamemap/patchthewall_pressed.png</key>
-            <dict>
-                <key>aliases</key>
-                <array/>
-                <key>spriteOffset</key>
-                <string>{0,0}</string>
-                <key>spriteSize</key>
-                <string>{256,257}</string>
-                <key>spriteSourceSize</key>
-                <string>{256,257}</string>
-                <key>textureRect</key>
-                <string>{{1477,519},{256,257}}</string>
-                <key>textureRotated</key>
-                <false/>
-            </dict>
-            <key>gamemap/side.png</key>
-            <dict>
-                <key>aliases</key>
-                <array/>
-                <key>spriteOffset</key>
-                <string>{0,0}</string>
-                <key>spriteSize</key>
-                <string>{218,831}</string>
-                <key>spriteSourceSize</key>
-                <string>{218,831}</string>
-                <key>textureRect</key>
-                <string>{{483,1},{218,831}}</string>
-                <key>textureRotated</key>
-                <false/>
-            </dict>
-            <key>gamemap/smashtherock.png</key>
-            <dict>
-                <key>aliases</key>
-                <array/>
-                <key>spriteOffset</key>
-                <string>{3,-5}</string>
-                <key>spriteSize</key>
-                <string>{226,225}</string>
-                <key>spriteSourceSize</key>
-                <string>{256,257}</string>
-                <key>textureRect</key>
-                <string>{{2252,1},{226,225}}</string>
+                <string>{{1477,1688},{163,241}}</string>
                 <key>textureRotated</key>
                 <true/>
             </dict>
-            <key>gamemap/smashtherock_disabled.png</key>
+            <key>farmhouse/farmhouse1/stone1.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
                 <key>spriteOffset</key>
                 <string>{0,0}</string>
                 <key>spriteSize</key>
-                <string>{225,225}</string>
+                <string>{77,49}</string>
                 <key>spriteSourceSize</key>
-                <string>{225,225}</string>
+                <string>{77,49}</string>
                 <key>textureRect</key>
-                <string>{{2706,1},{225,225}}</string>
+                <string>{{708,1880},{77,49}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>gamemap/smashtherock_pressed.png</key>
+            <key>farmhouse/farmhouse1/stone2.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
                 <key>spriteOffset</key>
                 <string>{0,0}</string>
                 <key>spriteSize</key>
-                <string>{256,257}</string>
+                <string>{56,35}</string>
                 <key>spriteSourceSize</key>
-                <string>{256,257}</string>
+                <string>{56,35}</string>
                 <key>textureRect</key>
-                <string>{{1735,260},{256,257}}</string>
-                <key>textureRotated</key>
-                <false/>
-            </dict>
-            <key>gamemap/wembley.png</key>
-            <dict>
-                <key>aliases</key>
-                <array/>
-                <key>spriteOffset</key>
-                <string>{2,-6}</string>
-                <key>spriteSize</key>
-                <string>{226,225}</string>
-                <key>spriteSourceSize</key>
-                <string>{256,257}</string>
-                <key>textureRect</key>
-                <string>{{2353,685},{226,225}}</string>
+                <string>{{1116,707},{56,35}}</string>
                 <key>textureRotated</key>
                 <true/>
             </dict>
-            <key>gamemap/wembley_disabled.png</key>
+            <key>farmhouse/farmhouse1/stone3.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
                 <key>spriteOffset</key>
                 <string>{0,0}</string>
                 <key>spriteSize</key>
-                <string>{223,223}</string>
+                <string>{90,47}</string>
                 <key>spriteSourceSize</key>
-                <string>{223,223}</string>
+                <string>{90,47}</string>
                 <key>textureRect</key>
-                <string>{{3032,680},{223,223}}</string>
+                <string>{{774,785},{90,47}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>gamemap/wembley_pressed.png</key>
+            <key>farmhouse/farmhouse1/tool1.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
                 <key>spriteOffset</key>
                 <string>{0,0}</string>
                 <key>spriteSize</key>
-                <string>{319,319}</string>
+                <string>{35,123}</string>
                 <key>spriteSourceSize</key>
-                <string>{331,331}</string>
+                <string>{35,123}</string>
                 <key>textureRect</key>
-                <string>{{703,1},{319,319}}</string>
+                <string>{{1829,1495},{35,123}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+            <key>farmhouse/farmhouse1/tool2.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{35,123}</string>
+                <key>spriteSourceSize</key>
+                <string>{35,123}</string>
+                <key>textureRect</key>
+                <string>{{1866,1495},{35,123}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+            <key>farmhouse/farmhouse1/tool3.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{36,124}</string>
+                <key>spriteSourceSize</key>
+                <string>{36,124}</string>
+                <key>textureRect</key>
+                <string>{{510,1475},{36,124}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+            <key>farmhouse/farmhouse1/tool4.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{21,48}</string>
+                <key>spriteSourceSize</key>
+                <string>{21,48}</string>
+                <key>textureRect</key>
+                <string>{{1136,1275},{21,48}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+            <key>farmhouse/farmhouse1/tool5.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{40,79}</string>
+                <key>spriteSourceSize</key>
+                <string>{40,79}</string>
+                <key>textureRect</key>
+                <string>{{787,1880},{40,79}}</string>
+                <key>textureRotated</key>
+                <true/>
+            </dict>
+            <key>farmhouse/farmhouse1/tractor.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{431,350}</string>
+                <key>spriteSourceSize</key>
+                <string>{431,350}</string>
+                <key>textureRect</key>
+                <string>{{1161,707},{431,350}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+            <key>farmhouse/farmhouse1/tractor1.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{396,203}</string>
+                <key>spriteSourceSize</key>
+                <string>{396,203}</string>
+                <key>textureRect</key>
+                <string>{{1136,1453},{396,203}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+            <key>farmhouse/farmhouse1/vegetable_cart.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{305,225}</string>
+                <key>spriteSourceSize</key>
+                <string>{305,225}</string>
+                <key>textureRect</key>
+                <string>{{1594,1052},{305,225}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+            <key>farmhouse/farmhouse1/waterbottle.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{131,76}</string>
+                <key>spriteSourceSize</key>
+                <string>{131,76}</string>
+                <key>textureRect</key>
+                <string>{{722,1393},{131,76}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+            <key>farmhouse/farmhouse1/well.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{291,385}</string>
+                <key>spriteSourceSize</key>
+                <string>{291,385}</string>
+                <key>textureRect</key>
+                <string>{{1647,1},{291,385}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+            <key>farmhouse/farmhouse1/wind_meal_01.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{327,327}</string>
+                <key>spriteSourceSize</key>
+                <string>{327,327}</string>
+                <key>textureRect</key>
+                <string>{{1594,723},{327,327}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+            <key>farmhouse/farmhouse1/wind_meal_02.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{203,72}</string>
+                <key>spriteSourceSize</key>
+                <string>{203,72}</string>
+                <key>textureRect</key>
+                <string>{{1477,1853},{203,72}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
@@ -640,17 +670,17 @@
             <key>format</key>
             <integer>3</integer>
             <key>pixelFormat</key>
-            <string>RGBA8888</string>
+            <string>RGBA4444</string>
             <key>premultiplyAlpha</key>
             <false/>
             <key>realTextureFileName</key>
-            <string>gamemap.png</string>
+            <string>farmhouse1.png</string>
             <key>size</key>
-            <string>{3256,1008}</string>
+            <string>{1939,1934}</string>
             <key>smartupdate</key>
-            <string>$TexturePacker:SmartUpdate:adb219445265f71f87a825243afd1688:63df4e1a98215dee5ad1892eb8be1036:8e6144685d05ab27c2cddc39fe1ff60f$</string>
+            <string>$TexturePacker:SmartUpdate:c4a8d51325bbd20e0b063039c7ead9cd:6c5a9768f9fb4546e5c51ca02c139793:d00a9851a5a9385e19bd7bbd97dda59e$</string>
             <key>textureFileName</key>
-            <string>gamemap.png</string>
+            <string>farmhouse1.png</string>
         </dict>
     </dict>
 </plist>

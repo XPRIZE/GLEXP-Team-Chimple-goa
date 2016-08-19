@@ -14,13 +14,13 @@
             <key>tractor</key>
             <dict>
                 <key>anchorpoint</key>
-                <string>{ 0.50000,0.50000 }</string>
+                <string>{ 0.50000,0.50100 }</string>
                 <key>is_dynamic</key>
-                <false />
+                <true />
                 <key>affected_by_gravity</key>
-                <false />
+                <true />
                 <key>allows_rotation</key>
-                <false />
+                <true />
                 <key>linear_damping</key>
                 <real>0</real>
                 <key>velocity_limit</key>
@@ -44,21 +44,21 @@
                         <key>group</key>
                         <integer>0</integer>
                         <key>category_mask</key>
-                        <integer>1</integer>
+                        <integer>0</integer>
                         <key>collision_mask</key>
-                        <integer>2</integer>
+                        <integer>0</integer>
                         <key>contact_test_mask</key>
-                        <integer>2</integer>
+                        <integer>0</integer>
                         <key>fixture_type</key>
                         <string>POLYGON</string>
                         
                         <key>polygons</key>
                         <array>
                             <array>
-                                <string>{ -182.25000,-36.25000 }</string>
-                                <string>{ -182.25000,-20.00000 }</string>
-                                <string>{ -50.25000,-20.25000 }</string>
-                                <string>{ -50.00000,-36.75000 }</string>
+                                <string>{ -94.50000,-49.75000 }</string>
+                                <string>{ -343.00000,-49.75000 }</string>
+                                <string>{ -343.00000,-37.75000 }</string>
+                                <string>{ -94.00000,-37.75000 }</string>
                             </array>
                         </array>
                         
@@ -76,24 +76,23 @@
                         <key>group</key>
                         <integer>0</integer>
                         <key>category_mask</key>
-                        <integer>1</integer>
+                        <integer>0</integer>
                         <key>collision_mask</key>
-                        <integer>2</integer>
+                        <integer>0</integer>
                         <key>contact_test_mask</key>
-                        <integer>2</integer>
+                        <integer>0</integer>
                         <key>fixture_type</key>
                         <string>POLYGON</string>
                         
                         <key>polygons</key>
                         <array>
                             <array>
-                                <string>{ -162.25000,-49.25000 }</string>
-                                <string>{ -155.00000,-48.50000 }</string>
-                                <string>{ -147.25000,-50.25000 }</string>
-                                <string>{ -141.50000,-54.25000 }</string>
-                                <string>{ -136.50000,-62.50000 }</string>
-                                <string>{ -174.50000,-62.50000 }</string>
-                                <string>{ -170.00000,-54.25000 }</string>
+                                <string>{ -304.00000,-86.75000 }</string>
+                                <string>{ -281.00000,-86.25000 }</string>
+                                <string>{ -264.00000,-96.25000 }</string>
+                                <string>{ -256.00000,-112.75000 }</string>
+                                <string>{ -328.50000,-113.25000 }</string>
+                                <string>{ -320.00000,-95.75000 }</string>
                             </array>
                         </array>
                         
@@ -111,28 +110,23 @@
                         <key>group</key>
                         <integer>0</integer>
                         <key>category_mask</key>
-                        <integer>1</integer>
+                        <integer>0</integer>
                         <key>collision_mask</key>
-                        <integer>2</integer>
+                        <integer>0</integer>
                         <key>contact_test_mask</key>
-                        <integer>2</integer>
+                        <integer>0</integer>
                         <key>fixture_type</key>
                         <string>POLYGON</string>
                         
                         <key>polygons</key>
                         <array>
                             <array>
-                                <string>{ -80.50000,-49.00000 }</string>
-                                <string>{ -73.75000,-48.50000 }</string>
-                                <string>{ -60.50000,-54.25000 }</string>
-                                <string>{ -56.25000,-60.75000 }</string>
-                                <string>{ -93.25000,-60.75000 }</string>
-                                <string>{ -89.00000,-53.50000 }</string>
-                            </array>
-                            <array>
-                                <string>{ -60.50000,-54.25000 }</string>
-                                <string>{ -73.75000,-48.50000 }</string>
-                                <string>{ -66.25000,-50.00000 }</string>
+                                <string>{ -113.50000,-98.25000 }</string>
+                                <string>{ -104.00000,-111.75000 }</string>
+                                <string>{ -175.00000,-111.25000 }</string>
+                                <string>{ -166.50000,-96.75000 }</string>
+                                <string>{ -148.50000,-87.75000 }</string>
+                                <string>{ -127.00000,-87.75000 }</string>
                             </array>
                         </array>
                         
@@ -150,40 +144,40 @@
                         <key>group</key>
                         <integer>0</integer>
                         <key>category_mask</key>
-                        <integer>1</integer>
+                        <integer>0</integer>
                         <key>collision_mask</key>
-                        <integer>2</integer>
+                        <integer>0</integer>
                         <key>contact_test_mask</key>
-                        <integer>2</integer>
+                        <integer>0</integer>
                         <key>fixture_type</key>
                         <string>POLYGON</string>
                         
                         <key>polygons</key>
                         <array>
                             <array>
-                                <string>{ -13.50000,11.00000 }</string>
-                                <string>{ 0.75000,16.00000 }</string>
-                                <string>{ -10.75000,4.75000 }</string>
-                                <string>{ -19.50000,-0.75000 }</string>
-                                <string>{ -24.25000,3.75000 }</string>
+                                <string>{ -44.00000,7.25000 }</string>
+                                <string>{ -22.50000,21.75000 }</string>
+                                <string>{ -18.50000,12.75000 }</string>
+                                <string>{ -38.00000,-1.75000 }</string>
                             </array>
                             <array>
-                                <string>{ 0.75000,16.00000 }</string>
-                                <string>{ 16.75000,17.50000 }</string>
-                                <string>{ 7.25000,9.75000 }</string>
-                                <string>{ -10.75000,4.75000 }</string>
+                                <string>{ 6.00000,30.25000 }</string>
+                                <string>{ 38.00000,31.75000 }</string>
+                                <string>{ 19.00000,24.25000 }</string>
+                                <string>{ -18.50000,12.75000 }</string>
+                                <string>{ -22.50000,21.75000 }</string>
                             </array>
                             <array>
-                                <string>{ 16.75000,17.50000 }</string>
-                                <string>{ 32.00000,14.25000 }</string>
-                                <string>{ 27.75000,8.25000 }</string>
-                                <string>{ 7.25000,9.75000 }</string>
+                                <string>{ 38.00000,31.75000 }</string>
+                                <string>{ 70.00000,22.75000 }</string>
+                                <string>{ 60.50000,17.75000 }</string>
+                                <string>{ 19.00000,24.25000 }</string>
                             </array>
                             <array>
-                                <string>{ 32.00000,14.25000 }</string>
-                                <string>{ 48.75000,5.75000 }</string>
-                                <string>{ 44.25000,2.25000 }</string>
-                                <string>{ 27.75000,8.25000 }</string>
+                                <string>{ 70.00000,22.75000 }</string>
+                                <string>{ 98.00000,2.75000 }</string>
+                                <string>{ 89.50000,0.25000 }</string>
+                                <string>{ 60.50000,17.75000 }</string>
                             </array>
                         </array>
                         
@@ -201,45 +195,45 @@
                         <key>group</key>
                         <integer>0</integer>
                         <key>category_mask</key>
-                        <integer>1</integer>
+                        <integer>0</integer>
                         <key>collision_mask</key>
-                        <integer>2</integer>
+                        <integer>0</integer>
                         <key>contact_test_mask</key>
-                        <integer>2</integer>
+                        <integer>0</integer>
                         <key>fixture_type</key>
                         <string>POLYGON</string>
                         
                         <key>polygons</key>
                         <array>
                             <array>
-                                <string>{ 24.25000,31.25000 }</string>
-                                <string>{ 51.00000,31.25000 }</string>
-                                <string>{ 49.50000,26.25000 }</string>
-                                <string>{ 24.25000,27.25000 }</string>
+                                <string>{ 44.50000,58.75000 }</string>
+                                <string>{ 94.50000,58.75000 }</string>
+                                <string>{ 94.00000,50.25000 }</string>
+                                <string>{ 44.50000,51.25000 }</string>
                             </array>
                             <array>
-                                <string>{ 67.50000,15.00000 }</string>
-                                <string>{ 66.00000,11.50000 }</string>
-                                <string>{ 49.50000,26.25000 }</string>
-                                <string>{ 51.00000,31.25000 }</string>
+                                <string>{ 127.00000,27.75000 }</string>
+                                <string>{ 124.00000,20.25000 }</string>
+                                <string>{ 94.00000,50.25000 }</string>
+                                <string>{ 94.50000,58.75000 }</string>
                             </array>
                             <array>
-                                <string>{ 67.50000,15.00000 }</string>
-                                <string>{ 90.50000,15.25000 }</string>
-                                <string>{ 87.25000,12.00000 }</string>
-                                <string>{ 66.00000,11.50000 }</string>
+                                <string>{ 127.00000,27.75000 }</string>
+                                <string>{ 170.50000,27.75000 }</string>
+                                <string>{ 168.00000,20.25000 }</string>
+                                <string>{ 124.00000,20.25000 }</string>
                             </array>
                             <array>
-                                <string>{ 90.50000,15.25000 }</string>
-                                <string>{ 93.00000,12.00000 }</string>
-                                <string>{ 87.25000,12.00000 }</string>
+                                <string>{ 170.50000,27.75000 }</string>
+                                <string>{ 175.00000,34.75000 }</string>
+                                <string>{ 179.00000,30.25000 }</string>
+                                <string>{ 168.00000,20.25000 }</string>
                             </array>
                             <array>
-                                <string>{ 92.50000,19.25000 }</string>
-                                <string>{ 172.50000,19.50000 }</string>
-                                <string>{ 172.50000,13.50000 }</string>
-                                <string>{ 93.00000,12.00000 }</string>
-                                <string>{ 90.50000,15.25000 }</string>
+                                <string>{ 323.50000,34.75000 }</string>
+                                <string>{ 323.00000,30.25000 }</string>
+                                <string>{ 179.00000,30.25000 }</string>
+                                <string>{ 175.00000,34.75000 }</string>
                             </array>
                         </array>
                         
@@ -257,21 +251,21 @@
                         <key>group</key>
                         <integer>0</integer>
                         <key>category_mask</key>
-                        <integer>1</integer>
+                        <integer>0</integer>
                         <key>collision_mask</key>
-                        <integer>2</integer>
+                        <integer>0</integer>
                         <key>contact_test_mask</key>
-                        <integer>2</integer>
+                        <integer>0</integer>
                         <key>fixture_type</key>
                         <string>POLYGON</string>
                         
                         <key>polygons</key>
                         <array>
                             <array>
-                                <string>{ 103.50000,-24.50000 }</string>
-                                <string>{ 103.25000,-29.50000 }</string>
-                                <string>{ 69.75000,-29.50000 }</string>
-                                <string>{ 69.50000,-24.50000 }</string>
+                                <string>{ 131.00000,-47.25000 }</string>
+                                <string>{ 130.00000,-41.25000 }</string>
+                                <string>{ 185.50000,-41.75000 }</string>
+                                <string>{ 186.00000,-48.75000 }</string>
                             </array>
                         </array>
                         
@@ -289,21 +283,21 @@
                         <key>group</key>
                         <integer>0</integer>
                         <key>category_mask</key>
-                        <integer>1</integer>
+                        <integer>0</integer>
                         <key>collision_mask</key>
-                        <integer>2</integer>
+                        <integer>0</integer>
                         <key>contact_test_mask</key>
-                        <integer>2</integer>
+                        <integer>0</integer>
                         <key>fixture_type</key>
                         <string>POLYGON</string>
                         
                         <key>polygons</key>
                         <array>
                             <array>
-                                <string>{ 92.50000,82.00000 }</string>
-                                <string>{ 21.50000,82.00000 }</string>
-                                <string>{ 21.25000,87.75000 }</string>
-                                <string>{ 106.75000,87.75000 }</string>
+                                <string>{ 177.00000,152.75000 }</string>
+                                <string>{ 40.50000,152.75000 }</string>
+                                <string>{ 40.00000,164.25000 }</string>
+                                <string>{ 201.00000,164.75000 }</string>
                             </array>
                         </array>
                         
@@ -321,33 +315,33 @@
                         <key>group</key>
                         <integer>0</integer>
                         <key>category_mask</key>
-                        <integer>1</integer>
+                        <integer>0</integer>
                         <key>collision_mask</key>
-                        <integer>2</integer>
+                        <integer>0</integer>
                         <key>contact_test_mask</key>
-                        <integer>2</integer>
+                        <integer>0</integer>
                         <key>fixture_type</key>
                         <string>POLYGON</string>
                         
                         <key>polygons</key>
                         <array>
                             <array>
-                                <string>{ 127.50000,-19.75000 }</string>
-                                <string>{ 136.75000,-15.50000 }</string>
-                                <string>{ 137.50000,-18.25000 }</string>
-                                <string>{ 129.00000,-22.50000 }</string>
+                                <string>{ 232.00000,-43.25000 }</string>
+                                <string>{ 250.50000,-33.25000 }</string>
+                                <string>{ 252.00000,-38.25000 }</string>
+                                <string>{ 234.50000,-48.25000 }</string>
                             </array>
                             <array>
-                                <string>{ 147.50000,-13.75000 }</string>
-                                <string>{ 147.75000,-16.50000 }</string>
-                                <string>{ 137.50000,-18.25000 }</string>
-                                <string>{ 136.75000,-15.50000 }</string>
+                                <string>{ 297.50000,-33.25000 }</string>
+                                <string>{ 276.50000,-32.25000 }</string>
+                                <string>{ 275.50000,-26.75000 }</string>
+                                <string>{ 299.00000,-28.25000 }</string>
                             </array>
                             <array>
-                                <string>{ 147.50000,-13.75000 }</string>
-                                <string>{ 159.00000,-14.50000 }</string>
-                                <string>{ 158.25000,-17.00000 }</string>
-                                <string>{ 147.75000,-16.50000 }</string>
+                                <string>{ 276.50000,-32.25000 }</string>
+                                <string>{ 252.00000,-38.25000 }</string>
+                                <string>{ 250.50000,-33.25000 }</string>
+                                <string>{ 275.50000,-26.75000 }</string>
                             </array>
                         </array>
                         
@@ -381,9 +375,9 @@
                         <key>density</key>
                         <real>1</real>
                         <key>restitution</key>
-                        <real>0.20000000000000001</real>
+                        <real>0.200000003</real>
                         <key>friction</key>
-                        <real>0.69999999999999996</real>
+                        <real>0.699999988</real>
                         <key>tag</key>
                         <integer>0</integer>
                         <key>group</key>
@@ -400,10 +394,10 @@
                         <key>polygons</key>
                         <array>
                             <array>
-                                <string>{ -194.37500,-187.75000 }</string>
-                                <string>{ -394.62500,-185.75000 }</string>
-                                <string>{ -394.37500,-177.00000 }</string>
-                                <string>{ -194.37500,-176.75000 }</string>
+                                <string>{ -388.75000,-375.50000 }</string>
+                                <string>{ -789.25000,-371.50000 }</string>
+                                <string>{ -788.75000,-354.00000 }</string>
+                                <string>{ -388.75000,-353.50000 }</string>
                             </array>
                         </array>
                         
@@ -432,10 +426,10 @@
                         <key>polygons</key>
                         <array>
                             <array>
-                                <string>{ -193.87500,13.00000 }</string>
-                                <string>{ -193.62500,28.25000 }</string>
-                                <string>{ 194.12500,28.50000 }</string>
-                                <string>{ 195.12500,13.25000 }</string>
+                                <string>{ -387.75000,26.00000 }</string>
+                                <string>{ -387.25000,56.50000 }</string>
+                                <string>{ 388.25000,57.00000 }</string>
+                                <string>{ 390.25000,26.50000 }</string>
                             </array>
                         </array>
                         
@@ -464,171 +458,42 @@
                         <key>polygons</key>
                         <array>
                             <array>
-                                <string>{ -370.62500,-68.25000 }</string>
-                                <string>{ -406.12500,-90.75000 }</string>
-                                <string>{ -408.12500,-66.25000 }</string>
+                                <string>{ -741.25000,-136.50000 }</string>
+                                <string>{ -812.25000,-181.50000 }</string>
+                                <string>{ -816.25000,-132.50000 }</string>
                             </array>
                             <array>
-                                <string>{ -207.12500,-6.00000 }</string>
-                                <string>{ -202.37500,-14.75000 }</string>
-                                <string>{ -241.12500,-22.00000 }</string>
-                                <string>{ -242.62500,-4.75000 }</string>
+                                <string>{ -414.25000,-12.00000 }</string>
+                                <string>{ -404.75000,-29.50000 }</string>
+                                <string>{ -482.25000,-44.00000 }</string>
+                                <string>{ -485.25000,-9.50000 }</string>
                             </array>
                             <array>
-                                <string>{ -287.37500,-37.25000 }</string>
-                                <string>{ -323.62500,-52.50000 }</string>
-                                <string>{ -324.87500,-35.75000 }</string>
+                                <string>{ -574.75000,-74.50000 }</string>
+                                <string>{ -647.25000,-105.00000 }</string>
+                                <string>{ -649.75000,-71.50000 }</string>
                             </array>
                             <array>
-                                <string>{ -241.12500,-22.00000 }</string>
-                                <string>{ -287.37500,-37.25000 }</string>
-                                <string>{ -289.12500,-19.50000 }</string>
+                                <string>{ -482.25000,-44.00000 }</string>
+                                <string>{ -574.75000,-74.50000 }</string>
+                                <string>{ -578.25000,-39.00000 }</string>
                             </array>
                             <array>
-                                <string>{ -323.62500,-52.50000 }</string>
-                                <string>{ -370.62500,-68.25000 }</string>
-                                <string>{ -371.87500,-50.25000 }</string>
+                                <string>{ -647.25000,-105.00000 }</string>
+                                <string>{ -741.25000,-136.50000 }</string>
+                                <string>{ -743.75000,-100.50000 }</string>
                             </array>
                             <array>
-                                <string>{ -323.62500,-52.50000 }</string>
-                                <string>{ -406.12500,-90.75000 }</string>
-                                <string>{ -370.62500,-68.25000 }</string>
+                                <string>{ -647.25000,-105.00000 }</string>
+                                <string>{ -812.25000,-181.50000 }</string>
+                                <string>{ -741.25000,-136.50000 }</string>
                             </array>
                             <array>
-                                <string>{ -202.37500,-14.75000 }</string>
-                                <string>{ -406.12500,-90.75000 }</string>
-                                <string>{ -323.62500,-52.50000 }</string>
-                                <string>{ -287.37500,-37.25000 }</string>
-                                <string>{ -241.12500,-22.00000 }</string>
-                            </array>
-                        </array>
-                        
-                    </dict>
-
-                    <dict>
-                        <key>density</key>
-                        <real>1</real>
-                        <key>restitution</key>
-                        <real>0.200000003</real>
-                        <key>friction</key>
-                        <real>0.699999988</real>
-                        <key>tag</key>
-                        <integer>0</integer>
-                        <key>group</key>
-                        <integer>0</integer>
-                        <key>category_mask</key>
-                        <integer>1</integer>
-                        <key>collision_mask</key>
-                        <integer>2</integer>
-                        <key>contact_test_mask</key>
-                        <integer>2</integer>
-                        <key>fixture_type</key>
-                        <string>POLYGON</string>
-                        
-                        <key>polygons</key>
-                        <array>
-                            <array>
-                                <string>{ 216.87500,8.50000 }</string>
-                                <string>{ 199.12500,49.50000 }</string>
-                                <string>{ 234.62500,37.75000 }</string>
-                            </array>
-                            <array>
-                                <string>{ -200.12500,56.00000 }</string>
-                                <string>{ -216.62500,9.00000 }</string>
-                                <string>{ -235.62500,44.00000 }</string>
-                            </array>
-                            <array>
-                                <string>{ -68.37500,173.75000 }</string>
-                                <string>{ -96.12500,146.00000 }</string>
-                                <string>{ -104.37500,162.00000 }</string>
-                            </array>
-                            <array>
-                                <string>{ 95.62500,140.00000 }</string>
-                                <string>{ 67.37500,167.50000 }</string>
-                                <string>{ 102.87500,156.00000 }</string>
-                            </array>
-                            <array>
-                                <string>{ -133.62500,114.75000 }</string>
-                                <string>{ -161.87500,87.25000 }</string>
-                                <string>{ -169.37500,103.00000 }</string>
-                            </array>
-                            <array>
-                                <string>{ 160.87500,81.25000 }</string>
-                                <string>{ 132.87500,108.50000 }</string>
-                                <string>{ 168.12500,96.75000 }</string>
-                            </array>
-                            <array>
-                                <string>{ 42.12500,211.00000 }</string>
-                                <string>{ 35.37500,197.00000 }</string>
-                                <string>{ -36.12500,203.50000 }</string>
-                                <string>{ -42.62500,217.00000 }</string>
-                                <string>{ 0.12500,234.25000 }</string>
-                            </array>
-                            <array>
-                                <string>{ -36.12500,203.50000 }</string>
-                                <string>{ -0.12500,199.75000 }</string>
-                                <string>{ -68.37500,173.75000 }</string>
-                                <string>{ -76.12500,190.25000 }</string>
-                            </array>
-                            <array>
-                                <string>{ 67.37500,167.50000 }</string>
-                                <string>{ -0.12500,199.75000 }</string>
-                                <string>{ 35.37500,197.00000 }</string>
-                                <string>{ 75.37500,183.75000 }</string>
-                            </array>
-                            <array>
-                                <string>{ 132.87500,108.50000 }</string>
-                                <string>{ 95.62500,140.00000 }</string>
-                                <string>{ 140.62500,124.75000 }</string>
-                            </array>
-                            <array>
-                                <string>{ -96.12500,146.00000 }</string>
-                                <string>{ -133.62500,114.75000 }</string>
-                                <string>{ -141.87500,130.75000 }</string>
-                            </array>
-                            <array>
-                                <string>{ 199.12500,49.50000 }</string>
-                                <string>{ 160.87500,81.25000 }</string>
-                                <string>{ 206.62500,65.75000 }</string>
-                            </array>
-                            <array>
-                                <string>{ -161.87500,87.25000 }</string>
-                                <string>{ -200.12500,56.00000 }</string>
-                                <string>{ -207.87500,72.00000 }</string>
-                            </array>
-                            <array>
-                                <string>{ -161.87500,87.25000 }</string>
-                                <string>{ -0.12500,199.75000 }</string>
-                                <string>{ -216.62500,9.00000 }</string>
-                                <string>{ -200.12500,56.00000 }</string>
-                            </array>
-                            <array>
-                                <string>{ 216.87500,8.50000 }</string>
-                                <string>{ -0.12500,199.75000 }</string>
-                                <string>{ 160.87500,81.25000 }</string>
-                                <string>{ 199.12500,49.50000 }</string>
-                            </array>
-                            <array>
-                                <string>{ -133.62500,114.75000 }</string>
-                                <string>{ -96.12500,146.00000 }</string>
-                                <string>{ -0.12500,199.75000 }</string>
-                                <string>{ -161.87500,87.25000 }</string>
-                            </array>
-                            <array>
-                                <string>{ -68.37500,173.75000 }</string>
-                                <string>{ -0.12500,199.75000 }</string>
-                                <string>{ -96.12500,146.00000 }</string>
-                            </array>
-                            <array>
-                                <string>{ -0.12500,199.75000 }</string>
-                                <string>{ 95.62500,140.00000 }</string>
-                                <string>{ 132.87500,108.50000 }</string>
-                                <string>{ 160.87500,81.25000 }</string>
-                            </array>
-                            <array>
-                                <string>{ -0.12500,199.75000 }</string>
-                                <string>{ 67.37500,167.50000 }</string>
-                                <string>{ 95.62500,140.00000 }</string>
+                                <string>{ -404.75000,-29.50000 }</string>
+                                <string>{ -812.25000,-181.50000 }</string>
+                                <string>{ -647.25000,-105.00000 }</string>
+                                <string>{ -574.75000,-74.50000 }</string>
+                                <string>{ -482.25000,-44.00000 }</string>
                             </array>
                         </array>
                         
@@ -657,42 +522,171 @@
                         <key>polygons</key>
                         <array>
                             <array>
-                                <string>{ 406.87500,-101.25000 }</string>
-                                <string>{ 370.87500,-68.25000 }</string>
-                                <string>{ 408.62500,-66.25000 }</string>
+                                <string>{ 433.75000,17.00000 }</string>
+                                <string>{ 398.25000,99.00000 }</string>
+                                <string>{ 469.25000,75.50000 }</string>
                             </array>
                             <array>
-                                <string>{ 241.37500,-21.75000 }</string>
-                                <string>{ 203.87500,-25.00000 }</string>
-                                <string>{ 205.87500,-6.00000 }</string>
-                                <string>{ 242.87500,-4.25000 }</string>
+                                <string>{ -400.25000,112.00000 }</string>
+                                <string>{ -433.25000,18.00000 }</string>
+                                <string>{ -471.25000,88.00000 }</string>
                             </array>
                             <array>
-                                <string>{ 323.62500,-52.75000 }</string>
-                                <string>{ 287.87500,-37.25000 }</string>
-                                <string>{ 324.87500,-35.50000 }</string>
+                                <string>{ -136.75000,347.50000 }</string>
+                                <string>{ -192.25000,292.00000 }</string>
+                                <string>{ -208.75000,324.00000 }</string>
                             </array>
                             <array>
-                                <string>{ 287.87500,-37.25000 }</string>
-                                <string>{ 203.87500,-25.00000 }</string>
-                                <string>{ 241.37500,-21.75000 }</string>
-                                <string>{ 289.12500,-19.50000 }</string>
+                                <string>{ 191.25000,280.00000 }</string>
+                                <string>{ 134.75000,335.00000 }</string>
+                                <string>{ 205.75000,312.00000 }</string>
                             </array>
                             <array>
-                                <string>{ 370.87500,-68.25000 }</string>
-                                <string>{ 323.62500,-52.75000 }</string>
-                                <string>{ 372.37500,-50.25000 }</string>
+                                <string>{ -267.25000,229.50000 }</string>
+                                <string>{ -323.75000,174.50000 }</string>
+                                <string>{ -338.75000,206.00000 }</string>
                             </array>
                             <array>
-                                <string>{ 406.87500,-101.25000 }</string>
-                                <string>{ 323.62500,-52.75000 }</string>
-                                <string>{ 370.87500,-68.25000 }</string>
+                                <string>{ 321.75000,162.50000 }</string>
+                                <string>{ 265.75000,217.00000 }</string>
+                                <string>{ 336.25000,193.50000 }</string>
                             </array>
                             <array>
-                                <string>{ 287.87500,-37.25000 }</string>
-                                <string>{ 323.62500,-52.75000 }</string>
-                                <string>{ 406.87500,-101.25000 }</string>
-                                <string>{ 203.87500,-25.00000 }</string>
+                                <string>{ 84.25000,422.00000 }</string>
+                                <string>{ 70.75000,394.00000 }</string>
+                                <string>{ -72.25000,407.00000 }</string>
+                                <string>{ -85.25000,434.00000 }</string>
+                                <string>{ 0.25000,468.50000 }</string>
+                            </array>
+                            <array>
+                                <string>{ -72.25000,407.00000 }</string>
+                                <string>{ -0.25000,399.50000 }</string>
+                                <string>{ -136.75000,347.50000 }</string>
+                                <string>{ -152.25000,380.50000 }</string>
+                            </array>
+                            <array>
+                                <string>{ 134.75000,335.00000 }</string>
+                                <string>{ -0.25000,399.50000 }</string>
+                                <string>{ 70.75000,394.00000 }</string>
+                                <string>{ 150.75000,367.50000 }</string>
+                            </array>
+                            <array>
+                                <string>{ 265.75000,217.00000 }</string>
+                                <string>{ 191.25000,280.00000 }</string>
+                                <string>{ 281.25000,249.50000 }</string>
+                            </array>
+                            <array>
+                                <string>{ -192.25000,292.00000 }</string>
+                                <string>{ -267.25000,229.50000 }</string>
+                                <string>{ -283.75000,261.50000 }</string>
+                            </array>
+                            <array>
+                                <string>{ 398.25000,99.00000 }</string>
+                                <string>{ 321.75000,162.50000 }</string>
+                                <string>{ 413.25000,131.50000 }</string>
+                            </array>
+                            <array>
+                                <string>{ -323.75000,174.50000 }</string>
+                                <string>{ -400.25000,112.00000 }</string>
+                                <string>{ -415.75000,144.00000 }</string>
+                            </array>
+                            <array>
+                                <string>{ -323.75000,174.50000 }</string>
+                                <string>{ -0.25000,399.50000 }</string>
+                                <string>{ -433.25000,18.00000 }</string>
+                                <string>{ -400.25000,112.00000 }</string>
+                            </array>
+                            <array>
+                                <string>{ 433.75000,17.00000 }</string>
+                                <string>{ -0.25000,399.50000 }</string>
+                                <string>{ 321.75000,162.50000 }</string>
+                                <string>{ 398.25000,99.00000 }</string>
+                            </array>
+                            <array>
+                                <string>{ -267.25000,229.50000 }</string>
+                                <string>{ -192.25000,292.00000 }</string>
+                                <string>{ -0.25000,399.50000 }</string>
+                                <string>{ -323.75000,174.50000 }</string>
+                            </array>
+                            <array>
+                                <string>{ -136.75000,347.50000 }</string>
+                                <string>{ -0.25000,399.50000 }</string>
+                                <string>{ -192.25000,292.00000 }</string>
+                            </array>
+                            <array>
+                                <string>{ -0.25000,399.50000 }</string>
+                                <string>{ 191.25000,280.00000 }</string>
+                                <string>{ 265.75000,217.00000 }</string>
+                                <string>{ 321.75000,162.50000 }</string>
+                            </array>
+                            <array>
+                                <string>{ -0.25000,399.50000 }</string>
+                                <string>{ 134.75000,335.00000 }</string>
+                                <string>{ 191.25000,280.00000 }</string>
+                            </array>
+                        </array>
+                        
+                    </dict>
+
+                    <dict>
+                        <key>density</key>
+                        <real>1</real>
+                        <key>restitution</key>
+                        <real>0.200000003</real>
+                        <key>friction</key>
+                        <real>0.699999988</real>
+                        <key>tag</key>
+                        <integer>0</integer>
+                        <key>group</key>
+                        <integer>0</integer>
+                        <key>category_mask</key>
+                        <integer>1</integer>
+                        <key>collision_mask</key>
+                        <integer>2</integer>
+                        <key>contact_test_mask</key>
+                        <integer>2</integer>
+                        <key>fixture_type</key>
+                        <string>POLYGON</string>
+                        
+                        <key>polygons</key>
+                        <array>
+                            <array>
+                                <string>{ 813.75000,-202.50000 }</string>
+                                <string>{ 741.75000,-136.50000 }</string>
+                                <string>{ 817.25000,-132.50000 }</string>
+                            </array>
+                            <array>
+                                <string>{ 482.75000,-43.50000 }</string>
+                                <string>{ 407.75000,-50.00000 }</string>
+                                <string>{ 411.75000,-12.00000 }</string>
+                                <string>{ 485.75000,-8.50000 }</string>
+                            </array>
+                            <array>
+                                <string>{ 647.25000,-105.50000 }</string>
+                                <string>{ 575.75000,-74.50000 }</string>
+                                <string>{ 649.75000,-71.00000 }</string>
+                            </array>
+                            <array>
+                                <string>{ 575.75000,-74.50000 }</string>
+                                <string>{ 407.75000,-50.00000 }</string>
+                                <string>{ 482.75000,-43.50000 }</string>
+                                <string>{ 578.25000,-39.00000 }</string>
+                            </array>
+                            <array>
+                                <string>{ 741.75000,-136.50000 }</string>
+                                <string>{ 647.25000,-105.50000 }</string>
+                                <string>{ 744.75000,-100.50000 }</string>
+                            </array>
+                            <array>
+                                <string>{ 813.75000,-202.50000 }</string>
+                                <string>{ 647.25000,-105.50000 }</string>
+                                <string>{ 741.75000,-136.50000 }</string>
+                            </array>
+                            <array>
+                                <string>{ 575.75000,-74.50000 }</string>
+                                <string>{ 647.25000,-105.50000 }</string>
+                                <string>{ 813.75000,-202.50000 }</string>
+                                <string>{ 407.75000,-50.00000 }</string>
                             </array>
                         </array>
                         
@@ -704,7 +698,7 @@
             <key>cart</key>
             <dict>
                 <key>anchorpoint</key>
-                <string>{ 0.49900,0.49900 }</string>
+                <string>{ 0.49900,0.50000 }</string>
                 <key>is_dynamic</key>
                 <false />
                 <key>affected_by_gravity</key>
@@ -745,10 +739,10 @@
                         <key>polygons</key>
                         <array>
                             <array>
-                                <string>{ -42.37500,39.37500 }</string>
-                                <string>{ 84.62500,39.12500 }</string>
-                                <string>{ 83.87500,32.87500 }</string>
-                                <string>{ -41.62500,32.87500 }</string>
+                                <string>{ -84.75000,78.75000 }</string>
+                                <string>{ 169.25000,78.25000 }</string>
+                                <string>{ 167.75000,65.75000 }</string>
+                                <string>{ -83.25000,65.75000 }</string>
                             </array>
                         </array>
                         
@@ -801,10 +795,10 @@
                         <key>polygons</key>
                         <array>
                             <array>
-                                <string>{ 103.25000,38.37500 }</string>
-                                <string>{ -69.75000,38.37500 }</string>
-                                <string>{ -69.75000,48.37500 }</string>
-                                <string>{ 103.50000,48.37500 }</string>
+                                <string>{ 206.50000,76.75000 }</string>
+                                <string>{ -139.50000,76.75000 }</string>
+                                <string>{ -139.50000,96.75000 }</string>
+                                <string>{ 207.00000,96.75000 }</string>
                             </array>
                         </array>
                         
@@ -816,7 +810,7 @@
             <key>farm_house</key>
             <dict>
                 <key>anchorpoint</key>
-                <string>{ 0.50000,0.50000 }</string>
+                <string>{ 0.50019,0.50000 }</string>
                 <key>is_dynamic</key>
                 <false />
                 <key>affected_by_gravity</key>
@@ -857,10 +851,10 @@
                         <key>polygons</key>
                         <array>
                             <array>
-                                <string>{ 253.00000,-202.12500 }</string>
-                                <string>{ 253.00000,-227.12500 }</string>
-                                <string>{ -252.25000,-227.12500 }</string>
-                                <string>{ -252.50000,-202.12500 }</string>
+                                <string>{ -472.75000,-380.50000 }</string>
+                                <string>{ 475.25000,-380.00000 }</string>
+                                <string>{ 475.25000,-399.50000 }</string>
+                                <string>{ -472.75000,-400.50000 }</string>
                             </array>
                         </array>
                         
@@ -889,10 +883,10 @@
                         <key>polygons</key>
                         <array>
                             <array>
-                                <string>{ -128.25000,-139.37500 }</string>
-                                <string>{ -126.75000,-150.12500 }</string>
-                                <string>{ -234.25000,-150.12500 }</string>
-                                <string>{ -236.75000,-139.37500 }</string>
+                                <string>{ -240.25000,-262.00000 }</string>
+                                <string>{ -240.25000,-273.00000 }</string>
+                                <string>{ -443.75000,-273.50000 }</string>
+                                <string>{ -443.75000,-261.50000 }</string>
                             </array>
                         </array>
                         
@@ -921,10 +915,10 @@
                         <key>polygons</key>
                         <array>
                             <array>
-                                <string>{ 234.00000,-154.12500 }</string>
-                                <string>{ 127.50000,-153.87500 }</string>
-                                <string>{ 128.50000,-139.12500 }</string>
-                                <string>{ 235.75000,-138.87500 }</string>
+                                <string>{ 240.25000,-261.00000 }</string>
+                                <string>{ 446.25000,-260.50000 }</string>
+                                <string>{ 442.25000,-272.00000 }</string>
+                                <string>{ 239.75000,-273.50000 }</string>
                             </array>
                         </array>
                         
@@ -953,10 +947,10 @@
                         <key>polygons</key>
                         <array>
                             <array>
-                                <string>{ 254.75000,-20.87500 }</string>
-                                <string>{ -251.00000,-18.62500 }</string>
-                                <string>{ -239.75000,-11.62500 }</string>
-                                <string>{ 237.75000,-10.12500 }</string>
+                                <string>{ -620.75000,-43.50000 }</string>
+                                <string>{ -618.25000,-33.50000 }</string>
+                                <string>{ 619.25000,-35.00000 }</string>
+                                <string>{ 622.25000,-45.50000 }</string>
                             </array>
                         </array>
                         
@@ -985,60 +979,28 @@
                         <key>polygons</key>
                         <array>
                             <array>
-                                <string>{ -125.25000,56.87500 }</string>
-                                <string>{ -111.00000,30.12500 }</string>
-                                <string>{ -248.75000,30.62500 }</string>
-                                <string>{ -247.50000,56.37500 }</string>
+                                <string>{ 235.25000,89.50000 }</string>
+                                <string>{ 235.75000,103.50000 }</string>
+                                <string>{ 462.25000,103.50000 }</string>
+                                <string>{ 463.75000,91.00000 }</string>
                             </array>
                             <array>
-                                <string>{ -125.25000,56.87500 }</string>
-                                <string>{ 0.75000,167.87500 }</string>
-                                <string>{ 0.00000,147.87500 }</string>
-                                <string>{ -111.00000,30.12500 }</string>
+                                <string>{ -234.75000,107.00000 }</string>
+                                <string>{ -228.75000,94.00000 }</string>
+                                <string>{ -462.75000,94.50000 }</string>
+                                <string>{ -460.25000,106.00000 }</string>
                             </array>
                             <array>
-                                <string>{ 243.75000,35.37500 }</string>
-                                <string>{ 103.75000,35.62500 }</string>
-                                <string>{ 123.50000,55.87500 }</string>
-                                <string>{ 245.75000,55.37500 }</string>
+                                <string>{ -234.75000,107.00000 }</string>
+                                <string>{ -0.75000,316.00000 }</string>
+                                <string>{ -1.25000,296.50000 }</string>
+                                <string>{ -228.75000,94.00000 }</string>
                             </array>
                             <array>
-                                <string>{ 0.00000,147.87500 }</string>
-                                <string>{ 0.75000,167.87500 }</string>
-                                <string>{ 123.50000,55.87500 }</string>
-                                <string>{ 103.75000,35.62500 }</string>
-                            </array>
-                        </array>
-                        
-                    </dict>
-
-                    <dict>
-                        <key>density</key>
-                        <real>1</real>
-                        <key>restitution</key>
-                        <real>0.200000003</real>
-                        <key>friction</key>
-                        <real>0.699999988</real>
-                        <key>tag</key>
-                        <integer>0</integer>
-                        <key>group</key>
-                        <integer>0</integer>
-                        <key>category_mask</key>
-                        <integer>1</integer>
-                        <key>collision_mask</key>
-                        <integer>2</integer>
-                        <key>contact_test_mask</key>
-                        <integer>2</integer>
-                        <key>fixture_type</key>
-                        <string>POLYGON</string>
-                        
-                        <key>polygons</key>
-                        <array>
-                            <array>
-                                <string>{ -261.00000,-110.62500 }</string>
-                                <string>{ -258.75000,-131.37500 }</string>
-                                <string>{ -354.00000,-131.37500 }</string>
-                                <string>{ -352.75000,-110.37500 }</string>
+                                <string>{ 235.75000,103.50000 }</string>
+                                <string>{ 235.25000,89.50000 }</string>
+                                <string>{ -1.25000,296.50000 }</string>
+                                <string>{ -0.75000,316.00000 }</string>
                             </array>
                         </array>
                         
@@ -1067,10 +1029,42 @@
                         <key>polygons</key>
                         <array>
                             <array>
-                                <string>{ 353.00000,-126.12500 }</string>
-                                <string>{ 259.00000,-125.87500 }</string>
-                                <string>{ 260.75000,-111.62500 }</string>
-                                <string>{ 353.50000,-111.62500 }</string>
+                                <string>{ -489.25000,-216.50000 }</string>
+                                <string>{ -663.25000,-215.50000 }</string>
+                                <string>{ -662.75000,-208.00000 }</string>
+                                <string>{ -489.25000,-208.00000 }</string>
+                            </array>
+                        </array>
+                        
+                    </dict>
+
+                    <dict>
+                        <key>density</key>
+                        <real>1</real>
+                        <key>restitution</key>
+                        <real>0.200000003</real>
+                        <key>friction</key>
+                        <real>0.699999988</real>
+                        <key>tag</key>
+                        <integer>0</integer>
+                        <key>group</key>
+                        <integer>0</integer>
+                        <key>category_mask</key>
+                        <integer>1</integer>
+                        <key>collision_mask</key>
+                        <integer>2</integer>
+                        <key>contact_test_mask</key>
+                        <integer>2</integer>
+                        <key>fixture_type</key>
+                        <string>POLYGON</string>
+                        
+                        <key>polygons</key>
+                        <array>
+                            <array>
+                                <string>{ 653.25000,-208.50000 }</string>
+                                <string>{ 655.75000,-217.00000 }</string>
+                                <string>{ 490.25000,-218.50000 }</string>
+                                <string>{ 490.25000,-208.50000 }</string>
                             </array>
                         </array>
                         
@@ -1082,7 +1076,7 @@
             <key>granaryhouse</key>
             <dict>
                 <key>anchorpoint</key>
-                <string>{ 0.50000,0.50021 }</string>
+                <string>{ 0.49983,0.50021 }</string>
                 <key>is_dynamic</key>
                 <false />
                 <key>affected_by_gravity</key>
@@ -1123,10 +1117,10 @@
                         <key>polygons</key>
                         <array>
                             <array>
-                                <string>{ -205.50000,-183.62500 }</string>
-                                <string>{ -205.50000,-200.62500 }</string>
-                                <string>{ -313.50000,-201.12500 }</string>
-                                <string>{ -314.00000,-183.62500 }</string>
+                                <string>{ -628.25000,-385.75000 }</string>
+                                <string>{ -628.25000,-367.25000 }</string>
+                                <string>{ -411.25000,-367.25000 }</string>
+                                <string>{ -411.25000,-386.75000 }</string>
                             </array>
                         </array>
                         
@@ -1155,10 +1149,10 @@
                         <key>polygons</key>
                         <array>
                             <array>
-                                <string>{ 54.50000,-183.87500 }</string>
-                                <string>{ 163.25000,-183.87500 }</string>
-                                <string>{ 163.00000,-202.37500 }</string>
-                                <string>{ 54.50000,-202.62500 }</string>
+                                <string>{ 326.25000,-367.75000 }</string>
+                                <string>{ 326.75000,-386.25000 }</string>
+                                <string>{ 108.75000,-386.25000 }</string>
+                                <string>{ 108.75000,-367.75000 }</string>
                             </array>
                         </array>
                         
@@ -1187,10 +1181,10 @@
                         <key>polygons</key>
                         <array>
                             <array>
-                                <string>{ -200.75000,-175.37500 }</string>
-                                <string>{ -200.75000,-152.37500 }</string>
-                                <string>{ 52.00000,-152.12500 }</string>
-                                <string>{ 52.25000,-175.37500 }</string>
+                                <string>{ -401.75000,-329.75000 }</string>
+                                <string>{ -401.75000,-304.75000 }</string>
+                                <string>{ 103.75000,-304.25000 }</string>
+                                <string>{ 104.25000,-329.75000 }</string>
                             </array>
                         </array>
                         
@@ -1219,10 +1213,10 @@
                         <key>polygons</key>
                         <array>
                             <array>
-                                <string>{ 5.00000,24.62500 }</string>
-                                <string>{ 5.25000,15.87500 }</string>
-                                <string>{ -133.00000,16.12500 }</string>
-                                <string>{ -133.00000,24.87500 }</string>
+                                <string>{ 9.75000,49.25000 }</string>
+                                <string>{ 10.25000,31.75000 }</string>
+                                <string>{ -266.25000,32.25000 }</string>
+                                <string>{ -266.25000,49.75000 }</string>
                             </array>
                         </array>
                         
@@ -1251,10 +1245,10 @@
                         <key>polygons</key>
                         <array>
                             <array>
-                                <string>{ 4.50000,106.62500 }</string>
-                                <string>{ -133.50000,106.62500 }</string>
-                                <string>{ -133.50000,116.62500 }</string>
-                                <string>{ 4.75000,116.62500 }</string>
+                                <string>{ 8.75000,213.25000 }</string>
+                                <string>{ -267.25000,213.25000 }</string>
+                                <string>{ -267.25000,233.25000 }</string>
+                                <string>{ 9.25000,233.25000 }</string>
                             </array>
                         </array>
                         
@@ -1283,10 +1277,10 @@
                         <key>polygons</key>
                         <array>
                             <array>
-                                <string>{ 252.25000,-69.12500 }</string>
-                                <string>{ 332.50000,-69.12500 }</string>
-                                <string>{ 332.50000,-115.87500 }</string>
-                                <string>{ 252.25000,-116.62500 }</string>
+                                <string>{ 504.25000,-138.25000 }</string>
+                                <string>{ 664.75000,-138.25000 }</string>
+                                <string>{ 664.75000,-231.75000 }</string>
+                                <string>{ 504.25000,-233.25000 }</string>
                             </array>
                         </array>
                         
@@ -1315,10 +1309,10 @@
                         <key>polygons</key>
                         <array>
                             <array>
-                                <string>{ 376.00000,16.62500 }</string>
-                                <string>{ 376.25000,-14.12500 }</string>
-                                <string>{ 207.00000,-15.12500 }</string>
-                                <string>{ 206.50000,16.62500 }</string>
+                                <string>{ 412.75000,33.25000 }</string>
+                                <string>{ 751.75000,33.25000 }</string>
+                                <string>{ 751.25000,14.25000 }</string>
+                                <string>{ 412.75000,13.25000 }</string>
                             </array>
                         </array>
                         
@@ -1347,28 +1341,28 @@
                         <key>polygons</key>
                         <array>
                             <array>
-                                <string>{ 68.50000,186.37500 }</string>
-                                <string>{ 100.00000,206.62500 }</string>
-                                <string>{ 200.00000,16.12500 }</string>
-                                <string>{ 166.00000,-0.37500 }</string>
+                                <string>{ 136.75000,372.75000 }</string>
+                                <string>{ 199.75000,413.25000 }</string>
+                                <string>{ 398.75000,31.25000 }</string>
+                                <string>{ 331.75000,-0.75000 }</string>
                             </array>
                             <array>
-                                <string>{ 68.50000,186.37500 }</string>
-                                <string>{ -73.25000,258.62500 }</string>
-                                <string>{ -75.00000,291.62500 }</string>
-                                <string>{ 100.00000,206.62500 }</string>
+                                <string>{ 136.75000,372.75000 }</string>
+                                <string>{ -146.75000,517.25000 }</string>
+                                <string>{ -150.25000,583.25000 }</string>
+                                <string>{ 199.75000,413.25000 }</string>
                             </array>
                             <array>
-                                <string>{ -73.25000,258.62500 }</string>
-                                <string>{ -215.75000,186.87500 }</string>
-                                <string>{ -234.00000,213.87500 }</string>
-                                <string>{ -75.00000,291.62500 }</string>
+                                <string>{ -146.75000,517.25000 }</string>
+                                <string>{ -431.75000,373.75000 }</string>
+                                <string>{ -468.25000,427.75000 }</string>
+                                <string>{ -150.25000,583.25000 }</string>
                             </array>
                             <array>
-                                <string>{ -375.25000,-34.62500 }</string>
-                                <string>{ -234.00000,213.87500 }</string>
-                                <string>{ -215.75000,186.87500 }</string>
-                                <string>{ -342.25000,-51.62500 }</string>
+                                <string>{ -750.75000,-69.25000 }</string>
+                                <string>{ -468.25000,427.75000 }</string>
+                                <string>{ -431.75000,373.75000 }</string>
+                                <string>{ -684.75000,-103.25000 }</string>
                             </array>
                         </array>
                         
@@ -1421,10 +1415,10 @@
                         <key>polygons</key>
                         <array>
                             <array>
-                                <string>{ -65.62500,-50.87500 }</string>
-                                <string>{ -67.62500,-45.12500 }</string>
-                                <string>{ 48.62500,-44.62500 }</string>
-                                <string>{ 46.87500,-51.37500 }</string>
+                                <string>{ -131.25000,-101.75000 }</string>
+                                <string>{ -135.25000,-90.25000 }</string>
+                                <string>{ 97.25000,-89.25000 }</string>
+                                <string>{ 93.75000,-102.75000 }</string>
                             </array>
                         </array>
                         
@@ -1453,10 +1447,10 @@
                         <key>polygons</key>
                         <array>
                             <array>
-                                <string>{ -84.37500,23.87500 }</string>
-                                <string>{ -84.87500,30.12500 }</string>
-                                <string>{ 68.87500,30.12500 }</string>
-                                <string>{ 68.37500,23.62500 }</string>
+                                <string>{ -168.75000,47.75000 }</string>
+                                <string>{ -169.75000,60.25000 }</string>
+                                <string>{ 137.75000,60.25000 }</string>
+                                <string>{ 136.75000,47.25000 }</string>
                             </array>
                         </array>
                         
@@ -1485,10 +1479,10 @@
                         <key>polygons</key>
                         <array>
                             <array>
-                                <string>{ 30.62500,106.12500 }</string>
-                                <string>{ -47.37500,106.12500 }</string>
-                                <string>{ -47.62500,112.37500 }</string>
-                                <string>{ 30.87500,112.62500 }</string>
+                                <string>{ 61.25000,212.25000 }</string>
+                                <string>{ -94.75000,212.25000 }</string>
+                                <string>{ -95.25000,224.75000 }</string>
+                                <string>{ 61.75000,225.25000 }</string>
                             </array>
                         </array>
                         
@@ -1530,31 +1524,31 @@
                         <key>group</key>
                         <integer>0</integer>
                         <key>category_mask</key>
-                        <integer>1</integer>
+                        <integer>0</integer>
                         <key>collision_mask</key>
-                        <integer>2</integer>
+                        <integer>0</integer>
                         <key>contact_test_mask</key>
-                        <integer>2</integer>
+                        <integer>0</integer>
                         <key>fixture_type</key>
                         <string>POLYGON</string>
                         
                         <key>polygons</key>
                         <array>
                             <array>
-                                <string>{ -84.25000,-165.00000 }</string>
-                                <string>{ -89.75000,-168.00000 }</string>
-                                <string>{ -89.75000,-161.50000 }</string>
+                                <string>{ -120.25000,-229.50000 }</string>
+                                <string>{ -131.25000,-235.50000 }</string>
+                                <string>{ -131.25000,-222.50000 }</string>
                             </array>
                             <array>
-                                <string>{ -71.50000,-168.00000 }</string>
-                                <string>{ -78.00000,-165.00000 }</string>
-                                <string>{ -72.50000,-161.50000 }</string>
+                                <string>{ -94.75000,-235.50000 }</string>
+                                <string>{ -107.75000,-229.50000 }</string>
+                                <string>{ -96.75000,-222.50000 }</string>
                             </array>
                             <array>
-                                <string>{ -89.75000,-168.00000 }</string>
-                                <string>{ -84.25000,-165.00000 }</string>
-                                <string>{ -78.00000,-165.00000 }</string>
-                                <string>{ -71.50000,-168.00000 }</string>
+                                <string>{ -131.25000,-235.50000 }</string>
+                                <string>{ -120.25000,-229.50000 }</string>
+                                <string>{ -107.75000,-229.50000 }</string>
+                                <string>{ -94.75000,-235.50000 }</string>
                             </array>
                         </array>
                         
@@ -1583,10 +1577,10 @@
                         <key>polygons</key>
                         <array>
                             <array>
-                                <string>{ 106.50000,-219.25000 }</string>
-                                <string>{ 153.50000,-219.50000 }</string>
-                                <string>{ 152.00000,-228.50000 }</string>
-                                <string>{ 106.25000,-228.50000 }</string>
+                                <string>{ 213.75000,-318.50000 }</string>
+                                <string>{ 144.75000,-318.00000 }</string>
+                                <string>{ 144.25000,-305.00000 }</string>
+                                <string>{ 214.75000,-305.00000 }</string>
                             </array>
                         </array>
                         
@@ -1615,10 +1609,10 @@
                         <key>polygons</key>
                         <array>
                             <array>
-                                <string>{ 159.00000,-199.75000 }</string>
-                                <string>{ 113.50000,-196.00000 }</string>
-                                <string>{ 114.75000,-186.50000 }</string>
-                                <string>{ 161.50000,-190.00000 }</string>
+                                <string>{ 159.25000,-260.50000 }</string>
+                                <string>{ 224.75000,-265.50000 }</string>
+                                <string>{ 221.75000,-278.50000 }</string>
+                                <string>{ 158.25000,-274.50000 }</string>
                             </array>
                         </array>
                         
@@ -1647,10 +1641,10 @@
                         <key>polygons</key>
                         <array>
                             <array>
-                                <string>{ 163.25000,-156.50000 }</string>
-                                <string>{ 163.25000,-165.75000 }</string>
-                                <string>{ 118.50000,-165.75000 }</string>
-                                <string>{ 118.25000,-156.50000 }</string>
+                                <string>{ 227.25000,-218.50000 }</string>
+                                <string>{ 228.25000,-232.50000 }</string>
+                                <string>{ 164.75000,-232.50000 }</string>
+                                <string>{ 164.75000,-218.50000 }</string>
                             </array>
                         </array>
                         
@@ -1679,10 +1673,10 @@
                         <key>polygons</key>
                         <array>
                             <array>
-                                <string>{ 117.00000,-130.50000 }</string>
-                                <string>{ 116.50000,-120.50000 }</string>
-                                <string>{ 161.50000,-120.75000 }</string>
-                                <string>{ 161.25000,-130.75000 }</string>
+                                <string>{ 224.25000,-169.00000 }</string>
+                                <string>{ 224.75000,-182.50000 }</string>
+                                <string>{ 162.75000,-182.50000 }</string>
+                                <string>{ 161.75000,-169.00000 }</string>
                             </array>
                         </array>
                         
@@ -1711,10 +1705,10 @@
                         <key>polygons</key>
                         <array>
                             <array>
-                                <string>{ 161.00000,-96.75000 }</string>
-                                <string>{ 116.50000,-101.75000 }</string>
-                                <string>{ 115.75000,-92.75000 }</string>
-                                <string>{ 161.25000,-87.50000 }</string>
+                                <string>{ 162.25000,-128.50000 }</string>
+                                <string>{ 225.25000,-122.00000 }</string>
+                                <string>{ 224.25000,-136.00000 }</string>
+                                <string>{ 161.75000,-143.00000 }</string>
                             </array>
                         </array>
                         
@@ -1743,10 +1737,10 @@
                         <key>polygons</key>
                         <array>
                             <array>
-                                <string>{ 48.75000,-115.00000 }</string>
-                                <string>{ 49.25000,-120.50000 }</string>
-                                <string>{ 19.50000,-120.25000 }</string>
-                                <string>{ 20.00000,-114.75000 }</string>
+                                <string>{ 73.25000,-160.50000 }</string>
+                                <string>{ 73.25000,-164.50000 }</string>
+                                <string>{ 23.75000,-164.50000 }</string>
+                                <string>{ 23.75000,-160.50000 }</string>
                             </array>
                         </array>
                         
@@ -1775,10 +1769,10 @@
                         <key>polygons</key>
                         <array>
                             <array>
-                                <string>{ 46.50000,-46.75000 }</string>
-                                <string>{ 47.25000,-51.75000 }</string>
-                                <string>{ 25.25000,-51.75000 }</string>
-                                <string>{ 25.25000,-46.75000 }</string>
+                                <string>{ 71.25000,-65.50000 }</string>
+                                <string>{ 71.75000,-70.50000 }</string>
+                                <string>{ 32.75000,-70.50000 }</string>
+                                <string>{ 32.75000,-65.50000 }</string>
                             </array>
                         </array>
                         
@@ -1807,10 +1801,10 @@
                         <key>polygons</key>
                         <array>
                             <array>
-                                <string>{ -101.25000,-58.75000 }</string>
-                                <string>{ -130.75000,-48.25000 }</string>
-                                <string>{ -52.75000,-43.00000 }</string>
-                                <string>{ -42.25000,-57.25000 }</string>
+                                <string>{ -160.75000,-76.00000 }</string>
+                                <string>{ -179.75000,-67.00000 }</string>
+                                <string>{ -72.25000,-60.50000 }</string>
+                                <string>{ -55.25000,-87.50000 }</string>
                             </array>
                         </array>
                         
@@ -1839,10 +1833,10 @@
                         <key>polygons</key>
                         <array>
                             <array>
-                                <string>{ 92.00000,-12.50000 }</string>
-                                <string>{ -68.75000,-11.75000 }</string>
-                                <string>{ -68.75000,-1.75000 }</string>
-                                <string>{ 92.25000,-2.00000 }</string>
+                                <string>{ -106.25000,167.50000 }</string>
+                                <string>{ -105.75000,177.50000 }</string>
+                                <string>{ 142.75000,178.00000 }</string>
+                                <string>{ 143.75000,166.50000 }</string>
                             </array>
                         </array>
                         
@@ -1871,26 +1865,22 @@
                         <key>polygons</key>
                         <array>
                             <array>
-                                <string>{ 7.25000,-66.75000 }</string>
-                                <string>{ -18.75000,-52.50000 }</string>
-                                <string>{ -1.06818,-56.02272 }</string>
-                                <string>{ 10.50000,-61.50000 }</string>
+                                <string>{ -20.25000,-77.50000 }</string>
+                                <string>{ -18.25000,-68.50000 }</string>
+                                <string>{ 16.25000,-86.50000 }</string>
+                                <string>{ 13.75000,-94.50000 }</string>
                             </array>
                             <array>
-                                <string>{ -18.75000,-52.50000 }</string>
-                                <string>{ -39.75000,-34.75000 }</string>
-                                <string>{ -1.06818,-56.02272 }</string>
+                                <string>{ -76.25000,-3.50000 }</string>
+                                <string>{ -51.75000,-39.00000 }</string>
+                                <string>{ -60.25000,-42.50000 }</string>
+                                <string>{ -87.25000,-3.50000 }</string>
                             </array>
                             <array>
-                                <string>{ -47.75000,-12.50000 }</string>
-                                <string>{ -35.00000,-30.25000 }</string>
-                                <string>{ -39.75000,-34.75000 }</string>
-                                <string>{ -56.00000,-12.50000 }</string>
-                            </array>
-                            <array>
-                                <string>{ -16.25000,-47.50000 }</string>
-                                <string>{ -39.75000,-34.75000 }</string>
-                                <string>{ -35.00000,-30.25000 }</string>
+                                <string>{ -18.25000,-68.50000 }</string>
+                                <string>{ -20.25000,-77.50000 }</string>
+                                <string>{ -60.25000,-42.50000 }</string>
+                                <string>{ -51.75000,-39.00000 }</string>
                             </array>
                         </array>
                         
@@ -1943,10 +1933,10 @@
                         <key>polygons</key>
                         <array>
                             <array>
-                                <string>{ 112.75000,-183.87500 }</string>
-                                <string>{ 64.75000,-183.87500 }</string>
-                                <string>{ 64.75000,-167.62500 }</string>
-                                <string>{ 113.00000,-167.62500 }</string>
+                                <string>{ -166.00000,-302.25000 }</string>
+                                <string>{ -91.00000,-302.25000 }</string>
+                                <string>{ -91.50000,-316.75000 }</string>
+                                <string>{ -165.50000,-317.25000 }</string>
                             </array>
                         </array>
                         
@@ -1975,10 +1965,42 @@
                         <key>polygons</key>
                         <array>
                             <array>
-                                <string>{ -132.75000,-128.12500 }</string>
-                                <string>{ 137.00000,-127.87500 }</string>
-                                <string>{ 134.75000,-138.87500 }</string>
-                                <string>{ -130.75000,-140.37500 }</string>
+                                <string>{ 174.00000,-300.25000 }</string>
+                                <string>{ 174.00000,-314.25000 }</string>
+                                <string>{ 100.50000,-314.25000 }</string>
+                                <string>{ 100.50000,-300.25000 }</string>
+                            </array>
+                        </array>
+                        
+                    </dict>
+
+                    <dict>
+                        <key>density</key>
+                        <real>1</real>
+                        <key>restitution</key>
+                        <real>0.200000003</real>
+                        <key>friction</key>
+                        <real>0.699999988</real>
+                        <key>tag</key>
+                        <integer>0</integer>
+                        <key>group</key>
+                        <integer>0</integer>
+                        <key>category_mask</key>
+                        <integer>0</integer>
+                        <key>collision_mask</key>
+                        <integer>0</integer>
+                        <key>contact_test_mask</key>
+                        <integer>0</integer>
+                        <key>fixture_type</key>
+                        <string>POLYGON</string>
+                        
+                        <key>polygons</key>
+                        <array>
+                            <array>
+                                <string>{ -205.50000,-239.25000 }</string>
+                                <string>{ 212.00000,-239.25000 }</string>
+                                <string>{ 211.00000,-246.25000 }</string>
+                                <string>{ -205.00000,-247.25000 }</string>
                             </array>
                         </array>
                         
@@ -2007,10 +2029,10 @@
                         <key>polygons</key>
                         <array>
                             <array>
-                                <string>{ -135.25000,-96.37500 }</string>
-                                <string>{ -138.50000,-83.87500 }</string>
-                                <string>{ 143.00000,-83.62500 }</string>
-                                <string>{ 141.50000,-96.37500 }</string>
+                                <string>{ -213.00000,-176.75000 }</string>
+                                <string>{ -213.00000,-170.25000 }</string>
+                                <string>{ 220.00000,-169.25000 }</string>
+                                <string>{ 221.50000,-176.75000 }</string>
                             </array>
                         </array>
                         
@@ -2039,16 +2061,16 @@
                         <key>polygons</key>
                         <array>
                             <array>
-                                <string>{ -155.25000,-73.37500 }</string>
-                                <string>{ 3.25000,50.12500 }</string>
-                                <string>{ 1.75000,26.87500 }</string>
-                                <string>{ -150.75000,-93.62500 }</string>
+                                <string>{ -171.00000,-99.25000 }</string>
+                                <string>{ 4.00000,35.75000 }</string>
+                                <string>{ 3.50000,2.25000 }</string>
+                                <string>{ -151.00000,-120.25000 }</string>
                             </array>
                             <array>
-                                <string>{ 155.50000,-74.87500 }</string>
-                                <string>{ 153.25000,-94.12500 }</string>
-                                <string>{ 1.75000,26.87500 }</string>
-                                <string>{ 3.25000,50.12500 }</string>
+                                <string>{ 3.50000,2.25000 }</string>
+                                <string>{ 4.00000,35.75000 }</string>
+                                <string>{ 183.50000,-110.25000 }</string>
+                                <string>{ 151.50000,-119.25000 }</string>
                             </array>
                         </array>
                         
@@ -2077,10 +2099,10 @@
                         <key>polygons</key>
                         <array>
                             <array>
-                                <string>{ 107.50000,52.62500 }</string>
-                                <string>{ -100.75000,53.12500 }</string>
-                                <string>{ -100.75000,63.62500 }</string>
-                                <string>{ 108.00000,63.37500 }</string>
+                                <string>{ 164.00000,57.25000 }</string>
+                                <string>{ 164.50000,50.75000 }</string>
+                                <string>{ -156.00000,49.25000 }</string>
+                                <string>{ -156.00000,57.25000 }</string>
                             </array>
                         </array>
                         
@@ -2122,21 +2144,21 @@
                         <key>group</key>
                         <integer>0</integer>
                         <key>category_mask</key>
-                        <integer>3</integer>
+                        <integer>1</integer>
                         <key>collision_mask</key>
                         <integer>2</integer>
                         <key>contact_test_mask</key>
-                        <integer>1</integer>
+                        <integer>2</integer>
                         <key>fixture_type</key>
                         <string>POLYGON</string>
                         
                         <key>polygons</key>
                         <array>
                             <array>
-                                <string>{ -567.00000,-115.50000 }</string>
-                                <string>{ -567.75000,3.00000 }</string>
-                                <string>{ 559.75000,4.00000 }</string>
-                                <string>{ 559.75000,-115.50000 }</string>
+                                <string>{ -960.50000,3.00000 }</string>
+                                <string>{ 960.00000,-14.00000 }</string>
+                                <string>{ 960.00000,-112.00000 }</string>
+                                <string>{ -962.00000,-112.00000 }</string>
                             </array>
                         </array>
                         

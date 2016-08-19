@@ -32,8 +32,11 @@ void BajaWordScene::createAnswer() {
 	auto label = ui::Text::create();
 	label->setString(_word);
 	label->setFontSize(200);
-	label->setFontName("fonts/arial.ttf");
-	label->setTextColor(Color4B::RED);
+
+    if(LangUtil::getInstance()->getLang() == "eng") {
+        label->setFontName("fonts/arial.ttf");
+    }
+    label->setTextColor(Color4B::RED);
 	_answer = Node::create();
 	_answer->addChild(label);
 	_answer->setPosition(Vec2(_size.width / 2, _size.height * 92 / 100));
@@ -88,7 +91,8 @@ BajaWordScene* BajaWordScene::create() {
 
 void BajaWordScene::gameOver(bool correct) {
 	if (correct) {
-		float fuelPer = 0, delay=0;
+        _grid->touchEndedCallback = nullptr;
+        float fuelPer = 0, delay=0;
 
 		while (fuelPer <= 100)
 		{

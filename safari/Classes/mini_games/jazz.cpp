@@ -9,7 +9,11 @@ jazz::jazz()
 }
 jazz::~jazz()
 {
-
+	for (auto item = _gorilla.rbegin(); item != _gorilla.rend(); ++item)
+	{
+		Node * gorilla = *item;
+		gorilla->stopAllActions();
+	}
 }
 Scene* jazz::createScene() {
 	auto layer = jazz::create();
@@ -101,7 +105,9 @@ void jazz::gameOver(bool correct) {
 			auto druming = CSLoader::createTimeline("jazz/gorilla.csb");
 			gorilla->runAction(druming);
 			druming->play("druming", true);
-		//	this->scheduleOnce(schedule_selector(jazz::showScore), 5.0f);
+			_audioCorrect = CocosDenshion::SimpleAudioEngine::getInstance();
+			_audioCorrect->playEffect("sounds/drum.wav",true);
+			this->scheduleOnce(schedule_selector(jazz::showScore), 5.0f);
 		//	druming->setAnimationEndCallFunc("druming", CC_CALLBACK_0(jazz::showScore, this));
 
 	    }
@@ -117,13 +123,18 @@ void jazz::gameOver(bool correct) {
 	{
 		for (auto item = _gorilla.rbegin(); item != _gorilla.rend(); ++item)
 		{
+			Node * gorilla = *item;
+			gorilla->stopAllActions();
+		}
+		for (auto item = _gorilla.rbegin(); item != _gorilla.rend(); ++item)
+		{
 
 			Node * gorilla = *item;
 			gorilla->setScale(0.75);
 			auto druming = CSLoader::createTimeline("jazz/gorilla.csb");
 			gorilla->runAction(druming);
 			druming->play("sad", true);
-			this->scheduleOnce(schedule_selector(jazz::showScore), 5.0f);
+//			this->scheduleOnce(schedule_selector(jazz::showScore), 5.0f);
 		//	druming->setAnimationEndCallFunc("sad", CC_CALLBACK_0(jazz::showScore, this));
 
 		}
@@ -132,6 +143,7 @@ void jazz::gameOver(bool correct) {
 }
 void jazz::showScore(float dt)
 {
+	_audioCorrect->stopAllEffects();
 	_menuContext->showScore();
 }
 
