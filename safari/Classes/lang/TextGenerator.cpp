@@ -58,21 +58,7 @@ std::map<int, int> TextGenerator::getRandomLocations(int numLoc, int totalNum) {
 }
 
 std::string TextGenerator::generateAWord() {
-    static std::vector<std::string> words;
-//    words.push_back("A");
-//    words.push_back("IT");
-//    words.push_back("ZOO");
-//    words.push_back("CODE");
-//    words.push_back("TIGHT");
-//    words.push_back("BUBBLE");
-    words.push_back("ಟ");
-    words.push_back("ಪುಟ");
-    words.push_back("ಕನ್ನಡ");
-    words.push_back("ವಿಕ್ಷನರಿ");
-    words.push_back("ಉಪಯೋಗಕ್ಕೆ");
-    words.push_back("ಸಲಹುತಿರುವ");
-
-    return words.at(rand() % 6);
+    return LangUtil::getInstance()->getAWord();
 }
 
 
