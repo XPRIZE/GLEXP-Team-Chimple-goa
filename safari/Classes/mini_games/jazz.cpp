@@ -9,6 +9,7 @@ jazz::jazz()
 }
 jazz::~jazz()
 {
+	_audioCorrect->stopAllEffects();
 	for (auto item = _gorilla.rbegin(); item != _gorilla.rend(); ++item)
 	{
 		Node * gorilla = *item;
@@ -80,6 +81,7 @@ void jazz::blinking(std::string animationName, bool loop)
 }
 void jazz::gameOver(bool correct) {
 	if (correct) {
+		_grid->touchEndedCallback = nullptr;
 		for (auto item = _gorilla.rbegin(); item != _gorilla.rend(); ++item)
 		{
 			Node * gorilla = *item;

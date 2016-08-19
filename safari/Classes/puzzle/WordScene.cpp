@@ -137,12 +137,14 @@ Node* WordScene::loadNode() {
 }
 
 void WordScene::createAnswer() {
+	Size visibleSize = Director::getInstance()->getVisibleSize();
+
     auto label = ui::Text::create();
     label->setString(_word);
     label->setFontSize(200);
     _answer = Node::create();
     _answer->addChild(label);
-    _answer->setPosition(Vec2(1280, 1600));
+    _answer->setPosition(Vec2(visibleSize.width / 2, 1600));
     addChild(_answer);
     
 }
