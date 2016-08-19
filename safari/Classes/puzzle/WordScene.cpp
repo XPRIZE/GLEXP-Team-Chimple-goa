@@ -48,7 +48,6 @@ WordScene::WordScene() {
 }
 
 WordScene::~WordScene() {
-    _eventDispatcher->removeCustomEventListeners("grapheme_anim_done");
 }
 
 bool WordScene::init() {
@@ -71,9 +70,18 @@ bool WordScene::initWithWord(std::string word) {
     createAnswer();
     createChoice();
     createGrid();
-    _eventDispatcher->addCustomEventListener("grapheme_anim_done", CC_CALLBACK_0(WordScene::checkAnswer, this));
     return true;
     
+}
+
+void WordScene::onExitTransitionDidStart() {
+    Node::onExitTransitionDidStart();
+    _eventDispatcher->removeCustomEventListeners("grapheme_anim_done");
+}
+
+void WordScene::onEnterTransitionDidFinish() {
+    Node::onEnterTransitionDidFinish();
+    _eventDispatcher->addCustomEventListener("grapheme_anim_done", CC_CALLBACK_0(WordScene::checkAnswer, this));
 }
 
 GraphemeGrid* WordScene::createGraphemeGrid(GLfloat width, GLfloat height, int numRows, int numCols, std::string spriteName, std::vector<std::vector<std::string>> graphemes, std::string graphemeUnselectedBackground, std::string graphemeSelectedBackground)
