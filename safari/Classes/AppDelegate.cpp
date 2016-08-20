@@ -106,7 +106,7 @@ bool AppDelegate::applicationDidFinishLaunching() {
 //        std::string userPhotoUrl = safariManager->getLatestUserPhoto();
 //        if(!userPhotoUrl.empty()) {
 //            Director::getInstance()->getTextureCache()->addImage(userPhotoUrl);
-//            director->runWithScene(ScrollableGameMapScene::createScene());
+            director->runWithScene(ScrollableGameMapScene::createScene());
 //        } else {
 //            director->runWithScene(PhotoCaptureScene::createScene());
 //        }
