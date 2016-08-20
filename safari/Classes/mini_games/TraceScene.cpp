@@ -280,9 +280,7 @@ void Trace::onTouchMoved(cocos2d::Touch *touch, cocos2d::Event *event) {
 				//if (strcmp(_language, "eng")) { _languageRange = 24; }
 				//if (_language == "kan") { _languageRange = 47; }
 				
-				if (_level == 46) {
-					_level = -1;
-				}
+				
 				_currentStroke = 0;
 				finishedAll();
 
@@ -410,6 +408,9 @@ void Trace::finishedAll() {
 		auto alpha = LangUtil::getInstance()->getAllCharacters();
 		auto path = LangUtil::getInstance()->getAlphabetSoundFileName(alpha[_level]);
 		audio->playEffect(path.c_str(), false);
+		if (_level == 46) {
+			_level = -1;
+		}
 		_level++;
 		Trace::transit(_level);
 	});
