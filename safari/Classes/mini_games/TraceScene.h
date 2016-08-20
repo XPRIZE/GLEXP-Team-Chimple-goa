@@ -39,6 +39,8 @@ protected:
     std::vector<std::vector<Node *>> _nodes;
     bool _touchActive;
     void setupTouch();
+	void finishedAll();
+	int _touches;
     CC_SYNTHESIZE(int, _count, Count);
 
 	MenuContext *_menuContext;
