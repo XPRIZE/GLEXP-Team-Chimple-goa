@@ -405,11 +405,12 @@ void Trace::finishedAll() {
 
 
 	auto redirectToNextLevel = CallFunc::create([=] {
-		_level++;
+		
 		auto audio = CocosDenshion::SimpleAudioEngine::getInstance();
 		auto alpha = LangUtil::getInstance()->getAllCharacters();
 		auto path = LangUtil::getInstance()->getAlphabetSoundFileName(alpha[_level]);
 		audio->playEffect(path.c_str(), false);
+		_level++;
 		Trace::transit(_level);
 	});
 	auto redirect = Sequence::create(DelayTime::create(delay), redirectToNextLevel, NULL);
