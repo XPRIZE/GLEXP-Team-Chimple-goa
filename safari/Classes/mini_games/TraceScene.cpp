@@ -135,6 +135,7 @@ bool Trace::init(wchar_t alphabet) {
 
             _nodes.push_back(nodeRow);
             _background->getChildByName(queryb)->setVisible(false);
+			_background->getChildByName(queryb)->setScale(1, 1);
         }
         i++;
     } while (foundNode);
@@ -279,7 +280,7 @@ void Trace::onTouchMoved(cocos2d::Touch *touch, cocos2d::Event *event) {
 				//if (strcmp(_language, "eng")) { _languageRange = 24; }
 				//if (_language == "kan") { _languageRange = 47; }
 				
-				if (_level == 47) {
+				if (_level == 46) {
 					_level = -1;
 				}
 				_currentStroke = 0;
@@ -405,14 +406,15 @@ void Trace::finishedAll() {
 
 	auto redirectToNextLevel = CallFunc::create([=] {
 		_level++;
+		auto audio = CocosDenshion::SimpleAudioEngine::getInstance();
+		auto alpha = LangUtil::getInstance()->getAllCharacters();
+		auto path = LangUtil::getInstance()->getAlphabetSoundFileName(alpha[_level]);
+		audio->playEffect(path.c_str(), false);
 		Trace::transit(_level);
 	});
 	auto redirect = Sequence::create(DelayTime::create(delay), redirectToNextLevel, NULL);
 
-	auto audio = CocosDenshion::SimpleAudioEngine::getInstance();
-	auto alpha = LangUtil::getInstance()->getAllCharacters();
-	auto path = LangUtil::getInstance()->getAlphabetSoundFileName(alpha[_level]);
-	audio->playEffect(path.c_str(), false);
+	
 
 
 
