@@ -63,6 +63,10 @@ void PhotoCaptureScene::createSprite(float dt) {
         CCLOG("%s", PhotoCaptureScene::photoUrl.c_str());
         this->unschedule(CC_SCHEDULE_SELECTOR(PhotoCaptureScene::createSprite));
         SafariAnalyticsManager::getInstance()->addPhoto(PhotoCaptureScene::photoUrl.c_str());
+        std::string userPhotoUrl = SafariAnalyticsManager::getInstance()->getLatestUserPhoto();
+        if(!userPhotoUrl.empty()) {
+            Director::getInstance()->getTextureCache()->addImage(userPhotoUrl);
+        }
         Director::getInstance()->replaceScene(ScrollableGameMapScene::createScene());
     }
 }
