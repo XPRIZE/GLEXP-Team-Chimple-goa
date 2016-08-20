@@ -102,13 +102,14 @@ bool AppDelegate::applicationDidFinishLaunching() {
     SafariAnalyticsManager* safariManager = SafariAnalyticsManager::getInstance();
     
     #if (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
-        std::string userPhotoUrl = safariManager->getLatestUserPhoto();
-        if(!userPhotoUrl.empty()) {
-            Director::getInstance()->getTextureCache()->addImage(userPhotoUrl);
-            director->runWithScene(ScrollableGameMapScene::createScene());
-        } else {
-            director->runWithScene(PhotoCaptureScene::createScene());
-        }
+        director->runWithScene(ScrollableGameMapScene::createScene());    
+//        std::string userPhotoUrl = safariManager->getLatestUserPhoto();
+//        if(!userPhotoUrl.empty()) {
+//            Director::getInstance()->getTextureCache()->addImage(userPhotoUrl);
+//            director->runWithScene(ScrollableGameMapScene::createScene());
+//        } else {
+//            director->runWithScene(PhotoCaptureScene::createScene());
+//        }
     #else
         director->runWithScene(ScrollableGameMapScene::createScene());
     #endif
