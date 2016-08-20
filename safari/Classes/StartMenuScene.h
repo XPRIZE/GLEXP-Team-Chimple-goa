@@ -28,6 +28,7 @@ static const std::string CHAIN = "chain";
 static const std::string WEMBLEY = "wembley";
 static const std::string JAZZ = "jazz";
 static const std::string JASMINE = "jasmine";
+static const std::string CAT = "cat";
 
 
 
