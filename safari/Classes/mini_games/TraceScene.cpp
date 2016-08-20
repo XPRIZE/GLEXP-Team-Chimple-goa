@@ -13,16 +13,15 @@
 #include "../StartMenuScene.h"
 
 
-int touches;
-
 
 //char alpha[] = {'a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'};
 std::string animations[] = { "kick","punch","arm_sweep","jump_and_kick" };
 
-int level = 0;
+
 USING_NS_CC;
 
 //Sprite* character;
+int _level = 0;
 
 Trace::Trace() :
 _nodes(std::vector<std::vector<Node *>>()),
@@ -62,7 +61,8 @@ Trace *Trace::create(wchar_t alphabet) {
 
 bool Trace::init(wchar_t alphabet) {
 	
-
+	
+	
     if (!Layer::init()){
         return false;
     }
@@ -139,9 +139,9 @@ bool Trace::init(wchar_t alphabet) {
         i++;
     } while (foundNode);
 
-	touches = _nodes.size();
+	_touches = _nodes.size();
     setupTouch();
-	if (level == 0) {
+	if (_level == 0) {
 		setonEnterTransitionDidFinishCallback(CC_CALLBACK_0(Trace::startGame, this));
 	}
     return true;
@@ -189,14 +189,30 @@ void Trace::onAlphabetSelected(EventCustom *event) {
 }
 
 bool Trace::onTouchBegan(Touch* touch, Event* event){
-    auto n = getParent()->convertTouchToNodeSpace(touch);
-    auto rect = this->getBoundingBox();
-    if(rect.containsPoint(n))
-    {
+
+	/*
+	auto target = event->getCurrentTarget();
+	Point locationInNode = target->convertToNodeSpace(touch->getLocation());
+	Size s = target->getContentSize();
+	Rect rect = Rect(0, 0, s.width, s.height);
+	if (target->getBoundingBox().containsPoint(touch->getLocation()))
+	*/
+
+	auto target = event->getCurrentTarget();
+	Point locationInNode = target->convertToNodeSpace(touch->getLocation());
+	Size s = target->getContentSize();
+	Rect rect = Rect(0, 0, s.width, s.height);
+
+    //auto n = getParent()->convertTouchToNodeSpace(touch);
+    //auto rect = this->getBoundingBox();
+    //if(rect.containsPoint(n))
+	if (target->getBoundingBox().containsPoint(touch->getLocation()))
+	{
 //        CCLOG("onTouchBegan");
+		if(_currentNodeIndex == 0)
         _currentNodeIndex = 0;
         _touchActive = true;
-		touches--;
+		//touches--;
 		//setDotsVisibility(true);
         return true; // to indicate that we have consumed it.
     }
@@ -207,92 +223,74 @@ bool Trace::onTouchBegan(Touch* touch, Event* event){
 void Trace::onTouchEnded(cocos2d::Touch *touch, cocos2d::Event *event) {
 //    CCLOG("onTouchEnded");
 	
-	setDotsVisibility(false);
-    if (++_currentNodeIndex >= _nodes[_currentStroke].size()) {
-        _currentStroke++;
+	//setDotsVisibility(false);
+    if (_currentNodeIndex >= _nodes[_currentStroke].size()) {
+        /*_currentStroke++;
+		_currentNodeIndex = 0;
         setupTouch();
         if(_currentStroke >= _nodes.size()) {
            
 			CCLOG("Finished All");
 			
-			if (level == 47) {
-				level = -1;
+			if (_level == 47) {
+				_level = -1;
 			}
 
-			
-			//removeChild(_background);
-
-			Size visibleSize = Director::getInstance()->getVisibleSize();
-			Vec2 origin = Director::getInstance()->getVisibleOrigin();
-
-			//this->removeChild(character, true);
-			//CocosDenshion::SimpleAudioEngine::getInstance()->playEffect("bubble.mp3");
-
-
-			std::string randomAnimation = animations[RandomHelper::random_int(0, 3)];
-
-			_menuContext->pickAlphabet('A', 'A', true);
-
-
-			timeline->play(randomAnimation, false);
-
-
-
-
-			float delay = 0.08;
-
-			for (int j = 0; j < _nodes.size(); j++) {
-				for (int i = 0; i < _nodes[j].size(); i++) {
-
-					std::ostringstream sstreami;
-					sstreami << "dot_" << j + 1 << "_" << i + 1;
-					std::string queryi = sstreami.str();
-
-					auto visiblity = CallFunc::create([=] {
-						_background->getChildByName(queryi)->setVisible(true);
-					});
-
-					auto sequenceDot = Sequence::create(DelayTime::create(delay), visiblity, NULL);
-					_background->getChildByName(queryi)->runAction(sequenceDot);
-					delay = delay + 0.08;
-				}
-			}
-
-			
-			auto redirectToNextLevel = CallFunc::create([=] {
-				Trace::transit(level);
-			});
-			auto redirect = Sequence::create(DelayTime::create(delay), redirectToNextLevel, NULL);
-			
-			auto audio = CocosDenshion::SimpleAudioEngine::getInstance();
-            auto alpha = LangUtil::getInstance()->getAllCharacters();
-			auto path = LangUtil::getInstance()->getAlphabetSoundFileName(alpha[level]);
-			audio->playEffect(path.c_str(), false);
-
+			finishedAll();
 			
 			
-			if (touches == 0) { level++; }
-			
-			
-			this->runAction(redirect);
-			
-
-			
-        }
+        }*/
     } else {
-        event->getCurrentTarget()->setPosition(_nodes[_currentStroke][0]->getPosition());
-		setDotsVisibility(true);
+        //event->getCurrentTarget()->setPosition(_nodes[_currentStroke][0]->getPosition());
+		//if(_currentNodeIndex <= _nodes[_currentStroke].size())
+		//event->getCurrentTarget()->setPosition(_nodes[_currentStroke][_currentNodeIndex]->getPosition());
+		//setDotsVisibility(true);
     }
 }
 
 void Trace::onTouchMoved(cocos2d::Touch *touch, cocos2d::Event *event) {
 //    CCLOG("onTouchMoved");
     if(_touchActive) {
+
+
         auto n = convertTouchToNodeSpace(touch);
         event->getCurrentTarget()->setPosition(n);
         auto distance = n.distance(_nodes[_currentStroke][_currentNodeIndex]->getPosition());
-        if (distance > 130) {
-            if(++_currentNodeIndex < _nodes[_currentStroke].size()) {
+
+		if (_currentStroke >= _nodes.size()) {
+
+			
+			finishedAll();
+
+		}
+
+		if (_currentNodeIndex >= _nodes[_currentStroke].size()-1) {
+
+			setDotsVisibility(false);
+			
+
+			_currentStroke++;
+			_currentNodeIndex = 0;
+			setupTouch();
+			if (_currentStroke >= _nodes.size()) {
+
+				CCLOG("Finished All");
+
+				if (_level == 47) {
+					_level = -1;
+				}
+
+				finishedAll();
+
+			}
+		}
+
+		
+        if (distance > 130 && _currentStroke <= _nodes.size()) {
+
+            if(_currentNodeIndex < _nodes[_currentStroke].size()) {
+
+				++_currentNodeIndex;
                 auto nextNode = _nodes[_currentStroke][_currentNodeIndex];
                 auto nextDistance = n.distance(nextNode->getPosition());
 				
@@ -314,19 +312,22 @@ void Trace::onTouchMoved(cocos2d::Touch *touch, cocos2d::Event *event) {
 					
                 } else {
                     CCLOG("failed");
-                    event->getCurrentTarget()->setPosition(_nodes[_currentStroke][0]->getPosition());
-					
+					--_currentNodeIndex;
+                    //event->getCurrentTarget()->setPosition(_nodes[_currentStroke][0]->getPosition());
+					event->getCurrentTarget()->setPosition(_nodes[_currentStroke][_currentNodeIndex]->getPosition());
 					//setDotsVisibility(false);
                     _touchActive = false;
+					if(_currentNodeIndex == _nodes[_currentStroke].size())
                     _currentNodeIndex = 0;
                 }
             } else {
                 CCLOG("fell off the edge");
-                event->getCurrentTarget()->setPosition(_nodes[_currentStroke][0]->getPosition());
-				
-				setDotsVisibility(false);
+                //event->getCurrentTarget()->setPosition(_nodes[_currentStroke][0]->getPosition());
+				event->getCurrentTarget()->setPosition(_nodes[_currentStroke][_currentNodeIndex]->getPosition());
+				//setDotsVisibility(false);
                 _touchActive = false;
-                _currentNodeIndex = 0;
+				if (_currentNodeIndex == _nodes[_currentStroke].size())
+					_currentNodeIndex = 0;
             }
         }
     }
@@ -341,7 +342,7 @@ void Trace::transit(int level) {
 
 
 void Trace::resetLevel() {
-	level = 0;
+	_level = 0;
     Director::getInstance()->replaceScene(ScrollableGameMapScene::createScene());
 }
 void Trace::setDotsVisibility(bool flag) {
@@ -353,5 +354,71 @@ void Trace::setDotsVisibility(bool flag) {
 
 		_background->getChildByName(queryi)->setVisible(flag);
 	}
+}
+
+
+void Trace::finishedAll() {
+
+
+	//removeChild(_background);
+
+	Size visibleSize = Director::getInstance()->getVisibleSize();
+	Vec2 origin = Director::getInstance()->getVisibleOrigin();
+
+	//this->removeChild(character, true);
+	//CocosDenshion::SimpleAudioEngine::getInstance()->playEffect("bubble.mp3");
+
+
+	std::string randomAnimation = animations[RandomHelper::random_int(0, 3)];
+
+	_menuContext->pickAlphabet('A', 'A', true);
+
+
+	timeline->play(randomAnimation, false);
+
+
+
+
+	float delay = 0.08;
+
+	for (int j = 0; j < _nodes.size(); j++) {
+		for (int i = 0; i < _nodes[j].size(); i++) {
+
+			std::ostringstream sstreami;
+			sstreami << "dot_" << j + 1 << "_" << i + 1;
+			std::string queryi = sstreami.str();
+
+			auto visiblity = CallFunc::create([=] {
+				_background->getChildByName(queryi)->setVisible(true);
+			});
+
+			auto sequenceDot = Sequence::create(DelayTime::create(delay), visiblity, NULL);
+			_background->getChildByName(queryi)->runAction(sequenceDot);
+			delay = delay + 0.08;
+		}
+	}
+
+
+	auto redirectToNextLevel = CallFunc::create([=] {
+		_level++;
+		Trace::transit(_level);
+	});
+	auto redirect = Sequence::create(DelayTime::create(delay), redirectToNextLevel, NULL);
+
+	auto audio = CocosDenshion::SimpleAudioEngine::getInstance();
+	auto alpha = LangUtil::getInstance()->getAllCharacters();
+	auto path = LangUtil::getInstance()->getAlphabetSoundFileName(alpha[_level]);
+	audio->playEffect(path.c_str(), false);
+
+
+
+	//if (_touches == 0) { _level++; }
+
+
+	this->runAction(redirect);
+
+
+
+
 }
 

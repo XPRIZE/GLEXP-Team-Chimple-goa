@@ -55,6 +55,18 @@ std::string EnglishUtil::getPhoneticSoundFileName(wchar_t alpha) {
     return fileName;
 }
 
+std::string EnglishUtil::getAlphabetSoundFileNameForString(std::string alpha) {
+    std::transform(alpha.begin(), alpha.end(), alpha.begin(), ::tolower);
+    auto fileName = std::string("english/sounds/") + alpha + audioExt;
+    return fileName;
+}
+
+std::string EnglishUtil::getPhoneticSoundFileNameForString(std::string alpha) {
+    std::transform(alpha.begin(), alpha.end(), alpha.begin(), ::tolower);
+    auto fileName = std::string("english/sounds/") + alpha + audioExt;
+    return fileName;
+}
+
 bool EnglishUtil::isGraphemeStart(uint32_t prevCodePoint, uint32_t currentCodePoint) {
     return true;
 }
