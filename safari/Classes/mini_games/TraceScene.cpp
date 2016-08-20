@@ -61,7 +61,7 @@ Trace *Trace::create(wchar_t alphabet) {
 
 bool Trace::init(wchar_t alphabet) {
 	
-	
+	//_language = LangUtil::getInstance()->getLang();
 	
     if (!Layer::init()){
         return false;
@@ -257,10 +257,10 @@ void Trace::onTouchMoved(cocos2d::Touch *touch, cocos2d::Event *event) {
         event->getCurrentTarget()->setPosition(n);
         auto distance = n.distance(_nodes[_currentStroke][_currentNodeIndex]->getPosition());
 
-		if (_currentStroke >= _nodes.size()) {
+		if (_currentStroke > _nodes.size()-1) {
 
 			
-			finishedAll();
+			//finishedAll();
 
 		}
 
@@ -272,15 +272,19 @@ void Trace::onTouchMoved(cocos2d::Touch *touch, cocos2d::Event *event) {
 			_currentStroke++;
 			_currentNodeIndex = 0;
 			setupTouch();
-			if (_currentStroke >= _nodes.size()) {
+			if (_currentStroke > _nodes.size()-1) {
 
 				CCLOG("Finished All");
-
+				
+				//if (strcmp(_language, "eng")) { _languageRange = 24; }
+				//if (_language == "kan") { _languageRange = 47; }
+				
 				if (_level == 47) {
 					_level = -1;
 				}
-
+				_currentStroke = 0;
 				finishedAll();
+
 
 			}
 		}
@@ -300,7 +304,7 @@ void Trace::onTouchMoved(cocos2d::Touch *touch, cocos2d::Event *event) {
 				else
 					lastReached = 130;
 
-                if(nextDistance < lastReached) {
+                if(nextDistance < 130) {
                     CCLOG("reached next");
 					
 					//set it visible
