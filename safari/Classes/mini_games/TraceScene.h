@@ -39,6 +39,11 @@ protected:
     std::vector<std::vector<Node *>> _nodes;
     bool _touchActive;
     void setupTouch();
+	void finishedAll();
+	int _touches;
+	//String _language;
+	//int _languageRange;
+	int _maxNumberOfCharacters;
     CC_SYNTHESIZE(int, _count, Count);
 
 	MenuContext *_menuContext;

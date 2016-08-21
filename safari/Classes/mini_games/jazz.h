@@ -22,6 +22,7 @@ protected:
 	cocos2d::Node* loadNode() override;
 	std::string getGridBackground() override;
 	void createChoice() override;
+	int getGridHeight() override;
 	void gameOver(bool correct);
 	std::vector<Node*> _gorilla;
 	std::vector<cocostudio::timeline::ActionTimeline *> _jumpingRef;
