@@ -16,7 +16,7 @@ public:
 	void startFlowerAnimation(Node *, int, int);
 	void removeAnimation(Node *);
 	void showScore();
-	
+	~Jasmin_Mainfile();
     static const char* gameName() { return JASMINE.c_str();}
 	
 protected:

@@ -22,6 +22,8 @@ public:
     virtual std::string getBMFontFileName() override;
     virtual std::string getAlphabetSoundFileName(wchar_t alpha) override;
     virtual std::string getPhoneticSoundFileName(wchar_t alpha) override;
+    virtual std::string getAlphabetSoundFileNameForString(std::string alpha) override;
+    virtual std::string getPhoneticSoundFileNameForString(std::string alpha) override;
     virtual std::string getDir() override;
     virtual std::string getLang() override;
     virtual void initializeWordManager() override;
