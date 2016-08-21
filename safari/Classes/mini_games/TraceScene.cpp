@@ -293,7 +293,7 @@ void Trace::onTouchMoved(cocos2d::Touch *touch, cocos2d::Event *event) {
 		
         if (distance > 130 && _currentStroke <= _nodes.size() - 1) {
 
-            if(_currentNodeIndex < _nodes[_currentStroke].size()) {
+            if(_currentNodeIndex < _nodes[_currentStroke].size()-1) {
 
 				++_currentNodeIndex;
                 auto nextNode = _nodes[_currentStroke][_currentNodeIndex];
