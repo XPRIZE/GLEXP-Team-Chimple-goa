@@ -28,7 +28,7 @@ extern "C"
         const char* str;
         str = env->GetStringUTFChars(textStr, NULL);
         std::string tempStr(str);
-        if(!tempStr.empty() && tempStr != "CANCELLED") {
+        if(!tempStr.empty()) {
             CCLOG("Received string %s", tempStr.c_str());
             PhotoCaptureScene::photoUrl = tempStr;
         }
@@ -59,15 +59,19 @@ void PhotoCaptureScene::createSprite(float dt) {
         CCLOG("NOT PHOTO AVAILABLE TO CRATE SPRITE");
     }
     
+    CCLOG("PhotoCaptureScene::photoUrl %s", PhotoCaptureScene::photoUrl.c_str());
+    
     if(!PhotoCaptureScene::photoUrl.empty() && PhotoCaptureScene::photoUrl != "CANCELLED") {
         CCLOG("%s", PhotoCaptureScene::photoUrl.c_str());
         this->unschedule(CC_SCHEDULE_SELECTOR(PhotoCaptureScene::createSprite));
         SafariAnalyticsManager::getInstance()->addPhoto(PhotoCaptureScene::photoUrl.c_str());
         std::string userPhotoUrl = SafariAnalyticsManager::getInstance()->getLatestUserPhoto();
-        if(!userPhotoUrl.empty()) {
+        if(!userPhotoUrl.empty() && userPhotoUrl != "CANCELLED") {
             Director::getInstance()->getTextureCache()->addImage(userPhotoUrl);
         }
         Director::getInstance()->replaceScene(ScrollableGameMapScene::createScene());
+    } else {
+        Director::getInstance()->replaceScene(PhotoCaptureScene::createScene());
     }
 }
 
