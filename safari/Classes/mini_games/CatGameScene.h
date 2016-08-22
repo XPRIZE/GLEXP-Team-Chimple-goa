@@ -43,14 +43,13 @@ protected:
 	MenuContext* _menuContext;
 	float _xPos, _yPos, _previousX = 0.0f, _previousY = 900.0f;
 	std::string _randomWord;
-	cocos2d::Layer * _buildingLayer, *_catLayer, *_buildingLayer2, *_buildingLayer1, *_buildingLayer3, *_buildingLayer4, *_buildingLayer5, *_hippoLayer;
+	cocos2d::Layer * _buildingLayer, *_catLayer, *_buildingLayer2, *_buildingLayer1, *_hippoLayer;
 	void generateBuildingLayer(std::string str);
-	void catMovement(std::string str);
+	void callAPI(std::string str);
 	bool _checkUpDown = true;
 	float _blockSetPosY = 0.0f;
 	void update(float ft) override;
 	void buildingAfterGap(std::string str);
-	//bool _isUpdated = false;
 	static const char* gameName() { return CAT.c_str(); }
 };
 #endif 
