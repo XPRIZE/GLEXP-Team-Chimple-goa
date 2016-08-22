@@ -45,11 +45,10 @@ protected:
 	std::string _randomWord;
 	cocos2d::Layer * _buildingLayer, *_catLayer, *_buildingLayer2, *_buildingLayer1, *_hippoLayer;
 	void generateBuildingLayer(std::string str);
-	void catMovement(std::string str);
+	void callAPI(std::string str);
 	bool _checkUpDown = true;
 	float _blockSetPosY = 0.0f;
 	void update(float ft) override;
 	void buildingAfterGap(std::string str);
-	//bool _isUpdated = false;
 };
 #endif 
