@@ -14,6 +14,7 @@
 #include "network/HttpClient.h"
 #include "lang/SafariAnalyticsManager.h"
 #include "ScrollableGameMapScene.hpp"
+#include "RPGConfig.h"
 
 class PhotoCaptureScene : public cocos2d::Layer
 {

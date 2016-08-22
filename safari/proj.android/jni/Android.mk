@@ -88,10 +88,60 @@ LOCAL_SRC_FILES := hellocpp/main.cpp \
 					../../Classes/lang/WordInfo.cpp \
 					../../Classes/ScrollableGameMapScene.cpp \
 					../../Classes/PhotoCaptureScene.cpp \
-					../../Classes/mini_games/Spirograph.cpp									
+					../../Classes/mini_games/Spirograph.cpp	\
+					./src/util/logger/LTKLogger.cpp	\
+					./src/util/logger/logger.cpp	\
+					./src/common/LTKCaptureDevice.cpp \
+				    ./src/common/LTKChannel.cpp \
+					./src/common/LTKException.cpp \
+					./src/common/LTKScreenContext.cpp \
+					./src/common/LTKTrace.cpp \
+					./src/common/LTKTraceFormat.cpp \
+					./src/common/LTKTraceGroup.cpp \
+					./src/util/lib/LTKCheckSumGenerate.cpp \
+					./src/util/lib/LTKConfigFileReader.cpp \
+					./src/util/lib/LTKErrors.cpp \
+					./src/util/lib/LTKImageWriter.cpp \
+					./src/util/lib/LTKInkFileReader.cpp \
+					./src/util/lib/LTKInkFileWriter.cpp \
+					./src/util/lib/LTKInkUtils.cpp \
+					./src/util/lib/LTKLinuxUtil.cpp \
+					./src/util/lib/LTKLoggerUtil.cpp \
+					./src/util/lib/LTKOSUtilFactory.cpp \
+					./src/util/lib/LTKStrEncoding.cpp \
+					./src/util/lib/LTKStringUtil.cpp \
+					./src/util/lib/LTKVersionCompatibilityCheck.cpp \
+					./src/lipiengine/lipiengine.cpp \
+					./src/lipiengine/LipiEngineModule.cpp \
+					./src/reco/shaperec/common/LTKShapeRecoConfig.cpp \
+					./src/reco/shaperec/common/LTKShapeRecognizer.cpp \
+					./src/reco/shaperec/common/LTKShapeRecoResult.cpp \
+					./src/reco/shaperec/common/LTKShapeRecoUtil.cpp \
+					./src/reco/shaperec/common/LTKShapeSample.cpp \
+					./src/reco/shaperec/featureextractor/common/LTKShapeFeatureExtractor.cpp \
+					./src/reco/shaperec/featureextractor/common/LTKShapeFeatureExtractorFactory.cpp \
+					./src/reco/shaperec/featureextractor/pointfloat/PointFloat.cpp \
+					./src/reco/shaperec/featureextractor/pointfloat/PointFloatShapeFeature.cpp \
+					./src/reco/shaperec/featureextractor/pointfloat/PointFloatShapeFeatureExtractor.cpp \
+					./src/reco/shaperec/nn/NN.cpp \
+					./src/reco/shaperec/nn/NNShapeRecognizer.cpp \
+					./src/reco/shaperec/nn/NNAdapt.cpp \
+					./src/reco/shaperec/preprocessing/LTKPreprocessor.cpp \
+					./src/reco/shaperec/preprocessing/preprocessing.cpp \
+					lipiJni.cpp							
 
 LOCAL_C_INCLUDES := $(LOCAL_PATH)/../../Classes
 LOCAL_C_INCLUDES += $(LOCAL_PATH)/../../../extensions
+LOCAL_C_INCLUDES += $(LOCAL_PATH)/include/
+LOCAL_C_INCLUDES += $(LOCAL_PATH)/src/util/lib
+LOCAL_C_INCLUDES += $(LOCAL_PATH)/src/lipiengine
+LOCAL_C_INCLUDES += $(LOCAL_PATH)/src/reco/shaperec/common
+LOCAL_C_INCLUDES += $(LOCAL_PATH)/src/reco/shaperec/featureextractor/common
+LOCAL_C_INCLUDES += $(LOCAL_PATH)/src/reco/shaperec/featureextractor/pointfloat
+LOCAL_C_INCLUDES += $(LOCAL_PATH)/src/reco/shaperec/nn
+LOCAL_C_INCLUDES += $(LOCAL_PATH)/src/reco/shaperec/preprocessing
+LOCAL_C_INCLUDES += $(LOCAL_PATH)/src/util/logger
+
 
 # _COCOS_HEADER_ANDROID_BEGIN
 # _COCOS_HEADER_ANDROID_END
