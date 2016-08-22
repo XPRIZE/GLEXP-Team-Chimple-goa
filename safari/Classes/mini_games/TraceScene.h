@@ -41,6 +41,9 @@ protected:
     void setupTouch();
 	void finishedAll();
 	int _touches;
+	//String _language;
+	//int _languageRange;
+	int _maxNumberOfCharacters;
     CC_SYNTHESIZE(int, _count, Count);
 
 	MenuContext *_menuContext;
