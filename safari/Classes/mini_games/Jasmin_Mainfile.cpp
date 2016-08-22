@@ -37,8 +37,8 @@ void Jasmin_Mainfile::createAnswer() {
 
 void Jasmin_Mainfile::createChoice() {
 
-	audioBg = CocosDenshion::SimpleAudioEngine::getInstance();
-	audioBg->playEffect("jasmine/jasmin_background.mp3", true);
+//	audioBg = CocosDenshion::SimpleAudioEngine::getInstance();
+//	audioBg->playEffect("jasmine/jasmin_background.mp3", true);
 
 	float wid = Director::getInstance()->getVisibleSize().width;
 	float hei = Director::getInstance()->getVisibleSize().height;
@@ -141,7 +141,7 @@ void Jasmin_Mainfile::startFlowerAnimation(Node *nd, int random_val, int animati
 
 void Jasmin_Mainfile::showScore()
 {
-	audioBg->stopAllEffects();
+//	audioBg->stopAllEffects();
 	Director::getInstance()->replaceScene(Spirograph::createScene());
 }
 
@@ -157,6 +157,6 @@ Jasmin_Mainfile* Jasmin_Mainfile::create() {
 }
 
 Jasmin_Mainfile::~Jasmin_Mainfile(void) {
-	audioBg->stopAllEffects();
+//	audioBg->stopAllEffects();
 
 }
