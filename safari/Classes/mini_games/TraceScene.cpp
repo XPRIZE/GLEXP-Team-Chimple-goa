@@ -69,8 +69,8 @@ bool Trace::init(wchar_t alphabet) {
 
 	CCSpriteFrameCache::sharedSpriteFrameCache()->addSpriteFramesWithFile("-Alphacombat.plist");
 	this->getEventDispatcher()->addCustomEventListener("on_menu_exit", CC_CALLBACK_0(Trace::resetLevel, this));
-	CocosDenshion::SimpleAudioEngine::getInstance()->preloadBackgroundMusic ("TraceMusic.wav");
-	CocosDenshion::SimpleAudioEngine::getInstance()->playBackgroundMusic("TraceMusic.wav", true);
+	//CocosDenshion::SimpleAudioEngine::getInstance()->preloadBackgroundMusic ("TraceMusic.wav");
+	//CocosDenshion::SimpleAudioEngine::getInstance()->playBackgroundMusic("TraceMusic.wav", true);
 
 	//loading lion animation
 	CCSpriteFrameCache::sharedSpriteFrameCache()->addSpriteFramesWithFile("Character/Alpha_kombat_plist.plist");
@@ -417,13 +417,22 @@ void Trace::finishedAll() {
 		}
 	}
 
-
-	auto redirectToNextLevel = CallFunc::create([=] {
+	auto characterAudio = CallFunc::create([=] {
 		
 		auto audio = CocosDenshion::SimpleAudioEngine::getInstance();
 		auto alpha = LangUtil::getInstance()->getAllCharacters();
 		auto path = LangUtil::getInstance()->getAlphabetSoundFileName(alpha[_level]);
 		audio->playEffect(path.c_str(), false);
+
+	});
+	auto playAudio = Sequence::create(DelayTime::create(delay), characterAudio, DelayTime::create(2.0), NULL);
+	this->runAction(playAudio);
+
+	auto redirectToNextLevel = CallFunc::create([=] {
+		
+		std::chrono::seconds duration(1);
+		std::this_thread::sleep_for(duration);
+
 		if (_level == 46) {
 			_level = -1;
 		}
