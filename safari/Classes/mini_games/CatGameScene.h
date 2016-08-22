@@ -50,5 +50,6 @@ protected:
 	float _blockSetPosY = 0.0f;
 	void update(float ft) override;
 	void buildingAfterGap(std::string str);
+	static const char* gameName() { return CAT.c_str(); }
 };
 #endif 
