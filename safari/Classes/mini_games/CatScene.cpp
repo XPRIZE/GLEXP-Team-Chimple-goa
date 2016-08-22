@@ -28,32 +28,35 @@ void Cat::createChoice()
 	_choice = Node::create();
 	_choice->setName("createChoice");
 	addChild(_choice);
+	float y = 900;
 	for (int i = 0; i < _numGraphemes; i++) {
 		auto choiceNode = Sprite::createWithSpriteFrameName("hippo/block.png");
 		choiceNode->setOpacity(100);
 		choiceNode->setName("hippo_block");
 		float x = _gapNodes1.at(i)->getPositionX() - _movingPositionX;
-		float y;
+		choiceNode->setPosition(Vec2(x,y- choiceNode->getContentSize().height / 2));
 		if (_state.compare("up") == 0) {
-		//	_upCounting++;
-		//	if (i != 0) {
-				y = _gapNodes1.at(i)->getPositionY() - (choiceNode->getContentSize().width * (_upCount-1));
-			//	y = _gapNodes1.at(i)->getPositionY();
-		//	}
-		//	else {
-		//		y = _gapNodes1.at(i)->getPositionY();
-		//				}
-			//y = _gapNodes1.at(i)->getPositionY() - _blockSetPosY - choiceNode->getContentSize().width;
+			/*CCLOG("block pos = %f", _blockSetPosY);
+			CCLOG("previous height = %f", _blockSetPosY - choiceNode->getContentSize().height / 2);
+				if (_upCount != 1) {
+					y = _gapNodes1.at(i)->getPositionY() + (choiceNode->getContentSize().height / 2) + (_blockSetPosY - choiceNode->getContentSize().height / 2);
+			   }else{
+					y = _gapNodes1.at(i)->getPositionY();
+				}*/
+			y = choiceNode->getContentSize().height / 1.2 + choiceNode->getPositionY();
 		}
 		else if (_state.compare("down") == 0) {
 			y = _gapNodes1.at(i)->getPositionY() - (choiceNode->getContentSize().width * (_downCount-1));
 		}
 		else
 			{
-			y = _gapNodes1.at(i)->getPositionY() ;
+				/*CCLOG("block pos = %f", _blockSetPosY);
+				CCLOG("previous height = %f", _blockSetPosY - choiceNode->getContentSize().height / 2);
+			y = _gapNodes1.at(i)->getPositionY() - (choiceNode->getContentSize().width * (_downCount - 1));
+			CCLOG("y = %f", y);*/
+
 					}
-		_posAfterGapX = x;
-		choiceNode->setPosition(x, y);
+		_posAfterGapX = x;		
 		addChoice(choiceNode);
 	}
 }
