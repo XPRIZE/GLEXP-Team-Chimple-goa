@@ -28,11 +28,8 @@ bool Baja::init()
 	auto loader = CSLoader::createNode("baja/bajafuelmeter.csb");
 	addChild(loader,1);
 	_fuelBar = (cocos2d::ui::LoadingBar*)(loader->getChildren()).at(1);	_fuelBar->setPercent(100);
-	loader->setPosition(Vec2(_currentPathBlock->getPositionX() - (_currentPathBlock->getContentSize().width*0.42), origin.y + visibleSize.height * 0.50));
-	
-//	audioBg = CocosDenshion::SimpleAudioEngine::getInstance();
-//	audioBg->playEffect("baja/sound/car_engine_sound.wav", true);
-
+	loader->setPosition(Vec2(_currentPathBlock->getPositionX() - (_currentPathBlock->getContentSize().width*0.42), origin.y + visibleSize.height * 0.60));
+	loader->setScale(0.8);
 	this->schedule(schedule_selector(Baja::carMidLeftGenerate),3.0f);
 	this->schedule(schedule_selector(Baja::carRightGenerate),5.0f);
 	this->schedule(schedule_selector(Baja::fuelMeterMethod), 0.2f);
@@ -99,10 +96,15 @@ void Baja::update(float delta) {
 }
 
 void Baja::userCarControl(Node* userCar1) {
+	
+	auto visibleSize = Director::getInstance()->getVisibleSize();
+	auto origin = Director::getInstance()->getVisibleOrigin();
+
 	Node* node1 = CSLoader::createNode("baja/bajabutton.csb");
 	this->addChild(node1, 1);
 	auto leftButton = static_cast<cocos2d::ui::Button *>(node1->getChildByName("Button"));
-	leftButton->setPosition(Vec2(_currentPathBlock->getPositionX() + (_currentPathBlock->getContentSize().width*0.38), 300));  leftButton->setFlippedX(true);
+	leftButton->setScale(2);
+	leftButton->setPosition(Vec2(_currentPathBlock->getPositionX() - (_currentPathBlock->getContentSize().width*0.43),origin.y + (leftButton->getContentSize().height)+50));  leftButton->setFlippedX(true);
 	if (leftButton != NULL) {
 		leftButton->addClickEventListener([=](Ref *) {
 			if (_positionFlag) {
@@ -124,7 +126,8 @@ void Baja::userCarControl(Node* userCar1) {
 	Node* node2 = CSLoader::createNode("baja/bajabutton.csb");
 	this->addChild(node2, 1);
 	auto rightButton = static_cast<cocos2d::ui::Button *>(node2->getChildByName("Button"));
-	rightButton->setPosition(Vec2(_currentPathBlock->getPositionX() + (_currentPathBlock->getContentSize().width*0.46), 300));
+	rightButton->setScale(2);
+	rightButton->setPosition(Vec2(_currentPathBlock->getPositionX() + (_currentPathBlock->getContentSize().width*0.43), origin.y + (rightButton->getContentSize().height) + 50));
 	if (rightButton != NULL) {
 		rightButton->addClickEventListener([=](Ref *) {
 			if (_positionFlag) {
@@ -173,9 +176,7 @@ void Baja::carRightGenerate(float dt)
 void Baja::fuelMeterMethod(float dt)
 {
 	if (_fuelBar->getPercent() <= 0) {
-//		audioBg->stopAllEffects();
 		_menuContext->showScore();
-	/*	_fuelBar->setPercent(100); */
 	}
 	_fuelBar->setPercent(_fuelBar->getPercent() - 0.4);
 }
@@ -249,6 +250,5 @@ float Baja::carMovingTime(Node* ImageObject, int speed) {
 
 Baja::~Baja(void)
 {
-//	audioBg->stopAllEffects();
 	this->removeAllChildrenWithCleanup(true);
 }
