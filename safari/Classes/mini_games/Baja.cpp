@@ -30,8 +30,8 @@ bool Baja::init()
 	_fuelBar = (cocos2d::ui::LoadingBar*)(loader->getChildren()).at(1);	_fuelBar->setPercent(100);
 	loader->setPosition(Vec2(_currentPathBlock->getPositionX() - (_currentPathBlock->getContentSize().width*0.42), origin.y + visibleSize.height * 0.50));
 	
-	audioBg = CocosDenshion::SimpleAudioEngine::getInstance();
-	audioBg->playEffect("baja/sound/car_engine_sound.wav", true);
+//	audioBg = CocosDenshion::SimpleAudioEngine::getInstance();
+//	audioBg->playEffect("baja/sound/car_engine_sound.wav", true);
 
 	this->schedule(schedule_selector(Baja::carMidLeftGenerate),3.0f);
 	this->schedule(schedule_selector(Baja::carRightGenerate),5.0f);
@@ -173,7 +173,7 @@ void Baja::carRightGenerate(float dt)
 void Baja::fuelMeterMethod(float dt)
 {
 	if (_fuelBar->getPercent() <= 0) {
-		audioBg->stopAllEffects();
+//		audioBg->stopAllEffects();
 		_menuContext->showScore();
 	/*	_fuelBar->setPercent(100); */
 	}
@@ -249,6 +249,6 @@ float Baja::carMovingTime(Node* ImageObject, int speed) {
 
 Baja::~Baja(void)
 {
-	audioBg->stopAllEffects();
+//	audioBg->stopAllEffects();
 	this->removeAllChildrenWithCleanup(true);
 }
