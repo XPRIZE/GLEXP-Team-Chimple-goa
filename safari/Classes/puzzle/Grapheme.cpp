@@ -7,6 +7,8 @@
 //
 
 #include "Grapheme.h"
+#include "../lang/LangUtil.h"
+#include "SimpleAudioEngine.h"
 
 USING_NS_CC;
 
@@ -27,8 +29,11 @@ bool Grapheme::init(std::string graphemeString) {
     _graphemeString = graphemeString;
     _text = ui::Text::create();
     _text->setFontSize(200);
-	_text->setFontName("fonts/arial.ttf");
 	_text->setTextColor(Color4B::BLUE);
+    if(LangUtil::getInstance()->getLang() == "eng") {
+        _text->setFontName("fonts/arial.ttf");
+       
+    }
     _text->setString(graphemeString);
     addChild(_text);
 
@@ -99,6 +104,10 @@ bool Grapheme::onTouchBegan(Touch* touch, Event* event){
         
         if(rect.containsPoint(n)) {
             CCLOG("onTouchBegan %s", _graphemeString.c_str());
+            auto audio = CocosDenshion::SimpleAudioEngine::getInstance();
+            auto sound = LangUtil::getInstance()->getAlphabetSoundFileNameForString(_graphemeString);
+            audio->playEffect(sound.c_str());
+    
             if(touchBeganCallback) {
                 return touchBeganCallback(touch, event);
             }

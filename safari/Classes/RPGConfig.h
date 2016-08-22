@@ -21,7 +21,7 @@
 #define MIN_GESTURE_DISTANCE 30
 #define MIN_GESTURE_DISTANCE_UP 30
 #define RPG_GRAVITY -2000
-#define ENABLE_DEBUGDRAW false
+#define ENABLE_DEBUGDRAW true
 #define MAIN_CHARACTER_MASS 1.0f
 #define ALPHAMON_CHARACTER_SCALE 0.5f
 #define MAIN_CHARACTER_SCALE 1.0f
@@ -217,7 +217,7 @@ public:
             std::string s(token);
             std::string key = s.substr(0, s.find("="));
             std::string name = s.substr(s.find("=") + 1);
-            attributes.insert({key,name});
+            attributes.insert({trim(key),trim(name)});
             token = strtok(NULL, ",");
         }
         
@@ -262,6 +262,14 @@ public:
         std::ostringstream os ;
         os << value ;
         return os.str() ;
+    }
+    
+    
+    static inline std::string trim(std::string& str)
+    {
+        str.erase(0, str.find_first_not_of(' '));       //prefixing spaces
+        str.erase(str.find_last_not_of(' ')+1);         //surfixing spaces
+        return str;
     }
     
     static std::map<std::string, std::map<std::string, std::string>> getSkeletonConfigMap(std::string key);

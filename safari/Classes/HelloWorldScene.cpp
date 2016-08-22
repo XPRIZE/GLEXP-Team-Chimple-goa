@@ -335,8 +335,9 @@ void HelloWorld::enablePhysicsBoundaries(Node* rootNode) {
         ;        
     }
     std::regex pattern(".*(_[[:d:]+]+)+");
-    for (auto child : rootNode->getChildren()) {
+    for (Node* child : rootNode->getChildren()) {
         CCLOG("processing child %s", child->getName().c_str());
+        
         PhysicsShapeCache::getInstance()->setBodyOnSprite(child->getName(), (Sprite *)child);
         if(child->getChildrenCount() > 0) {
             for (auto subChild : child->getChildren()) {
@@ -346,16 +347,16 @@ void HelloWorld::enablePhysicsBoundaries(Node* rootNode) {
                     Sprite* sprite = dynamic_cast<Sprite*>(subChild);
                     if(sprite) {
                         auto matchingName = subChild->getName();
-                        
                         std::string v1 = subChild->getName();
                         
                         do {
-                            std::size_t found = matchingName.find_last_of("_");
-                            matchingName = matchingName.substr(0,found);
-                        } while(regex_match(matchingName, pattern));
+                                std::size_t found = matchingName.find_last_of("_");
+                                matchingName = matchingName.substr(0,found);
+                           } while(regex_match(matchingName, pattern));
                         
                         CCLOG("matchingName %s", matchingName.c_str());
                         PhysicsShapeCache::getInstance()->setBodyOnSprite(matchingName, (Sprite *)subChild);
+
                         auto body = subChild->getPhysicsBody();
                         if(body) {
                             this->mainCharacterCategoryBitMask = this->mainCharacterCategoryBitMask | body->getCategoryBitmask();
@@ -389,6 +390,7 @@ void HelloWorld::enablePhysicsBoundaries(Node* rootNode) {
                     
                     CCLOG("matchingName %s", matchingName.c_str());
                     PhysicsShapeCache::getInstance()->setBodyOnSprite(matchingName, (Sprite *)child);
+
                     auto body = child->getPhysicsBody();
                     if(body) {
                         this->mainCharacterCategoryBitMask = this->mainCharacterCategoryBitMask | body->getCategoryBitmask();

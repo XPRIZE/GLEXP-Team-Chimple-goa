@@ -48,8 +48,8 @@ float RPGConfig::calcuateVelocityForJump(cocos2d::Point point1, cocos2d::Point p
     double touchPointDifferenceX = point1.x - point2.x - xOffSet;
     double touchPointDifferneceY = point1.y - point2.y - yOffSet;
     
-    CCLOG("computed before touchPointDifferenceX %f", touchPointDifferenceX);
-    CCLOG("computed before touchPointDifferneceY %f", touchPointDifferneceY);
+//    CCLOG("computed before touchPointDifferenceX %f", touchPointDifferenceX);
+//    CCLOG("computed before touchPointDifferneceY %f", touchPointDifferneceY);
 
     
     if(std::abs(touchPointDifferenceX) > HORIZONTAL_JUMP_THRESHOLD)
@@ -71,20 +71,20 @@ float RPGConfig::calcuateVelocityForJump(cocos2d::Point point1, cocos2d::Point p
         
     }
     
-    CCLOG("computed touchPointDifferenceX %f", touchPointDifferenceX);
-    CCLOG("computed touchPointDifferneceY %f", touchPointDifferneceY);
+    //CCLOG("computed touchPointDifferenceX %f", touchPointDifferenceX);
+//    CCLOG("computed touchPointDifferneceY %f", touchPointDifferneceY);
     velocity = sqrt(std::abs(0.5 * RPG_GRAVITY * (touchPointDifferenceX * touchPointDifferenceX)
                           / (touchPointDifferenceX * tan(angle * PI/RADIAN_TO_DEGREE) - touchPointDifferneceY))) / cos(angle * PI/RADIAN_TO_DEGREE) ;
     
-    CCLOG("computed velocity %f", velocity);
+//    CCLOG("computed velocity %f", velocity);
     return velocity;
 }
 
 float RPGConfig::calcuateAngleForJump(cocos2d::Point point1, cocos2d::Point point2, float xOffSet, float yOffSet)
 {
     float angle = 0.0f;
-    CCLOG("point1.x = %f point1.y = %f", point1.x, point1.y);
-    CCLOG("point2.x = %f point2.y = %f", point2.x, point2.y);
+//    CCLOG("point1.x = %f point1.y = %f", point1.x, point1.y);
+//    CCLOG("point2.x = %f point2.y = %f", point2.x, point2.y);
     double touchPointDifferenceX = point1.x - point2.x - xOffSet;
     double touchPointDifferneceY = point1.y - point2.y - yOffSet;
         
@@ -96,8 +96,8 @@ float RPGConfig::calcuateAngleForJump(cocos2d::Point point1, cocos2d::Point poin
         touchPointDifferneceY = VERTICAL_JUMP_THRESHOLD;
     } 
     
-    CCLOG("computed touchPointDifferenceX 111 %f", touchPointDifferenceX);
-    CCLOG("computed touchPointDifferneceY 111 %f", touchPointDifferneceY);
+//    CCLOG("computed touchPointDifferenceX 111 %f", touchPointDifferenceX);
+//    CCLOG("computed touchPointDifferneceY 111 %f", touchPointDifferneceY);
 
     
     angle = RADIAN_TO_DEGREE * atan2(touchPointDifferneceY, touchPointDifferenceX)/PI;
@@ -105,13 +105,13 @@ float RPGConfig::calcuateAngleForJump(cocos2d::Point point1, cocos2d::Point poin
     
     float differenceInAngle = (angle - PERPENDICULAR_ANGLE) > 0 ?  (angle - PERPENDICULAR_ANGLE) * 0.6  : (PERPENDICULAR_ANGLE - angle) * 0.6;
     
-    CCLOG("differenceInAngle %f", differenceInAngle);
+//    CCLOG("differenceInAngle %f", differenceInAngle);
     if(angle > PERPENDICULAR_ANGLE) {
         angle -= differenceInAngle;
-        CCLOG("computed angle %f", angle);
+//        CCLOG("computed angle %f", angle);
     } else {
         angle += differenceInAngle;
-        CCLOG("computed angle %f", angle);
+//        CCLOG("computed angle %f", angle);
     }
     if(angle < 0) {
         angle += PERPENDICULAR_ANGLE + PERPENDICULAR_ANGLE * 0.6;

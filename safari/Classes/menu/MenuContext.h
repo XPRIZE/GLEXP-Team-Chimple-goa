@@ -62,7 +62,7 @@ protected:
     cocos2d::ui::Button* _mapMenu;
     cocos2d::ui::Button* _bookMenu;
     cocos2d::ui::Button* _gamesMenu;
-    cocos2d::ui::Button* _photoMenu;
+    cocos2d::ClippingNode* _photoMenu;
     cocos2d::LayerColor* _greyLayer;
     cocos2d::Node* _chimp;
     int _chimpAudioId;
@@ -72,6 +72,7 @@ protected:
     void showMap(cocos2d::Ref *pSender, cocos2d::ui::Widget::TouchEventType eEventType);
     void showBook(cocos2d::Ref *pSender, cocos2d::ui::Widget::TouchEventType eEventType);
     void showGamesMenu(cocos2d::Ref *pSender, cocos2d::ui::Widget::TouchEventType eEventType);
+    void changePhoto(cocos2d::Ref *pSender, cocos2d::ui::Widget::TouchEventType eEventType);
     void showHelp(cocos2d::Ref *pSender, cocos2d::ui::Widget::TouchEventType eEventType);
     void waitForAudioLoad(std::string audioFileName, std::function<void(bool isSuccess)>callback);
     void chimpHelp();
@@ -107,6 +108,13 @@ protected:
                         const std::string selectedImage ,
                         const std::string disableImage,
                         float xPosOffSet);
+    
+    cocos2d::ClippingNode* createMaskedMenuItem(const std::string normalImage,
+                                        const std::string selectedImage ,
+                                        const std::string disableImage,
+                                        float xPosOffSet);
+    
+    
     
 };
 

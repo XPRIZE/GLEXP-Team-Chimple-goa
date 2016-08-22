@@ -30,9 +30,12 @@ public:
     virtual std::string getBMFontFileName() = 0;
     virtual std::string getAlphabetSoundFileName(wchar_t alpha) = 0;
     virtual std::string getPhoneticSoundFileName(wchar_t alpha) = 0;
+    virtual std::string getAlphabetSoundFileNameForString(std::string alpha) = 0;
+    virtual std::string getPhoneticSoundFileNameForString(std::string alpha) = 0;
     virtual std::string getLang() = 0;
     virtual std::string getDir() = 0;
     virtual void initializeWordManager() = 0;
+    virtual std::string getAWord();
     virtual WordInfo* loadLanguageSpecificWordMappingForAWord(const char* word);
     virtual bool isGraphemeStart(uint32_t prevCodePoint, uint32_t currentCodePoint) = 0;
     std::string translateString(std::string input);
@@ -44,6 +47,7 @@ public:
 protected:
     LangUtil();
     WordManager* wordManager;
+    std::vector<std::string> _wordList;
     SupportedLanguages currentLanguage;
 };
 

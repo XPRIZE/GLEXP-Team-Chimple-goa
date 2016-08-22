@@ -27,11 +27,14 @@ Node* Wembley::loadNode() {
 void Wembley::createAnswer() {
 
 	Size _size = Director::getInstance()->getVisibleSize();
-
+	reorderChild(_background, -2);
 	auto label = ui::Text::create();
 	label->setString(_word);
 	label->setFontSize(200);
-	label->setFontName("fonts/arial.ttf");
+
+	if (LangUtil::getInstance()->getLang() == "eng") {
+		label->setFontName("fonts/arial.ttf");
+	}
 	label->setTextColor(Color4B::BLUE);
 	_answer = Node::create();
 	_answer->addChild(label);
@@ -44,9 +47,9 @@ void Wembley::createChoice() {
 	float wid = Director::getInstance()->getVisibleSize().width;
 	float hei = Director::getInstance()->getVisibleSize().height;
 
-	CocosDenshion::SimpleAudioEngine::getInstance()->preloadBackgroundMusic("./sounds/kick.wav");
-	CocosDenshion::SimpleAudioEngine::getInstance()->playBackgroundMusic("./sounds/applause.wav", true);
-	CocosDenshion::SimpleAudioEngine::getInstance()->playEffect("./sounds/applause.wav");
+	CocosDenshion::SimpleAudioEngine::getInstance()->preloadBackgroundMusic("sounds/kick.wav");
+	CocosDenshion::SimpleAudioEngine::getInstance()->playBackgroundMusic("sounds/applause.mp3", true);
+	CocosDenshion::SimpleAudioEngine::getInstance()->playEffect("sounds/applause.mp3");
 	_choice = Node::create();
 	_choice->setPosition(Vec2(0, hei * 63 / 100));
 	addChild(_choice);
@@ -79,8 +82,8 @@ void Wembley::createChoice() {
 	_goalkeepertimeline = CSLoader::createTimeline("wembley/char.csb");
 	_goalKeeper = CSLoader::createNode("wembley/char.csb");
 	_goalKeeper->setPosition(Vec2((wid * 50) / 100, (hei * 69) / 100));
-	_goalKeeper->setScaleY(0.5);
-	addChild(_goalKeeper);
+	_goalKeeper->setScale(0.5, 0.5);
+	addChild(_goalKeeper, -1);
 	_goalKeeper->runAction(_goalkeepertimeline);
 	_goalkeepertimeline->play("front_idle", true);
 
@@ -252,6 +255,7 @@ void Wembley::addEventsBall(cocos2d::Sprite* callerObject)
 			else {
 				auto endGame = CallFunc::create([=]() {
 					 kicks = 0;
+					 _finish = 0;
 					_menuContext->showScore();
 				});
 				auto sequence = Sequence::create(kickBall, moveTo, removeBall,  endGame, nullptr);
@@ -267,4 +271,9 @@ void Wembley::addEventsBall(cocos2d::Sprite* callerObject)
 	
 	_eventDispatcher->addEventListenerWithSceneGraphPriority(listener, callerObject);
 	
+}
+
+Wembley::~Wembley(void) {
+
+	_finish = 0;
 }
