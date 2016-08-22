@@ -73,6 +73,8 @@ void Chain::createChoice() {
 	float wid = visibleSize.width;
 	float hei = visibleSize.height;
 
+	CocosDenshion::SimpleAudioEngine::getInstance()->playBackgroundMusic("chain/misc/chainMisc.wav", true);
+	CocosDenshion::SimpleAudioEngine::getInstance()->playEffect("chain/misc/chainMisc.wav");
 //	_numGraphemes = 3;
 	if (!Chain::_SS.compare("monkey"))
 	{
@@ -201,6 +203,7 @@ void Chain::gameOver(bool correct)
 		if (!Chain::_SS.compare("monkey"))
 		{
 					auto callShowScore = CCCallFunc::create([=] {
+						CocosDenshion::SimpleAudioEngine::getInstance()->stopBackgroundMusic();
 						_menuContext->showScore();
 					});
 					auto callAnimation = CCCallFunc::create([=] {
@@ -219,6 +222,7 @@ void Chain::gameOver(bool correct)
 		{
 					auto callShowScore = CCCallFunc::create([=]
 					{
+						CocosDenshion::SimpleAudioEngine::getInstance()->stopBackgroundMusic();
 						_menuContext->showScore();
 					});
 					auto eleAnimation = CCCallFunc::create([=] {
@@ -236,7 +240,7 @@ void Chain::gameOver(bool correct)
 		{
 					auto callShowScore = CCCallFunc::create([=]
 					{
-						
+						CocosDenshion::SimpleAudioEngine::getInstance()->stopBackgroundMusic();
 						_menuContext->showScore();
 						_choice->removeAllChildrenWithCleanup(true);
 					});
@@ -340,7 +344,6 @@ void ChainGrapheme::animateToPositionAndChangeBackground(cocos2d::Vec2 toPositio
 		changeBackground();
 		auto moveTo = MoveTo::create(0.5, toPosition);
 		runAction(moveTo);
-		
 		if (!Chain::_SS.compare("monkey"))
 		{
 			auto scaleTo = ScaleTo::create(0.5, 0.8);
