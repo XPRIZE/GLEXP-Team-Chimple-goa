@@ -62,6 +62,7 @@ import android.widget.LinearLayout;
 import android.widget.Scroller;
 import android.widget.TextView;
 import org.chimple.safari.R;
+import android.graphics.drawable.ColorDrawable;
 
 public class AppActivity extends Cocos2dxActivity  implements OnClickListener, OnLongClickListener {
   static {
