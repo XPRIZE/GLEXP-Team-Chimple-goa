@@ -41,8 +41,8 @@ Spirograph::~Spirograph() {
 bool Spirograph::init() {
 	Size visibleSize = Director::getInstance()->getVisibleSize();
 
-	audioBg = CocosDenshion::SimpleAudioEngine::getInstance();
-	audioBg->playEffect("jasmine/jasmin_background.mp3", true);
+//	audioBg = CocosDenshion::SimpleAudioEngine::getInstance();
+//	audioBg->playEffect("jasmine/jasmin_background.mp3", true);
 
 
 	auto node = CSLoader::createNode("jasmine/jasmine_win.csb");
