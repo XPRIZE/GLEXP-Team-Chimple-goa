@@ -16,6 +16,7 @@
 #include "SimpleAudioEngine.h"
 #include "AudioEngine.h"
 #include "ScrollableGameMapScene.hpp"
+#include "../PhotoCaptureScene.hpp"
 
 USING_NS_CC;
 using namespace cocos2d::ui;
@@ -140,7 +141,7 @@ void MenuContext::expandMenu(cocos2d::Ref *pSender, cocos2d::ui::Widget::TouchEv
                 
                 if(!latestPhotoPath.empty()) {
                     CCLOG("got path for menu %s", latestPhotoPath.c_str());
-                    _photoMenu = this->createMenuItem(latestPhotoPath, latestPhotoPath, latestPhotoPath, 5 * POINTS_TO_LEFT);
+                    _photoMenu = this->createMaskedMenuItem(latestPhotoPath, latestPhotoPath, latestPhotoPath, 5 * POINTS_TO_LEFT);
                 }
                 
                 auto moveTo = MoveTo::create(0.5, Vec2(150, _menuButton->getPosition().y));
@@ -178,6 +179,33 @@ cocos2d::ui::Button* MenuContext::createMenuItem(const std::string normalImage,
     
     return _menu;
 }
+
+cocos2d::ClippingNode* MenuContext::createMaskedMenuItem(const std::string normalImage,
+                                                 const std::string selectedImage ,
+                                                 const std::string disableImage,
+                                                 float xPosOffSet) {
+    
+    ClippingNode* clipper = ClippingNode::create();
+    clipper->setPosition(_menuButton->getPosition());
+    Sprite * stencil = Sprite::create("menu/back.png");
+    clipper->setStencil(stencil);
+    clipper->setAlphaThreshold(0.9);
+    
+    cocos2d::ui::Button* _menu = Button::create(normalImage, selectedImage, disableImage, Widget::TextureResType::LOCAL);
+    clipper->addChild(_menu,1);
+    
+    _menu->addTouchEventListener(CC_CALLBACK_2(MenuContext::changePhoto, this));
+
+    
+    addChild(clipper);
+    auto moveTo = MoveTo::create(0.5, Vec2(_menuButton->getPosition().x - xPosOffSet, _menuButton->getPosition().y));
+    auto elastic = EaseBackOut::create(moveTo);
+    clipper->runAction(elastic);
+    
+    return clipper;
+}
+
+
 
 void MenuContext::removeMenu() {
     if(_menuSelected) {
@@ -459,6 +487,18 @@ void MenuContext::showGamesMenu(cocos2d::Ref *pSender, cocos2d::ui::Widget::Touc
         } else {
            Director::getInstance()->replaceScene(TransitionFade::create(2.0, ScrollableGameMapScene::createScene(), Color3B::BLACK));
         }
+    }
+}
+
+
+void MenuContext::changePhoto(cocos2d::Ref *pSender, cocos2d::ui::Widget::TouchEventType eEventType) {
+    if(eEventType == cocos2d::ui::Widget::TouchEventType::ENDED) {
+        #if (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
+            Director::getInstance()->replaceScene(TransitionFade::create(2.0, PhotoCaptureScene::createScene(), Color3B::BLACK));
+        #else
+            Director::getInstance()->replaceScene(TransitionFade::create(2.0, ScrollableGameMapScene::createScene(), Color3B::BLACK));
+        #endif
+
     }
 }
 

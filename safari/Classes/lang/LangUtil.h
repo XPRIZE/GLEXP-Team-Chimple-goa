@@ -30,6 +30,8 @@ public:
     virtual std::string getBMFontFileName() = 0;
     virtual std::string getAlphabetSoundFileName(wchar_t alpha) = 0;
     virtual std::string getPhoneticSoundFileName(wchar_t alpha) = 0;
+    virtual std::string getAlphabetSoundFileNameForString(std::string alpha) = 0;
+    virtual std::string getPhoneticSoundFileNameForString(std::string alpha) = 0;
     virtual std::string getLang() = 0;
     virtual std::string getDir() = 0;
     virtual void initializeWordManager() = 0;

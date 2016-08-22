@@ -228,13 +228,15 @@ std::string SafariAnalyticsManager::getLatestUserPhoto() {
     std::string photoUrl = "";
     sqlite3_stmt *res;
     int rc = 0;
-    const char* querySQL = "SELECT PHOTO_URL FROM LOGIN_PHOTOS ORDER BY ROWID ASC LIMIT 1";
+    const char* querySQL = "SELECT PHOTO_URL FROM LOGIN_PHOTOS ORDER BY ROWID DESC LIMIT 1";
     
     rc = sqlite3_prepare_v2(this->dataBaseConnection, querySQL, -1, &res, 0);
     
     if(sqlite3_step(res) == SQLITE_ROW) {
         photoUrl =  reinterpret_cast< char const* >(sqlite3_column_text(res, 0));
     }
+    
+    CCLOG("Received latest photo %s", photoUrl.c_str());
     
     return photoUrl;
 }

@@ -18,7 +18,9 @@
 class Cat : public WordScene
 {
 public:
+	int _upCount, _downCount;
 	bool _gameContinue;
+	static int _upCounting;
 	std::string _state;
 	static Cat *create();
 	std::vector<Node*> _gapNodes1;
@@ -37,6 +39,7 @@ protected:
 	void gameOver(bool correct) override;
 	std::string getGraphemeUnselectedBackground() override;
 	std::string getGraphemeSelectedBackground() override;
+	void gameExit();
 };
 
 #endif 

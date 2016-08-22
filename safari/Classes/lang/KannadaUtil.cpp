@@ -64,6 +64,60 @@ static const std::map<wchar_t, std::string> langMap = {
     {L'\x0CB3',"lya"}
 };
 
+static const std::map<std::string, std::string> stringLangMap = {
+    {"ಅ","a"},
+    {"ಆ","aa"},
+    {"ಇ","i"},
+    {"ಈ","ii"},
+    {"ಉ","u"},
+    {"ಊ","uu"},
+    {"ಋ","ru"},
+    {"ೠ","ruu"},
+    {"ಎ","ae"},
+    {"ಎ","aee"},
+    {"ಎ","ai"},
+    {"ಒ","o"},
+    {"ಓ","oo"},
+    {"ಔ","au"},
+    {"ಂ","am"},
+    {"ಃ", "aha"},
+    {"ಕ","ka"},
+    {"ಖ","kha"},
+    {"ಗ","ga"},
+    {"ಘ","gha"},
+    {"ಙ","nga"},
+    {"ಚ","cha"},
+    {"ಛ","chha"},
+    {"ಜ","ja"},
+    {"ಝ","jha"},
+    {"ಞ","naa"},
+    {"ಟ","tya"},
+    {"ಠ","tyha"},
+    {"ಡ","dya"},
+    {"ಢ","dyha"},
+    {"ಣ","nya"},
+    {"ತ","ta"},
+    {"ಥ","tha"},
+    {"ದ","da"},
+    {"ಧ","dha"},
+    {"ನ","na"},
+    {"ಪ","pa"},
+    {"ಫ","pha"},
+    {"ಬ","ba"},
+    {"ಭ","bha"},
+    {"ಮ","ma"},
+    {"ಯ","ya"},
+    {"ರ","ra"},
+    {"ಲ","la"},
+    {"ವ","va"},
+    {"ಶ","sya"},
+    {"ಷ","saa"},
+    {"ಸ","sa"},
+    {"ಹ","ha"},
+    {"ಳ","lya"}
+};
+
+
 
 const wchar_t* KannadaUtil::getAllCharacters() {
     static const wchar_t* allKannadaCharacters = L"\x0c85\x0c86\x0c87\x0c88\x0c89\x0C8A\x0C8B\x0C8E\x0C8F\x0C90\x0C92\x0C93\x0C94\x0C95\x0C96\x0C97\x0C98\x0C99\x0C9A\x0C9B\x0C9C\x0C9D\x0C9E\x0C9F\x0CA0\x0CA1\x0CA2\x0CA3\x0CA4\x0CA5\x0CA6\x0CA7\x0CA8\x0CAA\x0CAB\x0CAC\x0CAD\x0CAE\x0CAF\x0CB0\x0CB2\x0CB5\x0CB6\x0CB7\x0CB8\x0CB9\x0CB3";
@@ -103,6 +157,16 @@ std::string KannadaUtil::getAlphabetSoundFileName(wchar_t alpha) {
 
 std::string KannadaUtil::getPhoneticSoundFileName(wchar_t alpha) {
     auto fileName = std::string("kannada/sounds/") + langMap.at(alpha) + audioExt;
+    return fileName;
+}
+
+std::string KannadaUtil::getAlphabetSoundFileNameForString(std::string alpha) {
+    auto fileName = std::string("kannada/sounds/") + stringLangMap.at(alpha) + audioExt;
+    return fileName;
+}
+
+std::string KannadaUtil::getPhoneticSoundFileNameForString(std::string alpha) {
+    auto fileName = std::string("kannada/sounds/") + stringLangMap.at(alpha) + audioExt;
     return fileName;
 }
 
