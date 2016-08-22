@@ -251,6 +251,7 @@ void Trace::onTouchEnded(cocos2d::Touch *touch, cocos2d::Event *event) {
 
 void Trace::onTouchMoved(cocos2d::Touch *touch, cocos2d::Event *event) {
 //    CCLOG("onTouchMoved");
+	int finished = 0;
     if(_touchActive) {
 
 
@@ -258,23 +259,18 @@ void Trace::onTouchMoved(cocos2d::Touch *touch, cocos2d::Event *event) {
         event->getCurrentTarget()->setPosition(n);
         auto distance = n.distance(_nodes[_currentStroke][_currentNodeIndex]->getPosition());
 
-		if (_currentStroke > _nodes.size()-1) {
-
-			
-			//finishedAll();
-
-		}
+		
 
 		if (_currentNodeIndex >= _nodes[_currentStroke].size()-1) {
 
 			setDotsVisibility(false);
 			
+			
+			if (_currentStroke+1 > _nodes.size()-1 && _currentNodeIndex >= _nodes[_currentStroke].size()-1) {
 
-			_currentStroke++;
-			_currentNodeIndex = 0;
-			setupTouch();
-			if (_currentStroke > _nodes.size()-1) {
-
+				
+				finished = 1;
+				
 				CCLOG("Finished All");
 				
 				//if (strcmp(_language, "eng")) { _languageRange = 24; }
@@ -282,16 +278,22 @@ void Trace::onTouchMoved(cocos2d::Touch *touch, cocos2d::Event *event) {
 				
 				
 				_currentStroke = 0;
+				_currentNodeIndex = 0;
 				finishedAll();
 
 
 			}
+			if (finished == 0) {
+				_currentStroke++;
+				_currentNodeIndex = 0;
+				setupTouch();
+			}
 		}
 
 		
-        if (distance > 130 && _currentStroke <= _nodes.size()) {
+        if (distance > 130 && _currentStroke <= _nodes.size() - 1) {
 
-            if(_currentNodeIndex < _nodes[_currentStroke].size()) {
+            if(_currentNodeIndex < _nodes[_currentStroke].size()-1) {
 
 				++_currentNodeIndex;
                 auto nextNode = _nodes[_currentStroke][_currentNodeIndex];
@@ -312,6 +314,7 @@ void Trace::onTouchMoved(cocos2d::Touch *touch, cocos2d::Event *event) {
 					std::string queryi = sstreami.str();
 
 					_background->getChildByName(queryi)->setVisible(false);
+					
 					
                 } else {
                     CCLOG("failed");
@@ -364,6 +367,19 @@ void Trace::finishedAll() {
 
 
 	//removeChild(_background);
+
+	for (int x = 0; x <_nodes.size(); x++) {
+
+		std::ostringstream sstreamb;
+		sstreamb << "ball_" << x + 1;
+		std::string queryb = sstreamb.str();
+
+		auto currentBall = _background->getChildByName(queryb);
+		if (currentBall) {
+			_eventDispatcher->removeEventListenersForTarget(currentBall);
+			currentBall->setVisible(false);
+		}
+	}
 
 	Size visibleSize = Director::getInstance()->getVisibleSize();
 	Vec2 origin = Director::getInstance()->getVisibleOrigin();
@@ -424,8 +440,6 @@ void Trace::finishedAll() {
 
 
 	this->runAction(redirect);
-
-
 
 
 }
