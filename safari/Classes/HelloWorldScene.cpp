@@ -1,5 +1,6 @@
 #include <iostream>
 #include <string>
+#include <sstream>
 #include <regex>
 #include <unordered_map>
 #include "HelloWorldScene.h"
@@ -351,7 +352,9 @@ void HelloWorld::enablePhysicsBoundaries(Node* rootNode) {
                         
                         do {
                                 std::size_t found = matchingName.find_last_of("_");
-                                matchingName = matchingName.substr(0,found);
+                                if(found != std::string::npos) {
+                                    matchingName = matchingName.substr(0,found);
+                                }
                            } while(regex_match(matchingName, pattern));
                         
                         CCLOG("matchingName %s", matchingName.c_str());
@@ -385,7 +388,9 @@ void HelloWorld::enablePhysicsBoundaries(Node* rootNode) {
                     std::string matchingName = child->getName();
                     do {
                         std::size_t found = matchingName.find_last_of("_");
-                        matchingName = matchingName.substr(0,found);
+                        if(found != std::string::npos) {
+                            matchingName = matchingName.substr(0,found);
+                        }
                     } while(regex_match(matchingName, pattern));
                     
                     CCLOG("matchingName %s", matchingName.c_str());
@@ -705,6 +710,7 @@ void HelloWorld::cleanUpResources() {
     
     if(this->stateMachine != nullptr) {
         delete this->stateMachine;
+        this->stateMachine = NULL;
     }
     
     Sqlite3Helper::instanceFlag = false;
@@ -748,13 +754,22 @@ void HelloWorld::processAnimationMessage(std::vector<MessageContent*>animationMe
 //        CCLOG("content owner %s", content->getOwner().c_str());
         
         //find out animation name
+        std::size_t found = -1;
         if(!content->getDialog().empty()) {
+            found = content->getDialog().find_last_of("#");
+            std::string animFile = content->getDialog();
+            std::string animName = "";
+            if(found != std::string::npos) {
+                animFile = content->getDialog().substr(0,found);
+                animName = content->getDialog().substr(found+1, content->getDialog().length());
+            }
+
             Node* animationSpriteNode = this->mainLayer->getChildByName(content->getOwner());
             RPGSprite* animationNode = dynamic_cast<RPGSprite *>(animationSpriteNode);
             cocostudio::timeline::ActionTimeline* timeline = NULL;
             bool timeLineExists = false;
             if(animationNode->getActionTimeLine() == NULL) {
-                timeline =  CSLoader::createTimeline(content->getDialog());
+                timeline =  CSLoader::createTimeline(animFile);
                 animationNode->setActionTimeLine(timeline);
                 timeLineExists = false;
             } else {
@@ -788,7 +803,11 @@ void HelloWorld::processAnimationMessage(std::vector<MessageContent*>animationMe
                         }
                         
                         bool playInLoop = content->getPlayAnimationInLoop() == 1 ? true : false;
-                        timeline->gotoFrameAndPlay(0, playInLoop);
+                        if(!animName.empty()) {
+                            timeline->play(animName, playInLoop);
+                        } else {
+                          timeline->gotoFrameAndPlay(0, playInLoop);
+                        }
                     }
                 }
             }
@@ -922,7 +941,8 @@ void HelloWorld::update(float dt) {
             
         } else {
             if(this->skeletonCharacter->getSkeletonNode()->getPhysicsBody()->getVelocity().y <=GRAVITY_VELOCITY_TO_STICK_TO_GROUND &&
-               this->skeletonCharacter->isJumping == false) {
+               this->skeletonCharacter->isJumping == false && this->stateMachine != NULL) {
+                
                 this->stateMachine->handleInput(S_FALLING_STATE, cocos2d::Vec2(0,0));
             }
         }
