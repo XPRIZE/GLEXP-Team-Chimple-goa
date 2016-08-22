@@ -14,7 +14,6 @@ Scene* Chain::createScene()
 {
 	CCSpriteFrameCache* framecache1 = CCSpriteFrameCache::sharedSpriteFrameCache();
 	framecache1->addSpriteFramesWithFile("chain/chain.plist");
-	//Chain::_SS = "flamingo";
 	// 'layer' is an autorelease object
 	auto layer = Chain::create();
 
@@ -41,7 +40,7 @@ GraphemeGrid* Chain::createGraphemeGrid(GLfloat width, GLfloat height, int numRo
 Node* Chain::loadNode() {
 	std::string chainSceneType[] = { "monkey","elephant","flamingo" };
 	Chain::_SS = chainSceneType[RandomHelper::random_int(0, 2)];
-	//Chain::_SS = "elephant";
+	//Chain::_SS = "monkey";
 	if (!Chain::_SS.compare("monkey"))
 	{
 		_node = CSLoader::createNode("chain/chain.csb");
@@ -206,14 +205,14 @@ void Chain::gameOver(bool correct)
 					auto callAnimation = CCCallFunc::create([=] {
 						for (int i = 0; i < _numGraphemes; i++) {
 							auto timeLine = CSLoader::createTimeline("chain/animation.csb");
-							_answerVector.at(i).second->getChildren().at(1)->getChildren().at(0)->setAnchorPoint(Vec2(0.509, 0.33));
+							_answerVector.at(i).second->getChildren().at(1)->getChildren().at(0)->setAnchorPoint(Vec2(0.47, 0.33));
 							_answerVector.at(i).second->runAction(timeLine);
 							timeLine->play("monkeyeat", true);
 					
 							timeLine->setTimeSpeed(0.5);
 						}
 					});
-					this->runAction(Sequence::create(DelayTime::create(1), callAnimation, DelayTime::create(5), callShowScore, NULL));
+					this->runAction(Sequence::create(DelayTime::create(1.2), callAnimation, DelayTime::create(4), callShowScore, NULL));
 		}
 		else if (!Chain::_SS.compare("elephant"))
 		{
@@ -230,7 +229,7 @@ void Chain::gameOver(bool correct)
 							timeline->setTimeSpeed(0.5);
 						}
 					});
-					this->runAction(Sequence::create(DelayTime::create(1), eleAnimation, DelayTime::create(5), callShowScore, NULL));
+					this->runAction(Sequence::create(DelayTime::create(1.2), eleAnimation, DelayTime::create(4), callShowScore, NULL));
 		}
 		else if (!Chain::_SS.compare("flamingo"))
 		{
@@ -252,7 +251,7 @@ void Chain::gameOver(bool correct)
 							_flamContainer[i]->runAction(moveTo);
 						}
 					});
-					this->runAction(Sequence::create(DelayTime::create(1), flamingoAnimation, DelayTime::create(5), callShowScore, NULL));
+					this->runAction(Sequence::create(DelayTime::create(1.2), flamingoAnimation, DelayTime::create(3), callShowScore, NULL));
 		}
 	}
 }
@@ -323,29 +322,45 @@ void ChainGrapheme::animateToPositionAndChangeBackground(cocos2d::Vec2 toPositio
 	_prevPosition = getPosition();
 	if (!_selected) {
 
-		auto moveTo = MoveTo::create(0.5, toPosition);
+		auto moveTo = MoveTo::create(1, toPosition);
+		auto rotateTo = RotateBy::create(1, 360);
+		auto mySpawn = Spawn::createWithTwoActions(moveTo, rotateTo);
 		auto callback = CallFunc::create(CC_CALLBACK_0(Grapheme::changeBackground, this));
-		auto sequence = Sequence::create(moveTo, callback, NULL);
-		runAction(sequence);
+		
 		if (!Chain::_SS.compare("monkey"))
 		{
-			auto scaleTo = ScaleTo::create(0.5, 0.3);
-			_letterBG->runAction(scaleTo);
-			_monkeyTimeline->play("monkeyflip", false);
+			 auto scaleTo = ScaleTo::create(1, 0.3);
+			 auto rotateTo = RotateBy::create(1, 360);
+			 auto mySpawn_1 = Spawn::createWithTwoActions(scaleTo, rotateTo);
+			_letterBG->runAction(mySpawn_1);
+			auto sequence = Sequence::create(mySpawn, callback, NULL);
+			runAction(sequence);
+		//	_monkeyTimeline->play("monkeyflip", false);
 		}
-
+		else
+		{
+			auto sequence = Sequence::create(moveTo, callback, NULL);
+			runAction(sequence);
+		}
 	}
 	else
 	{
 		changeBackground();
-		auto moveTo = MoveTo::create(0.5, toPosition);
-		runAction(moveTo);
-		
+		auto moveTo = MoveTo::create(1, toPosition);
+		auto rotateTo = RotateBy::create(1, 360);
+		auto mySpawn = Spawn::createWithTwoActions(moveTo, rotateTo);
 		if (!Chain::_SS.compare("monkey"))
 		{
-			auto scaleTo = ScaleTo::create(0.5, 0.8);
-			_letterBG->runAction(scaleTo);
-			_monkeyTimeline->play("monkeyflip", false);
+			auto scaleTo = ScaleTo::create(1, 0.8);
+			auto rotateTo = RotateBy::create(1, 360);
+			auto mySpawn_1 = Spawn::createWithTwoActions(scaleTo, rotateTo);
+			_letterBG->runAction(mySpawn_1);
+			runAction(mySpawn);
+		//	_monkeyTimeline->play("monkeyflip", false);
+		}
+		else
+		{
+			runAction(moveTo);
 		}
 	}
 }
