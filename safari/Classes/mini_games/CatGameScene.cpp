@@ -202,12 +202,13 @@ void CatGame::update(float ft) {
 					_previousY =  yPosition;
 					_catAnimation->pause();
 					tailAnimation();
-					Vector <Node*> children = this->getChildren();
+					Vector <Node*> children = _buildingLayer->getChildren();
 					for (auto item = children.rbegin(); item != children.rend(); ++item) {
 						Node * monsterItem = *item;
 						std::string str = monsterItem->getName().c_str();
 						if (str.find("up") == 0) {
-							this->removeChildByName(str);
+							CCLOG("child %s", str.c_str());
+							_buildingLayer->removeChildByName(str);
 						}
 					}
 					if (_score == 5) {
@@ -231,12 +232,13 @@ void CatGame::update(float ft) {
 					_catAnimation->pause();
 					tailAnimation();
 					callAPI("up");
-					Vector <Node*> children = this->getChildren();
+					Vector <Node*> children = _buildingLayer->getChildren();
 					for (auto item = children.rbegin(); item != children.rend(); ++item) {
 						Node * monsterItem = *item;
 						std::string str = monsterItem->getName().c_str();
 						if (str.find("stright") == 0) {
-							this->removeChildByName(str);
+							CCLOG("child %s", str.c_str());
+							_buildingLayer->removeChildByName(str);
 						}
 					}
 					if (_score == 5) {
