@@ -99,6 +99,7 @@ void CatGame::generateBuildingLayer(std::string str)
 	auto build1 = Sprite::createWithSpriteFrameName(_buildingPath.at(randNum).c_str());
 	build1->setPosition(Vec2(_xPos, _yPos));
 	build1->setAnchorPoint(Vec2(0, 1));
+	build1->setName(str+ "build");
 	_buildingLayer->addChild(build1);
 	_xPos = build1->getContentSize().width + build1->getPositionX();
 	if (_backgroundBarrier == nullptr) {
@@ -126,6 +127,7 @@ void CatGame::stringGap(std::string str)
 		CCLOG("block position y = %f", _yPos);
 		_stringPositionX.push_back(_xPos);
 		_stringPositionY.push_back(_yPos);
+		gap->setName(str+"gap");
 		gap->setVisible(false);
 		gapWidth = gap->getContentSize().width / 2;
 		_buildingLayer->addChild(gap);
@@ -200,6 +202,14 @@ void CatGame::update(float ft) {
 					_previousY =  yPosition;
 					_catAnimation->pause();
 					tailAnimation();
+					Vector <Node*> children = this->getChildren();
+					for (auto item = children.rbegin(); item != children.rend(); ++item) {
+						Node * monsterItem = *item;
+						std::string str = monsterItem->getName().c_str();
+						if (str.find("up") == 0) {
+							this->removeChildByName(str);
+						}
+					}
 					if (_score == 5) {
 						_menuContext->showScore();
 					}
@@ -221,6 +231,14 @@ void CatGame::update(float ft) {
 					_catAnimation->pause();
 					tailAnimation();
 					callAPI("up");
+					Vector <Node*> children = this->getChildren();
+					for (auto item = children.rbegin(); item != children.rend(); ++item) {
+						Node * monsterItem = *item;
+						std::string str = monsterItem->getName().c_str();
+						if (str.find("stright") == 0) {
+							this->removeChildByName(str);
+						}
+					}
 					if (_score == 5) {
 						_menuContext->showScore();
 					}
@@ -240,6 +258,7 @@ void CatGame::buildingAfterGap(std::string str)
 	auto build2 = Sprite::createWithSpriteFrameName(_buildingPath.at(randNum).c_str());
 	build2->setPosition(Vec2(_xPos, _yPos));
 	build2->setAnchorPoint(Vec2(0, 1));
+	build2->setName(str + "build");
 	_buildingLayer->addChild(build2);
 	_xPos = build2->getContentSize().width + build2->getPositionX();
 	if (_wordLength <4) {
@@ -247,6 +266,7 @@ void CatGame::buildingAfterGap(std::string str)
 		auto build2 = Sprite::createWithSpriteFrameName(_buildingPath.at(randNum).c_str());
 		build2->setPosition(Vec2(_xPos, _yPos));
 		build2->setAnchorPoint(Vec2(0, 1));
+		build2->setName(str + "build1");
 		_buildingLayer->addChild(build2);
 		_xPos = build2->getContentSize().width + build2->getPositionX();
 	}
