@@ -52,10 +52,10 @@ void jazz::createChoice() {
 		auto choiceNode = Sprite::createWithSpriteFrameName("jazz/drum.png");
 		choiceNode->setAnchorPoint(Vec2(0.5, 0.7));
 		//	choiceNode->setPosition(Vec2(i * 400, 0));
-		choiceNode->setPosition(Vec2((i + 0.5) * (squareWidth), 100));
+		choiceNode->setPosition(Vec2((i + 0.5) * (squareWidth), 110));
 		_animate = CSLoader::createNode("jazz/gorilla.csb");
-		_animate->setPosition(Vec2((i + 0.5) * (squareWidth), 100));
-		_animate->setScale(0.75);
+		_animate->setPosition(Vec2((i + 0.5) * (squareWidth), 110));
+		_animate->setScale(0.7);
 		_gorilla.push_back(_animate);
 		_choice->addChild(_animate);
 		_animation = CSLoader::createTimeline("jazz/gorilla.csb");
@@ -109,7 +109,7 @@ void jazz::gameOver(bool correct) {
 		{
 			
 			Node * gorilla = *item;
-			gorilla->setScale(0.75);
+			gorilla->setScale(0.7);
 			auto druming = CSLoader::createTimeline("jazz/gorilla.csb");
 			gorilla->runAction(druming);
 			druming->play("druming", true);
@@ -136,7 +136,7 @@ void jazz::gameOver(bool correct) {
 		{
 
 			Node * gorilla = *item;
-			gorilla->setScale(0.75);
+			gorilla->setScale(0.7);
 			auto druming = CSLoader::createTimeline("jazz/gorilla.csb");
 			gorilla->runAction(druming);
 			druming->play("sad", true);
