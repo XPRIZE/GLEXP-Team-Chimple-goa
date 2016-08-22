@@ -172,6 +172,7 @@ void WordScene::onTouchEnded(cocos2d::Touch *touch, cocos2d::Event *event) {
             if((*it).second == grapheme) {
                 *it = std::pair<Node*, Grapheme*>((*it).first, nullptr);
                 grapheme->selected(false);
+				grapheme->setZOrder(0);
                 grapheme->animateToPositionAndChangeBackground(grapheme->getPrevPosition());
                 return;
             }
@@ -183,6 +184,7 @@ void WordScene::onTouchEnded(cocos2d::Touch *touch, cocos2d::Event *event) {
                 *it = std::pair<Node*, Grapheme*>(targetNode, grapheme);
                 auto tPos = targetNode->getParent()->convertToWorldSpace(targetNode->getPosition());
                 grapheme->selected(true);
+				grapheme->setZOrder(1);
                 grapheme->animateToPositionAndChangeBackground(_grid->convertToNodeSpace(tPos));
                 return;
             }
