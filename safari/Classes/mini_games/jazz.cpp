@@ -27,6 +27,8 @@ Node* jazz::loadNode() {
 	auto node = CSLoader::createNode("jazz/MainScene.csb");
 	Size visibleSize = Director::getInstance()->getVisibleSize();
 
+	_audioCorrect = CocosDenshion::SimpleAudioEngine::getInstance();
+
 	if (visibleSize.width > 2560) {
 		auto myGameWidth = (visibleSize.width - 2560) / 2;
 		node->setPositionX(myGameWidth);
@@ -79,6 +81,10 @@ void jazz::blinking(std::string animationName, bool loop)
 		
 	}
 }
+int jazz::getGridHeight()
+{
+	return 700;
+}
 void jazz::gameOver(bool correct) {
 	if (correct) {
 		_grid->touchEndedCallback = nullptr;
@@ -98,7 +104,7 @@ void jazz::gameOver(bool correct) {
 			cocostudio::timeline::ActionTimeline * jump = *obj;
 			jump->stop();
 		}*/
-
+		_audioCorrect->playEffect("sounds/drum.wav", true);
 		for (auto item = _gorilla.rbegin(); item != _gorilla.rend(); ++item)
 		{
 			
@@ -107,8 +113,6 @@ void jazz::gameOver(bool correct) {
 			auto druming = CSLoader::createTimeline("jazz/gorilla.csb");
 			gorilla->runAction(druming);
 			druming->play("druming", true);
-			_audioCorrect = CocosDenshion::SimpleAudioEngine::getInstance();
-			_audioCorrect->playEffect("sounds/drum.wav",true);
 			this->scheduleOnce(schedule_selector(jazz::showScore), 5.0f);
 		//	druming->setAnimationEndCallFunc("druming", CC_CALLBACK_0(jazz::showScore, this));
 

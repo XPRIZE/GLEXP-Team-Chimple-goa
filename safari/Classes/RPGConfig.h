@@ -217,7 +217,7 @@ public:
             std::string s(token);
             std::string key = s.substr(0, s.find("="));
             std::string name = s.substr(s.find("=") + 1);
-            attributes.insert({key,name});
+            attributes.insert({trim(key),trim(name)});
             token = strtok(NULL, ",");
         }
         
@@ -262,6 +262,14 @@ public:
         std::ostringstream os ;
         os << value ;
         return os.str() ;
+    }
+    
+    
+    static inline std::string trim(std::string& str)
+    {
+        str.erase(0, str.find_first_not_of(' '));       //prefixing spaces
+        str.erase(str.find_last_not_of(' ')+1);         //surfixing spaces
+        return str;
     }
     
     static std::map<std::string, std::map<std::string, std::string>> getSkeletonConfigMap(std::string key);
