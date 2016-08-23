@@ -240,6 +240,8 @@ public:
     //member variables
     static cocos2d::Size screenSize;
     
+    static bool enableHandWriting;
+    
     static int externalSkeletonMoveDelta;
     
     static inline std::unordered_map<std::string, std::string> parseUserData(std::string userDataStr) {
