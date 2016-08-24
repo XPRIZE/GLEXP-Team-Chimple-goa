@@ -1,0 +1,364 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{3B0B58B1-2734-488E-A542-ECEC11EB2455}</ProjectGuid>
+    <RootNamespace>goa</RootNamespace>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <CharacterSet>Unicode</CharacterSet>
+    <PlatformToolset Condition="'$(VisualStudioVersion)' == '12.0'">v120</PlatformToolset>
+    <PlatformToolset Condition="'$(VisualStudioVersion)' == '12.0' and exists('$(MSBuildProgramFiles32)\Microsoft SDKs\Windows\v7.1A')">v120_xp</PlatformToolset>
+    <PlatformToolset Condition="'$(VisualStudioVersion)' == '14.0'">v140</PlatformToolset>
+    <PlatformToolset Condition="'$(VisualStudioVersion)' == '14.0' and exists('$(MSBuildProgramFiles32)\Microsoft SDKs\Windows\v7.1A')">v140_xp</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <CharacterSet>Unicode</CharacterSet>
+    <PlatformToolset Condition="'$(VisualStudioVersion)' == '12.0'">v120</PlatformToolset>
+    <PlatformToolset Condition="'$(VisualStudioVersion)' == '12.0' and exists('$(MSBuildProgramFiles32)\Microsoft SDKs\Windows\v7.1A')">v120_xp</PlatformToolset>
+    <PlatformToolset Condition="'$(VisualStudioVersion)' == '14.0'">v140</PlatformToolset>
+    <PlatformToolset Condition="'$(VisualStudioVersion)' == '14.0' and exists('$(MSBuildProgramFiles32)\Microsoft SDKs\Windows\v7.1A')">v140_xp</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="..\..\cocos2d-x\cocos\2d\cocos2dx.props" />
+    <Import Project="..\..\cocos2d-x\cocos\2d\cocos2d_headers.props" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="..\..\cocos2d-x\cocos\2d\cocos2dx.props" />
+    <Import Project="..\..\cocos2d-x\cocos\2d\cocos2d_headers.props" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>12.0.21005.1</_ProjectFileVersion>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(SolutionDir)$(Configuration).win32\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(Configuration).win32\</IntDir>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</LinkIncremental>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(SolutionDir)$(Configuration).win32\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(Configuration).win32\</IntDir>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</LinkIncremental>
+    <CodeAnalysisRuleSet Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">AllRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRules Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" />
+    <CodeAnalysisRuleAssemblies Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" />
+    <CodeAnalysisRuleSet Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">AllRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRules Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" />
+    <CodeAnalysisRuleAssemblies Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" />
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LibraryPath>$(MSBuildProgramFiles32)\Microsoft SDKs\Windows\v7.1A\lib;$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LibraryPath>$(MSBuildProgramFiles32)\Microsoft SDKs\Windows\v7.1A\lib;$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Midl>
+      <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MkTypLibCompatible>false</MkTypLibCompatible>
+      <TargetEnvironment>Win32</TargetEnvironment>
+      <GenerateStublessProxies>true</GenerateStublessProxies>
+      <TypeLibraryName>$(IntDir)game.tlb</TypeLibraryName>
+      <HeaderFileName>game.h</HeaderFileName>
+      <DllDataFileName>
+      </DllDataFileName>
+      <InterfaceIdentifierFileName>game_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>game_p.c</ProxyFileName>
+    </Midl>
+    <ClCompile>
+      <Optimization>Disabled</Optimization>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\Classes;$(EngineRoot);$(EngineRoot)cocos\audio\include;$(EngineRoot)cocos;$(EngineRoot)external\spidermonkey\include\win32;$(EngineRoot)external\chipmunk\include\chipmunk;$(EngineRoot)extensions;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;STRICT;_DEBUG;XP_WIN;JS_HAVE___INTN;JS_INTPTR_TYPE=int;COCOS2D_DEBUG=1;COCOS2D_JAVASCRIPT=1;CC_ENABLE_CHIPMUNK_INTEGRATION=1;_CRT_SECURE_NO_WARNINGS;_SCL_SECURE_NO_WARNINGS;_USRJSSTATIC;_USRLIBSIMSTATIC;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MinimalRebuild>false</MinimalRebuild>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
+      <DisableSpecificWarnings>4267;4251;4244;4800;%(DisableSpecificWarnings)</DisableSpecificWarnings>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <Culture>0x0409</Culture>
+      <AdditionalIncludeDirectories>$(MSBuildProgramFiles32)\Microsoft SDKs\Windows\v7.1A\include;$(IntDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <PreLinkEvent>
+      <Command>
+      </Command>
+    </PreLinkEvent>
+    <Link>
+      <AdditionalDependencies>libcurl_imp.lib;mozjs-33.lib;ws2_32.lib;sqlite3.lib;websockets.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(OutDir);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <SubSystem>Windows</SubSystem>
+      <TargetMachine>MachineX86</TargetMachine>
+    </Link>
+    <PreBuildEvent>
+      <Command>
+      </Command>
+    </PreBuildEvent>
+    <PreBuildEvent>
+      <Command>
+      </Command>
+    </PreBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup>
+    <CustomBuildStep>
+      <Command>xcopy "$(ProjectDir)..\..\cocos2d-x\cocos\scripting\js-bindings\script" "$(OutDir)\script" /D /E /I /F /Y
+xcopy "$(ProjectDir)..\..\..\src" "$(OutDir)\src" /D /E /I /F /Y
+xcopy "$(ProjectDir)..\..\..\res" "$(OutDir)\res" /D /E /I /F /Y
+copy "$(ProjectDir)..\..\..\main.js" "$(OutDir)\" /Y
+copy "$(ProjectDir)..\..\..\project.json" "$(OutDir)\" /Y</Command>
+      <Outputs>$(TargetName).cab</Outputs>
+      <Inputs>$(TargetFileName)</Inputs>
+    </CustomBuildStep>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Midl>
+      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MkTypLibCompatible>false</MkTypLibCompatible>
+      <TargetEnvironment>Win32</TargetEnvironment>
+      <GenerateStublessProxies>true</GenerateStublessProxies>
+      <TypeLibraryName>$(IntDir)game.tlb</TypeLibraryName>
+      <HeaderFileName>game.h</HeaderFileName>
+      <DllDataFileName>
+      </DllDataFileName>
+      <InterfaceIdentifierFileName>game_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>game_p.c</ProxyFileName>
+    </Midl>
+    <ClCompile>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\Classes;$(EngineRoot);$(EngineRoot)cocos;$(EngineRoot)external\spidermonkey\include\win32;$(EngineRoot)external\chipmunk\include\chipmunk;$(EngineRoot)extensions;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;STRICT;NDEBUG;XP_WIN;JS_HAVE___INTN;JS_INTPTR_TYPE=int;COCOS2D_JAVASCRIPT=1;CC_ENABLE_CHIPMUNK_INTEGRATION=1;_CRT_SECURE_NO_WARNINGS;_SCL_SECURE_NO_WARNINGS;_USRJSSTATIC;_USRLIBSIMSTATIC;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ExceptionHandling>
+      </ExceptionHandling>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>
+      </DebugInformationFormat>
+      <DisableSpecificWarnings>4267;4251;4244;4800;%(DisableSpecificWarnings)</DisableSpecificWarnings>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <Culture>0x0409</Culture>
+      <AdditionalIncludeDirectories>$(MSBuildProgramFiles32)\Microsoft SDKs\Windows\v7.1A\include;$(IntDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <PreLinkEvent>
+      <Command>
+      </Command>
+    </PreLinkEvent>
+    <Link>
+      <AdditionalDependencies>libcurl_imp.lib;mozjs-33.lib;ws2_32.lib;sqlite3.lib;websockets.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(OutDir);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <SubSystem>Windows</SubSystem>
+      <TargetMachine>MachineX86</TargetMachine>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+    <PreBuildEvent>
+      <Command>
+      </Command>
+    </PreBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="..\Classes\AlphamonSprite.cpp" />
+    <ClCompile Include="..\Classes\alphamon\Alphamon.cpp" />
+    <ClCompile Include="..\Classes\alphamon\HPMeter.cpp" />
+    <ClCompile Include="..\Classes\alphamon\SelectAlphamonScene.cpp" />
+    <ClCompile Include="..\Classes\AppDelegate.cpp" />
+    <ClCompile Include="..\Classes\effects\FShake.cpp" />
+    <ClCompile Include="..\Classes\Entry.cpp" />
+    <ClCompile Include="..\Classes\ExternalSkeletonCharacter.cpp" />
+    <ClCompile Include="..\Classes\FallingState.cpp" />
+    <ClCompile Include="..\Classes\GameMapScene.cpp" />
+    <ClCompile Include="..\Classes\GameScene.cpp" />
+    <ClCompile Include="..\Classes\GestureLayer.cpp" />
+    <ClCompile Include="..\Classes\HelloWorldScene.cpp" />
+    <ClCompile Include="..\Classes\I18nUtils.cpp" />
+    <ClCompile Include="..\Classes\JumpingState.cpp" />
+    <ClCompile Include="..\Classes\LanguageManager.cpp" />
+    <ClCompile Include="..\Classes\lang\EnglishUtil.cpp" />
+    <ClCompile Include="..\Classes\lang\KannadaUtil.cpp" />
+    <ClCompile Include="..\Classes\lang\LangUtil.cpp" />
+    <ClCompile Include="..\Classes\lang\SafariAnalyticsManager.cpp" />
+    <ClCompile Include="..\Classes\lang\TextGenerator.cpp" />
+    <ClCompile Include="..\Classes\lang\WordInfo.cpp" />
+    <ClCompile Include="..\Classes\lang\WordManager.cpp" />
+    <ClCompile Include="..\Classes\MapIsland.cpp" />
+    <ClCompile Include="..\Classes\MapScene.cpp" />
+    <ClCompile Include="..\Classes\menu\MenuContext.cpp" />
+    <ClCompile Include="..\Classes\menu\ScoreBoardContent.cpp" />
+    <ClCompile Include="..\Classes\MessageContent.cpp" />
+    <ClCompile Include="..\Classes\MessageReceiver.cpp" />
+    <ClCompile Include="..\Classes\MessageSender.cpp" />
+    <ClCompile Include="..\Classes\mini_games\AlphamonFeedLevelScene.cpp" />
+    <ClCompile Include="..\Classes\mini_games\AlphamonFeedScene.cpp" />
+    <ClCompile Include="..\Classes\mini_games\Baja.cpp" />
+    <ClCompile Include="..\Classes\mini_games\BajaWordScene.cpp" />
+    <ClCompile Include="..\Classes\mini_games\Cannon_Ball_Listener.cpp" />
+    <ClCompile Include="..\Classes\mini_games\Cannon_Ball_Main.cpp" />
+    <ClCompile Include="..\Classes\mini_games\CatGameScene.cpp" />
+    <ClCompile Include="..\Classes\mini_games\CatScene.cpp" />
+    <ClCompile Include="..\Classes\mini_games\Chain.cpp" />
+    <ClCompile Include="..\Classes\mini_games\CrossTheBridgeScene.cpp" />
+    <ClCompile Include="..\Classes\mini_games\EndlessRunner.cpp" />
+    <ClCompile Include="..\Classes\mini_games\Jasmin_Listenerfile.cpp" />
+    <ClCompile Include="..\Classes\mini_games\Jasmin_Mainfile.cpp" />
+    <ClCompile Include="..\Classes\mini_games\jazz.cpp" />
+    <ClCompile Include="..\Classes\mini_games\PatchTheWallScene.cpp" />
+    <ClCompile Include="..\Classes\mini_games\SmashTheRockLevelScene.cpp" />
+    <ClCompile Include="..\Classes\mini_games\SmashTheRockScene.cpp" />
+    <ClCompile Include="..\Classes\mini_games\Spirograph.cpp" />
+    <ClCompile Include="..\Classes\mini_games\SpriteCreate.cpp" />
+    <ClCompile Include="..\Classes\mini_games\TraceScene.cpp" />
+    <ClCompile Include="..\Classes\mini_games\Wembley.cpp" />
+    <ClCompile Include="..\Classes\MO.cpp" />
+    <ClCompile Include="..\Classes\PhotoCaptureScene.cpp" />
+    <ClCompile Include="..\Classes\PhysicsShapeCache.cpp" />
+    <ClCompile Include="..\Classes\puzzle\Alphabet.cpp" />
+    <ClCompile Include="..\Classes\puzzle\AlphabetGrid.cpp" />
+    <ClCompile Include="..\Classes\puzzle\CharGenerator.cpp" />
+    <ClCompile Include="..\Classes\puzzle\DuelScene.cpp" />
+    <ClCompile Include="..\Classes\puzzle\Grapheme.cpp" />
+    <ClCompile Include="..\Classes\puzzle\GraphemeGrid.cpp" />
+    <ClCompile Include="..\Classes\puzzle\PegWord.cpp" />
+    <ClCompile Include="..\Classes\puzzle\WordBoard.cpp" />
+    <ClCompile Include="..\Classes\puzzle\WordScene.cpp" />
+    <ClCompile Include="..\Classes\RPGConfig.cpp" />
+    <ClCompile Include="..\Classes\RPGSprite.cpp" />
+    <ClCompile Include="..\Classes\RunningState.cpp" />
+    <ClCompile Include="..\Classes\ScrollableGameMapScene.cpp" />
+    <ClCompile Include="..\Classes\SkeletonCharacter.cpp" />
+    <ClCompile Include="..\Classes\SkeletonConfiguration.cpp" />
+    <ClCompile Include="..\Classes\SkeletonPosition.cpp" />
+    <ClCompile Include="..\Classes\SpeechBubbleView.cpp" />
+    <ClCompile Include="..\Classes\sqlite3.c" />
+    <ClCompile Include="..\Classes\Sqlite3Helper.cpp" />
+    <ClCompile Include="..\Classes\StandingState.cpp" />
+    <ClCompile Include="..\Classes\StartMenuScene.cpp" />
+    <ClCompile Include="..\Classes\State.cpp" />
+    <ClCompile Include="..\Classes\StateMachine.cpp" />
+    <ClCompile Include="..\Classes\WalkingState.cpp" />
+    <ClCompile Include="..\Classes\WordSprite.cpp" />
+    <ClCompile Include="main.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\Classes\AlphamonSprite.h" />
+    <ClInclude Include="..\Classes\alphamon\Alphamon.h" />
+    <ClInclude Include="..\Classes\alphamon\HPMeter.h" />
+    <ClInclude Include="..\Classes\alphamon\SelectAlphamonScene.h" />
+    <ClInclude Include="..\Classes\AppDelegate.h" />
+    <ClInclude Include="..\Classes\effects\FShake.h" />
+    <ClInclude Include="..\Classes\Entry.h" />
+    <ClInclude Include="..\Classes\ExternalSkeletonCharacter.h" />
+    <ClInclude Include="..\Classes\ext\utf8.h" />
+    <ClInclude Include="..\Classes\ext\utf8\checked.h" />
+    <ClInclude Include="..\Classes\ext\utf8\core.h" />
+    <ClInclude Include="..\Classes\ext\utf8\unchecked.h" />
+    <ClInclude Include="..\Classes\FallingState.h" />
+    <ClInclude Include="..\Classes\GameMapScene.h" />
+    <ClInclude Include="..\Classes\GameScene.h" />
+    <ClInclude Include="..\Classes\GestureLayer.hpp" />
+    <ClInclude Include="..\Classes\HelloWorldScene.h" />
+    <ClInclude Include="..\Classes\I18nDefine.h" />
+    <ClInclude Include="..\Classes\I18nUtils.h" />
+    <ClInclude Include="..\Classes\JumpingState.h" />
+    <ClInclude Include="..\Classes\LanguageManager.h" />
+    <ClInclude Include="..\Classes\lang\EnglishUtil.h" />
+    <ClInclude Include="..\Classes\lang\KannadaUtil.h" />
+    <ClInclude Include="..\Classes\lang\LangUtil.h" />
+    <ClInclude Include="..\Classes\lang\SafariAnalyticsManager.h" />
+    <ClInclude Include="..\Classes\lang\TextGenerator.h" />
+    <ClInclude Include="..\Classes\lang\WordInfo.h" />
+    <ClInclude Include="..\Classes\lang\WordManager.h" />
+    <ClInclude Include="..\Classes\MapIsland.h" />
+    <ClInclude Include="..\Classes\MapScene.h" />
+    <ClInclude Include="..\Classes\menu\MenuContext.h" />
+    <ClInclude Include="..\Classes\menu\ScoreBoardContext.h" />
+    <ClInclude Include="..\Classes\MessageContent.hpp" />
+    <ClInclude Include="..\Classes\MessageReceiver.hpp" />
+    <ClInclude Include="..\Classes\MessageSender.hpp" />
+    <ClInclude Include="..\Classes\mini_games\AlphamonFeedLevelScene.h" />
+    <ClInclude Include="..\Classes\mini_games\AlphamonFeedScene.h" />
+    <ClInclude Include="..\Classes\mini_games\Baja.h" />
+    <ClInclude Include="..\Classes\mini_games\BajaWordScene.h" />
+    <ClInclude Include="..\Classes\mini_games\Cannon_Ball_Listener.h" />
+    <ClInclude Include="..\Classes\mini_games\Cannon_Ball_Main.h" />
+    <ClInclude Include="..\Classes\mini_games\CatGameScene.h" />
+    <ClInclude Include="..\Classes\mini_games\CatScene.h" />
+    <ClInclude Include="..\Classes\mini_games\Chain.h" />
+    <ClInclude Include="..\Classes\mini_games\CrossTheBridgeScene.h" />
+    <ClInclude Include="..\Classes\mini_games\EndlessRunner.h" />
+    <ClInclude Include="..\Classes\mini_games\Jasmin_Listenerfile.h" />
+    <ClInclude Include="..\Classes\mini_games\Jasmin_Mainfile.h" />
+    <ClInclude Include="..\Classes\mini_games\jazz.h" />
+    <ClInclude Include="..\Classes\mini_games\PatchTheWallScene.h" />
+    <ClInclude Include="..\Classes\mini_games\SmashTheRockLevelScene.h" />
+    <ClInclude Include="..\Classes\mini_games\SmashTheRockScene.h" />
+    <ClInclude Include="..\Classes\mini_games\Spirograph.h" />
+    <ClInclude Include="..\Classes\mini_games\SpriteCreate.h" />
+    <ClInclude Include="..\Classes\mini_games\TraceScene.h" />
+    <ClInclude Include="..\Classes\mini_games\Wembley.h" />
+    <ClInclude Include="..\Classes\MO.h" />
+    <ClInclude Include="..\Classes\PhotoCaptureScene.hpp" />
+    <ClInclude Include="..\Classes\PhysicsShapeCache.h" />
+    <ClInclude Include="..\Classes\puzzle\Alphabet.h" />
+    <ClInclude Include="..\Classes\puzzle\AlphabetGrid.h" />
+    <ClInclude Include="..\Classes\puzzle\CharGenerator.h" />
+    <ClInclude Include="..\Classes\puzzle\DuelScene.h" />
+    <ClInclude Include="..\Classes\puzzle\Grapheme.h" />
+    <ClInclude Include="..\Classes\puzzle\GraphemeGrid.h" />
+    <ClInclude Include="..\Classes\puzzle\PegWord.h" />
+    <ClInclude Include="..\Classes\puzzle\WordBoard.h" />
+    <ClInclude Include="..\Classes\puzzle\WordScene.h" />
+    <ClInclude Include="..\Classes\RPGConfig.h" />
+    <ClInclude Include="..\Classes\RPGSprite.h" />
+    <ClInclude Include="..\Classes\RunningState.h" />
+    <ClInclude Include="..\Classes\ScrollableGameMapScene.hpp" />
+    <ClInclude Include="..\Classes\SkeletonCharacter.h" />
+    <ClInclude Include="..\Classes\SkeletonConfiguration.h" />
+    <ClInclude Include="..\Classes\SkeletonPosition.h" />
+    <ClInclude Include="..\Classes\SpeechBubbleView.hpp" />
+    <ClInclude Include="..\Classes\sqlite3.h" />
+    <ClInclude Include="..\Classes\Sqlite3Helper.hpp" />
+    <ClInclude Include="..\Classes\StandingState.h" />
+    <ClInclude Include="..\Classes\StartMenuScene.h" />
+    <ClInclude Include="..\Classes\State.h" />
+    <ClInclude Include="..\Classes\StateMachine.h" />
+    <ClInclude Include="..\Classes\WalkingState.h" />
+    <ClInclude Include="..\Classes\WordSprite.h" />
+    <ClInclude Include="main.h" />
+    <ClInclude Include="resource.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="game.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="res\game.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\cocos2d-x\cocos\scripting\js-bindings\proj.win32\libjscocos2d.vcxproj">
+      <Project>{39379840-825a-45a0-b363-c09ffef864bd}</Project>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
