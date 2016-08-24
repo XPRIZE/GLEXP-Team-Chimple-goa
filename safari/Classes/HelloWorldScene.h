@@ -115,7 +115,7 @@ private:
     
     void scheduleContinuousRotationCall(float timeToStart);
     
-    void moveBackGroundLayerInParallex();
+    void moveLayersInParallex();
     
     void setReferencesToGameLayers(cocos2d::Node *rootNode);
         
@@ -177,7 +177,7 @@ private:
     cocos2d::Node* mainLayer;
     cocos2d::Node* backgroundLayer;
     cocos2d::Node* foregroundLayer;
-    
+        
     //category bit mask for main skeleton
     int mainCharacterCategoryBitMask;
     
