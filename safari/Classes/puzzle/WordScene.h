@@ -13,6 +13,7 @@
 #include "../menu/MenuContext.h"
 #include "GraphemeGrid.h"
 #include "Grapheme.h"
+#include "RPGConfig.h"
 
 class WordScene : public cocos2d::Node {
 public:
@@ -20,19 +21,24 @@ public:
     static WordScene *create();
     static WordScene *createWithWord(std::string wordStr);
     virtual void onTouchEnded(cocos2d::Touch* touch, cocos2d::Event* event);
+    virtual void showHandWritingDialog(cocos2d::Ref* pSender, cocos2d::ui::Widget::TouchEventType eEventType);
     virtual void checkAnswer();
     void onExitTransitionDidStart() override;
     void onEnterTransitionDidFinish() override;
+    void enableHandWriting();
+    bool isHandWritingEnabled();
+    static void textReceived(std::string text);
     
 CC_CONSTRUCTOR_ACCESS:
     WordScene();
     virtual ~WordScene();
-    bool init();
+    virtual bool init() override;
     bool initWithWord(std::string word);
     
 protected:
     virtual cocos2d::Node* loadNode();
     virtual void createGrid();
+    virtual void createHandWritingButton();
     virtual void createAnswer();
     virtual void createChoice();
     virtual void gameOver(bool correct);
@@ -46,6 +52,8 @@ protected:
     virtual std::string getGraphemeSelectedBackground();
 	virtual GraphemeGrid* createGraphemeGrid(GLfloat width, GLfloat height, int numRows, int numCols, std::string spriteName, std::vector<std::vector<std::string>> graphemes, std::string graphemeUnselectedBackground, std::string graphemeSelectedBackground);
 
+    
+    void processGrapheme(Grapheme* grapheme);
 
     MenuContext* _menuContext;
     GraphemeGrid* _grid;
@@ -57,6 +65,8 @@ protected:
     std::vector<std::string> _answerGraphemes;
     std::vector<std::vector<std::string>> _matrix;
     std::vector<std::pair<Node*, Grapheme*>> _answerVector;
+    bool _showHandWriting;
+    cocos2d::ui::Button* _handWritingDialogButton;
 };
 
 #endif /* WordScene_h */

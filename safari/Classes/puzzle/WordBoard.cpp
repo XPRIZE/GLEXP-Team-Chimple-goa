@@ -46,6 +46,9 @@ WordBoard* WordBoard::create() {
 
 WordBoard* WordBoard::createWithWord(std::string wordStr) {
     WordBoard* word = new (std::nothrow) WordBoard();
+    if(RPGConfig::enableHandWriting) {
+        word->enableHandWriting();
+    }
     if(word && word->initWithWord(wordStr))
     {
         word->autorelease();
@@ -87,7 +90,9 @@ Node* WordBoard::loadNode() {
 
 void WordBoard::createGrid() {
     WordScene::createGrid();
-    _grid->setPosition(0, 100);
+    if(_grid) {
+        _grid->setPosition(0, 100);
+    }
 }
 
 void WordBoard::createChoice() {
