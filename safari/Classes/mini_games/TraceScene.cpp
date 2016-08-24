@@ -433,7 +433,7 @@ void Trace::finishedAll() {
 		std::chrono::seconds duration(1);
 		std::this_thread::sleep_for(duration);
 
-		if (_level == 46) {
+		if (_level == wcslen(LangUtil::getInstance()->getAllCharacters())-1) {
 			_level = -1;
 		}
 		_level++;
