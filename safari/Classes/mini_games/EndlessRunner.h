@@ -32,7 +32,7 @@ protected:
 	Sprite* leftBarrier, *rightBarrier , *leftBarrierForBigObject, *upBarrier , *hpUi;
 	cocostudio::timeline::ActionTimeline *hpUiCatchAction , *happyManAction;
 	double xSizeArray[7] = { 1.0,0.4,0.6,0.8,0.5,1.2,1.4 };
-	int counterAlphabets = 0, counterLife = 6 , counterLetter = 0;
+	int counterAlphabets = 0, counterLetter = 0;
 	
 	std::vector<std::vector<wchar_t>> letters;
 

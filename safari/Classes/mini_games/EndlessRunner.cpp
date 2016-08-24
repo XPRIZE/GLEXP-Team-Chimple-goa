@@ -58,23 +58,18 @@ bool EndlessRunner::init()
 	happyManAction = CSLoader::createTimeline("endlessrunner/happy_mad.csb");
 	hpUiCatchAction = CSLoader::createTimeline("endlessrunner/catch_score.csb");
 	
-	auto rotate1 = CSLoader::createTimeline("endlessrunner/life.csb");
-	auto rotate2 = CSLoader::createTimeline("endlessrunner/life.csb");
-	auto rotate3 = CSLoader::createTimeline("endlessrunner/life.csb");
-	auto rotate4 = CSLoader::createTimeline("endlessrunner/life.csb");
-	auto rotate5 = CSLoader::createTimeline("endlessrunner/life.csb");
-
 	hpUi = (Sprite *)CSLoader::createNode("endlessrunner/hp_ui.csb");
 	hpUi->setPosition(Vec2((visibleSize.width * 0.005) + origin.x,(visibleSize.height + origin.y) - (visibleSize.height * 0.38)));
 	hpUi->setScale(0.7);
 	this->addChild(hpUi, 7);
 	hpUi->runAction(hpUiCatchAction);
 	hpUi->getChildByName("happy_mad")->setScale(1.2);
-	hpUi->getChildByName("life_1")->runAction(rotate1);	rotate1->play("rotate", true);
-	hpUi->getChildByName("life_2")->runAction(rotate2); rotate2->play("rotate", true);
-	hpUi->getChildByName("life_3")->runAction(rotate3); rotate3->play("rotate", true);
-	hpUi->getChildByName("life_4")->runAction(rotate4); rotate4->play("rotate", true);
-	hpUi->getChildByName("life_5")->runAction(rotate5); rotate5->play("rotate", true);
+
+	for (int i = 1; i <= 5; i++) {
+		auto rotate = CSLoader::createTimeline("endlessrunner/life.csb");
+		std::ostringstream lifeName;	lifeName << "life_"<<i; std::string life= lifeName.str();
+		hpUi->getChildByName(life)->runAction(rotate);	rotate->play("rotate", true);
+	}
 	
 	hpUi->runAction(happyManAction);
 	happyManAction->play("happy_idle",true);
@@ -154,7 +149,7 @@ void EndlessRunner::update(float delta) {
 
 	EndlessRunner::removePathBlockTouchByLeftBarrier();
 	
-	if (counterAlphabets == 10 || counterLife == 1) {
+	if (counterAlphabets == 10) {
 		_menuContext->showScore();
 	}
 }
@@ -251,9 +246,12 @@ void EndlessRunner::startingIntersectMode() {
 		Rect netBoxs = Rect(parent.origin.x + (box.origin.x), parent.origin.y + (box.origin.y), box.size.width*1.2, box.size.height*1.2);
 
 		Rect letteBox = allLabels[i]->getBoundingBox();
-		Rect newLetterBox = Rect(letteBox.origin.x-30, letteBox.origin.y+(letteBox.size.height/2), letteBox.size.width,30);
+		if (LangUtil::getInstance()->getLang() == "kan") {
+			Rect newLetterBox = Rect(letteBox.origin.x - 30, letteBox.origin.y + (letteBox.size.height / 2), letteBox.size.width, 30);
+			letteBox = newLetterBox;
+		}
 
-		if (netBoxs.intersectsRect(newLetterBox))
+		if (netBoxs.intersectsRect(letteBox))
 		{
 			auto mystr = LangUtil::convertUTF16CharToString(tempChar);
 			if (allLabels[i]->getName() == mystr) {
@@ -284,17 +282,17 @@ void EndlessRunner::startingIntersectMode() {
 					hpUi->getChildByName("happy_mad")->runAction(scaleVary);
 					popUp = true;
 				}
-				for (std::size_t k = 0; k <allMonster.size(); k++) {
-					if (allMonster[k]->getTag() == allLabels[i]->getTag()) {
-						this->removeChild(allLabels[i]);
-						allLabels.erase(allLabels.begin() + i);
-						Character.action->play("correct_catch", false);
-						allMonster[k]->getChildByName("monster_egg")->setVisible(false);
-						hpUi->getChildByName("happy_mad")->getChildByName("happy")->setVisible(true);	
-						hpUi->getChildByName("happy_mad")->getChildByName("mad")->setVisible(false);
-						allMonster[k]->runAction(MoveBy::create(3, Vec2((visibleSize.width * 90 / 100) + origin.x, (visibleSize.height * 70 / 100) + origin.y)));
-					}
-				}
+				//for (std::size_t k = 0; k <allMonster.size(); k++) {
+				//	if (allMonster[k]->getTag() == allLabels[i]->getTag()) {
+				//		this->removeChild(allLabels[i]);
+				//		allLabels.erase(allLabels.begin() + i);
+				//		Character.action->play("correct_catch", false);
+				//		allMonster[k]->getChildByName("monster_egg")->setVisible(false);
+				//		hpUi->getChildByName("happy_mad")->getChildByName("happy")->setVisible(true);	
+				//		hpUi->getChildByName("happy_mad")->getChildByName("mad")->setVisible(false);
+				//		allMonster[k]->runAction(MoveBy::create(3, Vec2((visibleSize.width * 90 / 100) + origin.x, (visibleSize.height * 70 / 100) + origin.y)));
+				//	}
+				//}
 			}
 			else {
 				_menuContext->pickAlphabet(tempChar, allLabels[i]->getChar(), true);
@@ -320,36 +318,30 @@ void EndlessRunner::startingIntersectMode() {
 					hpUi->getChildByName("happy_mad")->runAction(scaleVary);
 					popUp = false;
 				}
-				for (std::size_t k = 0; k <allMonster.size(); k++) {
-					if (allMonster[k]->getTag() == allLabels[i]->getTag()) {
+				//for (std::size_t k = 0; k <allMonster.size(); k++) {
+				//	if (allMonster[k]->getTag() == allLabels[i]->getTag()) {
 
-						Character.action->play("worng_catch", false);
-						this->removeChild(allLabels[i]);
-						allLabels.erase(allLabels.begin() + i);
-						hpUi->getChildByName("happy_mad")->getChildByName("mad")->setVisible(true);
-						hpUi->getChildByName("happy_mad")->getChildByName("happy")->setVisible(false);
-						allMonster[k]->getChildByName("monster_egg")->setVisible(false);
-						allMonster[k]->getChildByName("monster_egg_crack")->setVisible(true);
-						allMonster[k]->runAction(MoveBy::create(3, Vec2((visibleSize.width * 90 / 100) + origin.x, (visibleSize.height * 70 / 100) + origin.y)));
-					}
-				}
+				//		Character.action->play("worng_catch", false);
+				//		this->removeChild(allLabels[i]);
+				//		allLabels.erase(allLabels.begin() + i);
+				//		hpUi->getChildByName("happy_mad")->getChildByName("mad")->setVisible(true);
+				//		hpUi->getChildByName("happy_mad")->getChildByName("happy")->setVisible(false);
+				//		allMonster[k]->getChildByName("monster_egg")->setVisible(false);
+				//		allMonster[k]->getChildByName("monster_egg_crack")->setVisible(true);
+				//		allMonster[k]->runAction(MoveBy::create(3, Vec2((visibleSize.width * 90 / 100) + origin.x, (visibleSize.height * 70 / 100) + origin.y)));
+				//	}
+				//}
 			}
 		}
 	}
 	if (flagLifeDemo) {
 		for (std::size_t i = 0; i < allBeforeStartBlocks.size(); i++) {
-			
 			auto box = Character.character->getChildByName("floor_3")->getBoundingBox();
 			Rect parent = Character.character->getBoundingBox();
 			Rect boxs = Rect(parent.origin.x + (box.origin.x), parent.origin.y + (box.origin.y), box.size.width, box.size.height);
 
 			if (boxs.intersectsRect(allBeforeStartBlocks[i]->getBoundingBox())) {
 				flagLifeDemo = false;
-				counterLife = counterLife - 1;
-				std::ostringstream sstreamc; sstreamc << "life_" << counterLife; std::string counterLife = sstreamc.str();
-				hpUi->getChildByName(counterLife)->stopAllActions();
-				hpUi->getChildByName(counterLife)->getChildByName("life_on")->setVisible(false);
-				hpUi->getChildByName(counterLife)->getChildByName("life_off")->setVisible(true);
 				auto upVisible = CallFunc::create([=]() {
 					Character.character->setVisible(false);
 				});
@@ -389,7 +381,7 @@ void EndlessRunner::sceneBackgroundFlow() {
 }
 
 void EndlessRunner::mountainLayer1() {
-	//Endless Monutain Running Code 
+	//Endless Monutain Running Code
 	if (!rightBarrier->getBoundingBox().intersectsRect(currentlayer1Sprite->getBoundingBox())) {
 		int xSizeIndexRange = EndlessRunner::randmValueIncludeBoundery(0, 6);
 		auto layer1Mountain = EndlessRunner::CreateSprites("endlessrunner/layer_1_mountain.png", rightBarrier->getPosition().x - LayerMode.tolerence, (int)((visibleSize.height * 18 / 100) + origin.y), xSizeArray[xSizeIndexRange], 1, 1, "bgElement");
