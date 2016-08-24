@@ -20,7 +20,6 @@ Scene* EndlessRunner::createScene()
 
 EndlessRunner::~EndlessRunner(void)
 {
-	audioBg->stopAllEffects();
 	this->removeAllChildrenWithCleanup(true);
 }
 
@@ -125,10 +124,7 @@ void EndlessRunner::scheduleMethod() {
 }
 
 void EndlessRunner::startGame() {
-	audioBg = CocosDenshion::SimpleAudioEngine::getInstance();
-	audioBg->playEffect("endlessrunner/sound/african_drum.wav", true);
 	_menuContext->showStartupHelp(CC_CALLBACK_0(EndlessRunner::scheduleMethod, this));
-//	runAction(Sequence::create(CallFunc::create(CC_CALLBACK_0(MenuContext::showStartupHelp, _menuContext)), CallFunc::create(CC_CALLBACK_0(EndlessRunner::scheduleMethod, this)), NULL));
 }
 
 void EndlessRunner::update(float delta) {
