@@ -19,7 +19,7 @@ public:
     static GameScene* createWithChildForIslandAndSceneName(Node *node, std::string island, std::string sceneName);
     MenuContext* getMenuContext();
     LangUtil* getLangUtil();
-    
+    Node* getChildLayer();
 CC_CONSTRUCTOR_ACCESS:
     GameScene();
     virtual ~GameScene();

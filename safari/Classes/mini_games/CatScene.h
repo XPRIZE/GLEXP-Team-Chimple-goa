@@ -18,18 +18,12 @@
 class Cat : public WordScene
 {
 public:
-	int _upCount, _downCount;
 	bool _gameContinue;
-	static int _upCounting;
 	std::string _state;
 	static Cat *create();
 	std::vector<Node*> _gapNodes1;
 	float _movingPositionX, _blockSetPosY = 0.0f;
 	float _movingPositionY, _posAfterGap, _posAfterGapX;
-	Node * _catNode1;
-	cocostudio::timeline::ActionTimeline * _catAnimation1;
-	std::vector<float> _stringPositionX1;
-	std::vector<float> _stringPositionY1;
 protected:
 	
 	cocos2d::Node* loadNode() override;
@@ -39,7 +33,6 @@ protected:
 	void gameOver(bool correct) override;
 	std::string getGraphemeUnselectedBackground() override;
 	std::string getGraphemeSelectedBackground() override;
-	void gameExit();
 };
 
 #endif 

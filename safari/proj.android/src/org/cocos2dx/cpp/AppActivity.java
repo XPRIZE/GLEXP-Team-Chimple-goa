@@ -59,6 +59,7 @@ import android.view.WindowManager;
 import android.widget.HorizontalScrollView;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.Scroller;
 import android.widget.TextView;
 import org.chimple.safari.R;
@@ -84,16 +85,12 @@ public class AppActivity extends Cocos2dxActivity  implements OnClickListener, O
 	private static CanvasView canvasView = null;
 	private static LinearLayout main;
 	private static LinearLayout cenerLayout;
-	private static LinearLayout topLayout;
-	private static LinearLayout subLayout;
-	private static LinearLayout SecondLayout;
-	private static ImageView Exit;
-	private static HorizontalScrollView HorizontalSV;
+	private static RelativeLayout topLayout;
 	private static TextView[] TV = new TextView[1];
 
 	public final int MY_DATA_CHECK_CODE = 1;
 	private TextToSpeech mTts = null;
-
+	private static Dialog dialog;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -107,7 +104,7 @@ public class AppActivity extends Cocos2dxActivity  implements OnClickListener, O
 
 		Display display = ((WindowManager) getSystemService(Context.WINDOW_SERVICE)).getDefaultDisplay();
 		width = (int) (display.getWidth() * 0.5);
-		height = (int) (display.getHeight());
+		height = (int) (display.getHeight() * 0.5);
 
 		v = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
 
@@ -171,12 +168,14 @@ public class AppActivity extends Cocos2dxActivity  implements OnClickListener, O
 	public static native boolean photoDestinationURL(String path);
 
 	private void execute(final String photoUrl) {
-		new Thread(new Runnable() {
+		((Cocos2dxActivity) _activity).runOnGLThread(new Runnable() {
+			@Override
 			public void run() {
+				// TODO Auto-generated method stub
 				System.out.println("comes and calling desimation with :" + photoUrl);
 				photoDestinationURL(photoUrl);
 			}
-		}).start();
+		});
 	}
 
 	public static void takePhoto() {
@@ -191,7 +190,7 @@ public class AppActivity extends Cocos2dxActivity  implements OnClickListener, O
 
 	private static void showCustomDialog(Context context, final int posX, final int posY, final int hGravity, final int vGravity) {
 		// custom dialog
-		final Dialog dialog = new Dialog(context);
+		dialog = new Dialog(context);
 		dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
 		dialog.getWindow().setBackgroundDrawable(new ColorDrawable(android.graphics.Color.TRANSPARENT));
 
@@ -207,68 +206,25 @@ public class AppActivity extends Cocos2dxActivity  implements OnClickListener, O
 		main.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT,
 				LinearLayout.LayoutParams.MATCH_PARENT));
 
-		topLayout = new LinearLayout(_activity);
+		topLayout = new RelativeLayout(_activity);
 		topLayout.setLayoutParams(
-				new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, ((height / 2) + 130)));
-		topLayout.setOrientation(LinearLayout.VERTICAL);
-		topLayout.setBackgroundColor(Color.GREEN);
-		topLayout.addView(canvasView);
+				new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.MATCH_PARENT));
+		topLayout.setBackgroundColor(Color.WHITE);
+		
 
 		cenerLayout = new LinearLayout(_activity);
-		cenerLayout.setOrientation(LinearLayout.VERTICAL);
-		cenerLayout.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT,
-				LinearLayout.LayoutParams.WRAP_CONTENT));
+		cenerLayout.setOrientation(LinearLayout.HORIZONTAL);
+		LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT,
+				LinearLayout.LayoutParams.WRAP_CONTENT);
+		cenerLayout.setGravity(Gravity.CENTER_HORIZONTAL | Gravity.CENTER_VERTICAL);
+		cenerLayout.setLayoutParams(params);
 		cenerLayout.setBackgroundColor(Color.WHITE);
+		cenerLayout.addView(canvasView);
 
-		for (int i = 0; i < TV.length; i++) {
-			TV[i] = new TextView(_activity);
-			TV[i].setTextColor(Color.BLUE);
-			TV[i].setTextSize(40);
-			TV[i].setGravity(Gravity.CENTER_HORIZONTAL);
-			TV[i].setTypeface(null, Typeface.BOLD);
-			TV[i].setHeight(height / 8);
-			TV[i].setPadding(5, 0, 0, 0);
-			TV[i].setScroller(new Scroller(_activity));
-			TV[i].setVerticalScrollBarEnabled(true);
-			TV[i].setMovementMethod(ScrollingMovementMethod.getInstance());
-			cenerLayout.addView(TV[i]);
-		}
-
-		SecondLayout = new LinearLayout(_activity);
-		SecondLayout.setOrientation(LinearLayout.HORIZONTAL);
-		SecondLayout.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, 70));
-		SecondLayout.setBackgroundColor(Color.RED);
-
-		HorizontalSV = new HorizontalScrollView(_activity);
-		HorizontalSV
-				.setLayoutParams(new LinearLayout.LayoutParams((width - 125), LinearLayout.LayoutParams.WRAP_CONTENT));
-
-		SecondLayout.addView(HorizontalSV);
-
-		subLayout = new LinearLayout(_activity);
-		subLayout.setOrientation(LinearLayout.HORIZONTAL);
-		subLayout.setLayoutParams(
-				new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, ((height / 8) - 16)));
-		subLayout.setGravity(Gravity.BOTTOM);
-		Exit = new ImageView(_activity);
-
-		Exit.setImageResource(R.drawable.exit);
-		Exit.setPadding(30, 0, 0, 0);
-
-		Exit.setOnClickListener(new OnClickListener() {
-			@Override
-			public void onClick(View v) {
-				dialog.dismiss();
-			}
-		});
-
-		subLayout.addView(Exit);
-
+		main.setAlpha(0.5f);
 		main.addView(cenerLayout);
 		main.addView(topLayout);
-		main.addView(subLayout);
-		dialog.setContentView(main);
-
+		dialog.setContentView(main);		
 		dialog.getWindow().setLayout(width, height);
 		dialog.show();
 	}	
@@ -283,11 +239,6 @@ public static void drawCanvas(final int posX, final int posY, final int hGravity
 				showCustomDialog(_activity, posX, posY, hGravity, vGravity);
 			}
 		});
-
-		// Intent startCameraActivity = new Intent(_activity,
-		// CameraActivity.class);
-		// _activity.startActivityForResult(startCameraActivity, 0);
-
 	}
 
 	public void Process() {
@@ -312,14 +263,11 @@ public static void drawCanvas(final int posX, final int posY, final int hGravity
 	 */
 	public void ClearCanvas() {
 		if (canvasView != null) {
-			System.out.println("ClearCanvas 222222");
-			topLayout.removeView(canvasView);
+			cenerLayout.removeView(canvasView);
 			canvasView = new CanvasView(_context, _appActivity);
-			System.out.println("ClearCanvas 33333333");
-			topLayout.setLayoutParams(
-					new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, ((height / 2) + 130)));
-			System.out.println("ClearCanvas 4444444");
-			topLayout.addView(canvasView);
+			cenerLayout.setLayoutParams(
+					new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.MATCH_PARENT));
+			cenerLayout.addView(canvasView);
 		}
 	}
 
@@ -346,21 +294,19 @@ public static void drawCanvas(final int posX, final int posY, final int hGravity
 	}
 
 	public void FreePadCall() {
-
-		HorizontalSV.setVisibility(View.VISIBLE);
 		if (canvasView != null) {
-			topLayout.removeView(canvasView);
+			cenerLayout.removeView(canvasView);
 			canvasView.destroyDrawingCache();
 			canvasView = new CanvasView(_context, _appActivity);
-			topLayout.setLayoutParams(
-					new LinearLayout.LayoutParams(LinearLayout.LayoutParams.FILL_PARENT, ((height / 2) + 130)));
-			topLayout.addView(canvasView);
+			cenerLayout.setLayoutParams(
+					new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.MATCH_PARENT));
+			cenerLayout.addView(canvasView);
 		}
 		System.out.println("setting canvas character:" + canvasView.character[0]);
-		TV[0].setText(canvasView.character[0]);
-		final String str1 = TV[0].getText().toString();
+		//TV[0].setText(canvasView.character[0]);
+		final String str1 = canvasView.character[0].toString();
 		System.out.println("specking string" + str1);
-
+		dialog.dismiss();
 		handler.postDelayed(new Runnable() {
 			public void run() {
 				if (!str1.isEmpty()) {
@@ -376,15 +322,15 @@ public static void drawCanvas(final int posX, final int posY, final int hGravity
 
 	public void SpeakOutChoices() {
 		if (canvasView != null) {
-			topLayout.removeView(canvasView);
+			cenerLayout.removeView(canvasView);
 			canvasView = new CanvasView(_context, _appActivity);
-			topLayout.setLayoutParams(
-					new LinearLayout.LayoutParams(LinearLayout.LayoutParams.FILL_PARENT, ((height / 2) + 130)));
-			topLayout.addView(canvasView);
+			cenerLayout.setLayoutParams(
+					new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.MATCH_PARENT));
+			cenerLayout.addView(canvasView);
 		}
 		System.out.println("index" + curr_indx + "---" + CanvasView.StrokeResultCount);
 		if (curr_indx < CanvasView.StrokeResultCount) {
-			TV[0].setText(CanvasView.character[curr_indx]);
+			//TV[0].setText(CanvasView.character[curr_indx]);
 			String Choice1 = CanvasView.character[curr_indx];
 			mTts.speak(Choice1, 0, null);
 			curr_indx++;
@@ -397,11 +343,13 @@ public static void drawCanvas(final int posX, final int posY, final int hGravity
 	public static native boolean sendRecognizedStringToGame(String path);
 
 	private void executeRecognizedCharcter(final String characterStr) {
-		new Thread(new Runnable() {
+		((Cocos2dxActivity) _activity).runOnGLThread(new Runnable() {
+			@Override
 			public void run() {
+				// TODO Auto-generated method stub
 				System.out.println("comes and calling desimation with :" + characterStr);
 				sendRecognizedStringToGame(characterStr);
 			}
-		}).start();
+		});
 	}	
 }

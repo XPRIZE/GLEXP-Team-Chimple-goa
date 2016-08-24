@@ -89,3 +89,8 @@ MenuContext* GameScene::getMenuContext() {
 LangUtil* GameScene::getLangUtil() {
     return _langUtil;
 }
+
+
+Node* GameScene::getChildLayer() {
+    return _child;
+}

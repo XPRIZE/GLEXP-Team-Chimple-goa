@@ -22,6 +22,7 @@
 #include "mini_games/jazz.h"
 #include "mini_games/Chain.h"
 #include "mini_games/Wembley.h"
+#include "mini_games/CatGameScene.h"
 
 
 USING_NS_CC;
@@ -93,7 +94,9 @@ void StartMenu::startScene(std::string gameName, std::string firstParam, std::st
         Director::getInstance()->replaceScene(jazz::createScene());
     } else if(gameName == CHAIN) {
         Director::getInstance()->replaceScene(Chain::createScene());
-    }
+    }else if (gameName == CAT) {
+		Director::getInstance()->replaceScene(CatGame::createScene());
+	}
     else {
         CCLOG("Failed starting scene: %s", gameName.c_str());
     }

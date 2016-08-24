@@ -134,15 +134,33 @@ void Jasmin_Mainfile::startFlowerAnimation(Node *nd, int random_val, int animati
 			eyeTimeline->play("bloom", false);
 
 			if(animationNumber==_numGraphemes-1)
-			eyeTimeline->setAnimationEndCallFunc("bloom", CC_CALLBACK_0(Jasmin_Mainfile::showScore, this));
+			eyeTimeline->setAnimationEndCallFunc("bloom", CC_CALLBACK_0(Jasmin_Mainfile::playAnimation, this));
 		}
 	}
 }
 
-void Jasmin_Mainfile::showScore()
+void Jasmin_Mainfile::playAnimation()
 {
 //	audioBg->stopAllEffects();
-	Director::getInstance()->replaceScene(Spirograph::createScene());
+//	Director::getInstance()->replaceScene(Spirograph::createScene());
+
+	Size _size = Director::getInstance()->getVisibleSize();
+
+
+	auto _node = CSLoader::createNode("jasmine/win.csb");
+	_node->setPosition(Vec2(_size.width / 2, _size.height / 2));
+	_node->setAnchorPoint(Vec2(.5, .5));
+	addChild(_node);
+
+	auto _timeline = CSLoader::createTimeline("jasmine/win.csb");
+	_node->runAction(_timeline);
+	_timeline->play("win", false);
+	_timeline->setAnimationEndCallFunc("win", CC_CALLBACK_0(Jasmin_Mainfile::showScore, this));
+}
+
+void Jasmin_Mainfile::showScore()
+{
+	_menuContext->showScore();
 }
 
 Jasmin_Mainfile* Jasmin_Mainfile::create() {
