@@ -35,19 +35,6 @@ extern "C"
         
         return true;
     }
-    
-    jboolean Java_org_cocos2dx_cpp_AppActivity_sendRecognizedStringToGame(JNIEnv* env, jobject thiz,jstring textStr)
-    {
-        const char* str;
-        str = env->GetStringUTFChars(textStr, NULL);
-        std::string tempStr(str);
-        if(!tempStr.empty()) {
-            CCLOG("Received Character String %s", tempStr.c_str());
-        }
-        
-        return true;
-    }
-    
 }
 #endif
 
@@ -151,18 +138,7 @@ void PhotoCaptureScene::takePhoto(Ref* pSender, ui::Widget::TouchEventType eEven
                 }
                 methodInfo.env->CallStaticVoidMethod(methodInfo.classID, methodInfo.methodID);
                 methodInfo.env->DeleteLocalRef(methodInfo.classID);
-            
-//            cocos2d::JniMethodInfo methodInfo;
-//            if (! cocos2d::JniHelper::getStaticMethodInfo(methodInfo, "org/cocos2dx/cpp/AppActivity", "drawCanvas", "(IIII)V")) {
-//                return;
-//            }
-//            
-//            int x = 400;
-//            int y = 400;
-//            
-//            methodInfo.env->CallStaticVoidMethod(methodInfo.classID, methodInfo.methodID, x, y, LAYOUT_CENTER_HORIZONTAL, LAYOUT_CENTER_VERTICAL);
-//            methodInfo.env->DeleteLocalRef(methodInfo.classID);
-            
+                        
             #endif
             
             break;
