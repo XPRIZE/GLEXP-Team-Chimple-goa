@@ -178,7 +178,6 @@ void HelloWorld::processMainLayerNonAlphamonChildrenForCustomEvents() {
     assert(this->mainLayer != NULL);
     //iterate thru all children
     auto children = this->mainLayer->getChildren();
-    
     for (std::vector<Node*>::iterator it = children.begin() ; it != children.end(); ++it) {
         cocos2d::Node* node = *it;
         this->processNodeWithCustomAttributes(node, this->mainLayer);
@@ -208,7 +207,7 @@ void HelloWorld::processNodeWithCustomAttributes(Node* node, Node* parentNode) {
                 if(regex_match(fileName, skeletonFile)) {
                     //process hero node
 					std::string value = node->getName();// std::regex_replace(node->getName(), std::regex("^ +| +$|( ) +"), "$1");
-                    if(RPGConfig::compareCaseInsensitive(value,HUMAN_SKELETON_NAME)) {
+                    if(value == HUMAN_SKELETON_NAME) {
                         //create Hero character
                         this->addMainCharacterToScene(fileName, node);
                         
@@ -961,12 +960,12 @@ void HelloWorld::update(float dt) {
         }
     }
     
-    this->moveBackGroundLayerInParallex();
+    this->moveLayersInParallex();
     
 }
 
 
-void HelloWorld::moveBackGroundLayerInParallex() {
+void HelloWorld::moveLayersInParallex() {
     if(this->backgroundLayer != NULL) {
         this->backgroundLayer->setPositionX(this->mainLayer->getPosition().x * HORIZONTAL_PARALLEX_RATIO);
         this->backgroundLayer->setPositionY(this->mainLayer->getPosition().y * VERTICAL_PARALLEX_RATIO);
