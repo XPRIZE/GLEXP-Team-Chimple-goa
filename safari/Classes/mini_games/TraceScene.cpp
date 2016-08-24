@@ -395,10 +395,20 @@ void Trace::finishedAll() {
 
 	timeline->play(randomAnimation, false);
 
-
-
-
 	float delay = 0.08;
+	auto characterAudio = CallFunc::create([=] {
+
+		auto audio = CocosDenshion::SimpleAudioEngine::getInstance();
+		auto alpha = LangUtil::getInstance()->getAllCharacters();
+		auto path = LangUtil::getInstance()->getAlphabetSoundFileName(alpha[_level]);
+		audio->playEffect(path.c_str(), false);
+
+	});
+	auto playAudio = Sequence::create(DelayTime::create(delay), characterAudio, DelayTime::create(2.0), NULL);
+	this->runAction(playAudio);
+
+
+	
 
 	for (int j = 0; j < _nodes.size(); j++) {
 		for (int i = 0; i < _nodes[j].size(); i++) {
@@ -417,16 +427,7 @@ void Trace::finishedAll() {
 		}
 	}
 
-	auto characterAudio = CallFunc::create([=] {
-		
-		auto audio = CocosDenshion::SimpleAudioEngine::getInstance();
-		auto alpha = LangUtil::getInstance()->getAllCharacters();
-		auto path = LangUtil::getInstance()->getAlphabetSoundFileName(alpha[_level]);
-		audio->playEffect(path.c_str(), false);
-
-	});
-	auto playAudio = Sequence::create(DelayTime::create(delay), characterAudio, DelayTime::create(2.0), NULL);
-	this->runAction(playAudio);
+	
 
 	auto redirectToNextLevel = CallFunc::create([=] {
 		
