@@ -1,4 +1,9 @@
 #include "AppDelegate.h"
+#include "MapScene.h"
+#include "StartMenuScene.h"
+#include "ScrollableGameMapScene.hpp"
+#include "lang/SafariAnalyticsManager.h"
+#include "PhotoCaptureScene.hpp"
 
 #include "audio/include/SimpleAudioEngine.h"
 #include "scripting/js-bindings/auto/jsb_cocos2dx_3d_auto.hpp"
@@ -46,6 +51,11 @@
 USING_NS_CC;
 using namespace CocosDenshion;
 
+static Size designResolutionSize = Size(2560, 1800);
+static Size smallResolutionSize = Size(640, 450);
+static Size mediumResolutionSize = Size(1280, 900);
+static Size largeResolutionSize = Size(2560, 1800);
+
 AppDelegate::AppDelegate()
 {
 }
@@ -75,7 +85,38 @@ bool AppDelegate::applicationDidFinishLaunching()
 #endif
         director->setOpenGLView(glview);
 }
+#if (CC_TARGET_PLATFORM == CC_PLATFORM_WIN32) || (CC_TARGET_PLATFORM == CC_PLATFORM_MAC) || (CC_TARGET_PLATFORM == CC_PLATFORM_LINUX)
+    glview->setDesignResolutionSize(designResolutionSize.width, designResolutionSize.height, ResolutionPolicy::FIXED_HEIGHT);
+#else
+    glview->setDesignResolutionSize(designResolutionSize.width, designResolutionSize.height, ResolutionPolicy::FIXED_HEIGHT);
+#endif
 
+    std::vector<std::string> searchPaths;
+    float scaleFactor = 1.0f;
+    Size frameSize = glview->getFrameSize();
+    
+    if (frameSize.height > mediumResolutionSize.height)
+    {
+        searchPaths.push_back("res/HDR");
+        scaleFactor = largeResolutionSize.height/designResolutionSize.height;
+    }
+    else if (frameSize.height > smallResolutionSize.height)
+    {
+        searchPaths.push_back("res/HD");
+        scaleFactor = mediumResolutionSize.height/designResolutionSize.height;
+    }
+    else
+    {
+        searchPaths.push_back("res/SD");
+        scaleFactor = smallResolutionSize.height/designResolutionSize.height;
+    }
+    
+    
+    director->setContentScaleFactor(scaleFactor);
+    FileUtils::getInstance()->setSearchPaths(searchPaths);
+    
+    FileUtils::getInstance()->addSearchPath("res");
+    
     // set FPS. the default value is 1.0/60 if you don't call this
     director->setAnimationInterval(1.0f / 60);
 
@@ -157,7 +198,24 @@ bool AppDelegate::applicationDidFinishLaunching()
 #endif
     ScriptEngineProtocol *engine = ScriptingCore::getInstance();
     ScriptEngineManager::getInstance()->setScriptEngine(engine);
-    ScriptingCore::getInstance()->runScript("main.js");
+//    ScriptingCore::getInstance()->runScript("main.js");
+
+    SafariAnalyticsManager* safariManager = SafariAnalyticsManager::getInstance();
+    
+#if (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
+    director->runWithScene(ScrollableGameMapScene::createScene());
+    std::string userPhotoUrl = safariManager->getLatestUserPhoto();
+    if(!userPhotoUrl.empty()) {
+        Director::getInstance()->getTextureCache()->addImage(userPhotoUrl);
+        director->runWithScene(ScrollableGameMapScene::createScene());
+    } else {
+        director->runWithScene(PhotoCaptureScene::createScene());
+    }
+#else
+    director->runWithScene(ScrollableGameMapScene::createScene());
+#endif
+    
+    Application::getInstance()->getCurrentLanguage();
 
     return true;
 }
