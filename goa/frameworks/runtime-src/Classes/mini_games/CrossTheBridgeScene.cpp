@@ -348,11 +348,16 @@ void CrossTheBridge::alphaLoud()
 		auto alphaBox = CCRectMake(alphaContainer[i]->getPositionX(), alphaContainer[i]->getPositionY(), alphaContainer[i]->getContentSize().width, alphaContainer[i]->getContentSize().height);
 		if (alphaBox.intersectsRect(alphaSoundBarrier->getBoundingBox()))
 		{
-			auto Sequences = Sequence::create(ScaleTo::create(0.17, 0.80), DelayTime::create(0.07), ScaleTo::create(0.17, 0.70), NULL);
-			alphaContainer[i]->runAction(Sequences);
-			auto audio = CocosDenshion::SimpleAudioEngine::getInstance();
-			auto path = LangUtil::getInstance()->getAlphabetSoundFileName(alphaContainer[i]->getAlphabet());
-			audio->playEffect(path.c_str(), false);
+			if (alphaSoundFlag)
+			{
+				auto Sequences = Sequence::create(ScaleTo::create(0.17, 0.80), DelayTime::create(0.07), ScaleTo::create(0.17, 0.70), NULL);
+				alphaContainer[i]->runAction(Sequences);
+				auto audio = CocosDenshion::SimpleAudioEngine::getInstance();
+				auto path = LangUtil::getInstance()->getAlphabetSoundFileName(alphaContainer[i]->getAlphabet());
+				audio->playEffect(path.c_str(), false);
+				alphaSoundFlag = false;
+			}
+			
 		}
 	}
 }
@@ -362,11 +367,16 @@ void CrossTheBridge::checkIntersectWithAlpha()
 	{
 		auto alphaBox = CCRectMake(alphaContainer[i]->getPositionX(), alphaContainer[i]->getPositionY(), alphaContainer[i]->getContentSize().width, alphaContainer[i]->getContentSize().height);
 
-		if (alphaBox.intersectsRect(cubeAtRest->getBoundingBox()) && openFlag)
+		if (alphaBox.intersectsRect(cubeAtRest->getBoundingBox()))
 		{
-			auto sequence_A = MoveTo::create(2, Vec2(alphaContainer[i]->getPosition().x, 400));
-			auto main_sequence = Sequence::create(sequence_A, NULL);
-			alphaContainer[i]->runAction(main_sequence);
+			alphaSoundFlag = true;
+			if (openFlag)
+			{
+				auto sequence_A = MoveTo::create(2, Vec2(alphaContainer[i]->getPosition().x, 400));
+				auto main_sequence = Sequence::create(sequence_A, NULL);
+				alphaContainer[i]->runAction(main_sequence);
+			}
+			
 		}
 	}
 }

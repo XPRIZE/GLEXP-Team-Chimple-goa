@@ -20,7 +20,10 @@ AlphamonFeed::AlphamonFeed() {
 
 AlphamonFeed::~AlphamonFeed() {
 	backgroundMusic->stopBackgroundMusic();
-    _eventDispatcher->removeEventListener(listener);
+	if (listener) {
+		_eventDispatcher->removeEventListener(listener);
+	}
+   
 }
 
 
@@ -122,14 +125,7 @@ bool AlphamonFeed::init()
 			legReff.pushBack(monster);
 		}
 	}
-	listener = EventListenerTouchOneByOne::create();
-	listener->setSwallowTouches(true);
-	listener->onTouchBegan = CC_CALLBACK_2(AlphamonFeed::onTouchBegan, this);
-	listener->onTouchMoved = CC_CALLBACK_2(AlphamonFeed::onTouchMoved, this);
-	listener->onTouchEnded = CC_CALLBACK_2(AlphamonFeed::onTouchEnded, this);
-	listener->onTouchCancelled = CC_CALLBACK_2(AlphamonFeed::onTouchCancelled, this);
-	_eventDispatcher->addEventListenerWithFixedPriority(listener, -1);
-	isTouching = false;
+	
 	
 	setonEnterTransitionDidFinishCallback(CC_CALLBACK_0(AlphamonFeed::startGame, this));
 
@@ -145,6 +141,14 @@ void AlphamonFeed::startGame() {
 }
 void AlphamonFeed::callingFruits()
 {
+	listener = EventListenerTouchOneByOne::create();
+	listener->setSwallowTouches(true);
+	listener->onTouchBegan = CC_CALLBACK_2(AlphamonFeed::onTouchBegan, this);
+	listener->onTouchMoved = CC_CALLBACK_2(AlphamonFeed::onTouchMoved, this);
+	listener->onTouchEnded = CC_CALLBACK_2(AlphamonFeed::onTouchEnded, this);
+	listener->onTouchCancelled = CC_CALLBACK_2(AlphamonFeed::onTouchCancelled, this);
+	_eventDispatcher->addEventListenerWithFixedPriority(listener, -1);
+	isTouching = false;
 	this->schedule(schedule_selector(AlphamonFeed::showFruits), 1);
 	this->scheduleUpdate();
 }
@@ -226,7 +230,8 @@ void AlphamonFeed:: update(float dt) {
         }
         if ((slideBar->getPercent()) == 100) {
             unscheduleUpdate();
-            gameOver();
+			_eventDispatcher->removeEventListener(listener);
+           // gameOver();
             menu->showScore();
         }        
     }
