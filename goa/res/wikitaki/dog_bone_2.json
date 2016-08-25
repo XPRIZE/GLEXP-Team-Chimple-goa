@@ -1,0 +1,169 @@
+{
+  "ID": "47150994-5cc7-49bb-b8c4-2e302067a0d1",
+  "Version": "3.10.0.0",
+  "Name": "Scene_2",
+  "Content": {
+    "Content": {
+      "Animation": {
+        "Duration": 0,
+        "Speed": 1.0,
+        "Timelines": [],
+        "ctype": "TimelineActionData"
+      },
+      "AnimationList": [],
+      "ObjectData": {
+        "Tag": 17,
+        "Children": [
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "bg/dog_bone_scene_2_sky_water.png",
+              "Plist": ""
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 909.9929,
+              "Y": 930.0
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.5056,
+              "Y": 0.5167
+            },
+            "PreSize": {
+              "X": 0.9733,
+              "Y": 0.5806
+            },
+            "LeftMargin": 33.9929,
+            "RightMargin": 14.0071,
+            "TopMargin": 347.5,
+            "BottomMargin": 407.5,
+            "Tag": 14,
+            "ActionTag": -1678562854,
+            "Size": {
+              "X": 1752.0,
+              "Y": 1045.0
+            },
+            "Name": "scene_2_sky_water",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "bg/dog_bone_scene_2_stream.png",
+              "Plist": ""
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 909.97,
+              "Y": 873.91
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.5055,
+              "Y": 0.4855
+            },
+            "PreSize": {
+              "X": 0.9756,
+              "Y": 0.2311
+            },
+            "LeftMargin": 31.97,
+            "RightMargin": 12.03,
+            "TopMargin": 718.0901,
+            "BottomMargin": 665.91,
+            "Tag": 15,
+            "ActionTag": -424753770,
+            "Size": {
+              "X": 1756.0,
+              "Y": 416.0
+            },
+            "Name": "scene_2_stream",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "ob/yard/dog_bone_bg_1_pole.png",
+              "Plist": ""
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 766.0582,
+              "Y": 979.9427
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.4256,
+              "Y": 0.5444
+            },
+            "PreSize": {
+              "X": 0.445,
+              "Y": 0.4083
+            },
+            "LeftMargin": 365.5582,
+            "RightMargin": 633.4418,
+            "TopMargin": 452.5573,
+            "BottomMargin": 612.4427,
+            "Tag": 16,
+            "ActionTag": -1937348035,
+            "Size": {
+              "X": 801.0,
+              "Y": 735.0
+            },
+            "Name": "bg_1_pole_3",
+            "ctype": "SpriteObjectData"
+          }
+        ],
+        "Size": {
+          "X": 1800.0,
+          "Y": 1800.0
+        },
+        "Name": "Scene",
+        "ctype": "SingleNodeObjectData"
+      },
+      "UsedResources": [
+        "ob/yard/dog_bone_bg_1_pole.png",
+        "bg/dog_bone_scene_2_sky_water.png",
+        "bg/dog_bone_scene_2_stream.png"
+      ],
+      "ctype": "GameFileData"
+    }
+  },
+  "Type": "Scene"
+}
