@@ -255,9 +255,11 @@ void EndlessRunner::startingIntersectMode() {
 		Rect netBoxs = Rect(parent.origin.x + (box.origin.x), parent.origin.y + (box.origin.y), box.size.width*1.2, box.size.height*1.2);
 
 		Rect letteBox = allLabels[i]->getBoundingBox();
-		Rect newLetterBox = Rect(letteBox.origin.x-30, letteBox.origin.y+(letteBox.size.height/2), letteBox.size.width,30);
-
-		if (netBoxs.intersectsRect(newLetterBox))
+		if (LangUtil::getInstance()->getLang() == "kan") {
+			Rect newLetterBox = Rect(letteBox.origin.x-30, letteBox.origin.y+(letteBox.size.height/2), letteBox.size.width,30);
+			letteBox = newLetterBox;
+		}
+		if (netBoxs.intersectsRect(letteBox))
 		{
 			auto mystr = LangUtil::convertUTF16CharToString(tempChar);
 			if (allLabels[i]->getName() == mystr) {
