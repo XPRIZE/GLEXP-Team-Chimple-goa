@@ -29,7 +29,7 @@ LTKShapeRecognizer* lipiShapeReco = NULL;
 * Author			Date				Description of change
 *************************************************************************************/
 
-void JNICALL Java_org_cocos2dx_cpp_LipiTKJNIInterface_initializeNative(JNIEnv *env,
+void JNICALL Java_org_cocos2dx_javascript_LipiTKJNIInterface_initializeNative(JNIEnv *env,
 																 jobject this_object, 
 																 jstring lipiDirectory,
 																 jstring lipiProject)
@@ -80,7 +80,7 @@ void JNICALL Java_org_cocos2dx_cpp_LipiTKJNIInterface_initializeNative(JNIEnv *e
 *************************************************************************************/
 
 jobjectArray 
-	JNICALL Java_org_cocos2dx_cpp_LipiTKJNIInterface_recognizeNative(JNIEnv *env,
+	JNICALL Java_org_cocos2dx_javascript_LipiTKJNIInterface_recognizeNative(JNIEnv *env,
 															   jobject this_object,
 															   jobjectArray StrokeArray,
 															   jint NumStrokes)
@@ -89,7 +89,7 @@ jobjectArray
 
 	try
 	{
-		jclass strokeClass = env->FindClass("org/cocos2dx/cpp/Stroke");
+		jclass strokeClass = env->FindClass("org/cocos2dx/javascript/Stroke");
 		if(strokeClass == NULL)
 			cout << "strokeClass ID is NULL" << endl;
 
@@ -113,7 +113,7 @@ jobjectArray
 
 		jfieldID yFieldID = env->GetFieldID(pointFClass, "y", "F");
 
-		jclass resultClass = env->FindClass("org/cocos2dx/cpp/LipitkResult");
+		jclass resultClass = env->FindClass("org/cocos2dx/javascript/LipitkResult");
 		if(resultClass == NULL)
 			cout << "resultClass ID is NULL" <<  endl;
 
