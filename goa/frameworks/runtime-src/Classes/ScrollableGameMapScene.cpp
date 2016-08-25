@@ -30,6 +30,8 @@
 #include "mini_games/BajaWordScene.h"
 #include "mini_games/CatGameScene.h"
 #include "mini_games/Spirograph.h"
+#include "mini_games\Train.h"
+
 USING_NS_CC;
 
 ScrollableGameMapScene::ScrollableGameMapScene()
@@ -177,7 +179,7 @@ void ScrollableGameMapScene::gameSelected(Ref* pSender, ui::Widget::TouchEventTy
             } else if(clickedButton->getName() == JAZZ) {
                 Director::getInstance()->replaceScene(jazz::createScene());
             } else if(clickedButton->getName() == JASMINE) {
-                Director::getInstance()->replaceScene(Jasmin_Mainfile::createScene());
+                Director::getInstance()->replaceScene(Train::createScene());
             } else if(clickedButton->getName() == CAT) {
                 Director::getInstance()->replaceScene(CatGame::createScene());
             }
