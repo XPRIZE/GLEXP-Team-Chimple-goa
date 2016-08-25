@@ -18,7 +18,7 @@ USING_NS_CC;
 #if (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
 extern "C"
 {
-    jboolean Java_org_cocos2dx_cpp_AppActivity_sendRecognizedStringToGame(JNIEnv* env, jobject thiz,jstring textStr)
+    jboolean Java_org_cocos2dx_javascript_AppActivity_sendRecognizedStringToGame(JNIEnv* env, jobject thiz,jstring textStr)
     {
         const char* str;
         str = env->GetStringUTFChars(textStr, NULL);
@@ -279,7 +279,7 @@ void WordScene::showHandWritingDialog(Ref* pSender, ui::Widget::TouchEventType e
             _grid->setVisible(false);
             #if (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
                 cocos2d::JniMethodInfo methodInfo;
-                if (! cocos2d::JniHelper::getStaticMethodInfo(methodInfo, "org/cocos2dx/cpp/AppActivity", "drawCanvas", "(IIII)V")) {
+                if (! cocos2d::JniHelper::getStaticMethodInfo(methodInfo, "org/cocos2dx/javascript/AppActivity", "drawCanvas", "(IIII)V")) {
                     return;
                 }
             

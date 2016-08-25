@@ -196,7 +196,7 @@ void Chain::createAnswer() {
 void Chain::gameOver(bool correct)
 {
 	if (correct) {
-
+		_grid->touchEndedCallback = nullptr;
 		if (!Chain::_SS.compare("monkey"))
 		{
 					auto callShowScore = CCCallFunc::create([=] {
