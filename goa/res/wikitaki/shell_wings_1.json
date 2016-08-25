@@ -1,0 +1,260 @@
+{
+  "ID": "a2ee0952-26b5-49ae-8bf9-4f1d6279b798",
+  "Version": "3.10.0.0",
+  "Name": "Scene1",
+  "Content": {
+    "Content": {
+      "Animation": {
+        "Duration": 0,
+        "Speed": 1.0,
+        "Timelines": [],
+        "ctype": "TimelineActionData"
+      },
+      "AnimationList": [],
+      "ObjectData": {
+        "Children": [
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "bg/shell_wings_bg1.png",
+              "Plist": ""
+            },
+            "BlendFunc": {
+              "Src": 770,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 897.9656,
+              "Y": 903.627
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.4989,
+              "Y": 0.502
+            },
+            "PreSize": {
+              "X": 1.0,
+              "Y": 1.0017
+            },
+            "LeftMargin": -2.0344,
+            "RightMargin": 2.0344,
+            "TopMargin": -5.127,
+            "BottomMargin": 2.127,
+            "Tag": 58,
+            "ActionTag": -956682745,
+            "Size": {
+              "X": 1800.0,
+              "Y": 1803.0
+            },
+            "Name": "bg1_1",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "ob/sky/shell_wings_cloud.png",
+              "Plist": ""
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5348,
+              "ScaleY": 0.4623
+            },
+            "Position": {
+              "X": 413.489,
+              "Y": 1544.0782
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.2297,
+              "Y": 0.8578
+            },
+            "PreSize": {
+              "X": 0.2083,
+              "Y": 0.0961
+            },
+            "LeftMargin": 212.939,
+            "RightMargin": 1212.061,
+            "TopMargin": 162.8997,
+            "BottomMargin": 1464.1003,
+            "Tag": 59,
+            "ActionTag": 1185324222,
+            "Size": {
+              "X": 375.0,
+              "Y": 173.0
+            },
+            "Name": "cloud_2",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "ob/sky/shell_wings_clouds.png",
+              "Plist": ""
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1267.4895,
+              "Y": 1407.1774
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.7042,
+              "Y": 0.7818
+            },
+            "PreSize": {
+              "X": 0.22,
+              "Y": 0.0811
+            },
+            "LeftMargin": 1069.4895,
+            "RightMargin": 334.5105,
+            "TopMargin": 319.8226,
+            "BottomMargin": 1334.1774,
+            "Tag": 60,
+            "ActionTag": 393638096,
+            "Size": {
+              "X": 396.0,
+              "Y": 146.0
+            },
+            "Name": "clouds_3",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "ob/tree/shell_wings_trees.png",
+              "Plist": ""
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1401.9346,
+              "Y": 955.2426
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.7789,
+              "Y": 0.5307
+            },
+            "PreSize": {
+              "X": 0.2889,
+              "Y": 0.2067
+            },
+            "LeftMargin": 1141.9346,
+            "RightMargin": 138.0654,
+            "TopMargin": 658.7573,
+            "BottomMargin": 769.2426,
+            "Tag": 61,
+            "ActionTag": -784777156,
+            "Size": {
+              "X": 520.0,
+              "Y": 372.0
+            },
+            "Name": "trees_4",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "ob/stone/shell_wings_stone.png",
+              "Plist": ""
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1347.2456,
+              "Y": 302.9042
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.7485,
+              "Y": 0.1683
+            },
+            "PreSize": {
+              "X": 0.3594,
+              "Y": 0.185
+            },
+            "LeftMargin": 1023.7456,
+            "RightMargin": 129.2544,
+            "TopMargin": 1330.5958,
+            "BottomMargin": 136.4042,
+            "Tag": 62,
+            "ActionTag": 118391766,
+            "Size": {
+              "X": 647.0,
+              "Y": 333.0
+            },
+            "Name": "stone_5",
+            "ctype": "SpriteObjectData"
+          }
+        ],
+        "Size": {
+          "X": 1800.0,
+          "Y": 1800.0
+        },
+        "Name": "Scene",
+        "ctype": "SingleNodeObjectData"
+      },
+      "UsedResources": [
+        "bg/shell_wings_bg1.png",
+        "ob/sky/shell_wings_cloud.png",
+        "ob/sky/shell_wings_clouds.png",
+        "ob/stone/shell_wings_stone.png",
+        "ob/tree/shell_wings_trees.png"
+      ],
+      "ctype": "GameFileData"
+    }
+  },
+  "Type": "Scene"
+}
