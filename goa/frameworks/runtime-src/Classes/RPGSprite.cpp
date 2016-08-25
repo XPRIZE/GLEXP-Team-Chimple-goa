@@ -206,11 +206,6 @@ bool RPGSprite::onTouchBegan(Touch *touch, Event *event)
     } else {
         boundingBoxRect = this->getSprite()->getBoundingBox();
     }
-    CCLOG("boundingBoxRect.1 %f", boundingBoxRect.getMinX());
-    CCLOG("boundingBoxRect.2 %f", boundingBoxRect.getMaxX());
-    CCLOG("boundingBoxRect.3 %f", boundingBoxRect.getMinY());
-    CCLOG("boundingBoxRect.4 %f", boundingBoxRect.getMaxY());
-    CCLOG("boundingBoxRect.containsPoint(n) %d", boundingBoxRect.containsPoint(n));
     if(this->getSprite()->isVisible() && this->getInterAct() == "true" && this->getVicinityToMainCharacter() == true && boundingBoxRect.containsPoint(n)) {
 
         return true;
