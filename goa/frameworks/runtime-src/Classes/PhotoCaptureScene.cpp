@@ -23,7 +23,7 @@ std::string PhotoCaptureScene::photoUrl = " ";
 #if (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
 extern "C"
 {
-    jboolean Java_org_cocos2dx_cpp_AppActivity_photoDestinationURL(JNIEnv* env, jobject thiz,jstring textStr)
+    jboolean Java_org_cocos2dx_javascript_AppActivity_photoDestinationURL(JNIEnv* env, jobject thiz,jstring textStr)
     {
         const char* str;
         str = env->GetStringUTFChars(textStr, NULL);
@@ -133,7 +133,7 @@ void PhotoCaptureScene::takePhoto(Ref* pSender, ui::Widget::TouchEventType eEven
             #if (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
                 cocos2d::JniMethodInfo methodInfo;
                 this->schedule(CC_SCHEDULE_SELECTOR(PhotoCaptureScene::createSprite), 1.0);
-                if (! cocos2d::JniHelper::getStaticMethodInfo(methodInfo, "org/cocos2dx/cpp/AppActivity", "takePhoto", "()V")) {
+                if (! cocos2d::JniHelper::getStaticMethodInfo(methodInfo, "org/cocos2dx/javascript/AppActivity", "takePhoto", "()V")) {
                     return;
                 }
                 methodInfo.env->CallStaticVoidMethod(methodInfo.classID, methodInfo.methodID);
