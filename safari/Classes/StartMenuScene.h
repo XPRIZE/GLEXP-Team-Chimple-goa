@@ -29,7 +29,7 @@ static const std::string WEMBLEY = "wembley";
 static const std::string JAZZ = "jazz";
 static const std::string JASMINE = "jasmine";
 static const std::string CAT = "cat";
-
+static const std::string DECOMON = "decomon";
 
 
 

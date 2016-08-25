@@ -30,6 +30,8 @@
 #include "mini_games/BajaWordScene.h"
 #include "mini_games/CatGameScene.h"
 #include "mini_games/Spirograph.h"
+#include "mini_games/decomon.h"
+
 USING_NS_CC;
 
 ScrollableGameMapScene::ScrollableGameMapScene()
@@ -153,7 +155,7 @@ void ScrollableGameMapScene::gameSelected(Ref* pSender, ui::Widget::TouchEventTy
         {
             clickedButton->setEnabled(false);
             if(clickedButton->getName() == PATCH_THE_WALL) {
-                Director::getInstance()->replaceScene(PatchTheWall::createScene());
+                Director::getInstance()->replaceScene(decomon::createScene());
             } else if(clickedButton->getName() == CROSS_THE_BRIDGE) {
                 Director::getInstance()->replaceScene(CrossTheBridge::createScene());
             } else if(clickedButton->getName() == SMASH_THE_ROCK) {

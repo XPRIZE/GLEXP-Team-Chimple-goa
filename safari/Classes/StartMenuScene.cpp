@@ -22,7 +22,7 @@
 #include "mini_games/jazz.h"
 #include "mini_games/Chain.h"
 #include "mini_games/Wembley.h"
-
+#include "mini_games/decomon.h"
 
 USING_NS_CC;
 
