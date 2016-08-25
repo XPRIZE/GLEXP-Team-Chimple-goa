@@ -222,7 +222,7 @@ Node* Baja::carGenerate(int positionX, int positionY, std::string animationName,
 	userCar->runAction(timelineUserCar);
 	timelineUserCar->gotoFrameAndPause(initFrame);
 	timelineUserCar->play(animationName, true);
-	userCar->setScale(0.7);	 userCar->setContentSize(Size(userCar->getChildByName("Sprite_1")->getContentSize().width, userCar->getChildByName("Sprite_1")->getContentSize().height));
+	userCar->setScale(0.7);	 userCar->setContentSize(Size(userCar->getChildByName("Sprite_1")->getContentSize().width*0.7, userCar->getChildByName("Sprite_1")->getContentSize().height*0.7));
 	return userCar;
 }
 
