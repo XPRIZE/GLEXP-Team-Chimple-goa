@@ -66,6 +66,7 @@ void Baja::update(float delta) {
 
 			auto collideSound = CocosDenshion::SimpleAudioEngine::getInstance();
 			collideSound->playEffect("baja/sound/collision.wav", false);
+			//car_move
 		}
 	}
 
@@ -107,15 +108,19 @@ void Baja::userCarControl(Node* userCar1) {
 	leftButton->setPosition(Vec2(_currentPathBlock->getPositionX() - (_currentPathBlock->getContentSize().width*0.43),origin.y + (leftButton->getContentSize().height)+50));  leftButton->setFlippedX(true);
 	if (leftButton != NULL) {
 		leftButton->addClickEventListener([=](Ref *) {
+			auto moveSound = CocosDenshion::SimpleAudioEngine::getInstance();
+		
 			if (_positionFlag) {
 				if (_positionCar == "left") {
 					_positionCar = "left";
 				}
 				else if (_positionCar == "mid") {
+					moveSound->playEffect("baja/sound/car_move.wav", false);
 					userCar1->runAction(MoveTo::create(0.3, Vec2(_currentPathBlock->getPositionX() - (_currentPathBlock->getContentSize().width*0.24), 300)));	_positionCar = "left"; _positionFlag = false;
 					userCar1->runAction(Sequence::create(DelayTime::create(0.3), CallFunc::create([=]() {_positionFlag = true; }), NULL));
 				}
 				else if (_positionCar == "right") {
+					moveSound->playEffect("baja/sound/car_move.wav", false);
 					userCar1->runAction(MoveTo::create(0.3, Vec2(_currentPathBlock->getPositionX(), 300)));	_positionCar = "mid"; _positionFlag = false;
 					userCar1->runAction(Sequence::create(DelayTime::create(0.3), CallFunc::create([=]() {_positionFlag = true; }), NULL));
 				}
@@ -130,12 +135,15 @@ void Baja::userCarControl(Node* userCar1) {
 	rightButton->setPosition(Vec2(_currentPathBlock->getPositionX() + (_currentPathBlock->getContentSize().width*0.43), origin.y + (rightButton->getContentSize().height) + 50));
 	if (rightButton != NULL) {
 		rightButton->addClickEventListener([=](Ref *) {
+			auto moveSound = CocosDenshion::SimpleAudioEngine::getInstance();
 			if (_positionFlag) {
 				if (_positionCar == "left") {
+					moveSound->playEffect("baja/sound/car_move.wav", false);
 					userCar1->runAction(MoveTo::create(0.3, Vec2(_currentPathBlock->getPositionX(), 300)));	_positionCar = "mid"; _positionFlag = false;
 					userCar1->runAction(Sequence::create(DelayTime::create(0.3), CallFunc::create([=]() {_positionFlag = true; }), NULL));
 				}
 				else if (_positionCar == "mid") {
+					moveSound->playEffect("baja/sound/car_move.wav", false);
 					userCar1->runAction(MoveTo::create(0.3, Vec2(_currentPathBlock->getPositionX() + (_currentPathBlock->getContentSize().width*0.24), 300)));	_positionCar = "right";	_positionFlag = false;
 					userCar1->runAction(Sequence::create(DelayTime::create(0.3), CallFunc::create([=]() {_positionFlag = true; }), NULL));
 				}
@@ -222,7 +230,7 @@ Node* Baja::carGenerate(int positionX, int positionY, std::string animationName,
 	userCar->runAction(timelineUserCar);
 	timelineUserCar->gotoFrameAndPause(initFrame);
 	timelineUserCar->play(animationName, true);
-	userCar->setScale(0.7);	 userCar->setContentSize(Size(userCar->getChildByName("Sprite_1")->getContentSize().width, userCar->getChildByName("Sprite_1")->getContentSize().height));
+	userCar->setScale(0.7);	 userCar->setContentSize(Size(userCar->getChildByName("Sprite_1")->getContentSize().width*0.7, userCar->getChildByName("Sprite_1")->getContentSize().height*0.7));
 	return userCar;
 }
 

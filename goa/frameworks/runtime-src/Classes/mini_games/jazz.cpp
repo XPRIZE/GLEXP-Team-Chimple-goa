@@ -46,9 +46,9 @@ void jazz::createChoice() {
 	_choice->setPosition(Vec2(0, 900));
 
 	addChild(_choice);
-	const float squareWidth = Director::getInstance()->getVisibleSize().width / _numGraphemes;
+	const float squareWidth = Director::getInstance()->getVisibleSize().width / (_numGraphemes+2);
 
-	for (int i = 0; i < _numGraphemes; i++) {
+	for (int i = 1; i <= _numGraphemes; i++) {
 		auto choiceNode = Sprite::createWithSpriteFrameName("jazz/drum.png");
 		choiceNode->setAnchorPoint(Vec2(0.5, 0.7));
 		//	choiceNode->setPosition(Vec2(i * 400, 0));

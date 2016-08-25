@@ -17,10 +17,9 @@ Scene* EndlessRunner::createScene()
 	scene->addChild(layer->_menuContext);
 	return scene;
 }
-
+//  jump_sound
 EndlessRunner::~EndlessRunner(void)
 {
-	audioBg->stopAllEffects();
 	this->removeAllChildrenWithCleanup(true);
 }
 
@@ -125,8 +124,6 @@ void EndlessRunner::scheduleMethod() {
 }
 
 void EndlessRunner::startGame() {
-	audioBg = CocosDenshion::SimpleAudioEngine::getInstance();
-	audioBg->playEffect("endlessrunner/sound/african_drum.wav", true);
 	_menuContext->showStartupHelp(CC_CALLBACK_0(EndlessRunner::scheduleMethod, this));
 //	runAction(Sequence::create(CallFunc::create(CC_CALLBACK_0(MenuContext::showStartupHelp, _menuContext)), CallFunc::create(CC_CALLBACK_0(EndlessRunner::scheduleMethod, this)), NULL));
 }
@@ -255,9 +252,11 @@ void EndlessRunner::startingIntersectMode() {
 		Rect netBoxs = Rect(parent.origin.x + (box.origin.x), parent.origin.y + (box.origin.y), box.size.width*1.2, box.size.height*1.2);
 
 		Rect letteBox = allLabels[i]->getBoundingBox();
-		Rect newLetterBox = Rect(letteBox.origin.x-30, letteBox.origin.y+(letteBox.size.height/2), letteBox.size.width,30);
-
-		if (netBoxs.intersectsRect(newLetterBox))
+		if (LangUtil::getInstance()->getLang() == "kan"){
+			Rect newLetterBox = Rect(letteBox.origin.x-30, letteBox.origin.y+(letteBox.size.height/2), letteBox.size.width,30);
+			letteBox = newLetterBox;
+		}
+		if (netBoxs.intersectsRect(letteBox))
 		{
 			auto mystr = LangUtil::convertUTF16CharToString(tempChar);
 			if (allLabels[i]->getName() == mystr) {
@@ -726,6 +725,8 @@ void EndlessRunner::addEvents(Sprite* sprite)
 
 				auto A = CallFunc::create([=]() {
 					Character.action->play("jump_start", false);
+					auto audioBg = CocosDenshion::SimpleAudioEngine::getInstance();
+					audioBg->playEffect("endlessrunner/sound/jump_sound.wav", false);
 				});
 				auto B = CallFunc::create([=]() {
 					auto x = Character.action;
