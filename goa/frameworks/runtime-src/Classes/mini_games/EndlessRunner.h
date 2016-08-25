@@ -27,7 +27,6 @@ protected:
 	Alphabet *letterOnBoard;
 	bool initBool = true, popUp = true, flagLifeDemo = true , startSecondFlag = true;
 
-	CocosDenshion::SimpleAudioEngine* audioBg;
 	Size visibleSize;
 	Vec2 origin;
 	Sprite* leftBarrier, *rightBarrier , *leftBarrierForBigObject, *upBarrier , *hpUi;
