@@ -719,6 +719,7 @@ void HelloWorld::cleanUpResources() {
         delete this->sqlite3Helper;
     }
    
+    cocostudio::timeline::ActionTimelineCache::getInstance()->destroyInstance();
 }
 
 void HelloWorld::changeScene(std::string nextScene, bool isMiniGame) {
