@@ -225,6 +225,16 @@ chimple.isHTML5 = function () {
 
             // });
 
+            //     cc.LoaderScene.preload(BubbleShooter_resource, function () {
+            //     cc.spriteFrameCache.addSpriteFrames(bubbleShooter.ObjectAllImage_plist);
+            //     cc.spriteFrameCache.addSpriteFrames(bubbleShooter.Background2_plist);
+            //     cc.spriteFrameCache.addSpriteFrames(bubbleShooter.Background1_plist);
+            //     cc.spriteFrameCache.addSpriteFrames(bubbleShooter.Category_plist);
+            //     cc.spriteFrameCache.addSpriteFrames(bubbleShooter.BubbleBlast_plist);
+        
+            //     cc.director.runScene(new HomeScreenScene());
+            // }, this);
+
             cc.LoaderScene.preload(g_resources, function () {
                 cc.spriteFrameCache.addSpriteFrames(res.thumbnails_plist);
                 cc.spriteFrameCache.addSpriteFrames(res.human_skeleton_plist);
