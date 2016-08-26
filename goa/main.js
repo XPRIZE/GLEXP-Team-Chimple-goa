@@ -113,7 +113,36 @@ chimple.isHTML5 = function () {
                 "src/pako.js",
                 "src/ui/TextReadPanel.js",
                 "src/lz-string.js",
-                "src/jsonc.js"
+                "src/jsonc.js",
+                "src/mini_games/SortIt/src/load.js",
+                "src/mini_games/SortIt/src/MovableItem.js",
+                "src/mini_games/SortIt/src/MovableItem1.js",
+                "src/mini_games/SortIt/src/MovableItem2.js",
+                "src/mini_games/SortIt/src/MovableItem3.js",
+                "src/mini_games/SortIt/src/MovableItem4.js",
+                "src/mini_games/SortIt/src/MovableItem5.js",
+                "src/mini_games/SortIt/src/MovableItem6.js",
+                "src/mini_games/SortIt/src/playLevel1.js",
+                "src/mini_games/SortIt/src/playLevel2.js",
+                "src/mini_games/SortIt/src/playLevel3.js",
+                "src/mini_games/SortIt/src/playLevel4.js",
+                "src/mini_games/SortIt/src/playLevel5.js",
+                "src/mini_games/SortIt/src/playLevel6.js",
+                "src/mini_games/SortIt/src/resource.js",
+                
+                "src/mini_games/BubbleShooter/Menus/HomeScreen.js",
+                "src/mini_games/BubbleShooter/Listener/GlobalData.js",
+                "src/mini_games/BubbleShooter/Listener/ClickedButtonListener.js",
+                "src/mini_games/BubbleShooter/LevelScreen/LevelSceenAlphabets.js",
+                "src/mini_games/BubbleShooter/LevelScreen/LevelSceenNumber.js",
+                "src/mini_games/BubbleShooter/LevelScreen/LevelScreenPuzzle.js",
+                "src/mini_games/BubbleShooter/LevelScreen/LevelScreenCategory.js",
+                "src/mini_games/BubbleShooter/Menus/AnimationDemo.js",
+                "src/mini_games/BubbleShooter/MainStages/Alphabets.js",
+                "src/mini_games/BubbleShooter/MainStages/Numbers.js",
+                "src/mini_games/BubbleShooter/MainStages/Category.js",
+                "src/mini_games/BubbleShooter/MainStages/Puzzle.js"
+
             ]
 
         };

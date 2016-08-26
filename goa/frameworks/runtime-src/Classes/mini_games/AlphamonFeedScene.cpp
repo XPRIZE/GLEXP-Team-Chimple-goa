@@ -176,6 +176,7 @@ void AlphamonFeed::showFruits(float dt) {
 }
 
 void AlphamonFeed:: update(float dt) {
+	CCLOG("game %d", menu->isGamePaused());
     if(!menu->isGamePaused()) {
         if (fruitReff.size() != 0) {
             for (int i = 0; i < fruitReff.size(); i++) {
@@ -234,7 +235,9 @@ void AlphamonFeed:: update(float dt) {
            // gameOver();
             menu->showScore();
         }        
-    }
+    }else {
+		CCLOG("game paused");
+	}
 }
 
 bool AlphamonFeed::onTouchBegan(cocos2d::Touch *touch,cocos2d::Event * event)
