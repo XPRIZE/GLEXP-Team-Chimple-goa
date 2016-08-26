@@ -95,6 +95,7 @@ protected:
 	bool monsterBackFlag = true;
 	bool alphaBackFlag = true;
 	bool pointGenerater = true;
+	bool alphaSoundFlag = true;
 	int mainScore = 0;
 	int alphabetCounter = 0;
 	int letterDisplayCounter = 0;

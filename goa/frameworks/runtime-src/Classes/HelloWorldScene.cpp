@@ -213,8 +213,8 @@ void HelloWorld::processNodeWithCustomAttributes(Node* node, Node* parentNode) {
                         
                     } else  {
                         //create external characters
-                        ExternalSkeletonCharacter* externalSkeletonCharacter = ExternalSkeletonCharacter::create(node, attributes);
-                        this->mainLayer->addChild(externalSkeletonCharacter);
+//                        ExternalSkeletonCharacter* externalSkeletonCharacter = ExternalSkeletonCharacter::create(node, attributes);
+//                        this->mainLayer->addChild(externalSkeletonCharacter);
 
                     }
                 }
@@ -719,6 +719,7 @@ void HelloWorld::cleanUpResources() {
         delete this->sqlite3Helper;
     }
    
+    cocostudio::timeline::ActionTimelineCache::getInstance()->destroyInstance();
 }
 
 void HelloWorld::changeScene(std::string nextScene, bool isMiniGame) {

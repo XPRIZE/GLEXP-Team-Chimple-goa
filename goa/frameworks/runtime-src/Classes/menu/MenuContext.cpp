@@ -506,6 +506,7 @@ void MenuContext::changePhoto(cocos2d::Ref *pSender, cocos2d::ui::Widget::TouchE
 
 void MenuContext::showScore() {
     //compute score
+	_menuButton->setEnabled(false);
     addGreyLayer();
     pauseNodeAndDescendants(_main);
     Size visibleSize = Director::getInstance()->getVisibleSize();
