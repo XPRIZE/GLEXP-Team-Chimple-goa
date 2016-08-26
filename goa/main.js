@@ -128,7 +128,21 @@ chimple.isHTML5 = function () {
                 "src/mini_games/SortIt/src/playLevel4.js",
                 "src/mini_games/SortIt/src/playLevel5.js",
                 "src/mini_games/SortIt/src/playLevel6.js",
-                "src/mini_games/SortIt/src/resource.js"
+                "src/mini_games/SortIt/src/resource.js",
+                
+                "src/mini_games/BubbleShooter/Menus/HomeScreen.js",
+                "src/mini_games/BubbleShooter/Listener/GlobalData.js",
+                "src/mini_games/BubbleShooter/Listener/ClickedButtonListener.js",
+                "src/mini_games/BubbleShooter/LevelScreen/LevelSceenAlphabets.js",
+                "src/mini_games/BubbleShooter/LevelScreen/LevelSceenNumber.js",
+                "src/mini_games/BubbleShooter/LevelScreen/LevelScreenPuzzle.js",
+                "src/mini_games/BubbleShooter/LevelScreen/LevelScreenCategory.js",
+                "src/mini_games/BubbleShooter/Menus/AnimationDemo.js",
+                "src/mini_games/BubbleShooter/MainStages/Alphabets.js",
+                "src/mini_games/BubbleShooter/MainStages/Numbers.js",
+                "src/mini_games/BubbleShooter/MainStages/Category.js",
+                "src/mini_games/BubbleShooter/MainStages/Puzzle.js"
+
             ]
 
         };
