@@ -277,6 +277,9 @@
     <ClCompile Include="..\Classes\WordSprite.cpp">
       <Filter>Classes</Filter>
     </ClCompile>
+    <ClCompile Include="..\Classes\mini_games\Train.cpp">
+      <Filter>Classes\mini_games</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -534,6 +537,9 @@
     </ClInclude>
     <ClInclude Include="..\Classes\WordSprite.h">
       <Filter>Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\mini_games\Train.h">
+      <Filter>Classes\mini_games</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
