@@ -20,7 +20,6 @@ var bubbleShooter = {
     
     Category_plist : "res/bubbleShooter/Category.plist",
     Category_png : "res/bubbleShooter/Category.png",
-    MainScene_Anim : "res/bubbleShooter/MainScene.json",
     
     BubbleBlast_plist : "res/bubbleShooter/Bubble_blast.plist",
     BubbleBlast_png : "res/bubbleShooter/Bubble_blast.png"    
