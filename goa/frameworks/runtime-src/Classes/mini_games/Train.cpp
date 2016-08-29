@@ -1,5 +1,5 @@
 #include "Train.h"
-#include "editor-support\cocostudio\CocoStudio.h"
+#include "editor-support/cocostudio/CocoStudio.h"
 
 USING_NS_CC;
 
