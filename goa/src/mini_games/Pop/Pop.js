@@ -6,11 +6,10 @@ var PopLayer = cc.Layer.extend({
         // 1. super init first
         this._super();
        
-       var worldSize = cc.winSize;
+        var worldSize = cc.winSize;
 
-       this.menuBg = new cc.Sprite(res.menu);
-       this.menuBg.setPosition( cc.director.getWinSize().width * 0.5,cc.director.getWinSize().height * 0.5);
-       this.addChild(this.menuBg);
+        var sceneRes = ccs.load(pop_res.pop_scene);
+        this.addChild(sceneRes.node);
     }
    
 });
