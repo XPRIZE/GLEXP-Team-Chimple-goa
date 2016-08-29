@@ -16,9 +16,9 @@
         "Children": [
           {
             "FileData": {
-              "Type": "Normal",
-              "Path": "alphamole/Play2_Hole_base.png",
-              "Plist": ""
+              "Type": "MarkedSubImage",
+              "Path": "alphamole/alphamole2/Play2_Hole_base.png",
+              "Plist": "alphamole/alphamole2/alphamole2.plist"
             },
             "BlendFunc": {
               "Src": 1,
@@ -62,9 +62,9 @@
           },
           {
             "FileData": {
-              "Type": "Normal",
-              "Path": "alphamole/Play2_Hole_base.png",
-              "Plist": ""
+              "Type": "MarkedSubImage",
+              "Path": "alphamole/alphamole2/Play2_Hole_base.png",
+              "Plist": "alphamole/alphamole2/alphamole2.plist"
             },
             "BlendFunc": {
               "Src": 1,
@@ -108,9 +108,9 @@
           },
           {
             "FileData": {
-              "Type": "Normal",
-              "Path": "alphamole/Play2_Hole_base.png",
-              "Plist": ""
+              "Type": "MarkedSubImage",
+              "Path": "alphamole/alphamole2/Play2_Hole_base.png",
+              "Plist": "alphamole/alphamole2/alphamole2.plist"
             },
             "BlendFunc": {
               "Src": 1,
@@ -161,7 +161,8 @@
         "ctype": "LayerObjectData"
       },
       "UsedResources": [
-        "Play2_Hole_base.png"
+        "alphamole2/alphamole2.plist",
+        "alphamole2/alphamole2.png"
       ],
       "ctype": "GameFileData"
     }
