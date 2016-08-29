@@ -1,7 +1,7 @@
 {
   "ID": "9d14674d-c89c-4840-bffe-3b6d5d8fb88b",
   "Version": "3.10.0.0",
-  "Name": "alphamoleplay1",
+  "Name": "alphamole1",
   "Content": {
     "Content": {
       "Animation": {
@@ -17,7 +17,7 @@
           {
             "FileData": {
               "Type": "Normal",
-              "Path": "alphamole/alphamoleplay1_background.json",
+              "Path": "alphamole/alphamole1_background.json",
               "Plist": ""
             },
             "StretchWidthEnable": false,
@@ -25,7 +25,7 @@
             "InnerActionSpeed": 1.0,
             "AnchorPoint": {},
             "Position": {
-              "X": 484.86,
+              "X": 0.0,
               "Y": 0.0
             },
             "Scale": {
@@ -35,15 +35,13 @@
             "CColor": {},
             "IconVisible": true,
             "PrePosition": {
-              "X": 0.1385,
+              "X": 0.0,
               "Y": 0.0
             },
             "PreSize": {
-              "X": 0.7314,
+              "X": 1.0,
               "Y": 1.0
             },
-            "LeftMargin": 484.86,
-            "RightMargin": 455.1401,
             "Tag": 473,
             "ActionTag": 2088552108,
             "Size": {
@@ -56,7 +54,7 @@
           {
             "FileData": {
               "Type": "Normal",
-              "Path": "alphamole/alphamoleplay_foreground.json",
+              "Path": "alphamole/alphamole1_foreground.json",
               "Plist": ""
             },
             "StretchWidthEnable": false,
@@ -64,7 +62,7 @@
             "InnerActionSpeed": 1.0,
             "AnchorPoint": {},
             "Position": {
-              "X": 484.86,
+              "X": 0.0,
               "Y": 0.0
             },
             "Scale": {
@@ -74,15 +72,13 @@
             "CColor": {},
             "IconVisible": true,
             "PrePosition": {
-              "X": 0.1385,
+              "X": 0.0,
               "Y": 0.0
             },
             "PreSize": {
-              "X": 0.7314,
+              "X": 1.0,
               "Y": 1.0
             },
-            "LeftMargin": 484.86,
-            "RightMargin": 455.1401,
             "Tag": 574,
             "ActionTag": -1077938886,
             "Size": {
@@ -94,15 +90,15 @@
           }
         ],
         "Size": {
-          "X": 3500.0,
+          "X": 2560.0,
           "Y": 1800.0
         },
         "Name": "Scene",
         "ctype": "SingleNodeObjectData"
       },
       "UsedResources": [
-        "alphamoleplay_foreground.json",
-        "alphamoleplay1_background.json"
+        "alphamole1_background.json",
+        "alphamole1_foreground.json"
       ],
       "ctype": "GameFileData"
     }

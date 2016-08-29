@@ -25,6 +25,20 @@ var bubbleShooter = {
     BubbleBlast_plist : "res/bubbleShooter/Bubble_blast.plist",
     BubbleBlast_png : "res/bubbleShooter/Bubble_blast.png"    
     
+};
+
+var alphamon_res = {
+    Alphamole_png1:"res/alphamole/alphamole1.png",
+     Alphamole_plist1:"res/alphamole/alphamole1.plist",
+     Alphamole_json:"res/alphamole/alphamole1_foreground.json",
+    Alphamole_json1:"res/alphamole/alphamole1_background.json",
+    Alphamole_json3:"res/alphamole/alphamole1.json"
+
+};
+
+var alphamon_resources = [];
+for (var i in alphamon_res) {
+    alphamon_resources.push(alphamon_res[i]);
 }
 
 var res = {

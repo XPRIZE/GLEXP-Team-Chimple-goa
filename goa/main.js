@@ -142,7 +142,9 @@ chimple.isHTML5 = function () {
                 "src/mini_games/BubbleShooter/MainStages/Numbers.js",
                 "src/mini_games/BubbleShooter/MainStages/Category.js",
                 "src/mini_games/BubbleShooter/MainStages/Puzzle.js",
-                "src/mini_games/Pop/Pop.js"
+                "src/mini_games/Pop/Pop.js",
+
+                 "src/mini_games/alphamon/whackamole.js"
             ]
 
         };
@@ -235,7 +237,7 @@ chimple.isHTML5 = function () {
             //     cc.director.runScene(new HomeScreenScene());
             // }, this);
 
-            cc.LoaderScene.preload(g_resources, function () {
+          /*  cc.LoaderScene.preload(g_resources, function () {
                 cc.spriteFrameCache.addSpriteFrames(res.thumbnails_plist);
                 cc.spriteFrameCache.addSpriteFrames(res.human_skeleton_plist);
                 cc.spriteFrameCache.addSpriteFrames(res.record_animation_plist);
@@ -263,7 +265,10 @@ chimple.isHTML5 = function () {
                     cc.director.runScene(new PlayFullStoryScene());
                 }
 
-            }, this);
+            }, this);*/
+           cc.LoaderScene.preload(alphamon_res, function () {
+                 cc.director.runScene(new AlphamoneGameScene());
+             },this);
         }
     };
     cc.game.run();

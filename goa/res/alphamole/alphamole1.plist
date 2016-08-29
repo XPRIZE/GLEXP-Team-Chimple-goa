@@ -4,7 +4,7 @@
     <dict>
         <key>frames</key>
         <dict>
-            <key>Play1_hole_back.png</key>
+            <key>alphamole/Play1_hole_back.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
@@ -15,11 +15,11 @@
                 <key>spriteSourceSize</key>
                 <string>{892,190}</string>
                 <key>textureRect</key>
-                <string>{{1751,1},{892,190}}</string>
+                <string>{{1257,948},{892,190}}</string>
                 <key>textureRotated</key>
                 <true/>
             </dict>
-            <key>Play1_hole_front.png</key>
+            <key>alphamole/Play1_hole_front.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
@@ -30,11 +30,131 @@
                 <key>spriteSourceSize</key>
                 <string>{1181,350}</string>
                 <key>textureRect</key>
-                <string>{{831,1060},{1181,350}}</string>
+                <string>{{1,948},{1181,350}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>play1_1hole.png</key>
+            <key>alphamole/Play2_1eg.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,-3}</string>
+                <key>spriteSize</key>
+                <string>{82,61}</string>
+                <key>spriteSourceSize</key>
+                <string>{82,71}</string>
+                <key>textureRect</key>
+                <string>{{1739,1944},{82,61}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+            <key>alphamole/Play2_1star.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{171,172}</string>
+                <key>spriteSourceSize</key>
+                <string>{171,172}</string>
+                <key>textureRect</key>
+                <string>{{1259,1842},{171,172}}</string>
+                <key>textureRotated</key>
+                <true/>
+            </dict>
+            <key>alphamole/Play2_2eg.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,-4}</string>
+                <key>spriteSize</key>
+                <string>{82,61}</string>
+                <key>spriteSourceSize</key>
+                <string>{82,71}</string>
+                <key>textureRect</key>
+                <string>{{1880,1160},{82,61}}</string>
+                <key>textureRotated</key>
+                <true/>
+            </dict>
+            <key>alphamole/Play2_2star.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{132,133}</string>
+                <key>spriteSourceSize</key>
+                <string>{132,133}</string>
+                <key>textureRect</key>
+                <string>{{1880,895},{132,133}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+            <key>alphamole/Play2_Hole_Close.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{817,88}</string>
+                <key>spriteSourceSize</key>
+                <string>{817,88}</string>
+                <key>textureRect</key>
+                <string>{{1,1944},{817,88}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+            <key>alphamole/Play2_Hole_Open.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{803,642}</string>
+                <key>spriteSourceSize</key>
+                <string>{803,642}</string>
+                <key>textureRect</key>
+                <string>{{1,1300},{803,642}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+            <key>alphamole/Play2_Hole_base.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{892,284}</string>
+                <key>spriteSourceSize</key>
+                <string>{892,284}</string>
+                <key>textureRect</key>
+                <string>{{1751,1},{892,284}}</string>
+                <key>textureRotated</key>
+                <true/>
+            </dict>
+            <key>alphamole/Play2_leaf.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{614,449}</string>
+                <key>spriteSourceSize</key>
+                <string>{614,449}</string>
+                <key>textureRect</key>
+                <string>{{806,1300},{614,449}}</string>
+                <key>textureRotated</key>
+                <true/>
+            </dict>
+            <key>alphamole/play1_1hole.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
@@ -45,11 +165,11 @@
                 <key>spriteSourceSize</key>
                 <string>{76,24}</string>
                 <key>textureRect</key>
-                <string>{{1982,272},{76,24}}</string>
+                <string>{{1223,948},{76,24}}</string>
                 <key>textureRotated</key>
                 <true/>
             </dict>
-            <key>play1_1stick.png</key>
+            <key>alphamole/play1_1stick.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
@@ -60,11 +180,11 @@
                 <key>spriteSourceSize</key>
                 <string>{60,128}</string>
                 <key>textureRect</key>
-                <string>{{1943,142},{60,128}}</string>
+                <string>{{1880,1030},{60,128}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>play1_2hole.png</key>
+            <key>alphamole/play1_2hole.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
@@ -75,11 +195,11 @@
                 <key>spriteSourceSize</key>
                 <string>{90,97}</string>
                 <key>textureRect</key>
-                <string>{{696,948},{90,97}}</string>
+                <string>{{1942,1030},{90,97}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>play1_2stick.png</key>
+            <key>alphamole/play1_2stick.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
@@ -90,26 +210,26 @@
                 <key>spriteSourceSize</key>
                 <string>{74,163}</string>
                 <key>textureRect</key>
-                <string>{{1926,895},{74,163}}</string>
-                <key>textureRotated</key>
-                <false/>
-            </dict>
-            <key>play1_3stick.png</key>
-            <dict>
-                <key>aliases</key>
-                <array/>
-                <key>spriteOffset</key>
-                <string>{0,0}</string>
-                <key>spriteSize</key>
-                <string>{82,173}</string>
-                <key>spriteSourceSize</key>
-                <string>{82,173}</string>
-                <key>textureRect</key>
-                <string>{{1751,895},{82,173}}</string>
+                <string>{{1433,1944},{74,163}}</string>
                 <key>textureRotated</key>
                 <true/>
             </dict>
-            <key>play1_4stick.png</key>
+            <key>alphamole/play1_3stick.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{82,173}</string>
+                <key>spriteSourceSize</key>
+                <string>{82,173}</string>
+                <key>textureRect</key>
+                <string>{{1084,1916},{82,173}}</string>
+                <key>textureRotated</key>
+                <true/>
+            </dict>
+            <key>alphamole/play1_4stick.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
@@ -120,11 +240,11 @@
                 <key>spriteSourceSize</key>
                 <string>{65,139}</string>
                 <key>textureRect</key>
-                <string>{{1943,1},{65,139}}</string>
+                <string>{{1598,1944},{65,139}}</string>
                 <key>textureRotated</key>
-                <false/>
+                <true/>
             </dict>
-            <key>play1_cloud.png</key>
+            <key>alphamole/play1_cloud.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
@@ -135,11 +255,11 @@
                 <key>spriteSourceSize</key>
                 <string>{262,110}</string>
                 <key>textureRect</key>
-                <string>{{432,948},{262,110}}</string>
+                <string>{{820,1916},{262,110}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>play1_dol.png</key>
+            <key>alphamole/play1_dol.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
@@ -150,11 +270,11 @@
                 <key>spriteSourceSize</key>
                 <string>{429,595}</string>
                 <key>textureRect</key>
-                <string>{{1,948},{429,595}}</string>
+                <string>{{1449,948},{429,595}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>play1_fence.png</key>
+            <key>alphamole/play1_fence.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
@@ -165,11 +285,11 @@
                 <key>spriteSourceSize</key>
                 <string>{37,311}</string>
                 <key>textureRect</key>
-                <string>{{1943,272},{37,311}}</string>
+                <string>{{1184,948},{37,311}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>play1_greenground.png</key>
+            <key>alphamole/play1_greenground.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
@@ -184,7 +304,7 @@
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>play1_tree.png</key>
+            <key>alphamole/play1_tree.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
@@ -195,9 +315,9 @@
                 <key>spriteSourceSize</key>
                 <string>{397,417}</string>
                 <key>textureRect</key>
-                <string>{{432,1060},{397,417}}</string>
+                <string>{{1449,1545},{397,417}}</string>
                 <key>textureRotated</key>
-                <false/>
+                <true/>
             </dict>
         </dict>
         <key>metadata</key>
@@ -211,9 +331,9 @@
             <key>realTextureFileName</key>
             <string>alphamole.png</string>
             <key>size</key>
-            <string>{2013,1544}</string>
+            <string>{2036,2033}</string>
             <key>smartupdate</key>
-            <string>$TexturePacker:SmartUpdate:dac738913d6866067df76231d0a3139e:b1235d17d85d67b9cff8433523ab76a2:e61976aeaeb6f7891f4c7794daecbd06$</string>
+            <string>$TexturePacker:SmartUpdate:204da5b3566a526adbf88fb8bc5460a9:7d94162f4a47d2a81d4d71f10dd96bc4:e61976aeaeb6f7891f4c7794daecbd06$</string>
             <key>textureFileName</key>
             <string>alphamole.png</string>
         </dict>

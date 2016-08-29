@@ -4,8 +4,11 @@ var AlphamoneGameLayer = cc.Layer.extend( {
         this._super();
 
         var size = cc.winSize;
-        cc.loader.loadJson(res.Alphamole_json, function (error, data) {});
-    }
+        var myLayer = ccs.load(alphamon_res.Alphamole_json1);
+    
+        this.addChild(myLayer.node,0,"layer");
+        //cc.loader.loadJson(res.Alphamole_json, function (error, data) {});
+        }
 });
 
 var AlphamoneGameScene = cc.Scene.extend({
