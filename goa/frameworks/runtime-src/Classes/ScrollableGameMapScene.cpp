@@ -30,7 +30,7 @@
 #include "mini_games/BajaWordScene.h"
 #include "mini_games/CatGameScene.h"
 #include "mini_games/Spirograph.h"
-#include "mini_games\Train.h"
+#include "mini_games/Train.h"
 #include "mini_games/Pop.h"
 USING_NS_CC;
 
