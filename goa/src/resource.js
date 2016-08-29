@@ -9,6 +9,23 @@ if (!cc.sys.isNative) {
 }
 
 
+var bubbleShooter = {
+    Background1_plist : "res/bubbleShooter/Background_01.plist",
+    Background1_png : "res/bubbleShooter/Background_01.png",
+    Background2_plist : "res/bubbleShooter/Background_02.plist",
+    Background2_png : "res/bubbleShooter/Background_02.png",
+    
+    ObjectAllImage_plist : "res/bubbleShooter/Object_2.plist",
+    ObjectAllImage_png : "res/bubbleShooter/Object_2.png",
+    
+    Category_plist : "res/bubbleShooter/Category.plist",
+    Category_png : "res/bubbleShooter/Category.png",
+    
+    BubbleBlast_plist : "res/bubbleShooter/Bubble_blast.plist",
+    BubbleBlast_png : "res/bubbleShooter/Bubble_blast.png"    
+    
+}
+
 var res = {
     thumbnails_png: defaultMiscFolder + "thumbnails.png",
     thumbnails_plist: defaultMiscFolder + "thumbnails.plist",
@@ -40,6 +57,11 @@ var misc = {
 var g_resources = [];
 for (var i in res) {
     g_resources.push(res[i]);
+};
+
+var BubbleShooter_resource = [];
+for (var i in bubbleShooter) {
+    BubbleShooter_resource.push(bubbleShooter[i]);
 };
 
 
