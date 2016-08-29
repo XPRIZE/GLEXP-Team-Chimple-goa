@@ -54,8 +54,8 @@
 
 var chimple = chimple || {};
 chimple.RESOURCE_DESIGN_HEIGHT = 1800;
-chimple.DEVICE_WIDTH = 640;
-chimple.DEVICE_HEIGHT = 450;
+chimple.DEVICE_WIDTH = 2560;//640
+chimple.DEVICE_HEIGHT = 1800;//450
 chimple.HAND_GEAR_LEFT = "hand_gear_left";
 chimple.image = {};
 chimple.isHTML5 = function () {
@@ -266,7 +266,9 @@ chimple.isHTML5 = function () {
                 }
 
             }, this);*/
-           cc.LoaderScene.preload(alphamon_res, function () {
+           cc.LoaderScene.preload(alphamon_resources, function () {
+                 cc.spriteFrameCache.addSpriteFrames(alphamon_res.Alphamole_plist1);//Alphamole_alphabet_plist
+                 cc.spriteFrameCache.addSpriteFrames(alphamon_res.Alphamole_alphabet_plist);
                  cc.director.runScene(new AlphamoneGameScene());
              },this);
         }
