@@ -24,6 +24,41 @@ var bubbleShooter = {
     BubbleBlast_plist : "res/bubbleShooter/Bubble_blast.plist",
     BubbleBlast_png : "res/bubbleShooter/Bubble_blast.png"    
     
+};
+
+var alphamon_res = {
+    Alphamole_png1:"res/alphamole/alphamole1/alphamole1.png",
+     Alphamole_plist1:"res/alphamole/alphamole1/alphamole1.plist",
+     Alphamole_json:"res/alphamole/alphamole1_foreground.json",
+    Alphamole_json1:"res/alphamole/alphamole1_background.json",
+    Alphamole_json3:"res/alphamole/alphamole1.json",
+    Alphamole_A:"res/english/A.json",
+    Alphamole_alphabet_png:"res/alphamon.png",
+    Alphamole_alphabet_plist:"res/alphamon.plist",
+     
+     Alphamole_english_fnt:"res/english/baloo_bhai_hdr.fnt",
+     Alphamole_english_png:"res/english/baloo_bhai_hdr_0.png"
+};
+
+var alphamone_json = {
+    Alphamole_eye_h_plist:"res/eye_ani/eye_h.json",
+     Alphamole_skate_b_plist:"res/leg_ani/skate_b.json",
+     Alphamole_mouth_h_plist:"res/mouth_ani/mouth_e.json",
+};
+
+for(var j in alphamone_json){
+cc.loader.loadJson(alphamone_json[j], function (error, data) {
+});
+}
+
+cc.loader.loadTxt(alphamon_res.Alphamole_english_fnt, function(err, data){
+    if(err) return console.log("load failed");
+    //success
+});
+
+var alphamon_resources = [];
+for (var i in alphamon_res) {
+    alphamon_resources.push(alphamon_res[i]);
 }
 
 var res = {
