@@ -230,6 +230,10 @@
 		F35248591D6D9D1A0077C333 /* sqlite3.c in Sources */ = {isa = PBXBuildFile; fileRef = F35247BA1D6D9D1A0077C333 /* sqlite3.c */; };
 		F352485A1D6D9D1A0077C333 /* State.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F35247BD1D6D9D1A0077C333 /* State.cpp */; };
 		F352485B1D6D9D1A0077C333 /* State.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F35247BD1D6D9D1A0077C333 /* State.cpp */; };
+		F3D201A31D7409B400FDB750 /* Train.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F3D2019F1D7409B400FDB750 /* Train.cpp */; };
+		F3D201A41D7409B400FDB750 /* Pop.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F3D201A11D7409B400FDB750 /* Pop.cpp */; };
+		F3D201A71D740C6C00FDB750 /* Train.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F3D2019F1D7409B400FDB750 /* Train.cpp */; };
+		F3D201A81D740C7C00FDB750 /* Pop.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F3D201A11D7409B400FDB750 /* Pop.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -528,6 +532,10 @@
 		F35247BD1D6D9D1A0077C333 /* State.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = State.cpp; sourceTree = "<group>"; };
 		F35247BE1D6D9D1A0077C333 /* State.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = State.h; sourceTree = "<group>"; };
 		F35247BF1D6D9D1A0077C333 /* WalkingState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WalkingState.h; sourceTree = "<group>"; };
+		F3D2019F1D7409B400FDB750 /* Train.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Train.cpp; sourceTree = "<group>"; };
+		F3D201A01D7409B400FDB750 /* Train.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Train.h; sourceTree = "<group>"; };
+		F3D201A11D7409B400FDB750 /* Pop.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Pop.cpp; sourceTree = "<group>"; };
+		F3D201A21D7409B400FDB750 /* Pop.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Pop.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -807,6 +815,10 @@
 		F352471A1D6D9D1A0077C333 /* mini_games */ = {
 			isa = PBXGroup;
 			children = (
+				F3D2019F1D7409B400FDB750 /* Train.cpp */,
+				F3D201A01D7409B400FDB750 /* Train.h */,
+				F3D201A11D7409B400FDB750 /* Pop.cpp */,
+				F3D201A21D7409B400FDB750 /* Pop.h */,
 				F352471B1D6D9D1A0077C333 /* AlphamonFeedLevelScene.cpp */,
 				F352471C1D6D9D1A0077C333 /* AlphamonFeedLevelScene.h */,
 				F352471D1D6D9D1A0077C333 /* AlphamonFeedScene.cpp */,
@@ -1161,6 +1173,7 @@
 				F35247D51D6D9D1A0077C333 /* Chain.cpp in Sources */,
 				C06E23CC18CEFE680093C81A /* main.cpp in Sources */,
 				F35248371D6D9D1A0077C333 /* WalkingState.cpp in Sources */,
+				F3D201A81D740C7C00FDB750 /* Pop.cpp in Sources */,
 				F352482F1D6D9D1A0077C333 /* FallingState.cpp in Sources */,
 				F352484F1D6D9D1A0077C333 /* MessageContent.cpp in Sources */,
 				F35247C11D6D9D1A0077C333 /* HelloWorldScene.cpp in Sources */,
@@ -1173,6 +1186,7 @@
 				F352480F1D6D9D1A0077C333 /* WordBoard.cpp in Sources */,
 				F35248171D6D9D1A0077C333 /* MenuContext.cpp in Sources */,
 				F35248151D6D9D1A0077C333 /* StartMenuScene.cpp in Sources */,
+				F3D201A71D740C6C00FDB750 /* Train.cpp in Sources */,
 				F35248551D6D9D1A0077C333 /* MessageReceiver.cpp in Sources */,
 				F35247CF1D6D9D1A0077C333 /* Cannon_Ball_Main.cpp in Sources */,
 				F352481D1D6D9D1A0077C333 /* ScrollableGameMapScene.cpp in Sources */,
@@ -1244,6 +1258,7 @@
 				D4545227156E28EF00887EB5 /* AppDelegate.cpp in Sources */,
 				F35247DE1D6D9D1A0077C333 /* jazz.cpp in Sources */,
 				F35248081D6D9D1A0077C333 /* Grapheme.cpp in Sources */,
+				F3D201A31D7409B400FDB750 /* Train.cpp in Sources */,
 				F35247E21D6D9D1A0077C333 /* SmashTheRockLevelScene.cpp in Sources */,
 				F35247F01D6D9D1A0077C333 /* EnglishUtil.cpp in Sources */,
 				F35247D21D6D9D1A0077C333 /* CatScene.cpp in Sources */,
@@ -1271,6 +1286,7 @@
 				F35248501D6D9D1A0077C333 /* StateMachine.cpp in Sources */,
 				F352482E1D6D9D1A0077C333 /* FallingState.cpp in Sources */,
 				F35248221D6D9D1A0077C333 /* SkeletonCharacter.cpp in Sources */,
+				F3D201A41D7409B400FDB750 /* Pop.cpp in Sources */,
 				F35248561D6D9D1A0077C333 /* PhysicsShapeCache.cpp in Sources */,
 				F35247D81D6D9D1A0077C333 /* EndlessRunner.cpp in Sources */,
 				F35247F21D6D9D1A0077C333 /* KannadaUtil.cpp in Sources */,
