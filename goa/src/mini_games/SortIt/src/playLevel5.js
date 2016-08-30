@@ -39,13 +39,15 @@ var level5Layer = cc.Layer.extend({
 
         var size = cc.winSize;
 
-         this.bg = new cc.Sprite(res.bg5_png);
+         
+         this.bg = ccs.load(SortIt.level5bg_json);
          this.bg.setAnchorPoint(0.5, 0.5);
          this.bg.setPosition(size.width / 2, size.height / 2); 
          this.addChild(this.bg);
          cc.eventManager.addListener(eventListener.clone(), this.bg);
+        
 
-         this.character = new cc.Sprite(res.character5_png);
+         this.character = new cc.Sprite(cc.spriteFrameCache.getSpriteFrame("sortit/charcterfive.png"));
          this.character.setAnchorPoint(0.5, 0.5);
          this.character.setPosition(size.width*0.78 , size.height*0.46);
          this.character.setScale(0.8, 0.8); 
@@ -57,15 +59,15 @@ var level5Layer = cc.Layer.extend({
 
 
          ///////////////////////////for transparent
-         
-         this.num1t = new cc.Sprite(res.num1t_png);
+       
+         this.num1t = new cc.Sprite(cc.spriteFrameCache.getSpriteFrame("sortit/sortittwo/num1t.png"));
          this.num1t.setAnchorPoint(0.5, 0.5 );
          this.num1t.setPosition(size.width*0.39 , size.height*0.24);
          this.num1t.setScale(this.level5SpriteScaleX, this.level5SpriteScaleY); 
          this.addChild(this.num1t);
          
 
-         this.num2t = new cc.Sprite(res.num2t_png);
+         this.num2t = new cc.Sprite(cc.spriteFrameCache.getSpriteFrame("sortit/sortittwo/num2t.png"));
          this.num2t.setAnchorPoint(0.5, 0.5 );
          this.num2t.setPosition(size.width*0.39 , size.height*0.36);
          this.num2t.setScale(this.level5SpriteScaleX, this.level5SpriteScaleY); 
@@ -73,7 +75,7 @@ var level5Layer = cc.Layer.extend({
         
 
 
-         this.num3t = new cc.Sprite(res.num3t_png);
+         this.num3t = new cc.Sprite(cc.spriteFrameCache.getSpriteFrame("sortit/sortittwo/num3t.png"));
          this.num3t.setAnchorPoint(0.5, 0.5 );
          this.num3t.setPosition(size.width*0.39 , size.height*0.47);
          this.num3t.setScale(this.level5SpriteScaleX, this.level5SpriteScaleY); 
@@ -81,14 +83,14 @@ var level5Layer = cc.Layer.extend({
          
          
 
-         this.num4t = new cc.Sprite(res.num4t_png);
+         this.num4t = new cc.Sprite(cc.spriteFrameCache.getSpriteFrame("sortit/sortittwo/num4t.png"));
          this.num4t.setAnchorPoint(0.5, 0.5 );
          this.num4t.setPosition(size.width*0.39 , size.height*0.57);
          this.num4t.setScale(this.level5SpriteScaleX, this.level5SpriteScaleY); 
          this.addChild(this.num4t);
          
-         
-         this.num5t = new cc.Sprite(res.num5t_png);
+      
+         this.num5t = new cc.Sprite(cc.spriteFrameCache.getSpriteFrame("sortit/sortittwo/num5t.png"));
          this.num5t.setAnchorPoint(0.5, 0.5 );
          this.num5t.setPosition(size.width*0.39 , size.height*0.68);
          this.num5t.setScale(this.level5SpriteScaleX, this.level5SpriteScaleY); 
@@ -96,7 +98,7 @@ var level5Layer = cc.Layer.extend({
          
 
 
-         this.num1 = new MovableItem5(res.num1_png, this.num1t, this);
+         this.num1 = new MovableItem5(cc.spriteFrameCache.getSpriteFrame("sortit/sortittwo/num1.png"), this.num1t, this);
          this.num1.setAnchorPoint(0.5, 0.5);
          this.num1.setPosition(size.width*0.23 , size.height*0.23);
          this.num1.xP = this.num1.getPosition().x;
@@ -106,7 +108,7 @@ var level5Layer = cc.Layer.extend({
          this.addChild(this.num1);
          
 
-         this.num2 = new MovableItem5(res.num2_png, this.num2t, this);
+         this.num2 = new MovableItem5(cc.spriteFrameCache.getSpriteFrame("sortit/sortittwo/num2.png"), this.num2t, this);
          this.num2.setAnchorPoint(0.5, 0.5);
          this.num2.setPosition(size.width*0.54 , size.height*0.23);
          this.num2.xP = this.num2.getPosition().x;
@@ -116,7 +118,7 @@ var level5Layer = cc.Layer.extend({
          this.addChild(this.num2);
          
 
-         this.num3 = new MovableItem5(res.num3_png, this.num3t, this);
+         this.num3 = new MovableItem5(cc.spriteFrameCache.getSpriteFrame("sortit/sortittwo/num3.png"), this.num3t, this);
          this.num3.setAnchorPoint(0.5, 0.5);
          this.num3.setPosition(size.width*0.07 , size.height*0.23);
          this.num3.xP = this.num3.getPosition().x;
@@ -126,7 +128,7 @@ var level5Layer = cc.Layer.extend({
          this.addChild(this.num3);
          
 
-         this.num4 = new MovableItem5(res.num4_png, this.num4t, this);
+         this.num4 = new MovableItem5(cc.spriteFrameCache.getSpriteFrame("sortit/sortittwo/num4.png"), this.num4t, this);
          this.num4.setAnchorPoint(0.5, 0.5);
          this.num4.setPosition(size.width*0.70 , size.height*0.23);
          this.num4.xP = this.num4.getPosition().x;
@@ -136,7 +138,7 @@ var level5Layer = cc.Layer.extend({
          this.addChild(this.num4);
          
 
-         this.num5 = new MovableItem5(res.num5_png, this.num5t, this);
+         this.num5 = new MovableItem5(cc.spriteFrameCache.getSpriteFrame("sortit/sortittwo/num5.png"), this.num5t, this);
          this.num5.setAnchorPoint(0.5, 0.5);
          this.num5.setPosition(size.width*0.42 , size.height*0.13);
          this.num5.xP = this.num5.getPosition().x;

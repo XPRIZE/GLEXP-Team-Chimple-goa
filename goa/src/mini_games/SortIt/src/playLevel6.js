@@ -40,7 +40,7 @@ var level6Layer = cc.Layer.extend({
 
         var size = cc.winSize;
 
-         this.bg = new cc.Sprite(res.bg6_png);
+         this.bg = ccs.load(SortIt.level6bg_json);
          this.bg.setAnchorPoint(0.5, 0.5 );
          this.bg.setPosition(size.width / 2, size.height / 2); 
          this.addChild(this.bg);
@@ -49,8 +49,8 @@ var level6Layer = cc.Layer.extend({
 
 
          ///////////////////////////for transparent
-            
-         this.at = new cc.Sprite(res.at_png);
+         
+         this.at = new cc.Sprite(cc.spriteFrameCache.getSpriteFrame("sortit/sortittwo/at.png"));
          this.at.setAnchorPoint(0.5, 0.5 );
          this.at.setPosition(size.width*0.43 , size.height*0.69);
          this.at.setScale(this.level6SpriteScaleX, this.level6SpriteScaleY); 
@@ -58,22 +58,22 @@ var level6Layer = cc.Layer.extend({
          
          
 
-         this.bt = new cc.Sprite(res.bt_png);
+         this.bt = new cc.Sprite(cc.spriteFrameCache.getSpriteFrame("sortit/sortittwo/bt.png"));
          this.bt.setAnchorPoint(0.5, 0.5 );
          this.bt.setPosition(size.width*0.52 , size.height*0.72);
          this.bt.setScale(this.level6SpriteScaleX, this.level6SpriteScaleY); 
          this.addChild(this.bt);
         
 
-         this.ct = new cc.Sprite(res.ct_png);
+         this.ct = new cc.Sprite(cc.spriteFrameCache.getSpriteFrame("sortit/sortittwo/ct.png"));
          this.ct.setAnchorPoint(0.5, 0.5 );
          this.ct.setPosition(size.width*0.61 , size.height*0.69);
          this.ct.setScale(this.level6SpriteScaleX, this.level6SpriteScaleY); 
          this.addChild(this.ct);
          
 
-                   
-         this.dt = new cc.Sprite(res.dt_png);
+            
+         this.dt = new cc.Sprite(cc.spriteFrameCache.getSpriteFrame("sortit/sortittwo/dt.png"));
          this.dt.setAnchorPoint(0.5, 0.5 );
          this.dt.setPosition(size.width*0.71 , size.height*0.67);
          this.dt.setScale(this.level6SpriteScaleX, this.level6SpriteScaleY); 
@@ -81,14 +81,14 @@ var level6Layer = cc.Layer.extend({
          
              
 
-         this.et = new cc.Sprite(res.et_png);
+         this.et = new cc.Sprite(cc.spriteFrameCache.getSpriteFrame("sortit/sortittwo/et.png"));
          this.et.setAnchorPoint(0.5, 0.5 );
          this.et.setPosition(size.width*0.78 , size.height*0.71);
          this.et.setScale(this.level6SpriteScaleX, this.level6SpriteScaleY); 
          this.addChild(this.et);
          
 
-         this.a = new MovableItem6(res.a_png, this.at, this);
+         this.a = new MovableItem6(cc.spriteFrameCache.getSpriteFrame("sortit/sortittwo/a.png"), this.at, this);
          this.a.setAnchorPoint(0.5, 0.5);
          this.a.setPosition(size.width*0.70 , size.height*0.19);
          this.a.xP = this.a.getPosition().x;
@@ -98,7 +98,7 @@ var level6Layer = cc.Layer.extend({
          this.addChild(this.a);
          
 
-         this.b = new MovableItem6(res.b_png, this.bt, this);
+         this.b = new MovableItem6(cc.spriteFrameCache.getSpriteFrame("sortit/sortittwo/b.png"), this.bt, this);
          this.b.setAnchorPoint(0.5, 0.5);
          this.b.setPosition(size.width*0.31 , size.height*0.14);
          this.b.xP = this.b.getPosition().x;
@@ -108,8 +108,7 @@ var level6Layer = cc.Layer.extend({
          this.addChild(this.b);
          
 
-        
-         this.c = new MovableItem6(res.c_png, this.ct, this);
+         this.c = new MovableItem6(cc.spriteFrameCache.getSpriteFrame("sortit/sortittwo/c.png"), this.ct, this);
          this.c.setAnchorPoint(0.5, 0.5);
          this.c.setPosition(size.width*0.46 , size.height*0.10);
          this.c.xP = this.c.getPosition().x;
@@ -118,8 +117,8 @@ var level6Layer = cc.Layer.extend({
          this.c.id = 3;
          this.addChild(this.c);
          
-         
-         this.d = new MovableItem6(res.d_png, this.dt, this);
+   
+         this.d = new MovableItem6(cc.spriteFrameCache.getSpriteFrame("sortit/sortittwo/d.png"), this.dt, this);
          this.d.setAnchorPoint(0.5, 0.5);
          this.d.setPosition(size.width*0.62 , size.height*0.10);
          this.d.xP = this.d.getPosition().x;
@@ -130,7 +129,7 @@ var level6Layer = cc.Layer.extend({
         
          
 
-         this.e = new MovableItem6(res.e_png, this.et, this);
+         this.e = new MovableItem6(cc.spriteFrameCache.getSpriteFrame("sortit/sortittwo/e.png"), this.et, this);
          this.e.setAnchorPoint(0.5, 0.5);
          this.e.setPosition(size.width*0.07 , size.height*0.12);
          this.e.xP = this.e.getPosition().x;

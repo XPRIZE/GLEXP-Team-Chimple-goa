@@ -26,6 +26,32 @@ var bubbleShooter = {
     
 }
 
+
+var SortIt = {
+     
+   
+    
+    sortittwo_png: defaultFolder + "sortit/sortittwo/sortittwo.png",
+    sortittwo_plist: defaultFolder + "sortit/sortittwo/sortittwo.plist",
+    
+    sortit_png: defaultFolder + "sortit/sortit.png",
+    sortit_plist: defaultFolder + "sortit/sortit.plist",
+    
+    
+    level1bg_json: defaultFolder + "sortit/levelone.json",
+    level2bg_json: defaultFolder + "sortit/leveltwo.json",
+    level3bg_json: defaultFolder + "sortit/levelthree.json",
+    level4bg_json: defaultFolder + "sortit/levelfour.json",
+    level5bg_json: defaultFolder + "sortit/levelfive.json",
+    level6bg_json: defaultFolder + "sortit/levelsix.json",
+    
+    comedyBubble_mp3:  defaultFolder + "sounds/sortit/comedyBubble.mp3",
+    explosive_mp3:  defaultFolder + "sounds/sortit/explosive.mp3",
+    failure_mp3:  defaultFolder + "sounds/sortit/failure.mp3"
+    
+    
+}
+
 var res = {
     thumbnails_png: defaultMiscFolder + "thumbnails.png",
     thumbnails_plist: defaultMiscFolder + "thumbnails.plist",
@@ -64,6 +90,10 @@ for (var i in bubbleShooter) {
     BubbleShooter_resource.push(bubbleShooter[i]);
 };
 
+var SortIt_res = [];
+for (var i in SortIt) {
+    SortIt_res.push(SortIt[i]);
+};
 
 cc.loader.loadJson(misc.EditPlayConfig_json, function (error, data) {
     chimple.storyPlayConfigurationObject = data;

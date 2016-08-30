@@ -77,6 +77,13 @@ cc.game.onStart = function(){
     cc.LoaderScene.preload(t_resources, function () {
         cc.director.runScene(new TrainScene());
     }, this);
+    
+    /*
+    cc.LoaderScene.preload(SortIt_res, function () {
+         cc.spriteFrameCache.addSpriteFrames(SortIt.sortittwo_plist);
+         cc.spriteFrameCache.addSpriteFrames(SortIt.sortit_plist);
+        cc.director.runScene(new loadScene());
+    }, this);*/
 };
 cc.game.run();
 
