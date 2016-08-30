@@ -45,6 +45,7 @@ var eventListener = cc.eventManager.addListener({
         // create and initialize a label
 
       
+        //var train = new cc.Sprite(cc.spriteFrameCache.getSpriteFrame("train/train.png"));
     
          this.homeScreen = new cc.Sprite(res.homeScreen_png);
          this.homeScreen.setAnchorPoint(0.5, 0.5 );
