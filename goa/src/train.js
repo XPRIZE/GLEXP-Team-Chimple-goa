@@ -13,6 +13,8 @@ var TrainLayer = cc.Layer.extend({
 
         var node = ccs.load(res.train_json, "res/SD/");
         this.addChild(node.node);
+
+
         if(!cc.sys.isNative) {
             node.node._renderCmd._dirtyFlag = 1;
         };
@@ -24,7 +26,9 @@ var TrainScene = cc.Scene.extend({
     onEnter:function () {
         this._super();
         var layer = new TrainLayer();
+        var menu = goa.MenuContext.create(layer);        
         this.addChild(layer);
+        this.addChild(menu);
     }
 });
 
