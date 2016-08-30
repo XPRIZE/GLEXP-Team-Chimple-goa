@@ -266,11 +266,7 @@ chimple.isHTML5 = function () {
                 }
 
             }, this);*/
-           cc.LoaderScene.preload(alphamon_resources, function () {
-                 cc.spriteFrameCache.addSpriteFrames(alphamon_res.Alphamole_plist1);//Alphamole_alphabet_plist
-                 cc.spriteFrameCache.addSpriteFrames(alphamon_res.Alphamole_alphabet_plist);
-                 cc.director.runScene(new AlphamoneGameScene());
-             },this);
+           
         }
     };
     cc.game.run();
