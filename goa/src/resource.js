@@ -60,6 +60,12 @@ var alphamon_resources = [];
 for (var i in alphamon_res) {
     alphamon_resources.push(alphamon_res[i]);
 }
+var pop_res = {
+        pop_scene: "res/pop/pop.json",
+        pop_plane: "res/pop/plane.json",
+        pop_scene_plist:"res/pop/pop.plist",
+        pop_scene_png: "res/pop/pop.png",
+}
 
 var res = {
     thumbnails_png: defaultMiscFolder + "thumbnails.png",
@@ -77,7 +83,7 @@ var res = {
     play_png: defaultMiscFolder + "play.png",
     record_animation_png: defaultMiscFolder + "recording.png",
     record_animation_plist: defaultMiscFolder + "recording.plist",
-    fox: defaultMiscFolder + "fox_stork_01.json"    
+    fox: defaultMiscFolder + "fox_stork_01.json",    
 };
 
 
@@ -85,7 +91,6 @@ var misc = {
     Config_json: defaultMiscFolder + "wikitaki/misc/storyConfig.json",
     EditPlayConfig_json: defaultMiscFolder + "wikitaki/misc/playConfig.json",
     OnlyStoryPlayConfig_json: defaultMiscFolder + "wikitaki/misc/onlyPlayConfig.json",
-
 };
 
 
@@ -99,6 +104,11 @@ for (var i in bubbleShooter) {
     BubbleShooter_resource.push(bubbleShooter[i]);
 };
 
+var Pop_resource =[];
+for(var i in pop_res)
+{
+    Pop_resource.push(pop_res[i]);
+};
 
 cc.loader.loadJson(misc.EditPlayConfig_json, function (error, data) {
     chimple.storyPlayConfigurationObject = data;
