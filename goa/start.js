@@ -73,9 +73,12 @@ cc.game.onStart = function(){
 
     cc.director.setContentScaleFactor(0.25);
 
-    //load resources
-    cc.LoaderScene.preload(t_resources, function () {
-        cc.director.runScene(new TrainScene());
+    cc.LoaderScene.preload(Decomon_resources, function () {
+        cc.spriteFrameCache.addSpriteFrames(Decomon.decomon_main);
+        cc.spriteFrameCache.addSpriteFrames(Decomon.decomon1_plist);
+        cc.spriteFrameCache.addSpriteFrames(Decomon.decomon2_plist);
+        cc.spriteFrameCache.addSpriteFrames(Decomon.decomon3_plist);
+        cc.director.runScene(new DecmonScene());
     }, this);
 };
 cc.game.run();

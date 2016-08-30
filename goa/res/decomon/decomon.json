@@ -1,0 +1,898 @@
+{
+  "ID": "fd501657-66e6-4ec6-bdcf-0d87299cbbbd",
+  "Version": "3.10.0.0",
+  "Name": "decomon",
+  "Content": {
+    "Content": {
+      "Animation": {
+        "Duration": 0,
+        "Speed": 1.0,
+        "Timelines": [],
+        "ctype": "TimelineActionData"
+      },
+      "AnimationList": [],
+      "ObjectData": {
+        "Tag": 60,
+        "Children": [
+          {
+            "ClipAble": false,
+            "ComboBoxIndex": 1,
+            "SingleColor": {
+              "R": 150,
+              "G": 200
+            },
+            "FirstColor": {
+              "R": 150,
+              "G": 200
+            },
+            "EndColor": {},
+            "ColorVector": {
+              "ScaleY": 1.0
+            },
+            "Scale9Width": 1,
+            "Scale9Height": 1,
+            "TouchEnable": true,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 0.1521,
+              "Y": -0.0302
+            },
+            "Scale": {
+              "ScaleX": 12.7995,
+              "ScaleY": 9.0012
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.0001,
+              "Y": 0.0
+            },
+            "PreSize": {
+              "X": 0.0781,
+              "Y": 0.1111
+            },
+            "LeftMargin": 0.1521,
+            "RightMargin": 2359.8479,
+            "TopMargin": 1600.0302,
+            "BottomMargin": -0.0302,
+            "Tag": 62,
+            "ActionTag": 332754883,
+            "Size": {
+              "X": 200.0,
+              "Y": 200.0
+            },
+            "Name": "Panel_1",
+            "ctype": "PanelObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "decomon/decomon1/decomon_edge.png",
+              "Plist": "decomon/decomon1/decomon1.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 247.1578,
+              "Y": 169.0328
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "RotationSkewX": -90.0,
+            "RotationSkewY": -90.0,
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.0965,
+              "Y": 0.0939
+            },
+            "PreSize": {
+              "X": 0.132,
+              "Y": 0.0917
+            },
+            "LeftMargin": 78.1578,
+            "RightMargin": 2143.8423,
+            "TopMargin": 1548.4673,
+            "BottomMargin": 86.5328,
+            "Tag": 63,
+            "ActionTag": 963324611,
+            "Size": {
+              "X": 338.0,
+              "Y": 165.0
+            },
+            "Name": "edge_2",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FlipY": true,
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "decomon/decomon1/decomon_edge.png",
+              "Plist": "decomon/decomon1/decomon1.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 2275.7363,
+              "Y": 169.0294
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "RotationSkewX": -90.0,
+            "RotationSkewY": -90.0,
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.889,
+              "Y": 0.0939
+            },
+            "PreSize": {
+              "X": 0.132,
+              "Y": 0.0917
+            },
+            "LeftMargin": 2106.7363,
+            "RightMargin": 115.2637,
+            "TopMargin": 1548.4707,
+            "BottomMargin": 86.5294,
+            "Tag": 65,
+            "ActionTag": 1576143083,
+            "Size": {
+              "X": 338.0,
+              "Y": 165.0
+            },
+            "Name": "edge_2_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "ClipAble": false,
+            "BackColorAlpha": 127,
+            "ComboBoxIndex": 1,
+            "SingleColor": {
+              "R": 81,
+              "G": 81,
+              "B": 81
+            },
+            "FirstColor": {
+              "R": 150,
+              "G": 200
+            },
+            "EndColor": {},
+            "ColorVector": {
+              "ScaleY": 1.0
+            },
+            "Scale9Width": 1,
+            "Scale9Height": 1,
+            "TouchEnable": true,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 329.4049,
+              "Y": 0.0371
+            },
+            "Scale": {
+              "ScaleX": 9.3195,
+              "ScaleY": 1.6894
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.1287,
+              "Y": 0.0
+            },
+            "PreSize": {
+              "X": 0.0781,
+              "Y": 0.1111
+            },
+            "LeftMargin": 329.4049,
+            "RightMargin": 2030.5951,
+            "TopMargin": 1599.9629,
+            "BottomMargin": 0.0371,
+            "Tag": 66,
+            "ActionTag": -238635656,
+            "Size": {
+              "X": 200.0,
+              "Y": 200.0
+            },
+            "Name": "Panel_3",
+            "ctype": "PanelObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "decomon/decomon1/decomon_edge.png",
+              "Plist": "decomon/decomon1/decomon1.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 169.2832,
+              "Y": 1495.1262
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "RotationSkewX": -0.0245,
+            "RotationSkewY": -0.028,
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.0661,
+              "Y": 0.8306
+            },
+            "PreSize": {
+              "X": 0.132,
+              "Y": 0.0917
+            },
+            "LeftMargin": 0.2832,
+            "RightMargin": 2221.7168,
+            "TopMargin": 222.3738,
+            "BottomMargin": 1412.6262,
+            "Tag": 67,
+            "ActionTag": 254876836,
+            "Size": {
+              "X": 338.0,
+              "Y": 165.0
+            },
+            "Name": "edge_2_1",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FlipY": true,
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "decomon/decomon1/decomon_edge.png",
+              "Plist": "decomon/decomon1/decomon1.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 169.2312,
+              "Y": 535.9653
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "RotationSkewX": 0.007,
+            "RotationSkewY": -0.014,
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.0661,
+              "Y": 0.2978
+            },
+            "PreSize": {
+              "X": 0.132,
+              "Y": 0.0917
+            },
+            "LeftMargin": 0.2312,
+            "RightMargin": 2221.7688,
+            "TopMargin": 1181.5347,
+            "BottomMargin": 453.4653,
+            "Tag": 68,
+            "ActionTag": 306224384,
+            "Size": {
+              "X": 338.0,
+              "Y": 165.0
+            },
+            "Name": "edge_2_0_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "ClipAble": false,
+            "BackColorAlpha": 127,
+            "ComboBoxIndex": 1,
+            "SingleColor": {
+              "R": 81,
+              "G": 81,
+              "B": 81
+            },
+            "FirstColor": {
+              "R": 150,
+              "G": 200
+            },
+            "EndColor": {},
+            "ColorVector": {
+              "ScaleY": 1.0
+            },
+            "Scale9Width": 1,
+            "Scale9Height": 1,
+            "TouchEnable": true,
+            "AnchorPoint": {
+              "ScaleX": 1.0
+            },
+            "Position": {
+              "X": 0.2957,
+              "Y": 618.3677
+            },
+            "Scale": {
+              "ScaleX": 3.9759,
+              "ScaleY": 1.6894
+            },
+            "RotationSkewX": 90.0166,
+            "RotationSkewY": 90.0068,
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.0001,
+              "Y": 0.3435
+            },
+            "PreSize": {
+              "X": 0.0781,
+              "Y": 0.1111
+            },
+            "LeftMargin": -199.7043,
+            "RightMargin": 2559.7043,
+            "TopMargin": 981.6323,
+            "BottomMargin": 618.3677,
+            "Tag": 69,
+            "ActionTag": -748741758,
+            "Size": {
+              "X": 200.0,
+              "Y": 200.0
+            },
+            "Name": "Panel_3_0",
+            "ctype": "PanelObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "decomon/decomon2/decomon_horn_icon.png",
+              "Plist": "decomon/decomon2/decomon2.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 147.0016,
+              "Y": 1404.6469
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.0574,
+              "Y": 0.7804
+            },
+            "PreSize": {
+              "X": 0.0535,
+              "Y": 0.125
+            },
+            "LeftMargin": 78.5016,
+            "RightMargin": 2344.4985,
+            "TopMargin": 282.8531,
+            "BottomMargin": 1292.1469,
+            "Tag": 70,
+            "ActionTag": -2029921248,
+            "Size": {
+              "X": 137.0,
+              "Y": 225.0
+            },
+            "Name": "horn_6",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "decomon/decomon1/decomon_eye_icon.png",
+              "Plist": "decomon/decomon1/decomon1.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 156.0694,
+              "Y": 1104.6741
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.061,
+              "Y": 0.6137
+            },
+            "PreSize": {
+              "X": 0.0727,
+              "Y": 0.1033
+            },
+            "LeftMargin": 63.0694,
+            "RightMargin": 2310.9307,
+            "TopMargin": 602.3259,
+            "BottomMargin": 1011.6741,
+            "Tag": 71,
+            "ActionTag": -1305958501,
+            "Size": {
+              "X": 186.0,
+              "Y": 186.0
+            },
+            "Name": "eye_7",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "decomon/decomon2/decomon_mouth.png",
+              "Plist": "decomon/decomon2/decomon2.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 169.3038,
+              "Y": 599.08
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.0661,
+              "Y": 0.3328
+            },
+            "PreSize": {
+              "X": 0.1047,
+              "Y": 0.0828
+            },
+            "LeftMargin": 35.3038,
+            "RightMargin": 2256.6963,
+            "TopMargin": 1126.42,
+            "BottomMargin": 524.58,
+            "Tag": 72,
+            "ActionTag": -610290473,
+            "Size": {
+              "X": 268.0,
+              "Y": 149.0
+            },
+            "Name": "mouth_8",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "decomon/decomon2/decomon_nose_icon.png",
+              "Plist": "decomon/decomon2/decomon2.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 169.3039,
+              "Y": 875.1184
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.0661,
+              "Y": 0.4862
+            },
+            "PreSize": {
+              "X": 0.107,
+              "Y": 0.0556
+            },
+            "LeftMargin": 32.3039,
+            "RightMargin": 2253.696,
+            "TopMargin": 874.8816,
+            "BottomMargin": 825.1184,
+            "Tag": 73,
+            "ActionTag": 1266305711,
+            "Size": {
+              "X": 274.0,
+              "Y": 100.0
+            },
+            "Name": "nose_9",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FlipX": true,
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "decomon/decomon1/decomon_edge.png",
+              "Plist": "decomon/decomon1/decomon1.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 2391.2908,
+              "Y": 1516.5796
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "RotationSkewX": -0.028,
+            "RotationSkewY": -0.028,
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.9341,
+              "Y": 0.8425
+            },
+            "PreSize": {
+              "X": 0.132,
+              "Y": 0.0917
+            },
+            "LeftMargin": 2222.2908,
+            "RightMargin": -0.2908,
+            "TopMargin": 200.9204,
+            "BottomMargin": 1434.0796,
+            "Tag": 74,
+            "ActionTag": 1128439777,
+            "Size": {
+              "X": 338.0,
+              "Y": 165.0
+            },
+            "Name": "edge_2_1_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FlipX": true,
+            "FlipY": true,
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "decomon/decomon1/decomon_edge.png",
+              "Plist": "decomon/decomon1/decomon1.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 2391.2405,
+              "Y": 557.417
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "RotationSkewX": 0.014,
+            "RotationSkewY": -0.014,
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.9341,
+              "Y": 0.3097
+            },
+            "PreSize": {
+              "X": 0.132,
+              "Y": 0.0917
+            },
+            "LeftMargin": 2222.2405,
+            "RightMargin": -0.2405,
+            "TopMargin": 1160.083,
+            "BottomMargin": 474.917,
+            "Tag": 75,
+            "ActionTag": 1024287365,
+            "Size": {
+              "X": 338.0,
+              "Y": 165.0
+            },
+            "Name": "edge_2_0_0_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "ClipAble": false,
+            "BackColorAlpha": 127,
+            "ComboBoxIndex": 1,
+            "SingleColor": {
+              "R": 81,
+              "G": 81,
+              "B": 81
+            },
+            "FirstColor": {
+              "R": 150,
+              "G": 200
+            },
+            "EndColor": {},
+            "ColorVector": {
+              "ScaleY": 1.0
+            },
+            "Scale9Width": 1,
+            "Scale9Height": 1,
+            "TouchEnable": true,
+            "AnchorPoint": {
+              "ScaleX": 1.0
+            },
+            "Position": {
+              "X": 2222.3079,
+              "Y": 639.8192
+            },
+            "Scale": {
+              "ScaleX": 3.9759,
+              "ScaleY": 1.6894
+            },
+            "RotationSkewX": 90.0166,
+            "RotationSkewY": 90.007,
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.8681,
+              "Y": 0.3555
+            },
+            "PreSize": {
+              "X": 0.0781,
+              "Y": 0.1111
+            },
+            "LeftMargin": 2022.3079,
+            "RightMargin": 337.6921,
+            "TopMargin": 960.1808,
+            "BottomMargin": 639.8192,
+            "Tag": 76,
+            "ActionTag": 1760898324,
+            "Size": {
+              "X": 200.0,
+              "Y": 200.0
+            },
+            "Name": "Panel_3_0_0",
+            "ctype": "PanelObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "decomon/decomon2/decomon_paintbrush.png",
+              "Plist": "decomon/decomon2/decomon2.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 2387.741,
+              "Y": 1446.4302
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.9327,
+              "Y": 0.8036
+            },
+            "PreSize": {
+              "X": 0.0836,
+              "Y": 0.1306
+            },
+            "LeftMargin": 2280.741,
+            "RightMargin": 65.259,
+            "TopMargin": 236.0698,
+            "BottomMargin": 1328.9302,
+            "Tag": 81,
+            "ActionTag": -471222933,
+            "Size": {
+              "X": 214.0,
+              "Y": 235.0
+            },
+            "Name": "paintbrush_16",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "decomon/decomon3/decomon_skate_icon.png",
+              "Plist": "decomon/decomon3/decomon3.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 2400.332,
+              "Y": 594.2145
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.9376,
+              "Y": 0.3301
+            },
+            "PreSize": {
+              "X": 0.125,
+              "Y": 0.0583
+            },
+            "LeftMargin": 2240.332,
+            "RightMargin": -0.332,
+            "TopMargin": 1153.2855,
+            "BottomMargin": 541.7145,
+            "Tag": 82,
+            "ActionTag": 47115946,
+            "Size": {
+              "X": 320.0,
+              "Y": 105.0
+            },
+            "Name": "skate_17",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "decomon/decomon3/decomon_tophat.png",
+              "Plist": "decomon/decomon3/decomon3.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 2394.5803,
+              "Y": 1139.2932
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.9354,
+              "Y": 0.6329
+            },
+            "PreSize": {
+              "X": 0.1168,
+              "Y": 0.1267
+            },
+            "LeftMargin": 2245.0803,
+            "RightMargin": 15.9197,
+            "TopMargin": 546.7068,
+            "BottomMargin": 1025.2932,
+            "Tag": 83,
+            "ActionTag": 1384791216,
+            "Size": {
+              "X": 299.0,
+              "Y": 228.0
+            },
+            "Name": "tophat_18",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "decomon/decomon2/decomon_mustache.png",
+              "Plist": "decomon/decomon2/decomon2.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 2398.344,
+              "Y": 872.7192
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.9369,
+              "Y": 0.4848
+            },
+            "PreSize": {
+              "X": 0.109,
+              "Y": 0.0489
+            },
+            "LeftMargin": 2258.844,
+            "RightMargin": 22.156,
+            "TopMargin": 883.2808,
+            "BottomMargin": 828.7192,
+            "Tag": 84,
+            "ActionTag": -69556782,
+            "Size": {
+              "X": 279.0,
+              "Y": 88.0
+            },
+            "Name": "mustache_19",
+            "ctype": "SpriteObjectData"
+          }
+        ],
+        "Size": {
+          "X": 2560.0,
+          "Y": 1800.0
+        },
+        "Name": "Scene",
+        "ctype": "SingleNodeObjectData"
+      },
+      "UsedResources": [
+        "decomon1/decomon1.plist",
+        "decomon1/decomon1.png",
+        "decomon2/decomon2.plist",
+        "decomon2/decomon2.png",
+        "decomon3/decomon3.plist",
+        "decomon3/decomon3.png"
+      ],
+      "ctype": "GameFileData"
+    }
+  },
+  "Type": "Scene"
+}

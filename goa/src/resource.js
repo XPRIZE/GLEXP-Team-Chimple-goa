@@ -51,6 +51,16 @@ var res = {
     fox: defaultMiscFolder + "fox_stork_01.json",    
 };
 
+var Decomon = {
+    decomon_main: "res/decomon/decomon.json",
+    decomon1_plist :"res/decomon/decomon1/decomon1.plist",
+    decomon1_png :"res/decomon/decomon1/decomon1.png",
+    decomon2_plist :"res/decomon/decomon2/decomon2.plist",
+    decomon2_png :"res/decomon/decomon2/decomon2.png",
+    decomon3_plist :"res/decomon/decomon3/decomon3.plist",
+    decomon3_png :"res/decomon/decomon3/decomon3.png"
+}
+
 
 var misc = {
     Config_json: defaultMiscFolder + "wikitaki/misc/storyConfig.json",
@@ -58,6 +68,10 @@ var misc = {
     OnlyStoryPlayConfig_json: defaultMiscFolder + "wikitaki/misc/onlyPlayConfig.json",
 };
 
+var Decomon_resources = [];
+for (var i in Decomon) {
+    Decomon_resources.push(Decomon[i]);
+};
 
 var g_resources = [];
 for (var i in res) {
