@@ -126,6 +126,10 @@
 		1AB5E63418D05BF30088DAA4 /* jsb_cocos2dx_ui_manual.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1AB5E63118D05BF30088DAA4 /* jsb_cocos2dx_ui_manual.cpp */; };
 		1AB5E63518D05BF30088DAA4 /* jsb_cocos2dx_ui_manual.h in Headers */ = {isa = PBXBuildFile; fileRef = 1AB5E63218D05BF30088DAA4 /* jsb_cocos2dx_ui_manual.h */; };
 		1AB5E63618D05BF30088DAA4 /* jsb_cocos2dx_ui_manual.h in Headers */ = {isa = PBXBuildFile; fileRef = 1AB5E63218D05BF30088DAA4 /* jsb_cocos2dx_ui_manual.h */; };
+		3778673A1D75D12B004C3BDE /* textgeneratorautobindings.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 378E0B0C1D75C55100FBEC76 /* textgeneratorautobindings.cpp */; };
+		378E0B0E1D75C55100FBEC76 /* textgeneratorautobindings.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 378E0B0C1D75C55100FBEC76 /* textgeneratorautobindings.cpp */; };
+		378E0B101D75C55100FBEC76 /* textgeneratorautobindings.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 378E0B0D1D75C55100FBEC76 /* textgeneratorautobindings.hpp */; };
+		378E0B111D75C55100FBEC76 /* textgeneratorautobindings.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 378E0B0D1D75C55100FBEC76 /* textgeneratorautobindings.hpp */; };
 		37ABE38A1D759B4D004AAD7A /* chimpleautogenbindings.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 37ABE3881D759B4D004AAD7A /* chimpleautogenbindings.cpp */; };
 		37ABE38B1D759B4D004AAD7A /* chimpleautogenbindings.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 37ABE3881D759B4D004AAD7A /* chimpleautogenbindings.cpp */; };
 		37ABE38C1D759B4D004AAD7A /* chimpleautogenbindings.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 37ABE3891D759B4D004AAD7A /* chimpleautogenbindings.hpp */; };
@@ -371,6 +375,8 @@
 		1AB5E62A18D05BC80088DAA4 /* jsb_cocos2dx_ui_auto.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = jsb_cocos2dx_ui_auto.hpp; sourceTree = "<group>"; };
 		1AB5E63118D05BF30088DAA4 /* jsb_cocos2dx_ui_manual.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = jsb_cocos2dx_ui_manual.cpp; sourceTree = "<group>"; };
 		1AB5E63218D05BF30088DAA4 /* jsb_cocos2dx_ui_manual.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = jsb_cocos2dx_ui_manual.h; sourceTree = "<group>"; };
+		378E0B0C1D75C55100FBEC76 /* textgeneratorautobindings.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = textgeneratorautobindings.cpp; sourceTree = "<group>"; };
+		378E0B0D1D75C55100FBEC76 /* textgeneratorautobindings.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = textgeneratorautobindings.hpp; sourceTree = "<group>"; };
 		37ABE3881D759B4D004AAD7A /* chimpleautogenbindings.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = chimpleautogenbindings.cpp; sourceTree = "<group>"; };
 		37ABE3891D759B4D004AAD7A /* chimpleautogenbindings.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = chimpleautogenbindings.hpp; sourceTree = "<group>"; };
 		420BBCEE1AA48EDE00493976 /* jsb_cocos2dx_3d_auto.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = jsb_cocos2dx_3d_auto.cpp; sourceTree = "<group>"; };
@@ -472,6 +478,8 @@
 			isa = PBXGroup;
 			children = (
 				37ABE3881D759B4D004AAD7A /* chimpleautogenbindings.cpp */,
+				378E0B0C1D75C55100FBEC76 /* textgeneratorautobindings.cpp */,
+				378E0B0D1D75C55100FBEC76 /* textgeneratorautobindings.hpp */,
 				37ABE3891D759B4D004AAD7A /* chimpleautogenbindings.hpp */,
 				50864CF01C7CA95200B3BAB1 /* js_bindings_chipmunk_auto_classes_registration.h */,
 				50864CF11C7CA95200B3BAB1 /* js_bindings_chipmunk_auto_classes.cpp */,
@@ -810,6 +818,7 @@
 				BAEE4D731AC3FFAD003BEB0F /* jsb_cocos2dx_3d_extension_auto.hpp in Headers */,
 				1A119EEB18BDF19200352BAA /* jsb_opengl_registration.h in Headers */,
 				37ABE38C1D759B4D004AAD7A /* chimpleautogenbindings.hpp in Headers */,
+				378E0B101D75C55100FBEC76 /* textgeneratorautobindings.hpp in Headers */,
 				1A119F0318BDF19200352BAA /* spidermonkey_specifics.h in Headers */,
 				1A119EE718BDF19200352BAA /* jsb_opengl_manual.h in Headers */,
 				1A119ED518BDF19200352BAA /* js_bindings_core.h in Headers */,
@@ -883,6 +892,7 @@
 				50864CFD1C7CA95200B3BAB1 /* js_bindings_chipmunk_auto_classes.h in Headers */,
 				1A119EFE18BDF19200352BAA /* XMLHTTPRequest.h in Headers */,
 				1AB5E63618D05BF30088DAA4 /* jsb_cocos2dx_ui_manual.h in Headers */,
+				378E0B111D75C55100FBEC76 /* textgeneratorautobindings.hpp in Headers */,
 				1A119EE418BDF19200352BAA /* jsb_opengl_functions.h in Headers */,
 				BAF638DF1B5F5DC900CDB43A /* jsb_cocos2dx_audioengine_auto.hpp in Headers */,
 				1AB5E62E18D05BC80088DAA4 /* jsb_cocos2dx_ui_auto.hpp in Headers */,
@@ -965,7 +975,7 @@
 		1551A336158F2AB200E66CFE /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0510;
+				LastUpgradeCheck = 0730;
 				ORGANIZATIONNAME = "";
 			};
 			buildConfigurationList = 1551A339158F2AB200E66CFE /* Build configuration list for PBXProject "cocos2d_js_bindings" */;
@@ -1050,6 +1060,7 @@
 				1A119EED18BDF19200352BAA /* js_bindings_system_functions.cpp in Sources */,
 				426390041B0EC1C6004C53A2 /* jsb_cocos2dx_physics3d_manual.cpp in Sources */,
 				0541A7501973876100E45470 /* JavaScriptObjCBridge.mm in Sources */,
+				378E0B0E1D75C55100FBEC76 /* textgeneratorautobindings.cpp in Sources */,
 				1A119EB318BDF19200352BAA /* js_bindings_chipmunk_manual.cpp in Sources */,
 				1A119EE918BDF19200352BAA /* jsb_opengl_registration.cpp in Sources */,
 				1A119EF718BDF19200352BAA /* jsb_websocket.cpp in Sources */,
@@ -1095,6 +1106,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3778673A1D75D12B004C3BDE /* textgeneratorautobindings.cpp in Sources */,
 				ADAC23EE1C2044DC0049A6A2 /* js_module_register.cpp in Sources */,
 				0541A75B19738AD200E45470 /* JavaScriptObjCBridge.mm in Sources */,
 				420BBCF81AA48EE900493976 /* jsb_cocos2dx_3d_manual.cpp in Sources */,
@@ -1157,6 +1169,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				COPY_PHASE_STRIP = NO;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -1263,6 +1276,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
+				ARCHS = "$(ARCHS_STANDARD)";
+				COMBINE_HIDPI_IMAGES = YES;
 				EXECUTABLE_PREFIX = "";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"$(inherited)",
@@ -1283,6 +1298,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
+				ARCHS = "$(ARCHS_STANDARD)";
+				COMBINE_HIDPI_IMAGES = YES;
 				EXECUTABLE_PREFIX = "";
 				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
 				GCC_PREPROCESSOR_DEFINITIONS = (
