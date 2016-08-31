@@ -15,6 +15,8 @@ xc.GameMap = cc.Scene.extend({
             xc.GameScene.load(xc.TrainLayer);
         }else if(sender._configuration.name == 'bubbleShooter') {
             xc.GameScene.load(xc.BubbleGame_HomeScreenMenu);
+        }else if(sender._configuration.name == 'jump_on_words') {
+            xc.GameScene.load(xc.playLayer);
         }
     }
 });
