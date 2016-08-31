@@ -12,4 +12,4 @@ xc.GameLayer = cc.Layer.extend({
 xc.GameLayer.res = {
         train_json : xc.path + "train/train.json",
         train_plist: xc.path + "train/train.plist"
-    };
+};
