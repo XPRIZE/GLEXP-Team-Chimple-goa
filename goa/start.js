@@ -74,9 +74,14 @@ cc.game.onStart = function(){
     cc.director.setContentScaleFactor(0.25);
 
     //load resources
-    cc.LoaderScene.preload(t_resources, function () {
+   /* cc.LoaderScene.preload(t_resources, function () {
         cc.director.runScene(new TrainScene());
-    }, this);
+    }, this);*/
+    cc.LoaderScene.preload(jump_resources, function () {
+                 cc.spriteFrameCache.addSpriteFrames(jump_res.jump_plist);//Alphamole_alphabet_plist
+                // cc.spriteFrameCache.addSpriteFrames(alphamon_res.Alphamole_alphabet_plist);
+                 cc.director.runScene(new playScene());
+             },this);
 };
 cc.game.run();
 
