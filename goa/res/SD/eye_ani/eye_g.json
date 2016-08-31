@@ -1,0 +1,851 @@
+{
+  "ID": "ca995851-7791-4d4e-8f10-2ec8d3d294fd",
+  "Version": "3.10.0.0",
+  "Name": "eye_g",
+  "Content": {
+    "Content": {
+      "Animation": {
+        "Duration": 120,
+        "Speed": 1.0,
+        "ActivedAnimationName": "sad2",
+        "Timelines": [
+          {
+            "ActionTag": 1546142839,
+            "Property": "Alpha",
+            "Frames": [
+              {
+                "Value": 0,
+                "FrameIndex": 40,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "IntFrameData"
+              },
+              {
+                "Value": 255,
+                "FrameIndex": 60,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "IntFrameData"
+              },
+              {
+                "Value": 255,
+                "FrameIndex": 70,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "IntFrameData"
+              },
+              {
+                "Value": 0,
+                "FrameIndex": 80,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "IntFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -1121213042,
+            "Property": "FileData",
+            "Frames": [
+              {
+                "TextureFile": {
+                  "Type": "MarkedSubImage",
+                  "Path": "eye/eye_g_lid.png",
+                  "Plist": "alphamon.plist"
+                },
+                "FrameIndex": 5,
+                "Tween": false,
+                "ctype": "TextureFrameData"
+              },
+              {
+                "TextureFile": {
+                  "Type": "MarkedSubImage",
+                  "Path": "eye/eye_g_blink1.png",
+                  "Plist": "alphamon.plist"
+                },
+                "FrameIndex": 9,
+                "Tween": false,
+                "ctype": "TextureFrameData"
+              },
+              {
+                "TextureFile": {
+                  "Type": "MarkedSubImage",
+                  "Path": "eye/eye_g_blink2.png",
+                  "Plist": "alphamon.plist"
+                },
+                "FrameIndex": 13,
+                "Tween": false,
+                "ctype": "TextureFrameData"
+              },
+              {
+                "TextureFile": {
+                  "Type": "MarkedSubImage",
+                  "Path": "eye/eye_g_blink3.png",
+                  "Plist": "alphamon.plist"
+                },
+                "FrameIndex": 17,
+                "Tween": false,
+                "ctype": "TextureFrameData"
+              },
+              {
+                "TextureFile": {
+                  "Type": "MarkedSubImage",
+                  "Path": "eye/eye_g_blink2.png",
+                  "Plist": "alphamon.plist"
+                },
+                "FrameIndex": 29,
+                "Tween": false,
+                "ctype": "TextureFrameData"
+              },
+              {
+                "TextureFile": {
+                  "Type": "MarkedSubImage",
+                  "Path": "eye/eye_g_blink1.png",
+                  "Plist": "alphamon.plist"
+                },
+                "FrameIndex": 32,
+                "Tween": false,
+                "ctype": "TextureFrameData"
+              },
+              {
+                "TextureFile": {
+                  "Type": "MarkedSubImage",
+                  "Path": "eye/eye_g_lid.png",
+                  "Plist": "alphamon.plist"
+                },
+                "FrameIndex": 35,
+                "Tween": false,
+                "ctype": "TextureFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 1048523675,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": 1.9999,
+                "Y": 8.0,
+                "FrameIndex": 40,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 2.1999,
+                "Y": 8.3,
+                "FrameIndex": 49,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": -0.0001,
+                "Y": 5.0,
+                "FrameIndex": 50,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": -0.0001,
+                "Y": 5.0,
+                "FrameIndex": 59,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 4.9998,
+                "Y": 16.0,
+                "FrameIndex": 60,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 4.9998,
+                "Y": 16.0,
+                "FrameIndex": 70,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 4.9998,
+                "Y": 16.0,
+                "FrameIndex": 74,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": -0.0004,
+                "Y": 7.9999,
+                "FrameIndex": 75,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": -0.0004,
+                "Y": 7.9999,
+                "FrameIndex": 79,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 1.9999,
+                "Y": 8.0,
+                "FrameIndex": 80,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 1048523675,
+            "Property": "Scale",
+            "Frames": [
+              {
+                "X": 1.0,
+                "Y": 1.0,
+                "FrameIndex": 49,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 1.0,
+                "Y": 1.0,
+                "FrameIndex": 59,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 1048523675,
+            "Property": "RotationSkew",
+            "Frames": [
+              {
+                "X": -2.06,
+                "Y": -2.06,
+                "FrameIndex": 40,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": -2.06,
+                "Y": -2.06,
+                "FrameIndex": 49,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": -2.06,
+                "Y": -2.06,
+                "FrameIndex": 59,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": -2.06,
+                "Y": -2.06,
+                "FrameIndex": 80,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 1048523675,
+            "Property": "FileData",
+            "Frames": [
+              {
+                "TextureFile": {
+                  "Type": "MarkedSubImage",
+                  "Path": "eye/eye_g_lid.png",
+                  "Plist": "alphamon.plist"
+                },
+                "FrameIndex": 40,
+                "Tween": false,
+                "ctype": "TextureFrameData"
+              },
+              {
+                "TextureFile": {
+                  "Type": "MarkedSubImage",
+                  "Path": "eye/eye_g_lid.png",
+                  "Plist": "alphamon.plist"
+                },
+                "FrameIndex": 49,
+                "Tween": false,
+                "ctype": "TextureFrameData"
+              },
+              {
+                "TextureFile": {
+                  "Type": "MarkedSubImage",
+                  "Path": "eye/eye_g_angry1.png",
+                  "Plist": "alphamon.plist"
+                },
+                "FrameIndex": 50,
+                "Tween": false,
+                "ctype": "TextureFrameData"
+              },
+              {
+                "TextureFile": {
+                  "Type": "MarkedSubImage",
+                  "Path": "eye/eye_g_angry1.png",
+                  "Plist": "alphamon.plist"
+                },
+                "FrameIndex": 59,
+                "Tween": false,
+                "ctype": "TextureFrameData"
+              },
+              {
+                "TextureFile": {
+                  "Type": "MarkedSubImage",
+                  "Path": "eye/eye_g_angry2.png",
+                  "Plist": "alphamon.plist"
+                },
+                "FrameIndex": 60,
+                "Tween": false,
+                "ctype": "TextureFrameData"
+              },
+              {
+                "TextureFile": {
+                  "Type": "MarkedSubImage",
+                  "Path": "eye/eye_g_angry2.png",
+                  "Plist": "alphamon.plist"
+                },
+                "FrameIndex": 70,
+                "Tween": false,
+                "ctype": "TextureFrameData"
+              },
+              {
+                "TextureFile": {
+                  "Type": "MarkedSubImage",
+                  "Path": "eye/eye_g_angry2.png",
+                  "Plist": "alphamon.plist"
+                },
+                "FrameIndex": 74,
+                "Tween": false,
+                "ctype": "TextureFrameData"
+              },
+              {
+                "TextureFile": {
+                  "Type": "MarkedSubImage",
+                  "Path": "eye/eye_g_angry1.png",
+                  "Plist": "alphamon.plist"
+                },
+                "FrameIndex": 75,
+                "Tween": false,
+                "ctype": "TextureFrameData"
+              },
+              {
+                "TextureFile": {
+                  "Type": "MarkedSubImage",
+                  "Path": "eye/eye_g_angry1.png",
+                  "Plist": "alphamon.plist"
+                },
+                "FrameIndex": 79,
+                "Tween": false,
+                "ctype": "TextureFrameData"
+              },
+              {
+                "TextureFile": {
+                  "Type": "MarkedSubImage",
+                  "Path": "eye/eye_g_lid.png",
+                  "Plist": "alphamon.plist"
+                },
+                "FrameIndex": 80,
+                "Tween": false,
+                "ctype": "TextureFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 1479519809,
+            "Property": "FileData",
+            "Frames": [
+              {
+                "TextureFile": {
+                  "Type": "MarkedSubImage",
+                  "Path": "eye/eye_g_lid.png",
+                  "Plist": "alphamon.plist"
+                },
+                "FrameIndex": 90,
+                "Tween": false,
+                "ctype": "TextureFrameData"
+              },
+              {
+                "TextureFile": {
+                  "Type": "MarkedSubImage",
+                  "Path": "eye/eye_g_sad1.png",
+                  "Plist": "alphamon.plist"
+                },
+                "FrameIndex": 95,
+                "Tween": false,
+                "ctype": "TextureFrameData"
+              },
+              {
+                "TextureFile": {
+                  "Type": "MarkedSubImage",
+                  "Path": "eye/eye_g_sad2.png",
+                  "Plist": "alphamon.plist"
+                },
+                "FrameIndex": 100,
+                "Tween": false,
+                "ctype": "TextureFrameData"
+              },
+              {
+                "TextureFile": {
+                  "Type": "MarkedSubImage",
+                  "Path": "eye/eye_g_sad2.png",
+                  "Plist": "alphamon.plist"
+                },
+                "FrameIndex": 110,
+                "Tween": false,
+                "ctype": "TextureFrameData"
+              },
+              {
+                "TextureFile": {
+                  "Type": "MarkedSubImage",
+                  "Path": "eye/eye_g_sad1.png",
+                  "Plist": "alphamon.plist"
+                },
+                "FrameIndex": 115,
+                "Tween": false,
+                "ctype": "TextureFrameData"
+              },
+              {
+                "TextureFile": {
+                  "Type": "MarkedSubImage",
+                  "Path": "eye/eye_g_lid.png",
+                  "Plist": "alphamon.plist"
+                },
+                "FrameIndex": 120,
+                "Tween": false,
+                "ctype": "TextureFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          }
+        ],
+        "ctype": "TimelineActionData"
+      },
+      "AnimationList": [
+        {
+          "StartIndex": 5,
+          "EndIndex": 35,
+          "Name": "blink",
+          "ctype": "AnimationInfoData"
+        },
+        {
+          "StartIndex": 40,
+          "EndIndex": 65,
+          "Name": "angry1",
+          "ctype": "AnimationInfoData"
+        },
+        {
+          "StartIndex": 70,
+          "EndIndex": 85,
+          "Name": "angry2",
+          "ctype": "AnimationInfoData"
+        },
+        {
+          "StartIndex": 90,
+          "EndIndex": 105,
+          "Name": "sad1",
+          "ctype": "AnimationInfoData"
+        },
+        {
+          "StartIndex": 110,
+          "EndIndex": 125,
+          "Name": "sad2",
+          "ctype": "AnimationInfoData"
+        }
+      ],
+      "ObjectData": {
+        "Tag": 46,
+        "Children": [
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "eye/eye_g_ballout.png",
+              "Plist": "alphamon.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 2.1267,
+              "Y": 4.7478
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "RotationSkewX": -2.0569,
+            "RotationSkewY": -2.0569,
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": -97.3733,
+            "RightMargin": -101.6267,
+            "TopMargin": -50.2478,
+            "BottomMargin": -40.7522,
+            "Tag": 78,
+            "ActionTag": -2005367237,
+            "Size": {
+              "X": 199.0,
+              "Y": 91.0
+            },
+            "Name": "eye_g_ballout_2",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "eye/eye_g_ballout_angry.png",
+              "Plist": "alphamon.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": -1.6509,
+              "Y": 6.6756
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "RotationSkewX": -1.6131,
+            "RotationSkewY": -1.6131,
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": -101.1509,
+            "RightMargin": -97.8491,
+            "TopMargin": -52.1756,
+            "BottomMargin": -38.8244,
+            "Tag": 169,
+            "ActionTag": 1546142839,
+            "Size": {
+              "X": 199.0,
+              "Y": 91.0
+            },
+            "Alpha": 0,
+            "Name": "eye_g_ballout_angry_6",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "eye/eye_g_ballin.png",
+              "Plist": "alphamon.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": -27.8066,
+              "Y": -6.4693
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "RotationSkewX": -2.0568,
+            "RotationSkewY": -2.0569,
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": -39.3066,
+            "RightMargin": 16.3066,
+            "TopMargin": -14.5307,
+            "BottomMargin": -27.4693,
+            "Tag": 77,
+            "ActionTag": 530964457,
+            "Size": {
+              "X": 23.0,
+              "Y": 42.0
+            },
+            "Name": "eye_g_ballin_1",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "eye/eye_g_lid.png",
+              "Plist": "alphamon.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1.9745,
+              "Y": 8.9825
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "RotationSkewX": -2.0568,
+            "RotationSkewY": -2.0569,
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": -106.0255,
+            "RightMargin": -109.9745,
+            "TopMargin": -59.9825,
+            "BottomMargin": -42.0175,
+            "Tag": 79,
+            "ActionTag": 249327529,
+            "Size": {
+              "X": 216.0,
+              "Y": 102.0
+            },
+            "Name": "eye_g_lid_3",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "eye/eye_g_lid.png",
+              "Plist": "alphamon.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 2.9437,
+              "Y": 8.814
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "RotationSkewX": -2.0569,
+            "RotationSkewY": -2.0569,
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": -105.0563,
+            "RightMargin": -110.9437,
+            "TopMargin": -59.814,
+            "BottomMargin": -42.186,
+            "Tag": 42,
+            "ActionTag": -1121213042,
+            "Size": {
+              "X": 216.0,
+              "Y": 102.0
+            },
+            "Name": "Sprite_4",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "eye/eye_g_lid.png",
+              "Plist": "alphamon.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1.9999,
+              "Y": 8.0
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "RotationSkewX": -2.06,
+            "RotationSkewY": -2.06,
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": -106.0001,
+            "RightMargin": -109.9999,
+            "TopMargin": -59.0,
+            "BottomMargin": -43.0,
+            "Tag": 172,
+            "ActionTag": 1048523675,
+            "Size": {
+              "X": 216.0,
+              "Y": 102.0
+            },
+            "Name": "Sprite_9",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "eye/eye_g_lid.png",
+              "Plist": "alphamon.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 0.0001,
+              "Y": 10.0
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "RotationSkewX": -2.06,
+            "RotationSkewY": -2.06,
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": -107.9999,
+            "RightMargin": -108.0001,
+            "TopMargin": -61.0,
+            "BottomMargin": -41.0,
+            "Tag": 3145,
+            "ActionTag": 1479519809,
+            "Size": {
+              "X": 216.0,
+              "Y": 102.0
+            },
+            "Name": "Sprite_8",
+            "ctype": "SpriteObjectData"
+          }
+        ],
+        "Size": {
+          "X": 0.0,
+          "Y": 0.0
+        },
+        "Name": "Node",
+        "ctype": "SingleNodeObjectData"
+      },
+      "UsedResources": [
+        "../alphamon.plist",
+        "../alphamon.png"
+      ],
+      "ctype": "GameFileData"
+    }
+  },
+  "Type": "Node"
+}
