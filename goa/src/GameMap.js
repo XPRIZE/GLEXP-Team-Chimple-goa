@@ -8,7 +8,10 @@ xc.GameMap = cc.Scene.extend({
         this.addChild(map);
     },
     loadGame: function(sender) {
-        if(sender._configuration.name == 'jazz') {
+        if(sender._configuration.name == 'pop') {
+            xc.GameScene.load(xc.PopLayer);
+        }
+        else if(sender._configuration.name == 'jazz') {
             xc.GameScene.load(xc.GameLayer);
         }
         else if(sender._configuration.name == 'train') {
