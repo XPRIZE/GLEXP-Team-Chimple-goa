@@ -249,7 +249,7 @@ static CCAccelerometerDispatcher* s_pAccelerometerDispatcher;
         case UIInterfaceOrientationPortrait:
             break;
         default:
-            NSAssert(false, @"unknow orientation");
+            NSAssert(false, @"unknown orientation");
     }
 
     cocos2d::EventAcceleration event(*_acceleration);
@@ -387,6 +387,8 @@ static bool _initWithString(const char * text, cocos2d::Device::TextAlign align,
         CC_BREAK_IF(! font);
         
         NSString * str          = [NSString stringWithUTF8String:text];
+        CC_BREAK_IF(!str);
+
         CGSize dimensions;
         dimensions.width     = info->width;
         dimensions.height    = info->height;
@@ -402,7 +404,7 @@ static bool _initWithString(const char * text, cocos2d::Device::TextAlign align,
                                                    blue:info->tintColorB
                                                   alpha:info->tintColorA];
 
-        //adjust text rect acoording to overflow
+        // adjust text rect according to overflow
         NSMutableDictionary* tokenAttributesDict = [NSMutableDictionary dictionaryWithObjectsAndKeys:
                                              foregroundColor,NSForegroundColorAttributeName,
                                              font, NSFontAttributeName,

@@ -771,6 +771,10 @@
 		3EA0FB72191C844400B170C8 /* UIVideoPlayerTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3EA0FB70191C844400B170C8 /* UIVideoPlayerTest.cpp */; };
 		460629781CDB4DBA00B44058 /* ccs-res in Resources */ = {isa = PBXBuildFile; fileRef = 460629771CDB4DBA00B44058 /* ccs-res */; };
 		460629791CDB4DBA00B44058 /* ccs-res in Resources */ = {isa = PBXBuildFile; fileRef = 460629771CDB4DBA00B44058 /* ccs-res */; };
+		463D7E7C1D227C5F00EA6BD1 /* Bug-14327.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 463D7E781D227C3800EA6BD1 /* Bug-14327.cpp */; };
+		463D7E7D1D227C6A00EA6BD1 /* Bug-14327.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 463D7E781D227C3800EA6BD1 /* Bug-14327.cpp */; };
+		463D7E7E1D227CA400EA6BD1 /* Bug-15776.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 463D7E7A1D227C3800EA6BD1 /* Bug-15776.cpp */; };
+		463D7E7F1D227CAB00EA6BD1 /* Bug-15776.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 463D7E7A1D227C3800EA6BD1 /* Bug-15776.cpp */; };
 		4B5C5BA81CA1147300D55A14 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 826294421AAF071500CB7CF7 /* Security.framework */; };
 		4B5C5BA91CA1147F00D55A14 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 826294421AAF071500CB7CF7 /* Security.framework */; };
 		4B5C5BAB1CA1149900D55A14 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B5C5BAA1CA1149900D55A14 /* Security.framework */; };
@@ -2421,6 +2425,10 @@
 		3EA0FB70191C844400B170C8 /* UIVideoPlayerTest.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = UIVideoPlayerTest.cpp; sourceTree = "<group>"; };
 		3EA0FB71191C844400B170C8 /* UIVideoPlayerTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIVideoPlayerTest.h; sourceTree = "<group>"; };
 		460629771CDB4DBA00B44058 /* ccs-res */ = {isa = PBXFileReference; lastKnownFileType = folder; name = "ccs-res"; path = "../tests/cpp-tests/Resources/ccs-res"; sourceTree = "<group>"; };
+		463D7E781D227C3800EA6BD1 /* Bug-14327.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = "Bug-14327.cpp"; sourceTree = "<group>"; };
+		463D7E791D227C3800EA6BD1 /* Bug-14327.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Bug-14327.h"; sourceTree = "<group>"; };
+		463D7E7A1D227C3800EA6BD1 /* Bug-15776.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = "Bug-15776.cpp"; sourceTree = "<group>"; };
+		463D7E7B1D227C3800EA6BD1 /* Bug-15776.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Bug-15776.h"; sourceTree = "<group>"; };
 		46A15F9C1807A4F8005B8026 /* cocos2d_libs.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = cocos2d_libs.xcodeproj; sourceTree = "<group>"; };
 		4B5C5BAA1CA1149900D55A14 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.2.sdk/System/Library/Frameworks/Security.framework; sourceTree = DEVELOPER_DIR; };
 		4B5C5BB41CA114DB00D55A14 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = Platforms/AppleTVOS.platform/Developer/SDKs/AppleTVOS9.1.sdk/System/Library/Frameworks/Security.framework; sourceTree = DEVELOPER_DIR; };
@@ -3574,6 +3582,10 @@
 		1AC3597618CECF0B00F37B72 /* BugsTest */ = {
 			isa = PBXGroup;
 			children = (
+				463D7E781D227C3800EA6BD1 /* Bug-14327.cpp */,
+				463D7E791D227C3800EA6BD1 /* Bug-14327.h */,
+				463D7E7A1D227C3800EA6BD1 /* Bug-15776.cpp */,
+				463D7E7B1D227C3800EA6BD1 /* Bug-15776.h */,
 				94D793D51B4B7A3600F60F10 /* Bug-CCDrawNode.cpp */,
 				94D793D61B4B7A3600F60F10 /* Bug-CCDrawNode.h */,
 				1AC3597718CECF0B00F37B72 /* Bug-1159.cpp */,
@@ -6893,6 +6905,7 @@
 				29080DAD191B595E0066F8DF /* UIImageViewTest.cpp in Sources */,
 				1AC35B6918CECF0C00F37B72 /* ButtonTestLayer.cpp in Sources */,
 				1AC35B2F18CECF0C00F37B72 /* Box2dView.cpp in Sources */,
+				463D7E7E1D227CA400EA6BD1 /* Bug-15776.cpp in Sources */,
 				1AC35C0F18CECF0C00F37B72 /* LabelTest.cpp in Sources */,
 				1AC35C6918CECF0C00F37B72 /* VisibleRect.cpp in Sources */,
 				1F33634F18E37E840074764D /* RefPtrTest.cpp in Sources */,
@@ -6918,6 +6931,7 @@
 				1AC35BF518CECF0C00F37B72 /* HttpClientTest.cpp in Sources */,
 				1AC35B4F18CECF0C00F37B72 /* ClickAndMoveTest.cpp in Sources */,
 				29080DCF191B595E0066F8DF /* UISliderTest.cpp in Sources */,
+				463D7E7C1D227C5F00EA6BD1 /* Bug-14327.cpp in Sources */,
 				500D1CD31CF4A48B00535D35 /* Bug-15594.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -7165,6 +7179,8 @@
 				1AC35C4E18CECF0C00F37B72 /* SpineTest.cpp in Sources */,
 				B6CAB54F1AF9AA6C00B9B856 /* Physics3DTest.cpp in Sources */,
 				1AC35C1E18CECF0C00F37B72 /* NewRendererTest.cpp in Sources */,
+				463D7E7D1D227C6A00EA6BD1 /* Bug-14327.cpp in Sources */,
+				463D7E7F1D227CAB00EA6BD1 /* Bug-15776.cpp in Sources */,
 				5EBEECB11995247000429821 /* DrawNode3D.cpp in Sources */,
 				B5CE6DD21B3C08F8002B0419 /* UIRadioButtonTest.cpp in Sources */,
 				1AC35B6818CECF0C00F37B72 /* AnimationsTestLayer.cpp in Sources */,

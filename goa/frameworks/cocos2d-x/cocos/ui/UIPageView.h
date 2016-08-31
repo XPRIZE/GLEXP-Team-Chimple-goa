@@ -170,7 +170,7 @@ public:
     /**
      * Scroll to a page with a given index.
      *
-     * @param idx   A given index in the PageView. Index start from 0 to pageCount -1.
+     * @param itemIndex   A given index in the PageView. Index start from 0 to pageCount -1.
      */
     void scrollToItem(ssize_t itemIndex);
 
@@ -394,6 +394,7 @@ protected:
     virtual void onItemListChanged() override;
     virtual void onSizeChanged() override;
     virtual void handleReleaseLogic(Touch *touch) override;
+    virtual void handlePressLogic(Touch *touch) override;
 
     virtual Widget* createCloneInstance() override;
     virtual void copySpecialProperties(Widget* model) override;
@@ -423,6 +424,8 @@ protected:
 #endif
     ccPageViewCallback _eventCallback;
     float _autoScrollStopEpsilon;
+    ssize_t _previousPageIndex;
+    bool _isTouchBegin;
 };
 
 }
