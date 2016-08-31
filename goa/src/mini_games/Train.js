@@ -1,6 +1,8 @@
 /// <reference path="../../src/cocos2d-typescript-definitions-master/cocos2d/cocos2d-lib.d.ts" />
 
-var Train = cc.Layer.extend({
+var xc = xc || {};
+
+xc.TrainLayer = cc.Layer.extend({
 
     size : null,
     self : null,
@@ -142,9 +144,9 @@ var listener = cc.EventListener.create({
     }
 });
 
-
         
-        var background = ccs.load("res/train/train.json");
+        var background = ccs.load(xc.TrainLayer.res.train_json, xc.path);
+        cc.log(xc);
         this.addChild(background.node);
 
         random = Math.floor((Math.random() * 9) +3);
@@ -247,15 +249,6 @@ var listener = cc.EventListener.create({
 });
 
 
-var Train_Scene = cc.Scene.extend({
-   onEnter:function(){
-       this._super();
-       var layer = new Train();
-       this.addChild(layer);
-   } 
-});
-
-
 var Train_Sprite_Touch = cc.Sprite.extend({
    
    ctor:function(imagefile, callerObject)
@@ -296,3 +289,8 @@ var sprite_click = cc.EventListener.create({event: cc.EventListener.TOUCH_ONE_BY
    }
     
 });
+
+xc.TrainLayer.res = {
+        train_json : xc.path + "train/train.json",
+        train_plist: xc.path + "train/train.plist"
+};
