@@ -2,12 +2,34 @@
 var currentPointerOnBg = {x:0,y:0};
 var levelValues =1;
 
-var HomeScreenMenu = cc.Layer.extend({
+var BubbleGame_HomeScreenMenu = cc.Layer.extend({
 
     ctor:function () {
        
         this._super();
-     
+        
+        var gameMenu = ccs.load(bubbleShooter.bubbleShooter_mainMenu_json);
+        this.addChild(gameMenu.node);
+        
+        var titleMainGame = new cc.LabelTTF("Bubble Shooter Game","res/fonts/Marker Felt.ttf",275);
+         titleMainGame.setPosition(cc.director.getWinSize().width*0.5,cc.director.getWinSize().height*0.8);                      
+        this.addChild(titleMainGame);
+
+        var Alphabet_Button = gameMenu.node.getChildByName("Panel_1").getChildByName("Button_10");
+        Alphabet_Button.addTouchEventListener(this.touchEvent ,this); 
+        
+        titleAlphabet = new cc.LabelTTF("Alphabets","res/fonts/Marker Felt.ttf",100);
+        titleAlphabet.setPosition(Alphabet_Button.getPosition().x,Alphabet_Button.getPosition().y);
+        this.addChild(titleAlphabet);
+
+        
+        var Number_Button = gameMenu.node.getChildByName("Panel_1").getChildByName("Button_9");
+        Number_Button.addTouchEventListener(this.touchEvent ,this); 
+        
+        var Puzzle_Button = gameMenu.node.getChildByName("Panel_1").getChildByName("Button_11");
+        Puzzle_Button.addTouchEventListener(this.touchEvent ,this); 
+        
+/*     
         // cc.spriteFrameCache.addSpriteFrames(res.Background1_plist);
        
         var Mainmenu = new cc.Sprite(cc.spriteFrameCache.getSpriteFrame("Main_Menus.png"),this);
@@ -45,16 +67,44 @@ var HomeScreenMenu = cc.Layer.extend({
         this.addChild(this.buttonNumbers);
         this.addChild(this.buttonCategories);
         this.addChild(this.buttonPuzzle);
-        
+*/        
         return true;
-    }
+    },
+    
+    touchEvent:function(sender, type)
+   {
+     switch(type)
+     {
+         case ccui.Widget.TOUCH_BEGAN:
+         break;
+         
+         case ccui.Widget.TOUCH_MOVED:
+         break;
+         
+         case ccui.Widget.TOUCH_ENDED:
+         if(sender.getName() == "Button_9"){
+             console.log("this is 2nd button");
+         }
+         if(sender.getName() == "Button_10"){
+             console.log("this is 1st button");
+         }
+         if(sender.getName() == "Button_11"){
+             console.log("this is 3rd button");
+         }
+//          cc.director.runScene(new HelloWorldScene());
+         break;
+         
+         case ccui.Widget.TOUCH_CANCELLED:
+         break;
+     }
+   }
 });
 
-var HomeScreenScene = cc.Scene.extend({
+var BubbleGame_HomeScreenScene = cc.Scene.extend({
     onEnter:function () {
         this._super();
         
-        var homeScreenMenu = new HomeScreenMenu();
+        var homeScreenMenu = new BubbleGame_HomeScreenMenu();
         this.addChild(homeScreenMenu);
        
     }
