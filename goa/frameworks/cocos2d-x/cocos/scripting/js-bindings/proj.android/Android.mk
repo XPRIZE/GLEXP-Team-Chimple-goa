@@ -50,6 +50,8 @@ LOCAL_SRC_FILES := ../auto/jsb_cocos2dx_3d_auto.cpp \
                    ../auto/jsb_cocos2dx_physics3d_auto.cpp \
                    ../auto/js_bindings_chipmunk_auto_classes.cpp \
                    ../auto/js_bindings_chipmunk_functions.cpp \
+                   ../auto/chimpleautogenbindings.cpp \
+                   ../auto/textgeneratorautobindings.cpp \
                    ../manual/ScriptingCore.cpp \ \
                    ../manual/cocos2d_specifics.cpp \
                    ../manual/js_manual_conversions.cpp \
@@ -102,7 +104,8 @@ LOCAL_C_INCLUDES := $(LOCAL_PATH)/../manual \
                     $(LOCAL_PATH)/../../../../extensions \
                     $(LOCAL_PATH)/../../../editor-support/spine \
                     $(LOCAL_PATH)/../../../editor-support/cocosbuilder \
-                    $(LOCAL_PATH)/../../../editor-support/cocostudio
+                    $(LOCAL_PATH)/../../../editor-support/cocostudio \
+                    $(LOCAL_PATH)/../../../../../runtime-src/Classes                    
 
 
 LOCAL_EXPORT_C_INCLUDES := $(LOCAL_PATH)/../manual \
