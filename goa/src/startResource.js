@@ -1,8 +1,14 @@
-var res = {
-    train_json : "res/train/train.json",
-    train_plist: "res/SD/train/train.plist"
-};
+// var res = {
+//     train_json : "res/SD/train/train.json",
+//     train_plist: "res/SD/train/train.plist"
+// };
 
+<<<<<<< HEAD
+// var t_resources = [];
+// for (var i in res) {
+//     t_resources.push(res[i]);
+// }
+=======
 var t_resources = [];
 for (var i in res) {
     t_resources.push(res[i]);
@@ -21,3 +27,4 @@ var jump_resources = [];
 for (var i in jump_res) {
     jump_resources.push(jump_res[i]);
 }
+>>>>>>> origin/master
