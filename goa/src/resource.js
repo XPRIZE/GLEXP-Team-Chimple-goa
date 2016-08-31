@@ -59,6 +59,17 @@ var misc = {
 };
 
 
+var train = {
+    train_json : "res/train/train.json",
+    train_plist : "res/train/train.plist",
+    train_png : "res/train/train.png",
+};
+
+var train_resources = [];
+for (var i in train) {
+    train_resources.push(train[i]);
+};
+
 var g_resources = [];
 for (var i in res) {
     g_resources.push(res[i]);
