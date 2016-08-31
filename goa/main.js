@@ -54,8 +54,8 @@
 
 var chimple = chimple || {};
 chimple.RESOURCE_DESIGN_HEIGHT = 1800;
-chimple.DEVICE_WIDTH = 640;
-chimple.DEVICE_HEIGHT = 450;
+chimple.DEVICE_WIDTH = 2560;//640
+chimple.DEVICE_HEIGHT = 1800;//450
 chimple.HAND_GEAR_LEFT = "hand_gear_left";
 chimple.image = {};
 chimple.isHTML5 = function () {
@@ -130,7 +130,7 @@ chimple.isHTML5 = function () {
                 "src/mini_games/SortIt/src/playLevel6.js",
                 "src/mini_games/SortIt/src/resource.js",
                 
-                "src/mini_games/BubbleShooter/Menus/HomeScreen.js",
+                "src/mini_games/BubbleShooter/Menus/Bubble_HomeScreen.js",
                 "src/mini_games/BubbleShooter/Listener/GlobalData.js",
                 "src/mini_games/BubbleShooter/Listener/ClickedButtonListener.js",
                 "src/mini_games/BubbleShooter/LevelScreen/LevelSceenAlphabets.js",
@@ -142,7 +142,9 @@ chimple.isHTML5 = function () {
                 "src/mini_games/BubbleShooter/MainStages/Numbers.js",
                 "src/mini_games/BubbleShooter/MainStages/Category.js",
                 "src/mini_games/BubbleShooter/MainStages/Puzzle.js",
-                "src/mini_games/Pop/Pop.js"
+                "src/mini_games/Pop/Pop.js",
+                "src/mini_games/Train.js",
+                 "src/mini_games/alphamon/whackamole.js"
             ]
 
         };
@@ -235,7 +237,7 @@ chimple.isHTML5 = function () {
             //     cc.director.runScene(new HomeScreenScene());
             // }, this);
 
-            cc.LoaderScene.preload(g_resources, function () {
+          /*  cc.LoaderScene.preload(g_resources, function () {
                 cc.spriteFrameCache.addSpriteFrames(res.thumbnails_plist);
                 cc.spriteFrameCache.addSpriteFrames(res.human_skeleton_plist);
                 cc.spriteFrameCache.addSpriteFrames(res.record_animation_plist);
@@ -263,7 +265,8 @@ chimple.isHTML5 = function () {
                     cc.director.runScene(new PlayFullStoryScene());
                 }
 
-            }, this);
+            }, this);*/
+
         }
     };
     cc.game.run();

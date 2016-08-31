@@ -15,7 +15,6 @@
 class TextGenerator {
 public:
     static TextGenerator* getInstance();
-    static void destroyInstance();
     
     std::vector<std::vector<std::string>> generateMatrix(std::string word, int numRows, int numCols);
     std::string generateAWord();

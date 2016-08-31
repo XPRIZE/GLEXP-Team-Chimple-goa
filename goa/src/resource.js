@@ -24,7 +24,9 @@ var bubbleShooter = {
     BubbleBlast_plist : "res/bubbleShooter/Bubble_blast.plist",
     BubbleBlast_png : "res/bubbleShooter/Bubble_blast.png"    
     
-}
+};
+
+
 var pop_res = {
         pop_scene: "res/pop/pop.json",
         pop_plane: "res/pop/plane.json",
@@ -58,6 +60,17 @@ var misc = {
     OnlyStoryPlayConfig_json: defaultMiscFolder + "wikitaki/misc/onlyPlayConfig.json",
 };
 
+
+var train = {
+    train_json : "res/train/train.json",
+    train_plist : "res/train/train.plist",
+    train_png : "res/train/train.png",
+};
+
+var train_resources = [];
+for (var i in train) {
+    train_resources.push(train[i]);
+};
 
 var g_resources = [];
 for (var i in res) {
