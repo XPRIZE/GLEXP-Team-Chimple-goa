@@ -7,6 +7,7 @@
       "Animation": {
         "Duration": 10,
         "Speed": 1.0,
+        "ActivedAnimationName": "planerun",
         "Timelines": [
           {
             "ActionTag": 1375152610,
@@ -335,7 +336,14 @@
         ],
         "ctype": "TimelineActionData"
       },
-      "AnimationList": [],
+      "AnimationList": [
+        {
+          "StartIndex": 0,
+          "EndIndex": 10,
+          "Name": "planerun",
+          "ctype": "AnimationInfoData"
+        }
+      ],
       "ObjectData": {
         "Tag": 26,
         "Children": [
@@ -354,12 +362,12 @@
               "ScaleY": 0.5
             },
             "Position": {
-              "X": 156.1861,
-              "Y": 12.9055
+              "X": 187.1004,
+              "Y": 25.061
             },
             "Scale": {
-              "ScaleX": 0.6525,
-              "ScaleY": 0.6525
+              "ScaleX": 0.4857,
+              "ScaleY": 0.4857
             },
             "RotationSkewX": -73.9591,
             "RotationSkewY": -73.9647,
@@ -373,10 +381,10 @@
               "X": 0.0,
               "Y": 0.0
             },
-            "LeftMargin": 136.6861,
-            "RightMargin": -175.6861,
-            "TopMargin": -29.9055,
-            "BottomMargin": -4.0945,
+            "LeftMargin": 167.6004,
+            "RightMargin": -206.6004,
+            "TopMargin": -42.061,
+            "BottomMargin": 8.061,
             "Tag": 30,
             "ActionTag": 1375152610,
             "Size": {
@@ -401,8 +409,8 @@
               "ScaleY": 0.5
             },
             "Position": {
-              "X": 117.727,
-              "Y": -10.9744
+              "X": 144.1533,
+              "Y": -2.0302
             },
             "Scale": {
               "ScaleX": 0.861,
@@ -420,10 +428,10 @@
               "X": 0.0,
               "Y": 0.0
             },
-            "LeftMargin": 98.227,
-            "RightMargin": -137.227,
-            "TopMargin": -6.0256,
-            "BottomMargin": -27.9744,
+            "LeftMargin": 124.6533,
+            "RightMargin": -163.6533,
+            "TopMargin": -14.9698,
+            "BottomMargin": -19.0302,
             "Tag": 29,
             "ActionTag": -54447579,
             "Size": {
@@ -449,7 +457,7 @@
             },
             "Position": {
               "X": 0.0,
-              "Y": 0.0
+              "Y": -1.1999
             },
             "Scale": {
               "ScaleX": 1.0,
@@ -467,8 +475,8 @@
             },
             "LeftMargin": -200.0,
             "RightMargin": -200.0,
-            "TopMargin": -120.0,
-            "BottomMargin": -120.0,
+            "TopMargin": -118.8001,
+            "BottomMargin": -121.1999,
             "Tag": 27,
             "ActionTag": -614667993,
             "Size": {
@@ -494,7 +502,7 @@
             },
             "Position": {
               "X": -115.7719,
-              "Y": -2.0
+              "Y": -3.2
             },
             "Scale": {
               "ScaleX": 1.0,
@@ -512,8 +520,8 @@
             },
             "LeftMargin": -180.7719,
             "RightMargin": 50.7719,
-            "TopMargin": -81.5,
-            "BottomMargin": -85.5,
+            "TopMargin": -80.3,
+            "BottomMargin": -86.7,
             "Tag": 28,
             "ActionTag": -1219646158,
             "Size": {
