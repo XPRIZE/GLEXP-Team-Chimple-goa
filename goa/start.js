@@ -83,14 +83,14 @@ cc.game.onStart = function(){
   //      cc.director.runScene(new TrainScene());
  //   }, this);
 
- cc.LoaderScene.preload(alphamole_resources, function () {
-                 cc.spriteFrameCache.addSpriteFrames(alphamole_res.Alphamole_plist1);//Alphamole_alphabet_plist
-                 cc.spriteFrameCache.addSpriteFrames(alphamole_res.Alphamole_alphabet_plist);//Alphamole_scene1_plist
-                 cc.spriteFrameCache.addSpriteFrames(alphamole_res.Alphamole_scene1_plist);
-                 cc.spriteFrameCache.addSpriteFrames(alphamole_res.Alphamole_scene2_plist);
-                 cc.spriteFrameCache.addSpriteFrames(alphamole_res.Alphamole_scene3_plist);
-                 cc.director.runScene(new AlphamoleGameLevelScene());
-                 },this);
+//  cc.LoaderScene.preload(alphamole_resources, function () {
+//                  cc.spriteFrameCache.addSpriteFrames(alphamole_res.Alphamole_plist1);//Alphamole_alphabet_plist
+//                  cc.spriteFrameCache.addSpriteFrames(alphamole_res.Alphamole_alphabet_plist);//Alphamole_scene1_plist
+//                  cc.spriteFrameCache.addSpriteFrames(alphamole_res.Alphamole_scene1_plist);
+//                  cc.spriteFrameCache.addSpriteFrames(alphamole_res.Alphamole_scene2_plist);
+//                  cc.spriteFrameCache.addSpriteFrames(alphamole_res.Alphamole_scene3_plist);
+//                  cc.director.runScene(new AlphamoleGameLevelScene());
+//                  },this);
 
    /* cc.LoaderScene.preload(t_resources, function () {
         cc.director.runScene(new TrainScene());

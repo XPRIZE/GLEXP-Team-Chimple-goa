@@ -15,7 +15,7 @@ var AlphamoneGameLayer = cc.Layer.extend( {
         alphabet_Reff = [];
         whack_score = 0;
         var size = cc.winSize;
-        background_layer = ccs.load(alphamole_res.Alphamole_scene2_json1,"res/SD/");
+        background_layer = ccs.load(xc.AlphamoleGameLevelScene.res.Alphamole_scene1_json1, xc.path);
         this.addChild(background_layer.node);
         var alphabet_str = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"];
         alphabet_layer = cc.Layer.create();
@@ -28,10 +28,10 @@ var AlphamoneGameLayer = cc.Layer.extend( {
             cc.log("%s", name);
          }
          var test = background_layer.node.getComponent("hole1");
-        var myLayer = ccs.load(alphamole_res.Alphamole_scene2_json,"res/SD/");
+        var myLayer = ccs.load(xc.AlphamoleGameLevelScene.res.Alphamole_scene1_json, xc.path);
         this.addChild(myLayer.node);
        
-       var level_alpha = ccs.load("res/english/"+level_str+".json","res/SD/");
+       var level_alpha = ccs.load("res/english/"+level_str+".json", xc.path);
        level_alpha.node.x = size.width - 300;
        level_alpha.node.y = size.height - 300;
        level_alpha.node.setScale(0.5,0.5);
@@ -42,7 +42,7 @@ var AlphamoneGameLayer = cc.Layer.extend( {
        for ( var i = 0; i< level_children.length;i++){
            var str1 = level_children[i].getName();
            if (str1.indexOf("eye") == 0){
-               var action = ccs.load("res/SD/eye_ani/"+str1+".json","res/SD");
+               var action = ccs.load("res/SD/eye_ani/"+str1+".json", xc.path);
                level_children[i].runAction(action.action);
                action.action.play("blink",true);
            }
@@ -76,11 +76,11 @@ Play5_hole_back_165_1
 
    
         hole_array = ["hole1", "hole2", "hole3"];
-     var alpha = ccs.load(alphamole_res.Alphamole_oo, "res/SD/");
-     alpha.node.x = 900;
-     alpha.node.y = 900;
-    //alpha.setPosition((100, 200));
-    this.addChild(alpha.node);
+    //  var alpha = ccs.load(alphamole_res.Alphamole_oo, "res/SD/");
+    //  alpha.node.x = 900;
+    //  alpha.node.y = 900;
+    // //alpha.setPosition((100, 200));
+    // this.addChild(alpha.node);
 
 
 
@@ -90,8 +90,8 @@ Play5_hole_back_165_1
 
      scoreLabel = new cc.LabelTTF("  Score: " + whack_score, "Arial", 90);
         
-         scoreLabel.x = 0;
-         scoreLabel.y = size.height;
+         scoreLabel.x = 20;
+         scoreLabel.y = size.height - scoreLabel.getContentSize().height/2;
          scoreLabel.anchorX = 0;
          scoreLabel.anchorY = 1;
          scoreLabel.setColor(cc.color(0,0,0));
@@ -106,7 +106,7 @@ Play5_hole_back_165_1
 
      var ref = alphamole_res.Alphamole_ + alphabet_Reff[random_alpha];
      var random_alpha =  Math.floor(Math.random()*100 % 5);
-     alphabet = ccs.load("res/english/"+alphabet_Reff[random_alpha]+".json", "res/SD/");
+     alphabet = ccs.load("res/english/"+alphabet_Reff[random_alpha]+".json", xc.path);
      alphabet.node.x = x;
      alphabet.node.y = y - 250;
      alphabet.node.setName(alphabet_Reff[random_alpha]);
@@ -118,7 +118,7 @@ var level_children = alphabet.node.getChildren();
        for ( var i = 0; i< level_children.length;i++){
            var str1 = level_children[i].getName();
            if (str1.indexOf("eye") == 0){
-               var action = ccs.load("res/SD/eye_ani/"+str1+".json","res/SD");
+               var action = ccs.load("res/SD/eye_ani/"+str1+".json",xc.path);
                level_children[i].runAction(action.action);
                action.action.play("blink",true);
            }

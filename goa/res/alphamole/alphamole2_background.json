@@ -710,7 +710,7 @@
               "Y": 0.1578
             },
             "LeftMargin": -9.6087,
-            "RightMargin": 1677.6088,
+            "RightMargin": 1677.6086,
             "TopMargin": 1280.2517,
             "BottomMargin": 235.7482,
             "UserData": "hole1",
@@ -903,7 +903,7 @@
             },
             "LeftMargin": 1605.3044,
             "RightMargin": 62.6956,
-            "TopMargin": 1364.9514,
+            "TopMargin": 1364.9515,
             "BottomMargin": 151.0485,
             "UserData": "hole3",
             "Tag": 1862,
@@ -1499,6 +1499,51 @@
             },
             "Name": "Play2_Hole_Close_9",
             "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "alphamole/alphamolelevel/score.png",
+              "Plist": "alphamole/alphamolelevel/alphamolelevel.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 293.2927,
+              "Y": 1687.0713
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.1146,
+              "Y": 0.9373
+            },
+            "PreSize": {
+              "X": 0.1953,
+              "Y": 0.0622
+            },
+            "LeftMargin": 43.2927,
+            "RightMargin": 2016.7073,
+            "TopMargin": 56.9287,
+            "BottomMargin": 1631.0713,
+            "Tag": 334,
+            "ActionTag": 100229634,
+            "Size": {
+              "X": 500.0,
+              "Y": 112.0
+            },
+            "Name": "score_1",
+            "ctype": "SpriteObjectData"
           }
         ],
         "Size": {
@@ -1512,7 +1557,9 @@
         "alphamole1/alphamole1.plist",
         "alphamole1/alphamole1.png",
         "alphamole2/alphamole2.plist",
-        "alphamole2/alphamole2.png"
+        "alphamole2/alphamole2.png",
+        "alphamolelevel/alphamolelevel.plist",
+        "alphamolelevel/alphamolelevel.png"
       ],
       "ctype": "GameFileData"
     }
