@@ -144,8 +144,7 @@ chimple.isHTML5 = function () {
                 "src/mini_games/BubbleShooter/MainStages/Puzzle.js",
                 "src/mini_games/Pop/Pop.js",
 
-                 "src/mini_games/Decomon/Decmon.js",
-                 "src/mini_games/Decomon/DecmonClick.js"
+                 "src/mini_games/Decomon/Decmon.js"
             ]
 
         };

@@ -58,7 +58,17 @@ var Decomon = {
     decomon2_plist :"res/decomon/decomon2/decomon2.plist",
     decomon2_png :"res/decomon/decomon2/decomon2.png",
     decomon3_plist :"res/decomon/decomon3/decomon3.plist",
-    decomon3_png :"res/decomon/decomon3/decomon3.png"
+    decomon3_png :"res/decomon/decomon3/decomon3.png",
+    decomoneye_a :"res/decomon/decomon_eye_a.json",
+    decomoneye_b :"res/decomon/decomon_eye_b.json",
+    decomoneye_c :"res/decomon/decomon_eye_c.json",
+    decomoneye_d :"res/decomon/decomon_eye_d.json",
+    decomoneye_e :"res/decomon/decomon_eye_e.json",
+    decomoneye_f :"res/decomon/decomon_eye_f.json",
+    decomoneye_g :"res/decomon/decomon_eye_g.json",
+    decomoneye_h :"res/decomon/decomon_eye_h.json",
+    decomoneye_i :"res/decomon/decomon_eye_i.json"
+
 }
 
 
