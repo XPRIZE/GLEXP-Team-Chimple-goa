@@ -53,7 +53,8 @@
  */
 
 var chimple = chimple || {};
-chimple.path = "res/SD/";
+var xc = xc || {};
+xc.path = "res/SD/";
 
 cc.game.onStart = function(){
     if(!cc.sys.isNative && document.getElementById("cocosLoading")) //If referenced loading.js, please remove it
@@ -78,13 +79,13 @@ cc.game.onStart = function(){
 
     //load resources
     var t_resources = [];
-    for (var i in chimple.GameMap.res) {
-        t_resources.push(chimple.GameMap.res[i]);
+    for (var i in xc.GameMap.res) {
+        t_resources.push(xc.GameMap.res[i]);
     }
     cc.LoaderScene.preload(t_resources, function () {
-        cc.spriteFrameCache.addSpriteFrames(chimple.GameMap.res.thumbnails_plist);
-        cc.spriteFrameCache.addSpriteFrames(chimple.GameMap.res.map_plist);
-        cc.director.runScene(new chimple.GameMap());
+        cc.spriteFrameCache.addSpriteFrames(xc.GameMap.res.thumbnails_plist);
+        cc.spriteFrameCache.addSpriteFrames(xc.GameMap.res.map_plist);
+        cc.director.runScene(new xc.GameMap());
     }, this);
   
 };

@@ -1,15 +1,15 @@
-var chimple = chimple || {};
+var xc = xc || {};
 
-chimple.GameLayer = cc.Layer.extend({
+xc.GameLayer = cc.Layer.extend({
     ctor: function() {
         this._super();
-        var node = ccs.load(chimple.GameLayer.res.train_json, chimple.path);
+        var node = ccs.load(xc.GameLayer.res.train_json, xc.path);
         this.addChild(node.node);
         return true;
     }
 });
 
-chimple.GameLayer.res = {
-        train_json : chimple.path + "train/train.json",
-        train_plist: chimple.path + "train/train.plist"
+xc.GameLayer.res = {
+        train_json : xc.path + "train/train.json",
+        train_plist: xc.path + "train/train.plist"
     };

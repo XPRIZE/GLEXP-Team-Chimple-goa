@@ -1,7 +1,7 @@
 /// <reference path="cocos2d-typescript-definitions-master/cocos2d/cocos2d-lib.d.ts" />
-var chimple = chimple || {};
+var xc = xc || {};
     
-chimple.GameScene = cc.Scene.extend({
+xc.GameScene = cc.Scene.extend({
     layerClass: null,
     onEnter:function () {
         this._super();
@@ -10,13 +10,13 @@ chimple.GameScene = cc.Scene.extend({
     }
 });
 
-chimple.GameScene.load = function(layer) {
+xc.GameScene.load = function(layer) {
     var t_resources = [];
     for (var i in layer.res) {
         t_resources.push(layer.res[i]);
     }
     cc.LoaderScene.preload(t_resources, function () {
-        var scene = new chimple.GameScene();
+        var scene = new xc.GameScene();
         scene.layerClass = layer;
         cc.director.runScene(scene);
     }, this);
