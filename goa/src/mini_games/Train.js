@@ -145,7 +145,7 @@ var listener = cc.EventListener.create({
 });
 
         
-        var background = ccs.load(xc.TrainLayer.res.train_json);
+        var background = ccs.load(xc.TrainLayer.res.train_json, xc.path);
         cc.log(xc);
         this.addChild(background.node);
 
@@ -291,6 +291,6 @@ var sprite_click = cc.EventListener.create({event: cc.EventListener.TOUCH_ONE_BY
 });
 
 xc.TrainLayer.res = {
-        train_json : "res/train/train.json",
+        train_json : xc.path + "train/train.json",
         train_plist: xc.path + "train/train.plist"
 };
