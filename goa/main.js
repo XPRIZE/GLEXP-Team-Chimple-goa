@@ -269,7 +269,7 @@ chimple.isHTML5 = function () {
            cc.LoaderScene.preload(alphamon_resources, function () {
                  cc.spriteFrameCache.addSpriteFrames(alphamon_res.Alphamole_plist1);//Alphamole_alphabet_plist
                  cc.spriteFrameCache.addSpriteFrames(alphamon_res.Alphamole_alphabet_plist);
-                 cc.director.runScene(new AlphamoneGameScene());
+                 cc.director.runScene(new playScene());
              },this);
         }
     };
