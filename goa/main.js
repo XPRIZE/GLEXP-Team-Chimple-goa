@@ -266,7 +266,7 @@ chimple.isHTML5 = function () {
                 }
 
             }, this);*/
-           
+
         }
     };
     cc.game.run();

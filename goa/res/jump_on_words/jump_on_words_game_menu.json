@@ -1,0 +1,2272 @@
+{
+  "ID": "0810c0cc-04be-42d4-a463-83e8b670ad04",
+  "Version": "3.10.0.0",
+  "Name": "jump_on_words_game_menu",
+  "Content": {
+    "Content": {
+      "Animation": {
+        "Duration": 0,
+        "Speed": 1.0,
+        "Timelines": [],
+        "ctype": "TimelineActionData"
+      },
+      "AnimationList": [],
+      "ObjectData": {
+        "Tag": 113,
+        "Children": [
+          {
+            "ClipAble": false,
+            "ComboBoxIndex": 1,
+            "SingleColor": {
+              "R": 215,
+              "B": 250
+            },
+            "FirstColor": {
+              "R": 150,
+              "G": 200
+            },
+            "EndColor": {},
+            "ColorVector": {
+              "ScaleY": 1.0
+            },
+            "Scale9Width": 1,
+            "Scale9Height": 1,
+            "TouchEnable": true,
+            "AnchorPoint": {},
+            "Position": {
+              "X": -267.4788,
+              "Y": -0.1098
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": -0.0863,
+              "Y": -0.0001
+            },
+            "PreSize": {
+              "X": 1.0,
+              "Y": 1.0
+            },
+            "LeftMargin": -267.4788,
+            "RightMargin": 267.4788,
+            "TopMargin": 0.1099,
+            "BottomMargin": -0.1098,
+            "Tag": 114,
+            "Children": [
+              {
+                "ClipAble": false,
+                "ComboBoxIndex": 1,
+                "SingleColor": {
+                  "R": 55,
+                  "G": 239,
+                  "B": 203
+                },
+                "FirstColor": {
+                  "R": 150,
+                  "G": 200
+                },
+                "EndColor": {},
+                "ColorVector": {
+                  "ScaleY": 1.0
+                },
+                "Scale9Width": 1,
+                "Scale9Height": 1,
+                "TouchEnable": true,
+                "AnchorPoint": {},
+                "Position": {
+                  "X": -0.5027,
+                  "Y": 1680.1338
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": -0.0002,
+                  "Y": 0.9334
+                },
+                "PreSize": {
+                  "X": 1.0,
+                  "Y": 0.0667
+                },
+                "LeftMargin": -0.5027,
+                "RightMargin": 0.5027,
+                "TopMargin": -0.1338,
+                "BottomMargin": 1680.1338,
+                "Tag": 115,
+                "ActionTag": -2060801872,
+                "Size": {
+                  "X": 3100.0,
+                  "Y": 120.0
+                },
+                "Name": "Panel_2",
+                "ctype": "PanelObjectData"
+              },
+              {
+                "ClipAble": false,
+                "ComboBoxIndex": 1,
+                "SingleColor": {
+                  "R": 91,
+                  "G": 72,
+                  "B": 59
+                },
+                "FirstColor": {
+                  "R": 150,
+                  "G": 200
+                },
+                "EndColor": {},
+                "ColorVector": {
+                  "ScaleY": 1.0
+                },
+                "Scale9Width": 1,
+                "Scale9Height": 1,
+                "TouchEnable": true,
+                "AnchorPoint": {},
+                "Position": {
+                  "X": 0.2372,
+                  "Y": 529.8271
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 0.0001,
+                  "Y": 0.2943
+                },
+                "PreSize": {
+                  "X": 1.0,
+                  "Y": 0.1028
+                },
+                "LeftMargin": 0.2372,
+                "RightMargin": -0.2373,
+                "TopMargin": 1085.1729,
+                "BottomMargin": 529.8271,
+                "Tag": 116,
+                "ActionTag": 2016063036,
+                "Size": {
+                  "X": 3100.0,
+                  "Y": 185.0
+                },
+                "Name": "Panel_3",
+                "ctype": "PanelObjectData"
+              },
+              {
+                "ClipAble": false,
+                "ComboBoxIndex": 1,
+                "SingleColor": {
+                  "R": 76,
+                  "G": 150,
+                  "B": 29
+                },
+                "FirstColor": {
+                  "R": 150,
+                  "G": 200
+                },
+                "EndColor": {},
+                "ColorVector": {
+                  "ScaleY": 1.0
+                },
+                "Scale9Width": 1,
+                "Scale9Height": 1,
+                "TouchEnable": true,
+                "AnchorPoint": {},
+                "Position": {
+                  "X": 44.7944,
+                  "Y": 714.5919
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 0.0144,
+                  "Y": 0.397
+                },
+                "PreSize": {
+                  "X": 0.9677,
+                  "Y": 0.0194
+                },
+                "LeftMargin": 44.7944,
+                "RightMargin": 55.2056,
+                "TopMargin": 1050.4081,
+                "BottomMargin": 714.5919,
+                "Tag": 117,
+                "ActionTag": -2023833556,
+                "Size": {
+                  "X": 3000.0,
+                  "Y": 35.0
+                },
+                "Name": "Panel_4",
+                "ctype": "PanelObjectData"
+              },
+              {
+                "ClipAble": false,
+                "ComboBoxIndex": 1,
+                "SingleColor": {
+                  "R": 101,
+                  "G": 186,
+                  "B": 47
+                },
+                "FirstColor": {
+                  "R": 150,
+                  "G": 200
+                },
+                "EndColor": {},
+                "ColorVector": {
+                  "ScaleY": 1.0
+                },
+                "Scale9Width": 1,
+                "Scale9Height": 1,
+                "TouchEnable": true,
+                "AnchorPoint": {},
+                "Position": {
+                  "X": 89.1591,
+                  "Y": 749.3793
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 0.0288,
+                  "Y": 0.4163
+                },
+                "PreSize": {
+                  "X": 0.9355,
+                  "Y": 0.0094
+                },
+                "LeftMargin": 89.1591,
+                "RightMargin": 110.8408,
+                "TopMargin": 1033.6207,
+                "BottomMargin": 749.3793,
+                "Tag": 118,
+                "ActionTag": -1950504046,
+                "Size": {
+                  "X": 2900.0,
+                  "Y": 17.0
+                },
+                "Name": "Panel_5",
+                "ctype": "PanelObjectData"
+              }
+            ],
+            "ActionTag": -774080665,
+            "Size": {
+              "X": 3100.0,
+              "Y": 1800.0
+            },
+            "Name": "Panel_1",
+            "ctype": "PanelObjectData"
+          },
+          {
+            "FlipX": true,
+            "FlipY": true,
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "jump_on_words/tile.png",
+              "Plist": "jump_on_words/jump_on_words.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": -80.2667,
+              "Y": 560.3707
+            },
+            "Scale": {
+              "ScaleX": 0.8499,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": -0.0259,
+              "Y": 0.3113
+            },
+            "PreSize": {
+              "X": 0.1342,
+              "Y": 0.03
+            },
+            "LeftMargin": -288.2667,
+            "RightMargin": 2972.2666,
+            "TopMargin": 1212.6293,
+            "BottomMargin": 533.3707,
+            "Tag": 119,
+            "ActionTag": -597410230,
+            "Size": {
+              "X": 416.0,
+              "Y": 54.0
+            },
+            "Name": "tile_14_0_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FlipX": true,
+            "FlipY": true,
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "jump_on_words/tile.png",
+              "Plist": "jump_on_words/jump_on_words.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 716.8097,
+              "Y": 560.3704
+            },
+            "Scale": {
+              "ScaleX": 2.9383,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.2312,
+              "Y": 0.3113
+            },
+            "PreSize": {
+              "X": 0.1342,
+              "Y": 0.03
+            },
+            "LeftMargin": 508.8097,
+            "RightMargin": 2175.1904,
+            "TopMargin": 1212.6296,
+            "BottomMargin": 533.3704,
+            "Tag": 120,
+            "ActionTag": 526408423,
+            "Size": {
+              "X": 416.0,
+              "Y": 54.0
+            },
+            "Name": "tile_13_0_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FlipX": true,
+            "FlipY": true,
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "jump_on_words/tile.png",
+              "Plist": "jump_on_words/jump_on_words.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1428.8008,
+              "Y": 560.3729
+            },
+            "Scale": {
+              "ScaleX": 0.4269,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.4609,
+              "Y": 0.3113
+            },
+            "PreSize": {
+              "X": 0.1342,
+              "Y": 0.03
+            },
+            "LeftMargin": 1220.8008,
+            "RightMargin": 1463.1992,
+            "TopMargin": 1212.6271,
+            "BottomMargin": 533.3729,
+            "Tag": 121,
+            "ActionTag": -106269212,
+            "Size": {
+              "X": 416.0,
+              "Y": 54.0
+            },
+            "Name": "tile_12_0_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FlipX": true,
+            "FlipY": true,
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "jump_on_words/tile.png",
+              "Plist": "jump_on_words/jump_on_words.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1589.6338,
+              "Y": 560.3716
+            },
+            "Scale": {
+              "ScaleX": 0.267,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.5128,
+              "Y": 0.3113
+            },
+            "PreSize": {
+              "X": 0.1342,
+              "Y": 0.03
+            },
+            "LeftMargin": 1381.6338,
+            "RightMargin": 1302.3662,
+            "TopMargin": 1212.6284,
+            "BottomMargin": 533.3716,
+            "Tag": 122,
+            "ActionTag": -608719501,
+            "Size": {
+              "X": 416.0,
+              "Y": 54.0
+            },
+            "Name": "tile_11_0_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FlipX": true,
+            "FlipY": true,
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "jump_on_words/tile.png",
+              "Plist": "jump_on_words/jump_on_words.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1795.0757,
+              "Y": 560.3707
+            },
+            "Scale": {
+              "ScaleX": 0.6838,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.5791,
+              "Y": 0.3113
+            },
+            "PreSize": {
+              "X": 0.1342,
+              "Y": 0.03
+            },
+            "LeftMargin": 1587.0757,
+            "RightMargin": 1096.9243,
+            "TopMargin": 1212.6293,
+            "BottomMargin": 533.3707,
+            "Tag": 123,
+            "ActionTag": 944404451,
+            "Size": {
+              "X": 416.0,
+              "Y": 54.0
+            },
+            "Name": "tile_10_0_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FlipX": true,
+            "FlipY": true,
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "jump_on_words/tile.png",
+              "Plist": "jump_on_words/jump_on_words.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 2005.9763,
+              "Y": 560.3707
+            },
+            "Scale": {
+              "ScaleX": 0.2898,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.6471,
+              "Y": 0.3113
+            },
+            "PreSize": {
+              "X": 0.1342,
+              "Y": 0.03
+            },
+            "LeftMargin": 1797.9763,
+            "RightMargin": 886.0237,
+            "TopMargin": 1212.6293,
+            "BottomMargin": 533.3707,
+            "Tag": 124,
+            "ActionTag": -22192394,
+            "Size": {
+              "X": 416.0,
+              "Y": 54.0
+            },
+            "Name": "tile_9_0_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FlipX": true,
+            "FlipY": true,
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "jump_on_words/tile.png",
+              "Plist": "jump_on_words/jump_on_words.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 2117.8154,
+              "Y": 560.3723
+            },
+            "Scale": {
+              "ScaleX": 0.203,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.6832,
+              "Y": 0.3113
+            },
+            "PreSize": {
+              "X": 0.1342,
+              "Y": 0.03
+            },
+            "LeftMargin": 1909.8154,
+            "RightMargin": 774.1846,
+            "TopMargin": 1212.6277,
+            "BottomMargin": 533.3723,
+            "Tag": 125,
+            "ActionTag": -1288031308,
+            "Size": {
+              "X": 416.0,
+              "Y": 54.0
+            },
+            "Name": "tile_8_0_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FlipX": true,
+            "FlipY": true,
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "jump_on_words/tile.png",
+              "Plist": "jump_on_words/jump_on_words.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 2257.2576,
+              "Y": 560.3704
+            },
+            "Scale": {
+              "ScaleX": 0.408,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.7281,
+              "Y": 0.3113
+            },
+            "PreSize": {
+              "X": 0.1342,
+              "Y": 0.03
+            },
+            "LeftMargin": 2049.2576,
+            "RightMargin": 634.7424,
+            "TopMargin": 1212.6296,
+            "BottomMargin": 533.3704,
+            "Tag": 126,
+            "ActionTag": -695412122,
+            "Size": {
+              "X": 416.0,
+              "Y": 54.0
+            },
+            "Name": "tile_7_0_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FlipX": true,
+            "FlipY": true,
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "jump_on_words/tile.png",
+              "Plist": "jump_on_words/jump_on_words.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 2483.6941,
+              "Y": 560.3707
+            },
+            "Scale": {
+              "ScaleX": 0.6157,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.8012,
+              "Y": 0.3113
+            },
+            "PreSize": {
+              "X": 0.1342,
+              "Y": 0.03
+            },
+            "LeftMargin": 2275.6941,
+            "RightMargin": 408.3059,
+            "TopMargin": 1212.6293,
+            "BottomMargin": 533.3707,
+            "Tag": 127,
+            "ActionTag": -1035985863,
+            "Size": {
+              "X": 416.0,
+              "Y": 54.0
+            },
+            "Name": "tile_6_0_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FlipX": true,
+            "FlipY": true,
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "jump_on_words/tile.png",
+              "Plist": "jump_on_words/jump_on_words.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 2723.6575,
+              "Y": 560.3716
+            },
+            "Scale": {
+              "ScaleX": 0.4865,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.8786,
+              "Y": 0.3113
+            },
+            "PreSize": {
+              "X": 0.1342,
+              "Y": 0.03
+            },
+            "LeftMargin": 2515.6575,
+            "RightMargin": 168.3425,
+            "TopMargin": 1212.6284,
+            "BottomMargin": 533.3716,
+            "Tag": 128,
+            "ActionTag": -909815915,
+            "Size": {
+              "X": 416.0,
+              "Y": 54.0
+            },
+            "Name": "tile_3_0_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FlipX": true,
+            "FlipY": true,
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "jump_on_words/tile.png",
+              "Plist": "jump_on_words/jump_on_words.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": -159.4219,
+              "Y": 619.8231
+            },
+            "Scale": {
+              "ScaleX": 0.4546,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": -0.0514,
+              "Y": 0.3443
+            },
+            "PreSize": {
+              "X": 0.1342,
+              "Y": 0.03
+            },
+            "LeftMargin": -367.4219,
+            "RightMargin": 3051.4219,
+            "TopMargin": 1153.1769,
+            "BottomMargin": 592.8231,
+            "Tag": 129,
+            "ActionTag": 1961535126,
+            "Size": {
+              "X": 416.0,
+              "Y": 54.0
+            },
+            "Name": "tile_14_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FlipX": true,
+            "FlipY": true,
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "jump_on_words/tile.png",
+              "Plist": "jump_on_words/jump_on_words.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 296.5371,
+              "Y": 619.8107
+            },
+            "Scale": {
+              "ScaleX": 1.7022,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.0957,
+              "Y": 0.3443
+            },
+            "PreSize": {
+              "X": 0.1342,
+              "Y": 0.03
+            },
+            "LeftMargin": 88.5371,
+            "RightMargin": 2595.4629,
+            "TopMargin": 1153.1893,
+            "BottomMargin": 592.8107,
+            "Tag": 130,
+            "ActionTag": -861528017,
+            "Size": {
+              "X": 416.0,
+              "Y": 54.0
+            },
+            "Name": "tile_13_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FlipX": true,
+            "FlipY": true,
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "jump_on_words/tile.png",
+              "Plist": "jump_on_words/jump_on_words.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 822.1959,
+              "Y": 619.8203
+            },
+            "Scale": {
+              "ScaleX": 0.7672,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.2652,
+              "Y": 0.3443
+            },
+            "PreSize": {
+              "X": 0.1342,
+              "Y": 0.03
+            },
+            "LeftMargin": 614.1959,
+            "RightMargin": 2069.8042,
+            "TopMargin": 1153.1797,
+            "BottomMargin": 592.8203,
+            "Tag": 131,
+            "ActionTag": -2122935933,
+            "Size": {
+              "X": 416.0,
+              "Y": 54.0
+            },
+            "Name": "tile_12_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FlipX": true,
+            "FlipY": true,
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "jump_on_words/tile.png",
+              "Plist": "jump_on_words/jump_on_words.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1098.8164,
+              "Y": 619.8208
+            },
+            "Scale": {
+              "ScaleX": 0.5299,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.3545,
+              "Y": 0.3443
+            },
+            "PreSize": {
+              "X": 0.1342,
+              "Y": 0.03
+            },
+            "LeftMargin": 890.8164,
+            "RightMargin": 1793.1836,
+            "TopMargin": 1153.1792,
+            "BottomMargin": 592.8208,
+            "Tag": 132,
+            "ActionTag": 44879836,
+            "Size": {
+              "X": 416.0,
+              "Y": 54.0
+            },
+            "Name": "tile_11_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FlipX": true,
+            "FlipY": true,
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "jump_on_words/tile.png",
+              "Plist": "jump_on_words/jump_on_words.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1364.3354,
+              "Y": 619.8264
+            },
+            "Scale": {
+              "ScaleX": 0.6838,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.4401,
+              "Y": 0.3443
+            },
+            "PreSize": {
+              "X": 0.1342,
+              "Y": 0.03
+            },
+            "LeftMargin": 1156.3354,
+            "RightMargin": 1527.6646,
+            "TopMargin": 1153.1736,
+            "BottomMargin": 592.8264,
+            "Tag": 133,
+            "ActionTag": -232528927,
+            "Size": {
+              "X": 416.0,
+              "Y": 54.0
+            },
+            "Name": "tile_10_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FlipX": true,
+            "FlipY": true,
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "jump_on_words/tile.png",
+              "Plist": "jump_on_words/jump_on_words.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1678.5742,
+              "Y": 619.8203
+            },
+            "Scale": {
+              "ScaleX": 0.78,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.5415,
+              "Y": 0.3443
+            },
+            "PreSize": {
+              "X": 0.1342,
+              "Y": 0.03
+            },
+            "LeftMargin": 1470.5742,
+            "RightMargin": 1213.4258,
+            "TopMargin": 1153.1797,
+            "BottomMargin": 592.8203,
+            "Tag": 134,
+            "ActionTag": 577489238,
+            "Size": {
+              "X": 416.0,
+              "Y": 54.0
+            },
+            "Name": "tile_9_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FlipX": true,
+            "FlipY": true,
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "jump_on_words/tile.png",
+              "Plist": "jump_on_words/jump_on_words.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1937.3328,
+              "Y": 619.8208
+            },
+            "Scale": {
+              "ScaleX": 0.4371,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.6249,
+              "Y": 0.3443
+            },
+            "PreSize": {
+              "X": 0.1342,
+              "Y": 0.03
+            },
+            "LeftMargin": 1729.3328,
+            "RightMargin": 954.6672,
+            "TopMargin": 1153.1792,
+            "BottomMargin": 592.8208,
+            "Tag": 135,
+            "ActionTag": 1322140371,
+            "Size": {
+              "X": 416.0,
+              "Y": 54.0
+            },
+            "Name": "tile_8_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FlipX": true,
+            "FlipY": true,
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "jump_on_words/tile.png",
+              "Plist": "jump_on_words/jump_on_words.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 2175.0906,
+              "Y": 619.8213
+            },
+            "Scale": {
+              "ScaleX": 0.642,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.7016,
+              "Y": 0.3443
+            },
+            "PreSize": {
+              "X": 0.1342,
+              "Y": 0.03
+            },
+            "LeftMargin": 1967.0906,
+            "RightMargin": 716.9094,
+            "TopMargin": 1153.1787,
+            "BottomMargin": 592.8213,
+            "Tag": 136,
+            "ActionTag": 69889192,
+            "Size": {
+              "X": 416.0,
+              "Y": 54.0
+            },
+            "Name": "tile_7_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FlipX": true,
+            "FlipY": true,
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "jump_on_words/tile.png",
+              "Plist": "jump_on_words/jump_on_words.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 2426.7151,
+              "Y": 619.8203
+            },
+            "Scale": {
+              "ScaleX": 0.5008,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.7828,
+              "Y": 0.3443
+            },
+            "PreSize": {
+              "X": 0.1342,
+              "Y": 0.03
+            },
+            "LeftMargin": 2218.7151,
+            "RightMargin": 465.2849,
+            "TopMargin": 1153.1797,
+            "BottomMargin": 592.8203,
+            "Tag": 137,
+            "ActionTag": -1615248366,
+            "Size": {
+              "X": 416.0,
+              "Y": 54.0
+            },
+            "Name": "tile_6_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FlipX": true,
+            "FlipY": true,
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "jump_on_words/tile.png",
+              "Plist": "jump_on_words/jump_on_words.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 2684.9299,
+              "Y": 619.8229
+            },
+            "Scale": {
+              "ScaleX": 0.6808,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.8661,
+              "Y": 0.3443
+            },
+            "PreSize": {
+              "X": 0.1342,
+              "Y": 0.03
+            },
+            "LeftMargin": 2476.9299,
+            "RightMargin": 207.0701,
+            "TopMargin": 1153.1771,
+            "BottomMargin": 592.8229,
+            "Tag": 138,
+            "ActionTag": -745682057,
+            "Size": {
+              "X": 416.0,
+              "Y": 54.0
+            },
+            "Name": "tile_3_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "jump_on_words/tile.png",
+              "Plist": "jump_on_words/jump_on_words.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": -136.6537,
+              "Y": 683.5839
+            },
+            "Scale": {
+              "ScaleX": 0.5939,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": -0.0441,
+              "Y": 0.3798
+            },
+            "PreSize": {
+              "X": 0.1342,
+              "Y": 0.03
+            },
+            "LeftMargin": -344.6537,
+            "RightMargin": 3028.6538,
+            "TopMargin": 1089.4161,
+            "BottomMargin": 656.5839,
+            "Tag": 139,
+            "ActionTag": -1405324884,
+            "Size": {
+              "X": 416.0,
+              "Y": 54.0
+            },
+            "Name": "tile_14",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FlipX": true,
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "jump_on_words/tile.png",
+              "Plist": "jump_on_words/jump_on_words.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 208.263,
+              "Y": 683.5839
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.0672,
+              "Y": 0.3798
+            },
+            "PreSize": {
+              "X": 0.1342,
+              "Y": 0.03
+            },
+            "LeftMargin": 0.263,
+            "RightMargin": 2683.7371,
+            "TopMargin": 1089.4161,
+            "BottomMargin": 656.5839,
+            "Tag": 140,
+            "ActionTag": -766934517,
+            "Size": {
+              "X": 416.0,
+              "Y": 54.0
+            },
+            "Name": "tile_13",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FlipX": true,
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "jump_on_words/tile.png",
+              "Plist": "jump_on_words/jump_on_words.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 585.4436,
+              "Y": 683.5823
+            },
+            "Scale": {
+              "ScaleX": 0.7672,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.1889,
+              "Y": 0.3798
+            },
+            "PreSize": {
+              "X": 0.1342,
+              "Y": 0.03
+            },
+            "LeftMargin": 377.4436,
+            "RightMargin": 2306.5564,
+            "TopMargin": 1089.4177,
+            "BottomMargin": 656.5823,
+            "Tag": 141,
+            "ActionTag": -69871390,
+            "Size": {
+              "X": 416.0,
+              "Y": 54.0
+            },
+            "Name": "tile_12",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "jump_on_words/tile.png",
+              "Plist": "jump_on_words/jump_on_words.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 963.4581,
+              "Y": 683.5863
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.3108,
+              "Y": 0.3798
+            },
+            "PreSize": {
+              "X": 0.1342,
+              "Y": 0.03
+            },
+            "LeftMargin": 755.4581,
+            "RightMargin": 1928.5419,
+            "TopMargin": 1089.4137,
+            "BottomMargin": 656.5863,
+            "Tag": 142,
+            "ActionTag": 200769746,
+            "Size": {
+              "X": 416.0,
+              "Y": 54.0
+            },
+            "Name": "tile_11",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FlipX": true,
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "jump_on_words/tile.png",
+              "Plist": "jump_on_words/jump_on_words.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1222.9663,
+              "Y": 683.5839
+            },
+            "Scale": {
+              "ScaleX": 0.1963,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.3945,
+              "Y": 0.3798
+            },
+            "PreSize": {
+              "X": 0.1342,
+              "Y": 0.03
+            },
+            "LeftMargin": 1014.9663,
+            "RightMargin": 1669.0337,
+            "TopMargin": 1089.4161,
+            "BottomMargin": 656.5839,
+            "Tag": 143,
+            "ActionTag": 1171574936,
+            "Size": {
+              "X": 416.0,
+              "Y": 54.0
+            },
+            "Name": "tile_10",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "jump_on_words/tile.png",
+              "Plist": "jump_on_words/jump_on_words.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1437.0338,
+              "Y": 683.5839
+            },
+            "Scale": {
+              "ScaleX": 0.78,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.4636,
+              "Y": 0.3798
+            },
+            "PreSize": {
+              "X": 0.1342,
+              "Y": 0.03
+            },
+            "LeftMargin": 1229.0338,
+            "RightMargin": 1454.9662,
+            "TopMargin": 1089.4161,
+            "BottomMargin": 656.5839,
+            "Tag": 144,
+            "ActionTag": 128684614,
+            "Size": {
+              "X": 416.0,
+              "Y": 54.0
+            },
+            "Name": "tile_9",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "jump_on_words/tile.png",
+              "Plist": "jump_on_words/jump_on_words.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1815.301,
+              "Y": 683.5839
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.5856,
+              "Y": 0.3798
+            },
+            "PreSize": {
+              "X": 0.1342,
+              "Y": 0.03
+            },
+            "LeftMargin": 1607.301,
+            "RightMargin": 1076.699,
+            "TopMargin": 1089.4161,
+            "BottomMargin": 656.5839,
+            "Tag": 145,
+            "ActionTag": 1730870101,
+            "Size": {
+              "X": 416.0,
+              "Y": 54.0
+            },
+            "Name": "tile_8",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FlipX": true,
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "jump_on_words/tile.png",
+              "Plist": "jump_on_words/jump_on_words.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 2111.0068,
+              "Y": 683.5829
+            },
+            "Scale": {
+              "ScaleX": 0.3925,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.681,
+              "Y": 0.3798
+            },
+            "PreSize": {
+              "X": 0.1342,
+              "Y": 0.03
+            },
+            "LeftMargin": 1903.0068,
+            "RightMargin": 780.9932,
+            "TopMargin": 1089.4171,
+            "BottomMargin": 656.5829,
+            "Tag": 146,
+            "ActionTag": -930969352,
+            "Size": {
+              "X": 416.0,
+              "Y": 54.0
+            },
+            "Name": "tile_7",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "jump_on_words/tile.png",
+              "Plist": "jump_on_words/jump_on_words.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 2304.5413,
+              "Y": 683.9669
+            },
+            "Scale": {
+              "ScaleX": 0.5008,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.7434,
+              "Y": 0.38
+            },
+            "PreSize": {
+              "X": 0.1342,
+              "Y": 0.03
+            },
+            "LeftMargin": 2096.5413,
+            "RightMargin": 587.4587,
+            "TopMargin": 1089.0331,
+            "BottomMargin": 656.9669,
+            "Tag": 147,
+            "ActionTag": -1527974366,
+            "Size": {
+              "X": 416.0,
+              "Y": 54.0
+            },
+            "Name": "tile_6",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "jump_on_words/tile.png",
+              "Plist": "jump_on_words/jump_on_words.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 2620.6396,
+              "Y": 684.386
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.8454,
+              "Y": 0.3802
+            },
+            "PreSize": {
+              "X": 0.1342,
+              "Y": 0.03
+            },
+            "LeftMargin": 2412.6396,
+            "RightMargin": 271.3604,
+            "TopMargin": 1088.614,
+            "BottomMargin": 657.386,
+            "Tag": 148,
+            "ActionTag": -1491042891,
+            "Size": {
+              "X": 416.0,
+              "Y": 54.0
+            },
+            "Name": "tile_3",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "jump_on_words/tick_button.png",
+              "Plist": "jump_on_words/jump_on_words.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 2362.8369,
+              "Y": 267.976
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.7622,
+              "Y": 0.1489
+            },
+            "PreSize": {
+              "X": 0.1265,
+              "Y": 0.2194
+            },
+            "LeftMargin": 2166.8369,
+            "RightMargin": 541.1631,
+            "TopMargin": 1334.524,
+            "BottomMargin": 70.476,
+            "Tag": 149,
+            "ActionTag": -1755450397,
+            "Size": {
+              "X": 392.0,
+              "Y": 395.0
+            },
+            "Name": "tick_button_31",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "jump_on_words/hint_button.png",
+              "Plist": "jump_on_words/jump_on_words.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 166.4505,
+              "Y": 402.7993
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.0537,
+              "Y": 0.2238
+            },
+            "PreSize": {
+              "X": 0.0771,
+              "Y": 0.1328
+            },
+            "LeftMargin": 46.9505,
+            "RightMargin": 2814.0496,
+            "TopMargin": 1277.7007,
+            "BottomMargin": 283.2993,
+            "Tag": 150,
+            "ActionTag": -1643361765,
+            "Size": {
+              "X": 239.0,
+              "Y": 239.0
+            },
+            "Name": "hint_button_32",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "jump_on_words/cross_button.png",
+              "Plist": "jump_on_words/jump_on_words.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 159.3194,
+              "Y": 140.6138
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.0514,
+              "Y": 0.0781
+            },
+            "PreSize": {
+              "X": 0.0797,
+              "Y": 0.1372
+            },
+            "LeftMargin": 35.8194,
+            "RightMargin": 2817.1807,
+            "TopMargin": 1535.8862,
+            "BottomMargin": 17.1138,
+            "Tag": 151,
+            "ActionTag": 1865499249,
+            "Size": {
+              "X": 247.0,
+              "Y": 247.0
+            },
+            "Name": "cross_button_33",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "jump_on_words/ball.png",
+              "Plist": "jump_on_words/jump_on_words.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 445.5517,
+              "Y": 140.3712
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.1437,
+              "Y": 0.078
+            },
+            "PreSize": {
+              "X": 0.0797,
+              "Y": 0.1372
+            },
+            "LeftMargin": 322.0517,
+            "RightMargin": 2530.9482,
+            "TopMargin": 1536.1288,
+            "BottomMargin": 16.8712,
+            "Tag": 152,
+            "ActionTag": -1016001560,
+            "Size": {
+              "X": 247.0,
+              "Y": 247.0
+            },
+            "Name": "ball_34",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "jump_on_words/ball.png",
+              "Plist": "jump_on_words/jump_on_words.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 744.7686,
+              "Y": 140.6137
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.2402,
+              "Y": 0.0781
+            },
+            "PreSize": {
+              "X": 0.0797,
+              "Y": 0.1372
+            },
+            "LeftMargin": 621.2686,
+            "RightMargin": 2231.7314,
+            "TopMargin": 1535.8862,
+            "BottomMargin": 17.1137,
+            "Tag": 153,
+            "ActionTag": -1807485536,
+            "Size": {
+              "X": 247.0,
+              "Y": 247.0
+            },
+            "Name": "ball_35",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "jump_on_words/ball.png",
+              "Plist": "jump_on_words/jump_on_words.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1052.3044,
+              "Y": 140.6137
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.3395,
+              "Y": 0.0781
+            },
+            "PreSize": {
+              "X": 0.0797,
+              "Y": 0.1372
+            },
+            "LeftMargin": 928.8044,
+            "RightMargin": 1924.1956,
+            "TopMargin": 1535.8862,
+            "BottomMargin": 17.1137,
+            "Tag": 154,
+            "ActionTag": -291515724,
+            "Size": {
+              "X": 247.0,
+              "Y": 247.0
+            },
+            "Name": "ball_36",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "jump_on_words/ball.png",
+              "Plist": "jump_on_words/jump_on_words.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1357.8467,
+              "Y": 140.6139
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.438,
+              "Y": 0.0781
+            },
+            "PreSize": {
+              "X": 0.0797,
+              "Y": 0.1372
+            },
+            "LeftMargin": 1234.3467,
+            "RightMargin": 1618.6533,
+            "TopMargin": 1535.8861,
+            "BottomMargin": 17.1139,
+            "Tag": 155,
+            "ActionTag": 1177776498,
+            "Size": {
+              "X": 247.0,
+              "Y": 247.0
+            },
+            "Name": "ball_37",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "jump_on_words/ball.png",
+              "Plist": "jump_on_words/jump_on_words.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1669.7041,
+              "Y": 140.6137
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.5386,
+              "Y": 0.0781
+            },
+            "PreSize": {
+              "X": 0.0797,
+              "Y": 0.1372
+            },
+            "LeftMargin": 1546.2041,
+            "RightMargin": 1306.7959,
+            "TopMargin": 1535.8862,
+            "BottomMargin": 17.1137,
+            "Tag": 156,
+            "ActionTag": 1916616980,
+            "Size": {
+              "X": 247.0,
+              "Y": 247.0
+            },
+            "Name": "ball_38",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "jump_on_words/cloud.png",
+              "Plist": "jump_on_words/jump_on_words.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 90.8718,
+              "Y": 1454.2098
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.0293,
+              "Y": 0.8079
+            },
+            "PreSize": {
+              "X": 0.0916,
+              "Y": 0.0672
+            },
+            "LeftMargin": -51.1282,
+            "RightMargin": 2867.1282,
+            "TopMargin": 285.2902,
+            "BottomMargin": 1393.7098,
+            "Tag": 160,
+            "ActionTag": -451854141,
+            "Size": {
+              "X": 284.0,
+              "Y": 121.0
+            },
+            "Alpha": 204,
+            "Name": "cloud_40",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "jump_on_words/cloud.png",
+              "Plist": "jump_on_words/jump_on_words.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1432.0488,
+              "Y": 1392.485
+            },
+            "Scale": {
+              "ScaleX": 0.725,
+              "ScaleY": 0.725
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.462,
+              "Y": 0.7736
+            },
+            "PreSize": {
+              "X": 0.0916,
+              "Y": 0.0672
+            },
+            "LeftMargin": 1290.0488,
+            "RightMargin": 1525.9512,
+            "TopMargin": 347.015,
+            "BottomMargin": 1331.985,
+            "Tag": 161,
+            "ActionTag": 1836676589,
+            "Size": {
+              "X": 284.0,
+              "Y": 121.0
+            },
+            "Alpha": 153,
+            "Name": "cloud_41",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "jump_on_words/cloud.png",
+              "Plist": "jump_on_words/jump_on_words.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 2451.8223,
+              "Y": 1188.2874
+            },
+            "Scale": {
+              "ScaleX": 1.1821,
+              "ScaleY": 1.1821
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.7909,
+              "Y": 0.6602
+            },
+            "PreSize": {
+              "X": 0.0916,
+              "Y": 0.0672
+            },
+            "LeftMargin": 2309.8223,
+            "RightMargin": 506.1777,
+            "TopMargin": 551.2126,
+            "BottomMargin": 1127.7874,
+            "Tag": 162,
+            "ActionTag": -1124724524,
+            "Size": {
+              "X": 284.0,
+              "Y": 121.0
+            },
+            "Alpha": 102,
+            "Name": "cloud_42",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "jump_on_words/cloud.png",
+              "Plist": "jump_on_words/jump_on_words.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 538.9487,
+              "Y": 831.9787
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.1739,
+              "Y": 0.4622
+            },
+            "PreSize": {
+              "X": 0.0916,
+              "Y": 0.0672
+            },
+            "LeftMargin": 396.9487,
+            "RightMargin": 2419.0513,
+            "TopMargin": 907.5213,
+            "BottomMargin": 771.4787,
+            "Tag": 163,
+            "ActionTag": -332730351,
+            "Size": {
+              "X": 284.0,
+              "Y": 121.0
+            },
+            "Alpha": 178,
+            "Name": "cloud_43",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "jump_on_words/ball.png",
+              "Plist": "jump_on_words/jump_on_words.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1975.7206,
+              "Y": 140.6137
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.6373,
+              "Y": 0.0781
+            },
+            "PreSize": {
+              "X": 0.0797,
+              "Y": 0.1372
+            },
+            "LeftMargin": 1852.2206,
+            "RightMargin": 1000.7793,
+            "TopMargin": 1535.8864,
+            "BottomMargin": 17.1137,
+            "Tag": 164,
+            "ActionTag": 2038797495,
+            "Size": {
+              "X": 247.0,
+              "Y": 247.0
+            },
+            "Name": "ball_44",
+            "ctype": "SpriteObjectData"
+          }
+        ],
+        "Size": {
+          "X": 3100.0,
+          "Y": 1800.0
+        },
+        "Name": "Scene",
+        "ctype": "SingleNodeObjectData"
+      },
+      "UsedResources": [
+        "jump_on_words.plist",
+        "jump_on_words.png"
+      ],
+      "ctype": "GameFileData"
+    }
+  },
+  "Type": "Scene"
+}

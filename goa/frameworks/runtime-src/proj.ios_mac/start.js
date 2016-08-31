@@ -74,29 +74,9 @@ cc.game.onStart = function(){
     cc.director.setContentScaleFactor(0.25);
 
     //load resources
-
-    //cc.LoaderScene.preload(t_resources, function () {
-  //      cc.director.runScene(new TrainScene());
- //   }, this);
-
- cc.LoaderScene.preload(alphamole_resources, function () {
-                 cc.spriteFrameCache.addSpriteFrames(alphamole_res.Alphamole_plist1);//Alphamole_alphabet_plist
-                 cc.spriteFrameCache.addSpriteFrames(alphamole_res.Alphamole_alphabet_plist);//Alphamole_scene1_plist
-                 cc.spriteFrameCache.addSpriteFrames(alphamole_res.Alphamole_scene1_plist);
-                 cc.spriteFrameCache.addSpriteFrames(alphamole_res.Alphamole_scene2_plist);
-                 cc.spriteFrameCache.addSpriteFrames(alphamole_res.Alphamole_scene3_plist);
-                 cc.director.runScene(new AlphamoneGameScene());
-                 },this);
-
-   /* cc.LoaderScene.preload(t_resources, function () {
+    cc.LoaderScene.preload(t_resources, function () {
         cc.director.runScene(new TrainScene());
-    }, this);*/
-    cc.LoaderScene.preload(jump_resources, function () {
-                 cc.spriteFrameCache.addSpriteFrames(jump_res.jump_plist);//Alphamole_alphabet_plist
-                // cc.spriteFrameCache.addSpriteFrames(alphamon_res.Alphamole_alphabet_plist);
-                 cc.director.runScene(new playScene());
-
-             },this);
+    }, this);
 };
 cc.game.run();
 

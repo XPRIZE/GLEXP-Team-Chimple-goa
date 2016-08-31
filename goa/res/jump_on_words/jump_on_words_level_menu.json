@@ -1,0 +1,353 @@
+{
+  "ID": "a5c546e4-ef6c-41d8-8956-45643b445236",
+  "Version": "3.10.0.0",
+  "Name": "jump_on_words_level_menu",
+  "Content": {
+    "Content": {
+      "Animation": {
+        "Duration": 0,
+        "Speed": 1.0,
+        "Timelines": [],
+        "ctype": "TimelineActionData"
+      },
+      "AnimationList": [],
+      "ObjectData": {
+        "Tag": 101,
+        "Children": [
+          {
+            "ClipAble": false,
+            "ComboBoxIndex": 1,
+            "SingleColor": {
+              "R": 215,
+              "B": 250
+            },
+            "FirstColor": {
+              "R": 150,
+              "G": 200
+            },
+            "EndColor": {},
+            "ColorVector": {
+              "ScaleY": 1.0
+            },
+            "Scale9Width": 1,
+            "Scale9Height": 1,
+            "TouchEnable": true,
+            "AnchorPoint": {},
+            "Position": {
+              "X": -265.8666,
+              "Y": -0.1095
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": -0.0858,
+              "Y": -0.0001
+            },
+            "PreSize": {
+              "X": 1.0,
+              "Y": 1.0
+            },
+            "LeftMargin": -265.8666,
+            "RightMargin": 265.8667,
+            "TopMargin": 0.1095,
+            "BottomMargin": -0.1095,
+            "Tag": 102,
+            "ActionTag": 1712042171,
+            "Size": {
+              "X": 3100.0,
+              "Y": 1800.0
+            },
+            "Name": "Panel_1",
+            "ctype": "PanelObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "jump_on_words/bar.png",
+              "Plist": "jump_on_words/jump_on_words.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1285.0688,
+              "Y": 1688.6198
+            },
+            "Scale": {
+              "ScaleX": 1.6742,
+              "ScaleY": 1.3605
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.4145,
+              "Y": 0.9381
+            },
+            "PreSize": {
+              "X": 0.3445,
+              "Y": 0.0894
+            },
+            "LeftMargin": 751.0688,
+            "RightMargin": 1280.9312,
+            "TopMargin": 30.8802,
+            "BottomMargin": 1608.1198,
+            "Tag": 107,
+            "ActionTag": -735784462,
+            "Size": {
+              "X": 1068.0,
+              "Y": 161.0
+            },
+            "Name": "bar_1",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "jump_on_words/home_button.png",
+              "Plist": "jump_on_words/jump_on_words.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 546.6023,
+              "Y": 1692.0897
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.1763,
+              "Y": 0.94
+            },
+            "PreSize": {
+              "X": 0.0623,
+              "Y": 0.1078
+            },
+            "LeftMargin": 450.1023,
+            "RightMargin": 2456.8977,
+            "TopMargin": 10.9103,
+            "BottomMargin": 1595.0897,
+            "Tag": 108,
+            "ActionTag": 1094809609,
+            "Size": {
+              "X": 193.0,
+              "Y": 194.0
+            },
+            "Name": "home_button_2",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "jump_on_words/green_bar.png",
+              "Plist": "jump_on_words/jump_on_words.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 312.5423,
+              "Y": 1262.7939
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.1008,
+              "Y": 0.7016
+            },
+            "PreSize": {
+              "X": 0.3706,
+              "Y": 0.1511
+            },
+            "LeftMargin": -261.9577,
+            "RightMargin": 2212.9575,
+            "TopMargin": 401.2061,
+            "BottomMargin": 1126.7939,
+            "Tag": 109,
+            "ActionTag": -295601933,
+            "Size": {
+              "X": 1149.0,
+              "Y": 272.0
+            },
+            "Name": "green_bar_3",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "jump_on_words/pink_bar.png",
+              "Plist": "jump_on_words/jump_on_words.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 2259.6348,
+              "Y": 947.9165
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.7289,
+              "Y": 0.5266
+            },
+            "PreSize": {
+              "X": 0.3703,
+              "Y": 0.1511
+            },
+            "LeftMargin": 1685.6348,
+            "RightMargin": 266.3652,
+            "TopMargin": 716.0835,
+            "BottomMargin": 811.9165,
+            "Tag": 110,
+            "ActionTag": -943678635,
+            "Size": {
+              "X": 1148.0,
+              "Y": 272.0
+            },
+            "Name": "pink_bar_4",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "jump_on_words/yellow_bar.png",
+              "Plist": "jump_on_words/jump_on_words.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 312.5424,
+              "Y": 534.021
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.1008,
+              "Y": 0.2967
+            },
+            "PreSize": {
+              "X": 0.3706,
+              "Y": 0.1506
+            },
+            "LeftMargin": -261.9576,
+            "RightMargin": 2212.9575,
+            "TopMargin": 1130.479,
+            "BottomMargin": 398.521,
+            "Tag": 111,
+            "ActionTag": 1099657045,
+            "Size": {
+              "X": 1149.0,
+              "Y": 271.0
+            },
+            "Name": "yellow_bar_5",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "jump_on_words/red_bar.png",
+              "Plist": "jump_on_words/jump_on_words.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 2259.6348,
+              "Y": 245.2364
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.7289,
+              "Y": 0.1362
+            },
+            "PreSize": {
+              "X": 0.3703,
+              "Y": 0.1511
+            },
+            "LeftMargin": 1685.6348,
+            "RightMargin": 266.3652,
+            "TopMargin": 1418.7637,
+            "BottomMargin": 109.2364,
+            "Tag": 112,
+            "ActionTag": -983404547,
+            "Size": {
+              "X": 1148.0,
+              "Y": 272.0
+            },
+            "Name": "red_bar_6",
+            "ctype": "SpriteObjectData"
+          }
+        ],
+        "Size": {
+          "X": 3100.0,
+          "Y": 1800.0
+        },
+        "Name": "Scene",
+        "ctype": "SingleNodeObjectData"
+      },
+      "UsedResources": [
+        "jump_on_words.plist",
+        "jump_on_words.png"
+      ],
+      "ctype": "GameFileData"
+    }
+  },
+  "Type": "Scene"
+}

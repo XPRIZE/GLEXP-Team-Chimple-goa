@@ -123,3 +123,18 @@ var alphamole_resources = [];
 for (var i in alphamole_res) {
     alphamole_resources.push(alphamole_res[i]);
 }
+
+var jump_res ={
+    jump_main: "res/jump_on_words/jump_on_words_main_menu.json",
+    jump_level: "res/jump_on_words/jump_on_words_level_menu.json",
+    jump_game: "res/jump_on_words/jump_on_words_game_menu.json",
+    jump_plist:"res/SD/jump_on_words/jump_on_words.plist",
+    jump_png:"res/SD/jump_on_words/jump_on_words.png"
+
+};
+
+var jump_resources = [];
+for (var i in jump_res) {
+    jump_resources.push(jump_res[i]);
+}
+
