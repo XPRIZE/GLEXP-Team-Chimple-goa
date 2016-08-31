@@ -143,7 +143,7 @@ chimple.isHTML5 = function () {
                 "src/mini_games/BubbleShooter/MainStages/Category.js",
                 "src/mini_games/BubbleShooter/MainStages/Puzzle.js",
                 "src/mini_games/Pop/Pop.js",
-
+                "src/mini_games/Train.js",
                  "src/mini_games/alphamon/whackamole.js"
             ]
 
