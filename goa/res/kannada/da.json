@@ -1,0 +1,205 @@
+{
+  "ID": "87ef9748-0c6a-4cad-970b-1f7a08de322e",
+  "Version": "3.10.0.0",
+  "Name": "da",
+  "Content": {
+    "Content": {
+      "Animation": {
+        "Duration": 0,
+        "Speed": 1.0,
+        "Timelines": [],
+        "ctype": "TimelineActionData"
+      },
+      "AnimationList": [],
+      "ObjectData": {
+        "Tag": 3626,
+        "Children": [
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "leg_ani/skate_e.json",
+              "Plist": ""
+            },
+            "StretchWidthEnable": false,
+            "StretchHeightEnable": false,
+            "InnerActionSpeed": 1.0,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 4.2907,
+              "Y": 73.7852
+            },
+            "Scale": {
+              "ScaleX": 0.7705,
+              "ScaleY": 0.7705
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 4.2907,
+            "RightMargin": -4.2907,
+            "TopMargin": -73.7852,
+            "BottomMargin": 73.7852,
+            "Tag": 4815,
+            "ActionTag": 1392004132,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "skate_e",
+            "ctype": "ProjectNodeObjectData"
+          },
+          {
+            "LabelText": "ದ್",
+            "LabelBMFontFile_CNB": {
+              "Type": "Normal",
+              "Path": "kannada/kar shivarama_hdr.fnt",
+              "Plist": ""
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": -15.191,
+              "Y": 76.5885
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {
+              "R": 253,
+              "G": 40,
+              "B": 48
+            },
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": -193.191,
+            "RightMargin": -162.809,
+            "TopMargin": -576.5885,
+            "BottomMargin": -423.4115,
+            "Tag": 3627,
+            "ActionTag": -1104668147,
+            "Size": {
+              "X": 356.0,
+              "Y": 1000.0
+            },
+            "Name": "BitmapFontLabel_1",
+            "ctype": "TextBMFontObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "eye_ani/eye_h.json",
+              "Plist": ""
+            },
+            "StretchWidthEnable": false,
+            "StretchHeightEnable": false,
+            "InnerActionSpeed": 1.0,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 0.5892,
+              "Y": 334.067
+            },
+            "Scale": {
+              "ScaleX": 0.4968,
+              "ScaleY": 0.4968
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 0.5892,
+            "RightMargin": -0.5892,
+            "TopMargin": -334.067,
+            "BottomMargin": 334.067,
+            "Tag": 1041,
+            "ActionTag": -579649325,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "eye_h",
+            "ctype": "ProjectNodeObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "mouth_ani/mouth_a.json",
+              "Plist": ""
+            },
+            "StretchWidthEnable": false,
+            "StretchHeightEnable": false,
+            "InnerActionSpeed": 1.0,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 4.7577,
+              "Y": 126.7374
+            },
+            "Scale": {
+              "ScaleX": 0.6581,
+              "ScaleY": 0.6581
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 4.7577,
+            "RightMargin": -4.7577,
+            "TopMargin": -126.7374,
+            "BottomMargin": 126.7374,
+            "Tag": 1055,
+            "ActionTag": 1372693515,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "mouth_a",
+            "ctype": "ProjectNodeObjectData"
+          }
+        ],
+        "Size": {
+          "X": 0.0,
+          "Y": 0.0
+        },
+        "Name": "Node",
+        "ctype": "SingleNodeObjectData"
+      },
+      "UsedResources": [
+        "../eye_ani/eye_h.json",
+        "../leg_ani/skate_e.json",
+        "../mouth_ani/mouth_a.json",
+        "kar shivarama_hdr.fnt",
+        "kar shivarama_hdr_0.png"
+      ],
+      "ctype": "GameFileData"
+    }
+  },
+  "Type": "Node"
+}

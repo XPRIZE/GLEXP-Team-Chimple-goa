@@ -74,9 +74,10 @@ cc.game.onStart = function(){
     cc.director.setContentScaleFactor(0.25);
 
     //load resources
-    cc.LoaderScene.preload(t_resources, function () {
+   cc.LoaderScene.preload(t_resources, function () {
         cc.director.runScene(new TrainScene());
     }, this);
+  
 };
 cc.game.run();
 

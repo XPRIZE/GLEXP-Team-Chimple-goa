@@ -30,6 +30,7 @@
 #include "scripting/js-bindings/manual/physics3d/jsb_cocos2dx_physics3d_manual.h"
 #include "scripting/js-bindings/manual/spine/jsb_cocos2dx_spine_manual.h"
 #include "scripting/js-bindings/manual/ui/jsb_cocos2dx_ui_manual.h"
+#include "scripting/js-bindings/auto/chimpleautogenbindings.hpp"
 
 #if (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID || CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
 #include "scripting/js-bindings/auto/jsb_cocos2dx_experimental_video_auto.hpp"
@@ -192,6 +193,9 @@ bool AppDelegate::applicationDidFinishLaunching()
 #elif (CC_TARGET_PLATFORM == CC_PLATFORM_IOS || CC_TARGET_PLATFORM == CC_PLATFORM_MAC)
     sc->addRegisterCallback(JavaScriptObjCBridge::_js_register);
 #endif
+    
+    sc->addRegisterCallback(register_all_chimpleautogenbindings);
+    
     sc->start();
     sc->runScript("script/jsb_boot.js");
 #if defined(COCOS2D_DEBUG) && (COCOS2D_DEBUG > 0)
@@ -199,10 +203,10 @@ bool AppDelegate::applicationDidFinishLaunching()
 #endif
     ScriptEngineProtocol *engine = ScriptingCore::getInstance();
     ScriptEngineManager::getInstance()->setScriptEngine(engine);
-//    ScriptingCore::getInstance()->runScript("main.js");
+    
+//    ScriptingCore::getInstance()->runScript("start.js");
 
     SafariAnalyticsManager* safariManager = SafariAnalyticsManager::getInstance();
-    
 #if (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
     director->runWithScene(ScrollableGameMapScene::createScene());
     std::string userPhotoUrl = safariManager->getLatestUserPhoto();
