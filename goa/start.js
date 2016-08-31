@@ -86,6 +86,7 @@ cc.game.onStart = function(){
         cc.spriteFrameCache.addSpriteFrames(chimple.GameMap.res.map_plist);
         cc.director.runScene(new chimple.GameMap());
     }, this);
+  
 };
 cc.game.run();
 
