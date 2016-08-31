@@ -11,6 +11,9 @@ xc.GameMap = cc.Scene.extend({
         if(sender._configuration.name == 'jazz') {
             xc.GameScene.load(xc.GameLayer);
         }
+        else if(sender._configuration.name == 'train') {
+            xc.GameScene.load(xc.TrainLayer);
+        }
     }
 });
 
