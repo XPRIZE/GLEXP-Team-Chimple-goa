@@ -5,10 +5,15 @@ var AlphamoneGameLayer = cc.Layer.extend( {
     background_layer:null,
     hole_array:null,
     alphabet_Reff:[],
+    scoreLabel:null,
+    whack_score:null,
+    level_string:null,
 
-    ctor:function () {
+    ctor:function (level_str) {
         this._super();
+        level_string = level_str;
         alphabet_Reff = [];
+        whack_score = 0;
         var size = cc.winSize;
         background_layer = ccs.load(alphamole_res.Alphamole_scene2_json1,"res/SD/");
         this.addChild(background_layer.node);
@@ -26,7 +31,7 @@ var AlphamoneGameLayer = cc.Layer.extend( {
         var myLayer = ccs.load(alphamole_res.Alphamole_scene2_json,"res/SD/");
         this.addChild(myLayer.node);
        
-       var level_alpha = ccs.load("res/english/A.json","res/SD/");
+       var level_alpha = ccs.load("res/english/"+level_str+".json","res/SD/");
        level_alpha.node.x = size.width - 300;
        level_alpha.node.y = size.height - 300;
        level_alpha.node.setScale(0.5,0.5);
@@ -63,18 +68,34 @@ Play5_hole_back_165
 Play5_hole_back_165_0
 Play5_hole_back_165_1
     */
-      for(var i = 0; i< 6; i++){
+      for(var i = 0; i< 3; i++){
          var random_numb =  Math.floor(Math.random()*100 % 25); 
          alphabet_Reff.push(alphabet_str[random_numb]); 
+          alphabet_Reff.push(level_str);
       }
 
    
         hole_array = ["hole1", "hole2", "hole3"];
-    //  var alpha = ccs.load(alphamole_res.Alphamole_oo, "res/SD/");
-     // alpha.node.x = 900;
-     // alpha.node.y = 900;
-    // alpha.setPosition((100, 200));
-   //  this.addChild(alpha.node);
+     var alpha = ccs.load(alphamole_res.Alphamole_oo, "res/SD/");
+     alpha.node.x = 900;
+     alpha.node.y = 900;
+    //alpha.setPosition((100, 200));
+    this.addChild(alpha.node);
+
+
+
+
+
+
+
+     scoreLabel = new cc.LabelTTF("  Score: " + whack_score, "Arial", 90);
+        
+         scoreLabel.x = 0;
+         scoreLabel.y = size.height;
+         scoreLabel.anchorX = 0;
+         scoreLabel.anchorY = 1;
+         scoreLabel.setColor(cc.color(0,0,0));
+         this.addChild(scoreLabel);
         },
 
     showAlpha: function () {
@@ -88,6 +109,7 @@ Play5_hole_back_165_1
      alphabet = ccs.load("res/english/"+alphabet_Reff[random_alpha]+".json", "res/SD/");
      alphabet.node.x = x;
      alphabet.node.y = y - 250;
+     alphabet.node.setName(alphabet_Reff[random_alpha]);
      alphabet.node.setContentSize(300,400);
      alphabet_layer.addChild(alphabet.node);
 
@@ -106,7 +128,7 @@ var level_children = alphabet.node.getChildren();
      alphabet.node.runAction(whack_jump);
       this.scheduleOnce(function(){
          alphabet_layer.removeChild(alphabet.node); 
-      },1);    
+      },1.2);    
      cc.eventManager.addListener(cc.EventListener.create({
          event: cc.EventListener.TOUCH_ONE_BY_ONE,
          swallowTouches:true,  
@@ -122,7 +144,11 @@ var level_children = alphabet.node.getChildren();
         // var targetRectangle = target.getBoundingBox();
          if (cc.rectContainsPoint(targetRectangle, touch.getLocation()))
                    {
-                     cc.log("clicked");   
+                       if(target.getName() == level_string){
+                            whack_score += 1;
+                            scoreLabel.setString("  Score: " + whack_score);
+                         }
+                     cc.log("clicked on %s",target.getName());   
                              }
                              return false;
                    }

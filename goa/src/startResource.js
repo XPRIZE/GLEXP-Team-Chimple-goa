@@ -59,13 +59,13 @@ var alphamole_res = {
     
 
 
-    Alphamole_oo:"res/kannada/oo.json",
+    Alphamole_oo:"res/kannada/ka.json",
      
     Alphamole_english_fnt:"res/SD/english/baloo_bhai_hdr.fnt",
     Alphamole_english_png:"res/SD/english/baloo_bhai_sd_0.png",
 
-     Alphamole_kannada_fnt:"res/SD/kannada/kar shivarama_hdr.fnt",
-    Alphamole_kannada_png:"res/SD/kannada/kar shivarama_sd_0.png",
+     Alphamole_kannada_fnt:"res/SD/kannada/kar_shivarama_hdr.fnt",
+    Alphamole_kannada_png:"res/SD/kannada/kar_shivarama_sd_0.png",
 
 
     Alphamole_alphabet_plist:"res/SD/alphamon.plist",
