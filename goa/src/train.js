@@ -17,6 +17,11 @@ var TrainLayer = cc.Layer.extend({
 
 	    var word = goa.TextGenerator.getInstance().generateAWord();
         cc.log('generateAWord' + word);
+                                 
+                                 
+        
+        var matrix = goa.TextGenerator.getInstance().generateMatrix("Ship", 5, 2);
+        cc.log("matrix:" + matrix);
 
 
         if(!cc.sys.isNative) {
