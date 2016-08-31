@@ -1,5 +1,5 @@
-
-var Alphabets = cc.Layer.extend({
+var xc = xc || {};
+xc.Bubble_Alphabets = cc.Layer.extend({
     
   ctor:function () {
    
@@ -1439,15 +1439,7 @@ var Alphabets = cc.Layer.extend({
  
 })
 
-
-var AlphabetsScene = cc.Scene.extend({
+xc.Bubble_Alphabets.res = {
     
-    onEnter : function () {
-        this._super();
-      
-        var alphabetsScene = new Alphabets();
-       
-        this.addChild(alphabetsScene);
-    }
-});
-
+    
+}
