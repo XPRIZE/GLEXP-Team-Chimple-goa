@@ -41,18 +41,8 @@ bool js_textgeneratorautobindings_TextGenerator_generateMatrix(JSContext *cx, ui
         std::vector<std::vector<std::string>> ret = cobj->generateMatrix(arg0, arg1, arg2);
         jsval jsret = JSVAL_NULL;
         if (!ret.empty()) {
-            for(std::vector<std::vector<std::string>>::iterator it = ret.begin(); it != ret.end(); ++it) {
-                std::vector<std::string> ele = *it;
-                for(std::vector<std::string>::iterator it1 = ele.begin(); it1 != ele.end(); ++it1) {
-                    std::string ele1 = *it1;
-                    CCLOG("got string %s", ele1.c_str());
-                }
-            }
-            
             JS::RootedObject jsretArr(cx, JS_NewArrayObject(cx, ret.size()));
-            
             int i = 0;
-            
             for (auto iter = ret.begin(); iter != ret.end(); ++iter)
             {
                 JS::RootedValue element(cx);
@@ -63,7 +53,6 @@ bool js_textgeneratorautobindings_TextGenerator_generateMatrix(JSContext *cx, ui
                     break;
                 }
                 ++i;
-                
             }
             
             jsret =  OBJECT_TO_JSVAL(jsretArr);
