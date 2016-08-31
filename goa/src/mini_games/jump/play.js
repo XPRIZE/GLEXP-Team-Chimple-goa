@@ -1,5 +1,7 @@
 
-var playLayer = cc.Layer.extend( {
+var xc = xc || {};
+
+xc.playLayer = cc.Layer.extend( {
    group : [], 
    ballref:[],
    square:[],
@@ -10,10 +12,10 @@ var playLayer = cc.Layer.extend( {
         this._super();
 
         var size = cc.winSize;
-        cc.spriteFrameCache.addSpriteFrames(jump_res.jump_plist);
+        cc.spriteFrameCache.addSpriteFrames(xc.playLayer.res.jump_plist);
 
 
-        bg = ccs.load(jump_res.jump_game,"res/SD/");
+        bg = ccs.load(xc.playLayer.res.jump_game, xc.path);
         this.addChild(bg.node);
       
         var ball1 = bg.node.getChildByName("ball_34");
@@ -211,11 +213,11 @@ var playLayer = cc.Layer.extend( {
     }              
 });
 
-var playScene = cc.Scene.extend({
-    onEnter:function () {
-        this._super();
-        var layer = new playLayer();
-        this.addChild(layer);
-    }
-});
+xc.playLayer.res = {
 
+     jump_main: "res/jump_on_words/jump_on_words_main_menu.json",
+    jump_level: "res/jump_on_words/jump_on_words_level_menu.json",
+    jump_game: "res/jump_on_words/jump_on_words_game_menu.json",
+    jump_plist: xc.path +"jump_on_words/jump_on_words.plist",
+    jump_png: xc.path +"jump_on_words/jump_on_words.png"
+}
