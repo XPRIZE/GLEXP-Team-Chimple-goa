@@ -22,36 +22,52 @@ static bool js_is_native_obj(JSContext *cx, uint32_t argc, jsval *vp)
 JSClass  *jsb_TextGenerator_class;
 JSObject *jsb_TextGenerator_prototype;
 
-//bool js_textgeneratorautobindings_TextGenerator_generateMatrix(JSContext *cx, uint32_t argc, jsval *vp)
-//{
-//    JS::CallArgs args = JS::CallArgsFromVp(argc, vp);
-//    bool ok = true;
-//    JS::RootedObject obj(cx, args.thisv().toObjectOrNull());
-//    js_proxy_t *proxy = jsb_get_js_proxy(obj);
-//    TextGenerator* cobj = (TextGenerator *)(proxy ? proxy->ptr : NULL);
-//    JSB_PRECONDITION2( cobj, cx, false, "js_textgeneratorautobindings_TextGenerator_generateMatrix : Invalid Native Object");
-//    if (argc == 3) {
-//        std::string arg0;
-//        int arg1 = 0;
-//        int arg2 = 0;
-//        ok &= jsval_to_std_string(cx, args.get(0), &arg0);
-//        ok &= jsval_to_int32(cx, args.get(1), (int32_t *)&arg1);
-//        ok &= jsval_to_int32(cx, args.get(2), (int32_t *)&arg2);
-//        JSB_PRECONDITION2(ok, cx, false, "js_textgeneratorautobindings_TextGenerator_generateMatrix : Error processing arguments");
-//        std::vector<std::vector<std::string> ret = cobj->generateMatrix(arg0, arg1, arg2);
-//        jsval jsret = JSVAL_NULL;
-//        if (ret) {
-//            jsret = OBJECT_TO_JSVAL(js_get_or_create_jsobject<std::vector<std::vector<std::basic_string<char>, std::allocator<std::basic_string<char> > >, std::allocator<std::vector<std::basic_string<char>, std::allocator<std::basic_string<char> > > > >>(cx, (std::vector<std::vector<std::basic_string<char>, std::allocator<std::basic_string<char> > >, std::allocator<std::vector<std::basic_string<char>, std::allocator<std::basic_string<char> > > > >)ret));
-//        } else {
-//            jsret = JSVAL_NULL;
-//        };
-//        args.rval().set(jsret);
-//        return true;
-//    }
-//
-//    JS_ReportError(cx, "js_textgeneratorautobindings_TextGenerator_generateMatrix : wrong number of arguments: %d, was expecting %d", argc, 3);
-//    return false;
-//}
+bool js_textgeneratorautobindings_TextGenerator_generateMatrix(JSContext *cx, uint32_t argc, jsval *vp)
+{
+    JS::CallArgs args = JS::CallArgsFromVp(argc, vp);
+    bool ok = true;
+    JS::RootedObject obj(cx, args.thisv().toObjectOrNull());
+    js_proxy_t *proxy = jsb_get_js_proxy(obj);
+    TextGenerator* cobj = (TextGenerator *)(proxy ? proxy->ptr : NULL);
+    JSB_PRECONDITION2( cobj, cx, false, "js_textgeneratorautobindings_TextGenerator_generateMatrix : Invalid Native Object");
+    if (argc == 3) {
+        std::string arg0;
+        int arg1 = 0;
+        int arg2 = 0;
+        ok &= jsval_to_std_string(cx, args.get(0), &arg0);
+        ok &= jsval_to_int32(cx, args.get(1), (int32_t *)&arg1);
+        ok &= jsval_to_int32(cx, args.get(2), (int32_t *)&arg2);
+        JSB_PRECONDITION2(ok, cx, false, "js_textgeneratorautobindings_TextGenerator_generateMatrix : Error processing arguments");
+        std::vector<std::vector<std::string>> ret = cobj->generateMatrix(arg0, arg1, arg2);
+        jsval jsret = JSVAL_NULL;
+        if (!ret.empty()) {
+            JS::RootedObject jsretArr(cx, JS_NewArrayObject(cx, ret.size()));
+            int i = 0;
+            for (auto iter = ret.begin(); iter != ret.end(); ++iter)
+            {
+                JS::RootedValue element(cx);
+                std::vector<std::string> ele = *iter;
+                element = std_vector_string_to_jsval(cx, ele);
+                
+                if (!JS_SetElement(cx, jsretArr, i, element)) {
+                    break;
+                }
+                ++i;
+            }
+            
+            jsret =  OBJECT_TO_JSVAL(jsretArr);
+
+        } else {
+            jsret = JSVAL_NULL;
+        };
+        args.rval().set(jsret);
+        return true;
+    }
+    
+    JS_ReportError(cx, "js_textgeneratorautobindings_TextGenerator_generateMatrix : wrong number of arguments: %d, was expecting %d", argc, 3);
+    return false;
+}
+
 bool js_textgeneratorautobindings_TextGenerator_getNumGraphemesInString(JSContext *cx, uint32_t argc, jsval *vp)
 {
     JS::CallArgs args = JS::CallArgsFromVp(argc, vp);
@@ -115,17 +131,6 @@ bool js_textgeneratorautobindings_TextGenerator_generateAWord(JSContext *cx, uin
     JS_ReportError(cx, "js_textgeneratorautobindings_TextGenerator_generateAWord : wrong number of arguments: %d, was expecting %d", argc, 0);
     return false;
 }
-//bool js_textgeneratorautobindings_TextGenerator_destroyInstance(JSContext *cx, uint32_t argc, jsval *vp)
-//{
-//    JS::CallArgs args = JS::CallArgsFromVp(argc, vp);
-//    if (argc == 0) {
-//        TextGenerator::destroyInstance();
-//        args.rval().setUndefined();
-//        return true;
-//    }
-//    JS_ReportError(cx, "js_textgeneratorautobindings_TextGenerator_destroyInstance : wrong number of arguments");
-//    return false;
-//}
 
 bool js_textgeneratorautobindings_TextGenerator_getInstance(JSContext *cx, uint32_t argc, jsval *vp)
 {
@@ -164,7 +169,7 @@ void js_register_textgeneratorautobindings_TextGenerator(JSContext *cx, JS::Hand
     };
 
     static JSFunctionSpec funcs[] = {
-//        JS_FN("generateMatrix", js_textgeneratorautobindings_TextGenerator_generateMatrix, 3, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+        JS_FN("generateMatrix", js_textgeneratorautobindings_TextGenerator_generateMatrix, 3, JSPROP_PERMANENT | JSPROP_ENUMERATE),
         JS_FN("getNumGraphemesInString", js_textgeneratorautobindings_TextGenerator_getNumGraphemesInString, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
         JS_FN("getGraphemes", js_textgeneratorautobindings_TextGenerator_getGraphemes, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
         JS_FN("generateAWord", js_textgeneratorautobindings_TextGenerator_generateAWord, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
@@ -172,7 +177,6 @@ void js_register_textgeneratorautobindings_TextGenerator(JSContext *cx, JS::Hand
     };
 
     static JSFunctionSpec st_funcs[] = {
-//        JS_FN("destroyInstance", js_textgeneratorautobindings_TextGenerator_destroyInstance, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
         JS_FN("getInstance", js_textgeneratorautobindings_TextGenerator_getInstance, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
         JS_FS_END
     };
