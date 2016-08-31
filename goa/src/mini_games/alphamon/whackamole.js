@@ -10,7 +10,7 @@ var AlphamoneGameLayer = cc.Layer.extend( {
         this._super();
         alphabet_Reff = [];
         var size = cc.winSize;
-        background_layer = ccs.load(alphamole_res.Alphamole_scene1_json1,"res/SD/");
+        background_layer = ccs.load(alphamole_res.Alphamole_scene2_json1,"res/SD/");
         this.addChild(background_layer.node);
         var alphabet_str = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"];
         alphabet_layer = cc.Layer.create();
@@ -23,8 +23,26 @@ var AlphamoneGameLayer = cc.Layer.extend( {
             cc.log("%s", name);
          }
          var test = background_layer.node.getComponent("hole1");
-        var myLayer = ccs.load(alphamole_res.Alphamole_scene1_json,"res/SD/");
+        var myLayer = ccs.load(alphamole_res.Alphamole_scene2_json,"res/SD/");
         this.addChild(myLayer.node);
+       
+       var level_alpha = ccs.load("res/english/A.json","res/SD/");
+       level_alpha.node.x = size.width - 300;
+       level_alpha.node.y = size.height - 300;
+       level_alpha.node.setScale(0.5,0.5);
+       this.addChild(level_alpha.node);
+
+       var level_children = level_alpha.node.getChildren();
+
+       for ( var i = 0; i< level_children.length;i++){
+           var str1 = level_children[i].getName();
+           if (str1.indexOf("eye") == 0){
+               var action = ccs.load("res/SD/eye_ani/"+str1+".json","res/SD");
+               level_children[i].runAction(action.action);
+               action.action.play("blink",true);
+           }
+       }
+
         //cc.loader.loadJson(res.Alphamole_json, function (error, data) {});
       this.schedule(this.showAlpha, 2);
     /*
@@ -72,6 +90,18 @@ Play5_hole_back_165_1
      alphabet.node.y = y - 250;
      alphabet.node.setContentSize(300,400);
      alphabet_layer.addChild(alphabet.node);
+
+var level_children = alphabet.node.getChildren();
+
+       for ( var i = 0; i< level_children.length;i++){
+           var str1 = level_children[i].getName();
+           if (str1.indexOf("eye") == 0){
+               var action = ccs.load("res/SD/eye_ani/"+str1+".json","res/SD");
+               level_children[i].runAction(action.action);
+               action.action.play("blink",true);
+           }
+       }
+
      var whack_jump = cc.JumpBy.create(1,cc.p(0, 0),600,1);
      alphabet.node.runAction(whack_jump);
       this.scheduleOnce(function(){

@@ -8,4 +8,6 @@ var Alphamon = cc.Node.extends({
     addChild(_monster);
     },
 
+  //  createWith
+
 });
