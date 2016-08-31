@@ -107,6 +107,20 @@ xc.playLayer = cc.Layer.extend( {
           cc.log("alpha =",group[i]);
         }
 
+     var string = "";
+        for( var i=0; i< group.length; i++)
+        {
+            string += group[i];
+        }
+       var result = permutate.getPermutations(string,3);
+       for( var i=0 ; i< result.length ; i++)
+       {
+           if(dict3.indexOf(result[i].toLowerCase()) != -1)
+           {
+                this.list.push(result[i]);
+           }
+       } 
+       cc.log(this.list);   
      },
 
       generateRandomLetters : function(count,array){
