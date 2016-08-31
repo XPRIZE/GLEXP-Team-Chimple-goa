@@ -52,6 +52,10 @@
  *
  */
 
+var chimple = chimple || {};
+var xc = xc || {};
+xc.path = "res/SD/";
+
 cc.game.onStart = function(){
     if(!cc.sys.isNative && document.getElementById("cocosLoading")) //If referenced loading.js, please remove it
         document.body.removeChild(document.getElementById("cocosLoading"));
@@ -74,8 +78,14 @@ cc.game.onStart = function(){
     cc.director.setContentScaleFactor(0.25);
 
     //load resources
-   cc.LoaderScene.preload(t_resources, function () {
-        cc.director.runScene(new TrainScene());
+    var t_resources = [];
+    for (var i in xc.GameMap.res) {
+        t_resources.push(xc.GameMap.res[i]);
+    }
+    cc.LoaderScene.preload(t_resources, function () {
+        cc.spriteFrameCache.addSpriteFrames(xc.GameMap.res.thumbnails_plist);
+        cc.spriteFrameCache.addSpriteFrames(xc.GameMap.res.map_plist);
+        cc.director.runScene(new xc.GameMap());
     }, this);
   
 };
