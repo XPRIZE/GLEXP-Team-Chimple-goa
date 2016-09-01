@@ -1,6 +1,6 @@
-var chimple = chimple || {};
+var xc = xc || {};
 
-chimple.SkeletonTouchHandler = function (context) {
+xc.SkeletonTouchHandler = function (context) {
     this._context = context;
     this.event = cc.EventListener.TOUCH_ONE_BY_ONE;
     this.swallowTouches = true;
@@ -23,7 +23,7 @@ chimple.SkeletonTouchHandler = function (context) {
             this._context.addNodeToRecording(this._context, touch, target);
             this._context.constructConfigPanel(target);
             this._context._animationNode = target;
-            chimple.ParseUtil.drawBoundingBox(target);
+            xc.ParseUtil.drawBoundingBox(target);
             var location = target.parent.convertToNodeSpace(touch.getLocation());
             this._offsetYInTouch = location.y - target.getPosition().y;
             this._offsetXInTouch = location.x - target.getPosition().x;

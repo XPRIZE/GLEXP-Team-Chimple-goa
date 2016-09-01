@@ -1,4 +1,4 @@
-var chimple = chimple || {};
+var xc = xc || {};
 
 var defaultFolder = "res/";
 var defaultMiscFolder = "res/";
@@ -122,20 +122,20 @@ for(var i in pop_res)
 };
 
 cc.loader.loadJson(misc.EditPlayConfig_json, function (error, data) {
-    chimple.storyPlayConfigurationObject = data;
+    xc.storyPlayConfigurationObject = data;
 });
 
 cc.loader.loadJson(misc.OnlyStoryPlayConfig_json, function (error, data) {
-    chimple.onlyStoryPlayConfigurationObject = data;
+    xc.onlyStoryPlayConfigurationObject = data;
 });
 
 
 cc.loader.loadJson(misc.Config_json, function (error, data) {
-    chimple.storyConfigurationObject = data;
-    chimple.initalCharacterCategories = chimple.storyConfigurationObject.addObjects[1].categories.length;
-    chimple.customCharacters = {};
-    chimple.customCharacters.cIcon = "icons/fav_character_onclick.png";
-    chimple.customCharacters.icon = "icons/fav_character.png";
-    chimple.customCharacters.items = [];
-    chimple.customCharacters.name = "favCharacters";
+    xc.storyConfigurationObject = data;
+    xc.initalCharacterCategories = xc.storyConfigurationObject.addObjects[1].categories.length;
+    xc.customCharacters = {};
+    xc.customCharacters.cIcon = "icons/fav_character_onclick.png";
+    xc.customCharacters.icon = "icons/fav_character.png";
+    xc.customCharacters.items = [];
+    xc.customCharacters.name = "favCharacters";
 });

@@ -1,0 +1,212 @@
+{
+  "ID": "6fe63bcd-84bd-487d-a392-3e9a672860d0",
+  "Version": "3.10.0.0",
+  "Name": "Scene_03",
+  "Content": {
+    "Content": {
+      "Animation": {
+        "Duration": 0,
+        "Speed": 1.0,
+        "Timelines": [],
+        "ctype": "TimelineActionData"
+      },
+      "AnimationList": [],
+      "ObjectData": {
+        "Tag": 10,
+        "Children": [
+          {
+            "ClipAble": false,
+            "ComboBoxIndex": 1,
+            "SingleColor": {
+              "R": 224,
+              "G": 103,
+              "B": 61
+            },
+            "FirstColor": {
+              "R": 150,
+              "G": 200
+            },
+            "EndColor": {},
+            "ColorVector": {
+              "ScaleY": 1.0
+            },
+            "TouchEnable": true,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "PreSize": {
+              "X": 1.0,
+              "Y": 1.0
+            },
+            "Tag": 55,
+            "ActionTag": 633279302,
+            "Size": {
+              "X": 1800.0,
+              "Y": 1800.0
+            },
+            "Name": "Panel_1",
+            "ctype": "PanelObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "ob/tree/story_a_tree.png",
+              "Plist": ""
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 908.9802,
+              "Y": 900.7142
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.505,
+              "Y": 0.5004
+            },
+            "PreSize": {
+              "X": 0.98,
+              "Y": 0.9922
+            },
+            "LeftMargin": 26.9802,
+            "RightMargin": 9.0198,
+            "TopMargin": 6.2859,
+            "BottomMargin": 7.7142,
+            "Tag": 56,
+            "ActionTag": -1121098562,
+            "Size": {
+              "X": 1764.0,
+              "Y": 1786.0
+            },
+            "Name": "tree_1",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "ob/tree/story_a_tree.png",
+              "Plist": ""
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 479.283,
+              "Y": 487.5408
+            },
+            "Scale": {
+              "ScaleX": 0.55,
+              "ScaleY": 0.55
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.2663,
+              "Y": 0.2709
+            },
+            "PreSize": {
+              "X": 0.98,
+              "Y": 0.9922
+            },
+            "LeftMargin": -402.717,
+            "RightMargin": 438.717,
+            "TopMargin": 419.4592,
+            "BottomMargin": -405.4592,
+            "Tag": 57,
+            "ActionTag": 1251626553,
+            "Size": {
+              "X": 1764.0,
+              "Y": 1786.0
+            },
+            "Name": "tree_2",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "ob/tree/story_a_tree.png",
+              "Plist": ""
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1305.6287,
+              "Y": 479.277
+            },
+            "Scale": {
+              "ScaleX": 0.55,
+              "ScaleY": 0.55
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.7253,
+              "Y": 0.2663
+            },
+            "PreSize": {
+              "X": 0.98,
+              "Y": 0.9922
+            },
+            "LeftMargin": 423.6287,
+            "RightMargin": -387.6287,
+            "TopMargin": 427.7229,
+            "BottomMargin": -413.723,
+            "Tag": 58,
+            "ActionTag": -45399678,
+            "Size": {
+              "X": 1764.0,
+              "Y": 1786.0
+            },
+            "Name": "tree_3",
+            "ctype": "SpriteObjectData"
+          }
+        ],
+        "Size": {
+          "X": 1800.0,
+          "Y": 1800.0
+        },
+        "Name": "Scene",
+        "ctype": "SingleNodeObjectData"
+      },
+      "UsedResources": [
+        "ob/tree/story_a_tree.png"
+      ],
+      "ctype": "GameFileData"
+    }
+  },
+  "Type": "Scene"
+}

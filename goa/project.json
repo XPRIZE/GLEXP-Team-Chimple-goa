@@ -12,8 +12,6 @@
     "modules" : ["cocos2d", "cocostudio"],
 
     "jsList" : [
-        "src/resource.js",
-        "src/app.js",
         "src/ui/PageConfigPanel.js",
         "src/ui/ObjectConfigPanel.js",
         "src/ui/AbstractContentPanel.js",
@@ -74,6 +72,7 @@
         "src/startResource.js",
         "src/train.js",
         "src/GameScene.js",
+        "src/StoryScene.js",
         "src/GameLayer.js",
         "src/GameMap.js", 
         "src/mini_games/Train.js",
