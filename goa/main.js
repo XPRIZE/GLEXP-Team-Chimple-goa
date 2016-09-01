@@ -130,18 +130,18 @@ chimple.isHTML5 = function () {
                 "src/mini_games/SortIt/src/playLevel6.js",
                 "src/mini_games/SortIt/src/resource.js",
                 
-                "src/mini_games/BubbleShooter/Menus/Bubble_HomeScreen.js",
-                "src/mini_games/BubbleShooter/Listener/GlobalData.js",
-                "src/mini_games/BubbleShooter/Listener/ClickedButtonListener.js",
-                "src/mini_games/BubbleShooter/LevelScreen/LevelSceenAlphabets.js",
-                "src/mini_games/BubbleShooter/LevelScreen/LevelSceenNumber.js",
-                "src/mini_games/BubbleShooter/LevelScreen/LevelScreenPuzzle.js",
-                "src/mini_games/BubbleShooter/LevelScreen/LevelScreenCategory.js",
+                "src/mini_games/BubbleShooter/Menus/Bubble_Bubble_HomeScreen.js",
+                "src/mini_games/BubbleShooter/Listener/Bubble_GlobalData.js",
+                "src/mini_games/BubbleShooter/Listener/Bubble_ClickedButtonListener.js",
+                "src/mini_games/BubbleShooter/LevelScreen/Bubble_LevelSceenAlphabets.js",
+                "src/mini_games/BubbleShooter/LevelScreen/Bubble_LevelSceenNumber.js",
+                "src/mini_games/BubbleShooter/LevelScreen/Bubble_LevelScreenPuzzle.js",
+                "src/mini_games/BubbleShooter/LevelScreen/Bubble_LevelScreenCategory.js",
                 "src/mini_games/BubbleShooter/Menus/AnimationDemo.js",
-                "src/mini_games/BubbleShooter/MainStages/Alphabets.js",
-                "src/mini_games/BubbleShooter/MainStages/Numbers.js",
-                "src/mini_games/BubbleShooter/MainStages/Category.js",
-                "src/mini_games/BubbleShooter/MainStages/Puzzle.js",
+                "src/mini_games/BubbleShooter/MainStages/Bubble_Alphabets.js",
+                "src/mini_games/BubbleShooter/MainStages/Bubble_Numbers.js",
+                "src/mini_games/BubbleShooter/MainStages/Bubble_Category.js",
+                "src/mini_games/BubbleShooter/MainStages/Bubble_Puzzle.js",
                 "src/mini_games/Pop/Pop.js",
                 "src/mini_games/Train.js",
                  "src/mini_games/alphamon/whackamole.js"
@@ -266,11 +266,7 @@ chimple.isHTML5 = function () {
                 }
 
             }, this);*/
-           cc.LoaderScene.preload(alphamon_resources, function () {
-                 cc.spriteFrameCache.addSpriteFrames(alphamon_res.Alphamole_plist1);//Alphamole_alphabet_plist
-                 cc.spriteFrameCache.addSpriteFrames(alphamon_res.Alphamole_alphabet_plist);
-                 cc.director.runScene(new playScene());
-             },this);
+
         }
     };
     cc.game.run();

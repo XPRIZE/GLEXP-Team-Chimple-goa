@@ -1,14 +1,14 @@
-
+var xc = xc || {};
 var currentPointerOnBg = {x:0,y:0};
 var levelValues =1;
 
-var BubbleGame_HomeScreenMenu = cc.Layer.extend({
+xc.BubbleGame_HomeScreenMenu = cc.Layer.extend({
 
     ctor:function () {
        
         this._super();
         
-        var gameMenu = ccs.load(bubbleShooter.bubbleShooter_mainMenu_json);
+        var gameMenu = ccs.load(xc.BubbleGame_HomeScreenMenu.res.bubbleShooter_mainMenu_json,xc.path);
         this.addChild(gameMenu.node);
         
         var titleMainGame = new cc.LabelTTF("Bubble Shooter Game","res/fonts/Marker Felt.ttf",275);
@@ -18,16 +18,24 @@ var BubbleGame_HomeScreenMenu = cc.Layer.extend({
         var Alphabet_Button = gameMenu.node.getChildByName("Panel_1").getChildByName("Button_10");
         Alphabet_Button.addTouchEventListener(this.touchEvent ,this); 
         
-        titleAlphabet = new cc.LabelTTF("Alphabets","res/fonts/Marker Felt.ttf",100);
-        titleAlphabet.setPosition(Alphabet_Button.getPosition().x,Alphabet_Button.getPosition().y);
-        this.addChild(titleAlphabet);
+        var titleAlphabet = new cc.LabelTTF("Alphabets","res/fonts/Marker Felt.ttf",100);
+        titleAlphabet.setPosition(Alphabet_Button.getContentSize().width/2,Alphabet_Button.getContentSize().height/2);
+        Alphabet_Button.addChild(titleAlphabet);
 
-        
         var Number_Button = gameMenu.node.getChildByName("Panel_1").getChildByName("Button_9");
         Number_Button.addTouchEventListener(this.touchEvent ,this); 
         
+        var titleNumber = new cc.LabelTTF("Number","res/fonts/Marker Felt.ttf",100);
+        titleNumber.setPosition(Number_Button.getContentSize().width/2,Number_Button.getContentSize().height/2);
+        Number_Button.addChild(titleNumber);
+        
         var Puzzle_Button = gameMenu.node.getChildByName("Panel_1").getChildByName("Button_11");
         Puzzle_Button.addTouchEventListener(this.touchEvent ,this); 
+
+        var titlePuzzle = new cc.LabelTTF("Puzzle","res/fonts/Marker Felt.ttf",100);
+        titlePuzzle.setPosition(Puzzle_Button.getContentSize().width/2,Puzzle_Button.getContentSize().height/2);
+        Puzzle_Button.addChild(titlePuzzle);
+
         
 /*     
         // cc.spriteFrameCache.addSpriteFrames(res.Background1_plist);
@@ -84,14 +92,17 @@ var BubbleGame_HomeScreenMenu = cc.Layer.extend({
          case ccui.Widget.TOUCH_ENDED:
          if(sender.getName() == "Button_9"){
              console.log("this is 2nd button");
+              xc.GameScene.load(xc.Bubble_NumbersMenu);
          }
-         if(sender.getName() == "Button_10"){
+         else if(sender.getName() == "Button_10"){
              console.log("this is 1st button");
+              xc.GameScene.load(xc.Bubble_AlphabetsMenu);
          }
-         if(sender.getName() == "Button_11"){
+         else if(sender.getName() == "Button_11"){
              console.log("this is 3rd button");
+              xc.GameScene.load(xc.Bubble_PuzzleMenu);
          }
-//          cc.director.runScene(new HelloWorldScene());
+
          break;
          
          case ccui.Widget.TOUCH_CANCELLED:
@@ -100,14 +111,13 @@ var BubbleGame_HomeScreenMenu = cc.Layer.extend({
    }
 });
 
-var BubbleGame_HomeScreenScene = cc.Scene.extend({
-    onEnter:function () {
-        this._super();
-        
-        var homeScreenMenu = new BubbleGame_HomeScreenMenu();
-        this.addChild(homeScreenMenu);
-       
-    }
-});
 
-
+xc.BubbleGame_HomeScreenMenu.res = {
+    
+    bubbleShooter_plist : xc.path +"bubble_shooter/bubble_shooter.plist",
+    bubbleShooter_png : xc.path +"bubble_shooter/bubble_shooter.png",
+    bubbleShooter_gameMenu_json : xc.path +"bubble_shooter/bubble_shooter_game_menu.json",
+    bubbleShooter_levelMenu_json : xc.path +"bubble_shooter/bubble_shooter_level_menu.json",
+    bubbleShooter_mainMenu_json : xc.path +"bubble_shooter/bubble_shooter_main_menu.json"      
+    
+};

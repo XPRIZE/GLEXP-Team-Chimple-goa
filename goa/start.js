@@ -89,6 +89,29 @@ cc.game.onStart = function(){
 
     xc.designScaleFactor = xc.RESOURCE_DESIGN_HEIGHT / xc.DEVICE_HEIGHT;
     //load resources
+
+    //cc.LoaderScene.preload(t_resources, function () {
+  //      cc.director.runScene(new TrainScene());
+ //   }, this);
+
+//  cc.LoaderScene.preload(alphamole_resources, function () {
+//                  cc.spriteFrameCache.addSpriteFrames(alphamole_res.Alphamole_plist1);//Alphamole_alphabet_plist
+//                  cc.spriteFrameCache.addSpriteFrames(alphamole_res.Alphamole_alphabet_plist);//Alphamole_scene1_plist
+//                  cc.spriteFrameCache.addSpriteFrames(alphamole_res.Alphamole_scene1_plist);
+//                  cc.spriteFrameCache.addSpriteFrames(alphamole_res.Alphamole_scene2_plist);
+//                  cc.spriteFrameCache.addSpriteFrames(alphamole_res.Alphamole_scene3_plist);
+//                  cc.director.runScene(new AlphamoleGameLevelScene());
+//                  },this);
+
+   /* cc.LoaderScene.preload(t_resources, function () {
+        cc.director.runScene(new TrainScene());
+    }, this);*/
+   /* cc.LoaderScene.preload(jump_resources, function () {
+                 cc.spriteFrameCache.addSpriteFrames(jump_res.jump_plist);//Alphamole_alphabet_plist
+                // cc.spriteFrameCache.addSpriteFrames(alphamon_res.Alphamole_alphabet_plist);
+                 cc.director.runScene(new playScene());
+
+             },this);*/
     var t_resources = [];
     for (var i in xc.GameMap.res) {
         t_resources.push(xc.GameMap.res[i]);

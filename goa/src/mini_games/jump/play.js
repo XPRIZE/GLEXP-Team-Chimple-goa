@@ -1,17 +1,26 @@
 
-var playLayer = cc.Layer.extend( {
-   group : [], 
+var xc = xc || {};
 
+xc.playLayer = cc.Layer.extend( {
+   group : [], 
+   ballref:[],
+   square:[],
+   word:[],
+   self : null,
+   index:0,
     ctor:function () {
         this._super();
 
         var size = cc.winSize;
+        cc.spriteFrameCache.addSpriteFrames(xc.playLayer.res.jump_plist);
 
-        bg = ccs.load(jump_res.jump_game,"res/SD/");
+
+        bg = ccs.load(xc.playLayer.res.jump_game, xc.path);
         this.addChild(bg.node);
       
         var ball1 = bg.node.getChildByName("ball_34");
         ball1.id = "Ball1";
+        this.ballref.push(ball1.getPosition());
         cc.eventManager.addListener(cc.EventListener.create(  
         {event: cc.EventListener.TOUCH_ONE_BY_ONE,
          swallowTouches:true,  
@@ -19,6 +28,7 @@ var playLayer = cc.Layer.extend( {
 
         var ball2 = bg.node.getChildByName("ball_35");
         ball2.id = "Ball2";
+        this.ballref.push(ball2.getPosition());
         cc.eventManager.addListener(cc.EventListener.create(  
         {event: cc.EventListener.TOUCH_ONE_BY_ONE,
          swallowTouches:true,  
@@ -26,6 +36,7 @@ var playLayer = cc.Layer.extend( {
 
         var ball3 = bg.node.getChildByName("ball_36");
         ball3.id = "Ball3";
+        this.ballref.push(ball3.getPosition());
         cc.eventManager.addListener(cc.EventListener.create(  
         {event: cc.EventListener.TOUCH_ONE_BY_ONE,
          swallowTouches:true,  
@@ -33,6 +44,7 @@ var playLayer = cc.Layer.extend( {
 
         var ball4 = bg.node.getChildByName("ball_37");
         ball4.id = "Ball4";
+        this.ballref.push(ball4.getPosition());
         cc.eventManager.addListener(cc.EventListener.create(  
         {event: cc.EventListener.TOUCH_ONE_BY_ONE,
          swallowTouches:true,  
@@ -40,6 +52,7 @@ var playLayer = cc.Layer.extend( {
 
         var ball5 = bg.node.getChildByName("ball_38");
         ball5.id = "Ball5";
+        this.ballref.push(ball5.getPosition());
         cc.eventManager.addListener(cc.EventListener.create(  
         {event: cc.EventListener.TOUCH_ONE_BY_ONE,
          swallowTouches:true,  
@@ -47,27 +60,67 @@ var playLayer = cc.Layer.extend( {
 
         var ball6 = bg.node.getChildByName("ball_44");
         ball6.id = "Ball6";
+        this.ballref.push(ball6.getPosition());
         cc.eventManager.addListener(cc.EventListener.create(  
         {event: cc.EventListener.TOUCH_ONE_BY_ONE,
          swallowTouches:true,  
          onTouchBegan: this.onTouchBegan,}) , ball6); 
 
+        var wrong = bg.node.getChildByName("cross_button_33");
+        wrong.id="Wrong";
+        cc.eventManager.addListener(cc.EventListener.create(  
+        {event: cc.EventListener.TOUCH_ONE_BY_ONE,
+         swallowTouches:true,  
+         onTouchBegan: this.onTouchBegan,}) , wrong); 
 
-          
+
+        var square1 =new cc.Sprite(cc.spriteFrameCache.getSpriteFrame("jump_on_words/box.png"));
+        square1.setPosition(cc.p(this.ballref[1].x,this.ballref[1].y+260));
+        this.addChild(square1,1);
+        this.square.push(square1.getPosition());
+
+        var square2 =new cc.Sprite(cc.spriteFrameCache.getSpriteFrame("jump_on_words/box.png"));
+        square2.setPosition(cc.p(this.ballref[2].x+150,this.ballref[2].y+260));
+        this.addChild(square2,1);
+        this.square.push(square2.getPosition());
+
+        var square3 =new cc.Sprite(cc.spriteFrameCache.getSpriteFrame("jump_on_words/box.png"));
+        square3.setPosition(cc.p(this.ballref[4].x,this.ballref[3].y+260));
+        this.addChild(square3,1);
+        this.square.push(square3.getPosition());
+
         this.consonants = ['B','C','D','F','G','H','J','K','L','M','N','P','Q','R','S','T','V','W','X','Y','Z'];
         this.vowels = ['A','E','I','O','U'];
 
         this.createLevel();
+        self=this;
     },
      createLevel : function(){
 
       group =  this.generateRandomLetters(6,this.array);
-      var alpha = cc.LabelTTF.create(group[0], "fonts/American Typewriter.ttf", 60);
       for( var i=0; i<6 ;i++){
-
+      var alpha = cc.LabelTTF.create(group[i], "res/fonts/Marker Felt.ttf", 130);
+      this.addChild(alpha);
+      alpha.setPosition(cc.p(this.ballref[i].x,this.ballref[i].y));
+      alpha.setAnchorPoint(0.5,0.5);
+      alpha.setColor(cc.color(0,0,0));
           cc.log("alpha =",group[i]);
         }
 
+     var string = "";
+        for( var i=0; i< group.length; i++)
+        {
+            string += group[i];
+        }
+       var result = permutate.getPermutations(string,3);
+       for( var i=0 ; i< result.length ; i++)
+       {
+           if(dict3.indexOf(result[i].toLowerCase()) != -1)
+           {
+                this.list.push(result[i]);
+           }
+       } 
+       cc.log(this.list);   
      },
 
       generateRandomLetters : function(count,array){
@@ -99,28 +152,74 @@ var playLayer = cc.Layer.extend( {
          if (cc.rectContainsPoint(targetRectangle, location))
                    {
                        if(target.id == "Ball1"){ 
-
-                         cc.log("hello"); 
+                        var letter = cc.LabelTTF.create(group[0], "res/fonts/Marker Felt.ttf", 130);
+                        self.addChild(letter,2);
+                        letter.setPosition(cc.p(self.square[self.index].x,self.square[self.index].y));
+                        letter.setAnchorPoint(0.5,0.5);
+                        letter.setColor(cc.color(0,0,0));
+                        self.index++;
+                        self.word.push(letter);
+                        cc.log("hello"); 
                        }
                         if(target.id == "Ball2"){ 
-
+                         var letter = cc.LabelTTF.create(group[1], "res/fonts/Marker Felt.ttf", 130);
+                        self.addChild(letter,2);
+                        letter.setPosition(cc.p(self.square[self.index].x,self.square[self.index].y));
+                        letter.setAnchorPoint(0.5,0.5);
+                        letter.setColor(cc.color(0,0,0));
+                        self.index++;
+                        self.word.push(letter);
                           
                        }
                         if(target.id == "Ball3"){ 
-
+                         var letter = cc.LabelTTF.create(group[2], "res/fonts/Marker Felt.ttf", 130);
+                        self.addChild(letter,2);
+                        letter.setPosition(cc.p(self.square[self.index].x,self.square[self.index].y));
+                        letter.setAnchorPoint(0.5,0.5);
+                        letter.setColor(cc.color(0,0,0));
+                        self.index++;
+                        self.word.push(letter);
                           
                        }
                         if(target.id == "Ball4"){ 
-
+                         var letter = cc.LabelTTF.create(group[3], "res/fonts/Marker Felt.ttf", 130);
+                        self.addChild(letter,2);
+                        letter.setPosition(cc.p(self.square[self.index].x,self.square[self.index].y));
+                        letter.setAnchorPoint(0.5,0.5);
+                        letter.setColor(cc.color(0,0,0));
+                        self.index++;
+                        self.word.push(letter);
                           
                        }
                         if(target.id == "Ball5"){ 
-
+                         var letter = cc.LabelTTF.create(group[4], "res/fonts/Marker Felt.ttf", 130);
+                        self.addChild(letter,2);
+                        letter.setPosition(cc.p(self.square[self.index].x,self.square[self.index].y));
+                        letter.setAnchorPoint(0.5,0.5);
+                        letter.setColor(cc.color(0,0,0));
+                        self.index++;
+                        self.word.push(letter);
                           
                        }
                         if(target.id == "Ball6"){ 
-
+                        var letter = cc.LabelTTF.create(group[5], "res/fonts/Marker Felt.ttf", 130);
+                        self.addChild(letter,2);
+                        letter.setPosition(cc.p(self.square[self.index].x,self.square[self.index].y));
+                        letter.setAnchorPoint(0.5,0.5);
+                        letter.setColor(cc.color(0,0,0));
+                        self.index++;
+                        self.word.push(letter);
                           
+                       }
+                        if(target.id == "Wrong"){ 
+                            cc.log("wrong");
+                       
+                        self.removeChild(self.word[(self.index) - 1]);
+                        self.index--;  
+                        if(self.word.length == 0){
+                            self.index = 0;   
+                           cc.eventManager.removeListener(target);
+                          }
                        }
                    }
 
@@ -128,11 +227,11 @@ var playLayer = cc.Layer.extend( {
     }              
 });
 
-var playScene = cc.Scene.extend({
-    onEnter:function () {
-        this._super();
-        var layer = new playLayer();
-        this.addChild(layer);
-    }
-});
+xc.playLayer.res = {
 
+     jump_main: "res/jump_on_words/jump_on_words_main_menu.json",
+    jump_level: "res/jump_on_words/jump_on_words_level_menu.json",
+    jump_game: "res/jump_on_words/jump_on_words_game_menu.json",
+    jump_plist: xc.path +"jump_on_words/jump_on_words.plist",
+    jump_png: xc.path +"jump_on_words/jump_on_words.png"
+}
