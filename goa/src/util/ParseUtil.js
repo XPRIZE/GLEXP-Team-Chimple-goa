@@ -437,23 +437,23 @@ xc.ParseUtil.generateUUID = function () {
 
 
 xc.ParseUtil.changeSize = function (obj, name, scaleFactor) {
-    if (obj['xcCompressed']) {
-        return;
-    }
-    if (obj['ctype'] && obj['ctype'] == 'PointFrameData') {
-        name = obj['ctype'];
-    }
-    for (var key in obj) {
-        var element = obj[key];
-        if (name == 'Size' || name == 'Position' || name == 'PointFrameData') {
-            if (key == 'X' || key == 'Y') {
-                obj[key] = obj[key] / scaleFactor;
-            }
-        }
-        if (typeof (element) == 'object') {
-            this.changeSize(element, key, scaleFactor);
-        }
-    }
+    // if (obj['xcCompressed']) {
+    //     return;
+    // }
+    // if (obj['ctype'] && obj['ctype'] == 'PointFrameData') {
+    //     name = obj['ctype'];
+    // }
+    // for (var key in obj) {
+    //     var element = obj[key];
+    //     if (name == 'Size' || name == 'Position' || name == 'PointFrameData') {
+    //         if (key == 'X' || key == 'Y') {
+    //             obj[key] = obj[key] / scaleFactor;
+    //         }
+    //     }
+    //     if (typeof (element) == 'object') {
+    //         this.changeSize(element, key, scaleFactor);
+    //     }
+    // }
 }
 
 

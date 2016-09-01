@@ -42,8 +42,8 @@ xc.CharacterUtil.displaySkins = function (character, skins) {
             if (!cc.sys.isNative) {
                 if (loadedRes && loadedRes.resourceName && loadedRes.resourceName.indexOf(".png") == -1) {
                     if (cc.loader.cache[loadedRes.resourceName]) {
-                        xc.ParseUtil.changeSize(cc.loader.cache[loadedRes.resourceName], null, xc.designScaleFactor);
-                        cc.loader.cache[loadedRes.resourceName].xcCompressed = true;
+                        // xc.ParseUtil.changeSize(cc.loader.cache[loadedRes.resourceName], null, xc.designScaleFactor);
+                        // cc.loader.cache[loadedRes.resourceName].xcCompressed = true;
                     }
                 }
             }
@@ -204,8 +204,8 @@ xc.CharacterUtil.applySkinNameMap = function (skeleton, configuration) {
             dynamicResources.forEach(function (loadedResourceURL) {
                 if (loadedResourceURL && loadedResourceURL.indexOf(".png") == -1) {
                     if (cc.loader.cache[loadedResourceURL]) {
-                        xc.ParseUtil.changeSize(cc.loader.cache[loadedResourceURL], null, xc.designScaleFactor);
-                        cc.loader.cache[loadedResourceURL].xcCompressed = true;
+                        // xc.ParseUtil.changeSize(cc.loader.cache[loadedResourceURL], null, xc.designScaleFactor);
+                        // cc.loader.cache[loadedResourceURL].xcCompressed = true;
                     }
                 }
             }, this);

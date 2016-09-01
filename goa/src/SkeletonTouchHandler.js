@@ -25,9 +25,9 @@ xc.SkeletonTouchHandler = function (context) {
             this._context.constructConfigPanel(target);
             this._context._animationNode = target;
             xc.ParseUtil.drawBoundingBox(target);
-            var location = target.parent.convertToNodeSpace(touch.getLocation());
-            this._offsetYInTouch = location.y - target.getPosition().y;
-            this._offsetXInTouch = location.x - target.getPosition().x;
+            var location = target.parent.parent.convertToNodeSpace(touch.getLocation());
+            this._offsetYInTouch = location.y - target.parent.getPosition().y;
+            this._offsetXInTouch = location.x - target.parent.getPosition().x;
             this._previousTouchLocation = location;
             return true;
         }
@@ -92,7 +92,7 @@ xc.SkeletonTouchHandler = function (context) {
 
     this.onTouchMoved = function (touch, event) {
         var target = event.getCurrentTarget();
-        var location = target.parent.parent.convertToNodeSpace(touch.getLocation());
+        var location = target.parent.parent.parent.convertToNodeSpace(touch.getLocation());
 
         var locationTo = cc.p(location.x - this._offsetXInTouch, location.y - this._offsetYInTouch);
         this._context.enableTargetTransformForTarget(this._context, touch, target.parent, locationTo);
