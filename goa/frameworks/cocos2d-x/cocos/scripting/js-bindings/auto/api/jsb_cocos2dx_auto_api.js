@@ -29,6 +29,16 @@ getMaxT : function (
 },
 
 /**
+ * @method setAlphaTexture
+ * @param {cc.Texture2D} arg0
+ */
+setAlphaTexture : function (
+texture2d 
+)
+{
+},
+
+/**
  * @method getStringForFormat
  * @return {char}
  */
@@ -115,6 +125,16 @@ int
  * @return {int}
  */
 getPixelsHigh : function (
+)
+{
+    return 0;
+},
+
+/**
+ * @method getAlphaTextureName
+ * @return {unsigned int}
+ */
+getAlphaTextureName : function (
 )
 {
     return 0;
@@ -1624,16 +1644,6 @@ getScheduler : function(
 },
 
 /**
- * @method getOrderOfArrival
- * @return {int}
- */
-getOrderOfArrival : function (
-)
-{
-    return 0;
-},
-
-/**
  * @method setActionManager
  * @param {cc.ActionManager} arg0
  */
@@ -1810,16 +1820,6 @@ int
 )
 {
     return cc.Node;
-},
-
-/**
- * @method setOrderOfArrival
- * @param {int} arg0
- */
-setOrderOfArrival : function (
-int 
-)
-{
 },
 
 /**
@@ -2056,6 +2056,14 @@ getScale : function (
 )
 {
     return 0;
+},
+
+/**
+ * @method updateOrderOfArrival
+ */
+updateOrderOfArrival : function (
+)
+{
 },
 
 /**
@@ -4268,11 +4276,13 @@ glprogram
 
 /**
  * @method getOrCreateWithGLProgramName
- * @param {String} arg0
- * @return {cc.GLProgramState}
- */
-getOrCreateWithGLProgramName : function (
-str 
+* @param {String|String} str
+* @param {cc.Texture2D} texture2d
+* @return {cc.GLProgramState|cc.GLProgramState}
+*/
+getOrCreateWithGLProgramName : function(
+str,
+texture2d 
 )
 {
     return cc.GLProgramState;
@@ -6484,6 +6494,16 @@ value
 gatherGPUInfo : function (
 )
 {
+},
+
+/**
+ * @method supportsMapBuffer
+ * @return {bool}
+ */
+supportsMapBuffer : function (
+)
+{
+    return false;
 },
 
 /**
@@ -21446,6 +21466,16 @@ waitForQuit : function (
 },
 
 /**
+ * @method setETC1AlphaFileSuffix
+ * @param {String} arg0
+ */
+setETC1AlphaFileSuffix : function (
+str 
+)
+{
+},
+
+/**
  * @method TextureCache
  * @constructor
  */
@@ -22596,13 +22626,23 @@ TMXTilesetInfo : function (
 cc.TMXMapInfo = {
 
 /**
- * @method setObjectGroups
- * @param {Array} arg0
+ * @method setCurrentString
+ * @param {String} arg0
  */
-setObjectGroups : function (
-array 
+setCurrentString : function (
+str 
 )
 {
+},
+
+/**
+ * @method getHexSideLength
+ * @return {int}
+ */
+getHexSideLength : function (
+)
+{
+    return 0;
 },
 
 /**
@@ -22638,13 +22678,13 @@ getOrientation : function (
 },
 
 /**
- * @method isStoringCharacters
- * @return {bool}
+ * @method setObjectGroups
+ * @param {Array} arg0
  */
-isStoringCharacters : function (
+setObjectGroups : function (
+array 
 )
 {
-    return false;
 },
 
 /**
@@ -22709,6 +22749,26 @@ getLayers : function(
 )
 {
     return new Array();
+},
+
+/**
+ * @method getStaggerAxis
+ * @return {int}
+ */
+getStaggerAxis : function (
+)
+{
+    return 0;
+},
+
+/**
+ * @method setHexSideLength
+ * @param {int} arg0
+ */
+setHexSideLength : function (
+int 
+)
+{
 },
 
 /**
@@ -22796,6 +22856,16 @@ getTileProperties : function (
 },
 
 /**
+ * @method isStoringCharacters
+ * @return {bool}
+ */
+isStoringCharacters : function (
+)
+{
+    return false;
+},
+
+/**
  * @method getExternalTilesetFileName
  * @return {String}
  */
@@ -22826,11 +22896,11 @@ getTMXFileName : function (
 },
 
 /**
- * @method setCurrentString
- * @param {String} arg0
+ * @method setStaggerIndex
+ * @param {int} arg0
  */
-setCurrentString : function (
-str 
+setStaggerIndex : function (
+int 
 )
 {
 },
@@ -22876,11 +22946,31 @@ size
 },
 
 /**
+ * @method getCurrentString
+ * @return {String}
+ */
+getCurrentString : function (
+)
+{
+    return ;
+},
+
+/**
  * @method setStoringCharacters
  * @param {bool} arg0
  */
 setStoringCharacters : function (
 bool 
+)
+{
+},
+
+/**
+ * @method setStaggerAxis
+ * @param {int} arg0
+ */
+setStaggerAxis : function (
+int 
 )
 {
 },
@@ -22916,13 +23006,13 @@ getProperties : function(
 },
 
 /**
- * @method getCurrentString
- * @return {String}
+ * @method getStaggerIndex
+ * @return {int}
  */
-getCurrentString : function (
+getStaggerIndex : function (
 )
 {
-    return ;
+    return 0;
 },
 
 /**

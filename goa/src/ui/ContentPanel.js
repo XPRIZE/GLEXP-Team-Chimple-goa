@@ -535,8 +535,11 @@ xc.ContentPanel = xc.AbstractContentPanel.extend({
 
         load.node.setPosition(this.getContentSize().width / 2, this.getContentSize().height / 6);
         load.node.setScale(0.5, 0.5);
-        // this._constructedScene.addChild(load.node);        
-        this._frontLayer.addChild(load.node);
+        // this._constructedScene.addChild(load.node);  
+        var tempNode = new cc.Node();
+        tempNode.setName("SKParent");
+        tempNode.addChild(load.node);
+        this._frontLayer.addChild(tempNode);
         load.node.runAction(load.action);
         this.registerEventListenerForChild(load.node);
         cc.log(new Date());

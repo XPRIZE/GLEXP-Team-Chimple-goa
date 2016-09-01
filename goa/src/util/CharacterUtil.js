@@ -315,10 +315,10 @@ xc.CharacterUtil.addToCharacterConfigs = function (characterConfig) {
 
 xc.CharacterUtil.storeActionToTemporaryStore = function (node) {
     node.children.forEach(function (element) {
-        if (element.getName().indexOf("Skeleton") != -1 || element.getName().indexOf("skeleton") != -1) {
-            var action = element._storedAction;
+        if(element.getName() == 'SKParent') {
+            var action = element.getChildren()[0]._storedAction;
             if (action) {
-                element.runAction(action);
+                element.getChildren()[0].runAction(action);
             }
         }
     })
@@ -326,6 +326,12 @@ xc.CharacterUtil.storeActionToTemporaryStore = function (node) {
 
 xc.CharacterUtil.restoreActionFromTemporaryStore = function (node) {
     node.children.forEach(function (element) {
+        if(element.getName() == 'SKParent') {
+            var action = element.getChildren()[0].actionManager.getActionByTag(element.getChildren()[0].tag, element.getChildren()[0]);
+            if (action) {
+                element.getChildren()[0]._storedAction = action;
+            }
+        }
         if (element.getName().indexOf("Skeleton") != -1 || element.getName().indexOf("skeleton") != -1) {
             var action = element.actionManager.getActionByTag(element.tag, element);
             if (action) {
