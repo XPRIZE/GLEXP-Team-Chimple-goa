@@ -919,7 +919,7 @@ cc.Sprite = cc.Node.extend(/** @lends cc.Sprite# */{
         var contentSize = texture._contentSize;
         var rect = cc.rect(
             0, 0,
-            contentSize.width, contentSize.height
+            contentSize.width / cc.contentScaleFactor(), contentSize.height / cc.contentScaleFactor()
         );
         this.setTextureRect(rect);
     },

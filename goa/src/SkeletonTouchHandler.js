@@ -19,6 +19,7 @@ xc.SkeletonTouchHandler = function (context) {
                     action.play(target._currentAnimationName, true);
                 }
             }
+
             this._context._nodesSelected.push(target);
             this._context.addNodeToRecording(this._context, touch, target);
             this._context.constructConfigPanel(target);
@@ -91,10 +92,10 @@ xc.SkeletonTouchHandler = function (context) {
 
     this.onTouchMoved = function (touch, event) {
         var target = event.getCurrentTarget();
-        var location = target.parent.convertToNodeSpace(touch.getLocation());
+        var location = target.parent.parent.convertToNodeSpace(touch.getLocation());
 
         var locationTo = cc.p(location.x - this._offsetXInTouch, location.y - this._offsetYInTouch);
-        this._context.enableTargetTransformForTarget(this._context, touch, target, locationTo);
+        this._context.enableTargetTransformForTarget(this._context, touch, target.parent, locationTo);
 
         if(target.getName() == 'animalskeleton') {
             this.flipAnimalSkeleton(target, location);
@@ -102,8 +103,6 @@ xc.SkeletonTouchHandler = function (context) {
             this.flipSkeleton(target, location);    
         }
         
-
-
         this._previousTouchLocation = location;
     };
     this.onTouchEnded = function (touch, event) {
@@ -119,5 +118,6 @@ xc.SkeletonTouchHandler = function (context) {
             this._context._nodesSelected.splice(nodeToRemoveIndex, 1);
 
         }
+
     };
 };
