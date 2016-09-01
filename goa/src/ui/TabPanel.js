@@ -1,6 +1,6 @@
-chimple.TabPanel = cc.LayerColor.extend({
+xc.TabPanel = cc.LayerColor.extend({
     ctor: function (position, size, numButtonsPerRow, numButtonsPerColumn, configuration, callBackFunction, callBackContext, callerPanel) {
-        this._super(chimple.SECONDARY_COLOR, size.width, size.height);
+        this._super(xc.SECONDARY_COLOR, size.width, size.height);
         this._panelPosition = position;
         this._panelSize = size;
         this._numButtonsPerRow = numButtonsPerRow;
@@ -14,10 +14,10 @@ chimple.TabPanel = cc.LayerColor.extend({
         this.setPosition(position);
 
 
-        // this._tabPanel = new chimple.TabBarPanel(this._tabWidth, this._tabHeight, cc.p(position.x, position.y));
+        // this._tabPanel = new xc.TabBarPanel(this._tabWidth, this._tabHeight, cc.p(position.x, position.y));
         // this.addChild(this._tabPanel);
 
-        this._tab = new chimple.TabBar(cc.p(0, 0), cc.size(this._tabWidth, this._tabHeight), numButtonsPerRow, configuration, this.selectPanelForTab, this);
+        this._tab = new xc.TabBar(cc.p(0, 0), cc.size(this._tabWidth, this._tabHeight), numButtonsPerRow, configuration, this.selectPanelForTab, this);
         this.addChild(this._tab);
 
 
@@ -56,7 +56,7 @@ chimple.TabPanel = cc.LayerColor.extend({
         }
         this._configuration.forEach(function (element) {
             if (element['icon'] == name) {
-                this._panel = new chimple.ScrollableButtonPanel(cc.p(0, this._tabHeight), cc.size(this._tabWidth, this._panelSize.height - this._tabHeight), this._numButtonsPerRow, this._numButtonsPerColumn, element['items'], this._callBackFunction, this._callBackContext);
+                this._panel = new xc.ScrollableButtonPanel(cc.p(0, this._tabHeight), cc.size(this._tabWidth, this._panelSize.height - this._tabHeight), this._numButtonsPerRow, this._numButtonsPerColumn, element['items'], this._callBackFunction, this._callBackContext);
                 this.addChild(this._panel);
 
                 // for tab panel

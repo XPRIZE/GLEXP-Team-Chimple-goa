@@ -1,5 +1,8 @@
 /// <reference path="../../cocos2d-typescript-definitions-master/cocos2d/cocos2d-lib.d.ts" />
-var PopLayer = cc.Layer.extend({
+
+var xc = xc || {};
+
+xc.PopLayer = cc.Layer.extend({
     sprite:null,
     ctor:function () {
         //////////////////////////////
@@ -8,7 +11,7 @@ var PopLayer = cc.Layer.extend({
        
         var worldSize = cc.winSize;
 
-        var sceneRes = ccs.load(pop_res.pop_scene);
+        var sceneRes = ccs.load(xc.PopLayer.res.pop_scene,xc.path);
         this.addChild(sceneRes.node);
 
         this.cloudContainer = [];
@@ -16,7 +19,7 @@ var PopLayer = cc.Layer.extend({
         var existingNumber = []
         this.wordInOrder = []
 
-        this.currentImage = ccs.load(pop_res.pop_plane);
+        this.currentImage = ccs.load(xc.PopLayer.res.pop_plane);
         this.currentImage.node.x = worldSize.width+200;
         this.currentImage.node.y = cc.director.getWinSize().height * 0.7;
         this.currentImage.node.uId="cube";
@@ -204,11 +207,10 @@ var PopLayer = cc.Layer.extend({
 
 });
 
-var PopScene = cc.Scene.extend({
-    onEnter:function () {
-        this._super();
-        var layer = new PopLayer();
-        this.addChild(layer);
-    }
-});
+xc.PopLayer.res = {
+        pop_scene: xc.path +"pop/pop.json",
+        pop_plane: xc.path +"pop/plane.json",
+        pop_scene_plist: xc.path +"pop/pop.plist",
+        pop_scene_png: xc.path + "pop/pop.png",
 
+}
