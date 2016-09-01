@@ -191,7 +191,7 @@ ccs.Bone = ccs.Node.extend(/** @lends ccs.Bone# */{
 
             ccs.TransformHelp.nodeToMatrix(locWorldInfo, this._worldTransform);
             if (this._armatureParentBone)
-                this._worldTransform = cc.affineTransformConcat(this._worldTransform, this._armature.getNodeToParentTransform());            //TODO TransformConcat
+                cc.affineTransformConcatIn(this._worldTransform, this._armature.getNodeToParentTransform());            //TODO TransformConcat
         }
 
         ccs.displayFactory.updateDisplay(this, delta, this._boneTransformDirty || this._armature.getArmatureTransformDirty());
@@ -674,16 +674,45 @@ ccs.Bone.create = function (name) {
 };
 
 ccs.Bone.RenderCmd = {
-    _updateColor: function(){
+    _updateColor: function () {
         var node = this._node;
         var display = node._displayManager.getDisplayRenderNode();
         if (display !== null) {
             var displayCmd = display._renderCmd;
-            display.setColor(cc.color( node._tweenData.r, node._tweenData.g, node._tweenData.g));
-            display.setOpacity(node._tweenData.a);
-            displayCmd._syncDisplayColor(this._displayedColor);
-            displayCmd._syncDisplayOpacity(this._displayedOpacity);
+            display.setColor(this._displayedColor);
+            display.setOpacity(this._displayedOpacity);
+            displayCmd._syncDisplayColor(node._tweenData);
+            displayCmd._syncDisplayOpacity(node._tweenData.a);
             displayCmd._updateColor();
+        }
+    },
+
+    transform: function (parentCmd, recursive) {
+        var node = this._node,
+            t = this._transform,
+            wt = this._worldTransform,
+            pt = parentCmd ? parentCmd._worldTransform : null;
+
+        if (pt) {
+            this.originTransform();
+            cc.affineTransformConcatIn(t, node._worldTransform);
+        }
+
+        if (pt) {
+            wt.a  = t.a  * pt.a + t.b  * pt.c;
+            wt.b  = t.a  * pt.b + t.b  * pt.d;
+            wt.c  = t.c  * pt.a + t.d  * pt.c;
+            wt.d  = t.c  * pt.b + t.d  * pt.d;
+            wt.tx = t.tx * pt.a + t.ty * pt.c + pt.tx;
+            wt.ty = t.tx * pt.b + t.ty * pt.d + pt.ty;
+        }
+        else {
+            wt.a  = t.a;
+            wt.b  = t.b;
+            wt.c  = t.c;
+            wt.d  = t.d;
+            wt.tx = t.tx;
+            wt.ty = t.ty;
         }
     }
 };

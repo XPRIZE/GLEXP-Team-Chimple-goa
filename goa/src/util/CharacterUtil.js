@@ -42,8 +42,8 @@ xc.CharacterUtil.displaySkins = function (character, skins) {
             if (!cc.sys.isNative) {
                 if (loadedRes && loadedRes.resourceName && loadedRes.resourceName.indexOf(".png") == -1) {
                     if (cc.loader.cache[loadedRes.resourceName]) {
-                        xc.ParseUtil.changeSize(cc.loader.cache[loadedRes.resourceName], null, xc.designScaleFactor);
-                        cc.loader.cache[loadedRes.resourceName].xcCompressed = true;
+                        // xc.ParseUtil.changeSize(cc.loader.cache[loadedRes.resourceName], null, xc.designScaleFactor);
+                        // cc.loader.cache[loadedRes.resourceName].xcCompressed = true;
                     }
                 }
             }
@@ -204,8 +204,8 @@ xc.CharacterUtil.applySkinNameMap = function (skeleton, configuration) {
             dynamicResources.forEach(function (loadedResourceURL) {
                 if (loadedResourceURL && loadedResourceURL.indexOf(".png") == -1) {
                     if (cc.loader.cache[loadedResourceURL]) {
-                        xc.ParseUtil.changeSize(cc.loader.cache[loadedResourceURL], null, xc.designScaleFactor);
-                        cc.loader.cache[loadedResourceURL].xcCompressed = true;
+                        // xc.ParseUtil.changeSize(cc.loader.cache[loadedResourceURL], null, xc.designScaleFactor);
+                        // cc.loader.cache[loadedResourceURL].xcCompressed = true;
                     }
                 }
             }, this);
@@ -315,10 +315,10 @@ xc.CharacterUtil.addToCharacterConfigs = function (characterConfig) {
 
 xc.CharacterUtil.storeActionToTemporaryStore = function (node) {
     node.children.forEach(function (element) {
-        if (element.getName().indexOf("Skeleton") != -1 || element.getName().indexOf("skeleton") != -1) {
-            var action = element._storedAction;
+        if(element.getName() == 'SKParent') {
+            var action = element.getChildren()[0]._storedAction;
             if (action) {
-                element.runAction(action);
+                element.getChildren()[0].runAction(action);
             }
         }
     })
@@ -326,6 +326,12 @@ xc.CharacterUtil.storeActionToTemporaryStore = function (node) {
 
 xc.CharacterUtil.restoreActionFromTemporaryStore = function (node) {
     node.children.forEach(function (element) {
+        if(element.getName() == 'SKParent') {
+            var action = element.getChildren()[0].actionManager.getActionByTag(element.getChildren()[0].tag, element.getChildren()[0]);
+            if (action) {
+                element.getChildren()[0]._storedAction = action;
+            }
+        }
         if (element.getName().indexOf("Skeleton") != -1 || element.getName().indexOf("skeleton") != -1) {
             var action = element.actionManager.getActionByTag(element.tag, element);
             if (action) {

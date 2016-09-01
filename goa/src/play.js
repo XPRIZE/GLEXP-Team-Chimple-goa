@@ -335,21 +335,19 @@ var PlayFullStoryScene = cc.Scene.extend({
                     xc.scaleFactor = xc.story.RESOLUTION_HEIGHT / xc.DEVICE_HEIGHT;
                     xc.story.RESOLUTION_HEIGHT = xc.DEVICE_HEIGHT;
 
-                    xc.ParseUtil.changeSize(cc.loader.cache[res.human_skeleton_json], null, xc.designScaleFactor);
-                    cc.loader.cache[res.human_skeleton_json].xcCompressed = true;
-                    xc.ParseUtil.changeSize(cc.loader.cache[res.animalskeleton_json], null, xc.designScaleFactor);
-                    cc.loader.cache[res.animalskeleton_json].xcCompressed = true;
-                    xc.ParseUtil.changeSize(cc.loader.cache[res.birdskeleton_json], null, xc.designScaleFactor);
-                    cc.loader.cache[res.birdskeleton_json].xcCompressed = true;
+                    // xc.ParseUtil.changeSize(cc.loader.cache[res.human_skeleton_json], null, xc.designScaleFactor);
+                    // cc.loader.cache[res.human_skeleton_json].xcCompressed = true;
+                    // xc.ParseUtil.changeSize(cc.loader.cache[res.animalskeleton_json], null, xc.designScaleFactor);
+                    // cc.loader.cache[res.animalskeleton_json].xcCompressed = true;
+                    // xc.ParseUtil.changeSize(cc.loader.cache[res.birdskeleton_json], null, xc.designScaleFactor);
+                    // cc.loader.cache[res.birdskeleton_json].xcCompressed = true;
 
-
-
-                    data.items.forEach(function (element) {
-                        if (element && element.scene) {
-                            xc.ParseUtil.changeSize(element.scene, null, xc.scaleFactor);
-                            element.scene.xcCompressed = true;
-                        }
-                    }, this);
+                    // data.items.forEach(function (element) {
+                    //     if (element && element.scene) {
+                    //         xc.ParseUtil.changeSize(element.scene, null, xc.scaleFactor);
+                    //         element.scene.xcCompressed = true;
+                    //     }
+                    // }, this);
                     context._sceneLayer = new PlayFullStoryLayer();
                     context.addChild(context._sceneLayer);
                     context._sceneLayer.init();

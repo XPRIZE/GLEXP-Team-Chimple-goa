@@ -145,8 +145,8 @@ xc.PageConfigPanel = cc.LayerColor.extend({
                         cc.log(element);
                         
                 }
-                xc.ParseUtil.changeSize(cc.loader.cache[fileToLoad], null, xc.designScaleFactor);
-                cc.loader.cache[fileToLoad].xcCompressed = true;
+                // xc.ParseUtil.changeSize(cc.loader.cache[fileToLoad], null, xc.designScaleFactor);
+                // cc.loader.cache[fileToLoad].xcCompressed = true;
 
                 doPostLoadingProcessFunction.call(context, args, shouldSaveScene);
             }, this);
@@ -156,8 +156,8 @@ xc.PageConfigPanel = cc.LayerColor.extend({
             cc.LoaderScene.preload(dynamicResources, function () {
                 cc.director.popScene();
                 if (fileToLoad && fileToLoad.indexOf(".png") == -1) {
-                    xc.ParseUtil.changeSize(cc.loader.cache[fileToLoad], null, xc.designScaleFactor);
-                    cc.loader.cache[fileToLoad].xcCompressed = true;
+                    // xc.ParseUtil.changeSize(cc.loader.cache[fileToLoad], null, xc.designScaleFactor);
+                    // cc.loader.cache[fileToLoad].xcCompressed = true;
                 }
                 doPostLoadingProcessFunction.call(context, args, shouldSaveScene);
             }, this);
