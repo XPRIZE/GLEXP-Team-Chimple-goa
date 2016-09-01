@@ -49,6 +49,21 @@
                 <key>textureRotated</key>
                 <false/>
             </dict>
+            <key>jump_on_words/character_body.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{43,53}</string>
+                <key>spriteSourceSize</key>
+                <string>{43,53}</string>
+                <key>textureRect</key>
+                <string>{{471,206},{43,53}}</string>
+                <key>textureRotated</key>
+                <true/>
+            </dict>
             <key>jump_on_words/character_button.png</key>
             <dict>
                 <key>aliases</key>
@@ -63,6 +78,36 @@
                 <string>{{191,183},{53,53}}</string>
                 <key>textureRotated</key>
                 <false/>
+            </dict>
+            <key>jump_on_words/character_hand.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{14,13}</string>
+                <key>spriteSourceSize</key>
+                <string>{14,13}</string>
+                <key>textureRect</key>
+                <string>{{599,107},{14,13}}</string>
+                <key>textureRotated</key>
+                <true/>
+            </dict>
+            <key>jump_on_words/character_leg.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{11,7}</string>
+                <key>spriteSourceSize</key>
+                <string>{11,7}</string>
+                <key>textureRect</key>
+                <string>{{599,123},{11,7}}</string>
+                <key>textureRotated</key>
+                <true/>
             </dict>
             <key>jump_on_words/cloud.png</key>
             <dict>
@@ -137,7 +182,7 @@
                 <key>textureRect</key>
                 <string>{{568,197},{48,49}}</string>
                 <key>textureRotated</key>
-                <true/>
+                <false/>
             </dict>
             <key>jump_on_words/pink_bar.png</key>
             <dict>
@@ -271,9 +316,9 @@
             <key>realTextureFileName</key>
             <string>jump_on_words.png</string>
             <key>size</key>
-            <string>{621,246}</string>
+            <string>{621,250}</string>
             <key>smartupdate</key>
-            <string>$TexturePacker:SmartUpdate:5ff8e2fd7dc66c30d0f750077fbb903e:dca08deb9bddf2593d82f41528ab5566:15a1d6190c68400b4030a49ef1f107e9$</string>
+            <string>$TexturePacker:SmartUpdate:de03861c1cca14ae083fce961a2b09a3:16ac73cf97b7c1fed33c17f6c2777d0d:15a1d6190c68400b4030a49ef1f107e9$</string>
             <key>textureFileName</key>
             <string>jump_on_words.png</string>
         </dict>

@@ -1,4 +1,4 @@
-
+/// <reference path="../../cocos2d-typescript-definitions-master/cocos2d/cocos2d-lib.d.ts" />
 var AlphamoneGameLayer = cc.Layer.extend( {
     alphabet_layer: null,
     alphabet:null,
@@ -15,7 +15,7 @@ var AlphamoneGameLayer = cc.Layer.extend( {
         alphabet_Reff = [];
         whack_score = 0;
         var size = cc.winSize;
-        background_layer = ccs.load(xc.AlphamoleGameLevelScene.res.Alphamole_scene1_json1, xc.path);
+        background_layer = ccs.load(xc.AlphamoleGameLevelScene.res.Alphamole_scene3_json1, xc.path);
         this.addChild(background_layer.node);
         var alphabet_str = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"];
         alphabet_layer = cc.Layer.create();
@@ -28,7 +28,7 @@ var AlphamoneGameLayer = cc.Layer.extend( {
             cc.log("%s", name);
          }
          var test = background_layer.node.getComponent("hole1");
-        var myLayer = ccs.load(xc.AlphamoleGameLevelScene.res.Alphamole_scene1_json, xc.path);
+        var myLayer = ccs.load(xc.AlphamoleGameLevelScene.res.Alphamole_scene3_json, xc.path);
         this.addChild(myLayer.node);
        
        var level_alpha = ccs.load("res/english/"+level_str+".json", xc.path);
@@ -82,12 +82,6 @@ Play5_hole_back_165_1
     // //alpha.setPosition((100, 200));
     // this.addChild(alpha.node);
 
-
-
-
-
-
-
      scoreLabel = new cc.LabelTTF("  Score: " + whack_score, "Arial", 90);
         
          scoreLabel.x = 20;
@@ -99,6 +93,11 @@ Play5_hole_back_165_1
         },
 
     showAlpha: function () {
+
+        if (whack_score == 5){
+                 cc.director.runScene(new xc.AlphamoleGameLevelScene());
+
+        }
      var randomHole =  Math.floor(Math.random()*100 % 3);
      var childReff = background_layer.node.getChildByName(hole_array[randomHole]);
      var x = childReff.getPositionX();
@@ -148,18 +147,12 @@ var level_children = alphabet.node.getChildren();
                             whack_score += 1;
                             scoreLabel.setString("  Score: " + whack_score);
                          }
+                         var sound = cc.audioEngine.playEffect("res/english/sounds/"+target.getName().toLowerCase()+".wav", false);
+                      //     sound
                      cc.log("clicked on %s",target.getName());   
                              }
                              return false;
                    }
     
-});
-
-var AlphamoneGameScene = cc.Scene.extend({
-    onEnter:function () {
-        this._super();
-        var layer = new AlphamoneGameLayer();
-        this.addChild(layer);
-    }
 });
 
