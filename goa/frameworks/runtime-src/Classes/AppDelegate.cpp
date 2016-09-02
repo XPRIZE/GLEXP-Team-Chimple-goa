@@ -208,7 +208,7 @@ bool AppDelegate::applicationDidFinishLaunching()
     ScriptEngineProtocol *engine = ScriptingCore::getInstance();
     ScriptEngineManager::getInstance()->setScriptEngine(engine);
     
-//  ScriptingCore::getInstance()->runScript("start.js");
+    ScriptingCore::getInstance()->runScript("boot.js");
 
     SafariAnalyticsManager* safariManager = SafariAnalyticsManager::getInstance();
 #if (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
