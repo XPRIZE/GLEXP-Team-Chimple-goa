@@ -44,6 +44,9 @@ var eventListener = cc.eventManager.addListener({
         // add a label shows "Hello World"
         // create and initialize a label
 
+      
+        //var train = new cc.Sprite(cc.spriteFrameCache.getSpriteFrame("train/train.png"));
+    
          this.homeScreen = new cc.Sprite(res.homeScreen_png);
          this.homeScreen.setAnchorPoint(0.5, 0.5 );
          this.homeScreen.setPosition(size.width / 2, size.height / 2); 
