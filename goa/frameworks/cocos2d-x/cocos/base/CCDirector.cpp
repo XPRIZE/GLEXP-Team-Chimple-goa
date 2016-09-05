@@ -127,7 +127,7 @@ bool Director::init(void)
     _frameRate = 0.0f;
     _FPSLabel = _drawnBatchesLabel = _drawnVerticesLabel = nullptr;
     _totalFrames = 0;
-    _lastUpdate = new (std::nothrow) struct timeval;
+    _lastUpdate = std::chrono::steady_clock::now();
     _secondsPerFrame = 1.0f;
 
     // paused ?
@@ -204,9 +204,6 @@ Director::~Director(void)
 
     CC_SAFE_RELEASE(_eventDispatcher);
     
-    // delete _lastUpdate
-    CC_SAFE_DELETE(_lastUpdate);
-
     Configuration::destroyInstance();
 
     s_SharedDirector = nullptr;
@@ -256,14 +253,6 @@ void Director::setGLDefaultValues()
     setAlphaBlending(true);
     setDepthTest(false);
     setProjection(_projection);
-
-    // Everything should be drawn within `Scene::render()`.
-    // Otherwise it might not render correctly since the GL state might not be the correct one
-    // so the FPS should be part of Scene. But until we move them there, this little hack is to
-    // set the default glViewPort(), so that when `Scene::render()` exits, the viewport is the correct
-    // one for the FPS
-    auto vp = Camera::getDefaultViewport();
-    glViewport(vp._left, vp._bottom, vp._width, vp._height);
 }
 
 // Draw the Scene
@@ -343,14 +332,7 @@ void Director::drawScene()
 
 void Director::calculateDeltaTime()
 {
-    struct timeval now;
-
-    if (gettimeofday(&now, nullptr) != 0)
-    {
-        CCLOG("error in gettimeofday");
-        _deltaTime = 0;
-        return;
-    }
+    auto now = std::chrono::steady_clock::now();
 
     // new delta time. Re-fixed issue #1277
     if (_nextDeltaTimeZero)
@@ -360,7 +342,7 @@ void Director::calculateDeltaTime()
     }
     else
     {
-        _deltaTime = (now.tv_sec - _lastUpdate->tv_sec) + (now.tv_usec - _lastUpdate->tv_usec) / 1000000.0f;
+        _deltaTime = std::chrono::duration_cast<std::chrono::microseconds>(now - _lastUpdate).count() / 1000000.0f;
         _deltaTime = MAX(0, _deltaTime);
     }
 
@@ -372,7 +354,7 @@ void Director::calculateDeltaTime()
     }
 #endif
 
-    *_lastUpdate = now;
+    _lastUpdate = now;
 }
 float Director::getDeltaTime() const
 {
@@ -499,7 +481,7 @@ void Director::popMatrix(MATRIX_STACK_TYPE type)
     }
     else
     {
-        CCASSERT(false, "unknow matrix stack type");
+        CCASSERT(false, "unknown matrix stack type");
     }
 }
 
@@ -519,7 +501,7 @@ void Director::loadIdentityMatrix(MATRIX_STACK_TYPE type)
     }
     else
     {
-        CCASSERT(false, "unknow matrix stack type");
+        CCASSERT(false, "unknown matrix stack type");
     }
 }
 
@@ -539,7 +521,7 @@ void Director::loadMatrix(MATRIX_STACK_TYPE type, const Mat4& mat)
     }
     else
     {
-        CCASSERT(false, "unknow matrix stack type");
+        CCASSERT(false, "unknown matrix stack type");
     }
 }
 
@@ -559,7 +541,7 @@ void Director::multiplyMatrix(MATRIX_STACK_TYPE type, const Mat4& mat)
     }
     else
     {
-        CCASSERT(false, "unknow matrix stack type");
+        CCASSERT(false, "unknown matrix stack type");
     }
 }
 
@@ -579,7 +561,7 @@ void Director::pushMatrix(MATRIX_STACK_TYPE type)
     }
     else
     {
-        CCASSERT(false, "unknow matrix stack type");
+        CCASSERT(false, "unknown matrix stack type");
     }
 }
 
@@ -598,13 +580,19 @@ const Mat4& Director::getMatrix(MATRIX_STACK_TYPE type) const
         return _textureMatrixStack.top();
     }
 
-    CCASSERT(false, "unknow matrix stack type, will return modelview matrix instead");
+    CCASSERT(false, "unknown matrix stack type, will return modelview matrix instead");
     return  _modelViewMatrixStack.top();
 }
 
 void Director::setProjection(Projection projection)
 {
     Size size = _winSizeInPoints;
+
+    if (size.width == 0 || size.height == 0)
+    {
+        CCLOGERROR("cocos2d: warning, Director::setProjection() failed because size is 0");
+        return;
+    }
 
     setViewport();
 
@@ -730,7 +718,7 @@ Vec2 Director::convertToGL(const Vec2& uiPoint)
     Vec4 glCoord;
     //transformInv.transformPoint(clipCoord, &glCoord);
     transformInv.transformVector(clipCoord, &glCoord);
-    float factor = 1.0/glCoord.w;
+    float factor = 1.0f / glCoord.w;
     return Vec2(glCoord.x * factor, glCoord.y * factor);
 }
 
@@ -757,8 +745,8 @@ Vec2 Director::convertToUI(const Vec2& glPoint)
 	clipCoord.z = clipCoord.z / clipCoord.w;
 
     Size glSize = _openGLView->getDesignResolutionSize();
-    float factor = 1.0/glCoord.w;
-    return Vec2(glSize.width*(clipCoord.x*0.5 + 0.5) * factor, glSize.height*(-clipCoord.y*0.5 + 0.5) * factor);
+    float factor = 1.0f / glCoord.w;
+    return Vec2(glSize.width * (clipCoord.x * 0.5f + 0.5f) * factor, glSize.height * (-clipCoord.y * 0.5f + 0.5f) * factor);
 }
 
 const Size& Director::getWinSize(void) const
@@ -908,8 +896,8 @@ void Director::popToSceneStackLevel(int level)
     if (level >= c)
         return;
 
-    auto fisrtOnStackScene = _scenesStack.back();
-    if (fisrtOnStackScene == _runningScene)
+    auto firstOnStackScene = _scenesStack.back();
+    if (firstOnStackScene == _runningScene)
     {
 #if CC_ENABLE_GC_FOR_NATIVE_OBJECTS
         auto sEngine = ScriptEngineManager::getInstance()->getScriptEngine();
@@ -1016,6 +1004,7 @@ void Director::reset()
     
     // purge bitmap cache
     FontFNT::purgeCachedData();
+    FontAtlasCache::purgeCachedData();
     
     FontFreeType::shutdownFreeType();
     
@@ -1223,10 +1212,9 @@ void Director::calculateMPF()
     static float prevSecondsPerFrame = 0;
     static const float MPF_FILTER = 0.10f;
 
-    struct timeval now;
-    gettimeofday(&now, nullptr);
+    auto now = std::chrono::steady_clock::now();
     
-    _secondsPerFrame = (now.tv_sec - _lastUpdate->tv_sec) + (now.tv_usec - _lastUpdate->tv_usec) / 1000000.0f;
+    _secondsPerFrame = std::chrono::duration_cast<std::chrono::microseconds>(now - _lastUpdate).count() / 1000000.0f;
 
     _secondsPerFrame = _secondsPerFrame * MPF_FILTER + (1-MPF_FILTER) * prevSecondsPerFrame;
     prevSecondsPerFrame = _secondsPerFrame;
@@ -1377,10 +1365,7 @@ void Director::setEventDispatcher(EventDispatcher* dispatcher)
 // so we now only support DisplayLinkDirector
 void DisplayLinkDirector::startAnimation()
 {
-    if (gettimeofday(_lastUpdate, nullptr) != 0)
-    {
-        CCLOG("cocos2d: DisplayLinkDirector: Error on gettimeofday");
-    }
+    _lastUpdate = std::chrono::steady_clock::now();
 
     _invalid = false;
 

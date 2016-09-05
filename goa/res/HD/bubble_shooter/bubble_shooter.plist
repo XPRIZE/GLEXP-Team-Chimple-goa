@@ -15,7 +15,7 @@
                 <key>spriteSourceSize</key>
                 <string>{89,89}</string>
                 <key>textureRect</key>
-                <string>{{379,164},{89,89}}</string>
+                <string>{{858,114},{89,89}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
@@ -30,7 +30,7 @@
                 <key>spriteSourceSize</key>
                 <string>{255,133}</string>
                 <key>textureRect</key>
-                <string>{{1098,1},{255,133}}</string>
+                <string>{{601,114},{255,133}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
@@ -45,7 +45,7 @@
                 <key>spriteSourceSize</key>
                 <string>{326,111}</string>
                 <key>textureRect</key>
-                <string>{{1098,136},{326,111}}</string>
+                <string>{{601,1},{326,111}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
@@ -60,7 +60,7 @@
                 <key>spriteSourceSize</key>
                 <string>{89,89}</string>
                 <key>textureRect</key>
-                <string>{{470,164},{89,89}}</string>
+                <string>{{858,205},{89,89}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
@@ -75,9 +75,9 @@
                 <key>spriteSourceSize</key>
                 <string>{117,161}</string>
                 <key>textureRect</key>
-                <string>{{379,1},{117,161}}</string>
+                <string>{{601,249},{117,161}}</string>
                 <key>textureRotated</key>
-                <false/>
+                <true/>
             </dict>
             <key>bubble_shooter/lock.png</key>
             <dict>
@@ -90,9 +90,9 @@
                 <key>spriteSourceSize</key>
                 <string>{93,113}</string>
                 <key>textureRect</key>
-                <string>{{561,156},{93,113}}</string>
+                <string>{{568,368},{93,113}}</string>
                 <key>textureRotated</key>
-                <true/>
+                <false/>
             </dict>
             <key>bubble_shooter/lock_button.png</key>
             <dict>
@@ -105,7 +105,7 @@
                 <key>spriteSourceSize</key>
                 <string>{187,187}</string>
                 <key>textureRect</key>
-                <string>{{1,1},{187,187}}</string>
+                <string>{{1,311},{187,187}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
@@ -120,7 +120,7 @@
                 <key>spriteSourceSize</key>
                 <string>{89,89}</string>
                 <key>textureRect</key>
-                <string>{{676,156},{89,89}}</string>
+                <string>{{764,249},{89,89}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
@@ -135,7 +135,37 @@
                 <key>spriteSourceSize</key>
                 <string>{598,153}</string>
                 <key>textureRect</key>
-                <string>{{498,1},{598,153}}</string>
+                <string>{{1,1},{598,153}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+            <key>bubble_shooter/orange_pressed_button.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{598,153}</string>
+                <key>spriteSourceSize</key>
+                <string>{598,153}</string>
+                <key>textureRect</key>
+                <string>{{1,156},{598,153}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+            <key>bubble_shooter/pressed_button.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{187,187}</string>
+                <key>spriteSourceSize</key>
+                <string>{187,187}</string>
+                <key>textureRect</key>
+                <string>{{190,311},{187,187}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
@@ -150,7 +180,7 @@
                 <key>spriteSourceSize</key>
                 <string>{89,89}</string>
                 <key>textureRect</key>
-                <string>{{767,156},{89,89}}</string>
+                <string>{{663,368},{89,89}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
@@ -165,7 +195,7 @@
                 <key>spriteSourceSize</key>
                 <string>{89,89}</string>
                 <key>textureRect</key>
-                <string>{{858,156},{89,89}}</string>
+                <string>{{855,296},{89,89}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
@@ -180,7 +210,7 @@
                 <key>spriteSourceSize</key>
                 <string>{187,187}</string>
                 <key>textureRect</key>
-                <string>{{190,1},{187,187}}</string>
+                <string>{{379,311},{187,187}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
@@ -195,7 +225,7 @@
                 <key>spriteSourceSize</key>
                 <string>{89,89}</string>
                 <key>textureRect</key>
-                <string>{{949,156},{89,89}}</string>
+                <string>{{764,340},{89,89}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
@@ -211,9 +241,9 @@
             <key>realTextureFileName</key>
             <string>bubble_shooter.png</string>
             <key>size</key>
-            <string>{1425,254}</string>
+            <string>{948,499}</string>
             <key>smartupdate</key>
-            <string>$TexturePacker:SmartUpdate:69c131d00ee3a26a05ddcf01792e0f51:cfad0623ab21d2038e9c1dba8b8c8ceb:e5db4e2fd28ad128dbd369d5dae1b8fb$</string>
+            <string>$TexturePacker:SmartUpdate:0edd49eaaf527b6d7ab8a16b50b934db:bc35c24455822ee128969e49c07ae365:e5db4e2fd28ad128dbd369d5dae1b8fb$</string>
             <key>textureFileName</key>
             <string>bubble_shooter.png</string>
         </dict>

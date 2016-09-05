@@ -1,4 +1,6 @@
-chimple.ButtonPanel = ccui.Layout.extend({
+var xc = xc || {};
+
+xc.ButtonPanel = ccui.Layout.extend({
     ctor: function (position, size, numButtonsPerRow, numButtonsPerColumn, configuration, buttonHandler, start, numButtons) {
         this._super();
         this._configuration = configuration;
@@ -32,7 +34,7 @@ chimple.ButtonPanel = ccui.Layout.extend({
                         }
 
                         item.setEnabled(true);
-                        chimple.ParseUtil.disableFavoriteChoiceIfCharacterAlreadyLoadedInPage(item, configuration[index]);
+                        xc.ParseUtil.disableFavoriteChoiceIfCharacterAlreadyLoadedInPage(item, configuration[index]);
 
                         item.addTouchEventListener(this._buttonHandler.itemSelected, this._buttonHandler);
                         item.setPosition(pageIndex * size.width + (colIndex + 0.5) * size.width / numButtonsPerRow, size.height - (rowIndex + 0.5) * size.height / numButtonsPerColumn);
@@ -85,7 +87,7 @@ chimple.ButtonPanel = ccui.Layout.extend({
     }
 });
 
-chimple.ButtonHandler = cc.Class.extend({
+xc.ButtonHandler = cc.Class.extend({
     ctor: function (callBackFunction, callBackContext, isMenu) {
         this._isMenu = isMenu;
         this._callBackFunction = callBackFunction;

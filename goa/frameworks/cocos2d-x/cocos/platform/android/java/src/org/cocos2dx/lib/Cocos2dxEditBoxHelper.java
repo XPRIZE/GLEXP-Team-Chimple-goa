@@ -181,6 +181,7 @@ public class Cocos2dxEditBoxHelper {
                                     Cocos2dxEditBoxHelper.__editBoxEditingDidEnd(index, text);
                                 }
                             });
+                            mCocos2dxActivity.hideVirtualButton();
                             mFrameLayout.setEnableForceDoLayout(false);
                             Log.d(TAG, "edit box lose focus");
                         }
@@ -257,7 +258,7 @@ public class Cocos2dxEditBoxHelper {
                     }else{
                         tf = Typeface.DEFAULT;
                     }
-                    //TODO: The font size is not the same across all the anroid devices...
+                    // TODO: The font size is not the same across all the android devices...
                     if (fontSize >= 0){
                         float density =  mCocos2dxActivity.getResources().getDisplayMetrics().density;
 //                        Log.e("XXX", "density is " + density);
@@ -431,6 +432,8 @@ public class Cocos2dxEditBoxHelper {
             imm.hideSoftInputFromWindow(editBox.getWindowToken(), 0);
             mCocos2dxActivity.getGLSurfaceView().setSoftKeyboardShown(false);
             mCocos2dxActivity.getGLSurfaceView().requestFocus();
+            // can take effect after GLSurfaceView has focus
+            mCocos2dxActivity.hideVirtualButton();
         }
     }
 

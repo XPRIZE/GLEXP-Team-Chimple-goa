@@ -232,6 +232,8 @@
 		F35248591D6D9D1A0077C333 /* sqlite3.c in Sources */ = {isa = PBXBuildFile; fileRef = F35247BA1D6D9D1A0077C333 /* sqlite3.c */; };
 		F352485A1D6D9D1A0077C333 /* State.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F35247BD1D6D9D1A0077C333 /* State.cpp */; };
 		F352485B1D6D9D1A0077C333 /* State.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F35247BD1D6D9D1A0077C333 /* State.cpp */; };
+		F37404101D78653D00A671D2 /* boot.js in Resources */ = {isa = PBXBuildFile; fileRef = F374040F1D78653C00A671D2 /* boot.js */; };
+		F37404131D78655700A671D2 /* boot.js in Resources */ = {isa = PBXBuildFile; fileRef = F374040F1D78653C00A671D2 /* boot.js */; };
 		F3D201A31D7409B400FDB750 /* Train.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F3D2019F1D7409B400FDB750 /* Train.cpp */; };
 		F3D201A41D7409B400FDB750 /* Pop.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F3D201A11D7409B400FDB750 /* Pop.cpp */; };
 		F3D201A71D740C6C00FDB750 /* Train.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F3D2019F1D7409B400FDB750 /* Train.cpp */; };
@@ -535,6 +537,7 @@
 		F35247BD1D6D9D1A0077C333 /* State.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = State.cpp; sourceTree = "<group>"; };
 		F35247BE1D6D9D1A0077C333 /* State.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = State.h; sourceTree = "<group>"; };
 		F35247BF1D6D9D1A0077C333 /* WalkingState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WalkingState.h; sourceTree = "<group>"; };
+		F374040F1D78653C00A671D2 /* boot.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = boot.js; sourceTree = "<group>"; };
 		F3D2019F1D7409B400FDB750 /* Train.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Train.cpp; sourceTree = "<group>"; };
 		F3D201A01D7409B400FDB750 /* Train.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Train.h; sourceTree = "<group>"; };
 		F3D201A11D7409B400FDB750 /* Pop.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Pop.cpp; sourceTree = "<group>"; };
@@ -596,6 +599,7 @@
 		15628F5B15F0F5C2000CF24B /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				F374040F1D78653C00A671D2 /* boot.js */,
 				1A1A081B18C9DF05005C6854 /* project.json */,
 				1A6BF21418C9DB5900FB0E1C /* main.js */,
 				37ABE38E1D759E60004AAD7A /* start.js */,
@@ -1100,6 +1104,7 @@
 				C0799CBA18BAE62000E9C828 /* res in Resources */,
 				BAF426FC19484B3E002B22EF /* script in Resources */,
 				509D4ACF17EBB2BE00697056 /* Icon.icns in Resources */,
+				F37404131D78655700A671D2 /* boot.js in Resources */,
 				C03780EC18BEE0E400FE4F13 /* src in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1121,6 +1126,7 @@
 				C03780EB18BEE0E400FE4F13 /* src in Resources */,
 				509D4AC617EBB2AB00697056 /* Icon-152.png in Resources */,
 				C0799CB918BAE62000E9C828 /* res in Resources */,
+				F37404101D78653D00A671D2 /* boot.js in Resources */,
 				509D4AC517EBB2AB00697056 /* Icon-144.png in Resources */,
 				509D4AC317EBB2AB00697056 /* Icon-114.png in Resources */,
 				509D4ABD17EBB2AB00697056 /* Default-568h@2x.png in Resources */,

@@ -1,21 +1,24 @@
-chimple.ScrollableButtonPanel = cc.LayerColor.extend({
+var xc = xc || {};
+
+xc.ScrollableButtonPanel = cc.LayerColor.extend({
     _buttonPanel: null,
     _page: null,
     _numButtonsPerRow: null,
     _numButtonsPerColumn: null,
     ctor: function (position, size, numButtonsPerRow, numButtonsPerColumn, configuration, callBackFunction, callBackContext, noPagination) {
-        this._super(chimple.SECONDARY_COLOR, size.width, size.height);
+        this._super(xc.SECONDARY_COLOR, size.width, size.height);
         this.setPosition(position);
         this.setContentSize(size);
-        this._buttonHandler = new chimple.ButtonHandler(callBackFunction, callBackContext);
+        this._buttonHandler = new xc.ButtonHandler(callBackFunction, callBackContext);
         this._numButtonsPerRow = numButtonsPerRow;
         this._numButtonsPerColumn = numButtonsPerColumn;
 
         this._page = new ccui.PageView();
+        this._page.scrollableButtonPanel = this;
         this._page.setPosition(size.width * 5 / 100, 0);
         this._page.setContentSize(size.width * 90 / 100, size.height);
         for (var pageIndex = 0; pageIndex < configuration.length / (numButtonsPerRow * numButtonsPerColumn); pageIndex++) {
-            this._page.addPage(new chimple.ButtonPanel(cc.p(0, 0), cc.size(size.width * 90 / 100, size.height), numButtonsPerRow, numButtonsPerColumn, configuration, this._buttonHandler, pageIndex * (numButtonsPerRow * numButtonsPerColumn), (numButtonsPerRow * numButtonsPerColumn)))
+            this._page.addPage(new xc.ButtonPanel(cc.p(0, 0), cc.size(size.width * 90 / 100, size.height), numButtonsPerRow, numButtonsPerColumn, configuration, this._buttonHandler, pageIndex * (numButtonsPerRow * numButtonsPerColumn), (numButtonsPerRow * numButtonsPerColumn)))
         }
         this._page.setClippingEnabled(true);
         this.addChild(this._page);
@@ -47,7 +50,7 @@ chimple.ScrollableButtonPanel = cc.LayerColor.extend({
         if (cc.sys.isNative) {
             pages = this._page.getItems();
         } else {
-            pages = this._page.getPages();
+            pages = this._page.getItems();
         }
         for (var index = 0; index < pages.length; index++) {
             var page = pages[index];
@@ -63,7 +66,7 @@ chimple.ScrollableButtonPanel = cc.LayerColor.extend({
         if (cc.sys.isNative) {
             pages = this._page.getItems();
         } else {
-            pages = this._page.getPages();
+            pages = this._page.getItems();
         }
 
         var pageIndex = Math.floor(buttonIndex / (this._numButtonsPerRow * this._numButtonsPerColumn));
@@ -85,8 +88,8 @@ chimple.ScrollableButtonPanel = cc.LayerColor.extend({
                     }
                     break;
                 } else {
-                    if (this._page.getCurPageIndex() > 0) {
-                        this._page.scrollToPage(this._page.getCurPageIndex() - 1);
+                    if (this._page.getCurrentPageIndex() > 0) {
+                        this._page.scrollToPage(this._page.getCurrentPageIndex() - 1);
                     }
                     break;
                 }
@@ -103,8 +106,8 @@ chimple.ScrollableButtonPanel = cc.LayerColor.extend({
                     break;
 
                 } else {
-                    if (this._page.getCurPageIndex() < this._page.getPages().length - 1) {
-                        this._page.scrollToPage(this._page.getCurPageIndex() + 1);
+                    if (this._page.getCurrentPageIndex() < this._page.getItems().length - 1) {
+                        this._page.scrollToPage(this._page.getCurrentPageIndex() + 1);
                     }
                     break;
                 }
@@ -118,14 +121,24 @@ chimple.ScrollableButtonPanel = cc.LayerColor.extend({
                 this._page.scrollToPage(pageIndex);
             }
         } else {
-            if (pageIndex < this._page.getPages().length) {
+            if (pageIndex < this._page.getItems().length) {
                 this._page.scrollToPage(pageIndex);
             }
         }
     },
 
     updateLeftRightButtons: function (sender, type) {
-        cc.log(this._page);
+        if(sender) {
+            this._page = sender.scrollableButtonPanel._page;
+            this._backButton = sender.scrollableButtonPanel._backButton;
+            this._nextButton = sender.scrollableButtonPanel._nextButton;
+        }
+                
+        if(!this._page) {
+            return;
+        }
+
+        
         if (cc.sys.isNative) {
             if (this._page.getCurrentPageIndex() <= 0) {
                 this._backButton.setEnabled(false);
@@ -142,14 +155,14 @@ chimple.ScrollableButtonPanel = cc.LayerColor.extend({
                 this._nextButton.setHighlighted(false);
             }
         } else {
-            if (this._page.getCurPageIndex() <= 0) {
+            if (this._page.getCurrentPageIndex() <= 0) {
                 this._backButton.setEnabled(false);
                 this._backButton.setHighlighted(true);
             } else {
                 this._backButton.setEnabled(true);
                 this._backButton.setHighlighted(false);
             }
-            if (this._page.getCurPageIndex() >= this._page.getPages().length - 1) {
+            if (this._page.getCurrentPageIndex() >= this._page.getItems().length - 1) {
                 this._nextButton.setEnabled(false);
                 this._nextButton.setHighlighted(true);
             } else {

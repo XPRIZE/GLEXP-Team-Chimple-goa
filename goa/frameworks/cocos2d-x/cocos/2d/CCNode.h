@@ -29,6 +29,7 @@
 #ifndef __CCNODE_H__
 #define __CCNODE_H__
 
+#include <cstdint>
 #include "base/ccMacros.h"
 #include "base/CCVector.h"
 #include "base/CCProtocols.h"
@@ -74,8 +75,6 @@ enum {
     kNodeOnExitTransitionDidStart,
     kNodeOnCleanup
 };
-
-bool CC_DLL nodeComparisonLess(Node* n1, Node* n2);
 
 class EventListener;
 
@@ -146,12 +145,12 @@ public:
     /**
      LocalZOrder is the 'key' used to sort the node relative to its siblings.
 
-     The Node's parent will sort all its children based ont the LocalZOrder value.
+     The Node's parent will sort all its children based on the LocalZOrder value.
      If two nodes have the same LocalZOrder, then the node that was added first to the children's array will be in front of the other node in the array.
      
      Also, the Scene Graph is traversed using the "In-Order" tree traversal algorithm ( http://en.wikipedia.org/wiki/Tree_traversal#In-order )
-     And Nodes that have LocalZOder values < 0 are the "left" subtree
-     While Nodes with LocalZOder >=0 are the "right" subtree.
+     And Nodes that have LocalZOrder values < 0 are the "left" subtree
+     While Nodes with LocalZOrder >=0 are the "right" subtree.
      
      @see `setGlobalZOrder`
      @see `setVertexZ`
@@ -168,6 +167,18 @@ public:
      */
     CC_DEPRECATED_ATTRIBUTE virtual void _setLocalZOrder(int z);
 
+    /** !!! ONLY FOR INTERNAL USE
+    * Sets the arrival order when this node has a same ZOrder with other children.
+    *
+    * A node which called addChild subsequently will take a larger arrival order,
+    * If two children have the same Z order, the child with larger arrival order will be drawn later.
+    *
+    * @warning This method is used internally for localZOrder sorting, don't change this manually
+    *
+    * @param orderOfArrival   The arrival order.
+    */
+    void updateOrderOfArrival();
+
     /**
      * Gets the local Z order of this node.
      *
@@ -175,14 +186,16 @@ public:
      *
      * @return The local (relative to its siblings) Z order.
      */
+
     virtual int getLocalZOrder() const { return _localZOrder; }
+
     CC_DEPRECATED_ATTRIBUTE virtual int getZOrder() const { return getLocalZOrder(); }
 
     /**
-     Defines the oder in which the nodes are renderer.
+     Defines the order in which the nodes are renderer.
      Nodes that have a Global Z Order lower, are renderer first.
      
-     In case two or more nodes have the same Global Z Order, the oder is not guaranteed.
+     In case two or more nodes have the same Global Z Order, the order is not guaranteed.
      The only exception if the Nodes have a Global Z Order == 0. In that case, the Scene Graph order is used.
      
      By default, all nodes have a Global Z Order = 0. That means that by default, the Scene Graph order is used to render the nodes.
@@ -668,27 +681,6 @@ public:
     virtual float getRotationSkewY() const;
     CC_DEPRECATED_ATTRIBUTE virtual float getRotationY() const { return getRotationSkewY(); }
 
-    /**
-     * Sets the arrival order when this node has a same ZOrder with other children.
-     *
-     * A node which called addChild subsequently will take a larger arrival order,
-     * If two children have the same Z order, the child with larger arrival order will be drawn later.
-     *
-     * @warning This method is used internally for localZOrder sorting, don't change this manually
-     *
-     * @param orderOfArrival   The arrival order.
-     */
-    void setOrderOfArrival(int orderOfArrival);
-    /**
-     * Returns the arrival order, indicates which children is added previously.
-     *
-     * @see `setOrderOfArrival(unsigned int)`
-     *
-     * @return The arrival order.
-     */
-    int getOrderOfArrival() const;
-
-
     /** @deprecated No longer needed
     * @lua NA
     */
@@ -934,6 +926,25 @@ public:
      * @note Don't call this manually unless a child added needs to be removed in the same frame.
      */
     virtual void sortAllChildren();
+
+    /**
+    * Sorts helper function
+    *
+    */
+    template<typename _T> inline
+    static void sortNodes(cocos2d::Vector<_T*>& nodes)
+    {
+        static_assert(std::is_base_of<Node, _T>::value, "Node::sortNodes: Only accept derived of Node!");
+#if CC_64BITS
+        std::sort(std::begin(nodes), std::end(nodes), [](_T* n1, _T* n2) {
+            return (n1->_localZOrderAndArrival < n2->_localZOrderAndArrival);
+        });
+#else
+        std::stable_sort(std::begin(nodes), std::end(nodes), [](_T* n1, _T* n2) {
+            return n1->_localZOrder < n2->_localZOrder;
+        });
+#endif
+    }
 
     /// @} end of Children and Parent
     
@@ -1643,7 +1654,7 @@ public:
      *
      * @param additionalTransform An additional transform matrix.
      */
-    void setAdditionalTransform(Mat4* additionalTransform);
+    void setAdditionalTransform(const Mat4* additionalTransform);
     void setAdditionalTransform(const Mat4& additionalTransform);
     void setAdditionalTransform(const AffineTransform& additionalTransform);
 
@@ -1902,8 +1913,12 @@ protected:
     mutable bool _additionalTransformDirty; ///< transform dirty ?
     bool _transformUpdated;         ///< Whether or not the Transform object was updated since the last frame
 
-    int _localZOrder;               ///< Local order (relative to its siblings) used to sort the node
+    std::int64_t _localZOrderAndArrival; /// cache, for 64bits compress optimize.
+    int _localZOrder; /// < Local order (relative to its siblings) used to sort the node
+
     float _globalZOrder;            ///< Global order used to sort the node
+
+    static unsigned int s_globalOrderOfArrival;
 
     Vector<Node*> _children;        ///< array of children nodes
     Node *_parent;                  ///< weak reference to parent node
@@ -1917,8 +1932,6 @@ protected:
     Ref *_userObject;               ///< A user assigned Object
 
     GLProgramState *_glProgramState; ///< OpenGL Program State
-
-    int _orderOfArrival;            ///< used to preserve sequence while sorting children with the same localZOrder
 
     Scheduler *_scheduler;          ///< scheduler used to schedule timers and updates
 
@@ -1952,8 +1965,6 @@ protected:
     bool        _cascadeColorEnabled;
     bool        _cascadeOpacityEnabled;
 
-    static int s_globalOrderOfArrival;
-    
     // camera mask, it is visible only when _cameraMask & current camera' camera flag is true
     unsigned short _cameraMask;
     
@@ -1983,7 +1994,6 @@ public:
 private:
     CC_DISALLOW_COPY_AND_ASSIGN(Node);
 };
-
 
 /**
  * This is a helper function, checks a GL screen point is in content rectangle space.

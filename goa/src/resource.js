@@ -1,4 +1,4 @@
-var chimple = chimple || {};
+var xc = xc || {};
 
 var defaultFolder = "res/";
 var defaultMiscFolder = "res/";
@@ -49,7 +49,14 @@ var SortIt = {
     explosive_mp3:  defaultFolder + "sounds/sortit/explosive.mp3",
     failure_mp3:  defaultFolder + "sounds/sortit/failure.mp3"
     
-    
+};
+
+
+var pop_res = {
+        pop_scene: "res/pop/pop.json",
+        pop_plane: "res/pop/plane.json",
+        pop_scene_plist:"res/pop/pop.plist",
+        pop_scene_png: "res/pop/pop.png",
 }
 
 var res = {
@@ -80,6 +87,17 @@ var misc = {
 };
 
 
+var train = {
+    train_json : "res/train/train.json",
+    train_plist : "res/train/train.plist",
+    train_png : "res/train/train.png",
+};
+
+var train_resources = [];
+for (var i in train) {
+    train_resources.push(train[i]);
+};
+
 var g_resources = [];
 for (var i in res) {
     g_resources.push(res[i]);
@@ -96,20 +114,20 @@ for (var i in SortIt) {
 };
 
 cc.loader.loadJson(misc.EditPlayConfig_json, function (error, data) {
-    chimple.storyPlayConfigurationObject = data;
+    xc.storyPlayConfigurationObject = data;
 });
 
 cc.loader.loadJson(misc.OnlyStoryPlayConfig_json, function (error, data) {
-    chimple.onlyStoryPlayConfigurationObject = data;
+    xc.onlyStoryPlayConfigurationObject = data;
 });
 
 
 cc.loader.loadJson(misc.Config_json, function (error, data) {
-    chimple.storyConfigurationObject = data;
-    chimple.initalCharacterCategories = chimple.storyConfigurationObject.addObjects[1].categories.length;
-    chimple.customCharacters = {};
-    chimple.customCharacters.cIcon = "icons/fav_character_onclick.png";
-    chimple.customCharacters.icon = "icons/fav_character.png";
-    chimple.customCharacters.items = [];
-    chimple.customCharacters.name = "favCharacters";
+    xc.storyConfigurationObject = data;
+    xc.initalCharacterCategories = xc.storyConfigurationObject.addObjects[1].categories.length;
+    xc.customCharacters = {};
+    xc.customCharacters.cIcon = "icons/fav_character_onclick.png";
+    xc.customCharacters.icon = "icons/fav_character.png";
+    xc.customCharacters.items = [];
+    xc.customCharacters.name = "favCharacters";
 });
