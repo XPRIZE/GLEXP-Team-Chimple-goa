@@ -6,19 +6,35 @@ xc.playLayer = cc.Layer.extend( {
    ballref:[],
    square:[],
    word:[],
+   stepRef:[],
    self : null,
    index:0,
+   wrongCount:0,
+   correct: 0,
+   flag:true,
+
     ctor:function () {
         this._super();
 
-        var size = cc.winSize;
+        this.size = cc.winSize;
         cc.spriteFrameCache.addSpriteFrames(xc.playLayer.res.jump_plist);
 
 
-        bg = ccs.load(xc.playLayer.res.jump_game, xc.path);
-        this.addChild(bg.node);
-      
-        var ball1 = bg.node.getChildByName("ball_34");
+        this.bg = ccs.load(xc.playLayer.res.jump_game, xc.path);
+        this.addChild(this.bg.node);
+       var child = this.bg.node.getChildren(); 
+         for(var i=0; i < child.length ;i++){
+            // child.
+            var name = child[i].getName();
+            cc.log("%s", name);
+         }
+
+        this.char = ccs.load(xc.playLayer.res.char,xc.path);
+        this.char.node.setPosition(cc.p(this.size.width - 2450,this.size.height-950));
+        this.addChild(this.char.node);
+       
+
+        var ball1 = this.bg.node.getChildByName("ball_34");
         ball1.id = "Ball1";
         this.ballref.push(ball1.getPosition());
         cc.eventManager.addListener(cc.EventListener.create(  
@@ -26,7 +42,7 @@ xc.playLayer = cc.Layer.extend( {
          swallowTouches:true,  
          onTouchBegan: this.onTouchBegan,}) , ball1); 
 
-        var ball2 = bg.node.getChildByName("ball_35");
+        var ball2 = this.bg.node.getChildByName("ball_35");
         ball2.id = "Ball2";
         this.ballref.push(ball2.getPosition());
         cc.eventManager.addListener(cc.EventListener.create(  
@@ -34,7 +50,7 @@ xc.playLayer = cc.Layer.extend( {
          swallowTouches:true,  
          onTouchBegan: this.onTouchBegan,}) , ball2); 
 
-        var ball3 = bg.node.getChildByName("ball_36");
+        var ball3 = this.bg.node.getChildByName("ball_36");
         ball3.id = "Ball3";
         this.ballref.push(ball3.getPosition());
         cc.eventManager.addListener(cc.EventListener.create(  
@@ -42,7 +58,7 @@ xc.playLayer = cc.Layer.extend( {
          swallowTouches:true,  
          onTouchBegan: this.onTouchBegan,}) , ball3); 
 
-        var ball4 = bg.node.getChildByName("ball_37");
+        var ball4 = this.bg.node.getChildByName("ball_37");
         ball4.id = "Ball4";
         this.ballref.push(ball4.getPosition());
         cc.eventManager.addListener(cc.EventListener.create(  
@@ -50,7 +66,7 @@ xc.playLayer = cc.Layer.extend( {
          swallowTouches:true,  
          onTouchBegan: this.onTouchBegan,}) , ball4); 
 
-        var ball5 = bg.node.getChildByName("ball_38");
+        var ball5 = this.bg.node.getChildByName("ball_38");
         ball5.id = "Ball5";
         this.ballref.push(ball5.getPosition());
         cc.eventManager.addListener(cc.EventListener.create(  
@@ -58,7 +74,7 @@ xc.playLayer = cc.Layer.extend( {
          swallowTouches:true,  
          onTouchBegan: this.onTouchBegan,}) , ball5); 
 
-        var ball6 = bg.node.getChildByName("ball_44");
+        var ball6 = this.bg.node.getChildByName("ball_44");
         ball6.id = "Ball6";
         this.ballref.push(ball6.getPosition());
         cc.eventManager.addListener(cc.EventListener.create(  
@@ -66,12 +82,19 @@ xc.playLayer = cc.Layer.extend( {
          swallowTouches:true,  
          onTouchBegan: this.onTouchBegan,}) , ball6); 
 
-        var wrong = bg.node.getChildByName("cross_button_33");
+        var wrong = this.bg.node.getChildByName("cross_button_33");
         wrong.id="Wrong";
         cc.eventManager.addListener(cc.EventListener.create(  
         {event: cc.EventListener.TOUCH_ONE_BY_ONE,
          swallowTouches:true,  
          onTouchBegan: this.onTouchBegan,}) , wrong); 
+
+        var tick = this.bg.node.getChildByName("tick_button_31");
+        tick.id="Tick";
+        cc.eventManager.addListener(cc.EventListener.create(  
+        {event: cc.EventListener.TOUCH_ONE_BY_ONE,
+         swallowTouches:true,  
+         onTouchBegan: this.onTouchBegan,}) , tick); 
 
 
         var square1 =new cc.Sprite(cc.spriteFrameCache.getSpriteFrame("jump_on_words/box.png"));
@@ -89,12 +112,65 @@ xc.playLayer = cc.Layer.extend( {
         this.addChild(square3,1);
         this.square.push(square3.getPosition());
 
+      //  this.stepPosition =[{x:2000,y:900},{x:1200,y:600},{x:400,y:300},{x:1200,y:0},{x:2000,y:-300}];
+        var step_width = this.size.width /4;
+        
+    //    for(var i=0; i<5; i++)
+    //    {
+     //   var step =new cc.Sprite(cc.spriteFrameCache.getSpriteFrame("jump_on_words/step.png"));    
+     //   step.setPosition(cc.p(this.size.width - this.stepPosition[i].x,this.size.height-this.stepPosition[i].y));
+     //   this.stepRef.push(step);
+     //   step.setName("step");
+       // this.addChild(step,1);
+   //     }
+
+
+
+        this.stepRight =[900 ,1200 , 1500];
+
+        for(var i=1; i< 4; i++)
+        {
+        var step =new cc.Sprite(cc.spriteFrameCache.getSpriteFrame("jump_on_words/step.png"));    
+        step.setPosition(cc.p(step_width * i, this.stepRight[i-1]));
+        this.stepRef.push(step);
+        step.setName("step");
+        this.addChild(step,1);
+        }
+
+       this.stepLeft =[2100,1800];
+        for(var i=2; i>0 ; i--)
+        {
+        var step =new cc.Sprite(cc.spriteFrameCache.getSpriteFrame("jump_on_words/step.png"));    
+        step.setPosition(cc.p(step_width * (i), this.stepLeft[i-1]));
+        this.stepRef.push(step);
+        step.setName("step");
+        this.addChild(step,1);
+        }
+
+
+
         this.consonants = ['B','C','D','F','G','H','J','K','L','M','N','P','Q','R','S','T','V','W','X','Y','Z'];
         this.vowels = ['A','E','I','O','U'];
 
         this.createLevel();
+         this.scheduleUpdate();
         self=this;
     },
+
+     update: function(dt){
+         if(this.bg.node!= null){
+
+         var child = this.getChildByName("step");
+        if(cc.rectIntersectsRect(child.getBoundingBox() , this.bg.node.getChildByName("Panel_1").getChildByName("Panel_5").getBoundingBox()))
+         {
+             cc.log("done");
+             this.removeChild(child);
+        
+        }
+        
+
+         }
+     },
      createLevel : function(){
 
       group =  this.generateRandomLetters(6,this.array);
@@ -115,13 +191,73 @@ xc.playLayer = cc.Layer.extend( {
        var result = permutate.getPermutations(string,3);
        for( var i=0 ; i< result.length ; i++)
        {
-           if(dict3.indexOf(result[i].toLowerCase()) != -1)
+        //   if(dict3.indexOf(result[i].toLowerCase()) != -1)
            {
-                this.list.push(result[i]);
+        //        this.list.push(result[i]);
            }
        } 
        cc.log(this.list);   
      },
+     charMove : function()
+     {
+
+        var jump = new cc.jumpBy(1,cc.p(500,160),150,1);
+        this.char.node.runAction(jump);
+
+
+     },
+    charjump: function()
+    {
+         var jump = new cc.jumpBy(1.5,cc.p(this.size.width /4,300),400,1);
+        this.char.node.runAction(jump);
+    },
+
+      stepRightMove : function()
+    { var step_width = this.size.width /4;
+        var stepRight =[1800,2100];
+        for(var i=2; i<4 ; i++)
+        {
+        var step =new cc.Sprite(cc.spriteFrameCache.getSpriteFrame("jump_on_words/step.png"));    
+        step.setPosition(cc.p(step_width * (i),stepRight[i-2]));
+        this.stepRef.push(step);
+        step.setName("step");
+        this.addChild(step,1);
+        }
+
+
+    },
+
+       stepLefttMove : function()
+    { var step_width = this.size.width /4;
+        var stepLeft =[2100,1800];
+        for(var i=2; i>0 ; i--)
+        {
+        var step =new cc.Sprite(cc.spriteFrameCache.getSpriteFrame("jump_on_words/step.png"));    
+        step.setPosition(cc.p(step_width * (i),stepLeft[i-1]));
+        this.stepRef.push(step);
+        step.setName("step");
+        this.addChild(step,1);
+        }
+
+    }, 
+
+
+      stepMove : function()
+      {
+    for(var i=0; i<this.stepRef.length; i++)
+     {
+        var moveBy = new cc.MoveBy(1, cc.p(0,-600));
+        this.stepRef[i].runAction(moveBy);
+    //     if(cc.rectIntersectsRect(this.getChildByName("step").getBoundingBox() , this.bg.node.getChildByName("Panel_1").getChildByName("Panel_5").getBoundingBox()))
+    //  {
+    //     cc.log("done");
+        
+    //  }
+           
+     }
+     var moveBy = new cc.MoveBy(1, cc.p(0,-600));
+     this.char.node.runAction(moveBy);
+      },
 
       generateRandomLetters : function(count,array){
       var vow = ['A','E','I','O','U'];
@@ -213,14 +349,39 @@ xc.playLayer = cc.Layer.extend( {
                        }
                         if(target.id == "Wrong"){ 
                             cc.log("wrong");
-                       
-                        self.removeChild(self.word[(self.index) - 1]);
-                        self.index--;  
-                        if(self.word.length == 0){
-                            self.index = 0;   
-                           cc.eventManager.removeListener(target);
-                          }
+                       self.stepMove();
+                       self.wrongCount++;
+                       if(self.flag == true)
+                       {
+                         self.stepRightMove();
+                         self.flag = false;
                        }
+                      else
+                       {
+                           self.stepLefttMove();
+                           self.flag = true;
+                       }
+
+                        }
+                       if(target.id == "Tick"){ 
+                        self.correct++;
+                        
+                        if(self.correct >= 2)
+                        {
+                            self.charjump();
+                        }else {
+                                self.charMove();
+                        }
+                          cc.log("tick");
+
+                       }    
+                       // self.removeChild(self.word[(self.index) - 1]);
+                     //   self.index--;  
+                     //   if(self.word.length == 0){
+                      //      self.index = 0;   
+                      //     cc.eventManager.removeListener(target);
+                        //  }
+                       
                    }
 
 
@@ -232,6 +393,7 @@ xc.playLayer.res = {
      jump_main: "res/jump_on_words/jump_on_words_main_menu.json",
     jump_level: "res/jump_on_words/jump_on_words_level_menu.json",
     jump_game: "res/jump_on_words/jump_on_words_game_menu.json",
+    char:"res/jump_on_words/character.json",
     jump_plist: xc.path +"jump_on_words/jump_on_words.plist",
     jump_png: xc.path +"jump_on_words/jump_on_words.png"
 }
