@@ -1,6 +1,6 @@
-var chimple = chimple || {};
+var xc = xc || {};
 
-chimple.SpriteTouchHandler = function (context) {
+xc.SpriteTouchHandler = function (context) {
     this._context = context;
     this.event = cc.EventListener.TOUCH_ONE_BY_ONE;
     this.swallowTouches = true;
@@ -17,7 +17,7 @@ chimple.SpriteTouchHandler = function (context) {
             this._context.addNodeToRecording(this._context, touch, target);
             this._context.constructConfigPanel(target);
             this._context._animationNode = target;
-            chimple.ParseUtil.drawBoundingBox(target);
+            xc.ParseUtil.drawBoundingBox(target);
             this._offsetYInTouch = locationInParent.y - target.getPosition().y;
             this._offsetXInTouch = locationInParent.x - target.getPosition().x;
             this._previousTouchLocation = location;
@@ -27,7 +27,7 @@ chimple.SpriteTouchHandler = function (context) {
     };
 
     this.collisionDetectionWithSkeleton = function (target) {
-        if (chimple.customSprites.indexOf(target.getName()) != -1) {
+        if (xc.customSprites != undefined && xc.customSprites.indexOf(target.getName()) != -1) {
             this._context.children.forEach(function (element) {
                 if (element._name === 'FrontLayer' || element._name === 'BackLayer') {
                     element.children.forEach(function (child) {
@@ -54,14 +54,14 @@ chimple.SpriteTouchHandler = function (context) {
         var objectBoundingBox = target.getBoundingBoxToWorld();
         var boundingBox = new cc.rect(objectBoundingBox.x, objectBoundingBox.y, objectBoundingBox.width / 2, objectBoundingBox.height / 2);
         if (cc.rectIntersectsRect(boundingBox, skeletonBoundingBox)) {
-            chimple.ParseUtil.drawBoundingBox(skeleton, chimple.DARK_BOUNDING_BOX_TAG, chimple.DARK_SECONDARY_COLOR);
+            xc.ParseUtil.drawBoundingBox(skeleton, xc.DARK_BOUNDING_BOX_TAG, xc.DARK_SECONDARY_COLOR);
         } else {
-            chimple.ParseUtil.removeExistingBoundingBoxNodeByTag(chimple.DARK_BOUNDING_BOX_TAG, skeleton);
+            xc.ParseUtil.removeExistingBoundingBoxNodeByTag(xc.DARK_BOUNDING_BOX_TAG, skeleton);
         }
     }
 
     this.overlapDetectionWithSkeleton = function (target) {
-        if (chimple.customSprites.indexOf(target.getName()) != -1) {
+        if (xc.customSprites != undefined && xc.customSprites.indexOf(target.getName()) != -1) {
             this._context.children.forEach(function (element) {
                 if (element._name === 'FrontLayer' || element._name === 'BackLayer') {
                     element.children.forEach(function (child) {
@@ -89,7 +89,7 @@ chimple.SpriteTouchHandler = function (context) {
         var objectBoundingBox = target.getBoundingBoxToWorld();
         var boundingBox = new cc.rect(objectBoundingBox.x, objectBoundingBox.y, objectBoundingBox.width / 2, objectBoundingBox.height / 2);
         if (cc.rectIntersectsRect(boundingBox, skeletonBoundingBox)) {
-            var boneName = chimple.HAND_GEAR_LEFT;
+            var boneName = xc.HAND_GEAR_LEFT;
             var bone = child.getBoneNode(boneName);
             var shouldProcess = true;
             var contentPanelContext = this._context;
@@ -101,7 +101,7 @@ chimple.SpriteTouchHandler = function (context) {
                         var spriteToScene = new cc.Sprite(topSkin.getTexture());
                         spriteToScene.setName(topSkin.getName());
                         spriteToScene.setPosition(50, 50);
-                        var eventObj = new chimple.SpriteTouchHandler(contentPanelContext);
+                        var eventObj = new xc.SpriteTouchHandler(contentPanelContext);
                         var listener = cc.EventListener.create(eventObj);
                         cc.eventManager.addListener(listener, spriteToScene);
                         contentPanelContext._frontLayer.addChild(spriteToScene);
@@ -117,7 +117,7 @@ chimple.SpriteTouchHandler = function (context) {
                     var spriteToScene = new cc.Sprite(topSkin.getTexture());
                     spriteToScene.setPosition(50, 50);
                     spriteToScene.setName(topSkin.getName());
-                    var eventObj = new chimple.SpriteTouchHandler(this._context);
+                    var eventObj = new xc.SpriteTouchHandler(this._context);
                     var listener = cc.EventListener.create(eventObj);
                     cc.eventManager.addListener(listener, spriteToScene);
                     this._context._frontLayer.addChild(spriteToScene);
@@ -130,7 +130,7 @@ chimple.SpriteTouchHandler = function (context) {
             var visibleCustomSkin = child.getBoneNode("hand_gear_left").getVisibleSkins();
             if (child && child._userData) {
                 child._userData.userCustomObjectSkin = {
-                    bone: chimple.HAND_GEAR_LEFT,
+                    bone: xc.HAND_GEAR_LEFT,
                     skin: target.getName()
                 }
             }
@@ -160,9 +160,9 @@ chimple.SpriteTouchHandler = function (context) {
         if (target._markedForRemove) {
             var comExtensionData = target.getComponent("ComExtensionData");
             if (comExtensionData && comExtensionData.getActionTag()) {
-                chimple.ParseUtil.removeObjectFromStoredScene(comExtensionData.getActionTag());
+                xc.ParseUtil.removeObjectFromStoredScene(comExtensionData.getActionTag());
             } else if (target.ActionTag) {
-                chimple.ParseUtil.removeObjectFromStoredScene(target.ActionTag);
+                xc.ParseUtil.removeObjectFromStoredScene(target.ActionTag);
             }
             target.parent.removeChild(target, true);
         }

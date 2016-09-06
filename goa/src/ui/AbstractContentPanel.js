@@ -1,4 +1,4 @@
-var chimple = chimple || {};
+var xc = xc || {};
 
 var FrontLayer = cc.Layer.extend({
     ctor: function () {
@@ -18,7 +18,7 @@ var BackLayer = cc.Layer.extend({
 
 
 
-chimple.AbstractContentPanel = cc.LayerColor.extend({
+xc.AbstractContentPanel = cc.LayerColor.extend({
     ctor: function (width, height, position) {
         this._super(cc.color.WHITE, width, height);
         this._backLayer = new BackLayer();
@@ -47,7 +47,7 @@ chimple.AbstractContentPanel = cc.LayerColor.extend({
                     skinNodeArray.forEach(function (skinNode) {
                         skinNode.setPosition(0, 0);
                         skinNode.removeFromParent();
-                        var boneName = chimple.HAND_GEAR_LEFT;
+                        var boneName = xc.HAND_GEAR_LEFT;
                         var bone = skeleton.getBoneNode(boneName);
                         bone.addSkin(skinNode, true);
                         bone.displaySkin(bone.getSkins()[bone.getSkins().length - 1], true);
@@ -58,7 +58,7 @@ chimple.AbstractContentPanel = cc.LayerColor.extend({
                     skinNodeArray.forEach(function (skinNode) {
                         skinNode.setPosition(0, 0);
                         skinNode.removeFromParent();
-                        var boneName = chimple.HAND_GEAR_LEFT;
+                        var boneName = xc.HAND_GEAR_LEFT;
                         var bone = skeleton.getBoneNode(boneName);
                         bone.addSkin(skinNode, true);
                         bone.displaySkin(bone.getSkins()[bone.getSkins().length - 1], true);

@@ -1,6 +1,6 @@
-var chimple = chimple || {};
+var xc = xc || {};
 
-chimple.TextTouchHandler = function (context) {
+xc.TextTouchHandler = function (context) {
     this._context = context;
     this.event = cc.EventListener.TOUCH_ONE_BY_ONE;
     this.swallowTouches = true;

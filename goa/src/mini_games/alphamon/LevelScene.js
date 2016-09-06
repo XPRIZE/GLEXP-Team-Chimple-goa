@@ -151,5 +151,37 @@ xc.AlphamoleGameLevelScene.res = {
     Alphamole_scene3_json:"res/alphamole/alphamole5_foreground.json",
     Alphamole_scene3_json1:"res/alphamole/alphamole5_background.json",
 
+    Alphamole_scene0_json: "res/alphamole/alphamole2_background.json",
+    Alphamole_scene0_plist: xc.path + "alphamole/alphamole2.plist",
+    Alphamole_scene0_png: xc.path + "alphamole/alphamole2.png",
+
+
+    Alphamole_sound_A:"res/english/sounds/a.wav",
+    Alphamole_sound_B:"res/english/sounds/b.wav",
+    Alphamole_sound_C:"res/english/sounds/C.wav",
+    Alphamole_sound_D:"res/english/sounds/d.wav",
+    Alphamole_sound_E:"res/english/sounds/e.wav",
+    Alphamole_sound_F:"res/english/sounds/f.wav",
+    Alphamole_sound_G:"res/english/sounds/g.wav",
+    Alphamole_sound_H:"res/english/sounds/h.wav",
+    Alphamole_sound_I:"res/english/sounds/i.wav",
+    Alphamole_sound_J:"res/english/sounds/j.wav",
+    Alphamole_sound_K:"res/english/sounds/k.wav",
+    Alphamole_sound_L:"res/english/sounds/l.wav",
+    Alphamole_sound_M:"res/english/sounds/m.wav",
+    Alphamole_sound_N:"res/english/sounds/n.wav",
+    Alphamole_sound_O:"res/english/sounds/o.wav",
+    Alphamole_sound_P:"res/english/sounds/p.wav",
+    Alphamole_sound_Q:"res/english/sounds/q.wav",
+    Alphamole_sound_R:"res/english/sounds/r.wav",
+    Alphamole_sound_S:"res/english/sounds/s.wav",
+    Alphamole_sound_T:"res/english/sounds/t.wav",
+    Alphamole_sound_U:"res/english/sounds/u.wav",
+    Alphamole_sound_V:"res/english/sounds/v.wav",
+    Alphamole_sound_W:"res/english/sounds/w.wav",
+    Alphamole_sound_X:"res/english/sounds/x.wav",
+    Alphamole_sound_Y:"res/english/sounds/y.wav",
+    Alphamole_sound_Z:"res/english/sounds/z.wav",
+
 
 }

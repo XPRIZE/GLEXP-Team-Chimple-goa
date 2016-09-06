@@ -92,14 +92,17 @@ xc.BubbleGame_HomeScreenMenu = cc.Layer.extend({
          case ccui.Widget.TOUCH_ENDED:
          if(sender.getName() == "Button_9"){
              console.log("this is 2nd button");
+              xc.GameScene.load(xc.Bubble_NumbersMenu);
          }
-         if(sender.getName() == "Button_10"){
+         else if(sender.getName() == "Button_10"){
              console.log("this is 1st button");
+              xc.GameScene.load(xc.Bubble_AlphabetsMenu);
          }
-         if(sender.getName() == "Button_11"){
+         else if(sender.getName() == "Button_11"){
              console.log("this is 3rd button");
+              xc.GameScene.load(xc.Bubble_PuzzleMenu);
          }
-//          cc.director.runScene(new HelloWorldScene());
+
          break;
          
          case ccui.Widget.TOUCH_CANCELLED:

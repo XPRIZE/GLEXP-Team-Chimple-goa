@@ -1,0 +1,1 @@
+cc.game.run();

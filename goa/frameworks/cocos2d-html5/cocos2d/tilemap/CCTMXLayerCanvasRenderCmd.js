@@ -33,13 +33,15 @@
 
     proto.visit = function (parentCmd) {
         var node = this._node, renderer = cc.renderer;
+
+        parentCmd = parentCmd || this.getParentRenderCmd();
+        if (parentCmd) {
+            this._curLevel = parentCmd._curLevel + 1;
+        }
+
         // quick return if not visible
         if (!node._visible)
             return;
-
-        parentCmd = parentCmd || this.getParentRenderCmd();
-        if (parentCmd)
-            this._curLevel = parentCmd._curLevel + 1;
 
         if (isNaN(node._customZ)) {
             node._vertexZ = renderer.assignedZ;
@@ -49,7 +51,7 @@
         this._syncStatus(parentCmd);
 
         // Visit children
-        var children = node._children, child, cmd,
+        var children = node._children, child,
             spTiles = node._spriteTiles,
             i, len = children.length;
         if (len > 0) {
@@ -58,8 +60,7 @@
             for (i = 0; i < len; i++) {
                 child = children[i];
                 if (child._localZOrder < 0) {
-                    cmd = child._renderCmd;
-                    cmd.visit(this);
+                    child._renderCmd.visit(this);
                 }
                 else {
                     break;
@@ -74,7 +75,7 @@
                         child._vertexZ = renderer.assignedZ;
                         renderer.assignedZ += renderer.assignedZStep;
                     }
-                    child._renderCmd.updateStatus(this, true);
+                    child._renderCmd.updateStatus();
                     continue;
                 }
                 child._renderCmd.visit(this);
@@ -89,7 +90,7 @@
         var node = this._node, hasRotation = (node._rotationX || node._rotationY),
             layerOrientation = node.layerOrientation,
             tiles = node.tiles,
-            alpha = this._displayedOpacity / 255;
+            alpha = node._opacity / 255;
 
         if (!tiles || alpha <= 0) {
             return;
@@ -134,7 +135,7 @@
         var i, row, col, colOffset = startRow * cols, z, 
             gid, grid, tex, cmd,
             mask = cc.TMX_TILE_FLIPPED_MASK,
-            top, left, bottom, right, dw = tilew * scaleX, dh = tileh * scaleY,
+            top, left, bottom, right, dw = tilew, dh = tileh ,
             w = tilew * a, h = tileh * d, gt, gl, gb, gr,
             flippedX = false, flippedY = false;
 
@@ -232,7 +233,7 @@
 
                 context.drawImage(tex._htmlElementObj,
                     grid.x, grid.y, grid.width, grid.height,
-                    left*scaleX, top*scaleY, dw, dh);
+                    left, top, dw, dh);
                 // Revert flip
                 if (flippedX) {
                     context.scale(-1, 1);
