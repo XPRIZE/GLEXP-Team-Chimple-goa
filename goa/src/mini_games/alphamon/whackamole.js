@@ -15,6 +15,7 @@ var AlphamoneGameLayer = cc.Layer.extend( {
         alphabet_Reff = [];
         whack_score = 0;
         var size = cc.winSize;
+        cc.log("xc.path = %s",xc.path);
         background_layer = ccs.load(xc.AlphamoleGameLevelScene.res.Alphamole_scene3_json1, xc.path);
         this.addChild(background_layer.node);
         var alphabet_str = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"];
@@ -31,7 +32,7 @@ var AlphamoneGameLayer = cc.Layer.extend( {
         var myLayer = ccs.load(xc.AlphamoleGameLevelScene.res.Alphamole_scene3_json, xc.path);
         this.addChild(myLayer.node);
        
-       var level_alpha = ccs.load("res/english/"+level_str+".json", xc.path);
+       var level_alpha = ccs.load(xc.path +"english/"+level_str+".json", xc.path);
        level_alpha.node.x = size.width - 300;
        level_alpha.node.y = size.height - 300;
        level_alpha.node.setScale(0.5,0.5);
@@ -42,7 +43,7 @@ var AlphamoneGameLayer = cc.Layer.extend( {
        for ( var i = 0; i< level_children.length;i++){
            var str1 = level_children[i].getName();
            if (str1.indexOf("eye") == 0){
-               var action = ccs.load("res/SD/eye_ani/"+str1+".json", xc.path);
+               var action = ccs.load( xc.path+ "eye_ani/"+str1+".json", xc.path);
                level_children[i].runAction(action.action);
                action.action.play("blink",true);
            }
@@ -76,6 +77,12 @@ Play5_hole_back_165_1
 
    
         hole_array = ["hole1", "hole2", "hole3"];
+
+//var alphhha = new Alphamon_Monster();
+//this.addChild(alphhha);
+
+
+
     //  var alpha = ccs.load(alphamole_res.Alphamole_oo, "res/SD/");
     //  alpha.node.x = 900;
     //  alpha.node.y = 900;
@@ -105,7 +112,7 @@ Play5_hole_back_165_1
 
      var ref = alphamole_res.Alphamole_ + alphabet_Reff[random_alpha];
      var random_alpha =  Math.floor(Math.random()*100 % 5);
-     alphabet = ccs.load("res/english/"+alphabet_Reff[random_alpha]+".json", xc.path);
+     alphabet = ccs.load(xc.path + "english/"+alphabet_Reff[random_alpha]+".json", xc.path);
      alphabet.node.x = x;
      alphabet.node.y = y - 250;
      alphabet.node.setName(alphabet_Reff[random_alpha]);
@@ -117,7 +124,7 @@ var level_children = alphabet.node.getChildren();
        for ( var i = 0; i< level_children.length;i++){
            var str1 = level_children[i].getName();
            if (str1.indexOf("eye") == 0){
-               var action = ccs.load("res/SD/eye_ani/"+str1+".json",xc.path);
+               var action = ccs.load(xc.path+"eye_ani/"+str1+".json",xc.path);
                level_children[i].runAction(action.action);
                action.action.play("blink",true);
            }
@@ -147,7 +154,7 @@ var level_children = alphabet.node.getChildren();
                             whack_score += 1;
                             scoreLabel.setString("  Score: " + whack_score);
                          }
-                         var sound = cc.audioEngine.playEffect("res/english/sounds/"+target.getName().toLowerCase()+".wav", false);
+                    //     var sound = cc.audioEngine.playEffect(xc.path + "english/sounds/"+target.getName().toLowerCase()+".wav", false);
                       //     sound
                      cc.log("clicked on %s",target.getName());   
                              }
