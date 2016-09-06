@@ -23,6 +23,7 @@
 #include "mini_games/Chain.h"
 #include "mini_games/Wembley.h"
 #include "mini_games/CatGameScene.h"
+#include "scripting/js-bindings/manual/ScriptingCore.h"
 
 
 USING_NS_CC;
@@ -51,6 +52,7 @@ const std::vector<std::string> StartMenu::getGameNames() {
     gameNames.push_back(ENDLESS_RUNNER);
     gameNames.push_back(KUNG_FU_ALPHA);
     gameNames.push_back(ALPHAMON_FEED);
+    gameNames.push_back(TRAIN);
     return gameNames;
 
 }
@@ -96,7 +98,9 @@ void StartMenu::startScene(std::string gameName, std::string firstParam, std::st
         Director::getInstance()->replaceScene(Chain::createScene());
     }else if (gameName == CAT) {
 		Director::getInstance()->replaceScene(CatGame::createScene());
-	}
+    } else if (gameName == TRAIN) {
+        ScriptingCore::getInstance()->runScript("start/train.js");
+    }
     else {
         CCLOG("Failed starting scene: %s", gameName.c_str());
     }

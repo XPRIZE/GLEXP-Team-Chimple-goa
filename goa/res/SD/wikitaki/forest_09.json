@@ -1,0 +1,758 @@
+{
+  "ID": "948238c9-a0b6-4005-9e92-1aa779ba3877",
+  "Version": "3.10.0.0",
+  "Name": "forest_09",
+  "Content": {
+    "Content": {
+      "Animation": {
+        "Duration": 0,
+        "Speed": 1.0,
+        "Timelines": [],
+        "ctype": "TimelineActionData"
+      },
+      "AnimationList": [],
+      "ObjectData": {
+        "Tag": 199,
+        "Children": [
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "bg/sky_night_01.png",
+              "Plist": ""
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 893.115,
+              "Y": 1095.2068
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.4962,
+              "Y": 0.6084
+            },
+            "PreSize": {
+              "X": 0.935,
+              "Y": 0.6589
+            },
+            "LeftMargin": 51.615,
+            "RightMargin": 65.385,
+            "TopMargin": 111.7932,
+            "BottomMargin": 502.2068,
+            "Tag": 200,
+            "ActionTag": -40553870,
+            "Size": {
+              "X": 1683.0,
+              "Y": 1186.0
+            },
+            "Name": "sky_night_01",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "bg/ground_night_02.png",
+              "Plist": ""
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 886.595,
+              "Y": 456.3361
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.4926,
+              "Y": 0.2535
+            },
+            "PreSize": {
+              "X": 0.9256,
+              "Y": 0.3611
+            },
+            "LeftMargin": 53.595,
+            "RightMargin": 80.405,
+            "TopMargin": 1018.6639,
+            "BottomMargin": 131.3361,
+            "Tag": 201,
+            "ActionTag": -1450699927,
+            "Size": {
+              "X": 1666.0,
+              "Y": 650.0
+            },
+            "Name": "ground_night_02",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "ob/tree/bush_night_07.png",
+              "Plist": ""
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1276.2253,
+              "Y": 713.7947
+            },
+            "Scale": {
+              "ScaleX": 0.3733,
+              "ScaleY": 0.3733
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.709,
+              "Y": 0.3966
+            },
+            "PreSize": {
+              "X": 0.1111,
+              "Y": 0.2606
+            },
+            "LeftMargin": 1176.2253,
+            "RightMargin": 423.7747,
+            "TopMargin": 851.7053,
+            "BottomMargin": 479.2947,
+            "Tag": 221,
+            "ActionTag": -1583875724,
+            "Size": {
+              "X": 200.0,
+              "Y": 469.0
+            },
+            "Name": "bush_night_07",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "ob/tree/tree_night_02.png",
+              "Plist": ""
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1457.1238,
+              "Y": 792.8192
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.8095,
+              "Y": 0.4405
+            },
+            "PreSize": {
+              "X": 0.2894,
+              "Y": 0.4022
+            },
+            "LeftMargin": 1196.6238,
+            "RightMargin": 82.3762,
+            "TopMargin": 645.1809,
+            "BottomMargin": 430.8192,
+            "Tag": 203,
+            "ActionTag": 364353201,
+            "Size": {
+              "X": 521.0,
+              "Y": 724.0
+            },
+            "Name": "tree_night_02",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "ob/tree/tree_night_01.png",
+              "Plist": ""
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 423.7386,
+              "Y": 840.9624
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.2354,
+              "Y": 0.4672
+            },
+            "PreSize": {
+              "X": 0.2861,
+              "Y": 0.3756
+            },
+            "LeftMargin": 166.2386,
+            "RightMargin": 1118.7614,
+            "TopMargin": 621.0376,
+            "BottomMargin": 502.9624,
+            "Tag": 202,
+            "ActionTag": -414734064,
+            "Size": {
+              "X": 515.0,
+              "Y": 676.0
+            },
+            "Name": "tree_night_01",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "ob/tree/tree_night_01.png",
+              "Plist": ""
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 883.554,
+              "Y": 961.344
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.4909,
+              "Y": 0.5341
+            },
+            "PreSize": {
+              "X": 0.2861,
+              "Y": 0.3756
+            },
+            "LeftMargin": 626.054,
+            "RightMargin": 658.946,
+            "TopMargin": 500.656,
+            "BottomMargin": 623.344,
+            "Tag": 204,
+            "ActionTag": -672169928,
+            "Size": {
+              "X": 515.0,
+              "Y": 676.0
+            },
+            "Name": "tree_night_01",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "ob/tree/bush_night_07.png",
+              "Plist": ""
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 188.0498,
+              "Y": 466.7528
+            },
+            "Scale": {
+              "ScaleX": 0.3733,
+              "ScaleY": 0.3733
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.1045,
+              "Y": 0.2593
+            },
+            "PreSize": {
+              "X": 0.1111,
+              "Y": 0.2606
+            },
+            "LeftMargin": 88.0498,
+            "RightMargin": 1511.9502,
+            "TopMargin": 1098.7472,
+            "BottomMargin": 232.2528,
+            "Tag": 205,
+            "ActionTag": -581873109,
+            "Size": {
+              "X": 200.0,
+              "Y": 469.0
+            },
+            "Name": "bush_night_07",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "ob/tree/bush_night_06.png",
+              "Plist": ""
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 651.3199,
+              "Y": 404.4572
+            },
+            "Scale": {
+              "ScaleX": 0.5848,
+              "ScaleY": 0.5848
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.3618,
+              "Y": 0.2247
+            },
+            "PreSize": {
+              "X": 0.1167,
+              "Y": 0.1056
+            },
+            "LeftMargin": 546.3199,
+            "RightMargin": 1043.6801,
+            "TopMargin": 1300.5427,
+            "BottomMargin": 309.4572,
+            "Tag": 206,
+            "ActionTag": 224104623,
+            "Size": {
+              "X": 210.0,
+              "Y": 190.0
+            },
+            "Name": "bush_night_06",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "ob/tree/bush_night_02.png",
+              "Plist": ""
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1139.0829,
+              "Y": 690.5765
+            },
+            "Scale": {
+              "ScaleX": 0.4513,
+              "ScaleY": 0.4513
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.6328,
+              "Y": 0.3837
+            },
+            "PreSize": {
+              "X": 0.1656,
+              "Y": 0.22
+            },
+            "LeftMargin": 990.0829,
+            "RightMargin": 511.9171,
+            "TopMargin": 911.4235,
+            "BottomMargin": 492.5765,
+            "Tag": 210,
+            "ActionTag": 1745525411,
+            "Size": {
+              "X": 298.0,
+              "Y": 396.0
+            },
+            "Name": "bush_night_02",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "ob/tree/bush_night_02.png",
+              "Plist": ""
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 650.4138,
+              "Y": 661.4991
+            },
+            "Scale": {
+              "ScaleX": 0.4513,
+              "ScaleY": 0.4513
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.3613,
+              "Y": 0.3675
+            },
+            "PreSize": {
+              "X": 0.1656,
+              "Y": 0.22
+            },
+            "LeftMargin": 501.4138,
+            "RightMargin": 1000.5862,
+            "TopMargin": 940.5009,
+            "BottomMargin": 463.4991,
+            "Tag": 211,
+            "ActionTag": -17814940,
+            "Size": {
+              "X": 298.0,
+              "Y": 396.0
+            },
+            "Name": "bush_night_02",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "ob/tree/bush_night_02.png",
+              "Plist": ""
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 882.0329,
+              "Y": 601.549
+            },
+            "Scale": {
+              "ScaleX": 0.4513,
+              "ScaleY": 0.4513
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.49,
+              "Y": 0.3342
+            },
+            "PreSize": {
+              "X": 0.1656,
+              "Y": 0.22
+            },
+            "LeftMargin": 733.0329,
+            "RightMargin": 768.967,
+            "TopMargin": 1000.451,
+            "BottomMargin": 403.549,
+            "Tag": 212,
+            "ActionTag": 14268414,
+            "Size": {
+              "X": 298.0,
+              "Y": 396.0
+            },
+            "Name": "bush_night_02",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "ob/tree/bush_night_06.png",
+              "Plist": ""
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1296.2316,
+              "Y": 525.2546
+            },
+            "Scale": {
+              "ScaleX": 0.5848,
+              "ScaleY": 0.5848
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.7201,
+              "Y": 0.2918
+            },
+            "PreSize": {
+              "X": 0.1167,
+              "Y": 0.1056
+            },
+            "LeftMargin": 1191.2316,
+            "RightMargin": 398.7684,
+            "TopMargin": 1179.7454,
+            "BottomMargin": 430.2546,
+            "Tag": 215,
+            "ActionTag": 694649904,
+            "Size": {
+              "X": 210.0,
+              "Y": 190.0
+            },
+            "Name": "bush_night_06",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "ob/tree/bush_night_07.png",
+              "Plist": ""
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 565.9186,
+              "Y": 519.426
+            },
+            "Scale": {
+              "ScaleX": 0.3733,
+              "ScaleY": 0.3733
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.3144,
+              "Y": 0.2886
+            },
+            "PreSize": {
+              "X": 0.1111,
+              "Y": 0.2606
+            },
+            "LeftMargin": 465.9186,
+            "RightMargin": 1134.0814,
+            "TopMargin": 1046.074,
+            "BottomMargin": 284.926,
+            "Tag": 217,
+            "ActionTag": 2138568446,
+            "Size": {
+              "X": 200.0,
+              "Y": 469.0
+            },
+            "Name": "bush_night_07",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "ob/tree/bush_night_07.png",
+              "Plist": ""
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 999.1858,
+              "Y": 385.9028
+            },
+            "Scale": {
+              "ScaleX": 0.3733,
+              "ScaleY": 0.3733
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.5551,
+              "Y": 0.2144
+            },
+            "PreSize": {
+              "X": 0.1111,
+              "Y": 0.2606
+            },
+            "LeftMargin": 899.1858,
+            "RightMargin": 700.8142,
+            "TopMargin": 1179.5972,
+            "BottomMargin": 151.4028,
+            "Tag": 218,
+            "ActionTag": 1831007080,
+            "Size": {
+              "X": 200.0,
+              "Y": 469.0
+            },
+            "Name": "bush_night_07",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "ob/tree/bush_night_07.png",
+              "Plist": ""
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1478.7764,
+              "Y": 380.4522
+            },
+            "Scale": {
+              "ScaleX": 0.3733,
+              "ScaleY": 0.3733
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.8215,
+              "Y": 0.2114
+            },
+            "PreSize": {
+              "X": 0.1111,
+              "Y": 0.2606
+            },
+            "LeftMargin": 1378.7764,
+            "RightMargin": 221.2236,
+            "TopMargin": 1185.0479,
+            "BottomMargin": 145.9522,
+            "Tag": 219,
+            "ActionTag": -8708355,
+            "Size": {
+              "X": 200.0,
+              "Y": 469.0
+            },
+            "Name": "bush_night_07",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "ob/tree/bush_night_07.png",
+              "Plist": ""
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1285.3038,
+              "Y": 345.0271
+            },
+            "Scale": {
+              "ScaleX": 0.3733,
+              "ScaleY": 0.3733
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.7141,
+              "Y": 0.1917
+            },
+            "PreSize": {
+              "X": 0.1111,
+              "Y": 0.2606
+            },
+            "LeftMargin": 1185.3038,
+            "RightMargin": 414.6962,
+            "TopMargin": 1220.4729,
+            "BottomMargin": 110.5271,
+            "Tag": 220,
+            "ActionTag": 194795032,
+            "Size": {
+              "X": 200.0,
+              "Y": 469.0
+            },
+            "Name": "bush_night_07",
+            "ctype": "SpriteObjectData"
+          }
+        ],
+        "Size": {
+          "X": 1800.0,
+          "Y": 1800.0
+        },
+        "Name": "Scene",
+        "ctype": "SingleNodeObjectData"
+      },
+      "UsedResources": [
+        "bg/ground_night_02.png",
+        "bg/sky_night_01.png",
+        "ob/tree/bush_night_02.png",
+        "ob/tree/bush_night_06.png",
+        "ob/tree/bush_night_07.png",
+        "ob/tree/tree_night_01.png",
+        "ob/tree/tree_night_02.png"
+      ],
+      "ctype": "GameFileData"
+    }
+  },
+  "Type": "Scene"
+}

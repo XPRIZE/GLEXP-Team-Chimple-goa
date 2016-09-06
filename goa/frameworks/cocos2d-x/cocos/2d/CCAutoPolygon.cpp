@@ -253,7 +253,6 @@ std::vector<cocos2d::Vec2> AutoPolygon::marchSquare(const Rect& rect, const Vec2
     int curx = startx;
     int cury = starty;
     unsigned int count = 0;
-    unsigned int totalPixel = _width*_height;
     bool problem = false;
     std::vector<int> case9s;
     std::vector<int> case6s;
@@ -408,7 +407,11 @@ std::vector<cocos2d::Vec2> AutoPolygon::marchSquare(const Rect& rect, const Vec2
         prevx = stepx;
         prevy = stepy;
         problem = false;
+
+#if defined(COCOS2D_DEBUG) && (COCOS2D_DEBUG > 0)
+        const auto totalPixel = _width * _height;
         CCASSERT(count <= totalPixel, "oh no, marching square cannot find starting position");
+#endif
     } while(curx != startx || cury != starty);
     return _points;
 }
@@ -491,7 +494,7 @@ std::vector<Vec2> AutoPolygon::reduce(const std::vector<Vec2>& points, const Rec
     std::vector<Vec2> result = rdp(points, ep);
     
     auto last = result.back();
-    if(last.y > result.front().y && last.getDistance(result.front()) < ep*0.5)
+    if (last.y > result.front().y && last.getDistance(result.front()) < ep * 0.5f)
     {
         result.front().y = last.y;
         result.pop_back();

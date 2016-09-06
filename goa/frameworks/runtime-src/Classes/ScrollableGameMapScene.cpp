@@ -6,6 +6,8 @@
 //
 //
 
+#include "scripting/js-bindings/manual/ScriptingCore.h"
+
 #include "ScrollableGameMapScene.hpp"
 #include "alphamon/SelectAlphamonScene.h"
 #include "puzzle/DuelScene.h"
@@ -155,7 +157,8 @@ void ScrollableGameMapScene::gameSelected(Ref* pSender, ui::Widget::TouchEventTy
         {
             clickedButton->setEnabled(false);
             if(clickedButton->getName() == PATCH_THE_WALL) {
-                Director::getInstance()->replaceScene(PatchTheWall::createScene());
+//                Director::getInstance()->replaceScene(PatchTheWall::createScene());
+                ScriptingCore::getInstance()->runScript("src/start/train.js");
             } else if(clickedButton->getName() == CROSS_THE_BRIDGE) {
                Director::getInstance()->replaceScene(CrossTheBridge::createScene());
 				//Director::getInstance()->replaceScene(Pop::createScene());

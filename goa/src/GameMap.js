@@ -4,7 +4,7 @@ var xc = xc || {};
 xc.GameMap = cc.Scene.extend({
     onEnter:function () {
         this._super();
-        var map = new chimple.ScrollableButtonPanel(cc.p(0, 0), cc.director.getWinSize(), 4, 4, cc.loader.cache[xc.GameMap.res.config_json], this.loadGame, this);
+        var map = new xc.ScrollableButtonPanel(cc.p(0, 0), cc.director.getWinSize(), 4, 4, cc.loader.cache[xc.GameMap.res.config_json], this.loadGame, this);
         this.addChild(map);
     },
     loadGame: function(sender) {
@@ -13,6 +13,8 @@ xc.GameMap = cc.Scene.extend({
         }
         else if(sender._configuration.name == 'jazz') {
             xc.GameScene.load(xc.GameLayer);
+        } else if(sender._configuration.name == 'story-teller') {
+            xc.StoryScene.load(xc.StoryLayer);
         }
         else if(sender._configuration.name == 'train') {
             xc.GameScene.load(xc.TrainLayer);

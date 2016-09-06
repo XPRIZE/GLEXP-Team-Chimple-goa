@@ -47,8 +47,11 @@
         this._needDraw = true;
 
         this._realAnchorPointInPoints = new cc.Point(0,0);
+        this._canUseDirtyRegion = true;
         this._startRenderCmd = new cc.CustomRenderCmd(this, this._startCmdCallback);
         this._RestoreRenderCmd = new cc.CustomRenderCmd(this, this._RestoreCmdCallback);
+        this._startRenderCmd._canUseDirtyRegion = true;
+        this._RestoreRenderCmd._canUseDirtyRegion = true;
     };
 
     var proto = ccs.Armature.CanvasRenderCmd.prototype = Object.create(cc.Node.CanvasRenderCmd.prototype);
@@ -72,21 +75,38 @@
         var locChildren = this._node._children;
         for (var i = 0, len = locChildren.length; i< len; i++) {
             var selBone = locChildren[i];
+            var boneCmd = selBone._renderCmd;
             if (selBone && selBone.getDisplayRenderNode) {
+                var boneType = selBone.getDisplayRenderNodeType();
                 var selNode = selBone.getDisplayRenderNode();
                 if (selNode && selNode._renderCmd){
                     var cmd = selNode._renderCmd;
                     cmd.transform(null);   //must be null, use transform in armature mode
+                    if (boneType !== ccs.DISPLAY_TYPE_ARMATURE && boneType !== ccs.DISPLAY_TYPE_SPRITE) {
+                        cc.affineTransformConcatIn(cmd._worldTransform, selBone._worldTransform);
+                    }
 
                     //update displayNode's color and opacity, because skin didn't call visit()
+                    var flags = cc.Node._dirtyFlags, locFlag = cmd._dirtyFlag, boneFlag = boneCmd._dirtyFlag;
+                    var colorDirty = boneFlag & flags.colorDirty,
+                        opacityDirty = boneFlag & flags.opacityDirty;
+                    if (colorDirty)
+                        boneCmd._updateDisplayColor();
+                    if (opacityDirty)
+                        boneCmd._updateDisplayOpacity();
+                    if (colorDirty || opacityDirty)
+                        boneCmd._updateColor();
+
                     var parentColor = selBone._renderCmd._displayedColor, parentOpacity = selBone._renderCmd._displayedOpacity;
-                    var flags = cc.Node._dirtyFlags, locFlag = cmd._dirtyFlag;
-                    var colorDirty = locFlag & flags.colorDirty,
-                        opacityDirty = locFlag & flags.opacityDirty;
-                    if(colorDirty)
+                    colorDirty = locFlag & flags.colorDirty;
+                    opacityDirty = locFlag & flags.opacityDirty;
+                    if (colorDirty)
                         cmd._updateDisplayColor(parentColor);
-                    if(opacityDirty)
+                    if (opacityDirty)
                         cmd._updateDisplayOpacity(parentOpacity);
+                    if (colorDirty || opacityDirty) {
+                        cmd._updateColor();
+                    }
                 }
             }
         }
@@ -117,27 +137,28 @@
                 if (null === selNode)
                     continue;
 
+                var boneCmd = selBone._renderCmd;
+                boneCmd._syncStatus(this);
                 switch (selBone.getDisplayRenderNodeType()) {
                     case ccs.DISPLAY_TYPE_SPRITE:
-                        if(selNode instanceof ccs.Skin)
-                            this.updateChildPosition(selNode, selBone, alphaPremultiplied, alphaNonPremultipled);
+                        selNode._renderCmd.visit(boneCmd);
                         break;
                     case ccs.DISPLAY_TYPE_ARMATURE:
                         selNode._renderCmd.rendering(ctx, scaleX, scaleY);
                         break;
                     default:
-                        selNode.visit(this);
+                        selNode._renderCmd.visit(boneCmd);
                         break;
                 }
             } else if(selBone instanceof cc.Node) {
                 this._visitNormalChild(selBone);
-                //selBone.visit(this);
+                // selBone.visit(this);
             }
         }
     };
 
     proto._visitNormalChild = function(childNode){
-        if(childNode == null)
+        if (!childNode)
             return;
 
         var cmd = childNode._renderCmd;
@@ -178,7 +199,7 @@
         if (!node._visible)
             return;
 
-        this.updateStatus(parentCmd);
+        this._syncStatus(parentCmd);
         node.sortAllChildren();
 
         cc.renderer.pushRenderCommand(this._startRenderCmd);

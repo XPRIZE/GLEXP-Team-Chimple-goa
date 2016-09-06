@@ -1,6 +1,6 @@
 /// <reference path="../../cocos2d-typescript-definitions/cocos2d/cocos2d-lib.d.ts" />
-var chimple = chimple || {};
-chimple.PLAY_KEY = "/res/chimplePlayStory.json";
+var xc = xc || {};
+xc.PLAY_KEY = "/res/xcPlayStory.json";
 
 var PlayRecordingLayer = cc.Layer.extend({
     _defaultPageIndex: 0,
@@ -22,14 +22,14 @@ var PlayRecordingLayer = cc.Layer.extend({
     init: function () {
         //construct UI
         //create scene with first page
-        this._contentPanel = new chimple.PlayContentPanel(this._contentPanelWidth, this._contentPanelWidth, cc.p(this._configPanelWidth, 0));
+        this._contentPanel = new xc.PlayContentPanel(this._contentPanelWidth, this._contentPanelWidth, cc.p(this._configPanelWidth, 0));
         this.addChild(this._contentPanel);
 
-        this._objectConfigPanel = new chimple.ObjectConfigPanel(this._configPanelWidth, this._configPanelHeight, cc.p(this._configPanelWidth + this._contentPanelWidth, 0), chimple.storyPlayConfigurationObject, this._contentPanel);
+        this._objectConfigPanel = new xc.ObjectConfigPanel(this._configPanelWidth, this._configPanelHeight, cc.p(this._configPanelWidth + this._contentPanelWidth, 0), xc.storyPlayConfigurationObject, this._contentPanel);
         this.addChild(this._objectConfigPanel);
         this._contentPanel._objectConfigPanel = this._objectConfigPanel;
 
-        this._pageConfigPanel = new chimple.BaseConfigPanel(this._configPanelWidth, this._configPanelHeight, cc.p(0, 0), chimple.storyPlayConfigurationObject.editDefault, this._contentPanel);
+        this._pageConfigPanel = new xc.BaseConfigPanel(this._configPanelWidth, this._configPanelHeight, cc.p(0, 0), xc.storyPlayConfigurationObject.editDefault, this._contentPanel);
         this.addChild(this._pageConfigPanel);
 
         this.playRecordedScene();
@@ -54,8 +54,8 @@ var PlayRecordingLayer = cc.Layer.extend({
     },
     
     createWebView: function() {
-        if (chimple.story.items[chimple.pageIndex].sceneText != null && chimple.story.items[chimple.pageIndex].sceneText !== "undefined") {
-            this.addChild(new chimple.TextReadPanel(cc.director.getWinSize().width, cc.director.getWinSize().height, cc.p(150, 150), chimple.story.items[chimple.pageIndex].sceneText, this.closeWebView, this));
+        if (xc.story.items[xc.pageIndex].sceneText != null && xc.story.items[xc.pageIndex].sceneText !== "undefined") {
+            this.addChild(new xc.TextReadPanel(cc.director.getWinSize().width, cc.director.getWinSize().height, cc.p(150, 150), xc.story.items[xc.pageIndex].sceneText, this.closeWebView, this));
         }        
     },
 

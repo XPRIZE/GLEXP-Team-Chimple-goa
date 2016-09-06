@@ -1,8 +1,8 @@
-var chimple = chimple || {};
+var xc = xc || {};
 
-chimple.CharacterUtil = chimple.CharacterUtil || {};
+xc.CharacterUtil = xc.CharacterUtil || {};
 
-chimple.CharacterUtil.displaySkins = function (character, skins) {
+xc.CharacterUtil.displaySkins = function (character, skins) {
     //load all skins                    
     var dynamicResources = [];
     var skinBones = [];
@@ -19,7 +19,7 @@ chimple.CharacterUtil.displaySkins = function (character, skins) {
             });
             //find all resources to be loaded
             if (!skinLoaded) {
-                var resourceName = defaultFolder + element.skin + ".json";
+                var resourceName = xc.path + "wikitaki/" + element.skin + ".json";
                 dynamicResources.push(resourceName);
                 skinBones.push({
                         boneName: element.bone,
@@ -42,8 +42,8 @@ chimple.CharacterUtil.displaySkins = function (character, skins) {
             if (!cc.sys.isNative) {
                 if (loadedRes && loadedRes.resourceName && loadedRes.resourceName.indexOf(".png") == -1) {
                     if (cc.loader.cache[loadedRes.resourceName]) {
-                        chimple.ParseUtil.changeSize(cc.loader.cache[loadedRes.resourceName], null, chimple.designScaleFactor);
-                        cc.loader.cache[loadedRes.resourceName].ChimpleCompressed = true;
+                        // xc.ParseUtil.changeSize(cc.loader.cache[loadedRes.resourceName], null, xc.designScaleFactor);
+                        // cc.loader.cache[loadedRes.resourceName].xcCompressed = true;
                     }
                 }
             }
@@ -70,11 +70,11 @@ chimple.CharacterUtil.displaySkins = function (character, skins) {
                 }
             }
         }, this);
-        chimple.ParseUtil.updateUserData(character._actionTag, 'visibleSkins', chimple.CharacterUtil.getVisibleSkins(character));
+        xc.ParseUtil.updateUserData(character._actionTag, 'visibleSkins', xc.CharacterUtil.getVisibleSkins(character));
     }, this);
 }
 
-chimple.CharacterUtil.getVisibleSkins = function (character) {
+xc.CharacterUtil.getVisibleSkins = function (character) {
     var visibleSkins = [];
     var subBonesMap = character.getAllSubBonesMap();
     for (var name in subBonesMap) {
@@ -85,8 +85,8 @@ chimple.CharacterUtil.getVisibleSkins = function (character) {
     return visibleSkins;
 }
 
-chimple.CharacterUtil.colorSkins = function (character, colorSkins) {
-    var existingColorSkins = chimple.ParseUtil.getUserData(character._actionTag, 'colorSkins');
+xc.CharacterUtil.colorSkins = function (character, colorSkins) {
+    var existingColorSkins = xc.ParseUtil.getUserData(character._actionTag, 'colorSkins');
     if (existingColorSkins == null) {
         existingColorSkins = [];
     }
@@ -120,11 +120,11 @@ chimple.CharacterUtil.colorSkins = function (character, colorSkins) {
                 existingColorSkins.push(colorSkins);
             }
         }
-        chimple.ParseUtil.updateUserData(character._actionTag, 'colorSkins', existingColorSkins);
+        xc.ParseUtil.updateUserData(character._actionTag, 'colorSkins', existingColorSkins);
     }
 }
 
-chimple.CharacterUtil.loadSkeletonConfig = function (skeleton, selectedConfiguration) {
+xc.CharacterUtil.loadSkeletonConfig = function (skeleton, selectedConfiguration) {
     var comExtensionData = skeleton.getComponent('ComExtensionData');
     if (comExtensionData) {
         skeleton._userData = comExtensionData.getCustomProperty();
@@ -137,14 +137,14 @@ chimple.CharacterUtil.loadSkeletonConfig = function (skeleton, selectedConfigura
     } else if (skeleton._userData && skeleton._userData.skeletonConfigJson) {
         skeletonConfigJson = skeleton._userData.skeletonConfigJson;
     } else {
-        skeletonConfigJson = 'res/characters/skeletonConfig/' + skeleton.getName() + '.json';
+        skeletonConfigJson = xc.path + 'wikitaki/characters/skeletonConfig/' + skeleton.getName() + '.json';
         skeleton._userData.skeletonConfigJson = skeletonConfigJson;
     }
     cc.loader.loadJson(skeletonConfigJson, function (error, data) {
         if (data != null) {
             skeleton._skeletonConfig = data;
             skeleton._currentAnimationName = data.animations[0].name;
-            chimple.ParseUtil.updateUserData(skeleton._actionTag, 'skeletonConfigJson', skeletonConfigJson);
+            xc.ParseUtil.updateUserData(skeleton._actionTag, 'skeletonConfigJson', skeletonConfigJson);
 
             if (data.baseSkin) {
                 for (var boneName in data.baseSkin) {
@@ -159,15 +159,15 @@ chimple.CharacterUtil.loadSkeletonConfig = function (skeleton, selectedConfigura
 
                 if (selectedConfiguration.colorSkins != null) {
                     selectedConfiguration.colorSkins.forEach(function (colorSkin) {
-                        chimple.CharacterUtil.colorSkins(skeleton, colorSkin);
+                        xc.CharacterUtil.colorSkins(skeleton, colorSkin);
 
                     })
                 }
-                chimple.CharacterUtil.applySkinNameMap(skeleton, selectedConfiguration);
+                xc.CharacterUtil.applySkinNameMap(skeleton, selectedConfiguration);
             } else {
                 if (skeleton._userData && skeleton._userData.colorSkins) {
                     skeleton._userData.colorSkins.forEach(function (colorSkin) {
-                        chimple.CharacterUtil.colorSkins(skeleton, colorSkin);
+                        xc.CharacterUtil.colorSkins(skeleton, colorSkin);
                     })
                 }
             }
@@ -175,7 +175,7 @@ chimple.CharacterUtil.loadSkeletonConfig = function (skeleton, selectedConfigura
     });
 }
 
-chimple.CharacterUtil.applySkinNameMap = function (skeleton, configuration) {
+xc.CharacterUtil.applySkinNameMap = function (skeleton, configuration) {
     //Dynamically load files required for this skeleton
     //load cricketer_shirt file
     var dynamicResources = [];
@@ -186,7 +186,7 @@ chimple.CharacterUtil.applySkinNameMap = function (skeleton, configuration) {
         var skinConfigMap = skeleton._skeletonConfig.skinNameMaps[configuration.skinNameMap];
         for (var property in skinConfigMap) {
             if (skinConfigMap.hasOwnProperty(property)) {
-                var resourceName = defaultFolder + skinConfigMap[property] + ".json";
+                var resourceName = xc.path + "wikitaki/" + skinConfigMap[property] + ".json";
                 dynamicResources.push(resourceName);
             }
         }
@@ -204,8 +204,8 @@ chimple.CharacterUtil.applySkinNameMap = function (skeleton, configuration) {
             dynamicResources.forEach(function (loadedResourceURL) {
                 if (loadedResourceURL && loadedResourceURL.indexOf(".png") == -1) {
                     if (cc.loader.cache[loadedResourceURL]) {
-                        chimple.ParseUtil.changeSize(cc.loader.cache[loadedResourceURL], null, chimple.designScaleFactor);
-                        cc.loader.cache[loadedResourceURL].ChimpleCompressed = true;
+                        // xc.ParseUtil.changeSize(cc.loader.cache[loadedResourceURL], null, xc.designScaleFactor);
+                        // cc.loader.cache[loadedResourceURL].xcCompressed = true;
                     }
                 }
             }, this);
@@ -213,7 +213,7 @@ chimple.CharacterUtil.applySkinNameMap = function (skeleton, configuration) {
 
         for (var property in skinConfigMap) {
             if (skinConfigMap.hasOwnProperty(property)) {
-                var resourceName = defaultFolder + skinConfigMap[property] + ".json";
+                var resourceName = xc.path + "wikitaki/" + skinConfigMap[property] + ".json";
                 var dynamicSkin = ccs.load(resourceName);
                 if (dynamicSkin.node) {
                     var bone = skeleton.getBoneNode(property);
@@ -251,28 +251,28 @@ chimple.CharacterUtil.applySkinNameMap = function (skeleton, configuration) {
         }
         var uniqueCharacterID = null;
         if (configuration.favoriteSkins && configuration.favoriteSkins.length > 0) {
-            chimple.CharacterUtil.displaySkins(skeleton, configuration.favoriteSkins);
+            xc.CharacterUtil.displaySkins(skeleton, configuration.favoriteSkins);
             uniqueCharacterID = configuration.uniqueCharacterID;
         } else {
-            uniqueCharacterID = "skeleton_%%_" + chimple.ParseUtil.generateUUID();
+            uniqueCharacterID = "skeleton_%%_" + xc.ParseUtil.generateUUID();
         }
 
         if (!skeleton.uniqueCharacterID) {
             skeleton.uniqueCharacterID = uniqueCharacterID;
-            chimple.ParseUtil.updateUserData(skeleton._actionTag, 'uniqueCharacterID', skeleton.uniqueCharacterID);
+            xc.ParseUtil.updateUserData(skeleton._actionTag, 'uniqueCharacterID', skeleton.uniqueCharacterID);
         }
 
-        chimple.ParseUtil.updateUserData(skeleton._actionTag, 'visibleSkins', chimple.CharacterUtil.getVisibleSkins(skeleton));
+        xc.ParseUtil.updateUserData(skeleton._actionTag, 'visibleSkins', xc.CharacterUtil.getVisibleSkins(skeleton));
 
 
         if (!configuration.favoriteSkins) {
-            chimple.CharacterUtil.addCharacterToFavorites(skeleton, configuration);
+            xc.CharacterUtil.addCharacterToFavorites(skeleton, configuration);
         }
     }, this);
 
 }
 
-chimple.CharacterUtil.addCharacterToFavorites = function (skeleton, configuration) {
+xc.CharacterUtil.addCharacterToFavorites = function (skeleton, configuration) {
     //check if configuration is already added into favorites
     var favoriteCharConfiguration = null;
     if (!configuration) {
@@ -299,33 +299,39 @@ chimple.CharacterUtil.addCharacterToFavorites = function (skeleton, configuratio
         }, this);
     }
 
-    chimple.customCharacters.items.push(favoriteCharConfiguration);
-    chimple.CharacterUtil.addToCharacterConfigs(chimple.customCharacters);
-    chimple.ParseUtil.cacheThumbnailForFavorites(skeleton);
+    xc.customCharacters.items.push(favoriteCharConfiguration);
+    xc.CharacterUtil.addToCharacterConfigs(xc.customCharacters);
+    xc.ParseUtil.cacheThumbnailForFavorites(skeleton);
 }
 
-chimple.CharacterUtil.addToCharacterConfigs = function (characterConfig) {
-    var characterCategories = chimple.storyConfigurationObject.addObjects[1].categories;
-    //add to chimple.customCharacters.items
+xc.CharacterUtil.addToCharacterConfigs = function (characterConfig) {
+    var characterCategories = xc.storyConfigurationObject.addObjects[1].categories;
+    //add to xc.customCharacters.items
 
-    if (characterCategories.length === chimple.initalCharacterCategories) {
-        characterCategories.splice(0, 0, chimple.customCharacters);
+    if (characterCategories.length === xc.initalCharacterCategories) {
+        characterCategories.splice(0, 0, xc.customCharacters);
     }
 }
 
-chimple.CharacterUtil.storeActionToTemporaryStore = function (node) {
+xc.CharacterUtil.storeActionToTemporaryStore = function (node) {
     node.children.forEach(function (element) {
-        if (element.getName().indexOf("Skeleton") != -1 || element.getName().indexOf("skeleton") != -1) {
-            var action = element._storedAction;
+        if(element.getName() == 'SKParent') {
+            var action = element.getChildren()[0]._storedAction;
             if (action) {
-                element.runAction(action);
+                element.getChildren()[0].runAction(action);
             }
         }
     })
 }
 
-chimple.CharacterUtil.restoreActionFromTemporaryStore = function (node) {
+xc.CharacterUtil.restoreActionFromTemporaryStore = function (node) {
     node.children.forEach(function (element) {
+        if(element.getName() == 'SKParent') {
+            var action = element.getChildren()[0].actionManager.getActionByTag(element.getChildren()[0].tag, element.getChildren()[0]);
+            if (action) {
+                element.getChildren()[0]._storedAction = action;
+            }
+        }
         if (element.getName().indexOf("Skeleton") != -1 || element.getName().indexOf("skeleton") != -1) {
             var action = element.actionManager.getActionByTag(element.tag, element);
             if (action) {

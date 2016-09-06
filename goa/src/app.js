@@ -1,13 +1,13 @@
 /// <reference path="cocos2d-typescript-definitions-master/cocos2d/cocos2d-lib.d.ts" />
-var chimple = chimple || {};
-chimple.LAYER_INIT = false;
-chimple.PRIMARY_COLOR = cc.color("#FF8E88");
-chimple.DARK_PRIMARY_COLOR = cc.color("#B2524D");
-chimple.SECONDARY_COLOR = cc.color("#5895CC");
-chimple.DARK_SECONDARY_COLOR = cc.color("#5687B2");
-chimple.TERTIARY_COLOR = cc.color("#F6FF88");
-chimple.DEFAULT_BOUNDING_BOX_TAG = 999;
-chimple.DARK_BOUNDING_BOX_TAG = 998;
+var xc = xc || {};
+xc.LAYER_INIT = false;
+xc.PRIMARY_COLOR = cc.color("#FF8E88");
+xc.DARK_PRIMARY_COLOR = cc.color("#B2524D");
+xc.SECONDARY_COLOR = cc.color("#5895CC");
+xc.DARK_SECONDARY_COLOR = cc.color("#5687B2");
+xc.TERTIARY_COLOR = cc.color("#F6FF88");
+xc.DEFAULT_BOUNDING_BOX_TAG = 999;
+xc.DARK_BOUNDING_BOX_TAG = 998;
 var HelloWorldLayer = cc.Layer.extend({
     _contentPanel: null,
     _pageConfigPanel: null,
@@ -29,9 +29,9 @@ var HelloWorldLayer = cc.Layer.extend({
     init: function () {
         //create new content panel for showing all stories
         //add button panel
-        this._buttonPanel = new chimple.ButtonPanel(new cc.p(0, 0), this.getContentSize(), 2, 6, chimple.storyConfigurationObject.editStory, new chimple.ButtonHandler(this.handleSelectItem, this));
+        this._buttonPanel = new xc.ButtonPanel(new cc.p(0, 0), this.getContentSize(), 2, 6, xc.storyConfigurationObject.editStory, new xc.ButtonHandler(this.handleSelectItem, this));
         this._buttonPanel.setBackGroundColorType(ccui.Layout.BG_COLOR_SOLID);
-        this._buttonPanel.setBackGroundColor(chimple.PRIMARY_COLOR);
+        this._buttonPanel.setBackGroundColor(xc.PRIMARY_COLOR);
 
         this.addChild(this._buttonPanel);
 
@@ -41,8 +41,8 @@ var HelloWorldLayer = cc.Layer.extend({
     createPages: function () {
         var displayPages = [];
 
-        if (chimple.story != null && chimple.story.items != null && chimple.story.items.length > 0) {
-            displayPages = chimple.story['items'];
+        if (xc.story != null && xc.story.items != null && xc.story.items.length > 0) {
+            displayPages = xc.story['items'];
         } else {
             this._help = new cc.Sprite('#icons/help_click_new_page.png');
             this._help.setPosition(cc.p(100, cc.director.getWinSize().height - this._tabHeight - 50));
@@ -50,17 +50,17 @@ var HelloWorldLayer = cc.Layer.extend({
             this.addChild(this._help, 1);
         }
 
-        this._panel = new chimple.ScrollableButtonPanel(cc.p(0, 0), cc.size(cc.director.getWinSize().width, cc.director.getWinSize().height - this._tabHeight), 4, 4, displayPages, this.loadOptions, this);
+        this._panel = new xc.ScrollableButtonPanel(cc.p(0, 0), cc.size(cc.director.getWinSize().width, cc.director.getWinSize().height - this._tabHeight), 4, 4, displayPages, this.loadOptions, this);
         this.addChild(this._panel);
     },
 
     createOrCopyPage: function () {
-        if (chimple.pageIndex == 0) {
-            chimple.isNewPage = true;
+        if (xc.pageIndex == 0) {
+            xc.isNewPage = true;
         } else {
-            chimple.isNewPage = false;
-            var copyScene = JSON.parse(JSON.stringify(chimple.story.items[chimple.pageIndex - 1]));
-            chimple.story.items[chimple.pageIndex] = copyScene;
+            xc.isNewPage = false;
+            var copyScene = JSON.parse(JSON.stringify(xc.story.items[xc.pageIndex - 1]));
+            xc.story.items[xc.pageIndex] = copyScene;
         }
         cc.director.runScene(new EditStoryScene());
     },
@@ -74,16 +74,16 @@ var HelloWorldLayer = cc.Layer.extend({
         }
 
         if (sender.getName() == 'icons/plus.png') {
-            chimple.pageIndex = chimple.story.items.length; //new story
+            xc.pageIndex = xc.story.items.length; //new story
             this.createOrCopyPage();
         } else {
             //find if there is element submit_recipe in HTML
             if (document.getElementById("fes_post_title") != undefined) {
-                chimple.story.storyTitleText = document.getElementById("fes_post_title").value;
+                xc.story.storyTitleText = document.getElementById("fes_post_title").value;
             }
             if (document.getElementById("submit_recipe") != undefined) {
                 document.getElementById("submit_recipe").click();
-                chimple.customSprite = [];
+                xc.customSprite = [];
             }
         }
     },
@@ -92,9 +92,9 @@ var HelloWorldLayer = cc.Layer.extend({
         if (this._optionPanel) {
             this._optionPanel.removeFromParent(true);
         }
-        this._optionPanel = new chimple.ScrollableButtonPanel(cc.p(sender.getPosition().x + sender.width / 2 - 75, sender.getPosition().y - 75), cc.size(150, 150), 2, 2, chimple.storyConfigurationObject.editPage, this.chooseEditPageOption, this, true);
+        this._optionPanel = new xc.ScrollableButtonPanel(cc.p(sender.getPosition().x + sender.width / 2 - 75, sender.getPosition().y - 75), cc.size(150, 150), 2, 2, xc.storyConfigurationObject.editPage, this.chooseEditPageOption, this, true);
         this._optionPanel.setOpacity(150);
-        this._optionPanel.setColor(chimple.TERTIARY_COLOR);
+        this._optionPanel.setColor(xc.TERTIARY_COLOR);
         this.addChild(this._optionPanel, 1);
         this._curSelectedPageIndex = sender._selectedIndex;
     },
@@ -115,15 +115,15 @@ var HelloWorldLayer = cc.Layer.extend({
             this.loadExistingPage(sender);
         } else if (sender.getName() == 'icons/back.png') {
             if (this._curSelectedPageIndex != 0) {
-                this.shufflePage(chimple.story.items, this._curSelectedPageIndex, this._curSelectedPageIndex - 1);
+                this.shufflePage(xc.story.items, this._curSelectedPageIndex, this._curSelectedPageIndex - 1);
                 this.reDrawPages();
                 var button = this._panel.getButtonByIndex(this._curSelectedPageIndex - 1);
                 this.loadOptions(button);
             }
 
         } else if (sender.getName() == 'icons/next_arrow.png') {
-            if (this._curSelectedPageIndex < chimple.story.items.length - 1) {
-                this.shufflePage(chimple.story.items, this._curSelectedPageIndex, this._curSelectedPageIndex + 1);
+            if (this._curSelectedPageIndex < xc.story.items.length - 1) {
+                this.shufflePage(xc.story.items, this._curSelectedPageIndex, this._curSelectedPageIndex + 1);
                 this.reDrawPages();
                 var button = this._panel.getButtonByIndex(this._curSelectedPageIndex + 1);
                 if(this._curSelectedPageIndex + 1 == (this._panel._numButtonsPerRow * this._panel._numButtonsPerColumn)) {
@@ -133,8 +133,8 @@ var HelloWorldLayer = cc.Layer.extend({
 
             }
         } else if (sender.getName() == 'icons/delete.png') {
-            if (chimple.story && chimple.story.items && chimple.story.items.length > this._curSelectedPageIndex) {
-                chimple.story.items.splice(this._curSelectedPageIndex, 1);
+            if (xc.story && xc.story.items && xc.story.items.length > this._curSelectedPageIndex) {
+                xc.story.items.splice(this._curSelectedPageIndex, 1);
                 if (this._panel) {
                     this._panel.removeFromParent(true);
                     this.createPages();
@@ -150,8 +150,8 @@ var HelloWorldLayer = cc.Layer.extend({
     },
 
     loadExistingPage: function (sender) {
-        chimple.pageIndex = this._curSelectedPageIndex; //index of selected button
-        chimple.isNewPage = false;
+        xc.pageIndex = this._curSelectedPageIndex; //index of selected button
+        xc.isNewPage = false;
         cc.director.runScene(new EditStoryScene());
     }
 });
@@ -160,8 +160,8 @@ var HelloWorldScene = cc.Scene.extend({
     ctor: function () {
         this._super();
         cc.log('hello');
-        if (chimple.LAYER_INIT === false) {
-            chimple.LAYER_INIT = true;
+        if (xc.LAYER_INIT === false) {
+            xc.LAYER_INIT = true;
 
             cc.log('initing layer...should only be once');
             //read storyId from document, if not null then load json and store in localStorage
@@ -174,7 +174,7 @@ var HelloWorldScene = cc.Scene.extend({
                 this.addChild(this._sceneLayer);
                 this._sceneLayer.init();
             }
-            chimple.MODIFIED_BIT = 1;
+            xc.MODIFIED_BIT = 1;
         }
     },
 
@@ -210,46 +210,46 @@ var HelloWorldScene = cc.Scene.extend({
     },
 
     createNewStory: function () {
-        if (chimple && chimple.MODIFIED_BIT != 1) {
-            chimple.story = {};
-            chimple.story.items = [];
-            chimple.story.RESOLUTION_HEIGHT = chimple.DEVICE_HEIGHT;
-            cc.log('chimple.story.scaleFactor:' + chimple.story.scaleFactor);
+        if (xc && xc.MODIFIED_BIT != 1) {
+            xc.story = {};
+            xc.story.items = [];
+            xc.story.RESOLUTION_HEIGHT = xc.DEVICE_HEIGHT;
+            cc.log('xc.story.scaleFactor:' + xc.story.scaleFactor);
         }
     },
 
     loadStory: function (storyIdToFetch) {
         var context = this;
-        if (chimple && chimple.MODIFIED_BIT != 1) {
+        if (xc && xc.MODIFIED_BIT != 1) {
             if (storyIdToFetch != null) {
                 var url = '/wp-content/uploads/' + storyIdToFetch + '.json';
                 cc.log('fetching json for storyId' + storyIdToFetch + ' url:' + url);
                 cc.loader.loadJson(url, function (error, data) {
-                    var storyData = chimple.ParseUtil.inflate(data);
+                    var storyData = xc.ParseUtil.inflate(data);
                     if (storyData != null && storyData.items != null && storyData.items.length > 0) {
-                        chimple.story = storyData;
-                        chimple.story.storyId = storyIdToFetch;
-                        chimple.storyTitle = chimple.story.storyTitleText;
-                        chimple.scaleFactor = chimple.story.RESOLUTION_HEIGHT / chimple.DEVICE_HEIGHT;
-                        chimple.story.RESOLUTION_HEIGHT = chimple.DEVICE_HEIGHT;
+                        xc.story = storyData;
+                        xc.story.storyId = storyIdToFetch;
+                        xc.storyTitle = xc.story.storyTitleText;
+                        xc.scaleFactor = xc.story.RESOLUTION_HEIGHT / xc.DEVICE_HEIGHT;
+                        xc.story.RESOLUTION_HEIGHT = xc.DEVICE_HEIGHT;
 
-                        chimple.ParseUtil.changeSize(cc.loader.cache[res.human_skeleton_json], null, chimple.designScaleFactor);
-                        cc.loader.cache[res.human_skeleton_json].ChimpleCompressed = true;
+                        // xc.ParseUtil.changeSize(cc.loader.cache[res.human_skeleton_json], null, xc.designScaleFactor);
+                        // cc.loader.cache[res.human_skeleton_json].xcCompressed = true;
 
-                        chimple.ParseUtil.changeSize(cc.loader.cache[res.animalskeleton_json], null, chimple.designScaleFactor);
-                        cc.loader.cache[res.animalskeleton_json].ChimpleCompressed = true;
+                        // xc.ParseUtil.changeSize(cc.loader.cache[res.animalskeleton_json], null, xc.designScaleFactor);
+                        // cc.loader.cache[res.animalskeleton_json].xcCompressed = true;
 
-                        chimple.ParseUtil.changeSize(cc.loader.cache[res.birdskeleton_json], null, chimple.designScaleFactor);
-                        cc.loader.cache[res.birdskeleton_json].ChimpleCompressed = true;
+                        // xc.ParseUtil.changeSize(cc.loader.cache[res.birdskeleton_json], null, xc.designScaleFactor);
+                        // cc.loader.cache[res.birdskeleton_json].xcCompressed = true;
 
 
 
-                        data.items.forEach(function (element) {
-                            if (element && element.scene) {
-                                chimple.ParseUtil.changeSize(element.scene, null, chimple.scaleFactor);
-                                element.scene.ChimpleCompressed = true;
-                            }
-                        }, this);
+                        // data.items.forEach(function (element) {
+                        //     if (element && element.scene) {
+                        //         xc.ParseUtil.changeSize(element.scene, null, xc.scaleFactor);
+                        //         element.scene.xcCompressed = true;
+                        //     }
+                        // }, this);
 
                         context._sceneLayer = new HelloWorldLayer();
                         context.addChild(context._sceneLayer);

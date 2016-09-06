@@ -1,0 +1,532 @@
+{
+  "ID": "0bdd2ef5-6db5-4218-a79c-5c6ceb624a00",
+  "Version": "3.10.0.0",
+  "Name": "Scene_3",
+  "Content": {
+    "Content": {
+      "Animation": {
+        "Duration": 0,
+        "Speed": 1.0,
+        "Timelines": [],
+        "ctype": "TimelineActionData"
+      },
+      "AnimationList": [],
+      "ObjectData": {
+        "Tag": 22,
+        "Children": [
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "bg/water_bg-03.png",
+              "Plist": ""
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 899.35,
+              "Y": 899.4
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.4996,
+              "Y": 0.4997
+            },
+            "PreSize": {
+              "X": 1.0,
+              "Y": 1.0
+            },
+            "LeftMargin": -0.65,
+            "RightMargin": 0.65,
+            "TopMargin": 0.6,
+            "BottomMargin": -0.6,
+            "Tag": 23,
+            "ActionTag": -1695719493,
+            "Size": {
+              "X": 1800.0,
+              "Y": 1800.0
+            },
+            "Name": "Sprite",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "ob/water/water_dolphin.png",
+              "Plist": ""
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 923.2508,
+              "Y": 562.0396
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.5129,
+              "Y": 0.3122
+            },
+            "PreSize": {
+              "X": 0.1422,
+              "Y": 0.1506
+            },
+            "LeftMargin": 795.2508,
+            "RightMargin": 748.7493,
+            "TopMargin": 1102.4604,
+            "BottomMargin": 426.5396,
+            "Tag": 24,
+            "ActionTag": 949716586,
+            "Size": {
+              "X": 256.0,
+              "Y": 271.0
+            },
+            "Name": "water_dolphin",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "ob/water/water_fish_01.png",
+              "Plist": ""
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 253.0034,
+              "Y": 271.1133
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.1406,
+              "Y": 0.1506
+            },
+            "PreSize": {
+              "X": 0.09,
+              "Y": 0.0667
+            },
+            "LeftMargin": 172.0034,
+            "RightMargin": 1465.9966,
+            "TopMargin": 1468.8867,
+            "BottomMargin": 211.1133,
+            "Tag": 25,
+            "ActionTag": 271994486,
+            "Size": {
+              "X": 162.0,
+              "Y": 120.0
+            },
+            "Name": "water_fish_01",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "ob/water/water_fish_01.png",
+              "Plist": ""
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 402.3612,
+              "Y": 236.6215
+            },
+            "Scale": {
+              "ScaleX": 0.56,
+              "ScaleY": 0.56
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.2235,
+              "Y": 0.1315
+            },
+            "PreSize": {
+              "X": 0.09,
+              "Y": 0.0667
+            },
+            "LeftMargin": 321.3612,
+            "RightMargin": 1316.6388,
+            "TopMargin": 1503.3785,
+            "BottomMargin": 176.6215,
+            "Tag": 26,
+            "ActionTag": -399848659,
+            "Size": {
+              "X": 162.0,
+              "Y": 120.0
+            },
+            "Name": "water_fish_01",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "ob/water/water_fish_02.png",
+              "Plist": ""
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 245.2115,
+              "Y": 164.7816
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.1362,
+              "Y": 0.0915
+            },
+            "PreSize": {
+              "X": 0.0494,
+              "Y": 0.0339
+            },
+            "LeftMargin": 200.7115,
+            "RightMargin": 1510.2886,
+            "TopMargin": 1604.7185,
+            "BottomMargin": 134.2816,
+            "Tag": 27,
+            "ActionTag": 1412652704,
+            "Size": {
+              "X": 89.0,
+              "Y": 61.0
+            },
+            "Name": "water_fish_02",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "ob/water/water_fish_01.png",
+              "Plist": ""
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1048.1335,
+              "Y": 216.0857
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.5823,
+              "Y": 0.12
+            },
+            "PreSize": {
+              "X": 0.09,
+              "Y": 0.0667
+            },
+            "LeftMargin": 967.1335,
+            "RightMargin": 670.8665,
+            "TopMargin": 1523.9143,
+            "BottomMargin": 156.0857,
+            "Tag": 28,
+            "ActionTag": -698130294,
+            "Size": {
+              "X": 162.0,
+              "Y": 120.0
+            },
+            "Name": "water_fish_01",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "ob/water/water_fish_02.png",
+              "Plist": ""
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1362.3829,
+              "Y": 293.3602
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.7569,
+              "Y": 0.163
+            },
+            "PreSize": {
+              "X": 0.0494,
+              "Y": 0.0339
+            },
+            "LeftMargin": 1317.8829,
+            "RightMargin": 393.1171,
+            "TopMargin": 1476.1399,
+            "BottomMargin": 262.8602,
+            "Tag": 29,
+            "ActionTag": 808102928,
+            "Size": {
+              "X": 89.0,
+              "Y": 61.0
+            },
+            "Name": "water_fish_02",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "ob/water/water_fish_03.png",
+              "Plist": ""
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1632.8669,
+              "Y": 219.7847
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.9071,
+              "Y": 0.1221
+            },
+            "PreSize": {
+              "X": 0.0461,
+              "Y": 0.0789
+            },
+            "LeftMargin": 1591.3669,
+            "RightMargin": 125.6331,
+            "TopMargin": 1509.2153,
+            "BottomMargin": 148.7847,
+            "Tag": 30,
+            "ActionTag": 1394132045,
+            "Size": {
+              "X": 83.0,
+              "Y": 142.0
+            },
+            "Name": "water_fish_03",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "ob/water/water_fish_03.png",
+              "Plist": ""
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1702.4988,
+              "Y": 176.0161
+            },
+            "Scale": {
+              "ScaleX": 0.58,
+              "ScaleY": 0.58
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.9458,
+              "Y": 0.0978
+            },
+            "PreSize": {
+              "X": 0.0461,
+              "Y": 0.0789
+            },
+            "LeftMargin": 1660.9988,
+            "RightMargin": 56.0012,
+            "TopMargin": 1552.9839,
+            "BottomMargin": 105.0161,
+            "Tag": 31,
+            "ActionTag": 2052883770,
+            "Size": {
+              "X": 83.0,
+              "Y": 142.0
+            },
+            "Name": "water_fish_03",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "ob/water/water_seahorse.png",
+              "Plist": ""
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1695.2327,
+              "Y": 408.9904
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.9418,
+              "Y": 0.2272
+            },
+            "PreSize": {
+              "X": 0.0456,
+              "Y": 0.1028
+            },
+            "LeftMargin": 1654.2327,
+            "RightMargin": 63.7673,
+            "TopMargin": 1298.5096,
+            "BottomMargin": 316.4904,
+            "Tag": 32,
+            "ActionTag": 901116212,
+            "Size": {
+              "X": 82.0,
+              "Y": 185.0
+            },
+            "Name": "water_seahorse",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "ob/water/water_seahorse.png",
+              "Plist": ""
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1260.2264,
+              "Y": 430.7105
+            },
+            "Scale": {
+              "ScaleX": 0.41,
+              "ScaleY": 0.41
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.7001,
+              "Y": 0.2393
+            },
+            "PreSize": {
+              "X": 0.0456,
+              "Y": 0.1028
+            },
+            "LeftMargin": 1219.2264,
+            "RightMargin": 498.7736,
+            "TopMargin": 1276.7896,
+            "BottomMargin": 338.2105,
+            "Tag": 33,
+            "ActionTag": 1570206070,
+            "Size": {
+              "X": 82.0,
+              "Y": 185.0
+            },
+            "Name": "water_seahorse",
+            "ctype": "SpriteObjectData"
+          }
+        ],
+        "Size": {
+          "X": 1800.0,
+          "Y": 1800.0
+        },
+        "Name": "Scene",
+        "ctype": "SingleNodeObjectData"
+      },
+      "UsedResources": [
+        "bg/water_bg-03.png",
+        "ob/water/water_dolphin.png",
+        "ob/water/water_fish_01.png",
+        "ob/water/water_fish_02.png",
+        "ob/water/water_fish_03.png",
+        "ob/water/water_seahorse.png"
+      ],
+      "ctype": "GameFileData"
+    }
+  },
+  "Type": "Scene"
+}

@@ -1,14 +1,16 @@
-chimple.PageConfigPanel = cc.LayerColor.extend({
+var xc = xc || {};
+
+xc.PageConfigPanel = cc.LayerColor.extend({
     ctor: function (width, height, position, configuration, contentPanel) {
-        this._super(chimple.PRIMARY_COLOR, width, height);
+        this._super(xc.PRIMARY_COLOR, width, height);
         this.setPosition(position);
         this._configuration = configuration;
         this._contentPanel = contentPanel;
 
-        this._buttonPanel = new chimple.ButtonPanel(new cc.p(0, 0), this.getContentSize(), 1, 6, configuration.addObjects, new chimple.ButtonHandler(this.buttonPressed, this));
+        this._buttonPanel = new xc.ButtonPanel(new cc.p(0, 0), this.getContentSize(), 1, 6, configuration.addObjects, new xc.ButtonHandler(this.buttonPressed, this));
         this._currentStep = "addObjects";
 
-        if (chimple.story.items[chimple.pageIndex].scene.Content == null) {
+        if (xc.story.items[xc.pageIndex].scene.Content == null) {
             this.disableOrEnableAllButtons(this._buttonPanel, false);
         } else {
             this.disableOrEnableAllButtons(this._buttonPanel, true);
@@ -26,7 +28,7 @@ chimple.PageConfigPanel = cc.LayerColor.extend({
             this._contentPanel.backPressed();
         } else if (selectedItem.getName() === "icons/bg.png") {
             var selectedConfig = this._configuration.addObjects[selectedItem._selectedIndex];
-            if (chimple.story.items[chimple.pageIndex].scene.Content == null) {
+            if (xc.story.items[xc.pageIndex].scene.Content == null) {
                 selectedConfig.categories.forEach(function (element, index) {
                     if (element.name == "backgrounds") {
                         this.constructTabBar([selectedConfig.categories[index]]);
@@ -44,7 +46,7 @@ chimple.PageConfigPanel = cc.LayerColor.extend({
                 this._contentPanel.backPressed();
             }
             this.removeChild(this._buttonPanel, true);
-            this._buttonPanel = new chimple.ButtonPanel(new cc.p(0, 0), this.getContentSize(), 1, 7, this._configuration[this._currentStep], new chimple.ButtonHandler(this.buttonPressed, this));
+            this._buttonPanel = new xc.ButtonPanel(new cc.p(0, 0), this.getContentSize(), 1, 7, this._configuration[this._currentStep], new xc.ButtonHandler(this.buttonPressed, this));
             this.addChild(this._buttonPanel);
             // this.disableOrEnableAllButtons(this._buttonPanel, true);
         } else {
@@ -99,7 +101,7 @@ chimple.PageConfigPanel = cc.LayerColor.extend({
     },
 
     constructTabBar: function (configuration) {
-        this._tabBar = new chimple.TabPanel(cc.p(0, 0), cc.director.getWinSize(), 5, 3, configuration, this.itemSelectedInConfiguration, this);
+        this._tabBar = new xc.TabPanel(cc.p(0, 0), cc.director.getWinSize(), 5, 3, configuration, this.itemSelectedInConfiguration, this);
         this.parent.addChild(this._tabBar, 1);
     },
 
@@ -143,8 +145,8 @@ chimple.PageConfigPanel = cc.LayerColor.extend({
                         cc.log(element);
                         
                 }
-                // chimple.ParseUtil.changeSize(cc.loader.cache[fileToLoad], null, chimple.designScaleFactor);
-                // cc.loader.cache[fileToLoad].ChimpleCompressed = true;
+                // xc.ParseUtil.changeSize(cc.loader.cache[fileToLoad], null, xc.designScaleFactor);
+                // cc.loader.cache[fileToLoad].xcCompressed = true;
 
                 doPostLoadingProcessFunction.call(context, args, shouldSaveScene);
             }, this);
@@ -154,8 +156,8 @@ chimple.PageConfigPanel = cc.LayerColor.extend({
             cc.LoaderScene.preload(dynamicResources, function () {
                 cc.director.popScene();
                 if (fileToLoad && fileToLoad.indexOf(".png") == -1) {
-                    chimple.ParseUtil.changeSize(cc.loader.cache[fileToLoad], null, chimple.designScaleFactor);
-                    cc.loader.cache[fileToLoad].ChimpleCompressed = true;
+                    // xc.ParseUtil.changeSize(cc.loader.cache[fileToLoad], null, xc.designScaleFactor);
+                    // cc.loader.cache[fileToLoad].xcCompressed = true;
                 }
                 doPostLoadingProcessFunction.call(context, args, shouldSaveScene);
             }, this);
@@ -173,11 +175,11 @@ chimple.PageConfigPanel = cc.LayerColor.extend({
 
     loadJsonFile: function (selectedItem) {
         var type = selectedItem._configurationType;
-        var fileToLoad = selectedItem._jsonFileToLoad;
+        var fileToLoad = xc.path + selectedItem._jsonFileToLoad;
         switch (type) {
             case "character":
                 // this._contentPanel.addCharacterToScene(selectedItem._configuration);
-                this.loadSkeletonConfig(selectedItem._configuration, selectedItem._configuration.json);
+                this.loadSkeletonConfig(selectedItem._configuration, fileToLoad);
                 break;
             case "scene":
                 this.createSceneFromFile(fileToLoad); //later move to ContentPanel
@@ -210,7 +212,7 @@ chimple.PageConfigPanel = cc.LayerColor.extend({
             this._buttonPanel.getButtonByName("icons/start_recording.png").loadTextures(buttonKey, "icons/start_recording.png", null, ccui.Widget.PLIST_TEXTURE);
         }
 
-        if (this._contentPanel._recordingCounter == chimple.RECORDING_TIME + 1) {
+        if (this._contentPanel._recordingCounter == xc.RECORDING_TIME + 1) {
             this._contentPanel.startRecording();
             this.unschedule(this.trackRecording);
             this.updateUIWhenForRecording();
@@ -235,7 +237,7 @@ chimple.PageConfigPanel = cc.LayerColor.extend({
 
         this._contentPanel.startRecording(); //toggle Recording
         if (this._contentPanel._isRecordingStarted) {
-            this.schedule(this.trackRecording, 1, chimple.RECORDING_TIME);
+            this.schedule(this.trackRecording, 1, xc.RECORDING_TIME);
         } else {
             this.unschedule(this.trackRecording);
             this.updateUIWhenForRecording();
