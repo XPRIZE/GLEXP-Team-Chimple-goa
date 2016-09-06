@@ -48,7 +48,7 @@ var level4Layer = cc.Layer.extend({
         
       
         
-         this.character = new cc.Sprite(cc.spriteFrameCache.getSpriteFrame("sortit/charcterfour.png"););
+         this.character = new cc.Sprite(cc.spriteFrameCache.getSpriteFrame("sortit/charcterfour.png"));
          this.character.setAnchorPoint(0.5, 0.5);
          this.character.setPosition(size.width*0.87 , size.height*0.60);
          this.character.setScale(0.8, 0.8); 
