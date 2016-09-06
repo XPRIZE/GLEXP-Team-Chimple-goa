@@ -24,6 +24,31 @@ var bubbleShooter = {
     BubbleBlast_plist : "res/bubbleShooter/Bubble_blast.plist",
     BubbleBlast_png : "res/bubbleShooter/Bubble_blast.png"    
     
+}
+
+
+var SortIt = {
+     
+   
+    
+    sortittwo_png: defaultFolder + "sortit/sortittwo/sortittwo.png",
+    sortittwo_plist: defaultFolder + "sortit/sortittwo/sortittwo.plist",
+    
+    sortit_png: defaultFolder + "sortit/sortit.png",
+    sortit_plist: defaultFolder + "sortit/sortit.plist",
+    
+    
+    level1bg_json: defaultFolder + "sortit/levelone.json",
+    level2bg_json: defaultFolder + "sortit/leveltwo.json",
+    level3bg_json: defaultFolder + "sortit/levelthree.json",
+    level4bg_json: defaultFolder + "sortit/levelfour.json",
+    level5bg_json: defaultFolder + "sortit/levelfive.json",
+    level6bg_json: defaultFolder + "sortit/levelsix.json",
+    
+    comedyBubble_mp3:  defaultFolder + "sounds/sortit/comedyBubble.mp3",
+    explosive_mp3:  defaultFolder + "sounds/sortit/explosive.mp3",
+    failure_mp3:  defaultFolder + "sounds/sortit/failure.mp3"
+    
 };
 
 
@@ -50,7 +75,7 @@ var res = {
     play_png: defaultMiscFolder + "play.png",
     record_animation_png: defaultMiscFolder + "recording.png",
     record_animation_plist: defaultMiscFolder + "recording.plist",
-    fox: defaultMiscFolder + "fox_stork_01.json",    
+    fox: defaultMiscFolder + "fox_stork_01.json"    
 };
 
 
@@ -58,6 +83,7 @@ var misc = {
     Config_json: defaultMiscFolder + "wikitaki/misc/storyConfig.json",
     EditPlayConfig_json: defaultMiscFolder + "wikitaki/misc/playConfig.json",
     OnlyStoryPlayConfig_json: defaultMiscFolder + "wikitaki/misc/onlyPlayConfig.json",
+
 };
 
 
@@ -82,10 +108,9 @@ for (var i in bubbleShooter) {
     BubbleShooter_resource.push(bubbleShooter[i]);
 };
 
-var Pop_resource =[];
-for(var i in pop_res)
-{
-    Pop_resource.push(pop_res[i]);
+var SortIt_res = [];
+for (var i in SortIt) {
+    SortIt_res.push(SortIt[i]);
 };
 
 cc.loader.loadJson(misc.EditPlayConfig_json, function (error, data) {
