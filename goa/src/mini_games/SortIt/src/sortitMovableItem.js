@@ -1,8 +1,8 @@
 
 
-var MovableItem2 = cc.Sprite.extend({
+var sortitMovableItem = cc.Sprite.extend({
         
-        ctor:function(imageFile, transparentSprite, that) {
+        ctor:function(imageFile, transparentSprite, counterLevel1) {
             this._super();
             this.initWithFile(imageFile); 
             var transparentSprite = transparentSprite;
@@ -28,6 +28,7 @@ var sprite_click = cc.EventListener.create({event: cc.EventListener.TOUCH_ONE_BY
 
   onTouchMoved : function(touch, event){
 
+    
   	 var target = event.getCurrentTarget();
          
          var location = target.convertToNodeSpace(touch.getLocation());
@@ -36,20 +37,20 @@ var sprite_click = cc.EventListener.create({event: cc.EventListener.TOUCH_ONE_BY
         var toyRect = target.getBoundingBox();
         var toytRect = transparentSprite.getBoundingBox();
  
-        if(cc.rectIntersectsRect(toyRect, toytRect) && target.id == that.counterLevel2){
+        if(cc.rectIntersectsRect(toyRect, toytRect) && target.id == window.counterLevel1){
            
             var x = transparentSprite.getPosition().x;
             var y = transparentSprite.getPosition().y;
             target.setPosition(x, y);
 
             this.audioEngine = cc.audioEngine;
-            this.audioEngine.playEffect(SortIt.comedyBubble_mp3);
+            this.audioEngine.playEffect(xc.sortitlevel1Layer.res.comedyBubble_mp3);
 
 
             overlapped = 1;
-            that.counterLevel2++;
-             
-            cc.eventManager.removeListener(this);
+            window.counterLevel1++;
+
+            cc.eventManager.removeListener(sprite_click, target);
          
 
             
@@ -70,7 +71,7 @@ var sprite_click = cc.EventListener.create({event: cc.EventListener.TOUCH_ONE_BY
                  var rectToy = cc.rect(0, 0, target.width, target.height);
                  if (cc.rectContainsPoint(rectToy, location) && overlapped==0) { var toy = cc.MoveTo.create(2,cc.p(target.xP,target.yP));
         target.runAction(toy);this.audioEngine = cc.audioEngine;
-            this.audioEngine.playEffect(SortIt.failure_mp3);
+            this.audioEngine.playEffect(xc.sortitlevel1Layer.res.failure_mp3);
 return true;}
 
   }   
