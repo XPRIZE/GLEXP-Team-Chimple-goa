@@ -53,6 +53,7 @@ const std::vector<std::string> StartMenu::getGameNames() {
     gameNames.push_back(KUNG_FU_ALPHA);
     gameNames.push_back(ALPHAMON_FEED);
     gameNames.push_back(TRAIN);
+	gameNames.push_back(ALPHAMOLE);
     return gameNames;
 
 }

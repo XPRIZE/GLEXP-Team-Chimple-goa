@@ -11,11 +11,11 @@
                 <key>spriteOffset</key>
                 <string>{0,0}</string>
                 <key>spriteSize</key>
-                <string>{45,45}</string>
+                <string>{44,44}</string>
                 <key>spriteSourceSize</key>
-                <string>{45,45}</string>
+                <string>{44,44}</string>
                 <key>textureRect</key>
-                <string>{{60,79},{45,45}}</string>
+                <string>{{190,157},{44,44}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
@@ -30,7 +30,7 @@
                 <key>spriteSourceSize</key>
                 <string>{127,67}</string>
                 <key>textureRect</key>
-                <string>{{342,59},{127,67}}</string>
+                <string>{{1,157},{127,67}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
@@ -56,11 +56,11 @@
                 <key>spriteOffset</key>
                 <string>{0,0}</string>
                 <key>spriteSize</key>
-                <string>{45,45}</string>
+                <string>{44,44}</string>
                 <key>spriteSourceSize</key>
-                <string>{45,45}</string>
+                <string>{44,44}</string>
                 <key>textureRect</key>
-                <string>{{107,79},{45,45}}</string>
+                <string>{{190,203},{44,44}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
@@ -71,11 +71,26 @@
                 <key>spriteOffset</key>
                 <string>{0,0}</string>
                 <key>spriteSize</key>
-                <string>{58,81}</string>
+                <string>{58,61}</string>
                 <key>spriteSourceSize</key>
-                <string>{58,81}</string>
+                <string>{58,61}</string>
                 <key>textureRect</key>
-                <string>{{661,1},{58,81}}</string>
+                <string>{{130,157},{58,61}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+            <key>bubble_shooter/gun_tricker.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,27}</string>
+                <key>spriteSize</key>
+                <string>{38,27}</string>
+                <key>spriteSourceSize</key>
+                <string>{38,81}</string>
+                <key>textureRect</key>
+                <string>{{130,220},{38,27}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
@@ -90,9 +105,9 @@
                 <key>spriteSourceSize</key>
                 <string>{46,57}</string>
                 <key>textureRect</key>
-                <string>{{1,79},{46,57}}</string>
+                <string>{{397,154},{46,57}}</string>
                 <key>textureRotated</key>
-                <true/>
+                <false/>
             </dict>
             <key>bubble_shooter/lock_button.png</key>
             <dict>
@@ -105,7 +120,7 @@
                 <key>spriteSourceSize</key>
                 <string>{93,93}</string>
                 <key>textureRect</key>
-                <string>{{471,1},{93,93}}</string>
+                <string>{{302,59},{93,93}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
@@ -116,11 +131,11 @@
                 <key>spriteOffset</key>
                 <string>{0,0}</string>
                 <key>spriteSize</key>
-                <string>{45,45}</string>
+                <string>{44,44}</string>
                 <key>spriteSourceSize</key>
-                <string>{45,45}</string>
+                <string>{44,44}</string>
                 <key>textureRect</key>
-                <string>{{154,79},{45,45}}</string>
+                <string>{{445,154},{44,44}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
@@ -139,6 +154,36 @@
                 <key>textureRotated</key>
                 <false/>
             </dict>
+            <key>bubble_shooter/orange_pressed_button.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{299,76}</string>
+                <key>spriteSourceSize</key>
+                <string>{299,76}</string>
+                <key>textureRect</key>
+                <string>{{1,79},{299,76}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+            <key>bubble_shooter/pressed_button.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{93,93}</string>
+                <key>spriteSourceSize</key>
+                <string>{93,93}</string>
+                <key>textureRect</key>
+                <string>{{302,154},{93,93}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
             <key>bubble_shooter/purple_ball.png</key>
             <dict>
                 <key>aliases</key>
@@ -146,11 +191,11 @@
                 <key>spriteOffset</key>
                 <string>{0,0}</string>
                 <key>spriteSize</key>
-                <string>{45,45}</string>
+                <string>{44,44}</string>
                 <key>spriteSourceSize</key>
-                <string>{45,45}</string>
+                <string>{44,44}</string>
                 <key>textureRect</key>
-                <string>{{201,79},{45,45}}</string>
+                <string>{{236,157},{44,44}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
@@ -161,11 +206,11 @@
                 <key>spriteOffset</key>
                 <string>{0,0}</string>
                 <key>spriteSize</key>
-                <string>{45,45}</string>
+                <string>{44,44}</string>
                 <key>spriteSourceSize</key>
-                <string>{45,45}</string>
+                <string>{44,44}</string>
                 <key>textureRect</key>
-                <string>{{248,79},{45,45}}</string>
+                <string>{{236,203},{44,44}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
@@ -180,7 +225,7 @@
                 <key>spriteSourceSize</key>
                 <string>{93,93}</string>
                 <key>textureRect</key>
-                <string>{{566,1},{93,93}}</string>
+                <string>{{397,59},{93,93}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
@@ -191,11 +236,11 @@
                 <key>spriteOffset</key>
                 <string>{0,0}</string>
                 <key>spriteSize</key>
-                <string>{45,45}</string>
+                <string>{44,44}</string>
                 <key>spriteSourceSize</key>
-                <string>{45,45}</string>
+                <string>{44,44}</string>
                 <key>textureRect</key>
-                <string>{{295,79},{45,45}}</string>
+                <string>{{445,200},{44,44}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
@@ -211,9 +256,9 @@
             <key>realTextureFileName</key>
             <string>bubble_shooter.png</string>
             <key>size</key>
-            <string>{720,127}</string>
+            <string>{491,248}</string>
             <key>smartupdate</key>
-            <string>$TexturePacker:SmartUpdate:69c131d00ee3a26a05ddcf01792e0f51:cfad0623ab21d2038e9c1dba8b8c8ceb:e5db4e2fd28ad128dbd369d5dae1b8fb$</string>
+            <string>$TexturePacker:SmartUpdate:41e0bdf5043da44bc32ad99725899ff1:30fbc9873f89994e38fba57ce9688a41:e5db4e2fd28ad128dbd369d5dae1b8fb$</string>
             <key>textureFileName</key>
             <string>bubble_shooter.png</string>
         </dict>
