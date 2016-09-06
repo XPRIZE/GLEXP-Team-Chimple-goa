@@ -1,11 +1,10 @@
 
 
-var MovableItem1 = cc.Sprite.extend({
+var sortitMovableItem3 = cc.Sprite.extend({
         
         ctor:function(imageFile, transparentSprite, that) {
             this._super();
-            this.initWithFile(imageFile);
-            
+            this.initWithFile(imageFile); 
             var transparentSprite = transparentSprite;
 
             var overlapped = 0;
@@ -29,7 +28,6 @@ var sprite_click = cc.EventListener.create({event: cc.EventListener.TOUCH_ONE_BY
 
   onTouchMoved : function(touch, event){
 
-
   	 var target = event.getCurrentTarget();
          
          var location = target.convertToNodeSpace(touch.getLocation());
@@ -38,7 +36,7 @@ var sprite_click = cc.EventListener.create({event: cc.EventListener.TOUCH_ONE_BY
         var toyRect = target.getBoundingBox();
         var toytRect = transparentSprite.getBoundingBox();
  
-        if(cc.rectIntersectsRect(toyRect, toytRect) && target.id == that.counterLevel1){
+        if(cc.rectIntersectsRect(toyRect, toytRect) && target.id == that.counterLevel3){
            
             var x = transparentSprite.getPosition().x;
             var y = transparentSprite.getPosition().y;
@@ -47,25 +45,21 @@ var sprite_click = cc.EventListener.create({event: cc.EventListener.TOUCH_ONE_BY
             this.audioEngine = cc.audioEngine;
             this.audioEngine.playEffect(SortIt.comedyBubble_mp3);
 
-           
 
             overlapped = 1;
-            that.counterLevel1++;
+            that.counterLevel3++;
              
             cc.eventManager.removeListener(this);
-          
+         
+
+            
         }
-
-
            
 
                
   },
 
   onTouchEnded : function(touch, event){
-
-
-
 
   		var target = event.getCurrentTarget();
          

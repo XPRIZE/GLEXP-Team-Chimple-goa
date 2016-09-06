@@ -1,6 +1,6 @@
 
 
-var MovableItem = cc.Sprite.extend({
+var sortitMovableItem = cc.Sprite.extend({
         
         ctor:function(imageFile, transparentSprite, counterLevel1) {
             this._super();

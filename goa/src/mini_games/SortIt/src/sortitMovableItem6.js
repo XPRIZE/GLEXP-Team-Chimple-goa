@@ -1,6 +1,6 @@
 
 
-var MovableItem3 = cc.Sprite.extend({
+var sortitMovableItem6 = cc.Sprite.extend({
         
         ctor:function(imageFile, transparentSprite, that) {
             this._super();
@@ -36,7 +36,7 @@ var sprite_click = cc.EventListener.create({event: cc.EventListener.TOUCH_ONE_BY
         var toyRect = target.getBoundingBox();
         var toytRect = transparentSprite.getBoundingBox();
  
-        if(cc.rectIntersectsRect(toyRect, toytRect) && target.id == that.counterLevel3){
+        if(cc.rectIntersectsRect(toyRect, toytRect) && target.id == that.counterLevel6){
            
             var x = transparentSprite.getPosition().x;
             var y = transparentSprite.getPosition().y;
@@ -45,9 +45,9 @@ var sprite_click = cc.EventListener.create({event: cc.EventListener.TOUCH_ONE_BY
             this.audioEngine = cc.audioEngine;
             this.audioEngine.playEffect(SortIt.comedyBubble_mp3);
 
-
+            
             overlapped = 1;
-            that.counterLevel3++;
+            that.counterLevel6++;
              
             cc.eventManager.removeListener(this);
          

@@ -1,5 +1,7 @@
 /// <reference path="../../cocos2d-typescript-definitions/cocos2d/cocos2d-lib.d.ts" />
-var level4Layer = cc.Layer.extend({
+
+var xc = xc || {};
+xc.sortitlevel4Layer = cc.Layer.extend({
     counterLevel4 : 1,
     level4SpriteScaleX : 0.9, 
     level4SpriteScaleY : 0.9,
@@ -25,7 +27,7 @@ var level4Layer = cc.Layer.extend({
                     
                  
                     
-                    cc.director.runScene(new level5Scene());
+                    cc.director.runScene(new sortitlevel5Scene());
                     
                 }
                 
@@ -48,7 +50,7 @@ var level4Layer = cc.Layer.extend({
         
       
         
-         this.character = new cc.Sprite(cc.spriteFrameCache.getSpriteFrame("sortit/charcterfour.png"););
+         this.character = new cc.Sprite(cc.spriteFrameCache.getSpriteFrame("sortit/charcterfour.png"));
          this.character.setAnchorPoint(0.5, 0.5);
          this.character.setPosition(size.width*0.87 , size.height*0.60);
          this.character.setScale(0.8, 0.8); 
@@ -158,11 +160,16 @@ var level4Layer = cc.Layer.extend({
 
 });
 
-var level4Scene = cc.Scene.extend({
+var sortitlevel4Scene = cc.Scene.extend({
     onEnter:function () {
         this._super();
-        var layer = new level4Layer();
+        var layer = new xc.sortitlevel4Layer();
         this.addChild(layer);
     }
 });
+
+
+xc.sortitlevel4Layer.res = {
+    
+}
 

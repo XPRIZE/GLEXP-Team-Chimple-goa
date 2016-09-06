@@ -1,7 +1,10 @@
 
 
 /// <reference path="../../cocos2d-typescript-definitions/cocos2d/cocos2d-lib.d.ts" />
-var loadLayer = cc.Layer.extend({
+
+var xc = xc || {};
+
+xc.sortitloadLayer = cc.Layer.extend({
     
     ctor:function () {
         //////////////////////////////
@@ -23,7 +26,7 @@ var eventListener = cc.eventManager.addListener({
                     
                  
 
-                    cc.director.runScene(new level1Scene());
+                    cc.director.runScene(new sortitloadScene());
                     
                 }
                 //console.log('touche po oe: ' + targetSize);   
@@ -58,16 +61,19 @@ var eventListener = cc.eventManager.addListener({
     }
 });
 
-var loadScene = cc.Scene.extend({
+var sortitloadScene = cc.Scene.extend({
     onEnter:function () {
         this._super();
-        var layer = new loadLayer();
+        var layer = new xc.sortitloadLayer();
         this.addChild(layer);
     }
 });
 
 
-
+xc.sortitloadLayer.res = {
+        train_json : xc.path + "train/train.json",
+        train_plist: xc.path + "train/train.plist"
+}
 
 
 

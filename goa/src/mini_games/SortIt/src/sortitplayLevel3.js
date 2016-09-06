@@ -1,5 +1,7 @@
 /// <reference path="../../cocos2d-typescript-definitions/cocos2d/cocos2d-lib.d.ts" />
-var level3Layer = cc.Layer.extend({
+
+var xc = xc || {};
+xc.sortitlevel3Layer = cc.Layer.extend({
         counterLevel3 : 1,
 
      level3SpriteScaleX : 0.9, 
@@ -26,7 +28,7 @@ var level3Layer = cc.Layer.extend({
                     
                  
                     
-                    cc.director.runScene(new level4Scene());
+                    cc.director.runScene(new sortitlevel4Scene());
                     
                 }
                   
@@ -184,16 +186,19 @@ var level3Layer = cc.Layer.extend({
 
 });
 
-var level3Scene = cc.Scene.extend({
+var sortitlevel3Scene = cc.Scene.extend({
     onEnter:function () {
         this._super();
-        var layer = new level3Layer();
+        var layer = new xc.sortitlevel3Layer();
         this.addChild(layer);
     }
 });
 
 
 
+xc.sortitlevel3Layer.res = {
+    
+}
 
 
 

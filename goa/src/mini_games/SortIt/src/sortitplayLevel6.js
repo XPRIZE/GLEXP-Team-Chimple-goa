@@ -1,5 +1,7 @@
 /// <reference path="../../cocos2d-typescript-definitions/cocos2d/cocos2d-lib.d.ts" />
-var level6Layer = cc.Layer.extend({
+
+var xc = xc || {};
+xc.sortitlevel6Layer = cc.Layer.extend({
         counterLevel6 : 1,
         level6SpriteScaleX : 0.9, 
         level6SpriteScaleY : 0.9,
@@ -24,7 +26,7 @@ var level6Layer = cc.Layer.extend({
                     
                  
                     
-                    cc.director.runScene(new level1Scene());
+                    cc.director.runScene(new sortitlevel1Scene());
                     
                 }
                 //console.log('touche po oe: ' + targetSize);   
@@ -145,13 +147,16 @@ var level6Layer = cc.Layer.extend({
 
 });
 
-var level6Scene = cc.Scene.extend({
+var sortitlevel6Scene = cc.Scene.extend({
     onEnter:function () {
         this._super();
-        var layer = new level6Layer();
+        var layer = new xc.sortitlevel6Layer();
         this.addChild(layer);
     }
 });
 
 
 
+xc.sortitlevel6Layer.res = {
+    
+}

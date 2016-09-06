@@ -1,5 +1,7 @@
 /// <reference path="../../cocos2d-typescript-definitions/cocos2d/cocos2d-lib.d.ts" />
-var level2Layer = cc.Layer.extend({
+
+var xc = xc || {};
+xc.sortitlevel2Layer = cc.Layer.extend({
     
     counterLevel2 : 1,
     level2SpriteScaleX : 0.23,
@@ -26,7 +28,7 @@ var level2Layer = cc.Layer.extend({
                     
                  
                     
-                    cc.director.runScene(new level3Scene());
+                    cc.director.runScene(new sortitlevel3Scene());
                     
                 }
                    
@@ -183,12 +185,15 @@ cc.spriteFrameCache.getSpriteFrame("sortit/charcterone.png")
 
 });
 
-var level2Scene = cc.Scene.extend({
+var sortitlevel2Scene = cc.Scene.extend({
     onEnter:function () {
         this._super();
-        var layer = new level2Layer();
+        var layer = new xc.sortitlevel2Layer();
         this.addChild(layer);
     }
 });
 
+xc.sortitlevel2Layer.res = {
+    
+}
 
