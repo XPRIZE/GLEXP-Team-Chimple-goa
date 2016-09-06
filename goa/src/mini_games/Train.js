@@ -14,6 +14,11 @@ xc.TrainLayer = cc.Layer.extend({
     storedLetter : null,
     train : null,
     final_tunnel : null,
+    sentence : null,
+    position : null,
+    wordPosition : null,
+    repeatForeverAction : null,
+    
     
     ctor: function () {
         this._super();
@@ -26,6 +31,13 @@ xc.TrainLayer = cc.Layer.extend({
         randomLetter = new Array();        
         storedLetter = new Array();
 
+        wordPosition = 1;
+
+        position = [
+{x:size.width*.15,  y:size.height*.10}, {x:size.width*.45,  y:size.height*.10}, {x:size.width*.75,  y:size.height*.10},
+{x:size.width*.15,  y:size.height*.23}, {x:size.width*.45,  y:size.height*.23}, {x:size.width*.75,  y:size.height*.23},
+{x:size.width*.15,  y:size.height*.36}, {x:size.width*.45,  y:size.height*.36}, {x:size.width*.75,  y:size.height*.36},
+];
 
 
 var listener = cc.EventListener.create({
@@ -41,7 +53,119 @@ var listener = cc.EventListener.create({
         
         if(cc.rectContainsPoint(rect, locationInNode))
         {
-            if(target.selected == 0)
+            if(sentence[wordPosition - 1] == target.id)
+            {
+                for(var i = wordPosition - 1; i<randomLetter.length; i++)
+                {
+                    cc.eventManager.removeListeners(randomLetter[i]);
+                }
+                
+                target.runAction(cc.ScaleTo.create(.1, 1));
+                target.stopAction(repeatForeverAction);
+                
+                if(wordPosition%3!=0)
+                {
+                    var scaleAnimation = function(){
+                        randomLetter[wordPosition].runAction(repeatForeverAction);
+                        
+                        for(var i = wordPosition; i<randomLetter.length; i++)
+                        {
+                            cc.eventManager.addListener(listener.clone(), randomLetter[i]);
+                        }
+                        wordPosition ++;
+                    };
+                    
+                    if(wordPosition != random)
+                    {
+                        var tunnel = tunnel_front_sprite[wordPosition];
+                        var target_Action = new cc.MoveTo.create(1, cc.p(tunnel_front_sprite[wordPosition - 1].getPositionX(), tunnel_front_sprite[wordPosition].getPositionY()));
+                        var train_Action = new cc.MoveTo.create(1.5, cc.p(tunnel.getPositionX() - tunnel.getContentSize().width * .70 , tunnel.getPositionY()))
+                        var train_Action_function = function(){
+                                    train.runAction(cc.sequence(train_Action, cc.callFunc(scaleAnimation, this)));
+                            };
+                    }
+                    else if(wordPosition == random)
+                    {
+                        var target_Action = new cc.MoveTo.create(1, cc.p(tunnel_front_sprite[wordPosition - 1].getPositionX(), tunnel_front_sprite[wordPosition - 1].getPositionY()));
+                        var train_Action = new cc.MoveTo.create(1.5, cc.p(size.width * 1.20 , final_tunnel.getPositionY()))
+                        
+                        var train_Action_function = function(){
+                                    train.runAction(train_Action);
+                            };
+                    }
+                    
+                    target.runAction(cc.sequence(target_Action, cc.callFunc(train_Action_function, this)));
+                }
+                else if(wordPosition%3==0)
+                {
+                    if(wordPosition != random)
+                    {
+                        var tunnel = tunnel_front_sprite[wordPosition];
+                        var target_Action = new cc.MoveTo.create(1, cc.p(tunnel_front_sprite[wordPosition - 1].getPositionX(), tunnel_front_sprite[wordPosition - 1].getPositionY()));
+                        var train_Action = new cc.MoveTo.create(1.5, cc.p(size.width * 130 / 100 , tunnel_front_sprite[wordPosition - 1].getPositionY()));
+                                                
+                        var train_come = function()
+                        {
+                        var scaleAnimation = function(){
+                            randomLetter[wordPosition].runAction(repeatForeverAction);
+                            
+                            for(var i = wordPosition; i<randomLetter.length; i++)
+                            {
+                                cc.eventManager.addListener(listener.clone(), randomLetter[i]);
+                            }
+                            wordPosition ++;
+                        };
+                        
+                                var tunnel = tunnel_front_sprite[wordPosition];
+                                train.setPosition(0, tunnel.getPositionY());
+                                var train_newPos = new cc.MoveTo.create(1, cc.p(tunnel.getPositionX() - tunnel.getContentSize().width * .75, tunnel.getPositionY()));
+                                train.runAction(cc.sequence(train_newPos, cc.callFunc(scaleAnimation, this)));
+                        };
+                        
+                        var train_Action_function = function(){
+                                    train.runAction(cc.sequence(train_Action, cc.callFunc(train_come, this)));
+                            };
+                        
+                        target.runAction(cc.sequence(target_Action, cc.callFunc(train_Action_function, this)));
+                    }
+                    else if(wordPosition == random)
+                    {
+                        var target_Action = new cc.MoveTo.create(1, cc.p(tunnel_front_sprite[wordPosition - 1].getPositionX(), tunnel_front_sprite[wordPosition - 1].getPositionY()));
+                        var train_Action = new cc.MoveTo.create(1.5, cc.p(size.width * 130 / 100 , final_tunnel.getPositionY()))
+
+                        var train_Action_function = function(){
+                                    train.runAction(train_Action);
+                            };
+                        
+                        target.runAction(cc.sequence(target_Action, cc.callFunc(train_Action_function, this)));
+                    }
+                    
+                }
+                    cc.eventManager.removeListeners(target);
+            }
+            else
+            {
+                for(var i = wordPosition - 1; i<randomLetter.length; i++)
+                {
+                    cc.eventManager.removeListeners(randomLetter[i]);
+                }
+                
+                var increase = new cc.MoveTo.create(1, cc.p(target.getPositionX() + size.width * .10, target.getPositionY() + size.height * .10));
+                var decrease = new cc.MoveTo.create(1, cc.p(target.xP, target.yP));
+
+                var addListen = function(){
+                    
+                    for(var i = wordPosition - 1; i<randomLetter.length; i++)
+                    {
+                        cc.eventManager.addListener(listener.clone(), randomLetter[i]);
+                    }
+                };
+                
+                var sequence = new cc.Sequence(increase, decrease);
+                target.runAction(cc.sequence(sequence, cc.callFunc(addListen, this)));
+            }
+            return true;
+/*            if(target.selected == 0)
             {
                 for(var i = 0; i<tunnel_front_sprite.length; i++)
                 {
@@ -95,24 +219,10 @@ var listener = cc.EventListener.create({
 
                                 var train_come = function()
                                 {
-/*                                    if(storedLetter.length == random)
-                                    {
-                                        var tunnel = tunnel_front_sprite[storedLetter.length-1];
-                                        var target_Action = cc.MoveTo.create(1, cc.p(tunnel_front_sprite[i].getPositionX(), tunnel_front_sprite[i].getPositionY()));
-                                        var train_Action = cc.MoveTo.create(1.5, cc.p(final_tunnel.getPositionX() + final_tunnel.getContentSize().width * 120 / 100 , tunnel.getPositionY()));
-                                        
-                                    var train_Action_function = function(){
-                                                    train.runAction(train_Action);
-                                            };
-                                        
-                                        target.runAction(cc.sequence(target_Action, cc.callFunc(train_Action_function, this)));
-                                    }
-                                    else
-                                    {
-*/                                        var tunnel = tunnel_front_sprite[storedLetter.length];
+                                        var tunnel = tunnel_front_sprite[storedLetter.length];
                                         train.setPosition(0, tunnel.getPositionY());
                                         train.runAction(cc.MoveTo.create(1, cc.p(tunnel.getPositionX() - tunnel.getContentSize().width * .75, tunnel.getPositionY())));
-//                                    }
+                                    }
 
                                 };
 
@@ -139,18 +249,19 @@ var listener = cc.EventListener.create({
                 target.pos = -1;
             }
             return true;
-        }
+*/        } 
         return false;
     }
 });
 
         
         var background = ccs.load(xc.TrainLayer.res.train_json, xc.path);
-        cc.log(xc);
         this.addChild(background.node);
 
-        random = Math.floor((Math.random() * 9) +3);
-        random = 4;
+        sentence = goa.TextGenerator.getInstance().generateASentence();
+        cc.log(sentence);
+
+        random = sentence.length;
         var row = 0, temp = random;        
         
         while(temp>=3)
@@ -217,78 +328,38 @@ var listener = cc.EventListener.create({
         });
         this.addChild(final_tunnel, 0);  
 
-        var possible = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q'];
-            
         for(var i = 0; i<random; i++)
         {            
-            var char = possible[Math.floor(Math.random() * possible.length)];
+            var aa = position.length;
+            var char = Math.floor(Math.random() * position.length);
             
-            var label = new cc.LabelTTF(char, "Arial", 200);
+            var label = new cc.LabelTTF(sentence[i], "Arial", 200);
             label.attr({
-                x : Math.floor((Math.random() * (size.width * .90)) + (size.width * .10)),
-                y : Math.floor((Math.random() * (size.height * .40)) + (size.height * .10))
+                x : position[char].x,
+                y : position[char].y
             });
+            position.splice(position.indexOf(position[char]), 1);
+            
             this.addChild(label, 1); 
-            label.id = char;
+            label.id = sentence[i];
             label.selected = 0;
             label.pos = -1;
             label.xP = label.getPositionX();
             label.yP = label.getPositionY();
             
-            randomLetter.push(char);
+            randomLetter.push(label);
             
-            possible.splice(possible.indexOf(char), 1);
             cc.eventManager.addListener(listener.clone(), label);
         }
         
-        cc.log(randomLetter);
-
-    }
-    
-    
-});
-
-
-var Train_Sprite_Touch = cc.Sprite.extend({
-   
-   ctor:function(imagefile, callerObject)
-   {
-       this._super(cc.spriteFrameCache.getSpriteFrame(imagefile));
-       
-var sprite_click = cc.EventListener.create({event: cc.EventListener.TOUCH_ONE_BY_ONE, swallowTouches:true,
-    
-    onTouchBegan : function(touch, event)
-    {
-        var target = event.getCurrentTarget();
-        var location = target.convertToNodeSpace(touch.getLocation());
-        var targetSize = target.getContentSize();
-        var targetRect = cc.rect(0, 0, target.width, target.height);
-        
-        if(cc.rectContainsPoint(targetRect, location))
-        {
-            return true;
-        }
-        
-        return false;
-    },
-
-    onTouchMove : function(touch, event)
-    {
-        
-    },
-    
-    onTouchEnded : function(touch, event)
-    {
-        
+        var increase = new cc.ScaleTo(1, 1.4);
+        var decrease = new cc.ScaleTo(1, 1);
+        repeatForeverAction = new cc.RepeatForever.create(cc.sequence(increase, decrease));
+        randomLetter[0].runAction(repeatForeverAction);
     }
         
 });
-    
-    cc.eventManager.addListener(sprite_click, this);
-       
-   }
-    
-});
+
 
 xc.TrainLayer.res = {
         train_json : xc.path + "train/train.json",
