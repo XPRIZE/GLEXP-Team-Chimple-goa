@@ -11,6 +11,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\auto\chimpleautogenbindings.cpp" />
     <ClCompile Include="..\auto\jsb_cocos2dx_3d_auto.cpp" />
     <ClCompile Include="..\auto\jsb_cocos2dx_3d_extension_auto.cpp" />
     <ClCompile Include="..\auto\jsb_cocos2dx_auto.cpp" />
@@ -22,6 +23,7 @@
     <ClCompile Include="..\auto\jsb_cocos2dx_spine_auto.cpp" />
     <ClCompile Include="..\auto\jsb_cocos2dx_studio_auto.cpp" />
     <ClCompile Include="..\auto\jsb_cocos2dx_ui_auto.cpp" />
+    <ClCompile Include="..\auto\textgeneratorautobindings.cpp" />
     <ClCompile Include="..\manual\3d\jsb_cocos2dx_3d_manual.cpp" />
     <ClCompile Include="..\auto\js_bindings_chipmunk_auto_classes.cpp" />
     <ClCompile Include="..\auto\js_bindings_chipmunk_functions.cpp" />
@@ -54,6 +56,7 @@
     <ClCompile Include="..\manual\ui\jsb_cocos2dx_ui_manual.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\auto\chimpleautogenbindings.hpp" />
     <ClInclude Include="..\auto\jsb_cocos2dx_3d_auto.hpp" />
     <ClInclude Include="..\auto\jsb_cocos2dx_3d_extension_auto.hpp" />
     <ClInclude Include="..\auto\jsb_cocos2dx_auto.hpp" />
@@ -69,6 +72,7 @@
     <ClInclude Include="..\auto\js_bindings_chipmunk_auto_classes_registration.h" />
     <ClInclude Include="..\auto\js_bindings_chipmunk_functions.h" />
     <ClInclude Include="..\auto\js_bindings_chipmunk_functions_registration.h" />
+    <ClInclude Include="..\auto\textgeneratorautobindings.hpp" />
     <ClInclude Include="..\manual\3d\jsb_cocos2dx_3d_manual.h" />
     <ClInclude Include="..\manual\chipmunk\js_bindings_chipmunk_manual.h" />
     <ClInclude Include="..\manual\chipmunk\js_bindings_chipmunk_registration.h" />
@@ -164,7 +168,7 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>WIN32;_WINDOWS;_DEBUG;_LIB;COCOS2D_DEBUG=1;XP_WIN;JS_HAVE___INTN;JS_INTPTR_TYPE=int;COCOS2D_JAVASCRIPT=1;CC_ENABLE_CHIPMUNK_INTEGRATION=1;_CRT_SECURE_NO_WARNINGS;_USRJSSTATIC;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>$(ProjectDir)..;$(EngineRoot);$(EngineRoot)cocos;$(EngineRoot)extensions;$(EngineRoot)external;$(ProjectDir)..\auto;$(ProjectDir)..\manual;$(ProjectDir)..\manual\cocostudio;$(ProjectDir)..\manual\navmesh;$(ProjectDir)..\manual\spine;$(ProjectDir)..\..\..\..\external\spidermonkey\include\win32;$(EngineRoot)external\chipmunk\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)..;$(EngineRoot);$(EngineRoot)cocos;$(EngineRoot)cocos\audio\include;$(EngineRoot)extensions;$(EngineRoot)external;$(ProjectDir)..\auto;$(ProjectDir)..\manual;$(ProjectDir)..\manual\cocostudio;$(ProjectDir)..\manual\navmesh;$(ProjectDir)..\manual\spine;$(ProjectDir)..\..\..\..\external\spidermonkey\include\win32;$(EngineRoot)external\chipmunk\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <DisableSpecificWarnings>4068;4101;4800;4251;4244;4099;4083;4700;%(DisableSpecificWarnings)</DisableSpecificWarnings>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <MinimalRebuild>false</MinimalRebuild>
