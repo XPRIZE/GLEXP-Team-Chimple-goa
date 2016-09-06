@@ -1,0 +1,58 @@
+{
+    "skinChoices": [],
+    "skinNameMaps": {
+       
+         "crow": {
+            "beak_lower":"crow_beak_lower", 
+             "beak_upper":"crow_beak_upper",
+             "eye": "crow_eyes",
+             "face":"crow_face",
+             "right_wing":"crow_wing",
+             "left_wing": "crow_wing",
+             "left_leg":"crow_leg_left",
+             "right_leg":"crow_leg_right",
+             "tail":"crow_tail",
+             "body":"crow_body"
+         },
+         "dove":{
+             "beak_lower":"dove_beak_lower", 
+             "beak_upper":"dove_beak_upper",
+             "eye": "dove_eyes",
+             "face":"dove_face",
+             "right_wing":"dove_wing",
+             "left_wing": "dove_wing",
+             "left_leg":"dove_leg_left",
+             "right_leg":"dove_leg_right",
+             "tail":"dove_tail",
+             "body":"dove_body"
+         },
+         "pigeon":{
+             "beak_lower":"pigeon_beak_lower", 
+             "beak_upper":"pigeon_beak_upper",
+             "eye": "pigeon_eyes",
+             "face":"pigeon_face",
+             "right_wing":"pigeon_wing",
+             "left_wing": "pigeon_wing",
+             "left_leg":"pigeon_leg_left",
+             "right_leg":"pigeon_leg_right",
+             "tail":"pigeon_tail",
+             "body":"pigeon_body"
+         }
+    },
+     "colorSkins": {
+        "bodySkin": {
+            "face": "face",
+            "hand_palm_right": "hand_palm_right",
+            "hand_palm_left": "hand_palm_left",
+            "hand_upper_right": "hand_upper_right",
+            "hand_upper_left": "hand_upper_left",
+            "body": "body"
+        }
+    },
+    "animations": [
+        {
+          "icon": "icons/add_qna.png",
+          "name": "fly"
+        }
+    ]
+}

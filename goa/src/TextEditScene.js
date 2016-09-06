@@ -1,5 +1,5 @@
 /// <reference path="../../cocos2d-typescript-definitions/cocos2d/cocos2d-lib.d.ts" />
-var chimple = chimple || {};
+var xc = xc || {};
 var TextCreateLayer = cc.Layer.extend({
     ctor: function (existingText, textKey) {
         this._super();

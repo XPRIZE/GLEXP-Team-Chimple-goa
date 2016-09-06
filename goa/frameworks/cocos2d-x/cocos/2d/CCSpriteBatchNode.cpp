@@ -103,7 +103,7 @@ bool SpriteBatchNode::initWithTexture(Texture2D *tex, ssize_t capacity/* = DEFAU
 
     _descendants.reserve(capacity);
     
-    setGLProgramState(GLProgramState::getOrCreateWithGLProgramName(GLProgram::SHADER_NAME_POSITION_TEXTURE_COLOR));
+    setGLProgramState(GLProgramState::getOrCreateWithGLProgramName(GLProgram::SHADER_NAME_POSITION_TEXTURE_COLOR, tex));
     return true;
 }
 
@@ -259,7 +259,7 @@ void SpriteBatchNode::sortAllChildren()
 {
     if (_reorderChildDirty)
     {
-        std::sort(std::begin(_children), std::end(_children), nodeComparisonLess);
+        sortNodes(_children);
 
         //sorted now check all children
         if (!_children.empty())
@@ -544,6 +544,18 @@ void SpriteBatchNode::appendChild(Sprite* sprite)
     // add children recursively
     auto& children = sprite->getChildren();
     for(const auto &child: children) {
+#if CC_SPRITE_DEBUG_DRAW
+        // when using CC_SPRITE_DEBUG_DRAW, a DrawNode is appended to sprites. remove it since only Sprites can be used
+        // as children in SpriteBatchNode
+        // Github issue #14730
+        if (dynamic_cast<DrawNode*>(child)) {
+            // to avoid calling Sprite::removeChild()
+            sprite->Node::removeChild(child, true);
+        }
+        else
+#else
+        CCASSERT(dynamic_cast<Sprite*>(child) != nullptr, "You can only add Sprites (or subclass of Sprite) to SpriteBatchNode");
+#endif
         appendChild(static_cast<Sprite*>(child));
     }
 }

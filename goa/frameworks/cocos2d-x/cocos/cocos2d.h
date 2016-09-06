@@ -30,7 +30,7 @@ THE SOFTWARE.
 
 // 0x00 HI ME LO
 // 00   03 08 00
-#define COCOS2D_VERSION 0x00031200
+#define COCOS2D_VERSION 0x00031300
 
 //
 // all cocos2d include files
@@ -307,7 +307,7 @@ THE SOFTWARE.
 
 // Deprecated
 // All deprecated features are include inside deprecated/CCDeprecated.h.
-// It is recommanded that you just inlcude what is needed.
+// It is recommended that you just include what is needed.
 // eg. #include "deprecated/CCString.h" if you only need cocos2d::__String.
 #include "deprecated/CCDeprecated.h"
 

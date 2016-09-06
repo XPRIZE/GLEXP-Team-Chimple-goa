@@ -43,7 +43,7 @@ var sprite_click = cc.EventListener.create({event: cc.EventListener.TOUCH_ONE_BY
             target.setPosition(x, y);
 
             this.audioEngine = cc.audioEngine;
-            this.audioEngine.playEffect(res.comedyBubble_mp3);
+            this.audioEngine.playEffect(SortIt.comedyBubble_mp3);
 
             
             overlapped = 1;
@@ -70,7 +70,7 @@ var sprite_click = cc.EventListener.create({event: cc.EventListener.TOUCH_ONE_BY
                  var rectToy = cc.rect(0, 0, target.width, target.height);
                  if (cc.rectContainsPoint(rectToy, location) && overlapped==0) { var toy = cc.MoveTo.create(2,cc.p(target.xP,target.yP));
         target.runAction(toy);this.audioEngine = cc.audioEngine;
-            this.audioEngine.playEffect(res.failure_mp3);
+            this.audioEngine.playEffect(SortIt.failure_mp3);
 return true;}
 
   }   

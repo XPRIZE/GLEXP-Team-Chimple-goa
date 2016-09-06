@@ -53,7 +53,7 @@
             },
             "LeftMargin": -267.4788,
             "RightMargin": 267.4788,
-            "TopMargin": 0.1099,
+            "TopMargin": 0.1097,
             "BottomMargin": -0.1098,
             "Tag": 114,
             "Children": [
@@ -823,7 +823,7 @@
             },
             "LeftMargin": 88.5371,
             "RightMargin": 2595.4629,
-            "TopMargin": 1153.1893,
+            "TopMargin": 1153.1892,
             "BottomMargin": 592.8107,
             "Tag": 130,
             "ActionTag": -861528017,
@@ -1244,7 +1244,7 @@
             },
             "LeftMargin": -344.6537,
             "RightMargin": 3028.6538,
-            "TopMargin": 1089.4161,
+            "TopMargin": 1089.416,
             "BottomMargin": 656.5839,
             "Tag": 139,
             "ActionTag": -1405324884,
@@ -1290,7 +1290,7 @@
             },
             "LeftMargin": 0.263,
             "RightMargin": 2683.7371,
-            "TopMargin": 1089.4161,
+            "TopMargin": 1089.416,
             "BottomMargin": 656.5839,
             "Tag": 140,
             "ActionTag": -766934517,
@@ -1427,7 +1427,7 @@
             },
             "LeftMargin": 1014.9663,
             "RightMargin": 1669.0337,
-            "TopMargin": 1089.4161,
+            "TopMargin": 1089.416,
             "BottomMargin": 656.5839,
             "Tag": 143,
             "ActionTag": 1171574936,
@@ -1472,7 +1472,7 @@
             },
             "LeftMargin": 1229.0338,
             "RightMargin": 1454.9662,
-            "TopMargin": 1089.4161,
+            "TopMargin": 1089.416,
             "BottomMargin": 656.5839,
             "Tag": 144,
             "ActionTag": 128684614,
@@ -1517,7 +1517,7 @@
             },
             "LeftMargin": 1607.301,
             "RightMargin": 1076.699,
-            "TopMargin": 1089.4161,
+            "TopMargin": 1089.416,
             "BottomMargin": 656.5839,
             "Tag": 145,
             "ActionTag": 1730870101,
@@ -1698,7 +1698,7 @@
             },
             "LeftMargin": 2166.8369,
             "RightMargin": 541.1631,
-            "TopMargin": 1334.524,
+            "TopMargin": 1334.5239,
             "BottomMargin": 70.476,
             "Tag": 149,
             "ActionTag": -1755450397,
@@ -2027,6 +2027,51 @@
           {
             "FileData": {
               "Type": "MarkedSubImage",
+              "Path": "jump_on_words/ball.png",
+              "Plist": "jump_on_words/jump_on_words.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1975.7206,
+              "Y": 140.6137
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.6373,
+              "Y": 0.0781
+            },
+            "PreSize": {
+              "X": 0.0797,
+              "Y": 0.1372
+            },
+            "LeftMargin": 1852.2206,
+            "RightMargin": 1000.7793,
+            "TopMargin": 1535.8862,
+            "BottomMargin": 17.1137,
+            "Tag": 164,
+            "ActionTag": 2038797495,
+            "Size": {
+              "X": 247.0,
+              "Y": 247.0
+            },
+            "Name": "ball_44",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
               "Path": "jump_on_words/cloud.png",
               "Plist": "jump_on_words/jump_on_words.plist"
             },
@@ -2206,51 +2251,6 @@
             },
             "Alpha": 178,
             "Name": "cloud_43",
-            "ctype": "SpriteObjectData"
-          },
-          {
-            "FileData": {
-              "Type": "MarkedSubImage",
-              "Path": "jump_on_words/ball.png",
-              "Plist": "jump_on_words/jump_on_words.plist"
-            },
-            "BlendFunc": {
-              "Src": 1,
-              "Dst": 771
-            },
-            "AnchorPoint": {
-              "ScaleX": 0.5,
-              "ScaleY": 0.5
-            },
-            "Position": {
-              "X": 1975.7206,
-              "Y": 140.6137
-            },
-            "Scale": {
-              "ScaleX": 1.0,
-              "ScaleY": 1.0
-            },
-            "CColor": {},
-            "IconVisible": false,
-            "PrePosition": {
-              "X": 0.6373,
-              "Y": 0.0781
-            },
-            "PreSize": {
-              "X": 0.0797,
-              "Y": 0.1372
-            },
-            "LeftMargin": 1852.2206,
-            "RightMargin": 1000.7793,
-            "TopMargin": 1535.8864,
-            "BottomMargin": 17.1137,
-            "Tag": 164,
-            "ActionTag": 2038797495,
-            "Size": {
-              "X": 247.0,
-              "Y": 247.0
-            },
-            "Name": "ball_44",
             "ctype": "SpriteObjectData"
           }
         ],

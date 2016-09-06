@@ -1,21 +1,26 @@
-chimple.PreviewPanel = cc.LayerColor.extend({
+var xc = xc || {};
+
+xc.PreviewPanel = cc.LayerColor.extend({
     ctor: function (width, height, position, target, configuration, callback, callbackContext, isTab, contentPanel) {
-        this._super(chimple.TERTIARY_COLOR, width, height);
+        this._super(xc.TERTIARY_COLOR, width, height);
         cc.log('preview uibutton');
         var backButton = new ccui.Button('icons/back.png', 'icons/back_onclick.png', 'icons/back_onclick.png', ccui.Widget.PLIST_TEXTURE);
         backButton.setPosition(128, height - 128);
         backButton.addTouchEventListener(this.goBack, this);
         //        this.addChild(backButton);
         this._contentPanel = contentPanel;
+        
         this._target = target;
-        this._targetParent = target.parent;
+        this._target._dirtyFlag = 1;
+        this._target._renderCmd._dirtyFlag = 1;
+        this._targetParent = target.parent;        
         this._targetPosition = target.getPosition();
         this._targetScaleX = target.getScaleX();
         this._targetScaleY = target.getScaleY();
 
         this._targetRotationX = target.getRotationX();
         this._targetRotationY = target.getRotationY();
-
+        
         target.removeFromParent(false);
         cc.eventManager.removeListeners(target);
 
@@ -27,10 +32,11 @@ chimple.PreviewPanel = cc.LayerColor.extend({
         target.scaleY = 0.5;
         this.bindTouchListener(this);
         if (isTab) {
-            //            this.addChild(new chimple.TabPanel(cc.p(width / 3, 0), cc.size(width * 2 / 3, height), 2, 2, configuration, callback, callbackContext));
-            this.addChild(new chimple.TabPanel(cc.p(0, 0), cc.size(width * 2 / 3, height), 3, 4, configuration, callback, callbackContext, this));
+            this._tabPanel = new xc.TabPanel(cc.p(0, 0), cc.size(width * 2 / 3, height), 3, 4, configuration, callback, callbackContext, this);
+            this._tabPanel._renderCmd._dirtyFlag = 1;
+            this.addChild(this._tabPanel);
         } else {
-            this._scrolPanel = new chimple.ScrollableButtonPanel(cc.p(0, 0), cc.size(width * 2 / 3, height), 3, 4, configuration, callback, callbackContext);
+            this._scrolPanel = new xc.ScrollableButtonPanel(cc.p(0, 0), cc.size(width * 2 / 3, height), 3, 4, configuration, callback, callbackContext);
             this.addChild(this._scrolPanel);
             cc.log('uibutton previewpanale');
             this.main_backButton = new ccui.Button("icons/back.png", "icons/back_onclick.png", "icons/back_onclick.png", ccui.Widget.PLIST_TEXTURE);
@@ -87,9 +93,9 @@ chimple.PreviewPanel = cc.LayerColor.extend({
     goBack: function () {
         //update skins and color based on user selection
         //var renderer = new cc.RenderTexture(this._target.getBoundingBoxToWorld().width, this._target.getBoundingBoxToWorld().height);
-        chimple.ParseUtil.cacheThumbnailForFavorites(this._target);
-        if (chimple.customCharacters && chimple.customCharacters.items) {
-            chimple.customCharacters.items.forEach(function (element) {
+        xc.ParseUtil.cacheThumbnailForFavorites(this._target);
+        if (xc.customCharacters && xc.customCharacters.items) {
+            xc.customCharacters.items.forEach(function (element) {
                 if (element.uniqueCharacterID == this._target.uniqueCharacterID) {
                     element.favoriteSkins = this._target._userData.visibleSkins;
                 }
@@ -108,11 +114,11 @@ chimple.PreviewPanel = cc.LayerColor.extend({
     },
     onEnter: function () {
         this._super();
-        chimple.CharacterUtil.storeActionToTemporaryStore(this);
+        xc.CharacterUtil.storeActionToTemporaryStore(this);
     },
 
     onExit: function () {
         this._super();
-        chimple.CharacterUtil.restoreActionFromTemporaryStore(this);
+        xc.CharacterUtil.restoreActionFromTemporaryStore(this);
     }
 });

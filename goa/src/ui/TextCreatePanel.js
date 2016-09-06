@@ -1,5 +1,5 @@
-var chimple = chimple || {};
-chimple.TextCreatePanel = cc.Layer.extend({
+var xc = xc || {};
+xc.TextCreatePanel = cc.Layer.extend({
     ctor: function (width, height, position, existingText, callback, callbackContext) {
         this._super(width, height);
         cc.log('texgtcreate uibutton');
@@ -11,7 +11,7 @@ chimple.TextCreatePanel = cc.Layer.extend({
         this._callbackContext = callbackContext;
         
         this._textField = new ccui.WebView();
-        localStorage.setItem('scene_text_contents', chimple.story.items[chimple.pageIndex].sceneText);
+        localStorage.setItem('scene_text_contents', xc.story.items[xc.pageIndex].sceneText);
         this._textField.loadURL("/textView.html?height=" + height);
         this._textField.setPosition(cc.director.getWinSize().width / 2, cc.director.getWinSize().height / 2);
         this._textField.setContentSize(cc.size(cc.director.getWinSize().width * 0.7, cc.director.getWinSize().height * 0.7));
