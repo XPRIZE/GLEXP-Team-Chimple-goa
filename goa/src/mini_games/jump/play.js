@@ -7,11 +7,13 @@ xc.playLayer = cc.Layer.extend( {
    square:[],
    word:[],
    stepRef:[],
+   list:[],
    self : null,
    index:0,
    wrongCount:0,
    correct: 0,
    flag:true,
+   _dir_Flag: true,
 
     ctor:function () {
         this._super();
@@ -26,7 +28,7 @@ xc.playLayer = cc.Layer.extend( {
          for(var i=0; i < child.length ;i++){
             // child.
             var name = child[i].getName();
-            cc.log("%s", name);
+          //  cc.log("%s", name);
          }
 
         this.char = ccs.load(xc.playLayer.res.char,xc.path);
@@ -191,12 +193,9 @@ xc.playLayer = cc.Layer.extend( {
        var result = permutate.getPermutations(string,3);
        for( var i=0 ; i< result.length ; i++)
        {
-        //   if(dict3.indexOf(result[i].toLowerCase()) != -1)
-           {
-        //        this.list.push(result[i]);
-           }
+           this.list.push(result[i]);
        } 
-       cc.log(this.list);   
+       cc.log(result);   
      },
      charMove : function()
      {
@@ -204,14 +203,48 @@ xc.playLayer = cc.Layer.extend( {
         var jump = new cc.jumpBy(1,cc.p(500,160),150,1);
         this.char.node.runAction(jump);
 
+        var animation = ccs.load(xc.playLayer.res.char,xc.path);
+       this.char.node.runAction(animation.action);
+       animation.action.play("jumping",false);
 
      },
     charjump: function()
     {
-         var jump = new cc.jumpBy(1.5,cc.p(this.size.width /4,300),400,1);
-        this.char.node.runAction(jump);
+        // if (this.correct % 2 == 0 && this.correct > 2 && this._dir_Flag){
+        //      var jump = new cc.jumpBy(1.5,cc.p(this.size.width /4,300),200,1);
+        // } else if (this.correct == 2){
+        //     var jump = new cc.jumpBy(1.5,cc.p(this.size.width /4,300),200,1);
+        // } else {
+        //     var jump = new cc.jumpBy(1.5,cc.p(-this.size.width /4,300),200,1);
+        // }
+       var x = 1;
+        if (this._dir_Flag){
+           x = 1;
+        }else{
+            x = -1;
+        }
+        var jump = new cc.jumpBy(1.5,cc.p(x * this.size.width /4,300),200,1);
+       this.char.node.runAction(cc.sequence( jump, cc.callFunc(this.jumpCallback, this)));//runAction(jump);
+       var animation = ccs.load(xc.playLayer.res.char,xc.path);
+       this.char.node.runAction(animation.action);
+       animation.action.play("jumping",false);
     },
+    jumpCallback :function(){ 
+       if (this.correct % 2 == 1 && this.correct >2 ){
 
+           this.stepMove();
+            if(this.flag == true)
+                       {
+                         this.stepRightMove();
+                         this.flag = false;
+                       }
+                      else
+                       {
+                           this.stepLefttMove();
+                           this.flag = true;
+                       }
+       }
+    },
       stepRightMove : function()
     { var step_width = this.size.width /4;
         var stepRight =[1800,2100];
@@ -244,6 +277,7 @@ xc.playLayer = cc.Layer.extend( {
 
       stepMove : function()
       {
+            this._dir_Flag = (!this._dir_Flag);
     for(var i=0; i<this.stepRef.length; i++)
      {
         var moveBy = new cc.MoveBy(1, cc.p(0,-600));
@@ -258,7 +292,36 @@ xc.playLayer = cc.Layer.extend( {
      var moveBy = new cc.MoveBy(1, cc.p(0,-600));
      this.char.node.runAction(moveBy);
       },
+    verify : function (word)
+    {
+        self.correct++;
+             var words = "";
+     for( var i=0 ; i< word.length ; i++)  {
+        
+        words += word[i];
+        
+     }  
+        
+       if(this.list.indexOf(words) != -1)
+     {
+         cc.log("oooo");
+     }    
+     else
+     {
+         cc.log("aaaa");
+         this.jumping();
+     }
+    },
 
+    jumping : function()
+    {
+      if(self.correct >= 2)
+        {
+        self.charjump();
+        }else {
+        self.charMove();
+        }
+    },
       generateRandomLetters : function(count,array){
       var vow = ['A','E','I','O','U'];
       var con = ['B','C','D','F','G','H','J','K','L','M','N','P','Q','R','S','T','V','W','X','Y','Z'];
@@ -349,7 +412,16 @@ xc.playLayer = cc.Layer.extend( {
                        }
                         if(target.id == "Wrong"){ 
                             cc.log("wrong");
-                       self.stepMove();
+                          //  cc.log("got = ",self.word[(self.index) - 1]);
+                        
+                        self.removeChild(self.word[(self.index) - 1]);
+                        self.word.pop(self.word[(self.index) - 1]);
+                        self.index--;  
+                        if(self.word.length == 0){
+                            self.index = 0;   
+                         cc.eventManager.removeListener(target);
+                        }
+                     /*  self.stepMove();
                        self.wrongCount++;
                        if(self.flag == true)
                        {
@@ -360,18 +432,14 @@ xc.playLayer = cc.Layer.extend( {
                        {
                            self.stepLefttMove();
                            self.flag = true;
-                       }
+                       }*/
 
                         }
                        if(target.id == "Tick"){ 
-                        self.correct++;
                         
-                        if(self.correct >= 2)
-                        {
-                            self.charjump();
-                        }else {
-                                self.charMove();
-                        }
+                        self.verify(self.word);
+                        
+                       
                           cc.log("tick");
 
                        }    

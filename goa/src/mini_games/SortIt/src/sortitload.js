@@ -1,7 +1,10 @@
 
 
 /// <reference path="../../cocos2d-typescript-definitions/cocos2d/cocos2d-lib.d.ts" />
-var loadLayer = cc.Layer.extend({
+
+var xc = xc || {};
+
+xc.sortitloadLayer = cc.Layer.extend({
     
     ctor:function () {
         //////////////////////////////
@@ -21,9 +24,7 @@ var eventListener = cc.eventManager.addListener({
                 var targetRectangle = cc.rect(0, 0, targetSize.width, targetSize.height);
                 if (cc.rectContainsPoint(targetRectangle, location)) {
                     
-                 
-
-                    cc.director.runScene(new level1Scene());
+                   xc.GameScene.load(xc.sortitlevel1Layer);
                     
                 }
                 //console.log('touche po oe: ' + targetSize);   
@@ -47,7 +48,7 @@ var eventListener = cc.eventManager.addListener({
       
         //var train = new cc.Sprite(cc.spriteFrameCache.getSpriteFrame("train/train.png"));
     
-         this.homeScreen = new cc.Sprite(res.homeScreen_png);
+         this.homeScreen = new cc.Sprite(xc.sortitloadLayer.res.homeScreen_png);
          this.homeScreen.setAnchorPoint(0.5, 0.5 );
          this.homeScreen.setPosition(size.width / 2, size.height / 2); 
          this.addChild(this.homeScreen);
@@ -57,17 +58,25 @@ var eventListener = cc.eventManager.addListener({
         return true;
     }
 });
-
-var loadScene = cc.Scene.extend({
+/*
+var sortitloadScene = cc.Scene.extend({
     onEnter:function () {
         this._super();
-        var layer = new loadLayer();
+        var layer = new xc.sortitloadLayer();
         this.addChild(layer);
     }
 });
+*/
 
-
-
+xc.sortitloadLayer.res = {
+        
+    homeScreen_png : xc.path + "HelloWorld.png",
+    
+    
+    comedyBubble_mp3:  "res/sounds/sortit/comedyBubble.mp3",
+    explosive_mp3:  "res/sounds/sortit/explosive.mp3",
+    failure_mp3:  "res/sounds/sortit/failure.mp3"
+}
 
 
 
