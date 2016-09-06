@@ -24,7 +24,7 @@ xc.sortitlevel5Layer = cc.Layer.extend({
                 if (self.counterLevel5 == 6) {
                     
                 
-                    cc.director.runScene(new sortitlevel6Scene());
+                    xc.GameScene.load(xc.sortitlevel6Layer);
                     
                 }
                  
@@ -42,11 +42,11 @@ xc.sortitlevel5Layer = cc.Layer.extend({
         var size = cc.winSize;
 
          
-         this.bg = ccs.load(SortIt.level5bg_json);
-         this.bg.setAnchorPoint(0.5, 0.5);
-         this.bg.setPosition(size.width / 2, size.height / 2); 
-         this.addChild(this.bg);
-         cc.eventManager.addListener(eventListener.clone(), this.bg);
+         this.bg = ccs.load(xc.sortitlevel5Layer.res.level5bg_json, xc.path);
+         this.bg.node.setAnchorPoint(0.5, 0.5);
+         this.bg.node.setPosition(size.width / 2, size.height / 2); 
+         this.addChild(this.bg.node);
+         cc.eventManager.addListener(eventListener.clone(), this.bg.node);
         
 
          this.character = new cc.Sprite(cc.spriteFrameCache.getSpriteFrame("sortit/charcterfive.png"));
@@ -100,7 +100,7 @@ xc.sortitlevel5Layer = cc.Layer.extend({
          
 
 
-         this.num1 = new MovableItem5(cc.spriteFrameCache.getSpriteFrame("sortit/sortittwo/num1.png"), this.num1t, this);
+         this.num1 = new sortitMovableItem5("sortit/sortittwo/num1.png", this.num1t, this);
          this.num1.setAnchorPoint(0.5, 0.5);
          this.num1.setPosition(size.width*0.23 , size.height*0.23);
          this.num1.xP = this.num1.getPosition().x;
@@ -110,7 +110,7 @@ xc.sortitlevel5Layer = cc.Layer.extend({
          this.addChild(this.num1);
          
 
-         this.num2 = new MovableItem5(cc.spriteFrameCache.getSpriteFrame("sortit/sortittwo/num2.png"), this.num2t, this);
+         this.num2 = new sortitMovableItem5("sortit/sortittwo/num2.png", this.num2t, this);
          this.num2.setAnchorPoint(0.5, 0.5);
          this.num2.setPosition(size.width*0.54 , size.height*0.23);
          this.num2.xP = this.num2.getPosition().x;
@@ -120,7 +120,7 @@ xc.sortitlevel5Layer = cc.Layer.extend({
          this.addChild(this.num2);
          
 
-         this.num3 = new MovableItem5(cc.spriteFrameCache.getSpriteFrame("sortit/sortittwo/num3.png"), this.num3t, this);
+         this.num3 = new sortitMovableItem5("sortit/sortittwo/num3.png", this.num3t, this);
          this.num3.setAnchorPoint(0.5, 0.5);
          this.num3.setPosition(size.width*0.07 , size.height*0.23);
          this.num3.xP = this.num3.getPosition().x;
@@ -130,7 +130,7 @@ xc.sortitlevel5Layer = cc.Layer.extend({
          this.addChild(this.num3);
          
 
-         this.num4 = new MovableItem5(cc.spriteFrameCache.getSpriteFrame("sortit/sortittwo/num4.png"), this.num4t, this);
+         this.num4 = new sortitMovableItem5("sortit/sortittwo/num4.png", this.num4t, this);
          this.num4.setAnchorPoint(0.5, 0.5);
          this.num4.setPosition(size.width*0.70 , size.height*0.23);
          this.num4.xP = this.num4.getPosition().x;
@@ -140,7 +140,7 @@ xc.sortitlevel5Layer = cc.Layer.extend({
          this.addChild(this.num4);
          
 
-         this.num5 = new MovableItem5(cc.spriteFrameCache.getSpriteFrame("sortit/sortittwo/num5.png"), this.num5t, this);
+         this.num5 = new sortitMovableItem5("sortit/sortittwo/num5.png", this.num5t, this);
          this.num5.setAnchorPoint(0.5, 0.5);
          this.num5.setPosition(size.width*0.42 , size.height*0.13);
          this.num5.xP = this.num5.getPosition().x;
@@ -157,16 +157,23 @@ xc.sortitlevel5Layer = cc.Layer.extend({
 
 });
 
-var sortitlevel5Scene = cc.Scene.extend({
-    onEnter:function () {
-        this._super();
-        var layer = new xc.sortitlevel5Layer();
-        this.addChild(layer);
-    }
-});
 
 
 xc.sortitlevel5Layer.res = {
     
+    sortittwo_png: xc.path + "sortit/sortittwo/sortittwo.png",
+    sortittwo_plist: xc.path + "sortit/sortittwo/sortittwo.plist",
+    
+    sortit_png: xc.path + "sortit/sortit.png",
+    sortit_plist: xc.path + "sortit/sortit.plist",
+    
+    
+    
+    level5bg_json:  xc.path + "sortit/levelfive.json",
+    
+    
+    comedyBubble_mp3:  "res/sounds/sortit/comedyBubble.mp3",
+    explosive_mp3:  "res/sounds/sortit/explosive.mp3",
+    failure_mp3:  "res/sounds/sortit/failure.mp3"
 }
 

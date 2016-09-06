@@ -24,9 +24,7 @@ var eventListener = cc.eventManager.addListener({
                 var targetRectangle = cc.rect(0, 0, targetSize.width, targetSize.height);
                 if (cc.rectContainsPoint(targetRectangle, location)) {
                     
-                 
-
-                    cc.director.runScene(new sortitloadScene());
+                   xc.GameScene.load(xc.sortitlevel1Layer);
                     
                 }
                 //console.log('touche po oe: ' + targetSize);   
@@ -50,7 +48,7 @@ var eventListener = cc.eventManager.addListener({
       
         //var train = new cc.Sprite(cc.spriteFrameCache.getSpriteFrame("train/train.png"));
     
-         this.homeScreen = new cc.Sprite(res.homeScreen_png);
+         this.homeScreen = new cc.Sprite(xc.sortitloadLayer.res.homeScreen_png);
          this.homeScreen.setAnchorPoint(0.5, 0.5 );
          this.homeScreen.setPosition(size.width / 2, size.height / 2); 
          this.addChild(this.homeScreen);
@@ -60,7 +58,7 @@ var eventListener = cc.eventManager.addListener({
         return true;
     }
 });
-
+/*
 var sortitloadScene = cc.Scene.extend({
     onEnter:function () {
         this._super();
@@ -68,11 +66,16 @@ var sortitloadScene = cc.Scene.extend({
         this.addChild(layer);
     }
 });
-
+*/
 
 xc.sortitloadLayer.res = {
-        train_json : xc.path + "train/train.json",
-        train_plist: xc.path + "train/train.plist"
+        
+    homeScreen_png : xc.path + "HelloWorld.png",
+    
+    
+    comedyBubble_mp3:  "res/sounds/sortit/comedyBubble.mp3",
+    explosive_mp3:  "res/sounds/sortit/explosive.mp3",
+    failure_mp3:  "res/sounds/sortit/failure.mp3"
 }
 
 

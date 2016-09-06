@@ -28,7 +28,7 @@ xc.sortitlevel2Layer = cc.Layer.extend({
                     
                  
                     
-                    cc.director.runScene(new sortitlevel3Scene());
+                   xc.GameScene.load(xc.sortitlevel3Layer);
                     
                 }
                    
@@ -46,19 +46,19 @@ xc.sortitlevel2Layer = cc.Layer.extend({
 
         /////////////////////////////////////////
        
-         this.bg = ccs.load(SortIt.level2bg_json);
-         this.bg.setAnchorPoint(0.5, 0.5 );
-         this.bg.setPosition(size.width / 2, size.height / 2); 
-         this.addChild(this.bg);
-         cc.eventManager.addListener(eventListener.clone(), this.bg);
+         this.bg = ccs.load(xc.sortitlevel2Layer.res.level2bg_json, xc.path);
+         this.bg.node.setAnchorPoint(0.5, 0.5 );
+         this.bg.node.setPosition(size.width / 2, size.height / 2); 
+         this.addChild(this.bg.node);
+         cc.eventManager.addListener(eventListener.clone(), this.bg.node);
 
-         
+         /*
          this.character = new cc.Sprite(cc.spriteFrameCache.getSpriteFrame("sortit/charctertwo.png"));
          this.character.setAnchorPoint(0.5, 0.5 );
          this.character.setPosition(size.width*0.78 , size.height*0.46); 
          this.character.setScale(this.level2SpriteScaleX, this.level2SpriteScaleY);
          this.addChild(this.character);
-
+   */
          
          this.table = new cc.Sprite(cc.spriteFrameCache.getSpriteFrame("sortit/table.png"));
          this.table.setAnchorPoint(0.5, 0.5);
@@ -89,57 +89,57 @@ cc.spriteFrameCache.getSpriteFrame("sortit/charcterone.png")
          this.stand = new cc.Sprite(cc.spriteFrameCache.getSpriteFrame("sortit/stand.png"));
          this.stand.setAnchorPoint(0.5, 0.5);
          this.stand.setPosition(size.width*0.45 , size.height*0.12); 
-         this.stand.setScale(this.level2SpriteScaleX, this.level2SpriteScaleY);
+         //this.stand.setScale(this.level2SpriteScaleX, this.level2SpriteScaleY);
          this.addChild(this.stand);
          
 
          this.cake1t = new cc.Sprite(cc.spriteFrameCache.getSpriteFrame("sortit/cake1t.png"));
          this.cake1t.setAnchorPoint(0.5, 0.5);
          this.cake1t.setPosition(size.width*0.45 , size.height*0.20); 
-         this.cake1t.setScale(this.level2SpriteScaleX, this.level2SpriteScaleY);
+         //this.cake1t.setScale(this.level2SpriteScaleX, this.level2SpriteScaleY);
          this.addChild(this.cake1t);
         
 
          this.cake2t = new cc.Sprite(cc.spriteFrameCache.getSpriteFrame("sortit/cake2t.png"));
          this.cake2t.setAnchorPoint(0.5, 0.5);
          this.cake2t.setPosition(size.width*0.45 , size.height*0.28); 
-         this.cake2t.setScale(this.level2SpriteScaleX, this.level2SpriteScaleY);
+         //this.cake2t.setScale(this.level2SpriteScaleX, this.level2SpriteScaleY);
          this.addChild(this.cake2t);
 
          this.cake3t = new cc.Sprite(cc.spriteFrameCache.getSpriteFrame("sortit/cake3t.png"));
          this.cake3t.setAnchorPoint(0.5, 0.5);
          this.cake3t.setPosition(size.width*0.45 , size.height*0.35); 
-         this.cake3t.setScale(this.level2SpriteScaleX, this.level2SpriteScaleY);
+         //this.cake3t.setScale(this.level2SpriteScaleX, this.level2SpriteScaleY);
          this.addChild(this.cake3t);
 
          this.cake4t = new cc.Sprite(cc.spriteFrameCache.getSpriteFrame("sortit/cake4t.png"));
          this.cake4t.setAnchorPoint(0.5, 0.5);
          this.cake4t.setPosition(size.width*0.45 , size.height*0.41); 
-         this.cake4t.setScale(this.level2SpriteScaleX, this.level2SpriteScaleY);
+         //this.cake4t.setScale(this.level2SpriteScaleX, this.level2SpriteScaleY);
          this.addChild(this.cake4t);
 
 
          this.cake5t = new cc.Sprite(cc.spriteFrameCache.getSpriteFrame("sortit/cake5t.png"));
          this.cake5t.setAnchorPoint(0.5, 0.5);
          this.cake5t.setPosition(size.width*0.45 , size.height*0.50); 
-         this.cake5t.setScale(this.level2SpriteScaleX, this.level2SpriteScaleY);
+         //this.cake5t.setScale(this.level2SpriteScaleX, this.level2SpriteScaleY);
          this.addChild(this.cake5t);
 
 
-         this.cake1 = new MovableItem2(cc.spriteFrameCache.getSpriteFrame("sortit/cake1.png"), this.cake1t, this);
+         this.cake1 = new sortitMovableItem2("sortit/cake1.png", this.cake1t, this);
          this.cake1.setAnchorPoint(0.5, 0.5);
          this.cake1.setPosition(size.width*0.70 , size.height*0.10); 
-         this.cake1.setScale(this.level2SpriteScaleX, this.level2SpriteScaleY);
+         //this.cake1.setScale(this.level2SpriteScaleX, this.level2SpriteScaleY);
          this.cake1.xP = this.cake1.getPosition().x;
          this.cake1.yP = this.cake1.getPosition().y;
          this.cake1.id = 1;
          this.addChild(this.cake1);
          
 
-         this.cake2 = new MovableItem2(cc.spriteFrameCache.getSpriteFrame("sortit/cake2.png"), this.cake2t, this);
+         this.cake2 = new sortitMovableItem2("sortit/cake2.png", this.cake2t, this);
          this.cake2.setAnchorPoint(0.5, 0.5);
          this.cake2.setPosition(size.width*0.07 , size.height*0.23); 
-         this.cake2.setScale(this.level2SpriteScaleX, this.level2SpriteScaleY);
+         //this.cake2.setScale(this.level2SpriteScaleX, this.level2SpriteScaleY);
          this.cake2.xP = this.cake2.getPosition().x;
          this.cake2.yP = this.cake2.getPosition().y;
          this.cake2.id = 2;
@@ -147,10 +147,10 @@ cc.spriteFrameCache.getSpriteFrame("sortit/charcterone.png")
          
 
          
-         this.cake3 = new MovableItem2(cc.spriteFrameCache.getSpriteFrame("sortit/cake3.png"), this.cake3t, this);
+         this.cake3 = new sortitMovableItem2("sortit/cake3.png", this.cake3t, this);
          this.cake3.setAnchorPoint(0.5, 0.5);
          this.cake3.setPosition(size.width*0.74 , size.height*0.25); 
-         this.cake3.setScale(this.level2SpriteScaleX, this.level2SpriteScaleY);
+         //this.cake3.setScale(this.level2SpriteScaleX, this.level2SpriteScaleY);
          this.cake3.xP = this.cake3.getPosition().x;
          this.cake3.yP = this.cake3.getPosition().y;
          this.cake3.id = 3;
@@ -158,20 +158,20 @@ cc.spriteFrameCache.getSpriteFrame("sortit/charcterone.png")
          
 
 
-         this.cake4 = new MovableItem2(cc.spriteFrameCache.getSpriteFrame("sortit/cake4.png"), this.cake4t, this);
+         this.cake4 = new sortitMovableItem2("sortit/cake4.png", this.cake4t, this);
          this.cake4.setAnchorPoint(0.5, 0.5);
          this.cake4.setPosition(size.width*0.11 , size.height*0.07); 
-         this.cake4.setScale(this.level2SpriteScaleX, this.level2SpriteScaleY);
+         //this.cake4.setScale(this.level2SpriteScaleX, this.level2SpriteScaleY);
          this.cake4.xP = this.cake4.getPosition().x;
          this.cake4.yP = this.cake4.getPosition().y;
          this.cake4.id = 4;
          this.addChild(this.cake4);
          
 
-         this.cake5 = new MovableItem2(cc.spriteFrameCache.getSpriteFrame("sortit/cake5.png"), this.cake5t, this);
+         this.cake5 = new sortitMovableItem2("sortit/cake5.png", this.cake5t, this);
          this.cake5.setAnchorPoint(0.5, 0.5);
          this.cake5.setPosition(size.width*0.93 , size.height*0.32); 
-         this.cake5.setScale(this.level2SpriteScaleX, this.level2SpriteScaleY);
+         //this.cake5.setScale(this.level2SpriteScaleX, this.level2SpriteScaleY);
          this.cake5.xP = this.cake5.getPosition().x;
          this.cake5.yP = this.cake5.getPosition().y;
          this.cake5.id = 5;
@@ -185,15 +185,25 @@ cc.spriteFrameCache.getSpriteFrame("sortit/charcterone.png")
 
 });
 
-var sortitlevel2Scene = cc.Scene.extend({
-    onEnter:function () {
-        this._super();
-        var layer = new xc.sortitlevel2Layer();
-        this.addChild(layer);
-    }
-});
+
 
 xc.sortitlevel2Layer.res = {
+    
+    sortittwo_png: xc.path + "sortit/sortittwo/sortittwo.png",
+    sortittwo_plist: xc.path + "sortit/sortittwo/sortittwo.plist",
+    
+    sortit_png: xc.path + "sortit/sortit.png",
+    sortit_plist: xc.path + "sortit/sortit.plist",
+    
+    
+    
+    level2bg_json: xc.path +  "sortit/leveltwo.json",
+    
+    
+    comedyBubble_mp3: "res/sounds/sortit/comedyBubble.mp3",
+    explosive_mp3:  "res/sounds/sortit/explosive.mp3",
+    failure_mp3:  "res/sounds/sortit/failure.mp3"
+    
     
 }
 

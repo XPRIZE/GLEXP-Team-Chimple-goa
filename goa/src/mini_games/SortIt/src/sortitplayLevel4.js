@@ -27,7 +27,7 @@ xc.sortitlevel4Layer = cc.Layer.extend({
                     
                  
                     
-                    cc.director.runScene(new sortitlevel5Scene());
+                   xc.GameScene.load(xc.sortitlevel5Layer);
                     
                 }
                 
@@ -42,11 +42,11 @@ xc.sortitlevel4Layer = cc.Layer.extend({
 
         var size = cc.winSize;
 
-         this.bg = ccs.load(SortIt.level4bg_json);
-         this.bg.setAnchorPoint(0.5, 0.5 );
-         this.bg.setPosition(size.width / 2, size.height / 2); 
-         this.addChild(this.bg);
-         cc.eventManager.addListener(eventListener.clone(), this.bg);
+         this.bg = ccs.load(xc.sortitlevel4Layer.res.level4bg_json, xc.path);
+         this.bg.node.setAnchorPoint(0.5, 0.5 );
+         this.bg.node.setPosition(size.width / 2, size.height / 2); 
+         this.addChild(this.bg.node);
+         cc.eventManager.addListener(eventListener.clone(), this.bg.node);
         
       
         
@@ -100,7 +100,7 @@ xc.sortitlevel4Layer = cc.Layer.extend({
          
 
 
-         this.bowl1 = new MovableItem4(cc.spriteFrameCache.getSpriteFrame("sortit/sortittwo/bowl1.png"), this.bowl1t, this);
+         this.bowl1 = new sortitMovableItem4("sortit/sortittwo/bowl1.png", this.bowl1t, this);
          this.bowl1.setAnchorPoint(0.5, 0.5);
          this.bowl1.setPosition(size.width*0.85 , size.height*0.15);
          this.bowl1.xP = this.bowl1.getPosition().x;
@@ -111,7 +111,7 @@ xc.sortitlevel4Layer = cc.Layer.extend({
        
 
       
-         this.bowl2 = new MovableItem4(cc.spriteFrameCache.getSpriteFrame("sortit/sortittwo/bowl2.png"), this.bowl2t, this);
+         this.bowl2 = new sortitMovableItem4("sortit/sortittwo/bowl2.png", this.bowl2t, this);
          this.bowl2.setAnchorPoint(0.5, 0.5);
          this.bowl2.setPosition(size.width*0.19 , size.height*0.14);
          this.bowl2.xP = this.bowl2.getPosition().x;
@@ -123,7 +123,7 @@ xc.sortitlevel4Layer = cc.Layer.extend({
 
 
       
-         this.bowl3 = new MovableItem4(cc.spriteFrameCache.getSpriteFrame("sortit/sortittwo/bowl3.png"), this.bowl3t, this);
+         this.bowl3 = new sortitMovableItem4("sortit/sortittwo/bowl3.png", this.bowl3t, this);
          this.bowl3.setAnchorPoint(0.5, 0.5);
          this.bowl3.setPosition(size.width*0.46 , size.height*0.10);
          this.bowl3.xP = this.bowl3.getPosition().x;
@@ -133,7 +133,7 @@ xc.sortitlevel4Layer = cc.Layer.extend({
          this.addChild(this.bowl3);
          
 
-         this.bowl4 = new MovableItem4(cc.spriteFrameCache.getSpriteFrame("sortit/sortittwo/bowl4.png"), this.bowl4t, this);
+         this.bowl4 = new sortitMovableItem4("sortit/sortittwo/bowl4.png", this.bowl4t, this);
          this.bowl4.setAnchorPoint(0.5, 0.5);
          this.bowl4.setPosition(size.width*0.62 , size.height*0.10);
          this.bowl4.xP = this.bowl4.getPosition().x;
@@ -143,7 +143,7 @@ xc.sortitlevel4Layer = cc.Layer.extend({
          this.addChild(this.bowl4);
 
 
-         this.bowl5 = new MovableItem4(cc.spriteFrameCache.getSpriteFrame("sortit/sortittwo/bowl5.png"), this.bowl5t, this);
+         this.bowl5 = new sortitMovableItem4("sortit/sortittwo/bowl5.png", this.bowl5t, this);
          this.bowl5.setAnchorPoint(0.5, 0.5);
          this.bowl5.setPosition(size.width*0.07 , size.height*0.12);
          this.bowl5.xP = this.bowl5.getPosition().x;
@@ -160,16 +160,21 @@ xc.sortitlevel4Layer = cc.Layer.extend({
 
 });
 
-var sortitlevel4Scene = cc.Scene.extend({
-    onEnter:function () {
-        this._super();
-        var layer = new xc.sortitlevel4Layer();
-        this.addChild(layer);
-    }
-});
-
 
 xc.sortitlevel4Layer.res = {
     
+    sortittwo_png: xc.path + "sortit/sortittwo/sortittwo.png",
+    sortittwo_plist: xc.path + "sortit/sortittwo/sortittwo.plist",
+    
+    sortit_png: xc.path + "sortit/sortit.png",
+    sortit_plist: xc.path + "sortit/sortit.plist",
+    
+    
+    level4bg_json: xc.path + "sortit/levelfour.json",
+   
+    
+    comedyBubble_mp3:  "res/sounds/sortit/comedyBubble.mp3",
+    explosive_mp3:  "res/sounds/sortit/explosive.mp3",
+    failure_mp3:  "res/sounds/sortit/failure.mp3"
 }
 

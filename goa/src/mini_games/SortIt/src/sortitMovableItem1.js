@@ -3,8 +3,7 @@
 var sortitMovableItem1 = cc.Sprite.extend({
         
         ctor:function(imageFile, transparentSprite, that) {
-            this._super();
-            this.initWithFile(imageFile);
+            this._super(cc.spriteFrameCache.getSpriteFrame(imageFile));
             
             var transparentSprite = transparentSprite;
 
@@ -45,13 +44,18 @@ var sprite_click = cc.EventListener.create({event: cc.EventListener.TOUCH_ONE_BY
             target.setPosition(x, y);
 
             this.audioEngine = cc.audioEngine;
-            this.audioEngine.playEffect(SortIt.comedyBubble_mp3);
+            this.audioEngine.playEffect(xc.sortitlevel1Layer.res.comedyBubble_mp3);
 
            
 
             overlapped = 1;
             that.counterLevel1++;
-             
+             if (that.counterLevel1 == 7) {
+              
+                    
+                    xc.GameScene.load(xc.sortitlevel2Layer);
+
+                }
             cc.eventManager.removeListener(this);
           
         }
@@ -76,7 +80,7 @@ var sprite_click = cc.EventListener.create({event: cc.EventListener.TOUCH_ONE_BY
                  var rectToy = cc.rect(0, 0, target.width, target.height);
                  if (cc.rectContainsPoint(rectToy, location) && overlapped==0) { var toy = cc.MoveTo.create(2,cc.p(target.xP,target.yP));
         target.runAction(toy);this.audioEngine = cc.audioEngine;
-            this.audioEngine.playEffect(SortIt.failure_mp3);
+            this.audioEngine.playEffect(xc.sortitlevel1Layer.res.failure_mp3);
 return true;}
 
   }   

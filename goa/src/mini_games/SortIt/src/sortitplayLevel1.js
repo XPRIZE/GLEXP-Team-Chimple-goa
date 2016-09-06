@@ -24,7 +24,8 @@ xc.sortitlevel1Layer = cc.Layer.extend({
                 
                 if (self.counterLevel1 == 7) {
               
-                    cc.director.runScene(new sortitlevel2Scene());
+                    
+                    xc.GameScene.load(xc.sortitlevel2Layer);
 
                 }
                  
@@ -35,25 +36,25 @@ xc.sortitlevel1Layer = cc.Layer.extend({
 
 
         this.audioEngine = cc.audioEngine;
-        this.audioEngine.playEffect(SortIt.explosive_mp3);
+        this.audioEngine.playEffect(xc.sortitlevel1Layer.res.explosive_mp3);
 
     
          var size = cc.winSize;
 
    
-         this.bg = ccs.load(SortIt.level1bg_json);
-         this.bg.setAnchorPoint(0.5, 0.5);
-         this.bg.setPosition(size.width / 2, size.height / 2); 
-         this.addChild(this.bg);
-         cc.eventManager.addListener(eventListener.clone(), this.bg);
+         this.bg = ccs.load(xc.sortitlevel1Layer.res.level1bg_json, xc.path);
+         this.bg.node.setAnchorPoint(0.5, 0.5);
+         this.bg.node.setPosition(size.width / 2, size.height / 2); 
+         this.addChild(this.bg.node);
+         cc.eventManager.addListener(eventListener.clone(), this.bg.node);
          
          
-       
+       /*
          this.character = new cc.Sprite(cc.spriteFrameCache.getSpriteFrame("sortit/charcterone.png"));
          this.character.setAnchorPoint(0.5, 0.5);
          this.character.setPosition(size.width*0.88 , size.height*0.56); 
          this.addChild(this.character);
-
+*/
 
          ///////////////////////////for transpare`nt
         
@@ -100,8 +101,8 @@ xc.sortitlevel1Layer = cc.Layer.extend({
          this.addChild(this.toy6t);
 
         ////Solid toys
-        
-         this.toy1 = new MovableItem1(cc.spriteFrameCache.getSpriteFrame("sortit/toy1.png"), this.toy1t, this);
+       
+         this.toy1 = new sortitMovableItem1("sortit/toy1.png", this.toy1t, this);
          this.toy1.setAnchorPoint(0.5, 0.5);
          this.toy1.setPosition(size.width*0.2 , size.height*0.04);
          this.toy1.xP = this.toy1.getPosition().x;
@@ -113,7 +114,7 @@ xc.sortitlevel1Layer = cc.Layer.extend({
 
         
 
-         this.toy2 = new MovableItem1(cc.spriteFrameCache.getSpriteFrame("sortit/toy2.png"), this.toy2t, this);
+         this.toy2 = new sortitMovableItem1("sortit/toy2.png", this.toy2t, this);
          this.toy2.setAnchorPoint(0.5, 0.5);
          this.toy2.setPosition(size.width*0.6 , size.height*0.1);
          this.toy2.xP = this.toy2.getPosition().x;
@@ -122,7 +123,7 @@ xc.sortitlevel1Layer = cc.Layer.extend({
          this.addChild(this.toy2);
 
         
-         this.toy3 = new MovableItem1(cc.spriteFrameCache.getSpriteFrame("sortit/toy3.png"), this.toy3t, this);
+         this.toy3 = new sortitMovableItem1("sortit/toy3.png", this.toy3t, this);
          this.toy3.setAnchorPoint(0.5, 0.5);
          this.toy3.setPosition(size.width*0.8 , size.height*0.07);
          this.toy3.xP = this.toy3.getPosition().x;
@@ -132,7 +133,7 @@ xc.sortitlevel1Layer = cc.Layer.extend({
    
 
         
-         this.toy4 = new MovableItem1(cc.spriteFrameCache.getSpriteFrame("sortit/toy4.png"), this.toy4t,  this);
+         this.toy4 = new sortitMovableItem1("sortit/toy4.png", this.toy4t,  this);
          this.toy4.setAnchorPoint(0.5, 0.5);
          this.toy4.setPosition(size.width*0.4 , size.height*0.15);
          this.toy4.xP = this.toy4.getPosition().x;
@@ -143,7 +144,7 @@ xc.sortitlevel1Layer = cc.Layer.extend({
     
 
         
-         this.toy5 = new MovableItem1(cc.spriteFrameCache.getSpriteFrame("sortit/toy5.png"), this.toy5t, this);
+         this.toy5 = new sortitMovableItem1("sortit/toy5.png", this.toy5t, this);
          this.toy5.setAnchorPoint(0.5, 0.5);
          this.toy5.setPosition(size.width*0.07 , size.height*0.2);
          this.toy5.xP = this.toy5.getPosition().x;
@@ -154,7 +155,7 @@ xc.sortitlevel1Layer = cc.Layer.extend({
             
 
        
-         this.toy6 = new MovableItem1( cc.spriteFrameCache.getSpriteFrame("sortit/toy6.png"), this.toy6t, this);
+         this.toy6 = new sortitMovableItem1("sortit/toy6.png", this.toy6t, this);
          this.toy6.setAnchorPoint(0.5, 0.5);
          this.toy6.setPosition(size.width*0.93 , size.height*0.2);
          this.toy6.xP = this.toy6.getPosition().x;
@@ -168,17 +169,21 @@ xc.sortitlevel1Layer = cc.Layer.extend({
 
 });
 
-var sortitlevel1Scene = cc.Scene.extend({
-    onEnter:function () {
-        this._super();
-        var layer = new xc.sortitlevel1Layer();
-        this.addChild(layer);
-    }
-});
-
-
 xc.sortitlevel1Layer.res = {
     
+    sortittwo_png: xc.path + "sortit/sortittwo/sortittwo.png",
+    sortittwo_plist: xc.path + "sortit/sortittwo/sortittwo.plist",
+    
+    sortit_png: xc.path + "sortit/sortit.png",
+    sortit_plist: xc.path + "sortit/sortit.plist",
+    
+    
+    level1bg_json: xc.path + "sortit/levelone.json",
+    
+    
+    comedyBubble_mp3:  "res/sounds/sortit/comedyBubble.mp3",
+    explosive_mp3:  "res/sounds/sortit/explosive.mp3",
+    failure_mp3:  "res/sounds/sortit/failure.mp3"
 }
 
 

@@ -24,6 +24,8 @@ xc.GameMap = cc.Scene.extend({
             xc.GameScene.load(xc.AlphamoleGameLevelScene);
         }else if(sender._configuration.name == 'jump_on_words') {
             xc.GameScene.load(xc.playLayer);
+        }else if(sender._configuration.name == 'sortit') {
+            xc.GameScene.load(xc.sortitlevel1Layer);
         }
     }
 });
