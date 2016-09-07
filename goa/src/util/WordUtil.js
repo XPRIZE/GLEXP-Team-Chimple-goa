@@ -7,7 +7,7 @@ xc.WordUtil = xc.WordUtil || {};
 // https://github.com/mateogianolio/scrabbler
 
 xc.WordUtil.getValidCombinations = function(string) {
-    var allWords = cc.loader.cache[xc.path + "english/allwords.json"];
+    var allWords = cc.loader.getRes(xc.path + "english/allwords.json");
     // generate power set
     var set = xc.WordUtil.power(string);
     
