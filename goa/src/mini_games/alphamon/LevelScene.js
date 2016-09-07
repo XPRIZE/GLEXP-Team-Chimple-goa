@@ -47,8 +47,11 @@ xc.AlphamoleGameLevelScene = cc.Layer.extend( {
         // var targetRectangle = target.getBoundingBox();
          if (cc.rectContainsPoint(targetRectangle, touch.getLocation()))
                    {
-                     cc.log("clicked on %s",target.getName());  
-                     cc.director.runScene(new AlphamoneGameLayer(target.getName()));
+                     cc.log("clicked on %s",target.getName());
+                    var scene = new xc.GameScene();
+                    scene.layer = new AlphamoneGameLayer(target.getName());
+                    scene.addChild(scene.layer);
+                    cc.director.runScene(scene);
                      //AlphamoneGameLayer 
                     }
                              return false;
