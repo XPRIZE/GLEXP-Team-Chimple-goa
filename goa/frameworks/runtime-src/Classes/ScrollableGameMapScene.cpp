@@ -172,7 +172,8 @@ void ScrollableGameMapScene::gameSelected(Ref* pSender, ui::Widget::TouchEventTy
             } else if(clickedButton->getName() == ENDLESS_RUNNER) {
                 Director::getInstance()->replaceScene(EndlessRunner::createScene());
             } else if(clickedButton->getName() == KUNG_FU_ALPHA) {
-                Director::getInstance()->replaceScene(Trace::createScene(0));
+                //Director::getInstance()->replaceScene(Trace::createScene(0));
+                ScriptingCore::getInstance()->runScript("src/start/sortit.js");
             } else if(clickedButton->getName() == ALPHAMON_FEED) {
                 Director::getInstance()->replaceScene(AlphamonFeed::createScene());
             } else if(clickedButton->getName() == BAJA) {
