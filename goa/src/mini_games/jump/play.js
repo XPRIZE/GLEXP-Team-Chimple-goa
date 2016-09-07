@@ -6,8 +6,11 @@ xc.playLayer = cc.Layer.extend( {
    ballref:[],
    square:[],
    word:[],
+   wordObj : [],
    stepRef:[],
    list:[],
+   dict :[],
+   dict3:[],
    self : null,
    index:0,
    wrongCount:0,
@@ -20,17 +23,17 @@ xc.playLayer = cc.Layer.extend( {
 
         this.size = cc.winSize;
         cc.spriteFrameCache.addSpriteFrames(xc.playLayer.res.jump_plist);
-
-
         this.bg = ccs.load(xc.playLayer.res.jump_game, xc.path);
         this.addChild(this.bg.node);
-       var child = this.bg.node.getChildren(); 
-         for(var i=0; i < child.length ;i++){
-            // child.
+        var child = this.bg.node.getChildren(); 
+         for(var i=0; i < child.length ;i++)
+         {
             var name = child[i].getName();
           //  cc.log("%s", name);
          }
+    
 
+        
         this.char = ccs.load(xc.playLayer.res.char,xc.path);
         this.char.node.setPosition(cc.p(this.size.width - 2450,this.size.height-950));
         this.addChild(this.char.node);
@@ -182,21 +185,27 @@ xc.playLayer = cc.Layer.extend( {
       alpha.setPosition(cc.p(this.ballref[i].x,this.ballref[i].y));
       alpha.setAnchorPoint(0.5,0.5);
       alpha.setColor(cc.color(0,0,0));
-          cc.log("alpha =",group[i]);
+        //  cc.log("alpha =",group[i]);
         }
 
-     var string = "";
+       cc.log(group);
+      this.string = '';
         for( var i=0; i< group.length; i++)
         {
-            string += group[i];
+            this.string += group[i];
         }
-       var result = permutate.getPermutations(string,3);
-       for( var i=0 ; i< result.length ; i++)
-       {
-           this.list.push(result[i]);
-       } 
-       cc.log(result);   
+      dict =  xc.WordUtil.getValidCombinations(this.string.toLowerCase());
+  // dict = ["abc","dsa","cba","bda","hsf"];
+        for(var i=0; i < dict.length ;i++)
+         {   if(dict[i].length == 3)
+             {
+                this.dict3.push(dict[i]); 
+             }
+         }
+        cc.log(this.dict3);
      },
+
+
      charMove : function()
      {
 
@@ -223,12 +232,14 @@ xc.playLayer = cc.Layer.extend( {
         }else{
             x = -1;
         }
-        var jump = new cc.jumpBy(1.5,cc.p(x * this.size.width /4,300),200,1);
+        var jump = new cc.JumpBy(1.5,cc.p(x * this.size.width /4,300),200,1);
        this.char.node.runAction(cc.sequence( jump, cc.callFunc(this.jumpCallback, this)));//runAction(jump);
        var animation = ccs.load(xc.playLayer.res.char,xc.path);
        this.char.node.runAction(animation.action);
        animation.action.play("jumping",false);
     },
+   
+   
     jumpCallback :function(){ 
        if (this.correct % 2 == 1 && this.correct >2 ){
 
@@ -245,6 +256,9 @@ xc.playLayer = cc.Layer.extend( {
                        }
        }
     },
+     
+     
+     
       stepRightMove : function()
     { var step_width = this.size.width /4;
         var stepRight =[1800,2100];
@@ -292,27 +306,47 @@ xc.playLayer = cc.Layer.extend( {
      var moveBy = new cc.MoveBy(1, cc.p(0,-600));
      this.char.node.runAction(moveBy);
       },
+  
+  
+  
     verify : function (word)
     {
         self.correct++;
-             var words = "";
+             var words = '';
      for( var i=0 ; i< word.length ; i++)  {
         
         words += word[i];
         
      }  
-        
-       if(this.list.indexOf(words) != -1)
-     {
+     cc.log("done= %s" , words);
+     for(var i=0 ; i< this.dict3.length ; i++)
+     {   
+       if(this.dict3[i].indexOf(words.toLowerCase()) != -1)
+        {
          cc.log("oooo");
-     }    
-     else
-     {
-         cc.log("aaaa");
          this.jumping();
+        }    
+     else
+        {
+         cc.log("aaaa");
+         
+        }
+     } 
+     this.word = [];
+  for ( var i= 0 ; i< this.word.length ; i++)
+  {
+     this.removeChild(this.wordObj[(this.index) - 1]);
+     this.wordObj.pop(this.wordObj[(this.index) - 1]);
+     this.index--;  
+     if(this.wordObj.length == 0){
+      this.index = 0;   
+      cc.eventManager.removeListener(target);
      }
+  }
     },
 
+   
+   
     jumping : function()
     {
       if(self.correct >= 2)
@@ -322,6 +356,9 @@ xc.playLayer = cc.Layer.extend( {
         self.charMove();
         }
     },
+   
+   
+   
       generateRandomLetters : function(count,array){
       var vow = ['A','E','I','O','U'];
       var con = ['B','C','D','F','G','H','J','K','L','M','N','P','Q','R','S','T','V','W','X','Y','Z'];
@@ -343,6 +380,10 @@ xc.playLayer = cc.Layer.extend( {
      }  
      return array;
     },
+   
+   
+   
+   
     onTouchBegan: function(touch, event){
          var target = event.getCurrentTarget();
          var location = target.convertToNodeSpace(touch.getLocation());
@@ -357,8 +398,9 @@ xc.playLayer = cc.Layer.extend( {
                         letter.setAnchorPoint(0.5,0.5);
                         letter.setColor(cc.color(0,0,0));
                         self.index++;
-                        self.word.push(letter);
-                        cc.log("hello"); 
+                        self.word.push(group[0]);
+                        self.wordObj.push(letter);
+                        cc.log("hello =", self.word); 
                        }
                         if(target.id == "Ball2"){ 
                          var letter = cc.LabelTTF.create(group[1], "res/fonts/Marker Felt.ttf", 130);
@@ -367,7 +409,8 @@ xc.playLayer = cc.Layer.extend( {
                         letter.setAnchorPoint(0.5,0.5);
                         letter.setColor(cc.color(0,0,0));
                         self.index++;
-                        self.word.push(letter);
+                        self.word.push(group[1]);
+                        self.wordObj.push(letter);
                           
                        }
                         if(target.id == "Ball3"){ 
@@ -377,7 +420,8 @@ xc.playLayer = cc.Layer.extend( {
                         letter.setAnchorPoint(0.5,0.5);
                         letter.setColor(cc.color(0,0,0));
                         self.index++;
-                        self.word.push(letter);
+                        self.word.push(group[2]);
+                        self.wordObj.push(letter);
                           
                        }
                         if(target.id == "Ball4"){ 
@@ -387,7 +431,8 @@ xc.playLayer = cc.Layer.extend( {
                         letter.setAnchorPoint(0.5,0.5);
                         letter.setColor(cc.color(0,0,0));
                         self.index++;
-                        self.word.push(letter);
+                        self.word.push(group[3]);
+                        self.wordObj.push(letter);
                           
                        }
                         if(target.id == "Ball5"){ 
@@ -397,7 +442,8 @@ xc.playLayer = cc.Layer.extend( {
                         letter.setAnchorPoint(0.5,0.5);
                         letter.setColor(cc.color(0,0,0));
                         self.index++;
-                        self.word.push(letter);
+                        self.word.push(group[4]);
+                        self.wordObj.push(letter);
                           
                        }
                         if(target.id == "Ball6"){ 
@@ -407,17 +453,19 @@ xc.playLayer = cc.Layer.extend( {
                         letter.setAnchorPoint(0.5,0.5);
                         letter.setColor(cc.color(0,0,0));
                         self.index++;
-                        self.word.push(letter);
+                        self.word.push(group[5]);
+                        self.wordObj.push(letter);
                           
                        }
                         if(target.id == "Wrong"){ 
                             cc.log("wrong");
                           //  cc.log("got = ",self.word[(self.index) - 1]);
                         
-                        self.removeChild(self.word[(self.index) - 1]);
+                        self.removeChild(self.wordObj[(self.index) - 1]);
+                        self.wordObj.pop(self.wordObj[(self.index) - 1]);
                         self.word.pop(self.word[(self.index) - 1]);
                         self.index--;  
-                        if(self.word.length == 0){
+                        if(self.wordObj.length == 0){
                             self.index = 0;   
                          cc.eventManager.removeListener(target);
                         }
@@ -458,10 +506,13 @@ xc.playLayer = cc.Layer.extend( {
 
 xc.playLayer.res = {
 
-     jump_main: "res/jump_on_words/jump_on_words_main_menu.json",
-    jump_level: "res/jump_on_words/jump_on_words_level_menu.json",
-    jump_game: "res/jump_on_words/jump_on_words_game_menu.json",
-    char:"res/jump_on_words/character.json",
+     jump_main: xc.path +"jump_on_words/jump_on_words_main_menu.json",
+    jump_level: xc.path +"jump_on_words/jump_on_words_level_menu.json",
+    jump_game: xc.path +"jump_on_words/jump_on_words_game_menu.json",
+    char:xc.path +"jump_on_words/character.json",
     jump_plist: xc.path +"jump_on_words/jump_on_words.plist",
-    jump_png: xc.path +"jump_on_words/jump_on_words.png"
+    jump_png: xc.path +"jump_on_words/jump_on_words.png",
+    dict:xc.path + "english/allwords.json"
+
+
 }

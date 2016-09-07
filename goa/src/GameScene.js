@@ -3,10 +3,13 @@ var xc = xc || {};
     
 xc.GameScene = cc.Scene.extend({
     layerClass: null,
+    layer: null,
     onEnter:function () {
         this._super();
-        var layer = new this.layerClass();
-        this.addChild(layer);
+        if(this.layer == null) {
+            this.layer = new this.layerClass();
+            this.addChild(this.layer);
+        }
     }
 });
 
