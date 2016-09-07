@@ -31,7 +31,7 @@ xc.PopLayer = cc.Layer.extend({
 
         //        var wordForSentanceArray = goa.TextGenerator.getInstance().generateASentence();
 
-        var wordForSentanceArray = ["hello", "bhavesh"];
+        var wordForSentanceArray = ["Twinkle", "twinkle", "little", "star","How", "I","wonder", "what", "you", "are"];
         cc.log("sentence:" + wordForSentanceArray);
         // var wordForSentanceArray = ["Twinkle", "twinkle", "little", "star","How", "I","wonder", "what", "you", "are"];
 
@@ -140,15 +140,6 @@ xc.PopLayer = cc.Layer.extend({
             }
 
         }, 1750);
-
-        //   setTimeout(function(){  
-        //              for(var i=0; i < self.cloudContainer.length ; i++)
-        //                      {
-        //                           cc.eventManager.addListener(listener.clone(), self.cloudContainer[i]);
-        //                      }       
-
-        //                  }, 12000);
-
     },
 
     getRandomArbitrary: function (min, max) {
@@ -169,7 +160,7 @@ xc.PopLayer = cc.Layer.extend({
     },
     makeSentance: function (word) {
         if (this.wordInOrder.length == 0) {
-            this.correctSentance = new cc.LabelTTF(word.children[0].getString(), "Arial", 100);
+            this.correctSentance = new cc.LabelTTF(word.children[0].getString(), "Arial", 90);
             this.correctSentance.color = new cc.Color(255, 192, 203);
             this.correctSentance.attr({
                 x: cc.director.getWinSize().width / 2,
