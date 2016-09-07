@@ -220,23 +220,20 @@ xc.Bubble_Alphabets = cc.Layer.extend({
         this.addChild(this.bubblePlayer);
 
         this.letterPlayer =  new cc.LabelTTF(""+letterSprite[this.player.bubble.tiletype],"res/fonts/Marker Felt.ttf",150);
-        this.letterPlayer.setPosition(10,10);
+        this.letterPlayer.setPosition(this.bubblePlayer.getContentSize().width/2,this.bubblePlayer.getContentSize().height/2);
         this.bubblePlayer.addChild(this.letterPlayer);
         
-        var a = this.bubblePlayer.getBoundingBox();
-        var b = this.letterPlayer.getBoundingBox();
-
         if(this.player.nextbubble.tiletype == undefined){
             this.player.nextbubble.tiletype = Math.floor(this.getRandomArbitrary(0,bubblecolors)); ;
         }
          
         this.nextBubblePlayer =  new cc.Sprite(cc.spriteFrameCache.getSpriteFrame(imageSprite[this.player.nextbubble.tiletype]+".png"));
-        this.nextLetterPlayer =  new cc.Sprite(cc.spriteFrameCache.getSpriteFrame(letterSprite[this.player.nextbubble.tiletype]+".png"));
+        this.nextLetterPlayer =   new cc.LabelTTF(""+letterSprite[this.player.nextbubble.tiletype],"res/fonts/Marker Felt.ttf",150);
         this.nextBubblePlayer.setPosition((this.level.width/2) - 150  , cc.director.getWinSize().height - 1127);
         this.nextLetterPlayer.setPosition((this.level.width/2) - 150  , cc.director.getWinSize().height - 1127);
     
         this.addChild(this.nextBubblePlayer);
-        this.addChild(this.nextLetterPlayer);
+        this.nextBubblePlayer.addChild(this.nextLetterPlayer);
         
         this.renderTiles(); 
       
@@ -341,7 +338,8 @@ xc.Bubble_Alphabets = cc.Layer.extend({
                     
                     // Draw the tile using the color
                     bubbleName[i][j] = this.drawBubbleGroups(coord.tilex, coord.tiley + shift, tile.type,i,j);
-                    LetterName[i][j] = this.drawLetterGroups(coord.tilex, coord.tiley + shift, tile.type,i,j);
+                    LetterName[i][j] = this.drawLetterGroups(bubbleName[i][j].getContentSize().width/2,bubbleName[i][j].getContentSize().height/2, tile.type,i,j);
+                    bubbleName[i][j].addChild(LetterName[i][j]);
                     bubbleName[i][j].name = letterSprite[tile.type];
                     LetterName[i][j].name = letterSprite[tile.type];
                 }
@@ -403,29 +401,16 @@ xc.Bubble_Alphabets = cc.Layer.extend({
               this.bubblePlayer =  new cc.Sprite(cc.spriteFrameCache.getSpriteFrame(imageSprite[ this.player.bubble.tiletype]+".png"));
               this.letterPlayer =  new cc.LabelTTF(""+letterSprite[this.player.bubble.tiletype],"res/fonts/Marker Felt.ttf",100);
               this.addChild(this.bubblePlayer);
-              this.addChild(this.letterPlayer);
+              this.bubblePlayer.addChild(this.letterPlayer);
               
               this.mainPlayerBubbleDestroy = false;
           }
           
-        // this.bubblePlayer.removeFromParent(true);
-        // this.letterPlayer.removeFromParent(true);
-       
-        // // sprrand24.removeFromParentAndCleanup(true);
-        // // piu.at(realnumofplus - 1)->autorelease();
-        // // piu.at(realnumofplus - 1)->deleteSprite();
+            this.bubblePlayer.setPosition(this.player.bubble.x, (cc.director.getWinSize().height) - this.player.bubble.y);
+            this.letterPlayer.setPosition(this.bubblePlayer.getContentSize().width/2,this.bubblePlayer.getContentSize().height/2);
+            this.bubblePlayer.anchorX=0.0;
+            this.bubblePlayer.anchorY=0.35;
         
-        // //  the bubble sprite
-        // this.bubblePlayer =  new cc.Sprite("res/imgs/"+ imageSprite[index]+".png");
-        // this.letterPlayer =  new cc.Sprite("res/imgs/"+letterSprite[index]+".png");
-        
-        this.bubblePlayer.setPosition(this.player.bubble.x, (cc.director.getWinSize().height) - this.player.bubble.y);
-        this.letterPlayer.setPosition(this.player.bubble.x, (cc.director.getWinSize().height) - this.player.bubble.y);
-        this.bubblePlayer.anchorX=0.0;
-        this.bubblePlayer.anchorY=0.35;
-        
-        this.letterPlayer.anchorX = 0.0;
-        this.letterPlayer.anchorY = 0.35;
         // console.log("done 440");
         // this.addChild(this.bubblePlayer);
         // this.addChild(this.letterPlayer);
@@ -1226,11 +1211,8 @@ xc.Bubble_Alphabets = cc.Layer.extend({
       
        // Draw the bubble sprite
     
-       let data = new cc.Sprite(cc.spriteFrameCache.getSpriteFrame(letterSprite[index]+".png"));
+       let data = new cc.LabelTTF(""+letterSprite[index],"res/fonts/Marker Felt.ttf",150);
        data.setPosition(x,y);
-       data.anchorX = 0.0;
-       data.anchorY = 0.0;
-       this.addChild(data);
         // console.log("x : " + row + " y : " + col + " color : " +index);
        return data;
     },
@@ -1245,6 +1227,8 @@ xc.Bubble_Alphabets = cc.Layer.extend({
      
      this.nextBubblePlayer =  new cc.Sprite(cc.spriteFrameCache.getSpriteFrame(imageSprite[index]+".png"));
      this.nextBubblePlayer.setPosition((cc.director.getWinSize().width/2 - 350)  , cc.director.getWinSize().height * 0.0607080);
+     this.nextBubblePlayer.anchorX=0.5;
+     this.nextBubblePlayer.anchorY=0.5;
     //  console.log("the value for y in playe : "+ this.player.bubble.y);
      this.addChild(this.nextBubblePlayer);
      
@@ -1257,9 +1241,9 @@ xc.Bubble_Alphabets = cc.Layer.extend({
     //  console.log("1199");
         // Draw the bubble sprite
      this.removeChild(this.nextLetterPlayer);
-     this.nextLetterPlayer =  new cc.Sprite(cc.spriteFrameCache.getSpriteFrame(letterSprite[index]+".png"));
-     this.nextLetterPlayer.setPosition((cc.director.getWinSize().width/2 - 350)  , cc.director.getWinSize().height * 0.0607080);
-     this.addChild(this.nextLetterPlayer);
+     this.nextLetterPlayer = new cc.LabelTTF(""+letterSprite[this.player.nextbubble.tiletype],"res/fonts/Marker Felt.ttf",150);
+     this.nextLetterPlayer.setPosition(this.nextLetterPlayer.getContentSize().width/2,this.nextLetterPlayer.getContentSize().height/2);
+     this.nextBubblePlayer.addChild(this.nextLetterPlayer);
     },
 
     /**

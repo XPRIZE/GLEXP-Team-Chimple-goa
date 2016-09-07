@@ -19,16 +19,18 @@ xc.PopLayer = cc.Layer.extend({
         var existingNumber = []
         this.wordInOrder = []
 
-        this.currentImage = ccs.load(xc.PopLayer.res.pop_plane);
-        this.currentImage.node.x = worldSize.width+200;
-        this.currentImage.node.y = cc.director.getWinSize().height * 0.7;
-        this.currentImage.node.uId="cube";
-        this.addChild(this.currentImage.node);
-        this.currentImage.node.runAction(this.currentImage.action);
-        this.currentImage.action.play('planerun', true);
-        this.currentImage.node.runAction(cc.MoveTo.create(10,cc.p(-200,cc.director.getWinSize().height*0.7)));
+        this.plane = ccs.load(xc.PopLayer.res.pop_plane,xc.path);
+        this.plane.node.x = worldSize.width+200;
+        this.plane.node.y = cc.director.getWinSize().height * 0.7;
+        this.plane.node.uId="cube";
+        this.addChild(this.plane.node);
+        this.plane.node.runAction(this.plane.action);
+        this.plane.action.play('planerun', true);
+        this.plane.node.runAction(cc.MoveTo.create(5,cc.p(-200,cc.director.getWinSize().height*0.7)));
 
-        var sentanceArray = ["Twinkle", "twinkle", "little", "star","How", "I","wonder", "what", "you", "are"];
+        var wordForSentanceArray = goa.TextGenerator.getInstance().generateASentence();
+        cc.log("sentence:" + wordForSentanceArray);
+       // var wordForSentanceArray = ["Twinkle", "twinkle", "little", "star","How", "I","wonder", "what", "you", "are"];
         
         //   var cloud = new cc.Sprite(cc.spriteFrameCache.getSpriteFrame("pop/cloud.png"));
         //   cloud.setPosition(worldSize.width-300, cc.director.getWinSize().height * 0.76);
@@ -44,7 +46,7 @@ xc.PopLayer = cc.Layer.extend({
 
        var x = 0.7
        var y = 0;
-       while(existingNumber.length != sentanceArray.length)
+       while(existingNumber.length != wordForSentanceArray.length)
        {
               var duplicateCheck = true;
               var numberPicker = Math.floor(this.getRandomArbitrary(1,13));
@@ -62,7 +64,7 @@ xc.PopLayer = cc.Layer.extend({
              
        }
        console.log(existingNumber);
-       for(var i=0; i<sentanceArray.length; i++)
+       for(var i=0; i<wordForSentanceArray.length; i++)
         {  
               var self = this; 
               var cloud = new cc.Sprite(cc.spriteFrameCache.getSpriteFrame("pop/cloud.png"));
@@ -81,25 +83,25 @@ xc.PopLayer = cc.Layer.extend({
              
               else if(existingNumber[i]>=5 && existingNumber[i]<=8)
               {
-                 cloud.Xpos = (worldSize.width/4) * (existingNumber[i]-5) + 450;
+                 cloud.Xpos = (worldSize.width/4) * (existingNumber[i]-5) + 390;
                   cloud.Ypos = (cc.director.getWinSize().height * 0.76) - cloud.getBoundingBox().height;
                  cloud.setPosition(worldSize.width+300, cloud.Ypos);
               }
              
                 else if(existingNumber[i]>=9 && existingNumber[i]<=12)
               {
-                  cloud.Xpos = (worldSize.width/4) * (existingNumber[i]-9) + 190;
+                  cloud.Xpos = (worldSize.width/4) * (existingNumber[i]-9) + 240;
                   cloud.Ypos = (cc.director.getWinSize().height * 0.76) - (cloud.getBoundingBox().height*2);
                  cloud.setPosition(worldSize.width+300, cloud.Ypos);
               }
 
-                var label = new cc.LabelTTF(sentanceArray[i], "Arial", 110);
+                var label = new cc.LabelTTF(wordForSentanceArray[i], "Arial", 110);
            label.color = new cc.color(255,192,203);
            label.attr({
                         x : cloud.getBoundingBox().width/2,
                         y : cloud.getBoundingBox().height/2
            });
-          // label.setName(sentanceArray[i]);
+          // label.setName(wordForSentanceArray[i]);
            cloud.addChild(label); 
            this.stringContainer.push[label];
 
@@ -107,14 +109,17 @@ xc.PopLayer = cc.Layer.extend({
        setTimeout(function(){  
               for(var i=0; i < self.cloudContainer.length ; i++)
                     {
-                        console.log(self);
-                        self.cloudContainer[i].runAction(cc.MoveTo.create(Math.floor(self.getRandomArbitrary(10,15)),cc.p(self.cloudContainer[i].Xpos,self.cloudContainer[i].Ypos)));
-                        console.log(self.cloudContainer[i]);
-                        console.log(" x position : "+ self.cloudContainer[i].Xpos);
-                        console.log(" y position : "+ self.cloudContainer[i].Ypos);
+                      
+                        var actionDate = new cc.MoveTo.create(Math.floor(self.getRandomArbitrary(9,12)),cc.p(self.cloudContainer[i].Xpos,self.cloudContainer[i].Ypos));
+                        var easeAction = new cc.EaseBackOut(actionDate);
+                        self.cloudContainer[i].runAction(easeAction);
+
+                        // console.log(self.cloudContainer[i]);
+                        // console.log(" x position : "+ self.cloudContainer[i].Xpos);
+                        // console.log(" y position : "+ self.cloudContainer[i].Ypos);
                     }       
         
-                 }, 1500);
+                 }, 1750);
 
       setTimeout(function(){  
                  for(var i=0; i < self.cloudContainer.length ; i++)
@@ -122,7 +127,7 @@ xc.PopLayer = cc.Layer.extend({
                               cc.eventManager.addListener(listener.clone(), self.cloudContainer[i]);
                          }       
         
-                     }, 17000);
+                     }, 12000);
 
    var listener = cc.EventListener.create({
    event : cc.EventListener.TOUCH_ONE_BY_ONE,
@@ -150,10 +155,7 @@ xc.PopLayer = cc.Layer.extend({
 
     update:function()
     {   
-        //   if(this.currentImage.node.getPosition().x <= 200)
-        // {
-        //     this.removeChild(this.currentImage.node);
-        // }
+      
     },
     
       getRandomArbitrary :function (min, max)
@@ -179,30 +181,37 @@ xc.PopLayer = cc.Layer.extend({
     },
     makeSentance: function(word)
     {
-           
-           //this.correctSentance.setString(this.correctSentance.getString()+word.children[0].getString())
            if(this.wordInOrder.length == 0)
            {
-           this.correctSentance = new cc.LabelTTF(word.children[0].getString(), "Arial", 100);
-           this.correctSentance.color = new cc.color(255,192,203);
-           this.correctSentance.attr({
-               x : cc.director.getWinSize().width/2,
-               y : cc.director.getWinSize().height*.93
-           });
-         
-          this.addChild(this.correctSentance); 
-          this.wordInOrder.push(word.id);
-          this.removeChild(word);
+                    this.correctSentance = new cc.LabelTTF(word.children[0].getString(), "Arial", 100);
+                    this.correctSentance.color = new cc.color(255,192,203);
+                    this.correctSentance.attr({
+                        x : cc.director.getWinSize().width/2,
+                        y : cc.director.getWinSize().height*.93
+                    });
+                    
+                    this.addChild(this.correctSentance); 
+                    this.wordInOrder.push(word.id);
+                    this.removeChild(word);
 
-        //   this.removeChild(this.correctSentance);
-        //   console.log("correct sentance : "+this.correctSentance.getString());
            }
            else
            {
-              this.wordInOrder.push(word.id);
-              this.removeChild(word);
-              this.correctSentance.setString(this.correctSentance.getString()+" "+word.children[0].getString());
+                    this.wordInOrder.push(word.id);
+                    this.removeChild(word);
+                    this.correctSentance.setString(this.correctSentance.getString()+" "+word.children[0].getString());
            }
+
+           this.removePlaneFromScene();
+    },
+
+    removePlaneFromScene: function()
+    {
+        if(this.wordInOrder.length == this.cloudContainer.length )
+        {
+            this.removeChild(this.plane);
+            console.log("GAME OVER");
+        }
     }
 
 });
