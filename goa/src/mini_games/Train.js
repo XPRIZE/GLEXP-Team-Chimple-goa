@@ -51,13 +51,11 @@ xc.TrainLayer = cc.Layer.extend({
                 var rect = cc.rect(0, 0, targetSize.width, targetSize.height);
 
                 if (cc.rectContainsPoint(rect, locationInNode)) {
-                    if (sentence[wordPosition - 1] == target.id) {
-                        for (var i = wordPosition - 1; i < randomLetter.length; i++) {
-                            // cc.eventManager.removeListeners(randomLetter[i]);
-                        }
+                    if (sentence[wordPosition - 1] == target.id && target.selected == 0) {
 
                         target.runAction(new cc.ScaleTo(.1, 1));
                         target.stopAction(repeatForeverAction);
+                        target.selected = 1;
                         if (wordPosition % 3 != 0) {
                             var scaleAnimation = function () {
                                 var increase = new cc.ScaleTo(1, 1.4);
@@ -65,10 +63,6 @@ xc.TrainLayer = cc.Layer.extend({
                                 repeatForeverAction = new cc.RepeatForever(new cc.Sequence(increase, decrease));
                                 
                                 randomLetter[wordPosition].runAction(repeatForeverAction);
-
-                                for (var i = wordPosition; i < randomLetter.length; i++) {
-                                    // cc.eventManager.addListener(listener.clone(), randomLetter[i]);
-                                }
                                 wordPosition++;
                             };
 
@@ -102,9 +96,6 @@ xc.TrainLayer = cc.Layer.extend({
                                         repeatForeverAction = new cc.RepeatForever(new cc.Sequence(increase, decrease));
                                         randomLetter[wordPosition].runAction(repeatForeverAction);
 
-                                        for (var i = wordPosition; i < randomLetter.length; i++) {
-                                            // cc.eventManager.addListener(listener.clone(), randomLetter[i]);
-                                        }
                                         wordPosition++;
                                     };
 
@@ -133,27 +124,14 @@ xc.TrainLayer = cc.Layer.extend({
 
                                 target.runAction(new cc.Sequence(target_Action, new cc.CallFunc(train_Action_function, this)));
                             }
-
                         }
-                        // cc.eventManager.removeListeners(target);
                     }
-                    else {
-                        for (var i = wordPosition - 1; i < randomLetter.length; i++) {
-                            // cc.eventManager.removeListeners(randomLetter[i]);
-                        }
-
+                    else if(target.selected==0){
                         var increase = new cc.MoveTo(1, cc.p(target.getPositionX() + size.width * .10, target.getPositionY() + size.height * .10));
                         var decrease = new cc.MoveTo(1, cc.p(target.xP, target.yP));
 
-                        var addListen = function () {
-
-                            for (var i = wordPosition - 1; i < randomLetter.length; i++) {
-                                // cc.eventManager.addListener(listener.clone(), randomLetter[i]);
-                            }
-                        };
-
                         var sequence = new cc.Sequence(increase, decrease);
-                        target.runAction(new cc.Sequence(sequence, new cc.CallFunc(addListen, this)));
+                        target.runAction(sequence);
                     }
                     return true;
                 }
