@@ -1,5 +1,7 @@
 /// <reference path="../../cocos2d-typescript-definitions/cocos2d/cocos2d-lib.d.ts" />
-var level3Layer = cc.Layer.extend({
+
+var xc = xc || {};
+xc.sortitlevel3Layer = cc.Layer.extend({
         counterLevel3 : 1,
 
      level3SpriteScaleX : 0.9, 
@@ -26,7 +28,7 @@ var level3Layer = cc.Layer.extend({
                     
                  
                     
-                    cc.director.runScene(new level4Scene());
+                   xc.GameScene.load(xc.sortitlevel4Layer);
                     
                 }
                   
@@ -46,11 +48,11 @@ var level3Layer = cc.Layer.extend({
         var size = cc.winSize;
 
        
-         this.bg = ccs.load(SortIt.level3bg_json);
-         this.bg.setAnchorPoint(0.5, 0.5);
-         this.bg.setPosition(size.width / 2, size.height / 2); 
-         this.addChild(this.bg);
-         cc.eventManager.addListener(eventListener.clone(), this.bg);
+         this.bg = ccs.load(xc.sortitlevel3Layer.res.level3bg_json, xc.path);
+         this.bg.node.setAnchorPoint(0.5, 0.5);
+         this.bg.node.setPosition(size.width / 2, size.height / 2); 
+         this.addChild(this.bg.node);
+         cc.eventManager.addListener(eventListener.clone(), this.bg.node);
         
        
 
@@ -114,7 +116,7 @@ var level3Layer = cc.Layer.extend({
          this.addChild(this.string6t);
         
 
-         this.string1 = new MovableItem3(cc.spriteFrameCache.getSpriteFrame("sortit/string1.png"), this.string1t, this);
+         this.string1 = new sortitMovableItem3("sortit/string1.png", this.string1t, this);
          this.string1.setAnchorPoint(0.5, 0.5);
          this.string1.setPosition(size.width*0.70 , size.height*0.22);
          this.string1.xP = this.string1.getPosition().x;
@@ -126,7 +128,7 @@ var level3Layer = cc.Layer.extend({
 
 
         
-         this.string2 = new MovableItem3(cc.spriteFrameCache.getSpriteFrame("sortit/string2.png"), this.string2t, this);
+         this.string2 = new sortitMovableItem3("sortit/string2.png", this.string2t, this);
          this.string2.setAnchorPoint(0.5, 0.5);
          this.string2.setPosition(size.width*0.07 , size.height*0.23);
          this.string2.xP = this.string1.getPosition().x;
@@ -137,7 +139,7 @@ var level3Layer = cc.Layer.extend({
        
 
 
-         this.string3 = new MovableItem3(cc.spriteFrameCache.getSpriteFrame("sortit/string3.png"), this.string3t, this);
+         this.string3 = new sortitMovableItem3("sortit/string3.png", this.string3t, this);
          this.string3.setAnchorPoint(0.5, 0.5);
          this.string3.setPosition(size.width*0.74 , size.height*0.25);
          this.string3.xP = this.string3.getPosition().x;
@@ -147,7 +149,7 @@ var level3Layer = cc.Layer.extend({
          this.addChild(this.string3);
          
 
-         this.string4 = new MovableItem3(cc.spriteFrameCache.getSpriteFrame("sortit/string4.png"), this.string4t, this);
+         this.string4 = new sortitMovableItem3("sortit/string4.png", this.string4t, this);
          this.string4.setAnchorPoint(0.5, 0.5);
          this.string4.setPosition(size.width*0.11 , size.height*0.27);
          this.string4.xP = this.string4.getPosition().x;
@@ -157,7 +159,7 @@ var level3Layer = cc.Layer.extend({
          this.addChild(this.string4);
          
 
-         this.string5 = new MovableItem3(cc.spriteFrameCache.getSpriteFrame("sortit/string5.png"), this.string5t, this);
+         this.string5 = new sortitMovableItem3("sortit/string5.png", this.string5t, this);
          this.string5.setAnchorPoint(0.5, 0.5);
          this.string5.setPosition(size.width*0.93 , size.height*0.32);
          this.string5.xP = this.string5.getPosition().x;
@@ -168,7 +170,7 @@ var level3Layer = cc.Layer.extend({
         
 
 
-         this.string6 = new MovableItem3(cc.spriteFrameCache.getSpriteFrame("sortit/string6.png"), this.string6t, this);
+         this.string6 = new sortitMovableItem3("sortit/string6.png", this.string6t, this);
          this.string6.setAnchorPoint(0.5, 0.5);
          this.string6.setPosition(size.width*0.85 , size.height*0.32);
          this.string6.xP = this.string6.getPosition().x;
@@ -184,16 +186,26 @@ var level3Layer = cc.Layer.extend({
 
 });
 
-var level3Scene = cc.Scene.extend({
-    onEnter:function () {
-        this._super();
-        var layer = new level3Layer();
-        this.addChild(layer);
-    }
-});
 
 
 
+xc.sortitlevel3Layer.res = {
+    
+    sortittwo_png: xc.path + "sortit/sortittwo/sortittwo.png",
+    sortittwo_plist: xc.path + "sortit/sortittwo/sortittwo.plist",
+    
+    sortit_png: xc.path + "sortit/sortit.png",
+    sortit_plist: xc.path + "sortit/sortit.plist",
+    
+    
+    
+    level3bg_json: xc.path + "sortit/levelthree.json",
+   
+    
+    comedyBubble_mp3:  "res/sounds/sortit/comedyBubble.mp3",
+    explosive_mp3:  "res/sounds/sortit/explosive.mp3",
+    failure_mp3: "res/sounds/sortit/failure.mp3"
+}
 
 
 

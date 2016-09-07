@@ -1,5 +1,7 @@
 /// <reference path="../../cocos2d-typescript-definitions/cocos2d/cocos2d-lib.d.ts" />
-var level6Layer = cc.Layer.extend({
+
+var xc = xc || {};
+xc.sortitlevel6Layer = cc.Layer.extend({
         counterLevel6 : 1,
         level6SpriteScaleX : 0.9, 
         level6SpriteScaleY : 0.9,
@@ -24,7 +26,7 @@ var level6Layer = cc.Layer.extend({
                     
                  
                     
-                    cc.director.runScene(new level1Scene());
+                    xc.GameScene.load(xc.sortitlevel1Layer);
                     
                 }
                 //console.log('touche po oe: ' + targetSize);   
@@ -40,11 +42,11 @@ var level6Layer = cc.Layer.extend({
 
         var size = cc.winSize;
 
-         this.bg = ccs.load(SortIt.level6bg_json);
-         this.bg.setAnchorPoint(0.5, 0.5 );
-         this.bg.setPosition(size.width / 2, size.height / 2); 
-         this.addChild(this.bg);
-         cc.eventManager.addListener(eventListener.clone(), this.bg);
+         this.bg = ccs.load(xc.sortitlevel6Layer.res.level6bg_json, xc.path);
+         this.bg.node.setAnchorPoint(0.5, 0.5 );
+         this.bg.node.setPosition(size.width / 2, size.height / 2); 
+         this.addChild(this.bg.node);
+         cc.eventManager.addListener(eventListener.clone(), this.bg.node);
 
 
 
@@ -88,7 +90,7 @@ var level6Layer = cc.Layer.extend({
          this.addChild(this.et);
          
 
-         this.a = new MovableItem6(cc.spriteFrameCache.getSpriteFrame("sortit/sortittwo/a.png"), this.at, this);
+         this.a = new sortitMovableItem6("sortit/sortittwo/a.png", this.at, this);
          this.a.setAnchorPoint(0.5, 0.5);
          this.a.setPosition(size.width*0.70 , size.height*0.19);
          this.a.xP = this.a.getPosition().x;
@@ -98,7 +100,7 @@ var level6Layer = cc.Layer.extend({
          this.addChild(this.a);
          
 
-         this.b = new MovableItem6(cc.spriteFrameCache.getSpriteFrame("sortit/sortittwo/b.png"), this.bt, this);
+         this.b = new sortitMovableItem6("sortit/sortittwo/b.png", this.bt, this);
          this.b.setAnchorPoint(0.5, 0.5);
          this.b.setPosition(size.width*0.31 , size.height*0.14);
          this.b.xP = this.b.getPosition().x;
@@ -108,7 +110,7 @@ var level6Layer = cc.Layer.extend({
          this.addChild(this.b);
          
 
-         this.c = new MovableItem6(cc.spriteFrameCache.getSpriteFrame("sortit/sortittwo/c.png"), this.ct, this);
+         this.c = new sortitMovableItem6("sortit/sortittwo/c.png", this.ct, this);
          this.c.setAnchorPoint(0.5, 0.5);
          this.c.setPosition(size.width*0.46 , size.height*0.10);
          this.c.xP = this.c.getPosition().x;
@@ -118,7 +120,7 @@ var level6Layer = cc.Layer.extend({
          this.addChild(this.c);
          
    
-         this.d = new MovableItem6(cc.spriteFrameCache.getSpriteFrame("sortit/sortittwo/d.png"), this.dt, this);
+         this.d = new sortitMovableItem6("sortit/sortittwo/d.png", this.dt, this);
          this.d.setAnchorPoint(0.5, 0.5);
          this.d.setPosition(size.width*0.62 , size.height*0.10);
          this.d.xP = this.d.getPosition().x;
@@ -129,7 +131,7 @@ var level6Layer = cc.Layer.extend({
         
          
 
-         this.e = new MovableItem6(cc.spriteFrameCache.getSpriteFrame("sortit/sortittwo/e.png"), this.et, this);
+         this.e = new sortitMovableItem6("sortit/sortittwo/e.png", this.et, this);
          this.e.setAnchorPoint(0.5, 0.5);
          this.e.setPosition(size.width*0.07 , size.height*0.12);
          this.e.xP = this.e.getPosition().x;
@@ -145,13 +147,28 @@ var level6Layer = cc.Layer.extend({
 
 });
 
-var level6Scene = cc.Scene.extend({
+var sortitlevel6Scene = cc.Scene.extend({
     onEnter:function () {
         this._super();
-        var layer = new level6Layer();
+        var layer = new xc.sortitlevel6Layer();
         this.addChild(layer);
     }
 });
 
 
 
+xc.sortitlevel6Layer.res = {
+    
+    sortittwo_png: xc.path + "sortit/sortittwo/sortittwo.png",
+    sortittwo_plist: xc.path + "sortit/sortittwo/sortittwo.plist",
+    
+    sortit_png: xc.path + "sortit/sortit.png",
+    sortit_plist: xc.path + "sortit/sortit.plist",
+    
+   
+    level6bg_json: xc.path + "sortit/levelsix.json",
+    
+    comedyBubble_mp3:  "res/sounds/sortit/comedyBubble.mp3",
+    explosive_mp3:  "res/sounds/sortit/explosive.mp3",
+    failure_mp3:  "res/sounds/sortit/failure.mp3"
+}

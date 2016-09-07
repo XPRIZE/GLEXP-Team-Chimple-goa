@@ -1,10 +1,11 @@
 
 
-var MovableItem = cc.Sprite.extend({
+var sortitMovableItem2 = cc.Sprite.extend({
         
-        ctor:function(imageFile, transparentSprite, counterLevel1) {
-            this._super();
-            this.initWithFile(imageFile); 
+        ctor:function(imageFile, transparentSprite, that) {
+            
+            this._super(cc.spriteFrameCache.getSpriteFrame(imageFile));
+            
             var transparentSprite = transparentSprite;
 
             var overlapped = 0;
@@ -28,7 +29,6 @@ var sprite_click = cc.EventListener.create({event: cc.EventListener.TOUCH_ONE_BY
 
   onTouchMoved : function(touch, event){
 
-    
   	 var target = event.getCurrentTarget();
          
          var location = target.convertToNodeSpace(touch.getLocation());
@@ -37,20 +37,25 @@ var sprite_click = cc.EventListener.create({event: cc.EventListener.TOUCH_ONE_BY
         var toyRect = target.getBoundingBox();
         var toytRect = transparentSprite.getBoundingBox();
  
-        if(cc.rectIntersectsRect(toyRect, toytRect) && target.id == window.counterLevel1){
+        if(cc.rectIntersectsRect(toyRect, toytRect) && target.id == that.counterLevel2){
            
             var x = transparentSprite.getPosition().x;
             var y = transparentSprite.getPosition().y;
             target.setPosition(x, y);
 
             this.audioEngine = cc.audioEngine;
-            this.audioEngine.playEffect(SortIt.comedyBubble_mp3);
+            this.audioEngine.playEffect(xc.sortitlevel1Layer.res.comedyBubble_mp3);
 
 
             overlapped = 1;
-            window.counterLevel1++;
+            that.counterLevel2++;
+             if (that.counterLevel2 == 6) {
+              
+                    
+                    xc.GameScene.load(xc.sortitlevel3Layer);
 
-            cc.eventManager.removeListener(sprite_click, target);
+                }
+            cc.eventManager.removeListener(this);
          
 
             
@@ -71,7 +76,7 @@ var sprite_click = cc.EventListener.create({event: cc.EventListener.TOUCH_ONE_BY
                  var rectToy = cc.rect(0, 0, target.width, target.height);
                  if (cc.rectContainsPoint(rectToy, location) && overlapped==0) { var toy = cc.MoveTo.create(2,cc.p(target.xP,target.yP));
         target.runAction(toy);this.audioEngine = cc.audioEngine;
-            this.audioEngine.playEffect(SortIt.failure_mp3);
+            this.audioEngine.playEffect(xc.sortitlevel1Layer.res.failure_mp3);
 return true;}
 
   }   
