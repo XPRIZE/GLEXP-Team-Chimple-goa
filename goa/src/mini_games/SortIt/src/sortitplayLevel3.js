@@ -131,8 +131,8 @@ xc.sortitlevel3Layer = cc.Layer.extend({
          this.string2 = new sortitMovableItem3("sortit/string2.png", this.string2t, this);
          this.string2.setAnchorPoint(0.5, 0.5);
          this.string2.setPosition(size.width*0.07 , size.height*0.23);
-         this.string2.xP = this.string1.getPosition().x;
-         this.string2.yP = this.string1.getPosition().y;
+         this.string2.xP = this.string2.getPosition().x;
+         this.string2.yP = this.string2.getPosition().y;
          this.string2.setScale(this.level3SpriteScaleX, this.level3SpriteScaleY);
          this.string2.id = 2;
          this.addChild(this.string2);

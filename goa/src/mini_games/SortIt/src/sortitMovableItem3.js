@@ -47,13 +47,14 @@ var sprite_click = cc.EventListener.create({event: cc.EventListener.TOUCH_ONE_BY
 
             overlapped = 1;
             that.counterLevel3++;
+            cc.eventManager.removeListener(this);
              if (that.counterLevel3 == 7) {
               
                     
                     xc.GameScene.load(xc.sortitlevel4Layer);
 
                 }
-            cc.eventManager.removeListener(this);
+            
          
 
             
