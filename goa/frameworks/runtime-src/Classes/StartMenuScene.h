@@ -31,7 +31,7 @@ static const std::string JASMINE = "jasmine";
 static const std::string CAT = "cat";
 static const std::string TRAIN = "train";
 static const std::string ALPHAMOLE = "alphamole";
-
+static const std::string JUMP = "jump";
 
 
 

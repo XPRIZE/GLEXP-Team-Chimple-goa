@@ -161,9 +161,11 @@ void ScrollableGameMapScene::gameSelected(Ref* pSender, ui::Widget::TouchEventTy
                 ScriptingCore::getInstance()->runScript("src/start/train.js");
             } else  if (clickedButton->getName() == CAT) {
 				ScriptingCore::getInstance()->runScript("src/start/alphamole.js");
-			}
-			else if(clickedButton->getName() == CROSS_THE_BRIDGE) {
-               Director::getInstance()->replaceScene(CrossTheBridge::createScene());
+			}else  if (clickedButton->getName() == SMASH_THE_ROCK) {
+				ScriptingCore::getInstance()->runScript("src/start/jump.js");
+			} else if(clickedButton->getName() == CROSS_THE_BRIDGE) {
+                ScriptingCore::getInstance()->runScript("src/start/pop.js");
+              // Director::getInstance()->replaceScene(CrossTheBridge::createScene());
 				//Director::getInstance()->replaceScene(Pop::createScene());
             } else if(clickedButton->getName() == SMASH_THE_ROCK) {
                 Director::getInstance()->replaceScene(SmashTheRock::createScene());
@@ -187,7 +189,7 @@ void ScrollableGameMapScene::gameSelected(Ref* pSender, ui::Widget::TouchEventTy
             } else if(clickedButton->getName() == JAZZ) {
                 Director::getInstance()->replaceScene(jazz::createScene());
             } else if(clickedButton->getName() == JASMINE) {
-                Director::getInstance()->replaceScene(Train::createScene());
+                Director::getInstance()->replaceScene(Jasmin_Mainfile::createScene());
             } else if(clickedButton->getName() == CAT) {
                 Director::getInstance()->replaceScene(CatGame::createScene());
             }
