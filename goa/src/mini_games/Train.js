@@ -19,6 +19,7 @@ xc.TrainLayer = cc.Layer.extend({
     wordPosition: null,
     repeatForeverAction: null,
     transLayer : null,
+    layer1 : null,
 
     ctor: function () {
         this._super();
@@ -41,6 +42,18 @@ xc.TrainLayer = cc.Layer.extend({
         ];
 
 
+        layer1 = new cc.LayerColor(cc.color(255, 255, 255, 100), size.width, size.height * .50);
+
+        var layerListener = cc.EventListener.create({
+            event : cc.EventListener.TOUCH_ONE_BY_ONE,
+            swallowTouches : true,
+            
+            onTouchBegan : function(touch, event)
+            {
+                return true;
+            }
+        });
+
         var listener = cc.EventListener.create({
             event: cc.EventListener.TOUCH_ONE_BY_ONE,
             swallowTouches: true,
@@ -52,18 +65,21 @@ xc.TrainLayer = cc.Layer.extend({
                 var rect = cc.rect(0, 0, targetSize.width, targetSize.height);
 
                 if (cc.rectContainsPoint(rect, locationInNode)) {
-                    if (sentence[wordPosition - 1] == target.id && target.selected == 0) {
-
-                        target.runAction(new cc.ScaleTo(.1, 1));
+                    if (sentence[wordPosition - 1] == target.id && target.selected == 0 && !(layer1.isVisible())) {
+                        layer1.setVisible(true);
                         target.stopAction(repeatForeverAction);
                         target.selected = 1;
+                        target.setScale(1);
+                        target.setPosition(target.xP, target.yP);
+                        
                         if (wordPosition % 3 != 0) {
                             var scaleAnimation = function () {
                                 var increase = new cc.ScaleTo(1, 1.4);
                                 var decrease = new cc.ScaleTo(1, 1);
                                 repeatForeverAction = new cc.RepeatForever(new cc.Sequence(increase, decrease));
-                                
+                                randomLetter[wordPosition].setPosition(randomLetter[wordPosition].xP, randomLetter[wordPosition].yP);
                                 randomLetter[wordPosition].runAction(repeatForeverAction);
+                                layer1.setVisible(false);
                                 wordPosition++;
                             };
 
@@ -94,9 +110,10 @@ xc.TrainLayer = cc.Layer.extend({
                                     var scaleAnimation = function () {
                                         var increase = new cc.ScaleTo(1, 1.4);
                                         var decrease = new cc.ScaleTo(1, 1);
+                                        randomLetter[wordPosition].setPosition(randomLetter[wordPosition].xP, randomLetter[wordPosition].yP);
                                         repeatForeverAction = new cc.RepeatForever(new cc.Sequence(increase, decrease));
                                         randomLetter[wordPosition].runAction(repeatForeverAction);
-
+                                        layer1.setVisible(false);
                                         wordPosition++;
                                     };
 
@@ -127,12 +144,12 @@ xc.TrainLayer = cc.Layer.extend({
                             }
                         }
                     }
-                    else if(target.selected==0){
-//                        self.addChild(transLayer[0], 2);
+                    else if(target.selected==0 && !(layer1.isVisible())){
+                        layer1.setVisible(true);
                         
                         var removeLayer = function()
                         {
-//                            self.removeChild(transLayer[0], 2);
+                            layer1.setVisible(false);
                         };
                         
                         var increase = new cc.MoveTo(1, cc.p(target.getPositionX() + size.width * .10, target.getPositionY() + size.height * .10));
@@ -157,22 +174,9 @@ xc.TrainLayer = cc.Layer.extend({
         });
         this.addChild(background.node);
 
-        var layer1 = new cc.Layer();
-        layer1.attr({
-            x : 0,
-            y : 0,
-            anchorX : .5,
-            anchorY : .5
-        });
-        
-        
-        self.addChild(layer1, 2);
-        layer1.setTouchEnabled(false);
-//        cc.eventManager.addListener(listener.clone(), layer1);
-        transLayer.push(layer1);
 
         //sentence = goa.TextGenerator.getInstance().generateASentence();
-        sentence = ["A", "martini", "shaken", "not", "stirred"];
+        sentence = ["A", "martini", "shaken", "not", "stirred", "how", "are", "you", "fine"];
 
         random = sentence.length;
         var row = 0, temp = random;
@@ -212,7 +216,7 @@ xc.TrainLayer = cc.Layer.extend({
                 });
                 this.addChild(tunnel_front, 1);
                 tunnel_front.selected = 0;
-
+                
                 var tunnel_back = new cc.Sprite(cc.spriteFrameCache.getSpriteFrame("train/tunnel_back.png"));
                 tunnel_back.attr({
                     x: tunnel_front.getPositionX() + tunnel_front.getBoundingBox().width / 2,
@@ -231,7 +235,7 @@ xc.TrainLayer = cc.Layer.extend({
 
         final_tunnel = new cc.Sprite(cc.spriteFrameCache.getSpriteFrame("train/final_tunnel.png"));
         final_tunnel.attr({
-            x: size.width * .99,
+            x: size.width * .98,
             y: tunnel_back_sprite[tunnel_back_sprite.length - 1].getPositionY(),
             anchorX: .5,
             anchorY: .5
@@ -261,10 +265,25 @@ xc.TrainLayer = cc.Layer.extend({
             cc.eventManager.addListener(listener.clone(), label);
         }
 
+
+        var layer1 = new cc.LayerColor(cc.color(255, 255, 255, 150), size.width, size.height * .50);
+        layer1.attr({
+            x : 0,
+            y : 0,
+            anchorX : .5,
+            anchorY : .5
+        });
+        this.addChild(layer1);
+        cc.eventManager.addListener(listener.clone(), layer1);
+        layer1.setVisible(false);
+//        layerListener.setEnabled(false);
+
         var increase = new cc.ScaleTo(1, 1.4);
         var decrease = new cc.ScaleTo(1, 1);
         repeatForeverAction = new cc.RepeatForever(new cc.Sequence(increase, decrease));
-        randomLetter[0].runAction(repeatForeverAction);        
+        randomLetter[0].runAction(repeatForeverAction);  
+        
+             
     }
 
 });
