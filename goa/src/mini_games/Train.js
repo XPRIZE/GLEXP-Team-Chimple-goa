@@ -18,7 +18,7 @@ xc.TrainLayer = cc.Layer.extend({
     position: null,
     wordPosition: null,
     repeatForeverAction: null,
-
+    transLayer : null,
 
     ctor: function () {
         this._super();
@@ -30,6 +30,7 @@ xc.TrainLayer = cc.Layer.extend({
         tunnel_back_sprite = new Array();
         randomLetter = new Array();
         storedLetter = new Array();
+        transLayer = new Array();
 
         wordPosition = 1;
 
@@ -127,11 +128,18 @@ xc.TrainLayer = cc.Layer.extend({
                         }
                     }
                     else if(target.selected==0){
+//                        self.addChild(transLayer[0], 2);
+                        
+                        var removeLayer = function()
+                        {
+//                            self.removeChild(transLayer[0], 2);
+                        };
+                        
                         var increase = new cc.MoveTo(1, cc.p(target.getPositionX() + size.width * .10, target.getPositionY() + size.height * .10));
                         var decrease = new cc.MoveTo(1, cc.p(target.xP, target.yP));
 
                         var sequence = new cc.Sequence(increase, decrease);
-                        target.runAction(sequence);
+                        target.runAction(new cc.Sequence(sequence, new cc.CallFunc(removeLayer, this)));
                     }
                     return true;
                 }
@@ -141,7 +149,27 @@ xc.TrainLayer = cc.Layer.extend({
 
 
         var background = ccs.load(xc.TrainLayer.res.train_json, xc.path);
+        background.node.attr({
+            x : size.width / 2,
+            y : size.height / 2,
+            anchorX : .5,
+            anchorY : .5
+        });
         this.addChild(background.node);
+
+        var layer1 = new cc.Layer();
+        layer1.attr({
+            x : 0,
+            y : 0,
+            anchorX : .5,
+            anchorY : .5
+        });
+        
+        
+        self.addChild(layer1, 2);
+        layer1.setTouchEnabled(false);
+//        cc.eventManager.addListener(listener.clone(), layer1);
+        transLayer.push(layer1);
 
         //sentence = goa.TextGenerator.getInstance().generateASentence();
         sentence = ["A", "martini", "shaken", "not", "stirred"];
@@ -236,7 +264,7 @@ xc.TrainLayer = cc.Layer.extend({
         var increase = new cc.ScaleTo(1, 1.4);
         var decrease = new cc.ScaleTo(1, 1);
         repeatForeverAction = new cc.RepeatForever(new cc.Sequence(increase, decrease));
-        randomLetter[0].runAction(repeatForeverAction);
+        randomLetter[0].runAction(repeatForeverAction);        
     }
 
 });
