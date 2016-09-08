@@ -68,11 +68,9 @@ xc.PageConfigPanel = cc.LayerColor.extend({
     createRecordingAnimation: function (selectedItem) {
         if (!this._clickRecordAniamation) {
             selectedItem.loadTextures("icons/start_recording_onclick.png", null, null, ccui.Widget.PLIST_TEXTURE);
-
             this._preRecordAnimationSprite = new cc.Sprite('#record_time/3.png');
             this._contentPanel.addChild(this._preRecordAnimationSprite, 0);
             this._preRecordAnimationSprite.setPosition(this._contentPanel.width / 2, this._contentPanel.height / 2);
-
             var spriteFrames = [];
 
             //create animations
@@ -83,9 +81,8 @@ xc.PageConfigPanel = cc.LayerColor.extend({
 
             var animation = new cc.Animation(spriteFrames, 0.5);
             var animAction = cc.animate(animation);
-            //var delayAction = new cc.delayTime(0.5);
             var finishRecordingAnimAction = new cc.CallFunc(this.finishRecordingAnimation, this);
-            var preRecordSequence = new cc.sequence(animAction, finishRecordingAnimAction);
+            var preRecordSequence = new cc.Sequence(animAction, finishRecordingAnimAction);
             this._preRecordAnimationSprite.runAction(preRecordSequence);
             this._clickRecordAniamation = true;
         }
@@ -127,7 +124,7 @@ xc.PageConfigPanel = cc.LayerColor.extend({
 
     loadImageAddToNode: function (selectedItem) {
         //load image if only not already in cache
-        var imageToLoad = selectedItem._pngFileToLoad;
+        var imageToLoad = xc.path + selectedItem._pngFileToLoad;
         this.showLoadingScene(imageToLoad, this._contentPanel, this._contentPanel.doPostLoadingProcessForImage, imageToLoad);
     },
 
@@ -136,18 +133,9 @@ xc.PageConfigPanel = cc.LayerColor.extend({
         if (cc.sys.isNative) {
             var dynamicResources = [fileToLoad];
             cc.LoaderScene.preload(dynamicResources, function () {
-                cc.log(cc.loader.getRes(fileToLoad));
-                cc.log(cc.loader.cache[fileToLoad]);
                 for (var key in cc.loader.cache) {
-                        cc.log("key:" + key);
                         var element = cc.loader.cache[key];                        
-                        cc.log(key);
-                        cc.log(element);
-                        
                 }
-                // xc.ParseUtil.changeSize(cc.loader.cache[fileToLoad], null, xc.designScaleFactor);
-                // cc.loader.cache[fileToLoad].xcCompressed = true;
-
                 doPostLoadingProcessFunction.call(context, args, shouldSaveScene);
             }, this);
         } else {
@@ -155,10 +143,6 @@ xc.PageConfigPanel = cc.LayerColor.extend({
             var dynamicResources = [fileToLoad];
             cc.LoaderScene.preload(dynamicResources, function () {
                 cc.director.popScene();
-                if (fileToLoad && fileToLoad.indexOf(".png") == -1) {
-                    // xc.ParseUtil.changeSize(cc.loader.cache[fileToLoad], null, xc.designScaleFactor);
-                    // cc.loader.cache[fileToLoad].xcCompressed = true;
-                }
                 doPostLoadingProcessFunction.call(context, args, shouldSaveScene);
             }, this);
         }
@@ -178,7 +162,6 @@ xc.PageConfigPanel = cc.LayerColor.extend({
         var fileToLoad = xc.path + selectedItem._jsonFileToLoad;
         switch (type) {
             case "character":
-                // this._contentPanel.addCharacterToScene(selectedItem._configuration);
                 this.loadSkeletonConfig(selectedItem._configuration, fileToLoad);
                 break;
             case "scene":

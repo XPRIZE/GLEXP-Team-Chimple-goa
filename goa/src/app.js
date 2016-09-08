@@ -214,7 +214,6 @@ var HelloWorldScene = cc.Scene.extend({
             xc.story = {};
             xc.story.items = [];
             xc.story.RESOLUTION_HEIGHT = xc.DEVICE_HEIGHT;
-            cc.log('xc.story.scaleFactor:' + xc.story.scaleFactor);
         }
     },
 

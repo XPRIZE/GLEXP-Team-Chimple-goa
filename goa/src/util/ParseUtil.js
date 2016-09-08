@@ -111,7 +111,8 @@ xc.ParseUtil.getUserData = function (tag, dataKey) {
         for (var index = 0; index < children.length; index++) {
             if (children[index].ActionTag == tag) {
                 var object = children[index];
-                result = object.UserData[dataKey];
+                var obj = JSON.parse(object.UserData);
+                result = obj[dataKey];
                 break;
             }
         }
@@ -124,8 +125,10 @@ xc.ParseUtil.updateUserData = function (tag, dataKey, dataValue) {
         var children = xc.story.items[xc.pageIndex].scene.Content.Content.ObjectData.Children;
         for (var index = 0; index < children.length; index++) {
             if (children[index].ActionTag == tag) {
-                var object = children[index];
-                object.UserData[dataKey] = dataValue;
+                var object = children[index];                
+                var obj = JSON.parse(object.UserData);
+                obj[dataKey] = dataValue;
+                object.UserData = JSON.stringify(obj);
                 break;
             }
         }
@@ -133,14 +136,13 @@ xc.ParseUtil.updateUserData = function (tag, dataKey, dataValue) {
     }
 }
 
-xc.ParseUtil.saveCharacterToJSON = function (fileToLoad, load) {
-    var resourcePath = fileToLoad.replace("res/", "");
-    var skeletonObject = xc.ParseUtil.constructJSONFromCharacter(load.node, resourcePath);
-    // load.node.ActionTag = skeletonObject.ActionTag;
+xc.ParseUtil.saveCharacterToJSON = function (fileToLoad, load, paramActionTag) {
+    var resourcePath = fileToLoad.replace(xc.path + "wikitaki/", "");
+    var skeletonObject = xc.ParseUtil.constructJSONFromCharacter(load.node, resourcePath, paramActionTag);
     xc.ParseUtil.saveObjectToStoredScene(skeletonObject);
 }
 
-xc.ParseUtil.constructJSONFromCharacter = function (skeleton, resourcePath) {
+xc.ParseUtil.constructJSONFromCharacter = function (skeleton, resourcePath, paramActionTag) {
     var object = Object.create(Object.prototype);
     object.FileData = {};
     object.FileData.Type = "Normal";
@@ -175,7 +177,7 @@ xc.ParseUtil.constructJSONFromCharacter = function (skeleton, resourcePath) {
         "X": skeleton.width,
         "Y": skeleton.height
     };
-    object.ActionTag = -new Date().valueOf();
+    object.ActionTag = paramActionTag;
     if (skeleton.getComponent("ComExtensionData") == null) {
         skeleton.addComponent(new ccs.ComExtensionData());
     }
@@ -192,28 +194,26 @@ xc.ParseUtil.constructJSONFromCharacter = function (skeleton, resourcePath) {
         existingUserData = {};
     };
 
+
     existingUserData.currentAnimationName = skeleton._currentAnimationName;
     existingUserData.resourcePath = resourcePath;
     existingUserData.userAdded = true;
-    object.UserData = existingUserData;
-
+    existingUserData._actionTag = object.ActionTag;
+    object.UserData = JSON.stringify(existingUserData);
     skeleton._actionTag = object.ActionTag;
-    skeleton._userData = object.UserData;
+    skeleton.UserData = object.UserData;
 
     return object;
 }
 
-xc.ParseUtil.constructJSONFromCCSprite = function (sprite) {
+xc.ParseUtil.constructJSONFromCCSprite = function (sprite, filePath) {
 
     var object = Object.create(Object.prototype);
     object.FlipX = sprite._flippedX;
     object.FlipY = sprite._flippedY;
     object.FileData = {};
     object.FileData.Type = "Normal";
-    if (sprite.getTexture().url != null) {
-        var path = sprite.getTexture().url.replace("res/", "");
-        object.FileData.Path = path;
-    }
+    object.FileData.Path = filePath.replace(xc.path + "wikitaki/", "");        
     object.FileData.Plist = "";
     object.BlendFunc = {
         "Src": sprite.getBlendFunc.src,
@@ -263,8 +263,7 @@ xc.ParseUtil.constructJSONFromCCSprite = function (sprite) {
     var existingUserData = {};
 
     existingUserData.userAdded = true;
-    object.UserData = existingUserData;
-    object.userData = existingUserData;
+    object.userData = JSON.stringify(existingUserData);
     sprite.userData = object.UserData;
     return object;
 }
@@ -472,33 +471,26 @@ xc.ParseUtil.disableFavoriteChoiceIfCharacterAlreadyLoadedInPage = function (ite
 
 xc.ParseUtil.cacheThumbnailForFavorites = function (skeleton) {
     var renderer = new cc.RenderTexture(64 * 4, 64 * 4);
-    skeleton._renderCmd._dirtyFlag = 1;
     renderer.begin();
-    skeleton.visit();
-    skeleton._renderCmd._dirtyFlag = 1;
+    skeleton.visit();    
     renderer.end();
     renderer.scaleY = -1;
-    skeleton._renderCmd._dirtyFlag = 1;
     var sprite = renderer.getSprite();
-    var cacheName = xc.path  + "wikitaki/"+ skeleton._userData.uniqueCharacterID + '.png';
-    // cc.textureCache.cacheImage(cacheName, sprite.texture);
+    var cacheName = xc.path  + "wikitaki/"+ skeleton.UserData.uniqueCharacterID + '.png';
     renderer.cleanup();
 }
 
-xc.ParseUtil.removeExistingBoundingBoxNodeByTag = function (tag, removeFromNode) {
+xc.ParseUtil.removeExistingBoundingBox = function (target, tag) {
     if (!tag) {
         tag = xc.DEFAULT_BOUNDING_BOX_TAG;
     }
-
-    if (!removeFromNode) {
-        removeFromNode = xc.currentTouchedNode;
-    }
-    if (removeFromNode) {
-        var boundingBoxNode = removeFromNode.getChildByTag(tag);
+    
+    if (target) {
+        var boundingBoxNode = target.getChildByTag(tag);
         if (boundingBoxNode) {
             boundingBoxNode.removeFromParent(true);
         }
-    }
+    }    
 }
 
 xc.ParseUtil.drawBoundingBox = function (target, tag, color) {
@@ -511,8 +503,6 @@ xc.ParseUtil.drawBoundingBox = function (target, tag, color) {
     if (!color) {
         color = xc.SECONDARY_COLOR;
     }
-
-    this.removeExistingBoundingBoxNodeByTag(tag);
 
     if (target.getName().indexOf("Skeleton") != -1 || target.getName().indexOf("skeleton") != -1) {
         box = target.getBoundingBoxToWorld();

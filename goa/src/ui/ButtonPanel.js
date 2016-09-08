@@ -17,8 +17,6 @@ xc.ButtonPanel = ccui.Layout.extend({
                     if (index < configuration.length - pageIndex * (numButtonsPerRow * numButtonsPerColumn)) {
                         var item;
                         try {
-                            cc.log('uibutton buttonpanel start')
-                            cc.log(configuration[index]['icon']);
                             item = new ccui.Button(configuration[index]['icon'], configuration[index]['icon'], configuration[index]['icon'], ccui.Widget.PLIST_TEXTURE);
                         } catch (error) {
                             cc.log(error);
@@ -28,7 +26,6 @@ xc.ButtonPanel = ccui.Layout.extend({
                         if (configuration[index] && configuration[index]['uniqueCharacterID']) {
 
                             var cacheName = 'res/' + configuration[index]['uniqueCharacterID'] + '.png';
-                            cc.log('uibutton button panel end');
                             item = new ccui.Button(cacheName, cacheName, cacheName, ccui.Widget.LOCAL_TEXTURE);
                             item.setFlippedY(true);
                         }
@@ -56,7 +53,10 @@ xc.ButtonPanel = ccui.Layout.extend({
                 }
             }
         }
-        this.setContentSize(cc.size(Math.ceil(configuration.length / (numButtonsPerRow * numButtonsPerColumn)) * size.width, size.height));
+        if(configuration.length != 0) {
+            this.setContentSize(cc.size(Math.ceil(configuration.length / (numButtonsPerRow * numButtonsPerColumn)) * size.width, size.height));
+        }
+        
     },
 
     selectButton: function (sender) {
