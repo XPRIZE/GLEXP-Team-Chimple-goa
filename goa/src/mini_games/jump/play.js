@@ -23,22 +23,24 @@ xc.playLayer = cc.Layer.extend( {
 
         this.size = cc.winSize;
         cc.spriteFrameCache.addSpriteFrames(xc.playLayer.res.jump_plist);
-        this.bg = ccs.load(xc.playLayer.res.jump_game, xc.path);
-        this.addChild(this.bg.node);
-        var child = this.bg.node.getChildren(); 
-         for(var i=0; i < child.length ;i++)
-         {
-            var name = child[i].getName();
-          //  cc.log("%s", name);
-         }
-    
-
-        
-        this.char = ccs.load(xc.playLayer.res.char,xc.path);
+this.char = ccs.load(xc.playLayer.res.char,xc.path);
         this.char.node.setPosition(cc.p(this.size.width - 2450,this.size.height-950));
         this.addChild(this.char.node);
-       
 
+        this.bg = ccs.load(xc.playLayer.res.jump_game, xc.path);
+      //  this.addChild(this.bg.node);
+        // var child = this.bg.node.getChildren(); 
+        //  for(var i=0; i < child.length ;i++)
+        //  {
+        //     var name = child[i].getName();
+        //     cc.log("%s", name);
+        //  }
+    
+//cc.log(cc.FileUtils.getInstance().getStringFromFile(xc.playLayer.res.jump_plist));
+
+ 
+        
+        
         var ball1 = this.bg.node.getChildByName("ball_34");
         ball1.id = "Ball1";
         this.ballref.push(ball1.getPosition());
@@ -100,6 +102,13 @@ xc.playLayer = cc.Layer.extend( {
         {event: cc.EventListener.TOUCH_ONE_BY_ONE,
          swallowTouches:true,  
          onTouchBegan: this.onTouchBegan,}) , tick); 
+
+        var hint = this.bg.node.getChildByName("hint_button_32");
+        hint.id="Hint";
+        cc.eventManager.addListener(cc.EventListener.create(  
+        {event: cc.EventListener.TOUCH_ONE_BY_ONE,
+         swallowTouches:true,  
+         onTouchBegan: this.onTouchBegan,}) , hint); 
 
 
         var square1 =new cc.Sprite(cc.spriteFrameCache.getSpriteFrame("jump_on_words/box.png"));
@@ -358,7 +367,23 @@ xc.playLayer = cc.Layer.extend( {
     },
    
    
-   
+
+     help : function ()
+     {
+         cc.log("hiint");
+        this.random = Math.floor(Math.random()*(this.dict3.length-1));  
+        var nameLabel = new cc.LabelTTF(this.dict3[this.random].toUpperCase(),"res/fonts/Marker Felt.ttf", 100 );
+		nameLabel.setAnchorPoint(0.5,0.5); 
+        nameLabel.x = cc.winSize.width - 800;
+        nameLabel.y = cc.winSize.height - 1100; 
+        nameLabel.setColor(cc.color(250,250,250));
+        this.addChild(nameLabel, 1);
+        this.scheduleOnce(function(){
+           this.removeChild(nameLabel);
+        },2);
+
+     },
+
       generateRandomLetters : function(count,array){
       var vow = ['A','E','I','O','U'];
       var con = ['B','C','D','F','G','H','J','K','L','M','N','P','Q','R','S','T','V','W','X','Y','Z'];
@@ -392,7 +417,7 @@ xc.playLayer = cc.Layer.extend( {
          if (cc.rectContainsPoint(targetRectangle, location))
                    {
                        if(target.id == "Ball1"){ 
-                        var letter = cc.LabelTTF.create(group[0], "res/fonts/Marker Felt.ttf", 130);
+                        var letter = new cc.LabelTTF (group[0], "res/fonts/Marker Felt.ttf", 130);
                         self.addChild(letter,2);
                         letter.setPosition(cc.p(self.square[self.index].x,self.square[self.index].y));
                         letter.setAnchorPoint(0.5,0.5);
@@ -403,7 +428,7 @@ xc.playLayer = cc.Layer.extend( {
                         cc.log("hello =", self.word); 
                        }
                         if(target.id == "Ball2"){ 
-                         var letter = cc.LabelTTF.create(group[1], "res/fonts/Marker Felt.ttf", 130);
+                         var letter =  new cc.LabelTTF(group[1], "res/fonts/Marker Felt.ttf", 130);
                         self.addChild(letter,2);
                         letter.setPosition(cc.p(self.square[self.index].x,self.square[self.index].y));
                         letter.setAnchorPoint(0.5,0.5);
@@ -414,7 +439,7 @@ xc.playLayer = cc.Layer.extend( {
                           
                        }
                         if(target.id == "Ball3"){ 
-                         var letter = cc.LabelTTF.create(group[2], "res/fonts/Marker Felt.ttf", 130);
+                         var letter = new cc.LabelTTF(group[2], "res/fonts/Marker Felt.ttf", 130);
                         self.addChild(letter,2);
                         letter.setPosition(cc.p(self.square[self.index].x,self.square[self.index].y));
                         letter.setAnchorPoint(0.5,0.5);
@@ -425,7 +450,7 @@ xc.playLayer = cc.Layer.extend( {
                           
                        }
                         if(target.id == "Ball4"){ 
-                         var letter = cc.LabelTTF.create(group[3], "res/fonts/Marker Felt.ttf", 130);
+                         var letter = new cc.LabelTTF(group[3], "res/fonts/Marker Felt.ttf", 130);
                         self.addChild(letter,2);
                         letter.setPosition(cc.p(self.square[self.index].x,self.square[self.index].y));
                         letter.setAnchorPoint(0.5,0.5);
@@ -436,7 +461,7 @@ xc.playLayer = cc.Layer.extend( {
                           
                        }
                         if(target.id == "Ball5"){ 
-                         var letter = cc.LabelTTF.create(group[4], "res/fonts/Marker Felt.ttf", 130);
+                         var letter = new cc.LabelTTF(group[4], "res/fonts/Marker Felt.ttf", 130);
                         self.addChild(letter,2);
                         letter.setPosition(cc.p(self.square[self.index].x,self.square[self.index].y));
                         letter.setAnchorPoint(0.5,0.5);
@@ -447,7 +472,7 @@ xc.playLayer = cc.Layer.extend( {
                           
                        }
                         if(target.id == "Ball6"){ 
-                        var letter = cc.LabelTTF.create(group[5], "res/fonts/Marker Felt.ttf", 130);
+                        var letter = new cc.LabelTTF(group[5], "res/fonts/Marker Felt.ttf", 130);
                         self.addChild(letter,2);
                         letter.setPosition(cc.p(self.square[self.index].x,self.square[self.index].y));
                         letter.setAnchorPoint(0.5,0.5);
@@ -486,17 +511,11 @@ xc.playLayer = cc.Layer.extend( {
                        if(target.id == "Tick"){ 
                         
                         self.verify(self.word);
-                        
-                       
-                          cc.log("tick");
-
-                       }    
-                       // self.removeChild(self.word[(self.index) - 1]);
-                     //   self.index--;  
-                     //   if(self.word.length == 0){
-                      //      self.index = 0;   
-                      //     cc.eventManager.removeListener(target);
-                        //  }
+                        cc.log("tick");
+                        }    
+                       if(target.id == "Hint"){ 
+                         self.help();
+                       }   
                        
                    }
 
