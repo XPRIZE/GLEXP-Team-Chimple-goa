@@ -86,6 +86,8 @@ var sprite_click = cc.EventListener.create({event: cc.EventListener.TOUCH_ONE_BY
                     this.audioEngine = cc.audioEngine;
             this.audioEngine.playEffect(xc.sortitlevel1Layer.res.failure_mp3);
 return true;}
+      
+      
   }   
 
 });            
@@ -93,5 +95,3 @@ return true;}
                        
         }
     });
-
-
