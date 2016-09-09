@@ -133,9 +133,11 @@ Play5_hole_back_165_1
        }
 
      var whack_jump = new cc.JumpBy(1,cc.p(0, 0),600,1);
-     alphabet.node.runAction(whack_jump);
+    // alphabet.node.runAction(whack_jump);
+    alphabet.node.runAction(cc.sequence( whack_jump, new cc.CallFunc(function(){ 
+        alphabet_layer.removeChild(alphabet.node);  }, this)));
      this.scheduleOnce(function(){
-         alphabet_layer.removeChild(alphabet.node); 
+        // alphabet_layer.removeChild(alphabet.node); 
       },1.2);    
      cc.eventManager.addListener(cc.EventListener.create({
          event: cc.EventListener.TOUCH_ONE_BY_ONE,
@@ -157,7 +159,8 @@ Play5_hole_back_165_1
                          }
                         var sound = cc.audioEngine.playEffect(xc.path + "english/sounds/"+target.getName().toLowerCase()+".wav", false);
                       //     sound
-                     cc.log("clicked on %s",target.getName());   
+                     cc.log("clicked on %s",target.getName());  
+                     alphabet_layer.removeChild(target); 
                              }
                              return false;
                    } 

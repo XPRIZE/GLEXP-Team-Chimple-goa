@@ -58,6 +58,7 @@ xc.path = "res/SD/";
 xc.RESOURCE_DESIGN_HEIGHT = 1800;
 xc.DEVICE_WIDTH = 640;
 xc.DEVICE_HEIGHT = 1800;
+xc.customSprites = [];
 xc.HAND_GEAR_LEFT = "hand_gear_left";
 xc.image = {};
 xc.isHTML5 = function () {

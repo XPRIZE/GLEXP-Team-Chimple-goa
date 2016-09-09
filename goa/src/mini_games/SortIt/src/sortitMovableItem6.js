@@ -1,14 +1,14 @@
 
 
 var sortitMovableItem6 = cc.Sprite.extend({
-        
+        _enableFlag: true,
         ctor:function(imageFile, transparentSprite, that) {
             this._super(cc.spriteFrameCache.getSpriteFrame(imageFile));
             var transparentSprite = transparentSprite;
 
             var overlapped = 0;
 
-
+_enableFlag: true;
 var sprite_click = cc.EventListener.create({event: cc.EventListener.TOUCH_ONE_BY_ONE, swallowTouches: true,
   
 
@@ -19,7 +19,9 @@ var sprite_click = cc.EventListener.create({event: cc.EventListener.TOUCH_ONE_BY
     var targetSize = target.getContentSize();
     var targetRectangle = cc.rect(0,0, target.width, target.height);
 
-     if (cc.rectContainsPoint(targetRectangle, location)){return true;}
+     if (cc.rectContainsPoint(targetRectangle, location) && _enableFlag){
+         _enableFlag =false;
+         return true;}
       
      return false;
 
@@ -40,7 +42,7 @@ var sprite_click = cc.EventListener.create({event: cc.EventListener.TOUCH_ONE_BY
             var x = transparentSprite.getPosition().x;
             var y = transparentSprite.getPosition().y;
             target.setPosition(x, y);
-
+             _enableFlag =true;
             this.audioEngine = cc.audioEngine;
             this.audioEngine.playEffect(xc.sortitlevel1Layer.res.comedyBubble_mp3);
 
@@ -74,7 +76,8 @@ var sprite_click = cc.EventListener.create({event: cc.EventListener.TOUCH_ONE_BY
                  var toy = target.getContentSize();
                  var rectToy = cc.rect(0, 0, target.width, target.height);
                  if (cc.rectContainsPoint(rectToy, location) && overlapped==0) { var toy = cc.MoveTo.create(2,cc.p(target.xP,target.yP));
-        target.runAction(toy);this.audioEngine = cc.audioEngine;
+        target.runAction(new cc.Sequence( toy, new cc.CallFunc(function(){ 
+                    _enableFlag = true; }, this)));this.audioEngine = cc.audioEngine;
             this.audioEngine.playEffect(xc.sortitlevel1Layer.res.failure_mp3);
 return true;}
 

@@ -3,7 +3,6 @@ var xc = xc || {};
 xc.PreviewPanel = cc.LayerColor.extend({
     ctor: function (width, height, position, target, configuration, callback, callbackContext, isTab, contentPanel) {
         this._super(xc.TERTIARY_COLOR, width, height);
-        cc.log('preview uibutton');
         var backButton = new ccui.Button('icons/back.png', 'icons/back_onclick.png', 'icons/back_onclick.png', ccui.Widget.PLIST_TEXTURE);
         backButton.setPosition(128, height - 128);
         backButton.addTouchEventListener(this.goBack, this);
@@ -11,8 +10,6 @@ xc.PreviewPanel = cc.LayerColor.extend({
         this._contentPanel = contentPanel;
         
         this._target = target;
-        this._target._dirtyFlag = 1;
-        this._target._renderCmd._dirtyFlag = 1;
         this._targetParent = target.parent;        
         this._targetPosition = target.getPosition();
         this._targetScaleX = target.getScaleX();
@@ -33,12 +30,10 @@ xc.PreviewPanel = cc.LayerColor.extend({
         this.bindTouchListener(this);
         if (isTab) {
             this._tabPanel = new xc.TabPanel(cc.p(0, 0), cc.size(width * 2 / 3, height), 3, 4, configuration, callback, callbackContext, this);
-            this._tabPanel._renderCmd._dirtyFlag = 1;
             this.addChild(this._tabPanel);
         } else {
             this._scrolPanel = new xc.ScrollableButtonPanel(cc.p(0, 0), cc.size(width * 2 / 3, height), 3, 4, configuration, callback, callbackContext);
             this.addChild(this._scrolPanel);
-            cc.log('uibutton previewpanale');
             this.main_backButton = new ccui.Button("icons/back.png", "icons/back_onclick.png", "icons/back_onclick.png", ccui.Widget.PLIST_TEXTURE);
             this.main_backButton.setPosition(width * 5 / 100, height * 95 / 100);
             this.main_backButton.addTouchEventListener(this.main_backButton_function, this);
@@ -67,7 +62,7 @@ xc.PreviewPanel = cc.LayerColor.extend({
                 this._targetParent.addChild(this._target);
                 this._target.setPosition(this._targetPosition);
                 this._target.setScale(this._targetScaleX, this._targetScaleY);
-                this._target.setRotation(this._targetRotationX, this._targetRotationY);
+                this._target.setRotation(this._targetRotationX);
                 this._contentPanel._isRecordingPaused = false;
                 this._contentPanel.registerEventListenerForChild(this._target);
 
@@ -97,7 +92,7 @@ xc.PreviewPanel = cc.LayerColor.extend({
         if (xc.customCharacters && xc.customCharacters.items) {
             xc.customCharacters.items.forEach(function (element) {
                 if (element.uniqueCharacterID == this._target.uniqueCharacterID) {
-                    element.favoriteSkins = this._target._userData.visibleSkins;
+                    element.favoriteSkins = this._target.UserData.visibleSkins;
                 }
             }, this);
         }
