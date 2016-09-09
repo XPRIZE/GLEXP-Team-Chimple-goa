@@ -52,7 +52,7 @@ xc.PlayRecordingLayer = cc.Layer.extend({
     
     createWebView: function() {
         if (xc.story.items[xc.pageIndex].sceneText != null && xc.story.items[xc.pageIndex].sceneText !== "undefined") {
-            this.addChild(new xc.TextReadPanel(cc.director.getWinSize().width, cc.director.getWinSize().height, cc.p(150, 150), xc.story.items[xc.pageIndex].sceneText, this.closeWebView, this));
+            this.addChild(new xc.TextCreatePanel(cc.director.getWinSize().width, cc.director.getWinSize().height, cc.p(385, 250), xc.story.items[xc.pageIndex].sceneText, this.processText, this, false));
         }        
     },
 

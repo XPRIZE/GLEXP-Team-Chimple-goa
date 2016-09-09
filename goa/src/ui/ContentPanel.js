@@ -427,7 +427,8 @@ xc.ContentPanel = xc.AbstractContentPanel.extend({
     },
 
     addTextToScene: function () {
-        this.parent.addChild(new xc.TextCreatePanel(cc.director.getWinSize().width, cc.director.getWinSize().height, cc.p(150, 150), xc.story.items[xc.pageIndex].sceneText, this.processText, this));
+        this.parent.addChild(new xc.TextCreatePanel(cc.director.getWinSize().width, cc.director.getWinSize().height, cc.p(385, 250), xc.story.items[xc.pageIndex].sceneText, this.processText, this, true));
+        
     },
 
     processText: function (text) {
