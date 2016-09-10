@@ -1,5 +1,4 @@
 var xc = xc || {};
-var currentPointerOnBg = {x:0,y:0};
 var levelValues =1;
 
 xc.BubbleGame_HomeScreenMenu = cc.Layer.extend({

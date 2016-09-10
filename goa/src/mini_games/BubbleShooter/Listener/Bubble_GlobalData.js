@@ -1,5 +1,4 @@
 
-var ClassObjectReference = null; 
 
 function Tile(x, y, type, shift){
         
