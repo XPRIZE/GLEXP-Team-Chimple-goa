@@ -1,6 +1,6 @@
 /// <reference path="../../cocos2d-typescript-definitions/cocos2d/cocos2d-lib.d.ts" />
 var xc = xc || {};
-var TextCreateLayer = cc.Layer.extend({
+xc.TextCreateLayer = cc.Layer.extend({
     ctor: function (existingText, textKey) {
         this._super();
         this._text = existingText;
@@ -12,15 +12,15 @@ var TextCreateLayer = cc.Layer.extend({
         this.addChild(backgroundLayer, 0);
         //create menu item with close button
 
-        if (!cc.sys.isNative) {
-            var closeButtonSprite = new cc.Sprite(res.close_pop_png, cc.rect(0, 0, 200, 200));
+        // if (!cc.sys.isNative) {
+        //     var closeButtonSprite = new cc.Sprite(res.close_pop_png, cc.rect(0, 0, 200, 200));
 
-            var closeButton = new cc.MenuItemSprite(closeButtonSprite, null, null, this.closeEditor, this);
-            var menu = new cc.Menu(closeButton);
-            menu.alignItemsVerticallyWithPadding(10);
-            this.addChild(menu, 0);
-            menu.setPosition(cc.director.getWinSize().width - 200, cc.director.getWinSize().height - 200);
-        }
+        //     var closeButton = new cc.MenuItemSprite(closeButtonSprite, null, null, this.closeEditor, this);
+        //     var menu = new cc.Menu(closeButton);
+        //     menu.alignItemsVerticallyWithPadding(10);
+        //     this.addChild(menu, 0);
+        //     menu.setPosition(cc.director.getWinSize().width - 200, cc.director.getWinSize().height - 200);
+        // }
 
         var textContentMargin = 100; 
 
@@ -49,15 +49,18 @@ var TextCreateLayer = cc.Layer.extend({
     },
 
     updateText: function (sender, type) {
+        cc.log("in update text");
         switch (type) {
             case ccui.TextField.EVENT_ATTACH_WITH_IME:
                 break;
             case ccui.TextField.EVENT_DETACH_WITH_IME:
+                cc.log("in update text EVENT_DETACH_WITH_IME");
                 if (cc.sys.isNative) {
-                    self.closeEditor();
+                    this.closeEditor();
                 }
                 break;
             case ccui.TextField.EVENT_INSERT_TEXT:
+                cc.log("in update text EVENT_INSERT_TEXT");
                 this._text = sender.getString();
                 break;
         }
@@ -65,6 +68,7 @@ var TextCreateLayer = cc.Layer.extend({
 
     closeEditor: function () {
         cc.sys.localStorage.setItem(this._textKey, this._text);
+        cc.log('director pop scene');
         cc.director.popScene();        
         // this.parent._textEditLayer.changeText(this._text);
         // this.parent._textEditLayer.setVisible(true);
@@ -177,7 +181,7 @@ var TextCreateLayer = cc.Layer.extend({
 //     }
 // });
 
-var TextEditScene = cc.Scene.extend({
+xc.TextEditScene = cc.Scene.extend({
     _text: null,
     ctor: function (text, textKey) {
         this._super();
@@ -188,7 +192,7 @@ var TextEditScene = cc.Scene.extend({
     onEnter: function () {
         this._super();
 
-        this._textCreateLayer = new TextCreateLayer(this._text, this._textKey);
+        this._textCreateLayer = new xc.TextCreateLayer(this._text, this._textKey);
         this._textCreateLayer.init();
         this.addChild(this._textCreateLayer);
     }

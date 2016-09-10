@@ -30,24 +30,8 @@ xc.CharacterUtil.displaySkins = function (character, skins) {
         }
     }, this);
 
-    if(!cc.sys.isNative) {
-        cc.director.pushScene(new cc.LoaderScene());
-    }
-    cc.LoaderScene.preload(dynamicResources, function () {
-        if(!cc.sys.isNative) {
-            cc.director.popScene();
-        }
-
-        skinBones.forEach(function (loadedRes) {
-            if (!cc.sys.isNative) {
-                if (loadedRes && loadedRes.resourceName && loadedRes.resourceName.indexOf(".png") == -1) {
-                    if (cc.loader.cache[loadedRes.resourceName]) {
-                        // xc.ParseUtil.changeSize(cc.loader.cache[loadedRes.resourceName], null, xc.designScaleFactor);
-                        // cc.loader.cache[loadedRes.resourceName].xcCompressed = true;
-                    }
-                }
-            }
-            var dynamicSkin = ccs.load(loadedRes.resourceName);
+    skinBones.forEach(function (loadedRes) {
+            var dynamicSkin = ccs.load(loadedRes.resourceName, xc.path + "wikitaki/");
             if (dynamicSkin.node) {
                 var bone = character.getBoneNode(loadedRes.boneName);
                 if(bone) {
@@ -60,18 +44,17 @@ xc.CharacterUtil.displaySkins = function (character, skins) {
             var bone = character.getBoneNode(element.bone);
             bone.displaySkin(element.skin, true);
             bone.displaySkin(element.bone, false);
-            if (character._userData.skeletonConfigJson && character._userData.skeletonConfigJson.baseSkin) {
-                for (var boneName in character._userData.skeletonConfigJson.baseSkin) {
+            if (character.UserData.skeletonConfigJson && character.UserData.skeletonConfigJson.baseSkin) {
+                for (var boneName in character.UserData.skeletonConfigJson.baseSkin) {
                     var bone = character.getBoneNode(boneName);
                     if (bone != null) {
-                        var skin = character._userData.skeletonConfigJson.baseSkin[boneName];
+                        var skin = character.UserData.skeletonConfigJson.baseSkin[boneName];
                         bone.displaySkin(skin, false);
                     }
                 }
             }
         }, this);
-        xc.ParseUtil.updateUserData(character._actionTag, 'visibleSkins', xc.CharacterUtil.getVisibleSkins(character));
-    }, this);
+        xc.ParseUtil.updateUserData(character._actionTag, 'visibleSkins', xc.CharacterUtil.getVisibleSkins(character));    
 }
 
 xc.CharacterUtil.getVisibleSkins = function (character) {
@@ -99,7 +82,7 @@ xc.CharacterUtil.colorSkins = function (character, colorSkins) {
                     var bone = character.getBoneNode(skinNames[skinName]);
                     if (bone != null) {
                         bone.getSkins().forEach(function (skin) {
-                            if (skin.getName() == skinName) {
+                            if (skin.getName() == skinName) {                                
                                 skin.color = cc.color(colorSkins.color)
                             }
                         }, this);;
@@ -127,23 +110,30 @@ xc.CharacterUtil.colorSkins = function (character, colorSkins) {
 xc.CharacterUtil.loadSkeletonConfig = function (skeleton, selectedConfiguration) {
     var comExtensionData = skeleton.getComponent('ComExtensionData');
     if (comExtensionData) {
-        skeleton._userData = comExtensionData.getCustomProperty();
-        skeleton._actionTag = comExtensionData.getActionTag();
+        if(comExtensionData.getCustomProperty()) {
+            skeleton.UserData = JSON.parse(comExtensionData.getCustomProperty());
+            if(skeleton.UserData) {
+                skeleton._actionTag = skeleton.UserData._actionTag;
+            }
+        } else {
+            skeleton.UserData = {};
+        }                
     }
     var skeletonConfigJson;
     if (selectedConfiguration && selectedConfiguration.skeletonConfigJson) {
         skeletonConfigJson = selectedConfiguration.skeletonConfigJson;
-        skeleton._userData.skeletonConfigJson = skeletonConfigJson;
-    } else if (skeleton._userData && skeleton._userData.skeletonConfigJson) {
-        skeletonConfigJson = skeleton._userData.skeletonConfigJson;
+        skeleton.UserData.skeletonConfigJson = skeletonConfigJson;
+    } else if (skeleton.UserData && skeleton.UserData.skeletonConfigJson) {
+        skeletonConfigJson = skeleton.UserData.skeletonConfigJson;
     } else {
         skeletonConfigJson = xc.path + 'wikitaki/characters/skeletonConfig/' + skeleton.getName() + '.json';
-        skeleton._userData.skeletonConfigJson = skeletonConfigJson;
+        skeleton.UserData.skeletonConfigJson = skeletonConfigJson;
     }
     cc.loader.loadJson(skeletonConfigJson, function (error, data) {
         if (data != null) {
             skeleton._skeletonConfig = data;
             skeleton._currentAnimationName = data.animations[0].name;
+
             xc.ParseUtil.updateUserData(skeleton._actionTag, 'skeletonConfigJson', skeletonConfigJson);
 
             if (data.baseSkin) {
@@ -156,7 +146,6 @@ xc.CharacterUtil.loadSkeletonConfig = function (skeleton, selectedConfiguration)
                 }
             }
             if (selectedConfiguration != null) {
-
                 if (selectedConfiguration.colorSkins != null) {
                     selectedConfiguration.colorSkins.forEach(function (colorSkin) {
                         xc.CharacterUtil.colorSkins(skeleton, colorSkin);
@@ -165,8 +154,8 @@ xc.CharacterUtil.loadSkeletonConfig = function (skeleton, selectedConfiguration)
                 }
                 xc.CharacterUtil.applySkinNameMap(skeleton, selectedConfiguration);
             } else {
-                if (skeleton._userData && skeleton._userData.colorSkins) {
-                    skeleton._userData.colorSkins.forEach(function (colorSkin) {
+                if (skeleton.UserData && skeleton.UserData.colorSkins) {
+                    skeleton.UserData.colorSkins.forEach(function (colorSkin) {
                         xc.CharacterUtil.colorSkins(skeleton, colorSkin);
                     })
                 }
@@ -179,7 +168,6 @@ xc.CharacterUtil.applySkinNameMap = function (skeleton, configuration) {
     //Dynamically load files required for this skeleton
     //load cricketer_shirt file
     var dynamicResources = [];
-    cc.log('loading for:' + configuration.skinNameMap);
     if (skeleton._skeletonConfig.skinNameMaps
         && skeleton._skeletonConfig.skinNameMaps.hasOwnProperty(configuration.skinNameMap) == true) {
 
@@ -193,22 +181,12 @@ xc.CharacterUtil.applySkinNameMap = function (skeleton, configuration) {
 
     }
 
-    cc.log('dynamicResources:' + dynamicResources);
     if(!cc.sys.isNative) {
         cc.director.pushScene(new cc.LoaderScene()); //TODO dummy right now later fix this
     } 
     cc.LoaderScene.preload(dynamicResources, function () {
         if (!cc.sys.isNative) {
             cc.director.popScene();
-            //resize all loaded contents
-            dynamicResources.forEach(function (loadedResourceURL) {
-                if (loadedResourceURL && loadedResourceURL.indexOf(".png") == -1) {
-                    if (cc.loader.cache[loadedResourceURL]) {
-                        // xc.ParseUtil.changeSize(cc.loader.cache[loadedResourceURL], null, xc.designScaleFactor);
-                        // cc.loader.cache[loadedResourceURL].xcCompressed = true;
-                    }
-                }
-            }, this);
         }
 
         for (var property in skinConfigMap) {
@@ -219,7 +197,6 @@ xc.CharacterUtil.applySkinNameMap = function (skeleton, configuration) {
                     var bone = skeleton.getBoneNode(property);
                     if (bone) {
                         bone.addSkin(dynamicSkin.node, true);
-                        //bone.displaySkin(bone.getSkins()[bone.getSkins().length - 1], true);
                     }
                 }
             }
@@ -246,8 +223,6 @@ xc.CharacterUtil.applySkinNameMap = function (skeleton, configuration) {
                     }
                 }
             }
-
-
         }
         var uniqueCharacterID = null;
         if (configuration.favoriteSkins && configuration.favoriteSkins.length > 0) {
@@ -261,10 +236,7 @@ xc.CharacterUtil.applySkinNameMap = function (skeleton, configuration) {
             skeleton.uniqueCharacterID = uniqueCharacterID;
             xc.ParseUtil.updateUserData(skeleton._actionTag, 'uniqueCharacterID', skeleton.uniqueCharacterID);
         }
-
         xc.ParseUtil.updateUserData(skeleton._actionTag, 'visibleSkins', xc.CharacterUtil.getVisibleSkins(skeleton));
-
-
         if (!configuration.favoriteSkins) {
             xc.CharacterUtil.addCharacterToFavorites(skeleton, configuration);
         }
@@ -281,11 +253,11 @@ xc.CharacterUtil.addCharacterToFavorites = function (skeleton, configuration) {
         favoriteCharConfiguration = JSON.parse(JSON.stringify(configuration));
     }
     favoriteCharConfiguration.type = "character";
-    favoriteCharConfiguration.json = 'res/' + skeleton._userData.resourcePath;
-    favoriteCharConfiguration.uniqueCharacterID = skeleton._userData.uniqueCharacterID;
+    favoriteCharConfiguration.json = 'res/' + skeleton.UserData.resourcePath;
+    favoriteCharConfiguration.uniqueCharacterID = skeleton.UserData.uniqueCharacterID;
     favoriteCharConfiguration.favoriteSkins = [];
-    if (skeleton._userData.visibleSkins) {
-        skeleton._userData.visibleSkins.forEach(function (element) {
+    if (skeleton.UserData.visibleSkins) {
+        skeleton.UserData.visibleSkins.forEach(function (element) {
             favoriteCharConfiguration.favoriteSkins.push(element);
         }, this);
     }
@@ -293,8 +265,8 @@ xc.CharacterUtil.addCharacterToFavorites = function (skeleton, configuration) {
         favoriteCharConfiguration.colorSkins = [];
     }
 
-    if (skeleton._userData.colorSkins) {
-        skeleton._userData.colorSkins.forEach(function (element) {
+    if (skeleton.UserData.colorSkins) {
+        skeleton.UserData.colorSkins.forEach(function (element) {
             favoriteCharConfiguration.colorSkins.push(element);
         }, this);
     }
@@ -315,10 +287,22 @@ xc.CharacterUtil.addToCharacterConfigs = function (characterConfig) {
 
 xc.CharacterUtil.storeActionToTemporaryStore = function (node) {
     node.children.forEach(function (element) {
-        if(element.getName() == 'SKParent') {
-            var action = element.getChildren()[0]._storedAction;
+        if (element.getName().indexOf("Skeleton") != -1 || element.getName().indexOf("skeleton") != -1) {
+            var action = element._storedAction;
             if (action) {
-                element.getChildren()[0].runAction(action);
+                element.runAction(action);
+            }
+        }
+    })
+
+
+    node.children.forEach(function (element) {
+        if(element.getName() == 'SKParent') {
+            if(element.getChildren().length > 0) {
+                var action = element.getChildren()[0]._storedAction;
+                if (action) {
+                    element.getChildren()[0].runAction(action);
+                }
             }
         }
     })
@@ -327,9 +311,11 @@ xc.CharacterUtil.storeActionToTemporaryStore = function (node) {
 xc.CharacterUtil.restoreActionFromTemporaryStore = function (node) {
     node.children.forEach(function (element) {
         if(element.getName() == 'SKParent') {
-            var action = element.getChildren()[0].actionManager.getActionByTag(element.getChildren()[0].tag, element.getChildren()[0]);
-            if (action) {
-                element.getChildren()[0]._storedAction = action;
+            if(element.getChildren().length > 0) {
+                var action = element.getChildren()[0].actionManager.getActionByTag(element.getChildren()[0].tag, element.getChildren()[0]);
+                if (action) {
+                    element.getChildren()[0]._storedAction = action;
+                }
             }
         }
         if (element.getName().indexOf("Skeleton") != -1 || element.getName().indexOf("skeleton") != -1) {

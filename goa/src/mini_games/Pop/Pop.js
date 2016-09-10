@@ -3,7 +3,7 @@
 var xc = xc || {};
 
 xc.PopLayer = cc.Layer.extend({
-    sprite: null,
+    //sprite: null,
     ctor: function () {
         //////////////////////////////
         // 1. super init first
@@ -12,6 +12,10 @@ xc.PopLayer = cc.Layer.extend({
         var worldSize = cc.winSize;
         var self = this;
         var sceneRes = ccs.load(xc.PopLayer.res.pop_scene, xc.path);
+        if (worldSize.width > 2560){
+            var x = worldSize.width - 2560;
+            sceneRes.node.x = x/2;
+        }
         this.addChild(sceneRes.node);
 
         this.cloudContainer = [];
@@ -33,7 +37,6 @@ xc.PopLayer = cc.Layer.extend({
 
         var wordForSentanceArray = ["Twinkle", "twinkle", "little", "star","How", "I","wonder", "what", "you", "are"];
         cc.log("sentence:" + wordForSentanceArray);
-        // var wordForSentanceArray = ["Twinkle", "twinkle", "little", "star","How", "I","wonder", "what", "you", "are"];
 
         //   var cloud = new cc.Sprite(cc.spriteFrameCache.getSpriteFrame("pop/cloud.png"));
         //   cloud.setPosition(worldSize.width-300, cc.director.getWinSize().height * 0.76);
@@ -46,9 +49,8 @@ xc.PopLayer = cc.Layer.extend({
         //   var cloud2 = new cc.Sprite(cc.spriteFrameCache.getSpriteFrame("pop/cloud.png"));
         //   cloud2.setPosition(worldSize.width-300, (cloud.getPosition().y - cloud.getBoundingBox().height*2));
         //   this.addChild(cloud2);
-            setTimeout(function(){  
-                self.clickableFlag = true;
-             }, 12000);
+
+            setTimeout(function(){ self.clickableFlag = true; }, 12000);
 
             var listener = cc.EventListener.create({
             event: cc.EventListener.TOUCH_ONE_BY_ONE,
@@ -65,7 +67,6 @@ xc.PopLayer = cc.Layer.extend({
                     if(self.clickableFlag)
                     {
                         console.log("clickableFlag : "+self.clickableFlag);
-                        console.log("cloud id : " + target.id);
                         self.setWordInRightOrder(target);
                     }
                     return true;
@@ -133,10 +134,6 @@ xc.PopLayer = cc.Layer.extend({
                 var actionDate = new cc.MoveTo(Math.floor(self.getRandomArbitrary(9, 12)), cc.p(self.cloudContainer[i].Xpos, self.cloudContainer[i].Ypos));
                 var easeAction = new cc.EaseBackOut(actionDate);
                 self.cloudContainer[i].runAction(easeAction);
-
-                // console.log(self.cloudContainer[i]);
-                // console.log(" x position : "+ self.cloudContainer[i].Xpos);
-                // console.log(" y position : "+ self.cloudContainer[i].Ypos);
             }
 
         }, 1750);
@@ -179,14 +176,12 @@ xc.PopLayer = cc.Layer.extend({
 
         this.removePlaneFromScene();
     },
-
     removePlaneFromScene: function () {
         if (this.wordInOrder.length == this.cloudContainer.length) {
             this.removeChild(this.plane);
             console.log("GAME OVER");
         }
     }
-
 });
 
 xc.PopLayer.res = {

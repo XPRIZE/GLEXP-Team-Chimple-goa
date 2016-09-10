@@ -54,6 +54,7 @@ const std::vector<std::string> StartMenu::getGameNames() {
     gameNames.push_back(ALPHAMON_FEED);
     gameNames.push_back(TRAIN);
 	gameNames.push_back(ALPHAMOLE);
+    gameNames.push_back(STORY_TELLING);
     return gameNames;
 
 }
@@ -101,6 +102,8 @@ void StartMenu::startScene(std::string gameName, std::string firstParam, std::st
 		Director::getInstance()->replaceScene(CatGame::createScene());
     } else if (gameName == TRAIN) {
         ScriptingCore::getInstance()->runScript("start/train.js");
+    } else if (gameName == STORY_TELLING) {
+        ScriptingCore::getInstance()->runScript("start/storytelling.js");
     }
     else {
         CCLOG("Failed starting scene: %s", gameName.c_str());
