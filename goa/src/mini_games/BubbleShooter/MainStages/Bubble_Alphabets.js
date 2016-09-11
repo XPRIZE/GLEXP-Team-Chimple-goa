@@ -628,7 +628,6 @@ xc.Bubble_Alphabets = cc.Layer.extend({
                 this.cluster[i].removed = true;
             }
             
-           
             // Find floating clusters
             this.floatingclusters = this.findFloatingClusters();
             console.log("float cluster : "+ this.floatingclusters.length);

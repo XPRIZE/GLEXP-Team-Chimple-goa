@@ -59,7 +59,7 @@ xc.BubbleGame_HomeScreenMenu = cc.Layer.extend({
          }
          else if(sender.getName() == "Button_11"){
              console.log("this is 3rd button");
-              xc.GameScene.load(xc.Bubble_PuzzleMenu);
+              xc.GameScene.load(xc.Bubble_AlphabetsMenu);
          }
 
          break;
