@@ -102,13 +102,11 @@ xc.PlayRecordingScene.load = function(layer) {
         t_resources.push(layer.res[i]);
     }
 
-    cc.spriteFrameCache.addSpriteFrames(xc.StoryLayer.res.thumbnails_plist);
-    cc.spriteFrameCache.addSpriteFrames(xc.StoryLayer.res.record_animation_plist);
-    cc.LoaderScene.preload(t_resources, function () {            
-        
+    cc.spriteFrameCache.addSpriteFrames(xc.PlayRecordingLayer.res.thumbnails_plist);
+    cc.spriteFrameCache.addSpriteFrames(xc.PlayRecordingLayer.res.record_animation_plist);
+    cc.LoaderScene.preload(t_resources, function () {                    
     var scene = new xc.PlayRecordingScene(layer);
     scene.layerClass = layer;
-
     cc.director.runScene(scene);                                      
 
     }, this);

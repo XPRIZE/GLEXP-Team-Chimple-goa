@@ -557,7 +557,7 @@ xc.ContentPanel = xc.AbstractContentPanel.extend({
     addCharacterToScene: function (configuration) {
         cc.log(new Date());
         var load = ccs.load(xc.path + configuration.json);
-        load.node._actionTag = -new Date().valueOf()
+        load.node._actionTag = -new Date().valueOf();
         cc.log('add character loadSkeletonConfig 222' + load.node._actionTag);
         load.node.setScale(0.5, 0.5);
         load.node.setPosition(this.getContentSize().width / 2, this.getContentSize().height / 6);
@@ -738,31 +738,48 @@ xc.ContentPanel = xc.AbstractContentPanel.extend({
         this._objectConfigPanel.setTarget(target);
     },
 
-    backPressed: function () {
-        //take a screen shot of page if index is 0 (first page of story)
-        if(!cc.sys.isNative)
-        {
-        if (xc.pageIndex == 0) {
-            var gameCanvas = document.getElementById("gameCanvas");
-            if (gameCanvas != null) {
-                var dataURL = gameCanvas.toDataURL("image/png");
-                var imageData = new Image();
-                imageData.src = dataURL;
+    takeAScreenShot: function() {
+        //take a screen shot
+        cc.log('xc.pageIndex at:' + xc.pageIndex + 'for current story:' + xc.currentStoryId);
+        if(cc.sys.isNative && xc.pageIndex == 0) {
+            var imagePath = jsb.fileUtils.getWritablePath() + xc.currentStoryId + ".jpg";
+            cc.log('imagePath' + imagePath);
+            var renderer = new cc.RenderTexture(cc.director.getWinSize().width, cc.director.getWinSize().height, cc.TEXTURE_2D_PIXEL_FORMAT_RGBA8888);
+            renderer.setPosition(cc.director.getWinSize().width/2, cc.director.getWinSize().height/2);
+            renderer.begin();
+            this.visit();              
+            renderer.end();
+            renderer.saveToFile(xc.currentStoryId + ".jpg");
+            cc.log("saving to file:" + imagePath);
+            var texture = cc.textureCache.addImage(imagePath);
+            xc.storiesJSON.stories[xc.currentStoryIndex].icon = imagePath;
+            xc.storiesJSON.stories[xc.currentStoryIndex].cIcon = imagePath;
+            renderer.cleanup();
+        } else {
+            if (xc.pageIndex == 0) {
+                var gameCanvas = document.getElementById("gameCanvas");
+                if (gameCanvas != null) {
+                    var dataURL = gameCanvas.toDataURL("image/png");
+                    var imageData = new Image();
+                    imageData.src = dataURL;
 
-                var snapShotCanvas = document.getElementById('snapShotCanvas');
-                if(snapShotCanvas != undefined) {
-                    var ctx = snapShotCanvas.getContext("2d");
-                    var xOffSet = (cc.director.getWinSize().width - cc.director.getWinSize().height) / 2;
-                    ctx.drawImage(imageData, xOffSet, 0, cc.director.getWinSize().height, cc.director.getWinSize().height, 0, 0, 450, 450);
-                    var snapShotDataURL = snapShotCanvas.toDataURL("image/png");
-                    xc.image.titlePageDataURL = snapShotDataURL;
-                    ctx.clearRect(0, 0, snapShotCanvas.width, snapShotCanvas.height);
-                    snapShotCanvas = null;
+                    var snapShotCanvas = document.getElementById('snapShotCanvas');
+                    if(snapShotCanvas != undefined) {
+                        var ctx = snapShotCanvas.getContext("2d");
+                        var xOffSet = (cc.director.getWinSize().width - cc.director.getWinSize().height) / 2;
+                        ctx.drawImage(imageData, xOffSet, 0, cc.director.getWinSize().height, cc.director.getWinSize().height, 0, 0, 450, 450);
+                        var snapShotDataURL = snapShotCanvas.toDataURL("image/png");
+                        xc.image.titlePageDataURL = snapShotDataURL;
+                        ctx.clearRect(0, 0, snapShotCanvas.width, snapShotCanvas.height);
+                        snapShotCanvas = null;
+                    }
                 }
+                var texture = cc.textureCache.addImage("res/SD/wikitaki/HelloWorld.png");
             }
         }
-
-        }
+    },
+    
+    backPressed: function () {
         this.parent.removeChild(this, true);
         xc.LAYER_INIT = false;
         xc.LAYER_EDIT_STORY = false;
@@ -822,6 +839,6 @@ xc.ContentPanel = xc.AbstractContentPanel.extend({
         if (this._backLayer) {
             cc.log("on exit 3333");
             xc.CharacterUtil.restoreActionFromTemporaryStore(this._backLayer);
-        }
+        }        
     }    
 });
