@@ -53,7 +53,11 @@ var sprite_click = cc.EventListener.create({event: cc.EventListener.TOUCH_ONE_BY
              if (that.counterLevel4 == 6) {
               
                     
-                    xc.GameScene.load(xc.sortitlevel5Layer);
+                   
+                  setTimeout(function(){
+                           xc.GameScene.load(xc.sortitlevel5Layer);
+                     },1000);
+
 
                 }
             
