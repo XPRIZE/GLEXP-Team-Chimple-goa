@@ -7,6 +7,7 @@ xc.DecomonLayer = cc.Layer.extend({
     size : null,
     eye_array : null,
     mouth_array :null,
+    nose_array : null,
 
 
   ctor: function () {
@@ -46,12 +47,34 @@ var sprite_click = cc.EventListener.create({event: cc.EventListener.TOUCH_ONE_BY
                       for(j=0;j<mouth_array.length;j++){
                       mouth_array[j].setVisible(false);
                 }
+                for(n=0;n<nose_array.length;n++)
+                  {
+                    nose_array[n].setVisible(false);
+                  }
                 }
                
                 else if(target.id == "mouth"){
 
                 for(j=0;j<mouth_array.length;j++){
                   mouth_array[j].setVisible(true);
+                }
+                 for(i=0;i<eye_array.length;i++)
+                     {
+                         eye_array[i].setVisible(false);
+                     }
+                     for(n=0;n<nose_array.length;n++)
+                  {
+                    nose_array[n].setVisible(false);
+                  }
+                }
+                else if(target.id == "nose" )
+                {
+                  for(n=0;n<nose_array.length;n++)
+                  {
+                    nose_array[n].setVisible(true);
+                  }
+                  for(j=0;j<mouth_array.length;j++){
+                      mouth_array[j].setVisible(false);
                 }
                  for(i=0;i<eye_array.length;i++)
                      {
@@ -87,7 +110,7 @@ var sprite_click = cc.EventListener.create({event: cc.EventListener.TOUCH_ONE_BY
                         y : size.height * .10
                       });
                       self.addChild(eyea.node); 
-                      eyea.node.id =1;
+                     // eyea.node.id =1;
                       eyea.node.setVisible(false);
                     cc.eventManager.addListener(sprite_click.clone(),eyea.node);
                       
@@ -98,7 +121,7 @@ var sprite_click = cc.EventListener.create({event: cc.EventListener.TOUCH_ONE_BY
                       });
                       self.addChild(eyeb.node);
                        eyeb.node.setVisible(false);
-                       eyeb.node.id = 2;
+                   //    eyeb.node.id = 2;
                         cc.eventManager.addListener(sprite_click.clone(),eyeb.node);
                         // getChildByName("eye_abcfh_ballout_angry_12"));
 
@@ -256,7 +279,96 @@ var sprite_click = cc.EventListener.create({event: cc.EventListener.TOUCH_ONE_BY
 
     mouth_array = [moutha.node,mouthb.node,mouthc.node,mouthd.node,mouthe.node,mouthf.node,mouthg.node,mouthh.node,mouthi.node];
 
+    var nose = background.node.getChildByName("decomon_nose_icon");
+     nose.id = "nose";
+     cc.eventManager.addListener(sprite_click.clone(), nose);
+
+     var nose1 = new cc.Sprite(cc.spriteFrameCache.getSpriteFrame("decomon/decomon3/decomon_nose_1.png"))
+     nose1.attr({
+                        x : size.width * .12,
+                        y : size.height * .10
+                      });
+     self.addChild(nose1);
+     nose1.setVisible(false);
+     cc.eventManager.addListener(sprite_click.clone(),nose1);
+
+    var nose2 = new cc.Sprite(cc.spriteFrameCache.getSpriteFrame("decomon/decomon3/decomon_nose_2.png"))
+     nose2.attr({
+                        x : size.width * .22,
+                        y : size.height * .10
+                      });
+     self.addChild(nose2);
+     nose2.setVisible(false);
+     cc.eventManager.addListener(sprite_click.clone(),nose2);
+
+     var nose3 = new cc.Sprite(cc.spriteFrameCache.getSpriteFrame("decomon/decomon3/decomon_nose_3.png"))
+     nose3.attr({
+                        x : size.width * .32,
+                        y : size.height * .10
+                      });
+     self.addChild(nose3);
+     nose3.setVisible(false);
+     cc.eventManager.addListener(sprite_click.clone(),nose3);
+
+     var nose4 = new cc.Sprite(cc.spriteFrameCache.getSpriteFrame("decomon/decomon3/decomon_nose_4.png"))
+     nose4.attr({
+                        x : size.width * .42,
+                        y : size.height * .10
+                      });
+     self.addChild(nose4);
+     nose4.setVisible(false);
+     cc.eventManager.addListener(sprite_click.clone(),nose4);
+
+     var nose5 = new cc.Sprite(cc.spriteFrameCache.getSpriteFrame("decomon/decomon3/decomon_nose_5.png"))
+     nose5.attr({
+                        x : size.width * .52,
+                        y : size.height * .10
+                      });
+     self.addChild(nose5);
+     nose5.setVisible(false);
+     cc.eventManager.addListener(sprite_click.clone(),nose5);
+
+     var nose6 = new cc.Sprite(cc.spriteFrameCache.getSpriteFrame("decomon/decomon3/decomon_nose_6.png"))
+     nose6.attr({
+                        x : size.width * .62,
+                        y : size.height * .10
+                      });
+     self.addChild(nose6);
+     nose6.setVisible(false);
+     cc.eventManager.addListener(sprite_click.clone(),nose6);
+
+     var nose7 = new cc.Sprite(cc.spriteFrameCache.getSpriteFrame("decomon/decomon3/decomon_nose_7.png"))
+     nose7.attr({
+                        x : size.width * .72,
+                        y : size.height * .10
+                      });
+     self.addChild(nose7);
+     nose7.setVisible(false);
+     cc.eventManager.addListener(sprite_click.clone(),nose7);
+
+
+     var nose8 = new cc.Sprite(cc.spriteFrameCache.getSpriteFrame("decomon/decomon3/decomon_nose_8.png"))
+     nose8.attr({
+                        x : size.width * .82,
+                        y : size.height * .10
+                      });
+     self.addChild(nose8);
+     nose8.setVisible(false);
+     cc.eventManager.addListener(sprite_click.clone(),nose8);
+
+     var nose9 = new cc.Sprite(cc.spriteFrameCache.getSpriteFrame("decomon/decomon3/decomon_nose_9.png"))
+     nose9.attr({
+                        x : size.width * .92,
+                        y : size.height * .10
+                      });
+     self.addChild(nose9);
+     nose9.setVisible(false);
+     cc.eventManager.addListener(sprite_click.clone(),nose9);
+
+     nose_array = [nose1,nose2,nose3,nose4,nose5,nose6,nose7,nose8,nose9];
  }
+
+ 
 
 });
 
