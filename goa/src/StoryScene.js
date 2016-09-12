@@ -89,6 +89,7 @@ xc.StoryLayer = cc.Layer.extend({
         if(cc.sys.isNative) {
             var writablePath = jsb.fileUtils.getWritablePath() + "story.json";
             var fileContent = JSON.stringify(xc.storiesJSON);
+            cc.log('fileContent before upload:' + fileContent);
             jsb.fileUtils.writeStringToFile(fileContent, writablePath);
         } else {
             //upload to network
@@ -184,12 +185,13 @@ xc.StoryScene = cc.Scene.extend({
     createOrEditStory: function () {
         if (xc && xc.MODIFIED_BIT != 1) {
             if(xc.storiesJSON != undefined && xc.storiesJSON.stories != undefined && xc.currentStoryIndex < xc.storiesJSON.stories.length) {
+                cc.log("coming heere with xc.currentStoryIndex:" + xc.currentStoryIndex);
                 xc.story = xc.storiesJSON.stories[xc.currentStoryIndex].data;
                 if(xc.story == undefined) {
                     xc.story = {};
                     xc.story.items = [];
                 }
-                // cc.log('xc.story:' + JSON.stringify(xc.story));
+                cc.log('xc.story:' + JSON.stringify(xc.story));
                 xc.story.RESOLUTION_HEIGHT = xc.DEVICE_HEIGHT;
                 xc.storiesJSON.stories[xc.currentStoryIndex].data = xc.story;                            
             }
