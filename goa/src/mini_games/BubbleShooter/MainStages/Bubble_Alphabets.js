@@ -1,21 +1,25 @@
 var xc = xc || {};
 xc.Bubble_Alphabets = cc.Layer.extend({
-    
+    bubble_self : null,
   ctor:function () {
    
    this._super();
-   
+   bubble_self = this;
    imageSprite = ['bubble_shooter/red_ball','bubble_shooter/green_ball','bubble_shooter/yellow_ball','bubble_shooter/purple_ball','bubble_shooter/blue_ball','bubble_shooter/orange_ball'];
 
    var ScreenMenu = ccs.load(xc.BubbleGame_HomeScreenMenu.res.bubbleShooter_gameMenu_json,xc.path);
    this.addChild(ScreenMenu.node);
+   var xPosi ;
+    if (cc.director.getWinSize().width > 2560){
+        xPosi = cc.director.getWinSize().width - 2560;
+        ScreenMenu.node.x = xPosi/2;
+    }
 
     console.log("the height and width : "+cc.director.getWinSize().height+"      "+cc.director.getWinSize().width);
     this.textHitsLabel = new cc.LabelTTF("Hits : 0","res/fonts/Marker Felt.ttf",75);
     this.textHitsLabel.setPosition(cc.director.getWinSize().width*0.87,cc.director.getWinSize().height*0.975);                      
     this.addChild(this.textHitsLabel);
-
-    this.initVariable(ScreenMenu);
+    this.initVariable(ScreenMenu,xPosi);
 
     // Array Of BubbleColor
     bubbleName = new Array(this.level.columns);
@@ -254,7 +258,7 @@ xc.Bubble_Alphabets = cc.Layer.extend({
       });
       
       var trnspImg = new cc.Sprite(cc.spriteFrameCache.getSpriteFrame("bubble_shooter/pixel.png"));
-      trnspImg.setAnchorPoint(0);        trnspImg.setPosition(0,0);       trnspImg.setOpacity(0);
+      trnspImg.setAnchorPoint(0,0);        trnspImg.setPosition(0,0);       trnspImg.setOpacity(0);
       ScreenMenu.node.getChildByName("Panel_2").addChild(trnspImg);
       cc.eventManager.addListener(listnerBg,trnspImg);
   
@@ -567,7 +571,7 @@ xc.Bubble_Alphabets = cc.Layer.extend({
                 
                bubbleName[gridpos.x][gridpos.y] = this.bubblePlayer;
                LetterName[gridpos.x][gridpos.y] = this.letterPlayer;
-               this.checkBubbleStatus();
+               this.checkBubbleStatus(bubbleName,LetterName);
                // Check for game over
                if (this.checkGameOver()) {
                    console.log("game over now .........")
@@ -674,9 +678,9 @@ xc.Bubble_Alphabets = cc.Layer.extend({
                            LetterName[tile.x][tile.y].anchorX = 0.5;
                            LetterName[tile.x][tile.y].anchorY = 0.5;
                         
-                           bubbleName[tile.x][tile.y].runAction(cc.ScaleTo.create(1.5,3));
+                           bubbleName[tile.x][tile.y].runAction(new cc.ScaleTo(1.5,3));
                          
-                           bubbleName[tile.x][tile.y].runAction(cc.MoveTo.create(1,cc.p(cc.director.getWinSize().width/2, cc.director.getWinSize().height/2)));
+                           bubbleName[tile.x][tile.y].runAction(new cc.MoveTo(1,cc.p(cc.director.getWinSize().width/2, cc.director.getWinSize().height/2)));
                          
                            cc.audioEngine.playEffect("res/english/sounds/"+LetterName[tile.x][tile.y].name.toLowerCase()+".wav");
 
@@ -882,7 +886,7 @@ xc.Bubble_Alphabets = cc.Layer.extend({
         // Load sprite frames to frame cache, add texture node
         cc.spriteFrameCache.addSpriteFrames(res.BubbleBlast_plist);
         var spriteBubbleTexture = cc.textureCache.addImage(res.BubbleBlast_png),
-        spriteBubbleImages  = cc.SpriteBatchNode.create(spriteBubbleTexture);
+        spriteBubbleImages  = new cc.SpriteBatchNode(spriteBubbleTexture);
         this.addChild(spriteBubbleImages);
 
         var animFrames = [];
@@ -895,8 +899,8 @@ xc.Bubble_Alphabets = cc.Layer.extend({
             animFrames.push(animFrame);
         }
         
-        var animation = cc.Animation.create(animFrames, 0.08, 1);
-        var animate   = cc.Animate.create(animation); 
+        var animation = new cc.Animation(animFrames, 0.08, 1);
+        var animate   = new cc.Animate(animation); 
         
         if(spriteType == 0){
              spriteBubble.color = new cc.color(241,18,18);
@@ -923,7 +927,7 @@ xc.Bubble_Alphabets = cc.Layer.extend({
         
     },
     
-    checkBubbleStatus : function (){
+    checkBubbleStatus : function (bubbleName,LetterName){
         
           for (let j=0; j < this.level.rows; j++) {
             for (let i=0; i < this.level.columns; i++) {
@@ -1214,7 +1218,8 @@ xc.Bubble_Alphabets = cc.Layer.extend({
             return;
      
      // Draw the bubble sprite
-     this.removeChild(this.nextBubblePlayer);
+     if(this.nextBubblePlayer!=undefined)         
+         bubble_self.removeChild(bubble_self.nextBubblePlayer);
      
      this.nextBubblePlayer =  new cc.Sprite(cc.spriteFrameCache.getSpriteFrame(imageSprite[index]+".png"));
      this.nextBubblePlayer.setPosition((cc.director.getWinSize().width/2 - 350)  , cc.director.getWinSize().height * 0.0607080);
@@ -1228,7 +1233,9 @@ xc.Bubble_Alphabets = cc.Layer.extend({
         if (index < 0 || index >= bubblecolors)
             return;
      // Draw the bubble sprite
-     this.removeChild(this.nextLetterPlayer);
+     console.log("the object value is :1236  " + bubble_self.nextBubblePlayer.getName());
+     if(this.nextLetterPlayer != undefined)    
+         bubble_self.removeChild(bubble_self.nextLetterPlayer);
      this.nextLetterPlayer = new cc.LabelTTF(""+letterSprite[this.player.nextbubble.tiletype],"res/fonts/Marker Felt.ttf",150);
      this.nextLetterPlayer.setPosition(this.nextLetterPlayer.getContentSize().width/2,this.nextLetterPlayer.getContentSize().height/2);
      this.nextBubblePlayer.addChild(this.nextLetterPlayer);
@@ -1302,7 +1309,7 @@ xc.Bubble_Alphabets = cc.Layer.extend({
         this.animationtime = 0;
     },
     
-    initVariable : function(ScreenMenu){
+    initVariable : function(ScreenMenu,xPosi){
         
         this.bubblePlayer = null;
         this.letterPlayer = null;
@@ -1329,10 +1336,12 @@ xc.Bubble_Alphabets = cc.Layer.extend({
         this.killBubble = false;
 
         var leftPanel = ScreenMenu.node.getChildByName("Panel_7");
-       
+      
+        if(xPosi == undefined){ xPosi = 0; }      
+      
         // Level
         this.level = {            
-            x: (leftPanel.x + leftPanel.getContentSize().width), // X position
+            x: (leftPanel.x + leftPanel.getContentSize().width + (xPosi/2)), // X position
             y: cc.director.getWinSize().height * 0.103,          // Y position
             width: 0,       // Width, gets calculated
             height: 0,      // Height, gets calculated

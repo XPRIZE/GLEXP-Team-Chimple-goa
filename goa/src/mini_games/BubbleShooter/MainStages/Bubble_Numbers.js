@@ -631,9 +631,9 @@ xc.Bubble_Number = cc.Layer.extend({
                            LetterName[tile.x][tile.y].anchorX = 0.5;
                            LetterName[tile.x][tile.y].anchorY = 0.5;
                         
-                           bubbleName[tile.x][tile.y].runAction(cc.ScaleTo.create(1.5,3));
+                           bubbleName[tile.x][tile.y].runAction(new cc.ScaleTo(1.5,3));
                          
-                           bubbleName[tile.x][tile.y].runAction(cc.MoveTo.create(1,cc.p(cc.director.getWinSize().width/2, cc.director.getWinSize().height/2)));
+                           bubbleName[tile.x][tile.y].runAction(new cc.MoveTo(1,cc.p(cc.director.getWinSize().width/2, cc.director.getWinSize().height/2)));
                          
                            cc.audioEngine.playEffect("res/english/sounds/"+LetterName[tile.x][tile.y].name.toLowerCase()+".wav");
 
@@ -839,7 +839,7 @@ xc.Bubble_Number = cc.Layer.extend({
         // Load sprite frames to frame cache, add texture node
         cc.spriteFrameCache.addSpriteFrames(res.BubbleBlast_plist);
         var spriteBubbleTexture = cc.textureCache.addImage(res.BubbleBlast_png),
-        spriteBubbleImages  = cc.SpriteBatchNode.create(spriteBubbleTexture);
+        spriteBubbleImages  = new cc.SpriteBatchNode(spriteBubbleTexture);
         this.addChild(spriteBubbleImages);
 
         var animFrames = [];
@@ -852,8 +852,8 @@ xc.Bubble_Number = cc.Layer.extend({
             animFrames.push(animFrame);
         }
         
-        var animation = cc.Animation.create(animFrames, 0.08, 1);
-        var animate   = cc.Animate.create(animation); 
+        var animation = new cc.Animation(animFrames, 0.08, 1);
+        var animate   = new cc.Animate(animation); 
         
         if(spriteType == 0){
              spriteBubble.color = new cc.color(241,18,18);
