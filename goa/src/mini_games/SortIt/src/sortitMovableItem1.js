@@ -79,7 +79,8 @@ var sprite_click = cc.EventListener.create({event: cc.EventListener.TOUCH_ONE_BY
          
                  var toy = target.getContentSize();
                  var rectToy = cc.rect(0, 0, target.width, target.height);
-                 if (cc.rectContainsPoint(rectToy, location) && overlapped==0) { 
+                 //if (cc.rectContainsPoint(rectToy, location) && overlapped==0) { 
+                 if (overlapped==0) { 
                      var toy = new cc.MoveTo(2,cc.p(target.xP,target.yP));
                     target.runAction(new cc.Sequence( toy, new cc.CallFunc(function(){ 
                     _enableFlag = true; }, this)));
