@@ -210,7 +210,6 @@ var PlayFullStoryLayer = cc.Layer.extend({
 
 
     playEnded: function () {
-        cc.log('play ended');
         //create delay action
         xc.story.items[xc.pageIndex].sceneText = "dummy test";
         if (xc.story.items[xc.pageIndex].sceneText != null && xc.story.items[xc.pageIndex].sceneText !== "undefined") {
@@ -279,7 +278,6 @@ var PlayFullStoryScene = cc.Scene.extend({
         this._super();
         if (xc.PLAY_STORY_INIT === false) {
             xc.PLAY_STORY_INIT = true;
-            cc.log('initing layer...should only be once');
             //read storyId from document, if not null then load json and store in localStorage
             var storyId = this.retrieveStoryId();
             if (storyId) {

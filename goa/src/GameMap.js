@@ -14,7 +14,7 @@ xc.GameMap = cc.Scene.extend({
         else if(sender._configuration.name == 'jazz') {
             xc.GameScene.load(xc.GameLayer);
         } else if(sender._configuration.name == 'story-teller') {
-            xc.StoryScene.load(xc.StoryLayer);
+            xc.CreateStoryScene.load(xc.CreateStoryLayer);
         }
         else if(sender._configuration.name == 'train') {
             xc.GameScene.load(xc.TrainLayer);
@@ -23,7 +23,7 @@ xc.GameMap = cc.Scene.extend({
         }else if(sender._configuration.name == 'alphamole') {
             xc.GameScene.load(xc.AlphamoleGameLevelScene);
         }else if(sender._configuration.name == 'jump_on_words') {
-            xc.GameScene.load(xc.playLayer);
+            xc.GameScene.load(xc.menuLayer);
         }else if(sender._configuration.name == 'sortit') {
             xc.GameScene.load(xc.sortitlevel1Layer);
         }

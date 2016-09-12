@@ -31,18 +31,21 @@ xc.AbstractContentPanel = cc.LayerColor.extend({
         var customSkinName = null;
         var skeleton = null;
         if (constructedScene && constructedScene.children) {
-            var result = constructedScene.children.filter(function (d) { return d && d._userData && d._userData.userCustomObjectSkin });
+            var result = constructedScene.children.filter(function (d) {
+                return d && d.UserData && d.UserData.userCustomObjectSkin;
+            });
             if (result && result.length == 0) {
                 result = constructedScene.children.filter(function (d) {
                     return d && d.getComponent('ComExtensionData')
-                        && d.getComponent('ComExtensionData').getCustomProperty() && d.getComponent('ComExtensionData').getCustomProperty().userCustomObjectSkin
+                        && d.getComponent('ComExtensionData').getCustomProperty() 
+                        && JSON.parse(d.getComponent('ComExtensionData').getCustomProperty()).userCustomObjectSkin;                
                 });
             }
             var cScene = constructedScene;
             result.forEach(function (skeleton) {
                 if (skeleton && skeleton.getComponent('ComExtensionData') && skeleton.getComponent('ComExtensionData').getCustomProperty()
-                    && skeleton.getComponent('ComExtensionData').getCustomProperty().userCustomObjectSkin) {
-                    customSkinName = skeleton.getComponent('ComExtensionData').getCustomProperty().userCustomObjectSkin.skin;
+                    && skeleton.getComponent('ComExtensionData').getCustomProperty()) {
+                    customSkinName = JSON.parse(skeleton.getComponent('ComExtensionData').getCustomProperty()).userCustomObjectSkin.skin;
                     var skinNodeArray = cScene.children.filter(function (d) { return d.getName() === customSkinName });
                     skinNodeArray.forEach(function (skinNode) {
                         skinNode.setPosition(0, 0);
@@ -52,8 +55,8 @@ xc.AbstractContentPanel = cc.LayerColor.extend({
                         bone.addSkin(skinNode, true);
                         bone.displaySkin(bone.getSkins()[bone.getSkins().length - 1], true);
                     }, this);
-                } else if (skeleton && skeleton._userData && skeleton._userData.userCustomObjectSkin) {
-                    customSkinName = skeleton._userData.userCustomObjectSkin.skin;
+                } else if (skeleton && skeleton.UserData && skeleton.UserData.userCustomObjectSkin) {
+                    customSkinName = skeleton.UserData.userCustomObjectSkin.skin;
                     var skinNodeArray = cScene.children.filter(function (d) { return d.getName() === customSkinName });
                     skinNodeArray.forEach(function (skinNode) {
                         skinNode.setPosition(0, 0);

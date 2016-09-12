@@ -30,14 +30,15 @@ xc.PlayContentPanel = xc.AbstractContentPanel.extend({
         if (fileToLoad == null) {
             return;
         }
-        this._constructedScene = ccs.load(fileToLoad);
+    
+        this._constructedScene = ccs.load(fileToLoad, xc.path + "wikitaki/");
         if (this._constructedScene != null) {
-            if (this._constructedScene.node) {
-                this.addChild(this._constructedScene.node);
-                if (!cc.sys.isNative) {
-                    this._constructedScene.node._renderCmd._dirtyFlag = 1;
-                }
-                this.postProcessForSceneObjects(this._constructedScene.node);
+                if (this._constructedScene.node) {
+                    this.addChild(this._constructedScene.node);
+                    if (!cc.sys.isNative) {
+                        this._constructedScene.node._renderCmd._dirtyFlag = 1;
+                    }
+                    this.postProcessForSceneObjects(this._constructedScene.node);
             }
             if (xc.story.items[xc.pageIndex].scene.scaleX
                 && xc.story.items[xc.pageIndex].scene.scaleY) {
@@ -52,31 +53,33 @@ xc.PlayContentPanel = xc.AbstractContentPanel.extend({
             }
         }
     },
-
     postProcessForSceneObjects: function (node) {
         node.children.forEach(function (element) {
-            if (element.getName().indexOf("Skeleton") != -1 || element.getName().indexOf("skeleton") != -1) {
-                xc.CharacterUtil.loadSkeletonConfig(element);
-                if (element._userData && element._userData.visibleSkins) {
-                    xc.CharacterUtil.displaySkins(element, element._userData.visibleSkins);
-                }
-                if (element._userData && element._userData.colorSkins) {
-                    element._userData.colorSkins.forEach(function (colorSkin) {
-                        xc.CharacterUtil.colorSkins(element, colorSkin);
-                })}
+                if (element.getName().indexOf("Skeleton") != -1 || element.getName().indexOf("skeleton") != -1) {
+                    xc.CharacterUtil.loadSkeletonConfig(element);
+                    if(element && element.getComponent('ComExtensionData') && element.getComponent('ComExtensionData').getCustomProperty()) {
+                        element.UserData = JSON.parse(element.getComponent('ComExtensionData').getCustomProperty());
+                    }
+                    
+                    if (element.UserData && element.UserData.visibleSkins) {
+                        xc.CharacterUtil.displaySkins(element, element.UserData.visibleSkins);
+                    }
+                    if (element.UserData && element.UserData.colorSkins) {
+                        element.UserData.colorSkins.forEach(function (colorSkin) {
+                            xc.CharacterUtil.colorSkins(element, colorSkin);
+                    })}
 
-                if (element._userData && element._userData.currentAnimationName) {
-                    element._currentAnimationName = element._userData.currentAnimationName;
+                    if (element.UserData && element.UserData.currentAnimationName) {
+                        element._currentAnimationName = element.UserData.currentAnimationName;
+                    }
                 }
-            }
         }, this);
 
         this.attachCustomObjectSkinToSkeleton(node);
     },
-
-
     backPressed: function () {
-        cc.director.popScene();
+        xc.LAYER_INIT = false;
+        xc.StoryScene.load(xc.StoryLayer);        
     },
 
     onEnter: function () {
