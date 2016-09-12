@@ -39,6 +39,7 @@ xc.PageConfigPanel = cc.LayerColor.extend({
             }
         } else if (selectedItem.getName() === "icons/check.png") {
             if (this._currentStep == "addObjects") {
+                this._contentPanel.takeAScreenShot();
                 this._currentStep = "addText";
             } else if (this._currentStep == "addText") {
                 this._currentStep = "addRecording";
