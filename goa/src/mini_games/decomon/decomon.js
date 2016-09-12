@@ -646,7 +646,16 @@ var sprite_click = cc.EventListener.create({event: cc.EventListener.TOUCH_ONE_BY
     noise6.setVisible(false);
     cc.eventManager.addListener(sprite_click.clone(),noise6);
 
-    noise_array = [noise1,noise2,noise3,noise4,noise5,noise6];
+    var noise7 = new cc.Sprite(cc.spriteFrameCache.getSpriteFrame("decomon/decomon3/decomon_nose_7.png"));
+    noise7.attr({
+      x:size.width*0.62,
+      y:size.height *0.10
+    });
+    self.addChild(noise6);
+    noise7.setVisible(false);
+    cc.eventManager.addListener(sprite_click.clone(),noise7);
+
+    noise_array = [noise1,noise2,noise3,noise4,noise5,noise6,noise7];
 
   var mustache = background.node.getChildByName("decomon_mustache_icon");
   mustache.id = "mustache";
