@@ -1,2 +1,2 @@
 var xc = xc || {};
-xc.StoryScene.load(xc.StoryLayer);
+xc.CreateStoryScene.load(xc.CreateStoryLayer);

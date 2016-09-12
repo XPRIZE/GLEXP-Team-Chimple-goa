@@ -20,7 +20,7 @@ xc.AlphamoleGameLevelScene = cc.Layer.extend( {
         for(var j = 1; j<8; j++){
             if (count < 26){
                 level_alpha = ccs.load(xc.path+"english/"+alphabet_str[count]+".json", xc.path );
-                level_alpha.node.x = alpha_width*j - size.width * 0.05;
+                level_alpha.node.x = size.width /8 *j ;//- size.width*0.05; //alpha_width*j - size.width * 0.05;
                 level_alpha.node.y = size.height -  alpha_height*i;
                 level_alpha.node.setContentSize(150,200);
                 level_alpha.node.setName(alphabet_str[count]);
