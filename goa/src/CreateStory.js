@@ -159,9 +159,13 @@ xc.CreateStoryLayer = cc.Layer.extend({
 
     loadExistingStory: function (sender) {
         xc.currentStoryIndex = this._curSelectedStoryIndex; //index of selected button
-        xc.isNewPage = false;       
-        xc.LAYER_EDIT_STORY = false; 
-        xc.StoryScene.load(xc.StoryLayer);         
+        xc.isNewPage = false;
+        if(xc.currentStoryIndex < xc.storiesJSON.stories.length) {
+            xc.currentStoryId = xc.storiesJSON.stories[xc.currentStoryIndex].storyId;
+            cc.log("xc.currentStoryId on edit:" + xc.currentStoryId);
+            xc.LAYER_EDIT_STORY = false; 
+            xc.StoryScene.load(xc.StoryLayer);         
+        }
     }
 });
 
