@@ -20,31 +20,21 @@ xc.EditStoryLayer = cc.Layer.extend({
         this._contentPanelWidth = cc.director.getWinSize().height; //assuming landscape
         this._configPanelWidth = (cc.director.getWinSize().width - this._contentPanelWidth) / 2;
         this._configPanelHeight = cc.director.getWinSize().height;
-        cc.log('start editstorylayer');
         return true;
     },
 
     init: function () {
         if (xc.storyConfigurationObject) {
-            cc.log('init editstorylayer');            
             //backgrounds, characters and pops, texts
             var mainConfigurationItems = Object.getOwnPropertyNames(xc.storyConfigurationObject.addObjects);
-            cc.log('111111');
             //Construct UI
             this._contentPanel = new xc.ContentPanel(this._contentPanelWidth, this._contentPanelWidth, cc.p(this._configPanelWidth, 0));
-            cc.log('22222');
             this.addChild(this._contentPanel);
-            cc.log('33333');
             this._objectConfigPanel = new xc.ObjectConfigPanel(this._configPanelWidth, this._configPanelHeight, cc.p(this._configPanelWidth + this._contentPanelWidth, 0), xc.storyConfigurationObject, this._contentPanel);
-            cc.log('444444');
             this.addChild(this._objectConfigPanel);
-            cc.log('555555');
             this._contentPanel._objectConfigPanel = this._objectConfigPanel;
-            cc.log('666666');
             this._pageConfigPanel = new xc.PageConfigPanel(this._configPanelWidth, this._configPanelHeight, cc.p(0, 0), xc.storyConfigurationObject, this._contentPanel);
-            cc.log('777777');
             this.addChild(this._pageConfigPanel);
-            cc.log('888888');
         }
     }
 

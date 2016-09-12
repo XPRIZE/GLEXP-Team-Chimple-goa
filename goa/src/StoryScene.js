@@ -182,18 +182,17 @@ xc.StoryScene = cc.Scene.extend({
     },
 
     createOrEditStory: function () {
-        cc.log('1111111 with value:' + xc.MODIFIED_BIT);
         if (xc && xc.MODIFIED_BIT != 1) {
             if(xc.storiesJSON != undefined && xc.storiesJSON.stories != undefined && xc.currentStoryIndex < xc.storiesJSON.stories.length) {
                 xc.story = xc.storiesJSON.stories[xc.currentStoryIndex].data;
-                cc.log('xc.story:' + JSON.stringify(xc.story));
-            } else {
-                xc.story = {};
-                xc.story.items = [];
-                cc.log('xc.story:' + JSON.stringify(xc.story));
+                if(xc.story == undefined) {
+                    xc.story = {};
+                    xc.story.items = [];
+                }
+                // cc.log('xc.story:' + JSON.stringify(xc.story));
+                xc.story.RESOLUTION_HEIGHT = xc.DEVICE_HEIGHT;
+                xc.storiesJSON.stories[xc.currentStoryIndex].data = xc.story;                            
             }
-            xc.story.RESOLUTION_HEIGHT = xc.DEVICE_HEIGHT;
-            xc.storiesJSON.stories[xc.currentStoryIndex].data = xc.story;            
         }
     }    
 });
@@ -202,7 +201,6 @@ xc.StoryScene = cc.Scene.extend({
 xc.StoryScene.load = function(layer) {
     this._storyScene = new xc.StoryScene(layer);
     this._storyScene.layerClass = layer;
-    cc.log('444444');
     cc.director.runScene(this._storyScene);    
 }
 
