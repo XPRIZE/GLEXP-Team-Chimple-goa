@@ -16,9 +16,7 @@ xc.ContentPanel = xc.AbstractContentPanel.extend({
 
     loadScene: function () {
         if (xc.story != null && !xc.isNewPage && xc.story.items[xc.pageIndex].scene.Content != null) {
-            cc.log("2222 33333");           
             this.putIntoCache(); 
-            cc.log("2222 44444"  + xc.STORY_KEY);           
             this.doPostLoadingProcessForScene(xc.STORY_KEY, false);
         } else {
             this._help = new cc.Sprite('#icons/help_click_add_bg.png');
@@ -29,7 +27,6 @@ xc.ContentPanel = xc.AbstractContentPanel.extend({
     },
 
     putIntoCache: function () {
-        cc.log('xc.STORY_KEY:' + xc.STORY_KEY);
         cc.loader.cache[xc.STORY_KEY] = xc.story.items[xc.pageIndex].scene;
     },
 
@@ -87,28 +84,20 @@ xc.ContentPanel = xc.AbstractContentPanel.extend({
         if (fileToLoad == null) {
             return;
         }
-        cc.log("fileToLoad 11111" + fileToLoad);
         var obj = cc.loader.getRes(fileToLoad);
-        cc.log('obj:' + obj);
         var constructedScene = ccs.load(fileToLoad, xc.path + "wikitaki/");
-        cc.log("constructedScene 11111" + constructedScene);
         if (constructedScene != null) {
             this._constructedScene = constructedScene.node;
-            cc.log("doPostLoadingProcessForScene 11111");
             if (this._constructedScene) {
                 this._backLayer.addChild(this._constructedScene);
                 //now copy user added objects from earlier constructed scene if any
                 this.copyUserAddedObjectsToScene();
-                cc.log("doPostLoadingProcessForScene 222222");
                 this.attachCustomObjectSkinToSkeleton(this._constructedScene);
-                cc.log("doPostLoadingProcessForScene 33333");
                 if (!cc.sys.isNative) {
                     this._constructedScene._renderCmd._dirtyFlag = 1;
                 }
                 this.registerEventListenerForAllChildren();
-                cc.log("doPostLoadingProcessForScene 44444");
                 this.postProcessForSceneObjects(this._constructedScene);
-                cc.log("doPostLoadingProcessForScene 5555");
                 //parse JSON and store in local storage
                 if (shouldSaveScene) {
                     this.loadAndSaveScene(this, fileToLoad);
@@ -133,10 +122,8 @@ xc.ContentPanel = xc.AbstractContentPanel.extend({
     },
 
     loadAndSaveScene: function (context, fileToLoad) {
-        cc.log("in loadAndSaveScene");
         var resourcePath = fileToLoad.substring(0, fileToLoad.lastIndexOf("/") + 1);
         var context = this;
-        cc.log('fileToLoad111111:' +fileToLoad);
         if(cc.sys.isNative) {
             data = cc.loader.getRes(fileToLoad);
         } else {
@@ -173,20 +160,17 @@ xc.ContentPanel = xc.AbstractContentPanel.extend({
     },
 
     registerEventListenerForAllChildren: function () {
-        cc.log("registerEventListenerForAllChildren 1111");
         this.children.forEach(function (element) {
             if (element._name === 'FrontLayer' || element._name === 'BackLayer') {
                 element.children.forEach(function (child) {
                     if (child.getName() === 'Scene') {
                         child.children.forEach(function (subChild) {
-                            cc.log("ComExtensionData 1111");
                             if (subChild.getComponent('ComExtensionData') && subChild.getComponent('ComExtensionData').getActionTag()) {
                                 subChild.ActionTag = subChild.getComponent('ComExtensionData').getActionTag();
                             }
                         }, this);
                     }
                     else if (child.getComponent('ComExtensionData') && child.getComponent('ComExtensionData').getActionTag()) {
-                        cc.log("ComExtensionData 2222");
                         child.ActionTag = child.getComponent('ComExtensionData').getActionTag();
                     }
                     this.registerEventListenerForChild(child);
@@ -384,7 +368,6 @@ xc.ContentPanel = xc.AbstractContentPanel.extend({
         if (animationFrames) {
             timelines.push(animationFrames);
         }
-        cc.log('createTimeLines: done');  
     },
 
     startRecording: function () {
@@ -399,16 +382,12 @@ xc.ContentPanel = xc.AbstractContentPanel.extend({
             this._isRecordingStarted = false;
             this._recordingCounter = 1;
             var timelines = [];
-            cc.log('startRecording 11111');
             if (this._nodesTouchedWhileRecording != null && this._nodesTouchedWhileRecording.length > 0) {
                 this._nodesTouchedWhileRecording.forEach(function (element) {
                     this.createTimeLines(element, timelines);
-                    cc.log('startRecording 2222');
                 }, this);
             }
-            cc.log('startRecording 3333');
             this.createTimeLinesForPlayAnimation(timelines);
-            cc.log('startRecording 44444');
             this._nodesTouchedWhileRecording = [];
             this.unscheduleUpdate();
         }
@@ -419,7 +398,6 @@ xc.ContentPanel = xc.AbstractContentPanel.extend({
         if (xc.story && xc.story.items != null && xc.story.items.length > xc.pageIndex) {
             xc.story.items[xc.pageIndex].scene.Content.Content.Animation.Timelines = timelines;
             xc.story.items[xc.pageIndex].scene.Content.Content.Animation.Duration = this._recordingFrameIndex;
-            //cc.log('saving duration to local storage');
             if(!cc.sys.isNative) {
                 timelines = null;
             }
@@ -481,7 +459,6 @@ xc.ContentPanel = xc.AbstractContentPanel.extend({
     },
 
     constructTimeLineObject: function (node, property, frameName) {
-        cc.log('constructTimeLineObject:1111');
         if (node[frameName] == null) {
             return null;
         }
@@ -555,10 +532,8 @@ xc.ContentPanel = xc.AbstractContentPanel.extend({
     },
 
     addCharacterToScene: function (configuration) {
-        cc.log(new Date());
         var load = ccs.load(xc.path + configuration.json);
         load.node._actionTag = -new Date().valueOf();
-        cc.log('add character loadSkeletonConfig 222' + load.node._actionTag);
         load.node.setScale(0.5, 0.5);
         load.node.setPosition(this.getContentSize().width / 2, this.getContentSize().height / 6);
         xc.ParseUtil.saveCharacterToJSON(xc.path + configuration.json, load, load.node._actionTag);
@@ -743,7 +718,6 @@ xc.ContentPanel = xc.AbstractContentPanel.extend({
         cc.log('xc.pageIndex at:' + xc.pageIndex + 'for current story:' + xc.currentStoryId);
         if(cc.sys.isNative && xc.pageIndex == 0) {
             var imagePath = jsb.fileUtils.getWritablePath() + xc.currentStoryId + ".jpg";
-            cc.log('imagePath' + imagePath);
             var renderer = new cc.RenderTexture(cc.director.getWinSize().width, cc.director.getWinSize().height, cc.TEXTURE_2D_PIXEL_FORMAT_RGBA8888);
             renderer.setPosition(cc.director.getWinSize().width/2, cc.director.getWinSize().height/2);
             renderer.begin();
@@ -804,19 +778,15 @@ xc.ContentPanel = xc.AbstractContentPanel.extend({
 
     onEnter: function () {
         this._super();
-        cc.log("on enter");
         if (this._constructedScene) {
-            cc.log("on enter 111");            
             xc.CharacterUtil.storeActionToTemporaryStore(this._constructedScene);
         }
 
         if (this._frontLayer) {
-            cc.log("on enter 22222");
             xc.CharacterUtil.storeActionToTemporaryStore(this._frontLayer);
         }
 
         if (this._backLayer) {
-            cc.log("on enter 3333");
             xc.CharacterUtil.storeActionToTemporaryStore(this._backLayer);
         }
 
@@ -825,19 +795,15 @@ xc.ContentPanel = xc.AbstractContentPanel.extend({
 
     onExit: function () {
         this._super();
-        cc.log("on exit");
         if (this._constructedScene) {
-            cc.log("on exit 1111");
             xc.CharacterUtil.restoreActionFromTemporaryStore(this._constructedScene);
         }
 
         if (this._frontLayer) {
-            cc.log("on exit 2222");
             xc.CharacterUtil.restoreActionFromTemporaryStore(this._frontLayer);
         }
 
         if (this._backLayer) {
-            cc.log("on exit 3333");
             xc.CharacterUtil.restoreActionFromTemporaryStore(this._backLayer);
         }        
     }    

@@ -88,7 +88,6 @@ xc.SpriteTouchHandler = function (context) {
 
 
     this.attachedCustomObject = function (child, target) {
-        cc.log('calling removeExistingBoundingBox in attachedCustomObject' + child);
         xc.ParseUtil.removeExistingBoundingBox(child, xc.DARK_BOUNDING_BOX_TAG);        
         xc.overlapStarted = false;
         var originalBoundingBox = child.getBoundingBoxToWorld();

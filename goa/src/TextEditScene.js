@@ -49,18 +49,15 @@ xc.TextCreateLayer = cc.Layer.extend({
     },
 
     updateText: function (sender, type) {
-        cc.log("in update text");
         switch (type) {
             case ccui.TextField.EVENT_ATTACH_WITH_IME:
                 break;
             case ccui.TextField.EVENT_DETACH_WITH_IME:
-                cc.log("in update text EVENT_DETACH_WITH_IME");
                 if (cc.sys.isNative) {
                     this.closeEditor();
                 }
                 break;
             case ccui.TextField.EVENT_INSERT_TEXT:
-                cc.log("in update text EVENT_INSERT_TEXT");
                 this._text = sender.getString();
                 break;
         }
@@ -68,7 +65,6 @@ xc.TextCreateLayer = cc.Layer.extend({
 
     closeEditor: function () {
         cc.sys.localStorage.setItem(this._textKey, this._text);
-        cc.log('director pop scene');
         cc.director.popScene();        
         // this.parent._textEditLayer.changeText(this._text);
         // this.parent._textEditLayer.setVisible(true);
