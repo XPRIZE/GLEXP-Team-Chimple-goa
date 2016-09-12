@@ -8,6 +8,7 @@ xc.DARK_SECONDARY_COLOR = cc.color("#ee0a21");
 xc.TERTIARY_COLOR = cc.color("#F6FF88");
 xc.DEFAULT_BOUNDING_BOX_TAG = 999;
 xc.DARK_BOUNDING_BOX_TAG = 998;
+xc.DEVICE_HEIGHT = 1800;
  
 xc.CreateStoryLayer = cc.Layer.extend({
     _contentPanel: null,
@@ -119,7 +120,6 @@ xc.CreateStoryLayer = cc.Layer.extend({
         if (sender.getName() == 'icons/edit.png') {
             xc.MODIFIED_BIT = 0;
             xc.LAYER_INIT = false;
-            cc.log('11111');
             this.loadExistingStory(sender);
         } else if (sender.getName() == 'icons/back.png') {
             if (this._curSelectedStoryIndex != 0) {
@@ -158,9 +158,7 @@ xc.CreateStoryLayer = cc.Layer.extend({
     },
 
     loadExistingStory: function (sender) {
-        cc.log('2222');
         xc.currentStoryIndex = this._curSelectedStoryIndex; //index of selected button
-        cc.log('33333' + xc.currentStoryIndex);
         xc.isNewPage = false;       
         xc.LAYER_EDIT_STORY = false; 
         xc.StoryScene.load(xc.StoryLayer);         

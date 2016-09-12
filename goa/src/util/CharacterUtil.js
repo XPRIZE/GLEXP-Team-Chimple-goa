@@ -73,6 +73,7 @@ xc.CharacterUtil.colorSkins = function (character, colorSkins) {
     if (existingColorSkins == null) {
         existingColorSkins = [];
     }
+    cc.log('existingColorSkins:' + JSON.stringify(existingColorSkins));
 
     if (colorSkins.skins && colorSkins.color) {
         if (character._skeletonConfig != null && character._skeletonConfig.colorSkins != null) {
