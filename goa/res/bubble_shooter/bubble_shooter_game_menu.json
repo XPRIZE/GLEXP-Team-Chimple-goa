@@ -30,6 +30,8 @@
             "ColorVector": {
               "ScaleY": 1.0
             },
+            "Scale9Width": 1,
+            "Scale9Height": 1,
             "TouchEnable": true,
             "AnchorPoint": {},
             "Position": {
@@ -79,6 +81,8 @@
             "ColorVector": {
               "ScaleY": 1.0
             },
+            "Scale9Width": 1,
+            "Scale9Height": 1,
             "TouchEnable": true,
             "AnchorPoint": {},
             "Position": {
@@ -100,7 +104,7 @@
               "Y": 0.0467
             },
             "LeftMargin": -267.9227,
-            "RightMargin": 267.9229,
+            "RightMargin": 267.9226,
             "TopMargin": 1.1704,
             "BottomMargin": 1714.8296,
             "Tag": 114,
@@ -215,6 +219,56 @@
             "ctype": "PanelObjectData"
           },
           {
+            "ClipAble": false,
+            "BackColorAlpha": 0,
+            "ComboBoxIndex": 1,
+            "SingleColor": {
+              "R": 108,
+              "G": 244,
+              "B": 237
+            },
+            "FirstColor": {
+              "R": 150,
+              "G": 200
+            },
+            "EndColor": {},
+            "ColorVector": {
+              "ScaleY": 1.0
+            },
+            "TouchEnable": true,
+            "AnchorPoint": {},
+            "Position": {
+              "X": -0.7004,
+              "Y": -3.0695
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": -0.0002,
+              "Y": -0.0017
+            },
+            "PreSize": {
+              "X": 0.8258,
+              "Y": 1.0
+            },
+            "LeftMargin": -0.7004,
+            "RightMargin": 540.7004,
+            "TopMargin": 3.0696,
+            "BottomMargin": -3.0695,
+            "Tag": 26,
+            "ActionTag": -1264754022,
+            "Size": {
+              "X": 2560.0,
+              "Y": 1800.0
+            },
+            "Name": "Panel_2",
+            "ctype": "PanelObjectData"
+          },
+          {
             "FileData": {
               "Type": "MarkedSubImage",
               "Path": "bubble_shooter/grass_base.png",
@@ -243,11 +297,11 @@
               "Y": 0.0609
             },
             "PreSize": {
-              "X": 0.21,
+              "X": 0.2103,
               "Y": 0.1233
             },
-            "LeftMargin": -268.9286,
-            "RightMargin": 2717.9287,
+            "LeftMargin": -269.4286,
+            "RightMargin": 2717.4287,
             "TopMargin": 1579.4277,
             "BottomMargin": -1.4277,
             "Tag": 115,
@@ -289,11 +343,11 @@
               "Y": 0.0609
             },
             "PreSize": {
-              "X": 0.21,
+              "X": 0.2103,
               "Y": 0.1233
             },
-            "LeftMargin": 378.1711,
-            "RightMargin": 2070.8289,
+            "LeftMargin": 377.6711,
+            "RightMargin": 2070.3289,
             "TopMargin": 1579.4281,
             "BottomMargin": -1.4281,
             "Tag": 116,
@@ -334,12 +388,12 @@
               "Y": 0.0609
             },
             "PreSize": {
-              "X": 0.21,
+              "X": 0.2103,
               "Y": 0.1233
             },
-            "LeftMargin": 1019.8247,
-            "RightMargin": 1429.1753,
-            "TopMargin": 1579.4279,
+            "LeftMargin": 1019.3247,
+            "RightMargin": 1428.6753,
+            "TopMargin": 1579.4277,
             "BottomMargin": -1.4278,
             "Tag": 117,
             "ActionTag": -1189022209,
@@ -380,11 +434,11 @@
               "Y": 0.0609
             },
             "PreSize": {
-              "X": 0.21,
+              "X": 0.2103,
               "Y": 0.1233
             },
-            "LeftMargin": 1666.0544,
-            "RightMargin": 782.9456,
+            "LeftMargin": 1665.5544,
+            "RightMargin": 782.4456,
             "TopMargin": 1579.4277,
             "BottomMargin": -1.4277,
             "Tag": 118,
@@ -425,11 +479,11 @@
               "Y": 0.0609
             },
             "PreSize": {
-              "X": 0.21,
+              "X": 0.2103,
               "Y": 0.1233
             },
-            "LeftMargin": 2298.575,
-            "RightMargin": 150.425,
+            "LeftMargin": 2298.075,
+            "RightMargin": 149.925,
             "TopMargin": 1579.4279,
             "BottomMargin": -1.4279,
             "Tag": 119,
@@ -474,7 +528,7 @@
               "Y": 0.1478
             },
             "LeftMargin": 69.722,
-            "RightMargin": 2521.2778,
+            "RightMargin": 2521.2781,
             "TopMargin": 282.5352,
             "BottomMargin": 1251.4648,
             "Tag": 120,
