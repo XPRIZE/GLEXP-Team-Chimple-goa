@@ -208,6 +208,7 @@ copy "$(ProjectDir)..\..\..\project.json" "$(OutDir)\" /Y</Command>
     <ClCompile Include="..\Classes\MessageContent.cpp" />
     <ClCompile Include="..\Classes\MessageReceiver.cpp" />
     <ClCompile Include="..\Classes\MessageSender.cpp" />
+    <ClCompile Include="..\Classes\mini_games\Alphamole.cpp" />
     <ClCompile Include="..\Classes\mini_games\AlphamonFeedLevelScene.cpp" />
     <ClCompile Include="..\Classes\mini_games\AlphamonFeedScene.cpp" />
     <ClCompile Include="..\Classes\mini_games\Baja.cpp" />
@@ -296,6 +297,7 @@ copy "$(ProjectDir)..\..\..\project.json" "$(OutDir)\" /Y</Command>
     <ClInclude Include="..\Classes\MessageContent.hpp" />
     <ClInclude Include="..\Classes\MessageReceiver.hpp" />
     <ClInclude Include="..\Classes\MessageSender.hpp" />
+    <ClInclude Include="..\Classes\mini_games\Alphamole.h" />
     <ClInclude Include="..\Classes\mini_games\AlphamonFeedLevelScene.h" />
     <ClInclude Include="..\Classes\mini_games\AlphamonFeedScene.h" />
     <ClInclude Include="..\Classes\mini_games\Baja.h" />
