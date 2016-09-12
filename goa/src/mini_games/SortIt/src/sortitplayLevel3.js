@@ -4,7 +4,7 @@ var xc = xc || {};
 xc.sortitlevel3Layer = cc.Layer.extend({
         counterLevel3 : 1,
 
-     level3SpriteScaleX : 0.9, 
+     level3SpriteScaleX : 1.5, 
      level3SpriteScaleY : 0.9,
     
 
@@ -74,29 +74,29 @@ xc.sortitlevel3Layer = cc.Layer.extend({
          
          this.string1t = new cc.Sprite(cc.spriteFrameCache.getSpriteFrame("sortit/string1t.png"));
          this.string1t.setAnchorPoint(0.5, 0.5);
-         this.string1t.setPosition(size.width*0.39 , size.height*0.53); 
+         this.string1t.setPosition(size.width*0.39 , size.height*0.54); 
          this.string1t.setScale(this.level3SpriteScaleX, this.level3SpriteScaleY);
          this.addChild(this.string1t);
          
 
          this.string2t = new cc.Sprite(cc.spriteFrameCache.getSpriteFrame("sortit/string2t.png"));
          this.string2t.setAnchorPoint(0.5, 0.5);
-         this.string2t.setPosition(size.width*0.42 , size.height*0.54); 
-         this.string2t.setScale(this.level3SpriteScaleX, this.level3SpriteScaleY);
+         this.string2t.setPosition(size.width*0.42 , size.height*0.55); 
+         this.string2t.setScale(this.level3SpriteScaleX, 0.85);
          this.addChild(this.string2t);
          
 
          this.string3t = new cc.Sprite(cc.spriteFrameCache.getSpriteFrame("sortit/string3t.png"));
          this.string3t.setAnchorPoint(0.5, 0.5);
-         this.string3t.setPosition(size.width*0.45 , size.height*0.54); 
-         this.string3t.setScale(this.level3SpriteScaleX, this.level3SpriteScaleY);
+         this.string3t.setPosition(size.width*0.45 , size.height*0.55); 
+         this.string3t.setScale(this.level3SpriteScaleX, 0.83);
          this.addChild(this.string3t);
          
 
          
          this.string4t = new cc.Sprite(cc.spriteFrameCache.getSpriteFrame("sortit/string4t.png"));
          this.string4t.setAnchorPoint(0.5, 0.5);
-         this.string4t.setPosition(size.width*0.48 , size.height*0.54); 
+         this.string4t.setPosition(size.width*0.48 , size.height*0.55); 
          this.string4t.setScale(this.level3SpriteScaleX, this.level3SpriteScaleY);
          this.addChild(this.string4t);
          
@@ -104,15 +104,15 @@ xc.sortitlevel3Layer = cc.Layer.extend({
 
          this.string5t = new cc.Sprite(cc.spriteFrameCache.getSpriteFrame("sortit/string5t.png"));
          this.string5t.setAnchorPoint(0.5, 0.5);
-         this.string5t.setPosition(size.width*0.51 , size.height*0.55); 
-         this.string5t.setScale(this.level3SpriteScaleX, this.level3SpriteScaleY);
+         this.string5t.setPosition(size.width*0.51 , size.height*0.56); 
+         this.string5t.setScale(this.level3SpriteScaleX, 1);
          this.addChild(this.string5t);
          
 
          this.string6t = new cc.Sprite(cc.spriteFrameCache.getSpriteFrame("sortit/string6t.png"));
          this.string6t.setAnchorPoint(0.5, 0.5);
-         this.string6t.setPosition(size.width*0.54 , size.height*0.57); 
-         this.string6t.setScale(this.level3SpriteScaleX, this.level3SpriteScaleY);
+         this.string6t.setPosition(size.width*0.54 , size.height*0.58); 
+         this.string6t.setScale(this.level3SpriteScaleX,1);
          this.addChild(this.string6t);
         
 
@@ -133,7 +133,7 @@ xc.sortitlevel3Layer = cc.Layer.extend({
          this.string2.setPosition(size.width*0.07 , size.height*0.23);
          this.string2.xP = this.string2.getPosition().x;
          this.string2.yP = this.string2.getPosition().y;
-         this.string2.setScale(this.level3SpriteScaleX, this.level3SpriteScaleY);
+         this.string2.setScale(this.level3SpriteScaleX, 0.85);
          this.string2.id = 2;
          this.addChild(this.string2);
        
@@ -144,7 +144,7 @@ xc.sortitlevel3Layer = cc.Layer.extend({
          this.string3.setPosition(size.width*0.74 , size.height*0.25);
          this.string3.xP = this.string3.getPosition().x;
          this.string3.yP = this.string3.getPosition().y;
-         this.string3.setScale(this.level3SpriteScaleX, this.level3SpriteScaleY);
+         this.string3.setScale(this.level3SpriteScaleX, 0.83);
          this.string3.id = 3;
          this.addChild(this.string3);
          
@@ -164,7 +164,7 @@ xc.sortitlevel3Layer = cc.Layer.extend({
          this.string5.setPosition(size.width*0.93 , size.height*0.32);
          this.string5.xP = this.string5.getPosition().x;
          this.string5.yP = this.string5.getPosition().y;
-         this.string5.setScale(this.level3SpriteScaleX, this.level3SpriteScaleY);
+         this.string5.setScale(this.level3SpriteScaleX, 1);
          this.string5.id = 5;
          this.addChild(this.string5);
         
@@ -175,7 +175,7 @@ xc.sortitlevel3Layer = cc.Layer.extend({
          this.string6.setPosition(size.width*0.85 , size.height*0.32);
          this.string6.xP = this.string6.getPosition().x;
          this.string6.yP = this.string6.getPosition().y;
-         this.string6.setScale(this.level3SpriteScaleX, this.level3SpriteScaleY);
+         this.string6.setScale(this.level3SpriteScaleX,1);
          this.string6.id = 6;
          this.addChild(this.string6);
             
