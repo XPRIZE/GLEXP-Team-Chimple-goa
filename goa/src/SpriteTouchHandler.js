@@ -48,15 +48,19 @@ xc.SpriteTouchHandler = function (context) {
         }
     };
 
-    this.performOverlapDetectionWithSkeleton = function (skeleton, target) {
+    this.performOverlapDetectionWithSkeleton = function (skeleton, target) {        
         var originalBoundingBox = skeleton.getBoundingBoxToWorld();
         var skeletonBoundingBox = new cc.rect(originalBoundingBox.x, originalBoundingBox.y, originalBoundingBox.width / 2, originalBoundingBox.height / 2);
         var objectBoundingBox = target.getBoundingBoxToWorld();
         var boundingBox = new cc.rect(objectBoundingBox.x, objectBoundingBox.y, objectBoundingBox.width / 2, objectBoundingBox.height / 2);
         if (cc.rectIntersectsRect(boundingBox, skeletonBoundingBox)) {
-            xc.ParseUtil.drawBoundingBox(skeleton, xc.DARK_BOUNDING_BOX_TAG, xc.DARK_SECONDARY_COLOR);
+            if(!xc.overlapStarted) {
+                xc.ParseUtil.drawBoundingBox(skeleton, xc.DARK_BOUNDING_BOX_TAG, xc.DARK_SECONDARY_COLOR);
+                xc.overlapStarted = true;
+            }            
         } else {
-            xc.ParseUtil.removeExistingBoundingBoxNodeByTag(xc.DARK_BOUNDING_BOX_TAG, skeleton);
+            xc.overlapStarted = false;
+            xc.ParseUtil.removeExistingBoundingBox(skeleton, xc.DARK_BOUNDING_BOX_TAG);
         }
     }
 
@@ -84,6 +88,8 @@ xc.SpriteTouchHandler = function (context) {
 
 
     this.attachedCustomObject = function (child, target) {
+        xc.ParseUtil.removeExistingBoundingBox(child, xc.DARK_BOUNDING_BOX_TAG);        
+        xc.overlapStarted = false;
         var originalBoundingBox = child.getBoundingBoxToWorld();
         var skeletonBoundingBox = new cc.rect(originalBoundingBox.x, originalBoundingBox.y, originalBoundingBox.width / 2, originalBoundingBox.height / 2);
         var objectBoundingBox = target.getBoundingBoxToWorld();
@@ -123,17 +129,28 @@ xc.SpriteTouchHandler = function (context) {
                     this._context._frontLayer.addChild(spriteToScene);
                 }
                 target.setPosition(0, 0);
-                target.removeFromParent();
-                bone.addSkin(target);
+                target.retain();
+                target.removeFromParent();                
+                bone.addSkin(target, true);   
+                target.release();             
                 bone.displaySkin(bone.getSkins()[bone.getSkins().length - 1], true);
             }
             var visibleCustomSkin = child.getBoneNode("hand_gear_left").getVisibleSkins();
-            if (child && child._userData) {
-                child._userData.userCustomObjectSkin = {
-                    bone: xc.HAND_GEAR_LEFT,
-                    skin: target.getName()
+            var children = xc.story.items[xc.pageIndex].scene.Content.Content.ObjectData.Children;
+            for (var index = 0; index < children.length; index++) {
+                if (children[index].ActionTag == child._actionTag) {
+                        var obj = JSON.parse(children[index].UserData);
+                        if(obj) {
+                            obj.userCustomObjectSkin = {
+                                bone: xc.HAND_GEAR_LEFT,
+                                skin: target.getName()
+                            }            
+                        }
+                        children[index].UserData = JSON.stringify(obj);
+                    break;
                 }
-            }
+            }               
+            xc.ParseUtil.saveScene(xc.story.items[xc.pageIndex].scene);
         }
     };
 
@@ -153,6 +170,7 @@ xc.SpriteTouchHandler = function (context) {
         if (nodeToRemoveIndex != -1) {
             this._context._nodesSelected.splice(nodeToRemoveIndex, 1);
         }
+        xc.ParseUtil.removeExistingBoundingBox(target);
 
         //find out all skeleton on scene and object is overlap with it
         this.collisionDetectionWithSkeleton(target);

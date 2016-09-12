@@ -13,21 +13,18 @@ xc.SkeletonTouchHandler = function (context) {
         var target = event.getCurrentTarget();
         var boundingBox = target.getBoundingBoxToWorld();
         if (cc.rectContainsPoint(boundingBox, touch.getLocation())) {
-            if (!cc.sys.isNative) {
                 var action = target.actionManager.getActionByTag(target.tag, target);
                 if (action) {
                     action.play(target._currentAnimationName, true);
                 }
-            }
-
             this._context._nodesSelected.push(target);
             this._context.addNodeToRecording(this._context, touch, target);
             this._context.constructConfigPanel(target);
             this._context._animationNode = target;
             xc.ParseUtil.drawBoundingBox(target);
-            var location = target.parent.parent.convertToNodeSpace(touch.getLocation());
-            this._offsetYInTouch = location.y - target.parent.getPosition().y;
-            this._offsetXInTouch = location.x - target.parent.getPosition().x;
+            var location = target.parent.convertToNodeSpace(touch.getLocation());
+            this._offsetYInTouch = location.y - target.getPosition().y;
+            this._offsetXInTouch = location.x - target.getPosition().x;
             this._previousTouchLocation = location;
             return true;
         }
@@ -92,17 +89,16 @@ xc.SkeletonTouchHandler = function (context) {
 
     this.onTouchMoved = function (touch, event) {
         var target = event.getCurrentTarget();
-        var location = target.parent.parent.parent.convertToNodeSpace(touch.getLocation());
+        var location = target.parent.convertToNodeSpace(touch.getLocation());
 
         var locationTo = cc.p(location.x - this._offsetXInTouch, location.y - this._offsetYInTouch);
-        this._context.enableTargetTransformForTarget(this._context, touch, target.parent, locationTo);
+        this._context.enableTargetTransformForTarget(this._context, touch, target, locationTo);
 
         if(target.getName() == 'animalskeleton') {
             this.flipAnimalSkeleton(target, location);
         } else {
             this.flipSkeleton(target, location);    
         }
-        
         this._previousTouchLocation = location;
     };
     this.onTouchEnded = function (touch, event) {
@@ -113,11 +109,11 @@ xc.SkeletonTouchHandler = function (context) {
             action.pause();
         }
         this._context.constructRemoveAnimationFrame(target);
+        xc.ParseUtil.removeExistingBoundingBox(target);        
         var nodeToRemoveIndex = this._context._nodesSelected.indexOf(target);
         if (nodeToRemoveIndex != -1) {
             this._context._nodesSelected.splice(nodeToRemoveIndex, 1);
 
         }
-
     };
 };

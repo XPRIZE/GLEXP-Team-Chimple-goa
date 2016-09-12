@@ -16,7 +16,7 @@ xc.ContentPanel = xc.AbstractContentPanel.extend({
 
     loadScene: function () {
         if (xc.story != null && !xc.isNewPage && xc.story.items[xc.pageIndex].scene.Content != null) {
-            this.putIntoCache();
+            this.putIntoCache(); 
             this.doPostLoadingProcessForScene(xc.STORY_KEY, false);
         } else {
             this._help = new cc.Sprite('#icons/help_click_add_bg.png');
@@ -37,7 +37,7 @@ xc.ContentPanel = xc.AbstractContentPanel.extend({
             var count = this._backLayer.children[0].children.length;
             for (var i = 0; i < count; i++) {
                 var element = this._backLayer.children[0].children[i];
-                if (element && element._userData && element._userData.userAdded) {
+                if (element && element.UserData && element.UserData.userAdded) {
                     // this._constructedScene.children.push(element);
                     element.removeFromParent();
                     i--;
@@ -84,6 +84,7 @@ xc.ContentPanel = xc.AbstractContentPanel.extend({
         if (fileToLoad == null) {
             return;
         }
+        var obj = cc.loader.getRes(fileToLoad);
         var constructedScene = ccs.load(fileToLoad, xc.path + "wikitaki/");
         if (constructedScene != null) {
             this._constructedScene = constructedScene.node;
@@ -123,30 +124,34 @@ xc.ContentPanel = xc.AbstractContentPanel.extend({
     loadAndSaveScene: function (context, fileToLoad) {
         var resourcePath = fileToLoad.substring(0, fileToLoad.lastIndexOf("/") + 1);
         var context = this;
-        data = cc.loader.cache[fileToLoad];
-        data = JSON.parse(JSON.stringify(data));
-        xc.ParseUtil.copyUserAddedDataToScene(data);
-        if (data != null) {
-            xc.ParseUtil.saveScene(data);
+        if(cc.sys.isNative) {
+            data = cc.loader.getRes(fileToLoad);
+        } else {
+            data = cc.loader.cache[fileToLoad];
         }
+        if (data != null && data != undefined) {
+            data = JSON.parse(JSON.stringify(data));            
+            xc.ParseUtil.copyUserAddedDataToScene(data);
+            xc.ParseUtil.saveScene(data);
+        }        
     },
 
     postProcessForSceneObjects: function (node) {
         node.children.forEach(function (element) {
             if (element.getName().indexOf("Skeleton") != -1 || element.getName().indexOf("skeleton") != -1) {
                 xc.CharacterUtil.loadSkeletonConfig(element);
-                if (element._userData && element._userData.colorSkins) {
-                    element._userData.colorSkins.forEach(function (colorSkin) {
+                if (element.UserData && element.UserData.colorSkins) {
+                    element.UserData.colorSkins.forEach(function (colorSkin) {
                         xc.CharacterUtil.colorSkins(element, colorSkin);
                 })}
 
-                if (element._userData && element._userData.visibleSkins) {
-                    xc.CharacterUtil.displaySkins(element, element._userData.visibleSkins);
+                if (element.UserData && element.UserData.visibleSkins) {
+                    xc.CharacterUtil.displaySkins(element, element.UserData.visibleSkins);
                 }
 
 
-                if (element._userData && element._userData.currentAnimationName) {
-                    element._currentAnimationName = element._userData.currentAnimationName;
+                if (element.UserData && element.UserData.currentAnimationName) {
+                    element._currentAnimationName = element.UserData.currentAnimationName;
                 }
                 xc.CharacterUtil.addCharacterToFavorites(element);
             }
@@ -386,8 +391,6 @@ xc.ContentPanel = xc.AbstractContentPanel.extend({
             this._nodesTouchedWhileRecording = [];
             this.unscheduleUpdate();
         }
-
-        xc.ParseUtil.removeExistingBoundingBoxNodeByTag(xc.DEFAULT_BOUNDING_BOX_TAG);
     },
 
     createTimeLinesForPlayAnimation: function (timelines) {
@@ -395,13 +398,15 @@ xc.ContentPanel = xc.AbstractContentPanel.extend({
         if (xc.story && xc.story.items != null && xc.story.items.length > xc.pageIndex) {
             xc.story.items[xc.pageIndex].scene.Content.Content.Animation.Timelines = timelines;
             xc.story.items[xc.pageIndex].scene.Content.Content.Animation.Duration = this._recordingFrameIndex;
-            cc.sys.localStorage.setItem("duration", this._recordingFrameIndex);
-            timelines = null;
+            if(!cc.sys.isNative) {
+                timelines = null;
+            }
         }
     },
 
     addTextToScene: function () {
-        this.parent.addChild(new xc.TextCreatePanel(cc.director.getWinSize().width, cc.director.getWinSize().height, cc.p(150, 150), xc.story.items[xc.pageIndex].sceneText, this.processText, this));
+        this.parent.addChild(new xc.TextCreatePanel(cc.director.getWinSize().width, cc.director.getWinSize().height, cc.p(385, 250), xc.story.items[xc.pageIndex].sceneText, this.processText, this, true));
+        
     },
 
     processText: function (text) {
@@ -409,8 +414,7 @@ xc.ContentPanel = xc.AbstractContentPanel.extend({
     },
 
     playSceneInEditMode: function () {
-        var playScene = new PlayRecordingScene();
-        cc.director.pushScene(playScene);
+        xc.PlayRecordingScene.load(xc.PlayRecordingLayer);        
     },
 
     constructFrameData: function (node, frameIndex, isNodeTouchedAtThisFrame) {
@@ -463,7 +467,7 @@ xc.ContentPanel = xc.AbstractContentPanel.extend({
             object.ActionTag = node.ActionTag;
         } else if (node.getComponent('ComExtensionData') != null && node.getComponent('ComExtensionData').getActionTag() != null) {
             object.ActionTag = node.getComponent('ComExtensionData').getActionTag();
-        } else if (node._userData != null && node._actionTag != null) {
+        } else if (node.UserData != null && node._actionTag != null) {
             object.ActionTag = node._actionTag;
         }
         object.Property = property;
@@ -518,33 +522,25 @@ xc.ContentPanel = xc.AbstractContentPanel.extend({
         this._frontLayer.addChild(sprite);
         sprite.setPosition(cc.director.getWinSize().width / 2, cc.director.getWinSize().height / 2);
         sprite.setScale(1);
-        var loadedImageObject = xc.ParseUtil.constructJSONFromCCSprite(sprite);
+        var loadedImageObject = xc.ParseUtil.constructJSONFromCCSprite(sprite, imageToLoad);
         sprite.ActionTag = loadedImageObject.ActionTag;
-        xc.customSprites.push(sprite.getName());
+        if(xc.customSprites != undefined) {
+            xc.customSprites.push(sprite.getName());
+        }
         xc.ParseUtil.saveObjectToStoredScene(loadedImageObject);
         this.registerEventListenerForChild(sprite);
     },
 
     addCharacterToScene: function (configuration) {
-        cc.log(new Date());
         var load = ccs.load(xc.path + configuration.json);
-        cc.log(new Date());
-
-        xc.CharacterUtil.loadSkeletonConfig(load.node, configuration);
-        cc.log(new Date());
-
-        load.node.setPosition(this.getContentSize().width / 2, this.getContentSize().height / 6);
+        load.node._actionTag = -new Date().valueOf();
         load.node.setScale(0.5, 0.5);
-        // this._constructedScene.addChild(load.node);  
-        var tempNode = new cc.Node();
-        tempNode.setName("SKParent");
-        tempNode.addChild(load.node);
-        this._frontLayer.addChild(tempNode);
+        load.node.setPosition(this.getContentSize().width / 2, this.getContentSize().height / 6);
+        xc.ParseUtil.saveCharacterToJSON(xc.path + configuration.json, load, load.node._actionTag);
+        xc.CharacterUtil.loadSkeletonConfig(load.node, configuration);
+        this._constructedScene.addChild(load.node);  
         load.node.runAction(load.action);
         this.registerEventListenerForChild(load.node);
-        cc.log(new Date());
-        xc.ParseUtil.saveCharacterToJSON(configuration.json, load);
-        cc.log(new Date());
     },
 
     zoomAll: function (context, touch, target) {
@@ -565,7 +561,7 @@ xc.ContentPanel = xc.AbstractContentPanel.extend({
         }
     },
 
-    enableTargetTransformForTarget: function (context, touch, target, location) {
+        enableTargetTransformForTarget: function (context, touch, target, location) {
         if (target.getName().indexOf("background") != -1) {
             if (context._moveAction) {
                 if (!this._previousTouch) {
@@ -717,27 +713,47 @@ xc.ContentPanel = xc.AbstractContentPanel.extend({
         this._objectConfigPanel.setTarget(target);
     },
 
-    backPressed: function () {
-        //take a screen shot of page if index is 0 (first page of story)
-        if (xc.pageIndex == 0) {
-            var gameCanvas = document.getElementById("gameCanvas");
-            if (gameCanvas != null) {
-                var dataURL = gameCanvas.toDataURL("image/png");
-                var imageData = new Image();
-                imageData.src = dataURL;
+    takeAScreenShot: function() {
+        //take a screen shot
+        cc.log('xc.pageIndex at:' + xc.pageIndex + 'for current story:' + xc.currentStoryId);
+        if(cc.sys.isNative && xc.pageIndex == 0) {
+            var imagePath = jsb.fileUtils.getWritablePath() + xc.currentStoryId + ".jpg";
+            var renderer = new cc.RenderTexture(cc.director.getWinSize().width, cc.director.getWinSize().height, cc.TEXTURE_2D_PIXEL_FORMAT_RGBA8888);
+            renderer.setPosition(cc.director.getWinSize().width/2, cc.director.getWinSize().height/2);
+            renderer.begin();
+            this.visit();              
+            renderer.end();
+            renderer.saveToFile(xc.currentStoryId + ".jpg");
+            cc.log("saving to file:" + imagePath);
+            var texture = cc.textureCache.addImage(imagePath);
+            xc.storiesJSON.stories[xc.currentStoryIndex].icon = imagePath;
+            xc.storiesJSON.stories[xc.currentStoryIndex].cIcon = imagePath;
+            renderer.cleanup();
+        } else {
+            if (xc.pageIndex == 0) {
+                var gameCanvas = document.getElementById("gameCanvas");
+                if (gameCanvas != null) {
+                    var dataURL = gameCanvas.toDataURL("image/png");
+                    var imageData = new Image();
+                    imageData.src = dataURL;
 
-                var snapShotCanvas = document.getElementById('snapShotCanvas');
-                if(snapShotCanvas != undefined) {
-                    var ctx = snapShotCanvas.getContext("2d");
-                    var xOffSet = (cc.director.getWinSize().width - cc.director.getWinSize().height) / 2;
-                    ctx.drawImage(imageData, xOffSet, 0, cc.director.getWinSize().height, cc.director.getWinSize().height, 0, 0, 450, 450);
-                    var snapShotDataURL = snapShotCanvas.toDataURL("image/png");
-                    xc.image.titlePageDataURL = snapShotDataURL;
-                    ctx.clearRect(0, 0, snapShotCanvas.width, snapShotCanvas.height);
-                    snapShotCanvas = null;
+                    var snapShotCanvas = document.getElementById('snapShotCanvas');
+                    if(snapShotCanvas != undefined) {
+                        var ctx = snapShotCanvas.getContext("2d");
+                        var xOffSet = (cc.director.getWinSize().width - cc.director.getWinSize().height) / 2;
+                        ctx.drawImage(imageData, xOffSet, 0, cc.director.getWinSize().height, cc.director.getWinSize().height, 0, 0, 450, 450);
+                        var snapShotDataURL = snapShotCanvas.toDataURL("image/png");
+                        xc.image.titlePageDataURL = snapShotDataURL;
+                        ctx.clearRect(0, 0, snapShotCanvas.width, snapShotCanvas.height);
+                        snapShotCanvas = null;
+                    }
                 }
+                var texture = cc.textureCache.addImage("res/SD/wikitaki/HelloWorld.png");
             }
         }
+    },
+    
+    backPressed: function () {
         this.parent.removeChild(this, true);
         xc.LAYER_INIT = false;
         xc.LAYER_EDIT_STORY = false;
@@ -789,7 +805,6 @@ xc.ContentPanel = xc.AbstractContentPanel.extend({
 
         if (this._backLayer) {
             xc.CharacterUtil.restoreActionFromTemporaryStore(this._backLayer);
-        }
-
-    }
+        }        
+    }    
 });

@@ -1,15 +1,16 @@
 var xc = xc || {};
+xc.customSprites = xc.customSprites || [];
+xc.HAND_GEAR_LEFT = "hand_gear_left"; 
 xc.LAYER_INIT = false;
 xc.PRIMARY_COLOR = cc.color("#FF8E88");
 xc.DARK_PRIMARY_COLOR = cc.color("#B2524D");
 xc.SECONDARY_COLOR = cc.color("#5895CC");
-xc.DARK_SECONDARY_COLOR = cc.color("#5687B2");
+xc.DARK_SECONDARY_COLOR = cc.color("#ee0a21");
 xc.TERTIARY_COLOR = cc.color("#F6FF88");
 xc.DEFAULT_BOUNDING_BOX_TAG = 999;
 xc.DARK_BOUNDING_BOX_TAG = 998;
  
 xc.StoryLayer = cc.Layer.extend({
-    _contentPanel: null,
     _pageConfigPanel: null,
     _objectConfigPanel: null,
     _contentPanelWidth: null,
@@ -18,7 +19,7 @@ xc.StoryLayer = cc.Layer.extend({
     ctor: function () {
         this._super();
         this._name = "StoryLayer";
-        this._tabHeight = 64;
+        this._tabHeight = 300;
         this._controlPanel = null;
         this._contentPanelWidth = cc.director.getWinSize().height; //assuming landscape
         this._configPanelWidth = (cc.director.getWinSize().width - this._contentPanelWidth) / 2;
@@ -45,7 +46,7 @@ xc.StoryLayer = cc.Layer.extend({
             displayPages = xc.story['items'];
         } else {
             this._help = new cc.Sprite('#icons/help_click_new_page.png');
-            this._help.setPosition(cc.p(100, cc.director.getWinSize().height - this._tabHeight - 50));
+            this._help.setPosition(cc.p(200, cc.director.getWinSize().height - this._tabHeight - 150));
             this._help.setAnchorPoint(0, 1);
             this.addChild(this._help, 1);
         }
@@ -62,7 +63,8 @@ xc.StoryLayer = cc.Layer.extend({
             var copyScene = JSON.parse(JSON.stringify(xc.story.items[xc.pageIndex - 1]));
             xc.story.items[xc.pageIndex] = copyScene;
         }
-        cc.director.runScene(new EditStoryScene());
+        //xc.StoryScene.load(xc.StoryLayer);
+        cc.director.runScene(new xc.EditStoryScene(xc.EditStoryLayer));
     },
 
     handleSelectItem: function (sender) {
@@ -77,14 +79,19 @@ xc.StoryLayer = cc.Layer.extend({
             xc.pageIndex = xc.story.items.length; //new story
             this.createOrCopyPage();
         } else {
-            //find if there is element submit_recipe in HTML
-            if (document.getElementById("fes_post_title") != undefined) {
-                xc.story.storyTitleText = document.getElementById("fes_post_title").value;
-            }
-            if (document.getElementById("submit_recipe") != undefined) {
-                document.getElementById("submit_recipe").click();
-                xc.customSprite = [];
-            }
+            //write to file system if native
+            this.uploadStory();
+            xc.CreateStoryScene.load(xc.CreateStoryLayer);
+        }
+    },
+
+    uploadStory: function() {
+        if(cc.sys.isNative) {
+            var writablePath = jsb.fileUtils.getWritablePath() + "story.json";
+            var fileContent = JSON.stringify(xc.storiesJSON);
+            jsb.fileUtils.writeStringToFile(fileContent, writablePath);
+        } else {
+            //upload to network
         }
     },
 
@@ -92,7 +99,7 @@ xc.StoryLayer = cc.Layer.extend({
         if (this._optionPanel) {
             this._optionPanel.removeFromParent(true);
         }
-        this._optionPanel = new xc.ScrollableButtonPanel(cc.p(sender.getPosition().x + sender.width / 2 - 75, sender.getPosition().y - 75), cc.size(150, 150), 2, 2, xc.storyConfigurationObject.editPage, this.chooseEditPageOption, this, true);
+        this._optionPanel = new xc.ScrollableButtonPanel(cc.p(sender.getPosition().x + sender.width / 2 - 250, sender.getPosition().y - 250), cc.size(500, 500), 2, 2, xc.storyConfigurationObject.editPage, this.chooseEditPageOption, this, true);
         this._optionPanel.setOpacity(150);
         this._optionPanel.setColor(xc.TERTIARY_COLOR);
         this.addChild(this._optionPanel, 1);
@@ -151,8 +158,9 @@ xc.StoryLayer = cc.Layer.extend({
 
     loadExistingPage: function (sender) {
         xc.pageIndex = this._curSelectedPageIndex; //index of selected button
-        xc.isNewPage = false;
-        cc.director.runScene(new EditStoryScene());
+        xc.isNewPage = false;       
+        xc.LAYER_EDIT_STORY = false; 
+        cc.director.runScene(new xc.EditStoryScene(xc.EditStoryLayer)); 
     }
 });
 
@@ -160,165 +168,39 @@ xc.StoryScene = cc.Scene.extend({
     layerClass: null,
     ctor: function (layer) {
         this._super();
-        cc.log('hello');
         this.layerClass = layer;
         if (xc.LAYER_INIT === false) {
             xc.LAYER_INIT = true;
 
-            cc.log('initing layer...should only be once');
-            //read storyId from document, if not null then load json and store in localStorage
-            var storyId = this.retrieveStoryId();
-            if (storyId) {
-                this.loadStory(storyId);
-            } else {
-                this.createNewStory();
-                this._sceneLayer = new this.layerClass();
-                this.addChild(this._sceneLayer);
-                this._sceneLayer.init();
-            }
+            this.createOrEditStory();
+            this._sceneLayer = new this.layerClass();
+            this.addChild(this._sceneLayer);
+            this._sceneLayer.init();
+            
             xc.MODIFIED_BIT = 1;
         }
     },
 
-    retrieveStoryId: function () {
-        // var storyIdToFetch = null;
-        // var query_string = {};
-        // var query = window.location.search.substring(1);
-        // var vars = query.split("&");
-        // for (var i = 0; i < vars.length; i++) {
-        //     var pair = vars[i].split("=");
-        //     // If first entry with this name
-        //     if (typeof query_string[pair[0]] === "undefined") {
-        //         query_string[pair[0]] = decodeURIComponent(pair[1]);
-        //         // If second entry with this name
-        //     } else if (typeof query_string[pair[0]] === "string") {
-        //         var arr = [query_string[pair[0]], decodeURIComponent(pair[1])];
-        //         query_string[pair[0]] = arr;
-        //         // If third or later entry with this name
-        //     } else {
-        //         query_string[pair[0]].push(decodeURIComponent(pair[1]));
-        //     }
-        // }
-        // if (query_string != null && query_string != undefined) {
-        //     storyIdToFetch = query_string['fesid'];
-        //     cc.log('storyid from queryString:' + storyIdToFetch);
-        // } else {
-        //     cc.log('storyid from queryString: not recived');
-        //     storyIdToFetch = window.recipeId;
-        //     cc.log('storyid from window.recipeId: ' + storyIdToFetch);
-        // }
-
-        // return storyIdToFetch;
-    },
-
-    createNewStory: function () {
+    createOrEditStory: function () {
         if (xc && xc.MODIFIED_BIT != 1) {
-            xc.story = {};
-            xc.story.items = [];
-            xc.story.RESOLUTION_HEIGHT = xc.DEVICE_HEIGHT;
-            cc.log('xc.story.scaleFactor:' + xc.story.scaleFactor);
-        }
-    },
-
-    loadStory: function (storyIdToFetch) {
-        var context = this;
-        if (xc && xc.MODIFIED_BIT != 1) {
-            if (storyIdToFetch != null) {
-                var url = '/wp-content/uploads/' + storyIdToFetch + '.json';
-                cc.log('fetching json for storyId' + storyIdToFetch + ' url:' + url);
-                cc.loader.loadJson(url, function (error, data) {
-                    var storyData = xc.ParseUtil.inflate(data);
-                    if (storyData != null && storyData.items != null && storyData.items.length > 0) {
-                        xc.story = storyData;
-                        xc.story.storyId = storyIdToFetch;
-                        xc.storyTitle = xc.story.storyTitleText;
-                        xc.scaleFactor = xc.story.RESOLUTION_HEIGHT / xc.DEVICE_HEIGHT;
-                        xc.story.RESOLUTION_HEIGHT = xc.DEVICE_HEIGHT;
-
-                        // xc.ParseUtil.changeSize(cc.loader.cache[res.human_skeleton_json], null, xc.designScaleFactor);
-                        // cc.loader.cache[res.human_skeleton_json].xcCompressed = true;
-
-                        // xc.ParseUtil.changeSize(cc.loader.cache[res.animalskeleton_json], null, xc.designScaleFactor);
-                        // cc.loader.cache[res.animalskeleton_json].xcCompressed = true;
-
-                        // xc.ParseUtil.changeSize(cc.loader.cache[res.birdskeleton_json], null, xc.designScaleFactor);
-                        // cc.loader.cache[res.birdskeleton_json].xcCompressed = true;
-
-
-
-                        // data.items.forEach(function (element) {
-                        //     if (element && element.scene) {
-                        //         xc.ParseUtil.changeSize(element.scene, null, xc.scaleFactor);
-                        //         element.scene.xcCompressed = true;
-                        //     }
-                        // }, this);
-                        context._sceneLayer = new this.layerClass();
-                        context.addChild(context._sceneLayer);
-                        context._sceneLayer.init();
-                    } else {
-                        context.createNewStory();
-                        context._sceneLayer = new this.layerClass();
-                        context.addChild(context._sceneLayer);
-                        context._sceneLayer.init();
-                    }
-                });
+            if(xc.storiesJSON != undefined && xc.storiesJSON.stories != undefined && xc.currentStoryIndex < xc.storiesJSON.stories.length) {
+                xc.story = xc.storiesJSON.stories[xc.currentStoryIndex].data;
+                if(xc.story == undefined) {
+                    xc.story = {};
+                    xc.story.items = [];
+                }
+                // cc.log('xc.story:' + JSON.stringify(xc.story));
+                xc.story.RESOLUTION_HEIGHT = xc.DEVICE_HEIGHT;
+                xc.storiesJSON.stories[xc.currentStoryIndex].data = xc.story;                            
             }
-        } else {
-            context._sceneLayer = new this.layerClass();            
-            context.addChild(context._sceneLayer);
-            context._sceneLayer.init();
-
         }
-    }
+    }    
 });
 
 
 xc.StoryScene.load = function(layer) {
-    var t_resources = [];
-    for (var i in layer.res) {
-        t_resources.push(layer.res[i]);
-    }
-
-    cc.LoaderScene.preload(t_resources, function () {    
-
-        //config data
-        xc.storyConfigurationObject = cc.loader.cache[xc.StoryLayer.res.Config_json];
-        xc.initalCharacterCategories = xc.storyConfigurationObject.addObjects[1].categories.length;
-        xc.customCharacters = {};
-        xc.customCharacters.cIcon = "icons/fav_character_onclick.png";
-        xc.customCharacters.icon = "icons/fav_character.png";
-        xc.customCharacters.items = [];
-        xc.customCharacters.name = "favCharacters";
-
-        //Edit
-        xc.storyPlayConfigurationObject = cc.loader.cache[xc.StoryLayer.res.EditPlayConfig_json];    
-
-        //Play
-        xc.onlyStoryPlayConfigurationObject = cc.loader.cache[xc.StoryLayer.res.OnlyStoryPlayConfig_json];
-
-        var scene = new xc.StoryScene(layer);
-        scene.layerClass = layer;
-        cc.director.runScene(scene);
-    }, this);
+    this._storyScene = new xc.StoryScene(layer);
+    this._storyScene.layerClass = layer;
+    cc.director.runScene(this._storyScene);    
 }
 
-xc.StoryLayer.res = {
-    thumbnails_png: xc.path + "wikitaki/thumbnails.png",
-    thumbnails_plist: xc.path + "wikitaki/thumbnails.plist",
-    human_skeleton_png: xc.path + "wikitaki/human_skeleton.png",
-    human_skeleton_plist: xc.path + "wikitaki/human_skeleton.plist",
-    animalskeleton_png: xc.path + "wikitaki/animalskeleton.png",
-    animalskeleton_plist: xc.path + "wikitaki/animalskeleton.plist",
-    animalskeleton_json: xc.path + "wikitaki/animalskeleton.json",
-    birdskeleton_png: xc.path + "wikitaki/birdskeleton.png",
-    birdskeleton_plist: xc.path + "wikitaki/birdskeleton.plist",
-    birdskeleton_json: xc.path + "wikitaki/birdskeleton.json",
-    HelloWorld_png: xc.path + "wikitaki/HelloWorld.png",
-    human_skeleton_json: xc.path + "wikitaki/human_skeleton.json",
-    play_png: xc.path + "wikitaki/play.png",
-    record_animation_png: xc.path + "wikitaki/recording.png",
-    record_animation_plist: xc.path + "wikitaki/recording.plist",
-    Config_json: xc.path + "wikitaki/misc/storyConfig.json",
-    EditPlayConfig_json: xc.path + "wikitaki/misc/playConfig.json",
-    OnlyStoryPlayConfig_json: xc.path + "wikitaki/misc/onlyPlayConfig.json"
-};
