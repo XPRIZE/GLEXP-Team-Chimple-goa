@@ -8,7 +8,9 @@ xc.DecomonLayer = cc.Layer.extend({
     eye_array : null,
     mouth_array :null,
     nose_array : null,
-
+    horn_array : null,
+    paint_array : null,
+    gear_array :null,
 
   ctor: function () {
         this._super();
@@ -51,6 +53,18 @@ var sprite_click = cc.EventListener.create({event: cc.EventListener.TOUCH_ONE_BY
                   {
                     nose_array[n].setVisible(false);
                   }
+                   for(h=0;h<horn_array.length;h++)
+                  {
+                    horn_array[h].setVisible(false);
+                  }
+                  for(p=0;p<paint_array.length;p++)
+                  {
+                    paint_array[p].setVisible(false);
+                  }
+                  {
+                  for(g=0;g<gear_array.length;g++){
+                    gear_array[g].setVisible(false);
+                  }}
                 }
                
                 else if(target.id == "mouth"){
@@ -66,6 +80,19 @@ var sprite_click = cc.EventListener.create({event: cc.EventListener.TOUCH_ONE_BY
                   {
                     nose_array[n].setVisible(false);
                   }
+                   for(h=0;h<horn_array.length;h++)
+                  {
+                    horn_array[h].setVisible(false);
+                  }
+                  for(p=0;p<paint_array.length;p++)
+                  {
+                    paint_array[p].setVisible(false);
+                  }
+                  {
+                  for(g=0;g<gear_array.length;g++){
+                    gear_array[g].setVisible(false);
+                  }
+                  }
                 }
                 else if(target.id == "nose" )
                 {
@@ -80,7 +107,104 @@ var sprite_click = cc.EventListener.create({event: cc.EventListener.TOUCH_ONE_BY
                      {
                          eye_array[i].setVisible(false);
                      }
+                     for(h=0;h<horn_array.length;h++)
+                  {
+                    horn_array[h].setVisible(false);
+                  }
+                  for(p=0;p<paint_array.length;p++)
+                  {
+                    paint_array[p].setVisible(false);
+                  }
+                  {
+                  for(g=0;g<gear_array.length;g++){
+                    gear_array[g].setVisible(false);
+                  }
                 }
+                }
+                
+                else if(target.id == "horn")
+                {
+                  for(h=0;h<horn_array.length;h++)
+                  {
+                    horn_array[h].setVisible(true);
+                  }
+                  {
+                  for(g=0;g<gear_array.length;g++)
+                  {
+                    gear_array[g].setVisible(false);
+                  }
+                  for(n=0;n<nose_array.length;n++)
+                  {
+                    nose_array[n].setVisible(false);
+                  }
+                  for(j=0;j<mouth_array.length;j++){
+                      mouth_array[j].setVisible(false);
+                }
+                 for(i=0;i<eye_array.length;i++)
+                     {
+                         eye_array[i].setVisible(false);
+                     }
+                     for(p=0;p<paint_array.length;p++)
+                  {
+                    paint_array[p].setVisible(false);
+                  }
+                  
+                  }
+                }
+                else if(target.id == "paint")
+                {
+                  for(p=0;p<paint_array.length;p++)
+                  {
+                    paint_array[p].setVisible(true);
+                  }
+                   for(h=0;h<horn_array.length;h++)
+                  {
+                    horn_array[h].setVisible(false);
+                  }
+                  for(n=0;n<nose_array.length;n++)
+                  {
+                    nose_array[n].setVisible(false);
+                  }
+                  for(j=0;j<mouth_array.length;j++){
+                      mouth_array[j].setVisible(false);
+                }
+                 for(i=0;i<eye_array.length;i++)
+                     {
+                         eye_array[i].setVisible(false);
+                     }
+                    {
+                  for(g=0;g<gear_array.length;g++){
+                    gear_array[g].setVisible(false);
+                  }
+                    }
+                }
+                
+                else if(target.id=="gear")
+                {
+                  for(g=0;g<gear_array.length;g++){
+                    gear_array[g].setVisible(true);
+                  }
+                  for(p=0;p<paint_array.length;p++)
+                  {
+                    paint_array[p].setVisible(false);
+                  }
+                   for(h=0;h<horn_array.length;h++)
+                  {
+                    horn_array[h].setVisible(false);
+                  }
+                  for(n=0;n<nose_array.length;n++)
+                  {
+                    nose_array[n].setVisible(false);
+                  }
+                  for(j=0;j<mouth_array.length;j++){
+                      mouth_array[j].setVisible(false);
+                }
+                 for(i=0;i<eye_array.length;i++)
+                     {
+                         eye_array[i].setVisible(false);
+                     }
+                }
+
                 return true;
         }
         
@@ -101,10 +225,7 @@ var sprite_click = cc.EventListener.create({event: cc.EventListener.TOUCH_ONE_BY
         var eye = background.node.getChildByName("decomon_eye_icon");
         eye.id = "eye";
         cc.eventManager.addListener(sprite_click.clone(), eye);
-
-   
-
-         var eyea = ccs.load(xc.DecomonLayer.res.decomon_eyea, xc.path);   
+       var eyea = ccs.load(xc.DecomonLayer.res.decomon_eyea, xc.path);   
                       eyea.node.attr({
                         x : size.width * .12,
                         y : size.height * .10
@@ -366,10 +487,266 @@ var sprite_click = cc.EventListener.create({event: cc.EventListener.TOUCH_ONE_BY
      cc.eventManager.addListener(sprite_click.clone(),nose9);
 
      nose_array = [nose1,nose2,nose3,nose4,nose5,nose6,nose7,nose8,nose9];
+
+     var horn = background.node.getChildByName("decomon_horn_icon");
+     horn.id = "horn";
+     cc.eventManager.addListener(sprite_click.clone(), horn);
+
+     var horn1 = new cc.Sprite(cc.spriteFrameCache.getSpriteFrame("decomon/decomon2/decomon_headgear_1.png"))
+     horn1.attr({
+                        x : size.width * .12,
+                        y : size.height * .10
+                      });
+     self.addChild(horn1);
+     horn1.setVisible(false);
+     cc.eventManager.addListener(sprite_click.clone(),horn1);
+   
+     var horn2 = new cc.Sprite(cc.spriteFrameCache.getSpriteFrame("decomon/decomon2/decomon_headgear_2.png"))
+     horn2.attr({
+                        x : size.width * .22,
+                        y : size.height * .10
+                      });
+     self.addChild(horn2);
+     horn2.setVisible(false);
+     cc.eventManager.addListener(sprite_click.clone(),horn2);
+
+     var horn3 = new cc.Sprite(cc.spriteFrameCache.getSpriteFrame("decomon/decomon2/decomon_headgear_3.png"))
+     horn3.attr({
+                        x : size.width * .32,
+                        y : size.height * .10
+                      });
+     self.addChild(horn3);
+     horn3.setVisible(false);
+     cc.eventManager.addListener(sprite_click.clone(),horn3);
+
+     var horn4 = new cc.Sprite(cc.spriteFrameCache.getSpriteFrame("decomon/decomon2/decomon_headgear_4.png"))
+     horn4.attr({
+                        x : size.width * .42,
+                        y : size.height * .10
+                      });
+     self.addChild(horn4);
+     horn4.setVisible(false);
+     cc.eventManager.addListener(sprite_click.clone(),horn4);
+
+     var horn5 = new cc.Sprite(cc.spriteFrameCache.getSpriteFrame("decomon/decomon2/decomon_headgear_5.png"))
+     horn5.attr({
+                        x : size.width * .52,
+                        y : size.height * .10
+                      });
+     self.addChild(horn5);
+     horn5.setVisible(false);
+     cc.eventManager.addListener(sprite_click.clone(),horn5);
+
+     var horn6 = new cc.Sprite(cc.spriteFrameCache.getSpriteFrame("decomon/decomon2/decomon_headgear_6.png"))
+     horn6.attr({
+                        x : size.width * .62,
+                        y : size.height * .10
+                      });
+     self.addChild(horn6);
+     horn6.setVisible(false);
+     cc.eventManager.addListener(sprite_click.clone(),horn6);
+
+    var horn7 = new cc.Sprite(cc.spriteFrameCache.getSpriteFrame("decomon/decomon2/decomon_headgear_7.png"))
+     horn7.attr({
+                        x : size.width * .72,
+                        y : size.height * .10
+                      });
+     self.addChild(horn7);
+     horn7.setVisible(false);
+     cc.eventManager.addListener(sprite_click.clone(),horn7);
+
+    var horn8 = new cc.Sprite(cc.spriteFrameCache.getSpriteFrame("decomon/decomon2/decomon_headgear_8.png"))
+    horn8.attr({
+                        x : size.width * .82,
+                        y : size.height * .10
+                      });
+     self.addChild(horn8);
+     horn8.setVisible(false);
+     cc.eventManager.addListener(sprite_click.clone(),horn8);
+
+      var horn9 = new cc.Sprite(cc.spriteFrameCache.getSpriteFrame("decomon/decomon2/decomon_headgear_9.png"))
+     horn9.attr({
+                        x : size.width * .92,
+                        y : size.height * .10
+                      });
+     self.addChild(horn9);
+     horn9.setVisible(false);
+     cc.eventManager.addListener(sprite_click.clone(),horn9);
+
+     horn_array = [horn1,horn2,horn3,horn4,horn5,horn6,horn7,horn8,horn9];
+
+        var paint = background.node.getChildByName("decomon_paintbrush_icon");
+        paint.id = "paint";
+        cc.eventManager.addListener(sprite_click.clone(), paint);
+    var paint1 = new cc.Sprite(cc.spriteFrameCache.getSpriteFrame("decomon/decomon3/decomon_paintbucket_1.png"))
+    paint1.attr({
+                        x : size.width * .12,
+                        y : size.height * .10
+                      });
+     self.addChild(paint1);
+     paint1.setVisible(false);
+     cc.eventManager.addListener(sprite_click.clone(),paint1);
+
+    var paint2 = new cc.Sprite(cc.spriteFrameCache.getSpriteFrame("decomon/decomon3/decomon_paintbucket_2.png"))
+    paint2.attr({
+                        x : size.width * .22,
+                        y : size.height * .10
+                      });
+     self.addChild(paint2);
+     paint2.setVisible(false);
+     cc.eventManager.addListener(sprite_click.clone(),paint2);
+
+     var paint3 = new cc.Sprite(cc.spriteFrameCache.getSpriteFrame("decomon/decomon3/decomon_paintbucket_3.png"))
+    paint3.attr({
+                        x : size.width * .32,
+                        y : size.height * .10
+                      });
+     self.addChild(paint3);
+     paint3.setVisible(false);
+     cc.eventManager.addListener(sprite_click.clone(),paint3);
+
+     var paint4 = new cc.Sprite(cc.spriteFrameCache.getSpriteFrame("decomon/decomon3/decomon_paintbucket_4.png"))
+    paint4.attr({
+                        x : size.width * .42,
+                        y : size.height * .10
+                      });
+     self.addChild(paint4);
+     paint4.setVisible(false);
+     cc.eventManager.addListener(sprite_click.clone(),paint4);
+
+     var paint5 = new cc.Sprite(cc.spriteFrameCache.getSpriteFrame("decomon/decomon3/decomon_paintbucket_5.png"))
+    paint5.attr({
+                        x : size.width * .52,
+                        y : size.height * .10
+                      });
+     self.addChild(paint5);
+     paint5.setVisible(false);
+     cc.eventManager.addListener(sprite_click.clone(),paint5);
+
+     var paint6 = new cc.Sprite(cc.spriteFrameCache.getSpriteFrame("decomon/decomon3/decomon_paintbucket_6.png"))
+    paint6.attr({
+                        x : size.width * .62,
+                        y : size.height * .10
+                      });
+     self.addChild(paint6);
+     paint6.setVisible(false);
+     cc.eventManager.addListener(sprite_click.clone(),paint6);
+
+     var paint7 = new cc.Sprite(cc.spriteFrameCache.getSpriteFrame("decomon/decomon3/decomon_paintbucket_7.png"))
+    paint7.attr({
+                        x : size.width * .72,
+                        y : size.height * .10
+                      });
+     self.addChild(paint7);
+     paint7.setVisible(false);
+     cc.eventManager.addListener(sprite_click.clone(),paint7);
+
+     var paint8 = new cc.Sprite(cc.spriteFrameCache.getSpriteFrame("decomon/decomon3/decomon_paintbucket_8.png"))
+    paint8.attr({
+                        x : size.width * .82,
+                        y : size.height * .10
+                      });
+     self.addChild(paint8);
+     paint8.setVisible(false);
+     cc.eventManager.addListener(sprite_click.clone(),paint8);
+
+     var paint9 = new cc.Sprite(cc.spriteFrameCache.getSpriteFrame("decomon/decomon3/decomon_paintbucket_9.png"))
+    paint9.attr({
+                        x : size.width * .92,
+                        y : size.height * .10
+                      });
+     self.addChild(paint9);
+     paint9.setVisible(false);
+     cc.eventManager.addListener(sprite_click.clone(),paint9);
+
+     paint_array = [paint1,paint2,paint3,paint4,paint5,paint6,paint7,paint8,paint9];
+
+   var gear = background.node.getChildByName("decomon_icon_gear_2");
+   gear.id = "gear";
+   cc.eventManager.addListener(sprite_click.clone(), gear);
+    var gear1 = new cc.Sprite(cc.spriteFrameCache.getSpriteFrame("decomon/decomon1/decomon_gear_1.png"))
+    gear1.attr({
+                        x : size.width * .12,
+                        y : size.height * .10
+                      });
+     self.addChild(gear1);
+     gear1.setVisible(false);
+     cc.eventManager.addListener(sprite_click.clone(),gear1);
+
+    var gear2 = new cc.Sprite(cc.spriteFrameCache.getSpriteFrame("decomon/decomon1/decomon_gear_2.png"))
+    gear2.attr({
+                        x : size.width * .22,
+                        y : size.height * .10
+                      });
+     self.addChild(gear2);
+     gear2.setVisible(false);
+     cc.eventManager.addListener(sprite_click.clone(),gear2);
+
+     var gear3 = new cc.Sprite(cc.spriteFrameCache.getSpriteFrame("decomon/decomon1/decomon_gear_3.png"))
+    gear3.attr({
+                        x : size.width * .32,
+                        y : size.height * .10
+                      });
+     self.addChild(gear3);
+     gear3.setVisible(false);
+     cc.eventManager.addListener(sprite_click.clone(),gear3);
+
+     var gear4 = new cc.Sprite(cc.spriteFrameCache.getSpriteFrame("decomon/decomon1/decomon_gear_4.png"))
+    gear4.attr({
+                        x : size.width * .42,
+                        y : size.height * .10
+                      });
+     self.addChild(gear4);
+     gear4.setVisible(false);
+     cc.eventManager.addListener(sprite_click.clone(),gear4);
+
+     var gear5 = new cc.Sprite(cc.spriteFrameCache.getSpriteFrame("decomon/decomon1/decomon_gear_5.png"))
+    gear5.attr({
+                        x : size.width * .52,
+                        y : size.height * .10
+                      });
+     self.addChild(gear5);
+     gear5.setVisible(false);
+     cc.eventManager.addListener(sprite_click.clone(),gear5);
+
+    var gear6 = new cc.Sprite(cc.spriteFrameCache.getSpriteFrame("decomon/decomon1/decomon_gear_6.png"))
+    gear6.attr({
+                        x : size.width * .62,
+                        y : size.height * .10
+                      });
+     self.addChild(gear6);
+     gear6.setVisible(false);
+     cc.eventManager.addListener(sprite_click.clone(),gear6);
+
+     var gear7 = new cc.Sprite(cc.spriteFrameCache.getSpriteFrame("decomon/decomon1/decomon_gear_7.png"))
+    gear7.attr({
+                        x : size.width * .72,
+                        y : size.height * .10
+                      });
+     self.addChild(gear7);
+     gear7.setVisible(false);
+     cc.eventManager.addListener(sprite_click.clone(),gear7);
+
+     var gear8 = new cc.Sprite(cc.spriteFrameCache.getSpriteFrame("decomon/decomon1/decomon_gear_8.png"))
+    gear8.attr({
+                        x : size.width * .82,
+                        y : size.height * .10
+                      });
+     self.addChild(gear8);
+     gear8.setVisible(false);
+     cc.eventManager.addListener(sprite_click.clone(),gear8);
+
+     var gear9 = new cc.Sprite(cc.spriteFrameCache.getSpriteFrame("decomon/decomon1/decomon_gear_9.png"))
+    gear9.attr({
+                        x : size.width * .92,
+                        y : size.height * .10
+                      });
+     self.addChild(gear9);
+     gear9.setVisible(false);
+     cc.eventManager.addListener(sprite_click.clone(),gear9);
+gear_array = [gear1,gear2,gear3,gear4,gear5,gear6,gear7,gear8,gear9];
+
  }
-
- 
-
 });
 
 xc.DecomonLayer.res = {
