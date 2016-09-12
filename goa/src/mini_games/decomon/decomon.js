@@ -43,16 +43,20 @@ var sprite_click = cc.EventListener.create({event: cc.EventListener.TOUCH_ONE_BY
                      {
                          eye_array[i].setVisible(true);
                      }
+                      for(j=0;j<mouth_array.length;j++){
+                      mouth_array[j].setVisible(false);
                 }
-                // else if(target.id == 1)
-                // {
-                //     cc.log("yes");
-                // }
+                }
+               
                 else if(target.id == "mouth"){
 
                 for(j=0;j<mouth_array.length;j++){
                   mouth_array[j].setVisible(true);
                 }
+                 for(i=0;i<eye_array.length;i++)
+                     {
+                         eye_array[i].setVisible(false);
+                     }
                 }
                 return true;
         }
@@ -73,11 +77,9 @@ var sprite_click = cc.EventListener.create({event: cc.EventListener.TOUCH_ONE_BY
 });
         var eye = background.node.getChildByName("decomon_eye_icon");
         eye.id = "eye";
-        cc.eventManager.addListener(sprite_click, eye);
+        cc.eventManager.addListener(sprite_click.clone(), eye);
 
-    var mouth = background.node.getChildByName("decomon_mouth_icon");
-     mouth.id = "mouth";
-   cc.eventManager.addListener(sprite_click, mouth);
+   
 
          var eyea = ccs.load(xc.DecomonLayer.res.decomon_eyea, xc.path);   
                       eyea.node.attr({
@@ -165,9 +167,9 @@ var sprite_click = cc.EventListener.create({event: cc.EventListener.TOUCH_ONE_BY
 
     eye_array = [eyea.node,eyeb.node,eyec.node,eyed.node,eyee.node,eyef.node,eyeg.node,eyeh.node,eyei.node];
 
-
-    
-
+     var mouth = background.node.getChildByName("decomon_mouth_icon");
+     mouth.id = "mouth";
+     cc.eventManager.addListener(sprite_click.clone(), mouth);
      var moutha = ccs.load(xc.DecomonLayer.res.decomon_moutha, xc.path);   
                       moutha.node.attr({
                         x : size.width * .12,
