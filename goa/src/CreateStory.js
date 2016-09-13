@@ -9,6 +9,9 @@ xc.TERTIARY_COLOR = cc.color("#F6FF88");
 xc.DEFAULT_BOUNDING_BOX_TAG = 999;
 xc.DARK_BOUNDING_BOX_TAG = 998;
 xc.DEVICE_HEIGHT = 1800;
+xc.DESIGNED_WIDTH = 2560;
+xc.DESIGNED_HEIGHT = 1800;
+xc.contentPanelScaleFactor = xc.DESIGNED_HEIGHT/xc.DESIGNED_WIDTH;
  
 xc.CreateStoryLayer = cc.Layer.extend({
     _contentPanel: null,
@@ -100,6 +103,7 @@ xc.CreateStoryLayer = cc.Layer.extend({
     loadOptions: function (sender) {
         if(!this._optionPanel) {
             this._optionPanel = new xc.ScrollableButtonPanel(cc.p(sender.getPosition().x - 150, sender.getPosition().y - 250), cc.size(500, 500), 2, 2, xc.storyConfigurationObject.editPage, this.chooseEditPageOption, this, true);
+            this.addChild(this._optionPanel, 1);
         } else {
             this._optionPanel.setPosition(cc.p(sender.getPosition().x - 150, sender.getPosition().y - 250));
             this._optionPanel.setVisible(true);
@@ -140,14 +144,14 @@ xc.CreateStoryLayer = cc.Layer.extend({
                 this.loadOptions(button);
 
             }
-        } else if (sender.getName() == 'icons/delete.png') {
-            // if (xc.story && xc.storiesJSON.stories && xc.storiesJSON.stories.length > this._curSelectedStoryIndex) {
-            //     xc.storiesJSON.stories.splice(this._curSelectedStoryIndex, 1);
-            //     if (this._panel) {
-            //         this._panel.removeFromParent(true);
-            //         this.createStoriesUI();
-            //     }
-            // }
+        } else if (sender.getName() == 'icons/delete.png') {            
+            if (xc.storiesJSON.stories && xc.storiesJSON.stories.length > this._curSelectedStoryIndex) {
+                cc.log('this._curSelectedStoryIndex:' + this._curSelectedStoryIndex);
+                xc.currentStoryIndex = this._curSelectedStoryIndex; //index of selected button
+                xc.currentStoryId = xc.storiesJSON.stories[xc.currentStoryIndex].storyId;
+                cc.log("xc.currentStoryId on edit:" + xc.currentStoryId);                                
+                xc.PlayFullStoryScene.load(0,xc.PlayFullStoryLayer);
+            }
         }
     },
 
@@ -159,9 +163,13 @@ xc.CreateStoryLayer = cc.Layer.extend({
 
     loadExistingStory: function (sender) {
         xc.currentStoryIndex = this._curSelectedStoryIndex; //index of selected button
-        xc.isNewPage = false;       
-        xc.LAYER_EDIT_STORY = false; 
-        xc.StoryScene.load(xc.StoryLayer);         
+        xc.isNewPage = false;
+        if(xc.currentStoryIndex < xc.storiesJSON.stories.length) {
+            xc.currentStoryId = xc.storiesJSON.stories[xc.currentStoryIndex].storyId;
+            cc.log("xc.currentStoryId on edit:" + xc.currentStoryId);
+            xc.LAYER_EDIT_STORY = false; 
+            xc.StoryScene.load(xc.StoryLayer);         
+        }
     }
 });
 

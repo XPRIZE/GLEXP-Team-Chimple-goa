@@ -55,7 +55,10 @@ var sprite_click = cc.EventListener.create({event: cc.EventListener.TOUCH_ONE_BY
              if (that.counterLevel2 == 6) {
               
                     
-                    xc.GameScene.load(xc.sortitlevel3Layer);
+                    
+                  setTimeout(function(){
+                         xc.GameScene.load(xc.sortitlevel3Layer);
+                     },1000);
 
                 }
             
@@ -77,7 +80,7 @@ var sprite_click = cc.EventListener.create({event: cc.EventListener.TOUCH_ONE_BY
          
                  var toy = target.getContentSize();
                  var rectToy = cc.rect(0, 0, target.width, target.height);
-                 if (cc.rectContainsPoint(rectToy, location) && overlapped==0) { var toy = cc.MoveTo.create(2,cc.p(target.xP,target.yP));
+                 if ( overlapped==0) { var toy = cc.MoveTo.create(2,cc.p(target.xP,target.yP));
        target.runAction(new cc.Sequence( toy, new cc.CallFunc(function(){ 
                     _enableFlag = true; }, this)));this.audioEngine = cc.audioEngine;
             this.audioEngine.playEffect(xc.sortitlevel1Layer.res.failure_mp3);

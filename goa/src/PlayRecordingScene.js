@@ -15,7 +15,8 @@ xc.PlayRecordingLayer = cc.Layer.extend({
         this._super();
         this._name = "PlayLayer";
         this._controlPanel = null;
-        this._contentPanelWidth = cc.director.getWinSize().height; //assuming landscape
+        this._contentPanelWidth = cc.director.getWinSize().width; //assuming landscape
+        this._contentPanelHeight = cc.director.getWinSize().height; //assuming landscape
         this._configPanelWidth = (cc.director.getWinSize().width - this._contentPanelWidth) / 2;
         this._configPanelHeight = cc.director.getWinSize().height;
         return true;
@@ -23,13 +24,11 @@ xc.PlayRecordingLayer = cc.Layer.extend({
     init: function () {
         //construct UI
         //create scene with first page
-        this._contentPanel = new xc.PlayContentPanel(this._contentPanelWidth, this._contentPanelWidth, cc.p(this._configPanelWidth, 0));
+        this._contentPanel = new xc.PlayContentPanel(this._contentPanelWidth, this._contentPanelHeight, cc.p(this._configPanelWidth, 0));
         this.addChild(this._contentPanel);
-        this._objectConfigPanel = new xc.ObjectConfigPanel(this._configPanelWidth, this._configPanelHeight, cc.p(this._configPanelWidth + this._contentPanelWidth, 0), xc.storyPlayConfigurationObject, this._contentPanel);
-        this.addChild(this._objectConfigPanel);
-        this._contentPanel._objectConfigPanel = this._objectConfigPanel;
-        this._pageConfigPanel = new xc.BaseConfigPanel(this._configPanelWidth, this._configPanelHeight, cc.p(0, 0), xc.storyPlayConfigurationObject.editDefault, this._contentPanel);
+        this._pageConfigPanel = new xc.BaseConfigPanel(this._configPanelWidth, this._configPanelHeight, cc.p(150, 0), xc.storyPlayConfigurationObject.editDefault, this._contentPanel);
         this.addChild(this._pageConfigPanel);
+        this._pageConfigPanel.setVisible(false);
         this.playRecordedScene();
 
     },
@@ -53,11 +52,9 @@ xc.PlayRecordingLayer = cc.Layer.extend({
     createWebView: function() {
         if (xc.story.items[xc.pageIndex].sceneText != null && xc.story.items[xc.pageIndex].sceneText !== "undefined") {
             this.addChild(new xc.TextCreatePanel(cc.director.getWinSize().width, cc.director.getWinSize().height, cc.p(385, 250), xc.story.items[xc.pageIndex].sceneText, this.processText, this, false));
-        }        
-    },
+        }     
 
-    closeWebView: function() {
-        localStorage.removeItem("scene_display_text_contents");
+        this._pageConfigPanel.setVisible(true);           
     },
     
     playRecordedScene: function () {        
@@ -69,14 +66,6 @@ xc.PlayRecordingLayer = cc.Layer.extend({
             this._contentPanel._constructedScene.node.runAction(this._contentPanel._constructedScene.action);
             this._contentPanel._constructedScene.action.gotoFrameAndPlay(0, this._contentPanel._constructedScene.action.getDuration(), 0, false);
 
-            // if (!cc.sys.isNative) {
-            //     this._contentPanel._constructedScene.node._renderCmd._dirtyFlag = 1;
-            //     this._contentPanel._constructedScene.node.children.forEach(function (element) {
-            //         if (element.getName().indexOf("Skeleton") != -1 || element.getName().indexOf("skeleton") != -1) {
-            //             element._renderCmd._dirtyFlag = 1;
-            //         }
-            //     }, this);
-            // }
         } else {
             this.referenceToContext = this;
             this.playEnded();
@@ -89,9 +78,9 @@ xc.PlayRecordingScene = cc.Scene.extend({
     ctor: function (layer) {
         this._super();
         this.layerClass = layer;
-        layer = new this.layerClass();
-        this.addChild(layer);
-        layer.init();        
+        var rlayer = new this.layerClass();
+        this.addChild(rlayer);
+        rlayer.init();        
     },
 });
 

@@ -33,8 +33,14 @@ xc.StoryLayer = cc.Layer.extend({
         this._buttonPanel = new xc.ButtonPanel(new cc.p(0, 0), this.getContentSize(), 2, 6, xc.storyConfigurationObject.editStory, new xc.ButtonHandler(this.handleSelectItem, this));
         this._buttonPanel.setBackGroundColorType(ccui.Layout.BG_COLOR_SOLID);
         this._buttonPanel.setBackGroundColor(xc.PRIMARY_COLOR);
-
         this.addChild(this._buttonPanel);
+
+        this._optionPanel = new xc.ScrollableButtonPanel(cc.p(0,0), cc.size(500, 500), 2, 2, xc.storyConfigurationObject.editPage, this.chooseEditPageOption, this, true);
+        this._optionPanel.setVisible(false);
+        this._optionPanel.setOpacity(150);
+        this._optionPanel.setColor(xc.TERTIARY_COLOR);
+        this.addChild(this._optionPanel, 1);
+
 
         this.createPages();
     },
@@ -70,11 +76,6 @@ xc.StoryLayer = cc.Layer.extend({
     handleSelectItem: function (sender) {
         //create new Scene
         //find last page index   
-
-        if (this._optionPanel) {
-            this._optionPanel.removeFromParent(true);
-        }
-
         if (sender.getName() == 'icons/plus.png') {
             xc.pageIndex = xc.story.items.length; //new story
             this.createOrCopyPage();
@@ -89,6 +90,7 @@ xc.StoryLayer = cc.Layer.extend({
         if(cc.sys.isNative) {
             var writablePath = jsb.fileUtils.getWritablePath() + "story.json";
             var fileContent = JSON.stringify(xc.storiesJSON);
+            cc.log('fileContent before upload:' + fileContent);
             jsb.fileUtils.writeStringToFile(fileContent, writablePath);
         } else {
             //upload to network
@@ -96,13 +98,15 @@ xc.StoryLayer = cc.Layer.extend({
     },
 
     loadOptions: function (sender) {
-        if (this._optionPanel) {
-            this._optionPanel.removeFromParent(true);
+        if(!this._optionPanel) {
+            this._optionPanel = new xc.ScrollableButtonPanel(cc.p(sender.getPosition().x - 150, sender.getPosition().y - 250), cc.size(500, 500), 2, 2, xc.storyConfigurationObject.editPage, this.chooseEditPageOption, this, true);
+            this.addChild(this._optionPanel, 1);
+        } else {
+            this._optionPanel.setPosition(cc.p(sender.getPosition().x - 150, sender.getPosition().y - 250));
+            this._optionPanel.setVisible(true);
         }
-        this._optionPanel = new xc.ScrollableButtonPanel(cc.p(sender.getPosition().x + sender.width / 2 - 250, sender.getPosition().y - 250), cc.size(500, 500), 2, 2, xc.storyConfigurationObject.editPage, this.chooseEditPageOption, this, true);
-        this._optionPanel.setOpacity(150);
-        this._optionPanel.setColor(xc.TERTIARY_COLOR);
-        this.addChild(this._optionPanel, 1);
+        
+//        this._optionPanel = new xc.ScrollableButtonPanel(cc.p(sender.getPosition().x + sender.width / 2 - 250, sender.getPosition().y - 250), cc.size(500, 500), 2, 2, xc.storyConfigurationObject.editPage, this.chooseEditPageOption, this, true);
         this._curSelectedPageIndex = sender._selectedIndex;
     },
 
@@ -114,10 +118,6 @@ xc.StoryLayer = cc.Layer.extend({
     },
 
     chooseEditPageOption: function (sender) {
-        if (this._optionPanel) {
-            this._optionPanel.removeFromParent(true);
-        }
-
         if (sender.getName() == 'icons/edit.png') {
             this.loadExistingPage(sender);
         } else if (sender.getName() == 'icons/back.png') {
@@ -141,14 +141,19 @@ xc.StoryLayer = cc.Layer.extend({
             }
         } else if (sender.getName() == 'icons/delete.png') {
             if (xc.story && xc.story.items && xc.story.items.length > this._curSelectedPageIndex) {
+                // xc.currentStoryIndex = this._curSelectedPageIndex; //index of selected button
+                // xc.currentStoryId = xc.storiesJSON.stories[xc.currentStoryIndex].storyId;
+                // cc.log("xc.currentStoryId on edit:" + xc.currentStoryId);                                
+                // xc.PlayFullStoryScene.load(0,xc.PlayFullStoryLayer);
+                
                 xc.story.items.splice(this._curSelectedPageIndex, 1);
-                if (this._panel) {
-                    this._panel.removeFromParent(true);
-                    this.createPages();
-                }
-            }
+                this._optionPanel.setVisible(false);
+                this.reDrawPages();
+                
+            }            
         }
     },
+
 
     shufflePage: function (arr, fromIndex, toIndex) {
         var element = arr[fromIndex];
@@ -184,12 +189,13 @@ xc.StoryScene = cc.Scene.extend({
     createOrEditStory: function () {
         if (xc && xc.MODIFIED_BIT != 1) {
             if(xc.storiesJSON != undefined && xc.storiesJSON.stories != undefined && xc.currentStoryIndex < xc.storiesJSON.stories.length) {
+                cc.log("coming heere with xc.currentStoryIndex:" + xc.currentStoryIndex);
                 xc.story = xc.storiesJSON.stories[xc.currentStoryIndex].data;
                 if(xc.story == undefined) {
                     xc.story = {};
                     xc.story.items = [];
                 }
-                // cc.log('xc.story:' + JSON.stringify(xc.story));
+                cc.log('xc.story:' + JSON.stringify(xc.story));
                 xc.story.RESOLUTION_HEIGHT = xc.DEVICE_HEIGHT;
                 xc.storiesJSON.stories[xc.currentStoryIndex].data = xc.story;                            
             }

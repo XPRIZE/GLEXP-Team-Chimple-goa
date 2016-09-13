@@ -1,5 +1,4 @@
 var xc = xc || {};
-var currentPointerOnBg = {x:0,y:0};
 var levelValues =1;
 
 xc.BubbleGame_HomeScreenMenu = cc.Layer.extend({
@@ -60,7 +59,7 @@ xc.BubbleGame_HomeScreenMenu = cc.Layer.extend({
          }
          else if(sender.getName() == "Button_11"){
              console.log("this is 3rd button");
-              xc.GameScene.load(xc.Bubble_PuzzleMenu);
+              xc.GameScene.load(xc.Bubble_AlphabetsMenu);
          }
 
          break;
@@ -71,6 +70,19 @@ xc.BubbleGame_HomeScreenMenu = cc.Layer.extend({
    }
 });
 
+
+function Tile(x, y, type, shift){
+        
+        this.x = x;
+        this.y = y;
+        this.type = type;
+        this.removed = false;
+        this.shift = shift;
+        this.velocity = 0;
+        this.alpha = 1;
+        this.processed = false;
+    
+}
 
 xc.BubbleGame_HomeScreenMenu.res = {
     
