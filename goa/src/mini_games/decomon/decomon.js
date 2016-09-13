@@ -25,10 +25,10 @@ xc.DecomonLayer = cc.Layer.extend({
         this.addChild(background.node);
 
 
-     var label = new cc.LabelTTF("A", xc.DecomonLayer.res.baloobhai_ttf, 1500);
+     var label = new cc.LabelTTF("A", "Baloo Bhai", 1500);
      label.setPositionX(1500);
      label.setPositionY(900);
-     label.setColor(255,255,255);
+     label.setColor(cc.color.WHITE);
      this.addChild(label,1);
 
 var sprite_click = cc.EventListener.create({event: cc.EventListener.TOUCH_ONE_BY_ONE, swallowTouches:true,
