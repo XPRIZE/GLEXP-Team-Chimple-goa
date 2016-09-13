@@ -158,7 +158,7 @@ void ScrollableGameMapScene::gameSelected(Ref* pSender, ui::Widget::TouchEventTy
             clickedButton->setEnabled(false);
             if(clickedButton->getName() == PATCH_THE_WALL) {
 //                Director::getInstance()->replaceScene(PatchTheWall::createScene());
-                ScriptingCore::getInstance()->runScript("src/start/train.js");
+                ScriptingCore::getInstance()->runScript("src/start/decomon.js");
             } else  if (clickedButton->getName() == CAT) {
 				ScriptingCore::getInstance()->runScript("src/start/alphamole.js");
 			}else  if (clickedButton->getName() == SMASH_THE_ROCK) {
