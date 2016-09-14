@@ -33,6 +33,7 @@ static const std::string TRAIN = "train";
 static const std::string ALPHAMOLE = "alphamole";
 static const std::string JUMP = "jump";
 static const std::string STORY_TELLING = "book";
+static const std::string DECOMON = "decomon";
 
 
 
