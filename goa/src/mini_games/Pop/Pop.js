@@ -38,18 +38,6 @@ xc.PopLayer = cc.Layer.extend({
         var wordForSentanceArray = ["Twinkle", "twinkle", "little", "star","How", "I","wonder", "what", "you", "are"];
         cc.log("sentence:" + wordForSentanceArray);
 
-        //   var cloud = new cc.Sprite(cc.spriteFrameCache.getSpriteFrame("pop/cloud.png"));
-        //   cloud.setPosition(worldSize.width-300, cc.director.getWinSize().height * 0.76);
-        //   this.addChild(cloud);
-
-        //   var cloud1 = new cc.Sprite(cc.spriteFrameCache.getSpriteFrame("pop/cloud.png"));
-        //   cloud1.setPosition(worldSize.width-300, (cloud.getPosition().y - cloud.getBoundingBox().height));
-        //   this.addChild(cloud1);
-
-        //   var cloud2 = new cc.Sprite(cc.spriteFrameCache.getSpriteFrame("pop/cloud.png"));
-        //   cloud2.setPosition(worldSize.width-300, (cloud.getPosition().y - cloud.getBoundingBox().height*2));
-        //   this.addChild(cloud2);
-
             setTimeout(function(){ self.clickableFlag = true; }, 12000);
 
             var listener = cc.EventListener.create({
@@ -179,11 +167,11 @@ xc.PopLayer = cc.Layer.extend({
     removePlaneFromScene: function () {
         if (this.wordInOrder.length == this.cloudContainer.length) {
             this.removeChild(this.plane);
+            xc.GameScene.load(xc.GameMap);
             console.log("GAME OVER");
         }
     }
 });
-
 xc.PopLayer.res = {
     pop_scene: xc.path + "pop/pop.json",
     pop_plane: xc.path + "pop/plane.json",

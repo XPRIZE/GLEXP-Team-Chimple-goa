@@ -4,7 +4,7 @@ var xc = xc || {};
 xc.sortitlevel3Layer = cc.Layer.extend({
         counterLevel3 : 1,
 
-     level3SpriteScaleX : 1.5, 
+     level3SpriteScaleX : 2.5, 
      level3SpriteScaleY : 0.9,
     
 
