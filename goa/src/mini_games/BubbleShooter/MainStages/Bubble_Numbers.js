@@ -1,31 +1,36 @@
 var xc = xc || {};
 xc.Bubble_Number = cc.Layer.extend({
-    
+  
   ctor:function () {
-   
+  
    this._super();
-   
    imageSprite = ['bubble_shooter/red_ball','bubble_shooter/green_ball','bubble_shooter/yellow_ball','bubble_shooter/purple_ball','bubble_shooter/blue_ball','bubble_shooter/orange_ball'];
 
    var ScreenMenu = ccs.load(xc.BubbleGame_HomeScreenMenu.res.bubbleShooter_gameMenu_json,xc.path);
    this.addChild(ScreenMenu.node);
+   var xPosi ;
+    if (cc.director.getWinSize().width > 2560){
+        xPosi = cc.director.getWinSize().width - 2560;
+        ScreenMenu.node.x = xPosi/2;
+    }
 
     console.log("the height and width : "+cc.director.getWinSize().height+"      "+cc.director.getWinSize().width);
     this.textHitsLabel = new cc.LabelTTF("Hits : 0","res/fonts/Marker Felt.ttf",75);
     this.textHitsLabel.setPosition(cc.director.getWinSize().width*0.87,cc.director.getWinSize().height*0.975);                      
     this.addChild(this.textHitsLabel);
-
-    this.initVariable(ScreenMenu);
+    this.initVariable(ScreenMenu,xPosi);
+    this.bubbleName = [];
+    this.LetterName = [];
 
     // Array Of BubbleColor
-    bubbleName = new Array(this.level.columns);
+   this.bubbleName = new Array(this.level.columns);
         for (let i=0 ; i <this.level.columns; i++)
-        bubbleName[i] = new Array(this.level.rows);
+       this.bubbleName[i] = new Array(this.level.rows);
   
     // Array Of Letter
-    LetterName = new Array(this.level.columns);
+   this.LetterName = new Array(this.level.columns);
         for (let i=0 ; i <this.level.columns; i++)
-        LetterName[i] = new Array(this.level.rows);
+       this.LetterName[i] = new Array(this.level.rows);
         
         for (let i=0; i < this.level.columns ;  i++) {
             this.level.tiles[i] = [];
@@ -40,6 +45,8 @@ xc.Bubble_Number = cc.Layer.extend({
         this.level.height = (this.level.rows) * this.level.rowheight + this.level.tileheight;
     
         // Set the gamestate to ready
+        this.setGameState(this.gamestates.ready);
+     // Set the gamestate to ready
         this.setGameState(this.gamestates.ready);
          if(levelValues ==  1){        
            levelName = "NumberStarLevel1";            
@@ -127,7 +134,7 @@ xc.Bubble_Number = cc.Layer.extend({
         }else{
             console.log("level management error  - The value if level is : "+levelValues );
         }
-   
+        
         // Init the this.player in gun 
         this.player.x = this.level.x + this.level.width/2 - this.level.tilewidth/2 ;
         //console.log("this.player.x = "+(this.level.x + this.level.width/2 - this.level.tilewidth/2) + "  this.level.x : "+this.level.x+" this.level.width/2 : "+this.level.width/2+" this.level.tilewidth/2 : "+this.level.tilewidth/2);
@@ -206,7 +213,7 @@ xc.Bubble_Number = cc.Layer.extend({
       });
       
       var trnspImg = new cc.Sprite(cc.spriteFrameCache.getSpriteFrame("bubble_shooter/pixel.png"));
-      trnspImg.setAnchorPoint(0);        trnspImg.setPosition(0,0);       trnspImg.setOpacity(0);
+      trnspImg.setAnchorPoint(0,0);        trnspImg.setPosition(0,0);       trnspImg.setOpacity(0);
       ScreenMenu.node.getChildByName("Panel_2").addChild(trnspImg);
       cc.eventManager.addListener(listnerBg,trnspImg);
   
@@ -246,9 +253,8 @@ xc.Bubble_Number = cc.Layer.extend({
                  this.shootBubble(); 
             }
     },
-    
-
-// Create a random pattern level1
+         
+        // Create a random pattern level1
    createLevel : function ( colour , repeat ) {
  
        // Number of different colors
@@ -295,6 +301,7 @@ xc.Bubble_Number = cc.Layer.extend({
             
         }
     },    
+
      // Render tiles
      renderTiles : function () {
      
@@ -314,11 +321,11 @@ xc.Bubble_Number = cc.Layer.extend({
                 if (tile.type >= 0) {
                   
                     // Draw the tile using the color
-                    bubbleName[i][j] = this.drawBubbleGroups(coord.tilex, coord.tiley + shift, tile.type,i,j);
-                    LetterName[i][j] = this.drawLetterGroups(bubbleName[i][j].getContentSize().width/2,bubbleName[i][j].getContentSize().height/2, tile.type,i,j);
-                    bubbleName[i][j].addChild(LetterName[i][j]);
-                    bubbleName[i][j].name = letterSprite[tile.type];
-                    LetterName[i][j].name = letterSprite[tile.type];
+                   this.bubbleName[i][j] = this.drawBubbleGroups(coord.tilex, coord.tiley + shift, tile.type,i,j);
+                   this.LetterName[i][j] = this.drawLetterGroups(this.bubbleName[i][j].getContentSize().width/2,this.bubbleName[i][j].getContentSize().height/2, tile.type,i,j);
+                   this.bubbleName[i][j].addChild(this.LetterName[i][j]);
+                   this.bubbleName[i][j].name = letterSprite[tile.type];
+                   this.LetterName[i][j].name = letterSprite[tile.type];
                 }
             }
         }
@@ -522,8 +529,8 @@ xc.Bubble_Number = cc.Layer.extend({
                // Set the tile
                this.level.tiles[gridpos.x][gridpos.y].type = this.player.bubble.tiletype;
                 
-               bubbleName[gridpos.x][gridpos.y] = this.bubblePlayer;
-               LetterName[gridpos.x][gridpos.y] = this.letterPlayer;
+              this.bubbleName[gridpos.x][gridpos.y] = this.bubblePlayer;
+              this.LetterName[gridpos.x][gridpos.y] = this.letterPlayer;
                this.checkBubbleStatus();
                // Check for game over
                if (this.checkGameOver()) {
@@ -619,23 +626,23 @@ xc.Bubble_Number = cc.Layer.extend({
                         if( i == 0 ){
                         //    this.game.world.bringToTop(this.bubbleName[tile.x][tile.y]);
                         //    this.game.world.bringToTop(this.LetterName[tile.x][tile.y]);
-                          this.reorderChild(bubbleName[tile.x][tile.y], 6);
-                          this.reorderChild(LetterName[tile.x][tile.y],6);
+                          this.reorderChild(this.bubbleName[tile.x][tile.y],6);
+                          this.reorderChild(this.LetterName[tile.x][tile.y],6);
                       
-                        //    bubbleName[tile.x][tile.y].setGlobalZOrder(5);
-                        //    LetterName[tile.x][tile.y].setGlobalZOrder(5);
+                        //   this.bubbleName[tile.x][tile.y].setGlobalZOrder(5);
+                        //   this.LetterName[tile.x][tile.y].setGlobalZOrder(5);
                            
-                           bubbleName[tile.x][tile.y].anchorX = 0.5;
-                           bubbleName[tile.x][tile.y].anchorY = 0.5;
+                          this.bubbleName[tile.x][tile.y].anchorX = 0.5;
+                          this.bubbleName[tile.x][tile.y].anchorY = 0.5;
                                 
-                           LetterName[tile.x][tile.y].anchorX = 0.5;
-                           LetterName[tile.x][tile.y].anchorY = 0.5;
+                          this.LetterName[tile.x][tile.y].anchorX = 0.5;
+                          this.LetterName[tile.x][tile.y].anchorY = 0.5;
                         
-                           bubbleName[tile.x][tile.y].runAction(new cc.ScaleTo(1.5,3));
+                          this.bubbleName[tile.x][tile.y].runAction(new cc.ScaleTo(1.5,3));
                          
-                           bubbleName[tile.x][tile.y].runAction(new cc.MoveTo(1,cc.p(cc.director.getWinSize().width/2, cc.director.getWinSize().height/2)));
+                          this.bubbleName[tile.x][tile.y].runAction(new cc.MoveTo(1,cc.p(cc.director.getWinSize().width/2, cc.director.getWinSize().height/2)));
                          
-                           cc.audioEngine.playEffect("res/english/sounds/"+LetterName[tile.x][tile.y].name.toLowerCase()+".wav");
+                           cc.audioEngine.playEffect("res/english/sounds/"+this.LetterName[tile.x][tile.y].name.toLowerCase()+".wav");
 
                            setTimeout(function() {
                                 self.playerDie(tile.x,tile.y,tempColorType);
@@ -769,7 +776,7 @@ xc.Bubble_Number = cc.Layer.extend({
        DataCard : function (gamestatus){
     console.log("gamestatus : "+gamestatus + " -------------- ");
        var level = levelValues;
-        
+       xc.GameScene.load(xc.BubbleGame_HomeScreenMenu);
    //     if(soundFlagName != "numbers" && levelValues == 12){
    //         level = 0;
     //    }else if(soundFlagName == "numbers" && levelValues == 8){
@@ -823,14 +830,9 @@ xc.Bubble_Number = cc.Layer.extend({
     },
     
    playerDie : function (tilex,tiley,type,float){
-        //    if(type!=0)
-        //    this.playAnimationParticle(tilex,tiley);
-        // console.log("matched bubble : "+float);
-     
-     //   this.animationBubbleBlast(bubbleName[tilex][tiley],type);
        
-        this.removeChild(bubbleName[tilex][tiley]);
-        this.removeChild(LetterName[tilex][tiley]);
+     //   this.animationBubbleBlast(bubbleName[tilex][tiley],type);       
+        this.removeChild(this.bubbleName[tilex][tiley]);
         
     },
     
@@ -889,9 +891,8 @@ xc.Bubble_Number = cc.Layer.extend({
                
                     if (tile.type >= 0) {
                      
-                     this.removeChild(bubbleName[i][j]);
-                     this.removeChild(LetterName[i][j]);
-                     
+                     this.removeChild(this.bubbleName[i][j]);
+                    
                     }
                 }
             }
@@ -1171,7 +1172,8 @@ xc.Bubble_Number = cc.Layer.extend({
             return;
      
      // Draw the bubble sprite
-     this.removeChild(this.nextBubblePlayer);
+     if(this.nextBubblePlayer!=undefined)         
+         this.removeChild(this.nextBubblePlayer);
      
      this.nextBubblePlayer =  new cc.Sprite(cc.spriteFrameCache.getSpriteFrame(imageSprite[index]+".png"));
      this.nextBubblePlayer.setPosition((cc.director.getWinSize().width/2 - 350)  , cc.director.getWinSize().height * 0.0607080);
@@ -1184,8 +1186,7 @@ xc.Bubble_Number = cc.Layer.extend({
      drawNextLetter : function (x, y, index) {
         if (index < 0 || index >= bubblecolors)
             return;
-     // Draw the bubble sprite
-     this.removeChild(this.nextLetterPlayer);
+  
      this.nextLetterPlayer = new cc.LabelTTF(""+letterSprite[this.player.nextbubble.tiletype],"res/fonts/Marker Felt.ttf",150);
      this.nextLetterPlayer.setPosition(this.nextLetterPlayer.getContentSize().width/2,this.nextLetterPlayer.getContentSize().height/2);
      this.nextBubblePlayer.addChild(this.nextLetterPlayer);
@@ -1259,7 +1260,7 @@ xc.Bubble_Number = cc.Layer.extend({
         this.animationtime = 0;
     },
     
-    initVariable : function(ScreenMenu){
+    initVariable : function(ScreenMenu,xPosi){
         
         this.bubblePlayer = null;
         this.letterPlayer = null;
@@ -1286,10 +1287,12 @@ xc.Bubble_Number = cc.Layer.extend({
         this.killBubble = false;
 
         var leftPanel = ScreenMenu.node.getChildByName("Panel_7");
-       
+      
+        if(xPosi == undefined){ xPosi = 0; }      
+      
         // Level
         this.level = {            
-            x: (leftPanel.x + leftPanel.getContentSize().width), // X position
+            x: (leftPanel.x + leftPanel.getContentSize().width + (xPosi/2)), // X position
             y: cc.director.getWinSize().height * 0.103,          // Y position
             width: 0,       // Width, gets calculated
             height: 0,      // Height, gets calculated
@@ -1326,11 +1329,10 @@ xc.Bubble_Number = cc.Layer.extend({
         };
 
         // Array Of BubbleColor
-        this.bubbleName = [];
         this.counterhits = 0;
         
         // Array Of Letter
-        this.LetterName = [];
+        
         this.imageSprite = [];
         this.bubblecolors = 0;
         this.letterSprite=[];
