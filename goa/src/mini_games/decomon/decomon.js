@@ -13,21 +13,24 @@ xc.DecomonLayer = cc.Layer.extend({
     gear_array :null,
     mustache_array : null,
     skate_array : null,
+    label :null,
+   // _ScrollableButtonPanel:null,
 
   ctor: function () {
         this._super();
         
         size = cc.winSize;
         self = this;
+        var overlapped = 0;
 
       var background = ccs.load(xc.DecomonLayer.res.decomon_main, xc.path);
         cc.log(xc);
         this.addChild(background.node);
 
 
-     var label = new cc.LabelTTF("A", "Baloo Bhai", 1500);
-     label.setPositionX(1500);
-     label.setPositionY(900);
+     label = new cc.LabelTTF("A", "Baloo Bhai", 2000);
+     label.setPositionX(1300);
+     label.setPositionY(950);
      label.setColor(cc.color.WHITE);
      this.addChild(label,1);
 
@@ -48,7 +51,7 @@ var sprite_click = cc.EventListener.create({event: cc.EventListener.TOUCH_ONE_BY
                      {
                          eye_array[i].setVisible(true);
                      }
-                     for(s=0;s>skate_array.length;s++)
+                     for(s=0;s<skate_array.length;s++)
                      {
                     skate_array[s].setVisible(false);
                   }
@@ -82,7 +85,7 @@ var sprite_click = cc.EventListener.create({event: cc.EventListener.TOUCH_ONE_BY
                 for(j=0;j<mouth_array.length;j++){
                   mouth_array[j].setVisible(true);
                 }
-                for(s=0;s>skate_array.length;s++)
+                for(s=0;s<skate_array.length;s++)
                 
                 {
                     skate_array[s].setVisible(false);
@@ -119,7 +122,7 @@ var sprite_click = cc.EventListener.create({event: cc.EventListener.TOUCH_ONE_BY
                   {
                     nose_array[n].setVisible(true);
                   }
-                  for(s=0;s>skate_array.length;s++)
+                  for(s=0;s<skate_array.length;s++)
                   {
                     skate_array[s].setVisible(false);
                   }
@@ -155,7 +158,7 @@ var sprite_click = cc.EventListener.create({event: cc.EventListener.TOUCH_ONE_BY
                   {
                     horn_array[h].setVisible(true);
                   }
-                  for(s=0;s>skate_array.length;s++)
+                  for(s=0;s<skate_array.length;s++)
                   {
                     skate_array[s].setVisible(false);
                   }
@@ -192,7 +195,7 @@ var sprite_click = cc.EventListener.create({event: cc.EventListener.TOUCH_ONE_BY
                   {
                     paint_array[p].setVisible(true);
                   }
-                  for(s=0;s>skate_array.length;s++)
+                  for(s=0;s<skate_array.length;s++)
                   {
                     skate_array[s].setVisible(false);
                   }
@@ -227,7 +230,7 @@ var sprite_click = cc.EventListener.create({event: cc.EventListener.TOUCH_ONE_BY
                   for(g=0;g<gear_array.length;g++){
                     gear_array[g].setVisible(true);
                   }
-                  for(s=0;s>skate_array.length;s++)
+                  for(s=0;s<skate_array.length;s++)
                   {
                     skate_array[s].setVisible(false);
                   }
@@ -331,7 +334,20 @@ var sprite_click = cc.EventListener.create({event: cc.EventListener.TOUCH_ONE_BY
 
     onTouchMove : function(touch, event)
     {
+         var target = event.getCurrentTarget();
+         var location = target.convertToNodeSpace(touch.getLocation());
+	    	 target.setPosition(touch.getLocation()); 
         
+        
+    //     var decoalpha = target.getBoundingBox();
+    //     var decoapha1 = label.getBoundingBox();
+ 
+    //     if(cc.rectIntersectsRect(decoalpha, decoapha1 && target.id == getChildByName))
+    //     {   
+           
+    //         target.setPosition(x, y);
+    //         cc.eventManager.removeListener(sprite_click, target);
+    // }
     },
     
     onTouchEnded : function(touch, event)
