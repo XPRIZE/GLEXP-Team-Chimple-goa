@@ -34,6 +34,7 @@
 #include "mini_games/Spirograph.h"
 #include "mini_games/Train.h"
 #include "mini_games/Pop.h"
+#include "mini_games/AlphamoleLevel.h"
 USING_NS_CC;
 
 ScrollableGameMapScene::ScrollableGameMapScene()
@@ -160,7 +161,8 @@ void ScrollableGameMapScene::gameSelected(Ref* pSender, ui::Widget::TouchEventTy
 //                Director::getInstance()->replaceScene(PatchTheWall::createScene());
                 ScriptingCore::getInstance()->runScript("src/start/decomon.js");
             } else  if (clickedButton->getName() == CAT) {
-				ScriptingCore::getInstance()->runScript("src/start/alphamole.js");
+				Director::getInstance()->replaceScene(AlphamoleLevel::createScene());
+				//ScriptingCore::getInstance()->runScript("src/start/alphamole.js");
 			}else  if (clickedButton->getName() == SMASH_THE_ROCK) {
 				ScriptingCore::getInstance()->runScript("src/start/jump.js");
 			} else if(clickedButton->getName() == CROSS_THE_BRIDGE) {
