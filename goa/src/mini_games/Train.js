@@ -176,7 +176,7 @@ xc.TrainLayer = cc.Layer.extend({
 
 
         //sentence = goa.TextGenerator.getInstance().generateASentence();
-        sentence = ["A", "martini", "shaken", "not", "stirred", "how", "are", "you", "fine"];
+        sentence = ["A", "martini", "shaken", "not", "stirred", "how", "are", "you"];//, "fine"];
 
         random = sentence.length;
         var row = 0, temp = random;
@@ -193,7 +193,7 @@ xc.TrainLayer = cc.Layer.extend({
         train = new cc.Sprite(cc.spriteFrameCache.getSpriteFrame("train/train.png"));
         train.attr({
             x: size.width * .06,
-            y: (size.height * .53) + (_height * (row - 1 + .5)),
+            y: (size.height * .52) + (_height * (row - 1 + .5)),
             anchorX: .5,
             anchorY: .5
         });
@@ -205,6 +205,23 @@ xc.TrainLayer = cc.Layer.extend({
             var y = _height * (i + .5);
             var col = ((temp / 3) >= 1 ? 3 : temp % 3);
             var _width = (size.width * .90) / col;
+
+                var railwaytrack = new cc.Sprite(cc.spriteFrameCache.getSpriteFrame("train/railwaytrack.png"));
+                railwaytrack.attr({
+                    x: 0,
+                    y: size.height * 49.3 / 100 + y,
+                    anchorX: 0,
+                    anchorY: .5
+                });
+                this.addChild(railwaytrack, 1);
+                
+                if(col==3)
+                    railwaytrack.setScaleX(1.5);
+                if(col==2)
+                    railwaytrack.setScaleX(2.5);
+                if(col==1)
+                    railwaytrack.setScaleX(5.2);
+                    
 
             for (var j = 0; j < col; j++) {
                 var tunnel_front = new cc.Sprite(cc.spriteFrameCache.getSpriteFrame("train/tunnel_front.png"));
@@ -227,6 +244,21 @@ xc.TrainLayer = cc.Layer.extend({
                 this.addChild(tunnel_back, 0);
                 tunnel_back.selected = 0;
 
+                var railwaytrack = new cc.Sprite(cc.spriteFrameCache.getSpriteFrame("train/railwaytrack.png"));
+                railwaytrack.attr({
+                    x: tunnel_back.getPositionX() * .98,
+                    y: size.height * 49.3 / 100 + y,
+                    anchorX: 0,
+                    anchorY: .5
+                });
+                this.addChild(railwaytrack, 1);
+                if(col==3)
+                    railwaytrack.setScaleX(1.5);
+                if(col==2)
+                    railwaytrack.setScaleX(3.5);
+                if(col==1)
+                    railwaytrack.setScaleX(4.5);
+
                 tunnel_front_sprite.push(tunnel_front);
                 tunnel_back_sprite.push(tunnel_back);
             }
@@ -241,6 +273,7 @@ xc.TrainLayer = cc.Layer.extend({
             anchorY: .5
         });
         this.addChild(final_tunnel, 0);
+
 
         for (var i = 0; i < random; i++) {
             var aa = position.length;
@@ -266,7 +299,7 @@ xc.TrainLayer = cc.Layer.extend({
         }
 
 
-        var layer1 = new cc.LayerColor(cc.color(255, 255, 255, 150), size.width, size.height * .50);
+        layer1 = new cc.LayerColor(cc.color(255, 255, 255, 150), size.width, size.height * .50);
         layer1.attr({
             x : 0,
             y : 0,
@@ -275,15 +308,30 @@ xc.TrainLayer = cc.Layer.extend({
         });
         this.addChild(layer1);
         cc.eventManager.addListener(listener.clone(), layer1);
-        layer1.setVisible(false);
-//        layerListener.setEnabled(false);
+        layer1.setVisible(true);
 
         var increase = new cc.ScaleTo(1, 1.4);
         var decrease = new cc.ScaleTo(1, 1);
         repeatForeverAction = new cc.RepeatForever(new cc.Sequence(increase, decrease));
         randomLetter[0].runAction(repeatForeverAction);  
         
-             
+        var sentense_string = sentence.slice();  
+        
+        var label_sentence = new cc.LabelTTF(sentense_string.join(' '), "Arial", 200);
+        label_sentence.attr({
+            x: size.width + label_sentence.getBoundingBox().width / 4,
+            y: size.height * .70,
+            anchorX : 0
+        });
+        this.addChild(label_sentence, 1);
+        
+        var target_Action = new cc.MoveTo(20, cc.p(1-label_sentence.getBoundingBox().width, label_sentence.getPositionY()));
+
+        var train_Action_function = function () {
+            layer1.setVisible(false);
+        };
+        label_sentence.runAction(new cc.Sequence(target_Action, new cc.CallFunc(train_Action_function, this)));
+    
     }
 
 });
