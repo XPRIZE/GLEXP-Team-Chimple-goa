@@ -10,12 +10,12 @@ var xc = xc || {};
        this.menu = ccs.load(xc.menuLayer.res.jump_main, xc.path);
        this.addChild(this.menu.node);
 
-        var child = this.menu.node.getChildren(); 
-          for(var i=0; i < child.length ;i++)
-          {
-             var name = child[i].getName();
-             cc.log("%s", name);
-          } 
+        // var child = this.menu.node.getChildren(); 
+        //   for(var i=0; i < child.length ;i++)
+        //   {
+        //      var name = child[i].getName();
+        //      cc.log("%s", name);
+        //   } 
 
        var play = this.menu.node.getChildByName("play_button_36"); 
        play.id = "Play";
@@ -130,8 +130,8 @@ xc.menuLayer.res = {
     jump_game: xc.path +"jump_on_words/jump_on_words_game_menu.json",
     char:xc.path +"jump_on_words/character.json",
     jump_plist: xc.path +"jump_on_words/jump_on_words.plist",
-    jump_png: xc.path +"jump_on_words/jump_on_words.png",
-    dict:xc.path + "english/allwords.json"
+    jump_png: xc.path +"jump_on_words/jump_on_words.png"
+   
 
 
 }
