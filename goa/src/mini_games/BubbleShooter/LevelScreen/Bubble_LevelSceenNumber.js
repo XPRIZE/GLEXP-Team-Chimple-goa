@@ -36,7 +36,7 @@ xc.Bubble_NumbersMenu = cc.Layer.extend({
             case ccui.Widget.TOUCH_ENDED:           
             levelValues = sender.getTag();
             console.log("the level value is : "+levelValues);
-            xc.GameScene.load(xc.Bubble_Alphabets);
+            xc.GameScene.load(xc.Bubble_Number);
             break;
             
             case ccui.Widget.TOUCH_CANCELLED:

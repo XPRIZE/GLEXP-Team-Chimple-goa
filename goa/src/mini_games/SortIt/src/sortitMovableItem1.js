@@ -46,16 +46,13 @@ var sprite_click = cc.EventListener.create({event: cc.EventListener.TOUCH_ONE_BY
             this.audioEngine = cc.audioEngine;
             this.audioEngine.playEffect(xc.sortitlevel1Layer.res.comedyBubble_mp3);
 
-           
-
             overlapped = 1;
             that.counterLevel1++;
             cc.eventManager.removeListener(this);
              if (that.counterLevel1 == 7) {
-              
-                    
-                    xc.GameScene.load(xc.sortitlevel2Layer);
-
+                     setTimeout(function(){
+                         xc.GameScene.load(xc.sortitlevel2Layer);
+                     },1000);
                 }
             
           

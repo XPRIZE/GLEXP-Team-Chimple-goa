@@ -11,7 +11,7 @@ xc.ContentPanel = xc.AbstractContentPanel.extend({
         this._moveAction = true;
         this._recordingCounter = 1;
         this._isRecordingPaused = false;
-        this.loadScene();
+        this.loadScene();        
     },
 
     loadScene: function () {
@@ -38,18 +38,21 @@ xc.ContentPanel = xc.AbstractContentPanel.extend({
             for (var i = 0; i < count; i++) {
                 var element = this._backLayer.children[0].children[i];
                 if (element && element.UserData && element.UserData.userAdded) {
-                    // this._constructedScene.children.push(element);
+                    element.retain();
                     element.removeFromParent();
                     i--;
                     this._constructedScene.addChild(element);
+                    element.release();
                     backGroundChanged = true;
                 }
                 if(xc.customSprites != undefined) {
                     xc.customSprites.forEach(function (customSprite, index) {
                         if (element && customSprite === element.getName()) {
+                            element.retain();
                             element.removeFromParent();
                             i--;
                             this._constructedScene.addChild(element);
+                            element.release();
                         }
                     }, this);
                 }
@@ -66,8 +69,10 @@ xc.ContentPanel = xc.AbstractContentPanel.extend({
                 if(xc.customSprites != undefined) {
                     xc.customSprites.forEach(function (customSprite, index) {
                         if (customSprite === element.getName()) {
-                        element.removeFromParent();
-                        this._constructedScene.addChild(element);
+                            element.retain();
+                            element.removeFromParent();
+                            this._constructedScene.addChild(element);
+                            element.release();
                         }
                     }, this);
                 }
@@ -89,6 +94,12 @@ xc.ContentPanel = xc.AbstractContentPanel.extend({
         if (constructedScene != null) {
             this._constructedScene = constructedScene.node;
             if (this._constructedScene) {
+                cc.log('this._constructedScene.width' + this._constructedScene.width);
+                if(this._constructedScene.width == xc.DESIGNED_WIDTH) {
+                    this._constructedScene.setScale(xc.contentPanelScaleFactor);
+                }                
+                
+                this._constructedScene.setAnchorPoint(0,0);
                 this._backLayer.addChild(this._constructedScene);
                 //now copy user added objects from earlier constructed scene if any
                 this.copyUserAddedObjectsToScene();
@@ -716,18 +727,25 @@ xc.ContentPanel = xc.AbstractContentPanel.extend({
     takeAScreenShot: function() {
         //take a screen shot
         cc.log('xc.pageIndex at:' + xc.pageIndex + 'for current story:' + xc.currentStoryId);
-        if(cc.sys.isNative && xc.pageIndex == 0) {
-            var imagePath = jsb.fileUtils.getWritablePath() + xc.currentStoryId + ".jpg";
-            var renderer = new cc.RenderTexture(cc.director.getWinSize().width, cc.director.getWinSize().height, cc.TEXTURE_2D_PIXEL_FORMAT_RGBA8888);
-            renderer.setPosition(cc.director.getWinSize().width/2, cc.director.getWinSize().height/2);
+        if(cc.sys.isNative && xc.pageIndex == 0) {            
+            var viewPortWidth = cc.director.getWinSize().width - this.parent._objectConfigPanel.width;
+            var viewPortHeight = (cc.director.getWinSize().width - this.parent._objectConfigPanel.width) * xc.contentPanelScaleFactor;
+            var renderer = new cc.RenderTexture(viewPortWidth, viewPortHeight, cc.TEXTURE_2D_PIXEL_FORMAT_RGBA8888);
+            renderer.setVirtualViewport(cc.p(this.parent._objectConfigPanel.width, 0), cc.rect(0,0,viewPortWidth,viewPortHeight), cc.rect(0,0,cc.director.getWinSizeInPixels().width + 20, cc.director.getWinSizeInPixels().height + 10) );
             renderer.begin();
             this.visit();              
             renderer.end();
-            renderer.saveToFile(xc.currentStoryId + ".jpg");
-            cc.log("saving to file:" + imagePath);
-            var texture = cc.textureCache.addImage(imagePath);
-            xc.storiesJSON.stories[xc.currentStoryIndex].icon = imagePath;
-            xc.storiesJSON.stories[xc.currentStoryIndex].cIcon = imagePath;
+            //regenerate story Id
+            xc.currentStoryId = "storyId_" + xc.ParseUtil.generateUUID();
+            xc.storiesJSON.stories[xc.currentStoryIndex].storyId = xc.currentStoryId;
+            var imagePath = jsb.fileUtils.getWritablePath() + xc.currentStoryId + ".jpg";
+            var result = renderer.saveToFile(xc.currentStoryId + ".jpg");
+            if(result) {
+                cc.log("saving to file:" + imagePath);
+                var texture = cc.textureCache.addImage(imagePath);
+                xc.storiesJSON.stories[xc.currentStoryIndex].icon = imagePath;
+                xc.storiesJSON.stories[xc.currentStoryIndex].cIcon = imagePath;
+            }
             renderer.cleanup();
         } else {
             if (xc.pageIndex == 0) {

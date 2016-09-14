@@ -7,6 +7,10 @@ xc.SpriteTouchHandler = function (context) {
 
     this.onTouchBegan = function (touch, event) {
         var target = event.getCurrentTarget();
+        cc.log('target name:' + target.getName());
+        if(target.getName() == 'background') {
+            return false;
+        }
         var location = target.convertToNodeSpace(touch.getLocation());
         var locationInParent = target.parent.convertToNodeSpace(touch.getLocation());
         var targetSize = target.getContentSize();

@@ -159,7 +159,7 @@ void ScrollableGameMapScene::gameSelected(Ref* pSender, ui::Widget::TouchEventTy
             clickedButton->setEnabled(false);
             if(clickedButton->getName() == PATCH_THE_WALL) {
 //                Director::getInstance()->replaceScene(PatchTheWall::createScene());
-                ScriptingCore::getInstance()->runScript("src/start/train.js");
+                ScriptingCore::getInstance()->runScript("src/start/decomon.js");
             } else  if (clickedButton->getName() == CAT) {
 				Director::getInstance()->replaceScene(AlphamoleLevel::createScene());
 				//ScriptingCore::getInstance()->runScript("src/start/alphamole.js");
@@ -174,7 +174,7 @@ void ScrollableGameMapScene::gameSelected(Ref* pSender, ui::Widget::TouchEventTy
             } else if(clickedButton->getName() == CANNON_BALL) {
                 Director::getInstance()->replaceScene(MainGame::createScene());
             } else if(clickedButton->getName() == ENDLESS_RUNNER) {
-                Director::getInstance()->replaceScene(EndlessRunner::createScene());
+				ScriptingCore::getInstance()->runScript("src/start/BubbleShooter.js");
             } else if(clickedButton->getName() == KUNG_FU_ALPHA) {
                 //Director::getInstance()->replaceScene(Trace::createScene(0));
                 ScriptingCore::getInstance()->runScript("src/start/sortit.js");
