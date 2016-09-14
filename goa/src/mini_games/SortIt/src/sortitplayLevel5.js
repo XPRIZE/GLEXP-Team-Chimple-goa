@@ -64,7 +64,7 @@ xc.sortitlevel5Layer = cc.Layer.extend({
        
          this.num1t = new cc.Sprite(cc.spriteFrameCache.getSpriteFrame("sortit/sortittwo/num1t.png"));
          this.num1t.setAnchorPoint(0.5, 0.5 );
-         this.num1t.setPosition(size.width*0.39 , size.height*0.24);
+         this.num1t.setPosition(size.width*0.39 , size.height*0.26);
          this.num1t.setScale(this.level5SpriteScaleX, this.level5SpriteScaleY); 
          this.addChild(this.num1t);
          
