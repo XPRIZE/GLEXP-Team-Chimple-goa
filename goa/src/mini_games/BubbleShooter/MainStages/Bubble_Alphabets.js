@@ -1,10 +1,9 @@
 var xc = xc || {};
 xc.Bubble_Alphabets = cc.Layer.extend({
-    bubble_self : null,
+  
   ctor:function () {
-   
+  
    this._super();
-   bubble_self = this;
    imageSprite = ['bubble_shooter/red_ball','bubble_shooter/green_ball','bubble_shooter/yellow_ball','bubble_shooter/purple_ball','bubble_shooter/blue_ball','bubble_shooter/orange_ball'];
 
    var ScreenMenu = ccs.load(xc.BubbleGame_HomeScreenMenu.res.bubbleShooter_gameMenu_json,xc.path);
@@ -666,7 +665,7 @@ xc.Bubble_Alphabets = cc.Layer.extend({
                         if( i == 0 ){
                         //    this.game.world.bringToTop(this.bubbleName[tile.x][tile.y]);
                         //    this.game.world.bringToTop(this.LetterName[tile.x][tile.y]);
-                          this.reorderChild(bubbleName[tile.x][tile.y], 6);
+                          this.reorderChild(bubbleName[tile.x][tile.y],6);
                           this.reorderChild(LetterName[tile.x][tile.y],6);
                       
                         //    bubbleName[tile.x][tile.y].setGlobalZOrder(5);
@@ -1219,7 +1218,7 @@ xc.Bubble_Alphabets = cc.Layer.extend({
      
      // Draw the bubble sprite
      if(this.nextBubblePlayer!=undefined)         
-         bubble_self.removeChild(bubble_self.nextBubblePlayer);
+         this.removeChild(this.nextBubblePlayer);
      
      this.nextBubblePlayer =  new cc.Sprite(cc.spriteFrameCache.getSpriteFrame(imageSprite[index]+".png"));
      this.nextBubblePlayer.setPosition((cc.director.getWinSize().width/2 - 350)  , cc.director.getWinSize().height * 0.0607080);
@@ -1233,9 +1232,9 @@ xc.Bubble_Alphabets = cc.Layer.extend({
         if (index < 0 || index >= bubblecolors)
             return;
      // Draw the bubble sprite
-     console.log("the object value is :1236  " + bubble_self.nextBubblePlayer.getName());
+     console.log("the object value is :1236  " + this.nextBubblePlayer.getName());
      if(this.nextLetterPlayer != undefined)    
-         bubble_self.removeChild(bubble_self.nextLetterPlayer);
+         this.removeChild(this.nextLetterPlayer);
      this.nextLetterPlayer = new cc.LabelTTF(""+letterSprite[this.player.nextbubble.tiletype],"res/fonts/Marker Felt.ttf",150);
      this.nextLetterPlayer.setPosition(this.nextLetterPlayer.getContentSize().width/2,this.nextLetterPlayer.getContentSize().height/2);
      this.nextBubblePlayer.addChild(this.nextLetterPlayer);
