@@ -10,6 +10,8 @@ xc.GameScene = cc.Scene.extend({
             this.layer = new this.layerClass();
             this.addChild(this.layer);
         }
+        var menuContext = goa.MenuContext.create(this.layer, "dummy");
+        this.addChild(menuContext);
     }
 });
 
