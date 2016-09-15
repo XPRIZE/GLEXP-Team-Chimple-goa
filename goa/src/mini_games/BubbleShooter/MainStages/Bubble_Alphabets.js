@@ -13,7 +13,14 @@ xc.Bubble_Alphabets = cc.Layer.extend({
         xPosi = cc.director.getWinSize().width - 2560;
         ScreenMenu.node.x = xPosi/2;
     }
-    var englishLetter = goa.TextGenerator.getInstance().getAllChars();
+    
+    var LangLetter = goa.TextGenerator.getInstance().getAllChars();
+    
+    var numberOfLetter = 3;
+    if(numberOfLetter <= Math.ceil(LangLetter.length/12)){
+        numberOfLetter = Math.ceil(LangLetter.length/12);  
+    }
+    
     console.log("the height and width : "+cc.director.getWinSize().height+"      "+cc.director.getWinSize().width);
     this.textHitsLabel = new cc.LabelTTF("Hits : 0","res/fonts/Marker Felt.ttf",75);
     this.textHitsLabel.setPosition(cc.director.getWinSize().width*0.87,cc.director.getWinSize().height*0.975);                      
@@ -39,148 +46,29 @@ xc.Bubble_Alphabets = cc.Layer.extend({
                 this.level.tiles[i][j] = new Tile(i, j, 0, 0);
            }
         }
-        console.log(this.level.tiles);
         // Define a level width and height
         this.level.width = this.level.columns * this.level.tilewidth + this.level.tilewidth/2;
         this.level.height = (this.level.rows) * this.level.rowheight + this.level.tileheight;
     
         // Set the gamestate to ready
         this.setGameState(this.gamestates.ready);
-    
-        if(levelValues ==  1){         
-            letterSprite = ['A','B','C','D'];
-         
-            let color = 4 , repeat = 2;
-            // Create the level of bubbles
-            this.createLevel(color,repeat);
-            // console.log("done" + this.level.tiles);
+        
+        letterSprite = new Array(numberOfLetter);
        
-        }else if(levelValues ==  2){
-            levelName = "AlphabetStarLevel2";            
-            hits = 50;
-            letterSprite = ['E','F','G','H'];
-            let color = 4 , repeat = 2;
-      
-            // Create the level of bubbles
-           this.createLevel(color,repeat);
-        
-        }else if(levelValues ==  3){
-            levelName = "AlphabetStarLevel3";            
-            hits = 50;
-            letterSprite = ['I','J','K','L'];
-            let color = 4 , repeat = 2;
-       
-            // Create the level of bubbles
-            this.createLevel(color,repeat);
-            
-        }else if(levelValues ==  4){
-            levelName = "AlphabetStarLevel4";            
-            hits = 50;
-            letterSprite = ['M','N','O','P'];
-            let color = 4 , repeat = 2;
-    
-            // Create the level of bubbles
-            this.createLevel(color,repeat);
-        
-        }else if(levelValues ==  5){
-            levelName = "AlphabetStarLevel5";            
-            hits = 50;
-            letterSprite = ['Q','R','S','T'];
-            let color = 4 , repeat = 2;
-     
-            // Create the level of bubbles
-            this.createLevel(color,repeat);
-        
-            
-        }else if(levelValues ==  6){
-            levelName = "AlphabetStarLevel6";            
-            hits = 50;
-            letterSprite = ['U','V','W','X'];
-            let color = 4 , repeat = 2;
-      
-            // Create the level of bubbles
-            this.createLevel(color,repeat);
-        
-            
-        }else if(levelValues ==  7){
-            levelName = "AlphabetStarLevel7";            
-            hits = 50;
-            letterSprite = ['Y','Z','M','X'];
-            let color = 4 , repeat = 2;
-      
-            // Create the level of bubbles
-            this.createLevel(color,repeat);
-        
-            
-        }else if(levelValues ==  8){
-            levelName = "AlphabetStarLevel8";            
-            hits = 60;
-            let color = 4 , repeat = 3;
-            let alphabets = this.rndAlphabet(color);
-            let DataAlphabets = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'];
-
-            letterSprite = [DataAlphabets[alphabets[0]],DataAlphabets[alphabets[1]],DataAlphabets[alphabets[2]],DataAlphabets[alphabets[3]]];
-        
-            // Create the level of bubbles
-            this.createLevel(color,repeat);
-        
-        }else if(levelValues ==  9){
-            levelName = "AlphabetStarLevel9";            
-            hits = 60;
-            let color = 4 , repeat = 2;
-                    
-            let alphabets = this.rndAlphabet(color);
-            let DataAlphabets = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'];
-
-            letterSprite = [DataAlphabets[alphabets[0]],DataAlphabets[alphabets[1]],DataAlphabets[alphabets[2]],DataAlphabets[alphabets[3]]];
-     
-            // Create the level of bubbles
-            this.createLevel(color,repeat);
-            
-        }else if(levelValues ==  10){
-            levelName = "AlphabetStarLevel10";            
-            hits = 80;
-            let color = 4 , repeat = 1;
-
-            let alphabets = this.rndAlphabet(color);
-            let DataAlphabets = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'];
-
-            letterSprite = [DataAlphabets[alphabets[0]],DataAlphabets[alphabets[1]],DataAlphabets[alphabets[2]],DataAlphabets[alphabets[3]]];
-
-            // Create the level of bubbles
-            this.createLevel(color,repeat);
-                    
-        }else if(levelValues ==  11){
-            levelName = "AlphabetStarLevel11";            
-            hits = 80;
-            let color = 5 , repeat = 1;
-
-            let alphabets = this.rndAlphabet(color);
-            let DataAlphabets = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'];
-
-            letterSprite = [DataAlphabets[alphabets[0]],DataAlphabets[alphabets[1]],DataAlphabets[alphabets[2]],DataAlphabets[alphabets[3]],DataAlphabets[alphabets[4]]];
-     
-            // Create the level of bubbles
-            this.createLevel(color,repeat);
-            
-        }else if(levelValues ==  12){
-            levelName = "AlphabetStarLevel12";            
-            hits = 200;
-            let color = 6 , repeat = 1;
-
-            let alphabets = this.rndAlphabet(color);
-            let DataAlphabets = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'];
-
-            letterSprite = [DataAlphabets[alphabets[0]],DataAlphabets[alphabets[1]],DataAlphabets[alphabets[2]],DataAlphabets[alphabets[3]],DataAlphabets[alphabets[4]],DataAlphabets[alphabets[5]]];
-       
-            // Create the level of bubbles
-            this.createLevel(color,repeat);
-            
-        }
-      else{
-            console.log("level management error  - The value if level is : "+ levelValues );
+        for(let i = 0 ; i < numberOfLetter ; i++){
+            var index = LangLetter[((levelValues-1)*numberOfLetter)+i];
+            if(index == undefined){
+                letterSprite[i] = LangLetter[this.getRandomInt(0,(LangLetter.length-1))];                
+            }else{
+                letterSprite[i] = [index];
+            }
         }
         
+        let color = numberOfLetter , repeat = 2;
+        // Create the level of bubbles
+        this.createLevel(color,repeat);
+       
+       
         // Init the this.player in gun 
         this.player.x = this.level.x + this.level.width/2 - this.level.tilewidth/2 ;
         //console.log("this.player.x = "+(this.level.x + this.level.width/2 - this.level.tilewidth/2) + "  this.level.x : "+this.level.x+" this.level.width/2 : "+this.level.width/2+" this.level.tilewidth/2 : "+this.level.tilewidth/2);
@@ -440,10 +328,7 @@ xc.Bubble_Alphabets = cc.Layer.extend({
             this.letterPlayer.setPosition(this.bubblePlayer.getContentSize().width/2,this.bubblePlayer.getContentSize().height/2);
             this.bubblePlayer.anchorX=0.0;
             this.bubblePlayer.anchorY=0.0;
-        
-        // console.log("done 440");
-        // this.addChild(this.bubblePlayer);
-        // this.addChild(this.letterPlayer);
+
     },
        
     stateShootBubble : function(dt){
@@ -686,7 +571,7 @@ xc.Bubble_Alphabets = cc.Layer.extend({
                          
                           this.bubbleName[tile.x][tile.y].runAction(new cc.MoveTo(1,cc.p(cc.director.getWinSize().width/2, cc.director.getWinSize().height/2)));
                          
-                           cc.audioEngine.playEffect("res/english/sounds/"+this.LetterName[tile.x][tile.y].name.toLowerCase()+".wav");
+//                           cc.audioEngine.playEffect("res/english/sounds/"+this.LetterName[tile.x][tile.y].name.toLowerCase()+".wav");
 
                            setTimeout(function() {
                                 self.playerDie(tile.x,tile.y,tempColorType);
@@ -793,28 +678,6 @@ xc.Bubble_Alphabets = cc.Layer.extend({
             return true;
         }
         return false;
-    },
-    
-     rndAlphabet : function(color)
-    {       
-        
-      let ArrayBubble = new Array(color);
-      let newArrayBubble = [];
-      
-        for(let i =0 ; i < 26 ; i++){
-            ArrayBubble[i] = i;
-         }
-   
-        for(let i = 0 ; i < color ; i++){
-            
-            let temp = Math.floor(this.getRandomArbitrary(0,ArrayBubble.length));
-            newArrayBubble.push(ArrayBubble[temp]);
-       
-            ArrayBubble.splice(temp,1);
-        }
-        
-        return  newArrayBubble;
-     
     },
         
    DataCard : function (gamestatus){
@@ -1311,7 +1174,7 @@ xc.Bubble_Alphabets = cc.Layer.extend({
                     x: 0,
                     y: 0,
                     angle: 0,
-                    speed: 4000,
+                    speed: 1000,
                     tiletype: 0,
                     visible: false
                 },
@@ -1327,10 +1190,9 @@ xc.Bubble_Alphabets = cc.Layer.extend({
         this.counterhits = 0;
         
         // Array Of Letter
-        
+        this.letterSprite = [];
         this.imageSprite = [];
         this.bubblecolors = 0;
-        this.letterSprite=[];
         this.cluster = [];
         this.floatingclusters = [];
     },
