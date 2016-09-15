@@ -101,3 +101,9 @@ std::vector<std::string> TextGenerator::getAllChars() {
     }
     return allCharVector;
 }
+
+std::vector<std::string> TextGenerator::getValidCombinations(std::string chars, int maxLength) {
+    const char* args[] = {"one", "two", "three", "four"};
+    std::vector<std::string> v(args, args + 4);
+    return v;
+}
