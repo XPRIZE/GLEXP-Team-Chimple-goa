@@ -67,6 +67,8 @@ LOCAL_SRC_FILES := hellojavascript/main.cpp \
 					../../Classes/mini_games/CatScene.cpp \
 					../../Classes/mini_games/Train.cpp \
 					../../Classes/mini_games/Pop.cpp \
+					../../Classes/mini_games/AlphamoleLevel.cpp \
+					../../Classes/mini_games/Alphamole.cpp \
 					../../Classes/menu/MenuContext.cpp \
 					../../Classes/lang/LangUtil.cpp \
 					../../Classes/lang/EnglishUtil.cpp \

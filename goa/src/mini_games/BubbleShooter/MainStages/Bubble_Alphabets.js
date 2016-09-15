@@ -817,7 +817,7 @@ xc.Bubble_Alphabets = cc.Layer.extend({
        DataCard : function (gamestatus){
     console.log("gamestatus : "+gamestatus + " -------------- ");
        var level = levelValues;
-        
+       xc.GameScene.load(xc.BubbleGame_HomeScreenMenu);
    //     if(soundFlagName != "numbers" && levelValues == 12){
    //         level = 0;
     //    }else if(soundFlagName == "numbers" && levelValues == 8){
@@ -871,14 +871,9 @@ xc.Bubble_Alphabets = cc.Layer.extend({
     },
     
    playerDie : function (tilex,tiley,type,float){
-        //    if(type!=0)
-        //    this.playAnimationParticle(tilex,tiley);
-        // console.log("matched bubble : "+float);
-     
-     //   this.animationBubbleBlast(bubbleName[tilex][tiley],type);
        
+     //   this.animationBubbleBlast(bubbleName[tilex][tiley],type);       
         this.removeChild(this.bubbleName[tilex][tiley]);
-       
         
     },
     

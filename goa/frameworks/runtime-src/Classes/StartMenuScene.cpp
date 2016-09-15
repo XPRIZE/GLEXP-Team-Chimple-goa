@@ -24,6 +24,7 @@
 #include "mini_games/Wembley.h"
 #include "mini_games/CatGameScene.h"
 #include "scripting/js-bindings/manual/ScriptingCore.h"
+#include "mini_games/AlphamoleLevel.h"
 
 
 USING_NS_CC;
@@ -104,8 +105,9 @@ void StartMenu::startScene(std::string gameName, std::string firstParam, std::st
         ScriptingCore::getInstance()->runScript("start/train.js");
     } else if (gameName == STORY_TELLING) {
         ScriptingCore::getInstance()->runScript("start/storytelling.js");
-    }
-    else {
+    } else if (gameName == ALPHAMOLE) {
+		Director::getInstance()->replaceScene(AlphamoleLevel::createScene());
+	} else{
         CCLOG("Failed starting scene: %s", gameName.c_str());
     }
 }

@@ -27,7 +27,7 @@ xc.playLayer = cc.Layer.extend( {
         this.size = cc.winSize;
         cc.spriteFrameCache.addSpriteFrames(xc.playLayer.res.jump_plist);
 
-         this.char = ccs.load(xc.playLayer.res.char,xc.path);
+        this.char = ccs.load(xc.playLayer.res.char,xc.path);
         this.char.node.setPosition(cc.p(this.size.width - 2450,this.size.height-950));
         this.addChild(this.char.node,1);
 
@@ -45,7 +45,7 @@ xc.playLayer = cc.Layer.extend( {
        
         
         
-        var ball1 = this.bg.node.getChildByName("ball_34");
+        var ball1 = this.bg.node.getChildByName("ball_34_0");
         ball1.id = "Ball1";
         this.ballref.push(ball1.getPosition());
         cc.eventManager.addListener(cc.EventListener.create(  
@@ -53,7 +53,7 @@ xc.playLayer = cc.Layer.extend( {
          swallowTouches:true,  
          onTouchBegan: this.onTouchBegan,}) , ball1); 
 
-        var ball2 = this.bg.node.getChildByName("ball_35");
+        var ball2 = this.bg.node.getChildByName("ball_35_0");
         ball2.id = "Ball2";
         this.ballref.push(ball2.getPosition());
         cc.eventManager.addListener(cc.EventListener.create(  
@@ -61,7 +61,7 @@ xc.playLayer = cc.Layer.extend( {
          swallowTouches:true,  
          onTouchBegan: this.onTouchBegan,}) , ball2); 
 
-        var ball3 = this.bg.node.getChildByName("ball_36");
+        var ball3 = this.bg.node.getChildByName("ball_35");
         ball3.id = "Ball3";
         this.ballref.push(ball3.getPosition());
         cc.eventManager.addListener(cc.EventListener.create(  
@@ -69,7 +69,7 @@ xc.playLayer = cc.Layer.extend( {
          swallowTouches:true,  
          onTouchBegan: this.onTouchBegan,}) , ball3); 
 
-        var ball4 = this.bg.node.getChildByName("ball_37");
+        var ball4 = this.bg.node.getChildByName("ball_34");
         ball4.id = "Ball4";
         this.ballref.push(ball4.getPosition());
         cc.eventManager.addListener(cc.EventListener.create(  
@@ -77,7 +77,7 @@ xc.playLayer = cc.Layer.extend( {
          swallowTouches:true,  
          onTouchBegan: this.onTouchBegan,}) , ball4); 
 
-        var ball5 = this.bg.node.getChildByName("ball_38");
+        var ball5 = this.bg.node.getChildByName("ball_34_1");
         ball5.id = "Ball5";
         this.ballref.push(ball5.getPosition());
         cc.eventManager.addListener(cc.EventListener.create(  
@@ -85,13 +85,47 @@ xc.playLayer = cc.Layer.extend( {
          swallowTouches:true,  
          onTouchBegan: this.onTouchBegan,}) , ball5); 
 
-        var ball6 = this.bg.node.getChildByName("ball_44");
+        var ball6 = this.bg.node.getChildByName("ball_35_1");
         ball6.id = "Ball6";
         this.ballref.push(ball6.getPosition());
         cc.eventManager.addListener(cc.EventListener.create(  
         {event: cc.EventListener.TOUCH_ONE_BY_ONE,
          swallowTouches:true,  
          onTouchBegan: this.onTouchBegan,}) , ball6); 
+
+        var ball7 = this.bg.node.getChildByName("ball_35_0_0");
+        ball7.id = "Ball7";
+        this.ballref.push(ball7.getPosition());
+        cc.eventManager.addListener(cc.EventListener.create(  
+        {event: cc.EventListener.TOUCH_ONE_BY_ONE,
+         swallowTouches:true,  
+         onTouchBegan: this.onTouchBegan,}) , ball7); 
+
+         var ball8 = this.bg.node.getChildByName("ball_34_0_0");
+        ball8.id = "Ball8";
+        this.ballref.push(ball8.getPosition());
+        cc.eventManager.addListener(cc.EventListener.create(  
+        {event: cc.EventListener.TOUCH_ONE_BY_ONE,
+         swallowTouches:true,  
+         onTouchBegan: this.onTouchBegan,}) , ball8); 
+
+        var ball9 = this.bg.node.getChildByName("ball_8");
+        ball9.id = "Ball9";
+        this.ballref.push(ball9.getPosition());
+        cc.eventManager.addListener(cc.EventListener.create(  
+        {event: cc.EventListener.TOUCH_ONE_BY_ONE,
+         swallowTouches:true,  
+         onTouchBegan: this.onTouchBegan,}) , ball9); 
+
+        var ball10 = this.bg.node.getChildByName("ball_9");
+        ball10.id = "Ball10";
+        this.ballref.push(ball10.getPosition());
+        cc.eventManager.addListener(cc.EventListener.create(  
+        {event: cc.EventListener.TOUCH_ONE_BY_ONE,
+         swallowTouches:true,  
+         onTouchBegan: this.onTouchBegan,}) , ball10); 
+
+        
 
         var wrong = this.bg.node.getChildByName("cross_button_33");
         wrong.id="Wrong";
@@ -115,20 +149,37 @@ xc.playLayer = cc.Layer.extend( {
          onTouchBegan: this.onTouchBegan,}) , hint); 
 
 
-        var square1 =new cc.Sprite(cc.spriteFrameCache.getSpriteFrame("jump_on_words/box.png"));
-        square1.setPosition(cc.p(this.ballref[1].x,this.ballref[1].y+260));
-        this.addChild(square1,1);
+        var square1 = this.bg.node.getChildByName("box_10");
         this.square.push(square1.getPosition());
 
-        var square2 =new cc.Sprite(cc.spriteFrameCache.getSpriteFrame("jump_on_words/box.png"));
-        square2.setPosition(cc.p(this.ballref[2].x+150,this.ballref[2].y+260));
-        this.addChild(square2,1);
+        var square2 = this.bg.node.getChildByName("box_11");
         this.square.push(square2.getPosition());
 
-        var square3 =new cc.Sprite(cc.spriteFrameCache.getSpriteFrame("jump_on_words/box.png"));
-        square3.setPosition(cc.p(this.ballref[4].x,this.ballref[3].y+260));
-        this.addChild(square3,1);
+        var square3 = this.bg.node.getChildByName("box_10_0");
         this.square.push(square3.getPosition());
+
+        var square4 = this.bg.node.getChildByName("box_11_0");
+        this.square.push(square4.getPosition());
+
+        var square5 = this.bg.node.getChildByName("box_10_1");
+        this.square.push(square5.getPosition());
+
+        var square6 = this.bg.node.getChildByName("box_11_1");
+        this.square.push(square6.getPosition());
+
+        var square7 = this.bg.node.getChildByName("box_10_0_0");
+        this.square.push(square7.getPosition());
+
+        var square8 = this.bg.node.getChildByName("box_11_0_0");
+        this.square.push(square8.getPosition());
+
+        var square9 = this.bg.node.getChildByName("box_10_1_0");
+        this.square.push(square9.getPosition());
+
+        var square10 = this.bg.node.getChildByName("box_11_1_0");
+        this.square.push(square10.getPosition());
+
+      
 
         scoreLabel = new cc.LabelTTF(''+this.score,'Arial', 100 );
         scoreLabel.x =cc.winSize.width - 1380;
@@ -176,7 +227,7 @@ xc.playLayer = cc.Layer.extend( {
         this.consonants = ['B','C','D','F','G','H','J','K','L','M','N','P','Q','R','S','T','V','W','X','Y','Z'];
         this.vowels = ['A','E','I','O','U'];
 
-        this.createLevel();
+       this.createLevel();
          this.scheduleUpdate();
         self=this;
     },
@@ -197,8 +248,8 @@ xc.playLayer = cc.Layer.extend( {
      },
      createLevel : function(){
 
-      group =  this.generateRandomLetters(6,this.array);
-      for( var i=0; i<6 ;i++){
+      group =  this.generateRandomLetters(10,this.array);
+      for( var i=0; i<10 ;i++){
       var alpha = cc.LabelTTF.create(group[i], "res/fonts/Marker Felt.ttf", 130);
       this.addChild(alpha);
       alpha.setPosition(cc.p(this.ballref[i].x,this.ballref[i].y));
@@ -213,8 +264,8 @@ xc.playLayer = cc.Layer.extend( {
         {
             this.string += group[i];
         }
-      dict =  xc.WordUtil.getValidCombinations(this.string.toLowerCase());
-  // dict = ["abc","dsa","cba","bda","hsf"];
+    // dict =  xc.WordUtil.getValidCombinations(this.string.toLowerCase());
+     dict = ["abc","dsa","cba","bda","hsf"];
         for(var i=0; i < dict.length ;i++)
          {   if(dict[i].length == 3)
              {
