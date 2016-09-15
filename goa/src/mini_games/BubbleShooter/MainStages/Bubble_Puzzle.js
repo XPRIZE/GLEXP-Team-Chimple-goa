@@ -264,7 +264,11 @@ xc.Bubble_Puzzle = cc.Layer.extend({
      
     gunMove : function(x,y){
         // console.log("done 276");
-        this.onMouseMove(x , y);
+        var xPosi = 0;
+        if (cc.director.getWinSize().width > 2560){
+            xPosi = cc.director.getWinSize().width - 2560;
+        }
+        this.onMouseMove(x+xPosi , y);
         console.log("x and y : "+x +"  "+ y);
          if (this.gamestate == this.gamestates.ready) {
                  this.shootBubble(); 

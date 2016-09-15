@@ -10,6 +10,11 @@ xc.BubbleGame_HomeScreenMenu = cc.Layer.extend({
         var gameMenu = ccs.load(xc.BubbleGame_HomeScreenMenu.res.bubbleShooter_mainMenu_json,xc.path);
         this.addChild(gameMenu.node);
         
+        if (cc.director.getWinSize().width > 2560){
+            var xPosi = cc.director.getWinSize().width - 2560;
+            gameMenu.node.x = xPosi/2;
+        }
+        
         var titleMainGame = new cc.LabelTTF("Bubble Shooter Game","res/fonts/Marker Felt.ttf",275);
         titleMainGame.setPosition(cc.director.getWinSize().width*0.5,cc.director.getWinSize().height*0.8);                      
         this.addChild(titleMainGame);

@@ -4,7 +4,7 @@ xc.Bubble_Alphabets = cc.Layer.extend({
   ctor:function () {
   
    this._super();
-   imageSprite = ['bubble_shooter/red_ball','bubble_shooter/green_ball','bubble_shooter/yellow_ball','bubble_shooter/purple_ball','bubble_shooter/blue_ball','bubble_shooter/orange_ball'];
+   imageSprite = ['bubble_shooter/red_ball','bubble_shooter/green_ball','bubble_shooter/yellow_ball','bubble_shooter/purple_ball','bubble_shooter/blue_ball','bubble_shooter/orange_ball',"bubble_shooter/yellow_ball","bubble_shooter/blue_ball"];
 
    var ScreenMenu = ccs.load(xc.BubbleGame_HomeScreenMenu.res.bubbleShooter_gameMenu_json,xc.path);
    this.addChild(ScreenMenu.node);
@@ -13,7 +13,7 @@ xc.Bubble_Alphabets = cc.Layer.extend({
         xPosi = cc.director.getWinSize().width - 2560;
         ScreenMenu.node.x = xPosi/2;
     }
-
+    var englishLetter = goa.TextGenerator.getInstance().getAllChars();
     console.log("the height and width : "+cc.director.getWinSize().height+"      "+cc.director.getWinSize().width);
     this.textHitsLabel = new cc.LabelTTF("Hits : 0","res/fonts/Marker Felt.ttf",75);
     this.textHitsLabel.setPosition(cc.director.getWinSize().width*0.87,cc.director.getWinSize().height*0.975);                      
@@ -270,7 +270,6 @@ xc.Bubble_Alphabets = cc.Layer.extend({
   },
   
     update : function (dt) {
-           
          // Render player bubble
         if(!(this.gamestate == this.gamestates.gameComplete)){
             // console.log("the value of gameOver condition is : "+ this.gamestate + " the value of complete game is : "+this.gamestates.gameComplete);
@@ -281,7 +280,7 @@ xc.Bubble_Alphabets = cc.Layer.extend({
         } 
         else if (this.gamestate == this.gamestates.shootbubble) {
             // Bubble is moving
-            this.stateShootBubble();
+            this.stateShootBubble(dt);
            
         }else if (this.gamestate == this.gamestates.removecluster && (!killBubble)) {
             // Remove cluster and drop tiles
@@ -293,7 +292,11 @@ xc.Bubble_Alphabets = cc.Layer.extend({
      
     gunMove : function(x,y){
         // console.log("done 276");
-        this.onMouseMove(x , y);
+        var xPosi = 0;
+        if (cc.director.getWinSize().width > 2560){
+            xPosi = cc.director.getWinSize().width - 2560;
+        }
+        this.onMouseMove(x+xPosi , y);
         console.log("x and y : "+x +"  "+ y);
          if (this.gamestate == this.gamestates.ready) {
                  this.shootBubble(); 
@@ -443,12 +446,12 @@ xc.Bubble_Alphabets = cc.Layer.extend({
         // this.addChild(this.letterPlayer);
     },
        
-    stateShootBubble : function(){
+    stateShootBubble : function(dt){
      
         // Bubble is moving
         // Move the bubble in the direction of the mouse
-        this.player.bubble.x += 0.02490099999977974 * this.player.bubble.speed * Math.cos(this.degToRad(this.player.bubble.angle));
-        this.player.bubble.y += 0.02490099999977974 * this.player.bubble.speed * -1 * Math.sin(this.degToRad(this.player.bubble.angle));
+        this.player.bubble.x += dt * this.player.bubble.speed * Math.cos(this.degToRad(this.player.bubble.angle));
+        this.player.bubble.y += dt * this.player.bubble.speed * -1 * Math.sin(this.degToRad(this.player.bubble.angle));
         
         if (this.player.bubble.visible) {
             
@@ -814,60 +817,11 @@ xc.Bubble_Alphabets = cc.Layer.extend({
      
     },
         
-       DataCard : function (gamestatus){
-    console.log("gamestatus : "+gamestatus + " -------------- ");
+   DataCard : function (gamestatus){
+       console.log("gamestatus : "+gamestatus + " -------------- ");
        var level = levelValues;
        xc.GameScene.load(xc.BubbleGame_HomeScreenMenu);
-   //     if(soundFlagName != "numbers" && levelValues == 12){
-   //         level = 0;
-    //    }else if(soundFlagName == "numbers" && levelValues == 8){
-     //       level = 0;
-      //  }
-        // console.log("845");
-        this.bg1 = new cc.Sprite(cc.spriteFrameCache.getSpriteFrame("Trans_Image.png"));
-        this.bg1.setPosition(cc.director.getWinSize().width/2,cc.director.getWinSize().height/2);
-        this.addChild(this.bg1,6);
-        
-        if(gamestatus == "complete"){
-            this.CompleteText = new cc.Sprite(cc.spriteFrameCache.getSpriteFrame("Level_Complete.png"));
-            this.CompleteText.setPosition(cc.director.getWinSize().width/2,cc.director.getWinSize().height * 0.7265625);
-            this.addChild(this.CompleteText,6);
-            
-            this.Stars = new cc.Sprite(cc.spriteFrameCache.getSpriteFrame("starGame2.png"));
-            this.Stars.setPosition(cc.director.getWinSize().width/2,cc.director.getWinSize().height * 0.59375);
-            this.addChild(this.Stars,6);
-                
-            this.buttonNext = new ClickedButtonToRedirect("Next_Button.png","",(level+1));
-            this.buttonNext.setPosition(cc.director.getWinSize().width/2,cc.director.getWinSize().height * 0.453125);
-            this.addChild(this.buttonNext,6);
-            
-            this.buttonRetry = new ClickedButtonToRedirect("Retry_Button.png","",(level));
-            this.buttonRetry.setPosition(0.35 * cc.director.getWinSize().width,cc.director.getWinSize().height * 0.33);
-            this.addChild(this.buttonRetry,6);
-            
-            this.buttonMenu = new ClickedButtonToRedirect("Menu_Button.png","menuScreen");
-            this.buttonMenu.setPosition(0.65 * cc.director.getWinSize().width,cc.director.getWinSize().height * 0.33);
-            this.addChild(this.buttonMenu,6);
-
-        }else{
-            
-            this.CompleteText = new cc.Sprite(cc.spriteFrameCache.getSpriteFrame("Level_Failed.png"));
-            this.CompleteText.setPosition(cc.director.getWinSize().width/2,cc.director.getWinSize().height * 0.7265625);
-            this.addChild(this.CompleteText,6);
-            
-            this.Stars = new cc.Sprite(cc.spriteFrameCache.getSpriteFrame("starGame1.png"));
-            this.Stars.setPosition(cc.director.getWinSize().width/2,cc.director.getWinSize().height * 0.59375);
-            this.Stars.color = new cc.color(38,38,38);
-            this.addChild(this.Stars,6);
-            
-            this.buttonRetry = new ClickedButtonToRedirect("Retry_Button.png","",(level));
-            this.buttonRetry.setPosition(0.35 * cc.director.getWinSize().width,cc.director.getWinSize().height * 0.375);
-            this.addChild(this.buttonRetry,6);
-            
-            this.buttonMenu = new ClickedButtonToRedirect("Menu_Button.png","menuScreen");
-            this.buttonMenu.setPosition(0.65 * cc.director.getWinSize().width,cc.director.getWinSize().height * 0.375);
-            this.addChild(this.buttonMenu,6);
-        }
+  
     },
     
    playerDie : function (tilex,tiley,type,float){
