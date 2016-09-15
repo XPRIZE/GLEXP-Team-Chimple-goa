@@ -62,8 +62,11 @@ public class AssetInstaller {
 			File storageDir = new File(context.getExternalFilesDir(null).getPath() + "/" + "projects.zip");
 	
 			System.out.println("storage project file:" + storageDir.getAbsolutePath());
+			Log.d("Storage", "storage project file:" + storageDir.getAbsolutePath());
+
 	        boolean created = storageDir.createNewFile();
 	        if(created) {
+				Log.d("projects.zip", "scucessfully created storage project file:" + storageDir.getAbsolutePath());
 	        	System.out.println("scucessfully created storage project file:" + storageDir.getAbsolutePath());
 	        }
 	
@@ -86,6 +89,7 @@ public class AssetInstaller {
 		int read;
 		while ((read = in.read(buffer)) != -1) {
 			out.write(buffer, 0, read);
+			System.out.println("WRITING....");
 		}
 	}
 

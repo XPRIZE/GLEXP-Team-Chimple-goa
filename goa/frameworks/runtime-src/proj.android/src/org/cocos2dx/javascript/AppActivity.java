@@ -190,28 +190,30 @@ public class AppActivity extends Cocos2dxActivity  implements OnClickListener, O
 
 	private static void showCustomDialog(Context context, final int posX, final int posY, final int hGravity, final int vGravity) {
 		// custom dialog
+		String tag = "showCustomDialog";
+		Log.d(tag, "Showing 111 showCustomDialog");
 		dialog = new Dialog(context);
 		dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
 		dialog.getWindow().setBackgroundDrawable(new ColorDrawable(android.graphics.Color.TRANSPARENT));
-
+		Log.d(tag, "Showing 2222 showCustomDialog");
 		WindowManager.LayoutParams wmlp = dialog.getWindow().getAttributes();
 		wmlp.gravity = hGravity| vGravity;
 		wmlp.x = posX; // x position
 		wmlp.y = posY; // y position
-
+		Log.d(tag, "Showing 33333 showCustomDialog");
 		canvasView = new CanvasView(_context, _appActivity);
-
+		Log.d(tag, "Showing 44444 showCustomDialog");
 		main = new LinearLayout(_activity);
 		main.setOrientation(LinearLayout.VERTICAL);
 		main.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT,
 				LinearLayout.LayoutParams.MATCH_PARENT));
-
+		Log.d(tag, "Showing 5555 showCustomDialog");
 		topLayout = new RelativeLayout(_activity);
 		topLayout.setLayoutParams(
 				new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.MATCH_PARENT));
 		topLayout.setBackgroundColor(Color.WHITE);
 		
-
+		Log.d(tag, "Showing 666 showCustomDialog");
 		cenerLayout = new LinearLayout(_activity);
 		cenerLayout.setOrientation(LinearLayout.HORIZONTAL);
 		LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT,
@@ -220,13 +222,15 @@ public class AppActivity extends Cocos2dxActivity  implements OnClickListener, O
 		cenerLayout.setLayoutParams(params);
 		cenerLayout.setBackgroundColor(Color.WHITE);
 		cenerLayout.addView(canvasView);
-
+		Log.d(tag, "Showing 777 showCustomDialog");
 		main.setAlpha(0.5f);
 		main.addView(cenerLayout);
 		main.addView(topLayout);
 		dialog.setContentView(main);		
 		dialog.getWindow().setLayout(width, height);
+		Log.d(tag, "Showing 888 showCustomDialog");
 		dialog.show();
+		Log.d(tag, "Showing 999 showCustomDialog");
 	}	
 
 public static void drawCanvas(final int posX, final int posY, final int hGravity, final int vGravity){
@@ -236,6 +240,8 @@ public static void drawCanvas(final int posX, final int posY, final int hGravity
 
 		_activity.runOnUiThread(new Runnable() {
 			public void run() {
+				String tag1 = "UI RUN";
+				Log.d(tag1, "Showing alert in RUN Method on UI Thread");				
 				showCustomDialog(_activity, posX, posY, hGravity, vGravity);
 			}
 		});

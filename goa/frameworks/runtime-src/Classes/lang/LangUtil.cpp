@@ -31,6 +31,12 @@ LangUtil* LangUtil::getInstance() {
         while (std::getline(stream, line)) {
             _instance->_wordList.push_back(line);
         }
+        auto sss = FileUtils::getInstance()->getStringFromFile(_instance->getDir() + "/sentences.txt");
+        std::stringstream sstream(sss);
+        std::string sline;
+        while (std::getline(sstream, sline)) {
+            _instance->_sentenceList.push_back(sline);
+        }
     }
     return _instance;
 }
@@ -48,6 +54,10 @@ wchar_t LangUtil::convertStringToUTF16Char(std::string alphaString) {
 
 std::string LangUtil::getAWord() {
     return _wordList.at(rand() % _wordList.size());
+}
+
+std::string LangUtil::getASentence() {
+    return _sentenceList.at(rand() % _sentenceList.size());
 }
 
 

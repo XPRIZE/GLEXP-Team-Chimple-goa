@@ -61,11 +61,21 @@ bool Alphamole::init(wchar_t letter)
 	Size visibleSize = Director::getInstance()->getVisibleSize();
 	Vec2 origin = Director::getInstance()->getVisibleOrigin();
 	_score = 0;
+	_Xpos = 0.0f;
 	_randomBackground = cocos2d::RandomHelper::random_int(0, 4);
 	std::vector<std::string> background = { "alphamole1_background", "alphamole2_background", "alphamole3_background", "alphamole4_background", "alphamole5_background" };
 	std::vector<std::string> foreground = { "alphamole1_foreground", "alphamole2_foreground", "alphamole3_foreground", "alphamole4_foreground", "alphamole5_foreground" };
 	_background = CSLoader::createNode("alphamole/"+ background.at(_randomBackground)+".csb");
+	if (visibleSize.width > 2560) {
+		_Xpos = (visibleSize.width - 2560) / 2;
+		_background->setPositionX(_Xpos);
+	}
 	this->addChild(_background);
+
+	auto scoreBord = _background->getChildByName("score_1");
+	float x = scoreBord->getPositionX();
+	scoreBord->setPositionX(x - _Xpos);
+
 
 	/*auto children = _background->getChildren();
 
@@ -87,6 +97,9 @@ bool Alphamole::init(wchar_t letter)
 	this->addChild(_alphabetLayer);
 	if (_randomBackground != 1) {
 		auto front = CSLoader::createNode("alphamole/" + foreground.at(_randomBackground) + ".csb");
+		if (visibleSize.width > 2560) {
+			front->setPositionX(_Xpos);
+		}
 		this->addChild(front);
 	}
 	
@@ -95,11 +108,11 @@ bool Alphamole::init(wchar_t letter)
 	ss << _score;
 	std::string str = ss.str();
 	_score_label = Label::createWithSystemFont("  Score: " + str, "Arial", 90);
-	_score_label->setPositionX(20);
-	_score_label->setPositionY(visibleSize.height - _score_label->getContentSize().height/2);
-	_score_label->setAnchorPoint(Vec2(0, 1));
+	/*_score_label->setPositionX(20);
+	_score_label->setPositionY(visibleSize.height - _score_label->getContentSize().height/2);*/
+	_score_label->setAnchorPoint(Vec2(0, 0));
 	_score_label->setColor(ccc3(0, 0, 0));
-	this->addChild(_score_label);
+	scoreBord->addChild(_score_label);
 
 	//_mainChar = mainChar;
 	/*Play2_Hole_Close_9
@@ -143,10 +156,16 @@ void Alphamole::showAlpha(float ft)
 		auto child = _background->getChildByName(holes.at(cocos2d::RandomHelper::random_int(0, 2)));
 		float x = child->getPositionX();
 		float y = child->getPositionY();
-		_monsterReff->setPositionX(x);
+		_monsterReff->setPositionX(x + _Xpos);
 		_monsterReff->setPositionY(y - 600);
-		_monsterReff->setScaleX(0.85);
-		_monsterReff->setScaleY(0.85);
+		if (LangUtil::getInstance()->getLang() == "kan") {
+			_monsterReff->setScaleX(0.65);
+			_monsterReff->setScaleY(0.65);
+		}
+		else {
+			_monsterReff->setScaleX(0.85);
+			_monsterReff->setScaleY(0.85);
+		}
 		_alphabetLayer->addChild(_monsterReff);
 		_monsterReff->blinkAction();
 		auto jump = JumpBy::create(1, Vec2(0, 0), 700, 1);
@@ -176,10 +195,16 @@ void Alphamole::leafOpen(float ft)
 		_leaf_openRff->setVisible(true);
 		_leaf_closeRff = _background->getChildByName(close_leaf_name.at(random_leaf).c_str());
 		_leaf_closeRff->setVisible(false);
-		_monsterReff->setPositionX(_leaf_closeRff->getPositionX());
+		_monsterReff->setPositionX(_leaf_closeRff->getPositionX() + _Xpos);
 		_monsterReff->setPositionY(_leaf_closeRff->getPositionY() - 75);
-		_monsterReff->setScaleX(0.85);
-		_monsterReff->setScaleY(0.85);
+		if (LangUtil::getInstance()->getLang() == "kan") {
+			_monsterReff->setScaleX(0.65);
+			_monsterReff->setScaleY(0.65);
+		}
+		else {
+			_monsterReff->setScaleX(0.85);
+			_monsterReff->setScaleY(0.85);
+		}
 		_alphabetLayer->addChild(_monsterReff);
 		_monsterReff->blinkAction();
 		_eventDispatcher->addCustomEventListener("alphamon_pressed", CC_CALLBACK_1(Alphamole::onAlphabetSelect, this));

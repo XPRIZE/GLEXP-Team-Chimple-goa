@@ -24,6 +24,7 @@ public:
 	static cocos2d::Scene* createScene(wchar_t letter);
 	virtual bool init(wchar_t letter);
 protected:
+	float _Xpos;
 	int _score;
 	int _randomBackground;
 	cocos2d::Label * _score_label;
