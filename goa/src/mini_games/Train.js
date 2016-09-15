@@ -218,11 +218,11 @@ xc.TrainLayer = cc.Layer.extend({
                 this.addChild(railwaytrack, 1);
                 
                 if(col==3)
-                    railwaytrack.setScaleX(1.5);
+                    railwaytrack.setScaleX(2);
                 if(col==2)
-                    railwaytrack.setScaleX(2.5);
+                    railwaytrack.setScaleX(3);
                 if(col==1)
-                    railwaytrack.setScaleX(5.2);
+                    railwaytrack.setScaleX(6.5);
                     
 
             for (var j = 0; j < col; j++) {
@@ -255,11 +255,11 @@ xc.TrainLayer = cc.Layer.extend({
                 });
                 this.addChild(railwaytrack, 1);
                 if(col==3)
-                    railwaytrack.setScaleX(2);
+                    railwaytrack.setScaleX(2.5);
                 if(col==2)
-                    railwaytrack.setScaleX(3.5);
-                if(col==1)
                     railwaytrack.setScaleX(5);
+                if(col==1)
+                    railwaytrack.setScaleX(6);
 
                 tunnel_front_sprite.push(tunnel_front);
                 tunnel_back_sprite.push(tunnel_back);
@@ -332,19 +332,19 @@ xc.TrainLayer = cc.Layer.extend({
                         {
                             layer1.setVisible(false);
                         }
-                        var move = new cc.MoveTo(4, cc.p(position[char].x, position[char].y));
+                        var move = new cc.MoveTo(5, cc.p(position[char].x, position[char].y));
                         randomLetter[i].runAction(new cc.Sequence(move, new cc.CallFunc(layerVisible, self))); 
                     }
                     else
                     {
-                        randomLetter[i].runAction(new cc.MoveTo(4, cc.p(position[char].x, position[char].y)));
+                        randomLetter[i].runAction(new cc.MoveTo(5, cc.p(position[char].x, position[char].y)));
                     }
                     position.splice(position.indexOf(position[char]), 1);
                     i++;
                 }
             }
             
-        }, 2000);
+        }, 3000);
     }
 
 });
