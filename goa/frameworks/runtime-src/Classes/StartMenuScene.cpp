@@ -105,10 +105,9 @@ void StartMenu::startScene(std::string gameName, std::string firstParam, std::st
         ScriptingCore::getInstance()->runScript("start/train.js");
     } else if (gameName == STORY_TELLING) {
         ScriptingCore::getInstance()->runScript("start/storytelling.js");
-    }
-    else if (gameName == ALPHAMOLE) {
+    } else if (gameName == ALPHAMOLE) {
 		Director::getInstance()->replaceScene(AlphamoleLevel::createScene());
-	} {
+	} else{
         CCLOG("Failed starting scene: %s", gameName.c_str());
     }
 }
