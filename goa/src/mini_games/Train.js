@@ -20,12 +20,15 @@ xc.TrainLayer = cc.Layer.extend({
     repeatForeverAction: null,
     transLayer : null,
     layer1 : null,
+    gameName: null,
 
     ctor: function () {
         this._super();
 
         size = cc.winSize;
         self = this;
+
+        gameName = "train";
 
         tunnel_front_sprite = new Array();
         tunnel_back_sprite = new Array();
@@ -47,7 +50,7 @@ xc.TrainLayer = cc.Layer.extend({
         var layerListener = cc.EventListener.create({
             event : cc.EventListener.TOUCH_ONE_BY_ONE,
             swallowTouches : true,
-            
+
             onTouchBegan : function(touch, event)
             {
                 return true;
@@ -71,7 +74,7 @@ xc.TrainLayer = cc.Layer.extend({
                         target.selected = 1;
                         target.setScale(1);
                         target.setPosition(target.xP, target.yP);
-                        
+
                         if (wordPosition % 3 != 0) {
                             var scaleAnimation = function () {
                                 var increase = new cc.ScaleTo(1, 1.4);
@@ -97,8 +100,17 @@ xc.TrainLayer = cc.Layer.extend({
                                 var target_Action = new cc.MoveTo(1, cc.p(tunnel_front_sprite[wordPosition - 1].getPositionX(), tunnel_front_sprite[wordPosition - 1].getPositionY()));
 
                                 var train_Action_function = function () {
+                                    
+                                    var gameOver = function()
+                                    {
+                                            if (cc.sys.isNative) {
+                                            var menuContext = this.getParent().menuContext;
+                                            cc.log("showscore");
+                                            menuContext.showScore();
+                                            }
+                                    };                                    
                                     var train_Action = new cc.MoveTo(1.5, cc.p(size.width * 1.20, train.getPositionY()))
-                                    train.runAction(train_Action);
+                                    train.runAction(new cc.Sequence(train_Action, new cc.CallFunc(gameOver, this)));
                                 };
                             }
                             target.runAction(new cc.Sequence(target_Action, new cc.CallFunc(train_Action_function, this)));
@@ -137,14 +149,19 @@ xc.TrainLayer = cc.Layer.extend({
                             else if (wordPosition == random) {
                                 var target_Action = new cc.MoveTo(1, cc.p(tunnel_front_sprite[wordPosition - 1].getPositionX(), tunnel_front_sprite[wordPosition - 1].getPositionY()));
 
+                                var train_Action_function = function () {
+                                    
                                 var gameOver = function()
                                 {
-                                    console.log("done");
+                                        if (cc.sys.isNative) {
+                                        var menuContext = this.getParent().menuContext;
+                                        cc.log("showscore");
+                                        menuContext.showScore();
+                                        }
                                 };
-
-                                var train_Action_function = function () {
+                                    
                                     var train_Action = new cc.MoveTo(1.5, cc.p(size.width * 130 / 100, final_tunnel.getPositionY()))
-                                    train.runAction(new Sequence(train_Action, new cc.CallFunc(gameOver, this)) );
+                                    train.runAction(new cc.Sequence(train_Action, new cc.CallFunc(gameOver, this)));
                                 };
 
                                 target.runAction(new cc.Sequence(target_Action, new cc.CallFunc(train_Action_function, this)));
@@ -153,12 +170,12 @@ xc.TrainLayer = cc.Layer.extend({
                     }
                     else if(target.selected==0 && !(layer1.isVisible())){
                         layer1.setVisible(true);
-                        
+
                         var removeLayer = function()
                         {
                             layer1.setVisible(false);
                         };
-                        
+
                         var increase = new cc.MoveTo(1, cc.p(target.getPositionX() + size.width * .10, target.getPositionY() + size.height * .10));
                         var decrease = new cc.MoveTo(1, cc.p(target.xP, target.yP));
 
@@ -181,14 +198,8 @@ xc.TrainLayer = cc.Layer.extend({
         });
         this.addChild(background.node);
 
-        if (cc.sys.isNative) {
-            var menuContext = goa.MenuContext.create(this.layer, "dummy");
-//            this.addChild(menuContext);
-//            menuContext.showScore();
-        }
-
 //        sentence = goa.TextGenerator.getInstance().generateASentence();
-
+    sentence = ["A", "how", "are"];
         random = sentence.length //Math.floor(Math.random() * 7) + 3;
         var row = 0, temp = random;
 
@@ -225,14 +236,14 @@ xc.TrainLayer = cc.Layer.extend({
                     anchorY: .5
                 });
                 this.addChild(railwaytrack, 1);
-                
+
                 if(col==3)
                     railwaytrack.setScaleX(2);
                 if(col==2)
                     railwaytrack.setScaleX(3);
                 if(col==1)
                     railwaytrack.setScaleX(6.5);
-                    
+
 
             for (var j = 0; j < col; j++) {
                 var tunnel_front = new cc.Sprite(cc.spriteFrameCache.getSpriteFrame("train/tunnel_front.png"));
@@ -244,7 +255,7 @@ xc.TrainLayer = cc.Layer.extend({
                 });
                 this.addChild(tunnel_front, 1);
                 tunnel_front.selected = 0;
-                
+
                 var tunnel_back = new cc.Sprite(cc.spriteFrameCache.getSpriteFrame("train/tunnel_back.png"));
                 tunnel_back.attr({
                     x: tunnel_front.getPositionX() + tunnel_front.getBoundingBox().width / 2,
@@ -322,17 +333,17 @@ xc.TrainLayer = cc.Layer.extend({
         var decrease = new cc.ScaleTo(1, 1);
         var delay = new cc.DelayTime(3);
         repeatForeverAction = new cc.RepeatForever(new cc.Sequence(increase, decrease, delay));
-        randomLetter[0].runAction(repeatForeverAction);  
-        
-        var sentense_string = sentence.slice();  
-        
+        randomLetter[0].runAction(repeatForeverAction);
+
+        var sentense_string = sentence.slice();
+
         setTimeout(function() {
 
             for(var i = 0; i<random; )
             {
                 var char = Math.floor(Math.random() * position.length);
                 if(!(randomLetter[i].xP == position[char].x && randomLetter[i].yP == position[char].y))
-                {                    
+                {
                     randomLetter[i].xP = position[char].x;
                     randomLetter[i].yP = position[char].y;
                     if(i==random-1)
@@ -342,7 +353,7 @@ xc.TrainLayer = cc.Layer.extend({
                             layer1.setVisible(false);
                         }
                         var move = new cc.MoveTo(5, cc.p(position[char].x, position[char].y));
-                        randomLetter[i].runAction(new cc.Sequence(move, new cc.CallFunc(layerVisible, self))); 
+                        randomLetter[i].runAction(new cc.Sequence(move, new cc.CallFunc(layerVisible, self)));
                     }
                     else
                     {
@@ -352,7 +363,7 @@ xc.TrainLayer = cc.Layer.extend({
                     i++;
                 }
             }
-            
+
         }, 3000);
     }
 
