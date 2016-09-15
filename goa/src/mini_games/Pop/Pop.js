@@ -3,6 +3,7 @@
 var xc = xc || {};
 
 xc.PopLayer = cc.Layer.extend({
+    gameName: "pop",
     //sprite: null,
     ctor: function () {
         //////////////////////////////
@@ -185,8 +186,13 @@ xc.PopLayer = cc.Layer.extend({
         console.log(" the value should be length of cloudContainer : "+ this.cloudContainer.length);
         if (this.wordInOrder.length == this.cloudContainer.length) {
             this.removeChild(this.plane.node);
-            xc.GameScene.load(xc.PopLayer);
+            // xc.GameScene.load(xc.PopLayer);
             console.log("GAME OVER");
+            if (cc.sys.isNative) {
+                var menuContext = this.getParent().menuContext;
+                cc.log("showscore");
+                menuContext.showScore();
+            }
         }
     }
 });
