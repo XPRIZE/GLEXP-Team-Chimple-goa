@@ -63,6 +63,8 @@ public class LipiTKJNIInterface {
 	}
 
 	public void initialize() {
+		Log.d("initialize", "initialize _lipiDirectory:" + _lipiDirectory);
+		Log.d("initialize", "initialize _project:" + _project);
 		initializeNative(_lipiDirectory, _project);
 	}
 
