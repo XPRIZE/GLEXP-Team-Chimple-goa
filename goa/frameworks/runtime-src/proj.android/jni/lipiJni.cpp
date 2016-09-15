@@ -34,10 +34,11 @@ void JNICALL Java_org_cocos2dx_javascript_LipiTKJNIInterface_initializeNative(JN
 																 jstring lipiDirectory,
 																 jstring lipiProject)
 {
+	cout << "lipitkLocation 0000" << endl;
 	int result;
-
+	cout << "lipitkLocation 1111" << endl;
 	char* lipitkLocation = (char*)env->GetStringUTFChars(lipiDirectory, NULL);
-
+	cout << "lipitkLocation 222" << endl;
 	string projectStr = string((char*)env->GetStringUTFChars(lipiProject, NULL));
 
 	LTKLipiEngineInterface* lipiEngine = createLTKLipiEngine();

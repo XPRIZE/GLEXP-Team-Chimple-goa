@@ -77,6 +77,7 @@ public class CanvasView extends View implements OnTouchListener {
 		Log.d("JNI", "Path: " + path);
 		System.out.println("JNI Path: " + path);
 		_lipitkInterface = new LipiTKJNIInterface(path, "SHAPEREC_ALPHANUM");
+		System.out.println("calling _lipitkInterface.initialize()");
 		_lipitkInterface.initialize();
 
 		_page = new Page(_lipitkInterface);
