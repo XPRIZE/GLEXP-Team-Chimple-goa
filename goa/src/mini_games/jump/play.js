@@ -10,7 +10,6 @@ xc.playLayer = cc.Layer.extend( {
    stepRef:[],
    list:[],
    dict :[],
-   dict3:[],
    self : null,
    index:0,
    wrongCount:0,
@@ -28,7 +27,7 @@ xc.playLayer = cc.Layer.extend( {
         cc.spriteFrameCache.addSpriteFrames(xc.playLayer.res.jump_plist);
 
         this.char = ccs.load(xc.playLayer.res.char,xc.path);
-        this.char.node.setPosition(cc.p(this.size.width - 2450,this.size.height-950));
+        this.char.node.setPosition(cc.p(this.size.width * 0.06, 780));
         this.addChild(this.char.node,1);
 
         this.bg = ccs.load(xc.playLayer.res.jump_game, xc.path);
@@ -238,6 +237,8 @@ xc.playLayer = cc.Layer.extend( {
          var child = this.getChildByName("step");
         if(cc.rectIntersectsRect(child.getBoundingBox() , this.bg.node.getChildByName("Panel_1").getChildByName("Panel_5").getBoundingBox()))
          {
+          //   this.stepRef.pop();
+          this.stepRef.shift();
              cc.log("done");
              this.removeChild(child);
         
@@ -260,26 +261,23 @@ xc.playLayer = cc.Layer.extend( {
 
        cc.log(group);
       this.string = '';
-        for( var i=0; i< group.length; i++)
+        for( var i=0; i< group.length -6 ; i++)
         {
             this.string += group[i];
         }
-    // dict =  xc.WordUtil.getValidCombinations(this.string.toLowerCase());
-     dict = ["abc","dsa","cba","bda","hsf"];
-        for(var i=0; i < dict.length ;i++)
-         {   if(dict[i].length == 3)
-             {
-                this.dict3.push(dict[i]); 
-             }
-         }
-        cc.log(this.dict3);
+        cc.log(this.string);
+     this.dict =  xc.WordUtil.getValidCombinations(this.string.toLowerCase());
+     this.allwords = cc.loader.getRes(xc.path + "english/allwords.json");
+    // dict = ["abc","dsa","cba","bda","hsf"];
+       
+        cc.log(this.dict);
      },
 
 
      charMove : function()
      {
 
-        var jump = new cc.jumpBy(1,cc.p(500,160),150,1);
+        var jump = new cc.jumpBy(1,cc.p(this.size.width /4 - (cc.winSize.width * 0.06),230),150,1);
         this.char.node.runAction(jump);
 
         var animation = ccs.load(xc.playLayer.res.char,xc.path);
@@ -365,6 +363,7 @@ xc.playLayer = cc.Layer.extend( {
     for(var i=0; i<this.stepRef.length; i++)
      {
         var moveBy = new cc.MoveBy(1, cc.p(0,-600));
+        cc.log(this.stepRef.length);
         this.stepRef[i].runAction(moveBy);
     //     if(cc.rectIntersectsRect(this.getChildByName("step").getBoundingBox() , this.bg.node.getChildByName("Panel_1").getChildByName("Panel_5").getBoundingBox()))
     //  {
@@ -381,7 +380,7 @@ xc.playLayer = cc.Layer.extend( {
   
     verify : function (word)
     {
-        self.correct++;
+       
              var words = '';
      for( var i=0 ; i< word.length ; i++)  {
         
@@ -389,40 +388,45 @@ xc.playLayer = cc.Layer.extend( {
         
      }  
      cc.log("done= %s" , words);
-     for(var i=0 ; i< this.dict3.length ; i++)
-     {   
-       if(this.dict3[i].indexOf(words.toLowerCase()) != -1)
+        if(this.allwords.indexOf(words.toLowerCase()) != -1)
         {
-         cc.log("oooo");
+          
+         cc.log(this.allwords[this.allwords.indexOf(words.toLowerCase())]);
          this.jumping();
-          cc.log( this.dict3.splice( i ,1));
-
+          cc.log( this.allwords.splice( this.allwords.indexOf(words.toLowerCase()) ,1));
+          var dict_index = this.dict.indexOf(words.toLowerCase());
+          if (dict_index != -1){
+              this.dict.splice(dict_index,1);
+          }  
         }    
      else
         {
-         cc.log("aaaa");
+        // cc.log("aaaa");
          
         }     
-     } 
-    for ( var i=0 ; i < 4 ; i++)
-    {
-        this.remove(this.index);
-    }
+     
+   
+this.remove();
     },
 
-   remove : function(index)
+    remove : function()
   {
-        this.removeChild(this.wordObj[(this.index) - 1]);
-        this.wordObj.pop(this.wordObj[(this.index) - 1]);
-        this.word.pop(this.word[(this.index) - 1]);
-        this.index--;  
-        if(this.wordObj.length == 0)
-        {
-            this.index = 0;   
-            cc.eventManager.removeListener(this.wordObj[(this.index) - 1]);
-        }       
-
- },
+      for (var i = 0; i< this.wordObj.length; i++){
+          var child = this.getChildByName("letter");
+          this.removeChild(child);
+      }
+      this.word.splice(0,this.word.length);
+      this.wordObj.splice(0,this.wordObj.length);
+    //     this.removeChild(this.wordObj[(this.index) - 1]);
+    //     this.wordObj.pop(this.wordObj[(this.index) - 1]);
+    //     this.word.pop(this.word[(this.index) - 1]);
+    //     this.index--;  
+    //     if(this.wordObj.length == 0)
+    //     {
+    //         this.index = 0;   
+    //   //      cc.eventManager.removeListener(this.wordObj[(this.index) - 1]);
+    //     }  
+  },    
    
     jumping : function()
     {
@@ -441,8 +445,8 @@ xc.playLayer = cc.Layer.extend( {
      {
          cc.log("hiint");
         this.decrementScore();
-        this.random = Math.floor(Math.random()*(this.dict3.length-1));  
-        var nameLabel = new cc.LabelTTF(this.dict3[this.random].toUpperCase(),"res/fonts/Marker Felt.ttf", 100 );
+        this.random = Math.floor(Math.random()*(this.dict.length-1));  
+        var nameLabel = new cc.LabelTTF(this.dict[this.random].toUpperCase(),"res/fonts/Marker Felt.ttf", 100 );
 		nameLabel.setAnchorPoint(0.5,0.5); 
         nameLabel.x = cc.winSize.width - 1400;
         nameLabel.y = cc.winSize.height - 1200; 
@@ -478,6 +482,7 @@ xc.playLayer = cc.Layer.extend( {
    
      incrementScore : function()
   {
+         self.correct++;
     this.score += 2;
     scoreLabel.setString(""+ this.score);
   
@@ -498,69 +503,126 @@ xc.playLayer = cc.Layer.extend( {
          var targetRectangle = cc.rect(0, 0, targetSize.width, targetSize.height);
          if (cc.rectContainsPoint(targetRectangle, location))
                    {
-                       if(target.id == "Ball1" && self.word.length < 3){ 
+                       if(target.id == "Ball1" && self.word.length < 10){ 
                         var letter = new cc.LabelTTF (group[0], "res/fonts/Marker Felt.ttf", 130);
                         self.addChild(letter,2);
                         letter.setPosition(cc.p(self.square[self.index].x,self.square[self.index].y));
                         letter.setAnchorPoint(0.5,0.5);
-                        letter.setColor(cc.color(0,0,0));
+                        letter.setColor(cc.color(0,0,0)); 
+                         letter.setName("letter");
                         self.index++;
                         self.word.push(group[0]);
                         self.wordObj.push(letter);
                         cc.log("hello =", self.word); 
                        }
-                        if(target.id == "Ball2"&& self.word.length < 3){ 
+                        if(target.id == "Ball2"&& self.word.length < 10){ 
                          var letter =  new cc.LabelTTF(group[1], "res/fonts/Marker Felt.ttf", 130);
                         self.addChild(letter,2);
                         letter.setPosition(cc.p(self.square[self.index].x,self.square[self.index].y));
                         letter.setAnchorPoint(0.5,0.5);
-                        letter.setColor(cc.color(0,0,0));
+                        letter.setColor(cc.color(0,0,0));  
+                        letter.setName("letter");
                         self.index++;
                         self.word.push(group[1]);
                         self.wordObj.push(letter);
                           
                        }
-                        if(target.id == "Ball3"&& self.word.length < 3){ 
+                        if(target.id == "Ball3"&& self.word.length < 10){ 
                          var letter = new cc.LabelTTF(group[2], "res/fonts/Marker Felt.ttf", 130);
                         self.addChild(letter,2);
                         letter.setPosition(cc.p(self.square[self.index].x,self.square[self.index].y));
                         letter.setAnchorPoint(0.5,0.5);
-                        letter.setColor(cc.color(0,0,0));
+                        letter.setColor(cc.color(0,0,0));  
+                        letter.setName("letter");
                         self.index++;
                         self.word.push(group[2]);
                         self.wordObj.push(letter);
                           
                        }
-                        if(target.id == "Ball4"&& self.word.length < 3){ 
+                        if(target.id == "Ball4"&& self.word.length < 10){ 
                          var letter = new cc.LabelTTF(group[3], "res/fonts/Marker Felt.ttf", 130);
                         self.addChild(letter,2);
                         letter.setPosition(cc.p(self.square[self.index].x,self.square[self.index].y));
                         letter.setAnchorPoint(0.5,0.5);
-                        letter.setColor(cc.color(0,0,0));
+                        letter.setColor(cc.color(0,0,0));  
+                        letter.setName("letter");
                         self.index++;
                         self.word.push(group[3]);
                         self.wordObj.push(letter);
                           
                        }
-                        if(target.id == "Ball5"&& self.word.length < 3){ 
+                        if(target.id == "Ball5"&& self.word.length < 10){ 
                          var letter = new cc.LabelTTF(group[4], "res/fonts/Marker Felt.ttf", 130);
                         self.addChild(letter,2);
                         letter.setPosition(cc.p(self.square[self.index].x,self.square[self.index].y));
                         letter.setAnchorPoint(0.5,0.5);
-                        letter.setColor(cc.color(0,0,0));
+                        letter.setColor(cc.color(0,0,0));  
+                        letter.setName("letter");
                         self.index++;
                         self.word.push(group[4]);
                         self.wordObj.push(letter);
                           
                        }
-                        if(target.id == "Ball6"&& self.word.length < 3){ 
+                        if(target.id == "Ball6"&& self.word.length < 10){ 
                         var letter = new cc.LabelTTF(group[5], "res/fonts/Marker Felt.ttf", 130);
                         self.addChild(letter,2);
                         letter.setPosition(cc.p(self.square[self.index].x,self.square[self.index].y));
                         letter.setAnchorPoint(0.5,0.5);
-                        letter.setColor(cc.color(0,0,0));
+                        letter.setColor(cc.color(0,0,0));  
+                        letter.setName("letter");
                         self.index++;
                         self.word.push(group[5]);
+                        self.wordObj.push(letter);
+                     
+                       }
+
+                         if(target.id == "Ball7"&& self.word.length < 10){ 
+                        var letter = new cc.LabelTTF(group[6], "res/fonts/Marker Felt.ttf", 130);
+                        self.addChild(letter,2);
+                        letter.setPosition(cc.p(self.square[self.index].x,self.square[self.index].y));
+                        letter.setAnchorPoint(0.5,0.5);
+                        letter.setColor(cc.color(0,0,0));  letter.setName("letter");
+                        self.index++;
+                        self.word.push(group[6]);
+                        self.wordObj.push(letter);
+                     
+                       }
+
+                         if(target.id == "Ball8"&& self.word.length < 10){ 
+                        var letter = new cc.LabelTTF(group[7], "res/fonts/Marker Felt.ttf", 130);
+                        self.addChild(letter,2);
+                        letter.setPosition(cc.p(self.square[self.index].x,self.square[self.index].y));
+                        letter.setAnchorPoint(0.5,0.5);
+                        letter.setColor(cc.color(0,0,0));  
+                        letter.setName("letter");
+                        self.index++;
+                        self.word.push(group[7]);
+                        self.wordObj.push(letter);
+                     
+                       }
+
+                         if(target.id == "Ball9"&& self.word.length < 10){ 
+                        var letter = new cc.LabelTTF(group[8], "res/fonts/Marker Felt.ttf", 130);
+                        self.addChild(letter,2);
+                        letter.setPosition(cc.p(self.square[self.index].x,self.square[self.index].y));
+                        letter.setAnchorPoint(0.5,0.5);
+                        letter.setColor(cc.color(0,0,0));  
+                        letter.setName("letter");
+                        self.index++;
+                        self.word.push(group[8]);
+                        self.wordObj.push(letter);
+                     
+                       }
+
+                         if(target.id == "Ball10"&& self.word.length < 10){ 
+                        var letter = new cc.LabelTTF(group[9], "res/fonts/Marker Felt.ttf", 130);
+                        self.addChild(letter,2);
+                        letter.setPosition(cc.p(self.square[self.index].x,self.square[self.index].y));
+                        letter.setAnchorPoint(0.5,0.5);
+                        letter.setColor(cc.color(0,0,0));  
+                        letter.setName("letter");
+                        self.index++;
+                        self.word.push(group[9]);
                         self.wordObj.push(letter);
                      
                        }
@@ -568,7 +630,17 @@ xc.playLayer = cc.Layer.extend( {
                             cc.log("wrong");
                           //  cc.log("got = ",self.word[(self.index) - 1]);
                         
-                       self.remove(self.index);
+                   //   self.remove(self.index);
+                       self.removeChild(self.wordObj[(self.index) - 1]);
+                       self.wordObj.pop(self.wordObj[(self.index) - 1]);
+                       self.word.pop(self.word[(self.index) - 1]);
+                       self.index--;  
+                       if (self.wordObj.length == 0)
+                      {
+                          self.index = 0;   
+                          cc.eventManager.removeListener(target);
+                      }       
+
                      /*  self.stepMove();
                        self.wrongCount++;
                        if(self.flag == true)
@@ -584,11 +656,15 @@ xc.playLayer = cc.Layer.extend( {
 
                         }
                        if(target.id == "Tick"){ 
-                        if( self.word.length == 3)
-                        {
+                       
+                        
                         self.verify(self.word);
-                        }
                         cc.log("tick");
+                          if (self.wordObj.length == 0)
+                      {
+                          self.index = 0;   
+                          cc.eventManager.removeListener(target);
+                      }  
                         }    
                        if(target.id == "Hint"){ 
                          self.help();
@@ -602,8 +678,7 @@ xc.playLayer = cc.Layer.extend( {
 
 xc.playLayer.res = {
 
-     jump_main: xc.path +"jump_on_words/jump_on_words_main_menu.json",
-    jump_level: xc.path +"jump_on_words/jump_on_words_level_menu.json",
+    jump_main: xc.path +"jump_on_words/jump_on_words_main_menu.json",
     jump_game: xc.path +"jump_on_words/jump_on_words_game_menu.json",
     char:xc.path +"jump_on_words/character.json",
     jump_plist: xc.path +"jump_on_words/jump_on_words.plist",
