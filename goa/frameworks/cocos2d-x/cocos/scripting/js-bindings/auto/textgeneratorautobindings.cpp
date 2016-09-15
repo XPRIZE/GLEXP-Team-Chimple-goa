@@ -2,6 +2,7 @@
 #include "scripting/js-bindings/manual/cocos2d_specifics.hpp"
 #include "../../../../../runtime-src/Classes/lang/TextGenerator.h"
 
+
 template<class T>
 static bool dummy_constructor(JSContext *cx, uint32_t argc, jsval *vp)
 {
@@ -22,6 +23,46 @@ static bool js_is_native_obj(JSContext *cx, uint32_t argc, jsval *vp)
 JSClass  *jsb_TextGenerator_class;
 JSObject *jsb_TextGenerator_prototype;
 
+bool js_textgeneratorautobindings_TextGenerator_getNumGraphemesInString(JSContext *cx, uint32_t argc, jsval *vp)
+{
+    JS::CallArgs args = JS::CallArgsFromVp(argc, vp);
+    bool ok = true;
+    JS::RootedObject obj(cx, args.thisv().toObjectOrNull());
+    js_proxy_t *proxy = jsb_get_js_proxy(obj);
+    TextGenerator* cobj = (TextGenerator *)(proxy ? proxy->ptr : NULL);
+    JSB_PRECONDITION2( cobj, cx, false, "js_textgeneratorautobindings_TextGenerator_getNumGraphemesInString : Invalid Native Object");
+    if (argc == 1) {
+        std::string arg0;
+        ok &= jsval_to_std_string(cx, args.get(0), &arg0);
+        JSB_PRECONDITION2(ok, cx, false, "js_textgeneratorautobindings_TextGenerator_getNumGraphemesInString : Error processing arguments");
+        int ret = cobj->getNumGraphemesInString(arg0);
+        jsval jsret = JSVAL_NULL;
+        jsret = int32_to_jsval(cx, ret);
+        args.rval().set(jsret);
+        return true;
+    }
+    
+    JS_ReportError(cx, "js_textgeneratorautobindings_TextGenerator_getNumGraphemesInString : wrong number of arguments: %d, was expecting %d", argc, 1);
+    return false;
+}
+bool js_textgeneratorautobindings_TextGenerator_getAllChars(JSContext *cx, uint32_t argc, jsval *vp)
+{
+    JS::CallArgs args = JS::CallArgsFromVp(argc, vp);
+    JS::RootedObject obj(cx, args.thisv().toObjectOrNull());
+    js_proxy_t *proxy = jsb_get_js_proxy(obj);
+    TextGenerator* cobj = (TextGenerator *)(proxy ? proxy->ptr : NULL);
+    JSB_PRECONDITION2( cobj, cx, false, "js_textgeneratorautobindings_TextGenerator_getAllChars : Invalid Native Object");
+    if (argc == 0) {
+        std::vector<std::string> ret = cobj->getAllChars();
+        jsval jsret = JSVAL_NULL;
+        jsret = std_vector_string_to_jsval(cx, ret);
+        args.rval().set(jsret);
+        return true;
+    }
+    
+    JS_ReportError(cx, "js_textgeneratorautobindings_TextGenerator_getAllChars : wrong number of arguments: %d, was expecting %d", argc, 0);
+    return false;
+}
 bool js_textgeneratorautobindings_TextGenerator_generateMatrix(JSContext *cx, uint32_t argc, jsval *vp)
 {
     JS::CallArgs args = JS::CallArgsFromVp(argc, vp);
@@ -56,7 +97,7 @@ bool js_textgeneratorautobindings_TextGenerator_generateMatrix(JSContext *cx, ui
             }
             
             jsret =  OBJECT_TO_JSVAL(jsretArr);
-
+            
         } else {
             jsret = JSVAL_NULL;
         };
@@ -67,30 +108,48 @@ bool js_textgeneratorautobindings_TextGenerator_generateMatrix(JSContext *cx, ui
     JS_ReportError(cx, "js_textgeneratorautobindings_TextGenerator_generateMatrix : wrong number of arguments: %d, was expecting %d", argc, 3);
     return false;
 }
-
-bool js_textgeneratorautobindings_TextGenerator_getNumGraphemesInString(JSContext *cx, uint32_t argc, jsval *vp)
+bool js_textgeneratorautobindings_TextGenerator_generateASentence(JSContext *cx, uint32_t argc, jsval *vp)
+{
+    JS::CallArgs args = JS::CallArgsFromVp(argc, vp);
+    JS::RootedObject obj(cx, args.thisv().toObjectOrNull());
+    js_proxy_t *proxy = jsb_get_js_proxy(obj);
+    TextGenerator* cobj = (TextGenerator *)(proxy ? proxy->ptr : NULL);
+    JSB_PRECONDITION2( cobj, cx, false, "js_textgeneratorautobindings_TextGenerator_generateASentence : Invalid Native Object");
+    if (argc == 0) {
+        std::string ret = cobj->generateASentence();
+        jsval jsret = JSVAL_NULL;
+        jsret = std_string_to_jsval(cx, ret);
+        args.rval().set(jsret);
+        return true;
+    }
+    
+    JS_ReportError(cx, "js_textgeneratorautobindings_TextGenerator_generateASentence : wrong number of arguments: %d, was expecting %d", argc, 0);
+    return false;
+}
+bool js_textgeneratorautobindings_TextGenerator_getValidCombinations(JSContext *cx, uint32_t argc, jsval *vp)
 {
     JS::CallArgs args = JS::CallArgsFromVp(argc, vp);
     bool ok = true;
     JS::RootedObject obj(cx, args.thisv().toObjectOrNull());
     js_proxy_t *proxy = jsb_get_js_proxy(obj);
     TextGenerator* cobj = (TextGenerator *)(proxy ? proxy->ptr : NULL);
-    JSB_PRECONDITION2( cobj, cx, false, "js_textgeneratorautobindings_TextGenerator_getNumGraphemesInString : Invalid Native Object");
-    if (argc == 1) {
+    JSB_PRECONDITION2( cobj, cx, false, "js_textgeneratorautobindings_TextGenerator_getValidCombinations : Invalid Native Object");
+    if (argc == 2) {
         std::string arg0;
+        int arg1 = 0;
         ok &= jsval_to_std_string(cx, args.get(0), &arg0);
-        JSB_PRECONDITION2(ok, cx, false, "js_textgeneratorautobindings_TextGenerator_getNumGraphemesInString : Error processing arguments");
-        int ret = cobj->getNumGraphemesInString(arg0);
+        ok &= jsval_to_int32(cx, args.get(1), (int32_t *)&arg1);
+        JSB_PRECONDITION2(ok, cx, false, "js_textgeneratorautobindings_TextGenerator_getValidCombinations : Error processing arguments");
+        std::vector<std::string> ret = cobj->getValidCombinations(arg0, arg1);
         jsval jsret = JSVAL_NULL;
-        jsret = int32_to_jsval(cx, ret);
+        jsret = std_vector_string_to_jsval(cx, ret);
         args.rval().set(jsret);
         return true;
     }
-
-    JS_ReportError(cx, "js_textgeneratorautobindings_TextGenerator_getNumGraphemesInString : wrong number of arguments: %d, was expecting %d", argc, 1);
+    
+    JS_ReportError(cx, "js_textgeneratorautobindings_TextGenerator_getValidCombinations : wrong number of arguments: %d, was expecting %d", argc, 2);
     return false;
 }
-
 bool js_textgeneratorautobindings_TextGenerator_getGraphemes(JSContext *cx, uint32_t argc, jsval *vp)
 {
     JS::CallArgs args = JS::CallArgsFromVp(argc, vp);
@@ -109,7 +168,7 @@ bool js_textgeneratorautobindings_TextGenerator_getGraphemes(JSContext *cx, uint
         args.rval().set(jsret);
         return true;
     }
-
+    
     JS_ReportError(cx, "js_textgeneratorautobindings_TextGenerator_getGraphemes : wrong number of arguments: %d, was expecting %d", argc, 1);
     return false;
 }
@@ -127,23 +186,22 @@ bool js_textgeneratorautobindings_TextGenerator_generateAWord(JSContext *cx, uin
         args.rval().set(jsret);
         return true;
     }
-
+    
     JS_ReportError(cx, "js_textgeneratorautobindings_TextGenerator_generateAWord : wrong number of arguments: %d, was expecting %d", argc, 0);
     return false;
 }
-
 bool js_textgeneratorautobindings_TextGenerator_getInstance(JSContext *cx, uint32_t argc, jsval *vp)
 {
     JS::CallArgs args = JS::CallArgsFromVp(argc, vp);
     if (argc == 0) {
-
+        
         TextGenerator* ret = TextGenerator::getInstance();
         jsval jsret = JSVAL_NULL;
         if (ret) {
-        jsret = OBJECT_TO_JSVAL(js_get_or_create_jsobject<TextGenerator>(cx, (TextGenerator*)ret));
-    } else {
-        jsret = JSVAL_NULL;
-    };
+            jsret = OBJECT_TO_JSVAL(js_get_or_create_jsobject<TextGenerator>(cx, (TextGenerator*)ret));
+        } else {
+            jsret = JSVAL_NULL;
+        };
         args.rval().set(jsret);
         return true;
     }
@@ -163,34 +221,37 @@ void js_register_textgeneratorautobindings_TextGenerator(JSContext *cx, JS::Hand
     jsb_TextGenerator_class->resolve = JS_ResolveStub;
     jsb_TextGenerator_class->convert = JS_ConvertStub;
     jsb_TextGenerator_class->flags = JSCLASS_HAS_RESERVED_SLOTS(2);
-
+    
     static JSPropertySpec properties[] = {
         JS_PS_END
     };
-
+    
     static JSFunctionSpec funcs[] = {
-        JS_FN("generateMatrix", js_textgeneratorautobindings_TextGenerator_generateMatrix, 3, JSPROP_PERMANENT | JSPROP_ENUMERATE),
         JS_FN("getNumGraphemesInString", js_textgeneratorautobindings_TextGenerator_getNumGraphemesInString, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+        JS_FN("getAllChars", js_textgeneratorautobindings_TextGenerator_getAllChars, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+        JS_FN("generateMatrix", js_textgeneratorautobindings_TextGenerator_generateMatrix, 3, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+        JS_FN("generateASentence", js_textgeneratorautobindings_TextGenerator_generateASentence, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+        JS_FN("getValidCombinations", js_textgeneratorautobindings_TextGenerator_getValidCombinations, 2, JSPROP_PERMANENT | JSPROP_ENUMERATE),
         JS_FN("getGraphemes", js_textgeneratorautobindings_TextGenerator_getGraphemes, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
         JS_FN("generateAWord", js_textgeneratorautobindings_TextGenerator_generateAWord, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
         JS_FS_END
     };
-
+    
     static JSFunctionSpec st_funcs[] = {
         JS_FN("getInstance", js_textgeneratorautobindings_TextGenerator_getInstance, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
         JS_FS_END
     };
-
+    
     jsb_TextGenerator_prototype = JS_InitClass(
-        cx, global,
-        JS::NullPtr(),
-        jsb_TextGenerator_class,
-        dummy_constructor<TextGenerator>, 0, // no constructor
-        properties,
-        funcs,
-        NULL, // no static properties
-        st_funcs);
-
+                                               cx, global,
+                                               JS::NullPtr(),
+                                               jsb_TextGenerator_class,
+                                               dummy_constructor<TextGenerator>, 0, // no constructor
+                                               properties,
+                                               funcs,
+                                               NULL, // no static properties
+                                               st_funcs);
+    
     JS::RootedObject proto(cx, jsb_TextGenerator_prototype);
     JS::RootedValue className(cx, std_string_to_jsval(cx, "TextGenerator"));
     JS_SetProperty(cx, proto, "_className", className);
@@ -204,7 +265,7 @@ void register_all_textgeneratorautobindings(JSContext* cx, JS::HandleObject obj)
     // Get the ns
     JS::RootedObject ns(cx);
     get_or_create_js_obj(cx, obj, "goa", &ns);
-
+    
     js_register_textgeneratorautobindings_TextGenerator(cx, ns);
 }
 

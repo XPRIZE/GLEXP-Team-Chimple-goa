@@ -6,10 +6,10 @@ xc.WordUtil = xc.WordUtil || {};
 // Copyright (c) 2015 Mateo Gianolio
 // https://github.com/mateogianolio/scrabbler
 
-xc.WordUtil.getValidCombinations = function(string) {
+xc.WordUtil.getValidCombinations = function(string, max=4) {
     var allWords = cc.loader.getRes(xc.path + "english/allwords.json");
     // generate power set
-    var set = xc.WordUtil.power(string);
+    var set = xc.WordUtil.power(string, max);
 
     // cache length for performance
     var set_length = set.length,
@@ -47,7 +47,7 @@ xc.WordUtil.getValidCombinations = function(string) {
 }
 
 // helper to generate a power set
-xc.WordUtil.power = function (string) {
+xc.WordUtil.power = function (string, max) {
     var copy,
         deep_copy;
 
@@ -56,7 +56,9 @@ xc.WordUtil.power = function (string) {
         copy.forEach(function (element) {
             deep_copy = element.slice(0);
             deep_copy.push(current);
-            previous.push(deep_copy);
+            if(deep_copy.length <= max) {
+                previous.push(deep_copy);
+            }
         });
 
         return previous;

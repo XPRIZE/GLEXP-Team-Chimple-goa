@@ -39,6 +39,8 @@ StartMenu::~StartMenu() {
 
 const std::vector<std::string> StartMenu::getGameNames() {
     std::vector<std::string> gameNames;
+	gameNames.push_back(SORT_IT);
+	gameNames.push_back(ALPHAMOLE);
     gameNames.push_back(BAJA);
     gameNames.push_back(CHAIN);
     gameNames.push_back(WEMBLEY);
@@ -54,7 +56,6 @@ const std::vector<std::string> StartMenu::getGameNames() {
     gameNames.push_back(KUNG_FU_ALPHA);
     gameNames.push_back(ALPHAMON_FEED);
     gameNames.push_back(TRAIN);
-	gameNames.push_back(ALPHAMOLE);
     gameNames.push_back(STORY_TELLING);
     return gameNames;
 
@@ -102,7 +103,9 @@ void StartMenu::startScene(std::string gameName, std::string firstParam, std::st
     }else if (gameName == CAT) {
 		Director::getInstance()->replaceScene(CatGame::createScene());
     } else if (gameName == TRAIN) {
-        ScriptingCore::getInstance()->runScript("start/train.js");
+        ScriptingCore::getInstance()->runScript("src/start/train.js");
+    } else if (gameName == POP) {
+        ScriptingCore::getInstance()->runScript("src/start/pop.js");
     } else if (gameName == STORY_TELLING) {
         ScriptingCore::getInstance()->runScript("start/storytelling.js");
     } else if (gameName == ALPHAMOLE) {

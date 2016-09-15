@@ -61,6 +61,10 @@ std::string TextGenerator::generateAWord() {
     return LangUtil::getInstance()->getAWord();
 }
 
+std::string TextGenerator::generateASentence() {
+    return LangUtil::getInstance()->getASentence();
+}
+
 
 int TextGenerator::getNumGraphemesInString(std::string word) {
     return getGraphemes(word).size();
@@ -96,4 +100,10 @@ std::vector<std::string> TextGenerator::getAllChars() {
         allCharVector.push_back(charString);
     }
     return allCharVector;
+}
+
+std::vector<std::string> TextGenerator::getValidCombinations(std::string chars, int maxLength) {
+    const char* args[] = {"one", "two", "three", "four"};
+    std::vector<std::string> v(args, args + 4);
+    return v;
 }

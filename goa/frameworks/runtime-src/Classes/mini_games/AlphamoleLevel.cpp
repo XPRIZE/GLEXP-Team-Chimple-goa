@@ -103,5 +103,5 @@ void AlphamoleLevel::onExitTransitionDidStart() {
 
 void AlphamoleLevel::onEnterTransitionDidFinish() {
 	Node::onEnterTransitionDidFinish();
-//	_eventDispatcher->addCustomEventListener("alphamon_pressed", CC_CALLBACK_0(AlphamoleLevel::onAlphabetSelected, this));
+	_eventDispatcher->addCustomEventListener("alphamon_pressed", CC_CALLBACK_1(AlphamoleLevel::onAlphabetSelected, this));
 }

@@ -6,9 +6,9 @@ LOCAL_MODULE := cocos2djs
 
 LOCAL_MODULE_FILENAME := libcocos2djs
 
-ifeq ($(USE_ARM_MODE),1)
-LOCAL_ARM_MODE := arm
-endif
+#ifeq ($(USE_ARM_MODE),1)
+#LOCAL_ARM_MODE := arm
+#endif
 
 LOCAL_SRC_FILES := hellojavascript/main.cpp \
 					../../Classes/alphamon/Alphamon.cpp \
@@ -146,7 +146,8 @@ LOCAL_C_INCLUDES += $(LOCAL_PATH)/src/reco/shaperec/nn
 LOCAL_C_INCLUDES += $(LOCAL_PATH)/src/reco/shaperec/preprocessing
 LOCAL_C_INCLUDES += $(LOCAL_PATH)/src/util/logger
 
-LOCAL_STATIC_LIBRARIES := cocos2d_js_static	
+LOCAL_STATIC_LIBRARIES := cocos2d_js_static
+LOCAL_STATIC_LIBRARIES += cocos_extension_static	
 
 LOCAL_EXPORT_CFLAGS := -DCOCOS2D_DEBUG=2 -DCOCOS2D_JAVASCRIPT
 
@@ -154,3 +155,5 @@ include $(BUILD_SHARED_LIBRARY)
 
 
 $(call import-module, scripting/js-bindings/proj.android)
+$(call import-module,.)
+$(call import-module,extensions)

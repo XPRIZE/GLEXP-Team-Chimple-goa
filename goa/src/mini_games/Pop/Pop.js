@@ -3,6 +3,7 @@
 var xc = xc || {};
 
 xc.PopLayer = cc.Layer.extend({
+    gameName: "pop",
     //sprite: null,
     ctor: function () {
         //////////////////////////////
@@ -11,12 +12,9 @@ xc.PopLayer = cc.Layer.extend({
 
         var worldSize = cc.winSize;
         var self = this;
-        var sceneRes = ccs.load(xc.PopLayer.res.pop_scene, xc.path);
-        if (worldSize.width > 2560){
-            var x = worldSize.width - 2560;
-            sceneRes.node.x = x/2;
-        }
-        this.addChild(sceneRes.node);
+
+        sceneChooser = ["scene_1", "scene_2"];
+        this.selectedScene = sceneChooser[Math.floor(this.getRandomArbitrary(0, 2))];
 
         this.cloudContainer = [];
         this.stringContainer = [];
@@ -24,15 +22,37 @@ xc.PopLayer = cc.Layer.extend({
         this.wordInOrder = [];
         this.clickableFlag = false;
 
-        this.plane = ccs.load(xc.PopLayer.res.pop_plane, xc.path);
-        this.plane.node.x = worldSize.width + 200;
-        this.plane.node.y = cc.director.getWinSize().height * 0.7;
-        this.plane.node.uId = "cube";
-        this.addChild(this.plane.node);
-        this.plane.node.runAction(this.plane.action);
-        this.plane.action.play('planerun', true);
-        this.plane.node.runAction(cc.MoveTo.create(5, cc.p(-200, cc.director.getWinSize().height * 0.7)));
+        if(this.selectedScene == "scene_1")
+        {
+                var sceneRes = ccs.load(xc.PopLayer.res.pop_scene_1, xc.path);
+        }
+        else
+        {
+                var sceneRes = ccs.load(xc.PopLayer.res.pop_scene_2, xc.path);
+        }
+                if (worldSize.width > 2560){
+                    var x = worldSize.width - 2560;
+                    sceneRes.node.x = x/2;
+                }
+                this.addChild(sceneRes.node);
 
+                this.plane = ccs.load(xc.PopLayer.res.pop_plane, xc.path);
+                this.plane.node.x = worldSize.width + 200;
+                if(this.selectedScene == "scene_1")
+                {
+                    var multiplyFactor = 0.7;
+                }
+                else
+                {
+                    var multiplyFactor = 0.76;
+                }
+                this.plane.node.y = cc.director.getWinSize().height * multiplyFactor;
+                this.plane.node.uId = "plane";
+                this.addChild(this.plane.node);
+                this.plane.node.runAction(this.plane.action);
+                this.plane.action.play('planerun', true);
+                this.plane.node.runAction(cc.MoveTo.create(5, cc.p(-220, cc.director.getWinSize().height * multiplyFactor)));
+        
         //        var wordForSentanceArray = goa.TextGenerator.getInstance().generateASentence();
 
         var wordForSentanceArray = ["Twinkle", "twinkle", "little", "star","How", "I","wonder", "what", "you", "are"];
@@ -62,7 +82,6 @@ xc.PopLayer = cc.Layer.extend({
                 return false;
             }
         });
-          
         var x = 0.7
         var y = 0;
         while (existingNumber.length != wordForSentanceArray.length) {
@@ -78,7 +97,6 @@ xc.PopLayer = cc.Layer.extend({
             }
 
         }
-        console.log(existingNumber);
         for (var i = 0; i < wordForSentanceArray.length; i++) {
             var cloud = new cc.Sprite(cc.spriteFrameCache.getSpriteFrame("pop/cloud.png"));
             cloud.setName("cloud_" + (i + 1));
@@ -140,7 +158,6 @@ xc.PopLayer = cc.Layer.extend({
             if (this.wordInOrder.length == wordObject.id) {
                 this.makeSentance(wordObject);
             }
-
         }
     },
     makeSentance: function (word) {
@@ -161,19 +178,27 @@ xc.PopLayer = cc.Layer.extend({
             this.correctSentance.setString(this.correctSentance.getString() + " " + word.children[0].getString());
             this.removeChild(word);
         }
-
+        ;
         this.removePlaneFromScene();
     },
     removePlaneFromScene: function () {
+     
+        console.log(" the value should be length of cloudContainer : "+ this.cloudContainer.length);
         if (this.wordInOrder.length == this.cloudContainer.length) {
-            this.removeChild(this.plane);
-            xc.GameScene.load(xc.GameMap);
+            this.removeChild(this.plane.node);
+            // xc.GameScene.load(xc.PopLayer);
             console.log("GAME OVER");
+            if (cc.sys.isNative) {
+                var menuContext = this.getParent().menuContext;
+                cc.log("showscore");
+                menuContext.showScore();
+            }
         }
     }
 });
 xc.PopLayer.res = {
-    pop_scene: xc.path + "pop/pop.json",
+    pop_scene_1: xc.path + "pop/pop.json",
+    pop_scene_2: xc.path + "pop/pop2.json",
     pop_plane: xc.path + "pop/plane.json",
     pop_scene_plist: xc.path + "pop/pop.plist",
     pop_scene_png: xc.path + "pop/pop.png",

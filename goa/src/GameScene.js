@@ -4,14 +4,17 @@ var xc = xc || {};
 xc.GameScene = cc.Scene.extend({
     layerClass: null,
     layer: null,
+    menuContext: null,
     onEnter:function () {
         this._super();
         if(this.layer == null) {
             this.layer = new this.layerClass();
             this.addChild(this.layer);
         }
-        var menuContext = goa.MenuContext.create(this.layer, "dummy");
-        this.addChild(menuContext);
+        if (cc.sys.isNative) {
+            this.menuContext = goa.MenuContext.create(this.layer, this.layer.gameName);
+            this.addChild(this.menuContext);
+        }
     }
 });
 
