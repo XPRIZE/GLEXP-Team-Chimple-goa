@@ -3,6 +3,7 @@
 var xc = xc || {};
 
 xc.PopLayer = cc.Layer.extend({
+    gameName: "pop",
     //sprite: null,
     ctor: function () {
         //////////////////////////////
@@ -52,9 +53,9 @@ xc.PopLayer = cc.Layer.extend({
                 this.plane.action.play('planerun', true);
                 this.plane.node.runAction(cc.MoveTo.create(5, cc.p(-220, cc.director.getWinSize().height * multiplyFactor)));
         
-        //        var wordForSentanceArray = goa.TextGenerator.getInstance().generateASentence();
-
-        var wordForSentanceArray = ["Twinkle", "twinkle", "little", "star","How", "I","wonder", "what", "you", "are"];
+        var wordForSentanceArray = goa.TextGenerator.getInstance().generateASentence();
+        wordForSentanceArray = wordForSentanceArray.split(" ");
+        // var wordForSentanceArray = ["Twinkle", "twinkle", "little", "star","How", "I","wonder", "what", "you", "are"];
         cc.log("sentence:" + wordForSentanceArray);
 
             setTimeout(function(){ self.clickableFlag = true; }, 12000);
@@ -185,8 +186,13 @@ xc.PopLayer = cc.Layer.extend({
         console.log(" the value should be length of cloudContainer : "+ this.cloudContainer.length);
         if (this.wordInOrder.length == this.cloudContainer.length) {
             this.removeChild(this.plane.node);
-            xc.GameScene.load(xc.PopLayer);
+            // xc.GameScene.load(xc.PopLayer);
             console.log("GAME OVER");
+            if (cc.sys.isNative) {
+                var menuContext = this.getParent().menuContext;
+                cc.log("showscore");
+                menuContext.showScore();
+            }
         }
     }
 });
