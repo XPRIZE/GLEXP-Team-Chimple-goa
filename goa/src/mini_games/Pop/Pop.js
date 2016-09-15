@@ -24,22 +24,17 @@ xc.PopLayer = cc.Layer.extend({
         if(this.selectedScene == "scene_1")
         {
                 var sceneRes = ccs.load(xc.PopLayer.res.pop_scene_1, xc.path);
-                if (worldSize.width > 2560){
-                    var x = worldSize.width - 2560;
-                    sceneRes.node.x = x/2;
-                }
-                this.addChild(sceneRes.node);
         }
         else
         {
-               var sceneRes = ccs.load(xc.PopLayer.res.pop_scene_2, xc.path);
+                var sceneRes = ccs.load(xc.PopLayer.res.pop_scene_2, xc.path);
+        }
                 if (worldSize.width > 2560){
                     var x = worldSize.width - 2560;
                     sceneRes.node.x = x/2;
                 }
                 this.addChild(sceneRes.node);
-                cc.log("There is no plane");
-        }
+
                 this.plane = ccs.load(xc.PopLayer.res.pop_plane, xc.path);
                 this.plane.node.x = worldSize.width + 200;
                 if(this.selectedScene == "scene_1")
@@ -86,7 +81,6 @@ xc.PopLayer = cc.Layer.extend({
                 return false;
             }
         });
-          
         var x = 0.7
         var y = 0;
         while (existingNumber.length != wordForSentanceArray.length) {
