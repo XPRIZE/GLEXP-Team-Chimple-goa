@@ -137,9 +137,14 @@ xc.TrainLayer = cc.Layer.extend({
                             else if (wordPosition == random) {
                                 var target_Action = new cc.MoveTo(1, cc.p(tunnel_front_sprite[wordPosition - 1].getPositionX(), tunnel_front_sprite[wordPosition - 1].getPositionY()));
 
+                                var gameOver = function()
+                                {
+                                    console.log("done");
+                                };
+
                                 var train_Action_function = function () {
                                     var train_Action = new cc.MoveTo(1.5, cc.p(size.width * 130 / 100, final_tunnel.getPositionY()))
-                                    train.runAction(train_Action);
+                                    train.runAction(new Sequence(train_Action, new cc.CallFunc(gameOver, this)) );
                                 };
 
                                 target.runAction(new cc.Sequence(target_Action, new cc.CallFunc(train_Action_function, this)));
@@ -176,11 +181,15 @@ xc.TrainLayer = cc.Layer.extend({
         });
         this.addChild(background.node);
 
+        if (cc.sys.isNative) {
+            var menuContext = goa.MenuContext.create(this.layer, "dummy");
+//            this.addChild(menuContext);
+//            menuContext.showScore();
+        }
 
-        //sentence = goa.TextGenerator.getInstance().generateASentence();
-        sentence = ["A", "martini", "shaken", "not", "stirred", "how", "are", "you", "fine"];
+//        sentence = goa.TextGenerator.getInstance().generateASentence();
 
-        random = Math.floor(Math.random() * 7) + 3;
+        random = sentence.length //Math.floor(Math.random() * 7) + 3;
         var row = 0, temp = random;
 
         while (temp >= 3) {
