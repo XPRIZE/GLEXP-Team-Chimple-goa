@@ -32,6 +32,10 @@ goa.TextGenerator.prototype.getRandomInt = function(min, max) {
   return Math.floor(Math.random() * (max - min)) + min;
 }
 
+goa.TextGenerator.prototype.getAllChars = function() {
+    return ["ಅ", "ಆ", "ಇ", "ಈ", "ಉ", "ಊ", "ಋ", "ಎ", "ಏ", "ಐ", "ಒ", "ಓ", "ಔ", "ಕ", "ಖ", "ಗ", "ಘ", "ಙ", "ಚ", "ಛ", "ಜ", "ಝ", "ಞ", "ಟ", "ಠ", "ಡ", "ಢ", "ಣ", "ತ", "ಥ", "ದ", "ಧ", "ನ", "ಪ", "ಫ", "ಬ", "ಭ", "ಮ", "ಯ", "ರ", "ಲ", "ವ", "ಶ", "ಷ", "ಸ", "ಹ", "ಳ"];
+}
+
 goa.TextGenerator.instance = new goa.TextGenerator();
 
 goa.TextGenerator.sentences = [
