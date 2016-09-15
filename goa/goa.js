@@ -39,13 +39,13 @@ goa.TextGenerator.prototype.getAllChars = function() {
 goa.TextGenerator.instance = new goa.TextGenerator();
 
 goa.TextGenerator.sentences = [
-    ["My", "precious"],
-    ["I'll", "be", "back"],
-    ["Show", "me", "the", "money"],
-    ["Go", "ahead", "make", "my", "day"],
-    ["A", "martini", "shaken", "not", "stirred"],
-    ["Open", "the", "pod", "bay", "doors", "HAL"],
-    ["May", "the", "force", "be", "with", "you"],
-    ["Where", "we're", "going", "we", "don't", "need", "roads"],
-    ["I'm", "not", "bad.", "I'm", "just", "drawn", "that", "way"]
-]
+    "My precious",
+    "I'll be back",
+    "Show me the money",
+    "Go ahead make my day",
+    "A martini shaken not stirred",
+    "Open the pod bay doors HAL",
+    "May the force be with you",
+    "Where we're going we don't need roads",
+    "I'm not bad. I'm just drawn that way"
+];

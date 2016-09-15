@@ -53,9 +53,9 @@ xc.PopLayer = cc.Layer.extend({
                 this.plane.action.play('planerun', true);
                 this.plane.node.runAction(cc.MoveTo.create(5, cc.p(-220, cc.director.getWinSize().height * multiplyFactor)));
         
-        //        var wordForSentanceArray = goa.TextGenerator.getInstance().generateASentence();
-
-        var wordForSentanceArray = ["Twinkle", "twinkle", "little", "star","How", "I","wonder", "what", "you", "are"];
+        var wordForSentanceArray = goa.TextGenerator.getInstance().generateASentence();
+        wordForSentanceArray = wordForSentanceArray.split(" ");
+        // var wordForSentanceArray = ["Twinkle", "twinkle", "little", "star","How", "I","wonder", "what", "you", "are"];
         cc.log("sentence:" + wordForSentanceArray);
 
             setTimeout(function(){ self.clickableFlag = true; }, 12000);
