@@ -21,9 +21,9 @@ public:
     int getNumGraphemesInString(std::string word);
     std::vector<std::string> getGraphemes(std::string word);
     std::string generateASentence();
-//    std::vector<std::string> getValidCombinations(std::string )
-protected:
     std::vector<std::string> getAllChars();
+    std::vector<std::string> getValidCombinations(std::string chars, int maxLength);
+protected:
     std::map<int, int> getRandomLocations(int numLoc, int totalNum);
 
 };
