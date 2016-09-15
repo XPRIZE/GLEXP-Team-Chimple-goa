@@ -185,7 +185,7 @@ xc.Bubble_Alphabets = cc.Layer.extend({
             xPosi = cc.director.getWinSize().width - 2560;
         }
         this.onMouseMove(x+xPosi , y);
-        console.log("x and y : "+x +"  "+ y);
+        console.log("x and y : "+x +"  "+ y + " xPosi value is : "+ xPosi);
          if (this.gamestate == this.gamestates.ready) {
                  this.shootBubble(); 
             }
@@ -441,7 +441,7 @@ xc.Bubble_Alphabets = cc.Layer.extend({
             //  ++this.count;
             //  this.hits--;
             // console.log("done 553");
-            console.log(" ---------------  you hited "+ (++ this.counterhits) +" balls --------------------");
+          //  console.log(" ---------------  you hited "+ (++ this.counterhits) +" balls --------------------");
             //   console.log("hits remaining : "+ this.hits + " count value is : " + this.count);
             //    this.DataCard();
                this.textHitsLabel.setString("Hits : "+ this.counterhits);
@@ -463,13 +463,13 @@ xc.Bubble_Alphabets = cc.Layer.extend({
                this.checkBubbleStatus();
                // Check for game over
                if (this.checkGameOver()) {
-                   console.log("game over now .........")
+                  // console.log("game over now .........")
                    return;
                 }
                 // console.log("done 578");
                 // Find clusters
                 this.cluster = this.findCluster(gridpos.x, gridpos.y, true, true, false);
-                console.log("cluster size is : "+ this.cluster.length);
+               // console.log("cluster size is : "+ this.cluster.length);
                 
                 //  if( this.hits < 0 ){
                 //  console.log(" GAME OVER  ");
@@ -512,7 +512,7 @@ xc.Bubble_Alphabets = cc.Layer.extend({
               let self  = this;
         // console.log("done 622");      
         if (this.animationstate == 0) {
-            console.log("flag to remove the bubble is on");
+          //  console.log("flag to remove the bubble is on");
              this.resetRemoved();
             
             // Mark the tiles as removed
@@ -523,7 +523,7 @@ xc.Bubble_Alphabets = cc.Layer.extend({
             
             // Find floating clusters
             this.floatingclusters = this.findFloatingClusters();
-            console.log("float cluster : "+ this.floatingclusters.length);
+          //  console.log("float cluster : "+ this.floatingclusters.length);
             this.animationstate = 1;
                    
         }
@@ -1073,7 +1073,7 @@ xc.Bubble_Alphabets = cc.Layer.extend({
  
      // On mouse movement
       onMouseMove : function (posx , posy) {
-        console.log("the posX : "+posx + " the posY : "+posy);
+      //  console.log("on Move move : -> the posX : "+posx + " the posY : "+posy);
         let mouseangle = 0 ;
 		
         // Get the mouse angle
