@@ -49,212 +49,263 @@ var sprite_click = cc.EventListener.create({event: cc.EventListener.TOUCH_ONE_BY
                 {
                      for(i=0;i<eye_array.length;i++)
                      {
+                         eye_array[i].setGlobalZOrder(2);
                          eye_array[i].setVisible(true);
                      }
                      for(s=0;s<skate_array.length;s++)
                      {
-                    skate_array[s].setVisible(false);
+                        skate_array[s].setGlobalZOrder(0);
+                        skate_array[s].setVisible(false);
                   }
                      for(m=0;m<mustache_array.length;m++)
                   {
+                    mustache_array[m].setGlobalZOrder(0);
                     mustache_array[m].setVisible(false);
                   }
-                      for(j=0;j<mouth_array.length;j++){
-                      mouth_array[j].setVisible(false);
+                      for(j=0;j<mouth_array.length;j++)
+                      {
+                       mouth_array[j].setGlobalZOrder(0);
+                       mouth_array[j].setVisible(false);
                 }
                 for(n=0;n<nose_array.length;n++)
                   {
+                    nose_array[n].setGlobalZOrder(0);
                     nose_array[n].setVisible(false);
                   }
                    for(h=0;h<horn_array.length;h++)
                   {
+                    horn_array[h].setGlobalZOrder(0);
                     horn_array[h].setVisible(false);
                   }
                   for(p=0;p<paint_array.length;p++)
                   {
+                    paint_array[p].setGlobalZOrder(0);
                     paint_array[p].setVisible(false);
                   }
+                  
+                  for(g=0;g<gear_array.length;g++)
                   {
-                  for(g=0;g<gear_array.length;g++){
-                    gear_array[g].setVisible(false);
-                  }}
+                     gear_array[g].setGlobalZOrder(0);
+                     gear_array[g].setVisible(false);
+                  }
                 }
                
-                else if(target.id == "mouth"){
+                else if(target.id == "mouth")
+                {
 
-                for(j=0;j<mouth_array.length;j++){
+                for(j=0;j<mouth_array.length;j++)
+                {  
+                  mouth_array[j].setGlobalZOrder(2);
                   mouth_array[j].setVisible(true);
                 }
                 for(s=0;s<skate_array.length;s++)
-                
                 {
+                    skate_array[s].setGlobalZOrder(0);
                     skate_array[s].setVisible(false);
-                  }
+                }
                 for(m=0;m<mustache_array.length;m++)
                   {
+                    mustache_array[m].setGlobalZOrder(0);
                     mustache_array[m].setVisible(false);
                   }
                  for(i=0;i<eye_array.length;i++)
                      {
+                         eye_array[i].setGlobalZOrder(0);
                          eye_array[i].setVisible(false);
                      }
                      for(n=0;n<nose_array.length;n++)
                   {
+                    nose_array[n].setGlobalZOrder(0);
                     nose_array[n].setVisible(false);
                   }
                    for(h=0;h<horn_array.length;h++)
                   {
+                    horn_array[h].setGlobalZOrder(0);
                     horn_array[h].setVisible(false);
                   }
                   for(p=0;p<paint_array.length;p++)
                   {
+                    paint_array[p].setGlobalZOrder(0);
                     paint_array[p].setVisible(false);
                   }
-                  {
+                  
                   for(g=0;g<gear_array.length;g++){
+                    gear_array[g].setGlobalZOrder(0);
                     gear_array[g].setVisible(false);
                   }
-                  }
+                  
                 }
                 else if(target.id == "nose" )
                 {
-                  for(n=0;n<nose_array.length;n++)
-                  {
-                    nose_array[n].setVisible(true);
-                  }
                   for(s=0;s<skate_array.length;s++)
                   {
+                    skate_array[s].setGlobalZOrder(0);
                     skate_array[s].setVisible(false);
                   }
                   for(m=0;m<mustache_array.length;m++)
                   {
+                    mustache_array[m].setGlobalZOrder(0);
                     mustache_array[m].setVisible(false);
                   }
                   for(j=0;j<mouth_array.length;j++){
+                      mouth_array[j].setGlobalZOrder(0);
                       mouth_array[j].setVisible(false);
                 }
                  for(i=0;i<eye_array.length;i++)
                      {
-                         eye_array[i].setVisible(false);
+                        eye_array[i].setGlobalZOrder(0);
+                        eye_array[i].setVisible(false);
                      }
                      for(h=0;h<horn_array.length;h++)
                   {
+                    horn_array[h].setGlobalZOrder(0);
                     horn_array[h].setVisible(false);
                   }
                   for(p=0;p<paint_array.length;p++)
                   {
+                    paint_array[p].setGlobalZOrder(0);
                     paint_array[p].setVisible(false);
                   }
-                  {
+                  
                   for(g=0;g<gear_array.length;g++){
-                    gear_array[g].setVisible(false);
+                   gear_array[g].setGlobalZOrder(0);
+                   gear_array[g].setVisible(false);
                   }
-                }
+                  for(n=0;n<nose_array.length;n++)
+                  {
+                    nose_array[n].setGlobalZOrder(2);
+                    nose_array[n].setVisible(true);
+                  }
+
                 }
                 
                 else if(target.id == "horn")
                 {
                   for(h=0;h<horn_array.length;h++)
                   {
+                    horn_array[h].setGlobalZOrder(2);
                     horn_array[h].setVisible(true);
                   }
                   for(s=0;s<skate_array.length;s++)
                   {
+                    skate_array[s].setGlobalZOrder(0);
                     skate_array[s].setVisible(false);
                   }
                   for(m=0;m<mustache_array.length;m++)
                   {
+                    mustache_array[m].setGlobalZOrder(0);
                     mustache_array[m].setVisible(false);
                   }
-                  {
                   for(g=0;g<gear_array.length;g++)
                   {
+                    gear_array[g].setGlobalZOrder(0);
                     gear_array[g].setVisible(false);
                   }
                   for(n=0;n<nose_array.length;n++)
                   {
+                    nose_array[n].setGlobalZOrder(0);
                     nose_array[n].setVisible(false);
                   }
-                  for(j=0;j<mouth_array.length;j++){
+                  for(j=0;j<mouth_array.length;j++)
+                  {
+                      mouth_array[j].setGlobalZOrder(0);
                       mouth_array[j].setVisible(false);
-                }
+                  }
                  for(i=0;i<eye_array.length;i++)
                      {
-                         eye_array[i].setVisible(false);
+                       eye_array[i].setGlobalZOrder(0);
+                       eye_array[i].setVisible(false);
                      }
                      for(p=0;p<paint_array.length;p++)
                   {
+                    paint_array[p].setGlobalZOrder(0);
                     paint_array[p].setVisible(false);
                   }
-                  
-                  }
-                }
+               }
                 else if(target.id == "paint")
                 {
                   for(p=0;p<paint_array.length;p++)
                   {
+                    paint_array[p].setGlobalZOrder(2);
                     paint_array[p].setVisible(true);
                   }
                   for(s=0;s<skate_array.length;s++)
                   {
+                    skate_array[s].setGlobalZOrder(0);
                     skate_array[s].setVisible(false);
                   }
                   for(m=0;m<mustache_array.length;m++)
                   {
+                    mustache_array[m].setGlobalZOrder(0);
                     mustache_array[m].setVisible(false);
                   }
                    for(h=0;h<horn_array.length;h++)
                   {
+                    horn_array[h].setGlobalZOrder(0);
                     horn_array[h].setVisible(false);
                   }
                   for(n=0;n<nose_array.length;n++)
                   {
+                    nose_array[n].setGlobalZOrder(0);
                     nose_array[n].setVisible(false);
                   }
-                  for(j=0;j<mouth_array.length;j++){
-                      mouth_array[j].setVisible(false);
+                  for(j=0;j<mouth_array.length;j++)
+                  {
+                   mouth_array[j].setGlobalZOrder(0);
+                   mouth_array[j].setVisible(false);
                 }
                  for(i=0;i<eye_array.length;i++)
                      {
-                         eye_array[i].setVisible(false);
+                        eye_array[i].setGlobalZOrder(0);
+                        eye_array[i].setVisible(false);
                      }
-                    {
-                  for(g=0;g<gear_array.length;g++){
+                     for(g=0;g<gear_array.length;g++)
+                  {
+                    gear_array[g].setGlobalZOrder(0);
                     gear_array[g].setVisible(false);
                   }
-                    }
                 }
                 
                 else if(target.id=="gear")
                 {
-                  for(g=0;g<gear_array.length;g++){
+                  for(g=0;g<gear_array.length;g++)
+                  {
+                    gear_array[g].setGlobalZOrder(2);
                     gear_array[g].setVisible(true);
                   }
                   for(s=0;s<skate_array.length;s++)
                   {
+                    skate_array[s].setGlobalZOrder(0);
                     skate_array[s].setVisible(false);
                   }
                   for(p=0;p<paint_array.length;p++)
                   {
+                    paint_array[p].setGlobalZOrder(0);
                     paint_array[p].setVisible(false);
                   }
                    for(h=0;h<horn_array.length;h++)
                   {
+                    horn_array[h].setGlobalZOrder(0);
                     horn_array[h].setVisible(false);
                   }
                   for(n=0;n<nose_array.length;n++)
                   {
+                    nose_array[n].setGlobalZOrder(0);
                     nose_array[n].setVisible(false);
                   }
-                  for(j=0;j<mouth_array.length;j++){
+                  for(j=0;j<mouth_array.length;j++)
+                  {
+                      mouth_array[j].setGlobalZOrder(0);
                       mouth_array[j].setVisible(false);
-                }
+                 }
                  for(i=0;i<eye_array.length;i++)
                      {
-                         eye_array[i].setVisible(false);
+                       eye_array[i].setGlobalZOrder(0);
+                       eye_array[i].setVisible(false);
                      }
                      for(m=0;m<mustache_array.length;m++)
                   {
+                    mustache_array[m].setGlobalZOrder(0);
                     mustache_array[m].setVisible(false);
                   }
                 }
@@ -262,32 +313,42 @@ var sprite_click = cc.EventListener.create({event: cc.EventListener.TOUCH_ONE_BY
                 {
                   for(m=0;m<mustache_array.length;m++)
                   {
-                    mustache_array[m].setVisible(true);
+                     mustache_array[m].setGlobalZOrder(2);
+                     mustache_array[m].setVisible(true);
                   }
                   for(s=0;s<skate_array.length;s++)
                   {
-                    skate_array[s].setVisible(false);
+                      skate_array[s].setGlobalZOrder(0);
+                      skate_array[s].setVisible(false);
                   }
-                  for(g=0;g<gear_array.length;g++){
+                  for(g=0;g<gear_array.length;g++)
+                  {
+                    gear_array[g].setGlobalZOrder(0);
                     gear_array[g].setVisible(false);
                   }
                   for(p=0;p<paint_array.length;p++)
                   {
+                    paint_array[p].setGlobalZOrder(0);
                     paint_array[p].setVisible(false);
                   }
                    for(h=0;h<horn_array.length;h++)
                   {
+                    horn_array[h].setGlobalZOrder(0);
                     horn_array[h].setVisible(false);
                   }
                   for(n=0;n<nose_array.length;n++)
                   {
+                    nose_array[n].setGlobalZOrder(0);
                     nose_array[n].setVisible(false);
                   }
-                  for(j=0;j<mouth_array.length;j++){
+                  for(j=0;j<mouth_array.length;j++)
+                  {
+                      mouth_array[j].setGlobalZOrder(0);
                       mouth_array[j].setVisible(false);
                 }
                  for(i=0;i<eye_array.length;i++)
                      {
+                         eye_array[i].setGlobalZOrder(0);
                          eye_array[i].setVisible(false);
                      }
                 }
@@ -295,33 +356,43 @@ var sprite_click = cc.EventListener.create({event: cc.EventListener.TOUCH_ONE_BY
                 {
                   for(s=0;s<skate_array.length;s++)
                   {
+                    skate_array[s].setGlobalZOrder(2);
                     skate_array[s].setVisible(true);
                   }
                   for(m=0;m<mustache_array.length;m++)
                   {
-                    mustache_array[m].setVisible(false);
+                     mustache_array[m].setGlobalZOrder(0);
+                     mustache_array[m].setVisible(false);
                   }
-                  for(g=0;g<gear_array.length;g++){
+                  for(g=0;g<gear_array.length;g++)
+                  {
+                    gear_array[g].setGlobalZOrder(0);
                     gear_array[g].setVisible(false);
                   }
                   for(p=0;p<paint_array.length;p++)
                   {
+                    paint_array[p].setGlobalZOrder(0);
                     paint_array[p].setVisible(false);
                   }
                    for(h=0;h<horn_array.length;h++)
                   {
+                    horn_array[h].setGlobalZOrder(0);
                     horn_array[h].setVisible(false);
                   }
                   for(n=0;n<nose_array.length;n++)
                   {
+                    nose_array[n].setGlobalZOrder(0);
                     nose_array[n].setVisible(false);
                   }
-                  for(j=0;j<mouth_array.length;j++){
+                  for(j=0;j<mouth_array.length;j++)
+                  {
+                      mouth_array[j].setGlobalZOrder(0);
                       mouth_array[j].setVisible(false);
-                }
+                  }
                  for(i=0;i<eye_array.length;i++)
                      {
-                         eye_array[i].setVisible(false);
+                        eye_array[i].setGlobalZOrder(0);
+                        eye_array[i].setVisible(false);
                      }
 
                 }
@@ -332,13 +403,14 @@ var sprite_click = cc.EventListener.create({event: cc.EventListener.TOUCH_ONE_BY
         return false;
     },
 
-    onTouchMove : function(touch, event)
+    onTouchMoved : function(touch, event)
     {
          var target = event.getCurrentTarget();
          var location = target.convertToNodeSpace(touch.getLocation());
 	    	 target.setPosition(touch.getLocation()); 
         
-        
+        cc.log("no" + target.getName());
+
     //     var decoalpha = target.getBoundingBox();
     //     var decoapha1 = label.getBoundingBox();
  
@@ -352,7 +424,15 @@ var sprite_click = cc.EventListener.create({event: cc.EventListener.TOUCH_ONE_BY
     
     onTouchEnded : function(touch, event)
     {
+        var target = event.getCurrentTarget();
+        var location = target.convertToNodeSpace(touch.getLocation());
+        var targetSize = target.getContentSize();
+        var targetRect = cc.rect(0, 0, label.getContentSize().width, label.getContentSize().height);
         
+        if(cc.rectIntersectsRect(target.getBoundingBox(), label.getBoundingBox()))
+        {
+          cc.log(target.getName()); 
+        }
     }
         
 });
@@ -364,17 +444,18 @@ var sprite_click = cc.EventListener.create({event: cc.EventListener.TOUCH_ONE_BY
                         x : size.width * .12,
                         y : size.height * .10
                       });
-                      self.addChild(eyea.node); 
+                      self.addChild(eyea.node,3); 
                      // eyea.node.id =1;
                       eyea.node.setVisible(false);
                     cc.eventManager.addListener(sprite_click.clone(),eyea.node);
-                      
+
+
         var eyeb = ccs.load(xc.DecomonLayer.res.decomon_eyeb, xc.path);   
                       eyeb.node.attr({
                         x : size.width * .22,
                         y : size.height * .10
                       });
-                      self.addChild(eyeb.node);
+                      self.addChild(eyeb.node,3);
                        eyeb.node.setVisible(false);
                    //    eyeb.node.id = 2;
                         cc.eventManager.addListener(sprite_click.clone(),eyeb.node);
@@ -385,7 +466,7 @@ var sprite_click = cc.EventListener.create({event: cc.EventListener.TOUCH_ONE_BY
                         x : size.width * .32,
                         y : size.height * .10
                       });
-                      self.addChild(eyec.node);
+                      self.addChild(eyec.node,3);
                        eyec.node.setVisible(false);
                         cc.eventManager.addListener(sprite_click.clone(),eyec.node);
 
@@ -394,7 +475,7 @@ var sprite_click = cc.EventListener.create({event: cc.EventListener.TOUCH_ONE_BY
                         x : size.width * .42,
                         y : size.height * .10
                       });
-                      self.addChild(eyed.node);
+                      self.addChild(eyed.node,3);
                        eyed.node.setVisible(false);
                         cc.eventManager.addListener(sprite_click.clone(),eyed.node);
 
@@ -403,7 +484,7 @@ var sprite_click = cc.EventListener.create({event: cc.EventListener.TOUCH_ONE_BY
                         x : size.width * .52,
                         y : size.height * .10
                       });
-                      self.addChild(eyee.node);
+                      self.addChild(eyee.node,3);
                        eyee.node.setVisible(false);
                         cc.eventManager.addListener(sprite_click.clone(),eyee.node);
 
@@ -412,7 +493,7 @@ var sprite_click = cc.EventListener.create({event: cc.EventListener.TOUCH_ONE_BY
                         x : size.width * .62,
                         y : size.height * .10
                       });
-                      self.addChild(eyef.node);
+                      self.addChild(eyef.node,3);
                        eyef.node.setVisible(false);
                         cc.eventManager.addListener(sprite_click.clone(),eyef.node);
 
@@ -421,7 +502,7 @@ var sprite_click = cc.EventListener.create({event: cc.EventListener.TOUCH_ONE_BY
                         x : size.width * .72,
                         y : size.height * .10
                       });
-                      self.addChild(eyeg.node);
+                      self.addChild(eyeg.node,3);
                        eyeg.node.setVisible(false);
                         cc.eventManager.addListener(sprite_click.clone(),eyeg.node);
 
@@ -430,7 +511,7 @@ var sprite_click = cc.EventListener.create({event: cc.EventListener.TOUCH_ONE_BY
                         x : size.width * .82,
                         y : size.height * .10
                       });
-                      self.addChild(eyeh.node);
+                      self.addChild(eyeh.node,3);
                        eyeh.node.setVisible(false);
                         cc.eventManager.addListener(sprite_click.clone(),eyeh.node);
 
@@ -439,7 +520,7 @@ var sprite_click = cc.EventListener.create({event: cc.EventListener.TOUCH_ONE_BY
                         x : size.width * .92,
                         y : size.height * .10
                       });
-                      self.addChild(eyei.node);
+                      self.addChild(eyei.node,3);
                      eyei.node.setVisible(false);
                       cc.eventManager.addListener(sprite_click.clone(),eyei.node);
 
@@ -453,7 +534,7 @@ var sprite_click = cc.EventListener.create({event: cc.EventListener.TOUCH_ONE_BY
                         x : size.width * .12,
                         y : size.height * .10
                       });
-                      self.addChild(moutha.node); 
+                      self.addChild(moutha.node,3); 
                       moutha.node.id =1;
                       moutha.node.setVisible(false);
                     cc.eventManager.addListener(sprite_click.clone(),moutha.node);
@@ -463,7 +544,7 @@ var sprite_click = cc.EventListener.create({event: cc.EventListener.TOUCH_ONE_BY
                         x : size.width * .22,
                         y : size.height * .10
                       });
-                      self.addChild(mouthb.node);
+                      self.addChild(mouthb.node,3);
                        mouthb.node.setVisible(false);
                        mouthb.node.id = 2;
                         cc.eventManager.addListener(sprite_click.clone(),mouthb.node);
@@ -474,7 +555,7 @@ var sprite_click = cc.EventListener.create({event: cc.EventListener.TOUCH_ONE_BY
                         x : size.width * .32,
                         y : size.height * .10
                       });
-                      self.addChild(mouthc.node);
+                      self.addChild(mouthc.node,3);
                        mouthc.node.setVisible(false);
                         cc.eventManager.addListener(sprite_click.clone(),mouthc.node);
 
@@ -483,7 +564,7 @@ var sprite_click = cc.EventListener.create({event: cc.EventListener.TOUCH_ONE_BY
                         x : size.width * .42,
                         y : size.height * .10
                       });
-                      self.addChild(mouthd.node);
+                      self.addChild(mouthd.node,3);
                        mouthd.node.setVisible(false);
                         cc.eventManager.addListener(sprite_click.clone(),mouthd.node);
 
@@ -492,7 +573,7 @@ var sprite_click = cc.EventListener.create({event: cc.EventListener.TOUCH_ONE_BY
                         x : size.width * .52,
                         y : size.height * .10
                       });
-                      self.addChild(mouthe.node);
+                      self.addChild(mouthe.node,3);
                        mouthe.node.setVisible(false);
                         cc.eventManager.addListener(sprite_click.clone(),mouthe.node);
 
@@ -501,7 +582,7 @@ var sprite_click = cc.EventListener.create({event: cc.EventListener.TOUCH_ONE_BY
                         x : size.width * .62,
                         y : size.height * .10
                       });
-                      self.addChild(mouthf.node);
+                      self.addChild(mouthf.node,3);
                        mouthf.node.setVisible(false);
                         cc.eventManager.addListener(sprite_click.clone(),mouthf.node);
 
@@ -510,7 +591,7 @@ var sprite_click = cc.EventListener.create({event: cc.EventListener.TOUCH_ONE_BY
                         x : size.width * .72,
                         y : size.height * .10
                       });
-                      self.addChild(mouthg.node);
+                      self.addChild(mouthg.node,3);
                        mouthg.node.setVisible(false);
                         cc.eventManager.addListener(sprite_click.clone(),mouthg.node);
 
@@ -519,7 +600,7 @@ var sprite_click = cc.EventListener.create({event: cc.EventListener.TOUCH_ONE_BY
                         x : size.width * .82,
                         y : size.height * .10
                       });
-                      self.addChild(mouthh.node);
+                      self.addChild(mouthh.node,3);
                        mouthh.node.setVisible(false);
                         cc.eventManager.addListener(sprite_click.clone(),mouthh.node);
 
@@ -528,14 +609,14 @@ var sprite_click = cc.EventListener.create({event: cc.EventListener.TOUCH_ONE_BY
                         x : size.width * .92,
                         y : size.height * .10
                       });
-                      self.addChild(mouthi.node);
+                      self.addChild(mouthi.node,3);
                      mouthi.node.setVisible(false);
                       cc.eventManager.addListener(sprite_click.clone(),mouthi.node);
 
     mouth_array = [moutha.node,mouthb.node,mouthc.node,mouthd.node,mouthe.node,mouthf.node,mouthg.node,mouthh.node,mouthi.node];
 
     var nose = background.node.getChildByName("decomon_nose_icon");
-     nose.id = "nose";
+    nose.id = "nose";
      cc.eventManager.addListener(sprite_click.clone(), nose);
 
      var nose1 = new cc.Sprite(cc.spriteFrameCache.getSpriteFrame("decomon/decomon3/decomon_nose_1.png"))
@@ -543,8 +624,9 @@ var sprite_click = cc.EventListener.create({event: cc.EventListener.TOUCH_ONE_BY
                         x : size.width * .12,
                         y : size.height * .10
                       });
-     self.addChild(nose1);
+     self.addChild(nose1,3);
      nose1.setVisible(false);
+     //nose1.id = "nose1";
      cc.eventManager.addListener(sprite_click.clone(),nose1);
 
     var nose2 = new cc.Sprite(cc.spriteFrameCache.getSpriteFrame("decomon/decomon3/decomon_nose_2.png"))
@@ -552,7 +634,7 @@ var sprite_click = cc.EventListener.create({event: cc.EventListener.TOUCH_ONE_BY
                         x : size.width * .22,
                         y : size.height * .10
                       });
-     self.addChild(nose2);
+     self.addChild(nose2,3);
      nose2.setVisible(false);
      cc.eventManager.addListener(sprite_click.clone(),nose2);
 
@@ -561,7 +643,7 @@ var sprite_click = cc.EventListener.create({event: cc.EventListener.TOUCH_ONE_BY
                         x : size.width * .32,
                         y : size.height * .10
                       });
-     self.addChild(nose3);
+     self.addChild(nose3,3);
      nose3.setVisible(false);
      cc.eventManager.addListener(sprite_click.clone(),nose3);
 
@@ -570,7 +652,7 @@ var sprite_click = cc.EventListener.create({event: cc.EventListener.TOUCH_ONE_BY
                         x : size.width * .42,
                         y : size.height * .10
                       });
-     self.addChild(nose4);
+     self.addChild(nose4,3);
      nose4.setVisible(false);
      cc.eventManager.addListener(sprite_click.clone(),nose4);
 
@@ -579,7 +661,7 @@ var sprite_click = cc.EventListener.create({event: cc.EventListener.TOUCH_ONE_BY
                         x : size.width * .52,
                         y : size.height * .10
                       });
-     self.addChild(nose5);
+     self.addChild(nose5,3);
      nose5.setVisible(false);
      cc.eventManager.addListener(sprite_click.clone(),nose5);
 
@@ -588,7 +670,7 @@ var sprite_click = cc.EventListener.create({event: cc.EventListener.TOUCH_ONE_BY
                         x : size.width * .62,
                         y : size.height * .10
                       });
-     self.addChild(nose6);
+     self.addChild(nose6,3);
      nose6.setVisible(false);
      cc.eventManager.addListener(sprite_click.clone(),nose6);
 
@@ -597,7 +679,7 @@ var sprite_click = cc.EventListener.create({event: cc.EventListener.TOUCH_ONE_BY
                         x : size.width * .72,
                         y : size.height * .10
                       });
-     self.addChild(nose7);
+     self.addChild(nose7,3);
      nose7.setVisible(false);
      cc.eventManager.addListener(sprite_click.clone(),nose7);
 
@@ -607,7 +689,7 @@ var sprite_click = cc.EventListener.create({event: cc.EventListener.TOUCH_ONE_BY
                         x : size.width * .82,
                         y : size.height * .10
                       });
-     self.addChild(nose8);
+     self.addChild(nose8,3);
      nose8.setVisible(false);
      cc.eventManager.addListener(sprite_click.clone(),nose8);
 
@@ -616,7 +698,7 @@ var sprite_click = cc.EventListener.create({event: cc.EventListener.TOUCH_ONE_BY
                         x : size.width * .92,
                         y : size.height * .10
                       });
-     self.addChild(nose9);
+     self.addChild(nose9,3);
      nose9.setVisible(false);
      cc.eventManager.addListener(sprite_click.clone(),nose9);
 
@@ -631,7 +713,7 @@ var sprite_click = cc.EventListener.create({event: cc.EventListener.TOUCH_ONE_BY
                         x : size.width * .12,
                         y : size.height * .10
                       });
-     self.addChild(horn1);
+     self.addChild(horn1,3);
      horn1.setVisible(false);
      cc.eventManager.addListener(sprite_click.clone(),horn1);
    
@@ -640,7 +722,7 @@ var sprite_click = cc.EventListener.create({event: cc.EventListener.TOUCH_ONE_BY
                         x : size.width * .22,
                         y : size.height * .10
                       });
-     self.addChild(horn2);
+     self.addChild(horn2,3);
      horn2.setVisible(false);
      cc.eventManager.addListener(sprite_click.clone(),horn2);
 
@@ -649,7 +731,7 @@ var sprite_click = cc.EventListener.create({event: cc.EventListener.TOUCH_ONE_BY
                         x : size.width * .32,
                         y : size.height * .10
                       });
-     self.addChild(horn3);
+     self.addChild(horn3,3);
      horn3.setVisible(false);
      cc.eventManager.addListener(sprite_click.clone(),horn3);
 
@@ -658,7 +740,7 @@ var sprite_click = cc.EventListener.create({event: cc.EventListener.TOUCH_ONE_BY
                         x : size.width * .42,
                         y : size.height * .10
                       });
-     self.addChild(horn4);
+     self.addChild(horn4,3);
      horn4.setVisible(false);
      cc.eventManager.addListener(sprite_click.clone(),horn4);
 
@@ -667,7 +749,7 @@ var sprite_click = cc.EventListener.create({event: cc.EventListener.TOUCH_ONE_BY
                         x : size.width * .52,
                         y : size.height * .10
                       });
-     self.addChild(horn5);
+     self.addChild(horn5,3);
      horn5.setVisible(false);
      cc.eventManager.addListener(sprite_click.clone(),horn5);
 
@@ -676,7 +758,7 @@ var sprite_click = cc.EventListener.create({event: cc.EventListener.TOUCH_ONE_BY
                         x : size.width * .62,
                         y : size.height * .10
                       });
-     self.addChild(horn6);
+     self.addChild(horn6,3);
      horn6.setVisible(false);
      cc.eventManager.addListener(sprite_click.clone(),horn6);
 
@@ -685,7 +767,7 @@ var sprite_click = cc.EventListener.create({event: cc.EventListener.TOUCH_ONE_BY
                         x : size.width * .72,
                         y : size.height * .10
                       });
-     self.addChild(horn7);
+     self.addChild(horn7,3);
      horn7.setVisible(false);
      cc.eventManager.addListener(sprite_click.clone(),horn7);
 
@@ -694,7 +776,7 @@ var sprite_click = cc.EventListener.create({event: cc.EventListener.TOUCH_ONE_BY
                         x : size.width * .82,
                         y : size.height * .10
                       });
-     self.addChild(horn8);
+     self.addChild(horn8,3);
      horn8.setVisible(false);
      cc.eventManager.addListener(sprite_click.clone(),horn8);
 
@@ -703,7 +785,7 @@ var sprite_click = cc.EventListener.create({event: cc.EventListener.TOUCH_ONE_BY
                         x : size.width * .92,
                         y : size.height * .10
                       });
-     self.addChild(horn9);
+     self.addChild(horn9,3);
      horn9.setVisible(false);
      cc.eventManager.addListener(sprite_click.clone(),horn9);
 
@@ -717,7 +799,7 @@ var sprite_click = cc.EventListener.create({event: cc.EventListener.TOUCH_ONE_BY
                         x : size.width * .12,
                         y : size.height * .10
                       });
-     self.addChild(paint1);
+     self.addChild(paint1,3);
      paint1.setVisible(false);
      cc.eventManager.addListener(sprite_click.clone(),paint1);
 
@@ -726,7 +808,7 @@ var sprite_click = cc.EventListener.create({event: cc.EventListener.TOUCH_ONE_BY
                         x : size.width * .22,
                         y : size.height * .10
                       });
-     self.addChild(paint2);
+     self.addChild(paint2,3);
      paint2.setVisible(false);
      cc.eventManager.addListener(sprite_click.clone(),paint2);
 
@@ -735,7 +817,7 @@ var sprite_click = cc.EventListener.create({event: cc.EventListener.TOUCH_ONE_BY
                         x : size.width * .32,
                         y : size.height * .10
                       });
-     self.addChild(paint3);
+     self.addChild(paint3,3);
      paint3.setVisible(false);
      cc.eventManager.addListener(sprite_click.clone(),paint3);
 
@@ -744,7 +826,7 @@ var sprite_click = cc.EventListener.create({event: cc.EventListener.TOUCH_ONE_BY
                         x : size.width * .42,
                         y : size.height * .10
                       });
-     self.addChild(paint4);
+     self.addChild(paint4,3);
      paint4.setVisible(false);
      cc.eventManager.addListener(sprite_click.clone(),paint4);
 
@@ -753,7 +835,7 @@ var sprite_click = cc.EventListener.create({event: cc.EventListener.TOUCH_ONE_BY
                         x : size.width * .52,
                         y : size.height * .10
                       });
-     self.addChild(paint5);
+     self.addChild(paint5,3);
      paint5.setVisible(false);
      cc.eventManager.addListener(sprite_click.clone(),paint5);
 
@@ -762,7 +844,7 @@ var sprite_click = cc.EventListener.create({event: cc.EventListener.TOUCH_ONE_BY
                         x : size.width * .62,
                         y : size.height * .10
                       });
-     self.addChild(paint6);
+     self.addChild(paint6,3);
      paint6.setVisible(false);
      cc.eventManager.addListener(sprite_click.clone(),paint6);
 
@@ -771,7 +853,7 @@ var sprite_click = cc.EventListener.create({event: cc.EventListener.TOUCH_ONE_BY
                         x : size.width * .72,
                         y : size.height * .10
                       });
-     self.addChild(paint7);
+     self.addChild(paint7,3);
      paint7.setVisible(false);
      cc.eventManager.addListener(sprite_click.clone(),paint7);
 
@@ -780,7 +862,7 @@ var sprite_click = cc.EventListener.create({event: cc.EventListener.TOUCH_ONE_BY
                         x : size.width * .82,
                         y : size.height * .10
                       });
-     self.addChild(paint8);
+     self.addChild(paint8,3);
      paint8.setVisible(false);
      cc.eventManager.addListener(sprite_click.clone(),paint8);
 
@@ -789,7 +871,7 @@ var sprite_click = cc.EventListener.create({event: cc.EventListener.TOUCH_ONE_BY
                         x : size.width * .92,
                         y : size.height * .10
                       });
-     self.addChild(paint9);
+     self.addChild(paint9,3);
      paint9.setVisible(false);
      cc.eventManager.addListener(sprite_click.clone(),paint9);
 
@@ -803,7 +885,7 @@ var sprite_click = cc.EventListener.create({event: cc.EventListener.TOUCH_ONE_BY
                         x : size.width * .12,
                         y : size.height * .10
                       });
-     self.addChild(gear1);
+     self.addChild(gear1,3);
      gear1.setVisible(false);
      cc.eventManager.addListener(sprite_click.clone(),gear1);
 
@@ -812,7 +894,7 @@ var sprite_click = cc.EventListener.create({event: cc.EventListener.TOUCH_ONE_BY
                         x : size.width * .22,
                         y : size.height * .10
                       });
-     self.addChild(gear2);
+     self.addChild(gear2,3);
      gear2.setVisible(false);
      cc.eventManager.addListener(sprite_click.clone(),gear2);
 
@@ -821,7 +903,7 @@ var sprite_click = cc.EventListener.create({event: cc.EventListener.TOUCH_ONE_BY
                         x : size.width * .32,
                         y : size.height * .10
                       });
-     self.addChild(gear3);
+     self.addChild(gear3,3);
      gear3.setVisible(false);
      cc.eventManager.addListener(sprite_click.clone(),gear3);
 
@@ -830,7 +912,7 @@ var sprite_click = cc.EventListener.create({event: cc.EventListener.TOUCH_ONE_BY
                         x : size.width * .42,
                         y : size.height * .10
                       });
-     self.addChild(gear4);
+     self.addChild(gear4,3);
      gear4.setVisible(false);
      cc.eventManager.addListener(sprite_click.clone(),gear4);
 
@@ -839,7 +921,7 @@ var sprite_click = cc.EventListener.create({event: cc.EventListener.TOUCH_ONE_BY
                         x : size.width * .52,
                         y : size.height * .10
                       });
-     self.addChild(gear5);
+     self.addChild(gear5,3);
      gear5.setVisible(false);
      cc.eventManager.addListener(sprite_click.clone(),gear5);
 
@@ -848,7 +930,7 @@ var sprite_click = cc.EventListener.create({event: cc.EventListener.TOUCH_ONE_BY
                         x : size.width * .62,
                         y : size.height * .10
                       });
-     self.addChild(gear6);
+     self.addChild(gear6,3);
      gear6.setVisible(false);
      cc.eventManager.addListener(sprite_click.clone(),gear6);
 
@@ -857,7 +939,7 @@ var sprite_click = cc.EventListener.create({event: cc.EventListener.TOUCH_ONE_BY
                         x : size.width * .72,
                         y : size.height * .10
                       });
-     self.addChild(gear7);
+     self.addChild(gear7,3);
      gear7.setVisible(false);
      cc.eventManager.addListener(sprite_click.clone(),gear7);
 
@@ -866,7 +948,7 @@ var sprite_click = cc.EventListener.create({event: cc.EventListener.TOUCH_ONE_BY
                         x : size.width * .82,
                         y : size.height * .10
                       });
-     self.addChild(gear8);
+     self.addChild(gear8,3);
      gear8.setVisible(false);
      cc.eventManager.addListener(sprite_click.clone(),gear8);
 
@@ -875,7 +957,7 @@ var sprite_click = cc.EventListener.create({event: cc.EventListener.TOUCH_ONE_BY
                         x : size.width * .92,
                         y : size.height * .10
                       });
-     self.addChild(gear9);
+     self.addChild(gear9,3);
      gear9.setVisible(false);
      cc.eventManager.addListener(sprite_click.clone(),gear9);
 gear_array = [gear1,gear2,gear3,gear4,gear5,gear6,gear7,gear8,gear9];
@@ -889,7 +971,7 @@ mustache1.attr({
                         x : size.width * .12,
                         y : size.height * .10
                       });
-self.addChild(mustache1);
+self.addChild(mustache1,3);
 mustache1.setVisible(false);
 cc.eventManager.addListener(sprite_click.clone(),mustache1);
 
@@ -898,7 +980,7 @@ mustache2.attr({
                         x : size.width * .22,
                         y : size.height * .10
                       });
-self.addChild(mustache2);
+self.addChild(mustache2,3);
 mustache2.setVisible(false);
 cc.eventManager.addListener(sprite_click.clone(),mustache2);
 
@@ -907,7 +989,7 @@ mustache3.attr({
                         x : size.width * .32,
                         y : size.height * .10
                       });
-self.addChild(mustache3);
+self.addChild(mustache3,3);
 mustache3.setVisible(false);
 cc.eventManager.addListener(sprite_click.clone(),mustache3);
 
@@ -916,7 +998,7 @@ mustache4.attr({
                         x : size.width * .42,
                         y : size.height * .10
                       });
-self.addChild(mustache4);
+self.addChild(mustache4,3);
 mustache4.setVisible(false);
 cc.eventManager.addListener(sprite_click.clone(),mustache4);
 
@@ -925,7 +1007,7 @@ mustache5.attr({
                         x : size.width * .52,
                         y : size.height * .10
                       });
-self.addChild(mustache5);
+self.addChild(mustache5,3);
 mustache5.setVisible(false);
 cc.eventManager.addListener(sprite_click.clone(),mustache5);
 
@@ -934,7 +1016,7 @@ mustache6.attr({
                         x : size.width * .62,
                         y : size.height * .10
                       });
-self.addChild(mustache6);
+self.addChild(mustache6,3);
 mustache6.setVisible(false);
 cc.eventManager.addListener(sprite_click.clone(),mustache6);
 
@@ -943,7 +1025,7 @@ mustache7.attr({
                         x : size.width * .72,
                         y : size.height * .10
                       });
-self.addChild(mustache7);
+self.addChild(mustache7,3);
 mustache7.setVisible(false);
 cc.eventManager.addListener(sprite_click.clone(),mustache7);
 
@@ -952,7 +1034,7 @@ mustache8.attr({
                         x : size.width * .82,
                         y : size.height * .10
                       });
-self.addChild(mustache8);
+self.addChild(mustache8,3);
 mustache8.setVisible(false);
 cc.eventManager.addListener(sprite_click.clone(),mustache8);
 
@@ -961,7 +1043,7 @@ mustache9.attr({
                         x : size.width * .92,
                         y : size.height * .10
                       });
-self.addChild(mustache9);
+self.addChild(mustache9,3);
 mustache9.setVisible(false);
 cc.eventManager.addListener(sprite_click.clone(),mustache9);
 mustache_array = [mustache1,mustache2,mustache3,mustache4,mustache5,mustache6,mustache7,mustache8,mustache9]
@@ -974,7 +1056,7 @@ var skate1 = ccs.load(xc.DecomonLayer.res.decomon_skate1, xc.path);
                         x : size.width * .12,
                         y : size.height * .10
                  });
-self.addChild(skate1.node); 
+self.addChild(skate1.node,3); 
  //kate1.node.id =1;
 skate1.node.setVisible(false);
 cc.eventManager.addListener(sprite_click.clone(),skate1.node);
@@ -984,7 +1066,7 @@ skate2.node.attr({
                         x : size.width * .22,
                         y : size.height * .10
                  });
-self.addChild(skate2.node); 
+self.addChild(skate2.node,3); 
  //kate1.node.id =1;
 skate2.node.setVisible(false);
 cc.eventManager.addListener(sprite_click.clone(),skate2.node);
@@ -994,7 +1076,7 @@ skate3.node.attr({
                         x : size.width * .32,
                         y : size.height * .10
                  });
-self.addChild(skate3.node); 
+self.addChild(skate3.node,3); 
  //kate1.node.id =1;
 skate3.node.setVisible(false);
 cc.eventManager.addListener(sprite_click.clone(),skate3.node);
@@ -1004,7 +1086,7 @@ skate4.node.attr({
                         x : size.width * .42,
                         y : size.height * .10
                  });
-self.addChild(skate4.node); 
+self.addChild(skate4.node,3); 
  //kate1.node.id =1;
 skate4.node.setVisible(false);
 cc.eventManager.addListener(sprite_click.clone(),skate4.node);
@@ -1014,7 +1096,7 @@ skate5.node.attr({
                         x : size.width * .52,
                         y : size.height * .10
                  });
-self.addChild(skate5.node); 
+self.addChild(skate5.node,3); 
  //kate1.node.id =1;
 skate5.node.setVisible(false);
 cc.eventManager.addListener(sprite_click.clone(),skate5.node);
@@ -1024,7 +1106,7 @@ skate6.node.attr({
                         x : size.width * .62,
                         y : size.height * .10
                  });
-self.addChild(skate6.node); 
+self.addChild(skate6.node,3); 
  //kate1.node.id =1;
 skate6.node.setVisible(false);
 cc.eventManager.addListener(sprite_click.clone(),skate6.node);
@@ -1034,7 +1116,7 @@ skate7.node.attr({
                         x : size.width * .72,
                         y : size.height * .10
                  });
-self.addChild(skate7.node); 
+self.addChild(skate7.node,3); 
  //kate1.node.id =1;
 skate7.node.setVisible(false);
 cc.eventManager.addListener(sprite_click.clone(),skate7.node);
@@ -1044,7 +1126,7 @@ skate8.node.attr({
                         x : size.width * .82,
                         y : size.height * .10
                  });
-self.addChild(skate8.node); 
+self.addChild(skate8.node,3); 
  //kate1.node.id =1;
 skate8.node.setVisible(false);
 cc.eventManager.addListener(sprite_click.clone(),skate8.node);
