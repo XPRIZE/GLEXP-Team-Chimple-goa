@@ -4,6 +4,7 @@ var xc = xc || {};
 xc.GameScene = cc.Scene.extend({
     layerClass: null,
     layer: null,
+    menuContext: null,
     onEnter:function () {
         this._super();
         if(this.layer == null) {
@@ -11,8 +12,8 @@ xc.GameScene = cc.Scene.extend({
             this.addChild(this.layer);
         }
         if (cc.sys.isNative) {
-            var menuContext = goa.MenuContext.create(this.layer, "dummy");
-            this.addChild(menuContext);
+            this.menuContext = goa.MenuContext.create(this.layer, this.layer.gameName);
+            this.addChild(this.menuContext);
         }
     }
 });

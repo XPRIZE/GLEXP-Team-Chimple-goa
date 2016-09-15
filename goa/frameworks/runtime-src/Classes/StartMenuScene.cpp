@@ -103,7 +103,9 @@ void StartMenu::startScene(std::string gameName, std::string firstParam, std::st
     }else if (gameName == CAT) {
 		Director::getInstance()->replaceScene(CatGame::createScene());
     } else if (gameName == TRAIN) {
-        ScriptingCore::getInstance()->runScript("start/train.js");
+        ScriptingCore::getInstance()->runScript("src/start/train.js");
+    } else if (gameName == POP) {
+        ScriptingCore::getInstance()->runScript("src/start/pop.js");
     } else if (gameName == STORY_TELLING) {
         ScriptingCore::getInstance()->runScript("start/storytelling.js");
     } else if (gameName == ALPHAMOLE) {
