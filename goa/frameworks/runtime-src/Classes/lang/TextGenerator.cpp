@@ -61,6 +61,10 @@ std::string TextGenerator::generateAWord() {
     return LangUtil::getInstance()->getAWord();
 }
 
+std::string TextGenerator::generateASentence() {
+    return LangUtil::getInstance()->getASentence();
+}
+
 
 int TextGenerator::getNumGraphemesInString(std::string word) {
     return getGraphemes(word).size();
