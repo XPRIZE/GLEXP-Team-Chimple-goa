@@ -20,15 +20,13 @@ xc.TrainLayer = cc.Layer.extend({
     repeatForeverAction: null,
     transLayer : null,
     layer1 : null,
-    gameName: null,
+    gameName: "train",
 
     ctor: function () {
         this._super();
 
         size = cc.winSize;
         self = this;
-
-        gameName = "train";
 
         tunnel_front_sprite = new Array();
         tunnel_back_sprite = new Array();
@@ -104,7 +102,7 @@ xc.TrainLayer = cc.Layer.extend({
                                     var gameOver = function()
                                     {
                                             if (cc.sys.isNative) {
-                                            var menuContext = this.getParent().menuContext;
+                                            var menuContext = self.getParent().menuContext;
                                             cc.log("showscore");
                                             menuContext.showScore();
                                             }
@@ -154,7 +152,7 @@ xc.TrainLayer = cc.Layer.extend({
                                 var gameOver = function()
                                 {
                                         if (cc.sys.isNative) {
-                                        var menuContext = this.getParent().menuContext;
+                                        var menuContext = self.getParent().menuContext;
                                         cc.log("showscore");
                                         menuContext.showScore();
                                         }
@@ -198,8 +196,10 @@ xc.TrainLayer = cc.Layer.extend({
         });
         this.addChild(background.node);
 
-//        sentence = goa.TextGenerator.getInstance().generateASentence();
-    sentence = ["A", "how", "are"];
+        var wordForSentanceArray = goa.TextGenerator.getInstance().generateASentence();
+        sentence = wordForSentanceArray.split(" ");
+        cc.log(sentence);
+
         random = sentence.length //Math.floor(Math.random() * 7) + 3;
         var row = 0, temp = random;
 
