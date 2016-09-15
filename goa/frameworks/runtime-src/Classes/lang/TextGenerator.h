@@ -20,8 +20,10 @@ public:
     std::string generateAWord();
     int getNumGraphemesInString(std::string word);
     std::vector<std::string> getGraphemes(std::string word);
-protected:
+    std::string generateASentence();
     std::vector<std::string> getAllChars();
+    std::vector<std::string> getValidCombinations(std::string chars, int maxLength);
+protected:
     std::map<int, int> getRandomLocations(int numLoc, int totalNum);
 
 };

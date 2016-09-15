@@ -232,6 +232,10 @@
 		F35248591D6D9D1A0077C333 /* sqlite3.c in Sources */ = {isa = PBXBuildFile; fileRef = F35247BA1D6D9D1A0077C333 /* sqlite3.c */; };
 		F352485A1D6D9D1A0077C333 /* State.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F35247BD1D6D9D1A0077C333 /* State.cpp */; };
 		F352485B1D6D9D1A0077C333 /* State.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F35247BD1D6D9D1A0077C333 /* State.cpp */; };
+		F36840BE1D8A812F00969162 /* Alphamole.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F36840BA1D8A812F00969162 /* Alphamole.cpp */; };
+		F36840BF1D8A812F00969162 /* Alphamole.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F36840BA1D8A812F00969162 /* Alphamole.cpp */; };
+		F36840C01D8A812F00969162 /* AlphamoleLevel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F36840BC1D8A812F00969162 /* AlphamoleLevel.cpp */; };
+		F36840C11D8A812F00969162 /* AlphamoleLevel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F36840BC1D8A812F00969162 /* AlphamoleLevel.cpp */; };
 		F37404101D78653D00A671D2 /* boot.js in Resources */ = {isa = PBXBuildFile; fileRef = F374040F1D78653C00A671D2 /* boot.js */; };
 		F37404131D78655700A671D2 /* boot.js in Resources */ = {isa = PBXBuildFile; fileRef = F374040F1D78653C00A671D2 /* boot.js */; };
 		F3D201A31D7409B400FDB750 /* Train.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F3D2019F1D7409B400FDB750 /* Train.cpp */; };
@@ -537,6 +541,10 @@
 		F35247BD1D6D9D1A0077C333 /* State.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = State.cpp; sourceTree = "<group>"; };
 		F35247BE1D6D9D1A0077C333 /* State.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = State.h; sourceTree = "<group>"; };
 		F35247BF1D6D9D1A0077C333 /* WalkingState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WalkingState.h; sourceTree = "<group>"; };
+		F36840BA1D8A812F00969162 /* Alphamole.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Alphamole.cpp; sourceTree = "<group>"; };
+		F36840BB1D8A812F00969162 /* Alphamole.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Alphamole.h; sourceTree = "<group>"; };
+		F36840BC1D8A812F00969162 /* AlphamoleLevel.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AlphamoleLevel.cpp; sourceTree = "<group>"; };
+		F36840BD1D8A812F00969162 /* AlphamoleLevel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AlphamoleLevel.h; sourceTree = "<group>"; };
 		F374040F1D78653C00A671D2 /* boot.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = boot.js; sourceTree = "<group>"; };
 		F3D2019F1D7409B400FDB750 /* Train.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Train.cpp; sourceTree = "<group>"; };
 		F3D201A01D7409B400FDB750 /* Train.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Train.h; sourceTree = "<group>"; };
@@ -823,6 +831,10 @@
 		F352471A1D6D9D1A0077C333 /* mini_games */ = {
 			isa = PBXGroup;
 			children = (
+				F36840BA1D8A812F00969162 /* Alphamole.cpp */,
+				F36840BB1D8A812F00969162 /* Alphamole.h */,
+				F36840BC1D8A812F00969162 /* AlphamoleLevel.cpp */,
+				F36840BD1D8A812F00969162 /* AlphamoleLevel.h */,
 				F3D2019F1D7409B400FDB750 /* Train.cpp */,
 				F3D201A01D7409B400FDB750 /* Train.h */,
 				F3D201A11D7409B400FDB750 /* Pop.cpp */,
@@ -1192,6 +1204,7 @@
 				F35248591D6D9D1A0077C333 /* sqlite3.c in Sources */,
 				F35248331D6D9D1A0077C333 /* RunningState.cpp in Sources */,
 				F35247F91D6D9D1A0077C333 /* TextGenerator.cpp in Sources */,
+				F36840BF1D8A812F00969162 /* Alphamole.cpp in Sources */,
 				F35247DD1D6D9D1A0077C333 /* Jasmin_Mainfile.cpp in Sources */,
 				F35248571D6D9D1A0077C333 /* PhysicsShapeCache.cpp in Sources */,
 				F35248391D6D9D1A0077C333 /* Sqlite3Helper.cpp in Sources */,
@@ -1227,6 +1240,7 @@
 				F35248131D6D9D1A0077C333 /* RPGConfig.cpp in Sources */,
 				F35247D31D6D9D1A0077C333 /* CatScene.cpp in Sources */,
 				F35247DB1D6D9D1A0077C333 /* Jasmin_Listenerfile.cpp in Sources */,
+				F36840C11D8A812F00969162 /* AlphamoleLevel.cpp in Sources */,
 				F352484B1D6D9D1A0077C333 /* SkeletonConfiguration.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1303,6 +1317,7 @@
 				F35247D81D6D9D1A0077C333 /* EndlessRunner.cpp in Sources */,
 				F35247F21D6D9D1A0077C333 /* KannadaUtil.cpp in Sources */,
 				F35248521D6D9D1A0077C333 /* FShake.cpp in Sources */,
+				F36840C01D8A812F00969162 /* AlphamoleLevel.cpp in Sources */,
 				F35248121D6D9D1A0077C333 /* RPGConfig.cpp in Sources */,
 				F35247C21D6D9D1A0077C333 /* MapScene.cpp in Sources */,
 				F352484C1D6D9D1A0077C333 /* SkeletonPosition.cpp in Sources */,
@@ -1315,6 +1330,7 @@
 				F35247E61D6D9D1A0077C333 /* Spirograph.cpp in Sources */,
 				F352481C1D6D9D1A0077C333 /* ScrollableGameMapScene.cpp in Sources */,
 				F35248301D6D9D1A0077C333 /* JumpingState.cpp in Sources */,
+				F36840BE1D8A812F00969162 /* Alphamole.cpp in Sources */,
 				F352481A1D6D9D1A0077C333 /* RPGSprite.cpp in Sources */,
 				F352485A1D6D9D1A0077C333 /* State.cpp in Sources */,
 				F35247E01D6D9D1A0077C333 /* PatchTheWallScene.cpp in Sources */,

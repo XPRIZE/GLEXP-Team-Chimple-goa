@@ -36,9 +36,9 @@ xc.TrainLayer = cc.Layer.extend({
         wordPosition = 1;
 
         position = [
-            { x: size.width * .15, y: size.height * .10 }, { x: size.width * .45, y: size.height * .10 }, { x: size.width * .75, y: size.height * .10 },
-            { x: size.width * .15, y: size.height * .23 }, { x: size.width * .45, y: size.height * .23 }, { x: size.width * .75, y: size.height * .23 },
             { x: size.width * .15, y: size.height * .36 }, { x: size.width * .45, y: size.height * .36 }, { x: size.width * .75, y: size.height * .36 },
+            { x: size.width * .15, y: size.height * .23 }, { x: size.width * .45, y: size.height * .23 }, { x: size.width * .75, y: size.height * .23 },
+            { x: size.width * .15, y: size.height * .10 }, { x: size.width * .45, y: size.height * .10 }, { x: size.width * .75, y: size.height * .10 },
         ];
 
 
@@ -76,7 +76,8 @@ xc.TrainLayer = cc.Layer.extend({
                             var scaleAnimation = function () {
                                 var increase = new cc.ScaleTo(1, 1.4);
                                 var decrease = new cc.ScaleTo(1, 1);
-                                repeatForeverAction = new cc.RepeatForever(new cc.Sequence(increase, decrease));
+                                var delay = new cc.DelayTime(3);
+                                repeatForeverAction = new cc.RepeatForever(new cc.Sequence(increase, decrease, delay));
                                 randomLetter[wordPosition].setPosition(randomLetter[wordPosition].xP, randomLetter[wordPosition].yP);
                                 randomLetter[wordPosition].runAction(repeatForeverAction);
                                 layer1.setVisible(false);
@@ -87,7 +88,7 @@ xc.TrainLayer = cc.Layer.extend({
                                 var tunnel = tunnel_front_sprite[wordPosition];
                                 var target_Action = new cc.MoveTo(1, cc.p(tunnel_front_sprite[wordPosition - 1].getPositionX(), tunnel_front_sprite[wordPosition].getPositionY()));
                                 var train_Action_function = function () {
-                                    var train_Action = new cc.MoveTo(1.5, cc.p(tunnel.getPositionX() - tunnel.getContentSize().width * .70, tunnel.getPositionY()))
+                                    var train_Action = new cc.MoveTo(1.5, cc.p(tunnel.getPositionX() - tunnel.getContentSize().width * .70, train.getPositionY()))
                                     var callSA = new cc.CallFunc(scaleAnimation, this);
                                     train.runAction(new cc.Sequence(train_Action, callSA));
                                 };
@@ -96,7 +97,7 @@ xc.TrainLayer = cc.Layer.extend({
                                 var target_Action = new cc.MoveTo(1, cc.p(tunnel_front_sprite[wordPosition - 1].getPositionX(), tunnel_front_sprite[wordPosition - 1].getPositionY()));
 
                                 var train_Action_function = function () {
-                                    var train_Action = new cc.MoveTo(1.5, cc.p(size.width * 1.20, final_tunnel.getPositionY()))
+                                    var train_Action = new cc.MoveTo(1.5, cc.p(size.width * 1.20, train.getPositionY()))
                                     train.runAction(train_Action);
                                 };
                             }
@@ -110,16 +111,17 @@ xc.TrainLayer = cc.Layer.extend({
                                     var scaleAnimation = function () {
                                         var increase = new cc.ScaleTo(1, 1.4);
                                         var decrease = new cc.ScaleTo(1, 1);
+                                        var delay = new cc.DelayTime(3);
                                         randomLetter[wordPosition].setPosition(randomLetter[wordPosition].xP, randomLetter[wordPosition].yP);
-                                        repeatForeverAction = new cc.RepeatForever(new cc.Sequence(increase, decrease));
+                                        repeatForeverAction = new cc.RepeatForever(new cc.Sequence(increase, decrease, delay));
                                         randomLetter[wordPosition].runAction(repeatForeverAction);
                                         layer1.setVisible(false);
                                         wordPosition++;
                                     };
 
                                     var tunnel = tunnel_front_sprite[wordPosition];
-                                    train.setPosition(0, tunnel.getPositionY());
-                                    var train_newPos = new cc.MoveTo(1, cc.p(tunnel.getPositionX() - tunnel.getContentSize().width * .75, tunnel.getPositionY()));
+                                    train.setPosition(0, tunnel.getPositionY() * 98.5 / 100);
+                                    var train_newPos = new cc.MoveTo(1, cc.p(tunnel.getPositionX() - tunnel.getContentSize().width * .75, train.getPositionY()));
                                     train.runAction(new cc.Sequence(train_newPos, new cc.CallFunc(scaleAnimation, this)));
                                 };
 
@@ -178,7 +180,7 @@ xc.TrainLayer = cc.Layer.extend({
         //sentence = goa.TextGenerator.getInstance().generateASentence();
         sentence = ["A", "martini", "shaken", "not", "stirred", "how", "are", "you", "fine"];
 
-        random = sentence.length;
+        random = Math.floor(Math.random() * 7) + 3;
         var row = 0, temp = random;
 
         while (temp >= 3) {
@@ -193,7 +195,7 @@ xc.TrainLayer = cc.Layer.extend({
         train = new cc.Sprite(cc.spriteFrameCache.getSpriteFrame("train/train.png"));
         train.attr({
             x: size.width * .06,
-            y: (size.height * .53) + (_height * (row - 1 + .5)),
+            y: (size.height * .52) + (_height * (row - 1 + .5)),
             anchorX: .5,
             anchorY: .5
         });
@@ -205,6 +207,23 @@ xc.TrainLayer = cc.Layer.extend({
             var y = _height * (i + .5);
             var col = ((temp / 3) >= 1 ? 3 : temp % 3);
             var _width = (size.width * .90) / col;
+
+                var railwaytrack = new cc.Sprite(cc.spriteFrameCache.getSpriteFrame("train/railwaytrack.png"));
+                railwaytrack.attr({
+                    x: 0,
+                    y: size.height * 49.3 / 100 + y,
+                    anchorX: 0,
+                    anchorY: .5
+                });
+                this.addChild(railwaytrack, 1);
+                
+                if(col==3)
+                    railwaytrack.setScaleX(2);
+                if(col==2)
+                    railwaytrack.setScaleX(3);
+                if(col==1)
+                    railwaytrack.setScaleX(6.5);
+                    
 
             for (var j = 0; j < col; j++) {
                 var tunnel_front = new cc.Sprite(cc.spriteFrameCache.getSpriteFrame("train/tunnel_front.png"));
@@ -227,6 +246,21 @@ xc.TrainLayer = cc.Layer.extend({
                 this.addChild(tunnel_back, 0);
                 tunnel_back.selected = 0;
 
+                var railwaytrack = new cc.Sprite(cc.spriteFrameCache.getSpriteFrame("train/railwaytrack.png"));
+                railwaytrack.attr({
+                    x: tunnel_front.getPositionX() + tunnel_front.getBoundingBox().width * .40,
+                    y: size.height * 49.3 / 100 + y,
+                    anchorX: 0,
+                    anchorY: .5
+                });
+                this.addChild(railwaytrack, 1);
+                if(col==3)
+                    railwaytrack.setScaleX(2.5);
+                if(col==2)
+                    railwaytrack.setScaleX(5);
+                if(col==1)
+                    railwaytrack.setScaleX(6);
+
                 tunnel_front_sprite.push(tunnel_front);
                 tunnel_back_sprite.push(tunnel_back);
             }
@@ -242,16 +276,14 @@ xc.TrainLayer = cc.Layer.extend({
         });
         this.addChild(final_tunnel, 0);
 
+
         for (var i = 0; i < random; i++) {
-            var aa = position.length;
-            var char = Math.floor(Math.random() * position.length);
 
             var label = new cc.LabelTTF(sentence[i], "Arial", 200);
             label.attr({
-                x: position[char].x,
-                y: position[char].y
+                x: position[i].x,
+                y: position[i].y
             });
-            position.splice(position.indexOf(position[char]), 1);
 
             this.addChild(label, 1);
             label.id = sentence[i];
@@ -266,7 +298,7 @@ xc.TrainLayer = cc.Layer.extend({
         }
 
 
-        var layer1 = new cc.LayerColor(cc.color(255, 255, 255, 150), size.width, size.height * .50);
+        layer1 = new cc.LayerColor(cc.color(255, 255, 255, 150), size.width, size.height * .50);
         layer1.attr({
             x : 0,
             y : 0,
@@ -275,15 +307,44 @@ xc.TrainLayer = cc.Layer.extend({
         });
         this.addChild(layer1);
         cc.eventManager.addListener(listener.clone(), layer1);
-        layer1.setVisible(false);
-//        layerListener.setEnabled(false);
+        layer1.setVisible(true);
 
         var increase = new cc.ScaleTo(1, 1.4);
         var decrease = new cc.ScaleTo(1, 1);
-        repeatForeverAction = new cc.RepeatForever(new cc.Sequence(increase, decrease));
+        var delay = new cc.DelayTime(3);
+        repeatForeverAction = new cc.RepeatForever(new cc.Sequence(increase, decrease, delay));
         randomLetter[0].runAction(repeatForeverAction);  
         
-             
+        var sentense_string = sentence.slice();  
+        
+        setTimeout(function() {
+
+            for(var i = 0; i<random; )
+            {
+                var char = Math.floor(Math.random() * position.length);
+                if(!(randomLetter[i].xP == position[char].x && randomLetter[i].yP == position[char].y))
+                {                    
+                    randomLetter[i].xP = position[char].x;
+                    randomLetter[i].yP = position[char].y;
+                    if(i==random-1)
+                    {
+                        var layerVisible = function()
+                        {
+                            layer1.setVisible(false);
+                        }
+                        var move = new cc.MoveTo(5, cc.p(position[char].x, position[char].y));
+                        randomLetter[i].runAction(new cc.Sequence(move, new cc.CallFunc(layerVisible, self))); 
+                    }
+                    else
+                    {
+                        randomLetter[i].runAction(new cc.MoveTo(5, cc.p(position[char].x, position[char].y)));
+                    }
+                    position.splice(position.indexOf(position[char]), 1);
+                    i++;
+                }
+            }
+            
+        }, 3000);
     }
 
 });
