@@ -4,7 +4,7 @@
     <dict>
         <key>frames</key>
         <dict>
-            <key>gamemap/alphafeed.png</key>
+            <key>gamemap/Alphamon Feed.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
@@ -15,11 +15,11 @@
                 <key>spriteSourceSize</key>
                 <string>{256,257}</string>
                 <key>textureRect</key>
-                <string>{{1672,778},{226,225}}</string>
+                <string>{{1219,778},{226,225}}</string>
                 <key>textureRotated</key>
-                <true/>
+                <false/>
             </dict>
-            <key>gamemap/alphafeed_disabled.png</key>
+            <key>gamemap/Alphamon Feed_disabled.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
@@ -30,11 +30,11 @@
                 <key>spriteSourceSize</key>
                 <string>{225,225}</string>
                 <key>textureRect</key>
-                <string>{{2416,457},{225,225}}</string>
+                <string>{{2735,1},{225,225}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>gamemap/alphafeed_pressed.png</key>
+            <key>gamemap/Alphamon Feed_pressed.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
@@ -49,7 +49,7 @@
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>gamemap/alphakombat.png</key>
+            <key>gamemap/Cannon Ball.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
@@ -60,11 +60,11 @@
                 <key>spriteSourceSize</key>
                 <string>{256,257}</string>
                 <key>textureRect</key>
-                <string>{{1798,1},{226,225}}</string>
+                <string>{{1447,778},{226,225}}</string>
                 <key>textureRotated</key>
-                <true/>
+                <false/>
             </dict>
-            <key>gamemap/alphakombat_disabled.png</key>
+            <key>gamemap/Cannon Ball_disabled.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
@@ -75,11 +75,11 @@
                 <key>spriteSourceSize</key>
                 <string>{225,225}</string>
                 <key>textureRect</key>
-                <string>{{2447,229},{225,225}}</string>
+                <string>{{2812,685},{225,225}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>gamemap/alphakombat_pressed.png</key>
+            <key>gamemap/Cannon Ball_pressed.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
@@ -94,37 +94,37 @@
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>gamemap/baja.png</key>
+            <key>gamemap/Cross The Bridge.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
                 <key>spriteOffset</key>
-                <string>{2,-6}</string>
+                <string>{3,-5}</string>
                 <key>spriteSize</key>
-                <string>{226,229}</string>
+                <string>{226,225}</string>
                 <key>spriteSourceSize</key>
                 <string>{256,257}</string>
                 <key>textureRect</key>
-                <string>{{1219,778},{226,229}}</string>
+                <string>{{1675,778},{226,225}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>gamemap/baja_disabled.png</key>
+            <key>gamemap/Cross The Bridge_disabled.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
                 <key>spriteOffset</key>
                 <string>{0,0}</string>
                 <key>spriteSize</key>
-                <string>{223,227}</string>
+                <string>{225,225}</string>
                 <key>spriteSourceSize</key>
-                <string>{223,227}</string>
+                <string>{225,225}</string>
                 <key>textureRect</key>
-                <string>{{1447,778},{223,227}}</string>
+                <string>{{2901,457},{225,225}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>gamemap/baja_pressed.png</key>
+            <key>gamemap/Cross The Bridge_pressed.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
@@ -139,186 +139,6 @@
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>gamemap/book.png</key>
-            <dict>
-                <key>aliases</key>
-                <array/>
-                <key>spriteOffset</key>
-                <string>{2,-6}</string>
-                <key>spriteSize</key>
-                <string>{226,225}</string>
-                <key>spriteSourceSize</key>
-                <string>{256,257}</string>
-                <key>textureRect</key>
-                <string>{{1735,519},{226,225}}</string>
-                <key>textureRotated</key>
-                <true/>
-            </dict>
-            <key>gamemap/book_disabled.png</key>
-            <dict>
-                <key>aliases</key>
-                <array/>
-                <key>spriteOffset</key>
-                <string>{0,0}</string>
-                <key>spriteSize</key>
-                <string>{223,223}</string>
-                <key>spriteSourceSize</key>
-                <string>{223,223}</string>
-                <key>textureRect</key>
-                <string>{{2807,683},{223,223}}</string>
-                <key>textureRotated</key>
-                <false/>
-            </dict>
-            <key>gamemap/book_pressed.png</key>
-            <dict>
-                <key>aliases</key>
-                <array/>
-                <key>spriteOffset</key>
-                <string>{0,0}</string>
-                <key>spriteSize</key>
-                <string>{256,257}</string>
-                <key>spriteSourceSize</key>
-                <string>{256,257}</string>
-                <key>textureRect</key>
-                <string>{{1024,1},{256,257}}</string>
-                <key>textureRotated</key>
-                <false/>
-            </dict>
-            <key>gamemap/cannonshoot.png</key>
-            <dict>
-                <key>aliases</key>
-                <array/>
-                <key>spriteOffset</key>
-                <string>{3,-5}</string>
-                <key>spriteSize</key>
-                <string>{226,225}</string>
-                <key>spriteSourceSize</key>
-                <string>{256,257}</string>
-                <key>textureRect</key>
-                <string>{{1899,747},{226,225}}</string>
-                <key>textureRotated</key>
-                <true/>
-            </dict>
-            <key>gamemap/cannonshoot_disabled.png</key>
-            <dict>
-                <key>aliases</key>
-                <array/>
-                <key>spriteOffset</key>
-                <string>{0,0}</string>
-                <key>spriteSize</key>
-                <string>{225,225}</string>
-                <key>spriteSourceSize</key>
-                <string>{225,225}</string>
-                <key>textureRect</key>
-                <string>{{2479,1},{225,225}}</string>
-                <key>textureRotated</key>
-                <false/>
-            </dict>
-            <key>gamemap/cannonshoot_pressed.png</key>
-            <dict>
-                <key>aliases</key>
-                <array/>
-                <key>spriteOffset</key>
-                <string>{0,0}</string>
-                <key>spriteSize</key>
-                <string>{256,257}</string>
-                <key>spriteSourceSize</key>
-                <string>{256,257}</string>
-                <key>textureRect</key>
-                <string>{{961,581},{256,257}}</string>
-                <key>textureRotated</key>
-                <false/>
-            </dict>
-            <key>gamemap/chain.png</key>
-            <dict>
-                <key>aliases</key>
-                <array/>
-                <key>spriteOffset</key>
-                <string>{2,-6}</string>
-                <key>spriteSize</key>
-                <string>{226,225}</string>
-                <key>spriteSourceSize</key>
-                <string>{256,257}</string>
-                <key>textureRect</key>
-                <string>{{1962,519},{226,225}}</string>
-                <key>textureRotated</key>
-                <true/>
-            </dict>
-            <key>gamemap/chain_disabled.png</key>
-            <dict>
-                <key>aliases</key>
-                <array/>
-                <key>spriteOffset</key>
-                <string>{0,0}</string>
-                <key>spriteSize</key>
-                <string>{223,223}</string>
-                <key>spriteSourceSize</key>
-                <string>{223,223}</string>
-                <key>textureRect</key>
-                <string>{{2870,455},{223,223}}</string>
-                <key>textureRotated</key>
-                <false/>
-            </dict>
-            <key>gamemap/chain_pressed.png</key>
-            <dict>
-                <key>aliases</key>
-                <array/>
-                <key>spriteOffset</key>
-                <string>{0,0}</string>
-                <key>spriteSize</key>
-                <string>{256,257}</string>
-                <key>spriteSourceSize</key>
-                <string>{256,257}</string>
-                <key>textureRect</key>
-                <string>{{1219,260},{256,257}}</string>
-                <key>textureRotated</key>
-                <false/>
-            </dict>
-            <key>gamemap/crossthebridge.png</key>
-            <dict>
-                <key>aliases</key>
-                <array/>
-                <key>spriteOffset</key>
-                <string>{3,-5}</string>
-                <key>spriteSize</key>
-                <string>{226,225}</string>
-                <key>spriteSourceSize</key>
-                <string>{256,257}</string>
-                <key>textureRect</key>
-                <string>{{2126,747},{226,225}}</string>
-                <key>textureRotated</key>
-                <true/>
-            </dict>
-            <key>gamemap/crossthebridge_disabled.png</key>
-            <dict>
-                <key>aliases</key>
-                <array/>
-                <key>spriteOffset</key>
-                <string>{0,0}</string>
-                <key>spriteSize</key>
-                <string>{225,225}</string>
-                <key>spriteSourceSize</key>
-                <string>{225,225}</string>
-                <key>textureRect</key>
-                <string>{{2580,684},{225,225}}</string>
-                <key>textureRotated</key>
-                <false/>
-            </dict>
-            <key>gamemap/crossthebridge_pressed.png</key>
-            <dict>
-                <key>aliases</key>
-                <array/>
-                <key>spriteOffset</key>
-                <string>{0,0}</string>
-                <key>spriteSize</key>
-                <string>{256,257}</string>
-                <key>spriteSourceSize</key>
-                <string>{256,257}</string>
-                <key>textureRect</key>
-                <string>{{1282,1},{256,257}}</string>
-                <key>textureRotated</key>
-                <false/>
-            </dict>
             <key>gamemap/EndlessRunner.png</key>
             <dict>
                 <key>aliases</key>
@@ -330,9 +150,9 @@
                 <key>spriteSourceSize</key>
                 <string>{256,257}</string>
                 <key>textureRect</key>
-                <string>{{1993,229},{226,225}}</string>
+                <string>{{1903,778},{226,225}}</string>
                 <key>textureRotated</key>
-                <true/>
+                <false/>
             </dict>
             <key>gamemap/EndlessRunner_disabled.png</key>
             <dict>
@@ -345,7 +165,7 @@
                 <key>spriteSourceSize</key>
                 <string>{225,225}</string>
                 <key>textureRect</key>
-                <string>{{2643,456},{225,225}}</string>
+                <string>{{2902,228},{225,225}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
@@ -360,7 +180,322 @@
                 <key>spriteSourceSize</key>
                 <string>{256,257}</string>
                 <key>textureRect</key>
+                <string>{{1024,1},{256,257}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+            <key>gamemap/Kung Fu Alpha.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{3,-5}</string>
+                <key>spriteSize</key>
+                <string>{226,225}</string>
+                <key>spriteSourceSize</key>
+                <string>{256,257}</string>
+                <key>textureRect</key>
+                <string>{{1993,491},{226,225}}</string>
+                <key>textureRotated</key>
+                <true/>
+            </dict>
+            <key>gamemap/Kung Fu Alpha_disabled.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{225,225}</string>
+                <key>spriteSourceSize</key>
+                <string>{225,225}</string>
+                <key>textureRect</key>
+                <string>{{2962,1},{225,225}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+            <key>gamemap/Kung Fu Alpha_pressed.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{256,257}</string>
+                <key>spriteSourceSize</key>
+                <string>{256,257}</string>
+                <key>textureRect</key>
+                <string>{{961,581},{256,257}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+            <key>gamemap/Patch The Wall.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{3,-5}</string>
+                <key>spriteSize</key>
+                <string>{226,225}</string>
+                <key>spriteSourceSize</key>
+                <string>{256,257}</string>
+                <key>textureRect</key>
+                <string>{{2131,719},{226,225}}</string>
+                <key>textureRotated</key>
+                <true/>
+            </dict>
+            <key>gamemap/Patch The Wall_disabled.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{225,225}</string>
+                <key>spriteSourceSize</key>
+                <string>{225,225}</string>
+                <key>textureRect</key>
+                <string>{{3039,684},{225,225}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+            <key>gamemap/Patch The Wall_pressed.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{256,257}</string>
+                <key>spriteSourceSize</key>
+                <string>{256,257}</string>
+                <key>textureRect</key>
+                <string>{{1219,260},{256,257}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+            <key>gamemap/Smash The Rock.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{3,-5}</string>
+                <key>spriteSize</key>
+                <string>{226,225}</string>
+                <key>spriteSourceSize</key>
+                <string>{256,257}</string>
+                <key>textureRect</key>
+                <string>{{2220,491},{226,225}}</string>
+                <key>textureRotated</key>
+                <true/>
+            </dict>
+            <key>gamemap/Smash The Rock_disabled.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{225,225}</string>
+                <key>spriteSourceSize</key>
+                <string>{225,225}</string>
+                <key>textureRect</key>
+                <string>{{3128,455},{225,225}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+            <key>gamemap/Smash The Rock_pressed.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{256,257}</string>
+                <key>spriteSourceSize</key>
+                <string>{256,257}</string>
+                <key>textureRect</key>
+                <string>{{1282,1},{256,257}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+            <key>gamemap/alphamole.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{2,-6}</string>
+                <key>spriteSize</key>
+                <string>{226,225}</string>
+                <key>spriteSourceSize</key>
+                <string>{256,257}</string>
+                <key>textureRect</key>
+                <string>{{2221,230},{226,225}}</string>
+                <key>textureRotated</key>
+                <true/>
+            </dict>
+            <key>gamemap/alphamole_disabled.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{2,-6}</string>
+                <key>spriteSize</key>
+                <string>{226,225}</string>
+                <key>spriteSourceSize</key>
+                <string>{256,257}</string>
+                <key>textureRect</key>
+                <string>{{2281,1},{226,225}}</string>
+                <key>textureRotated</key>
+                <true/>
+            </dict>
+            <key>gamemap/alphamole_pressed.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{256,257}</string>
+                <key>spriteSourceSize</key>
+                <string>{256,257}</string>
+                <key>textureRect</key>
                 <string>{{1219,519},{256,257}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+            <key>gamemap/baja.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{2,-6}</string>
+                <key>spriteSize</key>
+                <string>{226,229}</string>
+                <key>spriteSourceSize</key>
+                <string>{256,257}</string>
+                <key>textureRect</key>
+                <string>{{1993,260},{226,229}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+            <key>gamemap/baja_disabled.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{223,227}</string>
+                <key>spriteSourceSize</key>
+                <string>{223,227}</string>
+                <key>textureRect</key>
+                <string>{{2056,1},{223,227}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+            <key>gamemap/baja_pressed.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{256,257}</string>
+                <key>spriteSourceSize</key>
+                <string>{256,257}</string>
+                <key>textureRect</key>
+                <string>{{1477,260},{256,257}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+            <key>gamemap/book.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{2,-6}</string>
+                <key>spriteSize</key>
+                <string>{226,225}</string>
+                <key>spriteSourceSize</key>
+                <string>{256,257}</string>
+                <key>textureRect</key>
+                <string>{{2358,719},{226,225}}</string>
+                <key>textureRotated</key>
+                <true/>
+            </dict>
+            <key>gamemap/book_disabled.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{223,223}</string>
+                <key>spriteSourceSize</key>
+                <string>{223,223}</string>
+                <key>textureRect</key>
+                <string>{{3355,1},{223,223}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+            <key>gamemap/book_pressed.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{256,257}</string>
+                <key>spriteSourceSize</key>
+                <string>{256,257}</string>
+                <key>textureRect</key>
+                <string>{{1540,1},{256,257}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+            <key>gamemap/chain.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{2,-6}</string>
+                <key>spriteSize</key>
+                <string>{226,225}</string>
+                <key>spriteSourceSize</key>
+                <string>{256,257}</string>
+                <key>textureRect</key>
+                <string>{{2447,458},{226,225}}</string>
+                <key>textureRotated</key>
+                <true/>
+            </dict>
+            <key>gamemap/chain_disabled.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{223,223}</string>
+                <key>spriteSourceSize</key>
+                <string>{223,223}</string>
+                <key>textureRect</key>
+                <string>{{3355,226},{223,223}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+            <key>gamemap/chain_pressed.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{256,257}</string>
+                <key>spriteSourceSize</key>
+                <string>{256,257}</string>
+                <key>textureRect</key>
+                <string>{{1477,519},{256,257}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
@@ -379,21 +514,6 @@
                 <key>textureRotated</key>
                 <true/>
             </dict>
-            <key>gamemap/game_map_tile.png</key>
-            <dict>
-                <key>aliases</key>
-                <array/>
-                <key>spriteOffset</key>
-                <string>{0,0}</string>
-                <key>spriteSize</key>
-                <string>{129,129}</string>
-                <key>spriteSourceSize</key>
-                <string>{129,129}</string>
-                <key>textureRect</key>
-                <string>{{483,834},{129,129}}</string>
-                <key>textureRotated</key>
-                <false/>
-            </dict>
             <key>gamemap/jasmine.png</key>
             <dict>
                 <key>aliases</key>
@@ -405,7 +525,7 @@
                 <key>spriteSourceSize</key>
                 <string>{256,257}</string>
                 <key>textureRect</key>
-                <string>{{2025,1},{226,225}}</string>
+                <string>{{2448,229},{226,225}}</string>
                 <key>textureRotated</key>
                 <true/>
             </dict>
@@ -420,7 +540,7 @@
                 <key>spriteSourceSize</key>
                 <string>{223,223}</string>
                 <key>textureRect</key>
-                <string>{{2901,228},{223,223}}</string>
+                <string>{{3355,451},{223,223}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
@@ -435,7 +555,7 @@
                 <key>spriteSourceSize</key>
                 <string>{256,257}</string>
                 <key>textureRect</key>
-                <string>{{1477,260},{256,257}}</string>
+                <string>{{1735,260},{256,257}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
@@ -450,7 +570,7 @@
                 <key>spriteSourceSize</key>
                 <string>{256,257}</string>
                 <key>textureRect</key>
-                <string>{{2189,457},{226,225}}</string>
+                <string>{{2508,1},{226,225}}</string>
                 <key>textureRotated</key>
                 <true/>
             </dict>
@@ -465,7 +585,7 @@
                 <key>spriteSourceSize</key>
                 <string>{223,223}</string>
                 <key>textureRect</key>
-                <string>{{2933,1},{223,223}}</string>
+                <string>{{3355,676},{223,223}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
@@ -480,52 +600,7 @@
                 <key>spriteSourceSize</key>
                 <string>{256,257}</string>
                 <key>textureRect</key>
-                <string>{{1540,1},{256,257}}</string>
-                <key>textureRotated</key>
-                <false/>
-            </dict>
-            <key>gamemap/patchthewall.png</key>
-            <dict>
-                <key>aliases</key>
-                <array/>
-                <key>spriteOffset</key>
-                <string>{3,-5}</string>
-                <key>spriteSize</key>
-                <string>{226,225}</string>
-                <key>spriteSourceSize</key>
-                <string>{256,257}</string>
-                <key>textureRect</key>
-                <string>{{2220,229},{226,225}}</string>
-                <key>textureRotated</key>
-                <true/>
-            </dict>
-            <key>gamemap/patchthewall_disabled.png</key>
-            <dict>
-                <key>aliases</key>
-                <array/>
-                <key>spriteOffset</key>
-                <string>{0,0}</string>
-                <key>spriteSize</key>
-                <string>{225,225}</string>
-                <key>spriteSourceSize</key>
-                <string>{225,225}</string>
-                <key>textureRect</key>
-                <string>{{2674,228},{225,225}}</string>
-                <key>textureRotated</key>
-                <false/>
-            </dict>
-            <key>gamemap/patchthewall_pressed.png</key>
-            <dict>
-                <key>aliases</key>
-                <array/>
-                <key>spriteOffset</key>
-                <string>{0,0}</string>
-                <key>spriteSize</key>
-                <string>{256,257}</string>
-                <key>spriteSourceSize</key>
-                <string>{256,257}</string>
-                <key>textureRect</key>
-                <string>{{1477,519},{256,257}}</string>
+                <string>{{1798,1},{256,257}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
@@ -536,45 +611,45 @@
                 <key>spriteOffset</key>
                 <string>{0,0}</string>
                 <key>spriteSize</key>
-                <string>{218,831}</string>
+                <string>{218,901}</string>
                 <key>spriteSourceSize</key>
-                <string>{218,831}</string>
+                <string>{218,901}</string>
                 <key>textureRect</key>
-                <string>{{483,1},{218,831}}</string>
+                <string>{{483,1},{218,901}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>gamemap/smashtherock.png</key>
+            <key>gamemap/sortit.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
                 <key>spriteOffset</key>
-                <string>{3,-5}</string>
+                <string>{2,-6}</string>
                 <key>spriteSize</key>
                 <string>{226,225}</string>
                 <key>spriteSourceSize</key>
                 <string>{256,257}</string>
                 <key>textureRect</key>
-                <string>{{2252,1},{226,225}}</string>
+                <string>{{2585,686},{226,225}}</string>
                 <key>textureRotated</key>
                 <true/>
             </dict>
-            <key>gamemap/smashtherock_disabled.png</key>
+            <key>gamemap/sortit_disabled.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
                 <key>spriteOffset</key>
-                <string>{0,0}</string>
+                <string>{2,-6}</string>
                 <key>spriteSize</key>
-                <string>{225,225}</string>
+                <string>{226,225}</string>
                 <key>spriteSourceSize</key>
-                <string>{225,225}</string>
+                <string>{256,257}</string>
                 <key>textureRect</key>
-                <string>{{2706,1},{225,225}}</string>
+                <string>{{2674,457},{226,225}}</string>
                 <key>textureRotated</key>
-                <false/>
+                <true/>
             </dict>
-            <key>gamemap/smashtherock_pressed.png</key>
+            <key>gamemap/sortit_pressed.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
@@ -585,7 +660,7 @@
                 <key>spriteSourceSize</key>
                 <string>{256,257}</string>
                 <key>textureRect</key>
-                <string>{{1735,260},{256,257}}</string>
+                <string>{{1735,519},{256,257}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
@@ -600,7 +675,7 @@
                 <key>spriteSourceSize</key>
                 <string>{256,257}</string>
                 <key>textureRect</key>
-                <string>{{2353,685},{226,225}}</string>
+                <string>{{2675,229},{226,225}}</string>
                 <key>textureRotated</key>
                 <true/>
             </dict>
@@ -615,7 +690,7 @@
                 <key>spriteSourceSize</key>
                 <string>{223,223}</string>
                 <key>textureRect</key>
-                <string>{{3032,680},{223,223}}</string>
+                <string>{{3129,228},{223,223}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
@@ -646,9 +721,9 @@
             <key>realTextureFileName</key>
             <string>gamemap.png</string>
             <key>size</key>
-            <string>{3256,1008}</string>
+            <string>{3579,1004}</string>
             <key>smartupdate</key>
-            <string>$TexturePacker:SmartUpdate:adb219445265f71f87a825243afd1688:63df4e1a98215dee5ad1892eb8be1036:8e6144685d05ab27c2cddc39fe1ff60f$</string>
+            <string>$TexturePacker:SmartUpdate:6f734449efedd35f7021c6736d24ecd9:ea9f486f522a14cd232dbd4e7d03c612:8e6144685d05ab27c2cddc39fe1ff60f$</string>
             <key>textureFileName</key>
             <string>gamemap.png</string>
         </dict>
