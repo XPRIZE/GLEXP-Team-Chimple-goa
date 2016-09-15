@@ -150,14 +150,24 @@ xc.PopLayer = cc.Layer.extend({
     },
 
     setWordInRightOrder: function (wordObject) {
-        if (this.wordInOrder.length == 0 && wordObject.id == 0) {
-            this.makeSentance(wordObject);
-
+        if (this.wordInOrder.length == 0 ) {
+            if(wordObject.id == 0)
+            {
+                 this.makeSentance(wordObject);
+            }
+            else
+            {
+                  this.cloudShake(wordObject);
+            }
         }
         else if (this.wordInOrder.length != 0) {
-            if (this.wordInOrder.length == wordObject.id) {
+            if (this.wordInOrder.length == wordObject.id)
+             {
                 this.makeSentance(wordObject);
-            }
+             }
+           else{
+                  this.cloudShake(wordObject);
+             }
         }
     },
     makeSentance: function (word) {
@@ -178,7 +188,7 @@ xc.PopLayer = cc.Layer.extend({
             this.correctSentance.setString(this.correctSentance.getString() + " " + word.children[0].getString());
             this.removeChild(word);
         }
-        ;
+        
         this.removePlaneFromScene();
     },
     removePlaneFromScene: function () {
@@ -194,6 +204,16 @@ xc.PopLayer = cc.Layer.extend({
                 menuContext.showScore();
             }
         }
+    },
+    cloudShake: function(wrongCloud)
+    {
+                var action_1 = new cc.MoveBy(0.1, 10, 0);
+                var action_2 = new cc.MoveBy(0.1, 0, -10);
+                var action_3 = new cc.MoveBy(0.1, 0, 10);
+                var action_4 = new cc.MoveBy(0.1, -10, 0);
+
+                var seqAction = new cc.Sequence(action_1, action_2, action_3,action_4);
+                wrongCloud.runAction(seqAction);
     }
 });
 xc.PopLayer.res = {
@@ -202,5 +222,4 @@ xc.PopLayer.res = {
     pop_plane: xc.path + "pop/plane.json",
     pop_scene_plist: xc.path + "pop/pop.plist",
     pop_scene_png: xc.path + "pop/pop.png",
-
 }
