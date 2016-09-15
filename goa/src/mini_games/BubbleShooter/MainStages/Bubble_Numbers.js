@@ -646,7 +646,7 @@ xc.Bubble_Number = cc.Layer.extend({
                          
                           this.bubbleName[tile.x][tile.y].runAction(new cc.MoveTo(1,cc.p(cc.director.getWinSize().width/2, cc.director.getWinSize().height/2)));
                          
-                           cc.audioEngine.playEffect("res/english/sounds/"+this.LetterName[tile.x][tile.y].name.toLowerCase()+".wav");
+                  //         cc.audioEngine.playEffect("res/english/sounds/"+this.LetterName[tile.x][tile.y].name.toLowerCase()+".wav");
 
                            setTimeout(function() {
                                 self.playerDie(tile.x,tile.y,tempColorType);
@@ -779,8 +779,13 @@ xc.Bubble_Number = cc.Layer.extend({
         
    DataCard : function (gamestatus){
        console.log("gamestatus : "+gamestatus + " -------------- ");
-       var level = levelValues;
-       xc.GameScene.load(xc.BubbleGame_HomeScreenMenu);
+     if (cc.sys.isNative) {
+               var menuContext = this.getParent().menuContext;
+               cc.log("showscore");
+               menuContext.showScore();
+     }else{
+         xc.GameScene.load(xc.BubbleGame_HomeScreenMenu);
+     }  
     },
     
    playerDie : function (tilex,tiley,type,float){

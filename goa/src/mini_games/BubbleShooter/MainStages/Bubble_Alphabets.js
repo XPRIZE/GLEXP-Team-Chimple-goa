@@ -683,8 +683,13 @@ xc.Bubble_Alphabets = cc.Layer.extend({
    DataCard : function (gamestatus){
        console.log("gamestatus : "+gamestatus + " -------------- ");
        var level = levelValues;
-       xc.GameScene.load(xc.BubbleGame_HomeScreenMenu);
-  
+    if (cc.sys.isNative) {
+               var menuContext = this.getParent().menuContext;
+               cc.log("showscore");
+               menuContext.showScore();
+     }else{
+         xc.GameScene.load(xc.BubbleGame_HomeScreenMenu);
+     }  
     },
     
    playerDie : function (tilex,tiley,type,float){
