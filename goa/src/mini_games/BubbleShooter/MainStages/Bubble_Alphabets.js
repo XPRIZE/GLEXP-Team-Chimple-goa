@@ -710,6 +710,7 @@ xc.Bubble_Alphabets = cc.Layer.extend({
        
      //   this.animationBubbleBlast(bubbleName[tilex][tiley],type);       
         this.removeChild(this.bubbleName[tilex][tiley]);
+       cc.audioEngine.playEffect("res/bubble_shooter/sounds/bubble_blast.wav");
         
     },
     
