@@ -51,6 +51,9 @@ class PegGrapheme : public Grapheme {
 public:
     static PegGrapheme* create(std::string graphemeString);
     void onEnterTransitionDidFinish() override;
+    void changeBackground();
+    cocos2d::Vec2 getRandomLocation();
+    cocos2d::Vec2 getUnoccupiedRandomLocation();
 
 CC_CONSTRUCTOR_ACCESS:
     bool init(std::string graphemeString);
@@ -59,6 +62,7 @@ CC_CONSTRUCTOR_ACCESS:
     void onTouchMoved(cocos2d::Touch* touch, cocos2d::Event* event) override;
 
 protected:
+    cocos2d::Vec2 _newPosition;
     void initialAnimationDone();
 };
 

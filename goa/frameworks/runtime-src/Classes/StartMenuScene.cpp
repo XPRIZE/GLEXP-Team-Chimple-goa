@@ -10,6 +10,8 @@
 #include "HelloWorldScene.h"
 #include "alphamon/SelectAlphamonScene.h"
 #include "puzzle/DuelScene.h"
+#include "puzzle/WordBoard.h"
+#include "puzzle/PegWord.h"
 #include "mini_games/PatchTheWallScene.h"
 #include "mini_games/CrossTheBridgeScene.h"
 #include "mini_games/SmashTheRockScene.h"
@@ -110,6 +112,10 @@ void StartMenu::startScene(std::string gameName, std::string firstParam, std::st
         ScriptingCore::getInstance()->runScript("start/storytelling.js");
     } else if (gameName == ALPHAMOLE) {
 		Director::getInstance()->replaceScene(AlphamoleLevel::createScene());
+    } else if (gameName == WORD_BOARD) {
+        Director::getInstance()->replaceScene(WordBoard::createScene());
+    } else if (gameName == PEG) {
+        Director::getInstance()->replaceScene(PegWord::createScene());
 	} else{
         CCLOG("Failed starting scene: %s", gameName.c_str());
     }

@@ -12,6 +12,9 @@
 #include "alphamon/SelectAlphamonScene.h"
 #include "puzzle/DuelScene.h"
 #include "puzzle/WordScene.h"
+#include "puzzle/PegWord.h"
+#include "puzzle/DuelScene.h"
+#include "puzzle/WordBoard.h"
 #include "mini_games/PatchTheWallScene.h"
 #include "mini_games/CrossTheBridgeScene.h"
 #include "mini_games/SmashTheRockScene.h"
@@ -25,9 +28,6 @@
 #include "StartMenuScene.h"
 #include "mini_games/Baja.h"
 #include "mini_games/Chain.h"
-#include "puzzle/PegWord.h"
-#include "puzzle/DuelScene.h"
-#include "puzzle/WordBoard.h"
 #include "mini_games/Wembley.h"
 #include "mini_games/BajaWordScene.h"
 #include "mini_games/CatGameScene.h"
@@ -159,7 +159,8 @@ void ScrollableGameMapScene::gameSelected(Ref* pSender, ui::Widget::TouchEventTy
             clickedButton->setEnabled(false);
 
 			if (clickedButton->getName() == SORT_IT) {
-				ScriptingCore::getInstance()->runScript("src/start/sortit.js");
+//				ScriptingCore::getInstance()->runScript("src/start/sortit.js");
+                Director::getInstance()->replaceScene(PegWord::createScene());
 			} else if (clickedButton->getName() == ALPHAMOLE) {
 				Director::getInstance()->replaceScene(AlphamoleLevel::createScene());
 			} else if(clickedButton->getName() == PATCH_THE_WALL) {
