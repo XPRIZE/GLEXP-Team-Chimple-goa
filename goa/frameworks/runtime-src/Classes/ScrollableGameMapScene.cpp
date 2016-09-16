@@ -168,8 +168,11 @@ void ScrollableGameMapScene::gameSelected(Ref* pSender, ui::Widget::TouchEventTy
             } else  if (clickedButton->getName() == CAT) {
 				Director::getInstance()->replaceScene(CatGame::createScene());
 				//ScriptingCore::getInstance()->runScript("src/start/alphamole.js");
-			}else  if (clickedButton->getName() == SMASH_THE_ROCK) {
+			} else  if (clickedButton->getName() == JUMP_ON_WORDS) {
 				ScriptingCore::getInstance()->runScript("src/start/jump.js");
+			} else  if (clickedButton->getName() == SMASH_THE_ROCK) {
+				Director::getInstance()->replaceScene(SmashTheRock::createScene());
+				//ScriptingCore::getInstance()->runScript("src/start/jump.js");
 			} else if(clickedButton->getName() == CROSS_THE_BRIDGE) {
                 ScriptingCore::getInstance()->runScript("src/start/pop.js");
               // Director::getInstance()->replaceScene(CrossTheBridge::createScene());

@@ -41,6 +41,7 @@ const std::vector<std::string> StartMenu::getGameNames() {
     std::vector<std::string> gameNames;
 	gameNames.push_back(SORT_IT);
 	gameNames.push_back(ALPHAMOLE);
+	gameNames.push_back(JUMP_ON_WORDS);
     gameNames.push_back(BAJA);
     gameNames.push_back(CHAIN);
     gameNames.push_back(WEMBLEY);
@@ -110,6 +111,8 @@ void StartMenu::startScene(std::string gameName, std::string firstParam, std::st
         ScriptingCore::getInstance()->runScript("start/storytelling.js");
     } else if (gameName == ALPHAMOLE) {
 		Director::getInstance()->replaceScene(AlphamoleLevel::createScene());
+	} else if (gameName == JUMP_ON_WORDS) {
+		ScriptingCore::getInstance()->runScript("src/start/jump.js");
 	} else{
         CCLOG("Failed starting scene: %s", gameName.c_str());
     }
