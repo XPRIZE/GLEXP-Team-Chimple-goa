@@ -142,7 +142,11 @@ xc.Bubble_Alphabets = cc.Layer.extend({
       cc.eventManager.addListener(listnerBg,trnspImg);
       
       if (cc.director.getWinSize().width > 2560){
-         this.textHitsLabel.setPosition(trnspImg.x+trnspImg.getContentSize().width + 10 , cc.director.getWinSize().height * 0.5);
+         var xPosi = cc.director.getWinSize().width - 2560;
+         this.textHitsLabel.setPosition(trnspImg.x+trnspImg.getContentSize().width + (xPosi/2) , cc.director.getWinSize().height * 0.8);
+         this.extendLetter = new cc.LabelTTF(""+letterSprite[this.player.bubble.tiletype],"res/fonts/Marker Felt.ttf", 450);
+         this.extendLetter.setPosition(trnspImg.x+trnspImg.getContentSize().width + (xPosi/2) , cc.director.getWinSize().height * 0.5);
+         this.addChild(this.extendLetter);
       }
   
         // Set the gun Pointer
@@ -273,7 +277,7 @@ xc.Bubble_Alphabets = cc.Layer.extend({
 
     // Render the player bubble
     renderPlayer : function()  {
-            
+             
             // Draw the bubble in gun
              if(this.player.nextbubble.tiletype == undefined){
                  this.player.nextbubble.tiletype = Math.floor(this.getRandomArbitrary(0,bubblecolors));
@@ -293,7 +297,7 @@ xc.Bubble_Alphabets = cc.Layer.extend({
              if (this.player.bubble.visible && this.player.bubble.tiletype != undefined) {
                  this.drawBubble(this.player.bubble.x, this.player.bubble.y, this.player.bubble.tiletype);  
                 //  console.log("done 385" + this.mainPlayerBubbleDestroy);               
-             }     
+             }   
     },
     
      // Shoot the bubble
@@ -304,10 +308,9 @@ xc.Bubble_Alphabets = cc.Layer.extend({
         this.player.bubble.y = this.player.y;
         this.player.bubble.angle = this.player.angle;
         this.player.bubble.tiletype = this.player.tiletype;
-
         // Set the gamestate
         this.setGameState(this.gamestates.shootbubble);
-
+        
       },
         // Draw the bubble
       drawBubble : function(x, y, index) {
@@ -447,7 +450,7 @@ xc.Bubble_Alphabets = cc.Layer.extend({
             //  ++this.count;
             //  this.hits--;
             // console.log("done 553");
-          //  console.log(" ---------------  you hited "+ (++ this.counterhits) +" balls --------------------");
+            console.log(" ---------------  you hited "+ (++ this.counterhits) +" balls --------------------");
             //   console.log("hits remaining : "+ this.hits + " count value is : " + this.count);
             //    this.DataCard();
                this.textHitsLabel.setString("Hits : "+ this.counterhits);
@@ -515,6 +518,7 @@ xc.Bubble_Alphabets = cc.Layer.extend({
 
 
     stateRemoveCluster : function() {
+       this.extendLetter.setString(""+letterSprite[this.player.bubble.tiletype]);
               let self  = this;
         // console.log("done 622");      
         if (this.animationstate == 0) {
@@ -1185,7 +1189,7 @@ xc.Bubble_Alphabets = cc.Layer.extend({
                     x: 0,
                     y: 0,
                     angle: 0,
-                    speed: 1500,
+                    speed: 2500,
                     tiletype: 0,
                     visible: false
                 },

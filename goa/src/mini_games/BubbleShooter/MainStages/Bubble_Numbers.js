@@ -4,19 +4,27 @@ xc.Bubble_Number = cc.Layer.extend({
   ctor:function () {
   
    this._super();
-   imageSprite = ['bubble_shooter/red_ball','bubble_shooter/green_ball','bubble_shooter/yellow_ball','bubble_shooter/purple_ball','bubble_shooter/blue_ball','bubble_shooter/orange_ball'];
+   imageSprite = ['bubble_shooter/red_ball','bubble_shooter/green_ball','bubble_shooter/yellow_ball','bubble_shooter/purple_ball','bubble_shooter/blue_ball','bubble_shooter/orange_ball',"bubble_shooter/yellow_ball","bubble_shooter/blue_ball"];
 
    var ScreenMenu = ccs.load(xc.BubbleGame_HomeScreenMenu.res.bubbleShooter_gameMenu_json,xc.path);
    this.addChild(ScreenMenu.node);
-    var xPosi ;
-//     if (cc.director.getWinSize().width > 2560){
-//         xPosi = cc.director.getWinSize().width - 2560;
-//         ScreenMenu.node.x = xPosi/2;
-//     }
-
+   var xPosi ;
+    // if (cc.director.getWinSize().width > 2560){
+    //     xPosi = cc.director.getWinSize().width - 2560;
+    //     ScreenMenu.node.x = xPosi/2;
+    // }
+    
+    var LangLetter = goa.TextGenerator.getInstance().getAllChars();
+    
+    var numberOfLetter = 3;
+    if(numberOfLetter <= Math.ceil(LangLetter.length/12)){
+        numberOfLetter = Math.ceil(LangLetter.length/12);  
+    }
+    
     console.log("the height and width : "+cc.director.getWinSize().height+"      "+cc.director.getWinSize().width);
     this.textHitsLabel = new cc.LabelTTF("Hits : 0","res/fonts/Marker Felt.ttf",75);
     this.textHitsLabel.setPosition(cc.director.getWinSize().width*0.87,cc.director.getWinSize().height*0.975);                      
+ 
     this.addChild(this.textHitsLabel);
     this.initVariable(ScreenMenu,xPosi);
     this.bubbleName = [];
@@ -39,16 +47,15 @@ xc.Bubble_Number = cc.Layer.extend({
                 this.level.tiles[i][j] = new Tile(i, j, 0, 0);
            }
         }
-        console.log(this.level.tiles);
         // Define a level width and height
         this.level.width = this.level.columns * this.level.tilewidth + this.level.tilewidth/2;
         this.level.height = (this.level.rows) * this.level.rowheight + this.level.tileheight;
     
         // Set the gamestate to ready
         this.setGameState(this.gamestates.ready);
-     // Set the gamestate to ready
-        this.setGameState(this.gamestates.ready);
-         if(levelValues ==  1){        
+        
+    
+        if(levelValues ==  1){        
            levelName = "NumberStarLevel1";            
            letterSprite = ['0','1','2','3','4'];
             let color = 5 , repeat = 2;
@@ -134,7 +141,7 @@ xc.Bubble_Number = cc.Layer.extend({
         }else{
             console.log("level management error  - The value if level is : "+levelValues );
         }
-        
+       
         // Init the this.player in gun 
         this.player.x = this.level.x + this.level.width/2 - this.level.tilewidth/2 ;
         //console.log("this.player.x = "+(this.level.x + this.level.width/2 - this.level.tilewidth/2) + "  this.level.x : "+this.level.x+" this.level.width/2 : "+this.level.width/2+" this.level.tilewidth/2 : "+this.level.tilewidth/2);
@@ -146,7 +153,8 @@ xc.Bubble_Number = cc.Layer.extend({
         // Init the next-this.player
         this.player.nextbubble.x = this.player.x - 2 * this.level.tilewidth;
         this.player.nextbubble.y = this.player.y;
-
+      
+        
         // Init the next bubble and set the current bubble
         this.nextBubble();
         this.nextBubble();
@@ -162,7 +170,7 @@ xc.Bubble_Number = cc.Layer.extend({
 
         this.letterPlayer =  new cc.LabelTTF(""+letterSprite[this.player.bubble.tiletype],"res/fonts/Marker Felt.ttf",150);
         this.letterPlayer.setPosition(this.bubblePlayer.getContentSize().width/2,this.bubblePlayer.getContentSize().height/2);
-        this.bubblePlayer.addChild(this.letterPlayer,1);
+        this.bubblePlayer.addChild(this.letterPlayer);
         
         if(this.player.nextbubble.tiletype == undefined){
             this.player.nextbubble.tiletype = Math.floor(this.getRandomArbitrary(0,bubblecolors)); ;
@@ -204,6 +212,14 @@ xc.Bubble_Number = cc.Layer.extend({
       trnspImg.setAnchorPoint(0,0);        trnspImg.setPosition(0,0);       trnspImg.setOpacity(0);
       ScreenMenu.node.getChildByName("Panel_2").addChild(trnspImg);
       cc.eventManager.addListener(listnerBg,trnspImg);
+      
+      if (cc.director.getWinSize().width > 2560){
+         var xPosi = cc.director.getWinSize().width - 2560;
+         this.textHitsLabel.setPosition(trnspImg.x+trnspImg.getContentSize().width + (xPosi/2) , cc.director.getWinSize().height * 0.8);
+         this.extendLetter = new cc.LabelTTF(""+letterSprite[this.player.bubble.tiletype],"res/fonts/Marker Felt.ttf", 450);
+         this.extendLetter.setPosition(trnspImg.x+trnspImg.getContentSize().width + (xPosi/2) , cc.director.getWinSize().height * 0.5);
+         this.addChild(this.extendLetter);
+      }
   
         // Set the gun Pointer
         this.gun = new cc.Sprite(cc.spriteFrameCache.getSpriteFrame("bubble_shooter/gun_tricker.png"));
@@ -224,7 +240,6 @@ xc.Bubble_Number = cc.Layer.extend({
   },
   
     update : function (dt) {
-           
          // Render player bubble
         if(!(this.gamestate == this.gamestates.gameComplete)){
             // console.log("the value of gameOver condition is : "+ this.gamestate + " the value of complete game is : "+this.gamestates.gameComplete);
@@ -247,18 +262,17 @@ xc.Bubble_Number = cc.Layer.extend({
      
     gunMove : function(x,y){
         // console.log("done 276");
-       var xPosi = 0;
+        var xPosi = 0;
         if (cc.director.getWinSize().width > 2560){
             xPosi = cc.director.getWinSize().width - 2560;
         }
         this.onMouseMove(x , y);
-        console.log("x and y : "+x +"  "+ y);
+        console.log("x and y : "+x +"  "+ y + " xPosi value is : "+ xPosi);
          if (this.gamestate == this.gamestates.ready) {
                  this.shootBubble(); 
             }
     },
-         
-        // Create a random pattern level1
+            // Create a random pattern level1
    createLevel : function ( colour , repeat ) {
  
        // Number of different colors
@@ -305,7 +319,7 @@ xc.Bubble_Number = cc.Layer.extend({
             
         }
     },    
-
+    
      // Render tiles
      renderTiles : function () {
      
@@ -339,7 +353,7 @@ xc.Bubble_Number = cc.Layer.extend({
 
     // Render the player bubble
     renderPlayer : function()  {
-            
+             
             // Draw the bubble in gun
              if(this.player.nextbubble.tiletype == undefined){
                  this.player.nextbubble.tiletype = Math.floor(this.getRandomArbitrary(0,bubblecolors));
@@ -359,7 +373,7 @@ xc.Bubble_Number = cc.Layer.extend({
              if (this.player.bubble.visible && this.player.bubble.tiletype != undefined) {
                  this.drawBubble(this.player.bubble.x, this.player.bubble.y, this.player.bubble.tiletype);  
                 //  console.log("done 385" + this.mainPlayerBubbleDestroy);               
-             }     
+             }   
     },
     
      // Shoot the bubble
@@ -370,10 +384,9 @@ xc.Bubble_Number = cc.Layer.extend({
         this.player.bubble.y = this.player.y;
         this.player.bubble.angle = this.player.angle;
         this.player.bubble.tiletype = this.player.tiletype;
-
         // Set the gamestate
         this.setGameState(this.gamestates.shootbubble);
-
+        
       },
         // Draw the bubble
       drawBubble : function(x, y, index) {
@@ -400,10 +413,7 @@ xc.Bubble_Number = cc.Layer.extend({
             this.letterPlayer.setPosition(this.bubblePlayer.getContentSize().width/2,this.bubblePlayer.getContentSize().height/2);
             this.bubblePlayer.anchorX=0.0;
             this.bubblePlayer.anchorY=0.0;
-        
-        // console.log("done 440");
-        // this.addChild(this.bubblePlayer);
-        // this.addChild(this.letterPlayer);
+
     },
        
     stateShootBubble : function(dt){
@@ -538,13 +548,13 @@ xc.Bubble_Number = cc.Layer.extend({
                this.checkBubbleStatus();
                // Check for game over
                if (this.checkGameOver()) {
-                   console.log("game over now .........")
+                  // console.log("game over now .........")
                    return;
                 }
                 // console.log("done 578");
                 // Find clusters
                 this.cluster = this.findCluster(gridpos.x, gridpos.y, true, true, false);
-                console.log("cluster size is : "+ this.cluster.length);
+               // console.log("cluster size is : "+ this.cluster.length);
                 
                 //  if( this.hits < 0 ){
                 //  console.log(" GAME OVER  ");
@@ -584,10 +594,11 @@ xc.Bubble_Number = cc.Layer.extend({
 
 
     stateRemoveCluster : function() {
+       this.extendLetter.setString(""+letterSprite[this.player.bubble.tiletype]);
               let self  = this;
         // console.log("done 622");      
         if (this.animationstate == 0) {
-            console.log("flag to remove the bubble is on");
+          //  console.log("flag to remove the bubble is on");
              this.resetRemoved();
             
             // Mark the tiles as removed
@@ -598,7 +609,7 @@ xc.Bubble_Number = cc.Layer.extend({
             
             // Find floating clusters
             this.floatingclusters = this.findFloatingClusters();
-            console.log("float cluster : "+ this.floatingclusters.length);
+          //  console.log("float cluster : "+ this.floatingclusters.length);
             this.animationstate = 1;
                    
         }
@@ -646,7 +657,7 @@ xc.Bubble_Number = cc.Layer.extend({
                          
                           this.bubbleName[tile.x][tile.y].runAction(new cc.MoveTo(1,cc.p(cc.director.getWinSize().width/2, cc.director.getWinSize().height/2)));
                          
-                  //         cc.audioEngine.playEffect("res/english/sounds/"+this.LetterName[tile.x][tile.y].name.toLowerCase()+".wav");
+//                           cc.audioEngine.playEffect("res/english/sounds/"+this.LetterName[tile.x][tile.y].name.toLowerCase()+".wav");
 
                            setTimeout(function() {
                                 self.playerDie(tile.x,tile.y,tempColorType);
@@ -754,32 +765,11 @@ xc.Bubble_Number = cc.Layer.extend({
         }
         return false;
     },
-    
-     rndNumber : function(color)
-    {       
-        
-      let ArrayBubble = new Array(color);
-      let newArrayBubble = [];
-      
-        for(let i =0 ; i < 10 ; i++){
-            ArrayBubble[i] = i;
-         }
-   
-        for(let i = 0 ; i < color ; i++){
-            
-            let temp = Math.floor(this.getRandomArbitrary(0,ArrayBubble.length));
-            newArrayBubble.push(ArrayBubble[temp]);
-       
-            ArrayBubble.splice(temp,1);
-        }
-        
-        return  newArrayBubble;
-     
-    },
         
    DataCard : function (gamestatus){
        console.log("gamestatus : "+gamestatus + " -------------- ");
-     if (cc.sys.isNative) {
+       var level = levelValues;
+    if (cc.sys.isNative) {
                var menuContext = this.getParent().menuContext;
                cc.log("showscore");
                menuContext.showScore();
@@ -1119,7 +1109,7 @@ xc.Bubble_Number = cc.Layer.extend({
       
        // Draw the bubble sprite
     
-       let data = new cc.LabelTTF(""+letterSprite[index],"res/fonts/Marker Felt.ttf",150);
+       let data = new cc.LabelTTF(""+letterSprite[index],"res/fonts/Marker Felt.ttf",120);
        data.setPosition(x,y);
         // console.log("x : " + row + " y : " + col + " color : " +index);
        return data;
@@ -1135,7 +1125,7 @@ xc.Bubble_Number = cc.Layer.extend({
          this.removeChild(this.nextBubblePlayer);
      
      this.nextBubblePlayer =  new cc.Sprite(cc.spriteFrameCache.getSpriteFrame(imageSprite[index]+".png"));
-    this.nextBubblePlayer.setPosition(this.gunBase.x - 380 ,cc.director.getWinSize().height * 0.0575);
+     this.nextBubblePlayer.setPosition(this.gunBase.x - 380 ,cc.director.getWinSize().height * 0.0575);
      this.nextBubblePlayer.anchorX=0.5;
      this.nextBubblePlayer.anchorY=0.5;
      //  console.log("the value for y in playe : "+ this.player.bubble.y);
@@ -1157,6 +1147,28 @@ xc.Bubble_Number = cc.Layer.extend({
      getRandomArbitrary : function (min, max) {
         return Math.random() * (max - min) + min;
     },
+         rndNumber : function(color)
+    {       
+        
+      let ArrayBubble = new Array(color);
+      let newArrayBubble = [];
+      
+        for(let i =0 ; i < 10 ; i++){
+            ArrayBubble[i] = i;
+         }
+   
+        for(let i = 0 ; i < color ; i++){
+            
+            let temp = Math.floor(this.getRandomArbitrary(0,ArrayBubble.length));
+            newArrayBubble.push(ArrayBubble[temp]);
+       
+            ArrayBubble.splice(temp,1);
+        }
+        
+        return  newArrayBubble;
+     
+    },
+
 
     /**
      * Returns a random integer between min (inclusive) and max (inclusive)
@@ -1169,7 +1181,7 @@ xc.Bubble_Number = cc.Layer.extend({
  
      // On mouse movement
       onMouseMove : function (posx , posy) {
-        console.log("the posX : "+posx + " the posY : "+posy);
+      //  console.log("on Move move : -> the posX : "+posx + " the posY : "+posy);
         let mouseangle = 0 ;
 		
         // Get the mouse angle
@@ -1245,13 +1257,13 @@ xc.Bubble_Number = cc.Layer.extend({
         this.finalFlag = false;
         this.killBubble = false;
 
-        var leftPanel = ScreenMenu.node.getChildByName("Panel_7");
+        
       
         if(xPosi == undefined){ xPosi = 0; }      
       
         // Level
         this.level = {            
-            x: (leftPanel.x + leftPanel.getContentSize().width + (xPosi/2)), // X position
+            x: 0, // X position
             y: cc.director.getWinSize().height * 0.103,          // Y position
             width: 0,       // Width, gets calculated
             height: 0,      // Height, gets calculated
@@ -1275,7 +1287,7 @@ xc.Bubble_Number = cc.Layer.extend({
                     x: 0,
                     y: 0,
                     angle: 0,
-                    speed: 1500,
+                    speed: 2500,
                     tiletype: 0,
                     visible: false
                 },
@@ -1291,10 +1303,9 @@ xc.Bubble_Number = cc.Layer.extend({
         this.counterhits = 0;
         
         // Array Of Letter
-        
+        this.letterSprite = [];
         this.imageSprite = [];
         this.bubblecolors = 0;
-        this.letterSprite=[];
         this.cluster = [];
         this.floatingclusters = [];
     },
