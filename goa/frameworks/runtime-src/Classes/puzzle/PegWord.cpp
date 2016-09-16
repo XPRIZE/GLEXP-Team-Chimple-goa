@@ -105,7 +105,7 @@ void PegWord::createChoice() {
 }
 
 Node* PegWord::loadNode() {
-    auto background = CSLoader::createNode("cafe/cafe.csb");
+    auto background = CSLoader::createNode("common_screen/MainScene.csb");
     return background;
 }
 
@@ -116,24 +116,34 @@ GraphemeGrid* PegWord::createGraphemeGrid(GLfloat width, GLfloat height, int num
 }
 
 void PegWord::onTouchEnded(cocos2d::Touch *touch, cocos2d::Event *event) {
-    auto grapheme = static_cast<Grapheme*>(event->getCurrentTarget());
+    auto grapheme = static_cast<PegGrapheme*>(event->getCurrentTarget());
     auto graphemeText = grapheme->getTextInGrapheme();
     auto graphemeRect = graphemeText->getBoundingBox();
-    auto graphemeRectInWorld = Rect(grapheme->convertToWorldSpace(graphemeRect.origin), graphemeRect.size);
-    
+    auto graphemeRectInWorld = Rect(grapheme->convertToWorldSpace(graphemeRect.origin), Size(graphemeRect.size.width / 2, graphemeRect.size.height / 4));
+
+    for (auto it = _answerVector.begin() ; it != _answerVector.end(); ++it) {
+        if((*it).second == grapheme) {
+            *it = std::pair<Node*, Grapheme*>((*it).first, nullptr);
+        }
+    }
+    int i = 0;
     for (auto it = _answerVector.begin() ; it != _answerVector.end(); ++it) {
         if((*it).second == nullptr) {
             auto targetNode = (*it).first;
             auto targetRect = targetNode->getBoundingBox();
-            auto targetRectInWorld = Rect(targetNode->getParent()->convertToWorldSpace(targetRect.origin), targetRect.size);
+            auto targetRectInWorld = Rect(targetNode->getParent()->convertToWorldSpace(targetRect.origin), Size(targetRect.size.width / 2, targetRect.size.height / 4));
             if(graphemeRectInWorld.intersectsRect(targetRectInWorld)) {
-                *it = std::pair<Node*, Grapheme*>(targetNode, grapheme);
-                auto tPos = targetNode->getParent()->convertToWorldSpace(targetNode->getPosition());
-                grapheme->selected(true);
-                grapheme->animateToPositionAndChangeBackground(_grid->convertToNodeSpace(tPos));
+                if(grapheme->getGraphemeString() == _answerGraphemes.at(i)) {
+                    *it = std::pair<Node*, Grapheme*>(targetNode, grapheme);
+                    auto tPos = targetNode->getParent()->convertToWorldSpace(targetNode->getPosition());
+                    grapheme->animateToPositionAndChangeBackground(_grid->convertToNodeSpace(tPos));
+                } else {
+                    grapheme->animateToPositionAndChangeBackground(grapheme->getUnoccupiedRandomLocation());
+                }
                 return;
             }
         }
+        i++;
     }
 }
 
@@ -204,20 +214,15 @@ bool PegGrapheme::init(std::string graphemeString) {
         return false;
     }
     _text->setFontSize(600);
+    _newPosition = Vec2::ZERO;
     return true;
 }
 
 void PegGrapheme::onEnterTransitionDidFinish() {
     Grapheme::onEnterTransitionDidFinish();
     _eventDispatcher->pauseEventListenersForTarget(this);
-    float x = 400 - rand() % 800;
-    float y = 200 - rand() % 400;
-    if(y < 0) {
-        y -= 400;
-    } else {
-        y += 400;
-    }
-    auto moveTo = MoveTo::create(1.0, Vec2(getPositionX() + x, getPositionY() + y));
+    _newPosition = getUnoccupiedRandomLocation();
+    auto moveTo = MoveTo::create(1.0, _newPosition);
     auto callback = CallFunc::create(CC_CALLBACK_0(PegGrapheme::initialAnimationDone, this));
     runAction(Sequence::create(moveTo, callback, NULL));
 }
@@ -241,3 +246,44 @@ void PegGrapheme::onTouchMoved(cocos2d::Touch *touch, cocos2d::Event *event) {
     setPosition(n);
 }
 
+Vec2 PegGrapheme::getRandomLocation() {
+    float x = 256 + rand() % 2304;
+    float y = 200 - rand() % 400;
+    if(y < 0) {
+        y -= 400;
+    } else {
+        y += 400;
+    }
+    return Vec2(x, y);
+}
+
+Vec2 PegGrapheme::getUnoccupiedRandomLocation() {
+    bool empty = true;
+    Vec2 loc;
+    do {
+        loc = getRandomLocation();
+        auto bb = getTextInGrapheme()->getBoundingBox();
+        bb.origin = loc;
+        empty = true;
+        auto children = getParent()->getChildren();
+        for (auto it = children.begin() + 1 ; it != children.end(); ++it) {
+            auto grapheme = static_cast<PegGrapheme* >(*it);
+            if(this != grapheme) {
+                auto graphemeBb = grapheme->getTextInGrapheme()->getBoundingBox();
+                if(bb.intersectsRect(graphemeBb)) {
+                    empty = false;
+                }
+                graphemeBb.origin = grapheme->_newPosition;
+                if(bb.intersectsRect(graphemeBb)) {
+                    empty = false;
+                }
+            }
+        }
+    } while (!empty);
+    return loc;
+}
+
+void PegGrapheme::changeBackground() {
+    Grapheme::changeBackground();
+    
+}

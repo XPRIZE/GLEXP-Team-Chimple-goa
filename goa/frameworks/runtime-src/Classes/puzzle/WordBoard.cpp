@@ -123,5 +123,7 @@ void WordBoard::checkAnswer() {
 }
 
 void WordBoard::gameOver(bool correct) {
-    _menuContext->showScore();
+    if(correct) {
+        _menuContext->showScore();
+    }
 }

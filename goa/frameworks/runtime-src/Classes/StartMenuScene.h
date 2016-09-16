@@ -32,10 +32,13 @@ static const std::string CAT = "cat";
 static const std::string TRAIN = "train";
 static const std::string POP = "pop";
 static const std::string ALPHAMOLE = "alphamole";
-static const std::string JUMP = "jump";
+static const std::string JUMP_ON_WORDS = "JumpOnWords";
 static const std::string STORY_TELLING = "book";
 static const std::string DECOMON = "decomon";
 static const std::string SORT_IT = "sortit";
+static const std::string WORD_BOARD = "wordBoard";
+static const std::string PEG = "peg";
+static const std::string BUBBLE = "bubble";
 
 
 
