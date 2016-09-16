@@ -32,17 +32,20 @@ gameName: "bubble",
         var titleNumber = new cc.LabelTTF("Number","res/fonts/Marker Felt.ttf",100);
         titleNumber.setPosition(Number_Button.getContentSize().width/2,Number_Button.getContentSize().height/2);
         Number_Button.addChild(titleNumber);
-        
+
         var Puzzle_Button = gameMenu.node.getChildByName("Panel_1").getChildByName("Button_11");
         Puzzle_Button.addTouchEventListener(this.touchEvent ,this); 
 
         var titlePuzzle = new cc.LabelTTF("Puzzle","res/fonts/Marker Felt.ttf",100);
         titlePuzzle.setPosition(Puzzle_Button.getContentSize().width/2,Puzzle_Button.getContentSize().height/2);
         Puzzle_Button.addChild(titlePuzzle);
-        
+
+        Puzzle_Button.setEnabled(false);
+        Puzzle_Button.setVisible(false);
+
+        console.log("the height and width : "+cc.director.getWinSize().height+"      "+cc.director.getWinSize().width);
         return true;
     },
-    
     touchEvent:function(sender, type)
    {
      switch(type)

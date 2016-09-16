@@ -9,10 +9,10 @@ xc.Bubble_Alphabets = cc.Layer.extend({
    var ScreenMenu = ccs.load(xc.BubbleGame_HomeScreenMenu.res.bubbleShooter_gameMenu_json,xc.path);
    this.addChild(ScreenMenu.node);
    var xPosi ;
-    if (cc.director.getWinSize().width > 2560){
-        xPosi = cc.director.getWinSize().width - 2560;
-        ScreenMenu.node.x = xPosi/2;
-    }
+    // if (cc.director.getWinSize().width > 2560){
+    //     xPosi = cc.director.getWinSize().width - 2560;
+    //     ScreenMenu.node.x = xPosi/2;
+    // }
     
     var LangLetter = goa.TextGenerator.getInstance().getAllChars();
     
@@ -24,6 +24,7 @@ xc.Bubble_Alphabets = cc.Layer.extend({
     console.log("the height and width : "+cc.director.getWinSize().height+"      "+cc.director.getWinSize().width);
     this.textHitsLabel = new cc.LabelTTF("Hits : 0","res/fonts/Marker Felt.ttf",75);
     this.textHitsLabel.setPosition(cc.director.getWinSize().width*0.87,cc.director.getWinSize().height*0.975);                      
+ 
     this.addChild(this.textHitsLabel);
     this.initVariable(ScreenMenu,xPosi);
     this.bubbleName = [];
@@ -64,7 +65,7 @@ xc.Bubble_Alphabets = cc.Layer.extend({
             }
         }
         
-        let color = numberOfLetter , repeat = 2;
+        let color = numberOfLetter , repeat = 3;
         // Create the level of bubbles
         this.createLevel(color,repeat);
        
@@ -80,18 +81,7 @@ xc.Bubble_Alphabets = cc.Layer.extend({
         // Init the next-this.player
         this.player.nextbubble.x = this.player.x - 2 * this.level.tilewidth;
         this.player.nextbubble.y = this.player.y;
-        
-        // Set the gun Pointer
-        this.gun = new cc.Sprite(cc.spriteFrameCache.getSpriteFrame("bubble_shooter/gun_tricker.png"));
-        this.gun.setPosition(cc.director.getWinSize().width/2, cc.director.getWinSize().height *0.095);
-        this.gun.name ="gunPointer";
-        this.gun.anchorY = 0.6;
-        this.addChild(this.gun);
-
-       //Set the gun Base
-        this.gunBase =  new cc.Sprite(cc.spriteFrameCache.getSpriteFrame("bubble_shooter/gun.png"));
-        this.gunBase.setPosition(cc.director.getWinSize().width/2 , cc.director.getWinSize().height * 0.0685);
-        this.addChild(this.gunBase);
+      
         
         // Init the next bubble and set the current bubble
         this.nextBubble();
@@ -104,7 +94,7 @@ xc.Bubble_Alphabets = cc.Layer.extend({
 
         this.bubblePlayer =  new cc.Sprite(cc.spriteFrameCache.getSpriteFrame(imageSprite[this.player.bubble.tiletype]+".png"));
         this.bubblePlayer.setPosition(cc.director.getWinSize().width * 0.5,cc.director.getWinSize().height * 0.5);
-        this.addChild(this.bubblePlayer);
+        this.addChild(this.bubblePlayer,1);
 
         this.letterPlayer =  new cc.LabelTTF(""+letterSprite[this.player.bubble.tiletype],"res/fonts/Marker Felt.ttf",150);
         this.letterPlayer.setPosition(this.bubblePlayer.getContentSize().width/2,this.bubblePlayer.getContentSize().height/2);
@@ -150,6 +140,28 @@ xc.Bubble_Alphabets = cc.Layer.extend({
       trnspImg.setAnchorPoint(0,0);        trnspImg.setPosition(0,0);       trnspImg.setOpacity(0);
       ScreenMenu.node.getChildByName("Panel_2").addChild(trnspImg);
       cc.eventManager.addListener(listnerBg,trnspImg);
+      
+      if (cc.director.getWinSize().width > 2560){
+         var xPosi = cc.director.getWinSize().width - 2560;
+          if(xPosi >= 300){
+            this.textHitsLabel.setPosition(trnspImg.x+trnspImg.getContentSize().width + (xPosi/2) , cc.director.getWinSize().height * 0.8);
+            this.extendLetter = new cc.LabelTTF(""+letterSprite[this.player.bubble.tiletype],"res/fonts/Marker Felt.ttf", 450);
+            this.extendLetter.setPosition(trnspImg.x+trnspImg.getContentSize().width + (xPosi/2) , cc.director.getWinSize().height * 0.5);
+            this.addChild(this.extendLetter);
+          }
+      }
+  
+        // Set the gun Pointer
+        this.gun = new cc.Sprite(cc.spriteFrameCache.getSpriteFrame("bubble_shooter/gun_tricker.png"));
+        this.gun.setPosition(trnspImg.width/2, cc.director.getWinSize().height *0.090);
+        this.gun.name ="gunPointer";
+        this.gun.anchorY = 0.6;
+        this.addChild(this.gun);
+
+        //Set the gun Base
+        this.gunBase =  new cc.Sprite(cc.spriteFrameCache.getSpriteFrame("bubble_shooter/gun.png"));
+        this.gunBase.setPosition(trnspImg.width/2 , cc.director.getWinSize().height * 0.0575);
+        this.addChild(this.gunBase);  
   
       this.scheduleUpdate();
     
@@ -184,7 +196,7 @@ xc.Bubble_Alphabets = cc.Layer.extend({
         if (cc.director.getWinSize().width > 2560){
             xPosi = cc.director.getWinSize().width - 2560;
         }
-        this.onMouseMove(x+xPosi , y);
+        this.onMouseMove(x , y);
         console.log("x and y : "+x +"  "+ y + " xPosi value is : "+ xPosi);
          if (this.gamestate == this.gamestates.ready) {
                  this.shootBubble(); 
@@ -267,7 +279,7 @@ xc.Bubble_Alphabets = cc.Layer.extend({
 
     // Render the player bubble
     renderPlayer : function()  {
-            
+             
             // Draw the bubble in gun
              if(this.player.nextbubble.tiletype == undefined){
                  this.player.nextbubble.tiletype = Math.floor(this.getRandomArbitrary(0,bubblecolors));
@@ -287,7 +299,7 @@ xc.Bubble_Alphabets = cc.Layer.extend({
              if (this.player.bubble.visible && this.player.bubble.tiletype != undefined) {
                  this.drawBubble(this.player.bubble.x, this.player.bubble.y, this.player.bubble.tiletype);  
                 //  console.log("done 385" + this.mainPlayerBubbleDestroy);               
-             }     
+             }   
     },
     
      // Shoot the bubble
@@ -298,10 +310,9 @@ xc.Bubble_Alphabets = cc.Layer.extend({
         this.player.bubble.y = this.player.y;
         this.player.bubble.angle = this.player.angle;
         this.player.bubble.tiletype = this.player.tiletype;
-
         // Set the gamestate
         this.setGameState(this.gamestates.shootbubble);
-
+        
       },
         // Draw the bubble
       drawBubble : function(x, y, index) {
@@ -441,7 +452,7 @@ xc.Bubble_Alphabets = cc.Layer.extend({
             //  ++this.count;
             //  this.hits--;
             // console.log("done 553");
-          //  console.log(" ---------------  you hited "+ (++ this.counterhits) +" balls --------------------");
+            console.log(" ---------------  you hited "+ (++ this.counterhits) +" balls --------------------");
             //   console.log("hits remaining : "+ this.hits + " count value is : " + this.count);
             //    this.DataCard();
                this.textHitsLabel.setString("Hits : "+ this.counterhits);
@@ -509,6 +520,9 @@ xc.Bubble_Alphabets = cc.Layer.extend({
 
 
     stateRemoveCluster : function() {
+       if(this.extendLetter != undefined){ 
+            this.extendLetter.setString(""+letterSprite[this.player.bubble.tiletype]);
+       }
               let self  = this;
         // console.log("done 622");      
         if (this.animationstate == 0) {
@@ -1023,7 +1037,7 @@ xc.Bubble_Alphabets = cc.Layer.extend({
       
        // Draw the bubble sprite
     
-       let data = new cc.LabelTTF(""+letterSprite[index],"res/fonts/Marker Felt.ttf",150);
+       let data = new cc.LabelTTF(""+letterSprite[index],"res/fonts/Marker Felt.ttf",120);
        data.setPosition(x,y);
         // console.log("x : " + row + " y : " + col + " color : " +index);
        return data;
@@ -1039,7 +1053,7 @@ xc.Bubble_Alphabets = cc.Layer.extend({
          this.removeChild(this.nextBubblePlayer);
      
      this.nextBubblePlayer =  new cc.Sprite(cc.spriteFrameCache.getSpriteFrame(imageSprite[index]+".png"));
-     this.nextBubblePlayer.setPosition((cc.director.getWinSize().width/2 - 350)  , cc.director.getWinSize().height * 0.0607080);
+     this.nextBubblePlayer.setPosition(this.gunBase.x - 380 ,cc.director.getWinSize().height * 0.0575);
      this.nextBubblePlayer.anchorX=0.5;
      this.nextBubblePlayer.anchorY=0.5;
      //  console.log("the value for y in playe : "+ this.player.bubble.y);
@@ -1149,13 +1163,13 @@ xc.Bubble_Alphabets = cc.Layer.extend({
         this.finalFlag = false;
         this.killBubble = false;
 
-        var leftPanel = ScreenMenu.node.getChildByName("Panel_7");
+        
       
         if(xPosi == undefined){ xPosi = 0; }      
       
         // Level
         this.level = {            
-            x: (leftPanel.x + leftPanel.getContentSize().width + (xPosi/2)), // X position
+            x: 0, // X position
             y: cc.director.getWinSize().height * 0.103,          // Y position
             width: 0,       // Width, gets calculated
             height: 0,      // Height, gets calculated
@@ -1179,7 +1193,7 @@ xc.Bubble_Alphabets = cc.Layer.extend({
                     x: 0,
                     y: 0,
                     angle: 0,
-                    speed: 1000,
+                    speed: 2500,
                     tiletype: 0,
                     visible: false
                 },
