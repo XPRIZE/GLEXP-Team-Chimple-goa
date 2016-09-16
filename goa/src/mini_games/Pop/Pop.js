@@ -53,8 +53,9 @@ xc.PopLayer = cc.Layer.extend({
                 this.plane.action.play('planerun', true);
                 this.plane.node.runAction(cc.MoveTo.create(5, cc.p(-220, cc.director.getWinSize().height * multiplyFactor)));
         
-        var wordForSentanceArray = goa.TextGenerator.getInstance().generateASentence();
-        wordForSentanceArray = wordForSentanceArray.split(" ");
+      //  var wordForSentanceArray = goa.TextGenerator.getInstance().generateASentence();
+      //  wordForSentanceArray = wordForSentanceArray.split(" ");
+        var wordForSentanceArray = ["ಭಾರತದ", "ಗಣರಾಜ್ಯೋತ್ಸವ"];
         // var wordForSentanceArray = ["Twinkle", "twinkle", "little", "star","How", "I","wonder", "what", "you", "are"];
         cc.log("sentence:" + wordForSentanceArray);
 
@@ -122,15 +123,15 @@ xc.PopLayer = cc.Layer.extend({
                 cloud.Ypos = (cc.director.getWinSize().height * 0.76) - (cloud.getBoundingBox().height * 2);
                 cloud.setPosition(worldSize.width + 300, cloud.Ypos);
             }
-
-            var label = new cc.LabelTTF(wordForSentanceArray[i], "Arial", 110);
+            cc.log(wordForSentanceArray[i]);
+            var label = new cc.LabelTTF(wordForSentanceArray[i], "", 200, cc.size(1,200));
             label.color = new cc.Color(255, 192, 203);
             label.attr({
                 x: cloud.getBoundingBox().width / 2,
                 y: cloud.getBoundingBox().height / 2
             });
-
-            cloud.addChild(label);
+            label.setFontSize(210 );
+            cloud.addChild(label,1);
             this.stringContainer.push[label];
             cc.eventManager.addListener(listener.clone(), cloud);
         }
@@ -178,8 +179,9 @@ xc.PopLayer = cc.Layer.extend({
                 x: cc.director.getWinSize().width / 2,
                 y: cc.director.getWinSize().height * .93
             });
-
+            // this.correctSentance.setFontSize(110 );
             this.addChild(this.correctSentance);
+            cc.log("size" + this.correctSentance.getFontSize());
             this.wordInOrder.push(word.id);
             this.removeChild(word);
         }
