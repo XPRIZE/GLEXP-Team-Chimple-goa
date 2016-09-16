@@ -2,7 +2,7 @@ var xc = xc || {};
 var levelValues =1;
 
 xc.BubbleGame_HomeScreenMenu = cc.Layer.extend({
-
+gameName: "bubble",
     ctor:function () {
        
         this._super();

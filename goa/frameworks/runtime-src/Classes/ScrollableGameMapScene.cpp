@@ -12,6 +12,9 @@
 #include "alphamon/SelectAlphamonScene.h"
 #include "puzzle/DuelScene.h"
 #include "puzzle/WordScene.h"
+#include "puzzle/PegWord.h"
+#include "puzzle/DuelScene.h"
+#include "puzzle/WordBoard.h"
 #include "mini_games/PatchTheWallScene.h"
 #include "mini_games/CrossTheBridgeScene.h"
 #include "mini_games/SmashTheRockScene.h"
@@ -25,9 +28,6 @@
 #include "StartMenuScene.h"
 #include "mini_games/Baja.h"
 #include "mini_games/Chain.h"
-#include "puzzle/PegWord.h"
-#include "puzzle/DuelScene.h"
-#include "puzzle/WordBoard.h"
 #include "mini_games/Wembley.h"
 #include "mini_games/BajaWordScene.h"
 #include "mini_games/CatGameScene.h"
@@ -159,7 +159,8 @@ void ScrollableGameMapScene::gameSelected(Ref* pSender, ui::Widget::TouchEventTy
             clickedButton->setEnabled(false);
 
 			if (clickedButton->getName() == SORT_IT) {
-				ScriptingCore::getInstance()->runScript("src/start/sortit.js");
+//				ScriptingCore::getInstance()->runScript("src/start/sortit.js");
+                Director::getInstance()->replaceScene(PegWord::createScene());
 			} else if (clickedButton->getName() == ALPHAMOLE) {
 				Director::getInstance()->replaceScene(AlphamoleLevel::createScene());
 			} else if(clickedButton->getName() == PATCH_THE_WALL) {
@@ -173,17 +174,19 @@ void ScrollableGameMapScene::gameSelected(Ref* pSender, ui::Widget::TouchEventTy
 			} else  if (clickedButton->getName() == SMASH_THE_ROCK) {
 				Director::getInstance()->replaceScene(SmashTheRock::createScene());
 				//ScriptingCore::getInstance()->runScript("src/start/jump.js");
+			} else if (clickedButton->getName() == POP) {
+				ScriptingCore::getInstance()->runScript("src/start/pop.js");
 			} else if(clickedButton->getName() == CROSS_THE_BRIDGE) {
-                ScriptingCore::getInstance()->runScript("src/start/pop.js");
-              // Director::getInstance()->replaceScene(CrossTheBridge::createScene());
-				//Director::getInstance()->replaceScene(Pop::createScene());
+				 Director::getInstance()->replaceScene(CrossTheBridge::createScene());
             } else if(clickedButton->getName() == SMASH_THE_ROCK) {
                 Director::getInstance()->replaceScene(SmashTheRock::createScene());
             } else if(clickedButton->getName() == CANNON_BALL) {
-                Director::getInstance()->replaceScene(MainGame::createScene());
-            } else if(clickedButton->getName() == ENDLESS_RUNNER) {
+                Director::getInstance()->replaceScene(MainGame::createScene());//BUBBLE
+            } else if(clickedButton->getName() == BUBBLE) {
 				ScriptingCore::getInstance()->runScript("src/start/BubbleShooter.js");
-            } else if(clickedButton->getName() == KUNG_FU_ALPHA) {
+            } else if (clickedButton->getName() == ENDLESS_RUNNER) {
+				Director::getInstance()->replaceScene(EndlessRunner::createScene());
+			} else if(clickedButton->getName() == KUNG_FU_ALPHA) {
                 Director::getInstance()->replaceScene(Trace::createScene(0));   
             } else if(clickedButton->getName() == ALPHAMON_FEED) {
                 Director::getInstance()->replaceScene(AlphamonFeed::createScene());
