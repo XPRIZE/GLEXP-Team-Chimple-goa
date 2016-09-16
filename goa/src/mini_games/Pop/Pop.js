@@ -55,10 +55,31 @@ xc.PopLayer = cc.Layer.extend({
         
         var wordForSentanceArray = goa.TextGenerator.getInstance().generateASentence();
         wordForSentanceArray = wordForSentanceArray.split(" ");
-        // var wordForSentanceArray = ["Twinkle", "twinkle", "little", "star","How", "I","wonder", "what", "you", "are"];
+
+         //var wordForSentanceArray = ["Twinkle","Twinkle", "Twinkle","Twinkle","Twinkle"];
+
+        var dummySentance = "";
+        for(var i=0; i<wordForSentanceArray.length; i++)
+        {
+            dummySentance = dummySentance +" "+ wordForSentanceArray[i];
+        }
+
+            this.sentanceInRightOrder = new cc.LabelTTF(dummySentance, "Arial", 120);
+            this.sentanceInRightOrder.color = new cc.Color(255, 192, 203);
+            this.sentanceInRightOrder.attr({
+                x: cc.director.getWinSize().width / 2,
+                y: cc.director.getWinSize().height * .93
+            });
+
+            this.addChild(this.sentanceInRightOrder);
+
+        console.log("correct sentance : "+dummySentance);
+
+        
         cc.log("sentence:" + wordForSentanceArray);
 
-            setTimeout(function(){ self.clickableFlag = true; }, 12000);
+            setTimeout(function(){ self.clickableFlag = true; 
+                self.removeChild(self.sentanceInRightOrder)}, 12000);
 
             var listener = cc.EventListener.create({
             event: cc.EventListener.TOUCH_ONE_BY_ONE,
@@ -123,7 +144,7 @@ xc.PopLayer = cc.Layer.extend({
                 cloud.setPosition(worldSize.width + 300, cloud.Ypos);
             }
 
-            var label = new cc.LabelTTF(wordForSentanceArray[i], "Arial", 110);
+            var label = new cc.LabelTTF(""+wordForSentanceArray[i], "Arial", 110);
             label.color = new cc.Color(255, 192, 203);
             label.attr({
                 x: cloud.getBoundingBox().width / 2,
@@ -131,7 +152,7 @@ xc.PopLayer = cc.Layer.extend({
             });
 
             cloud.addChild(label);
-            this.stringContainer.push[label];
+            this.stringContainer[i]=""+wordForSentanceArray[i];
             cc.eventManager.addListener(listener.clone(), cloud);
         }
         setTimeout(function () {
@@ -151,7 +172,8 @@ xc.PopLayer = cc.Layer.extend({
 
     setWordInRightOrder: function (wordObject) {
         if (this.wordInOrder.length == 0 ) {
-            if(wordObject.id == 0)
+            //wordObject.id == 0 ||
+            if( wordObject.children[0].getString() == this.stringContainer[this.wordInOrder.length])
             {
                  this.makeSentance(wordObject);
             }
@@ -161,7 +183,8 @@ xc.PopLayer = cc.Layer.extend({
             }
         }
         else if (this.wordInOrder.length != 0) {
-            if (this.wordInOrder.length == wordObject.id)
+            //this.wordInOrder.length == wordObject.id
+            if ( wordObject.children[0].getString() == this.stringContainer[this.wordInOrder.length])
              {
                 this.makeSentance(wordObject);
              }
@@ -172,7 +195,7 @@ xc.PopLayer = cc.Layer.extend({
     },
     makeSentance: function (word) {
         if (this.wordInOrder.length == 0) {
-            this.correctSentance = new cc.LabelTTF(word.children[0].getString(), "Arial", 90);
+            this.correctSentance = new cc.LabelTTF(word.children[0].getString(), "Arial", 120);
             this.correctSentance.color = new cc.Color(255, 192, 203);
             this.correctSentance.attr({
                 x: cc.director.getWinSize().width / 2,
