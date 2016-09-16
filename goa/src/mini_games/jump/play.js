@@ -456,6 +456,14 @@ this.remove();
            this.removeChild(nameLabel);
         },2);
 
+     if(this.dict.length == 0)
+     {
+         if (cc.sys.isNative) {
+                var menuContext = this.getParent().menuContext;
+                cc.log("showscore");
+                menuContext.showScore();
+            }
+     }
      },
 
       generateRandomLetters : function(count,array){
@@ -483,9 +491,16 @@ this.remove();
      incrementScore : function()
   {
          self.correct++;
-    this.score += 2;
+    this.score += 1;
     scoreLabel.setString(""+ this.score);
-  
+    if(this.score >= 10)
+    {
+        if (cc.sys.isNative) {
+                var menuContext = this.getParent().menuContext;
+                cc.log("showscore");
+                menuContext.showScore();
+            }
+    }
   },
   
    decrementScore : function()

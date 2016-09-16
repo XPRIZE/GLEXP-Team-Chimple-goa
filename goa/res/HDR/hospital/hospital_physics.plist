@@ -1,0 +1,1132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+    <dict>
+        <key>metadata</key>
+        <dict>
+            <key>format</key>
+            <integer>1</integer>
+        </dict>
+        <key>category_names</key>
+        <array>
+        </array>
+        <key>bodies</key>
+        <dict>
+
+            <key>table4</key>
+            <dict>
+                <key>anchorpoint</key>
+                <string>{ 0.50000,0.50000 }</string>
+                <key>is_dynamic</key>
+                <false/>
+                <key>affected_by_gravity</key>
+                <false/>
+                <key>allows_rotation</key>
+                <false/>
+                <key>linear_damping</key>
+                <real>0</real>
+                <key>velocity_limit</key>
+                <real>1000000</real>
+                <key>angular_damping</key>
+                <real>0</real>
+                <key>angular_velocity_limit</key>
+                <real>1000000</real>
+                <key>fixtures</key>
+                <array>
+
+                    <dict>
+                        <key>density</key>
+                        <real>1</real>
+                        <key>restitution</key>
+                        <real>0.200000003</real>
+                        <key>friction</key>
+                        <real>0.699999988</real>
+                        <key>tag</key>
+                        <integer>0</integer>
+                        <key>group</key>
+                        <integer>0</integer>
+                        <key>category_mask</key>
+                        <integer>1</integer>
+                        <key>collision_mask</key>
+                        <integer>2</integer>
+                        <key>contact_test_mask</key>
+                        <integer>2</integer>
+                        <key>fixture_type</key>
+                        <string>POLYGON</string>
+                        
+                        <key>polygons</key>
+                        <array>
+                            <array>
+                                <string>{ 269.00000,173.00000 }</string>
+                                <string>{ 269.00000,108.00000 }</string>
+                                <string>{ -266.00000,108.00000 }</string>
+                                <string>{ -266.00000,173.00000 }</string>
+                            </array>
+                        </array>
+                        
+                    </dict>
+
+                </array>
+            </dict>
+
+            <key>wheelchair</key>
+            <dict>
+                <key>anchorpoint</key>
+                <string>{ 0.50000,0.50000 }</string>
+                <key>is_dynamic</key>
+                <false/>
+                <key>affected_by_gravity</key>
+                <false/>
+                <key>allows_rotation</key>
+                <false/>
+                <key>linear_damping</key>
+                <real>0</real>
+                <key>velocity_limit</key>
+                <real>1000000</real>
+                <key>angular_damping</key>
+                <real>0</real>
+                <key>angular_velocity_limit</key>
+                <real>1000000</real>
+                <key>fixtures</key>
+                <array>
+
+                    <dict>
+                        <key>density</key>
+                        <real>1</real>
+                        <key>restitution</key>
+                        <real>0.200000003</real>
+                        <key>friction</key>
+                        <real>0.699999988</real>
+                        <key>tag</key>
+                        <integer>0</integer>
+                        <key>group</key>
+                        <integer>0</integer>
+                        <key>category_mask</key>
+                        <integer>1</integer>
+                        <key>collision_mask</key>
+                        <integer>2</integer>
+                        <key>contact_test_mask</key>
+                        <integer>2</integer>
+                        <key>fixture_type</key>
+                        <string>POLYGON</string>
+                        
+                        <key>polygons</key>
+                        <array>
+                            <array>
+                                <string>{ 126.00000,-17.00000 }</string>
+                                <string>{ 126.00000,-63.00000 }</string>
+                                <string>{ -127.00000,-63.00000 }</string>
+                                <string>{ -127.00000,-17.00000 }</string>
+                            </array>
+                        </array>
+                        
+                    </dict>
+
+                </array>
+            </dict>
+
+            <key>bookstand</key>
+            <dict>
+                <key>anchorpoint</key>
+                <string>{ 0.50000,0.50000 }</string>
+                <key>is_dynamic</key>
+                <false/>
+                <key>affected_by_gravity</key>
+                <false/>
+                <key>allows_rotation</key>
+                <false/>
+                <key>linear_damping</key>
+                <real>0</real>
+                <key>velocity_limit</key>
+                <real>1000000</real>
+                <key>angular_damping</key>
+                <real>0</real>
+                <key>angular_velocity_limit</key>
+                <real>1000000</real>
+                <key>fixtures</key>
+                <array>
+
+                    <dict>
+                        <key>density</key>
+                        <real>1</real>
+                        <key>restitution</key>
+                        <real>0.20000000000000001</real>
+                        <key>friction</key>
+                        <real>0.69999999999999996</real>
+                        <key>tag</key>
+                        <integer>0</integer>
+                        <key>group</key>
+                        <integer>0</integer>
+                        <key>category_mask</key>
+                        <integer>1</integer>
+                        <key>collision_mask</key>
+                        <integer>2</integer>
+                        <key>contact_test_mask</key>
+                        <integer>2</integer>
+                        <key>fixture_type</key>
+                        <string>POLYGON</string>
+                        
+                        <key>polygons</key>
+                        <array>
+                            <array>
+                                <string>{ 175.00000,246.00000 }</string>
+                                <string>{ 175.00000,211.00000 }</string>
+                                <string>{ -172.00000,211.00000 }</string>
+                                <string>{ -172.00000,246.00000 }</string>
+                            </array>
+                        </array>
+                        
+                    </dict>
+
+                </array>
+            </dict>
+
+            <key>chair1</key>
+            <dict>
+                <key>anchorpoint</key>
+                <string>{ 0.50200,0.50100 }</string>
+                <key>is_dynamic</key>
+                <false/>
+                <key>affected_by_gravity</key>
+                <false/>
+                <key>allows_rotation</key>
+                <false/>
+                <key>linear_damping</key>
+                <real>0</real>
+                <key>velocity_limit</key>
+                <real>1000000</real>
+                <key>angular_damping</key>
+                <real>0</real>
+                <key>angular_velocity_limit</key>
+                <real>1000000</real>
+                <key>fixtures</key>
+                <array>
+
+                    <dict>
+                        <key>density</key>
+                        <real>1</real>
+                        <key>restitution</key>
+                        <real>0.200000003</real>
+                        <key>friction</key>
+                        <real>0.699999988</real>
+                        <key>tag</key>
+                        <integer>0</integer>
+                        <key>group</key>
+                        <integer>0</integer>
+                        <key>category_mask</key>
+                        <integer>1</integer>
+                        <key>collision_mask</key>
+                        <integer>2</integer>
+                        <key>contact_test_mask</key>
+                        <integer>2</integer>
+                        <key>fixture_type</key>
+                        <string>POLYGON</string>
+                        
+                        <key>polygons</key>
+                        <array>
+                            <array>
+                                <string>{ 78.50000,-6.50000 }</string>
+                                <string>{ 78.50000,-45.50000 }</string>
+                                <string>{ -78.50000,-45.50000 }</string>
+                                <string>{ -78.50000,-6.50000 }</string>
+                            </array>
+                        </array>
+                        
+                    </dict>
+
+                </array>
+            </dict>
+
+            <key>chair2</key>
+            <dict>
+                <key>anchorpoint</key>
+                <string>{ 0.49800,0.50000 }</string>
+                <key>is_dynamic</key>
+                <false/>
+                <key>affected_by_gravity</key>
+                <false/>
+                <key>allows_rotation</key>
+                <false/>
+                <key>linear_damping</key>
+                <real>0</real>
+                <key>velocity_limit</key>
+                <real>1000000</real>
+                <key>angular_damping</key>
+                <real>0</real>
+                <key>angular_velocity_limit</key>
+                <real>1000000</real>
+                <key>fixtures</key>
+                <array>
+
+                    <dict>
+                        <key>density</key>
+                        <real>1</real>
+                        <key>restitution</key>
+                        <real>0.200000003</real>
+                        <key>friction</key>
+                        <real>0.699999988</real>
+                        <key>tag</key>
+                        <integer>0</integer>
+                        <key>group</key>
+                        <integer>0</integer>
+                        <key>category_mask</key>
+                        <integer>1</integer>
+                        <key>collision_mask</key>
+                        <integer>2</integer>
+                        <key>contact_test_mask</key>
+                        <integer>2</integer>
+                        <key>fixture_type</key>
+                        <string>POLYGON</string>
+                        
+                        <key>polygons</key>
+                        <array>
+                            <array>
+                                <string>{ 79.50000,-14.00000 }</string>
+                                <string>{ 79.50000,-53.00000 }</string>
+                                <string>{ -77.50000,-53.00000 }</string>
+                                <string>{ -77.50000,-14.00000 }</string>
+                            </array>
+                        </array>
+                        
+                    </dict>
+
+                </array>
+            </dict>
+
+            <key>chair3</key>
+            <dict>
+                <key>anchorpoint</key>
+                <string>{ 0.50000,0.49900 }</string>
+                <key>is_dynamic</key>
+                <false/>
+                <key>affected_by_gravity</key>
+                <false/>
+                <key>allows_rotation</key>
+                <false/>
+                <key>linear_damping</key>
+                <real>0</real>
+                <key>velocity_limit</key>
+                <real>1000000</real>
+                <key>angular_damping</key>
+                <real>0</real>
+                <key>angular_velocity_limit</key>
+                <real>1000000</real>
+                <key>fixtures</key>
+                <array>
+
+                    <dict>
+                        <key>density</key>
+                        <real>1</real>
+                        <key>restitution</key>
+                        <real>0.200000003</real>
+                        <key>friction</key>
+                        <real>0.699999988</real>
+                        <key>tag</key>
+                        <integer>0</integer>
+                        <key>group</key>
+                        <integer>0</integer>
+                        <key>category_mask</key>
+                        <integer>1</integer>
+                        <key>collision_mask</key>
+                        <integer>2</integer>
+                        <key>contact_test_mask</key>
+                        <integer>2</integer>
+                        <key>fixture_type</key>
+                        <string>POLYGON</string>
+                        
+                        <key>polygons</key>
+                        <array>
+                            <array>
+                                <string>{ -117.00000,-10.50000 }</string>
+                                <string>{ -117.00000,-49.50000 }</string>
+                                <string>{ -274.00000,-49.50000 }</string>
+                                <string>{ -274.00000,-10.50000 }</string>
+                            </array>
+                        </array>
+                        
+                    </dict>
+
+                    <dict>
+                        <key>density</key>
+                        <real>1</real>
+                        <key>restitution</key>
+                        <real>0.200000003</real>
+                        <key>friction</key>
+                        <real>0.699999988</real>
+                        <key>tag</key>
+                        <integer>0</integer>
+                        <key>group</key>
+                        <integer>0</integer>
+                        <key>category_mask</key>
+                        <integer>1</integer>
+                        <key>collision_mask</key>
+                        <integer>2</integer>
+                        <key>contact_test_mask</key>
+                        <integer>2</integer>
+                        <key>fixture_type</key>
+                        <string>POLYGON</string>
+                        
+                        <key>polygons</key>
+                        <array>
+                            <array>
+                                <string>{ 74.00000,-10.50000 }</string>
+                                <string>{ 74.00000,-49.50000 }</string>
+                                <string>{ -83.00000,-49.50000 }</string>
+                                <string>{ -83.00000,-10.50000 }</string>
+                            </array>
+                        </array>
+                        
+                    </dict>
+
+                    <dict>
+                        <key>density</key>
+                        <real>1</real>
+                        <key>restitution</key>
+                        <real>0.200000003</real>
+                        <key>friction</key>
+                        <real>0.699999988</real>
+                        <key>tag</key>
+                        <integer>0</integer>
+                        <key>group</key>
+                        <integer>0</integer>
+                        <key>category_mask</key>
+                        <integer>1</integer>
+                        <key>collision_mask</key>
+                        <integer>2</integer>
+                        <key>contact_test_mask</key>
+                        <integer>2</integer>
+                        <key>fixture_type</key>
+                        <string>POLYGON</string>
+                        
+                        <key>polygons</key>
+                        <array>
+                            <array>
+                                <string>{ 266.00000,-10.50000 }</string>
+                                <string>{ 266.00000,-49.50000 }</string>
+                                <string>{ 109.00000,-49.50000 }</string>
+                                <string>{ 109.00000,-10.50000 }</string>
+                            </array>
+                        </array>
+                        
+                    </dict>
+
+                </array>
+            </dict>
+
+            <key>hospitalbed1</key>
+            <dict>
+                <key>anchorpoint</key>
+                <string>{ 0.50000,0.50100 }</string>
+                <key>is_dynamic</key>
+                <false/>
+                <key>affected_by_gravity</key>
+                <false/>
+                <key>allows_rotation</key>
+                <false/>
+                <key>linear_damping</key>
+                <real>0</real>
+                <key>velocity_limit</key>
+                <real>1000000</real>
+                <key>angular_damping</key>
+                <real>0</real>
+                <key>angular_velocity_limit</key>
+                <real>1000000</real>
+                <key>fixtures</key>
+                <array>
+
+                    <dict>
+                        <key>density</key>
+                        <real>1</real>
+                        <key>restitution</key>
+                        <real>0.200000003</real>
+                        <key>friction</key>
+                        <real>0.699999988</real>
+                        <key>tag</key>
+                        <integer>0</integer>
+                        <key>group</key>
+                        <integer>0</integer>
+                        <key>category_mask</key>
+                        <integer>1</integer>
+                        <key>collision_mask</key>
+                        <integer>2</integer>
+                        <key>contact_test_mask</key>
+                        <integer>2</integer>
+                        <key>fixture_type</key>
+                        <string>POLYGON</string>
+                        
+                        <key>polygons</key>
+                        <array>
+                            <array>
+                                <string>{ -97.04962,122.08331 }</string>
+                                <string>{ -110.00000,46.50000 }</string>
+                                <string>{ -271.00000,143.50000 }</string>
+                                <string>{ -214.00000,196.50000 }</string>
+                            </array>
+                            <array>
+                                <string>{ -97.04962,122.08331 }</string>
+                                <string>{ 273.00000,121.50000 }</string>
+                                <string>{ 273.00000,46.50000 }</string>
+                                <string>{ -110.00000,46.50000 }</string>
+                            </array>
+                        </array>
+                        
+                    </dict>
+
+                </array>
+            </dict>
+
+            <key>hospitalbed2</key>
+            <dict>
+                <key>anchorpoint</key>
+                <string>{ 0.49900,0.50000 }</string>
+                <key>is_dynamic</key>
+                <false/>
+                <key>affected_by_gravity</key>
+                <false/>
+                <key>allows_rotation</key>
+                <false/>
+                <key>linear_damping</key>
+                <real>0</real>
+                <key>velocity_limit</key>
+                <real>1000000</real>
+                <key>angular_damping</key>
+                <real>0</real>
+                <key>angular_velocity_limit</key>
+                <real>1000000</real>
+                <key>fixtures</key>
+                <array>
+
+                    <dict>
+                        <key>density</key>
+                        <real>1</real>
+                        <key>restitution</key>
+                        <real>0.200000003</real>
+                        <key>friction</key>
+                        <real>0.699999988</real>
+                        <key>tag</key>
+                        <integer>0</integer>
+                        <key>group</key>
+                        <integer>0</integer>
+                        <key>category_mask</key>
+                        <integer>1</integer>
+                        <key>collision_mask</key>
+                        <integer>2</integer>
+                        <key>contact_test_mask</key>
+                        <integer>2</integer>
+                        <key>fixture_type</key>
+                        <string>POLYGON</string>
+                        
+                        <key>polygons</key>
+                        <array>
+                            <array>
+                                <string>{ 262.50000,104.00000 }</string>
+                                <string>{ 263.50000,32.00000 }</string>
+                                <string>{ -251.50000,33.00000 }</string>
+                                <string>{ -252.50000,105.00000 }</string>
+                            </array>
+                        </array>
+                        
+                    </dict>
+
+                </array>
+            </dict>
+
+            <key>hospitalfloor1</key>
+            <dict>
+                <key>anchorpoint</key>
+                <string>{ 0.50000,0.50000 }</string>
+                <key>is_dynamic</key>
+                <false/>
+                <key>affected_by_gravity</key>
+                <false/>
+                <key>allows_rotation</key>
+                <false/>
+                <key>linear_damping</key>
+                <real>0</real>
+                <key>velocity_limit</key>
+                <real>1000000</real>
+                <key>angular_damping</key>
+                <real>0</real>
+                <key>angular_velocity_limit</key>
+                <real>1000000</real>
+                <key>fixtures</key>
+                <array>
+
+                    <dict>
+                        <key>density</key>
+                        <real>1</real>
+                        <key>restitution</key>
+                        <real>0.200000003</real>
+                        <key>friction</key>
+                        <real>0.699999988</real>
+                        <key>tag</key>
+                        <integer>0</integer>
+                        <key>group</key>
+                        <integer>0</integer>
+                        <key>category_mask</key>
+                        <integer>3</integer>
+                        <key>collision_mask</key>
+                        <integer>2</integer>
+                        <key>contact_test_mask</key>
+                        <integer>1</integer>
+                        <key>fixture_type</key>
+                        <string>POLYGON</string>
+                        
+                        <key>polygons</key>
+                        <array>
+                            <array>
+                                <string>{ 267.00000,-114.00000 }</string>
+                                <string>{ -295.00000,-115.00000 }</string>
+                                <string>{ -295.00000,58.00000 }</string>
+                                <string>{ 267.00000,59.00000 }</string>
+                            </array>
+                        </array>
+                        
+                    </dict>
+
+                </array>
+            </dict>
+
+            <key>table2</key>
+            <dict>
+                <key>anchorpoint</key>
+                <string>{ 0.50000,0.50000 }</string>
+                <key>is_dynamic</key>
+                <false/>
+                <key>affected_by_gravity</key>
+                <false/>
+                <key>allows_rotation</key>
+                <false/>
+                <key>linear_damping</key>
+                <real>0</real>
+                <key>velocity_limit</key>
+                <real>1000000</real>
+                <key>angular_damping</key>
+                <real>0</real>
+                <key>angular_velocity_limit</key>
+                <real>1000000</real>
+                <key>fixtures</key>
+                <array>
+
+                    <dict>
+                        <key>density</key>
+                        <real>1</real>
+                        <key>restitution</key>
+                        <real>0.200000003</real>
+                        <key>friction</key>
+                        <real>0.699999988</real>
+                        <key>tag</key>
+                        <integer>0</integer>
+                        <key>group</key>
+                        <integer>0</integer>
+                        <key>category_mask</key>
+                        <integer>1</integer>
+                        <key>collision_mask</key>
+                        <integer>2</integer>
+                        <key>contact_test_mask</key>
+                        <integer>2</integer>
+                        <key>fixture_type</key>
+                        <string>POLYGON</string>
+                        
+                        <key>polygons</key>
+                        <array>
+                            <array>
+                                <string>{ 167.00000,123.00000 }</string>
+                                <string>{ 168.00000,51.00000 }</string>
+                                <string>{ -172.00000,50.00000 }</string>
+                                <string>{ -173.00000,122.00000 }</string>
+                            </array>
+                        </array>
+                        
+                    </dict>
+
+                </array>
+            </dict>
+
+            <key>table3</key>
+            <dict>
+                <key>anchorpoint</key>
+                <string>{ 0.49900,0.50000 }</string>
+                <key>is_dynamic</key>
+                <false/>
+                <key>affected_by_gravity</key>
+                <false/>
+                <key>allows_rotation</key>
+                <false/>
+                <key>linear_damping</key>
+                <real>0</real>
+                <key>velocity_limit</key>
+                <real>1000000</real>
+                <key>angular_damping</key>
+                <real>0</real>
+                <key>angular_velocity_limit</key>
+                <real>1000000</real>
+                <key>fixtures</key>
+                <array>
+
+                    <dict>
+                        <key>density</key>
+                        <real>1</real>
+                        <key>restitution</key>
+                        <real>0.200000003</real>
+                        <key>friction</key>
+                        <real>0.699999988</real>
+                        <key>tag</key>
+                        <integer>0</integer>
+                        <key>group</key>
+                        <integer>0</integer>
+                        <key>category_mask</key>
+                        <integer>1</integer>
+                        <key>collision_mask</key>
+                        <integer>2</integer>
+                        <key>contact_test_mask</key>
+                        <integer>2</integer>
+                        <key>fixture_type</key>
+                        <string>POLYGON</string>
+                        
+                        <key>polygons</key>
+                        <array>
+                            <array>
+                                <string>{ 178.50000,137.00000 }</string>
+                                <string>{ 179.50000,65.00000 }</string>
+                                <string>{ -176.50000,64.00000 }</string>
+                                <string>{ -177.50000,136.00000 }</string>
+                            </array>
+                        </array>
+                        
+                    </dict>
+
+                </array>
+            </dict>
+
+            <key>table1</key>
+            <dict>
+                <key>anchorpoint</key>
+                <string>{ 0.50100,0.49900 }</string>
+                <key>is_dynamic</key>
+                <false/>
+                <key>affected_by_gravity</key>
+                <false/>
+                <key>allows_rotation</key>
+                <false/>
+                <key>linear_damping</key>
+                <real>0</real>
+                <key>velocity_limit</key>
+                <real>1000000</real>
+                <key>angular_damping</key>
+                <real>0</real>
+                <key>angular_velocity_limit</key>
+                <real>1000000</real>
+                <key>fixtures</key>
+                <array>
+
+                    <dict>
+                        <key>density</key>
+                        <real>1</real>
+                        <key>restitution</key>
+                        <real>0.200000003</real>
+                        <key>friction</key>
+                        <real>0.699999988</real>
+                        <key>tag</key>
+                        <integer>0</integer>
+                        <key>group</key>
+                        <integer>0</integer>
+                        <key>category_mask</key>
+                        <integer>1</integer>
+                        <key>collision_mask</key>
+                        <integer>2</integer>
+                        <key>contact_test_mask</key>
+                        <integer>2</integer>
+                        <key>fixture_type</key>
+                        <string>POLYGON</string>
+                        
+                        <key>polygons</key>
+                        <array>
+                            <array>
+                                <string>{ 219.50000,157.50000 }</string>
+                                <string>{ 220.50000,85.50000 }</string>
+                                <string>{ -223.50000,86.50000 }</string>
+                                <string>{ -224.50000,158.50000 }</string>
+                            </array>
+                        </array>
+                        
+                    </dict>
+
+                </array>
+            </dict>
+
+            <key>steps</key>
+            <dict>
+                <key>anchorpoint</key>
+                <string>{ 0.50100,0.49900 }</string>
+                <key>is_dynamic</key>
+                <false/>
+                <key>affected_by_gravity</key>
+                <false/>
+                <key>allows_rotation</key>
+                <false/>
+                <key>linear_damping</key>
+                <real>0</real>
+                <key>velocity_limit</key>
+                <real>1000000</real>
+                <key>angular_damping</key>
+                <real>0</real>
+                <key>angular_velocity_limit</key>
+                <real>1000000</real>
+                <key>fixtures</key>
+                <array>
+
+                    <dict>
+                        <key>density</key>
+                        <real>1</real>
+                        <key>restitution</key>
+                        <real>0.200000003</real>
+                        <key>friction</key>
+                        <real>0.699999988</real>
+                        <key>tag</key>
+                        <integer>0</integer>
+                        <key>group</key>
+                        <integer>0</integer>
+                        <key>category_mask</key>
+                        <integer>1</integer>
+                        <key>collision_mask</key>
+                        <integer>2</integer>
+                        <key>contact_test_mask</key>
+                        <integer>2</integer>
+                        <key>fixture_type</key>
+                        <string>POLYGON</string>
+                        
+                        <key>polygons</key>
+                        <array>
+                            <array>
+                                <string>{ -216.50000,-305.50000 }</string>
+                                <string>{ -216.50000,-356.50000 }</string>
+                                <string>{ -423.50000,-356.50000 }</string>
+                                <string>{ -423.50000,-305.50000 }</string>
+                            </array>
+                        </array>
+                        
+                    </dict>
+
+                    <dict>
+                        <key>density</key>
+                        <real>1</real>
+                        <key>restitution</key>
+                        <real>0.200000003</real>
+                        <key>friction</key>
+                        <real>0.699999988</real>
+                        <key>tag</key>
+                        <integer>0</integer>
+                        <key>group</key>
+                        <integer>0</integer>
+                        <key>category_mask</key>
+                        <integer>1</integer>
+                        <key>collision_mask</key>
+                        <integer>2</integer>
+                        <key>contact_test_mask</key>
+                        <integer>2</integer>
+                        <key>fixture_type</key>
+                        <string>POLYGON</string>
+                        
+                        <key>polygons</key>
+                        <array>
+                            <array>
+                                <string>{ -55.50000,-216.50000 }</string>
+                                <string>{ -55.50000,-267.50000 }</string>
+                                <string>{ -262.50000,-267.50000 }</string>
+                                <string>{ -262.50000,-216.50000 }</string>
+                            </array>
+                        </array>
+                        
+                    </dict>
+
+                    <dict>
+                        <key>density</key>
+                        <real>1</real>
+                        <key>restitution</key>
+                        <real>0.200000003</real>
+                        <key>friction</key>
+                        <real>0.699999988</real>
+                        <key>tag</key>
+                        <integer>0</integer>
+                        <key>group</key>
+                        <integer>0</integer>
+                        <key>category_mask</key>
+                        <integer>1</integer>
+                        <key>collision_mask</key>
+                        <integer>2</integer>
+                        <key>contact_test_mask</key>
+                        <integer>2</integer>
+                        <key>fixture_type</key>
+                        <string>POLYGON</string>
+                        
+                        <key>polygons</key>
+                        <array>
+                            <array>
+                                <string>{ 103.50000,-131.50000 }</string>
+                                <string>{ 103.50000,-182.50000 }</string>
+                                <string>{ -103.50000,-182.50000 }</string>
+                                <string>{ -103.50000,-131.50000 }</string>
+                            </array>
+                        </array>
+                        
+                    </dict>
+
+                    <dict>
+                        <key>density</key>
+                        <real>1</real>
+                        <key>restitution</key>
+                        <real>0.200000003</real>
+                        <key>friction</key>
+                        <real>0.699999988</real>
+                        <key>tag</key>
+                        <integer>0</integer>
+                        <key>group</key>
+                        <integer>0</integer>
+                        <key>category_mask</key>
+                        <integer>1</integer>
+                        <key>collision_mask</key>
+                        <integer>2</integer>
+                        <key>contact_test_mask</key>
+                        <integer>2</integer>
+                        <key>fixture_type</key>
+                        <string>POLYGON</string>
+                        
+                        <key>polygons</key>
+                        <array>
+                            <array>
+                                <string>{ 262.50000,-42.50000 }</string>
+                                <string>{ 262.50000,-93.50000 }</string>
+                                <string>{ 55.50000,-93.50000 }</string>
+                                <string>{ 55.50000,-42.50000 }</string>
+                            </array>
+                        </array>
+                        
+                    </dict>
+
+                    <dict>
+                        <key>density</key>
+                        <real>1</real>
+                        <key>restitution</key>
+                        <real>0.200000003</real>
+                        <key>friction</key>
+                        <real>0.699999988</real>
+                        <key>tag</key>
+                        <integer>0</integer>
+                        <key>group</key>
+                        <integer>0</integer>
+                        <key>category_mask</key>
+                        <integer>1</integer>
+                        <key>collision_mask</key>
+                        <integer>2</integer>
+                        <key>contact_test_mask</key>
+                        <integer>2</integer>
+                        <key>fixture_type</key>
+                        <string>POLYGON</string>
+                        
+                        <key>polygons</key>
+                        <array>
+                            <array>
+                                <string>{ 423.50000,44.50000 }</string>
+                                <string>{ 423.50000,-6.50000 }</string>
+                                <string>{ 216.50000,-6.50000 }</string>
+                                <string>{ 216.50000,44.50000 }</string>
+                            </array>
+                        </array>
+                        
+                    </dict>
+
+                    <dict>
+                        <key>density</key>
+                        <real>1</real>
+                        <key>restitution</key>
+                        <real>0.200000003</real>
+                        <key>friction</key>
+                        <real>0.699999988</real>
+                        <key>tag</key>
+                        <integer>0</integer>
+                        <key>group</key>
+                        <integer>0</integer>
+                        <key>category_mask</key>
+                        <integer>1</integer>
+                        <key>collision_mask</key>
+                        <integer>2</integer>
+                        <key>contact_test_mask</key>
+                        <integer>2</integer>
+                        <key>fixture_type</key>
+                        <string>POLYGON</string>
+                        
+                        <key>polygons</key>
+                        <array>
+                            <array>
+                                <string>{ 264.50000,130.50000 }</string>
+                                <string>{ 264.50000,79.50000 }</string>
+                                <string>{ 57.50000,79.50000 }</string>
+                                <string>{ 57.50000,130.50000 }</string>
+                            </array>
+                        </array>
+                        
+                    </dict>
+
+                    <dict>
+                        <key>density</key>
+                        <real>1</real>
+                        <key>restitution</key>
+                        <real>0.200000003</real>
+                        <key>friction</key>
+                        <real>0.699999988</real>
+                        <key>tag</key>
+                        <integer>0</integer>
+                        <key>group</key>
+                        <integer>0</integer>
+                        <key>category_mask</key>
+                        <integer>1</integer>
+                        <key>collision_mask</key>
+                        <integer>2</integer>
+                        <key>contact_test_mask</key>
+                        <integer>2</integer>
+                        <key>fixture_type</key>
+                        <string>POLYGON</string>
+                        
+                        <key>polygons</key>
+                        <array>
+                            <array>
+                                <string>{ 103.50000,219.50000 }</string>
+                                <string>{ 103.50000,168.50000 }</string>
+                                <string>{ -103.50000,168.50000 }</string>
+                                <string>{ -103.50000,219.50000 }</string>
+                            </array>
+                        </array>
+                        
+                    </dict>
+
+                    <dict>
+                        <key>density</key>
+                        <real>1</real>
+                        <key>restitution</key>
+                        <real>0.200000003</real>
+                        <key>friction</key>
+                        <real>0.699999988</real>
+                        <key>tag</key>
+                        <integer>0</integer>
+                        <key>group</key>
+                        <integer>0</integer>
+                        <key>category_mask</key>
+                        <integer>1</integer>
+                        <key>collision_mask</key>
+                        <integer>2</integer>
+                        <key>contact_test_mask</key>
+                        <integer>2</integer>
+                        <key>fixture_type</key>
+                        <string>POLYGON</string>
+                        
+                        <key>polygons</key>
+                        <array>
+                            <array>
+                                <string>{ -56.50000,305.50000 }</string>
+                                <string>{ -56.50000,254.50000 }</string>
+                                <string>{ -263.50000,254.50000 }</string>
+                                <string>{ -263.50000,305.50000 }</string>
+                            </array>
+                        </array>
+                        
+                    </dict>
+
+                    <dict>
+                        <key>density</key>
+                        <real>1</real>
+                        <key>restitution</key>
+                        <real>0.200000003</real>
+                        <key>friction</key>
+                        <real>0.699999988</real>
+                        <key>tag</key>
+                        <integer>0</integer>
+                        <key>group</key>
+                        <integer>0</integer>
+                        <key>category_mask</key>
+                        <integer>1</integer>
+                        <key>collision_mask</key>
+                        <integer>2</integer>
+                        <key>contact_test_mask</key>
+                        <integer>2</integer>
+                        <key>fixture_type</key>
+                        <string>POLYGON</string>
+                        
+                        <key>polygons</key>
+                        <array>
+                            <array>
+                                <string>{ -217.50000,391.50000 }</string>
+                                <string>{ -217.50000,340.50000 }</string>
+                                <string>{ -424.50000,340.50000 }</string>
+                                <string>{ -424.50000,391.50000 }</string>
+                            </array>
+                        </array>
+                        
+                    </dict>
+
+                </array>
+            </dict>
+
+            <key>hospitalfloor3</key>
+            <dict>
+                <key>anchorpoint</key>
+                <string>{ 0.50000,0.50500 }</string>
+                <key>is_dynamic</key>
+                <false/>
+                <key>affected_by_gravity</key>
+                <false/>
+                <key>allows_rotation</key>
+                <false/>
+                <key>linear_damping</key>
+                <real>0</real>
+                <key>velocity_limit</key>
+                <real>1000000</real>
+                <key>angular_damping</key>
+                <real>0</real>
+                <key>angular_velocity_limit</key>
+                <real>1000000</real>
+                <key>fixtures</key>
+                <array>
+
+                    <dict>
+                        <key>density</key>
+                        <real>1</real>
+                        <key>restitution</key>
+                        <real>0.200000003</real>
+                        <key>friction</key>
+                        <real>0.699999988</real>
+                        <key>tag</key>
+                        <integer>0</integer>
+                        <key>group</key>
+                        <integer>0</integer>
+                        <key>category_mask</key>
+                        <integer>3</integer>
+                        <key>collision_mask</key>
+                        <integer>2</integer>
+                        <key>contact_test_mask</key>
+                        <integer>1</integer>
+                        <key>fixture_type</key>
+                        <string>POLYGON</string>
+                        
+                        <key>polygons</key>
+                        <array>
+                            <array>
+                                <string>{ -187.00000,-96.50000 }</string>
+                                <string>{ -187.00000,39.50000 }</string>
+                                <string>{ 211.00000,39.50000 }</string>
+                                <string>{ 212.00000,-97.50000 }</string>
+                            </array>
+                        </array>
+                        
+                    </dict>
+
+                </array>
+            </dict>
+
+        </dict>
+    </dict>
+</plist>
+
+
+
+

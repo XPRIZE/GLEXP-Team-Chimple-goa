@@ -167,7 +167,28 @@ void RPGSprite::showTouchPointer() {
     {
         this->touchPointerNode =  Sprite::create(TOUCH_POINTER_IMG);
         this->touchPointerNode->setScale(0.5f, 0.5f);
-        this->touchPointerNode->setPosition(this->sprite->getPosition());
+        
+        
+        float xPos = 0.0f;
+        float yPos = 0.0f;
+        
+        if(this->sprite->getAnchorPoint().x == 0) {
+            xPos = this->sprite->getPosition().x + this->sprite->getBoundingBox().size.width/2;
+        } else if(this->sprite->getAnchorPoint().x == 1) {
+            xPos = this->sprite->getPosition().x - this->sprite->getBoundingBox().size.width/2;
+        } else {
+            xPos = this->sprite->getPosition().x;
+        }
+        
+        if(this->sprite->getAnchorPoint().y == 0) {
+            yPos = this->sprite->getPosition().y + this->sprite->getBoundingBox().size.height/2;
+        } else if(this->sprite->getAnchorPoint().y == 1) {
+            yPos = this->sprite->getPosition().y - this->sprite->getBoundingBox().size.height/2;
+        } else {
+            yPos = this->sprite->getPosition().y;
+        }
+        
+        this->touchPointerNode->setPosition(Vec2(xPos, yPos));
         this->addChild(this->touchPointerNode);
         this->touchPointerNode->setVisible(true);
         

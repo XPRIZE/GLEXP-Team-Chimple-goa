@@ -4,21 +4,6 @@
     <dict>
         <key>frames</key>
         <dict>
-            <key>house/house_foreground/dustbin.png</key>
-            <dict>
-                <key>aliases</key>
-                <array/>
-                <key>spriteOffset</key>
-                <string>{0,0}</string>
-                <key>spriteSize</key>
-                <string>{87,108}</string>
-                <key>spriteSourceSize</key>
-                <string>{87,108}</string>
-                <key>textureRect</key>
-                <string>{{419,3161},{87,108}}</string>
-                <key>textureRotated</key>
-                <false/>
-            </dict>
             <key>house/house_main/Livingroom_Floor_Tile.png</key>
             <dict>
                 <key>aliases</key>
@@ -243,6 +228,21 @@
                 <string>{{1,1497},{165,297}}</string>
                 <key>textureRotated</key>
                 <true/>
+            </dict>
+            <key>house/house_main/dustbin.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{87,108}</string>
+                <key>spriteSourceSize</key>
+                <string>{87,108}</string>
+                <key>textureRect</key>
+                <string>{{419,3161},{87,108}}</string>
+                <key>textureRotated</key>
+                <false/>
             </dict>
             <key>house/house_main/fridge.png</key>
             <dict>
@@ -1090,17 +1090,17 @@
             <key>format</key>
             <integer>3</integer>
             <key>pixelFormat</key>
-            <string>RGBA8888</string>
+            <string>RGBA4444</string>
             <key>premultiplyAlpha</key>
             <false/>
             <key>realTextureFileName</key>
-            <string>house.png</string>
+            <string>house_main.png</string>
             <key>size</key>
             <string>{512,3565}</string>
             <key>smartupdate</key>
-            <string>$TexturePacker:SmartUpdate:7105df8122d0409793cc0d617f98d38c:e7425eefb5dbfcbd6854685512e36ad4:6a47ea238d959f242809367833ffe889$</string>
+            <string>$TexturePacker:SmartUpdate:74b6f4e8a5de0e72eea1dd13885b383c:af45e2270265f20dc484e92c41d1fdd9:dd224f84c2f415e5e7cc887f4434cac0$</string>
             <key>textureFileName</key>
-            <string>house.png</string>
+            <string>house_main.png</string>
         </dict>
     </dict>
 </plist>
