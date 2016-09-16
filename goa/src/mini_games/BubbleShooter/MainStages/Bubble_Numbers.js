@@ -58,7 +58,7 @@ xc.Bubble_Number = cc.Layer.extend({
         if(levelValues ==  1){        
            levelName = "NumberStarLevel1";            
            letterSprite = ['0','1','2','3','4'];
-            let color = 5 , repeat = 2;
+            let color = 5 , repeat = 3;
            hits = 40;
            // Create the level of bubbles
            this.createLevel(color,repeat);
@@ -66,14 +66,14 @@ xc.Bubble_Number = cc.Layer.extend({
         }else if(levelValues ==  2){
            levelName = "NumberStarLevel2";
            letterSprite = ['5','6','7','8','9'];
-            let color = 5 , repeat = 2;
+            let color = 5 , repeat = 3;
            hits = 40;
             // Create the level of bubbles
            this.createLevel(color,repeat);
         
         }else if(levelValues ==  3){
            levelName = "NumberStarLevel3"; 
-            let color = 4 , repeat = 4;
+            let color = 4 , repeat = 5;
             let numbers = this.rndNumber(color);
             let DataNumber = ['0','1','2','3','4','5','6','7','8','9'];
            hits = 40;
@@ -84,7 +84,7 @@ xc.Bubble_Number = cc.Layer.extend({
             
         }else if(levelValues ==  4){
            levelName = "NumberStarLevel4";         
-            let color = 4 , repeat = 3;
+            let color = 4 , repeat = 4;
             let numbers = this.rndNumber(color);
             let DataNumber = ['0','1','2','3','4','5','6','7','8','9'];
            hits = 100;
@@ -95,7 +95,7 @@ xc.Bubble_Number = cc.Layer.extend({
         
         }else if(levelValues ==  5){
            levelName = "NumberStarLevel5";        
-            let color = 4 , repeat = 2;
+            let color = 4 , repeat = 3;
             let numbers = this.rndNumber(color);
             let DataNumber = ['0','1','2','3','4','5','6','7','8','9'];
            hits = 100;
@@ -106,7 +106,7 @@ xc.Bubble_Number = cc.Layer.extend({
         
         }else if(levelValues ==  6){
            levelName = "NumberStarLevel6";            
-            let color = 4 , repeat = 1;
+            let color = 4 , repeat = 2;
             let numbers = this.rndNumber(color);
             let DataNumber = ['0','1','2','3','4','5','6','7','8','9'];
            hits = 100;
@@ -117,7 +117,7 @@ xc.Bubble_Number = cc.Layer.extend({
         
         }else if(levelValues ==  7){
            levelName = "NumberStarLevel7"; 
-            let color = 5 , repeat = 1;
+            let color = 5 , repeat = 2;
             let numbers = this.rndNumber(color);
             let DataNumber = ['0','1','2','3','4','5','6','7','8','9'];
            hits = 100;
@@ -215,10 +215,12 @@ xc.Bubble_Number = cc.Layer.extend({
       
       if (cc.director.getWinSize().width > 2560){
          var xPosi = cc.director.getWinSize().width - 2560;
-         this.textHitsLabel.setPosition(trnspImg.x+trnspImg.getContentSize().width + (xPosi/2) , cc.director.getWinSize().height * 0.8);
-         this.extendLetter = new cc.LabelTTF(""+letterSprite[this.player.bubble.tiletype],"res/fonts/Marker Felt.ttf", 450);
-         this.extendLetter.setPosition(trnspImg.x+trnspImg.getContentSize().width + (xPosi/2) , cc.director.getWinSize().height * 0.5);
-         this.addChild(this.extendLetter);
+         if(xPosi >= 300){
+            this.textHitsLabel.setPosition(trnspImg.x+trnspImg.getContentSize().width + (xPosi/2) , cc.director.getWinSize().height * 0.8);
+            this.extendLetter = new cc.LabelTTF(""+letterSprite[this.player.bubble.tiletype],"res/fonts/Marker Felt.ttf", 450);
+            this.extendLetter.setPosition(trnspImg.x+trnspImg.getContentSize().width + (xPosi/2) , cc.director.getWinSize().height * 0.5);
+            this.addChild(this.extendLetter);
+         }
       }
   
         // Set the gun Pointer
@@ -594,8 +596,10 @@ xc.Bubble_Number = cc.Layer.extend({
 
 
     stateRemoveCluster : function() {
-       this.extendLetter.setString(""+letterSprite[this.player.bubble.tiletype]);
-              let self  = this;
+       if(this.extendLetter != undefined){ 
+         this.extendLetter.setString(""+letterSprite[this.player.bubble.tiletype]);
+       }
+        let self  = this;
         // console.log("done 622");      
         if (this.animationstate == 0) {
           //  console.log("flag to remove the bubble is on");

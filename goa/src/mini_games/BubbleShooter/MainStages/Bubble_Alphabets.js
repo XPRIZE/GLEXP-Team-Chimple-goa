@@ -65,7 +65,7 @@ xc.Bubble_Alphabets = cc.Layer.extend({
             }
         }
         
-        let color = numberOfLetter , repeat = 2;
+        let color = numberOfLetter , repeat = 3;
         // Create the level of bubbles
         this.createLevel(color,repeat);
        
@@ -143,10 +143,12 @@ xc.Bubble_Alphabets = cc.Layer.extend({
       
       if (cc.director.getWinSize().width > 2560){
          var xPosi = cc.director.getWinSize().width - 2560;
-         this.textHitsLabel.setPosition(trnspImg.x+trnspImg.getContentSize().width + (xPosi/2) , cc.director.getWinSize().height * 0.8);
-         this.extendLetter = new cc.LabelTTF(""+letterSprite[this.player.bubble.tiletype],"res/fonts/Marker Felt.ttf", 450);
-         this.extendLetter.setPosition(trnspImg.x+trnspImg.getContentSize().width + (xPosi/2) , cc.director.getWinSize().height * 0.5);
-         this.addChild(this.extendLetter);
+          if(xPosi >= 300){
+            this.textHitsLabel.setPosition(trnspImg.x+trnspImg.getContentSize().width + (xPosi/2) , cc.director.getWinSize().height * 0.8);
+            this.extendLetter = new cc.LabelTTF(""+letterSprite[this.player.bubble.tiletype],"res/fonts/Marker Felt.ttf", 450);
+            this.extendLetter.setPosition(trnspImg.x+trnspImg.getContentSize().width + (xPosi/2) , cc.director.getWinSize().height * 0.5);
+            this.addChild(this.extendLetter);
+          }
       }
   
         // Set the gun Pointer
@@ -518,7 +520,9 @@ xc.Bubble_Alphabets = cc.Layer.extend({
 
 
     stateRemoveCluster : function() {
-       this.extendLetter.setString(""+letterSprite[this.player.bubble.tiletype]);
+       if(this.extendLetter != undefined){ 
+            this.extendLetter.setString(""+letterSprite[this.player.bubble.tiletype]);
+       }
               let self  = this;
         // console.log("done 622");      
         if (this.animationstate == 0) {
