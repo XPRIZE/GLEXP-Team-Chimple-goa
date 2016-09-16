@@ -388,7 +388,9 @@ xc.Bubble_Number = cc.Layer.extend({
         this.player.bubble.tiletype = this.player.tiletype;
         // Set the gamestate
         this.setGameState(this.gamestates.shootbubble);
-        
+         if(this.extendLetter != undefined){ 
+            this.extendLetter.setString(""+letterSprite[this.player.nextbubble.tiletype]);
+          }
       },
         // Draw the bubble
       drawBubble : function(x, y, index) {
