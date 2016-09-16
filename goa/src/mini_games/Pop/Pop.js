@@ -215,17 +215,18 @@ xc.PopLayer = cc.Layer.extend({
         this.removePlaneFromScene();
     },
     removePlaneFromScene: function () {
-     
+        var self = this;
         console.log(" the value should be length of cloudContainer : "+ this.cloudContainer.length);
         if (this.wordInOrder.length == this.cloudContainer.length) {
             this.removeChild(this.plane.node);
             // xc.GameScene.load(xc.PopLayer);
             console.log("GAME OVER");
-            if (cc.sys.isNative) {
-                var menuContext = this.getParent().menuContext;
+           setTimeout( function(){    
+                 if (cc.sys.isNative) {
+                var menuContext = self.getParent().menuContext;
                 cc.log("showscore");
                 menuContext.showScore();
-            }
+            }}, 1200);
         }
     },
     cloudShake: function(wrongCloud)
