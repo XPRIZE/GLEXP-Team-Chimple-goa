@@ -57,7 +57,7 @@ var sprite_click = cc.EventListener.create({event: cc.EventListener.TOUCH_ONE_BY
                   setTimeout(function(){
                       
                       if (cc.sys.isNative) {
-                var menuContext = this.getParent().menuContext;
+                var menuContext = that.getParent().menuContext;
                 cc.log("showscore");
                 menuContext.showScore();
             }else{
