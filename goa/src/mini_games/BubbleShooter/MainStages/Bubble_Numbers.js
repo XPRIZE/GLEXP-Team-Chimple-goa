@@ -8,11 +8,11 @@ xc.Bubble_Number = cc.Layer.extend({
 
    var ScreenMenu = ccs.load(xc.BubbleGame_HomeScreenMenu.res.bubbleShooter_gameMenu_json,xc.path);
    this.addChild(ScreenMenu.node);
-   var xPosi ;
-    if (cc.director.getWinSize().width > 2560){
-        xPosi = cc.director.getWinSize().width - 2560;
-        ScreenMenu.node.x = xPosi/2;
-    }
+    var xPosi ;
+//     if (cc.director.getWinSize().width > 2560){
+//         xPosi = cc.director.getWinSize().width - 2560;
+//         ScreenMenu.node.x = xPosi/2;
+//     }
 
     console.log("the height and width : "+cc.director.getWinSize().height+"      "+cc.director.getWinSize().width);
     this.textHitsLabel = new cc.LabelTTF("Hits : 0","res/fonts/Marker Felt.ttf",75);
@@ -146,19 +146,7 @@ xc.Bubble_Number = cc.Layer.extend({
         // Init the next-this.player
         this.player.nextbubble.x = this.player.x - 2 * this.level.tilewidth;
         this.player.nextbubble.y = this.player.y;
-        
-        // Set the gun Pointer
-        this.gun = new cc.Sprite(cc.spriteFrameCache.getSpriteFrame("bubble_shooter/gun_tricker.png"));
-        this.gun.setPosition(cc.director.getWinSize().width/2, cc.director.getWinSize().height *0.095);
-        this.gun.name ="gunPointer";
-        this.gun.anchorY = 0.6;
-        this.addChild(this.gun);
 
-       //Set the gun Base
-        this.gunBase =  new cc.Sprite(cc.spriteFrameCache.getSpriteFrame("bubble_shooter/gun.png"));
-        this.gunBase.setPosition(cc.director.getWinSize().width/2 , cc.director.getWinSize().height * 0.0685);
-        this.addChild(this.gunBase);
-        
         // Init the next bubble and set the current bubble
         this.nextBubble();
         this.nextBubble();
@@ -170,11 +158,11 @@ xc.Bubble_Number = cc.Layer.extend({
 
         this.bubblePlayer =  new cc.Sprite(cc.spriteFrameCache.getSpriteFrame(imageSprite[this.player.bubble.tiletype]+".png"));
         this.bubblePlayer.setPosition(cc.director.getWinSize().width * 0.5,cc.director.getWinSize().height * 0.5);
-        this.addChild(this.bubblePlayer);
+        this.addChild(this.bubblePlayer,1);
 
         this.letterPlayer =  new cc.LabelTTF(""+letterSprite[this.player.bubble.tiletype],"res/fonts/Marker Felt.ttf",150);
         this.letterPlayer.setPosition(this.bubblePlayer.getContentSize().width/2,this.bubblePlayer.getContentSize().height/2);
-        this.bubblePlayer.addChild(this.letterPlayer);
+        this.bubblePlayer.addChild(this.letterPlayer,1);
         
         if(this.player.nextbubble.tiletype == undefined){
             this.player.nextbubble.tiletype = Math.floor(this.getRandomArbitrary(0,bubblecolors)); ;
@@ -217,6 +205,18 @@ xc.Bubble_Number = cc.Layer.extend({
       ScreenMenu.node.getChildByName("Panel_2").addChild(trnspImg);
       cc.eventManager.addListener(listnerBg,trnspImg);
   
+        // Set the gun Pointer
+        this.gun = new cc.Sprite(cc.spriteFrameCache.getSpriteFrame("bubble_shooter/gun_tricker.png"));
+        this.gun.setPosition(trnspImg.width/2, cc.director.getWinSize().height *0.090);
+        this.gun.name ="gunPointer";
+        this.gun.anchorY = 0.6;
+        this.addChild(this.gun);
+
+        //Set the gun Base
+        this.gunBase =  new cc.Sprite(cc.spriteFrameCache.getSpriteFrame("bubble_shooter/gun.png"));
+        this.gunBase.setPosition(trnspImg.width/2 , cc.director.getWinSize().height * 0.0575);
+        this.addChild(this.gunBase);  
+  
       this.scheduleUpdate();
     
     return true;
@@ -251,7 +251,7 @@ xc.Bubble_Number = cc.Layer.extend({
         if (cc.director.getWinSize().width > 2560){
             xPosi = cc.director.getWinSize().width - 2560;
         }
-        this.onMouseMove(x+xPosi , y);
+        this.onMouseMove(x , y);
         console.log("x and y : "+x +"  "+ y);
          if (this.gamestate == this.gamestates.ready) {
                  this.shootBubble(); 
@@ -1135,7 +1135,7 @@ xc.Bubble_Number = cc.Layer.extend({
          this.removeChild(this.nextBubblePlayer);
      
      this.nextBubblePlayer =  new cc.Sprite(cc.spriteFrameCache.getSpriteFrame(imageSprite[index]+".png"));
-     this.nextBubblePlayer.setPosition((cc.director.getWinSize().width/2 - 350)  , cc.director.getWinSize().height * 0.0607080);
+    this.nextBubblePlayer.setPosition(this.gunBase.x - 380 ,cc.director.getWinSize().height * 0.0575);
      this.nextBubblePlayer.anchorX=0.5;
      this.nextBubblePlayer.anchorY=0.5;
      //  console.log("the value for y in playe : "+ this.player.bubble.y);

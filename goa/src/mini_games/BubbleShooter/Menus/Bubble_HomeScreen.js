@@ -42,7 +42,9 @@ xc.BubbleGame_HomeScreenMenu = cc.Layer.extend({
         
         return true;
     },
-    
+    update(dt){
+          console.log("the height and width : "+cc.director.getWinSize().height+"      "+cc.director.getWinSize().width);
+    },
     touchEvent:function(sender, type)
    {
      switch(type)

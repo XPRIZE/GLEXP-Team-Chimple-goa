@@ -137,57 +137,6 @@
             "TouchEnable": true,
             "AnchorPoint": {},
             "Position": {
-              "X": -268.1411,
-              "Y": -2.1985
-            },
-            "Scale": {
-              "ScaleX": 1.0,
-              "ScaleY": 1.0
-            },
-            "CColor": {},
-            "IconVisible": false,
-            "PrePosition": {
-              "X": -0.0865,
-              "Y": -0.0012
-            },
-            "PreSize": {
-              "X": 0.0871,
-              "Y": 1.0
-            },
-            "LeftMargin": -268.1411,
-            "RightMargin": 3098.1411,
-            "TopMargin": 2.1985,
-            "BottomMargin": -2.1985,
-            "Tag": 112,
-            "ActionTag": 871017961,
-            "Size": {
-              "X": 270.0,
-              "Y": 1800.0
-            },
-            "Name": "Panel_7",
-            "ctype": "PanelObjectData"
-          },
-          {
-            "ClipAble": false,
-            "ComboBoxIndex": 1,
-            "SingleColor": {
-              "R": 0,
-              "G": 216,
-              "B": 190
-            },
-            "FirstColor": {
-              "R": 150,
-              "G": 200
-            },
-            "EndColor": {},
-            "ColorVector": {
-              "ScaleY": 1.0
-            },
-            "Scale9Width": 1,
-            "Scale9Height": 1,
-            "TouchEnable": true,
-            "AnchorPoint": {},
-            "Position": {
               "X": 2561.6946,
               "Y": -1.429
             },
@@ -202,17 +151,17 @@
               "Y": -0.0008
             },
             "PreSize": {
-              "X": 0.0871,
+              "X": 0.171,
               "Y": 1.0
             },
             "LeftMargin": 2561.6946,
-            "RightMargin": 268.3054,
+            "RightMargin": 8.3054,
             "TopMargin": 1.429,
             "BottomMargin": -1.429,
             "Tag": 113,
             "ActionTag": -1743395420,
             "Size": {
-              "X": 270.0,
+              "X": 530.0,
               "Y": 1800.0
             },
             "Name": "Panel_7_0",
@@ -235,6 +184,8 @@
             "ColorVector": {
               "ScaleY": 1.0
             },
+            "Scale9Width": 1,
+            "Scale9Height": 1,
             "TouchEnable": true,
             "AnchorPoint": {},
             "Position": {
@@ -257,7 +208,7 @@
             },
             "LeftMargin": -0.7004,
             "RightMargin": 540.7004,
-            "TopMargin": 3.0696,
+            "TopMargin": 3.0695,
             "BottomMargin": -3.0695,
             "Tag": 26,
             "ActionTag": -1264754022,
@@ -632,6 +583,52 @@
             },
             "Alpha": 139,
             "Name": "cloud_8",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FlipX": true,
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "bubble_shooter/grass_base.png",
+              "Plist": "bubble_shooter/bubble_shooter.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 3271.5552,
+              "Y": 109.4527
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 1.0553,
+              "Y": 0.0608
+            },
+            "PreSize": {
+              "X": 0.2103,
+              "Y": 0.1233
+            },
+            "LeftMargin": 2945.5552,
+            "RightMargin": -497.5552,
+            "TopMargin": 1579.5474,
+            "BottomMargin": -1.5473,
+            "Tag": 27,
+            "ActionTag": -1782209106,
+            "Size": {
+              "X": 652.0,
+              "Y": 222.0
+            },
+            "Name": "grass_base_6",
             "ctype": "SpriteObjectData"
           }
         ],
