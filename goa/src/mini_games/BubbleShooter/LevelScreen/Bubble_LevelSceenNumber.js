@@ -7,6 +7,11 @@ xc.Bubble_NumbersMenu = cc.Layer.extend({
         var levelMenu = ccs.load(xc.BubbleGame_HomeScreenMenu.res.bubbleShooter_levelMenu_json,xc.path);
         this.addChild(levelMenu.node);
         
+          if (cc.director.getWinSize().width > 2560){
+            var xPosi = cc.director.getWinSize().width - 2560;
+            levelMenu.node.x = xPosi/2;
+        }
+        
         for(let i = 1 ; i <= 12 ; i++){
            var levelButton = levelMenu.node.getChildByName("Button_"+i);
            if(i <= 8 ){
