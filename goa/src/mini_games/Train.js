@@ -296,10 +296,18 @@ xc.TrainLayer = cc.Layer.extend({
         });
         this.addChild(final_tunnel, 0);
 
+        var front_tunnel = new cc.Sprite(cc.spriteFrameCache.getSpriteFrame("train/front_tunnel.png"));
+        front_tunnel.attr({
+            x: size.width * 99.2 / 100,
+            y: tunnel_back_sprite[tunnel_back_sprite.length - 1].getPositionY() * 99.5 / 100,
+            anchorX: .5,
+            anchorY: .5
+        });
+        this.addChild(front_tunnel, 2);
 
         for (var i = 0; i < random; i++) {
 
-            var label = new cc.LabelTTF(sentence[i], "Arial", 200);
+            var label = new cc.LabelTTF(sentence[i], "Arial", 150);
             label.attr({
                 x: position[i].x,
                 y: position[i].y
@@ -372,5 +380,6 @@ xc.TrainLayer = cc.Layer.extend({
 
 xc.TrainLayer.res = {
     train_json: xc.path + "train/train.json",
-    train_plist: xc.path + "train/train.plist"
+    train_plist: xc.path + "train/train.plist",
+    front_tunnel: xc.path + "train/front_tunnel.png"
 };
