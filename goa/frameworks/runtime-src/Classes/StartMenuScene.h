@@ -36,6 +36,7 @@ static const std::string JUMP_ON_WORDS = "JumpOnWords";
 static const std::string STORY_TELLING = "book";
 static const std::string DECOMON = "decomon";
 static const std::string SORT_IT = "sortit";
+static const std::string BUBBLE = "bubble";
 
 
 

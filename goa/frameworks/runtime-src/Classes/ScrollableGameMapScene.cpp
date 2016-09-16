@@ -173,17 +173,19 @@ void ScrollableGameMapScene::gameSelected(Ref* pSender, ui::Widget::TouchEventTy
 			} else  if (clickedButton->getName() == SMASH_THE_ROCK) {
 				Director::getInstance()->replaceScene(SmashTheRock::createScene());
 				//ScriptingCore::getInstance()->runScript("src/start/jump.js");
+			} else if (clickedButton->getName() == POP) {
+				ScriptingCore::getInstance()->runScript("src/start/pop.js");
 			} else if(clickedButton->getName() == CROSS_THE_BRIDGE) {
-                ScriptingCore::getInstance()->runScript("src/start/pop.js");
-              // Director::getInstance()->replaceScene(CrossTheBridge::createScene());
-				//Director::getInstance()->replaceScene(Pop::createScene());
+				 Director::getInstance()->replaceScene(CrossTheBridge::createScene());
             } else if(clickedButton->getName() == SMASH_THE_ROCK) {
                 Director::getInstance()->replaceScene(SmashTheRock::createScene());
             } else if(clickedButton->getName() == CANNON_BALL) {
-                Director::getInstance()->replaceScene(MainGame::createScene());
-            } else if(clickedButton->getName() == ENDLESS_RUNNER) {
+                Director::getInstance()->replaceScene(MainGame::createScene());//BUBBLE
+            } else if(clickedButton->getName() == BUBBLE) {
 				ScriptingCore::getInstance()->runScript("src/start/BubbleShooter.js");
-            } else if(clickedButton->getName() == KUNG_FU_ALPHA) {
+            } else if (clickedButton->getName() == ENDLESS_RUNNER) {
+				Director::getInstance()->replaceScene(EndlessRunner::createScene());
+			} else if(clickedButton->getName() == KUNG_FU_ALPHA) {
                 Director::getInstance()->replaceScene(Trace::createScene(0));   
             } else if(clickedButton->getName() == ALPHAMON_FEED) {
                 Director::getInstance()->replaceScene(AlphamonFeed::createScene());
