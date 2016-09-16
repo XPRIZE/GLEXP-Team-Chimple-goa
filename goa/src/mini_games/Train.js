@@ -20,15 +20,13 @@ xc.TrainLayer = cc.Layer.extend({
     repeatForeverAction: null,
     transLayer : null,
     layer1 : null,
-    gameName: null,
+    gameName: "train",
 
     ctor: function () {
         this._super();
 
         size = cc.winSize;
         self = this;
-
-        gameName = "train";
 
         tunnel_front_sprite = new Array();
         tunnel_back_sprite = new Array();
@@ -104,7 +102,7 @@ xc.TrainLayer = cc.Layer.extend({
                                     var gameOver = function()
                                     {
                                             if (cc.sys.isNative) {
-                                            var menuContext = this.getParent().menuContext;
+                                            var menuContext = self.getParent().menuContext;
                                             cc.log("showscore");
                                             menuContext.showScore();
                                             }
@@ -154,7 +152,7 @@ xc.TrainLayer = cc.Layer.extend({
                                 var gameOver = function()
                                 {
                                         if (cc.sys.isNative) {
-                                        var menuContext = this.getParent().menuContext;
+                                        var menuContext = self.getParent().menuContext;
                                         cc.log("showscore");
                                         menuContext.showScore();
                                         }
@@ -198,8 +196,10 @@ xc.TrainLayer = cc.Layer.extend({
         });
         this.addChild(background.node);
 
-//        sentence = goa.TextGenerator.getInstance().generateASentence();
-    sentence = ["A", "how", "are"];
+        var wordForSentanceArray = goa.TextGenerator.getInstance().generateASentence();
+        sentence = wordForSentanceArray.split(" ");
+        cc.log(sentence);
+
         random = sentence.length //Math.floor(Math.random() * 7) + 3;
         var row = 0, temp = random;
 
@@ -296,10 +296,18 @@ xc.TrainLayer = cc.Layer.extend({
         });
         this.addChild(final_tunnel, 0);
 
+        var front_tunnel = new cc.Sprite(cc.spriteFrameCache.getSpriteFrame("train/front_tunnel.png"));
+        front_tunnel.attr({
+            x: size.width * 99.2 / 100,
+            y: tunnel_back_sprite[tunnel_back_sprite.length - 1].getPositionY() * 99.5 / 100,
+            anchorX: .5,
+            anchorY: .5
+        });
+        this.addChild(front_tunnel, 2);
 
         for (var i = 0; i < random; i++) {
 
-            var label = new cc.LabelTTF(sentence[i], "Arial", 200);
+            var label = new cc.LabelTTF(sentence[i], "Arial", 150);
             label.attr({
                 x: position[i].x,
                 y: position[i].y
@@ -372,5 +380,6 @@ xc.TrainLayer = cc.Layer.extend({
 
 xc.TrainLayer.res = {
     train_json: xc.path + "train/train.json",
-    train_plist: xc.path + "train/train.plist"
+    train_plist: xc.path + "train/train.plist",
+    front_tunnel: xc.path + "train/front_tunnel.png"
 };
