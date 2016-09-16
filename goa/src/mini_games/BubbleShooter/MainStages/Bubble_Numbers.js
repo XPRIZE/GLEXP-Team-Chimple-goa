@@ -1275,7 +1275,7 @@ xc.Bubble_Number = cc.Layer.extend({
                     x: 0,
                     y: 0,
                     angle: 0,
-                    speed: 4000,
+                    speed: 1500,
                     tiletype: 0,
                     visible: false
                 },

@@ -1179,7 +1179,7 @@ xc.Bubble_Alphabets = cc.Layer.extend({
                     x: 0,
                     y: 0,
                     angle: 0,
-                    speed: 1000,
+                    speed: 1500,
                     tiletype: 0,
                     visible: false
                 },
