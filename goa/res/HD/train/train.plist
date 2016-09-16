@@ -15,7 +15,22 @@
                 <key>spriteSourceSize</key>
                 <string>{52,109}</string>
                 <key>textureRect</key>
-                <string>{{132,307},{52,109}}</string>
+                <string>{{307,131},{52,109}}</string>
+                <key>textureRotated</key>
+                <true/>
+            </dict>
+            <key>train/front_tunnel.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{22,80}</string>
+                <key>spriteSourceSize</key>
+                <string>{22,80}</string>
+                <key>textureRect</key>
+                <string>{{420,106},{22,80}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
@@ -26,13 +41,13 @@
                 <key>spriteOffset</key>
                 <string>{0,0}</string>
                 <key>spriteSize</key>
-                <string>{129,400}</string>
+                <string>{128,400}</string>
                 <key>spriteSourceSize</key>
-                <string>{129,400}</string>
+                <string>{128,400}</string>
                 <key>textureRect</key>
-                <string>{{1,1},{129,400}}</string>
+                <string>{{1,1},{128,400}}</string>
                 <key>textureRotated</key>
-                <false/>
+                <true/>
             </dict>
             <key>train/railwaytrack.png</key>
             <dict>
@@ -45,9 +60,9 @@
                 <key>spriteSourceSize</key>
                 <string>{111,8}</string>
                 <key>textureRect</key>
-                <string>{{186,307},{111,8}}</string>
+                <string>{{307,185},{111,8}}</string>
                 <key>textureRotated</key>
-                <true/>
+                <false/>
             </dict>
             <key>train/train.png</key>
             <dict>
@@ -60,9 +75,9 @@
                 <key>spriteSourceSize</key>
                 <string>{103,50}</string>
                 <key>textureRect</key>
-                <string>{{1,403},{103,50}}</string>
+                <string>{{403,1},{103,50}}</string>
                 <key>textureRotated</key>
-                <false/>
+                <true/>
             </dict>
             <key>train/tunnel_back.png</key>
             <dict>
@@ -75,9 +90,9 @@
                 <key>spriteSourceSize</key>
                 <string>{44,79}</string>
                 <key>textureRect</key>
-                <string>{{132,261},{44,79}}</string>
+                <string>{{261,131},{44,79}}</string>
                 <key>textureRotated</key>
-                <true/>
+                <false/>
             </dict>
             <key>train/tunnel_front.png</key>
             <dict>
@@ -90,9 +105,9 @@
                 <key>spriteSourceSize</key>
                 <string>{258,79}</string>
                 <key>textureRect</key>
-                <string>{{132,1},{258,79}}</string>
+                <string>{{1,131},{258,79}}</string>
                 <key>textureRotated</key>
-                <true/>
+                <false/>
             </dict>
         </dict>
         <key>metadata</key>
@@ -106,9 +121,9 @@
             <key>realTextureFileName</key>
             <string>train.png</string>
             <key>size</key>
-            <string>{212,454}</string>
+            <string>{454,211}</string>
             <key>smartupdate</key>
-            <string>$TexturePacker:SmartUpdate:c4e1392b26fbc85ec6025e226f90290b:1f85c3112cbe4d34f37be848dc3111c3:f9d712b5562c0f694596c09480e10407$</string>
+            <string>$TexturePacker:SmartUpdate:cf62abaa33f36d8c730b04d449ff9f53:1a1a17b96bbe0f2986c94ff7ccef6a68:f9d712b5562c0f694596c09480e10407$</string>
             <key>textureFileName</key>
             <string>train.png</string>
         </dict>

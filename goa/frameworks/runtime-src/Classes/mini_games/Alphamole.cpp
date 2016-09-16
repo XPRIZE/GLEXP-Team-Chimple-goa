@@ -89,7 +89,7 @@ bool Alphamole::init(wchar_t letter)
 	_mainChar->setScaleX(0.5);
 	_mainChar->setScaleY(0.5);
 	_mainChar->setPositionX(visibleSize.width / 2);
-	_mainChar->setPositionY(visibleSize.height / 1.3);
+	_mainChar->setPositionY(visibleSize.height / 1.2);
 	this->addChild(_mainChar);
 	_mainChar->enableTouch(false);
 
@@ -168,7 +168,7 @@ void Alphamole::showAlpha(float ft)
 		}
 		_alphabetLayer->addChild(_monsterReff);
 		_monsterReff->blinkAction();
-		auto jump = JumpBy::create(1, Vec2(0, 0), 700, 1);
+		auto jump = JumpBy::create(1, Vec2(0, 0), 750, 1);
 
 		_monsterReff->runAction(Sequence::create(jump, CallFunc::create([=]() {
 			_alphabetLayer->removeChild(_monsterReff); }), NULL));

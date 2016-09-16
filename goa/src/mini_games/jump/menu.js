@@ -1,6 +1,7 @@
 /// <reference path="../../cocos2d-typescript-definitions-master/cocos2d/cocos2d-lib.d.ts" />
 var xc = xc || {};
  xc.menuLayer = cc.Layer.extend({
+     gameName: "JumpOnWords",
     sprite:null,
     ctor:function () {
       

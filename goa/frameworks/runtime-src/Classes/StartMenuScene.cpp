@@ -43,6 +43,9 @@ const std::vector<std::string> StartMenu::getGameNames() {
     std::vector<std::string> gameNames;
 	gameNames.push_back(SORT_IT);
 	gameNames.push_back(ALPHAMOLE);
+	gameNames.push_back(BUBBLE);
+	gameNames.push_back(POP);
+	gameNames.push_back(JUMP_ON_WORDS);
     gameNames.push_back(BAJA);
     gameNames.push_back(CHAIN);
     gameNames.push_back(WEMBLEY);
@@ -116,6 +119,12 @@ void StartMenu::startScene(std::string gameName, std::string firstParam, std::st
         Director::getInstance()->replaceScene(WordBoard::createScene());
     } else if (gameName == PEG) {
         Director::getInstance()->replaceScene(PegWord::createScene());
+	} else if (gameName == JUMP_ON_WORDS) {
+		ScriptingCore::getInstance()->runScript("src/start/jump.js");
+	} else if (gameName == POP) {
+		ScriptingCore::getInstance()->runScript("src/start/pop.js");
+	} else if (gameName == BUBBLE) {
+		ScriptingCore::getInstance()->runScript("src/start/BubbleShooter.js");
 	} else{
         CCLOG("Failed starting scene: %s", gameName.c_str());
     }

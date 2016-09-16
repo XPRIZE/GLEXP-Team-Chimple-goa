@@ -55,7 +55,13 @@ var sprite_click = cc.EventListener.create({event: cc.EventListener.TOUCH_ONE_BY
                     
                     
                   setTimeout(function(){
-                            xc.GameScene.load(xc.sortitlevel1Layer);
+                      
+                      if (cc.sys.isNative) {
+                var menuContext = that.getParent().menuContext;
+                cc.log("showscore");
+                menuContext.showScore();
+            }else{
+                            xc.GameScene.load(xc.sortitlevel1Layer);}
                      },1000);
 
                 }
