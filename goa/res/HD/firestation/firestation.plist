@@ -4,82 +4,7 @@
     <dict>
         <key>frames</key>
         <dict>
-            <key>firestation/firestation_foreground/cart.png</key>
-            <dict>
-                <key>aliases</key>
-                <array/>
-                <key>spriteOffset</key>
-                <string>{0,0}</string>
-                <key>spriteSize</key>
-                <string>{375,266}</string>
-                <key>spriteSourceSize</key>
-                <string>{375,266}</string>
-                <key>textureRect</key>
-                <string>{{1370,664},{375,266}}</string>
-                <key>textureRotated</key>
-                <false/>
-            </dict>
-            <key>firestation/firestation_foreground/coat.png</key>
-            <dict>
-                <key>aliases</key>
-                <array/>
-                <key>spriteOffset</key>
-                <string>{0,0}</string>
-                <key>spriteSize</key>
-                <string>{90,204}</string>
-                <key>spriteSourceSize</key>
-                <string>{90,204}</string>
-                <key>textureRect</key>
-                <string>{{1107,401},{90,204}}</string>
-                <key>textureRotated</key>
-                <true/>
-            </dict>
-            <key>firestation/firestation_foreground/screwdriver.png</key>
-            <dict>
-                <key>aliases</key>
-                <array/>
-                <key>spriteOffset</key>
-                <string>{0,0}</string>
-                <key>spriteSize</key>
-                <string>{125,15}</string>
-                <key>spriteSourceSize</key>
-                <string>{125,15}</string>
-                <key>textureRect</key>
-                <string>{{859,924},{125,15}}</string>
-                <key>textureRotated</key>
-                <false/>
-            </dict>
-            <key>firestation/firestation_foreground/spanner.png</key>
-            <dict>
-                <key>aliases</key>
-                <array/>
-                <key>spriteOffset</key>
-                <string>{0,0}</string>
-                <key>spriteSize</key>
-                <string>{68,18}</string>
-                <key>spriteSourceSize</key>
-                <string>{68,18}</string>
-                <key>textureRect</key>
-                <string>{{920,679},{68,18}}</string>
-                <key>textureRotated</key>
-                <false/>
-            </dict>
-            <key>firestation/firestation_mainground/axe.png</key>
-            <dict>
-                <key>aliases</key>
-                <array/>
-                <key>spriteOffset</key>
-                <string>{0,0}</string>
-                <key>spriteSize</key>
-                <string>{67,64}</string>
-                <key>spriteSourceSize</key>
-                <string>{67,64}</string>
-                <key>textureRect</key>
-                <string>{{1737,484},{67,64}}</string>
-                <key>textureRotated</key>
-                <false/>
-            </dict>
-            <key>firestation/firestation_mainground/bar.png</key>
+            <key>firestation/bar.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
@@ -90,146 +15,26 @@
                 <key>spriteSourceSize</key>
                 <string>{856,14}</string>
                 <key>textureRect</key>
-                <string>{{1,927},{856,14}}</string>
-                <key>textureRotated</key>
-                <false/>
-            </dict>
-            <key>firestation/firestation_mainground/bell.png</key>
-            <dict>
-                <key>aliases</key>
-                <array/>
-                <key>spriteOffset</key>
-                <string>{0,0}</string>
-                <key>spriteSize</key>
-                <string>{83,71}</string>
-                <key>spriteSourceSize</key>
-                <string>{83,71}</string>
-                <key>textureRect</key>
-                <string>{{1849,479},{83,71}}</string>
-                <key>textureRotated</key>
-                <false/>
-            </dict>
-            <key>firestation/firestation_mainground/board.png</key>
-            <dict>
-                <key>aliases</key>
-                <array/>
-                <key>spriteOffset</key>
-                <string>{0,0}</string>
-                <key>spriteSize</key>
-                <string>{179,43}</string>
-                <key>spriteSourceSize</key>
-                <string>{179,43}</string>
-                <key>textureRect</key>
-                <string>{{920,498},{179,43}}</string>
+                <string>{{899,1},{856,14}}</string>
                 <key>textureRotated</key>
                 <true/>
             </dict>
-            <key>firestation/firestation_mainground/cupboard.png</key>
+            <key>firestation/coat.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
                 <key>spriteOffset</key>
                 <string>{0,0}</string>
                 <key>spriteSize</key>
-                <string>{234,398}</string>
+                <string>{90,204}</string>
                 <key>spriteSourceSize</key>
-                <string>{234,398}</string>
+                <string>{90,204}</string>
                 <key>textureRect</key>
-                <string>{{1107,1},{234,398}}</string>
+                <string>{{915,207},{90,204}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>firestation/firestation_mainground/cupboarddoor1.png</key>
-            <dict>
-                <key>aliases</key>
-                <array/>
-                <key>spriteOffset</key>
-                <string>{0,0}</string>
-                <key>spriteSize</key>
-                <string>{216,344}</string>
-                <key>spriteSourceSize</key>
-                <string>{216,344}</string>
-                <key>textureRect</key>
-                <string>{{1808,1},{216,344}}</string>
-                <key>textureRotated</key>
-                <false/>
-            </dict>
-            <key>firestation/firestation_mainground/cupboarddoor2.png</key>
-            <dict>
-                <key>aliases</key>
-                <array/>
-                <key>spriteOffset</key>
-                <string>{0,0}</string>
-                <key>spriteSize</key>
-                <string>{147,358}</string>
-                <key>spriteSourceSize</key>
-                <string>{147,358}</string>
-                <key>textureRect</key>
-                <string>{{1343,1},{147,358}}</string>
-                <key>textureRotated</key>
-                <false/>
-            </dict>
-            <key>firestation/firestation_mainground/curtain.png</key>
-            <dict>
-                <key>aliases</key>
-                <array/>
-                <key>spriteOffset</key>
-                <string>{0,0}</string>
-                <key>spriteSize</key>
-                <string>{185,495}</string>
-                <key>spriteSourceSize</key>
-                <string>{185,495}</string>
-                <key>textureRect</key>
-                <string>{{920,1},{185,495}}</string>
-                <key>textureRotated</key>
-                <false/>
-            </dict>
-            <key>firestation/firestation_mainground/dooranimation1.png</key>
-            <dict>
-                <key>aliases</key>
-                <array/>
-                <key>spriteOffset</key>
-                <string>{0,0}</string>
-                <key>spriteSize</key>
-                <string>{314,321}</string>
-                <key>spriteSourceSize</key>
-                <string>{314,321}</string>
-                <key>textureRect</key>
-                <string>{{2026,1},{314,321}}</string>
-                <key>textureRotated</key>
-                <true/>
-            </dict>
-            <key>firestation/firestation_mainground/dooranimation2.png</key>
-            <dict>
-                <key>aliases</key>
-                <array/>
-                <key>spriteOffset</key>
-                <string>{0,0}</string>
-                <key>spriteSize</key>
-                <string>{314,343}</string>
-                <key>spriteSourceSize</key>
-                <string>{314,343}</string>
-                <key>textureRect</key>
-                <string>{{2020,552},{314,343}}</string>
-                <key>textureRotated</key>
-                <true/>
-            </dict>
-            <key>firestation/firestation_mainground/dooranimation3.png</key>
-            <dict>
-                <key>aliases</key>
-                <array/>
-                <key>spriteOffset</key>
-                <string>{0,0}</string>
-                <key>spriteSize</key>
-                <string>{314,346}</string>
-                <key>spriteSourceSize</key>
-                <string>{314,346}</string>
-                <key>textureRect</key>
-                <string>{{1492,1},{314,346}}</string>
-                <key>textureRotated</key>
-                <false/>
-            </dict>
-            <key>firestation/firestation_mainground/extinguisher.png</key>
+            <key>firestation/extinguisher.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
@@ -240,26 +45,11 @@
                 <key>spriteSourceSize</key>
                 <string>{75,141}</string>
                 <key>textureRect</key>
-                <string>{{1943,479},{75,141}}</string>
+                <string>{{915,413},{75,141}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>firestation/firestation_mainground/floortile1.png</key>
-            <dict>
-                <key>aliases</key>
-                <array/>
-                <key>spriteOffset</key>
-                <string>{0,0}</string>
-                <key>spriteSize</key>
-                <string>{129,26}</string>
-                <key>spriteSourceSize</key>
-                <string>{129,26}</string>
-                <key>textureRect</key>
-                <string>{{1,899},{129,26}}</string>
-                <key>textureRotated</key>
-                <false/>
-            </dict>
-            <key>firestation/firestation_mainground/floortile2.png</key>
+            <key>firestation/floortile2.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
@@ -270,41 +60,11 @@
                 <key>spriteSourceSize</key>
                 <string>{130,77}</string>
                 <key>textureRect</key>
-                <string>{{1943,347},{130,77}}</string>
+                <string>{{915,556},{130,77}}</string>
                 <key>textureRotated</key>
                 <true/>
             </dict>
-            <key>firestation/firestation_mainground/foundationtile1.png</key>
-            <dict>
-                <key>aliases</key>
-                <array/>
-                <key>spriteOffset</key>
-                <string>{0,0}</string>
-                <key>spriteSize</key>
-                <string>{85,84}</string>
-                <key>spriteSourceSize</key>
-                <string>{85,84}</string>
-                <key>textureRect</key>
-                <string>{{1849,347},{85,84}}</string>
-                <key>textureRotated</key>
-                <false/>
-            </dict>
-            <key>firestation/firestation_mainground/foundationtile2.png</key>
-            <dict>
-                <key>aliases</key>
-                <array/>
-                <key>spriteOffset</key>
-                <string>{0,0}</string>
-                <key>spriteSize</key>
-                <string>{81,86}</string>
-                <key>spriteSourceSize</key>
-                <string>{81,86}</string>
-                <key>textureRect</key>
-                <string>{{1313,401},{81,86}}</string>
-                <key>textureRotated</key>
-                <false/>
-            </dict>
-            <key>firestation/firestation_mainground/helmet.png</key>
+            <key>firestation/helmet.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
@@ -315,11 +75,11 @@
                 <key>spriteSourceSize</key>
                 <string>{95,56}</string>
                 <key>textureRect</key>
-                <string>{{767,703},{95,56}}</string>
+                <string>{{154,944},{95,56}}</string>
                 <key>textureRotated</key>
-                <true/>
+                <false/>
             </dict>
-            <key>firestation/firestation_mainground/hose.png</key>
+            <key>firestation/hose.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
@@ -330,41 +90,11 @@
                 <key>spriteSourceSize</key>
                 <string>{100,150}</string>
                 <key>textureRect</key>
-                <string>{{1747,662},{100,150}}</string>
+                <string>{{838,859},{100,150}}</string>
                 <key>textureRotated</key>
-                <false/>
+                <true/>
             </dict>
-            <key>firestation/firestation_mainground/mask.png</key>
-            <dict>
-                <key>aliases</key>
-                <array/>
-                <key>spriteOffset</key>
-                <string>{0,0}</string>
-                <key>spriteSize</key>
-                <string>{141,54}</string>
-                <key>spriteSourceSize</key>
-                <string>{141,54}</string>
-                <key>textureRect</key>
-                <string>{{1747,868},{141,54}}</string>
-                <key>textureRotated</key>
-                <false/>
-            </dict>
-            <key>firestation/firestation_mainground/medicalbox.png</key>
-            <dict>
-                <key>aliases</key>
-                <array/>
-                <key>spriteOffset</key>
-                <string>{0,0}</string>
-                <key>spriteSize</key>
-                <string>{116,126}</string>
-                <key>spriteSourceSize</key>
-                <string>{116,126}</string>
-                <key>textureRect</key>
-                <string>{{1396,361},{116,126}}</string>
-                <key>textureRotated</key>
-                <false/>
-            </dict>
-            <key>firestation/firestation_mainground/medicaldoor1.png</key>
+            <key>firestation/medicaldoor1.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
@@ -375,11 +105,11 @@
                 <key>spriteSourceSize</key>
                 <string>{101,115}</string>
                 <key>textureRect</key>
-                <string>{{1890,793},{101,115}}</string>
+                <string>{{915,688},{101,115}}</string>
                 <key>textureRotated</key>
-                <true/>
+                <false/>
             </dict>
-            <key>firestation/firestation_mainground/medicaldoor2.png</key>
+            <key>firestation/medicaldoor2.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
@@ -390,26 +120,11 @@
                 <key>spriteSourceSize</key>
                 <string>{52,151}</string>
                 <key>textureRect</key>
-                <string>{{2007,868},{52,151}}</string>
+                <string>{{1,944},{52,151}}</string>
                 <key>textureRotated</key>
                 <true/>
             </dict>
-            <key>firestation/firestation_mainground/newsstand.png</key>
-            <dict>
-                <key>aliases</key>
-                <array/>
-                <key>spriteOffset</key>
-                <string>{0,0}</string>
-                <key>spriteSize</key>
-                <string>{173,375}</string>
-                <key>spriteSourceSize</key>
-                <string>{173,375}</string>
-                <key>textureRect</key>
-                <string>{{1360,489},{173,375}}</string>
-                <key>textureRotated</key>
-                <true/>
-            </dict>
-            <key>firestation/firestation_mainground/pillar.png</key>
+            <key>firestation/pillar.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
@@ -420,11 +135,11 @@
                 <key>spriteSourceSize</key>
                 <string>{151,700}</string>
                 <key>textureRect</key>
-                <string>{{767,1},{151,700}}</string>
+                <string>{{1,767},{151,700}}</string>
                 <key>textureRotated</key>
-                <false/>
+                <true/>
             </dict>
-            <key>firestation/firestation_mainground/pole.png</key>
+            <key>firestation/pole.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
@@ -435,56 +150,11 @@
                 <key>spriteSourceSize</key>
                 <string>{22,693}</string>
                 <key>textureRect</key>
-                <string>{{132,899},{22,693}}</string>
+                <string>{{1,920},{22,693}}</string>
                 <key>textureRotated</key>
                 <true/>
             </dict>
-            <key>firestation/firestation_mainground/rack1.png</key>
-            <dict>
-                <key>aliases</key>
-                <array/>
-                <key>spriteOffset</key>
-                <string>{0,0}</string>
-                <key>spriteSize</key>
-                <string>{262,378}</string>
-                <key>spriteSourceSize</key>
-                <string>{262,378}</string>
-                <key>textureRect</key>
-                <string>{{990,678},{262,378}}</string>
-                <key>textureRotated</key>
-                <true/>
-            </dict>
-            <key>firestation/firestation_mainground/rooftile.png</key>
-            <dict>
-                <key>aliases</key>
-                <array/>
-                <key>spriteOffset</key>
-                <string>{0,0}</string>
-                <key>spriteSize</key>
-                <string>{129,116}</string>
-                <key>spriteSourceSize</key>
-                <string>{129,116}</string>
-                <key>textureRect</key>
-                <string>{{1890,662},{129,116}}</string>
-                <key>textureRotated</key>
-                <true/>
-            </dict>
-            <key>firestation/firestation_mainground/sofa.png</key>
-            <dict>
-                <key>aliases</key>
-                <array/>
-                <key>spriteOffset</key>
-                <string>{0,0}</string>
-                <key>spriteSize</key>
-                <string>{393,178}</string>
-                <key>spriteSourceSize</key>
-                <string>{393,178}</string>
-                <key>textureRect</key>
-                <string>{{965,498},{393,178}}</string>
-                <key>textureRotated</key>
-                <false/>
-            </dict>
-            <key>firestation/firestation_mainground/stairs.png</key>
+            <key>firestation/stairs.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
@@ -497,24 +167,9 @@
                 <key>textureRect</key>
                 <string>{{1,1},{896,764}}</string>
                 <key>textureRotated</key>
-                <true/>
-            </dict>
-            <key>firestation/firestation_mainground/table.png</key>
-            <dict>
-                <key>aliases</key>
-                <array/>
-                <key>spriteOffset</key>
-                <string>{0,0}</string>
-                <key>spriteSize</key>
-                <string>{333,133}</string>
-                <key>spriteSourceSize</key>
-                <string>{333,133}</string>
-                <key>textureRect</key>
-                <string>{{1514,349},{333,133}}</string>
-                <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>firestation/firestation_mainground/tap.png</key>
+            <key>firestation/tap.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
@@ -525,67 +180,37 @@
                 <key>spriteSourceSize</key>
                 <string>{54,48}</string>
                 <key>textureRect</key>
-                <string>{{767,800},{54,48}}</string>
-                <key>textureRotated</key>
-                <false/>
-            </dict>
-            <key>firestation/firestation_mainground/tissueroll.png</key>
-            <dict>
-                <key>aliases</key>
-                <array/>
-                <key>spriteOffset</key>
-                <string>{0,0}</string>
-                <key>spriteSize</key>
-                <string>{54,44}</string>
-                <key>spriteSourceSize</key>
-                <string>{54,44}</string>
-                <key>textureRect</key>
-                <string>{{767,850},{54,44}}</string>
-                <key>textureRotated</key>
-                <false/>
-            </dict>
-            <key>firestation/firestation_mainground/toilet.png</key>
-            <dict>
-                <key>aliases</key>
-                <array/>
-                <key>spriteOffset</key>
-                <string>{0,0}</string>
-                <key>spriteSize</key>
-                <string>{133,219}</string>
-                <key>spriteSourceSize</key>
-                <string>{133,219}</string>
-                <key>textureRect</key>
-                <string>{{827,703},{133,219}}</string>
-                <key>textureRotated</key>
-                <false/>
-            </dict>
-            <key>firestation/firestation_mainground/waterstand.png</key>
-            <dict>
-                <key>aliases</key>
-                <array/>
-                <key>spriteOffset</key>
-                <string>{0,0}</string>
-                <key>spriteSize</key>
-                <string>{108,204}</string>
-                <key>spriteSourceSize</key>
-                <string>{108,204}</string>
-                <key>textureRect</key>
-                <string>{{1737,552},{108,204}}</string>
+                <string>{{838,767},{54,48}}</string>
                 <key>textureRotated</key>
                 <true/>
             </dict>
-            <key>firestation/firestation_mainground/window.png</key>
+            <key>firestation/toilet.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
                 <key>spriteOffset</key>
                 <string>{0,0}</string>
                 <key>spriteSize</key>
-                <string>{316,233}</string>
+                <string>{133,219}</string>
                 <key>spriteSourceSize</key>
-                <string>{316,233}</string>
+                <string>{133,219}</string>
                 <key>textureRect</key>
-                <string>{{2026,317},{316,233}}</string>
+                <string>{{703,767},{133,219}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+            <key>firestation/waterstand.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{108,204}</string>
+                <key>spriteSourceSize</key>
+                <string>{108,204}</string>
+                <key>textureRect</key>
+                <string>{{915,1},{108,204}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
@@ -595,15 +220,15 @@
             <key>format</key>
             <integer>3</integer>
             <key>pixelFormat</key>
-            <string>RGBA8888</string>
+            <string>RGBA4444</string>
             <key>premultiplyAlpha</key>
             <false/>
             <key>realTextureFileName</key>
             <string>firestation.png</string>
             <key>size</key>
-            <string>{2364,942}</string>
+            <string>{1024,1001}</string>
             <key>smartupdate</key>
-            <string>$TexturePacker:SmartUpdate:16dc3c4ac08dbde646434b2fcb8cc474:a0e6b6ce65ddd9081d5a5c58c7670619:2cf8e6ef1557b55c51563140e4a17b40$</string>
+            <string>$TexturePacker:SmartUpdate:2ce0a86049ba0ddafaa0c9c28e06a491:e7ba5c44d5e2bb790457976fdc7c71a0:2cf8e6ef1557b55c51563140e4a17b40$</string>
             <key>textureFileName</key>
             <string>firestation.png</string>
         </dict>
