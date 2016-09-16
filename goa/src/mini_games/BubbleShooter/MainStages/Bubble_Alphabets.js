@@ -522,9 +522,9 @@ xc.Bubble_Alphabets = cc.Layer.extend({
 
 
     stateRemoveCluster : function() {
-       if(this.extendLetter != undefined){ 
-            this.extendLetter.setString(""+letterSprite[this.player.bubble.tiletype]);
-       }
+    //    if(this.extendLetter != undefined){ 
+    //         this.extendLetter.setString(""+letterSprite[this.player.bubble.tiletype]);
+    //    }
               let self  = this;
         // console.log("done 622");      
         if (this.animationstate == 0) {
