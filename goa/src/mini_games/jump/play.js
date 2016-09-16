@@ -2,6 +2,7 @@
 var xc = xc || {};
 
 xc.playLayer = cc.Layer.extend( {
+   gameName: "JumpOnWords",
    group : [], 
    ballref:[],
    square:[],
