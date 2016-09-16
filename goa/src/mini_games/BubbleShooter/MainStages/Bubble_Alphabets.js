@@ -304,7 +304,7 @@ xc.Bubble_Alphabets = cc.Layer.extend({
     
      // Shoot the bubble
       shootBubble : function () {
-         
+        
         // Shoot the bubble in the direction of the mouse
         this.player.bubble.x = this.player.x;
         this.player.bubble.y = this.player.y;
@@ -312,7 +312,9 @@ xc.Bubble_Alphabets = cc.Layer.extend({
         this.player.bubble.tiletype = this.player.tiletype;
         // Set the gamestate
         this.setGameState(this.gamestates.shootbubble);
-        
+          if(this.extendLetter != undefined){ 
+            this.extendLetter.setString(""+letterSprite[this.player.nextbubble.tiletype]);
+          }
       },
         // Draw the bubble
       drawBubble : function(x, y, index) {
