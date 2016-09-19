@@ -159,9 +159,12 @@ void HelloWorld::loadWords() {
         if(node != NULL && !word.empty()) {
             this->createWordSprite(node, word, this->mainLayer);
         } else {
-            node = this->foregroundLayer->getChildByName(nodeName.c_str());
-            if(node != NULL && !word.empty()) {
-                this->createWordSprite(node, word, this->foregroundLayer);
+            if(this->foregroundLayer != NULL)
+            {
+                node = this->foregroundLayer->getChildByName(nodeName.c_str());
+                if(node != NULL && !word.empty()) {
+                    this->createWordSprite(node, word, this->foregroundLayer);
+                }
             }
         }
     }

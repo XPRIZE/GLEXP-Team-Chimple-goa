@@ -22,6 +22,7 @@ public:
     static WordScene *createWithWord(std::string wordStr);
     virtual void onTouchEnded(cocos2d::Touch* touch, cocos2d::Event* event);
     virtual void showHandWritingDialog(cocos2d::Ref* pSender, cocos2d::ui::Widget::TouchEventType eEventType);
+    virtual void onHandWrittenAlphabetTouchEnded(cocos2d::Touch* touch, cocos2d::Event* event);
     virtual void checkAnswer();
     void onExitTransitionDidStart() override;
     void onEnterTransitionDidFinish() override;
