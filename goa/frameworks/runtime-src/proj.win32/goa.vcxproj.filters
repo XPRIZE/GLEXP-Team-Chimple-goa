@@ -286,6 +286,9 @@
     <ClCompile Include="..\Classes\mini_games\AlphamoleLevel.cpp">
       <Filter>Classes\mini_games</Filter>
     </ClCompile>
+    <ClCompile Include="..\Classes\mini_games\Memory.cpp">
+      <Filter>Classes\mini_games</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -551,6 +554,9 @@
       <Filter>Classes\mini_games</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\mini_games\AlphamoleLevel.h">
+      <Filter>Classes\mini_games</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\mini_games\Memory.h">
       <Filter>Classes\mini_games</Filter>
     </ClInclude>
   </ItemGroup>
