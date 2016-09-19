@@ -4,22 +4,7 @@
     <dict>
         <key>frames</key>
         <dict>
-            <key>postoffice/postoffice_foreground/pole.png</key>
-            <dict>
-                <key>aliases</key>
-                <array/>
-                <key>spriteOffset</key>
-                <string>{0,0}</string>
-                <key>spriteSize</key>
-                <string>{16,103}</string>
-                <key>spriteSourceSize</key>
-                <string>{16,103}</string>
-                <key>textureRect</key>
-                <string>{{378,980},{16,103}}</string>
-                <key>textureRotated</key>
-                <true/>
-            </dict>
-            <key>postoffice/postoffice_mainground/box.png</key>
+            <key>postoffice/box.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
@@ -30,11 +15,26 @@
                 <key>spriteSourceSize</key>
                 <string>{141,125}</string>
                 <key>textureRect</key>
-                <string>{{686,537},{141,125}}</string>
+                <string>{{688,358},{141,125}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+            <key>postoffice/counter1.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{121,28}</string>
+                <key>spriteSourceSize</key>
+                <string>{121,28}</string>
+                <key>textureRect</key>
+                <string>{{841,1},{121,28}}</string>
                 <key>textureRotated</key>
                 <true/>
             </dict>
-            <key>postoffice/postoffice_mainground/counter1.png</key>
+            <key>postoffice/counter2.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
@@ -45,26 +45,11 @@
                 <key>spriteSourceSize</key>
                 <string>{121,28}</string>
                 <key>textureRect</key>
-                <string>{{1,980},{121,28}}</string>
+                <string>{{841,124},{121,28}}</string>
                 <key>textureRotated</key>
-                <false/>
+                <true/>
             </dict>
-            <key>postoffice/postoffice_mainground/counter2.png</key>
-            <dict>
-                <key>aliases</key>
-                <array/>
-                <key>spriteOffset</key>
-                <string>{0,0}</string>
-                <key>spriteSize</key>
-                <string>{121,28}</string>
-                <key>spriteSourceSize</key>
-                <string>{121,28}</string>
-                <key>textureRect</key>
-                <string>{{124,980},{121,28}}</string>
-                <key>textureRotated</key>
-                <false/>
-            </dict>
-            <key>postoffice/postoffice_mainground/desk1.png</key>
+            <key>postoffice/desk1.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
@@ -75,11 +60,11 @@
                 <key>spriteSourceSize</key>
                 <string>{355,237}</string>
                 <key>textureRect</key>
-                <string>{{516,688},{355,237}}</string>
+                <string>{{516,686},{355,237}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>postoffice/postoffice_mainground/desk2.png</key>
+            <key>postoffice/desk2.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
@@ -90,56 +75,11 @@
                 <key>spriteSourceSize</key>
                 <string>{355,151}</string>
                 <key>textureRect</key>
-                <string>{{686,1},{355,151}}</string>
+                <string>{{688,1},{355,151}}</string>
                 <key>textureRotated</key>
                 <true/>
             </dict>
-            <key>postoffice/postoffice_mainground/edooranimation1.png</key>
-            <dict>
-                <key>aliases</key>
-                <array/>
-                <key>spriteOffset</key>
-                <string>{0,0}</string>
-                <key>spriteSize</key>
-                <string>{249,283}</string>
-                <key>spriteSourceSize</key>
-                <string>{249,283}</string>
-                <key>textureRect</key>
-                <string>{{873,1},{249,283}}</string>
-                <key>textureRotated</key>
-                <false/>
-            </dict>
-            <key>postoffice/postoffice_mainground/edooranimation2.png</key>
-            <dict>
-                <key>aliases</key>
-                <array/>
-                <key>spriteOffset</key>
-                <string>{0,0}</string>
-                <key>spriteSize</key>
-                <string>{249,283}</string>
-                <key>spriteSourceSize</key>
-                <string>{249,283}</string>
-                <key>textureRect</key>
-                <string>{{839,286},{249,283}}</string>
-                <key>textureRotated</key>
-                <true/>
-            </dict>
-            <key>postoffice/postoffice_mainground/edooranimation3.png</key>
-            <dict>
-                <key>aliases</key>
-                <array/>
-                <key>spriteOffset</key>
-                <string>{0,0}</string>
-                <key>spriteSize</key>
-                <string>{249,283}</string>
-                <key>spriteSourceSize</key>
-                <string>{249,283}</string>
-                <key>textureRect</key>
-                <string>{{873,537},{249,283}}</string>
-                <key>textureRotated</key>
-                <false/>
-            </dict>
-            <key>postoffice/postoffice_mainground/floortile.png</key>
+            <key>postoffice/floortile.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
@@ -150,41 +90,41 @@
                 <key>spriteSourceSize</key>
                 <string>{129,26}</string>
                 <key>textureRect</key>
-                <string>{{247,980},{129,26}}</string>
+                <string>{{841,247},{129,26}}</string>
+                <key>textureRotated</key>
+                <true/>
+            </dict>
+            <key>postoffice/foundationtile1.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{85,84}</string>
+                <key>spriteSourceSize</key>
+                <string>{85,84}</string>
+                <key>textureRect</key>
+                <string>{{806,485},{85,84}}</string>
+                <key>textureRotated</key>
+                <true/>
+            </dict>
+            <key>postoffice/foundationtile2.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{81,86}</string>
+                <key>spriteSourceSize</key>
+                <string>{81,86}</string>
+                <key>textureRect</key>
+                <string>{{806,572},{81,86}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>postoffice/postoffice_mainground/foundationtile1.png</key>
-            <dict>
-                <key>aliases</key>
-                <array/>
-                <key>spriteOffset</key>
-                <string>{0,0}</string>
-                <key>spriteSize</key>
-                <string>{85,84}</string>
-                <key>spriteSourceSize</key>
-                <string>{85,84}</string>
-                <key>textureRect</key>
-                <string>{{873,822},{85,84}}</string>
-                <key>textureRotated</key>
-                <true/>
-            </dict>
-            <key>postoffice/postoffice_mainground/foundationtile2.png</key>
-            <dict>
-                <key>aliases</key>
-                <array/>
-                <key>spriteOffset</key>
-                <string>{0,0}</string>
-                <key>spriteSize</key>
-                <string>{81,86}</string>
-                <key>spriteSourceSize</key>
-                <string>{81,86}</string>
-                <key>textureRect</key>
-                <string>{{809,927},{81,86}}</string>
-                <key>textureRotated</key>
-                <true/>
-            </dict>
-            <key>postoffice/postoffice_mainground/pillar.png</key>
+            <key>postoffice/pillar.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
@@ -197,24 +137,39 @@
                 <key>textureRect</key>
                 <string>{{1,1},{685,683}}</string>
                 <key>textureRotated</key>
+                <false/>
+            </dict>
+            <key>postoffice/pole.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{16,103}</string>
+                <key>spriteSourceSize</key>
+                <string>{16,103}</string>
+                <key>textureRect</key>
+                <string>{{873,1},{16,103}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+            <key>postoffice/post.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{49,22}</string>
+                <key>spriteSourceSize</key>
+                <string>{49,22}</string>
+                <key>textureRect</key>
+                <string>{{791,925},{49,22}}</string>
+                <key>textureRotated</key>
                 <true/>
             </dict>
-            <key>postoffice/postoffice_mainground/post.png</key>
-            <dict>
-                <key>aliases</key>
-                <array/>
-                <key>spriteOffset</key>
-                <string>{0,0}</string>
-                <key>spriteSize</key>
-                <string>{49,22}</string>
-                <key>spriteSourceSize</key>
-                <string>{49,22}</string>
-                <key>textureRect</key>
-                <string>{{483,980},{49,22}}</string>
-                <key>textureRotated</key>
-                <false/>
-            </dict>
-            <key>postoffice/postoffice_mainground/rack.png</key>
+            <key>postoffice/rack.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
@@ -225,11 +180,11 @@
                 <key>spriteSourceSize</key>
                 <string>{513,290}</string>
                 <key>textureRect</key>
-                <string>{{1,688},{513,290}}</string>
+                <string>{{1,686},{513,290}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>postoffice/postoffice_mainground/rooftile.png</key>
+            <key>postoffice/rooftile.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
@@ -240,11 +195,11 @@
                 <key>spriteSourceSize</key>
                 <string>{129,116}</string>
                 <key>textureRect</key>
-                <string>{{686,358},{129,116}}</string>
+                <string>{{688,485},{129,116}}</string>
                 <key>textureRotated</key>
-                <false/>
+                <true/>
             </dict>
-            <key>postoffice/postoffice_mainground/storage.png</key>
+            <key>postoffice/storage.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
@@ -255,7 +210,7 @@
                 <key>spriteSourceSize</key>
                 <string>{273,65}</string>
                 <key>textureRect</key>
-                <string>{{534,927},{273,65}}</string>
+                <string>{{516,925},{273,65}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
@@ -265,15 +220,15 @@
             <key>format</key>
             <integer>3</integer>
             <key>pixelFormat</key>
-            <string>RGBA8888</string>
+            <string>RGBA4444</string>
             <key>premultiplyAlpha</key>
             <false/>
             <key>realTextureFileName</key>
             <string>postoffice.png</string>
             <key>size</key>
-            <string>{1123,1009}</string>
+            <string>{891,991}</string>
             <key>smartupdate</key>
-            <string>$TexturePacker:SmartUpdate:26459c4ff5ba9f7982557cc62c0c2e81:71a8b11cf60202b031860cb3373b8b10:feb08ddd1c0755319183b2c3a65af203$</string>
+            <string>$TexturePacker:SmartUpdate:c8a7bd4cf11ef5a13221110fbdcdd53c:524548e19fa5666a58461c49f15f123f:feb08ddd1c0755319183b2c3a65af203$</string>
             <key>textureFileName</key>
             <string>postoffice.png</string>
         </dict>

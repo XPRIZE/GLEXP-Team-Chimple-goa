@@ -5,7 +5,7 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
-
+import org.chimple.goa.R;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
@@ -53,6 +53,8 @@ public class CanvasView extends View implements OnTouchListener {
 	public CanvasView(Context context, AppActivity canObjParam) {
 		super(context);
 		canObj = canObjParam;
+		setBackgroundResource(R.drawable.paper);
+
 		globalvariable.paint = new Paint();
 		setFocusable(true);
 		setFocusableInTouchMode(true);

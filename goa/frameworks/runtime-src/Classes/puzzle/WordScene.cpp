@@ -133,11 +133,11 @@ void WordScene::createGrid() {
 }
 
 void WordScene::createHandWritingButton() {
-    std::string buttonNormalIcon = "menu/back.png";
+    std::string buttonNormalIcon = "menu/paper_pencil.png";
     Size visibleSize = Director::getInstance()->getVisibleSize();
     Vec2 origin = Director::getInstance()->getVisibleOrigin();
     _handWritingDialogButton = ui::Button::create(buttonNormalIcon, buttonNormalIcon, buttonNormalIcon);
-    _handWritingDialogButton->setPosition(Vec2(visibleSize.width - 200, 200));
+    _handWritingDialogButton->setPosition(Vec2(visibleSize.width/2, 400));
     _handWritingDialogButton->addTouchEventListener(CC_CALLBACK_2(WordScene::showHandWritingDialog, this));
     addChild(_handWritingDialogButton);
    
