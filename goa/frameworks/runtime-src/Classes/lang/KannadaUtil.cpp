@@ -161,8 +161,11 @@ std::string KannadaUtil::getPhoneticSoundFileName(wchar_t alpha) {
 }
 
 std::string KannadaUtil::getAlphabetSoundFileNameForString(std::string alpha) {
-    auto fileName = std::string("kannada/sounds/") + stringLangMap.at(alpha) + audioExt;
-    return fileName;
+    if(stringLangMap.find(alpha) != stringLangMap.end()) {
+        auto fileName = std::string("kannada/sounds/") + stringLangMap.at(alpha) + audioExt;
+        return fileName;
+    }
+    return "";
 }
 
 std::string KannadaUtil::getPhoneticSoundFileNameForString(std::string alpha) {

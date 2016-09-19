@@ -139,7 +139,7 @@ void WordScene::createHandWritingButton() {
     _handWritingDialogButton = ui::Button::create(buttonNormalIcon, buttonNormalIcon, buttonNormalIcon);
     _handWritingDialogButton->setPosition(Vec2(visibleSize.width/2, 400));
     _handWritingDialogButton->addTouchEventListener(CC_CALLBACK_2(WordScene::showHandWritingDialog, this));
-    addChild(_handWritingDialogButton);
+    addChild(_handWritingDialogButton, 2);
    
 }
 
@@ -279,14 +279,11 @@ void WordScene::showHandWritingDialog(Ref* pSender, ui::Widget::TouchEventType e
             _grid->setVisible(false);
             #if (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
                 cocos2d::JniMethodInfo methodInfo;
-                CCLOG("11111111 in showHandWritingDialog");
                 if (! cocos2d::JniHelper::getStaticMethodInfo(methodInfo, "org/cocos2dx/javascript/AppActivity", "drawCanvas", "(IIII)V")) {
                     return;
                 }
-                CCLOG("22222222 in showHandWritingDialog");
                 int x = 0;
                 int y = 0;
-                CCLOG("33333333 in showHandWritingDialog");
                 methodInfo.env->CallStaticVoidMethod(methodInfo.classID, methodInfo.methodID, x, y, LAYOUT_CENTER_HORIZONTAL, LAYOUT_CENTER_VERTICAL);
                 methodInfo.env->DeleteLocalRef(methodInfo.classID);
             #else
@@ -312,9 +309,18 @@ void WordScene::textReceived(std::string text) {
         if(wordScene) {
             wordScene->_handWritingDialogButton->setEnabled(true);
             Grapheme* createGrapheme = Grapheme::create(text);
-            wordScene->_grid->addChild(createGrapheme);
-            wordScene->_grid->setVisible(true);
+            createGrapheme->touchEndedCallback = CC_CALLBACK_2(WordScene::onHandWrittenAlphabetTouchEnded, wordScene);
+            Size visibleSize = Director::getInstance()->getVisibleSize();
+            createGrapheme->setPosition(Vec2(visibleSize.width/2, 400));
+            wordScene->addChild(createGrapheme);
+            wordScene->_grid->setVisible(false);
             wordScene->processGrapheme(createGrapheme);
         }
     }
+}
+
+
+void WordScene::onHandWrittenAlphabetTouchEnded(Touch* touch, Event* event){
+    Grapheme* grapheme = static_cast<Grapheme*>(event->getCurrentTarget());
+    processGrapheme(grapheme);
 }
