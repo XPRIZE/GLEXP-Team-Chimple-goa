@@ -275,22 +275,29 @@ void WordScene::showHandWritingDialog(Ref* pSender, ui::Widget::TouchEventType e
             break;
         case ui::Widget::TouchEventType::ENDED:
         {
+            bool processHandWriting = false;
             clickedButton->setEnabled(false);
-            _grid->setVisible(false);
-            #if (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
-                cocos2d::JniMethodInfo methodInfo;
-                if (! cocos2d::JniHelper::getStaticMethodInfo(methodInfo, "org/cocos2dx/javascript/AppActivity", "drawCanvas", "(IIII)V")) {
-                    return;
+            for (auto it = _answerVector.begin() ; it != _answerVector.end(); ++it) {
+                if((*it).second == nullptr) {
+                    processHandWriting = true;
                 }
-                int x = 0;
-                int y = 0;
-                methodInfo.env->CallStaticVoidMethod(methodInfo.classID, methodInfo.methodID, x, y, LAYOUT_CENTER_HORIZONTAL, LAYOUT_CENTER_VERTICAL);
-                methodInfo.env->DeleteLocalRef(methodInfo.classID);
-            #else
-                WordScene::textReceived("A");
-            #endif
-            
-            
+            }
+            if(processHandWriting)
+            {
+                _grid->setVisible(false);
+                #if (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
+                    cocos2d::JniMethodInfo methodInfo;
+                    if (! cocos2d::JniHelper::getStaticMethodInfo(methodInfo, "org/cocos2dx/javascript/AppActivity", "drawCanvas", "(IIII)V")) {
+                    return;
+                    }
+                    int x = 0;
+                    int y = 0;
+                    methodInfo.env->CallStaticVoidMethod(methodInfo.classID, methodInfo.methodID, x, y, LAYOUT_CENTER_HORIZONTAL, LAYOUT_CENTER_VERTICAL);
+                    methodInfo.env->DeleteLocalRef(methodInfo.classID);
+                #else
+                    WordScene::textReceived("A");
+                #endif   
+            }
             break;
         }
             
