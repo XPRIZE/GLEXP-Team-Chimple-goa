@@ -4,6 +4,96 @@
     <dict>
         <key>frames</key>
         <dict>
+            <key>city/city2/arrow.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{66,28}</string>
+                <key>spriteSourceSize</key>
+                <string>{66,28}</string>
+                <key>textureRect</key>
+                <string>{{391,487},{66,28}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+            <key>city/city2/bench.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{118,59}</string>
+                <key>spriteSourceSize</key>
+                <string>{118,59}</string>
+                <key>textureRect</key>
+                <string>{{398,1},{118,59}}</string>
+                <key>textureRotated</key>
+                <true/>
+            </dict>
+            <key>city/city2/bencha.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{118,59}</string>
+                <key>spriteSourceSize</key>
+                <string>{118,59}</string>
+                <key>textureRect</key>
+                <string>{{398,121},{118,59}}</string>
+                <key>textureRotated</key>
+                <true/>
+            </dict>
+            <key>city/city2/floorgrass.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{156,31}</string>
+                <key>spriteSourceSize</key>
+                <string>{156,31}</string>
+                <key>textureRect</key>
+                <string>{{328,364},{156,31}}</string>
+                <key>textureRotated</key>
+                <true/>
+            </dict>
+            <key>city/city2/floorstone.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{156,32}</string>
+                <key>spriteSourceSize</key>
+                <string>{156,32}</string>
+                <key>textureRect</key>
+                <string>{{398,241},{156,32}}</string>
+                <key>textureRotated</key>
+                <true/>
+            </dict>
+            <key>city/city2/flower.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{50,86}</string>
+                <key>spriteSourceSize</key>
+                <string>{50,86}</string>
+                <key>textureRect</key>
+                <string>{{391,399},{50,86}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
             <key>city/city2/house.png</key>
             <dict>
                 <key>aliases</key>
@@ -17,7 +107,7 @@
                 <key>textureRect</key>
                 <string>{{1,364},{325,427}}</string>
                 <key>textureRotated</key>
-                <true/>
+                <false/>
             </dict>
             <key>city/city2/housedoor.png</key>
             <dict>
@@ -30,9 +120,9 @@
                 <key>spriteSourceSize</key>
                 <string>{69,115}</string>
                 <key>textureRect</key>
-                <string>{{1,1222},{69,115}}</string>
+                <string>{{239,793},{69,115}}</string>
                 <key>textureRotated</key>
-                <true/>
+                <false/>
             </dict>
             <key>city/city2/houseside.png</key>
             <dict>
@@ -45,7 +135,7 @@
                 <key>spriteSourceSize</key>
                 <string>{190,412}</string>
                 <key>textureRect</key>
-                <string>{{239,691},{190,412}}</string>
+                <string>{{239,910},{190,412}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
@@ -75,9 +165,9 @@
                 <key>spriteSourceSize</key>
                 <string>{80,146}</string>
                 <key>textureRect</key>
-                <string>{{239,1213},{80,146}}</string>
+                <string>{{361,517},{80,146}}</string>
                 <key>textureRotated</key>
-                <true/>
+                <false/>
             </dict>
             <key>city/city2/officeside.png</key>
             <dict>
@@ -90,7 +180,22 @@
                 <key>spriteSourceSize</key>
                 <string>{236,529}</string>
                 <key>textureRect</key>
-                <string>{{1,691},{236,529}}</string>
+                <string>{{1,793},{236,529}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+            <key>city/city2/roadlighta.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{28,141}</string>
+                <key>spriteSourceSize</key>
+                <string>{28,141}</string>
+                <key>textureRect</key>
+                <string>{{361,364},{28,141}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
@@ -105,7 +210,7 @@
                 <key>spriteSourceSize</key>
                 <string>{303,341}</string>
                 <key>textureRect</key>
-                <string>{{1,1295},{303,341}}</string>
+                <string>{{1,1324},{303,341}}</string>
                 <key>textureRotated</key>
                 <true/>
             </dict>
@@ -120,9 +225,9 @@
                 <key>spriteSourceSize</key>
                 <string>{106,185}</string>
                 <key>textureRect</key>
-                <string>{{239,1105},{106,185}}</string>
+                <string>{{328,665},{106,185}}</string>
                 <key>textureRotated</key>
-                <true/>
+                <false/>
             </dict>
             <key>city/city2/shoppingside.png</key>
             <dict>
@@ -135,7 +240,22 @@
                 <key>spriteSourceSize</key>
                 <string>{327,305}</string>
                 <key>textureRect</key>
-                <string>{{1,1600},{327,305}}</string>
+                <string>{{1,1629},{327,305}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+            <key>city/city2/trafficlight.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{27,130}</string>
+                <key>spriteSourceSize</key>
+                <string>{27,130}</string>
+                <key>textureRect</key>
+                <string>{{432,241},{27,130}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
@@ -151,9 +271,9 @@
             <key>realTextureFileName</key>
             <string>city2.png</string>
             <key>size</key>
-            <string>{430,1906}</string>
+            <string>{460,1935}</string>
             <key>smartupdate</key>
-            <string>$TexturePacker:SmartUpdate:942877fead173d7f335fd2058ea74b21:475afcca96e762cb43923d471bdf8aa2:17c6c0c7d60651e8ae55eb3650248610$</string>
+            <string>$TexturePacker:SmartUpdate:c3bddb40ab585653b049130860ece37c:19c604977139e43c1c2ca6fdbbecdd03:17c6c0c7d60651e8ae55eb3650248610$</string>
             <key>textureFileName</key>
             <string>city2.png</string>
         </dict>

@@ -4,6 +4,21 @@
     <dict>
         <key>frames</key>
         <dict>
+            <key>city/city3/arrow.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{263,111}</string>
+                <key>spriteSourceSize</key>
+                <string>{263,111}</string>
+                <key>textureRect</key>
+                <string>{{2007,2714},{263,111}}</string>
+                <key>textureRotated</key>
+                <true/>
+            </dict>
             <key>city/city3/beautyparlour.png</key>
             <dict>
                 <key>aliases</key>
@@ -15,9 +30,9 @@
                 <key>spriteSourceSize</key>
                 <string>{1662,1043}</string>
                 <key>textureRect</key>
-                <string>{{2042,1885},{1662,1043}}</string>
+                <string>{{2362,1},{1662,1043}}</string>
                 <key>textureRotated</key>
-                <true/>
+                <false/>
             </dict>
             <key>city/city3/beautyparlourdoor.png</key>
             <dict>
@@ -30,7 +45,67 @@
                 <key>spriteSourceSize</key>
                 <string>{248,507}</string>
                 <key>textureRect</key>
-                <string>{{2042,1328},{248,507}}</string>
+                <string>{{2634,3124},{248,507}}</string>
+                <key>textureRotated</key>
+                <true/>
+            </dict>
+            <key>city/city3/dustbin.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{165,280}</string>
+                <key>spriteSourceSize</key>
+                <string>{165,280}</string>
+                <key>textureRect</key>
+                <string>{{2130,1328},{165,280}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+            <key>city/city3/floorgrass.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{625,122}</string>
+                <key>spriteSourceSize</key>
+                <string>{625,122}</string>
+                <key>textureRect</key>
+                <string>{{2634,3000},{625,122}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+            <key>city/city3/floorstone.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{625,129}</string>
+                <key>spriteSourceSize</key>
+                <string>{625,129}</string>
+                <key>textureRect</key>
+                <string>{{2007,3000},{625,129}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+            <key>city/city3/flower.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{201,343}</string>
+                <key>spriteSourceSize</key>
+                <string>{201,343}</string>
+                <key>textureRect</key>
+                <string>{{3817,3000},{201,343}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
@@ -47,7 +122,7 @@
                 <key>textureRect</key>
                 <string>{{1,1328},{1384,2127}}</string>
                 <key>textureRotated</key>
-                <false/>
+                <true/>
             </dict>
             <key>city/city3/hospitaldoor.png</key>
             <dict>
@@ -60,9 +135,9 @@
                 <key>spriteSourceSize</key>
                 <string>{339,530}</string>
                 <key>textureRect</key>
-                <string>{{1387,2993},{339,530}}</string>
+                <string>{{1666,2714},{339,530}}</string>
                 <key>textureRotated</key>
-                <true/>
+                <false/>
             </dict>
             <key>city/city3/hospitalside.png</key>
             <dict>
@@ -75,9 +150,9 @@
                 <key>spriteSourceSize</key>
                 <string>{653,1663}</string>
                 <key>textureRect</key>
-                <string>{{1387,1328},{653,1663}}</string>
+                <string>{{1,2714},{653,1663}}</string>
                 <key>textureRotated</key>
-                <false/>
+                <true/>
             </dict>
             <key>city/city3/movietheatre.png</key>
             <dict>
@@ -105,9 +180,9 @@
                 <key>spriteSourceSize</key>
                 <string>{282,556}</string>
                 <key>textureRect</key>
-                <string>{{3087,3276},{282,556}}</string>
+                <string>{{3753,1046},{282,556}}</string>
                 <key>textureRotated</key>
-                <true/>
+                <false/>
             </dict>
             <key>city/city3/policestation.png</key>
             <dict>
@@ -120,9 +195,9 @@
                 <key>spriteSourceSize</key>
                 <string>{1341,1882}</string>
                 <key>textureRect</key>
-                <string>{{2362,1},{1341,1882}}</string>
+                <string>{{2130,1657},{1341,1882}}</string>
                 <key>textureRotated</key>
-                <false/>
+                <true/>
             </dict>
             <key>city/city3/policestationdoor.png</key>
             <dict>
@@ -135,7 +210,7 @@
                 <key>spriteSourceSize</key>
                 <string>{199,504}</string>
                 <key>textureRect</key>
-                <string>{{1387,3334},{199,504}}</string>
+                <string>{{3143,3189},{199,504}}</string>
                 <key>textureRotated</key>
                 <true/>
             </dict>
@@ -150,7 +225,67 @@
                 <key>spriteSourceSize</key>
                 <string>{609,1389}</string>
                 <key>textureRect</key>
-                <string>{{3087,1885},{609,1389}}</string>
+                <string>{{2362,1046},{609,1389}}</string>
+                <key>textureRotated</key>
+                <true/>
+            </dict>
+            <key>city/city3/roadlight.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{187,554}</string>
+                <key>spriteSourceSize</key>
+                <string>{187,554}</string>
+                <key>textureRect</key>
+                <string>{{3261,3000},{187,554}}</string>
+                <key>textureRotated</key>
+                <true/>
+            </dict>
+            <key>city/city3/roadlightd.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{95,422}</string>
+                <key>spriteSourceSize</key>
+                <string>{95,422}</string>
+                <key>textureRect</key>
+                <string>{{1666,3246},{95,422}}</string>
+                <key>textureRotated</key>
+                <true/>
+            </dict>
+            <key>city/city3/trafficlight.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{106,518}</string>
+                <key>spriteSourceSize</key>
+                <string>{106,518}</string>
+                <key>textureRect</key>
+                <string>{{2007,3131},{106,518}}</string>
+                <key>textureRotated</key>
+                <true/>
+            </dict>
+            <key>city/city3/vlc.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{153,188}</string>
+                <key>spriteSourceSize</key>
+                <string>{153,188}</string>
+                <key>textureRect</key>
+                <string>{{3649,3189},{153,188}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
@@ -166,9 +301,9 @@
             <key>realTextureFileName</key>
             <string>city3.png</string>
             <key>size</key>
-            <string>{3704,3559}</string>
+            <string>{4036,3389}</string>
             <key>smartupdate</key>
-            <string>$TexturePacker:SmartUpdate:42fe95066c1fd4072b1d34c3654205ff:aa7478f5e5285b71d37c42208a83c17f:3be3347e3f89a779f15ea4330193c233$</string>
+            <string>$TexturePacker:SmartUpdate:34619e8f0985adab92b809f3f68af01f:440244d6885dd0a10001bf72a844cd4f:3be3347e3f89a779f15ea4330193c233$</string>
             <key>textureFileName</key>
             <string>city3.png</string>
         </dict>
