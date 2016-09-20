@@ -53,6 +53,26 @@ bool Dash::init()
 		return false;
 	}
 
+	Size visibleSize = Director::getInstance()->getVisibleSize();
+	Vec2 origin = Director::getInstance()->getVisibleOrigin();
 
+
+	auto spritecache1 = SpriteFrameCache::getInstance();
+	spritecache1->addSpriteFramesWithFile("dash/dash.plist");
+
+	auto bg = CSLoader::createNode("dash/DashScene.csb");
+	this->addChild(bg);
+
+	int char_height = 500;
+	for (int j = 0; j < 2; j++) {
+		for (int i = 1; i < 6; i++) {
+			auto obj1 = Sprite::createWithSpriteFrameName("dash/step.png");
+			obj1->setPositionX((visibleSize.width / 6) * i);
+			obj1->setPositionY(visibleSize.height * 0.4 +( char_height * j));
+			obj1->setAnchorPoint(Vec2(1, 0.5));
+			this->addChild(obj1);
+		}
+	}
+	
 	return true;
 }
