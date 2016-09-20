@@ -202,13 +202,16 @@ void ScrollableGameMapScene::gameSelected(Ref* pSender, ui::Widget::TouchEventTy
             } else if(clickedButton->getName() == JAZZ) {
                 Director::getInstance()->replaceScene(jazz::createScene());
             } else if(clickedButton->getName() == JASMINE) {
-				ScriptingCore::getInstance()->runScript("src/start/train.js");
-//                Director::getInstance()->replaceScene(Jasmin_Mainfile::createScene());
+                Director::getInstance()->replaceScene(Jasmin_Mainfile::createScene());
             } else if(clickedButton->getName() == CAT) {
                 Director::getInstance()->replaceScene(CatGame::createScene());
             } else if(clickedButton->getName() == STORY_TELLING) {
                 ScriptingCore::getInstance()->runScript("src/start/storytelling.js");
             }
+			else if (clickedButton->getName() == TRAIN)
+			{
+				ScriptingCore::getInstance()->runScript("src/start/train.js");
+			}
             
             break;
         }
