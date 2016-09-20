@@ -83,7 +83,7 @@ bool Memory::init() {
 	startx = visibleSize.width / 4 + origin.x;
 	starty = visibleSize.height / 4 + origin.y;
 	float tempy = starty;
-
+	/*
 	for (int i = 0; i < 4; i++) {
 		float tempx = startx;
 		tempy =  (i+0.5) *starty;
@@ -99,7 +99,71 @@ bool Memory::init() {
 
 		}
 	}
+	 */
+	
 
+	testSprite.x = visibleSize.width / 2 + origin.x;
+	testSprite.y = visibleSize.height / 2 + origin.y;
+
+	testSprite.character = cocos2d::Sprite::create("memory/char1.png");
+	testSprite.characterZIndex = 0;
+	testSprite.character->setPosition(Vec2(testSprite.x, testSprite.y));
+	testSprite.character->setScale(0.5);
+	this->addChild(testSprite.character, 0);
+	setupTouch(testSprite.character);
+	//this->testSprite.character->getEventDispatcher()->setEnabled(false);
+	_eventDispatcher->resumeEventListenersForTarget(testSprite.character, false);
+
+
+	testSprite.openWindow = cocos2d::Sprite::create("memory/open_window.png");
+	testSprite.openWindowZIndex = 0;
+	testSprite.openWindow->setPosition(Vec2(testSprite.x, testSprite.y));
+	testSprite.openWindow->setScale(0.5);
+	testSprite.openWindow->setName("open_window");
+	this->addChild(testSprite.openWindow, 0);
+	setupTouch(testSprite.openWindow);
+	//this->testSprite.openWindow->getEventDispatcher()->setEnabled(false);
+	_eventDispatcher->resumeEventListenersForTarget(testSprite.openWindow, false);
+
+
+
+	testSprite.closedWindow = cocos2d::Sprite::create("memory/closed_window.png");
+	testSprite.closedWindowZIndex = 1;
+	testSprite.closedWindow->setPosition(Vec2(testSprite.x, testSprite.y));
+	testSprite.closedWindow->setScale(0.5);
+	testSprite.closedWindow->setName("closed_window");
+	this->addChild(testSprite.closedWindow, 1);
+	setupTouch(testSprite.closedWindow);
+	//this->testSprite.closedWindow->getEventDispatcher()->setEnabled(true);
+	_eventDispatcher->resumeEventListenersForTarget(testSprite.closedWindow, true);
+
+
+	testSprite.brokenWindow = cocos2d::Sprite::create("memory/broken_window.png");
+	testSprite.brokenWindowZIndex = 0;
+	testSprite.brokenWindow->setPosition(Vec2(testSprite.x, testSprite.y));
+	testSprite.brokenWindow->setScale(0.5);
+	testSprite.brokenWindow->setName("broken_window");
+	this->addChild(testSprite.brokenWindow, 0);
+	setupTouch(testSprite.brokenWindow);
+	//this->testSprite.brokenWindow->getEventDispatcher()->setEnabled(false);
+	_eventDispatcher->resumeEventListenersForTarget(testSprite.brokenWindow, false);
+
+
+	testSprite.alphabetSprite = cocos2d::Sprite::create("memory/a.png");
+	testSprite.alphabetSpriteZIndex = 0;
+	testSprite.alphabetSprite->setPosition(Vec2(testSprite.x, testSprite.y));
+	testSprite.alphabetSprite->setScale(0.5);
+	testSprite.alphabetSprite->setName("a");
+	this->addChild(testSprite.alphabetSprite, 0);
+	setupTouch(testSprite.alphabetSprite);
+	//this->testSprite.alphabetSprite->getEventDispatcher()->setEnabled(false);
+	_eventDispatcher->resumeEventListenersForTarget(testSprite.alphabetSprite, false);
+
+	testSprite.alphabet = 'a';
+
+	testSprite.objectFlag = 1;
+	
+	
 	
 
 
@@ -179,45 +243,19 @@ void Memory::startGame() {
 
 
 
-void Memory::setupTouch() {
-	if (/*_currentStroke > 0*/0) {
-
-		std::ostringstream sstreamb;
-		//sstreamb << "ball_" << _currentStroke;
-		std::string queryb = sstreamb.str();
-
-		//auto currentBall = _background->getChildByName(queryb);
-		//_eventDispatcher->removeEventListenersForTarget(currentBall);
-		//currentBall->setVisible(false);
-	}
-	if (/*_currentStroke < _nodes.size()*/0) {
-
-		std::ostringstream sstreamc;
-		//sstreamc << "ball_" << (_currentStroke + 1);
-		std::string queryc = sstreamc.str();
-
-		//auto nextBall = _background->getChildByName(queryc);
-
-		//nextBall->setVisible(true);
-		//setDotsVisibility(true);
+void Memory::setupTouch(cocos2d::Sprite *sprite) {
+	
 		auto listener = EventListenerTouchOneByOne::create();
 		listener->onTouchBegan = CC_CALLBACK_2(Memory::onTouchBegan, this);
 		listener->onTouchEnded = CC_CALLBACK_2(Memory::onTouchEnded, this);
-		listener->onTouchMoved = CC_CALLBACK_2(Memory::onTouchMoved, this);
-		//_eventDispatcher->addEventListenerWithSceneGraphPriority(listener, nextBall);
-	}
+		//listener->onTouchMoved = CC_CALLBACK_2(Memory::onTouchMoved, sprite);
+		_eventDispatcher->addEventListenerWithSceneGraphPriority(listener, sprite);
+	
 }
 
 
 bool Memory::onTouchBegan(Touch* touch, Event* event) {
 
-	/*
-	auto target = event->getCurrentTarget();
-	Point locationInNode = target->convertToNodeSpace(touch->getLocation());
-	Size s = target->getContentSize();
-	Rect rect = Rect(0, 0, s.width, s.height);
-	if (target->getBoundingBox().containsPoint(touch->getLocation()))
-	*/
 
 	auto target = event->getCurrentTarget();
 	Point locationInNode = target->convertToNodeSpace(touch->getLocation());
@@ -235,6 +273,72 @@ bool Memory::onTouchBegan(Touch* touch, Event* event) {
 		_touchActive = true;
 		//touches--;
 		//setDotsVisibility(true);
+
+		//testSprite.characterZIndex = 0;
+		//this->reorderChild(testSprite.character, 0);
+		
+		if (target->getName() == "closed_window") {
+
+			CCLOG("closed window clicked!!");
+			
+			testSprite.closedWindow->setGlobalZOrder(0);
+			//this->testSprite.closedWindow->getEventDispatcher()->setEnabled(false);
+			_eventDispatcher->resumeEventListenersForTarget(testSprite.closedWindow, false);
+			
+			testSprite.brokenWindow->setGlobalZOrder(0);
+			//this->testSprite.brokenWindow->getEventDispatcher()->setEnabled(false);
+			_eventDispatcher->resumeEventListenersForTarget(testSprite.brokenWindow, false);
+
+			testSprite.openWindow->setGlobalZOrder(0);
+			//this->testSprite.openWindow->getEventDispatcher()->setEnabled(false);
+			_eventDispatcher->resumeEventListenersForTarget(testSprite.openWindow, false);
+
+			testSprite.character->setGlobalZOrder(0);
+			//this->testSprite.character->getEventDispatcher()->setEnabled(false);
+			_eventDispatcher->resumeEventListenersForTarget(testSprite.character, false);
+
+			testSprite.alphabetSprite->setGlobalZOrder(1);
+			//this->testSprite.alphabetSprite->getEventDispatcher()->setEnabled(true);
+			_eventDispatcher->resumeEventListenersForTarget(testSprite.closedWindow, true);
+			
+			
+		}
+		else {
+
+			CCLOG("other objects clicked!!");
+			testSprite.closedWindow->setGlobalZOrder(1);
+			//this->testSprite.closedWindow->getEventDispatcher()->setEnabled(false);
+			_eventDispatcher->resumeEventListenersForTarget(testSprite.closedWindow, true);
+
+			testSprite.brokenWindow->setGlobalZOrder(0);
+			//this->testSprite.brokenWindow->getEventDispatcher()->setEnabled(false);
+			_eventDispatcher->resumeEventListenersForTarget(testSprite.brokenWindow, false);
+
+			testSprite.openWindow->setGlobalZOrder(0);
+			//this->testSprite.openWindow->getEventDispatcher()->setEnabled(false);
+			_eventDispatcher->resumeEventListenersForTarget(testSprite.openWindow, false);
+
+			testSprite.character->setGlobalZOrder(0);
+			//this->testSprite.character->getEventDispatcher()->setEnabled(false);
+			_eventDispatcher->resumeEventListenersForTarget(testSprite.character, false);
+
+			testSprite.alphabetSprite->setGlobalZOrder(0);
+			//this->testSprite.alphabetSprite->getEventDispatcher()->setEnabled(true);
+			_eventDispatcher->resumeEventListenersForTarget(testSprite.closedWindow, false);
+		}
+
+		//testSprite.brokenWindowZIndex = 0;
+		//this->reorderChild(testSprite.brokenWindow, 0);
+
+		//testSprite.alphabetSpriteZIndex = 0;
+		//this->reorderChild(testSprite.alphabetSprite, 0);
+
+
+
+
+
+
+
 		return true; // to indicate that we have consumed it.
 	}
 
@@ -268,6 +372,12 @@ void Memory::onTouchEnded(cocos2d::Touch *touch, cocos2d::Event *event) {
 		//event->getCurrentTarget()->setPosition(_nodes[_currentStroke][_currentNodeIndex]->getPosition());
 		//setDotsVisibility(true);
 	//}
+
+	
+	
+	
+	
+
 
 }
 /*
