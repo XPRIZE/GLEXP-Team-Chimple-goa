@@ -25,12 +25,12 @@ Dash::~Dash()
 
 Dash * Dash::create()
 {
-	Dash* alphamonFeedLayer = new (std::nothrow) Dash();
-	if (alphamonFeedLayer && alphamonFeedLayer->init()) {
-		alphamonFeedLayer->autorelease();
-		return alphamonFeedLayer;
+	Dash* dashGame = new (std::nothrow) Dash();
+	if (dashGame && dashGame->init()) {
+		dashGame->autorelease();
+		return dashGame;
 	}
-	CC_SAFE_DELETE(alphamonFeedLayer);
+	CC_SAFE_DELETE(dashGame);
 	return nullptr;
 }
 
@@ -40,7 +40,7 @@ cocos2d::Scene * Dash::createScene()
 	auto layer = Dash::create();
 	scene->addChild(layer);
 
-	layer->menu = MenuContext::create(layer, "alphamole");
+	layer->menu = MenuContext::create(layer, "dash");
 	scene->addChild(layer->menu);
 	return scene;
 }
@@ -53,7 +53,6 @@ bool Dash::init()
 		return false;
 	}
 
+
 	return true;
-
-
 }
