@@ -51,6 +51,7 @@ LOCAL_SRC_FILES := hellojavascript/main.cpp \
 					../../Classes/mini_games/SpriteCreate.cpp \
 					../../Classes/mini_games/SmashTheRockScene.cpp \
 					../../Classes/mini_games/SmashTheRockLevelScene.cpp \
+					../../Classes/mini_games/Circle.cpp \
 					../../Classes/mini_games/CrossTheBridgeScene.cpp \
 					../../Classes/mini_games/TraceScene.cpp \
 					../../Classes/mini_games/AlphamonFeedLevelScene.cpp \
