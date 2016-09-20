@@ -29,8 +29,8 @@ xc.GameMap = cc.Scene.extend({
         }
         else if(sender._configuration.name == 'decomon') {
             xc.GameScene.load(xc.DecomonLayer);
-        }else if(sender._configuration.name == 'ShootingWord'){
-             xc.GameScene.load(xc.ShootingWord);
+        }else if(sender._configuration.name == 'pinata'){
+             xc.GameScene.load(xc.Pinata);
         }
     }
 });
