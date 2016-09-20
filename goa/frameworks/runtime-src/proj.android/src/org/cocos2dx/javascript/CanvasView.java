@@ -65,7 +65,7 @@ public class CanvasView extends View implements OnTouchListener {
 		globalvariable.paint.setStyle(Paint.Style.FILL);
 		globalvariable.paint.setStrokeJoin(Paint.Join.BEVEL);
 		globalvariable.paint.setStrokeCap(Paint.Cap.ROUND);
-		globalvariable.paint.setStrokeWidth(5);
+		globalvariable.paint.setStrokeWidth(15);
 		counter = new MyCount(700, 1000);
 		myLongPress = new MyLongPressCount(3000, 1000);
 		_currentStroke = new Stroke();
@@ -76,10 +76,7 @@ public class CanvasView extends View implements OnTouchListener {
 		Context contextlipi = getContext();
 		File externalFileDir = contextlipi.getExternalFilesDir(null);
 		String path = externalFileDir.getPath();
-		Log.d("JNI", "Path: " + path);
-		System.out.println("JNI Path: " + path);
 		_lipitkInterface = new LipiTKJNIInterface(path, "SHAPEREC_ALPHANUM");
-		System.out.println("calling _lipitkInterface.initialize()");
 		_lipitkInterface.initialize();
 
 		_page = new Page(_lipitkInterface);
@@ -212,25 +209,19 @@ public class CanvasView extends View implements OnTouchListener {
 	}
 
 	public void addStroke(Stroke stroke) {
-		System.out.println("0000000000");
 		_strokes.add(stroke);
-		System.out.println("1111111111");
 		_recognitionStrokes = new Stroke[_strokes.size()];
-		System.out.println("2222222222");
 		for (int s = 0; s < _strokes.size(); s++) {
 			_recognitionStrokes[s] = _strokes.get(s);
-			System.out.println("3333333333");
 		}
 			
 		LipitkResult[] results = _recognizer.recognize(_recognitionStrokes);
-		System.out.println("444444444:" + results.length);
-		
+
 		for (LipitkResult result : results) {
 			Log.e("jni", "ShapeID = " + result.Id + " Confidence = " + result.Confidence);
 		}
 
 		String configFileDirectory = _recognizer.getLipiDirectory() + "/projects/alphanumeric/config/";
-		System.out.println("configFileDirectory:" + configFileDirectory);
 		character = new String[results.length];
 		for (int i = 0; i < character.length; i++) {
 			character[i] = _recognizer.getSymbolName(results[i].Id, configFileDirectory);
@@ -304,7 +295,6 @@ public class CanvasView extends View implements OnTouchListener {
 
 		@Override
 		public void onFinish() {
-			System.out.println("Timer Flag HHHHHHHHHH 33333333:: " + globalvariable.TimerFlag);
 			if (globalvariable.LongPressFlag) {
 				canObj.Process();
 				globalvariable.IsUserWriting = false;
@@ -319,7 +309,6 @@ public class CanvasView extends View implements OnTouchListener {
 
 		@Override
 		public void onTick(long millisUntilFinished) {
-			System.out.println("Tick tick Flag 1111112222222 :: " + globalvariable.TimerFlag);
 		}
 
 	}

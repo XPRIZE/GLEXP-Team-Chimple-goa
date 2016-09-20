@@ -168,7 +168,7 @@ void Alphamole::showAlpha(float ft)
 		}
 		_alphabetLayer->addChild(_monsterReff);
 		_monsterReff->blinkAction();
-		auto jump = JumpBy::create(1, Vec2(0, 0), 750, 1);
+		auto jump = JumpBy::create(1.5, Vec2(0, 0), 750, 1);
 
 		_monsterReff->runAction(Sequence::create(jump, CallFunc::create([=]() {
 			_alphabetLayer->removeChild(_monsterReff); }), NULL));
@@ -208,7 +208,7 @@ void Alphamole::leafOpen(float ft)
 		_alphabetLayer->addChild(_monsterReff);
 		_monsterReff->blinkAction();
 		_eventDispatcher->addCustomEventListener("alphamon_pressed", CC_CALLBACK_1(Alphamole::onAlphabetSelect, this));
-		this->scheduleOnce(schedule_selector(Alphamole::leafClose), 1);
+		this->scheduleOnce(schedule_selector(Alphamole::leafClose), 1.5);
 	}
 	
 }
@@ -225,6 +225,7 @@ void Alphamole::onAlphabetSelect(EventCustom *event) {
 	auto audio = CocosDenshion::SimpleAudioEngine::getInstance();
 	auto path = LangUtil::getInstance()->getAlphabetSoundFileName(buf1[0]);
 	audio->playEffect(path.c_str(), false);
+	menu->pickAlphabet(_mychar, buf1[0], true);
 	CCLOG("touched letter");
 	if (_mychar == buf1[0]) {
 		_score++;
@@ -232,6 +233,7 @@ void Alphamole::onAlphabetSelect(EventCustom *event) {
 		std::stringstream ss;
 		ss << _score;
 		std::string str = ss.str();
+		_mainChar->alphamonEyeAnimation("angry2", false);
 		_score_label->setString("  Score: " + str);
 	}else{
 		CCLOG("wrong");
