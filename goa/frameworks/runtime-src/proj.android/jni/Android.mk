@@ -51,12 +51,14 @@ LOCAL_SRC_FILES := hellojavascript/main.cpp \
 					../../Classes/mini_games/SpriteCreate.cpp \
 					../../Classes/mini_games/SmashTheRockScene.cpp \
 					../../Classes/mini_games/SmashTheRockLevelScene.cpp \
+					../../Classes/mini_games/Circle.cpp \
 					../../Classes/mini_games/CrossTheBridgeScene.cpp \
 					../../Classes/mini_games/TraceScene.cpp \
 					../../Classes/mini_games/AlphamonFeedLevelScene.cpp \
 					../../Classes/mini_games/AlphamonFeedScene.cpp \
 					../../Classes/mini_games/Cannon_Ball_Listener.cpp \
 					../../Classes/mini_games/Cannon_Ball_Main.cpp \
+					../../Classes/mini_games/Stack.cpp \
 					../../Classes/mini_games/Jasmin_Mainfile.cpp \
 					../../Classes/mini_games/Chain.cpp \
 					../../Classes/mini_games/jazz.cpp \

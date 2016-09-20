@@ -38,6 +38,7 @@ bool Grapheme::init(std::string graphemeString) {
     addChild(_text);
 
     auto listener = EventListenerTouchOneByOne::create();
+    listener->setSwallowTouches(true);
     listener->onTouchBegan = CC_CALLBACK_2(Grapheme::onTouchBegan, this);
     listener->onTouchEnded = CC_CALLBACK_2(Grapheme::onTouchEnded, this);
     listener->onTouchMoved = CC_CALLBACK_2(Grapheme::onTouchMoved, this);
