@@ -30,7 +30,7 @@ CC_CONSTRUCTOR_ACCESS:
 protected:
 	
 	bool _touchActive;
-	void setupTouch();
+	void setupTouch(cocos2d::Sprite *sprite);
 	//void finishedAll();
 	int _touches;
 
@@ -66,7 +66,7 @@ protected:
 
 	};
 	std::vector<std::vector<object>> objects;
-	
+	struct object testSprite;
 	
 	CC_SYNTHESIZE(int, _count, Count);
 
