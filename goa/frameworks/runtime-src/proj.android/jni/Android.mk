@@ -57,6 +57,7 @@ LOCAL_SRC_FILES := hellojavascript/main.cpp \
 					../../Classes/mini_games/AlphamonFeedScene.cpp \
 					../../Classes/mini_games/Cannon_Ball_Listener.cpp \
 					../../Classes/mini_games/Cannon_Ball_Main.cpp \
+					../../Classes/mini_games/Stack.cpp \
 					../../Classes/mini_games/Jasmin_Mainfile.cpp \
 					../../Classes/mini_games/Chain.cpp \
 					../../Classes/mini_games/jazz.cpp \
