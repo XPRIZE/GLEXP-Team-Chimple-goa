@@ -19,6 +19,7 @@
 		3740AD2E1D910EBA005BDCBA /* Memory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3740AD291D910EB2005BDCBA /* Memory.cpp */; };
 		3740AD351D912A8B005BDCBA /* Stack.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3740AD331D912A8B005BDCBA /* Stack.cpp */; };
 		3740AD381D912A8E005BDCBA /* Stack.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3740AD331D912A8B005BDCBA /* Stack.cpp */; };
+		3740AD3D1D912CFD005BDCBA /* Circle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3740AD3B1D912CFD005BDCBA /* Circle.cpp */; };
 		37ABE38F1D759E60004AAD7A /* start.js in Resources */ = {isa = PBXBuildFile; fileRef = 37ABE38E1D759E60004AAD7A /* start.js */; };
 		37ABE3921D759F10004AAD7A /* start.js in Resources */ = {isa = PBXBuildFile; fileRef = 37ABE38E1D759E60004AAD7A /* start.js */; };
 		502380DC17EBB88200990C9B /* libcurl.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 502380DB17EBB88200990C9B /* libcurl.dylib */; };
@@ -332,6 +333,8 @@
 		3740AD2A1D910EB2005BDCBA /* Memory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Memory.h; sourceTree = "<group>"; };
 		3740AD331D912A8B005BDCBA /* Stack.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Stack.cpp; sourceTree = "<group>"; };
 		3740AD341D912A8B005BDCBA /* Stack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Stack.h; sourceTree = "<group>"; };
+		3740AD3B1D912CFD005BDCBA /* Circle.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Circle.cpp; sourceTree = "<group>"; };
+		3740AD3C1D912CFD005BDCBA /* Circle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Circle.h; sourceTree = "<group>"; };
 		37ABE38E1D759E60004AAD7A /* start.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = start.js; sourceTree = "<group>"; };
 		502380DB17EBB88200990C9B /* libcurl.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libcurl.dylib; path = usr/lib/libcurl.dylib; sourceTree = SDKROOT; };
 		5091731417ECDF7A00D62437 /* Icon-29.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-29.png"; path = "ios/Icon-29.png"; sourceTree = "<group>"; };
@@ -839,6 +842,8 @@
 		F352471A1D6D9D1A0077C333 /* mini_games */ = {
 			isa = PBXGroup;
 			children = (
+				3740AD3B1D912CFD005BDCBA /* Circle.cpp */,
+				3740AD3C1D912CFD005BDCBA /* Circle.h */,
 				3740AD331D912A8B005BDCBA /* Stack.cpp */,
 				3740AD341D912A8B005BDCBA /* Stack.h */,
 				3740AD291D910EB2005BDCBA /* Memory.cpp */,
@@ -1342,6 +1347,7 @@
 				F352483C1D6D9D1A0077C333 /* ExternalSkeletonCharacter.cpp in Sources */,
 				F35248101D6D9D1A0077C333 /* WordScene.cpp in Sources */,
 				F35248581D6D9D1A0077C333 /* sqlite3.c in Sources */,
+				3740AD3D1D912CFD005BDCBA /* Circle.cpp in Sources */,
 				F35248381D6D9D1A0077C333 /* Sqlite3Helper.cpp in Sources */,
 				F35247E61D6D9D1A0077C333 /* Spirograph.cpp in Sources */,
 				F352481C1D6D9D1A0077C333 /* ScrollableGameMapScene.cpp in Sources */,
