@@ -46,13 +46,13 @@ const std::vector<std::string> StartMenu::getGameNames() {
 	gameNames.push_back(BUBBLE);
 	gameNames.push_back(POP);
 	gameNames.push_back(JUMP_ON_WORDS);
+    gameNames.push_back(ALPHAMON_COMBAT);
     gameNames.push_back(BAJA);
     gameNames.push_back(CHAIN);
     gameNames.push_back(WEMBLEY);
     gameNames.push_back(JAZZ);
     gameNames.push_back(JASMINE);
     gameNames.push_back(CAT);
-    gameNames.push_back(ALPHAMON_COMBAT);
     gameNames.push_back(PATCH_THE_WALL);
     gameNames.push_back(CROSS_THE_BRIDGE);
     gameNames.push_back(SMASH_THE_ROCK);
@@ -61,7 +61,7 @@ const std::vector<std::string> StartMenu::getGameNames() {
     gameNames.push_back(KUNG_FU_ALPHA);
     gameNames.push_back(ALPHAMON_FEED);
     gameNames.push_back(TRAIN);
-    gameNames.push_back(STORY_TELLING);
+//    gameNames.push_back(STORY_TELLING);
     return gameNames;
 
 }
