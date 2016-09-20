@@ -220,6 +220,7 @@ copy "$(ProjectDir)..\..\..\project.json" "$(OutDir)\" /Y</Command>
     <ClCompile Include="..\Classes\mini_games\CatScene.cpp" />
     <ClCompile Include="..\Classes\mini_games\Chain.cpp" />
     <ClCompile Include="..\Classes\mini_games\CrossTheBridgeScene.cpp" />
+    <ClCompile Include="..\Classes\mini_games\Dash.cpp" />
     <ClCompile Include="..\Classes\mini_games\EndlessRunner.cpp" />
     <ClCompile Include="..\Classes\mini_games\Jasmin_Listenerfile.cpp" />
     <ClCompile Include="..\Classes\mini_games\Jasmin_Mainfile.cpp" />
@@ -311,6 +312,7 @@ copy "$(ProjectDir)..\..\..\project.json" "$(OutDir)\" /Y</Command>
     <ClInclude Include="..\Classes\mini_games\CatScene.h" />
     <ClInclude Include="..\Classes\mini_games\Chain.h" />
     <ClInclude Include="..\Classes\mini_games\CrossTheBridgeScene.h" />
+    <ClInclude Include="..\Classes\mini_games\Dash.h" />
     <ClInclude Include="..\Classes\mini_games\EndlessRunner.h" />
     <ClInclude Include="..\Classes\mini_games\Jasmin_Listenerfile.h" />
     <ClInclude Include="..\Classes\mini_games\Jasmin_Mainfile.h" />
