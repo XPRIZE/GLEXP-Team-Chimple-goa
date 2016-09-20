@@ -266,9 +266,9 @@ Vec2 PegGrapheme::getUnoccupiedRandomLocation() {
         bb.origin = loc;
         empty = true;
         auto children = getParent()->getChildren();
-        for (auto it = children.begin() + 1 ; it != children.end(); ++it) {
-            auto grapheme = static_cast<PegGrapheme* >(*it);
-            if(this != grapheme) {
+        for (auto it = children.begin() ; it != children.end(); ++it) {
+            auto grapheme = dynamic_cast<PegGrapheme* >(*it);
+            if(grapheme && this != grapheme) {
                 auto graphemeBb = grapheme->getTextInGrapheme()->getBoundingBox();
                 if(bb.intersectsRect(graphemeBb)) {
                     empty = false;

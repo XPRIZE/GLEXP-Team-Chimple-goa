@@ -232,6 +232,8 @@
 		F35248591D6D9D1A0077C333 /* sqlite3.c in Sources */ = {isa = PBXBuildFile; fileRef = F35247BA1D6D9D1A0077C333 /* sqlite3.c */; };
 		F352485A1D6D9D1A0077C333 /* State.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F35247BD1D6D9D1A0077C333 /* State.cpp */; };
 		F352485B1D6D9D1A0077C333 /* State.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F35247BD1D6D9D1A0077C333 /* State.cpp */; };
+		F3646C3C1D90F0D700034FE0 /* Memory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F3646C3A1D90F0D700034FE0 /* Memory.cpp */; };
+		F3646C3F1D90F0EE00034FE0 /* Memory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F3646C3A1D90F0D700034FE0 /* Memory.cpp */; };
 		F36840BE1D8A812F00969162 /* Alphamole.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F36840BA1D8A812F00969162 /* Alphamole.cpp */; };
 		F36840BF1D8A812F00969162 /* Alphamole.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F36840BA1D8A812F00969162 /* Alphamole.cpp */; };
 		F36840C01D8A812F00969162 /* AlphamoleLevel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F36840BC1D8A812F00969162 /* AlphamoleLevel.cpp */; };
@@ -541,6 +543,8 @@
 		F35247BD1D6D9D1A0077C333 /* State.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = State.cpp; sourceTree = "<group>"; };
 		F35247BE1D6D9D1A0077C333 /* State.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = State.h; sourceTree = "<group>"; };
 		F35247BF1D6D9D1A0077C333 /* WalkingState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WalkingState.h; sourceTree = "<group>"; };
+		F3646C3A1D90F0D700034FE0 /* Memory.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Memory.cpp; sourceTree = "<group>"; };
+		F3646C3B1D90F0D700034FE0 /* Memory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Memory.h; sourceTree = "<group>"; };
 		F36840BA1D8A812F00969162 /* Alphamole.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Alphamole.cpp; sourceTree = "<group>"; };
 		F36840BB1D8A812F00969162 /* Alphamole.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Alphamole.h; sourceTree = "<group>"; };
 		F36840BC1D8A812F00969162 /* AlphamoleLevel.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AlphamoleLevel.cpp; sourceTree = "<group>"; };
@@ -831,6 +835,8 @@
 		F352471A1D6D9D1A0077C333 /* mini_games */ = {
 			isa = PBXGroup;
 			children = (
+				F3646C3A1D90F0D700034FE0 /* Memory.cpp */,
+				F3646C3B1D90F0D700034FE0 /* Memory.h */,
 				F36840BA1D8A812F00969162 /* Alphamole.cpp */,
 				F36840BB1D8A812F00969162 /* Alphamole.h */,
 				F36840BC1D8A812F00969162 /* AlphamoleLevel.cpp */,
@@ -1187,6 +1193,7 @@
 				F35247E11D6D9D1A0077C333 /* PatchTheWallScene.cpp in Sources */,
 				F352485B1D6D9D1A0077C333 /* State.cpp in Sources */,
 				F35247FF1D6D9D1A0077C333 /* PhotoCaptureScene.cpp in Sources */,
+				F3646C3F1D90F0EE00034FE0 /* Memory.cpp in Sources */,
 				F35248191D6D9D1A0077C333 /* ScoreBoardContent.cpp in Sources */,
 				F35247D71D6D9D1A0077C333 /* CrossTheBridgeScene.cpp in Sources */,
 				F35247F71D6D9D1A0077C333 /* SafariAnalyticsManager.cpp in Sources */,
@@ -1270,6 +1277,7 @@
 				F35247C41D6D9D1A0077C333 /* AlphamonFeedLevelScene.cpp in Sources */,
 				F35248361D6D9D1A0077C333 /* WalkingState.cpp in Sources */,
 				F35247FE1D6D9D1A0077C333 /* PhotoCaptureScene.cpp in Sources */,
+				F3646C3C1D90F0D700034FE0 /* Memory.cpp in Sources */,
 				F352480C1D6D9D1A0077C333 /* PegWord.cpp in Sources */,
 				F35248001D6D9D1A0077C333 /* Alphabet.cpp in Sources */,
 				F35247F81D6D9D1A0077C333 /* TextGenerator.cpp in Sources */,
