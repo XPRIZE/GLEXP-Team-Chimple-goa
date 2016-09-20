@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
     <Filter Include="resource">
@@ -289,7 +289,11 @@
     <ClCompile Include="..\Classes\mini_games\Memory.cpp">
       <Filter>Classes\mini_games</Filter>
     </ClCompile>
+<<<<<<< HEAD
     <ClCompile Include="..\Classes\mini_games\Dash.cpp">
+=======
+    <ClCompile Include="..\Classes\mini_games\Circle.cpp">
+>>>>>>> refs/remotes/origin/master
       <Filter>Classes\mini_games</Filter>
     </ClCompile>
   </ItemGroup>
@@ -563,6 +567,9 @@
       <Filter>Classes\mini_games</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\mini_games\Dash.h">
+	<Filter>Classes\mini_games</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\mini_games\Circle.h">
       <Filter>Classes\mini_games</Filter>
     </ClInclude>
   </ItemGroup>
