@@ -63,16 +63,24 @@ bool Dash::init()
 	auto bg = CSLoader::createNode("dash/DashScene.csb");
 	this->addChild(bg);
 
+
+	auto stepLayer = Layer::create();
+	stepLayer->setPositionX(0);
+	this->addChild(stepLayer);
+
 	int char_height = 500;
-	for (int j = 0; j < 2; j++) {
-		for (int i = 1; i < 6; i++) {
+	for (int j = 4; j > 0; j--) {  // j reffer to number of Players
+		for (int i = 1; i < 15; i++) {  // i reffer to number of steps (words)
 			auto obj1 = Sprite::createWithSpriteFrameName("dash/step.png");
-			obj1->setPositionX((visibleSize.width / 6) * i);
-			obj1->setPositionY(visibleSize.height * 0.4 +( char_height * j));
+			obj1->setPositionX((visibleSize.width / 5) * i +(obj1->getContentSize().width/2)*j);
+			obj1->setPositionY(visibleSize.height * 0.4 +( (obj1->getContentSize().height/3) * j));
 			obj1->setAnchorPoint(Vec2(1, 0.5));
-			this->addChild(obj1);
+			stepLayer->addChild(obj1);
 		}
 	}
+
+	auto moveTo = MoveBy::create(15, Vec2(-visibleSize.width * 2, 0));
+	stepLayer->runAction(moveTo);
 	
 	return true;
 }
