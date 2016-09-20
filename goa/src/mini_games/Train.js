@@ -372,7 +372,7 @@ xc.TrainLayer = cc.Layer.extend({
                 }
             }
 
-        }, 3000);
+        }, 1000);
     }
 
 });
