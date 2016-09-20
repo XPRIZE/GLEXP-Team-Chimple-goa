@@ -36,6 +36,8 @@
 #include "mini_games/Pop.h"
 #include "mini_games/AlphamoleLevel.h"
 #include "mini_games/Memory.h"
+#include "mini_games/Circle.h"
+
 USING_NS_CC;
 
 ScrollableGameMapScene::ScrollableGameMapScene()
@@ -173,7 +175,7 @@ void ScrollableGameMapScene::gameSelected(Ref* pSender, ui::Widget::TouchEventTy
 			} else  if (clickedButton->getName() == JUMP_ON_WORDS) {
 				ScriptingCore::getInstance()->runScript("src/start/jump.js");
 			} else  if (clickedButton->getName() == SMASH_THE_ROCK) {
-				Director::getInstance()->replaceScene(SmashTheRock::createScene());
+				Director::getInstance()->replaceScene(Circle::createScene());
 				//ScriptingCore::getInstance()->runScript("src/start/jump.js");
 			} else if (clickedButton->getName() == POP) {
 				ScriptingCore::getInstance()->runScript("src/start/pop.js");
