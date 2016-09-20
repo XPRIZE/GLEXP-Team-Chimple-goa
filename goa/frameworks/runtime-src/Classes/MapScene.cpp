@@ -108,16 +108,23 @@ void MapScene::processChildNodes(cocos2d::Node *rootNode) {
             std::unordered_map<std::string, std::string> attributes = RPGConfig::parseUserData(data->getCustomProperty());
             
             std::unordered_map<std::string,std::string>::const_iterator it = attributes.find("text");
+            
+            std::unordered_map<std::string,std::string>::const_iterator itNextScene = attributes.find("nextScene");
+            
             if ( it != attributes.end() ) {
                 //process text
                 std::string mapText = this->currentLangUtil->translateString(it->second);
                 cocos2d::Label* label = Label::createWithTTF(mapText, "fonts/arial.ttf", 50);
                 label->setPosition(node->getPosition());
                 mainLayer->addChild(label);                
-            } else {
+            }
+            
+            if(itNextScene != attributes.end())
+            {
                 //bind events
                 cocos2d::ui::Button* button = dynamic_cast<cocos2d::ui::Button *>(node);
                 if(button) {
+                    button->setName(itNextScene->second);
                     button->addTouchEventListener(CC_CALLBACK_2(MapScene::islandSelected, this));
                 }
             }
@@ -137,16 +144,15 @@ void MapScene::islandSelected(Ref* pSender, ui::Widget::TouchEventType eEventTyp
         case ui::Widget::TouchEventType::BEGAN:
         {
             clickedButton->setHighlighted(true);
-            clickedButton->setEnabled(false);
             break;
         }
         case ui::Widget::TouchEventType::MOVED:
             break;
         case ui::Widget::TouchEventType::ENDED:
         {
-            
+            clickedButton->setEnabled(false);
             Director::getInstance()->replaceScene(TransitionFade::create(0.5, HelloWorld::createScene(clickedButton->getName().c_str(),""), Color3B::BLACK));
-            //Director::getInstance()->replaceScene(TransitionFade::create(0.5, HelloWorld::createScene("city5",""), Color3B::BLACK));
+            //Director::getInstance()->replaceScene(TransitionFade::create(0.5, HelloWorld::createScene("city2",""), Color3B::BLACK));
 
             break;
         }
