@@ -128,6 +128,9 @@ copy "$(ProjectDir)..\..\..\project.json" "$(OutDir)\" /Y</Command>
       <Outputs>$(TargetName).cab</Outputs>
       <Inputs>$(TargetFileName)</Inputs>
     </CustomBuildStep>
+    <ClCompile>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">/FS %(AdditionalOptions)</AdditionalOptions>
+    </ClCompile>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <Midl>
@@ -155,6 +158,7 @@ copy "$(ProjectDir)..\..\..\project.json" "$(OutDir)\" /Y</Command>
       </DebugInformationFormat>
       <DisableSpecificWarnings>4267;4251;4244;4800;%(DisableSpecificWarnings)</DisableSpecificWarnings>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <AdditionalOptions>/FS %(AdditionalOptions)</AdditionalOptions>
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
@@ -231,6 +235,7 @@ copy "$(ProjectDir)..\..\..\project.json" "$(OutDir)\" /Y</Command>
     <ClCompile Include="..\Classes\mini_games\SmashTheRockScene.cpp" />
     <ClCompile Include="..\Classes\mini_games\Spirograph.cpp" />
     <ClCompile Include="..\Classes\mini_games\SpriteCreate.cpp" />
+    <ClCompile Include="..\Classes\mini_games\Stack.cpp" />
     <ClCompile Include="..\Classes\mini_games\TraceScene.cpp" />
     <ClCompile Include="..\Classes\mini_games\Train.cpp" />
     <ClCompile Include="..\Classes\mini_games\Wembley.cpp" />
@@ -323,6 +328,7 @@ copy "$(ProjectDir)..\..\..\project.json" "$(OutDir)\" /Y</Command>
     <ClInclude Include="..\Classes\mini_games\SmashTheRockScene.h" />
     <ClInclude Include="..\Classes\mini_games\Spirograph.h" />
     <ClInclude Include="..\Classes\mini_games\SpriteCreate.h" />
+    <ClInclude Include="..\Classes\mini_games\Stack.h" />
     <ClInclude Include="..\Classes\mini_games\TraceScene.h" />
     <ClInclude Include="..\Classes\mini_games\Train.h" />
     <ClInclude Include="..\Classes\mini_games\Wembley.h" />
