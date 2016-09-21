@@ -30,17 +30,34 @@ public:
 	cocostudio::timeline::ActionTimeline *treadmill;
 	cocostudio::ActionNode *node;
 
-
 	std::vector<cocos2d::Vec2> Position;
-
 	std::map<std::string, std::map<std::string, std::string>> _textToSHow;
 
-	
+	std::vector<std::string> _startName;
+	std::vector<std::string> _allWords;
+	std::vector<cocos2d::ui::LoadingBar*> containerBar;
+	std::vector<cocos2d::ui::LoadingBar*> fillpipebar;
+
+	std::string _word;
+	cocos2d::LabelTTF *_wordLabel;
+	cocos2d::Size visibleSize;
 
 	// implement the "static create()" method manually
 	CREATE_FUNC(Stack);
     
     static const char* gameName() { return CANNON_BALL.c_str(); };
+	void generateWord();
+
+	struct LabelDetails
+	{
+		cocos2d::LabelTTF *label;
+		std::string id;
+		int sequence;
+	}LabelDetails;
+
+	bool flag;
+
+	void addEvents(struct LabelDetails);
 
 protected:
 	MenuContext* _menuContext;
