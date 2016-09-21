@@ -29,6 +29,8 @@
             "ColorVector": {
               "ScaleY": 1.0
             },
+            "Scale9Width": 1,
+            "Scale9Height": 1,
             "TouchEnable": true,
             "AnchorPoint": {},
             "Position": {
@@ -71,6 +73,8 @@
                 "ColorVector": {
                   "ScaleY": 1.0
                 },
+                "Scale9Width": 1,
+                "Scale9Height": 1,
                 "TouchEnable": true,
                 "AnchorPoint": {},
                 "Position": {
@@ -108,9 +112,9 @@
                 "ClipAble": false,
                 "ComboBoxIndex": 1,
                 "SingleColor": {
-                  "R": 100,
-                  "G": 94,
-                  "B": 160
+                  "R": 229,
+                  "G": 57,
+                  "B": 75
                 },
                 "FirstColor": {
                   "R": 150,
@@ -120,6 +124,8 @@
                 "ColorVector": {
                   "ScaleY": 1.0
                 },
+                "Scale9Width": 1,
+                "Scale9Height": 1,
                 "TouchEnable": true,
                 "AnchorPoint": {},
                 "Position": {
@@ -142,7 +148,7 @@
                 },
                 "LeftMargin": 146.0388,
                 "RightMargin": 153.9612,
-                "TopMargin": 1199.1617,
+                "TopMargin": 1199.1619,
                 "BottomMargin": 0.8382,
                 "Tag": 223,
                 "ActionTag": -215489884,
@@ -161,231 +167,6 @@
             },
             "Name": "Panel_1",
             "ctype": "PanelObjectData"
-          },
-          {
-            "FileData": {
-              "Type": "MarkedSubImage",
-              "Path": "dash/answer_button.png",
-              "Plist": "dash/dash.plist"
-            },
-            "BlendFunc": {
-              "Src": 1,
-              "Dst": 771
-            },
-            "AnchorPoint": {
-              "ScaleX": 0.5,
-              "ScaleY": 0.5
-            },
-            "Position": {
-              "X": 1283.9764,
-              "Y": 463.1449
-            },
-            "Scale": {
-              "ScaleX": 1.0,
-              "ScaleY": 1.0
-            },
-            "CColor": {},
-            "IconVisible": false,
-            "PrePosition": {
-              "X": 0.5016,
-              "Y": 0.2573
-            },
-            "PreSize": {
-              "X": 0.525,
-              "Y": 0.1267
-            },
-            "LeftMargin": 611.9764,
-            "RightMargin": 604.0236,
-            "TopMargin": 1222.8551,
-            "BottomMargin": 349.1449,
-            "Tag": 224,
-            "ActionTag": -1512362110,
-            "Size": {
-              "X": 1344.0,
-              "Y": 228.0
-            },
-            "Name": "answer_button_1",
-            "ctype": "SpriteObjectData"
-          },
-          {
-            "FileData": {
-              "Type": "MarkedSubImage",
-              "Path": "dash/hint_button.png",
-              "Plist": "dash/dash.plist"
-            },
-            "BlendFunc": {
-              "Src": 1,
-              "Dst": 771
-            },
-            "AnchorPoint": {
-              "ScaleX": 0.5,
-              "ScaleY": 0.5
-            },
-            "Position": {
-              "X": 777.8905,
-              "Y": 209.4573
-            },
-            "Scale": {
-              "ScaleX": 1.0,
-              "ScaleY": 1.0
-            },
-            "CColor": {},
-            "IconVisible": false,
-            "PrePosition": {
-              "X": 0.3039,
-              "Y": 0.1164
-            },
-            "PreSize": {
-              "X": 0.1129,
-              "Y": 0.1267
-            },
-            "LeftMargin": 633.3905,
-            "RightMargin": 1637.6095,
-            "TopMargin": 1476.5427,
-            "BottomMargin": 95.4573,
-            "Tag": 225,
-            "ActionTag": -157945554,
-            "Size": {
-              "X": 289.0,
-              "Y": 228.0
-            },
-            "Name": "hint_button_2",
-            "ctype": "SpriteObjectData"
-          },
-          {
-            "FileData": {
-              "Type": "MarkedSubImage",
-              "Path": "dash/hint_button.png",
-              "Plist": "dash/dash.plist"
-            },
-            "BlendFunc": {
-              "Src": 1,
-              "Dst": 771
-            },
-            "AnchorPoint": {
-              "ScaleX": 0.5,
-              "ScaleY": 0.5
-            },
-            "Position": {
-              "X": 1111.8752,
-              "Y": 209.4573
-            },
-            "Scale": {
-              "ScaleX": 1.0,
-              "ScaleY": 1.0
-            },
-            "CColor": {},
-            "IconVisible": false,
-            "PrePosition": {
-              "X": 0.4343,
-              "Y": 0.1164
-            },
-            "PreSize": {
-              "X": 0.1129,
-              "Y": 0.1267
-            },
-            "LeftMargin": 967.3752,
-            "RightMargin": 1303.6248,
-            "TopMargin": 1476.5427,
-            "BottomMargin": 95.4573,
-            "Tag": 226,
-            "ActionTag": -1533527432,
-            "Size": {
-              "X": 289.0,
-              "Y": 228.0
-            },
-            "Name": "hint_button_3",
-            "ctype": "SpriteObjectData"
-          },
-          {
-            "FileData": {
-              "Type": "MarkedSubImage",
-              "Path": "dash/hint_button.png",
-              "Plist": "dash/dash.plist"
-            },
-            "BlendFunc": {
-              "Src": 1,
-              "Dst": 771
-            },
-            "AnchorPoint": {
-              "ScaleX": 0.5,
-              "ScaleY": 0.5
-            },
-            "Position": {
-              "X": 1447.5571,
-              "Y": 209.4573
-            },
-            "Scale": {
-              "ScaleX": 1.0,
-              "ScaleY": 1.0
-            },
-            "CColor": {},
-            "IconVisible": false,
-            "PrePosition": {
-              "X": 0.5655,
-              "Y": 0.1164
-            },
-            "PreSize": {
-              "X": 0.1129,
-              "Y": 0.1267
-            },
-            "LeftMargin": 1303.0571,
-            "RightMargin": 967.9429,
-            "TopMargin": 1476.5427,
-            "BottomMargin": 95.4573,
-            "Tag": 227,
-            "ActionTag": -2020352748,
-            "Size": {
-              "X": 289.0,
-              "Y": 228.0
-            },
-            "Name": "hint_button_4",
-            "ctype": "SpriteObjectData"
-          },
-          {
-            "FileData": {
-              "Type": "MarkedSubImage",
-              "Path": "dash/hint_button.png",
-              "Plist": "dash/dash.plist"
-            },
-            "BlendFunc": {
-              "Src": 1,
-              "Dst": 771
-            },
-            "AnchorPoint": {
-              "ScaleX": 0.5,
-              "ScaleY": 0.5
-            },
-            "Position": {
-              "X": 1783.2769,
-              "Y": 209.4573
-            },
-            "Scale": {
-              "ScaleX": 1.0,
-              "ScaleY": 1.0
-            },
-            "CColor": {},
-            "IconVisible": false,
-            "PrePosition": {
-              "X": 0.6966,
-              "Y": 0.1164
-            },
-            "PreSize": {
-              "X": 0.1129,
-              "Y": 0.1267
-            },
-            "LeftMargin": 1638.7769,
-            "RightMargin": 632.2231,
-            "TopMargin": 1476.5427,
-            "BottomMargin": 95.4573,
-            "Tag": 228,
-            "ActionTag": -1780261204,
-            "Size": {
-              "X": 289.0,
-              "Y": 228.0
-            },
-            "Name": "hint_button_5",
-            "ctype": "SpriteObjectData"
           },
           {
             "FileData": {
