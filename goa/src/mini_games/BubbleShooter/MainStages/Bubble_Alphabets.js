@@ -89,7 +89,7 @@ xc.Bubble_Alphabets = cc.Layer.extend({
         this.angle = 0;
       
         if(this.player.bubble.tiletype == undefined){
-            this.player.bubble.tiletype = Math.floor(this.getRandomArbitrary(0,bubblecolors)); ;
+            this.player.bubble.tiletype = Math.floor(this.getRandomArbitrary(0,bubblecolors));
         }
 
         this.bubblePlayer =  new cc.Sprite(cc.spriteFrameCache.getSpriteFrame(imageSprite[this.player.bubble.tiletype]+".png"));
@@ -101,7 +101,7 @@ xc.Bubble_Alphabets = cc.Layer.extend({
         this.bubblePlayer.addChild(this.letterPlayer);
         
         if(this.player.nextbubble.tiletype == undefined){
-            this.player.nextbubble.tiletype = Math.floor(this.getRandomArbitrary(0,bubblecolors)); ;
+            this.player.nextbubble.tiletype = Math.floor(this.getRandomArbitrary(0,bubblecolors));
         }
         
         this.nextBubblePlayer =  new cc.Sprite(cc.spriteFrameCache.getSpriteFrame(imageSprite[this.player.nextbubble.tiletype]+".png"));
