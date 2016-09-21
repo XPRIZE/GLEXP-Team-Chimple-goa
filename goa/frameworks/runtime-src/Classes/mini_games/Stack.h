@@ -28,6 +28,14 @@ public:
 	cocos2d::ui::LoadingBar *_fillpipebar1, *_fillpipebar2, *_fillpipebar3, *_fillpipebar4, *_fillpipebar5, *_suckpipebar;
 
 	cocostudio::timeline::ActionTimeline *treadmill;
+	cocostudio::ActionNode *node;
+
+
+	std::vector<cocos2d::Vec2> Position;
+
+	std::map<std::string, std::map<std::string, std::string>> _textToSHow;
+
+	
 
 	// implement the "static create()" method manually
 	CREATE_FUNC(Stack);
