@@ -107,3 +107,86 @@ std::vector<std::string> TextGenerator::getValidCombinations(std::string chars, 
     std::vector<std::string> v(args, args + 4);
     return v;
 }
+
+std::map<std::string, std::string> TextGenerator::getSynonyms(int maxNum) {
+    std::map<std::string, std::string> SynonymMap = {
+        {"end", "finish"},
+        {"cry", "sob"},
+        {"cold", "icy"},
+        {"begin", "start"},
+        {"save", "keep"},
+        {"hope", "wish"},
+        {"choose", "pick"},
+        {"paste", "glue"},
+        {"hurry", "rush"},
+        {"sad", "unhappy"},
+        {"friend", "pal"},
+        {"enjoy", "like"},
+        {"error", "mistake"}
+    };
+    std::map<std::string, std::string> data;
+    for (std::map<std::string, std::string>::iterator it=SynonymMap.begin(); it!=SynonymMap.end(); ++it) {
+        data[it->first] = it->second;
+        if(data.size() >= maxNum) {
+            break;
+        }
+    }
+    return data;
+}
+
+std::map<std::string, std::string> TextGenerator::getAntonyms(int maxNum) {
+    std::map<std::string, std::string> AntonymMap = {
+        {"big", "small"},
+        {"loud", "quiet"},
+        {"dark", "light"},
+        {"fast", "slow"},
+        {"happy", "sad"},
+        {"long", "short"},
+        {"hot", "cold"},
+        {"wet", "dry"},
+        {"over", "under"},
+        {"sink", "float"},
+        {"far", "near"},
+        {"empty", "full"},
+        {"messy", "neat"},
+        {"never", "always"},
+        {"old", "young"}
+    };
+    std::map<std::string, std::string> data;
+    for (std::map<std::string, std::string>::iterator it=AntonymMap.begin(); it!=AntonymMap.end(); ++it) {
+        data[it->first] = it->second;
+        if(data.size() >= maxNum) {
+            break;
+        }
+    }
+    return data;
+}
+
+std::map<std::string, std::string> TextGenerator::getHomonyms(int maxNum) {
+    std::map<std::string, std::string> HomonymMap = {
+        {"be", "bee"},
+        {"bean", "bean"},
+        {"buy", "by"},
+        {"hear", "here"},
+        {"hour", "our"},
+        {"know", "no"},
+        {"mail", "male"},
+        {"meat", "meet"},
+        {"plain", "plane"},
+        {"right", "write"},
+        {"road", "rode"},
+        {"sail", "sale"},
+        {"sea", "see"},
+        {"sail", "sale"},
+        {"son", "sun"},
+        {"tail", "tale"}
+    };
+    std::map<std::string, std::string> data;
+    for (std::map<std::string, std::string>::iterator it=HomonymMap.begin(); it!=HomonymMap.end(); ++it) {
+        data[it->first] = it->second;
+        if(data.size() >= maxNum) {
+            break;
+        }
+    }
+    return data;
+}
