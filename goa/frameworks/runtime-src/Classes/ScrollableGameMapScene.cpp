@@ -37,6 +37,8 @@
 #include "mini_games/AlphamoleLevel.h"
 #include "mini_games/Memory.h"
 #include "mini_games/Circle.h"
+#include "mini_games/Stack.h"
+
 
 USING_NS_CC;
 
@@ -204,7 +206,7 @@ void ScrollableGameMapScene::gameSelected(Ref* pSender, ui::Widget::TouchEventTy
             } else if(clickedButton->getName() == JAZZ) {
                 Director::getInstance()->replaceScene(jazz::createScene());
             } else if(clickedButton->getName() == JASMINE) {
-                Director::getInstance()->replaceScene(Jasmin_Mainfile::createScene());
+                Director::getInstance()->replaceScene(Stack::createScene());
             } else if(clickedButton->getName() == CAT) {
                 Director::getInstance()->replaceScene(CatGame::createScene());
             } else if(clickedButton->getName() == STORY_TELLING) {
