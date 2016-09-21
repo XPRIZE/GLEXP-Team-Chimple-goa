@@ -13,6 +13,8 @@ public:
 	static Circle* create();
 	virtual bool init();
 	static cocos2d::Scene* createScene();
+
+	cocos2d::Node* background;
 protected:
 	MenuContext * menu;
 };

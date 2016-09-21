@@ -44,7 +44,8 @@ bool Circle::init()
 	{
 		return false;
 	}
-
+	background = CSLoader::createNode("circle/circle.csb");
+	this->addChild(background, 0);
 
 	return true;
 }
