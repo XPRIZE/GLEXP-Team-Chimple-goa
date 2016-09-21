@@ -67,9 +67,10 @@ bool Dash::init()
 
 	_synonyms = TextGenerator::getInstance()->getSynonyms(5);
 	//CCLOG("synonyms = %s", _synonyms.at(1));
-	
+	//DelayTime::create(5 + (rand() % 60) / 30.0 )
 
 	for (auto it = _synonyms.begin(); it != _synonyms.end(); ++it) {
+		//_mapkey contains keys
 		_mapKey.push_back(it->first);
 	}
 
@@ -103,10 +104,17 @@ bool Dash::init()
 		}
 	}
 
+	_otherCharacter = CSLoader::createNode("dash/character.csb");
+	_otherCharacter->setPositionX((visibleSize.width / 5) + 220);
+	_otherCharacter->setPositionY((visibleSize.height * 0.4 * 1) + 320);
+	_stepLayer->addChild(_otherCharacter);
 
 
 	wordGenerateWithOptions();
 
+
+	auto defaultCharacter = CallFunc::create(CC_CALLBACK_0(Dash::otherCharacterJumping, this));
+	runAction(RepeatForever::create(Sequence::create(DelayTime::create(10 + (rand() % 60) / 30.0), defaultCharacter, NULL)));
 	return true;
 }
 
@@ -125,6 +133,13 @@ void Dash::myCharacterJumping()
 	wordCheck();
 	auto moveTo = MoveBy::create(2, Vec2(-(visibleSize.width / 5), 0));
 	_stepLayer->runAction(moveTo);
+}
+
+void Dash::otherCharacterJumping()
+{
+	Size visibleSize = Director::getInstance()->getVisibleSize();
+	auto jump = JumpBy::create(2, Vec2(visibleSize.width / 5, 0), 200, 1);
+	_otherCharacter->runAction(jump);
 }
 
 void Dash::wordGenerateWithOptions()
