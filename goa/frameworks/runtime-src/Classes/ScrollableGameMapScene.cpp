@@ -170,7 +170,7 @@ void ScrollableGameMapScene::gameSelected(Ref* pSender, ui::Widget::TouchEventTy
 				Director::getInstance()->replaceScene(AlphamoleLevel::createScene());
 			} else if(clickedButton->getName() == PATCH_THE_WALL) {
 //                Director::getInstance()->replaceScene(PatchTheWall::createScene());
-                ScriptingCore::getInstance()->runScript("src/start/decomon.js");
+                ScriptingCore::getInstance()->runScript("src/start/Pinata.js");
             } else  if (clickedButton->getName() == CAT) {
 				Director::getInstance()->replaceScene(CatGame::createScene());
 				//ScriptingCore::getInstance()->runScript("src/start/alphamole.js");
