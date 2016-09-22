@@ -18,6 +18,15 @@ std::string capitalAlphabets = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 USING_NS_CC;
 
 
+/*
+TextGenerator::getInstance()->getSynonyms(9)
+
+Same for:
+TextGenerator::getInstance()->getAntonyms(9)
+TextGenerator::getInstance()->getHomonyms(9)
+*/
+
+
 Memory::Memory() :
 	_touchActive(false),
 	objects(4, std::vector<struct object>(4)), 
@@ -63,7 +72,7 @@ bool Memory::init() {
 		return false;
 	}
 
-	//CCSpriteFrameCache::sharedSpriteFrameCache()->addSpriteFramesWithFile("-Alphacombat.plist");
+	CCSpriteFrameCache::sharedSpriteFrameCache()->addSpriteFramesWithFile("memory.plist");
 	
 	//CocosDenshion::SimpleAudioEngine::getInstance()->preloadBackgroundMusic ("TraceMusic.wav");
 	//CocosDenshion::SimpleAudioEngine::getInstance()->playBackgroundMusic("TraceMusic.wav", true);
@@ -101,7 +110,7 @@ bool Memory::init() {
 	}
 	 */
 	
-
+	/*
 	testSprite.x = visibleSize.width / 2 + origin.x;
 	testSprite.y = visibleSize.height / 2 + origin.y;
 
@@ -162,17 +171,29 @@ bool Memory::init() {
 	testSprite.alphabet = 'a';
 
 	testSprite.objectFlag = 1;
+	*/
 	
 	
-	
-
-
 
 	//std::string path = "english/Alpha Kombat/";//std::string(path)
-	//auto _bg = CSLoader::createNode("Alphacombat.csb");
-	//_background->setPosition(Vec2(visibleSize.width / 2 + origin.x, visibleSize.height / 2 + origin.y));
-	//addChild(_bg);
+	_background = CSLoader::createNode("memory/memory.csb");
+	_background->setPosition(Vec2(visibleSize.width / 2 + origin.x, visibleSize.height / 2 + origin.y));
+	_background->setAnchorPoint(Vec2(0.5, 0.5));
+	addChild(_background, 0);
+	_nests.resize(24);
+	for (int i = 1; i <= 24; i++) {
+		
 
+		std::ostringstream sstreami;
+		sstreami << "nest" << i;
+		std::string queryi = sstreami.str();
+
+		_nests.push_back(_background->getChildByName("background")->getChildByName(queryi));
+		_nestIndex = i;
+		setupTouch();
+
+	}
+	//_nests[2]->getChildByName().setscale(2,2);
 	/*auto bg = Sprite::create("bg.png");
 	bg->setPosition(Vec2(visibleSize.width / 2 + origin.x, visibleSize.height / 2 + origin.y));
 
@@ -243,13 +264,20 @@ void Memory::startGame() {
 
 
 
-void Memory::setupTouch(cocos2d::Sprite *sprite) {
+void Memory::setupTouch() {
 	
+	   // CCLOG("NEST %d setuptouch done", nestIndex);
+		std::ostringstream sstreamc;
+		sstreamc << "nest" << _nestIndex;
+		std::string queryc = sstreamc.str();
+
+		auto nest = _background->getChildByName("background")->getChildByName(queryc);
+
 		auto listener = EventListenerTouchOneByOne::create();
 		listener->onTouchBegan = CC_CALLBACK_2(Memory::onTouchBegan, this);
 		listener->onTouchEnded = CC_CALLBACK_2(Memory::onTouchEnded, this);
-		//listener->onTouchMoved = CC_CALLBACK_2(Memory::onTouchMoved, sprite);
-		_eventDispatcher->addEventListenerWithSceneGraphPriority(listener, sprite);
+		listener->onTouchMoved = CC_CALLBACK_2(Memory::onTouchMoved, this);
+		_eventDispatcher->addEventListenerWithSceneGraphPriority(listener, nest);
 	
 }
 
@@ -261,12 +289,15 @@ bool Memory::onTouchBegan(Touch* touch, Event* event) {
 	Point locationInNode = target->convertToNodeSpace(touch->getLocation());
 	Size s = target->getContentSize();
 	Rect rect = Rect(0, 0, s.width, s.height);
-
+	CCLOG("TOUCH LOCATION %f,  %f", touch->getLocation().x, touch->getLocation().y);
 	//auto n = getParent()->convertTouchToNodeSpace(touch);
 	//auto rect = this->getBoundingBox();
 	//if(rect.containsPoint(n))
+	
 	if (target->getBoundingBox().containsPoint(touch->getLocation()))
 	{
+
+		CCLOG("NEST %s CLICKED", target->getName());
 		//        CCLOG("onTouchBegan");
 		//if (_currentNodeIndex == 0)
 		//	_currentNodeIndex = 0;
@@ -277,6 +308,9 @@ bool Memory::onTouchBegan(Touch* touch, Event* event) {
 		//testSprite.characterZIndex = 0;
 		//this->reorderChild(testSprite.character, 0);
 		
+		
+
+
 		if (target->getName() == "closed_window") {
 
 			CCLOG("closed window clicked!!");
