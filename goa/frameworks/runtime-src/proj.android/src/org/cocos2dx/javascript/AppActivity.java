@@ -28,27 +28,24 @@ package org.cocos2dx.javascript;
 
 import org.cocos2dx.lib.Cocos2dxActivity;
 import android.app.Activity;
+import android.content.BroadcastReceiver;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.content.pm.ActivityInfo;
+import android.net.wifi.p2p.WifiP2pManager;
+import android.net.wifi.p2p.nsd.WifiP2pDnsSdServiceRequest;
 import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
 import java.io.IOException;
-import org.cocos2dx.javascript.AssetInstaller;
 import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.content.Context;
-import android.content.pm.ActivityInfo;
 import android.graphics.Color;
-import android.graphics.Typeface;
 import android.os.AsyncTask;
-import android.os.Bundle;
-import android.os.Handler;
 import android.os.Vibrator;
 import android.speech.tts.TextToSpeech;
 import android.speech.tts.TextToSpeech.OnInitListener;
-import android.text.method.ScrollingMovementMethod;
-import android.util.Log;
 import android.view.Display;
 import android.view.Gravity;
 import android.view.View;
@@ -56,11 +53,8 @@ import android.view.View.OnClickListener;
 import android.view.View.OnLongClickListener;
 import android.view.Window;
 import android.view.WindowManager;
-import android.widget.HorizontalScrollView;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
-import android.widget.Scroller;
 import android.widget.TextView;
 import org.chimple.goa.R;
 import android.graphics.drawable.ColorDrawable;
@@ -92,6 +86,24 @@ public class AppActivity extends Cocos2dxActivity  implements OnClickListener, O
 	private TextToSpeech mTts = null;
 	private static Dialog dialog;
 
+
+	//Wifi Direct Specific
+	public static final String GOA_TAG = "GOA";
+	// TXT RECORD properties
+	public static final String TXTRECORD_PROP_AVAILABLE = "available";
+	public static final String SERVICE_INSTANCE = "_goaMultiplayer_instance_";
+	public static final String SERVICE_REG_TYPE = "_presence._tcp";
+
+	private WifiP2pManager manager;
+
+	static final int SERVER_PORT = 4545;
+
+	private final IntentFilter intentFilter = new IntentFilter();
+	private WifiP2pManager.Channel channel;
+	private BroadcastReceiver receiver = null;
+	private WifiP2pDnsSdServiceRequest serviceRequest;
+
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -112,8 +124,35 @@ public class AppActivity extends Cocos2dxActivity  implements OnClickListener, O
 		
 		Intent checkIntent = new Intent();
 		checkIntent.setAction(TextToSpeech.Engine.ACTION_CHECK_TTS_DATA);
-		startActivityForResult(checkIntent, MY_DATA_CHECK_CODE);		
+		startActivityForResult(checkIntent, MY_DATA_CHECK_CODE);
+
+		//Wifi Direct Initialization
+
+		intentFilter.addAction(WifiP2pManager.WIFI_P2P_STATE_CHANGED_ACTION);
+		intentFilter.addAction(WifiP2pManager.WIFI_P2P_PEERS_CHANGED_ACTION);
+		intentFilter
+				.addAction(WifiP2pManager.WIFI_P2P_CONNECTION_CHANGED_ACTION);
+		intentFilter
+				.addAction(WifiP2pManager.WIFI_P2P_THIS_DEVICE_CHANGED_ACTION);
+
+		initializeWiFiDirect();				
 	}
+
+
+	private void initializeWiFiDirect() {
+		System.out.println("111111");
+		manager = (WifiP2pManager) getSystemService(Context.WIFI_P2P_SERVICE);
+		System.out.println("22222" + manager);
+		channel = manager.initialize(this, getMainLooper(), new WifiP2pManager.ChannelListener() {
+			@Override
+			public void onChannelDisconnected() {
+				initializeWiFiDirect();
+			}
+		});
+
+		System.out.println("3333" + channel);
+	}
+
 
 	@Override
 	public void onActivityResult(int requestCode, int resultCode, Intent data) {
