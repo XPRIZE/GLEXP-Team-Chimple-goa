@@ -95,9 +95,9 @@ bool Dash::init()
 	this->addChild(_character);
 	
 	for (int j = 0; j < 2; j++) {  
-		for (int i = 0; i < 2; i++) {  
+		for (int i = 1; i < 3; i++) {  
 			auto obj1 = Sprite::createWithSpriteFrameName("dash/big_button.png");
-			obj1->setPositionX(obj1->getContentSize().width/2 + visibleSize.width/2 *(i));
+			obj1->setPositionX(visibleSize.width/5 *(i* 2));
 			obj1->setPositionY(obj1->getContentSize().height/1.3 + (visibleSize.height * 0.14) * (j));
 			this->addChild(obj1);
 			_choiceButton.pushBack(obj1);
