@@ -21,6 +21,9 @@ xc.Pinata = cc.Layer.extend({
     }
 
     console.log("width : "+cc.director.getWinSize().width+"  height "+cc.director.getWinSize().height);
+    var data =  goa.TextGenerator.getInstance().getAllChars();
+    console.log(data);
+
     this.bubblePlayer =  new cc.Sprite(cc.spriteFrameCache.getSpriteFrame("pinata/player.png"));
     this.bubblePlayer.setPosition(cc.director.getWinSize().width * 0.5,cc.director.getWinSize().height * 0.2);
     this.addChild(this.bubblePlayer,1);
@@ -38,11 +41,15 @@ xc.Pinata = cc.Layer.extend({
     var classReference = this;
     
     var listnerBg = cc.EventListener.create({event: cc.EventListener.TOUCH_ONE_BY_ONE, swallowTouches: false,
-
             onTouchBegan :function(touch, event){
-                return true;
+                var target = event.getCurrentTarget();
+                var targetSize = target.getContentSize();
+                var location = target.convertToNodeSpace(touch.getLocation());
+                var targetRectangle = cc.rect(0,0, target.width, target.height);
+                if (cc.rectContainsPoint(targetRectangle, location)){return true;}
+                return false;
             },
-            onTouchMoved : function(touch, event){  
+            onTouchMoved : function(touch, event){
                 var target = event.getCurrentTarget();
                 target.setPosition(touch.getLocation());
 
@@ -106,14 +113,14 @@ xc.Pinata = cc.Layer.extend({
         this.bubblePlayer.x += dt * 2500 * Math.cos(this.degToRad(this.player.angle));
         this.bubblePlayer.y += dt * 2500 * -1 * Math.sin(this.degToRad(this.player.angle));
 
-        if (this.bubblePlayer.x <= (this.bubblePlayer.width/2)) {
+        if (this.bubblePlayer.x < (this.bubblePlayer.width/2)) {
             // Left edge
             this.player.angle = 180 - this.player.angle;
-        } else if (this.bubblePlayer.x >= cc.director.getWinSize().width - (this.bubblePlayer.width/2)) {
+        } else if (this.bubblePlayer.x > cc.director.getWinSize().width - (this.bubblePlayer.width/2)) {
             // Right edge
             this.player.angle = 180 - this.player.angle;
         } 
-        if (this.bubblePlayer.y >= cc.director.getWinSize().height-(this.bubblePlayer.width/2)) {
+        if (this.bubblePlayer.y > cc.director.getWinSize().height-(this.bubblePlayer.width/2)) {
             // Top collision
             this.player.angle = 360 - this.player.angle;
         }
