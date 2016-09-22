@@ -35,10 +35,7 @@
 #include "mini_games/Train.h"
 #include "mini_games/Pop.h"
 #include "mini_games/AlphamoleLevel.h"
-#include "mini_games/Memory.h"
-#include "mini_games/Circle.h"
-#include "mini_games/Stack.h"
-
+#include "mini_games/Bingo.h"
 
 USING_NS_CC;
 
@@ -177,12 +174,13 @@ void ScrollableGameMapScene::gameSelected(Ref* pSender, ui::Widget::TouchEventTy
 			} else  if (clickedButton->getName() == JUMP_ON_WORDS) {
 				ScriptingCore::getInstance()->runScript("src/start/jump.js");
 			} else  if (clickedButton->getName() == SMASH_THE_ROCK) {
-				Director::getInstance()->replaceScene(Circle::createScene());
+				Director::getInstance()->replaceScene(SmashTheRock::createScene());
 				//ScriptingCore::getInstance()->runScript("src/start/jump.js");
 			} else if (clickedButton->getName() == POP) {
 				ScriptingCore::getInstance()->runScript("src/start/pop.js");
 			} else if(clickedButton->getName() == CROSS_THE_BRIDGE) {
-				 Director::getInstance()->replaceScene(CrossTheBridge::createScene());
+				/* Director::getInstance()->replaceScene(CrossTheBridge::createScene());*/
+				Director::getInstance()->replaceScene(Bingo::createScene());
             } else if(clickedButton->getName() == SMASH_THE_ROCK) {
                 Director::getInstance()->replaceScene(SmashTheRock::createScene());
             } else if(clickedButton->getName() == CANNON_BALL) {
@@ -202,20 +200,17 @@ void ScrollableGameMapScene::gameSelected(Ref* pSender, ui::Widget::TouchEventTy
             } else if(clickedButton->getName() == CHAIN) {
                 Director::getInstance()->replaceScene(Chain::createScene());
             } else if(clickedButton->getName() == WEMBLEY) {
-                Director::getInstance()->replaceScene(Memory::createScene());
+                Director::getInstance()->replaceScene(Wembley::createScene());
             } else if(clickedButton->getName() == JAZZ) {
                 Director::getInstance()->replaceScene(jazz::createScene());
             } else if(clickedButton->getName() == JASMINE) {
-                Director::getInstance()->replaceScene(Stack::createScene());
+				ScriptingCore::getInstance()->runScript("src/start/train.js");
+//                Director::getInstance()->replaceScene(Jasmin_Mainfile::createScene());
             } else if(clickedButton->getName() == CAT) {
                 Director::getInstance()->replaceScene(CatGame::createScene());
             } else if(clickedButton->getName() == STORY_TELLING) {
                 ScriptingCore::getInstance()->runScript("src/start/storytelling.js");
             }
-			else if (clickedButton->getName() == TRAIN)
-			{
-				ScriptingCore::getInstance()->runScript("src/start/train.js");
-			}
             
             break;
         }

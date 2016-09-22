@@ -25,6 +25,8 @@ bool Baja::init()
 	auto origin = Director::getInstance()->getVisibleOrigin();
 	addInitPath(visibleSize, origin);
 
+
+
 	auto loader = CSLoader::createNode("baja/bajafuelmeter.csb");
 	addChild(loader,1);
 	_fuelBar = (cocos2d::ui::LoadingBar*)(loader->getChildren()).at(1);	_fuelBar->setPercent(100);
