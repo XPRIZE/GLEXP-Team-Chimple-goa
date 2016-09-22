@@ -23,12 +23,17 @@ xc.Pinata = cc.Layer.extend({
     console.log("width : "+cc.director.getWinSize().width+"  height "+cc.director.getWinSize().height);
     this.bubblePlayer =  new cc.Sprite(cc.spriteFrameCache.getSpriteFrame("pinata/player.png"));
     this.bubblePlayer.setPosition(cc.director.getWinSize().width * 0.5,cc.director.getWinSize().height * 0.2);
-    this.addChild(this.bubblePlayer);
+    this.addChild(this.bubblePlayer,1);
     this.player.x = this.bubblePlayer.x;    this.player.y = this.bubblePlayer.y;
     
-    this.line = new cc.DrawNode();
-    this.line.drawQuadBezier(cc.p(this.player.x - (this.bubblePlayer.width*1.5) ,this.player.y),cc.p(this.player.x,this.player.y - (this.bubblePlayer.width*0.3)),cc.p(this.player.x + (this.bubblePlayer.width*1.5),this.player.y),1000,10,new cc.Color(255,0,0,255) );
-    this.addChild(this.line);
+    this.rightLine = new cc.DrawNode();
+    this.rightLine.drawSegment(cc.p(this.player.x - (this.bubblePlayer.width *2),this.player.y), cc.p(this.player.x - (this.bubblePlayer.width/2),this.player.y),5);
+    this.addChild(this.rightLine);
+
+    this.leftLine = new cc.DrawNode();
+    this.leftLine.drawSegment(cc.p(this.player.x + (this.bubblePlayer.width * 2),this.player.y),cc.p(this.player.x + (this.bubblePlayer.width/2),this.player.y),5);
+    this.addChild(this.leftLine);
+
 
     var classReference = this;
     
@@ -41,23 +46,38 @@ xc.Pinata = cc.Layer.extend({
                 var target = event.getCurrentTarget();
                 target.setPosition(touch.getLocation());
 
-                if(classReference.line != undefined){
-                    classReference.removeChild(classReference.line);              
+                if(classReference.rightLine != undefined){
+                    classReference.removeChild(classReference.rightLine);
                 }
-                classReference.line = new cc.DrawNode();
-                classReference.line.drawQuadBezier(cc.p(classReference.player.x - (classReference.bubblePlayer.width*1.5) ,classReference.player.y),cc.p(classReference.bubblePlayer.x,classReference.bubblePlayer.y - (classReference.bubblePlayer.width*0.65)),cc.p(classReference.player.x + (classReference.bubblePlayer.width*1.5),classReference.player.y),1000,10,new cc.Color(255,0,0,255) );
-                classReference.addChild(classReference.line);
+                classReference.rightLine = new cc.DrawNode();
+                classReference.rightLine.drawSegment(cc.p(classReference.player.x - (classReference.bubblePlayer.width *2),classReference.player.y), cc.p(touch.getLocation().x - (classReference.bubblePlayer.width/2),touch.getLocation().y),5);
+                classReference.addChild(classReference.rightLine);
+
+                if(classReference.leftLine != undefined){
+                    classReference.removeChild(classReference.leftLine);
+                }
+                classReference.leftLine = new cc.DrawNode();
+                classReference.leftLine.drawSegment(cc.p(classReference.player.x + (classReference.bubblePlayer.width *2),classReference.player.y), cc.p(touch.getLocation().x + (classReference.bubblePlayer.width/2),touch.getLocation().y),5);
+                classReference.addChild(classReference.leftLine);
 
                 return true;
             },
             onTouchEnded : function(touch, event){
                 classReference.player.angle = classReference.radToDeg(Math.atan2((touch.getLocation().y - classReference.player.y),(-touch.getLocation().x + classReference.player.x)));
-                if(classReference.line != undefined){
-                    classReference.removeChild(classReference.line);              
+
+                if(classReference.rightLine != undefined){
+                    classReference.removeChild(classReference.rightLine);
                 }
-                classReference.line = new cc.DrawNode();
-                classReference.line.drawQuadBezier(cc.p(classReference.player.x - (classReference.bubblePlayer.width*1.5) ,classReference.player.y),cc.p(classReference.player.x,classReference.player.y - (classReference.bubblePlayer.width*0.3)),cc.p(classReference.player.x + (classReference.bubblePlayer.width*1.5),classReference.player.y),1000,10,new cc.Color(255,0,0,255) );
-                classReference.addChild(classReference.line);
+                classReference.rightLine = new cc.DrawNode();
+                classReference.rightLine.drawSegment(cc.p(classReference.player.x - (classReference.bubblePlayer.width *2),classReference.player.y), cc.p(classReference.player.x + 10,classReference.player.y),5);
+                classReference.addChild(classReference.rightLine);
+
+                if(classReference.leftLine != undefined){
+                    classReference.removeChild(classReference.leftLine);
+                }
+                classReference.leftLine = new cc.DrawNode();
+                classReference.leftLine.drawSegment(cc.p(classReference.player.x + (classReference.bubblePlayer.width * 2),classReference.player.y),cc.p(classReference.player.x - 10,classReference.player.y),5);
+                classReference.addChild(classReference.leftLine);
                 classReference.shootingFlag = true;
             }
      });
@@ -83,8 +103,8 @@ xc.Pinata = cc.Layer.extend({
     },
 
     stateShootBubble : function(dt){
-        this.bubblePlayer.x += dt * 1500 * Math.cos(this.degToRad(this.player.angle));
-        this.bubblePlayer.y += dt * 1500 * -1 * Math.sin(this.degToRad(this.player.angle));
+        this.bubblePlayer.x += dt * 2500 * Math.cos(this.degToRad(this.player.angle));
+        this.bubblePlayer.y += dt * 2500 * -1 * Math.sin(this.degToRad(this.player.angle));
 
         if (this.bubblePlayer.x <= (this.bubblePlayer.width/2)) {
             // Left edge
