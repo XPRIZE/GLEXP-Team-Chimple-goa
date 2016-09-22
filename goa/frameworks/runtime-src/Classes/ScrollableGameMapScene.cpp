@@ -168,13 +168,13 @@ void ScrollableGameMapScene::gameSelected(Ref* pSender, ui::Widget::TouchEventTy
 //				ScriptingCore::getInstance()->runScript("src/start/sortit.js");
                 Director::getInstance()->replaceScene(PegWord::createScene());
 			} else if (clickedButton->getName() == ALPHAMOLE) {
-				//Director::getInstance()->replaceScene(AlphamoleLevel::createScene());
-				Director::getInstance()->replaceScene(Dash::createScene());
+				Director::getInstance()->replaceScene(AlphamoleLevel::createScene());
 			} else if(clickedButton->getName() == PATCH_THE_WALL) {
 //                Director::getInstance()->replaceScene(PatchTheWall::createScene());
                 ScriptingCore::getInstance()->runScript("src/start/Pinata.js");
             } else  if (clickedButton->getName() == CAT) {
-				Director::getInstance()->replaceScene(CatGame::createScene());
+				Director::getInstance()->replaceScene(Dash::createScene());
+				//Director::getInstance()->replaceScene(CatGame::createScene());
 				//ScriptingCore::getInstance()->runScript("src/start/alphamole.js");
 			} else  if (clickedButton->getName() == JUMP_ON_WORDS) {
 				ScriptingCore::getInstance()->runScript("src/start/jump.js");
