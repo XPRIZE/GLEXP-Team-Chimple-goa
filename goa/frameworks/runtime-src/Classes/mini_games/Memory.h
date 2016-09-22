@@ -29,10 +29,13 @@ CC_CONSTRUCTOR_ACCESS:
 	static const char* classname() { return WEMBLEY.c_str(); }
 protected:
 	
+	Node *_background;
+	std::vector<Node *> _nests;
 	bool _touchActive;
-	void setupTouch(cocos2d::Sprite *sprite);
+	void setupTouch();
 	//void finishedAll();
 	int _touches;
+	int _nestIndex;
 
 	struct xy {
 		float x;
