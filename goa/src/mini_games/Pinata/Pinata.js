@@ -15,6 +15,8 @@ xc.Pinata = cc.Layer.extend({
     this.player = {
         x : 0,
         y: 0,
+        prevX : 0,
+        prevY : 0,
         angle : 90
     }
 
@@ -25,7 +27,7 @@ xc.Pinata = cc.Layer.extend({
     this.player.x = this.bubblePlayer.x;    this.player.y = this.bubblePlayer.y;
     
     this.line = new cc.DrawNode();
-    this.line.drawQuadBezier(cc.p(this.player.x - (this.bubblePlayer.width*2) ,this.player.y),cc.p(this.player.x,this.player.y - (this.bubblePlayer.width*0.85)),cc.p(this.player.x + (this.bubblePlayer.width*2),this.player.y),1000,10,new cc.Color(255,0,0,255) );
+    this.line.drawQuadBezier(cc.p(this.player.x - (this.bubblePlayer.width*1.5) ,this.player.y),cc.p(this.player.x,this.player.y - (this.bubblePlayer.width*0.3)),cc.p(this.player.x + (this.bubblePlayer.width*1.5),this.player.y),1000,10,new cc.Color(255,0,0,255) );
     this.addChild(this.line);
 
     var classReference = this;
@@ -43,7 +45,7 @@ xc.Pinata = cc.Layer.extend({
                     classReference.removeChild(classReference.line);              
                 }
                 classReference.line = new cc.DrawNode();
-                classReference.line.drawQuadBezier(cc.p(classReference.player.x - (classReference.bubblePlayer.width*2) ,classReference.player.y),cc.p(classReference.bubblePlayer.x,classReference.bubblePlayer.y - (classReference.bubblePlayer.width*0.65)),cc.p(classReference.player.x + (classReference.bubblePlayer.width*2),classReference.player.y),1000,10,new cc.Color(255,0,0,255) );
+                classReference.line.drawQuadBezier(cc.p(classReference.player.x - (classReference.bubblePlayer.width*1.5) ,classReference.player.y),cc.p(classReference.bubblePlayer.x,classReference.bubblePlayer.y - (classReference.bubblePlayer.width*0.65)),cc.p(classReference.player.x + (classReference.bubblePlayer.width*1.5),classReference.player.y),1000,10,new cc.Color(255,0,0,255) );
                 classReference.addChild(classReference.line);
 
                 return true;
@@ -54,7 +56,7 @@ xc.Pinata = cc.Layer.extend({
                     classReference.removeChild(classReference.line);              
                 }
                 classReference.line = new cc.DrawNode();
-                classReference.line.drawQuadBezier(cc.p(classReference.player.x - (classReference.bubblePlayer.width*2) ,classReference.player.y),cc.p(classReference.player.x,classReference.player.y - (classReference.bubblePlayer.width*0.85)),cc.p(classReference.player.x + (classReference.bubblePlayer.width*2),classReference.player.y),1000,10,new cc.Color(255,0,0,255) );
+                classReference.line.drawQuadBezier(cc.p(classReference.player.x - (classReference.bubblePlayer.width*1.5) ,classReference.player.y),cc.p(classReference.player.x,classReference.player.y - (classReference.bubblePlayer.width*0.3)),cc.p(classReference.player.x + (classReference.bubblePlayer.width*1.5),classReference.player.y),1000,10,new cc.Color(255,0,0,255) );
                 classReference.addChild(classReference.line);
                 classReference.shootingFlag = true;
             }
