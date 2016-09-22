@@ -9,9 +9,9 @@ xc.Pinata = cc.Layer.extend({
 
     cc.spriteFrameCache.addSpriteFrames(xc.Pinata.res.pinata_plist);
 
-    var gameBg =  new cc.Sprite(cc.spriteFrameCache.getSpriteFrame("pinata/bg-01.png"));
-    gameBg.setPosition(0,0);    gameBg.setAnchorPoint(0,0);   this.addChild(gameBg);
-
+    var gameBg = ccs.load(xc.Pinata.res.pinata_json,xc.path);
+    this.addChild(gameBg.node);
+   
     this.player = {
         x : 0,
         y: 0,
@@ -20,9 +20,9 @@ xc.Pinata = cc.Layer.extend({
         angle : 90
     }
 
-    console.log("width : "+cc.director.getWinSize().width+"  height "+cc.director.getWinSize().height);
-    var data =  goa.TextGenerator.getInstance().getAllChars();
-    console.log(data);
+    this.map =  goa.TextGenerator.getInstance().getAntonyms(3);
+    var mapKeyArray = Object.keys(this.map);
+    this.mapKey = mapKeyArray[this.getRandomInt(0,(mapKeyArray.length-1))];
 
     this.bubblePlayer =  new cc.Sprite(cc.spriteFrameCache.getSpriteFrame("pinata/player.png"));
     this.bubblePlayer.setPosition(cc.director.getWinSize().width * 0.5,cc.director.getWinSize().height * 0.2);
@@ -30,13 +30,12 @@ xc.Pinata = cc.Layer.extend({
     this.player.x = this.bubblePlayer.x;    this.player.y = this.bubblePlayer.y;
     
     this.rightLine = new cc.DrawNode();
-    this.rightLine.drawSegment(cc.p(this.player.x - (this.bubblePlayer.width *2),this.player.y), cc.p(this.player.x - (this.bubblePlayer.width/2),this.player.y),5);
+    this.rightLine.drawSegment(cc.p(this.player.x - (this.bubblePlayer.width *2),this.player.y), cc.p(this.player.x - (this.bubblePlayer.width/2),this.player.y),5,new cc.color(158,45,45,255));
     this.addChild(this.rightLine);
 
-    this.leftLine = new cc.DrawNode();
-    this.leftLine.drawSegment(cc.p(this.player.x + (this.bubblePlayer.width * 2),this.player.y),cc.p(this.player.x + (this.bubblePlayer.width/2),this.player.y),5);
+    this.leftLine = new cc.DrawNode(); 
+    this.leftLine.drawSegment(cc.p(this.player.x + (this.bubblePlayer.width * 2),this.player.y),cc.p(this.player.x + (this.bubblePlayer.width/2),this.player.y),5,new cc.color(158,45,45,255));
     this.addChild(this.leftLine);
-
 
     var classReference = this;
     
@@ -57,14 +56,14 @@ xc.Pinata = cc.Layer.extend({
                     classReference.removeChild(classReference.rightLine);
                 }
                 classReference.rightLine = new cc.DrawNode();
-                classReference.rightLine.drawSegment(cc.p(classReference.player.x - (classReference.bubblePlayer.width *2),classReference.player.y), cc.p(touch.getLocation().x - (classReference.bubblePlayer.width/2),touch.getLocation().y),5);
+                classReference.rightLine.drawSegment(cc.p(classReference.player.x - (classReference.bubblePlayer.width *2),classReference.player.y), cc.p(touch.getLocation().x - (classReference.bubblePlayer.width/2),touch.getLocation().y),5,new cc.color(158,45,45,255));
                 classReference.addChild(classReference.rightLine);
 
                 if(classReference.leftLine != undefined){
                     classReference.removeChild(classReference.leftLine);
                 }
                 classReference.leftLine = new cc.DrawNode();
-                classReference.leftLine.drawSegment(cc.p(classReference.player.x + (classReference.bubblePlayer.width *2),classReference.player.y), cc.p(touch.getLocation().x + (classReference.bubblePlayer.width/2),touch.getLocation().y),5);
+                classReference.leftLine.drawSegment(cc.p(classReference.player.x + (classReference.bubblePlayer.width *2),classReference.player.y), cc.p(touch.getLocation().x + (classReference.bubblePlayer.width/2),touch.getLocation().y),5,new cc.color(158,45,45,255));
                 classReference.addChild(classReference.leftLine);
 
                 return true;
@@ -76,14 +75,14 @@ xc.Pinata = cc.Layer.extend({
                     classReference.removeChild(classReference.rightLine);
                 }
                 classReference.rightLine = new cc.DrawNode();
-                classReference.rightLine.drawSegment(cc.p(classReference.player.x - (classReference.bubblePlayer.width *2),classReference.player.y), cc.p(classReference.player.x + 10,classReference.player.y),5);
+                classReference.rightLine.drawSegment(cc.p(classReference.player.x - (classReference.bubblePlayer.width *2),classReference.player.y), cc.p(classReference.player.x + 10,classReference.player.y),5,new cc.color(158,45,45,255));
                 classReference.addChild(classReference.rightLine);
 
                 if(classReference.leftLine != undefined){
                     classReference.removeChild(classReference.leftLine);
                 }
                 classReference.leftLine = new cc.DrawNode();
-                classReference.leftLine.drawSegment(cc.p(classReference.player.x + (classReference.bubblePlayer.width * 2),classReference.player.y),cc.p(classReference.player.x - 10,classReference.player.y),5);
+                classReference.leftLine.drawSegment(cc.p(classReference.player.x + (classReference.bubblePlayer.width * 2),classReference.player.y),cc.p(classReference.player.x - 10,classReference.player.y),5,new cc.color(158,45,45,255));
                 classReference.addChild(classReference.leftLine);
                 classReference.shootingFlag = true;
             }
@@ -133,11 +132,16 @@ xc.Pinata = cc.Layer.extend({
     // Convert degrees to radians
     degToRad : function (angle) {
         return angle * (Math.PI / 180);
-    }
+    },
+     getRandomInt : function (min, max) {
+        return Math.floor(Math.random() * (max - min + 1)) + min;
+    },
 })
 
 xc.Pinata.res = {
     pinata_plist : xc.path +"pinata/pinata.plist",
     pinata_png : xc.path +"pinata/pinata.png",
+    pinata_json : xc.path +"pinata/pinata.json",
+
 };      
 
