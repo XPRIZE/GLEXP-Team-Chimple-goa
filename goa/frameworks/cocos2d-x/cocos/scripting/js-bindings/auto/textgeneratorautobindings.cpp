@@ -2,7 +2,6 @@
 #include "scripting/js-bindings/manual/cocos2d_specifics.hpp"
 #include "../../../../../runtime-src/Classes/lang/TextGenerator.h"
 
-
 template<class T>
 static bool dummy_constructor(JSContext *cx, uint32_t argc, jsval *vp)
 {
@@ -43,6 +42,29 @@ bool js_textgeneratorautobindings_TextGenerator_getNumGraphemesInString(JSContex
     }
     
     JS_ReportError(cx, "js_textgeneratorautobindings_TextGenerator_getNumGraphemesInString : wrong number of arguments: %d, was expecting %d", argc, 1);
+    return false;
+}
+
+bool js_textgeneratorautobindings_TextGenerator_getSynonyms(JSContext *cx, uint32_t argc, jsval *vp)
+{
+    JS::CallArgs args = JS::CallArgsFromVp(argc, vp);
+    bool ok = true;
+    JS::RootedObject obj(cx, args.thisv().toObjectOrNull());
+    js_proxy_t *proxy = jsb_get_js_proxy(obj);
+    TextGenerator* cobj = (TextGenerator *)(proxy ? proxy->ptr : NULL);
+    JSB_PRECONDITION2( cobj, cx, false, "js_textgeneratorautobindings_TextGenerator_getSynonyms : Invalid Native Object");
+    if (argc == 1) {
+        int arg0 = 0;
+        ok &= jsval_to_int32(cx, args.get(0), (int32_t *)&arg0);
+        JSB_PRECONDITION2(ok, cx, false, "js_textgeneratorautobindings_TextGenerator_getSynonyms : Error processing arguments");
+        std::map<std::string, std::string> ret = cobj->getSynonyms(arg0);
+        jsval jsret = JSVAL_NULL;
+        jsret = std_map_string_string_to_jsval(cx, ret);
+        args.rval().set(jsret);
+        return true;
+    }
+    
+    JS_ReportError(cx, "js_textgeneratorautobindings_TextGenerator_getSynonyms : wrong number of arguments: %d, was expecting %d", argc, 1);
     return false;
 }
 bool js_textgeneratorautobindings_TextGenerator_getAllChars(JSContext *cx, uint32_t argc, jsval *vp)
@@ -150,6 +172,50 @@ bool js_textgeneratorautobindings_TextGenerator_getValidCombinations(JSContext *
     JS_ReportError(cx, "js_textgeneratorautobindings_TextGenerator_getValidCombinations : wrong number of arguments: %d, was expecting %d", argc, 2);
     return false;
 }
+bool js_textgeneratorautobindings_TextGenerator_getAntonyms(JSContext *cx, uint32_t argc, jsval *vp)
+{
+    JS::CallArgs args = JS::CallArgsFromVp(argc, vp);
+    bool ok = true;
+    JS::RootedObject obj(cx, args.thisv().toObjectOrNull());
+    js_proxy_t *proxy = jsb_get_js_proxy(obj);
+    TextGenerator* cobj = (TextGenerator *)(proxy ? proxy->ptr : NULL);
+    JSB_PRECONDITION2( cobj, cx, false, "js_textgeneratorautobindings_TextGenerator_getAntonyms : Invalid Native Object");
+    if (argc == 1) {
+        int arg0 = 0;
+        ok &= jsval_to_int32(cx, args.get(0), (int32_t *)&arg0);
+        JSB_PRECONDITION2(ok, cx, false, "js_textgeneratorautobindings_TextGenerator_getAntonyms : Error processing arguments");
+        std::map<std::string, std::string> ret = cobj->getAntonyms(arg0);
+        jsval jsret = JSVAL_NULL;
+        jsret = std_map_string_string_to_jsval(cx, ret);
+        args.rval().set(jsret);
+        return true;
+    }
+    
+    JS_ReportError(cx, "js_textgeneratorautobindings_TextGenerator_getAntonyms : wrong number of arguments: %d, was expecting %d", argc, 1);
+    return false;
+}
+bool js_textgeneratorautobindings_TextGenerator_getHomonyms(JSContext *cx, uint32_t argc, jsval *vp)
+{
+    JS::CallArgs args = JS::CallArgsFromVp(argc, vp);
+    bool ok = true;
+    JS::RootedObject obj(cx, args.thisv().toObjectOrNull());
+    js_proxy_t *proxy = jsb_get_js_proxy(obj);
+    TextGenerator* cobj = (TextGenerator *)(proxy ? proxy->ptr : NULL);
+    JSB_PRECONDITION2( cobj, cx, false, "js_textgeneratorautobindings_TextGenerator_getHomonyms : Invalid Native Object");
+    if (argc == 1) {
+        int arg0 = 0;
+        ok &= jsval_to_int32(cx, args.get(0), (int32_t *)&arg0);
+        JSB_PRECONDITION2(ok, cx, false, "js_textgeneratorautobindings_TextGenerator_getHomonyms : Error processing arguments");
+        std::map<std::string, std::string> ret = cobj->getHomonyms(arg0);
+        jsval jsret = JSVAL_NULL;
+        jsret = std_map_string_string_to_jsval(cx, ret);
+        args.rval().set(jsret);
+        return true;
+    }
+    
+    JS_ReportError(cx, "js_textgeneratorautobindings_TextGenerator_getHomonyms : wrong number of arguments: %d, was expecting %d", argc, 1);
+    return false;
+}
 bool js_textgeneratorautobindings_TextGenerator_getGraphemes(JSContext *cx, uint32_t argc, jsval *vp)
 {
     JS::CallArgs args = JS::CallArgsFromVp(argc, vp);
@@ -228,10 +294,13 @@ void js_register_textgeneratorautobindings_TextGenerator(JSContext *cx, JS::Hand
     
     static JSFunctionSpec funcs[] = {
         JS_FN("getNumGraphemesInString", js_textgeneratorautobindings_TextGenerator_getNumGraphemesInString, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+        JS_FN("getSynonyms", js_textgeneratorautobindings_TextGenerator_getSynonyms, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
         JS_FN("getAllChars", js_textgeneratorautobindings_TextGenerator_getAllChars, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
         JS_FN("generateMatrix", js_textgeneratorautobindings_TextGenerator_generateMatrix, 3, JSPROP_PERMANENT | JSPROP_ENUMERATE),
         JS_FN("generateASentence", js_textgeneratorautobindings_TextGenerator_generateASentence, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
         JS_FN("getValidCombinations", js_textgeneratorautobindings_TextGenerator_getValidCombinations, 2, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+        JS_FN("getAntonyms", js_textgeneratorautobindings_TextGenerator_getAntonyms, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+        JS_FN("getHomonyms", js_textgeneratorautobindings_TextGenerator_getHomonyms, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
         JS_FN("getGraphemes", js_textgeneratorautobindings_TextGenerator_getGraphemes, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
         JS_FN("generateAWord", js_textgeneratorautobindings_TextGenerator_generateAWord, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
         JS_FS_END

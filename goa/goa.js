@@ -36,6 +36,30 @@ goa.TextGenerator.prototype.getAllChars = function() {
     return ["ಅ", "ಆ", "ಇ", "ಈ", "ಉ", "ಊ", "ಋ", "ಎ", "ಏ", "ಐ", "ಒ", "ಓ", "ಔ", "ಕ", "ಖ", "ಗ", "ಘ", "ಙ", "ಚ", "ಛ", "ಜ", "ಝ", "ಞ", "ಟ", "ಠ", "ಡ", "ಢ", "ಣ", "ತ", "ಥ", "ದ", "ಧ", "ನ", "ಪ", "ಫ", "ಬ", "ಭ", "ಮ", "ಯ", "ರ", "ಲ", "ವ", "ಶ", "ಷ", "ಸ", "ಹ", "ಳ"];
 }
 
+goa.TextGenerator.prototype.getDataMap = function(dataMap, maxNum) {
+    var returnObj = {};
+    var i = 0;
+    for (var key in dataMap) {
+        returnObj[key] = dataMap[key];
+        if(++i >= maxNum) {
+            break;
+        }
+    }
+    return returnObj;
+}
+
+goa.TextGenerator.prototype.getHomonyms = function(maxNum) {
+    return this.getDataMap(goa.TextGenerator.homonyms, maxNum);
+}
+
+goa.TextGenerator.prototype.getSynonyms = function(maxNum) {
+    return this.getDataMap(goa.TextGenerator.synonyms, maxNum);
+}
+
+goa.TextGenerator.prototype.getAntonyms = function(maxNum) {
+    return this.getDataMap(goa.TextGenerator.antonyms, maxNum);
+}
+
 goa.TextGenerator.instance = new goa.TextGenerator();
 
 goa.TextGenerator.sentences = [
@@ -49,3 +73,55 @@ goa.TextGenerator.sentences = [
     "Where we're going we don't need roads",
     "I'm not bad. I'm just drawn that way"
 ];
+
+goa.TextGenerator.homonyms = {
+        "be": "bee",
+        "bean" :"bean",
+        "buy" :"by",
+        "hear" :"here",
+        "hour" :"our",
+        "know" :"no",
+        "mail" :"male",
+        "meat" :"meet",
+        "plain" :"plane",
+        "right" :"write",
+        "road" :"rode",
+        "sea" :"see",
+        "sail" :"sale",
+        "son" :"sun",
+        "tail" :"tale"
+}
+
+goa.TextGenerator.antonyms = {
+        "big": "small",
+        "loud": "quiet",
+        "dark": "light",
+        "fast": "slow",
+        "happy": "sad",
+        "long": "short",
+        "hot": "cold",
+        "wet": "dry",
+        "over": "under",
+        "sink": "float",
+        "far": "near",
+        "empty": "full",
+        "messy": "neat",
+        "never": "always",
+        "old": "young"
+}
+
+goa.TextGenerator.synonyms = {
+        "end": "finish",
+        "cry": "sob",
+        "cold": "icy",
+        "begin": "start",
+        "save": "keep",
+        "hope": "wish",
+        "choose": "pick",
+        "paste": "glue",
+        "hurry": "rush",
+        "sad": "unhappy",
+        "friend": "pal",
+        "enjoy": "like",
+        "error": "mistake"
+}
