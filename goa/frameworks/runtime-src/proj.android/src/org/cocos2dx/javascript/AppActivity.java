@@ -28,27 +28,24 @@ package org.cocos2dx.javascript;
 
 import org.cocos2dx.lib.Cocos2dxActivity;
 import android.app.Activity;
+import android.content.BroadcastReceiver;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.content.pm.ActivityInfo;
+import android.net.wifi.p2p.WifiP2pManager;
+import android.net.wifi.p2p.nsd.WifiP2pDnsSdServiceRequest;
 import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
 import java.io.IOException;
-import org.cocos2dx.javascript.AssetInstaller;
 import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.content.Context;
-import android.content.pm.ActivityInfo;
 import android.graphics.Color;
-import android.graphics.Typeface;
 import android.os.AsyncTask;
-import android.os.Bundle;
-import android.os.Handler;
 import android.os.Vibrator;
 import android.speech.tts.TextToSpeech;
 import android.speech.tts.TextToSpeech.OnInitListener;
-import android.text.method.ScrollingMovementMethod;
-import android.util.Log;
 import android.view.Display;
 import android.view.Gravity;
 import android.view.View;
@@ -56,11 +53,8 @@ import android.view.View.OnClickListener;
 import android.view.View.OnLongClickListener;
 import android.view.Window;
 import android.view.WindowManager;
-import android.widget.HorizontalScrollView;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
-import android.widget.Scroller;
 import android.widget.TextView;
 import org.chimple.goa.R;
 import android.graphics.drawable.ColorDrawable;
@@ -92,6 +86,24 @@ public class AppActivity extends Cocos2dxActivity  implements OnClickListener, O
 	private TextToSpeech mTts = null;
 	private static Dialog dialog;
 
+
+	//Wifi Direct Specific
+	public static final String GOA_TAG = "GOA";
+	// TXT RECORD properties
+	public static final String TXTRECORD_PROP_AVAILABLE = "available";
+	public static final String SERVICE_INSTANCE = "_goaMultiplayer_instance_";
+	public static final String SERVICE_REG_TYPE = "_presence._tcp";
+
+	private WifiP2pManager manager;
+
+	static final int SERVER_PORT = 4545;
+
+	private final IntentFilter intentFilter = new IntentFilter();
+	private WifiP2pManager.Channel channel;
+	private BroadcastReceiver receiver = null;
+	private WifiP2pDnsSdServiceRequest serviceRequest;
+
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -112,8 +124,35 @@ public class AppActivity extends Cocos2dxActivity  implements OnClickListener, O
 		
 		Intent checkIntent = new Intent();
 		checkIntent.setAction(TextToSpeech.Engine.ACTION_CHECK_TTS_DATA);
-		startActivityForResult(checkIntent, MY_DATA_CHECK_CODE);		
+		startActivityForResult(checkIntent, MY_DATA_CHECK_CODE);
+
+		//Wifi Direct Initialization
+
+		intentFilter.addAction(WifiP2pManager.WIFI_P2P_STATE_CHANGED_ACTION);
+		intentFilter.addAction(WifiP2pManager.WIFI_P2P_PEERS_CHANGED_ACTION);
+		intentFilter
+				.addAction(WifiP2pManager.WIFI_P2P_CONNECTION_CHANGED_ACTION);
+		intentFilter
+				.addAction(WifiP2pManager.WIFI_P2P_THIS_DEVICE_CHANGED_ACTION);
+
+		initializeWiFiDirect();				
 	}
+
+
+	private void initializeWiFiDirect() {
+		System.out.println("111111");
+		manager = (WifiP2pManager) getSystemService(Context.WIFI_P2P_SERVICE);
+		System.out.println("22222" + manager);
+		channel = manager.initialize(this, getMainLooper(), new WifiP2pManager.ChannelListener() {
+			@Override
+			public void onChannelDisconnected() {
+				initializeWiFiDirect();
+			}
+		});
+
+		System.out.println("3333" + channel);
+	}
+
 
 	@Override
 	public void onActivityResult(int requestCode, int resultCode, Intent data) {
@@ -134,7 +173,6 @@ public class AppActivity extends Cocos2dxActivity  implements OnClickListener, O
 		}
 		else if (resultCode == Activity.RESULT_OK) {
 			final String photoUrl = data.getStringExtra(Utility.PHOTO_DESTINATION_URL);
-			System.out.println("got result:" + photoUrl);
 
 			handler.postDelayed(new Runnable() {
 				public void run() {
@@ -191,29 +229,23 @@ public class AppActivity extends Cocos2dxActivity  implements OnClickListener, O
 	private static void showCustomDialog(Context context, final int posX, final int posY, final int hGravity, final int vGravity) {
 		// custom dialog
 		String tag = "showCustomDialog";
-		Log.d(tag, "Showing 111 showCustomDialog");
 		dialog = new Dialog(context);
 		dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
 		dialog.getWindow().setBackgroundDrawable(new ColorDrawable(android.graphics.Color.TRANSPARENT));
-		Log.d(tag, "Showing 2222 showCustomDialog");
 		WindowManager.LayoutParams wmlp = dialog.getWindow().getAttributes();
 		wmlp.gravity = hGravity| vGravity;
 		wmlp.x = posX; // x position
 		wmlp.y = posY; // y position
-		Log.d(tag, "Showing 33333 showCustomDialog");
 		canvasView = new CanvasView(_context, _appActivity);
-		Log.d(tag, "Showing 44444 showCustomDialog");
 		main = new LinearLayout(_activity);
 		main.setOrientation(LinearLayout.VERTICAL);
 		main.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT,
 				LinearLayout.LayoutParams.MATCH_PARENT));
-		Log.d(tag, "Showing 5555 showCustomDialog");
 		topLayout = new RelativeLayout(_activity);
 		topLayout.setLayoutParams(
 				new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.MATCH_PARENT));
 		topLayout.setBackgroundColor(Color.WHITE);
 		
-		Log.d(tag, "Showing 666 showCustomDialog");
 		cenerLayout = new LinearLayout(_activity);
 		cenerLayout.setOrientation(LinearLayout.HORIZONTAL);
 		LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT,
@@ -222,15 +254,12 @@ public class AppActivity extends Cocos2dxActivity  implements OnClickListener, O
 		cenerLayout.setLayoutParams(params);
 		cenerLayout.setBackgroundColor(Color.WHITE);
 		cenerLayout.addView(canvasView);
-		Log.d(tag, "Showing 777 showCustomDialog");
 		main.setAlpha(0.5f);
 		main.addView(cenerLayout);
 		main.addView(topLayout);
 		dialog.setContentView(main);		
 		dialog.getWindow().setLayout(width, height);
-		Log.d(tag, "Showing 888 showCustomDialog");
 		dialog.show();
-		Log.d(tag, "Showing 999 showCustomDialog");
 	}	
 
 public static void drawCanvas(final int posX, final int posY, final int hGravity, final int vGravity){
@@ -286,14 +315,12 @@ public static void drawCanvas(final int posX, final int posY, final int hGravity
 
 		@Override
 		protected void onPostExecute(String sResponse) {
-			System.out.println("ProgressLipiTKTask:onPostExecute 33333333");
 			processLipitkDialog.dismiss();
 			FreePadCall();
 		}
 
 		@Override
 		protected void onPreExecute() {
-			System.out.println("ProgressLipiTKTask:onPreExecute 33333333");
 			processLipitkDialog = ProgressDialog.show(AppActivity.this, "Processing", "Please wait...", true);
 
 		}
@@ -308,10 +335,8 @@ public static void drawCanvas(final int posX, final int posY, final int hGravity
 					new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.MATCH_PARENT));
 			cenerLayout.addView(canvasView);
 		}
-		System.out.println("setting canvas character:" + canvasView.character[0]);
 		//TV[0].setText(canvasView.character[0]);
 		final String str1 = canvasView.character[0].toString();
-		System.out.println("specking string" + str1);
 		dialog.dismiss();
 		handler.postDelayed(new Runnable() {
 			public void run() {
@@ -334,7 +359,6 @@ public static void drawCanvas(final int posX, final int posY, final int hGravity
 					new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.MATCH_PARENT));
 			cenerLayout.addView(canvasView);
 		}
-		System.out.println("index" + curr_indx + "---" + CanvasView.StrokeResultCount);
 		if (curr_indx < CanvasView.StrokeResultCount) {
 			//TV[0].setText(CanvasView.character[curr_indx]);
 			String Choice1 = CanvasView.character[curr_indx];

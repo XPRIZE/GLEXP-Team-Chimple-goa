@@ -133,13 +133,14 @@ void WordScene::createGrid() {
 }
 
 void WordScene::createHandWritingButton() {
-    std::string buttonNormalIcon = "menu/back.png";
+    std::string buttonNormalIcon = "menu/paper_pencil.png";
+    std::string buttonDisabledIcon = "menu/dis_paper_pencil.png";
     Size visibleSize = Director::getInstance()->getVisibleSize();
     Vec2 origin = Director::getInstance()->getVisibleOrigin();
-    _handWritingDialogButton = ui::Button::create(buttonNormalIcon, buttonNormalIcon, buttonNormalIcon);
-    _handWritingDialogButton->setPosition(Vec2(visibleSize.width - 200, 200));
+    _handWritingDialogButton = ui::Button::create(buttonNormalIcon, buttonNormalIcon, buttonDisabledIcon);
+    _handWritingDialogButton->setPosition(Vec2(visibleSize.width/2, 400));
     _handWritingDialogButton->addTouchEventListener(CC_CALLBACK_2(WordScene::showHandWritingDialog, this));
-    addChild(_handWritingDialogButton);
+    addChild(_handWritingDialogButton, 2);
    
 }
 
@@ -215,6 +216,11 @@ void WordScene::processGrapheme(Grapheme* grapheme) {
                 grapheme->selected(false);
                 grapheme->setZOrder(0);
                 grapheme->animateToPositionAndChangeBackground(grapheme->getPrevPosition());
+                if(_showHandWriting) {
+                    _handWritingDialogButton->setEnabled(true);
+                    Director::getInstance()->getEventDispatcher()->pauseEventListenersForTarget(grapheme);
+
+                }
                 return;
             }
         }
@@ -275,25 +281,32 @@ void WordScene::showHandWritingDialog(Ref* pSender, ui::Widget::TouchEventType e
             break;
         case ui::Widget::TouchEventType::ENDED:
         {
+            bool processHandWriting = false;
             clickedButton->setEnabled(false);
-            _grid->setVisible(false);
-            #if (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
-                cocos2d::JniMethodInfo methodInfo;
-                CCLOG("11111111 in showHandWritingDialog");
-                if (! cocos2d::JniHelper::getStaticMethodInfo(methodInfo, "org/cocos2dx/javascript/AppActivity", "drawCanvas", "(IIII)V")) {
-                    return;
+            for (auto it = _answerVector.begin() ; it != _answerVector.end(); ++it) {
+                if((*it).second == nullptr) {
+                    processHandWriting = true;
                 }
-                CCLOG("22222222 in showHandWritingDialog");
-                int x = 0;
-                int y = 0;
-                CCLOG("33333333 in showHandWritingDialog");
-                methodInfo.env->CallStaticVoidMethod(methodInfo.classID, methodInfo.methodID, x, y, LAYOUT_CENTER_HORIZONTAL, LAYOUT_CENTER_VERTICAL);
-                methodInfo.env->DeleteLocalRef(methodInfo.classID);
-            #else
-                WordScene::textReceived("A");
-            #endif
-            
-            
+            }
+            if(processHandWriting)
+            {
+                _grid->setVisible(false);
+                clickedButton->setEnabled(true);
+                #if (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
+                    cocos2d::JniMethodInfo methodInfo;
+                    if (! cocos2d::JniHelper::getStaticMethodInfo(methodInfo, "org/cocos2dx/javascript/AppActivity", "drawCanvas", "(IIII)V")) {
+                    return;
+                    }
+                    int x = 0;
+                    int y = 0;
+                    methodInfo.env->CallStaticVoidMethod(methodInfo.classID, methodInfo.methodID, x, y, LAYOUT_CENTER_HORIZONTAL, LAYOUT_CENTER_VERTICAL);
+                    methodInfo.env->DeleteLocalRef(methodInfo.classID);
+                #else
+                    WordScene::textReceived("A");
+                #endif   
+            } else {
+                clickedButton->setEnabled(false);
+            }
             break;
         }
             
@@ -310,11 +323,26 @@ void WordScene::textReceived(std::string text) {
     if(gameScene) {
         WordScene* wordScene = dynamic_cast<WordScene *>(gameScene->getChildLayer());
         if(wordScene) {
-            wordScene->_handWritingDialogButton->setEnabled(true);
+            wordScene->_handWritingDialogButton->setEnabled(false);
             Grapheme* createGrapheme = Grapheme::create(text);
-            wordScene->_grid->addChild(createGrapheme);
-            wordScene->_grid->setVisible(true);
+            createGrapheme->touchEndedCallback = CC_CALLBACK_2(WordScene::onHandWrittenAlphabetTouchEnded, wordScene);
+            Size visibleSize = Director::getInstance()->getVisibleSize();
+            createGrapheme->setPosition(Vec2(visibleSize.width/2, 400));
+            wordScene->addChild(createGrapheme);
+            wordScene->_grid->setVisible(false);
             wordScene->processGrapheme(createGrapheme);
+            for (auto it = wordScene->_answerVector.begin() ; it != wordScene->_answerVector.end(); ++it) {
+                if((*it).second == nullptr) {
+                    wordScene->_handWritingDialogButton->setEnabled(true);
+                }
+            }
+            
         }
     }
+}
+
+
+void WordScene::onHandWrittenAlphabetTouchEnded(Touch* touch, Event* event){
+    Grapheme* grapheme = static_cast<Grapheme*>(event->getCurrentTarget());
+    processGrapheme(grapheme);
 }

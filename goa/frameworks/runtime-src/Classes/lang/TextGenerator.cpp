@@ -107,3 +107,153 @@ std::vector<std::string> TextGenerator::getValidCombinations(std::string chars, 
     std::vector<std::string> v(args, args + 4);
     return v;
 }
+
+std::map<std::string, std::string> TextGenerator::getSynonyms(int maxNum) {
+    std::map<std::string, std::string> SynonymMap = {
+        {"end", "finish"},
+        {"cry", "sob"},
+        {"cold", "icy"},
+        {"begin", "start"},
+        {"save", "keep"},
+        {"hope", "wish"},
+        {"choose", "pick"},
+        {"paste", "glue"},
+        {"hurry", "rush"},
+        {"sad", "unhappy"},
+        {"friend", "pal"},
+        {"enjoy", "like"},
+        {"error", "mistake"}
+    };
+    std::map<std::string, std::string> data;
+    for (std::map<std::string, std::string>::iterator it=SynonymMap.begin(); it!=SynonymMap.end(); ++it) {
+        data[it->first] = it->second;
+        if(data.size() >= maxNum) {
+            break;
+        }
+    }
+    return data;
+}
+
+std::map<std::string, std::string> TextGenerator::getAntonyms(int maxNum) {
+    std::map<std::string, std::string> AntonymMap = {
+        {"big", "small"},
+        {"loud", "quiet"},
+        {"dark", "light"},
+        {"fast", "slow"},
+        {"happy", "sad"},
+        {"long", "short"},
+        {"hot", "cold"},
+        {"wet", "dry"},
+        {"over", "under"},
+        {"sink", "float"},
+        {"far", "near"},
+        {"empty", "full"},
+        {"messy", "neat"},
+        {"never", "always"},
+        {"old", "young"}
+    };
+    std::map<std::string, std::string> data;
+    for (std::map<std::string, std::string>::iterator it=AntonymMap.begin(); it!=AntonymMap.end(); ++it) {
+        data[it->first] = it->second;
+        if(data.size() >= maxNum) {
+            break;
+        }
+    }
+    return data;
+}
+
+std::map<std::string, std::string> TextGenerator::getHomonyms(int maxNum) {
+    std::map<std::string, std::string> HomonymMap = {
+        {"be", "bee"},
+        {"bean", "bean"},
+        {"buy", "by"},
+        {"hear", "here"},
+        {"hour", "our"},
+        {"know", "no"},
+        {"mail", "male"},
+        {"meat", "meet"},
+        {"plain", "plane"},
+        {"right", "write"},
+        {"road", "rode"},
+        {"sail", "sale"},
+        {"sea", "see"},
+        {"sail", "sale"},
+        {"son", "sun"},
+        {"tail", "tale"}
+    };
+    std::map<std::string, std::string> data;
+    for (std::map<std::string, std::string>::iterator it=HomonymMap.begin(); it!=HomonymMap.end(); ++it) {
+        data[it->first] = it->second;
+        if(data.size() >= maxNum) {
+            break;
+        }
+    }
+    return data;
+}
+
+std::map<std::string, std::map<std::string, std::string>> TextGenerator::getInitialSyllableWords(int maxNum, int maxChoices) {
+    std::map<std::string, std::map<std::string, std::string>> InitialSyllableMap = {
+        {
+            {"be",
+                {
+                    {"beach", "english/sounds/b.wav"},
+                    {"beard", "english/sounds/b.wav"},
+                    {"been", "english/sounds/b.wav"},
+                    {"beetroot", "english/sounds/b.wav"},
+                    {"beast", "english/sounds/b.wav"},
+                    {"beat", "english/sounds/b.wav"}
+                }},
+            {"fr",
+                {
+                    {"french", "english/sounds/f.wav"},
+                    {"fruit", "english/sounds/f.wav"},
+                    {"frown", "english/sounds/f.wav"},
+                    {"free", "english/sounds/f.wav"},
+                    {"frisbee", "english/sounds/f.wav"},
+                    {"fringe", "english/sounds/f.wav"}
+                }},
+            {"gr",
+                {
+                    {"greet", "english/sounds/g.wav"},
+                    {"great", "english/sounds/g.wav"},
+                    {"grow", "english/sounds/g.wav"},
+                    {"grease", "english/sounds/g.wav"},
+                    {"growl", "english/sounds/g.wav"},
+                    {"grunge", "english/sounds/g.wav"}
+                }},
+            {"sc",
+                {
+                    {"scare", "english/sounds/s.wav"},
+                    {"scowl", "english/sounds/s.wav"},
+                    {"scream", "english/sounds/s.wav"},
+                    {"scone", "english/sounds/s.wav"},
+                    {"scarf", "english/sounds/s.wav"},
+                    {"scam", "english/sounds/s.wav"}
+                }},
+            {"ar",
+                {
+                    {"art", "english/sounds/a.wav"},
+                    {"argue", "english/sounds/a.wav"},
+                    {"arm", "english/sounds/a.wav"},
+                    {"arson", "english/sounds/a.wav"},
+                    {"arbor", "english/sounds/a.wav"},
+                    {"ark", "english/sounds/a.wav"}
+                }}
+        }
+    };
+    std::map<std::string, std::map<std::string, std::string>> data;
+    for (std::map<std::string, std::map<std::string, std::string>>::iterator it=InitialSyllableMap.begin(); it!=InitialSyllableMap.end(); ++it) {
+        std::map<std::string, std::string> innerData;
+        for(std::map<std::string, std::string>::iterator inIt=it->second.begin(); inIt!=it->second.end(); ++inIt) {
+            innerData[inIt->first] = inIt->second;
+            if(innerData.size() >= maxChoices) {
+                break;
+            }
+        }
+        data[it->first] = innerData;
+        if(data.size() >= maxNum) {
+            break;
+        }
+    }
+    return data;
+}

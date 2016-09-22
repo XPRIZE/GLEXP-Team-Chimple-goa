@@ -2,6 +2,7 @@
 var xc = xc || {};
 
 xc.playLayer = cc.Layer.extend( {
+   gameName: "JumpOnWords",
    group : [], 
    ballref:[],
    square:[],
@@ -172,11 +173,7 @@ xc.playLayer = cc.Layer.extend( {
         var square8 = this.bg.node.getChildByName("box_11_0_0");
         this.square.push(square8.getPosition());
 
-        var square9 = this.bg.node.getChildByName("box_10_1_0");
-        this.square.push(square9.getPosition());
-
-        var square10 = this.bg.node.getChildByName("box_11_1_0");
-        this.square.push(square10.getPosition());
+       
 
       
 
@@ -251,7 +248,7 @@ xc.playLayer = cc.Layer.extend( {
 
       group =  this.generateRandomLetters(10,this.array);
       for( var i=0; i<10 ;i++){
-      var alpha = cc.LabelTTF.create(group[i], "res/fonts/Marker Felt.ttf", 130);
+      var alpha = cc.LabelTTF.create(group[i], 'Arial', 130);
       this.addChild(alpha);
       alpha.setPosition(cc.p(this.ballref[i].x,this.ballref[i].y));
       alpha.setAnchorPoint(0.5,0.5);
@@ -446,15 +443,15 @@ this.remove();
          cc.log("hiint");
         this.decrementScore();
         this.random = Math.floor(Math.random()*(this.dict.length-1));  
-        var nameLabel = new cc.LabelTTF(this.dict[this.random].toUpperCase(),"res/fonts/Marker Felt.ttf", 100 );
+        var nameLabel = new cc.LabelTTF(this.dict[this.random].toUpperCase(),'Arial', 100 );
 		nameLabel.setAnchorPoint(0.5,0.5); 
         nameLabel.x = cc.winSize.width - 1400;
-        nameLabel.y = cc.winSize.height - 1200; 
-        nameLabel.setColor(cc.color(250,250,250));
+        nameLabel.y = cc.winSize.height - 1030; 
+        nameLabel.setColor(cc.color(0,0,0));
         this.addChild(nameLabel, 1);
         this.scheduleOnce(function(){
            this.removeChild(nameLabel);
-        },2);
+        },3);
 
      if(this.dict.length == 0)
      {
@@ -491,7 +488,7 @@ this.remove();
      incrementScore : function()
   {
          self.correct++;
-    this.score += 1;
+    this.score += 2;
     scoreLabel.setString(""+ this.score);
     if(this.score >= 10)
     {
@@ -519,7 +516,7 @@ this.remove();
          if (cc.rectContainsPoint(targetRectangle, location))
                    {
                        if(target.id == "Ball1" && self.word.length < 10){ 
-                        var letter = new cc.LabelTTF (group[0], "res/fonts/Marker Felt.ttf", 130);
+                        var letter = new cc.LabelTTF (group[0], 'Arial' , 130);
                         self.addChild(letter,2);
                         letter.setPosition(cc.p(self.square[self.index].x,self.square[self.index].y));
                         letter.setAnchorPoint(0.5,0.5);
@@ -531,7 +528,7 @@ this.remove();
                         cc.log("hello =", self.word); 
                        }
                         if(target.id == "Ball2"&& self.word.length < 10){ 
-                         var letter =  new cc.LabelTTF(group[1], "res/fonts/Marker Felt.ttf", 130);
+                         var letter =  new cc.LabelTTF(group[1],'Arial', 130);
                         self.addChild(letter,2);
                         letter.setPosition(cc.p(self.square[self.index].x,self.square[self.index].y));
                         letter.setAnchorPoint(0.5,0.5);
@@ -543,7 +540,7 @@ this.remove();
                           
                        }
                         if(target.id == "Ball3"&& self.word.length < 10){ 
-                         var letter = new cc.LabelTTF(group[2], "res/fonts/Marker Felt.ttf", 130);
+                         var letter = new cc.LabelTTF(group[2],'Arial', 130);
                         self.addChild(letter,2);
                         letter.setPosition(cc.p(self.square[self.index].x,self.square[self.index].y));
                         letter.setAnchorPoint(0.5,0.5);
@@ -555,7 +552,7 @@ this.remove();
                           
                        }
                         if(target.id == "Ball4"&& self.word.length < 10){ 
-                         var letter = new cc.LabelTTF(group[3], "res/fonts/Marker Felt.ttf", 130);
+                         var letter = new cc.LabelTTF(group[3],'Arial', 130);
                         self.addChild(letter,2);
                         letter.setPosition(cc.p(self.square[self.index].x,self.square[self.index].y));
                         letter.setAnchorPoint(0.5,0.5);
@@ -567,7 +564,7 @@ this.remove();
                           
                        }
                         if(target.id == "Ball5"&& self.word.length < 10){ 
-                         var letter = new cc.LabelTTF(group[4], "res/fonts/Marker Felt.ttf", 130);
+                         var letter = new cc.LabelTTF(group[4],'Arial', 130);
                         self.addChild(letter,2);
                         letter.setPosition(cc.p(self.square[self.index].x,self.square[self.index].y));
                         letter.setAnchorPoint(0.5,0.5);
@@ -579,7 +576,7 @@ this.remove();
                           
                        }
                         if(target.id == "Ball6"&& self.word.length < 10){ 
-                        var letter = new cc.LabelTTF(group[5], "res/fonts/Marker Felt.ttf", 130);
+                        var letter = new cc.LabelTTF(group[5],'Arial', 130);
                         self.addChild(letter,2);
                         letter.setPosition(cc.p(self.square[self.index].x,self.square[self.index].y));
                         letter.setAnchorPoint(0.5,0.5);
@@ -592,7 +589,7 @@ this.remove();
                        }
 
                          if(target.id == "Ball7"&& self.word.length < 10){ 
-                        var letter = new cc.LabelTTF(group[6], "res/fonts/Marker Felt.ttf", 130);
+                        var letter = new cc.LabelTTF(group[6],'Arial', 130);
                         self.addChild(letter,2);
                         letter.setPosition(cc.p(self.square[self.index].x,self.square[self.index].y));
                         letter.setAnchorPoint(0.5,0.5);
@@ -604,7 +601,7 @@ this.remove();
                        }
 
                          if(target.id == "Ball8"&& self.word.length < 10){ 
-                        var letter = new cc.LabelTTF(group[7], "res/fonts/Marker Felt.ttf", 130);
+                        var letter = new cc.LabelTTF(group[7], 'Arial', 130);
                         self.addChild(letter,2);
                         letter.setPosition(cc.p(self.square[self.index].x,self.square[self.index].y));
                         letter.setAnchorPoint(0.5,0.5);
@@ -617,7 +614,7 @@ this.remove();
                        }
 
                          if(target.id == "Ball9"&& self.word.length < 10){ 
-                        var letter = new cc.LabelTTF(group[8], "res/fonts/Marker Felt.ttf", 130);
+                        var letter = new cc.LabelTTF(group[8],'Arial', 130);
                         self.addChild(letter,2);
                         letter.setPosition(cc.p(self.square[self.index].x,self.square[self.index].y));
                         letter.setAnchorPoint(0.5,0.5);
@@ -630,7 +627,7 @@ this.remove();
                        }
 
                          if(target.id == "Ball10"&& self.word.length < 10){ 
-                        var letter = new cc.LabelTTF(group[9], "res/fonts/Marker Felt.ttf", 130);
+                        var letter = new cc.LabelTTF(group[9],'Arial', 130);
                         self.addChild(letter,2);
                         letter.setPosition(cc.p(self.square[self.index].x,self.square[self.index].y));
                         letter.setAnchorPoint(0.5,0.5);

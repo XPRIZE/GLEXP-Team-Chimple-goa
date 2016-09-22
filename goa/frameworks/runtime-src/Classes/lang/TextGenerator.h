@@ -23,6 +23,11 @@ public:
     std::string generateASentence();
     std::vector<std::string> getAllChars();
     std::vector<std::string> getValidCombinations(std::string chars, int maxLength);
+    std::map<std::string, std::string> getSynonyms(int maxNum);
+    std::map<std::string, std::string> getAntonyms(int maxNum);
+    std::map<std::string, std::string> getHomonyms(int maxNum);
+    std::map<std::string, std::map<std::string, std::string>> getInitialSyllableWords(int maxNum, int maxChoices);
+    
 protected:
     std::map<int, int> getRandomLocations(int numLoc, int totalNum);
 

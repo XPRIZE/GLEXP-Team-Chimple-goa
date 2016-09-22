@@ -161,7 +161,7 @@ xc.Bubble_Number = cc.Layer.extend({
         this.angle = 0;
       
         if(this.player.bubble.tiletype == undefined){
-            this.player.bubble.tiletype = Math.floor(this.getRandomArbitrary(0,bubblecolors)); ;
+            this.player.bubble.tiletype = Math.floor(this.getRandomArbitrary(0,bubblecolors));
         }
 
         this.bubblePlayer =  new cc.Sprite(cc.spriteFrameCache.getSpriteFrame(imageSprite[this.player.bubble.tiletype]+".png"));
@@ -173,7 +173,7 @@ xc.Bubble_Number = cc.Layer.extend({
         this.bubblePlayer.addChild(this.letterPlayer);
         
         if(this.player.nextbubble.tiletype == undefined){
-            this.player.nextbubble.tiletype = Math.floor(this.getRandomArbitrary(0,bubblecolors)); ;
+            this.player.nextbubble.tiletype = Math.floor(this.getRandomArbitrary(0,bubblecolors));
         }
         
         this.nextBubblePlayer =  new cc.Sprite(cc.spriteFrameCache.getSpriteFrame(imageSprite[this.player.nextbubble.tiletype]+".png"));
@@ -388,7 +388,9 @@ xc.Bubble_Number = cc.Layer.extend({
         this.player.bubble.tiletype = this.player.tiletype;
         // Set the gamestate
         this.setGameState(this.gamestates.shootbubble);
-        
+         if(this.extendLetter != undefined){ 
+            this.extendLetter.setString(""+letterSprite[this.player.nextbubble.tiletype]);
+          }
       },
         // Draw the bubble
       drawBubble : function(x, y, index) {
@@ -596,9 +598,9 @@ xc.Bubble_Number = cc.Layer.extend({
 
 
     stateRemoveCluster : function() {
-       if(this.extendLetter != undefined){ 
-         this.extendLetter.setString(""+letterSprite[this.player.bubble.tiletype]);
-       }
+    //    if(this.extendLetter != undefined){ 
+    //      this.extendLetter.setString(""+letterSprite[this.player.bubble.tiletype]);
+    //    }
         let self  = this;
         // console.log("done 622");      
         if (this.animationstate == 0) {

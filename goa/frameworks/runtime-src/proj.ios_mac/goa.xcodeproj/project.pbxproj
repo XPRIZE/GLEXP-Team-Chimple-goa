@@ -15,6 +15,12 @@
 		1AD7E0A918C9DBE3004817A6 /* main.js in Resources */ = {isa = PBXBuildFile; fileRef = 1A6BF21418C9DB5900FB0E1C /* main.js */; };
 		1AE159EC18C9DF3600FCA372 /* project.json in Resources */ = {isa = PBXBuildFile; fileRef = 1A1A081B18C9DF05005C6854 /* project.json */; };
 		294D0D681D0D56F400F7F5D4 /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 294D0D671D0D56F400F7F5D4 /* CoreText.framework */; };
+		3740AD2B1D910EB2005BDCBA /* Memory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3740AD291D910EB2005BDCBA /* Memory.cpp */; };
+		3740AD2E1D910EBA005BDCBA /* Memory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3740AD291D910EB2005BDCBA /* Memory.cpp */; };
+		3740AD351D912A8B005BDCBA /* Stack.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3740AD331D912A8B005BDCBA /* Stack.cpp */; };
+		3740AD381D912A8E005BDCBA /* Stack.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3740AD331D912A8B005BDCBA /* Stack.cpp */; };
+		3740AD3D1D912CFD005BDCBA /* Circle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3740AD3B1D912CFD005BDCBA /* Circle.cpp */; };
+		3740AD401D912D4A005BDCBA /* Circle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3740AD3B1D912CFD005BDCBA /* Circle.cpp */; };
 		37ABE38F1D759E60004AAD7A /* start.js in Resources */ = {isa = PBXBuildFile; fileRef = 37ABE38E1D759E60004AAD7A /* start.js */; };
 		37ABE3921D759F10004AAD7A /* start.js in Resources */ = {isa = PBXBuildFile; fileRef = 37ABE38E1D759E60004AAD7A /* start.js */; };
 		502380DC17EBB88200990C9B /* libcurl.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 502380DB17EBB88200990C9B /* libcurl.dylib */; };
@@ -324,6 +330,12 @@
 		1A96A4F2174A3432008653A9 /* libcurl.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libcurl.a; path = "../../cocos2d-x/cocos2dx/platform/third_party/ios/libraries/libcurl.a"; sourceTree = "<group>"; };
 		1AC6FB34180E9ACB004C840B /* cocos2d_libs.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = cocos2d_libs.xcodeproj; path = "../../cocos2d-x/build/cocos2d_libs.xcodeproj"; sourceTree = "<group>"; };
 		294D0D671D0D56F400F7F5D4 /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.3.sdk/System/Library/Frameworks/CoreText.framework; sourceTree = DEVELOPER_DIR; };
+		3740AD291D910EB2005BDCBA /* Memory.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Memory.cpp; sourceTree = "<group>"; };
+		3740AD2A1D910EB2005BDCBA /* Memory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Memory.h; sourceTree = "<group>"; };
+		3740AD331D912A8B005BDCBA /* Stack.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Stack.cpp; sourceTree = "<group>"; };
+		3740AD341D912A8B005BDCBA /* Stack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Stack.h; sourceTree = "<group>"; };
+		3740AD3B1D912CFD005BDCBA /* Circle.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Circle.cpp; sourceTree = "<group>"; };
+		3740AD3C1D912CFD005BDCBA /* Circle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Circle.h; sourceTree = "<group>"; };
 		37ABE38E1D759E60004AAD7A /* start.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = start.js; sourceTree = "<group>"; };
 		502380DB17EBB88200990C9B /* libcurl.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libcurl.dylib; path = usr/lib/libcurl.dylib; sourceTree = SDKROOT; };
 		5091731417ECDF7A00D62437 /* Icon-29.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-29.png"; path = "ios/Icon-29.png"; sourceTree = "<group>"; };
@@ -831,6 +843,12 @@
 		F352471A1D6D9D1A0077C333 /* mini_games */ = {
 			isa = PBXGroup;
 			children = (
+				3740AD3B1D912CFD005BDCBA /* Circle.cpp */,
+				3740AD3C1D912CFD005BDCBA /* Circle.h */,
+				3740AD331D912A8B005BDCBA /* Stack.cpp */,
+				3740AD341D912A8B005BDCBA /* Stack.h */,
+				3740AD291D910EB2005BDCBA /* Memory.cpp */,
+				3740AD2A1D910EB2005BDCBA /* Memory.h */,
 				F36840BA1D8A812F00969162 /* Alphamole.cpp */,
 				F36840BB1D8A812F00969162 /* Alphamole.h */,
 				F36840BC1D8A812F00969162 /* AlphamoleLevel.cpp */,
@@ -1187,6 +1205,7 @@
 				F35247E11D6D9D1A0077C333 /* PatchTheWallScene.cpp in Sources */,
 				F352485B1D6D9D1A0077C333 /* State.cpp in Sources */,
 				F35247FF1D6D9D1A0077C333 /* PhotoCaptureScene.cpp in Sources */,
+				3740AD2E1D910EBA005BDCBA /* Memory.cpp in Sources */,
 				F35248191D6D9D1A0077C333 /* ScoreBoardContent.cpp in Sources */,
 				F35247D71D6D9D1A0077C333 /* CrossTheBridgeScene.cpp in Sources */,
 				F35247F71D6D9D1A0077C333 /* SafariAnalyticsManager.cpp in Sources */,
@@ -1195,7 +1214,9 @@
 				F35248271D6D9D1A0077C333 /* WordSprite.cpp in Sources */,
 				F35248031D6D9D1A0077C333 /* AlphabetGrid.cpp in Sources */,
 				F35247D51D6D9D1A0077C333 /* Chain.cpp in Sources */,
+				3740AD381D912A8E005BDCBA /* Stack.cpp in Sources */,
 				C06E23CC18CEFE680093C81A /* main.cpp in Sources */,
+				3740AD401D912D4A005BDCBA /* Circle.cpp in Sources */,
 				F35248371D6D9D1A0077C333 /* WalkingState.cpp in Sources */,
 				F3D201A81D740C7C00FDB750 /* Pop.cpp in Sources */,
 				F352482F1D6D9D1A0077C333 /* FallingState.cpp in Sources */,
@@ -1270,6 +1291,7 @@
 				F35247C41D6D9D1A0077C333 /* AlphamonFeedLevelScene.cpp in Sources */,
 				F35248361D6D9D1A0077C333 /* WalkingState.cpp in Sources */,
 				F35247FE1D6D9D1A0077C333 /* PhotoCaptureScene.cpp in Sources */,
+				3740AD2B1D910EB2005BDCBA /* Memory.cpp in Sources */,
 				F352480C1D6D9D1A0077C333 /* PegWord.cpp in Sources */,
 				F35248001D6D9D1A0077C333 /* Alphabet.cpp in Sources */,
 				F35247F81D6D9D1A0077C333 /* TextGenerator.cpp in Sources */,
@@ -1280,6 +1302,7 @@
 				F352482C1D6D9D1A0077C333 /* SelectAlphamonScene.cpp in Sources */,
 				F352483E1D6D9D1A0077C333 /* MessageSender.cpp in Sources */,
 				F35247F41D6D9D1A0077C333 /* LangUtil.cpp in Sources */,
+				3740AD351D912A8B005BDCBA /* Stack.cpp in Sources */,
 				F35248041D6D9D1A0077C333 /* CharGenerator.cpp in Sources */,
 				D4545227156E28EF00887EB5 /* AppDelegate.cpp in Sources */,
 				F35247DE1D6D9D1A0077C333 /* jazz.cpp in Sources */,
@@ -1326,6 +1349,7 @@
 				F352483C1D6D9D1A0077C333 /* ExternalSkeletonCharacter.cpp in Sources */,
 				F35248101D6D9D1A0077C333 /* WordScene.cpp in Sources */,
 				F35248581D6D9D1A0077C333 /* sqlite3.c in Sources */,
+				3740AD3D1D912CFD005BDCBA /* Circle.cpp in Sources */,
 				F35248381D6D9D1A0077C333 /* Sqlite3Helper.cpp in Sources */,
 				F35247E61D6D9D1A0077C333 /* Spirograph.cpp in Sources */,
 				F352481C1D6D9D1A0077C333 /* ScrollableGameMapScene.cpp in Sources */,
