@@ -29,13 +29,14 @@ protected:
 	std::vector <std::string> _mapKey;
 	cocos2d::Vector <cocos2d::Sprite *> _choiceButton;
 	cocos2d::Vector <cocos2d::Label *> _choiceLabel;
-	cocos2d::Node * _character, * _otherCharacter;
+	cocos2d::Node * _character, * _otherCharacter, *_bg;
 	void wordCheck();
 	MenuContext * menu;
 	void myCharacterJumping();
 	void otherCharacterJumping();
 	void wordGenerateWithOptions();
 	std::string _gameWord;
+	int _jumpCount, _enemyJumpCount;
 	virtual bool onTouchBegan(cocos2d::Touch *touch, cocos2d::Event * event);
 	
 };
