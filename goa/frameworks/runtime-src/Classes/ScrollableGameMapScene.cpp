@@ -38,6 +38,8 @@
 #include "mini_games/Memory.h"
 #include "mini_games/Dash.h"
 #include "mini_games/Circle.h"
+#include "mini_games/Stack.h"
+
 
 USING_NS_CC;
 
@@ -170,7 +172,7 @@ void ScrollableGameMapScene::gameSelected(Ref* pSender, ui::Widget::TouchEventTy
 				Director::getInstance()->replaceScene(Dash::createScene());
 			} else if(clickedButton->getName() == PATCH_THE_WALL) {
 //                Director::getInstance()->replaceScene(PatchTheWall::createScene());
-                ScriptingCore::getInstance()->runScript("src/start/decomon.js");
+                ScriptingCore::getInstance()->runScript("src/start/Pinata.js");
             } else  if (clickedButton->getName() == CAT) {
 				Director::getInstance()->replaceScene(CatGame::createScene());
 				//ScriptingCore::getInstance()->runScript("src/start/alphamole.js");
@@ -206,7 +208,7 @@ void ScrollableGameMapScene::gameSelected(Ref* pSender, ui::Widget::TouchEventTy
             } else if(clickedButton->getName() == JAZZ) {
                 Director::getInstance()->replaceScene(jazz::createScene());
             } else if(clickedButton->getName() == JASMINE) {
-                Director::getInstance()->replaceScene(Jasmin_Mainfile::createScene());
+                Director::getInstance()->replaceScene(Stack::createScene());
             } else if(clickedButton->getName() == CAT) {
                 Director::getInstance()->replaceScene(CatGame::createScene());
             } else if(clickedButton->getName() == STORY_TELLING) {
