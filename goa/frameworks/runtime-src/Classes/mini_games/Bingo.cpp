@@ -169,7 +169,7 @@ void Bingo::addEvents(Sprite* clickedObject)
 					if (targetName == _boxContainer[i][j]->getName()) 
 					{
 						_boxContainer[i][j]->getEventDispatcher()->removeEventListener(listener);
-						CCLOG("listener removed %s" , targetName);
+//						CCLOG("listener removed %s" , targetName);
 						_charAnimContainer[i][j]->gotoFrameAndPlay(0, true);
 
 						/*auto sequence_E = ScaleTo::create(1, 0.5);
