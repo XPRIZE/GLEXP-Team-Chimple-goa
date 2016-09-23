@@ -248,6 +248,10 @@
 		F3D201A41D7409B400FDB750 /* Pop.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F3D201A11D7409B400FDB750 /* Pop.cpp */; };
 		F3D201A71D740C6C00FDB750 /* Train.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F3D2019F1D7409B400FDB750 /* Train.cpp */; };
 		F3D201A81D740C7C00FDB750 /* Pop.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F3D201A11D7409B400FDB750 /* Pop.cpp */; };
+		F3F7ED621D93DAFE00727A7C /* Dash.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F3F7ED601D93DAFE00727A7C /* Dash.cpp */; };
+		F3F7ED631D93DAFE00727A7C /* Dash.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F3F7ED601D93DAFE00727A7C /* Dash.cpp */; };
+		F3F7ED6C1D94F22F00727A7C /* Bingo.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F3F7ED6B1D94F22F00727A7C /* Bingo.cpp */; };
+		F3F7ED6D1D94F22F00727A7C /* Bingo.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F3F7ED6B1D94F22F00727A7C /* Bingo.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -562,6 +566,10 @@
 		F3D201A01D7409B400FDB750 /* Train.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Train.h; sourceTree = "<group>"; };
 		F3D201A11D7409B400FDB750 /* Pop.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Pop.cpp; sourceTree = "<group>"; };
 		F3D201A21D7409B400FDB750 /* Pop.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Pop.h; sourceTree = "<group>"; };
+		F3F7ED601D93DAFE00727A7C /* Dash.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Dash.cpp; sourceTree = "<group>"; };
+		F3F7ED611D93DAFE00727A7C /* Dash.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Dash.h; sourceTree = "<group>"; };
+		F3F7ED6A1D94F22F00727A7C /* Bingo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Bingo.h; sourceTree = "<group>"; };
+		F3F7ED6B1D94F22F00727A7C /* Bingo.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Bingo.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -843,6 +851,10 @@
 		F352471A1D6D9D1A0077C333 /* mini_games */ = {
 			isa = PBXGroup;
 			children = (
+				F3F7ED6A1D94F22F00727A7C /* Bingo.h */,
+				F3F7ED6B1D94F22F00727A7C /* Bingo.cpp */,
+				F3F7ED601D93DAFE00727A7C /* Dash.cpp */,
+				F3F7ED611D93DAFE00727A7C /* Dash.h */,
 				3740AD3B1D912CFD005BDCBA /* Circle.cpp */,
 				3740AD3C1D912CFD005BDCBA /* Circle.h */,
 				3740AD331D912A8B005BDCBA /* Stack.cpp */,
@@ -1185,6 +1197,7 @@
 				F35248211D6D9D1A0077C333 /* GestureLayer.cpp in Sources */,
 				F35248091D6D9D1A0077C333 /* Grapheme.cpp in Sources */,
 				F35247C31D6D9D1A0077C333 /* MapScene.cpp in Sources */,
+				F3F7ED6D1D94F22F00727A7C /* Bingo.cpp in Sources */,
 				F35247FB1D6D9D1A0077C333 /* WordInfo.cpp in Sources */,
 				F352482B1D6D9D1A0077C333 /* HPMeter.cpp in Sources */,
 				F35248511D6D9D1A0077C333 /* StateMachine.cpp in Sources */,
@@ -1249,6 +1262,7 @@
 				F35247EB1D6D9D1A0077C333 /* TraceScene.cpp in Sources */,
 				F35247E31D6D9D1A0077C333 /* SmashTheRockLevelScene.cpp in Sources */,
 				F352480D1D6D9D1A0077C333 /* PegWord.cpp in Sources */,
+				F3F7ED631D93DAFE00727A7C /* Dash.cpp in Sources */,
 				F35247ED1D6D9D1A0077C333 /* Wembley.cpp in Sources */,
 				F35248291D6D9D1A0077C333 /* Alphamon.cpp in Sources */,
 				F35248011D6D9D1A0077C333 /* Alphabet.cpp in Sources */,
@@ -1279,6 +1293,7 @@
 				F35247F61D6D9D1A0077C333 /* SafariAnalyticsManager.cpp in Sources */,
 				F35247FA1D6D9D1A0077C333 /* WordInfo.cpp in Sources */,
 				F35247DA1D6D9D1A0077C333 /* Jasmin_Listenerfile.cpp in Sources */,
+				F3F7ED621D93DAFE00727A7C /* Dash.cpp in Sources */,
 				F35248201D6D9D1A0077C333 /* GestureLayer.cpp in Sources */,
 				F35248021D6D9D1A0077C333 /* AlphabetGrid.cpp in Sources */,
 				F352484E1D6D9D1A0077C333 /* MessageContent.cpp in Sources */,
@@ -1352,6 +1367,7 @@
 				3740AD3D1D912CFD005BDCBA /* Circle.cpp in Sources */,
 				F35248381D6D9D1A0077C333 /* Sqlite3Helper.cpp in Sources */,
 				F35247E61D6D9D1A0077C333 /* Spirograph.cpp in Sources */,
+				F3F7ED6C1D94F22F00727A7C /* Bingo.cpp in Sources */,
 				F352481C1D6D9D1A0077C333 /* ScrollableGameMapScene.cpp in Sources */,
 				F35248301D6D9D1A0077C333 /* JumpingState.cpp in Sources */,
 				F36840BE1D8A812F00969162 /* Alphamole.cpp in Sources */,
