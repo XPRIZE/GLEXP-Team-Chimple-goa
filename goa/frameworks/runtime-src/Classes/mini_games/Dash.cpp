@@ -59,7 +59,8 @@ bool Dash::init()
 
 	_jumpCount = 0;
 	_enemyJumpCount = 0;
-
+	_gameScore = 0;
+	_enemyScore = 0;
 	auto spritecache1 = SpriteFrameCache::getInstance();
 	spritecache1->addSpriteFramesWithFile("dash/dash.plist");
 
@@ -91,9 +92,21 @@ bool Dash::init()
 			obj1->setPositionX((visibleSize.width / 5) * i +(obj1->getContentSize().width/2)*j);
 			obj1->setPositionY(visibleSize.height * 0.4 +( (obj1->getContentSize().height/3) * j));
 			obj1->setAnchorPoint(Vec2(1, 0.5));
-			xx = (visibleSize.width / 5) * i + (obj1->getContentSize().width / 2)*j;
+			xx = (visibleSize.width / 5) * (i+1) + (obj1->getContentSize().width / 2)*j;
 			yy = (visibleSize.height * 0.4 + ((obj1->getContentSize().height / 3) * j));
 			_stepLayer->addChild(obj1);
+			if (i == 14) {
+				auto lastStep = Sprite::createWithSpriteFrameName("dash/step_winning.png");
+				lastStep->setPositionX(xx);
+				lastStep->setPositionY(yy - lastStep->getContentSize().height/3);
+				lastStep->setAnchorPoint(Vec2(1, 0.5));
+				_stepLayer->addChild(lastStep);
+				auto flag = Sprite::createWithSpriteFrameName("dash/flag.png");
+				flag->setPositionX(lastStep->getContentSize().width/2);
+				flag->setPositionY(lastStep->getContentSize().height);
+				flag->setAnchorPoint(Vec2(0, 0));
+				lastStep->addChild(flag);
+			}
 		}
 	}
 
@@ -108,8 +121,8 @@ bool Dash::init()
 	for (int j = 0; j < 2; j++) {  
 		for (int i = 0; i <2; i++) { 
 			auto obj1 = Sprite::createWithSpriteFrameName("dash/big_button.png");
-			float xx = visibleSize.width - (obj1->getContentSize().width * 2);
-			obj1->setPositionX((xx/3) *(i+1) + obj1->getContentSize().width/2 *(i+1) + obj1->getContentSize().width / 2 * (i));
+			float xp = visibleSize.width - (obj1->getContentSize().width * 2);
+			obj1->setPositionX((xp/3) *(i+1) + obj1->getContentSize().width/2 *(i+1) + obj1->getContentSize().width / 2 * (i));
 			obj1->setPositionY(obj1->getContentSize().height/1.3 + (visibleSize.height * 0.14) * (j));
 			this->addChild(obj1);
 			_choiceButton.pushBack(obj1);
@@ -123,17 +136,18 @@ bool Dash::init()
 	_stepLayer->addChild(_otherCharacter);
 
 
-	auto flag = Sprite::createWithSpriteFrameName("dash/flag.png");
-	flag->setPositionX(xx + 500);
-	flag->setPositionY(yy);
-	_stepLayer->addChild(flag);
+	
 
 
 	wordGenerateWithOptions();
 
 
-	auto defaultCharacter = CallFunc::create(CC_CALLBACK_0(Dash::otherCharacterJumping, this));
-	runAction(RepeatForever::create(Sequence::create(DelayTime::create(10 + (rand() % 60) / 30.0), defaultCharacter, NULL)));
+	//auto defaultCharacter = CallFunc::create(CC_CALLBACK_0(Dash::otherCharacterJumping, this));
+	//randomly calling other character(If multiplayer Mode is off)
+	runAction(RepeatForever::create(Sequence::create(DelayTime::create(10 + (rand() % 60) / 30.0), CallFunc::create([=]() {
+		_enemyScore++;
+		updatePlayerPosition("enemy", _enemyScore);
+	}), NULL)));
 	return true;
 }
 
@@ -144,41 +158,34 @@ void Dash::wordCheck()
 	mouthTimeline->play("jumping", false);
 }
 
-void Dash::myCharacterJumping()
+void Dash::myCharacterJumping(int jumpCount)
 {
-	_jumpCount++;
+	//_jumpCount++;
 	Size visibleSize = Director::getInstance()->getVisibleSize();
 	auto jump = JumpBy::create(2, Vec2(0, 0), 200, 1);
 	_character->runAction(jump);
 	wordCheck();
-	auto moveTo = MoveBy::create(2, Vec2(-(visibleSize.width / 5), 0));
+	auto moveTo = MoveBy::create(2, Vec2(-(visibleSize.width / 5) - (jumpCount - _jumpCount), 0));
 	_stepLayer->runAction(Sequence::create(moveTo, CallFunc::create([=]() {
+		_jumpCount++;
+		if (_jumpCount == 14) {
+			//mycharcter won the game
+			menu->showScore();
+		}
 		wordGenerateWithOptions();
 		
 	}), NULL));
 
-	if (_jumpCount > 10) {
-		auto moveTo = MoveBy::create(2, Vec2(-(visibleSize.width / 5), 0));
-		_bg->getChildByName("Panel_1")->getChildByName("extra")->setVisible(true);
-		///->runAction(moveTo);
-		//_stepLayer->runAction(moveTo);
-		_bg->getChildByName("Panel_1")->getChildByName("extra")->runAction(Sequence::create(moveTo, CallFunc::create([=]() {
-			if (_jumpCount == 14) {
-				//my character win!!
-				menu->showScore();
-			}
-			 }), NULL));
-	}
+	
 }
 
 void Dash::myCharacterEyeBlinking()
 {
-	_character->runAction(_mycharacterAnim);
-	_mycharacterAnim->play("eye_blinking", false);
+
 
 }
 
-void Dash::otherCharacterJumping()
+void Dash::otherCharacterJumping(int jumpCount)
 {
 	_enemyJumpCount++;
 	Size visibleSize = Director::getInstance()->getVisibleSize();
@@ -189,6 +196,23 @@ void Dash::otherCharacterJumping()
 		menu->showScore();
 	}
 }
+
+
+void Dash::updatePlayerPosition(std::string playerName, int stepPosition)
+{	
+	/* if playerName is my character jumping my character 
+	else
+		other character is jumping
+	*/
+
+	if (playerName.compare("mycharacter") == 0) {
+		myCharacterJumping(stepPosition);
+	 }else
+	{
+		otherCharacterJumping(stepPosition);
+	}
+}
+
 
 void Dash::wordGenerateWithOptions()
 {
@@ -242,8 +266,9 @@ bool Dash::onTouchBegan(cocos2d::Touch * touch, cocos2d::Event * event)
 			for (int i = 0; i < _choiceLabel.size(); i++) {
 				this->removeChild(_choiceLabel.at(i));
 			}
+			_gameScore++;
 			_choiceLabel.clear();
-			myCharacterJumping();
+			updatePlayerPosition("mycharacter",_gameScore);
 		}
 		else {
 			auto sadAnimation = CSLoader::createTimeline(("dash/character.csb"));

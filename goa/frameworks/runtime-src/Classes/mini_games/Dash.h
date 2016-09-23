@@ -23,7 +23,9 @@ public:
 	static Dash* create();
 	virtual bool init();
 	static cocos2d::Scene* createScene();
+	void updatePlayerPosition(std::string playerName, int stepPosition);
 protected:
+	int _gameScore, _enemyScore;
 	cocos2d::Layer * _stepLayer;
 	cocos2d::Label * _topLabel;
 	std::map<std::string, std::string> _synonyms;
@@ -34,10 +36,11 @@ protected:
 	void wordCheck();
 	MenuContext * menu;
 	cocostudio::timeline::ActionTimeline * _mycharacterAnim;
-	void myCharacterJumping();
+	void myCharacterJumping(int jumpCount);
 	void myCharacterEyeBlinking();
-	void otherCharacterJumping();
+	void otherCharacterJumping(int jumpCount);
 	void wordGenerateWithOptions();
+
 	std::string _gameWord;
 	int _jumpCount, _enemyJumpCount;
 	virtual bool onTouchBegan(cocos2d::Touch *touch, cocos2d::Event * event);
