@@ -97,6 +97,7 @@ LOCAL_SRC_FILES := hellojavascript/main.cpp \
 					../../Classes/ScrollableGameMapScene.cpp \
 					../../Classes/PhotoCaptureScene.cpp \
 					../../Classes/mini_games/Spirograph.cpp	\
+					../../Classes/mini_games/Bingo.cpp \
 					./src/util/logger/LTKLogger.cpp	\
 					./src/util/logger/logger.cpp	\
 					./src/common/LTKCaptureDevice.cpp \
