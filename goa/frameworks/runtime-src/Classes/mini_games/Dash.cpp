@@ -9,7 +9,6 @@
 
 
 #include "Dash.h"
-#include "editor-support/cocostudio/CocoStudio.h"
 #include "../lang/LangUtil.h"
 #include "../lang/TextGenerator.h"
 
@@ -58,12 +57,18 @@ bool Dash::init()
 	Size visibleSize = Director::getInstance()->getVisibleSize();
 	Vec2 origin = Director::getInstance()->getVisibleOrigin();
 
-
+	_jumpCount = 0;
+	_enemyJumpCount = 0;
+	_gameScore = 0;
+	_enemyScore = 0;
 	auto spritecache1 = SpriteFrameCache::getInstance();
 	spritecache1->addSpriteFramesWithFile("dash/dash.plist");
 
-	auto bg = CSLoader::createNode("dash/DashScene.csb");
-	this->addChild(bg);
+	_bg = CSLoader::createNode("dash/DashScene.csb");
+	if (visibleSize.width > 2560) {
+		_bg->setPositionX((visibleSize.width - 2560) / 2);
+	}
+	this->addChild(_bg);
 
 	_synonyms = TextGenerator::getInstance()->getSynonyms(5);
 	//CCLOG("synonyms = %s", _synonyms.at(1));
@@ -78,14 +83,30 @@ bool Dash::init()
 	_stepLayer->setPositionX(0);
 	this->addChild(_stepLayer);
 
-	int char_height = 500;
+	float xx;
+	float yy;
+
 	for (int j = 4; j > 0; j--) {  // j reffer to number of Players
 		for (int i = 1; i < 15; i++) {  // i reffer to number of steps (words)
 			auto obj1 = Sprite::createWithSpriteFrameName("dash/step.png");
 			obj1->setPositionX((visibleSize.width / 5) * i +(obj1->getContentSize().width/2)*j);
 			obj1->setPositionY(visibleSize.height * 0.4 +( (obj1->getContentSize().height/3) * j));
 			obj1->setAnchorPoint(Vec2(1, 0.5));
+			xx = (visibleSize.width / 5) * (i+1) + (obj1->getContentSize().width / 2)*j;
+			yy = (visibleSize.height * 0.4 + ((obj1->getContentSize().height / 3) * j));
 			_stepLayer->addChild(obj1);
+			if (i == 14) {
+				auto lastStep = Sprite::createWithSpriteFrameName("dash/step_winning.png");
+				lastStep->setPositionX(xx);
+				lastStep->setPositionY(yy - lastStep->getContentSize().height/3);
+				lastStep->setAnchorPoint(Vec2(1, 0.5));
+				_stepLayer->addChild(lastStep);
+				auto flag = Sprite::createWithSpriteFrameName("dash/flag.png");
+				flag->setPositionX(lastStep->getContentSize().width/2);
+				flag->setPositionY(lastStep->getContentSize().height);
+				flag->setAnchorPoint(Vec2(0, 0));
+				lastStep->addChild(flag);
+			}
 		}
 	}
 
@@ -94,15 +115,20 @@ bool Dash::init()
 	_character->setPositionY(visibleSize.height * 0.4 + 220);
 	this->addChild(_character);
 	
+	_mycharacterAnim = CSLoader::createTimeline(("dash/character.csb"));
+	
+
 	for (int j = 0; j < 2; j++) {  
-		for (int i = 1; i < 3; i++) {  
+		for (int i = 0; i <2; i++) { 
 			auto obj1 = Sprite::createWithSpriteFrameName("dash/big_button.png");
-			obj1->setPositionX(visibleSize.width/5 *(i* 2));
+			float xp = visibleSize.width - (obj1->getContentSize().width * 2);
+			obj1->setPositionX((xp/3) *(i+1) + obj1->getContentSize().width/2 *(i+1) + obj1->getContentSize().width / 2 * (i));
 			obj1->setPositionY(obj1->getContentSize().height/1.3 + (visibleSize.height * 0.14) * (j));
 			this->addChild(obj1);
 			_choiceButton.pushBack(obj1);
 		}
 	}
+
 
 	_otherCharacter = CSLoader::createNode("dash/character.csb");
 	_otherCharacter->setPositionX((visibleSize.width / 5) + 220);
@@ -110,11 +136,18 @@ bool Dash::init()
 	_stepLayer->addChild(_otherCharacter);
 
 
+	
+
+
 	wordGenerateWithOptions();
 
 
-	auto defaultCharacter = CallFunc::create(CC_CALLBACK_0(Dash::otherCharacterJumping, this));
-	runAction(RepeatForever::create(Sequence::create(DelayTime::create(10 + (rand() % 60) / 30.0), defaultCharacter, NULL)));
+	//auto defaultCharacter = CallFunc::create(CC_CALLBACK_0(Dash::otherCharacterJumping, this));
+	//randomly calling other character(If multiplayer Mode is off)
+	runAction(RepeatForever::create(Sequence::create(DelayTime::create(10 + (rand() % 60) / 30.0), CallFunc::create([=]() {
+		_enemyScore++;
+		updatePlayerPosition("enemy", _enemyScore);
+	}), NULL)));
 	return true;
 }
 
@@ -125,22 +158,61 @@ void Dash::wordCheck()
 	mouthTimeline->play("jumping", false);
 }
 
-void Dash::myCharacterJumping()
+void Dash::myCharacterJumping(int jumpCount)
 {
+	//_jumpCount++;
 	Size visibleSize = Director::getInstance()->getVisibleSize();
 	auto jump = JumpBy::create(2, Vec2(0, 0), 200, 1);
 	_character->runAction(jump);
 	wordCheck();
-	auto moveTo = MoveBy::create(2, Vec2(-(visibleSize.width / 5), 0));
-	_stepLayer->runAction(moveTo);
+	auto moveTo = MoveBy::create(2, Vec2(-(visibleSize.width / 5) - (jumpCount - _jumpCount), 0));
+	_stepLayer->runAction(Sequence::create(moveTo, CallFunc::create([=]() {
+		_jumpCount++;
+		if (_jumpCount == 14) {
+			//mycharcter won the game
+			menu->showScore();
+		}
+		wordGenerateWithOptions();
+		
+	}), NULL));
+
+	
 }
 
-void Dash::otherCharacterJumping()
+void Dash::myCharacterEyeBlinking()
 {
+
+
+}
+
+void Dash::otherCharacterJumping(int jumpCount)
+{
+	_enemyJumpCount++;
 	Size visibleSize = Director::getInstance()->getVisibleSize();
 	auto jump = JumpBy::create(2, Vec2(visibleSize.width / 5, 0), 200, 1);
 	_otherCharacter->runAction(jump);
+	if (_enemyJumpCount == 14) {
+		//other character win!!
+		menu->showScore();
+	}
 }
+
+
+void Dash::updatePlayerPosition(std::string playerName, int stepPosition)
+{	
+	/* if playerName is my character jumping my character 
+	else
+		other character is jumping
+	*/
+
+	if (playerName.compare("mycharacter") == 0) {
+		myCharacterJumping(stepPosition);
+	 }else
+	{
+		otherCharacterJumping(stepPosition);
+	}
+}
+
 
 void Dash::wordGenerateWithOptions()
 {
@@ -149,9 +221,10 @@ void Dash::wordGenerateWithOptions()
 	int size = _mapKey.size();
 	_gameWord = _mapKey.at(cocos2d::RandomHelper::random_int(0, size-1));
 	answer.push_back(_synonyms.at(_gameWord));
-	_topLabel = Label::createWithSystemFont(_gameWord.c_str(), "Arial", 100);
+	_topLabel = Label::createWithSystemFont(_gameWord.c_str(), "Arial", 200);
 	_topLabel->setPositionX(visibleSize.width/2);
-	_topLabel->setPositionY(visibleSize.height - _topLabel->getContentSize().height);
+	_topLabel->setPositionY(visibleSize.height - _topLabel->getContentSize().height/2);
+	_topLabel->setColor(Color3B(0, 0, 0));
 	this->addChild(_topLabel);
 
 	int randomInt1 = cocos2d::RandomHelper::random_int(0, size - 1);
@@ -165,7 +238,7 @@ void Dash::wordGenerateWithOptions()
 	for (int i = 0; i < _choiceButton.size(); i++) {
 		
 		auto str = answer.at(randomInt % (answerSize + 1));
-		auto myLabel = Label::createWithSystemFont(str, "Arial", 100);
+		auto myLabel = Label::createWithSystemFont(str, "Arial", 200);
 		myLabel->setName(str);
 		myLabel->setPositionX(_choiceButton.at(i)->getPositionX());
 		myLabel->setPositionY(_choiceButton.at(i)->getPositionY());
@@ -193,14 +266,14 @@ bool Dash::onTouchBegan(cocos2d::Touch * touch, cocos2d::Event * event)
 			for (int i = 0; i < _choiceLabel.size(); i++) {
 				this->removeChild(_choiceLabel.at(i));
 			}
+			_gameScore++;
 			_choiceLabel.clear();
-			myCharacterJumping();
-			wordGenerateWithOptions();
+			updatePlayerPosition("mycharacter",_gameScore);
 		}
 		else {
-			auto mouthTimeline = CSLoader::createTimeline(("dash/character.csb"));
-			_character->runAction(mouthTimeline);
-			mouthTimeline->play("sad_wrong", false);
+			auto sadAnimation = CSLoader::createTimeline(("dash/character.csb"));
+			_character->runAction(sadAnimation);
+			sadAnimation->play("sad_wrong", false);
 			}
 	}
 	return false;
