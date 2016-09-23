@@ -72,6 +72,7 @@ LOCAL_SRC_FILES := hellojavascript/main.cpp \
 					../../Classes/mini_games/Memory.cpp \
 					../../Classes/mini_games/Stack.cpp \
 					../../Classes/mini_games/Circle.cpp \
+					../../Classes/mini_games/Dash.cpp \
 					../../Classes/menu/MenuContext.cpp \
 					../../Classes/lang/LangUtil.cpp \
 					../../Classes/lang/EnglishUtil.cpp \
