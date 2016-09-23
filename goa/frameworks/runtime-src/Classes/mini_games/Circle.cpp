@@ -46,13 +46,19 @@ bool Circle::init()
 	{
 		return false;
 	}
+	Size visibleSize = Director::getInstance()->getVisibleSize();
+
 	background = CSLoader::createNode("circle/circle.csb");
+	if(visibleSize.width > 2560) {
+		background->setPositionX((visibleSize.width - 2560) / 2);
+	}
 	this->addChild(background, 0);
 
 	auto dot = background->getChildByName("dot_14");
 	_octopus = CSLoader::createNode("circle/octopus.csb");
-	_octopus->setPosition(dot->getPosition());
-	this->addChild(_octopus, 2);
+	_octopus->setPositionX(dot->getPositionX()+ (visibleSize.width - 2560) / 2);
+	_octopus->setPositionY(dot->getPositionY());
+    this->addChild(_octopus, 2);
 
 
 	_fishRef.push_back(background->getChildByName("fish_1"));
