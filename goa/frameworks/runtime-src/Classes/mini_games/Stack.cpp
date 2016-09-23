@@ -1,14 +1,13 @@
 #include "Stack.h"
 #include "editor-support/cocostudio/CocoStudio.h"
+#include <sstream>
 
 USING_NS_CC;
 
 Stack::Stack() {
-
 }
 
 Stack::~Stack() {
-
 }
 
 
@@ -35,9 +34,7 @@ bool Stack::init()
 	visibleSize = Director::getInstance()->getVisibleSize();
 	Vec2 origin = Director::getInstance()->getVisibleOrigin();
 
-	stackbg = (Node *)CSLoader::createNode("stack/stack.csb");
-//	stackbg->setPosition(Vec2(origin.x + visibleSize.width / 2, origin.y + visibleSize.height / 2));
-//	stackbg->setAnchorPoint(Vec2(.5, .5));
+	stackbg = (Node *)CSLoader::createNode("stackhero/stackhero.csb");
 	this->addChild(stackbg);
 
 	auto secondChild = stackbg->getChildren().at(1);
@@ -70,27 +67,21 @@ bool Stack::init()
 	_containerbar5 = (cocos2d::ui::LoadingBar*) (secondChild->getChildByName("containerbar5"));
 	_containerbar5->setPercent(0);
 
-	p1.x = visibleSize.width * .215; // _containerbar1->getPositionX();// +_containerbar1->getBoundingBox().size.width / 2;
-	p1.y = visibleSize.height * .51; //_containerbar1->getPositionY() -_containerbar1->getBoundingBox().size.height * .45;
+	p1.x = visibleSize.width * .215;
+	p1.y = visibleSize.height * .51;
 
-	p2.x = visibleSize.width * .515; //_containerbar2->getPositionX();// +_containerbar2->getBoundingBox().size.width / 2;
-	p2.y = visibleSize.height * .51; //_containerbar2->getPositionY() -_containerbar2->getBoundingBox().size.height * .45;
+	p2.x = visibleSize.width * .515;
+	p2.y = visibleSize.height * .51;
 
-	p3.x = visibleSize.width * .825; //_containerbar3->getPositionX();// +_containerbar3->getBoundingBox().size.width / 2;
-	p3.y = visibleSize.height * .51; //_containerbar3->getPositionY() -_containerbar3->getBoundingBox().size.height  * .45;
+	p3.x = visibleSize.width * .825;
+	p3.y = visibleSize.height * .51;
 
-	p4.x = visibleSize.width * .355; //_containerbar4->getPositionX();// +_containerbar4->getBoundingBox().size.width / 2;
-	p4.y = visibleSize.height * .06; //_containerbar4->getPositionY() -_containerbar4->getBoundingBox().size.height  * .40;
+	p4.x = visibleSize.width * .355;
+	p4.y = visibleSize.height * .06;
 
-	p5.x = visibleSize.width * .665; //_containerbar5->getPositionX();// +_containerbar5->getBoundingBox().size.width / 2;
-	p5.y = visibleSize.height * .05; //_containerbar5->getPositionY() -_containerbar5->getBoundingBox().size.height  * .35;
+	p5.x = visibleSize.width * .665;
+	p5.y = visibleSize.height * .05;
 
-/*	Position.push_back(p1);
-	Position.push_back(p2);
-	Position.push_back(p3);
-	Position.push_back(p4);
-	Position.push_back(p5);
-*/
 	containerBar.push_back(_containerbar1);
 	containerBar.push_back(_containerbar2);
 	containerBar.push_back(_containerbar3);
@@ -100,8 +91,14 @@ bool Stack::init()
 	int i = 0;
 	for (std::map<std::string, std::map<std::string, std::string>>::iterator it = _textToSHow.begin(); it != _textToSHow.end(); ++it, i++)
 	{
+		std::ostringstream counterForLetter;
+		counterForLetter << "container" << i+1;
+		std::string counterValue = counterForLetter.str();
+
 		LabelDetails.label = LabelTTF::create(it->first, "Helvetica", 100, CCSizeMake(200, 200));
+		LabelDetails.container = (Sprite*) secondChild->getChildByName(counterForLetter.str());
 		LabelDetails.label->setPosition(0, 0);
+		LabelDetails.label->setColor(Color3B::BLACK);
 		LabelDetails.label->setAnchorPoint(Vec2(.5, .7));
 		LabelDetails.id = it->first;
 		LabelDetails.sequence = i;
@@ -164,7 +161,7 @@ void Stack::generateWord()
 			stackbg->stopAction(treadmill);
 		}), NULL);
 
-		treadmill = CSLoader::createTimeline("stack/treadmill.csb");
+		treadmill = CSLoader::createTimeline("stackhero/treadmill.csb");
 		stackbg->runAction(treadmill);
 		treadmill->gotoFrameAndPause(0);
 		treadmill->play("treadmill", true);
@@ -201,6 +198,7 @@ void Stack::addEvents(struct LabelDetails sprite)
 			if ((_word.substr(0, sprite.id.length())==sprite.id) && flag == false)
 			{
 				flag = true;
+				sprite.label->setColor(Color3B::GREEN);
 				cocostudio::timeline::ActionTimeline *charTimeline = CSLoader::createTimeline("superheroes/superheroes.csb");
 				charNode->runAction(charTimeline);
 				charTimeline->gotoFrameAndPlay(0, false);
@@ -217,8 +215,8 @@ void Stack::addEvents(struct LabelDetails sprite)
 		return false;
 	};
 
-	cocos2d::Director::getInstance()->getEventDispatcher()->addEventListenerWithSceneGraphPriority(listener, sprite.label);
-
+	cocos2d::Director::getInstance()->getEventDispatcher()->addEventListenerWithSceneGraphPriority(listener, sprite.container);
+	cocos2d::Director::getInstance()->getEventDispatcher()->addEventListenerWithSceneGraphPriority(listener->clone(), sprite.label);
 }
 
 void Stack::afterAnimation(struct LabelDetails sprite, cocostudio::timeline::ActionTimeline *timeline, Node *charNode)
@@ -269,6 +267,7 @@ void Stack::afterAnimation(struct LabelDetails sprite, cocostudio::timeline::Act
 				this->runAction(Sequence::create(DelayTime::create(delay), CallFunc::create([=]() {
 					this->removeChild(_wordLabel);
 					_allWords.erase(std::remove(_allWords.begin(), _allWords.end(), _word), _allWords.end());
+					sprite.label->setColor(Color3B::BLACK);
 					Stack::generateWord();
 				}), NULL));
 			}
