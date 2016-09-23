@@ -80,7 +80,7 @@ bool Circle::init()
 
 	}
 
-	_synonyms = TextGenerator::getInstance()->getSynonyms(5);
+	_synonyms = TextGenerator::getInstance()->getSynonyms(10);
 	//CCLOG("synonyms = %s", _synonyms.at(1));
 
 
@@ -136,7 +136,7 @@ void Circle::wordGenerateWithOptions()
 	_gameWord = _mapKey.at(cocos2d::RandomHelper::random_int(0, size - 1));
 	answer.push_back(_synonyms.at(_gameWord));
 	_topLabel = Label::createWithSystemFont(_gameWord.c_str(), "Arial", 100);
-	_topLabel->setPositionX(visibleSize.width / 2);
+	_topLabel->setPositionX(visibleSize.width / 2  + 60);
 	_topLabel->setPositionY(visibleSize.height - _topLabel->getContentSize().height - 200);
 	this->addChild(_topLabel,2);
 
@@ -175,10 +175,13 @@ void Circle::wordGenerateWithOptions()
 
 bool Circle::onTouchBegan(cocos2d::Touch * touch, cocos2d::Event * event)
 {
+	Size visibleSize = Director::getInstance()->getVisibleSize();
 
 	auto target = event->getCurrentTarget();
 	auto  location = target->convertToNodeSpace(touch->getLocation());
-	if (target->getBoundingBox().containsPoint(touch->getLocation())) {
+	//auto  location = target->convertToNodeSpace(touch->getLocation() - ;
+	if (target->getBoundingBox().containsPoint(Vec2(touch->getLocation().x - ((visibleSize.width - 2560) / 2), touch->getLocation().y)))
+	{
 		std::string wordStr = target->getChildren().at(0)->getName();
 		char sss[100];
 		strcpy(sss, wordStr.c_str());
@@ -201,6 +204,11 @@ bool Circle::onTouchBegan(cocos2d::Touch * touch, cocos2d::Event * event)
 			_eventDispatcher->removeAllEventListeners();
 			_choiceLabel.clear();
 			eat(ssss);	
+		}
+		else
+		{
+			FShake* shake = FShake::actionWithDuration(1.0f, 10.0f);
+			_octopus->runAction(shake);
 		}
 		return true;
 	}
