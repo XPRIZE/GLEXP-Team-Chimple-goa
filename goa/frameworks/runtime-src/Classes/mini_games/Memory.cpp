@@ -297,7 +297,7 @@ bool Memory::onTouchBegan(Touch* touch, Event* event) {
 	if (target->getBoundingBox().containsPoint(touch->getLocation()))
 	{
 
-		CCLOG("NEST %s CLICKED", target->getName());
+//		CCLOG("NEST %s CLICKED", target->getName());
 		//        CCLOG("onTouchBegan");
 		//if (_currentNodeIndex == 0)
 		//	_currentNodeIndex = 0;
