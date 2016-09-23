@@ -55,6 +55,7 @@ public:
 	struct LabelDetails
 	{
 		cocos2d::LabelTTF *label;
+		cocos2d::Sprite *container;
 		std::string id;
 		int sequence;
 	}LabelDetails;
