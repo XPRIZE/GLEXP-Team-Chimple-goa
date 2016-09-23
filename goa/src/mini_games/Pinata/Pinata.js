@@ -53,6 +53,9 @@ xc.Pinata = cc.Layer.extend({
     boardText.setName(board.getName());
     boardText.setPosition(board.width/2,board.height/2);                    
     board.addChild(boardText);
+    if(gameTheme == "pinatacream"){
+        boardText.setColor(new cc.color(155 ,42,50,255));
+    }
 
     var targetA = this.gameBg.node.getChildByName("targeta");
     var targetAText = new cc.LabelTTF(""+this.map[mapKeyArray[0]],"res/fonts/Marker Felt.ttf",120);
