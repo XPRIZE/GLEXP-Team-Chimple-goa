@@ -12,6 +12,7 @@
 
 #include "cocos2d.h"
 #include "../menu/MenuContext.h"
+#include "editor-support/cocostudio/CocoStudio.h"
 
 
 class Dash : public cocos2d::Layer
@@ -32,7 +33,9 @@ protected:
 	cocos2d::Node * _character, * _otherCharacter, *_bg;
 	void wordCheck();
 	MenuContext * menu;
+	cocostudio::timeline::ActionTimeline * _mycharacterAnim;
 	void myCharacterJumping();
+	void myCharacterEyeBlinking();
 	void otherCharacterJumping();
 	void wordGenerateWithOptions();
 	std::string _gameWord;

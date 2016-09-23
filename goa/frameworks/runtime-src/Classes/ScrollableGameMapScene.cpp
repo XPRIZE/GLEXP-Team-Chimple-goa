@@ -36,6 +36,7 @@
 #include "mini_games/Pop.h"
 #include "mini_games/AlphamoleLevel.h"
 #include "mini_games/Bingo.h"
+#include "mini_games/Dash.h"
 
 USING_NS_CC;
 
@@ -169,7 +170,8 @@ void ScrollableGameMapScene::gameSelected(Ref* pSender, ui::Widget::TouchEventTy
 //                Director::getInstance()->replaceScene(PatchTheWall::createScene());
                 ScriptingCore::getInstance()->runScript("src/start/decomon.js");
             } else  if (clickedButton->getName() == CAT) {
-				Director::getInstance()->replaceScene(CatGame::createScene());
+				Director::getInstance()->replaceScene(Dash::createScene());
+				//Director::getInstance()->replaceScene(CatGame::createScene());
 				//ScriptingCore::getInstance()->runScript("src/start/alphamole.js");
 			} else  if (clickedButton->getName() == JUMP_ON_WORDS) {
 				ScriptingCore::getInstance()->runScript("src/start/jump.js");
@@ -207,7 +209,8 @@ void ScrollableGameMapScene::gameSelected(Ref* pSender, ui::Widget::TouchEventTy
 				ScriptingCore::getInstance()->runScript("src/start/train.js");
 //                Director::getInstance()->replaceScene(Jasmin_Mainfile::createScene());
             } else if(clickedButton->getName() == CAT) {
-                Director::getInstance()->replaceScene(CatGame::createScene());
+				Director::getInstance()->replaceScene(Dash::createScene());
+              //  Director::getInstance()->replaceScene(CatGame::createScene());
             } else if(clickedButton->getName() == STORY_TELLING) {
                 ScriptingCore::getInstance()->runScript("src/start/storytelling.js");
             }

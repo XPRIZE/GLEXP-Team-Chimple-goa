@@ -9,7 +9,6 @@
 
 
 #include "Dash.h"
-#include "editor-support/cocostudio/CocoStudio.h"
 #include "../lang/LangUtil.h"
 #include "../lang/TextGenerator.h"
 
@@ -103,6 +102,9 @@ bool Dash::init()
 	_character->setPositionY(visibleSize.height * 0.4 + 220);
 	this->addChild(_character);
 	
+	_mycharacterAnim = CSLoader::createTimeline(("dash/character.csb"));
+	
+
 	for (int j = 0; j < 2; j++) {  
 		for (int i = 0; i <2; i++) { 
 			auto obj1 = Sprite::createWithSpriteFrameName("dash/big_button.png");
@@ -167,6 +169,13 @@ void Dash::myCharacterJumping()
 			}
 			 }), NULL));
 	}
+}
+
+void Dash::myCharacterEyeBlinking()
+{
+	_character->runAction(_mycharacterAnim);
+	_mycharacterAnim->play("eye_blinking", false);
+
 }
 
 void Dash::otherCharacterJumping()
@@ -237,9 +246,9 @@ bool Dash::onTouchBegan(cocos2d::Touch * touch, cocos2d::Event * event)
 			myCharacterJumping();
 		}
 		else {
-			auto mouthTimeline = CSLoader::createTimeline(("dash/character.csb"));
-			_character->runAction(mouthTimeline);
-			mouthTimeline->play("sad_wrong", false);
+			auto sadAnimation = CSLoader::createTimeline(("dash/character.csb"));
+			_character->runAction(sadAnimation);
+			sadAnimation->play("sad_wrong", false);
 			}
 	}
 	return false;
