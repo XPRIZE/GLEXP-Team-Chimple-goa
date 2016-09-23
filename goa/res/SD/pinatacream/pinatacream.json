@@ -1,7 +1,7 @@
 {
   "ID": "a2ee0952-26b5-49ae-8bf9-4f1d6279b798",
-  "Version": "3.10.0.0",
-  "Name": "pinata",
+  "Version": "2.3.4",
+  "Name": "pinatacream",
   "Content": {
     "Content": {
       "Animation": {
@@ -41,7 +41,7 @@
               "Y": 0.2684
             },
             "Scale": {
-              "ScaleX": 1.2352,
+              "ScaleX": 1.0,
               "ScaleY": 1.0
             },
             "CColor": {},
@@ -51,111 +51,17 @@
               "Y": 0.0001
             },
             "PreSize": {
-              "X": 1.0,
+              "X": 1.2109,
               "Y": 1.0
             },
             "LeftMargin": -322.9227,
-            "RightMargin": 322.9226,
-            "TopMargin": -0.2683,
+            "RightMargin": -217.0774,
+            "TopMargin": -0.2684,
             "BottomMargin": 0.2684,
             "Tag": 5,
-            "Children": [
-              {
-                "FileData": {
-                  "Type": "MarkedSubImage",
-                  "Path": "pinata/strawberry.png",
-                  "Plist": "pinata/pinata.plist"
-                },
-                "Scale9OriginX": 34,
-                "Scale9OriginY": 48,
-                "Scale9Width": 36,
-                "Scale9Height": 51,
-                "AnchorPoint": {
-                  "ScaleX": 0.5,
-                  "ScaleY": 0.5
-                },
-                "Position": {
-                  "X": 730.0001,
-                  "Y": 450.9923
-                },
-                "Scale": {
-                  "ScaleX": 1.0,
-                  "ScaleY": 1.0
-                },
-                "CColor": {},
-                "IconVisible": false,
-                "PrePosition": {
-                  "X": 0.2852,
-                  "Y": 0.2506
-                },
-                "PreSize": {
-                  "X": 0.0406,
-                  "Y": 0.0817
-                },
-                "LeftMargin": 678.0001,
-                "RightMargin": 1777.9999,
-                "TopMargin": 1275.5077,
-                "BottomMargin": 377.4923,
-                "Tag": 23,
-                "ActionTag": -635814300,
-                "Size": {
-                  "X": 104.0,
-                  "Y": 147.0
-                },
-                "Name": "Image_1",
-                "ctype": "ImageViewObjectData"
-              },
-              {
-                "FileData": {
-                  "Type": "MarkedSubImage",
-                  "Path": "pinata/strawberry.png",
-                  "Plist": "pinata/pinata.plist"
-                },
-                "Scale9OriginX": 34,
-                "Scale9OriginY": 48,
-                "Scale9Width": 36,
-                "Scale9Height": 51,
-                "AnchorPoint": {
-                  "ScaleX": 0.5,
-                  "ScaleY": 0.5
-                },
-                "Position": {
-                  "X": 1264.6205,
-                  "Y": 454.4748
-                },
-                "Scale": {
-                  "ScaleX": 1.0,
-                  "ScaleY": 1.0
-                },
-                "RotationSkewX": 45.3103,
-                "RotationSkewY": 45.314,
-                "CColor": {},
-                "IconVisible": false,
-                "PrePosition": {
-                  "X": 0.494,
-                  "Y": 0.2525
-                },
-                "PreSize": {
-                  "X": 0.0406,
-                  "Y": 0.0817
-                },
-                "LeftMargin": 1212.6205,
-                "RightMargin": 1243.3795,
-                "TopMargin": 1272.0251,
-                "BottomMargin": 380.9748,
-                "Tag": 24,
-                "ActionTag": 1150223785,
-                "Size": {
-                  "X": 104.0,
-                  "Y": 147.0
-                },
-                "Name": "Image_2",
-                "ctype": "ImageViewObjectData"
-              }
-            ],
             "ActionTag": -1251111501,
             "Size": {
-              "X": 2560.0,
+              "X": 3100.0,
               "Y": 1800.0
             },
             "Name": "Panel_1",
@@ -182,78 +88,31 @@
             "TouchEnable": true,
             "AnchorPoint": {},
             "Position": {
-              "X": -322.9227,
-              "Y": 575.6954
+              "X": -322.9224,
+              "Y": 357.8757
             },
             "Scale": {
-              "ScaleX": 1.235,
+              "ScaleX": 1.0,
               "ScaleY": 1.0
             },
             "CColor": {},
             "IconVisible": false,
             "PrePosition": {
               "X": -0.1261,
-              "Y": 0.3198
+              "Y": 0.1988
             },
             "PreSize": {
-              "X": 1.0,
+              "X": 1.2109,
               "Y": 0.1111
             },
-            "LeftMargin": -322.9227,
-            "RightMargin": 322.9226,
-            "TopMargin": 1024.3046,
-            "BottomMargin": 575.6954,
+            "LeftMargin": -322.9224,
+            "RightMargin": -217.0776,
+            "TopMargin": 1242.1243,
+            "BottomMargin": 357.8757,
             "Tag": 17,
-            "Children": [
-              {
-                "FileData": {
-                  "Type": "MarkedSubImage",
-                  "Path": "pinata/board.png",
-                  "Plist": "pinata/pinata.plist"
-                },
-                "BlendFunc": {
-                  "Src": 1,
-                  "Dst": 771
-                },
-                "AnchorPoint": {
-                  "ScaleX": 0.5,
-                  "ScaleY": 0.5
-                },
-                "Position": {
-                  "X": 1274.2589,
-                  "Y": 99.7395
-                },
-                "Scale": {
-                  "ScaleX": 1.0,
-                  "ScaleY": 1.0
-                },
-                "CColor": {},
-                "IconVisible": false,
-                "PrePosition": {
-                  "X": 0.4978,
-                  "Y": 0.4987
-                },
-                "PreSize": {
-                  "X": 0.3004,
-                  "Y": 0.665
-                },
-                "LeftMargin": 889.7589,
-                "RightMargin": 901.2411,
-                "TopMargin": 33.7605,
-                "BottomMargin": 33.2395,
-                "Tag": 24,
-                "ActionTag": 1750454185,
-                "Size": {
-                  "X": 769.0,
-                  "Y": 133.0
-                },
-                "Name": "board",
-                "ctype": "SpriteObjectData"
-              }
-            ],
             "ActionTag": 1912787402,
             "Size": {
-              "X": 2560.0,
+              "X": 3100.0,
               "Y": 200.0
             },
             "Name": "Panel_2",
@@ -262,8 +121,53 @@
           {
             "FileData": {
               "Type": "MarkedSubImage",
-              "Path": "pinata/bg.png",
-              "Plist": "pinata/pinata.plist"
+              "Path": "pinatacream/board.png",
+              "Plist": "pinatacream/pinatacream.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1295.6956,
+              "Y": 456.5943
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.5061,
+              "Y": 0.2537
+            },
+            "PreSize": {
+              "X": 0.3004,
+              "Y": 0.0739
+            },
+            "LeftMargin": 911.1956,
+            "RightMargin": 879.8044,
+            "TopMargin": 1276.9058,
+            "BottomMargin": 390.0943,
+            "Tag": 25,
+            "ActionTag": -577168126,
+            "Size": {
+              "X": 769.0,
+              "Y": 133.0
+            },
+            "Name": "board",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "pinatacream/bg.png",
+              "Plist": "pinatacream/pinatacream.plist"
             },
             "BlendFunc": {
               "Src": 1,
@@ -307,8 +211,8 @@
           {
             "FileData": {
               "Type": "MarkedSubImage",
-              "Path": "pinata/bg.png",
-              "Plist": "pinata/pinata.plist"
+              "Path": "pinatacream/bg.png",
+              "Plist": "pinatacream/pinatacream.plist"
             },
             "BlendFunc": {
               "Src": 1,
@@ -352,8 +256,8 @@
           {
             "FileData": {
               "Type": "MarkedSubImage",
-              "Path": "pinata/bg.png",
-              "Plist": "pinata/pinata.plist"
+              "Path": "pinatacream/bg.png",
+              "Plist": "pinatacream/pinatacream.plist"
             },
             "BlendFunc": {
               "Src": 1,
@@ -397,8 +301,8 @@
           {
             "FileData": {
               "Type": "MarkedSubImage",
-              "Path": "pinata/bg.png",
-              "Plist": "pinata/pinata.plist"
+              "Path": "pinatacream/bg.png",
+              "Plist": "pinatacream/pinatacream.plist"
             },
             "BlendFunc": {
               "Src": 1,
@@ -428,7 +332,7 @@
             },
             "LeftMargin": 1460.3574,
             "RightMargin": 612.6426,
-            "TopMargin": 1267.8125,
+            "TopMargin": 1267.8126,
             "BottomMargin": 45.1874,
             "Tag": 10,
             "ActionTag": 1024223185,
@@ -442,8 +346,8 @@
           {
             "FileData": {
               "Type": "MarkedSubImage",
-              "Path": "pinata/bg.png",
-              "Plist": "pinata/pinata.plist"
+              "Path": "pinatacream/bg.png",
+              "Plist": "pinatacream/pinatacream.plist"
             },
             "BlendFunc": {
               "Src": 1,
@@ -487,8 +391,8 @@
           {
             "FileData": {
               "Type": "MarkedSubImage",
-              "Path": "pinata/bg.png",
-              "Plist": "pinata/pinata.plist"
+              "Path": "pinatacream/bg.png",
+              "Plist": "pinatacream/pinatacream.plist"
             },
             "BlendFunc": {
               "Src": 1,
@@ -532,8 +436,8 @@
           {
             "FileData": {
               "Type": "MarkedSubImage",
-              "Path": "pinata/bg.png",
-              "Plist": "pinata/pinata.plist"
+              "Path": "pinatacream/bg.png",
+              "Plist": "pinatacream/pinatacream.plist"
             },
             "BlendFunc": {
               "Src": 1,
@@ -577,8 +481,8 @@
           {
             "FileData": {
               "Type": "MarkedSubImage",
-              "Path": "pinata/bg.png",
-              "Plist": "pinata/pinata.plist"
+              "Path": "pinatacream/bg.png",
+              "Plist": "pinatacream/pinatacream.plist"
             },
             "BlendFunc": {
               "Src": 1,
@@ -622,8 +526,8 @@
           {
             "FileData": {
               "Type": "MarkedSubImage",
-              "Path": "pinata/bg.png",
-              "Plist": "pinata/pinata.plist"
+              "Path": "pinatacream/bg.png",
+              "Plist": "pinatacream/pinatacream.plist"
             },
             "BlendFunc": {
               "Src": 1,
@@ -667,8 +571,8 @@
           {
             "FileData": {
               "Type": "MarkedSubImage",
-              "Path": "pinata/bg.png",
-              "Plist": "pinata/pinata.plist"
+              "Path": "pinatacream/bg.png",
+              "Plist": "pinatacream/pinatacream.plist"
             },
             "BlendFunc": {
               "Src": 1,
@@ -712,8 +616,8 @@
           {
             "FileData": {
               "Type": "MarkedSubImage",
-              "Path": "pinata/bg.png",
-              "Plist": "pinata/pinata.plist"
+              "Path": "pinatacream/bg.png",
+              "Plist": "pinatacream/pinatacream.plist"
             },
             "BlendFunc": {
               "Src": 1,
@@ -757,8 +661,8 @@
           {
             "FileData": {
               "Type": "MarkedSubImage",
-              "Path": "pinata/bg.png",
-              "Plist": "pinata/pinata.plist"
+              "Path": "pinatacream/bg.png",
+              "Plist": "pinatacream/pinatacream.plist"
             },
             "BlendFunc": {
               "Src": 1,
@@ -802,8 +706,8 @@
           {
             "FileData": {
               "Type": "MarkedSubImage",
-              "Path": "pinata/cake1.png",
-              "Plist": "pinata/pinata.plist"
+              "Path": "pinatacream/target1.png",
+              "Plist": "pinatacream/pinatacream.plist"
             },
             "BlendFunc": {
               "Src": 1,
@@ -814,41 +718,41 @@
               "ScaleY": 0.5
             },
             "Position": {
-              "X": 408.3448,
-              "Y": 1197.6438
+              "X": 464.0001,
+              "Y": 1144.002
             },
             "Scale": {
-              "ScaleX": 1.0,
-              "ScaleY": 1.0
+              "ScaleX": 0.9453,
+              "ScaleY": 0.9453
             },
             "CColor": {},
             "IconVisible": false,
             "PrePosition": {
-              "X": 0.1595,
-              "Y": 0.6654
+              "X": 0.1813,
+              "Y": 0.6356
             },
             "PreSize": {
               "X": 0.1844,
               "Y": 0.3633
             },
-            "LeftMargin": 172.3448,
-            "RightMargin": 1915.6553,
-            "TopMargin": 275.3562,
-            "BottomMargin": 870.6438,
+            "LeftMargin": 228.0001,
+            "RightMargin": 1859.9999,
+            "TopMargin": 328.998,
+            "BottomMargin": 817.002,
             "Tag": 27,
             "ActionTag": -166082309,
             "Size": {
               "X": 472.0,
               "Y": 654.0
             },
-            "Name": "cake1_3",
+            "Name": "targeta",
             "ctype": "SpriteObjectData"
           },
           {
             "FileData": {
               "Type": "MarkedSubImage",
-              "Path": "pinata/cake2.png",
-              "Plist": "pinata/pinata.plist"
+              "Path": "pinatacream/target2.png",
+              "Plist": "pinatacream/pinatacream.plist"
             },
             "BlendFunc": {
               "Src": 1,
@@ -859,8 +763,8 @@
               "ScaleY": 0.5
             },
             "Position": {
-              "X": 1241.5314,
-              "Y": 1158.7622
+              "X": 1324.0,
+              "Y": 1116.9399
             },
             "Scale": {
               "ScaleX": 1.0,
@@ -869,31 +773,31 @@
             "CColor": {},
             "IconVisible": false,
             "PrePosition": {
-              "X": 0.485,
-              "Y": 0.6438
+              "X": 0.5172,
+              "Y": 0.6205
             },
             "PreSize": {
               "X": 0.1891,
               "Y": 0.3206
             },
-            "LeftMargin": 999.5314,
-            "RightMargin": 1076.4686,
-            "TopMargin": 352.7378,
-            "BottomMargin": 870.2622,
+            "LeftMargin": 1082.0,
+            "RightMargin": 994.0,
+            "TopMargin": 394.5601,
+            "BottomMargin": 828.4399,
             "Tag": 28,
             "ActionTag": -1196832947,
             "Size": {
               "X": 484.0,
               "Y": 577.0
             },
-            "Name": "cake2_4",
+            "Name": "targetb",
             "ctype": "SpriteObjectData"
           },
           {
             "FileData": {
               "Type": "MarkedSubImage",
-              "Path": "pinata/cake3.png",
-              "Plist": "pinata/pinata.plist"
+              "Path": "pinatacream/target3.png",
+              "Plist": "pinatacream/pinatacream.plist"
             },
             "BlendFunc": {
               "Src": 1,
@@ -904,8 +808,8 @@
               "ScaleY": 0.5
             },
             "Position": {
-              "X": 2088.8958,
-              "Y": 1164.7627
+              "X": 2139.76,
+              "Y": 1122.95
             },
             "Scale": {
               "ScaleX": 1.0,
@@ -914,25 +818,117 @@
             "CColor": {},
             "IconVisible": false,
             "PrePosition": {
-              "X": 0.816,
-              "Y": 0.6471
+              "X": 0.8358,
+              "Y": 0.6239
             },
             "PreSize": {
               "X": 0.1871,
               "Y": 0.3272
             },
-            "LeftMargin": 1849.3958,
-            "RightMargin": 231.6042,
-            "TopMargin": 340.7373,
-            "BottomMargin": 870.2627,
+            "LeftMargin": 1900.26,
+            "RightMargin": 180.74,
+            "TopMargin": 382.55,
+            "BottomMargin": 828.45,
             "Tag": 29,
             "ActionTag": -268109170,
             "Size": {
               "X": 479.0,
               "Y": 589.0
             },
-            "Name": "cake3_5",
+            "Name": "targetc",
             "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "pinatacream/shoot.png",
+              "Plist": "pinatacream/pinatacream.plist"
+            },
+            "Scale9OriginX": 34,
+            "Scale9OriginY": 48,
+            "Scale9Width": 36,
+            "Scale9Height": 51,
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 915.4169,
+              "Y": 371.27
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.3576,
+              "Y": 0.2063
+            },
+            "PreSize": {
+              "X": 0.0406,
+              "Y": 0.0817
+            },
+            "LeftMargin": 863.4169,
+            "RightMargin": 1592.5831,
+            "TopMargin": 1355.23,
+            "BottomMargin": 297.77,
+            "Tag": 23,
+            "ActionTag": -635814300,
+            "Size": {
+              "X": 104.0,
+              "Y": 147.0
+            },
+            "Name": "left",
+            "ctype": "ImageViewObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "pinatacream/shoot.png",
+              "Plist": "pinatacream/pinatacream.plist"
+            },
+            "Scale9OriginX": 34,
+            "Scale9OriginY": 48,
+            "Scale9Width": 36,
+            "Scale9Height": 51,
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1685.8615,
+              "Y": 370.6846
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "RotationSkewX": 45.3103,
+            "RotationSkewY": 45.314,
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.6585,
+              "Y": 0.2059
+            },
+            "PreSize": {
+              "X": 0.0406,
+              "Y": 0.0817
+            },
+            "LeftMargin": 1633.8615,
+            "RightMargin": 822.1385,
+            "TopMargin": 1355.8154,
+            "BottomMargin": 297.1846,
+            "Tag": 24,
+            "ActionTag": 1150223785,
+            "Size": {
+              "X": 104.0,
+              "Y": 147.0
+            },
+            "Name": "right",
+            "ctype": "ImageViewObjectData"
           }
         ],
         "Size": {
@@ -943,8 +939,8 @@
         "ctype": "SingleNodeObjectData"
       },
       "UsedResources": [
-        "pinata.plist",
-        "pinata.png"
+        "pinatacream.plist",
+        "pinatacream.png"
       ],
       "ctype": "GameFileData"
     }
