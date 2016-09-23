@@ -7,7 +7,10 @@ xc.Pinata = cc.Layer.extend({
   
    this._super();
 //this.gameBg.node.getChildByName("Panel_1").getChildByName("Button_10");
-    var gameTheme = "pinatacity";
+    var gameTheme = "";
+    var gameRand = new Array(2);
+    gameRand[0] = "pinatacity"; gameRand[1] ="pinatacream"
+    gameTheme = gameRand[this.getRandomInt(0,1)];
     this.gameBg = null;
     this.stringColor = new cc.color(255,255,255,255);
     var playerGUI = "";
@@ -93,6 +96,7 @@ xc.Pinata = cc.Layer.extend({
     if(this.bubblePlayer.getName() == "pinatacity")
     this.gameBg.node.getChildByName("slingshot_16").visible = false;
 
+
     var classReference = this;
     var listnerBg = cc.EventListener.create({event: cc.EventListener.TOUCH_ONE_BY_ONE, swallowTouches: false,
             onTouchBegan :function(touch, event){
@@ -156,20 +160,25 @@ xc.Pinata = cc.Layer.extend({
             },
             onTouchEnded : function(touch, event){
                 var target = event.getCurrentTarget();
- 
+                var path = "";
+                if(classReference.bubblePlayer.getName() == "pinatacity"){
+                    path = xc.Pinata.res.pinatacity_anim;
+                }else if(classReference.bubblePlayer.getName() == "pinatacream"){
+                    path = xc.Pinata.res.pinatacream_anim;
+                }
+
                 if(classReference.map[classReference.gameBg.node.getChildByName("board").getChildByName("board").getString()] == target.getChildByName(target.getName()).getString()){
-                    console.log("its correct answer  : "+target.getName());
                     if(target.getName() == "targetc"){
-                        if(!targetA.dead){ classReference.gameBg.node.removeChild(targetA);}
-                        if(!targetB.dead){ classReference.gameBg.node.removeChild(targetB);}
+                        if(!targetA.dead){ classReference.runAnimations(ccs.load(path,xc.path),targetA.x,targetA.y,path); classReference.gameBg.node.removeChild(targetA);}
+                        if(!targetB.dead){ classReference.runAnimations(ccs.load(path,xc.path),targetB.x,targetB.y,path); classReference.gameBg.node.removeChild(targetB);}
                         classReference.gamePlay(targetC);
                     }else if(target.getName() == "targetb"){
-                        if(!targetA.dead){ classReference.gameBg.node.removeChild(targetA);}
-                        if(!targetC.dead){ classReference.gameBg.node.removeChild(targetC);}
+                        if(!targetA.dead){classReference.runAnimations(ccs.load(path,xc.path),targetA.x,targetA.y,path); classReference.gameBg.node.removeChild(targetA);}
+                        if(!targetC.dead){classReference.runAnimations(ccs.load(path,xc.path),targetC.x,targetC.y,path); classReference.gameBg.node.removeChild(targetC);}
                         classReference.gamePlay(targetB);
                     }else if(target.getName() == "targeta"){
-                        if(!targetC.dead){ classReference.gameBg.node.removeChild(targetC);}
-                        if(!targetB.dead){ classReference.gameBg.node.removeChild(targetB);}
+                        if(!targetC.dead){classReference.runAnimations(ccs.load(path,xc.path),targetC.x,targetC.y,path); classReference.gameBg.node.removeChild(targetC);}
+                        if(!targetB.dead){classReference.runAnimations(ccs.load(path,xc.path),targetB.x,targetB.y,path); classReference.gameBg.node.removeChild(targetB);}
                         classReference.gamePlay(targetA);
                     }                    
                 }else{
@@ -177,15 +186,21 @@ xc.Pinata = cc.Layer.extend({
                 
                     if(target.getName() == "targetc"){
                         targetC.dead = true;
+                        classReference.runAnimations(ccs.load(path,xc.path),targetC.x,targetC.y,path);
                         classReference.gameBg.node.removeChild(targetC);
                     }else if(target.getName() == "targetb"){
                         targetB.dead = true;
+                        classReference.runAnimations(ccs.load(path,xc.path),targetB.x,targetB.y,path);
                         classReference.gameBg.node.removeChild(targetB);
                     }else if(target.getName() == "targeta"){
                          targetA.dead = true;
+                         classReference.runAnimations(ccs.load(path,xc.path),targetA.x,targetA.y,path);
                         classReference.gameBg.node.removeChild(targetA);
                     }
                 }
+
+
+                
                 return false;
             }
      });
@@ -214,6 +229,15 @@ xc.Pinata = cc.Layer.extend({
         if(this.shootingFlag){                
             if(cc.rectIntersectsRect(this.bubblePlayer.getBoundingBox(), this.targetPlayer.getBoundingBox())){
                 this.shootingFlag = false;
+
+                var path = "";
+                if(this.bubblePlayer.getName() == "pinatacity"){
+                    path = xc.Pinata.res.pinatacity_anim;
+                }else if(this.bubblePlayer.getName() == "pinatacream"){
+                    path = xc.Pinata.res.pinatacream_anim;
+                }
+
+                this.runAnimations(ccs.load(path,xc.path),this.targetPlayer.x,this.targetPlayer.y,path);
                 this.gameBg.node.getChildByName("board").freezShooting = false;
                 this.removeChild(this.bubblePlayer);
                 this.gameBg.node.removeChild(this.targetPlayer);
@@ -249,7 +273,9 @@ xc.Pinata = cc.Layer.extend({
     gamePlay : function (correctObject){
 
        var  halfAction = new cc.MoveTo(2,cc.p(correctObject.width/2, cc.director.getWinSize().height * 0.9));
-       var  initSequence = new cc.Sequence(new cc.ScaleTo(0.3,0.5), new cc.MoveTo(0.5,cc.p(cc.director.getWinSize().width/2, cc.director.getWinSize().height * 0.9)));
+       var size = 0.5;
+       if(this.bubblePlayer.getName() == "pinatacity"){size = 0.7}
+       var  initSequence = new cc.Sequence(new cc.ScaleTo(0.3,size), new cc.MoveTo(0.5,cc.p(cc.director.getWinSize().width/2, cc.director.getWinSize().height * 0.9)));
         
         var SequenceVal = new cc.Sequence(initSequence,halfAction);
         correctObject.runAction(SequenceVal);
@@ -291,6 +317,18 @@ xc.Pinata = cc.Layer.extend({
      getRandomInt : function (min, max) {
         return Math.floor(Math.random() * (max - min + 1)) + min;
     },
+    runAnimations : function(AnimNode,x,y,path){
+       
+        var animation = ccs.actionTimelineCache.createAction(path,xc.path);
+        AnimNode.node.runAction(animation);
+        animation.gotoFrameAndPlay(0,false);
+        AnimNode.node.setPosition(x,y);
+        this.addChild(AnimNode.node);   
+        var classReference = this;
+        setTimeout(function() {
+            classReference.removeChild(AnimNode.node);
+        }, 1000);
+    }
 })
 
 xc.Pinata.res = {
@@ -300,5 +338,7 @@ xc.Pinata.res = {
    pinatacream_plist : xc.path +"pinatacream/pinatacream.plist",
    pinatacream_png : xc.path +"pinatacream/pinatacream.png",
    pinatacream_json : xc.path +"pinatacream/pinatacream.json",
+   pinatacream_anim : xc.path +"pinatacream/pinatacreamanim.json",
+   pinatacity_anim : xc.path +"pinatacity/pinatacityanim.json"
 };      
 
