@@ -7,6 +7,7 @@
 #include "../puzzle/WordScene.h"
 #include "../GameScene.h"
 #include "../effects/FShake.h"
+#include "../menu/MenuContext.h"
 
 using namespace cocos2d;
 
@@ -20,7 +21,7 @@ public:
 	std::vector<std::vector<Sprite *>> createGrid(int row , int column);
 	std::vector<std::vector<cocostudio::timeline::ActionTimeline *>> createGridOfCharcater(int row, int column);
 	void setAllSpriteProperties(Sprite* object, int zOrder, float posX, float posY, bool visibility, float anchorPointX, float anchorPointY, float rotation, float scaleX, float scaleY, Sprite* parent);
-	void setAllSpritePropertiesParentLabel(Sprite* object, int zOrder, float posX, float posY, bool visibility, float anchorPointX, float anchorPointY, float rotation, float scaleX, float scaleY, cocos2d::LabelTTF* parent);
+
 	 Bingo();
 	~Bingo();
 	int bingoHorizotally();
@@ -47,6 +48,8 @@ protected:
 	std::vector<std::string> _data_value;
 	cocos2d::LabelTTF* _label = NULL;
 	bool _isBingoDone = false;
+	MenuContext* _menuContext;
+
 
 	// implement the "static create()" method manually
 	CREATE_FUNC(Bingo);

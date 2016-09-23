@@ -7,14 +7,13 @@ USING_NS_CC;
 
 Scene* Bingo::createScene()
 {
-
 	// 'layer' is an autorelease object
 	auto layer = Bingo::create();
 	auto scene = Scene::create();
 
-	//layer->_menuContext = MenuContext::create(layer, CrossTheBridge::gameName());
 	scene->addChild(layer);
-
+	layer->_menuContext = MenuContext::create(layer, "dash");
+	scene->addChild(layer->_menuContext);
 	return scene;
 }
 // on 'init' you need to initialize your instance
@@ -58,18 +57,12 @@ bool Bingo::init()
 	   if (duplicateCheck) {
 		   randomIndex.push_back(numberPicker);
 	   }
-
    }
-
-   std::vector<int> ac = randomIndex;
-
 	_boxBoard = (Sprite *)bingoBackground->getChildren().at(0)->getChildByName("board");
 	_helpBoard = (Sprite *)bingoBackground->getChildren().at(0)->getChildByName("boardhelp");
 
 	setWordInHelpBoard();
 
-	/*auto leave1 = (Sprite *)bingoBackground->getChildren().at(0)->getChildByName("tree_leave_front");*/
-	
 	/*auto addX = _boxBoard->getBoundingBox().size.width * 0.10;
 	auto addY = _boxBoard->getBoundingBox().size.height * 0.125;*/
 
@@ -206,22 +199,9 @@ void Bingo::setAllSpriteProperties(Sprite* sprite, int zOrder, float posX, float
 	sprite->setRotation(rotation);
 	parent->addChild(sprite, zOrder);
 }
-void Bingo::setAllSpritePropertiesParentLabel(Sprite* sprite, int zOrder, float posX, float posY, bool visibility, float anchorPointX, float anchorPointY, float rotation, float scaleX, float scaleY, cocos2d::LabelTTF* parent)
-{
-	sprite->setPosition(Vec2(posX + origin.x, posY + origin.y));
-	sprite->setAnchorPoint(Vec2(anchorPointX, anchorPointY));
-	sprite->setScaleX(scaleX);
-	sprite->setScaleY(scaleY);
-	sprite->setVisible(visibility);
-	sprite->setRotation(rotation);
-	parent->addChild(sprite, zOrder);
-}
 
 void::Bingo::setWordInHelpBoard()
 {
-//	_label->getString().compare("")
-	//strcmp(_label->getString().c_str,empty.c_str()) != 0
-	
 	if (_label != NULL)
 	{
 		for (int i = 0; i < _data_value.size(); i++)
@@ -277,7 +257,6 @@ void Bingo::addEvents(Sprite* clickedObject)
 								if (targetName == _boxContainer[i][j]->getName())
 								{
 									_boxContainer[i][j]->getEventDispatcher()->removeEventListener(listener);
-									CCLOG("listener removed %s", targetName);
 									_charAnimContainer[i][j]->gotoFrameAndPlay(0, true);
 
 									/*auto sequence_E = ScaleTo::create(1, 0.5);
@@ -307,7 +286,6 @@ void Bingo::addEvents(Sprite* clickedObject)
 					{
 						FShake* shake = FShake::actionWithDuration(0.5f, 5.0f);
 						target->runAction(shake);
-
 					}
 						 if (-1 != bingoHorizotally()) {
 							 bingo = true;
@@ -316,8 +294,6 @@ void Bingo::addEvents(Sprite* clickedObject)
 							 {
 								 _bingoAnimBin[row][j]->setVisible(true);
 							 }
-							 CCLOG("THIS IS BINGO ... HORIZONTAL");
-
 						 }
 						 if (-1 != bingoVertically()) {
 							 bingo = true;
@@ -326,7 +302,6 @@ void Bingo::addEvents(Sprite* clickedObject)
 							 {
 								 _bingoAnimBin[i][column]->setVisible(true);
 							 }
-							 CCLOG("THIS IS BINGO ... VERTICAL ");
 						 }
 						  if (-1 != bingoRightDiagonally()) {
 							  bingo = true;
@@ -334,7 +309,6 @@ void Bingo::addEvents(Sprite* clickedObject)
 							  {
 								  _bingoAnimBin[i][i]->setVisible(true);
 							  }
-							 CCLOG("THIS IS BINGO ... Right Diagonally ");
 						 }
 						 if (-1 != bingoLeftDiagonally()) {
 							 bingo = true;
@@ -342,11 +316,14 @@ void Bingo::addEvents(Sprite* clickedObject)
 							 {
 								 _bingoAnimBin[i][_boxContainer.size() - 1 - i]->setVisible(true);
 							 }
-							 CCLOG("THIS IS BINGO ... Left Diagonally ");
 						 }
 						 if (bingo)
 						 {
 							 _isBingoDone = true;
+							 auto callShowScore = CCCallFunc::create([=] {
+								 _menuContext->showScore();
+							 });
+							 this->runAction(Sequence::create(DelayTime::create(2), callShowScore, NULL));
 						 }
 					  }
 			}
@@ -387,8 +364,7 @@ int Bingo::bingoHorizotally()
 			{
 				counter++;
 				if (counter == _boxContainer.size())
-				{   
-					return i;
+				{ return i;
 				}
 			}
 			else
@@ -411,9 +387,7 @@ int Bingo::bingoVertically()
 			{
 				counter++;
 				if (counter == _boxContainer.size())
-				{
-					return j;
-				}
+				{	return j;	}
 			}
 			else
 			{ break; }
@@ -433,9 +407,7 @@ int Bingo::bingoRightDiagonally()
 			{
 				counter++;
 				if (counter == _boxContainer.size())
-				{
-					return i+1;
-				}
+				{return i+1;	}
 			}
 			else
 			{ break; }
@@ -453,15 +425,10 @@ int Bingo::bingoLeftDiagonally()
 		{
 			counter++;
 			if (counter == _boxContainer.size())
-			{
-				return i + 1;
-			}
+			{return i + 1;}
 		}
 		else
-		{
-			break;
-		}
-
+		{break;	}
 	}
 	return -1;
 }
