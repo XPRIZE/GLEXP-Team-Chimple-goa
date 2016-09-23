@@ -29,6 +29,8 @@ bool Stack::init()
 		return false;
 	}
 
+	SpriteFrameCache::getInstance()->addSpriteFramesWithFile("stackisland_1/stackisland_1.plist");
+
 	flag = true;
 
 	visibleSize = Director::getInstance()->getWinSize();
@@ -36,7 +38,7 @@ bool Stack::init()
 	std::vector<std::string> scene = {"island", "superhero"};
 
 	sceneName = scene.at(rand() % scene.size());
-	sceneName = "island";
+	sceneName = "superhero";
 
 	std::vector<std::string> pankaj;
 
@@ -50,7 +52,23 @@ bool Stack::init()
 		this->addChild(wrongNode , 2);
 
 		correctNode = (Node *)CSLoader::createNode("stackisland/animation.csb");
-//		this->addChild(correctNode, 2);
+		correctNode->setPosition(-500, visibleSize.height * .15);
+		correctNode->setScale(.5);
+		this->addChild(correctNode, 2);
+
+		std::vector<std::string> pankaj; 
+		std::vector<int> pankaj1;
+		for (int i = 0; i < stackbg->getChildrenCount(); i++)
+		{
+			for (int j = 0; j < stackbg->getChildren().at(i)->getChildrenCount(); j++)
+			{
+					pankaj.push_back(stackbg->getChildren().at(i)->getChildren().at(j)->getName());
+					pankaj1.push_back(i);
+			}
+		}
+
+		CCLOG("yes");
+
 	}
 	else
 	{
@@ -142,6 +160,7 @@ bool Stack::init()
 		LabelDetails.label->setAnchorPoint(Vec2(.5, .7));
 		LabelDetails.id = it->first;
 		LabelDetails.sequence = i;
+		LabelDetails.item = 0;
 
 		Stack::addEvents(LabelDetails);
 		Position[i]->addChild(LabelDetails.label);
@@ -199,8 +218,8 @@ void Stack::generateWord()
 		auto sparkleTime1 = CSLoader::createTimeline("stackisland/sparkle.csb");
 		stackbg->getChildren().at(1)->getChildByName("FileNode_2")->runAction(sparkleTime);
 		stackbg->getChildren().at(1)->getChildByName("FileNode_2_0")->runAction(sparkleTime1);
-		sparkleTime->gotoFrameAndPlay(0, true);
-		sparkleTime1->gotoFrameAndPlay(0, true);
+		sparkleTime->gotoFrameAndPlay(0, false);
+		sparkleTime1->gotoFrameAndPlay(0, false);
 	}
 	else
 	{
@@ -226,12 +245,32 @@ void Stack::addEvents(struct LabelDetails sprite)
 			{
 				if ((_word.substr(0, sprite.id.length()) == sprite.id) && flag == false)
 				{
-					flag = true;
-					sprite.label->setColor(Color3B::GREEN);
-					cocostudio::timeline::ActionTimeline *charTimeline = CSLoader::createTimeline("superheroes/superheroes.csb");
-					charNode->runAction(charTimeline);
-					charTimeline->gotoFrameAndPlay(0, false);
-					charTimeline->setAnimationEndCallFunc("correct", CC_CALLBACK_0(Stack::afterAnimation, this, sprite, charTimeline, charNode));
+					correctNode->setPosition(-500, visibleSize.height * .20);
+					auto charTimeline = CSLoader::createTimeline("stackisland/animation.csb");
+					correctNode->runAction(charTimeline);
+					charTimeline->gotoFrameAndPlay(0, true);
+
+					auto sequenceFuel = Sequence::create(MoveTo::create(1.3, Vec2(visibleSize.width * .02, visibleSize.height * .20)), CallFunc::create([=]() {
+						flag = false;
+						stackbg->getChildren().at(1)->getChildByName("pearl_22")->setVisible(false);
+						stackbg->getChildren().at(1)->getChildByName("FileNode_2")->setVisible(false);
+						stackbg->getChildren().at(1)->getChildByName("FileNode_2_0")->setVisible(false);
+						correctNode->stopAction(charTimeline);
+
+//						Sprite *newPearl = Sprite::createWithSpriteFrameName("stackisland/stackisland_1/pearl.png");
+
+						auto putPearl = Sequence::create(MoveTo::create(3, Vec2(sprite.container->getPositionX() - sprite.container->getBoundingBox().size.width * .85 + stackbg->getChildren().at(1)->getChildByName("pearl_22")->getBoundingBox().size.width * sprite.item, sprite.container->getPositionY() + sprite.container->getBoundingBox().size.height)), CallFunc::create([=]() {
+
+							Sprite *newPearl = Sprite::createWithSpriteFrameName("stackisland/stackisland_1/pearl.png");
+							newPearl->setPosition(Vec2(correctNode->getPositionX() + correctNode->getBoundingBox().size.width * 2, correctNode->getPositionY() - correctNode->getBoundingBox().size.height / 2));
+							this->addChild(newPearl, 3);
+
+						}), NULL);
+
+						correctNode->runAction(putPearl);
+
+					}), NULL);
+					correctNode->runAction(sequenceFuel);
 				}
 				else if ((_word.substr(0, sprite.id.length()) != sprite.id) && flag == false)
 				{
@@ -241,9 +280,10 @@ void Stack::addEvents(struct LabelDetails sprite)
 					wrongNode->runAction(charTimeline);
 					charTimeline->gotoFrameAndPlay(0, true);
 
-					auto sequenceFuel = Sequence::create(MoveTo::create(5, Vec2(visibleSize.width  + wrongNode->getBoundingBox().size.width * 2, visibleSize.height * .15)), CallFunc::create([=]() {
+					auto sequenceFuel = Sequence::create(MoveTo::create(5, Vec2(visibleSize.width, visibleSize.height * .15)), CallFunc::create([=]() {
 						flag = false;
-						CCLOG("yes");
+						wrongNode->setPosition(-500, visibleSize.height * .15);
+						wrongNode->stopAction(charTimeline);
 					}), NULL);
 					wrongNode->runAction(sequenceFuel);
 				}
