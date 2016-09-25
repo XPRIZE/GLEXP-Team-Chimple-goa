@@ -26,11 +26,15 @@ public:
 	
 	cocos2d::ui::LoadingBar *_containerbar1, *_containerbar2, *_containerbar3, *_containerbar4, *_containerbar5;
 	cocos2d::ui::LoadingBar *_fillpipebar1, *_fillpipebar2, *_fillpipebar3, *_fillpipebar4, *_fillpipebar5, *_suckpipebar;
+	cocos2d::ui::LoadingBar *_trayfillbar;
+
+	cocos2d::Sprite *_tray;
 
 	cocostudio::timeline::ActionTimeline *treadmill;
 	cocostudio::ActionNode *node;
 
-	std::vector<cocos2d::Vec2> Position;
+	Node *stackbg, *charNode, *wrongNode, *correctNode;
+
 	std::map<std::string, std::map<std::string, std::string>> _textToSHow;
 
 	std::vector<std::string> _startName;
@@ -41,6 +45,7 @@ public:
 	std::string _word;
 	cocos2d::LabelTTF *_wordLabel;
 	cocos2d::Size visibleSize;
+	std::string sceneName;
 
 	// implement the "static create()" method manually
 	CREATE_FUNC(Stack);
@@ -51,13 +56,23 @@ public:
 	struct LabelDetails
 	{
 		cocos2d::LabelTTF *label;
+		cocos2d::Sprite *container;
 		std::string id;
-		int sequence;
+		int sequence, item;
 	}LabelDetails;
+
+
+	struct Pos
+	{
+		int x, y;
+	}p1, p2, p3, p4, p5;
+
+	std::vector<Node*> Position;
 
 	bool flag;
 
 	void addEvents(struct LabelDetails);
+	void afterAnimation(struct LabelDetails, cocostudio::timeline::ActionTimeline*, Node*);
 
 protected:
 	MenuContext* _menuContext;

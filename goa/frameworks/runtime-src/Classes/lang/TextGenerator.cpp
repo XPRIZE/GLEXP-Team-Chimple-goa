@@ -150,7 +150,8 @@ std::map<std::string, std::string> TextGenerator::getAntonyms(int maxNum) {
         {"empty", "full"},
         {"messy", "neat"},
         {"never", "always"},
-        {"old", "young"}
+        {"old", "young"},
+		{ "good", "bad" }
     };
     std::map<std::string, std::string> data;
     for (std::map<std::string, std::string>::iterator it=AntonymMap.begin(); it!=AntonymMap.end(); ++it) {

@@ -4,21 +4,6 @@
     <dict>
         <key>frames</key>
         <dict>
-            <key>pinata/bg-01.png</key>
-            <dict>
-                <key>aliases</key>
-                <array/>
-                <key>spriteOffset</key>
-                <string>{0,0}</string>
-                <key>spriteSize</key>
-                <string>{2560,1800}</string>
-                <key>spriteSourceSize</key>
-                <string>{2560,1800}</string>
-                <key>textureRect</key>
-                <string>{{1,1811},{2560,1800}}</string>
-                <key>textureRotated</key>
-                <false/>
-            </dict>
             <key>pinata/bg.png</key>
             <dict>
                 <key>aliases</key>
@@ -26,28 +11,43 @@
                 <key>spriteOffset</key>
                 <string>{0,0}</string>
                 <key>spriteSize</key>
-                <string>{3185,1808}</string>
+                <string>{487,487}</string>
                 <key>spriteSourceSize</key>
-                <string>{3185,1808}</string>
+                <string>{487,487}</string>
                 <key>textureRect</key>
-                <string>{{1,1},{3185,1808}}</string>
+                <string>{{1,2580},{487,487}}</string>
                 <key>textureRotated</key>
                 <false/>
+            </dict>
+            <key>pinata/board.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{769,133}</string>
+                <key>spriteSourceSize</key>
+                <string>{769,133}</string>
+                <key>textureRect</key>
+                <string>{{1,1},{769,133}}</string>
+                <key>textureRotated</key>
+                <true/>
             </dict>
             <key>pinata/cake1.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
                 <key>spriteOffset</key>
-                <string>{0,-3}</string>
+                <string>{0,-5}</string>
                 <key>spriteSize</key>
-                <string>{325,501}</string>
+                <string>{472,640}</string>
                 <key>spriteSourceSize</key>
-                <string>{325,511}</string>
+                <string>{472,654}</string>
                 <key>textureRect</key>
-                <string>{{2563,1811},{325,501}}</string>
+                <string>{{1,772},{472,640}}</string>
                 <key>textureRotated</key>
-                <true/>
+                <false/>
             </dict>
             <key>pinata/cake2.png</key>
             <dict>
@@ -56,13 +56,13 @@
                 <key>spriteOffset</key>
                 <string>{0,1}</string>
                 <key>spriteSize</key>
-                <string>{335,440}</string>
+                <string>{484,575}</string>
                 <key>spriteSourceSize</key>
-                <string>{335,442}</string>
+                <string>{484,577}</string>
                 <key>textureRect</key>
-                <string>{{2563,2477},{335,440}}</string>
+                <string>{{1,2003},{484,575}}</string>
                 <key>textureRotated</key>
-                <true/>
+                <false/>
             </dict>
             <key>pinata/cake3.png</key>
             <dict>
@@ -71,43 +71,13 @@
                 <key>spriteOffset</key>
                 <string>{0,1}</string>
                 <key>spriteSize</key>
-                <string>{337,450}</string>
+                <string>{479,587}</string>
                 <key>spriteSourceSize</key>
-                <string>{337,452}</string>
+                <string>{479,589}</string>
                 <key>textureRect</key>
-                <string>{{2563,2138},{337,450}}</string>
-                <key>textureRotated</key>
-                <true/>
-            </dict>
-            <key>pinata/gunbase.png</key>
-            <dict>
-                <key>aliases</key>
-                <array/>
-                <key>spriteOffset</key>
-                <string>{0,0}</string>
-                <key>spriteSize</key>
-                <string>{267,186}</string>
-                <key>spriteSourceSize</key>
-                <string>{267,186}</string>
-                <key>textureRect</key>
-                <string>{{2849,2814},{267,186}}</string>
+                <string>{{1,1414},{479,587}}</string>
                 <key>textureRotated</key>
                 <false/>
-            </dict>
-            <key>pinata/guntrigger.png</key>
-            <dict>
-                <key>aliases</key>
-                <array/>
-                <key>spriteOffset</key>
-                <string>{0,0}</string>
-                <key>spriteSize</key>
-                <string>{233,284}</string>
-                <key>spriteSourceSize</key>
-                <string>{233,284}</string>
-                <key>textureRect</key>
-                <string>{{2563,2814},{233,284}}</string>
-                <key>textureRotated</key>
-                <true/>
             </dict>
             <key>pinata/player.png</key>
             <dict>
@@ -120,7 +90,22 @@
                 <key>spriteSourceSize</key>
                 <string>{176,176}</string>
                 <key>textureRect</key>
-                <string>{{3005,2477},{176,176}}</string>
+                <string>{{136,1},{176,176}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+            <key>pinata/strawberry.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{104,147}</string>
+                <key>spriteSourceSize</key>
+                <string>{104,147}</string>
+                <key>textureRect</key>
+                <string>{{136,179},{104,147}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
@@ -130,15 +115,15 @@
             <key>format</key>
             <integer>3</integer>
             <key>pixelFormat</key>
-            <string>RGBA4444</string>
+            <string>RGBA8888</string>
             <key>premultiplyAlpha</key>
             <false/>
             <key>realTextureFileName</key>
             <string>pinata.png</string>
             <key>size</key>
-            <string>{3187,3612}</string>
+            <string>{489,3068}</string>
             <key>smartupdate</key>
-            <string>$TexturePacker:SmartUpdate:3f6f41ba77c514d45eadcbc1f5745193:127b5d5b5d728dec91a68bd4512f2e81:fee3799c6e913d47f911644f80ea7723$</string>
+            <string>$TexturePacker:SmartUpdate:21d5b43fd4a2fd124b8fdc846ebccedb:d2f51abdd183a78bee8405d2a277d1da:fee3799c6e913d47f911644f80ea7723$</string>
             <key>textureFileName</key>
             <string>pinata.png</string>
         </dict>
