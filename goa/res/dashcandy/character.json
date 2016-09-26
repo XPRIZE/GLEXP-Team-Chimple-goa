@@ -5,12 +5,12 @@
   "Content": {
     "Content": {
       "Animation": {
-        "Duration": 47,
+        "Duration": 50,
         "Speed": 1.0,
         "ActivedAnimationName": "jump",
         "Timelines": [
           {
-            "ActionTag": -1338572738,
+            "ActionTag": 983092731,
             "Property": "FileData",
             "Frames": [
               {
@@ -29,7 +29,7 @@
                   "Path": "dashcandy/gingerbreadman2.png",
                   "Plist": "dashcandy/dashcandy.plist"
                 },
-                "FrameIndex": 6,
+                "FrameIndex": 2,
                 "Tween": false,
                 "ctype": "TextureFrameData"
               },
@@ -39,7 +39,7 @@
                   "Path": "dashcandy/gingerbreadman3.png",
                   "Plist": "dashcandy/dashcandy.plist"
                 },
-                "FrameIndex": 12,
+                "FrameIndex": 5,
                 "Tween": false,
                 "ctype": "TextureFrameData"
               },
@@ -49,7 +49,7 @@
                   "Path": "dashcandy/gingerbreadman4.png",
                   "Plist": "dashcandy/dashcandy.plist"
                 },
-                "FrameIndex": 18,
+                "FrameIndex": 10,
                 "Tween": false,
                 "ctype": "TextureFrameData"
               },
@@ -59,7 +59,7 @@
                   "Path": "dashcandy/gingerbreadman3.png",
                   "Plist": "dashcandy/dashcandy.plist"
                 },
-                "FrameIndex": 35,
+                "FrameIndex": 40,
                 "Tween": false,
                 "ctype": "TextureFrameData"
               },
@@ -69,7 +69,7 @@
                   "Path": "dashcandy/gingerbreadman2.png",
                   "Plist": "dashcandy/dashcandy.plist"
                 },
-                "FrameIndex": 41,
+                "FrameIndex": 44,
                 "Tween": false,
                 "ctype": "TextureFrameData"
               },
@@ -82,6 +82,16 @@
                 "FrameIndex": 47,
                 "Tween": false,
                 "ctype": "TextureFrameData"
+              },
+              {
+                "TextureFile": {
+                  "Type": "MarkedSubImage",
+                  "Path": "dashcandy/gingerbreadman5.png",
+                  "Plist": "dashcandy/dashcandy.plist"
+                },
+                "FrameIndex": 50,
+                "Tween": false,
+                "ctype": "TextureFrameData"
               }
             ],
             "ctype": "TimelineData"
@@ -92,8 +102,14 @@
       "AnimationList": [
         {
           "StartIndex": 0,
-          "EndIndex": 53,
+          "EndIndex": 47,
           "Name": "jump",
+          "ctype": "AnimationInfoData"
+        },
+        {
+          "StartIndex": 50,
+          "EndIndex": 55,
+          "Name": "angry",
           "ctype": "AnimationInfoData"
         }
       ],
@@ -103,7 +119,7 @@
           {
             "FileData": {
               "Type": "MarkedSubImage",
-              "Path": "dashcandy/gingerbreadman1.png",
+              "Path": "dashcandy/gingerbreadman2.png",
               "Plist": "dashcandy/dashcandy.plist"
             },
             "BlendFunc": {
@@ -111,12 +127,12 @@
               "Dst": 771
             },
             "AnchorPoint": {
-              "ScaleX": 0.3592,
-              "ScaleY": 0.1055
+              "ScaleX": 0.3566,
+              "ScaleY": 0.07
             },
             "Position": {
-              "X": 9.511,
-              "Y": 17.1271
+              "X": 5.7253,
+              "Y": 4.8052
             },
             "Scale": {
               "ScaleX": 1.0,
@@ -132,17 +148,17 @@
               "X": 0.0,
               "Y": 0.0
             },
-            "LeftMargin": -117.6489,
-            "RightMargin": -236.3512,
-            "TopMargin": -409.8235,
-            "BottomMargin": -29.1765,
-            "Tag": 33,
-            "ActionTag": -1338572738,
+            "LeftMargin": -120.8806,
+            "RightMargin": -234.1194,
+            "TopMargin": -413.0752,
+            "BottomMargin": -25.9248,
+            "Tag": 27,
+            "ActionTag": 983092731,
             "Size": {
-              "X": 354.0,
+              "X": 355.0,
               "Y": 439.0
             },
-            "Name": "Sprite_3",
+            "Name": "Sprite_1",
             "ctype": "SpriteObjectData"
           }
         ],

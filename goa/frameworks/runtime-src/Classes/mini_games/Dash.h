@@ -24,7 +24,6 @@ public:
 	virtual bool init();
 	static cocos2d::Scene* createScene();
 	void updatePlayerPosition(std::string playerName, int stepPosition);
-	std::map<std::string, std::map<std::string, std::string>> _differntSceneMapping;
 	std::map<std::string, std::string> _scenePath;
 protected:
 	int _gameScore, _enemyScore;
@@ -35,7 +34,7 @@ protected:
 	cocos2d::Vector <cocos2d::Sprite *> _choiceButton;
 	cocos2d::Vector <cocos2d::Label *> _choiceLabel;
 	cocos2d::Node * _character, * _otherCharacter, *_bg;
-	void wordCheck();
+	void jumpTimeline(cocos2d::Node * node, std::string animationName);
 	MenuContext * menu;
 	cocostudio::timeline::ActionTimeline * _mycharacterAnim;
 	void myCharacterJumping(int jumpCount);

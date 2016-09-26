@@ -64,10 +64,11 @@ bool Dash::init()
 
 
 	
-	_differntSceneMapping = {
+	std::map<std::string, std::map<std::string, std::string>> differntSceneMapping = {
 	   {
 		   {"city",  //sonu designs
 			   {
+				   { "plist", "dash/dash.plist" },
 				   { "bg", "dash/DashScene.csb"},
 				   { "step", "dash/step.png"},
 				   { "step_winning", "dash/step_winning.png"},
@@ -79,6 +80,7 @@ bool Dash::init()
 			   }},
 		   {"iceLand",  //anu designs
 			   {
+				   { "plist", "dashisland/dashisland.plist" },
 				   { "bg", "dashisland/dashisland.csb" },
 				   { "step", "dashisland/step.png" },
 				   { "step_winning", "dashisland/step_winning.png" },
@@ -90,27 +92,26 @@ bool Dash::init()
 			   }},
 		   {"candy",  //teju design
 			   {
+				   { "plist", "dashcandy/dashcandy.plist" },
 				   { "bg", "dashcandy/dashcandy.csb" },
 				   { "step", "dashcandy/step.png" },
 				   { "step_winning", "dashcandy/step_winning.png" },
-				   { "flag", "dashcandy/chocolate2.png" },
+				   { "flag", "dashcandy/flag.png" },
 				   { "button", "dashcandy/answer_button.png" },
 				   { "character", "dashcandy/character.csb" },
 				   { "right_animation", "jump" },
-				   { "wrong_animation", "null" }
+				   { "wrong_animation", "angry" }
 			   }},
 		   
 	   }
 
 	};
 	
-	
-	_scenePath = _differntSceneMapping.at("candy");
+	std::vector<std::string> theme = { "city","candy","iceLand" };
+	_scenePath = differntSceneMapping.at(theme.at(cocos2d::RandomHelper::random_int(0, 2)));
 
 	auto spritecache1 = SpriteFrameCache::getInstance();
-	spritecache1->addSpriteFramesWithFile("dash/dash.plist");
-	auto spritecache2 = SpriteFrameCache::getInstance();
-	spritecache1->addSpriteFramesWithFile("dashisland/dashisland.plist");
+	spritecache1->addSpriteFramesWithFile(_scenePath.at("plist"));
 
 	_bg = CSLoader::createNode(_scenePath.at("bg"));//dash/DashScene.csb
 	if (visibleSize.width > 2560) {
@@ -197,11 +198,11 @@ bool Dash::init()
 	return true;
 }
 
-void Dash::wordCheck()
+void Dash::jumpTimeline(cocos2d::Node * node, std::string animationName)
 {
-	auto mouthTimeline = CSLoader::createTimeline(_scenePath.at("character"));
-	_character->runAction(mouthTimeline);
-	mouthTimeline->play(_scenePath.at("right_animation"), false);
+	auto jumpTimeline = CSLoader::createTimeline(_scenePath.at("character"));
+	node->runAction(jumpTimeline);
+	jumpTimeline->play(animationName, false);
 }
 
 void Dash::myCharacterJumping(int jumpCount)
@@ -210,7 +211,7 @@ void Dash::myCharacterJumping(int jumpCount)
 	Size visibleSize = Director::getInstance()->getVisibleSize();
 	auto jump = JumpBy::create(1, Vec2(0, 0), 200, 1);
 	_character->runAction(jump);
-	wordCheck();
+	jumpTimeline(_character, _scenePath.at("right_animation"));
 	auto moveTo = MoveBy::create(1, Vec2(-(visibleSize.width / 5) - (jumpCount - _jumpCount), 0));
 	_stepLayer->runAction(Sequence::create(moveTo, CallFunc::create([=]() {
 		_jumpCount++;
@@ -235,8 +236,9 @@ void Dash::otherCharacterJumping(int jumpCount)
 {
 	_enemyJumpCount++;
 	Size visibleSize = Director::getInstance()->getVisibleSize();
-	auto jump = JumpBy::create(2, Vec2(visibleSize.width / 5, 0), 200, 1);
+	auto jump = JumpBy::create(1, Vec2(visibleSize.width / 5, 0), 200, 1);
 	_otherCharacter->runAction(jump);
+	jumpTimeline(_otherCharacter, _scenePath.at("right_animation"));
 	if (_enemyJumpCount == 14) {
 		menu->showScore();
 	}
