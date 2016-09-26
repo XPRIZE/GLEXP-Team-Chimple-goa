@@ -38,7 +38,8 @@
 #include "mini_games/Bingo.h"
 #include "mini_games/Memory.h"
 #include "mini_games/Dash.h"
-
+#include "mini_games/Stack.h"
+#include "mini_games/Circle.h"
 USING_NS_CC;
 
 ScrollableGameMapScene::ScrollableGameMapScene()
@@ -177,7 +178,8 @@ void ScrollableGameMapScene::gameSelected(Ref* pSender, ui::Widget::TouchEventTy
 			} else  if (clickedButton->getName() == JUMP_ON_WORDS) {
 				ScriptingCore::getInstance()->runScript("src/start/jump.js");
 			} else  if (clickedButton->getName() == SMASH_THE_ROCK) {
-				Director::getInstance()->replaceScene(SmashTheRock::createScene());
+				Director::getInstance()->replaceScene(Circle::createScene());
+			//	Director::getInstance()->replaceScene(SmashTheRock::createScene());
 				//ScriptingCore::getInstance()->runScript("src/start/jump.js");
 			} else if (clickedButton->getName() == POP) {
 				ScriptingCore::getInstance()->runScript("src/start/pop.js");
@@ -207,12 +209,17 @@ void ScrollableGameMapScene::gameSelected(Ref* pSender, ui::Widget::TouchEventTy
             } else if(clickedButton->getName() == JAZZ) {
                 Director::getInstance()->replaceScene(jazz::createScene());
             } else if(clickedButton->getName() == JASMINE) {
-				ScriptingCore::getInstance()->runScript("src/start/train.js");
+
+			//	ScriptingCore::getInstance()->runScript("src/start/train.js");
 //                Director::getInstance()->replaceScene(Jasmin_Mainfile::createScene());
+
+//				ScriptingCore::getInstance()->runScript("src/start/train.js");
+                Director::getInstance()->replaceScene(Stack::createScene());
             } else if(clickedButton->getName() == STORY_TELLING) {
                 ScriptingCore::getInstance()->runScript("src/start/storytelling.js");
-            }
-            
+            } else if (clickedButton->getName() == TRAIN) {
+				ScriptingCore::getInstance()->runScript("src/start/train.js");
+			}
             break;
         }
             
