@@ -5,9 +5,9 @@
   "Content": {
     "Content": {
       "Animation": {
-        "Duration": 205,
+        "Duration": 305,
         "Speed": 1.0,
-        "ActivedAnimationName": "hero",
+        "ActivedAnimationName": "enemy_correct",
         "Timelines": [
           {
             "ActionTag": -340817962,
@@ -29,7 +29,7 @@
                   "Path": "dashisland/otterenemy2.png",
                   "Plist": "dashisland/dashisland.plist"
                 },
-                "FrameIndex": 15,
+                "FrameIndex": 10,
                 "Tween": false,
                 "ctype": "TextureFrameData"
               },
@@ -39,7 +39,7 @@
                   "Path": "dashisland/otterenemy3.png",
                   "Plist": "dashisland/dashisland.plist"
                 },
-                "FrameIndex": 30,
+                "FrameIndex": 20,
                 "Tween": false,
                 "ctype": "TextureFrameData"
               },
@@ -49,7 +49,7 @@
                   "Path": "dashisland/otterenemy2.png",
                   "Plist": "dashisland/dashisland.plist"
                 },
-                "FrameIndex": 85,
+                "FrameIndex": 50,
                 "Tween": false,
                 "ctype": "TextureFrameData"
               },
@@ -59,7 +59,7 @@
                   "Path": "dashisland/otterenemy1.png",
                   "Plist": "dashisland/dashisland.plist"
                 },
-                "FrameIndex": 100,
+                "FrameIndex": 60,
                 "Tween": false,
                 "ctype": "TextureFrameData"
               },
@@ -79,7 +79,7 @@
                   "Path": "dashisland/otterhero2.png",
                   "Plist": "dashisland/dashisland.plist"
                 },
-                "FrameIndex": 120,
+                "FrameIndex": 115,
                 "Tween": false,
                 "ctype": "TextureFrameData"
               },
@@ -89,7 +89,7 @@
                   "Path": "dashisland/otterhero3.png",
                   "Plist": "dashisland/dashisland.plist"
                 },
-                "FrameIndex": 135,
+                "FrameIndex": 125,
                 "Tween": false,
                 "ctype": "TextureFrameData"
               },
@@ -99,7 +99,7 @@
                   "Path": "dashisland/otterhero2.png",
                   "Plist": "dashisland/dashisland.plist"
                 },
-                "FrameIndex": 190,
+                "FrameIndex": 155,
                 "Tween": false,
                 "ctype": "TextureFrameData"
               },
@@ -109,7 +109,67 @@
                   "Path": "dashisland/otterhero1.png",
                   "Plist": "dashisland/dashisland.plist"
                 },
-                "FrameIndex": 205,
+                "FrameIndex": 165,
+                "Tween": false,
+                "ctype": "TextureFrameData"
+              },
+              {
+                "TextureFile": {
+                  "Type": "MarkedSubImage",
+                  "Path": "dashisland/otterenemy1.png",
+                  "Plist": "dashisland/dashisland.plist"
+                },
+                "FrameIndex": 210,
+                "Tween": false,
+                "ctype": "TextureFrameData"
+              },
+              {
+                "TextureFile": {
+                  "Type": "MarkedSubImage",
+                  "Path": "dashisland/otterenemy2.png",
+                  "Plist": "dashisland/dashisland.plist"
+                },
+                "FrameIndex": 220,
+                "Tween": false,
+                "ctype": "TextureFrameData"
+              },
+              {
+                "TextureFile": {
+                  "Type": "MarkedSubImage",
+                  "Path": "dashisland/otterenemy1.png",
+                  "Plist": "dashisland/dashisland.plist"
+                },
+                "FrameIndex": 255,
+                "Tween": false,
+                "ctype": "TextureFrameData"
+              },
+              {
+                "TextureFile": {
+                  "Type": "MarkedSubImage",
+                  "Path": "dashisland/otterhero1.png",
+                  "Plist": "dashisland/dashisland.plist"
+                },
+                "FrameIndex": 260,
+                "Tween": false,
+                "ctype": "TextureFrameData"
+              },
+              {
+                "TextureFile": {
+                  "Type": "MarkedSubImage",
+                  "Path": "dashisland/otterhero2.png",
+                  "Plist": "dashisland/dashisland.plist"
+                },
+                "FrameIndex": 270,
+                "Tween": false,
+                "ctype": "TextureFrameData"
+              },
+              {
+                "TextureFile": {
+                  "Type": "MarkedSubImage",
+                  "Path": "dashisland/otterhero1.png",
+                  "Plist": "dashisland/dashisland.plist"
+                },
+                "FrameIndex": 305,
                 "Tween": false,
                 "ctype": "TextureFrameData"
               }
@@ -122,14 +182,26 @@
       "AnimationList": [
         {
           "StartIndex": 0,
-          "EndIndex": 100,
-          "Name": "enemy",
+          "EndIndex": 60,
+          "Name": "enemy_correct",
           "ctype": "AnimationInfoData"
         },
         {
           "StartIndex": 105,
-          "EndIndex": 205,
-          "Name": "hero",
+          "EndIndex": 165,
+          "Name": "hero_correct",
+          "ctype": "AnimationInfoData"
+        },
+        {
+          "StartIndex": 210,
+          "EndIndex": 255,
+          "Name": "enemy_wrong",
+          "ctype": "AnimationInfoData"
+        },
+        {
+          "StartIndex": 260,
+          "EndIndex": 305,
+          "Name": "hero_wrong",
           "ctype": "AnimationInfoData"
         }
       ],
@@ -139,7 +211,7 @@
           {
             "FileData": {
               "Type": "MarkedSubImage",
-              "Path": "dashisland/otterhero1.png",
+              "Path": "dashisland/otterenemy3.png",
               "Plist": "dashisland/dashisland.plist"
             },
             "BlendFunc": {
@@ -147,12 +219,11 @@
               "Dst": 771
             },
             "AnchorPoint": {
-              "ScaleX": 0.5,
-              "ScaleY": 0.5
+              "ScaleX": 0.5
             },
             "Position": {
               "X": 0.0,
-              "Y": 0.0
+              "Y": -106.0
             },
             "Scale": {
               "ScaleX": 1.0,
@@ -168,10 +239,10 @@
               "X": 0.0,
               "Y": 0.0
             },
-            "LeftMargin": -23.0,
-            "RightMargin": -23.0,
-            "TopMargin": -23.0,
-            "BottomMargin": -23.0,
+            "LeftMargin": -188.5,
+            "RightMargin": -188.5,
+            "TopMargin": -106.0,
+            "BottomMargin": -106.0,
             "Tag": 73,
             "ActionTag": -340817962,
             "Size": {

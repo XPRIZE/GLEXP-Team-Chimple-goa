@@ -24,6 +24,8 @@ public:
 	virtual bool init();
 	static cocos2d::Scene* createScene();
 	void updatePlayerPosition(std::string playerName, int stepPosition);
+	std::map<std::string, std::map<std::string, std::string>> _differntSceneMapping;
+	std::map<std::string, std::string> _scenePath;
 protected:
 	int _gameScore, _enemyScore;
 	cocos2d::Layer * _stepLayer;

@@ -4,213 +4,258 @@
     <dict>
         <key>frames</key>
         <dict>
-            <key>dashisland/answer_button.png</key>
+            <key>dashcandy/answer_button.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
                 <key>spriteOffset</key>
                 <string>{0,0}</string>
                 <key>spriteSize</key>
-                <string>{562,114}</string>
+                <string>{306,54}</string>
                 <key>spriteSourceSize</key>
-                <string>{562,114}</string>
+                <string>{306,54}</string>
                 <key>textureRect</key>
-                <string>{{117,1},{562,114}}</string>
+                <string>{{113,150},{306,54}}</string>
                 <key>textureRotated</key>
                 <true/>
             </dict>
-            <key>dashisland/bg.png</key>
+            <key>dashcandy/bg1.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
                 <key>spriteOffset</key>
                 <string>{0,0}</string>
                 <key>spriteSize</key>
-                <string>{250,212}</string>
+                <string>{644,135}</string>
                 <key>spriteSourceSize</key>
-                <string>{250,212}</string>
+                <string>{644,135}</string>
                 <key>textureRect</key>
-                <string>{{233,424},{250,212}}</string>
+                <string>{{169,318},{644,135}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>dashisland/big_button.png</key>
+            <key>dashcandy/bg2.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
                 <key>spriteOffset</key>
                 <string>{0,0}</string>
                 <key>spriteSize</key>
-                <string>{672,114}</string>
+                <string>{679,166}</string>
                 <key>spriteSourceSize</key>
-                <string>{672,114}</string>
+                <string>{679,166}</string>
                 <key>textureRect</key>
-                <string>{{1,1},{672,114}}</string>
-                <key>textureRotated</key>
-                <true/>
-            </dict>
-            <key>dashisland/cloud.png</key>
-            <dict>
-                <key>aliases</key>
-                <array/>
-                <key>spriteOffset</key>
-                <string>{0,0}</string>
-                <key>spriteSize</key>
-                <string>{421,210}</string>
-                <key>spriteSourceSize</key>
-                <string>{421,210}</string>
-                <key>textureRect</key>
-                <string>{{233,1},{421,210}}</string>
-                <key>textureRotated</key>
-                <true/>
-            </dict>
-            <key>dashisland/flag.png</key>
-            <dict>
-                <key>aliases</key>
-                <array/>
-                <key>spriteOffset</key>
-                <string>{0,0}</string>
-                <key>spriteSize</key>
-                <string>{60,126}</string>
-                <key>spriteSourceSize</key>
-                <string>{60,126}</string>
-                <key>textureRect</key>
-                <string>{{447,825},{60,126}}</string>
-                <key>textureRotated</key>
-                <true/>
-            </dict>
-            <key>dashisland/hint_button.png</key>
-            <dict>
-                <key>aliases</key>
-                <array/>
-                <key>spriteOffset</key>
-                <string>{0,0}</string>
-                <key>spriteSize</key>
-                <string>{145,114}</string>
-                <key>spriteSourceSize</key>
-                <string>{145,114}</string>
-                <key>textureRect</key>
-                <string>{{117,565},{145,114}}</string>
-                <key>textureRotated</key>
-                <true/>
-            </dict>
-            <key>dashisland/otterenemy1.png</key>
-            <dict>
-                <key>aliases</key>
-                <array/>
-                <key>spriteOffset</key>
-                <string>{-2,-9}</string>
-                <key>spriteSize</key>
-                <string>{185,88}</string>
-                <key>spriteSourceSize</key>
-                <string>{189,106}</string>
-                <key>textureRect</key>
-                <string>{{485,383},{185,88}}</string>
-                <key>textureRotated</key>
-                <true/>
-            </dict>
-            <key>dashisland/otterenemy2.png</key>
-            <dict>
-                <key>aliases</key>
-                <array/>
-                <key>spriteOffset</key>
-                <string>{-7,-2}</string>
-                <key>spriteSize</key>
-                <string>{175,102}</string>
-                <key>spriteSourceSize</key>
-                <string>{189,106}</string>
-                <key>textureRect</key>
-                <string>{{270,638},{175,102}}</string>
+                <string>{{203,150},{679,166}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>dashisland/otterenemy3.png</key>
+            <key>dashcandy/bg3.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
                 <key>spriteOffset</key>
                 <string>{0,0}</string>
                 <key>spriteSize</key>
-                <string>{189,106}</string>
+                <string>{417,106}</string>
                 <key>spriteSourceSize</key>
-                <string>{189,106}</string>
+                <string>{417,106}</string>
                 <key>textureRect</key>
-                <string>{{445,1},{189,106}}</string>
+                <string>{{1,1},{417,106}}</string>
                 <key>textureRotated</key>
                 <true/>
             </dict>
-            <key>dashisland/otterhero1.png</key>
+            <key>dashcandy/chocolate1.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
                 <key>spriteOffset</key>
-                <string>{-2,-9}</string>
+                <string>{0,0}</string>
                 <key>spriteSize</key>
-                <string>{185,88}</string>
+                <string>{40,41}</string>
                 <key>spriteSourceSize</key>
-                <string>{189,106}</string>
+                <string>{40,41}</string>
                 <key>textureRect</key>
-                <string>{{447,638},{185,88}}</string>
-                <key>textureRotated</key>
-                <true/>
-            </dict>
-            <key>dashisland/otterhero2.png</key>
-            <dict>
-                <key>aliases</key>
-                <array/>
-                <key>spriteOffset</key>
-                <string>{-7,-2}</string>
-                <key>spriteSize</key>
-                <string>{175,102}</string>
-                <key>spriteSourceSize</key>
-                <string>{189,106}</string>
-                <key>textureRect</key>
-                <string>{{270,742},{175,102}}</string>
+                <string>{{161,458},{40,41}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>dashisland/otterhero3.png</key>
+            <key>dashcandy/chocolate2.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
                 <key>spriteOffset</key>
                 <string>{0,0}</string>
                 <key>spriteSize</key>
-                <string>{189,106}</string>
+                <string>{46,46}</string>
                 <key>spriteSourceSize</key>
-                <string>{189,106}</string>
+                <string>{46,46}</string>
                 <key>textureRect</key>
-                <string>{{445,192},{189,106}}</string>
-                <key>textureRotated</key>
-                <true/>
-            </dict>
-            <key>dashisland/step.png</key>
-            <dict>
-                <key>aliases</key>
-                <array/>
-                <key>spriteOffset</key>
-                <string>{0,3}</string>
-                <key>spriteSize</key>
-                <string>{152,176}</string>
-                <key>spriteSourceSize</key>
-                <string>{152,182}</string>
-                <key>textureRect</key>
-                <string>{{116,712},{152,176}}</string>
+                <string>{{113,458},{46,46}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>dashisland/step_winning.png</key>
+            <key>dashcandy/chocolate3.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
                 <key>spriteOffset</key>
                 <string>{0,0}</string>
                 <key>spriteSize</key>
-                <string>{213,113}</string>
+                <string>{38,38}</string>
                 <key>spriteSourceSize</key>
-                <string>{213,113}</string>
+                <string>{38,38}</string>
                 <key>textureRect</key>
-                <string>{{1,675},{213,113}}</string>
+                <string>{{271,455},{38,38}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+            <key>dashcandy/gingerbreadman1.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{-15,-3}</string>
+                <key>spriteSize</key>
+                <string>{55,94}</string>
+                <key>spriteSourceSize</key>
+                <string>{89,110}</string>
+                <key>textureRect</key>
+                <string>{{884,266},{55,94}}</string>
+                <key>textureRotated</key>
+                <true/>
+            </dict>
+            <key>dashcandy/gingerbreadman2.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{-10,-3}</string>
+                <key>spriteSize</key>
+                <string>{55,96}</string>
+                <key>spriteSourceSize</key>
+                <string>{89,110}</string>
+                <key>textureRect</key>
+                <string>{{884,150},{55,96}}</string>
+                <key>textureRotated</key>
+                <true/>
+            </dict>
+            <key>dashcandy/gingerbreadman3.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{-8,-6}</string>
+                <key>spriteSize</key>
+                <string>{55,92}</string>
+                <key>spriteSourceSize</key>
+                <string>{89,110}</string>
+                <key>textureRect</key>
+                <string>{{815,412},{55,92}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+            <key>dashcandy/gingerbreadman4.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{13,6}</string>
+                <key>spriteSize</key>
+                <string>{57,94}</string>
+                <key>spriteSourceSize</key>
+                <string>{89,110}</string>
+                <key>textureRect</key>
+                <string>{{884,207},{57,94}}</string>
+                <key>textureRotated</key>
+                <true/>
+            </dict>
+            <key>dashcandy/gingerbreadman5.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{-6,-5}</string>
+                <key>spriteSize</key>
+                <string>{57,92}</string>
+                <key>spriteSourceSize</key>
+                <string>{89,110}</string>
+                <key>textureRect</key>
+                <string>{{815,318},{57,92}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+            <key>dashcandy/ground.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{875,147}</string>
+                <key>spriteSourceSize</key>
+                <string>{875,147}</string>
+                <key>textureRect</key>
+                <string>{{109,1},{875,147}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+            <key>dashcandy/small_button1.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{74,54}</string>
+                <key>spriteSourceSize</key>
+                <string>{74,54}</string>
+                <key>textureRect</key>
+                <string>{{1,420},{74,54}}</string>
+                <key>textureRotated</key>
+                <true/>
+            </dict>
+            <key>dashcandy/small_button2.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{74,54}</string>
+                <key>spriteSourceSize</key>
+                <string>{74,54}</string>
+                <key>textureRect</key>
+                <string>{{57,420},{74,54}}</string>
+                <key>textureRotated</key>
+                <true/>
+            </dict>
+            <key>dashcandy/step.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{66,49}</string>
+                <key>spriteSourceSize</key>
+                <string>{66,49}</string>
+                <key>textureRect</key>
+                <string>{{203,455},{66,49}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+            <key>dashcandy/step_winning.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{123,90}</string>
+                <key>spriteSourceSize</key>
+                <string>{123,90}</string>
+                <key>textureRect</key>
+                <string>{{874,323},{123,90}}</string>
                 <key>textureRotated</key>
                 <true/>
             </dict>
@@ -220,17 +265,17 @@
             <key>format</key>
             <integer>3</integer>
             <key>pixelFormat</key>
-            <string>RGBA4444</string>
+            <string>RGBA8888</string>
             <key>premultiplyAlpha</key>
             <false/>
             <key>realTextureFileName</key>
-            <string>dashisland.png</string>
+            <string>dashcandy.png</string>
             <key>size</key>
-            <string>{574,889}</string>
+            <string>{985,505}</string>
             <key>smartupdate</key>
-            <string>$TexturePacker:SmartUpdate:ac4276b04ca55ad7cab558e3bf8f7230:846a14c3edf5e85f141f63914ec2f9b5:675b437d44d34ce9baecb36232a17695$</string>
+            <string>$TexturePacker:SmartUpdate:55a9f8e2a65dfc6bb9578a4574934ca1:9d4ed5213ea57734b44f3d83a9d57991:889687f104fd72ed40259bf6efa9eed4$</string>
             <key>textureFileName</key>
-            <string>dashisland.png</string>
+            <string>dashcandy.png</string>
         </dict>
     </dict>
 </plist>
