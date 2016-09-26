@@ -145,7 +145,7 @@ bool Stack::init()
 		this->addChild(charNode);
 	}
 	
-/*
+
 	int i = 0;
 	for (std::map<std::string, std::map<std::string, std::string>>::iterator it = _textToSHow.begin(); it != _textToSHow.end(); ++it, i++)
 	{
@@ -174,7 +174,7 @@ bool Stack::init()
 
 
 	Stack::generateWord();
-	*/
+	
 	return true;
 }
 
