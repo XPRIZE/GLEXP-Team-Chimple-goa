@@ -1,0 +1,359 @@
+{
+  "ID": "a2ee0952-26b5-49ae-8bf9-4f1d6279b798",
+  "Version": "3.10.0.0",
+  "Name": "dashisland",
+  "Content": {
+    "Content": {
+      "Animation": {
+        "Duration": 0,
+        "Speed": 1.0,
+        "Timelines": [],
+        "ctype": "TimelineActionData"
+      },
+      "AnimationList": [],
+      "ObjectData": {
+        "Children": [
+          {
+            "ClipAble": false,
+            "ComboBoxIndex": 2,
+            "SingleColor": {
+              "R": 150,
+              "G": 200
+            },
+            "FirstColor": {},
+            "EndColor": {
+              "R": 136,
+              "G": 215,
+              "B": 253
+            },
+            "ColorVector": {
+              "ScaleY": 1.0
+            },
+            "TouchEnable": true,
+            "AnchorPoint": {},
+            "Position": {
+              "X": -280.5,
+              "Y": 1071.7839
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0146
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": -0.1096,
+              "Y": 0.5954
+            },
+            "PreSize": {
+              "X": 1.2109,
+              "Y": 0.3983
+            },
+            "LeftMargin": -280.5,
+            "RightMargin": -259.5,
+            "TopMargin": 11.2161,
+            "BottomMargin": 1071.7839,
+            "Tag": 67,
+            "ActionTag": -584967747,
+            "Size": {
+              "X": 3100.0,
+              "Y": 717.0
+            },
+            "Name": "Panel_1",
+            "ctype": "PanelObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "dashisland/cloud.png",
+              "Plist": "dashisland/dashisland.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1890.6273,
+              "Y": 1284.719
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.7385,
+              "Y": 0.7137
+            },
+            "PreSize": {
+              "X": 0.3289,
+              "Y": 0.2328
+            },
+            "LeftMargin": 1469.6273,
+            "RightMargin": 248.3726,
+            "TopMargin": 305.781,
+            "BottomMargin": 1075.219,
+            "Tag": 82,
+            "ActionTag": -1947311156,
+            "Size": {
+              "X": 842.0,
+              "Y": 419.0
+            },
+            "Name": "cloud_7_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FlipX": true,
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "dashisland/bg.png",
+              "Plist": "dashisland/dashisland.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1216.9731,
+              "Y": 1245.4845
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.4754,
+              "Y": 0.6919
+            },
+            "PreSize": {
+              "X": 0.1949,
+              "Y": 0.235
+            },
+            "LeftMargin": 967.4731,
+            "RightMargin": 1093.5269,
+            "TopMargin": 343.0155,
+            "BottomMargin": 1033.9845,
+            "Tag": 84,
+            "ActionTag": -1959386376,
+            "Size": {
+              "X": 499.0,
+              "Y": 423.0
+            },
+            "Name": "bg_6_0_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "dashisland/bg.png",
+              "Plist": "dashisland/dashisland.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1716.334,
+              "Y": 1246.5208
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.6704,
+              "Y": 0.6925
+            },
+            "PreSize": {
+              "X": 0.1949,
+              "Y": 0.235
+            },
+            "LeftMargin": 1466.834,
+            "RightMargin": 594.166,
+            "TopMargin": 341.9792,
+            "BottomMargin": 1035.0208,
+            "Tag": 83,
+            "ActionTag": -1801213354,
+            "Size": {
+              "X": 499.0,
+              "Y": 423.0
+            },
+            "Name": "bg_6_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "dashisland/cloud.png",
+              "Plist": "dashisland/dashisland.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 143.8421,
+              "Y": 1275.5334
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.0562,
+              "Y": 0.7086
+            },
+            "PreSize": {
+              "X": 0.3289,
+              "Y": 0.2328
+            },
+            "LeftMargin": -277.1579,
+            "RightMargin": 1995.158,
+            "TopMargin": 314.9666,
+            "BottomMargin": 1066.0334,
+            "Tag": 81,
+            "ActionTag": -635439215,
+            "Size": {
+              "X": 842.0,
+              "Y": 419.0
+            },
+            "Name": "cloud_7",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "dashisland/bg.png",
+              "Plist": "dashisland/dashisland.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": -30.4522,
+              "Y": 1237.334
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": -0.0119,
+              "Y": 0.6874
+            },
+            "PreSize": {
+              "X": 0.1949,
+              "Y": 0.235
+            },
+            "LeftMargin": -279.9522,
+            "RightMargin": 2340.9521,
+            "TopMargin": 351.166,
+            "BottomMargin": 1025.834,
+            "Tag": 80,
+            "ActionTag": -654165584,
+            "Size": {
+              "X": 499.0,
+              "Y": 423.0
+            },
+            "Name": "bg_6",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "ClipAble": false,
+            "ComboBoxIndex": 2,
+            "SingleColor": {
+              "R": 150,
+              "G": 200
+            },
+            "FirstColor": {
+              "R": 46,
+              "G": 166,
+              "B": 251
+            },
+            "EndColor": {
+              "R": 136,
+              "G": 215,
+              "B": 253
+            },
+            "ColorVector": {
+              "ScaleY": 1.0
+            },
+            "TouchEnable": true,
+            "AnchorPoint": {},
+            "Position": {
+              "X": -280.5,
+              "Y": 0.0
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": -0.1096,
+              "Y": 0.0
+            },
+            "PreSize": {
+              "X": 1.2109,
+              "Y": 0.5956
+            },
+            "LeftMargin": -280.5,
+            "RightMargin": -259.5,
+            "TopMargin": 728.0,
+            "Tag": 68,
+            "ActionTag": 1595738947,
+            "Size": {
+              "X": 3100.0,
+              "Y": 1072.0
+            },
+            "Name": "Panel_2",
+            "ctype": "PanelObjectData"
+          }
+        ],
+        "Size": {
+          "X": 2560.0,
+          "Y": 1800.0
+        },
+        "Name": "Scene",
+        "ctype": "SingleNodeObjectData"
+      },
+      "UsedResources": [
+        "dashisland/dashisland.plist",
+        "dashisland/dashisland.png"
+      ],
+      "ctype": "GameFileData"
+    }
+  },
+  "Type": "Scene"
+}

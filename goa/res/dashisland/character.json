@@ -1,0 +1,200 @@
+{
+  "ID": "0fb9a40a-14b1-4e42-baaa-10ff68075168",
+  "Version": "3.10.0.0",
+  "Name": "character",
+  "Content": {
+    "Content": {
+      "Animation": {
+        "Duration": 205,
+        "Speed": 1.0,
+        "ActivedAnimationName": "hero",
+        "Timelines": [
+          {
+            "ActionTag": -340817962,
+            "Property": "FileData",
+            "Frames": [
+              {
+                "TextureFile": {
+                  "Type": "MarkedSubImage",
+                  "Path": "dashisland/otterenemy1.png",
+                  "Plist": "dashisland/dashisland.plist"
+                },
+                "FrameIndex": 0,
+                "Tween": false,
+                "ctype": "TextureFrameData"
+              },
+              {
+                "TextureFile": {
+                  "Type": "MarkedSubImage",
+                  "Path": "dashisland/otterenemy2.png",
+                  "Plist": "dashisland/dashisland.plist"
+                },
+                "FrameIndex": 15,
+                "Tween": false,
+                "ctype": "TextureFrameData"
+              },
+              {
+                "TextureFile": {
+                  "Type": "MarkedSubImage",
+                  "Path": "dashisland/otterenemy3.png",
+                  "Plist": "dashisland/dashisland.plist"
+                },
+                "FrameIndex": 30,
+                "Tween": false,
+                "ctype": "TextureFrameData"
+              },
+              {
+                "TextureFile": {
+                  "Type": "MarkedSubImage",
+                  "Path": "dashisland/otterenemy2.png",
+                  "Plist": "dashisland/dashisland.plist"
+                },
+                "FrameIndex": 85,
+                "Tween": false,
+                "ctype": "TextureFrameData"
+              },
+              {
+                "TextureFile": {
+                  "Type": "MarkedSubImage",
+                  "Path": "dashisland/otterenemy1.png",
+                  "Plist": "dashisland/dashisland.plist"
+                },
+                "FrameIndex": 100,
+                "Tween": false,
+                "ctype": "TextureFrameData"
+              },
+              {
+                "TextureFile": {
+                  "Type": "MarkedSubImage",
+                  "Path": "dashisland/otterhero1.png",
+                  "Plist": "dashisland/dashisland.plist"
+                },
+                "FrameIndex": 105,
+                "Tween": false,
+                "ctype": "TextureFrameData"
+              },
+              {
+                "TextureFile": {
+                  "Type": "MarkedSubImage",
+                  "Path": "dashisland/otterhero2.png",
+                  "Plist": "dashisland/dashisland.plist"
+                },
+                "FrameIndex": 120,
+                "Tween": false,
+                "ctype": "TextureFrameData"
+              },
+              {
+                "TextureFile": {
+                  "Type": "MarkedSubImage",
+                  "Path": "dashisland/otterhero3.png",
+                  "Plist": "dashisland/dashisland.plist"
+                },
+                "FrameIndex": 135,
+                "Tween": false,
+                "ctype": "TextureFrameData"
+              },
+              {
+                "TextureFile": {
+                  "Type": "MarkedSubImage",
+                  "Path": "dashisland/otterhero2.png",
+                  "Plist": "dashisland/dashisland.plist"
+                },
+                "FrameIndex": 190,
+                "Tween": false,
+                "ctype": "TextureFrameData"
+              },
+              {
+                "TextureFile": {
+                  "Type": "MarkedSubImage",
+                  "Path": "dashisland/otterhero1.png",
+                  "Plist": "dashisland/dashisland.plist"
+                },
+                "FrameIndex": 205,
+                "Tween": false,
+                "ctype": "TextureFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          }
+        ],
+        "ctype": "TimelineActionData"
+      },
+      "AnimationList": [
+        {
+          "StartIndex": 0,
+          "EndIndex": 100,
+          "Name": "enemy",
+          "ctype": "AnimationInfoData"
+        },
+        {
+          "StartIndex": 105,
+          "EndIndex": 205,
+          "Name": "hero",
+          "ctype": "AnimationInfoData"
+        }
+      ],
+      "ObjectData": {
+        "Tag": 72,
+        "Children": [
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "dashisland/otterhero1.png",
+              "Plist": "dashisland/dashisland.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": -23.0,
+            "RightMargin": -23.0,
+            "TopMargin": -23.0,
+            "BottomMargin": -23.0,
+            "Tag": 73,
+            "ActionTag": -340817962,
+            "Size": {
+              "X": 377.0,
+              "Y": 212.0
+            },
+            "Name": "Sprite_1",
+            "ctype": "SpriteObjectData"
+          }
+        ],
+        "Size": {
+          "X": 0.0,
+          "Y": 0.0
+        },
+        "Name": "Node",
+        "ctype": "SingleNodeObjectData"
+      },
+      "UsedResources": [
+        "dashisland.plist",
+        "dashisland.png"
+      ],
+      "ctype": "GameFileData"
+    }
+  },
+  "Type": "Node"
+}
