@@ -144,8 +144,8 @@ bool Stack::init()
 		charNode->setScale(.8);
 		this->addChild(charNode);
 	}
-
-
+	
+/*
 	int i = 0;
 	for (std::map<std::string, std::map<std::string, std::string>>::iterator it = _textToSHow.begin(); it != _textToSHow.end(); ++it, i++)
 	{
@@ -174,7 +174,7 @@ bool Stack::init()
 
 
 	Stack::generateWord();
-
+	*/
 	return true;
 }
 
@@ -296,7 +296,8 @@ void Stack::addEvents(struct LabelDetails sprite)
 					sprite.label->setColor(Color3B::GREEN);
 					cocostudio::timeline::ActionTimeline *charTimeline = CSLoader::createTimeline("superheroes/superheroes.csb");
 					charNode->runAction(charTimeline);
-					charTimeline->gotoFrameAndPlay(0, false);
+//					charTimeline->gotoFrameAndPlay(0, false);
+					charTimeline->play("correct", false);
 					charTimeline->setAnimationEndCallFunc("correct", CC_CALLBACK_0(Stack::afterAnimation, this, sprite, charTimeline, charNode));
 				}
 				else if ((_word.substr(0, sprite.id.length()) != sprite.id) && flag == false)
