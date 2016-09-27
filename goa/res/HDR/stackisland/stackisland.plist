@@ -4,305 +4,335 @@
     <dict>
         <key>frames</key>
         <dict>
-            <key>stackisland/stackisland_1/blue.png</key>
+            <key>stackisland/1.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
                 <key>spriteOffset</key>
-                <string>{0,0}</string>
+                <string>{10,-64}</string>
                 <key>spriteSize</key>
-                <string>{452,85}</string>
+                <string>{69,97}</string>
                 <key>spriteSourceSize</key>
-                <string>{452,85}</string>
+                <string>{191,225}</string>
                 <key>textureRect</key>
-                <string>{{1,1},{452,85}}</string>
-                <key>textureRotated</key>
-                <false/>
-            </dict>
-            <key>stackisland/stackisland_1/container.png</key>
-            <dict>
-                <key>aliases</key>
-                <array/>
-                <key>spriteOffset</key>
-                <string>{0,0}</string>
-                <key>spriteSize</key>
-                <string>{219,183}</string>
-                <key>spriteSourceSize</key>
-                <string>{219,183}</string>
-                <key>textureRect</key>
-                <string>{{217,636},{219,183}}</string>
-                <key>textureRotated</key>
-                <false/>
-            </dict>
-            <key>stackisland/stackisland_1/grass.png</key>
-            <dict>
-                <key>aliases</key>
-                <array/>
-                <key>spriteOffset</key>
-                <string>{0,0}</string>
-                <key>spriteSize</key>
-                <string>{117,114}</string>
-                <key>spriteSourceSize</key>
-                <string>{117,114}</string>
-                <key>textureRect</key>
-                <string>{{392,365},{117,114}}</string>
+                <string>{{2007,236},{69,97}}</string>
                 <key>textureRotated</key>
                 <true/>
             </dict>
-            <key>stackisland/stackisland_1/grass1.png</key>
+            <key>stackisland/2.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
                 <key>spriteOffset</key>
-                <string>{0,0}</string>
+                <string>{2,-31}</string>
                 <key>spriteSize</key>
-                <string>{97,91}</string>
+                <string>{65,97}</string>
                 <key>spriteSourceSize</key>
-                <string>{97,91}</string>
+                <string>{191,225}</string>
                 <key>textureRect</key>
-                <string>{{394,180},{97,91}}</string>
-                <key>textureRotated</key>
-                <false/>
-            </dict>
-            <key>stackisland/stackisland_1/ground.png</key>
-            <dict>
-                <key>aliases</key>
-                <array/>
-                <key>spriteOffset</key>
-                <string>{0,0}</string>
-                <key>spriteSize</key>
-                <string>{228,19}</string>
-                <key>spriteSourceSize</key>
-                <string>{228,19}</string>
-                <key>textureRect</key>
-                <string>{{217,821},{228,19}}</string>
-                <key>textureRotated</key>
-                <false/>
-            </dict>
-            <key>stackisland/stackisland_1/ground1.png</key>
-            <dict>
-                <key>aliases</key>
-                <array/>
-                <key>spriteOffset</key>
-                <string>{0,0}</string>
-                <key>spriteSize</key>
-                <string>{214,41}</string>
-                <key>spriteSourceSize</key>
-                <string>{214,41}</string>
-                <key>textureRect</key>
-                <string>{{447,576},{214,41}}</string>
+                <string>{{2106,236},{65,97}}</string>
                 <key>textureRotated</key>
                 <true/>
             </dict>
-            <key>stackisland/stackisland_1/pearl.png</key>
+            <key>stackisland/3.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
                 <key>spriteOffset</key>
-                <string>{0,0}</string>
+                <string>{5,-20}</string>
                 <key>spriteSize</key>
-                <string>{49,49}</string>
+                <string>{97,111}</string>
                 <key>spriteSourceSize</key>
-                <string>{49,49}</string>
+                <string>{191,225}</string>
                 <key>textureRect</key>
-                <string>{{455,44},{49,49}}</string>
+                <string>{{2404,1},{97,111}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>stackisland/stackisland_1/pink.png</key>
+            <key>stackisland/4.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{-10,8}</string>
+                <key>spriteSize</key>
+                <string>{97,107}</string>
+                <key>spriteSourceSize</key>
+                <string>{191,225}</string>
+                <key>textureRect</key>
+                <string>{{2404,114},{97,107}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+            <key>stackisland/5.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{-22,25}</string>
+                <key>spriteSize</key>
+                <string>{95,125}</string>
+                <key>spriteSourceSize</key>
+                <string>{191,225}</string>
+                <key>textureRect</key>
+                <string>{{2396,365},{95,125}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+            <key>stackisland/6.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{-18,44}</string>
+                <key>spriteSize</key>
+                <string>{127,137}</string>
+                <key>spriteSourceSize</key>
+                <string>{191,225}</string>
+                <key>textureRect</key>
+                <string>{{2396,226},{127,137}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+            <key>stackisland/container.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
                 <key>spriteOffset</key>
                 <string>{0,0}</string>
                 <key>spriteSize</key>
-                <string>{55,61}</string>
+                <string>{406,657}</string>
                 <key>spriteSourceSize</key>
-                <string>{55,61}</string>
+                <string>{406,657}</string>
                 <key>textureRect</key>
-                <string>{{394,308},{55,61}}</string>
+                <string>{{1,1},{406,657}}</string>
                 <key>textureRotated</key>
                 <true/>
             </dict>
-            <key>stackisland/stackisland_1/plant.png</key>
+            <key>stackisland/containerbar.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
                 <key>spriteOffset</key>
                 <string>{0,0}</string>
                 <key>spriteSize</key>
-                <string>{112,83}</string>
+                <string>{479,341}</string>
                 <key>spriteSourceSize</key>
-                <string>{112,83}</string>
+                <string>{479,341}</string>
                 <key>textureRect</key>
-                <string>{{394,95},{112,83}}</string>
+                <string>{{660,1},{479,341}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>stackisland/stackisland_1/shell.png</key>
+            <key>stackisland/fillpipe.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
                 <key>spriteOffset</key>
                 <string>{0,0}</string>
                 <key>spriteSize</key>
-                <string>{214,205}</string>
+                <string>{147,1035}</string>
                 <key>spriteSourceSize</key>
-                <string>{214,205}</string>
+                <string>{147,1035}</string>
                 <key>textureRect</key>
-                <string>{{1,636},{214,205}}</string>
-                <key>textureRotated</key>
-                <false/>
-            </dict>
-            <key>stackisland/stackisland_1/sparkle_1.png</key>
-            <dict>
-                <key>aliases</key>
-                <array/>
-                <key>spriteOffset</key>
-                <string>{0,0}</string>
-                <key>spriteSize</key>
-                <string>{43,38}</string>
-                <key>spriteSourceSize</key>
-                <string>{45,38}</string>
-                <key>textureRect</key>
-                <string>{{468,273},{43,38}}</string>
+                <string>{{926,344},{147,1035}}</string>
                 <key>textureRotated</key>
                 <true/>
             </dict>
-            <key>stackisland/stackisland_1/sparkle_2.png</key>
+            <key>stackisland/fillpipebar.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
                 <key>spriteOffset</key>
                 <string>{0,0}</string>
                 <key>spriteSize</key>
-                <string>{54,54}</string>
+                <string>{923,73}</string>
                 <key>spriteSourceSize</key>
-                <string>{54,54}</string>
+                <string>{923,73}</string>
                 <key>textureRect</key>
-                <string>{{447,484},{54,54}}</string>
+                <string>{{1,409},{923,73}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>stackisland/stackisland_1/sparkle_3.png</key>
+            <key>stackisland/grass.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{233,227}</string>
+                <key>spriteSourceSize</key>
+                <string>{233,227}</string>
+                <key>textureRect</key>
+                <string>{{2007,1},{233,227}}</string>
+                <key>textureRotated</key>
+                <true/>
+            </dict>
+            <key>stackisland/pipeconnector.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{100,83}</string>
+                <key>spriteSourceSize</key>
+                <string>{100,83}</string>
+                <key>textureRect</key>
+                <string>{{2503,101},{100,83}}</string>
+                <key>textureRotated</key>
+                <true/>
+            </dict>
+            <key>stackisland/plant.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{223,166}</string>
+                <key>spriteSourceSize</key>
+                <string>{223,166}</string>
+                <key>textureRect</key>
+                <string>{{2236,1},{223,166}}</string>
+                <key>textureRotated</key>
+                <true/>
+            </dict>
+            <key>stackisland/sparkle_1.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
                 <key>spriteOffset</key>
                 <string>{1,0}</string>
                 <key>spriteSize</key>
-                <string>{50,41}</string>
+                <string>{83,76}</string>
                 <key>spriteSourceSize</key>
-                <string>{62,41}</string>
+                <string>{89,76}</string>
                 <key>textureRect</key>
-                <string>{{455,1},{50,41}}</string>
+                <string>{{2236,226},{83,76}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>stackisland/stackisland_1/stone.png</key>
+            <key>stackisland/sparkle_2.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
                 <key>spriteOffset</key>
                 <string>{0,0}</string>
                 <key>spriteSize</key>
-                <string>{72,33}</string>
+                <string>{108,108}</string>
                 <key>spriteSourceSize</key>
-                <string>{72,33}</string>
+                <string>{108,108}</string>
                 <key>textureRect</key>
-                <string>{{394,273},{72,33}}</string>
+                <string>{{2493,365},{108,108}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>stackisland/stackisland_1/whale_1.png</key>
+            <key>stackisland/sparkle_3.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
                 <key>spriteOffset</key>
-                <string>{-14,-10}</string>
+                <string>{3,0}</string>
                 <key>spriteSize</key>
-                <string>{391,274}</string>
+                <string>{96,82}</string>
                 <key>spriteSourceSize</key>
-                <string>{431,350}</string>
+                <string>{124,82}</string>
                 <key>textureRect</key>
-                <string>{{1,88},{391,274}}</string>
-                <key>textureRotated</key>
-                <false/>
-            </dict>
-            <key>stackisland/stackisland_1/whale_2.png</key>
-            <dict>
-                <key>aliases</key>
-                <array/>
-                <key>spriteOffset</key>
-                <string>{-15,-8}</string>
-                <key>spriteSize</key>
-                <string>{389,270}</string>
-                <key>spriteSourceSize</key>
-                <string>{431,350}</string>
-                <key>textureRect</key>
-                <string>{{1,364},{389,270}}</string>
-                <key>textureRotated</key>
-                <false/>
-            </dict>
-            <key>stackisland/stackisland_1/whale_wing_1.png</key>
-            <dict>
-                <key>aliases</key>
-                <array/>
-                <key>spriteOffset</key>
-                <string>{15,-2}</string>
-                <key>spriteSize</key>
-                <string>{60,52}</string>
-                <key>spriteSourceSize</key>
-                <string>{90,86}</string>
-                <key>textureRect</key>
-                <string>{{392,484},{60,52}}</string>
+                <string>{{2525,203},{96,82}}</string>
                 <key>textureRotated</key>
                 <true/>
             </dict>
-            <key>stackisland/stackisland_1/whale_wing_2.png</key>
+            <key>stackisland/tray1_1.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
                 <key>spriteOffset</key>
-                <string>{1,-2}</string>
+                <string>{0,-5}</string>
                 <key>spriteSize</key>
-                <string>{32,52}</string>
+                <string>{431,412}</string>
                 <key>spriteSourceSize</key>
-                <string>{90,86}</string>
+                <string>{447,422}</string>
                 <key>textureRect</key>
-                <string>{{392,546},{32,52}}</string>
+                <string>{{2609,1},{431,412}}</string>
                 <key>textureRotated</key>
                 <true/>
             </dict>
-            <key>stackisland/stackisland_1/whale_wing_3.png</key>
+            <key>stackisland/tray1_2.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
                 <key>spriteOffset</key>
-                <string>{-7,0}</string>
+                <string>{0,-5}</string>
                 <key>spriteSize</key>
-                <string>{16,52}</string>
+                <string>{431,412}</string>
                 <key>spriteSourceSize</key>
-                <string>{90,86}</string>
+                <string>{447,422}</string>
                 <key>textureRect</key>
-                <string>{{392,580},{16,52}}</string>
+                <string>{{3023,1},{431,412}}</string>
+                <key>textureRotated</key>
+                <true/>
+            </dict>
+            <key>stackisland/tray2_1.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{-1,-59}</string>
+                <key>spriteSize</key>
+                <string>{431,304}</string>
+                <key>spriteSourceSize</key>
+                <string>{447,422}</string>
+                <key>textureRect</key>
+                <string>{{1141,1},{431,304}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>stackisland/stackisland_1/whale_wing_4.png</key>
+            <key>stackisland/tray2_2.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
                 <key>spriteOffset</key>
-                <string>{-28,1}</string>
+                <string>{-1,-59}</string>
                 <key>spriteSize</key>
-                <string>{34,60}</string>
+                <string>{431,304}</string>
                 <key>spriteSourceSize</key>
-                <string>{90,86}</string>
+                <string>{447,422}</string>
                 <key>textureRect</key>
-                <string>{{446,540},{34,60}}</string>
+                <string>{{1574,1},{431,304}}</string>
                 <key>textureRotated</key>
-                <true/>
+                <false/>
+            </dict>
+            <key>stackisland/tray3.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{1,-127}</string>
+                <key>spriteSize</key>
+                <string>{431,166}</string>
+                <key>spriteSourceSize</key>
+                <string>{447,422}</string>
+                <key>textureRect</key>
+                <string>{{1963,307},{431,166}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+            <key>stackisland/tryfill.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{98,98}</string>
+                <key>spriteSourceSize</key>
+                <string>{98,98}</string>
+                <key>textureRect</key>
+                <string>{{2503,1},{98,98}}</string>
+                <key>textureRotated</key>
+                <false/>
             </dict>
         </dict>
         <key>metadata</key>
@@ -310,17 +340,17 @@
             <key>format</key>
             <integer>3</integer>
             <key>pixelFormat</key>
-            <string>RGBA4444</string>
+            <string>RGBA8888</string>
             <key>premultiplyAlpha</key>
             <false/>
             <key>realTextureFileName</key>
-            <string>stackisland_1.png</string>
+            <string>stackisland.png</string>
             <key>size</key>
-            <string>{507,842}</string>
+            <string>{3436,492}</string>
             <key>smartupdate</key>
-            <string>$TexturePacker:SmartUpdate:5eeab115c0fb068d04d5d5adc3162734:231b2759b46fadf18938541c7341ae77:c86a8a0f4114cdf540fe63a6193e1ee5$</string>
+            <string>$TexturePacker:SmartUpdate:f96fe945274131ca810c82444b85edbe:fd13f62071ba6fa9daf096b18f06464a:ea7c01017104d325809b0582bf9692d0$</string>
             <key>textureFileName</key>
-            <string>stackisland_1.png</string>
+            <string>stackisland.png</string>
         </dict>
     </dict>
 </plist>

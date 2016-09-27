@@ -1,23 +1,23 @@
 {
-  "ID": "f10364a2-3f2c-4cc3-9226-ddb6a760c577",
+  "ID": "d4ec5c75-4d74-4b60-825e-fee291ea8dda",
   "Version": "2.3.4",
-  "Name": "sparkle",
+  "Name": "treadmill",
   "Content": {
     "Content": {
       "Animation": {
-        "Duration": 40,
+        "Duration": 20,
         "Speed": 1.0,
-        "ActivedAnimationName": "sparkle",
+        "ActivedAnimationName": "treadmill",
         "Timelines": [
           {
-            "ActionTag": -2146406423,
+            "ActionTag": 856396715,
             "Property": "FileData",
             "Frames": [
               {
                 "TextureFile": {
                   "Type": "MarkedSubImage",
-                  "Path": "stackisland/stackisland_1/sparkle_1.png",
-                  "Plist": "stackisland/stackisland_1/stackisland_1.plist"
+                  "Path": "stackisland/tray3.png",
+                  "Plist": "stackisland/stackisland.plist"
                 },
                 "FrameIndex": 0,
                 "Tween": false,
@@ -26,8 +26,28 @@
               {
                 "TextureFile": {
                   "Type": "MarkedSubImage",
-                  "Path": "stackisland/stackisland_1/sparkle_3.png",
-                  "Plist": "stackisland/stackisland_1/stackisland_1.plist"
+                  "Path": "stackisland/tray2_2.png",
+                  "Plist": "stackisland/stackisland.plist"
+                },
+                "FrameIndex": 5,
+                "Tween": false,
+                "ctype": "TextureFrameData"
+              },
+              {
+                "TextureFile": {
+                  "Type": "MarkedSubImage",
+                  "Path": "stackisland/tray2_1.png",
+                  "Plist": "stackisland/stackisland.plist"
+                },
+                "FrameIndex": 10,
+                "Tween": false,
+                "ctype": "TextureFrameData"
+              },
+              {
+                "TextureFile": {
+                  "Type": "MarkedSubImage",
+                  "Path": "stackisland/tray1_2.png",
+                  "Plist": "stackisland/stackisland.plist"
                 },
                 "FrameIndex": 15,
                 "Tween": false,
@@ -36,20 +56,10 @@
               {
                 "TextureFile": {
                   "Type": "MarkedSubImage",
-                  "Path": "stackisland/stackisland_1/sparkle_2.png",
-                  "Plist": "stackisland/stackisland_1/stackisland_1.plist"
+                  "Path": "stackisland/tray1_1.png",
+                  "Plist": "stackisland/stackisland.plist"
                 },
-                "FrameIndex": 30,
-                "Tween": false,
-                "ctype": "TextureFrameData"
-              },
-              {
-                "TextureFile": {
-                  "Type": "MarkedSubImage",
-                  "Path": "stackisland/stackisland_1/sparkle_1.png",
-                  "Plist": "stackisland/stackisland_1/stackisland_1.plist"
-                },
-                "FrameIndex": 40,
+                "FrameIndex": 20,
                 "Tween": false,
                 "ctype": "TextureFrameData"
               }
@@ -62,19 +72,19 @@
       "AnimationList": [
         {
           "StartIndex": 0,
-          "EndIndex": 40,
-          "Name": "sparkle",
+          "EndIndex": 20,
+          "Name": "treadmill",
           "ctype": "AnimationInfoData"
         }
       ],
       "ObjectData": {
-        "Tag": 193,
+        "Tag": 55,
         "Children": [
           {
             "FileData": {
               "Type": "MarkedSubImage",
-              "Path": "stackisland/stackisland_1/sparkle_3.png",
-              "Plist": "stackisland/stackisland_1/stackisland_1.plist"
+              "Path": "stackisland/tray1_2.png",
+              "Plist": "stackisland/stackisland.plist"
             },
             "BlendFunc": {
               "Src": 1,
@@ -106,13 +116,13 @@
             "RightMargin": -23.0,
             "TopMargin": -23.0,
             "BottomMargin": -23.0,
-            "Tag": 194,
-            "ActionTag": -2146406423,
+            "Tag": 613,
+            "ActionTag": 856396715,
             "Size": {
-              "X": 124.0,
-              "Y": 82.0
+              "X": 447.0,
+              "Y": 422.0
             },
-            "Name": "Sprite_1",
+            "Name": "Sprite_24",
             "ctype": "SpriteObjectData"
           }
         ],
@@ -124,8 +134,8 @@
         "ctype": "SingleNodeObjectData"
       },
       "UsedResources": [
-        "stackisland_1/stackisland_1.plist",
-        "stackisland_1/stackisland_1.png"
+        "stackisland.plist",
+        "stackisland.png"
       ],
       "ctype": "GameFileData"
     }
