@@ -36,10 +36,10 @@
 #include "mini_games/Pop.h"
 #include "mini_games/AlphamoleLevel.h"
 #include "mini_games/Bingo.h"
+#include "mini_games/Memory.h"
 #include "mini_games/Dash.h"
 #include "mini_games/Stack.h"
 #include "mini_games/Circle.h"
-
 USING_NS_CC;
 
 ScrollableGameMapScene::ScrollableGameMapScene()
@@ -170,7 +170,7 @@ void ScrollableGameMapScene::gameSelected(Ref* pSender, ui::Widget::TouchEventTy
 				Director::getInstance()->replaceScene(AlphamoleLevel::createScene());
 			} else if(clickedButton->getName() == PATCH_THE_WALL) {
 //                Director::getInstance()->replaceScene(PatchTheWall::createScene());
-                ScriptingCore::getInstance()->runScript("src/start/Pinata.js");
+                ScriptingCore::getInstance()->runScript("src/start/decomon.js");
             } else  if (clickedButton->getName() == CAT) {
 				Director::getInstance()->replaceScene(Dash::createScene());
 				//Director::getInstance()->replaceScene(CatGame::createScene());
@@ -179,7 +179,7 @@ void ScrollableGameMapScene::gameSelected(Ref* pSender, ui::Widget::TouchEventTy
 				ScriptingCore::getInstance()->runScript("src/start/jump.js");
 			} else  if (clickedButton->getName() == SMASH_THE_ROCK) {
 				Director::getInstance()->replaceScene(Circle::createScene());
-				//Director::getInstance()->replaceScene(SmashTheRock::createScene());
+			//	Director::getInstance()->replaceScene(SmashTheRock::createScene());
 				//ScriptingCore::getInstance()->runScript("src/start/jump.js");
 			} else if (clickedButton->getName() == POP) {
 				ScriptingCore::getInstance()->runScript("src/start/pop.js");
@@ -205,10 +205,14 @@ void ScrollableGameMapScene::gameSelected(Ref* pSender, ui::Widget::TouchEventTy
             } else if(clickedButton->getName() == CHAIN) {
                 Director::getInstance()->replaceScene(Chain::createScene());
             } else if(clickedButton->getName() == WEMBLEY) {
-                Director::getInstance()->replaceScene(Wembley::createScene());
+                Director::getInstance()->replaceScene(Memory::createScene());
             } else if(clickedButton->getName() == JAZZ) {
                 Director::getInstance()->replaceScene(jazz::createScene());
             } else if(clickedButton->getName() == JASMINE) {
+
+			//	ScriptingCore::getInstance()->runScript("src/start/train.js");
+//                Director::getInstance()->replaceScene(Jasmin_Mainfile::createScene());
+
 //				ScriptingCore::getInstance()->runScript("src/start/train.js");
                 Director::getInstance()->replaceScene(Stack::createScene());
             } else if(clickedButton->getName() == STORY_TELLING) {
@@ -216,7 +220,6 @@ void ScrollableGameMapScene::gameSelected(Ref* pSender, ui::Widget::TouchEventTy
             } else if (clickedButton->getName() == TRAIN) {
 				ScriptingCore::getInstance()->runScript("src/start/train.js");
 			}
-			
             break;
         }
             

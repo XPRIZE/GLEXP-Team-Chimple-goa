@@ -5,12 +5,12 @@
   "Content": {
     "Content": {
       "Animation": {
-        "Duration": 60,
+        "Duration": 66,
         "Speed": 1.0,
         "ActivedAnimationName": "blast",
         "Timelines": [
           {
-            "ActionTag": 1808507809,
+            "ActionTag": -1975653769,
             "Property": "FileData",
             "Frames": [
               {
@@ -26,7 +26,7 @@
               {
                 "TextureFile": {
                   "Type": "MarkedSubImage",
-                  "Path": "pinatacream/cupcake11.png",
+                  "Path": "pinatacream/cupcake2.png",
                   "Plist": "pinatacream/pinatacream.plist"
                 },
                 "FrameIndex": 6,
@@ -36,7 +36,7 @@
               {
                 "TextureFile": {
                   "Type": "MarkedSubImage",
-                  "Path": "pinatacream/cupcake2.png",
+                  "Path": "pinatacream/cupcake3.png",
                   "Plist": "pinatacream/pinatacream.plist"
                 },
                 "FrameIndex": 12,
@@ -46,7 +46,7 @@
               {
                 "TextureFile": {
                   "Type": "MarkedSubImage",
-                  "Path": "pinatacream/cupcake3.png",
+                  "Path": "pinatacream/cupcake4.png",
                   "Plist": "pinatacream/pinatacream.plist"
                 },
                 "FrameIndex": 18,
@@ -56,7 +56,7 @@
               {
                 "TextureFile": {
                   "Type": "MarkedSubImage",
-                  "Path": "pinatacream/cupcake4.png",
+                  "Path": "pinatacream/cupcake5.png",
                   "Plist": "pinatacream/pinatacream.plist"
                 },
                 "FrameIndex": 24,
@@ -66,7 +66,7 @@
               {
                 "TextureFile": {
                   "Type": "MarkedSubImage",
-                  "Path": "pinatacream/cupcake5.png",
+                  "Path": "pinatacream/cupcake6.png",
                   "Plist": "pinatacream/pinatacream.plist"
                 },
                 "FrameIndex": 30,
@@ -76,7 +76,7 @@
               {
                 "TextureFile": {
                   "Type": "MarkedSubImage",
-                  "Path": "pinatacream/cupcake6.png",
+                  "Path": "pinatacream/cupcake7.png",
                   "Plist": "pinatacream/pinatacream.plist"
                 },
                 "FrameIndex": 36,
@@ -86,7 +86,7 @@
               {
                 "TextureFile": {
                   "Type": "MarkedSubImage",
-                  "Path": "pinatacream/cupcake7.png",
+                  "Path": "pinatacream/cupcake8.png",
                   "Plist": "pinatacream/pinatacream.plist"
                 },
                 "FrameIndex": 42,
@@ -96,7 +96,7 @@
               {
                 "TextureFile": {
                   "Type": "MarkedSubImage",
-                  "Path": "pinatacream/cupcake8.png",
+                  "Path": "pinatacream/cupcake9.png",
                   "Plist": "pinatacream/pinatacream.plist"
                 },
                 "FrameIndex": 48,
@@ -106,7 +106,7 @@
               {
                 "TextureFile": {
                   "Type": "MarkedSubImage",
-                  "Path": "pinatacream/cupcake9.png",
+                  "Path": "pinatacream/cupcake10.png",
                   "Plist": "pinatacream/pinatacream.plist"
                 },
                 "FrameIndex": 54,
@@ -116,10 +116,20 @@
               {
                 "TextureFile": {
                   "Type": "MarkedSubImage",
-                  "Path": "pinatacream/cupcake10.png",
+                  "Path": "pinatacream/cupcake11.png",
                   "Plist": "pinatacream/pinatacream.plist"
                 },
                 "FrameIndex": 60,
+                "Tween": false,
+                "ctype": "TextureFrameData"
+              },
+              {
+                "TextureFile": {
+                  "Type": "MarkedSubImage",
+                  "Path": "pinatacream/cupcake12.png",
+                  "Plist": "pinatacream/pinatacream.plist"
+                },
+                "FrameIndex": 66,
                 "Tween": false,
                 "ctype": "TextureFrameData"
               }
@@ -132,7 +142,7 @@
       "AnimationList": [
         {
           "StartIndex": 0,
-          "EndIndex": 60,
+          "EndIndex": 66,
           "Name": "blast",
           "ctype": "AnimationInfoData"
         }
@@ -143,7 +153,7 @@
           {
             "FileData": {
               "Type": "MarkedSubImage",
-              "Path": "pinatacream/cupcake4.png",
+              "Path": "pinatacream/cupcake11.png",
               "Plist": "pinatacream/pinatacream.plist"
             },
             "BlendFunc": {
@@ -172,17 +182,17 @@
               "X": 0.0,
               "Y": 0.0
             },
-            "LeftMargin": -292.0,
-            "RightMargin": -292.0,
-            "TopMargin": -312.5,
-            "BottomMargin": -312.5,
+            "LeftMargin": -23.0,
+            "RightMargin": -23.0,
+            "TopMargin": -23.0,
+            "BottomMargin": -23.0,
             "Tag": 24,
-            "ActionTag": 1808507809,
+            "ActionTag": -1975653769,
             "Size": {
               "X": 584.0,
               "Y": 625.0
             },
-            "Name": "Sprite_2",
+            "Name": "Sprite_1",
             "ctype": "SpriteObjectData"
           }
         ],

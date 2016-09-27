@@ -33,9 +33,11 @@ public:
 	cocostudio::timeline::ActionTimeline *treadmill;
 	cocostudio::ActionNode *node;
 
-	Node *stackbg, *charNode;
+	Node *stackbg, *charNode, *wrongNode, *correctNode;
 
 	std::map<std::string, std::map<std::string, std::string>> _textToSHow;
+
+	std::vector<cocos2d::Color3B> _color;
 
 	std::vector<std::string> _startName;
 	std::vector<std::string> _allWords;
@@ -45,6 +47,7 @@ public:
 	std::string _word;
 	cocos2d::LabelTTF *_wordLabel;
 	cocos2d::Size visibleSize;
+	std::string sceneName;
 
 	// implement the "static create()" method manually
 	CREATE_FUNC(Stack);
@@ -57,7 +60,7 @@ public:
 		cocos2d::LabelTTF *label;
 		cocos2d::Sprite *container;
 		std::string id;
-		int sequence;
+		int sequence, item;
 	}LabelDetails;
 
 
@@ -71,8 +74,8 @@ public:
 	bool flag;
 
 	void addEvents(struct LabelDetails);
-	void afterAnimation(struct LabelDetails, cocostudio::timeline::ActionTimeline*, Node*);
-
+	void afterAnimation(struct LabelDetails);
+	void wordShow(cocos2d::LabelTTF*);
 protected:
 	MenuContext* _menuContext;
 };

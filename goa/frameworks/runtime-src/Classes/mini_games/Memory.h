@@ -24,13 +24,20 @@ CC_CONSTRUCTOR_ACCESS:
 	virtual ~Memory();
 	bool onTouchBegan(cocos2d::Touch* touch, cocos2d::Event* event);
 	void onTouchEnded(cocos2d::Touch* touch, cocos2d::Event* event);
-	//void onTouchMoved(cocos2d::Touch* touch, cocos2d::Event* event);
+	void onTouchMoved(cocos2d::Touch* touch, cocos2d::Event* event);
 	void startGame();
 	static const char* classname() { return WEMBLEY.c_str(); }
 protected:
 	
 	Node *_background;
+	Node * _chicken;
+	Node * _mainground;
+	Node * _memoryfarm;
+	Node * _nest;
+
 	std::vector<Node *> _nests;
+	cocos2d::Sprite * nest;
+	
 	bool _touchActive;
 	void setupTouch();
 	//void finishedAll();
@@ -71,9 +78,12 @@ protected:
 	std::vector<std::vector<object>> objects;
 	struct object testSprite;
 	
-	CC_SYNTHESIZE(int, _count, Count);
 
 	MenuContext *_menuContext;
+	
+	
+
+	
 
 };
 
