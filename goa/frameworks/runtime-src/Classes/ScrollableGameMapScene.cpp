@@ -40,6 +40,8 @@
 #include "mini_games/Dash.h"
 #include "mini_games/Stack.h"
 #include "mini_games/Circle.h"
+#include "mini_games/Decomon.h"
+
 USING_NS_CC;
 
 ScrollableGameMapScene::ScrollableGameMapScene()
@@ -167,7 +169,8 @@ void ScrollableGameMapScene::gameSelected(Ref* pSender, ui::Widget::TouchEventTy
 //				ScriptingCore::getInstance()->runScript("src/start/sortit.js");
                 Director::getInstance()->replaceScene(PegWord::createScene());
 			} else if (clickedButton->getName() == ALPHAMOLE) {
-				Director::getInstance()->replaceScene(AlphamoleLevel::createScene());
+				Director::getInstance()->replaceScene(Decomon::createScene());
+				//Director::getInstance()->replaceScene(AlphamoleLevel::createScene());
 			} else if(clickedButton->getName() == PATCH_THE_WALL) {
 //                Director::getInstance()->replaceScene(PatchTheWall::createScene());
                 ScriptingCore::getInstance()->runScript("src/start/decomon.js");
