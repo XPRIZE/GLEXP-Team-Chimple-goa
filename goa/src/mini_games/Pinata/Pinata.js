@@ -8,21 +8,21 @@ xc.Pinata = cc.Layer.extend({
    this._super();
 //this.gameBg.node.getChildByName("Panel_1").getChildByName("Button_10");
     var gameTheme = "";
-    var gameRand = new Array(2);
-    gameRand[0] = "pinatacity"; gameRand[1] ="pinatacream"
-    gameTheme = gameRand[this.getRandomInt(0,1)];
+    var gameRand = new Array(3);
+    gameRand[0] = "pinatacity"; gameRand[1] ="pinatacream"; gameRand[2] ="pinatajungle";
+    gameTheme = gameRand[this.getRandomInt(0,2)];
+    //gameTheme = "pinatacream";
     this.gameBg = null;
     this.stringColor = new cc.color(255,255,255,255);
     var playerGUI = "";
     var heightTolrence = 0;
+    this.xPosi =0; 
 
     if(gameTheme == "pinatacream"){
          cc.spriteFrameCache.addSpriteFrames(xc.Pinata.res.pinatacream_plist);
          this.gameBg = ccs.load(xc.Pinata.res.pinatacream_json,xc.path);
-
          var targetA = this.gameBg.node.getChildByName("targeta");
          heightTolrence = targetA.height * 0.25;
-
          this.stringColor = new cc.color(158,45,45,255);
          playerGUI = "pinatacream/player.png";
 
@@ -31,9 +31,24 @@ xc.Pinata = cc.Layer.extend({
          this.gameBg = ccs.load(xc.Pinata.res.pinatacity_json,xc.path);
          this.stringColor = new cc.color(140,234,19,255);
          playerGUI = "pinatacity/player.png";
+    }else if(gameTheme == "pinatajungle"){
+         cc.spriteFrameCache.addSpriteFrames(xc.Pinata.res.pinatajungle_plist);
+         this.gameBg = ccs.load(xc.Pinata.res.pinatajungle_json,xc.path);
+        // var targetA = this.gameBg.node.getChildByName("targeta");
+        // heightTolrence = targetA.height * 0.25;
+         this.stringColor = new cc.color(124,252,0,255);
+         playerGUI = "jungle/junglec/player.png";
+
     }
+
+
     this.addChild(this.gameBg.node);
     this.targetPlayer = null;
+
+    if (cc.director.getWinSize().width > 2560){
+       this.xPosi = cc.director.getWinSize().width - 2560;
+        this.gameBg.node.x = this.xPosi/2;
+    }
 
     this.player = {
         x : 0,
@@ -47,46 +62,46 @@ xc.Pinata = cc.Layer.extend({
     var mapKeyArray = Object.keys(this.map);
     this.mapKey = mapKeyArray[this.getRandomInt(0,(mapKeyArray.length-1))];
         
-
     var board = this.gameBg.node.getChildByName("board");
     var boardText = new cc.LabelTTF(""+this.mapKey,"res/fonts/Marker Felt.ttf",120);
     boardText.setName(board.getName());
     boardText.setPosition(board.width/2,board.height/2);                    
     board.addChild(boardText);
-    if(gameTheme == "pinatacream"){
-        boardText.setColor(new cc.color(155 ,42,50,255));
-    }
+    if(gameTheme == "pinatacream"){  boardText.setColor(new cc.color(155 ,42,50,255));  }
 
     var targetA = this.gameBg.node.getChildByName("targeta");
     var targetAText = new cc.LabelTTF(""+this.map[mapKeyArray[0]],"res/fonts/Marker Felt.ttf",120);
+    if(gameTheme == "pinatajungle") targetAText.setFontSize(80);
     targetAText.setName(targetA.getName());
-    targetAText.setPosition(targetA.width/2,targetA.height/2 - heightTolrence);                      
+    targetAText.setPosition(targetA.width/2,targetA.height/2 - heightTolrence);
     targetA.addChild(targetAText);
 
     var targetB = this.gameBg.node.getChildByName("targetb");
     var targetBText = new cc.LabelTTF(""+this.map[mapKeyArray[1]],"res/fonts/Marker Felt.ttf",120);
+    if(gameTheme == "pinatajungle") targetBText.setFontSize(80);
     targetBText.setName(targetB.getName());
     targetBText.setPosition(targetB.width/2,targetB.height/2 - heightTolrence);                      
     targetB.addChild(targetBText);
 
     var targetC = this.gameBg.node.getChildByName("targetc");
     var targetCText = new cc.LabelTTF(""+this.map[mapKeyArray[2]],"res/fonts/Marker Felt.ttf",120);
+    if(gameTheme == "pinatajungle") targetCText.setFontSize(80);
     targetCText.setName(targetC.getName());
     targetCText.setPosition(targetC.width/2,targetC.height/2 - heightTolrence);                      
     targetC.addChild(targetCText);
 
     this.bubblePlayer =  new cc.Sprite(cc.spriteFrameCache.getSpriteFrame(playerGUI));
     this.bubblePlayer.setName(gameTheme);
-    this.bubblePlayer.setPosition((this.gameBg.node.getChildByName("left").x + this.gameBg.node.getChildByName("right").x) /2,cc.director.getWinSize().height * 0.2);
+    this.bubblePlayer.setPosition((this.xPosi/2)+(this.gameBg.node.getChildByName("left").x + this.gameBg.node.getChildByName("right").x) /2,this.gameBg.node.getChildByName("right").y);
     this.addChild(this.bubblePlayer,1);
     this.player.x = this.bubblePlayer.x;    this.player.y = this.bubblePlayer.y;
     
     this.rightLine = new cc.DrawNode();
-    this.rightLine.drawSegment(cc.p(this.gameBg.node.getChildByName("right").x,this.gameBg.node.getChildByName("right").y), cc.p(this.player.x + (this.bubblePlayer.width/2),this.player.y),5,this.stringColor);
+    this.rightLine.drawSegment(cc.p(this.gameBg.node.getChildByName("right").x+(this.xPosi/2),this.gameBg.node.getChildByName("right").y), cc.p(this.player.x + (this.bubblePlayer.width/2),this.player.y),5,this.stringColor);
     this.addChild(this.rightLine);
 
     this.leftLine = new cc.DrawNode(); 
-    this.leftLine.drawSegment(cc.p(this.gameBg.node.getChildByName("left").x,this.gameBg.node.getChildByName("left").y),cc.p(this.player.x - (this.bubblePlayer.width/2),this.player.y),5,this.stringColor);
+    this.leftLine.drawSegment(cc.p(this.gameBg.node.getChildByName("left").x+(this.xPosi/2),this.gameBg.node.getChildByName("left").y),cc.p(this.player.x - (this.bubblePlayer.width/2),this.player.y),5,this.stringColor);
     this.addChild(this.leftLine);
 
     this.bubblePlayer.visible = false;
@@ -120,14 +135,14 @@ xc.Pinata = cc.Layer.extend({
                     classReference.removeChild(classReference.rightLine);
                 }
                 classReference.rightLine = new cc.DrawNode();
-                classReference.rightLine.drawSegment(cc.p(classReference.gameBg.node.getChildByName("right").x,classReference.gameBg.node.getChildByName("right").y), cc.p(touch.getLocation().x + (classReference.bubblePlayer.width/2),touch.getLocation().y),5,classReference.stringColor);
+                classReference.rightLine.drawSegment(cc.p((classReference.xPosi/2)+classReference.gameBg.node.getChildByName("right").x,classReference.gameBg.node.getChildByName("right").y), cc.p(touch.getLocation().x + (classReference.bubblePlayer.width/2),touch.getLocation().y),5,classReference.stringColor);
                 classReference.addChild(classReference.rightLine);
 
                 if(classReference.leftLine != undefined){
                     classReference.removeChild(classReference.leftLine);
                 }
                 classReference.leftLine = new cc.DrawNode();
-                classReference.leftLine.drawSegment(cc.p(classReference.gameBg.node.getChildByName("left").x,classReference.gameBg.node.getChildByName("left").y), cc.p(touch.getLocation().x - (classReference.bubblePlayer.width/2),touch.getLocation().y),5,classReference.stringColor);
+                classReference.leftLine.drawSegment(cc.p((classReference.xPosi/2)+classReference.gameBg.node.getChildByName("left").x,classReference.gameBg.node.getChildByName("left").y), cc.p(touch.getLocation().x - (classReference.bubblePlayer.width/2),touch.getLocation().y),5,classReference.stringColor);
                 classReference.addChild(classReference.leftLine);
 
                 return true;
@@ -139,14 +154,14 @@ xc.Pinata = cc.Layer.extend({
                     classReference.removeChild(classReference.rightLine);
                 }
                 classReference.rightLine = new cc.DrawNode();
-                classReference.rightLine.drawSegment(cc.p(classReference.gameBg.node.getChildByName("right").x,classReference.gameBg.node.getChildByName("right").y), cc.p(classReference.player.x - 10,classReference.player.y),5,classReference.stringColor);
+                classReference.rightLine.drawSegment(cc.p((classReference.xPosi/2)+classReference.gameBg.node.getChildByName("right").x,classReference.gameBg.node.getChildByName("right").y), cc.p(classReference.player.x - 10,classReference.player.y),5,classReference.stringColor);
                 classReference.addChild(classReference.rightLine);
 
                 if(classReference.leftLine != undefined){
                     classReference.removeChild(classReference.leftLine);
                 }
                 classReference.leftLine = new cc.DrawNode();
-                classReference.leftLine.drawSegment(cc.p(classReference.gameBg.node.getChildByName("left").x,classReference.gameBg.node.getChildByName("left").y),cc.p(classReference.player.x + 10,classReference.player.y),5,classReference.stringColor);
+                classReference.leftLine.drawSegment(cc.p((classReference.xPosi/2)+classReference.gameBg.node.getChildByName("left").x,classReference.gameBg.node.getChildByName("left").y),cc.p(classReference.player.x + 10,classReference.player.y),5,classReference.stringColor);
                 classReference.addChild(classReference.leftLine);
                 classReference.shootingFlag = true;
             }
@@ -157,7 +172,11 @@ xc.Pinata = cc.Layer.extend({
                 var target = event.getCurrentTarget();
                 var location = target.convertToNodeSpace(touch.getLocation());
                 var targetRectangle = cc.rect(0,0, target.width, target.height);
-                if (cc.rectContainsPoint(targetRectangle, location)){return true;}
+                
+                if (cc.rectContainsPoint(targetRectangle, location)){
+                    console.log("the listne object "+target.getName());
+                    return true;
+                }
  
                 return false;
             },
@@ -168,6 +187,8 @@ xc.Pinata = cc.Layer.extend({
                     path = xc.Pinata.res.pinatacity_anim;
                 }else if(classReference.bubblePlayer.getName() == "pinatacream"){
                     path = xc.Pinata.res.pinatacream_anim;
+                }else if(classReference.bubblePlayer.getName() == "pinatajungle"){
+                    path = xc.Pinata.res.pinatajungle_anim;
                 }
 
                 if(classReference.map[classReference.gameBg.node.getChildByName("board").getChildByName("board").getString()] == target.getChildByName(target.getName()).getString()){
@@ -224,21 +245,28 @@ xc.Pinata = cc.Layer.extend({
        if(this.shootingFlag){
            this.stateShootBubble(dt);
            if(!(this.bubblePlayer.y >=0)){               
-               this.bubblePlayer.setPosition((this.gameBg.node.getChildByName("left").x + this.gameBg.node.getChildByName("right").x) /2,cc.director.getWinSize().height * 0.2);
+               this.bubblePlayer.setPosition((this.xPosi/2)+(this.gameBg.node.getChildByName("left").x + this.gameBg.node.getChildByName("right").x) /2,this.gameBg.node.getChildByName("right").y);
                this.player.x = this.bubblePlayer.x;    this.player.y = this.bubblePlayer.y;
                this.shootingFlag = false;
            }
        }
-        if(this.shootingFlag){                
-            if(cc.rectIntersectsRect(this.bubblePlayer.getBoundingBox(), this.targetPlayer.getBoundingBox())){
-                this.shootingFlag = false;
-
-                var path = "";
+        if(this.shootingFlag){    
+            var path = "";
+            var size = 0;
                 if(this.bubblePlayer.getName() == "pinatacity"){
                     path = xc.Pinata.res.pinatacity_anim;
+                    size = 0.7;
                 }else if(this.bubblePlayer.getName() == "pinatacream"){
                     path = xc.Pinata.res.pinatacream_anim;
+                    size = 0.5;
+                }else if(this.bubblePlayer.getName() == "pinatajungle"){
+                    path = xc.Pinata.res.pinatajungle_anim;
+                    size = 0.9;
                 }
+
+            var player = cc.rect(this.targetPlayer.x,this.targetPlayer.y, this.targetPlayer.width*size, this.targetPlayer.height*size);
+            if(cc.rectIntersectsRect(this.bubblePlayer.getBoundingBox(), player)){
+                this.shootingFlag = false;
 
                 this.runAnimations(ccs.load(path,xc.path),this.targetPlayer.x,this.targetPlayer.y,path);
                 this.gameBg.node.getChildByName("board").freezShooting = false;
@@ -277,7 +305,8 @@ xc.Pinata = cc.Layer.extend({
 
        var  halfAction = new cc.MoveTo(2,cc.p(correctObject.width/2, cc.director.getWinSize().height * 0.9));
        var size = 0.5;
-       if(this.bubblePlayer.getName() == "pinatacity"){size = 0.7}
+       if(this.bubblePlayer.getName() == "pinatacity"){size = 0.7};
+        if(this.bubblePlayer.getName() == "pinatajungle"){size = 1.0};
        var  initSequence = new cc.Sequence(new cc.ScaleTo(0.3,size), new cc.MoveTo(0.5,cc.p(cc.director.getWinSize().width/2, cc.director.getWinSize().height * 0.9)));
         
         var SequenceVal = new cc.Sequence(initSequence,halfAction);
@@ -298,6 +327,10 @@ xc.Pinata = cc.Layer.extend({
         this.bubblePlayer.visible = true;
         this.rightLine.visible = true;
         this.leftLine.visible = true;
+        if(this.bubblePlayer.getName() == "pinatajungle"){
+            this.gameBg.node.getChildByName("rightshoot").visible = true;
+            this.gameBg.node.getChildByName("leftshoot").visible = true;
+        }
         this.gameBg.node.getChildByName("right").visible = true;
         this.gameBg.node.getChildByName("left").visible = true;
         if(this.bubblePlayer.getName() == "pinatacity")
@@ -325,8 +358,8 @@ xc.Pinata = cc.Layer.extend({
         var animation = ccs.actionTimelineCache.createAction(path,xc.path);
         AnimNode.node.runAction(animation);
         animation.gotoFrameAndPlay(0,false);
-        AnimNode.node.setPosition(x,y);
-        this.addChild(AnimNode.node);   
+        AnimNode.node.setPosition(x + (this.xPosi/2) ,y);
+        this.addChild(AnimNode.node);
         var classReference = this;
         setTimeout(function() {
             classReference.removeChild(AnimNode.node);
@@ -342,6 +375,11 @@ xc.Pinata.res = {
    pinatacream_png : xc.path +"pinatacream/pinatacream.png",
    pinatacream_json : xc.path +"pinatacream/pinatacream.json",
    pinatacream_anim : xc.path +"pinatacream/pinatacreamanim.json",
-   pinatacity_anim : xc.path +"pinatacity/pinatacityanim.json"
+   pinatacity_anim : xc.path +"pinatacity/pinatacityanim.json",
+   
+   pinatajungle_plist : xc.path +"jungle/junglec/junglec.plist",
+   pinatajungle_png : xc.path +"jungle/junglec/junglec.png",
+   pinatajungle_json : xc.path +"jungle/pinatajungle.json",
+   pinatajungle_anim : xc.path +"jungle/target.json",
 };      
 
