@@ -37,6 +37,8 @@ public:
 
 	std::map<std::string, std::map<std::string, std::string>> _textToSHow;
 
+	std::vector<cocos2d::Color3B> _color;
+
 	std::vector<std::string> _startName;
 	std::vector<std::string> _allWords;
 	std::vector<cocos2d::ui::LoadingBar*> containerBar;
