@@ -72,8 +72,8 @@ public:
 	bool flag;
 
 	void addEvents(struct LabelDetails);
-	void afterAnimation(struct LabelDetails, cocostudio::timeline::ActionTimeline*, Node*);
-
+	void afterAnimation(struct LabelDetails);
+	void wordShow(cocos2d::LabelTTF*);
 protected:
 	MenuContext* _menuContext;
 };
