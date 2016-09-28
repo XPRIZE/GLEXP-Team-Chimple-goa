@@ -37,6 +37,8 @@ public:
 
 	std::map<std::string, std::map<std::string, std::string>> _textToSHow;
 
+	std::vector<cocos2d::Color3B> _color;
+
 	std::vector<std::string> _startName;
 	std::vector<std::string> _allWords;
 	std::vector<cocos2d::ui::LoadingBar*> containerBar;
@@ -72,8 +74,9 @@ public:
 	bool flag;
 
 	void addEvents(struct LabelDetails);
-	void afterAnimation(struct LabelDetails, cocostudio::timeline::ActionTimeline*, Node*);
-
+	void afterAnimation(struct LabelDetails);
+	void wordShow(cocos2d::LabelTTF*);
+	void wordLabelAnim(struct LabelDetails);
 protected:
 	MenuContext* _menuContext;
 };
