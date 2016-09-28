@@ -2,7 +2,7 @@
 //  Decomon.cpp 
 //  goa
 //
-//  Created by Kirankumar CS on 20/09/16
+//  Created by Kirankumar CS on 27/09/16
 //
 //
 
@@ -365,7 +365,7 @@ void Decomon::creatSpriteOnAlphabet(std::string fileName, float x, float y, floa
 {
 	Size visibleSize = Director::getInstance()->getVisibleSize();
 	if ((visibleSize.width / 2 - 700 < x) && (visibleSize.width / 2 + 900 > x) &&
-		(visibleSize.height / 2 - 500 < y) && (visibleSize.height / 2 + 600 > y)) {
+		(visibleSize.height / 2 - 500 < y) && (visibleSize.height / 2 + 700 > y)) {
 
 		cocos2d::Node * eye;
 		if (fileName.find(".png") == -1) {
