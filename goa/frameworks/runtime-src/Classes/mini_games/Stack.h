@@ -76,6 +76,7 @@ public:
 	void addEvents(struct LabelDetails);
 	void afterAnimation(struct LabelDetails);
 	void wordShow(cocos2d::LabelTTF*);
+	void wordLabelAnim(struct LabelDetails);
 protected:
 	MenuContext* _menuContext;
 };

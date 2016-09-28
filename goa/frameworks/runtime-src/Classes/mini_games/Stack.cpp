@@ -37,8 +37,8 @@ bool Stack::init()
 
 	std::vector<std::string> scene = { "island", "superhero" , "farm" };
 
-	sceneName = scene.at(rand() % scene.size());
-//	sceneName = "farm";
+	sceneName = scene.at(rand() % 3);
+//	sceneName = "superhero";
 
 	if (sceneName == "island")
 	{
@@ -210,7 +210,6 @@ void Stack::generateWord()
 		_wordLabel = LabelTTF::create(_word, "Helvetica", 100, CCSizeMake(500, 300));
 		_wordLabel->setColor(Color3B::BLACK);
 		this->addChild(_wordLabel);
-		flag = false;
 
 		if (sceneName == "superhero")
 		{
@@ -242,7 +241,6 @@ void Stack::generateWord()
 		{
 			_wordLabel->setPosition(visibleSize.width * .08, visibleSize.height * .17);
 
-			_tray->setPosition(Vec2(-200, visibleSize.height * .28));
 			treadmill = CSLoader::createTimeline("stackisland/treadmill.csb");
 			stackbg->runAction(treadmill);
 			treadmill->play("treadmill", false);
@@ -274,6 +272,7 @@ void Stack::generateWord()
 
 void Stack::wordShow(LabelTTF *_wordLabel)
 {
+	flag = false;
 	_wordLabel->setVisible(true);
 }
 
@@ -346,6 +345,44 @@ void Stack::addEvents(struct LabelDetails sprite)
 	cocos2d::Director::getInstance()->getEventDispatcher()->addEventListenerWithSceneGraphPriority(listener->clone(), sprite.label);
 }
 
+void Stack::wordLabelAnim(struct LabelDetails sprite)
+{
+	auto Sequ = Sequence::create(MoveTo::create(.7, Vec2(visibleSize.width / 2, visibleSize.height * .40)), CallFunc::create([=]() {
+		auto delay = DelayTime::create(0.0f);
+
+		auto Sequ2 = Sequence::create(ScaleTo::create(.7, 3.3, 3.3), delay, ScaleTo::create(.7, 3, 3), CallFunc::create([=]() {
+			sprite.label->setColor(Color3B::BLACK);
+
+			if (sceneName == "farm")
+			{
+				this->removeChild(_wordLabel);
+				auto sequenceFuel1 = Sequence::create(MoveTo::create(4, Vec2(visibleSize.width, visibleSize.height * .22)), CallFunc::create([=]() {
+					sprite.label->setColor(Color3B::BLACK);
+					stackbg->stopAction(treadmill);
+					Stack::generateWord();
+				}), NULL);
+
+				treadmill = CSLoader::createTimeline("stackfarm/cow.csb");
+				stackbg->runAction(treadmill);
+				treadmill->play("treadmill", true);
+				_tray->runAction(sequenceFuel1);
+			}
+			else
+			{
+				this->removeChild(_wordLabel);
+				Stack::generateWord();
+			}
+		}), NULL);
+		_wordLabel->runAction(Sequ2);
+	}), NULL);
+
+	auto move = MoveTo::create(.7, Vec2(visibleSize.width / 2, visibleSize.height / 2));
+	auto scale = ScaleTo::create(.7, 3);
+	auto mySpawn = Spawn::createWithTwoActions(move, scale);
+	_wordLabel->runAction(scale);
+	_wordLabel->runAction(Sequ);
+}
+
 void Stack::afterAnimation(struct LabelDetails sprite)
 {
 	float fuelPer = 0, delay = 0, containerValue;
@@ -406,31 +443,9 @@ void Stack::afterAnimation(struct LabelDetails sprite)
 
 			if (fuelPer == containerValue)
 			{
-				this->runAction(Sequence::create(DelayTime::create(delay), CallFunc::create([=]() {
-					this->removeChild(_wordLabel);
+				this->runAction(Sequence::create(DelayTime::create(delay), CallFunc::create([=]() {					
 					_allWords.erase(std::remove(_allWords.begin(), _allWords.end(), _word), _allWords.end());
-
-					if (sceneName == "farm")
-					{
-						auto sequenceFuel1 = Sequence::create(MoveTo::create(4, Vec2(visibleSize.width, visibleSize.height * .22)), CallFunc::create([=]() {
-							sprite.label->setColor(Color3B::BLACK);
-							stackbg->stopAction(treadmill);
-							Stack::generateWord();
-						}), NULL);
-
-						treadmill = CSLoader::createTimeline("stackfarm/cow.csb");
-						stackbg->runAction(treadmill);
-						treadmill->play("treadmill", true);
-						_tray->runAction(sequenceFuel1);
-					}
-					else
-					{
-						sprite.label->setColor(Color3B::BLACK);
-						Stack::generateWord();
-					}
-
-
-
+					Stack::wordLabelAnim(sprite);
 				}), NULL));
 			}
 		}
