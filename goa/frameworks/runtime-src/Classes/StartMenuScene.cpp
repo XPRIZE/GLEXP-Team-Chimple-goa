@@ -27,6 +27,7 @@
 #include "mini_games/CatGameScene.h"
 #include "scripting/js-bindings/manual/ScriptingCore.h"
 #include "mini_games/AlphamoleLevel.h"
+#include "mini_games/Memory.h"
 
 
 USING_NS_CC;
@@ -101,7 +102,7 @@ void StartMenu::startScene(std::string gameName, std::string firstParam, std::st
     } else if(gameName == JASMINE) {
         Director::getInstance()->replaceScene(Jasmin_Mainfile::createScene());
     } else if(gameName == WEMBLEY) {
-        Director::getInstance()->replaceScene(Wembley::createScene());
+        Director::getInstance()->replaceScene(Memory::createScene());
     } else if(gameName == JAZZ) {
         Director::getInstance()->replaceScene(jazz::createScene());
     } else if(gameName == CHAIN) {
