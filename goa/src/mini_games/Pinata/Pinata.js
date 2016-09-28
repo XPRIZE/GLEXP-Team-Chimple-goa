@@ -17,7 +17,8 @@ xc.Pinata = cc.Layer.extend({
     var playerGUI = "";
     var heightTolrence = 0;
     this.xPosi =0; 
-
+    this.shootingFlag = false;
+ 
     if(gameTheme == "pinatacream"){
          cc.spriteFrameCache.addSpriteFrames(xc.Pinata.res.pinatacream_plist);
          this.gameBg = ccs.load(xc.Pinata.res.pinatacream_json,xc.path);
@@ -31,14 +32,12 @@ xc.Pinata = cc.Layer.extend({
          this.gameBg = ccs.load(xc.Pinata.res.pinatacity_json,xc.path);
          this.stringColor = new cc.color(140,234,19,255);
          playerGUI = "pinatacity/player.png";
+
     }else if(gameTheme == "pinatajungle"){
          cc.spriteFrameCache.addSpriteFrames(xc.Pinata.res.pinatajungle_plist);
          this.gameBg = ccs.load(xc.Pinata.res.pinatajungle_json,xc.path);
-        // var targetA = this.gameBg.node.getChildByName("targeta");
-        // heightTolrence = targetA.height * 0.25;
          this.stringColor = new cc.color(124,252,0,255);
          playerGUI = "jungle/junglec/player.png";
-
     }
 
 
@@ -114,7 +113,7 @@ xc.Pinata = cc.Layer.extend({
     if(this.bubblePlayer.getName() == "pinatacity")
     this.gameBg.node.getChildByName("slingshot_16").visible = false;
 
-
+//cc.EventListener.TOUCH_ALL_AT_ONCE
     var classReference = this;
     var listnerBg = cc.EventListener.create({event: cc.EventListener.TOUCH_ONE_BY_ONE, swallowTouches: false,
             onTouchBegan :function(touch, event){
@@ -123,32 +122,43 @@ xc.Pinata = cc.Layer.extend({
                 var location = target.convertToNodeSpace(touch.getLocation());
                 var targetRectangle = cc.rect(0,0, target.width, target.height);
                 if(classReference.gameBg.node.getChildByName("board").freezShooting){
-                    if (cc.rectContainsPoint(targetRectangle, location)){return true;}
+                    if (cc.rectContainsPoint(targetRectangle, location)){
+                        classReference.player.prevX = touch.getLocation().x;
+                        classReference.player.prevY = touch.getLocation().y;                        
+                        return true;}
                 }
                 return false;
             },
             onTouchMoved : function(touch, event){
                 var target = event.getCurrentTarget();
-                target.setPosition(touch.getLocation());
+
+                if(touch.getLocation().y >= (cc.director.getWinSize().height/2)){
+                    target.x = touch.getLocation().x;
+                }else{
+                    target.setPosition(touch.getLocation());
+                }
 
                 if(classReference.rightLine != undefined){
                     classReference.removeChild(classReference.rightLine);
                 }
                 classReference.rightLine = new cc.DrawNode();
-                classReference.rightLine.drawSegment(cc.p((classReference.xPosi/2)+classReference.gameBg.node.getChildByName("right").x,classReference.gameBg.node.getChildByName("right").y), cc.p(touch.getLocation().x + (classReference.bubblePlayer.width/2),touch.getLocation().y),5,classReference.stringColor);
+                classReference.rightLine.drawSegment(cc.p((classReference.xPosi/2)+classReference.gameBg.node.getChildByName("right").x,classReference.gameBg.node.getChildByName("right").y), cc.p(touch.getLocation().x + (classReference.bubblePlayer.width/2),classReference.bubblePlayer.y),5,classReference.stringColor);
                 classReference.addChild(classReference.rightLine);
 
                 if(classReference.leftLine != undefined){
                     classReference.removeChild(classReference.leftLine);
                 }
                 classReference.leftLine = new cc.DrawNode();
-                classReference.leftLine.drawSegment(cc.p((classReference.xPosi/2)+classReference.gameBg.node.getChildByName("left").x,classReference.gameBg.node.getChildByName("left").y), cc.p(touch.getLocation().x - (classReference.bubblePlayer.width/2),touch.getLocation().y),5,classReference.stringColor);
+                classReference.leftLine.drawSegment(cc.p((classReference.xPosi/2)+classReference.gameBg.node.getChildByName("left").x,classReference.gameBg.node.getChildByName("left").y), cc.p(touch.getLocation().x - (classReference.bubblePlayer.width/2),classReference.bubblePlayer.y),5,classReference.stringColor);
                 classReference.addChild(classReference.leftLine);
 
                 return true;
             },
             onTouchEnded : function(touch, event){
                 classReference.player.angle = classReference.radToDeg(Math.atan2((touch.getLocation().y - classReference.player.y),(-touch.getLocation().x + classReference.player.x)));
+                 classReference.player.prevX = Math.abs(classReference.player.prevX - touch.getLocation().x);
+                 classReference.player.prevY = Math.abs(classReference.player.prevY - touch.getLocation().y); 
+                 console.log("x distance is : "+ classReference.player.prevX + " y distance is : "+ classReference.player.prevY);
 
                 if(classReference.rightLine != undefined){
                     classReference.removeChild(classReference.rightLine);
@@ -163,7 +173,21 @@ xc.Pinata = cc.Layer.extend({
                 classReference.leftLine = new cc.DrawNode();
                 classReference.leftLine.drawSegment(cc.p((classReference.xPosi/2)+classReference.gameBg.node.getChildByName("left").x,classReference.gameBg.node.getChildByName("left").y),cc.p(classReference.player.x + 10,classReference.player.y),5,classReference.stringColor);
                 classReference.addChild(classReference.leftLine);
-                classReference.shootingFlag = true;
+              
+                if(classReference.player.prevY != 0 && classReference.player.prevY != 0){
+                    classReference.shootingFlag = true;
+                    classReference.gameBg.node.getChildByName("board").freezShooting = false;
+
+                    if(!((Math.abs(classReference.player.angle) < 175)  && (Math.abs(classReference.player.angle) > 5))){
+                        console.log("the range is not correct ");
+                        setTimeout(function() {
+                            classReference.bubblePlayer.setPosition((classReference.xPosi/2)+(classReference.gameBg.node.getChildByName("left").x + classReference.gameBg.node.getChildByName("right").x) /2,classReference.gameBg.node.getChildByName("right").y);
+                            classReference.player.x = classReference.bubblePlayer.x;    classReference.player.y = classReference.bubblePlayer.y;
+                            classReference.shootingFlag = false;
+                            classReference.gameBg.node.getChildByName("board").freezShooting = true;
+                        }, 3000);                     
+                    }
+                }
             }
      });
 
@@ -173,8 +197,7 @@ xc.Pinata = cc.Layer.extend({
                 var location = target.convertToNodeSpace(touch.getLocation());
                 var targetRectangle = cc.rect(0,0, target.width, target.height);
                 
-                if (cc.rectContainsPoint(targetRectangle, location)){
-                    console.log("the listne object "+target.getName());
+                if (cc.rectContainsPoint(targetRectangle, location) && !classReference.gameBg.node.getChildByName("board").freezShooting && !classReference.shootingFlag){
                     return true;
                 }
  
@@ -204,7 +227,7 @@ xc.Pinata = cc.Layer.extend({
                         if(!targetC.dead){classReference.runAnimations(ccs.load(path,xc.path),targetC.x,targetC.y,path); classReference.gameBg.node.removeChild(targetC);}
                         if(!targetB.dead){classReference.runAnimations(ccs.load(path,xc.path),targetB.x,targetB.y,path); classReference.gameBg.node.removeChild(targetB);}
                         classReference.gamePlay(targetA);
-                    }                    
+                    }
                 }else{
                     console.log("its wrong answer");
                 
@@ -248,9 +271,10 @@ xc.Pinata = cc.Layer.extend({
                this.bubblePlayer.setPosition((this.xPosi/2)+(this.gameBg.node.getChildByName("left").x + this.gameBg.node.getChildByName("right").x) /2,this.gameBg.node.getChildByName("right").y);
                this.player.x = this.bubblePlayer.x;    this.player.y = this.bubblePlayer.y;
                this.shootingFlag = false;
+               this.gameBg.node.getChildByName("board").freezShooting = true;
            }
        }
-        if(this.shootingFlag){    
+        if(this.shootingFlag){
             var path = "";
             var size = 0;
                 if(this.bubblePlayer.getName() == "pinatacity"){
@@ -264,8 +288,10 @@ xc.Pinata = cc.Layer.extend({
                     size = 0.9;
                 }
 
-            var player = cc.rect(this.targetPlayer.x,this.targetPlayer.y, this.targetPlayer.width*size, this.targetPlayer.height*size);
-            if(cc.rectIntersectsRect(this.bubblePlayer.getBoundingBox(), player)){
+            var targetObject = cc.rect(this.targetPlayer.x - (this.targetPlayer.width*size/2) +(this.xPosi/2),this.targetPlayer.y - (this.targetPlayer.height*size/2), this.targetPlayer.width*size, this.targetPlayer.height*size);
+            var playerObject = cc.rect(this.bubblePlayer.x - (this.bubblePlayer.width/4),this.bubblePlayer.y - (this.bubblePlayer.height/4), this.bubblePlayer.width/2, this.bubblePlayer.height/2);
+            
+            if(cc.rectIntersectsRect(playerObject, targetObject)){
                 this.shootingFlag = false;
 
                 this.runAnimations(ccs.load(path,xc.path),this.targetPlayer.x,this.targetPlayer.y,path);
@@ -286,8 +312,8 @@ xc.Pinata = cc.Layer.extend({
     },
 
     stateShootBubble : function(dt){
-        this.bubblePlayer.x += dt * 2500 * Math.cos(this.degToRad(this.player.angle));
-        this.bubblePlayer.y += dt * 2500 * -1 * Math.sin(this.degToRad(this.player.angle));
+        this.bubblePlayer.x += dt * 2000 * Math.cos(this.degToRad(this.player.angle));
+        this.bubblePlayer.y += dt * 2000 * -1 * Math.sin(this.degToRad(this.player.angle));
 
         if (this.bubblePlayer.x < (this.bubblePlayer.width/2)) {
             // Left edge
@@ -303,10 +329,10 @@ xc.Pinata = cc.Layer.extend({
     },
     gamePlay : function (correctObject){
 
-       var  halfAction = new cc.MoveTo(2,cc.p(correctObject.width/2, cc.director.getWinSize().height * 0.9));
        var size = 0.5;
        if(this.bubblePlayer.getName() == "pinatacity"){size = 0.7};
         if(this.bubblePlayer.getName() == "pinatajungle"){size = 1.0};
+       var  halfAction = new cc.MoveTo(2,cc.p(((correctObject.width * size )/2) - (this.xPosi/2), cc.director.getWinSize().height * 0.9));
        var  initSequence = new cc.Sequence(new cc.ScaleTo(0.3,size), new cc.MoveTo(0.5,cc.p(cc.director.getWinSize().width/2, cc.director.getWinSize().height * 0.9)));
         
         var SequenceVal = new cc.Sequence(initSequence,halfAction);
@@ -314,8 +340,8 @@ xc.Pinata = cc.Layer.extend({
         this.targetPlayer = correctObject;
         var classReference = this;
          setTimeout(function() {
-              var  leftTOright = new cc.MoveTo(4,cc.p(correctObject.width/2, cc.director.getWinSize().height * 0.9));
-              var  rightTOleft = new cc.MoveTo(4,cc.p(cc.director.getWinSize().width - correctObject.width/2, cc.director.getWinSize().height * 0.9));
+              var  leftTOright = new cc.MoveTo(4,cc.p(((correctObject.width * size )/2) - (classReference.xPosi/2), cc.director.getWinSize().height * 0.9));
+              var  rightTOleft = new cc.MoveTo(4,cc.p(cc.director.getWinSize().width - (correctObject.width * size/2) - (classReference.xPosi/2), cc.director.getWinSize().height * 0.9));
               var repeatForeverAction = new cc.RepeatForever(new cc.Sequence(rightTOleft,leftTOright));
               correctObject.runAction(repeatForeverAction);
          }, 2800);
