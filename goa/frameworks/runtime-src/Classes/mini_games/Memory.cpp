@@ -26,6 +26,7 @@ Memory::Memory() :
 	_touchActive(false),
 	_currentClickedPair(3),
 	_currentSelectedNestNames(2),
+	_level(0),
 	_activeNestIds(25),
 	_chickenTimeline(25),
 	objects(4, std::vector<struct object>(4)), 
@@ -45,8 +46,9 @@ Scene *Memory::createScene() {
 	auto layer = Memory::create();
 
 	scene->addChild(layer);
-	layer->_menuContext = MenuContext::create(layer, Memory::classname(), true);
+	layer->_menuContext = MenuContext::create(layer, Memory::classname());
 	scene->addChild(layer->_menuContext);
+	
 	return scene;
 
 }
@@ -441,6 +443,10 @@ bool Memory::checkMatch() {
 	std::string str2 = _currentSelectedNestNames[1];
 
 	if (_data[str1] == str2 || _data[str2] == str1) {
+		if (_level == 11) {
+			_menuContext->showScore();
+		}
+		_level++;
 		return true;
 	}
 	return false;
