@@ -4,6 +4,21 @@
     <dict>
         <key>frames</key>
         <dict>
+            <key>bingofarm/board.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{1194,675}</string>
+                <key>spriteSourceSize</key>
+                <string>{1194,675}</string>
+                <key>textureRect</key>
+                <string>{{1,1},{1194,675}}</string>
+                <key>textureRotated</key>
+                <true/>
+            </dict>
             <key>bingofarm/boardhelp.png</key>
             <dict>
                 <key>aliases</key>
@@ -15,7 +30,7 @@
                 <key>spriteSourceSize</key>
                 <string>{719,182}</string>
                 <key>textureRect</key>
-                <string>{{1,1},{719,182}}</string>
+                <string>{{1,1197},{719,182}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
@@ -30,7 +45,7 @@
                 <key>spriteSourceSize</key>
                 <string>{215,209}</string>
                 <key>textureRect</key>
-                <string>{{354,185},{215,209}}</string>
+                <string>{{678,354},{215,209}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
@@ -45,22 +60,7 @@
                 <key>spriteSourceSize</key>
                 <string>{199,182}</string>
                 <key>textureRect</key>
-                <string>{{722,1},{199,182}}</string>
-                <key>textureRotated</key>
-                <true/>
-            </dict>
-            <key>bingofarm/curve.png</key>
-            <dict>
-                <key>aliases</key>
-                <array/>
-                <key>spriteOffset</key>
-                <string>{0,0}</string>
-                <key>spriteSize</key>
-                <string>{77,77}</string>
-                <key>spriteSourceSize</key>
-                <string>{77,77}</string>
-                <key>textureRect</key>
-                <string>{{354,396},{77,77}}</string>
+                <string>{{678,737},{199,182}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
@@ -71,13 +71,13 @@
                 <key>spriteOffset</key>
                 <string>{0,0}</string>
                 <key>spriteSize</key>
-                <string>{46,75}</string>
+                <string>{45,40}</string>
                 <key>spriteSourceSize</key>
-                <string>{46,75}</string>
+                <string>{45,40}</string>
                 <key>textureRect</key>
-                <string>{{523,396},{46,75}}</string>
+                <string>{{971,354},{45,40}}</string>
                 <key>textureRotated</key>
-                <false/>
+                <true/>
             </dict>
             <key>bingofarm/grass2.png</key>
             <dict>
@@ -86,13 +86,13 @@
                 <key>spriteOffset</key>
                 <string>{0,0}</string>
                 <key>spriteSize</key>
-                <string>{61,88}</string>
+                <string>{74,68}</string>
                 <key>spriteSourceSize</key>
-                <string>{61,88}</string>
+                <string>{74,68}</string>
                 <key>textureRect</key>
-                <string>{{433,396},{61,88}}</string>
+                <string>{{895,354},{74,68}}</string>
                 <key>textureRotated</key>
-                <true/>
+                <false/>
             </dict>
             <key>bingofarm/letterbox.png</key>
             <dict>
@@ -105,9 +105,9 @@
                 <key>spriteSourceSize</key>
                 <string>{351,166}</string>
                 <key>textureRect</key>
-                <string>{{1,185},{351,166}}</string>
+                <string>{{678,1},{351,166}}</string>
                 <key>textureRotated</key>
-                <false/>
+                <true/>
             </dict>
             <key>bingofarm/letterboxshade.png</key>
             <dict>
@@ -120,7 +120,37 @@
                 <key>spriteSourceSize</key>
                 <string>{351,166}</string>
                 <key>textureRect</key>
-                <string>{{1,353},{351,166}}</string>
+                <string>{{846,1},{351,166}}</string>
+                <key>textureRotated</key>
+                <true/>
+            </dict>
+            <key>bingofarm/muskmelon.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{182,171}</string>
+                <key>spriteSourceSize</key>
+                <string>{182,171}</string>
+                <key>textureRect</key>
+                <string>{{816,921},{182,171}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+            <key>bingofarm/pineapple.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{230,170}</string>
+                <key>spriteSourceSize</key>
+                <string>{230,170}</string>
+                <key>textureRect</key>
+                <string>{{678,565},{230,170}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
@@ -135,24 +165,9 @@
                 <key>spriteSourceSize</key>
                 <string>{189,184}</string>
                 <key>textureRect</key>
-                <string>{{709,202},{189,184}}</string>
+                <string>{{722,1184},{189,184}}</string>
                 <key>textureRotated</key>
-                <false/>
-            </dict>
-            <key>bingofarm/stone.png</key>
-            <dict>
-                <key>aliases</key>
-                <array/>
-                <key>spriteOffset</key>
-                <string>{0,0}</string>
-                <key>spriteSize</key>
-                <string>{81,61}</string>
-                <key>spriteSourceSize</key>
-                <string>{81,61}</string>
-                <key>textureRect</key>
-                <string>{{709,388},{81,61}}</string>
-                <key>textureRotated</key>
-                <false/>
+                <true/>
             </dict>
             <key>bingofarm/watermelon.png</key>
             <dict>
@@ -165,7 +180,7 @@
                 <key>spriteSourceSize</key>
                 <string>{261,136}</string>
                 <key>textureRect</key>
-                <string>{{571,185},{261,136}}</string>
+                <string>{{678,921},{261,136}}</string>
                 <key>textureRotated</key>
                 <true/>
             </dict>
@@ -181,9 +196,9 @@
             <key>realTextureFileName</key>
             <string>bingofarm.png</string>
             <key>size</key>
-            <string>{905,520}</string>
+            <string>{1013,1380}</string>
             <key>smartupdate</key>
-            <string>$TexturePacker:SmartUpdate:b40758a247d8a7cac05147221fcc3da1:5c5c261597d156c64c17878975cc23de:2254189da13433e22bab9dc7b4a25ce4$</string>
+            <string>$TexturePacker:SmartUpdate:ff3c1d419f6e04407ca1b290ce41872c:81522f5f0d22162d3a40ac518e18b1ef:2254189da13433e22bab9dc7b4a25ce4$</string>
             <key>textureFileName</key>
             <string>bingofarm.png</string>
         </dict>
