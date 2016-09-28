@@ -35,10 +35,10 @@ bool Stack::init()
 
 	visibleSize = Director::getInstance()->getWinSize();
 
-	std::vector<std::string> scene = { "island", "superhero" };
+	std::vector<std::string> scene = { "island", "superhero" , "farm" };
 
-	sceneName = scene.at(rand() % scene.size());
-//	sceneName = "island";
+	sceneName = scene.at(rand() % 3);
+//	sceneName = "superhero";
 
 	if (sceneName == "island")
 	{
@@ -57,12 +57,17 @@ bool Stack::init()
 			}
 		}
 	}
-	else
+	else if(sceneName=="superhero")
 	{
 		stackbg = (Node *)CSLoader::createNode("stackhero/stackhero.csb");
 	}
+	else
+	{
+		stackbg = (Node *)CSLoader::createNode("stackfarm/stackfarm.csb");
+		_tray = (Sprite*)stackbg->getChildren().at(1)->getChildByName("cow");
+	}
 
-/*	std::vector<std::string> pankaj;
+	std::vector<std::string> pankaj;
 	std::vector<int> pankaj1;
 	for (int i = 0; i < stackbg->getChildrenCount(); i++)
 	{
@@ -74,13 +79,13 @@ bool Stack::init()
 	}
 
 	CCLOG("yes");
-*/
+
 
 	this->addChild(stackbg);
 
 	auto secondChild = stackbg->getChildren().at(1);
 
-	_textToSHow = TextGenerator::getInstance()->getInitialSyllableWords(5, 5);
+	_textToSHow = TextGenerator::getInstance()->getInitialSyllableWords(5, 4);
 
 	for (int i = 0; i < secondChild->getChildrenCount(); i++)
 	{
@@ -88,17 +93,6 @@ bool Stack::init()
 		{
 			Position.push_back(secondChild->getChildren().at(i));
 		}
-	}
-
-	if (sceneName == "superhero")
-	{
-		_trayfillbar = (cocos2d::ui::LoadingBar*) (secondChild->getChildByName("trayfill"));
-		_tray = (Sprite*)secondChild->getChildByName("tray");
-
-		charNode = (Node *)CSLoader::createNode("superheroes/superheroes.csb");
-		charNode->setPosition(visibleSize.width * .90, visibleSize.height * .13);
-		charNode->setScale(.8);
-		this->addChild(charNode);
 	}
 
 	_containerbar1 = (cocos2d::ui::LoadingBar*) (secondChild->getChildByName("containerbar1"));
@@ -137,11 +131,41 @@ bool Stack::init()
 	_fillpipebar5 = (cocos2d::ui::LoadingBar*) (secondChild->getChildByName("fillpipebar5"));
 	_fillpipebar5->setPercent(0);
 
+
 	fillpipebar.push_back(_fillpipebar1);
 	fillpipebar.push_back(_fillpipebar2);
 	fillpipebar.push_back(_fillpipebar3);
 	fillpipebar.push_back(_fillpipebar4);
 	fillpipebar.push_back(_fillpipebar5);
+
+	if (sceneName == "superhero")
+	{
+		_trayfillbar = (cocos2d::ui::LoadingBar*) (secondChild->getChildByName("trayfill"));
+		_tray = (Sprite*)secondChild->getChildByName("tray");
+
+		charNode = (Node *)CSLoader::createNode("superheroes/superheroes.csb");
+		charNode->setPosition(visibleSize.width * .90, visibleSize.height * .13);
+		charNode->setScale(.8);
+		this->addChild(charNode);
+
+		_fillpipebar1->setColor(Color3B::BLUE);
+		_fillpipebar2->setColor(Color3B::RED);
+		_fillpipebar3->setColor(Color3B::GREEN);
+		_fillpipebar4->setColor(Color3B::MAGENTA);
+		_fillpipebar5->setColor(Color3B::ORANGE);
+
+		_containerbar1->setColor(Color3B::BLUE);
+		_containerbar2->setColor(Color3B::RED);
+		_containerbar3->setColor(Color3B::GREEN);
+		_containerbar4->setColor(Color3B::MAGENTA);
+		_containerbar5->setColor(Color3B::ORANGE);
+
+		_color.push_back(Color3B::BLUE);
+		_color.push_back(Color3B::RED);
+		_color.push_back(Color3B::GREEN);
+		_color.push_back(Color3B::MAGENTA);
+		_color.push_back(Color3B::ORANGE);
+	}
 
 	_suckpipebar = (cocos2d::ui::LoadingBar*) (secondChild->getChildByName("suckpipebar"));
 	_suckpipebar->setPercent(0);
@@ -180,47 +204,65 @@ bool Stack::init()
 
 void Stack::generateWord()
 {
-	if (_allWords.size() != 0 && sceneName == "superhero")
+	if (_allWords.size() != 0)
 	{
 		_word = _allWords.at(rand() % _allWords.size());
 		_wordLabel = LabelTTF::create(_word, "Helvetica", 100, CCSizeMake(500, 300));
-		_wordLabel->setPosition(-200, visibleSize.height * .22);
 		_wordLabel->setColor(Color3B::BLACK);
 		this->addChild(_wordLabel);
 
-		auto sequenceFuel = Sequence::create(MoveTo::create(2, Vec2(visibleSize.width * .065, visibleSize.height * .22)), CallFunc::create([=]() { 
-			flag = false;
-			stackbg->stopAction(treadmill);
-		}), NULL);
+		if (sceneName == "superhero")
+		{
+			_wordLabel->setPosition(-200, visibleSize.height * .22);
 
-		treadmill = CSLoader::createTimeline("stackhero/treadmill.csb");
-		stackbg->runAction(treadmill);
-		treadmill->gotoFrameAndPause(0);
-		treadmill->play("treadmill", true);
+			auto sequenceFuel = Sequence::create(MoveTo::create(2, Vec2(visibleSize.width * .065, visibleSize.height * .22)), CallFunc::create([=]() {
+				flag = false;
+				stackbg->stopAction(treadmill);
+			}), NULL);
 
-		_trayfillbar->setPercent(100);
-		_trayfillbar->setPosition(Vec2(-200, visibleSize.height * .27));
-		_tray->setPosition(Vec2(-200, visibleSize.height * .28));
+			int pos = std::find(_startName.begin(), _startName.end(), _word.substr(0, 2)) - _startName.begin();
+			_trayfillbar->setColor(_color.at(pos));
+			_suckpipebar->setColor(_color.at(pos));
 
-		_trayfillbar->runAction(MoveTo::create(2, Vec2(visibleSize.width * .065, visibleSize.height * .27)));
-		_tray->runAction(MoveTo::create(2, Vec2(visibleSize.width * .065, visibleSize.height * .28)));
+			treadmill = CSLoader::createTimeline("stackhero/treadmill.csb");
+			stackbg->runAction(treadmill);
+			treadmill->play("treadmill", true);
 
-		_wordLabel->runAction(sequenceFuel);
-	}
-	else if (_allWords.size() != 0 && sceneName == "island")
-	{
-		flag = false;
+			_trayfillbar->setPercent(100);
+			_trayfillbar->setPosition(Vec2(-200, visibleSize.height * .27));
+			_tray->setPosition(Vec2(-200, visibleSize.height * .28));
 
-		_word = _allWords.at(rand() % _allWords.size());
-		_wordLabel = LabelTTF::create(_word, "Helvetica", 100, CCSizeMake(500, 300));
-		_wordLabel->setPosition(visibleSize.width * .08, visibleSize.height * .17);
-		_wordLabel->setVisible(false);
-		this->addChild(_wordLabel);
+			_trayfillbar->runAction(MoveTo::create(2, Vec2(visibleSize.width * .065, visibleSize.height * .27)));
+			_tray->runAction(MoveTo::create(2, Vec2(visibleSize.width * .065, visibleSize.height * .28)));
 
-		treadmill = CSLoader::createTimeline("stackisland/treadmill.csb");
-		stackbg->runAction(treadmill);
-		treadmill->play("treadmill", false);
-		treadmill->setAnimationEndCallFunc("treadmill", CC_CALLBACK_0(Stack::wordShow, this, _wordLabel));
+			_wordLabel->runAction(sequenceFuel);
+		}
+		else if (sceneName == "island")
+		{
+			_wordLabel->setPosition(visibleSize.width * .08, visibleSize.height * .17);
+
+			treadmill = CSLoader::createTimeline("stackisland/treadmill.csb");
+			stackbg->runAction(treadmill);
+			treadmill->play("treadmill", false);
+			treadmill->setAnimationEndCallFunc("treadmill", CC_CALLBACK_0(Stack::wordShow, this, _wordLabel));
+		}
+		else if (sceneName == "farm")
+		{
+			_wordLabel->setPosition(-200, visibleSize.height * .22);
+
+			auto sequenceFuel = Sequence::create(MoveTo::create(2, Vec2(visibleSize.width * .14, visibleSize.height * .22)), CallFunc::create([=]() {
+				flag = false;
+				stackbg->stopAction(treadmill);
+			}), NULL);
+
+			treadmill = CSLoader::createTimeline("stackfarm/cow.csb");
+			stackbg->runAction(treadmill);
+			treadmill->play("treadmill", true);
+
+			_tray->setPosition(Vec2(-500, visibleSize.height * .25));
+			_tray->runAction(MoveTo::create(2, Vec2(visibleSize.width * .065, visibleSize.height * .25)));
+			_wordLabel->runAction(sequenceFuel);
+		}
 	}
 	else
 	{
@@ -230,6 +272,7 @@ void Stack::generateWord()
 
 void Stack::wordShow(LabelTTF *_wordLabel)
 {
+	flag = false;
 	_wordLabel->setVisible(true);
 }
 
@@ -270,16 +313,27 @@ void Stack::addEvents(struct LabelDetails sprite)
 				{
 					flag = true;
 					sprite.label->setColor(Color3B::GREEN);
-					cocostudio::timeline::ActionTimeline *charTimeline = CSLoader::createTimeline("superheroes/superheroes.csb");
-					charNode->runAction(charTimeline);
-					charTimeline->play("correct", false);
-					charTimeline->setAnimationEndCallFunc("correct", CC_CALLBACK_0(Stack::afterAnimation, this, sprite));
+
+					if (sceneName == "superhero")
+					{
+						cocostudio::timeline::ActionTimeline *charTimeline = CSLoader::createTimeline("superheroes/superheroes.csb");
+						charNode->runAction(charTimeline);
+						charTimeline->play("correct", false);
+						charTimeline->setAnimationEndCallFunc("correct", CC_CALLBACK_0(Stack::afterAnimation, this, sprite));
+					}
+					else
+					{
+						Stack::afterAnimation(sprite);
+					}
 				}
 				else if ((_word.substr(0, sprite.id.length()) != sprite.id) && flag == false)
 				{
-					auto charTimeline = CSLoader::createTimeline("superheroes/superheroes.csb");
-					charNode->runAction(charTimeline);
-					charTimeline->play("wrong", false);
+					if (sceneName == "superhero")
+					{
+						auto charTimeline = CSLoader::createTimeline("superheroes/superheroes.csb");
+						charNode->runAction(charTimeline);
+						charTimeline->play("wrong", false);
+					}
 				}
 			}
 			return true;
@@ -289,6 +343,44 @@ void Stack::addEvents(struct LabelDetails sprite)
 
 	cocos2d::Director::getInstance()->getEventDispatcher()->addEventListenerWithSceneGraphPriority(listener, sprite.container);
 	cocos2d::Director::getInstance()->getEventDispatcher()->addEventListenerWithSceneGraphPriority(listener->clone(), sprite.label);
+}
+
+void Stack::wordLabelAnim(struct LabelDetails sprite)
+{
+	auto Sequ = Sequence::create(MoveTo::create(.7, Vec2(visibleSize.width / 2, visibleSize.height * .40)), CallFunc::create([=]() {
+		auto delay = DelayTime::create(0.0f);
+
+		auto Sequ2 = Sequence::create(ScaleTo::create(.7, 3.3, 3.3), delay, ScaleTo::create(.7, 3, 3), CallFunc::create([=]() {
+			sprite.label->setColor(Color3B::BLACK);
+
+			if (sceneName == "farm")
+			{
+				this->removeChild(_wordLabel);
+				auto sequenceFuel1 = Sequence::create(MoveTo::create(4, Vec2(visibleSize.width, visibleSize.height * .22)), CallFunc::create([=]() {
+					sprite.label->setColor(Color3B::BLACK);
+					stackbg->stopAction(treadmill);
+					Stack::generateWord();
+				}), NULL);
+
+				treadmill = CSLoader::createTimeline("stackfarm/cow.csb");
+				stackbg->runAction(treadmill);
+				treadmill->play("treadmill", true);
+				_tray->runAction(sequenceFuel1);
+			}
+			else
+			{
+				this->removeChild(_wordLabel);
+				Stack::generateWord();
+			}
+		}), NULL);
+		_wordLabel->runAction(Sequ2);
+	}), NULL);
+
+	auto move = MoveTo::create(.7, Vec2(visibleSize.width / 2, visibleSize.height / 2));
+	auto scale = ScaleTo::create(.7, 3);
+	auto mySpawn = Spawn::createWithTwoActions(move, scale);
+	_wordLabel->runAction(scale);
+	_wordLabel->runAction(Sequ);
 }
 
 void Stack::afterAnimation(struct LabelDetails sprite)
@@ -314,7 +406,8 @@ void Stack::afterAnimation(struct LabelDetails sprite)
 			auto trayfillbar_sequence = Sequence::create(DelayTime::create(delay), CallFunc::create([=]() { _trayfillbar->setPercent(_trayfillbar->getPercent() - 1); }), NULL);
 			fuelPer++;	delay = delay + 0.01;
 			_suckpipebar->runAction(suckpipebar_sequence);
-			_trayfillbar->runAction(trayfillbar_sequence);
+			if(sceneName=="superhero")
+				_trayfillbar->runAction(trayfillbar_sequence);
 		}
 	}
 
@@ -350,11 +443,9 @@ void Stack::afterAnimation(struct LabelDetails sprite)
 
 			if (fuelPer == containerValue)
 			{
-				this->runAction(Sequence::create(DelayTime::create(delay), CallFunc::create([=]() {
-					this->removeChild(_wordLabel);
+				this->runAction(Sequence::create(DelayTime::create(delay), CallFunc::create([=]() {					
 					_allWords.erase(std::remove(_allWords.begin(), _allWords.end(), _word), _allWords.end());
-					sprite.label->setColor(Color3B::BLACK);
-					Stack::generateWord();
+					Stack::wordLabelAnim(sprite);
 				}), NULL));
 			}
 		}
