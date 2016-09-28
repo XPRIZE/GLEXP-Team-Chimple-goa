@@ -148,7 +148,7 @@ CCSpriteFrameCache::sharedSpriteFrameCache()->addSpriteFramesWithFile("memoryfar
 		auto label = ui::Text::create();
 		label->setString(labelName);
 		label->setFontSize(100);
-		label->setFontName("fonts/arial.ttf");
+		label->setFontName("fonts/Marker Felt.ttf");
 		label->setPosition(Vec2(30, 20));
 		label->setAnchorPoint(Vec2(0, 0));
 		label->setTextColor(Color4B::BLUE);
