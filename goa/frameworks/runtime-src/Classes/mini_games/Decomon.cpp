@@ -153,11 +153,7 @@ child = decomon_horn_icon*/
 		"decomon/decomon3/decomon_hair_7.png" ,"decomon/decomon3/decomon_hair_8.png" ,
 		"decomon/decomon3/decomon_hair_9.png" };
 
-	_alphabetLayer = Layer::create();
-	this->addChild(_alphabetLayer);
-
-	_costumeLayer =  Layer::create();
-	this->addChild(_costumeLayer);
+	
 
 	
 
@@ -166,22 +162,48 @@ child = decomon_horn_icon*/
 	auto myLabel = Label::createWithTTF("A", "fonts/BalooBhai-Regular.ttf",1600);
 	myLabel->setPositionX(visibleSize.width / 2);// , visibleSize.height/ 2);
 	myLabel->setPositionY(visibleSize.height / 2);
+	//myLabel->setColor(Color3B(111, 11, 1));
 	myLabel->setName("alphabet");
-	_alphabetLayer->addChild(myLabel);
+	//this->addChild(myLabel);
+
+	auto maskedFill = ClippingNode::create(myLabel);
+//	maskedFill->setContentSize(visibleSize);
+	//maskedFill->setPosition(Vec2(visibleSize.width / 2, visibleSize.height / 2));
+	_maskingLayer = LayerColor::create(Color4B(255,255,255,255), visibleSize.width, visibleSize.height);
+	//this->addChild(_maskingLayer);
+	//_maskingLayer->setColor(Color3B(222, 222, 22));
+	maskedFill->setAlphaThreshold(0.9);
+
+	
+
+	maskedFill->addChild(_maskingLayer);
+	this->addChild(maskedFill);
+
+	_alphabetLayer = Layer::create();
+	this->addChild(_alphabetLayer);
+
+	_costumeLayer = Layer::create();
+	this->addChild(_costumeLayer);
+
+
+	auto node = DrawNode::create();
+	//node->drawRect(Vec2(100,100))//(origin, Vec2(200, 200), Color4B(255, 5, 25, 60));
 
 	return true;
 }
 
 bool Decomon::onTouchBegan(cocos2d::Touch * touch, cocos2d::Event * event)
 {
+	Size visibleSize = Director::getInstance()->getVisibleSize();
 	auto target = event->getCurrentTarget();
 	auto  location = target->convertToNodeSpace(touch->getLocation());
 	if (target->getBoundingBox().containsPoint(touch->getLocation())) {
+		_colorPicked = false;
 		CCLOG("Toched Icon Name %s",target->getName().c_str());
 		if (target->getName().compare("decomon_eye_icon") == 0) {
 			if (_touched) {
 				for (int i = 0; i < _movedNodes.size(); i++) {
-					creatSpriteOnAlphabet(_movedNodes.at(i)->getName(), _movedNodes.at(i)->getPositionX(), _movedNodes.at(i)->getPositionY());
+					creatSpriteOnAlphabet(_movedNodes.at(i)->getName(), _movedNodes.at(i)->getPositionX(), _movedNodes.at(i)->getPositionY(), _movedNodes.at(i)->getScaleX());
 				}
 				_movedNodes.clear();
 			}
@@ -192,7 +214,7 @@ bool Decomon::onTouchBegan(cocos2d::Touch * touch, cocos2d::Event * event)
 		} else if (target->getName().compare("decomon_mouth_icon") == 0) {
 			if (_touched) {
 				for (int i = 0; i < _movedNodes.size(); i++) {
-					creatSpriteOnAlphabet(_movedNodes.at(i)->getName(), _movedNodes.at(i)->getPositionX(), _movedNodes.at(i)->getPositionY());
+					creatSpriteOnAlphabet(_movedNodes.at(i)->getName(), _movedNodes.at(i)->getPositionX(), _movedNodes.at(i)->getPositionY(), _movedNodes.at(i)->getScaleX());
 				}
 				_movedNodes.clear();
 			}
@@ -201,7 +223,7 @@ bool Decomon::onTouchBegan(cocos2d::Touch * touch, cocos2d::Event * event)
 		} else if (target->getName().compare("decomon_skate_icon") == 0) {
 			if (_touched) {
 				for (int i = 0; i < _movedNodes.size(); i++) {
-					creatSpriteOnAlphabet(_movedNodes.at(i)->getName(), _movedNodes.at(i)->getPositionX(), _movedNodes.at(i)->getPositionY());
+					creatSpriteOnAlphabet(_movedNodes.at(i)->getName(), _movedNodes.at(i)->getPositionX(), _movedNodes.at(i)->getPositionY(), _movedNodes.at(i)->getScaleX());
 				}
 				_movedNodes.clear();
 			}
@@ -210,7 +232,7 @@ bool Decomon::onTouchBegan(cocos2d::Touch * touch, cocos2d::Event * event)
 		} else if (target->getName().compare("decomon_horn_icon") == 0) {
 			if (_touched) {
 				for (int i = 0; i < _movedNodes.size(); i++) {
-					creatSpriteOnAlphabet(_movedNodes.at(i)->getName(), _movedNodes.at(i)->getPositionX(), _movedNodes.at(i)->getPositionY());
+					creatSpriteOnAlphabet(_movedNodes.at(i)->getName(), _movedNodes.at(i)->getPositionX(), _movedNodes.at(i)->getPositionY() , _movedNodes.at(i)->getScaleX());
 				}
 				_movedNodes.clear();
 			}
@@ -220,17 +242,17 @@ bool Decomon::onTouchBegan(cocos2d::Touch * touch, cocos2d::Event * event)
 		else if (target->getName().compare("decomon_nose_icon") == 0) {
 			if (_touched) {
 				for (int i = 0; i < _movedNodes.size(); i++) {
-					creatSpriteOnAlphabet(_movedNodes.at(i)->getName(), _movedNodes.at(i)->getPositionX(), _movedNodes.at(i)->getPositionY());
+					creatSpriteOnAlphabet(_movedNodes.at(i)->getName(), _movedNodes.at(i)->getPositionX(), _movedNodes.at(i)->getPositionY(), _movedNodes.at(i)->getScaleX());
 				}
 				_movedNodes.clear();
 			}
-			itemInAGrid(_hornPath, "_nosePath");
+			itemInAGrid(_nosePath, "_nosePath");
 			return false;
 		}
 		else if (target->getName().compare("decomon_paintbrush_icon") == 0) {
 			if (_touched) {
 				for (int i = 0; i < _movedNodes.size(); i++) {
-					creatSpriteOnAlphabet(_movedNodes.at(i)->getName(), _movedNodes.at(i)->getPositionX(), _movedNodes.at(i)->getPositionY());
+					creatSpriteOnAlphabet(_movedNodes.at(i)->getName(), _movedNodes.at(i)->getPositionX(), _movedNodes.at(i)->getPositionY(), _movedNodes.at(i)->getScaleX());
 				}
 				_movedNodes.clear();
 			}
@@ -240,7 +262,7 @@ bool Decomon::onTouchBegan(cocos2d::Touch * touch, cocos2d::Event * event)
 		else if (target->getName().compare("decomon_mustache_icon") == 0) {
 			if (_touched) {
 				for (int i = 0; i < _movedNodes.size(); i++) {
-					creatSpriteOnAlphabet(_movedNodes.at(i)->getName(), _movedNodes.at(i)->getPositionX(), _movedNodes.at(i)->getPositionY());
+					creatSpriteOnAlphabet(_movedNodes.at(i)->getName(), _movedNodes.at(i)->getPositionX(), _movedNodes.at(i)->getPositionY(), _movedNodes.at(i)->getScaleX());
 				}
 				_movedNodes.clear();
 			}
@@ -250,7 +272,7 @@ bool Decomon::onTouchBegan(cocos2d::Touch * touch, cocos2d::Event * event)
 		else if (target->getName().compare("decomon_icon_gear_2") == 0) {
 			if (_touched) {
 				for (int i = 0; i < _movedNodes.size(); i++) {
-					creatSpriteOnAlphabet(_movedNodes.at(i)->getName(), _movedNodes.at(i)->getPositionX(), _movedNodes.at(i)->getPositionY());
+					creatSpriteOnAlphabet(_movedNodes.at(i)->getName(), _movedNodes.at(i)->getPositionX(), _movedNodes.at(i)->getPositionY(), _movedNodes.at(i)->getScaleX());
 				}
 				_movedNodes.clear();
 			}
@@ -260,32 +282,53 @@ bool Decomon::onTouchBegan(cocos2d::Touch * touch, cocos2d::Event * event)
 		else{
 			if (target->getName().find("decomon/decomon3/decomon_paintbucket") == 0) {
 				//_alphabetLayer->getChildByName("alphabet")->setColor(Color3B(111, 123, 10));
-				colourFilling(target->getPositionX(), target->getPositionY());
-				return true;
+				std::vector<std::string>::iterator it;
+				it = find(_paintPath.begin(), _paintPath.end(), target->getName());
+				_colorIndex = std::distance(_paintPath.begin(), it);
+
+				_colorPicked = true;
+
+			//	colourFilling(touch->getLocation().x, touch->getLocation().y, _colorIndex, _costumeLayer);
+				return false;
 			}
 			else {
+				_flip = true;
 					return true;
 				}
 		}
 		
 	}
-	return false;
+	else if (_colorPicked && (visibleSize.width/2 - 700 < touch->getLocation().x) &&(visibleSize.width/2 + 900 > touch->getLocation().x) &&
+		(visibleSize.height / 2 - 500 < touch->getLocation().y) && (visibleSize.height / 2 + 600 > touch->getLocation().y)) {
+		return true;
+	}
+	
+		return false;
 }
 
 void Decomon::onTouchMoved(cocos2d::Touch * touch, cocos2d::Event * event)
 {
 	auto target = event->getCurrentTarget();
-	target->setPosition(touch->getLocation());
-	if (target->getName().find("decomon/decomon3/decomon_paintbucket") == 0) {
-		colourFilling(target->getPositionX(),target->getPositionY());
+	Size visibleSize = Director::getInstance()->getVisibleSize();
+	if (touch->getLocation().x > visibleSize.width / 2 && touch->getLocation().y > visibleSize.height / 2 && _flip) {
+		_flip = false;
+		target->setScaleX(-1.0f * target->getScaleX());
 	}
+
+	if (_colorPicked){//(target->getName().find("decomon/decomon3/decomon_paintbucket") == 0) {
+	//	_costumeLayer->getChildByName("color")->setPosition(touch->getLocation());
+		colourFilling(touch->getLocation().x, touch->getLocation().y, _colorIndex,_maskingLayer);
+	} else {
+		target->setPosition(touch->getLocation());
+	}
+
 	CCLOG("on touch moved");
 }
 
 void Decomon::onTouchEnded(cocos2d::Touch * touch, cocos2d::Event * event)
 {
 	auto target = event->getCurrentTarget();
-	if (target->getName().compare("updated costume") != 0) {
+	if (target->getName().compare("updated costume") != 0 && target->getName().find("decomon/decomon3/decomon_paintbucket") != 0) {
 		_movedNodes.pushBack(target);
 		_touched = true;
 	}
@@ -318,32 +361,55 @@ void Decomon::itemInAGrid(std::vector<std::string> item, std::string name)
 
 }
 
-void Decomon::creatSpriteOnAlphabet(std::string fileName, float x, float y)
+void Decomon::creatSpriteOnAlphabet(std::string fileName, float x, float y, float scale)
 {
-	cocos2d::Node * eye;
-	CCLOG("find %d", fileName.find(".csb"));
-	if (fileName.find(".png") == -1) {
-		eye = CSLoader::createNode(fileName);
-		eye->setContentSize(eye->getChildren().at(0)->getContentSize());
-	} else {
-		eye = (cocos2d::Node*)Sprite::createWithSpriteFrameName(fileName);
+	Size visibleSize = Director::getInstance()->getVisibleSize();
+	if ((visibleSize.width / 2 - 700 < x) && (visibleSize.width / 2 + 900 > x) &&
+		(visibleSize.height / 2 - 500 < y) && (visibleSize.height / 2 + 600 > y)) {
+
+		cocos2d::Node * eye;
+		if (fileName.find(".png") == -1) {
+			eye = CSLoader::createNode(fileName);
+			eye->setContentSize(eye->getChildren().at(0)->getContentSize());
+			eye->setPosition(Vec2(x, y));
+			eye->setName("updated costume");
+			eye->setScaleX(scale);
+			_alphabetLayer->addChild(eye);
+			auto animation = CSLoader::createTimeline(fileName);
+			eye->runAction(animation);
+			if (fileName.find("decomon/decomon_eye") == 0) {
+				animation->play("blink", true);
+			}
+			else if (fileName.find("decomon/decomon_mouth") == 0) {
+				animation->play("smile1", true);
+
+			}
+		}
+		else {
+			eye = (cocos2d::Node*)Sprite::createWithSpriteFrameName(fileName);
+			eye->setPosition(Vec2(x, y));
+			eye->setName("updated costume");
+			eye->setScaleX(scale);
+			_alphabetLayer->addChild(eye);
+		}
+
+
+		auto listener = EventListenerTouchOneByOne::create();
+		//listener->setSwallowTouches(true);
+		listener->onTouchBegan = CC_CALLBACK_2(Decomon::onTouchBegan, this);
+		listener->onTouchMoved = CC_CALLBACK_2(Decomon::onTouchMoved, this);
+		listener->onTouchEnded = CC_CALLBACK_2(Decomon::onTouchEnded, this);
+		_eventDispatcher->addEventListenerWithSceneGraphPriority(listener, eye);
 	}
-	eye->setPosition(Vec2(x, y));
-	eye->setName("updated costume");
-	_alphabetLayer->addChild(eye);
-	
-	auto listener = EventListenerTouchOneByOne::create();
-	//listener->setSwallowTouches(true);
-	listener->onTouchBegan = CC_CALLBACK_2(Decomon::onTouchBegan, this);
-	listener->onTouchMoved = CC_CALLBACK_2(Decomon::onTouchMoved, this);
-	listener->onTouchEnded = CC_CALLBACK_2(Decomon::onTouchEnded, this);
-	_eventDispatcher->addEventListenerWithSceneGraphPriority(listener, eye);
 }
 
-void Decomon::colourFilling(float x, float y)
+void Decomon::colourFilling(float x, float y, int index, cocos2d::Layer * layer)
 {
+	std::vector <int> colour1 = { 14 ,19,224,239,151,229,67,25,255 };// { 241,236,31,16,104,26,188,230,0 };// { 14 ,19,224,239,151,229,67,25,255 };
+	std::vector <int> colour2 = { 221 ,19,5,10,10,207,237,25,255 };//{ 34,236,250,245,245,48,18,230,0 };//{ 221 ,19,5,10,10,207,237,25,255 };
+	std::vector <int> colour3 = { 23,232,5,239,242,0,255,25,255 };//{232,23,250,16,13,255,0,230,0};//{ 23,232,5,239,242,0,255,25,255 };
 	auto drawNode = DrawNode::create();
 	drawNode->setName("color");
-	this->addChild(drawNode);
-	drawNode->drawDot(Vec2(x, y), 100, Color4F(255, 255, 255, 1));
+	layer->addChild(drawNode);
+	drawNode->drawDot(Vec2(x, y), 100, Color4F(colour1.at(index)/255.0f, colour2.at(index) /255.0f, colour3.at(index) /255.0f,1.0f));
 }

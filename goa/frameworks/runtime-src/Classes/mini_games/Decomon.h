@@ -26,9 +26,11 @@ public:
 	
 protected:
 	MenuContext * menu;
-	cocos2d::Layer * _costumeLayer, *_alphabetLayer, *_maskingLayer;
+	cocos2d::Layer * _costumeLayer, *_alphabetLayer, * _maskingLayer;
 	cocos2d::Node * _movedNode;
-	bool _touched = false;
+
+	int _colorIndex;
+	bool _touched = false, _flip, _colorPicked = false;
 	cocos2d::Vector <cocos2d::Node *> _movedNodes;
 	std::vector <std::string> _eyePath;
 	std::vector <std::string> _mouthPath;
@@ -42,8 +44,8 @@ protected:
 	virtual void onTouchMoved(cocos2d::Touch *touch, cocos2d::Event * event);
 	virtual void onTouchEnded(cocos2d::Touch *touch, cocos2d::Event * event);
 	void itemInAGrid(std::vector<std::string> item, std::string name);
-	void creatSpriteOnAlphabet(std::string, float x, float y);
-	void colourFilling(float x, float y);
+	void creatSpriteOnAlphabet(std::string, float x, float y, float scale);
+	void colourFilling(float x, float y, int index,cocos2d::Layer * layer);
 
 };
 
