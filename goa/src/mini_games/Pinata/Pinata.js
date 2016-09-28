@@ -2,7 +2,7 @@
 var xc = xc || {};
 
 xc.Pinata = cc.Layer.extend({
-  
+  gameName: "pinata",
   ctor:function () {
   
    this._super();

@@ -127,7 +127,9 @@ void StartMenu::startScene(std::string gameName, std::string firstParam, std::st
 		ScriptingCore::getInstance()->runScript("src/start/pop.js");
 	} else if (gameName == BUBBLE) {
 		ScriptingCore::getInstance()->runScript("src/start/BubbleShooter.js");
-	} else{
+	}else if (gameName == PINATA) {
+		ScriptingCore::getInstance()->runScript("src/start/pinata.js");
+	}else{
         CCLOG("Failed starting scene: %s", gameName.c_str());
     }
 }
