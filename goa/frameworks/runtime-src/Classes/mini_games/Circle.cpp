@@ -157,8 +157,24 @@ void Circle::wordGenerateWithOptions()
 		std::string str1 = ss.str();
 
 		myLabel->setName(str + str1);
-		myLabel->setPositionX(_fishRef.at(i)->getContentSize().width / 2);
-		myLabel->setPositionY(_fishRef.at(i)->getContentSize().height / 2);
+		if (i == 1)
+		{
+			myLabel->setPositionX(_fishRef.at(i)->getContentSize().width / 2 );
+			myLabel->setPositionY(_fishRef.at(i)->getContentSize().height / 2 - 50);
+
+		}
+		else if (i == 2)
+		{
+			myLabel->setPositionX(_fishRef.at(i)->getContentSize().width / 2 - 80);
+			myLabel->setPositionY(_fishRef.at(i)->getContentSize().height / 2);
+
+		}
+		else
+		{
+			myLabel->setPositionX(_fishRef.at(i)->getContentSize().width / 2);
+			myLabel->setPositionY(_fishRef.at(i)->getContentSize().height / 2);
+        }
+		
 		//myLabel->setPositionX(_fishRef.at(i)->getPositionX());
 		//myLabel->setPositionY(_fishRef.at(i)->getPositionY());
 		//myLabel->setColor(Color3B(0, 0, 0));

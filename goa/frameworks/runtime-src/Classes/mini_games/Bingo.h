@@ -18,10 +18,13 @@ public:
 	virtual bool init();
 	void addEvents(Sprite* touchSprite);
 	void setWordInHelpBoard();
+	void charAnimation(int i, int j);
+	bool bingoChecker(bool flag);
 	std::vector<std::vector<Sprite *>> createGrid(int row , int column);
 	std::vector<std::vector<cocostudio::timeline::ActionTimeline *>> createGridOfCharcater(int row, int column);
 	void setAllSpriteProperties(Sprite* object, int zOrder, float posX, float posY, bool visibility, float anchorPointX, float anchorPointY, float rotation, float scaleX, float scaleY, Sprite* parent);
-
+	std::map<std::string, std::string> _scenePath;
+	std::map<std::string, float> _gridBasedValue;
 	 Bingo();
 	~Bingo();
 	int bingoHorizotally();
@@ -30,7 +33,6 @@ public:
 	int bingoLeftDiagonally();
 
 	//static const char* gameName() { return BINGO.c_str(); }
-	//virtual bool init();
 
 protected:
 
@@ -41,6 +43,7 @@ protected:
 	std::vector<std::vector<Sprite *>> _charFace;
 	std::vector<std::vector<cocostudio::timeline::ActionTimeline *>> _charAnimContainer;
 	std::vector<std::vector<Sprite *>> _bingoAnimBin;
+	std::vector<std::vector<cocostudio::timeline::ActionTimeline *>> _bingoAnimTimelineBin;
 	Sprite* _boxBoard;
 	Sprite* _helpBoard;
 	std::map<std::string, std::string> _data;
@@ -49,6 +52,10 @@ protected:
 	cocos2d::LabelTTF* _label = NULL;
 	bool _isBingoDone = false;
 	MenuContext* _menuContext;
+	std::string _bingoCurrentTheme ="";
+	std::string _bingoGridDimension = "";
+	std::string _resourcePath = "";
+	
 
 
 	// implement the "static create()" method manually
