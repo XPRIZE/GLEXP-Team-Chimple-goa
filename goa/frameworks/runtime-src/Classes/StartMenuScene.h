@@ -40,6 +40,7 @@ static const std::string WORD_BOARD = "wordBoard";
 static const std::string PEG = "peg";
 static const std::string BUBBLE = "bubble";
 static const std::string CIRCLE = "Circle";
+static const std::string PINATA = "pinata";
 
 
 

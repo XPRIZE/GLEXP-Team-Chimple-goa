@@ -194,7 +194,7 @@ void ScrollableGameMapScene::gameSelected(Ref* pSender, ui::Widget::TouchEventTy
             } else if(clickedButton->getName() == CANNON_BALL) {
                 Director::getInstance()->replaceScene(MainGame::createScene());//BUBBLE
             } else if(clickedButton->getName() == BUBBLE) {
-				ScriptingCore::getInstance()->runScript("src/start/Pinata.js");
+				ScriptingCore::getInstance()->runScript("src/start/pinata.js");
             } else if (clickedButton->getName() == ENDLESS_RUNNER) {
 				Director::getInstance()->replaceScene(EndlessRunner::createScene());
 			} else if(clickedButton->getName() == KUNG_FU_ALPHA) {
