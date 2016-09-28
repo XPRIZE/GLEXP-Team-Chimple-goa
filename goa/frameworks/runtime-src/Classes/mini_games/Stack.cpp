@@ -44,16 +44,25 @@ bool Stack::init()
 	{
 		stackbg = (Node *)CSLoader::createNode("stackisland/stackisland.csb");
 
-		auto bubble = CSLoader::createTimeline("stackisland/bubble.csb");
-		stackbg->runAction(bubble);
-		bubble->play("bubble", true);
+		for (int i = 0; i < stackbg->getChildrenCount(); i++)
+		{
+			for (int j = 0; j < stackbg->getChildren().at(i)->getChildrenCount(); j++)
+			{
+				if (stackbg->getChildren().at(i)->getChildren().at(j)->getName().find("Sprite_1") != std::string::npos)
+				{
+					auto bubble = CSLoader::createTimeline("stackisland/bubble.csb");
+					stackbg->getChildren().at(i)->getChildren().at(j)->runAction(bubble);
+					bubble->play("bubble", true);
+				}
+			}
+		}
 	}
 	else
 	{
 		stackbg = (Node *)CSLoader::createNode("stackhero/stackhero.csb");
 	}
 
-	std::vector<std::string> pankaj;
+/*	std::vector<std::string> pankaj;
 	std::vector<int> pankaj1;
 	for (int i = 0; i < stackbg->getChildrenCount(); i++)
 	{
@@ -65,13 +74,13 @@ bool Stack::init()
 	}
 
 	CCLOG("yes");
-
+*/
 
 	this->addChild(stackbg);
 
 	auto secondChild = stackbg->getChildren().at(1);
 
-	_textToSHow = TextGenerator::getInstance()->getInitialSyllableWords(5, 3);
+	_textToSHow = TextGenerator::getInstance()->getInitialSyllableWords(5, 5);
 
 	for (int i = 0; i < secondChild->getChildrenCount(); i++)
 	{
@@ -243,6 +252,7 @@ void Stack::addEvents(struct LabelDetails sprite)
 				if ((_word.substr(0, sprite.id.length()) == sprite.id) && flag == false)
 				{
 					flag = true;
+					sprite.label->setColor(Color3B::GREEN);
 					Stack::afterAnimation(sprite);
 				}
 				else if ((_word.substr(0, sprite.id.length()) != sprite.id) && flag == false)
@@ -287,7 +297,7 @@ void Stack::afterAnimation(struct LabelDetails sprite)
 
 	if (sceneName == "island")
 	{
-		containerValue = 29;
+		containerValue = 24;
 		while (fuelPer <= 100)
 		{
 			auto suckpipebar_sequence = Sequence::create(DelayTime::create(delay), CallFunc::create([=]() { _suckpipebar->setPercent(_suckpipebar->getPercent() + 1); }), NULL);
@@ -317,7 +327,7 @@ void Stack::afterAnimation(struct LabelDetails sprite)
 		{
 			auto sequenceFuel = Sequence::create(DelayTime::create(delay), CallFunc::create([=]() { fillpipebar[sprite.sequence]->setPercent(fuelPer); }), NULL);
 			fuelPer++;
-			delay = delay + 0.03;
+			delay = delay + 0.01;
 			fillpipebar[sprite.sequence]->runAction(sequenceFuel);
 		}
 	}
