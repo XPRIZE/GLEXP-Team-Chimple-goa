@@ -38,7 +38,7 @@ bool Stack::init()
 	std::vector<std::string> scene = { "island", "superhero" , "farm" };
 
 	sceneName = scene.at(rand() % 3);
-//	sceneName = "farm";
+//	sceneName = "island";
 
 	if (sceneName == "island")
 	{
@@ -300,6 +300,7 @@ void Stack::addEvents(struct LabelDetails sprite)
 				}
 				else if ((_word.substr(0, sprite.id.length()) != sprite.id) && flag == false)
 				{
+					flag = true;
 					_wordLabel->setVisible(false);
 					treadmill = CSLoader::createTimeline("stackisland/treadmill.csb");
 					stackbg->runAction(treadmill);
