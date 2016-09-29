@@ -40,7 +40,6 @@ xc.Pinata = cc.Layer.extend({
          playerGUI = "jungle/junglec/player.png";
     }
 
-
     this.addChild(this.gameBg.node);
     this.targetPlayer = null;
 
@@ -132,24 +131,20 @@ xc.Pinata = cc.Layer.extend({
             onTouchMoved : function(touch, event){
                 var target = event.getCurrentTarget();
 
-                if(touch.getLocation().y >= (cc.director.getWinSize().height/2)){
-                    target.x = touch.getLocation().x;
-                }else{
-                    target.setPosition(touch.getLocation());
-                }
+                classReference.checkBoundaryBall(target,touch);
 
                 if(classReference.rightLine != undefined){
                     classReference.removeChild(classReference.rightLine);
                 }
                 classReference.rightLine = new cc.DrawNode();
-                classReference.rightLine.drawSegment(cc.p((classReference.xPosi/2)+classReference.gameBg.node.getChildByName("right").x,classReference.gameBg.node.getChildByName("right").y), cc.p(touch.getLocation().x + (classReference.bubblePlayer.width/2),classReference.bubblePlayer.y),5,classReference.stringColor);
+                classReference.rightLine.drawSegment(cc.p((classReference.xPosi/2)+classReference.gameBg.node.getChildByName("right").x,classReference.gameBg.node.getChildByName("right").y), cc.p(classReference.bubblePlayer.x + (classReference.bubblePlayer.width/2),classReference.bubblePlayer.y),5,classReference.stringColor);
                 classReference.addChild(classReference.rightLine);
 
                 if(classReference.leftLine != undefined){
                     classReference.removeChild(classReference.leftLine);
                 }
                 classReference.leftLine = new cc.DrawNode();
-                classReference.leftLine.drawSegment(cc.p((classReference.xPosi/2)+classReference.gameBg.node.getChildByName("left").x,classReference.gameBg.node.getChildByName("left").y), cc.p(touch.getLocation().x - (classReference.bubblePlayer.width/2),classReference.bubblePlayer.y),5,classReference.stringColor);
+                classReference.leftLine.drawSegment(cc.p((classReference.xPosi/2)+classReference.gameBg.node.getChildByName("left").x,classReference.gameBg.node.getChildByName("left").y), cc.p(classReference.bubblePlayer.x - (classReference.bubblePlayer.width/2),classReference.bubblePlayer.y),5,classReference.stringColor);
                 classReference.addChild(classReference.leftLine);
 
                 return true;
@@ -158,7 +153,7 @@ xc.Pinata = cc.Layer.extend({
                 classReference.player.angle = classReference.radToDeg(Math.atan2((touch.getLocation().y - classReference.player.y),(-touch.getLocation().x + classReference.player.x)));
                  classReference.player.prevX = Math.abs(classReference.player.prevX - touch.getLocation().x);
                  classReference.player.prevY = Math.abs(classReference.player.prevY - touch.getLocation().y); 
-                 console.log("x distance is : "+ classReference.player.prevX + " y distance is : "+ classReference.player.prevY);
+    //             console.log("x distance is : "+ classReference.player.prevX + " y distance is : "+ classReference.player.prevY);
 
                 if(classReference.rightLine != undefined){
                     classReference.removeChild(classReference.rightLine);
@@ -246,8 +241,6 @@ xc.Pinata = cc.Layer.extend({
                     }
                 }
 
-
-                
                 return false;
             }
      });
@@ -311,9 +304,53 @@ xc.Pinata = cc.Layer.extend({
        }
     },
 
+    checkBoundaryBall : function(target,touch){
+
+        // if(touch.getLocation().x >= (cc.director.getWinSize().width * 0.9)){
+        //     if(touch.getLocation().y >= (cc.director.getWinSize().height * 0.5)){
+        //             console.log("corner most position");
+        //         }else{
+        //             target.y = touch.getLocation().y;
+        //     }
+        // }else{
+        //         target.setPosition(touch.getLocation());
+        // }
+
+
+        if((touch.getLocation().x >= cc.director.getWinSize().width * 0.1 ) && (touch.getLocation().x <= cc.director.getWinSize().width * 0.9 ) && (touch.getLocation().y >= cc.director.getWinSize().height * 0.05 ) && (touch.getLocation().y <= cc.director.getWinSize().height * 0.5 )){
+            target.setPosition(touch.getLocation());
+        }
+
+     //   console.log("x : "+this.bubblePlayer.x + " y : "+this.bubblePlayer.y);
+
+        if(touch.getLocation().x < cc.director.getWinSize().width * 0.1 ){
+            if((this.bubblePlayer.y >= cc.director.getWinSize().height * 0.05 ) && (this.bubblePlayer.y <= cc.director.getWinSize().height * 0.5 )){
+                target.y = touch.getLocation().y;
+            }
+        }
+        if(touch.getLocation().x > cc.director.getWinSize().width * 0.9 ){
+            if((this.bubblePlayer.y >= cc.director.getWinSize().height * 0.05 ) && (this.bubblePlayer.y <= cc.director.getWinSize().height * 0.5 )){
+                target.y = touch.getLocation().y;
+            }
+        }
+
+        if((touch.getLocation().y > cc.director.getWinSize().height * 0.05 )){
+            if((touch.getLocation().x >= cc.director.getWinSize().width * 0.1 ) && (touch.getLocation().x <= cc.director.getWinSize().width * 0.9 )){
+                target.x = touch.getLocation().x;
+            }
+        }
+        
+        if((touch.getLocation().y < cc.director.getWinSize().height * 0.5 )){
+            if((touch.getLocation().x >= cc.director.getWinSize().width * 0.1 ) && (touch.getLocation().x <= cc.director.getWinSize().width * 0.9 )){
+                target.x = touch.getLocation().x;
+            }
+        }
+
+    },
+
     stateShootBubble : function(dt){
-        this.bubblePlayer.x += dt * 2000 * Math.cos(this.degToRad(this.player.angle));
-        this.bubblePlayer.y += dt * 2000 * -1 * Math.sin(this.degToRad(this.player.angle));
+        this.bubblePlayer.x += dt * 2500 * Math.cos(this.degToRad(this.player.angle));
+        this.bubblePlayer.y += dt * 2500 * -1 * Math.sin(this.degToRad(this.player.angle));
 
         if (this.bubblePlayer.x < (this.bubblePlayer.width/2)) {
             // Left edge
