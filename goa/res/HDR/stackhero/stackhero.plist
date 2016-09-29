@@ -34,6 +34,21 @@
                 <key>textureRotated</key>
                 <false/>
             </dict>
+            <key>stackhero/board.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{724,436}</string>
+                <key>spriteSourceSize</key>
+                <string>{724,436}</string>
+                <key>textureRect</key>
+                <string>{{3045,653},{724,436}}</string>
+                <key>textureRotated</key>
+                <true/>
+            </dict>
             <key>stackhero/container.png</key>
             <dict>
                 <key>aliases</key>
@@ -45,9 +60,9 @@
                 <key>spriteSourceSize</key>
                 <string>{559,753}</string>
                 <key>textureRect</key>
-                <string>{{2484,906},{559,753}}</string>
+                <string>{{2484,653},{559,753}}</string>
                 <key>textureRotated</key>
-                <true/>
+                <false/>
             </dict>
             <key>stackhero/containerbar.png</key>
             <dict>
@@ -60,7 +75,7 @@
                 <key>spriteSourceSize</key>
                 <string>{525,444}</string>
                 <key>textureRect</key>
-                <string>{{3239,906},{525,444}}</string>
+                <string>{{3157,1379},{525,444}}</string>
                 <key>textureRotated</key>
                 <true/>
             </dict>
@@ -75,7 +90,7 @@
                 <key>spriteSourceSize</key>
                 <string>{146,1035}</string>
                 <key>textureRect</key>
-                <string>{{2484,1467},{146,1035}}</string>
+                <string>{{1095,1580},{146,1035}}</string>
                 <key>textureRotated</key>
                 <true/>
             </dict>
@@ -90,9 +105,9 @@
                 <key>spriteSourceSize</key>
                 <string>{953,84}</string>
                 <key>textureRect</key>
-                <string>{{3962,1},{953,84}}</string>
+                <string>{{1,1833},{953,84}}</string>
                 <key>textureRotated</key>
-                <true/>
+                <false/>
             </dict>
             <key>stackhero/pipeconnector.png</key>
             <dict>
@@ -105,7 +120,7 @@
                 <key>spriteSourceSize</key>
                 <string>{100,83}</string>
                 <key>textureRect</key>
-                <string>{{3521,1433},{100,83}}</string>
+                <string>{{956,1833},{100,83}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
@@ -120,7 +135,7 @@
                 <key>spriteSourceSize</key>
                 <string>{251,1092}</string>
                 <key>textureRect</key>
-                <string>{{2484,653},{251,1092}}</string>
+                <string>{{1,1580},{251,1092}}</string>
                 <key>textureRotated</key>
                 <true/>
             </dict>
@@ -135,9 +150,9 @@
                 <key>spriteSourceSize</key>
                 <string>{1008,145}</string>
                 <key>textureRect</key>
-                <string>{{3815,1},{1008,145}}</string>
+                <string>{{1095,1728},{1008,145}}</string>
                 <key>textureRotated</key>
-                <true/>
+                <false/>
             </dict>
             <key>stackhero/tray.png</key>
             <dict>
@@ -150,9 +165,9 @@
                 <key>spriteSourceSize</key>
                 <string>{319,192}</string>
                 <key>textureRect</key>
-                <string>{{3685,1011},{319,192}}</string>
+                <string>{{2132,1580},{319,192}}</string>
                 <key>textureRotated</key>
-                <true/>
+                <false/>
             </dict>
             <key>stackhero/trayfill.png</key>
             <dict>
@@ -165,7 +180,7 @@
                 <key>spriteSourceSize</key>
                 <string>{121,292}</string>
                 <key>textureRect</key>
-                <string>{{3879,1011},{121,292}}</string>
+                <string>{{3483,653},{121,292}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
@@ -180,9 +195,9 @@
                 <key>spriteSourceSize</key>
                 <string>{671,197}</string>
                 <key>textureRect</key>
-                <string>{{3616,1},{671,197}}</string>
+                <string>{{2484,1408},{671,197}}</string>
                 <key>textureRotated</key>
-                <true/>
+                <false/>
             </dict>
             <key>stackhero/treadmillrun1.png</key>
             <dict>
@@ -195,9 +210,9 @@
                 <key>spriteSourceSize</key>
                 <string>{102,90}</string>
                 <key>textureRect</key>
-                <string>{{3900,1305},{102,90}}</string>
+                <string>{{3483,1075},{102,90}}</string>
                 <key>textureRotated</key>
-                <true/>
+                <false/>
             </dict>
             <key>stackhero/treadmillrun2.png</key>
             <dict>
@@ -210,7 +225,7 @@
                 <key>spriteSourceSize</key>
                 <string>{104,85}</string>
                 <key>textureRect</key>
-                <string>{{3813,1332},{104,85}}</string>
+                <string>{{3483,1167},{104,85}}</string>
                 <key>textureRotated</key>
                 <true/>
             </dict>
@@ -225,7 +240,7 @@
                 <key>spriteSourceSize</key>
                 <string>{126,126}</string>
                 <key>textureRect</key>
-                <string>{{3685,1332},{126,126}}</string>
+                <string>{{3483,947},{126,126}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
@@ -241,9 +256,9 @@
             <key>realTextureFileName</key>
             <string>stackhero.png</string>
             <key>size</key>
-            <string>{4047,1614}</string>
+            <string>{3615,1918}</string>
             <key>smartupdate</key>
-            <string>$TexturePacker:SmartUpdate:50f87f7d95ec2f26e8f56b1b33cfbcdb:d2c03b0504e82910b0dd5351de11753b:8adf46cc91576c735130b1f8f940d74b$</string>
+            <string>$TexturePacker:SmartUpdate:bec00306c08e9b623f403f1659ec7b2e:c889447b49a71d737f1de803c85f7a95:8adf46cc91576c735130b1f8f940d74b$</string>
             <key>textureFileName</key>
             <string>stackhero.png</string>
         </dict>
