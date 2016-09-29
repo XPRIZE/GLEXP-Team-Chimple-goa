@@ -471,7 +471,7 @@ void Bingo::addEvents(Sprite* clickedObject)
 							 auto callShowScore = CCCallFunc::create([=] {
 								 _menuContext->showScore();
 							 });
-							 this->runAction(Sequence::create(DelayTime::create(10), callShowScore, NULL));
+							 this->runAction(Sequence::create(DelayTime::create(5), callShowScore, NULL));
 						 }
 					  }
 			}
