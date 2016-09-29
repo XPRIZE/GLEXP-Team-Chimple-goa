@@ -10,25 +10,25 @@
 #include "SimpleAudioEngine.h"
 #include "../lang/LangUtil.h"
 #include "../StartMenuScene.h"
+#include "../lang/TextGenerator.h"
 
-
-std::string smallAlphabets = "abcdefghijklmnopqrstuvwxyz";
-std::string capitalAlphabets = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
 USING_NS_CC;
 
-
-
 //TextGenerator::getInstance()->getSynonyms(9)
-
-
 //TextGenerator::getInstance()->getAntonyms(9)
 //TextGenerator::getInstance()->getHomonyms(9)
 
 
 
 Memory::Memory() :
+	_currentNest(1),
 	_touchActive(false),
+	_currentClickedPair(3),
+	_currentSelectedNestNames(2),
+	_level(0),
+	_activeNestIds(25),
+	_chickenTimeline(25),
 	objects(4, std::vector<struct object>(4)), 
 	xycoordinates(4, std::vector<struct xy>(4))
 {
@@ -45,15 +45,16 @@ Scene *Memory::createScene() {
 	auto scene = Scene::create();
 	auto layer = Memory::create();
 
-
 	scene->addChild(layer);
-	layer->_menuContext = MenuContext::create(layer, Memory::classname(), true);
+	layer->_menuContext = MenuContext::create(layer, Memory::classname());
 	scene->addChild(layer->_menuContext);
+	
 	return scene;
 
 }
 
 Memory *Memory::create() {
+	
 	Memory *memory = new (std::nothrow) Memory();
 	if (memory && memory->init()) {
 		memory->autorelease();
@@ -66,172 +67,110 @@ Memory *Memory::create() {
 
 bool Memory::init() {
 
-	//_language = LangUtil::getInstance()->getLang();
-
+	
 	if (!Layer::init()) {
 		return false;
 	}
 
-	CCSpriteFrameCache::sharedSpriteFrameCache()->addSpriteFramesWithFile("memoryfarm/memoryfarm.plist");
-	
+CCSpriteFrameCache::sharedSpriteFrameCache()->addSpriteFramesWithFile("memoryfarm/memoryfarm.plist");
+
+
+   _data = TextGenerator::getInstance()->getAntonyms(12);
+
+
+   for (std::map<std::string, std::string>::iterator it = _data.begin(); it != _data.end(); ++it) {
+	   _data_key.push_back(it->first);
+   }
+
+   for (std::map<std::string, std::string>::iterator it = _data.begin(); it != _data.end(); ++it) {
+	   _data_value.push_back(it->second);
+   }
+
+   int a = _data.size();
+   std::vector<int> randomIndex;
+
+   while (randomIndex.size() != _data.size()) {
+	   bool duplicateCheck = true;
+	   int numberPicker = RandomHelper::random_int(0, a - 1);
+	   for (int i = 0; i < randomIndex.size(); i++) {
+		   if (numberPicker == randomIndex[i]) {
+			   duplicateCheck = false;
+		   }
+	   }
+	   if (duplicateCheck) {
+		   randomIndex.push_back(numberPicker);
+	   }
+   }
 
 	Size visibleSize = Director::getInstance()->getVisibleSize();
 	Vec2 origin = Director::getInstance()->getVisibleOrigin();
 
-
-	//Adding layout 
-	float startx, starty;
-	startx = visibleSize.width / 4 + origin.x;
-	starty = visibleSize.height / 4 + origin.y;
-	float tempy = starty;
-	/*
-	for (int i = 0; i < 4; i++) {
-		float tempx = startx;
-		tempy =  (i+0.5) *starty;
-		for (int j = 0; j < 4; j++) {
-			xycoordinates[i][j].x = tempx * (j+0.5);
-			xycoordinates[i][j].y = tempy;
-
-			
-			cocos2d::Sprite* _mySprite = cocos2d::Sprite::create("memory/broken_window.png");
-			_mySprite->setPosition(Vec2(xycoordinates[i][j].x, xycoordinates[i][j].y));
-			_mySprite->setScale(0.5);
-			this->addChild(_mySprite, 0);
-
-		}
-	}
-	 */
 	
-	/*
-	testSprite.x = visibleSize.width / 2 + origin.x;
-	testSprite.y = visibleSize.height / 2 + origin.y;
-
-	testSprite.character = cocos2d::Sprite::create("memory/char1.png");
-	testSprite.characterZIndex = 0;
-	testSprite.character->setPosition(Vec2(testSprite.x, testSprite.y));
-	testSprite.character->setScale(0.5);
-	this->addChild(testSprite.character, 0);
-	setupTouch(testSprite.character);
-	//this->testSprite.character->getEventDispatcher()->setEnabled(false);
-	_eventDispatcher->resumeEventListenersForTarget(testSprite.character, false);
-
-
-	testSprite.openWindow = cocos2d::Sprite::create("memory/open_window.png");
-	testSprite.openWindowZIndex = 0;
-	testSprite.openWindow->setPosition(Vec2(testSprite.x, testSprite.y));
-	testSprite.openWindow->setScale(0.5);
-	testSprite.openWindow->setName("open_window");
-	this->addChild(testSprite.openWindow, 0);
-	setupTouch(testSprite.openWindow);
-	//this->testSprite.openWindow->getEventDispatcher()->setEnabled(false);
-	_eventDispatcher->resumeEventListenersForTarget(testSprite.openWindow, false);
-
-
-
-	testSprite.closedWindow = cocos2d::Sprite::create("memory/closed_window.png");
-	testSprite.closedWindowZIndex = 1;
-	testSprite.closedWindow->setPosition(Vec2(testSprite.x, testSprite.y));
-	testSprite.closedWindow->setScale(0.5);
-	testSprite.closedWindow->setName("closed_window");
-	this->addChild(testSprite.closedWindow, 1);
-	setupTouch(testSprite.closedWindow);
-	//this->testSprite.closedWindow->getEventDispatcher()->setEnabled(true);
-	_eventDispatcher->resumeEventListenersForTarget(testSprite.closedWindow, true);
-
-
-	testSprite.brokenWindow = cocos2d::Sprite::create("memory/broken_window.png");
-	testSprite.brokenWindowZIndex = 0;
-	testSprite.brokenWindow->setPosition(Vec2(testSprite.x, testSprite.y));
-	testSprite.brokenWindow->setScale(0.5);
-	testSprite.brokenWindow->setName("broken_window");
-	this->addChild(testSprite.brokenWindow, 0);
-	setupTouch(testSprite.brokenWindow);
-	//this->testSprite.brokenWindow->getEventDispatcher()->setEnabled(false);
-	_eventDispatcher->resumeEventListenersForTarget(testSprite.brokenWindow, false);
-
-
-	testSprite.alphabetSprite = cocos2d::Sprite::create("memory/a.png");
-	testSprite.alphabetSpriteZIndex = 0;
-	testSprite.alphabetSprite->setPosition(Vec2(testSprite.x, testSprite.y));
-	testSprite.alphabetSprite->setScale(0.5);
-	testSprite.alphabetSprite->setName("a");
-	this->addChild(testSprite.alphabetSprite, 0);
-	setupTouch(testSprite.alphabetSprite);
-	//this->testSprite.alphabetSprite->getEventDispatcher()->setEnabled(false);
-	_eventDispatcher->resumeEventListenersForTarget(testSprite.alphabetSprite, false);
-
-	testSprite.alphabet = 'a';
-
-	testSprite.objectFlag = 1;
-	*/
+	_memoryfarm = CSLoader::createNode("memoryfarm/memoryfarm.csb");
 	
-	
-
-	//std::string path = "english/Alpha Kombat/";//std::string(path)
-	//_background = CSLoader::createNode("memoryfarm/background.csb");
-	//_chicken = CSLoader::createNode("memoryfarm/chicken.csb");
-	//_mainground = CSLoader::createNode("memoryfarm/mainground.csb");
-	_memoryfarm = (Sprite *)CSLoader::createNode("memoryfarm/memoryfarm.csb");
-	//_nest = CSLoader::createNode("memoryfarm/nest.csb");
-
-
-	//_background->setPosition(Vec2(visibleSize.width / 2 + origin.x, visibleSize.height / 2 + origin.y));
-	//_background->setAnchorPoint(Vec2(0.5, 0.5));
-	//addChild(_background, 0);
-	
-	
-	//_chicken->setPosition(Vec2(visibleSize.width / 2 + origin.x, visibleSize.height / 2 + origin.y));
-	//_chicken->setAnchorPoint(Vec2(0.5, 0.5));
-	//addChild(_chicken, 0);
-
-	//_mainground->setPosition(Vec2(visibleSize.width / 2 + origin.x, visibleSize.height / 2 + origin.y));
-	//_mainground->setAnchorPoint(Vec2(0.5, 0.5));
-	//addChild(_mainground, 0);
-
 	_memoryfarm->setPosition(Vec2(visibleSize.width / 2 + origin.x, visibleSize.height / 2 + origin.y));
 	_memoryfarm->setAnchorPoint(Vec2(0.5, 0.5));
-	this->addChild(_memoryfarm, 1);
+	addChild(_memoryfarm);
 
-	//_nest->setPosition(Vec2(visibleSize.width / 2 + origin.x, visibleSize.height / 2 + origin.y));
-	//_nest->setAnchorPoint(Vec2(0.5, 0.5));
-	//addChild(_nest, 0);
+	//_chickenTimelineTemp = CSLoader::createTimeline("memoryfarm/chicken.csb");
+	//_memoryfarm->getChildByName("background")->getChildByName("nest1")->getChildByName("chicken")->runAction(_chickenTimelineTemp);
+	//_chickenTimelineTemp->play("fly", false);
 	
-	//nest = (Sprite *)_nest;
-	// nest->setPosition(Vec2(700 + origin.x, 200 + origin.y));
-	// nest->setScale(1);
-	 //nest->setName("nest");
-	 //this->addChild(nest, 0);
-	 setupTouch();
-	 //node->runAction(timeline);
+	int nestsCount = _memoryfarm->getChildByName("background")->getChildrenCount();
+	int j=0;
+	for (int i = _currentNest; i <= nestsCount; i++) {
+
+		std::ostringstream sstreamc;
+		sstreamc << "nest" << _currentNest;
+		std::string queryc = sstreamc.str();
+
+		_activeNestIds[_currentNest] = _currentNest;
+		_memoryfarm->getChildByName("background")->getChildByName(queryc)->getChildByName("nestfront")->setAnchorPoint(Vec2(0.5, 0.5));
 
 
-	_nests.resize(24);/*
-	for (int i = 1; i <= 24; i++) {
+		_memoryfarm->getChildByName("background")->getChildByName(queryc)->getChildByName("nestfront")->setTag(_currentNest);
+
+		std::string labelName;
+
+		_chickenTimeline[i] = CSLoader::createTimeline("memoryfarm/chicken.csb");
+		_memoryfarm->getChildByName("background")->getChildByName(queryc)->getChildByName("chicken")->runAction(_chickenTimeline[i]);
 		
 
-		std::ostringstream sstreami;
-		sstreami << "nest" << i;
-		std::string queryi = sstreami.str();
+		if (i <= 12) {
+			
+			labelName = _data_key[randomIndex[i-1]];
+		}
+		else {
 
-		_nests.push_back(_background->getChildByName("background")->getChildByName(queryi));
-		_nestIndex = i;
+			labelName = _data_value[randomIndex[j]];
+			j++;
+		}
+
+
+		auto label = ui::Text::create();
+		label->setString(labelName);
+		label->setFontSize(100);
+		label->setFontName("fonts/Marker Felt.ttf");
+		label->setPosition(Vec2(30, 20));
+		label->setAnchorPoint(Vec2(0, 0));
+		label->setTextColor(Color4B::BLUE);
+		label->setName(labelName);
+
+
+		_memoryfarm->getChildByName("background")->getChildByName(queryc)->getChildByName("nestfront")->addChild(label, 0);
+
+		//_memoryfarm->getChildByName("background")->getChildByName(queryc)->getChildByName("egg")->setVisible(true);
+
+		_memoryfarm->getChildByName("background")->getChildByName(queryc)->getChildByName("egg")->setPositionY(105);
+
+
+		label->setVisible(false);
+
 		setupTouch();
-
 	}
-	*/
-	//_nests[2]->getChildByName().setscale(2,2);
-	/*auto bg = Sprite::create("bg.png");
-	bg->setPosition(Vec2(visibleSize.width / 2 + origin.x, visibleSize.height / 2 + origin.y));
-
-	addChild(bg, 0);
-	*/
-
-	//Sprite* node = (Sprite *)CSLoader::createNode("Character/Alpha_kombat_lion.csb");
-	//node->setPosition(Vec2(700, 200));
-	//node->setScale(1);
-	//this->addChild(node, 0);
-	//node->runAction(timeline);
-
+	
+	
+	_nests.resize(24);
 
 	return true;
 }
@@ -247,15 +186,18 @@ void Memory::setupTouch() {
 	
 	   // CCLOG("NEST %d setuptouch done", nestIndex);
 		std::ostringstream sstreamc;
-		sstreamc << "nest" << _nestIndex;
+		sstreamc << "nest" << _currentNest;
 		std::string queryc = sstreamc.str();
 
-		auto nestj = _memoryfarm->getChildByName("background")->getChildByName("nest1");
+		auto _nest = _memoryfarm->getChildByName("background")->getChildByName(queryc)->getChildByName("nestfront");
+		
 		//nestj->setPosition(Vec2(1000,1000));
-		nestj->setAnchorPoint(Vec2(0.5, 0.5));
-		CCLOG("nest xpos : %f", nestj->getPosition().x);
-		CCLOG("nest ypos : %f", nestj->getPosition().y);
-		CCLOG("nest anchor : %f  :   %f ", nestj->getAnchorPoint().x, nestj->getAnchorPoint().y);
+		//CC_SPRITE_DEBUG_DRAW;
+		_nest->setAnchorPoint(Vec2(0.5, 0.5));
+		//_nest->setVisible(true);
+		CCLOG("nest xpos : %f", _nest->getPosition().x);
+		CCLOG("nest ypos : %f", _nest->getPosition().y);
+		CCLOG("nest anchor : %f  :   %f ", _nest->getAnchorPoint().x, _nest->getAnchorPoint().y);
 		//nestj->getChildByName("chicken")->setVisible(false);
 		//nestj->setPosition(Vec2(500, 500));
 		//auto nest = _nest->getChildByName("nestfront");
@@ -263,7 +205,8 @@ void Memory::setupTouch() {
 		listener->onTouchBegan = CC_CALLBACK_2(Memory::onTouchBegan, this);
 		listener->onTouchEnded = CC_CALLBACK_2(Memory::onTouchEnded, this);
 		listener->onTouchMoved = CC_CALLBACK_2(Memory::onTouchMoved, this);
-		_eventDispatcher->addEventListenerWithSceneGraphPriority(listener, nestj);
+		_eventDispatcher->addEventListenerWithSceneGraphPriority(listener, _nest);
+		_currentNest++;
 	
 }
 
@@ -272,79 +215,140 @@ bool Memory::onTouchBegan(Touch* touch, Event* event) {
 
 
 	auto target = event->getCurrentTarget();
-	Point locationInNode = target->convertToNodeSpace(touch->getLocation());
+	Point locationInNode = target->getParent()->convertToNodeSpace(touch->getLocation());
 	
-	Size s = target->getContentSize();
-	Rect rect = Rect(0, 0, s.width, s.height);
+	//Size s = target->getContentSize();
+	//Rect rect = Rect(0, 0, s.width, s.height);
+	static int counter = 0;
 
-	
-	if (target->getBoundingBox().containsPoint(touch->getLocation()))
+	auto bb = target->getBoundingBox();
+
+	if (target->getBoundingBox().containsPoint(locationInNode))
 	{
+		
+		//CCLOG("NEST CLICKED : %d ", counter++);
+		if (counter < 2) {
 
-		CCLOG("NEST CLICKED");
-		_touchActive = true;
-		if (target->getName() == "closed_window") {
+			std::ostringstream sstreamc;
+			sstreamc << "nest" << target->getTag();
+			std::string queryc = sstreamc.str();
 
-			CCLOG("closed window clicked!!");
+			auto child = target->getChildren();
+			std::string childName = child.at(0)->getName();
+
+			_currentSelectedNestNames[counter] = childName;
+			//target->getChildByName("Chimple")->setVisible(true);
+			auto pauseCurrentTarget = _memoryfarm->getChildByName("background")->getChildByName(queryc)->getChildByName("nestfront");
+	_memoryfarm->getChildByName("background")->getChildByName(queryc)->getChildByName("nestfront")->getChildByName(childName)->setVisible(true);
+	
+	Director::getInstance()->getEventDispatcher()->pauseEventListenersForTarget(pauseCurrentTarget);
+	
+	
+
+	_currentClickedPair[counter] = target->getTag();
+
+	_chickenTimeline[_currentClickedPair[counter]]->play("stand", false);
+	
+
+	bool flag;
+	if (counter == 1) {
+
+		//pause listener on all nests which have non zero values
+		pauseAllActiveListeners();
+		flag = checkMatch();
+
+		if (flag == true) {
+
+			//make the hen fly
+
+			auto flycallfunc = CallFunc::create([=] {chickenFly(); });
+
+			auto removelistenercallfunc = CallFunc::create([=] {
+
+				removecurrentlabelsandlisteners();
+				_activeNestIds[_currentClickedPair[0]] = 0;
+				_activeNestIds[_currentClickedPair[1]] = 0;
+			});
+
+			auto resumeListenercallfunc = CallFunc::create([=] {
+
+				resumeAllActiveListeners();
+			});
+
+
+			auto completeSequence = Sequence::create(flycallfunc, DelayTime::create(2.0), removelistenercallfunc, resumeListenercallfunc, NULL);
+
+			this->runAction(completeSequence);
+
+
+
+		}else{
+
+		//if they doesnot matches resume the listener of current two selected nest
 			
-			testSprite.closedWindow->setGlobalZOrder(0);
-			//this->testSprite.closedWindow->getEventDispatcher()->setEnabled(false);
-			_eventDispatcher->resumeEventListenersForTarget(testSprite.closedWindow, false);
 			
-			testSprite.brokenWindow->setGlobalZOrder(0);
-			//this->testSprite.brokenWindow->getEventDispatcher()->setEnabled(false);
-			_eventDispatcher->resumeEventListenersForTarget(testSprite.brokenWindow, false);
 
-			testSprite.openWindow->setGlobalZOrder(0);
-			//this->testSprite.openWindow->getEventDispatcher()->setEnabled(false);
-			_eventDispatcher->resumeEventListenersForTarget(testSprite.openWindow, false);
+			auto resumelistenercallfunc = CallFunc::create([=] {
 
-			testSprite.character->setGlobalZOrder(0);
-			//this->testSprite.character->getEventDispatcher()->setEnabled(false);
-			_eventDispatcher->resumeEventListenersForTarget(testSprite.character, false);
+				std::ostringstream sstreamc;
+				sstreamc << "nest" << _currentClickedPair[0];
+				std::string queryc = sstreamc.str();
 
-			testSprite.alphabetSprite->setGlobalZOrder(1);
-			//this->testSprite.alphabetSprite->getEventDispatcher()->setEnabled(true);
-			_eventDispatcher->resumeEventListenersForTarget(testSprite.closedWindow, true);
+				auto pauseNode1 = _memoryfarm->getChildByName("background")->getChildByName(queryc)->getChildByName("nestfront");
+
+				Director::getInstance()->getEventDispatcher()->resumeEventListenersForTarget(pauseNode1);
+
+				
+				std::ostringstream sstreamd;
+				sstreamd << "nest" << _currentClickedPair[1];
+				std::string queryd = sstreamd.str();
+
+				auto pauseNode2 = _memoryfarm->getChildByName("background")->getChildByName(queryd)->getChildByName("nestfront");
+
+				Director::getInstance()->getEventDispatcher()->resumeEventListenersForTarget(pauseNode2);
+
+				resumeAllActiveListeners();
+
+			});
+
+			auto makeChickenSit = CallFunc::create([=] {
+
+				_chickenTimeline[_currentClickedPair[0]]->play("sit", false);
+				_chickenTimeline[_currentClickedPair[1]]->play("sit", false);
+
+			});
+
+			auto setspritesinvisiblefunc = CallFunc::create([=] {
+				
+			std::ostringstream sstreamc;
+			sstreamc << "nest" << _currentClickedPair[0];
+			std::string queryc = sstreamc.str();
+
+			_memoryfarm->getChildByName("background")->getChildByName(queryc)->getChildByName("nestfront")->getChildByName(_currentSelectedNestNames[0])->setVisible(false);
+
+
+			std::ostringstream sstreamd;
+			sstreamd << "nest" << _currentClickedPair[1];
+			std::string queryd = sstreamd.str();
+
+		
+			_memoryfarm->getChildByName("background")->getChildByName(queryd)->getChildByName("nestfront")->getChildByName(_currentSelectedNestNames[1])->setVisible(false); 
 			
-			
+			});
+
+			auto wrongSequence = Sequence::create(DelayTime::create(1.0) , makeChickenSit, setspritesinvisiblefunc, resumelistenercallfunc, NULL);
+
+			this->runAction(wrongSequence);
+
+		
+	}
+		
+		counter = -1;
 		}
-		else {
-			/*
-			CCLOG("other objects clicked!!");
-			//testSprite.closedWindow->setGlobalZOrder(1);
-			//this->testSprite.closedWindow->getEventDispatcher()->setEnabled(false);
-			_eventDispatcher->resumeEventListenersForTarget(testSprite.closedWindow, true);
-
-			testSprite.brokenWindow->setGlobalZOrder(0);
-			//this->testSprite.brokenWindow->getEventDispatcher()->setEnabled(false);
-			_eventDispatcher->resumeEventListenersForTarget(testSprite.brokenWindow, false);
-
-			testSprite.openWindow->setGlobalZOrder(0);
-			//this->testSprite.openWindow->getEventDispatcher()->setEnabled(false);
-			_eventDispatcher->resumeEventListenersForTarget(testSprite.openWindow, false);
-
-			testSprite.character->setGlobalZOrder(0);
-			//this->testSprite.character->getEventDispatcher()->setEnabled(false);
-			_eventDispatcher->resumeEventListenersForTarget(testSprite.character, false);
-
-			testSprite.alphabetSprite->setGlobalZOrder(0);
-			//this->testSprite.alphabetSprite->getEventDispatcher()->setEnabled(true);
-			_eventDispatcher->resumeEventListenersForTarget(testSprite.closedWindow, false);*/
-		}
-
-		//testSprite.brokenWindowZIndex = 0;
-		//this->reorderChild(testSprite.brokenWindow, 0);
-
-		//testSprite.alphabetSpriteZIndex = 0;
-		//this->reorderChild(testSprite.alphabetSprite, 0);
-
-
-
-
-
-
-
+			
+	}
+		counter++;
+	
 		return true; // to indicate that we have consumed it.
 	}
 
@@ -354,7 +358,8 @@ bool Memory::onTouchBegan(Touch* touch, Event* event) {
 void Memory::onTouchEnded(cocos2d::Touch *touch, cocos2d::Event *event) {
 	//    CCLOG("onTouchEnded");
 	
-	
+	auto target = event->getCurrentTarget();
+	Point locationInNode = target->getParent()->convertToNodeSpace(touch->getLocation());
 
 
 }
@@ -362,4 +367,138 @@ void Memory::onTouchEnded(cocos2d::Touch *touch, cocos2d::Event *event) {
 void Memory::onTouchMoved(cocos2d::Touch *touch, cocos2d::Event *event) {
 	//    CCLOG("onTouchMoved");
 	
+}
+
+
+void Memory::hideAll() {
+
+	int nestsCount = _memoryfarm->getChildByName("background")->getChildrenCount();
+	for (int i = 1; i <= nestsCount; i++) {
+
+
+		std::ostringstream sstreamc;
+		sstreamc << "nest" << i;
+		std::string queryc = sstreamc.str();
+
+
+		_memoryfarm->getChildByName("background")->getChildByName(queryc)->getChildByName("nestfront")->getChildByName("Chimple")->setVisible(false);
+
+		
+
+	}
+}
+
+void Memory::pauseAllActiveListeners() {
+
+
+	for (int i = 1; i <= 24; i++) {
+
+		if (_activeNestIds[i] == 0 || _currentClickedPair[0] == i || _currentClickedPair[1] == i) {
+			continue;
+		}
+
+
+		std::ostringstream sstreamc;
+		sstreamc << "nest" << i;
+		std::string queryc = sstreamc.str();
+		
+		auto pauseNode = _memoryfarm->getChildByName("background")->getChildByName(queryc)->getChildByName("nestfront");
+
+		Director::getInstance()->getEventDispatcher()->pauseEventListenersForTarget(pauseNode);
+
+
+	}
+	//_currentClickedPair[0] = _currentClickedPair[1] = 0;
+
+}
+
+void Memory::resumeAllActiveListeners() {
+
+
+
+	for (int i = 1; i <= 24; i++) {
+
+		if (_activeNestIds[i] == 0) {
+			continue;
+		}
+
+
+		std::ostringstream sstreamc;
+		sstreamc << "nest" << i;
+		std::string queryc = sstreamc.str();
+
+		auto pauseNode = _memoryfarm->getChildByName("background")->getChildByName(queryc)->getChildByName("nestfront");
+
+		Director::getInstance()->getEventDispatcher()->resumeEventListenersForTarget(pauseNode);
+
+
+	}
+	//_currentClickedPair[0] = _currentClickedPair[1] = 0;
+
+}
+
+bool Memory::checkMatch() {
+
+	std::string str1 = _currentSelectedNestNames[0];
+	std::string str2 = _currentSelectedNestNames[1];
+
+	if (_data[str1] == str2 || _data[str2] == str1) {
+		if (_level == 11) {
+			_menuContext->showScore();
+		}
+		_level++;
+		return true;
+	}
+	return false;
+}
+
+
+
+void Memory::chickenFly() {
+
+	std::ostringstream sstreamnest1;
+	sstreamnest1 << "nest" << _currentClickedPair[0];
+	std::string querynest1 = sstreamnest1.str();
+
+	std::ostringstream sstreamnest2;
+	sstreamnest2 << "nest" << _currentClickedPair[1];
+	std::string querynest2 = sstreamnest2.str();
+
+
+	_chickenTimeline[_currentClickedPair[0]]->play("fly", true);
+	_chickenTimeline[_currentClickedPair[1]]->play("fly", true);
+
+	auto moveTonest1 = MoveTo::create(4, Vec2(-3100, 1800));
+	Sprite *chicken1 = (Sprite *)_memoryfarm->getChildByName("background")->getChildByName(querynest1)->getChildByName("chicken");
+	chicken1->runAction(moveTonest1);
+
+	auto moveTonest2 = MoveTo::create(4, Vec2(-3100, 1800));
+	Sprite *chicken2 = (Sprite *)_memoryfarm->getChildByName("background")->getChildByName(querynest2)->getChildByName("chicken");
+	chicken2->runAction(moveTonest2);
+
+}
+
+void Memory::removecurrentlabelsandlisteners() {
+	
+	std::ostringstream sstreamc;
+	sstreamc << "nest" << _currentClickedPair[0];
+	std::string queryc = sstreamc.str();
+
+	_memoryfarm->getChildByName("background")->getChildByName(queryc)->getChildByName("nestfront")->getChildByName(_currentSelectedNestNames[0])->setVisible(false);
+
+
+	std::ostringstream sstreamd;
+	sstreamd << "nest" << _currentClickedPair[1];
+	std::string queryd = sstreamd.str();
+
+	_memoryfarm->getChildByName("background")->getChildByName(queryd)->getChildByName("nestfront")->getChildByName(_currentSelectedNestNames[1])->setVisible(false);
+
+	auto pauseNode1 = _memoryfarm->getChildByName("background")->getChildByName(queryc)->getChildByName("nestfront");
+
+	Director::getInstance()->getEventDispatcher()->pauseEventListenersForTarget(pauseNode1);
+
+	auto pauseNode2 = _memoryfarm->getChildByName("background")->getChildByName(queryd)->getChildByName("nestfront");
+
+	Director::getInstance()->getEventDispatcher()->pauseEventListenersForTarget(pauseNode2);
+
 }
