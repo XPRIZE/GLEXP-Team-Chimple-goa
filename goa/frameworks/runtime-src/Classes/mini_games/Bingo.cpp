@@ -44,10 +44,10 @@ bool Bingo::init()
 			} },
 			{ "bingofarm",
 			{
-				{ "bg", "bingocity/bingocity.csb" },
-				{ "box", "bingocity/letterbox.png" },
-				{ "boxshade", "bingocity/letterboxshade.png" },
-				{ "_resourcePath", "bingo/bingocity/" },
+				{ "bg", "bingo/bingofarm/bingofarm.csb" },
+				{ "box", "bingofarm/letterbox.png" },
+				{ "boxshade", "bingofarm/letterboxshade.png" },
+				{ "_resourcePath", "bingo/bingofarm/" },
 				{ "griddimension", _bingoGridDimension }
 			} }
 		}
@@ -63,7 +63,8 @@ bool Bingo::init()
 															{"addYFactor", 0.18f},
 															{"bincapacity", 3.0f},
 															{"scale",1.0f},
-															{"bingoAnimScale",0.5f}
+															{"bingoAnimScale",0.5f},
+															{"animationLoop", 1.0f}
 														}
 									},
 								    {   "fourByFour", 
@@ -73,7 +74,8 @@ bool Bingo::init()
 															{ "addYFactor", 0.15f},
 															{ "bincapacity", 4.0f },
 															{ "scale",0.75f },
-															{ "bingoAnimScale",0.35f }
+															{ "bingoAnimScale",0.35f },
+															{ "animationLoop", 1.0f }
 														 }
 									},
 								    {"fiveByFive", 
@@ -83,7 +85,8 @@ bool Bingo::init()
 															{ "addYFactor", 0.125f},
 															{ "bincapacity", 5.0f },
 															{ "scale",0.6f },
-															{ "bingoAnimScale",0.2f }
+															{ "bingoAnimScale",0.2f },
+															{ "animationLoop", 1.0f }
 														}
 									}
 							}},
@@ -96,7 +99,8 @@ bool Bingo::init()
 																{ "addYFactor", 0.215f},
 																{ "bincapacity", 3.0f },
 																{ "scale",1.0f },
-																{ "bingoAnimScale",0.5f }
+																{ "bingoAnimScale",0.5f },
+																{ "animationLoop", 1.0f }
 															}
 												},
 												{ "fourByFour",
@@ -106,7 +110,8 @@ bool Bingo::init()
 																{ "addYFactor", 0.184f },
 																{ "bincapacity", 4.0f },
 																{ "scale",0.75f },
-																{ "bingoAnimScale",0.35f }
+																{ "bingoAnimScale",0.35f },
+																{ "animationLoop", 1.0f }
 															}
 												},
 												{ "fiveByFive",
@@ -116,7 +121,8 @@ bool Bingo::init()
 																{ "addYFactor", 0.149f},
 																{ "bincapacity", 5.0f },
 																{ "scale",0.6f },
-																{ "bingoAnimScale",0.2f }
+																{ "bingoAnimScale",0.25f },
+																{ "animationLoop", 1.0f }
 															}
 												}
 											} 
@@ -127,44 +133,47 @@ bool Bingo::init()
 																{
 																	{ "pairRequired", 9.0f },
 																	{ "addXFactor", 0.193f },
-																	{ "addYFactor", 0.215f },
+																	{ "addYFactor", 0.229f },
 																	{ "bincapacity", 3.0f },
 																	{ "scale",1.0f },
-																	{ "bingoAnimScale",0.5f }
+																	{ "bingoAnimScale",0.55f },
+																	{ "animationLoop", 0.0f }
 																}
 												},
 												{ "fourByFour",
 																{
 																	{ "pairRequired", 16.0f },
 																	{ "addXFactor", 0.150f },
-																	{ "addYFactor", 0.184f },
+																	{ "addYFactor", 0.192f },
 																	{ "bincapacity", 4.0f },
 																	{ "scale",0.75f },
-																	{ "bingoAnimScale",0.35f }
+																	{ "bingoAnimScale",0.40f },
+																	{ "animationLoop", 0.0f }
 																}
 												},
 												{ "fiveByFive",
 																{
 																	{ "pairRequired", 25.0f },
 																	{ "addXFactor", 0.124f },
-																	{ "addYFactor", 0.149f },
+																	{ "addYFactor", 0.165f },
 																	{ "bincapacity", 5.0f },
 																	{ "scale",0.6f },
-																	{ "bingoAnimScale",0.2f }
+																	{ "bingoAnimScale",0.25f },
+																	{ "animationLoop", 0.0f }
 																}
 												}
 							}
 							},
 
 	};
-	std::string theme[] = { "bingocity", "bingojungle" };
-	std::string gridInfo[] = { "threeByThree", "fourByFour", "fiveByFive" };
+	std::string theme[] = { "bingocity", "bingojungle","bingofarm" };
+	std::string gridInfo[] = { "threeByThree", "fourByFour" };
 
-	_bingoCurrentTheme = theme[RandomHelper::random_int(0, 1)];
-	_bingoGridDimension= gridInfo[RandomHelper::random_int(0, 2)];
+	_bingoCurrentTheme = theme[RandomHelper::random_int(0, 2)];
+	_bingoGridDimension= gridInfo[RandomHelper::random_int(0, 1)];
 
-	_bingoGridDimension = "fourByFour";
-	_bingoCurrentTheme = "bingocity";
+	/*_bingoGridDimension = "fourByFour";
+	_bingoCurrentTheme = "bingofarm";*/
 
 	_scenePath = sceneMap.at(_bingoCurrentTheme);
 
@@ -175,6 +184,14 @@ bool Bingo::init()
 	//BackGround
 	auto bingoBackground = CSLoader::createNode(_scenePath.at("bg"));
 	this->addChild(bingoBackground, 0);
+
+	Vector <Node*> children = bingoBackground->getChildren();
+	int size = children.size();
+	for (auto item = children.rbegin(); item != children.rend(); ++item) {
+		Node * monsterItem = *item;
+		std::string str = monsterItem->getName().c_str();
+		CCLOG("name : %s", str.c_str());
+	}
 
 	std::string charFaceName[6];
 	if (!_bingoCurrentTheme.compare("bingocity"))
@@ -200,13 +217,23 @@ bool Bingo::init()
 
 		 charFaceName[0] = "chimp"; charFaceName[1] = "giraffe"; charFaceName[2] = "leopard"; charFaceName[3] = "lion"; charFaceName[4] = "zebra"; charFaceName[5] = "wildebeest";
 	}
+	else
+	{
+		CCSpriteFrameCache* framecache1 = CCSpriteFrameCache::sharedSpriteFrameCache();
+		framecache1->addSpriteFramesWithFile("bingofarm/bingofarm.plist");
 
-	Vector <Node*> children = bingoBackground->getChildren();
+		_boxBoard = (Sprite *)bingoBackground->getChildByName("board");
+		_helpBoard = (Sprite *)bingoBackground->getChildByName("boardhelp");
+
+		charFaceName[0] = "cabbage"; charFaceName[1] = "cauliflower"; charFaceName[2] = "pumplin"; charFaceName[3] = "watermelon"; charFaceName[4] = "muskmelon"; charFaceName[5] = "pineapple";
+	}
+
+	/*Vector <Node*> children = bingoBackground->getChildren();
 	for (auto item = children.rbegin(); item != children.rend(); ++item) {
 		Node * monsterItem = *item;
 		std::string str = monsterItem->getName().c_str();
 		CCLOG("name : %s", str.c_str());
-	}
+	}*/
 
 	if (visibleSize.width > 2560) {
 		auto myGameWidth = (visibleSize.width - 2560) / 2;
@@ -272,14 +299,15 @@ bool Bingo::init()
 		for (int j = 0; j<_boxContainer.size(); j++)
 		{
 				box = Sprite::createWithSpriteFrameName(_scenePath.at("box"));
+				float c = box->getBoundingBox().size.width / 2;
+				float d = box->getBoundingBox().size.height / 2;
 				setAllSpriteProperties(box, 3, addX, addY, true, 0.5, 0.5, 0, _gridBasedValue.at("scale"), _gridBasedValue.at("scale"), _boxBoard);
 				box->setTag(0);
 
 				boxShade = Sprite::createWithSpriteFrameName(_scenePath.at("boxshade"));
 				setAllSpriteProperties(boxShade, 0, addX, addY, true, 0.5, 0.5, 0, _gridBasedValue.at("scale"), _gridBasedValue.at("scale"), _boxBoard);
 			
-				float c = box->getBoundingBox().size.width / 2;
-				float d = box->getBoundingBox().size.height / 2;
+				
 			
 		
 				//Bingo Last Animation
@@ -333,7 +361,6 @@ bool Bingo::init()
 			addY = addY + box->getBoundingBox().size.height + _boxBoard->getBoundingBox().size.width *0.011;
 			addX = _boxBoard->getBoundingBox().size.width * _gridBasedValue.at("addXFactor");
 	}
-
 	/*Vector <Node*> children = bingoBackground->getChildren().at(0)->getChildren();
 	for (auto item = children.rbegin(); item != children.rend(); ++item) {
 		Node * monsterItem = *item;
@@ -416,8 +443,15 @@ void Bingo::addEvents(Sprite* clickedObject)
 							{
 								if (targetName == _boxContainer[i][j]->getName())
 								{
+									
+									bool animationLoop = true;
+									if (_gridBasedValue.at("animationLoop"))
+										animationLoop = true;
+									else
+										animationLoop = false;
+
 									_boxContainer[i][j]->getEventDispatcher()->removeEventListener(listener);
-									_charAnimContainer[i][j]->gotoFrameAndPlay(0, true);
+									_charAnimContainer[i][j]->gotoFrameAndPlay(0, animationLoop);
 
 									charAnimation(i, j);
 								}

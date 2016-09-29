@@ -26,21 +26,35 @@ CC_CONSTRUCTOR_ACCESS:
 	void onTouchEnded(cocos2d::Touch* touch, cocos2d::Event* event);
 	void onTouchMoved(cocos2d::Touch* touch, cocos2d::Event* event);
 	void startGame();
+	void hideAll();
+	void pauseAllActiveListeners();
+	void resumeAllActiveListeners();
+	bool checkMatch();
+	void chickenFly();
+	void removecurrentlabelsandlisteners();
 	static const char* classname() { return WEMBLEY.c_str(); }
 protected:
+	std::vector<int> _currentClickedPair;
+	std::vector<int> _activeNestIds;
+	std::map<std::string, std::string> _data;
+	std::vector<std::string> _currentSelectedNestNames;
+	std::vector<cocostudio::timeline::ActionTimeline *> _chickenTimeline;
 	
+	
+	std::vector<std::string> _data_key;
+	std::vector<std::string> _data_value;
 	Node *_background;
 	Node * _chicken;
 	Node * _mainground;
 	Node * _memoryfarm;
-	Node * _nest;
+	int _currentNest;
+
 
 	std::vector<Node *> _nests;
 	cocos2d::Sprite * nest;
 	
 	bool _touchActive;
 	void setupTouch();
-	//void finishedAll();
 	int _touches;
 	int _nestIndex;
 
@@ -80,6 +94,8 @@ protected:
 	
 
 	MenuContext *_menuContext;
+
+	int _level;
 	
 	
 

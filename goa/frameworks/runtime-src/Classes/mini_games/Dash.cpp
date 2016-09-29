@@ -65,7 +65,7 @@ bool Dash::init()
 
 	
 	std::map<std::string, std::map<std::string, std::string>> differntSceneMapping = {
-	   {
+	   
 		   {"city",  //sonu designs
 			   {
 				   { "plist", "dash/dash.plist" },
@@ -102,9 +102,6 @@ bool Dash::init()
 				   { "right_animation", "jump" },
 				   { "wrong_animation", "angry" }
 			   }},
-		   
-	   }
-
 	};
 	
 	std::vector<std::string> theme = { "city","candy","iceLand" };
