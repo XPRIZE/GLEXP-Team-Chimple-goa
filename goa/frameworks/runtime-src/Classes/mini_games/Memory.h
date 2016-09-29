@@ -94,6 +94,8 @@ protected:
 	
 
 	MenuContext *_menuContext;
+
+	int _level;
 	
 	
 
