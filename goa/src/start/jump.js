@@ -1,3 +1,3 @@
 var xc = xc || {};
 
-xc.GameScene.load(xc.menuLayer);
+xc.GameScene.load(xc.playLayer);

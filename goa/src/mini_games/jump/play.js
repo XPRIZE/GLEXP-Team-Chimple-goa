@@ -31,7 +31,11 @@ xc.playLayer = cc.Layer.extend( {
         this.char.node.setPosition(cc.p(this.size.width * 0.06, 780));
         this.addChild(this.char.node,1);
 
+      
         this.bg = ccs.load(xc.playLayer.res.jump_game, xc.path);
+        if( this.size.width > 2560) {
+		bg.setPositionX(( this.size.width - 2560) / 2);
+	    }
         this.addChild(this.bg.node);
         // var child = this.bg.node.getChildren(); 
         //  for(var i=0; i < child.length ;i++)
@@ -440,17 +444,19 @@ this.remove();
 
      help : function ()
      {
+         this.removeChild(this.nameLabel);
          cc.log("hiint");
         this.decrementScore();
         this.random = Math.floor(Math.random()*(this.dict.length-1));  
-        var nameLabel = new cc.LabelTTF(this.dict[this.random].toUpperCase(),'Arial', 100 );
-		nameLabel.setAnchorPoint(0.5,0.5); 
-        nameLabel.x = cc.winSize.width - 1400;
-        nameLabel.y = cc.winSize.height - 1030; 
-        nameLabel.setColor(cc.color(0,0,0));
-        this.addChild(nameLabel, 1);
+        this.nameLabel = new cc.LabelTTF(this.dict[this.random].toUpperCase(),'Arial', 100 );
+		this.nameLabel.setAnchorPoint(0.5,0.5); 
+        this.nameLabel.x = cc.winSize.width - 1400;
+        this.nameLabel.y = cc.winSize.height - 1030; 
+        this.nameLabel.setName("hintlabel");
+        this.nameLabel.setColor(cc.color(0,0,0));
+        this.addChild(this.nameLabel, 1);
         this.scheduleOnce(function(){
-           this.removeChild(nameLabel);
+           this.removeChild(this.nameLabel);
         },3);
 
      if(this.dict.length == 0)
