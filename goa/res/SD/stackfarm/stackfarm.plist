@@ -4,21 +4,6 @@
     <dict>
         <key>frames</key>
         <dict>
-            <key>stackfarm/ban.png</key>
-            <dict>
-                <key>aliases</key>
-                <array/>
-                <key>spriteOffset</key>
-                <string>{0,0}</string>
-                <key>spriteSize</key>
-                <string>{138,95}</string>
-                <key>spriteSourceSize</key>
-                <string>{138,95}</string>
-                <key>textureRect</key>
-                <string>{{71,306},{138,95}}</string>
-                <key>textureRotated</key>
-                <true/>
-            </dict>
             <key>stackfarm/box.png</key>
             <dict>
                 <key>aliases</key>
@@ -30,7 +15,7 @@
                 <key>spriteSourceSize</key>
                 <string>{122,118}</string>
                 <key>textureRect</key>
-                <string>{{334,244},{122,118}}</string>
+                <string>{{1,445},{122,118}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
@@ -41,11 +26,11 @@
                 <key>spriteOffset</key>
                 <string>{0,0}</string>
                 <key>spriteSize</key>
-                <string>{91,196}</string>
+                <string>{91,147}</string>
                 <key>spriteSourceSize</key>
-                <string>{91,196}</string>
+                <string>{91,147}</string>
                 <key>textureRect</key>
-                <string>{{71,213},{91,196}}</string>
+                <string>{{1,352},{91,147}}</string>
                 <key>textureRotated</key>
                 <true/>
             </dict>
@@ -60,7 +45,7 @@
                 <key>spriteSourceSize</key>
                 <string>{66,43}</string>
                 <key>textureRect</key>
-                <string>{{71,446},{66,43}}</string>
+                <string>{{165,329},{66,43}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
@@ -75,7 +60,7 @@
                 <key>spriteSourceSize</key>
                 <string>{85,26}</string>
                 <key>textureRect</key>
-                <string>{{1,185},{85,26}}</string>
+                <string>{{132,651},{85,26}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
@@ -90,7 +75,7 @@
                 <key>spriteSourceSize</key>
                 <string>{162,95}</string>
                 <key>textureRect</key>
-                <string>{{278,121},{162,95}}</string>
+                <string>{{1,255},{162,95}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
@@ -105,7 +90,7 @@
                 <key>spriteSourceSize</key>
                 <string>{117,117}</string>
                 <key>textureRect</key>
-                <string>{{334,364},{117,117}}</string>
+                <string>{{88,717},{117,117}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
@@ -120,7 +105,7 @@
                 <key>spriteSourceSize</key>
                 <string>{18,64}</string>
                 <key>textureRect</key>
-                <string>{{442,121},{18,64}}</string>
+                <string>{{125,445},{18,64}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
@@ -135,9 +120,9 @@
                 <key>spriteSourceSize</key>
                 <string>{18,55}</string>
                 <key>textureRect</key>
-                <string>{{442,187},{18,55}}</string>
+                <string>{{88,583},{18,55}}</string>
                 <key>textureRotated</key>
-                <false/>
+                <true/>
             </dict>
             <key>stackfarm/cowtail.png</key>
             <dict>
@@ -150,9 +135,9 @@
                 <key>spriteSourceSize</key>
                 <string>{42,64}</string>
                 <key>textureRect</key>
-                <string>{{139,446},{42,64}}</string>
+                <string>{{88,603},{42,64}}</string>
                 <key>textureRotated</key>
-                <true/>
+                <false/>
             </dict>
             <key>stackfarm/fillpipe.png</key>
             <dict>
@@ -165,7 +150,7 @@
                 <key>spriteSourceSize</key>
                 <string>{68,261}</string>
                 <key>textureRect</key>
-                <string>{{1,218},{68,261}}</string>
+                <string>{{180,66},{68,261}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
@@ -180,9 +165,9 @@
                 <key>spriteSourceSize</key>
                 <string>{247,63}</string>
                 <key>textureRect</key>
-                <string>{{269,218},{247,63}}</string>
+                <string>{{1,1},{247,63}}</string>
                 <key>textureRotated</key>
-                <true/>
+                <false/>
             </dict>
             <key>stackfarm/grass.png</key>
             <dict>
@@ -191,28 +176,13 @@
                 <key>spriteOffset</key>
                 <string>{0,0}</string>
                 <key>spriteSize</key>
-                <string>{23,20}</string>
+                <string>{177,67}</string>
                 <key>spriteSourceSize</key>
-                <string>{23,20}</string>
+                <string>{177,67}</string>
                 <key>textureRect</key>
-                <string>{{88,185},{23,20}}</string>
+                <string>{{1,66},{177,67}}</string>
                 <key>textureRotated</key>
-                <true/>
-            </dict>
-            <key>stackfarm/hay.png</key>
-            <dict>
-                <key>aliases</key>
-                <array/>
-                <key>spriteOffset</key>
-                <string>{0,0}</string>
-                <key>spriteSize</key>
-                <string>{96,59}</string>
-                <key>spriteSourceSize</key>
-                <string>{96,59}</string>
-                <key>textureRect</key>
-                <string>{{205,388},{96,59}}</string>
-                <key>textureRotated</key>
-                <true/>
+                <false/>
             </dict>
             <key>stackfarm/milk machine.png</key>
             <dict>
@@ -225,9 +195,54 @@
                 <key>spriteSourceSize</key>
                 <string>{174,118}</string>
                 <key>textureRect</key>
-                <string>{{278,1},{174,118}}</string>
+                <string>{{1,135},{174,118}}</string>
                 <key>textureRotated</key>
                 <false/>
+            </dict>
+            <key>stackfarm/panel.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{64,29}</string>
+                <key>spriteSourceSize</key>
+                <string>{64,29}</string>
+                <key>textureRect</key>
+                <string>{{219,651},{64,29}}</string>
+                <key>textureRotated</key>
+                <true/>
+            </dict>
+            <key>stackfarm/pipeconnection.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{57,16}</string>
+                <key>spriteSourceSize</key>
+                <string>{57,16}</string>
+                <key>textureRect</key>
+                <string>{{88,565},{57,16}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+            <key>stackfarm/pipeconnection2.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{41,7}</string>
+                <key>spriteSourceSize</key>
+                <string>{41,7}</string>
+                <key>textureRect</key>
+                <string>{{165,255},{41,7}}</string>
+                <key>textureRotated</key>
+                <true/>
             </dict>
             <key>stackfarm/suckpipe.png</key>
             <dict>
@@ -240,9 +255,9 @@
                 <key>spriteSourceSize</key>
                 <string>{95,275}</string>
                 <key>textureRect</key>
-                <string>{{1,1},{95,275}}</string>
+                <string>{{150,374},{95,275}}</string>
                 <key>textureRotated</key>
-                <true/>
+                <false/>
             </dict>
             <key>stackfarm/suckpipebar.png</key>
             <dict>
@@ -255,24 +270,9 @@
                 <key>spriteSourceSize</key>
                 <string>{275,85}</string>
                 <key>textureRect</key>
-                <string>{{1,98},{275,85}}</string>
+                <string>{{1,565},{275,85}}</string>
                 <key>textureRotated</key>
-                <false/>
-            </dict>
-            <key>stackfarm/tractor.png</key>
-            <dict>
-                <key>aliases</key>
-                <array/>
-                <key>spriteOffset</key>
-                <string>{0,0}</string>
-                <key>spriteSize</key>
-                <string>{97,80}</string>
-                <key>spriteSourceSize</key>
-                <string>{97,80}</string>
-                <key>textureRect</key>
-                <string>{{168,306},{97,80}}</string>
-                <key>textureRotated</key>
-                <false/>
+                <true/>
             </dict>
         </dict>
         <key>metadata</key>
@@ -286,9 +286,9 @@
             <key>realTextureFileName</key>
             <string>stackfarm.png</string>
             <key>size</key>
-            <string>{461,490}</string>
+            <string>{249,841}</string>
             <key>smartupdate</key>
-            <string>$TexturePacker:SmartUpdate:2d656a11d647810b18d9199a0647a31f:5f186f14fb887cde97b6339c531d39ca:614723eb2c0a0fc8c883335b7b556a8e$</string>
+            <string>$TexturePacker:SmartUpdate:744cc8dd5b010378defe7294df28cf36:18fe083c3aba35bf1173c940bb7e576c:614723eb2c0a0fc8c883335b7b556a8e$</string>
             <key>textureFileName</key>
             <string>stackfarm.png</string>
         </dict>
