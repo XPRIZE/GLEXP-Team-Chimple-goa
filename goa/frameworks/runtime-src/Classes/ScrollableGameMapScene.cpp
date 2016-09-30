@@ -210,7 +210,7 @@ void ScrollableGameMapScene::gameSelected(Ref* pSender, ui::Widget::TouchEventTy
             } else if(clickedButton->getName() == CHAIN) {
                 Director::getInstance()->replaceScene(Chain::createScene());
             } else if(clickedButton->getName() == WEMBLEY) {
-				/*
+				
 				int numberPicker = RandomHelper::random_int(0, 2);
 				switch (numberPicker) {
 
@@ -218,8 +218,8 @@ void ScrollableGameMapScene::gameSelected(Ref* pSender, ui::Widget::TouchEventTy
 					case 1: Director::getInstance()->replaceScene(MemoryHero::createScene());  break;
 					case 2: Director::getInstance()->replaceScene(Memory::createScene());  break;
 
-				}*/
-				Director::getInstance()->replaceScene(MemoryJungle::createScene());
+				}
+				
                 
             } else if(clickedButton->getName() == JAZZ) {
                 Director::getInstance()->replaceScene(jazz::createScene());
