@@ -86,21 +86,9 @@ CCSpriteFrameCache::sharedSpriteFrameCache()->addSpriteFramesWithFile("memoryfar
 	   _data_value.push_back(it->second);
    }
 
-   int a = _data.size();
-   std::vector<int> randomIndex;
-
-   while (randomIndex.size() != _data.size()) {
-	   bool duplicateCheck = true;
-	   int numberPicker = RandomHelper::random_int(0, a - 1);
-	   for (int i = 0; i < randomIndex.size(); i++) {
-		   if (numberPicker == randomIndex[i]) {
-			   duplicateCheck = false;
-		   }
-	   }
-	   if (duplicateCheck) {
-		   randomIndex.push_back(numberPicker);
-	   }
-   }
+   
+   generateRandomNumbers();
+   
 
 	Size visibleSize = Director::getInstance()->getVisibleSize();
 	Vec2 origin = Director::getInstance()->getVisibleOrigin();
@@ -138,14 +126,17 @@ CCSpriteFrameCache::sharedSpriteFrameCache()->addSpriteFramesWithFile("memoryfar
 
 		if (i <= 12) {
 			
-			labelName = _data_key[randomIndex[i-1]];
+			labelName = _data_key[_randomIndex[i-1]];
 		}
 		else {
 
-			labelName = _data_value[randomIndex[j]];
+			labelName = _data_value[_randomIndex[j]];
 			j++;
 		}
 
+		if (i == 12) {
+			generateRandomNumbers();
+		}
 
 		auto label = ui::Text::create();
 		label->setString(labelName);
@@ -501,4 +492,23 @@ void Memory::removecurrentlabelsandlisteners() {
 
 	Director::getInstance()->getEventDispatcher()->pauseEventListenersForTarget(pauseNode2);
 
+}
+
+void Memory::generateRandomNumbers() {
+
+	int a = _data.size();
+	//std::vector<int> randomIndex;
+	_randomIndex.clear();
+	while (_randomIndex.size() != _data.size()) {
+		bool duplicateCheck = true;
+		int numberPicker = RandomHelper::random_int(0, a - 1);
+		for (int i = 0; i < _randomIndex.size(); i++) {
+			if (numberPicker == _randomIndex[i]) {
+				duplicateCheck = false;
+			}
+		}
+		if (duplicateCheck) {
+			_randomIndex.push_back(numberPicker);
+		}
+	}
 }
