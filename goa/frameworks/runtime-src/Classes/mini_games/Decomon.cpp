@@ -158,24 +158,34 @@ child = decomon_horn_icon*/
 	
 
 	//BalooBhai-Regular.ttf
-
-	auto myLabel = Label::createWithTTF("A", "fonts/BalooBhai-Regular.ttf",1600);
+	auto myLabel = Label::createWithBMFont("english/baloo_bhai_hdr.fnt", "W");
+	//auto myLabel = Label::createWithTTF("A", "fonts/BalooBhai-Regular.ttf",1600);
 	myLabel->setPositionX(visibleSize.width / 2);// , visibleSize.height/ 2);
 	myLabel->setPositionY(visibleSize.height / 2);
 	//myLabel->setColor(Color3B(111, 11, 1));
+	myLabel->setScale(3);
 	myLabel->setName("alphabet");
 	//this->addChild(myLabel);
 
 	auto maskedFill = ClippingNode::create(myLabel);
-//	maskedFill->setContentSize(visibleSize);
-	//maskedFill->setPosition(Vec2(visibleSize.width / 2, visibleSize.height / 2));
+	//maskedFill->setPosition(Vec2(0,0));
+	maskedFill->setContentSize(visibleSize);
+	//maskedFill->setPosition(Vec2(visibleSize.width/2, visibleSize.height/2));
 	_maskingLayer = LayerColor::create(Color4B(255,255,255,255), visibleSize.width, visibleSize.height);
-	//this->addChild(_maskingLayer);
+///	this->addChild(_maskingLayer);
+	_maskingLayer->setAnchorPoint(Vec2(0.5, 0.5));
+//	_maskingLayer->setPosition(Vec2(-visibleSize.width / 2, -visibleSize.height / 2));
 	//_maskingLayer->setColor(Color3B(222, 222, 22));
-	maskedFill->setAlphaThreshold(0.9);
-
+	maskedFill->setAlphaThreshold(0.1);
 	
-
+	/*auto spritecache4 = SpriteFrameCache::getInstance();
+	spritecache4->addSpriteFramesWithFile("smash_de_rock/smashderock_01.plist");
+	auto spritecache5 = SpriteFrameCache::getInstance();
+	spritecache5->addSpriteFramesWithFile("smash_de_rock/smashderock_02.plist");
+	 auto target = Sprite::createWithSpriteFrameName("smash_de_rock/cracktexture_00.png");
+	 maskedFill->addChild(target);/*/
+	CCLOG("masked file position %f", maskedFill->getPositionX());
+	CCLOG("masked file position %f", maskedFill->getPositionY());
 	maskedFill->addChild(_maskingLayer);
 	this->addChild(maskedFill);
 
@@ -292,6 +302,7 @@ bool Decomon::onTouchBegan(cocos2d::Touch * touch, cocos2d::Event * event)
 				return false;
 			}
 			else {
+				generateDuplicatesInAGrid(target);
 				_flip = true;
 					return true;
 				}
@@ -412,4 +423,24 @@ void Decomon::colourFilling(float x, float y, int index, cocos2d::Layer * layer)
 	drawNode->setName("color");
 	layer->addChild(drawNode);
 	drawNode->drawDot(Vec2(x, y), 100, Color4F(colour1.at(index)/255.0f, colour2.at(index) /255.0f, colour3.at(index) /255.0f,1.0f));
+}
+
+void Decomon::generateDuplicatesInAGrid(cocos2d::Node * node)
+{
+	cocos2d::Node * eye;
+	if (node->getName().find(".png") == -1) {
+		eye = CSLoader::createNode(node->getName());
+		eye->setContentSize(eye->getChildren().at(0)->getContentSize());
+	}
+	else {
+		eye = (cocos2d::Node*)Sprite::createWithSpriteFrameName(node->getName());
+	}
+	eye->setPosition(node->getPosition());
+	eye->setName(node->getName());
+	_costumeLayer->addChild(eye);
+	auto listener = EventListenerTouchOneByOne::create();
+	listener->onTouchBegan = CC_CALLBACK_2(Decomon::onTouchBegan, this);
+	listener->onTouchMoved = CC_CALLBACK_2(Decomon::onTouchMoved, this);
+	listener->onTouchEnded = CC_CALLBACK_2(Decomon::onTouchEnded, this);
+	_eventDispatcher->addEventListenerWithSceneGraphPriority(listener, eye);
 }

@@ -76,7 +76,8 @@ bool Dash::init()
 				   { "button", "dash/big_button.png" },
 				   { "character", "dash/character.csb"},
 				   { "right_animation", "jumping"},
-				   { "wrong_animation", "sad_wrong"}
+				   { "wrong_animation", "sad_wrong"},
+				   { "winning_animation","dance"}
 			   }},
 		   {"iceLand",  //anu designs
 			   {
@@ -88,7 +89,8 @@ bool Dash::init()
 				   { "flag", "dashisland/flag.png" },
 				   { "character", "dashisland/character.csb" },
 				   { "right_animation", "hero_correct" },
-				   { "wrong_animation", "hero_wrong" }
+				   { "wrong_animation", "hero_wrong" },
+				   {"winning_animation", "null"}
 			   }},
 		   {"candy",  //teju design
 			   {
@@ -100,12 +102,13 @@ bool Dash::init()
 				   { "button", "dashcandy/answer_button.png" },
 				   { "character", "dashcandy/character.csb" },
 				   { "right_animation", "jump" },
-				   { "wrong_animation", "angry" }
+				   { "wrong_animation", "angry" },
+				   { "winning_animation", "null" }
 			   }},
 	};
 	
 	std::vector<std::string> theme = { "city","candy","iceLand" };
-	_scenePath = differntSceneMapping.at(theme.at(cocos2d::RandomHelper::random_int(0, 2)));
+	_scenePath = differntSceneMapping.at(theme.at(2));//cocos2d::RandomHelper::random_int(0, 2)));
 
 	auto spritecache1 = SpriteFrameCache::getInstance();
 	spritecache1->addSpriteFramesWithFile(_scenePath.at("plist"));
@@ -147,7 +150,7 @@ bool Dash::init()
 			if (i == 14) {
 				auto lastStep = Sprite::createWithSpriteFrameName(_scenePath.at("step_winning"));
 				lastStep->setPositionX(xx);
-				lastStep->setPositionY(yy - lastStep->getContentSize().height/3);
+				lastStep->setPositionY(yy);
 				lastStep->setAnchorPoint(Vec2(0.5,1));
 				_stepLayer->addChild(lastStep);
 				auto flag = Sprite::createWithSpriteFrameName(_scenePath.at("flag"));
@@ -213,19 +216,22 @@ void Dash::myCharacterJumping(int jumpCount)
 	_stepLayer->runAction(Sequence::create(moveTo, CallFunc::create([=]() {
 		_jumpCount++;
 		if (_jumpCount == 14) {
-			//mycharcter won the game
-			menu->showScore();
+			if (_scenePath.at("winning_animation").compare("null") == 0) {
+				iceLandThemeAnimation();
+			} else {
+					winningCelebration();
+			}	
+		} else {
+			wordGenerateWithOptions();
 		}
-		wordGenerateWithOptions();
-		
-	}), NULL));
-
-	
+	}), NULL));	
 }
 
 void Dash::myCharacterEyeBlinking()
 {
-
+	auto jumpTimeline = CSLoader::createTimeline(_scenePath.at("character"));
+	_character->runAction(jumpTimeline);
+	jumpTimeline->play("dance", false);
 
 }
 
@@ -237,7 +243,7 @@ void Dash::otherCharacterJumping(int jumpCount)
 	_otherCharacter->runAction(jump);
 	jumpTimeline(_otherCharacter, _scenePath.at("right_animation"));
 	if (_enemyJumpCount == 14) {
-		menu->showScore();
+		//menu->showScore();
 	}
 }
 
@@ -280,7 +286,6 @@ void Dash::wordGenerateWithOptions()
 	//CCLOG(answer);
 	int randomInt = cocos2d::RandomHelper::random_int(0, answerSize);
 	for (int i = 0; i < _choiceButton.size(); i++) {
-		
 		auto str = answer.at(randomInt % (answerSize + 1));
 		auto myLabel = Label::createWithSystemFont(str, "Arial", 200);
 		myLabel->setName(str);
@@ -295,12 +300,90 @@ void Dash::wordGenerateWithOptions()
 		_eventDispatcher->addEventListenerWithSceneGraphPriority(listener, myLabel);
 		randomInt++;
 	}
+}
 
+void Dash::winningCelebration()
+{
+	auto jump = JumpBy::create(1, Vec2(0, 0), 200, 1);
+	_wordCount = 0;
+	auto danceAction = CallFunc::create(CC_CALLBACK_0(Dash::myCharacterEyeBlinking, this));
+	_character->runAction(RepeatForever::create(Sequence::create(danceAction,jump, CallFunc::create([=]() {
+		if (_wordCount == _rightWords.size() - 1) {
+			menu->showScore();
+		} else {
+			fallingWords(_wordCount);
+		}
+		_wordCount ++;
+		}), NULL)));
+}
+
+void Dash::fallingWords(int i)
+{
+	Size visibleSize = Director::getInstance()->getVisibleSize();
+	Vector<cocos2d::Label*> fallingWords;	
+	auto aaa = _rightWords.at(i);
+	std::string word = "";
+	for (int j = 0; j < aaa.size()-1; j++) {
+		std::stringstream ss;
+		ss << aaa.at(j);
+		auto test = ss.str();
+		word = word + "" + test;
+	}
+	std::string str = word +"   " +_synonyms.at(word);
+	auto myLabel = Label::createWithSystemFont(str, "Arial", 100);
+	myLabel->setName(str);
+	myLabel->setPositionX(visibleSize.width/1.75);
+	myLabel->setPositionY(visibleSize.height + 300);
+	if (aaa.at(aaa.size() - 1) == 'Y') {
+		myLabel->setColor(Color3B(0, 128, 0));
+	} else {
+		myLabel->setColor(Color3B(255, 0, 0));
+	}
+	fallingWords.pushBack(myLabel);
+	this->addChild(myLabel);
+	auto moveBy = MoveBy::create(5, Vec2(0, -2400));
+	myLabel->runAction(moveBy);
+}
+
+void Dash::fallingWordWithAction(cocos2d::Vector<cocos2d::Label*> fallingWords)
+{
+	for (int i = 0; i < fallingWords.size(); i++) {
+		auto moveBy = MoveBy::create(2, Vec2(0, 2400));
+		fallingWords.at(i)->runAction(moveBy);
+	}
+}
+
+void Dash::iceLandThemeAnimation()
+{
+	Size visibleSize = Director::getInstance()->getVisibleSize();
+	auto node = CSLoader::createNode("dashisland/burst.csb");
+	node->setPositionX(visibleSize.width/5);
+	node->setPositionY(visibleSize.height/2 + 200);
+	this->addChild(node);
+	auto node1 = CSLoader::createNode("dashisland/burst.csb");
+	node1->setPositionX(visibleSize.width / 5 + 150);
+	node1->setPositionY(visibleSize.height / 2 + 200);
+	this->addChild(node1);
+	auto jumpTimeline = CSLoader::createTimeline("dashisland/burst.csb");
+	node->runAction(jumpTimeline);
+	auto jumpTimeline1 = CSLoader::createTimeline("dashisland/burst.csb");
+	node1->runAction(jumpTimeline1);
+	_wordCount = 0;
+	this->runAction(RepeatForever::create(Sequence::create(CallFunc::create([=]() {
+		if (_wordCount == _rightWords.size() - 1) {
+			menu->showScore();
+		} else {
+			fallingWords(_wordCount);
+		}
+		_wordCount++;
+		}), DelayTime::create(0.5), CallFunc::create([=]() {
+		jumpTimeline->play("burst", true);
+		jumpTimeline1->play("burst", true);
+		}), NULL)));
 }
 
 bool Dash::onTouchBegan(cocos2d::Touch * touch, cocos2d::Event * event)
 {
-
 	auto target = event->getCurrentTarget();
 	auto  location = target->convertToNodeSpace(touch->getLocation());
 	if (target->getBoundingBox().containsPoint(touch->getLocation())) {
@@ -310,16 +393,18 @@ bool Dash::onTouchBegan(cocos2d::Touch * touch, cocos2d::Event * event)
 				this->removeChild(_choiceLabel.at(i));
 			}
 			_gameScore++;
+			_rightWords.push_back(_gameWord + "Y");
 			_choiceLabel.clear();
 			updatePlayerPosition("mycharacter",_gameScore);
 		}
 		else {
+			_rightWords.push_back(_gameWord + "N");
 			if (_scenePath.at("wrong_animation").compare("null") != 0) {
 				auto sadAnimation = CSLoader::createTimeline(_scenePath.at("character"));
 				_character->runAction(sadAnimation);
 				sadAnimation->play(_scenePath.at("wrong_animation"), false);
-			}
-			}
+				}
+			}	
 	}
 	return false;
 }

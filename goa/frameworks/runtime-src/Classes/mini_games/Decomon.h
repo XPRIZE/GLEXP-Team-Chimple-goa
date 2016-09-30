@@ -46,6 +46,7 @@ protected:
 	void itemInAGrid(std::vector<std::string> item, std::string name);
 	void creatSpriteOnAlphabet(std::string, float x, float y, float scale);
 	void colourFilling(float x, float y, int index,cocos2d::Layer * layer);
+	void generateDuplicatesInAGrid(cocos2d::Node * node);
 
 };
 

@@ -30,7 +30,7 @@
                 <key>spriteSourceSize</key>
                 <string>{125,106}</string>
                 <key>textureRect</key>
-                <string>{{930,1},{125,106}}</string>
+                <string>{{995,1},{125,106}}</string>
                 <key>textureRotated</key>
                 <true/>
             </dict>
@@ -46,6 +46,66 @@
                 <string>{336,57}</string>
                 <key>textureRect</key>
                 <string>{{214,1},{336,57}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+            <key>dashisland/burst1.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,-1}</string>
+                <key>spriteSize</key>
+                <string>{15,17}</string>
+                <key>spriteSourceSize</key>
+                <string>{35,37}</string>
+                <key>textureRect</key>
+                <string>{{1,108},{15,17}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+            <key>dashisland/burst2.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{-1,-1}</string>
+                <key>spriteSize</key>
+                <string>{23,23}</string>
+                <key>spriteSourceSize</key>
+                <string>{35,37}</string>
+                <key>textureRect</key>
+                <string>{{941,103},{23,23}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+            <key>dashisland/burst3.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{-1,-2}</string>
+                <key>spriteSize</key>
+                <string>{29,29}</string>
+                <key>spriteSourceSize</key>
+                <string>{35,37}</string>
+                <key>textureRect</key>
+                <string>{{941,72},{29,29}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+            <key>dashisland/burst4.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{35,37}</string>
+                <key>spriteSourceSize</key>
+                <string>{35,37}</string>
+                <key>textureRect</key>
+                <string>{{941,33},{35,37}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
@@ -75,9 +135,9 @@
                 <key>spriteSourceSize</key>
                 <string>{30,63}</string>
                 <key>textureRect</key>
-                <string>{{882,48},{30,63}}</string>
+                <string>{{930,1},{30,63}}</string>
                 <key>textureRotated</key>
-                <false/>
+                <true/>
             </dict>
             <key>dashisland/hint_button.png</key>
             <dict>
@@ -90,7 +150,7 @@
                 <key>spriteSourceSize</key>
                 <string>{72,57}</string>
                 <key>textureRect</key>
-                <string>{{1038,1},{72,57}}</string>
+                <string>{{882,48},{72,57}}</string>
                 <key>textureRotated</key>
                 <true/>
             </dict>
@@ -220,15 +280,15 @@
             <key>format</key>
             <integer>3</integer>
             <key>pixelFormat</key>
-            <string>RGBA4444</string>
+            <string>RGBA8888</string>
             <key>premultiplyAlpha</key>
             <false/>
             <key>realTextureFileName</key>
             <string>dashisland.png</string>
             <key>size</key>
-            <string>{1096,127}</string>
+            <string>{1102,127}</string>
             <key>smartupdate</key>
-            <string>$TexturePacker:SmartUpdate:ac4276b04ca55ad7cab558e3bf8f7230:846a14c3edf5e85f141f63914ec2f9b5:675b437d44d34ce9baecb36232a17695$</string>
+            <string>$TexturePacker:SmartUpdate:2e3dcd65150e8e611213f71854bbf5b4:83a79368fc06945a08f61dae2b0260be:675b437d44d34ce9baecb36232a17695$</string>
             <key>textureFileName</key>
             <string>dashisland.png</string>
         </dict>

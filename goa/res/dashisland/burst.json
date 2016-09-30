@@ -1,0 +1,144 @@
+{
+  "ID": "83c8b431-1ab8-42c2-8a3c-8e3984850edc",
+  "Version": "3.10.0.0",
+  "Name": "burst",
+  "Content": {
+    "Content": {
+      "Animation": {
+        "Duration": 40,
+        "Speed": 1.0,
+        "ActivedAnimationName": "burst",
+        "Timelines": [
+          {
+            "ActionTag": -1462288123,
+            "Property": "FileData",
+            "Frames": [
+              {
+                "TextureFile": {
+                  "Type": "MarkedSubImage",
+                  "Path": "dashisland/burst1.png",
+                  "Plist": "dashisland/dashisland.plist"
+                },
+                "FrameIndex": 0,
+                "Tween": false,
+                "ctype": "TextureFrameData"
+              },
+              {
+                "TextureFile": {
+                  "Type": "MarkedSubImage",
+                  "Path": "dashisland/burst2.png",
+                  "Plist": "dashisland/dashisland.plist"
+                },
+                "FrameIndex": 10,
+                "Tween": false,
+                "ctype": "TextureFrameData"
+              },
+              {
+                "TextureFile": {
+                  "Type": "MarkedSubImage",
+                  "Path": "dashisland/burst3.png",
+                  "Plist": "dashisland/dashisland.plist"
+                },
+                "FrameIndex": 20,
+                "Tween": false,
+                "ctype": "TextureFrameData"
+              },
+              {
+                "TextureFile": {
+                  "Type": "MarkedSubImage",
+                  "Path": "dashisland/burst4.png",
+                  "Plist": "dashisland/dashisland.plist"
+                },
+                "FrameIndex": 30,
+                "Tween": false,
+                "ctype": "TextureFrameData"
+              },
+              {
+                "TextureFile": {
+                  "Type": "MarkedSubImage",
+                  "Path": "dashisland/burst1.png",
+                  "Plist": "dashisland/dashisland.plist"
+                },
+                "FrameIndex": 40,
+                "Tween": false,
+                "ctype": "TextureFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          }
+        ],
+        "ctype": "TimelineActionData"
+      },
+      "AnimationList": [
+        {
+          "StartIndex": 0,
+          "EndIndex": 40,
+          "Name": "burst",
+          "ctype": "AnimationInfoData"
+        }
+      ],
+      "ObjectData": {
+        "Tag": 11,
+        "Children": [
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "dashisland/burst1.png",
+              "Plist": "dashisland/dashisland.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": -23.0,
+            "RightMargin": -23.0,
+            "TopMargin": -23.0,
+            "BottomMargin": -23.0,
+            "Tag": 12,
+            "ActionTag": -1462288123,
+            "Size": {
+              "X": 141.0,
+              "Y": 148.0
+            },
+            "Name": "Sprite_1",
+            "ctype": "SpriteObjectData"
+          }
+        ],
+        "Size": {
+          "X": 0.0,
+          "Y": 0.0
+        },
+        "Name": "Node",
+        "ctype": "SingleNodeObjectData"
+      },
+      "UsedResources": [
+        "dashisland.plist",
+        "dashisland.png"
+      ],
+      "ctype": "GameFileData"
+    }
+  },
+  "Type": "Node"
+}

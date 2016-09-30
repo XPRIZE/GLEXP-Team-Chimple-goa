@@ -27,10 +27,15 @@ public:
 	std::map<std::string, std::string> _scenePath;
 protected:
 	int _gameScore, _enemyScore;
+	int _wordCount;
+	std::string _gameWord;
+	int _jumpCount, _enemyJumpCount;
 	cocos2d::Layer * _stepLayer;
 	cocos2d::Label * _topLabel;
 	std::map<std::string, std::string> _synonyms;
 	std::vector <std::string> _mapKey;
+	std::vector <std::string> _rightWords;
+	std::vector <std::string> _wrongWords;
 	cocos2d::Vector <cocos2d::Sprite *> _choiceButton;
 	cocos2d::Vector <cocos2d::Label *> _choiceLabel;
 	cocos2d::Node * _character, * _otherCharacter, *_bg;
@@ -41,11 +46,11 @@ protected:
 	void myCharacterEyeBlinking();
 	void otherCharacterJumping(int jumpCount);
 	void wordGenerateWithOptions();
-
-	std::string _gameWord;
-	int _jumpCount, _enemyJumpCount;
+	void winningCelebration();
+	void fallingWords(int index);
+	void fallingWordWithAction(cocos2d::Vector<cocos2d::Label*> fallingWords);
+	void iceLandThemeAnimation();
 	virtual bool onTouchBegan(cocos2d::Touch *touch, cocos2d::Event * event);
-	
 };
 
 #endif 
