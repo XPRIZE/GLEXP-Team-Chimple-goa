@@ -31,6 +31,7 @@ CC_CONSTRUCTOR_ACCESS:
 	bool checkMatch();
 	void chickenFly();
 	void removecurrentlabelsandlisteners();
+	void generateRandomNumbers();
 	static const char* classname() { return WEMBLEY.c_str(); }
 protected:
 	std::vector<int> _currentClickedPair;
@@ -39,7 +40,7 @@ protected:
 	std::vector<std::string> _currentSelectedNestNames;
 	std::vector<cocostudio::timeline::ActionTimeline *> _chickenTimeline;
 	std::vector<cocostudio::timeline::ActionTimeline *> _leaveTimeline;
-
+	std::vector<int> _randomIndex;
 
 	std::vector<std::string> _data_key;
 	std::vector<std::string> _data_value;
