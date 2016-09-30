@@ -1,39 +1,43 @@
 /****************************************************************************
-Copyright (c) 2008-2010 Ricardo Quesada
-Copyright (c) 2010-2012 cocos2d-x.org
-Copyright (c) 2011      Zynga Inc.
-Copyright (c) 2013-2014 Chukong Technologies Inc.
- 
-http://www.cocos2d-x.org
+ Copyright (c) 2008-2010 Ricardo Quesada
+ Copyright (c) 2010-2012 cocos2d-x.org
+ Copyright (c) 2011      Zynga Inc.
+ Copyright (c) 2013-2014 Chukong Technologies Inc.
 
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
+ http://www.cocos2d-x.org
 
-The above copyright notice and this permission notice shall be included in
-all copies or substantial portions of the Software.
+ Permission is hereby granted, free of charge, to any person obtaining a copy
+ of this software and associated documentation files (the "Software"), to deal
+ in the Software without restriction, including without limitation the rights
+ to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ copies of the Software, and to permit persons to whom the Software is
+ furnished to do so, subject to the following conditions:
 
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-THE SOFTWARE.
-****************************************************************************/
+ The above copyright notice and this permission notice shall be included in
+ all copies or substantial portions of the Software.
+
+ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+ THE SOFTWARE.
+ ****************************************************************************/
 package org.cocos2dx.javascript;
 
 import org.cocos2dx.lib.Cocos2dxActivity;
+
+import android.annotation.TargetApi;
 import android.app.Activity;
 import android.content.BroadcastReceiver;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.pm.ActivityInfo;
-import android.net.wifi.p2p.WifiP2pManager;
-import android.net.wifi.p2p.nsd.WifiP2pDnsSdServiceRequest;
+import android.net.wifi.WifiManager;
+import android.net.wifi.p2p.WifiP2pGroup;
+import android.net.wifi.p2p.nsd.WifiP2pServiceInfo;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
@@ -58,19 +62,34 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import org.chimple.goa.R;
 import android.graphics.drawable.ColorDrawable;
+import android.bluetooth.BluetoothAdapter;
 
-public class AppActivity extends Cocos2dxActivity  implements OnClickListener, OnLongClickListener {
-  static {
-    	System.out.println("Loaded library");
-        System.loadLibrary("cocos2djs");
-    }
-    
+import android.content.BroadcastReceiver;
+import android.content.Context;
+import android.content.IntentFilter;
+import android.os.Message;
+import android.util.Log;
+
+import java.lang.reflect.Method;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.UUID;
+import android.widget.Toast;
+
+public class AppActivity extends Cocos2dxActivity  implements OnClickListener, OnLongClickListener{
+	static {
+		System.out.println("Loaded library");
+		System.loadLibrary("cocos2djs");
+	}
+	private static final boolean D = true;
+	
+	private static Cocos2dxActivity _cocosActivity;
 	private static Activity _activity;
 	private static AppActivity _appActivity;
 	private static Context _context;
 	private static int height;
 	public static int width;
-	
+
 	private Vibrator v;
 	private Handler handler = null;
 	public ProgressDialog processLipitkDialog;
@@ -85,31 +104,29 @@ public class AppActivity extends Cocos2dxActivity  implements OnClickListener, O
 	public final int MY_DATA_CHECK_CODE = 1;
 	private TextToSpeech mTts = null;
 	private static Dialog dialog;
+	private static String currentGameName;
+	public static final String TAG = "GOA";
 
+	public static final int BLUETOOTH_REQUEST_DISCOVERABLE_CODE = 42;
 
-	//Wifi Direct Specific
-	public static final String GOA_TAG = "GOA";
-	// TXT RECORD properties
-	public static final String TXTRECORD_PROP_AVAILABLE = "available";
-	public static final String SERVICE_INSTANCE = "_goaMultiplayer_instance_";
-	public static final String SERVICE_REG_TYPE = "_presence._tcp";
+    // Intent request codes
+    private static final int REQUEST_CONNECT_DEVICE_SECURE = 11;
+    private static final int REQUEST_CONNECT_DEVICE_INSECURE = 12;
+    private static final int REQUEST_ENABLE_BT = 13;
 
-	private WifiP2pManager manager;
+    private BlueToothSupport blueToothSupport = null;
+    private BluetoothChatService mChatService = null;
 
-	static final int SERVER_PORT = 4545;
-
-	private final IntentFilter intentFilter = new IntentFilter();
-	private WifiP2pManager.Channel channel;
-	private BroadcastReceiver receiver = null;
-	private WifiP2pDnsSdServiceRequest serviceRequest;
-
+	private boolean isBlueToothAvailable = false;
+	private StringBuffer mOutStringBuffer;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		
+
 		_appActivity = this;
 		_activity = this;
+		_cocosActivity = this;
 		_context = this;
 		handler = new Handler(getMainLooper());
 		installAssets();
@@ -121,38 +138,32 @@ public class AppActivity extends Cocos2dxActivity  implements OnClickListener, O
 		v = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
 
 		setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
-		
+
 		Intent checkIntent = new Intent();
 		checkIntent.setAction(TextToSpeech.Engine.ACTION_CHECK_TTS_DATA);
 		startActivityForResult(checkIntent, MY_DATA_CHECK_CODE);
 
-		//Wifi Direct Initialization
+        blueToothSupport = BlueToothSupport.getInstance(this, null);		
+        blueToothSupport.setBluetoothChatService();
 
-		intentFilter.addAction(WifiP2pManager.WIFI_P2P_STATE_CHANGED_ACTION);
-		intentFilter.addAction(WifiP2pManager.WIFI_P2P_PEERS_CHANGED_ACTION);
-		intentFilter
-				.addAction(WifiP2pManager.WIFI_P2P_CONNECTION_CHANGED_ACTION);
-		intentFilter
-				.addAction(WifiP2pManager.WIFI_P2P_THIS_DEVICE_CHANGED_ACTION);
+        // Get local Bluetooth adapter
+        if(blueToothSupport.getBluetoothAdapter() == null) {
+            isBlueToothAvailable = false;
+		} else {
+			isBlueToothAvailable = true;
+		}	
 
-		initializeWiFiDirect();				
+        // If BT is not on, request that it be enabled.
+        // setupChat() will then be called during onActivityResult
+        // Get local Bluetooth adapter
+        if(BluetoothAdapter.getDefaultAdapter() != null &&
+                BluetoothAdapter.getDefaultAdapter().isEnabled()) {
+            blueToothSupport = BlueToothSupport.getInstance(this, null);
+            blueToothSupport.setBluetoothChatService();
+        }		
+
+		mOutStringBuffer = new StringBuffer("");
 	}
-
-
-	private void initializeWiFiDirect() {
-		System.out.println("111111");
-		manager = (WifiP2pManager) getSystemService(Context.WIFI_P2P_SERVICE);
-		System.out.println("22222" + manager);
-		channel = manager.initialize(this, getMainLooper(), new WifiP2pManager.ChannelListener() {
-			@Override
-			public void onChannelDisconnected() {
-				initializeWiFiDirect();
-			}
-		});
-
-		System.out.println("3333" + channel);
-	}
-
 
 	@Override
 	public void onActivityResult(int requestCode, int resultCode, Intent data) {
@@ -171,6 +182,40 @@ public class AppActivity extends Cocos2dxActivity  implements OnClickListener, O
 				startActivity(installIntent);
 			}
 		}
+		else if(requestCode == REQUEST_ENABLE_BT) {
+			// When the request to enable Bluetooth returns
+			if (resultCode == Activity.RESULT_OK) {
+				// Bluetooth is now enabled, so set up a chat session
+				initializeBluetoothSupport();
+				ensureDiscoverable();
+			} else {
+				// User did not enable Bluetooth or an error occurred
+				Log.d(TAG, "BT not enabled");
+				showToast("BT not enabled");								
+			}
+		}
+		else if(requestCode == BLUETOOTH_REQUEST_DISCOVERABLE_CODE) {
+			// Bluetooth Discoverable Mode does not return the standard
+			// Activity result codes.
+			// Instead, the result code is the duration (seconds) of
+			// discoverability or a negative number if the user answered "NO".
+			if (resultCode < 0) {
+				//showWarning();
+			} else {
+				Log.d(TAG, "Discoverable mode enabled.");
+				showToast("Discoverable mode enabled.");				
+				Intent serverIntent = null;
+				serverIntent = new Intent(this, DeviceListActivity.class);
+				startActivityForResult(serverIntent, REQUEST_CONNECT_DEVICE_SECURE);
+			}
+		} 
+		else if(requestCode ==  REQUEST_CONNECT_DEVICE_SECURE) {
+			// When DeviceListActivity returns with a device to connect
+			if (resultCode == Activity.RESULT_OK) {
+				blueToothSupport.connectDevice(data, true);
+				blueToothSupport.setActivity(this);
+			}			
+		}
 		else if (resultCode == Activity.RESULT_OK) {
 			final String photoUrl = data.getStringExtra(Utility.PHOTO_DESTINATION_URL);
 
@@ -188,7 +233,7 @@ public class AppActivity extends Cocos2dxActivity  implements OnClickListener, O
 					execute("CANCELLED");
 				}
 			}, 100 * 1);
-			
+
 		}
 	}
 
@@ -201,8 +246,7 @@ public class AppActivity extends Cocos2dxActivity  implements OnClickListener, O
 		}
 
 	}
-
-
+	
 	public static native boolean photoDestinationURL(String path);
 
 	private void execute(final String photoUrl) {
@@ -245,7 +289,7 @@ public class AppActivity extends Cocos2dxActivity  implements OnClickListener, O
 		topLayout.setLayoutParams(
 				new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.MATCH_PARENT));
 		topLayout.setBackgroundColor(Color.WHITE);
-		
+
 		cenerLayout = new LinearLayout(_activity);
 		cenerLayout.setOrientation(LinearLayout.HORIZONTAL);
 		LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT,
@@ -257,12 +301,12 @@ public class AppActivity extends Cocos2dxActivity  implements OnClickListener, O
 		main.setAlpha(0.5f);
 		main.addView(cenerLayout);
 		main.addView(topLayout);
-		dialog.setContentView(main);		
+		dialog.setContentView(main);
 		dialog.getWindow().setLayout(width, height);
 		dialog.show();
-	}	
+	}
 
-public static void drawCanvas(final int posX, final int posY, final int hGravity, final int vGravity){
+	public static void drawCanvas(final int posX, final int posY, final int hGravity, final int vGravity){
 		String tag = "drawCanvas";
 		String message = "I've been called from C++";
 		Log.d(tag, "Showing alert dialog: " + message);
@@ -270,7 +314,7 @@ public static void drawCanvas(final int posX, final int posY, final int hGravity
 		_activity.runOnUiThread(new Runnable() {
 			public void run() {
 				String tag1 = "UI RUN";
-				Log.d(tag1, "Showing alert in RUN Method on UI Thread");				
+				Log.d(tag1, "Showing alert in RUN Method on UI Thread");
 				showCustomDialog(_activity, posX, posY, hGravity, vGravity);
 			}
 		});
@@ -381,5 +425,155 @@ public static void drawCanvas(final int posX, final int posY, final int hGravity
 				sendRecognizedStringToGame(characterStr);
 			}
 		});
-	}	
+	}
+
+	@Override
+	protected void onDestroy() {
+		super.onDestroy();
+	}
+
+
+
+	@Override
+	protected void onStop() {
+		super.onStop();
+	}
+
+	@Override
+	public void onResume() {
+		super.onResume();
+	}
+
+	@Override
+	public void onPause() {
+		super.onPause();
+	}
+
+	public void showToast(final String msg) {
+        AppActivity.this.runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                Toast.makeText(AppActivity.this, msg, Toast.LENGTH_SHORT).show();
+
+            }
+        });
+    }	
+
+	public void appendStatus(String status) {
+		Log.d(TAG, "Status from WIFi-Direct: " + status);
+	}
+
+	public static boolean launchGameNotification() {
+		boolean result = false;
+		if(_appActivity.currentGameName != null) {
+			Log.d(TAG, "launchGameNotification WIFi-Direct:" + _appActivity.currentGameName);
+			String gameName = _appActivity.currentGameName;
+			result = launchGame(gameName);
+			_appActivity.currentGameName = null; 
+		}
+		return result;
+	}
+
+	public static native boolean launchGame(String gameName);
+		
+	public static native boolean displayAvailablePeers(String deviceName, String deviceAddress);
+
+
+	private void ensureDiscoverable() {
+        if (D) Log.d(TAG, "ensure discoverable");
+        if (blueToothSupport.getBluetoothAdapter().getScanMode() !=
+                BluetoothAdapter.SCAN_MODE_CONNECTABLE_DISCOVERABLE) {
+            Intent discoverableIntent = new Intent(BluetoothAdapter.ACTION_REQUEST_DISCOVERABLE);
+            discoverableIntent.putExtra(BluetoothAdapter.EXTRA_DISCOVERABLE_DURATION, 300);
+            //startActivity(discoverableIntent);
+            startActivityForResult(discoverableIntent, BLUETOOTH_REQUEST_DISCOVERABLE_CODE);
+        } else {
+            Intent serverIntent = null;
+            serverIntent = new Intent(this, DeviceListActivity.class);
+            startActivityForResult(serverIntent, REQUEST_CONNECT_DEVICE_SECURE);
+        }
+    }
+
+
+	private void initializeBluetoothSupport() {
+		if(blueToothSupport == null) {
+			blueToothSupport = BlueToothSupport.getInstance(_cocosActivity, "chimple_1");
+			blueToothSupport.setBluetoothChatService();
+		}
+		mChatService = blueToothSupport.getBluetoothChatService();		
+	}
+
+
+	public static void enableMultiPlayerMode() {
+		if(BluetoothAdapter.getDefaultAdapter() != null) {
+			if(!BluetoothAdapter.getDefaultAdapter().isEnabled())
+			{
+				Intent enableIntent = new Intent(BluetoothAdapter.ACTION_REQUEST_ENABLE);
+    		    _activity.startActivityForResult(enableIntent, REQUEST_ENABLE_BT);
+			} else {
+				_appActivity.initializeBluetoothSupport();
+				_appActivity.ensureDiscoverable();
+			}			
+		} else {
+			//no bluetooth
+		}
+	}
+ 
+
+	public static void disconnectSockets() {
+		Log.d(TAG, "disconnecting sockets from JNI");
+		_appActivity.blueToothSupport.getBluetoothChatService().stop();
+	}
+ 	/**
+     * Sends a message.
+     *
+     * @param message A string of text to send.
+     */
+    public static void sendMessage(String data) {
+        // Check that we're actually connected before trying anything
+		if(_appActivity.mChatService == null) {
+			_appActivity.mChatService = _appActivity.blueToothSupport.getBluetoothChatService();
+		}
+        if (_appActivity.mChatService.getState() != BluetoothChatService.STATE_CONNECTED) {
+			_activity.runOnUiThread(new Runnable() {
+				public void run() {
+					Log.d(TAG, "Not Connected Status");
+					Toast.makeText(_appActivity, R.string.not_connected, Toast.LENGTH_SHORT).show();
+				}
+			});			
+            return;
+        }
+
+        // Check that there's actually something to send
+        if (data.length() > 0) {
+            // Get the message bytes and tell the BluetoothChatService to write
+            byte[] send = data.getBytes();
+            _appActivity.mChatService.write(send);
+
+            // Reset out string buffer to zero and clear the edit text field
+            _appActivity.mOutStringBuffer.setLength(0);
+        }
+    }
+
+	public static native void updateInformation(String jsonInfo);
+
+    @Override
+    public void updateDiscoveryResults(String result) {
+		if(result != null && !result.isEmpty()) {
+	        if (D) Log.d(TAG, "updating JSON RESULT in app activity:" + result);
+    	    updateOtherDeviceInformation(result);
+		}
+    }
+
+
+	private void updateOtherDeviceInformation(final String information) {
+		((Cocos2dxActivity) _activity).runOnGLThread(new Runnable() {
+			@Override
+			public void run() {
+				// TODO Auto-generated method stub
+				System.out.println("Updating information :" + information);
+				updateInformation(information);
+			}
+		});
+	}
 }
