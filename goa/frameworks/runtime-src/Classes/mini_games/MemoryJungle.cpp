@@ -128,7 +128,7 @@ bool MemoryJungle::init() {
 		std::string queryc = sstreamc.str();
 
 		_activeNestIds[_currentNest] = _currentNest;
-		_memoryfarm->getChildByName("mainground")->getChildByName(queryc)->getChildByName("leave")->getChildByName("leave")->setAnchorPoint(Vec2(0.5, 0.5));
+		_memoryfarm->getChildByName("mainground")->getChildByName(queryc)->getChildByName("leave")->getChildByName("leave")->setAnchorPoint(Vec2(0, 0));
 
 		_memoryfarm->getChildByName("mainground")->getChildByName(queryc)->getChildByName("leave")->setPositionX(10);
 
@@ -172,12 +172,9 @@ bool MemoryJungle::init() {
 		label->setTextColor(Color4B::BLUE);
 		label->setName(labelName);
 
+		
 
 		_memoryfarm->getChildByName("mainground")->getChildByName(queryc)->getChildByName("leave")->getChildByName("leave")->addChild(label, 0);
-
-		//_memoryfarm->getChildByName("background")->getChildByName(queryc)->getChildByName("egg")->setVisible(true);
-
-		//_memoryfarm->getChildByName("mainground")->getChildByName(queryc)->getChildByName("egg")->setPositionY(105);
 
 
 		label->setVisible(false);
