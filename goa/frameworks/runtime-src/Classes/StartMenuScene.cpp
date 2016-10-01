@@ -28,6 +28,8 @@
 #include "scripting/js-bindings/manual/ScriptingCore.h"
 #include "mini_games/AlphamoleLevel.h"
 #include "mini_games/Memory.h"
+#include "mini_games/MemoryHero.h"
+#include "mini_games/MemoryJungle.h"
 
 
 USING_NS_CC;
@@ -102,7 +104,16 @@ void StartMenu::startScene(std::string gameName, std::string firstParam, std::st
     } else if(gameName == JASMINE) {
         Director::getInstance()->replaceScene(Jasmin_Mainfile::createScene());
     } else if(gameName == WEMBLEY) {
-        Director::getInstance()->replaceScene(Memory::createScene());
+
+		int numberPicker = RandomHelper::random_int(0, 2);
+		switch (numberPicker) {
+
+		case 0: Director::getInstance()->replaceScene(MemoryJungle::createScene());  break;
+		case 1: Director::getInstance()->replaceScene(MemoryHero::createScene());  break;
+		case 2: Director::getInstance()->replaceScene(Memory::createScene());  break;
+
+		}
+        
     } else if(gameName == JAZZ) {
         Director::getInstance()->replaceScene(jazz::createScene());
     } else if(gameName == CHAIN) {

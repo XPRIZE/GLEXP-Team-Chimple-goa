@@ -41,6 +41,8 @@
 #include "mini_games/Stack.h"
 #include "mini_games/Circle.h"
 #include "mini_games/Decomon.h"
+#include "mini_games/MemoryHero.h"
+#include "mini_games/MemoryJungle.h"
 
 USING_NS_CC;
 
@@ -208,7 +210,17 @@ void ScrollableGameMapScene::gameSelected(Ref* pSender, ui::Widget::TouchEventTy
             } else if(clickedButton->getName() == CHAIN) {
                 Director::getInstance()->replaceScene(Chain::createScene());
             } else if(clickedButton->getName() == WEMBLEY) {
-                Director::getInstance()->replaceScene(Memory::createScene());
+				
+				int numberPicker = RandomHelper::random_int(0, 2);
+				switch (numberPicker) {
+
+					case 0: Director::getInstance()->replaceScene(MemoryJungle::createScene());  break;
+					case 1: Director::getInstance()->replaceScene(MemoryHero::createScene());  break;
+					case 2: Director::getInstance()->replaceScene(Memory::createScene());  break;
+
+				}
+				
+                
             } else if(clickedButton->getName() == JAZZ) {
                 Director::getInstance()->replaceScene(jazz::createScene());
             } else if(clickedButton->getName() == JASMINE) {

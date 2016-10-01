@@ -70,6 +70,8 @@ LOCAL_SRC_FILES := hellojavascript/main.cpp \
 					../../Classes/mini_games/AlphamoleLevel.cpp \
 					../../Classes/mini_games/Alphamole.cpp \
 					../../Classes/mini_games/Memory.cpp \
+                    ../../Classes/mini_games/MemoryJungle.cpp \
+                    ../../Classes/mini_games/MemoryHero.cpp \
 					../../Classes/mini_games/Stack.cpp \
 					../../Classes/mini_games/Circle.cpp \
 					../../Classes/mini_games/Dash.cpp \

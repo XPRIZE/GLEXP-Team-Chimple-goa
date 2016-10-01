@@ -53,6 +53,49 @@
 USING_NS_CC;
 using namespace CocosDenshion;
 
+#if (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
+extern "C"
+{
+    jboolean Java_org_cocos2dx_javascript_AppActivity_displayAvailablePeers(JNIEnv* env, jobject thiz,jstring deviceName, jstring deviceAddress)
+    {
+        const char* strDeviceName = env->GetStringUTFChars(deviceName, NULL);
+        std::string tempStrDeviceName(strDeviceName);
+        
+        const char* strDeviceAddress = env->GetStringUTFChars(deviceAddress, NULL);
+        std::string tempStrDeviceAddress(strDeviceAddress);
+        
+        
+        CCLOG("strDeviceAddress %s", strDeviceAddress);
+        CCLOG("tempStrDeviceName %s", strDeviceName);
+        
+        
+        std::map<std::string, std::string> peerInformationMap;
+        peerInformationMap.insert(std::make_pair("deviceAddress", tempStrDeviceAddress));
+        peerInformationMap.insert(std::make_pair("deviceName", tempStrDeviceName));
+        
+        Director::getInstance()->getEventDispatcher()->dispatchCustomEvent("peer_information_received_event", static_cast<void*>(&peerInformationMap));
+        
+        
+        return true;
+    }
+    
+    
+    jboolean Java_org_cocos2dx_javascript_AppActivity_updateInformation(JNIEnv* env, jobject thiz, jstring jsonStr)
+    {
+        const char* cjsonStr = env->GetStringUTFChars(jsonStr, NULL);
+        std::string inputStr(cjsonStr);
+        
+        CCLOG("enemy information %s", cjsonStr);
+        
+        Director::getInstance()->getEventDispatcher()->dispatchCustomEvent("enemy_information_received_event", static_cast<void*>(&inputStr));
+        
+        
+        return true;
+    }
+    
+}
+#endif
+
 static Size designResolutionSize = Size(2560, 1800);
 static Size smallResolutionSize = Size(640, 450);
 static Size mediumResolutionSize = Size(1280, 900);

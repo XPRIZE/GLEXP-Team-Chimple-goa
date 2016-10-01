@@ -352,6 +352,11 @@ public abstract class Cocos2dxActivity extends Activity implements Cocos2dxHelpe
     }
     
     @Override
+    public void updateDiscoveryResults(String result) {
+    	//empty implementation
+    }
+    
+    @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data)
     {
         for (OnActivityResultListener listener : Cocos2dxHelper.getOnActivityResultListeners()) {
