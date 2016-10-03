@@ -67,10 +67,12 @@ xc.Pinata = cc.Layer.extend({
     boardText.setPosition(board.width/2,board.height/2);                    
     board.addChild(boardText);
     if(gameTheme == "pinatacream"){  boardText.setColor(new cc.color(155 ,42,50,255));  }
-
+    if(gameTheme == "pinatacity"){  boardText.setColor(new cc.color(0,0,0,255));  }
+    
     var targetA = this.gameBg.node.getChildByName("targeta");
     var targetAText = new cc.LabelTTF(""+this.map[mapKeyArray[0]],"res/fonts/Marker Felt.ttf",120);
     if(gameTheme == "pinatajungle") targetAText.setFontSize(80);
+    if(gameTheme == "pinatacity"){  targetAText.setColor(new cc.color(0,0,0,255));  }
     targetAText.setName(targetA.getName());
     targetAText.setPosition(targetA.width/2,targetA.height/2 - heightTolrence);
     targetA.addChild(targetAText);
@@ -78,6 +80,7 @@ xc.Pinata = cc.Layer.extend({
     var targetB = this.gameBg.node.getChildByName("targetb");
     var targetBText = new cc.LabelTTF(""+this.map[mapKeyArray[1]],"res/fonts/Marker Felt.ttf",120);
     if(gameTheme == "pinatajungle") targetBText.setFontSize(80);
+    if(gameTheme == "pinatacity"){  targetBText.setColor(new cc.color(0,0,0,255));  }
     targetBText.setName(targetB.getName());
     targetBText.setPosition(targetB.width/2,targetB.height/2 - heightTolrence);                      
     targetB.addChild(targetBText);
@@ -85,6 +88,7 @@ xc.Pinata = cc.Layer.extend({
     var targetC = this.gameBg.node.getChildByName("targetc");
     var targetCText = new cc.LabelTTF(""+this.map[mapKeyArray[2]],"res/fonts/Marker Felt.ttf",120);
     if(gameTheme == "pinatajungle") targetCText.setFontSize(80);
+    if(gameTheme == "pinatacity"){  targetCText.setColor(new cc.color(0,0,0,255));  }
     targetCText.setName(targetC.getName());
     targetCText.setPosition(targetC.width/2,targetC.height/2 - heightTolrence);                      
     targetC.addChild(targetCText);
@@ -113,7 +117,6 @@ xc.Pinata = cc.Layer.extend({
     if(this.bubblePlayer.getName() == "pinatacity")
     this.gameBg.node.getChildByName("slingshot_16").visible = false;
 
-//cc.EventListener.TOUCH_ALL_AT_ONCE
     var classReference = this;
     var listnerBg = cc.EventListener.create({event: cc.EventListener.TOUCH_ONE_BY_ONE, swallowTouches: false,
             onTouchBegan :function(touch, event){
@@ -154,7 +157,6 @@ xc.Pinata = cc.Layer.extend({
                 classReference.player.angle = classReference.radToDeg(Math.atan2((touch.getLocation().y - classReference.player.y),(-touch.getLocation().x + classReference.player.x)));
                  classReference.player.prevX = Math.abs(classReference.player.prevX - touch.getLocation().x);
                  classReference.player.prevY = Math.abs(classReference.player.prevY - touch.getLocation().y); 
-    //             console.log("x distance is : "+ classReference.player.prevX + " y distance is : "+ classReference.player.prevY);
 
                 if(classReference.rightLine != undefined){
                     classReference.removeChild(classReference.rightLine);
@@ -181,7 +183,7 @@ xc.Pinata = cc.Layer.extend({
                             classReference.player.x = classReference.bubblePlayer.x;    classReference.player.y = classReference.bubblePlayer.y;
                             classReference.shootingFlag = false;
                             classReference.gameBg.node.getChildByName("board").freezShooting = true;
-                        }, 3000);                     
+                        }, 3000);                    
                     }
                 }
             }
@@ -245,7 +247,7 @@ xc.Pinata = cc.Layer.extend({
 
                 setTimeout(function() {
                         classReference.flagSingleTouchFirst = true;
-                },1000);
+                },700);
 
                 return false;
             }
