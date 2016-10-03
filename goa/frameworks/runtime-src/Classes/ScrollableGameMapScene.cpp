@@ -238,7 +238,7 @@ void ScrollableGameMapScene::gameSelected(Ref* pSender, ui::Widget::TouchEventTy
 			}
             break;
         }
-            
+
         case ui::Widget::TouchEventType::CANCELED:
             break;
         default:

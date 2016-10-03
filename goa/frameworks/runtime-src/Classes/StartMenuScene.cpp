@@ -30,6 +30,7 @@
 #include "mini_games/Memory.h"
 #include "mini_games/MemoryHero.h"
 #include "mini_games/MemoryJungle.h"
+#include "mini_games/Stack.h"
 
 
 USING_NS_CC;
@@ -141,7 +142,11 @@ void StartMenu::startScene(std::string gameName, std::string firstParam, std::st
 //        ScriptingCore::getInstance()->runScript("src/start/dots.js");
 	}else if (gameName == PINATA) {
 		ScriptingCore::getInstance()->runScript("src/start/pinata.js");
-	} else{
+	}
+	else if (gameName == STACK) {
+		Director::getInstance()->replaceScene(Stack::createScene());
+	}
+	else{
         CCLOG("Failed starting scene: %s", gameName.c_str());
     }
 }
