@@ -41,7 +41,7 @@ static const std::string PEG = "peg";
 static const std::string BUBBLE = "bubble";
 static const std::string CIRCLE = "Circle";
 static const std::string PINATA = "pinata";
-
+static const std::string STACK = "stack";
 
 
 class StartMenu {
