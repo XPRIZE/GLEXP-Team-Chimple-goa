@@ -4,380 +4,440 @@
     <dict>
         <key>frames</key>
         <dict>
-            <key>jungle/junglec/branch-11.png</key>
+            <key>bingocity/bear_face.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
                 <key>spriteOffset</key>
                 <string>{0,0}</string>
                 <key>spriteSize</key>
-                <string>{512,27}</string>
+                <string>{70,73}</string>
                 <key>spriteSourceSize</key>
-                <string>{512,27}</string>
+                <string>{70,73}</string>
                 <key>textureRect</key>
-                <string>{{283,1},{512,27}}</string>
+                <string>{{501,416},{70,73}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>jungle/junglec/chimp-11.png</key>
+            <key>bingocity/bear_mouth1.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
                 <key>spriteOffset</key>
                 <string>{0,0}</string>
                 <key>spriteSize</key>
-                <string>{95,95}</string>
+                <string>{22,23}</string>
                 <key>spriteSourceSize</key>
-                <string>{95,95}</string>
+                <string>{22,23}</string>
                 <key>textureRect</key>
-                <string>{{381,30},{95,95}}</string>
+                <string>{{161,483},{22,23}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>jungle/junglec/chimp-12.png</key>
+            <key>bingocity/bear_mouth2.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
                 <key>spriteOffset</key>
                 <string>{0,0}</string>
                 <key>spriteSize</key>
-                <string>{20,15}</string>
+                <string>{22,23}</string>
                 <key>spriteSourceSize</key>
-                <string>{20,15}</string>
+                <string>{22,23}</string>
                 <key>textureRect</key>
-                <string>{{957,74},{20,15}}</string>
+                <string>{{573,477},{22,23}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+            <key>bingocity/bgball.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{21,6}</string>
+                <key>spriteSourceSize</key>
+                <string>{21,6}</string>
+                <key>textureRect</key>
+                <string>{{227,500},{21,6}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+            <key>bingocity/board.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{625,328}</string>
+                <key>spriteSourceSize</key>
+                <string>{625,328}</string>
+                <key>textureRect</key>
+                <string>{{1,1},{625,328}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+            <key>bingocity/boardhelp.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{260,63}</string>
+                <key>spriteSourceSize</key>
+                <string>{260,63}</string>
+                <key>textureRect</key>
+                <string>{{1,331},{260,63}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+            <key>bingocity/brick.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{58,29}</string>
+                <key>spriteSourceSize</key>
+                <string>{58,29}</string>
+                <key>textureRect</key>
+                <string>{{591,331},{58,29}}</string>
                 <key>textureRotated</key>
                 <true/>
             </dict>
-            <key>jungle/junglec/chimp-12a.png</key>
+            <key>bingocity/cat_face.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
                 <key>spriteOffset</key>
-                <string>{0,1}</string>
+                <string>{0,0}</string>
                 <key>spriteSize</key>
-                <string>{20,13}</string>
+                <string>{83,68}</string>
                 <key>spriteSourceSize</key>
-                <string>{20,15}</string>
+                <string>{83,68}</string>
                 <key>textureRect</key>
-                <string>{{957,96},{20,13}}</string>
+                <string>{{449,331},{83,68}}</string>
                 <key>textureRotated</key>
                 <true/>
             </dict>
-            <key>jungle/junglec/cimp-17.png</key>
+            <key>bingocity/cat_mouth1.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
                 <key>spriteOffset</key>
                 <string>{0,0}</string>
                 <key>spriteSize</key>
-                <string>{71,63}</string>
+                <string>{51,16}</string>
                 <key>spriteSourceSize</key>
-                <string>{71,63}</string>
+                <string>{51,16}</string>
                 <key>textureRect</key>
-                <string>{{909,1},{71,63}}</string>
+                <string>{{54,483},{51,16}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+            <key>bingocity/cat_mouth2.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{51,22}</string>
+                <key>spriteSourceSize</key>
+                <string>{51,22}</string>
+                <key>textureRect</key>
+                <string>{{1,483},{51,22}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+            <key>bingocity/corner.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{54,72}</string>
+                <key>spriteSourceSize</key>
+                <string>{54,72}</string>
+                <key>textureRect</key>
+                <string>{{573,403},{54,72}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+            <key>bingocity/elephant_face.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{85,52}</string>
+                <key>spriteSourceSize</key>
+                <string>{85,52}</string>
+                <key>textureRect</key>
+                <string>{{250,439},{85,52}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+            <key>bingocity/elephant_mouth1.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{25,9}</string>
+                <key>spriteSourceSize</key>
+                <string>{25,9}</string>
+                <key>textureRect</key>
+                <string>{{291,493},{25,9}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+            <key>bingocity/elephant_mouth2.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{25,14}</string>
+                <key>spriteSourceSize</key>
+                <string>{25,14}</string>
+                <key>textureRect</key>
+                <string>{{262,419},{25,14}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+            <key>bingocity/elephant_trunk.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{7,39}</string>
+                <key>spriteSourceSize</key>
+                <string>{7,39}</string>
+                <key>textureRect</key>
+                <string>{{250,493},{7,39}}</string>
                 <key>textureRotated</key>
                 <true/>
             </dict>
-            <key>jungle/junglec/cimp-18.png</key>
+            <key>bingocity/eye_close.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
                 <key>spriteOffset</key>
                 <string>{0,0}</string>
                 <key>spriteSize</key>
-                <string>{12,61}</string>
+                <string>{40,6}</string>
                 <key>spriteSourceSize</key>
-                <string>{12,61}</string>
+                <string>{40,6}</string>
                 <key>textureRect</key>
-                <string>{{139,106},{12,61}}</string>
+                <string>{{185,500},{40,6}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+            <key>bingocity/eye_open.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{41,10}</string>
+                <key>spriteSourceSize</key>
+                <string>{41,10}</string>
+                <key>textureRect</key>
+                <string>{{250,396},{41,10}}</string>
                 <key>textureRotated</key>
                 <true/>
             </dict>
-            <key>jungle/junglec/cimp-19.png</key>
+            <key>bingocity/giraffe_face.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
                 <key>spriteOffset</key>
                 <string>{0,0}</string>
                 <key>spriteSize</key>
-                <string>{12,34}</string>
+                <string>{81,73}</string>
                 <key>spriteSourceSize</key>
-                <string>{12,34}</string>
+                <string>{81,73}</string>
                 <key>textureRect</key>
-                <string>{{202,106},{12,34}}</string>
+                <string>{{426,419},{81,73}}</string>
                 <key>textureRotated</key>
                 <true/>
             </dict>
-            <key>jungle/junglec/giraffe-13.png</key>
+            <key>bingocity/giraffe_mouth1.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
                 <key>spriteOffset</key>
                 <string>{0,0}</string>
                 <key>spriteSize</key>
-                <string>{82,92}</string>
+                <string>{25,21}</string>
                 <key>spriteSourceSize</key>
-                <string>{82,92}</string>
+                <string>{25,21}</string>
                 <key>textureRect</key>
-                <string>{{478,30},{82,92}}</string>
+                <string>{{134,483},{25,21}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>jungle/junglec/leave-10.png</key>
+            <key>bingocity/giraffe_mouth2.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
                 <key>spriteOffset</key>
                 <string>{0,0}</string>
                 <key>spriteSize</key>
-                <string>{100,42}</string>
+                <string>{25,22}</string>
                 <key>spriteSourceSize</key>
-                <string>{100,42}</string>
+                <string>{25,22}</string>
                 <key>textureRect</key>
-                <string>{{635,30},{100,42}}</string>
+                <string>{{107,483},{25,22}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>jungle/junglec/leave-w.png</key>
+            <key>bingocity/letterbox.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
                 <key>spriteOffset</key>
                 <string>{0,0}</string>
                 <key>spriteSize</key>
-                <string>{100,42}</string>
+                <string>{184,85}</string>
                 <key>spriteSourceSize</key>
-                <string>{100,42}</string>
+                <string>{184,85}</string>
                 <key>textureRect</key>
-                <string>{{635,74},{100,42}}</string>
+                <string>{{1,396},{184,85}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>jungle/junglec/leopard-14.png</key>
+            <key>bingocity/letterboxshade.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
                 <key>spriteOffset</key>
                 <string>{0,0}</string>
                 <key>spriteSize</key>
-                <string>{96,74}</string>
+                <string>{184,86}</string>
                 <key>spriteSourceSize</key>
-                <string>{96,74}</string>
+                <string>{184,86}</string>
                 <key>textureRect</key>
-                <string>{{283,30},{96,74}}</string>
+                <string>{{263,331},{184,86}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>jungle/junglec/leopard-15.png</key>
+            <key>bingocity/lion_face.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
                 <key>spriteOffset</key>
                 <string>{0,0}</string>
                 <key>spriteSize</key>
-                <string>{22,8}</string>
+                <string>{70,70}</string>
                 <key>spriteSourceSize</key>
-                <string>{22,8}</string>
+                <string>{70,70}</string>
                 <key>textureRect</key>
-                <string>{{347,113},{22,8}}</string>
+                <string>{{519,331},{70,70}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>jungle/junglec/leopard-15sd.png</key>
+            <key>bingocity/lion_mouth1.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
                 <key>spriteOffset</key>
-                <string>{0,1}</string>
+                <string>{0,0}</string>
                 <key>spriteSize</key>
-                <string>{22,6}</string>
+                <string>{17,19}</string>
                 <key>spriteSourceSize</key>
-                <string>{22,8}</string>
+                <string>{17,19}</string>
                 <key>textureRect</key>
-                <string>{{213,120},{22,6}}</string>
-                <key>textureRotated</key>
-                <false/>
-            </dict>
-            <key>jungle/junglec/lion-02.png</key>
-            <dict>
-                <key>aliases</key>
-                <array/>
-                <key>spriteOffset</key>
-                <string>{-1,0}</string>
-                <key>spriteSize</key>
-                <string>{120,136}</string>
-                <key>spriteSourceSize</key>
-                <string>{122,136}</string>
-                <key>textureRect</key>
-                <string>{{1,1},{120,136}}</string>
+                <string>{{289,419},{17,19}}</string>
                 <key>textureRotated</key>
                 <true/>
             </dict>
-            <key>jungle/junglec/lion-06.png</key>
+            <key>bingocity/lion_mouth2.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
                 <key>spriteOffset</key>
                 <string>{0,0}</string>
                 <key>spriteSize</key>
-                <string>{40,16}</string>
+                <string>{17,19}</string>
                 <key>spriteSourceSize</key>
-                <string>{40,16}</string>
+                <string>{17,19}</string>
                 <key>textureRect</key>
-                <string>{{238,106},{40,16}}</string>
-                <key>textureRotated</key>
-                <false/>
-            </dict>
-            <key>jungle/junglec/lion-07.png</key>
-            <dict>
-                <key>aliases</key>
-                <array/>
-                <key>spriteOffset</key>
-                <string>{0,0}</string>
-                <key>spriteSize</key>
-                <string>{42,6}</string>
-                <key>spriteSourceSize</key>
-                <string>{42,6}</string>
-                <key>textureRect</key>
-                <string>{{139,120},{42,6}}</string>
-                <key>textureRotated</key>
-                <false/>
-            </dict>
-            <key>jungle/junglec/lion-08.png</key>
-            <dict>
-                <key>aliases</key>
-                <array/>
-                <key>spriteOffset</key>
-                <string>{0,0}</string>
-                <key>spriteSize</key>
-                <string>{35,9}</string>
-                <key>spriteSourceSize</key>
-                <string>{35,9}</string>
-                <key>textureRect</key>
-                <string>{{280,106},{35,9}}</string>
-                <key>textureRotated</key>
-                <false/>
-            </dict>
-            <key>jungle/junglec/lion-08d.png</key>
-            <dict>
-                <key>aliases</key>
-                <array/>
-                <key>spriteOffset</key>
-                <string>{0,0}</string>
-                <key>spriteSize</key>
-                <string>{35,9}</string>
-                <key>spriteSourceSize</key>
-                <string>{35,9}</string>
-                <key>textureRect</key>
-                <string>{{280,117},{35,9}}</string>
-                <key>textureRotated</key>
-                <false/>
-            </dict>
-            <key>jungle/junglec/player.png</key>
-            <dict>
-                <key>aliases</key>
-                <array/>
-                <key>spriteOffset</key>
-                <string>{0,0}</string>
-                <key>spriteSize</key>
-                <string>{47,46}</string>
-                <key>spriteSourceSize</key>
-                <string>{47,46}</string>
-                <key>textureRect</key>
-                <string>{{909,74},{47,46}}</string>
+                <string>{{310,419},{17,19}}</string>
                 <key>textureRotated</key>
                 <true/>
             </dict>
-            <key>jungle/junglec/star.png</key>
+            <key>bingocity/pig_face.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
                 <key>spriteOffset</key>
                 <string>{0,0}</string>
                 <key>spriteSize</key>
-                <string>{110,110}</string>
+                <string>{87,69}</string>
                 <key>spriteSourceSize</key>
-                <string>{118,118}</string>
+                <string>{87,69}</string>
                 <key>textureRect</key>
-                <string>{{797,1},{110,110}}</string>
+                <string>{{337,427},{87,69}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>jungle/junglec/traget.png</key>
+            <key>bingocity/pig_mouth1.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
                 <key>spriteOffset</key>
-                <string>{0,1}</string>
+                <string>{0,0}</string>
                 <key>spriteSize</key>
-                <string>{78,53}</string>
+                <string>{19,6}</string>
                 <key>spriteSourceSize</key>
-                <string>{78,55}</string>
+                <string>{19,6}</string>
                 <key>textureRect</key>
-                <string>{{737,30},{78,53}}</string>
+                <string>{{331,419},{19,6}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+            <key>bingocity/pig_mouth2.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{17,10}</string>
+                <key>spriteSourceSize</key>
+                <string>{17,10}</string>
+                <key>textureRect</key>
+                <string>{{318,493},{17,10}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+            <key>bingocity/upper.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{102,61}</string>
+                <key>spriteSourceSize</key>
+                <string>{102,61}</string>
+                <key>textureRect</key>
+                <string>{{187,396},{102,61}}</string>
                 <key>textureRotated</key>
                 <true/>
-            </dict>
-            <key>jungle/junglec/wildebeest-16.png</key>
-            <dict>
-                <key>aliases</key>
-                <array/>
-                <key>spriteOffset</key>
-                <string>{0,0}</string>
-                <key>spriteSize</key>
-                <string>{142,103}</string>
-                <key>spriteSourceSize</key>
-                <string>{142,103}</string>
-                <key>textureRect</key>
-                <string>{{139,1},{142,103}}</string>
-                <key>textureRotated</key>
-                <false/>
-            </dict>
-            <key>jungle/junglec/zebra-09.png</key>
-            <dict>
-                <key>aliases</key>
-                <array/>
-                <key>spriteOffset</key>
-                <string>{0,0}</string>
-                <key>spriteSize</key>
-                <string>{71,94}</string>
-                <key>spriteSourceSize</key>
-                <string>{71,94}</string>
-                <key>textureRect</key>
-                <string>{{562,30},{71,94}}</string>
-                <key>textureRotated</key>
-                <false/>
-            </dict>
-            <key>jungle/junglec/zebra-10.png</key>
-            <dict>
-                <key>aliases</key>
-                <array/>
-                <key>spriteOffset</key>
-                <string>{0,0}</string>
-                <key>spriteSize</key>
-                <string>{28,8}</string>
-                <key>spriteSourceSize</key>
-                <string>{28,8}</string>
-                <key>textureRect</key>
-                <string>{{317,113},{28,8}}</string>
-                <key>textureRotated</key>
-                <false/>
-            </dict>
-            <key>jungle/junglec/zebra-10d.png</key>
-            <dict>
-                <key>aliases</key>
-                <array/>
-                <key>spriteOffset</key>
-                <string>{0,1}</string>
-                <key>spriteSize</key>
-                <string>{28,6}</string>
-                <key>spriteSourceSize</key>
-                <string>{28,8}</string>
-                <key>textureRect</key>
-                <string>{{183,120},{28,6}}</string>
-                <key>textureRotated</key>
-                <false/>
             </dict>
         </dict>
         <key>metadata</key>
@@ -389,13 +449,13 @@
             <key>premultiplyAlpha</key>
             <false/>
             <key>realTextureFileName</key>
-            <string>junglec.png</string>
+            <string>bingocity.png</string>
             <key>size</key>
-            <string>{973,127}</string>
+            <string>{628,507}</string>
             <key>smartupdate</key>
-            <string>$TexturePacker:SmartUpdate:cdebc4229bda8657e4b93316c864fcd3:63668f1bed8b39a5a83bffa4e37307d2:c317e0306373b68cec4ea2e0ba4393c4$</string>
+            <string>$TexturePacker:SmartUpdate:06721e99fd8746f74c4cb7c4221dee3d:d9c85dd64733690850e1fd00bad4dd0a:62a6d6806622da65f759e75d34ce9b89$</string>
             <key>textureFileName</key>
-            <string>junglec.png</string>
+            <string>bingocity.png</string>
         </dict>
     </dict>
 </plist>
