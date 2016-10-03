@@ -31,7 +31,7 @@
 #include "mini_games/MemoryHero.h"
 #include "mini_games/MemoryJungle.h"
 #include "mini_games/Stack.h"
-
+#include "mini_games/Talk.h"
 
 USING_NS_CC;
 
@@ -145,6 +145,9 @@ void StartMenu::startScene(std::string gameName, std::string firstParam, std::st
 	}
 	else if (gameName == STACK) {
 		Director::getInstance()->replaceScene(Stack::createScene());
+	}
+	else if (gameName == TALK) {
+		Director::getInstance()->replaceScene(Talk::createScene());
 	}
 	else{
         CCLOG("Failed starting scene: %s", gameName.c_str());
