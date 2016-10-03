@@ -44,6 +44,7 @@
 #include "mini_games/MemoryHero.h"
 #include "mini_games/MemoryJungle.h"
 #include "mini_games/Talk.h"
+#include "mini_games/BalloonHero.h"
 
 USING_NS_CC;
 
@@ -213,7 +214,7 @@ void ScrollableGameMapScene::gameSelected(Ref* pSender, ui::Widget::TouchEventTy
                 Director::getInstance()->replaceScene(Chain::createScene());
             } else if(clickedButton->getName() == WEMBLEY) {
 				
-				int numberPicker = RandomHelper::random_int(0, 2);
+				/*int numberPicker = RandomHelper::random_int(0, 2);
 				switch (numberPicker) {
 
 					case 0: Director::getInstance()->replaceScene(MemoryJungle::createScene());  break;
@@ -221,7 +222,8 @@ void ScrollableGameMapScene::gameSelected(Ref* pSender, ui::Widget::TouchEventTy
 					case 2: Director::getInstance()->replaceScene(Memory::createScene());  break;
 
 				}
-				
+				*/
+				Director::getInstance()->replaceScene(BalloonHero::createScene());
                 
             } else if(clickedButton->getName() == JAZZ) {
                 Director::getInstance()->replaceScene(jazz::createScene());
