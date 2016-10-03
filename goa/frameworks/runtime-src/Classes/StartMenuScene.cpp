@@ -34,6 +34,7 @@
 #include "mini_games/Stack.h"
 #include "mini_games/Talk.h"
 
+
 USING_NS_CC;
 
 
