@@ -30,11 +30,9 @@
 #include "mini_games/Memory.h"
 #include "mini_games/MemoryHero.h"
 #include "mini_games/MemoryJungle.h"
-<<<<<<< HEAD
 #include "mini_games/Circle.h"
-=======
 #include "mini_games/Stack.h"
->>>>>>> origin/master
+
 
 
 USING_NS_CC;
