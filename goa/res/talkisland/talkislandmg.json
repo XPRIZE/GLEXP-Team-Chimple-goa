@@ -1,0 +1,290 @@
+{
+  "ID": "bd0595e7-fe76-4db3-b87b-de7e84247e74",
+  "Version": "3.10.0.0",
+  "Name": "talkislandmg",
+  "Content": {
+    "Content": {
+      "Animation": {
+        "Duration": 0,
+        "Speed": 1.0,
+        "Timelines": [],
+        "ctype": "TimelineActionData"
+      },
+      "AnimationList": [],
+      "ObjectData": {
+        "Tag": 55,
+        "Children": [
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "talkisland/hhand.png",
+              "Plist": "talkisland/talkisland.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1826.4404,
+              "Y": 679.8705
+            },
+            "Scale": {
+              "ScaleX": 1.52,
+              "ScaleY": 1.52
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.7135,
+              "Y": 0.3777
+            },
+            "PreSize": {
+              "X": 0.1094,
+              "Y": 0.07
+            },
+            "LeftMargin": 1686.4404,
+            "RightMargin": 593.5596,
+            "TopMargin": 1057.1295,
+            "BottomMargin": 616.8705,
+            "Tag": 132,
+            "ActionTag": -695414646,
+            "Size": {
+              "X": 280.0,
+              "Y": 126.0
+            },
+            "Name": "hhand",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "talkisland/hero.json",
+              "Plist": ""
+            },
+            "StretchWidthEnable": false,
+            "StretchHeightEnable": false,
+            "InnerActionSpeed": 1.0,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 2082.4094,
+              "Y": 331.752
+            },
+            "Scale": {
+              "ScaleX": 1.52,
+              "ScaleY": 1.52
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 0.8134,
+              "Y": 0.1843
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 2082.4094,
+            "RightMargin": 477.5906,
+            "TopMargin": 1468.248,
+            "BottomMargin": 331.752,
+            "Tag": 133,
+            "ActionTag": 893443681,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "hero",
+            "ctype": "ProjectNodeObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "talkisland/ehand.png",
+              "Plist": "talkisland/talkisland.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 789.216,
+              "Y": 691.7465
+            },
+            "Scale": {
+              "ScaleX": 1.52,
+              "ScaleY": 1.52
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.3083,
+              "Y": 0.3843
+            },
+            "PreSize": {
+              "X": 0.0887,
+              "Y": 0.0378
+            },
+            "LeftMargin": 675.716,
+            "RightMargin": 1657.2839,
+            "TopMargin": 1074.2535,
+            "BottomMargin": 657.7465,
+            "Tag": 136,
+            "ActionTag": -1453079870,
+            "Size": {
+              "X": 227.0,
+              "Y": 68.0
+            },
+            "Name": "ehand",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "talkisland/enemy.json",
+              "Plist": ""
+            },
+            "StretchWidthEnable": false,
+            "StretchHeightEnable": false,
+            "InnerActionSpeed": 1.0,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 551.6105,
+              "Y": 331.7516
+            },
+            "Scale": {
+              "ScaleX": 1.52,
+              "ScaleY": 1.52
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 0.2155,
+              "Y": 0.1843
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 551.6105,
+            "RightMargin": 2008.3895,
+            "TopMargin": 1468.2484,
+            "BottomMargin": 331.7516,
+            "Tag": 137,
+            "ActionTag": 1348453165,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "enemy",
+            "ctype": "ProjectNodeObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "talkisland/bubble.json",
+              "Plist": ""
+            },
+            "StretchWidthEnable": false,
+            "StretchHeightEnable": false,
+            "InnerActionSpeed": 1.0,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 331.6129,
+              "Y": 788.0538
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 0.1295,
+              "Y": 0.4378
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 331.6129,
+            "RightMargin": 2228.387,
+            "TopMargin": 1011.9462,
+            "BottomMargin": 788.0538,
+            "Tag": 140,
+            "ActionTag": 1324258447,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "bubble",
+            "ctype": "ProjectNodeObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "talkisland/bubble.json",
+              "Plist": ""
+            },
+            "StretchWidthEnable": false,
+            "StretchHeightEnable": false,
+            "InnerActionSpeed": 1.0,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 2249.4888,
+              "Y": 768.2488
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 0.8787,
+              "Y": 0.4268
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 2249.4888,
+            "RightMargin": 310.5112,
+            "TopMargin": 1031.7512,
+            "BottomMargin": 768.2488,
+            "Tag": 143,
+            "ActionTag": 1317131776,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "bubble",
+            "ctype": "ProjectNodeObjectData"
+          }
+        ],
+        "Size": {
+          "X": 2560.0,
+          "Y": 1800.0
+        },
+        "Name": "Layer",
+        "ctype": "LayerObjectData"
+      },
+      "UsedResources": [
+        "bubble.json",
+        "enemy.json",
+        "hero.json",
+        "talkisland.plist",
+        "talkisland.png"
+      ],
+      "ctype": "GameFileData"
+    }
+  },
+  "Type": "Layer"
+}

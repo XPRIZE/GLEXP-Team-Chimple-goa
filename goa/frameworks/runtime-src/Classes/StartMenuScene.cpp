@@ -28,6 +28,13 @@
 #include "scripting/js-bindings/manual/ScriptingCore.h"
 #include "mini_games/AlphamoleLevel.h"
 #include "mini_games/Memory.h"
+#include "mini_games/MemoryHero.h"
+#include "mini_games/MemoryJungle.h"
+<<<<<<< HEAD
+#include "mini_games/Circle.h"
+=======
+#include "mini_games/Stack.h"
+>>>>>>> origin/master
 
 
 USING_NS_CC;
@@ -102,7 +109,16 @@ void StartMenu::startScene(std::string gameName, std::string firstParam, std::st
     } else if(gameName == JASMINE) {
         Director::getInstance()->replaceScene(Jasmin_Mainfile::createScene());
     } else if(gameName == WEMBLEY) {
-        Director::getInstance()->replaceScene(Memory::createScene());
+
+		int numberPicker = RandomHelper::random_int(0, 2);
+		switch (numberPicker) {
+
+		case 0: Director::getInstance()->replaceScene(MemoryJungle::createScene());  break;
+		case 1: Director::getInstance()->replaceScene(MemoryHero::createScene());  break;
+		case 2: Director::getInstance()->replaceScene(Memory::createScene());  break;
+
+		}
+        
     } else if(gameName == JAZZ) {
         Director::getInstance()->replaceScene(jazz::createScene());
     } else if(gameName == CHAIN) {
@@ -125,11 +141,18 @@ void StartMenu::startScene(std::string gameName, std::string firstParam, std::st
 		ScriptingCore::getInstance()->runScript("src/start/jump.js");
 	} else if (gameName == POP) {
 		ScriptingCore::getInstance()->runScript("src/start/pop.js");
-	} else if (gameName == BUBBLE) {
+	}else if (gameName == CIRCLE) {
+		Director::getInstance()->replaceScene(Circle::createScene());
+	}else if (gameName == BUBBLE) {
 		ScriptingCore::getInstance()->runScript("src/start/BubbleShooter.js");
+//        ScriptingCore::getInstance()->runScript("src/start/dots.js");
 	}else if (gameName == PINATA) {
 		ScriptingCore::getInstance()->runScript("src/start/pinata.js");
-	}else{
+	}
+	else if (gameName == STACK) {
+		Director::getInstance()->replaceScene(Stack::createScene());
+	}
+	else{
         CCLOG("Failed starting scene: %s", gameName.c_str());
     }
 }

@@ -1,0 +1,78 @@
+{
+  "ID": "e53a1ee0-9757-4b46-8290-b2385ee0392f",
+  "Version": "2.3.4",
+  "Name": "cherry",
+  "Content": {
+    "Content": {
+      "Animation": {
+        "Duration": 0,
+        "Speed": 1.0,
+        "Timelines": [],
+        "ctype": "TimelineActionData"
+      },
+      "AnimationList": [],
+      "ObjectData": {
+        "Tag": 209,
+        "Children": [
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "circlecandy/cherry.png",
+              "Plist": "circlecandy/circlecandy.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": -4.426,
+              "Y": -0.0001
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": -187.926,
+            "RightMargin": -179.074,
+            "TopMargin": -161.4999,
+            "BottomMargin": -161.5001,
+            "Tag": 210,
+            "ActionTag": -283006826,
+            "Size": {
+              "X": 367.0,
+              "Y": 323.0
+            },
+            "Name": "cherry_1",
+            "ctype": "SpriteObjectData"
+          }
+        ],
+        "Size": {
+          "X": 0.0,
+          "Y": 0.0
+        },
+        "Name": "Node",
+        "ctype": "SingleNodeObjectData"
+      },
+      "UsedResources": [
+        "circlecandy.plist",
+        "circlecandy.png"
+      ],
+      "ctype": "GameFileData"
+    }
+  },
+  "Type": "Node"
+}

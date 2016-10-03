@@ -23,9 +23,10 @@ xc.GameMap = cc.Scene.extend({
         }else if(sender._configuration.name == 'alphamole') {
             xc.GameScene.load(xc.AlphamoleGameLevelScene);
         }else if(sender._configuration.name == 'jump_on_words') {
-            xc.GameScene.load(xc.menuLayer);
+            xc.GameScene.load(xc.playLayer);
         }else if(sender._configuration.name == 'sortit') {
             xc.GameScene.load(xc.sortitlevel1Layer);
+            // xc.GameScene.load(xc.LevelMenuLayer);
         }
         else if(sender._configuration.name == 'decomon') {
             xc.GameScene.load(xc.DecomonLayer);

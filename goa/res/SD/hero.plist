@@ -4,22 +4,7 @@
     <dict>
         <key>frames</key>
         <dict>
-            <key>hero/beard.png</key>
-            <dict>
-                <key>aliases</key>
-                <array/>
-                <key>spriteOffset</key>
-                <string>{0,0}</string>
-                <key>spriteSize</key>
-                <string>{25,13}</string>
-                <key>spriteSourceSize</key>
-                <string>{25,13}</string>
-                <key>textureRect</key>
-                <string>{{24,17},{25,13}}</string>
-                <key>textureRotated</key>
-                <false/>
-            </dict>
-            <key>hero/body.png</key>
+            <key>hero/base/body.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
@@ -30,71 +15,11 @@
                 <key>spriteSourceSize</key>
                 <string>{16,19}</string>
                 <key>textureRect</key>
-                <string>{{27,32},{16,19}}</string>
-                <key>textureRotated</key>
-                <true/>
-            </dict>
-            <key>hero/eye_inner.png</key>
-            <dict>
-                <key>aliases</key>
-                <array/>
-                <key>spriteOffset</key>
-                <string>{0,0}</string>
-                <key>spriteSize</key>
-                <string>{3,3}</string>
-                <key>spriteSourceSize</key>
-                <string>{3,3}</string>
-                <key>textureRect</key>
-                <string>{{43,58},{3,3}}</string>
+                <string>{{1,43},{16,19}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>hero/eye_outer.png</key>
-            <dict>
-                <key>aliases</key>
-                <array/>
-                <key>spriteOffset</key>
-                <string>{0,0}</string>
-                <key>spriteSize</key>
-                <string>{8,8}</string>
-                <key>spriteSourceSize</key>
-                <string>{8,8}</string>
-                <key>textureRect</key>
-                <string>{{27,50},{8,8}}</string>
-                <key>textureRotated</key>
-                <false/>
-            </dict>
-            <key>hero/eye_outer_left.png</key>
-            <dict>
-                <key>aliases</key>
-                <array/>
-                <key>spriteOffset</key>
-                <string>{0,0}</string>
-                <key>spriteSize</key>
-                <string>{9,6}</string>
-                <key>spriteSourceSize</key>
-                <string>{9,6}</string>
-                <key>textureRect</key>
-                <string>{{37,50},{9,6}}</string>
-                <key>textureRotated</key>
-                <false/>
-            </dict>
-            <key>hero/eye_outer_right.png</key>
-            <dict>
-                <key>aliases</key>
-                <array/>
-                <key>spriteOffset</key>
-                <string>{0,0}</string>
-                <key>spriteSize</key>
-                <string>{7,7}</string>
-                <key>spriteSourceSize</key>
-                <string>{7,7}</string>
-                <key>textureRect</key>
-                <string>{{57,25},{7,7}}</string>
-                <key>textureRotated</key>
-                <false/>
-            </dict>
-            <key>hero/foot_left.png</key>
+            <key>hero/base/foot_left.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
@@ -105,41 +30,26 @@
                 <key>spriteSourceSize</key>
                 <string>{6,1}</string>
                 <key>textureRect</key>
-                <string>{{48,32},{6,1}}</string>
-                <key>textureRotated</key>
-                <true/>
-            </dict>
-            <key>hero/foot_right.png</key>
-            <dict>
-                <key>aliases</key>
-                <array/>
-                <key>spriteOffset</key>
-                <string>{0,0}</string>
-                <key>spriteSize</key>
-                <string>{6,1}</string>
-                <key>spriteSourceSize</key>
-                <string>{6,1}</string>
-                <key>textureRect</key>
-                <string>{{48,58},{6,1}}</string>
+                <string>{{35,40},{6,1}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>hero/hair.png</key>
+            <key>hero/base/foot_right.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
                 <key>spriteOffset</key>
                 <string>{0,0}</string>
                 <key>spriteSize</key>
-                <string>{30,22}</string>
+                <string>{6,1}</string>
                 <key>spriteSourceSize</key>
-                <string>{30,22}</string>
+                <string>{6,1}</string>
                 <key>textureRect</key>
-                <string>{{0,0},{30,22}}</string>
+                <string>{{99,33},{6,1}}</string>
                 <key>textureRotated</key>
-                <true/>
+                <false/>
             </dict>
-            <key>hero/hand.png</key>
+            <key>hero/base/hand.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
@@ -150,41 +60,26 @@
                 <key>spriteSourceSize</key>
                 <string>{3,4}</string>
                 <key>textureRect</key>
-                <string>{{38,58},{3,4}}</string>
+                <string>{{132,34},{3,4}}</string>
                 <key>textureRotated</key>
-                <false/>
+                <true/>
             </dict>
-            <key>hero/hat.png</key>
+            <key>hero/base/head.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
                 <key>spriteOffset</key>
                 <string>{0,0}</string>
                 <key>spriteSize</key>
-                <string>{40,15}</string>
+                <string>{31,33}</string>
                 <key>spriteSourceSize</key>
-                <string>{40,15}</string>
+                <string>{31,33}</string>
                 <key>textureRect</key>
-                <string>{{24,0},{40,15}}</string>
+                <string>{{66,1},{31,33}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>hero/head.png</key>
-            <dict>
-                <key>aliases</key>
-                <array/>
-                <key>spriteOffset</key>
-                <string>{0,0}</string>
-                <key>spriteSize</key>
-                <string>{25,26}</string>
-                <key>spriteSourceSize</key>
-                <string>{25,26}</string>
-                <key>textureRect</key>
-                <string>{{0,32},{25,26}}</string>
-                <key>textureRotated</key>
-                <false/>
-            </dict>
-            <key>hero/hip.png</key>
+            <key>hero/base/hip.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
@@ -195,11 +90,11 @@
                 <key>spriteSourceSize</key>
                 <string>{16,16}</string>
                 <key>textureRect</key>
-                <string>{{48,40},{16,16}}</string>
+                <string>{{138,1},{16,16}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>hero/lower_arm.png</key>
+            <key>hero/base/lower_arm.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
@@ -210,26 +105,11 @@
                 <key>spriteSourceSize</key>
                 <string>{2,9}</string>
                 <key>textureRect</key>
-                <string>{{51,34},{2,9}}</string>
-                <key>textureRotated</key>
-                <true/>
-            </dict>
-            <key>hero/lower_leg_left.png</key>
-            <dict>
-                <key>aliases</key>
-                <array/>
-                <key>spriteOffset</key>
-                <string>{0,0}</string>
-                <key>spriteSize</key>
-                <string>{1,5}</string>
-                <key>spriteSourceSize</key>
-                <string>{1,5}</string>
-                <key>textureRect</key>
-                <string>{{56,58},{1,5}}</string>
+                <string>{{167,29},{2,9}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>hero/lower_leg_right.png</key>
+            <key>hero/base/lower_leg_left.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
@@ -240,56 +120,26 @@
                 <key>spriteSourceSize</key>
                 <string>{1,5}</string>
                 <key>textureRect</key>
-                <string>{{48,61},{1,5}}</string>
+                <string>{{107,33},{1,5}}</string>
                 <key>textureRotated</key>
                 <true/>
             </dict>
-            <key>hero/mouth.png</key>
+            <key>hero/base/lower_leg_right.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
                 <key>spriteOffset</key>
                 <string>{0,0}</string>
                 <key>spriteSize</key>
-                <string>{15,4}</string>
+                <string>{1,5}</string>
                 <key>spriteSourceSize</key>
-                <string>{15,4}</string>
+                <string>{1,5}</string>
                 <key>textureRect</key>
-                <string>{{51,17},{15,4}}</string>
+                <string>{{114,33},{1,5}}</string>
                 <key>textureRotated</key>
                 <true/>
             </dict>
-            <key>hero/mustache.png</key>
-            <dict>
-                <key>aliases</key>
-                <array/>
-                <key>spriteOffset</key>
-                <string>{0,0}</string>
-                <key>spriteSize</key>
-                <string>{15,3}</string>
-                <key>spriteSourceSize</key>
-                <string>{15,3}</string>
-                <key>textureRect</key>
-                <string>{{0,60},{15,3}}</string>
-                <key>textureRotated</key>
-                <false/>
-            </dict>
-            <key>hero/neck.png</key>
-            <dict>
-                <key>aliases</key>
-                <array/>
-                <key>spriteOffset</key>
-                <string>{0,0}</string>
-                <key>spriteSize</key>
-                <string>{6,3}</string>
-                <key>spriteSourceSize</key>
-                <string>{6,3}</string>
-                <key>textureRect</key>
-                <string>{{57,17},{6,3}}</string>
-                <key>textureRotated</key>
-                <true/>
-            </dict>
-            <key>hero/upper_arm.png</key>
+            <key>hero/base/upper_arm.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
@@ -300,11 +150,11 @@
                 <key>spriteSourceSize</key>
                 <string>{3,11}</string>
                 <key>textureRect</key>
-                <string>{{17,60},{3,11}}</string>
+                <string>{{156,14},{3,11}}</string>
                 <key>textureRotated</key>
                 <true/>
             </dict>
-            <key>hero/upper_leg_left.png</key>
+            <key>hero/base/upper_leg_left.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
@@ -315,11 +165,11 @@
                 <key>spriteSourceSize</key>
                 <string>{2,6}</string>
                 <key>textureRect</key>
-                <string>{{62,17},{2,6}}</string>
+                <string>{{128,28},{2,6}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>hero/upper_leg_right.png</key>
+            <key>hero/base/upper_leg_right.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
@@ -330,9 +180,504 @@
                 <key>spriteSourceSize</key>
                 <string>{2,6}</string>
                 <key>textureRect</key>
-                <string>{{30,60},{2,6}}</string>
+                <string>{{162,60},{2,6}}</string>
                 <key>textureRotated</key>
                 <true/>
+            </dict>
+            <key>hero/beard/beard.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{25,13}</string>
+                <key>spriteSourceSize</key>
+                <string>{25,13}</string>
+                <key>textureRect</key>
+                <string>{{123,1},{25,13}}</string>
+                <key>textureRotated</key>
+                <true/>
+            </dict>
+            <key>hero/beard/neck.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{6,3}</string>
+                <key>spriteSourceSize</key>
+                <string>{6,3}</string>
+                <key>textureRect</key>
+                <string>{{123,28},{6,3}}</string>
+                <key>textureRotated</key>
+                <true/>
+            </dict>
+            <key>hero/eye/eye_inner.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{4,4}</string>
+                <key>spriteSourceSize</key>
+                <string>{4,4}</string>
+                <key>textureRect</key>
+                <string>{{132,28},{4,4}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+            <key>hero/eye/eye_outer.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{8,8}</string>
+                <key>spriteSourceSize</key>
+                <string>{8,8}</string>
+                <key>textureRect</key>
+                <string>{{132,55},{8,8}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+            <key>hero/eye/eye_outer_left.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{12,11}</string>
+                <key>spriteSourceSize</key>
+                <string>{12,11}</string>
+                <key>textureRect</key>
+                <string>{{156,1},{12,11}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+            <key>hero/eye/eye_outer_right.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{9,8}</string>
+                <key>spriteSourceSize</key>
+                <string>{9,8}</string>
+                <key>textureRect</key>
+                <string>{{156,29},{9,8}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+            <key>hero/hair/hair.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{37,29}</string>
+                <key>spriteSourceSize</key>
+                <string>{37,29}</string>
+                <key>textureRect</key>
+                <string>{{35,1},{37,29}}</string>
+                <key>textureRotated</key>
+                <true/>
+            </dict>
+            <key>hero/hair/hair2.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{30,22}</string>
+                <key>spriteSourceSize</key>
+                <string>{30,22}</string>
+                <key>textureRect</key>
+                <string>{{99,1},{30,22}}</string>
+                <key>textureRotated</key>
+                <true/>
+            </dict>
+            <key>hero/hat/hat.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{40,15}</string>
+                <key>spriteSourceSize</key>
+                <string>{40,15}</string>
+                <key>textureRect</key>
+                <string>{{1,1},{40,15}}</string>
+                <key>textureRotated</key>
+                <true/>
+            </dict>
+            <key>hero/hat/police_hat.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{40,15}</string>
+                <key>spriteSourceSize</key>
+                <string>{40,15}</string>
+                <key>textureRect</key>
+                <string>{{18,1},{40,15}}</string>
+                <key>textureRotated</key>
+                <true/>
+            </dict>
+            <key>hero/mouth/happy.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{26,13}</string>
+                <key>spriteSourceSize</key>
+                <string>{26,13}</string>
+                <key>textureRect</key>
+                <string>{{87,36},{26,13}}</string>
+                <key>textureRotated</key>
+                <true/>
+            </dict>
+            <key>hero/mouth/normal.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{26,13}</string>
+                <key>spriteSourceSize</key>
+                <string>{26,13}</string>
+                <key>textureRect</key>
+                <string>{{102,36},{26,13}}</string>
+                <key>textureRotated</key>
+                <true/>
+            </dict>
+            <key>hero/mouth/o.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{26,13}</string>
+                <key>spriteSourceSize</key>
+                <string>{26,13}</string>
+                <key>textureRect</key>
+                <string>{{117,36},{26,13}}</string>
+                <key>textureRotated</key>
+                <true/>
+            </dict>
+            <key>hero/mustache/mustache.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{15,3}</string>
+                <key>spriteSourceSize</key>
+                <string>{15,3}</string>
+                <key>textureRect</key>
+                <string>{{154,55},{15,3}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+            <key>hero/pant/pant.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{16,16}</string>
+                <key>spriteSourceSize</key>
+                <string>{16,16}</string>
+                <key>textureRect</key>
+                <string>{{138,19},{16,16}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+            <key>hero/pant/pant_lower_left.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{2,4}</string>
+                <key>spriteSourceSize</key>
+                <string>{2,4}</string>
+                <key>textureRect</key>
+                <string>{{132,39},{2,4}}</string>
+                <key>textureRotated</key>
+                <true/>
+            </dict>
+            <key>hero/pant/pant_lower_right.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{2,4}</string>
+                <key>spriteSourceSize</key>
+                <string>{2,4}</string>
+                <key>textureRect</key>
+                <string>{{132,43},{2,4}}</string>
+                <key>textureRotated</key>
+                <true/>
+            </dict>
+            <key>hero/pant/pant_upper_left.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{2,6}</string>
+                <key>spriteSourceSize</key>
+                <string>{2,6}</string>
+                <key>textureRect</key>
+                <string>{{156,39},{2,6}}</string>
+                <key>textureRotated</key>
+                <true/>
+            </dict>
+            <key>hero/pant/pant_upper_right.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{2,6}</string>
+                <key>spriteSourceSize</key>
+                <string>{2,6}</string>
+                <key>textureRect</key>
+                <string>{{164,40},{2,6}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+            <key>hero/pant/police_pant.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{16,16}</string>
+                <key>spriteSourceSize</key>
+                <string>{16,16}</string>
+                <key>textureRect</key>
+                <string>{{138,37},{16,16}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+            <key>hero/pant/police_pant_lower_left.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{2,4}</string>
+                <key>spriteSourceSize</key>
+                <string>{2,4}</string>
+                <key>textureRect</key>
+                <string>{{132,47},{2,4}}</string>
+                <key>textureRotated</key>
+                <true/>
+            </dict>
+            <key>hero/pant/police_pant_lower_right.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{2,4}</string>
+                <key>spriteSourceSize</key>
+                <string>{2,4}</string>
+                <key>textureRect</key>
+                <string>{{132,51},{2,4}}</string>
+                <key>textureRotated</key>
+                <true/>
+            </dict>
+            <key>hero/pant/police_pant_upper_left.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{2,6}</string>
+                <key>spriteSourceSize</key>
+                <string>{2,6}</string>
+                <key>textureRect</key>
+                <string>{{156,43},{2,6}}</string>
+                <key>textureRotated</key>
+                <true/>
+            </dict>
+            <key>hero/pant/police_pant_upper_right.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{2,6}</string>
+                <key>spriteSourceSize</key>
+                <string>{2,6}</string>
+                <key>textureRect</key>
+                <string>{{156,47},{2,6}}</string>
+                <key>textureRotated</key>
+                <true/>
+            </dict>
+            <key>hero/shirt/police_shirt.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{18,27}</string>
+                <key>spriteSourceSize</key>
+                <string>{18,27}</string>
+                <key>textureRect</key>
+                <string>{{19,43},{18,27}}</string>
+                <key>textureRotated</key>
+                <true/>
+            </dict>
+            <key>hero/shirt/police_upper_sleave.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{3,11}</string>
+                <key>spriteSourceSize</key>
+                <string>{3,11}</string>
+                <key>textureRect</key>
+                <string>{{156,19},{3,11}}</string>
+                <key>textureRotated</key>
+                <true/>
+            </dict>
+            <key>hero/shirt/shirt_1.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{18,27}</string>
+                <key>spriteSourceSize</key>
+                <string>{18,27}</string>
+                <key>textureRect</key>
+                <string>{{67,36},{18,27}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+            <key>hero/shirt/shirt_lower.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{2,7}</string>
+                <key>spriteSourceSize</key>
+                <string>{2,7}</string>
+                <key>textureRect</key>
+                <string>{{142,55},{2,7}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+            <key>hero/shirt/shirt_upper.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{3,11}</string>
+                <key>spriteSourceSize</key>
+                <string>{3,11}</string>
+                <key>textureRect</key>
+                <string>{{156,24},{3,11}}</string>
+                <key>textureRotated</key>
+                <true/>
+            </dict>
+            <key>hero/shirt/tribalred.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{17,23}</string>
+                <key>spriteSourceSize</key>
+                <string>{17,23}</string>
+                <key>textureRect</key>
+                <string>{{48,40},{17,23}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+            <key>hero/shoe/police_shoe.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{7,2}</string>
+                <key>spriteSourceSize</key>
+                <string>{7,2}</string>
+                <key>textureRect</key>
+                <string>{{146,55},{7,2}}</string>
+                <key>textureRotated</key>
+                <true/>
+            </dict>
+            <key>hero/shoe/shoe.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{7,2}</string>
+                <key>spriteSourceSize</key>
+                <string>{7,2}</string>
+                <key>textureRect</key>
+                <string>{{150,55},{7,2}}</string>
+                <key>textureRotated</key>
+                <true/>
+            </dict>
+            <key>hero/shoe/shoe_2.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{6,2}</string>
+                <key>spriteSourceSize</key>
+                <string>{6,2}</string>
+                <key>textureRect</key>
+                <string>{{154,60},{6,2}}</string>
+                <key>textureRotated</key>
+                <false/>
             </dict>
         </dict>
         <key>metadata</key>
@@ -346,9 +691,9 @@
             <key>realTextureFileName</key>
             <string>hero.png</string>
             <key>size</key>
-            <string>{64,63}</string>
+            <string>{170,64}</string>
             <key>smartupdate</key>
-            <string>$TexturePacker:SmartUpdate:c5d055218dc713bec6dac384643aefe4:94df7ff2f27a871af40000ff0d0c5456:24811c9fe845da5822501508d7996631$</string>
+            <string>$TexturePacker:SmartUpdate:4a4baa9be690765d6e9e4edd9248edae:e109cb474fee51b1676ec70750ebcd12:24811c9fe845da5822501508d7996631$</string>
             <key>textureFileName</key>
             <string>hero.png</string>
         </dict>
