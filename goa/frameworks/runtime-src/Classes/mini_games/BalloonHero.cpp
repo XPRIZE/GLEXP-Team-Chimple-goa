@@ -70,6 +70,8 @@ bool BalloonHero::init() {
 
 	_balloonHero = CSLoader::createNode("balloonhero/balloonhero.csb");
 
+	//_balloonHero->setPosition(Vec2(visibleSize.width / 2 + origin.x, visibleSize.height / 2 + origin.y));
+	//_balloonHero->setAnchorPoint(Vec2(0, 0));
 	addChild(_balloonHero);
 
 	return true;
