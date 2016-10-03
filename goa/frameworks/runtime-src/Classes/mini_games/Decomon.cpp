@@ -10,8 +10,7 @@
 
 #include "Decomon.h"
 #include "../lang/LangUtil.h"
-#include "../lang/TextGenerator.h"
-
+#include "../puzzle/CharGenerator.h"
 USING_NS_CC;
 
 Decomon::Decomon()
@@ -158,12 +157,15 @@ child = decomon_horn_icon*/
 	
 
 	//BalooBhai-Regular.ttf
-	auto myLabel = Label::createWithBMFont("english/baloo_bhai_hdr.fnt", "W");
+	auto myLabel = Label::createWithBMFont(LangUtil::getInstance()->getBMFontFileName(), LangUtil::convertUTF16CharToString(CharGenerator::getInstance()->generateAChar()));
 	//auto myLabel = Label::createWithTTF("A", "fonts/BalooBhai-Regular.ttf",1600);
 	myLabel->setPositionX(visibleSize.width / 2);// , visibleSize.height/ 2);
 	myLabel->setPositionY(visibleSize.height / 2);
+	if (LangUtil::getInstance()->getLang() == "kan") {
+		myLabel->setAnchorPoint(Vec2(0.5, 0.65));
+	}
 	//myLabel->setColor(Color3B(111, 11, 1));
-	myLabel->setScale(3);
+	myLabel->setScale(2);
 	myLabel->setName("alphabet");
 	//this->addChild(myLabel);
 
