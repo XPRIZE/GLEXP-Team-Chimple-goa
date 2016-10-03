@@ -307,9 +307,6 @@ bool Bingo::init()
 				boxShade = Sprite::createWithSpriteFrameName(_scenePath.at("boxshade"));
 				setAllSpriteProperties(boxShade, 0, addX, addY, true, 0.5, 0.5, 0, _gridBasedValue.at("scale"), _gridBasedValue.at("scale"), _boxBoard);
 			
-				
-			
-		
 				//Bingo Last Animation
 
 				auto bingoTimeline = CSLoader::createTimeline("jungle/bingostar.csb");
@@ -424,10 +421,11 @@ void Bingo::addEvents(Sprite* clickedObject)
 		Size s = target->getContentSize();
 		Rect rect = Rect(0, 0, s.width, s.height);
 
-    	if (rect.containsPoint(locationInNode))
+    	if (rect.containsPoint(locationInNode) && _flagForSingleTouch)
     	{
 			if(!_isBingoDone)
 			{
+					_flagForSingleTouch = false;
 					 bool bingo = false;
 					std::string helpLabelPair = target->getChildren().at(0)->getName();
 					if (helpLabelPair.compare(_label->getString()) == 0)
@@ -475,7 +473,10 @@ void Bingo::addEvents(Sprite* clickedObject)
 						 }
 					  }
 			}
-		return true;
+			
+			this->runAction(Sequence::create(DelayTime::create(4), CallFunc::create([=]() {_flagForSingleTouch = true;}), NULL));
+
+		return false;
 	};
 	cocos2d::Director::getInstance()->getEventDispatcher()->addEventListenerWithSceneGraphPriority(listener, clickedObject);
 }
