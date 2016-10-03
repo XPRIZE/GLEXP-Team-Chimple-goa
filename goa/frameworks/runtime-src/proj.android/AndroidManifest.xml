@@ -31,6 +31,13 @@
                     android:theme="@android:style/Theme.NoTitleBar.Fullscreen">
         </activity>
 
+        <activity android:name="org.cocos2dx.javascript.DeviceListActivity"
+                  android:label="@string/select_device"
+                  android:theme="@android:style/Theme.Holo.Dialog"
+                  android:configChanges="orientation|keyboardHidden" >
+        </activity>                  
+        
+
     </application>
 
     <supports-screens android:anyDensity="true"
@@ -56,5 +63,12 @@
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
 
     <!-- Google Play filtering -->
-    <uses-feature android:name="android.hardware.wifi.direct" android:required="true"/>     
+    <uses-feature android:name="android.hardware.wifi.direct" android:required="true"/>  
+
+    <!-- BlueTooth Permission -->
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+    <uses-permission android:name="android.permission.BLUETOOTH" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+   
 </manifest> 

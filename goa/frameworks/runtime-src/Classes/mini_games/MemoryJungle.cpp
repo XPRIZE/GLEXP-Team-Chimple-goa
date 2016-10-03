@@ -89,21 +89,7 @@ bool MemoryJungle::init() {
 		_data_value.push_back(it->second);
 	}
 
-	int a = _data.size();
-	std::vector<int> randomIndex;
-
-	while (randomIndex.size() != _data.size()) {
-		bool duplicateCheck = true;
-		int numberPicker = RandomHelper::random_int(0, a - 1);
-		for (int i = 0; i < randomIndex.size(); i++) {
-			if (numberPicker == randomIndex[i]) {
-				duplicateCheck = false;
-			}
-		}
-		if (duplicateCheck) {
-			randomIndex.push_back(numberPicker);
-		}
-	}
+	generateRandomNumbers();
 
 	Size visibleSize = Director::getInstance()->getVisibleSize();
 	Vec2 origin = Director::getInstance()->getVisibleOrigin();
@@ -128,7 +114,7 @@ bool MemoryJungle::init() {
 		std::string queryc = sstreamc.str();
 
 		_activeNestIds[_currentNest] = _currentNest;
-		_memoryfarm->getChildByName("mainground")->getChildByName(queryc)->getChildByName("leave")->getChildByName("leave")->setAnchorPoint(Vec2(0.5, 0.5));
+		_memoryfarm->getChildByName("mainground")->getChildByName(queryc)->getChildByName("leave")->getChildByName("leave")->setAnchorPoint(Vec2(0, 0));
 
 		_memoryfarm->getChildByName("mainground")->getChildByName(queryc)->getChildByName("leave")->setPositionX(10);
 
@@ -154,14 +140,17 @@ bool MemoryJungle::init() {
 
 		if (i <= 12) {
 
-			labelName = _data_key[randomIndex[i - 1]];
+			labelName = _data_key[_randomIndex[i - 1]];
 		}
 		else {
 
-			labelName = _data_value[randomIndex[j]];
+			labelName = _data_value[_randomIndex[j]];
 			j++;
 		}
 
+		if (i == 12) {
+			generateRandomNumbers();
+		}
 
 		auto label = ui::Text::create();
 		label->setString(labelName);
@@ -172,12 +161,9 @@ bool MemoryJungle::init() {
 		label->setTextColor(Color4B::BLUE);
 		label->setName(labelName);
 
+		
 
 		_memoryfarm->getChildByName("mainground")->getChildByName(queryc)->getChildByName("leave")->getChildByName("leave")->addChild(label, 0);
-
-		//_memoryfarm->getChildByName("background")->getChildByName(queryc)->getChildByName("egg")->setVisible(true);
-
-		//_memoryfarm->getChildByName("mainground")->getChildByName(queryc)->getChildByName("egg")->setPositionY(105);
 
 
 		label->setVisible(false);
@@ -516,4 +502,23 @@ void MemoryJungle::removecurrentlabelsandlisteners() {
 
 	Director::getInstance()->getEventDispatcher()->pauseEventListenersForTarget(pauseNode2);
 
+}
+
+void MemoryJungle::generateRandomNumbers() {
+
+	int a = _data.size();
+	//std::vector<int> randomIndex;
+	_randomIndex.clear();
+	while (_randomIndex.size() != _data.size()) {
+		bool duplicateCheck = true;
+		int numberPicker = RandomHelper::random_int(0, a - 1);
+		for (int i = 0; i < _randomIndex.size(); i++) {
+			if (numberPicker == _randomIndex[i]) {
+				duplicateCheck = false;
+			}
+		}
+		if (duplicateCheck) {
+			_randomIndex.push_back(numberPicker);
+		}
+	}
 }

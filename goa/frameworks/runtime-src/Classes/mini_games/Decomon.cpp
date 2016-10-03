@@ -304,7 +304,7 @@ bool Decomon::onTouchBegan(cocos2d::Touch * touch, cocos2d::Event * event)
 				return false;
 			}
 			else {
-				generateDuplicatesInAGrid(target);
+			//	generateDuplicatesInAGrid(target);
 				_flip = true;
 					return true;
 				}

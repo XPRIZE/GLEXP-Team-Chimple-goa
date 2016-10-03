@@ -11,6 +11,9 @@
 #define __DASH_SCENE_H__
 
 #include "cocos2d.h"
+#include "external/json/document.h"
+#include "external/json/stringbuffer.h"
+#include "external/json/writer.h"
 #include "../menu/MenuContext.h"
 #include "editor-support/cocostudio/CocoStudio.h"
 
@@ -25,6 +28,10 @@ public:
 	static cocos2d::Scene* createScene();
 	void updatePlayerPosition(std::string playerName, int stepPosition);
 	std::map<std::string, std::string> _scenePath;
+    void peerInformationReceived(cocos2d::EventCustom *event);
+    void transitToMenu(cocos2d::EventCustom * event);
+    void syncEnemyCharacterPosition(cocos2d::EventCustom *event);
+
 protected:
 	int _gameScore, _enemyScore;
 	int _wordCount;
@@ -51,6 +58,21 @@ protected:
 	void fallingWordWithAction(cocos2d::Vector<cocos2d::Label*> fallingWords);
 	void iceLandThemeAnimation();
 	virtual bool onTouchBegan(cocos2d::Touch *touch, cocos2d::Event * event);
+    std::string constructSendMessage(std::string charName, int position);
+//	std::string _gameWord;
+	//int _jumpCount, _enemyJumpCount;
+//	virtual bool onTouchBegan(cocos2d::Touch *touch, cocos2d::Event * event);
+    
+    std::string _deviceName;
+    std::string _deviceAddress;
+    
+    cocos2d::ui::Button* _multiPlayerInviteButton;
+    cocos2d::ui::Button* _multiPlayerConnectButton;
+    
+    void createMultiPlayerInviteButton();
+    void createMultiPlayerConnectButton(std::string deviceName, std::string deviceAddress);
+    void invokeMultiPlayerDiscovery(cocos2d::Ref* pSender, cocos2d::ui::Widget::TouchEventType eEventType);
+    void invokeMultiPlayerConnection(cocos2d::Ref* pSender, cocos2d::ui::Widget::TouchEventType eEventType);
 };
 
 #endif 
