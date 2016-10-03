@@ -18,7 +18,8 @@ xc.Pinata = cc.Layer.extend({
     var heightTolrence = 0;
     this.xPosi =0; 
     this.shootingFlag = false;
- 
+    this.flagSingleTouchFirst = true;
+
     if(gameTheme == "pinatacream"){
          cc.spriteFrameCache.addSpriteFrames(xc.Pinata.res.pinatacream_plist);
          this.gameBg = ccs.load(xc.Pinata.res.pinatacream_json,xc.path);
@@ -120,10 +121,10 @@ xc.Pinata = cc.Layer.extend({
                 var targetSize = target.getContentSize();
                 var location = target.convertToNodeSpace(touch.getLocation());
                 var targetRectangle = cc.rect(0,0, target.width, target.height);
-                if(classReference.gameBg.node.getChildByName("board").freezShooting){
+                if(classReference.gameBg.node.getChildByName("board").freezShooting ){
                     if (cc.rectContainsPoint(targetRectangle, location)){
                         classReference.player.prevX = touch.getLocation().x;
-                        classReference.player.prevY = touch.getLocation().y;                        
+                        classReference.player.prevY = touch.getLocation().y;   
                         return true;}
                 }
                 return false;
@@ -192,7 +193,8 @@ xc.Pinata = cc.Layer.extend({
                 var location = target.convertToNodeSpace(touch.getLocation());
                 var targetRectangle = cc.rect(0,0, target.width, target.height);
                 
-                if (cc.rectContainsPoint(targetRectangle, location) && !classReference.gameBg.node.getChildByName("board").freezShooting && !classReference.shootingFlag){
+                if (cc.rectContainsPoint(targetRectangle, location) && !classReference.gameBg.node.getChildByName("board").freezShooting && !classReference.shootingFlag && classReference.flagSingleTouchFirst){
+                    classReference.flagSingleTouchFirst = false;
                     return true;
                 }
  
@@ -240,6 +242,10 @@ xc.Pinata = cc.Layer.extend({
                         classReference.gameBg.node.removeChild(targetA);
                     }
                 }
+
+                setTimeout(function() {
+                        classReference.flagSingleTouchFirst = true;
+                },1000);
 
                 return false;
             }
