@@ -55,6 +55,7 @@ protected:
 	std::string _bingoCurrentTheme ="";
 	std::string _bingoGridDimension = "";
 	std::string _resourcePath = "";
+	bool _flagForSingleTouch = true;
 	
 
 

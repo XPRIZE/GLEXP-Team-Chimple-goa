@@ -43,6 +43,7 @@
 #include "mini_games/Decomon.h"
 #include "mini_games/MemoryHero.h"
 #include "mini_games/MemoryJungle.h"
+#include "mini_games/Talk.h"
 
 USING_NS_CC;
 
@@ -196,7 +197,8 @@ void ScrollableGameMapScene::gameSelected(Ref* pSender, ui::Widget::TouchEventTy
             } else if(clickedButton->getName() == CANNON_BALL) {
                 Director::getInstance()->replaceScene(MainGame::createScene());//BUBBLE
             } else if(clickedButton->getName() == BUBBLE) {
-				ScriptingCore::getInstance()->runScript("src/start/pinata.js");
+                ScriptingCore::getInstance()->runScript("src/start/pinata.js");
+//                ScriptingCore::getInstance()->runScript("src/start/connectTheDots.js");
             } else if (clickedButton->getName() == ENDLESS_RUNNER) {
 				Director::getInstance()->replaceScene(EndlessRunner::createScene());
 			} else if(clickedButton->getName() == KUNG_FU_ALPHA) {
@@ -229,15 +231,17 @@ void ScrollableGameMapScene::gameSelected(Ref* pSender, ui::Widget::TouchEventTy
 //                Director::getInstance()->replaceScene(Jasmin_Mainfile::createScene());
 
 //				ScriptingCore::getInstance()->runScript("src/start/train.js");
-                Director::getInstance()->replaceScene(Stack::createScene());
+                Director::getInstance()->replaceScene(Talk::createScene());
             } else if(clickedButton->getName() == STORY_TELLING) {
                 ScriptingCore::getInstance()->runScript("src/start/storytelling.js");
             } else if (clickedButton->getName() == TRAIN) {
 				ScriptingCore::getInstance()->runScript("src/start/train.js");
+			} else if (clickedButton->getName() == TALK) {
+				Director::getInstance()->replaceScene(Talk::createScene());
 			}
             break;
         }
-            
+
         case ui::Widget::TouchEventType::CANCELED:
             break;
         default:

@@ -1,0 +1,80 @@
+{
+  "ID": "9270d9a9-8a1a-4034-9833-dba1a843e63f",
+  "Version": "2.3.4",
+  "Name": "cookie",
+  "Content": {
+    "Content": {
+      "Animation": {
+        "Duration": 0,
+        "Speed": 1.0,
+        "Timelines": [],
+        "ctype": "TimelineActionData"
+      },
+      "AnimationList": [],
+      "ObjectData": {
+        "Tag": 139,
+        "Children": [
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "circlecandy/cookie.png",
+              "Plist": "circlecandy/circlecandy.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.4992,
+              "ScaleY": 0.4908
+            },
+            "Position": {
+              "X": 9.6719,
+              "Y": -2.6918
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "RotationSkewX": -9.7762,
+            "RotationSkewY": -9.7797,
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": -173.5427,
+            "RightMargin": -193.4573,
+            "TopMargin": -84.8931,
+            "BottomMargin": -87.1069,
+            "Tag": 140,
+            "ActionTag": 720966274,
+            "Size": {
+              "X": 367.0,
+              "Y": 172.0
+            },
+            "Name": "fish_6",
+            "ctype": "SpriteObjectData"
+          }
+        ],
+        "Size": {
+          "X": 0.0,
+          "Y": 0.0
+        },
+        "Name": "Node",
+        "ctype": "SingleNodeObjectData"
+      },
+      "UsedResources": [
+        "circlecandy.plist",
+        "circlecandy.png"
+      ],
+      "ctype": "GameFileData"
+    }
+  },
+  "Type": "Node"
+}

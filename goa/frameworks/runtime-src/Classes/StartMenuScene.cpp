@@ -30,6 +30,9 @@
 #include "mini_games/Memory.h"
 #include "mini_games/MemoryHero.h"
 #include "mini_games/MemoryJungle.h"
+#include "mini_games/Circle.h"
+#include "mini_games/Stack.h"
+#include "mini_games/Talk.h"
 
 
 USING_NS_CC;
@@ -136,11 +139,21 @@ void StartMenu::startScene(std::string gameName, std::string firstParam, std::st
 		ScriptingCore::getInstance()->runScript("src/start/jump.js");
 	} else if (gameName == POP) {
 		ScriptingCore::getInstance()->runScript("src/start/pop.js");
-	} else if (gameName == BUBBLE) {
+	}else if (gameName == CIRCLE) {
+		Director::getInstance()->replaceScene(Circle::createScene());
+	}else if (gameName == BUBBLE) {
 		ScriptingCore::getInstance()->runScript("src/start/BubbleShooter.js");
+//        ScriptingCore::getInstance()->runScript("src/start/dots.js");
 	}else if (gameName == PINATA) {
 		ScriptingCore::getInstance()->runScript("src/start/pinata.js");
-	}else{
+	}
+	else if (gameName == STACK) {
+		Director::getInstance()->replaceScene(Stack::createScene());
+	}
+	else if (gameName == TALK) {
+		Director::getInstance()->replaceScene(Talk::createScene());
+	}
+	else{
         CCLOG("Failed starting scene: %s", gameName.c_str());
     }
 }
