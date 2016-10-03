@@ -1,8 +1,7 @@
-#ifndef __STACK_SCENE_H__
-#define __STACK_SCENE_H__
+#ifndef __TALK_SCENE_H__
+#define __TALK_SCENE_H__
 
 #include "cocos2d.h"
-#include "Cannon_Ball_Listener.h"
 #include <vector>
 #include "editor-support/cocostudio/CocoStudio.h"
 #include "../menu/MenuContext.h"
@@ -15,44 +14,23 @@
 #include "ui/CocosGUI.h"
 
 
-class Stack : public cocos2d::Layer
+class Talk : public cocos2d::Layer
 {
 	
 public:
 	static cocos2d::Scene* createScene();
-	Stack();
-	~Stack();
+	Talk();
+	~Talk();
 	virtual bool init();
 	
-	cocos2d::ui::LoadingBar *_containerbar1, *_containerbar2, *_containerbar3, *_containerbar4, *_containerbar5;
-	cocos2d::ui::LoadingBar *_fillpipebar1, *_fillpipebar2, *_fillpipebar3, *_fillpipebar4, *_fillpipebar5, *_suckpipebar;
-	cocos2d::ui::LoadingBar *_trayfillbar;
+	Node *Talkbg, *charNode, *wrongNode, *correctNode;
 
-	cocos2d::Sprite *_tray;
-
-	cocostudio::timeline::ActionTimeline *treadmill;
-	cocostudio::ActionNode *node;
-
-	Node *stackbg, *charNode, *wrongNode, *correctNode;
-
-	std::map<std::string, std::map<std::string, std::string>> _textToSHow;
-
-	std::vector<cocos2d::Color3B> _color;
-
-	std::vector<std::string> _startName;
-	std::vector<std::string> _allWords;
-	std::vector<cocos2d::ui::LoadingBar*> containerBar;
-	std::vector<cocos2d::ui::LoadingBar*> fillpipebar;
-
-	std::string _word;
-	cocos2d::LabelTTF *_wordLabel;
-	cocos2d::Size visibleSize;
-	std::string sceneName;
-
-	// implement the "static create()" method manually
-	CREATE_FUNC(Stack);
+	CREATE_FUNC(Talk);
     
-    static const char* gameName() { return STACK.c_str(); };
+	std::string sceneName;
+	cocos2d::Size visibleSize;
+
+    static const char* gameName() { return TALK.c_str(); };
 	void generateWord();
 
 	struct LabelDetails
@@ -63,14 +41,6 @@ public:
 		int sequence, item;
 	}LabelDetails;
 
-
-	struct Pos
-	{
-		int x, y;
-	}p1, p2, p3, p4, p5;
-
-	std::vector<Node*> Position;
-
 	bool flag;
 
 	void addEvents(struct LabelDetails);
@@ -80,4 +50,4 @@ public:
 protected:
 	MenuContext* _menuContext;
 };
-#endif // __STACK_SCENE_H__
+#endif // __Talk_SCENE_H__

@@ -42,7 +42,7 @@ static const std::string BUBBLE = "bubble";
 static const std::string CIRCLE = "Circle";
 static const std::string PINATA = "pinata";
 static const std::string STACK = "stack";
-
+static const std::string TALK = "talk";
 
 class StartMenu {
 public:
