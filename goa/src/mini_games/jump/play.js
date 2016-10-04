@@ -19,8 +19,9 @@ xc.playLayer = cc.Layer.extend( {
    score:0,
    scoreLabel : null,
    _dir_Flag: true,
-
-    ctor:function () {
+nameLabel : null,
+    ctor:
+    function () {
         this._super();
         
 
@@ -34,8 +35,13 @@ xc.playLayer = cc.Layer.extend( {
       
         this.bg = ccs.load(xc.playLayer.res.jump_game, xc.path);
         if( this.size.width > 2560) {
-		bg.setPositionX(( this.size.width - 2560) / 2);
+          this.extraX = (this.size.width - 2560) / 2;
+		this.bg.node.setPositionX(( this.size.width - 2560) / 2);
 	    }
+        else
+        {
+             this.extraX = 0;
+        }
         this.addChild(this.bg.node);
         // var child = this.bg.node.getChildren(); 
         //  for(var i=0; i < child.length ;i++)
@@ -254,7 +260,7 @@ xc.playLayer = cc.Layer.extend( {
       for( var i=0; i<10 ;i++){
       var alpha = cc.LabelTTF.create(group[i], 'Arial', 130);
       this.addChild(alpha);
-      alpha.setPosition(cc.p(this.ballref[i].x,this.ballref[i].y));
+      alpha.setPosition(cc.p(this.ballref[i].x + this.extraX,this.ballref[i].y));
       alpha.setAnchorPoint(0.5,0.5);
       alpha.setColor(cc.color(0,0,0));
         //  cc.log("alpha =",group[i]);
@@ -262,7 +268,6 @@ xc.playLayer = cc.Layer.extend( {
 
        cc.log(group);
       this.string = '';
-        for( var i=0; i< group.length -6 ; i++)
         {
             this.string += group[i];
         }
@@ -444,7 +449,12 @@ this.remove();
 
      help : function ()
      {
-         this.removeChild(this.nameLabel);
+        // cc.log(this.nameLabel);
+         if (this.nameLabel){
+            cc.log(this.nameLabel);
+             this.removeChild(this.nameLabel);
+         }
+       //  this.removeChild(this.nameLabel);
          cc.log("hiint");
         this.decrementScore();
         this.random = Math.floor(Math.random()*(this.dict.length-1));  
@@ -457,9 +467,10 @@ this.remove();
         this.addChild(this.nameLabel, 1);
         this.scheduleOnce(function(){
            this.removeChild(this.nameLabel);
+           this.nameLabel = null;
         },3);
 
-     if(this.dict.length == 0)
+     if(this.score <= -3 )
      {
          if (cc.sys.isNative) {
                 var menuContext = this.getParent().menuContext;
@@ -524,7 +535,7 @@ this.remove();
                        if(target.id == "Ball1" && self.word.length < 10){ 
                         var letter = new cc.LabelTTF (group[0], 'Arial' , 130);
                         self.addChild(letter,2);
-                        letter.setPosition(cc.p(self.square[self.index].x,self.square[self.index].y));
+                        letter.setPosition(cc.p(self.square[self.index].x+ self.extraX,self.square[self.index].y));
                         letter.setAnchorPoint(0.5,0.5);
                         letter.setColor(cc.color(0,0,0)); 
                          letter.setName("letter");
@@ -536,7 +547,7 @@ this.remove();
                         if(target.id == "Ball2"&& self.word.length < 10){ 
                          var letter =  new cc.LabelTTF(group[1],'Arial', 130);
                         self.addChild(letter,2);
-                        letter.setPosition(cc.p(self.square[self.index].x,self.square[self.index].y));
+                        letter.setPosition(cc.p(self.square[self.index].x+ self.extraX,self.square[self.index].y));
                         letter.setAnchorPoint(0.5,0.5);
                         letter.setColor(cc.color(0,0,0));  
                         letter.setName("letter");
@@ -548,7 +559,7 @@ this.remove();
                         if(target.id == "Ball3"&& self.word.length < 10){ 
                          var letter = new cc.LabelTTF(group[2],'Arial', 130);
                         self.addChild(letter,2);
-                        letter.setPosition(cc.p(self.square[self.index].x,self.square[self.index].y));
+                        letter.setPosition(cc.p(self.square[self.index].x+ self.extraX,self.square[self.index].y));
                         letter.setAnchorPoint(0.5,0.5);
                         letter.setColor(cc.color(0,0,0));  
                         letter.setName("letter");
@@ -560,7 +571,7 @@ this.remove();
                         if(target.id == "Ball4"&& self.word.length < 10){ 
                          var letter = new cc.LabelTTF(group[3],'Arial', 130);
                         self.addChild(letter,2);
-                        letter.setPosition(cc.p(self.square[self.index].x,self.square[self.index].y));
+                        letter.setPosition(cc.p(self.square[self.index].x+ self.extraX,self.square[self.index].y));
                         letter.setAnchorPoint(0.5,0.5);
                         letter.setColor(cc.color(0,0,0));  
                         letter.setName("letter");
@@ -572,7 +583,7 @@ this.remove();
                         if(target.id == "Ball5"&& self.word.length < 10){ 
                          var letter = new cc.LabelTTF(group[4],'Arial', 130);
                         self.addChild(letter,2);
-                        letter.setPosition(cc.p(self.square[self.index].x,self.square[self.index].y));
+                        letter.setPosition(cc.p(self.square[self.index].x+ self.extraX,self.square[self.index].y));
                         letter.setAnchorPoint(0.5,0.5);
                         letter.setColor(cc.color(0,0,0));  
                         letter.setName("letter");
@@ -584,7 +595,7 @@ this.remove();
                         if(target.id == "Ball6"&& self.word.length < 10){ 
                         var letter = new cc.LabelTTF(group[5],'Arial', 130);
                         self.addChild(letter,2);
-                        letter.setPosition(cc.p(self.square[self.index].x,self.square[self.index].y));
+                        letter.setPosition(cc.p(self.square[self.index].x+ self.extraX,self.square[self.index].y));
                         letter.setAnchorPoint(0.5,0.5);
                         letter.setColor(cc.color(0,0,0));  
                         letter.setName("letter");
@@ -597,7 +608,7 @@ this.remove();
                          if(target.id == "Ball7"&& self.word.length < 10){ 
                         var letter = new cc.LabelTTF(group[6],'Arial', 130);
                         self.addChild(letter,2);
-                        letter.setPosition(cc.p(self.square[self.index].x,self.square[self.index].y));
+                        letter.setPosition(cc.p(self.square[self.index].x+ self.extraX,self.square[self.index].y));
                         letter.setAnchorPoint(0.5,0.5);
                         letter.setColor(cc.color(0,0,0));  letter.setName("letter");
                         self.index++;
@@ -609,7 +620,7 @@ this.remove();
                          if(target.id == "Ball8"&& self.word.length < 10){ 
                         var letter = new cc.LabelTTF(group[7], 'Arial', 130);
                         self.addChild(letter,2);
-                        letter.setPosition(cc.p(self.square[self.index].x,self.square[self.index].y));
+                        letter.setPosition(cc.p(self.square[self.index].x+ self.extraX,self.square[self.index].y));
                         letter.setAnchorPoint(0.5,0.5);
                         letter.setColor(cc.color(0,0,0));  
                         letter.setName("letter");
@@ -622,7 +633,7 @@ this.remove();
                          if(target.id == "Ball9"&& self.word.length < 10){ 
                         var letter = new cc.LabelTTF(group[8],'Arial', 130);
                         self.addChild(letter,2);
-                        letter.setPosition(cc.p(self.square[self.index].x,self.square[self.index].y));
+                        letter.setPosition(cc.p(self.square[self.index].x+ self.extraX,self.square[self.index].y));
                         letter.setAnchorPoint(0.5,0.5);
                         letter.setColor(cc.color(0,0,0));  
                         letter.setName("letter");
@@ -635,7 +646,7 @@ this.remove();
                          if(target.id == "Ball10"&& self.word.length < 10){ 
                         var letter = new cc.LabelTTF(group[9],'Arial', 130);
                         self.addChild(letter,2);
-                        letter.setPosition(cc.p(self.square[self.index].x,self.square[self.index].y));
+                        letter.setPosition(cc.p(self.square[self.index].x+ self.extraX,self.square[self.index].y));
                         letter.setAnchorPoint(0.5,0.5);
                         letter.setColor(cc.color(0,0,0));  
                         letter.setName("letter");

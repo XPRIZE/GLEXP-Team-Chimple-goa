@@ -252,6 +252,12 @@
 		F3F7ED631D93DAFE00727A7C /* Dash.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F3F7ED601D93DAFE00727A7C /* Dash.cpp */; };
 		F3F7ED6C1D94F22F00727A7C /* Bingo.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F3F7ED6B1D94F22F00727A7C /* Bingo.cpp */; };
 		F3F7ED6D1D94F22F00727A7C /* Bingo.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F3F7ED6B1D94F22F00727A7C /* Bingo.cpp */; };
+		F3F7ED721D9CF22800727A7C /* Decomon.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F3F7ED701D9CF22800727A7C /* Decomon.cpp */; };
+		F3F7ED731D9CF22800727A7C /* Decomon.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F3F7ED701D9CF22800727A7C /* Decomon.cpp */; };
+		F3F7ED7C1D9F891000727A7C /* MemoryHero.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F3F7ED781D9F891000727A7C /* MemoryHero.cpp */; };
+		F3F7ED7D1D9F891000727A7C /* MemoryHero.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F3F7ED781D9F891000727A7C /* MemoryHero.cpp */; };
+		F3F7ED7E1D9F891000727A7C /* MemoryJungle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F3F7ED7A1D9F891000727A7C /* MemoryJungle.cpp */; };
+		F3F7ED7F1D9F891000727A7C /* MemoryJungle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F3F7ED7A1D9F891000727A7C /* MemoryJungle.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -570,6 +576,12 @@
 		F3F7ED611D93DAFE00727A7C /* Dash.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Dash.h; sourceTree = "<group>"; };
 		F3F7ED6A1D94F22F00727A7C /* Bingo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Bingo.h; sourceTree = "<group>"; };
 		F3F7ED6B1D94F22F00727A7C /* Bingo.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Bingo.cpp; sourceTree = "<group>"; };
+		F3F7ED701D9CF22800727A7C /* Decomon.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Decomon.cpp; sourceTree = "<group>"; };
+		F3F7ED711D9CF22800727A7C /* Decomon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Decomon.h; sourceTree = "<group>"; };
+		F3F7ED781D9F891000727A7C /* MemoryHero.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MemoryHero.cpp; sourceTree = "<group>"; };
+		F3F7ED791D9F891000727A7C /* MemoryHero.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MemoryHero.h; sourceTree = "<group>"; };
+		F3F7ED7A1D9F891000727A7C /* MemoryJungle.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MemoryJungle.cpp; sourceTree = "<group>"; };
+		F3F7ED7B1D9F891000727A7C /* MemoryJungle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MemoryJungle.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -851,6 +863,12 @@
 		F352471A1D6D9D1A0077C333 /* mini_games */ = {
 			isa = PBXGroup;
 			children = (
+				F3F7ED781D9F891000727A7C /* MemoryHero.cpp */,
+				F3F7ED791D9F891000727A7C /* MemoryHero.h */,
+				F3F7ED7A1D9F891000727A7C /* MemoryJungle.cpp */,
+				F3F7ED7B1D9F891000727A7C /* MemoryJungle.h */,
+				F3F7ED701D9CF22800727A7C /* Decomon.cpp */,
+				F3F7ED711D9CF22800727A7C /* Decomon.h */,
 				F3F7ED6A1D94F22F00727A7C /* Bingo.h */,
 				F3F7ED6B1D94F22F00727A7C /* Bingo.cpp */,
 				F3F7ED601D93DAFE00727A7C /* Dash.cpp */,
@@ -1203,6 +1221,7 @@
 				F35248511D6D9D1A0077C333 /* StateMachine.cpp in Sources */,
 				F35248451D6D9D1A0077C333 /* MO.cpp in Sources */,
 				F352484D1D6D9D1A0077C333 /* SkeletonPosition.cpp in Sources */,
+				F3F7ED7F1D9F891000727A7C /* MemoryJungle.cpp in Sources */,
 				F35247CB1D6D9D1A0077C333 /* BajaWordScene.cpp in Sources */,
 				F352480B1D6D9D1A0077C333 /* GraphemeGrid.cpp in Sources */,
 				F35247C71D6D9D1A0077C333 /* AlphamonFeedScene.cpp in Sources */,
@@ -1235,10 +1254,12 @@
 				F352482F1D6D9D1A0077C333 /* FallingState.cpp in Sources */,
 				F352484F1D6D9D1A0077C333 /* MessageContent.cpp in Sources */,
 				F35247C11D6D9D1A0077C333 /* HelloWorldScene.cpp in Sources */,
+				F3F7ED731D9CF22800727A7C /* Decomon.cpp in Sources */,
 				F35248591D6D9D1A0077C333 /* sqlite3.c in Sources */,
 				F35248331D6D9D1A0077C333 /* RunningState.cpp in Sources */,
 				F35247F91D6D9D1A0077C333 /* TextGenerator.cpp in Sources */,
 				F36840BF1D8A812F00969162 /* Alphamole.cpp in Sources */,
+				F3F7ED7D1D9F891000727A7C /* MemoryHero.cpp in Sources */,
 				F35247DD1D6D9D1A0077C333 /* Jasmin_Mainfile.cpp in Sources */,
 				F35248571D6D9D1A0077C333 /* PhysicsShapeCache.cpp in Sources */,
 				F35248391D6D9D1A0077C333 /* Sqlite3Helper.cpp in Sources */,
@@ -1313,7 +1334,9 @@
 				F35248441D6D9D1A0077C333 /* MO.cpp in Sources */,
 				F352480A1D6D9D1A0077C333 /* GraphemeGrid.cpp in Sources */,
 				F35248541D6D9D1A0077C333 /* MessageReceiver.cpp in Sources */,
+				F3F7ED721D9CF22800727A7C /* Decomon.cpp in Sources */,
 				F35247C01D6D9D1A0077C333 /* HelloWorldScene.cpp in Sources */,
+				F3F7ED7C1D9F891000727A7C /* MemoryHero.cpp in Sources */,
 				F352482C1D6D9D1A0077C333 /* SelectAlphamonScene.cpp in Sources */,
 				F352483E1D6D9D1A0077C333 /* MessageSender.cpp in Sources */,
 				F35247F41D6D9D1A0077C333 /* LangUtil.cpp in Sources */,
@@ -1339,6 +1362,7 @@
 				F35247EE1D6D9D1A0077C333 /* GameScene.cpp in Sources */,
 				F35247E81D6D9D1A0077C333 /* SpriteCreate.cpp in Sources */,
 				F35248281D6D9D1A0077C333 /* Alphamon.cpp in Sources */,
+				F3F7ED7E1D9F891000727A7C /* MemoryJungle.cpp in Sources */,
 				F35248141D6D9D1A0077C333 /* StartMenuScene.cpp in Sources */,
 				509D4ABC17EBB2AB00697056 /* AppController.mm in Sources */,
 				F35248321D6D9D1A0077C333 /* RunningState.cpp in Sources */,

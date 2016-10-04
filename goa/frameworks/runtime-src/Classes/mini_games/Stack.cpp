@@ -29,8 +29,6 @@ bool Stack::init()
 		return false;
 	}
 
-//	SpriteFrameCache::getInstance()->addSpriteFramesWithFile("stackisland_1/stackisland_1.plist");
-
 	flag = true;
 
 	visibleSize = Director::getInstance()->getWinSize();
@@ -66,20 +64,6 @@ bool Stack::init()
 		stackbg = (Node *)CSLoader::createNode("stackfarm/stackfarm.csb");
 		_tray = (Sprite*)stackbg->getChildren().at(1)->getChildByName("cow");
 	}
-
-	std::vector<std::string> pankaj;
-	std::vector<int> pankaj1;
-	for (int i = 0; i < stackbg->getChildrenCount(); i++)
-	{
-		for (int j = 0; j < stackbg->getChildren().at(i)->getChildrenCount(); j++)
-		{
-			pankaj.push_back(stackbg->getChildren().at(i)->getChildren().at(j)->getName());
-			pankaj1.push_back(i);
-		}
-	}
-
-	CCLOG("yes");
-
 
 	this->addChild(stackbg);
 
@@ -348,39 +332,6 @@ void Stack::addEvents(struct LabelDetails sprite)
 
 void Stack::wordLabelAnim(struct LabelDetails sprite)
 {
-/*	auto Sequ = Sequence::create(MoveTo::create(.7, Vec2(visibleSize.width / 2, visibleSize.height * .40)), CallFunc::create([=]() {
-		auto delay = DelayTime::create(0.0f);
-
-		auto Sequ2 = Sequence::create(ScaleTo::create(.7, 3.3, 3.3), delay, ScaleTo::create(.7, 3, 3), CallFunc::create([=]() {
-			sprite.label->setColor(Color3B::BLACK);
-
-			if (sceneName == "farm")
-			{
-				this->removeChild(_wordLabel);
-				auto sequenceFuel1 = Sequence::create(MoveTo::create(4, Vec2(visibleSize.width, visibleSize.height * .22)), CallFunc::create([=]() {
-					sprite.label->setColor(Color3B::BLACK);
-					stackbg->stopAction(treadmill);
-					Stack::generateWord();
-				}), NULL);
-
-				treadmill = CSLoader::createTimeline("stackfarm/cow.csb");
-				stackbg->runAction(treadmill);
-				treadmill->play("treadmill", true);
-				_tray->runAction(sequenceFuel1);
-			}
-			else
-			{
-				this->removeChild(_wordLabel);
-				Stack::generateWord();
-			}
-		}), NULL);
-		_wordLabel->runAction(Sequ2);
-	}), NULL);
-
-	auto move = MoveTo::create(.7, Vec2(visibleSize.width / 2, visibleSize.height / 2));
-	auto scale = ScaleTo::create(.7, 3);
-	auto mySpawn = Spawn::createWithTwoActions(move, scale);
-*/
 	auto seq = Sequence::create(MoveTo::create(.7, Vec2(containerBar[sprite.sequence]->getPositionX(), Position[sprite.sequence]->getPositionY() + containerBar[sprite.sequence]->getBoundingBox().size.height * (containerBar[sprite.sequence]->getPercent() - 13) / 100)), CallFunc::create([=] {
 		_wordLabel->setColor(_color.at(rand() % 5));
 
@@ -404,7 +355,6 @@ void Stack::wordLabelAnim(struct LabelDetails sprite)
 		}
 	}), NULL);
 	_wordLabel->runAction(seq);
-//	_wordLabel->runAction(Sequ);
 }
 
 void Stack::afterAnimation(struct LabelDetails sprite)

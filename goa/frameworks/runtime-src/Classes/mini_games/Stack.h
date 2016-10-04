@@ -52,7 +52,7 @@ public:
 	// implement the "static create()" method manually
 	CREATE_FUNC(Stack);
     
-    static const char* gameName() { return CANNON_BALL.c_str(); };
+    static const char* gameName() { return STACK.c_str(); };
 	void generateWord();
 
 	struct LabelDetails

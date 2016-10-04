@@ -130,7 +130,7 @@ bool Circle::init()
 		CCLOG("one");
 		auto dot = background->getChildByName(_scenePath.at("friend_dot"));
 		_friend = CSLoader::createNode(_scenePath.at("friend"));//"circle/octopus.csb"
-		_friend->setPositionX(dot->getPositionX());
+		_friend->setPositionX(dot->getPositionX() + extraX);
 		_friend->setPositionY(dot->getPositionY());
 		
 		this->addChild(_friend);
@@ -138,7 +138,7 @@ bool Circle::init()
 		for (int i = 0; i < 6; i++)
 		{
 			auto enemyadding = CSLoader::createNode(_scenePath.at("enemy"));
-			enemyadding->setPositionX(_enemyRef.at(i)->getPositionX());
+			enemyadding->setPositionX(_enemyRef.at(i)->getPositionX() + extraX);
 			enemyadding->setPositionY(_enemyRef.at(i)->getPositionY());
 			_enemyRef1.push_back(enemyadding);
 			this->addChild(enemyadding);
@@ -157,14 +157,14 @@ bool Circle::init()
 		CCLOG("two");
 		auto dot = background->getChildByName(_scenePath.at("friend_dot"));
 		_friend = CSLoader::createNode(_scenePath.at("friend"));//"circle/octopus.csb"
-		_friend->setPositionX(dot->getPositionX());
+		_friend->setPositionX(dot->getPositionX() + extraX);
 		_friend->setPositionY(dot->getPositionY());
 		this->addChild(_friend);
 
 		for (int i = 0; i < 6; i++)
 		{
 			auto enemyadding = CSLoader::createNode(_scenePath.at("enemy"));
-			enemyadding->setPositionX(_enemyRef.at(i)->getPositionX());
+			enemyadding->setPositionX(_enemyRef.at(i)->getPositionX() + extraX);
 			enemyadding->setPositionY(_enemyRef.at(i)->getPositionY());
 			if (i < 3) {
 				enemyadding->setScaleX(-1*enemyadding->getScaleX());
@@ -302,10 +302,10 @@ void Circle::addEnemy(int num)
 	}
 	else
 	{
-		enemyadding->setPositionX(_enemyRef.at(num - 1)->getPositionX() + 1000);
+		enemyadding->setPositionX(_enemyRef.at(num - 1)->getPositionX() + 1000 );
 		enemyadding->setPositionY(_enemyRef.at(num - 1)->getPositionY() + 100);
 	}
-	auto action = MoveTo::create(1.0, Vec2(_enemyRef.at(num - 1)->getPositionX(), _enemyRef.at(num - 1)->getPositionY()));
+	auto action = MoveTo::create(1.0, Vec2(_enemyRef.at(num - 1)->getPositionX() + extraX, _enemyRef.at(num - 1)->getPositionY()));
 	enemyadding->runAction(Sequence::create(action,CallFunc::create([=]() {
 		wordGenerateWithOptions();
 	}), NULL));
@@ -317,7 +317,7 @@ void Circle::addEnemy(int num)
 
 	if (_score == 5)
 	{
-		this->scheduleOnce(schedule_selector(Circle::scoreBoard), 3.0f);
+		this->scheduleOnce(schedule_selector(Circle::scoreBoard), 2.0f);
 	}
 
 }
@@ -407,12 +407,12 @@ void Circle::wordGenerateWithOptions()
 	_topLabel->setColor(Color3B(0, 0, 0));
 	if (_scenePath.at("animation_select").compare("one") == 0)
 	{
-        _topLabel->setPositionX(visibleSize.width / 2);
+        _topLabel->setPositionX(visibleSize.width / 2 );
 		_topLabel->setPositionY(visibleSize.height - _topLabel->getContentSize().height );
 	}
 	else
 	{
-		_topLabel->setPositionX(visibleSize.width / 2 -30);
+		_topLabel->setPositionX(visibleSize.width / 2 -20 );
 		_topLabel->setPositionY(visibleSize.height - _topLabel->getContentSize().height - 600);
     }
 	this->addChild(_topLabel,2);
@@ -435,7 +435,7 @@ void Circle::wordGenerateWithOptions()
 	//	myLabel->setPositionX(_enemyRef1.at(i)->getContentSize().width/2);
 	//	myLabel->setPositionY(_enemyRef1.at(i)->getContentSize().height/ 2);
 
-		myLabel->setPositionX(_enemyRef.at(i)->getPositionX());
+		myLabel->setPositionX(_enemyRef.at(i)->getPositionX() + extraX);
 		myLabel->setPositionY(_enemyRef.at(i)->getPositionY());
 		
 		//myLabel->setColor(Color3B(0, 0, 0));
@@ -458,7 +458,7 @@ bool Circle::onTouchBegan(cocos2d::Touch * touch, cocos2d::Event * event)
 	auto target = event->getCurrentTarget();
 	auto  location = target->convertToNodeSpace(touch->getLocation());
 	//auto  location = target->convertToNodeSpace(touch->getLocation() - ;
-	if (target->getBoundingBox().containsPoint(Vec2(touch->getLocation().x - ((visibleSize.width - 2560) / 2), touch->getLocation().y)))
+	if (target->getBoundingBox().containsPoint(Vec2(touch->getLocation().x , touch->getLocation().y)))
 	{
 		std::string wordStr = target->getName();
 		char sss[100];

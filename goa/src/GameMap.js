@@ -26,6 +26,7 @@ xc.GameMap = cc.Scene.extend({
             xc.GameScene.load(xc.playLayer);
         }else if(sender._configuration.name == 'sortit') {
             xc.GameScene.load(xc.sortitlevel1Layer);
+            // xc.GameScene.load(xc.LevelMenuLayer);
         }
         else if(sender._configuration.name == 'decomon') {
             xc.GameScene.load(xc.DecomonLayer);

@@ -1,0 +1,73 @@
+#ifndef __TALK_SCENE_H__
+#define __TALK_SCENE_H__
+
+#include "cocos2d.h"
+#include <vector>
+#include "editor-support/cocostudio/CocoStudio.h"
+#include "../menu/MenuContext.h"
+#include "../puzzle/Alphabet.h"
+#include "../puzzle/CharGenerator.h"
+#include "SimpleAudioEngine.h"
+#include "../lang/SafariAnalyticsManager.h"
+#include "../StartMenuScene.h"
+#include "../lang/TextGenerator.h"
+#include "ui/CocosGUI.h"
+#include <string>
+#include <sstream>
+
+
+class Talk : public cocos2d::Layer
+{
+	
+public:
+	static cocos2d::Scene* createScene();
+	Talk();
+	~Talk();
+	virtual bool init();
+	
+	std::string _text;
+	std::vector<std::string> _textToShow;
+
+	Node *_talkBg, *charNode, *wrongNode, *correctNode;
+
+	cocostudio::timeline::ActionTimeline *_heroChar, *_enemyChar;
+
+	cocos2d::Sprite *_hhand, *_hero, *_ehand, *_enemy, *_fish;
+	cocos2d::Action *_action;
+	bool _handFlag;
+	std::vector<cocos2d::Sprite*> _enemyFish, _heroFish;
+
+
+	CREATE_FUNC(Talk);
+    
+	std::string sceneName;
+	cocos2d::Size visibleSize;
+
+
+    static const char* gameName() { return TALK.c_str(); };
+	void generateWord();
+	void update(float);
+
+	struct LabelDetails
+	{
+		cocos2d::LabelTTF *label;
+		std::string id;
+		int sequence, item, flag;
+		char answer;
+	}LabelDetails;
+
+	std::vector<struct LabelDetails> _labelDetails;
+
+	bool flag;
+
+	void addEvents(struct LabelDetails);
+	std::vector<std::string> split(std::string, char);
+
+
+	void afterAnimation(struct LabelDetails);
+	void wordShow(cocos2d::LabelTTF*);
+	void wordLabelAnim(struct LabelDetails);
+protected:
+	MenuContext* _menuContext;
+};
+#endif // __Talk_SCENE_H__

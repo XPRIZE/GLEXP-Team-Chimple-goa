@@ -64,7 +64,8 @@ bool Bingo::init()
 															{"bincapacity", 3.0f},
 															{"scale",1.0f},
 															{"bingoAnimScale",0.5f},
-															{"animationLoop", 1.0f}
+															{"animationLoop", 1.0f},
+															{"helpLetterYFactor", 0.87}
 														}
 									},
 								    {   "fourByFour", 
@@ -75,7 +76,8 @@ bool Bingo::init()
 															{ "bincapacity", 4.0f },
 															{ "scale",0.75f },
 															{ "bingoAnimScale",0.35f },
-															{ "animationLoop", 1.0f }
+															{ "animationLoop", 1.0f },
+															{ "helpLetterYFactor",0.87 }
 														 }
 									},
 								    {"fiveByFive", 
@@ -86,7 +88,8 @@ bool Bingo::init()
 															{ "bincapacity", 5.0f },
 															{ "scale",0.6f },
 															{ "bingoAnimScale",0.2f },
-															{ "animationLoop", 1.0f }
+															{ "animationLoop", 1.0f },
+															{ "helpLetterYFactor", 0.87 }
 														}
 									}
 							}},
@@ -100,7 +103,8 @@ bool Bingo::init()
 																{ "bincapacity", 3.0f },
 																{ "scale",1.0f },
 																{ "bingoAnimScale",0.5f },
-																{ "animationLoop", 1.0f }
+																{ "animationLoop", 1.0f },
+																{ "helpLetterYFactor", 0.91 }
 															}
 												},
 												{ "fourByFour",
@@ -111,7 +115,8 @@ bool Bingo::init()
 																{ "bincapacity", 4.0f },
 																{ "scale",0.75f },
 																{ "bingoAnimScale",0.35f },
-																{ "animationLoop", 1.0f }
+																{ "animationLoop", 1.0f },
+																{ "helpLetterYFactor", 0.91 }
 															}
 												},
 												{ "fiveByFive",
@@ -122,7 +127,8 @@ bool Bingo::init()
 																{ "bincapacity", 5.0f },
 																{ "scale",0.6f },
 																{ "bingoAnimScale",0.25f },
-																{ "animationLoop", 1.0f }
+																{ "animationLoop", 1.0f },
+																{ "helpLetterYFactor", 0.91 }
 															}
 												}
 											} 
@@ -137,7 +143,8 @@ bool Bingo::init()
 																	{ "bincapacity", 3.0f },
 																	{ "scale",1.0f },
 																	{ "bingoAnimScale",0.55f },
-																	{ "animationLoop", 0.0f }
+																	{ "animationLoop", 0.0f },
+																	{ "helpLetterYFactor", 0.91 }
 																}
 												},
 												{ "fourByFour",
@@ -148,7 +155,8 @@ bool Bingo::init()
 																	{ "bincapacity", 4.0f },
 																	{ "scale",0.75f },
 																	{ "bingoAnimScale",0.40f },
-																	{ "animationLoop", 0.0f }
+																	{ "animationLoop", 0.0f },
+																	{ "helpLetterYFactor", 0.91 }
 																}
 												},
 												{ "fiveByFive",
@@ -159,7 +167,8 @@ bool Bingo::init()
 																	{ "bincapacity", 5.0f },
 																	{ "scale",0.6f },
 																	{ "bingoAnimScale",0.25f },
-																	{ "animationLoop", 0.0f }
+																	{ "animationLoop", 0.0f },
+																	{ "helpLetterYFactor", 0.91 }
 																}
 												}
 							}
@@ -172,7 +181,7 @@ bool Bingo::init()
 	_bingoCurrentTheme = theme[RandomHelper::random_int(0, 2)];
 	_bingoGridDimension= gridInfo[RandomHelper::random_int(0, 1)];
 
-	/*_bingoGridDimension = "fourByFour";
+	/*_bingoGridDimension = "threeByThree";
 	_bingoCurrentTheme = "bingofarm";*/
 
 	_scenePath = sceneMap.at(_bingoCurrentTheme);
@@ -307,9 +316,6 @@ bool Bingo::init()
 				boxShade = Sprite::createWithSpriteFrameName(_scenePath.at("boxshade"));
 				setAllSpriteProperties(boxShade, 0, addX, addY, true, 0.5, 0.5, 0, _gridBasedValue.at("scale"), _gridBasedValue.at("scale"), _boxBoard);
 			
-				
-			
-		
 				//Bingo Last Animation
 
 				auto bingoTimeline = CSLoader::createTimeline("jungle/bingostar.csb");
@@ -323,8 +329,6 @@ bool Bingo::init()
 				//Label
 
 				label = LabelTTF::create(_data_key[randomIndex[boxId]], "Helvetica", 100);
-				float a = label->getBoundingBox().size.width / 2;
-				float b = label->getBoundingBox().size.height / 2;
 				label->setPosition(c,d);
 				label->setAnchorPoint(Vec2(0.5, 0.5));
 				box->addChild(label, 3);
@@ -358,7 +362,7 @@ bool Bingo::init()
 			addX += box->getBoundingBox().size.width + _boxBoard->getBoundingBox().size.width * 0.011;
 		}
 
-			addY = addY + box->getBoundingBox().size.height + _boxBoard->getBoundingBox().size.width *0.011;
+			addY = addY + box->getBoundingBox().size.height + _boxBoard->getBoundingBox().size.width *0.013;
 			addX = _boxBoard->getBoundingBox().size.width * _gridBasedValue.at("addXFactor");
 	}
 	/*Vector <Node*> children = bingoBackground->getChildren().at(0)->getChildren();
@@ -407,7 +411,7 @@ void::Bingo::setWordInHelpBoard()
 	if (size != -1)
 	{
 		_label = LabelTTF::create(_data_value[RandomHelper::random_int(0, size)], "Helvetica", 200);
-		_label->setPosition(visibleSize.width / 2 + origin.x, visibleSize.height *.895);
+		_label->setPosition(visibleSize.width / 2 + origin.x, visibleSize.height*_gridBasedValue.at("helpLetterYFactor"));
 		_label->setAnchorPoint(Vec2(0.5, 0.5));
 		this->addChild(_label, 3);
 	}
@@ -424,10 +428,11 @@ void Bingo::addEvents(Sprite* clickedObject)
 		Size s = target->getContentSize();
 		Rect rect = Rect(0, 0, s.width, s.height);
 
-    	if (rect.containsPoint(locationInNode))
+    	if (rect.containsPoint(locationInNode) && _flagForSingleTouch)
     	{
 			if(!_isBingoDone)
 			{
+					_flagForSingleTouch = false;
 					 bool bingo = false;
 					std::string helpLabelPair = target->getChildren().at(0)->getName();
 					if (helpLabelPair.compare(_label->getString()) == 0)
@@ -473,9 +478,11 @@ void Bingo::addEvents(Sprite* clickedObject)
 							 });
 							 this->runAction(Sequence::create(DelayTime::create(5), callShowScore, NULL));
 						 }
+				  /* this->runAction(Sequence::create(DelayTime::create(4), CallFunc::create([=]() {_flagForSingleTouch = true; }), NULL));*/
 					  }
+			this->runAction(Sequence::create(DelayTime::create(0.5), CallFunc::create([=]() {_flagForSingleTouch = true; }), NULL));
 			}
-		return true;
+		return false;
 	};
 	cocos2d::Director::getInstance()->getEventDispatcher()->addEventListenerWithSceneGraphPriority(listener, clickedObject);
 }
