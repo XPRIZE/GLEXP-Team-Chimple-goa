@@ -72,8 +72,20 @@ bool BalloonHero::init() {
 
 	//_balloonHero->setPosition(Vec2(visibleSize.width / 2 + origin.x, visibleSize.height / 2 + origin.y));
 	//_balloonHero->setAnchorPoint(Vec2(0, 0));
-	addChild(_balloonHero);
+	this->addChild(_balloonHero);
+	
+	_fireFly = CSLoader::createNode("balloonhero/firefly.csb");
 
+	_fireFly->setPosition(Vec2(visibleSize.width / 2 + origin.x, visibleSize.height / 2 + origin.y));
+	_fireFly->setAnchorPoint(Vec2(0.5, 0.5));
+	_fireFly->setScale(0.5, 0.5);
+	this->addChild(_fireFly, 1);
+	
+	
+	_fireTimeline = CSLoader::createTimeline("balloonhero/firefly.csb");
+	_fireFly->runAction(_fireTimeline);
+	_fireTimeline->play("fly" ,true);
+	
 	return true;
 }
 
