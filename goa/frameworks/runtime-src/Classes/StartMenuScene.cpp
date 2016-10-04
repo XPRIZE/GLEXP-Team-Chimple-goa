@@ -33,10 +33,12 @@
 #include "mini_games/Circle.h"
 #include "mini_games/Stack.h"
 #include "mini_games/Talk.h"
-
+#include "mini_games/BalloonHero.h"
+#include "mini_games/Bingo.h"
+#include "mini_games/Drop.h"
+#include "mini_games/Owl.h"
 
 USING_NS_CC;
-
 
 StartMenu::StartMenu(){
 }
@@ -107,7 +109,7 @@ void StartMenu::startScene(std::string gameName, std::string firstParam, std::st
     } else if(gameName == JASMINE) {
         Director::getInstance()->replaceScene(Jasmin_Mainfile::createScene());
     } else if(gameName == WEMBLEY) {
-
+		/*
 		int numberPicker = RandomHelper::random_int(0, 2);
 		switch (numberPicker) {
 
@@ -115,8 +117,8 @@ void StartMenu::startScene(std::string gameName, std::string firstParam, std::st
 		case 1: Director::getInstance()->replaceScene(MemoryHero::createScene());  break;
 		case 2: Director::getInstance()->replaceScene(Memory::createScene());  break;
 
-		}
-        
+		}*/
+		Director::getInstance()->replaceScene(BalloonHero::createScene());
     } else if(gameName == JAZZ) {
         Director::getInstance()->replaceScene(jazz::createScene());
     } else if(gameName == CHAIN) {
@@ -152,6 +154,15 @@ void StartMenu::startScene(std::string gameName, std::string firstParam, std::st
 	}
 	else if (gameName == TALK) {
 		Director::getInstance()->replaceScene(Talk::createScene());
+	}
+	else if (gameName == BINGO) {
+		Director::getInstance()->replaceScene(Bingo::createScene());
+	}
+	else if (gameName == DROP) {
+		Director::getInstance()->replaceScene(Drop::createScene());
+	}
+	else if (gameName == OWL) {
+		Director::getInstance()->replaceScene(Owl::createScene());
 	}
 	else{
         CCLOG("Failed starting scene: %s", gameName.c_str());

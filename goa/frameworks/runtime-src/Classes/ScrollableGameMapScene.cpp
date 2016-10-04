@@ -44,6 +44,9 @@
 #include "mini_games/MemoryHero.h"
 #include "mini_games/MemoryJungle.h"
 #include "mini_games/Talk.h"
+#include "mini_games/BalloonHero.h"
+#include "mini_games/Drop.h"
+#include "mini_games/Owl.h"
 
 USING_NS_CC;
 
@@ -189,6 +192,7 @@ void ScrollableGameMapScene::gameSelected(Ref* pSender, ui::Widget::TouchEventTy
 				//ScriptingCore::getInstance()->runScript("src/start/jump.js");
 			} else if (clickedButton->getName() == POP) {
 				ScriptingCore::getInstance()->runScript("src/start/pop.js");
+				Director::getInstance()->replaceScene(Drop::createScene());
 			} else if(clickedButton->getName() == CROSS_THE_BRIDGE) {
 				/* Director::getInstance()->replaceScene(CrossTheBridge::createScene());*/
 				Director::getInstance()->replaceScene(Bingo::createScene());
@@ -200,7 +204,7 @@ void ScrollableGameMapScene::gameSelected(Ref* pSender, ui::Widget::TouchEventTy
                 ScriptingCore::getInstance()->runScript("src/start/pinata.js");
 //                ScriptingCore::getInstance()->runScript("src/start/connectTheDots.js");
             } else if (clickedButton->getName() == ENDLESS_RUNNER) {
-				Director::getInstance()->replaceScene(EndlessRunner::createScene());
+				Director::getInstance()->replaceScene(Owl::createScene());
 			} else if(clickedButton->getName() == KUNG_FU_ALPHA) {
                 Director::getInstance()->replaceScene(Trace::createScene(0));   
             } else if(clickedButton->getName() == ALPHAMON_FEED) {
@@ -213,7 +217,7 @@ void ScrollableGameMapScene::gameSelected(Ref* pSender, ui::Widget::TouchEventTy
                 Director::getInstance()->replaceScene(Chain::createScene());
             } else if(clickedButton->getName() == WEMBLEY) {
 				
-				int numberPicker = RandomHelper::random_int(0, 2);
+				/*int numberPicker = RandomHelper::random_int(0, 2);
 				switch (numberPicker) {
 
 					case 0: Director::getInstance()->replaceScene(MemoryJungle::createScene());  break;
@@ -221,7 +225,8 @@ void ScrollableGameMapScene::gameSelected(Ref* pSender, ui::Widget::TouchEventTy
 					case 2: Director::getInstance()->replaceScene(Memory::createScene());  break;
 
 				}
-				
+				*/
+				Director::getInstance()->replaceScene(BalloonHero::createScene());
                 
             } else if(clickedButton->getName() == JAZZ) {
                 Director::getInstance()->replaceScene(jazz::createScene());
