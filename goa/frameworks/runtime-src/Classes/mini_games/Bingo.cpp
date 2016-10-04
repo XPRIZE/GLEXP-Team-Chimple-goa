@@ -12,7 +12,7 @@ Scene* Bingo::createScene()
 	auto scene = Scene::create();
 
 	scene->addChild(layer);
-	layer->_menuContext = MenuContext::create(layer, "dash");
+	layer->_menuContext = MenuContext::create(layer, "bingo");
 	scene->addChild(layer->_menuContext);
 	return scene;
 }
@@ -26,7 +26,7 @@ bool Bingo::init()
 	
 	std::map<std::string, std::map<std::string, std::string>> sceneMap = {
 		{
-			{ "bingojungle",  //sonu designs
+			{ "bingojungle",  
 			{
 				{ "bg", "jungle/bingojungle.csb" },
 				{ "box", "jungle/jungleb/letterbox.png" },
