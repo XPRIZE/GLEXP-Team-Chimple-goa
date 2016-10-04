@@ -1,5 +1,5 @@
-#ifndef __DROP_SCENE_H__
-#define __DROP_SCENE_H__
+#ifndef __OWL_SCENE_H__
+#define __OWL_SCENE_H__
 
 #include "cocos2d.h"
 #include "../menu/MenuContext.h"
@@ -8,21 +8,21 @@
 
 using namespace cocos2d;
 
-class Drop : public cocos2d::Layer
+class Owl : public cocos2d::Layer
 {
 
 protected:
 	MenuContext *_menuContext;
 
 public:
-	~Drop();
+	~Owl();
 	static cocos2d::Scene* createScene();
 	virtual bool init();
 
-	CREATE_FUNC(Drop);
+	CREATE_FUNC(Owl);
 	void update(float) override;
 
-	static const char* gameName() { return DROP.c_str(); }
+	static const char* gameName() { return OWL.c_str(); }
 };
 
-#endif // __DROP_SCENE_H__
+#endif // __OWL_SCENE_H__
