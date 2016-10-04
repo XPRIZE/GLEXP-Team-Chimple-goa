@@ -127,7 +127,8 @@ xc.Pinata = cc.Layer.extend({
                 if(classReference.gameBg.node.getChildByName("board").freezShooting ){
                     if (cc.rectContainsPoint(targetRectangle, location)){
                         classReference.player.prevX = touch.getLocation().x;
-                        classReference.player.prevY = touch.getLocation().y;   
+                        classReference.player.prevY = touch.getLocation().y;
+                        
                         return true;}
                 }
                 return false;
@@ -327,6 +328,7 @@ xc.Pinata = cc.Layer.extend({
 
         if((touch.getLocation().x >= cc.director.getWinSize().width * 0.1 ) && (touch.getLocation().x <= cc.director.getWinSize().width * 0.9 ) && (touch.getLocation().y >= cc.director.getWinSize().height * 0.05 ) && (touch.getLocation().y <= cc.director.getWinSize().height * 0.5 )){
             target.setPosition(touch.getLocation());
+            console.log("default if touch condition ");
         }
 
      //   console.log("x : "+this.bubblePlayer.x + " y : "+this.bubblePlayer.y);
@@ -334,23 +336,27 @@ xc.Pinata = cc.Layer.extend({
         if(touch.getLocation().x < cc.director.getWinSize().width * 0.1 ){
             if((this.bubblePlayer.y >= cc.director.getWinSize().height * 0.05 ) && (this.bubblePlayer.y <= cc.director.getWinSize().height * 0.5 )){
                 target.y = touch.getLocation().y;
+                console.log(" left X fixed , Y coordinate Changes if condition ");
             }
         }
         if(touch.getLocation().x > cc.director.getWinSize().width * 0.9 ){
             if((this.bubblePlayer.y >= cc.director.getWinSize().height * 0.05 ) && (this.bubblePlayer.y <= cc.director.getWinSize().height * 0.5 )){
                 target.y = touch.getLocation().y;
+                console.log(" right X fixed , Y coordinate Changes if condition ");
             }
         }
 
         if((touch.getLocation().y > cc.director.getWinSize().height * 0.05 )){
             if((touch.getLocation().x >= cc.director.getWinSize().width * 0.1 ) && (touch.getLocation().x <= cc.director.getWinSize().width * 0.9 )){
                 target.x = touch.getLocation().x;
+                console.log(" bottom Y fixed , X coordinate changes if condition ");
             }
         }
         
         if((touch.getLocation().y < cc.director.getWinSize().height * 0.5 )){
             if((touch.getLocation().x >= cc.director.getWinSize().width * 0.1 ) && (touch.getLocation().x <= cc.director.getWinSize().width * 0.9 )){
                 target.x = touch.getLocation().x;
+                console.log(" top Y fixed , X coordinate changes if condition ");
             }
         }
 
