@@ -27,6 +27,8 @@ public:
 	
 	std::vector<std::string> _textToShow;
 
+	std::map<std::string, std::map<std::string, int>> differntSceneMapping;
+	std::vector<std::string> _scene;
 	Node *_talkBg;
 
 	cocostudio::timeline::ActionTimeline *_heroChar, *_enemyChar;

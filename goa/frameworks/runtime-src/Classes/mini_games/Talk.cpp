@@ -33,10 +33,10 @@ bool Talk::init()
 	_correctAnswer = 0;
 
 	visibleSize = Director::getInstance()->getWinSize();
-	std::vector<std::string> scene = { "island", "city" , "farm" };
-	sceneName = "island";
+	_scene = { "talkisland", "talkcity"};
+	sceneName = "talkcity";// _scene.at(rand() % _scene.size());
 
-	if (sceneName == "island")
+	if (sceneName == "talkisland")
 	{
 		_talkBg = (Node *)CSLoader::createNode("talkisland/talkisland.csb");
 		for (int i = 0; i < _talkBg->getChildrenCount(); i++)
@@ -60,16 +60,70 @@ bool Talk::init()
 		_hero = (Sprite*)_talkBg->getChildren().at(1)->getChildByName("hero");
 		_enemy = (Sprite*)_talkBg->getChildren().at(1)->getChildByName("enemy");
 	}
-	else if (sceneName == "city")
+	else if (sceneName == "talkcity")
 	{
 		_talkBg = (Node *)CSLoader::createNode("talkcity/talkcity.csb");
+
+		_hhand = (Sprite*)_talkBg->getChildByName("h_node"); // getChildren().at(7);
+		_ehand = (Sprite*)_talkBg->getChildByName("e_node"); //getChildren().at(6);
+		_hero = (Sprite*)_talkBg->getChildByName("hero");
+		_enemy = (Sprite*)_talkBg->getChildByName("enemy");
+
+		_heroChar = CSLoader::createTimeline("talkcity/hero.csb");
+		_enemyChar = CSLoader::createTimeline("talkcity/enemy.csb");
+
+		auto h_tail = CSLoader::createTimeline("talkcity/hero.csb");
+		auto h_eye_blinking = CSLoader::createTimeline("talkcity/hero.csb");
+
+		auto e_tail = CSLoader::createTimeline("talkcity/enemy.csb");
+		auto e_eye_blinking = CSLoader::createTimeline("talkcity/enemy.csb");
+
+		_talkBg->runAction(h_tail);
+		_talkBg->runAction(h_eye_blinking);
+		_talkBg->runAction(e_tail);
+		_talkBg->runAction(e_eye_blinking);
+
+		_talkBg->runAction(RepeatForever::create(Sequence::create(DelayTime::create(1), CallFunc::create([=]() {
+			e_tail->play("e_tail", false);
+		}), DelayTime::create(1), CallFunc::create([=]() {
+			e_eye_blinking->play("e_eye_blinking", false);
+		}), NULL)));
+
+		_talkBg->runAction(RepeatForever::create(Sequence::create(DelayTime::create(1.4), CallFunc::create([=]() {
+			h_tail->play("h_tail", false);
+		}), DelayTime::create(1), CallFunc::create([=]() {
+			h_eye_blinking->play("h_eye_blinking", false);
+		}), NULL)));
+
+		_talkBg->getChildByName("enemy")->setScaleX(-1.0f);
+		_talkBg->getChildByName("e_node")->setPosition(Vec2(visibleSize.width * .22, visibleSize.height *.142));
 	}
 
 	this->addChild(_talkBg);
 
 
+	differntSceneMapping = {
+
+		{ "talkisland",  //anu designs
+		{
+			{ "enemy", visibleSize.width * .34 },
+			{ "hero", visibleSize.width * .61 }
+		} },
+		{ "talkcity",  //sonu designs
+		{
+			{ "enemy", visibleSize.width * .22 },
+			{ "hero", visibleSize.width * .72 }
+		} },
+		{ "candy",  //deepak design
+		{
+			{ "enemy", visibleSize.width * .34 },
+			{ "hero", visibleSize.width * .61 }
+		} },
+	};
+
+
 	LabelTTF *lb = LabelTTF::create("Select verbs", "Arial", 80);
-	lb->setPosition(Vec2(visibleSize.width * .40, visibleSize.height * .80));
+	lb->setPosition(Vec2(visibleSize.width * .40, visibleSize.height * .90));
 	this->addChild(lb);
 
 
@@ -89,10 +143,10 @@ bool Talk::init()
 
 	for (int i = 0; i < _textToShow.size(); i++)
 	{
-		LabelDetails.label = LabelTTF::create(_textToShow.at(i), "Arial", 80);
+		LabelDetails.label = LabelTTF::create(_textToShow.at(i), "Arial", 120);
 		if (i == 0)
 		{
-			LabelDetails.label->setPosition(Vec2(visibleSize.width * .30, visibleSize.height * .70));
+			LabelDetails.label->setPosition(Vec2(visibleSize.width * .15, visibleSize.height * .70));
 		}
 		else
 		{
@@ -181,21 +235,24 @@ void Talk::addEvents(struct LabelDetails sprite)
 
 		if (rect.containsPoint(locationInNode) && _handFlag==false)
 		{
-			if (sceneName == "island")
+			if (sceneName == "talkisland" || sceneName == "talkcity")
 			{
-				std::ostringstream counterForLetter;
-				counterForLetter << "talkisland/fish" << (rand() % (6-1) + 1) << ".png";
+				std::ostringstream spriteName, herotime, enemytime;
+				spriteName << sceneName<< "/fish" << (rand() % (6-1) + 1) << ".png";
+				herotime << sceneName << "/hero" << ".csb";
+				enemytime << sceneName << "/enemy" << ".csb";
 
-				_heroChar = CSLoader::createTimeline("talkisland/hero.csb");
-				_enemyChar = CSLoader::createTimeline("talkisland/enemy.csb");
+				_heroChar = CSLoader::createTimeline(herotime.str());
+				_enemyChar = CSLoader::createTimeline(enemytime.str());
 				_talkBg->runAction(_heroChar);
 				_talkBg->runAction(_enemyChar);
-				_fish = Sprite::createWithSpriteFrameName(counterForLetter.str());
+				_fish = Sprite::createWithSpriteFrameName(spriteName.str());
 				this->addChild(_fish);
 
+				int pos = std::find(_scene.begin(), _scene.end(), sceneName) - _scene.begin();
 				if (sprite.answer == 'c')
 				{
-					_fish->setPosition(Vec2(visibleSize.width * .61, visibleSize.height));
+					_fish->setPosition(Vec2(differntSceneMapping.at(_scene.at(pos)).at("hero") , visibleSize.height));
 					_heroChar->play("h_correct", false);
 					_enemyChar->play("e_wrong", false);
 					sprite.label->setColor(Color3B::GREEN);
@@ -203,11 +260,12 @@ void Talk::addEvents(struct LabelDetails sprite)
 				}
 				else
 				{
-					_fish->setPosition(Vec2(visibleSize.width * .34, visibleSize.height));
+					_fish->setPosition(Vec2(differntSceneMapping.at(_scene.at(pos)).at("enemy"), visibleSize.height));
 					_heroChar->play("h_wrong", false);
 					_enemyChar->play("e_correct", false);
 					sprite.label->setColor(Color3B::RED);
 				}
+
 				_action = MoveTo::create(3, Vec2(_fish->getPositionX(), 0));
 				_fish->runAction(_action);
 				_handFlag = true;
