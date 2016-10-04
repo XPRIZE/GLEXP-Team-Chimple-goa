@@ -43,6 +43,10 @@ static const std::string CIRCLE = "Circle";
 static const std::string PINATA = "pinata";
 static const std::string STACK = "stack";
 static const std::string TALK = "talk";
+static const std::string BINGO = "bingo";
+static const std::string DROP = "drop";
+
+
 
 class StartMenu {
 public:
