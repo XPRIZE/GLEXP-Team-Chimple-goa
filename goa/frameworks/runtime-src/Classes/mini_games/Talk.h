@@ -25,10 +25,11 @@ public:
 	~Talk();
 	virtual bool init();
 	
-	std::string _text;
 	std::vector<std::string> _textToShow;
 
-	Node *_talkBg, *charNode, *wrongNode, *correctNode;
+	std::map<std::string, std::map<std::string, int>> differntSceneMapping;
+	std::vector<std::string> _scene;
+	Node *_talkBg;
 
 	cocostudio::timeline::ActionTimeline *_heroChar, *_enemyChar;
 
@@ -36,7 +37,9 @@ public:
 	cocos2d::Action *_action;
 	bool _handFlag;
 	std::vector<cocos2d::Sprite*> _enemyFish, _heroFish;
+	int _totalCount, _totalAnswer, _correctAnswer;
 
+	std::vector<std::string> _allSentense;
 
 	CREATE_FUNC(Talk);
     
@@ -45,28 +48,20 @@ public:
 
 
     static const char* gameName() { return TALK.c_str(); };
-	void generateWord();
 	void update(float);
 
 	struct LabelDetails
 	{
 		cocos2d::LabelTTF *label;
 		std::string id;
-		int sequence, item, flag;
+		int sequence, flag;
 		char answer;
 	}LabelDetails;
 
 	std::vector<struct LabelDetails> _labelDetails;
 
-	bool flag;
-
 	void addEvents(struct LabelDetails);
 	std::vector<std::string> split(std::string, char);
-
-
-	void afterAnimation(struct LabelDetails);
-	void wordShow(cocos2d::LabelTTF*);
-	void wordLabelAnim(struct LabelDetails);
 protected:
 	MenuContext* _menuContext;
 };
