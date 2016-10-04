@@ -34,10 +34,15 @@ public:
 
 protected:
 	int _gameScore, _enemyScore;
+	int _wordCount;
+	std::string _gameWord;
+	int _jumpCount, _enemyJumpCount;
 	cocos2d::Layer * _stepLayer;
 	cocos2d::Label * _topLabel;
 	std::map<std::string, std::string> _synonyms;
 	std::vector <std::string> _mapKey;
+	std::vector <std::string> _rightWords;
+	std::vector <std::string> _wrongWords;
 	cocos2d::Vector <cocos2d::Sprite *> _choiceButton;
 	cocos2d::Vector <cocos2d::Label *> _choiceLabel;
 	cocos2d::Node * _character, * _otherCharacter, *_bg;
@@ -48,10 +53,15 @@ protected:
 	void myCharacterEyeBlinking();
 	void otherCharacterJumping(int jumpCount);
 	void wordGenerateWithOptions();
-    std::string constructSendMessage(std::string charName, int position);
-	std::string _gameWord;
-	int _jumpCount, _enemyJumpCount;
+	void winningCelebration();
+	void fallingWords(int index);
+	void fallingWordWithAction(cocos2d::Vector<cocos2d::Label*> fallingWords);
+	void iceLandThemeAnimation();
 	virtual bool onTouchBegan(cocos2d::Touch *touch, cocos2d::Event * event);
+    std::string constructSendMessage(std::string charName, int position);
+//	std::string _gameWord;
+	//int _jumpCount, _enemyJumpCount;
+//	virtual bool onTouchBegan(cocos2d::Touch *touch, cocos2d::Event * event);
     
     std::string _deviceName;
     std::string _deviceAddress;
@@ -63,8 +73,6 @@ protected:
     void createMultiPlayerConnectButton(std::string deviceName, std::string deviceAddress);
     void invokeMultiPlayerDiscovery(cocos2d::Ref* pSender, cocos2d::ui::Widget::TouchEventType eEventType);
     void invokeMultiPlayerConnection(cocos2d::Ref* pSender, cocos2d::ui::Widget::TouchEventType eEventType);
-
-	
 };
 
 #endif 
