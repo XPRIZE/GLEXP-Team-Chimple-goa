@@ -34,6 +34,8 @@
 #include "mini_games/Stack.h"
 #include "mini_games/Talk.h"
 #include "mini_games/BalloonHero.h"
+#include "mini_games/Bingo.h"
+#include "mini_games/Drop.h"
 
 
 USING_NS_CC;
@@ -153,6 +155,12 @@ void StartMenu::startScene(std::string gameName, std::string firstParam, std::st
 	}
 	else if (gameName == TALK) {
 		Director::getInstance()->replaceScene(Talk::createScene());
+	}
+	else if (gameName == BINGO) {
+		Director::getInstance()->replaceScene(Bingo::createScene());
+	}
+	else if (gameName == DROP) {
+		Director::getInstance()->replaceScene(Drop::createScene());
 	}
 	else{
         CCLOG("Failed starting scene: %s", gameName.c_str());
