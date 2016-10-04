@@ -30,6 +30,8 @@ CC_CONSTRUCTOR_ACCESS:
 	static const char* classname() { return WEMBLEY.c_str(); }
 protected:
 	Node * _balloonHero;
+	Node *_fireFly;
+	cocostudio::timeline::ActionTimeline * _fireTimeline;
 	void setupTouch();
 
 	MenuContext *_menuContext;
