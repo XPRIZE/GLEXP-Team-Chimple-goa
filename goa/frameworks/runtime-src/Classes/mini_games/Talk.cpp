@@ -34,7 +34,7 @@ bool Talk::init()
 
 	visibleSize = Director::getInstance()->getWinSize();
 	_scene = { "talkisland", "talkcity"};
-	sceneName = _scene.at(rand() % _scene.size());
+	sceneName = "talkcity";// _scene.at(rand() % _scene.size());
 
 	if (sceneName == "talkisland")
 	{
@@ -83,15 +83,16 @@ bool Talk::init()
 		_talkBg->runAction(e_tail);
 		_talkBg->runAction(e_eye_blinking);
 
-//		e_tail->play("e_tail", true);
-//		e_eye_blinking->play("e_eye_blinking", true);
-		h_tail->play("h_tail", true);
-		h_eye_blinking->play("h_eye_blinking", true);
-
-		_talkBg->runAction(RepeatForever::create(Sequence::create(CallFunc::create([=]() {
+		_talkBg->runAction(RepeatForever::create(Sequence::create(DelayTime::create(1), CallFunc::create([=]() {
 			e_tail->play("e_tail", false);
-		}), DelayTime::create(2), CallFunc::create([=]() {
+		}), DelayTime::create(1), CallFunc::create([=]() {
 			e_eye_blinking->play("e_eye_blinking", false);
+		}), NULL)));
+
+		_talkBg->runAction(RepeatForever::create(Sequence::create(DelayTime::create(1.4), CallFunc::create([=]() {
+			h_tail->play("h_tail", false);
+		}), DelayTime::create(1), CallFunc::create([=]() {
+			h_eye_blinking->play("h_eye_blinking", false);
 		}), NULL)));
 
 		_talkBg->getChildByName("enemy")->setScaleX(-1.0f);
