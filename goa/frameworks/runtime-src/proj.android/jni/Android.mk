@@ -78,6 +78,8 @@ LOCAL_SRC_FILES := hellojavascript/main.cpp \
 					../../Classes/mini_games/Dash.cpp \
 					../../Classes/mini_games/Decomon.cpp \
                     ../../Classes/mini_games/BalloonHero.cpp \
+                    ../../Classes/mini_games/Drop.cpp \
+					../../Classes/mini_games/Owl.cpp \
 					../../Classes/menu/MenuContext.cpp \
 					../../Classes/lang/LangUtil.cpp \
 					../../Classes/lang/EnglishUtil.cpp \
