@@ -36,10 +36,9 @@
 #include "mini_games/BalloonHero.h"
 #include "mini_games/Bingo.h"
 #include "mini_games/Drop.h"
-
+#include "mini_games/Owl.h"
 
 USING_NS_CC;
-
 
 StartMenu::StartMenu(){
 }
@@ -161,6 +160,9 @@ void StartMenu::startScene(std::string gameName, std::string firstParam, std::st
 	}
 	else if (gameName == DROP) {
 		Director::getInstance()->replaceScene(Drop::createScene());
+	}
+	else if (gameName == OWL) {
+		Director::getInstance()->replaceScene(Owl::createScene());
 	}
 	else{
         CCLOG("Failed starting scene: %s", gameName.c_str());

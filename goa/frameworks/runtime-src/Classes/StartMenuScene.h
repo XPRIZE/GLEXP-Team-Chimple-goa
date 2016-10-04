@@ -45,8 +45,7 @@ static const std::string STACK = "stack";
 static const std::string TALK = "talk";
 static const std::string BINGO = "bingo";
 static const std::string DROP = "drop";
-
-
+static const std::string OWL = "owl";
 
 class StartMenu {
 public:
