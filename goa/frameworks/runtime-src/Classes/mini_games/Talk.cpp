@@ -34,7 +34,7 @@ bool Talk::init()
 
 	visibleSize = Director::getInstance()->getWinSize();
 	_scene = { "talkisland", "talkcity"};
-	sceneName = "talkcity";// _scene.at(rand() % _scene.size());
+	sceneName = _scene.at(rand() % _scene.size());
 
 	if (sceneName == "talkisland")
 	{
