@@ -28,8 +28,12 @@ protected:
 	MenuContext * menu;
 	cocos2d::Layer * _costumeLayer, *_alphabetLayer, * _maskingLayer;
 	cocos2d::Node * _movedNode;
-
+	cocos2d::DrawNode *_paintingNode;
+	cocos2d::Vector<cocos2d::Node *> _drawNodes;
 	int _colorIndex;
+	cocos2d::RenderTexture *_paintingTexture;
+	cocos2d::Sprite *_paintingColour;
+	int _pickedColor_R, _pickedColor_G, _pickedColor_B;
 	bool _touched = false, _flip, _colorPicked = false;
 	cocos2d::Vector <cocos2d::Node *> _movedNodes;
 	std::vector <std::string> _eyePath;
@@ -41,11 +45,18 @@ protected:
 	std::vector <std::string> _hornPath;
 	std::vector <std::string> _gearPath;
 	virtual bool onTouchBegan(cocos2d::Touch *touch, cocos2d::Event * event);
+//	virtual void onTouchMoved(const std::vector<Touch*>& touches, Event* event);
 	virtual void onTouchMoved(cocos2d::Touch *touch, cocos2d::Event * event);
 	virtual void onTouchEnded(cocos2d::Touch *touch, cocos2d::Event * event);
 	void itemInAGrid(std::vector<std::string> item, std::string name);
 	void creatSpriteOnAlphabet(std::string, float x, float y, float scale);
 	void colourFilling(float x, float y, int index,cocos2d::Layer * layer);
+	void generateDuplicatesInAGrid(cocos2d::Node * node);
+	void onTouchesBegan(const std::vector<cocos2d::Touch*>& touches, cocos2d::Event* event);
+	void onTouchesMoved(const std::vector<cocos2d::Touch*>& touches, cocos2d::Event* event);
+	void onTouchesEnded(const std::vector<cocos2d::Touch*>& touches, cocos2d::Event* event);
+	void update(float);
+	void updateRT();
 
 };
 
