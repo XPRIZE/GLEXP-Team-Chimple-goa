@@ -4,410 +4,320 @@
     <dict>
         <key>frames</key>
         <dict>
-            <key>balloonhero/blaze0001.png</key>
+            <key>owlcity/body.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
                 <key>spriteOffset</key>
-                <string>{0,5}</string>
+                <string>{0,0}</string>
                 <key>spriteSize</key>
-                <string>{94,138}</string>
+                <string>{49,57}</string>
                 <key>spriteSourceSize</key>
-                <string>{94,148}</string>
+                <string>{49,57}</string>
                 <key>textureRect</key>
-                <string>{{2485,250},{94,138}}</string>
+                <string>{{508,75},{49,57}}</string>
                 <key>textureRotated</key>
                 <true/>
             </dict>
-            <key>balloonhero/blaze0002.png</key>
+            <key>owlcity/body_enemy.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
                 <key>spriteOffset</key>
-                <string>{0,5}</string>
+                <string>{0,0}</string>
                 <key>spriteSize</key>
-                <string>{94,138}</string>
+                <string>{49,57}</string>
                 <key>spriteSourceSize</key>
-                <string>{94,148}</string>
+                <string>{49,57}</string>
                 <key>textureRect</key>
-                <string>{{2485,250},{94,138}}</string>
+                <string>{{567,72},{49,57}}</string>
                 <key>textureRotated</key>
                 <true/>
             </dict>
-            <key>balloonhero/blaze0003.png</key>
+            <key>owlcity/closeeye.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
                 <key>spriteOffset</key>
-                <string>{0,5}</string>
+                <string>{0,0}</string>
                 <key>spriteSize</key>
-                <string>{94,138}</string>
+                <string>{15,13}</string>
                 <key>spriteSourceSize</key>
-                <string>{94,148}</string>
+                <string>{15,13}</string>
                 <key>textureRect</key>
-                <string>{{2485,250},{94,138}}</string>
+                <string>{{260,110},{15,13}}</string>
                 <key>textureRotated</key>
                 <true/>
             </dict>
-            <key>balloonhero/blaze0004.png</key>
+            <key>owlcity/closeeye_enemy.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
                 <key>spriteOffset</key>
                 <string>{0,0}</string>
                 <key>spriteSize</key>
-                <string>{94,148}</string>
+                <string>{15,13}</string>
                 <key>spriteSourceSize</key>
-                <string>{94,148}</string>
+                <string>{15,13}</string>
                 <key>textureRect</key>
-                <string>{{511,365},{94,148}}</string>
+                <string>{{275,110},{15,13}}</string>
                 <key>textureRotated</key>
                 <true/>
             </dict>
-            <key>balloonhero/blaze0005.png</key>
+            <key>owlcity/downbar.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
                 <key>spriteOffset</key>
                 <string>{0,0}</string>
                 <key>spriteSize</key>
-                <string>{94,148}</string>
+                <string>{130,121}</string>
                 <key>spriteSourceSize</key>
-                <string>{94,148}</string>
+                <string>{130,121}</string>
                 <key>textureRect</key>
-                <string>{{511,365},{94,148}}</string>
+                <string>{{1,1},{130,121}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+            <key>owlcity/greenbase.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{280,48}</string>
+                <key>spriteSourceSize</key>
+                <string>{280,48}</string>
+                <key>textureRect</key>
+                <string>{{133,1},{280,48}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+            <key>owlcity/openeye.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{15,13}</string>
+                <key>spriteSourceSize</key>
+                <string>{15,13}</string>
+                <key>textureRect</key>
+                <string>{{290,110},{15,13}}</string>
                 <key>textureRotated</key>
                 <true/>
             </dict>
-            <key>balloonhero/blaze0006.png</key>
+            <key>owlcity/openeye_enemy.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
                 <key>spriteOffset</key>
                 <string>{0,0}</string>
                 <key>spriteSize</key>
-                <string>{94,148}</string>
+                <string>{15,13}</string>
                 <key>spriteSourceSize</key>
-                <string>{94,148}</string>
+                <string>{15,13}</string>
                 <key>textureRect</key>
-                <string>{{511,365},{94,148}}</string>
+                <string>{{305,101},{15,13}}</string>
                 <key>textureRotated</key>
                 <true/>
             </dict>
-            <key>balloonhero/blaze0007.png</key>
+            <key>owlcity/orangebase.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
                 <key>spriteOffset</key>
                 <string>{0,0}</string>
                 <key>spriteSize</key>
-                <string>{94,148}</string>
+                <string>{280,48}</string>
                 <key>spriteSourceSize</key>
-                <string>{94,148}</string>
+                <string>{280,48}</string>
                 <key>textureRect</key>
-                <string>{{661,365},{94,148}}</string>
+                <string>{{133,51},{280,48}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+            <key>owlcity/smallbar.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{39,33}</string>
+                <key>spriteSourceSize</key>
+                <string>{39,33}</string>
+                <key>textureRect</key>
+                <string>{{629,1},{39,33}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+            <key>owlcity/smallbar_green.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{39,33}</string>
+                <key>spriteSourceSize</key>
+                <string>{39,33}</string>
+                <key>textureRect</key>
+                <string>{{626,85},{39,33}}</string>
                 <key>textureRotated</key>
                 <true/>
             </dict>
-            <key>balloonhero/blaze0008.png</key>
+            <key>owlcity/tringle.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
                 <key>spriteOffset</key>
                 <string>{0,0}</string>
                 <key>spriteSize</key>
-                <string>{94,148}</string>
+                <string>{84,32}</string>
                 <key>spriteSourceSize</key>
-                <string>{94,148}</string>
+                <string>{84,32}</string>
                 <key>textureRect</key>
-                <string>{{661,365},{94,148}}</string>
+                <string>{{535,38},{84,32}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+            <key>owlcity/wings.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{11,29}</string>
+                <key>spriteSourceSize</key>
+                <string>{11,29}</string>
+                <key>textureRect</key>
+                <string>{{229,101},{11,29}}</string>
                 <key>textureRotated</key>
                 <true/>
             </dict>
-            <key>balloonhero/blaze0009.png</key>
+            <key>owlcity/wings_enemy.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
                 <key>spriteOffset</key>
                 <string>{0,0}</string>
                 <key>spriteSize</key>
-                <string>{94,148}</string>
+                <string>{11,29}</string>
                 <key>spriteSourceSize</key>
-                <string>{94,148}</string>
+                <string>{11,29}</string>
                 <key>textureRect</key>
-                <string>{{661,365},{94,148}}</string>
+                <string>{{229,114},{11,29}}</string>
                 <key>textureRotated</key>
                 <true/>
             </dict>
-            <key>balloonhero/city.png</key>
+            <key>owlcity/zebracross1.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
                 <key>spriteOffset</key>
                 <string>{0,0}</string>
                 <key>spriteSize</key>
-                <string>{796,489}</string>
+                <string>{32,7}</string>
                 <key>spriteSourceSize</key>
-                <string>{796,489}</string>
+                <string>{32,7}</string>
                 <key>textureRect</key>
-                <string>{{1284,1},{796,489}}</string>
+                <string>{{260,101},{32,7}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>balloonhero/cloud1.png</key>
+            <key>owlcity/zebracross2.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
                 <key>spriteOffset</key>
                 <string>{0,0}</string>
                 <key>spriteSize</key>
-                <string>{253,133}</string>
+                <string>{94,26}</string>
                 <key>spriteSourceSize</key>
-                <string>{253,133}</string>
+                <string>{94,26}</string>
                 <key>textureRect</key>
-                <string>{{845,300},{253,133}}</string>
+                <string>{{133,101},{94,26}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>balloonhero/cloud2.png</key>
+            <key>owlcity/zebracross3.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
                 <key>spriteOffset</key>
                 <string>{0,0}</string>
                 <key>spriteSize</key>
-                <string>{320,155}</string>
+                <string>{145,35}</string>
                 <key>spriteSourceSize</key>
-                <string>{320,155}</string>
+                <string>{145,35}</string>
                 <key>textureRect</key>
-                <string>{{1,316},{320,155}}</string>
+                <string>{{415,1},{145,35}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>balloonhero/cloud3.png</key>
+            <key>owlcity/zebracross4.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
                 <key>spriteOffset</key>
                 <string>{0,0}</string>
                 <key>spriteSize</key>
-                <string>{401,194}</string>
+                <string>{118,35}</string>
                 <key>spriteSourceSize</key>
-                <string>{401,194}</string>
+                <string>{118,35}</string>
                 <key>textureRect</key>
-                <string>{{2082,250},{401,194}}</string>
+                <string>{{415,38},{118,35}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>balloonhero/cloud4.png</key>
+            <key>owlcity/zebracross5.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
                 <key>spriteOffset</key>
                 <string>{0,0}</string>
                 <key>spriteSize</key>
-                <string>{288,151}</string>
+                <string>{91,35}</string>
                 <key>spriteSourceSize</key>
-                <string>{288,151}</string>
+                <string>{91,35}</string>
                 <key>textureRect</key>
-                <string>{{845,147},{288,151}}</string>
+                <string>{{415,75},{91,35}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>balloonhero/fg.png</key>
+            <key>owlcity/zebracross6.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
                 <key>spriteOffset</key>
                 <string>{0,0}</string>
                 <key>spriteSize</key>
-                <string>{508,167}</string>
+                <string>{65,35}</string>
                 <key>spriteSourceSize</key>
-                <string>{508,167}</string>
+                <string>{65,35}</string>
                 <key>textureRect</key>
-                <string>{{1,147},{508,167}}</string>
+                <string>{{562,1},{65,35}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>balloonhero/firefly.png</key>
+            <key>owlcity/zebracross7.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
                 <key>spriteOffset</key>
                 <string>{0,0}</string>
                 <key>spriteSize</key>
-                <string>{247,541}</string>
+                <string>{45,35}</string>
                 <key>spriteSourceSize</key>
-                <string>{247,541}</string>
+                <string>{45,35}</string>
                 <key>textureRect</key>
-                <string>{{2082,1},{247,541}}</string>
+                <string>{{626,38},{45,35}}</string>
                 <key>textureRotated</key>
                 <true/>
-            </dict>
-            <key>balloonhero/grass.png</key>
-            <dict>
-                <key>aliases</key>
-                <array/>
-                <key>spriteOffset</key>
-                <string>{0,0}</string>
-                <key>spriteSize</key>
-                <string>{1281,144}</string>
-                <key>spriteSourceSize</key>
-                <string>{1281,144}</string>
-                <key>textureRect</key>
-                <string>{{1,1},{1281,144}}</string>
-                <key>textureRotated</key>
-                <false/>
-            </dict>
-            <key>balloonhero/meteor.png</key>
-            <dict>
-                <key>aliases</key>
-                <array/>
-                <key>spriteOffset</key>
-                <string>{0,0}</string>
-                <key>spriteSize</key>
-                <string>{186,168}</string>
-                <key>spriteSourceSize</key>
-                <string>{186,168}</string>
-                <key>textureRect</key>
-                <string>{{323,316},{186,168}}</string>
-                <key>textureRotated</key>
-                <false/>
-            </dict>
-            <key>balloonhero/meteorblast0001.png</key>
-            <dict>
-                <key>aliases</key>
-                <array/>
-                <key>spriteOffset</key>
-                <string>{0,0}</string>
-                <key>spriteSize</key>
-                <string>{186,168}</string>
-                <key>spriteSourceSize</key>
-                <string>{186,168}</string>
-                <key>textureRect</key>
-                <string>{{1100,305},{186,168}}</string>
-                <key>textureRotated</key>
-                <true/>
-            </dict>
-            <key>balloonhero/meteorblast0002.png</key>
-            <dict>
-                <key>aliases</key>
-                <array/>
-                <key>spriteOffset</key>
-                <string>{0,0}</string>
-                <key>spriteSize</key>
-                <string>{186,168}</string>
-                <key>spriteSourceSize</key>
-                <string>{186,168}</string>
-                <key>textureRect</key>
-                <string>{{1100,305},{186,168}}</string>
-                <key>textureRotated</key>
-                <true/>
-            </dict>
-            <key>balloonhero/meteorblast0003.png</key>
-            <dict>
-                <key>aliases</key>
-                <array/>
-                <key>spriteOffset</key>
-                <string>{-3,1}</string>
-                <key>spriteSize</key>
-                <string>{42,42}</string>
-                <key>spriteSourceSize</key>
-                <string>{186,168}</string>
-                <key>textureRect</key>
-                <string>{{2565,346},{42,42}}</string>
-                <key>textureRotated</key>
-                <false/>
-            </dict>
-            <key>balloonhero/meteorblast0004.png</key>
-            <dict>
-                <key>aliases</key>
-                <array/>
-                <key>spriteOffset</key>
-                <string>{-3,1}</string>
-                <key>spriteSize</key>
-                <string>{42,42}</string>
-                <key>spriteSourceSize</key>
-                <string>{186,168}</string>
-                <key>textureRect</key>
-                <string>{{2565,346},{42,42}}</string>
-                <key>textureRotated</key>
-                <false/>
-            </dict>
-            <key>balloonhero/meteorblast0005.png</key>
-            <dict>
-                <key>aliases</key>
-                <array/>
-                <key>spriteOffset</key>
-                <string>{-2,1}</string>
-                <key>spriteSize</key>
-                <string>{78,74}</string>
-                <key>spriteSourceSize</key>
-                <string>{186,168}</string>
-                <key>textureRect</key>
-                <string>{{2485,346},{78,74}}</string>
-                <key>textureRotated</key>
-                <false/>
-            </dict>
-            <key>balloonhero/meteorblast0006.png</key>
-            <dict>
-                <key>aliases</key>
-                <array/>
-                <key>spriteOffset</key>
-                <string>{-2,1}</string>
-                <key>spriteSize</key>
-                <string>{78,74}</string>
-                <key>spriteSourceSize</key>
-                <string>{186,168}</string>
-                <key>textureRect</key>
-                <string>{{2485,346},{78,74}}</string>
-                <key>textureRotated</key>
-                <false/>
-            </dict>
-            <key>balloonhero/meteorblast0007.png</key>
-            <dict>
-                <key>aliases</key>
-                <array/>
-                <key>spriteOffset</key>
-                <string>{-3,2}</string>
-                <key>spriteSize</key>
-                <string>{144,156}</string>
-                <key>spriteSourceSize</key>
-                <string>{186,168}</string>
-                <key>textureRect</key>
-                <string>{{1135,147},{144,156}}</string>
-                <key>textureRotated</key>
-                <false/>
-            </dict>
-            <key>balloonhero/safe.png</key>
-            <dict>
-                <key>aliases</key>
-                <array/>
-                <key>spriteOffset</key>
-                <string>{0,0}</string>
-                <key>spriteSize</key>
-                <string>{216,332}</string>
-                <key>spriteSourceSize</key>
-                <string>{216,332}</string>
-                <key>textureRect</key>
-                <string>{{511,147},{216,332}}</string>
-                <key>textureRotated</key>
-                <true/>
-            </dict>
-            <key>balloonhero/spear.png</key>
-            <dict>
-                <key>aliases</key>
-                <array/>
-                <key>spriteOffset</key>
-                <string>{0,0}</string>
-                <key>spriteSize</key>
-                <string>{341,22}</string>
-                <key>spriteSourceSize</key>
-                <string>{341,22}</string>
-                <key>textureRect</key>
-                <string>{{2082,446},{341,22}}</string>
-                <key>textureRotated</key>
-                <false/>
             </dict>
         </dict>
         <key>metadata</key>
@@ -419,13 +329,13 @@
             <key>premultiplyAlpha</key>
             <false/>
             <key>realTextureFileName</key>
-            <string>balloonhero.png</string>
+            <string>owlcity.png</string>
             <key>size</key>
-            <string>{2624,492}</string>
+            <string>{669,128}</string>
             <key>smartupdate</key>
-            <string>$TexturePacker:SmartUpdate:d4dd9bf4cb7105c7b7fa483e27dfc8e9:f0eea281838950eda640359b2dd1ed08:820d4c186e53bc13772994be55f4426a$</string>
+            <string>$TexturePacker:SmartUpdate:420336f7dc208db0c4ee2142569459d7:e243b0e93b73005617e90cdc80c005b9:a5e1564aa53673af59cb33f47f0bac03$</string>
             <key>textureFileName</key>
-            <string>balloonhero.png</string>
+            <string>owlcity.png</string>
         </dict>
     </dict>
 </plist>
