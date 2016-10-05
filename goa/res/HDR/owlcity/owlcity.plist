@@ -4,305 +4,320 @@
     <dict>
         <key>frames</key>
         <dict>
-            <key>pinatacream/bg.png</key>
+            <key>owlcity/body.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{1,0}</string>
+                <key>spriteSize</key>
+                <string>{193,229}</string>
+                <key>spriteSourceSize</key>
+                <string>{195,229}</string>
+                <key>textureRect</key>
+                <string>{{1,1371},{193,229}}</string>
+                <key>textureRotated</key>
+                <true/>
+            </dict>
+            <key>owlcity/body_enemy.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{1,0}</string>
+                <key>spriteSize</key>
+                <string>{194,229}</string>
+                <key>spriteSourceSize</key>
+                <string>{196,229}</string>
+                <key>textureRect</key>
+                <string>{{1,1175},{194,229}}</string>
+                <key>textureRotated</key>
+                <true/>
+            </dict>
+            <key>owlcity/closeeye.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
                 <key>spriteOffset</key>
                 <string>{0,0}</string>
                 <key>spriteSize</key>
-                <string>{244,244}</string>
+                <string>{61,52}</string>
                 <key>spriteSourceSize</key>
-                <string>{244,244}</string>
+                <string>{61,52}</string>
                 <key>textureRect</key>
-                <string>{{267,1140},{244,244}}</string>
+                <string>{{262,1035},{61,52}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>pinatacream/board.png</key>
+            <key>owlcity/closeeye_enemy.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
                 <key>spriteOffset</key>
                 <string>{0,0}</string>
                 <key>spriteSize</key>
-                <string>{385,67}</string>
+                <string>{61,51}</string>
                 <key>spriteSourceSize</key>
-                <string>{385,67}</string>
+                <string>{61,51}</string>
                 <key>textureRect</key>
-                <string>{{1,1},{385,67}}</string>
+                <string>{{262,1143},{61,51}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>pinatacream/cupcake1.png</key>
-            <dict>
-                <key>aliases</key>
-                <array/>
-                <key>spriteOffset</key>
-                <string>{14,31}</string>
-                <key>spriteSize</key>
-                <string>{102,83}</string>
-                <key>spriteSourceSize</key>
-                <string>{292,313}</string>
-                <key>textureRect</key>
-                <string>{{402,1386},{102,83}}</string>
-                <key>textureRotated</key>
-                <false/>
-            </dict>
-            <key>pinatacream/cupcake10.png</key>
-            <dict>
-                <key>aliases</key>
-                <array/>
-                <key>spriteOffset</key>
-                <string>{29,-66}</string>
-                <key>spriteSize</key>
-                <string>{216,167}</string>
-                <key>spriteSourceSize</key>
-                <string>{292,313}</string>
-                <key>textureRect</key>
-                <string>{{294,364},{216,167}}</string>
-                <key>textureRotated</key>
-                <false/>
-            </dict>
-            <key>pinatacream/cupcake11.png</key>
-            <dict>
-                <key>aliases</key>
-                <array/>
-                <key>spriteOffset</key>
-                <string>{29,-89}</string>
-                <key>spriteSize</key>
-                <string>{216,105}</string>
-                <key>spriteSourceSize</key>
-                <string>{292,313}</string>
-                <key>textureRect</key>
-                <string>{{294,533},{216,105}}</string>
-                <key>textureRotated</key>
-                <false/>
-            </dict>
-            <key>pinatacream/cupcake12.png</key>
-            <dict>
-                <key>aliases</key>
-                <array/>
-                <key>spriteOffset</key>
-                <string>{-144.5,155}</string>
-                <key>spriteSize</key>
-                <string>{3,3}</string>
-                <key>spriteSourceSize</key>
-                <string>{292,313}</string>
-                <key>textureRect</key>
-                <string>{{506,1},{3,3}}</string>
-                <key>textureRotated</key>
-                <false/>
-            </dict>
-            <key>pinatacream/cupcake2.png</key>
-            <dict>
-                <key>aliases</key>
-                <array/>
-                <key>spriteOffset</key>
-                <string>{17,31}</string>
-                <key>spriteSize</key>
-                <string>{116,91}</string>
-                <key>spriteSourceSize</key>
-                <string>{292,313}</string>
-                <key>textureRect</key>
-                <string>{{388,1},{116,91}}</string>
-                <key>textureRotated</key>
-                <false/>
-            </dict>
-            <key>pinatacream/cupcake3.png</key>
-            <dict>
-                <key>aliases</key>
-                <array/>
-                <key>spriteOffset</key>
-                <string>{6,34}</string>
-                <key>spriteSize</key>
-                <string>{180,157}</string>
-                <key>spriteSourceSize</key>
-                <string>{292,313}</string>
-                <key>textureRect</key>
-                <string>{{1,1437},{180,157}}</string>
-                <key>textureRotated</key>
-                <false/>
-            </dict>
-            <key>pinatacream/cupcake4.png</key>
-            <dict>
-                <key>aliases</key>
-                <array/>
-                <key>spriteOffset</key>
-                <string>{3,33}</string>
-                <key>spriteSize</key>
-                <string>{206,177}</string>
-                <key>spriteSourceSize</key>
-                <string>{292,313}</string>
-                <key>textureRect</key>
-                <string>{{1,1258},{206,177}}</string>
-                <key>textureRotated</key>
-                <false/>
-            </dict>
-            <key>pinatacream/cupcake5.png</key>
-            <dict>
-                <key>aliases</key>
-                <array/>
-                <key>spriteOffset</key>
-                <string>{-2,31}</string>
-                <key>spriteSize</key>
-                <string>{264,221}</string>
-                <key>spriteSourceSize</key>
-                <string>{292,313}</string>
-                <key>textureRect</key>
-                <string>{{1,1035},{264,221}}</string>
-                <key>textureRotated</key>
-                <false/>
-            </dict>
-            <key>pinatacream/cupcake6.png</key>
-            <dict>
-                <key>aliases</key>
-                <array/>
-                <key>spriteOffset</key>
-                <string>{-4,6}</string>
-                <key>spriteSize</key>
-                <string>{270,239}</string>
-                <key>spriteSourceSize</key>
-                <string>{292,313}</string>
-                <key>textureRect</key>
-                <string>{{1,794},{270,239}}</string>
-                <key>textureRotated</key>
-                <false/>
-            </dict>
-            <key>pinatacream/cupcake7.png</key>
-            <dict>
-                <key>aliases</key>
-                <array/>
-                <key>spriteOffset</key>
-                <string>{2,-16}</string>
-                <key>spriteSize</key>
-                <string>{266,227}</string>
-                <key>spriteSourceSize</key>
-                <string>{292,313}</string>
-                <key>textureRect</key>
-                <string>{{273,872},{266,227}}</string>
-                <key>textureRotated</key>
-                <true/>
-            </dict>
-            <key>pinatacream/cupcake8.png</key>
-            <dict>
-                <key>aliases</key>
-                <array/>
-                <key>spriteOffset</key>
-                <string>{1,-33}</string>
-                <key>spriteSize</key>
-                <string>{268,215}</string>
-                <key>spriteSourceSize</key>
-                <string>{292,313}</string>
-                <key>textureRect</key>
-                <string>{{296,94},{268,215}}</string>
-                <key>textureRotated</key>
-                <true/>
-            </dict>
-            <key>pinatacream/cupcake9.png</key>
-            <dict>
-                <key>aliases</key>
-                <array/>
-                <key>spriteOffset</key>
-                <string>{19,-45}</string>
-                <key>spriteSize</key>
-                <string>{230,213}</string>
-                <key>spriteSourceSize</key>
-                <string>{292,313}</string>
-                <key>textureRect</key>
-                <string>{{294,640},{230,213}}</string>
-                <key>textureRotated</key>
-                <true/>
-            </dict>
-            <key>pinatacream/peppermint.png</key>
-            <dict>
-                <key>aliases</key>
-                <array/>
-                <key>spriteOffset</key>
-                <string>{-1,-3}</string>
-                <key>spriteSize</key>
-                <string>{190,191}</string>
-                <key>spriteSourceSize</key>
-                <string>{204,197}</string>
-                <key>textureRect</key>
-                <string>{{209,1386},{190,191}}</string>
-                <key>textureRotated</key>
-                <true/>
-            </dict>
-            <key>pinatacream/player.png</key>
+            <key>owlcity/downbar.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
                 <key>spriteOffset</key>
                 <string>{0,0}</string>
                 <key>spriteSize</key>
-                <string>{88,88}</string>
+                <string>{519,484}</string>
                 <key>spriteSourceSize</key>
-                <string>{88,88}</string>
+                <string>{519,484}</string>
                 <key>textureRect</key>
-                <string>{{402,1471},{88,88}}</string>
+                <string>{{1,1},{519,484}}</string>
+                <key>textureRotated</key>
+                <true/>
+            </dict>
+            <key>owlcity/greenbase.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{1119,192}</string>
+                <key>spriteSourceSize</key>
+                <string>{1119,192}</string>
+                <key>textureRect</key>
+                <string>{{1,1566},{1119,192}}</string>
+                <key>textureRotated</key>
+                <true/>
+            </dict>
+            <key>owlcity/openeye.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{61,52}</string>
+                <key>spriteSourceSize</key>
+                <string>{61,52}</string>
+                <key>textureRect</key>
+                <string>{{262,1089},{61,52}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>pinatacream/shoot.png</key>
+            <key>owlcity/openeye_enemy.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
                 <key>spriteOffset</key>
                 <string>{0,0}</string>
                 <key>spriteSize</key>
-                <string>{52,74}</string>
+                <string>{61,51}</string>
                 <key>spriteSourceSize</key>
-                <string>{52,74}</string>
+                <string>{61,51}</string>
                 <key>textureRect</key>
-                <string>{{209,1258},{52,74}}</string>
+                <string>{{426,1398},{61,51}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>pinatacream/targeta.png</key>
-            <dict>
-                <key>aliases</key>
-                <array/>
-                <key>spriteOffset</key>
-                <string>{0,-2}</string>
-                <key>spriteSize</key>
-                <string>{236,293}</string>
-                <key>spriteSourceSize</key>
-                <string>{236,297}</string>
-                <key>textureRect</key>
-                <string>{{1,70},{236,293}}</string>
-                <key>textureRotated</key>
-                <true/>
-            </dict>
-            <key>pinatacream/targetb.png</key>
+            <key>owlcity/orangebase.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
                 <key>spriteOffset</key>
                 <string>{0,0}</string>
                 <key>spriteSize</key>
-                <string>{242,291}</string>
+                <string>{1120,192}</string>
                 <key>spriteSourceSize</key>
-                <string>{242,291}</string>
+                <string>{1120,192}</string>
                 <key>textureRect</key>
-                <string>{{1,308},{242,291}}</string>
+                <string>{{232,1398},{1120,192}}</string>
                 <key>textureRotated</key>
                 <true/>
             </dict>
-            <key>pinatacream/targetc.png</key>
+            <key>owlcity/smallbar.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
                 <key>spriteOffset</key>
                 <string>{0,0}</string>
                 <key>spriteSize</key>
-                <string>{240,291}</string>
+                <string>{154,133}</string>
                 <key>spriteSourceSize</key>
-                <string>{240,291}</string>
+                <string>{154,133}</string>
                 <key>textureRect</key>
-                <string>{{1,552},{240,291}}</string>
+                <string>{{232,1196},{154,133}}</string>
                 <key>textureRotated</key>
                 <true/>
+            </dict>
+            <key>owlcity/smallbar_green.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{154,132}</string>
+                <key>spriteSourceSize</key>
+                <string>{154,132}</string>
+                <key>textureRect</key>
+                <string>{{377,662},{154,132}}</string>
+                <key>textureRotated</key>
+                <true/>
+            </dict>
+            <key>owlcity/tringle.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{337,127}</string>
+                <key>spriteSourceSize</key>
+                <string>{337,127}</string>
+                <key>textureRect</key>
+                <string>{{1,906},{337,127}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+            <key>owlcity/wings.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{44,116}</string>
+                <key>spriteSourceSize</key>
+                <string>{44,116}</string>
+                <key>textureRect</key>
+                <string>{{232,1352},{44,116}}</string>
+                <key>textureRotated</key>
+                <true/>
+            </dict>
+            <key>owlcity/wings_enemy.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{43,116}</string>
+                <key>spriteSourceSize</key>
+                <string>{43,116}</string>
+                <key>textureRect</key>
+                <string>{{375,2520},{43,116}}</string>
+                <key>textureRotated</key>
+                <true/>
+            </dict>
+            <key>owlcity/zebracross1.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{126,29}</string>
+                <key>spriteSourceSize</key>
+                <string>{126,29}</string>
+                <key>textureRect</key>
+                <string>{{474,522},{126,29}}</string>
+                <key>textureRotated</key>
+                <true/>
+            </dict>
+            <key>owlcity/zebracross2.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{374,102}</string>
+                <key>spriteSourceSize</key>
+                <string>{374,102}</string>
+                <key>textureRect</key>
+                <string>{{1,662},{374,102}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+            <key>owlcity/zebracross3.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{578,138}</string>
+                <key>spriteSourceSize</key>
+                <string>{578,138}</string>
+                <key>textureRect</key>
+                <string>{{368,818},{578,138}}</string>
+                <key>textureRotated</key>
+                <true/>
+            </dict>
+            <key>owlcity/zebracross4.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{471,138}</string>
+                <key>spriteSourceSize</key>
+                <string>{471,138}</string>
+                <key>textureRect</key>
+                <string>{{1,522},{471,138}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+            <key>owlcity/zebracross5.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{365,138}</string>
+                <key>spriteSourceSize</key>
+                <string>{365,138}</string>
+                <key>textureRect</key>
+                <string>{{1,766},{365,138}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+            <key>owlcity/zebracross6.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{259,138}</string>
+                <key>spriteSourceSize</key>
+                <string>{259,138}</string>
+                <key>textureRect</key>
+                <string>{{1,1035},{259,138}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+            <key>owlcity/zebracross7.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{178,138}</string>
+                <key>spriteSourceSize</key>
+                <string>{178,138}</string>
+                <key>textureRect</key>
+                <string>{{195,2520},{178,138}}</string>
+                <key>textureRotated</key>
+                <false/>
             </dict>
         </dict>
         <key>metadata</key>
@@ -314,13 +329,13 @@
             <key>premultiplyAlpha</key>
             <false/>
             <key>realTextureFileName</key>
-            <string>pinatacream.png</string>
+            <string>owlcity.png</string>
             <key>size</key>
-            <string>{512,1595}</string>
+            <string>{510,2686}</string>
             <key>smartupdate</key>
-            <string>$TexturePacker:SmartUpdate:56119142f6ae8cc8b4dc596d7deb1a36:202cd4f0f42de075bf76b7cf180ef16f:d16eb80ba9832a1dac1b35fc9cad912e$</string>
+            <string>$TexturePacker:SmartUpdate:420336f7dc208db0c4ee2142569459d7:e243b0e93b73005617e90cdc80c005b9:a5e1564aa53673af59cb33f47f0bac03$</string>
             <key>textureFileName</key>
-            <string>pinatacream.png</string>
+            <string>owlcity.png</string>
         </dict>
     </dict>
 </plist>
