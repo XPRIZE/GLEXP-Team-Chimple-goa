@@ -33,6 +33,7 @@ bool Talk::init()
 	_correctAnswer = 0;
 
 	visibleSize = Director::getInstance()->getWinSize();
+	
 	_scene = { "talkisland", "talkcity"};
 	sceneName = _scene.at(rand() % _scene.size());
 
@@ -55,8 +56,10 @@ bool Talk::init()
 		_heroChar = CSLoader::createTimeline("talkisland/hero.csb");
 		_enemyChar = CSLoader::createTimeline("talkisland/enemy.csb");
 
-		_hhand = (Sprite*)_talkBg->getChildren().at(1)->getChildByName("h_hand"); // getChildren().at(7);
-		_ehand = (Sprite*)_talkBg->getChildren().at(1)->getChildByName("e_hand"); //getChildren().at(6);
+		_hbasket = (Sprite*)_talkBg->getChildren().at(1)->getChildByName("hhand");
+		_ebasket = (Sprite*)_talkBg->getChildren().at(1)->getChildByName("ehand");
+		_hhand = (Sprite*)_talkBg->getChildren().at(1)->getChildren().at(6); // getChildByName("h_hand"); // getChildren().at(7);
+		_ehand = (Sprite*)_talkBg->getChildren().at(1)->getChildren().at(7); //getChildByName("e_hand"); //getChildren().at(6);
 		_hero = (Sprite*)_talkBg->getChildren().at(1)->getChildByName("hero");
 		_enemy = (Sprite*)_talkBg->getChildren().at(1)->getChildByName("enemy");
 	}
@@ -95,24 +98,27 @@ bool Talk::init()
 			h_eye_blinking->play("h_eye_blinking", false);
 		}), NULL)));
 
-		_talkBg->getChildByName("enemy")->setScaleX(-1.0f);
-		_talkBg->getChildByName("e_node")->setPosition(Vec2(visibleSize.width * .22, visibleSize.height *.142));
+		_enemy->setScaleX(-1.0f);
+		_ehand->setPosition(Vec2(_enemy->getPositionX() + _ehand->getBoundingBox().size.width, _hhand->getPositionY()));
 	}
-
+	_talkBg->setPosition(Vec2(visibleSize.width / 2, 0));
+	_talkBg->setAnchorPoint(Vec2(.5, 0));
 	this->addChild(_talkBg);
 
+
+	Vec2 origin = Director::getInstance()->getVisibleOrigin();
 
 	differntSceneMapping = {
 
 		{ "talkisland",  //anu designs
 		{
-			{ "enemy", visibleSize.width * .34 },
-			{ "hero", visibleSize.width * .61 }
+			{ "enemy", _ehand->getPositionX() },
+			{ "hero",  _hhand->getPositionX() }
 		} },
 		{ "talkcity",  //sonu designs
 		{
-			{ "enemy", visibleSize.width * .22 },
-			{ "hero", visibleSize.width * .72 }
+			{ "enemy",  _ehand->getPositionX() },
+			{ "hero",  _hhand->getPositionX() }
 		} },
 		{ "candy",  //deepak design
 		{
@@ -128,9 +134,9 @@ bool Talk::init()
 
 
 //	auto drawNode = DrawNode::create();
-//	this->addChild(drawNode);
+//	_talkBg->addChild(drawNode, 2);
 //	Color4F white(1, 1, 1, 1);
-//	drawNode->drawRect(Vec2(_hero->getBoundingBox().origin.x , _hero->getBoundingBox().origin.y), Vec2(_hero->getBoundingBox().origin.x + _hero->getBoundingBox().size.width, _hero->getBoundingBox().origin.y + _hero->getBoundingBox().size.height), white);
+//	drawNode->drawRect(Vec2(_hhand->getBoundingBox().origin.x , _hhand->getBoundingBox().origin.y), Vec2(_hhand->getBoundingBox().origin.x + _hhand->getBoundingBox().size.width, _hhand->getBoundingBox().origin.y + _hhand->getBoundingBox().size.height), white);
 
 	_allSentense.push_back("I will play football");
 	_allSentense.push_back("I want to play cricket");
@@ -247,7 +253,7 @@ void Talk::addEvents(struct LabelDetails sprite)
 				_talkBg->runAction(_heroChar);
 				_talkBg->runAction(_enemyChar);
 				_fish = Sprite::createWithSpriteFrameName(spriteName.str());
-				this->addChild(_fish);
+				_talkBg->addChild(_fish);
 
 				int pos = std::find(_scene.begin(), _scene.end(), sceneName) - _scene.begin();
 				if (sprite.answer == 'c')
@@ -265,7 +271,6 @@ void Talk::addEvents(struct LabelDetails sprite)
 					_enemyChar->play("e_correct", false);
 					sprite.label->setColor(Color3B::RED);
 				}
-
 				_action = MoveTo::create(3, Vec2(_fish->getPositionX(), 0));
 				_fish->runAction(_action);
 				_handFlag = true;
