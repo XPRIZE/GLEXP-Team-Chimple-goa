@@ -34,7 +34,7 @@ bool Talk::init()
 
 	visibleSize = Director::getInstance()->getWinSize();
 	
-	_scene = { "talkisland", "talkcity"};
+	_scene = { "talkisland", "talkcity", "talkjungle"};
 	sceneName = _scene.at(rand() % _scene.size());
 
 	if (sceneName == "talkisland")
@@ -101,6 +101,25 @@ bool Talk::init()
 		_enemy->setScaleX(-1.0f);
 		_ehand->setPosition(Vec2(_enemy->getPositionX() + _ehand->getBoundingBox().size.width, _hhand->getPositionY()));
 	}
+	else if (sceneName == "talkjungle")
+	{
+		_talkBg = (Node *)CSLoader::createNode("talkjungle/talkjungle.csb");
+
+		_hhand = (Sprite*)_talkBg->getChildByName("h_node"); // getChildren().at(7);
+		_ehand = (Sprite*)_talkBg->getChildren().at(16); //getChildByName("e _node"); //getChildren().at(16);
+		_hero = (Sprite*)_talkBg->getChildByName("hero");
+		_enemy = (Sprite*)_talkBg->getChildByName("enemy");
+
+		_heroChar = CSLoader::createTimeline("talkjungle/hero.csb");
+		_enemyChar = CSLoader::createTimeline("talkjungle/enemy.csb");
+
+		_hero->runAction(_heroChar);
+		_enemy->runAction(_enemyChar);
+
+		_heroChar->play("h_idle", true);
+		_enemyChar->play("e_idle", true);
+	}
+
 	_talkBg->setPosition(Vec2(visibleSize.width / 2, 0));
 	_talkBg->setAnchorPoint(Vec2(.5, 0));
 	this->addChild(_talkBg);
@@ -117,13 +136,13 @@ bool Talk::init()
 		} },
 		{ "talkcity",  //sonu designs
 		{
-			{ "enemy",  _ehand->getPositionX() },
+			{ "enemy", _ehand->getPositionX() },
 			{ "hero",  _hhand->getPositionX() }
 		} },
-		{ "candy",  //deepak design
+		{ "talkjungle",  //deepak design
 		{
-			{ "enemy", visibleSize.width * .34 },
-			{ "hero", visibleSize.width * .61 }
+			{ "enemy", _ehand->getPositionX() },
+			{ "hero",  _hhand->getPositionX() }
 		} },
 	};
 
@@ -175,7 +194,7 @@ bool Talk::init()
 		}
 
 		Talk::addEvents(LabelDetails);
-		this->addChild(LabelDetails.label);
+		_talkBg->addChild(LabelDetails.label);
 		_labelDetails.push_back(LabelDetails);
 	}
 
@@ -200,9 +219,24 @@ void Talk::update(float d)
 {
 	if (_handFlag == true)
 	{
-		Rect fish_Rect = _fish->getBoundingBox();
-		Rect aa = _hhand->getBoundingBox();
-		if (fish_Rect.intersectsRect(_hhand->getBoundingBox()) || (_heroFish.size() >= 1 && fish_Rect.intersectsRect(_heroFish.at(_heroFish.size() - 1)->getBoundingBox())))
+		Rect fish_Rect, hand_rect, fish_Rect_next;
+
+		hand_rect = _hhand->getBoundingBox();
+		if (sceneName == "talkcity" || sceneName == "talkjungle")
+		{
+			fish_Rect = _fish->getBoundingBox();
+		}
+		else
+		{
+			fish_Rect = Rect(_fish->getPositionX(), _fish->getPositionY(), _fish->getBoundingBox().size.width, _fish->getBoundingBox().size.height);// _fish->getBoundingBox();
+		}
+
+		if(sceneName == "talkjungle")
+			fish_Rect_next = Rect(_fish->getPositionX(), _fish->getPositionY(), _fish->getBoundingBox().size.width, _fish->getBoundingBox().size.height);// _fish->getBoundingBox();
+		else
+			fish_Rect_next = _fish->getBoundingBox();
+
+		if (fish_Rect.intersectsRect(_hhand->getBoundingBox()) || (_heroFish.size() >= 1 && fish_Rect_next.intersectsRect(_heroFish.at(_heroFish.size() - 1)->getBoundingBox())))
 		{
 			_fish->stopAction(_action);
 			_heroFish.push_back(_fish);
@@ -213,7 +247,7 @@ void Talk::update(float d)
 				_menuContext->showScore();
 			}
 		}
-		else if (fish_Rect.intersectsRect(_ehand->getBoundingBox()) || (_enemyFish.size() >= 1 && fish_Rect.intersectsRect(_enemyFish.at(_enemyFish.size() - 1)->getBoundingBox())))
+		else if (fish_Rect.intersectsRect(_ehand->getBoundingBox()) || (_enemyFish.size() >= 1 && fish_Rect_next.intersectsRect(_enemyFish.at(_enemyFish.size() - 1)->getBoundingBox())))
 		{
 			_fish->stopAction(_action);
 			_enemyFish.push_back(_fish);
@@ -241,17 +275,23 @@ void Talk::addEvents(struct LabelDetails sprite)
 
 		if (rect.containsPoint(locationInNode) && _handFlag==false)
 		{
-			if (sceneName == "talkisland" || sceneName == "talkcity")
+			if (sceneName == "talkisland" || sceneName == "talkcity" || sceneName == "talkjungle")
 			{
+				_hero->stopAction(_heroChar);
+				_enemy->stopAction(_enemyChar);
+
 				std::ostringstream spriteName, herotime, enemytime;
-				spriteName << sceneName<< "/fish" << (rand() % (6-1) + 1) << ".png";
+				if(sceneName == "talkjungle")
+					spriteName << sceneName<< "/meat" << (rand() % (6-1) + 1) << ".png";
+				else
+					spriteName << sceneName << "/fish" << (rand() % (6 - 1) + 1) << ".png";
 				herotime << sceneName << "/hero" << ".csb";
 				enemytime << sceneName << "/enemy" << ".csb";
 
 				_heroChar = CSLoader::createTimeline(herotime.str());
 				_enemyChar = CSLoader::createTimeline(enemytime.str());
-				_talkBg->runAction(_heroChar);
-				_talkBg->runAction(_enemyChar);
+				_hero->runAction(_heroChar);
+				_enemy->runAction(_enemyChar);
 				_fish = Sprite::createWithSpriteFrameName(spriteName.str());
 				_talkBg->addChild(_fish);
 
@@ -259,16 +299,16 @@ void Talk::addEvents(struct LabelDetails sprite)
 				if (sprite.answer == 'c')
 				{
 					_fish->setPosition(Vec2(differntSceneMapping.at(_scene.at(pos)).at("hero") , visibleSize.height));
-					_heroChar->play("h_correct", false);
-					_enemyChar->play("e_wrong", false);
+					_heroChar->play("h_correct", true);
+					_enemyChar->play("e_wrong", true);
 					sprite.label->setColor(Color3B::GREEN);
 					_correctAnswer++;
 				}
 				else
 				{
 					_fish->setPosition(Vec2(differntSceneMapping.at(_scene.at(pos)).at("enemy"), visibleSize.height));
-					_heroChar->play("h_wrong", false);
-					_enemyChar->play("e_correct", false);
+					_heroChar->play("h_wrong", true);
+					_enemyChar->play("e_correct", true);
 					sprite.label->setColor(Color3B::RED);
 				}
 				_action = MoveTo::create(3, Vec2(_fish->getPositionX(), 0));
