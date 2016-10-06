@@ -221,11 +221,9 @@ void ScrollableGameMapScene::gameSelected(Ref* pSender, ui::Widget::TouchEventTy
 				
 				/*int numberPicker = RandomHelper::random_int(0, 2);
 				switch (numberPicker) {
-
 					case 0: Director::getInstance()->replaceScene(MemoryJungle::createScene());  break;
 					case 1: Director::getInstance()->replaceScene(MemoryHero::createScene());  break;
 					case 2: Director::getInstance()->replaceScene(Memory::createScene());  break;
-
 				}
 				*/
 				Director::getInstance()->replaceScene(BalloonHero::createScene());
