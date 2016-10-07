@@ -70,7 +70,7 @@ const std::vector<std::string> StartMenu::getGameNames() {
     gameNames.push_back(ALPHAMON_FEED);
     gameNames.push_back(TRAIN);
 	gameNames.push_back(CIRCLE);
-//    gameNames.push_back(STORY_TELLING);
+    gameNames.push_back(TALK);
     return gameNames;
 
 }
