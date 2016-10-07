@@ -258,6 +258,14 @@
 		F3F7ED7D1D9F891000727A7C /* MemoryHero.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F3F7ED781D9F891000727A7C /* MemoryHero.cpp */; };
 		F3F7ED7E1D9F891000727A7C /* MemoryJungle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F3F7ED7A1D9F891000727A7C /* MemoryJungle.cpp */; };
 		F3F7ED7F1D9F891000727A7C /* MemoryJungle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F3F7ED7A1D9F891000727A7C /* MemoryJungle.cpp */; };
+		F3F7ED8E1DA65FF400727A7C /* BalloonHero.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F3F7ED861DA65FF400727A7C /* BalloonHero.cpp */; };
+		F3F7ED8F1DA65FF400727A7C /* BalloonHero.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F3F7ED861DA65FF400727A7C /* BalloonHero.cpp */; };
+		F3F7ED901DA65FF400727A7C /* Talk.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F3F7ED881DA65FF400727A7C /* Talk.cpp */; };
+		F3F7ED911DA65FF400727A7C /* Talk.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F3F7ED881DA65FF400727A7C /* Talk.cpp */; };
+		F3F7ED921DA65FF400727A7C /* Drop.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F3F7ED8A1DA65FF400727A7C /* Drop.cpp */; };
+		F3F7ED931DA65FF400727A7C /* Drop.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F3F7ED8A1DA65FF400727A7C /* Drop.cpp */; };
+		F3F7ED941DA65FF400727A7C /* Owl.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F3F7ED8C1DA65FF400727A7C /* Owl.cpp */; };
+		F3F7ED951DA65FF400727A7C /* Owl.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F3F7ED8C1DA65FF400727A7C /* Owl.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -582,6 +590,14 @@
 		F3F7ED791D9F891000727A7C /* MemoryHero.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MemoryHero.h; sourceTree = "<group>"; };
 		F3F7ED7A1D9F891000727A7C /* MemoryJungle.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MemoryJungle.cpp; sourceTree = "<group>"; };
 		F3F7ED7B1D9F891000727A7C /* MemoryJungle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MemoryJungle.h; sourceTree = "<group>"; };
+		F3F7ED861DA65FF400727A7C /* BalloonHero.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BalloonHero.cpp; sourceTree = "<group>"; };
+		F3F7ED871DA65FF400727A7C /* BalloonHero.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BalloonHero.h; sourceTree = "<group>"; };
+		F3F7ED881DA65FF400727A7C /* Talk.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Talk.cpp; sourceTree = "<group>"; };
+		F3F7ED891DA65FF400727A7C /* Talk.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Talk.h; sourceTree = "<group>"; };
+		F3F7ED8A1DA65FF400727A7C /* Drop.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Drop.cpp; sourceTree = "<group>"; };
+		F3F7ED8B1DA65FF400727A7C /* Drop.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Drop.h; sourceTree = "<group>"; };
+		F3F7ED8C1DA65FF400727A7C /* Owl.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Owl.cpp; sourceTree = "<group>"; };
+		F3F7ED8D1DA65FF400727A7C /* Owl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Owl.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -863,6 +879,14 @@
 		F352471A1D6D9D1A0077C333 /* mini_games */ = {
 			isa = PBXGroup;
 			children = (
+				F3F7ED861DA65FF400727A7C /* BalloonHero.cpp */,
+				F3F7ED871DA65FF400727A7C /* BalloonHero.h */,
+				F3F7ED881DA65FF400727A7C /* Talk.cpp */,
+				F3F7ED891DA65FF400727A7C /* Talk.h */,
+				F3F7ED8A1DA65FF400727A7C /* Drop.cpp */,
+				F3F7ED8B1DA65FF400727A7C /* Drop.h */,
+				F3F7ED8C1DA65FF400727A7C /* Owl.cpp */,
+				F3F7ED8D1DA65FF400727A7C /* Owl.h */,
 				F3F7ED781D9F891000727A7C /* MemoryHero.cpp */,
 				F3F7ED791D9F891000727A7C /* MemoryHero.h */,
 				F3F7ED7A1D9F891000727A7C /* MemoryJungle.cpp */,
@@ -1232,6 +1256,7 @@
 				F35247C51D6D9D1A0077C333 /* AlphamonFeedLevelScene.cpp in Sources */,
 				F35248111D6D9D1A0077C333 /* WordScene.cpp in Sources */,
 				F35247D91D6D9D1A0077C333 /* EndlessRunner.cpp in Sources */,
+				F3F7ED8F1DA65FF400727A7C /* BalloonHero.cpp in Sources */,
 				F352481B1D6D9D1A0077C333 /* RPGSprite.cpp in Sources */,
 				F35248531D6D9D1A0077C333 /* FShake.cpp in Sources */,
 				F35247E11D6D9D1A0077C333 /* PatchTheWallScene.cpp in Sources */,
@@ -1247,6 +1272,7 @@
 				F35248031D6D9D1A0077C333 /* AlphabetGrid.cpp in Sources */,
 				F35247D51D6D9D1A0077C333 /* Chain.cpp in Sources */,
 				3740AD381D912A8E005BDCBA /* Stack.cpp in Sources */,
+				F3F7ED951DA65FF400727A7C /* Owl.cpp in Sources */,
 				C06E23CC18CEFE680093C81A /* main.cpp in Sources */,
 				3740AD401D912D4A005BDCBA /* Circle.cpp in Sources */,
 				F35248371D6D9D1A0077C333 /* WalkingState.cpp in Sources */,
@@ -1254,6 +1280,7 @@
 				F352482F1D6D9D1A0077C333 /* FallingState.cpp in Sources */,
 				F352484F1D6D9D1A0077C333 /* MessageContent.cpp in Sources */,
 				F35247C11D6D9D1A0077C333 /* HelloWorldScene.cpp in Sources */,
+				F3F7ED931DA65FF400727A7C /* Drop.cpp in Sources */,
 				F3F7ED731D9CF22800727A7C /* Decomon.cpp in Sources */,
 				F35248591D6D9D1A0077C333 /* sqlite3.c in Sources */,
 				F35248331D6D9D1A0077C333 /* RunningState.cpp in Sources */,
@@ -1274,6 +1301,7 @@
 				F352483B1D6D9D1A0077C333 /* AlphamonSprite.cpp in Sources */,
 				F35247E91D6D9D1A0077C333 /* SpriteCreate.cpp in Sources */,
 				F35247D11D6D9D1A0077C333 /* CatGameScene.cpp in Sources */,
+				F3F7ED911DA65FF400727A7C /* Talk.cpp in Sources */,
 				F35248471D6D9D1A0077C333 /* LanguageManager.cpp in Sources */,
 				F35247F31D6D9D1A0077C333 /* KannadaUtil.cpp in Sources */,
 				F35248351D6D9D1A0077C333 /* StandingState.cpp in Sources */,
@@ -1320,11 +1348,13 @@
 				F352484E1D6D9D1A0077C333 /* MessageContent.cpp in Sources */,
 				F35248461D6D9D1A0077C333 /* LanguageManager.cpp in Sources */,
 				509D4AC917EBB2AB00697056 /* RootViewController.mm in Sources */,
+				F3F7ED921DA65FF400727A7C /* Drop.cpp in Sources */,
 				F35248401D6D9D1A0077C333 /* Entry.cpp in Sources */,
 				F352483A1D6D9D1A0077C333 /* AlphamonSprite.cpp in Sources */,
 				F35248241D6D9D1A0077C333 /* MapIsland.cpp in Sources */,
 				F35248161D6D9D1A0077C333 /* MenuContext.cpp in Sources */,
 				F35247C41D6D9D1A0077C333 /* AlphamonFeedLevelScene.cpp in Sources */,
+				F3F7ED8E1DA65FF400727A7C /* BalloonHero.cpp in Sources */,
 				F35248361D6D9D1A0077C333 /* WalkingState.cpp in Sources */,
 				F35247FE1D6D9D1A0077C333 /* PhotoCaptureScene.cpp in Sources */,
 				3740AD2B1D910EB2005BDCBA /* Memory.cpp in Sources */,
@@ -1341,6 +1371,7 @@
 				F352483E1D6D9D1A0077C333 /* MessageSender.cpp in Sources */,
 				F35247F41D6D9D1A0077C333 /* LangUtil.cpp in Sources */,
 				3740AD351D912A8B005BDCBA /* Stack.cpp in Sources */,
+				F3F7ED941DA65FF400727A7C /* Owl.cpp in Sources */,
 				F35248041D6D9D1A0077C333 /* CharGenerator.cpp in Sources */,
 				D4545227156E28EF00887EB5 /* AppDelegate.cpp in Sources */,
 				F35247DE1D6D9D1A0077C333 /* jazz.cpp in Sources */,
@@ -1373,6 +1404,7 @@
 				F35247D61D6D9D1A0077C333 /* CrossTheBridgeScene.cpp in Sources */,
 				F35248501D6D9D1A0077C333 /* StateMachine.cpp in Sources */,
 				F352482E1D6D9D1A0077C333 /* FallingState.cpp in Sources */,
+				F3F7ED901DA65FF400727A7C /* Talk.cpp in Sources */,
 				F35248221D6D9D1A0077C333 /* SkeletonCharacter.cpp in Sources */,
 				F3D201A41D7409B400FDB750 /* Pop.cpp in Sources */,
 				F35248561D6D9D1A0077C333 /* PhysicsShapeCache.cpp in Sources */,

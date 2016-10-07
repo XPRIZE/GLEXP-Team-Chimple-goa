@@ -25,8 +25,8 @@ xc.GameMap = cc.Scene.extend({
         }else if(sender._configuration.name == 'jump_on_words') {
             xc.GameScene.load(xc.playLayer);
         }else if(sender._configuration.name == 'sortit') {
-            xc.GameScene.load(xc.sortitlevel1Layer);
-            // xc.GameScene.load(xc.LevelMenuLayer);
+            // xc.GameScene.load(xc.sortitlevel1Layer);
+            xc.GameScene.load(xc.ConnectTheDotsMenu);
         }
         else if(sender._configuration.name == 'decomon') {
             xc.GameScene.load(xc.DecomonLayer);

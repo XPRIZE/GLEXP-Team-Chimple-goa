@@ -1,0 +1,446 @@
+{
+  "ID": "b4be610d-59d5-4028-8936-ec4114a58e3d",
+  "Version": "3.10.0.0",
+  "Name": "frontground",
+  "Content": {
+    "Content": {
+      "Animation": {
+        "Duration": 0,
+        "Speed": 1.0,
+        "Timelines": [],
+        "ctype": "TimelineActionData"
+      },
+      "AnimationList": [],
+      "ObjectData": {
+        "Tag": 225,
+        "Children": [
+          {
+            "ClipAble": false,
+            "ComboBoxIndex": 1,
+            "SingleColor": {
+              "R": 239,
+              "G": 204,
+              "B": 58
+            },
+            "FirstColor": {
+              "R": 150,
+              "G": 200
+            },
+            "EndColor": {},
+            "ColorVector": {
+              "ScaleY": 1.0
+            },
+            "TouchEnable": true,
+            "AnchorPoint": {},
+            "Position": {
+              "X": -0.3875,
+              "Y": 0.1913
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": -0.0002,
+              "Y": 0.0001
+            },
+            "PreSize": {
+              "X": 1.0,
+              "Y": 0.1861
+            },
+            "LeftMargin": -0.3875,
+            "RightMargin": 0.3875,
+            "TopMargin": 1464.8087,
+            "BottomMargin": 0.1913,
+            "Tag": 226,
+            "ActionTag": 284038261,
+            "Size": {
+              "X": 2560.0,
+              "Y": 335.0
+            },
+            "Name": "Panel_1",
+            "ctype": "PanelObjectData"
+          },
+          {
+            "ClipAble": false,
+            "ComboBoxIndex": 1,
+            "SingleColor": {
+              "R": 65,
+              "G": 65,
+              "B": 67
+            },
+            "FirstColor": {
+              "R": 150,
+              "G": 200
+            },
+            "EndColor": {},
+            "ColorVector": {
+              "ScaleY": 1.0
+            },
+            "TouchEnable": true,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 2558.9692,
+              "Y": 0.1913
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.9996,
+              "Y": 0.0001
+            },
+            "PreSize": {
+              "X": 2.0,
+              "Y": 0.1861
+            },
+            "LeftMargin": 2558.9692,
+            "RightMargin": -5118.9692,
+            "TopMargin": 1464.8087,
+            "BottomMargin": 0.1913,
+            "Tag": 227,
+            "ActionTag": 785145103,
+            "Size": {
+              "X": 5120.0,
+              "Y": 335.0
+            },
+            "Name": "Panel_2",
+            "ctype": "PanelObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "cityscreen/roadbar.png",
+              "Plist": "cityscreen/cityscreen.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 3319.7493,
+              "Y": 167.3425
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 1.2968,
+              "Y": 0.093
+            },
+            "PreSize": {
+              "X": 0.577,
+              "Y": 0.005
+            },
+            "LeftMargin": 2581.2493,
+            "RightMargin": -1498.2493,
+            "TopMargin": 1628.1575,
+            "BottomMargin": 162.8425,
+            "Tag": 228,
+            "ActionTag": -615105435,
+            "Size": {
+              "X": 1477.0,
+              "Y": 9.0
+            },
+            "Name": "roadbar_1",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "cityscreen/roadbar.png",
+              "Plist": "cityscreen/cityscreen.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 4881.1172,
+              "Y": 166.9496
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 1.9067,
+              "Y": 0.0927
+            },
+            "PreSize": {
+              "X": 0.577,
+              "Y": 0.005
+            },
+            "LeftMargin": 4142.6172,
+            "RightMargin": -3059.6172,
+            "TopMargin": 1628.5504,
+            "BottomMargin": 162.4496,
+            "Tag": 229,
+            "ActionTag": 2395830,
+            "Size": {
+              "X": 1477.0,
+              "Y": 9.0
+            },
+            "Name": "roadbar_2",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "cityscreen/roadbar.png",
+              "Plist": "cityscreen/cityscreen.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 6442.7251,
+              "Y": 166.618
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 2.5167,
+              "Y": 0.0926
+            },
+            "PreSize": {
+              "X": 0.577,
+              "Y": 0.005
+            },
+            "LeftMargin": 5704.2251,
+            "RightMargin": -4621.2251,
+            "TopMargin": 1628.8821,
+            "BottomMargin": 162.118,
+            "Tag": 230,
+            "ActionTag": -242961772,
+            "Size": {
+              "X": 1477.0,
+              "Y": 9.0
+            },
+            "Name": "roadbar_3",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "cityscreen/roadbar.png",
+              "Plist": "cityscreen/cityscreen.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 8003.6133,
+              "Y": 166.6653
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 3.1264,
+              "Y": 0.0926
+            },
+            "PreSize": {
+              "X": 0.577,
+              "Y": 0.005
+            },
+            "LeftMargin": 7265.1133,
+            "RightMargin": -6182.1133,
+            "TopMargin": 1628.8347,
+            "BottomMargin": 162.1653,
+            "Tag": 231,
+            "ActionTag": -1118278226,
+            "Size": {
+              "X": 1477.0,
+              "Y": 9.0
+            },
+            "Name": "roadbar_4",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "cityscreen/garden.png",
+              "Plist": "cityscreen/cityscreen.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1155.6987,
+              "Y": 370.96
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.4514,
+              "Y": 0.2061
+            },
+            "PreSize": {
+              "X": 0.527,
+              "Y": 0.4161
+            },
+            "LeftMargin": 481.1987,
+            "RightMargin": 729.8013,
+            "TopMargin": 1054.54,
+            "BottomMargin": -3.54,
+            "Tag": 232,
+            "ActionTag": -1018875213,
+            "Size": {
+              "X": 1349.0,
+              "Y": 749.0
+            },
+            "Name": "garden_5",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "cityscreen/light.png",
+              "Plist": "cityscreen/cityscreen.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 171.7352,
+              "Y": 486.6056
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.0671,
+              "Y": 0.2703
+            },
+            "PreSize": {
+              "X": 0.1273,
+              "Y": 0.5372
+            },
+            "LeftMargin": 8.7352,
+            "RightMargin": 2225.2646,
+            "TopMargin": 829.8944,
+            "BottomMargin": 3.1056,
+            "Tag": 270,
+            "ActionTag": 1398797788,
+            "Size": {
+              "X": 326.0,
+              "Y": 967.0
+            },
+            "Name": "light_29",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "cityscreen/tree3.png",
+              "Plist": "cityscreen/cityscreen.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 2378.665,
+              "Y": 433.4297
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.9292,
+              "Y": 0.2408
+            },
+            "PreSize": {
+              "X": 0.1906,
+              "Y": 0.4889
+            },
+            "LeftMargin": 2134.665,
+            "RightMargin": -62.665,
+            "TopMargin": 926.5703,
+            "BottomMargin": -6.5703,
+            "Tag": 271,
+            "ActionTag": -622876940,
+            "Size": {
+              "X": 488.0,
+              "Y": 880.0
+            },
+            "Name": "tree3_30",
+            "ctype": "SpriteObjectData"
+          }
+        ],
+        "Size": {
+          "X": 2560.0,
+          "Y": 1800.0
+        },
+        "Name": "Layer",
+        "ctype": "LayerObjectData"
+      },
+      "UsedResources": [
+        "cityscreen.plist",
+        "cityscreen.png"
+      ],
+      "ctype": "GameFileData"
+    }
+  },
+  "Type": "Layer"
+}
