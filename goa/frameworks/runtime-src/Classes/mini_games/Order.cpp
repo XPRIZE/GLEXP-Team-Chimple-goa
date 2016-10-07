@@ -55,10 +55,17 @@ bool Order::init()
 	Size visibleSize = Director::getInstance()->getVisibleSize();
 	Vec2 origin = Director::getInstance()->getVisibleOrigin();
 
+	/*
+	
+	pending works
+	=> working on score
+	=>cart animation
+
+	*/
 	
 	std::map<std::string, std::map<std::string, std::string>> differntSceneMapping = {
 
-		{ "city",  //sonu designs
+		{ "farm",  //rayyan designs
 		{
 			{ "plist", "dash/dash.plist" },
 			{ "bg", "dash/OrderScene.csb" },
@@ -287,9 +294,9 @@ void Order::onTouchEnded(cocos2d::Touch * touch, cocos2d::Event * event)
 		}
 	}
 ///////////////// for testing
-	for (short i = 0; i < _boxes.size(); i++) {
-		CCLOG(" %s block Name %d contains %d boxes", _boxes.at(i)->getName().c_str(), userArrayIndex.at(i), overlapChecking.at(i));
-	}
+//	for (short i = 0; i < _boxes.size(); i++) {
+//		CCLOG(" %s block Name %d contains %d boxes", _boxes.at(i)->getName().c_str(), userArrayIndex.at(i), overlapChecking.at(i));
+//	}
 ////////////////////////////////////////
 	checkUserSortList(userArrayIndex);
 }
