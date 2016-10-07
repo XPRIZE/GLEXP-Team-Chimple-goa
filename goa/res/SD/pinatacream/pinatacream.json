@@ -645,10 +645,10 @@
               "X": 0.1902,
               "Y": 0.2706
             },
-            "LeftMargin": -366.8922,
-            "RightMargin": 2439.8921,
-            "TopMargin": 1313.1812,
-            "BottomMargin": -0.1812,
+            "LeftMargin": -366.9112,
+            "RightMargin": 2439.9111,
+            "TopMargin": 1313.1998,
+            "BottomMargin": -0.1998,
             "Tag": 21,
             "ActionTag": 835064228,
             "Size": {
@@ -691,7 +691,7 @@
               "Y": 0.2706
             },
             "LeftMargin": -231.2023,
-            "RightMargin": 2304.2021,
+            "RightMargin": 2304.2024,
             "TopMargin": 7.0984,
             "BottomMargin": 1305.9016,
             "Tag": 22,
@@ -839,46 +839,49 @@
             "ctype": "SpriteObjectData"
           },
           {
+            "FlipX": true,
             "FileData": {
               "Type": "MarkedSubImage",
-              "Path": "pinatacream/shoot.png",
+              "Path": "pinatacream/peppermint.png",
               "Plist": "pinatacream/pinatacream.plist"
             },
-            "Scale9OriginX": 34,
-            "Scale9OriginY": 48,
-            "Scale9Width": 36,
-            "Scale9Height": 51,
+            "Scale9OriginX": 15,
+            "Scale9OriginY": 15,
+            "Scale9Width": 378,
+            "Scale9Height": 363,
             "AnchorPoint": {
-              "ScaleX": 0.5,
-              "ScaleY": 0.5
+              "ScaleX": 0.6269,
+              "ScaleY": 0.8208
             },
             "Position": {
-              "X": 952.4739,
-              "Y": 406.2205
+              "X": 1061.441,
+              "Y": 433.5794
             },
             "Scale": {
               "ScaleX": 1.0,
               "ScaleY": 1.0
             },
+            "RotationSkewX": -5.4004,
+            "RotationSkewY": -5.4037,
             "CColor": {},
             "IconVisible": false,
             "PrePosition": {
-              "X": 0.3721,
-              "Y": 0.2257
+              "X": 0.4146,
+              "Y": 0.2409
             },
             "PreSize": {
-              "X": 0.0406,
-              "Y": 0.0817
+              "X": 0.1594,
+              "Y": 0.2183
             },
-            "LeftMargin": 900.4739,
-            "RightMargin": 1555.5261,
-            "TopMargin": 1320.2795,
-            "BottomMargin": 332.7205,
+            "LeftMargin": 805.6855,
+            "RightMargin": 1346.3145,
+            "TopMargin": 1295.9863,
+            "BottomMargin": 111.0136,
             "Tag": 23,
             "ActionTag": -635814300,
             "Size": {
-              "X": 104.0,
-              "Y": 147.0
+              "X": 408.0,
+              "Y": 393.0
             },
             "Name": "left",
             "ctype": "ImageViewObjectData"
@@ -886,46 +889,46 @@
           {
             "FileData": {
               "Type": "MarkedSubImage",
-              "Path": "pinatacream/shoot.png",
+              "Path": "pinatacream/peppermint.png",
               "Plist": "pinatacream/pinatacream.plist"
             },
             "Scale9OriginX": 34,
             "Scale9OriginY": 48,
-            "Scale9Width": 36,
-            "Scale9Height": 51,
+            "Scale9Width": 340,
+            "Scale9Height": 297,
             "AnchorPoint": {
-              "ScaleX": 0.5,
-              "ScaleY": 0.5
+              "ScaleX": 0.6394,
+              "ScaleY": 0.8315
             },
             "Position": {
-              "X": 1722.9249,
-              "Y": 405.6365
+              "X": 1606.1765,
+              "Y": 431.6142
             },
             "Scale": {
               "ScaleX": 1.0,
               "ScaleY": 1.0
             },
-            "RotationSkewX": 45.3103,
-            "RotationSkewY": 45.3215,
+            "RotationSkewX": 6.9342,
+            "RotationSkewY": 6.9324,
             "CColor": {},
             "IconVisible": false,
             "PrePosition": {
-              "X": 0.673,
-              "Y": 0.2254
+              "X": 0.6274,
+              "Y": 0.2398
             },
             "PreSize": {
-              "X": 0.0406,
-              "Y": 0.0817
+              "X": 0.1594,
+              "Y": 0.2183
             },
-            "LeftMargin": 1670.9249,
-            "RightMargin": 785.0751,
-            "TopMargin": 1320.8635,
-            "BottomMargin": 332.1365,
+            "LeftMargin": 1345.2834,
+            "RightMargin": 806.7166,
+            "TopMargin": 1302.1729,
+            "BottomMargin": 104.8272,
             "Tag": 24,
             "ActionTag": 1150223785,
             "Size": {
-              "X": 104.0,
-              "Y": 147.0
+              "X": 408.0,
+              "Y": 393.0
             },
             "Name": "right",
             "ctype": "ImageViewObjectData"

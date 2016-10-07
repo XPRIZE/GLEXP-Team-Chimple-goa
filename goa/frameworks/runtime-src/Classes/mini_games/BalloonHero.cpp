@@ -72,7 +72,71 @@ bool BalloonHero::init() {
 
 	//_balloonHero->setPosition(Vec2(visibleSize.width / 2 + origin.x, visibleSize.height / 2 + origin.y));
 	//_balloonHero->setAnchorPoint(Vec2(0, 0));
-	addChild(_balloonHero);
+	this->addChild(_balloonHero);
+	
+	 
+	_foreGround = _balloonHero->getChildByName("foreground");
+	auto moveForeground = MoveTo::create(4, Vec2(_foreGround->getPositionX(), -1000));
+
+	_foreGround->runAction(moveForeground);
+
+
+	_fireFly = (cocos2d::Sprite *)CSLoader::createNode("balloonhero/firefly.csb");
+
+	_fireFly->setPosition(Vec2(visibleSize.width / 2 + origin.x, visibleSize.height / 2 + origin.y));
+	_fireFly->setAnchorPoint(Vec2(0.5, 0.5));
+	_fireFly->setScale(0.5, 0.5);
+	this->addChild(_fireFly, 1);
+	setupTouch();
+	
+	_fireTimeline = CSLoader::createTimeline("balloonhero/firefly.csb");
+	_fireFly->runAction(_fireTimeline);
+	_fireTimeline->play("fly" ,true);
+
+
+
+	Sprite * cloud = Sprite::createWithSpriteFrameName("balloonhero/cloud1.png");
+	cloud->setPosition(200, 1500);
+	cloud->setAnchorPoint(Vec2(0.5,0.5));
+	this->addChild(cloud);
+
+
+	Sprite * cloud1 = Sprite::createWithSpriteFrameName("balloonhero/cloud1.png");
+	cloud1->setPosition(900, 1500);
+	cloud1->setAnchorPoint(Vec2(0.5, 0.5));
+	this->addChild(cloud1);
+
+
+
+	auto moveCloud1 = MoveTo::create(2, Vec2(200, 0));
+	auto moveCloud2 = MoveTo::create(2, Vec2(900, 0));
+
+	
+	auto refixCloud = CallFunc::create([=] {
+		
+		cloud->setPosition(200, 1500);
+	
+	});
+
+	auto refixCloud1 = CallFunc::create([=] {
+
+		cloud1->setPosition(900, 1500);
+
+	});
+
+	auto tweenSequence = Sequence::create(moveCloud1, refixCloud, NULL);
+
+	auto repeat = RepeatForever::create(tweenSequence);
+
+	cloud->runAction(repeat);
+
+
+	auto tweenSequence1 = Sequence::create(moveCloud2, refixCloud1, NULL);
+
+	auto repeat1 = RepeatForever::create(tweenSequence1);
+
+	cloud1->runAction(repeat1);
+
 
 	return true;
 }
@@ -90,10 +154,11 @@ void BalloonHero::setupTouch() {
 
 	
 	auto listener = EventListenerTouchOneByOne::create();
+	auto firefly = (Sprite *)_fireFly;
 	listener->onTouchBegan = CC_CALLBACK_2(BalloonHero::onTouchBegan, this);
 	listener->onTouchEnded = CC_CALLBACK_2(BalloonHero::onTouchEnded, this);
 	listener->onTouchMoved = CC_CALLBACK_2(BalloonHero::onTouchMoved, this);
-	//_eventDispatcher->addEventListenerWithSceneGraphPriority(listener, _nest);
+	_eventDispatcher->addEventListenerWithSceneGraphPriority(listener, firefly);
 	
 
 }
@@ -101,19 +166,14 @@ void BalloonHero::setupTouch() {
 
 bool BalloonHero::onTouchBegan(Touch* touch, Event* event) {
 
-
+	
 	auto target = event->getCurrentTarget();
-	Point locationInNode = target->getParent()->convertToNodeSpace(touch->getLocation());
+	
+	Point locationInNode = target->convertToNodeSpace(touch->getLocation());
 
-	//Size s = target->getContentSize();
-	//Rect rect = Rect(0, 0, s.width, s.height);
-	static int counter = 0;
-
-	auto bb = target->getBoundingBox();
-
-	if (target->getBoundingBox().containsPoint(locationInNode))
+	if (target->getChildByName("firefly")->getBoundingBox().containsPoint(locationInNode))
 	{
-
+		
 
 		return true; // to indicate that we have consumed it.
 	}
@@ -125,7 +185,7 @@ void BalloonHero::onTouchEnded(cocos2d::Touch *touch, cocos2d::Event *event) {
 	//    CCLOG("onTouchEnded");
 
 	auto target = event->getCurrentTarget();
-	Point locationInNode = target->getParent()->convertToNodeSpace(touch->getLocation());
+	Point locationInNode = target->convertToNodeSpace(touch->getLocation());
 
 
 }
@@ -133,4 +193,13 @@ void BalloonHero::onTouchEnded(cocos2d::Touch *touch, cocos2d::Event *event) {
 void BalloonHero::onTouchMoved(cocos2d::Touch *touch, cocos2d::Event *event) {
 	//    CCLOG("onTouchMoved");
 
+	auto target = event->getCurrentTarget();
+	Point locationInNode = target->convertToNodeSpace(touch->getLocation());
+
+	if (target->getChildByName("firefly")->getBoundingBox().containsPoint(locationInNode))
+	{
+
+		target->setPosition(Vec2(touch->getLocation().x, touch->getLocation().y));
+		 // to indicate that we have consumed it.
+	}
 }

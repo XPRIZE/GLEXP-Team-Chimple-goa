@@ -27,11 +27,13 @@ public:
 	
 	std::vector<std::string> _textToShow;
 
+	std::map<std::string, std::map<std::string, int>> differntSceneMapping;
+	std::vector<std::string> _scene;
 	Node *_talkBg;
 
 	cocostudio::timeline::ActionTimeline *_heroChar, *_enemyChar;
 
-	cocos2d::Sprite *_hhand, *_hero, *_ehand, *_enemy, *_fish;
+	cocos2d::Sprite *_hhand, *_hero, *_ehand, *_enemy, *_fish, *_hbasket, *_ebasket;
 	cocos2d::Action *_action;
 	bool _handFlag;
 	std::vector<cocos2d::Sprite*> _enemyFish, _heroFish;

@@ -1,0 +1,779 @@
+{
+  "ID": "83fbcb3a-ed20-46fe-a30d-ab9eeb5761dc",
+  "Version": "3.10.0.0",
+  "Name": "talkjungle",
+  "Content": {
+    "Content": {
+      "Animation": {
+        "Duration": 0,
+        "Speed": 1.0,
+        "Timelines": [],
+        "ctype": "TimelineActionData"
+      },
+      "AnimationList": [],
+      "ObjectData": {
+        "Children": [
+          {
+            "ClipAble": false,
+            "ComboBoxIndex": 1,
+            "SingleColor": {
+              "G": 240,
+              "B": 130
+            },
+            "FirstColor": {
+              "R": 150,
+              "G": 200
+            },
+            "EndColor": {},
+            "ColorVector": {
+              "ScaleY": 1.0
+            },
+            "Scale9Width": 1,
+            "Scale9Height": 1,
+            "TouchEnable": true,
+            "AnchorPoint": {},
+            "Position": {
+              "X": -980.5638,
+              "Y": 0.7721
+            },
+            "Scale": {
+              "ScaleX": 23.5812,
+              "ScaleY": 10.026
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": -0.383,
+              "Y": 0.0004
+            },
+            "PreSize": {
+              "X": 0.0781,
+              "Y": 0.1111
+            },
+            "LeftMargin": -980.5638,
+            "RightMargin": 3340.5637,
+            "TopMargin": 1599.2279,
+            "BottomMargin": 0.7721,
+            "Tag": 11,
+            "ActionTag": -161889567,
+            "Size": {
+              "X": 200.0,
+              "Y": 200.0
+            },
+            "Name": "Panel_1",
+            "ctype": "PanelObjectData"
+          },
+          {
+            "ClipAble": false,
+            "ComboBoxIndex": 1,
+            "SingleColor": {
+              "R": 103,
+              "G": 191,
+              "B": 125
+            },
+            "FirstColor": {
+              "R": 150,
+              "G": 200
+            },
+            "EndColor": {},
+            "ColorVector": {
+              "ScaleY": 1.0
+            },
+            "Scale9Width": 1,
+            "Scale9Height": 1,
+            "TouchEnable": true,
+            "AnchorPoint": {},
+            "Position": {
+              "X": -1320.4801,
+              "Y": -12.2704
+            },
+            "Scale": {
+              "ScaleX": 26.3311,
+              "ScaleY": 2.6823
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": -0.5158,
+              "Y": -0.0068
+            },
+            "PreSize": {
+              "X": 0.0781,
+              "Y": 0.1111
+            },
+            "LeftMargin": -1320.4801,
+            "RightMargin": 3680.48,
+            "TopMargin": 1612.2704,
+            "BottomMargin": -12.2704,
+            "Tag": 16,
+            "ActionTag": 2093186682,
+            "Size": {
+              "X": 200.0,
+              "Y": 200.0
+            },
+            "Name": "Panel_2",
+            "ctype": "PanelObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "talkjungle/bg-03.png",
+              "Plist": "talkjungle/talkjungle.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1311.4298,
+              "Y": 1876.7745
+            },
+            "Scale": {
+              "ScaleX": 2.0489,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.5123,
+              "Y": 1.0427
+            },
+            "PreSize": {
+              "X": 0.8,
+              "Y": 0.17
+            },
+            "LeftMargin": 287.4298,
+            "RightMargin": 224.5703,
+            "TopMargin": -229.7745,
+            "BottomMargin": 1723.7745,
+            "Tag": 17,
+            "ActionTag": -878591688,
+            "Size": {
+              "X": 2048.0,
+              "Y": 306.0
+            },
+            "Name": "Sprite_14",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "talkjungle/tree1.png",
+              "Plist": "talkjungle/talkjungle.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 2256.4922,
+              "Y": 1399.3765
+            },
+            "Scale": {
+              "ScaleX": 0.8169,
+              "ScaleY": 1.3117
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.8814,
+              "Y": 0.7774
+            },
+            "PreSize": {
+              "X": 0.1656,
+              "Y": 0.7611
+            },
+            "LeftMargin": 2044.4922,
+            "RightMargin": 91.5078,
+            "TopMargin": -284.3765,
+            "BottomMargin": 714.3765,
+            "Tag": 9,
+            "ActionTag": 808074687,
+            "Size": {
+              "X": 424.0,
+              "Y": 1370.0
+            },
+            "Name": "tree1_2_2",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FlipX": true,
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "talkjungle/tree1.png",
+              "Plist": "talkjungle/talkjungle.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 303.8723,
+              "Y": 1404.6588
+            },
+            "Scale": {
+              "ScaleX": 0.8169,
+              "ScaleY": 1.3117
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.1187,
+              "Y": 0.7804
+            },
+            "PreSize": {
+              "X": 0.1656,
+              "Y": 0.7611
+            },
+            "LeftMargin": 91.8723,
+            "RightMargin": 2044.1277,
+            "TopMargin": -289.6587,
+            "BottomMargin": 719.6588,
+            "Tag": 10,
+            "ActionTag": -1383415189,
+            "Size": {
+              "X": 424.0,
+              "Y": 1370.0
+            },
+            "Name": "tree1_2_3",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "talkjungle/bush.png",
+              "Plist": "talkjungle/talkjungle.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 390.5764,
+              "Y": 537.1535
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.1526,
+              "Y": 0.2984
+            },
+            "PreSize": {
+              "X": 0.4,
+              "Y": 0.0628
+            },
+            "LeftMargin": -121.4236,
+            "RightMargin": 1657.4236,
+            "TopMargin": 1206.3464,
+            "BottomMargin": 480.6535,
+            "Tag": 12,
+            "ActionTag": -988176448,
+            "Size": {
+              "X": 1024.0,
+              "Y": 113.0
+            },
+            "Name": "bush_10",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "talkjungle/bush.png",
+              "Plist": "talkjungle/talkjungle.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 2173.9956,
+              "Y": 535.8207
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.8492,
+              "Y": 0.2977
+            },
+            "PreSize": {
+              "X": 0.4,
+              "Y": 0.0628
+            },
+            "LeftMargin": 1661.9956,
+            "RightMargin": -125.9956,
+            "TopMargin": 1207.6793,
+            "BottomMargin": 479.3207,
+            "Tag": 13,
+            "ActionTag": 1868549013,
+            "Size": {
+              "X": 1024.0,
+              "Y": 113.0
+            },
+            "Name": "bush_10_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "talkjungle/bush.png",
+              "Plist": "talkjungle/talkjungle.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1238.2428,
+              "Y": 530.0416
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.4837,
+              "Y": 0.2945
+            },
+            "PreSize": {
+              "X": 0.4,
+              "Y": 0.0628
+            },
+            "LeftMargin": 726.2428,
+            "RightMargin": 809.7572,
+            "TopMargin": 1213.4584,
+            "BottomMargin": 473.5416,
+            "Tag": 176,
+            "ActionTag": 1953463402,
+            "Size": {
+              "X": 1024.0,
+              "Y": 113.0
+            },
+            "Name": "bush_10_1",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "talkjungle/bg-02.png",
+              "Plist": "talkjungle/talkjungle.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1272.618,
+              "Y": 2006.1759
+            },
+            "Scale": {
+              "ScaleX": 1.8467,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.4971,
+              "Y": 1.1145
+            },
+            "PreSize": {
+              "X": 0.8,
+              "Y": 0.1783
+            },
+            "LeftMargin": 248.618,
+            "RightMargin": 263.3818,
+            "TopMargin": -366.6758,
+            "BottomMargin": 1845.6759,
+            "Tag": 18,
+            "ActionTag": -539601740,
+            "Size": {
+              "X": 2048.0,
+              "Y": 321.0
+            },
+            "Name": "Sprite_15",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "talkjungle/hero.json",
+              "Plist": ""
+            },
+            "StretchWidthEnable": false,
+            "StretchHeightEnable": false,
+            "InnerActionSpeed": 1.0,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 2154.4565,
+              "Y": 136.0012
+            },
+            "Scale": {
+              "ScaleX": -1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 0.8416,
+              "Y": 0.0756
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 2154.4565,
+            "RightMargin": 405.5435,
+            "TopMargin": 1663.9988,
+            "BottomMargin": 136.0012,
+            "Tag": 40,
+            "ActionTag": -27987729,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "hero",
+            "ctype": "ProjectNodeObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "talkjungle/enemy.json",
+              "Plist": ""
+            },
+            "StretchWidthEnable": false,
+            "StretchHeightEnable": false,
+            "InnerActionSpeed": 1.0,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 369.8109,
+              "Y": 133.4001
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 0.1445,
+              "Y": 0.0741
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 369.8109,
+            "RightMargin": 2190.189,
+            "TopMargin": 1666.5999,
+            "BottomMargin": 133.4001,
+            "Tag": 83,
+            "ActionTag": 991126239,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "enemy",
+            "ctype": "ProjectNodeObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "talkjungle/bg 2-21.png",
+              "Plist": "talkjungle/talkjungle.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1015.5732,
+              "Y": 231.5736
+            },
+            "Scale": {
+              "ScaleX": 0.2803,
+              "ScaleY": 0.2803
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.3967,
+              "Y": 0.1287
+            },
+            "PreSize": {
+              "X": 0.3578,
+              "Y": 0.0267
+            },
+            "LeftMargin": 557.5732,
+            "RightMargin": 1086.4268,
+            "TopMargin": 1544.4264,
+            "BottomMargin": 207.5736,
+            "Tag": 107,
+            "ActionTag": 598263322,
+            "Size": {
+              "X": 916.0,
+              "Y": 48.0
+            },
+            "Name": "e_boxback",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "talkjungle/bg 2-20.png",
+              "Plist": "talkjungle/talkjungle.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1013.5679,
+              "Y": 183.6041
+            },
+            "Scale": {
+              "ScaleX": 0.2803,
+              "ScaleY": 0.2803
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.3959,
+              "Y": 0.102
+            },
+            "PreSize": {
+              "X": 0.3578,
+              "Y": 0.1978
+            },
+            "LeftMargin": 555.5679,
+            "RightMargin": 1088.4321,
+            "TopMargin": 1438.3959,
+            "BottomMargin": 5.6041,
+            "Tag": 106,
+            "ActionTag": -288340464,
+            "Size": {
+              "X": 916.0,
+              "Y": 356.0
+            },
+            "Name": "e_box",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "talkjungle/bg 2-21.png",
+              "Plist": "talkjungle/talkjungle.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1591.7114,
+              "Y": 231.5737
+            },
+            "Scale": {
+              "ScaleX": 0.2803,
+              "ScaleY": 0.2803
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.6218,
+              "Y": 0.1287
+            },
+            "PreSize": {
+              "X": 0.3578,
+              "Y": 0.0267
+            },
+            "LeftMargin": 1133.7114,
+            "RightMargin": 510.2886,
+            "TopMargin": 1544.4263,
+            "BottomMargin": 207.5737,
+            "Tag": 111,
+            "ActionTag": 673206769,
+            "Size": {
+              "X": 916.0,
+              "Y": 48.0
+            },
+            "Name": "h_boxback",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "talkjungle/bg 2-20.png",
+              "Plist": "talkjungle/talkjungle.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1589.7068,
+              "Y": 183.6042
+            },
+            "Scale": {
+              "ScaleX": 0.2803,
+              "ScaleY": 0.2803
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.621,
+              "Y": 0.102
+            },
+            "PreSize": {
+              "X": 0.3578,
+              "Y": 0.1978
+            },
+            "LeftMargin": 1131.7068,
+            "RightMargin": 512.2932,
+            "TopMargin": 1438.3958,
+            "BottomMargin": 5.6042,
+            "Tag": 112,
+            "ActionTag": -1501802876,
+            "Size": {
+              "X": 916.0,
+              "Y": 356.0
+            },
+            "Name": "h_box",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "AnchorPoint": {},
+            "Position": {
+              "X": 1587.0266,
+              "Y": 227.8319
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 0.6199,
+              "Y": 0.1266
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 1587.0266,
+            "RightMargin": 972.9734,
+            "TopMargin": 1572.1681,
+            "BottomMargin": 227.8319,
+            "Tag": 114,
+            "ActionTag": -1138627414,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "h_node",
+            "ctype": "SingleNodeObjectData"
+          },
+          {
+            "AnchorPoint": {},
+            "Position": {
+              "X": 1008.4097,
+              "Y": 230.9949
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 0.3939,
+              "Y": 0.1283
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 1008.4097,
+            "RightMargin": 1551.5903,
+            "TopMargin": 1569.0051,
+            "BottomMargin": 230.9949,
+            "Tag": 115,
+            "ActionTag": -1365507363,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "e_node",
+            "ctype": "SingleNodeObjectData"
+          }
+        ],
+        "Size": {
+          "X": 2560.0,
+          "Y": 1800.0
+        },
+        "Name": "Scene",
+        "ctype": "SingleNodeObjectData"
+      },
+      "UsedResources": [
+        "enemy.json",
+        "hero.json",
+        "talkjungle.plist",
+        "talkjungle.png"
+      ],
+      "ctype": "GameFileData"
+    }
+  },
+  "Type": "Scene"
+}
