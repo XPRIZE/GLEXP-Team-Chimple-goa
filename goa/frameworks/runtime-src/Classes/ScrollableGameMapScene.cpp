@@ -47,6 +47,7 @@
 #include "mini_games/BalloonHero.h"
 #include "mini_games/Drop.h"
 #include "mini_games/Owl.h"
+#include "mini_games/Order.h"
 
 USING_NS_CC;
 
@@ -175,13 +176,14 @@ void ScrollableGameMapScene::gameSelected(Ref* pSender, ui::Widget::TouchEventTy
 //				ScriptingCore::getInstance()->runScript("src/start/sortit.js");
                 Director::getInstance()->replaceScene(PegWord::createScene());
 			} else if (clickedButton->getName() == ALPHAMOLE) {
-				Director::getInstance()->replaceScene(Decomon::createScene());
-				//Director::getInstance()->replaceScene(AlphamoleLevel::createScene());
+			//	Director::getInstance()->replaceScene(Decomon::createScene());
+				Director::getInstance()->replaceScene(AlphamoleLevel::createScene());
 			} else if(clickedButton->getName() == PATCH_THE_WALL) {
 //                Director::getInstance()->replaceScene(PatchTheWall::createScene());
                 ScriptingCore::getInstance()->runScript("src/start/decomon.js");
             } else  if (clickedButton->getName() == CAT) {
-				Director::getInstance()->replaceScene(Dash::createScene());
+				Director::getInstance()->replaceScene(Order::createScene());
+				//Director::getInstance()->replaceScene(Dash::createScene());
 				//Director::getInstance()->replaceScene(CatGame::createScene());
 				//ScriptingCore::getInstance()->runScript("src/start/alphamole.js");
 			} else  if (clickedButton->getName() == JUMP_ON_WORDS) {

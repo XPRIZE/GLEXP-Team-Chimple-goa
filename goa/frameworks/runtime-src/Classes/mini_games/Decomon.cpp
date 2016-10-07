@@ -231,7 +231,7 @@ child = decomon_icon_mouth*/
 		Vec2(visibleSize.width / 2 - 700,visibleSize.height / 2 - 500)
 	};
 	node->drawPolygon(vertices, 4, Color4F(1.0f, 0.3f, 0.3f, 0), 3, Color4F(0.2f, 0.2f, 0.2f, 1));
-//	addChild(node);
+	addChild(node);
 
 	_paintingTexture = RenderTexture::create(visibleSize.width, visibleSize.height, kCCTexture2DPixelFormat_RGBA8888);
 	_paintingTexture->retain();
