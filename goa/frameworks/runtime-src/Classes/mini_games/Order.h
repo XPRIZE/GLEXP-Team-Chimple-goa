@@ -29,8 +29,10 @@ protected:
 	cocos2d::Node * _bg;
 	float _yy;
 	float _lastBoxPosition;
-	void swapBlocks();
+	void checkUserSortList(std::vector<int> list);
+	void animationWithRandomInterval();
 	cocos2d::Vector<cocos2d::Sprite *> _boxes;
+	void cartAnimation(std::string animationName, bool loop);
 	virtual bool onTouchBegan(cocos2d::Touch *touch, cocos2d::Event * event);
 	virtual void onTouchMoved(cocos2d::Touch *touch, cocos2d::Event * event);
 	virtual void onTouchEnded(cocos2d::Touch *touch, cocos2d::Event * event);
