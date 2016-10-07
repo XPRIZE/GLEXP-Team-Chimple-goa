@@ -231,7 +231,7 @@ void Talk::update(float d)
 			fish_Rect = Rect(_fish->getPositionX(), _fish->getPositionY(), _fish->getBoundingBox().size.width, _fish->getBoundingBox().size.height);// _fish->getBoundingBox();
 		}
 
-		if(sceneName == "talkjungle")
+		if(sceneName == "talkjungle" || sceneName == "talkisland")
 			fish_Rect_next = Rect(_fish->getPositionX(), _fish->getPositionY(), _fish->getBoundingBox().size.width, _fish->getBoundingBox().size.height);// _fish->getBoundingBox();
 		else
 			fish_Rect_next = _fish->getBoundingBox();
