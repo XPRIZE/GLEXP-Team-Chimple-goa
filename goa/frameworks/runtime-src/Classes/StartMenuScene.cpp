@@ -38,6 +38,12 @@
 #include "mini_games/Drop.h"
 #include "mini_games/Owl.h"
 
+#include "storage/local-storage/LocalStorage.h"
+#include "external/json/document.h"
+#include "external/json/stringbuffer.h"
+#include "external/json/writer.h"
+
+
 USING_NS_CC;
 
 StartMenu::StartMenu(){
@@ -47,8 +53,11 @@ StartMenu::~StartMenu() {
     
 }
 
+
+
 const std::vector<std::string> StartMenu::getGameNames() {
     std::vector<std::string> gameNames;
+    gameNames.push_back(CAT);
 	gameNames.push_back(SORT_IT);
 	gameNames.push_back(ALPHAMOLE);
 	gameNames.push_back(BUBBLE);
@@ -60,7 +69,6 @@ const std::vector<std::string> StartMenu::getGameNames() {
     gameNames.push_back(WEMBLEY);
     gameNames.push_back(JAZZ);
     gameNames.push_back(JASMINE);
-    gameNames.push_back(CAT);
     gameNames.push_back(PATCH_THE_WALL);
     gameNames.push_back(CROSS_THE_BRIDGE);
     gameNames.push_back(SMASH_THE_ROCK);
@@ -75,8 +83,25 @@ const std::vector<std::string> StartMenu::getGameNames() {
 
 }
 
+const std::vector<std::string> StartMenu::multiPlayerGameNames() {
+    std::vector<std::string> multiPlayerGameNames;
+    multiPlayerGameNames.push_back(CAT);
+    return multiPlayerGameNames;
+    
+}
+
+
+
+
 
 void StartMenu::startScene(std::string gameName, std::string firstParam, std::string secondParam, std::string thirdParam) {
+    
+//    std::string gameConfig;
+//    localStorageGetItem(gameName, &gameConfig);
+//    CCLOG("gameConfig %s", gameConfig.c_str());
+//    std::string script = parseGameConfig(gameConfig);
+//    ScriptingCore::getInstance()->runScript(script);
+    
     if(gameName == ALPHAMON_COMBAT) {
         Director::getInstance()->replaceScene(SelectAlphamon::createScene());
     } else if(gameName == DUEL_SCENE) {
@@ -168,4 +193,28 @@ void StartMenu::startScene(std::string gameName, std::string firstParam, std::st
         CCLOG("Failed starting scene: %s", gameName.c_str());
     }
 }
+
+
+std::string StartMenu::parseGameConfig(std::string gameConfigStr) {
+    rapidjson::Document gameConfig;
+    std::string scriptName = "";
+    if (false == gameConfig.Parse<0>(gameConfigStr.c_str()).HasParseError()) {
+        // document is ok
+        printf("name = %s\n", gameConfig["name"].GetString());
+        printf("cIcon = %s\n", gameConfig["cIcon"].GetString());
+        printf("multiPlayer = %d\n", gameConfig["multiPlayer"].GetBool());
+        printf("isJSGame = %d\n", gameConfig["isJSGame"].GetBool());
+        printf("script = %s\n", gameConfig["script"].GetString());
+        localStorageSetItem("currentLaunchGameName", gameConfig["name"].GetString());
+        scriptName = gameConfig["script"].GetString();
+        
+    }else{
+        // error
+    }
+    
+    return scriptName;
+    
+}
+
+
 

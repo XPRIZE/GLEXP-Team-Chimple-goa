@@ -476,6 +476,24 @@ void MenuContext::showMap(cocos2d::Ref *pSender, cocos2d::ui::Widget::TouchEvent
     }
 }
 
+void MenuContext::launchGame(std::string gameName) {
+    launchGameFromJS(gameName);
+}
+
+
+void MenuContext::launchGameFromJS(std::string gameName) {
+    CCLOG("gameName %s", gameName.c_str());
+    if (gameName == CAT) {
+        Director::getInstance()->replaceScene(Dash::createScene());
+    } else if(gameName == ENDLESS_RUNNER) {
+        Director::getInstance()->replaceScene(EndlessRunner::createScene());
+    }
+}
+
+void MenuContext::transitToScrollableGameMap() {
+    Director::getInstance()->replaceScene(TransitionFade::create(2.0, ScrollableGameMapScene::createScene(), Color3B::BLACK));
+}
+
 void MenuContext::showGamesMenu(cocos2d::Ref *pSender, cocos2d::ui::Widget::TouchEventType eEventType) {
     if(eEventType == cocos2d::ui::Widget::TouchEventType::ENDED) {
         if(_launchCustomEventOnExit) {

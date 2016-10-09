@@ -9,8 +9,8 @@
 #ifndef LangUtil_h
 #define LangUtil_h
 #include "cocos2d.h"
-#include "RPGConfig.h"
-#include "I18nUtils.h"
+#include "../RPGConfig.h"
+#include "../I18nUtils.h"
 #include "WordInfo.h"
 
 class WordManager;

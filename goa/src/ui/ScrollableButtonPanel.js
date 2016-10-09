@@ -27,10 +27,13 @@ xc.ScrollableButtonPanel = cc.LayerColor.extend({
             this._page.addEventListener(this.updateLeftRightButtons, this)
             this._backButton = new ccui.Button("icons/left.png", "icons/left_onclick.png", "icons/left_onclick.png", ccui.Widget.PLIST_TEXTURE);
             this._backButton.setPosition(size.width * 5 / 100, size.height / 2);
+            //this._backButton.setScale(3.0);
             this._backButton.addTouchEventListener(this.moveLeft, this);
             this.addChild(this._backButton);
+            
             this._nextButton = new ccui.Button("icons/right.png", "icons/right_onclick.png", "icons/right_onclick.png", ccui.Widget.PLIST_TEXTURE);
             this._nextButton.setPosition(size.width * 95 / 100, size.height / 2);
+            //this._nextButton.setScale(3.0);
             this._nextButton.addTouchEventListener(this.moveRight, this);
             this.addChild(this._nextButton);
 

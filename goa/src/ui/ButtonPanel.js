@@ -23,6 +23,7 @@ xc.ButtonPanel = ccui.Layout.extend({
                                 item.setScale(0.2);                                
                             } else {
                                 item = new ccui.Button(configuration[index]['icon'], configuration[index]['icon'], configuration[index]['icon'], ccui.Widget.PLIST_TEXTURE);
+                                //item.setScale(3.0);
                             }
                             
                         } catch (error) {

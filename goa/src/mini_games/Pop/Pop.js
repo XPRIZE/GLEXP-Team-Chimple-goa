@@ -4,6 +4,7 @@ var xc = xc || {};
 
 xc.PopLayer = cc.Layer.extend({
     gameName: "pop",
+    multiPlayerMode: false,
     //sprite: null,
     ctor: function () {
         //////////////////////////////

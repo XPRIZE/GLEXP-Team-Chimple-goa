@@ -8,12 +8,17 @@ xc.GameMap = cc.Scene.extend({
         this.addChild(map);
     },
     loadGame: function(sender) {
-        if(sender._configuration.name == 'pop') {
-            xc.GameScene.load(xc.PopLayer);
+        if(!sender._configuration.multiPlayer) {
+            var gameFunc = xc[sender._configuration.pureJS];
+            xc.GameScene.load(gameFunc);
+        } else if(sender._configuration.multiPlayer) {
+            var gameFunc = xc[sender._configuration.pureJS];
+            xc.GameScene.loadMultiPlayerGame(gameFunc,sender._configuration.name);            
         }
         else if(sender._configuration.name == 'jazz') {
             xc.GameScene.load(xc.GameLayer);
-        } else if(sender._configuration.name == 'story-teller') {
+        } 
+        else if(sender._configuration.name == 'story-teller') {
             xc.CreateStoryScene.load(xc.CreateStoryLayer);
         }
         else if(sender._configuration.name == 'train') {
@@ -30,8 +35,11 @@ xc.GameMap = cc.Scene.extend({
         }
         else if(sender._configuration.name == 'decomon') {
             xc.GameScene.load(xc.DecomonLayer);
-        }else if(sender._configuration.name == 'pinata'){
+        } else if(sender._configuration.name == 'pinata'){
              xc.GameScene.load(xc.Pinata);
+        }
+        else if(sender._configuration.name == 'choose_character'){
+             xc.CharacterConfigScene.load(xc.CharacterConfigLayer);
         }
     }
 });
@@ -41,5 +49,5 @@ xc.GameMap.res = {
     map_plist: xc.path + "gamemap/gamemap.plist",
     map_png: xc.path + "gamemap/gamemap.png",
     thumbnails_plist: "res/thumbnails.plist",
-    thumbnails_png: "res/thumbnails.png"    
+    thumbnails_png: "res/thumbnails.png"
 };

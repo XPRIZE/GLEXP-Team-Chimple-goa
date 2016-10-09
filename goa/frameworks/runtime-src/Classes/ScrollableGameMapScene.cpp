@@ -6,6 +6,8 @@
 //
 //
 
+#include <map>
+
 #include "scripting/js-bindings/manual/ScriptingCore.h"
 
 #include "ScrollableGameMapScene.hpp"
@@ -47,20 +49,28 @@
 #include "mini_games/BalloonHero.h"
 #include "mini_games/Drop.h"
 #include "mini_games/Owl.h"
+#include "storage/local-storage/LocalStorage.h"
+#include "external/json/document.h"
+#include "external/json/stringbuffer.h"
+#include "external/json/writer.h"
+
 
 USING_NS_CC;
 
 ScrollableGameMapScene::ScrollableGameMapScene()
 {
-    
+    //map.insert(std::pair)
+    //cocos2d::Scene* dashScene = this->createGameInstance<Dash>();
+    //dashScene->retain();
+    //mymap.insert(std::pair<std::string, cocos2d::Scene*>("CAT", dashScene));
 }
 
 ScrollableGameMapScene::~ScrollableGameMapScene() {
     
 }
 
-Scene *ScrollableGameMapScene::createScene() {
-    auto scene = Scene::create();
+Scene* ScrollableGameMapScene::createScene() {
+    auto scene = Scene::create();    
     auto layer = ScrollableGameMapScene::create();
     scene->addChild(layer);
     layer->menuContext = MenuContext::create(layer);
@@ -69,11 +79,24 @@ Scene *ScrollableGameMapScene::createScene() {
 }
 
 
+std::vector<std::string> ScrollableGameMapScene::split(std::string s, char delim)
+{
+    std::vector<std::string> elems;
+    std::stringstream ss;
+    ss.str(s);
+    std::string item;
+    while (getline(ss, item, delim)) {
+        elems.push_back(item);
+    }
+    return elems;
+}
+
 bool ScrollableGameMapScene::init() {
     if(!ScrollView::init())
     {
         return false;
     }
+    
     
     Size visibleSize = Director::getInstance()->getVisibleSize();
     Vec2 origin = Director::getInstance()->getVisibleOrigin();
@@ -81,6 +104,11 @@ bool ScrollableGameMapScene::init() {
     
     auto spriteCache = SpriteFrameCache::getInstance();
     spriteCache->addSpriteFramesWithFile("gamemap/gamemap.plist");
+    
+    std::string gameNamesStr;
+    localStorageGetItem("gameNames", &gameNamesStr);
+    CCLOG("gameNamesStr %s", gameNamesStr.c_str());
+//    std::vector<std::string> games = split(gameNamesStr, ',');
     
     
     std::vector<std::string> games = StartMenu::getGameNames();
@@ -157,7 +185,10 @@ bool ScrollableGameMapScene::init() {
     return true;
 }
 
-
+template<typename T>
+cocos2d::Scene* ScrollableGameMapScene::createGameInstance() {
+    return T::createScene();
+}
 
 void ScrollableGameMapScene::gameSelected(Ref* pSender, ui::Widget::TouchEventType eEventType)
 {
@@ -172,8 +203,10 @@ void ScrollableGameMapScene::gameSelected(Ref* pSender, ui::Widget::TouchEventTy
             clickedButton->setEnabled(false);
 
 			if (clickedButton->getName() == SORT_IT) {
-//				ScriptingCore::getInstance()->runScript("src/start/sortit.js");
-                Director::getInstance()->replaceScene(PegWord::createScene());
+				ScriptingCore::getInstance()->runScript("src/start/sortit.js");
+                //Director::getInstance()->replaceScene(PegWord::createScene());
+                //ScriptingCore::getInstance()->runScript("src/start/characterConfigure.js");
+//                ScriptingCore::getInstance()->runScript("src/NonJSGameLauncher.js");
 			} else if (clickedButton->getName() == ALPHAMOLE) {
 				Director::getInstance()->replaceScene(Decomon::createScene());
 				//Director::getInstance()->replaceScene(AlphamoleLevel::createScene());
@@ -181,7 +214,12 @@ void ScrollableGameMapScene::gameSelected(Ref* pSender, ui::Widget::TouchEventTy
 //                Director::getInstance()->replaceScene(PatchTheWall::createScene());
                 ScriptingCore::getInstance()->runScript("src/start/decomon.js");
             } else  if (clickedButton->getName() == CAT) {
-				Director::getInstance()->replaceScene(Dash::createScene());
+                Director::getInstance()->replaceScene(this->createGameInstance<Dash>());
+                //Director::getInstance()->replaceScene(mymap.at("CAT"));
+                //localStorageSetItem("cplusMultiPlayerGame", CAT);
+                //localStorageRemoveItem("jsMultiPlayerGame");
+                //ScriptingCore::getInstance()->runScript("src/start/choosePlayMode.js");
+				//Director::getInstance()->replaceScene(Dash::createScene());
 				//Director::getInstance()->replaceScene(CatGame::createScene());
 				//ScriptingCore::getInstance()->runScript("src/start/alphamole.js");
 			} else  if (clickedButton->getName() == JUMP_ON_WORDS) {
@@ -191,8 +229,8 @@ void ScrollableGameMapScene::gameSelected(Ref* pSender, ui::Widget::TouchEventTy
 			//	Director::getInstance()->replaceScene(SmashTheRock::createScene());
 				//ScriptingCore::getInstance()->runScript("src/start/jump.js");
 			} else if (clickedButton->getName() == POP) {
-				//ScriptingCore::getInstance()->runScript("src/start/pop.js");
-				Director::getInstance()->replaceScene(Drop::createScene());
+				ScriptingCore::getInstance()->runScript("src/start/pop.js");
+				//Director::getInstance()->replaceScene(Drop::createScene());
 			} else if(clickedButton->getName() == CROSS_THE_BRIDGE) {
 				 Director::getInstance()->replaceScene(CrossTheBridge::createScene());
 				//Director::getInstance()->replaceScene(Bingo::createScene());
@@ -204,7 +242,12 @@ void ScrollableGameMapScene::gameSelected(Ref* pSender, ui::Widget::TouchEventTy
                 ScriptingCore::getInstance()->runScript("src/start/pinata.js");
 //                ScriptingCore::getInstance()->runScript("src/start/connectTheDots.js");
             } else if (clickedButton->getName() == ENDLESS_RUNNER) {
-				Director::getInstance()->replaceScene(Owl::createScene());
+                //load specific configuration
+                std::string gameConfig;
+                localStorageGetItem(clickedButton->getName(), &gameConfig);
+                CCLOG("gameConfig %s", gameConfig.c_str());
+                std::string script = parseGameConfig(gameConfig);
+                ScriptingCore::getInstance()->runScript(script);
 			} else if(clickedButton->getName() == KUNG_FU_ALPHA) {
                 Director::getInstance()->replaceScene(Trace::createScene(0));   
             } else if(clickedButton->getName() == ALPHAMON_FEED) {
@@ -242,6 +285,13 @@ void ScrollableGameMapScene::gameSelected(Ref* pSender, ui::Widget::TouchEventTy
 			} else if (clickedButton->getName() == TALK) {
 				Director::getInstance()->replaceScene(Talk::createScene());
 			}
+            
+//            std::string gameConfig;
+//            localStorageGetItem(clickedButton->getName(), &gameConfig);
+//            CCLOG("gameConfig %s", gameConfig.c_str());
+//            std::string script = parseGameConfig(gameConfig);
+//            ScriptingCore::getInstance()->runScript(script);
+            
             break;
         }
 
@@ -250,5 +300,32 @@ void ScrollableGameMapScene::gameSelected(Ref* pSender, ui::Widget::TouchEventTy
         default:
             break;
     }
+    
+}
+
+
+std::string ScrollableGameMapScene::parseGameConfig(std::string gameConfigStr) {
+    rapidjson::Document gameConfig;
+    std::string scriptName = "";
+    if (false == gameConfig.Parse<0>(gameConfigStr.c_str()).HasParseError()) {
+        // document is ok
+        printf("name = %s\n", gameConfig["name"].GetString());
+        printf("cIcon = %s\n", gameConfig["cIcon"].GetString());
+        printf("multiPlayer = %d\n", gameConfig["multiPlayer"].GetBool());
+        printf("isJSGame = %d\n", gameConfig["isJSGame"].GetBool());
+        printf("script = %s\n", gameConfig["script"].GetString());
+        localStorageSetItem("currentLaunchGameName", gameConfig["name"].GetString());
+        scriptName = gameConfig["script"].GetString();
+        
+    }else{
+        // error
+    }
+    
+    return scriptName;
+
+}
+
+
+void ScrollableGameMapScene::nagivateToGame(std::string gameName) {
     
 }

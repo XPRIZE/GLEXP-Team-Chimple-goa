@@ -223,7 +223,6 @@ void SafariAnalyticsManager::addPhoto(const char* url) {
     }
 }
 
-
 std::string SafariAnalyticsManager::getLatestUserPhoto() {
     std::string photoUrl = "";
     sqlite3_stmt *res;
@@ -240,6 +239,7 @@ std::string SafariAnalyticsManager::getLatestUserPhoto() {
     
     return photoUrl;
 }
+
 
 bool SafariAnalyticsManager::openConnection(std::string pathToSQLConnection) {
     bool isConnectionOpenSuccessfully = false;
@@ -261,3 +261,4 @@ bool SafariAnalyticsManager::closeConnection() {
     sqlite3_close(this->dataBaseConnection);
     return true;
 }
+

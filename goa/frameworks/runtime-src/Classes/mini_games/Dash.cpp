@@ -11,6 +11,8 @@
 #include "Dash.h"
 #include "../lang/LangUtil.h"
 #include "../lang/TextGenerator.h"
+#include "storage/local-storage/LocalStorage.h"
+#include "scripting/js-bindings/manual/ScriptingCore.h"
 
 USING_NS_CC;
 using namespace rapidjson;
@@ -202,13 +204,14 @@ bool Dash::init()
     this->getEventDispatcher()->addCustomEventListener("on_menu_exit", CC_CALLBACK_1(Dash::transitToMenu, this));
     
     
-    Director::getInstance()->getEventDispatcher()->addCustomEventListener("peer_information_received_event", CC_CALLBACK_1(Dash::peerInformationReceived, this));
+    //Director::getInstance()->getEventDispatcher()->addCustomEventListener("peer_information_received_event", CC_CALLBACK_1(Dash::peerInformationReceived, this));
     
     Director::getInstance()->getEventDispatcher()->addCustomEventListener("enemy_information_received_event", CC_CALLBACK_1(Dash::syncEnemyCharacterPosition, this));
 
     
     #if (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
         createMultiPlayerInviteButton();
+    
     #endif
     
 	return true;
@@ -247,8 +250,8 @@ void Dash::syncEnemyCharacterPosition(cocos2d::EventCustom *event) {
     
     if (false == d.Parse<0>(inputStr.c_str()).HasParseError()) {
         // document is ok
-        printf("hello = %s\n", d["character"].GetString());
-        printf("hello = %d\n", d["position"].GetInt());
+        printf("Dash = %s\n", d["character"].GetString());
+        printf("Dash = %d\n", d["position"].GetInt());
         
         std::string character = d["character"].GetString();
         int charPosition = d["position"].GetInt();
@@ -443,6 +446,11 @@ bool Dash::onTouchBegan(cocos2d::Touch * touch, cocos2d::Event * event)
 {
 	auto target = event->getCurrentTarget();
 	auto  location = target->convertToNodeSpace(touch->getLocation());
+
+    //std::string inputStr = "chimple_0_0_0,chimple_1_2_1";
+    //Director::getInstance()->getEventDispatcher()->dispatchCustomEvent("peer_information_received_event", static_cast<void*>(&inputStr));
+    
+
 	if (target->getBoundingBox().containsPoint(touch->getLocation())) {
 		if (target->getName().compare(_synonyms.at(_gameWord)) == 0) {
 			this->removeChild(_topLabel);
@@ -481,7 +489,7 @@ bool Dash::onTouchBegan(cocos2d::Touch * touch, cocos2d::Event * event)
 
 void Dash::transitToMenu(cocos2d::EventCustom * event) {
     //call to Android to close Server/Client Sockets
-    Director::getInstance()->getEventDispatcher()->removeCustomEventListeners("peer_information_received_event");
+    //Director::getInstance()->getEventDispatcher()->removeCustomEventListeners("peer_information_received_event");
     Director::getInstance()->getEventDispatcher()->removeCustomEventListeners("enemy_information_received_event");
     
     CCLOG("111111111 transit");
@@ -545,36 +553,20 @@ void Dash::invokeMultiPlayerDiscovery(Ref* pSender, ui::Widget::TouchEventType e
 }
 
 void Dash::peerInformationReceived(cocos2d::EventCustom *event) {
+    std::string &inputStr = *(static_cast<std::string*>(event->getUserData()));
+    CCLOG("inputStr peer information %s", inputStr.c_str());
     
-    std::map<std::string,std::string> peerInfoMap = *static_cast<std::map<std::string,std::string> *> (event->getUserData());
+    std::string prefix = "chimple_";
+    std::string::size_type i = inputStr.find(prefix);
     
-    std::string deviceName = "";
-    std::string deviceAddress = "";
-    
-    std::map<std::string, std::string>::iterator it;
-    
-    for(it = peerInfoMap.begin(); it != peerInfoMap.end(); it++) {
-        std::string key  = it->first;
-        std::string value = it->second;
-        
-        CCLOG("key=%s, value=%s", key.c_str(), value.c_str());
-        
-        if(key == "deviceName") {
-            deviceName = value;
-        } else if(key == "deviceAddress") {
-            deviceAddress = value;
-        }
+    if (i != std::string::npos) {
+        inputStr.erase(i, prefix.length());
     }
     
     
-    CCLOG("deviceName %s", deviceName.c_str());
-    CCLOG("deviceAddress %s", deviceAddress.c_str());
-    _multiPlayerInviteButton->setVisible(false);
-    if(!deviceName.empty() && !deviceAddress.empty()) {
-        CCLOG("Calling Multi Player Connection");
-        createMultiPlayerConnectButton(deviceName, deviceAddress);
-    }
-    
+    CCLOG("inputStr 4333 %s", inputStr.c_str());
+    localStorageSetItem("discoveredBluetoothDevices", inputStr);
+    ScriptingCore::getInstance()->runScript("src/start/showBluetoothPeers.js");    
 }
 
 

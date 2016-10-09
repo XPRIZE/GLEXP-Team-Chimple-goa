@@ -51,11 +51,13 @@ class StartMenu {
 public:
     static void startScene(std::string gameName, std::string firstParam = "", std::string secondParam = "", std::string thirdParam = "");
     static const std::vector<std::string> getGameNames();
+    static const std::vector<std::string> multiPlayerGameNames();
     
     
 CC_CONSTRUCTOR_ACCESS:
     StartMenu();
-    virtual ~StartMenu();    
+    virtual ~StartMenu();
+    std::string parseGameConfig(std::string gameConfigStr);
 };
 
 #endif /* StartMenuScene_h */

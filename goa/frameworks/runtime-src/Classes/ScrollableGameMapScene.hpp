@@ -22,20 +22,28 @@
 
 class MenuContext;
 
+typedef std::map<std::string, cocos2d::Scene*> map_type;
+
 class ScrollableGameMapScene : public cocos2d::ui::ScrollView {
 public:
     static cocos2d::Scene* createScene();
     CREATE_FUNC(ScrollableGameMapScene);
     
+    void nagivateToGame(std::string gameName);
+    
 CC_CONSTRUCTOR_ACCESS:
     virtual bool init();
     ScrollableGameMapScene();
     virtual ~ScrollableGameMapScene();
-    
+    template<typename T> cocos2d::Scene* createGameInstance();
+
 protected:
     cocos2d::Layer* _layer;
     MenuContext* menuContext;
+    map_type mymap;
     void gameSelected(cocos2d::Ref* pSender, cocos2d::ui::Widget::TouchEventType eEventType);
+    std::vector<std::string> split(std::string s, char delim);
+    std::string parseGameConfig(std::string gameConfig);
 };
 
 #endif /* ScrollableGameMapScene_hpp */
