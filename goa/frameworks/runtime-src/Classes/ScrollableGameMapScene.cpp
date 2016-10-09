@@ -49,6 +49,8 @@
 #include "mini_games/BalloonHero.h"
 #include "mini_games/Drop.h"
 #include "mini_games/Owl.h"
+#include "mini_games/Order.h"
+
 #include "storage/local-storage/LocalStorage.h"
 #include "external/json/document.h"
 #include "external/json/stringbuffer.h"
@@ -59,10 +61,6 @@ USING_NS_CC;
 
 ScrollableGameMapScene::ScrollableGameMapScene()
 {
-    //map.insert(std::pair)
-    //cocos2d::Scene* dashScene = this->createGameInstance<Dash>();
-    //dashScene->retain();
-    //mymap.insert(std::pair<std::string, cocos2d::Scene*>("CAT", dashScene));
 }
 
 ScrollableGameMapScene::~ScrollableGameMapScene() {
@@ -185,11 +183,6 @@ bool ScrollableGameMapScene::init() {
     return true;
 }
 
-template<typename T>
-cocos2d::Scene* ScrollableGameMapScene::createGameInstance() {
-    return T::createScene();
-}
-
 void ScrollableGameMapScene::gameSelected(Ref* pSender, ui::Widget::TouchEventType eEventType)
 {
     cocos2d::ui::Button* clickedButton = dynamic_cast<cocos2d::ui::Button *>(pSender);
@@ -208,17 +201,17 @@ void ScrollableGameMapScene::gameSelected(Ref* pSender, ui::Widget::TouchEventTy
                 //ScriptingCore::getInstance()->runScript("src/start/characterConfigure.js");
 //                ScriptingCore::getInstance()->runScript("src/NonJSGameLauncher.js");
 			} else if (clickedButton->getName() == ALPHAMOLE) {
-				Director::getInstance()->replaceScene(Decomon::createScene());
-				//Director::getInstance()->replaceScene(AlphamoleLevel::createScene());
+			//	Director::getInstance()->replaceScene(Decomon::createScene());
+				Director::getInstance()->replaceScene(AlphamoleLevel::createScene());
 			} else if(clickedButton->getName() == PATCH_THE_WALL) {
 //                Director::getInstance()->replaceScene(PatchTheWall::createScene());
                 ScriptingCore::getInstance()->runScript("src/start/decomon.js");
             } else  if (clickedButton->getName() == CAT) {
-                Director::getInstance()->replaceScene(this->createGameInstance<Dash>());
                 //Director::getInstance()->replaceScene(mymap.at("CAT"));
                 //localStorageSetItem("cplusMultiPlayerGame", CAT);
                 //localStorageRemoveItem("jsMultiPlayerGame");
                 //ScriptingCore::getInstance()->runScript("src/start/choosePlayMode.js");
+				Director::getInstance()->replaceScene(Order::createScene());
 				//Director::getInstance()->replaceScene(Dash::createScene());
 				//Director::getInstance()->replaceScene(CatGame::createScene());
 				//ScriptingCore::getInstance()->runScript("src/start/alphamole.js");

@@ -35,7 +35,6 @@ CC_CONSTRUCTOR_ACCESS:
     virtual bool init();
     ScrollableGameMapScene();
     virtual ~ScrollableGameMapScene();
-    template<typename T> cocos2d::Scene* createGameInstance();
 
 protected:
     cocos2d::Layer* _layer;
