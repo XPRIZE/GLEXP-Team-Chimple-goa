@@ -538,6 +538,34 @@ bool MenuContext::isGamePaused() {
     return _gameIsPaused;
 }
 
+void MenuContext::sendMessageToPeer(std::string message) {
+    #if (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
+        cocos2d::JniMethodInfo methodInfo;
+        if (! cocos2d::JniHelper::getStaticMethodInfo(methodInfo, "org/cocos2dx/javascript/AppActivity", "sendMessage", "(Ljava/lang/String;)V")) {
+        }
+        jstring jMessage = methodInfo.env->NewStringUTF(message.c_str());
+        methodInfo.env->CallStaticVoidMethod(methodInfo.classID, methodInfo.methodID, jMessage);
+        methodInfo.env->DeleteLocalRef(jMessage);
+        methodInfo.env->DeleteLocalRef(methodInfo.classID);
+    #endif
+}
+
+void MenuContext::exitMultiPlayerGame() {
+    //call to Android to close Server/Client Sockets
+    Director::getInstance()->getEventDispatcher()->removeCustomEventListeners("enemy_information_received_event");
+    
+    #if (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
+        cocos2d::JniMethodInfo methodInfo;
+        if (! cocos2d::JniHelper::getStaticMethodInfo(methodInfo, "org/cocos2dx/javascript/AppActivity", "disconnectSockets", "()V")) {
+            return;
+        }
+        methodInfo.env->CallStaticVoidMethod(methodInfo.classID, methodInfo.methodID);
+        methodInfo.env->DeleteLocalRef(methodInfo.classID);
+    #endif
+    Director::getInstance()->replaceScene(ScrollableGameMapScene::createScene());
+}
+
+
 
 MenuContext::MenuContext() :
 _points(0),

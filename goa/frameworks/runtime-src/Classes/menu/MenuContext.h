@@ -40,7 +40,9 @@ public:
     void showStartupHelp(std::function<void()> callback = nullptr);
     void showScore();
     bool isGamePaused();
-
+    void exitMultiPlayerGame();
+    void sendMessageToPeer(std::string message);
+    
 CC_CONSTRUCTOR_ACCESS:
     MenuContext();
     virtual ~MenuContext();
