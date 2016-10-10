@@ -9,10 +9,10 @@ xc.GameMap = cc.Scene.extend({
         this.addChild(map);
     },
     loadGame: function(sender) {
-        if(!sender._configuration.multiPlayer && sender._configuration.isJSGame) {
+        if(!sender._configuration.multiPlayer && sender._configuration.isJSGame && sender._configuration.pureJS) {
             var gameFunc = xc[sender._configuration.pureJS];
             xc.GameScene.load(gameFunc);
-        } else if(sender._configuration.multiPlayer && sender._configuration.isJSGame) {
+        } else if(sender._configuration.multiPlayer && sender._configuration.isJSGame && sender._configuration.pureJS) {
             var gameFunc = xc[sender._configuration.pureJS];
             xc.GameScene.loadMultiPlayerGame(gameFunc,sender._configuration.name);            
         }
@@ -41,6 +41,10 @@ xc.GameMap = cc.Scene.extend({
         }
         else if(sender._configuration.name == 'choose_character'){
              xc.CharacterConfigScene.load(xc.CharacterConfigLayer);
+        } 
+        else if(sender._configuration.name == 'show_bluetoothPeers') {
+            cc.sys.localStorage.setItem("discoveredBluetoothDevices", "0_0_1-AA:BB:CC:XX,1_0_1-AA:BB:CC:FF,0_1_1-AA:BB:AD:FF")
+            xc.RenderBluetoothPeersScene.load(xc.RenderBluetoothPeersLayer);
         }
     }
 });

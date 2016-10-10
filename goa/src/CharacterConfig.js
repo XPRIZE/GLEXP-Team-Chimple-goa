@@ -85,7 +85,10 @@ xc.CharacterConfigLayer = cc.LayerColor.extend({
                 //cc.sys.localStorage.setItem("cachedCharacterConfig", JSON.stringify(this._selectedConfigurationForCharacter));
                 cc.sys.localStorage.setItem("cachedCharacterConfig", this._selectedConfigurationForCharacter.map(function(a) { return a.selectedItemIndex }).join("_"));
                 cc.sys.localStorage.setItem("cachedBluetoothName", "chimple_" + this._selectedConfigurationForCharacter.map(function(a) { return a.selectedItemIndex }).join("_"));
-                this.parent._menuContext.transitToScrollableGameMap();
+                if(this.parent._menuContext) {
+                    this.parent._menuContext.transitToScrollableGameMap();
+                }
+                
         }
     },
 

@@ -1,10 +1,13 @@
+/// <reference path="../cocos2d-typescript-definitions-master/cocos2d/cocos2d-lib.d.ts" />
+
 var xc = xc || {};
 
 xc.ButtonPanel = ccui.Layout.extend({
-    ctor: function (position, size, numButtonsPerRow, numButtonsPerColumn, configuration, buttonHandler, start, numButtons, loadLocalTexture) {
+    ctor: function (position, size, numButtonsPerRow, numButtonsPerColumn, configuration, buttonHandler, start, numButtons, loadLocalTexture, customButtonChildHandler) {
         this._super();
         this._configuration = configuration;
         this._buttonHandler = buttonHandler;
+        this._customButtonChildHandler = customButtonChildHandler;
         this._loadLocalTexture = loadLocalTexture;
         // this.setBackGroundColorType(ccui.Layout.BG_COLOR_SOLID);
         // this.setBackGroundColor(cc.color.GREEN);
@@ -17,22 +20,36 @@ xc.ButtonPanel = ccui.Layout.extend({
                 for (var colIndex = 0; colIndex < numButtonsPerRow; colIndex++) {
                     if (index < configuration.length - pageIndex * (numButtonsPerRow * numButtonsPerColumn)) {
                         var item;
-                        try {
-                            if(this._loadLocalTexture) {
-                                item = new ccui.Button(configuration[index]['icon'], configuration[index]['icon'], configuration[index]['icon'], ccui.Widget.LOCAL_TEXTURE);
-                                item.setScale(0.2);                                
-                            } else {
-                                item = new ccui.Button(configuration[index]['icon'], configuration[index]['icon'], configuration[index]['icon'], ccui.Widget.PLIST_TEXTURE);
-                                //item.setScale(3.0);
+                        if(configuration[index]. hasOwnProperty('icon') == true) {
+                            try {
+                                if(this._loadLocalTexture) {
+                                    item = new ccui.Button(configuration[index]['icon'], configuration[index]['icon'], configuration[index]['icon'], ccui.Widget.LOCAL_TEXTURE);
+                                    item.setScale(0.2);                                
+                                } else {
+                                    item = new ccui.Button(configuration[index]['icon'], configuration[index]['icon'], configuration[index]['icon'], ccui.Widget.PLIST_TEXTURE);
+                                    //item.setScale(3.0);
+                                }
+                                
+                            } catch (error) {
+                                cc.log(error);
+                                item = new ccui.Button('icons/my_pet.png', 'icons/my_pet_onclick.png', 'icons/my_pet_onclick.png', ccui.Widget.PLIST_TEXTURE);
                             }
-                            
-                        } catch (error) {
-                            cc.log(error);
-                            item = new ccui.Button('icons/my_pet.png', 'icons/my_pet_onclick.png', 'icons/my_pet_onclick.png', ccui.Widget.PLIST_TEXTURE);
+                        } else {
+                                item = new ccui.Button('icons/my_pet.png', 'icons/my_pet_onclick.png', 'icons/my_pet_onclick.png', ccui.Widget.PLIST_TEXTURE);                                
+                                //var sprite = new cc.Sprite("#animal/zebra.png"); // create sprite                                
+                                //sprite.setPosition(item.getPosition());
+                                
+                                if(this._customButtonChildHandler) {
+                                    var buttonChild = this._customButtonChildHandler.createCustomChild(item, this._buttonHandler._callBackContext, index, item.getPosition());
+                                    item.addChild(buttonChild);
+                                }
+
+                                //var sprite = this._buttonHandler._callBackContext.createSkeletonNode(this._buttonHandler._callBackContext, index, item.getPosition());
+                                //sprite.setAnchorPoint(0.5);
+                                //item.addChild(sprite);
                         }
 
                         if (configuration[index] && configuration[index]['uniqueCharacterID']) {
-
                             var cacheName = 'res/' + configuration[index]['uniqueCharacterID'] + '.png';
                             item = new ccui.Button(cacheName, cacheName, cacheName, ccui.Widget.LOCAL_TEXTURE);
                             item.setFlippedY(true);

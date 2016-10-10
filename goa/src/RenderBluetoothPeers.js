@@ -6,7 +6,9 @@ xc.RenderBluetoothPeersLayer = cc.LayerColor.extend({
     _contentPanelWidth: null,
     _contentPanelHeight: null,
     _characterNode: null,    
-    _selectedConfigurationForCharacter:[],    
+    _panel:null,
+    _selectedConfigurationForCharacter:[],
+    _discoveredConfiguration:[],
     ctor: function () {        
         this._super(xc.TERTIARY_COLOR);
         this._name = "RenderBluetoothPeersLayer";
@@ -17,10 +19,9 @@ xc.RenderBluetoothPeersLayer = cc.LayerColor.extend({
         return true;
     },
 
-    init: function () {
-        var discoveredConfiguration = [];
+    init: function () {         
         if(cc.sys.localStorage.getItem("discoveredBluetoothDevices")) {
-            discoveredConfiguration = cc.sys.localStorage.getItem("discoveredBluetoothDevices").split(',');
+            this._discoveredConfiguration = cc.sys.localStorage.getItem("discoveredBluetoothDevices").split(',');
         }
         var offset = 400;
         var index = 0;
@@ -35,7 +36,7 @@ xc.RenderBluetoothPeersLayer = cc.LayerColor.extend({
                 
                 if(jsGameName != undefined && xc.multiPlayerGameMap[jsGameName]) {
                     xc.GameScene.load(xc.multiPlayerGameMap[jsGameName]);
-                } else if(cplusGameName != undefined) {
+                } else if(cplusGameName != undefined && that.getParent()._menuContext != undefined) {
                     that.getParent()._menuContext.launchGame(cplusGameName);
                 }
             } else {
@@ -47,44 +48,81 @@ xc.RenderBluetoothPeersLayer = cc.LayerColor.extend({
             }   
         });          
 
-        var listener = cc.EventListener.create({
-                event: cc.EventListener.TOUCH_ONE_BY_ONE,
-                swallowTouches: true,
-                onTouchBegan: function (touch, event) {
-                    var target = event.getCurrentTarget()
-                    var locationInNode = target.parent.convertTouchToNodeSpace(touch)
-                    var targetSize = target.getBoundingBoxToWorld();
-                    if (cc.rectContainsPoint(targetSize, locationInNode)) {
-                        cc.log("Touched")         
-                        cc.log('bluetoothAddress:' + target.bluetoothAddress) ;
-                        if(target.bluetoothAddress) {
-                            jsb.reflection.callStaticMethod("org/cocos2dx/javascript/AppActivity", "connectToAddress", "(Ljava/lang/String;)V", target.bluetoothAddress);
-                        }                        
-                        return true;
-                    }
-                }
-        });        
+        // var listener = cc.EventListener.create({
+        //         event: cc.EventListener.TOUCH_ONE_BY_ONE,
+        //         swallowTouches: true,
+        //         onTouchBegan: function (touch, event) {
+        //             var target = event.getCurrentTarget()
+        //             var locationInNode = target.parent.convertTouchToNodeSpace(touch)
+        //             var targetSize = target.getBoundingBoxToWorld();
+        //             if (cc.rectContainsPoint(targetSize, locationInNode)) {
+        //                 cc.log("Touched")         
+        //                 cc.log('bluetoothAddress:' + target.bluetoothAddress) ;
+        //                 if(target.bluetoothAddress && cc.sys.isNative) {
+        //                     jsb.reflection.callStaticMethod("org/cocos2dx/javascript/AppActivity", "connectToAddress", "(Ljava/lang/String;)V", target.bluetoothAddress);
+        //                 }                        
+        //                 return true;
+        //             }
+        //         }
+        // });        
         
-        discoveredConfiguration.forEach(function(configuration) {
+        // this._discoveredConfiguration.forEach(function(configuration) {
+        //     //create node
+        //     var load = ccs.load(xc.CharacterConfigLayer.res.character_skeleton_json, xc.path);
+        //     load.node.setPosition(that._contentPanelWidth / 4 + (offset * index), that._contentPanelHeight / 2);
+        //     that.addChild(load.node);
+        //     cc.eventManager.addListener(listener.clone(), load.node);            
+        //     var configs = configuration.split('-');
+        //     var charConfig;
+        //     var addressConfig;
+        //     if(configs != undefined && configs.length == 2) {
+        //         charConfig = configs[0];
+        //         addressConfig = configs[1];
+        //         load.node.bluetoothAddress = addressConfig;
+        //         var selectedConfigurationForCharacter = that.convertCachedBluetoothNameToArray(charConfig);
+        //         selectedConfigurationForCharacter.forEach(function(element) {
+        //             that.displaySkin(load.node, element.bone, element.itemUrl, element.selectedItemIndex);                
+        //         });                        
+        //     }
+        //     index++;            
+        // });     
+
+        this._panel = new xc.ScrollableButtonPanel(cc.p(0, this._tabHeight), cc.size(cc.director.getWinSize().width, cc.director.getWinSize().height - 2* this._tabHeight), 1, 1, this._discoveredConfiguration, this.skinSelected, this, false, false, this);
+        this.addChild(this._panel);                                
+    },
+
+    createCustomChild: function (item, context, index, position) {
+        if(context._discoveredConfiguration && context._discoveredConfiguration.length > index) {
+            //get configuration
+            var configuration = context._discoveredConfiguration[index];
+
             //create node
             var load = ccs.load(xc.CharacterConfigLayer.res.character_skeleton_json, xc.path);
-            load.node.setPosition(that._contentPanelWidth / 4 + (offset * index), that._contentPanelHeight / 2);
-            that.addChild(load.node);
-            cc.eventManager.addListener(listener.clone(), load.node);            
+            load.node.setPosition(position);
+
             var configs = configuration.split('-');
+            
             var charConfig;
             var addressConfig;
+
             if(configs != undefined && configs.length == 2) {
                 charConfig = configs[0];
                 addressConfig = configs[1];
-                load.node.bluetoothAddress = addressConfig;
-                var selectedConfigurationForCharacter = that.convertCachedBluetoothNameToArray(charConfig);
+                item.bluetoothAddress = addressConfig;
+                var selectedConfigurationForCharacter = context.convertCachedBluetoothNameToArray(charConfig);
                 selectedConfigurationForCharacter.forEach(function(element) {
-                    that.displaySkin(load.node, element.bone, element.itemUrl, element.selectedItemIndex);                
+                    context.displaySkin(load.node, element.bone, element.itemUrl, element.selectedItemIndex);                
                 });                        
             }
-            index++;            
-        });                 
+            return load.node;            
+        }
+    },
+
+    skinSelected: function (selectedItem) {
+        cc.log('item:' + selectedItem.bluetoothAddress);
+        if(selectedItem.bluetoothAddress && cc.sys.isNative) {
+            jsb.reflection.callStaticMethod("org/cocos2dx/javascript/AppActivity", "connectToAddress", "(Ljava/lang/String;)V", selectedItem.bluetoothAddress);
+        }        
     },
 
     convertCachedBluetoothNameToArray: function(configuration) {

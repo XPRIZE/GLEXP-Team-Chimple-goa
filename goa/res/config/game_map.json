@@ -71,5 +71,21 @@
         "name": "pinata",
         "cIcon": "gamemap/EndlessRunner_pressed.png",
         "icon": "gamemap/EndlessRunner.png"  
-    }
+    },
+    {
+        "name": "choose_character",
+        "cIcon": "gamemap/chain_pressed.png",
+        "icon": "gamemap/chain.png",
+    	"multiPlayer":false,
+        "isJSGame":true,
+        "script":"src/start/characterConfigure.js"
+    },
+    {
+        "name": "show_bluetoothPeers",
+        "cIcon": "gamemap/chain_pressed.png",
+        "icon": "gamemap/chain.png",
+    	"multiPlayer":false,
+        "isJSGame":true,
+        "script":"src/start/showBluetoothPeers.js"
+    }    
 ]
