@@ -5,7 +5,7 @@ xc.ScrollableButtonPanel = cc.LayerColor.extend({
     _page: null,
     _numButtonsPerRow: null,
     _numButtonsPerColumn: null,
-    ctor: function (position, size, numButtonsPerRow, numButtonsPerColumn, configuration, callBackFunction, callBackContext, noPagination, loadLocalTexture) {
+    ctor: function (position, size, numButtonsPerRow, numButtonsPerColumn, configuration, callBackFunction, callBackContext, noPagination, loadLocalTexture, customButtonChildContext) {
         this._super(xc.SECONDARY_COLOR, size.width, size.height);
         this.setPosition(position);
         this.setContentSize(size);
@@ -18,7 +18,7 @@ xc.ScrollableButtonPanel = cc.LayerColor.extend({
         this._page.setPosition(size.width * 5 / 100, 0);
         this._page.setContentSize(size.width * 90 / 100, size.height);
         for (var pageIndex = 0; pageIndex < configuration.length / (numButtonsPerRow * numButtonsPerColumn); pageIndex++) {
-            this._page.addPage(new xc.ButtonPanel(cc.p(0, 0), cc.size(size.width * 90 / 100, size.height), numButtonsPerRow, numButtonsPerColumn, configuration, this._buttonHandler, pageIndex * (numButtonsPerRow * numButtonsPerColumn), (numButtonsPerRow * numButtonsPerColumn), loadLocalTexture))
+            this._page.addPage(new xc.ButtonPanel(cc.p(0, 0), cc.size(size.width * 90 / 100, size.height), numButtonsPerRow, numButtonsPerColumn, configuration, this._buttonHandler, pageIndex * (numButtonsPerRow * numButtonsPerColumn), (numButtonsPerRow * numButtonsPerColumn), loadLocalTexture, customButtonChildContext));
         }
         this._page.setClippingEnabled(true);
         this.addChild(this._page);
@@ -27,10 +27,13 @@ xc.ScrollableButtonPanel = cc.LayerColor.extend({
             this._page.addEventListener(this.updateLeftRightButtons, this)
             this._backButton = new ccui.Button("icons/left.png", "icons/left_onclick.png", "icons/left_onclick.png", ccui.Widget.PLIST_TEXTURE);
             this._backButton.setPosition(size.width * 5 / 100, size.height / 2);
+            //this._backButton.setScale(3.0);
             this._backButton.addTouchEventListener(this.moveLeft, this);
             this.addChild(this._backButton);
+            
             this._nextButton = new ccui.Button("icons/right.png", "icons/right_onclick.png", "icons/right_onclick.png", ccui.Widget.PLIST_TEXTURE);
             this._nextButton.setPosition(size.width * 95 / 100, size.height / 2);
+            //this._nextButton.setScale(3.0);
             this._nextButton.addTouchEventListener(this.moveRight, this);
             this.addChild(this._nextButton);
 

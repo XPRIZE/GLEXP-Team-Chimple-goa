@@ -11,6 +11,8 @@
 #include "Dash.h"
 #include "../lang/LangUtil.h"
 #include "../lang/TextGenerator.h"
+#include "storage/local-storage/LocalStorage.h"
+#include "scripting/js-bindings/manual/ScriptingCore.h"
 
 USING_NS_CC;
 using namespace rapidjson;
@@ -201,14 +203,12 @@ bool Dash::init()
     
     this->getEventDispatcher()->addCustomEventListener("on_menu_exit", CC_CALLBACK_1(Dash::transitToMenu, this));
     
-    
-    Director::getInstance()->getEventDispatcher()->addCustomEventListener("peer_information_received_event", CC_CALLBACK_1(Dash::peerInformationReceived, this));
-    
     Director::getInstance()->getEventDispatcher()->addCustomEventListener("enemy_information_received_event", CC_CALLBACK_1(Dash::syncEnemyCharacterPosition, this));
 
     
     #if (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
         createMultiPlayerInviteButton();
+    
     #endif
     
 	return true;
@@ -247,8 +247,8 @@ void Dash::syncEnemyCharacterPosition(cocos2d::EventCustom *event) {
     
     if (false == d.Parse<0>(inputStr.c_str()).HasParseError()) {
         // document is ok
-        printf("hello = %s\n", d["character"].GetString());
-        printf("hello = %d\n", d["position"].GetInt());
+        printf("Dash = %s\n", d["character"].GetString());
+        printf("Dash = %d\n", d["position"].GetInt());
         
         std::string character = d["character"].GetString();
         int charPosition = d["position"].GetInt();
@@ -443,6 +443,11 @@ bool Dash::onTouchBegan(cocos2d::Touch * touch, cocos2d::Event * event)
 {
 	auto target = event->getCurrentTarget();
 	auto  location = target->convertToNodeSpace(touch->getLocation());
+
+    //std::string inputStr = "chimple_0_0_0,chimple_1_2_1";
+    //Director::getInstance()->getEventDispatcher()->dispatchCustomEvent("peer_information_received_event", static_cast<void*>(&inputStr));
+    
+
 	if (target->getBoundingBox().containsPoint(touch->getLocation())) {
 		if (target->getName().compare(_synonyms.at(_gameWord)) == 0) {
 			this->removeChild(_topLabel);
@@ -455,17 +460,7 @@ bool Dash::onTouchBegan(cocos2d::Touch * touch, cocos2d::Event * event)
 			updatePlayerPosition("mycharacter",_gameScore);
             std::string message = constructSendMessage("enemy",_gameScore);
             CCLOG("message %s", message.c_str());
-            
-            #if (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
-                cocos2d::JniMethodInfo methodInfo;
-                if (! cocos2d::JniHelper::getStaticMethodInfo(methodInfo, "org/cocos2dx/javascript/AppActivity", "sendMessage", "(Ljava/lang/String;)V")) {
-                }
-                jstring jMessage = methodInfo.env->NewStringUTF(message.c_str());
-                methodInfo.env->CallStaticVoidMethod(methodInfo.classID, methodInfo.methodID, jMessage);
-                methodInfo.env->DeleteLocalRef(jMessage);
-                methodInfo.env->DeleteLocalRef(methodInfo.classID);
-            #endif
-
+            menu->sendMessageToPeer(message);
 		}
 		else {
 			_rightWords.push_back(_gameWord + "N");
@@ -480,152 +475,5 @@ bool Dash::onTouchBegan(cocos2d::Touch * touch, cocos2d::Event * event)
 }
 
 void Dash::transitToMenu(cocos2d::EventCustom * event) {
-    //call to Android to close Server/Client Sockets
-    Director::getInstance()->getEventDispatcher()->removeCustomEventListeners("peer_information_received_event");
-    Director::getInstance()->getEventDispatcher()->removeCustomEventListeners("enemy_information_received_event");
-    
-    CCLOG("111111111 transit");
-    #if (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
-        cocos2d::JniMethodInfo methodInfo;
-        if (! cocos2d::JniHelper::getStaticMethodInfo(methodInfo, "org/cocos2dx/javascript/AppActivity", "disconnectSockets", "()V")) {
-            return;
-        }
-        CCLOG("2222222222 transit");
-        methodInfo.env->CallStaticVoidMethod(methodInfo.classID, methodInfo.methodID);
-        methodInfo.env->DeleteLocalRef(methodInfo.classID);
-    #endif
-    
-    CCLOG("33333333333 transit");
-    Director::getInstance()->replaceScene(ScrollableGameMapScene::createScene());
-}
-
-
-void Dash::createMultiPlayerInviteButton() {
-    std::string buttonNormalIcon = "menu/paper_pencil.png";
-    std::string buttonDisabledIcon = "menu/dis_paper_pencil.png";
-    Size visibleSize = Director::getInstance()->getVisibleSize();
-    Vec2 origin = Director::getInstance()->getVisibleOrigin();
-    _multiPlayerInviteButton = ui::Button::create(buttonNormalIcon, buttonNormalIcon, buttonDisabledIcon);
-    _multiPlayerInviteButton->setPosition(Vec2(visibleSize.width/2, visibleSize.height/2));
-    _multiPlayerInviteButton->setVisible(true);
-    _multiPlayerInviteButton->addTouchEventListener(CC_CALLBACK_2(Dash::invokeMultiPlayerDiscovery, this));
-    addChild(_multiPlayerInviteButton, 2);
-}
-
-
-void Dash::invokeMultiPlayerDiscovery(Ref* pSender, ui::Widget::TouchEventType eEventType) {
-    
-    cocos2d::ui::Button* clickedButton = dynamic_cast<cocos2d::ui::Button *>(pSender);
-    switch (eEventType) {
-        case ui::Widget::TouchEventType::BEGAN:
-            break;
-        case ui::Widget::TouchEventType::MOVED:
-            break;
-        case ui::Widget::TouchEventType::ENDED:
-        {
-            clickedButton->setEnabled(false);
-            clickedButton->setVisible(false);
-#if (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
-            cocos2d::JniMethodInfo methodInfo;
-            if (! cocos2d::JniHelper::getStaticMethodInfo(methodInfo, "org/cocos2dx/javascript/AppActivity", "enableMultiPlayerMode", "()V")) {
-                return;
-            }
-            methodInfo.env->CallStaticVoidMethod(methodInfo.classID, methodInfo.methodID);
-            methodInfo.env->DeleteLocalRef(methodInfo.classID);
-#endif
-            
-            break;
-        }
-            
-        case ui::Widget::TouchEventType::CANCELED:
-            break;
-        default:
-            break;
-    }
-}
-
-void Dash::peerInformationReceived(cocos2d::EventCustom *event) {
-    
-    std::map<std::string,std::string> peerInfoMap = *static_cast<std::map<std::string,std::string> *> (event->getUserData());
-    
-    std::string deviceName = "";
-    std::string deviceAddress = "";
-    
-    std::map<std::string, std::string>::iterator it;
-    
-    for(it = peerInfoMap.begin(); it != peerInfoMap.end(); it++) {
-        std::string key  = it->first;
-        std::string value = it->second;
-        
-        CCLOG("key=%s, value=%s", key.c_str(), value.c_str());
-        
-        if(key == "deviceName") {
-            deviceName = value;
-        } else if(key == "deviceAddress") {
-            deviceAddress = value;
-        }
-    }
-    
-    
-    CCLOG("deviceName %s", deviceName.c_str());
-    CCLOG("deviceAddress %s", deviceAddress.c_str());
-    _multiPlayerInviteButton->setVisible(false);
-    if(!deviceName.empty() && !deviceAddress.empty()) {
-        CCLOG("Calling Multi Player Connection");
-        createMultiPlayerConnectButton(deviceName, deviceAddress);
-    }
-    
-}
-
-
-void Dash::createMultiPlayerConnectButton(std::string deviceName, std::string deviceAddress) {
-    _deviceName = deviceName;
-    _deviceAddress = deviceAddress;
-    std::string buttonNormalIcon = "menu/paper_pencil.png";
-    std::string buttonDisabledIcon = "menu/dis_paper_pencil.png";
-    Size visibleSize = Director::getInstance()->getVisibleSize();
-    Vec2 origin = Director::getInstance()->getVisibleOrigin();
-    _multiPlayerConnectButton = ui::Button::create(buttonNormalIcon, buttonNormalIcon, buttonDisabledIcon);
-    _multiPlayerConnectButton->setPosition(Vec2(visibleSize.width/2, visibleSize.height - 200/2));
-//    _multiPlayerConnectButton->addTouchEventListener(CC_CALLBACK_2(Dash::invokeMultiPlayerConnection, this));
-    addChild(_multiPlayerConnectButton, 2);
-    
-}
-
-
-void Dash::invokeMultiPlayerConnection(Ref* pSender, ui::Widget::TouchEventType eEventType) {
-    
-//    cocos2d::ui::Button* clickedButton = dynamic_cast<cocos2d::ui::Button *>(pSender);
-//    switch (eEventType) {
-//        case ui::Widget::TouchEventType::BEGAN:
-//            break;
-//        case ui::Widget::TouchEventType::MOVED:
-//            break;
-//        case ui::Widget::TouchEventType::ENDED:
-//        {
-//            clickedButton->setEnabled(false);
-//            clickedButton->setVisible(false);
-//        #if (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
-//            cocos2d::JniMethodInfo methodInfo;
-//            if (! cocos2d::JniHelper::getStaticMethodInfo(methodInfo, "org/cocos2dx/javascript/AppActivity", "connectToPeer", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V")) {
-//                return;
-//            }
-//            jstring DeviceName = methodInfo.env->NewStringUTF(_deviceName.c_str());
-//            jstring DeviceAddress = methodInfo.env->NewStringUTF(_deviceAddress.c_str());
-//            jstring GameName = methodInfo.env->NewStringUTF("Dash");
-//            
-//            methodInfo.env->CallStaticVoidMethod(methodInfo.classID, methodInfo.methodID, DeviceName, DeviceAddress, GameName);
-//            methodInfo.env->DeleteLocalRef(DeviceName);
-//            methodInfo.env->DeleteLocalRef(DeviceAddress);
-//            methodInfo.env->DeleteLocalRef(methodInfo.classID);
-//        #endif
-//            
-//            break;
-//        }
-//            
-//        case ui::Widget::TouchEventType::CANCELED:
-//            break;
-//        default:
-//            break;
-//    }
+    menu->exitMultiPlayerGame();
 }

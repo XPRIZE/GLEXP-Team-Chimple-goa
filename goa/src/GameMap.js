@@ -4,16 +4,22 @@ var xc = xc || {};
 xc.GameMap = cc.Scene.extend({
     onEnter:function () {
         this._super();
-        var map = new xc.ScrollableButtonPanel(cc.p(0, 0), cc.director.getWinSize(), 4, 4, cc.loader.cache[xc.GameMap.res.config_json], this.loadGame, this);
+        var JSGames = cc.loader.cache[xc.GameMap.res.config_json].filter(function(e) {return e.isJSGame});
+        var map = new xc.ScrollableButtonPanel(cc.p(0, 0), cc.director.getWinSize(), 4, 4, JSGames, this.loadGame, this);
         this.addChild(map);
     },
     loadGame: function(sender) {
-        if(sender._configuration.name == 'pop') {
-            xc.GameScene.load(xc.PopLayer);
+        if(!sender._configuration.multiPlayer && sender._configuration.isJSGame && sender._configuration.pureJS) {
+            var gameFunc = xc[sender._configuration.pureJS];
+            xc.GameScene.load(gameFunc);
+        } else if(sender._configuration.multiPlayer && sender._configuration.isJSGame && sender._configuration.pureJS) {
+            var gameFunc = xc[sender._configuration.pureJS];
+            xc.GameScene.loadMultiPlayerGame(gameFunc,sender._configuration.name);            
         }
         else if(sender._configuration.name == 'jazz') {
             xc.GameScene.load(xc.GameLayer);
-        } else if(sender._configuration.name == 'story-teller') {
+        } 
+        else if(sender._configuration.name == 'story-teller') {
             xc.CreateStoryScene.load(xc.CreateStoryLayer);
         }
         else if(sender._configuration.name == 'train') {
@@ -25,13 +31,20 @@ xc.GameMap = cc.Scene.extend({
         }else if(sender._configuration.name == 'jump_on_words') {
             xc.GameScene.load(xc.playLayer);
         }else if(sender._configuration.name == 'sortit') {
-            xc.GameScene.load(xc.sortitlevel1Layer);
-            // xc.GameScene.load(xc.LevelMenuLayer);
+            // xc.GameScene.load(xc.sortitlevel1Layer);
+            xc.GameScene.load(xc.ConnectTheDotsMenu);
         }
         else if(sender._configuration.name == 'decomon') {
             xc.GameScene.load(xc.DecomonLayer);
-        }else if(sender._configuration.name == 'pinata'){
+        } else if(sender._configuration.name == 'pinata'){
              xc.GameScene.load(xc.Pinata);
+        }
+        else if(sender._configuration.name == 'choose_character'){
+             xc.CharacterConfigScene.load(xc.CharacterConfigLayer);
+        } 
+        else if(sender._configuration.name == 'show_bluetoothPeers') {
+            cc.sys.localStorage.setItem("discoveredBluetoothDevices", "0_0_1-AA:BB:CC:XX,1_0_1-AA:BB:CC:FF,0_1_1-AA:BB:AD:FF")
+            xc.RenderBluetoothPeersScene.load(xc.RenderBluetoothPeersLayer);
         }
     }
 });
@@ -41,5 +54,5 @@ xc.GameMap.res = {
     map_plist: xc.path + "gamemap/gamemap.plist",
     map_png: xc.path + "gamemap/gamemap.png",
     thumbnails_plist: "res/thumbnails.plist",
-    thumbnails_png: "res/thumbnails.png"    
+    thumbnails_png: "res/thumbnails.png"
 };

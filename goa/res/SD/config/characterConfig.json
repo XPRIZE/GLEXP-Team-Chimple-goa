@@ -1,0 +1,47 @@
+[  
+      {  
+         "name":"hat",
+         "bone": "head_accessories",
+         "cIcon":"icons/hat_onclick.png",
+         "icon":"icons/hat.png",
+         "items":[  
+            {  
+               "icon":"hero/hat/hat.png"
+            },
+            {  
+               "icon":"hero/hat/police_hat.png"
+            }
+         ]
+      },
+      {  
+         "name":"mouth",
+         "cIcon":"icons/eyes_onclick.png",
+         "icon":"icons/eyes.png",
+         "bone":"mouth",
+         "items":[  
+            {  
+               "icon":"hero/mouth/happy.png"               
+            },
+            {  
+               "icon":"hero/mouth/normal.png"               
+            },
+            {  
+               "icon":"hero/mouth/o.png"            
+            }
+         ]
+      },
+      {  
+         "name":"shirt",
+         "bone": "body",
+         "cIcon":"icons/hat_onclick.png",
+         "icon":"icons/hat.png",
+         "items":[  
+            {  
+               "icon":"hero/shirt/shirt_1.png"
+            },
+            {  
+               "icon":"hero/shirt/tribalred.png"
+            }
+         ]
+      }      
+]

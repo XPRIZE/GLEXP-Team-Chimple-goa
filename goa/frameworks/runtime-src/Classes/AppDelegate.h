@@ -41,6 +41,8 @@ public:
      @param  the pointer of the application
      */
     virtual void applicationWillEnterForeground();
+    
+    bool findCachedCharacterConfiguration(std::string* s1);
 };
 
 #endif // _APP_DELEGATE_H_
