@@ -23,10 +23,13 @@ public:
 	static Order* create();
 	virtual bool init();
 	static cocos2d::Scene* createScene();
+	int _myScore, _enemyScore;
 protected:
 	MenuContext * menu;
+	cocos2d::Color3B _color;
 	std::map<std::string, std::string> _scenePath;
 	cocos2d::Node * _bg;
+	bool _cartFloating = false;
 	float _yy;
 	float _lastBoxPosition;
 	void checkUserSortList(std::vector<int> list);

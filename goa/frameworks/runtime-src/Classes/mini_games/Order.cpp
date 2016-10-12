@@ -54,7 +54,8 @@ bool Order::init()
 
 	Size visibleSize = Director::getInstance()->getVisibleSize();
 	Vec2 origin = Director::getInstance()->getVisibleOrigin();
-
+	_myScore = 0;
+	_enemyScore = 0;
 	/*
 	
 	pending works
@@ -67,46 +68,34 @@ bool Order::init()
 
 		{ "farm",  //rayyan designs
 		{
-			{ "plist", "dash/dash.plist" },
-			{ "bg", "dash/OrderScene.csb" },
-			{ "step", "dash/step.png" },
-			{ "step_winning", "dash/step_winning.png" },
-			{ "flag", "dash/flag.png" },
-			{ "button", "dash/big_button.png" },
-			{ "character", "dash/character.csb" },
-			{ "right_animation", "jumping" },
-			{ "wrong_animation", "sad_wrong" },
-			{ "winning_animation","dance" }
+			{ "plist", "orderfarm/orderfarm.plist" },
+			{ "bg", "orderfarm/orderfarm.csb" },
+			{ "box", "orderfarm/box.png" },
+			{ "character", "orderfarm/cart.csb" },
+			{ "random_animation", "swing" },
+			{ "winning_animation","eat" }
 		} },
 		{ "iceLand",  //anu designs
 		{
-			{ "plist", "dashisland/dashisland.plist" },
-			{ "bg", "dashisland/dashisland.csb" },
-			{ "step", "dashisland/step.png" },
-			{ "step_winning", "dashisland/step_winning.png" },
-			{ "button", "dashisland/big_button.png" },
-			{ "flag", "dashisland/flag.png" },
-			{ "character", "dashisland/character.csb" },
-			{ "right_animation", "hero_correct" },
-			{ "wrong_animation", "hero_wrong" },
-			{ "winning_animation", "null" }
+			{ "plist", "orderfarm/orderfarm.plist" },
+			{ "bg", "orderfarm/orderfarm.csb" },
+			{ "box", "orderfarm/box.png" },
+			{ "character", "orderfarm/cart.csb" },
+			{ "random_animation", "swing" },
+			{ "winning_animation","eat" }
 		} },
 		{ "candy",  //teju design
 		{
-			{ "plist", "dashcandy/dashcandy.plist" },
-			{ "bg", "dashcandy/dashcandy.csb" },
-			{ "step", "dashcandy/step.png" },
-			{ "step_winning", "dashcandy/step_winning.png" },
-			{ "flag", "dashcandy/flag.png" },
-			{ "button", "dashcandy/answer_button.png" },
-			{ "character", "dashcandy/character.csb" },
-			{ "right_animation", "jump" },
-			{ "wrong_animation", "angry" },
-			{ "winning_animation", "null" }
+			{ "plist", "orderfarm/orderfarm.plist" },
+			{ "bg", "orderfarm/orderfarm.csb" },
+			{ "box", "orderfarm/box.png" },
+			{ "character", "orderfarm/cart.csb" },
+			{ "random_animation", "swing" },
+			{ "winning_animation","eat" }
 		} },
 	};
 
-	std::vector<std::string> theme = { "city","candy","iceLand" };
+	std::vector<std::string> theme = { "farm","candy","iceLand" };
 	_scenePath = differntSceneMapping.at(theme.at(2));//cocos2d::RandomHelper::random_int(0, 2)));
 
 	auto spritecache1 = SpriteFrameCache::getInstance();
@@ -117,11 +106,12 @@ bool Order::init()
 		_bg->setPositionX((visibleSize.width - 2560) / 2);
 	}
 	this->addChild(_bg);
-
+	animationWithRandomInterval();
 	//orderfarm/woodblock.png
+	//random vector
 	std::vector<std::string> str1 = { "j","i","h","g","f","e","d","c","b","a", "k", "last" };
 	std::string str = "1";
-	for (short i = 0; i < 10; i++) {	
+	for (short i = 0; i < 12; i++) {	
 		auto obj1 = Sprite::createWithSpriteFrameName("orderfarm/box.png");
 		obj1->setPositionX(visibleSize.width / 2);
 		obj1->setAnchorPoint(Vec2(0.5,0.5));
@@ -130,7 +120,7 @@ bool Order::init()
 		str = str + str;
 		_boxes.pushBack(obj1);
 		this->addChild(obj1);
-		 auto _topLabel = Label::createWithSystemFont(str1.at(i).c_str(), "Arial", 50);
+		 auto _topLabel = Label::createWithSystemFont(str1.at(i).c_str(), "Arial", 100);
 		_topLabel->setPositionX(obj1->getContentSize().width / 2);
 		_topLabel->setPositionY(obj1->getContentSize().height / 2);
 		_topLabel->setColor(Color3B(255, 255, 255));
@@ -142,7 +132,6 @@ bool Order::init()
 		listener->onTouchEnded = CC_CALLBACK_2(Order::onTouchEnded, this);
 		_eventDispatcher->addEventListenerWithSceneGraphPriority(listener, obj1);
 		_lastBoxPosition = visibleSize.height * 0.1 + (i) * (obj1->getContentSize().height  * 1);
-
 	}
 	return true;
 }
@@ -156,6 +145,8 @@ bool Order::onTouchBegan(cocos2d::Touch * touch, cocos2d::Event * event)
 	Rect rect = Rect(0, 0, s.width, s.height);
 	if (rect.containsPoint(location)) {
 		_yy = target->getPositionY();
+		_color = target->getColor();
+		target->setColor(Color3B(151, 154, 154));
 		return true;
 	}
 	return false;
@@ -201,15 +192,16 @@ void Order::onTouchMoved(cocos2d::Touch * touch, cocos2d::Event * event)
 //##########################################################################################################################################
 //   swaping the arrays
 		float yy = target->getPositionY() - visibleSize.height *0.1;
-		float num = yy / target->getContentSize().height * 1;
+		float num = yy / (target->getContentSize().height * 1);
 		int qqq = (int)round(num);
 		CCLOG(" index = %d", qqq);
 
 		for (short i = 0; i < _boxes.size(); i++) {
 			if (_boxes.at(i) != target) {
 				float posY = (_boxes.at(i)->getPositionY()) - visibleSize.height * 0.1;
-				int index = (int)posY / target->getContentSize().height * 1;
+				int index = (int)posY / (target->getContentSize().height * 1);
 				if (qqq == index) {
+					CCLOG("touch difference = %f", touch->getPreviousLocation().y - touch->getLocation().y);
 					if (touch->getPreviousLocation().y - touch->getLocation().y > 5) {
 						if (qqq == _boxes.size() - 1) {
 							_boxes.at(i)->setPositionY(((qqq) *target->getContentSize().height * 1) + (visibleSize.height* 0.1));
@@ -245,6 +237,7 @@ void Order::onTouchEnded(cocos2d::Touch * touch, cocos2d::Event * event)
 	std::vector<int> missedIndex;
 	Size visibleSize = Director::getInstance()->getVisibleSize();
 	auto target = event->getCurrentTarget();
+	target->setColor(_color);
 	CCLOG("y position = %f", target->getPositionY());
 	//CCLOG("y position previous = %f", _yy);
 	CCLOG("y position updated = %f", touch->getLocation().y);
@@ -304,19 +297,35 @@ void Order::onTouchEnded(cocos2d::Touch * touch, cocos2d::Event * event)
 void Order::checkUserSortList(std::vector<int> list)
 {
 	Size visibleSize = Director::getInstance()->getVisibleSize();
+	int score = 0;
 	std::vector<std::string> str1 = { "a","b","c","d","e","f","g","h","i","j", "k", "last" };
 	for (short i = 0; i < _boxes.size(); i++) {
 		//CCLOG("user list Name %s", _boxes.at(list.at(i))->getName().c_str());
 		float index = (_boxes.at(i)->getPositionY() - visibleSize.height*0.1) / (_boxes.at(i)->getContentSize().height * 1);
 		if (_boxes.at(i)->getName().compare(str1.at((int)round(index))) == 0) {
 			CCLOG("%s is in correct position", str1.at((int)round(index)).c_str());
-			auto moveBy = MoveBy::create(2, Vec2(0, 50));
-			auto cart = _bg->getChildByName("mainground")->getChildByName("cart1");
-			cart->runAction(moveBy);
+			
+			score++;
 			//cartAnimation("swing", false);//
 			//animationWithRandomInterval();
 		}
 	}
+
+	float cartMove = 100 * (score - _myScore);
+	auto moveBy = MoveBy::create(2, Vec2(0, cartMove));
+	auto cart = _bg->getChildByName("mainground")->getChildByName("cart1");
+	cart->runAction(moveBy);
+	_myScore = score;
+	if (_myScore > 0) {
+		_cartFloating = true;
+	}
+	else {
+		_cartFloating = false;
+	}
+	if (_myScore == 10) {
+		cartAnimation("eat", true);
+	}
+
 }
 
 void Order::animationWithRandomInterval()
@@ -327,8 +336,10 @@ void Order::animationWithRandomInterval()
 
 void Order::cartAnimation(std::string animationName, bool loop)
 {
-	auto timeline = CSLoader::createTimeline("orderfarm/cart.csb");
-	auto cart = _bg->getChildByName("mainground")->getChildByName("cart1");
-	cart->runAction(timeline);
-	timeline->play(animationName,loop);
+	if (_cartFloating && _myScore != 10) {
+		auto timeline = CSLoader::createTimeline("orderfarm/cart.csb");
+		auto cart = _bg->getChildByName("mainground")->getChildByName("cart1");
+		cart->runAction(timeline);
+		timeline->play(animationName, loop);
+	}
 }
