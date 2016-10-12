@@ -13,10 +13,6 @@ xc.TabPanel = cc.LayerColor.extend({
         this._callerPanel = callerPanel;
         this.setPosition(position);
 
-
-        // this._tabPanel = new xc.TabBarPanel(this._tabWidth, this._tabHeight, cc.p(position.x, position.y));
-        // this.addChild(this._tabPanel);
-
         this._tab = new xc.TabBar(cc.p(0, 0), cc.size(this._tabWidth, this._tabHeight), numButtonsPerRow, configuration, this.selectPanelForTab, this);
         this.addChild(this._tab);
 

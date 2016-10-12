@@ -363,8 +363,8 @@ xc.Pinata = cc.Layer.extend({
     },
 
     stateShootBubble : function(dt){
-        this.bubblePlayer.x += dt * 2500 * Math.cos(this.degToRad(this.player.angle));
-        this.bubblePlayer.y += dt * 2500 * -1 * Math.sin(this.degToRad(this.player.angle));
+        this.bubblePlayer.x += (1.0 / 60) * 2500 * Math.cos(this.degToRad(this.player.angle));
+        this.bubblePlayer.y += (1.0 / 60) * 2500 * -1 * Math.sin(this.degToRad(this.player.angle));
 
         if (this.bubblePlayer.x < (this.bubblePlayer.width/2)) {
             // Left edge
