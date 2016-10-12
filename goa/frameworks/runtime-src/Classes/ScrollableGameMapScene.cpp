@@ -278,7 +278,9 @@ void ScrollableGameMapScene::gameSelected(Ref* pSender, ui::Widget::TouchEventTy
 			} else if (clickedButton->getName() == TALK) {
 				Director::getInstance()->replaceScene(Talk::createScene());
 			}
-            
+			else if (clickedButton->getName() == STACK) {
+				Director::getInstance()->replaceScene(Stack::createScene());
+			}
 //            std::string gameConfig;
 //            localStorageGetItem(clickedButton->getName(), &gameConfig);
 //            CCLOG("gameConfig %s", gameConfig.c_str());
