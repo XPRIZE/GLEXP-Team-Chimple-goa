@@ -206,11 +206,6 @@ bool Dash::init()
     Director::getInstance()->getEventDispatcher()->addCustomEventListener("enemy_information_received_event", CC_CALLBACK_1(Dash::syncEnemyCharacterPosition, this));
 
     
-    #if (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
-        createMultiPlayerInviteButton();
-    
-    #endif
-    
 	return true;
 }
 
