@@ -30,12 +30,13 @@ protected:
 	std::map<std::string, std::string> _scenePath;
 	cocos2d::Node * _bg;
 	bool _cartFloating = false;
-	float _yy;
+	float _yy, _cartMove;
 	float _lastBoxPosition;
 	void checkUserSortList(std::vector<int> list);
 	void animationWithRandomInterval();
 	cocos2d::Vector<cocos2d::Sprite *> _boxes;
 	void cartAnimation(std::string animationName, bool loop);
+	void winAnimation();
 	virtual bool onTouchBegan(cocos2d::Touch *touch, cocos2d::Event * event);
 	virtual void onTouchMoved(cocos2d::Touch *touch, cocos2d::Event * event);
 	virtual void onTouchEnded(cocos2d::Touch *touch, cocos2d::Event * event);

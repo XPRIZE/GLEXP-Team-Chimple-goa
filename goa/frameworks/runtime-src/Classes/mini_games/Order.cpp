@@ -106,10 +106,11 @@ bool Order::init()
 		_bg->setPositionX((visibleSize.width - 2560) / 2);
 	}
 	this->addChild(_bg);
+	
 	animationWithRandomInterval();
 	//orderfarm/woodblock.png
 	//random vector
-	std::vector<std::string> str1 = { "j","i","h","g","f","e","d","c","b","a", "k", "last" };
+	std::vector<std::string> str1 = { "l","k","j","a","g","h","f","c","d","e","b","i"};
 	std::string str = "1";
 	for (short i = 0; i < 12; i++) {	
 		auto obj1 = Sprite::createWithSpriteFrameName("orderfarm/box.png");
@@ -133,6 +134,7 @@ bool Order::init()
 		_eventDispatcher->addEventListenerWithSceneGraphPriority(listener, obj1);
 		_lastBoxPosition = visibleSize.height * 0.1 + (i) * (obj1->getContentSize().height  * 1);
 	}
+	_cartMove = 1350 / str1.size();
 	return true;
 }
 
@@ -298,7 +300,7 @@ void Order::checkUserSortList(std::vector<int> list)
 {
 	Size visibleSize = Director::getInstance()->getVisibleSize();
 	int score = 0;
-	std::vector<std::string> str1 = { "a","b","c","d","e","f","g","h","i","j", "k", "last" };
+	std::vector<std::string> str1 = { "a","b","c","d","e","f","g","h","i","j", "k", "l" };
 	for (short i = 0; i < _boxes.size(); i++) {
 		//CCLOG("user list Name %s", _boxes.at(list.at(i))->getName().c_str());
 		float index = (_boxes.at(i)->getPositionY() - visibleSize.height*0.1) / (_boxes.at(i)->getContentSize().height * 1);
@@ -311,7 +313,7 @@ void Order::checkUserSortList(std::vector<int> list)
 		}
 	}
 
-	float cartMove = 100 * (score - _myScore);
+	float cartMove = _cartMove * (score - _myScore);
 	auto moveBy = MoveBy::create(2, Vec2(0, cartMove));
 	auto cart = _bg->getChildByName("mainground")->getChildByName("cart1");
 	cart->runAction(moveBy);
@@ -322,8 +324,9 @@ void Order::checkUserSortList(std::vector<int> list)
 	else {
 		_cartFloating = false;
 	}
-	if (_myScore == 10) {
-		cartAnimation("eat", true);
+	if (_myScore == 12) {
+		winAnimation();
+		//cartAnimation("eat", true);
 	}
 
 }
@@ -336,10 +339,19 @@ void Order::animationWithRandomInterval()
 
 void Order::cartAnimation(std::string animationName, bool loop)
 {
-	if (_cartFloating && _myScore != 10) {
-		auto timeline = CSLoader::createTimeline("orderfarm/cart.csb");
-		auto cart = _bg->getChildByName("mainground")->getChildByName("cart1");
-		cart->runAction(timeline);
+	auto timeline = CSLoader::createTimeline("orderfarm/cart.csb");
+	auto cart = _bg->getChildByName("mainground")->getChildByName("cart1");
+	cart->runAction(timeline);
+	if (_cartFloating && _myScore != 12) {
 		timeline->play(animationName, loop);
-	}
+	} 
+}
+
+void Order::winAnimation()
+{
+	auto timeline = CSLoader::createTimeline("orderfarm/cart.csb");
+	auto cart = _bg->getChildByName("mainground")->getChildByName("cart1");
+	cart->runAction(timeline);
+	timeline->play("eat", true);
+
 }
