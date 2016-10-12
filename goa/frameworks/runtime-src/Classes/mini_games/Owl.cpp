@@ -81,18 +81,20 @@ bool Owl::init()
 //	character1->runAction();
 
 	auto board = bg->getChildByName("orangebar");
-	auto label = LabelTTF::create(_displayWord, "Helvetica", board->getContentSize().height *0.8);
-	label->setPosition(board->getContentSize().width/2,board->getContentSize().height/2);
-	label->setAnchorPoint(Vec2(0.5, 0.5));
-	board->addChild(label);
+	board->setName("topBoard");
+	_textLabel = LabelTTF::create(_displayWord[_textBoard], "Helvetica", board->getContentSize().height *0.8);
+	_textLabel->setPosition(board->getContentSize().width/2,board->getContentSize().height/2);
+	_textLabel->setAnchorPoint(Vec2(0.5, 0.5));
+	_textLabel->setName("text");
+	board->addChild(_textLabel);
 
 	createGrid();
 
-	
-	
 	setBuildingBlock(++_blockLevel1);
-	crateLetterGridOnBuilding(_blockLevel1,_displayWord);
+	crateLetterGridOnBuilding(_blockLevel1, _displayWord[_textBoard]);
+
 	InitAnimation();
+
 	scheduleUpdate();
 	return true;
 }
@@ -126,6 +128,8 @@ void Owl::crateLetterGridOnBuilding(int blockLevel, string displayWord) {
 
 	for (int i = 0; i <= (displayWord.length() - 1); i++) {
 		auto letterGrid = Sprite::createWithSpriteFrameName(themeResourcePath.at("gridOrange"));
+		auto hideGrid = Sprite::createWithSpriteFrameName(themeResourcePath.at("gridOrange"));
+
 		auto label = LabelTTF::create(LangUtil::convertUTF16CharToString(displayWord.at(i)), "Helvetica", letterGrid->getContentSize().height*0.8);
 		letterGrid -> setPosition(Vec2(xPosi, blockObject->getContentSize().height *0.45));
 		label->setPosition(Vec2(letterGrid->getContentSize().width/2, letterGrid->getContentSize().height /2));
@@ -133,10 +137,13 @@ void Owl::crateLetterGridOnBuilding(int blockLevel, string displayWord) {
 		std::ostringstream blockName;	blockName << "blockLevel" << blockLevel; std::string blockNameInString = blockName.str();
 		this->getChildByName(blockNameInString)->addChild(letterGrid);
 		letterGrid->addChild(label);
+		
+		hideGrid->setPosition(Vec2(letterGrid->getContentSize().width / 2, letterGrid->getContentSize().height / 2));
+		letterGrid->addChild(hideGrid);
+		hideGrid->setName("hideBoard");
 		letterGrid->setName(LangUtil::convertUTF16CharToString(displayWord.at(i)));
 		letterGrid->setTag(i);
 	}
-
 }
 
 void Owl::createGrid() {
@@ -209,15 +216,15 @@ void Owl::addEventsOnGrid(cocos2d::Sprite* callerObject)
 		auto target = event->getCurrentTarget();
 		Size s = target->getContentSize();
 		Rect rect = Rect(0, 0, s.width, s.height);
-		if (target->getBoundingBox().containsPoint(touch->getLocation())) {
-			
+		if (target->getBoundingBox().containsPoint(touch->getLocation()) && _flagToControlMuiltipleTouch) {
+			_flagToControlMuiltipleTouch = false;
 			auto childText =  target->getChildByName(target->getName());
 			target->setColor(Color3B::GRAY);
 			auto x = childText->getName();
 			CCLOG("Touched : %c", x.at(0));
-
+			return true;
 		}
-		return true;
+		return false;
 	};
 
 	listener->onTouchEnded = [=](cocos2d::Touch* touch, cocos2d::Event* event)
@@ -225,12 +232,39 @@ void Owl::addEventsOnGrid(cocos2d::Sprite* callerObject)
 		auto target = event->getCurrentTarget();
 		Size s = target->getContentSize();
 		Rect rect = Rect(0, 0, s.width, s.height);
-		if (target->getBoundingBox().containsPoint(touch->getLocation())) {
 			auto x = target->getName();
 			target->setColor(Color3B(255,255,255));
 			CCLOG("Touched : %c",x.at(0));
 
-		}
+			if (target->getBoundingBox().containsPoint(touch->getLocation())) {
+
+				std::ostringstream blockName;	blockName << "blockLevel" << _blockLevel1; std::string blockNameInString = blockName.str();
+
+				auto blockChild = target->getParent()->getChildByName(blockNameInString)->getChildren();
+				CCLOG("THE LENGTH OF BLOCK IS : %d , the building level is : %d", blockChild.size(), _blockLevel1);
+				
+				if (_blockLevel1 <= (sizeof(_displayWord) / sizeof(_displayWord[0]))) {
+					if (blockChild.at(_textCounter)->getName() == target->getName()) {
+
+						blockChild.at(_textCounter)->getChildByName("hideBoard")->setVisible(false);
+						_textCounter++;
+						if (_textCounter == blockChild.size() && _blockLevel1 < (sizeof(_displayWord) / sizeof(_displayWord[0]))) {
+							CCLOG("NEXT BUILDING");
+							_textLabel->setString(_displayWord[++_textBoard]);
+							setBuildingBlock(++_blockLevel1);
+							crateLetterGridOnBuilding(_blockLevel1, _displayWord[_textBoard]);
+							_textCounter = 0;
+
+						}
+						else if (_textCounter == blockChild.size() && _blockLevel1 == (sizeof(_displayWord) / sizeof(_displayWord[0]))) {
+							_textCounter = 0;
+						}
+					}
+				}
+			}
+
+			this->runAction(Sequence::create(DelayTime::create(0.5),CallFunc::create([=]() { _flagToControlMuiltipleTouch = true; }),NULL));
+			
 		return false;
 	};
 
@@ -249,10 +283,11 @@ void Owl::InitAnimation()
 {
 	double DURATION = 3; // Seconds for total animation.
 	double SECONDS_PER_TICK = 1.0 / 60;
-
-	 _xStart = 1300;      // Pixels
-	 _yStart = 800;      // Pixels
-	 _xStop = 200;      // Pixels
+	std::ostringstream blockName;	blockName << "blockLevel" << _blockLevel1; std::string blockNameInString = blockName.str();
+	auto block = this->getChildByName(blockNameInString);
+	_xStart = block->getPositionX() - block->getContentSize().width / 2;      // Pixels
+	_yStart = block->getPositionY() + block->getContentSize().height;      // Pixels
+	_xStop = block->getPositionX() + block->getContentSize().width / 2;    // Pixels
 
 	_ticks = 0;
 	_ticksTotal = DURATION / SECONDS_PER_TICK;
@@ -279,15 +314,18 @@ void Owl::UpdateAnimation(float dt)
 	}
 	else {
 		counter++;
-		if(counter%2 != 0){
-	   		_xStart = 200;      // Pixels
-			_xStop = 1300;      // Pixels
+		std::ostringstream blockName;	blockName << "blockLevel" << _blockLevel1; std::string blockNameInString = blockName.str();
+		auto block = this->getChildByName(blockNameInString);
+		_yStart = block->getPositionY() + block->getContentSize().height;      // Pixels
+
+		if(counter%2 == 0){
+			_xStart = block->getPositionX() - block->getContentSize().width / 2;      // Pixels
+			_xStop = block->getPositionX() + block->getContentSize().width / 2;    // Pixels
 		}
 		else {
-			_xStart = 1300;      // Pixels
-			_xStop = 200;      // Pixels
+			_xStart = block->getPositionX() + block->getContentSize().width / 2;      // Pixels
+			_xStop = block->getPositionX() - block->getContentSize().width / 2;    // Pixels
 		}
-		
 		_ticks = 0;
 		_ticksTotal = DURATION / SECONDS_PER_TICK;
 
