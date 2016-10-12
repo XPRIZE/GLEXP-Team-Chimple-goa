@@ -29,6 +29,8 @@ protected:
 	cocos2d::Color3B _color;
 	std::map<std::string, std::string> _scenePath;
 	cocos2d::Node * _bg;
+	std::string _themeName;
+	//std::map<std::string, std::string> _scenePath;
 	bool _cartFloating = false;
 	float _yy, _cartMove;
 	float _lastBoxPosition;

@@ -73,16 +73,20 @@ bool Order::init()
 			{ "box", "orderfarm/box.png" },
 			{ "character", "orderfarm/cart.csb" },
 			{ "random_animation", "swing" },
-			{ "winning_animation","eat" }
+			{ "winning_animation","eat" },
+			{ "child1", "mainground"},
+			{"child2", "cart1"}
 		} },
-		{ "iceLand",  //anu designs
+		{ "prathap",  //anu designs
 		{
-			{ "plist", "orderfarm/orderfarm.plist" },
-			{ "bg", "orderfarm/orderfarm.csb" },
-			{ "box", "orderfarm/box.png" },
-			{ "character", "orderfarm/cart.csb" },
+			{ "plist", "orderhero/orderhero.plist" },
+			{ "bg", "orderhero/orderhero.csb" },
+			{ "box", "orderhero/box.png" },
+			{ "character", "orderhero/ramp.csb" },
 			{ "random_animation", "swing" },
-			{ "winning_animation","eat" }
+			{ "winning_animation","win" },
+			{ "child1", "FileNode_2" },
+			{ "child2", "ramp1" }
 		} },
 		{ "candy",  //teju design
 		{
@@ -95,25 +99,31 @@ bool Order::init()
 		} },
 	};
 
-	std::vector<std::string> theme = { "farm","candy","iceLand" };
-	_scenePath = differntSceneMapping.at(theme.at(2));//cocos2d::RandomHelper::random_int(0, 2)));
+	std::vector<std::string> theme = { "farm","prathap","candy" };
+	_themeName = theme.at(cocos2d::RandomHelper::random_int(0, 1));
+	_scenePath = differntSceneMapping.at(_themeName);//cocos2d::RandomHelper::random_int(0, 2)));
 
 	auto spritecache1 = SpriteFrameCache::getInstance();
-	spritecache1->addSpriteFramesWithFile("orderfarm/orderfarm.plist");
+	spritecache1->addSpriteFramesWithFile(_scenePath.at("plist"));// "orderhero/orderhero.plist");
 
-	_bg = CSLoader::createNode("orderfarm/orderfarm.csb");//dash/OrderScene.csb
+	_bg = CSLoader::createNode(_scenePath.at("bg"));//dash/OrderScene.csb
 	if (visibleSize.width > 2560) {
 		_bg->setPositionX((visibleSize.width - 2560) / 2);
 	}
 	this->addChild(_bg);
 	
-	animationWithRandomInterval();
+	if (_themeName.compare("farm") == 0) {
+		animationWithRandomInterval();
+	}
+	//
+
+
 	//orderfarm/woodblock.png
 	//random vector
 	std::vector<std::string> str1 = { "l","k","j","a","g","h","f","c","d","e","b","i"};
 	std::string str = "1";
 	for (short i = 0; i < 12; i++) {	
-		auto obj1 = Sprite::createWithSpriteFrameName("orderfarm/box.png");
+		auto obj1 = Sprite::createWithSpriteFrameName(_scenePath.at("box"));
 		obj1->setPositionX(visibleSize.width / 2);
 		obj1->setAnchorPoint(Vec2(0.5,0.5));
 		obj1->setPositionY(visibleSize.height * 0.1 + i * (obj1->getContentSize().height  * 1));
@@ -293,6 +303,8 @@ void Order::onTouchEnded(cocos2d::Touch * touch, cocos2d::Event * event)
 //		CCLOG(" %s block Name %d contains %d boxes", _boxes.at(i)->getName().c_str(), userArrayIndex.at(i), overlapChecking.at(i));
 //	}
 ////////////////////////////////////////
+
+
 	checkUserSortList(userArrayIndex);
 }
 
@@ -315,19 +327,27 @@ void Order::checkUserSortList(std::vector<int> list)
 
 	float cartMove = _cartMove * (score - _myScore);
 	auto moveBy = MoveBy::create(2, Vec2(0, cartMove));
-	auto cart = _bg->getChildByName("mainground")->getChildByName("cart1");
-	cart->runAction(moveBy);
+	auto moveBucket = MoveBy::create(2, Vec2(0, cartMove));
+	if (_themeName.compare("prathap") == 0) {
+		auto bucket = _bg->getChildByName("FileNode_2")->getChildByName("paintbucket");
+		bucket->runAction(moveBucket);
+	}
+	auto cart = _bg->getChildByName(_scenePath.at("child1"))->getChildByName(_scenePath.at("child2"));
 	_myScore = score;
+	cart->runAction(Sequence::create(moveBy, CallFunc::create([=]() {
+		if (_myScore == 12) {
+			winAnimation();
+			//cartAnimation("eat", true);
+		}
+	}), NULL));
+	
 	if (_myScore > 0) {
 		_cartFloating = true;
 	}
 	else {
 		_cartFloating = false;
 	}
-	if (_myScore == 12) {
-		winAnimation();
-		//cartAnimation("eat", true);
-	}
+	
 
 }
 
@@ -339,8 +359,8 @@ void Order::animationWithRandomInterval()
 
 void Order::cartAnimation(std::string animationName, bool loop)
 {
-	auto timeline = CSLoader::createTimeline("orderfarm/cart.csb");
-	auto cart = _bg->getChildByName("mainground")->getChildByName("cart1");
+	auto timeline = CSLoader::createTimeline(_scenePath.at("character"));
+	auto cart = _bg->getChildByName(_scenePath.at("child1"))->getChildByName(_scenePath.at("child2"));
 	cart->runAction(timeline);
 	if (_cartFloating && _myScore != 12) {
 		timeline->play(animationName, loop);
@@ -349,9 +369,14 @@ void Order::cartAnimation(std::string animationName, bool loop)
 
 void Order::winAnimation()
 {
-	auto timeline = CSLoader::createTimeline("orderfarm/cart.csb");
-	auto cart = _bg->getChildByName("mainground")->getChildByName("cart1");
+	auto timeline = CSLoader::createTimeline(_scenePath.at("character"));
+	auto cart = _bg->getChildByName(_scenePath.at("child1"))->getChildByName(_scenePath.at("child2"));
 	cart->runAction(timeline);
-	timeline->play("eat", true);
+	timeline->play(_scenePath.at("winning_animation"), true);
+	if (_themeName.compare("prathap") == 0) {
+		auto moveBucket = MoveBy::create(2, Vec2(-200, 0));
+		auto bucket = _bg->getChildByName("FileNode_2")->getChildByName("paintbucket");
+		bucket->runAction(moveBucket);
+	}
 
 }
