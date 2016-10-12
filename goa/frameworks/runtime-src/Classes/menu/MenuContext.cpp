@@ -487,7 +487,7 @@ void MenuContext::launchGameFromJS(std::string gameName) {
         Director::getInstance()->replaceScene(Dash::createScene());
     } else if(gameName == ENDLESS_RUNNER) {
         Director::getInstance()->replaceScene(EndlessRunner::createScene());
-    }
+    } 
 }
 
 void MenuContext::transitToScrollableGameMap() {
