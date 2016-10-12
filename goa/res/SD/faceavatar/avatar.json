@@ -1,0 +1,237 @@
+{
+  "ID": "0f4c1877-6702-4f0c-9055-4fa661fcbe2e",
+  "Version": "3.10.0.0",
+  "Name": "avatar",
+  "Content": {
+    "Content": {
+      "Animation": {
+        "Duration": 0,
+        "Speed": 1.0,
+        "Timelines": [],
+        "ctype": "TimelineActionData"
+      },
+      "AnimationList": [],
+      "ObjectData": {
+        "Length": 20.0,
+        "Position": {
+          "X": 0.0,
+          "Y": 0.0
+        },
+        "Scale": {
+          "ScaleX": 1.0,
+          "ScaleY": 1.0
+        },
+        "CColor": {},
+        "BlendFunc": {
+          "Src": 770,
+          "Dst": 771
+        },
+        "Tag": 15,
+        "Children": [
+          {
+            "Length": 400.0,
+            "Position": {
+              "X": -2.9446,
+              "Y": -212.0052
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "RotationSkewX": -89.5787,
+            "RotationSkewY": -89.5787,
+            "CColor": {},
+            "BlendFunc": {
+              "Src": 770,
+              "Dst": 771
+            },
+            "Tag": 17,
+            "Children": [],
+            "ActionTag": -957169526,
+            "ZOrder": 2,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "faceshape",
+            "ctype": "BoneNodeObjectData"
+          },
+          {
+            "Length": 156.0,
+            "Position": {
+              "X": -64.7795,
+              "Y": -161.9488
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "BlendFunc": {
+              "Src": 770,
+              "Dst": 771
+            },
+            "Tag": 24,
+            "Children": [],
+            "ActionTag": 594359377,
+            "ZOrder": 4,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "mouth",
+            "ctype": "BoneNodeObjectData"
+          },
+          {
+            "Length": 267.0,
+            "Position": {
+              "X": -132.5032,
+              "Y": 44.1647
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "BlendFunc": {
+              "Src": 770,
+              "Dst": 771
+            },
+            "Tag": 26,
+            "Children": [],
+            "ActionTag": -595044751,
+            "ZOrder": 5,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "eye",
+            "ctype": "BoneNodeObjectData"
+          },
+          {
+            "Length": 250.0,
+            "Position": {
+              "X": -129.5587,
+              "Y": 20.572
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "RotationSkewX": -1.3479,
+            "RotationSkewY": -1.3479,
+            "CColor": {},
+            "BlendFunc": {
+              "Src": 770,
+              "Dst": 771
+            },
+            "Tag": 28,
+            "Children": [],
+            "ActionTag": 473130217,
+            "ZOrder": 6,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "eyeballs",
+            "ctype": "BoneNodeObjectData"
+          },
+          {
+            "Length": 298.0,
+            "Position": {
+              "X": -135.4044,
+              "Y": 153.0171
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "BlendFunc": {
+              "Src": 770,
+              "Dst": 771
+            },
+            "Tag": 30,
+            "Children": [],
+            "ActionTag": -1703720765,
+            "ZOrder": 7,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "eyebrow",
+            "ctype": "BoneNodeObjectData"
+          },
+          {
+            "Length": 105.0,
+            "Position": {
+              "X": -5.3893,
+              "Y": -85.9313
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "RotationSkewX": -90.0,
+            "RotationSkewY": -90.0,
+            "CColor": {},
+            "BlendFunc": {
+              "Src": 770,
+              "Dst": 771
+            },
+            "Tag": 34,
+            "Children": [],
+            "ActionTag": -2014762385,
+            "ZOrder": 10,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "nose",
+            "ctype": "BoneNodeObjectData"
+          },
+          {
+            "Length": 980.0,
+            "Position": {
+              "X": -479.1982,
+              "Y": -34.8509
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "RotationSkewX": -0.2547,
+            "RotationSkewY": -0.2547,
+            "CColor": {},
+            "BlendFunc": {
+              "Src": 770,
+              "Dst": 771
+            },
+            "Tag": 292,
+            "Children": [],
+            "ActionTag": -1285207244,
+            "ZOrder": 1,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "bgball",
+            "ctype": "BoneNodeObjectData"
+          }
+        ],
+        "Size": {
+          "X": 0.0,
+          "Y": 0.0
+        },
+        "Name": "Skeleton",
+        "ctype": "SkeletonNodeObjectData"
+      },
+      "UsedResources": [
+        "faceavatar.plist",
+        "faceavatar.png"
+      ],
+      "ctype": "GameFileData"
+    }
+  },
+  "Type": "Skeleton"
+}

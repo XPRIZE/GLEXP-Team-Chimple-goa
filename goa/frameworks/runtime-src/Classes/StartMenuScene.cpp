@@ -37,6 +37,8 @@
 #include "mini_games/Bingo.h"
 #include "mini_games/Drop.h"
 #include "mini_games/Owl.h"
+#include "mini_games/BalloonHero.h"
+#include "mini_games/Decomon.h"
 
 #include "storage/local-storage/LocalStorage.h"
 #include "external/json/document.h"
@@ -79,6 +81,7 @@ const std::vector<std::string> StartMenu::getGameNames() {
     gameNames.push_back(TRAIN);
 	gameNames.push_back(CIRCLE);
     gameNames.push_back(TALK);
+	gameNames.push_back(STACK);
     return gameNames;
 
 }

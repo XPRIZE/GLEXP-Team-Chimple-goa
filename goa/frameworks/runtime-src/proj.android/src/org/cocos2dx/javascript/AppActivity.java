@@ -409,6 +409,15 @@ public class AppActivity extends Cocos2dxActivity  implements OnClickListener, O
 		}
 		//TV[0].setText(canvasView.character[0]);
 		final String str1 = canvasView.character[0].toString();
+		System.out.println("all matching possibilities");
+		int indexI = 0;
+		for (String rChar: canvasView.character) {
+			Log.d(TAG, "Recongnized characters: " + rChar + " with confidence:" + canvasView.confidences[indexI]);
+			indexI++;
+		}
+
+		
+	
 		dialog.dismiss();
 		handler.postDelayed(new Runnable() {
 			public void run() {
