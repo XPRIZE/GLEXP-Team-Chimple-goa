@@ -63,16 +63,6 @@ protected:
 	//int _jumpCount, _enemyJumpCount;
 //	virtual bool onTouchBegan(cocos2d::Touch *touch, cocos2d::Event * event);
     
-    std::string _deviceName;
-    std::string _deviceAddress;
-    
-    cocos2d::ui::Button* _multiPlayerInviteButton;
-    cocos2d::ui::Button* _multiPlayerConnectButton;
-    
-    void createMultiPlayerInviteButton();
-    void createMultiPlayerConnectButton(std::string deviceName, std::string deviceAddress);
-    void invokeMultiPlayerDiscovery(cocos2d::Ref* pSender, cocos2d::ui::Widget::TouchEventType eEventType);
-    void invokeMultiPlayerConnection(cocos2d::Ref* pSender, cocos2d::ui::Widget::TouchEventType eEventType);
 };
 
 #endif 
