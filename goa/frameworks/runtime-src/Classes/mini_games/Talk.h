@@ -49,6 +49,7 @@ public:
 
     static const char* gameName() { return TALK.c_str(); };
 	void update(float);
+	void gameEnd();
 
 	struct LabelDetails
 	{
