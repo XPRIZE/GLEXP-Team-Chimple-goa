@@ -240,7 +240,6 @@ void Talk::update(float d)
 		{
 			_fish->stopAction(_action);
 			_heroFish.push_back(_fish);
-			_handFlag = false;
 
 			if (_totalCount == _textToShow.size() || _totalAnswer == _correctAnswer)
 			{
@@ -262,20 +261,21 @@ void Talk::update(float d)
 					_enemy->stopAction(_enemyChar);
 					_enemyChar = CSLoader::createTimeline(timeline.str());
 					_enemy->runAction(_enemyChar);
-					_enemyChar->play("e_die", false);
-					_enemyChar->setAnimationEndCallFunc("e_die", CC_CALLBACK_0(Talk::gameEnd, this));
+					_enemyChar->play("e_wrong", true);
+//					_enemyChar->setAnimationEndCallFunc("e_die", CC_CALLBACK_0(Talk::gameEnd, this));
 				}
 				else
 				{
 					_menuContext->showScore();
 				}
 			}
+			else
+				_handFlag = false;
 		}
 		else if (fish_Rect.intersectsRect(_ehand->getBoundingBox()) || (_enemyFish.size() >= 1 && fish_Rect_next.intersectsRect(_enemyFish.at(_enemyFish.size() - 1)->getBoundingBox())))
 		{
 			_fish->stopAction(_action);
 			_enemyFish.push_back(_fish);
-			_handFlag = false;
 
 			if (_totalCount == _textToShow.size() || _totalAnswer == _correctAnswer)
 			{
@@ -305,6 +305,8 @@ void Talk::update(float d)
 					_menuContext->showScore();
 				}
 			}
+			else
+				_handFlag = false;
 		}
 	}
 }
@@ -312,6 +314,7 @@ void Talk::update(float d)
 void Talk::gameEnd()
 {
 	_menuContext->showScore();
+	this->unscheduleUpdate();
 }
 
 void Talk::addEvents(struct LabelDetails sprite)
