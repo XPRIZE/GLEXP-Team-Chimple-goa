@@ -34,7 +34,7 @@ CC_CONSTRUCTOR_ACCESS:
 	void removeMeteor2Animation();
 	void removeMeteor3Animation();
 	void removeMeteor4Animation();
-	static const char* classname() { return WEMBLEY.c_str(); }
+	static const char* classname() { return BALLONHERO.c_str(); }
 protected:
 	Node * _balloonHero;
 	Node * _foreGround;

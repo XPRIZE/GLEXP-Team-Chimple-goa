@@ -35,7 +35,7 @@ cocos2d::Scene * Circle::createScene()
 	auto layer = Circle::create();
 	scene->addChild(layer);
 
-	layer->menu = MenuContext::create(layer, "Circle");
+	layer->menu = MenuContext::create(layer,Circle::gameName());
 	scene->addChild(layer->menu);
 	return scene;
 }

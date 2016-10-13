@@ -258,7 +258,6 @@ void Owl::addEventsOnGrid(cocos2d::Sprite* callerObject)
 						auto moveToAlphaGridAction = MoveTo::create(dist/800,Vec2(target->getPositionX(),target->getPositionY()));
 						auto moveToAnswerGridAction = MoveTo::create(dist / 1000, Vec2((blockBox->getPositionX() - blockBox->getContentSize().width/2)+blockChild.at(_textCounter)->getPositionX(), blockBox->getPositionY()));
 						auto callFunct = CallFunc::create([=]() {
-//							this->runAction(Sequence::create(DelayTime::create(3), CallFunc::create([=]() { _flagToControlMuiltipleTouch = true; }), NULL));
 							scheduleUpdate();
 							_flagToControlMuiltipleTouch = true;
 							blockChild.at(_textCounter)->getChildByName("hideBoard")->setVisible(false);
@@ -287,8 +286,6 @@ void Owl::addEventsOnGrid(cocos2d::Sprite* callerObject)
 								
 							}
 						});
-						
-//						_sprite->runAction(Sequence::create(CallFunc::create([=]() { unscheduleUpdate(); }), moveToAlphaGridAction,DelayTime::create(dist/800.0), moveToAnswerGridAction, DelayTime::create(dist / 1000.0), callFunct, NULL));
 						_sprite->runAction(Sequence::create(CallFunc::create([=]() { unscheduleUpdate(); }), moveToAlphaGridAction,moveToAnswerGridAction, callFunct, NULL));
 					}
 				}

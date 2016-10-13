@@ -59,32 +59,36 @@ StartMenu::~StartMenu() {
 
 const std::vector<std::string> StartMenu::getGameNames() {
     std::vector<std::string> gameNames;
-    gameNames.push_back(CAT);
+
+	gameNames.push_back(OWL);
+	gameNames.push_back(PINATA);
+	gameNames.push_back(ORDER);
+	gameNames.push_back(BALLONHERO);
+	gameNames.push_back(MEMORY);
 	gameNames.push_back(SORT_IT);
-	gameNames.push_back(ALPHAMOLE);
+	gameNames.push_back(WEMBLEY);
 	gameNames.push_back(BUBBLE);
+	gameNames.push_back(BAJA);
+	gameNames.push_back(ENDLESS_RUNNER);
+	gameNames.push_back(KUNG_FU_ALPHA);
+	gameNames.push_back(CROSS_THE_BRIDGE);
+	gameNames.push_back(CHAIN);
 	gameNames.push_back(POP);
+	gameNames.push_back(BINGO);
+    gameNames.push_back(CAT);
+	gameNames.push_back(ALPHAMOLE);
 	gameNames.push_back(JUMP_ON_WORDS);
-    gameNames.push_back(ALPHAMON_COMBAT);
-    gameNames.push_back(BAJA);
-    gameNames.push_back(CHAIN);
-    gameNames.push_back(WEMBLEY);
+    gameNames.push_back(ALPHAMON_COMBAT);   
     gameNames.push_back(JAZZ);
     gameNames.push_back(JASMINE);
     gameNames.push_back(PATCH_THE_WALL);
-    gameNames.push_back(CROSS_THE_BRIDGE);
     gameNames.push_back(SMASH_THE_ROCK);
     gameNames.push_back(CANNON_BALL);
-    gameNames.push_back(ENDLESS_RUNNER);
-    gameNames.push_back(KUNG_FU_ALPHA);
     gameNames.push_back(ALPHAMON_FEED);
     gameNames.push_back(TRAIN);
-	gameNames.push_back(CIRCLE);
     gameNames.push_back(TALK);
 	gameNames.push_back(STACK);
-	gameNames.push_back(OWL);
-	gameNames.push_back(PINATA);
-
+	
     return gameNames;
 
 }
