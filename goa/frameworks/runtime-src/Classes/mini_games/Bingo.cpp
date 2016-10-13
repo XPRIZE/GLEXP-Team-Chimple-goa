@@ -12,7 +12,7 @@ Scene* Bingo::createScene()
 	auto scene = Scene::create();
 
 	scene->addChild(layer);
-	layer->_menuContext = MenuContext::create(layer, "bingo");
+	layer->_menuContext = MenuContext::create(layer, Bingo::gameName());
 	scene->addChild(layer->_menuContext);
 	return scene;
 }

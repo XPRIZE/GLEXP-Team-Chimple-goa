@@ -34,18 +34,23 @@ static const std::string POP = "pop";
 static const std::string ALPHAMOLE = "alphamole";
 static const std::string JUMP_ON_WORDS = "JumpOnWords";
 static const std::string STORY_TELLING = "book";
-static const std::string DECOMON = "decomon";
+static const std::string DECOMON = "decomone";
 static const std::string SORT_IT = "sortit";
 static const std::string WORD_BOARD = "wordBoard";
 static const std::string PEG = "peg";
 static const std::string BUBBLE = "bubble";
-static const std::string CIRCLE = "Circle";
 static const std::string PINATA = "shoot";
 static const std::string STACK = "stack";
 static const std::string TALK = "talk";
 static const std::string BINGO = "bingo";
 static const std::string DROP = "drop";
-static const std::string OWL = "owl";
+static const std::string OWL = "owl"; 
+static const std::string MEMORY = "memory"; 
+static const std::string BALLONHERO = "balloon";
+static const std::string DASH = "dash";
+static const std::string CIRCLE = "circle";
+static const std::string ORDER = "order";
+
 
 class StartMenu {
 public:
