@@ -54,13 +54,6 @@ bool Order::init()
 	Vec2 origin = Director::getInstance()->getVisibleOrigin();
 	_myScore = 0;
 	_enemyScore = 0;
-	/*
-	
-	pending works
-	=> working on score
-	=>cart animation
-
-	*/
 	
 	std::map<std::string, std::map<std::string, std::string>> differntSceneMapping = {
 
@@ -73,9 +66,10 @@ bool Order::init()
 			{ "random_animation", "swing" },
 			{ "winning_animation","eat" },
 			{ "child1", "mainground"},
-			{"child2", "cart1"}
+			{ "child2", "cart1"},
+			{ "otherCharacter", "cart2" }
 		} },
-		{ "prathap",  //anu designs
+		{ "hero",  //prathap designs
 		{
 			{ "plist", "orderhero/orderhero.plist" },
 			{ "bg", "orderhero/orderhero.csb" },
@@ -84,21 +78,43 @@ bool Order::init()
 			{ "random_animation", "swing" },
 			{ "winning_animation","win" },
 			{ "child1", "FileNode_2" },
-			{ "child2", "ramp1" }
+			{ "child2", "ramp1" },
+			{ "otherCharacter", "ramp2" }
 		} },
 		{ "candy",  //teju design
 		{
-			{ "plist", "orderfarm/orderfarm.plist" },
-			{ "bg", "orderfarm/orderfarm.csb" },
-			{ "box", "orderfarm/box.png" },
-			{ "character", "orderfarm/cart.csb" },
+			{ "plist", "ordercandy/ordercandy.plist" },
+			{ "bg", "ordercandy/ordercandy.csb" },
+			{ "box", "ordercandy/box.png" },
+			{ "character", "ordercandy/fluffy.csb" },
 			{ "random_animation", "swing" },
-			{ "winning_animation","eat" }
+			{ "winning_animation","eat" },
+			{ "child1", "mainground" },
+			{ "child2", "cart1" },
+			{ "otherCharacter", "cart2" }
 		} },
 	};
 
-	std::vector<std::string> theme = { "farm","prathap","candy" };
-	_themeName = theme.at(cocos2d::RandomHelper::random_int(0, 1));
+	std::map<std::string, std::map<std::string, float>> differentPointsConfig = {
+		{"farm",
+			{
+				{"targetDistance", 1350.0f}
+			}
+		},
+		{ "hero",
+			{
+				{ "targetDistance", 1125.0f }
+			} 
+		},
+		{ "candy",
+			{
+				{ "targetDistance", 800.0f }
+			} 
+		}
+	};
+
+	std::vector<std::string> theme = { "farm","hero","candy" };
+	_themeName = theme.at(2);// cocos2d::RandomHelper::random_int(0, 1));
 	_scenePath = differntSceneMapping.at(_themeName);//cocos2d::RandomHelper::random_int(0, 2)));
 
 	auto spritecache1 = SpriteFrameCache::getInstance();
@@ -142,7 +158,14 @@ bool Order::init()
 		_eventDispatcher->addEventListenerWithSceneGraphPriority(listener, obj1);
 		_lastBoxPosition = visibleSize.height * 0.1 + (i) * (obj1->getContentSize().height  * 1);
 	}
-	_cartMove = 1350 / str1.size();
+	_cartMove = differentPointsConfig.at(_themeName).at("targetDistance") / str1.size();
+
+	runAction(RepeatForever::create(Sequence::create(DelayTime::create(10 + (rand() % 60) / 30.0), CallFunc::create([=]() {
+		int score = cocos2d::RandomHelper::random_int(0, 11);
+		otherPlayer(score);
+	}), NULL)));
+
+
 	return true;
 }
 
@@ -315,8 +338,7 @@ void Order::checkUserSortList(std::vector<int> list)
 		//CCLOG("user list Name %s", _boxes.at(list.at(i))->getName().c_str());
 		float index = (_boxes.at(i)->getPositionY() - visibleSize.height*0.1) / (_boxes.at(i)->getContentSize().height * 1);
 		if (_boxes.at(i)->getName().compare(str1.at((int)round(index))) == 0) {
-			CCLOG("%s is in correct position", str1.at((int)round(index)).c_str());
-			
+			CCLOG("%s is in correct position", str1.at((int)round(index)).c_str());	
 			score++;
 			//cartAnimation("swing", false);//
 			//animationWithRandomInterval();
@@ -326,7 +348,7 @@ void Order::checkUserSortList(std::vector<int> list)
 	float cartMove = _cartMove * (score - _myScore);
 	auto moveBy = MoveBy::create(2, Vec2(0, cartMove));
 	auto moveBucket = MoveBy::create(2, Vec2(0, cartMove));
-	if (_themeName.compare("prathap") == 0) {
+	if (_themeName.compare("hero") == 0) {
 		auto bucket = _bg->getChildByName("FileNode_2")->getChildByName("paintbucket");
 		bucket->runAction(moveBucket);
 	}
@@ -371,10 +393,24 @@ void Order::winAnimation()
 	auto cart = _bg->getChildByName(_scenePath.at("child1"))->getChildByName(_scenePath.at("child2"));
 	cart->runAction(timeline);
 	timeline->play(_scenePath.at("winning_animation"), true);
-	if (_themeName.compare("prathap") == 0) {
+	if (_themeName.compare("hero") == 0) {
 		auto moveBucket = MoveBy::create(2, Vec2(-200, 0));
 		auto bucket = _bg->getChildByName("FileNode_2")->getChildByName("paintbucket");
 		bucket->runAction(moveBucket);
 	}
 
+}
+
+void Order::otherPlayer(int score)
+{
+	float cartMove = _cartMove * (score - _enemyScore);
+	auto moveBy = MoveBy::create(2, Vec2(0, cartMove));
+	auto cart = _bg->getChildByName(_scenePath.at("child1"))->getChildByName(_scenePath.at("otherCharacter"));
+	cart->runAction(moveBy);
+	auto moveBucket = MoveBy::create(2, Vec2(0, cartMove));
+	if (_themeName.compare("hero") == 0) {
+		auto bucket = _bg->getChildByName("FileNode_2")->getChildByName("paintbucket2");
+		bucket->runAction(moveBucket);
+	}
+	_enemyScore = score;
 }

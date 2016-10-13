@@ -39,6 +39,7 @@ protected:
 	cocos2d::Vector<cocos2d::Sprite *> _boxes;
 	void cartAnimation(std::string animationName, bool loop);
 	void winAnimation();
+	void otherPlayer(int score);
 	virtual bool onTouchBegan(cocos2d::Touch *touch, cocos2d::Event * event);
 	virtual void onTouchMoved(cocos2d::Touch *touch, cocos2d::Event * event);
 	virtual void onTouchEnded(cocos2d::Touch *touch, cocos2d::Event * event);
