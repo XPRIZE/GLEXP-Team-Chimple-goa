@@ -212,7 +212,8 @@ void ScrollableGameMapScene::gameSelected(Ref* pSender, ui::Widget::TouchEventTy
 			} else  if (clickedButton->getName() == SMASH_THE_ROCK) {
 				Director::getInstance()->replaceScene(SmashTheRock::createScene());
 			} else if (clickedButton->getName() == POP) {
-				ScriptingCore::getInstance()->runScript("src/start/pop.js");
+				Director::getInstance()->replaceScene(Drop::createScene());
+		//		ScriptingCore::getInstance()->runScript("src/start/pop.js");
 			} else if(clickedButton->getName() == CROSS_THE_BRIDGE) {
 				 Director::getInstance()->replaceScene(CrossTheBridge::createScene());
             }else if (clickedButton->getName() == BINGO) {
