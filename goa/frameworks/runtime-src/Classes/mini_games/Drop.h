@@ -31,8 +31,6 @@ protected:
 	std::vector<std::string> _wordOptionBin;
 	std::vector<cocostudio::timeline::ActionTimeline *> _basketAnimBin;
 	std::vector<Sprite *>_dropHeroTrailerImageBin;
-	std::vector<cocostudio::timeline::ActionTimeline *>_dropHeroTrailerAnimBin;
-	std::vector<Sprite *>_dropHeroGarbageTrailer;
    
 
 public:
@@ -47,13 +45,14 @@ public:
 	void letterAndHolderMaker(float dt);
 	void removeLetterHolder();
 	void removeHolderAnimation(Sprite* obj);
-	void removeHolderAnimationForHero(std::tuple<Sprite*,Sprite*,int> tp);
+	//void removeHolderAnimationForHero(std::tuple<Sprite*,Sprite*,int> tp);
 	void basketLetterCollisionChecker();
 	void removeHeroTrailer();
+	void removeFallingLetter();
 
 	void setAllSpriteProperties(Sprite* object, int zOrder, float posX, float posY, bool visibility, float anchorPointX, float anchorPointY, float rotation, float scaleX, float scaleY);
 	LabelTTF* setAllLabelProperties(std::string letter, int zOrder, float posX, float posY, bool visibility, float anchorPointX, float anchorPointY, float rotation, float scaleX, float scaleY, int labelSizeInPixel);
-	std::pair<Sprite*, cocostudio::timeline::ActionTimeline*> setAnimationAndProperties(std::string csbString, float posX, float posY);
+	std::pair<Sprite*, cocostudio::timeline::ActionTimeline*> setAnimationAndProperties(std::string csbString, float posX, float posY, int zOrder);
 	static const char* gameName() { return DROP.c_str(); }
 };
 

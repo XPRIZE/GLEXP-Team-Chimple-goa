@@ -25,7 +25,9 @@ bool Drop::init()
 								{ "removalPole", "dropjungle/leafbal.png" },
 								{ "basketAnimation","dropjungle/basket.csb" },
 								{ "pseudoHolderImage","dropjungle/leafbal.png" },
-								{ "basketImageName", "basketouter_1"}
+								{ "basketImageName", "basketouter_1"},
+								{ "rightAnimName", "full"},
+								{ "wrongAnimName", "correct"}
 							} 
 		    },
 			{ "drophero",
@@ -35,7 +37,9 @@ bool Drop::init()
 								{ "removalPole", "drophero/boxback.png" },
 								{ "basketAnimation","drophero/dropbox.csb" },
 								{ "pseudoHolderImage","drophero/trailer1.png" },
-								{ "basketImageName", "boxback"}
+								{ "basketImageName", "boxback"},
+								{ "rightAnimName", "" },
+								{ "wrongAnimName", "wrong" }
 							}
 			}
 
@@ -47,14 +51,16 @@ bool Drop::init()
 						{
 							{ "boxLabelYFactor",0.08},
 							{ "basketRectYFactor", 0},
-							{ "flaotingLetterYFactor", 1}
+							{ "flaotingLetterYFactor", 1},
+							{ "floatBoxHeightFactor",0.75}
 						}
 		},
 		{ "drophero",
 						{
 							{ "boxLabelYFactor",0.07},
 							{ "basketRectYFactor", 1 },
-							{ "flaotingLetterYFactor", 0.85}
+							{ "flaotingLetterYFactor", 0.85},
+							{ "floatBoxHeightFactor",0.62 }
 						}
 		}
 
@@ -90,9 +96,8 @@ bool Drop::init()
 		std::string str = monsterItem->getName().c_str();
 		CCLOG("name : %s", str.c_str());
 	}
-
 	_removalPole = Sprite::createWithSpriteFrameName(_scenePath.at("removalPole"));
-	setAllSpriteProperties(_removalPole, 0, (visibleSize.width*0.15), visibleSize.height*0.62, true, 0.5, 0.5, 0, 1, 1);
+	setAllSpriteProperties(_removalPole, 0, -(visibleSize.width*0.13), visibleSize.height*_sceneBasedNumericalVal.at("floatBoxHeightFactor"), true, 0.5, 0.5, 0, 1, 1);
 	this->addChild(_removalPole);
 
 	std::string word = "APPLEONE"; 
@@ -128,13 +133,13 @@ bool Drop::init()
 	auto gap = Director::getInstance()->getVisibleSize().width / word.length();
 	for (int i = 0; i < word.length(); i++)
 	{
-		std::pair<Sprite*, cocostudio::timeline::ActionTimeline*>animationData = setAnimationAndProperties(_scenePath.at("basketAnimation"), (i*gap + gap / 2), (visibleSize.height*0.08));
+		std::pair<Sprite*, cocostudio::timeline::ActionTimeline*>animationData = setAnimationAndProperties(_scenePath.at("basketAnimation"), (i*gap + gap / 2), (visibleSize.height*0.08),1);
 		cocostudio::timeline::ActionTimeline* basketTimeline = animationData.second;
 		Sprite* basket = animationData.first;
 
 		auto basketImg = (Sprite *)basket->getChildByName(_scenePath.at("basketImageName"));
 		auto label = setAllLabelProperties(LangUtil::convertUTF16CharToString(word.at(i)), 0, (i*gap + gap / 2), (visibleSize.height*_sceneBasedNumericalVal.at("boxLabelYFactor")), true, 0.5, 0.5, 0, 1, 1, 100);
-		this->addChild(label, 0);
+		this->addChild(label, 1);
 		for (int j = 0; j < randomIndex.size(); j++)
 		{
 			if (i == randomIndex[j])
@@ -167,6 +172,7 @@ void Drop::update(float delta) {
 									removeLetterHolder();
 									basketLetterCollisionChecker();
 									removeHeroTrailer();
+									removeFallingLetter();
 }
 
 Drop::~Drop(void)
@@ -181,29 +187,27 @@ void Drop::letterAndHolderMaker(float dt)
 	}
 	else
 	{
-		std::pair<Sprite*, cocostudio::timeline::ActionTimeline*>animationData = setAnimationAndProperties(_scenePath.at("holderAnimation"), visibleSize.width*1.1, visibleSize.height*0.62);
-		cocostudio::timeline::ActionTimeline* holderTimeline = animationData.second;
+		std::pair<Sprite*, cocostudio::timeline::ActionTimeline*>animationData = setAnimationAndProperties(_scenePath.at("holderAnimation"), visibleSize.width*1.1, visibleSize.height*_sceneBasedNumericalVal.at("floatBoxHeightFactor"),0);
 		Sprite* trailer = animationData.first;
 		trailer->setTag(letterHolderId);
-		leftFloat(trailer, 12, -(visibleSize.width*0.2), visibleSize.height*0.62);//0.75
+		leftFloat(trailer, 12, -(visibleSize.width*0.2), visibleSize.height*_sceneBasedNumericalVal.at("floatBoxHeightFactor"));//0.75
 		_dropHeroTrailerImageBin.push_back(trailer);
-		_dropHeroTrailerAnimBin.push_back(holderTimeline);
 	}
 
-	Sprite* leafBall= Sprite::createWithSpriteFrameName(_scenePath.at("pseudoHolderImage"));
-	setAllSpriteProperties(leafBall, 0, visibleSize.width*1.1, visibleSize.height*0.62, true, 0.5, 0.5, 0, 1, 1);//0.75, true
-	leftFloat(leafBall, 12, -(visibleSize.width*0.2), visibleSize.height*0.62);//0.75
-	this->addChild(leafBall,1);
-	addEvents(leafBall);
-	leafBall->setTag(letterHolderId);
+	Sprite* floatBox= Sprite::createWithSpriteFrameName(_scenePath.at("pseudoHolderImage"));
+	setAllSpriteProperties(floatBox, 0, visibleSize.width*1.1, visibleSize.height*_sceneBasedNumericalVal.at("floatBoxHeightFactor"), true, 0.5, 0.5, 0, 1, 1);//0.75, true
+	leftFloat(floatBox, 12, -(visibleSize.width*0.2), visibleSize.height*_sceneBasedNumericalVal.at("floatBoxHeightFactor"));//0.75
+	this->addChild(floatBox,1);
+	addEvents(floatBox);
+	floatBox->setTag(letterHolderId);
 	
-	_letterHolderSpriteBin.push_back(leafBall);
+	_letterHolderSpriteBin.push_back(floatBox);
 
 	//Label
 	int maxIndex = _wordOptionBin.size() - 1;
 	std::string str = _wordOptionBin[RandomHelper::random_int(0, maxIndex)];
-	auto label = setAllLabelProperties(str, 0, (leafBall->getBoundingBox().size.width / 2), ((leafBall->getBoundingBox().size.height / 2)*_sceneBasedNumericalVal.at("flaotingLetterYFactor")), true, 0.5, 0.5, 0, 1, 1, 100);
-	leafBall->addChild(label, 0);
+	auto label = setAllLabelProperties(str, 0, (floatBox->getBoundingBox().size.width / 2), ((floatBox->getBoundingBox().size.height / 2)*_sceneBasedNumericalVal.at("flaotingLetterYFactor")), true, 0.5, 0.5, 0, 1, 1, 100);
+	floatBox->addChild(label, 0);
 	letterHolderId++;
 }
 void Drop::leftFloat(Sprite* floatingObj, int time, float positionX, float positionY)
@@ -228,7 +232,7 @@ void Drop::addEvents(Sprite* clickedObject)
 			Sprite* holderImage;
 			if (!_dropCurrentTheme.compare("dropjungle"))
 			{
-				std::pair<Sprite*, cocostudio::timeline::ActionTimeline*> animationData = setAnimationAndProperties(_scenePath.at("holderAnimation"), (target->getPosition().x), (target->getPosition().y));
+				std::pair<Sprite*, cocostudio::timeline::ActionTimeline*> animationData = setAnimationAndProperties(_scenePath.at("holderAnimation"), (target->getPosition().x), (target->getPosition().y),0);
 			    holderTimeline = animationData.second;
 			    holderImage = animationData.first;
 				holderTimeline->play("click", false);
@@ -240,17 +244,17 @@ void Drop::addEvents(Sprite* clickedObject)
 				{
 					if (_dropHeroTrailerImageBin[i]->getTag() == target->getTag())
 					{
-					//	_dropHeroTrailerImageBin[i]->removeChild(_dropHeroTrailerImageBin[i]->getChildByName("myLabel"),true);
-						_dropHeroTrailerAnimBin[i]->gotoFrameAndPlay(0, false);
-						 auto sp = std::make_tuple(_dropHeroTrailerImageBin[i], (Sprite*)target,i);
-						_dropHeroTrailerAnimBin[i]->setAnimationEndCallFunc("balldrop", CC_CALLBACK_0(Drop::removeHolderAnimationForHero, this, sp));
+						cocostudio::timeline::ActionTimeline* holderTimeline = CSLoader::createTimeline(_scenePath.at("holderAnimation"));
+						_dropHeroTrailerImageBin[i]->runAction(holderTimeline);
+						//auto sp = std::make_tuple(_dropHeroTrailerImageBin[i], _dropHeroTrailerImageBin[i], i);
+						holderTimeline->gotoFrameAndPlay(0, false);
 						break;
 					}
 				}
 			}
 			auto label = setAllLabelProperties(target->getChildren().at(0)->getName(), 0, (target->getPosition().x),(target->getPosition().y), true, 0.5, 0.5, 0, 1, 1, 100);
 			this->addChild(label, 0);
-			label->runAction(MoveTo::create(1, Vec2(label->getPosition().x, visibleSize.height*0.001)));
+			label->runAction(MoveTo::create(1, Vec2(label->getPosition().x, -visibleSize.height*0.002)));
 			_FallingLetter.push_back(label);
 			target->setVisible(false);
 
@@ -294,15 +298,17 @@ void Drop::removeHeroTrailer()
 			_dropHeroTrailerImageBin.erase(_dropHeroTrailerImageBin.begin() + i);
 		}
 	}
-	/*for (int i = 0; i < _dropHeroGarbageTrailer.size(); i++)
+}
+void Drop::removeFallingLetter()
+{
+	for (int i = 0; i < _FallingLetter.size(); i++)
 	{
-		auto letterHolder = CCRectMake(_dropHeroGarbageTrailer[i]->getPositionX(), _dropHeroGarbageTrailer[i]->getPositionY(), _dropHeroGarbageTrailer[i]->getContentSize().width, _dropHeroGarbageTrailer[i]->getContentSize().height);
-		if (letterHolder.intersectsRect(_removalPole->getBoundingBox()))
+		if(_FallingLetter[i]->getPosition().y<-(visibleSize.height*0.001))
 		{
-			this->removeChild(_dropHeroGarbageTrailer[i], true);
-			_dropHeroGarbageTrailer.erase(_dropHeroGarbageTrailer.begin() + i);
+			this->removeChild(_FallingLetter[i], true);
+			_FallingLetter.erase(_FallingLetter.begin() + i);
 		}
-	}*/
+	}
 }
 
 void Drop::basketLetterCollisionChecker()
@@ -317,7 +323,7 @@ void Drop::basketLetterCollisionChecker()
 				auto str = _basketBin[i]->getString();
 				if (!str.compare(_FallingLetter[j]->getString()))
 				{
-					/*_basketAnimBin[i]->play("full", false);*///jungle
+					_basketAnimBin[i]->play(_scenePath.at("rightAnimName"), false);
 					_basketBin[i]->setVisible(true);
 					_basketRect.erase(_basketRect.begin() + i);
 					_basketAnimBin.erase(_basketAnimBin.begin() + i);
@@ -326,8 +332,7 @@ void Drop::basketLetterCollisionChecker()
 				}
 				else
 				{
-					//_basketAnimBin[i]->play("correct", false);//jungle
-					_basketAnimBin[i]->play("wrong", false);
+					_basketAnimBin[i]->play(_scenePath.at("wrongAnimName"), false);
 					CCLOG("NO");
 				}
 				this->removeChild(_FallingLetter[j], true);
@@ -336,19 +341,18 @@ void Drop::basketLetterCollisionChecker()
 		}
 	}
 }
-
 void Drop::removeHolderAnimation(Sprite* anim)
 {
 	this->removeChild(anim, true);
 }
 
-void Drop::removeHolderAnimationForHero(std::tuple<Sprite*, Sprite*, int> tupal_data)
-{
-	std::get<1>(tupal_data)->removeAllChildren();
-	//_dropHeroGarbageTrailer.push_back(_dropHeroTrailerImageBin[std::get<2>(tupal_data)]);
-	_dropHeroTrailerImageBin.erase(_dropHeroTrailerImageBin.begin() + std::get<2>(tupal_data));
-	_dropHeroTrailerAnimBin.erase(_dropHeroTrailerAnimBin.begin() + std::get<2>(tupal_data));
-}
+//void Drop::removeHolderAnimationForHero(std::tuple<Sprite*, Sprite*, int> tupal_data)
+//{
+//	std::get<1>(tupal_data)->removeAllChildren();
+//	//_dropHeroGarbageTrailer.push_back(_dropHeroTrailerImageBin[std::get<2>(tupal_data)]);
+//	_dropHeroTrailerImageBin.erase(_dropHeroTrailerImageBin.begin() + std::get<2>(tupal_data));
+//	_dropHeroTrailerAnimBin.erase(_dropHeroTrailerAnimBin.begin() + std::get<2>(tupal_data));
+//}
 
 void Drop::setAllSpriteProperties(Sprite* sprite, int zOrder, float posX, float posY, bool visibility, float anchorPointX, float anchorPointY, float rotation, float scaleX, float scaleY)
 {
@@ -372,12 +376,12 @@ LabelTTF* Drop::setAllLabelProperties(std::string letterString, int zOrder, floa
 	label->setScaleY(scaleY);
 	return label;
 }
-std::pair<Sprite*, cocostudio::timeline::ActionTimeline*> Drop::setAnimationAndProperties(std::string csbString,float posX, float posY)
+std::pair<Sprite*, cocostudio::timeline::ActionTimeline*> Drop::setAnimationAndProperties(std::string csbString,float posX, float posY, int zOrder)
 { 
 	cocostudio::timeline::ActionTimeline* timeline = CSLoader::createTimeline(csbString);
 	Sprite* sprite = (Sprite *)CSLoader::createNode(csbString);
 	sprite->setPosition(Vec2(posX, posY));
 	sprite->runAction(timeline);
-	this->addChild(sprite,0);
+	this->addChild(sprite, zOrder);
 	return std::make_pair(sprite, timeline);
 }
