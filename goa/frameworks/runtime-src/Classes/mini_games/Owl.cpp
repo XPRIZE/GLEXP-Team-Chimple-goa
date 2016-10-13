@@ -70,6 +70,11 @@ bool Owl::init()
 	auto themeResourcePath = _sceneMap.at(_owlCurrentTheme);
 	Node* bg = CSLoader::createNode(themeResourcePath.at("bg"));
 	addChild(bg);
+	
+	if (visibleSize.width > 2560) {
+		auto myGameWidth = (visibleSize.width - 2560) / 2;
+		bg->setPositionX(myGameWidth);
+	}
 //	CCSpriteFrameCache::sharedSpriteFrameCache()->addSpriteFramesWithFile(themeResourcePath.at("plist"));
 
 	auto timelinecharacter1 = CSLoader::createTimeline(themeResourcePath.at("character1"));
@@ -216,8 +221,8 @@ void Owl::addEventsOnGrid(cocos2d::Sprite* callerObject)
 		auto target = event->getCurrentTarget();
 		Size s = target->getContentSize();
 		Rect rect = Rect(0, 0, s.width, s.height);
-		if (target->getBoundingBox().containsPoint(touch->getLocation()) && _flagToControlMuiltipleTouch) {
-			_flagToControlMuiltipleTouch = false;
+		if (target->getBoundingBox().containsPoint(touch->getLocation())) {
+			
 			auto childText =  target->getChildByName(target->getName());
 			target->setColor(Color3B::GRAY);
 			auto x = childText->getName();
@@ -239,45 +244,67 @@ void Owl::addEventsOnGrid(cocos2d::Sprite* callerObject)
 			if (target->getBoundingBox().containsPoint(touch->getLocation())) {
 
 				std::ostringstream blockName;	blockName << "blockLevel" << _blockLevel1; std::string blockNameInString = blockName.str();
-
-				auto blockChild = target->getParent()->getChildByName(blockNameInString)->getChildren();
-				CCLOG("THE LENGTH OF BLOCK IS : %d , the building level is : %d", blockChild.size(), _blockLevel1);
 				
 				if (_blockLevel1 <= (sizeof(_displayWord) / sizeof(_displayWord[0]))) {
-					if (blockChild.at(_textCounter)->getName() == target->getName()) {
+					auto blockChild = target->getParent()->getChildByName(blockNameInString)->getChildren();
 
-						blockChild.at(_textCounter)->getChildByName("hideBoard")->setVisible(false);
-						_textCounter++;
-						if (_textCounter == blockChild.size() && _blockLevel1 < (sizeof(_displayWord) / sizeof(_displayWord[0]))) {
-							CCLOG("NEXT BUILDING");
-							_textLabel->setString(_displayWord[++_textBoard]);
-							setBuildingBlock(++_blockLevel1);
-							crateLetterGridOnBuilding(_blockLevel1, _displayWord[_textBoard]);
-							_textCounter = 0;
+					if (blockChild.at(_textCounter)->getName() == target->getName() && _flagToControlMuiltipleTouch) {
+						_flagToControlMuiltipleTouch = false;
+						auto y = _sprite->getPositionY() - target->getPositionY();
+						auto x = -_sprite->getPositionX() + target->getPositionX();
+						float dist = sqrt((y*y) + (x*x));
+						auto blockBox = target->getParent()->getChildByName(blockNameInString);
 
-						}
-						else if (_textCounter == blockChild.size() && _blockLevel1 == (sizeof(_displayWord) / sizeof(_displayWord[0]))) {
-							_textCounter = 0;
-						}
+						auto moveToAlphaGridAction = MoveTo::create(dist/800,Vec2(target->getPositionX(),target->getPositionY()));
+						auto moveToAnswerGridAction = MoveTo::create(dist / 1000, Vec2((blockBox->getPositionX() - blockBox->getContentSize().width/2)+blockChild.at(_textCounter)->getPositionX(), blockBox->getPositionY()));
+						auto callFunct = CallFunc::create([=]() {
+//							this->runAction(Sequence::create(DelayTime::create(3), CallFunc::create([=]() { _flagToControlMuiltipleTouch = true; }), NULL));
+							scheduleUpdate();
+							_flagToControlMuiltipleTouch = true;
+							blockChild.at(_textCounter)->getChildByName("hideBoard")->setVisible(false);
+							_textCounter++;
+							_xStart = _sprite->getPositionX();      // Pixels
+							_yStart = blockBox->getPositionY() + blockBox->getContentSize().height;
+							if (counter % 2 != 0) {
+								_xStop = blockBox->getPositionX() - blockBox->getContentSize().width/2;
+								_ticks = 0;
+								_ticksTotal = 3 / (1.0/60.0);// Pixels
+							}else {
+								_xStop = blockBox->getPositionX() + blockBox->getContentSize().width / 2;
+								_ticks = 0;
+								_ticksTotal = 3 / (1.0/60.0);// Pixels
+							}
+
+							if (_textCounter == blockChild.size() && _blockLevel1 < (sizeof(_displayWord) / sizeof(_displayWord[0]))) {
+								_textLabel->setString(_displayWord[++_textBoard]);
+								setBuildingBlock(++_blockLevel1);
+								crateLetterGridOnBuilding(_blockLevel1, _displayWord[_textBoard]);
+								_textCounter = 0;
+							}
+							else if (_textCounter == blockChild.size() && _blockLevel1 == (sizeof(_displayWord) / sizeof(_displayWord[0]))) {
+								_textCounter = 0;
+								_blockLevel1++;
+								
+							}
+						});
+						
+//						_sprite->runAction(Sequence::create(CallFunc::create([=]() { unscheduleUpdate(); }), moveToAlphaGridAction,DelayTime::create(dist/800.0), moveToAnswerGridAction, DelayTime::create(dist / 1000.0), callFunct, NULL));
+						_sprite->runAction(Sequence::create(CallFunc::create([=]() { unscheduleUpdate(); }), moveToAlphaGridAction,moveToAnswerGridAction, callFunct, NULL));
 					}
 				}
 			}
-
-			this->runAction(Sequence::create(DelayTime::create(0.5),CallFunc::create([=]() { _flagToControlMuiltipleTouch = true; }),NULL));
 			
+
 		return false;
 	};
 
 	_eventDispatcher->addEventListenerWithSceneGraphPriority(listener, callerObject);
 }
 
-
-
 Owl::~Owl(void)
 {
 	this->removeAllChildrenWithCleanup(true);
 }
-
 
 void Owl::InitAnimation()
 {
@@ -307,15 +334,22 @@ void Owl::UpdateAnimation(float dt)
 		
 		double xPos = _xStart + seconds*_xSpeed;
 		double yPos = _yStart + Y_HEIGHT*sin(seconds * 2 * M_PI / 1.5); // (/1) Seconds for y cycle.
-		// Set the position of the sprite
 		_sprite->setPosition(Vec2(xPos,yPos));
 
 		_ticks++;
 	}
 	else {
 		counter++;
-		std::ostringstream blockName;	blockName << "blockLevel" << _blockLevel1; std::string blockNameInString = blockName.str();
-		auto block = this->getChildByName(blockNameInString);
+		Node *block;
+		if (_blockLevel1 > (sizeof(_displayWord) / sizeof(_displayWord[0]))) {
+			std::ostringstream blockName;	blockName << "blockLevel" << (sizeof(_displayWord) / sizeof(_displayWord[0])); std::string blockNameInString = blockName.str();
+			block = this->getChildByName(blockNameInString);
+		}
+		else {
+			std::ostringstream blockName;	blockName << "blockLevel" << _blockLevel1; std::string blockNameInString = blockName.str();
+			block = this->getChildByName(blockNameInString);
+		}
+
 		_yStart = block->getPositionY() + block->getContentSize().height;      // Pixels
 
 		if(counter%2 == 0){

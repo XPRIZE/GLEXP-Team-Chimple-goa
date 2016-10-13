@@ -82,6 +82,9 @@ const std::vector<std::string> StartMenu::getGameNames() {
 	gameNames.push_back(CIRCLE);
     gameNames.push_back(TALK);
 	gameNames.push_back(STACK);
+	gameNames.push_back(OWL);
+	gameNames.push_back(PINATA);
+
     return gameNames;
 
 }
