@@ -44,7 +44,7 @@ cocos2d::Scene * Dash::createScene()
 	auto layer = Dash::create();
 	scene->addChild(layer);
 
-	layer->menu = MenuContext::create(layer, "dash", true);
+	layer->menu = MenuContext::create(layer,Dash::gameName(), true);
 	scene->addChild(layer->menu);
 	return scene;
 }
