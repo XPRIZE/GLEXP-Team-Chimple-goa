@@ -178,6 +178,12 @@ child = decomon_icon_mouth*/
 	
 
 	//BalooBhai-Regular.ttf
+	cocos2d::ui::TextBMFont * my = cocos2d::ui::TextBMFont::create(LangUtil::convertUTF16CharToString(CharGenerator::getInstance()->generateAChar()), LangUtil::getInstance()->getBMFontFileName());
+	my->setPositionX(visibleSize.width / 2);
+	my->setPositionY(visibleSize.height / 2);
+	my->setScale(2);
+	auto x = my->getBoundingBox().origin;
+	auto sssize = my->getContentSize();
 	auto myLabel = Label::createWithBMFont(LangUtil::getInstance()->getBMFontFileName(), LangUtil::convertUTF16CharToString(CharGenerator::getInstance()->generateAChar()));
 	//auto myLabel = Label::createWithTTF("A", "fonts/BalooBhai-Regular.ttf",1600);
 	myLabel->setPositionX(visibleSize.width / 2);// , visibleSize.height/ 2);
@@ -189,7 +195,7 @@ child = decomon_icon_mouth*/
 	myLabel->setScale(2);
 	myLabel->setName("alphabet");
 	//this->addChild(myLabel);
-
+	//_alphabetLabel =  static_cast<Label*> (myLabel);
 	auto maskedFill = ClippingNode::create(myLabel);
 	//maskedFill->setPosition(Vec2(0,0));
 	maskedFill->setContentSize(visibleSize);
@@ -225,10 +231,15 @@ child = decomon_icon_mouth*/
 	//	(visibleSize.height / 2 - 500 < y) && (visibleSize.height / 2 + 700 > y))
 	Vec2 vertices[] =
 	{
-		Vec2(visibleSize.width / 2 - 700,visibleSize.height / 2 + 700),
+		/*Vec2(visibleSize.width / 2 - 700,visibleSize.height / 2 + 700),
 		Vec2(visibleSize.width / 2 + 900,visibleSize.height / 2 + 700),
 		Vec2(visibleSize.width / 2 + 900,visibleSize.height / 2 - 500),
-		Vec2(visibleSize.width / 2 - 700,visibleSize.height / 2 - 500)
+		Vec2(visibleSize.width / 2 - 700,visibleSize.height / 2 - 500)*/
+		Vec2(x),
+		Vec2(x.x + sssize.width, x.y),
+		Vec2(x.x + sssize.width,x.y + sssize.height),
+		Vec2(x.x,x.y + sssize.height)
+
 	};
 	node->drawPolygon(vertices, 4, Color4F(1.0f, 0.3f, 0.3f, 0), 3, Color4F(0.2f, 0.2f, 0.2f, 1));
 	addChild(node);

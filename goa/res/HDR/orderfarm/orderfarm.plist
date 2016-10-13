@@ -11,11 +11,11 @@
                 <key>spriteOffset</key>
                 <string>{0,0}</string>
                 <key>spriteSize</key>
-                <string>{662,153}</string>
+                <string>{640,131}</string>
                 <key>spriteSourceSize</key>
-                <string>{662,153}</string>
+                <string>{640,131}</string>
                 <key>textureRect</key>
-                <string>{{1,313},{662,153}}</string>
+                <string>{{1235,585},{640,131}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
@@ -30,7 +30,7 @@
                 <key>spriteSourceSize</key>
                 <string>{482,482}</string>
                 <key>textureRect</key>
-                <string>{{494,1205},{482,482}}</string>
+                <string>{{1371,1},{482,482}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
@@ -45,7 +45,7 @@
                 <key>spriteSourceSize</key>
                 <string>{658,561}</string>
                 <key>textureRect</key>
-                <string>{{1,468},{658,561}}</string>
+                <string>{{1,1},{658,561}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
@@ -60,7 +60,22 @@
                 <key>spriteSourceSize</key>
                 <string>{708,269}</string>
                 <key>textureRect</key>
-                <string>{{1,1},{708,269}}</string>
+                <string>{{661,1},{708,269}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+            <key>orderfarm/grass1.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{708,269}</string>
+                <key>spriteSourceSize</key>
+                <string>{708,269}</string>
+                <key>textureRect</key>
+                <string>{{661,272},{708,269}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
@@ -75,7 +90,7 @@
                 <key>spriteSourceSize</key>
                 <string>{92,67}</string>
                 <key>textureRect</key>
-                <string>{{394,1648},{92,67}}</string>
+                <string>{{997,882},{92,67}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
@@ -90,9 +105,9 @@
                 <key>spriteSourceSize</key>
                 <string>{39,147}</string>
                 <key>textureRect</key>
-                <string>{{665,313},{39,147}}</string>
+                <string>{{1,957},{39,147}}</string>
                 <key>textureRotated</key>
-                <false/>
+                <true/>
             </dict>
             <key>orderfarm/pigbody.png</key>
             <dict>
@@ -105,9 +120,9 @@
                 <key>spriteSourceSize</key>
                 <string>{583,422}</string>
                 <key>textureRect</key>
-                <string>{{711,1},{583,296}}</string>
+                <string>{{650,584},{583,296}}</string>
                 <key>textureRotated</key>
-                <true/>
+                <false/>
             </dict>
             <key>orderfarm/pighead.png</key>
             <dict>
@@ -120,7 +135,7 @@
                 <key>spriteSourceSize</key>
                 <string>{276,311}</string>
                 <key>textureRect</key>
-                <string>{{661,868},{276,311}}</string>
+                <string>{{1235,718},{276,311}}</string>
                 <key>textureRotated</key>
                 <true/>
             </dict>
@@ -135,7 +150,7 @@
                 <key>spriteSourceSize</key>
                 <string>{280,311}</string>
                 <key>textureRect</key>
-                <string>{{661,586},{280,311}}</string>
+                <string>{{1548,718},{280,311}}</string>
                 <key>textureRotated</key>
                 <true/>
             </dict>
@@ -150,9 +165,9 @@
                 <key>spriteSourceSize</key>
                 <string>{86,172}</string>
                 <key>textureRect</key>
-                <string>{{567,1031},{86,172}}</string>
+                <string>{{650,882},{86,172}}</string>
                 <key>textureRotated</key>
-                <false/>
+                <true/>
             </dict>
             <key>orderfarm/pigleg2.png</key>
             <dict>
@@ -165,7 +180,7 @@
                 <key>spriteSourceSize</key>
                 <string>{87,171}</string>
                 <key>textureRect</key>
-                <string>{{394,1031},{87,171}}</string>
+                <string>{{824,882},{87,171}}</string>
                 <key>textureRotated</key>
                 <true/>
             </dict>
@@ -180,7 +195,7 @@
                 <key>spriteSourceSize</key>
                 <string>{39,708}</string>
                 <key>textureRect</key>
-                <string>{{1,272},{39,708}}</string>
+                <string>{{661,543},{39,708}}</string>
                 <key>textureRotated</key>
                 <true/>
             </dict>
@@ -195,9 +210,9 @@
                 <key>spriteSourceSize</key>
                 <string>{647,391}</string>
                 <key>textureRect</key>
-                <string>{{1,1031},{647,391}}</string>
+                <string>{{1,564},{647,391}}</string>
                 <key>textureRotated</key>
-                <true/>
+                <false/>
             </dict>
             <key>orderfarm/woodblock.png</key>
             <dict>
@@ -210,9 +225,9 @@
                 <key>spriteSourceSize</key>
                 <string>{500,98}</string>
                 <key>textureRect</key>
-                <string>{{394,1146},{500,98}}</string>
+                <string>{{1371,485},{500,98}}</string>
                 <key>textureRotated</key>
-                <true/>
+                <false/>
             </dict>
         </dict>
         <key>metadata</key>
@@ -226,9 +241,9 @@
             <key>realTextureFileName</key>
             <string>orderfarm.png</string>
             <key>size</key>
-            <string>{1008,1716}</string>
+            <string>{1876,999}</string>
             <key>smartupdate</key>
-            <string>$TexturePacker:SmartUpdate:42ad0aa2b5e1eafa41bc4c8b832d95f7:5ababd0d936218002b9d6d26e0671da3:1d3d65b9f068fdaada8f88723621f7f9$</string>
+            <string>$TexturePacker:SmartUpdate:c826e168fb3ef186c6fa9473c269eb23:1b168ffba6f0d105d84c357f8534f3fb:1d3d65b9f068fdaada8f88723621f7f9$</string>
             <key>textureFileName</key>
             <string>orderfarm.png</string>
         </dict>
