@@ -1,0 +1,676 @@
+{
+  "ID": "d0f9dc73-01a2-4555-a2a4-4d60be1e9ffc",
+  "Version": "3.10.0.0",
+  "Name": "mainground",
+  "Content": {
+    "Content": {
+      "Animation": {
+        "Duration": 0,
+        "Speed": 1.0,
+        "Timelines": [],
+        "ctype": "TimelineActionData"
+      },
+      "AnimationList": [],
+      "ObjectData": {
+        "Tag": 13,
+        "Children": [
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "faceavatar/avatar.json",
+              "Plist": ""
+            },
+            "StretchWidthEnable": false,
+            "StretchHeightEnable": false,
+            "InnerActionSpeed": 1.0,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 1280.0,
+              "Y": 900.0
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 0.5,
+              "Y": 0.5
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 1280.0,
+            "RightMargin": 1280.0,
+            "TopMargin": 900.0,
+            "BottomMargin": 900.0,
+            "Tag": 67,
+            "ActionTag": -1566846693,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "avatar",
+            "ctype": "ProjectNodeObjectData"
+          },
+          {
+            "FontSize": 14,
+            "ButtonText": "",
+            "TextColor": {
+              "R": 65,
+              "G": 65,
+              "B": 70
+            },
+            "DisabledFileData": {
+              "Type": "Default",
+              "Path": "Default/Button_Disable.png",
+              "Plist": ""
+            },
+            "PressedFileData": {
+              "Type": "MarkedSubImage",
+              "Path": "faceavatar/faceshapepressed.png",
+              "Plist": "faceavatar/faceavatar.plist"
+            },
+            "NormalFileData": {
+              "Type": "MarkedSubImage",
+              "Path": "faceavatar/faceshapenormal.png",
+              "Plist": "faceavatar/faceavatar.plist"
+            },
+            "Scale9Enable": true,
+            "Scale9OriginX": 15,
+            "Scale9OriginY": 11,
+            "Scale9Width": 187,
+            "Scale9Height": 195,
+            "OutlineColor": {
+              "G": 0,
+              "B": 0
+            },
+            "ShadowColor": {
+              "R": 110,
+              "G": 110,
+              "B": 110
+            },
+            "ShadowOffsetX": 2.0,
+            "ShadowOffsetY": -2.0,
+            "TouchEnable": true,
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 225.1787,
+              "Y": 173.4618
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.088,
+              "Y": 0.0964
+            },
+            "PreSize": {
+              "X": 0.0848,
+              "Y": 0.1206
+            },
+            "LeftMargin": 116.6787,
+            "RightMargin": 2226.3213,
+            "TopMargin": 1518.0382,
+            "BottomMargin": 64.9618,
+            "Tag": 111,
+            "ActionTag": -914571322,
+            "Size": {
+              "X": 217.0,
+              "Y": 217.0
+            },
+            "Name": "faceshape",
+            "ctype": "ButtonObjectData"
+          },
+          {
+            "FontSize": 14,
+            "ButtonText": "",
+            "TextColor": {
+              "R": 65,
+              "G": 65,
+              "B": 70
+            },
+            "DisabledFileData": {
+              "Type": "Default",
+              "Path": "Default/Button_Disable.png",
+              "Plist": ""
+            },
+            "PressedFileData": {
+              "Type": "MarkedSubImage",
+              "Path": "faceavatar/nosepressed.png",
+              "Plist": "faceavatar/faceavatar.plist"
+            },
+            "NormalFileData": {
+              "Type": "MarkedSubImage",
+              "Path": "faceavatar/nosenormal.png",
+              "Plist": "faceavatar/faceavatar.plist"
+            },
+            "Scale9Enable": true,
+            "Scale9OriginX": 15,
+            "Scale9OriginY": 11,
+            "Scale9Width": 187,
+            "Scale9Height": 195,
+            "OutlineColor": {
+              "G": 0,
+              "B": 0
+            },
+            "ShadowColor": {
+              "R": 110,
+              "G": 110,
+              "B": 110
+            },
+            "ShadowOffsetX": 2.0,
+            "ShadowOffsetY": -2.0,
+            "TouchEnable": true,
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1446.3054,
+              "Y": 173.4618
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.565,
+              "Y": 0.0964
+            },
+            "PreSize": {
+              "X": 0.0848,
+              "Y": 0.1206
+            },
+            "LeftMargin": 1337.8054,
+            "RightMargin": 1005.1946,
+            "TopMargin": 1518.0382,
+            "BottomMargin": 64.9618,
+            "Tag": 112,
+            "ActionTag": -1893491949,
+            "Size": {
+              "X": 217.0,
+              "Y": 217.0
+            },
+            "Name": "nose",
+            "ctype": "ButtonObjectData"
+          },
+          {
+            "FontSize": 14,
+            "ButtonText": "",
+            "TextColor": {
+              "R": 65,
+              "G": 65,
+              "B": 70
+            },
+            "DisabledFileData": {
+              "Type": "Default",
+              "Path": "Default/Button_Disable.png",
+              "Plist": ""
+            },
+            "PressedFileData": {
+              "Type": "MarkedSubImage",
+              "Path": "faceavatar/eyepressed.png",
+              "Plist": "faceavatar/faceavatar.plist"
+            },
+            "NormalFileData": {
+              "Type": "MarkedSubImage",
+              "Path": "faceavatar/eyenormal.png",
+              "Plist": "faceavatar/faceavatar.plist"
+            },
+            "Scale9Enable": true,
+            "Scale9OriginX": 15,
+            "Scale9OriginY": 11,
+            "Scale9Width": 187,
+            "Scale9Height": 195,
+            "OutlineColor": {
+              "G": 0,
+              "B": 0
+            },
+            "ShadowColor": {
+              "R": 110,
+              "G": 110,
+              "B": 110
+            },
+            "ShadowOffsetX": 2.0,
+            "ShadowOffsetY": -2.0,
+            "TouchEnable": true,
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 526.3593,
+              "Y": 173.4624
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.2056,
+              "Y": 0.0964
+            },
+            "PreSize": {
+              "X": 0.0848,
+              "Y": 0.1206
+            },
+            "LeftMargin": 417.8593,
+            "RightMargin": 1925.1407,
+            "TopMargin": 1518.0376,
+            "BottomMargin": 64.9624,
+            "Tag": 113,
+            "ActionTag": 261028539,
+            "Size": {
+              "X": 217.0,
+              "Y": 217.0
+            },
+            "Name": "eye",
+            "ctype": "ButtonObjectData"
+          },
+          {
+            "FontSize": 14,
+            "ButtonText": "",
+            "TextColor": {
+              "R": 65,
+              "G": 65,
+              "B": 70
+            },
+            "DisabledFileData": {
+              "Type": "Default",
+              "Path": "Default/Button_Disable.png",
+              "Plist": ""
+            },
+            "PressedFileData": {
+              "Type": "MarkedSubImage",
+              "Path": "faceavatar/eyeballspressed.png",
+              "Plist": "faceavatar/faceavatar.plist"
+            },
+            "NormalFileData": {
+              "Type": "MarkedSubImage",
+              "Path": "faceavatar/eyeballsnormal.png",
+              "Plist": "faceavatar/faceavatar.plist"
+            },
+            "Scale9Enable": true,
+            "Scale9OriginX": 15,
+            "Scale9OriginY": 11,
+            "Scale9Width": 187,
+            "Scale9Height": 195,
+            "OutlineColor": {
+              "G": 0,
+              "B": 0
+            },
+            "ShadowColor": {
+              "R": 110,
+              "G": 110,
+              "B": 110
+            },
+            "ShadowOffsetX": 2.0,
+            "ShadowOffsetY": -2.0,
+            "TouchEnable": true,
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 835.3561,
+              "Y": 173.4618
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.3263,
+              "Y": 0.0964
+            },
+            "PreSize": {
+              "X": 0.0848,
+              "Y": 0.1206
+            },
+            "LeftMargin": 726.8561,
+            "RightMargin": 1616.1438,
+            "TopMargin": 1518.0382,
+            "BottomMargin": 64.9618,
+            "Tag": 114,
+            "ActionTag": -1730631215,
+            "Size": {
+              "X": 217.0,
+              "Y": 217.0
+            },
+            "Name": "eyeballs",
+            "ctype": "ButtonObjectData"
+          },
+          {
+            "FontSize": 14,
+            "ButtonText": "",
+            "TextColor": {
+              "R": 65,
+              "G": 65,
+              "B": 70
+            },
+            "DisabledFileData": {
+              "Type": "Default",
+              "Path": "Default/Button_Disable.png",
+              "Plist": ""
+            },
+            "PressedFileData": {
+              "Type": "MarkedSubImage",
+              "Path": "faceavatar/eyebrowpressed.png",
+              "Plist": "faceavatar/faceavatar.plist"
+            },
+            "NormalFileData": {
+              "Type": "MarkedSubImage",
+              "Path": "faceavatar/eyebrownormal.png",
+              "Plist": "faceavatar/faceavatar.plist"
+            },
+            "Scale9Enable": true,
+            "Scale9OriginX": 15,
+            "Scale9OriginY": 11,
+            "Scale9Width": 187,
+            "Scale9Height": 195,
+            "OutlineColor": {
+              "G": 0,
+              "B": 0
+            },
+            "ShadowColor": {
+              "R": 110,
+              "G": 110,
+              "B": 110
+            },
+            "ShadowOffsetX": 2.0,
+            "ShadowOffsetY": -2.0,
+            "TouchEnable": true,
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1138.825,
+              "Y": 173.4618
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.4449,
+              "Y": 0.0964
+            },
+            "PreSize": {
+              "X": 0.0848,
+              "Y": 0.1206
+            },
+            "LeftMargin": 1030.325,
+            "RightMargin": 1312.675,
+            "TopMargin": 1518.0382,
+            "BottomMargin": 64.9618,
+            "Tag": 115,
+            "ActionTag": -804524994,
+            "Size": {
+              "X": 217.0,
+              "Y": 217.0
+            },
+            "Name": "eyebrow",
+            "ctype": "ButtonObjectData"
+          },
+          {
+            "FontSize": 14,
+            "ButtonText": "",
+            "TextColor": {
+              "R": 65,
+              "G": 65,
+              "B": 70
+            },
+            "DisabledFileData": {
+              "Type": "Default",
+              "Path": "Default/Button_Disable.png",
+              "Plist": ""
+            },
+            "PressedFileData": {
+              "Type": "MarkedSubImage",
+              "Path": "faceavatar/mouthpressed.png",
+              "Plist": "faceavatar/faceavatar.plist"
+            },
+            "NormalFileData": {
+              "Type": "MarkedSubImage",
+              "Path": "faceavatar/mouthnormal.png",
+              "Plist": "faceavatar/faceavatar.plist"
+            },
+            "Scale9Enable": true,
+            "Scale9OriginX": 15,
+            "Scale9OriginY": 11,
+            "Scale9Width": 187,
+            "Scale9Height": 195,
+            "OutlineColor": {
+              "G": 0,
+              "B": 0
+            },
+            "ShadowColor": {
+              "R": 110,
+              "G": 110,
+              "B": 110
+            },
+            "ShadowOffsetX": 2.0,
+            "ShadowOffsetY": -2.0,
+            "TouchEnable": true,
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1748.9751,
+              "Y": 173.4618
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.6832,
+              "Y": 0.0964
+            },
+            "PreSize": {
+              "X": 0.0848,
+              "Y": 0.1206
+            },
+            "LeftMargin": 1640.4751,
+            "RightMargin": 702.5249,
+            "TopMargin": 1518.0382,
+            "BottomMargin": 64.9618,
+            "Tag": 116,
+            "ActionTag": 2108728373,
+            "Size": {
+              "X": 217.0,
+              "Y": 217.0
+            },
+            "Name": "mouth",
+            "ctype": "ButtonObjectData"
+          },
+          {
+            "FontSize": 14,
+            "ButtonText": "",
+            "TextColor": {
+              "R": 65,
+              "G": 65,
+              "B": 70
+            },
+            "DisabledFileData": {
+              "Type": "Default",
+              "Path": "Default/Button_Disable.png",
+              "Plist": ""
+            },
+            "PressedFileData": {
+              "Type": "MarkedSubImage",
+              "Path": "faceavatar/shufflepressed.png",
+              "Plist": "faceavatar/faceavatar.plist"
+            },
+            "NormalFileData": {
+              "Type": "MarkedSubImage",
+              "Path": "faceavatar/shuffle.png",
+              "Plist": "faceavatar/faceavatar.plist"
+            },
+            "Scale9Enable": true,
+            "Scale9OriginX": 15,
+            "Scale9OriginY": 11,
+            "Scale9Width": 307,
+            "Scale9Height": 315,
+            "OutlineColor": {
+              "G": 0,
+              "B": 0
+            },
+            "ShadowColor": {
+              "R": 110,
+              "G": 110,
+              "B": 110
+            },
+            "ShadowOffsetX": 2.0,
+            "ShadowOffsetY": -2.0,
+            "TouchEnable": true,
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 366.7218,
+              "Y": 638.3646
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.1433,
+              "Y": 0.3546
+            },
+            "PreSize": {
+              "X": 0.1316,
+              "Y": 0.1872
+            },
+            "LeftMargin": 198.2218,
+            "RightMargin": 2024.7782,
+            "TopMargin": 993.1354,
+            "BottomMargin": 469.8646,
+            "Tag": 288,
+            "ActionTag": -164461080,
+            "Size": {
+              "X": 337.0,
+              "Y": 337.0
+            },
+            "Name": "shuffle",
+            "ctype": "ButtonObjectData"
+          },
+          {
+            "FontSize": 14,
+            "ButtonText": "",
+            "TextColor": {
+              "R": 65,
+              "G": 65,
+              "B": 70
+            },
+            "DisabledFileData": {
+              "Type": "Default",
+              "Path": "Default/Button_Disable.png",
+              "Plist": ""
+            },
+            "PressedFileData": {
+              "Type": "MarkedSubImage",
+              "Path": "faceavatar/finishpressed.png",
+              "Plist": "faceavatar/faceavatar.plist"
+            },
+            "NormalFileData": {
+              "Type": "MarkedSubImage",
+              "Path": "faceavatar/finish.png",
+              "Plist": "faceavatar/faceavatar.plist"
+            },
+            "Scale9Enable": true,
+            "Scale9OriginX": 15,
+            "Scale9OriginY": 11,
+            "Scale9Width": 307,
+            "Scale9Height": 315,
+            "OutlineColor": {
+              "G": 0,
+              "B": 0
+            },
+            "ShadowColor": {
+              "R": 110,
+              "G": 110,
+              "B": 110
+            },
+            "ShadowOffsetX": 2.0,
+            "ShadowOffsetY": -2.0,
+            "TouchEnable": true,
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 2194.615,
+              "Y": 638.3652
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.8573,
+              "Y": 0.3546
+            },
+            "PreSize": {
+              "X": 0.1316,
+              "Y": 0.1872
+            },
+            "LeftMargin": 2026.115,
+            "RightMargin": 196.885,
+            "TopMargin": 993.1348,
+            "BottomMargin": 469.8652,
+            "Tag": 289,
+            "ActionTag": -222805365,
+            "Size": {
+              "X": 337.0,
+              "Y": 337.0
+            },
+            "Name": "finish",
+            "ctype": "ButtonObjectData"
+          }
+        ],
+        "Size": {
+          "X": 2560.0,
+          "Y": 1800.0
+        },
+        "Name": "Layer",
+        "ctype": "LayerObjectData"
+      },
+      "UsedResources": [
+        "../Default/Button_Disable.png",
+        "avatar.json",
+        "faceavatar.plist",
+        "faceavatar.png"
+      ],
+      "ctype": "GameFileData"
+    }
+  },
+  "Type": "Layer"
+}

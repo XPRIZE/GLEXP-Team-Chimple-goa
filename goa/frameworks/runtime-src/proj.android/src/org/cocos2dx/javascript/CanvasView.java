@@ -29,6 +29,7 @@ public class CanvasView extends View implements OnTouchListener {
 	private Stroke[] _recognitionStrokes;
 	private ArrayList<Symbol> _symbols;
 	public static String[] character;
+	public static float[] confidences;
 	public static int StrokeResultCount = 0;
 
 	ArrayList<Values> vals = new ArrayList<Values>();
@@ -223,8 +224,10 @@ public class CanvasView extends View implements OnTouchListener {
 
 		String configFileDirectory = _recognizer.getLipiDirectory() + "/projects/alphanumeric/config/";
 		character = new String[results.length];
+		confidences = new float[results.length];
 		for (int i = 0; i < character.length; i++) {
 			character[i] = _recognizer.getSymbolName(results[i].Id, configFileDirectory);
+			confidences[i] = results[i].Confidence;
 		}
 
 		StrokeResultCount = results.length;
