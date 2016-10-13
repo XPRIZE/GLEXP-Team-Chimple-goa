@@ -4,228 +4,243 @@
     <dict>
         <key>frames</key>
         <dict>
-            <key>orderfarm/box.png</key>
+            <key>orderhero/box.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
                 <key>spriteOffset</key>
                 <string>{0,0}</string>
                 <key>spriteSize</key>
-                <string>{640,131}</string>
+                <string>{160,32}</string>
                 <key>spriteSourceSize</key>
-                <string>{640,131}</string>
+                <string>{160,32}</string>
                 <key>textureRect</key>
-                <string>{{1235,585},{640,131}}</string>
-                <key>textureRotated</key>
-                <false/>
-            </dict>
-            <key>orderfarm/boxbg.png</key>
-            <dict>
-                <key>aliases</key>
-                <array/>
-                <key>spriteOffset</key>
-                <string>{0,0}</string>
-                <key>spriteSize</key>
-                <string>{482,482}</string>
-                <key>spriteSourceSize</key>
-                <string>{482,482}</string>
-                <key>textureRect</key>
-                <string>{{1371,1},{482,482}}</string>
-                <key>textureRotated</key>
-                <false/>
-            </dict>
-            <key>orderfarm/cart.png</key>
-            <dict>
-                <key>aliases</key>
-                <array/>
-                <key>spriteOffset</key>
-                <string>{0,0}</string>
-                <key>spriteSize</key>
-                <string>{658,561}</string>
-                <key>spriteSourceSize</key>
-                <string>{658,561}</string>
-                <key>textureRect</key>
-                <string>{{1,1},{658,561}}</string>
-                <key>textureRotated</key>
-                <false/>
-            </dict>
-            <key>orderfarm/grass.png</key>
-            <dict>
-                <key>aliases</key>
-                <array/>
-                <key>spriteOffset</key>
-                <string>{0,0}</string>
-                <key>spriteSize</key>
-                <string>{708,269}</string>
-                <key>spriteSourceSize</key>
-                <string>{708,269}</string>
-                <key>textureRect</key>
-                <string>{{661,1},{708,269}}</string>
-                <key>textureRotated</key>
-                <false/>
-            </dict>
-            <key>orderfarm/grass1.png</key>
-            <dict>
-                <key>aliases</key>
-                <array/>
-                <key>spriteOffset</key>
-                <string>{0,0}</string>
-                <key>spriteSize</key>
-                <string>{708,269}</string>
-                <key>spriteSourceSize</key>
-                <string>{708,269}</string>
-                <key>textureRect</key>
-                <string>{{661,272},{708,269}}</string>
-                <key>textureRotated</key>
-                <false/>
-            </dict>
-            <key>orderfarm/knotback.png</key>
-            <dict>
-                <key>aliases</key>
-                <array/>
-                <key>spriteOffset</key>
-                <string>{0,0}</string>
-                <key>spriteSize</key>
-                <string>{92,67}</string>
-                <key>spriteSourceSize</key>
-                <string>{92,67}</string>
-                <key>textureRect</key>
-                <string>{{997,882},{92,67}}</string>
-                <key>textureRotated</key>
-                <false/>
-            </dict>
-            <key>orderfarm/knotfront.png</key>
-            <dict>
-                <key>aliases</key>
-                <array/>
-                <key>spriteOffset</key>
-                <string>{0,0}</string>
-                <key>spriteSize</key>
-                <string>{39,147}</string>
-                <key>spriteSourceSize</key>
-                <string>{39,147}</string>
-                <key>textureRect</key>
-                <string>{{1,957},{39,147}}</string>
+                <string>{{163,659},{160,32}}</string>
                 <key>textureRotated</key>
                 <true/>
             </dict>
-            <key>orderfarm/pigbody.png</key>
+            <key>orderhero/city.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
                 <key>spriteOffset</key>
-                <string>{0,-63}</string>
+                <string>{0,0}</string>
                 <key>spriteSize</key>
-                <string>{583,296}</string>
+                <string>{398,245}</string>
                 <key>spriteSourceSize</key>
-                <string>{583,422}</string>
+                <string>{398,245}</string>
                 <key>textureRect</key>
-                <string>{{650,584},{583,296}}</string>
+                <string>{{1,86},{398,245}}</string>
+                <key>textureRotated</key>
+                <true/>
+            </dict>
+            <key>orderhero/cloud1.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{127,66}</string>
+                <key>spriteSourceSize</key>
+                <string>{127,66}</string>
+                <key>textureRect</key>
+                <string>{{1,1361},{127,66}}</string>
+                <key>textureRotated</key>
+                <true/>
+            </dict>
+            <key>orderhero/cloud2.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{160,78}</string>
+                <key>spriteSourceSize</key>
+                <string>{160,78}</string>
+                <key>textureRect</key>
+                <string>{{1,659},{160,78}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>orderfarm/pighead.png</key>
+            <key>orderhero/cloud3.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
                 <key>spriteOffset</key>
                 <string>{0,0}</string>
                 <key>spriteSize</key>
-                <string>{276,311}</string>
+                <string>{200,97}</string>
                 <key>spriteSourceSize</key>
-                <string>{276,311}</string>
+                <string>{200,97}</string>
                 <key>textureRect</key>
-                <string>{{1235,718},{276,311}}</string>
-                <key>textureRotated</key>
-                <true/>
-            </dict>
-            <key>orderfarm/pigheadeat.png</key>
-            <dict>
-                <key>aliases</key>
-                <array/>
-                <key>spriteOffset</key>
-                <string>{0,0}</string>
-                <key>spriteSize</key>
-                <string>{280,311}</string>
-                <key>spriteSourceSize</key>
-                <string>{280,311}</string>
-                <key>textureRect</key>
-                <string>{{1548,718},{280,311}}</string>
-                <key>textureRotated</key>
-                <true/>
-            </dict>
-            <key>orderfarm/pigleg.png</key>
-            <dict>
-                <key>aliases</key>
-                <array/>
-                <key>spriteOffset</key>
-                <string>{0,0}</string>
-                <key>spriteSize</key>
-                <string>{86,172}</string>
-                <key>spriteSourceSize</key>
-                <string>{86,172}</string>
-                <key>textureRect</key>
-                <string>{{650,882},{86,172}}</string>
-                <key>textureRotated</key>
-                <true/>
-            </dict>
-            <key>orderfarm/pigleg2.png</key>
-            <dict>
-                <key>aliases</key>
-                <array/>
-                <key>spriteOffset</key>
-                <string>{0,0}</string>
-                <key>spriteSize</key>
-                <string>{87,171}</string>
-                <key>spriteSourceSize</key>
-                <string>{87,171}</string>
-                <key>textureRect</key>
-                <string>{{824,882},{87,171}}</string>
-                <key>textureRotated</key>
-                <true/>
-            </dict>
-            <key>orderfarm/rope.png</key>
-            <dict>
-                <key>aliases</key>
-                <array/>
-                <key>spriteOffset</key>
-                <string>{0,0}</string>
-                <key>spriteSize</key>
-                <string>{39,708}</string>
-                <key>spriteSourceSize</key>
-                <string>{39,708}</string>
-                <key>textureRect</key>
-                <string>{{661,543},{39,708}}</string>
-                <key>textureRotated</key>
-                <true/>
-            </dict>
-            <key>orderfarm/ropehanging.png</key>
-            <dict>
-                <key>aliases</key>
-                <array/>
-                <key>spriteOffset</key>
-                <string>{0,0}</string>
-                <key>spriteSize</key>
-                <string>{647,391}</string>
-                <key>spriteSourceSize</key>
-                <string>{647,391}</string>
-                <key>textureRect</key>
-                <string>{{1,564},{647,391}}</string>
+                <string>{{1,560},{200,97}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>orderfarm/woodblock.png</key>
+            <key>orderhero/cloud4.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
                 <key>spriteOffset</key>
                 <string>{0,0}</string>
                 <key>spriteSize</key>
-                <string>{500,98}</string>
+                <string>{144,76}</string>
                 <key>spriteSourceSize</key>
-                <string>{500,98}</string>
+                <string>{144,76}</string>
                 <key>textureRect</key>
-                <string>{{1371,485},{500,98}}</string>
+                <string>{{1,739},{144,76}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+            <key>orderhero/fg.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{254,83}</string>
+                <key>spriteSourceSize</key>
+                <string>{254,83}</string>
+                <key>textureRect</key>
+                <string>{{1,1},{254,83}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+            <key>orderhero/grass.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{641,72}</string>
+                <key>spriteSourceSize</key>
+                <string>{641,72}</string>
+                <key>textureRect</key>
+                <string>{{145,821},{641,72}}</string>
+                <key>textureRotated</key>
+                <true/>
+            </dict>
+            <key>orderhero/paintbucket.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{64,66}</string>
+                <key>spriteSourceSize</key>
+                <string>{64,66}</string>
+                <key>textureRect</key>
+                <string>{{69,1361},{64,66}}</string>
+                <key>textureRotated</key>
+                <true/>
+            </dict>
+            <key>orderhero/paintbucket2.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{64,66}</string>
+                <key>spriteSourceSize</key>
+                <string>{64,66}</string>
+                <key>textureRect</key>
+                <string>{{69,1427},{64,66}}</string>
+                <key>textureRotated</key>
+                <true/>
+            </dict>
+            <key>orderhero/platform.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{221,72}</string>
+                <key>spriteSourceSize</key>
+                <string>{221,72}</string>
+                <key>textureRect</key>
+                <string>{{1,486},{221,72}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+            <key>orderhero/ramp.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{142,542}</string>
+                <key>spriteSourceSize</key>
+                <string>{142,542}</string>
+                <key>textureRect</key>
+                <string>{{1,817},{142,542}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+            <key>orderhero/treadmill.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{199,49}</string>
+                <key>spriteSourceSize</key>
+                <string>{199,49}</string>
+                <key>textureRect</key>
+                <string>{{203,560},{199,49}}</string>
+                <key>textureRotated</key>
+                <true/>
+            </dict>
+            <key>orderhero/treadmillrun1.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{26,23}</string>
+                <key>spriteSourceSize</key>
+                <string>{26,23}</string>
+                <key>textureRect</key>
+                <string>{{224,486},{26,23}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+            <key>orderhero/treadmillrun2.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{26,21}</string>
+                <key>spriteSourceSize</key>
+                <string>{26,21}</string>
+                <key>textureRect</key>
+                <string>{{224,511},{26,21}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+            <key>orderhero/treadmillwheel.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{32,32}</string>
+                <key>spriteSourceSize</key>
+                <string>{32,32}</string>
+                <key>textureRect</key>
+                <string>{{197,761},{32,32}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
@@ -239,13 +254,13 @@
             <key>premultiplyAlpha</key>
             <false/>
             <key>realTextureFileName</key>
-            <string>orderfarm.png</string>
+            <string>orderhero.png</string>
             <key>size</key>
-            <string>{1876,999}</string>
+            <string>{256,1492}</string>
             <key>smartupdate</key>
-            <string>$TexturePacker:SmartUpdate:c826e168fb3ef186c6fa9473c269eb23:1b168ffba6f0d105d84c357f8534f3fb:1d3d65b9f068fdaada8f88723621f7f9$</string>
+            <string>$TexturePacker:SmartUpdate:007a5d596dbc34db2c603ae87e2881d6:72540a6e05b8ba0f18430ad80c2079b2:b34e39571672fea2ada0f52afff045ae$</string>
             <key>textureFileName</key>
-            <string>orderfarm.png</string>
+            <string>orderhero.png</string>
         </dict>
     </dict>
 </plist>
