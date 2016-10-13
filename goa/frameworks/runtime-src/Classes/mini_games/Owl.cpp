@@ -24,11 +24,11 @@ bool Owl::init()
 					{ "character1", "owlcity/character.csb"},
 					{ "character2", "owlcity/character_enemy.csb"},
 					{ "plist", "owlcity/owlcity.plist"},
-					{"smallbar","owlcity/smallbar.png"},
+					{"smallbar","owlcity/smallbar_orange.png"},
 					{"orangebase","owlcity/orangebase.png"},
 					{"greenbase","owlcity/greenbase.png"},
-					{"gridOrange","owlcity/smallbar.png"},
-					{"gridRed",""}
+					{"gridOrange","owlcity/smallbar_orange.png"},
+					{"gridWhite","owlcity/smallbar_white.png"}
 				} 
 			},
 			{ "owlJungle",
@@ -92,6 +92,13 @@ bool Owl::init()
 	_textLabel->setAnchorPoint(Vec2(0.5, 0.5));
 	_textLabel->setName("text");
 	board->addChild(_textLabel);
+
+	_textOwlBoard = LabelTTF::create("M", "Helvetica", _sprite->getChildByName("smallbar_white")->getContentSize().height *0.8);
+	_textOwlBoard->setPosition(Vec2(_sprite->getChildByName("smallbar_white")->getContentSize().width/2, _sprite->getChildByName("smallbar_white")->getContentSize().height / 2));
+	_textOwlBoard->setName("owlBoard");
+	_textOwlBoard->setColor(Color3B::BLACK);
+	_sprite->getChildByName("smallbar_white")->addChild(_textOwlBoard);
+	_sprite->getChildByName("smallbar_white")->setVisible(false);
 
 	createGrid();
 
@@ -255,11 +262,12 @@ void Owl::addEventsOnGrid(cocos2d::Sprite* callerObject)
 						float dist = sqrt((y*y) + (x*x));
 						auto blockBox = target->getParent()->getChildByName(blockNameInString);
 
-						auto moveToAlphaGridAction = MoveTo::create(dist/800,Vec2(target->getPositionX(),target->getPositionY()));
-						auto moveToAnswerGridAction = MoveTo::create(dist / 1000, Vec2((blockBox->getPositionX() - blockBox->getContentSize().width/2)+blockChild.at(_textCounter)->getPositionX(), blockBox->getPositionY()));
+						auto moveToAlphaGridAction = MoveTo::create(dist/800,Vec2(target->getPositionX(),target->getPositionY()+_sprite->getChildByName("body")->getContentSize().height/1.5));
+						auto moveToAnswerGridAction = MoveTo::create(dist / 1000, Vec2((blockBox->getPositionX() - blockBox->getContentSize().width/2)+blockChild.at(_textCounter)->getPositionX(), blockBox->getPositionY()+_sprite->getChildByName("body")->getContentSize().height/1.5));
 						auto callFunct = CallFunc::create([=]() {
 							scheduleUpdate();
 							_flagToControlMuiltipleTouch = true;
+							_sprite->getChildByName("smallbar_white")->setVisible(false);
 							blockChild.at(_textCounter)->getChildByName("hideBoard")->setVisible(false);
 							_textCounter++;
 							_xStart = _sprite->getPositionX();      // Pixels
@@ -286,7 +294,11 @@ void Owl::addEventsOnGrid(cocos2d::Sprite* callerObject)
 								
 							}
 						});
-						_sprite->runAction(Sequence::create(CallFunc::create([=]() { unscheduleUpdate(); }), moveToAlphaGridAction,moveToAnswerGridAction, callFunct, NULL));
+						auto pickBoard = CallFunc::create([=]() { 
+							_sprite->getChildByName("smallbar_white")->setVisible(true);
+							_textOwlBoard->setString(LangUtil::convertUTF16CharToString(target->getName().at(0)));
+						});
+						_sprite->runAction(Sequence::create(CallFunc::create([=]() { unscheduleUpdate(); }), moveToAlphaGridAction, pickBoard,moveToAnswerGridAction, callFunct, NULL));
 					}
 				}
 			}

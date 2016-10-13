@@ -7,7 +7,7 @@
       "Animation": {
         "Duration": 105,
         "Speed": 1.0,
-        "ActivedAnimationName": "eye_blinking",
+        "ActivedAnimationName": "fly",
         "Timelines": [
           {
             "ActionTag": 1033947883,
@@ -726,6 +726,51 @@
           {
             "FileData": {
               "Type": "MarkedSubImage",
+              "Path": "owlcity/smallbar_white.png",
+              "Plist": "owlcity/owlcity.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": -0.1825,
+              "Y": -170.802
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": -76.6825,
+            "RightMargin": -76.3175,
+            "TopMargin": 104.802,
+            "BottomMargin": -236.802,
+            "Tag": 144,
+            "ActionTag": 1168238483,
+            "Size": {
+              "X": 153.0,
+              "Y": 132.0
+            },
+            "Name": "smallbar_white",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
               "Path": "owlcity/body.png",
               "Plist": "owlcity/owlcity.plist"
             },
@@ -880,6 +925,8 @@
               "ScaleX": 1.0,
               "ScaleY": 1.0
             },
+            "RotationSkewX": -43.2079,
+            "RotationSkewY": -43.2092,
             "CColor": {},
             "IconVisible": false,
             "PrePosition": {
@@ -926,6 +973,8 @@
               "ScaleX": 1.0,
               "ScaleY": 1.0
             },
+            "RotationSkewX": 43.9341,
+            "RotationSkewY": 43.9314,
             "CColor": {},
             "IconVisible": false,
             "PrePosition": {
