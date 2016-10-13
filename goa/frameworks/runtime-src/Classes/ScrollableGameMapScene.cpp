@@ -201,8 +201,8 @@ void ScrollableGameMapScene::gameSelected(Ref* pSender, ui::Widget::TouchEventTy
                 //ScriptingCore::getInstance()->runScript("src/start/characterConfigure.js");
 //                ScriptingCore::getInstance()->runScript("src/NonJSGameLauncher.js");
 			} else if (clickedButton->getName() == ALPHAMOLE) {
-			//	Director::getInstance()->replaceScene(Decomon::createScene());
-				Director::getInstance()->replaceScene(AlphamoleLevel::createScene());
+				Director::getInstance()->replaceScene(Decomon::createScene());
+			//	Director::getInstance()->replaceScene(AlphamoleLevel::createScene());
 			} else if(clickedButton->getName() == PATCH_THE_WALL) {
 //                Director::getInstance()->replaceScene(PatchTheWall::createScene());
                 ScriptingCore::getInstance()->runScript("src/start/decomon.js");
