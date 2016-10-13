@@ -10,8 +10,6 @@
 
 
 USING_NS_CC;
-using namespace rapidjson;
-
 
 Order::Order()
 {
