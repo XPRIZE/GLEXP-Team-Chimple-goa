@@ -15,7 +15,7 @@
                 <key>spriteSourceSize</key>
                 <string>{98,115}</string>
                 <key>textureRect</key>
-                <string>{{410,245},{98,115}}</string>
+                <string>{{409,369},{98,115}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
@@ -30,7 +30,7 @@
                 <key>spriteSourceSize</key>
                 <string>{98,115}</string>
                 <key>textureRect</key>
-                <string>{{410,362},{98,115}}</string>
+                <string>{{409,486},{98,115}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
@@ -45,7 +45,7 @@
                 <key>spriteSourceSize</key>
                 <string>{31,26}</string>
                 <key>textureRect</key>
-                <string>{{265,574},{31,26}}</string>
+                <string>{{468,72},{31,26}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
@@ -60,7 +60,7 @@
                 <key>spriteSourceSize</key>
                 <string>{31,26}</string>
                 <key>textureRect</key>
-                <string>{{298,574},{31,26}}</string>
+                <string>{{468,100},{31,26}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
@@ -75,7 +75,7 @@
                 <key>spriteSourceSize</key>
                 <string>{260,242}</string>
                 <key>textureRect</key>
-                <string>{{197,1},{260,242}}</string>
+                <string>{{206,72},{260,242}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
@@ -105,9 +105,9 @@
                 <key>spriteSourceSize</key>
                 <string>{31,26}</string>
                 <key>textureRect</key>
-                <string>{{459,121},{31,26}}</string>
+                <string>{{468,128},{31,26}}</string>
                 <key>textureRotated</key>
-                <true/>
+                <false/>
             </dict>
             <key>owlcity/openeye_enemy.png</key>
             <dict>
@@ -120,9 +120,9 @@
                 <key>spriteSourceSize</key>
                 <string>{31,26}</string>
                 <key>textureRect</key>
-                <string>{{459,154},{31,26}}</string>
+                <string>{{468,156},{31,26}}</string>
                 <key>textureRotated</key>
-                <true/>
+                <false/>
             </dict>
             <key>owlcity/orangebase.png</key>
             <dict>
@@ -139,21 +139,6 @@
                 <key>textureRotated</key>
                 <true/>
             </dict>
-            <key>owlcity/smallbar.png</key>
-            <dict>
-                <key>aliases</key>
-                <array/>
-                <key>spriteOffset</key>
-                <string>{0,0}</string>
-                <key>spriteSize</key>
-                <string>{77,67}</string>
-                <key>spriteSourceSize</key>
-                <string>{77,67}</string>
-                <key>textureRect</key>
-                <string>{{410,479},{77,67}}</string>
-                <key>textureRotated</key>
-                <false/>
-            </dict>
             <key>owlcity/smallbar_green.png</key>
             <dict>
                 <key>aliases</key>
@@ -165,7 +150,37 @@
                 <key>spriteSourceSize</key>
                 <string>{77,66}</string>
                 <key>textureRect</key>
-                <string>{{197,536},{77,66}}</string>
+                <string>{{70,563},{77,66}}</string>
+                <key>textureRotated</key>
+                <true/>
+            </dict>
+            <key>owlcity/smallbar_orange.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{77,67}</string>
+                <key>spriteSourceSize</key>
+                <string>{77,67}</string>
+                <key>textureRect</key>
+                <string>{{1,563},{77,67}}</string>
+                <key>textureRotated</key>
+                <true/>
+            </dict>
+            <key>owlcity/smallbar_white.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{77,66}</string>
+                <key>spriteSourceSize</key>
+                <string>{77,66}</string>
+                <key>textureRect</key>
+                <string>{{138,563},{77,66}}</string>
                 <key>textureRotated</key>
                 <true/>
             </dict>
@@ -180,9 +195,9 @@
                 <key>spriteSourceSize</key>
                 <string>{169,64}</string>
                 <key>textureRect</key>
-                <string>{{339,562},{169,64}}</string>
+                <string>{{339,369},{169,64}}</string>
                 <key>textureRotated</key>
-                <false/>
+                <true/>
             </dict>
             <key>owlcity/wings.png</key>
             <dict>
@@ -195,7 +210,7 @@
                 <key>spriteSourceSize</key>
                 <string>{22,58}</string>
                 <key>textureRect</key>
-                <string>{{459,1},{22,58}}</string>
+                <string>{{468,184},{22,58}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
@@ -210,7 +225,7 @@
                 <key>spriteSourceSize</key>
                 <string>{22,58}</string>
                 <key>textureRect</key>
-                <string>{{459,61},{22,58}}</string>
+                <string>{{468,244},{22,58}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
@@ -225,9 +240,9 @@
                 <key>spriteSourceSize</key>
                 <string>{63,15}</string>
                 <key>textureRect</key>
-                <string>{{1,616},{63,15}}</string>
+                <string>{{492,184},{63,15}}</string>
                 <key>textureRotated</key>
-                <false/>
+                <true/>
             </dict>
             <key>owlcity/zebracross2.png</key>
             <dict>
@@ -240,7 +255,7 @@
                 <key>spriteSourceSize</key>
                 <string>{187,51}</string>
                 <key>textureRect</key>
-                <string>{{1,563},{187,51}}</string>
+                <string>{{277,316},{187,51}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
@@ -255,9 +270,9 @@
                 <key>spriteSourceSize</key>
                 <string>{289,69}</string>
                 <key>textureRect</key>
-                <string>{{197,245},{289,69}}</string>
+                <string>{{206,1},{289,69}}</string>
                 <key>textureRotated</key>
-                <true/>
+                <false/>
             </dict>
             <key>owlcity/zebracross4.png</key>
             <dict>
@@ -270,7 +285,7 @@
                 <key>spriteSourceSize</key>
                 <string>{236,69}</string>
                 <key>textureRect</key>
-                <string>{{268,245},{236,69}}</string>
+                <string>{{197,316},{236,69}}</string>
                 <key>textureRotated</key>
                 <true/>
             </dict>
@@ -285,7 +300,7 @@
                 <key>spriteSourceSize</key>
                 <string>{183,69}</string>
                 <key>textureRect</key>
-                <string>{{339,245},{183,69}}</string>
+                <string>{{268,369},{183,69}}</string>
                 <key>textureRotated</key>
                 <true/>
             </dict>
@@ -300,9 +315,9 @@
                 <key>spriteSourceSize</key>
                 <string>{130,69}</string>
                 <key>textureRect</key>
-                <string>{{339,430},{130,69}}</string>
+                <string>{{277,554},{130,69}}</string>
                 <key>textureRotated</key>
-                <true/>
+                <false/>
             </dict>
             <key>owlcity/zebracross7.png</key>
             <dict>
@@ -315,7 +330,7 @@
                 <key>spriteSourceSize</key>
                 <string>{89,69}</string>
                 <key>textureRect</key>
-                <string>{{268,483},{89,69}}</string>
+                <string>{{206,554},{89,69}}</string>
                 <key>textureRotated</key>
                 <true/>
             </dict>
@@ -331,9 +346,9 @@
             <key>realTextureFileName</key>
             <string>owlcity.png</string>
             <key>size</key>
-            <string>{509,632}</string>
+            <string>{508,644}</string>
             <key>smartupdate</key>
-            <string>$TexturePacker:SmartUpdate:420336f7dc208db0c4ee2142569459d7:e243b0e93b73005617e90cdc80c005b9:a5e1564aa53673af59cb33f47f0bac03$</string>
+            <string>$TexturePacker:SmartUpdate:18b2c2f099180db79fca144d9e05efa0:327b244b9e3dc5fd0e9707af438d78ee:a5e1564aa53673af59cb33f47f0bac03$</string>
             <key>textureFileName</key>
             <string>owlcity.png</string>
         </dict>

@@ -21,7 +21,7 @@ protected:
 	int _blockLevel1 = 0, _heightBlock1 =0, counter = 0 , _textCounter = 0,_textBoard=0;
 	double _xStart=0, _yStart=0, _xStop=0;
 	bool _flagToControlMuiltipleTouch = true;
-	LabelTTF *_textLabel;
+	LabelTTF *_textLabel,*_textOwlBoard;
 	std::map<std::string, std::map<std::string, std::string>> _sceneMap;
 	std::map<std::string, std::map<std::string, float>> _owlPropertyMap;
 
