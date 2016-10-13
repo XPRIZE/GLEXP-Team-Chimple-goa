@@ -258,31 +258,31 @@ bool AppDelegate::applicationDidFinishLaunching()
 
     SafariAnalyticsManager* safariManager = SafariAnalyticsManager::getInstance();
     
-//    std::string cachedCharacterInformation;
-//    bool cachedInfoFound = this->findCachedCharacterConfiguration(&cachedCharacterInformation);
+    std::string cachedCharacterInformation;
+    bool cachedInfoFound = this->findCachedCharacterConfiguration(&cachedCharacterInformation);
     
     ScriptingCore::getInstance()->runScript("src/LoadGameConfig.js");
     
-//    if(cachedInfoFound && !cachedCharacterInformation.empty())
-//    {
-//        director->runWithScene(ScrollableGameMapScene::createScene());
-//    } else {
-//        ScriptingCore::getInstance()->runScript("src/start/characterConfigure.js");
-//    }
+    if(cachedInfoFound && !cachedCharacterInformation.empty())
+    {
+        director->runWithScene(ScrollableGameMapScene::createScene());
+    } else {
+        ScriptingCore::getInstance()->runScript("src/start/characterConfigure.js");
+    }
     
-
-    #if (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
-        director->runWithScene(ScrollableGameMapScene::createScene());
-        std::string userPhotoUrl = safariManager->getLatestUserPhoto();
-        if(!userPhotoUrl.empty()) {
-            Director::getInstance()->getTextureCache()->addImage(userPhotoUrl);
-            director->runWithScene(ScrollableGameMapScene::createScene());
-        } else {
-            director->runWithScene(PhotoCaptureScene::createScene());
-        }
-    #else
-        director->runWithScene(ScrollableGameMapScene::createScene());
-    #endif
+//
+//    #if (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
+//        director->runWithScene(ScrollableGameMapScene::createScene());
+//        std::string userPhotoUrl = safariManager->getLatestUserPhoto();
+//        if(!userPhotoUrl.empty()) {
+//            Director::getInstance()->getTextureCache()->addImage(userPhotoUrl);
+//            director->runWithScene(ScrollableGameMapScene::createScene());
+//        } else {
+//            director->runWithScene(PhotoCaptureScene::createScene());
+//        }
+//    #else
+//        director->runWithScene(ScrollableGameMapScene::createScene());
+//    #endif
     
     Application::getInstance()->getCurrentLanguage();
     return true;
