@@ -5,8 +5,9 @@
   "Content": {
     "Content": {
       "Animation": {
-        "Duration": 160,
+        "Duration": 190,
         "Speed": 1.0,
+        "ActivedAnimationName": "h_die",
         "Timelines": [
           {
             "ActionTag": 799567817,
@@ -78,7 +79,7 @@
                   "Path": "talkisland/herodie2.png",
                   "Plist": "talkisland/talkisland.plist"
                 },
-                "FrameIndex": 75,
+                "FrameIndex": 85,
                 "Tween": false,
                 "ctype": "TextureFrameData"
               },
@@ -88,7 +89,7 @@
                   "Path": "talkisland/herodie3.png",
                   "Plist": "talkisland/talkisland.plist"
                 },
-                "FrameIndex": 85,
+                "FrameIndex": 105,
                 "Tween": false,
                 "ctype": "TextureFrameData"
               },
@@ -98,7 +99,7 @@
                   "Path": "talkisland/herodie4.png",
                   "Plist": "talkisland/talkisland.plist"
                 },
-                "FrameIndex": 95,
+                "FrameIndex": 125,
                 "Tween": false,
                 "ctype": "TextureFrameData"
               },
@@ -108,7 +109,7 @@
                   "Path": "talkisland/hwrong1.png",
                   "Plist": "talkisland/talkisland.plist"
                 },
-                "FrameIndex": 100,
+                "FrameIndex": 130,
                 "Tween": false,
                 "ctype": "TextureFrameData"
               },
@@ -118,7 +119,7 @@
                   "Path": "talkisland/hwrong2.png",
                   "Plist": "talkisland/talkisland.plist"
                 },
-                "FrameIndex": 115,
+                "FrameIndex": 145,
                 "Tween": false,
                 "ctype": "TextureFrameData"
               },
@@ -128,7 +129,7 @@
                   "Path": "talkisland/hwrong3.png",
                   "Plist": "talkisland/talkisland.plist"
                 },
-                "FrameIndex": 130,
+                "FrameIndex": 160,
                 "Tween": false,
                 "ctype": "TextureFrameData"
               },
@@ -138,7 +139,7 @@
                   "Path": "talkisland/hwrong4.png",
                   "Plist": "talkisland/talkisland.plist"
                 },
-                "FrameIndex": 145,
+                "FrameIndex": 175,
                 "Tween": false,
                 "ctype": "TextureFrameData"
               },
@@ -148,7 +149,7 @@
                   "Path": "talkisland/hwrong5.png",
                   "Plist": "talkisland/talkisland.plist"
                 },
-                "FrameIndex": 160,
+                "FrameIndex": 190,
                 "Tween": false,
                 "ctype": "TextureFrameData"
               }
@@ -167,13 +168,13 @@
         },
         {
           "StartIndex": 65,
-          "EndIndex": 95,
+          "EndIndex": 125,
           "Name": "h_die",
           "ctype": "AnimationInfoData"
         },
         {
-          "StartIndex": 100,
-          "EndIndex": 160,
+          "StartIndex": 130,
+          "EndIndex": 190,
           "Name": "h_wrong",
           "ctype": "AnimationInfoData"
         }
@@ -184,7 +185,7 @@
           {
             "FileData": {
               "Type": "MarkedSubImage",
-              "Path": "talkisland/hero1.png",
+              "Path": "talkisland/herodie1.png",
               "Plist": "talkisland/talkisland.plist"
             },
             "BlendFunc": {
@@ -218,8 +219,8 @@
             "Tag": 107,
             "ActionTag": 799567817,
             "Size": {
-              "X": 400.0,
-              "Y": 521.0
+              "X": 346.0,
+              "Y": 327.0
             },
             "Name": "Sprite_1",
             "ctype": "SpriteObjectData"
