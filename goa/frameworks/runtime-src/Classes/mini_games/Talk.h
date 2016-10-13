@@ -33,7 +33,7 @@ public:
 
 	cocostudio::timeline::ActionTimeline *_heroChar, *_enemyChar;
 
-	cocos2d::Sprite *_hhand, *_hero, *_ehand, *_enemy, *_fish;
+	cocos2d::Sprite *_hhand, *_hero, *_ehand, *_enemy, *_fish, *_hbasket, *_ebasket;
 	cocos2d::Action *_action;
 	bool _handFlag;
 	std::vector<cocos2d::Sprite*> _enemyFish, _heroFish;
@@ -49,6 +49,7 @@ public:
 
     static const char* gameName() { return TALK.c_str(); };
 	void update(float);
+	void gameEnd();
 
 	struct LabelDetails
 	{

@@ -1,6 +1,5 @@
 
 var xc = xc || {};
-
 xc.AlphamoleGameLevelScene = cc.Layer.extend( {
 
     ctor:function () {
@@ -187,3 +186,6 @@ xc.AlphamoleGameLevelScene.res = {
 
 
 }
+
+
+xc.AlphamoleGameLevelScene.multiPlayerEnabled = true;
