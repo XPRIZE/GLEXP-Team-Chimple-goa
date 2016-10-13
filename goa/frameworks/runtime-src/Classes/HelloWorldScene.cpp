@@ -85,7 +85,7 @@ void HelloWorld::initializeSafari() {
     
     this->initializeStateMachine();
     
-    //this->loadWords();
+    this->loadWords();
 }
 
 void HelloWorld::updatePositionAndCategoryBitMaskMainCharacter() {

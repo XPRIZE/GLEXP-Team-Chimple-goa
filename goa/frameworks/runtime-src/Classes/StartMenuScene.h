@@ -40,7 +40,7 @@ static const std::string WORD_BOARD = "wordBoard";
 static const std::string PEG = "peg";
 static const std::string BUBBLE = "bubble";
 static const std::string CIRCLE = "Circle";
-static const std::string PINATA = "pinata";
+static const std::string PINATA = "shoot";
 static const std::string STACK = "stack";
 static const std::string TALK = "talk";
 static const std::string BINGO = "bingo";
@@ -51,11 +51,13 @@ class StartMenu {
 public:
     static void startScene(std::string gameName, std::string firstParam = "", std::string secondParam = "", std::string thirdParam = "");
     static const std::vector<std::string> getGameNames();
+    static const std::vector<std::string> multiPlayerGameNames();
     
     
 CC_CONSTRUCTOR_ACCESS:
     StartMenu();
-    virtual ~StartMenu();    
+    virtual ~StartMenu();
+    std::string parseGameConfig(std::string gameConfigStr);
 };
 
 #endif /* StartMenuScene_h */

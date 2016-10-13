@@ -32,6 +32,7 @@ public:
     //capture user photo
     void addPhoto(const char* url);
     std::string getLatestUserPhoto();
+    
 private:
     SafariAnalyticsManager();
     bool openConnection(std::string pathToSQLConnection);

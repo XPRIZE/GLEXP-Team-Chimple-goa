@@ -57,6 +57,7 @@ protected:
 	void onTouchesEnded(const std::vector<cocos2d::Touch*>& touches, cocos2d::Event* event);
 	void update(float);
 	void updateRT();
+	cocos2d::Label * _alphabetLabel;
 
 };
 

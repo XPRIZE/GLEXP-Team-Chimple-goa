@@ -476,6 +476,24 @@ void MenuContext::showMap(cocos2d::Ref *pSender, cocos2d::ui::Widget::TouchEvent
     }
 }
 
+void MenuContext::launchGame(std::string gameName) {
+    launchGameFromJS(gameName);
+}
+
+
+void MenuContext::launchGameFromJS(std::string gameName) {
+    CCLOG("gameName %s", gameName.c_str());
+    if (gameName == CAT) {
+        Director::getInstance()->replaceScene(Dash::createScene());
+    } else if(gameName == ENDLESS_RUNNER) {
+        Director::getInstance()->replaceScene(EndlessRunner::createScene());
+    } 
+}
+
+void MenuContext::transitToScrollableGameMap() {
+    Director::getInstance()->replaceScene(TransitionFade::create(2.0, ScrollableGameMapScene::createScene(), Color3B::BLACK));
+}
+
 void MenuContext::showGamesMenu(cocos2d::Ref *pSender, cocos2d::ui::Widget::TouchEventType eEventType) {
     if(eEventType == cocos2d::ui::Widget::TouchEventType::ENDED) {
         if(_launchCustomEventOnExit) {
@@ -519,6 +537,34 @@ void MenuContext::showScore() {
 bool MenuContext::isGamePaused() {
     return _gameIsPaused;
 }
+
+void MenuContext::sendMessageToPeer(std::string message) {
+    #if (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
+        cocos2d::JniMethodInfo methodInfo;
+        if (! cocos2d::JniHelper::getStaticMethodInfo(methodInfo, "org/cocos2dx/javascript/AppActivity", "sendMessage", "(Ljava/lang/String;)V")) {
+        }
+        jstring jMessage = methodInfo.env->NewStringUTF(message.c_str());
+        methodInfo.env->CallStaticVoidMethod(methodInfo.classID, methodInfo.methodID, jMessage);
+        methodInfo.env->DeleteLocalRef(jMessage);
+        methodInfo.env->DeleteLocalRef(methodInfo.classID);
+    #endif
+}
+
+void MenuContext::exitMultiPlayerGame() {
+    //call to Android to close Server/Client Sockets
+    Director::getInstance()->getEventDispatcher()->removeCustomEventListeners("enemy_information_received_event");
+    
+    #if (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
+        cocos2d::JniMethodInfo methodInfo;
+        if (! cocos2d::JniHelper::getStaticMethodInfo(methodInfo, "org/cocos2dx/javascript/AppActivity", "disconnectSockets", "()V")) {
+            return;
+        }
+        methodInfo.env->CallStaticVoidMethod(methodInfo.classID, methodInfo.methodID);
+        methodInfo.env->DeleteLocalRef(methodInfo.classID);
+    #endif
+    Director::getInstance()->replaceScene(ScrollableGameMapScene::createScene());
+}
+
 
 
 MenuContext::MenuContext() :

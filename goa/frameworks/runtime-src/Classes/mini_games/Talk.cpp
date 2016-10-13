@@ -231,7 +231,7 @@ void Talk::update(float d)
 			fish_Rect = Rect(_fish->getPositionX(), _fish->getPositionY(), _fish->getBoundingBox().size.width, _fish->getBoundingBox().size.height);// _fish->getBoundingBox();
 		}
 
-		if(sceneName == "talkjungle")
+		if(sceneName == "talkjungle" || sceneName == "talkisland")
 			fish_Rect_next = Rect(_fish->getPositionX(), _fish->getPositionY(), _fish->getBoundingBox().size.width, _fish->getBoundingBox().size.height);// _fish->getBoundingBox();
 		else
 			fish_Rect_next = _fish->getBoundingBox();
@@ -240,25 +240,81 @@ void Talk::update(float d)
 		{
 			_fish->stopAction(_action);
 			_heroFish.push_back(_fish);
-			_handFlag = false;
 
 			if (_totalCount == _textToShow.size() || _totalAnswer == _correctAnswer)
 			{
-				_menuContext->showScore();
+				if (sceneName == "talkjungle" || sceneName == "talkisland")
+				{
+					if (sceneName == "talkisland")
+					{
+						_ehand->setVisible(false);
+						_ebasket->setVisible(false);
+						for (int i = 0; i < _enemyFish.size(); i++)
+						{
+							_talkBg->removeChild(_enemyFish.at(i));
+						}
+					}
+
+					std::ostringstream timeline;
+					timeline << sceneName << "/enemy" << ".csb";
+
+					_enemy->stopAction(_enemyChar);
+					_enemyChar = CSLoader::createTimeline(timeline.str());
+					_enemy->runAction(_enemyChar);
+					_enemyChar->play("e_wrong", true);
+//					_enemyChar->setAnimationEndCallFunc("e_die", CC_CALLBACK_0(Talk::gameEnd, this));
+				}
+				else
+				{
+					_menuContext->showScore();
+				}
 			}
+			else
+				_handFlag = false;
 		}
 		else if (fish_Rect.intersectsRect(_ehand->getBoundingBox()) || (_enemyFish.size() >= 1 && fish_Rect_next.intersectsRect(_enemyFish.at(_enemyFish.size() - 1)->getBoundingBox())))
 		{
 			_fish->stopAction(_action);
 			_enemyFish.push_back(_fish);
-			_handFlag = false;
 
 			if (_totalCount == _textToShow.size() || _totalAnswer == _correctAnswer)
 			{
-				_menuContext->showScore();
+				if (sceneName == "talkjungle" || sceneName == "talkisland")
+				{
+					if (sceneName == "talkisland")
+					{
+						_hhand->setVisible(false);
+						_hbasket->setVisible(false);
+						for (int i = 0; i < _heroFish.size(); i++)
+						{
+							_talkBg->removeChild(_heroFish.at(i));
+						}
+					}
+
+					std::ostringstream timeline;
+					timeline << sceneName << "/hero" << ".csb";
+
+					_hero->stopAction(_heroChar);
+					_heroChar = CSLoader::createTimeline(timeline.str());
+					_hero->runAction(_heroChar);
+					_heroChar->play("h_die", false);
+					_heroChar->setAnimationEndCallFunc("h_die", CC_CALLBACK_0(Talk::gameEnd, this));
+				}
+				else
+				{
+					_menuContext->showScore();
+				}
 			}
+			else
+				_handFlag = false;
 		}
 	}
+}
+
+void Talk::gameEnd()
+{
+	_menuContext->showScore();
+	this->unscheduleUpdate();
 }
 
 void Talk::addEvents(struct LabelDetails sprite)

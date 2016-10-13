@@ -16,6 +16,8 @@
 #include "editor-support/cocostudio/CocoStudio.h"
 #include "ScoreBoardContext.h"
 #include "../lang/SafariAnalyticsManager.h"
+#include "../mini_games/Dash.h"
+#include "../mini_games/EndlessRunner.h"
 
 #define GAME_MAP_MENU "GameMapScene"
 #define HELP_MENU "HelpScene"
@@ -38,7 +40,9 @@ public:
     void showStartupHelp(std::function<void()> callback = nullptr);
     void showScore();
     bool isGamePaused();
-
+    void exitMultiPlayerGame();
+    void sendMessageToPeer(std::string message);
+    
 CC_CONSTRUCTOR_ACCESS:
     MenuContext();
     virtual ~MenuContext();
@@ -46,7 +50,10 @@ CC_CONSTRUCTOR_ACCESS:
     bool onChimpTouchBegan(cocos2d::Touch* touch, cocos2d::Event* event);
     void onChimpTouchEnded(cocos2d::Touch* touch, cocos2d::Event* event);
     
+    void transitToScrollableGameMap();
+    void launchGame(std::string gameName);
     
+    static void launchGameFromJS(std::string gameName);
     
 protected:
     int _points;

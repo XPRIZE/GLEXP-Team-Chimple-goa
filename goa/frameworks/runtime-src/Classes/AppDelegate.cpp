@@ -32,6 +32,7 @@
 #include "scripting/js-bindings/manual/ui/jsb_cocos2dx_ui_manual.h"
 #include "scripting/js-bindings/auto/chimpleautogenbindings.hpp"
 #include "scripting/js-bindings/auto/textgeneratorautobindings.hpp"
+#include "storage/local-storage/LocalStorage.h"
 
 #if (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID || CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
 #include "scripting/js-bindings/auto/jsb_cocos2dx_experimental_video_auto.hpp"
@@ -56,30 +57,6 @@ using namespace CocosDenshion;
 #if (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
 extern "C"
 {
-    jboolean Java_org_cocos2dx_javascript_AppActivity_displayAvailablePeers(JNIEnv* env, jobject thiz,jstring deviceName, jstring deviceAddress)
-    {
-        const char* strDeviceName = env->GetStringUTFChars(deviceName, NULL);
-        std::string tempStrDeviceName(strDeviceName);
-        
-        const char* strDeviceAddress = env->GetStringUTFChars(deviceAddress, NULL);
-        std::string tempStrDeviceAddress(strDeviceAddress);
-        
-        
-        CCLOG("strDeviceAddress %s", strDeviceAddress);
-        CCLOG("tempStrDeviceName %s", strDeviceName);
-        
-        
-        std::map<std::string, std::string> peerInformationMap;
-        peerInformationMap.insert(std::make_pair("deviceAddress", tempStrDeviceAddress));
-        peerInformationMap.insert(std::make_pair("deviceName", tempStrDeviceName));
-        
-        Director::getInstance()->getEventDispatcher()->dispatchCustomEvent("peer_information_received_event", static_cast<void*>(&peerInformationMap));
-        
-        
-        return true;
-    }
-    
-    
     jboolean Java_org_cocos2dx_javascript_AppActivity_updateInformation(JNIEnv* env, jobject thiz, jstring jsonStr)
     {
         const char* cjsonStr = env->GetStringUTFChars(jsonStr, NULL);
@@ -93,6 +70,31 @@ extern "C"
         return true;
     }
     
+    jboolean Java_org_cocos2dx_javascript_AppActivity_launchGameWithPeer(JNIEnv* env, jobject thiz,jstring jsonStr)
+    {
+        const char* cjsonStr = env->GetStringUTFChars(jsonStr, NULL);
+        std::string inputStr(cjsonStr);
+        localStorageSetItem("connectionResult", inputStr);
+        
+        Director::getInstance()->getEventDispatcher()->dispatchCustomEvent("launch_game_with_peer_event");
+        return true;
+    }
+    
+
+    jboolean Java_org_cocos2dx_javascript_AppActivity_discoveredBluetoothDevices(JNIEnv* env, jobject thiz, jstring jsonStr)
+    {
+        const char* cjsonStr = env->GetStringUTFChars(jsonStr, NULL);
+        std::string inputStr(cjsonStr);
+        
+        CCLOG("discovered information %s", inputStr.c_str());
+        localStorageSetItem("discoveredBluetoothDevices", inputStr);
+        
+        EventCustom event("peer_information_received_event");
+        //event.setUserData(static_cast<void*>(&inputStr));
+        Director::getInstance()->getEventDispatcher()->dispatchEvent(&event);
+        
+        return true;
+    }
 }
 #endif
 
@@ -255,22 +257,39 @@ bool AppDelegate::applicationDidFinishLaunching()
     ScriptingCore::getInstance()->runScript("main.js");
 
     SafariAnalyticsManager* safariManager = SafariAnalyticsManager::getInstance();
-#if (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
-    director->runWithScene(ScrollableGameMapScene::createScene());
-    std::string userPhotoUrl = safariManager->getLatestUserPhoto();
-    if(!userPhotoUrl.empty()) {
-        Director::getInstance()->getTextureCache()->addImage(userPhotoUrl);
+    
+    std::string cachedCharacterInformation;
+    bool cachedInfoFound = this->findCachedCharacterConfiguration(&cachedCharacterInformation);
+    
+    ScriptingCore::getInstance()->runScript("src/LoadGameConfig.js");
+    
+    if(cachedInfoFound && !cachedCharacterInformation.empty())
+    {
         director->runWithScene(ScrollableGameMapScene::createScene());
     } else {
-        director->runWithScene(PhotoCaptureScene::createScene());
+        ScriptingCore::getInstance()->runScript("src/start/characterConfigure.js");
     }
-#else
-    director->runWithScene(ScrollableGameMapScene::createScene());
-#endif
+    
+//
+//    #if (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
+//        director->runWithScene(ScrollableGameMapScene::createScene());
+//        std::string userPhotoUrl = safariManager->getLatestUserPhoto();
+//        if(!userPhotoUrl.empty()) {
+//            Director::getInstance()->getTextureCache()->addImage(userPhotoUrl);
+//            director->runWithScene(ScrollableGameMapScene::createScene());
+//        } else {
+//            director->runWithScene(PhotoCaptureScene::createScene());
+//        }
+//    #else
+//        director->runWithScene(ScrollableGameMapScene::createScene());
+//    #endif
     
     Application::getInstance()->getCurrentLanguage();
-
     return true;
+}
+
+bool AppDelegate::findCachedCharacterConfiguration(std::string* cachedCharacterInformation) {
+    return localStorageGetItem("cachedCharacterConfig", cachedCharacterInformation);
 }
 
 // This function will be called when the app is inactive. Note, when receiving a phone call it is invoked.
