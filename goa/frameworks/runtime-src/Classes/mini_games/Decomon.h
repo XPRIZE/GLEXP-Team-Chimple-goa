@@ -58,7 +58,7 @@ protected:
 	void update(float);
 	void updateRT();
 	cocos2d::Label * _alphabetLabel;
-
+	static const char* gameName() { return DECOMON.c_str(); }
 };
 
 #endif 
