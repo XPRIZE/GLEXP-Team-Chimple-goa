@@ -7,7 +7,8 @@
 //
 
 #include "Order.h"
-
+#include "../lang/TextGenerator.h"
+#include <algorithm>
 
 USING_NS_CC;
 
@@ -114,7 +115,7 @@ bool Order::init()
 	};
 
 	std::vector<std::string> theme = { "farm","hero","candy" };
-	_themeName = theme.at(2);// cocos2d::RandomHelper::random_int(0, 1));
+	_themeName = theme.at(cocos2d::RandomHelper::random_int(0, 2));
 	_scenePath = differntSceneMapping.at(_themeName);//cocos2d::RandomHelper::random_int(0, 2)));
 
 	auto spritecache1 = SpriteFrameCache::getInstance();
@@ -131,6 +132,11 @@ bool Order::init()
 	}
 	//
 
+	_sortedList = TextGenerator::getInstance()->getOrderedConcepts(1);
+
+	auto randomList = _sortedList;
+	std::random_shuffle(randomList.begin(), randomList.end());
+
 
 	//orderfarm/woodblock.png
 	//random vector
@@ -141,11 +147,11 @@ bool Order::init()
 		obj1->setPositionX(visibleSize.width / 2);
 		obj1->setAnchorPoint(Vec2(0.5,0.5));
 		obj1->setPositionY(visibleSize.height * 0.1 + i * (obj1->getContentSize().height  * 1));
-		obj1->setName(str1.at(i));
+		obj1->setName(randomList.at(i));
 		str = str + str;
 		_boxes.pushBack(obj1);
 		this->addChild(obj1);
-		 auto _topLabel = Label::createWithSystemFont(str1.at(i).c_str(), "Arial", 100);
+		 auto _topLabel = Label::createWithSystemFont(randomList.at(i).c_str(), "Arial", 100);
 		_topLabel->setPositionX(obj1->getContentSize().width / 2);
 		_topLabel->setPositionY(obj1->getContentSize().height / 2);
 		_topLabel->setColor(Color3B(255, 255, 255));
@@ -337,8 +343,8 @@ void Order::checkUserSortList(std::vector<int> list)
 	for (short i = 0; i < _boxes.size(); i++) {
 		//CCLOG("user list Name %s", _boxes.at(list.at(i))->getName().c_str());
 		float index = (_boxes.at(i)->getPositionY() - visibleSize.height*0.1) / (_boxes.at(i)->getContentSize().height * 1);
-		if (_boxes.at(i)->getName().compare(str1.at((int)round(index))) == 0) {
-			CCLOG("%s is in correct position", str1.at((int)round(index)).c_str());	
+		if (_boxes.at(i)->getName().compare(_sortedList.at((int)round(index))) == 0) {
+			CCLOG("%s is in correct position", _sortedList.at((int)round(index)).c_str());
 			score++;
 			//cartAnimation("swing", false);//
 			//animationWithRandomInterval();
@@ -391,8 +397,14 @@ void Order::winAnimation()
 {
 	auto timeline = CSLoader::createTimeline(_scenePath.at("character"));
 	auto cart = _bg->getChildByName(_scenePath.at("child1"))->getChildByName(_scenePath.at("child2"));
-	cart->runAction(timeline);
-	timeline->play(_scenePath.at("winning_animation"), true);
+	runAction(Sequence::create(CallFunc::create([=]() {
+		cart->runAction(timeline);
+		timeline->play(_scenePath.at("winning_animation"), true);
+
+	}), DelayTime::create(2), CallFunc::create([=]() {
+		menu->showScore();
+	}), NULL));
+	
 	if (_themeName.compare("hero") == 0) {
 		auto moveBucket = MoveBy::create(2, Vec2(-200, 0));
 		auto bucket = _bg->getChildByName("FileNode_2")->getChildByName("paintbucket");
