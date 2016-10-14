@@ -50,7 +50,7 @@ static const std::string BALLONHERO = "balloon";
 static const std::string DASH = "dash";
 static const std::string CIRCLE = "circle";
 static const std::string ORDER = "order";
-
+static const std::string PILLAR = "pillar";
 
 class StartMenu {
 public:
