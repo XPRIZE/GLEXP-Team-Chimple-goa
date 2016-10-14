@@ -17,6 +17,8 @@
 #include "AudioEngine.h"
 #include "ScrollableGameMapScene.hpp"
 #include "../PhotoCaptureScene.hpp"
+#include "storage/local-storage/LocalStorage.h"
+#include "scripting/js-bindings/manual/ScriptingCore.h"
 
 USING_NS_CC;
 using namespace cocos2d::ui;
@@ -136,13 +138,16 @@ void MenuContext::expandMenu(cocos2d::Ref *pSender, cocos2d::ui::Widget::TouchEv
 
                 _gamesMenu = this->createMenuItem("menu/game.png", "menu/game.png", "menu/game.png", 4 * POINTS_TO_LEFT);
                 _gamesMenu->addTouchEventListener(CC_CALLBACK_2(MenuContext::showGamesMenu, this));
-
-                std::string latestPhotoPath = SafariAnalyticsManager::getInstance()->getLatestUserPhoto();
                 
-                if(!latestPhotoPath.empty()) {
-                    CCLOG("got path for menu %s", latestPhotoPath.c_str());
-                    _photoMenu = this->createMaskedMenuItem(latestPhotoPath, latestPhotoPath, latestPhotoPath, 5 * POINTS_TO_LEFT);
-                }
+                
+                _photoMenu = this->createAvatarMenuItem("", "", "", 5 * POINTS_TO_LEFT);
+                
+
+//                std::string latestPhotoPath = SafariAnalyticsManager::getInstance()->getLatestUserPhoto();
+//                
+//                if(!latestPhotoPath.empty()) {
+//                    CCLOG("got path for menu %s", latestPhotoPath.c_str());
+//                }
                 
                 auto moveTo = MoveTo::create(0.5, Vec2(150, _menuButton->getPosition().y));
                 auto elastic = EaseBackOut::create(moveTo);
@@ -191,10 +196,90 @@ cocos2d::ClippingNode* MenuContext::createMaskedMenuItem(const std::string norma
     clipper->setStencil(stencil);
     clipper->setAlphaThreshold(0.9);
     
-    cocos2d::ui::Button* _menu = Button::create(normalImage, selectedImage, disableImage, Widget::TextureResType::LOCAL);
-    clipper->addChild(_menu,1);
+    std::string cachedCharacterInformation;
+    localStorageGetItem("cachedCharacterConfig", &cachedCharacterInformation);
+
     
-    _menu->addTouchEventListener(CC_CALLBACK_2(MenuContext::changePhoto, this));
+    auto avatar = CSLoader::createNode("faceavatar/avatar.csb");
+    _character = dynamic_cast<cocostudio::timeline::SkeletonNode *>(avatar);
+    //character->setScale(0.5);
+
+    if(!cachedCharacterInformation.empty())
+    {
+        std::string contents = FileUtils::getInstance()->getStringFromFile("config/characterConfig.json");
+
+        rapidjson::Document d;
+        
+        if (false == d.Parse<0>(contents.c_str()).HasParseError()) {
+            // document is ok
+            
+            std::vector<std::string> configs = this->split(cachedCharacterInformation, '_');
+            int index = 0;
+            for (std::vector<std::string>::iterator it = configs.begin() ; it != configs.end(); ++it)
+            {
+                std::string config = *(it);
+                int configId = atoi(config.c_str());
+                CCLOG("configId %d", configId);
+                const rapidjson::Value& ds = d["data"];
+                const std::string name = ds[index]["name"].GetString();
+                const std::string bone = ds[index]["bone"].GetString();
+                
+                printf("%s \n",name.c_str());
+                printf("%s \n",bone.c_str());
+                
+                cocostudio::timeline::BoneNode* boneNode = _character->getBoneNode(bone);
+                if(boneNode != NULL)
+                {
+                    const rapidjson::Value& dsItems =  ds[index]["items"];
+                    const rapidjson::Value& dsObj = dsItems[configId];
+                    std::string image = dsObj["Image"].GetString();
+                    image.erase(0, 1);
+                    printf("%s \n",image.c_str());
+                    
+                    float anchorX = 0;
+                    float anchorY = 0;
+                    if(dsObj.HasMember("AnchorPoint")) {
+                        anchorX = (float) dsObj["AnchorPoint"]["ScaleX"].GetDouble();
+                        anchorY = (float) dsObj["AnchorPoint"]["ScaleY"].GetDouble();
+                    }
+
+                    float posX = 0;
+                    float posY = 0;
+
+                    if(dsObj.HasMember("Position")) {
+                        posX = (float) dsObj["Position"]["X"].GetDouble();
+                        posY = (float) dsObj["Position"]["Y"].GetDouble();
+                    }
+
+                    float rotationX = 0;
+                    float rotationY = 0;
+
+                    if(dsObj.HasMember("Rotation")) {
+                        rotationX = (float) dsObj["Rotation"]["X"].GetDouble();
+                        rotationY = (float) dsObj["Rotation"]["Y"].GetDouble();
+                    }
+                    
+                    auto sprite = Sprite::createWithSpriteFrameName(image);
+                    sprite->setAnchorPoint(Vec2(anchorX, anchorY));
+                    sprite->setPosition(Vec2(posX, posY));
+                    sprite->setRotationSkewX(rotationX);
+                    sprite->setRotationSkewY(rotationY);
+                    
+                    boneNode->addSkin(sprite, true);
+                    boneNode->displaySkin(sprite, true);
+                }
+                
+                index++;
+            }
+            
+        }
+    }
+    
+    
+    //cocos2d::ui::Button* _menu = Button::create(normalImage, selectedImage, disableImage, Widget::TextureResType::LOCAL);
+    clipper->addChild(_character,1);
+    
+    //_menu->addTouchEventListener(CC_CALLBACK_2(MenuContext::changePhoto, this));
 
     
     addChild(clipper);
@@ -205,6 +290,130 @@ cocos2d::ClippingNode* MenuContext::createMaskedMenuItem(const std::string norma
     return clipper;
 }
 
+
+cocos2d::Node* MenuContext::createAvatarMenuItem(const std::string normalImage,
+                                                         const std::string selectedImage ,
+                                                         const std::string disableImage,
+                                                         float xPosOffSet) {
+    
+    std::string cachedCharacterInformation;
+    localStorageGetItem("cachedCharacterConfig", &cachedCharacterInformation);
+    
+    
+    auto avatar = CSLoader::createNode("faceavatar/avatar.csb");
+    _character = dynamic_cast<cocostudio::timeline::SkeletonNode *>(avatar);
+    _character->setScale(0.3);
+    _character->setPosition(_menuButton->getPosition());
+    
+    if(!cachedCharacterInformation.empty())
+    {
+        std::string contents = FileUtils::getInstance()->getStringFromFile("config/characterConfig.json");
+        
+        rapidjson::Document d;
+        
+        if (false == d.Parse<0>(contents.c_str()).HasParseError()) {
+            // document is ok
+            
+            std::vector<std::string> configs = this->split(cachedCharacterInformation, '_');
+            int index = 0;
+            for (std::vector<std::string>::iterator it = configs.begin() ; it != configs.end(); ++it)
+            {
+                std::string config = *(it);
+                int configId = atoi(config.c_str());
+                CCLOG("configId %d", configId);
+                const rapidjson::Value& ds = d["data"];
+                const std::string name = ds[index]["name"].GetString();
+                const std::string bone = ds[index]["bone"].GetString();
+                
+                printf("%s \n",name.c_str());
+                printf("%s \n",bone.c_str());
+                
+                cocostudio::timeline::BoneNode* boneNode = _character->getBoneNode(bone);
+                if(boneNode != NULL)
+                {
+                    const rapidjson::Value& dsItems =  ds[index]["items"];
+                    const rapidjson::Value& dsObj = dsItems[configId];
+                    std::string image = dsObj["Image"].GetString();
+                    image.erase(0, 1);
+                    printf("%s \n",image.c_str());
+                    
+                    float anchorX = 0;
+                    float anchorY = 0;
+                    if(dsObj.HasMember("AnchorPoint")) {
+                        anchorX = (float) dsObj["AnchorPoint"]["ScaleX"].GetDouble();
+                        anchorY = (float) dsObj["AnchorPoint"]["ScaleY"].GetDouble();
+                    }
+                    
+                    float posX = 0;
+                    float posY = 0;
+                    
+                    if(dsObj.HasMember("Position")) {
+                        posX = (float) dsObj["Position"]["X"].GetDouble();
+                        posY = (float) dsObj["Position"]["Y"].GetDouble();
+                    }
+                    
+                    float rotationX = 0;
+                    float rotationY = 0;
+                    
+                    if(dsObj.HasMember("Rotation")) {
+                        rotationX = (float) dsObj["Rotation"]["X"].GetDouble();
+                        rotationY = (float) dsObj["Rotation"]["Y"].GetDouble();
+                    }
+                    
+                    auto sprite = Sprite::createWithSpriteFrameName(image);
+                    sprite->setAnchorPoint(Vec2(anchorX, anchorY));
+                    sprite->setPosition(Vec2(posX, posY));
+                    sprite->setRotationSkewX(rotationX);
+                    sprite->setRotationSkewY(rotationY);
+                    
+                    boneNode->addSkin(sprite, true);
+                    boneNode->displaySkin(sprite, true);
+                }
+                
+                index++;
+            }
+            
+        }
+    }
+    
+    addChild(_character);
+    auto _listener = EventListenerTouchOneByOne::create();
+    _listener->setSwallowTouches(true);
+    _listener->onTouchBegan = CC_CALLBACK_2(MenuContext::onTouchBeganOnCharacter, this);
+    _eventDispatcher->addEventListenerWithSceneGraphPriority(_listener, this);
+
+    auto moveTo = MoveTo::create(0.5, Vec2(_menuButton->getPosition().x - xPosOffSet, _menuButton->getPosition().y));
+    auto elastic = EaseBackOut::create(moveTo);
+    _character->runAction(elastic);
+    return _character;
+}
+
+
+bool MenuContext::onTouchBeganOnCharacter(Touch *touch, Event *event)
+{
+    auto n = this->convertTouchToNodeSpace(touch);
+    Rect boundingBoxRect = Rect::ZERO;
+    boundingBoxRect = _character->getBoundingBox();
+    
+    if(boundingBoxRect.containsPoint(n)) {
+        ScriptingCore::getInstance()->runScript("src/start/characterConfigure.js");
+        return true;
+    }
+    return false;
+}
+
+
+std::vector<std::string> MenuContext::split(std::string s, char delim)
+{
+    std::vector<std::string> elems;
+    std::stringstream ss;
+    ss.str(s);
+    std::string item;
+    while (getline(ss, item, delim)) {
+        elems.push_back(item);
+    }
+    return elems;
+}
 
 
 void MenuContext::removeMenu() {
@@ -476,6 +685,24 @@ void MenuContext::showMap(cocos2d::Ref *pSender, cocos2d::ui::Widget::TouchEvent
     }
 }
 
+void MenuContext::launchGame(std::string gameName) {
+    launchGameFromJS(gameName);
+}
+
+
+void MenuContext::launchGameFromJS(std::string gameName) {
+    CCLOG("gameName %s", gameName.c_str());
+    if (gameName == CAT) {
+        Director::getInstance()->replaceScene(Dash::createScene());
+    } else if(gameName == ENDLESS_RUNNER) {
+        Director::getInstance()->replaceScene(EndlessRunner::createScene());
+    } 
+}
+
+void MenuContext::transitToScrollableGameMap() {
+    Director::getInstance()->replaceScene(TransitionFade::create(2.0, ScrollableGameMapScene::createScene(), Color3B::BLACK));
+}
+
 void MenuContext::showGamesMenu(cocos2d::Ref *pSender, cocos2d::ui::Widget::TouchEventType eEventType) {
     if(eEventType == cocos2d::ui::Widget::TouchEventType::ENDED) {
         if(_launchCustomEventOnExit) {
@@ -519,6 +746,34 @@ void MenuContext::showScore() {
 bool MenuContext::isGamePaused() {
     return _gameIsPaused;
 }
+
+void MenuContext::sendMessageToPeer(std::string message) {
+    #if (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
+        cocos2d::JniMethodInfo methodInfo;
+        if (! cocos2d::JniHelper::getStaticMethodInfo(methodInfo, "org/cocos2dx/javascript/AppActivity", "sendMessage", "(Ljava/lang/String;)V")) {
+        }
+        jstring jMessage = methodInfo.env->NewStringUTF(message.c_str());
+        methodInfo.env->CallStaticVoidMethod(methodInfo.classID, methodInfo.methodID, jMessage);
+        methodInfo.env->DeleteLocalRef(jMessage);
+        methodInfo.env->DeleteLocalRef(methodInfo.classID);
+    #endif
+}
+
+void MenuContext::exitMultiPlayerGame() {
+    //call to Android to close Server/Client Sockets
+    Director::getInstance()->getEventDispatcher()->removeCustomEventListeners("enemy_information_received_event");
+    
+    #if (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
+        cocos2d::JniMethodInfo methodInfo;
+        if (! cocos2d::JniHelper::getStaticMethodInfo(methodInfo, "org/cocos2dx/javascript/AppActivity", "disconnectSockets", "()V")) {
+            return;
+        }
+        methodInfo.env->CallStaticVoidMethod(methodInfo.classID, methodInfo.methodID);
+        methodInfo.env->DeleteLocalRef(methodInfo.classID);
+    #endif
+    Director::getInstance()->replaceScene(ScrollableGameMapScene::createScene());
+}
+
 
 
 MenuContext::MenuContext() :

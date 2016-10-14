@@ -20,7 +20,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
 import java.util.SortedSet;
-import org.cocos2dx.lib.Cocos2dxActivity;
+import org.cocos2dx.javascript.AppActivity;
 /**
  * Created by Shyamal.Upadhyaya on 28/09/16.
  */
@@ -38,7 +38,7 @@ public class BlueToothSupport extends Handler {
 
 
     private String deviceName;
-    private Cocos2dxActivity main;
+    private AppActivity main;
     private BlueToothBoardCastReceiver receiver;
     // Member object for the chat services
     private BluetoothChatService mChatService = null;
@@ -64,7 +64,7 @@ public class BlueToothSupport extends Handler {
     public static final String TOAST = "toast";
 
 
-    public static BlueToothSupport getInstance(Cocos2dxActivity main, String name)
+    public static BlueToothSupport getInstance(AppActivity main, String name)
     {
         //if no instance is initialized yet then create new instance
         //else return stored instance
@@ -85,7 +85,7 @@ public class BlueToothSupport extends Handler {
     }
 
 
-    public void setActivity(Cocos2dxActivity activity) {
+    public void setActivity(AppActivity activity) {
         this.main = activity;
         if(receiver != null) {
             registerForReceiver();
@@ -98,7 +98,7 @@ public class BlueToothSupport extends Handler {
         instance.deviceName = name;
     }
 
-    private BlueToothSupport(Cocos2dxActivity main, String name) {
+    private BlueToothSupport(AppActivity main, String name) {
         this.main = main;
         this.deviceName = name;
 
@@ -178,6 +178,8 @@ public class BlueToothSupport extends Handler {
                 if (D) Log.i(TAG, "MESSAGE_STATE_CHANGE: " + msg.arg1);
                 switch (msg.arg1) {
                     case BluetoothChatService.STATE_CONNECTED:
+                        //call back c++ client to launch game
+                        main.connectedToPeer("connected");
                         //main.updateDiscoveryResults("");
                         //mConversationArrayAdapter.clear();
                         break;
@@ -234,10 +236,7 @@ public class BlueToothSupport extends Handler {
     }
 
 
-    public void connectDevice(Intent data, boolean secure) {
-        // Get the device MAC address
-        String address = data.getExtras()
-                .getString(DeviceListActivity.EXTRA_DEVICE_ADDRESS);
+    public void connectDevice(String address, boolean secure) {
         // Get the BluetoothDevice object
         BluetoothDevice device = this.getBluetoothAdapter().getRemoteDevice(address);
         // Attempt to connect to the device

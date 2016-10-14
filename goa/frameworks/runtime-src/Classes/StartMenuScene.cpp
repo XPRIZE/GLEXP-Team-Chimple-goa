@@ -33,10 +33,20 @@
 #include "mini_games/Circle.h"
 #include "mini_games/Stack.h"
 #include "mini_games/Talk.h"
+#include "mini_games/BalloonHero.h"
+#include "mini_games/Bingo.h"
+#include "mini_games/Drop.h"
+#include "mini_games/Owl.h"
+#include "mini_games/BalloonHero.h"
+#include "mini_games/Decomon.h"
+
+#include "storage/local-storage/LocalStorage.h"
+#include "external/json/document.h"
+#include "external/json/stringbuffer.h"
+#include "external/json/writer.h"
 
 
 USING_NS_CC;
-
 
 StartMenu::StartMenu(){
 }
@@ -45,36 +55,63 @@ StartMenu::~StartMenu() {
     
 }
 
+
+
 const std::vector<std::string> StartMenu::getGameNames() {
     std::vector<std::string> gameNames;
+
+	gameNames.push_back(OWL);
+	gameNames.push_back(PINATA);
+	gameNames.push_back(ORDER);
+	gameNames.push_back(BALLONHERO);
+	gameNames.push_back(MEMORY);
 	gameNames.push_back(SORT_IT);
-	gameNames.push_back(ALPHAMOLE);
+	gameNames.push_back(WEMBLEY);
 	gameNames.push_back(BUBBLE);
+	gameNames.push_back(BAJA);
+	gameNames.push_back(ENDLESS_RUNNER);
+	gameNames.push_back(KUNG_FU_ALPHA);
+	gameNames.push_back(CROSS_THE_BRIDGE);
+	gameNames.push_back(CHAIN);
 	gameNames.push_back(POP);
+	gameNames.push_back(BINGO);
+    gameNames.push_back(CAT);
+	gameNames.push_back(ALPHAMOLE);
 	gameNames.push_back(JUMP_ON_WORDS);
-    gameNames.push_back(ALPHAMON_COMBAT);
-    gameNames.push_back(BAJA);
-    gameNames.push_back(CHAIN);
-    gameNames.push_back(WEMBLEY);
+    gameNames.push_back(ALPHAMON_COMBAT);   
     gameNames.push_back(JAZZ);
     gameNames.push_back(JASMINE);
-    gameNames.push_back(CAT);
     gameNames.push_back(PATCH_THE_WALL);
-    gameNames.push_back(CROSS_THE_BRIDGE);
     gameNames.push_back(SMASH_THE_ROCK);
     gameNames.push_back(CANNON_BALL);
-    gameNames.push_back(ENDLESS_RUNNER);
-    gameNames.push_back(KUNG_FU_ALPHA);
     gameNames.push_back(ALPHAMON_FEED);
     gameNames.push_back(TRAIN);
-	gameNames.push_back(CIRCLE);
-//    gameNames.push_back(STORY_TELLING);
+    gameNames.push_back(TALK);
+	gameNames.push_back(STACK);
+	
     return gameNames;
 
 }
 
+const std::vector<std::string> StartMenu::multiPlayerGameNames() {
+    std::vector<std::string> multiPlayerGameNames;
+    multiPlayerGameNames.push_back(CAT);
+    return multiPlayerGameNames;
+    
+}
+
+
+
+
 
 void StartMenu::startScene(std::string gameName, std::string firstParam, std::string secondParam, std::string thirdParam) {
+    
+//    std::string gameConfig;
+//    localStorageGetItem(gameName, &gameConfig);
+//    CCLOG("gameConfig %s", gameConfig.c_str());
+//    std::string script = parseGameConfig(gameConfig);
+//    ScriptingCore::getInstance()->runScript(script);
+    
     if(gameName == ALPHAMON_COMBAT) {
         Director::getInstance()->replaceScene(SelectAlphamon::createScene());
     } else if(gameName == DUEL_SCENE) {
@@ -107,16 +144,7 @@ void StartMenu::startScene(std::string gameName, std::string firstParam, std::st
     } else if(gameName == JASMINE) {
         Director::getInstance()->replaceScene(Jasmin_Mainfile::createScene());
     } else if(gameName == WEMBLEY) {
-
-		int numberPicker = RandomHelper::random_int(0, 2);
-		switch (numberPicker) {
-
-		case 0: Director::getInstance()->replaceScene(MemoryJungle::createScene());  break;
-		case 1: Director::getInstance()->replaceScene(MemoryHero::createScene());  break;
-		case 2: Director::getInstance()->replaceScene(Memory::createScene());  break;
-
-		}
-        
+		Director::getInstance()->replaceScene(Wembley::createScene());
     } else if(gameName == JAZZ) {
         Director::getInstance()->replaceScene(jazz::createScene());
     } else if(gameName == CHAIN) {
@@ -153,8 +181,49 @@ void StartMenu::startScene(std::string gameName, std::string firstParam, std::st
 	else if (gameName == TALK) {
 		Director::getInstance()->replaceScene(Talk::createScene());
 	}
+	else if (gameName == BINGO) {
+		Director::getInstance()->replaceScene(Bingo::createScene());
+	}
+	else if (gameName == DROP) {
+		Director::getInstance()->replaceScene(Drop::createScene());
+	}
+	else if (gameName == OWL) {
+		Director::getInstance()->replaceScene(Owl::createScene());
+	}
+	else if (gameName == MEMORY) {
+		int numberPicker = RandomHelper::random_int(0, 2);
+		switch (numberPicker) {
+		case 0: Director::getInstance()->replaceScene(MemoryJungle::createScene());  break;
+		case 1: Director::getInstance()->replaceScene(MemoryHero::createScene());  break;
+		case 2: Director::getInstance()->replaceScene(Memory::createScene());  break;
+		}
+	}
 	else{
         CCLOG("Failed starting scene: %s", gameName.c_str());
     }
 }
+
+
+std::string StartMenu::parseGameConfig(std::string gameConfigStr) {
+    rapidjson::Document gameConfig;
+    std::string scriptName = "";
+    if (false == gameConfig.Parse<0>(gameConfigStr.c_str()).HasParseError()) {
+        // document is ok
+        printf("name = %s\n", gameConfig["name"].GetString());
+        printf("cIcon = %s\n", gameConfig["cIcon"].GetString());
+        printf("multiPlayer = %d\n", gameConfig["multiPlayer"].GetBool());
+        printf("isJSGame = %d\n", gameConfig["isJSGame"].GetBool());
+        printf("script = %s\n", gameConfig["script"].GetString());
+        localStorageSetItem("currentLaunchGameName", gameConfig["name"].GetString());
+        scriptName = gameConfig["script"].GetString();
+        
+    }else{
+        // error
+    }
+    
+    return scriptName;
+    
+}
+
+
 

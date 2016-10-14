@@ -72,6 +72,8 @@ import android.util.Log;
 
 import java.lang.reflect.Method;
 import java.util.HashMap;
+import java.util.List;
+import java.util.ArrayList;
 import java.util.Map;
 import java.util.UUID;
 import android.widget.Toast;
@@ -83,7 +85,6 @@ public class AppActivity extends Cocos2dxActivity  implements OnClickListener, O
 	}
 	private static final boolean D = true;
 	
-	private static Cocos2dxActivity _cocosActivity;
 	private static Activity _activity;
 	private static AppActivity _appActivity;
 	private static Context _context;
@@ -93,6 +94,9 @@ public class AppActivity extends Cocos2dxActivity  implements OnClickListener, O
 	private Vibrator v;
 	private Handler handler = null;
 	public ProgressDialog processLipitkDialog;
+
+	public ProgressDialog processDiscoveryDialog;
+	boolean isBluetoothDiscoveryFinished = true;
 
 	//View Components
 	private static CanvasView canvasView = null;
@@ -108,11 +112,14 @@ public class AppActivity extends Cocos2dxActivity  implements OnClickListener, O
 	public static final String TAG = "GOA";
 
 	public static final int BLUETOOTH_REQUEST_DISCOVERABLE_CODE = 42;
-
+	public static String bluetoothDeviceName = null;
     // Intent request codes
     private static final int REQUEST_CONNECT_DEVICE_SECURE = 11;
-    private static final int REQUEST_CONNECT_DEVICE_INSECURE = 12;
     private static final int REQUEST_ENABLE_BT = 13;
+
+	// Return Intent extra
+    public static String EXTRA_DEVICE_ADDRESS = "device_address";
+
 
     private BlueToothSupport blueToothSupport = null;
     private BluetoothChatService mChatService = null;
@@ -120,13 +127,13 @@ public class AppActivity extends Cocos2dxActivity  implements OnClickListener, O
 	private boolean isBlueToothAvailable = false;
 	private StringBuffer mOutStringBuffer;
 
+	private List bluetoothAddresses;
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-
 		_appActivity = this;
 		_activity = this;
-		_cocosActivity = this;
 		_context = this;
 		handler = new Handler(getMainLooper());
 		installAssets();
@@ -142,7 +149,7 @@ public class AppActivity extends Cocos2dxActivity  implements OnClickListener, O
 		Intent checkIntent = new Intent();
 		checkIntent.setAction(TextToSpeech.Engine.ACTION_CHECK_TTS_DATA);
 		startActivityForResult(checkIntent, MY_DATA_CHECK_CODE);
-
+		
         blueToothSupport = BlueToothSupport.getInstance(this, null);		
         blueToothSupport.setBluetoothChatService();
 
@@ -203,19 +210,20 @@ public class AppActivity extends Cocos2dxActivity  implements OnClickListener, O
 				//showWarning();
 			} else {
 				Log.d(TAG, "Discoverable mode enabled.");
-				showToast("Discoverable mode enabled.");				
-				Intent serverIntent = null;
-				serverIntent = new Intent(this, DeviceListActivity.class);
-				startActivityForResult(serverIntent, REQUEST_CONNECT_DEVICE_SECURE);
+				showToast("Discoverable mode enabled.");	
+				startDiscoveryForDevices();			
+				//Intent serverIntent = null;
+				//serverIntent = new Intent(this, DeviceListActivity.class);
+				//startActivityForResult(serverIntent, REQUEST_CONNECT_DEVICE_SECURE);
 			}
 		} 
-		else if(requestCode ==  REQUEST_CONNECT_DEVICE_SECURE) {
-			// When DeviceListActivity returns with a device to connect
-			if (resultCode == Activity.RESULT_OK) {
-				blueToothSupport.connectDevice(data, true);
-				blueToothSupport.setActivity(this);
-			}			
-		}
+		// else if(requestCode ==  REQUEST_CONNECT_DEVICE_SECURE) {
+		// 	// When DeviceListActivity returns with a device to connect
+		// 	if (resultCode == Activity.RESULT_OK) {
+		// 		blueToothSupport.connectDevice(data, true);
+		// 		blueToothSupport.setActivity(this);
+		// 	}			
+		// }
 		else if (resultCode == Activity.RESULT_OK) {
 			final String photoUrl = data.getStringExtra(Utility.PHOTO_DESTINATION_URL);
 
@@ -246,6 +254,26 @@ public class AppActivity extends Cocos2dxActivity  implements OnClickListener, O
 		}
 
 	}
+
+	public static native boolean discoveredBluetoothDevices(String devices);
+	
+
+	public void discoveryFinished() {
+		isBluetoothDiscoveryFinished = true;
+	} 
+ 
+	public void sendDiscoveredBluetoothDevices(final String devices) {
+		((Cocos2dxActivity) _activity).runOnGLThread(new Runnable() {
+			@Override
+			public void run() {
+				// TODO Auto-generated method stub
+				System.out.println("comes and calling desimation with :" +devices);
+				discoveredBluetoothDevices(devices);
+			}
+		});
+	}
+
+
 	
 	public static native boolean photoDestinationURL(String path);
 
@@ -381,6 +409,15 @@ public class AppActivity extends Cocos2dxActivity  implements OnClickListener, O
 		}
 		//TV[0].setText(canvasView.character[0]);
 		final String str1 = canvasView.character[0].toString();
+		System.out.println("all matching possibilities");
+		int indexI = 0;
+		for (String rChar: canvasView.character) {
+			Log.d(TAG, "Recongnized characters: " + rChar + " with confidence:" + canvasView.confidences[indexI]);
+			indexI++;
+		}
+
+		
+	
 		dialog.dismiss();
 		handler.postDelayed(new Runnable() {
 			public void run() {
@@ -474,9 +511,61 @@ public class AppActivity extends Cocos2dxActivity  implements OnClickListener, O
 		return result;
 	}
 
-	public static native boolean launchGame(String gameName);
+	public static native boolean launchGame(String gameName);		
+
+	class BluetoothDiscoveryTask extends AsyncTask<Void, Void, String> {
+		@Override
+		protected String doInBackground(Void... unsued) {
+			doDiscovery();
+			String listAddresses = "";
+			if(bluetoothAddresses != null && bluetoothAddresses.size() > 0) {
+				for(int i = 0; i < bluetoothAddresses.size(); i++) {
+					listAddresses += bluetoothAddresses.get(i);
+					if(i != bluetoothAddresses.size() - 1) {
+						listAddresses += ",";
+					}
+				}				
+			}
+			return listAddresses;
+		}
+
+		@Override
+		protected void onPostExecute(String sResponse) {
+			Log.d(TAG, "DISMISSING PROCESS DISCOVERY DIALOG:");			
+			processDiscoveryDialog.dismiss();
+			System.out.println("HEOIUWEROIWEURWER:" + sResponse);
+			displayBluetoothDevices(sResponse);
+		}
+
+		@Override
+		protected void onPreExecute() {
+			AppActivity.this.runOnUiThread(new Runnable() {
+				public void run() {
+					Log.d(TAG, "SHOWING PROCESS DISCOVERY DIALOG:");
+					processDiscoveryDialog = ProgressDialog.show(AppActivity.this, "Processing", "Please wait...", true);
+				}
+			});
+		}
+	}	
+
+	private void displayBluetoothDevices(final String result) {
+		Log.d(TAG, "DONE WIHT PROCESS DISCOVERY DIALOG:" + result);	
+		((Cocos2dxActivity) _activity).runOnGLThread(new Runnable() {
+			@Override
+			public void run() {
+				// TODO Auto-generated method stub
+				System.out.println("comes and calling c++ with :" + result);
+				discoveredBluetoothDevices(result);
+			}
+		});
 		
-	public static native boolean displayAvailablePeers(String deviceName, String deviceAddress);
+	}
+
+	public void startDiscoveryForDevices() {
+		bluetoothAddresses = new ArrayList();
+		BluetoothDiscoveryTask ObjAsy = new BluetoothDiscoveryTask();
+		ObjAsy.execute();
+	}
 
 
 	private void ensureDiscoverable() {
@@ -488,34 +577,61 @@ public class AppActivity extends Cocos2dxActivity  implements OnClickListener, O
             //startActivity(discoverableIntent);
             startActivityForResult(discoverableIntent, BLUETOOTH_REQUEST_DISCOVERABLE_CODE);
         } else {
-            Intent serverIntent = null;
-            serverIntent = new Intent(this, DeviceListActivity.class);
-            startActivityForResult(serverIntent, REQUEST_CONNECT_DEVICE_SECURE);
+			if (D) Log.d(TAG, "ensure discoverable => startDiscoveryForDevices");
+			startDiscoveryForDevices();
+            //Intent serverIntent = null;
+            //serverIntent = new Intent(this, DeviceListActivity.class);
+            //startActivityForResult(serverIntent, REQUEST_CONNECT_DEVICE_SECURE);
         }
     }
 
 
+    /**
+     * Start device discover with the BluetoothAdapter
+     */
+    private void doDiscovery() {
+        if (D) Log.d(TAG, "doDiscovery()");
+		// If we're already discovering, stop it
+		blueToothSupport.cancelDiscoveryIfAlreadyStarted();
+
+		// Request discover from BluetoothAdapter
+		blueToothSupport.startDiscovery();
+		isBluetoothDiscoveryFinished = false;
+		do {
+		} while(!isBluetoothDiscoveryFinished);
+
+    }
+
 	private void initializeBluetoothSupport() {
 		if(blueToothSupport == null) {
-			blueToothSupport = BlueToothSupport.getInstance(_cocosActivity, "chimple_1");
+			blueToothSupport = BlueToothSupport.getInstance(this, bluetoothDeviceName);
 			blueToothSupport.setBluetoothChatService();
 		}
 		mChatService = blueToothSupport.getBluetoothChatService();		
 	}
 
+	public static void connectToAddress(String address) {
+		_appActivity.blueToothSupport.connectDevice(address, true);
+		_appActivity.blueToothSupport.setActivity(_appActivity);
+	}
 
-	public static void enableMultiPlayerMode() {
+	public static void enableMultiPlayerMode(String bluetoothName) {
+		bluetoothDeviceName = bluetoothName;
 		if(BluetoothAdapter.getDefaultAdapter() != null) {
 			if(!BluetoothAdapter.getDefaultAdapter().isEnabled())
 			{
+				Log.d(TAG, "enableMultiPlayerMode 1111:" + bluetoothName);
 				Intent enableIntent = new Intent(BluetoothAdapter.ACTION_REQUEST_ENABLE);
     		    _activity.startActivityForResult(enableIntent, REQUEST_ENABLE_BT);
 			} else {
+				Log.d(TAG, "enableMultiPlayerMode 2222");
 				_appActivity.initializeBluetoothSupport();
 				_appActivity.ensureDiscoverable();
+				BluetoothAdapter.getDefaultAdapter().setName(bluetoothDeviceName);
 			}			
 		} else {
 			//no bluetooth
+			Log.d(TAG, "enableMultiPlayerMode 33333");
 		}
 	}
  
@@ -539,6 +655,7 @@ public class AppActivity extends Cocos2dxActivity  implements OnClickListener, O
 				public void run() {
 					Log.d(TAG, "Not Connected Status");
 					Toast.makeText(_appActivity, R.string.not_connected, Toast.LENGTH_SHORT).show();
+					_appActivity.connectedToPeer("notConnected");
 				}
 			});			
             return;
@@ -557,9 +674,27 @@ public class AppActivity extends Cocos2dxActivity  implements OnClickListener, O
 
 	public static native void updateInformation(String jsonInfo);
 
-    @Override
+	public static native void launchGameWithPeer(String connectionInfo);
+
+	public void sendDiscoveryResults(String result) {
+		if (D) Log.d(TAG, "updating JSON discovery in app activity:" + result);	
+		bluetoothAddresses.add(result);
+	}
+
+	public void connectedToPeer(final String result) {
+		((Cocos2dxActivity) _activity).runOnGLThread(new Runnable() {
+			@Override
+			public void run() {
+				// TODO Auto-generated method stub
+				System.out.println("Successfully connected to Peer");
+				launchGameWithPeer(result);
+			}
+		});
+		
+	}
+
     public void updateDiscoveryResults(String result) {
-		if(result != null && !result.isEmpty()) {
+		if(result != null && !result.isEmpty()) {			
 	        if (D) Log.d(TAG, "updating JSON RESULT in app activity:" + result);
     	    updateOtherDeviceInformation(result);
 		}

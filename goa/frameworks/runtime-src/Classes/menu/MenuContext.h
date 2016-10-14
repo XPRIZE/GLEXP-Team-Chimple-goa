@@ -16,6 +16,8 @@
 #include "editor-support/cocostudio/CocoStudio.h"
 #include "ScoreBoardContext.h"
 #include "../lang/SafariAnalyticsManager.h"
+#include "../mini_games/Dash.h"
+#include "../mini_games/EndlessRunner.h"
 
 #define GAME_MAP_MENU "GameMapScene"
 #define HELP_MENU "HelpScene"
@@ -38,7 +40,10 @@ public:
     void showStartupHelp(std::function<void()> callback = nullptr);
     void showScore();
     bool isGamePaused();
-
+    void exitMultiPlayerGame();
+    void sendMessageToPeer(std::string message);
+    std::vector<std::string> split(std::string s, char delim);
+    
 CC_CONSTRUCTOR_ACCESS:
     MenuContext();
     virtual ~MenuContext();
@@ -46,7 +51,10 @@ CC_CONSTRUCTOR_ACCESS:
     bool onChimpTouchBegan(cocos2d::Touch* touch, cocos2d::Event* event);
     void onChimpTouchEnded(cocos2d::Touch* touch, cocos2d::Event* event);
     
+    void transitToScrollableGameMap();
+    void launchGame(std::string gameName);
     
+    static void launchGameFromJS(std::string gameName);
     
 protected:
     int _points;
@@ -62,7 +70,7 @@ protected:
     cocos2d::ui::Button* _mapMenu;
     cocos2d::ui::Button* _bookMenu;
     cocos2d::ui::Button* _gamesMenu;
-    cocos2d::ClippingNode* _photoMenu;
+    cocos2d::Node* _photoMenu;
     cocos2d::LayerColor* _greyLayer;
     cocos2d::Node* _chimp;
     int _chimpAudioId;
@@ -85,6 +93,8 @@ protected:
     void sadFace();
     void normalFace();
     
+    cocostudio::timeline::SkeletonNode* _character;
+    
     std::string gameName;
     std::string sceneName;
     std::function<void()> _startupCallback;
@@ -104,6 +114,8 @@ protected:
         return os.str() ;
     }
     
+    bool onTouchBeganOnCharacter(cocos2d::Touch *touch, cocos2d::Event *event);
+    
     cocos2d::ui::Button* createMenuItem(const std::string normalImage,
                         const std::string selectedImage ,
                         const std::string disableImage,
@@ -112,6 +124,11 @@ protected:
     cocos2d::ClippingNode* createMaskedMenuItem(const std::string normalImage,
                                         const std::string selectedImage ,
                                         const std::string disableImage,
+                                        float xPosOffSet);
+    
+    cocos2d::Node* createAvatarMenuItem(const std::string normalImage,
+                                                     const std::string selectedImage ,
+                                                     const std::string disableImage,
                                         float xPosOffSet);
     
     

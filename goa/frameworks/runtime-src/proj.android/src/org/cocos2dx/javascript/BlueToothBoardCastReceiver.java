@@ -8,7 +8,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import org.chimple.goa.R;
-import org.cocos2dx.lib.Cocos2dxActivity;
+import org.cocos2dx.javascript.AppActivity;
 /**
  * Created by Shyamal.Upadhyaya on 28/09/16.
  */
@@ -17,9 +17,9 @@ public class BlueToothBoardCastReceiver extends BroadcastReceiver {
 
     public boolean isRegistered = false;
     private BlueToothSupport blueToothSupport = null;
-    private Cocos2dxActivity activity = null;
+    private AppActivity activity = null;
 
-    public BlueToothBoardCastReceiver(Cocos2dxActivity activity, BlueToothSupport wdSupport) {
+    public BlueToothBoardCastReceiver(AppActivity activity, BlueToothSupport wdSupport) {
         super();
         this.activity = activity;
         this.blueToothSupport = wdSupport;
@@ -42,7 +42,7 @@ public class BlueToothBoardCastReceiver extends BroadcastReceiver {
     }
 
 
-    public void setActivity(Cocos2dxActivity activity) {
+    public void setActivity(AppActivity activity) {
         this.activity = activity;
     }
     /*
@@ -60,17 +60,15 @@ public class BlueToothBoardCastReceiver extends BroadcastReceiver {
             // Get the BluetoothDevice object from the Intent
             BluetoothDevice device = intent.getParcelableExtra(BluetoothDevice.EXTRA_DEVICE);
             // If it's already paired, skip it, because it's been listed already
-            if (device.getBondState() != BluetoothDevice.BOND_BONDED) {
+            //if (device.getBondState() != BluetoothDevice.BOND_BONDED) {
                 blueToothSupport.addToNewDiscoveredDevices(device);
-                activity.updateDiscoveryResults(device.getName() + "\n" + device.getAddress());
-            }
+                activity.sendDiscoveryResults(device.getName()+ "-" + device.getAddress());
+            //}
             // When discovery is finished, change the Activity title
         } else if (BluetoothAdapter.ACTION_DISCOVERY_FINISHED.equals(action)) {
-            activity.setProgressBarIndeterminateVisibility(false);
-            activity.setTitle(R.string.select_device);
+            System.out.println("BLUE TOOTH DISCOVERY FINISHED");
+            activity.discoveryFinished();
             if(!blueToothSupport.didFindAnyNewDevice()) {
-                String noDevices = activity.getResources().getText(R.string.none_found).toString();
-                activity.updateDiscoveryResults(noDevices);
             }
         }
     }

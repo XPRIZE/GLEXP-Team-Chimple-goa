@@ -67,6 +67,26 @@ bool js_chimpleautogenbindings_MenuContext_showStartupHelp(JSContext *cx, uint32
     JS_ReportError(cx, "js_chimpleautogenbindings_MenuContext_showStartupHelp : wrong number of arguments: %d, was expecting %d", argc, 0);
     return false;
 }
+bool js_chimpleautogenbindings_MenuContext_launchGame(JSContext *cx, uint32_t argc, jsval *vp)
+{
+    JS::CallArgs args = JS::CallArgsFromVp(argc, vp);
+    bool ok = true;
+    JS::RootedObject obj(cx, args.thisv().toObjectOrNull());
+    js_proxy_t *proxy = jsb_get_js_proxy(obj);
+    MenuContext* cobj = (MenuContext *)(proxy ? proxy->ptr : NULL);
+    JSB_PRECONDITION2( cobj, cx, false, "js_chimpleautogenbindings_MenuContext_launchGame : Invalid Native Object");
+    if (argc == 1) {
+        std::string arg0;
+        ok &= jsval_to_std_string(cx, args.get(0), &arg0);
+        JSB_PRECONDITION2(ok, cx, false, "js_chimpleautogenbindings_MenuContext_launchGame : Error processing arguments");
+        cobj->launchGame(arg0);
+        args.rval().setUndefined();
+        return true;
+    }
+
+    JS_ReportError(cx, "js_chimpleautogenbindings_MenuContext_launchGame : wrong number of arguments: %d, was expecting %d", argc, 1);
+    return false;
+}
 bool js_chimpleautogenbindings_MenuContext_getPoints(JSContext *cx, uint32_t argc, jsval *vp)
 {
     JS::CallArgs args = JS::CallArgsFromVp(argc, vp);
@@ -303,6 +323,22 @@ bool js_chimpleautogenbindings_MenuContext_jumpOut(JSContext *cx, uint32_t argc,
     JS_ReportError(cx, "js_chimpleautogenbindings_MenuContext_jumpOut : wrong number of arguments: %d, was expecting %d", argc, 3);
     return false;
 }
+bool js_chimpleautogenbindings_MenuContext_transitToScrollableGameMap(JSContext *cx, uint32_t argc, jsval *vp)
+{
+    JS::CallArgs args = JS::CallArgsFromVp(argc, vp);
+    JS::RootedObject obj(cx, args.thisv().toObjectOrNull());
+    js_proxy_t *proxy = jsb_get_js_proxy(obj);
+    MenuContext* cobj = (MenuContext *)(proxy ? proxy->ptr : NULL);
+    JSB_PRECONDITION2( cobj, cx, false, "js_chimpleautogenbindings_MenuContext_transitToScrollableGameMap : Invalid Native Object");
+    if (argc == 0) {
+        cobj->transitToScrollableGameMap();
+        args.rval().setUndefined();
+        return true;
+    }
+
+    JS_ReportError(cx, "js_chimpleautogenbindings_MenuContext_transitToScrollableGameMap : wrong number of arguments: %d, was expecting %d", argc, 0);
+    return false;
+}
 bool js_chimpleautogenbindings_MenuContext_onChimpTouchEnded(JSContext *cx, uint32_t argc, jsval *vp)
 {
     JS::CallArgs args = JS::CallArgsFromVp(argc, vp);
@@ -437,6 +473,22 @@ bool js_chimpleautogenbindings_MenuContext_create(JSContext *cx, uint32_t argc, 
     return false;
 }
 
+bool js_chimpleautogenbindings_MenuContext_launchGameFromJS(JSContext *cx, uint32_t argc, jsval *vp)
+{
+    JS::CallArgs args = JS::CallArgsFromVp(argc, vp);
+    bool ok = true;
+    if (argc == 1) {
+        std::string arg0;
+        ok &= jsval_to_std_string(cx, args.get(0), &arg0);
+        JSB_PRECONDITION2(ok, cx, false, "js_chimpleautogenbindings_MenuContext_launchGameFromJS : Error processing arguments");
+        MenuContext::launchGameFromJS(arg0);
+        args.rval().setUndefined();
+        return true;
+    }
+    JS_ReportError(cx, "js_chimpleautogenbindings_MenuContext_launchGameFromJS : wrong number of arguments");
+    return false;
+}
+
 bool js_chimpleautogenbindings_MenuContext_constructor(JSContext *cx, uint32_t argc, jsval *vp)
 {
     JS::CallArgs args = JS::CallArgsFromVp(argc, vp);
@@ -474,6 +526,7 @@ void js_register_chimpleautogenbindings_MenuContext(JSContext *cx, JS::HandleObj
 
     static JSFunctionSpec funcs[] = {
         JS_FN("showStartupHelp", js_chimpleautogenbindings_MenuContext_showStartupHelp, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+        JS_FN("launchGame", js_chimpleautogenbindings_MenuContext_launchGame, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
         JS_FN("getPoints", js_chimpleautogenbindings_MenuContext_getPoints, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
         JS_FN("init", js_chimpleautogenbindings_MenuContext_init, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
         JS_FN("pickAlphabet", js_chimpleautogenbindings_MenuContext_pickAlphabet, 2, JSPROP_PERMANENT | JSPROP_ENUMERATE),
@@ -482,12 +535,14 @@ void js_register_chimpleautogenbindings_MenuContext(JSContext *cx, JS::HandleObj
         JS_FN("isGamePaused", js_chimpleautogenbindings_MenuContext_isGamePaused, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
         JS_FN("onChimpTouchBegan", js_chimpleautogenbindings_MenuContext_onChimpTouchBegan, 2, JSPROP_PERMANENT | JSPROP_ENUMERATE),
         JS_FN("jumpOut", js_chimpleautogenbindings_MenuContext_jumpOut, 3, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+        JS_FN("transitToScrollableGameMap", js_chimpleautogenbindings_MenuContext_transitToScrollableGameMap, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
         JS_FN("onChimpTouchEnded", js_chimpleautogenbindings_MenuContext_onChimpTouchEnded, 2, JSPROP_PERMANENT | JSPROP_ENUMERATE),
         JS_FS_END
     };
 
     static JSFunctionSpec st_funcs[] = {
         JS_FN("create", js_chimpleautogenbindings_MenuContext_create, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+        JS_FN("launchGameFromJS", js_chimpleautogenbindings_MenuContext_launchGameFromJS, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
         JS_FS_END
     };
 

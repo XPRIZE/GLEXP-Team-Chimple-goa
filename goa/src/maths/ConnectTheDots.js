@@ -8,15 +8,31 @@ xc.ConnectTheDotsLayer = cc.LayerColor.extend({
   _numRows: 8,
   _numCols: 11,
   _touchedDots: [],
-  _targetNum: 7,
+  _targetNum: 2,
   _gap: 0,
-  ctor: function() {
+  _level: 0,
+  _score: 0,
+  ctor: function(args) {
     this._super(cc.color(248, 248, 248), cc.director.getVisibleSize().width, cc.director.getVisibleSize().height)
     cc.spriteFrameCache.addSpriteFrames(xc.ConnectTheDotsLayer.res.hand_plist)
+    this._level = args[0]
+    if(this._level <= 3) {
+      this._targetNum = 2
+    } else if(this._level <= 6) {
+      this._targetNum = 3
+    } else if(this._level <= 9) {
+      this._targetNum = 4
+    } else if(this._level <= 12) {
+      this._targetNum = 5
+    } else {
+      this._targetNum = 6
+    }
     this._dotNode = new cc.Node()
     this.addChild(this._dotNode)
     this._gap = Math.min(cc.director.getVisibleSize().width / this._numCols, cc.director.getVisibleSize().height / this._numRows)
     this.showDots()
+    var help = new xc.HelpLayer(1280, 900, 1600, 1600)
+    this.addChild(help)
     this.iterateToFindPath()
   },
   showDots: function() {
@@ -40,6 +56,14 @@ xc.ConnectTheDotsLayer = cc.LayerColor.extend({
       }
     }
   },
+  enableTouch: function(enable) {
+    var allChildren = this._dotNode.getChildren()
+    for (var i = 0; i < allChildren.length; i++) {
+      if(allChildren[i]._listener) {
+        allChildren[i]._listener.setEnabled(enable)
+      }
+    }
+  },  
   pulse: function(dot) {
     var pulse = new xc.Dot(dot.getColor())
     pulse.setOpacity(64)
@@ -57,6 +81,7 @@ xc.ConnectTheDotsLayer = cc.LayerColor.extend({
   dotTouched: function(touch, event) {
     switch (event.getEventCode()) {
       case cc.EventTouch.EventCode.BEGAN:
+        this._touchedDots = []
         var locationInNode = event.getCurrentTarget().getParent().convertTouchToNodeSpace(touch)
         var line = new cc.DrawNode()
         line.drawSegment(event.getCurrentTarget().getPosition(), locationInNode, 20, event.getCurrentTarget()._dotColor)
@@ -114,6 +139,10 @@ xc.ConnectTheDotsLayer = cc.LayerColor.extend({
           }
         }
         if(touchedDots == this._targetNum) {
+          if(++this._score >= 5) {
+            xc.GameScene.load(xc.ConnectTheDotsMenu)
+          }
+          this.enableTouch(false)
           for(var j = 0; j < this._numCols; j++) {
             for(var i = this._numRows - 1; i >= 0; i--) {
               for(k = 0; k < this._touchedDots.length; k++) {
@@ -151,8 +180,10 @@ xc.ConnectTheDotsLayer = cc.LayerColor.extend({
               }
             }
           }
+          this.runAction(new cc.Sequence(cc.delayTime(0.5), new cc.CallFunc(function() {
+            this.enableTouch(true)
+          }, this)))
         }
-        this._touchedDots = []
         break
     }
   },
@@ -198,7 +229,41 @@ xc.ConnectTheDotsLayer = cc.LayerColor.extend({
 xc.ConnectTheDotsLayer.res = {
   hand_plist: xc.path + "maths/hand.plist",
   hand_png: xc.path + "maths/hand.png",
-  dot_png: xc.path + "maths/dot.png"
+  dot_png: xc.path + "maths/dot.png",
+  graywindow_png: xc.path + "graywindow.png"  
+}
+
+xc.ConnectTheDotsMenu = xc.LevelMenuLayer.extend({
+  _clazz: xc.ConnectTheDotsLayer,
+  _span: 3,
+  _numLevels: 15,
+  ctor: function(args) {
+    cc.spriteFrameCache.addSpriteFrames(xc.ConnectTheDotsMenu.res.hand_plist)
+    cc.spriteFrameCache.addSpriteFrames(xc.ConnectTheDotsMenu.res.cityscreen_plist)    
+    this._super(args)
+    var parallax = this.getContainer()
+    var background = ccs.load(xc.ConnectTheDotsMenu.res.background_json, xc.path)
+    var foreground = ccs.load(xc.ConnectTheDotsMenu.res.foreground_json, xc.path)
+    var frontground = ccs.load(xc.ConnectTheDotsMenu.res.frontground_json, xc.path)
+    var mainground = ccs.load(xc.ConnectTheDotsMenu.res.mainground_json, xc.path)
+    parallax.addChild(background.node, -3, cc.p(0.2, 0.2), cc.p(0, 0))
+    parallax.addChild(mainground.node, -3, cc.p(0.4, 0.4), cc.p(0, 0))
+    parallax.addChild(foreground.node, -2, cc.p(0.6, 0.6), cc.p(0, 0))
+    parallax.addChild(frontground.node, -1, cc.p(0.8, 0.8), cc.p(0, 0))
+  }
+})
+
+xc.ConnectTheDotsMenu.res = {
+  hand_plist: xc.path + "maths/hand.plist",
+  hand_png: xc.path + "maths/hand.png",
+  dot_png: xc.path + "maths/dot.png",  
+  cityscreen_plist: xc.path + "cityscreen/cityscreen.plist",
+  cityscreen_png: xc.path + "cityscreen/cityscreen.png",
+  cityscreen_json: xc.path + "cityscreen/cityscreen.json",
+  background_json: xc.path + "cityscreen/background.json",
+  foreground_json: xc.path + "cityscreen/foreground.json",
+  frontground_json: xc.path + "cityscreen/frontground.json",
+  mainground_json: xc.path + "cityscreen/mainground.json"
 }
 
 xc.ConnectTheDotsLayer.colors = [

@@ -676,8 +676,7 @@ public class Cocos2dxHelper {
     // ===========================================================
 
     public static interface Cocos2dxHelperListener {
-        public void showDialog(final String pTitle, final String pMessage);
-		public void updateDiscoveryResults(String result);
+        public void showDialog(final String pTitle, final String pMessage);		
         public void runOnGLThread(final Runnable pRunnable);
     }
 

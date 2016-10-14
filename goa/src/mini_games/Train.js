@@ -319,7 +319,7 @@ xc.TrainLayer = cc.Layer.extend({
             label.pos = -1;
             label.xP = label.getPositionX();
             label.yP = label.getPositionY();
-
+            label.setColor(new cc.color(0, 0, 0, 255));
             randomLetter.push(label);
 
             cc.eventManager.addListener(listener.clone(), label);
