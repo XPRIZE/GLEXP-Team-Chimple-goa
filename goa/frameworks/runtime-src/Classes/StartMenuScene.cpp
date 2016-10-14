@@ -144,16 +144,7 @@ void StartMenu::startScene(std::string gameName, std::string firstParam, std::st
     } else if(gameName == JASMINE) {
         Director::getInstance()->replaceScene(Jasmin_Mainfile::createScene());
     } else if(gameName == WEMBLEY) {
-		/*
-		int numberPicker = RandomHelper::random_int(0, 2);
-		switch (numberPicker) {
-
-		case 0: Director::getInstance()->replaceScene(MemoryJungle::createScene());  break;
-		case 1: Director::getInstance()->replaceScene(MemoryHero::createScene());  break;
-		case 2: Director::getInstance()->replaceScene(Memory::createScene());  break;
-
-		}*/
-		Director::getInstance()->replaceScene(BalloonHero::createScene());
+		Director::getInstance()->replaceScene(Wembley::createScene());
     } else if(gameName == JAZZ) {
         Director::getInstance()->replaceScene(jazz::createScene());
     } else if(gameName == CHAIN) {
@@ -198,6 +189,14 @@ void StartMenu::startScene(std::string gameName, std::string firstParam, std::st
 	}
 	else if (gameName == OWL) {
 		Director::getInstance()->replaceScene(Owl::createScene());
+	}
+	else if (gameName == MEMORY) {
+		int numberPicker = RandomHelper::random_int(0, 2);
+		switch (numberPicker) {
+		case 0: Director::getInstance()->replaceScene(MemoryJungle::createScene());  break;
+		case 1: Director::getInstance()->replaceScene(MemoryHero::createScene());  break;
+		case 2: Director::getInstance()->replaceScene(Memory::createScene());  break;
+		}
 	}
 	else{
         CCLOG("Failed starting scene: %s", gameName.c_str());
