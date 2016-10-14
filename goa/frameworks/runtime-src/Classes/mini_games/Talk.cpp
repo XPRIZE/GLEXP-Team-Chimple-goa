@@ -27,7 +27,7 @@ bool Talk::init()
 		return false;
 	}
 
-	_handFlag = false;
+	_handFlag = 0;
 	_totalCount = 0;
 	_totalAnswer = 0;
 	_correctAnswer = 0;
@@ -35,7 +35,7 @@ bool Talk::init()
 	visibleSize = Director::getInstance()->getWinSize();
 	
 	_scene = { "talkisland", "talkcity", "talkjungle"};
-	sceneName = _scene.at(rand() % _scene.size());
+	sceneName = "talkcity";// _scene.at(rand() % _scene.size());
 
 	if (sceneName == "talkisland")
 	{
@@ -123,7 +123,6 @@ bool Talk::init()
 	_talkBg->setPosition(Vec2(visibleSize.width / 2, 0));
 	_talkBg->setAnchorPoint(Vec2(.5, 0));
 	this->addChild(_talkBg);
-
 
 	Vec2 origin = Director::getInstance()->getVisibleOrigin();
 
@@ -217,7 +216,7 @@ std::vector<std::string> Talk::split(std::string s, char delim)
 
 void Talk::update(float d)
 {
-	if (_handFlag == true)
+	if (_handFlag == 1)
 	{
 		Rect fish_Rect, hand_rect, fish_Rect_next;
 
@@ -243,6 +242,7 @@ void Talk::update(float d)
 
 			if (_totalCount == _textToShow.size() || _totalAnswer == _correctAnswer)
 			{
+				_handFlag = -1;
 				if (sceneName == "talkjungle" || sceneName == "talkisland")
 				{
 					if (sceneName == "talkisland")
@@ -261,16 +261,19 @@ void Talk::update(float d)
 					_enemy->stopAction(_enemyChar);
 					_enemyChar = CSLoader::createTimeline(timeline.str());
 					_enemy->runAction(_enemyChar);
-					_enemyChar->play("e_wrong", true);
-//					_enemyChar->setAnimationEndCallFunc("e_die", CC_CALLBACK_0(Talk::gameEnd, this));
+					_enemyChar->play("e_die", false);
+					_totalAnswer = -1;
+					_enemyChar->setAnimationEndCallFunc("e_die", CC_CALLBACK_0(Talk::gameEnd, this));
 				}
 				else
 				{
 					_menuContext->showScore();
 				}
 			}
-			else
-				_handFlag = false;
+			else if(_handFlag == 1)
+			{
+				_handFlag = 0;
+			}
 		}
 		else if (fish_Rect.intersectsRect(_ehand->getBoundingBox()) || (_enemyFish.size() >= 1 && fish_Rect_next.intersectsRect(_enemyFish.at(_enemyFish.size() - 1)->getBoundingBox())))
 		{
@@ -279,6 +282,7 @@ void Talk::update(float d)
 
 			if (_totalCount == _textToShow.size() || _totalAnswer == _correctAnswer)
 			{
+				_handFlag = -1;
 				if (sceneName == "talkjungle" || sceneName == "talkisland")
 				{
 					if (sceneName == "talkisland")
@@ -298,6 +302,7 @@ void Talk::update(float d)
 					_heroChar = CSLoader::createTimeline(timeline.str());
 					_hero->runAction(_heroChar);
 					_heroChar->play("h_die", false);
+					_totalAnswer = -1;
 					_heroChar->setAnimationEndCallFunc("h_die", CC_CALLBACK_0(Talk::gameEnd, this));
 				}
 				else
@@ -305,8 +310,10 @@ void Talk::update(float d)
 					_menuContext->showScore();
 				}
 			}
-			else
-				_handFlag = false;
+			else if (_handFlag == 1)
+			{
+				_handFlag = 0;
+			}
 		}
 	}
 }
@@ -329,7 +336,7 @@ void Talk::addEvents(struct LabelDetails sprite)
 		Size size = target->getContentSize();
 		Rect rect = Rect(0, 0, size.width, size.height);
 
-		if (rect.containsPoint(locationInNode) && _handFlag==false)
+		if (rect.containsPoint(locationInNode) && _handFlag==0)
 		{
 			if (sceneName == "talkisland" || sceneName == "talkcity" || sceneName == "talkjungle")
 			{
@@ -369,7 +376,7 @@ void Talk::addEvents(struct LabelDetails sprite)
 				}
 				_action = MoveTo::create(3, Vec2(_fish->getPositionX(), 0));
 				_fish->runAction(_action);
-				_handFlag = true;
+				_handFlag = 1;
 				_totalCount++;
 				cocos2d::Director::getInstance()->getEventDispatcher()->removeEventListenersForTarget(sprite.label);
 			}
