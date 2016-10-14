@@ -59,7 +59,7 @@ bool BalloonHero::init() {
 	}
 	//SpriteFrameCache::getInstance()->addSpriteFramesWithFile("balloonhero/balloonhero.plist");
 	_sceneNumber = RandomHelper::random_int(1, 2);
-//	_sceneNumber = 2;
+	//_sceneNumber = 2;
 
 	std::string mainSceneplist;
 
@@ -74,14 +74,15 @@ bool BalloonHero::init() {
 	}
 	
 	if (_sceneNumber == 3) {
-		mainSceneplist = "balloonfarm/balloonfarm.plist";
+		mainSceneplist = "ballooncandy/ballooncandy.plist";
 	}
 
 	CCSpriteFrameCache::sharedSpriteFrameCache()->addSpriteFramesWithFile(mainSceneplist);
 
 	Size visibleSize = Director::getInstance()->getVisibleSize();
 	Vec2 origin = Director::getInstance()->getVisibleOrigin();
-
+	CCLOG("width : %f", visibleSize.width);
+	CCLOG("height : %f", visibleSize.height);
 	std::string mainScene;
 
 	if (_sceneNumber == 1) {
@@ -92,7 +93,7 @@ bool BalloonHero::init() {
 		mainScene = "balloonfarm/balloonfarm.csb";
 	}
 	if (_sceneNumber == 3) {
-		mainScene = "balloonfarm/balloonfarm.csb";
+		mainScene = "ballooncandy/ballooncandy.csb";
 	}
 	
 	_balloonHero = CSLoader::createNode(mainScene);
@@ -118,7 +119,8 @@ bool BalloonHero::init() {
 
 	auto loader = CSLoader::createNode("balloonhero/fuelbar.csb");
 	_fuelBar = (cocos2d::ui::LoadingBar*)(loader->getChildren()).at(1);	_fuelBar->setPercent(100);
-	loader->setPosition(Vec2(2550, 1100));
+	
+	loader->setPosition(Vec2(visibleSize.width * 0.94, visibleSize.height * 0.61));
 	loader->setScale(0.5, 0.5);
 	addChild(loader, 1);
 
@@ -130,7 +132,7 @@ bool BalloonHero::init() {
 		animationcsb = "balloonhero/firefly.csb";
 	}
 	if (_sceneNumber == 2) { animationcsb = "balloonfarm/balloon.csb"; }
-	if (_sceneNumber == 3) { animationcsb = "balloonfarm/balloon.csb"; }
+	if (_sceneNumber == 3) { animationcsb = "ballooncandy/firefly.csb"; }
 
 		_fireFly = (cocos2d::Sprite *)CSLoader::createNode(animationcsb);
 
@@ -152,7 +154,7 @@ bool BalloonHero::init() {
 		animationTimeline = "balloonhero/firefly.csb";
 	}
 	if (_sceneNumber == 2) { animationTimeline = "balloonfarm/balloon.csb"; }
-	if (_sceneNumber == 3) { animationTimeline = "balloonfarm/balloon.csb"; }
+	if (_sceneNumber == 3) { animationTimeline = "ballooncandy/firefly.csb"; }
 
 
 		_fireTimeline = CSLoader::createTimeline(animationTimeline);
@@ -211,10 +213,9 @@ bool BalloonHero::onTouchBegan(Touch* touch, Event* event) {
 	}
 	if (_sceneNumber == 3) {
 
-		character = "balloon";
+		character = "box";
 
 	}
-
 
 
 	if (target->getChildByName(character)->getBoundingBox().containsPoint(locationInNode))
@@ -268,7 +269,7 @@ void BalloonHero::generateObjectsAndMove() {
 		_objects = { "balloonfarm/wrongballoon.png","balloonfarm/wordballoon.png" ,"balloonfarm/cloud1.png", "balloonfarm/wrongballoon.png" , "balloonfarm/cloud2.png" ,"balloonfarm/wordballoon.png" };
 	}
 	if (_sceneNumber == 3) {
-		_objects = { "balloonfarm/wrongballoon.png","balloonfarm/wordballoon.png" ,"balloonfarm/cloud1.png", "balloonfarm/wrongballoon.png" , "balloonfarm/cloud2.png" ,"balloonfarm/wordballoon.png" };
+		_objects = { "ballooncandy/spear.png","ballooncandy/balloon1.png" ,"ballooncandy/cloud1.png", "ballooncandy/spear.png" , "ballooncandy/cloud2.png" ,"ballooncandy/balloon1.png" };
 	}
 	/*_meteor = (cocos2d::Sprite *)CSLoader::createNode("balloonhero/meteor.csb");
 
@@ -533,7 +534,7 @@ void BalloonHero::update(float delta) {
 		scalex = 0.7, scaley = 0.7;
 	}
 	if (_sceneNumber == 3) {
-		burst = "balloonfarm/wrongballoon.csb";
+		burst = "ballooncandy/spear.csb";
 	}
 
 
