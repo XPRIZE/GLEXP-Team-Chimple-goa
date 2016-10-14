@@ -50,6 +50,7 @@
 #include "mini_games/Drop.h"
 #include "mini_games/Owl.h"
 #include "mini_games/Order.h"
+#include "mini_games/Pillar.h"
 
 #include "storage/local-storage/LocalStorage.h"
 #include "external/json/document.h"
@@ -218,8 +219,8 @@ void ScrollableGameMapScene::gameSelected(Ref* pSender, ui::Widget::TouchEventTy
 				 Director::getInstance()->replaceScene(CrossTheBridge::createScene());
             }else if (clickedButton->getName() == BINGO) {
 				Director::getInstance()->replaceScene(Bingo::createScene());
-			}else if(clickedButton->getName() == SMASH_THE_ROCK) {
-                Director::getInstance()->replaceScene(SmashTheRock::createScene());
+			}else if(clickedButton->getName() == PILLAR) {
+                Director::getInstance()->replaceScene(Pillar::createScene());
             } else if(clickedButton->getName() == CANNON_BALL) {
                 Director::getInstance()->replaceScene(MainGame::createScene());//BUBBLE
             } else if(clickedButton->getName() == BUBBLE) {

@@ -51,7 +51,7 @@ bool Circle::init()
 	float toplabelX = visibleSize.width / 2 - 30;
 	std::map<std::string, std::map<std::string, std::string>> differntSceneMapping = {
 		{
-			{ "city",  //sonu designs
+			{ "city",  //pratap designs
 			{
 				{ "plist", "dash/dash.plist" },
 				{ "bg", "circlehero/circlehero.csb" },
@@ -317,7 +317,15 @@ void Circle::addEnemy(int num)
 
 	if (_score == 5)
 	{
-		this->scheduleOnce(schedule_selector(Circle::scoreBoard), 2.0f);
+		_friend->setRotation(0.0f);
+		auto timeline = CSLoader::createTimeline(("circlehero/punch.csb"));
+		_friend->getChildByName("lefthand")->runAction(timeline);
+		timeline->play("flex",true);
+		auto timeline2 = CSLoader::createTimeline(("circlehero/punch.csb"));
+		_friend->getChildByName("righthand")->runAction(timeline2);
+		timeline2->play("flex", true);
+
+		this->scheduleOnce(schedule_selector(Circle::scoreBoard), 3.0f);
 	}
 
 }
@@ -410,9 +418,14 @@ void Circle::wordGenerateWithOptions()
         _topLabel->setPositionX(visibleSize.width / 2 );
 		_topLabel->setPositionY(visibleSize.height - _topLabel->getContentSize().height );
 	}
+	else if (_scenePath.at("animation_select").compare("three") == 0)
+	{
+		_topLabel->setPositionX(visibleSize.width / 2   );
+		_topLabel->setPositionY(visibleSize.height - _topLabel->getContentSize().height - 600);
+	}
 	else
 	{
-		_topLabel->setPositionX(visibleSize.width / 2 -20 );
+		_topLabel->setPositionX(visibleSize.width / 2 + 40);
 		_topLabel->setPositionY(visibleSize.height - _topLabel->getContentSize().height - 600);
     }
 	this->addChild(_topLabel,2);

@@ -35,7 +35,7 @@ public:
 
 	cocos2d::Sprite *_hhand, *_hero, *_ehand, *_enemy, *_fish, *_hbasket, *_ebasket;
 	cocos2d::Action *_action;
-	bool _handFlag;
+	int _handFlag;
 	std::vector<cocos2d::Sprite*> _enemyFish, _heroFish;
 	int _totalCount, _totalAnswer, _correctAnswer;
 

@@ -4,408 +4,423 @@
     <dict>
         <key>frames</key>
         <dict>
-            <key>talkcity/basket.png</key>
+            <key>layercandy/board.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
                 <key>spriteOffset</key>
                 <string>{0,0}</string>
                 <key>spriteSize</key>
-                <string>{127,53}</string>
+                <string>{636,160}</string>
                 <key>spriteSourceSize</key>
-                <string>{127,53}</string>
+                <string>{636,160}</string>
                 <key>textureRect</key>
-                <string>{{1155,379},{127,53}}</string>
+                <string>{{1121,1210},{636,160}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+            <key>layercandy/body.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{202,290}</string>
+                <key>spriteSourceSize</key>
+                <string>{202,290}</string>
+                <key>textureRect</key>
+                <string>{{2290,981},{202,290}}</string>
                 <key>textureRotated</key>
                 <true/>
             </dict>
-            <key>talkcity/body.png</key>
+            <key>layercandy/cake1.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
                 <key>spriteOffset</key>
                 <string>{0,0}</string>
                 <key>spriteSize</key>
-                <string>{127,109}</string>
+                <string>{555,218}</string>
                 <key>spriteSourceSize</key>
-                <string>{127,109}</string>
+                <string>{555,218}</string>
                 <key>textureRect</key>
-                <string>{{530,400},{127,109}}</string>
+                <string>{{1759,1210},{555,218}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>talkcity/building01.png</key>
+            <key>layercandy/chocogirl.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
                 <key>spriteOffset</key>
-                <string>{0,0}</string>
+                <string>{0,-2}</string>
                 <key>spriteSize</key>
-                <string>{715,397}</string>
+                <string>{409,559}</string>
                 <key>spriteSourceSize</key>
-                <string>{715,397}</string>
+                <string>{409,563}</string>
                 <key>textureRect</key>
-                <string>{{400,1},{715,397}}</string>
-                <key>textureRotated</key>
-                <false/>
-            </dict>
-            <key>talkcity/building02.png</key>
-            <dict>
-                <key>aliases</key>
-                <array/>
-                <key>spriteOffset</key>
-                <string>{0,0}</string>
-                <key>spriteSize</key>
-                <string>{505,397}</string>
-                <key>spriteSourceSize</key>
-                <string>{505,397}</string>
-                <key>textureRect</key>
-                <string>{{1,1},{505,397}}</string>
+                <string>{{2775,756},{409,559}}</string>
                 <key>textureRotated</key>
                 <true/>
             </dict>
-            <key>talkcity/enemy_body.png</key>
+            <key>layercandy/chocogirl2.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
                 <key>spriteOffset</key>
-                <string>{0,0}</string>
+                <string>{0,-2}</string>
                 <key>spriteSize</key>
-                <string>{128,109}</string>
+                <string>{414,559}</string>
                 <key>spriteSourceSize</key>
-                <string>{128,109}</string>
+                <string>{414,563}</string>
                 <key>textureRect</key>
-                <string>{{400,400},{128,109}}</string>
+                <string>{{3446,497},{414,559}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>talkcity/enemy_face.png</key>
+            <key>layercandy/chocogirl3.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
                 <key>spriteOffset</key>
-                <string>{0,0}</string>
+                <string>{0,-2}</string>
                 <key>spriteSize</key>
-                <string>{187,155}</string>
+                <string>{414,559}</string>
                 <key>spriteSourceSize</key>
-                <string>{187,155}</string>
+                <string>{414,563}</string>
                 <key>textureRect</key>
-                <string>{{1117,1},{187,155}}</string>
+                <string>{{3336,1058},{414,559}}</string>
                 <key>textureRotated</key>
                 <true/>
             </dict>
-            <key>talkcity/enemy_lefthand.png</key>
+            <key>layercandy/f1.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
                 <key>spriteOffset</key>
-                <string>{0,0}</string>
+                <string>{0,-18}</string>
                 <key>spriteSize</key>
-                <string>{43,47}</string>
+                <string>{164,104}</string>
                 <key>spriteSourceSize</key>
-                <string>{43,47}</string>
+                <string>{190,208}</string>
                 <key>textureRect</key>
-                <string>{{1106,465},{43,47}}</string>
+                <string>{{3336,756},{164,104}}</string>
                 <key>textureRotated</key>
                 <true/>
             </dict>
-            <key>talkcity/enemy_lefthand1.png</key>
+            <key>layercandy/f2.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
                 <key>spriteOffset</key>
-                <string>{0,0}</string>
+                <string>{1,-18}</string>
                 <key>spriteSize</key>
-                <string>{82,78}</string>
+                <string>{162,104}</string>
                 <key>spriteSourceSize</key>
-                <string>{82,78}</string>
+                <string>{190,208}</string>
                 <key>textureRect</key>
-                <string>{{897,400},{82,78}}</string>
+                <string>{{3058,1281},{162,104}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+            <key>layercandy/f3.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{1,-18}</string>
+                <key>spriteSize</key>
+                <string>{162,104}</string>
+                <key>spriteSourceSize</key>
+                <string>{190,208}</string>
+                <key>textureRect</key>
+                <string>{{1375,1372},{162,104}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+            <key>layercandy/f4.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,-18}</string>
+                <key>spriteSize</key>
+                <string>{164,104}</string>
+                <key>spriteSourceSize</key>
+                <string>{190,208}</string>
+                <key>textureRect</key>
+                <string>{{1209,1372},{164,104}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+            <key>layercandy/f5.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{1,-19}</string>
+                <key>spriteSize</key>
+                <string>{162,112}</string>
+                <key>spriteSourceSize</key>
+                <string>{190,208}</string>
+                <key>textureRect</key>
+                <string>{{3058,1167},{162,112}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+            <key>layercandy/f6.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{1,-19}</string>
+                <key>spriteSize</key>
+                <string>{162,112}</string>
+                <key>spriteSourceSize</key>
+                <string>{190,208}</string>
+                <key>textureRect</key>
+                <string>{{3222,1167},{162,112}}</string>
                 <key>textureRotated</key>
                 <true/>
             </dict>
-            <key>talkcity/enemy_leg.png</key>
+            <key>layercandy/f7.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
                 <key>spriteOffset</key>
-                <string>{0,0}</string>
+                <string>{1,-21}</string>
                 <key>spriteSize</key>
-                <string>{24,36}</string>
+                <string>{162,114}</string>
                 <key>spriteSourceSize</key>
-                <string>{24,36}</string>
+                <string>{190,208}</string>
                 <key>textureRect</key>
-                <string>{{833,486},{24,36}}</string>
+                <string>{{2582,981},{162,114}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+            <key>layercandy/f8.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{1,-18}</string>
+                <key>spriteSize</key>
+                <string>{162,104}</string>
+                <key>spriteSourceSize</key>
+                <string>{190,208}</string>
+                <key>textureRect</key>
+                <string>{{1539,1372},{162,104}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+            <key>layercandy/face.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{1,-2}</string>
+                <key>spriteSize</key>
+                <string>{270,308}</string>
+                <key>spriteSourceSize</key>
+                <string>{286,312}</string>
+                <key>textureRect</key>
+                <string>{{2316,1185},{270,308}}</string>
                 <key>textureRotated</key>
                 <true/>
             </dict>
-            <key>talkcity/enemy_righthand.png</key>
+            <key>layercandy/ground.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
                 <key>spriteOffset</key>
                 <string>{0,0}</string>
                 <key>spriteSize</key>
-                <string>{96,38}</string>
+                <string>{3507,434}</string>
                 <key>spriteSourceSize</key>
-                <string>{96,38}</string>
+                <string>{3507,434}</string>
                 <key>textureRect</key>
-                <string>{{659,400},{96,38}}</string>
+                <string>{{1,1},{3507,434}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+            <key>layercandy/hand1.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{35,54}</string>
+                <key>spriteSourceSize</key>
+                <string>{35,54}</string>
+                <key>textureRect</key>
+                <string>{{1703,1372},{35,54}}</string>
                 <key>textureRotated</key>
                 <true/>
             </dict>
-            <key>talkcity/enemy_tail.png</key>
+            <key>layercandy/hand2.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
                 <key>spriteOffset</key>
                 <string>{0,0}</string>
                 <key>spriteSize</key>
-                <string>{45,24}</string>
+                <string>{71,39}</string>
                 <key>spriteSourceSize</key>
-                <string>{45,24}</string>
+                <string>{71,39}</string>
                 <key>textureRect</key>
-                <string>{{739,486},{45,24}}</string>
+                <string>{{2626,1448},{71,39}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>talkcity/eye.png</key>
+            <key>layercandy/hands.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
                 <key>spriteOffset</key>
                 <string>{0,0}</string>
                 <key>spriteSize</key>
-                <string>{15,17}</string>
+                <string>{35,54}</string>
                 <key>spriteSourceSize</key>
-                <string>{15,17}</string>
+                <string>{35,54}</string>
                 <key>textureRect</key>
-                <string>{{909,484},{15,17}}</string>
-                <key>textureRotated</key>
-                <false/>
-            </dict>
-            <key>talkcity/face.png</key>
-            <dict>
-                <key>aliases</key>
-                <array/>
-                <key>spriteOffset</key>
-                <string>{0,0}</string>
-                <key>spriteSize</key>
-                <string>{187,155}</string>
-                <key>spriteSourceSize</key>
-                <string>{187,155}</string>
-                <key>textureRect</key>
-                <string>{{1117,190},{187,155}}</string>
+                <string>{{1703,1372},{35,54}}</string>
                 <key>textureRotated</key>
                 <true/>
             </dict>
-            <key>talkcity/fish1.png</key>
+            <key>layercandy/ladder.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
                 <key>spriteOffset</key>
                 <string>{0,0}</string>
                 <key>spriteSize</key>
-                <string>{62,62}</string>
+                <string>{277,1118}</string>
                 <key>spriteSourceSize</key>
-                <string>{62,62}</string>
+                <string>{277,1118}</string>
                 <key>textureRect</key>
-                <string>{{1274,1},{62,62}}</string>
-                <key>textureRotated</key>
-                <false/>
-            </dict>
-            <key>talkcity/fish2.png</key>
-            <dict>
-                <key>aliases</key>
-                <array/>
-                <key>spriteOffset</key>
-                <string>{0,0}</string>
-                <key>spriteSize</key>
-                <string>{62,62}</string>
-                <key>spriteSourceSize</key>
-                <string>{62,62}</string>
-                <key>textureRect</key>
-                <string>{{1274,65},{62,62}}</string>
-                <key>textureRotated</key>
-                <false/>
-            </dict>
-            <key>talkcity/fish3.png</key>
-            <dict>
-                <key>aliases</key>
-                <array/>
-                <key>spriteOffset</key>
-                <string>{0,0}</string>
-                <key>spriteSize</key>
-                <string>{62,63}</string>
-                <key>spriteSourceSize</key>
-                <string>{62,63}</string>
-                <key>textureRect</key>
-                <string>{{1057,400},{62,63}}</string>
-                <key>textureRotated</key>
-                <false/>
-            </dict>
-            <key>talkcity/fish4.png</key>
-            <dict>
-                <key>aliases</key>
-                <array/>
-                <key>spriteOffset</key>
-                <string>{0,0}</string>
-                <key>spriteSize</key>
-                <string>{62,62}</string>
-                <key>spriteSourceSize</key>
-                <string>{62,62}</string>
-                <key>textureRect</key>
-                <string>{{1274,129},{62,62}}</string>
-                <key>textureRotated</key>
-                <false/>
-            </dict>
-            <key>talkcity/fish5.png</key>
-            <dict>
-                <key>aliases</key>
-                <array/>
-                <key>spriteOffset</key>
-                <string>{0,0}</string>
-                <key>spriteSize</key>
-                <string>{62,63}</string>
-                <key>spriteSourceSize</key>
-                <string>{62,63}</string>
-                <key>textureRect</key>
-                <string>{{1210,379},{62,63}}</string>
-                <key>textureRotated</key>
-                <false/>
-            </dict>
-            <key>talkcity/fish6.png</key>
-            <dict>
-                <key>aliases</key>
-                <array/>
-                <key>spriteOffset</key>
-                <string>{0,0}</string>
-                <key>spriteSize</key>
-                <string>{62,63}</string>
-                <key>spriteSourceSize</key>
-                <string>{62,63}</string>
-                <key>textureRect</key>
-                <string>{{1210,444},{62,63}}</string>
-                <key>textureRotated</key>
-                <false/>
-            </dict>
-            <key>talkcity/happymouth.png</key>
-            <dict>
-                <key>aliases</key>
-                <array/>
-                <key>spriteOffset</key>
-                <string>{0,0}</string>
-                <key>spriteSize</key>
-                <string>{50,51}</string>
-                <key>spriteSourceSize</key>
-                <string>{50,51}</string>
-                <key>textureRect</key>
-                <string>{{1274,250},{50,51}}</string>
-                <key>textureRotated</key>
-                <false/>
-            </dict>
-            <key>talkcity/lefthand.png</key>
-            <dict>
-                <key>aliases</key>
-                <array/>
-                <key>spriteOffset</key>
-                <string>{0,0}</string>
-                <key>spriteSize</key>
-                <string>{44,47}</string>
-                <key>spriteSourceSize</key>
-                <string>{44,47}</string>
-                <key>textureRect</key>
-                <string>{{1057,465},{44,47}}</string>
+                <string>{{1,1210},{277,1118}}</string>
                 <key>textureRotated</key>
                 <true/>
             </dict>
-            <key>talkcity/lefthand1.png</key>
+            <key>layercandy/lower_hand.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
                 <key>spriteOffset</key>
                 <string>{0,0}</string>
                 <key>spriteSize</key>
-                <string>{81,78}</string>
+                <string>{92,35}</string>
                 <key>spriteSourceSize</key>
-                <string>{81,78}</string>
+                <string>{92,35}</string>
                 <key>textureRect</key>
-                <string>{{977,400},{81,78}}</string>
+                <string>{{3855,1},{92,35}}</string>
                 <key>textureRotated</key>
                 <true/>
             </dict>
-            <key>talkcity/leg.png</key>
+            <key>layercandy/mountain.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
                 <key>spriteOffset</key>
-                <string>{0,0}</string>
+                <string>{-12,20}</string>
                 <key>spriteSize</key>
-                <string>{24,36}</string>
+                <string>{483,542}</string>
                 <key>spriteSourceSize</key>
-                <string>{24,36}</string>
+                <string>{555,584}</string>
                 <key>textureRect</key>
-                <string>{{871,486},{24,36}}</string>
-                <key>textureRotated</key>
-                <true/>
-            </dict>
-            <key>talkcity/optionbar.png</key>
-            <dict>
-                <key>aliases</key>
-                <array/>
-                <key>spriteOffset</key>
-                <string>{0,0}</string>
-                <key>spriteSize</key>
-                <string>{156,84}</string>
-                <key>spriteSourceSize</key>
-                <string>{156,84}</string>
-                <key>textureRect</key>
-                <string>{{739,400},{156,84}}</string>
+                <string>{{2290,437},{483,542}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>talkcity/righthand.png</key>
+            <key>layercandy/ref.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
                 <key>spriteOffset</key>
                 <string>{0,0}</string>
                 <key>spriteSize</key>
-                <string>{96,38}</string>
+                <string>{39,40}</string>
                 <key>spriteSourceSize</key>
-                <string>{96,38}</string>
+                <string>{39,40}</string>
                 <key>textureRect</key>
-                <string>{{699,400},{96,38}}</string>
+                <string>{{2699,1448},{39,40}}</string>
                 <key>textureRotated</key>
                 <true/>
             </dict>
-            <key>talkcity/sadmouth.png</key>
+            <key>layercandy/sky.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
                 <key>spriteOffset</key>
                 <string>{0,0}</string>
                 <key>spriteSize</key>
-                <string>{50,55}</string>
+                <string>{2287,771}</string>
                 <key>spriteSourceSize</key>
-                <string>{50,55}</string>
+                <string>{2287,771}</string>
                 <key>textureRect</key>
-                <string>{{1274,193},{50,55}}</string>
+                <string>{{1,437},{2287,771}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>talkcity/tail.png</key>
+            <key>layercandy/tree1.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,9}</string>
+                <key>spriteSize</key>
+                <string>{279,430}</string>
+                <key>spriteSourceSize</key>
+                <string>{279,448}</string>
+                <key>textureRect</key>
+                <string>{{2626,1167},{279,430}}</string>
+                <key>textureRotated</key>
+                <true/>
+            </dict>
+            <key>layercandy/tree2.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,10}</string>
+                <key>spriteSize</key>
+                <string>{343,494}</string>
+                <key>spriteSourceSize</key>
+                <string>{343,514}</string>
+                <key>textureRect</key>
+                <string>{{3510,1},{343,494}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+            <key>layercandy/tree3.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
                 <key>spriteOffset</key>
                 <string>{0,0}</string>
                 <key>spriteSize</key>
-                <string>{45,24}</string>
+                <string>{317,669}</string>
                 <key>spriteSourceSize</key>
-                <string>{45,24}</string>
+                <string>{317,669}</string>
                 <key>textureRect</key>
-                <string>{{786,486},{45,24}}</string>
+                <string>{{2775,437},{317,669}}</string>
+                <key>textureRotated</key>
+                <true/>
+            </dict>
+            <key>layercandy/upper_hand.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{86,115}</string>
+                <key>spriteSourceSize</key>
+                <string>{86,115}</string>
+                <key>textureRect</key>
+                <string>{{1121,1372},{86,115}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
@@ -419,13 +434,13 @@
             <key>premultiplyAlpha</key>
             <false/>
             <key>realTextureFileName</key>
-            <string>talkcity.png</string>
+            <string>layercandy.png</string>
             <key>size</key>
-            <string>{1337,511}</string>
+            <string>{3896,1488}</string>
             <key>smartupdate</key>
-            <string>$TexturePacker:SmartUpdate:d3e4ab13d3da94f4ebd4bbe2a271306b:b437a926e38b105d1280e54e9473ab14:9a797519b3debaa36a527bcd373dafa1$</string>
+            <string>$TexturePacker:SmartUpdate:51c071d9f6d0879c91f8c64e77358d2d:5e91b818abdb10ec536829c22b93bda9:9090c2acdba05a01cf61de06513036fd$</string>
             <key>textureFileName</key>
-            <string>talkcity.png</string>
+            <string>layercandy.png</string>
         </dict>
     </dict>
 </plist>
