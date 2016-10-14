@@ -11,6 +11,7 @@ xc.ConnectTheDotsLayer = cc.LayerColor.extend({
   _targetNum: 2,
   _gap: 0,
   _level: 0,
+  _score: 0,
   ctor: function(args) {
     this._super(cc.color(248, 248, 248), cc.director.getVisibleSize().width, cc.director.getVisibleSize().height)
     cc.spriteFrameCache.addSpriteFrames(xc.ConnectTheDotsLayer.res.hand_plist)
@@ -30,6 +31,8 @@ xc.ConnectTheDotsLayer = cc.LayerColor.extend({
     this.addChild(this._dotNode)
     this._gap = Math.min(cc.director.getVisibleSize().width / this._numCols, cc.director.getVisibleSize().height / this._numRows)
     this.showDots()
+    var help = new xc.HelpLayer(1280, 900, 1600, 1600)
+    this.addChild(help)
     this.iterateToFindPath()
   },
   showDots: function() {
@@ -78,6 +81,7 @@ xc.ConnectTheDotsLayer = cc.LayerColor.extend({
   dotTouched: function(touch, event) {
     switch (event.getEventCode()) {
       case cc.EventTouch.EventCode.BEGAN:
+        this._touchedDots = []
         var locationInNode = event.getCurrentTarget().getParent().convertTouchToNodeSpace(touch)
         var line = new cc.DrawNode()
         line.drawSegment(event.getCurrentTarget().getPosition(), locationInNode, 20, event.getCurrentTarget()._dotColor)
@@ -135,6 +139,9 @@ xc.ConnectTheDotsLayer = cc.LayerColor.extend({
           }
         }
         if(touchedDots == this._targetNum) {
+          if(++this._score >= 5) {
+            xc.GameScene.load(xc.ConnectTheDotsMenu)
+          }
           this.enableTouch(false)
           for(var j = 0; j < this._numCols; j++) {
             for(var i = this._numRows - 1; i >= 0; i--) {
@@ -177,7 +184,6 @@ xc.ConnectTheDotsLayer = cc.LayerColor.extend({
             this.enableTouch(true)
           }, this)))
         }
-        this._touchedDots = []
         break
     }
   },
@@ -223,7 +229,8 @@ xc.ConnectTheDotsLayer = cc.LayerColor.extend({
 xc.ConnectTheDotsLayer.res = {
   hand_plist: xc.path + "maths/hand.plist",
   hand_png: xc.path + "maths/hand.png",
-  dot_png: xc.path + "maths/dot.png"
+  dot_png: xc.path + "maths/dot.png",
+  graywindow_png: xc.path + "graywindow.png"  
 }
 
 xc.ConnectTheDotsMenu = xc.LevelMenuLayer.extend({

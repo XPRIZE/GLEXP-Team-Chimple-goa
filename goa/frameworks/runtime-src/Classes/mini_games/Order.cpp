@@ -37,7 +37,7 @@ cocos2d::Scene * Order::createScene()
 	auto layer = Order::create();
 	scene->addChild(layer);
 
-	layer->menu = MenuContext::create(layer, "order");
+	layer->menu = MenuContext::create(layer, Order::gameName());
 	scene->addChild(layer->menu);
 	return scene;
 }
