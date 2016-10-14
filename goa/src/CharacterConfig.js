@@ -304,9 +304,15 @@ xc.CharacterConfigScene.load = function(layer) {
         //config data
 
         if(cc.sys.isNative) {
-            xc.characterConfigurationObject = cc.loader.getRes(xc.CharacterConfigLayer.res.character_config_json);                        
+            var jsonD = cc.loader.getRes(xc.CharacterConfigLayer.res.character_config_json);
+            if(jsonD) {
+                xc.characterConfigurationObject = jsonD["data"];    
+            }                                    
         } else {
-            xc.characterConfigurationObject = cc.loader.cache[xc.CharacterConfigLayer.res.character_config_json];
+            var jsonD = cc.loader.getRes(xc.CharacterConfigLayer.res.character_config_json);
+            if(jsonD) {
+                xc.characterConfigurationObject = jsonD["data"];    
+            }                                    
         }
         
         var scene = new xc.CharacterConfigScene(layer);
