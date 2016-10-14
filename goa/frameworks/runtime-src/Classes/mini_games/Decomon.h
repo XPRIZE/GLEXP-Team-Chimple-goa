@@ -23,11 +23,12 @@ public:
 	static Decomon* create();
 	virtual bool init();
 	static cocos2d::Scene* createScene();
+	float _width;
 	
 protected:
 	MenuContext * menu;
 	cocos2d::Layer * _costumeLayer, *_alphabetLayer, * _maskingLayer;
-	cocos2d::Node * _movedNode;
+	cocos2d::Node * _movedNode, *_alphaNode;
 	cocos2d::DrawNode *_paintingNode;
 	cocos2d::Vector<cocos2d::Node *> _drawNodes;
 	int _colorIndex;
@@ -52,12 +53,7 @@ protected:
 	void creatSpriteOnAlphabet(std::string, float x, float y, float scale);
 	void colourFilling(float x, float y, int index,cocos2d::Layer * layer);
 	void generateDuplicatesInAGrid(cocos2d::Node * node);
-	void onTouchesBegan(const std::vector<cocos2d::Touch*>& touches, cocos2d::Event* event);
-	void onTouchesMoved(const std::vector<cocos2d::Touch*>& touches, cocos2d::Event* event);
-	void onTouchesEnded(const std::vector<cocos2d::Touch*>& touches, cocos2d::Event* event);
-	void update(float);
-	void updateRT();
-	cocos2d::Label * _alphabetLabel;
+	cocos2d::Label * _alphabetLabel, *_myLabel;
 	static const char* gameName() { return DECOMON.c_str(); }
 };
 

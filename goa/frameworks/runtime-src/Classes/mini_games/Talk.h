@@ -25,7 +25,7 @@ public:
 	~Talk();
 	virtual bool init();
 	
-	std::vector<std::string> _textToShow;
+	std::vector<std::pair<std::string, TextGenerator::POS>> _textToShow;
 
 	std::map<std::string, std::map<std::string, int>> differntSceneMapping;
 	std::vector<std::string> _scene;
@@ -39,17 +39,20 @@ public:
 	std::vector<cocos2d::Sprite*> _enemyFish, _heroFish;
 	int _totalCount, _totalAnswer, _correctAnswer;
 
-	std::vector<std::string> _allSentense;
+//	std::vector<std::string> _allSentense;
+
+	std::vector<std::vector<std::pair<std::string, TextGenerator::POS>>> _allSentense;
 
 	CREATE_FUNC(Talk);
     
-	std::string sceneName;
+	std::string sceneName, _questionType;
 	cocos2d::Size visibleSize;
 
 
     static const char* gameName() { return TALK.c_str(); };
 	void update(float);
 	void gameEnd();
+	void displayWord();
 
 	struct LabelDetails
 	{
