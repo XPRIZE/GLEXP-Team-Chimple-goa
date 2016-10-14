@@ -61,6 +61,7 @@ StartMenu::~StartMenu() {
 const std::vector<std::string> StartMenu::getGameNames() {
     std::vector<std::string> gameNames;
 
+	gameNames.push_back(DECOMON);
 	gameNames.push_back(OWL);
 	gameNames.push_back(PINATA);
 	gameNames.push_back(ORDER);
@@ -90,7 +91,7 @@ const std::vector<std::string> StartMenu::getGameNames() {
     gameNames.push_back(TALK);
 	gameNames.push_back(STACK);
 	gameNames.push_back(DASH);
-	gameNames.push_back(DECOMON);
+	
     return gameNames;
 
 }

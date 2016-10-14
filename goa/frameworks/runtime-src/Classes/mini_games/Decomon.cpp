@@ -68,6 +68,8 @@ bool Decomon::init()
 		float extar_X = (visibleSize.width - 2560);
 		auto right_panel = bg->getChildByName("right_panel");
 		right_panel->setPositionX(right_panel->getPositionX() + extar_X);
+		auto background = bg->getChildByName("bg1");
+		background->setPositionX(background->getPositionX() + (extar_X / 2));
 		//bg->setPositionX((visibleSize.width - 2560) / 2);
 	}
 	this->addChild(bg);
