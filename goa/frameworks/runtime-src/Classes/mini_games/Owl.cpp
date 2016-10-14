@@ -32,21 +32,35 @@ bool Owl::init()
 					{"gridWhite","owlcity/smallbar_white.png"},
 					{"topBoard","orangebar"},
 					{"whiteBoard","smallbar_white"},
+					{ "whiteBoard2","smallbar_white" },
 					{"bodyCharacter","body"},
 					{"hideBlack","owlcity/dash_black.png"},
 					{ "hideGreen","owlcity/dash_green.png" },
 					{ "hideOrange","owlcity/dash_orange.png" }
 				} 
 			},
-			{ "owlJungle",
+			{ "owlisland",
 				{
-					{ "bg", "owlcity/owlcity.csb" },
-					{ "character1", "owlcity/character.csb" },
-					{ "character2", "owlcity/character_enemy.csb" },
-					{ "plist", "owlcity/owlcity.plist" }
+					{ "bg", "owlisland/owlisland.csb" },
+					{ "character1", "owlisland/character.csb" },
+					{ "character2", "owlisland/character_enemy.csb" },
+					{ "plist", "owlisland/owlisland.plist"},
+					{ "smallbar","owlisland/smallbar.png"},
+					{ "orangebase","owlisland/orangebase.png"},
+					{ "greenbase","owlisland/greenbase.png" },
+					{ "gridOrange","owlisland/smallbar.png" },
+					{ "gridGreen","owlisland/smallbar_green.png" },
+					{ "gridWhite","owlisland/white.png" },
+					{ "topBoard","orangebar" },
+					{ "whiteBoard","white_2" },
+					{"whiteBoard2","white_5"},
+					{ "bodyCharacter","Sprite_6" },
+					{ "hideGreen","owlisland/dash_green.png" },
+					{ "hideOrange","owlisland/dash_orange.png" },
+					{ "bubble","owlisland/bubble.csb" }
 				}
 			},
-			{ "owlIceland",
+			{ "owlForest",
 				{
 					{ "bg", "owlcity/owlcity.csb" },
 					{ "character1", "owlcity/character.csb" },
@@ -61,14 +75,24 @@ bool Owl::init()
 		{
 			{"owlCity",
 				{
-					{"rowFirst",0.16f},
+					{"rowFirst",0.19f},
 					{"blockX1",0.08f},
 					{"blockY1",0.34f},
 					{ "blockX2",0.6f },
 					{ "blockY2",0.37f },
 					{"owlheightToAlpha",1.5f},
-					{"scaleSecond",0.8f}
-					
+					{"scaleSecond",0.65f}
+				}
+			},
+			{ "owlisland",
+				{
+					{ "rowFirst",0.19f },
+					{ "blockX1",0.08f },
+					{ "blockY1",0.34f },
+					{ "blockX2",0.6f },
+					{ "blockY2",0.37f },
+					{ "owlheightToAlpha",1.5f },
+					{ "scaleSecond",0.65f }
 				}
 			}
 		}
@@ -76,8 +100,8 @@ bool Owl::init()
 
 	auto visibleSize = Director::getInstance()->getVisibleSize();
 	auto origin = Director::getInstance()->getVisibleOrigin();
-
-	_owlCurrentTheme = "owlCity";
+	string test[2] = {"owlisland","owlCity"};
+	_owlCurrentTheme = test[RandomHelper::random_int(0, 1)];
 	auto themeResourcePath = _sceneMap.at(_owlCurrentTheme);
 	Node* bg = CSLoader::createNode(themeResourcePath.at("bg"));
 	addChild(bg);
@@ -89,18 +113,36 @@ bool Owl::init()
 
 	auto timelinecharacter1 = CSLoader::createTimeline(themeResourcePath.at("character1"));
 	_sprite = CSLoader::createNode(themeResourcePath.at("character1"));
-	_sprite->setPosition(Vec2(500,1000));
 	_sprite-> runAction(timelinecharacter1);
 	addChild(_sprite,2);
 	timelinecharacter1->play("fly",true);
 
 	auto timelinecharacter2 = CSLoader::createTimeline(themeResourcePath.at("character2"));
 	_opponent = CSLoader::createNode(themeResourcePath.at("character2"));
-	_opponent->setPosition(Vec2(500, 1000));
 	_opponent->runAction(timelinecharacter2);
 	_opponent->setScale(_owlPropertyMap.at(_owlCurrentTheme).at("scaleSecond"));
 	addChild(_opponent, 2);
 	timelinecharacter2->play("fly", true);
+
+	if (_owlCurrentTheme == "owlisland") {
+
+		auto timelinecharacter3 = CSLoader::createTimeline(themeResourcePath.at("bubble"));
+		auto bubbles = CSLoader::createNode(themeResourcePath.at("bubble"));
+		bubbles->runAction(timelinecharacter3);
+		bubbles->setPosition(Vec2(visibleSize.width * 0.04 , visibleSize.height * 0.4));
+		addChild(bubbles,1);
+		timelinecharacter3->gotoFrameAndPlay(0, true);
+
+		auto timelinecharacter4 = CSLoader::createTimeline(themeResourcePath.at("bubble"));
+		auto bubble = CSLoader::createNode(themeResourcePath.at("bubble"));
+		bubble->runAction(timelinecharacter4);
+		bubble->setPosition(Vec2(visibleSize.width - visibleSize.width * 0.08, visibleSize.height * 0.4));
+		addChild(bubble,1);
+		timelinecharacter4->gotoFrameAndPlay(0, true);
+
+		_opponent->getChildByName(_sceneMap.at(_owlCurrentTheme).at("whiteBoard2"))->setVisible(false);
+
+	}
 
 	auto board = bg->getChildByName(themeResourcePath.at("topBoard"));
 	board->setName("topBoard");
@@ -123,19 +165,37 @@ bool Owl::init()
 	crateLetterGridOnBuilding(_blockLevel1, _displayWord[_textBoard]);
 	
 	setBuildingBlockSecond(++_blockLevel2);
-	crateLetterGridOnBuildingSecond(_blockLevel2,"HELLO");
-
-	setBuildingBlockSecond(++_blockLevel2);
-	crateLetterGridOnBuildingSecond(_blockLevel2, "MK");
+	crateLetterGridOnBuildingSecond(_blockLevel2, _displayWord[_textBoard2]);
 
 	InitAnimation();
-
+	this->schedule(schedule_selector(Owl::autoPlayerController), RandomHelper::random_int(4,8));
 	scheduleUpdate();
 	return true;
 }
 
-void Owl::update(float delta) {
+void Owl::autoPlayerController(float data) {
 
+	std::ostringstream blockName;	blockName << "blockLevel2" << _blockLevel2; std::string blockNameInString = blockName.str();
+	auto blockBox = this->getChildByName(blockNameInString);
+	auto blockChild = blockBox->getChildren();
+	blockChild.at(_textCounter2)->getChildByName("hideBoard")->setVisible(false);
+	_textCounter2++;
+
+	if (_textCounter2 == blockChild.size()) {
+		if ((_blockLevel2 >= (sizeof(_displayWord) / sizeof(_displayWord[0])))) {
+			CCLOG("< ------ DONE COMPLETE -----  >     I AM IN AUTOPLAYERCONTROLLER METHOD");
+			this->runAction(Sequence::create(DelayTime::create(3), CallFunc::create([=]() { _menuContext->showScore(); }), NULL));
+		}
+		else {
+			setBuildingBlockSecond(++_blockLevel2);
+			crateLetterGridOnBuildingSecond(_blockLevel2, _displayWord[++_textBoard2]);
+		}
+		_textCounter2 = 0;
+	}
+}
+
+void Owl::update(float delta) {
+	if(_flagDemo)
 	UpdateAnimation(delta);
 	UpdateAnimationSecond(delta);
 }
@@ -210,7 +270,6 @@ void Owl::crateLetterGridOnBuildingSecond(int blockLevel, string displayWord) {
 		letterGrid->setTag(i);
 	}
 }
-
 
 void Owl::createGrid() {
 	auto visibleSize = Director::getInstance()->getVisibleSize();
@@ -292,7 +351,6 @@ void Owl::setBuildingBlockSecond(int blockLevel) {
 
 }
 
-
 void Owl::addEventsOnGrid(cocos2d::Sprite* callerObject)
 {
 	auto listener = cocos2d::EventListenerTouchOneByOne::create();
@@ -340,7 +398,7 @@ void Owl::addEventsOnGrid(cocos2d::Sprite* callerObject)
 						auto moveToAlphaGridAction = MoveTo::create(dist/800,Vec2(target->getPositionX(),target->getPositionY()+_sprite->getChildByName(_sceneMap.at(_owlCurrentTheme).at("bodyCharacter"))->getContentSize().height/ _owlPropertyMap.at(_owlCurrentTheme).at("owlheightToAlpha")));
 						auto moveToAnswerGridAction = MoveTo::create(dist / 1000, Vec2((blockBox->getPositionX() - blockBox->getContentSize().width/2)+blockChild.at(_textCounter)->getPositionX(), blockBox->getPositionY()+_sprite->getChildByName(_sceneMap.at(_owlCurrentTheme).at("bodyCharacter"))->getContentSize().height/ _owlPropertyMap.at(_owlCurrentTheme).at("owlheightToAlpha")));
 						auto callFunct = CallFunc::create([=]() {
-							scheduleUpdate();
+							_flagDemo = true;
 							_flagToControlMuiltipleTouch = true;
 							_sprite->getChildByName(_sceneMap.at(_owlCurrentTheme).at("whiteBoard"))->setVisible(false);
 							blockChild.at(_textCounter)->getChildByName("hideBoard")->setVisible(false);
@@ -366,14 +424,14 @@ void Owl::addEventsOnGrid(cocos2d::Sprite* callerObject)
 							else if (_textCounter == blockChild.size() && _blockLevel1 == (sizeof(_displayWord) / sizeof(_displayWord[0]))) {
 								_textCounter = 0;
 								_blockLevel1++;
-								this->runAction(Sequence::create(DelayTime::create(2), CallFunc::create([=]() { _menuContext->showScore(); }),NULL));
+								this->runAction(Sequence::create(DelayTime::create(3), CallFunc::create([=]() { _menuContext->showScore(); }),NULL));
 							}
 						});
 						auto pickBoard = CallFunc::create([=]() { 
 							_sprite->getChildByName(_sceneMap.at(_owlCurrentTheme).at("whiteBoard"))->setVisible(true);
 							_textOwlBoard->setString(LangUtil::convertUTF16CharToString(target->getName().at(0)));
 						});
-						_sprite->runAction(Sequence::create(CallFunc::create([=]() { unscheduleUpdate(); }), moveToAlphaGridAction, pickBoard,moveToAnswerGridAction, callFunct, NULL));
+						_sprite->runAction(Sequence::create(CallFunc::create([=]() { _flagDemo = false; }), moveToAlphaGridAction, pickBoard, moveToAnswerGridAction, callFunct, NULL));
 					}
 				}
 			}
@@ -455,6 +513,7 @@ void Owl::UpdateAnimation(float dt)
 
 	}
 }
+
 void Owl::UpdateAnimationSecond(float dt)
 {
 	double DURATION = 5; // Seconds for total animation.
