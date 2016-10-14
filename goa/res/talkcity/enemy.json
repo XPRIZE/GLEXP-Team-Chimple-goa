@@ -7,10 +7,193 @@
       "Animation": {
         "Duration": 110,
         "Speed": 1.0,
-        "ActivedAnimationName": "e_wrong",
+        "ActivedAnimationName": "e_wronog",
         "Timelines": [
           {
-            "ActionTag": -1619075410,
+            "ActionTag": -775096053,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": 96.0782,
+                "Y": 93.0756,
+                "FrameIndex": 40,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 96.0782,
+                "Y": 93.0756,
+                "FrameIndex": 50,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 96.0782,
+                "Y": 93.0756,
+                "FrameIndex": 55,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 96.078,
+                "Y": 93.0755,
+                "FrameIndex": 65,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 96.0782,
+                "Y": 93.0756,
+                "FrameIndex": 75,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 96.0782,
+                "Y": 93.0756,
+                "FrameIndex": 85,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -775096053,
+            "Property": "Scale",
+            "Frames": [
+              {
+                "X": 1.0,
+                "Y": 1.0,
+                "FrameIndex": 40,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 1.0,
+                "Y": 1.0,
+                "FrameIndex": 50,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 1.0,
+                "Y": 1.0,
+                "FrameIndex": 55,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 1.0,
+                "Y": 1.0,
+                "FrameIndex": 65,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 1.0,
+                "Y": 1.0,
+                "FrameIndex": 75,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 1.0,
+                "Y": 1.0,
+                "FrameIndex": 85,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -775096053,
+            "Property": "RotationSkew",
+            "Frames": [
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 40,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 50,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 55,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": -18.9099,
+                "Y": -18.9099,
+                "FrameIndex": 65,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 75,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 85,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -775096053,
             "Property": "FileData",
             "Frames": [
               {
@@ -92,135 +275,26 @@
                 "FrameIndex": 85,
                 "Tween": false,
                 "ctype": "TextureFrameData"
-              }
-            ],
-            "ctype": "TimelineData"
-          },
-          {
-            "ActionTag": -1619075410,
-            "Property": "Position",
-            "Frames": [
-              {
-                "X": 77.3817,
-                "Y": 113.0304,
-                "FrameIndex": 55,
-                "EasingData": {
-                  "Type": 0
-                },
-                "ctype": "PointFrameData"
               },
               {
-                "X": 77.3817,
-                "Y": 113.0304,
-                "FrameIndex": 65,
-                "EasingData": {
-                  "Type": 0
+                "TextureFile": {
+                  "Type": "MarkedSubImage",
+                  "Path": "talkcity/enemy_lefthand.png",
+                  "Plist": "talkcity/talkcity.plist"
                 },
-                "ctype": "PointFrameData"
+                "FrameIndex": 90,
+                "Tween": false,
+                "ctype": "TextureFrameData"
               },
               {
-                "X": 77.3817,
-                "Y": 113.0304,
-                "FrameIndex": 75,
-                "EasingData": {
-                  "Type": 0
+                "TextureFile": {
+                  "Type": "MarkedSubImage",
+                  "Path": "talkcity/enemy_lefthand.png",
+                  "Plist": "talkcity/talkcity.plist"
                 },
-                "ctype": "PointFrameData"
-              },
-              {
-                "X": 77.3817,
-                "Y": 113.0304,
-                "FrameIndex": 85,
-                "EasingData": {
-                  "Type": 0
-                },
-                "ctype": "PointFrameData"
-              }
-            ],
-            "ctype": "TimelineData"
-          },
-          {
-            "ActionTag": -1619075410,
-            "Property": "Scale",
-            "Frames": [
-              {
-                "X": 1.0,
-                "Y": 1.0,
-                "FrameIndex": 55,
-                "EasingData": {
-                  "Type": 0
-                },
-                "ctype": "ScaleValueFrameData"
-              },
-              {
-                "X": 1.0,
-                "Y": 1.0,
-                "FrameIndex": 65,
-                "EasingData": {
-                  "Type": 0
-                },
-                "ctype": "ScaleValueFrameData"
-              },
-              {
-                "X": 1.0,
-                "Y": 1.0,
-                "FrameIndex": 75,
-                "EasingData": {
-                  "Type": 0
-                },
-                "ctype": "ScaleValueFrameData"
-              },
-              {
-                "X": 1.0,
-                "Y": 1.0,
-                "FrameIndex": 85,
-                "EasingData": {
-                  "Type": 0
-                },
-                "ctype": "ScaleValueFrameData"
-              }
-            ],
-            "ctype": "TimelineData"
-          },
-          {
-            "ActionTag": -1619075410,
-            "Property": "RotationSkew",
-            "Frames": [
-              {
-                "X": -0.8769,
-                "Y": -0.8769,
-                "FrameIndex": 55,
-                "EasingData": {
-                  "Type": 0
-                },
-                "ctype": "ScaleValueFrameData"
-              },
-              {
-                "X": -15.1113,
-                "Y": -15.1113,
-                "FrameIndex": 65,
-                "EasingData": {
-                  "Type": 0
-                },
-                "ctype": "ScaleValueFrameData"
-              },
-              {
-                "X": -0.8769,
-                "Y": -0.8769,
-                "FrameIndex": 75,
-                "EasingData": {
-                  "Type": 0
-                },
-                "ctype": "ScaleValueFrameData"
-              },
-              {
-                "X": -0.8769,
-                "Y": -0.8769,
-                "FrameIndex": 85,
-                "EasingData": {
-                  "Type": 0
-                },
-                "ctype": "ScaleValueFrameData"
+                "FrameIndex": 110,
+                "Tween": false,
+                "ctype": "TextureFrameData"
               }
             ],
             "ctype": "TimelineData"
@@ -230,8 +304,8 @@
             "Property": "Position",
             "Frames": [
               {
-                "X": -59.4928,
-                "Y": 86.3953,
+                "X": -59.4929,
+                "Y": 74.3954,
                 "FrameIndex": 30,
                 "EasingData": {
                   "Type": 0
@@ -239,8 +313,8 @@
                 "ctype": "PointFrameData"
               },
               {
-                "X": -59.4928,
-                "Y": 86.3953,
+                "X": -59.4929,
+                "Y": 74.3954,
                 "FrameIndex": 45,
                 "EasingData": {
                   "Type": 0
@@ -248,8 +322,8 @@
                 "ctype": "PointFrameData"
               },
               {
-                "X": -59.4928,
-                "Y": 86.3953,
+                "X": -59.4929,
+                "Y": 74.3954,
                 "FrameIndex": 55,
                 "EasingData": {
                   "Type": 0
@@ -257,8 +331,8 @@
                 "ctype": "PointFrameData"
               },
               {
-                "X": -59.4928,
-                "Y": 86.3953,
+                "X": -59.4929,
+                "Y": 74.3954,
                 "FrameIndex": 65,
                 "EasingData": {
                   "Type": 0
@@ -266,8 +340,8 @@
                 "ctype": "PointFrameData"
               },
               {
-                "X": -59.4928,
-                "Y": 86.3953,
+                "X": -59.4929,
+                "Y": 74.3954,
                 "FrameIndex": 75,
                 "EasingData": {
                   "Type": 0
@@ -275,8 +349,8 @@
                 "ctype": "PointFrameData"
               },
               {
-                "X": -59.4928,
-                "Y": 86.3953,
+                "X": -59.4929,
+                "Y": 74.3954,
                 "FrameIndex": 90,
                 "EasingData": {
                   "Type": 0
@@ -284,8 +358,8 @@
                 "ctype": "PointFrameData"
               },
               {
-                "X": -59.4928,
-                "Y": 86.3953,
+                "X": -59.493,
+                "Y": 74.3954,
                 "FrameIndex": 100,
                 "EasingData": {
                   "Type": 0
@@ -293,8 +367,8 @@
                 "ctype": "PointFrameData"
               },
               {
-                "X": -59.4928,
-                "Y": 86.3953,
+                "X": -59.4929,
+                "Y": 74.3954,
                 "FrameIndex": 110,
                 "EasingData": {
                   "Type": 0
@@ -397,8 +471,8 @@
                 "ctype": "ScaleValueFrameData"
               },
               {
-                "X": -18.9578,
-                "Y": -18.9575,
+                "X": 25.5786,
+                "Y": 25.5795,
                 "FrameIndex": 45,
                 "EasingData": {
                   "Type": 0
@@ -415,8 +489,8 @@
                 "ctype": "ScaleValueFrameData"
               },
               {
-                "X": 13.1737,
-                "Y": 13.1738,
+                "X": -22.7088,
+                "Y": -22.7088,
                 "FrameIndex": 65,
                 "EasingData": {
                   "Type": 0
@@ -442,8 +516,8 @@
                 "ctype": "ScaleValueFrameData"
               },
               {
-                "X": 12.8397,
-                "Y": 12.84,
+                "X": 25.1059,
+                "Y": 25.1064,
                 "FrameIndex": 100,
                 "EasingData": {
                   "Type": 0
@@ -467,8 +541,8 @@
             "Property": "Position",
             "Frames": [
               {
-                "X": 41.556,
-                "Y": 86.3953,
+                "X": 41.5559,
+                "Y": 74.3954,
                 "FrameIndex": 30,
                 "EasingData": {
                   "Type": 0
@@ -476,8 +550,8 @@
                 "ctype": "PointFrameData"
               },
               {
-                "X": 41.556,
-                "Y": 86.3953,
+                "X": 41.5559,
+                "Y": 74.3954,
                 "FrameIndex": 45,
                 "EasingData": {
                   "Type": 0
@@ -485,8 +559,8 @@
                 "ctype": "PointFrameData"
               },
               {
-                "X": 41.556,
-                "Y": 86.3953,
+                "X": 41.5559,
+                "Y": 74.3954,
                 "FrameIndex": 55,
                 "EasingData": {
                   "Type": 0
@@ -494,8 +568,8 @@
                 "ctype": "PointFrameData"
               },
               {
-                "X": 41.556,
-                "Y": 86.3953,
+                "X": 41.5559,
+                "Y": 74.3954,
                 "FrameIndex": 65,
                 "EasingData": {
                   "Type": 0
@@ -503,8 +577,8 @@
                 "ctype": "PointFrameData"
               },
               {
-                "X": 41.556,
-                "Y": 86.3953,
+                "X": 41.5559,
+                "Y": 74.3954,
                 "FrameIndex": 75,
                 "EasingData": {
                   "Type": 0
@@ -580,8 +654,8 @@
                 "ctype": "ScaleValueFrameData"
               },
               {
-                "X": -17.6317,
-                "Y": -17.6315,
+                "X": 22.3512,
+                "Y": 22.351,
                 "FrameIndex": 45,
                 "EasingData": {
                   "Type": 0
@@ -598,8 +672,8 @@
                 "ctype": "ScaleValueFrameData"
               },
               {
-                "X": 11.918,
-                "Y": 11.9176,
+                "X": -26.4175,
+                "Y": -26.4165,
                 "FrameIndex": 65,
                 "EasingData": {
                   "Type": 0
@@ -623,8 +697,8 @@
             "Property": "Position",
             "Frames": [
               {
-                "X": 49.056,
-                "Y": 343.2997,
+                "X": 75.556,
+                "Y": 368.5262,
                 "FrameIndex": 0,
                 "EasingData": {
                   "Type": 0
@@ -632,8 +706,8 @@
                 "ctype": "PointFrameData"
               },
               {
-                "X": 49.056,
-                "Y": 343.2997,
+                "X": 75.556,
+                "Y": 368.5262,
                 "FrameIndex": 5,
                 "EasingData": {
                   "Type": 0
@@ -641,8 +715,8 @@
                 "ctype": "PointFrameData"
               },
               {
-                "X": 49.056,
-                "Y": 343.2997,
+                "X": 75.556,
+                "Y": 368.5262,
                 "FrameIndex": 10,
                 "EasingData": {
                   "Type": 0
@@ -667,7 +741,7 @@
               },
               {
                 "X": 1.0,
-                "Y": 0.2672,
+                "Y": 0.3674,
                 "FrameIndex": 5,
                 "EasingData": {
                   "Type": 0
@@ -725,8 +799,8 @@
             "Property": "Position",
             "Frames": [
               {
-                "X": -52.6995,
-                "Y": 343.2997,
+                "X": -74.5153,
+                "Y": 368.5263,
                 "FrameIndex": 0,
                 "EasingData": {
                   "Type": 0
@@ -734,8 +808,8 @@
                 "ctype": "PointFrameData"
               },
               {
-                "X": -52.6995,
-                "Y": 343.2997,
+                "X": -74.5153,
+                "Y": 368.5263,
                 "FrameIndex": 5,
                 "EasingData": {
                   "Type": 0
@@ -743,8 +817,8 @@
                 "ctype": "PointFrameData"
               },
               {
-                "X": -52.6995,
-                "Y": 343.2997,
+                "X": -74.5153,
+                "Y": 368.5263,
                 "FrameIndex": 10,
                 "EasingData": {
                   "Type": 0
@@ -769,7 +843,7 @@
               },
               {
                 "X": 1.0,
-                "Y": 0.3048,
+                "Y": 0.3456,
                 "FrameIndex": 5,
                 "EasingData": {
                   "Type": 0
@@ -823,7 +897,109 @@
             "ctype": "TimelineData"
           },
           {
-            "ActionTag": 1321115309,
+            "ActionTag": -1404161980,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": 101.6714,
+                "Y": 90.479,
+                "FrameIndex": 15,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 101.6714,
+                "Y": 90.479,
+                "FrameIndex": 20,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 101.6714,
+                "Y": 90.479,
+                "FrameIndex": 25,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -1404161980,
+            "Property": "Scale",
+            "Frames": [
+              {
+                "X": 1.0,
+                "Y": 1.0,
+                "FrameIndex": 15,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 1.0,
+                "Y": 1.0,
+                "FrameIndex": 20,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 1.0,
+                "Y": 1.0,
+                "FrameIndex": 25,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -1404161980,
+            "Property": "RotationSkew",
+            "Frames": [
+              {
+                "X": 17.0532,
+                "Y": 17.0526,
+                "FrameIndex": 15,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": -12.7284,
+                "Y": -12.7288,
+                "FrameIndex": 20,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 17.0532,
+                "Y": 17.0526,
+                "FrameIndex": 25,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 222595545,
             "Property": "FileData",
             "Frames": [
               {
@@ -845,108 +1021,16 @@
                 "FrameIndex": 100,
                 "Tween": false,
                 "ctype": "TextureFrameData"
-              }
-            ],
-            "ctype": "TimelineData"
-          },
-          {
-            "ActionTag": -1404161980,
-            "Property": "Position",
-            "Frames": [
-              {
-                "X": 93.8685,
-                "Y": 105.2859,
-                "FrameIndex": 15,
-                "EasingData": {
-                  "Type": 0
-                },
-                "ctype": "PointFrameData"
               },
               {
-                "X": 93.8685,
-                "Y": 105.2859,
-                "FrameIndex": 20,
-                "EasingData": {
-                  "Type": 0
+                "TextureFile": {
+                  "Type": "MarkedSubImage",
+                  "Path": "talkcity/happymouth.png",
+                  "Plist": "talkcity/talkcity.plist"
                 },
-                "ctype": "PointFrameData"
-              },
-              {
-                "X": 93.8685,
-                "Y": 105.2859,
-                "FrameIndex": 25,
-                "EasingData": {
-                  "Type": 0
-                },
-                "ctype": "PointFrameData"
-              }
-            ],
-            "ctype": "TimelineData"
-          },
-          {
-            "ActionTag": -1404161980,
-            "Property": "Scale",
-            "Frames": [
-              {
-                "X": 1.0,
-                "Y": 1.0,
-                "FrameIndex": 15,
-                "EasingData": {
-                  "Type": 0
-                },
-                "ctype": "ScaleValueFrameData"
-              },
-              {
-                "X": 1.0,
-                "Y": 1.0,
-                "FrameIndex": 20,
-                "EasingData": {
-                  "Type": 0
-                },
-                "ctype": "ScaleValueFrameData"
-              },
-              {
-                "X": 1.0,
-                "Y": 1.0,
-                "FrameIndex": 25,
-                "EasingData": {
-                  "Type": 0
-                },
-                "ctype": "ScaleValueFrameData"
-              }
-            ],
-            "ctype": "TimelineData"
-          },
-          {
-            "ActionTag": -1404161980,
-            "Property": "RotationSkew",
-            "Frames": [
-              {
-                "X": 17.0532,
-                "Y": 17.0526,
-                "FrameIndex": 15,
-                "EasingData": {
-                  "Type": 0
-                },
-                "ctype": "ScaleValueFrameData"
-              },
-              {
-                "X": -9.0331,
-                "Y": -9.0336,
-                "FrameIndex": 20,
-                "EasingData": {
-                  "Type": 0
-                },
-                "ctype": "ScaleValueFrameData"
-              },
-              {
-                "X": 17.0532,
-                "Y": 17.0526,
-                "FrameIndex": 25,
-                "EasingData": {
-                  "Type": 0
-                },
-                "ctype": "ScaleValueFrameData"
+                "FrameIndex": 110,
+                "Tween": false,
+                "ctype": "TextureFrameData"
               }
             ],
             "ctype": "TimelineData"
@@ -976,7 +1060,7 @@
         {
           "StartIndex": 90,
           "EndIndex": 110,
-          "Name": "e_wrong",
+          "Name": "e_wronog",
           "ctype": "AnimationInfoData"
         }
       ],
@@ -986,7 +1070,7 @@
           {
             "FileData": {
               "Type": "MarkedSubImage",
-              "Path": "talkcity/enemy_lefthand1.png",
+              "Path": "talkcity/enemy_righthand.png",
               "Plist": "talkcity/talkcity.plist"
             },
             "BlendFunc": {
@@ -994,19 +1078,17 @@
               "Dst": 771
             },
             "AnchorPoint": {
-              "ScaleX": -0.0119,
-              "ScaleY": -0.509
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
             },
             "Position": {
-              "X": 77.3817,
-              "Y": 113.0304
+              "X": -187.0884,
+              "Y": 183.9283
             },
             "Scale": {
               "ScaleX": 1.0,
               "ScaleY": 1.0
             },
-            "RotationSkewX": -0.8769,
-            "RotationSkewY": -0.8769,
             "CColor": {},
             "IconVisible": false,
             "PrePosition": {
@@ -1017,17 +1099,62 @@
               "X": 0.0,
               "Y": 0.0
             },
-            "LeftMargin": 78.9882,
-            "RightMargin": -213.9882,
-            "TopMargin": -307.6914,
-            "BottomMargin": 178.6914,
-            "Tag": 234,
-            "ActionTag": -1619075410,
+            "LeftMargin": -283.0884,
+            "RightMargin": 91.0884,
+            "TopMargin": -221.9283,
+            "BottomMargin": 145.9283,
+            "Tag": 232,
+            "ActionTag": -144488072,
             "Size": {
-              "X": 135.0,
-              "Y": 129.0
+              "X": 192.0,
+              "Y": 76.0
             },
-            "Name": "Sprite_10",
+            "Name": "enemy_righthand",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "talkcity/enemy_lefthand.png",
+              "Plist": "talkcity/talkcity.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.0229,
+              "ScaleY": -0.3825
+            },
+            "Position": {
+              "X": 96.0782,
+              "Y": 93.0756
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 94.111,
+            "RightMargin": -180.111,
+            "TopMargin": -221.649,
+            "BottomMargin": 128.649,
+            "Tag": 277,
+            "ActionTag": -775096053,
+            "Size": {
+              "X": 86.0,
+              "Y": 93.0
+            },
+            "Name": "Sprite_14",
             "ctype": "SpriteObjectData"
           },
           {
@@ -1045,8 +1172,8 @@
               "ScaleY": 0.5
             },
             "Position": {
-              "X": 0.4848,
-              "Y": 171.5856
+              "X": -0.4628,
+              "Y": 172.4729
             },
             "Scale": {
               "ScaleX": 1.0,
@@ -1062,15 +1189,15 @@
               "X": 0.0,
               "Y": 0.0
             },
-            "LeftMargin": -105.5152,
-            "RightMargin": -106.4848,
-            "TopMargin": -261.5856,
-            "BottomMargin": 81.5856,
+            "LeftMargin": -127.9628,
+            "RightMargin": -127.0372,
+            "TopMargin": -280.9729,
+            "BottomMargin": 63.9729,
             "Tag": 225,
             "ActionTag": -511303583,
             "Size": {
-              "X": 212.0,
-              "Y": 180.0
+              "X": 255.0,
+              "Y": 217.0
             },
             "Name": "enemy_body",
             "ctype": "SpriteObjectData"
@@ -1090,15 +1217,13 @@
               "ScaleY": 1.0
             },
             "Position": {
-              "X": -59.4928,
-              "Y": 86.3953
+              "X": -59.4929,
+              "Y": 74.3954
             },
             "Scale": {
               "ScaleX": 1.0,
               "ScaleY": 1.0
             },
-            "RotationSkewX": 10.2718,
-            "RotationSkewY": 10.272,
             "CColor": {},
             "IconVisible": false,
             "PrePosition": {
@@ -1109,15 +1234,15 @@
               "X": 0.0,
               "Y": 0.0
             },
-            "LeftMargin": -78.9928,
-            "RightMargin": 39.9928,
-            "TopMargin": -86.3953,
-            "BottomMargin": 26.3953,
+            "LeftMargin": -83.4929,
+            "RightMargin": 35.4929,
+            "TopMargin": -74.3954,
+            "BottomMargin": 2.3954,
             "Tag": 226,
             "ActionTag": -1818749447,
             "Size": {
-              "X": 39.0,
-              "Y": 60.0
+              "X": 48.0,
+              "Y": 72.0
             },
             "Name": "enemy_leg_1",
             "ctype": "SpriteObjectData"
@@ -1137,8 +1262,8 @@
               "ScaleY": 1.0
             },
             "Position": {
-              "X": 41.556,
-              "Y": 86.3953
+              "X": 41.5559,
+              "Y": 74.3954
             },
             "Scale": {
               "ScaleX": 1.0,
@@ -1154,15 +1279,15 @@
               "X": 0.0,
               "Y": 0.0
             },
-            "LeftMargin": 22.056,
-            "RightMargin": -61.056,
-            "TopMargin": -86.3953,
-            "BottomMargin": 26.3953,
+            "LeftMargin": 17.5559,
+            "RightMargin": -65.5559,
+            "TopMargin": -74.3954,
+            "BottomMargin": 2.3954,
             "Tag": 227,
             "ActionTag": 569148485,
             "Size": {
-              "X": 39.0,
-              "Y": 60.0
+              "X": 48.0,
+              "Y": 72.0
             },
             "Name": "enemy_leg_2",
             "ctype": "SpriteObjectData"
@@ -1182,8 +1307,8 @@
               "ScaleY": 0.5
             },
             "Position": {
-              "X": -2.2224,
-              "Y": 330.7424
+              "X": -0.4957,
+              "Y": 375.2421
             },
             "Scale": {
               "ScaleX": 1.0,
@@ -1199,15 +1324,15 @@
               "X": 0.0,
               "Y": 0.0
             },
-            "LeftMargin": -157.2224,
-            "RightMargin": -152.7776,
-            "TopMargin": -459.2424,
-            "BottomMargin": 202.2424,
+            "LeftMargin": -186.9957,
+            "RightMargin": -186.0043,
+            "TopMargin": -530.2421,
+            "BottomMargin": 220.2421,
             "Tag": 228,
             "ActionTag": -972271146,
             "Size": {
-              "X": 310.0,
-              "Y": 257.0
+              "X": 373.0,
+              "Y": 310.0
             },
             "Name": "enemy_face",
             "ctype": "SpriteObjectData"
@@ -1226,8 +1351,8 @@
               "ScaleX": 0.5
             },
             "Position": {
-              "X": 49.056,
-              "Y": 343.2997
+              "X": 75.556,
+              "Y": 368.5262
             },
             "Scale": {
               "ScaleX": 1.0,
@@ -1243,15 +1368,15 @@
               "X": 0.0,
               "Y": 0.0
             },
-            "LeftMargin": 37.056,
-            "RightMargin": -61.056,
-            "TopMargin": -371.2997,
-            "BottomMargin": 343.2997,
+            "LeftMargin": 61.056,
+            "RightMargin": -90.056,
+            "TopMargin": -402.5262,
+            "BottomMargin": 368.5262,
             "Tag": 229,
             "ActionTag": -1940754169,
             "Size": {
-              "X": 24.0,
-              "Y": 28.0
+              "X": 29.0,
+              "Y": 34.0
             },
             "Name": "eye_1",
             "ctype": "SpriteObjectData"
@@ -1270,8 +1395,8 @@
               "ScaleX": 0.4706
             },
             "Position": {
-              "X": -52.6995,
-              "Y": 343.2997
+              "X": -74.5153,
+              "Y": 368.5263
             },
             "Scale": {
               "ScaleX": 1.0,
@@ -1287,107 +1412,17 @@
               "X": 0.0,
               "Y": 0.0
             },
-            "LeftMargin": -63.9929,
-            "RightMargin": 39.9929,
-            "TopMargin": -371.2997,
-            "BottomMargin": 343.2997,
+            "LeftMargin": -88.1627,
+            "RightMargin": 59.1627,
+            "TopMargin": -402.5263,
+            "BottomMargin": 368.5263,
             "Tag": 230,
             "ActionTag": 1451375391,
             "Size": {
-              "X": 24.0,
-              "Y": 28.0
+              "X": 29.0,
+              "Y": 34.0
             },
             "Name": "eye_2",
-            "ctype": "SpriteObjectData"
-          },
-          {
-            "FileData": {
-              "Type": "MarkedSubImage",
-              "Path": "talkcity/sadmouth.png",
-              "Plist": "talkcity/talkcity.plist"
-            },
-            "BlendFunc": {
-              "Src": 1,
-              "Dst": 771
-            },
-            "AnchorPoint": {
-              "ScaleX": 0.5,
-              "ScaleY": 0.5
-            },
-            "Position": {
-              "X": -9.4927,
-              "Y": 278.6208
-            },
-            "Scale": {
-              "ScaleX": 1.0,
-              "ScaleY": 1.0
-            },
-            "CColor": {},
-            "IconVisible": false,
-            "PrePosition": {
-              "X": 0.0,
-              "Y": 0.0
-            },
-            "PreSize": {
-              "X": 0.0,
-              "Y": 0.0
-            },
-            "LeftMargin": -50.9927,
-            "RightMargin": -32.0073,
-            "TopMargin": -325.1208,
-            "BottomMargin": 232.1208,
-            "Tag": 231,
-            "ActionTag": 1321115309,
-            "Size": {
-              "X": 83.0,
-              "Y": 93.0
-            },
-            "Name": "Sprite_7",
-            "ctype": "SpriteObjectData"
-          },
-          {
-            "FileData": {
-              "Type": "MarkedSubImage",
-              "Path": "talkcity/enemy_righthand.png",
-              "Plist": "talkcity/talkcity.plist"
-            },
-            "BlendFunc": {
-              "Src": 1,
-              "Dst": 771
-            },
-            "AnchorPoint": {
-              "ScaleX": 0.5,
-              "ScaleY": 0.5
-            },
-            "Position": {
-              "X": -164.6947,
-              "Y": 170.7429
-            },
-            "Scale": {
-              "ScaleX": 1.0,
-              "ScaleY": 1.0
-            },
-            "CColor": {},
-            "IconVisible": false,
-            "PrePosition": {
-              "X": 0.0,
-              "Y": 0.0
-            },
-            "PreSize": {
-              "X": 0.0,
-              "Y": 0.0
-            },
-            "LeftMargin": -244.1947,
-            "RightMargin": 85.1947,
-            "TopMargin": -202.2429,
-            "BottomMargin": 139.2429,
-            "Tag": 232,
-            "ActionTag": -144488072,
-            "Size": {
-              "X": 159.0,
-              "Y": 63.0
-            },
-            "Name": "enemy_righthand",
             "ctype": "SpriteObjectData"
           },
           {
@@ -1402,8 +1437,8 @@
             },
             "AnchorPoint": {},
             "Position": {
-              "X": 93.8685,
-              "Y": 105.2859
+              "X": 101.6714,
+              "Y": 90.479
             },
             "Scale": {
               "ScaleX": 1.0,
@@ -1421,17 +1456,62 @@
               "X": 0.0,
               "Y": 0.0
             },
-            "LeftMargin": 93.8685,
-            "RightMargin": -167.8685,
-            "TopMargin": -146.2859,
-            "BottomMargin": 105.2859,
+            "LeftMargin": 101.6714,
+            "RightMargin": -190.6714,
+            "TopMargin": -138.479,
+            "BottomMargin": 90.479,
             "Tag": 233,
             "ActionTag": -1404161980,
             "Size": {
-              "X": 74.0,
-              "Y": 41.0
+              "X": 89.0,
+              "Y": 48.0
             },
             "Name": "enemy_tail",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "talkcity/happymouth.png",
+              "Plist": "talkcity/talkcity.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": -2.4927,
+              "Y": 292.197
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": -51.9927,
+            "RightMargin": -47.0073,
+            "TopMargin": -342.697,
+            "BottomMargin": 241.697,
+            "Tag": 278,
+            "ActionTag": 222595545,
+            "Size": {
+              "X": 99.0,
+              "Y": 101.0
+            },
+            "Name": "Sprite_15",
             "ctype": "SpriteObjectData"
           }
         ],
