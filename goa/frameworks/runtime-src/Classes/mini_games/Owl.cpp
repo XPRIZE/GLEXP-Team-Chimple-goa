@@ -28,7 +28,14 @@ bool Owl::init()
 					{"orangebase","owlcity/orangebase.png"},
 					{"greenbase","owlcity/greenbase.png"},
 					{"gridOrange","owlcity/smallbar_orange.png"},
-					{"gridWhite","owlcity/smallbar_white.png"}
+					{"gridGreen","owlcity/smallbar_green.png" },
+					{"gridWhite","owlcity/smallbar_white.png"},
+					{"topBoard","orangebar"},
+					{"whiteBoard","smallbar_white"},
+					{"bodyCharacter","body"},
+					{"hideBlack","owlcity/dash_black.png"},
+					{ "hideGreen","owlcity/dash_green.png" },
+					{ "hideOrange","owlcity/dash_orange.png" }
 				} 
 			},
 			{ "owlJungle",
@@ -56,7 +63,11 @@ bool Owl::init()
 				{
 					{"rowFirst",0.16f},
 					{"blockX1",0.08f},
-					{"blockY1",0.35f},
+					{"blockY1",0.34f},
+					{ "blockX2",0.6f },
+					{ "blockY2",0.37f },
+					{"owlheightToAlpha",1.5f},
+					{"scaleSecond",0.8f}
 					
 				}
 			}
@@ -75,7 +86,6 @@ bool Owl::init()
 		auto myGameWidth = (visibleSize.width - 2560) / 2;
 		bg->setPositionX(myGameWidth);
 	}
-//	CCSpriteFrameCache::sharedSpriteFrameCache()->addSpriteFramesWithFile(themeResourcePath.at("plist"));
 
 	auto timelinecharacter1 = CSLoader::createTimeline(themeResourcePath.at("character1"));
 	_sprite = CSLoader::createNode(themeResourcePath.at("character1"));
@@ -83,9 +93,16 @@ bool Owl::init()
 	_sprite-> runAction(timelinecharacter1);
 	addChild(_sprite,2);
 	timelinecharacter1->play("fly",true);
-//	character1->runAction();
 
-	auto board = bg->getChildByName("orangebar");
+	auto timelinecharacter2 = CSLoader::createTimeline(themeResourcePath.at("character2"));
+	_opponent = CSLoader::createNode(themeResourcePath.at("character2"));
+	_opponent->setPosition(Vec2(500, 1000));
+	_opponent->runAction(timelinecharacter2);
+	_opponent->setScale(_owlPropertyMap.at(_owlCurrentTheme).at("scaleSecond"));
+	addChild(_opponent, 2);
+	timelinecharacter2->play("fly", true);
+
+	auto board = bg->getChildByName(themeResourcePath.at("topBoard"));
 	board->setName("topBoard");
 	_textLabel = LabelTTF::create(_displayWord[_textBoard], "Helvetica", board->getContentSize().height *0.8);
 	_textLabel->setPosition(board->getContentSize().width/2,board->getContentSize().height/2);
@@ -93,17 +110,23 @@ bool Owl::init()
 	_textLabel->setName("text");
 	board->addChild(_textLabel);
 
-	_textOwlBoard = LabelTTF::create("M", "Helvetica", _sprite->getChildByName("smallbar_white")->getContentSize().height *0.8);
-	_textOwlBoard->setPosition(Vec2(_sprite->getChildByName("smallbar_white")->getContentSize().width/2, _sprite->getChildByName("smallbar_white")->getContentSize().height / 2));
+	_textOwlBoard = LabelTTF::create("", "Helvetica", _sprite->getChildByName(themeResourcePath.at("whiteBoard"))->getContentSize().height *0.8);
+	_textOwlBoard->setPosition(Vec2(_sprite->getChildByName(themeResourcePath.at("whiteBoard"))->getContentSize().width/2, _sprite->getChildByName(themeResourcePath.at("whiteBoard"))->getContentSize().height / 2));
 	_textOwlBoard->setName("owlBoard");
 	_textOwlBoard->setColor(Color3B::BLACK);
-	_sprite->getChildByName("smallbar_white")->addChild(_textOwlBoard);
-	_sprite->getChildByName("smallbar_white")->setVisible(false);
+	_sprite->getChildByName(themeResourcePath.at("whiteBoard"))->addChild(_textOwlBoard);
+	_sprite->getChildByName(themeResourcePath.at("whiteBoard"))->setVisible(false);
 
 	createGrid();
 
 	setBuildingBlock(++_blockLevel1);
 	crateLetterGridOnBuilding(_blockLevel1, _displayWord[_textBoard]);
+	
+	setBuildingBlockSecond(++_blockLevel2);
+	crateLetterGridOnBuildingSecond(_blockLevel2,"HELLO");
+
+	setBuildingBlockSecond(++_blockLevel2);
+	crateLetterGridOnBuildingSecond(_blockLevel2, "MK");
 
 	InitAnimation();
 
@@ -114,6 +137,7 @@ bool Owl::init()
 void Owl::update(float delta) {
 
 	UpdateAnimation(delta);
+	UpdateAnimationSecond(delta);
 }
 
 void Owl::setSpriteProperties(Sprite* ImageObject, float positionX, float positionY, float scaleX, float scaleY, float anchorX, float anchorY, float rotation, int zorder) {
@@ -140,13 +164,13 @@ void Owl::crateLetterGridOnBuilding(int blockLevel, string displayWord) {
 
 	for (int i = 0; i <= (displayWord.length() - 1); i++) {
 		auto letterGrid = Sprite::createWithSpriteFrameName(themeResourcePath.at("gridOrange"));
-		auto hideGrid = Sprite::createWithSpriteFrameName(themeResourcePath.at("gridOrange"));
+		auto hideGrid = Sprite::createWithSpriteFrameName(themeResourcePath.at("hideOrange"));
 
 		auto label = LabelTTF::create(LangUtil::convertUTF16CharToString(displayWord.at(i)), "Helvetica", letterGrid->getContentSize().height*0.8);
 		letterGrid -> setPosition(Vec2(xPosi, blockObject->getContentSize().height *0.45));
 		label->setPosition(Vec2(letterGrid->getContentSize().width/2, letterGrid->getContentSize().height /2));
 		xPosi = xPosi + indiSpace + letterGrid->getContentSize().width;
-		std::ostringstream blockName;	blockName << "blockLevel" << blockLevel; std::string blockNameInString = blockName.str();
+		std::ostringstream blockName;	blockName << "blockLevel1" << blockLevel; std::string blockNameInString = blockName.str();
 		this->getChildByName(blockNameInString)->addChild(letterGrid);
 		letterGrid->addChild(label);
 		
@@ -157,6 +181,36 @@ void Owl::crateLetterGridOnBuilding(int blockLevel, string displayWord) {
 		letterGrid->setTag(i);
 	}
 }
+
+void Owl::crateLetterGridOnBuildingSecond(int blockLevel, string displayWord) {
+
+	auto themeResourcePath = _sceneMap.at(_owlCurrentTheme);
+	auto blockObject = Sprite::createWithSpriteFrameName(themeResourcePath.at("greenbase"));
+	auto letterbox = Sprite::createWithSpriteFrameName(themeResourcePath.at("gridGreen"));
+	int space = blockObject->getContentSize().width - (letterbox->getContentSize().width * 6);
+	int indiSpace = space / (6 + 1);
+	int initSpace = blockObject->getContentSize().width - letterbox->getContentSize().width * displayWord.length() - (indiSpace * (displayWord.length() - 1));
+	initSpace = initSpace / 2 ;
+
+	float xPosi = initSpace + letterbox->getContentSize().width / 2;
+
+	for (int i = 0; i <= (displayWord.length() - 1); i++) {
+		auto letterGrid = Sprite::createWithSpriteFrameName(themeResourcePath.at("gridGreen"));
+		auto hideGrid = Sprite::createWithSpriteFrameName(themeResourcePath.at("hideGreen"));
+
+		letterGrid->setPosition(Vec2(xPosi, blockObject->getContentSize().height *0.45));
+		xPosi = xPosi + indiSpace+ letterGrid->getContentSize().width;
+		std::ostringstream blockName;	blockName << "blockLevel2" << blockLevel; std::string blockNameInString = blockName.str();
+		this->getChildByName(blockNameInString)->addChild(letterGrid);
+
+		hideGrid->setPosition(Vec2(letterGrid->getContentSize().width / 2, letterGrid->getContentSize().height / 2));
+		letterGrid->addChild(hideGrid);
+		hideGrid->setName("hideBoard");
+		letterGrid->setName(LangUtil::convertUTF16CharToString(displayWord.at(i)));
+		letterGrid->setTag(i);
+	}
+}
+
 
 void Owl::createGrid() {
 	auto visibleSize = Director::getInstance()->getVisibleSize();
@@ -213,10 +267,31 @@ void Owl::setBuildingBlock(int blockLevel) {
 
 	setSpriteProperties(blockObject, (visibleSize.width * _owlPropertyMap.at(_owlCurrentTheme).at("blockX1")) + (blockObject->getContentSize().width/2), _heightBlock1, 1, 1, 0.5, 0.5, 0, 1);
 	
-	std::ostringstream blockName;	blockName << "blockLevel"<<blockLevel; std::string blockNameInString = blockName.str();
+	std::ostringstream blockName;	blockName << "blockLevel1"<<blockLevel; std::string blockNameInString = blockName.str();
 	blockObject->setName(blockNameInString);
 
 }
+
+void Owl::setBuildingBlockSecond(int blockLevel) {
+
+	auto visibleSize = Director::getInstance()->getVisibleSize();
+	auto themeResourcePath = _sceneMap.at(_owlCurrentTheme);
+	auto blockObject = Sprite::createWithSpriteFrameName(themeResourcePath.at("greenbase"));
+	
+	if (blockLevel == 1)
+	{
+		_heightBlock2 = visibleSize.height * _owlPropertyMap.at(_owlCurrentTheme).at("blockY2");
+	}
+	else {
+		_heightBlock2 = _heightBlock2 + (blockObject->getContentSize().height - (blockObject->getContentSize().height *0.05))*_owlPropertyMap.at(_owlCurrentTheme).at("scaleSecond");
+	}
+	setSpriteProperties(blockObject, (visibleSize.width * _owlPropertyMap.at(_owlCurrentTheme).at("blockX2")) + (blockObject->getContentSize().width / 2 * _owlPropertyMap.at(_owlCurrentTheme).at("scaleSecond")), _heightBlock2, _owlPropertyMap.at(_owlCurrentTheme).at("scaleSecond"), _owlPropertyMap.at(_owlCurrentTheme).at("scaleSecond"), 0.5, 0.5, 0, 1);
+
+	std::ostringstream blockName;	blockName << "blockLevel2" << blockLevel; std::string blockNameInString = blockName.str();
+	blockObject->setName(blockNameInString);
+
+}
+
 
 void Owl::addEventsOnGrid(cocos2d::Sprite* callerObject)
 {
@@ -250,7 +325,7 @@ void Owl::addEventsOnGrid(cocos2d::Sprite* callerObject)
 
 			if (target->getBoundingBox().containsPoint(touch->getLocation())) {
 
-				std::ostringstream blockName;	blockName << "blockLevel" << _blockLevel1; std::string blockNameInString = blockName.str();
+				std::ostringstream blockName;	blockName << "blockLevel1" << _blockLevel1; std::string blockNameInString = blockName.str();
 				
 				if (_blockLevel1 <= (sizeof(_displayWord) / sizeof(_displayWord[0]))) {
 					auto blockChild = target->getParent()->getChildByName(blockNameInString)->getChildren();
@@ -262,12 +337,12 @@ void Owl::addEventsOnGrid(cocos2d::Sprite* callerObject)
 						float dist = sqrt((y*y) + (x*x));
 						auto blockBox = target->getParent()->getChildByName(blockNameInString);
 
-						auto moveToAlphaGridAction = MoveTo::create(dist/800,Vec2(target->getPositionX(),target->getPositionY()+_sprite->getChildByName("body")->getContentSize().height/1.5));
-						auto moveToAnswerGridAction = MoveTo::create(dist / 1000, Vec2((blockBox->getPositionX() - blockBox->getContentSize().width/2)+blockChild.at(_textCounter)->getPositionX(), blockBox->getPositionY()+_sprite->getChildByName("body")->getContentSize().height/1.5));
+						auto moveToAlphaGridAction = MoveTo::create(dist/800,Vec2(target->getPositionX(),target->getPositionY()+_sprite->getChildByName(_sceneMap.at(_owlCurrentTheme).at("bodyCharacter"))->getContentSize().height/ _owlPropertyMap.at(_owlCurrentTheme).at("owlheightToAlpha")));
+						auto moveToAnswerGridAction = MoveTo::create(dist / 1000, Vec2((blockBox->getPositionX() - blockBox->getContentSize().width/2)+blockChild.at(_textCounter)->getPositionX(), blockBox->getPositionY()+_sprite->getChildByName(_sceneMap.at(_owlCurrentTheme).at("bodyCharacter"))->getContentSize().height/ _owlPropertyMap.at(_owlCurrentTheme).at("owlheightToAlpha")));
 						auto callFunct = CallFunc::create([=]() {
 							scheduleUpdate();
 							_flagToControlMuiltipleTouch = true;
-							_sprite->getChildByName("smallbar_white")->setVisible(false);
+							_sprite->getChildByName(_sceneMap.at(_owlCurrentTheme).at("whiteBoard"))->setVisible(false);
 							blockChild.at(_textCounter)->getChildByName("hideBoard")->setVisible(false);
 							_textCounter++;
 							_xStart = _sprite->getPositionX();      // Pixels
@@ -291,19 +366,17 @@ void Owl::addEventsOnGrid(cocos2d::Sprite* callerObject)
 							else if (_textCounter == blockChild.size() && _blockLevel1 == (sizeof(_displayWord) / sizeof(_displayWord[0]))) {
 								_textCounter = 0;
 								_blockLevel1++;
-								
+								this->runAction(Sequence::create(DelayTime::create(2), CallFunc::create([=]() { _menuContext->showScore(); }),NULL));
 							}
 						});
 						auto pickBoard = CallFunc::create([=]() { 
-							_sprite->getChildByName("smallbar_white")->setVisible(true);
+							_sprite->getChildByName(_sceneMap.at(_owlCurrentTheme).at("whiteBoard"))->setVisible(true);
 							_textOwlBoard->setString(LangUtil::convertUTF16CharToString(target->getName().at(0)));
 						});
 						_sprite->runAction(Sequence::create(CallFunc::create([=]() { unscheduleUpdate(); }), moveToAlphaGridAction, pickBoard,moveToAnswerGridAction, callFunct, NULL));
 					}
 				}
 			}
-			
-
 		return false;
 	};
 
@@ -319,14 +392,22 @@ void Owl::InitAnimation()
 {
 	double DURATION = 3; // Seconds for total animation.
 	double SECONDS_PER_TICK = 1.0 / 60;
-	std::ostringstream blockName;	blockName << "blockLevel" << _blockLevel1; std::string blockNameInString = blockName.str();
+	std::ostringstream blockName;	blockName << "blockLevel1" << _blockLevel1; std::string blockNameInString = blockName.str();
 	auto block = this->getChildByName(blockNameInString);
 	_xStart = block->getPositionX() - block->getContentSize().width / 2;      // Pixels
 	_yStart = block->getPositionY() + block->getContentSize().height;      // Pixels
 	_xStop = block->getPositionX() + block->getContentSize().width / 2;    // Pixels
 
+	std::ostringstream blockNames;	blockNames << "blockLevel2" << _blockLevel2; std::string blockNameInStrings = blockNames.str();
+	auto blocks = this->getChildByName(blockNameInStrings);
+	_xStartSecond = blocks->getPositionX() - (blocks->getContentSize().width / 2 * _owlPropertyMap.at(_owlCurrentTheme).at("scaleSecond"));      // Pixels
+	_yStartSecond = blocks->getPositionY() + (blocks->getContentSize().height*_owlPropertyMap.at(_owlCurrentTheme).at("scaleSecond"));      // Pixels
+	_xStopSecond = blocks->getPositionX() + (blocks->getContentSize().width / 2* _owlPropertyMap.at(_owlCurrentTheme).at("scaleSecond"));    // Pixels
 	_ticks = 0;
+	_ticks2 = 0;
 	_ticksTotal = DURATION / SECONDS_PER_TICK;
+	DURATION = 5;
+	_ticksTotal2 = DURATION / SECONDS_PER_TICK;
 }
 
 void Owl::UpdateAnimation(float dt)
@@ -351,11 +432,11 @@ void Owl::UpdateAnimation(float dt)
 		counter++;
 		Node *block;
 		if (_blockLevel1 > (sizeof(_displayWord) / sizeof(_displayWord[0]))) {
-			std::ostringstream blockName;	blockName << "blockLevel" << (sizeof(_displayWord) / sizeof(_displayWord[0])); std::string blockNameInString = blockName.str();
+			std::ostringstream blockName;	blockName << "blockLevel1" << (sizeof(_displayWord) / sizeof(_displayWord[0])); std::string blockNameInString = blockName.str();
 			block = this->getChildByName(blockNameInString);
 		}
 		else {
-			std::ostringstream blockName;	blockName << "blockLevel" << _blockLevel1; std::string blockNameInString = blockName.str();
+			std::ostringstream blockName;	blockName << "blockLevel1" << _blockLevel1; std::string blockNameInString = blockName.str();
 			block = this->getChildByName(blockNameInString);
 		}
 
@@ -371,6 +452,51 @@ void Owl::UpdateAnimation(float dt)
 		}
 		_ticks = 0;
 		_ticksTotal = DURATION / SECONDS_PER_TICK;
+
+	}
+}
+void Owl::UpdateAnimationSecond(float dt)
+{
+	double DURATION = 5; // Seconds for total animation.
+	double SECONDS_PER_TICK = 1.0 / 60;
+	double _xSpeed = (_xStopSecond - _xStartSecond) / DURATION;
+
+	if (_ticks2 <= _ticksTotal2)
+	{
+		double Y_HEIGHT = 40;
+		double _xSpeed = (_xStopSecond - _xStartSecond) / DURATION;
+		double seconds = _ticks2*SECONDS_PER_TICK;
+
+		double xPos = _xStartSecond + seconds*_xSpeed;
+		double yPos = _yStartSecond + Y_HEIGHT*sin(seconds * 2 * M_PI / 2.5); // (/1) Seconds for y cycle.
+		_opponent->setPosition(Vec2(xPos, yPos));
+
+		_ticks2++;
+	}
+	else {
+		counter2++;
+		Node *block;
+		if (_blockLevel2 > (sizeof(_displayWord) / sizeof(_displayWord[0]))) {
+			std::ostringstream blockName;	blockName << "blockLevel2" << (sizeof(_displayWord) / sizeof(_displayWord[0])); std::string blockNameInString = blockName.str();
+			block = this->getChildByName(blockNameInString);
+		}
+		else {
+			std::ostringstream blockName;	blockName << "blockLevel2" << _blockLevel2; std::string blockNameInString = blockName.str();
+			block = this->getChildByName(blockNameInString);
+		}
+
+		_yStartSecond = block->getPositionY() + block->getContentSize().height * _owlPropertyMap.at(_owlCurrentTheme).at("scaleSecond");      // Pixels
+
+		if (counter2 % 2 == 0) {
+			_xStartSecond = block->getPositionX() - (block->getContentSize().width / 2 * _owlPropertyMap.at(_owlCurrentTheme).at("scaleSecond"));      // Pixels
+			_xStopSecond = block->getPositionX() + (block->getContentSize().width / 2 * _owlPropertyMap.at(_owlCurrentTheme).at("scaleSecond"));    // Pixels
+		}
+		else {
+			_xStartSecond = block->getPositionX() + (block->getContentSize().width / 2 * _owlPropertyMap.at(_owlCurrentTheme).at("scaleSecond"));      // Pixels
+			_xStopSecond = block->getPositionX() - (block->getContentSize().width / 2 * _owlPropertyMap.at(_owlCurrentTheme).at("scaleSecond"));    // Pixels
+		}
+		_ticks2 = 0;
+		_ticksTotal2 = DURATION / SECONDS_PER_TICK;
 
 	}
 }
