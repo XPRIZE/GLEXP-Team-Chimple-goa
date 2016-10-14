@@ -33,11 +33,17 @@ CC_CONSTRUCTOR_ACCESS:
 	void removeMeteor1Animation();
 	void removeMeteor2Animation();
 	void removeMeteor3Animation();
+	void fuelMeterPlus();
+	void fuelMeterMinus();
 	void removeMeteor4Animation();
 	static const char* classname() { return BALLONHERO.c_str(); }
 protected:
 	Node * _balloonHero;
 	Node * _foreGround;
+	int _sceneNumber;
+	bool _flag1 = true, _flag2 = true, _flag3 = true, _flag4 = true;
+	std::vector<std::string> _objects;
+	cocos2d::ui::LoadingBar* _fuelBar;
 	std::vector<int> _randomIndex;
 	cocos2d::Sprite * _fireFly;
 	Node * _meteor1;
