@@ -30,6 +30,7 @@ protected:
 	std::map<std::string, std::string> _scenePath;
 	cocos2d::Node * _bg;
 	std::string _themeName;
+	std::vector<std::string> _sortedList;
 	//std::map<std::string, std::string> _scenePath;
 	bool _cartFloating = false;
 	float _yy, _cartMove;

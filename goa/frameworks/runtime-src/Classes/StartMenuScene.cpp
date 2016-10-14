@@ -39,6 +39,7 @@
 #include "mini_games/Owl.h"
 #include "mini_games/BalloonHero.h"
 #include "mini_games/Decomon.h"
+#include "mini_games/Order.h"
 
 #include "storage/local-storage/LocalStorage.h"
 #include "external/json/document.h"
@@ -88,7 +89,8 @@ const std::vector<std::string> StartMenu::getGameNames() {
     gameNames.push_back(TRAIN);
     gameNames.push_back(TALK);
 	gameNames.push_back(STACK);
-	
+	gameNames.push_back(DASH);
+	gameNames.push_back(DECOMON);
     return gameNames;
 
 }
@@ -189,6 +191,15 @@ void StartMenu::startScene(std::string gameName, std::string firstParam, std::st
 	}
 	else if (gameName == OWL) {
 		Director::getInstance()->replaceScene(Owl::createScene());
+	}
+	else if (gameName == DASH) {
+		Director::getInstance()->replaceScene(Dash::createScene());
+	}
+	else if (gameName == DECOMON) {
+		Director::getInstance()->replaceScene(Decomon::createScene());
+	}
+	else if (gameName == ORDER) {
+		Director::getInstance()->replaceScene(Order::createScene());
 	}
 	else if (gameName == MEMORY) {
 		int numberPicker = RandomHelper::random_int(0, 2);
