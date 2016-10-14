@@ -86,6 +86,7 @@ bool BalloonHero::init() {
 	_fireFly->setPosition(Vec2(visibleSize.width / 2 + origin.x, visibleSize.height / 2 + origin.y));
 	_fireFly->setAnchorPoint(Vec2(0.5, 0.5));
 	_fireFly->setScale(0.5, 0.5);
+	_fireFly->setContentSize(_fireFly->getChildByName("Sprite")->getContentSize());
 	this->addChild(_fireFly, 1);
 	setupTouch();
 	
@@ -151,14 +152,10 @@ void BalloonHero::onTouchMoved(cocos2d::Touch *touch, cocos2d::Event *event) {
 	//    CCLOG("onTouchMoved");
 
 	auto target = event->getCurrentTarget();
-	Point locationInNode = target->convertToNodeSpace(touch->getLocation());
-
-	if (target->getChildByName("firefly")->getBoundingBox().containsPoint(locationInNode))
-	{
-
+	
 		target->setPosition(Vec2(touch->getLocation().x, touch->getLocation().y));
 		 // to indicate that we have consumed it.
-	}
+	
 }
 
 
