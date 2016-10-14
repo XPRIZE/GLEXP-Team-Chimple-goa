@@ -43,6 +43,7 @@ public:
 	cocos2d::Node* tail;
 protected:
 	MenuContext * menu;
+	static const char* gameName() { return CIRCLE.c_str(); }
 };
 
 #endif

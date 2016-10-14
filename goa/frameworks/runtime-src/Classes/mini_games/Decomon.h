@@ -54,7 +54,7 @@ protected:
 	void colourFilling(float x, float y, int index,cocos2d::Layer * layer);
 	void generateDuplicatesInAGrid(cocos2d::Node * node);
 	cocos2d::Label * _alphabetLabel, *_myLabel;
-
+	static const char* gameName() { return DECOMON.c_str(); }
 };
 
 #endif 

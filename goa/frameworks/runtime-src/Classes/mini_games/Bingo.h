@@ -32,7 +32,7 @@ public:
 	int bingoRightDiagonally();
 	int bingoLeftDiagonally();
 
-	//static const char* gameName() { return BINGO.c_str(); }
+	static const char* gameName() { return BINGO.c_str(); }
 
 protected:
 

@@ -92,7 +92,7 @@
               "Y": 0.1472
             },
             "LeftMargin": 639.7491,
-            "RightMargin": 1276.2509,
+            "RightMargin": 1276.251,
             "TopMargin": 1200.5792,
             "BottomMargin": 334.4208,
             "Tag": 122,
@@ -210,7 +210,9 @@
             "ColorVector": {
               "ScaleY": 1.0
             },
-            "TouchEnable": true,
+            "Scale9Width": 1,
+            "Scale9Height": 1,
+            "TouchEnable": false,
             "AnchorPoint": {},
             "Position": {
               "X": 2560.9827,
@@ -232,7 +234,7 @@
             },
             "LeftMargin": 2560.9827,
             "RightMargin": -2560.9824,
-            "TopMargin": 1200.5803,
+            "TopMargin": 1200.5804,
             "BottomMargin": 419.4196,
             "Tag": 125,
             "ActionTag": -585500592,
@@ -259,7 +261,9 @@
             "ColorVector": {
               "ScaleY": 1.0
             },
-            "TouchEnable": true,
+            "Scale9Width": 1,
+            "Scale9Height": 1,
+            "TouchEnable": false,
             "AnchorPoint": {},
             "Position": {
               "X": 2560.4622,
@@ -281,7 +285,7 @@
             },
             "LeftMargin": 2560.4622,
             "RightMargin": -2560.4619,
-            "TopMargin": 1380.7456,
+            "TopMargin": 1380.7455,
             "BottomMargin": 402.2545,
             "Tag": 126,
             "ActionTag": -599223887,
@@ -308,7 +312,9 @@
             "ColorVector": {
               "ScaleY": 1.0
             },
-            "TouchEnable": true,
+            "Scale9Width": 1,
+            "Scale9Height": 1,
+            "TouchEnable": false,
             "AnchorPoint": {},
             "Position": {
               "X": 2560.8989,
@@ -374,7 +380,7 @@
               "Y": 0.2294
             },
             "LeftMargin": 92.4938,
-            "RightMargin": 1812.5061,
+            "RightMargin": 1812.5062,
             "TopMargin": 915.5,
             "BottomMargin": 471.5,
             "Tag": 128,
@@ -510,7 +516,7 @@
             },
             "LeftMargin": 5758.6104,
             "RightMargin": -3842.6104,
-            "TopMargin": 1200.5801,
+            "TopMargin": 1200.58,
             "BottomMargin": 334.42,
             "Tag": 168,
             "ActionTag": 2007548525,
@@ -915,7 +921,7 @@
             },
             "LeftMargin": 3686.6963,
             "RightMargin": -1307.6963,
-            "TopMargin": 736.4821,
+            "TopMargin": 736.4822,
             "BottomMargin": 578.5179,
             "Tag": 191,
             "ActionTag": 1429085972,
@@ -1121,8 +1127,8 @@
               "ScaleY": 0.5
             },
             "Position": {
-              "X": 5651.6562,
-              "Y": 795.4247
+              "X": 5380.1221,
+              "Y": 812.0819
             },
             "Scale": {
               "ScaleX": 1.0,
@@ -1131,30 +1137,31 @@
             "CColor": {},
             "IconVisible": false,
             "PrePosition": {
-              "X": 2.2077,
-              "Y": 0.4419
+              "X": 2.1016,
+              "Y": 0.4512
             },
             "PreSize": {
               "X": 0.2957,
               "Y": 0.26
             },
-            "LeftMargin": 5273.1562,
-            "RightMargin": -3470.1562,
-            "TopMargin": 770.5752,
-            "BottomMargin": 561.4247,
+            "LeftMargin": 5001.6221,
+            "RightMargin": -3198.6221,
+            "TopMargin": 753.9181,
+            "BottomMargin": 578.0819,
             "Tag": 196,
             "ActionTag": 1673716343,
             "Size": {
               "X": 757.0,
-              "Y": 468.0
+              "Y": 471.0
             },
             "Name": "busstop_57",
             "ctype": "SpriteObjectData"
           },
           {
+            "FlipX": true,
             "FileData": {
               "Type": "MarkedSubImage",
-              "Path": "cityscreen/bus.png",
+              "Path": "cityscreen/helicopter.png",
               "Plist": "cityscreen/cityscreen.plist"
             },
             "BlendFunc": {
@@ -1166,8 +1173,98 @@
               "ScaleY": 0.5
             },
             "Position": {
-              "X": 5314.6982,
-              "Y": 615.5833
+              "X": 5151.6909,
+              "Y": 1554.7297
+            },
+            "Scale": {
+              "ScaleX": 1.926,
+              "ScaleY": 1.926
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 2.0124,
+              "Y": 0.8637
+            },
+            "PreSize": {
+              "X": 0.1645,
+              "Y": 0.1172
+            },
+            "LeftMargin": 4941.1909,
+            "RightMargin": -2802.1909,
+            "TopMargin": 139.7703,
+            "BottomMargin": 1449.2297,
+            "Tag": 386,
+            "ActionTag": -994412569,
+            "Size": {
+              "X": 421.0,
+              "Y": 211.0
+            },
+            "Name": "helicopter_8",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "cityscreen/building12.png",
+              "Plist": "cityscreen/cityscreen.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 6342.292,
+              "Y": 799.0159
+            },
+            "Scale": {
+              "ScaleX": 0.8891,
+              "ScaleY": 0.8891
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 2.4775,
+              "Y": 0.4439
+            },
+            "PreSize": {
+              "X": 0.4023,
+              "Y": 0.3217
+            },
+            "LeftMargin": 5912.292,
+            "RightMargin": -4212.292,
+            "TopMargin": 759.4841,
+            "BottomMargin": 557.5159,
+            "Tag": 473,
+            "ActionTag": -1163010775,
+            "Size": {
+              "X": 860.0,
+              "Y": 483.0
+            },
+            "Name": "building12_81",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "cityscreen/building13.png",
+              "Plist": "cityscreen/cityscreen.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.517,
+              "ScaleY": 0.4727
+            },
+            "Position": {
+              "X": 7206.7822,
+              "Y": 768.2362
             },
             "Scale": {
               "ScaleX": 1.0,
@@ -1176,24 +1273,24 @@
             "CColor": {},
             "IconVisible": false,
             "PrePosition": {
-              "X": 2.0761,
-              "Y": 0.342
+              "X": 2.8151,
+              "Y": 0.4268
             },
             "PreSize": {
-              "X": 0.3988,
-              "Y": 0.1883
+              "X": 0.3449,
+              "Y": 0.3056
             },
-            "LeftMargin": 4804.1982,
-            "RightMargin": -3265.1982,
-            "TopMargin": 1014.9167,
-            "BottomMargin": 446.0833,
-            "Tag": 197,
-            "ActionTag": -985118534,
+            "LeftMargin": 6848.5156,
+            "RightMargin": -4981.5156,
+            "TopMargin": 804.5145,
+            "BottomMargin": 564.4855,
+            "Tag": 528,
+            "ActionTag": -1428491814,
             "Size": {
-              "X": 1021.0,
-              "Y": 339.0
+              "X": 693.0,
+              "Y": 431.0
             },
-            "Name": "bus_58",
+            "Name": "building13_84",
             "ctype": "SpriteObjectData"
           }
         ],

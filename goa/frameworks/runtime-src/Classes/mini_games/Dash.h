@@ -59,6 +59,7 @@ protected:
 	void iceLandThemeAnimation();
 	virtual bool onTouchBegan(cocos2d::Touch *touch, cocos2d::Event * event);
     std::string constructSendMessage(std::string charName, int position);
+	static const char* gameName() { return DASH.c_str(); }
 //	std::string _gameWord;
 	//int _jumpCount, _enemyJumpCount;
 //	virtual bool onTouchBegan(cocos2d::Touch *touch, cocos2d::Event * event);
