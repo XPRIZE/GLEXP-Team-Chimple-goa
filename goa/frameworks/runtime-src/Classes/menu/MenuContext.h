@@ -42,6 +42,7 @@ public:
     bool isGamePaused();
     void exitMultiPlayerGame();
     void sendMessageToPeer(std::string message);
+    std::vector<std::string> split(std::string s, char delim);
     
 CC_CONSTRUCTOR_ACCESS:
     MenuContext();
@@ -69,7 +70,7 @@ protected:
     cocos2d::ui::Button* _mapMenu;
     cocos2d::ui::Button* _bookMenu;
     cocos2d::ui::Button* _gamesMenu;
-    cocos2d::ClippingNode* _photoMenu;
+    cocos2d::Node* _photoMenu;
     cocos2d::LayerColor* _greyLayer;
     cocos2d::Node* _chimp;
     int _chimpAudioId;
@@ -92,6 +93,8 @@ protected:
     void sadFace();
     void normalFace();
     
+    cocostudio::timeline::SkeletonNode* _character;
+    
     std::string gameName;
     std::string sceneName;
     std::function<void()> _startupCallback;
@@ -111,6 +114,8 @@ protected:
         return os.str() ;
     }
     
+    bool onTouchBeganOnCharacter(cocos2d::Touch *touch, cocos2d::Event *event);
+    
     cocos2d::ui::Button* createMenuItem(const std::string normalImage,
                         const std::string selectedImage ,
                         const std::string disableImage,
@@ -119,6 +124,11 @@ protected:
     cocos2d::ClippingNode* createMaskedMenuItem(const std::string normalImage,
                                         const std::string selectedImage ,
                                         const std::string disableImage,
+                                        float xPosOffSet);
+    
+    cocos2d::Node* createAvatarMenuItem(const std::string normalImage,
+                                                     const std::string selectedImage ,
+                                                     const std::string disableImage,
                                         float xPosOffSet);
     
     
