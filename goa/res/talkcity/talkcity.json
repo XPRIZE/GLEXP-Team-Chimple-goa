@@ -113,6 +113,52 @@
           {
             "FileData": {
               "Type": "MarkedSubImage",
+              "Path": "talkcity/9  patch image.png",
+              "Plist": "talkcity/talkcity.plist"
+            },
+            "Scale9Enable": true,
+            "Scale9OriginX": 108,
+            "Scale9OriginY": 34,
+            "Scale9Width": 114,
+            "Scale9Height": 53,
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 608.1826,
+              "Y": 1408.4136
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.2376,
+              "Y": 0.7825
+            },
+            "PreSize": {
+              "X": 0.1289,
+              "Y": 0.0672
+            },
+            "LeftMargin": 443.1826,
+            "RightMargin": 1786.8174,
+            "TopMargin": 331.0864,
+            "BottomMargin": 1347.9136,
+            "Tag": 7,
+            "ActionTag": 1803495922,
+            "Size": {
+              "X": 330.0,
+              "Y": 121.0
+            },
+            "Name": "bar",
+            "ctype": "ImageViewObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
               "Path": "talkcity/building02.png",
               "Plist": "talkcity/talkcity.plist"
             },
@@ -246,7 +292,7 @@
             },
             "LeftMargin": -267.4648,
             "RightMargin": -272.5352,
-            "TopMargin": 1651.8518,
+            "TopMargin": 1651.8519,
             "BottomMargin": -1.8519,
             "Tag": 211,
             "ActionTag": 680186501,
@@ -256,6 +302,178 @@
             },
             "Name": "Panel_106",
             "ctype": "PanelObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "talkcity/enemy.json",
+              "Plist": ""
+            },
+            "StretchWidthEnable": false,
+            "StretchHeightEnable": false,
+            "InnerActionSpeed": 1.0,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 353.1516,
+              "Y": 244.5483
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 0.1379,
+              "Y": 0.1359
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 353.1516,
+            "RightMargin": 2206.8484,
+            "TopMargin": 1555.4517,
+            "BottomMargin": 244.5483,
+            "Tag": 8,
+            "ActionTag": 1312094087,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "enemy",
+            "ctype": "ProjectNodeObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "talkcity/hero.json",
+              "Plist": ""
+            },
+            "StretchWidthEnable": false,
+            "StretchHeightEnable": false,
+            "InnerActionSpeed": 1.0,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 2235.6396,
+              "Y": 246.1763
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 0.8733,
+              "Y": 0.1368
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 2235.6396,
+            "RightMargin": 324.3604,
+            "TopMargin": 1553.8237,
+            "BottomMargin": 246.1763,
+            "Tag": 20,
+            "ActionTag": 1899214250,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "hero",
+            "ctype": "ProjectNodeObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "talkcity/basket.png",
+              "Plist": "talkcity/talkcity.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1950.3357,
+              "Y": 460.1125
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.7618,
+              "Y": 0.2556
+            },
+            "PreSize": {
+              "X": 0.0992,
+              "Y": 0.0589
+            },
+            "LeftMargin": 1823.3357,
+            "RightMargin": 482.6643,
+            "TopMargin": 1286.8875,
+            "BottomMargin": 407.1125,
+            "Tag": 32,
+            "ActionTag": 327775767,
+            "Size": {
+              "X": 254.0,
+              "Y": 106.0
+            },
+            "Name": "h_node",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "talkcity/basket.png",
+              "Plist": "talkcity/talkcity.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 651.0455,
+              "Y": 457.5155
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.2543,
+              "Y": 0.2542
+            },
+            "PreSize": {
+              "X": 0.0992,
+              "Y": 0.0589
+            },
+            "LeftMargin": 524.0455,
+            "RightMargin": 1781.9546,
+            "TopMargin": 1289.4845,
+            "BottomMargin": 404.5155,
+            "Tag": 33,
+            "ActionTag": -1214320003,
+            "Size": {
+              "X": 254.0,
+              "Y": 106.0
+            },
+            "Name": "e_node",
+            "ctype": "SpriteObjectData"
           }
         ],
         "Size": {
@@ -266,6 +484,8 @@
         "ctype": "SingleNodeObjectData"
       },
       "UsedResources": [
+        "enemy.json",
+        "hero.json",
         "talkcity.plist",
         "talkcity.png"
       ],
