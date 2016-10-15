@@ -1,6 +1,7 @@
 #include "Talk.h"
 #include "editor-support/cocostudio/CocoStudio.h"
 #include "../lang/TextGenerator.h"
+#include "ui/UIScale9Sprite.h"
 
 
 USING_NS_CC;
@@ -34,15 +35,6 @@ bool Talk::init()
 	_scene = { "talkisland", "talkcity", "talkjungle"};
 	sceneName = _scene.at(rand() % _scene.size());
 
-	_allSentense = TextGenerator::getInstance()->getSentenceWithPOS(TextGenerator::POS::NOUN, 5, 1);
-
-	Talk::displayWord();
-	this->scheduleUpdate();
-	return true;
-}
-
-void Talk::displayWord()
-{
 	if (sceneName == "talkisland")
 	{
 		_talkBg = (Node *)CSLoader::createNode("talkisland/talkisland.csb");
@@ -115,15 +107,6 @@ void Talk::displayWord()
 		_ehand = (Sprite*)_talkBg->getChildren().at(16); //getChildByName("e _node"); //getChildren().at(16);
 		_hero = (Sprite*)_talkBg->getChildByName("hero");
 		_enemy = (Sprite*)_talkBg->getChildByName("enemy");
-
-		_heroChar = CSLoader::createTimeline("talkjungle/hero.csb");
-		_enemyChar = CSLoader::createTimeline("talkjungle/enemy.csb");
-
-		_hero->runAction(_heroChar);
-		_enemy->runAction(_enemyChar);
-
-		_heroChar->play("h_idle", true);
-		_enemyChar->play("e_idle", true);
 	}
 
 	_talkBg->setPosition(Vec2(visibleSize.width / 2, 0));
@@ -150,6 +133,21 @@ void Talk::displayWord()
 	};
 
 	Vec2 origin = Director::getInstance()->getVisibleOrigin();
+
+	_allSentense = TextGenerator::getInstance()->getSentenceWithPOS(TextGenerator::POS::NOUN, 5, 1);
+	_handFlag = 0;
+	Talk::displayWord();
+	this->scheduleUpdate();
+	return true;
+}
+
+void Talk::displayWord()
+{
+//	auto aa = cocos2d::ui::Scale9Sprite::createWithSpriteFrameName("talkcity/patch_image.png");
+//	aa->setPosition(Vec2(visibleSize.width / 2, visibleSize.height / 2));
+//	aa->setContentSize(Size(1000, 1000));
+//	this->addChild(aa);
+
 
 	if (_allSentense.size() == 0)
 	{
@@ -187,18 +185,45 @@ void Talk::displayWord()
 		Talk::displayWord();
 	else
 	{
-		_labelDetails.clear();
-		_heroFish.clear();
-		_enemyFish.clear();
-
 		_handFlag = 0;
+		for (int i = 0; i < _labelDetails.size(); i++)
+		{
+			_talkBg->removeChild(_labelDetails.at(i).sprite);
+		}
+
+		_labelDetails.clear();
+
+		if (sceneName == "talkjungle")
+		{
+			_heroChar = CSLoader::createTimeline("talkjungle/hero.csb");
+			_enemyChar = CSLoader::createTimeline("talkjungle/enemy.csb");
+
+			_hero->runAction(_heroChar);
+			_enemy->runAction(_enemyChar);
+
+			_heroChar->play("h_idle", true);
+			_enemyChar->play("e_idle", true);
+		}
+
 		_totalCount = 0;
 		_totalAnswer = 0;
 		_correctAnswer = 0;
 
-		LabelTTF *lb = LabelTTF::create(_question_Name.str(), "Arial", 80);
-		lb->setPosition(Vec2(visibleSize.width * .40, visibleSize.height * .90));
-		this->addChild(lb);
+		std::ostringstream _imgName;
+		_imgName << sceneName << "/patch_image.png";
+
+		if (_board != NULL)
+			_talkBg->removeChild(_board);
+
+		auto _lbl = LabelTTF::create(_question_Name.str(), "Arial", 80);
+		_board = cocos2d::ui::Scale9Sprite::createWithSpriteFrameName(_imgName.str());
+		_board->setPosition(Vec2(visibleSize.width * .40, visibleSize.height * .90));
+		_board->setContentSize(Size(_lbl->getBoundingBox().size.width * 1.2, _lbl->getBoundingBox().size.height));
+		_lbl->setPosition(Vec2(_board->getBoundingBox().size.width / 2, 0));
+		_lbl->setAnchorPoint(Vec2(.5, 0));
+		_board->setAnchorPoint(Vec2(0, .5));
+		_board->addChild(_lbl);
+		_talkBg->addChild(_board);
 
 		//	auto drawNode = DrawNode::create();
 		//	_talkBg->addChild(drawNode, 2);
@@ -207,23 +232,31 @@ void Talk::displayWord()
 
 		_allSentense.erase(std::remove(_allSentense.begin(), _allSentense.end(), _textToShow), _allSentense.end());
 
+
 		for (int i = 0; i < _textToShow.size(); i++)
 		{
 			LabelDetails.label = LabelTTF::create(_textToShow.at(i).first, "Arial", 120);
+			LabelDetails.sprite = cocos2d::ui::Scale9Sprite::createWithSpriteFrameName(_imgName.str());
+			LabelDetails.sprite->setContentSize(Size(LabelDetails.label->getBoundingBox().size.width * 1.2, LabelDetails.label->getBoundingBox().size.height));
+
 			if (i == 0)
 			{
-				LabelDetails.label->setPosition(Vec2(visibleSize.width * .05, visibleSize.height * .70));
+				LabelDetails.label->setPosition(Vec2(LabelDetails.sprite->getBoundingBox().size.width / 2, 0));
+				LabelDetails.sprite->setPosition(Vec2(visibleSize.width * .01, visibleSize.height * .80));
 			}
 			else
 			{
-				LabelTTF *lab = _labelDetails.at(i - 1).label;
-				LabelDetails.label->setPosition(Vec2(lab->getPositionX() + lab->getBoundingBox().size.width + 20, lab->getPositionY()));
+				cocos2d::ui::Scale9Sprite *lab = _labelDetails.at(i - 1).sprite;
+				LabelDetails.sprite->setPosition(Vec2(lab->getPositionX() + lab->getBoundingBox().size.width + 30, lab->getPositionY()));
+				LabelDetails.label->setPosition(Vec2(LabelDetails.sprite->getBoundingBox().size.width / 2, 0));
 			}
 
+			LabelDetails.sprite->setAnchorPoint(Vec2(0, .5));
+			LabelDetails.sprite->addChild(LabelDetails.label);
 			LabelDetails.sequence = i;
 			LabelDetails.id = _textToShow.at(i).first;
 			LabelDetails.flag = 0;
-			LabelDetails.label->setAnchorPoint(Vec2(0, 0));
+			LabelDetails.label->setAnchorPoint(Vec2(.5, 0));
 
 			if ((_questionType == "NOUN" && _textToShow.at(i).second == TextGenerator::POS::NOUN) ||
 				(_questionType == "PRONOUN" && _textToShow.at(i).second == TextGenerator::POS::PRONOUN) ||
@@ -244,7 +277,7 @@ void Talk::displayWord()
 			}
 
 			Talk::addEvents(LabelDetails);
-			_talkBg->addChild(LabelDetails.label);
+			_talkBg->addChild(LabelDetails.sprite);
 			_labelDetails.push_back(LabelDetails);
 		}
 	}
@@ -293,7 +326,7 @@ void Talk::update(float d)
 				_handFlag = -1;
 				if (sceneName == "talkjungle" || sceneName == "talkisland")
 				{
-					if (sceneName == "talkisland")
+/*					if (sceneName == "talkisland")
 					{
 						_ehand->setVisible(false);
 						_ebasket->setVisible(false);
@@ -302,7 +335,7 @@ void Talk::update(float d)
 							_talkBg->removeChild(_enemyFish.at(i));
 						}
 					}
-
+*/
 					std::ostringstream timeline;
 					timeline << sceneName << "/enemy" << ".csb";
 
@@ -364,11 +397,32 @@ void Talk::update(float d)
 			}
 		}
 	}
+
+	if (_heroFish.size() == 8 || _enemyFish.size() == 8)
+	{
+		_menuContext->showScore();
+		this->unscheduleUpdate();
+	}
+
 }
 
 void Talk::gameEnd()
 {
-	_handFlag = -1;
+	_hero->stopAction(_heroChar);
+	_enemy->stopAction(_enemyChar);
+
+	if (sceneName == "talkisland")
+	{
+		_heroChar = CSLoader::createTimeline("talkisland/hero.csb");
+		_enemyChar = CSLoader::createTimeline("talkisland/enemy.csb");
+		_hero->runAction(_heroChar);
+		_enemy->runAction(_enemyChar);
+		_heroChar->play("h_correct", false);
+		_enemyChar->play("e_correct", false);
+		_hero->stopAction(_heroChar);
+		_hero->stopAction(_heroChar);
+	}
+
 	Talk::displayWord();
 }
 
@@ -384,7 +438,7 @@ void Talk::addEvents(struct LabelDetails sprite)
 		Size size = target->getContentSize();
 		Rect rect = Rect(0, 0, size.width, size.height);
 
-		if (rect.containsPoint(locationInNode) && _handFlag==0)
+		if (rect.containsPoint(locationInNode) && _handFlag == 0)
 		{
 			if (sceneName == "talkisland" || sceneName == "talkcity" || sceneName == "talkjungle")
 			{
@@ -426,12 +480,12 @@ void Talk::addEvents(struct LabelDetails sprite)
 				_fish->runAction(_action);
 				_handFlag = 1;
 				_totalCount++;
-				cocos2d::Director::getInstance()->getEventDispatcher()->removeEventListenersForTarget(sprite.label);
+				cocos2d::Director::getInstance()->getEventDispatcher()->removeEventListenersForTarget(sprite.sprite);
 			}
 			return true;
 		}
 		return false;
 	};
 
-	cocos2d::Director::getInstance()->getEventDispatcher()->addEventListenerWithSceneGraphPriority(listener->clone(), sprite.label);
+	cocos2d::Director::getInstance()->getEventDispatcher()->addEventListenerWithSceneGraphPriority(listener->clone(), sprite.sprite);
 }
