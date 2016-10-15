@@ -12,7 +12,7 @@ xc.ConnectTheDotsLayer = cc.LayerColor.extend({
   _gap: 0,
   _level: 0,
   _score: 0,
-  ctor: function(args) {
+    ctor: function(args) {
     this._super(cc.color(248, 248, 248), cc.director.getVisibleSize().width, cc.director.getVisibleSize().height)
     cc.spriteFrameCache.addSpriteFrames(xc.ConnectTheDotsLayer.res.hand_plist)
     this._level = args[0]
@@ -31,8 +31,9 @@ xc.ConnectTheDotsLayer = cc.LayerColor.extend({
     this.addChild(this._dotNode)
     this._gap = Math.min(cc.director.getVisibleSize().width / this._numCols, cc.director.getVisibleSize().height / this._numRows)
     this.showDots()
-    var help = new xc.HelpLayer(1280, 900, 1600, 1600)
+    var help = new xc.HelpLayer(1280, 900, 400, 400)
     this.addChild(help)
+    help.clickAndDrag(1280, 900, 500, 700)
     this.iterateToFindPath()
   },
   showDots: function() {
@@ -40,7 +41,7 @@ xc.ConnectTheDotsLayer = cc.LayerColor.extend({
     for(var i = 0; i < this._numRows; i++) {
       this._dots[i] = new Array(this._numCols)
       for(var j = 0; j < this._numCols; j++) {
-        var dot = new xc.Dot(xc.ConnectTheDotsLayer.colors[getRandomInt(0, 5)], this.dotTouched, this)
+        var dot = new xc.Dot(xc.ConnectTheDotsLayer.colors[getRandomInt(0, 3)], this.dotTouched, this)
         dot.setPosition((j + 0.5) * this._gap, (i + 0.5) * this._gap)
         this._dotNode.addChild(dot)
         this._dots[i][j] = dot

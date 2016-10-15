@@ -5,6 +5,7 @@ var xc = xc || {}
 xc.HelpLayer = cc.Node.extend({
   _listener: null,
   _graywindow: null,
+  _animating: false,
   ctor: function(x, y, width, height) {
     this._super()
     this._graywindow = new cc.Sprite(xc.HelpLayer.res.graywindow_png)
@@ -37,6 +38,9 @@ xc.HelpLayer = cc.Node.extend({
         swallowTouches: true,
         onTouchBegan: function (touch, event) {
           var target = event.getCurrentTarget()
+          if(target._animating) {
+            return true
+          }
           if (cc.rectContainsPoint(target._graywindow.getBoundingBox(), touch.getLocation())) {
             return false
           }
@@ -48,12 +52,43 @@ xc.HelpLayer = cc.Node.extend({
         }
     })
     cc.eventManager.addListener(this._listener, this)
+  },
+  click: function(x, y) {
+    this._animating = true
+    var touch = new cc.Sprite(xc.HelpLayer.res.touch_png)
+    touch.setPosition(x, y)
+    touch.setAnchorPoint(0.5, 1.0)
+    this.addChild(touch)
+    var touchAction = new cc.ScaleBy(0.5, 0.8)
+    var callFunc = new cc.CallFunc(function() {
+      this.getParent()._animating = false
+      this.removeFromParent()
+    }, touch)
+    var seq = new cc.Sequence(touchAction, cc.delayTime(0.5), touchAction.reverse(), callFunc)
+    touch.runAction(seq)
+  },
+  clickAndDrag: function(startX, startY, endX, endY) {
+    this._animating = true
+    var touch = new cc.Sprite(xc.HelpLayer.res.touch_png)
+    touch.setPosition(startX, startY)
+    touch.setAnchorPoint(0.5, 1.0)
+    this.addChild(touch)
+    var touchAction = new cc.ScaleBy(0.5, 0.8)
+    var moveAction = new cc.MoveTo(0.5, endX, endY)
+    var callFunc = new cc.CallFunc(function() {
+      this.getParent()._animating = false
+      this.removeFromParent()
+    }, touch)
+    var seq = new cc.Sequence(touchAction, cc.delayTime(0.5), moveAction, touchAction.reverse(), callFunc)
+    touch.runAction(seq)
+    
   }
 })
 
 xc.HelpLayer.res = {
-  graywindow_png: xc.path + "graywindow.png", 
-  gray_png: xc.path + "gray.png"  
+  graywindow_png: xc.path + "help/graywindow.png", 
+  gray_png: xc.path + "help/gray.png",
+  touch_png: xc.path + "help/touch.png" 
 }
 
 xc.HelpLayer.GW_WIDTH = 800
