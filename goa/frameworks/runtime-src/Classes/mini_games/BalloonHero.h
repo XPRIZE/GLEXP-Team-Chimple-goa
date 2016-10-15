@@ -55,6 +55,7 @@ protected:
 	cocos2d::Sprite * _cloud3;
 	cocos2d::Sprite * _cloud4;
 	cocostudio::timeline::ActionTimeline * _fireTimeline;
+	cocostudio::timeline::ActionTimeline * _bgTimeline;
 	
 	MenuContext *_menuContext;
 
