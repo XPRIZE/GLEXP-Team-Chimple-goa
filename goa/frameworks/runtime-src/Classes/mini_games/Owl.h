@@ -15,10 +15,11 @@ class Owl : public cocos2d::Layer
 protected:
 	MenuContext *_menuContext;
 	int _ticks, _ticksTotal, _ticks2, _ticksTotal2;
+	bool _flagDemo = true;
 	Node *_sprite = NULL, *_opponent = NULL;
 	string _owlCurrentTheme = "";
 	string _displayWord[5] = { "A","AB","ABC","ABCD","ABCDE" };
-	int _blockLevel1 = 0, _heightBlock1 =0, _heightBlock2=0, counter = 0, counter2 = 0, _textCounter = 0,_textBoard=0, _blockLevel2 = 0;
+	int _blockLevel1 = 0, _heightBlock1 =0, _heightBlock2=0, counter = 0, counter2 = 0, _textCounter = 0, _textCounter2 = 0,_textBoard=0, _textBoard2 =0, _blockLevel2 = 0;
 	double _xStart=0, _yStart=0, _xStop=0;
 	double _xStartSecond = 0, _yStartSecond = 0, _xStopSecond = 0;
 	bool _flagToControlMuiltipleTouch = true;
@@ -39,7 +40,7 @@ public:
 
 	CREATE_FUNC(Owl);
 	void update(float) override;
-
+	void autoPlayerController(float);
 	void  setSpriteProperties(Sprite *ImageObject, float positionX, float positionY, float scaleX, float scaleY, float anchorX, float anchorY, float rotation, int zorder);
 
 	void crateLetterGridOnBuilding(int blockLevel1, string displayWord);
