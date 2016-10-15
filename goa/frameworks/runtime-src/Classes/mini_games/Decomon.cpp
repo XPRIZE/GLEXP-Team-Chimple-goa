@@ -403,7 +403,7 @@ bool Decomon::onTouchBegan(cocos2d::Touch * touch, cocos2d::Event * event)
 	}
 	else if (_colorPicked && (visibleSize.width/2 - 700 < touch->getLocation().x) &&(visibleSize.width/2 + 900 > touch->getLocation().x) &&
 		(visibleSize.height / 2 - 500 < touch->getLocation().y) && (visibleSize.height / 2 + 600 > touch->getLocation().y)) {
-		
+		_paintingNode->drawDot(touch->getLocation(), 30, Color4F(_pickedColor_R / 255.0f, _pickedColor_G / 255.0f, _pickedColor_B / 255.0f, 1.0f));
 			return true;
 	}
 	
@@ -415,9 +415,12 @@ void Decomon::onTouchMoved(cocos2d::Touch * touch, cocos2d::Event * event)
 {
 	auto target = event->getCurrentTarget();
 	Size visibleSize = Director::getInstance()->getVisibleSize();
-	if (touch->getLocation().x > visibleSize.width / 2 && touch->getLocation().y > visibleSize.height / 2 && _flip) {
-		_flip = false;
-		target->setScaleX(-1.0f * target->getScaleX());
+	if (touch->getLocation().x > visibleSize.width / 2 && touch->getLocation().y > visibleSize.height / 2) {
+		//_flip = false;
+		target->setScaleX(-1.0f);// *target->getScaleX());
+	}
+	else if (touch->getLocation().x < visibleSize.width / 2) {
+		target->setScaleX(1);
 	}
 
 	if (_colorPicked){
