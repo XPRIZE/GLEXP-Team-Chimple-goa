@@ -115,7 +115,7 @@ bool Order::init()
 	};
 
 	std::vector<std::string> theme = { "farm","hero","candy" };
-	_themeName = theme.at(cocos2d::RandomHelper::random_int(0, 2));
+	_themeName = theme.at(2);// cocos2d::RandomHelper::random_int(0, 2));
 	_scenePath = differntSceneMapping.at(_themeName);//cocos2d::RandomHelper::random_int(0, 2)));
 
 	auto spritecache1 = SpriteFrameCache::getInstance();
@@ -137,7 +137,7 @@ bool Order::init()
 	auto randomList = _sortedList;
 	std::random_shuffle(randomList.begin(), randomList.end());
 
-
+	//std::copy()
 	//orderfarm/woodblock.png
 	//random vector
 	std::vector<std::string> str1 = { "l","k","j","a","g","h","f","c","d","e","b","i"};
@@ -151,11 +151,11 @@ bool Order::init()
 		str = str + str;
 		_boxes.pushBack(obj1);
 		this->addChild(obj1);
-		 auto _topLabel = Label::createWithSystemFont(randomList.at(i).c_str(), "Arial", 100);
-		_topLabel->setPositionX(obj1->getContentSize().width / 2);
-		_topLabel->setPositionY(obj1->getContentSize().height / 2);
-		_topLabel->setColor(Color3B(255, 255, 255));
-		obj1->addChild(_topLabel);
+		 auto topLabel = Label::createWithSystemFont(randomList.at(i).c_str(), "Arial", 100);
+		topLabel->setPositionX(obj1->getContentSize().width / 2);
+		topLabel->setPositionY(obj1->getContentSize().height / 2);
+		topLabel->setColor(Color3B(255, 255, 255));
+		obj1->addChild(topLabel);
 		auto listener = EventListenerTouchOneByOne::create();
 		listener->setSwallowTouches(true);
 		listener->onTouchBegan = CC_CALLBACK_2(Order::onTouchBegan, this);
@@ -167,7 +167,7 @@ bool Order::init()
 	_cartMove = differentPointsConfig.at(_themeName).at("targetDistance") / str1.size();
 
 	runAction(RepeatForever::create(Sequence::create(DelayTime::create(10 + (rand() % 60) / 30.0), CallFunc::create([=]() {
-		int score = cocos2d::RandomHelper::random_int(0, 11);
+		int score = cocos2d::RandomHelper::random_int(0, 12);
 		otherPlayer(score);
 	}), NULL)));
 

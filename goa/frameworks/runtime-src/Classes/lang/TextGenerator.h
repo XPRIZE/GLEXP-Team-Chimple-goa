@@ -16,6 +16,7 @@ class TextGenerator {
 public:
     enum class POS
     {
+        ANY = 0,
         NOUN = 1,
         PRONOUN = 2,
         ADJECTIVE = 3,
