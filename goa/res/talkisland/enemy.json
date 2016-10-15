@@ -7,7 +7,7 @@
       "Animation": {
         "Duration": 190,
         "Speed": 1.0,
-        "ActivedAnimationName": "e_wrong",
+        "ActivedAnimationName": "e_die",
         "Timelines": [
           {
             "ActionTag": -348950091,
@@ -185,7 +185,7 @@
           {
             "FileData": {
               "Type": "MarkedSubImage",
-              "Path": "talkisland/ewrong5.png",
+              "Path": "talkisland/enemydie1.png",
               "Plist": "talkisland/talkisland.plist"
             },
             "BlendFunc": {
@@ -219,8 +219,8 @@
             "Tag": 140,
             "ActionTag": -348950091,
             "Size": {
-              "X": 290.0,
-              "Y": 509.0
+              "X": 347.0,
+              "Y": 327.0
             },
             "Name": "Sprite_1",
             "ctype": "SpriteObjectData"
