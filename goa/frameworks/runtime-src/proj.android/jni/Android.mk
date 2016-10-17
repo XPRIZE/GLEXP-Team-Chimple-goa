@@ -146,7 +146,13 @@ LOCAL_SRC_FILES := hellojavascript/main.cpp \
 					./src/reco/shaperec/nn/NNAdapt.cpp \
 					./src/reco/shaperec/preprocessing/LTKPreprocessor.cpp \
 					./src/reco/shaperec/preprocessing/preprocessing.cpp \
-					lipiJni.cpp
+					lipiJni.cpp \
+                    ../../Classes/AsyncTask.cpp \
+                    ../../Classes/LipiTKNode.cpp \
+                    ../../Classes/LipiTKInterface.cpp \
+                    ../../Classes/LipiTKProcessTask.cpp \
+                    ../../Classes/LipiTKResult.cpp \
+                    ../../Classes/Stroke.cpp					
 					
 LOCAL_C_INCLUDES := $(LOCAL_PATH)/../../Classes
 LOCAL_C_INCLUDES += $(LOCAL_PATH)/../../../extensions

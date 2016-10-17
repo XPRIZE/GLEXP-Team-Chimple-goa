@@ -56,8 +56,8 @@ bool Talk::init()
 
 		_hbasket = (Sprite*)_talkBg->getChildren().at(1)->getChildByName("hhand");
 		_ebasket = (Sprite*)_talkBg->getChildren().at(1)->getChildByName("ehand");
-		_hhand = (Sprite*)_talkBg->getChildren().at(1)->getChildren().at(6); // getChildByName("h_hand"); // getChildren().at(7);
-		_ehand = (Sprite*)_talkBg->getChildren().at(1)->getChildren().at(7); //getChildByName("e_hand"); //getChildren().at(6);
+		_hhand = (Sprite*)_talkBg->getChildren().at(1)->getChildren().at(6);
+		_ehand = (Sprite*)_talkBg->getChildren().at(1)->getChildren().at(7);
 		_hero = (Sprite*)_talkBg->getChildren().at(1)->getChildByName("hero");
 		_enemy = (Sprite*)_talkBg->getChildren().at(1)->getChildByName("enemy");
 	}
@@ -65,8 +65,8 @@ bool Talk::init()
 	{
 		_talkBg = (Node *)CSLoader::createNode("talkcity/talkcity.csb");
 
-		_hhand = (Sprite*)_talkBg->getChildByName("h_node"); // getChildren().at(7);
-		_ehand = (Sprite*)_talkBg->getChildByName("e_node"); //getChildren().at(6);
+		_hhand = (Sprite*)_talkBg->getChildByName("h_node");
+		_ehand = (Sprite*)_talkBg->getChildByName("e_node");
 		_hero = (Sprite*)_talkBg->getChildByName("hero");
 		_enemy = (Sprite*)_talkBg->getChildByName("enemy");
 
@@ -103,8 +103,8 @@ bool Talk::init()
 	{
 		_talkBg = (Node *)CSLoader::createNode("talkjungle/talkjungle.csb");
 
-		_hhand = (Sprite*)_talkBg->getChildByName("h_node"); // getChildren().at(7);
-		_ehand = (Sprite*)_talkBg->getChildren().at(16); //getChildByName("e _node"); //getChildren().at(16);
+		_hhand = (Sprite*)_talkBg->getChildByName("h_node");
+		_ehand = (Sprite*)_talkBg->getChildren().at(16);
 		_hero = (Sprite*)_talkBg->getChildByName("hero");
 		_enemy = (Sprite*)_talkBg->getChildByName("enemy");
 	}
@@ -143,13 +143,7 @@ bool Talk::init()
 
 void Talk::displayWord()
 {
-//	auto aa = cocos2d::ui::Scale9Sprite::createWithSpriteFrameName("talkcity/patch_image.png");
-//	aa->setPosition(Vec2(visibleSize.width / 2, visibleSize.height / 2));
-//	aa->setContentSize(Size(1000, 1000));
-//	this->addChild(aa);
-
-
-	if (_allSentense.size() == 0)
+	if (_allSentense.size() == 0 || _enemyFish.size() == 8 || _heroFish.size() == 8)
 	{
 		_menuContext->showScore();
 		return;
@@ -237,12 +231,12 @@ void Talk::displayWord()
 		{
 			LabelDetails.label = LabelTTF::create(_textToShow.at(i).first, "Arial", 120);
 			LabelDetails.sprite = cocos2d::ui::Scale9Sprite::createWithSpriteFrameName(_imgName.str());
-			LabelDetails.sprite->setContentSize(Size(LabelDetails.label->getBoundingBox().size.width * 1.2, LabelDetails.label->getBoundingBox().size.height));
+			LabelDetails.sprite->setContentSize(Size(LabelDetails.label->getBoundingBox().size.width * 1.3, LabelDetails.label->getBoundingBox().size.height * 1.2));
 
 			if (i == 0)
 			{
 				LabelDetails.label->setPosition(Vec2(LabelDetails.sprite->getBoundingBox().size.width / 2, 0));
-				LabelDetails.sprite->setPosition(Vec2(visibleSize.width * .01, visibleSize.height * .80));
+				LabelDetails.sprite->setPosition(Vec2(visibleSize.width * .10, visibleSize.height * .80));
 			}
 			else
 			{
@@ -250,6 +244,12 @@ void Talk::displayWord()
 				LabelDetails.sprite->setPosition(Vec2(lab->getPositionX() + lab->getBoundingBox().size.width + 30, lab->getPositionY()));
 				LabelDetails.label->setPosition(Vec2(LabelDetails.sprite->getBoundingBox().size.width / 2, 0));
 			}
+
+			if (LabelDetails.sprite->getBoundingBox().size.width + LabelDetails.sprite->getPositionX() >= visibleSize.width)
+			{
+				LabelDetails.sprite->setPosition(Vec2(visibleSize.width * .10, LabelDetails.sprite->getPositionY() - LabelDetails.sprite->getBoundingBox().size.height * 1.5));
+			}
+
 
 			LabelDetails.sprite->setAnchorPoint(Vec2(0, .5));
 			LabelDetails.sprite->addChild(LabelDetails.label);
@@ -308,11 +308,11 @@ void Talk::update(float d)
 		}
 		else
 		{
-			fish_Rect = Rect(_fish->getPositionX(), _fish->getPositionY(), _fish->getBoundingBox().size.width, _fish->getBoundingBox().size.height);// _fish->getBoundingBox();
+			fish_Rect = Rect(_fish->getPositionX(), _fish->getPositionY(), _fish->getBoundingBox().size.width, _fish->getBoundingBox().size.height);
 		}
 
 		if(sceneName == "talkjungle" || sceneName == "talkisland")
-			fish_Rect_next = Rect(_fish->getPositionX(), _fish->getPositionY(), _fish->getBoundingBox().size.width, _fish->getBoundingBox().size.height);// _fish->getBoundingBox();
+			fish_Rect_next = Rect(_fish->getPositionX(), _fish->getPositionY(), _fish->getBoundingBox().size.width, _fish->getBoundingBox().size.height);
 		else
 			fish_Rect_next = _fish->getBoundingBox();
 
@@ -324,18 +324,8 @@ void Talk::update(float d)
 			if (_totalCount == _textToShow.size() || _totalAnswer == _correctAnswer)
 			{
 				_handFlag = -1;
-				if (sceneName == "talkjungle" || sceneName == "talkisland")
+				if (sceneName == "talkjungle")
 				{
-/*					if (sceneName == "talkisland")
-					{
-						_ehand->setVisible(false);
-						_ebasket->setVisible(false);
-						for (int i = 0; i < _enemyFish.size(); i++)
-						{
-							_talkBg->removeChild(_enemyFish.at(i));
-						}
-					}
-*/
 					std::ostringstream timeline;
 					timeline << sceneName << "/enemy" << ".csb";
 
@@ -398,31 +388,66 @@ void Talk::update(float d)
 		}
 	}
 
-	if (_heroFish.size() == 8 || _enemyFish.size() == 8)
+	if (_heroFish.size() == 8)
 	{
-		_menuContext->showScore();
-		this->unscheduleUpdate();
-	}
+		if (sceneName == "talkisland")
+		{
+			_ehand->setVisible(false);
+			_ebasket->setVisible(false);
+			for (int i = 0; i < _enemyFish.size(); i++)
+			{
+				_talkBg->removeChild(_enemyFish.at(i));
+			}
 
+			std::ostringstream timeline;
+			timeline << sceneName << "/enemy" << ".csb";
+
+			_enemy->stopAction(_enemyChar);
+			_enemyChar = CSLoader::createTimeline(timeline.str());
+			_enemy->runAction(_enemyChar);
+			_enemyChar->play("e_die", false);
+			_totalAnswer = -1;
+			_enemyChar->setAnimationEndCallFunc("e_die", CC_CALLBACK_0(Talk::gameEnd, this));
+		}
+		else
+		{
+			_menuContext->showScore();
+			this->unscheduleUpdate();
+		}
+	}
+	else if (_enemyFish.size() == 8)
+	{
+		if (sceneName == "talkisland")
+		{
+			_hhand->setVisible(false);
+			_hbasket->setVisible(false);
+			for (int i = 0; i < _heroFish.size(); i++)
+			{
+				_talkBg->removeChild(_heroFish.at(i));
+			}
+
+			std::ostringstream timeline;
+			timeline << sceneName << "/hero" << ".csb";
+
+			_hero->stopAction(_heroChar);
+			_heroChar = CSLoader::createTimeline(timeline.str());
+			_hero->runAction(_heroChar);
+			_heroChar->play("h_die", false);
+			_totalAnswer = -1;
+			_heroChar->setAnimationEndCallFunc("h_die", CC_CALLBACK_0(Talk::gameEnd, this));
+		}
+		else
+		{
+			_menuContext->showScore();
+			this->unscheduleUpdate();
+		}
+	}
 }
 
 void Talk::gameEnd()
 {
 	_hero->stopAction(_heroChar);
 	_enemy->stopAction(_enemyChar);
-
-	if (sceneName == "talkisland")
-	{
-		_heroChar = CSLoader::createTimeline("talkisland/hero.csb");
-		_enemyChar = CSLoader::createTimeline("talkisland/enemy.csb");
-		_hero->runAction(_heroChar);
-		_enemy->runAction(_enemyChar);
-		_heroChar->play("h_correct", false);
-		_enemyChar->play("e_correct", false);
-		_hero->stopAction(_heroChar);
-		_hero->stopAction(_heroChar);
-	}
-
 	Talk::displayWord();
 }
 
