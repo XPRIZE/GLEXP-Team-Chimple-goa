@@ -31,7 +31,7 @@ xc.ConnectTheDotsLayer = cc.LayerColor.extend({
     this.addChild(this._dotNode)
     this._gap = Math.min(cc.director.getVisibleSize().width / this._numCols, cc.director.getVisibleSize().height / this._numRows)
     this.showDots()
-    var help = new xc.HelpLayer(1280, 900, 400, 400)
+    var help = new xc.HelpLayer(cc.rect(1280, 1200, 200, 200), cc.rect(1280, 500, 400, 400))
     this.addChild(help)
     help.clickAndDrag(1280, 900, 500, 700)
     this.iterateToFindPath()
@@ -226,6 +226,8 @@ xc.ConnectTheDotsLayer = cc.LayerColor.extend({
     return dotArray
   }
 })
+
+xc.ConnectTheDotsLayer.gameName = "ConnectTheDots"
 
 xc.ConnectTheDotsLayer.res = {
   hand_plist: xc.path + "maths/hand.plist",
