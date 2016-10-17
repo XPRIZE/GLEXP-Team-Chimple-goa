@@ -662,6 +662,6 @@ void Decomon::captureImage(bool capture, const std::string & outputFile)
 	}
 	else
 	{
-		log("Capture screen failed.");
+		CCLOG("Capture screen failed");
 	}
 }
