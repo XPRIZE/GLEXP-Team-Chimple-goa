@@ -9,22 +9,13 @@
         
     },
     {
-        "name": "pop",
-        "cIcon": "gamemap/chain_pressed.png",
-        "icon": "gamemap/chain.png",
-    	"multiPlayer":true,
-        "isJSGame":true,
-        "pureJS": "ConnectTheDotsMenu",
-        "script":"src/start/pop.js"
-    },
-    {
         "name": "jazz",
         "cIcon": "gamemap/jazz_pressed.png",
         "icon": "gamemap/jazz.png",
     	"multiPlayer":false,
         "isJSGame":true,
-        "pureJS": "GameLayer",
-        "script":"src/start/jazz.js"        
+        "pureJS": "ConnectTheDotsMenu",
+        "script":"src/start/connectTheDots.js"        
 
     },
     {
@@ -35,57 +26,5 @@
         "isJSGame":true,
         "pureJS": "TrainLayer",
         "script":"src/start/train.js"
-    },
-    {
-        "name": "bubbleShooter",
-        "cIcon": "gamemap/EndlessRunner_pressed.png",
-        "icon": "gamemap/EndlessRunner.png"
-    },
-
-    {
-        "name": "alphamole",
-        "cIcon": "gamemap/alphafeed_pressed.png",
-        "icon": "gamemap/alphafeed.png"
-    },
-    {
-        "name": "jump_on_words",
-        "cIcon": "gamemap/jazz_pressed.png",
-        "icon": "gamemap/jazz.png"
-    },
-    {
-        "name": "story-teller",
-        "cIcon": "gamemap/book_pressed.png",
-        "icon": "gamemap/book.png"        
-    },
-    {
-        "name": "sortit",
-        "cIcon": "gamemap/sortit_pressed.png",
-        "icon": "gamemap/sortit.png"        
-    },
-    {
-        "name": "decomon",
-        "cIcon": "gamemap/book_pressed.png",
-        "icon": "gamemap/book.png"        
-    },
-    {
-        "name": "pinata",
-        "cIcon": "gamemap/EndlessRunner_pressed.png",
-        "icon": "gamemap/EndlessRunner.png"  
-    },
-    {
-        "name": "choose_character",
-        "cIcon": "gamemap/chain_pressed.png",
-        "icon": "gamemap/chain.png",
-    	"multiPlayer":false,
-        "isJSGame":true,
-        "script":"src/start/characterConfigure.js"
-    },
-    {
-        "name": "show_bluetoothPeers",
-        "cIcon": "gamemap/chain_pressed.png",
-        "icon": "gamemap/chain.png",
-    	"multiPlayer":false,
-        "isJSGame":true,
-        "script":"src/start/showBluetoothPeers.js"
-    }    
+    }
 ]

@@ -19,6 +19,39 @@
 #include "../PhotoCaptureScene.hpp"
 #include "storage/local-storage/LocalStorage.h"
 #include "scripting/js-bindings/manual/ScriptingCore.h"
+#include "../alphamon/SelectAlphamonScene.h"
+#include "../puzzle/DuelScene.h"
+#include "../puzzle/WordBoard.h"
+#include "../puzzle/PegWord.h"
+#include "../mini_games/PatchTheWallScene.h"
+#include "../mini_games/CrossTheBridgeScene.h"
+#include "../mini_games/SmashTheRockScene.h"
+#include "../mini_games/EndlessRunner.h"
+#include "../mini_games/Cannon_Ball_Main.h"
+#include "../mini_games/TraceScene.h"
+#include "../mini_games/AlphamonFeedScene.h"
+#include "../mini_games/BajaWordScene.h"
+#include "../mini_games/Jasmin_Mainfile.h"
+#include "../mini_games/jazz.h"
+#include "../mini_games/Chain.h"
+#include "../mini_games/Wembley.h"
+#include "../mini_games/CatGameScene.h"
+#include "scripting/js-bindings/manual/ScriptingCore.h"
+#include "../mini_games/AlphamoleLevel.h"
+#include "../mini_games/Memory.h"
+#include "../mini_games/MemoryHero.h"
+#include "../mini_games/MemoryJungle.h"
+#include "../mini_games/Circle.h"
+#include "../mini_games/Stack.h"
+#include "../mini_games/Talk.h"
+#include "../mini_games/BalloonHero.h"
+#include "../mini_games/Bingo.h"
+#include "../mini_games/Drop.h"
+#include "../mini_games/Owl.h"
+#include "../mini_games/BalloonHero.h"
+#include "../mini_games/Decomon.h"
+#include "../mini_games/Order.h"
+#include "../mini_games/Pillar.h"
 
 USING_NS_CC;
 using namespace cocos2d::ui;
@@ -692,11 +725,113 @@ void MenuContext::launchGame(std::string gameName) {
 
 void MenuContext::launchGameFromJS(std::string gameName) {
     CCLOG("gameName %s", gameName.c_str());
-    if (gameName == CAT) {
-        Director::getInstance()->replaceScene(Dash::createScene());
-    } else if(gameName == ENDLESS_RUNNER) {
-        Director::getInstance()->replaceScene(EndlessRunner::createScene());
-    } 
+        if(gameName == ALPHAMON_COMBAT) {
+            Director::getInstance()->replaceScene(SelectAlphamon::createScene());
+        } else if(gameName == DUEL_SCENE) {
+//            std::u16string firstParamUTF16;
+//            StringUtils::UTF8ToUTF16(firstParam, firstParamUTF16);
+//    
+//            std::u16string secondParamUTF16;
+//            StringUtils::UTF8ToUTF16(secondParam, secondParamUTF16);
+//    
+//            Director::getInstance()->replaceScene(DuelScene::createScene(firstParamUTF16.at(0), secondParamUTF16.at(0)));
+        }
+        else if(gameName == PATCH_THE_WALL) {
+            Director::getInstance()->replaceScene(PatchTheWall::createScene());
+        } else if(gameName == CROSS_THE_BRIDGE) {
+            Director::getInstance()->replaceScene(CrossTheBridge::createScene());
+        } else if(gameName == PATCH_THE_WALL) {
+            Director::getInstance()->replaceScene(PatchTheWall::createScene());
+        } else if(gameName == SMASH_THE_ROCK) {
+            Director::getInstance()->replaceScene(SmashTheRock::createScene());
+        } else if(gameName == CANNON_BALL) {
+            Director::getInstance()->replaceScene(MainGame::createScene());
+        } else if(gameName == ENDLESS_RUNNER) {
+            Director::getInstance()->replaceScene(EndlessRunner::createScene());
+        } else if(gameName == KUNG_FU_ALPHA) {
+            Director::getInstance()->replaceScene(Trace::createScene(0));
+        } else if(gameName == ALPHAMON_FEED) {
+            Director::getInstance()->replaceScene(AlphamonFeed::createScene());
+        } else if(gameName == BAJA) {
+            Director::getInstance()->replaceScene(BajaWordScene::createScene());
+        } else if(gameName == JASMINE) {
+            Director::getInstance()->replaceScene(Jasmin_Mainfile::createScene());
+        } else if(gameName == WEMBLEY) {
+    		Director::getInstance()->replaceScene(Wembley::createScene());
+        } else if(gameName == JAZZ) {
+            Director::getInstance()->replaceScene(jazz::createScene());
+        } else if(gameName == CHAIN) {
+            Director::getInstance()->replaceScene(Chain::createScene());
+        }else if (gameName == CAT) {
+    		Director::getInstance()->replaceScene(CatGame::createScene());
+        } else if (gameName == TRAIN) {
+            ScriptingCore::getInstance()->runScript("src/start/train.js");
+        } else if (gameName == POP) {
+            ScriptingCore::getInstance()->runScript("src/start/pop.js");
+        } else if (gameName == STORY_TELLING) {
+            ScriptingCore::getInstance()->runScript("start/storytelling.js");
+        } else if (gameName == ALPHAMOLE) {
+    		Director::getInstance()->replaceScene(AlphamoleLevel::createScene());
+        } else if (gameName == WORD_BOARD) {
+            Director::getInstance()->replaceScene(WordBoard::createScene());
+        } else if (gameName == PEG) {
+            Director::getInstance()->replaceScene(PegWord::createScene());
+    	} else if (gameName == JUMP_ON_WORDS) {
+    		ScriptingCore::getInstance()->runScript("src/start/jump.js");
+    	} else if (gameName == POP) {
+    		ScriptingCore::getInstance()->runScript("src/start/pop.js");
+    	}else if (gameName == CIRCLE) {
+    		Director::getInstance()->replaceScene(Circle::createScene());
+    	}else if (gameName == BUBBLE) {
+    		ScriptingCore::getInstance()->runScript("src/start/BubbleShooter.js");
+    //        ScriptingCore::getInstance()->runScript("src/start/dots.js");
+    	}else if (gameName == PINATA) {
+    		ScriptingCore::getInstance()->runScript("src/start/pinata.js");
+    	}
+    	else if (gameName == STACK) {
+    		Director::getInstance()->replaceScene(Stack::createScene());
+    	}
+    	else if (gameName == TALK) {
+    		Director::getInstance()->replaceScene(Talk::createScene());
+    	}
+    	else if (gameName == BINGO) {
+    		Director::getInstance()->replaceScene(Bingo::createScene());
+    	}
+    	else if (gameName == DROP) {
+    		Director::getInstance()->replaceScene(Drop::createScene());
+    	}
+    	else if (gameName == OWL) {
+    		Director::getInstance()->replaceScene(Owl::createScene());
+    	}
+    	else if (gameName == DASH) {
+    		Director::getInstance()->replaceScene(Dash::createScene());
+    	}
+    	else if (gameName == DECOMON) {
+    		Director::getInstance()->replaceScene(Decomon::createScene());
+    	}
+    	else if (gameName == ORDER) {
+    		Director::getInstance()->replaceScene(Order::createScene());
+    	}
+    	else if (gameName == PILLAR) {
+    		Director::getInstance()->replaceScene(Pillar::createScene());
+    	}
+    	else if (gameName == MEMORY) {
+    		int numberPicker = RandomHelper::random_int(0, 2);
+    		switch (numberPicker) {
+    		case 0: Director::getInstance()->replaceScene(MemoryJungle::createScene());  break;
+    		case 1: Director::getInstance()->replaceScene(MemoryHero::createScene());  break;
+    		case 2: Director::getInstance()->replaceScene(Memory::createScene());  break;
+    		}
+    	}
+    	else{
+            CCLOG("Failed starting scene: %s", gameName.c_str());
+        }
+    
+    
+    
+    
+    
+    
 }
 
 void MenuContext::transitToScrollableGameMap() {
