@@ -58,8 +58,8 @@ bool BalloonHero::init() {
 		return false;
 	}
 	//SpriteFrameCache::getInstance()->addSpriteFramesWithFile("balloonhero/balloonhero.plist");
-	_sceneNumber = RandomHelper::random_int(1, 2);
-	//_sceneNumber = 2;
+	//_sceneNumber = RandomHelper::random_int(1, 2);
+	_sceneNumber = 2;
 
 	std::string mainSceneplist;
 
@@ -105,7 +105,13 @@ bool BalloonHero::init() {
 
 	std::string foregroundcsb;
 
-	if (_sceneNumber == 1) { foregroundcsb = "foreground"; }
+	if (_sceneNumber == 1) { foregroundcsb = "foreground"; 
+	
+	 
+	_bgTimeline = CSLoader::createTimeline("balloonhero/background.csb");
+	_balloonHero->getChildByName("background")->runAction(_bgTimeline);
+	_bgTimeline->play("sky", false);
+	}
 	if (_sceneNumber == 2) { foregroundcsb = "foreground"; }
 	if (_sceneNumber == 3) { foregroundcsb = "foreground"; }
 
@@ -132,13 +138,18 @@ bool BalloonHero::init() {
 		animationcsb = "balloonhero/firefly.csb";
 	}
 	if (_sceneNumber == 2) { animationcsb = "balloonfarm/balloon.csb"; }
-	if (_sceneNumber == 3) { animationcsb = "ballooncandy/firefly.csb"; }
+	if (_sceneNumber == 3) { animationcsb = "ballooncandy/fluffyanim.csb"; }
 
 		_fireFly = (cocos2d::Sprite *)CSLoader::createNode(animationcsb);
 
 		_fireFly->setPosition(Vec2(visibleSize.width / 2 + origin.x, visibleSize.height / 2 + origin.y));
 		_fireFly->setAnchorPoint(Vec2(0.5, 0.5));
 		_fireFly->setScale(0.5, 0.5);
+
+		if (_sceneNumber == 1) {
+			//_fireFly->setContentSize(Size(_fireFly->getContentSize().width , _fireFly->getContentSize().height + 30));
+		}
+
 
 		//_fireFly->setContentSize(_fireFly->getChildByName("Sprite")->getContentSize());
 		this->addChild(_fireFly, 1);
@@ -154,7 +165,7 @@ bool BalloonHero::init() {
 		animationTimeline = "balloonhero/firefly.csb";
 	}
 	if (_sceneNumber == 2) { animationTimeline = "balloonfarm/balloon.csb"; }
-	if (_sceneNumber == 3) { animationTimeline = "ballooncandy/firefly.csb"; }
+	if (_sceneNumber == 3) { animationTimeline = "ballooncandy/fluffyanim.csb"; }
 
 
 		_fireTimeline = CSLoader::createTimeline(animationTimeline);
@@ -213,7 +224,7 @@ bool BalloonHero::onTouchBegan(Touch* touch, Event* event) {
 	}
 	if (_sceneNumber == 3) {
 
-		character = "box";
+		character = "firefly";
 
 	}
 
@@ -245,6 +256,7 @@ void BalloonHero::onTouchMoved(cocos2d::Touch *touch, cocos2d::Event *event) {
 		target->setPosition(Vec2(touch->getLocation().x, touch->getLocation().y));
 		 // to indicate that we have consumed it.
 	
+		
 }
 
 
@@ -269,7 +281,7 @@ void BalloonHero::generateObjectsAndMove() {
 		_objects = { "balloonfarm/wrongballoon.png","balloonfarm/wordballoon.png" ,"balloonfarm/cloud1.png", "balloonfarm/wrongballoon.png" , "balloonfarm/cloud2.png" ,"balloonfarm/wordballoon.png" };
 	}
 	if (_sceneNumber == 3) {
-		_objects = { "ballooncandy/spear.png","ballooncandy/balloon1.png" ,"ballooncandy/cloud1.png", "ballooncandy/spear.png" , "ballooncandy/cloud2.png" ,"ballooncandy/balloon1.png" };
+		_objects = { "ballooncandy/candyblast1.png","ballooncandy/balloon1.png" ,"ballooncandy/cloud1.png", "ballooncandy/candyblast1.png" , "ballooncandy/cloud2.png" ,"ballooncandy/balloon1.png" };
 	}
 	/*_meteor = (cocos2d::Sprite *)CSLoader::createNode("balloonhero/meteor.csb");
 
@@ -296,10 +308,10 @@ void BalloonHero::generateObjectsAndMove() {
 		obj4 = "balloonfarm/cloud2.png";
 	}
 	if (_sceneNumber == 3) {
-		obj1 = "balloonfarm/cloud1.png";
-		obj2 = "balloonfarm/cloud2.png";
-		obj3 = "balloonfarm/cloud1.png";
-		obj4 = "balloonfarm/cloud2.png";
+		obj1 = "ballooncandy/cloud1.png";
+		obj2 = "ballooncandy/cloud2.png";
+		obj3 = "ballooncandy/cloud1.png";
+		obj4 = "ballooncandy/cloud2.png";
 	}
 	
 	_cloud1 = Sprite::createWithSpriteFrameName(obj1);
@@ -549,7 +561,7 @@ void BalloonHero::update(float delta) {
 		_meteor1->setPosition(Vec2(x, y));
 		_meteor1->setAnchorPoint(Vec2(0.5, 0.5));
 		_meteor1->setScale(scalex, scaley);
-		this->addChild(_meteor1, 0);
+		this->addChild(_meteor1, 4);
 
 		_cloud1->setVisible(false);
 		
@@ -576,7 +588,7 @@ void BalloonHero::update(float delta) {
 		_meteor2->setPosition(Vec2(x,y));
 		_meteor2->setAnchorPoint(Vec2(0.5, 0.5));
 		_meteor2->setScale(scalex, scaley);
-		this->addChild(_meteor2, 0);
+		this->addChild(_meteor2, 4);
 
 		_cloud2->setVisible(false);
 
@@ -600,7 +612,7 @@ void BalloonHero::update(float delta) {
 		_meteor3->setPosition(Vec2(x, y));
 		_meteor3->setAnchorPoint(Vec2(0.5, 0.5));
 		_meteor3->setScale(scalex, scaley);
-		this->addChild(_meteor3, 0);
+		this->addChild(_meteor3, 4);
 
 		_cloud3->setVisible(false);
 
@@ -621,7 +633,7 @@ void BalloonHero::update(float delta) {
 		_meteor4->setPosition(Vec2(x, y));
 		_meteor4->setAnchorPoint(Vec2(0.5, 0.5));
 		_meteor4->setScale(scalex, scaley);
-		this->addChild(_meteor4, 0);
+		this->addChild(_meteor4, 4);
 
 		_cloud4->setVisible(false);
 

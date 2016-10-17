@@ -4,6 +4,51 @@
     <dict>
         <key>frames</key>
         <dict>
+            <key>ballooncandy/balloon1.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{209,479}</string>
+                <key>spriteSourceSize</key>
+                <string>{209,479}</string>
+                <key>textureRect</key>
+                <string>{{1373,354},{209,479}}</string>
+                <key>textureRotated</key>
+                <true/>
+            </dict>
+            <key>ballooncandy/balloons.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{186,213}</string>
+                <key>spriteSourceSize</key>
+                <string>{186,213}</string>
+                <key>textureRect</key>
+                <string>{{1866,1},{186,213}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+            <key>ballooncandy/body.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{155,169}</string>
+                <key>spriteSourceSize</key>
+                <string>{155,169}</string>
+                <key>textureRect</key>
+                <string>{{1588,770},{155,169}}</string>
+                <key>textureRotated</key>
+                <true/>
+            </dict>
             <key>ballooncandy/candybar.png</key>
             <dict>
                 <key>aliases</key>
@@ -34,6 +79,81 @@
                 <key>textureRotated</key>
                 <true/>
             </dict>
+            <key>ballooncandy/candyblast1.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{1,0}</string>
+                <key>spriteSize</key>
+                <string>{177,176}</string>
+                <key>spriteSourceSize</key>
+                <string>{227,228}</string>
+                <key>textureRect</key>
+                <string>{{1776,583},{177,176}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+            <key>ballooncandy/candyblast2.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{1,-4}</string>
+                <key>spriteSize</key>
+                <string>{195,204}</string>
+                <key>spriteSourceSize</key>
+                <string>{227,228}</string>
+                <key>textureRect</key>
+                <string>{{1854,386},{195,204}}</string>
+                <key>textureRotated</key>
+                <true/>
+            </dict>
+            <key>ballooncandy/candyblast3.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{-1,-2}</string>
+                <key>spriteSize</key>
+                <string>{197,206}</string>
+                <key>spriteSourceSize</key>
+                <string>{227,228}</string>
+                <key>textureRect</key>
+                <string>{{1084,701},{197,206}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+            <key>ballooncandy/candyblast4.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{9,0}</string>
+                <key>spriteSize</key>
+                <string>{157,150}</string>
+                <key>spriteSourceSize</key>
+                <string>{227,228}</string>
+                <key>textureRect</key>
+                <string>{{1759,770},{157,150}}</string>
+                <key>textureRotated</key>
+                <true/>
+            </dict>
+            <key>ballooncandy/candyblast5.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{7,-2}</string>
+                <key>spriteSize</key>
+                <string>{113,102}</string>
+                <key>spriteSourceSize</key>
+                <string>{227,228}</string>
+                <key>textureRect</key>
+                <string>{{1955,583},{113,102}}</string>
+                <key>textureRotated</key>
+                <true/>
+            </dict>
             <key>ballooncandy/cloud1.png</key>
             <dict>
                 <key>aliases</key>
@@ -45,9 +165,9 @@
                 <key>spriteSourceSize</key>
                 <string>{260,102}</string>
                 <key>textureRect</key>
-                <string>{{1671,659},{260,102}}</string>
+                <string>{{1283,864},{260,102}}</string>
                 <key>textureRotated</key>
-                <true/>
+                <false/>
             </dict>
             <key>ballooncandy/cloud2.png</key>
             <dict>
@@ -60,9 +180,9 @@
                 <key>spriteSourceSize</key>
                 <string>{303,92}</string>
                 <key>textureRect</key>
-                <string>{{1695,354},{303,92}}</string>
+                <string>{{1283,770},{303,92}}</string>
                 <key>textureRotated</key>
-                <true/>
+                <false/>
             </dict>
             <key>ballooncandy/cloud3.png</key>
             <dict>
@@ -75,24 +195,174 @@
                 <key>spriteSourceSize</key>
                 <string>{416,203}</string>
                 <key>textureRect</key>
-                <string>{{762,734},{416,203}}</string>
+                <string>{{1358,565},{416,203}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>ballooncandy/fluffy.png</key>
+            <key>ballooncandy/eyes1.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,-1}</string>
+                <key>spriteSize</key>
+                <string>{78,37}</string>
+                <key>spriteSourceSize</key>
+                <string>{78,39}</string>
+                <key>textureRect</key>
+                <string>{{1084,909},{78,37}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+            <key>ballooncandy/eyes2.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,-2}</string>
+                <key>spriteSize</key>
+                <string>{78,35}</string>
+                <key>spriteSourceSize</key>
+                <string>{78,39}</string>
+                <key>textureRect</key>
+                <string>{{1545,864},{78,35}}</string>
+                <key>textureRotated</key>
+                <true/>
+            </dict>
+            <key>ballooncandy/eyes3.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,3}</string>
+                <key>spriteSize</key>
+                <string>{78,25}</string>
+                <key>spriteSourceSize</key>
+                <string>{78,39}</string>
+                <key>textureRect</key>
+                <string>{{559,956},{78,25}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+            <key>ballooncandy/eyes4.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,6}</string>
+                <key>spriteSize</key>
+                <string>{78,19}</string>
+                <key>spriteSourceSize</key>
+                <string>{78,39}</string>
+                <key>textureRect</key>
+                <string>{{740,812},{78,19}}</string>
+                <key>textureRotated</key>
+                <true/>
+            </dict>
+            <key>ballooncandy/fluffy_body.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
                 <key>spriteOffset</key>
                 <string>{0,0}</string>
                 <key>spriteSize</key>
-                <string>{311,272}</string>
+                <string>{137,149}</string>
                 <key>spriteSourceSize</key>
-                <string>{311,272}</string>
+                <string>{137,149}</string>
                 <key>textureRect</key>
-                <string>{{1358,651},{311,272}}</string>
+                <string>{{1911,761},{137,149}}</string>
                 <key>textureRotated</key>
                 <false/>
+            </dict>
+            <key>ballooncandy/fluffy_hair.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{34,32}</string>
+                <key>spriteSourceSize</key>
+                <string>{34,32}</string>
+                <key>textureRect</key>
+                <string>{{1084,948},{34,32}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+            <key>ballooncandy/fluffy_mouth1.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{7,4}</string>
+                <key>spriteSourceSize</key>
+                <string>{7,4}</string>
+                <key>textureRect</key>
+                <string>{{1582,864},{7,4}}</string>
+                <key>textureRotated</key>
+                <true/>
+            </dict>
+            <key>ballooncandy/fluffy_mouth2.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{7,4}</string>
+                <key>spriteSourceSize</key>
+                <string>{7,4}</string>
+                <key>textureRect</key>
+                <string>{{1582,873},{7,4}}</string>
+                <key>textureRotated</key>
+                <true/>
+            </dict>
+            <key>ballooncandy/fluffy_mouth3.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{7,5}</string>
+                <key>spriteSourceSize</key>
+                <string>{7,5}</string>
+                <key>textureRect</key>
+                <string>{{2054,1},{7,5}}</string>
+                <key>textureRotated</key>
+                <true/>
+            </dict>
+            <key>ballooncandy/fluffy_right_hand.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{51,29}</string>
+                <key>spriteSourceSize</key>
+                <string>{51,29}</string>
+                <key>textureRect</key>
+                <string>{{1955,698},{51,29}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+            <key>ballooncandy/fluffy_star.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{14,13}</string>
+                <key>spriteSourceSize</key>
+                <string>{14,13}</string>
+                <key>textureRect</key>
+                <string>{{1358,413},{14,13}}</string>
+                <key>textureRotated</key>
+                <true/>
             </dict>
             <key>ballooncandy/fuelbar.png</key>
             <dict>
@@ -105,7 +375,7 @@
                 <key>spriteSourceSize</key>
                 <string>{556,31}</string>
                 <key>textureRect</key>
-                <string>{{762,701},{556,31}}</string>
+                <string>{{1,956},{556,31}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
@@ -154,6 +424,21 @@
                 <key>textureRotated</key>
                 <false/>
             </dict>
+            <key>ballooncandy/hand.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{58,32}</string>
+                <key>spriteSourceSize</key>
+                <string>{58,32}</string>
+                <key>textureRect</key>
+                <string>{{1283,701},{58,32}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
             <key>ballooncandy/hill_shadow.png</key>
             <dict>
                 <key>aliases</key>
@@ -165,7 +450,7 @@
                 <key>spriteSourceSize</key>
                 <string>{295,320}</string>
                 <key>textureRect</key>
-                <string>{{1373,354},{295,320}}</string>
+                <string>{{762,701},{295,320}}</string>
                 <key>textureRotated</key>
                 <true/>
             </dict>
@@ -180,9 +465,9 @@
                 <key>spriteSourceSize</key>
                 <string>{186,168}</string>
                 <key>textureRect</key>
-                <string>{{1180,734},{186,168}}</string>
+                <string>{{1866,216},{186,168}}</string>
                 <key>textureRotated</key>
-                <true/>
+                <false/>
             </dict>
             <key>ballooncandy/mountain.png</key>
             <dict>
@@ -211,9 +496,9 @@
             <key>realTextureFileName</key>
             <string>ballooncandy.png</string>
             <key>size</key>
-            <string>{1865,955}</string>
+            <string>{2060,997}</string>
             <key>smartupdate</key>
-            <string>$TexturePacker:SmartUpdate:668fb82ba764b9372c7a751532ff07a6:cd6bce2d8b403779a64c01c5889241c9:e4a6b71b0f158ab3b6a6acd32a81f89f$</string>
+            <string>$TexturePacker:SmartUpdate:7b83fa98f251813a925b24ebcae084a1:531431b94de0447c382f5f8e9b4a903b:e4a6b71b0f158ab3b6a6acd32a81f89f$</string>
             <key>textureFileName</key>
             <string>ballooncandy.png</string>
         </dict>
