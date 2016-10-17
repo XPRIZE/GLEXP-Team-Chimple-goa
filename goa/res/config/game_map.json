@@ -26,5 +26,37 @@
         "isJSGame":true,
         "pureJS": "TrainLayer",
         "script":"src/start/train.js"
+    },
+	{
+        "name": "stack",
+        "cIcon": "gamemap/stack_pressed.png",
+        "icon": "gamemap/stack.png",
+        "multiPlayer":false,
+        "isJSGame":false,
+        "script":"src/NonJSGameLauncher.js"
+    },
+	{
+        "name": "talk",
+        "cIcon": "gamemap/talk_pressed.png",
+        "icon": "gamemap/talk.png",
+        "multiPlayer":false,
+        "isJSGame":false,
+        "script":"src/NonJSGameLauncher.js"
+    },
+	{
+        "name": "jasmine",
+        "cIcon": "gamemap/jasmine_pressed.png",
+        "icon": "gamemap/jasmine.png",
+        "multiPlayer":false,
+        "isJSGame":false,
+        "script":"src/NonJSGameLauncher.js"
+    },
+	{
+        "name": "Cannon Ball",
+        "cIcon": "gamemap/Cannon Ball_pressed.png",
+        "icon": "gamemap/Cannon Ball.png",
+        "multiPlayer":false,
+        "isJSGame":false,
+        "script":"src/NonJSGameLauncher.js"
     }
 ]
