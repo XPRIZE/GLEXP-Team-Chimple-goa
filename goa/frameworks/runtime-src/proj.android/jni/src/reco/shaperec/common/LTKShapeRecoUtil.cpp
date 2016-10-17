@@ -219,7 +219,7 @@ int LTKShapeRecoUtil::isProjectDynamic(const string& configFilePath,
             LTKReturnError(errorCode);
 
         }
-        else if( LTKSTRCMP(numShapesCfgAttr.c_str(), DYNAMIC) == 0 )
+        else if( LTKSTRCMP(numShapesCfgAttr.c_str(), LTKDYNAMIC) == 0 )
         {
             //Numshapes was dynamic
             outIsDynamic = true;

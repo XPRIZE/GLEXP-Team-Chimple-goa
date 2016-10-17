@@ -31,9 +31,9 @@ xc.ConnectTheDotsLayer = cc.LayerColor.extend({
     this.addChild(this._dotNode)
     this._gap = Math.min(cc.director.getVisibleSize().width / this._numCols, cc.director.getVisibleSize().height / this._numRows)
     this.showDots()
-    var help = new xc.HelpLayer(cc.rect(1280, 1200, 200, 200), cc.rect(1280, 500, 400, 400))
-    this.addChild(help)
-    help.clickAndDrag(1280, 900, 500, 700)
+    // var help = new xc.HelpLayer(cc.rect(1280, 1200, 200, 200), cc.rect(1280, 500, 400, 400))
+    // this.addChild(help)
+    // help.clickAndDrag(1280, 900, 500, 700)
     this.iterateToFindPath()
   },
   showDots: function() {
@@ -239,7 +239,7 @@ xc.ConnectTheDotsLayer.res = {
 xc.ConnectTheDotsMenu = xc.LevelMenuLayer.extend({
   _clazz: xc.ConnectTheDotsLayer,
   _span: 3,
-  _numLevels: 15,
+  _numLevels: 24,
   ctor: function(args) {
     cc.spriteFrameCache.addSpriteFrames(xc.ConnectTheDotsMenu.res.hand_plist)
     cc.spriteFrameCache.addSpriteFrames(xc.ConnectTheDotsMenu.res.cityscreen_plist)    

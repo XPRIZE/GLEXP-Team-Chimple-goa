@@ -9,22 +9,13 @@
         
     },
     {
-        "name": "pop",
-        "cIcon": "gamemap/chain_pressed.png",
-        "icon": "gamemap/chain.png",
-    	"multiPlayer":true,
-        "isJSGame":true,
-        "pureJS": "ConnectTheDotsMenu",
-        "script":"src/start/pop.js"
-    },
-    {
         "name": "jazz",
         "cIcon": "gamemap/jazz_pressed.png",
         "icon": "gamemap/jazz.png",
     	"multiPlayer":false,
         "isJSGame":true,
-        "pureJS": "GameLayer",
-        "script":"src/start/jazz.js"        
+        "pureJS": "ConnectTheDotsMenu",
+        "script":"src/start/connectTheDots.js"        
 
     },
     {
@@ -36,56 +27,36 @@
         "pureJS": "TrainLayer",
         "script":"src/start/train.js"
     },
-    {
-        "name": "bubbleShooter",
-        "cIcon": "gamemap/EndlessRunner_pressed.png",
-        "icon": "gamemap/EndlessRunner.png"
+	{
+        "name": "stack",
+        "cIcon": "gamemap/stack_pressed.png",
+        "icon": "gamemap/stack.png",
+        "multiPlayer":false,
+        "isJSGame":false,
+        "script":"src/NonJSGameLauncher.js"
     },
-
-    {
-        "name": "alphamole",
-        "cIcon": "gamemap/alphafeed_pressed.png",
-        "icon": "gamemap/alphafeed.png"
+	{
+        "name": "talk",
+        "cIcon": "gamemap/talk_pressed.png",
+        "icon": "gamemap/talk.png",
+        "multiPlayer":false,
+        "isJSGame":false,
+        "script":"src/NonJSGameLauncher.js"
     },
-    {
-        "name": "jump_on_words",
-        "cIcon": "gamemap/jazz_pressed.png",
-        "icon": "gamemap/jazz.png"
+	{
+        "name": "jasmine",
+        "cIcon": "gamemap/jasmine_pressed.png",
+        "icon": "gamemap/jasmine.png",
+        "multiPlayer":false,
+        "isJSGame":false,
+        "script":"src/NonJSGameLauncher.js"
     },
-    {
-        "name": "story-teller",
-        "cIcon": "gamemap/book_pressed.png",
-        "icon": "gamemap/book.png"        
-    },
-    {
-        "name": "sortit",
-        "cIcon": "gamemap/sortit_pressed.png",
-        "icon": "gamemap/sortit.png"        
-    },
-    {
-        "name": "decomon",
-        "cIcon": "gamemap/book_pressed.png",
-        "icon": "gamemap/book.png"        
-    },
-    {
-        "name": "pinata",
-        "cIcon": "gamemap/EndlessRunner_pressed.png",
-        "icon": "gamemap/EndlessRunner.png"  
-    },
-    {
-        "name": "choose_character",
-        "cIcon": "gamemap/chain_pressed.png",
-        "icon": "gamemap/chain.png",
-    	"multiPlayer":false,
-        "isJSGame":true,
-        "script":"src/start/characterConfigure.js"
-    },
-    {
-        "name": "show_bluetoothPeers",
-        "cIcon": "gamemap/chain_pressed.png",
-        "icon": "gamemap/chain.png",
-    	"multiPlayer":false,
-        "isJSGame":true,
-        "script":"src/start/showBluetoothPeers.js"
-    }    
+	{
+        "name": "Cannon Ball",
+        "cIcon": "gamemap/Cannon Ball_pressed.png",
+        "icon": "gamemap/Cannon Ball.png",
+        "multiPlayer":false,
+        "isJSGame":false,
+        "script":"src/NonJSGameLauncher.js"
+    }
 ]

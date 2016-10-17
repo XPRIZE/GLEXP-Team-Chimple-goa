@@ -236,7 +236,7 @@ void Talk::displayWord()
 			if (i == 0)
 			{
 				LabelDetails.label->setPosition(Vec2(LabelDetails.sprite->getBoundingBox().size.width / 2, 0));
-				LabelDetails.sprite->setPosition(Vec2(visibleSize.width * .01, visibleSize.height * .80));
+				LabelDetails.sprite->setPosition(Vec2(visibleSize.width * .10, visibleSize.height * .80));
 			}
 			else
 			{
@@ -247,7 +247,7 @@ void Talk::displayWord()
 
 			if (LabelDetails.sprite->getBoundingBox().size.width + LabelDetails.sprite->getPositionX() >= visibleSize.width)
 			{
-				LabelDetails.sprite->setPosition(Vec2(visibleSize.width * .01, LabelDetails.sprite->getPositionY() - LabelDetails.sprite->getBoundingBox().size.height * 1.5));
+				LabelDetails.sprite->setPosition(Vec2(visibleSize.width * .10, LabelDetails.sprite->getPositionY() - LabelDetails.sprite->getBoundingBox().size.height * 1.5));
 			}
 
 
