@@ -14,7 +14,7 @@ xc.LevelMenuLayer = cc.ScrollView.extend({
     this.setBounceable(false)
     var parallax = this.getContainer()
     parallax.setContentSize(cc.size(cc.director.getWinSize().width * this._span, cc.director.getWinSize().height))
-    var gameProgress = JSON.parse(cc.sys.localStorage.getItem('xc_game_1')) || [0]
+    var gameProgress = JSON.parse(cc.sys.localStorage.getItem(this._clazz.gameName + '.level')) || [0]
     var gap = cc.director.getWinSize().width * this._span / (this._numLevels + 1)
     var goalTolerance = cc.director.getWinSize().height / 10
     var goal = getRandomArbitrary(goalTolerance, cc.director.getWinSize().height - goalTolerance)
@@ -67,10 +67,10 @@ xc.LevelMenuLayer = cc.ScrollView.extend({
     }
   },
   levelCompleted: function(level, numStars) {
-    var gameProgress = JSON.parse(cc.sys.localStorage.getItem('xc_game_1')) || [0]
+    var gameProgress = JSON.parse(cc.sys.localStorage.getItem(this._clazz.gameName + '.level')) || [0]
     var currentStars = gameProgress[level] || 0
     gameProgress[level] = Math.max(numStars, currentStars)
-    cc.sys.localStorage.setItem('xc_game_1', JSON.stringify(gameProgress))
+    cc.sys.localStorage.setItem(this._clazz.gameName + '.level', JSON.stringify(gameProgress))
   }
 })
 
