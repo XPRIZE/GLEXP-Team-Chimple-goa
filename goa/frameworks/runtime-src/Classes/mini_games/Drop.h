@@ -5,7 +5,8 @@
 #include "../menu/MenuContext.h"
 #include "../StartMenuScene.h"
 #include "editor-support/cocostudio/CocoStudio.h"
-#include "../lang/LangUtil.h"
+#include "../puzzle/CharGenerator.h"
+#include "../lang/TextGenerator.h"
 
 using namespace cocos2d;
 
@@ -24,14 +25,15 @@ protected:
 	std::map<std::string, std::string> _scenePath;
 	std::map<std::string, float> _sceneBasedNumericalVal;
 
-	std::vector<LabelTTF*> _FallingLetter;
+	std::vector<Sprite*> _FallingLetter;
 	std::vector<Sprite*> _letterHolderSpriteBin;
 	std::vector<LabelTTF*> _basketBin;
 	std::vector<Rect> _basketRect;
 	std::vector<std::string> _wordOptionBin;
 	std::vector<cocostudio::timeline::ActionTimeline *> _basketAnimBin;
 	std::vector<Sprite *>_dropHeroTrailerImageBin;
-   
+	cocos2d::LabelTTF* _label = NULL;
+
 
 public:
 	~Drop();
@@ -49,6 +51,7 @@ public:
 	void basketLetterCollisionChecker();
 	void removeHeroTrailer();
 	void removeFallingLetter();
+	void layingOutBasket(bool flag, float gap, std::string str, int i);
 
 	void setAllSpriteProperties(Sprite* object, int zOrder, float posX, float posY, bool visibility, float anchorPointX, float anchorPointY, float rotation, float scaleX, float scaleY);
 	LabelTTF* setAllLabelProperties(std::string letter, int zOrder, float posX, float posY, bool visibility, float anchorPointX, float anchorPointY, float rotation, float scaleX, float scaleY, int labelSizeInPixel);
