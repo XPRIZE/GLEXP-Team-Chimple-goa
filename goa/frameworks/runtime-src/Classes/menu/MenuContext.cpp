@@ -60,6 +60,7 @@ using namespace experimental;
 static const int MAX_POINTS_TO_SHOW = 16;
 static const int POINTS_TO_LEFT = 300.0f;
 static const std::string CURRENT_LEVEL = ".currentLevel";
+static const std::string LEVEL = ".level";
 
 MenuContext* MenuContext::create(Node* main, std::string gameName, bool launchCustomEventOnExit, std::string sceneName) {
     MenuContext* menuContext = new (std::nothrow) MenuContext();
@@ -893,7 +894,24 @@ void MenuContext::showScore() {
     Size visibleSize = Director::getInstance()->getVisibleSize();
     Vec2 origin = Director::getInstance()->getVisibleOrigin();
     int stars = round(_points * 3.0/_maxPoints);
-    
+
+    std::string progressStr;
+    localStorageGetItem(gameName + LEVEL, &progressStr);
+
+    rapidjson::Document d;
+    d.Parse(progressStr.c_str());
+    rapidjson::Document::AllocatorType& allocator = d.GetAllocator();
+    while(d.Capacity() <= _currentLevel) {
+        d.PushBack(0, allocator);
+    }
+    int currentStar = d[_currentLevel].GetInt();
+    d[_currentLevel] = MAX(currentStar, stars);
+    rapidjson::StringBuffer buffer;
+    rapidjson::Writer<rapidjson::StringBuffer> writer(buffer);
+    d.Accept(writer);
+    const char* output = buffer.GetString();
+    localStorageSetItem(gameName + LEVEL, output);
+
     auto scoreNode = ScoreBoardContext::create(stars, this->gameName, this->sceneName);
     scoreNode->setPosition(Vec2(origin.x + visibleSize.width / 2, origin.y + visibleSize.height / 2));
     addChild(scoreNode);
