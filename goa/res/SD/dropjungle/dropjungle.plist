@@ -4,6 +4,21 @@
     <dict>
         <key>frames</key>
         <dict>
+            <key>dropjungle/ball.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{37,37}</string>
+                <key>spriteSourceSize</key>
+                <string>{37,37}</string>
+                <key>textureRect</key>
+                <string>{{146,793},{37,37}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
             <key>dropjungle/basketinter.png</key>
             <dict>
                 <key>aliases</key>
@@ -15,9 +30,9 @@
                 <key>spriteSourceSize</key>
                 <string>{57,3}</string>
                 <key>textureRect</key>
-                <string>{{242,106},{57,3}}</string>
+                <string>{{60,495},{57,3}}</string>
                 <key>textureRotated</key>
-                <true/>
+                <false/>
             </dict>
             <key>dropjungle/basketouter.png</key>
             <dict>
@@ -30,7 +45,7 @@
                 <key>spriteSourceSize</key>
                 <string>{57,22}</string>
                 <key>textureRect</key>
-                <string>{{205,451},{57,22}}</string>
+                <string>{{146,734},{57,22}}</string>
                 <key>textureRotated</key>
                 <true/>
             </dict>
@@ -41,13 +56,13 @@
                 <key>spriteOffset</key>
                 <string>{0,0}</string>
                 <key>spriteSize</key>
-                <string>{138,44}</string>
+                <string>{200,44}</string>
                 <key>spriteSourceSize</key>
-                <string>{138,44}</string>
+                <string>{200,44}</string>
                 <key>textureRect</key>
-                <string>{{1,135},{138,44}}</string>
+                <string>{{152,1},{200,44}}</string>
                 <key>textureRotated</key>
-                <false/>
+                <true/>
             </dict>
             <key>dropjungle/bush.png</key>
             <dict>
@@ -60,7 +75,7 @@
                 <key>spriteSourceSize</key>
                 <string>{512,57}</string>
                 <key>textureRect</key>
-                <string>{{1,181},{512,57}}</string>
+                <string>{{1,1},{512,57}}</string>
                 <key>textureRotated</key>
                 <true/>
             </dict>
@@ -75,7 +90,7 @@
                 <key>spriteSourceSize</key>
                 <string>{73,71}</string>
                 <key>textureRect</key>
-                <string>{{134,451},{69,67}}</string>
+                <string>{{75,734},{69,67}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
@@ -90,7 +105,7 @@
                 <key>spriteSourceSize</key>
                 <string>{147,132}</string>
                 <key>textureRect</key>
-                <string>{{150,1},{103,96}}</string>
+                <string>{{75,629},{103,96}}</string>
                 <key>textureRotated</key>
                 <true/>
             </dict>
@@ -105,9 +120,9 @@
                 <key>spriteSourceSize</key>
                 <string>{147,132}</string>
                 <key>textureRect</key>
-                <string>{{117,521},{127,114}}</string>
+                <string>{{75,500},{127,114}}</string>
                 <key>textureRotated</key>
-                <false/>
+                <true/>
             </dict>
             <key>dropjungle/leafball03.png</key>
             <dict>
@@ -120,9 +135,9 @@
                 <key>spriteSourceSize</key>
                 <string>{147,132}</string>
                 <key>textureRect</key>
-                <string>{{1,1},{147,132}}</string>
+                <string>{{60,346},{147,132}}</string>
                 <key>textureRotated</key>
-                <false/>
+                <true/>
             </dict>
             <key>dropjungle/leave-10.png</key>
             <dict>
@@ -135,7 +150,7 @@
                 <key>spriteSourceSize</key>
                 <string>{132,55}</string>
                 <key>textureRect</key>
-                <string>{{60,521},{132,55}}</string>
+                <string>{{152,203},{132,55}}</string>
                 <key>textureRotated</key>
                 <true/>
             </dict>
@@ -150,7 +165,7 @@
                 <key>spriteSourceSize</key>
                 <string>{106,343}</string>
                 <key>textureRect</key>
-                <string>{{150,106},{90,343}}</string>
+                <string>{{60,1},{90,343}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
@@ -165,7 +180,7 @@
                 <key>spriteSourceSize</key>
                 <string>{106,338}</string>
                 <key>textureRect</key>
-                <string>{{60,181},{72,338}}</string>
+                <string>{{1,515},{72,338}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
@@ -175,15 +190,15 @@
             <key>format</key>
             <integer>3</integer>
             <key>pixelFormat</key>
-            <string>RGBA4444</string>
+            <string>RGBA8888</string>
             <key>premultiplyAlpha</key>
             <false/>
             <key>realTextureFileName</key>
             <string>dropjungle.png</string>
             <key>size</key>
-            <string>{247,694}</string>
+            <string>{208,854}</string>
             <key>smartupdate</key>
-            <string>$TexturePacker:SmartUpdate:303606bb45cfe8262b4faacbfd28ea5d:f0c1df26af04373a67c60cbb106a73a8:8064fd4a8e33d4a193caee92d4cbfedc$</string>
+            <string>$TexturePacker:SmartUpdate:9951f08a348c09a64ac24fd679df0aa8:9140308737deb1c0aeb1db0522a2e83f:8064fd4a8e33d4a193caee92d4cbfedc$</string>
             <key>textureFileName</key>
             <string>dropjungle.png</string>
         </dict>

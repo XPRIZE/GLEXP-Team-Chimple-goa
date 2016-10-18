@@ -64,6 +64,7 @@ bool Order::init()
 			{ "bg", "orderfarm/orderfarm.csb" },
 			{ "box", "orderfarm/box.png" },
 			{ "character", "orderfarm/cart.csb" },
+			{ "characterAnimation", "orderfarm/cart.csb" },
 			{ "random_animation", "swing" },
 			{ "winning_animation","eat" },
 			{ "child1", "mainground"},
@@ -76,6 +77,7 @@ bool Order::init()
 			{ "bg", "orderhero/orderhero.csb" },
 			{ "box", "orderhero/box.png" },
 			{ "character", "orderhero/ramp.csb" },
+			{ "characterAnimation", "orderhero/ramp.csb" },
 			{ "random_animation", "swing" },
 			{ "winning_animation","win" },
 			{ "child1", "FileNode_2" },
@@ -87,12 +89,15 @@ bool Order::init()
 			{ "plist", "ordercandy/ordercandy.plist" },
 			{ "bg", "ordercandy/ordercandy.csb" },
 			{ "box", "ordercandy/box.png" },
-			{ "character", "ordercandy/fluffy.csb" },
-			{ "random_animation", "swing" },
-			{ "winning_animation","eat" },
+			{ "character", "ballooncandy/fluffyanim.csb"  },
+			{ "characterAnimation", "ballooncandy/fluffyanim.csb" },
+			{ "random_animation", "fly" },
+			{ "winning_animation","happy" },
 			{ "child1", "mainground" },
-			{ "child2", "cart1" },
-			{ "otherCharacter", "cart2" }
+			{ "child2", "character1" },
+			{ "otherCharacter", "character2" },
+			{ "child3", "cart1" },
+			{ "child4", "cart2" }
 		} },
 	};
 
@@ -127,17 +132,30 @@ bool Order::init()
 	}
 	this->addChild(_bg);
 	
-	if (_themeName.compare("farm") == 0) {
+	if (_themeName.compare("hero") != 0) {
 		animationWithRandomInterval();
 	}
 	//
+	if (_themeName.compare("candy") == 0) {
+		//animationWithRandomInterval();
+		auto cart = _bg->getChildByName(_scenePath.at("child1"))->getChildByName(_scenePath.at("child3"));
+		auto character = CSLoader::createNode(_scenePath.at("character"));
+		character->setPosition(cart->getPosition());
+		character->setName("character1");
+		_bg->getChildByName(_scenePath.at("child1"))->addChild(character);
+		auto cart1 = _bg->getChildByName(_scenePath.at("child1"))->getChildByName(_scenePath.at("child4"));
+		auto character1 = CSLoader::createNode(_scenePath.at("character"));
+		character1->setPosition(cart1->getPosition());
+		character1->setName("character2");
+		_bg->getChildByName(_scenePath.at("child1"))->addChild(character1);
+	}
 
 	_sortedList = TextGenerator::getInstance()->getOrderedConcepts(1);
 
 	auto randomList = _sortedList;
 	std::random_shuffle(randomList.begin(), randomList.end());
 
-
+	//std::copy()
 	//orderfarm/woodblock.png
 	//random vector
 	std::vector<std::string> str1 = { "l","k","j","a","g","h","f","c","d","e","b","i"};
@@ -151,13 +169,13 @@ bool Order::init()
 		str = str + str;
 		_boxes.pushBack(obj1);
 		this->addChild(obj1);
-		 auto _topLabel = Label::createWithSystemFont(randomList.at(i).c_str(), "Arial", 100);
-		_topLabel->setPositionX(obj1->getContentSize().width / 2);
-		_topLabel->setPositionY(obj1->getContentSize().height / 2);
-		_topLabel->setColor(Color3B(255, 255, 255));
-		obj1->addChild(_topLabel);
+		 auto topLabel = Label::createWithSystemFont(randomList.at(i).c_str(), "Arial", 100);
+		topLabel->setPositionX(obj1->getContentSize().width / 2);
+		topLabel->setPositionY(obj1->getContentSize().height / 2);
+		topLabel->setColor(Color3B(255, 255, 255));
+		obj1->addChild(topLabel);
 		auto listener = EventListenerTouchOneByOne::create();
-		listener->setSwallowTouches(true);
+		//listener->setSwallowTouches(true);
 		listener->onTouchBegan = CC_CALLBACK_2(Order::onTouchBegan, this);
 		listener->onTouchMoved = CC_CALLBACK_2(Order::onTouchMoved, this);
 		listener->onTouchEnded = CC_CALLBACK_2(Order::onTouchEnded, this);
@@ -167,11 +185,14 @@ bool Order::init()
 	_cartMove = differentPointsConfig.at(_themeName).at("targetDistance") / str1.size();
 
 	runAction(RepeatForever::create(Sequence::create(DelayTime::create(10 + (rand() % 60) / 30.0), CallFunc::create([=]() {
-		int score = cocos2d::RandomHelper::random_int(0, 11);
+		int score = cocos2d::RandomHelper::random_int(0, 12);
 		otherPlayer(score);
 	}), NULL)));
 
 
+	_characterAnimation = CSLoader::createTimeline(_scenePath.at("characterAnimation"));
+	_character = _bg->getChildByName(_scenePath.at("child1"))->getChildByName(_scenePath.at("child2"));
+	_character->runAction(_characterAnimation);
 	return true;
 }
 
@@ -182,7 +203,8 @@ bool Order::onTouchBegan(cocos2d::Touch * touch, cocos2d::Event * event)
 	auto  location = target->convertToNodeSpace(touch->getLocation());
 	Size s = target->getContentSize();
 	Rect rect = Rect(0, 0, s.width, s.height);
-	if (rect.containsPoint(location)) {
+	if (rect.containsPoint(location) && _touched) {
+		_touched = false;
 		_yy = target->getPositionY();
 		_color = target->getColor();
 		target->setColor(Color3B(151, 154, 154));
@@ -271,6 +293,7 @@ void Order::onTouchMoved(cocos2d::Touch * touch, cocos2d::Event * event)
 void Order::onTouchEnded(cocos2d::Touch * touch, cocos2d::Event * event)
 {
 	bool flag = false;
+
 	std::vector<int> overlapChecking = { 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 };
 	std::vector<int> userArrayIndex;
 	std::vector<int> missedIndex;
@@ -315,7 +338,7 @@ void Order::onTouchEnded(cocos2d::Touch * touch, cocos2d::Event * event)
 	}
 	int zeroIndex =0;
 	for (short i = 0; i < _boxes.size(); i++) {
-		CCLOG(" %s block Name %d contains %d boxes", _boxes.at(i)->getName().c_str(), userArrayIndex.at(i), overlapChecking.at(i));
+		CCLOG("block Name %d contains %d boxes", userArrayIndex.at(i), overlapChecking.at(i));
 		//	float index = (_boxes.at(i)->getPositionY() - visibleSize.height*0.1) / target->getContentSize().height;
 		if (overlapChecking.at(userArrayIndex.at(i)) >1) {
 			_boxes.at(i)->setPositionY(visibleSize.height*0.1 + missedIndex.at(zeroIndex) * _boxes.at(i)->getContentSize().height * 1);
@@ -325,13 +348,14 @@ void Order::onTouchEnded(cocos2d::Touch * touch, cocos2d::Event * event)
 			zeroIndex++;
 		}
 	}
+	CCLOG("-----------------------------------------------------------");
 ///////////////// for testing
-//	for (short i = 0; i < _boxes.size(); i++) {
-//		CCLOG(" %s block Name %d contains %d boxes", _boxes.at(i)->getName().c_str(), userArrayIndex.at(i), overlapChecking.at(i));
-//	}
+	for (short i = 0; i < _boxes.size(); i++) {
+		CCLOG("block Name %d contains %d boxes",  userArrayIndex.at(i), overlapChecking.at(i));
+}
 ////////////////////////////////////////
-
-
+	overlapBlockChecking();
+	_touched = true;
 	checkUserSortList(userArrayIndex);
 }
 
@@ -379,13 +403,13 @@ void Order::checkUserSortList(std::vector<int> list)
 
 void Order::animationWithRandomInterval()
 {
-	auto swingAction = CallFunc::create(CC_CALLBACK_0(Order::cartAnimation, this, "swing", false));
+	auto swingAction = CallFunc::create(CC_CALLBACK_0(Order::cartAnimation, this, _scenePath.at("random_animation"), false));
 	runAction(RepeatForever::create(Sequence::create(DelayTime::create(2 + (rand() % 60) / 30.0), swingAction, NULL)));
 }
 
 void Order::cartAnimation(std::string animationName, bool loop)
 {
-	auto timeline = CSLoader::createTimeline(_scenePath.at("character"));
+	auto timeline = CSLoader::createTimeline(_scenePath.at("characterAnimation"));
 	auto cart = _bg->getChildByName(_scenePath.at("child1"))->getChildByName(_scenePath.at("child2"));
 	cart->runAction(timeline);
 	if (_cartFloating && _myScore != 12) {
@@ -395,11 +419,12 @@ void Order::cartAnimation(std::string animationName, bool loop)
 
 void Order::winAnimation()
 {
-	auto timeline = CSLoader::createTimeline(_scenePath.at("character"));
-	auto cart = _bg->getChildByName(_scenePath.at("child1"))->getChildByName(_scenePath.at("child2"));
+	
 	runAction(Sequence::create(CallFunc::create([=]() {
-		cart->runAction(timeline);
-		timeline->play(_scenePath.at("winning_animation"), true);
+		//if (_themeName.compare("candy") != 0) {
+			//cart1->runAction(timeline);
+	//	}
+		_characterAnimation->play(_scenePath.at("winning_animation"), true);
 
 	}), DelayTime::create(2), CallFunc::create([=]() {
 		menu->showScore();
@@ -418,11 +443,57 @@ void Order::otherPlayer(int score)
 	float cartMove = _cartMove * (score - _enemyScore);
 	auto moveBy = MoveBy::create(2, Vec2(0, cartMove));
 	auto cart = _bg->getChildByName(_scenePath.at("child1"))->getChildByName(_scenePath.at("otherCharacter"));
-	cart->runAction(moveBy);
+	cart->runAction(Sequence::create(moveBy,CallFunc::create([=]() {
+
+		_enemyScore = score;
+		if (_enemyScore == 12) {
+			menu->showScore();
+		}
+	}), NULL));
 	auto moveBucket = MoveBy::create(2, Vec2(0, cartMove));
 	if (_themeName.compare("hero") == 0) {
 		auto bucket = _bg->getChildByName("FileNode_2")->getChildByName("paintbucket2");
 		bucket->runAction(moveBucket);
 	}
-	_enemyScore = score;
+	
+}
+
+void Order::overlapBlockChecking()
+{
+	CCLOG("over Lap checking function");
+	std::vector<int> overlapChecking = { 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 };
+	std::vector<int> userArrayIndex;
+	std::vector<int> missedIndex;
+	Size visibleSize = Director::getInstance()->getVisibleSize();
+	for (short i = 0; i < _boxes.size(); i++) {
+		//overlapChecking.pushBack(0);
+			float index = (_boxes.at(i)->getPositionY() - visibleSize.height*0.1) / (_boxes.at(i)->getContentSize().height * 1);
+			CCLOG("%f",index);
+			userArrayIndex.push_back((int)round(index));
+			int temp = overlapChecking.at((int)round(index)) + 1;
+			overlapChecking.at((int)round(index)) = temp;	
+		}
+	for (short j = 0; j < _boxes.size(); j++) {
+		if (overlapChecking.at(j) == 0) {
+			missedIndex.push_back(j);
+		}
+	}
+	int zeroIndex = 0;
+	for (short i = 0; i < _boxes.size(); i++) {
+		CCLOG("block Name %d contains %d boxes", userArrayIndex.at(i), overlapChecking.at(i));
+		//	float index = (_boxes.at(i)->getPositionY() - visibleSize.height*0.1) / target->getContentSize().height;
+		if (overlapChecking.at(userArrayIndex.at(i)) >1) {
+			_boxes.at(i)->setPositionY(visibleSize.height*0.1 + missedIndex.at(zeroIndex) * _boxes.at(i)->getContentSize().height * 1);
+			overlapChecking.at(userArrayIndex.at(i))--;
+			//overlapChecking.at(zeroIndex) = 1;
+			userArrayIndex.at(i) = missedIndex.at(zeroIndex);
+			zeroIndex++;
+		}
+	}
+	CCLOG("-----------------------------------------------------------");
+	///////////////// for testing
+	for (short i = 0; i < _boxes.size(); i++) {
+		CCLOG("block Name %d contains %d boxes", userArrayIndex.at(i), overlapChecking.at(i));
+	}
+	////////////////////////////////////////
 }

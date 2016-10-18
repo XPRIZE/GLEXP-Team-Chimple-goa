@@ -28,11 +28,12 @@ protected:
 	MenuContext * menu;
 	cocos2d::Color3B _color;
 	std::map<std::string, std::string> _scenePath;
-	cocos2d::Node * _bg;
+	cocos2d::Node * _bg, * _character;
+	cocostudio::timeline::ActionTimeline * _characterAnimation;
 	std::string _themeName;
 	std::vector<std::string> _sortedList;
 	//std::map<std::string, std::string> _scenePath;
-	bool _cartFloating = false;
+	bool _cartFloating = false, _touched = true;
 	float _yy, _cartMove;
 	float _lastBoxPosition;
 	void checkUserSortList(std::vector<int> list);
@@ -41,6 +42,7 @@ protected:
 	void cartAnimation(std::string animationName, bool loop);
 	void winAnimation();
 	void otherPlayer(int score);
+	void overlapBlockChecking();
 	virtual bool onTouchBegan(cocos2d::Touch *touch, cocos2d::Event * event);
 	virtual void onTouchMoved(cocos2d::Touch *touch, cocos2d::Event * event);
 	virtual void onTouchEnded(cocos2d::Touch *touch, cocos2d::Event * event);

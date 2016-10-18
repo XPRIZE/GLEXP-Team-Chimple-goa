@@ -118,6 +118,13 @@ child = decomon_icon_mouth*/
 		listener->onTouchBegan = CC_CALLBACK_2(Decomon::onTouchBegan, this);
 		_eventDispatcher->addEventListenerWithSceneGraphPriority(listener, bg->getChildByName("left_panel")->getChildByName(left_iconsName.at(i)));
 	}
+
+	//camera icon
+	auto listener = EventListenerTouchOneByOne::create();
+	listener->setSwallowTouches(true);
+	listener->onTouchBegan = CC_CALLBACK_2(Decomon::onTouchBegan, this);
+	_eventDispatcher->addEventListenerWithSceneGraphPriority(listener, bg->getChildByName("decomon_icon_camera"));
+
 	
 
 	_eyePath = { "decomon/decomon_eye_a.csb",
@@ -203,7 +210,7 @@ child = decomon_icon_mouth*/
 
 	_alphaNode = Node::create();
 	_alphaNode->setPositionX(visibleSize.width / 2);
-	_alphaNode->setPositionY(visibleSize.height / 2);
+	_alphaNode->setPositionY(visibleSize.height / 1.75);
 	_alphaNode->setContentSize(Size(sssize.width * 2, 1000));
 	//this->addChild(alphaNode, 3);
 	_alphaNode->setColor(Color3B(222, 232, 255));
@@ -231,7 +238,7 @@ child = decomon_icon_mouth*/
 	_costumeLayer = Layer::create();
 	this->addChild(_costumeLayer);
 
-
+	CCLOG("++++++++++++++++++decomon++++++++++++");
 	auto node = DrawNode::create();
 	//node->drawRect(Vec2(100,100))//(origin, Vec2(200, 200), Color4B(255, 5, 25, 60));
 	//((visibleSize.width / 2 - 700 < x) && (visibleSize.width / 2 + 900 > x) &&
@@ -242,28 +249,28 @@ child = decomon_icon_mouth*/
 		Vec2(visibleSize.width / 2 + 900,visibleSize.height / 2 + 700),
 		Vec2(visibleSize.width / 2 + 900,visibleSize.height / 2 - 500),
 		Vec2(visibleSize.width / 2 - 700,visibleSize.height / 2 - 500)*/
-		Vec2(visibleSize.width / 2 - sssize.width,visibleSize.height / 2 - 500),
-		Vec2(visibleSize.width / 2 + sssize.width, visibleSize.height / 2 - 500),
+		Vec2(visibleSize.width / 2 - sssize.width,visibleSize.height / 1.75 - 500),
+		Vec2(visibleSize.width / 2 + sssize.width, visibleSize.height / 1.75 - 500),
 
-		Vec2(visibleSize.width / 2 + sssize.width,visibleSize.height / 2 + 500),
-		Vec2(visibleSize.width / 2 - sssize.width,visibleSize.height / 2 + 500)
+		Vec2(visibleSize.width / 2 + sssize.width,visibleSize.height / 1.75 + 500),
+		Vec2(visibleSize.width / 2 - sssize.width,visibleSize.height / 1.75 + 500)
 
 	};
 	node->drawPolygon(vertices, 4, Color4F(1.0f, 0.3f, 0.3f, 0), 3, Color4F(0.2f, 0.2f, 0.2f, 1));
 	addChild(node);
 
-	_paintingTexture = RenderTexture::create(visibleSize.width, visibleSize.height, kCCTexture2DPixelFormat_RGBA8888);
-	_paintingTexture->retain();
-	_paintingTexture->setPosition(Vec2(visibleSize.width / 2, visibleSize.height / 2));
+//	_paintingTexture = RenderTexture::create(visibleSize.width, visibleSize.height, kCCTexture2DPixelFormat_RGBA8888);
+//	_paintingTexture->retain();
+//	_paintingTexture->setPosition(Vec2(visibleSize.width / 2, visibleSize.height / 2));
 
 	//_maskingLayer->addChild(_paintingTexture);
-	BlendFunc bf;
+//	BlendFunc bf;
 	// apply blending function to draw node
-	bf.dst = GL_ONE_MINUS_SRC_ALPHA;
-	bf.src = GL_ZERO;
+//	bf.dst = GL_ONE_MINUS_SRC_ALPHA;
+//	bf.src = GL_ZERO;
 
-	_paintingColour = CCSprite::create("decomon/largeBrush.png");
-	_paintingColour->retain();
+	/*_paintingColour = CCSprite::create("decomon/largeBrush.png");
+	_paintingColour->retain();*/
 	_paintingNode = DrawNode::create();
 	_maskingLayer->addChild(_paintingNode);
 
@@ -363,6 +370,10 @@ bool Decomon::onTouchBegan(cocos2d::Touch * touch, cocos2d::Event * event)
 			itemInAGrid(_gearPath, "png");
 			return false;
 		}
+		else if (target->getName().compare("decomon_icon_camera") == 0) {
+			screenShot();
+			return false;
+		}
 		else if (target->getName().compare("updated costume") == 0) {
 			//_flip = true;
 			CCLOG("you touched updated one");
@@ -388,7 +399,7 @@ bool Decomon::onTouchBegan(cocos2d::Touch * touch, cocos2d::Event * event)
 			}
 			else {
 				//if target is not a paint bucket set Scale to 1 and also creat duplicate
-				if (target->getScale() > 0) {
+				if (target->getScale() > 0 &&(!_colorPicked)) {
 					target->setScale(1);
 				}
 				else {
@@ -403,7 +414,7 @@ bool Decomon::onTouchBegan(cocos2d::Touch * touch, cocos2d::Event * event)
 	}
 	else if (_colorPicked && (visibleSize.width/2 - 700 < touch->getLocation().x) &&(visibleSize.width/2 + 900 > touch->getLocation().x) &&
 		(visibleSize.height / 2 - 500 < touch->getLocation().y) && (visibleSize.height / 2 + 600 > touch->getLocation().y)) {
-		
+		_paintingNode->drawDot(touch->getLocation(), 30, Color4F(_pickedColor_R / 255.0f, _pickedColor_G / 255.0f, _pickedColor_B / 255.0f, 1.0f));
 			return true;
 	}
 	
@@ -415,9 +426,12 @@ void Decomon::onTouchMoved(cocos2d::Touch * touch, cocos2d::Event * event)
 {
 	auto target = event->getCurrentTarget();
 	Size visibleSize = Director::getInstance()->getVisibleSize();
-	if (touch->getLocation().x > visibleSize.width / 2 && touch->getLocation().y > visibleSize.height / 2 && _flip) {
-		_flip = false;
-		target->setScaleX(-1.0f * target->getScaleX());
+	if (touch->getLocation().x > visibleSize.width / 2 && touch->getLocation().y > visibleSize.height / 2) {
+		//_flip = false;
+		target->setScaleX(-1.0f);// *target->getScaleX());
+	}
+	else if (touch->getLocation().x < visibleSize.width / 2) {
+		target->setScaleX(1);
 	}
 
 	if (_colorPicked){
@@ -625,5 +639,29 @@ void Decomon::generateDuplicatesInAGrid(cocos2d::Node * node)
 		listener->onTouchMoved = CC_CALLBACK_2(Decomon::onTouchMoved, this);
 		listener->onTouchEnded = CC_CALLBACK_2(Decomon::onTouchEnded, this);
 		_eventDispatcher->addEventListenerWithSceneGraphPriority(listener, eye);
+	}
+}
+
+void Decomon::screenShot()
+{
+//#if (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
+	utils::captureScreen(CC_CALLBACK_2(Decomon::captureImage, this), "Alphabet.png");
+//#endif
+}
+
+void Decomon::captureImage(bool capture, const std::string & outputFile)
+{
+	if (capture)
+	{
+		// show screenshot
+		auto sp = Sprite::create(outputFile);
+		addChild(sp, 0);
+		Size s = Director::getInstance()->getWinSize();
+		sp->setPosition(s.width / 2, s.height / 2);
+		sp->setScale(0.25);
+	}
+	else
+	{
+		CCLOG("Capture screen failed");
 	}
 }
