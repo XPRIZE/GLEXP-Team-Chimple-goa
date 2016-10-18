@@ -823,6 +823,9 @@ void MenuContext::launchGameFromJS(std::string gameName) {
     		case 2: Director::getInstance()->replaceScene(Memory::createScene());  break;
     		}
     	}
+		else if (gameName == BALLONHERO) {
+			Director::getInstance()->replaceScene(BalloonHero::createScene());
+		}
     	else{
             CCLOG("Failed starting scene: %s", gameName.c_str());
         }
