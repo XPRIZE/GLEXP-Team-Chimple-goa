@@ -423,8 +423,7 @@ xc.CharacterConfigLayer.res = {
         character_skeleton_plist: xc.path + "faceavatar/faceavatar.plist",
         character_skeleton_png: xc.path + "faceavatar/faceavatar.png",
         character_skeleton_plist_2: xc.path + "faceavatar/faceavatar2/faceavatar2.plist",
-        character_skeleton_png_2: xc.path + "faceavatar/faceavatar2/faceavatar2.png",
-        
+        character_skeleton_png_2: xc.path + "faceavatar/faceavatar2/faceavatar2.png",        
         character_skeleton_json: xc.path + "faceavatar/faceavatar.json"
 };
 
