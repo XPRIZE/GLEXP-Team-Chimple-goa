@@ -43,6 +43,8 @@ public:
     void exitMultiPlayerGame();
     void sendMessageToPeer(std::string message);
     std::vector<std::string> split(std::string s, char delim);
+    int getCurrentLevel();
+    void setCurrentLevel(int level);
     
 CC_CONSTRUCTOR_ACCESS:
     MenuContext();
@@ -61,6 +63,7 @@ protected:
     bool _menuSelected;
     bool _gameIsPaused;
     bool _launchCustomEventOnExit;
+    int _currentLevel;
     cocos2d::Node* _main;
     cocos2d::Label* _label;
     cocos2d::ui::Slider * _pointMeter;
