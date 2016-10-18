@@ -190,6 +190,7 @@ void MenuContext::expandMenu(cocos2d::Ref *pSender, cocos2d::ui::Widget::TouchEv
         } else if (clickedButton == _helpMenu) {
             
         } else if (clickedButton == _exitMenu) {
+            _character->removeFromParent();
             if(_launchCustomEventOnExit) {
                 std::string menuName(EXIT_MENU);
                 EventCustom event("on_menu_exit");
@@ -413,7 +414,7 @@ cocos2d::Node* MenuContext::createAvatarMenuItem(const std::string normalImage,
     auto _listener = EventListenerTouchOneByOne::create();
     _listener->setSwallowTouches(true);
     _listener->onTouchBegan = CC_CALLBACK_2(MenuContext::onTouchBeganOnCharacter, this);
-    _eventDispatcher->addEventListenerWithSceneGraphPriority(_listener, this);
+    _eventDispatcher->addEventListenerWithSceneGraphPriority(_listener, _character);
 
     auto moveTo = MoveTo::create(0.5, Vec2(_menuButton->getPosition().x - xPosOffSet, _menuButton->getPosition().y));
     auto elastic = EaseBackOut::create(moveTo);
