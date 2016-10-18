@@ -43,6 +43,7 @@ protected:
     void gameSelected(cocos2d::Ref* pSender, cocos2d::ui::Widget::TouchEventType eEventType);
     std::vector<std::string> split(std::string s, char delim);
     std::string parseGameConfig(std::string gameConfig);
+    std::map<std::string, std::string> parseGameConfigToMap(std::string gameConfig);
 };
 
 #endif /* ScrollableGameMapScene_hpp */
