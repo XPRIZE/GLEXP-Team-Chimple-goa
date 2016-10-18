@@ -74,7 +74,7 @@ bool Drop::init()
 			{ "basketRectYFactor", 0 },
 			{ "flaotingLetterYFactor", 1 },
 			{ "floatBoxHeightFactor",0.75 },
-			{ "helpBoardHeight",0.92 },
+			{ "helpBoardHeight",0.93 },
 			{ "basketAnchorY",0.0 }
 		}
 		},
@@ -102,7 +102,7 @@ bool Drop::init()
 
 	std::string theme[] = { "dropjungle", "drophero","dropcity" };
 	_dropCurrentTheme = theme[RandomHelper::random_int(0, 2)];
-	_dropCurrentTheme = "dropjungle";
+	//_dropCurrentTheme = "dropjungle";
 	_scenePath = dropSceneMap.at(_dropCurrentTheme);
 
 	_sceneBasedNumericalVal = dropSceneNumValue.at(_dropCurrentTheme);
