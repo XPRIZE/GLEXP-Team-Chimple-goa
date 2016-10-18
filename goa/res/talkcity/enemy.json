@@ -7,7 +7,7 @@
       "Animation": {
         "Duration": 110,
         "Speed": 1.0,
-        "ActivedAnimationName": "e_wronog",
+        "ActivedAnimationName": "e_correct",
         "Timelines": [
           {
             "ActionTag": -775096053,
@@ -550,7 +550,7 @@
                 "ctype": "PointFrameData"
               },
               {
-                "X": 41.5559,
+                "X": 41.5558,
                 "Y": 74.3954,
                 "FrameIndex": 45,
                 "EasingData": {
@@ -654,8 +654,8 @@
                 "ctype": "ScaleValueFrameData"
               },
               {
-                "X": 22.3512,
-                "Y": 22.351,
+                "X": -34.3113,
+                "Y": -34.3113,
                 "FrameIndex": 45,
                 "EasingData": {
                   "Type": 0
@@ -672,8 +672,8 @@
                 "ctype": "ScaleValueFrameData"
               },
               {
-                "X": -26.4175,
-                "Y": -26.4165,
+                "X": 22.5182,
+                "Y": 22.5194,
                 "FrameIndex": 65,
                 "EasingData": {
                   "Type": 0
@@ -1115,7 +1115,7 @@
           {
             "FileData": {
               "Type": "MarkedSubImage",
-              "Path": "talkcity/enemy_lefthand.png",
+              "Path": "talkcity/enemy_lefthand1.png",
               "Plist": "talkcity/talkcity.plist"
             },
             "BlendFunc": {
@@ -1144,15 +1144,15 @@
               "X": 0.0,
               "Y": 0.0
             },
-            "LeftMargin": 94.111,
-            "RightMargin": -180.111,
-            "TopMargin": -221.649,
-            "BottomMargin": 128.649,
+            "LeftMargin": 92.3455,
+            "RightMargin": -255.3455,
+            "TopMargin": -308.7456,
+            "BottomMargin": 152.7456,
             "Tag": 277,
             "ActionTag": -775096053,
             "Size": {
-              "X": 86.0,
-              "Y": 93.0
+              "X": 163.0,
+              "Y": 156.0
             },
             "Name": "Sprite_14",
             "ctype": "SpriteObjectData"
@@ -1224,6 +1224,8 @@
               "ScaleX": 1.0,
               "ScaleY": 1.0
             },
+            "RotationSkewX": 12.7893,
+            "RotationSkewY": 12.7898,
             "CColor": {},
             "IconVisible": false,
             "PrePosition": {
@@ -1262,13 +1264,15 @@
               "ScaleY": 1.0
             },
             "Position": {
-              "X": 41.5559,
+              "X": 41.5558,
               "Y": 74.3954
             },
             "Scale": {
               "ScaleX": 1.0,
               "ScaleY": 1.0
             },
+            "RotationSkewX": -17.1556,
+            "RotationSkewY": -17.1557,
             "CColor": {},
             "IconVisible": false,
             "PrePosition": {
@@ -1279,8 +1283,8 @@
               "X": 0.0,
               "Y": 0.0
             },
-            "LeftMargin": 17.5559,
-            "RightMargin": -65.5559,
+            "LeftMargin": 17.5558,
+            "RightMargin": -65.5558,
             "TopMargin": -74.3954,
             "BottomMargin": 2.3954,
             "Tag": 227,
