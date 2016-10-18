@@ -74,7 +74,7 @@ bool Drop::init()
 			{ "basketRectYFactor", 0 },
 			{ "flaotingLetterYFactor", 1 },
 			{ "floatBoxHeightFactor",0.75 },
-			{ "helpBoardHeight",0.92 },
+			{ "helpBoardHeight",0.93 },
 			{ "basketAnchorY",0.0 }
 		}
 		},
