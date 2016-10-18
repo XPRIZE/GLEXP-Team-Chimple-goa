@@ -14,6 +14,7 @@
 #include "ui/CocosGUI.h"
 #include <string>
 #include <sstream>
+#include "../menu/HelpLayer.h"
 
 
 class Talk : public cocos2d::Layer
@@ -55,7 +56,8 @@ public:
 	void update(float);
 	void gameEnd();
 	void displayWord();
-
+	HelpLayer *_help;
+	int _helpFlag;
 	struct LabelDetails
 	{
 		cocos2d::LabelTTF *label;

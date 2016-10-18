@@ -328,6 +328,9 @@
     <ClCompile Include="..\Classes\mini_games\Pillar.cpp">
       <Filter>Classes\mini_games</Filter>
     </ClCompile>
+    <ClCompile Include="..\Classes\menu\HelpLayer.cpp">
+      <Filter>Classes\menu</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -636,6 +639,9 @@
     </ClInclude>
     <ClInclude Include="..\Classes\mini_games\Pillar.h">
       <Filter>Classes\mini_games</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\menu\HelpLayer.h">
+      <Filter>Classes\menu</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
