@@ -29,6 +29,8 @@ bool Talk::init()
 		return false;
 	}
 
+//	_menuContext->setMaxPoints(8);
+
 	visibleSize = Director::getInstance()->getWinSize();
 
 	_scene = { "talkisland", "talkcity", "talkjungle"};
@@ -274,7 +276,7 @@ void Talk::displayWord()
 				if (_helpFlag == 0)
 				{
 					_help = HelpLayer::create(Rect(LabelDetails.sprite->getPositionX() + LabelDetails.sprite->getBoundingBox().size.width, LabelDetails.sprite->getPositionY(), LabelDetails.sprite->getBoundingBox().size.width, LabelDetails.sprite->getBoundingBox().size.height), Rect(_board->getPositionX() + _board->getBoundingBox().size.width, _board->getPositionY(), _board->getBoundingBox().size.width, _board->getBoundingBox().size.height));
-					addChild(_help, 5);
+					_talkBg->addChild(_help, 5);
 					_help->click(Vec2(LabelDetails.sprite->getPositionX() + LabelDetails.sprite->getBoundingBox().size.width, LabelDetails.sprite->getPositionY()));
 					_helpFlag = 1;
 				}
@@ -511,8 +513,9 @@ void Talk::addEvents(struct LabelDetails sprite)
 					if (_helpFlag == 1)
 					{
 						_helpFlag = -1;
-						removeChild(_help);
+						_talkBg->removeChild(_help);
 					}
+					_menuContext->addPoints(1);
 				}
 				else
 				{
