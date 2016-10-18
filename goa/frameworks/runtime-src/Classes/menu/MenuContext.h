@@ -34,6 +34,7 @@ public:
     
     void pickAlphabet(char targetAlphabet, char chosenAlphabet, bool choose = true, cocos2d::Vec2 position = cocos2d::Vec2::ZERO);
     int getPoints();
+    void addPoints(int points);
     void finalizePoints();
     static const std::string LANG;
     Node* jumpOut(std::string nodeCsbName, float duration, cocos2d::Vec2 position, std::string animationName = "");
@@ -43,6 +44,10 @@ public:
     void exitMultiPlayerGame();
     void sendMessageToPeer(std::string message);
     std::vector<std::string> split(std::string s, char delim);
+    int getCurrentLevel();
+    void setCurrentLevel(int level);
+    int getMaxPoints();
+    void setMaxPoints(int maxPoints);
     
 CC_CONSTRUCTOR_ACCESS:
     MenuContext();
@@ -61,6 +66,8 @@ protected:
     bool _menuSelected;
     bool _gameIsPaused;
     bool _launchCustomEventOnExit;
+    int _currentLevel;
+    int _maxPoints;
     cocos2d::Node* _main;
     cocos2d::Label* _label;
     cocos2d::ui::Slider * _pointMeter;

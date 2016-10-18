@@ -70,11 +70,11 @@ bool Drop::init()
 
 		{ "dropjungle",
 		{
-			{ "boxLabelYFactor",0.103 },
+			{ "boxLabelYFactor",0.1138 },
 			{ "basketRectYFactor", 0 },
 			{ "flaotingLetterYFactor", 1 },
 			{ "floatBoxHeightFactor",0.75 },
-			{ "helpBoardHeight",0.92 },
+			{ "helpBoardHeight",0.93 },
 			{ "basketAnchorY",0.0 }
 		}
 		},
@@ -92,7 +92,7 @@ bool Drop::init()
 		{
 			{ "boxLabelYFactor",0.14 },
 			{ "basketRectYFactor", 0 },
-			{ "flaotingLetterYFactor", 0.85 },
+			{ "flaotingLetterYFactor", 1.36 },
 			{ "floatBoxHeightFactor",0.65 },
 			{ "helpBoardHeight",0.938 },
 			{ "basketAnchorY",0.0 }
@@ -102,7 +102,7 @@ bool Drop::init()
 
 	std::string theme[] = { "dropjungle", "drophero","dropcity" };
 	_dropCurrentTheme = theme[RandomHelper::random_int(0, 2)];
-	_dropCurrentTheme = "dropjungle";
+	//_dropCurrentTheme = "dropjungle";
 	_scenePath = dropSceneMap.at(_dropCurrentTheme);
 
 	_sceneBasedNumericalVal = dropSceneNumValue.at(_dropCurrentTheme);
@@ -149,6 +149,8 @@ bool Drop::init()
 
 	auto tg = TextGenerator::getInstance();
 	std::string word = tg->generateAWord();
+
+	//std::string word = "ELEPHANT";
 
 	_label = setAllLabelProperties(word, 2, (visibleSize.width / 2), (visibleSize.height*_sceneBasedNumericalVal.at("helpBoardHeight")), true, 0.5, 0.5, 0, 1, 1, 150);
 	this->addChild(_label, 2);
