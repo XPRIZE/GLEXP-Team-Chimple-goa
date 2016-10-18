@@ -19,9 +19,9 @@ xc.GameMap = cc.Scene.extend({
         // else if(sender._configuration.name == 'jazz') {
         //     xc.GameScene.load(xc.GameLayer);
         // } 
-        // else if(sender._configuration.name == 'story-teller') {
-        //     xc.CreateStoryScene.load(xc.CreateStoryLayer);
-        // }
+        else if(sender._configuration.name == 'story-teller') {
+            xc.CreateStoryScene.load(xc.CreateStoryLayer);
+        }
         // else if(sender._configuration.name == 'train') {
         //     xc.GameScene.load(xc.TrainLayer);
         // }else if(sender._configuration.name == 'bubbleShooter') {
@@ -39,9 +39,9 @@ xc.GameMap = cc.Scene.extend({
         // } else if(sender._configuration.name == 'pinata'){
         //      xc.GameScene.load(xc.Pinata);
         // }
-        // else if(sender._configuration.name == 'choose_character'){
-        //      xc.CharacterConfigScene.load(xc.CharacterConfigLayer);
-        // } 
+        else if(sender._configuration.name == 'choose_character'){
+             xc.CharacterConfigScene.load(xc.CharacterConfigLayer);
+        } 
         // else if(sender._configuration.name == 'show_bluetoothPeers') {
         //     cc.sys.localStorage.setItem("discoveredBluetoothDevices", "0_0_1-AA:BB:CC:XX,1_0_1-AA:BB:CC:FF,0_1_1-AA:BB:AD:FF")
         //     xc.RenderBluetoothPeersScene.load(xc.RenderBluetoothPeersLayer);

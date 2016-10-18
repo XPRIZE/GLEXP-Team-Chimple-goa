@@ -59,6 +59,7 @@ using namespace experimental;
 
 static const int MAX_POINTS_TO_SHOW = 16;
 static const int POINTS_TO_LEFT = 300.0f;
+static const std::string CURRENT_LEVEL = ".currentLevel";
 
 MenuContext* MenuContext::create(Node* main, std::string gameName, bool launchCustomEventOnExit, std::string sceneName) {
     MenuContext* menuContext = new (std::nothrow) MenuContext();
@@ -67,6 +68,12 @@ MenuContext* MenuContext::create(Node* main, std::string gameName, bool launchCu
         menuContext->_launchCustomEventOnExit = launchCustomEventOnExit;
         menuContext->gameName = gameName;
         menuContext->sceneName = sceneName;
+
+        std::string currentLevelStr;
+        localStorageGetItem(gameName + CURRENT_LEVEL, &currentLevelStr);
+        if(!currentLevelStr.empty()) {
+            menuContext->setCurrentLevel(std::stoi( currentLevelStr ));
+        }
         return menuContext;
     }
     CC_SAFE_DELETE(menuContext);
@@ -190,6 +197,7 @@ void MenuContext::expandMenu(cocos2d::Ref *pSender, cocos2d::ui::Widget::TouchEv
         } else if (clickedButton == _helpMenu) {
             
         } else if (clickedButton == _exitMenu) {
+            _character->removeFromParent();
             if(_launchCustomEventOnExit) {
                 std::string menuName(EXIT_MENU);
                 EventCustom event("on_menu_exit");
@@ -413,7 +421,7 @@ cocos2d::Node* MenuContext::createAvatarMenuItem(const std::string normalImage,
     auto _listener = EventListenerTouchOneByOne::create();
     _listener->setSwallowTouches(true);
     _listener->onTouchBegan = CC_CALLBACK_2(MenuContext::onTouchBeganOnCharacter, this);
-    _eventDispatcher->addEventListenerWithSceneGraphPriority(_listener, this);
+    _eventDispatcher->addEventListenerWithSceneGraphPriority(_listener, _character);
 
     auto moveTo = MoveTo::create(0.5, Vec2(_menuButton->getPosition().x - xPosOffSet, _menuButton->getPosition().y));
     auto elastic = EaseBackOut::create(moveTo);
@@ -494,17 +502,30 @@ void MenuContext::removeMenu() {
 }
 
 void MenuContext::pickAlphabet(char targetAlphabet, char chosenAlphabet, bool choose, cocos2d::Vec2 position) {
+    int points = -1;
     if((choose && targetAlphabet == chosenAlphabet) || (!choose && targetAlphabet != chosenAlphabet)) {
-        _points++;
+        points = 1;
+    }
+    addPoints(points);
+    //    _label->setString("Points: " + to_string(_points));
+    std::string targetAlphabetStr (1, targetAlphabet);
+    std::string chosenAlphabetStr (1, chosenAlphabet);
+
+    SafariAnalyticsManager::getInstance()->insertAnalyticsInfo(targetAlphabetStr.c_str(), chosenAlphabetStr.c_str(), gameName.c_str());
+}
+
+void MenuContext::addPoints(int points) {
+    _points += points;
+    _points = MAX(MIN(_points, _maxPoints), 0);
+    if(points > 0) {
         auto sequence = Sequence::create(
-            CallFunc::create(CC_CALLBACK_0(MenuContext::happyFace, this)),
-            CallFunc::create(CC_CALLBACK_0(MenuContext::increasePoints, this, 1)),
-            DelayTime::create(1),
-            CallFunc::create(CC_CALLBACK_0(MenuContext::normalFace, this)),
-            NULL);
+                                         CallFunc::create(CC_CALLBACK_0(MenuContext::happyFace, this)),
+                                         CallFunc::create(CC_CALLBACK_0(MenuContext::increasePoints, this, 1)),
+                                         DelayTime::create(1),
+                                         CallFunc::create(CC_CALLBACK_0(MenuContext::normalFace, this)),
+                                         NULL);
         runAction(sequence);
     } else {
-        _points--;
         auto sequence = Sequence::create(
                                          CallFunc::create(CC_CALLBACK_0(MenuContext::sadFace, this)),
                                          CallFunc::create(CC_CALLBACK_0(MenuContext::increasePoints, this, -1)),
@@ -513,11 +534,6 @@ void MenuContext::pickAlphabet(char targetAlphabet, char chosenAlphabet, bool ch
                                          NULL);
         runAction(sequence);
     }
-//    _label->setString("Points: " + to_string(_points));
-    std::string targetAlphabetStr (1, targetAlphabet);
-    std::string chosenAlphabetStr (1, chosenAlphabet);
-
-    SafariAnalyticsManager::getInstance()->insertAnalyticsInfo(targetAlphabetStr.c_str(), chosenAlphabetStr.c_str(), gameName.c_str());
 }
 
 int MenuContext::getPoints() {
@@ -529,7 +545,7 @@ void MenuContext::finalizePoints() {
 }
 
 void MenuContext::increasePoints(int points) {
-    _pointMeter->setPercent(_pointMeter->getPercent() + points * 100 / MAX_POINTS_TO_SHOW);
+    _pointMeter->setPercent(_pointMeter->getPercent() + points * 100 / _maxPoints);
 }
 
 void MenuContext::happyFace() {
@@ -876,7 +892,9 @@ void MenuContext::showScore() {
     pauseNodeAndDescendants(_main);
     Size visibleSize = Director::getInstance()->getVisibleSize();
     Vec2 origin = Director::getInstance()->getVisibleOrigin();
-    auto scoreNode = ScoreBoardContext::create(_points * 100/MAX_POINTS_TO_SHOW, this->gameName, this->sceneName);
+    int stars = round(_points * 3.0/_maxPoints);
+    
+    auto scoreNode = ScoreBoardContext::create(stars, this->gameName, this->sceneName);
     scoreNode->setPosition(Vec2(origin.x + visibleSize.width / 2, origin.y + visibleSize.height / 2));
     addChild(scoreNode);
 }
@@ -912,6 +930,21 @@ void MenuContext::exitMultiPlayerGame() {
     Director::getInstance()->replaceScene(ScrollableGameMapScene::createScene());
 }
 
+int MenuContext::getCurrentLevel() {
+    return _currentLevel;
+}
+
+void MenuContext::setCurrentLevel(int level) {
+    _currentLevel = level;
+}
+
+int MenuContext::getMaxPoints() {
+    return _maxPoints;
+}
+
+void MenuContext::setMaxPoints(int maxPoints) {
+    _maxPoints = maxPoints;
+}
 
 
 MenuContext::MenuContext() :
@@ -923,7 +956,9 @@ _chimp(nullptr),
 _chimpAudioId(0),
 _gameIsPaused(false),
 _startupCallback(nullptr),
-_photoMenu(nullptr)
+_photoMenu(nullptr),
+_currentLevel(1),
+_maxPoints(MAX_POINTS_TO_SHOW)
 {
     
 }

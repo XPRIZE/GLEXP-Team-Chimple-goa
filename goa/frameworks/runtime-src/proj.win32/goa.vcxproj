@@ -207,6 +207,7 @@ copy "$(ProjectDir)..\..\..\project.json" "$(OutDir)\" /Y</Command>
     <ClCompile Include="..\Classes\lang\WordManager.cpp" />
     <ClCompile Include="..\Classes\MapIsland.cpp" />
     <ClCompile Include="..\Classes\MapScene.cpp" />
+    <ClCompile Include="..\Classes\menu\HelpLayer.cpp" />
     <ClCompile Include="..\Classes\menu\MenuContext.cpp" />
     <ClCompile Include="..\Classes\menu\ScoreBoardContent.cpp" />
     <ClCompile Include="..\Classes\MessageContent.cpp" />
@@ -311,6 +312,7 @@ copy "$(ProjectDir)..\..\..\project.json" "$(OutDir)\" /Y</Command>
     <ClInclude Include="..\Classes\lang\WordManager.h" />
     <ClInclude Include="..\Classes\MapIsland.h" />
     <ClInclude Include="..\Classes\MapScene.h" />
+    <ClInclude Include="..\Classes\menu\HelpLayer.h" />
     <ClInclude Include="..\Classes\menu\MenuContext.h" />
     <ClInclude Include="..\Classes\menu\ScoreBoardContext.h" />
     <ClInclude Include="..\Classes\MessageContent.hpp" />
