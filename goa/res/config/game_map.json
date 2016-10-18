@@ -1,85 +1,19 @@
 [
     {
-      "name": "EndlessRunner",
-      "cIcon": "gameicons/EndlessRunner_pressed.png",
-      "icon": "gameicons/EndlessRunner.png",
-      "multiPlayer": false,
-      "isJSGame": false,
-      "script": "src/NonJSGameLauncher.js",
-      "span": "5",
-      "numLevels": "24",
-      "backgroundJson": "cityscreen/background.json",
-      "foregroundJson": "cityscreen/foreground.json",
-      "frontgroundJson": "cityscreen/frontground.json",
-      "maingroundJson": "cityscreen/mainground.json",
-      "menuPlist": "cityscreen/cityscreen.plist",
-      "menuPng": "cityscreen/cityscreen.png"
-    },
-    {
-      "name": "baja",
-      "cIcon": "gameicons/baja_pressed.png",
-      "icon": "gameicons/baja.png",
-      "multiPlayer": false,
-      "isJSGame": false,
-      "script": "src/NonJSGameLauncher.js",
-      "span": "5",
-      "numLevels": "24",
-      "backgroundJson": "cityscreen/background.json",
-      "foregroundJson": "cityscreen/foreground.json",
-      "frontgroundJson": "cityscreen/frontground.json",
-      "maingroundJson": "cityscreen/mainground.json",
-      "menuPlist": "cityscreen/cityscreen.plist",
-      "menuPng": "cityscreen/cityscreen.png"
-    },
-    {
-      "name": "bubble",
-      "cIcon": "gameicons/bubble_pressed.png",
-      "icon": "gameicons/bubble.png",
-      "multiPlayer": false,
-      "isJSGame": false,
-      "pureJS": "BubbleGame_HomeScreenMenu",
-      "script": "src/start/BubbleShooter.js",
-      "span": "5",
-      "numLevels": "24",
-      "backgroundJson": "cityscreen/background.json",
-      "foregroundJson": "cityscreen/foreground.json",
-      "frontgroundJson": "cityscreen/frontground.json",
-      "maingroundJson": "cityscreen/mainground.json",
-      "menuPlist": "cityscreen/cityscreen.plist",
-      "menuPng": "cityscreen/cityscreen.png"
-    },
-    {
-    "name": "shoot",
-    "cIcon": "gameicons/shoot_pressed.png",
-    "icon": "gameicons/shoot.png",
-    "multiPlayer": false,
-    "isJSGame": true,
-    "pureJS": "Pinata",
-    "script": "src/start/pinata.js",
-    "span": "5",
-    "numLevels": "24",
-    "backgroundJson": "cityscreen/background.json",
-    "foregroundJson": "cityscreen/foreground.json",
-    "frontgroundJson": "cityscreen/frontground.json",
-    "maingroundJson": "cityscreen/mainground.json",
-    "menuPlist": "cityscreen/cityscreen.plist",
-    "menuPng": "cityscreen/cityscreen.png"
-    },
-    {
-      "name": "owl",
-      "cIcon": "gameicons/owl_pressed.png",
-      "icon": "gameicons/owl.png",
-      "multiPlayer": false,
-      "isJSGame": false,
-      "script": "src/NonJSGameLauncher.js",
-      "span": "5",
-      "numLevels": "24",
-      "backgroundJson": "cityscreen/background.json",
-      "foregroundJson": "cityscreen/foreground.json",
-      "frontgroundJson": "cityscreen/frontground.json",
-      "maingroundJson": "cityscreen/mainground.json",
-      "menuPlist": "cityscreen/cityscreen.plist",
-      "menuPng": "cityscreen/cityscreen.png"
+        "name": "EndlessRunner",
+        "cIcon": "gameicons/EndlessRunner_pressed.png",
+        "icon": "gameicons/EndlessRunner.png",
+        "multiPlayer":false,
+        "isJSGame":false,
+        "script":"src/NonJSGameLauncher.js",
+        "span": "5",
+        "numLevels": "24",
+        "backgroundJson": "cityscreen/background.json",
+        "foregroundJson": "cityscreen/foreground.json",
+        "frontgroundJson": "cityscreen/frontground.json",
+        "maingroundJson": "cityscreen/mainground.json",
+        "menuPlist": "cityscreen/cityscreen.plist",
+        "menuPng": "cityscreen/cityscreen.png"        
     },
     {
         "name": "ConnectTheDots",
@@ -100,9 +34,9 @@
     },
     {
         "name": "train",
-        "cIcon": "gameicons/train_pressed.png",
-        "icon": "gameicons/train.png",
-    	  "multiPlayer":false,
+        "cIcon": "gameicons/jasmine_pressed.png",
+        "icon": "gameicons/jasmine.png",
+    	"multiPlayer":false,
         "isJSGame":true,
         "pureJS": "TrainLayer",
         "script":"src/start/train.js",
@@ -115,7 +49,7 @@
         "menuPlist": "cityscreen/cityscreen.plist",
         "menuPng": "cityscreen/cityscreen.png"
     },
-    {
+	{
         "name": "stack",
         "cIcon": "gameicons/stack_pressed.png",
         "icon": "gameicons/stack.png",
@@ -131,7 +65,7 @@
         "menuPlist": "cityscreen/cityscreen.plist",
         "menuPng": "cityscreen/cityscreen.png"  
     },
-    {
+	{
         "name": "talk",
         "cIcon": "gameicons/talk_pressed.png",
         "icon": "gameicons/talk.png",
@@ -147,7 +81,7 @@
         "menuPlist": "cityscreen/cityscreen.plist",
         "menuPng": "cityscreen/cityscreen.png"  
     },
-    {
+	{
         "name": "jasmine",
         "cIcon": "gameicons/jasmine_pressed.png",
         "icon": "gameicons/jasmine.png",
@@ -163,7 +97,7 @@
         "menuPlist": "cityscreen/cityscreen.plist",
         "menuPng": "cityscreen/cityscreen.png"  
     },
-    {
+	{
         "name": "Cannon Ball",
         "cIcon": "gameicons/Cannon Ball_pressed.png",
         "icon": "gameicons/Cannon Ball.png",
@@ -181,8 +115,8 @@
     },
     {
         "name": "decomone",
-        "cIcon": "gameicons/alphamole_pressed.png",
-        "icon": "gameicons/alphamole.png",
+        "cIcon": "gameicons/decomone_pressed.png",
+        "icon": "gameicons/decomone.png",
         "multiPlayer":false,
         "isJSGame":false,
         "script":"src/NonJSGameLauncher.js",
@@ -197,8 +131,8 @@
     },
     {
         "name": "order",
-        "cIcon": "gameicons/alphamole_pressed.png",
-        "icon": "gameicons/alphamole.png",
+        "cIcon": "gameicons/order_pressed.png",
+        "icon": "gameicons/order.png",
         "multiPlayer":false,
         "isJSGame":false,
         "script":"src/NonJSGameLauncher.js",
@@ -213,8 +147,8 @@
     },
     {
         "name": "dash",
-        "cIcon": "gameicons/alphamole_pressed.png",
-        "icon": "gameicons/alphamole.png",
+        "cIcon": "gameicons/dash_pressed.png",
+        "icon": "gameicons/dash.png",
         "multiPlayer":false,
         "isJSGame":false,
         "script":"src/NonJSGameLauncher.js",
@@ -229,8 +163,8 @@
     },
     {
         "name": "cat",
-        "cIcon": "gameicons/alphamole_pressed.png",
-        "icon": "gameicons/alphamole.png",
+        "cIcon": "gameicons/cat_pressed.png",
+        "icon": "gameicons/cat.png",
         "multiPlayer":false,
         "isJSGame":false,
         "script":"src/NonJSGameLauncher.js",
@@ -245,8 +179,8 @@
     },
     {
         "name": "Alphamon Feed",
-        "cIcon": "gameicons/alphamole_pressed.png",
-        "icon": "gameicons/alphamole.png",
+        "cIcon": "gameicons/Alphamon Feed.png",
+        "icon": "gameicons/Alphamon Feed.png",
         "multiPlayer":false,
         "isJSGame":false,
         "script":"src/NonJSGameLauncher.js",
