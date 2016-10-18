@@ -1,0 +1,309 @@
+{
+  "ID": "4d1697aa-b577-4968-ac05-d37e83f350cb",
+  "Version": "3.10.0.0",
+  "Name": "frontground",
+  "Content": {
+    "Content": {
+      "Animation": {
+        "Duration": 0,
+        "Speed": 1.0,
+        "Timelines": [],
+        "ctype": "TimelineActionData"
+      },
+      "AnimationList": [],
+      "ObjectData": {
+        "Tag": 177,
+        "Children": [
+          {
+            "ClipAble": false,
+            "ComboBoxIndex": 1,
+            "SingleColor": {
+              "R": 63,
+              "G": 166,
+              "B": 210
+            },
+            "FirstColor": {
+              "R": 150,
+              "G": 200
+            },
+            "EndColor": {},
+            "ColorVector": {
+              "ScaleY": 1.0
+            },
+            "Scale9Width": 1,
+            "Scale9Height": 1,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 0.0298,
+              "Y": -0.0044
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "PreSize": {
+              "X": 3.0,
+              "Y": 0.1667
+            },
+            "LeftMargin": 0.0298,
+            "RightMargin": -5120.0298,
+            "TopMargin": 1500.0044,
+            "BottomMargin": -0.0044,
+            "Tag": 243,
+            "ActionTag": 639020564,
+            "Size": {
+              "X": 7680.0,
+              "Y": 300.0
+            },
+            "Name": "Panel_1",
+            "ctype": "PanelObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "levelscreen/boat.png",
+              "Plist": "levelscreen/levelscreen.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 674.084,
+              "Y": 412.0486
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.2633,
+              "Y": 0.2289
+            },
+            "PreSize": {
+              "X": 0.1871,
+              "Y": 0.3317
+            },
+            "LeftMargin": 434.584,
+            "RightMargin": 1646.416,
+            "TopMargin": 1089.4514,
+            "BottomMargin": 113.5486,
+            "Tag": 277,
+            "ActionTag": -1823653712,
+            "Size": {
+              "X": 479.0,
+              "Y": 597.0
+            },
+            "Name": "boat_18",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FlipX": true,
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "levelscreen/boat1.png",
+              "Plist": "levelscreen/levelscreen.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 3369.9907,
+              "Y": 396.1263
+            },
+            "Scale": {
+              "ScaleX": 1.2317,
+              "ScaleY": 1.2317
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 1.3164,
+              "Y": 0.2201
+            },
+            "PreSize": {
+              "X": 0.1871,
+              "Y": 0.3317
+            },
+            "LeftMargin": 3130.4907,
+            "RightMargin": -1049.4907,
+            "TopMargin": 1105.3737,
+            "BottomMargin": 97.6263,
+            "Tag": 282,
+            "ActionTag": 156974857,
+            "Size": {
+              "X": 479.0,
+              "Y": 597.0
+            },
+            "Name": "boat1_20",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "levelscreen/boat2.png",
+              "Plist": "levelscreen/levelscreen.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 6038.8164,
+              "Y": 432.6445
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 2.3589,
+              "Y": 0.2404
+            },
+            "PreSize": {
+              "X": 0.327,
+              "Y": 0.3317
+            },
+            "LeftMargin": 5620.3164,
+            "RightMargin": -3897.3164,
+            "TopMargin": 1068.8555,
+            "BottomMargin": 134.1445,
+            "Tag": 283,
+            "ActionTag": 1799557679,
+            "Size": {
+              "X": 837.0,
+              "Y": 597.0
+            },
+            "Name": "boat2_21",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "levelscreen/lasthill.png",
+              "Plist": "levelscreen/levelscreen.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 7175.1348,
+              "Y": 900.7352
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 2.8028,
+              "Y": 0.5004
+            },
+            "PreSize": {
+              "X": 0.3945,
+              "Y": 1.0006
+            },
+            "LeftMargin": 6670.1348,
+            "RightMargin": -5120.1348,
+            "TopMargin": -1.2351,
+            "BottomMargin": 0.2352,
+            "Tag": 376,
+            "ActionTag": -1458093486,
+            "Size": {
+              "X": 1010.0,
+              "Y": 1801.0
+            },
+            "Name": "lasthill_40",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "levelscreen/cat.png",
+              "Plist": "levelscreen/levelscreen.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 6858.5869,
+              "Y": 591.9762
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 2.6791,
+              "Y": 0.3289
+            },
+            "PreSize": {
+              "X": 0.1137,
+              "Y": 0.2811
+            },
+            "LeftMargin": 6713.0869,
+            "RightMargin": -4444.0869,
+            "TopMargin": 955.0238,
+            "BottomMargin": 338.9762,
+            "Tag": 384,
+            "ActionTag": -1227490792,
+            "Size": {
+              "X": 291.0,
+              "Y": 506.0
+            },
+            "Name": "cat_45",
+            "ctype": "SpriteObjectData"
+          }
+        ],
+        "Size": {
+          "X": 2560.0,
+          "Y": 1800.0
+        },
+        "Name": "Layer",
+        "ctype": "LayerObjectData"
+      },
+      "UsedResources": [
+        "levelscreen.plist",
+        "levelscreen.png"
+      ],
+      "ctype": "GameFileData"
+    }
+  },
+  "Type": "Layer"
+}
