@@ -2,7 +2,7 @@
 #include "editor-support/cocostudio/CocoStudio.h"
 #include "../lang/TextGenerator.h"
 #include "ui/UIScale9Sprite.h"
-
+#include "../menu/HelpLayer.h"
 
 USING_NS_CC;
 
@@ -19,7 +19,6 @@ Scene* Talk::createScene()
 	scene->addChild(layer);
     layer->_menuContext = MenuContext::create(layer, Talk::gameName());
     scene->addChild(layer->_menuContext);
-
 	return scene;
 }
 
@@ -30,8 +29,10 @@ bool Talk::init()
 		return false;
 	}
 
+//	_menuContext->setMaxPoints(8);
+
 	visibleSize = Director::getInstance()->getWinSize();
-	
+
 	_scene = { "talkisland", "talkcity", "talkjungle"};
 	sceneName = _scene.at(rand() % _scene.size());
 
@@ -155,7 +156,9 @@ bool Talk::init()
 
 	_allSentense = TextGenerator::getInstance()->getSentenceWithPOS(TextGenerator::POS::NOUN, 5, 1);
 	_handFlag = 0;
+	_helpFlag = 0;
 	Talk::displayWord();
+
 	this->scheduleUpdate();
 	return true;
 }
@@ -269,6 +272,14 @@ void Talk::displayWord()
 			{
 				LabelDetails.answer = 'c';
 				_totalAnswer++;
+
+				if (_helpFlag == 0)
+				{
+					_help = HelpLayer::create(Rect(LabelDetails.sprite->getPositionX() + LabelDetails.sprite->getBoundingBox().size.width, LabelDetails.sprite->getPositionY(), LabelDetails.sprite->getBoundingBox().size.width, LabelDetails.sprite->getBoundingBox().size.height), Rect(_board->getPositionX() + _board->getBoundingBox().size.width, _board->getPositionY(), _board->getBoundingBox().size.width, _board->getBoundingBox().size.height));
+					_talkBg->addChild(_help, 5);
+					_help->click(Vec2(LabelDetails.sprite->getPositionX() + LabelDetails.sprite->getBoundingBox().size.width, LabelDetails.sprite->getPositionY()));
+					_helpFlag = 1;
+				}
 			}
 			else
 			{
@@ -498,6 +509,13 @@ void Talk::addEvents(struct LabelDetails sprite)
 					_enemyChar->play("e_wrong", true);
 					sprite.label->setColor(Color3B::GREEN);
 					_correctAnswer++;
+
+					if (_helpFlag == 1)
+					{
+						_helpFlag = -1;
+						_talkBg->removeChild(_help);
+					}
+					_menuContext->addPoints(1);
 				}
 				else
 				{
