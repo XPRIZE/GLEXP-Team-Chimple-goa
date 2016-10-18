@@ -154,9 +154,11 @@ bool ScrollableGameMapScene::init() {
             for (int j = 0; j < numCols; j++) {
                 if(index < games.size()) {
                     std::string gameName = games.at(index);
-                    
-                    std::string buttonNormalIcon = ICONS + "/" + games.at(index)+".png";
-                    std::string buttonPressedIcon = ICONS + "/" + games.at(index)+"_pressed.png";
+                    std::string gameConfig;
+                    localStorageGetItem(gameName, &gameConfig);
+                    auto gameMap = parseGameConfigToMap(gameConfig);
+                    std::string buttonNormalIcon = gameMap["icon"];
+                    std::string buttonPressedIcon = gameMap["cIcon"];
                     std::string buttonDisabledIcon = ICONS + "/" + games.at(index)+"_disabled.png";
                     cocos2d::ui::Button* button = ui::Button::create(buttonNormalIcon, buttonPressedIcon, buttonDisabledIcon);
                     button->setName(games.at(index));
@@ -280,7 +282,8 @@ void ScrollableGameMapScene::gameSelected(Ref* pSender, ui::Widget::TouchEventTy
             localStorageGetItem(clickedButton->getName(), &gameConfig);
             CCLOG("gameConfig %s", gameConfig.c_str());
             std::string script = parseGameConfig(gameConfig);
-            ScriptingCore::getInstance()->runScript(script);
+            localStorageSetItem("currentGame", clickedButton->getName());
+            ScriptingCore::getInstance()->runScript("src/start/menu.js");
             
             break;
         }
@@ -313,6 +316,20 @@ std::string ScrollableGameMapScene::parseGameConfig(std::string gameConfigStr) {
     
     return scriptName;
 
+}
+
+std::map<std::string, std::string> ScrollableGameMapScene::parseGameConfigToMap(std::string gameConfigStr) {
+    rapidjson::Document gameConfig;
+    std::map<std::string, std::string> returnMap;
+    if (false == gameConfig.Parse<0>(gameConfigStr.c_str()).HasParseError()) {
+        // document is ok
+        returnMap["name"] = gameConfig["name"].GetString();
+        returnMap["cIcon"] = gameConfig["cIcon"].GetString();
+        returnMap["icon"] = gameConfig["icon"].GetString();
+    }else{
+        // error
+    }
+    return returnMap;
 }
 
 
