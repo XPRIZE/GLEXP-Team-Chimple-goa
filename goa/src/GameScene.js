@@ -9,6 +9,7 @@ xc.GameScene = cc.Scene.extend({
     args: [],
     ctor: function(args) {
         this._super();
+        cc.log(args)
         this.layerClass = args.shift()
         this.args = args
     },
@@ -59,4 +60,37 @@ xc.GameScene.loadMultiPlayerGame = function(layer, gameName) {
     } else {
       xc.GameScene.load(layer);
     }
+}
+
+xc.GameScene.loadMenu = function() {
+    var gameName = cc.sys.localStorage.getItem("currentGame");
+    var gameStr = cc.sys.localStorage.getItem(gameName);
+    cc.log(gameStr);
+    var gameConfig = JSON.parse(gameStr);
+    var t_resources = [];
+    if(gameConfig.backgroundJson) {
+        t_resources.push(xc.path + gameConfig.backgroundJson);
+    }
+    if(gameConfig.foregroundJson) {
+        t_resources.push(xc.path + gameConfig.foregroundJson);
+    }
+    if(gameConfig.frontgroundJson) {
+        t_resources.push(xc.path + gameConfig.frontgroundJson);
+    }
+    if(gameConfig.maingroundJson) {
+        t_resources.push(xc.path + gameConfig.maingroundJson);
+    }
+    if(gameConfig.menuPlist) {
+        t_resources.push(xc.path + gameConfig.menuPlist);
+    }
+    if(gameConfig.menuPng) {
+        t_resources.push(xc.path + gameConfig.menuPng);
+    }
+    for (var i in xc.LevelMenuLayer.res) {
+        t_resources.push(xc.LevelMenuLayer.res[i]);
+    }    
+    cc.LoaderScene.preload(t_resources, function () {
+        var scene = new xc.GameScene([xc.LevelMenuLayer, gameConfig]);
+        cc.director.runScene(scene);
+    }, this);    
 }
