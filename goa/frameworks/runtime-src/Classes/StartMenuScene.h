@@ -58,11 +58,10 @@ public:
     static const std::vector<std::string> getGameNames();
     static const std::vector<std::string> multiPlayerGameNames();
     
-    
 CC_CONSTRUCTOR_ACCESS:
     StartMenu();
     virtual ~StartMenu();
-    std::string parseGameConfig(std::string gameConfigStr);
+    static std::string parseGameConfig(std::string gameConfigStr);
 };
 
 #endif /* StartMenuScene_h */
