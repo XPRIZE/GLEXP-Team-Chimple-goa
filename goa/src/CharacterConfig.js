@@ -6,7 +6,24 @@ xc.CharacterConfigLayer = cc.LayerColor.extend({
     _contentPanelWidth: null,
     _contentPanelHeight: null,
     _characterNode: null,    
+    _faceColorIndex: -1,
+    _hairColorIndex: -1,
     _selectedConfigurationForCharacter:[],
+    _selectedColorConfigurationForCharacter:[
+        {
+            "color":"#ff0000",
+            "selectedIndex": 0
+        },
+        {
+            "color":"#ff00ff",
+            "selectedIndex": 1
+        },
+        {
+            "color":"#f0f0f",
+            "selectedIndex": 2
+        }
+
+    ],
     _context: null,
     ctor: function () {        
         this._super(xc.TERTIARY_COLOR);
@@ -28,8 +45,17 @@ xc.CharacterConfigLayer = cc.LayerColor.extend({
                     this.shuffleCharacter(sender);
                 } else if(sender.getName() == 'finish') {
                     this.characterApproved(sender);
-                } else {
-                    this.skinSelected(sender);
+                } 
+                else if(sender.getName() == 'hair') {
+                    this.skinSelected("hairfront");
+                    this.skinSelected("hairback");
+                } else if(sender.getName() == 'haircolor') {
+                    this.colorSkin(['hairfront','hairback'], true, -1);
+                } else if(sender.getName() == 'facecolor') {
+                    this.colorSkin(['faceshape','body'], false, -1);                    
+                }                
+                else {
+                    this.skinSelected(sender.getName());
                 }                
                 break;
         }
@@ -53,7 +79,15 @@ xc.CharacterConfigLayer = cc.LayerColor.extend({
                         
                         that.displaySkin(element.bone, element.items[randomIndex].Image,element.items[randomIndex].AnchorPoint.ScaleX, element.items[randomIndex].AnchorPoint.ScaleY,  element.items[randomIndex].Position.X, element.items[randomIndex].Position.Y, element.items[randomIndex].Rotation ? element.items[randomIndex].Rotation.X : undefined, element.items[randomIndex].Rotation ? element.items[randomIndex].Rotation.Y : undefined, randomIndex);                    
                     }
-                });                
+                });  
+
+                //update color
+                var randomIndex = that.randomIntFromInterval(0, this._selectedColorConfigurationForCharacter.length - 1);            
+                this.colorSkin(['hairfront','hairback'], true, randomIndex);
+                    
+                var randomIndex = that.randomIntFromInterval(0, this._selectedColorConfigurationForCharacter.length - 1);
+                this.colorSkin(['faceshape','body'], false, randomIndex);                                  
+                              
                 break;
 
             case ccui.Widget.TOUCH_ENDED:
@@ -64,8 +98,8 @@ xc.CharacterConfigLayer = cc.LayerColor.extend({
     loadSkeletonNode: function(node) {
         var skeletonNode = null;        
         var that = this;        
-        if(node != undefined && node.getChildByName("FileNode_1") != undefined) {
-            var fileNode = node.getChildByName("FileNode_1");
+        if(node != undefined && node.getChildByName("faceavatar") != undefined) {
+            var fileNode = node.getChildByName("faceavatar");
             if(fileNode != undefined && fileNode.getChildren().length > 0) {
                 fileNode.getChildren().forEach(function(e) {
                     if(e.getName() == 'avatar' && skeletonNode == undefined) {
@@ -129,7 +163,14 @@ xc.CharacterConfigLayer = cc.LayerColor.extend({
                     var randomIndex = that.randomIntFromInterval(0, element.items.length - 1);
                     that.displaySkin(element.bone, element.items[randomIndex].Image,element.items[randomIndex].AnchorPoint.ScaleX, element.items[randomIndex].AnchorPoint.ScaleY,  element.items[randomIndex].Position.X, element.items[randomIndex].Position.Y, element.items[randomIndex].Rotation ? element.items[randomIndex].Rotation.X : undefined, element.items[randomIndex].Rotation ? element.items[randomIndex].Rotation.Y : undefined, randomIndex);                    
                 }
-            });       
+            });     
+
+            //update color
+            var randomIndex = that.randomIntFromInterval(0, this._selectedColorConfigurationForCharacter.length - 1);            
+            this.colorSkin(['hairfront','hairback'], true, randomIndex);
+                    
+            var randomIndex = that.randomIntFromInterval(0, this._selectedColorConfigurationForCharacter.length - 1);
+            this.colorSkin(['faceshape','body'], false, randomIndex);                                  
         }
     },
 
@@ -140,6 +181,7 @@ xc.CharacterConfigLayer = cc.LayerColor.extend({
             case ccui.Widget.TOUCH_ENDED:                
                 cc.log(JSON.stringify(this._selectedConfigurationForCharacter));
                 //cc.sys.localStorage.setItem("cachedCharacterConfig", JSON.stringify(this._selectedConfigurationForCharacter));
+                cc.sys.localStorage.setItem("cachedColorConfig", this._faceColorIndex+"_"+this._hairColorIndex);
                 cc.sys.localStorage.setItem("cachedCharacterConfig", this._selectedConfigurationForCharacter.map(function(a) { return a.selectedItemIndex }).join("_"));
                 cc.sys.localStorage.setItem("cachedBluetoothName", "chimple_" + this._selectedConfigurationForCharacter.map(function(a) { return a.selectedItemIndex }).join("_"));
                 if(this.parent._menuContext) {
@@ -167,8 +209,39 @@ xc.CharacterConfigLayer = cc.LayerColor.extend({
         }
     },
 
-    skinSelected: function (selectedItem) {
-        var selectedConfigurations = xc.characterConfigurationObject.filter(function(e) {return e.bone == selectedItem.getName()});         
+    colorSkin: function(selectedBoneNames, isHairColor, selectedIndex) {
+        var incrementedIndex;
+        if(selectedIndex != -1) {
+            incrementedIndex = selectedIndex;
+        } else {
+            if(isHairColor) {
+                incrementedIndex = ++this._hairColorIndex;
+            } else {
+                incrementedIndex = ++this._faceColorIndex; 
+            }
+        }
+        
+        var adjustedIndex = incrementedIndex % this._selectedColorConfigurationForCharacter.length;
+        if(isHairColor) {
+            this._hairColorIndex = adjustedIndex;
+        } else {
+            this._faceColorIndex =  adjustedIndex; 
+        }
+        
+        var color = this._selectedColorConfigurationForCharacter[adjustedIndex].color;
+        var that = this;
+        selectedBoneNames.forEach(function(selectedBoneName) {
+            var boneNode = that._characterNode.getBoneNode(selectedBoneName);
+            if(boneNode && color)  {
+                boneNode.getSkins().forEach(function (skin) {
+                    skin.color = cc.color(color)
+                });
+            }
+        });
+    },
+
+    skinSelected: function (selectedItemName) {
+        var selectedConfigurations = xc.characterConfigurationObject.filter(function(e) {return e.bone == selectedItemName});         
         //check current selected configuration:
         if(selectedConfigurations != undefined && selectedConfigurations.length > 0) {
             selectedConfiguration = selectedConfigurations[0];
@@ -207,6 +280,26 @@ xc.CharacterConfigLayer = cc.LayerColor.extend({
             }
 
             this.displaySkin(selectedConfiguration.bone, itemUrl, anchorX, anchorY, positionX, positionY, rotationX, rotationY, adjustedIndex);
+
+            if(selectedItemName == 'faceshape') {
+                var boneNode = this._characterNode.getBoneNode(selectedConfiguration.bone);
+                if(this._selectedColorConfigurationForCharacter && this._selectedColorConfigurationForCharacter.length > this._faceColorIndex)
+                {
+                    var color = this._selectedColorConfigurationForCharacter[this._faceColorIndex].color;
+                    boneNode.getSkins().forEach(function (skin) {
+                        skin.color = cc.color(color);
+                    });
+                }
+            } else if(selectedItemName == 'hairfront' || selectedItemName == 'hairback') {
+                    var boneNode = this._characterNode.getBoneNode(selectedItemName);
+                    if(this._selectedColorConfigurationForCharacter && this._selectedColorConfigurationForCharacter.length > this._hairColorIndex)
+                    {
+                        var color = this._selectedColorConfigurationForCharacter[this._hairColorIndex].color;
+                        boneNode.getSkins().forEach(function (skin) {
+                            skin.color = cc.color(color);
+                        });
+                    }                
+            }
         }
     },
 
@@ -300,6 +393,7 @@ xc.CharacterConfigScene.load = function(layer) {
 
     cc.spriteFrameCache.addSpriteFrames(xc.CharacterConfigLayer.res.thumbnails_plist);
     cc.spriteFrameCache.addSpriteFrames(xc.CharacterConfigLayer.res.character_skeleton_plist);
+    cc.spriteFrameCache.addSpriteFrames(xc.CharacterConfigLayer.res.character_skeleton_plist_2);
     cc.LoaderScene.preload(t_resources, function () {            
         //config data
 
@@ -328,6 +422,9 @@ xc.CharacterConfigLayer.res = {
         character_config_json: xc.path + "config/characterConfig.json",
         character_skeleton_plist: xc.path + "faceavatar/faceavatar.plist",
         character_skeleton_png: xc.path + "faceavatar/faceavatar.png",
+        character_skeleton_plist_2: xc.path + "faceavatar/faceavatar2/faceavatar2.plist",
+        character_skeleton_png_2: xc.path + "faceavatar/faceavatar2/faceavatar2.png",
+        
         character_skeleton_json: xc.path + "faceavatar/faceavatar.json"
 };
 

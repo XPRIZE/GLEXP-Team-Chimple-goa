@@ -66,11 +66,11 @@ xc.LevelMenuLayer = cc.ScrollView.extend({
     }
     if(gameConfig.backgroundJson) {
         var pLayer = ccs.load(xc.path + gameConfig.backgroundJson, xc.path)
-        parallax.addChild(pLayer.node, -4, cc.p(0.2, 0.2), cc.p(0, 0))
+        parallax.addChild(pLayer.node, -4, cc.p(0.1, 0.1), cc.p(0, 0))
     }
     if(gameConfig.maingroundJson) {
         var pLayer = ccs.load(xc.path + gameConfig.maingroundJson, xc.path)
-        parallax.addChild(pLayer.node, -3, cc.p(0.4, 0.4), cc.p(0, 0))
+        parallax.addChild(pLayer.node, -3, cc.p(0.2, 0.2), cc.p(0, 0))
     }
     if(gameConfig.foregroundJson) {
         var pLayer = ccs.load(xc.path + gameConfig.foregroundJson, xc.path)
