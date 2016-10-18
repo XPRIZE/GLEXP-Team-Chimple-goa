@@ -1,6 +1,7 @@
 #include "Jasmin_Mainfile.h"
 #include "editor-support/cocostudio/CocoStudio.h"
 #include "RPGConfig.h"
+#include "../menu/HelpLayer.h"
 
 USING_NS_CC;
 
@@ -18,7 +19,9 @@ Node* Jasmin_Mainfile::loadNode() {
 }
 
 void Jasmin_Mainfile::createAnswer() {
-
+//    auto help = HelpLayer::create(Rect(1200, 400, 400, 300), Rect(300, 400, 400, 300));
+//    addChild(help, 5);
+//    help->clickAndDrag(Vec2(1200, 400), Vec2(200, 1600));
 	Size _size = Director::getInstance()->getVisibleSize();
 
 	auto _node = CSLoader::createNode("jasmine/hint.csb");
