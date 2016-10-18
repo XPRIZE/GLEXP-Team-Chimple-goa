@@ -48,44 +48,7 @@ xc.RenderBluetoothPeersLayer = cc.LayerColor.extend({
             }   
         });          
 
-        // var listener = cc.EventListener.create({
-        //         event: cc.EventListener.TOUCH_ONE_BY_ONE,
-        //         swallowTouches: true,
-        //         onTouchBegan: function (touch, event) {
-        //             var target = event.getCurrentTarget()
-        //             var locationInNode = target.parent.convertTouchToNodeSpace(touch)
-        //             var targetSize = target.getBoundingBoxToWorld();
-        //             if (cc.rectContainsPoint(targetSize, locationInNode)) {
-        //                 cc.log("Touched")         
-        //                 cc.log('bluetoothAddress:' + target.bluetoothAddress) ;
-        //                 if(target.bluetoothAddress && cc.sys.isNative) {
-        //                     jsb.reflection.callStaticMethod("org/cocos2dx/javascript/AppActivity", "connectToAddress", "(Ljava/lang/String;)V", target.bluetoothAddress);
-        //                 }                        
-        //                 return true;
-        //             }
-        //         }
-        // });        
-        
-        // this._discoveredConfiguration.forEach(function(configuration) {
-        //     //create node
-        //     var load = ccs.load(xc.CharacterConfigLayer.res.character_skeleton_json, xc.path);
-        //     load.node.setPosition(that._contentPanelWidth / 4 + (offset * index), that._contentPanelHeight / 2);
-        //     that.addChild(load.node);
-        //     cc.eventManager.addListener(listener.clone(), load.node);            
-        //     var configs = configuration.split('-');
-        //     var charConfig;
-        //     var addressConfig;
-        //     if(configs != undefined && configs.length == 2) {
-        //         charConfig = configs[0];
-        //         addressConfig = configs[1];
-        //         load.node.bluetoothAddress = addressConfig;
-        //         var selectedConfigurationForCharacter = that.convertCachedBluetoothNameToArray(charConfig);
-        //         selectedConfigurationForCharacter.forEach(function(element) {
-        //             that.displaySkin(load.node, element.bone, element.itemUrl, element.selectedItemIndex);                
-        //         });                        
-        //     }
-        //     index++;            
-        // });     
+         
 
         this._panel = new xc.ScrollableButtonPanel(cc.p(0, this._tabHeight), cc.size(cc.director.getWinSize().width, cc.director.getWinSize().height - 2* this._tabHeight), 1, 1, this._discoveredConfiguration, this.skinSelected, this, false, false, this);
         this.addChild(this._panel);                                
@@ -97,7 +60,7 @@ xc.RenderBluetoothPeersLayer = cc.LayerColor.extend({
             var configuration = context._discoveredConfiguration[index];
 
             //create node
-            var load = ccs.load(xc.CharacterConfigLayer.res.character_skeleton_json, xc.path);
+            var load = ccs.load(xc.RenderBluetoothPeersLayer.res.character_skeleton_json, xc.path);
             load.node.setPosition(position);
 
             var configs = configuration.split('-');
@@ -111,10 +74,11 @@ xc.RenderBluetoothPeersLayer = cc.LayerColor.extend({
                 item.bluetoothAddress = addressConfig;
                 var selectedConfigurationForCharacter = context.convertCachedBluetoothNameToArray(charConfig);
                 selectedConfigurationForCharacter.forEach(function(element) {
-                    context.displaySkin(load.node, element.bone, element.itemUrl, element.selectedItemIndex);                
+                    context.displaySkin(load.node, element.bone, element.itemUrl, element.anchorX, element.anchorY, element.positionX, element.positionY, element.rotationX, element.rotationY, element.selectedItemIndex);
                 });                        
             }
-            return load.node;            
+            return load.node;
+            //return load.node.getChildren()[0].getChildren()[0];            
         }
     },
 
@@ -131,9 +95,12 @@ xc.RenderBluetoothPeersLayer = cc.LayerColor.extend({
             var decodedBluetoothNameToArray = [];
             if(array && array.length > 0) {
                 array.forEach(function(ele, index) {
-                    if(xc.RenderBluetoothPeersConfigObject && xc.RenderBluetoothPeersConfigObject.length > 0) {
-                        var obj = xc.RenderBluetoothPeersConfigObject[index];
-                        decodedBluetoothNameToArray.push({'bone':obj.bone, 'selectedItemIndex':ele, 'itemUrl':'#' + obj.items[parseInt(ele)].icon});
+                    if(xc.RenderBluetoothPeersConfigObject && xc.RenderBluetoothPeersConfigObject.data && xc.RenderBluetoothPeersConfigObject.data.length > 0) {
+                        var obj = xc.RenderBluetoothPeersConfigObject.data[index];
+                        //this._selectedConfigurationForCharacter.push({'bone':bone, 'selectedItemIndex':selectedItemIndex, 'itemUrl':itemUrl, 'anchorX':anchorX, 'anchorY':anchorY, 'positionX':positionX, 'positionY':positionY, 'rotationX':rotationX, 'rotationY': rotationY});
+                        var rotationX = obj.items[parseInt(ele)].Rotation ? obj.items[parseInt(ele)].Rotation.X : 0;
+                        var rotationY = obj.items[parseInt(ele)].Rotation ? obj.items[parseInt(ele)].Rotation.Y : 0;
+                        decodedBluetoothNameToArray.push({'bone':obj.bone, 'selectedItemIndex':ele, 'itemUrl':obj.items[parseInt(ele)].Image, 'anchorX':obj.items[parseInt(ele)].AnchorPoint.ScaleX, 'anchorY':obj.items[parseInt(ele)].AnchorPoint.ScaleY, 'positionX':obj.items[parseInt(ele)].Position.X, 'positionY':obj.items[parseInt(ele)].Position.Y, 'rotationX':rotationX, 'rotationY': rotationY});
                     }    
                 }); 
             }
@@ -141,8 +108,8 @@ xc.RenderBluetoothPeersLayer = cc.LayerColor.extend({
             return decodedBluetoothNameToArray;
         }
     },    
-
-    displaySkin:function (skeletonNode, bone, itemUrl, selectedItemIndex) {
+    
+    displaySkin:function (skeletonNode, bone, itemUrl, anchorX, anchorY, positionX, positionY, rotationX, rotationY, selectedItemIndex) {
         var boneNode = skeletonNode.getBoneNode(bone);
         var boneSkinNodeToAdd = null;
         var subBonesMap = skeletonNode.getAllSubBonesMap();
@@ -179,7 +146,7 @@ xc.RenderBluetoothPeersLayer = cc.LayerColor.extend({
             if(!alreadyContainsSkin) {
                 var skinSprite = new cc.Sprite(itemUrl);
                 skinSprite.setName(itemUrl);
-                skinSprite.setPosition(position);
+                skinSprite.setPosition(cc.p(positionX, positionY));
                 skinSprite.setAnchorPoint(anchorX, anchorY);
                 skinSprite.setRotation(rotation);
                 if(skinSprite != undefined) {
@@ -228,6 +195,8 @@ xc.RenderBluetoothPeersScene.load = function(layer) {
 
     cc.spriteFrameCache.addSpriteFrames(xc.RenderBluetoothPeersLayer.res.thumbnails_plist);
     cc.spriteFrameCache.addSpriteFrames(xc.RenderBluetoothPeersLayer.res.character_skeleton_plist);
+    cc.spriteFrameCache.addSpriteFrames(xc.RenderBluetoothPeersLayer.res.character_skeleton_plist_2);
+    
     cc.LoaderScene.preload(t_resources, function () {            
         //config data
 
@@ -248,9 +217,11 @@ xc.RenderBluetoothPeersLayer.res = {
         thumbnails_plist: xc.path + "wikitaki/thumbnails.plist",
         HelloWorld_png: xc.path + "wikitaki/HelloWorld.png",
         character_config_json: xc.path + "config/characterConfig.json",
-        character_skeleton_plist: xc.path + "hero/hero_Plist.plist",
-        character_skeleton_png: xc.path + "hero/hero_Plist.png",
-        character_skeleton_json: xc.path + "hero_skeleton.json"
+        character_skeleton_plist: xc.path + "faceavatar/faceavatar.plist",
+        character_skeleton_png: xc.path + "faceavatar/faceavatar.png",
+        character_skeleton_plist_2: xc.path + "faceavatar/faceavatar2/faceavatar2.plist",
+        character_skeleton_png_2: xc.path + "faceavatar/faceavatar2/faceavatar2.png",        
+        character_skeleton_json: xc.path + "faceavatar/avatar.json"
 };
 
 
