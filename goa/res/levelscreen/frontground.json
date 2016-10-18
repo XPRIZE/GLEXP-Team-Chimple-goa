@@ -48,17 +48,17 @@
               "Y": 0.0
             },
             "PreSize": {
-              "X": 3.0,
+              "X": 10.0,
               "Y": 0.1667
             },
             "LeftMargin": 0.0298,
-            "RightMargin": -5120.0298,
+            "RightMargin": -23040.0293,
             "TopMargin": 1500.0044,
             "BottomMargin": -0.0044,
             "Tag": 243,
             "ActionTag": 639020564,
             "Size": {
-              "X": 7680.0,
+              "X": 25600.0,
               "Y": 300.0
             },
             "Name": "Panel_1",
@@ -215,8 +215,8 @@
               "ScaleY": 0.5
             },
             "Position": {
-              "X": 7175.1348,
-              "Y": 900.7352
+              "X": 7845.1074,
+              "Y": 269.3321
             },
             "Scale": {
               "ScaleX": 1.0,
@@ -225,24 +225,70 @@
             "CColor": {},
             "IconVisible": false,
             "PrePosition": {
-              "X": 2.8028,
-              "Y": 0.5004
+              "X": 3.0645,
+              "Y": 0.1496
             },
             "PreSize": {
               "X": 0.3945,
-              "Y": 1.0006
+              "Y": 0.2989
             },
-            "LeftMargin": 6670.1348,
-            "RightMargin": -5120.1348,
-            "TopMargin": -1.2351,
-            "BottomMargin": 0.2352,
-            "Tag": 376,
-            "ActionTag": -1458093486,
+            "LeftMargin": 7340.1074,
+            "RightMargin": -5790.1074,
+            "TopMargin": 1261.668,
+            "BottomMargin": 0.3321,
+            "Tag": 721,
+            "ActionTag": 848419565,
             "Size": {
               "X": 1010.0,
-              "Y": 1801.0
+              "Y": 538.0
             },
-            "Name": "lasthill_40",
+            "Name": "lasthill_65",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FlipX": true,
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "levelscreen/lasthill.png",
+              "Plist": "levelscreen/levelscreen.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 8852.6367,
+              "Y": 269.4148
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 3.4581,
+              "Y": 0.1497
+            },
+            "PreSize": {
+              "X": 0.3945,
+              "Y": 0.2989
+            },
+            "LeftMargin": 8347.6367,
+            "RightMargin": -6797.6367,
+            "TopMargin": 1261.5852,
+            "BottomMargin": 0.4148,
+            "Tag": 722,
+            "ActionTag": 618590219,
+            "Size": {
+              "X": 1010.0,
+              "Y": 538.0
+            },
+            "Name": "lasthill_66",
             "ctype": "SpriteObjectData"
           },
           {
@@ -260,8 +306,8 @@
               "ScaleY": 0.5
             },
             "Position": {
-              "X": 6858.5869,
-              "Y": 591.9762
+              "X": 8341.9717,
+              "Y": 760.6052
             },
             "Scale": {
               "ScaleX": 1.0,
@@ -270,24 +316,431 @@
             "CColor": {},
             "IconVisible": false,
             "PrePosition": {
-              "X": 2.6791,
-              "Y": 0.3289
+              "X": 3.2586,
+              "Y": 0.4226
             },
             "PreSize": {
               "X": 0.1137,
               "Y": 0.2811
             },
-            "LeftMargin": 6713.0869,
-            "RightMargin": -4444.0869,
-            "TopMargin": 955.0238,
-            "BottomMargin": 338.9762,
-            "Tag": 384,
-            "ActionTag": -1227490792,
+            "LeftMargin": 8196.4717,
+            "RightMargin": -5927.4717,
+            "TopMargin": 786.3948,
+            "BottomMargin": 507.6052,
+            "Tag": 723,
+            "ActionTag": -469007712,
             "Size": {
               "X": 291.0,
               "Y": 506.0
             },
-            "Name": "cat_45",
+            "Name": "cat_67",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "levelscreen/boat.png",
+              "Plist": "levelscreen/levelscreen.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 10806.9824,
+              "Y": 496.7057
+            },
+            "Scale": {
+              "ScaleX": 1.2505,
+              "ScaleY": 1.2505
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 4.2215,
+              "Y": 0.2759
+            },
+            "PreSize": {
+              "X": 0.1871,
+              "Y": 0.3317
+            },
+            "LeftMargin": 10567.4824,
+            "RightMargin": -8486.4824,
+            "TopMargin": 1004.7943,
+            "BottomMargin": 198.2057,
+            "Tag": 724,
+            "ActionTag": 78416026,
+            "Size": {
+              "X": 479.0,
+              "Y": 597.0
+            },
+            "Name": "boat_68",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "levelscreen/boat2.png",
+              "Plist": "levelscreen/levelscreen.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 14479.8838,
+              "Y": 418.5071
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 5.6562,
+              "Y": 0.2325
+            },
+            "PreSize": {
+              "X": 0.327,
+              "Y": 0.3317
+            },
+            "LeftMargin": 14061.3838,
+            "RightMargin": -12338.3838,
+            "TopMargin": 1082.9929,
+            "BottomMargin": 120.0071,
+            "Tag": 743,
+            "ActionTag": -170930409,
+            "Size": {
+              "X": 837.0,
+              "Y": 597.0
+            },
+            "Name": "boat2_83",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FlipX": true,
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "levelscreen/boat1.png",
+              "Plist": "levelscreen/levelscreen.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 16880.0,
+              "Y": 429.9989
+            },
+            "Scale": {
+              "ScaleX": 1.167,
+              "ScaleY": 1.167
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 6.5938,
+              "Y": 0.2389
+            },
+            "PreSize": {
+              "X": 0.1871,
+              "Y": 0.3317
+            },
+            "LeftMargin": 16640.5,
+            "RightMargin": -14559.5,
+            "TopMargin": 1071.5011,
+            "BottomMargin": 131.4989,
+            "Tag": 744,
+            "ActionTag": -347676501,
+            "Size": {
+              "X": 479.0,
+              "Y": 597.0
+            },
+            "Name": "boat1_84",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "levelscreen/boat.png",
+              "Plist": "levelscreen/levelscreen.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 19529.9961,
+              "Y": 410.0
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 7.6289,
+              "Y": 0.2278
+            },
+            "PreSize": {
+              "X": 0.1871,
+              "Y": 0.3317
+            },
+            "LeftMargin": 19290.4961,
+            "RightMargin": -17209.4961,
+            "TopMargin": 1091.5,
+            "BottomMargin": 111.5,
+            "Tag": 767,
+            "ActionTag": 1636655117,
+            "Size": {
+              "X": 479.0,
+              "Y": 597.0
+            },
+            "Name": "boat_103",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "levelscreen/boat2.png",
+              "Plist": "levelscreen/levelscreen.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 22979.9805,
+              "Y": 429.9995
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 8.9766,
+              "Y": 0.2389
+            },
+            "PreSize": {
+              "X": 0.327,
+              "Y": 0.3317
+            },
+            "LeftMargin": 22561.4805,
+            "RightMargin": -20838.4805,
+            "TopMargin": 1071.5005,
+            "BottomMargin": 131.4995,
+            "Tag": 768,
+            "ActionTag": 1074123192,
+            "Size": {
+              "X": 837.0,
+              "Y": 597.0
+            },
+            "Name": "boat2_104",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "levelscreen/lasthill.png",
+              "Plist": "levelscreen/levelscreen.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 17686.6797,
+              "Y": 269.5151
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 6.9089,
+              "Y": 0.1497
+            },
+            "PreSize": {
+              "X": 0.3945,
+              "Y": 0.2989
+            },
+            "LeftMargin": 17181.6797,
+            "RightMargin": -15631.6797,
+            "TopMargin": 1261.4849,
+            "BottomMargin": 0.5151,
+            "Tag": 782,
+            "ActionTag": -852435796,
+            "Size": {
+              "X": 1010.0,
+              "Y": 538.0
+            },
+            "Name": "lasthill_116",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FlipX": true,
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "levelscreen/lasthill.png",
+              "Plist": "levelscreen/levelscreen.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 18695.9414,
+              "Y": 269.694
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 7.3031,
+              "Y": 0.1498
+            },
+            "PreSize": {
+              "X": 0.3945,
+              "Y": 0.2989
+            },
+            "LeftMargin": 18190.9414,
+            "RightMargin": -16640.9414,
+            "TopMargin": 1261.3059,
+            "BottomMargin": 0.694,
+            "Tag": 783,
+            "ActionTag": -1315305769,
+            "Size": {
+              "X": 1010.0,
+              "Y": 538.0
+            },
+            "Name": "lasthill_117",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "levelscreen/lasthill1.png",
+              "Plist": "levelscreen/levelscreen.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 25095.1992,
+              "Y": 901.4518
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 9.8028,
+              "Y": 0.5008
+            },
+            "PreSize": {
+              "X": 0.3945,
+              "Y": 1.0006
+            },
+            "LeftMargin": 24590.1992,
+            "RightMargin": -23040.1992,
+            "TopMargin": -1.9518,
+            "BottomMargin": 0.9518,
+            "Tag": 784,
+            "ActionTag": 1451622870,
+            "Size": {
+              "X": 1010.0,
+              "Y": 1801.0
+            },
+            "Name": "lasthill1_118",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "levelscreen/cat1.png",
+              "Plist": "levelscreen/levelscreen.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 18128.9062,
+              "Y": 745.284
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 7.0816,
+              "Y": 0.414
+            },
+            "PreSize": {
+              "X": 0.1133,
+              "Y": 0.2794
+            },
+            "LeftMargin": 17983.9062,
+            "RightMargin": -15713.9062,
+            "TopMargin": 803.216,
+            "BottomMargin": 493.784,
+            "Tag": 785,
+            "ActionTag": -1301668158,
+            "Size": {
+              "X": 290.0,
+              "Y": 503.0
+            },
+            "Name": "cat1_119",
             "ctype": "SpriteObjectData"
           }
         ],
