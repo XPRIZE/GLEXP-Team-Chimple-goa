@@ -50,9 +50,9 @@ xc.CharacterConfigLayer = cc.LayerColor.extend({
                     this.skinSelected("hairfront");
                     this.skinSelected("hairback");
                 } else if(sender.getName() == 'haircolor') {
-                    this.colorSkin(['hairfront','hairback'], true);
+                    this.colorSkin(['hairfront','hairback'], true, -1);
                 } else if(sender.getName() == 'facecolor') {
-                    this.colorSkin(['faceshape','body'], false);                    
+                    this.colorSkin(['faceshape','body'], false, -1);                    
                 }                
                 else {
                     this.skinSelected(sender.getName());
@@ -79,7 +79,15 @@ xc.CharacterConfigLayer = cc.LayerColor.extend({
                         
                         that.displaySkin(element.bone, element.items[randomIndex].Image,element.items[randomIndex].AnchorPoint.ScaleX, element.items[randomIndex].AnchorPoint.ScaleY,  element.items[randomIndex].Position.X, element.items[randomIndex].Position.Y, element.items[randomIndex].Rotation ? element.items[randomIndex].Rotation.X : undefined, element.items[randomIndex].Rotation ? element.items[randomIndex].Rotation.Y : undefined, randomIndex);                    
                     }
-                });                
+                });  
+
+                //update color
+                var randomIndex = that.randomIntFromInterval(0, this._selectedColorConfigurationForCharacter.length - 1);            
+                this.colorSkin(['hairfront','hairback'], true, randomIndex);
+                    
+                var randomIndex = that.randomIntFromInterval(0, this._selectedColorConfigurationForCharacter.length - 1);
+                this.colorSkin(['faceshape','body'], false, randomIndex);                                  
+                              
                 break;
 
             case ccui.Widget.TOUCH_ENDED:
@@ -155,7 +163,14 @@ xc.CharacterConfigLayer = cc.LayerColor.extend({
                     var randomIndex = that.randomIntFromInterval(0, element.items.length - 1);
                     that.displaySkin(element.bone, element.items[randomIndex].Image,element.items[randomIndex].AnchorPoint.ScaleX, element.items[randomIndex].AnchorPoint.ScaleY,  element.items[randomIndex].Position.X, element.items[randomIndex].Position.Y, element.items[randomIndex].Rotation ? element.items[randomIndex].Rotation.X : undefined, element.items[randomIndex].Rotation ? element.items[randomIndex].Rotation.Y : undefined, randomIndex);                    
                 }
-            });       
+            });     
+
+            //update color
+            var randomIndex = that.randomIntFromInterval(0, this._selectedColorConfigurationForCharacter.length - 1);            
+            this.colorSkin(['hairfront','hairback'], true, randomIndex);
+                    
+            var randomIndex = that.randomIntFromInterval(0, this._selectedColorConfigurationForCharacter.length - 1);
+            this.colorSkin(['faceshape','body'], false, randomIndex);                                  
         }
     },
 
@@ -194,14 +209,25 @@ xc.CharacterConfigLayer = cc.LayerColor.extend({
         }
     },
 
-    colorSkin: function(selectedBoneNames, isHairColor) {
+    colorSkin: function(selectedBoneNames, isHairColor, selectedIndex) {
         var incrementedIndex;
-        if(isHairColor) {
-            incrementedIndex = ++this._hairColorIndex;
+        if(selectedIndex != -1) {
+            incrementedIndex = selectedIndex;
         } else {
-            incrementedIndex = ++this._faceColorIndex; 
+            if(isHairColor) {
+                incrementedIndex = ++this._hairColorIndex;
+            } else {
+                incrementedIndex = ++this._faceColorIndex; 
+            }
         }
+        
         var adjustedIndex = incrementedIndex % this._selectedColorConfigurationForCharacter.length;
+        if(isHairColor) {
+            this._hairColorIndex = adjustedIndex;
+        } else {
+            this._faceColorIndex =  adjustedIndex; 
+        }
+        
         var color = this._selectedColorConfigurationForCharacter[adjustedIndex].color;
         var that = this;
         selectedBoneNames.forEach(function(selectedBoneName) {
