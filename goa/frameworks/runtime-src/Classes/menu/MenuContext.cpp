@@ -59,6 +59,7 @@ using namespace experimental;
 
 static const int MAX_POINTS_TO_SHOW = 16;
 static const int POINTS_TO_LEFT = 300.0f;
+static const std::string CURRENT_LEVEL = ".currentLevel";
 
 MenuContext* MenuContext::create(Node* main, std::string gameName, bool launchCustomEventOnExit, std::string sceneName) {
     MenuContext* menuContext = new (std::nothrow) MenuContext();
@@ -67,6 +68,12 @@ MenuContext* MenuContext::create(Node* main, std::string gameName, bool launchCu
         menuContext->_launchCustomEventOnExit = launchCustomEventOnExit;
         menuContext->gameName = gameName;
         menuContext->sceneName = sceneName;
+
+        std::string currentLevelStr;
+        localStorageGetItem(gameName + CURRENT_LEVEL, &currentLevelStr);
+        if(!currentLevelStr.empty()) {
+            menuContext->setCurrentLevel(std::stoi( currentLevelStr ));
+        }
         return menuContext;
     }
     CC_SAFE_DELETE(menuContext);
@@ -910,6 +917,13 @@ void MenuContext::exitMultiPlayerGame() {
     Director::getInstance()->replaceScene(ScrollableGameMapScene::createScene());
 }
 
+int MenuContext::getCurrentLevel() {
+    return _currentLevel;
+}
+
+void MenuContext::setCurrentLevel(int level) {
+    _currentLevel = level;
+}
 
 
 MenuContext::MenuContext() :
@@ -921,7 +935,8 @@ _chimp(nullptr),
 _chimpAudioId(0),
 _gameIsPaused(false),
 _startupCallback(nullptr),
-_photoMenu(nullptr)
+_photoMenu(nullptr),
+_currentLevel(1)
 {
     
 }
