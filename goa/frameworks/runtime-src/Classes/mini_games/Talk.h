@@ -39,6 +39,7 @@ public:
 	std::vector<cocos2d::Sprite*> _enemyFish, _heroFish;
 	int _totalCount, _totalAnswer, _correctAnswer;
 	cocos2d::ui::Scale9Sprite *_board;
+	std::ostringstream _imgName;
 
 //	std::vector<std::string> _allSentense;
 
