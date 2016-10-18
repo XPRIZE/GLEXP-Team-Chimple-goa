@@ -8,19 +8,24 @@ xc.HelpLayer = cc.Node.extend({
   _animating: false,
   ctor: function(touchRect, otherRect) {
     this._super()
-    if((touchRect.x + touchRect.width / 2) < (otherRect.x - otherRect.width)) {
-      this._graywindow = this.makePanel(touchRect, cc.rect(0, 0, otherRect.x - otherRect.width / 2, cc.director.getWinSize().height))
-      this.makePanel(otherRect, cc.rect(otherRect.x - otherRect.width / 2, 0, cc.director.getWinSize().width - otherRect.x + otherRect.width / 2 , cc.director.getWinSize().height))    
-    } else if((otherRect.x + otherRect.width / 2) < (touchRect.x - touchRect.width)) {
-      this.makePanel(otherRect, cc.rect(0, 0, touchRect.x - touchRect.width / 2, cc.director.getWinSize().height))
-      this._graywindow = this.makePanel(touchRect, cc.rect(touchRect.x - touchRect.width / 2, 0, cc.director.getWinSize().width - touchRect.x + touchRect.width / 2 , cc.director.getWinSize().height))    
-    } else if((touchRect.y + touchRect.height / 2) < (otherRect.y - otherRect.height)) {
-      this._graywindow = this.makePanel(touchRect, cc.rect(0, 0, cc.director.getWinSize().width, otherRect.y - otherRect.height / 2))
-      this.makePanel(otherRect, cc.rect(0, otherRect.y - otherRect.height / 2, cc.director.getWinSize().width, cc.director.getWinSize().height - otherRect.y + otherRect.height / 2 ))    
+    if(!otherRect) {
+      this._graywindow = this.makePanel(touchRect, cc.rect(0, 0, cc.director.getWinSize().width, cc.director.getWinSize().height))
     } else {
-      this.makePanel(otherRect, cc.rect(0, 0, cc.director.getWinSize().width, touchRect.y - touchRect.height / 2))
-      this._graywindow = this.makePanel(touchRect, cc.rect(0, touchRect.y - touchRect.height / 2, cc.director.getWinSize().width, cc.director.getWinSize().height - touchRect.y + touchRect.height / 2 ))          
+      if((touchRect.x + touchRect.width / 2) < (otherRect.x - otherRect.width)) {
+        this._graywindow = this.makePanel(touchRect, cc.rect(0, 0, otherRect.x - otherRect.width / 2, cc.director.getWinSize().height))
+        this.makePanel(otherRect, cc.rect(otherRect.x - otherRect.width / 2, 0, cc.director.getWinSize().width - otherRect.x + otherRect.width / 2 , cc.director.getWinSize().height))    
+      } else if((otherRect.x + otherRect.width / 2) < (touchRect.x - touchRect.width)) {
+        this.makePanel(otherRect, cc.rect(0, 0, touchRect.x - touchRect.width / 2, cc.director.getWinSize().height))
+        this._graywindow = this.makePanel(touchRect, cc.rect(touchRect.x - touchRect.width / 2, 0, cc.director.getWinSize().width - touchRect.x + touchRect.width / 2 , cc.director.getWinSize().height))    
+      } else if((touchRect.y + touchRect.height / 2) < (otherRect.y - otherRect.height)) {
+        this._graywindow = this.makePanel(touchRect, cc.rect(0, 0, cc.director.getWinSize().width, otherRect.y - otherRect.height / 2))
+        this.makePanel(otherRect, cc.rect(0, otherRect.y - otherRect.height / 2, cc.director.getWinSize().width, cc.director.getWinSize().height - otherRect.y + otherRect.height / 2 ))    
+      } else {
+        this.makePanel(otherRect, cc.rect(0, 0, cc.director.getWinSize().width, touchRect.y - touchRect.height / 2))
+        this._graywindow = this.makePanel(touchRect, cc.rect(0, touchRect.y - touchRect.height / 2, cc.director.getWinSize().width, cc.director.getWinSize().height - touchRect.y + touchRect.height / 2 ))          
+      }          
     }
+
     this._listener = cc.EventListener.create({
         event: cc.EventListener.TOUCH_ONE_BY_ONE,
         swallowTouches: true,
