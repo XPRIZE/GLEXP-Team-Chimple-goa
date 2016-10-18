@@ -102,7 +102,7 @@ bool Drop::init()
 
 	std::string theme[] = { "dropjungle", "drophero","dropcity" };
 	_dropCurrentTheme = theme[RandomHelper::random_int(0, 2)];
-	//_dropCurrentTheme = "dropjungle";
+	_dropCurrentTheme = "dropjungle";
 	_scenePath = dropSceneMap.at(_dropCurrentTheme);
 
 	_sceneBasedNumericalVal = dropSceneNumValue.at(_dropCurrentTheme);
@@ -232,7 +232,7 @@ void Drop::layingOutBasket(bool flag, float gap, std::string letter, int i)
 			std::pair<Sprite*, cocostudio::timeline::ActionTimeline*>animationData = setAnimationAndProperties(_scenePath.at("basketAnimation"), (i*gap + gap / 2), (visibleSize.height*0.08), 1);
 			cocostudio::timeline::ActionTimeline* basketTimeline = animationData.second;
 			Sprite* basket = animationData.first;
-			basketTimeline->setCurrentFrame(45);
+			basketTimeline->setCurrentFrame(basketTimeline->getEndFrame());
 		}
 	else {
 			Sprite* basket = Sprite::createWithSpriteFrameName(_scenePath.at("demoBasket"));
