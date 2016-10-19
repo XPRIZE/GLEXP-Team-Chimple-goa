@@ -125,7 +125,7 @@ bool Owl::init()
 	auto origin = Director::getInstance()->getVisibleOrigin();
 	string test[3] = {"owlisland","owlCity","owljungle"};
 	//_owlCurrentTheme = test[RandomHelper::random_int(0, 1)];
-	_owlCurrentTheme = "owljungle";
+	_owlCurrentTheme = "owlisland";
 
 	auto themeResourcePath = _sceneMap.at(_owlCurrentTheme);
 	Node* bg = CSLoader::createNode(themeResourcePath.at("bg"));
@@ -442,10 +442,12 @@ void Owl::addEventsOnGrid(cocos2d::Sprite* callerObject)
 							_xStart = _sprite->getPositionX();      // Pixels
 							_yStart = blockBox->getPositionY() + blockBox->getContentSize().height;
 							if (counter % 2 != 0) {
+								_sprite->setScaleX(1.0f);
 								_xStop = blockBox->getPositionX() - blockBox->getContentSize().width/2;
 								_ticks = 0;
 								_ticksTotal = 3 / (1.0/60.0);// Pixels
 							}else {
+								_sprite->setScaleX(-1.0f);
 								_xStop = blockBox->getPositionX() + blockBox->getContentSize().width / 2;
 								_ticks = 0;
 								_ticksTotal = 3 / (1.0/60.0);// Pixels
@@ -467,28 +469,27 @@ void Owl::addEventsOnGrid(cocos2d::Sprite* callerObject)
 							_sprite->getChildByName(_sceneMap.at(_owlCurrentTheme).at("whiteBoard"))->setVisible(true);
 							_textOwlBoard->setString(LangUtil::convertUTF16CharToString(target->getName().at(0)));
 
-							if (_owlCurrentTheme == "owljungle") {
-								if (_sprite->getPositionX() < target->getPositionX()) {
-									_sprite->setScaleX(1.0f);
+								if (_sprite->getPositionX() < blockChild.at(_textCounter)->getPositionX()) {
+									_sprite->setScaleX(-1.0f);
 								}
 								else {
-									_sprite->setScaleX(-1.0f);
+									_sprite->setScaleX(1.0f);
+								}
+								if (_sprite->getScaleX() == -1) {
 									_sprite->getChildByName(_sceneMap.at(_owlCurrentTheme).at("whiteBoard"))->setScaleX(-1.0f);
 								}
-							}
+								else {
+									_sprite->getChildByName(_sceneMap.at(_owlCurrentTheme).at("whiteBoard"))->setScaleX(1.0f);
+								}
 						});
 						auto initAction = CallFunc::create([=]() {
 							_flagDemo = false;
-							if (_owlCurrentTheme == "owljungle") {
 								if (_sprite->getPositionX() < target->getPositionX()) {
-									_sprite->setScaleX(-1.0f);
-									
+									_sprite->setScaleX(-1.0f);			
 								}
 								else {
 									_sprite->setScaleX(1.0f);
 								}
-							}
-							
 						});
 						_sprite->runAction(Sequence::create(initAction, moveToAlphaGridAction, pickBoard, moveToAnswerGridAction, callFunct, NULL));
 					}
@@ -522,11 +523,13 @@ void Owl::addEventsOnGrid(cocos2d::Sprite* callerObject)
 							_xStart = _sprite->getPositionX();      // Pixels
 							_yStart = blockBox->getPositionY() + blockBox->getContentSize().height;
 							if (counter % 2 != 0) {
+								_sprite->setScaleX(1.0f);
 								_xStop = blockBox->getPositionX() - blockBox->getContentSize().width / 2;
 								_ticks = 0;
 								_ticksTotal = 3 / (1.0 / 60.0);// Pixels
 							}
 							else {
+								_sprite->setScaleX(-1.0f);
 								_xStop = blockBox->getPositionX() + blockBox->getContentSize().width / 2;
 								_ticks = 0;
 								_ticksTotal = 3 / (1.0 / 60.0);// Pixels
@@ -543,28 +546,30 @@ void Owl::addEventsOnGrid(cocos2d::Sprite* callerObject)
 							whiteTran->runAction(MoveTo::create(0.6, Vec2(whiteTran->getPositionX(), whiteTran->getPositionY() - 300)));
 						});
 						auto pickBoard = CallFunc::create([=]() {
-							if (_owlCurrentTheme == "owljungle") {
-								if (_sprite->getPositionX() < target->getPositionX()) {
-									_sprite->setScaleX(1.0f);
+								if (_sprite->getPositionX() < blockChild.at(_textCounter)->getPositionX()) {
+									_sprite->setScaleX(-1.0f);
 								}
 								else {
-									_sprite->setScaleX(-1.0f);
+									_sprite->setScaleX(1.0f);
+								}
+								if (_sprite->getScaleX() == -1) {
 									_sprite->getChildByName(_sceneMap.at(_owlCurrentTheme).at("whiteBoard"))->setScaleX(-1.0f);
 								}
-							}
+								else {
+									_sprite->getChildByName(_sceneMap.at(_owlCurrentTheme).at("whiteBoard"))->setScaleX(1.0f);
+								}
+
 							_sprite->getChildByName(_sceneMap.at(_owlCurrentTheme).at("whiteBoard"))->setVisible(true);
 							_textOwlBoard->setString(LangUtil::convertUTF16CharToString(target->getName().at(0)));
 						});
 						auto initAction = CallFunc::create([=]() {
 							_flagDemo = false;
-							if (_owlCurrentTheme == "owljungle") {
 								if (_sprite->getPositionX() < target->getPositionX()) {
 									_sprite->setScaleX(-1.0f);
 								}
 								else {
 									_sprite->setScaleX(1.0f);
 								}
-							}
 						});
 						_sprite->runAction(Sequence::create(initAction, moveToAlphaGridAction, pickBoard, moveToAnswerGridAction, callFunct, DelayTime::create(0.6),afterDrop, NULL));
 					}

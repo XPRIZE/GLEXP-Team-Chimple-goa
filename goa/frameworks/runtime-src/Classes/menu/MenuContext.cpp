@@ -73,7 +73,7 @@ MenuContext* MenuContext::create(Node* main, std::string gameName, bool launchCu
         std::string currentLevelStr;
         localStorageGetItem(gameName + CURRENT_LEVEL, &currentLevelStr);
         if(!currentLevelStr.empty()) {
-            menuContext->setCurrentLevel(std::stoi( currentLevelStr ));
+            menuContext->setCurrentLevel(std::atoi( currentLevelStr.c_str()));
         }
         return menuContext;
     }
@@ -842,6 +842,9 @@ void MenuContext::launchGameFromJS(std::string gameName) {
     	}
 		else if (gameName == BALLONHERO) {
 			Director::getInstance()->replaceScene(BalloonHero::createScene());
+		}
+		else if (gameName == SORT_IT) {
+			ScriptingCore::getInstance()->runScript("src/start/sortit.js");
 		}
     	else{
             CCLOG("Failed starting scene: %s", gameName.c_str());

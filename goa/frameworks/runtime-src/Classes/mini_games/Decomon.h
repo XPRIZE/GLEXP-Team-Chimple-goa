@@ -32,10 +32,11 @@ protected:
 	cocos2d::DrawNode *_paintingNode;
 	cocos2d::Vector<cocos2d::Node *> _drawNodes;
 	int _colorIndex;
+	std::string _myChar;
 	cocos2d::RenderTexture *_paintingTexture;
 	cocos2d::Sprite *_paintingColour;
 	int _pickedColor_R, _pickedColor_G, _pickedColor_B;
-	bool _touched = false, _flip, _colorPicked = false;
+	bool _touched = false, _flip, _colorPicked = false, _screenShoot = true;
 	cocos2d::Vector <cocos2d::Node *> _movedNodes;
 	std::vector <std::string> _eyePath;
 	std::vector <std::string> _mouthPath;
@@ -55,6 +56,8 @@ protected:
 	void generateDuplicatesInAGrid(cocos2d::Node * node);
 	cocos2d::Label * _alphabetLabel, *_myLabel;
 	void screenShot();
+	void decomonGallery();
+	void split(const std::string &s, char delim, std::vector<std::string> &elems);
 	void captureImage(bool capture, const std::string& outputFile);
 	static const char* gameName() { return DECOMON.c_str(); }
 };
