@@ -73,7 +73,7 @@ MenuContext* MenuContext::create(Node* main, std::string gameName, bool launchCu
         std::string currentLevelStr;
         localStorageGetItem(gameName + CURRENT_LEVEL, &currentLevelStr);
         if(!currentLevelStr.empty()) {
-            menuContext->setCurrentLevel(std::stoi( currentLevelStr ));
+            menuContext->setCurrentLevel(std::atoi( currentLevelStr.c_str()));
         }
         return menuContext;
     }
