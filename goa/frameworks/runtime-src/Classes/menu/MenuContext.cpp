@@ -842,6 +842,9 @@ void MenuContext::launchGameFromJS(std::string gameName) {
 		else if (gameName == BALLONHERO) {
 			Director::getInstance()->replaceScene(BalloonHero::createScene());
 		}
+		else if (gameName == SORT_IT) {
+			ScriptingCore::getInstance()->runScript("src/start/sortit.js");
+		}
     	else{
             CCLOG("Failed starting scene: %s", gameName.c_str());
         }
