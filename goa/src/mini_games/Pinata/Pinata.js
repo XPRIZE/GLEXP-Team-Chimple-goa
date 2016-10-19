@@ -127,9 +127,9 @@ xc.Pinata = cc.Layer.extend({
                 if(classReference.gameBg.node.getChildByName("board").freezShooting ){
                     if (cc.rectContainsPoint(targetRectangle, location)){
                         classReference.player.prevX = touch.getLocation().x;
-                        classReference.player.prevY = touch.getLocation().y;
-                        
-                        return true;}
+                        classReference.player.prevY = touch.getLocation().y;    
+                        return true;
+                    }
                 }
                 return false;
             },
@@ -360,8 +360,11 @@ xc.Pinata = cc.Layer.extend({
             }
         }
 
-    },
+        if(touch.getLocation().y >= (cc.director.getWinSize().height * 0.5)){
+                    target.y= cc.director.getWinSize().height * 0.5;
+         }
 
+    },
     stateShootBubble : function(dt){
         this.bubblePlayer.x += (1.0 / 60) * 2500 * Math.cos(this.degToRad(this.player.angle));
         this.bubblePlayer.y += (1.0 / 60) * 2500 * -1 * Math.sin(this.degToRad(this.player.angle));
