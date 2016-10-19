@@ -899,9 +899,16 @@ void MenuContext::showScore() {
     localStorageGetItem(gameName + LEVEL, &progressStr);
 
     rapidjson::Document d;
-    d.Parse(progressStr.c_str());
     rapidjson::Document::AllocatorType& allocator = d.GetAllocator();
-    while(d.Capacity() <= _currentLevel) {
+    if(progressStr.empty()) {
+        d.SetArray();
+        int x = d.Size();
+        d.PushBack(0, allocator);
+        int y = d.Size();
+    } else {
+        d.Parse(progressStr.c_str());
+    }
+    while(d.Size() <= _currentLevel) {
         d.PushBack(0, allocator);
     }
     int currentStar = d[_currentLevel].GetInt();
