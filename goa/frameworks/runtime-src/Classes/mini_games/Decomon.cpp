@@ -11,6 +11,8 @@
 #include "Decomon.h"
 #include "../lang/LangUtil.h"
 #include "../puzzle/CharGenerator.h"
+#include "DecomonGallery.h"
+
 USING_NS_CC;
 
 Decomon::Decomon()
@@ -125,6 +127,11 @@ child = decomon_icon_mouth*/
 	listener->onTouchBegan = CC_CALLBACK_2(Decomon::onTouchBegan, this);
 	_eventDispatcher->addEventListenerWithSceneGraphPriority(listener, bg->getChildByName("decomon_icon_camera"));
 
+	auto listener1 = EventListenerTouchOneByOne::create();
+	listener1->setSwallowTouches(true);
+	listener1->onTouchBegan = CC_CALLBACK_2(Decomon::onTouchBegan, this);
+	_eventDispatcher->addEventListenerWithSceneGraphPriority(listener1, bg->getChildByName("decomon_icon_gallery"));
+
 	
 
 	_eyePath = { "decomon/decomon_eye_a.csb",
@@ -183,10 +190,10 @@ child = decomon_icon_mouth*/
 		"decomon/decomon3/decomon_hair_9.png" };
 
 	
-	auto myChar = LangUtil::convertUTF16CharToString(CharGenerator::getInstance()->generateAChar());
+	_myChar = LangUtil::convertUTF16CharToString(CharGenerator::getInstance()->generateAChar());
 
 	//BalooBhai-Regular.ttf
-	cocos2d::ui::TextBMFont * my = cocos2d::ui::TextBMFont::create(myChar, LangUtil::getInstance()->getBMFontFileName());
+	cocos2d::ui::TextBMFont * my = cocos2d::ui::TextBMFont::create(_myChar, LangUtil::getInstance()->getBMFontFileName());
 	my->setPositionX(visibleSize.width / 2);
 	my->setPositionY(visibleSize.height / 2);
 	my->setScale(2);
@@ -195,7 +202,7 @@ child = decomon_icon_mouth*/
 	auto x = my->getBoundingBox().origin;
 	auto sssize = my->getContentSize();
 	_width = my->getContentSize().width;
-	_myLabel = Label::createWithBMFont(LangUtil::getInstance()->getBMFontFileName(), myChar);
+	_myLabel = Label::createWithBMFont(LangUtil::getInstance()->getBMFontFileName(), _myChar);
 	//auto myLabel = Label::createWithTTF("A", "fonts/BalooBhai-Regular.ttf",1600);
 //	_myLabel->setPositionX(visibleSize.width / 2);// , visibleSize.height/ 2);
 //	_myLabel->setPositionY(visibleSize.height / 2);
@@ -371,7 +378,15 @@ bool Decomon::onTouchBegan(cocos2d::Touch * touch, cocos2d::Event * event)
 			return false;
 		}
 		else if (target->getName().compare("decomon_icon_camera") == 0) {
-			screenShot();
+			if (_screenShoot) {
+				screenShot();
+				_screenShoot = false;
+			}
+			return false;
+		}
+		else if (target->getName().compare("decomon_icon_gallery") == 0) {
+			//screenShot();
+			decomonGallery();
 			return false;
 		}
 		else if (target->getName().compare("updated costume") == 0) {
@@ -426,13 +441,6 @@ void Decomon::onTouchMoved(cocos2d::Touch * touch, cocos2d::Event * event)
 {
 	auto target = event->getCurrentTarget();
 	Size visibleSize = Director::getInstance()->getVisibleSize();
-	if (touch->getLocation().x > visibleSize.width / 2 && touch->getLocation().y > visibleSize.height / 2) {
-		//_flip = false;
-		target->setScaleX(-1.0f);// *target->getScaleX());
-	}
-	else if (touch->getLocation().x < visibleSize.width / 2) {
-		target->setScaleX(1);
-	}
 
 	if (_colorPicked){
 		//(target->getName().find("decomon/decomon3/decomon_paintbucket") == 0) {
@@ -468,11 +476,15 @@ void Decomon::onTouchMoved(cocos2d::Touch * touch, cocos2d::Event * event)
 		if (target->getName().find("decomon/decomon3/decomon_paintbucket") != 0) {
 			target->setPosition(touch->getLocation());
 		} 
-		else {
-			if (target->getScaleX() > 0) {
-				
-			}
+
+		if (touch->getLocation().x > visibleSize.width / 2 && touch->getLocation().y > visibleSize.height / 2) {
+			//_flip = false;
+			target->setScaleX(-1.0f);// *target->getScaleX());
 		}
+		else if (touch->getLocation().x < visibleSize.width / 2) {
+			target->setScaleX(1);
+		}
+		
 	}
 
 	//CCLOG("on touch moved");
@@ -644,21 +656,71 @@ void Decomon::generateDuplicatesInAGrid(cocos2d::Node * node)
 
 void Decomon::screenShot()
 {
+	
 //#if (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
-	utils::captureScreen(CC_CALLBACK_2(Decomon::captureImage, this), "Alphabet.png");
+	int num = cocos2d::RandomHelper::random_int(1, 200);
+	std::stringstream ss;
+	ss << num;
+	std::string path = ss.str();
+	path += _myChar;
+	path += "decomon.png";
+	utils::captureScreen(CC_CALLBACK_2(Decomon::captureImage, this), path);
 //#endif
+	Size visibleSize = Director::getInstance()->getVisibleSize();
+	auto render = RenderTexture::create(visibleSize.width / 2, visibleSize.height / 1.5, kCCTexture2DPixelFormat_RGBA8888);
+	render->setPosition(ccp(visibleSize.width / 2, visibleSize.height / 2));
+	render->begin();
+	this->getParent()->visit();
+	render->end();
+	CCImage* image = render->newImage();
+
+	std::string filePath = FileUtils::sharedFileUtils()->getWritablePath() + path;
+	if (image->saveToFile(filePath.c_str(), false)) {
+		CCLOG("Succeed!");
+		std::string str = filePath + '%';
+		auto writablePath = FileUtils::getInstance()->getWritablePath()+ "decomon.txt";
+		std::string contents = FileUtils::getInstance()->getStringFromFile(writablePath);
+		str = str + contents ;
+		FileUtils::getInstance()->writeStringToFile(str, writablePath);
+		
+	}
+	else {
+		CCLOG("Fail!");
+	}
+	//render->saveToFile("decomon/snapshot.png", Image::Format::PNG);
+	//auto fullpath = FileUtils::getInstance()->getWritablePath() + ("decomon/snapshot.png");
+}
+
+void Decomon::decomonGallery()
+{
+
+	Director::getInstance()->replaceScene(TransitionFade::create(1.0, DecomonGallery::createScene()));
+	
+}
+
+void Decomon::split(const std::string & s, char delim, std::vector<std::string>& elems)
+{
+	std::stringstream ss;
+	ss.str(s);
+	std::string item;
+	while (std::getline(ss, item, delim)) {
+		elems.push_back(item);
+	}
 }
 
 void Decomon::captureImage(bool capture, const std::string & outputFile)
 {
 	if (capture)
 	{
+		auto action3 = Blink::create(0.5, 1);
+		this->runAction(action3);
 		// show screenshot
 		auto sp = Sprite::create(outputFile);
-		addChild(sp, 0);
+	//	addChild(sp, 0);
 		Size s = Director::getInstance()->getWinSize();
 		sp->setPosition(s.width / 2, s.height / 2);
 		sp->setScale(0.25);
+		_screenShoot = true;
 	}
 	else
 	{
