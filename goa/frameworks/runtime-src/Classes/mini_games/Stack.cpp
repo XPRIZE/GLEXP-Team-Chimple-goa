@@ -18,7 +18,7 @@ Scene* Stack::createScene()
 	scene->addChild(layer);
     layer->_menuContext = MenuContext::create(layer, Stack::gameName());
     scene->addChild(layer->_menuContext);
-
+	layer->_menuContext->setMaxPoints(8);
 	return scene;
 }
 
@@ -30,13 +30,13 @@ bool Stack::init()
 	}
 
 	flag = true;
-
+	_helpFlag = 0;
 	visibleSize = Director::getInstance()->getWinSize();
 
 	std::vector<std::string> scene = { "island", "superhero" , "farm" };
 
 	sceneName = scene.at(rand() % 3);
-//	sceneName = "island";
+//	sceneName = "farm";
 
 	if (sceneName == "island")
 	{
@@ -191,18 +191,34 @@ void Stack::generateWord()
 	if (_allWords.size() != 0)
 	{
 		_word = _allWords.at(rand() % _allWords.size());
-		_wordLabel = LabelTTF::create(_word, "Helvetica", 100, CCSizeMake(500, 300));
+		_wordLabel = LabelTTF::create(_word, "Helvetica", 100);
 		_wordLabel->setColor(Color3B::BLACK);
 		this->addChild(_wordLabel);
 
+
 		if (sceneName == "superhero")
 		{
-			_wordLabel->setPosition(-200, visibleSize.height * .22);
+			_wordLabel->setPosition(-200, visibleSize.height * .26);
 
-			auto sequenceFuel = Sequence::create(MoveTo::create(2, Vec2(visibleSize.width * .065, visibleSize.height * .22)), CallFunc::create([=]() {
+			auto sequenceFuel = Sequence::create(MoveTo::create(2, Vec2(visibleSize.width * .065, _wordLabel->getPositionY())), CallFunc::create([=]() {
 				flag = false;
 				stackbg->stopAction(treadmill);
 			}), NULL);
+
+			if (_helpFlag == 0)
+			{
+				for (auto i = 0; i < _startName.size(); i++)
+				{
+					if ((_word.substr(0, _startName.at(i).length()) == _startName.at(i)))
+					{
+						_help = HelpLayer::create(Rect(containerBar.at(i)->getPositionX(), containerBar.at(i)->getPositionY(), containerBar.at(i)->getContentSize().width, containerBar.at(i)->getContentSize().height), Rect(visibleSize.width * .065, _wordLabel->getPositionY(), _wordLabel->getBoundingBox().size.width, _wordLabel->getBoundingBox().size.height));
+						_help->click(Vec2(containerBar.at(i)->getPositionX(), containerBar.at(i)->getPositionY()));
+						break;
+					}
+				}
+				addChild(_help, 5);
+				_helpFlag = 1;
+			}
 
 			int pos = std::find(_startName.begin(), _startName.end(), _word.substr(0, 2)) - _startName.begin();
 			_trayfillbar->setColor(_color.at(pos));
@@ -229,6 +245,21 @@ void Stack::generateWord()
 			stackbg->runAction(treadmill);
 			treadmill->play("treadmill", false);
 			treadmill->setAnimationEndCallFunc("treadmill", CC_CALLBACK_0(Stack::wordShow, this, _wordLabel));
+			
+			if (_helpFlag == 0)
+			{
+				for (auto i = 0; i < _startName.size(); i++)
+				{
+					if ((_word.substr(0, _startName.at(i).length()) == _startName.at(i)))
+					{
+						_help = HelpLayer::create(Rect(containerBar.at(i)->getPositionX(), containerBar.at(i)->getPositionY(), containerBar.at(i)->getContentSize().width, containerBar.at(i)->getContentSize().height), Rect(_wordLabel->getPositionX(), _wordLabel->getPositionY(), _wordLabel->getBoundingBox().size.width, _wordLabel->getBoundingBox().size.height));
+						_help->click(Vec2(containerBar.at(i)->getPositionX(), containerBar.at(i)->getPositionY()));
+						break;
+					}
+				}
+				addChild(_help, 5);
+				_helpFlag = 1;
+			}
 		}
 		else if (sceneName == "farm")
 		{
@@ -242,6 +273,21 @@ void Stack::generateWord()
 			treadmill = CSLoader::createTimeline("stackfarm/cow.csb");
 			stackbg->runAction(treadmill);
 			treadmill->play("treadmill", true);
+
+			if (_helpFlag == 0)
+			{
+				for (auto i = 0; i < _startName.size(); i++)
+				{
+					if ((_word.substr(0, _startName.at(i).length()) == _startName.at(i)))
+					{
+						_help = HelpLayer::create(Rect(containerBar.at(i)->getPositionX(), containerBar.at(i)->getPositionY(), containerBar.at(i)->getContentSize().width, containerBar.at(i)->getContentSize().height), Rect(visibleSize.width * .14, _wordLabel->getPositionY(), _wordLabel->getBoundingBox().size.width, _wordLabel->getBoundingBox().size.height));
+						_help->click(Vec2(containerBar.at(i)->getPositionX(), containerBar.at(i)->getPositionY()));
+						break;
+					}
+				}
+				addChild(_help, 5);
+				_helpFlag = 1;
+			}
 
 			_tray->setPosition(Vec2(-500, visibleSize.height * .25));
 			_tray->runAction(MoveTo::create(2, Vec2(visibleSize.width * .065, visibleSize.height * .25)));
@@ -278,12 +324,19 @@ void Stack::addEvents(struct LabelDetails sprite)
 			{
 				if ((_word.substr(0, sprite.id.length()) == sprite.id) && flag == false)
 				{
+					if (_helpFlag == 1)
+					{
+						_helpFlag = -1;
+						removeChild(_help);
+					}
+					_menuContext->addPoints(1);
 					flag = true;
 					sprite.label->setColor(Color3B::GREEN);
 					Stack::afterAnimation(sprite);
 				}
 				else if ((_word.substr(0, sprite.id.length()) != sprite.id) && flag == false)
 				{
+					_menuContext->addPoints(-1);
 					flag = true;
 					_wordLabel->setVisible(false);
 					treadmill = CSLoader::createTimeline("stackisland/treadmill.csb");
@@ -296,9 +349,14 @@ void Stack::addEvents(struct LabelDetails sprite)
 			{
 				if ((_word.substr(0, sprite.id.length()) == sprite.id) && flag == false)
 				{
+					if (_helpFlag == 1)
+					{
+						_helpFlag = -1;
+						removeChild(_help);
+					}
 					flag = true;
 					sprite.label->setColor(Color3B::GREEN);
-
+					_menuContext->addPoints(1);
 					if (sceneName == "superhero")
 					{
 						cocostudio::timeline::ActionTimeline *charTimeline = CSLoader::createTimeline("superheroes/superheroes.csb");
@@ -313,6 +371,7 @@ void Stack::addEvents(struct LabelDetails sprite)
 				}
 				else if ((_word.substr(0, sprite.id.length()) != sprite.id) && flag == false)
 				{
+					_menuContext->addPoints(-1);
 					if (sceneName == "superhero")
 					{
 						auto charTimeline = CSLoader::createTimeline("superheroes/superheroes.csb");
@@ -332,7 +391,7 @@ void Stack::addEvents(struct LabelDetails sprite)
 
 void Stack::wordLabelAnim(struct LabelDetails sprite)
 {
-	auto seq = Sequence::create(MoveTo::create(.7, Vec2(containerBar[sprite.sequence]->getPositionX(), Position[sprite.sequence]->getPositionY() + containerBar[sprite.sequence]->getBoundingBox().size.height * (containerBar[sprite.sequence]->getPercent() - 13) / 100)), CallFunc::create([=] {
+	auto seq = Sequence::create(MoveTo::create(.7, Vec2(containerBar[sprite.sequence]->getPositionX(), Position[sprite.sequence]->getPositionY() + containerBar[sprite.sequence]->getBoundingBox().size.height * (containerBar[sprite.sequence]->getPercent()) / 100)), CallFunc::create([=] {
 		_wordLabel->setColor(_color.at(rand() % 5));
 
 		if (sceneName == "farm")

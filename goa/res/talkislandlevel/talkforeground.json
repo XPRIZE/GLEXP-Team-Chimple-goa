@@ -1,0 +1,350 @@
+{
+  "ID": "52b23052-ef93-4b7a-90aa-63ed763f5711",
+  "Version": "3.10.0.0",
+  "Name": "talkforeground",
+  "Content": {
+    "Content": {
+      "Animation": {
+        "Duration": 0,
+        "Speed": 1.0,
+        "Timelines": [],
+        "ctype": "TimelineActionData"
+      },
+      "AnimationList": [],
+      "ObjectData": {
+        "Tag": 195,
+        "Children": [
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "talkislandlevel/ground3.png",
+              "Plist": "talkislandlevel/talkislandlevel.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 3023.0237,
+              "Y": 157.8077
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 1.1809,
+              "Y": 0.0877
+            },
+            "PreSize": {
+              "X": 0.2676,
+              "Y": 0.1756
+            },
+            "LeftMargin": 2680.5237,
+            "RightMargin": -805.5237,
+            "TopMargin": 1484.1923,
+            "BottomMargin": -0.1923,
+            "Tag": 240,
+            "ActionTag": 1051731760,
+            "Size": {
+              "X": 685.0,
+              "Y": 316.0
+            },
+            "Name": "ground3_1",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "talkislandlevel/tree2.png",
+              "Plist": "talkislandlevel/talkislandlevel.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 3064.9573,
+              "Y": 906.5978
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 1.1972,
+              "Y": 0.5037
+            },
+            "PreSize": {
+              "X": 0.5637,
+              "Y": 0.9028
+            },
+            "LeftMargin": 2343.4573,
+            "RightMargin": -1226.4573,
+            "TopMargin": 80.9021,
+            "BottomMargin": 94.0978,
+            "Tag": 241,
+            "ActionTag": 294217753,
+            "Size": {
+              "X": 1443.0,
+              "Y": 1625.0
+            },
+            "Name": "tree2_2",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "talkislandlevel/water1.png",
+              "Plist": "talkislandlevel/talkislandlevel.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 3349.0596,
+              "Y": 41.3443
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 1.3082,
+              "Y": 0.023
+            },
+            "PreSize": {
+              "X": 0.0426,
+              "Y": 0.0261
+            },
+            "LeftMargin": 3294.5596,
+            "RightMargin": -843.5596,
+            "TopMargin": 1735.1556,
+            "BottomMargin": 17.8443,
+            "Tag": 536,
+            "ActionTag": 2120879361,
+            "Size": {
+              "X": 109.0,
+              "Y": 47.0
+            },
+            "Name": "water1_3",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FlipX": true,
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "talkislandlevel/water1.png",
+              "Plist": "talkislandlevel/talkislandlevel.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 2705.9963,
+              "Y": 40.3848
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 1.057,
+              "Y": 0.0224
+            },
+            "PreSize": {
+              "X": 0.0426,
+              "Y": 0.0261
+            },
+            "LeftMargin": 2651.4963,
+            "RightMargin": -200.4963,
+            "TopMargin": 1736.1152,
+            "BottomMargin": 16.8848,
+            "Tag": 537,
+            "ActionTag": -1862131138,
+            "Size": {
+              "X": 109.0,
+              "Y": 47.0
+            },
+            "Name": "water1_3_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FlipX": true,
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "talkislandlevel/water1.png",
+              "Plist": "talkislandlevel/talkislandlevel.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 2618.5657,
+              "Y": 23.308
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 1.0229,
+              "Y": 0.0129
+            },
+            "PreSize": {
+              "X": 0.0426,
+              "Y": 0.0261
+            },
+            "LeftMargin": 2564.0657,
+            "RightMargin": -113.0657,
+            "TopMargin": 1753.1919,
+            "BottomMargin": -0.192,
+            "Tag": 538,
+            "ActionTag": -811361708,
+            "Size": {
+              "X": 109.0,
+              "Y": 47.0
+            },
+            "Name": "water1_3_1",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "talkislandlevel/water1.png",
+              "Plist": "talkislandlevel/talkislandlevel.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 3435.1067,
+              "Y": 23.3081
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 1.3418,
+              "Y": 0.0129
+            },
+            "PreSize": {
+              "X": 0.0426,
+              "Y": 0.0261
+            },
+            "LeftMargin": 3380.6067,
+            "RightMargin": -929.6067,
+            "TopMargin": 1753.1919,
+            "BottomMargin": -0.1919,
+            "Tag": 539,
+            "ActionTag": -1776124930,
+            "Size": {
+              "X": 109.0,
+              "Y": 47.0
+            },
+            "Name": "water1_3_2",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "talkislandlevel/boat.png",
+              "Plist": "talkislandlevel/talkislandlevel.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 6418.21,
+              "Y": 218.5368
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 2.5071,
+              "Y": 0.1214
+            },
+            "PreSize": {
+              "X": 0.0742,
+              "Y": 0.2206
+            },
+            "LeftMargin": 6323.21,
+            "RightMargin": -3953.21,
+            "TopMargin": 1382.9633,
+            "BottomMargin": 20.0368,
+            "Tag": 547,
+            "ActionTag": 1799662050,
+            "Size": {
+              "X": 190.0,
+              "Y": 397.0
+            },
+            "Name": "boat_7",
+            "ctype": "SpriteObjectData"
+          }
+        ],
+        "Size": {
+          "X": 2560.0,
+          "Y": 1800.0
+        },
+        "Name": "Layer",
+        "ctype": "LayerObjectData"
+      },
+      "UsedResources": [
+        "talkislandlevel.plist",
+        "talkislandlevel.png"
+      ],
+      "ctype": "GameFileData"
+    }
+  },
+  "Type": "Layer"
+}
