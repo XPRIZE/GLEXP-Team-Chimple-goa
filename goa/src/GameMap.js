@@ -42,10 +42,10 @@ xc.GameMap = cc.Scene.extend({
         else if(sender._configuration.name == 'choose_character'){
              xc.CharacterConfigScene.load(xc.CharacterConfigLayer);
         } 
-        // else if(sender._configuration.name == 'show_bluetoothPeers') {
-        //     cc.sys.localStorage.setItem("discoveredBluetoothDevices", "0_0_1-AA:BB:CC:XX,1_0_1-AA:BB:CC:FF,0_1_1-AA:BB:AD:FF")
-        //     xc.RenderBluetoothPeersScene.load(xc.RenderBluetoothPeersLayer);
-        // }
+        else if(sender._configuration.name == 'show_bluetoothPeers') {
+            cc.sys.localStorage.setItem("discoveredBluetoothDevices", "4_5_1_3_1_2_0_2_0_6_3_0_1_1-AA:BB:CC:XX")
+            xc.RenderBluetoothPeersScene.load(xc.RenderBluetoothPeersLayer);
+        }
     }
 });
 

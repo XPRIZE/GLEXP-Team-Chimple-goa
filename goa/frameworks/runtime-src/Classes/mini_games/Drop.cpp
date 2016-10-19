@@ -70,7 +70,7 @@ bool Drop::init()
 
 		{ "dropjungle",
 		{
-			{ "boxLabelYFactor",0.103 },
+			{ "boxLabelYFactor",0.1138 },
 			{ "basketRectYFactor", 0 },
 			{ "flaotingLetterYFactor", 1 },
 			{ "floatBoxHeightFactor",0.75 },
@@ -149,6 +149,8 @@ bool Drop::init()
 
 	auto tg = TextGenerator::getInstance();
 	std::string word = tg->generateAWord();
+
+	//std::string word = "ELEPHANT";
 
 	_label = setAllLabelProperties(word, 2, (visibleSize.width / 2), (visibleSize.height*_sceneBasedNumericalVal.at("helpBoardHeight")), true, 0.5, 0.5, 0, 1, 1, 150);
 	this->addChild(_label, 2);
