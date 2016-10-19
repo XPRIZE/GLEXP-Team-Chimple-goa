@@ -4,260 +4,320 @@
     <dict>
         <key>frames</key>
         <dict>
-            <key>dashlevel/boat.png</key>
+            <key>talkislandlevel/boat.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
                 <key>spriteOffset</key>
                 <string>{0,0}</string>
                 <key>spriteSize</key>
-                <string>{479,597}</string>
+                <string>{48,99}</string>
                 <key>spriteSourceSize</key>
-                <string>{479,597}</string>
+                <string>{48,99}</string>
                 <key>textureRect</key>
-                <string>{{1013,1305},{479,597}}</string>
+                <string>{{672,632},{48,99}}</string>
                 <key>textureRotated</key>
                 <true/>
             </dict>
-            <key>dashlevel/boat1.png</key>
+            <key>talkislandlevel/cloud.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
                 <key>spriteOffset</key>
                 <string>{0,0}</string>
                 <key>spriteSize</key>
-                <string>{479,597}</string>
+                <string>{142,57}</string>
                 <key>spriteSourceSize</key>
-                <string>{479,597}</string>
+                <string>{142,57}</string>
                 <key>textureRect</key>
-                <string>{{2211,1305},{479,597}}</string>
-                <key>textureRotated</key>
-                <false/>
-            </dict>
-            <key>dashlevel/boat2.png</key>
-            <dict>
-                <key>aliases</key>
-                <array/>
-                <key>spriteOffset</key>
-                <string>{0,0}</string>
-                <key>spriteSize</key>
-                <string>{837,597}</string>
-                <key>spriteSourceSize</key>
-                <string>{837,597}</string>
-                <key>textureRect</key>
-                <string>{{1612,1077},{837,597}}</string>
+                <string>{{663,409},{142,57}}</string>
                 <key>textureRotated</key>
                 <true/>
             </dict>
-            <key>dashlevel/cat.png</key>
+            <key>talkislandlevel/ground1.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
                 <key>spriteOffset</key>
                 <string>{0,0}</string>
                 <key>spriteSize</key>
-                <string>{291,506}</string>
+                <string>{219,118}</string>
                 <key>spriteSourceSize</key>
-                <string>{291,506}</string>
+                <string>{219,118}</string>
                 <key>textureRect</key>
-                <string>{{1013,617},{291,506}}</string>
-                <key>textureRotated</key>
-                <false/>
-            </dict>
-            <key>dashlevel/cat1.png</key>
-            <dict>
-                <key>aliases</key>
-                <array/>
-                <key>spriteOffset</key>
-                <string>{0,0}</string>
-                <key>spriteSize</key>
-                <string>{290,503}</string>
-                <key>spriteSourceSize</key>
-                <string>{290,503}</string>
-                <key>textureRect</key>
-                <string>{{2394,1013},{290,503}}</string>
+                <string>{{848,253},{219,118}}</string>
                 <key>textureRotated</key>
                 <true/>
             </dict>
-            <key>dashlevel/cloud.png</key>
+            <key>talkislandlevel/ground2.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
                 <key>spriteOffset</key>
                 <string>{0,0}</string>
                 <key>spriteSize</key>
-                <string>{232,229}</string>
+                <string>{274,86}</string>
                 <key>spriteSourceSize</key>
-                <string>{232,229}</string>
+                <string>{274,86}</string>
                 <key>textureRect</key>
-                <string>{{1340,1786},{232,229}}</string>
+                <string>{{396,572},{274,86}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+            <key>talkislandlevel/ground3.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{171,79}</string>
+                <key>spriteSourceSize</key>
+                <string>{171,79}</string>
+                <key>textureRect</key>
+                <string>{{813,475},{171,79}}</string>
                 <key>textureRotated</key>
                 <true/>
             </dict>
-            <key>dashlevel/cloud1.png</key>
+            <key>talkislandlevel/ground4.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
                 <key>spriteOffset</key>
                 <string>{0,0}</string>
                 <key>spriteSize</key>
-                <string>{188,54}</string>
+                <string>{257,161}</string>
                 <key>spriteSourceSize</key>
-                <string>{188,54}</string>
+                <string>{257,161}</string>
                 <key>textureRect</key>
-                <string>{{1527,1077},{188,54}}</string>
+                <string>{{404,409},{257,161}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+            <key>talkislandlevel/hill1.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{472,33}</string>
+                <key>spriteSourceSize</key>
+                <string>{472,33}</string>
+                <key>textureRect</key>
+                <string>{{813,1},{472,33}}</string>
                 <key>textureRotated</key>
                 <true/>
             </dict>
-            <key>dashlevel/fronthill.png</key>
+            <key>talkislandlevel/hill2.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
                 <key>spriteOffset</key>
                 <string>{0,0}</string>
                 <key>spriteSize</key>
-                <string>{273,149}</string>
+                <string>{629,44}</string>
                 <key>spriteSourceSize</key>
-                <string>{273,149}</string>
+                <string>{629,44}</string>
                 <key>textureRect</key>
-                <string>{{1013,1125},{273,149}}</string>
-                <key>textureRotated</key>
-                <false/>
-            </dict>
-            <key>dashlevel/fronthill1.png</key>
-            <dict>
-                <key>aliases</key>
-                <array/>
-                <key>spriteOffset</key>
-                <string>{0,0}</string>
-                <key>spriteSize</key>
-                <string>{274,246}</string>
-                <key>spriteSourceSize</key>
-                <string>{274,246}</string>
-                <key>textureRect</key>
-                <string>{{2692,1305},{274,246}}</string>
+                <string>{{767,1},{629,44}}</string>
                 <key>textureRotated</key>
                 <true/>
             </dict>
-            <key>dashlevel/grass.png</key>
+            <key>talkislandlevel/rock1.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
                 <key>spriteOffset</key>
-                <string>{0,0}</string>
+                <string>{1,-1}</string>
                 <key>spriteSize</key>
-                <string>{1337,217}</string>
+                <string>{82,44}</string>
                 <key>spriteSourceSize</key>
-                <string>{1337,217}</string>
+                <string>{84,46}</string>
                 <key>textureRect</key>
-                <string>{{1,1804},{1337,217}}</string>
+                <string>{{117,635},{82,44}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>dashlevel/hill1.png</key>
+            <key>talkislandlevel/rock2.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
                 <key>spriteOffset</key>
-                <string>{0,0}</string>
+                <string>{3,-3}</string>
                 <key>spriteSize</key>
-                <string>{1053,338}</string>
+                <string>{99,51}</string>
                 <key>spriteSourceSize</key>
-                <string>{1053,338}</string>
+                <string>{109,57}</string>
                 <key>textureRect</key>
-                <string>{{1340,1},{1053,338}}</string>
-                <key>textureRotated</key>
-                <false/>
-            </dict>
-            <key>dashlevel/hills.png</key>
-            <dict>
-                <key>aliases</key>
-                <array/>
-                <key>spriteOffset</key>
-                <string>{0,0}</string>
-                <key>spriteSize</key>
-                <string>{1052,734}</string>
-                <key>spriteSourceSize</key>
-                <string>{1052,734}</string>
-                <key>textureRect</key>
-                <string>{{1340,341},{1052,734}}</string>
-                <key>textureRotated</key>
-                <false/>
-            </dict>
-            <key>dashlevel/lasthill.png</key>
-            <dict>
-                <key>aliases</key>
-                <array/>
-                <key>spriteOffset</key>
-                <string>{0,0}</string>
-                <key>spriteSize</key>
-                <string>{1010,538}</string>
-                <key>spriteSourceSize</key>
-                <string>{1010,538}</string>
-                <key>textureRect</key>
-                <string>{{2395,1},{1010,538}}</string>
+                <string>{{894,474},{99,51}}</string>
                 <key>textureRotated</key>
                 <true/>
             </dict>
-            <key>dashlevel/lasthill1.png</key>
+            <key>talkislandlevel/rock3.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
                 <key>spriteOffset</key>
-                <string>{0,0}</string>
+                <string>{1,-1}</string>
                 <key>spriteSize</key>
-                <string>{1010,1801}</string>
+                <string>{93,46}</string>
                 <key>spriteSourceSize</key>
-                <string>{1010,1801}</string>
+                <string>{99,48}</string>
                 <key>textureRect</key>
-                <string>{{1,1},{1010,1801}}</string>
+                <string>{{672,553},{93,46}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>dashlevel/shade.png</key>
+            <key>talkislandlevel/side1.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
                 <key>spriteOffset</key>
                 <string>{0,0}</string>
                 <key>spriteSize</key>
-                <string>{313,306}</string>
+                <string>{71,19}</string>
                 <key>spriteSourceSize</key>
-                <string>{313,306}</string>
+                <string>{71,19}</string>
                 <key>textureRect</key>
-                <string>{{1013,1},{313,306}}</string>
+                <string>{{672,601},{71,19}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>dashlevel/shade1.png</key>
+            <key>talkislandlevel/side2.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
                 <key>spriteOffset</key>
                 <string>{0,0}</string>
                 <key>spriteSize</key>
-                <string>{313,306}</string>
+                <string>{114,38}</string>
                 <key>spriteSourceSize</key>
-                <string>{313,306}</string>
+                <string>{114,38}</string>
                 <key>textureRect</key>
-                <string>{{1013,309},{313,306}}</string>
+                <string>{{1,635},{114,38}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>dashlevel/sun.png</key>
+            <key>talkislandlevel/side3.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
                 <key>spriteOffset</key>
                 <string>{0,0}</string>
                 <key>spriteSize</key>
-                <string>{219,219}</string>
+                <string>{28,15}</string>
                 <key>spriteSourceSize</key>
-                <string>{219,219}</string>
+                <string>{28,15}</string>
                 <key>textureRect</key>
-                <string>{{1306,1077},{219,219}}</string>
+                <string>{{773,632},{28,15}}</string>
                 <key>textureRotated</key>
                 <false/>
+            </dict>
+            <key>talkislandlevel/sun1.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{59,59}</string>
+                <key>spriteSourceSize</key>
+                <string>{59,59}</string>
+                <key>textureRect</key>
+                <string>{{894,575},{59,59}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+            <key>talkislandlevel/sun2.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{250,125}</string>
+                <key>spriteSourceSize</key>
+                <string>{250,125}</string>
+                <key>textureRect</key>
+                <string>{{848,1},{250,125}}</string>
+                <key>textureRotated</key>
+                <true/>
+            </dict>
+            <key>talkislandlevel/tree1.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{401,551}</string>
+                <key>spriteSourceSize</key>
+                <string>{401,551}</string>
+                <key>textureRect</key>
+                <string>{{1,1},{401,551}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+            <key>talkislandlevel/tree2.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{361,406}</string>
+                <key>spriteSourceSize</key>
+                <string>{361,406}</string>
+                <key>textureRect</key>
+                <string>{{404,1},{361,406}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+            <key>talkislandlevel/water.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{393,79}</string>
+                <key>spriteSourceSize</key>
+                <string>{393,79}</string>
+                <key>textureRect</key>
+                <string>{{1,554},{393,79}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+            <key>talkislandlevel/water1.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{27,12}</string>
+                <key>spriteSourceSize</key>
+                <string>{27,12}</string>
+                <key>textureRect</key>
+                <string>{{722,409},{27,12}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+            <key>talkislandlevel/water2.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{72,2}</string>
+                <key>spriteSourceSize</key>
+                <string>{72,2}</string>
+                <key>textureRect</key>
+                <string>{{968,253},{72,2}}</string>
+                <key>textureRotated</key>
+                <true/>
             </dict>
         </dict>
         <key>metadata</key>
@@ -265,17 +325,17 @@
             <key>format</key>
             <integer>3</integer>
             <key>pixelFormat</key>
-            <string>RGBA4444</string>
+            <string>RGBA8888</string>
             <key>premultiplyAlpha</key>
             <false/>
             <key>realTextureFileName</key>
-            <string>dashlevel.png</string>
+            <string>talkislandlevel.png</string>
             <key>size</key>
-            <string>{2939,2022}</string>
+            <string>{974,681}</string>
             <key>smartupdate</key>
-            <string>$TexturePacker:SmartUpdate:fa3446eab809299c7b7e7b91220c4d66:108b27b1b3cabb276732a4082e370bc8:74a6abef55c0f119b3ddcf7909f4f40e$</string>
+            <string>$TexturePacker:SmartUpdate:3d4ffa6e405cfef9d3a9531f7d516cd0:e6695428e3ba14ec46ea9eebce4253ab:4def90e8a13ef7b5fc0151facaf903ab$</string>
             <key>textureFileName</key>
-            <string>dashlevel.png</string>
+            <string>talkislandlevel.png</string>
         </dict>
     </dict>
 </plist>

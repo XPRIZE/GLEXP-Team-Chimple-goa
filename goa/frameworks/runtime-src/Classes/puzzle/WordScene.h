@@ -15,6 +15,7 @@
 #include "Grapheme.h"
 #include "RPGConfig.h"
 
+class LipiTKNode;
 class WordScene : public cocos2d::Node {
 public:
     static cocos2d::Scene* createScene();
@@ -29,12 +30,13 @@ public:
     void enableHandWriting();
     bool isHandWritingEnabled();
     static void textReceived(std::string text);
-    
+        
 CC_CONSTRUCTOR_ACCESS:
     WordScene();
     virtual ~WordScene();
     virtual bool init() override;
     bool initWithWord(std::string word);
+    
     
 protected:
     virtual cocos2d::Node* loadNode();
@@ -53,8 +55,10 @@ protected:
     virtual std::string getGraphemeSelectedBackground();
 	virtual GraphemeGrid* createGraphemeGrid(GLfloat width, GLfloat height, int numRows, int numCols, std::string spriteName, std::vector<std::vector<std::string>> graphemes, std::string graphemeUnselectedBackground, std::string graphemeSelectedBackground);
 
-    
+    void clearLipiTKResult();
     void processGrapheme(Grapheme* grapheme);
+    void charactersRecognized(cocos2d::EventCustom* event);
+    void characterSelected(cocos2d::Ref *sender);
 
     MenuContext* _menuContext;
     GraphemeGrid* _grid;
@@ -68,6 +72,8 @@ protected:
     std::vector<std::pair<Node*, Grapheme*>> _answerVector;
     bool _showHandWriting;
     cocos2d::ui::Button* _handWritingDialogButton;
+    LipiTKNode* _lipiTKNode;
+    cocos2d::Menu* _lipiTKResultMenu;
 };
 
 #endif /* WordScene_h */

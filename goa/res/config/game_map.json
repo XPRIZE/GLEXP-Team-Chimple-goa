@@ -1,5 +1,15 @@
 [
     {
+        "name": "show_bluetoothPeers",
+        "cIcon": "gameicons/EndlessRunner_pressed.png",
+        "icon": "gameicons/EndlessRunner.png",
+        "multiPlayer": false,
+        "isJSGame": true,
+        "pureJS":"",
+        "script": "src/start/showBlueToothPeers.js"
+    },
+
+    {
         "name": "EndlessRunner",
         "cIcon": "gameicons/EndlessRunner_pressed.png",
         "icon": "gameicons/EndlessRunner.png",
@@ -140,12 +150,12 @@
         "script":"src/NonJSGameLauncher.js",
         "span": "5",
         "numLevels": "24",
-        "backgroundJson": "cityscreen/background.json",
-        "foregroundJson": "cityscreen/foreground.json",
-        "frontgroundJson": "cityscreen/frontground.json",
-        "maingroundJson": "cityscreen/mainground.json",
-        "menuPlist": "cityscreen/cityscreen.plist",
-        "menuPng": "cityscreen/cityscreen.png"  
+        "backgroundJson": "talkislandlevel/talkbackground.json",
+        "foregroundJson": "talkislandlevel/talkforeground.json",
+        "frontgroundJson": "talkislandlevel/talkfrontground.json",
+        "maingroundJson": "talkislandlevel/talkmainground.json",
+        "menuPlist": "talkislandlevel/talkislandlevel.plist",
+        "menuPng": "talkislandlevel/talkislandlevel.png"  
     },
     {
         "name": "jasmine",
@@ -220,12 +230,12 @@
         "script":"src/NonJSGameLauncher.js",
         "span": "10",
         "numLevels": "80",
-        "backgroundJson": "levelscreen/background.json",
-        "foregroundJson": "levelscreen/foreground.json",
-        "frontgroundJson": "levelscreen/frontground.json",
-        "maingroundJson": "levelscreen/mainground.json",
-        "menuPlist": "levelscreen/levelscreen.plist",
-        "menuPng": "levelscreen/levelscreen.png"  
+        "backgroundJson": "dashlevel/background.json",
+        "foregroundJson": "dashlevel/foreground.json",
+        "frontgroundJson": "dashlevel/frontground.json",
+        "maingroundJson": "dashlevel/mainground.json",
+        "menuPlist": "dashlevel/dashlevel.plist",
+        "menuPng": "dashlevel/dashlevel.png"  
     },
     {
         "name": "cat",

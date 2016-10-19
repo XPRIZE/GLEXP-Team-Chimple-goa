@@ -16,6 +16,7 @@
 #include "external/json/writer.h"
 #include "../menu/MenuContext.h"
 #include "editor-support/cocostudio/CocoStudio.h"
+#include "../menu/HelpLayer.h"
 
 
 class Dash : public cocos2d::Layer
@@ -60,6 +61,9 @@ protected:
 	virtual bool onTouchBegan(cocos2d::Touch *touch, cocos2d::Event * event);
     std::string constructSendMessage(std::string charName, int position);
 	static const char* gameName() { return DASH.c_str(); }
+	bool _helpFlage = false;
+	void onEnterTransitionDidFinish();
+	void gameHelp();
 //	std::string _gameWord;
 	//int _jumpCount, _enemyJumpCount;
 //	virtual bool onTouchBegan(cocos2d::Touch *touch, cocos2d::Event * event);

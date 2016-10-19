@@ -302,6 +302,13 @@ cocos2d::ClippingNode* MenuContext::createMaskedMenuItem(const std::string norma
                     }
                     
                     auto sprite = Sprite::createWithSpriteFrameName(image);
+                    CCLOG("image %s", image.c_str());
+                    CCLOG("anchorX %f", anchorX);
+                    CCLOG("anchorY %f", anchorY);
+                    CCLOG("posX %f", posX);
+                    CCLOG("posY %f", posY);
+                    CCLOG("rotationX %f", rotationX);
+                    CCLOG("rotationY %f", rotationY);
                     sprite->setAnchorPoint(Vec2(anchorX, anchorY));
                     sprite->setPosition(Vec2(posX, posY));
                     sprite->setRotationSkewX(rotationX);
@@ -407,6 +414,13 @@ cocos2d::Node* MenuContext::createAvatarMenuItem(const std::string normalImage,
                     sprite->setPosition(Vec2(posX, posY));
                     sprite->setRotationSkewX(rotationX);
                     sprite->setRotationSkewY(rotationY);
+                    CCLOG("image %s", image.c_str());
+                    CCLOG("anchorX %f", anchorX);
+                    CCLOG("anchorY %f", anchorY);
+                    CCLOG("posX %f", posX);
+                    CCLOG("posY %f", posY);
+                    CCLOG("rotationX %f", rotationX);
+                    CCLOG("rotationY %f", rotationY);
                     
                     boneNode->addSkin(sprite, true);
                     boneNode->displaySkin(sprite, true);
