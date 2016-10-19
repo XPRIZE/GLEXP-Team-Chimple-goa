@@ -20,13 +20,13 @@ xc.RenderBluetoothPeersLayer = cc.LayerColor.extend({
     },
 
     init: function () {         
+        //cc.sys.localStorage.setItem("discoveredBluetoothDevices", "4_5_1_3_1_2_0_2_0_6_3_0_1_1-AA:BB:CC:XX");
         if(cc.sys.localStorage.getItem("discoveredBluetoothDevices")) {
             this._discoveredConfiguration = cc.sys.localStorage.getItem("discoveredBluetoothDevices").split(',');
         }
         var offset = 400;
         var index = 0;
         var that = this;
-
         cc.eventManager.addCustomListener("launch_game_with_peer_event", function(event) {
             var result = cc.sys.localStorage.getItem("connectionResult");
             cc.log('connection result:' + result);
@@ -148,7 +148,8 @@ xc.RenderBluetoothPeersLayer = cc.LayerColor.extend({
                 skinSprite.setName(itemUrl);
                 skinSprite.setPosition(cc.p(positionX, positionY));
                 skinSprite.setAnchorPoint(anchorX, anchorY);
-                skinSprite.setRotation(rotation);
+                skinSprite.setRotationX(rotationX);
+                skinSprite.setRotationY(rotationY);
                 if(skinSprite != undefined) {
                     boneSkinNodeToAdd.addSkin(skinSprite, true);
                 }
