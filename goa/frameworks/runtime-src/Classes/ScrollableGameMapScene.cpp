@@ -281,9 +281,26 @@ void ScrollableGameMapScene::gameSelected(Ref* pSender, ui::Widget::TouchEventTy
 			            std::string gameConfig;
             localStorageGetItem(clickedButton->getName(), &gameConfig);
             CCLOG("gameConfig %s", gameConfig.c_str());
+            CCLOG("clickedButton->getName() %s", clickedButton->getName().c_str());
             std::string script = parseGameConfig(gameConfig);
             localStorageSetItem("currentGame", clickedButton->getName());
-            ScriptingCore::getInstance()->runScript("src/start/menu.js");
+            if(clickedButton->getName() == "show_bluetoothPeers")
+            {
+                ScriptingCore::getInstance()->runScript("src/start/showBluetoothPeers.js");
+            }
+//            else if(clickedButton->getName() == "choose_character")
+//            {
+//                ScriptingCore::getInstance()->runScript("src/start/characterConfigure.js");
+//            }
+//            else if(clickedButton->getName() == "story-teller")
+//            {
+//                ScriptingCore::getInstance()->runScript("src/start/storytelling.js");
+//            }
+            else
+            {
+                ScriptingCore::getInstance()->runScript("src/start/menu.js");
+            }
+            
             
             break;
         }

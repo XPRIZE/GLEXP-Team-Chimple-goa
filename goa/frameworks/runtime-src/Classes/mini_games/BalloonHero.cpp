@@ -59,7 +59,7 @@ bool BalloonHero::init() {
 	}
 	//SpriteFrameCache::getInstance()->addSpriteFramesWithFile("balloonhero/balloonhero.plist");
 	//_sceneNumber = RandomHelper::random_int(1, 2);
-	_sceneNumber = 2;
+	_sceneNumber = 3;
 
 	std::string mainSceneplist;
 
@@ -145,12 +145,22 @@ bool BalloonHero::init() {
 		_fireFly->setPosition(Vec2(visibleSize.width / 2 + origin.x, visibleSize.height / 2 + origin.y));
 		_fireFly->setAnchorPoint(Vec2(0.5, 0.5));
 		_fireFly->setScale(0.5, 0.5);
+		_fireFly->setContentSize(Size(200,200));
+		//_fireFly->setContentSize(Size( _fireFly->getPositionX() + 20, _fireFly->getPositionY() + 20 ));
+		
+		if (_sceneNumber == 3) {
+			//_fireFly->setContentSize(Size(200,200));
+			_fireFly->setScale(1, 1);
+			//_fireFly->getChildByName("firefly")->setContentSize(Size(50, 50));
+			//_fireFly->setAnchorPoint(Vec2(0, 0));
+			//_fireFly->setAnchorPoint(Vec2(0, 0));
 
-		if (_sceneNumber == 1) {
-			//_fireFly->setContentSize(Size(_fireFly->getContentSize().width , _fireFly->getContentSize().height + 30));
+			
+
 		}
 
-
+		
+		
 		//_fireFly->setContentSize(_fireFly->getChildByName("Sprite")->getContentSize());
 		this->addChild(_fireFly, 1);
 	
@@ -207,29 +217,45 @@ void BalloonHero::setupTouch() {
 
 bool BalloonHero::onTouchBegan(Touch* touch, Event* event) {
 
-	
+	Size visibleSize = Director::getInstance()->getVisibleSize();
+	Vec2 origin = Director::getInstance()->getVisibleOrigin();
+
 	auto target = event->getCurrentTarget();
 	
-	Point locationInNode = target->convertToNodeSpace(touch->getLocation());
+	Point locationInNode;
+	auto bb = target->getBoundingBox();
+
 	std::string character;
+
 	if (_sceneNumber == 1) {
 		
 		character = "firefly";
+		bb = target->getChildByName(character)->getBoundingBox();
+		locationInNode = target->getChildByName(character)->convertToNodeSpace(touch->getLocation());
 
 	}
 	if (_sceneNumber == 2) {
 
 		character = "firefly";
+		bb = target->getChildByName(character)->getBoundingBox();
+		locationInNode = target->getChildByName(character)->convertToNodeSpace(touch->getLocation());
 
 	}
 	if (_sceneNumber == 3) {
 
+		/*character = "firefly";
+		bb = target->getBoundingBox();
+		locationInNode = target->convertToNodeSpace(touch->getLocation());*/
+
 		character = "firefly";
+		bb = target->getBoundingBox();
+		locationInNode = target->convertToNodeSpace(touch->getLocation());
 
 	}
 
-
-	if (target->getChildByName(character)->getBoundingBox().containsPoint(locationInNode))
+	
+	
+	if (bb.containsPoint(locationInNode))
 	{
 		return true; // to indicate that we have consumed it.
 	}
@@ -546,7 +572,7 @@ void BalloonHero::update(float delta) {
 		scalex = 0.7, scaley = 0.7;
 	}
 	if (_sceneNumber == 3) {
-		burst = "ballooncandy/spear.csb";
+		burst = "ballooncandy/meteor.csb";
 	}
 
 

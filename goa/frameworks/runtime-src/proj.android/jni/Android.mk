@@ -84,6 +84,7 @@ LOCAL_SRC_FILES := hellojavascript/main.cpp \
 					../../Classes/mini_games/Order.cpp \
 					../../Classes/mini_games/Owl.cpp \
 					../../Classes/menu/MenuContext.cpp \
+					../../Classes/menu/HelpLayer.cpp \
 					../../Classes/lang/LangUtil.cpp \
 					../../Classes/lang/EnglishUtil.cpp \
 					../../Classes/lang/KannadaUtil.cpp \

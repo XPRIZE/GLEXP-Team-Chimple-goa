@@ -88,7 +88,9 @@ xc.LevelMenuLayer = cc.ScrollView.extend({
       case ccui.Widget.TOUCH_BEGAN:
         cc.log("touched")
         var level = parseInt(sender.getChildren()[0].getString())
-        this.levelCompleted(level, 3) //TODO: move
+        cc.log(this._gameName + '.currentLevel')
+        cc.sys.localStorage.setItem(this._gameName + '.currentLevel', level.toString())
+        cc.log(cc.sys.localStorage.getItem(this._gameName + '.currentLevel'))
         if(this._isJSGame) {
           xc.GameScene.load(this._clazz, level)
         } else {
