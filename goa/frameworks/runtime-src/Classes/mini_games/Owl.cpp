@@ -55,8 +55,8 @@ bool Owl::init()
 					{ "whiteBoard","white_2" },
 					{"whiteBoard2","white_5"},
 					{ "bodyCharacter","Sprite_6" },
-					{ "hideGreen","owlisland/dash_green.png" },
-					{ "hideOrange","owlisland/dash_orange.png" },
+					{ "hideGreen","owlisland/dash_orange.png" },
+					{ "hideOrange","owlisland/dash_green.png" },
 					{ "bubble","owlisland/bubble.csb" }
 				}
 			},
@@ -124,8 +124,8 @@ bool Owl::init()
 	auto visibleSize = Director::getInstance()->getVisibleSize();
 	auto origin = Director::getInstance()->getVisibleOrigin();
 	string test[3] = {"owlisland","owlCity","owljungle"};
-	_owlCurrentTheme = test[RandomHelper::random_int(0, 1)];
-	//_owlCurrentTheme = "owljungle";
+	//_owlCurrentTheme = test[RandomHelper::random_int(0, 1)];
+	_owlCurrentTheme = "owljungle";
 
 	auto themeResourcePath = _sceneMap.at(_owlCurrentTheme);
 	Node* bg = CSLoader::createNode(themeResourcePath.at("bg"));
@@ -416,7 +416,7 @@ void Owl::addEventsOnGrid(cocos2d::Sprite* callerObject)
 			auto x = target->getName();
 			target->setColor(Color3B(255,255,255));
 			CCLOG("Touched : %c",x.at(0));
-
+			bool flipBird = false;
 			if (target->getBoundingBox().containsPoint(touch->getLocation())) {
 
 				std::ostringstream blockName;	blockName << "blockLevel1" << _blockLevel1; std::string blockNameInString = blockName.str();
@@ -464,33 +464,37 @@ void Owl::addEventsOnGrid(cocos2d::Sprite* callerObject)
 							}
 						});
 						auto pickBoard = CallFunc::create([=]() { 
+							_sprite->getChildByName(_sceneMap.at(_owlCurrentTheme).at("whiteBoard"))->setVisible(true);
+							_textOwlBoard->setString(LangUtil::convertUTF16CharToString(target->getName().at(0)));
+
 							if (_owlCurrentTheme == "owljungle") {
 								if (_sprite->getPositionX() < target->getPositionX()) {
 									_sprite->setScaleX(1.0f);
 								}
 								else {
 									_sprite->setScaleX(-1.0f);
+									_sprite->getChildByName(_sceneMap.at(_owlCurrentTheme).at("whiteBoard"))->setScaleX(-1.0f);
 								}
 							}
-							_textOwlBoard->setScaleX(1.0f);
-							_sprite->getChildByName(_sceneMap.at(_owlCurrentTheme).at("whiteBoard"))->setVisible(true);
-							_textOwlBoard->setString(LangUtil::convertUTF16CharToString(target->getName().at(0)));
 						});
 						auto initAction = CallFunc::create([=]() {
 							_flagDemo = false;
 							if (_owlCurrentTheme == "owljungle") {
 								if (_sprite->getPositionX() < target->getPositionX()) {
 									_sprite->setScaleX(-1.0f);
+									
 								}
 								else {
 									_sprite->setScaleX(1.0f);
 								}
 							}
-							_textOwlBoard->setScaleX(1.0f);
+							
 						});
 						_sprite->runAction(Sequence::create(initAction, moveToAlphaGridAction, pickBoard, moveToAnswerGridAction, callFunct, NULL));
 					}
+
 					else if(blockChild.at(_textCounter)->getName() != target->getName() && _flagToControlMuiltipleTouch ){
+
 						_flagToControlMuiltipleTouch = false;
 						auto y = _sprite->getPositionY() - target->getPositionY();
 						auto x = -_sprite->getPositionX() + target->getPositionX();
@@ -545,9 +549,9 @@ void Owl::addEventsOnGrid(cocos2d::Sprite* callerObject)
 								}
 								else {
 									_sprite->setScaleX(-1.0f);
+									_sprite->getChildByName(_sceneMap.at(_owlCurrentTheme).at("whiteBoard"))->setScaleX(-1.0f);
 								}
 							}
-							_textOwlBoard->setScaleX(1.0f);
 							_sprite->getChildByName(_sceneMap.at(_owlCurrentTheme).at("whiteBoard"))->setVisible(true);
 							_textOwlBoard->setString(LangUtil::convertUTF16CharToString(target->getName().at(0)));
 						});
@@ -561,7 +565,6 @@ void Owl::addEventsOnGrid(cocos2d::Sprite* callerObject)
 									_sprite->setScaleX(1.0f);
 								}
 							}
-							_textOwlBoard->setScaleX(1.0f);
 						});
 						_sprite->runAction(Sequence::create(initAction, moveToAlphaGridAction, pickBoard, moveToAnswerGridAction, callFunct, DelayTime::create(0.6),afterDrop, NULL));
 					}
