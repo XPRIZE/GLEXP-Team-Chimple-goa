@@ -1,0 +1,198 @@
+{
+  "ID": "a2ee0952-26b5-49ae-8bf9-4f1d6279b798",
+  "Version": "2.3.4",
+  "Name": "dashlevel",
+  "Content": {
+    "Content": {
+      "Animation": {
+        "Duration": 0,
+        "Speed": 1.0,
+        "Timelines": [],
+        "ctype": "TimelineActionData"
+      },
+      "AnimationList": [],
+      "ObjectData": {
+        "Children": [
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "dashlevel/background.json",
+              "Plist": ""
+            },
+            "StretchWidthEnable": false,
+            "StretchHeightEnable": false,
+            "InnerActionSpeed": 1.0,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 0.2058,
+              "Y": 0.0454
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 0.0002,
+              "Y": 0.0001
+            },
+            "PreSize": {
+              "X": 2.6667,
+              "Y": 2.8125
+            },
+            "LeftMargin": 0.2058,
+            "RightMargin": -1600.2058,
+            "TopMargin": -1160.0454,
+            "BottomMargin": 0.0454,
+            "Tag": 98,
+            "ActionTag": -453889007,
+            "Size": {
+              "X": 2560.0,
+              "Y": 1800.0
+            },
+            "Name": "background",
+            "ctype": "ProjectNodeObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "dashlevel/mainground.json",
+              "Plist": ""
+            },
+            "StretchWidthEnable": false,
+            "StretchHeightEnable": false,
+            "InnerActionSpeed": 1.0,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 0.4283,
+              "Y": -0.4155
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 0.0004,
+              "Y": -0.0006
+            },
+            "PreSize": {
+              "X": 2.6667,
+              "Y": 2.8125
+            },
+            "LeftMargin": 0.4283,
+            "RightMargin": -1600.4282,
+            "TopMargin": -1159.5845,
+            "BottomMargin": -0.4155,
+            "Tag": 119,
+            "ActionTag": 306501584,
+            "Size": {
+              "X": 2560.0,
+              "Y": 1800.0
+            },
+            "Name": "mainground",
+            "ctype": "ProjectNodeObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "dashlevel/foreground.json",
+              "Plist": ""
+            },
+            "StretchWidthEnable": false,
+            "StretchHeightEnable": false,
+            "InnerActionSpeed": 1.0,
+            "AnchorPoint": {},
+            "Position": {
+              "X": -0.1774,
+              "Y": -0.0438
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": -0.0002,
+              "Y": -0.0001
+            },
+            "PreSize": {
+              "X": 2.6667,
+              "Y": 2.8125
+            },
+            "LeftMargin": -0.1774,
+            "RightMargin": -1599.8225,
+            "TopMargin": -1159.9562,
+            "BottomMargin": -0.0438,
+            "Tag": 168,
+            "ActionTag": -2093360091,
+            "Size": {
+              "X": 2560.0,
+              "Y": 1800.0
+            },
+            "Name": "foreground",
+            "ctype": "ProjectNodeObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "dashlevel/frontground.json",
+              "Plist": ""
+            },
+            "StretchWidthEnable": false,
+            "StretchHeightEnable": false,
+            "InnerActionSpeed": 1.0,
+            "AnchorPoint": {},
+            "Position": {
+              "X": -0.1959,
+              "Y": -0.4464
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": -0.0002,
+              "Y": -0.0007
+            },
+            "PreSize": {
+              "X": 2.6667,
+              "Y": 2.8125
+            },
+            "LeftMargin": -0.1959,
+            "RightMargin": -1599.8042,
+            "TopMargin": -1159.5536,
+            "BottomMargin": -0.4464,
+            "Tag": 179,
+            "ActionTag": -168001763,
+            "Size": {
+              "X": 2560.0,
+              "Y": 1800.0
+            },
+            "Name": "frontground",
+            "ctype": "ProjectNodeObjectData"
+          }
+        ],
+        "Size": {
+          "X": 960.0,
+          "Y": 640.0
+        },
+        "Name": "Scene",
+        "ctype": "SingleNodeObjectData"
+      },
+      "UsedResources": [
+        "background.json",
+        "foreground.json",
+        "frontground.json",
+        "mainground.json"
+      ],
+      "ctype": "GameFileData"
+    }
+  },
+  "Type": "Scene"
+}

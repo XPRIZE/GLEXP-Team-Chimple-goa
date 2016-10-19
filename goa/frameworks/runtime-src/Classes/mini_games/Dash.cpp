@@ -112,7 +112,7 @@ bool Dash::init()
 	};
 	
 	std::vector<std::string> theme = { "city","candy","iceLand" };
-	_scenePath = differntSceneMapping.at(theme.at(2));//cocos2d::RandomHelper::random_int(0, 2)));
+	_scenePath = differntSceneMapping.at(theme.at(0));//cocos2d::RandomHelper::random_int(0, 2)));
 
 	auto spritecache1 = SpriteFrameCache::getInstance();
 	spritecache1->addSpriteFramesWithFile(_scenePath.at("plist"));
@@ -123,14 +123,7 @@ bool Dash::init()
 	}
 	this->addChild(_bg);
 
-	_synonyms = TextGenerator::getInstance()->getSynonyms(5);
-	//CCLOG("synonyms = %s", _synonyms.at(1));
-	//DelayTime::create(5 + (rand() % 60) / 30.0 )
-
-	for (auto it = _synonyms.begin(); it != _synonyms.end(); ++it) {
-		//_mapkey contains keys
-		_mapKey.push_back(it->first);
-	}
+	
 
 	_stepLayer = Layer::create();
 	_stepLayer->setPositionX(0);
@@ -191,7 +184,7 @@ bool Dash::init()
 	_otherCharacter->setPositionY((visibleSize.height * 0.5)+ step_height);
 	_stepLayer->addChild(_otherCharacter);
 
-	wordGenerateWithOptions();
+	//wordGenerateWithOptions();
 
 	//auto defaultCharacter = CallFunc::create(CC_CALLBACK_0(Dash::otherCharacterJumping, this));
 	//randomly calling other character(If multiplayer Mode is off)
@@ -232,6 +225,45 @@ std::string Dash::constructSendMessage(std::string charName, int position) {
     std::string s1 = strbuf.GetString();
     CCLOG("final string %s", s1.c_str());
     return s1;
+}
+
+void Dash::onEnterTransitionDidFinish()
+{
+	Node::onEnterTransitionDidFinish();
+	int level = menu->getCurrentLevel();
+	int division = (level % 15)+1;
+	if (division >= 1 && division < 6) {
+		_synonyms = TextGenerator::getInstance()->getSynonyms(10);
+	} 
+	else if (division >5 && division < 11) {
+		_synonyms = TextGenerator::getInstance()->getAntonyms(10);
+	}
+	else {
+		_synonyms = TextGenerator::getInstance()->getHomonyms(10);
+	}
+	
+	
+	for (auto it = _synonyms.begin(); it != _synonyms.end(); ++it) {
+		_mapKey.push_back(it->first);
+	}
+	wordGenerateWithOptions();
+}
+
+void Dash::gameHelp()
+{
+	_helpFlage = true;
+	//game help only for first level
+	auto labelSize = _topLabel->getContentSize();
+	auto labelPosition = _topLabel->getPosition();
+	auto ans = _synonyms.at(_gameWord);
+	auto optionLayer = this->getChildByName(ans.c_str());
+	auto optionSize = optionLayer->getContentSize();
+	auto optionPosition = optionLayer->getPosition();
+	auto help = HelpLayer::create(Rect(optionPosition.x , optionPosition.y , optionSize.width, optionSize.height), Rect(labelPosition.x , labelPosition.y , labelSize.width, labelSize.height));
+	help->click(Vec2(optionPosition));
+	help->setName("helpLayer");
+	this->addChild(help);
+
 }
 
 void Dash::syncEnemyCharacterPosition(cocos2d::EventCustom *event) {
@@ -318,6 +350,10 @@ void Dash::updatePlayerPosition(std::string playerName, int stepPosition)
 
 void Dash::wordGenerateWithOptions()
 {
+	if (_helpFlage) {
+		this->removeChildByName("helpLayer");
+		_helpFlage = false;
+	}
 	std::vector<std::string> answer;
 	Size visibleSize = Director::getInstance()->getVisibleSize();
 	int size = _mapKey.size();
@@ -325,16 +361,25 @@ void Dash::wordGenerateWithOptions()
 	answer.push_back(_synonyms.at(_gameWord));
 	_topLabel = Label::createWithSystemFont(_gameWord.c_str(), "Arial", 200);
 	_topLabel->setPositionX(visibleSize.width/2);
+	_topLabel->setName(_gameWord.c_str());
 	_topLabel->setPositionY(visibleSize.height - _topLabel->getContentSize().height/2);
 	_topLabel->setColor(Color3B(0, 0, 0));
 	this->addChild(_topLabel);
 
 	int randomInt1 = cocos2d::RandomHelper::random_int(0, size - 1);
 	for (int j = 0; j < 3; j++) {
-		answer.push_back(_synonyms.at(_mapKey.at(randomInt1 % size)));
+		auto str = _synonyms.at(_mapKey.at(randomInt1 % size));
+		if (_synonyms.at(_gameWord).compare(str) == 0) {
+			randomInt1++;
+			answer.push_back(_synonyms.at(_mapKey.at(randomInt1 % size)));
+		}
+		else {
+			answer.push_back(str);
+		}
 		randomInt1++;
 	}
-	int answerSize = answer.size() - 1;
+	//answer.erase(std::unique(answer.begin(), answer.end()), answer.end());
+	int answerSize = 3;
 	//CCLOG(answer);
 	int randomInt = cocos2d::RandomHelper::random_int(0, answerSize);
 	for (int i = 0; i < _choiceButton.size(); i++) {
@@ -352,6 +397,10 @@ void Dash::wordGenerateWithOptions()
 		_eventDispatcher->addEventListenerWithSceneGraphPriority(listener, myLabel);
 		randomInt++;
 	}
+	if (menu->getCurrentLevel() == 1 && _gameScore == 0) {
+		gameHelp();
+	}
+	
 }
 
 void Dash::winningCelebration()
