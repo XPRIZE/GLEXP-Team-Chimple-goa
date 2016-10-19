@@ -4,6 +4,21 @@
     <dict>
         <key>frames</key>
         <dict>
+            <key>dropjungle/ball.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{146,146}</string>
+                <key>spriteSourceSize</key>
+                <string>{146,146}</string>
+                <key>textureRect</key>
+                <string>{{581,1034},{146,146}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
             <key>dropjungle/basketinter.png</key>
             <dict>
                 <key>aliases</key>
@@ -30,7 +45,7 @@
                 <key>spriteSourceSize</key>
                 <string>{229,89}</string>
                 <key>textureRect</key>
-                <string>{{581,555},{229,89}}</string>
+                <string>{{581,803},{229,89}}</string>
                 <key>textureRotated</key>
                 <true/>
             </dict>
@@ -41,11 +56,11 @@
                 <key>spriteOffset</key>
                 <string>{0,0}</string>
                 <key>spriteSize</key>
-                <string>{552,176}</string>
+                <string>{800,176}</string>
                 <key>spriteSourceSize</key>
-                <string>{552,176}</string>
+                <string>{800,176}</string>
                 <key>textureRect</key>
-                <string>{{581,1},{552,176}}</string>
+                <string>{{581,1},{800,176}}</string>
                 <key>textureRotated</key>
                 <true/>
             </dict>
@@ -175,7 +190,7 @@
             <key>format</key>
             <integer>3</integer>
             <key>pixelFormat</key>
-            <string>RGBA4444</string>
+            <string>RGBA8888</string>
             <key>premultiplyAlpha</key>
             <false/>
             <key>realTextureFileName</key>
@@ -183,7 +198,7 @@
             <key>size</key>
             <string>{759,3404}</string>
             <key>smartupdate</key>
-            <string>$TexturePacker:SmartUpdate:303606bb45cfe8262b4faacbfd28ea5d:f0c1df26af04373a67c60cbb106a73a8:8064fd4a8e33d4a193caee92d4cbfedc$</string>
+            <string>$TexturePacker:SmartUpdate:2dcae53cec271973a9af3cc1ed1a784a:52129de09e136ad1f19cc36a04ae976f:8064fd4a8e33d4a193caee92d4cbfedc$</string>
             <key>textureFileName</key>
             <string>dropjungle.png</string>
         </dict>

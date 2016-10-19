@@ -8,14 +8,27 @@ xc.LevelMenuLayer = cc.ScrollView.extend({
   _clazz: null,
   _span: null,
   _numLevels: null,
+  _gameName: null,
+  _isJSGame: false,
   ctor: function(args) {
+    var gameConfig = args[0]
+    this._span = parseInt(gameConfig.span)
+    this._numLevels = parseInt(gameConfig.numLevels)
+    this._clazz = xc[gameConfig.pureJS]
+    this._gameName = gameConfig.name
+    this._isJSGame = gameConfig.isJSGame
     this._super(cc.size(cc.director.getWinSize().width * this._span, cc.director.getWinSize().height), new cc.ParallaxNode())
+    cc.spriteFrameCache.addSpriteFrames(xc.LevelMenuLayer.res.hand_plist)
+    if(gameConfig.menuPlist) {
+      cc.spriteFrameCache.addSpriteFrames(xc.path + gameConfig.menuPlist)
+    }
     this.setViewSize(cc.director.getWinSize())
     this.setBounceable(false)
     var parallax = this.getContainer()
     parallax.setContentSize(cc.size(cc.director.getWinSize().width * this._span, cc.director.getWinSize().height))
-    var gameProgress = JSON.parse(cc.sys.localStorage.getItem('xc_game_1')) || [0]
+    var gameProgress = JSON.parse(cc.sys.localStorage.getItem(this._gameName + '.level')) || [0]
     var gap = cc.director.getWinSize().width * this._span / (this._numLevels + 1)
+    cc.log(cc.director.getWinSize().width)
     var goalTolerance = cc.director.getWinSize().height / 10
     var goal = getRandomArbitrary(goalTolerance, cc.director.getWinSize().height - goalTolerance)
     var start = goalTolerance
@@ -50,7 +63,22 @@ xc.LevelMenuLayer = cc.ScrollView.extend({
         but.setColor(cc.color(128, 0, 0))
         but.addTouchEventListener(this.itemSelected, this)
       }
-      
+    }
+    if(gameConfig.backgroundJson) {
+        var pLayer = ccs.load(xc.path + gameConfig.backgroundJson, xc.path)
+        parallax.addChild(pLayer.node, -4, cc.p(0.2, 0.2), cc.p(0, 0))
+    }
+    if(gameConfig.maingroundJson) {
+        var pLayer = ccs.load(xc.path + gameConfig.maingroundJson, xc.path)
+        parallax.addChild(pLayer.node, -3, cc.p(0.4, 0.4), cc.p(0, 0))
+    }
+    if(gameConfig.foregroundJson) {
+        var pLayer = ccs.load(xc.path + gameConfig.foregroundJson, xc.path)
+        parallax.addChild(pLayer.node, -2, cc.p(0.6, 0.6), cc.p(0, 0))
+    }
+    if(gameConfig.frontgroundJson) {
+        var pLayer = ccs.load(xc.path + gameConfig.frontgroundJson, xc.path)
+        parallax.addChild(pLayer.node, -1, cc.p(0.8, 0.8), cc.p(0, 0))
     }
     // SCROLL_DEACCEL_RATE = 0.99
     // SCROLL_DEACCEL_DIST = 100.0
@@ -60,17 +88,23 @@ xc.LevelMenuLayer = cc.ScrollView.extend({
       case ccui.Widget.TOUCH_BEGAN:
         cc.log("touched")
         var level = parseInt(sender.getChildren()[0].getString())
-        this.levelCompleted(level, 3)
-        xc.GameScene.load(this._clazz, level)
+        cc.log(this._gameName + '.currentLevel')
+        cc.sys.localStorage.setItem(this._gameName + '.currentLevel', level.toString())
+        cc.log(cc.sys.localStorage.getItem(this._gameName + '.currentLevel'))
+        if(this._isJSGame) {
+          xc.GameScene.load(this._clazz, level)
+        } else {
+          goa.MenuContext.launchGameFromJS(this._gameName)
+        }
         break;
       case ccui.Widget.TOUCH_ENDED:
     }
   },
   levelCompleted: function(level, numStars) {
-    var gameProgress = JSON.parse(cc.sys.localStorage.getItem('xc_game_1')) || [0]
+    var gameProgress = JSON.parse(cc.sys.localStorage.getItem(this._gameName + '.level')) || [0]
     var currentStars = gameProgress[level] || 0
     gameProgress[level] = Math.max(numStars, currentStars)
-    cc.sys.localStorage.setItem('xc_game_1', JSON.stringify(gameProgress))
+    cc.sys.localStorage.setItem(this._gameName + '.level', JSON.stringify(gameProgress))
   }
 })
 

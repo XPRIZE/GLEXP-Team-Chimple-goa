@@ -6,32 +6,25 @@ xc.HelpLayer = cc.Node.extend({
   _listener: null,
   _graywindow: null,
   _animating: false,
-  ctor: function(x, y, width, height) {
+  ctor: function(touchRect, otherRect) {
     this._super()
-    this._graywindow = new cc.Sprite(xc.HelpLayer.res.graywindow_png)
-    this.addChild(this._graywindow)
-    this._graywindow.setPosition(x, y)
-    this._graywindow.setScale(width / xc.HelpLayer.GW_WIDTH, height / xc.HelpLayer.GW_HEIGHT)
-
-    var bottom = new cc.Sprite(xc.HelpLayer.res.gray_png)
-    bottom.setPosition(cc.director.getWinSize().width / 2, (y - height / 2) / 2)
-    bottom.setScale(cc.director.getWinSize().width / xc.HelpLayer.GRAY_WIDTH, (y - height / 2) / xc.HelpLayer.GRAY_HEIGHT)
-    this.addChild(bottom)
-
-    var top = new cc.Sprite(xc.HelpLayer.res.gray_png)
-    top.setPosition(cc.director.getWinSize().width / 2, y + height / 2 + (cc.director.getWinSize().height - y - height / 2) / 2)
-    top.setScale(cc.director.getWinSize().width / xc.HelpLayer.GRAY_WIDTH, (cc.director.getWinSize().height - y - height / 2) / xc.HelpLayer.GRAY_HEIGHT)
-    this.addChild(top)
-
-    var left = new cc.Sprite(xc.HelpLayer.res.gray_png)
-    left.setPosition((x - width / 2) / 2, y)
-    left.setScale((x - width / 2) / xc.HelpLayer.GRAY_WIDTH, height / xc.HelpLayer.GRAY_HEIGHT)
-    this.addChild(left)
-
-    var right = new cc.Sprite(xc.HelpLayer.res.gray_png)
-    right.setPosition(x + width / 2 + (cc.director.getWinSize().width - x - width / 2) / 2, y)
-    right.setScale((cc.director.getWinSize().width - x - width / 2) / xc.HelpLayer.GRAY_WIDTH, height / xc.HelpLayer.GRAY_HEIGHT)
-    this.addChild(right)
+    if(!otherRect) {
+      this._graywindow = this.makePanel(touchRect, cc.rect(0, 0, cc.director.getWinSize().width, cc.director.getWinSize().height))
+    } else {
+      if((touchRect.x + touchRect.width / 2) < (otherRect.x - otherRect.width)) {
+        this._graywindow = this.makePanel(touchRect, cc.rect(0, 0, otherRect.x - otherRect.width / 2, cc.director.getWinSize().height))
+        this.makePanel(otherRect, cc.rect(otherRect.x - otherRect.width / 2, 0, cc.director.getWinSize().width - otherRect.x + otherRect.width / 2 , cc.director.getWinSize().height))    
+      } else if((otherRect.x + otherRect.width / 2) < (touchRect.x - touchRect.width)) {
+        this.makePanel(otherRect, cc.rect(0, 0, touchRect.x - touchRect.width / 2, cc.director.getWinSize().height))
+        this._graywindow = this.makePanel(touchRect, cc.rect(touchRect.x - touchRect.width / 2, 0, cc.director.getWinSize().width - touchRect.x + touchRect.width / 2 , cc.director.getWinSize().height))    
+      } else if((touchRect.y + touchRect.height / 2) < (otherRect.y - otherRect.height)) {
+        this._graywindow = this.makePanel(touchRect, cc.rect(0, 0, cc.director.getWinSize().width, otherRect.y - otherRect.height / 2))
+        this.makePanel(otherRect, cc.rect(0, otherRect.y - otherRect.height / 2, cc.director.getWinSize().width, cc.director.getWinSize().height - otherRect.y + otherRect.height / 2 ))    
+      } else {
+        this.makePanel(otherRect, cc.rect(0, 0, cc.director.getWinSize().width, touchRect.y - touchRect.height / 2))
+        this._graywindow = this.makePanel(touchRect, cc.rect(0, touchRect.y - touchRect.height / 2, cc.director.getWinSize().width, cc.director.getWinSize().height - touchRect.y + touchRect.height / 2 ))          
+      }          
+    }
 
     this._listener = cc.EventListener.create({
         event: cc.EventListener.TOUCH_ONE_BY_ONE,
@@ -52,6 +45,33 @@ xc.HelpLayer = cc.Node.extend({
         }
     })
     cc.eventManager.addListener(this._listener, this)
+  },
+  makePanel: function(windowRect, grayRect) {
+    var graywindow = new cc.Sprite(xc.HelpLayer.res.graywindow_png)
+    this.addChild(graywindow)
+    graywindow.setPosition(windowRect.x, windowRect.y)
+    graywindow.setScale(windowRect.width / xc.HelpLayer.GW_WIDTH, windowRect.height / xc.HelpLayer.GW_HEIGHT)
+
+    var bottom = new cc.Sprite(xc.HelpLayer.res.gray_png)
+    bottom.setPosition(grayRect.x + grayRect.width / 2, (grayRect.y + (windowRect.y - windowRect.height / 2)) / 2)
+    bottom.setScale(grayRect.width / xc.HelpLayer.GRAY_WIDTH, (windowRect.y - windowRect.height / 2 - grayRect.y) / xc.HelpLayer.GRAY_HEIGHT)
+    this.addChild(bottom)
+
+    var top = new cc.Sprite(xc.HelpLayer.res.gray_png)
+    top.setPosition(grayRect.x + grayRect.width / 2, windowRect.y + windowRect.height / 2 + (grayRect.y + grayRect.height - windowRect.y - windowRect.height / 2) / 2)
+    top.setScale(grayRect.width / xc.HelpLayer.GRAY_WIDTH, (grayRect.height + grayRect.y - windowRect.y - windowRect.height / 2) / xc.HelpLayer.GRAY_HEIGHT)
+    this.addChild(top)
+
+    var left = new cc.Sprite(xc.HelpLayer.res.gray_png)
+    left.setPosition((grayRect.x + windowRect.x - windowRect.width / 2) / 2, windowRect.y)
+    left.setScale(((windowRect.x - windowRect.width / 2) - grayRect.x) / xc.HelpLayer.GRAY_WIDTH, windowRect.height / xc.HelpLayer.GRAY_HEIGHT)
+    this.addChild(left)
+
+    var right = new cc.Sprite(xc.HelpLayer.res.gray_png)
+    right.setPosition(grayRect.x / 2 + windowRect.x + windowRect.width / 2 + (grayRect.width - windowRect.x - windowRect.width / 2) / 2, windowRect.y)
+    right.setScale(((grayRect.width + grayRect.x - windowRect.x - windowRect.width / 2)) / xc.HelpLayer.GRAY_WIDTH, windowRect.height / xc.HelpLayer.GRAY_HEIGHT)
+    this.addChild(right)    
+    return graywindow
   },
   click: function(x, y) {
     this._animating = true

@@ -11,10 +11,10 @@
 
 USING_NS_CC;
 
-ScoreBoardContext* ScoreBoardContext::create(int points, std::string gameName, std::string sceneName)
+ScoreBoardContext* ScoreBoardContext::create(int stars, std::string gameName, std::string sceneName)
 {
     ScoreBoardContext* scoreBoard = new (std::nothrow) ScoreBoardContext();
-    if(scoreBoard && scoreBoard->init(points, gameName, sceneName)) {
+    if(scoreBoard && scoreBoard->init(stars, gameName, sceneName)) {
         scoreBoard->autorelease();
         return scoreBoard;
     }
@@ -24,7 +24,7 @@ ScoreBoardContext* ScoreBoardContext::create(int points, std::string gameName, s
 
 
 ScoreBoardContext::ScoreBoardContext():
-_points(0)
+_stars(0)
 {
     
 }
@@ -32,7 +32,7 @@ _points(0)
 ScoreBoardContext::~ScoreBoardContext() {
 }
 
-bool ScoreBoardContext::init(int points, std::string gameName, std::string sceneName)
+bool ScoreBoardContext::init(int stars, std::string gameName, std::string sceneName)
 {
     //////////////////////////////
     // 1. super init first
@@ -42,7 +42,7 @@ bool ScoreBoardContext::init(int points, std::string gameName, std::string scene
     }
         
     FileUtils::getInstance()->addSearchPath("res/scoreboard");
-    this->_points = points;
+    this->_stars = stars;
     this->_gameName = gameName;
     this->_sceneName = sceneName;
     this->createScoreBoard();
@@ -118,12 +118,12 @@ void ScoreBoardContext::processChildNodes(cocos2d::Node *rootNode) {
 }
 
 void ScoreBoardContext::showStars() {
-    if(_points <= 33) {
+    if(_stars == 1) {
         this->starOne->setVisible(true);
-    } else if(_points <= 66) {
+    } else if(_stars == 2) {
         this->starOne->setVisible(true);
         this->starTwo->setVisible(true);
-    } else {
+    } else if(_stars == 3){
         this->starOne->setVisible(true);
         this->starTwo->setVisible(true);
         this->starThree->setVisible(true);

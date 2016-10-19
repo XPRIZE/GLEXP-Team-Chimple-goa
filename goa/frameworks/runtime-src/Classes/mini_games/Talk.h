@@ -14,6 +14,7 @@
 #include "ui/CocosGUI.h"
 #include <string>
 #include <sstream>
+#include "../menu/HelpLayer.h"
 
 
 class Talk : public cocos2d::Layer
@@ -39,6 +40,7 @@ public:
 	std::vector<cocos2d::Sprite*> _enemyFish, _heroFish;
 	int _totalCount, _totalAnswer, _correctAnswer;
 	cocos2d::ui::Scale9Sprite *_board;
+	std::ostringstream _imgName;
 
 //	std::vector<std::string> _allSentense;
 
@@ -54,7 +56,8 @@ public:
 	void update(float);
 	void gameEnd();
 	void displayWord();
-
+	HelpLayer *_help;
+	int _helpFlag;
 	struct LabelDetails
 	{
 		cocos2d::LabelTTF *label;
