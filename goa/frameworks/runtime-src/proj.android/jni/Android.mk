@@ -78,6 +78,7 @@ LOCAL_SRC_FILES := hellojavascript/main.cpp \
 					../../Classes/mini_games/Pillar.cpp \
 					../../Classes/mini_games/Dash.cpp \
 					../../Classes/mini_games/Decomon.cpp \
+					../../Classes/mini_games/DecomonGallery.cpp \
                     ../../Classes/mini_games/BalloonHero.cpp \
                     ../../Classes/mini_games/Drop.cpp \
 					../../Classes/mini_games/Order.cpp \
