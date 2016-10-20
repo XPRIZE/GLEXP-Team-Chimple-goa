@@ -9,9 +9,10 @@ xc.GameMap = cc.Scene.extend({
         this.addChild(map);
     },
     loadGame: function(sender) {
+        cc.sys.localStorage.setItem("currentGame", sender._configuration.name)
         if(!sender._configuration.multiPlayer && sender._configuration.isJSGame && sender._configuration.pureJS) {
-            var gameFunc = xc[sender._configuration.pureJS];
-            xc.GameScene.load(gameFunc);
+            // var gameFunc = xc[sender._configuration.pureJS];
+            xc.GameScene.loadMenu();
         } else if(sender._configuration.multiPlayer && sender._configuration.isJSGame && sender._configuration.pureJS) {
             var gameFunc = xc[sender._configuration.pureJS];
             xc.GameScene.loadMultiPlayerGame(gameFunc,sender._configuration.name);            
