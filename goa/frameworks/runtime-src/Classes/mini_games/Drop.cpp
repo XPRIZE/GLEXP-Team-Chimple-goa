@@ -15,53 +15,60 @@ Scene* Drop::createScene()
 bool Drop::init()
 {
 	if (!Layer::init()) { return false; }
+	return true;
+}
 
+void Drop::onEnterTransitionDidFinish() 
+{
 	std::map<std::string, std::map<std::string, std::string>> dropSceneMap = {
 
 		{ "dropjungle",
-		{
-			{ "bg", "dropjungle/dropjungle.csb" },
-			{ "holderAnimation", "dropjungle/leafball.csb" },
-			{ "removalPole", "dropjungle/leafbal.png" },
-			{ "basketAnimation","dropjungle/basket.csb" },
-			{ "pseudoHolderImage","dropjungle/leafbal.png" },
-			{ "basketImageName", "basketouter_1" },
-			{ "rightAnimName", "full" },
-			{ "ball", "dropjungle/ball.png" },
-			{ "wrongAnimName", "correct" },
-			{ "blastAnimName", "click" },
-			{ "demoBasket","" }
-		}
+						{
+							{ "bg", "dropjungle/dropjungle.csb" },
+							{ "holderAnimation", "dropjungle/leafball.csb" },
+							{ "removalPole", "dropjungle/leafbal.png" },
+							{ "basketAnimation","dropjungle/basket.csb" },
+							{ "pseudoHolderImage","dropjungle/leafbal.png" },
+							{ "basketImageName", "basketouter_1" },
+							{ "rightAnimName", "full" },
+							{ "ball", "dropjungle/ball.png" },
+							{ "wrongAnimName", "correct" },
+							{ "blastAnimName", "click" },
+							{ "demoBasket","" },
+							{ "helpBoard", "boardhelp_16" }
+						}
 		},
 		{ "drophero",
-		{
-			{ "bg", "drophero/drophero.csb" },
-			{ "holderAnimation", "drophero/trailer.csb" },
-			{ "removalPole", "drophero/boxback.png" },
-			{ "basketAnimation","drophero/dropbox.csb" },
-			{ "pseudoHolderImage","drophero/trailer1.png" },
-			{ "basketImageName", "boxback" },
-			{ "rightAnimName", "right" },
-			{ "wrongAnimName", "wrong" },
-			{ "ball", "drophero/ball.png" },
-			{ "blastAnimName", "" },
-			{ "demoBasket","drophero/box1.png" }
-		}
+						{
+							{ "bg", "drophero/drophero.csb" },
+							{ "holderAnimation", "drophero/trailer.csb" },
+							{ "removalPole", "drophero/boxback.png" },
+							{ "basketAnimation","drophero/dropbox.csb" },
+							{ "pseudoHolderImage","drophero/trailer1.png" },
+							{ "basketImageName", "boxback" },
+							{ "rightAnimName", "right" },
+							{ "wrongAnimName", "wrong" },
+							{ "ball", "drophero/ball.png" },
+							{ "blastAnimName", "" },
+							{ "demoBasket","drophero/box1.png" },
+							{ "helpBoard", "board" }
+						}
 		},
 		{ "dropcity",
-		{
-			{ "bg", "dropcity/dropcity.csb" },
-			{ "holderAnimation", "dropcity/blast.csb" },
-			{ "removalPole", "dropcity/balloon.png" },
-			{ "basketAnimation","dropcity/basket.csb" },
-			{ "pseudoHolderImage","dropcity/balloon.png" },
-			{ "basketImageName", "Sprite_3" },
-			{ "rightAnimName", "correct" },
-			{ "wrongAnimName", "wrong" },
-			{ "ball", "dropcity/ball.png" },
-			{ "blastAnimName", "blast" },
-			{ "demoBasket","dropcity/closebox.png" }
-		}
+						{
+							{ "bg", "dropcity/dropcity.csb" },
+							{ "holderAnimation", "dropcity/blast.csb" },
+							{ "removalPole", "dropcity/balloon.png" },
+							{ "basketAnimation","dropcity/basket.csb" },
+							{ "pseudoHolderImage","dropcity/balloon.png" },
+							{ "basketImageName", "Sprite_3" },
+							{ "rightAnimName", "correct" },
+							{ "wrongAnimName", "wrong" },
+							{ "ball", "dropcity/ball.png" },
+							{ "blastAnimName", "blast" },
+							{ "demoBasket","dropcity/closebox.png" },
+							{ "helpBoard", "board" }
+						}
 		}
 
 	};
@@ -69,40 +76,72 @@ bool Drop::init()
 	std::map<std::string, std::map<std::string, float>> dropSceneNumValue = {
 
 		{ "dropjungle",
-		{
-			{ "boxLabelYFactor",0.1138 },
-			{ "basketRectYFactor", 0 },
-			{ "flaotingLetterYFactor", 1 },
-			{ "floatBoxHeightFactor",0.75 },
-			{ "helpBoardHeight",0.93 },
-			{ "basketAnchorY",0.0 }
-		}
+						{
+							{ "boxLabelYFactor",0.1138 },
+							{ "basketRectYFactor", 0 },
+							{ "flaotingLetterYFactor", 1 },
+							{ "floatBoxHeightFactor",0.75 },
+							{ "helpBoardHeight",0.93 },
+							{ "basketAnchorY",0.0 }
+						}
 		},
 		{ "drophero",
-		{
-			{ "boxLabelYFactor",0.07 },
-			{ "basketRectYFactor", 1 },
-			{ "flaotingLetterYFactor", 0.85 },
-			{ "floatBoxHeightFactor",0.62 },
-			{ "helpBoardHeight",0.884 },
-			{ "basketAnchorY",0.5 }
-		}
+						{
+							{ "boxLabelYFactor",0.07 },
+							{ "basketRectYFactor", 1 },
+							{ "flaotingLetterYFactor", 0.85 },
+							{ "floatBoxHeightFactor",0.62 },
+							{ "helpBoardHeight",0.884 },
+							{ "basketAnchorY",0.5 }
+						}
 		},
 		{ "dropcity",
-		{
-			{ "boxLabelYFactor",0.14 },
-			{ "basketRectYFactor", 0 },
-			{ "flaotingLetterYFactor", 1.36 },
-			{ "floatBoxHeightFactor",0.65 },
-			{ "helpBoardHeight",0.938 },
-			{ "basketAnchorY",0.0 }
-		}
+						{
+							{ "boxLabelYFactor",0.14 },
+							{ "basketRectYFactor", 0 },
+							{ "flaotingLetterYFactor", 1.36 },
+							{ "floatBoxHeightFactor",0.65 },
+							{ "helpBoardHeight",0.938 },
+							{ "basketAnchorY",0.0 }
+						}
 		}
 	};
+	std::map<int, std::string> dropSceneMapping = {
 
-	std::string theme[] = { "dropjungle", "drophero","dropcity" };
+		{ 0,	"drophero" },
+		{ 1,	"dropjungle" },
+		{ 2,    "dropcity" }
+	};
+	std::string wordOnLabel;
+	std::string wordOnLayout;
+	int gameCurrentLevel = _menuContext->getCurrentLevel();
+	std::pair<int, int> levelKeyNumber = levelAllInfo(gameCurrentLevel, 5,3,5,3);
+	_dropCurrentTheme = dropSceneMapping.at(levelKeyNumber.first);
+
+	if (levelKeyNumber.second == 0)
+	{
+		auto tg = TextGenerator::getInstance();
+		auto _data = TextGenerator::getInstance()->getAntonyms(1);
+		wordOnLabel = _data.begin()->first;
+		wordOnLayout = _data.begin()->second;
+	}
+	else if (levelKeyNumber.second == 1)
+	{
+		auto tg = TextGenerator::getInstance();
+		wordOnLabel = tg->generateAWord();
+		wordOnLayout = tg->generateAWord();
+	}
+	else
+	{
+		auto tg = TextGenerator::getInstance();
+		auto _data = TextGenerator::getInstance()->getSynonyms(1);
+		wordOnLabel = _data.begin()->first;
+		wordOnLayout = _data.begin()->second;
+	}
+
+	/*std::string theme[] = { "dropjungle", "drophero","dropcity" };
 	_dropCurrentTheme = theme[RandomHelper::random_int(0, 2)];
-	//_dropCurrentTheme = "dropjungle";
+	_dropCurrentTheme = "dropjungle";*/
 	_scenePath = dropSceneMap.at(_dropCurrentTheme);
 
 	_sceneBasedNumericalVal = dropSceneNumValue.at(_dropCurrentTheme);
@@ -126,18 +165,21 @@ bool Drop::init()
 	//BackGround
 	auto dropBackground = CSLoader::createNode(_scenePath.at("bg"));
 	this->addChild(dropBackground, 0);
+	//auto boardHelp = (Sprite *)dropBackground->getChildren().at(2)->getChildByName("boardhelp_16");
+
 
 	if (visibleSize.width > 2560) {
 		auto myGameWidth = (visibleSize.width - 2560) / 2;
 		dropBackground->setPositionX(myGameWidth);
 	}
-	Vector <Node*> children = dropBackground->getChildren().at(0)->getChildren();
+	/*Vector <Node*> children = dropBackground->getChildren().at(2)->getChildren();
 	int size = children.size();
 	for (auto item = children.rbegin(); item != children.rend(); ++item) {
 		Node * monsterItem = *item;
 		std::string str = monsterItem->getName().c_str();
 		CCLOG("name : %s", str.c_str());
 	}
+*/
 	_removalPole = Sprite::createWithSpriteFrameName(_scenePath.at("removalPole"));
 	setAllSpriteProperties(_removalPole, 0, -(visibleSize.width*0.13), visibleSize.height*_sceneBasedNumericalVal.at("floatBoxHeightFactor"), true, 0.5, 0.5, 0, 1, 1);
 	this->addChild(_removalPole);
@@ -147,17 +189,12 @@ bool Drop::init()
 	////aa->drawRect(Vec2(i*gap + gap / 2 - basketImg->getContentSize().width / 2, visibleSize.height*0.08) , Vec2(i*gap + gap / 2 + basketImg->getContentSize().width / 2, visibleSize.height*0.08 + basketImg->getContentSize().height), Color4F(0, 0, 255, 22)); //jungle drop
 	//aab->drawRect(Vec2((visibleSize.width*0.13) - _removalPole->getContentSize().width / 2, (visibleSize.height*_sceneBasedNumericalVal.at("floatBoxHeightFactor"))- _removalPole->getContentSize().height*0.1), Vec2((visibleSize.width*0.13) + _removalPole->getContentSize().width / 2, visibleSize.height *_sceneBasedNumericalVal.at("floatBoxHeightFactor") + _removalPole->getContentSize().height/2), Color4F(0, 0, 255, 22));
 
-	auto tg = TextGenerator::getInstance();
-	std::string word = tg->generateAWord();
-
-	//std::string word = "ELEPHANT";
-
-	_label = setAllLabelProperties(word, 2, (visibleSize.width / 2), (visibleSize.height*_sceneBasedNumericalVal.at("helpBoardHeight")), true, 0.5, 0.5, 0, 1, 1, 150);
+	_label = setAllLabelProperties(wordOnLabel, 2, (visibleSize.width / 2), (visibleSize.height*_sceneBasedNumericalVal.at("helpBoardHeight")), true, 0.5, 0.5, 0, 1, 1, 150);
 	this->addChild(_label, 2);
 
 	//Random index getter for blanks
 	std::vector<int> randomIndex;
-	int sizeOfWord = word.length();
+	int sizeOfWord = wordOnLayout.length();
 	int sizeOfRandomIndexVector;
 
 	if (sizeOfWord % 2 == 0)
@@ -181,8 +218,8 @@ bool Drop::init()
 			randomIndex.push_back(numberPicker);
 	}
 	auto B = randomIndex;
-	auto gap = Director::getInstance()->getVisibleSize().width / word.length();
-	for (int i = 0; i < word.length(); i++)
+	auto gap = Director::getInstance()->getVisibleSize().width / wordOnLayout.length();
+	for (int i = 0; i < wordOnLayout.length(); i++)
 	{
 		bool flag = false;
 		for (int j = 0; j < randomIndex.size(); j++)
@@ -193,14 +230,46 @@ bool Drop::init()
 				break;
 			}
 		}
-		layingOutBasket(flag, gap, LangUtil::convertUTF16CharToString(word.at(i)), i);
+		layingOutBasket(flag, gap, LangUtil::convertUTF16CharToString(wordOnLayout.at(i)), i);
 	}
+	/*if (_dropHelpSelector == 0)
+	{
 
+		auto a = _basketBin[0]->getPositionY();
+		HelpLayer *_dropHelp = HelpLayer::create(Rect(boardHelp->getPosition().x*1.044, boardHelp->getPosition().y, boardHelp->getContentSize().width*1.04, boardHelp->getContentSize().height),
+			Rect(boardHelp->getPosition().x*1.044, visibleSize.height*0.45, boardHelp->getContentSize().width*1.04, visibleSize.height*0.9));
+		this->addChild(_dropHelp, 5);
+		_dropHelp->setName("Help");
+		_dropHelp->click(Vec2(visibleSize.width*0.5, 0.75));
+		_dropHelpSelector = 1;
+	}*/
+	auto callShowScore = CCCallFunc::create([=] {
+		for (int i = 0; i < this->getChildren().size(); i++)
+		{
+			auto str = this->getChildren().at(i)->getName();
+			if (!str.compare("Help"))
+			{
+				this->removeChild(this->getChildren().at(i));
+				break;
+			}
+		}
+	});
+	this->runAction(Sequence::create(DelayTime::create(2), callShowScore, NULL));
 	this->schedule(schedule_selector(Drop::letterAndHolderMaker), 3);
 	this->scheduleUpdate();
-	return true;
 }
 
+std::pair<int, int> Drop::levelAllInfo(int currentLevel, int sceneRepetitionNo, int totalScene, int catagoryRepetitionNo, int totalcatagory)
+{
+	float currentLevelInFloat = static_cast<float>(currentLevel);
+	int sceneBaseValue = static_cast<int>(std::ceil(currentLevelInFloat/ sceneRepetitionNo));
+	int sceneNo = sceneBaseValue % totalScene;
+
+	int catagoryBaseValue = static_cast<int>(std::ceil(currentLevelInFloat / catagoryRepetitionNo));
+	int catagoryNo = catagoryBaseValue % totalcatagory;
+	
+	return std::make_pair(sceneNo, catagoryNo);
+}
 void Drop::layingOutBasket(bool flag, float gap, std::string letter, int i)
 {
 	if (flag)
@@ -209,12 +278,12 @@ void Drop::layingOutBasket(bool flag, float gap, std::string letter, int i)
 		cocostudio::timeline::ActionTimeline* basketTimeline = animationData.second;
 		Sprite* basket = animationData.first;
 
-		auto basketImg = (Sprite *)basket->getChildByName(_scenePath.at("basketImageName"));
+	    _basketImg = (Sprite *)basket->getChildByName(_scenePath.at("basketImageName"));
 		auto label = setAllLabelProperties(letter, 0, (i*gap + gap / 2), (visibleSize.height*_sceneBasedNumericalVal.at("boxLabelYFactor")), true, 0.5, 0.5, 0, 1, 1, 100);
 		this->addChild(label, 1);
 
 		label->setVisible(false);
-		auto rectBin = CCRectMake(i*gap + gap / 2 - basketImg->getContentSize().width / 2, (visibleSize.height*0.08 - (basketImg->getContentSize().height / 2 * _sceneBasedNumericalVal.at("basketRectYFactor"))), basketImg->getContentSize().width, basketImg->getContentSize().height);
+		auto rectBin = CCRectMake(i*gap + gap / 2 - _basketImg->getContentSize().width / 2, (visibleSize.height*0.08 - (_basketImg->getContentSize().height / 2 * _sceneBasedNumericalVal.at("basketRectYFactor"))), _basketImg->getContentSize().width, _basketImg->getContentSize().height);
 
 		_basketRect.push_back(rectBin);
 		_basketAnimBin.push_back(basketTimeline);
@@ -233,11 +302,12 @@ void Drop::layingOutBasket(bool flag, float gap, std::string letter, int i)
 		{
 			std::pair<Sprite*, cocostudio::timeline::ActionTimeline*>animationData = setAnimationAndProperties(_scenePath.at("basketAnimation"), (i*gap + gap / 2), (visibleSize.height*0.08), 1);
 			cocostudio::timeline::ActionTimeline* basketTimeline = animationData.second;
-			Sprite* basket = animationData.first;
+			auto basket = animationData.first;
 			basketTimeline->setCurrentFrame(basketTimeline->getEndFrame());
 		}
-	else {
-			Sprite* basket = Sprite::createWithSpriteFrameName(_scenePath.at("demoBasket"));
+		else
+		{
+		    auto basket = Sprite::createWithSpriteFrameName(_scenePath.at("demoBasket"));
 			setAllSpriteProperties(basket, 0, (i*gap + gap / 2), (visibleSize.height*0.08), true, 0.5, _sceneBasedNumericalVal.at("basketAnchorY"), 0, 1, 1);
 			this->addChild(basket, 0);
 		}
@@ -271,12 +341,12 @@ void Drop::letterAndHolderMaker(float dt)
 		leftFloat(trailer, 12, -(visibleSize.width*0.2), visibleSize.height*_sceneBasedNumericalVal.at("floatBoxHeightFactor"));//0.75
 		_dropHeroTrailerImageBin.push_back(trailer);
 	}
-	Sprite* floatBox = Sprite::createWithSpriteFrameName(_scenePath.at("pseudoHolderImage"));
-	setAllSpriteProperties(floatBox, 0, visibleSize.width*1.1, visibleSize.height*_sceneBasedNumericalVal.at("floatBoxHeightFactor"), true, 0.5, 0.5, 0, 1, 1);//0.75, true
-	leftFloat(floatBox, 12, -(visibleSize.width*0.2), visibleSize.height*_sceneBasedNumericalVal.at("floatBoxHeightFactor"));//0.75
-	this->addChild(floatBox, 1);
-	addEvents(floatBox);
-	floatBox->setTag(letterHolderId);
+		Sprite* floatBox = Sprite::createWithSpriteFrameName(_scenePath.at("pseudoHolderImage"));
+		setAllSpriteProperties(floatBox, 0, visibleSize.width*1.1, visibleSize.height*_sceneBasedNumericalVal.at("floatBoxHeightFactor"), true, 0.5, 0.5, 0, 1, 1);//0.75, true
+		leftFloat(floatBox, 12, -(visibleSize.width*0.2), visibleSize.height*_sceneBasedNumericalVal.at("floatBoxHeightFactor"));//0.75
+		this->addChild(floatBox, 1);
+		addEvents(floatBox);
+		floatBox->setTag(letterHolderId);
 
 	_letterHolderSpriteBin.push_back(floatBox);
 

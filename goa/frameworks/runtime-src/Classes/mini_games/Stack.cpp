@@ -29,14 +29,19 @@ bool Stack::init()
 		return false;
 	}
 
+	return true;
+}
+
+void Stack::onEnterTransitionDidFinish()
+{
 	flag = true;
 	_helpFlag = 0;
 	visibleSize = Director::getInstance()->getWinSize();
-
+	_menuContext->setMaxPoints(25);
 	std::vector<std::string> scene = { "island", "superhero" , "farm" };
 
 	sceneName = scene.at(rand() % 3);
-//	sceneName = "farm";
+	//	sceneName = "farm";
 
 	if (sceneName == "island")
 	{
@@ -55,7 +60,7 @@ bool Stack::init()
 			}
 		}
 	}
-	else if(sceneName=="superhero")
+	else if (sceneName == "superhero")
 	{
 		stackbg = (Node *)CSLoader::createNode("stackhero/stackhero.csb");
 	}
@@ -158,11 +163,11 @@ bool Stack::init()
 	for (std::map<std::string, std::map<std::string, std::string>>::iterator it = _textToSHow.begin(); it != _textToSHow.end(); ++it, i++)
 	{
 		std::ostringstream counterForLetter;
-		counterForLetter << "container" << i+1;
+		counterForLetter << "container" << i + 1;
 		std::string counterValue = counterForLetter.str();
 
 		LabelDetails.label = LabelTTF::create(it->first, "Helvetica", 100, CCSizeMake(200, 200));
-		LabelDetails.container = (Sprite*) secondChild->getChildByName(counterForLetter.str());
+		LabelDetails.container = (Sprite*)secondChild->getChildByName(counterForLetter.str());
 		LabelDetails.label->setPosition(0, 0);
 		LabelDetails.label->setColor(Color3B::BLACK);
 		LabelDetails.label->setAnchorPoint(Vec2(.5, .7));
@@ -180,11 +185,9 @@ bool Stack::init()
 		}
 	}
 
-
 	Stack::generateWord();
-	
-	return true;
 }
+
 
 void Stack::generateWord()
 {
