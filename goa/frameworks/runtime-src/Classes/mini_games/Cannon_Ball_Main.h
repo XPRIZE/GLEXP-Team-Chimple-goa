@@ -26,6 +26,7 @@ public:
 	~MainGame();
 
 	cocos2d::Sprite* backGround_front;
+	void onEnterTransitionDidFinish() override;
 	static EventListenerClass* cannon1, *cannon2, *cannon3, *cannon4;
 	std::vector<Position> position;
 	std::vector<Position> letterPosition;

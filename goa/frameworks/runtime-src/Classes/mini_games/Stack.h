@@ -73,7 +73,7 @@ public:
 	std::vector<Node*> Position;
 
 	bool flag;
-
+	void onEnterTransitionDidFinish() override;
 	void addEvents(struct LabelDetails);
 	void afterAnimation(struct LabelDetails);
 	void wordShow(cocos2d::LabelTTF*);

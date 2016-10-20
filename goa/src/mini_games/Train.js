@@ -190,7 +190,7 @@ xc.TrainLayer = cc.Layer.extend({
         {
             _menuContext = self.getParent().menuContext;
 //            currentLevel = _menuContext.getCurrentLevel();
-            wordForSentanceArray = goa.TextGenerator.getInstance().generateASentence(1);
+            wordForSentanceArray = goa.TextGenerator.getInstance().generateASentence();
             currentLevel = 0;
                 
             if(currentLevel>=1 && currentLevel<=8)
