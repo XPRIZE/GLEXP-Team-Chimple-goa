@@ -1,5 +1,15 @@
 [
     {
+        "name": "show_bluetoothPeers",
+        "cIcon": "gameicons/EndlessRunner_pressed.png",
+        "icon": "gameicons/EndlessRunner.png",
+        "multiPlayer": false,
+        "isJSGame": true,
+        "pureJS":"",
+        "script": "src/start/showBlueToothPeers.js"
+    },
+
+    {
         "name": "EndlessRunner",
         "cIcon": "gameicons/EndlessRunner_pressed.png",
         "icon": "gameicons/EndlessRunner.png",
