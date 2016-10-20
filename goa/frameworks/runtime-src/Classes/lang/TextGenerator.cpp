@@ -57,11 +57,11 @@ std::map<int, int> TextGenerator::getRandomLocations(int numLoc, int totalNum) {
     return locChars;
 }
 
-std::string TextGenerator::generateAWord() {
+std::string TextGenerator::generateAWord(int level) {
     return LangUtil::getInstance()->getAWord();
 }
 
-std::string TextGenerator::generateASentence() {
+std::string TextGenerator::generateASentence(int level) {
     return LangUtil::getInstance()->getASentence();
 }
 
@@ -108,7 +108,7 @@ std::vector<std::string> TextGenerator::getValidCombinations(std::string chars, 
     return v;
 }
 
-std::map<std::string, std::string> TextGenerator::getSynonyms(int maxNum) {
+std::map<std::string, std::string> TextGenerator::getSynonyms(int maxNum, int level) {
     std::map<std::string, std::string> SynonymMap = {
         {"end", "finish"},
         {"cry", "sob"},
@@ -134,7 +134,7 @@ std::map<std::string, std::string> TextGenerator::getSynonyms(int maxNum) {
     return data;
 }
 
-std::map<std::string, std::string> TextGenerator::getAntonyms(int maxNum) {
+std::map<std::string, std::string> TextGenerator::getAntonyms(int maxNum, int level) {
     std::map<std::string, std::string> AntonymMap = {
         {"big", "small"},
         {"loud", "quiet"},
@@ -163,7 +163,7 @@ std::map<std::string, std::string> TextGenerator::getAntonyms(int maxNum) {
     return data;
 }
 
-std::map<std::string, std::string> TextGenerator::getHomonyms(int maxNum) {
+std::map<std::string, std::string> TextGenerator::getHomonyms(int maxNum, int level) {
     std::map<std::string, std::string> HomonymMap = {
         {"be", "bee"},
         {"bean", "bean"},
@@ -192,7 +192,7 @@ std::map<std::string, std::string> TextGenerator::getHomonyms(int maxNum) {
     return data;
 }
 
-std::map<std::string, std::map<std::string, std::string>> TextGenerator::getInitialSyllableWords(int maxNum, int maxChoices) {
+std::map<std::string, std::map<std::string, std::string>> TextGenerator::getInitialSyllableWords(int maxNum, int maxChoices, int level) {
     std::map<std::string, std::map<std::string, std::string>> InitialSyllableMap = {
         {
             {"be",
@@ -709,4 +709,35 @@ std::vector<std::vector<std::pair<std::string, TextGenerator::POS>>> TextGenerat
     }
     return data;
 }
+
+std::map<std::string, std::string> TextGenerator::getSingularPlurals(int maxNum, int level) {
+    std::map<std::string, std::string> SingularPluralMap = {
+        {"apple", "apples"},
+        {"banana", "bananas"},
+        {"toy", "toys"},
+        {"deer", "deers"},
+        {"hour", "hours"},
+        {"phone", "phones"},
+        {"computer", "computers"},
+        {"bottle", "bottles"},
+        {"plain", "plains"},
+        {"tree", "trees"},
+        {"road", "roads"},
+        {"sail", "sails"},
+        {"sea", "seas"},
+        {"octopus", "octopi"},
+        {"son", "sons"},
+        {"tail", "tails"}
+    };
+    std::map<std::string, std::string> data;
+    for (std::map<std::string, std::string>::iterator it=SingularPluralMap.begin(); it!=SingularPluralMap.end(); ++it) {
+        data[it->first] = it->second;
+        if(data.size() >= maxNum) {
+            break;
+        }
+    }
+    return data;
+}
+
+
 

@@ -88,6 +88,8 @@
 		F303CCA41DB20DB700DB6D81 /* Pillar.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F303CC9F1DB20D9000DB6D81 /* Pillar.cpp */; };
 		F307808A1DB5C2C90078DF62 /* HelpLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F30780891DB5C2C90078DF62 /* HelpLayer.cpp */; };
 		F307808B1DB5C2C90078DF62 /* HelpLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F30780891DB5C2C90078DF62 /* HelpLayer.cpp */; };
+		F30780911DB8903D0078DF62 /* DecomonGallery.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F307808F1DB8903D0078DF62 /* DecomonGallery.cpp */; };
+		F30780921DB8903D0078DF62 /* DecomonGallery.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F307808F1DB8903D0078DF62 /* DecomonGallery.cpp */; };
 		F35247C01D6D9D1A0077C333 /* HelloWorldScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F35247171D6D9D1A0077C333 /* HelloWorldScene.cpp */; };
 		F35247C11D6D9D1A0077C333 /* HelloWorldScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F35247171D6D9D1A0077C333 /* HelloWorldScene.cpp */; };
 		F35247C21D6D9D1A0077C333 /* MapScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F35247191D6D9D1A0077C333 /* MapScene.cpp */; };
@@ -524,6 +526,8 @@
 		F303CCA01DB20D9000DB6D81 /* Pillar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Pillar.h; sourceTree = "<group>"; };
 		F30780891DB5C2C90078DF62 /* HelpLayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = HelpLayer.cpp; sourceTree = "<group>"; };
 		F307808E1DB5C2DD0078DF62 /* HelpLayer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HelpLayer.h; sourceTree = "<group>"; };
+		F307808F1DB8903D0078DF62 /* DecomonGallery.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = DecomonGallery.cpp; sourceTree = "<group>"; };
+		F30780901DB8903D0078DF62 /* DecomonGallery.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DecomonGallery.h; sourceTree = "<group>"; };
 		F35247171D6D9D1A0077C333 /* HelloWorldScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = HelloWorldScene.cpp; sourceTree = "<group>"; };
 		F35247181D6D9D1A0077C333 /* HelloWorldScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HelloWorldScene.h; sourceTree = "<group>"; };
 		F35247191D6D9D1A0077C333 /* MapScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MapScene.cpp; sourceTree = "<group>"; };
@@ -1159,6 +1163,8 @@
 		F352471A1D6D9D1A0077C333 /* mini_games */ = {
 			isa = PBXGroup;
 			children = (
+				F307808F1DB8903D0078DF62 /* DecomonGallery.cpp */,
+				F30780901DB8903D0078DF62 /* DecomonGallery.h */,
 				F303CC9F1DB20D9000DB6D81 /* Pillar.cpp */,
 				F303CCA01DB20D9000DB6D81 /* Pillar.h */,
 				9C7B1AC51DAA1BCE00EBD1FE /* Order.cpp */,
@@ -1728,6 +1734,7 @@
 				F352484D1D6D9D1A0077C333 /* SkeletonPosition.cpp in Sources */,
 				F3667D311DB4BA6F00EC8908 /* LipiTKProcessTask.cpp in Sources */,
 				F3667D631DB4BA7000EC8908 /* LTKImageWriter.cpp in Sources */,
+				F30780921DB8903D0078DF62 /* DecomonGallery.cpp in Sources */,
 				F3667D231DB4BA6F00EC8908 /* LTKTraceFormat.cpp in Sources */,
 				F3667D711DB4BA7000EC8908 /* LTKStrEncoding.cpp in Sources */,
 				F3F7ED7F1D9F891000727A7C /* MemoryJungle.cpp in Sources */,
@@ -1937,6 +1944,7 @@
 				509D4AC817EBB2AB00697056 /* main.m in Sources */,
 				F35247EE1D6D9D1A0077C333 /* GameScene.cpp in Sources */,
 				F3667D2E1DB4BA6F00EC8908 /* LipiTKNode.cpp in Sources */,
+				F30780911DB8903D0078DF62 /* DecomonGallery.cpp in Sources */,
 				F35247E81D6D9D1A0077C333 /* SpriteCreate.cpp in Sources */,
 				F35248281D6D9D1A0077C333 /* Alphamon.cpp in Sources */,
 				F3F7ED7E1D9F891000727A7C /* MemoryJungle.cpp in Sources */,
