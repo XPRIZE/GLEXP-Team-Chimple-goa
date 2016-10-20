@@ -12,6 +12,7 @@
 #include "../lang/TextGenerator.h"
 #include "GraphemeGrid.h"
 #include "Grapheme.h"
+#include "../LipiTKNode.h"
 
 USING_NS_CC;
 
@@ -64,11 +65,61 @@ WordScene* WordScene::createWithWord(std::string wordStr) {
     return nullptr;
 }
 
-WordScene::WordScene():_grid(nullptr) {
-    
+WordScene::WordScene():_grid(nullptr),_lipiTKResultMenu(nullptr) {
 }
 
 WordScene::~WordScene() {
+    this->getEventDispatcher()->removeCustomEventListeners("chars_recognized");
+    this->getEventDispatcher()->removeCustomEventListeners("clearPrintedCharacters");
+}
+
+void WordScene::clearLipiTKResult() {
+    if(_lipiTKResultMenu && _lipiTKResultMenu->getChildren().size() > 0)
+    {
+    Vector<Node*> items = _lipiTKResultMenu->getChildren();
+    for (std::vector<Node*>::iterator it = items.begin() ; it != items.end(); ++it)
+    {
+        Node* item = *it;
+        item->removeFromParent();
+    }
+    }
+}
+
+void WordScene::charactersRecognized(EventCustom* event) {
+    _lipiTKResultMenu = Menu::create();
+    _lipiTKResultMenu->setPosition(Vec2(1000, 800));
+    
+    std::vector<std::string>*messages = reinterpret_cast<std::vector<std::string>*>(event->getUserData());
+    std::string resultChar;
+    int i = 0;
+    for (std::vector<std::string>::iterator it = messages->begin() ; it != messages->end(); ++it)
+    {
+        std::string alphabet = *it;
+        std::transform(alphabet.begin(), alphabet.end(),alphabet.begin(), ::toupper);
+        auto label = Label::createWithBMFont(LangUtil::getInstance()->getBMFontFileName(), alphabet);
+        label->setPosition(Vec2(i * 1000/(messages->size()), 15));
+        label->setBMFontSize(150.0f);
+        
+        MenuItemLabel *menuItem = MenuItemLabel::create( label, CC_CALLBACK_1( WordScene::characterSelected, this ) );
+        _lipiTKResultMenu->addChild(menuItem);
+        i++;
+    }
+    addChild(_lipiTKResultMenu);
+}
+
+void WordScene::characterSelected(Ref *sender) {
+    //CCLOG("res %s", res.c_str());
+    MenuItemLabel* menuItem = static_cast<MenuItemLabel*>(sender);
+    std::string text = menuItem->getString();
+    if(!text.empty())
+    {
+        WordScene::textReceived(text);
+        clearLipiTKResult();
+        _lipiTKNode->removeFromParent();
+        _handWritingDialogButton->setEnabled(true);
+
+    }
+    
 }
 
 bool WordScene::init() {
@@ -98,11 +149,17 @@ bool WordScene::initWithWord(std::string word) {
 void WordScene::onExitTransitionDidStart() {
     Node::onExitTransitionDidStart();
     _eventDispatcher->removeCustomEventListeners("grapheme_anim_done");
+    _eventDispatcher->removeCustomEventListeners("chars_recognized");
+    _eventDispatcher->removeCustomEventListeners("clearPrintedCharacters");
+    
 }
 
 void WordScene::onEnterTransitionDidFinish() {
     Node::onEnterTransitionDidFinish();
     _eventDispatcher->addCustomEventListener("grapheme_anim_done", CC_CALLBACK_0(WordScene::checkAnswer, this));
+    _eventDispatcher->addCustomEventListener("clearPrintedCharacters", CC_CALLBACK_0(WordScene::clearLipiTKResult, this));
+    
+    _eventDispatcher->addCustomEventListener("chars_recognized", CC_CALLBACK_1(WordScene::charactersRecognized, this));
 }
 
 GraphemeGrid* WordScene::createGraphemeGrid(GLfloat width, GLfloat height, int numRows, int numCols, std::string spriteName, std::vector<std::vector<std::string>> graphemes, std::string graphemeUnselectedBackground, std::string graphemeSelectedBackground)
@@ -218,6 +275,8 @@ void WordScene::processGrapheme(Grapheme* grapheme) {
                 grapheme->animateToPositionAndChangeBackground(grapheme->getPrevPosition());
                 if(_showHandWriting) {
                     _handWritingDialogButton->setEnabled(true);
+                    clearLipiTKResult();
+                    _lipiTKNode->removeFromParent();
                     Director::getInstance()->getEventDispatcher()->pauseEventListenersForTarget(grapheme);
 
                 }
@@ -291,19 +350,9 @@ void WordScene::showHandWritingDialog(Ref* pSender, ui::Widget::TouchEventType e
             if(processHandWriting)
             {
                 _grid->setVisible(false);
-                clickedButton->setEnabled(true);
-                #if (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
-                    cocos2d::JniMethodInfo methodInfo;
-                    if (! cocos2d::JniHelper::getStaticMethodInfo(methodInfo, "org/cocos2dx/javascript/AppActivity", "drawCanvas", "(IIII)V")) {
-                    return;
-                    }
-                    int x = 0;
-                    int y = 0;
-                    methodInfo.env->CallStaticVoidMethod(methodInfo.classID, methodInfo.methodID, x, y, LAYOUT_CENTER_HORIZONTAL, LAYOUT_CENTER_VERTICAL);
-                    methodInfo.env->DeleteLocalRef(methodInfo.classID);
-                #else
-                    WordScene::textReceived("A");
-                #endif   
+                clickedButton->setEnabled(false);
+                _lipiTKNode = LipiTKNode::create(1000,1000,Vec2(clickedButton->getPosition().x, clickedButton->getPosition().y + 600), 70);
+                addChild(_lipiTKNode);
             } else {
                 clickedButton->setEnabled(false);
             }
