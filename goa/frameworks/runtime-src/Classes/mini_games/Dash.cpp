@@ -81,7 +81,8 @@ bool Dash::init()
 				   { "character", "dash/character.csb"},
 				   { "right_animation", "jumping"},
 				   { "wrong_animation", "sad_wrong"},
-				   { "winning_animation","dance"}
+				   { "winning_animation","dance"},
+				   { "board","dash/big_button.png" }
 			   }},
 		   {"iceLand",  //anu designs
 			   {
@@ -94,7 +95,8 @@ bool Dash::init()
 				   { "character", "dashisland/character.csb" },
 				   { "right_animation", "hero_correct" },
 				   { "wrong_animation", "hero_wrong" },
-				   {"winning_animation", "null"}
+				   {"winning_animation", "null"},
+				   { "board","dashisland/board.png" }
 			   }},
 		   {"candy",  //teju design
 			   {
@@ -107,7 +109,8 @@ bool Dash::init()
 				   { "character", "dashcandy/character.csb" },
 				   { "right_animation", "jump" },
 				   { "wrong_animation", "angry" },
-				   { "winning_animation", "null" }
+				   { "winning_animation", "null" },
+				   { "board","dashcandy/answer_button.png" }
 			   }},
 	};
 	
@@ -158,6 +161,11 @@ bool Dash::init()
 			}
 		}
 	}
+
+	auto board = Sprite::createWithSpriteFrameName(_scenePath.at("board"));
+	board->setPositionY(visibleSize.height - board->getContentSize().height / 2);
+	board->setPositionX(visibleSize.width / 2);
+	this->addChild(board);
 
 	_character = CSLoader::createNode(_scenePath.at("character"));
 	_character->setPositionX((visibleSize.width / 5) + step_width / 2);
@@ -231,14 +239,23 @@ void Dash::onEnterTransitionDidFinish()
 {
 	Node::onEnterTransitionDidFinish();
 	int level = menu->getCurrentLevel();
-	int division = (level % 15)+1;
+	int division = ((level - 1) % 15)+1;
 	if (division >= 1 && division < 6) {
+		int roundLevel = (level / 15) + 1;
+		int inner = division + ((roundLevel - 1) * 5);
+		CCLOG("Sysnonyms Level = %d", inner);
 		_synonyms = TextGenerator::getInstance()->getSynonyms(10);
 	} 
 	else if (division >5 && division < 11) {
+		int roundLevel = (level / 15) + 1;
+		int inner = division - 5 + ((roundLevel - 1) * 5);
+		CCLOG("Antonyms Level = %d", inner);
 		_synonyms = TextGenerator::getInstance()->getAntonyms(10);
 	}
 	else {
+		int roundLevel = (level / 15) + 1;
+		int inner = division - 10 + ((roundLevel - 1) * 5);
+		CCLOG("Homonyms Level = %d", inner);
 		_synonyms = TextGenerator::getInstance()->getHomonyms(10);
 	}
 	
