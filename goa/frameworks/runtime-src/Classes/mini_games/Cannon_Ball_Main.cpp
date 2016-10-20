@@ -60,7 +60,13 @@ bool MainGame::init()
 	{
 		return false;
 	}
+//	setonEnterTransitionDidFinishCallback(CC_CALLBACK_0(MainGame::PlayVideo, this));
 
+	return true;
+}
+
+void MainGame::onEnterTransitionDidFinish()
+{
 	MainGame::audioBg = CocosDenshion::SimpleAudioEngine::getInstance();
 
 	MainGame::cannonLetter.clear();
@@ -143,9 +149,10 @@ bool MainGame::init()
 
 	self = this;
 
-	setonEnterTransitionDidFinishCallback(CC_CALLBACK_0(MainGame::PlayVideo, this));
-
-	return true;
+	startGame();
+	letterCome(1);
+	self->schedule(schedule_selector(MainGame::letterCome), letterComespeed);
+	self->scheduleUpdate();
 }
 
 void MainGame::PlayVideo()
@@ -157,10 +164,6 @@ void MainGame::PlayVideo()
 void MainGame::AfterPlayVideo()
 {
 	MainGame::audioBg->playEffect("cannonball/gamesound/background1.wav", true);
-	startGame();
-	letterCome(1);
-	self->schedule(schedule_selector(MainGame::letterCome), letterComespeed);
-	self->scheduleUpdate();
 } 
 
 void MainGame::startGame()	// starting of game
@@ -315,6 +318,10 @@ void MainGame::letterCome(float d)
 		auto moveto = MoveTo::create(tweenSpeed, Vec2(MainGame::width + 50, lett->getPosition().y));
 		auto seq = Sequence::create(moveto, callBack, NULL);
 		lett->runAction(seq);
+	}
+	else
+	{
+		Director::getInstance()->pause();
 	}
 }
 
@@ -688,6 +695,7 @@ void MainGame::update(float dt)
 					self->addChild(mycannon);	// add cannon animation
 					mycannon->runAction(timeline);
 					timeline->gotoFrameAndPlay(00, false);
+					_menuContext->addPoints(1);
 					timeline->setAnimationEndCallFunc("meteor_blast", CC_CALLBACK_0(MainGame::meteorBlast, this, mycannon));
 					MainGame::audioBg->playEffect("cannonball/gamesound/meteorblast.wav", false, 1, 1, .2);
 
@@ -698,7 +706,7 @@ void MainGame::update(float dt)
 					_menuContext->pickAlphabet(MainGame::letterArray[i]->id, bulletArray[j]->id, true);
 
 					int score = _menuContext->getPoints();
-					if (score == 10)
+					if (score == 30)
 						_menuContext->showScore();
 
 					int it = find(MainGame::bulletArray.begin(), MainGame::bulletArray.end(), MainGame::bulletArray[j]) - MainGame::bulletArray.begin();	//find bullet index in bulletarray 
@@ -758,7 +766,7 @@ void MainGame::update(float dt)
 					timeline->setAnimationEndCallFunc("meteor_strike", CC_CALLBACK_0(MainGame::meteorBlast, this, mycannon));
 
 					MainGame::audioBg->playEffect("cannonball/gamesound/meteorstrike.wav", false, 1, 1, .2);
-
+					_menuContext->addPoints(-1);
 					this->removeChild(MainGame::bulletArray_actualImage[j]);
 					this->removeChild(MainGame::bulletArray_Animation[j]);
 

@@ -7,6 +7,7 @@
 //
 
 #include "LipiTKNode.h"
+#include "lang/LangUtil.h"
 #include <algorithm>
 
 USING_NS_CC;
@@ -16,8 +17,7 @@ _canvasWidth(0),
 _canvasHeight(0),
 _currentStroke(),
 _lipiTKInterface(nullptr),
-_isTouchEndedOrMovedOut(false),
-_menu(nullptr)
+_isTouchEndedOrMovedOut(false)
 {
     
 }
@@ -41,6 +41,30 @@ LipiTKNode* LipiTKNode::create(int width, int height, Point position, int opacit
 }
 
 
+Sprite* LipiTKNode::createDrawingAreaWithColor(Vec2 anchorPoint, Vec2 position, float opacity,const Color3B& color) {
+    _drawingBoard = Sprite::create();
+    _drawingBoard->setName("_drawingBoard");
+    _drawingBoard->setTextureRect(Rect(0, 0, _canvasWidth, _canvasHeight));
+    _drawingBoard->setAnchorPoint(Vec2(0.5,0.5));
+    _drawingBoard->setColor(Color3B::RED);
+    _drawingBoard->setOpacity(opacity);
+    _drawingBoard->setPosition(position);
+    
+    return _drawingBoard;
+}
+
+Sprite* LipiTKNode::createDrawingAreaUsingFileName(Vec2 anchorPoint, Vec2 position, float opacity, std::string fileName) {
+    _drawingBoard = Sprite::create(fileName);
+    _drawingBoard->setName("_drawingBoard");
+    _drawingBoard->setTextureRect(Rect(0, 0, _canvasWidth, _canvasHeight));
+    _drawingBoard->setAnchorPoint(Vec2(0.5,0.5));
+    _drawingBoard->setColor(Color3B::RED);
+    _drawingBoard->setOpacity(opacity);
+    _drawingBoard->setPosition(position);
+    
+    return _drawingBoard;
+}
+
 bool LipiTKNode::initialize(int width, int height, Point position, int opacity) {
     _lipiTKInterface = LipiTKInterface::getInstance("res");
     _canvasWidth = width;
@@ -58,15 +82,8 @@ bool LipiTKNode::initialize(int width, int height, Point position, int opacity) 
     addChild(_paintingNode);
     
     
-    _drawingBoard = Sprite::create();
-    _drawingBoard->setName("_drawingBoard");
-    _drawingBoard->setTextureRect(Rect(0, 0, _canvasWidth, _canvasHeight));
-    _drawingBoard->setAnchorPoint(Vec2(0.5,0.5));
-    _drawingBoard->setColor(Color3B::RED);
-    _drawingBoard->setOpacity(opacity);
-    _drawingBoard->setPosition(position);
+    _drawingBoard = createDrawingAreaWithColor(Vec2(0.5,0.5), position, opacity, Color3B::RED);
     addChild(_drawingBoard, 1);
-
     
     auto listenerTouches = EventListenerTouchOneByOne::create();
     listenerTouches->setSwallowTouches(true);
@@ -75,17 +92,20 @@ bool LipiTKNode::initialize(int width, int height, Point position, int opacity) 
     listenerTouches->onTouchEnded = CC_CALLBACK_2(LipiTKNode::touchEnded, this);
     this->getEventDispatcher()->addEventListenerWithSceneGraphPriority(listenerTouches, this);
 
+    Vec2 clearButtonPos = Vec2(_drawingBoard->getBoundingBox().size.width - 15,_drawingBoard->getBoundingBox().size.height - 15);
     
-    _clearButton = this->createButton("menu/help.png", "menu/help.png", "menu/help.png");
+    _clearButton = this->createButton("menu/help.png", "menu/help.png", "menu/help.png", clearButtonPos);
+    
     return true;
 }
 
 
 cocos2d::ui::Button* LipiTKNode::createButton(const std::string normalImage,
                                                  const std::string selectedImage ,
-                                                 const std::string disableImage) {
+                                                 const std::string disableImage,
+                                              Vec2 position) {
     cocos2d::ui::Button* button = cocos2d::ui::Button::create(normalImage, selectedImage, disableImage, cocos2d::ui::Widget::TextureResType::LOCAL);
-    button->setPosition(Vec2(_drawingBoard->getBoundingBox().size.width - 15,_drawingBoard->getBoundingBox().size.height - 15));
+    button->setPosition(position);
     _drawingBoard->addChild(button);
     
     button->addTouchEventListener(CC_CALLBACK_2(LipiTKNode::clearDrawing, this));
@@ -96,43 +116,17 @@ cocos2d::ui::Button* LipiTKNode::createButton(const std::string normalImage,
 
 void LipiTKNode::clearDrawing(cocos2d::Ref *pSender, cocos2d::ui::Widget::TouchEventType eEventType) {
     if(eEventType == cocos2d::ui::Widget::TouchEventType::ENDED) {
-        //chimpHelp();
         _paintingNode->clear();
         _canvas->clear(0, 0, _canvasWidth, _canvasHeight);
-        clearAllCharacters();
         _strokes.clear();
+        clearPrintedCharacters();
     }
 }
 
 
-void LipiTKNode::charSelected(cocos2d::Ref* sender) {
-    CCLOG("clicked");
-}
-
-MenuItemFont * LipiTKNode::createItem(Point position, Node* parent, std::string text, const Color3B& color, float fontSize) {
-    auto _showCharItem = MenuItemFont::create(text, CC_CALLBACK_1(LipiTKNode::charSelected, this));
-    _showCharItem->setPosition(position);
-    _showCharItem->setFontName("Arial");
-    _showCharItem->setColor(color);
-    _showCharItem->setFontSize(fontSize);
-    return _showCharItem;
-}
-
-
-void LipiTKNode::clearAllCharacters() {
-    for (std::vector<MenuItemFont*>::iterator it = _chars.begin() ; it != _chars.end(); ++it)
-    {
-        MenuItemFont* item = *it;
-        item->removeFromParent();
-    }
-    
-//    if(_menu)
-//    {
-//        _menu->removeFromParent();
-//    }
-    
-    _chars.clear();
-   
+void LipiTKNode::clearPrintedCharacters() {
+    EventCustom event("clearPrintedCharacters");
+    _eventDispatcher->dispatchEvent(&event);
 }
 
 
@@ -140,7 +134,7 @@ bool LipiTKNode::onTouchBegan(Touch *touch, Event *event)
 {
     if(checkTouchOnDrawingBoard(touch, event))
     {
-        clearAllCharacters();
+        clearPrintedCharacters();
         Point n = this->convertTouchToNodeSpace(touch);
         _currentStroke = new Stroke();
         CCLOG("touch begin Point x: %f and y %f", n.x, n.y);
@@ -203,9 +197,9 @@ void LipiTKNode::processLipiTK() {
     lipiProcessTask->execute();
 }
 
-void LipiTKNode::displayRecognizedChars(std::vector<std::string> results) {
-    int i = 1;
-    _menu = Menu::create();
+
+
+void LipiTKNode::broadCastRecognizedChars(std::vector<std::string> results) {
     if(!results.empty() && results.size() > 0)
     {
         std::vector<std::string> copiedResults (results.size());
@@ -217,30 +211,12 @@ void LipiTKNode::displayRecognizedChars(std::vector<std::string> results) {
             {
                 std::string alphabet = *it;
                 CCLOG("char %s", alphabet.c_str());
-                
-                if(!alphabet.empty())
-                {
-                    try {
-                        MenuItemFont* item = createItem(Vec2(-15 + i * _canvasWidth/(results.size()), 15), _drawingBoard, alphabet, Color3B::BLUE, 24.0f);
-                        _menu->addChild(item);
-                        _chars.push_back(item);
-                        
-                        i++;
-
-                    } catch(...) {
-                        
-                    }                    
-                }
             }
-            _drawingBoard->addChild(_menu);
-            _menu->setAnchorPoint(Vec2(0.5,0.5));
-            //_menu->setPosition(Vec2(_drawingBoard->getPosition().x - _drawingBoard->getBoundingBox().size.width/2, _drawingBoard->getPosition().y - _drawingBoard->getBoundingBox().size.height/2));
             
-            _menu->setPosition(Vec2(0,0));
-            
+            EventCustom event("chars_recognized");
+            event.setUserData(static_cast<void*>(&copiedResults));
+            _eventDispatcher->dispatchEvent(&event);
             
         }
     }
-    
-    
 }

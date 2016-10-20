@@ -7,7 +7,6 @@ xc.RenderBluetoothPeersLayer = cc.LayerColor.extend({
     _contentPanelHeight: null,
     _characterNode: null,    
     _panel:null,
-    _selectedConfigurationForCharacter:[],
     _discoveredConfiguration:[],
     ctor: function () {        
         this._super(xc.TERTIARY_COLOR);
@@ -19,8 +18,9 @@ xc.RenderBluetoothPeersLayer = cc.LayerColor.extend({
         return true;
     },
 
-    init: function () {         
-        //cc.sys.localStorage.setItem("discoveredBluetoothDevices", "4_5_1_3_1_2_0_2_0_6_3_0_1_1-AA:BB:CC:XX");
+    init: function () {                 
+        cc.sys.localStorage.setItem("discoveredBluetoothDevices", "0_5_5_0_2_5_0_4_5_1_1_0_4-AA:BB:CC:XX");
+        // cc.sys.localStorage.setItem("discoveredBluetoothDevices", "0_5-AA:BB:CC:XX");
         if(cc.sys.localStorage.getItem("discoveredBluetoothDevices")) {
             this._discoveredConfiguration = cc.sys.localStorage.getItem("discoveredBluetoothDevices").split(',');
         }
@@ -97,7 +97,6 @@ xc.RenderBluetoothPeersLayer = cc.LayerColor.extend({
                 array.forEach(function(ele, index) {
                     if(xc.RenderBluetoothPeersConfigObject && xc.RenderBluetoothPeersConfigObject.data && xc.RenderBluetoothPeersConfigObject.data.length > 0) {
                         var obj = xc.RenderBluetoothPeersConfigObject.data[index];
-                        //this._selectedConfigurationForCharacter.push({'bone':bone, 'selectedItemIndex':selectedItemIndex, 'itemUrl':itemUrl, 'anchorX':anchorX, 'anchorY':anchorY, 'positionX':positionX, 'positionY':positionY, 'rotationX':rotationX, 'rotationY': rotationY});
                         var rotationX = obj.items[parseInt(ele)].Rotation ? obj.items[parseInt(ele)].Rotation.X : 0;
                         var rotationY = obj.items[parseInt(ele)].Rotation ? obj.items[parseInt(ele)].Rotation.Y : 0;
                         decodedBluetoothNameToArray.push({'bone':obj.bone, 'selectedItemIndex':ele, 'itemUrl':obj.items[parseInt(ele)].Image, 'anchorX':obj.items[parseInt(ele)].AnchorPoint.ScaleX, 'anchorY':obj.items[parseInt(ele)].AnchorPoint.ScaleY, 'positionX':obj.items[parseInt(ele)].Position.X, 'positionY':obj.items[parseInt(ele)].Position.Y, 'rotationX':rotationX, 'rotationY': rotationY});
@@ -123,20 +122,9 @@ xc.RenderBluetoothPeersLayer = cc.LayerColor.extend({
         //fetch adjustedIndex item, create Sprite and add to selected Bone's Skin
         var alreadyContainsSkin = false;
         var skinSprite = null;
-        if(boneSkinNodeToAdd != undefined) {   
-            this._selectedConfigurationForCharacter = this._selectedConfigurationForCharacter.filter(function(ele) {return ele.bone != bone});
-                     
-            this._selectedConfigurationForCharacter.push({'bone':bone, 'selectedItemIndex':selectedItemIndex, 'itemUrl':itemUrl});
+        if(boneSkinNodeToAdd != undefined) {                        
             //if bone doesnt contain skin
-            var anchorX = 0;
-            var anchorY = 0;
-            var position;
-            var rotation;
             boneSkinNodeToAdd.getSkins().forEach(function (skin) {
-                anchorX = skin.getAnchorPoint().x;
-                anchorY = skin.getAnchorPoint().y;
-                position = skin.getPosition();
-                rotation = skin.getRotation();                
                 if(skin.getName() == itemUrl) {
                     alreadyContainsSkin = true;
                     skinSprite = skin;
@@ -146,13 +134,31 @@ xc.RenderBluetoothPeersLayer = cc.LayerColor.extend({
             if(!alreadyContainsSkin) {
                 var skinSprite = new cc.Sprite(itemUrl);
                 skinSprite.setName(itemUrl);
-                skinSprite.setPosition(cc.p(positionX, positionY));
-                skinSprite.setAnchorPoint(anchorX, anchorY);
-                skinSprite.setRotationX(rotationX);
-                skinSprite.setRotationY(rotationY);
+                if(positionX != undefined && positionY != undefined) {
+                    cc.log('positionX:' + positionX);
+                    cc.log('positionY:' + positionY);
+                    skinSprite.setPosition(positionX, positionY);
+                }
+                
+                if(anchorX != undefined && anchorY != undefined) {
+                    cc.log('anchorX:' + anchorX);
+                    cc.log('anchorY:' + anchorY);
+
+                    skinSprite.setAnchorPoint(anchorX, anchorY);
+                }
+                if(rotationX != undefined) {
+                    cc.log('rotationX:' + rotationX);
+                    skinSprite.setRotationX(rotationX);
+                }
+                
+                if(rotationY != undefined) {
+                    cc.log('rotationY:' + rotationY);
+                    skinSprite.setRotationY(rotationY);
+                }
+                
                 if(skinSprite != undefined) {
                     boneSkinNodeToAdd.addSkin(skinSprite, true);
-                }
+                }               
             }
             boneSkinNodeToAdd.displaySkin(skinSprite, true);
         }

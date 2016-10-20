@@ -13,7 +13,7 @@
 #include "../StartMenuScene.h"
 #include "../lang/TextGenerator.h"
 #include "ui/CocosGUI.h"
-
+#include "../menu/HelpLayer.h"
 
 class Stack : public cocos2d::Layer
 {
@@ -48,7 +48,8 @@ public:
 	cocos2d::LabelTTF *_wordLabel;
 	cocos2d::Size visibleSize;
 	std::string sceneName;
-
+	HelpLayer *_help;
+	int _helpFlag;
 	// implement the "static create()" method manually
 	CREATE_FUNC(Stack);
     
@@ -72,7 +73,7 @@ public:
 	std::vector<Node*> Position;
 
 	bool flag;
-
+	void onEnterTransitionDidFinish() override;
 	void addEvents(struct LabelDetails);
 	void afterAnimation(struct LabelDetails);
 	void wordShow(cocos2d::LabelTTF*);

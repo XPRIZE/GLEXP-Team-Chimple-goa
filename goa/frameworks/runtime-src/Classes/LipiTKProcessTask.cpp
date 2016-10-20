@@ -27,14 +27,14 @@ LipiTKProcessTask::~LipiTKProcessTask() {
 }
 
 void LipiTKProcessTask::onPreExecute() {
-    printf("Eric onPreExecute\n");
+    printf("onPreExecute\n");
 }
 
 void LipiTKProcessTask::doInBackground() {
-    printf("Eric doing Background Start\n");
+    printf("doing Background Start\n");
     
     _results = _lipiTKInterface->recognizeLipiTK(_strokes);
-    printf("Eric doing Background End\n");
+    printf("doing Background End\n");
     _bIsFinished =  true;
    
 }
@@ -46,7 +46,7 @@ bool LipiTKProcessTask::isFinished() {
 
 
 void LipiTKProcessTask::onPostExecute() {
-    CCLOG("Eric onPostExecute with result: %lu", _results.size());
+    CCLOG("onPostExecute with result: %lu", _results.size());
     
     sort( _results.begin( ), _results.end( ), [ ]( LipiTKResult* lhs, LipiTKResult* rhs )
     {
@@ -60,8 +60,9 @@ void LipiTKProcessTask::onPostExecute() {
         CCLOG("shapeAlphabet putting into _recognizedCharacters %s", shapeAlphabet.c_str());
         _recognizedCharacters.push_back(shapeAlphabet);
     }
-    
-    _node->displayRecognizedChars(_recognizedCharacters);
+
+    Director::getInstance()->getScheduler()->performFunctionInCocosThread(CC_CALLBACK_0(LipiTKNode::broadCastRecognizedChars, _node, _recognizedCharacters));
+//    _node->displayRecognizedChars(_recognizedCharacters);
 }
 
 
