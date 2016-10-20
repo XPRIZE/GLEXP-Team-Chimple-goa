@@ -22,7 +22,6 @@ Scene* CrossTheBridge::createScene()
 
 	return scene;
 }
-
 // on 'init' you need to initialize your instance
 bool CrossTheBridge::init()
 {
@@ -33,74 +32,111 @@ bool CrossTheBridge::init()
 	{
 		return false;
 	}
-	auto gameBG = CSLoader::createNode("crossthebridge/MainScene.csb");
-	this->addChild(gameBG, 1);
-
-	//Vector <Node*> children = gameBG->getChildren();
-	//for (auto item = children.rbegin(); item != children.rend(); ++item) {
-	//	Node * monsterItem = *item;
-	//	std::string str = monsterItem->getName().c_str();
-	//	CCLOG("name : %s", str.c_str());
-	//	}
-	Sprite* letterBoard = (Sprite *)gameBG->getChildByName("alphabet_board_10");
-	letterBoard->setPosition(Vec2(visibleSize.width / 2 + origin.x, 1703.02 + origin.y));
-	//setAllSpriteProperties(letterBoard, 3, visibleSize.width / 2, 1703.02, true, 0.5, 0, 0.6, 0.6);
-
-	Sprite* house_wall = (Sprite *)gameBG->getChildByName("house_Wall");
-	house_wall->setGlobalZOrder(1);
-	house_wall->setPosition(Vec2(house_wall->getPosition().x + origin.x, house_wall->getPosition().y - 5 + origin.y));
-
-	Sprite* house_front = (Sprite *)gameBG->getChildByName("house_front_1");
-	house_front->setGlobalZOrder(1);
-	house_front->setPosition(Vec2(house_front->getPosition().x + origin.x, house_front->getPosition().y - 5 + origin.y));
-
-	water_splash = CSLoader::createTimeline("crossthebridge/watersplash.csb");
-	splash = (Sprite *)CSLoader::createNode("crossthebridge/watersplash.csb");
-	this->addChild(splash, 8);
-	splash->setGlobalZOrder(8);
-	splash->setVisible(false);
-	splash->runAction(water_splash);
-
-	punch = CSLoader::createTimeline("crossthebridge/punch.csb");
-	punchForBack = (Sprite *)CSLoader::createNode("crossthebridge/punch.csb");
-	this->addChild(punchForBack, 8);
-	punchForBack->setGlobalZOrder(8);
-	punchForBack->runAction(punch);
-	punchForBack->setVisible(false);
-	punch->setTimeSpeed(2);
-
-	smoke = CSLoader::createTimeline("crossthebridge/blast.csb");
-	zeher = (Sprite *)CSLoader::createNode("crossthebridge/blast.csb");
-	this->addChild(zeher, 16);
-	zeher->setGlobalZOrder(16);
-	zeher->setVisible(false);
-	zeher->runAction(smoke);
-
-	star = CSLoader::createTimeline("crossthebridge/stars.csb");
-	sparkle = (Sprite *)CSLoader::createNode("crossthebridge/stars.csb");
-	this->addChild(sparkle, 8);
-	sparkle->setGlobalZOrder(8);
-	sparkle->setVisible(false);
-	sparkle->runAction(star);
-
-	pathClose_right = (Sprite *)gameBG->getChildByName("path_up_right");
-	pathClose_left = (Sprite *)gameBG->getChildByName("path_up_left");
-	pathOpen_right = (Sprite *)gameBG->getChildByName("path_down_right");
-	pathOpen_left = (Sprite *)gameBG->getChildByName("path_down_left");
-
-	pathOpen_right->setVisible(false);
-	pathOpen_left->setVisible(false);
-
-	Sprite* transparentBG = Sprite::create("crossthebridge/Pixel.png");
-	setAllSpriteProperties(transparentBG, 3, 0, 0, false, 0, 0, 2560, 1800);
-
-	addEvents(transparentBG);
-
-	sceneMaking();
-	setonEnterTransitionDidFinishCallback(CC_CALLBACK_0(CrossTheBridge::startGame, this));
 	return true;
 }
+void CrossTheBridge::onEnterTransitionDidFinish()
+{
 
+			 _crossTheBridgeLevelMapping = {
+
+				{ 1,'A' },
+				{ 2,'B' },
+				{ 3,'C' },
+				{ 4,'D' },
+				{ 5,'E' },
+				{ 6,'F' },
+				{ 7,'G' },
+				{ 8,'H' },
+				{ 9,'I' },
+				{ 10,'J' },
+				{ 11,'K' },
+				{ 12,'L' },
+				{ 13,'M' },
+				{ 14,'N' },
+				{ 15,'O' },
+				{ 16,'P' },
+				{ 17,'Q' },
+				{ 18,'R' },
+				{ 19,'S' },
+				{ 20,'T' },
+				{ 21,'U' },
+				{ 22,'V' },
+				{ 23,'W' },
+				{ 24,'X' },
+				{ 25,'Y' },
+				{ 26,'Z' }
+			};
+			 _gameCurrentLevel= _menuContext->getCurrentLevel();
+			auto gameBG = CSLoader::createNode("crossthebridge/MainScene.csb");
+			this->addChild(gameBG, 1);
+
+			//Vector <Node*> children = gameBG->getChildren();
+			//for (auto item = children.rbegin(); item != children.rend(); ++item) {
+			//	Node * monsterItem = *item;
+			//	std::string str = monsterItem->getName().c_str();
+			//	CCLOG("name : %s", str.c_str());
+			//	}
+			Sprite* letterBoard = (Sprite *)gameBG->getChildByName("alphabet_board_10");
+			letterBoard->setPosition(Vec2(visibleSize.width / 2 + origin.x, 1703.02 + origin.y));
+			//setAllSpriteProperties(letterBoard, 3, visibleSize.width / 2, 1703.02, true, 0.5, 0, 0.6, 0.6);
+
+			Sprite* house_wall = (Sprite *)gameBG->getChildByName("house_Wall");
+			house_wall->setGlobalZOrder(1);
+			house_wall->setPosition(Vec2(house_wall->getPosition().x + origin.x, house_wall->getPosition().y - 5 + origin.y));
+
+			Sprite* house_front = (Sprite *)gameBG->getChildByName("house_front_1");
+			house_front->setGlobalZOrder(1);
+			house_front->setPosition(Vec2(house_front->getPosition().x + origin.x, house_front->getPosition().y - 5 + origin.y));
+
+			water_splash = CSLoader::createTimeline("crossthebridge/watersplash.csb");
+			splash = (Sprite *)CSLoader::createNode("crossthebridge/watersplash.csb");
+			this->addChild(splash, 8);
+			splash->setGlobalZOrder(8);
+			splash->setVisible(false);
+			splash->runAction(water_splash);
+
+			punch = CSLoader::createTimeline("crossthebridge/punch.csb");
+			punchForBack = (Sprite *)CSLoader::createNode("crossthebridge/punch.csb");
+			this->addChild(punchForBack, 8);
+			punchForBack->setGlobalZOrder(8);
+			punchForBack->runAction(punch);
+			punchForBack->setVisible(false);
+			punch->setTimeSpeed(2);
+
+			smoke = CSLoader::createTimeline("crossthebridge/blast.csb");
+			zeher = (Sprite *)CSLoader::createNode("crossthebridge/blast.csb");
+			this->addChild(zeher, 16);
+			zeher->setGlobalZOrder(16);
+			zeher->setVisible(false);
+			zeher->runAction(smoke);
+
+			star = CSLoader::createTimeline("crossthebridge/stars.csb");
+			sparkle = (Sprite *)CSLoader::createNode("crossthebridge/stars.csb");
+			this->addChild(sparkle, 8);
+			sparkle->setGlobalZOrder(8);
+			sparkle->setVisible(false);
+			sparkle->runAction(star);
+
+			pathClose_right = (Sprite *)gameBG->getChildByName("path_up_right");
+			pathClose_left = (Sprite *)gameBG->getChildByName("path_up_left");
+			pathOpen_right = (Sprite *)gameBG->getChildByName("path_down_right");
+			pathOpen_left = (Sprite *)gameBG->getChildByName("path_down_left");
+
+			pathOpen_right->setVisible(false);
+			pathOpen_left->setVisible(false);
+
+			Sprite* transparentBG = Sprite::create("crossthebridge/Pixel.png");
+			setAllSpriteProperties(transparentBG, 3, 0, 0, false, 0, 0, 2560, 1800);
+
+			addEvents(transparentBG);
+
+			sceneMaking();
+			startGame();
+			/*setonEnterTransitionDidFinishCallback(CC_CALLBACK_0(CrossTheBridge::startGame, this));*/
+
+
+
+}
 CrossTheBridge::~CrossTheBridge() {
 	gameMelody->stopAllEffects();
 	this->removeAllChildrenWithCleanup(true);
@@ -178,7 +214,7 @@ void CrossTheBridge::letterDisplayCombinationMethod()
 {
 	Vec2 origin = Director::getInstance()->getVisibleOrigin();
 	auto visibleSize = Director::getInstance()->getVisibleSize();
-	letterToDisplay = CharGenerator::getInstance()->generateAChar();
+	letterToDisplay = _crossTheBridgeLevelMapping.at(_gameCurrentLevel);
 	comboFive = CharGenerator::getInstance()->generateMatrixForChoosingAChar(letterToDisplay, 20, 1, 70);
 
 	letterOnBoard = Alphabet::createWithSize(letterToDisplay, 220);

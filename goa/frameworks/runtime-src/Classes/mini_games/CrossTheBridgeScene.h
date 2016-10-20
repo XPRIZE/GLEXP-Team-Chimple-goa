@@ -50,6 +50,7 @@ public:
 	void setAllSpriteProperties(Sprite* object, int zOrder, float posX, float posY, bool visibility, float anchorPoint, float rotation, float scaleX, float scaleY);
 
 	virtual void addEvents(Sprite* touchSprite);
+	void onEnterTransitionDidFinish();
 	// a selector callback
 	void menuCloseCallback(cocos2d::Ref* pSender);
 
@@ -100,6 +101,9 @@ protected:
 	int alphabetCounter = 0;
 	int letterDisplayCounter = 0;
 	int enemyCreateCounter = 1;
+	int _gameCurrentLevel;
+
+	std::map<int, wchar_t> _crossTheBridgeLevelMapping;
 
 	Label* myGameScoreLabel;
 	wchar_t letterToDisplay;
