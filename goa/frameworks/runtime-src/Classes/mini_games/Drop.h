@@ -7,6 +7,7 @@
 #include "editor-support/cocostudio/CocoStudio.h"
 #include "../puzzle/CharGenerator.h"
 #include "../lang/TextGenerator.h"
+#include "../menu/HelpLayer.h"
 
 using namespace cocos2d;
 
@@ -33,7 +34,8 @@ protected:
 	std::vector<cocostudio::timeline::ActionTimeline *> _basketAnimBin;
 	std::vector<Sprite *>_dropHeroTrailerImageBin;
 	cocos2d::LabelTTF* _label = NULL;
-
+	int _dropHelpSelector = 0;
+	Sprite* _basketImg;
 
 public:
 	~Drop();
@@ -52,7 +54,9 @@ public:
 	void removeHeroTrailer();
 	void removeFallingLetter();
 	void layingOutBasket(bool flag, float gap, std::string str, int i);
-
+	void onEnterTransitionDidFinish();
+	std::pair<int, int> levelAllInfo(int levelNum, int sceneRepetitionNo, int totalScene, int catagoryRepetitionNo, int totalcatagory);
+	
 	void setAllSpriteProperties(Sprite* object, int zOrder, float posX, float posY, bool visibility, float anchorPointX, float anchorPointY, float rotation, float scaleX, float scaleY);
 	LabelTTF* setAllLabelProperties(std::string letter, int zOrder, float posX, float posY, bool visibility, float anchorPointX, float anchorPointY, float rotation, float scaleX, float scaleY, int labelSizeInPixel);
 	std::pair<Sprite*, cocostudio::timeline::ActionTimeline*> setAnimationAndProperties(std::string csbString, float posX, float posY, int zOrder);
