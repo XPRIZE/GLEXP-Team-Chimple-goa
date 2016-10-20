@@ -21,7 +21,10 @@ xc.TrainLayer = cc.Layer.extend({
     transLayer : null,
     layer1 : null,
     gameName: "train",
-
+    currentLevel : null,
+    wordForSentanceArray: null,
+    _menuContext : null,
+    
     ctor: function () {
         this._super();
 
@@ -33,27 +36,18 @@ xc.TrainLayer = cc.Layer.extend({
         randomLetter = new Array();
         storedLetter = new Array();
         transLayer = new Array();
-
+    },
+    
+  onEnterTransitionDidFinish: function() {
+      
         wordPosition = 1;
-
         position = [
             { x: size.width * .15, y: size.height * .36 }, { x: size.width * .45, y: size.height * .36 }, { x: size.width * .75, y: size.height * .36 },
             { x: size.width * .15, y: size.height * .23 }, { x: size.width * .45, y: size.height * .23 }, { x: size.width * .75, y: size.height * .23 },
             { x: size.width * .15, y: size.height * .10 }, { x: size.width * .45, y: size.height * .10 }, { x: size.width * .75, y: size.height * .10 },
         ];
 
-
         layer1 = new cc.LayerColor(cc.color(255, 255, 255, 100), size.width, size.height * .50);
-
-        var layerListener = cc.EventListener.create({
-            event : cc.EventListener.TOUCH_ONE_BY_ONE,
-            swallowTouches : true,
-
-            onTouchBegan : function(touch, event)
-            {
-                return true;
-            }
-        });
 
         var listener = cc.EventListener.create({
             event: cc.EventListener.TOUCH_ONE_BY_ONE,
@@ -72,7 +66,7 @@ xc.TrainLayer = cc.Layer.extend({
                         target.selected = 1;
                         target.setScale(1);
                         target.setPosition(target.xP, target.yP);
-
+//                        _menuContext.addPoints(1);
                         if (wordPosition % 3 != 0) {
                             var scaleAnimation = function () {
                                 var increase = new cc.ScaleTo(1, 1.4);
@@ -102,9 +96,7 @@ xc.TrainLayer = cc.Layer.extend({
                                     var gameOver = function()
                                     {
                                             if (cc.sys.isNative) {
-                                            var menuContext = self.getParent().menuContext;
-                                            cc.log("showscore");
-                                            menuContext.showScore();
+                                                _menuContext.showScore();
                                             }
                                     };                                    
                                     var train_Action = new cc.MoveTo(1.5, cc.p(size.width * 1.20, train.getPositionY()))
@@ -152,18 +144,15 @@ xc.TrainLayer = cc.Layer.extend({
                                 var gameOver = function()
                                 {
                                         if (cc.sys.isNative) {
-                                        var menuContext = self.getParent().menuContext;
-                                        cc.log("showscore");
-                                        menuContext.showScore();
+                                            _menuContext.showScore();
                                         }
                                 };
                                     
                                     var train_Action = new cc.MoveTo(1.5, cc.p(size.width * 130 / 100, final_tunnel.getPositionY()))
                                     train.runAction(new cc.Sequence(train_Action, new cc.CallFunc(gameOver, this)));
                                 };
-
                                 target.runAction(new cc.Sequence(target_Action, new cc.CallFunc(train_Action_function, this)));
-                            }
+                            } 
                         }
                     }
                     else if(target.selected==0 && !(layer1.isVisible())){
@@ -172,6 +161,7 @@ xc.TrainLayer = cc.Layer.extend({
                         var removeLayer = function()
                         {
                             layer1.setVisible(false);
+//                            _menuContext.addPoints(-1);
                         };
 
                         var increase = new cc.MoveTo(1, cc.p(target.getPositionX() + size.width * .10, target.getPositionY() + size.height * .10));
@@ -196,7 +186,39 @@ xc.TrainLayer = cc.Layer.extend({
         });
         this.addChild(background.node);
 
-        var wordForSentanceArray = goa.TextGenerator.getInstance().generateASentence();
+        if (cc.sys.isNative)
+        {
+            _menuContext = self.getParent().menuContext;
+//            currentLevel = _menuContext.getCurrentLevel();
+            wordForSentanceArray = goa.TextGenerator.getInstance().generateASentence(1);
+            currentLevel = 0;
+                
+            if(currentLevel>=1 && currentLevel<=8)
+            {
+                wordForSentanceArray = goa.TextGenerator.getInstance().generateASentence(4);
+            }
+            else if(currentLevel>=9 && currentLevel<=16)
+            {
+                wordForSentanceArray = goa.TextGenerator.getInstance().generateASentence(5);
+            }
+            else if(currentLevel>=17 && currentLevel<=24)
+            {
+                wordForSentanceArray = goa.TextGenerator.getInstance().generateASentence(6);
+            }
+            else if(currentLevel>=25 && currentLevel<=32)
+            {
+                wordForSentanceArray = goa.TextGenerator.getInstance().generateASentence(7);
+            }
+            else if(currentLevel>=33 && currentLevel<=40)
+            {
+                wordForSentanceArray = goa.TextGenerator.getInstance().generateASentence(8);
+            }
+            else if(currentLevel>=41 && currentLevel<=48)
+            {
+                wordForSentanceArray = goa.TextGenerator.getInstance().generateASentence(9);
+            }
+        }
+
         sentence = wordForSentanceArray.split(" ");
         cc.log(sentence);
 
@@ -373,7 +395,7 @@ xc.TrainLayer = cc.Layer.extend({
             }
 
         }, 1000);
-    }
+  }
 
 });
 

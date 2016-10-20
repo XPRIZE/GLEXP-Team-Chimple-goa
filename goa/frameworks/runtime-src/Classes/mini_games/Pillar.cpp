@@ -110,7 +110,7 @@ bool Pillar::init()
 	};
 
 	std::vector<std::string> theme = { "city","iceLand","candy" };
-	_scenePath = differntSceneMapping.at(theme.at(2));
+	_scenePath = differntSceneMapping.at(theme.at(cocos2d::RandomHelper::random_int(0, 2)));
 
 	auto spritecache1 = SpriteFrameCache::getInstance();
 	spritecache1->addSpriteFramesWithFile(_scenePath.at("plist"));
@@ -152,11 +152,20 @@ bool Pillar::init()
 
 	if (_scenePath.at("animation_select").compare("two") == 0)
 	{
-		auto bubble = CSLoader::createNode("layerisland/bubble.csb");
-		//this->addChild(bubble);
+		auto bubble = background->getChildByName("bubble");
 		auto timeline = CSLoader::createTimeline("layerisland/bubble.csb");
 		bubble->runAction(timeline);
 		timeline->play("bubble", true);
+
+		auto bubble1 = background->getChildByName("bubble_1");
+		auto timeline1 = CSLoader::createTimeline("layerisland/bubble.csb");
+		bubble1->runAction(timeline1);
+		timeline1->play("bubble", true);
+
+		auto bubble2 = background->getChildByName("bubble_2");
+		auto timeline2 = CSLoader::createTimeline("layerisland/bubble.csb");
+		bubble2->runAction(timeline2);
+		timeline2->play("bubble", true);
 	}
 	newCake();
 	ladderMove();

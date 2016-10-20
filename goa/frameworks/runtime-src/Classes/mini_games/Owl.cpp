@@ -1,5 +1,4 @@
 #include "Owl.h"
-
 USING_NS_CC;
 
 Scene* Owl::createScene()
@@ -7,15 +6,13 @@ Scene* Owl::createScene()
 	auto scene = Scene::create();
 	auto layer = Owl::create();
 	scene->addChild(layer);
-	layer->_menuContext = MenuContext::create(layer, "owl");
+	layer->_menuContext = MenuContext::create(layer, Owl::gameName());
 	scene->addChild(layer->_menuContext);
 	return scene;
 }
 
-bool Owl::init()
+void Owl::onEnterTransitionDidFinish()
 {
-	if (!Layer::init()) { return false; }
-
 	    _sceneMap = {
 		{
 			{ "owlCity",
@@ -121,11 +118,34 @@ bool Owl::init()
 		}
 	};
 
+	std::map<int, std::string> owlSceneMapping = {
+		{ 0,	"owljungle" },
+		{ 1,	"owlisland" },
+		{ 2,    "owlCity" }
+	};
 	auto visibleSize = Director::getInstance()->getVisibleSize();
 	auto origin = Director::getInstance()->getVisibleOrigin();
-	string test[3] = {"owlisland","owlCity","owljungle"};
-	//_owlCurrentTheme = test[RandomHelper::random_int(0, 1)];
-	_owlCurrentTheme = "owljungle";
+	
+	int gameCurrentLevel = _menuContext->getCurrentLevel();
+	std::tuple<int, int , int> levelKeyNumber = levelAllInfo(gameCurrentLevel,5,5,3,10);
+	
+	if (std::get<0>(levelKeyNumber) == 1) {
+		_data = TextGenerator::getInstance()->getAntonyms(5);
+	}
+	else if (std::get<0>(levelKeyNumber) == 2) {
+		_data = TextGenerator::getInstance()->getSynonyms(5);
+	}
+	else if (std::get<0>(levelKeyNumber) == 3) {
+		_data = TextGenerator::getInstance()->getHomonyms(5);
+	}
+	else if (std::get<0>(levelKeyNumber) == 4) {
+		_data = TextGenerator::getInstance()->getAntonyms(5);
+	}
+	else if (std::get<0>(levelKeyNumber) == 5) {
+		_data = TextGenerator::getInstance()->getSynonyms(5);
+	}
+
+	_owlCurrentTheme = owlSceneMapping.at(std::get<1>(levelKeyNumber));
 
 	auto themeResourcePath = _sceneMap.at(_owlCurrentTheme);
 	Node* bg = CSLoader::createNode(themeResourcePath.at("bg"));
@@ -136,11 +156,30 @@ bool Owl::init()
 		bg->setPositionX(myGameWidth);
 	}
 
+	for (std::map<std::string, std::string>::iterator it = _data.begin(); it != _data.end(); ++it) {
+		_data_key.push_back(getConvertInUpperCase(it->first));
+		_data_value.push_back(getConvertInUpperCase(it->second));
+	}
+	
+	int totalPoints = 0;
+	for (int index = 0; index < _data_value.size(); index++) {
+		int i = 0;
+		string data = _data_value[index];
+		while (data[i])
+		{
+			totalPoints++;
+			i++;
+		}
+	}
+	
+	_menuContext->setMaxPoints(totalPoints);
+
+
 	auto timelinecharacter1 = CSLoader::createTimeline(themeResourcePath.at("character1"));
 	_sprite = (Sprite *)CSLoader::createNode(themeResourcePath.at("character1"));
 	_sprite-> runAction(timelinecharacter1);
 	_sprite->setScaleX(-1.0f);
-	addChild(_sprite,2);
+	addChild(_sprite,3);
 	timelinecharacter1->play("fly",true);
 
 	auto timelinecharacter2 = CSLoader::createTimeline(themeResourcePath.at("character2"));
@@ -152,6 +191,9 @@ bool Owl::init()
 	timelinecharacter2->play("fly", true);
 
 	if (_owlCurrentTheme == "owlisland") {
+		auto timelinebgBubble = CSLoader::createTimeline(themeResourcePath.at("bubble"));
+		bg->runAction(timelinebgBubble);
+		timelinebgBubble->gotoFrameAndPlay(0, true);
 
 		auto timelinecharacter3 = CSLoader::createTimeline(themeResourcePath.at("bubble"));
 		auto bubbles = CSLoader::createNode(themeResourcePath.at("bubble"));
@@ -176,7 +218,7 @@ bool Owl::init()
 	}
 	auto board = bg->getChildByName(themeResourcePath.at("topBoard"));
 	board->setName("topBoard");
-	_textLabel = LabelTTF::create(_displayWord[_textBoard], "Helvetica", board->getContentSize().height *0.8);
+	_textLabel = LabelTTF::create(_data_key[_textBoard], "Helvetica", board->getContentSize().height *0.8);
 	_textLabel->setPosition(board->getContentSize().width/2,board->getContentSize().height/2);
 	_textLabel->setAnchorPoint(Vec2(0.5, 0.5));
 	_textLabel->setName("text");
@@ -192,16 +234,33 @@ bool Owl::init()
 	createGrid();
 
 	setBuildingBlock(++_blockLevel1);
-	crateLetterGridOnBuilding(_blockLevel1, _displayWord[_textBoard]);
+	crateLetterGridOnBuilding(_blockLevel1, _data_value[_textBoard]);
 	
 	setBuildingBlockSecond(++_blockLevel2);
-	crateLetterGridOnBuildingSecond(_blockLevel2, _displayWord[_textBoard2]);
+	crateLetterGridOnBuildingSecond(_blockLevel2, _data_value[_textBoard2]);
 
 	InitAnimation();
 	this->schedule(schedule_selector(Owl::autoPlayerController), RandomHelper::random_int(6,10));
-	
 	scheduleUpdate();
-	return true;
+	
+}
+
+std::tuple<int, int,int> Owl::levelAllInfo(int currentLevel, int totalCategory , int eachCategoryGroup , int totalSceneTheme , int SceneChangeAfterLevel)
+{
+	float currentLevelInFloat = static_cast<float>(currentLevel);
+	int categoryBase = static_cast<int>(std::ceil(currentLevelInFloat / eachCategoryGroup));
+	int categoryNo = categoryBase % totalCategory;
+	if (categoryNo == 0)
+		categoryNo = (categoryBase-1) % totalCategory + 1;
+
+	int sceneBase = static_cast<int>(std::ceil(currentLevelInFloat / SceneChangeAfterLevel));
+	int sceneNo = sceneBase % totalSceneTheme;
+
+	int categoryLevel = currentLevel % eachCategoryGroup + (std::ceil(currentLevel / (eachCategoryGroup *  totalCategory)) * eachCategoryGroup );
+	if (categoryLevel == 0)
+		categoryLevel = (currentLevel-1) % eachCategoryGroup + (std::ceil((currentLevel-1) / (eachCategoryGroup *  totalCategory)) * eachCategoryGroup) + 1;
+
+	return std::make_tuple(categoryNo, sceneNo, categoryLevel);
 }
 
 void Owl::autoPlayerController(float data) {
@@ -214,14 +273,14 @@ void Owl::autoPlayerController(float data) {
 
 	if (_textCounter2 == (blockChild.size())) {
 		
-		if ((_blockLevel2 >= (sizeof(_displayWord) / sizeof(_displayWord[0])))) {
+		if ((_blockLevel2 >= _data.size())) {
 			//this->unschedule(schedule_selector(Owl::autoPlayerController));
 			CCLOG("< ------ DONE COMPLETE -----  >     I AM IN AUTOPLAYERCONTROLLER METHOD");
 			this->runAction(Sequence::create(DelayTime::create(3), CallFunc::create([=]() { _menuContext->showScore(); }), NULL));
 		}
 		else {
 			setBuildingBlockSecond(++_blockLevel2);
-			crateLetterGridOnBuildingSecond(_blockLevel2, _displayWord[++_textBoard2]);
+			crateLetterGridOnBuildingSecond(_blockLevel2, _data_value[++_textBoard2]);
 		}
 		_textCounter2 = 0;
 	}
@@ -240,6 +299,18 @@ void Owl::setSpriteProperties(Sprite* ImageObject, float positionX, float positi
 	ImageObject->setAnchorPoint(Vec2(anchorX, anchorY));
 	ImageObject->setRotation(rotation);
 	addChild(ImageObject, zorder);
+}
+
+string Owl::getConvertInUpperCase(string data)
+{
+	std::ostringstream blockName;
+	int i = 0;
+	while (data[i])
+	{
+		blockName << (char)toupper(data[i]);
+		i++;
+	}
+	return blockName.str();
 }
 
 void Owl::crateLetterGridOnBuilding(int blockLevel, string displayWord) {
@@ -421,11 +492,12 @@ void Owl::addEventsOnGrid(cocos2d::Sprite* callerObject)
 
 				std::ostringstream blockName;	blockName << "blockLevel1" << _blockLevel1; std::string blockNameInString = blockName.str();
 				
-				if (_blockLevel1 <= (sizeof(_displayWord) / sizeof(_displayWord[0]))) {
+				if (_blockLevel1 <= _data.size()) {
 					auto blockChild = target->getParent()->getChildByName(blockNameInString)->getChildren();
 
 					if (blockChild.at(_textCounter)->getName() == target->getName() && _flagToControlMuiltipleTouch) {
 						_flagToControlMuiltipleTouch = false;
+						_menuContext->addPoints(1);
 						auto y = _sprite->getPositionY() - target->getPositionY();
 						auto x = -_sprite->getPositionX() + target->getPositionX();
 						float dist = sqrt((y*y) + (x*x));
@@ -442,22 +514,24 @@ void Owl::addEventsOnGrid(cocos2d::Sprite* callerObject)
 							_xStart = _sprite->getPositionX();      // Pixels
 							_yStart = blockBox->getPositionY() + blockBox->getContentSize().height;
 							if (counter % 2 != 0) {
+								_sprite->setScaleX(1.0f);
 								_xStop = blockBox->getPositionX() - blockBox->getContentSize().width/2;
 								_ticks = 0;
 								_ticksTotal = 3 / (1.0/60.0);// Pixels
 							}else {
+								_sprite->setScaleX(-1.0f);
 								_xStop = blockBox->getPositionX() + blockBox->getContentSize().width / 2;
 								_ticks = 0;
 								_ticksTotal = 3 / (1.0/60.0);// Pixels
 							}
 
-							if (_textCounter == blockChild.size() && _blockLevel1 < (sizeof(_displayWord) / sizeof(_displayWord[0]))) {
-								_textLabel->setString(_displayWord[++_textBoard]);
+							if (_textCounter == blockChild.size() && _blockLevel1 < _data.size()) {
+								_textLabel->setString(_data_key[++_textBoard]);
 								setBuildingBlock(++_blockLevel1);
-								crateLetterGridOnBuilding(_blockLevel1, _displayWord[_textBoard]);
+								crateLetterGridOnBuilding(_blockLevel1, _data_value[_textBoard]);
 								_textCounter = 0;
 							}
-							else if (_textCounter == blockChild.size() && _blockLevel1 == (sizeof(_displayWord) / sizeof(_displayWord[0]))) {
+							else if (_textCounter == blockChild.size() && _blockLevel1 == _data.size()) {
 								_textCounter = 0;
 								_blockLevel1++;
 								this->runAction(Sequence::create(DelayTime::create(3), CallFunc::create([=]() { _menuContext->showScore(); }),NULL));
@@ -467,34 +541,33 @@ void Owl::addEventsOnGrid(cocos2d::Sprite* callerObject)
 							_sprite->getChildByName(_sceneMap.at(_owlCurrentTheme).at("whiteBoard"))->setVisible(true);
 							_textOwlBoard->setString(LangUtil::convertUTF16CharToString(target->getName().at(0)));
 
-							if (_owlCurrentTheme == "owljungle") {
-								if (_sprite->getPositionX() < target->getPositionX()) {
-									_sprite->setScaleX(1.0f);
+								if (_sprite->getPositionX() < blockChild.at(_textCounter)->getPositionX()) {
+									_sprite->setScaleX(-1.0f);
 								}
 								else {
-									_sprite->setScaleX(-1.0f);
+									_sprite->setScaleX(1.0f);
+								}
+								if (_sprite->getScaleX() == -1) {
 									_sprite->getChildByName(_sceneMap.at(_owlCurrentTheme).at("whiteBoard"))->setScaleX(-1.0f);
 								}
-							}
+								else {
+									_sprite->getChildByName(_sceneMap.at(_owlCurrentTheme).at("whiteBoard"))->setScaleX(1.0f);
+								}
 						});
 						auto initAction = CallFunc::create([=]() {
 							_flagDemo = false;
-							if (_owlCurrentTheme == "owljungle") {
 								if (_sprite->getPositionX() < target->getPositionX()) {
-									_sprite->setScaleX(-1.0f);
-									
+									_sprite->setScaleX(-1.0f);			
 								}
 								else {
 									_sprite->setScaleX(1.0f);
 								}
-							}
-							
 						});
 						_sprite->runAction(Sequence::create(initAction, moveToAlphaGridAction, pickBoard, moveToAnswerGridAction, callFunct, NULL));
 					}
 
 					else if(blockChild.at(_textCounter)->getName() != target->getName() && _flagToControlMuiltipleTouch ){
-
+						_menuContext->addPoints(-1);
 						_flagToControlMuiltipleTouch = false;
 						auto y = _sprite->getPositionY() - target->getPositionY();
 						auto x = -_sprite->getPositionX() + target->getPositionX();
@@ -522,11 +595,13 @@ void Owl::addEventsOnGrid(cocos2d::Sprite* callerObject)
 							_xStart = _sprite->getPositionX();      // Pixels
 							_yStart = blockBox->getPositionY() + blockBox->getContentSize().height;
 							if (counter % 2 != 0) {
+								_sprite->setScaleX(1.0f);
 								_xStop = blockBox->getPositionX() - blockBox->getContentSize().width / 2;
 								_ticks = 0;
 								_ticksTotal = 3 / (1.0 / 60.0);// Pixels
 							}
 							else {
+								_sprite->setScaleX(-1.0f);
 								_xStop = blockBox->getPositionX() + blockBox->getContentSize().width / 2;
 								_ticks = 0;
 								_ticksTotal = 3 / (1.0 / 60.0);// Pixels
@@ -543,28 +618,30 @@ void Owl::addEventsOnGrid(cocos2d::Sprite* callerObject)
 							whiteTran->runAction(MoveTo::create(0.6, Vec2(whiteTran->getPositionX(), whiteTran->getPositionY() - 300)));
 						});
 						auto pickBoard = CallFunc::create([=]() {
-							if (_owlCurrentTheme == "owljungle") {
-								if (_sprite->getPositionX() < target->getPositionX()) {
-									_sprite->setScaleX(1.0f);
+								if (_sprite->getPositionX() < blockChild.at(_textCounter)->getPositionX()) {
+									_sprite->setScaleX(-1.0f);
 								}
 								else {
-									_sprite->setScaleX(-1.0f);
+									_sprite->setScaleX(1.0f);
+								}
+								if (_sprite->getScaleX() == -1) {
 									_sprite->getChildByName(_sceneMap.at(_owlCurrentTheme).at("whiteBoard"))->setScaleX(-1.0f);
 								}
-							}
+								else {
+									_sprite->getChildByName(_sceneMap.at(_owlCurrentTheme).at("whiteBoard"))->setScaleX(1.0f);
+								}
+
 							_sprite->getChildByName(_sceneMap.at(_owlCurrentTheme).at("whiteBoard"))->setVisible(true);
 							_textOwlBoard->setString(LangUtil::convertUTF16CharToString(target->getName().at(0)));
 						});
 						auto initAction = CallFunc::create([=]() {
 							_flagDemo = false;
-							if (_owlCurrentTheme == "owljungle") {
 								if (_sprite->getPositionX() < target->getPositionX()) {
 									_sprite->setScaleX(-1.0f);
 								}
 								else {
 									_sprite->setScaleX(1.0f);
 								}
-							}
 						});
 						_sprite->runAction(Sequence::create(initAction, moveToAlphaGridAction, pickBoard, moveToAnswerGridAction, callFunct, DelayTime::create(0.6),afterDrop, NULL));
 					}
@@ -624,8 +701,8 @@ void Owl::UpdateAnimation(float dt)
 	else {
 		counter++;
 		Node *block;
-		if (_blockLevel1 > (sizeof(_displayWord) / sizeof(_displayWord[0]))) {
-			std::ostringstream blockName;	blockName << "blockLevel1" << (sizeof(_displayWord) / sizeof(_displayWord[0])); std::string blockNameInString = blockName.str();
+		if (_blockLevel1 > _data.size()) {
+			std::ostringstream blockName;	blockName << "blockLevel1" << _data.size(); std::string blockNameInString = blockName.str();
 			block = this->getChildByName(blockNameInString);
 		}
 		else {
@@ -674,8 +751,8 @@ void Owl::UpdateAnimationSecond(float dt)
 	else {
 		counter2++;
 		Node *block;
-		if (_blockLevel2 > (sizeof(_displayWord) / sizeof(_displayWord[0]))) {
-			std::ostringstream blockName;	blockName << "blockLevel2" << (sizeof(_displayWord) / sizeof(_displayWord[0])); std::string blockNameInString = blockName.str();
+		if (_blockLevel2 > _data.size()) {
+			std::ostringstream blockName;	blockName << "blockLevel2" << _data.size(); std::string blockNameInString = blockName.str();
 			block = this->getChildByName(blockNameInString);
 		}
 		else {

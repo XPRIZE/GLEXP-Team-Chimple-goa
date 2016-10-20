@@ -59,7 +59,7 @@ bool BalloonHero::init() {
 	}
 	//SpriteFrameCache::getInstance()->addSpriteFramesWithFile("balloonhero/balloonhero.plist");
 	//_sceneNumber = RandomHelper::random_int(1, 2);
-	_sceneNumber = 1;
+	_sceneNumber = 3;
 
 	std::string mainSceneplist;
 
@@ -145,6 +145,7 @@ bool BalloonHero::init() {
 		_fireFly->setPosition(Vec2(visibleSize.width / 2 + origin.x, visibleSize.height / 2 + origin.y));
 		_fireFly->setAnchorPoint(Vec2(0.5, 0.5));
 		_fireFly->setScale(0.5, 0.5);
+		_fireFly->setContentSize(Size(200,200));
 		//_fireFly->setContentSize(Size( _fireFly->getPositionX() + 20, _fireFly->getPositionY() + 20 ));
 		
 		if (_sceneNumber == 3) {
@@ -247,8 +248,8 @@ bool BalloonHero::onTouchBegan(Touch* touch, Event* event) {
 		locationInNode = target->convertToNodeSpace(touch->getLocation());*/
 
 		character = "firefly";
-		bb = target->getChildByName(character)->getBoundingBox();
-		locationInNode = target->getChildByName(character)->convertToNodeSpace(touch->getLocation());
+		bb = target->getBoundingBox();
+		locationInNode = target->convertToNodeSpace(touch->getLocation());
 
 	}
 
