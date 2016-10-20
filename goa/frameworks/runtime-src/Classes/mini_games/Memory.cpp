@@ -22,15 +22,19 @@ USING_NS_CC;
 
 
 Memory::Memory() :
-	_currentNest(1),
-	_touchActive(false),
+	_currentNest(0),
 	_currentClickedPair(3),
 	_currentSelectedNestNames(2),
 	_level(0),
+	_finalGridIds(0),
 	_activeNestIds(25),
 	_chickenTimeline(25),
-	objects(4, std::vector<struct object>(4)), 
-	xycoordinates(4, std::vector<struct xy>(4))
+	_gridTwoByTwoIds(4),
+	_gridTwoByThreeIds(6),
+    _gridThreeByFourIds(12),
+    _gridThreeBySixIds(18),
+    _gridFourByFiveIds(20),
+    _gridFourBySixIds(24)
 {
 
 }
@@ -67,15 +71,55 @@ Memory *Memory::create() {
 
 bool Memory::init() {
 
-	
+	_finalGridIds.resize(0);
 	if (!Layer::init()) {
 		return false;
 	}
 
+	//SpriteFrameCache::getInstance()->addSpriteFramesWithFile("balloonhero/balloonhero.plist");
+	//_sceneNumber = RandomHelper::random_int(1, 2);
+	_sceneNumber = 3;
+
+	
+
+	if (/*_menuContext->getCurrentLevel() <= 6 && _menuContext->getCurrentLevel() >=1*/1) { _gridTwoByTwoIds.resize(_gridTwoByTwoIds_Size); 
+	_gridTwoByTwoIds = { 9, 10, 15, 16 };
+	_pairCount = 2;
+	
+	}
+	
+	if (/*_menuContext->getCurrentLevel() <= 12 && _menuContext->getCurrentLevel() > 6*/1) { _gridTwoByThreeIds.resize(_gridTwoByThreeIds_Size); 
+	_gridTwoByThreeIds = {8, 9, 10, 14, 15, 16};
+	_pairCount = 3;
+	}
+	
+	if (/*_menuContext->getCurrentLevel() <= 18 && _menuContext->getCurrentLevel() > 12*/1) { _gridThreeByFourIds.resize(_gridThreeByFourIds_Size); 
+	_gridThreeByFourIds = {8, 9, 10, 11, 14, 15, 16, 17, 20, 21, 22, 23};
+		_pairCount = 6;
+	}
+	
+	if (/*_menuContext->getCurrentLevel() <= 24 && _menuContext->getCurrentLevel() > 18*/1) { _gridThreeBySixIds.resize(_gridThreeBySixIds_Size); 
+	_gridThreeBySixIds = {7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24};
+	_pairCount = 9;
+	}
+	
+	if (/*_menuContext->getCurrentLevel() <= 30 && _menuContext->getCurrentLevel() > 24*/1) { _gridFourByFiveIds.resize(_gridFourByFiveIds_Size); 
+	_gridFourByFiveIds = {1, 2, 3, 4, 5, 7, 8, 9, 10, 11, 13, 14, 15, 16, 17, 19, 20, 21, 22, 23};
+	_pairCount = 10;
+	}
+	
+	if (/*_menuContext->getCurrentLevel() <= 36 && _menuContext->getCurrentLevel() > 30*/1) { _gridFourBySixIds.resize(_gridFourBySixIds_Size); 
+	_gridFourBySixIds = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12,  13, 14, 15, 16,  17, 18, 19, 20, 21, 22, 23, 24 };
+	_pairCount = 12;
+	}
+	
+
+
 CCSpriteFrameCache::sharedSpriteFrameCache()->addSpriteFramesWithFile("memoryfarm/memoryfarm.plist");
 
 
-   _data = TextGenerator::getInstance()->getAntonyms(12);
+_pairCount = 2;
+   _data = TextGenerator::getInstance()->getAntonyms(_pairCount);
 
 
    for (std::map<std::string, std::string>::iterator it = _data.begin(); it != _data.end(); ++it) {
@@ -88,7 +132,7 @@ CCSpriteFrameCache::sharedSpriteFrameCache()->addSpriteFramesWithFile("memoryfar
 
    
    generateRandomNumbers();
-   
+  
 
 	Size visibleSize = Director::getInstance()->getVisibleSize();
 	Vec2 origin = Director::getInstance()->getVisibleOrigin();
@@ -99,34 +143,42 @@ CCSpriteFrameCache::sharedSpriteFrameCache()->addSpriteFramesWithFile("memoryfar
 	_memoryfarm->setPosition(Vec2(visibleSize.width / 2 + origin.x, visibleSize.height / 2 + origin.y));
 	_memoryfarm->setAnchorPoint(Vec2(0.5, 0.5));
 	addChild(_memoryfarm);
-
+	
+	
+	_finalGridIds = _gridTwoByTwoIds;
+	generateGrid(_finalGridIds);
+	
 	//_chickenTimelineTemp = CSLoader::createTimeline("memoryfarm/chicken.csb");
 	//_memoryfarm->getChildByName("background")->getChildByName("nest1")->getChildByName("chicken")->runAction(_chickenTimelineTemp);
 	//_chickenTimelineTemp->play("fly", false);
 	
-	int nestsCount = _memoryfarm->getChildByName("background")->getChildrenCount();
+	int nestsCount = _pairCount*2;
 	int j=0;
-	for (int i = _currentNest; i <= nestsCount; i++) {
+	for (int i = 0; i < nestsCount; i++) {
 
 		std::ostringstream sstreamc;
-		sstreamc << "nest" << _currentNest;
+		sstreamc << "nest" << _finalGridIds[_currentNest];
 		std::string queryc = sstreamc.str();
 
-		_activeNestIds[_currentNest] = _currentNest;
+		_activeNestIds[_finalGridIds[_currentNest]] = _finalGridIds[_currentNest];
 		_memoryfarm->getChildByName("background")->getChildByName(queryc)->getChildByName("nestfront")->setAnchorPoint(Vec2(0.5, 0.5));
 
 
-		_memoryfarm->getChildByName("background")->getChildByName(queryc)->getChildByName("nestfront")->setTag(_currentNest);
+		_memoryfarm->getChildByName("background")->getChildByName(queryc)->getChildByName("nestfront")->setTag(_finalGridIds[_currentNest]);
 
 		std::string labelName;
 
-		_chickenTimeline[i] = CSLoader::createTimeline("memoryfarm/chicken.csb");
-		_memoryfarm->getChildByName("background")->getChildByName(queryc)->getChildByName("chicken")->runAction(_chickenTimeline[i]);
+		_chickenTimeline[_finalGridIds[_currentNest]] = CSLoader::createTimeline("memoryfarm/chicken.csb");
+		_memoryfarm->getChildByName("background")->getChildByName(queryc)->getChildByName("chicken")->runAction(_chickenTimeline[_finalGridIds[_currentNest]]);
 		
 
-		if (i <= 12) {
+		if (i == _pairCount) {
+			generateRandomNumbers();
+		}
+
+		if (i < _pairCount) {
 			
-			labelName = _data_key[_randomIndex[i-1]];
+			labelName = _data_key[_randomIndex[i]];
 		}
 		else {
 
@@ -134,9 +186,7 @@ CCSpriteFrameCache::sharedSpriteFrameCache()->addSpriteFramesWithFile("memoryfar
 			j++;
 		}
 
-		if (i == 12) {
-			generateRandomNumbers();
-		}
+		
 
 		auto label = ui::Text::create();
 		label->setString(labelName);
@@ -161,14 +211,9 @@ CCSpriteFrameCache::sharedSpriteFrameCache()->addSpriteFramesWithFile("memoryfar
 	}
 	
 	
-	_nests.resize(24);
+	CCLOG("asjdasd : ", _randomIndex);
 
 	return true;
-}
-
-void Memory::startGame() {
-	//_menuContext->showStartupHelp(CC_CALLBACK_0(Memory::dummy, this));
-	//	runAction(Sequence::create(CallFunc::create(CC_CALLBACK_0(MenuContext::showStartupHelp,_menuContext)), NULL));
 }
 
 
@@ -177,7 +222,7 @@ void Memory::setupTouch() {
 	
 	   // CCLOG("NEST %d setuptouch done", nestIndex);
 		std::ostringstream sstreamc;
-		sstreamc << "nest" << _currentNest;
+		sstreamc << "nest" << _finalGridIds[_currentNest];
 		std::string queryc = sstreamc.str();
 
 		auto _nest = _memoryfarm->getChildByName("background")->getChildByName(queryc)->getChildByName("nestfront");
@@ -252,7 +297,18 @@ bool Memory::onTouchBegan(Touch* touch, Event* event) {
 
 			//make the hen fly
 
-			auto flycallfunc = CallFunc::create([=] {chickenFly(); });
+			auto flycallfunc = CallFunc::create([=] {
+				chickenFly(); 
+				
+			});
+
+
+			auto finishcallfunc = CallFunc::create([=] {
+				
+				if (_level == _pairCount) {
+					_menuContext->showScore();
+				}
+			});
 
 			auto removelistenercallfunc = CallFunc::create([=] {
 
@@ -267,7 +323,7 @@ bool Memory::onTouchBegan(Touch* touch, Event* event) {
 			});
 
 
-			auto completeSequence = Sequence::create(flycallfunc, DelayTime::create(2.0), removelistenercallfunc, resumeListenercallfunc, NULL);
+			auto completeSequence = Sequence::create(flycallfunc, DelayTime::create(2.0), finishcallfunc, removelistenercallfunc, resumeListenercallfunc, NULL);
 
 			this->runAction(completeSequence);
 
@@ -360,37 +416,18 @@ void Memory::onTouchMoved(cocos2d::Touch *touch, cocos2d::Event *event) {
 	
 }
 
-
-void Memory::hideAll() {
-
-	int nestsCount = _memoryfarm->getChildByName("background")->getChildrenCount();
-	for (int i = 1; i <= nestsCount; i++) {
-
-
-		std::ostringstream sstreamc;
-		sstreamc << "nest" << i;
-		std::string queryc = sstreamc.str();
-
-
-		_memoryfarm->getChildByName("background")->getChildByName(queryc)->getChildByName("nestfront")->getChildByName("Chimple")->setVisible(false);
-
-		
-
-	}
-}
-
 void Memory::pauseAllActiveListeners() {
 
 
-	for (int i = 1; i <= 24; i++) {
+	for (int i = 0; i < _pairCount * 2; i++) {
 
-		if (_activeNestIds[i] == 0 || _currentClickedPair[0] == i || _currentClickedPair[1] == i) {
+		if (_activeNestIds[_finalGridIds[i]] == 0 || _currentClickedPair[0] == _finalGridIds[i] || _currentClickedPair[1] == _finalGridIds[i]) {
 			continue;
 		}
 
 
 		std::ostringstream sstreamc;
-		sstreamc << "nest" << i;
+		sstreamc << "nest" << _finalGridIds[i];
 		std::string queryc = sstreamc.str();
 		
 		auto pauseNode = _memoryfarm->getChildByName("background")->getChildByName(queryc)->getChildByName("nestfront");
@@ -407,15 +444,15 @@ void Memory::resumeAllActiveListeners() {
 
 
 
-	for (int i = 1; i <= 24; i++) {
+	for (int i = 0; i < _pairCount * 2; i++) {
 
-		if (_activeNestIds[i] == 0) {
+		if (_activeNestIds[_finalGridIds[i]] == 0) {
 			continue;
 		}
 
 
 		std::ostringstream sstreamc;
-		sstreamc << "nest" << i;
+		sstreamc << "nest" << _finalGridIds[i];
 		std::string queryc = sstreamc.str();
 
 		auto pauseNode = _memoryfarm->getChildByName("background")->getChildByName(queryc)->getChildByName("nestfront");
@@ -434,9 +471,7 @@ bool Memory::checkMatch() {
 	std::string str2 = _currentSelectedNestNames[1];
 
 	if (_data[str1] == str2 || _data[str2] == str1) {
-		if (_level == 11) {
-			_menuContext->showScore();
-		}
+		
 		_level++;
 		return true;
 	}
@@ -511,4 +546,66 @@ void Memory::generateRandomNumbers() {
 			_randomIndex.push_back(numberPicker);
 		}
 	}
+}
+
+
+
+void Memory::generateGrid(std::vector<int> grid) {
+	int found = 0;
+
+	Size visibleSize = Director::getInstance()->getVisibleSize();
+	Vec2 origin = Director::getInstance()->getVisibleOrigin();
+
+	for (int i = 1; i <= 24; i++) {
+		found = 0;
+		for (int j = 0; j < grid.size(); j++) {
+			if (i == grid[j]) {
+				found = 1;
+			}
+		}
+		
+
+		std::ostringstream sstreamc;
+		sstreamc << "nest" << i;
+		std::string queryc = sstreamc.str();
+
+		if (found == 0) {
+
+			auto pauseNode = _memoryfarm->getChildByName("background")->getChildByName(queryc);
+			pauseNode->setVisible(false);
+			Director::getInstance()->getEventDispatcher()->pauseEventListenersForTarget(pauseNode);
+
+		}else{
+		
+			float currentX = _memoryfarm->getChildByName("background")->getChildByName(queryc)->getPositionX();
+			float currentY = _memoryfarm->getChildByName("background")->getChildByName(queryc)->getPositionY();
+
+	 // _memoryfarm->getChildByName("background")->getChildByName(queryc)->setPositionX(currentX);	//_memoryfarm->getChildByName("background")->getChildByName(queryc)->setPositionY(currentX);
+
+			switch (grid.size()) {
+
+			
+			case 6:
+				_memoryfarm->getChildByName("background")->getChildByName(queryc)->setPositionX(currentX + (0.07 * visibleSize.width));
+				break;
+			case 12:
+				//_memoryfarm->getChildByName("background")->getChildByName(queryc)->setPositionY(currentY + (0.05 * visibleSize.height));
+				
+				//_memoryfarm->getChildByName("mainground")->getChildByName("Panel_1")->setPositionY(currentY + (0.09 * visibleSize.height));
+				//_memoryfarm->getChildByName("mainground")->getChildByName("Panel_2")->setPositionY(currentY + (0.09 * visibleSize.height));
+				//_memoryfarm->getChildByName("mainground")->getChildByName("Panel_3")->setPositionY(currentY + (0.09 * visibleSize.height));
+				
+				break;
+			case 18:break;
+			case 20:
+				_memoryfarm->getChildByName("background")->getChildByName(queryc)->setPositionX(currentX + (0.07 * visibleSize.width));
+				break;
+			
+
+			}
+
+		}
+		
+	}
+
 }

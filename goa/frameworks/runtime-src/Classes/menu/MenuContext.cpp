@@ -853,6 +853,8 @@ void MenuContext::launchGameFromJS(std::string gameName) {
     		case 1: Director::getInstance()->replaceScene(MemoryHero::createScene());  break;
     		case 2: Director::getInstance()->replaceScene(Memory::createScene());  break;
     		}
+			
+		
     	}
 		else if (gameName == BALLONHERO) {
 			Director::getInstance()->replaceScene(BalloonHero::createScene());
