@@ -52,7 +52,7 @@ xc.LevelMenuLayer = cc.ScrollView.extend({
         parallax.addChild(line, 0, cc.p(1.0, 1.0), cc.p())
       }
       prevPos = newPos
-      var levelStatus = gameProgress[i]
+      var levelStatus = parseInt(gameProgress[i])
       if(i == gameProgress.length) {
         but.setColor(cc.color(256, 128, 0))
         but.addTouchEventListener(this.itemSelected, this)
@@ -61,6 +61,18 @@ xc.LevelMenuLayer = cc.ScrollView.extend({
         but.setColor(cc.color(128, 128, 128))
       } else {
         but.setColor(cc.color(128, 0, 0))
+        var star = new cc.Sprite(levelStatus >= 1 ? xc.LevelMenuLayer.res.white_star_png : xc.LevelMenuLayer.res.gray_star_png)
+        star.setScale(2)
+        star.setPosition(but.getContentSize().width / 4, but.getContentSize().height * 3 / 4)
+        but.addChild(star)
+        star = new cc.Sprite(levelStatus >= 2 ? xc.LevelMenuLayer.res.white_star_png : xc.LevelMenuLayer.res.gray_star_png)
+        star.setScale(2)
+        star.setPosition(but.getContentSize().width / 2, but.getContentSize().height * 7 / 8)
+        but.addChild(star)
+        star = new cc.Sprite(levelStatus >= 3 ? xc.LevelMenuLayer.res.white_star_png : xc.LevelMenuLayer.res.gray_star_png)
+        star.setScale(2)
+        star.setPosition(but.getContentSize().width * 3 / 4, but.getContentSize().height * 3 / 4)
+        but.addChild(star)
         but.addTouchEventListener(this.itemSelected, this)
       }
     }
@@ -112,6 +124,8 @@ xc.LevelMenuLayer.res = {
   hand_plist: xc.path + "maths/hand.plist",
   hand_png: xc.path + "maths/hand.png",
   dot_png: xc.path + "maths/dot.png",
+  gray_star_png: xc.path + "help/gray_star.png",
+  white_star_png: xc.path + "help/white_star.png"
 }
 
 // Returns a random number between min (inclusive) and max (exclusive)
