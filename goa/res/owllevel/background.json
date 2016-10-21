@@ -68,6 +68,51 @@
           {
             "FileData": {
               "Type": "MarkedSubImage",
+              "Path": "owllevel/sun.png",
+              "Plist": "owllevel/owllevel.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 2847.2141,
+              "Y": 1409.7853
+            },
+            "Scale": {
+              "ScaleX": 3.0162,
+              "ScaleY": 3.0162
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 1.1122,
+              "Y": 0.7832
+            },
+            "PreSize": {
+              "X": 0.0855,
+              "Y": 0.1217
+            },
+            "LeftMargin": 2737.7141,
+            "RightMargin": -396.7141,
+            "TopMargin": 280.7147,
+            "BottomMargin": 1300.2853,
+            "Tag": 81,
+            "ActionTag": -825140056,
+            "Size": {
+              "X": 219.0,
+              "Y": 219.0
+            },
+            "Name": "sun_12",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
               "Path": "owllevel/cloud.png",
               "Plist": "owllevel/owllevel.plist"
             },
@@ -246,51 +291,6 @@
             "ctype": "SpriteObjectData"
           },
           {
-            "FileData": {
-              "Type": "MarkedSubImage",
-              "Path": "owllevel/sun.png",
-              "Plist": "owllevel/owllevel.plist"
-            },
-            "BlendFunc": {
-              "Src": 1,
-              "Dst": 771
-            },
-            "AnchorPoint": {
-              "ScaleX": 0.5,
-              "ScaleY": 0.5
-            },
-            "Position": {
-              "X": 6889.9766,
-              "Y": 1479.9961
-            },
-            "Scale": {
-              "ScaleX": 2.1872,
-              "ScaleY": 2.1872
-            },
-            "CColor": {},
-            "IconVisible": false,
-            "PrePosition": {
-              "X": 2.6914,
-              "Y": 0.8222
-            },
-            "PreSize": {
-              "X": 0.0855,
-              "Y": 0.1217
-            },
-            "LeftMargin": 6780.4766,
-            "RightMargin": -4439.4766,
-            "TopMargin": 210.5039,
-            "BottomMargin": 1370.4961,
-            "Tag": 81,
-            "ActionTag": -825140056,
-            "Size": {
-              "X": 219.0,
-              "Y": 219.0
-            },
-            "Name": "sun_12",
-            "ctype": "SpriteObjectData"
-          },
-          {
             "FlipX": true,
             "FileData": {
               "Type": "MarkedSubImage",
@@ -306,8 +306,8 @@
               "ScaleY": 0.5
             },
             "Position": {
-              "X": 3133.2803,
-              "Y": 1406.6162
+              "X": 1263.9468,
+              "Y": 1522.1278
             },
             "Scale": {
               "ScaleX": 1.7131,
@@ -316,17 +316,17 @@
             "CColor": {},
             "IconVisible": false,
             "PrePosition": {
-              "X": 1.2239,
-              "Y": 0.7815
+              "X": 0.4937,
+              "Y": 0.8456
             },
             "PreSize": {
-              "X": 0.1422,
-              "Y": 0.0833
+              "X": 0.1836,
+              "Y": 0.1072
             },
-            "LeftMargin": 2898.2803,
-            "RightMargin": -808.2803,
-            "TopMargin": 296.8838,
-            "BottomMargin": 1310.1162,
+            "LeftMargin": 1028.9468,
+            "RightMargin": 1061.0532,
+            "TopMargin": 181.3722,
+            "BottomMargin": 1425.6278,
             "Tag": 356,
             "ActionTag": 1659063291,
             "Size": {
@@ -334,6 +334,547 @@
               "Y": 193.0
             },
             "Name": "plane_40",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "owllevel/grass1.png",
+              "Plist": "owllevel/owllevel.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 563.8669,
+              "Y": 781.0829
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.2203,
+              "Y": 0.4339
+            },
+            "PreSize": {
+              "X": 0.4363,
+              "Y": 0.1456
+            },
+            "LeftMargin": 5.3669,
+            "RightMargin": 1437.6331,
+            "TopMargin": 887.9171,
+            "BottomMargin": 650.0829,
+            "Tag": 128,
+            "ActionTag": -1696390078,
+            "Size": {
+              "X": 1117.0,
+              "Y": 262.0
+            },
+            "Name": "grass1_15",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FlipX": true,
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "owllevel/grass1.png",
+              "Plist": "owllevel/owllevel.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1560.4587,
+              "Y": 781.0831
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.6096,
+              "Y": 0.4339
+            },
+            "PreSize": {
+              "X": 0.4363,
+              "Y": 0.1456
+            },
+            "LeftMargin": 1001.9587,
+            "RightMargin": 441.0413,
+            "TopMargin": 887.9169,
+            "BottomMargin": 650.0831,
+            "Tag": 129,
+            "ActionTag": -660162892,
+            "Size": {
+              "X": 1117.0,
+              "Y": 262.0
+            },
+            "Name": "grass1_16",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "owllevel/grass1.png",
+              "Plist": "owllevel/owllevel.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 2633.625,
+              "Y": 781.0835
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 1.0288,
+              "Y": 0.4339
+            },
+            "PreSize": {
+              "X": 0.4363,
+              "Y": 0.1456
+            },
+            "LeftMargin": 2075.125,
+            "RightMargin": -632.125,
+            "TopMargin": 887.9165,
+            "BottomMargin": 650.0835,
+            "Tag": 130,
+            "ActionTag": -315443750,
+            "Size": {
+              "X": 1117.0,
+              "Y": 262.0
+            },
+            "Name": "grass1_17",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "owllevel/grass1.png",
+              "Plist": "owllevel/owllevel.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 3407.1973,
+              "Y": 781.0833
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 1.3309,
+              "Y": 0.4339
+            },
+            "PreSize": {
+              "X": 0.4363,
+              "Y": 0.1456
+            },
+            "LeftMargin": 2848.6973,
+            "RightMargin": -1405.6973,
+            "TopMargin": 887.9167,
+            "BottomMargin": 650.0833,
+            "Tag": 131,
+            "ActionTag": 1352629628,
+            "Size": {
+              "X": 1117.0,
+              "Y": 262.0
+            },
+            "Name": "grass1_18",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "owllevel/grass1.png",
+              "Plist": "owllevel/owllevel.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 4316.2261,
+              "Y": 801.3552
+            },
+            "Scale": {
+              "ScaleX": 1.1547,
+              "ScaleY": 1.1547
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 1.686,
+              "Y": 0.4452
+            },
+            "PreSize": {
+              "X": 0.4363,
+              "Y": 0.1456
+            },
+            "LeftMargin": 3757.7261,
+            "RightMargin": -2314.7261,
+            "TopMargin": 867.6448,
+            "BottomMargin": 670.3552,
+            "Tag": 132,
+            "ActionTag": 621405552,
+            "Size": {
+              "X": 1117.0,
+              "Y": 262.0
+            },
+            "Name": "grass1_19",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "owllevel/grass1.png",
+              "Plist": "owllevel/owllevel.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 5234.8716,
+              "Y": 781.0836
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 2.0449,
+              "Y": 0.4339
+            },
+            "PreSize": {
+              "X": 0.4363,
+              "Y": 0.1456
+            },
+            "LeftMargin": 4676.3716,
+            "RightMargin": -3233.3716,
+            "TopMargin": 887.9164,
+            "BottomMargin": 650.0836,
+            "Tag": 133,
+            "ActionTag": 1723061075,
+            "Size": {
+              "X": 1117.0,
+              "Y": 262.0
+            },
+            "Name": "grass1_20",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "owllevel/grass1.png",
+              "Plist": "owllevel/owllevel.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 6095.9023,
+              "Y": 798.3523
+            },
+            "Scale": {
+              "ScaleX": 1.1318,
+              "ScaleY": 1.1318
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 2.3812,
+              "Y": 0.4435
+            },
+            "PreSize": {
+              "X": 0.4363,
+              "Y": 0.1456
+            },
+            "LeftMargin": 5537.4023,
+            "RightMargin": -4094.4023,
+            "TopMargin": 870.6477,
+            "BottomMargin": 667.3523,
+            "Tag": 134,
+            "ActionTag": -911533535,
+            "Size": {
+              "X": 1117.0,
+              "Y": 262.0
+            },
+            "Name": "grass1_21",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "owllevel/grass1.png",
+              "Plist": "owllevel/owllevel.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 7139.3838,
+              "Y": 799.8534
+            },
+            "Scale": {
+              "ScaleX": 1.1433,
+              "ScaleY": 1.1433
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 2.7888,
+              "Y": 0.4444
+            },
+            "PreSize": {
+              "X": 0.4363,
+              "Y": 0.1456
+            },
+            "LeftMargin": 6580.8838,
+            "RightMargin": -5137.8838,
+            "TopMargin": 869.1466,
+            "BottomMargin": 668.8534,
+            "Tag": 135,
+            "ActionTag": -306537731,
+            "Size": {
+              "X": 1117.0,
+              "Y": 262.0
+            },
+            "Name": "grass1_22",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "owllevel/grass1.png",
+              "Plist": "owllevel/owllevel.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 8186.0542,
+              "Y": 812.6175
+            },
+            "Scale": {
+              "ScaleX": 1.2407,
+              "ScaleY": 1.2407
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 3.1977,
+              "Y": 0.4515
+            },
+            "PreSize": {
+              "X": 0.4363,
+              "Y": 0.1456
+            },
+            "LeftMargin": 7627.5542,
+            "RightMargin": -6184.5547,
+            "TopMargin": 856.3825,
+            "BottomMargin": 681.6175,
+            "Tag": 136,
+            "ActionTag": 1216600314,
+            "Size": {
+              "X": 1117.0,
+              "Y": 262.0
+            },
+            "Name": "grass1_23",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "owllevel/grass1.png",
+              "Plist": "owllevel/owllevel.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 9127.1162,
+              "Y": 781.0837
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 3.5653,
+              "Y": 0.4339
+            },
+            "PreSize": {
+              "X": 0.4363,
+              "Y": 0.1456
+            },
+            "LeftMargin": 8568.6162,
+            "RightMargin": -7125.6162,
+            "TopMargin": 887.9163,
+            "BottomMargin": 650.0837,
+            "Tag": 137,
+            "ActionTag": 1591859323,
+            "Size": {
+              "X": 1117.0,
+              "Y": 262.0
+            },
+            "Name": "grass1_24",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "owllevel/grass1.png",
+              "Plist": "owllevel/owllevel.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 9968.9268,
+              "Y": 781.0833
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 3.8941,
+              "Y": 0.4339
+            },
+            "PreSize": {
+              "X": 0.4363,
+              "Y": 0.1456
+            },
+            "LeftMargin": 9410.4268,
+            "RightMargin": -7967.4268,
+            "TopMargin": 887.9167,
+            "BottomMargin": 650.0833,
+            "Tag": 138,
+            "ActionTag": 863107142,
+            "Size": {
+              "X": 1117.0,
+              "Y": 262.0
+            },
+            "Name": "grass1_25",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "owllevel/grass1.png",
+              "Plist": "owllevel/owllevel.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 11124.6221,
+              "Y": 781.0836
+            },
+            "Scale": {
+              "ScaleX": 1.5731,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 4.3456,
+              "Y": 0.4339
+            },
+            "PreSize": {
+              "X": 0.4363,
+              "Y": 0.1456
+            },
+            "LeftMargin": 10566.1221,
+            "RightMargin": -9123.1221,
+            "TopMargin": 887.9164,
+            "BottomMargin": 650.0836,
+            "Tag": 139,
+            "ActionTag": 1881752147,
+            "Size": {
+              "X": 1117.0,
+              "Y": 262.0
+            },
+            "Name": "grass1_26",
             "ctype": "SpriteObjectData"
           }
         ],
