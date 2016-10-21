@@ -43,12 +43,12 @@
               "Y": 0.1032
             },
             "PreSize": {
-              "X": 0.8426,
-              "Y": 0.2756
+              "X": 0.5992,
+              "Y": 0.2061
             },
             "LeftMargin": -3.367,
             "RightMargin": 1029.3669,
-            "TopMargin": 1428.7675,
+            "TopMargin": 1428.7676,
             "BottomMargin": 0.2325,
             "Tag": 60,
             "ActionTag": -1776873747,
@@ -184,7 +184,7 @@
             },
             "LeftMargin": 13717.2422,
             "RightMargin": -12691.2422,
-            "TopMargin": 1428.7675,
+            "TopMargin": 1428.7676,
             "BottomMargin": 0.2325,
             "Tag": 124,
             "ActionTag": -1270285674,
@@ -229,7 +229,7 @@
             },
             "LeftMargin": 6101.52,
             "RightMargin": -5075.52,
-            "TopMargin": 1429.7662,
+            "TopMargin": 1429.7664,
             "BottomMargin": 0.2337,
             "Tag": 132,
             "ActionTag": -1484152623,
@@ -409,7 +409,7 @@
             },
             "LeftMargin": 13328.5107,
             "RightMargin": -11556.5107,
-            "TopMargin": 1335.0988,
+            "TopMargin": 1335.0986,
             "BottomMargin": 327.9013,
             "Tag": 155,
             "ActionTag": 962192569,
@@ -499,7 +499,7 @@
             },
             "LeftMargin": 19816.6602,
             "RightMargin": -18790.6602,
-            "TopMargin": 1429.7675,
+            "TopMargin": 1429.7673,
             "BottomMargin": 0.2326,
             "Tag": 171,
             "ActionTag": 1736023948,
@@ -859,7 +859,7 @@
             },
             "LeftMargin": 25063.168,
             "RightMargin": -22719.168,
-            "TopMargin": 1078.3448,
+            "TopMargin": 1078.3447,
             "BottomMargin": 492.6552,
             "Tag": 230,
             "ActionTag": -1198001564,
@@ -868,6 +868,546 @@
               "Y": 229.0
             },
             "Name": "Owl1_111",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "owllevel/bar.png",
+              "Plist": "owllevel/owllevel.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 3813.6548,
+              "Y": 185.7327
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 1.4897,
+              "Y": 0.1032
+            },
+            "PreSize": {
+              "X": 0.5992,
+              "Y": 0.2061
+            },
+            "LeftMargin": 3046.6548,
+            "RightMargin": -2020.6548,
+            "TopMargin": 1428.7673,
+            "BottomMargin": 0.2327,
+            "Tag": 226,
+            "ActionTag": -957246839,
+            "Size": {
+              "X": 1534.0,
+              "Y": 371.0
+            },
+            "Name": "bar_2",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "owllevel/bar.png",
+              "Plist": "owllevel/owllevel.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 5340.2222,
+              "Y": 185.7326
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 2.086,
+              "Y": 0.1032
+            },
+            "PreSize": {
+              "X": 0.5992,
+              "Y": 0.2061
+            },
+            "LeftMargin": 4573.2222,
+            "RightMargin": -3547.2222,
+            "TopMargin": 1428.7673,
+            "BottomMargin": 0.2326,
+            "Tag": 227,
+            "ActionTag": -230913833,
+            "Size": {
+              "X": 1534.0,
+              "Y": 371.0
+            },
+            "Name": "bar_4",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "owllevel/bar1.png",
+              "Plist": "owllevel/owllevel.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 9920.2256,
+              "Y": 185.2329
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 3.8751,
+              "Y": 0.1029
+            },
+            "PreSize": {
+              "X": 0.5992,
+              "Y": 0.2056
+            },
+            "LeftMargin": 9153.2256,
+            "RightMargin": -8127.2256,
+            "TopMargin": 1429.7671,
+            "BottomMargin": 0.2329,
+            "Tag": 228,
+            "ActionTag": -279607391,
+            "Size": {
+              "X": 1534.0,
+              "Y": 370.0
+            },
+            "Name": "bar1_5",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "owllevel/bar1.png",
+              "Plist": "owllevel/owllevel.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 11447.8242,
+              "Y": 185.2329
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 4.4718,
+              "Y": 0.1029
+            },
+            "PreSize": {
+              "X": 0.5992,
+              "Y": 0.2056
+            },
+            "LeftMargin": 10680.8242,
+            "RightMargin": -9654.8242,
+            "TopMargin": 1429.7671,
+            "BottomMargin": 0.2329,
+            "Tag": 229,
+            "ActionTag": 2113513118,
+            "Size": {
+              "X": 1534.0,
+              "Y": 370.0
+            },
+            "Name": "bar1_6",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "owllevel/bar.png",
+              "Plist": "owllevel/owllevel.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 16009.6426,
+              "Y": 185.7324
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 6.2538,
+              "Y": 0.1032
+            },
+            "PreSize": {
+              "X": 0.5992,
+              "Y": 0.2061
+            },
+            "LeftMargin": 15242.6426,
+            "RightMargin": -14216.6426,
+            "TopMargin": 1428.7676,
+            "BottomMargin": 0.2324,
+            "Tag": 230,
+            "ActionTag": -1924571659,
+            "Size": {
+              "X": 1534.0,
+              "Y": 371.0
+            },
+            "Name": "bar_7",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "owllevel/bar.png",
+              "Plist": "owllevel/owllevel.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 17535.8574,
+              "Y": 185.7329
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 6.8499,
+              "Y": 0.1032
+            },
+            "PreSize": {
+              "X": 0.5992,
+              "Y": 0.2061
+            },
+            "LeftMargin": 16768.8574,
+            "RightMargin": -15742.8574,
+            "TopMargin": 1428.7671,
+            "BottomMargin": 0.2329,
+            "Tag": 231,
+            "ActionTag": 349462928,
+            "Size": {
+              "X": 1534.0,
+              "Y": 371.0
+            },
+            "Name": "bar_8",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "owllevel/bar1.png",
+              "Plist": "owllevel/owllevel.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 22108.5449,
+              "Y": 185.2327
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 8.6362,
+              "Y": 0.1029
+            },
+            "PreSize": {
+              "X": 0.5992,
+              "Y": 0.2056
+            },
+            "LeftMargin": 21341.5449,
+            "RightMargin": -20315.5449,
+            "TopMargin": 1429.7673,
+            "BottomMargin": 0.2327,
+            "Tag": 232,
+            "ActionTag": 344991889,
+            "Size": {
+              "X": 1534.0,
+              "Y": 370.0
+            },
+            "Name": "bar1_9",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "owllevel/bar1.png",
+              "Plist": "owllevel/owllevel.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 23635.0234,
+              "Y": 185.2326
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 9.2324,
+              "Y": 0.1029
+            },
+            "PreSize": {
+              "X": 0.5992,
+              "Y": 0.2056
+            },
+            "LeftMargin": 22868.0234,
+            "RightMargin": -21842.0234,
+            "TopMargin": 1429.7673,
+            "BottomMargin": 0.2326,
+            "Tag": 233,
+            "ActionTag": -468639497,
+            "Size": {
+              "X": 1534.0,
+              "Y": 370.0
+            },
+            "Name": "bar1_10",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "owllevel/step.png",
+              "Plist": "owllevel/owllevel.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 3968.9868,
+              "Y": 386.2682
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 1.5504,
+              "Y": 0.2146
+            },
+            "PreSize": {
+              "X": 0.3086,
+              "Y": 0.0761
+            },
+            "LeftMargin": 3573.9868,
+            "RightMargin": -1803.9868,
+            "TopMargin": 1345.2317,
+            "BottomMargin": 317.7682,
+            "Tag": 262,
+            "ActionTag": -951396665,
+            "Size": {
+              "X": 790.0,
+              "Y": 137.0
+            },
+            "Name": "step_38",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "owllevel/step1.png",
+              "Plist": "owllevel/owllevel.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 10120.1289,
+              "Y": 401.4632
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 3.9532,
+              "Y": 0.223
+            },
+            "PreSize": {
+              "X": 0.3078,
+              "Y": 0.0761
+            },
+            "LeftMargin": 9726.1289,
+            "RightMargin": -7954.1289,
+            "TopMargin": 1330.0369,
+            "BottomMargin": 332.9632,
+            "Tag": 263,
+            "ActionTag": 518206166,
+            "Size": {
+              "X": 788.0,
+              "Y": 137.0
+            },
+            "Name": "step1_39",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "owllevel/step.png",
+              "Plist": "owllevel/owllevel.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 16307.5518,
+              "Y": 404.0027
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 6.3701,
+              "Y": 0.2244
+            },
+            "PreSize": {
+              "X": 0.3086,
+              "Y": 0.0761
+            },
+            "LeftMargin": 15912.5518,
+            "RightMargin": -14142.5508,
+            "TopMargin": 1327.4973,
+            "BottomMargin": 335.5027,
+            "Tag": 264,
+            "ActionTag": -1416569679,
+            "Size": {
+              "X": 790.0,
+              "Y": 137.0
+            },
+            "Name": "step_40",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "owllevel/step1.png",
+              "Plist": "owllevel/owllevel.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 22336.5723,
+              "Y": 404.1468
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 8.7252,
+              "Y": 0.2245
+            },
+            "PreSize": {
+              "X": 0.3078,
+              "Y": 0.0761
+            },
+            "LeftMargin": 21942.5723,
+            "RightMargin": -20170.5723,
+            "TopMargin": 1327.3533,
+            "BottomMargin": 335.6468,
+            "Tag": 265,
+            "ActionTag": -1247522594,
+            "Size": {
+              "X": 788.0,
+              "Y": 137.0
+            },
+            "Name": "step1_41",
             "ctype": "SpriteObjectData"
           }
         ],

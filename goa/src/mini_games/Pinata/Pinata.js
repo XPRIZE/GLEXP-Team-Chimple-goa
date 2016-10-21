@@ -254,6 +254,12 @@ xc.Pinata = cc.Layer.extend({
             }
      });
 
+    var vari = this.levelAllInfo(17,3,5,3,10);
+
+    console.log("the pinata category value is : " +     vari.category);
+    console.log("the pinata scene value is : " +     vari.scene);
+    console.log("the pinata level value is : " +     vari.level);
+
     cc.eventManager.addListener(listnerBg,this.bubblePlayer);
     cc.eventManager.addListener(choosingListner,targetA);
     cc.eventManager.addListener(choosingListner.clone(),targetB);
@@ -315,23 +321,10 @@ xc.Pinata = cc.Layer.extend({
 
     checkBoundaryBall : function(target,touch){
 
-        // if(touch.getLocation().x >= (cc.director.getWinSize().width * 0.9)){
-        //     if(touch.getLocation().y >= (cc.director.getWinSize().height * 0.5)){
-        //             console.log("corner most position");
-        //         }else{
-        //             target.y = touch.getLocation().y;
-        //     }
-        // }else{
-        //         target.setPosition(touch.getLocation());
-        // }
-
-
         if((touch.getLocation().x >= cc.director.getWinSize().width * 0.1 ) && (touch.getLocation().x <= cc.director.getWinSize().width * 0.9 ) && (touch.getLocation().y >= cc.director.getWinSize().height * 0.05 ) && (touch.getLocation().y <= cc.director.getWinSize().height * 0.5 )){
             target.setPosition(touch.getLocation());
             console.log("default if touch condition ");
         }
-
-     //   console.log("x : "+this.bubblePlayer.x + " y : "+this.bubblePlayer.y);
 
         if(touch.getLocation().x < cc.director.getWinSize().width * 0.1 ){
             if((this.bubblePlayer.y >= cc.director.getWinSize().height * 0.05 ) && (this.bubblePlayer.y <= cc.director.getWinSize().height * 0.5 )){
@@ -381,6 +374,26 @@ xc.Pinata = cc.Layer.extend({
             this.player.angle = 360 - this.player.angle;
         }
     },
+
+    levelAllInfo : function (currentLevel,totalCategory ,eachCategoryGroup , totalSceneTheme ,SceneChangeAfterLevel)
+    {
+        var categoryBase = Math.ceil(currentLevel / eachCategoryGroup);
+        var categoryNo = categoryBase % totalCategory;
+        if (categoryNo == 0)
+            categoryNo = (categoryBase-1) % totalCategory + 1;
+
+        var sceneBase = Math.ceil(currentLevel / SceneChangeAfterLevel);
+        var sceneNo = sceneBase % totalSceneTheme;
+
+        var categoryLevel = currentLevel % eachCategoryGroup + (Math.ceil(currentLevel / (eachCategoryGroup *  totalCategory)) * eachCategoryGroup );
+        if (categoryLevel == 0)
+            categoryLevel = (currentLevel-1) % eachCategoryGroup + (Math.ceil((currentLevel-1) / (eachCategoryGroup *  totalCategory)) * eachCategoryGroup) + 1;
+
+         return { category: categoryNo, scene: sceneNo,  level: categoryLevel };
+//        return std::make_tuple(categoryNo, sceneNo, categoryLevel);
+    },
+
+
     gamePlay : function (correctObject){
 
        var size = 0.5;
