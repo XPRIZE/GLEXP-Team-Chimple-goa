@@ -32,7 +32,7 @@ void AlphamoleLevel::onAlphabetSelected(EventCustom *event) {
 	wchar_t* buf = static_cast<wchar_t*>(event->getUserData());
 	_eventDispatcher->removeCustomEventListeners("alphamon_pressed");
 	_eventDispatcher->removeCustomEventListeners("alphabet_unselected");
-	Director::getInstance()->replaceScene(TransitionFade::create(2.0, Alphamole::createScene(buf[0])));
+	//Director::getInstance()->replaceScene(TransitionFade::create(2.0, Alphamole::createScene(buf[0])));
 }
 
 AlphamoleLevel::AlphamoleLevel()

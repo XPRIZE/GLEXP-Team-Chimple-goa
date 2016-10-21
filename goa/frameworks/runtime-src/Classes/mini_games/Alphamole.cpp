@@ -14,6 +14,7 @@
 #include "../alphamon/Alphamon.h"
 #include "../puzzle/CharGenerator.h"
 #include "../lang/LangUtil.h"
+#include "../menu/HelpLayer.h"
 
 USING_NS_CC;
 
@@ -28,10 +29,10 @@ Alphamole::~Alphamole()
 	_eventDispatcher->removeCustomEventListeners("alphabet_unselected");
 }
 
-Alphamole * Alphamole::create(wchar_t letter)
+Alphamole * Alphamole::create()
 {
 	Alphamole* alphamonFeedLayer = new (std::nothrow) Alphamole();
-	if (alphamonFeedLayer && alphamonFeedLayer->init(letter)) {
+	if (alphamonFeedLayer && alphamonFeedLayer->init()) {
 		alphamonFeedLayer->autorelease();
 		return alphamonFeedLayer;
 	}
@@ -39,10 +40,10 @@ Alphamole * Alphamole::create(wchar_t letter)
 	return nullptr;
 }
 
-cocos2d::Scene * Alphamole::createScene(wchar_t letter)
+cocos2d::Scene * Alphamole::createScene()
 {
 	auto scene = cocos2d::Scene::create();
-	auto layer = Alphamole::create(letter);
+	auto layer = Alphamole::create();
 	scene->addChild(layer);
 
 	layer->menu = MenuContext::create(layer, "alphamole");
@@ -50,7 +51,7 @@ cocos2d::Scene * Alphamole::createScene(wchar_t letter)
 	return scene;
 }
 
-bool Alphamole::init(wchar_t letter)
+bool Alphamole::init()
 {
 
 	if (!Layer::init())
@@ -84,15 +85,7 @@ bool Alphamole::init(wchar_t letter)
 		std::string str = monsterItem->getName().c_str();
 		CCLOG("children = %s", str.c_str());
 	}*/
-	_mychar = letter;
-	_mainChar = Alphamon::createWithAlphabet(_mychar);
-	_mainChar->setScaleX(0.5);
-	_mainChar->setScaleY(0.5);
-	_mainChar->setPositionX(visibleSize.width / 2);
-	_mainChar->setPositionY(visibleSize.height / 1.2);
-	this->addChild(_mainChar);
-	_mainChar->enableTouch(false);
-
+	
 	_alphabetLayer = Layer::create();
 	this->addChild(_alphabetLayer);
 	if (_randomBackground != 1) {
@@ -130,6 +123,16 @@ children = Play2_Hole_Open_11*/
 
 void Alphamole::startGame()
 {
+	Size visibleSize = Director::getInstance()->getVisibleSize();
+	Vec2 origin = Director::getInstance()->getVisibleOrigin();
+	_mychar = LangUtil::getInstance()->getAllCharacters()[menu->getCurrentLevel() - 1];
+	_mainChar = Alphamon::createWithAlphabet(_mychar);
+	_mainChar->setScaleX(0.5);
+	_mainChar->setScaleY(0.5);
+	_mainChar->setPositionX(visibleSize.width / 2);
+	_mainChar->setPositionY(visibleSize.height / 1.2);
+	this->addChild(_mainChar);
+	_mainChar->enableTouch(false);
 	menu->showStartupHelp(CC_CALLBACK_0(Alphamole::jumpAlphabet, this));
 }
 
@@ -144,6 +147,8 @@ void Alphamole::jumpAlphabet()
 
 void Alphamole::showAlpha(float ft)
 {
+	Size visibleSize = Director::getInstance()->getVisibleSize();
+	Vec2 origin = Director::getInstance()->getVisibleOrigin();
 	if (_score == 5) {
 		_eventDispatcher->removeCustomEventListeners("alphamon_pressed");
 		menu->showScore();
@@ -151,9 +156,19 @@ void Alphamole::showAlpha(float ft)
 	} else {
 		auto jumpAlphaArray = CharGenerator::getInstance()->generateMatrixForChoosingAChar(_mychar, 6, 1, 50);
 		auto str = jumpAlphaArray.at(cocos2d::RandomHelper::random_int(0, 5)).at(0);
-		_monsterReff = Alphamon::createWithAlphabet(str);
+		
 		std::vector<std::string> holes = { "hole1", "hole2", "hole3" };
 		auto child = _background->getChildByName(holes.at(cocos2d::RandomHelper::random_int(0, 2)));
+		
+		if (menu->getCurrentLevel() == 1 && _score == 0) {
+			str = _mychar;
+			_helpLayer = true;
+			auto help = HelpLayer::create(Rect(child->getPositionX() + 100, child->getPositionY() + 300, 600, 600), Rect(visibleSize.width/2, visibleSize.height/1.1, 400, 400));
+			help->click(Vec2(child->getPositionX() + 100, child->getPositionY() + 300));
+			help->setName("helpLayer");
+			this->addChild(help);
+		}
+		_monsterReff = Alphamon::createWithAlphabet(str);
 		float x = child->getPositionX();
 		float y = child->getPositionY();
 		_monsterReff->setPositionX(x + _Xpos);
@@ -171,6 +186,11 @@ void Alphamole::showAlpha(float ft)
 		auto jump = JumpBy::create(1.5, Vec2(0, 0), 750, 1);
 
 		_monsterReff->runAction(Sequence::create(jump, CallFunc::create([=]() {
+			if (_helpLayer) {
+				//auto help = this->getChildByName("helpLayer");
+				this->removeChildByName("helpLayer");
+				_helpLayer = false;
+			}
 			_alphabetLayer->removeChild(_monsterReff); }), NULL));
 
 		_eventDispatcher->addCustomEventListener("alphamon_pressed", CC_CALLBACK_1(Alphamole::onAlphabetSelect, this));
@@ -180,6 +200,8 @@ void Alphamole::showAlpha(float ft)
 
 void Alphamole::leafOpen(float ft)
 {
+	Size visibleSize = Director::getInstance()->getVisibleSize();
+	Vec2 origin = Director::getInstance()->getVisibleOrigin();
 	if (_score == 5) {
 		_eventDispatcher->removeCustomEventListeners("alphamon_pressed");
 		menu->showScore();
@@ -190,11 +212,22 @@ void Alphamole::leafOpen(float ft)
 		int random_leaf = cocos2d::RandomHelper::random_int(0, 2);
 		auto jumpAlphaArray = CharGenerator::getInstance()->generateMatrixForChoosingAChar(_mychar, 6, 1, 50);
 		auto str = jumpAlphaArray.at(cocos2d::RandomHelper::random_int(0, 5)).at(0);
-		_monsterReff = Alphamon::createWithAlphabet(str);
+		
 		_leaf_openRff = _background->getChildByName(open_leaf_name.at(random_leaf).c_str());
 		_leaf_openRff->setVisible(true);
 		_leaf_closeRff = _background->getChildByName(close_leaf_name.at(random_leaf).c_str());
 		_leaf_closeRff->setVisible(false);
+		
+		if (menu->getCurrentLevel() == 1 && _score == 0) {
+			str = _mychar;
+			_helpLayer = true;
+			auto help = HelpLayer::create(Rect(_leaf_openRff->getPositionX(), _leaf_openRff->getPositionY() + 300, 600, 600), Rect(visibleSize.width / 2, visibleSize.height / 1.1, 400, 400));
+			help->click(Vec2(_leaf_openRff->getPositionX(), _leaf_openRff->getPositionY() + 300));
+			help->setName("helpLayer");
+			this->addChild(help);
+		}
+		_monsterReff = Alphamon::createWithAlphabet(str);
+		
 		_monsterReff->setPositionX(_leaf_closeRff->getPositionX() + _Xpos);
 		_monsterReff->setPositionY(_leaf_closeRff->getPositionY() - 75);
 		if (LangUtil::getInstance()->getLang() == "kan") {
@@ -215,6 +248,11 @@ void Alphamole::leafOpen(float ft)
 
 void Alphamole::leafClose(float ft)
 {
+	if (_helpLayer) {
+		//auto help = this->getChildByName("helpLayer");
+		this->removeChildByName("helpLayer");
+		_helpLayer = false;
+	}
 	_leaf_openRff->setVisible(false);
 	_leaf_closeRff->setVisible(true);
 	_alphabetLayer->removeChild(_monsterReff);
