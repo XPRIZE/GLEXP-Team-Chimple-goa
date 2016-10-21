@@ -69,12 +69,11 @@ Memory *Memory::create() {
 
 }
 
-bool Memory::init() {
+void Memory::onEnterTransitionDidFinish() {
+
 
 	_finalGridIds.resize(0);
-	if (!Layer::init()) {
-		return false;
-	}
+
 
 	//SpriteFrameCache::getInstance()->addSpriteFramesWithFile("balloonhero/balloonhero.plist");
 	//_sceneNumber = RandomHelper::random_int(1, 2);
@@ -82,78 +81,148 @@ bool Memory::init() {
 
 	
 
-	if (/*_menuContext->getCurrentLevel() <= 6 && _menuContext->getCurrentLevel() >=1*/1) { _gridTwoByTwoIds.resize(_gridTwoByTwoIds_Size); 
-	_gridTwoByTwoIds = { 9, 10, 15, 16 };
-	_pairCount = 2;
-	
+	if (_menuContext->getCurrentLevel() <= 6 && _menuContext->getCurrentLevel() >= 1) {
+		_gridTwoByTwoIds.resize(_gridTwoByTwoIds_Size);
+		_gridTwoByTwoIds = { 9, 10, 15, 16 };
+		_pairCount = 2;
+		_finalGridIds = _gridTwoByTwoIds;
+		_menuContext->setMaxPoints(_pairCount);
+
+		if (_menuContext->getCurrentLevel() >= 1 && _menuContext->getCurrentLevel() <= 2)
+			_data = TextGenerator::getInstance()->getAntonyms(_pairCount);
+
+		if (_menuContext->getCurrentLevel() >= 3 && _menuContext->getCurrentLevel() <= 4)
+			_data = TextGenerator::getInstance()->getSynonyms(_pairCount);
+
+		if (_menuContext->getCurrentLevel() >= 5 && _menuContext->getCurrentLevel() <= 6)
+			_data = TextGenerator::getInstance()->getHomonyms(_pairCount);
+
 	}
-	
-	if (/*_menuContext->getCurrentLevel() <= 12 && _menuContext->getCurrentLevel() > 6*/1) { _gridTwoByThreeIds.resize(_gridTwoByThreeIds_Size); 
-	_gridTwoByThreeIds = {8, 9, 10, 14, 15, 16};
-	_pairCount = 3;
+
+	if (_menuContext->getCurrentLevel() <= 12 && _menuContext->getCurrentLevel() > 6) {
+		_gridTwoByThreeIds.resize(_gridTwoByThreeIds_Size);
+		_gridTwoByThreeIds = { 8, 9, 10, 14, 15, 16 };
+		_pairCount = 3;
+		_finalGridIds = _gridTwoByThreeIds;
+		_menuContext->setMaxPoints(_pairCount);
+
+		if (_menuContext->getCurrentLevel() >= 7 && _menuContext->getCurrentLevel() <= 8)
+			_data = TextGenerator::getInstance()->getAntonyms(_pairCount);
+
+		if (_menuContext->getCurrentLevel() >= 9 && _menuContext->getCurrentLevel() <= 10)
+			_data = TextGenerator::getInstance()->getSynonyms(_pairCount);
+
+		if (_menuContext->getCurrentLevel() >= 11 && _menuContext->getCurrentLevel() <= 12)
+			_data = TextGenerator::getInstance()->getHomonyms(_pairCount);
 	}
-	
-	if (/*_menuContext->getCurrentLevel() <= 18 && _menuContext->getCurrentLevel() > 12*/1) { _gridThreeByFourIds.resize(_gridThreeByFourIds_Size); 
-	_gridThreeByFourIds = {8, 9, 10, 11, 14, 15, 16, 17, 20, 21, 22, 23};
+
+	if (_menuContext->getCurrentLevel() <= 18 && _menuContext->getCurrentLevel() > 12) {
+		_gridThreeByFourIds.resize(_gridThreeByFourIds_Size);
+		_gridThreeByFourIds = { 8, 9, 10, 11, 14, 15, 16, 17, 20, 21, 22, 23 };
 		_pairCount = 6;
+		_finalGridIds = _gridThreeByFourIds;
+
+		_menuContext->setMaxPoints(_pairCount);
+		if (_menuContext->getCurrentLevel() >= 13 && _menuContext->getCurrentLevel() <= 14)
+			_data = TextGenerator::getInstance()->getAntonyms(_pairCount);
+
+		if (_menuContext->getCurrentLevel() >= 15 && _menuContext->getCurrentLevel() <= 16)
+			_data = TextGenerator::getInstance()->getSynonyms(_pairCount);
+
+		if (_menuContext->getCurrentLevel() >= 17 && _menuContext->getCurrentLevel() <= 18)
+			_data = TextGenerator::getInstance()->getHomonyms(_pairCount);
 	}
-	
-	if (/*_menuContext->getCurrentLevel() <= 24 && _menuContext->getCurrentLevel() > 18*/1) { _gridThreeBySixIds.resize(_gridThreeBySixIds_Size); 
-	_gridThreeBySixIds = {7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24};
-	_pairCount = 9;
+
+	if (_menuContext->getCurrentLevel() <= 24 && _menuContext->getCurrentLevel() > 18) {
+		_gridThreeBySixIds.resize(_gridThreeBySixIds_Size);
+		_gridThreeBySixIds = { 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24 };
+		_pairCount = 9;
+		_finalGridIds = _gridThreeBySixIds;
+
+		_menuContext->setMaxPoints(_pairCount);
+
+		if (_menuContext->getCurrentLevel() >= 19 && _menuContext->getCurrentLevel() <= 20)
+			_data = TextGenerator::getInstance()->getAntonyms(_pairCount);
+
+		if (_menuContext->getCurrentLevel() >= 21 && _menuContext->getCurrentLevel() <= 22)
+			_data = TextGenerator::getInstance()->getSynonyms(_pairCount);
+
+		if (_menuContext->getCurrentLevel() >= 23 && _menuContext->getCurrentLevel() <= 24)
+			_data = TextGenerator::getInstance()->getHomonyms(_pairCount);
 	}
-	
-	if (/*_menuContext->getCurrentLevel() <= 30 && _menuContext->getCurrentLevel() > 24*/1) { _gridFourByFiveIds.resize(_gridFourByFiveIds_Size); 
-	_gridFourByFiveIds = {1, 2, 3, 4, 5, 7, 8, 9, 10, 11, 13, 14, 15, 16, 17, 19, 20, 21, 22, 23};
-	_pairCount = 10;
+
+	if (_menuContext->getCurrentLevel() <= 30 && _menuContext->getCurrentLevel() > 24) {
+		_gridFourByFiveIds.resize(_gridFourByFiveIds_Size);
+		_gridFourByFiveIds = { 1, 2, 3, 4, 5, 7, 8, 9, 10, 11, 13, 14, 15, 16, 17, 19, 20, 21, 22, 23 };
+		_pairCount = 10;
+		_finalGridIds = _gridFourByFiveIds;
+		_menuContext->setMaxPoints(_pairCount);
+
+		if (_menuContext->getCurrentLevel() >= 25 && _menuContext->getCurrentLevel() <= 26)
+			_data = TextGenerator::getInstance()->getAntonyms(_pairCount);
+
+		if (_menuContext->getCurrentLevel() >= 27 && _menuContext->getCurrentLevel() <= 28)
+			_data = TextGenerator::getInstance()->getSynonyms(_pairCount);
+
+		if (_menuContext->getCurrentLevel() >= 29 && _menuContext->getCurrentLevel() <= 30)
+			_data = TextGenerator::getInstance()->getHomonyms(_pairCount);
 	}
-	
-	if (/*_menuContext->getCurrentLevel() <= 36 && _menuContext->getCurrentLevel() > 30*/1) { _gridFourBySixIds.resize(_gridFourBySixIds_Size); 
-	_gridFourBySixIds = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12,  13, 14, 15, 16,  17, 18, 19, 20, 21, 22, 23, 24 };
-	_pairCount = 12;
+
+	if (_menuContext->getCurrentLevel() <= 36 && _menuContext->getCurrentLevel() > 30) {
+		_gridFourBySixIds.resize(_gridFourBySixIds_Size);
+		_gridFourBySixIds = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12,  13, 14, 15, 16,  17, 18, 19, 20, 21, 22, 23, 24 };
+		_pairCount = 12;
+		_finalGridIds = _gridFourBySixIds;
+
+		_menuContext->setMaxPoints(_pairCount);
+
+		if (_menuContext->getCurrentLevel() >= 31 && _menuContext->getCurrentLevel() <= 32)
+			_data = TextGenerator::getInstance()->getAntonyms(_pairCount);
+
+		if (_menuContext->getCurrentLevel() >= 33 && _menuContext->getCurrentLevel() <= 34)
+			_data = TextGenerator::getInstance()->getSynonyms(_pairCount);
+
+		if (_menuContext->getCurrentLevel() >= 35 && _menuContext->getCurrentLevel() <= 36)
+			_data = TextGenerator::getInstance()->getHomonyms(_pairCount);
 	}
-	
 
 
-CCSpriteFrameCache::sharedSpriteFrameCache()->addSpriteFramesWithFile("memoryfarm/memoryfarm.plist");
-
-
-_pairCount = 2;
-   _data = TextGenerator::getInstance()->getAntonyms(_pairCount);
-
-
-   for (std::map<std::string, std::string>::iterator it = _data.begin(); it != _data.end(); ++it) {
-	   _data_key.push_back(it->first);
-   }
-
-   for (std::map<std::string, std::string>::iterator it = _data.begin(); it != _data.end(); ++it) {
-	   _data_value.push_back(it->second);
-   }
-
-   
-   generateRandomNumbers();
-  
-
+	//_menuContext->setCurrentLevel(_menuContext->getCurrentLevel() + 1);
 	Size visibleSize = Director::getInstance()->getVisibleSize();
 	Vec2 origin = Director::getInstance()->getVisibleOrigin();
 
-	
+
 	_memoryfarm = CSLoader::createNode("memoryfarm/memoryfarm.csb");
-	
+
 	_memoryfarm->setPosition(Vec2(visibleSize.width / 2 + origin.x, visibleSize.height / 2 + origin.y));
 	_memoryfarm->setAnchorPoint(Vec2(0.5, 0.5));
 	addChild(_memoryfarm);
-	
-	
-	_finalGridIds = _gridTwoByTwoIds;
+
+
 	generateGrid(_finalGridIds);
-	
+
+	CCSpriteFrameCache::sharedSpriteFrameCache()->addSpriteFramesWithFile("memoryfarm/memoryfarm.plist");
+
+
+
+	for (std::map<std::string, std::string>::iterator it = _data.begin(); it != _data.end(); ++it) {
+		_data_key.push_back(it->first);
+	}
+
+	for (std::map<std::string, std::string>::iterator it = _data.begin(); it != _data.end(); ++it) {
+		_data_value.push_back(it->second);
+	}
+
+
+	generateRandomNumbers();
+
+
 	//_chickenTimelineTemp = CSLoader::createTimeline("memoryfarm/chicken.csb");
 	//_memoryfarm->getChildByName("background")->getChildByName("nest1")->getChildByName("chicken")->runAction(_chickenTimelineTemp);
 	//_chickenTimelineTemp->play("fly", false);
-	
-	int nestsCount = _pairCount*2;
-	int j=0;
+
+	int nestsCount = _pairCount * 2;
+	int j = 0;
 	for (int i = 0; i < nestsCount; i++) {
 
 		std::ostringstream sstreamc;
@@ -170,14 +239,14 @@ _pairCount = 2;
 
 		_chickenTimeline[_finalGridIds[_currentNest]] = CSLoader::createTimeline("memoryfarm/chicken.csb");
 		_memoryfarm->getChildByName("background")->getChildByName(queryc)->getChildByName("chicken")->runAction(_chickenTimeline[_finalGridIds[_currentNest]]);
-		
+
 
 		if (i == _pairCount) {
 			generateRandomNumbers();
 		}
 
 		if (i < _pairCount) {
-			
+
 			labelName = _data_key[_randomIndex[i]];
 		}
 		else {
@@ -186,7 +255,7 @@ _pairCount = 2;
 			j++;
 		}
 
-		
+
 
 		auto label = ui::Text::create();
 		label->setString(labelName);
@@ -209,11 +278,22 @@ _pairCount = 2;
 
 		setupTouch();
 	}
-	
-	
+
+
 	CCLOG("asjdasd : ", _randomIndex);
 
+
+
+}
+bool Memory::init() {
+
+	if (!Layer::init())
+	{
+		return false;
+	}
+
 	return true;
+
 }
 
 
