@@ -34,7 +34,7 @@ CC_CONSTRUCTOR_ACCESS:
 	void generateRandomNumbers();
 	void generateGrid(std::vector<int> grid);
 	void onEnterTransitionDidFinish() override;
-	static const char* classname() { return WEMBLEY.c_str(); }
+	static const char* classname() { return MEMORY.c_str(); }
 protected:
 	std::vector<int> _currentClickedPair;
 	std::vector<int> _activeNestIds;
