@@ -7,7 +7,7 @@
 #include "../menu/MenuContext.h"
 #include "editor-support/cocostudio/CocoStudio.h"
 #include "../lang/LangUtil.h"
-
+#include "../menu/HelpLayer.h"
 #include "../puzzle/Alphabet.h"
 #include "../StartMenuScene.h"
 #define COCOS2D_DEBUG 1
@@ -112,9 +112,9 @@ void SmashTheRock::begin()
 
 
 	auto block = Sprite::createWithSpriteFrameName("smash_de_rock/letter_normal.png");
-
-	mychar = CharGenerator::getInstance()->generateAChar();
-	std::vector<std::vector<wchar_t>> charkey = CharGenerator::getInstance()->generateMatrixForChoosingAChar(mychar, 2, 7, 50);
+	mychar = LangUtil::getInstance()->getAllCharacters()[menu->getCurrentLevel() - 1];
+	//mychar = CharGenerator::getInstance()->generateAChar();
+    _charkey = CharGenerator::getInstance()->generateMatrixForChoosingAChar(mychar, 2, 7, 50);
 
 	int dis = (220.0 / 2560)*visibleSize.width;
 	for (int i = 1; i < 3; i++)
@@ -157,7 +157,7 @@ void SmashTheRock::begin()
 			this->addChild(wrong, 2);
 			//	wrong->setGlobalZOrder(6);
 			//	std::string str = Alphabets.at(cocos2d::RandomHelper::random_int(key, (key + 20)) % 20).c_str();
-			wchar_t str1 = charkey.at(i - 1).at(j - 1);
+			wchar_t str1 = _charkey.at(i - 1).at(j - 1);
 			//std::string ttttt(&str1,1) ;
 			//label = Label::createWithBMFont(LangUtil::getInstance()->getBMFontFileName(), ttttt);
 			//label = Label::createWithTTF(ttttt, "fonts/BalooBhai-Regular.ttf", 256);
@@ -167,9 +167,13 @@ void SmashTheRock::begin()
 			label->setPositionX(blockWidth);
 			auto letter = label->getString();
 			label->setPositionY(blockHeight - 230);
-			
+			if (str1 == mychar)
+			{
+				helpX = blockWidth;
+				helpY = blockHeight;
+			}
 			label->setAnchorPoint(Vec2::ANCHOR_MIDDLE_BOTTOM);
-			auto mystr = LangUtil::convertUTF16CharToString(mychar);
+			auto mystr = LangUtil::convertUTF16CharToString(str1);
 			label->setName(mystr);
 			label->setScaleX(0.35);
 			label->setScaleY(0.45);
@@ -194,7 +198,26 @@ void SmashTheRock::begin()
 	//audio->playBackgroundMusic("smash_de_rock/Smash Rock  BG sound.wav", true);
 	//audio->setEffectsVolume(1.0f);
 	masking();
+	if (menu->getCurrentLevel() == 1 && click == 0) {
+		gameHelp();
+	}
 }
+void SmashTheRock::gameHelp()
+{
+	Size visibleSize = Director::getInstance()->getVisibleSize();
+	_helpFlage = true;
+	//game help only for first level
+
+	auto mystr = LangUtil::convertUTF16CharToString(mychar);
+	auto label = this->getChildByName(mystr);
+	auto optionSize = label->getContentSize();
+	auto optionPosition = label->getPosition();
+	auto help = HelpLayer::create(Rect(helpX, helpY, 200, 200), Rect(visibleSize.width/2,visibleSize.height/2 + 480,600,800));
+	help->click(Vec2(helpX, helpY));
+	help->setName("helpLayer");
+	this->addChild(help,2);
+}
+
 void SmashTheRock::createSkeletonCharacter()
 {
 	CCLOG("hello");
@@ -277,10 +300,10 @@ void SmashTheRock::masking()
 {
 	Size visibleSize = Director::getInstance()->getVisibleSize();
 	Vec2 origin = Director::getInstance()->getVisibleOrigin();
-	Alphabet *label1 = Alphabet::createWithSize(mychar, 200);
+	_label1 = Alphabet::createWithSize(mychar, 200);
 //	label1 = Label::createWithBMFont(LangUtil::getInstance()->getBMFontFileName(), Alphabets.at(key).c_str());
 //	label1 = Label::createWithTTF(Alphabets.at(key).c_str(), "fonts/BalooBhai-Regular.ttf", 256);
-	label1->setScale(1.5);
+	_label1->setScale(1.5);
 
 	
 	const std::vector<std::string> rocks = { "smash_de_rock/cracktexture_00.png","smash_de_rock/cracktexture_01.png","smash_de_rock/cracktexture_02.png","smash_de_rock/cracktexture_03.png","smash_de_rock/cracktexture_04.png","smash_de_rock/cracktexture_05.png","smash_de_rock/cracktexture_05.png" };
@@ -288,7 +311,7 @@ void SmashTheRock::masking()
 	
 	CCLOG("rock = %s", rocks.at(click).c_str());
 	CCLOG("click %d", click);
-	maskedFill = ClippingNode::create(label1);
+	maskedFill = ClippingNode::create(_label1);
 
 	maskedFill->setAlphaThreshold(0.9);
 
@@ -337,7 +360,7 @@ bool SmashTheRock::onTouchBegan(cocos2d::Touch *touch, cocos2d::Event * event)
 	auto  location = target->convertToNodeSpace(touch->getLocation());
 	Size visibleSize = Director::getInstance()->getVisibleSize();
 	int dis = (220.00 / 2560)*(visibleSize.width);
-	auto mystr = LangUtil::convertUTF16CharToString(mychar);
+	//auto mystr = LangUtil::convertUTF16CharToString(mychar);
 	auto myletter = target->getChar();
 	//	CCRect targetRectangle = CCRectMake(0,0, target->getContentSize().width, target->getContentSize().height);
 	if ( target->getBoundingBox().containsPoint( touch->getLocation()) && flag )
@@ -362,7 +385,10 @@ bool SmashTheRock::onTouchBegan(cocos2d::Touch *touch, cocos2d::Event * event)
 			_eventDispatcher->removeEventListenersForTarget(target, false);
 			hit();
 			click++;
-			
+			if (_helpFlage) {
+				this->removeChildByName("helpLayer");
+				_helpFlage = false;
+			}
 		}
 		else
 		{

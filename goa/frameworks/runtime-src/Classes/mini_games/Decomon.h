@@ -60,6 +60,7 @@ protected:
 	void split(const std::string &s, char delim, std::vector<std::string> &elems);
 	void captureImage(bool capture, const std::string& outputFile);
 	static const char* gameName() { return DECOMON.c_str(); }
+	void onEnterTransitionDidFinish();
 };
 
 #endif 

@@ -51,5 +51,6 @@ protected:
 	void update(float ft) override;
 	void buildingAfterGap(std::string str);
 	static const char* gameName() { return CAT.c_str(); }
+	void onEnterTransitionDidFinish();
 };
 #endif 

@@ -11,6 +11,11 @@ xc.PopLayer = cc.Layer.extend({
         // 1. super init first
         this._super();
 
+    },
+
+    onEnterTransitionDidFinish: function() 
+    {
+            
         var worldSize = cc.winSize;
         var self = this;
 
@@ -22,20 +27,39 @@ xc.PopLayer = cc.Layer.extend({
         var existingNumber = [];
         this.wordInOrder = [];
         this.clickableFlag = false;
+        this.currentLevel = null; 
 
-        if(this.selectedScene == "scene_1")
+        // S T A R T
+        //    if (cc.sys.isNative)
+        //     {
+        //         menuContext = self.getParent().menuContext;
+        //         this.currentLevel = menuContext.getCurrentLevel();
+        //         wordForSentanceArray = goa.TextGenerator.getInstance().generateASentence(1);
+            
+        //     }
+
+        // level mapping for pop game
+        var levelKeyNumber = this.levelAllInfo(47, 4,2,8,6);
+         var sceneRes = null;
+        if(this.selectedScene== "scene_1")
         {
-                var sceneRes = ccs.load(xc.PopLayer.res.pop_scene_1, xc.path);
+                 sceneRes = ccs.load(xc.PopLayer.res.pop_scene_1, xc.path);
         }
         else
         {
-                var sceneRes = ccs.load(xc.PopLayer.res.pop_scene_2, xc.path);
+                 sceneRes = ccs.load(xc.PopLayer.res.pop_scene_2, xc.path);
         }
+           var catagoryMap = [9,4,5,6,7,8]
+           var catagoryLevel = catagoryMap[levelKeyNumber.catagoryNum];
+        //  var wordForSentanceArray = goa.TextGenerator.getInstance().generateASentence(catagoryLevel);
+        
+       // E N D
                 if (worldSize.width > 2560){
                     var x = worldSize.width - 2560;
                     sceneRes.node.x = x/2;
                 }
                 this.addChild(sceneRes.node);
+             
 
                 this.plane = ccs.load(xc.PopLayer.res.pop_plane, xc.path);
                 this.plane.node.x = worldSize.width + 200;
@@ -73,12 +97,6 @@ xc.PopLayer = cc.Layer.extend({
             });
 
             this.addChild(this.sentanceInRightOrder);
-
-        console.log("correct sentance : "+dummySentance);
-
-        
-        cc.log("sentence:" + wordForSentanceArray);
-
             setTimeout(function(){ self.clickableFlag = true; 
                 self.removeChild(self.sentanceInRightOrder)}, 12000);
 
@@ -171,6 +189,11 @@ xc.PopLayer = cc.Layer.extend({
         return Math.random() * (max - min) + min;
     },
 
+    getSentanceLength: function()
+    {
+            return catagoryMap[element];
+    },
+
     setWordInRightOrder: function (wordObject) {
         if (this.wordInOrder.length == 0 ) {
             //wordObject.id == 0 ||
@@ -239,6 +262,20 @@ xc.PopLayer = cc.Layer.extend({
 
                 var seqAction = new cc.Sequence(action_1, action_2, action_3,action_4);
                 wrongCloud.runAction(seqAction);
+    },
+  levelAllInfo: function(currentLevel, sceneRepetitionNo, totalScene, catagoryRepetitionNo, totalcatagory)
+    {
+        var currentLevelInFloat = currentLevel.toFixed(2);;
+        var sceneBaseValue = (Math.ceil(currentLevelInFloat/ sceneRepetitionNo));
+        var sceneNo = sceneBaseValue % totalScene;
+
+        var catagoryBaseValue =Math.ceil(currentLevelInFloat / catagoryRepetitionNo);
+        var catagoryNo = catagoryBaseValue % totalcatagory;
+        
+        return  {
+                    sceneNum: sceneNo,
+                    catagoryNum: catagoryNo
+                };
     }
 });
 xc.PopLayer.res = {
