@@ -1,0 +1,198 @@
+{
+  "ID": "a2ee0952-26b5-49ae-8bf9-4f1d6279b798",
+  "Version": "2.3.4",
+  "Name": "owllevel",
+  "Content": {
+    "Content": {
+      "Animation": {
+        "Duration": 0,
+        "Speed": 1.0,
+        "Timelines": [],
+        "ctype": "TimelineActionData"
+      },
+      "AnimationList": [],
+      "ObjectData": {
+        "Children": [
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "owllevel/background.json",
+              "Plist": ""
+            },
+            "StretchWidthEnable": false,
+            "StretchHeightEnable": false,
+            "InnerActionSpeed": 1.0,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 0.481,
+              "Y": -4.8058
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 0.0002,
+              "Y": -0.0027
+            },
+            "PreSize": {
+              "X": 1.0,
+              "Y": 1.0
+            },
+            "LeftMargin": 0.481,
+            "RightMargin": -0.481,
+            "TopMargin": 4.8058,
+            "BottomMargin": -4.8058,
+            "Tag": 14,
+            "ActionTag": -633519053,
+            "Size": {
+              "X": 2560.0,
+              "Y": 1800.0
+            },
+            "Name": "FileNode_1",
+            "ctype": "ProjectNodeObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "owllevel/mainground.json",
+              "Plist": ""
+            },
+            "StretchWidthEnable": false,
+            "StretchHeightEnable": false,
+            "InnerActionSpeed": 1.0,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 0.0209,
+              "Y": -4.6803
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 0.0,
+              "Y": -0.0026
+            },
+            "PreSize": {
+              "X": 1.0,
+              "Y": 1.0
+            },
+            "LeftMargin": 0.0209,
+            "RightMargin": -0.021,
+            "TopMargin": 4.6803,
+            "BottomMargin": -4.6803,
+            "Tag": 37,
+            "ActionTag": 499098206,
+            "Size": {
+              "X": 2560.0,
+              "Y": 1800.0
+            },
+            "Name": "FileNode_2",
+            "ctype": "ProjectNodeObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "owllevel/foreground.json",
+              "Plist": ""
+            },
+            "StretchWidthEnable": false,
+            "StretchHeightEnable": false,
+            "InnerActionSpeed": 1.0,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 0.0215,
+              "Y": -4.9824
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 0.0,
+              "Y": -0.0028
+            },
+            "PreSize": {
+              "X": 1.0,
+              "Y": 1.0
+            },
+            "LeftMargin": 0.0215,
+            "RightMargin": -0.0215,
+            "TopMargin": 4.9824,
+            "BottomMargin": -4.9824,
+            "Tag": 349,
+            "ActionTag": -1635039072,
+            "Size": {
+              "X": 2560.0,
+              "Y": 1800.0
+            },
+            "Name": "FileNode_5",
+            "ctype": "ProjectNodeObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "owllevel/frontground.json",
+              "Plist": ""
+            },
+            "StretchWidthEnable": false,
+            "StretchHeightEnable": false,
+            "InnerActionSpeed": 1.0,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 0.4852,
+              "Y": -4.8303
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 0.0002,
+              "Y": -0.0027
+            },
+            "PreSize": {
+              "X": 1.0,
+              "Y": 1.0
+            },
+            "LeftMargin": 0.4852,
+            "RightMargin": -0.4851,
+            "TopMargin": 4.8303,
+            "BottomMargin": -4.8303,
+            "Tag": 64,
+            "ActionTag": -1671729033,
+            "Size": {
+              "X": 2560.0,
+              "Y": 1800.0
+            },
+            "Name": "FileNode_4",
+            "ctype": "ProjectNodeObjectData"
+          }
+        ],
+        "Size": {
+          "X": 2560.0,
+          "Y": 1800.0
+        },
+        "Name": "Scene",
+        "ctype": "SingleNodeObjectData"
+      },
+      "UsedResources": [
+        "background.json",
+        "foreground.json",
+        "frontground.json",
+        "mainground.json"
+      ],
+      "ctype": "GameFileData"
+    }
+  },
+  "Type": "Scene"
+}
