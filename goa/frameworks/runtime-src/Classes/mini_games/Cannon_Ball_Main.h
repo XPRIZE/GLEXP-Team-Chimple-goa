@@ -11,6 +11,7 @@
 #include "SimpleAudioEngine.h"
 #include "../lang/SafariAnalyticsManager.h"
 #include "../StartMenuScene.h"
+#include "../menu/HelpLayer.h"
 
 class MainGame : public cocos2d::Layer
 {
@@ -47,7 +48,7 @@ public:
 	static std::vector<LabelClass*> meteorArray;
 
 	static MainGame *self;
-
+	HelpLayer *_help;
 	static Node *meteor_meteor_strike_node;
 	static cocostudio::timeline::ActionTimeline *meteor_meteor_strike_timeline;
 
@@ -71,6 +72,8 @@ public:
 	void removeFire(EventListenerClass *, Alphabet *, Node *);
 	virtual bool init();
 	void update(float dt);
+
+	static int _helpFlag;
 
 	// implement the "static create()" method manually
 	CREATE_FUNC(MainGame);

@@ -30,7 +30,7 @@ float MainGame::width;
 float MainGame::originX;
 float MainGame::originY;
 MainGame* MainGame::self;
-
+int MainGame::_helpFlag;
 int letterComespeed;
 int tweenSpeed;
 
@@ -41,7 +41,6 @@ MainGame:: MainGame() {
 MainGame:: ~MainGame() {
 	MainGame::audioBg->stopAllEffects();
 }
-
 
 Scene* MainGame::createScene()
 {
@@ -68,7 +67,7 @@ bool MainGame::init()
 void MainGame::onEnterTransitionDidFinish()
 {
 	MainGame::audioBg = CocosDenshion::SimpleAudioEngine::getInstance();
-
+	MainGame::_helpFlag = 0;
 	MainGame::cannonLetter.clear();
 	MainGame::cannonLetter_actualImage.clear();
 
@@ -321,7 +320,7 @@ void MainGame::letterCome(float d)
 	}
 	else
 	{
-		Director::getInstance()->pause();
+//		Director::getInstance()->pause();
 	}
 }
 

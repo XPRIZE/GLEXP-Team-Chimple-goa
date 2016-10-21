@@ -33,7 +33,6 @@ bool Stack::init()
 
 void Stack::onEnterTransitionDidFinish()
 {
-	_menuContext->setMaxPoints(20);
 	flag = true;
 	_helpFlag = 0;
 	visibleSize = Director::getInstance()->getWinSize();
