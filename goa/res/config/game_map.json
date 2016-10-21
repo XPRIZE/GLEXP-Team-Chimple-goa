@@ -407,13 +407,13 @@
     "isJSGame": false,
     "script": "src/NonJSGameLauncher.js",
     "span": "5",
-    "numLevels": "24",
-    "backgroundJson": "cityscreen/background.json",
-    "foregroundJson": "cityscreen/foreground.json",
-    "frontgroundJson": "cityscreen/frontground.json",
-    "maingroundJson": "cityscreen/mainground.json",
-    "menuPlist": "cityscreen/cityscreen.plist",
-    "menuPng": "cityscreen/cityscreen.png"
+    "numLevels": "40",
+    "backgroundJson": "wembleylevel/layer1.json",
+    "foregroundJson": "wembleylevel/level3.json",
+    "frontgroundJson": "wembleylevel/level4.json",
+    "maingroundJson": "wembleylevel/level2.json",
+    "menuPlist": "wembleylevel/wembleylevel.plist",
+     "menuPng": "wembleylevel/wembleylevel.png"
   },
   {
     "name": "memory",
@@ -424,12 +424,12 @@
     "script": "src/NonJSGameLauncher.js",
     "span": "6",
     "numLevels": "36",
-    "backgroundJson": "cityscreen/background.json",
-    "foregroundJson": "cityscreen/foreground.json",
-    "frontgroundJson": "cityscreen/frontground.json",
-    "maingroundJson": "cityscreen/mainground.json",
-    "menuPlist": "cityscreen/cityscreen.plist",
-    "menuPng": "cityscreen/cityscreen.png"
+    "backgroundJson": "memorylevel/layer1.json",
+    "foregroundJson": "memorylevel/layer3.json",
+    "frontgroundJson": "memorylevel/layer4.json",
+    "maingroundJson": "memorylevel/layer2.json",
+    "menuPlist": "memorylevel/memorylevel.plist",
+    "menuPng": "memorylevel/memorylevel.png"
   },
    {
     "name": "balloon",

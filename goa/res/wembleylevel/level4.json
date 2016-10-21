@@ -1,0 +1,213 @@
+{
+  "ID": "69b12b79-411a-4e69-a1d8-3ca67cae5ba6",
+  "Version": "3.10.0.0",
+  "Name": "level4",
+  "Content": {
+    "Content": {
+      "Animation": {
+        "Duration": 0,
+        "Speed": 1.0,
+        "Timelines": [],
+        "ctype": "TimelineActionData"
+      },
+      "AnimationList": [],
+      "ObjectData": {
+        "Tag": 113,
+        "Children": [
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "wembleylevel/Stadium_1-05.png",
+              "Plist": "wembleylevel/wembleylevel.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 677.2238,
+              "Y": 457.558
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.2645,
+              "Y": 0.2542
+            },
+            "PreSize": {
+              "X": 0.2641,
+              "Y": 0.2617
+            },
+            "LeftMargin": 339.2238,
+            "RightMargin": 1544.7762,
+            "TopMargin": 1106.942,
+            "BottomMargin": 222.058,
+            "Tag": 114,
+            "ActionTag": -2056366102,
+            "Size": {
+              "X": 676.0,
+              "Y": 471.0
+            },
+            "Name": "Sprite_1",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "wembleylevel/Stadium_1-05.png",
+              "Plist": "wembleylevel/wembleylevel.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 5687.1797,
+              "Y": 457.558
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 2.2216,
+              "Y": 0.2542
+            },
+            "PreSize": {
+              "X": 0.2641,
+              "Y": 0.2617
+            },
+            "LeftMargin": 5349.1797,
+            "RightMargin": -3465.1797,
+            "TopMargin": 1106.942,
+            "BottomMargin": 222.058,
+            "Tag": 115,
+            "ActionTag": 145718071,
+            "Size": {
+              "X": 676.0,
+              "Y": 471.0
+            },
+            "Name": "Sprite_1_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "wembleylevel/ball.png",
+              "Plist": "wembleylevel/wembleylevel.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1533.1653,
+              "Y": 217.3334
+            },
+            "Scale": {
+              "ScaleX": 0.4483,
+              "ScaleY": 0.4483
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.5989,
+              "Y": 0.1207
+            },
+            "PreSize": {
+              "X": 0.118,
+              "Y": 0.1678
+            },
+            "LeftMargin": 1382.1653,
+            "RightMargin": 875.8347,
+            "TopMargin": 1431.6666,
+            "BottomMargin": 66.3334,
+            "Tag": 116,
+            "ActionTag": 2005562231,
+            "Size": {
+              "X": 302.0,
+              "Y": 302.0
+            },
+            "Name": "ball_3",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "wembleylevel/ball.png",
+              "Plist": "wembleylevel/wembleylevel.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 3654.7349,
+              "Y": 200.6319
+            },
+            "Scale": {
+              "ScaleX": 0.4483,
+              "ScaleY": 0.4483
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 1.4276,
+              "Y": 0.1115
+            },
+            "PreSize": {
+              "X": 0.118,
+              "Y": 0.1678
+            },
+            "LeftMargin": 3503.7349,
+            "RightMargin": -1245.7349,
+            "TopMargin": 1448.368,
+            "BottomMargin": 49.6319,
+            "Tag": 119,
+            "ActionTag": -1635458884,
+            "Size": {
+              "X": 302.0,
+              "Y": 302.0
+            },
+            "Name": "ball_3_0",
+            "ctype": "SpriteObjectData"
+          }
+        ],
+        "Size": {
+          "X": 2560.0,
+          "Y": 1800.0
+        },
+        "Name": "Layer",
+        "ctype": "LayerObjectData"
+      },
+      "UsedResources": [
+        "wembleylevel.plist",
+        "wembleylevel.png"
+      ],
+      "ctype": "GameFileData"
+    }
+  },
+  "Type": "Layer"
+}
