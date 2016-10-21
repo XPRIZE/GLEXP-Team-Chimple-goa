@@ -489,7 +489,7 @@ void MemoryHero::chickenFly() {
 	_chickenTimeline[_currentClickedPair[1]]->play("doorfall", false);
 	_wallTimeline[_currentClickedPair[0]]->play("fall", false);
 	_wallTimeline[_currentClickedPair[1]]->play("fall", false);
-	
+	_menuContext->addPoints(1);
 
 	/*
 	auto moveTonest1 = MoveTo::create(4, Vec2(-3100, 1800));
