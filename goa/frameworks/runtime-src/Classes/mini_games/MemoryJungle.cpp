@@ -71,53 +71,130 @@ MemoryJungle *MemoryJungle::create() {
 
 }
 
+
 bool MemoryJungle::init() {
 
-    _finalGridIds.resize(0);
-	if (!Layer::init()) {
+	if (!Layer::init())
+	{
 		return false;
 	}
 
+	return true;
+
+}
+
+void MemoryJungle::onEnterTransitionDidFinish() {
+
+    _finalGridIds.resize(0);
+
     
-    if (/*_menuContext->getCurrentLevel() <= 6 && _menuContext->getCurrentLevel() >=1*/1) { _gridTwoByTwoIds.resize(_gridTwoByTwoIds_Size); 
+    if (_menuContext->getCurrentLevel() <= 6 && _menuContext->getCurrentLevel() >=1) { _gridTwoByTwoIds.resize(_gridTwoByTwoIds_Size); 
 	_gridTwoByTwoIds = { 9, 10, 15, 16 };
 	_pairCount = 2;
+
+	_finalGridIds = _gridTwoByTwoIds;
+	_menuContext->setMaxPoints(_pairCount);
+
+	if (_menuContext->getCurrentLevel() >= 1 && _menuContext->getCurrentLevel() <= 2)
+		_data = TextGenerator::getInstance()->getAntonyms(_pairCount);
+
+	if (_menuContext->getCurrentLevel() >= 3 && _menuContext->getCurrentLevel() <= 4)
+		_data = TextGenerator::getInstance()->getSynonyms(_pairCount);
+
+	if (_menuContext->getCurrentLevel() >= 5 && _menuContext->getCurrentLevel() <= 6)
+		_data = TextGenerator::getInstance()->getHomonyms(_pairCount);
 	
 	}
 	
-	if (/*_menuContext->getCurrentLevel() <= 12 && _menuContext->getCurrentLevel() > 6*/1) { _gridTwoByThreeIds.resize(_gridTwoByThreeIds_Size); 
+	if (_menuContext->getCurrentLevel() <= 12 && _menuContext->getCurrentLevel() > 6) { _gridTwoByThreeIds.resize(_gridTwoByThreeIds_Size); 
 	_gridTwoByThreeIds = {8, 9, 10, 14, 15, 16};
 	_pairCount = 3;
+
+	_finalGridIds = _gridTwoByThreeIds;
+	_menuContext->setMaxPoints(_pairCount);
+
+	if (_menuContext->getCurrentLevel() >= 1 && _menuContext->getCurrentLevel() <= 2)
+		_data = TextGenerator::getInstance()->getAntonyms(_pairCount);
+
+	if (_menuContext->getCurrentLevel() >= 3 && _menuContext->getCurrentLevel() <= 4)
+		_data = TextGenerator::getInstance()->getSynonyms(_pairCount);
+
+	if (_menuContext->getCurrentLevel() >= 5 && _menuContext->getCurrentLevel() <= 6)
+		_data = TextGenerator::getInstance()->getHomonyms(_pairCount);
 	}
 	
-	if (/*_menuContext->getCurrentLevel() <= 18 && _menuContext->getCurrentLevel() > 12*/1) { _gridThreeByFourIds.resize(_gridThreeByFourIds_Size); 
+	if (_menuContext->getCurrentLevel() <= 18 && _menuContext->getCurrentLevel() > 12) { _gridThreeByFourIds.resize(_gridThreeByFourIds_Size); 
 	_gridThreeByFourIds = {8, 9, 10, 11, 14, 15, 16, 17, 20, 21, 22, 23};
 		_pairCount = 6;
+
+		_finalGridIds = _gridThreeByFourIds;
+		_menuContext->setMaxPoints(_pairCount);
+
+		if (_menuContext->getCurrentLevel() >= 1 && _menuContext->getCurrentLevel() <= 2)
+			_data = TextGenerator::getInstance()->getAntonyms(_pairCount);
+
+		if (_menuContext->getCurrentLevel() >= 3 && _menuContext->getCurrentLevel() <= 4)
+			_data = TextGenerator::getInstance()->getSynonyms(_pairCount);
+
+		if (_menuContext->getCurrentLevel() >= 5 && _menuContext->getCurrentLevel() <= 6)
+			_data = TextGenerator::getInstance()->getHomonyms(_pairCount);
 	}
 	
-	if (/*_menuContext->getCurrentLevel() <= 24 && _menuContext->getCurrentLevel() > 18*/1) { _gridThreeBySixIds.resize(_gridThreeBySixIds_Size); 
+	if (_menuContext->getCurrentLevel() <= 24 && _menuContext->getCurrentLevel() > 18) { _gridThreeBySixIds.resize(_gridThreeBySixIds_Size); 
 	_gridThreeBySixIds = {7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24};
 	_pairCount = 9;
+
+	_finalGridIds = _gridThreeBySixIds;
+	_menuContext->setMaxPoints(_pairCount);
+
+	if (_menuContext->getCurrentLevel() >= 1 && _menuContext->getCurrentLevel() <= 2)
+		_data = TextGenerator::getInstance()->getAntonyms(_pairCount);
+
+	if (_menuContext->getCurrentLevel() >= 3 && _menuContext->getCurrentLevel() <= 4)
+		_data = TextGenerator::getInstance()->getSynonyms(_pairCount);
+
+	if (_menuContext->getCurrentLevel() >= 5 && _menuContext->getCurrentLevel() <= 6)
+		_data = TextGenerator::getInstance()->getHomonyms(_pairCount);
 	}
 	
-	if (/*_menuContext->getCurrentLevel() <= 30 && _menuContext->getCurrentLevel() > 24*/1) { _gridFourByFiveIds.resize(_gridFourByFiveIds_Size); 
+	if (_menuContext->getCurrentLevel() <= 30 && _menuContext->getCurrentLevel() > 24) { _gridFourByFiveIds.resize(_gridFourByFiveIds_Size); 
 	_gridFourByFiveIds = {1, 2, 3, 4, 5, 7, 8, 9, 10, 11, 13, 14, 15, 16, 17, 19, 20, 21, 22, 23};
 	_pairCount = 10;
+
+	_finalGridIds = _gridFourByFiveIds;
+	_menuContext->setMaxPoints(_pairCount);
+
+	if (_menuContext->getCurrentLevel() >= 1 && _menuContext->getCurrentLevel() <= 2)
+		_data = TextGenerator::getInstance()->getAntonyms(_pairCount);
+
+	if (_menuContext->getCurrentLevel() >= 3 && _menuContext->getCurrentLevel() <= 4)
+		_data = TextGenerator::getInstance()->getSynonyms(_pairCount);
+
+	if (_menuContext->getCurrentLevel() >= 5 && _menuContext->getCurrentLevel() <= 6)
+		_data = TextGenerator::getInstance()->getHomonyms(_pairCount);
 	}
 	
-	if (/*_menuContext->getCurrentLevel() <= 36 && _menuContext->getCurrentLevel() > 30*/1) { _gridFourBySixIds.resize(_gridFourBySixIds_Size); 
+	if (_menuContext->getCurrentLevel() <= 36 && _menuContext->getCurrentLevel() > 30) { _gridFourBySixIds.resize(_gridFourBySixIds_Size); 
 	_gridFourBySixIds = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12,  13, 14, 15, 16,  17, 18, 19, 20, 21, 22, 23, 24 };
 	_pairCount = 12;
+
+	_finalGridIds = _gridFourBySixIds;
+	_menuContext->setMaxPoints(_pairCount);
+
+	if (_menuContext->getCurrentLevel() >= 1 && _menuContext->getCurrentLevel() <= 2)
+		_data = TextGenerator::getInstance()->getAntonyms(_pairCount);
+
+	if (_menuContext->getCurrentLevel() >= 3 && _menuContext->getCurrentLevel() <= 4)
+		_data = TextGenerator::getInstance()->getSynonyms(_pairCount);
+
+	if (_menuContext->getCurrentLevel() >= 5 && _menuContext->getCurrentLevel() <= 6)
+		_data = TextGenerator::getInstance()->getHomonyms(_pairCount);
 	}
 	
     
 	CCSpriteFrameCache::sharedSpriteFrameCache()->addSpriteFramesWithFile("jungle/junglea/junglea.plist");
 	CCSpriteFrameCache::sharedSpriteFrameCache()->addSpriteFramesWithFile("jungle/jungleb/jungleb.plist");
 	CCSpriteFrameCache::sharedSpriteFrameCache()->addSpriteFramesWithFile("jungle/junglec/junglec.plist");
-
-
-    _pairCount = 3;
-	_data = TextGenerator::getInstance()->getAntonyms(_pairCount);
 
 
 	for (std::map<std::string, std::string>::iterator it = _data.begin(); it != _data.end(); ++it) {
@@ -141,7 +218,6 @@ bool MemoryJungle::init() {
 	addChild(_memoryfarm);
 
     
-    _finalGridIds = _gridTwoByThreeIds;
 	generateGrid(_finalGridIds);
 	
     
@@ -216,9 +292,7 @@ bool MemoryJungle::init() {
 	}
 
 
-	//_nests.resize(24);
-
-	return true;
+	
 }
 
 
@@ -520,6 +594,9 @@ void MemoryJungle::chickenFly() {
 	//chicken2->setFlipX(true);
 
 	chicken2->runAction(moveTonest2);
+
+
+	_menuContext->addPoints(1);
 
 }
 
