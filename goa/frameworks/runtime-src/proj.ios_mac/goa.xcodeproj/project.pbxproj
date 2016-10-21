@@ -56,6 +56,8 @@
 		509D4AE717EBB81800697056 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 509D4AE617EBB81800697056 /* OpenGL.framework */; };
 		509D4AE917EBB82000697056 /* AppKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 509D4AE817EBB82000697056 /* AppKit.framework */; };
 		509D4AEB17EBB82600697056 /* IOKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 509D4AEA17EBB82600697056 /* IOKit.framework */; };
+		9C064E5C1DB8905C000892E1 /* DecomonGallery.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9C064E5A1DB8905C000892E1 /* DecomonGallery.cpp */; };
+		9C064E5F1DB8909B000892E1 /* DecomonGallery.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9C064E5A1DB8905C000892E1 /* DecomonGallery.cpp */; };
 		9C7B1AC71DAA1BCE00EBD1FE /* Order.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9C7B1AC51DAA1BCE00EBD1FE /* Order.cpp */; };
 		9C7B1ACA1DAA1BD200EBD1FE /* Order.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9C7B1AC51DAA1BCE00EBD1FE /* Order.cpp */; };
 		9FA3AE461BE9BBCA00FC9645 /* GameController.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9FA3AE451BE9BBCA00FC9645 /* GameController.framework */; };
@@ -494,6 +496,8 @@
 		509D4AE617EBB81800697056 /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
 		509D4AE817EBB82000697056 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
 		509D4AEA17EBB82600697056 /* IOKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IOKit.framework; path = System/Library/Frameworks/IOKit.framework; sourceTree = SDKROOT; };
+		9C064E5A1DB8905C000892E1 /* DecomonGallery.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = DecomonGallery.cpp; sourceTree = "<group>"; };
+		9C064E5B1DB8905C000892E1 /* DecomonGallery.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DecomonGallery.h; sourceTree = "<group>"; };
 		9C7B1AC51DAA1BCE00EBD1FE /* Order.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Order.cpp; sourceTree = "<group>"; };
 		9C7B1AC61DAA1BCE00EBD1FE /* Order.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Order.h; sourceTree = "<group>"; };
 		9FA3AE451BE9BBCA00FC9645 /* GameController.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameController.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.0.sdk/System/Library/Frameworks/GameController.framework; sourceTree = DEVELOPER_DIR; };
@@ -1159,6 +1163,8 @@
 		F352471A1D6D9D1A0077C333 /* mini_games */ = {
 			isa = PBXGroup;
 			children = (
+				9C064E5A1DB8905C000892E1 /* DecomonGallery.cpp */,
+				9C064E5B1DB8905C000892E1 /* DecomonGallery.h */,
 				F303CC9F1DB20D9000DB6D81 /* Pillar.cpp */,
 				F303CCA01DB20D9000DB6D81 /* Pillar.h */,
 				9C7B1AC51DAA1BCE00EBD1FE /* Order.cpp */,
@@ -1728,6 +1734,7 @@
 				F352484D1D6D9D1A0077C333 /* SkeletonPosition.cpp in Sources */,
 				F3667D311DB4BA6F00EC8908 /* LipiTKProcessTask.cpp in Sources */,
 				F3667D631DB4BA7000EC8908 /* LTKImageWriter.cpp in Sources */,
+				9C064E5F1DB8909B000892E1 /* DecomonGallery.cpp in Sources */,
 				F3667D231DB4BA6F00EC8908 /* LTKTraceFormat.cpp in Sources */,
 				F3667D711DB4BA7000EC8908 /* LTKStrEncoding.cpp in Sources */,
 				F3F7ED7F1D9F891000727A7C /* MemoryJungle.cpp in Sources */,
@@ -1937,6 +1944,7 @@
 				509D4AC817EBB2AB00697056 /* main.m in Sources */,
 				F35247EE1D6D9D1A0077C333 /* GameScene.cpp in Sources */,
 				F3667D2E1DB4BA6F00EC8908 /* LipiTKNode.cpp in Sources */,
+				9C064E5C1DB8905C000892E1 /* DecomonGallery.cpp in Sources */,
 				F35247E81D6D9D1A0077C333 /* SpriteCreate.cpp in Sources */,
 				F35248281D6D9D1A0077C333 /* Alphamon.cpp in Sources */,
 				F3F7ED7E1D9F891000727A7C /* MemoryJungle.cpp in Sources */,

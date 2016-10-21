@@ -49,7 +49,7 @@ public:
 	cocos2d::Size visibleSize;
 	std::string sceneName;
 	HelpLayer *_help;
-	int _helpFlag;
+	int _helpFlag, _currentLevel;
 	// implement the "static create()" method manually
 	CREATE_FUNC(Stack);
     
@@ -73,7 +73,7 @@ public:
 	std::vector<Node*> Position;
 
 	bool flag;
-
+	void onEnterTransitionDidFinish() override;
 	void addEvents(struct LabelDetails);
 	void afterAnimation(struct LabelDetails);
 	void wordShow(cocos2d::LabelTTF*);

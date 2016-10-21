@@ -25,14 +25,14 @@ CC_CONSTRUCTOR_ACCESS:
 	bool onTouchBegan(cocos2d::Touch* touch, cocos2d::Event* event);
 	void onTouchEnded(cocos2d::Touch* touch, cocos2d::Event* event);
 	void onTouchMoved(cocos2d::Touch* touch, cocos2d::Event* event);
-	void startGame();
-	void hideAll();
 	void pauseAllActiveListeners();
 	void resumeAllActiveListeners();
 	bool checkMatch();
 	void chickenFly();
 	void removecurrentlabelsandlisteners();
 	void generateRandomNumbers();
+	void generateGrid(std::vector<int> grid);
+	void onEnterTransitionDidFinish() override;
 	static const char* classname() { return WEMBLEY.c_str(); }
 protected:
 	std::vector<int> _currentClickedPair;
@@ -50,58 +50,32 @@ protected:
 	Node * _memoryfarm;
 	int _currentNest;
 
-
-	std::vector<Node *> _nests;
 	cocos2d::Sprite * nest;
+	int _sceneNumber;
+	std::vector<int> _gridTwoByTwoIds;
+	std::vector<int> _gridTwoByThreeIds;
+	std::vector<int> _gridThreeByFourIds;
+	std::vector<int> _gridThreeBySixIds;
+	std::vector<int> _gridFourByFiveIds;
+	std::vector<int> _gridFourBySixIds;
+	std::vector<int> _finalGridIds;
+
+    int _gridTwoByTwoIds_Size = 4;
+	int _gridTwoByThreeIds_Size = 6;
+	int _gridThreeByFourIds_Size = 12;
+	int _gridThreeBySixIds_Size = 18;
+	int _gridFourByFiveIds_Size = 20;
+	int _gridFourBySixIds_Size = 24;
 	
-	bool _touchActive;
+
+	int _pairCount;
+	
 	void setupTouch();
-	int _touches;
-	int _nestIndex;
-
-	struct xy {
-		float x;
-		float y;
-	};
-
-	std::vector<std::vector<xy>> xycoordinates;
-	struct object {
-		
-		cocos2d::Sprite *character;
-		int characterZIndex;
-
-		cocos2d::Sprite *openWindow;
-		int openWindowZIndex;
-
-		cocos2d::Sprite *closedWindow;
-		int closedWindowZIndex;
-
-		cocos2d::Sprite *brokenWindow;
-		int brokenWindowZIndex;
-
-		cocos2d::Sprite *alphabetSprite;
-		int alphabetSpriteZIndex;
-
-		char alphabet;
-
-		float x, y;
-
-		int objectFlag;
-
-
-	};
-	std::vector<std::vector<object>> objects;
-	struct object testSprite;
-	
 
 	MenuContext *_menuContext;
 
 	int _level;
 	
-	
-
-	
-
 };
 
 #endif /* Memory_h */

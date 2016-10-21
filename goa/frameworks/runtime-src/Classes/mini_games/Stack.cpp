@@ -18,7 +18,6 @@ Scene* Stack::createScene()
 	scene->addChild(layer);
     layer->_menuContext = MenuContext::create(layer, Stack::gameName());
     scene->addChild(layer->_menuContext);
-	layer->_menuContext->setMaxPoints(8);
 	return scene;
 }
 
@@ -29,14 +28,45 @@ bool Stack::init()
 		return false;
 	}
 
+	return true;
+}
+
+void Stack::onEnterTransitionDidFinish()
+{
 	flag = true;
 	_helpFlag = 0;
 	visibleSize = Director::getInstance()->getWinSize();
-
+	_menuContext->setMaxPoints(25);
 	std::vector<std::string> scene = { "island", "superhero" , "farm" };
 
-	sceneName = scene.at(rand() % 3);
-//	sceneName = "farm";
+	_currentLevel = _menuContext->getCurrentLevel();
+	if ((_currentLevel >= 1 && _currentLevel <= 8) || (_currentLevel >= 25 && _currentLevel <= 32) || (_currentLevel >= 49 && _currentLevel <= 56))
+	{
+		sceneName = "farm";
+	}
+	else if ((_currentLevel >= 9 && _currentLevel <= 16) || (_currentLevel >= 33 && _currentLevel <= 40) || (_currentLevel >= 57 && _currentLevel <= 64))
+	{
+		sceneName = "island";
+	}
+	else if ((_currentLevel >= 17 && _currentLevel <= 24) || (_currentLevel >= 41 && _currentLevel <= 48) || (_currentLevel >= 65 && _currentLevel <= 72))
+	{
+		sceneName = "superhero";
+	}
+
+//	sceneName = scene.at(rand() % 3);
+
+	if (_currentLevel >= 1 && _currentLevel <= 24)
+	{
+		_textToSHow = TextGenerator::getInstance()->getInitialSyllableWords(5, 4);	//1 starting word
+	}
+	else if (_currentLevel >= 25 && _currentLevel <= 48)
+	{
+		_textToSHow = TextGenerator::getInstance()->getInitialSyllableWords(5, 4);	//2 starting word
+	}
+	else if (_currentLevel >= 49 && _currentLevel <= 72)
+	{
+		_textToSHow = TextGenerator::getInstance()->getInitialSyllableWords(5, 4);	//3 starting word
+	}
 
 	if (sceneName == "island")
 	{
@@ -55,7 +85,7 @@ bool Stack::init()
 			}
 		}
 	}
-	else if(sceneName=="superhero")
+	else if (sceneName == "superhero")
 	{
 		stackbg = (Node *)CSLoader::createNode("stackhero/stackhero.csb");
 	}
@@ -158,11 +188,11 @@ bool Stack::init()
 	for (std::map<std::string, std::map<std::string, std::string>>::iterator it = _textToSHow.begin(); it != _textToSHow.end(); ++it, i++)
 	{
 		std::ostringstream counterForLetter;
-		counterForLetter << "container" << i+1;
+		counterForLetter << "container" << i + 1;
 		std::string counterValue = counterForLetter.str();
 
 		LabelDetails.label = LabelTTF::create(it->first, "Helvetica", 100, CCSizeMake(200, 200));
-		LabelDetails.container = (Sprite*) secondChild->getChildByName(counterForLetter.str());
+		LabelDetails.container = (Sprite*)secondChild->getChildByName(counterForLetter.str());
 		LabelDetails.label->setPosition(0, 0);
 		LabelDetails.label->setColor(Color3B::BLACK);
 		LabelDetails.label->setAnchorPoint(Vec2(.5, .7));
@@ -180,11 +210,9 @@ bool Stack::init()
 		}
 	}
 
-
 	Stack::generateWord();
-	
-	return true;
 }
+
 
 void Stack::generateWord()
 {

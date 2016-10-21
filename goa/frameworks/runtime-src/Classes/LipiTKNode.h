@@ -32,7 +32,7 @@ public:
     virtual bool onTouchBegan(cocos2d::Touch * touch, cocos2d::Event* event);
     virtual void onTouchMoved(cocos2d::Touch * touch, cocos2d::Event * event);
     virtual void touchEnded(cocos2d::Touch* touch, cocos2d::Event* event);
-    virtual cocos2d::Sprite* createDrawingAreaWithColor(cocos2d::Vec2 anchorPoint, cocos2d::Vec2 position, float opacity,const cocos2d::Color3B::Color3B& color);
+    virtual cocos2d::Sprite* createDrawingAreaWithColor(cocos2d::Vec2 anchorPoint, cocos2d::Vec2 position, float opacity,const cocos2d::Color3B color);
     
     virtual cocos2d::Sprite* createDrawingAreaUsingFileName(cocos2d::Vec2 anchorPoint, cocos2d::Vec2 position, float opacity, std::string fileName);
     
