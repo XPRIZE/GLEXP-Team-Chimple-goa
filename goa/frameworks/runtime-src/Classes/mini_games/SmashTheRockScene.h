@@ -55,7 +55,11 @@ public:
 	virtual void begin();
 	virtual void change(float dt);
 	virtual void createSkeletonCharacter();
-	
+	void gameHelp();
+	bool _helpFlage;
+	float helpX, helpY;
+	Alphabet* _label1;
+	std::vector<std::vector<wchar_t>> _charkey;
 	void addMainCharacterToScene(cocostudio::timeline::SkeletonNode* skeleton);
 	// implement the "static create()" method manually
 
