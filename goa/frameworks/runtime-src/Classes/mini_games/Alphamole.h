@@ -20,10 +20,12 @@ public:
 	Alphamole();
 	~Alphamole();
 	wchar_t _mychar;
-	static Alphamole* create(wchar_t letter);
-	static cocos2d::Scene* createScene(wchar_t letter);
-	virtual bool init(wchar_t letter);
+	static Alphamole* create();
+	static cocos2d::Scene* createScene();
+	virtual bool init();
+	static const char* gameName() { return ALPHAMOLE.c_str(); }
 protected:
+	bool _helpLayer = false;
 	float _Xpos;
 	int _score;
 	int _randomBackground;

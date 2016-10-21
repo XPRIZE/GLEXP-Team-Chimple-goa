@@ -84,7 +84,7 @@ bool CatGame::init()
 	tailAnimation();
 	auto followAction = Follow::createWithOffset(_catNode, -(Director::getInstance()->getVisibleSize().width*0.26), 50);
 	_catLayer->runAction(followAction);
-	generateBuildingLayer("stright");
+	//generateBuildingLayer("stright");
 	return true;
 }
 
@@ -92,7 +92,7 @@ bool CatGame::init()
 void CatGame::generateBuildingLayer(std::string str)
 {
 	auto text = TextGenerator::getInstance();
-	_randomWord = text->generateAWord();
+	_randomWord = text->generateAWord(_menuContext->getCurrentLevel());
 	_gapNodes.clear();
 	_wordLength = text->getGraphemes(_randomWord).size();
 	int randNum = RandomHelper::random_int(0, 4);
@@ -276,5 +276,11 @@ void CatGame::buildingAfterGap(std::string str)
 		callAPI(str);
 		_sceneRunFirst = false;
 	}
+}
+
+void CatGame::onEnterTransitionDidFinish()
+{
+	Node::onEnterTransitionDidFinish();
+	generateBuildingLayer("stright");
 }
 

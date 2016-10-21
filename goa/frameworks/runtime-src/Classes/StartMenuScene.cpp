@@ -26,7 +26,7 @@
 #include "mini_games/Wembley.h"
 #include "mini_games/CatGameScene.h"
 #include "scripting/js-bindings/manual/ScriptingCore.h"
-#include "mini_games/AlphamoleLevel.h"
+#include "mini_games/Alphamole.h"
 #include "mini_games/Memory.h"
 #include "mini_games/MemoryHero.h"
 #include "mini_games/MemoryJungle.h"
@@ -182,7 +182,7 @@ void StartMenu::startScene(std::string gameName, std::string firstParam, std::st
 //    } else if (gameName == STORY_TELLING) {
 //        ScriptingCore::getInstance()->runScript("start/storytelling.js");
 //    } else if (gameName == ALPHAMOLE) {
-//		Director::getInstance()->replaceScene(AlphamoleLevel::createScene());
+//		Director::getInstance()->replaceScene(Alphamole::createScene());
 //    } else if (gameName == WORD_BOARD) {
 //        Director::getInstance()->replaceScene(WordBoard::createScene());
 //    } else if (gameName == PEG) {
