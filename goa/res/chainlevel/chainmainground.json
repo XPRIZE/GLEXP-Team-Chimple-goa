@@ -1,0 +1,1300 @@
+{
+  "ID": "a5802fb2-c138-4f8c-a8aa-43d5769bf52a",
+  "Version": "3.10.0.0",
+  "Name": "chainmainground",
+  "Content": {
+    "Content": {
+      "Animation": {
+        "Duration": 0,
+        "Speed": 1.0,
+        "Timelines": [],
+        "ctype": "TimelineActionData"
+      },
+      "AnimationList": [],
+      "ObjectData": {
+        "Tag": 128,
+        "Children": [
+          {
+            "ClipAble": false,
+            "ComboBoxIndex": 1,
+            "SingleColor": {
+              "R": 25,
+              "G": 50,
+              "B": 0
+            },
+            "FirstColor": {
+              "R": 150,
+              "G": 200
+            },
+            "EndColor": {},
+            "ColorVector": {
+              "ScaleY": 1.0
+            },
+            "TouchEnable": true,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "PreSize": {
+              "X": 2.6367,
+              "Y": 0.1111
+            },
+            "RightMargin": -4190.0,
+            "TopMargin": 1600.0,
+            "Tag": 137,
+            "ActionTag": 1365357023,
+            "Size": {
+              "X": 6750.0,
+              "Y": 200.0
+            },
+            "Name": "Panel_1",
+            "ctype": "PanelObjectData"
+          },
+          {
+            "ClipAble": false,
+            "ComboBoxIndex": 1,
+            "SingleColor": {
+              "R": 52,
+              "G": 78,
+              "B": 1
+            },
+            "FirstColor": {
+              "R": 150,
+              "G": 200
+            },
+            "EndColor": {},
+            "ColorVector": {
+              "ScaleY": 1.0
+            },
+            "Scale9Width": 1,
+            "Scale9Height": 1,
+            "TouchEnable": true,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 0.0,
+              "Y": 200.0
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.0,
+              "Y": 0.1111
+            },
+            "PreSize": {
+              "X": 2.6367,
+              "Y": 0.1111
+            },
+            "RightMargin": -4190.0,
+            "TopMargin": 1400.0,
+            "BottomMargin": 200.0,
+            "Tag": 138,
+            "ActionTag": 558880225,
+            "Size": {
+              "X": 6750.0,
+              "Y": 200.0
+            },
+            "Name": "Panel_1_0",
+            "ctype": "PanelObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "chainlevel/hill.png",
+              "Plist": "chainlevel/chainlevel.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 268.8237,
+              "Y": 525.1392
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.105,
+              "Y": 0.2917
+            },
+            "PreSize": {
+              "X": 0.2105,
+              "Y": 0.1572
+            },
+            "LeftMargin": -0.6763,
+            "RightMargin": 2021.6763,
+            "TopMargin": 1133.3608,
+            "BottomMargin": 383.6392,
+            "Tag": 139,
+            "ActionTag": 1316036372,
+            "Size": {
+              "X": 539.0,
+              "Y": 283.0
+            },
+            "Name": "hill_1",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "chainlevel/hill.png",
+              "Plist": "chainlevel/chainlevel.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 806.155,
+              "Y": 526.6172
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.3149,
+              "Y": 0.2926
+            },
+            "PreSize": {
+              "X": 0.2105,
+              "Y": 0.1572
+            },
+            "LeftMargin": 536.655,
+            "RightMargin": 1484.345,
+            "TopMargin": 1131.8828,
+            "BottomMargin": 385.1172,
+            "Tag": 140,
+            "ActionTag": -590194655,
+            "Size": {
+              "X": 539.0,
+              "Y": 283.0
+            },
+            "Name": "hill_1_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "chainlevel/hill.png",
+              "Plist": "chainlevel/chainlevel.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1326.0592,
+              "Y": 529.4282
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.518,
+              "Y": 0.2941
+            },
+            "PreSize": {
+              "X": 0.2105,
+              "Y": 0.1572
+            },
+            "LeftMargin": 1056.5592,
+            "RightMargin": 964.4408,
+            "TopMargin": 1129.0718,
+            "BottomMargin": 387.9282,
+            "Tag": 141,
+            "ActionTag": 1885227201,
+            "Size": {
+              "X": 539.0,
+              "Y": 283.0
+            },
+            "Name": "hill_1_1",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "chainlevel/hill.png",
+              "Plist": "chainlevel/chainlevel.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1863.3923,
+              "Y": 530.9062
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.7279,
+              "Y": 0.2949
+            },
+            "PreSize": {
+              "X": 0.2105,
+              "Y": 0.1572
+            },
+            "LeftMargin": 1593.8923,
+            "RightMargin": 427.1077,
+            "TopMargin": 1127.5938,
+            "BottomMargin": 389.4062,
+            "Tag": 142,
+            "ActionTag": -687512754,
+            "Size": {
+              "X": 539.0,
+              "Y": 283.0
+            },
+            "Name": "hill_1_0_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "chainlevel/hill.png",
+              "Plist": "chainlevel/chainlevel.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 2394.5164,
+              "Y": 521.0916
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.9354,
+              "Y": 0.2895
+            },
+            "PreSize": {
+              "X": 0.2105,
+              "Y": 0.1572
+            },
+            "LeftMargin": 2125.0164,
+            "RightMargin": -104.0164,
+            "TopMargin": 1137.4084,
+            "BottomMargin": 379.5916,
+            "Tag": 143,
+            "ActionTag": 1418438717,
+            "Size": {
+              "X": 539.0,
+              "Y": 283.0
+            },
+            "Name": "hill_1_2",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "chainlevel/hill.png",
+              "Plist": "chainlevel/chainlevel.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 2931.844,
+              "Y": 539.5687
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 1.1453,
+              "Y": 0.2998
+            },
+            "PreSize": {
+              "X": 0.2105,
+              "Y": 0.1572
+            },
+            "LeftMargin": 2662.344,
+            "RightMargin": -641.344,
+            "TopMargin": 1118.9313,
+            "BottomMargin": 398.0687,
+            "Tag": 144,
+            "ActionTag": -1112696103,
+            "Size": {
+              "X": 539.0,
+              "Y": 283.0
+            },
+            "Name": "hill_1_0_1",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "chainlevel/hill.png",
+              "Plist": "chainlevel/chainlevel.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 3451.7429,
+              "Y": 542.3794
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 1.3483,
+              "Y": 0.3013
+            },
+            "PreSize": {
+              "X": 0.2105,
+              "Y": 0.1572
+            },
+            "LeftMargin": 3182.2429,
+            "RightMargin": -1161.2429,
+            "TopMargin": 1116.1206,
+            "BottomMargin": 400.8794,
+            "Tag": 145,
+            "ActionTag": 1044715128,
+            "Size": {
+              "X": 539.0,
+              "Y": 283.0
+            },
+            "Name": "hill_1_1_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "chainlevel/hill.png",
+              "Plist": "chainlevel/chainlevel.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 3989.082,
+              "Y": 543.8571
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 1.5582,
+              "Y": 0.3021
+            },
+            "PreSize": {
+              "X": 0.2105,
+              "Y": 0.1572
+            },
+            "LeftMargin": 3719.582,
+            "RightMargin": -1698.582,
+            "TopMargin": 1114.6429,
+            "BottomMargin": 402.3571,
+            "Tag": 146,
+            "ActionTag": 695463890,
+            "Size": {
+              "X": 539.0,
+              "Y": 283.0
+            },
+            "Name": "hill_1_0_0_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "chainlevel/hill.png",
+              "Plist": "chainlevel/chainlevel.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 4488.8184,
+              "Y": 515.1345
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 1.7534,
+              "Y": 0.2862
+            },
+            "PreSize": {
+              "X": 0.2105,
+              "Y": 0.1572
+            },
+            "LeftMargin": 4219.3184,
+            "RightMargin": -2198.3184,
+            "TopMargin": 1143.3655,
+            "BottomMargin": 373.6345,
+            "Tag": 147,
+            "ActionTag": -1233269305,
+            "Size": {
+              "X": 539.0,
+              "Y": 283.0
+            },
+            "Name": "hill_1_3",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "chainlevel/hill.png",
+              "Plist": "chainlevel/chainlevel.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 5026.1387,
+              "Y": 516.6121
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 1.9633,
+              "Y": 0.287
+            },
+            "PreSize": {
+              "X": 0.2105,
+              "Y": 0.1572
+            },
+            "LeftMargin": 4756.6387,
+            "RightMargin": -2735.6387,
+            "TopMargin": 1141.8879,
+            "BottomMargin": 375.1121,
+            "Tag": 148,
+            "ActionTag": 1553199845,
+            "Size": {
+              "X": 539.0,
+              "Y": 283.0
+            },
+            "Name": "hill_1_0_2",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "chainlevel/hill.png",
+              "Plist": "chainlevel/chainlevel.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 5533.0459,
+              "Y": 519.4233
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 2.1613,
+              "Y": 0.2886
+            },
+            "PreSize": {
+              "X": 0.2105,
+              "Y": 0.1572
+            },
+            "LeftMargin": 5263.5459,
+            "RightMargin": -3242.5459,
+            "TopMargin": 1139.0767,
+            "BottomMargin": 377.9233,
+            "Tag": 149,
+            "ActionTag": -73180564,
+            "Size": {
+              "X": 539.0,
+              "Y": 283.0
+            },
+            "Name": "hill_1_1_1",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "chainlevel/hill.png",
+              "Plist": "chainlevel/chainlevel.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 6049.3906,
+              "Y": 520.9041
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 2.363,
+              "Y": 0.2894
+            },
+            "PreSize": {
+              "X": 0.2105,
+              "Y": 0.1572
+            },
+            "LeftMargin": 5779.8906,
+            "RightMargin": -3758.8906,
+            "TopMargin": 1137.5959,
+            "BottomMargin": 379.4041,
+            "Tag": 150,
+            "ActionTag": -1574480312,
+            "Size": {
+              "X": 539.0,
+              "Y": 283.0
+            },
+            "Name": "hill_1_0_0_1",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "chainlevel/hill.png",
+              "Plist": "chainlevel/chainlevel.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 6479.5498,
+              "Y": 528.0856
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 2.5311,
+              "Y": 0.2934
+            },
+            "PreSize": {
+              "X": 0.2105,
+              "Y": 0.1572
+            },
+            "LeftMargin": 6210.0498,
+            "RightMargin": -4189.0498,
+            "TopMargin": 1130.4144,
+            "BottomMargin": 386.5856,
+            "Tag": 151,
+            "ActionTag": 485911528,
+            "Size": {
+              "X": 539.0,
+              "Y": 283.0
+            },
+            "Name": "hill_1_2_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "chainlevel/tree2.png",
+              "Plist": "chainlevel/chainlevel.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 443.6527,
+              "Y": 1045.8452
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.1733,
+              "Y": 0.581
+            },
+            "PreSize": {
+              "X": 0.1348,
+              "Y": 0.8828
+            },
+            "LeftMargin": 271.1527,
+            "RightMargin": 1943.8473,
+            "TopMargin": -40.3452,
+            "BottomMargin": 251.3452,
+            "Tag": 155,
+            "ActionTag": 1347050314,
+            "Size": {
+              "X": 345.0,
+              "Y": 1589.0
+            },
+            "Name": "tree2_17",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "chainlevel/tree2.png",
+              "Plist": "chainlevel/chainlevel.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 838.8685,
+              "Y": 1008.8071
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.3277,
+              "Y": 0.5604
+            },
+            "PreSize": {
+              "X": 0.1348,
+              "Y": 0.8828
+            },
+            "LeftMargin": 666.3685,
+            "RightMargin": 1548.6315,
+            "TopMargin": -3.3071,
+            "BottomMargin": 214.3071,
+            "Tag": 156,
+            "ActionTag": 782974805,
+            "Size": {
+              "X": 345.0,
+              "Y": 1589.0
+            },
+            "Name": "tree2_17_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "chainlevel/tree2.png",
+              "Plist": "chainlevel/chainlevel.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1741.067,
+              "Y": 1024.8213
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.6801,
+              "Y": 0.5693
+            },
+            "PreSize": {
+              "X": 0.1348,
+              "Y": 0.8828
+            },
+            "LeftMargin": 1568.567,
+            "RightMargin": 646.433,
+            "TopMargin": -19.3213,
+            "BottomMargin": 230.3213,
+            "Tag": 157,
+            "ActionTag": 588985363,
+            "Size": {
+              "X": 345.0,
+              "Y": 1589.0
+            },
+            "Name": "tree2_17_1",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "chainlevel/tree2.png",
+              "Plist": "chainlevel/chainlevel.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 2367.9624,
+              "Y": 1052.5035
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.925,
+              "Y": 0.5847
+            },
+            "PreSize": {
+              "X": 0.1348,
+              "Y": 0.8828
+            },
+            "LeftMargin": 2195.4624,
+            "RightMargin": 19.5376,
+            "TopMargin": -47.0035,
+            "BottomMargin": 258.0035,
+            "Tag": 158,
+            "ActionTag": 1915222721,
+            "Size": {
+              "X": 345.0,
+              "Y": 1589.0
+            },
+            "Name": "tree2_17_2",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "chainlevel/tree2.png",
+              "Plist": "chainlevel/chainlevel.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 2833.6152,
+              "Y": 1017.7454
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 1.1069,
+              "Y": 0.5654
+            },
+            "PreSize": {
+              "X": 0.1348,
+              "Y": 0.8828
+            },
+            "LeftMargin": 2661.1152,
+            "RightMargin": -446.1152,
+            "TopMargin": -12.2454,
+            "BottomMargin": 223.2454,
+            "Tag": 159,
+            "ActionTag": 1073547232,
+            "Size": {
+              "X": 345.0,
+              "Y": 1589.0
+            },
+            "Name": "tree2_17_3",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "chainlevel/tree2.png",
+              "Plist": "chainlevel/chainlevel.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 3228.8289,
+              "Y": 980.7206
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 1.2613,
+              "Y": 0.5448
+            },
+            "PreSize": {
+              "X": 0.1348,
+              "Y": 0.8828
+            },
+            "LeftMargin": 3056.3289,
+            "RightMargin": -841.3289,
+            "TopMargin": 24.7794,
+            "BottomMargin": 186.2206,
+            "Tag": 160,
+            "ActionTag": -1255711029,
+            "Size": {
+              "X": 345.0,
+              "Y": 1589.0
+            },
+            "Name": "tree2_17_0_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "chainlevel/tree2.png",
+              "Plist": "chainlevel/chainlevel.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 4131.0073,
+              "Y": 996.7338
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 1.6137,
+              "Y": 0.5537
+            },
+            "PreSize": {
+              "X": 0.1348,
+              "Y": 0.8828
+            },
+            "LeftMargin": 3958.5073,
+            "RightMargin": -1743.5073,
+            "TopMargin": 8.7662,
+            "BottomMargin": 202.2338,
+            "Tag": 161,
+            "ActionTag": -2117638664,
+            "Size": {
+              "X": 345.0,
+              "Y": 1589.0
+            },
+            "Name": "tree2_17_1_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "chainlevel/tree2.png",
+              "Plist": "chainlevel/chainlevel.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 4757.9053,
+              "Y": 1024.4032
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 1.8586,
+              "Y": 0.5691
+            },
+            "PreSize": {
+              "X": 0.1348,
+              "Y": 0.8828
+            },
+            "LeftMargin": 4585.4053,
+            "RightMargin": -2370.4053,
+            "TopMargin": -18.9032,
+            "BottomMargin": 229.9032,
+            "Tag": 162,
+            "ActionTag": -813564965,
+            "Size": {
+              "X": 345.0,
+              "Y": 1589.0
+            },
+            "Name": "tree2_17_2_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "chainlevel/tree2.png",
+              "Plist": "chainlevel/chainlevel.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 5403.5801,
+              "Y": 1017.7449
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 2.1108,
+              "Y": 0.5654
+            },
+            "PreSize": {
+              "X": 0.1348,
+              "Y": 0.8828
+            },
+            "LeftMargin": 5231.0801,
+            "RightMargin": -3016.0801,
+            "TopMargin": -12.2449,
+            "BottomMargin": 223.2449,
+            "Tag": 163,
+            "ActionTag": 459856575,
+            "Size": {
+              "X": 345.0,
+              "Y": 1589.0
+            },
+            "Name": "tree2_17_4",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "chainlevel/tree2.png",
+              "Plist": "chainlevel/chainlevel.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 5798.792,
+              "Y": 980.7065
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 2.2652,
+              "Y": 0.5448
+            },
+            "PreSize": {
+              "X": 0.1348,
+              "Y": 0.8828
+            },
+            "LeftMargin": 5626.292,
+            "RightMargin": -3411.292,
+            "TopMargin": 24.7935,
+            "BottomMargin": 186.2065,
+            "Tag": 164,
+            "ActionTag": 1346458020,
+            "Size": {
+              "X": 345.0,
+              "Y": 1589.0
+            },
+            "Name": "tree2_17_0_1",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "chainlevel/water.png",
+              "Plist": "chainlevel/chainlevel.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1040.1449,
+              "Y": 280.1913
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.4063,
+              "Y": 0.1557
+            },
+            "PreSize": {
+              "X": 0.3316,
+              "Y": 0.0706
+            },
+            "LeftMargin": 615.6449,
+            "RightMargin": 1095.3551,
+            "TopMargin": 1456.3086,
+            "BottomMargin": 216.6913,
+            "Tag": 180,
+            "ActionTag": 471680905,
+            "Size": {
+              "X": 849.0,
+              "Y": 127.0
+            },
+            "Name": "water_29",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "chainlevel/water.png",
+              "Plist": "chainlevel/chainlevel.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 3831.6968,
+              "Y": 302.5952
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 1.4968,
+              "Y": 0.1681
+            },
+            "PreSize": {
+              "X": 0.3316,
+              "Y": 0.0706
+            },
+            "LeftMargin": 3407.1968,
+            "RightMargin": -1696.1968,
+            "TopMargin": 1433.9048,
+            "BottomMargin": 239.0952,
+            "Tag": 181,
+            "ActionTag": 407877624,
+            "Size": {
+              "X": 849.0,
+              "Y": 127.0
+            },
+            "Name": "water_29_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "chainlevel/water.png",
+              "Plist": "chainlevel/chainlevel.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 6305.9336,
+              "Y": 309.2634
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 2.4633,
+              "Y": 0.1718
+            },
+            "PreSize": {
+              "X": 0.3316,
+              "Y": 0.0706
+            },
+            "LeftMargin": 5881.4336,
+            "RightMargin": -4170.4336,
+            "TopMargin": 1427.2366,
+            "BottomMargin": 245.7634,
+            "Tag": 182,
+            "ActionTag": -52823428,
+            "Size": {
+              "X": 849.0,
+              "Y": 127.0
+            },
+            "Name": "water_29_1",
+            "ctype": "SpriteObjectData"
+          }
+        ],
+        "Size": {
+          "X": 2560.0,
+          "Y": 1800.0
+        },
+        "Name": "Layer",
+        "ctype": "LayerObjectData"
+      },
+      "UsedResources": [
+        "chainlevel.plist",
+        "chainlevel.png"
+      ],
+      "ctype": "GameFileData"
+    }
+  },
+  "Type": "Layer"
+}
