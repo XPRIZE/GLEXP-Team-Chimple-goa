@@ -22,19 +22,74 @@ Scene* Talk::createScene()
 	return scene;
 }
 
-bool Talk::init()
+void Talk::onEnterTransitionDidFinish()
 {
-	if (!Layer::init())
+	_menuContext->setMaxPoints(8);
+	_level = _menuContext->getCurrentLevel();
+
+	if ((_level >= 1 && _level <= 8) || (_level >= 25 && _level <= 32) || (_level >= 49 && _level <= 56))
 	{
-		return false;
+		sceneName = "talkisland";
+	}
+	else if ((_level >= 9 && _level <= 16) || (_level >= 33 && _level <= 40) || (_level >= 57 && _level <= 64))
+	{
+		sceneName = "talkcity";
+	}
+	else if ((_level >= 17 && _level <= 24) || (_level >= 41 && _level <= 48) || (_level >= 65 && _level <= 72))
+	{
+		sceneName = "talkjungle";
 	}
 
-//	_menuContext->setMaxPoints(8);
+	if (_level == 1 || _level == 12 || _level == 18 || _level == 26 || _level == 31 || _level == 35 || _level == 40 || _level == 45 || _level == 47 || _level == 52 || _level == 56 || _level == 60 || _level == 64 || _level == 66 || _level == 69)
+	{
+		_questionType = "VERB";
+		_allSentense = TextGenerator::getInstance()->getSentenceWithPOS(TextGenerator::POS::VERB, 5, 1);
+	}
+	else if (_level == 2 || _level == 16 || _level == 21 || _level == 25 || _level == 29 || _level == 34 || _level == 38 || _level == 41 || _level == 48 || _level == 51 || _level == 55 || _level == 57 || _level == 63 || _level == 67 || _level == 72)
+	{
+		_questionType = "NOUN";
+		_allSentense = TextGenerator::getInstance()->getSentenceWithPOS(TextGenerator::POS::NOUN, 5, 1);
+	}
+	else if (_level == 3 || _level == 9 || _level == 19 || _level == 28 || _level == 32 || _level == 37 || _level == 39 || _level == 42 || _level == 46 || _level == 49 || _level == 54 || _level == 58 || _level == 62 || _level == 65 || _level == 71)
+	{
+		_questionType = "PRONOUN";
+		_allSentense = TextGenerator::getInstance()->getSentenceWithPOS(TextGenerator::POS::PRONOUN, 5, 1);
+	}
+	else if (_level == 4 || _level == 13 || _level == 23 || _level == 27 || _level == 43 || _level == 59)
+	{
+		_questionType = "ADVERB";
+		_allSentense = TextGenerator::getInstance()->getSentenceWithPOS(TextGenerator::POS::ADVERB, 5, 1);
+	}
+	else if (_level == 5 || _level == 10 || _level == 22 || _level == 30 || _level == 33 || _level == 68)
+	{
+		_questionType = "ADJECTIVE";
+		_allSentense = TextGenerator::getInstance()->getSentenceWithPOS(TextGenerator::POS::ADJECTIVE, 5, 1);
+	}
+	else if (_level == 6 || _level == 15 || _level == 17 || _level == 44 || _level == 53 || _level == 61)
+	{
+		_questionType = "PREPOSITION";
+		_allSentense = TextGenerator::getInstance()->getSentenceWithPOS(TextGenerator::POS::PREPOSITION, 5, 1);
+	}
+	else if (_level == 7 || _level == 11 || _level == 24)
+	{
+		_questionType = "CONJUNCTION";
+		_allSentense = TextGenerator::getInstance()->getSentenceWithPOS(TextGenerator::POS::PREPOSITION, 5, 1);
+	}
+	else if (_level == 8 || _level == 14 || _level == 20)
+	{
+		_questionType = "INTERJECTION";
+		_allSentense = TextGenerator::getInstance()->getSentenceWithPOS(TextGenerator::POS::INTERJECTION, 5, 1);
+	}
+	else if (_level == 70 || _level == 36 || _level == 50)
+	{
+		_questionType = "ARTICLE";
+		_allSentense = TextGenerator::getInstance()->getSentenceWithPOS(TextGenerator::POS::ARTICLE, 5, 1);
+	}
 
 	visibleSize = Director::getInstance()->getWinSize();
 
-	_scene = { "talkisland", "talkcity", "talkjungle"};
-	sceneName = _scene.at(rand() % _scene.size());
+	_scene = { "talkisland", "talkcity", "talkjungle" };
+//	sceneName = _scene.at(rand() % _scene.size());
 
 	if (sceneName == "talkisland")
 	{
@@ -137,7 +192,7 @@ bool Talk::init()
 		"CONJUNCTION","INTERJECTION", "ARTICLE" };
 
 	std::ostringstream _question_Name;
-	_questionType = _question.at(rand() % _question.size());
+//	_questionType = _question.at(rand() % _question.size());
 	_question_Name << "SELECT " << _questionType;
 
 	_imgName << sceneName << "/patch_image.png";
@@ -154,12 +209,20 @@ bool Talk::init()
 
 	Vec2 origin = Director::getInstance()->getVisibleOrigin();
 
-	_allSentense = TextGenerator::getInstance()->getSentenceWithPOS(TextGenerator::POS::NOUN, 5, 1);
 	_handFlag = 0;
 	_helpFlag = 0;
 	Talk::displayWord();
 
 	this->scheduleUpdate();
+}
+
+bool Talk::init()
+{
+	if (!Layer::init())
+	{
+		return false;
+	}
+	
 	return true;
 }
 
@@ -200,7 +263,7 @@ void Talk::displayWord()
 		_handFlag = 0;
 		for (int i = 0; i < _labelDetails.size(); i++)
 		{
-			_talkBg->removeChild(_labelDetails.at(i).sprite);
+			removeChild(_labelDetails.at(i).sprite);
 		}
 
 		_labelDetails.clear();
@@ -275,8 +338,8 @@ void Talk::displayWord()
 
 				if (_helpFlag == 0)
 				{
-					_help = HelpLayer::create(Rect(LabelDetails.sprite->getPositionX() + LabelDetails.sprite->getBoundingBox().size.width, LabelDetails.sprite->getPositionY(), LabelDetails.sprite->getBoundingBox().size.width, LabelDetails.sprite->getBoundingBox().size.height), Rect(_board->getPositionX() + _board->getBoundingBox().size.width, _board->getPositionY(), _board->getBoundingBox().size.width, _board->getBoundingBox().size.height));
-					_talkBg->addChild(_help, 5);
+					_help = HelpLayer::create(Rect(LabelDetails.sprite->getPositionX() + LabelDetails.sprite->getBoundingBox().size.width/2, LabelDetails.sprite->getPositionY(), LabelDetails.sprite->getBoundingBox().size.width, LabelDetails.sprite->getBoundingBox().size.height), Rect(_board->getPositionX() + _board->getBoundingBox().size.width * .57, _board->getPositionY(), _board->getBoundingBox().size.width * 1.05, _board->getBoundingBox().size.height));
+					addChild(_help, 5);
 					_help->click(Vec2(LabelDetails.sprite->getPositionX() + LabelDetails.sprite->getBoundingBox().size.width, LabelDetails.sprite->getPositionY()));
 					_helpFlag = 1;
 				}
@@ -287,7 +350,7 @@ void Talk::displayWord()
 			}
 
 			Talk::addEvents(LabelDetails);
-			_talkBg->addChild(LabelDetails.sprite);
+			addChild(LabelDetails.sprite);
 			_labelDetails.push_back(LabelDetails);
 		}
 	}
@@ -513,7 +576,7 @@ void Talk::addEvents(struct LabelDetails sprite)
 					if (_helpFlag == 1)
 					{
 						_helpFlag = -1;
-						_talkBg->removeChild(_help);
+						removeChild(_help);
 					}
 					_menuContext->addPoints(1);
 				}

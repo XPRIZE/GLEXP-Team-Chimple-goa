@@ -37,7 +37,7 @@
 #include "../mini_games/Wembley.h"
 #include "../mini_games/CatGameScene.h"
 #include "scripting/js-bindings/manual/ScriptingCore.h"
-#include "../mini_games/AlphamoleLevel.h"
+#include "../mini_games/Alphamole.h"
 #include "../mini_games/Memory.h"
 #include "../mini_games/MemoryHero.h"
 #include "../mini_games/MemoryJungle.h"
@@ -302,6 +302,13 @@ cocos2d::ClippingNode* MenuContext::createMaskedMenuItem(const std::string norma
                     }
                     
                     auto sprite = Sprite::createWithSpriteFrameName(image);
+                    CCLOG("image %s", image.c_str());
+                    CCLOG("anchorX %f", anchorX);
+                    CCLOG("anchorY %f", anchorY);
+                    CCLOG("posX %f", posX);
+                    CCLOG("posY %f", posY);
+                    CCLOG("rotationX %f", rotationX);
+                    CCLOG("rotationY %f", rotationY);
                     sprite->setAnchorPoint(Vec2(anchorX, anchorY));
                     sprite->setPosition(Vec2(posX, posY));
                     sprite->setRotationSkewX(rotationX);
@@ -407,6 +414,13 @@ cocos2d::Node* MenuContext::createAvatarMenuItem(const std::string normalImage,
                     sprite->setPosition(Vec2(posX, posY));
                     sprite->setRotationSkewX(rotationX);
                     sprite->setRotationSkewY(rotationY);
+                    CCLOG("image %s", image.c_str());
+                    CCLOG("anchorX %f", anchorX);
+                    CCLOG("anchorY %f", anchorY);
+                    CCLOG("posX %f", posX);
+                    CCLOG("posY %f", posY);
+                    CCLOG("rotationX %f", rotationX);
+                    CCLOG("rotationY %f", rotationY);
                     
                     boneNode->addSkin(sprite, true);
                     boneNode->displaySkin(sprite, true);
@@ -788,7 +802,7 @@ void MenuContext::launchGameFromJS(std::string gameName) {
         } else if (gameName == STORY_TELLING) {
             ScriptingCore::getInstance()->runScript("start/storytelling.js");
         } else if (gameName == ALPHAMOLE) {
-    		Director::getInstance()->replaceScene(AlphamoleLevel::createScene());
+    		Director::getInstance()->replaceScene(Alphamole::createScene());
         } else if (gameName == WORD_BOARD) {
             Director::getInstance()->replaceScene(WordBoard::createScene());
         } else if (gameName == PEG) {
@@ -833,12 +847,15 @@ void MenuContext::launchGameFromJS(std::string gameName) {
     		Director::getInstance()->replaceScene(Pillar::createScene());
     	}
     	else if (gameName == MEMORY) {
-    		int numberPicker = RandomHelper::random_int(0, 2);
+    		
+			int numberPicker = RandomHelper::random_int(0, 2);
     		switch (numberPicker) {
     		case 0: Director::getInstance()->replaceScene(MemoryJungle::createScene());  break;
     		case 1: Director::getInstance()->replaceScene(MemoryHero::createScene());  break;
     		case 2: Director::getInstance()->replaceScene(Memory::createScene());  break;
     		}
+			
+			
     	}
 		else if (gameName == BALLONHERO) {
 			Director::getInstance()->replaceScene(BalloonHero::createScene());

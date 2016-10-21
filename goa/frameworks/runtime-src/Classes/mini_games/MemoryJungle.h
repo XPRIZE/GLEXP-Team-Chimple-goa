@@ -32,7 +32,9 @@ CC_CONSTRUCTOR_ACCESS:
 	void chickenFly();
 	void removecurrentlabelsandlisteners();
 	void generateRandomNumbers();
-	static const char* classname() { return WEMBLEY.c_str(); }
+	void generateGrid(std::vector<int> grid);
+	void onEnterTransitionDidFinish() override;
+	static const char* classname() { return MEMORY.c_str(); }
 protected:
 	std::vector<int> _currentClickedPair;
 	std::vector<int> _activeNestIds;
@@ -51,48 +53,27 @@ protected:
 	int _currentNest;
 
 
-	std::vector<Node *> _nests;
-	cocos2d::Sprite * nest;
+    std::vector<int> _gridTwoByTwoIds;
+	std::vector<int> _gridTwoByThreeIds;
+	std::vector<int> _gridThreeByFourIds;
+	std::vector<int> _gridThreeBySixIds;
+	std::vector<int> _gridFourByFiveIds;
+	std::vector<int> _gridFourBySixIds;
+	std::vector<int> _finalGridIds;
 
-	bool _touchActive;
+    int _gridTwoByTwoIds_Size = 4;
+	int _gridTwoByThreeIds_Size = 6;
+	int _gridThreeByFourIds_Size = 12;
+	int _gridThreeBySixIds_Size = 18;
+	int _gridFourByFiveIds_Size = 20;
+	int _gridFourBySixIds_Size = 24;
+	
+
+	int _pairCount;
+	
+    
+    
 	void setupTouch();
-	int _touches;
-	int _nestIndex;
-
-	struct xy {
-		float x;
-		float y;
-	};
-
-	std::vector<std::vector<xy>> xycoordinates;
-	struct object {
-
-		cocos2d::Sprite *character;
-		int characterZIndex;
-
-		cocos2d::Sprite *openWindow;
-		int openWindowZIndex;
-
-		cocos2d::Sprite *closedWindow;
-		int closedWindowZIndex;
-
-		cocos2d::Sprite *brokenWindow;
-		int brokenWindowZIndex;
-
-		cocos2d::Sprite *alphabetSprite;
-		int alphabetSpriteZIndex;
-
-		char alphabet;
-
-		float x, y;
-
-		int objectFlag;
-
-
-	};
-	std::vector<std::vector<object>> objects;
-	struct object testSprite;
-
 
 	MenuContext *_menuContext;
 

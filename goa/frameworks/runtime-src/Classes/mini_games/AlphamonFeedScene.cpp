@@ -10,6 +10,8 @@
 #include "../lang/LangUtil.h"
 #include "../StartMenuScene.h"
 #include "ui/UIVideoPlayer.h"
+#include "../menu/HelpLayer.h"
+
 USING_NS_CC;
 
 
@@ -64,7 +66,8 @@ bool AlphamonFeed::init()
     Size visibleSize = Director::getInstance()->getVisibleSize();
     Vec2 origin = Director::getInstance()->getVisibleOrigin();
 	float myGameWidth = 0;
-	score = 10;
+	score = 0;
+	_isPlayFirst = true;
 	CCLOG("game size = %f", visibleSize.width);
 	CCLOG("game size = %f", origin.x);
 	// background loaded using csb file
@@ -99,7 +102,17 @@ bool AlphamonFeed::init()
 	CCLOG("slider bar %d", slideBar->getPercent());// image->getPercent();
 	//loading Monster alphabet
 	//sprite1 = CSLoader::createNode(CCString::createWithFormat("english/%s.csb", alphaLevelString.c_str())->getCString());
-	mychar = CharGenerator::getInstance()->generateAChar();
+	
+	
+	setonEnterTransitionDidFinishCallback(CC_CALLBACK_0(AlphamonFeed::startGame, this));
+
+    return true;
+}
+
+void AlphamonFeed::startGame() {
+
+
+	mychar = LangUtil::getInstance()->getAllCharacters()[menu->getCurrentLevel() - 1];
 	std::stringstream ss;
 	ss << mychar;
 	std::string mycharString = ss.str();
@@ -111,12 +124,12 @@ bool AlphamonFeed::init()
 	sprite1->setPositionY(50);
 	sprite1->setName(mycharString);
 	sprite1->setContentSize(cocos2d::Size(300.0f, 400.0f));
-	this->addChild(sprite1,2);
+	this->addChild(sprite1);
 	//breath animination
 	sprite1->breatheAction();
 	//sprite1->alphamonEyeAnimation("blink", true);
 	//sprite1->enableTouch(true);
-	
+
 	auto children = sprite1->getAlphamonChildren();
 	for (auto item = children.rbegin(); item != children.rend(); ++item) {
 		Node * monster = *item;
@@ -125,14 +138,7 @@ bool AlphamonFeed::init()
 			legReff.pushBack(monster);
 		}
 	}
-	
-	
-	setonEnterTransitionDidFinishCallback(CC_CALLBACK_0(AlphamonFeed::startGame, this));
 
-    return true;
-}
-
-void AlphamonFeed::startGame() {
 	backgroundMusic = CocosDenshion::SimpleAudioEngine::getInstance();
 	backgroundMusic->playBackgroundMusic("sounds/alphamonfeed.wav", true);
 	backgroundMusic->setBackgroundMusicVolume(0.50f);
@@ -155,18 +161,34 @@ void AlphamonFeed::callingFruits()
 
 void AlphamonFeed::showFruits(float dt) {
 	
-	auto fallingAlphaArray = CharGenerator::getInstance()->generateMatrixForChoosingAChar(mychar, 6, 1, 50);
+	if (_helpLayer) {
+		//auto help = this->getChildByName("helpLayer");
+		this->removeChildByName("helpLayer");
+		_helpLayer = false;
+	}
 	Size visibleSize = Director::getInstance()->getVisibleSize();
+	auto fallingAlphaArray = CharGenerator::getInstance()->generateMatrixForChoosingAChar(mychar, 6, 1, 50);
+	auto random_Xposition = cocos2d::RandomHelper::random_real(visibleSize.width*0.20, visibleSize.width*0.85);
 	auto str = fallingAlphaArray.at(cocos2d::RandomHelper::random_int(0, 5)).at(0);
+	if (menu->getCurrentLevel() == 1 && score == 0 && _isPlayFirst) {
+		_isPlayFirst = false;
+		str = mychar;
+		_helpLayer = true;
+		auto help = HelpLayer::create(Rect(visibleSize.width/2, visibleSize.height * 0.2, visibleSize.width, visibleSize.height * 0.3), Rect(random_Xposition, visibleSize.height / 1.1, 400, 400));
+		help->click(Vec2(300, visibleSize.height * 0.2));
+		help->setName("helpLayer");
+		this->addChild(help);
+	}
 	std::stringstream ss;
 	ss << str;
 	std::string mystr = ss.str();
    // auto mystr = LangUtil::convertUTF16CharToString(str);
 	auto path = LangUtil::getInstance()->getSpecialAnimationFileName(str,"alphabets fruits");
 	sprite = CSLoader::createNode(path);
-	sprite->setPositionX(cocos2d::RandomHelper::random_real(visibleSize.width*0.20, visibleSize.width*0.85));
+	sprite->setPositionX(random_Xposition);
 	sprite->setPositionY(1800);
 	sprite->setName(mystr);
+	
 	sprite->setContentSize(cocos2d::Size(150.0f, 150.0f));
 	auto moveBy = MoveBy::create(2, Vec2(0, -visibleSize.height-100));
 	sprite->runAction(moveBy);
@@ -200,11 +222,13 @@ void AlphamonFeed:: update(float dt) {
                         smile->setVisible(false);
                         laughing->setVisible(true);
                         score = score + 10;
+						menu->addPoints(1);
                         slideBar->setPercent(score);
                         angry->setVisible(false);
                         this->removeChild(fruitReff.at(i));
                         fruitReff.erase(i);
                     } else {
+						menu->addPoints(-1);
                         sprite1->alphamonMouthAnimation("spit", false);
                         sprite1->alphamonEyeAnimation("angry1",false);
                         auto animation = sprite1->shakeAction();
@@ -224,6 +248,15 @@ void AlphamonFeed:: update(float dt) {
                 
                 if (fruitReff.at(i)->getPositionY() < -10) {
                     this->removeChild(fruitReff.at(i));
+					if (!_touched) {
+						_isPlayFirst = true;
+					}
+					
+					if (_helpLayer) {
+						//auto help = this->getChildByName("helpLayer");
+						this->removeChildByName("helpLayer");
+						_helpLayer = false;
+					}
                     fruitReff.erase(i);
                 }
                 //alpha_animation->pause();
@@ -247,7 +280,14 @@ bool AlphamonFeed::onTouchBegan(cocos2d::Touch *touch,cocos2d::Event * event)
 	auto  location = target->convertToNodeSpace(touch->getLocation());
 	CCRect targetRectangle =  CCRectMake(target->getPositionX()-200, target->getPositionY(), target->getContentSize().width, target->getContentSize().height);
 	if(targetRectangle.containsPoint(touch->getLocation())){
-		CCLOG("touch began");
+		//CCLOG("touch began");
+		_touched = true;
+		_isPlayFirst = false;
+		if (_helpLayer) {
+			//auto help = this->getChildByName("helpLayer");
+			this->removeChildByName("helpLayer");
+			_helpLayer = false;
+		}
 		CCLOG("touch began X = %f", target->getPositionX());
 		touchPosition = touch->getLocation().x;
 		isTouching = true;

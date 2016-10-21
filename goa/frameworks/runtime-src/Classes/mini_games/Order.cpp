@@ -23,12 +23,12 @@ Order::~Order()
 
 Order * Order::create()
 {
-	Order* dashGame = new (std::nothrow) Order();
-	if (dashGame && dashGame->init()) {
-		dashGame->autorelease();
-		return dashGame;
+	Order* orderGame = new (std::nothrow) Order();
+	if (orderGame && orderGame->init()) {
+		orderGame->autorelease();
+		return orderGame;
 	}
-	CC_SAFE_DELETE(dashGame);
+	CC_SAFE_DELETE(orderGame);
 	return nullptr;
 }
 
@@ -150,6 +150,14 @@ bool Order::init()
 		_bg->getChildByName(_scenePath.at("child1"))->addChild(character1);
 	}
 
+	/*
+
+	Alphabet sorting list = 6 levels
+	Numbers sorting list = 8 - 10 levels
+	month sorting list = 1 levels
+	days sorting list = 1 levels
+	pngs formate list = 5 levels
+	*/
 	_sortedList = TextGenerator::getInstance()->getOrderedConcepts(1);
 
 	auto randomList = _sortedList;

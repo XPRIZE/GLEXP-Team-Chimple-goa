@@ -65,8 +65,19 @@ xc.GameScene.loadMultiPlayerGame = function(layer, gameName) {
 xc.GameScene.loadMenu = function() {
     var gameName = cc.sys.localStorage.getItem("currentGame");
     var gameStr = cc.sys.localStorage.getItem(gameName);
-    cc.log(gameStr);
-    var gameConfig = JSON.parse(gameStr);
+    var gameConfig;
+    if(gameStr) {
+        gameConfig = JSON.parse(gameStr);
+    } else {
+        var gameMap = cc.loader.cache[xc.GameMap.res.config_json];
+        for (var index = 0; index < gameMap.length; index++) {
+            var element = gameMap[index];
+            if(element.name == gameName) {
+                gameConfig = element;
+            }
+        }
+    }
+    
     var t_resources = [];
     if(gameConfig.backgroundJson) {
         t_resources.push(xc.path + gameConfig.backgroundJson);
