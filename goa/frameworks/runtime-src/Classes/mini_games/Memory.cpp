@@ -79,7 +79,7 @@ void Memory::onEnterTransitionDidFinish() {
 	//_sceneNumber = RandomHelper::random_int(1, 2);
 	_sceneNumber = 3;
 
-	
+	auto x = _menuContext->getCurrentLevel();
 
 	if (_menuContext->getCurrentLevel() <= 6 && _menuContext->getCurrentLevel() >= 1) {
 		_gridTwoByTwoIds.resize(_gridTwoByTwoIds_Size);
@@ -581,6 +581,8 @@ void Memory::chickenFly() {
 	auto moveTonest2 = MoveTo::create(4, Vec2(-3100, 1800));
 	Sprite *chicken2 = (Sprite *)_memoryfarm->getChildByName("background")->getChildByName(querynest2)->getChildByName("chicken");
 	chicken2->runAction(moveTonest2);
+
+	_menuContext->addPoints(1);
 
 }
 
