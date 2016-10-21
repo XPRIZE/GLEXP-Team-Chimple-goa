@@ -244,19 +244,19 @@ void Dash::onEnterTransitionDidFinish()
 		int roundLevel = (level / 15) + 1;
 		int inner = division + ((roundLevel - 1) * 5);
 		CCLOG("Sysnonyms Level = %d", inner);
-		_synonyms = TextGenerator::getInstance()->getSynonyms(10);
+		_synonyms = TextGenerator::getInstance()->getSynonyms(10,inner);
 	} 
 	else if (division >5 && division < 11) {
 		int roundLevel = (level / 15) + 1;
 		int inner = division - 5 + ((roundLevel - 1) * 5);
 		CCLOG("Antonyms Level = %d", inner);
-		_synonyms = TextGenerator::getInstance()->getAntonyms(10);
+		_synonyms = TextGenerator::getInstance()->getAntonyms(10,inner);
 	}
 	else {
 		int roundLevel = (level / 15) + 1;
 		int inner = division - 10 + ((roundLevel - 1) * 5);
 		CCLOG("Homonyms Level = %d", inner);
-		_synonyms = TextGenerator::getInstance()->getHomonyms(10);
+		_synonyms = TextGenerator::getInstance()->getHomonyms(10,inner);
 	}
 	
 	
@@ -516,6 +516,7 @@ bool Dash::onTouchBegan(cocos2d::Touch * touch, cocos2d::Event * event)
 				this->removeChild(_choiceLabel.at(i));
 			}
 			_gameScore++;
+			menu->addPoints(1);
 			_rightWords.push_back(_gameWord + "Y");
 			_choiceLabel.clear();
 			updatePlayerPosition("mycharacter",_gameScore);
@@ -524,6 +525,7 @@ bool Dash::onTouchBegan(cocos2d::Touch * touch, cocos2d::Event * event)
             menu->sendMessageToPeer(message);
 		}
 		else {
+			menu->addPoints(-1);
 			_rightWords.push_back(_gameWord + "N");
 			if (_scenePath.at("wrong_animation").compare("null") != 0) {
 				auto sadAnimation = CSLoader::createTimeline(_scenePath.at("character"));

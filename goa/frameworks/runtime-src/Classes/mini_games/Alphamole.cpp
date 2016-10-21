@@ -267,6 +267,7 @@ void Alphamole::onAlphabetSelect(EventCustom *event) {
 	CCLOG("touched letter");
 	if (_mychar == buf1[0]) {
 		_score++;
+		menu->addPoints(1);
 		CCLOG("right = %d",_score);
 		std::stringstream ss;
 		ss << _score;
@@ -275,6 +276,7 @@ void Alphamole::onAlphabetSelect(EventCustom *event) {
 		_score_label->setString("  Score: " + str);
 	}else{
 		CCLOG("wrong");
+		menu->addPoints(-1);
 		_mainChar->alphamonMouthAnimation("spit", false);
 		_mainChar->alphamonEyeAnimation("angry1", false);
 		auto animation = _mainChar->shakeAction();

@@ -222,11 +222,13 @@ void AlphamonFeed:: update(float dt) {
                         smile->setVisible(false);
                         laughing->setVisible(true);
                         score = score + 10;
+						menu->addPoints(1);
                         slideBar->setPercent(score);
                         angry->setVisible(false);
                         this->removeChild(fruitReff.at(i));
                         fruitReff.erase(i);
                     } else {
+						menu->addPoints(-1);
                         sprite1->alphamonMouthAnimation("spit", false);
                         sprite1->alphamonEyeAnimation("angry1",false);
                         auto animation = sprite1->shakeAction();
