@@ -190,96 +190,7 @@ child = decomon_icon_mouth*/
 		"decomon/decomon3/decomon_hair_9.png" };
 
 	
-	_myChar = LangUtil::convertUTF16CharToString(CharGenerator::getInstance()->generateAChar());
 
-	//BalooBhai-Regular.ttf
-	cocos2d::ui::TextBMFont * my = cocos2d::ui::TextBMFont::create(_myChar, LangUtil::getInstance()->getBMFontFileName());
-	my->setPositionX(visibleSize.width / 2);
-	my->setPositionY(visibleSize.height / 2);
-	my->setScale(2);
-	//this->addChild(my);
-
-	auto x = my->getBoundingBox().origin;
-	auto sssize = my->getContentSize();
-	_width = my->getContentSize().width;
-	_myLabel = Label::createWithBMFont(LangUtil::getInstance()->getBMFontFileName(), _myChar);
-	//auto myLabel = Label::createWithTTF("A", "fonts/BalooBhai-Regular.ttf",1600);
-//	_myLabel->setPositionX(visibleSize.width / 2);// , visibleSize.height/ 2);
-//	_myLabel->setPositionY(visibleSize.height / 2);
-	if (LangUtil::getInstance()->getLang() == "kan") {
-		_myLabel->setAnchorPoint(Vec2(0.5, 0.65));
-	}
-	_myLabel->setColor(Color3B(222, 232, 121));
-	_myLabel->setContentSize(Size(sssize.width * 2, 1000));
-	_myLabel->setScale(2);
-	_myLabel->setName("alphabet");
-
-
-	_alphaNode = Node::create();
-	_alphaNode->setPositionX(visibleSize.width / 2);
-	_alphaNode->setPositionY(visibleSize.height / 1.75);
-	_alphaNode->setContentSize(Size(sssize.width * 2, 1000));
-	//this->addChild(alphaNode, 3);
-	_alphaNode->setColor(Color3B(222, 232, 255));
-	_alphaNode->setAnchorPoint(Vec2(0.5, 0.5));
-	_alphaNode->addChild(_myLabel);
-	_myLabel->setPositionX(_alphaNode->getContentSize().width / 2);
-	_myLabel->setPositionY(_alphaNode->getContentSize().height / 2);
-	auto maskedFill = ClippingNode::create(_alphaNode);
-	//maskedFill->setPosition(Vec2(0,0));
-	maskedFill->setContentSize(visibleSize);
-	//maskedFill->setPosition(Vec2(visibleSize.width/2, visibleSize.height/2));
-	_maskingLayer = LayerColor::create(Color4B(255, 255, 255, 255), visibleSize.width, visibleSize.height);
-	///	this->addChild(_maskingLayer);
-	_maskingLayer->setAnchorPoint(Vec2(0.5, 0.5));
-	//	_maskingLayer->setPosition(Vec2(-visibleSize.width / 2, -visibleSize.height / 2));
-	//_maskingLayer->setColor(Color3B(222, 222, 22));
-	maskedFill->setAlphaThreshold(0.1);
-
-	maskedFill->addChild(_maskingLayer);
-	this->addChild(maskedFill);
-
-	_alphabetLayer = Layer::create();
-	this->addChild(_alphabetLayer);
-
-	_costumeLayer = Layer::create();
-	this->addChild(_costumeLayer);
-
-	CCLOG("++++++++++++++++++decomon++++++++++++");
-	auto node = DrawNode::create();
-	//node->drawRect(Vec2(100,100))//(origin, Vec2(200, 200), Color4B(255, 5, 25, 60));
-	//((visibleSize.width / 2 - 700 < x) && (visibleSize.width / 2 + 900 > x) &&
-	//	(visibleSize.height / 2 - 500 < y) && (visibleSize.height / 2 + 700 > y))
-	Vec2 vertices[] =
-	{
-		/*Vec2(visibleSize.width / 2 - 700,visibleSize.height / 2 + 700),
-		Vec2(visibleSize.width / 2 + 900,visibleSize.height / 2 + 700),
-		Vec2(visibleSize.width / 2 + 900,visibleSize.height / 2 - 500),
-		Vec2(visibleSize.width / 2 - 700,visibleSize.height / 2 - 500)*/
-		Vec2(visibleSize.width / 2 - sssize.width,visibleSize.height / 1.75 - 500),
-		Vec2(visibleSize.width / 2 + sssize.width, visibleSize.height / 1.75 - 500),
-
-		Vec2(visibleSize.width / 2 + sssize.width,visibleSize.height / 1.75 + 500),
-		Vec2(visibleSize.width / 2 - sssize.width,visibleSize.height / 1.75 + 500)
-
-	};
-	node->drawPolygon(vertices, 4, Color4F(1.0f, 0.3f, 0.3f, 0), 3, Color4F(0.2f, 0.2f, 0.2f, 1));
-	addChild(node);
-
-//	_paintingTexture = RenderTexture::create(visibleSize.width, visibleSize.height, kCCTexture2DPixelFormat_RGBA8888);
-//	_paintingTexture->retain();
-//	_paintingTexture->setPosition(Vec2(visibleSize.width / 2, visibleSize.height / 2));
-
-	//_maskingLayer->addChild(_paintingTexture);
-//	BlendFunc bf;
-	// apply blending function to draw node
-//	bf.dst = GL_ONE_MINUS_SRC_ALPHA;
-//	bf.src = GL_ZERO;
-
-	/*_paintingColour = CCSprite::create("decomon/largeBrush.png");
-	_paintingColour->retain();*/
-	_paintingNode = DrawNode::create();
-	_maskingLayer->addChild(_paintingNode);
 
 	
 	//_paintingNode->retain();
@@ -726,4 +637,101 @@ void Decomon::captureImage(bool capture, const std::string & outputFile)
 	{
 		CCLOG("Capture screen failed");
 	}
+}
+
+void Decomon::onEnterTransitionDidFinish()
+{
+	Node::onEnterTransitionDidFinish();
+	Size visibleSize = Director::getInstance()->getVisibleSize();
+
+	_myChar = LangUtil::convertUTF16CharToString(LangUtil::getInstance()->getAllCharacters()[menu->getCurrentLevel() - 1]);
+
+	//BalooBhai-Regular.ttf
+	cocos2d::ui::TextBMFont * my = cocos2d::ui::TextBMFont::create(_myChar, LangUtil::getInstance()->getBMFontFileName());
+	my->setPositionX(visibleSize.width / 2);
+	my->setPositionY(visibleSize.height / 2);
+	my->setScale(2);
+	//this->addChild(my);
+
+	auto x = my->getBoundingBox().origin;
+	auto sssize = my->getContentSize();
+	_width = my->getContentSize().width;
+	_myLabel = Label::createWithBMFont(LangUtil::getInstance()->getBMFontFileName(), _myChar);
+	//auto myLabel = Label::createWithTTF("A", "fonts/BalooBhai-Regular.ttf",1600);
+	//	_myLabel->setPositionX(visibleSize.width / 2);// , visibleSize.height/ 2);
+	//	_myLabel->setPositionY(visibleSize.height / 2);
+	if (LangUtil::getInstance()->getLang() == "kan") {
+		_myLabel->setAnchorPoint(Vec2(0.5, 0.65));
+	}
+	_myLabel->setColor(Color3B(222, 232, 121));
+	_myLabel->setContentSize(Size(sssize.width * 2, 1000));
+	_myLabel->setScale(2);
+	_myLabel->setName("alphabet");
+
+
+	_alphaNode = Node::create();
+	_alphaNode->setPositionX(visibleSize.width / 2);
+	_alphaNode->setPositionY(visibleSize.height / 1.75);
+	_alphaNode->setContentSize(Size(sssize.width * 2, 1000));
+	//this->addChild(alphaNode, 3);
+	_alphaNode->setColor(Color3B(222, 232, 255));
+	_alphaNode->setAnchorPoint(Vec2(0.5, 0.5));
+	_alphaNode->addChild(_myLabel);
+	_myLabel->setPositionX(_alphaNode->getContentSize().width / 2);
+	_myLabel->setPositionY(_alphaNode->getContentSize().height / 2);
+	auto maskedFill = ClippingNode::create(_alphaNode);
+	//maskedFill->setPosition(Vec2(0,0));
+	maskedFill->setContentSize(visibleSize);
+	//maskedFill->setPosition(Vec2(visibleSize.width/2, visibleSize.height/2));
+	_maskingLayer = LayerColor::create(Color4B(255, 255, 255, 255), visibleSize.width, visibleSize.height);
+	///	this->addChild(_maskingLayer);
+	_maskingLayer->setAnchorPoint(Vec2(0.5, 0.5));
+	//	_maskingLayer->setPosition(Vec2(-visibleSize.width / 2, -visibleSize.height / 2));
+	//_maskingLayer->setColor(Color3B(222, 222, 22));
+	maskedFill->setAlphaThreshold(0.1);
+
+	maskedFill->addChild(_maskingLayer);
+	this->addChild(maskedFill);
+
+	_alphabetLayer = Layer::create();
+	this->addChild(_alphabetLayer);
+
+	_costumeLayer = Layer::create();
+	this->addChild(_costumeLayer);
+
+	CCLOG("++++++++++++++++++decomon++++++++++++");
+	auto node = DrawNode::create();
+	//node->drawRect(Vec2(100,100))//(origin, Vec2(200, 200), Color4B(255, 5, 25, 60));
+	//((visibleSize.width / 2 - 700 < x) && (visibleSize.width / 2 + 900 > x) &&
+	//	(visibleSize.height / 2 - 500 < y) && (visibleSize.height / 2 + 700 > y))
+	Vec2 vertices[] =
+	{
+		/*Vec2(visibleSize.width / 2 - 700,visibleSize.height / 2 + 700),
+		Vec2(visibleSize.width / 2 + 900,visibleSize.height / 2 + 700),
+		Vec2(visibleSize.width / 2 + 900,visibleSize.height / 2 - 500),
+		Vec2(visibleSize.width / 2 - 700,visibleSize.height / 2 - 500)*/
+		Vec2(visibleSize.width / 2 - sssize.width,visibleSize.height / 1.75 - 500),
+		Vec2(visibleSize.width / 2 + sssize.width, visibleSize.height / 1.75 - 500),
+
+		Vec2(visibleSize.width / 2 + sssize.width,visibleSize.height / 1.75 + 500),
+		Vec2(visibleSize.width / 2 - sssize.width,visibleSize.height / 1.75 + 500)
+
+	};
+	node->drawPolygon(vertices, 4, Color4F(1.0f, 0.3f, 0.3f, 0), 3, Color4F(0.2f, 0.2f, 0.2f, 1));
+	addChild(node);
+
+	//	_paintingTexture = RenderTexture::create(visibleSize.width, visibleSize.height, kCCTexture2DPixelFormat_RGBA8888);
+	//	_paintingTexture->retain();
+	//	_paintingTexture->setPosition(Vec2(visibleSize.width / 2, visibleSize.height / 2));
+
+	//_maskingLayer->addChild(_paintingTexture);
+	//	BlendFunc bf;
+	// apply blending function to draw node
+	//	bf.dst = GL_ONE_MINUS_SRC_ALPHA;
+	//	bf.src = GL_ZERO;
+
+	/*_paintingColour = CCSprite::create("decomon/largeBrush.png");
+	_paintingColour->retain();*/
+	_paintingNode = DrawNode::create();
+	_maskingLayer->addChild(_paintingNode);
 }
