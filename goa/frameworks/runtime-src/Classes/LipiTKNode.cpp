@@ -40,8 +40,7 @@ LipiTKNode* LipiTKNode::create(int width, int height, Point position, int opacit
     return nullptr;
 }
 
-
-Sprite* LipiTKNode::createDrawingAreaWithColor(Vec2 anchorPoint, Vec2 position, float opacity,const Color3B& color) {
+cocos2d::Sprite* LipiTKNode::createDrawingAreaWithColor(cocos2d::Vec2 anchorPoint, cocos2d::Vec2 position, float opacity,const cocos2d::Color3B color) {
     _drawingBoard = Sprite::create();
     _drawingBoard->setName("_drawingBoard");
     _drawingBoard->setTextureRect(Rect(0, 0, _canvasWidth, _canvasHeight));

@@ -156,6 +156,12 @@ xc.CharacterConfigLayer = cc.LayerColor.extend({
             this._selectedConfigurationForCharacter.forEach(function(element) {
                 that.displaySkin(element.bone, element.itemUrl,element.anchorX, element.anchorY, element.positionX, element.positionY, element.rotationX, element.rotationY, element.selectedItemIndex);                                
             });        
+
+            //update color
+            this.colorSkin(['hairfront','hairback'], true, this._hairColorIndex);
+                    
+            this.colorSkin(['faceshape','body'], false, this._faceColorIndex);                                  
+            
         } else {
             xc.characterConfigurationObject.forEach(function(element) {
                 if(element && element.items.length > 0)
@@ -182,7 +188,9 @@ xc.CharacterConfigLayer = cc.LayerColor.extend({
                 cc.log(JSON.stringify(this._selectedConfigurationForCharacter));
                 //cc.sys.localStorage.setItem("cachedCharacterConfig", JSON.stringify(this._selectedConfigurationForCharacter));
                 cc.sys.localStorage.setItem("cachedColorConfig", this._faceColorIndex+"_"+this._hairColorIndex);
-                cc.sys.localStorage.setItem("cachedCharacterConfig", this._selectedConfigurationForCharacter.map(function(a) { return a.selectedItemIndex }).join("_"));
+                var selConfig = this._selectedConfigurationForCharacter.map(function(a) { return a.selectedItemIndex }).join("_");
+                selConfig = selConfig.concat("_c_" + this._faceColorIndex+"_"+this._hairColorIndex);
+                cc.sys.localStorage.setItem("cachedCharacterConfig", selConfig);
                 cc.sys.localStorage.setItem("cachedBluetoothName", "chimple_" + this._selectedConfigurationForCharacter.map(function(a) { return a.selectedItemIndex }).join("_"));
                 if(this.parent._menuContext) {
                     this.parent._menuContext.transitToScrollableGameMap();
@@ -195,6 +203,10 @@ xc.CharacterConfigLayer = cc.LayerColor.extend({
         //var bluetoothName = cc.sys.localStorage.getItem("cachedCharacterConfig");
         if(bluetoothName) {
             var array = bluetoothName.split('_');
+            this._faceColorIndex = array[array.length - 2];
+            this._hairColorIndex = array[array.length - 1];
+            array = array.splice(0,array.length - 3);
+
             var decodedBluetoothNameToArray = [];
             if(array && array.length > 0) {
                 array.forEach(function(ele, index) {
