@@ -82,7 +82,9 @@ xc.CharacterUtil.colorSkins = function (character, colorSkins) {
             if (skinNames != null) {
                 for (var skinName in skinNames) {
                     var bone = character.getBoneNode(skinNames[skinName]);
+                    
                     if (bone != null) {
+                        cc.log("bone in color:" + bone.getName());
                         bone.getSkins().forEach(function (skin) {
                             if (skin.getName() == skinName) {                                
                                 skin.color = cc.color(colorSkins.color)
@@ -148,13 +150,13 @@ xc.CharacterUtil.loadSkeletonConfig = function (skeleton, selectedConfiguration)
                 }
             }
             if (selectedConfiguration != null) {
+                xc.CharacterUtil.applySkinNameMap(skeleton, selectedConfiguration);
                 if (selectedConfiguration.colorSkins != null) {
                     selectedConfiguration.colorSkins.forEach(function (colorSkin) {
                         xc.CharacterUtil.colorSkins(skeleton, colorSkin);
 
                     })
-                }
-                xc.CharacterUtil.applySkinNameMap(skeleton, selectedConfiguration);
+                }                
             } else {
                 if (skeleton.UserData && skeleton.UserData.colorSkins) {
                     skeleton.UserData.colorSkins.forEach(function (colorSkin) {
