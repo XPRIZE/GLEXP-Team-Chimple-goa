@@ -124,7 +124,7 @@ void EventListenerClass::addEvents(MainGame *callerObject, EventListenerClass* t
 		if (rect.containsPoint(locationInNode))
 		{
 			cannon1 = 0, cannon2 = 0, cannon3 = 0;
-			target->setScale(2, 2);
+//			target->setScale(2, 2);
 			target->setZOrder(2);
 			for (int i = 0; i < callerObject->cannonArray.size(); i++)
 			{
@@ -242,7 +242,7 @@ void EventListenerClass::addEvents(MainGame *callerObject, EventListenerClass* t
 		{
 			auto target = static_cast<EventListenerClass*>(event->getCurrentTarget());
 			target->runAction(MoveTo::create(.2, Vec2(target->xP, target->yP)));
-			target->setScale(1, 1);
+//			target->setScale(1, 1);
 			target->setZOrder(1);
 		}
 	};

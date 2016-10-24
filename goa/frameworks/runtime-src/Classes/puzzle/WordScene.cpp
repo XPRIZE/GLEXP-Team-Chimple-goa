@@ -277,7 +277,7 @@ void WordScene::processGrapheme(Grapheme* grapheme) {
                 if(_showHandWriting) {
                     _handWritingDialogButton->setEnabled(true);
                     clearLipiTKResult();
-                    _lipiTKNode->removeFromParent();
+                    //_lipiTKNode->removeFromParent();
                     Director::getInstance()->getEventDispatcher()->pauseEventListenersForTarget(grapheme);
 
                 }
