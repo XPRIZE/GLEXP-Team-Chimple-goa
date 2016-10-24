@@ -72,6 +72,7 @@ xc.CharacterUtil.colorSkins = function (character, colorSkins) {
     var existingColorSkins = xc.ParseUtil.getUserData(character._actionTag, 'colorSkins');
     if (existingColorSkins == null) {
         existingColorSkins = [];
+        existingColorSkins.push({"skins":"hairSkin","color":"#000000"});
     }
     cc.log('existingColorSkins:' + JSON.stringify(existingColorSkins));
 
