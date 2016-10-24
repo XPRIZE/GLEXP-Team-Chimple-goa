@@ -166,38 +166,42 @@ void RPGSprite::showTouchPointer() {
     if(this->sprite && this->sprite->isVisible() && this->touchPointerNode == NULL)
     {
         this->touchPointerNode =  Sprite::create(TOUCH_POINTER_IMG);
-        this->touchPointerNode->setScale(0.5f, 0.5f);
-        
-        
-        float xPos = 0.0f;
-        float yPos = 0.0f;
-        
-        if(this->sprite->getAnchorPoint().x == 0) {
-            xPos = this->sprite->getPosition().x + this->sprite->getBoundingBox().size.width/2;
-        } else if(this->sprite->getAnchorPoint().x == 1) {
-            xPos = this->sprite->getPosition().x - this->sprite->getBoundingBox().size.width/2;
-        } else {
-            xPos = this->sprite->getPosition().x;
+        if(this->touchPointerNode)
+        {
+            this->touchPointerNode->setScale(0.5f, 0.5f);
+            float xPos = 0.0f;
+            float yPos = 0.0f;
+            
+            if(this->sprite->getAnchorPoint().x == 0) {
+                xPos = this->sprite->getPosition().x + this->sprite->getBoundingBox().size.width/2;
+            } else if(this->sprite->getAnchorPoint().x == 1) {
+                xPos = this->sprite->getPosition().x - this->sprite->getBoundingBox().size.width/2;
+            } else {
+                xPos = this->sprite->getPosition().x;
+            }
+            
+            if(this->sprite->getAnchorPoint().y == 0) {
+                yPos = this->sprite->getPosition().y + this->sprite->getBoundingBox().size.height/2;
+            } else if(this->sprite->getAnchorPoint().y == 1) {
+                yPos = this->sprite->getPosition().y - this->sprite->getBoundingBox().size.height/2;
+            } else {
+                yPos = this->sprite->getPosition().y;
+            }
+            
+            this->touchPointerNode->setPosition(Vec2(xPos, yPos));
+            this->addChild(this->touchPointerNode);
+            this->touchPointerNode->setVisible(true);
+            
+            auto scaleBy = ScaleBy::create(0.5, 1.2);
+            auto sequenceScale = Sequence::create(scaleBy, scaleBy->reverse(), nullptr);
+            auto repeatScaleAction = Repeat::create(sequenceScale, 5);
+            auto callbackStart = CallFunc::create(CC_CALLBACK_0(RPGSprite::destroyTouchPointer, this));
+            auto sequence = Sequence::create(repeatScaleAction, callbackStart, nullptr);
+            this->touchPointerNode->runAction(sequence);
         }
         
-        if(this->sprite->getAnchorPoint().y == 0) {
-            yPos = this->sprite->getPosition().y + this->sprite->getBoundingBox().size.height/2;
-        } else if(this->sprite->getAnchorPoint().y == 1) {
-            yPos = this->sprite->getPosition().y - this->sprite->getBoundingBox().size.height/2;
-        } else {
-            yPos = this->sprite->getPosition().y;
-        }
         
-        this->touchPointerNode->setPosition(Vec2(xPos, yPos));
-        this->addChild(this->touchPointerNode);
-        this->touchPointerNode->setVisible(true);
         
-        auto scaleBy = ScaleBy::create(0.5, 1.2);
-        auto sequenceScale = Sequence::create(scaleBy, scaleBy->reverse(), nullptr);
-        auto repeatScaleAction = Repeat::create(sequenceScale, 5);
-        auto callbackStart = CallFunc::create(CC_CALLBACK_0(RPGSprite::destroyTouchPointer, this));
-        auto sequence = Sequence::create(repeatScaleAction, callbackStart, nullptr);
-        this->touchPointerNode->runAction(sequence);        
     }
 }
 

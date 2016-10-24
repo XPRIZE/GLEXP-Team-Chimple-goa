@@ -277,7 +277,7 @@ void WordScene::processGrapheme(Grapheme* grapheme) {
                 if(_showHandWriting) {
                     _handWritingDialogButton->setEnabled(true);
                     clearLipiTKResult();
-                    _lipiTKNode->removeFromParent();
+                    //_lipiTKNode->removeFromParent();
                     Director::getInstance()->getEventDispatcher()->pauseEventListenersForTarget(grapheme);
 
                 }
@@ -352,8 +352,8 @@ void WordScene::showHandWritingDialog(Ref* pSender, ui::Widget::TouchEventType e
             {
                 _grid->setVisible(false);
                 clickedButton->setEnabled(false);
-//                _lipiTKNode = LipiTKNode::create(1000,1000,Vec2(clickedButton->getPosition().x, clickedButton->getPosition().y + 600), 70);
-//                addChild(_lipiTKNode);
+                _lipiTKNode = LipiTKNode::create(1000,1000,Vec2(clickedButton->getPosition().x, clickedButton->getPosition().y + 600), 70);
+                addChild(_lipiTKNode);
             } else {
                 clickedButton->setEnabled(false);
             }
