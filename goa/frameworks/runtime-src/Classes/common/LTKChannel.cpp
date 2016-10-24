@@ -47,7 +47,7 @@
  * Author		Date			Description of change
  *****************************************************************************/
 
-#include "LTKErrors.h"
+#include "../util/lib/LTKErrors.h"
 #include "LTKErrorsList.h"
 #include "LTKChannel.h"
 #include "LTKMacros.h"

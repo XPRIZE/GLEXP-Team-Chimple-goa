@@ -35,6 +35,45 @@
     <Filter Include="Classes\puzzle">
       <UniqueIdentifier>{190bfbf7-5e8f-4f4a-9d46-65373a78367f}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Classes\common">
+      <UniqueIdentifier>{3c26c0b9-1a3e-4669-a726-40a778669d55}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Classes\lipiengine">
+      <UniqueIdentifier>{333959aa-e3bb-4cb6-9fce-91f956ebc2c2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Classes\reco">
+      <UniqueIdentifier>{cc824228-dc3f-4c3e-ae37-d892ccd0eb7f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Classes\reco\shaperec">
+      <UniqueIdentifier>{dba8e51d-79c0-4d0b-957a-ff7c7cf7941f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Classes\reco\shaperec\common">
+      <UniqueIdentifier>{80d5c359-5f82-466d-8afb-fc1d22624937}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Classes\reco\shaperec\nn">
+      <UniqueIdentifier>{8aa06a27-75c0-465b-bf18-014ef7b14146}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Classes\reco\shaperec\preprocessing">
+      <UniqueIdentifier>{8a449334-c42e-4679-8cbe-13743cd20cff}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Classes\reco\shaperec\featureextractor">
+      <UniqueIdentifier>{5ea78bdc-47a9-45dc-be28-cb0cce69aa5d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Classes\reco\shaperec\featureextractor\common">
+      <UniqueIdentifier>{669de2a6-81de-4213-99c8-47aac40d43f8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Classes\reco\shaperec\featureextractor\pointfloat">
+      <UniqueIdentifier>{f53570c7-27eb-4228-8c04-8edd5600b6a8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Classes\util">
+      <UniqueIdentifier>{c3fa9d7c-c691-4c25-8da0-d923de4a05a9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Classes\util\lib">
+      <UniqueIdentifier>{50217227-0e7d-497e-bedc-f031fa552514}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Classes\util\logger">
+      <UniqueIdentifier>{729c288e-6106-45f1-be86-31322f837334}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -330,9 +369,144 @@
     </ClCompile>
     <ClCompile Include="..\Classes\mini_games\DecomonGallery.cpp">
       <Filter>Classes\mini_games</Filter>
-     </ClCompile>
+    </ClCompile>
     <ClCompile Include="..\Classes\menu\HelpLayer.cpp">
       <Filter>Classes\menu</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Stroke.cpp">
+      <Filter>Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\AsyncTask.cpp">
+      <Filter>Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\LipiTKInterface.cpp">
+      <Filter>Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\LipiTKNode.cpp">
+      <Filter>Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\LipiTKProcessTask.cpp">
+      <Filter>Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\LipiTKResult.cpp">
+      <Filter>Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\common\LTKCaptureDevice.cpp">
+      <Filter>Classes\common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\common\LTKChannel.cpp">
+      <Filter>Classes\common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\common\LTKException.cpp">
+      <Filter>Classes\common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\common\LTKScreenContext.cpp">
+      <Filter>Classes\common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\common\LTKTrace.cpp">
+      <Filter>Classes\common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\common\LTKTraceFormat.cpp">
+      <Filter>Classes\common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\common\LTKTraceGroup.cpp">
+      <Filter>Classes\common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\lipiengine\lipiengine.cpp">
+      <Filter>Classes\lipiengine</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\lipiengine\LipiEngineModule.cpp">
+      <Filter>Classes\lipiengine</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\reco\shaperec\common\LTKShapeRecoConfig.cpp">
+      <Filter>Classes\reco\shaperec\common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\reco\shaperec\common\LTKShapeRecognizer.cpp">
+      <Filter>Classes\reco\shaperec\common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\reco\shaperec\common\LTKShapeRecoResult.cpp">
+      <Filter>Classes\reco\shaperec\common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\reco\shaperec\common\LTKShapeRecoUtil.cpp">
+      <Filter>Classes\reco\shaperec\common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\reco\shaperec\common\LTKShapeSample.cpp">
+      <Filter>Classes\reco\shaperec\common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\reco\shaperec\featureextractor\common\LTKShapeFeatureExtractor.cpp">
+      <Filter>Classes\reco\shaperec\featureextractor\common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\reco\shaperec\featureextractor\common\LTKShapeFeatureExtractorFactory.cpp">
+      <Filter>Classes\reco\shaperec\featureextractor\common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\reco\shaperec\featureextractor\pointfloat\PointFloat.cpp">
+      <Filter>Classes\reco\shaperec\featureextractor\pointfloat</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\reco\shaperec\featureextractor\pointfloat\PointFloatShapeFeature.cpp">
+      <Filter>Classes\reco\shaperec\featureextractor\pointfloat</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\reco\shaperec\featureextractor\pointfloat\PointFloatShapeFeatureExtractor.cpp">
+      <Filter>Classes\reco\shaperec\featureextractor\pointfloat</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\reco\shaperec\preprocessing\LTKPreprocessor.cpp">
+      <Filter>Classes\reco\shaperec\preprocessing</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\reco\shaperec\preprocessing\preprocessing.cpp">
+      <Filter>Classes\reco\shaperec\preprocessing</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\reco\shaperec\nn\NN.cpp">
+      <Filter>Classes\reco\shaperec\nn</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\reco\shaperec\nn\NNAdapt.cpp">
+      <Filter>Classes\reco\shaperec\nn</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\reco\shaperec\nn\NNShapeRecognizer.cpp">
+      <Filter>Classes\reco\shaperec\nn</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\util\lib\LTKCheckSumGenerate.cpp">
+      <Filter>Classes\util\lib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\util\lib\LTKConfigFileReader.cpp">
+      <Filter>Classes\util\lib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\util\lib\LTKErrors.cpp">
+      <Filter>Classes\util\lib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\util\lib\LTKImageWriter.cpp">
+      <Filter>Classes\util\lib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\util\lib\LTKInkFileReader.cpp">
+      <Filter>Classes\util\lib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\util\lib\LTKInkFileWriter.cpp">
+      <Filter>Classes\util\lib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\util\lib\LTKInkUtils.cpp">
+      <Filter>Classes\util\lib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\util\lib\LTKLoggerUtil.cpp">
+      <Filter>Classes\util\lib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\util\lib\LTKOSUtilFactory.cpp">
+      <Filter>Classes\util\lib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\util\lib\LTKStrEncoding.cpp">
+      <Filter>Classes\util\lib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\util\lib\LTKStringUtil.cpp">
+      <Filter>Classes\util\lib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\util\lib\LTKVersionCompatibilityCheck.cpp">
+      <Filter>Classes\util\lib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\util\logger\logger.cpp">
+      <Filter>Classes\util\logger</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\util\logger\LTKLogger.cpp">
+      <Filter>Classes\util\logger</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\util\lib\LTKWindowsUtil.cpp">
+      <Filter>Classes\util\lib</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -649,6 +823,204 @@
     <ClInclude Include="..\Classes\menu\HelpLayer.h">
       <Filter>Classes\menu</Filter>
     </ClInclude>
+    <ClInclude Include="..\Classes\Stroke.hpp">
+      <Filter>Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\AsyncTask.hpp">
+      <Filter>Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\LipiTKInterface.h">
+      <Filter>Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\LipiTKNode.h">
+      <Filter>Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\LipiTKProcessTask.h">
+      <Filter>Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\LipiTKResult.h">
+      <Filter>Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\LTKCaptureDevice.h">
+      <Filter>Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\LTKChannel.h">
+      <Filter>Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\LTKClassifierDefaults.h">
+      <Filter>Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\LTKErrorsList.h">
+      <Filter>Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\LTKException.h">
+      <Filter>Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\LTKInc.h">
+      <Filter>Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\LTKLipiEngineInterface.h">
+      <Filter>Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\LTKLogger.h">
+      <Filter>Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\LTKLoggerInterface.h">
+      <Filter>Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\LTKMacros.h">
+      <Filter>Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\LTKOSUtil.h">
+      <Filter>Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\LTKOSUtilFactory.h">
+      <Filter>Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\LTKPreprocDefaults.h">
+      <Filter>Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\LTKPreprocessor.h">
+      <Filter>Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\LTKPreprocessorInterface.h">
+      <Filter>Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\LTKRecognitionContext.h">
+      <Filter>Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\LTKRefCountedPtr.h">
+      <Filter>Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\LTKScreenContext.h">
+      <Filter>Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\LTKShapeFeatureMacros.h">
+      <Filter>Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\LTKShapeRecoConfig.h">
+      <Filter>Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\LTKShapeRecoEngine.h">
+      <Filter>Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\LTKShapeRecognizer.h">
+      <Filter>Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\LTKShapeRecoResult.h">
+      <Filter>Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\LTKShapeRecoUtil.h">
+      <Filter>Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\LTKTrace.h">
+      <Filter>Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\LTKTraceFormat.h">
+      <Filter>Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\LTKTraceGroup.h">
+      <Filter>Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\LTKTypes.h">
+      <Filter>Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\LTKWordRecoConfig.h">
+      <Filter>Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\LTKWordRecognizer.h">
+      <Filter>Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\LTKWordRecoResult.h">
+      <Filter>Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\lipiengine\lipiengine.h">
+      <Filter>Classes\lipiengine</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\lipiengine\LipiEngineModule.h">
+      <Filter>Classes\lipiengine</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\lipiengine\version.h">
+      <Filter>Classes\lipiengine</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\reco\shaperec\common\LTKShapeSample.h">
+      <Filter>Classes\reco\shaperec\common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\reco\shaperec\featureextractor\common\LTKShapeFeature.h">
+      <Filter>Classes\reco\shaperec\featureextractor\common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\reco\shaperec\featureextractor\common\LTKShapeFeatureExtractor.h">
+      <Filter>Classes\reco\shaperec\featureextractor\common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\reco\shaperec\featureextractor\common\LTKShapeFeatureExtractorFactory.h">
+      <Filter>Classes\reco\shaperec\featureextractor\common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\reco\shaperec\featureextractor\pointfloat\PointFloat.h">
+      <Filter>Classes\reco\shaperec\featureextractor\pointfloat</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\reco\shaperec\featureextractor\pointfloat\PointFloatShapeFeature.h">
+      <Filter>Classes\reco\shaperec\featureextractor\pointfloat</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\reco\shaperec\featureextractor\pointfloat\PointFloatShapeFeatureExtractor.h">
+      <Filter>Classes\reco\shaperec\featureextractor\pointfloat</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\reco\shaperec\preprocessing\preprocessing.h">
+      <Filter>Classes\reco\shaperec\preprocessing</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\reco\shaperec\nn\NN.h">
+      <Filter>Classes\reco\shaperec\nn</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\reco\shaperec\nn\NNAdapt.h">
+      <Filter>Classes\reco\shaperec\nn</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\reco\shaperec\nn\NNShapeRecognizer.h">
+      <Filter>Classes\reco\shaperec\nn</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\util\lib\LTKCheckSumGenerate.h">
+      <Filter>Classes\util\lib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\util\lib\LTKConfigFileReader.h">
+      <Filter>Classes\util\lib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\util\lib\LTKDynamicTimeWarping.h">
+      <Filter>Classes\util\lib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\util\lib\LTKErrors.h">
+      <Filter>Classes\util\lib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\util\lib\LTKHierarchicalClustering.h">
+      <Filter>Classes\util\lib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\util\lib\LTKImageWriter.h">
+      <Filter>Classes\util\lib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\util\lib\LTKInkFileReader.h">
+      <Filter>Classes\util\lib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\util\lib\LTKInkFileWriter.h">
+      <Filter>Classes\util\lib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\util\lib\LTKInkUtils.h">
+      <Filter>Classes\util\lib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\util\lib\LTKLoggerUtil.h">
+      <Filter>Classes\util\lib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\util\lib\LTKStrEncoding.h">
+      <Filter>Classes\util\lib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\util\lib\LTKStringUtil.h">
+      <Filter>Classes\util\lib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\util\lib\LTKVersionCompatibilityCheck.h">
+      <Filter>Classes\util\lib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\util\logger\logger.h">
+      <Filter>Classes\util\logger</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\util\lib\LTKWindowsUtil.h">
+      <Filter>Classes\util\lib</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="game.rc">
@@ -659,5 +1031,25 @@
     <Image Include="res\game.ico">
       <Filter>resource</Filter>
     </Image>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\Classes\lipiengine\lipiengine.def">
+      <Filter>Classes\lipiengine</Filter>
+    </None>
+    <None Include="..\Classes\reco\shaperec\featureextractor\pointfloat\PointFloat.def">
+      <Filter>Classes\reco\shaperec\featureextractor\pointfloat</Filter>
+    </None>
+    <None Include="..\Classes\reco\shaperec\preprocessing\preprocessing.def">
+      <Filter>Classes\reco\shaperec\preprocessing</Filter>
+    </None>
+    <None Include="..\Classes\reco\shaperec\nn\nn.cfg">
+      <Filter>Classes\reco\shaperec\nn</Filter>
+    </None>
+    <None Include="..\Classes\reco\shaperec\nn\NN.def">
+      <Filter>Classes\reco\shaperec\nn</Filter>
+    </None>
+    <None Include="..\Classes\util\logger\logger.def">
+      <Filter>Classes\util\logger</Filter>
+    </None>
   </ItemGroup>
 </Project>
