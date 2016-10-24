@@ -115,7 +115,7 @@ void WordScene::characterSelected(Ref *sender) {
     {
         WordScene::textReceived(text);
         clearLipiTKResult();
-        _lipiTKNode->removeFromParent();
+        //_lipiTKNode->removeFromParent();
         _handWritingDialogButton->setEnabled(true);
 
     }
@@ -352,8 +352,8 @@ void WordScene::showHandWritingDialog(Ref* pSender, ui::Widget::TouchEventType e
             {
                 _grid->setVisible(false);
                 clickedButton->setEnabled(false);
-//                _lipiTKNode = LipiTKNode::create(1000,1000,Vec2(clickedButton->getPosition().x, clickedButton->getPosition().y + 600), 70);
-//                addChild(_lipiTKNode);
+                _lipiTKNode = LipiTKNode::create(1000,1000,Vec2(clickedButton->getPosition().x, clickedButton->getPosition().y + 600), 70);
+                addChild(_lipiTKNode);
             } else {
                 clickedButton->setEnabled(false);
             }
