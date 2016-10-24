@@ -179,11 +179,13 @@ xc.SpriteTouchHandler = function (context) {
         //find out all skeleton on scene and object is overlap with it
         this.collisionDetectionWithSkeleton(target);
 
+
         if (target._markedForRemove) {
             var comExtensionData = target.getComponent("ComExtensionData");
-            if (comExtensionData && comExtensionData.getActionTag()) {
-                xc.ParseUtil.removeObjectFromStoredScene(comExtensionData.getActionTag());
-            } else if (target.ActionTag) {
+            // if (comExtensionData && comExtensionData.getActionTag()) {
+            //     xc.ParseUtil.removeObjectFromStoredScene(comExtensionData.getActionTag());
+            // } else 
+            if (target.ActionTag) {                        
                 xc.ParseUtil.removeObjectFromStoredScene(target.ActionTag);
             }
             target.parent.removeChild(target, true);

@@ -5,7 +5,7 @@
 #include "../lang/TextGenerator.h"
 #include "../effects/FShake.h"
 #include "../menu/MenuContext.h"
-
+#include "../menu/HelpLayer.h"
 USING_NS_CC;
 
 Circle::Circle()
@@ -147,11 +147,6 @@ bool Circle::init()
 	}
 	
 
-	_synonyms = TextGenerator::getInstance()->getSynonyms(10);
-	for (auto it = _synonyms.begin(); it != _synonyms.end(); ++it) {
-		_mapKey.push_back(it->first);
-	}
-
 	if (_scenePath.at("animation_select").compare("two") == 0)
 	{
 		CCLOG("two");
@@ -185,14 +180,78 @@ bool Circle::init()
 	if (_scenePath.at("animation_select").compare("three") == 0)
 	{
 		CCLOG("three");
+		
 		_friend = background->getChildByName("cake");
 		
 
 	}
-	wordGenerateWithOptions();
+	//wordGenerateWithOptions();
 	return true;
 }
+void Circle::onEnterTransitionDidFinish()
+{
+	Node::onEnterTransitionDidFinish();
+	int level = 24;
 
+	int division = ((level - 1) % 15) + 1;
+	if (division >= 1 && division < 6) {
+		int roundLevel = (level / 15) + 1;
+		int inner = division + ((roundLevel - 1) * 5);
+		CCLOG("Sysnonyms Level = %d", inner);
+		_synonyms = TextGenerator::getInstance()->getSynonyms(10);
+	}
+	else if (division >5 && division < 11) {
+		int roundLevel = (level / 15) + 1;
+		int inner = division - 5 + ((roundLevel - 1) * 5);
+		CCLOG("Antonyms Level = %d", inner);
+		_synonyms = TextGenerator::getInstance()->getAntonyms(10);
+	}
+	else {
+		int roundLevel = (level / 15) + 1;
+		int inner = division - 10 + ((roundLevel - 1) * 5);
+		CCLOG("Homonyms Level = %d", inner);
+		_synonyms = TextGenerator::getInstance()->getHomonyms(10);
+	}
+
+
+	for (auto it = _synonyms.begin(); it != _synonyms.end(); ++it) {
+		_mapKey.push_back(it->first);
+	}
+	wordGenerateWithOptions();
+
+	if (_scenePath.at("animation_select").compare("three") == 0)
+	{
+		menu->setMaxPoints(6);
+	}
+	else
+	{
+		menu->setMaxPoints(5);
+	}
+}
+
+void Circle::gameHelp()
+{
+	_helpFlage = true;
+	//game help only for first level
+	auto labelSize = _topLabel->getContentSize();
+	auto labelPosition = _topLabel->getPosition();
+	auto ans = _synonyms.at(_gameWord);
+	std::string name;
+	for (int i = 0; i < _answers.size(); i++) {
+		if (_answers.at(i).find(ans) == 0) {
+			CCLOG("help");
+			name = _answers.at(i);
+		}
+	}
+	auto optionLayer = this->getChildByName(name.c_str());
+	auto optionSize = optionLayer->getContentSize();
+	auto optionPosition = optionLayer->getPosition();
+	auto help = HelpLayer::create(Rect(optionPosition.x, optionPosition.y, optionSize.width, optionSize.height), Rect(labelPosition.x, labelPosition.y, labelSize.width, labelSize.height));
+	help->click(Vec2(optionPosition));
+	help->setName("helpLayer");
+	this->addChild(help);
+
+}
 void Circle::eat(char str)
 {
 	std::stringstream ss; 
@@ -307,26 +366,30 @@ void Circle::addEnemy(int num)
 	}
 	auto action = MoveTo::create(1.0, Vec2(_enemyRef.at(num - 1)->getPositionX() + extraX, _enemyRef.at(num - 1)->getPositionY()));
 	enemyadding->runAction(Sequence::create(action,CallFunc::create([=]() {
-		wordGenerateWithOptions();
+
+		if (_score == 5)
+		{
+			_friend->setRotation(0.0f);
+			auto timeline = CSLoader::createTimeline(("circlehero/punch.csb"));
+			_friend->getChildByName("lefthand")->runAction(timeline);
+			timeline->play("flex", true);
+			auto timeline2 = CSLoader::createTimeline(("circlehero/punch.csb"));
+			_friend->getChildByName("righthand")->runAction(timeline2);
+			timeline2->play("flex", true);
+
+			this->scheduleOnce(schedule_selector(Circle::scoreBoard), 3.0f);
+		}
+		else
+		{
+			wordGenerateWithOptions();
+		}
+		
 	}), NULL));
 	auto timeline = CSLoader::createTimeline(_scenePath.at("enemy"));
 	//auto blastref = _enemyRef1.at(num - 1);
 
 	enemyadding->runAction(timeline);
 	timeline->play("meteorfloat", false);
-
-	if (_score == 5)
-	{
-		_friend->setRotation(0.0f);
-		auto timeline = CSLoader::createTimeline(("circlehero/punch.csb"));
-		_friend->getChildByName("lefthand")->runAction(timeline);
-		timeline->play("flex",true);
-		auto timeline2 = CSLoader::createTimeline(("circlehero/punch.csb"));
-		_friend->getChildByName("righthand")->runAction(timeline2);
-		timeline2->play("flex", true);
-
-		this->scheduleOnce(schedule_selector(Circle::scoreBoard), 3.0f);
-	}
 
 }
 
@@ -406,6 +469,10 @@ void Circle::bigpuff(float dt)
 }
 void Circle::wordGenerateWithOptions()
 {
+	if (_helpFlage) {
+		this->removeChildByName("helpLayer");
+		_helpFlage = false;
+	}
 	std::vector<std::string> answer;
 	Size visibleSize = Director::getInstance()->getVisibleSize();
 	int size = _mapKey.size();
@@ -432,7 +499,14 @@ void Circle::wordGenerateWithOptions()
 
 	int randomInt1 = cocos2d::RandomHelper::random_int(0, size - 1);
 	for (int j = 0; j < 5; j++) {
-		answer.push_back(_synonyms.at(_mapKey.at(randomInt1 % size)));
+		auto str = _synonyms.at(_mapKey.at(randomInt1 % size));
+		if (_synonyms.at(_gameWord).compare(str) == 0) {
+			randomInt1++;
+			answer.push_back(_synonyms.at(_mapKey.at(randomInt1 % size)));
+		}
+		else {
+			answer.push_back(str);
+		}
 		randomInt1++;
 	}
 	int answerSize = answer.size() - 1;
@@ -453,6 +527,7 @@ void Circle::wordGenerateWithOptions()
 		
 		//myLabel->setColor(Color3B(0, 0, 0));
 		myLabel->setName(str+str1);
+		_answers.push_back(str + str1);
 		this->addChild(myLabel,1);
 		_choiceLabel.pushBack(myLabel);
 		auto listener = EventListenerTouchOneByOne::create();
@@ -461,7 +536,10 @@ void Circle::wordGenerateWithOptions()
 		_eventDispatcher->addEventListenerWithSceneGraphPriority(listener, myLabel);
 		randomInt++;
 	}
-
+	auto x = menu->getCurrentLevel();
+	if (menu->getCurrentLevel() == 1 && _score == 0) {
+		gameHelp();
+	}
 }
 
 bool Circle::onTouchBegan(cocos2d::Touch * touch, cocos2d::Event * event)
@@ -497,16 +575,20 @@ bool Circle::onTouchBegan(cocos2d::Touch * touch, cocos2d::Event * event)
 			if (_scenePath.at("animation_select").compare("one") == 0)
 			{
 				_score++;
+				menu->addPoints(1);
 				change(ssss);
+				
 			}
 			else if (_scenePath.at("animation_select").compare("two") == 0)
 			{
 				_score++;
+				menu->addPoints(1);
 				eat(ssss);
 			}
 			else
 			{ 
 				_score++;
+				menu->addPoints(1);
 				topping(ssss);
 				
 			}
@@ -515,6 +597,7 @@ bool Circle::onTouchBegan(cocos2d::Touch * touch, cocos2d::Event * event)
 		}
 		else
 		{
+			menu->addPoints(-1);
 			FShake* shake = FShake::actionWithDuration(1.0f, 10.0f);
 			_friend->runAction(shake);
 		}

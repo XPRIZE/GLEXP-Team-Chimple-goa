@@ -279,10 +279,7 @@ void Memory::onEnterTransitionDidFinish() {
 		setupTouch();
 	}
 
-
-	CCLOG("asjdasd : ", _randomIndex);
-
-
+	//CCLOG("asjdasd : ", _randomIndex);
 
 }
 bool Memory::init() {

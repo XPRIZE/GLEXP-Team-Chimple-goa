@@ -51,7 +51,7 @@ public:
 	void startGame();
 
 protected:
-	bool isTouching;
+	bool isTouching , _helpLayer, _isPlayFirst, _touched = false;
 	MenuContext * menu;
 	MenuContext* _menuContext;
     cocos2d::EventListenerTouchOneByOne* listener;
