@@ -48,8 +48,12 @@ void LipiTKInterface::initialize() {
     
     int result;
     CCLOG("lipitkLocation 1111");
-    std::string lipitkLocation = FileUtils::getInstance()->fullPathForFilename(_lipiDirectory);
-    
+#if (CC_TARGET_PLATFORM == CC_PLATFORM_WINRT || CC_TARGET_PLATFORM == CC_PLATFORM_WIN32)
+	std::string lipitkLocation = "D:/GLEXP-Team-Chimple/goa/frameworks/runtime-src/proj.win32/Debug.win32/res";
+#else
+	std::string lipitkLocation = FileUtils::getInstance()->fullPathForFilename(_lipiDirectory);
+#endif // WIN32
+
     _lipiEngine = createLTKLipiEngine();
     
     _lipiEngine->setLipiRootPath(lipitkLocation);

@@ -115,7 +115,7 @@ void WordScene::characterSelected(Ref *sender) {
     {
         WordScene::textReceived(text);
         clearLipiTKResult();
-        _lipiTKNode->removeFromParent();
+        //_lipiTKNode->removeFromParent();
         _handWritingDialogButton->setEnabled(true);
 
     }
