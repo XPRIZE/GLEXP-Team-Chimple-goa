@@ -1,5 +1,23 @@
 [
     {
+        "name": "choose_character",
+        "cIcon": "gameicons/EndlessRunner_pressed.png",
+        "icon": "gameicons/EndlessRunner.png",
+        "multiPlayer": false,
+        "isJSGame": true,
+        "pureJS":"",
+        "script": "src/start/characterConfigure.js"
+    },    
+    {
+        "name": "story-teller",
+        "cIcon": "gameicons/EndlessRunner_pressed.png",
+        "icon": "gameicons/EndlessRunner.png",
+        "multiPlayer": false,
+        "isJSGame": true,
+        "pureJS":"",
+        "script": "src/start/storytelling.js"
+    },
+    {
         "name": "show_bluetoothPeers",
         "cIcon": "gameicons/EndlessRunner_pressed.png",
         "icon": "gameicons/EndlessRunner.png",
@@ -33,13 +51,13 @@
         "isJSGame": false,
         "script": "src/NonJSGameLauncher.js",
         "span": "5",
-        "numLevels": "24",
-        "backgroundJson": "cityscreen/background.json",
-        "foregroundJson": "cityscreen/foreground.json",
-        "frontgroundJson": "cityscreen/frontground.json",
-        "maingroundJson": "cityscreen/mainground.json",
-        "menuPlist": "cityscreen/cityscreen.plist",
-        "menuPng": "cityscreen/cityscreen.png"
+        "numLevels": "40",
+        "backgroundJson": "plevelscreen2/bjlevelbg.json",
+        "foregroundJson": "plevelscreen2/bjlevelfrg.json",
+        "frontgroundJson": "plevelscreen2/bjlevelfng.json",
+        "maingroundJson": "plevelscreen2/bjlevelmng.json",
+        "menuPlist": "plevelscreen2/plevelscreen2.plist",
+        "menuPng": "plevelscreen2/plevelscreen2.png"
     },
     {
         "name": "bubble",
@@ -66,14 +84,14 @@
         "isJSGame": true,
         "pureJS": "Pinata",
         "script": "src/start/pinata.js",
-        "span": "5",
-        "numLevels": "24",
-        "backgroundJson": "cityscreen/background.json",
-        "foregroundJson": "cityscreen/foreground.json",
-        "frontgroundJson": "cityscreen/frontground.json",
-        "maingroundJson": "cityscreen/mainground.json",
-        "menuPlist": "cityscreen/cityscreen.plist",
-        "menuPng": "cityscreen/cityscreen.png"
+        "span": "9",
+        "numLevels": "75",
+        "backgroundJson": "pinatacandylevel/background.json",
+        "foregroundJson": "pinatacandylevel/foreground.json",
+        "frontgroundJson": "pinatacandylevel/frontground.json",
+        "maingroundJson": "pinatacandylevel/mainground.json",
+        "menuPlist": "pinatacandylevel/cityscreen.plist",
+        "menuPng": "pinatacandylevel/pinatacandylevel.png"
     },
     {
         "name": "owl",
@@ -82,14 +100,14 @@
         "multiPlayer": false,
         "isJSGame": false,
         "script": "src/NonJSGameLauncher.js",
-        "span": "5",
-        "numLevels": "24",
-        "backgroundJson": "cityscreen/background.json",
-        "foregroundJson": "cityscreen/foreground.json",
-        "frontgroundJson": "cityscreen/frontground.json",
-        "maingroundJson": "cityscreen/mainground.json",
-        "menuPlist": "cityscreen/cityscreen.plist",
-        "menuPng": "cityscreen/cityscreen.png"
+        "span": "14",
+        "numLevels": "100",
+        "backgroundJson": "owllevel/background.json",
+        "foregroundJson": "owllevel/foreground.json",
+        "frontgroundJson": "owllevel/frontground.json",
+        "maingroundJson": "owllevel/mainground.json",
+        "menuPlist": "owllevel/owllevel.plist",
+        "menuPng": "owllevel/owllevel.png"
     },
     {
         "name": "ConnectTheDots",
@@ -180,14 +198,14 @@
         "multiPlayer":false,
         "isJSGame":false,
         "script":"src/NonJSGameLauncher.js",
-        "span": "5",
-        "numLevels": "24",
-        "backgroundJson": "cityscreen/background.json",
-        "foregroundJson": "cityscreen/foreground.json",
-        "frontgroundJson": "cityscreen/frontground.json",
-        "maingroundJson": "cityscreen/mainground.json",
-        "menuPlist": "cityscreen/cityscreen.plist",
-        "menuPng": "cityscreen/cityscreen.png"  
+        "span": "2",
+        "numLevels": "8",
+        "backgroundJson": "plevelscreen2/cblevelbg.json",
+        "foregroundJson": "plevelscreen2/cblevelfrg.json",
+        "frontgroundJson": "plevelscreen2/cblevelfng.json",
+        "maingroundJson": "plevelscreen2/cblevelmng.json",
+        "menuPlist": "plevelscreen2/plevelscreen2.plist",
+        "menuPng": "plevelscreen2/plevelscreen2.png"  
     },
     {
         "name": "decomone",
@@ -374,12 +392,12 @@
     "script": "src/NonJSGameLauncher.js",
     "span": "5",
     "numLevels": "26",
-    "backgroundJson": "cityscreen/background.json",
-    "foregroundJson": "cityscreen/foreground.json",
-    "frontgroundJson": "cityscreen/frontground.json",
-    "maingroundJson": "cityscreen/mainground.json",
-    "menuPlist": "cityscreen/cityscreen.plist",
-    "menuPng": "cityscreen/cityscreen.png"
+    "backgroundJson": "kungfualpha/background.json",
+    "foregroundJson": "kungfualpha/foreground.json",
+    "frontgroundJson": "kungfualpha/frontground.json",
+    "maingroundJson": "kungfualpha/mainground.json",
+    "menuPlist": "kungfualpha/kungfualpha.plist",
+    "menuPng": "kungfualpha/kungfualpha.png"
   },
   {
     "name": "sortit",
@@ -389,14 +407,14 @@
     "isJSGame": true,
     "pureJS": "sortitlevel1Layer",
     "script": "src/start/sortit.js",
-    "span": "5",
-    "numLevels": "24",
-    "backgroundJson": "cityscreen/background.json",
-    "foregroundJson": "cityscreen/foreground.json",
-    "frontgroundJson": "cityscreen/frontground.json",
-    "maingroundJson": "cityscreen/mainground.json",
-    "menuPlist": "cityscreen/cityscreen.plist",
-    "menuPng": "cityscreen/cityscreen.png"
+    "span": "2",
+    "numLevels": "5",
+    "backgroundJson": "sortitlevel/background.json",
+    "foregroundJson": "sortitlevel/foreground.json",
+    "frontgroundJson": "sortitlevel/frontground.json",
+    "maingroundJson": "sortitlevel/mainground.json",
+    "menuPlist": "sortitlevel/sortitlevel.plist",
+    "menuPng": "sortitlevel/sortitlevel.png"
   },
   {
     "name": "wembley",
@@ -469,14 +487,14 @@
     "multiPlayer": false,
     "isJSGame": false,
     "script": "src/NonJSGameLauncher.js",
-    "span": "5",
-    "numLevels": "24",
-    "backgroundJson": "cityscreen/background.json",
-    "foregroundJson": "cityscreen/foreground.json",
-    "frontgroundJson": "cityscreen/frontground.json",
-    "maingroundJson": "cityscreen/mainground.json",
-    "menuPlist": "cityscreen/cityscreen.plist",
-    "menuPng": "cityscreen/cityscreen.png"
+    "span": "10",
+    "numLevels": "75",
+    "backgroundJson": "circleislandlevel/circlebackground.json",
+    "foregroundJson": "circleislandlevel/circleforeground.json",
+    "frontgroundJson": "circleislandlevel/circlefrontground.json",
+    "maingroundJson": "circleislandlevel/circlemainground.json",
+    "menuPlist": "circleislandlevel/circleislandlevel.plist",
+    "menuPng": "circleislandlevel/circleislandlevel.png"
   },
   {
     "name": "jazz",
@@ -493,5 +511,21 @@
     "maingroundJson": "cityscreen/mainground.json",
     "menuPlist": "cityscreen/cityscreen.plist",
     "menuPng": "cityscreen/cityscreen.png"
+  },
+   {
+    "name": "Smash The Rock",
+    "cIcon": "gameicons/Smash The Rock_pressed.png",
+    "icon": "gameicons/Smash The Rock.png",
+    "multiPlayer": false,
+    "isJSGame": false,
+    "script": "src/NonJSGameLauncher.js",
+    "span": "5",
+    "numLevels": "26",
+    "backgroundJson": "smash_de_rock/layer1.json",
+    "foregroundJson": "smash_de_rock/layer3.json",
+    "frontgroundJson": "smash_de_rock/layer4.json",
+    "maingroundJson": "smash_de_rock/layer2.json",
+    "menuPlist": "smash_de_rock/smashderock_01.plist",
+    "menuPng": "smash_de_rock/smashderock_01.png"
   }
 ]

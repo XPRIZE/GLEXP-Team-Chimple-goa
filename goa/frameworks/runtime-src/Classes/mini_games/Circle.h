@@ -19,6 +19,9 @@ public:
 	void topping(char  str);
 	void puff();
 	void scoreBoard(float dt);
+	void onEnterTransitionDidFinish();
+	void gameHelp();
+	bool _helpFlage;
 	int _score = 0;
 	void bigpuff(float dt);
 	float extraX;
@@ -33,6 +36,7 @@ public:
 	cocos2d::Label * _topLabel;
 	cocos2d::Vector <cocos2d::Sprite *> _choiceButton;
 	cocos2d::Vector <cocos2d::Label *> _choiceLabel;
+	std::vector <std::string> _answers;
 	std::map<std::string, std::string> _synonyms;
 	std::vector <std::string> _mapKey;
 	void wordGenerateWithOptions();

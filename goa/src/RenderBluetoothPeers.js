@@ -8,6 +8,21 @@ xc.RenderBluetoothPeersLayer = cc.LayerColor.extend({
     _characterNode: null,    
     _panel:null,
     _discoveredConfiguration:[],
+    _selectedColorConfigurationForCharacter:[
+        {
+            "color":"#ff0000",
+            "selectedIndex": 0
+        },
+        {
+            "color":"#ff00ff",
+            "selectedIndex": 1
+        },
+        {
+            "color":"#f0f0f",
+            "selectedIndex": 2
+        }
+
+    ],    
     ctor: function () {        
         this._super(xc.TERTIARY_COLOR);
         this._name = "RenderBluetoothPeersLayer";
@@ -19,8 +34,7 @@ xc.RenderBluetoothPeersLayer = cc.LayerColor.extend({
     },
 
     init: function () {                 
-        cc.sys.localStorage.setItem("discoveredBluetoothDevices", "0_5_5_0_2_5_0_4_5_1_1_0_4-AA:BB:CC:XX");
-        // cc.sys.localStorage.setItem("discoveredBluetoothDevices", "0_5-AA:BB:CC:XX");
+        cc.sys.localStorage.setItem("discoveredBluetoothDevices", "5_5_0_3_0_1_2_3_0_3_3_0_0_2_c_0_1-AA:BB:CC:XX");
         if(cc.sys.localStorage.getItem("discoveredBluetoothDevices")) {
             this._discoveredConfiguration = cc.sys.localStorage.getItem("discoveredBluetoothDevices").split(',');
         }
@@ -75,7 +89,10 @@ xc.RenderBluetoothPeersLayer = cc.LayerColor.extend({
                 var selectedConfigurationForCharacter = context.convertCachedBluetoothNameToArray(charConfig);
                 selectedConfigurationForCharacter.forEach(function(element) {
                     context.displaySkin(load.node, element.bone, element.itemUrl, element.anchorX, element.anchorY, element.positionX, element.positionY, element.rotationX, element.rotationY, element.selectedItemIndex);
-                });                        
+                });  
+
+                this.colorSkin(load.node, ['hairfront','hairback'], true, this._hairColorIndex);
+                this.colorSkin(load.node, ['faceshape','body'], true, this._faceColorIndex);             
             }
             return load.node;
             //return load.node.getChildren()[0].getChildren()[0];            
@@ -92,6 +109,9 @@ xc.RenderBluetoothPeersLayer = cc.LayerColor.extend({
     convertCachedBluetoothNameToArray: function(configuration) {
         if(configuration) {
             var array = configuration.split('_');
+            this._faceColorIndex = array[array.length - 2];
+            this._hairColorIndex = array[array.length - 1];
+            array = array.splice(0,array.length - 3);
             var decodedBluetoothNameToArray = [];
             if(array && array.length > 0) {
                 array.forEach(function(ele, index) {
@@ -107,6 +127,26 @@ xc.RenderBluetoothPeersLayer = cc.LayerColor.extend({
             return decodedBluetoothNameToArray;
         }
     },    
+
+
+    colorSkin: function(skeleton, selectedBoneNames, isHairColor, selectedIndex) {
+        if(isHairColor) {
+            this._hairColorIndex = selectedIndex;
+        } else {
+            this._faceColorIndex =  selectedIndex; 
+        }
+        
+        var color = this._selectedColorConfigurationForCharacter[selectedIndex].color;
+        var that = this;
+        selectedBoneNames.forEach(function(selectedBoneName) {
+            var boneNode = skeleton.getBoneNode(selectedBoneName);                                
+            if(boneNode && color)  {
+                boneNode.getSkins().forEach(function (skin) {
+                    skin.color = cc.color(color)
+                });
+            }
+        });
+    },
     
     displaySkin:function (skeletonNode, bone, itemUrl, anchorX, anchorY, positionX, positionY, rotationX, rotationY, selectedItemIndex) {
         var boneNode = skeletonNode.getBoneNode(bone);

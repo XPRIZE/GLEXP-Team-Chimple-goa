@@ -31,6 +31,7 @@ public:
 	std::vector<std::string> _wordList;
 	void ladderMove();
 	void newCake();
+	void onEnterTransitionDidFinish();
 	void blink(std::string animationName, bool loop);
 	static const char* gameName() { return PILLAR.c_str(); }
 protected:

@@ -129,6 +129,8 @@ void Owl::onEnterTransitionDidFinish()
 	int gameCurrentLevel = _menuContext->getCurrentLevel();
 	std::tuple<int, int , int> levelKeyNumber = levelAllInfo(gameCurrentLevel,5,5,3,10);
 	
+	auto xxxx = levelAllInfos(gameCurrentLevel,10,3,5,5);
+
 	if (std::get<0>(levelKeyNumber) == 1) {
 		_data = TextGenerator::getInstance()->getAntonyms(5);
 	}
@@ -261,6 +263,18 @@ std::tuple<int, int,int> Owl::levelAllInfo(int currentLevel, int totalCategory ,
 		categoryLevel = (currentLevel-1) % eachCategoryGroup + (std::ceil((currentLevel-1) / (eachCategoryGroup *  totalCategory)) * eachCategoryGroup) + 1;
 
 	return std::make_tuple(categoryNo, sceneNo, categoryLevel);
+}
+
+std::pair<int, int> Owl::levelAllInfos(int currentLevel, int sceneRepetitionNo, int totalScene, int catagoryRepetitionNo, int totalcatagory)
+{
+	float currentLevelInFloat = static_cast<float>(currentLevel);
+	int sceneBaseValue = static_cast<int>(std::ceil(currentLevelInFloat / sceneRepetitionNo));
+	int sceneNo = sceneBaseValue % totalScene;
+
+	int catagoryBaseValue = static_cast<int>(std::ceil(currentLevelInFloat / catagoryRepetitionNo));
+	int catagoryNo = catagoryBaseValue % totalcatagory;
+
+	return std::make_pair(sceneNo, catagoryNo);
 }
 
 void Owl::autoPlayerController(float data) {

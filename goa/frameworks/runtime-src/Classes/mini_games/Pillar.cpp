@@ -137,15 +137,10 @@ bool Pillar::init()
 	_Ref.push_back(background->getChildByName(_scenePath.at("point3")));
 	_Ref.push_back(background->getChildByName(_scenePath.at("point4")));
 	_Ref.push_back(background->getChildByName(_scenePath.at("point5")));
-    _Ref.at(0)->setContentSize(cocos2d::Size(100, 100));
+  //  _Ref.at(0)->setContentSize(cocos2d::Size(100, 100));
 	_pointRef = (Sprite*)_Ref.at(0);
+	//_pointRef->setVisible(true);
 	
-	_wordCorrect = TextGenerator::getInstance()->getWords(TextGenerator::POS::NOUN, 5, 1);
-	std::copy(std::begin(_wordCorrect), std::end(_wordCorrect), std::back_inserter(_wordList));
-	auto wordVerb = TextGenerator::getInstance()->getWords(TextGenerator::POS::VERB, 3, 1);
-	std::copy(std::begin(wordVerb), std::end(wordVerb), std::inserter(_wordList, _wordList.end()));
-	auto wordAdj = TextGenerator::getInstance()->getWords(TextGenerator::POS::ADJECTIVE, 3, 1);
-	std::copy(std::begin(wordAdj), std::end(wordAdj), std::inserter(_wordList, _wordList.end()));
 
 	auto swingAction = CallFunc::create(CC_CALLBACK_0(Pillar::blink, this, "blink", false));
 	runAction(RepeatForever::create(Sequence::create(DelayTime::create(1 + (rand() % 60) / 30.0), swingAction, NULL)));
@@ -167,6 +162,29 @@ bool Pillar::init()
 		bubble2->runAction(timeline2);
 		timeline2->play("bubble", true);
 	}
+	if (_scenePath.at("animation_select").compare("three") == 0)
+	{
+		
+		auto smoke = background->getChildByName("FileNode_1");
+		auto timeline = CSLoader::createTimeline("layerfarm/smoke.csb");
+		smoke->runAction(timeline);
+		timeline->gotoFrameAndPlay(0,true);
+		
+		auto wind = background->getChildByName("FileNode_2_0_0");
+		auto timeline1 = CSLoader::createTimeline("layerfarm/windmill.csb");
+		wind->runAction(timeline1);
+		timeline1->gotoFrameAndPlay(0, true);
+
+		auto wind1 = background->getChildByName("FileNode_2");
+		auto timeline2 = CSLoader::createTimeline("layerfarm/windmill.csb");
+		wind1->runAction(timeline2);
+		timeline2->gotoFrameAndPlay(0, true);
+
+		auto wind2 = background->getChildByName("FileNode_2_0");
+		auto timeline3 = CSLoader::createTimeline("layerfarm/windmill.csb");
+		wind2->runAction(timeline3);
+		timeline3->gotoFrameAndPlay(0, true);
+	}
 	newCake();
 	ladderMove();
 	this->scheduleUpdate();
@@ -174,6 +192,49 @@ bool Pillar::init()
 	
 
 
+}
+void Pillar::onEnterTransitionDidFinish()
+{
+	Node::onEnterTransitionDidFinish();
+	int level = 24;
+
+	int division = ((level - 1) % 15) + 1;
+	if (division >= 1 && division < 6) {
+		int roundLevel = (level / 15) + 1;
+		int inner = division + ((roundLevel - 1) * 5);
+		CCLOG("Sysnonyms Level = %d", inner);
+		_wordCorrect = TextGenerator::getInstance()->getWords(TextGenerator::POS::NOUN, 5, 1);
+		std::copy(std::begin(_wordCorrect), std::end(_wordCorrect), std::back_inserter(_wordList));
+		auto wordVerb = TextGenerator::getInstance()->getWords(TextGenerator::POS::VERB, 3, 1);
+		std::copy(std::begin(wordVerb), std::end(wordVerb), std::inserter(_wordList, _wordList.end()));
+		auto wordAdj = TextGenerator::getInstance()->getWords(TextGenerator::POS::ADJECTIVE, 3, 1);
+		std::copy(std::begin(wordAdj), std::end(wordAdj), std::inserter(_wordList, _wordList.end()));
+	}
+	else if (division > 5 && division < 11) {
+		int roundLevel = (level / 15) + 1;
+		int inner = division - 5 + ((roundLevel - 1) * 5);
+		CCLOG("Antonyms Level = %d", inner);
+		_wordCorrect = TextGenerator::getInstance()->getWords(TextGenerator::POS::VERB, 5, 1);
+		std::copy(std::begin(_wordCorrect), std::end(_wordCorrect), std::back_inserter(_wordList));
+		auto wordVerb = TextGenerator::getInstance()->getWords(TextGenerator::POS::NOUN, 3, 1);
+		std::copy(std::begin(wordVerb), std::end(wordVerb), std::inserter(_wordList, _wordList.end()));
+		auto wordAdj = TextGenerator::getInstance()->getWords(TextGenerator::POS::ADJECTIVE, 3, 1);
+		std::copy(std::begin(wordAdj), std::end(wordAdj), std::inserter(_wordList, _wordList.end()));
+	}
+	else {
+		int roundLevel = (level / 15) + 1;
+		int inner = division - 10 + ((roundLevel - 1) * 5);
+		CCLOG("Homonyms Level = %d", inner);
+		_wordCorrect = TextGenerator::getInstance()->getWords(TextGenerator::POS::ADJECTIVE, 5, 1);
+		std::copy(std::begin(_wordCorrect), std::end(_wordCorrect), std::back_inserter(_wordList));
+		auto wordVerb = TextGenerator::getInstance()->getWords(TextGenerator::POS::VERB, 3, 1);
+		std::copy(std::begin(wordVerb), std::end(wordVerb), std::inserter(_wordList, _wordList.end()));
+		auto wordAdj = TextGenerator::getInstance()->getWords(TextGenerator::POS::NOUN, 3, 1);
+		std::copy(std::begin(wordAdj), std::end(wordAdj), std::inserter(_wordList, _wordList.end()));
+	}
+
+
+	
 }
 void Pillar::blink(std::string animationName, bool loop)
 {
@@ -199,7 +260,14 @@ void Pillar::newCake()
 	_ladder->setRotation(0.0f);
 	_cake = Sprite::createWithSpriteFrameName(_scenePath.at("cakePath"));
 	//_cake->setScale(0.55);
-	_cake->setPositionX(_ladder->getContentSize().width / 2);
+	if (_scenePath.at("animation_select").compare("one") == 0)
+	{
+		_cake->setPositionX(_ladder->getContentSize().width / 2 + 18);
+	}
+	else
+	{
+		_cake->setPositionX(_ladder->getContentSize().width / 2 );
+	}
 	_cake->setPositionY(_ladder->getContentSize().height);
 	_ladder->addChild(_cake);
 	auto listener = EventListenerTouchOneByOne::create();
@@ -303,7 +371,7 @@ bool Pillar::onTouchBegan(cocos2d::Touch * touch, cocos2d::Event * event)
 				auto timeline1 = CSLoader::createTimeline(_scenePath.at("character"));
 				_character->runAction(timeline1);
 				timeline1->play(_scenePath.at("cry"), false);
-				runAction(Sequence::create(DelayTime::create(2), CallFunc::create([=]() {
+				runAction(Sequence::create(DelayTime::create(3), CallFunc::create([=]() {
 					newCake();
 				}), NULL));
 			}

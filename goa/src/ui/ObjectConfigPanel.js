@@ -123,17 +123,12 @@ xc.ObjectConfigPanel = cc.LayerColor.extend({
         else if (button.getName() == "icons/flipX.png") {
             if (this._target) {
                 this._target.setScaleX(-1 * this._target.getScaleX());
-                var comExtensionData = this._target.getComponent("ComExtensionData");
-                if (comExtensionData && comExtensionData.getActionTag()) {
-                    xc.ParseUtil.updateFlipObjectFromStoredScene(comExtensionData.getActionTag(), this._target.getScaleX());
-                }
+                xc.ParseUtil.updateFlipObjectFromStoredScene(this._target.ActionTag, this._target.getScaleX());
             }
         } else if (button.getName() == "icons/delete.png") {
             if (this._target) {
-                var comExtensionData = this._target.getComponent("ComExtensionData");
-                if (comExtensionData && comExtensionData.getActionTag()) {
-                    xc.ParseUtil.removeObjectFromStoredScene(comExtensionData.getActionTag());
-                } else if (this._target.ActionTag) {
+                if (this._target.ActionTag) {
+                    cc.log('ffffff' + this._target.ActionTag);
                     xc.ParseUtil.removeObjectFromStoredScene(this._target.ActionTag);
                 }
                 this._target.parent.removeChild(this._target, true);
