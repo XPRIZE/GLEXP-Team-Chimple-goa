@@ -17,7 +17,7 @@ std::vector<Alphabet*> MainGame::meteorArray_actualImage;
 std::vector<EventListenerClass*> MainGame::letterArray;
 std::vector<LabelClass*> MainGame::meteorArray;
 std::vector<cocos2d::Node*> MainGame::bulletArray_Animation;
-
+HelpLayer* MainGame::_help;
 CocosDenshion::SimpleAudioEngine* MainGame::audioBg;
 
 EventListenerClass* MainGame::cannon1;
@@ -149,9 +149,47 @@ void MainGame::onEnterTransitionDidFinish()
 	self = this;
 
 	startGame();
-	letterCome(1);
-	self->schedule(schedule_selector(MainGame::letterCome), letterComespeed);
+//	letterCome(1);
+//	self->schedule(schedule_selector(MainGame::letterCome), letterComespeed);
 	self->scheduleUpdate();
+	displayHelp();
+}
+
+//	function display help for first time when game is open
+void MainGame::displayHelp()
+{
+	wchar_t letterName;
+	std::vector<wchar_t> chars = MainChars[0];
+
+	letterName = chars[0];
+
+	int val = 1;
+	EventListenerClass *lett = EventListenerClass::createSprite("cannonball/cannonball_mainasset/meteor.png", MainGame::width * .10, MainGame::lettertmpPosition[val].y, letterName, self);
+	this->addChild(lett);
+	MainGame::letterArray.push_back(lett);
+
+	LabelClass *meteor = LabelClass::createSpt(letterName, MainGame::width * .10, MainGame::lettertmpPosition[val].y, letterName, self);
+	MainGame::meteorArray.push_back(meteor);
+
+	Alphabet *myLabel = Alphabet::createWithSize(letterName, 300);
+	myLabel->setPosition(lett->getBoundingBox().size.width / 2, lett->getBoundingBox().size.height / 2.2);
+	lett->addChild(myLabel);
+	MainGame::meteorArray_actualImage.push_back(myLabel);
+
+	MainGame::lettertmpPosition.erase(MainGame::lettertmpPosition.begin() + val);
+
+	for (int i = 0; i < MainGame::cannon_ballArray.size(); i++)
+	{
+		if (MainGame::cannon_ballArray[i]->id == letterName)
+		{
+			MainGame::_help = HelpLayer::create(Rect(MainGame::cannon_ballArray[i]->getPositionX(), MainGame::cannon_ballArray[i]->getPositionY(), MainGame::cannon_ballArray[i]->getContentSize().width, MainGame::cannon_ballArray[i]->getContentSize().height), Rect(MainGame::width * .10, lett->getPositionY(), lett->getBoundingBox().size.width, lett->getBoundingBox().size.height));
+			MainGame::_help->clickAndDrag(Vec2(MainGame::cannon_ballArray[i]->getPositionX(), MainGame::cannon_ballArray[i]->getPositionY()), Vec2(MainGame::cannon2->getPositionX(), MainGame::cannon2->getPositionY()));
+			this->addChild(MainGame::_help);
+			MainGame::_helpFlag = 1;
+			break;
+		}
+	}
+
 }
 
 void MainGame::PlayVideo()
@@ -417,6 +455,12 @@ void MainGame::cannonLetterCome()	//cannon letter will come which will be dragge
 
 void MainGame::loadCannon(EventListenerClass* letterObject)
 {
+	if (MainGame::_helpFlag == 1)
+	{
+		self->schedule(schedule_selector(MainGame::letterCome), letterComespeed);
+		self->removeChild(MainGame::_help);
+		MainGame::_helpFlag = -1;
+	}
 	auto timeline = CSLoader::createTimeline("cannonball_cannonanimation.csb");
 	auto mycannon = CSLoader::createNode("cannonball_cannonanimation.csb");
 
