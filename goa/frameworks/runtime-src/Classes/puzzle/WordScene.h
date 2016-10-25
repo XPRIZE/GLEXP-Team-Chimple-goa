@@ -11,6 +11,7 @@
 
 #include "cocos2d.h"
 #include "../menu/MenuContext.h"
+#include "../menu/HelpLayer.h"
 #include "GraphemeGrid.h"
 #include "Grapheme.h"
 #include "RPGConfig.h"
@@ -65,6 +66,8 @@ protected:
     Node* _background;
     Node* _answer;
     Node* _choice;
+    HelpLayer* _helpLayer;
+    std::string _helpGraphemeText;
     std::string _word;
     int _numGraphemes;
     std::vector<std::string> _answerGraphemes;

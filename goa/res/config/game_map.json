@@ -1,5 +1,23 @@
 [
     {
+        "name": "choose_character",
+        "cIcon": "gameicons/EndlessRunner_pressed.png",
+        "icon": "gameicons/EndlessRunner.png",
+        "multiPlayer": false,
+        "isJSGame": true,
+        "pureJS":"",
+        "script": "src/start/characterConfigure.js"
+    },    
+    {
+        "name": "story-teller",
+        "cIcon": "gameicons/EndlessRunner_pressed.png",
+        "icon": "gameicons/EndlessRunner.png",
+        "multiPlayer": false,
+        "isJSGame": true,
+        "pureJS":"",
+        "script": "src/start/storytelling.js"
+    },
+    {
         "name": "show_bluetoothPeers",
         "cIcon": "gameicons/EndlessRunner_pressed.png",
         "icon": "gameicons/EndlessRunner.png",
@@ -180,14 +198,14 @@
         "multiPlayer":false,
         "isJSGame":false,
         "script":"src/NonJSGameLauncher.js",
-        "span": "5",
-        "numLevels": "24",
-        "backgroundJson": "cityscreen/background.json",
-        "foregroundJson": "cityscreen/foreground.json",
-        "frontgroundJson": "cityscreen/frontground.json",
-        "maingroundJson": "cityscreen/mainground.json",
-        "menuPlist": "cityscreen/cityscreen.plist",
-        "menuPng": "cityscreen/cityscreen.png"  
+        "span": "2",
+        "numLevels": "8",
+        "backgroundJson": "plevelscreen2/cblevelbg.json",
+        "foregroundJson": "plevelscreen2/cblevelfrg.json",
+        "frontgroundJson": "plevelscreen2/cblevelfng.json",
+        "maingroundJson": "plevelscreen2/cblevelmng.json",
+        "menuPlist": "plevelscreen2/plevelscreen2.plist",
+        "menuPng": "plevelscreen2/plevelscreen2.png"  
     },
     {
         "name": "decomone",
@@ -198,12 +216,12 @@
         "script":"src/NonJSGameLauncher.js",
         "span": "5",
         "numLevels": "26",
-        "backgroundJson": "cityscreen/background.json",
-        "foregroundJson": "cityscreen/foreground.json",
-        "frontgroundJson": "cityscreen/frontground.json",
-        "maingroundJson": "cityscreen/mainground.json",
-        "menuPlist": "cityscreen/cityscreen.plist",
-        "menuPng": "cityscreen/cityscreen.png"  
+        "backgroundJson": "decomonlevel/Layer1.json",
+        "foregroundJson": "decomonlevel/Layer3.json",
+        "frontgroundJson": "decomonlevel/Layer4.json",
+        "maingroundJson": "decomonlevel/Layer2.json",
+        "menuPlist": "decomonlevel/decomonlevel.plist",
+        "menuPng": "decomonlevel/decomonlevel.png"  
     },
     {
         "name": "order",
@@ -213,13 +231,13 @@
         "isJSGame":false,
         "script":"src/NonJSGameLauncher.js",
         "span": "5",
-        "numLevels": "24",
-        "backgroundJson": "cityscreen/background.json",
-        "foregroundJson": "cityscreen/foreground.json",
-        "frontgroundJson": "cityscreen/frontground.json",
-        "maingroundJson": "cityscreen/mainground.json",
-        "menuPlist": "cityscreen/cityscreen.plist",
-        "menuPng": "cityscreen/cityscreen.png"  
+        "numLevels": "30",
+        "backgroundJson": "orderlevel/Layer1.json",
+        "foregroundJson": "orderlevel/Layer3.json",
+        "frontgroundJson": "orderlevel/Layer4.json",
+        "maingroundJson": "orderlevel/Layer2.json",
+        "menuPlist": "orderlevel/orderlevel.plist",
+        "menuPng": "orderlevel/orderlevel.png"  
     },
     {
         "name": "dash",
@@ -245,13 +263,13 @@
         "isJSGame":false,
         "script":"src/NonJSGameLauncher.js",
         "span": "5",
-        "numLevels": "24",
-        "backgroundJson": "cityscreen/background.json",
-        "foregroundJson": "cityscreen/foreground.json",
-        "frontgroundJson": "cityscreen/frontground.json",
-        "maingroundJson": "cityscreen/mainground.json",
-        "menuPlist": "cityscreen/cityscreen.plist",
-        "menuPng": "cityscreen/cityscreen.png"  
+        "numLevels": "40",
+        "backgroundJson": "hippolevel/background.json",
+        "foregroundJson": "hippolevel/foregorund.json",
+        "frontgroundJson": "hippolevel/frontground.json",
+        "maingroundJson": "hippolevel/mainground.json",
+        "menuPlist": "hippolevel/hippolevel.plist",
+        "menuPng": "hippolevel/hippolevel.png"  
     },
     {
         "name": "Alphamon Feed",
@@ -262,12 +280,12 @@
         "script":"src/NonJSGameLauncher.js",
         "span": "5",
         "numLevels": "26",
-        "backgroundJson": "cityscreen/background.json",
-        "foregroundJson": "cityscreen/foreground.json",
-        "frontgroundJson": "cityscreen/frontground.json",
-        "maingroundJson": "cityscreen/mainground.json",
-        "menuPlist": "cityscreen/cityscreen.plist",
-        "menuPng": "cityscreen/cityscreen.png"  
+        "backgroundJson": "alphafeedlevel/Layer1.json",
+        "foregroundJson": "alphafeedlevel/Layer3.json",
+        "frontgroundJson": "alphafeedlevel/Layer4.json",
+        "maingroundJson": "alphafeedlevel/Layer2.json",
+        "menuPlist": "alphafeedlevel/alphafeedlevel.plist",
+        "menuPng": "alphafeedlevel/alphafeedlevel.png"  
     },
     {
         "name": "alphamole",

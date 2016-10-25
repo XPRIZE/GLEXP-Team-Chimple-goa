@@ -72,6 +72,7 @@ xc.CharacterUtil.colorSkins = function (character, colorSkins) {
     var existingColorSkins = xc.ParseUtil.getUserData(character._actionTag, 'colorSkins');
     if (existingColorSkins == null) {
         existingColorSkins = [];
+        existingColorSkins.push({"skins":"hairSkin","color":"#000000"});
     }
     cc.log('existingColorSkins:' + JSON.stringify(existingColorSkins));
 
@@ -81,7 +82,9 @@ xc.CharacterUtil.colorSkins = function (character, colorSkins) {
             if (skinNames != null) {
                 for (var skinName in skinNames) {
                     var bone = character.getBoneNode(skinNames[skinName]);
+                    
                     if (bone != null) {
+                        cc.log("bone in color:" + bone.getName());
                         bone.getSkins().forEach(function (skin) {
                             if (skin.getName() == skinName) {                                
                                 skin.color = cc.color(colorSkins.color)
@@ -147,13 +150,13 @@ xc.CharacterUtil.loadSkeletonConfig = function (skeleton, selectedConfiguration)
                 }
             }
             if (selectedConfiguration != null) {
+                xc.CharacterUtil.applySkinNameMap(skeleton, selectedConfiguration);
                 if (selectedConfiguration.colorSkins != null) {
                     selectedConfiguration.colorSkins.forEach(function (colorSkin) {
                         xc.CharacterUtil.colorSkins(skeleton, colorSkin);
 
                     })
-                }
-                xc.CharacterUtil.applySkinNameMap(skeleton, selectedConfiguration);
+                }                
             } else {
                 if (skeleton.UserData && skeleton.UserData.colorSkins) {
                     skeleton.UserData.colorSkins.forEach(function (colorSkin) {
@@ -295,30 +298,10 @@ xc.CharacterUtil.storeActionToTemporaryStore = function (node) {
             }
         }
     })
-
-
-    node.children.forEach(function (element) {
-        if(element.getName() == 'SKParent') {
-            if(element.getChildren().length > 0) {
-                var action = element.getChildren()[0]._storedAction;
-                if (action) {
-                    element.getChildren()[0].runAction(action);
-                }
-            }
-        }
-    })
 }
 
 xc.CharacterUtil.restoreActionFromTemporaryStore = function (node) {
     node.children.forEach(function (element) {
-        if(element.getName() == 'SKParent') {
-            if(element.getChildren().length > 0) {
-                var action = element.getChildren()[0].actionManager.getActionByTag(element.getChildren()[0].tag, element.getChildren()[0]);
-                if (action) {
-                    element.getChildren()[0]._storedAction = action;
-                }
-            }
-        }
         if (element.getName().indexOf("Skeleton") != -1 || element.getName().indexOf("skeleton") != -1) {
             var action = element.actionManager.getActionByTag(element.tag, element);
             if (action) {

@@ -146,11 +146,18 @@ xc.CreateStoryLayer = cc.Layer.extend({
             }
         } else if (sender.getName() == 'icons/delete.png') {            
             if (xc.storiesJSON.stories && xc.storiesJSON.stories.length > this._curSelectedStoryIndex) {
-                cc.log('this._curSelectedStoryIndex:' + this._curSelectedStoryIndex);
-                xc.currentStoryIndex = this._curSelectedStoryIndex; //index of selected button
-                xc.currentStoryId = xc.storiesJSON.stories[xc.currentStoryIndex].storyId;
-                cc.log("xc.currentStoryId on edit:" + xc.currentStoryId);                                
-                xc.PlayFullStoryScene.load(0,xc.PlayFullStoryLayer);
+                var deleteStoryId = xc.storiesJSON.stories[this._curSelectedStoryIndex].storyId;
+                cc.log('delete story Id:' + deleteStoryId);
+                if(deleteStoryId) {
+                    var imagePath = jsb.fileUtils.getWritablePath() + deleteStoryId + ".jpg";
+                    cc.log("path to delete" + imagePath);
+                    jsb.fileUtils.removeFile(imagePath);   
+                }
+                
+                xc.storiesJSON.stories.splice(this._curSelectedStoryIndex, 1);
+                this._optionPanel.setVisible(false);
+                this.reDrawPages();
+
             }
         }
     },

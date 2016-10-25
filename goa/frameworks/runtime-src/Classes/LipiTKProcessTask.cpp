@@ -7,7 +7,6 @@
 //
 
 #include <stdio.h>
-#include "unistd.h"
 #include "AsyncTask.hpp"
 #include "LipiTKProcessTask.h"
 #include "LipiTKNode.h"

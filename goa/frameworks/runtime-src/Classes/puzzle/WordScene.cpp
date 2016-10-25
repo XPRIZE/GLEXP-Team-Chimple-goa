@@ -13,6 +13,7 @@
 #include "GraphemeGrid.h"
 #include "Grapheme.h"
 #include "../LipiTKNode.h"
+#include "../menu/HelpLayer.h"
 
 USING_NS_CC;
 
@@ -65,7 +66,13 @@ WordScene* WordScene::createWithWord(std::string wordStr) {
     return nullptr;
 }
 
-WordScene::WordScene():_grid(nullptr),_lipiTKResultMenu(nullptr) {
+WordScene::WordScene():
+_grid(nullptr),
+_lipiTKResultMenu(nullptr),
+_word(""),
+_helpLayer(nullptr),
+_helpGraphemeText("")
+{
 }
 
 WordScene::~WordScene() {
@@ -115,7 +122,7 @@ void WordScene::characterSelected(Ref *sender) {
     {
         WordScene::textReceived(text);
         clearLipiTKResult();
-        _lipiTKNode->removeFromParent();
+        //_lipiTKNode->removeFromParent();
         _handWritingDialogButton->setEnabled(true);
 
     }
@@ -123,10 +130,8 @@ void WordScene::characterSelected(Ref *sender) {
 }
 
 bool WordScene::init() {
-    auto tg = TextGenerator::getInstance();
-    auto word = tg->generateAWord();
     _showHandWriting = false;
-    return initWithWord(word);
+    return true;
 }
 
 bool WordScene::initWithWord(std::string word) {
@@ -134,14 +139,6 @@ bool WordScene::initWithWord(std::string word) {
         return false;
     }
     _word = word;
-    auto tg = TextGenerator::getInstance();
-    _answerGraphemes = tg->getGraphemes(_word);
-    _numGraphemes = _answerGraphemes.size();    
-    _background = loadNode();
-    addChild(_background);
-    createAnswer();
-    createChoice();
-    createGrid();
     return true;
     
 }
@@ -156,10 +153,37 @@ void WordScene::onExitTransitionDidStart() {
 
 void WordScene::onEnterTransitionDidFinish() {
     Node::onEnterTransitionDidFinish();
+
+    auto tg = TextGenerator::getInstance();
+    if(_word.empty()) {
+        _word = tg->generateAWord(_menuContext->getCurrentLevel());
+    }
+    _answerGraphemes = tg->getGraphemes(_word);
+    _numGraphemes = _answerGraphemes.size();
+    _background = loadNode();
+    addChild(_background);
+    createAnswer();
+    createChoice();
+    createGrid();
+
     _eventDispatcher->addCustomEventListener("grapheme_anim_done", CC_CALLBACK_0(WordScene::checkAnswer, this));
     _eventDispatcher->addCustomEventListener("clearPrintedCharacters", CC_CALLBACK_0(WordScene::clearLipiTKResult, this));
     
     _eventDispatcher->addCustomEventListener("chars_recognized", CC_CALLBACK_1(WordScene::charactersRecognized, this));
+    
+    if(_menuContext->getCurrentLevel() == 1) {
+        auto children = _answer->getChildren();
+        if(children.size() > 0) {
+            auto word = children.at(0);
+            auto bb = word->getBoundingBox();
+            bb.origin = _answer->convertToWorldSpace(word->getPosition());
+            _helpGraphemeText = _answerGraphemes.at(0);
+            auto graphemeRect = _grid->getGraphemeRect(_helpGraphemeText);
+            _helpLayer = HelpLayer::create(graphemeRect, bb);
+            addChild(_helpLayer);
+            _helpLayer->click(graphemeRect.origin);
+        }
+    }
 }
 
 GraphemeGrid* WordScene::createGraphemeGrid(GLfloat width, GLfloat height, int numRows, int numCols, std::string spriteName, std::vector<std::vector<std::string>> graphemes, std::string graphemeUnselectedBackground, std::string graphemeSelectedBackground)
@@ -263,6 +287,15 @@ void WordScene::addChoice(Node* choice) {
 
 void WordScene::onTouchEnded(cocos2d::Touch *touch, cocos2d::Event *event) {
     auto grapheme = static_cast<Grapheme*>(event->getCurrentTarget());
+    if(_helpLayer != nullptr) {
+        if(grapheme->getGraphemeString().compare(_helpGraphemeText) == 0) {
+            removeChild(_helpLayer);
+            _helpLayer = nullptr;
+            _helpGraphemeText = "";
+        } else {
+            return;
+        }
+    }
     processGrapheme(grapheme);
 }
 
@@ -277,7 +310,7 @@ void WordScene::processGrapheme(Grapheme* grapheme) {
                 if(_showHandWriting) {
                     _handWritingDialogButton->setEnabled(true);
                     clearLipiTKResult();
-                    _lipiTKNode->removeFromParent();
+                    //_lipiTKNode->removeFromParent();
                     Director::getInstance()->getEventDispatcher()->pauseEventListenersForTarget(grapheme);
 
                 }
@@ -352,8 +385,8 @@ void WordScene::showHandWritingDialog(Ref* pSender, ui::Widget::TouchEventType e
             {
                 _grid->setVisible(false);
                 clickedButton->setEnabled(false);
-//                _lipiTKNode = LipiTKNode::create(1000,1000,Vec2(clickedButton->getPosition().x, clickedButton->getPosition().y + 600), 70);
-//                addChild(_lipiTKNode);
+                _lipiTKNode = LipiTKNode::create(1000,1000,Vec2(clickedButton->getPosition().x, clickedButton->getPosition().y + 600), 70);
+                addChild(_lipiTKNode);
             } else {
                 clickedButton->setEnabled(false);
             }

@@ -107,6 +107,7 @@ xc.ContentPanel = xc.AbstractContentPanel.extend({
                 if (!cc.sys.isNative) {
                     this._constructedScene._renderCmd._dirtyFlag = 1;
                 }
+                cc.log("calling registerEventListenerForAllChildren on doPostLoadingProcessForScene");
                 this.registerEventListenerForAllChildren();
                 this.postProcessForSceneObjects(this._constructedScene);
                 //parse JSON and store in local storage
@@ -151,14 +152,17 @@ xc.ContentPanel = xc.AbstractContentPanel.extend({
         node.children.forEach(function (element) {
             if (element.getName().indexOf("Skeleton") != -1 || element.getName().indexOf("skeleton") != -1) {
                 xc.CharacterUtil.loadSkeletonConfig(element);
-                if (element.UserData && element.UserData.colorSkins) {
-                    element.UserData.colorSkins.forEach(function (colorSkin) {
-                        xc.CharacterUtil.colorSkins(element, colorSkin);
-                })}
 
                 if (element.UserData && element.UserData.visibleSkins) {
                     xc.CharacterUtil.displaySkins(element, element.UserData.visibleSkins);
                 }
+
+                if (element.UserData && element.UserData.colorSkins) {
+                    cc.log('prcessing color skins from user data');
+                    element.UserData.colorSkins.forEach(function (colorSkin) {
+                        xc.CharacterUtil.colorSkins(element, colorSkin);
+                })
+            }
 
 
                 if (element.UserData && element.UserData.currentAnimationName) {
@@ -176,8 +180,10 @@ xc.ContentPanel = xc.AbstractContentPanel.extend({
                 element.children.forEach(function (child) {
                     if (child.getName() === 'Scene') {
                         child.children.forEach(function (subChild) {
+                            cc.log('in registerEventListenerForAllChildren:' + subChild.ActionTag);
                             if (subChild.getComponent('ComExtensionData') && subChild.getComponent('ComExtensionData').getActionTag()) {
-                                subChild.ActionTag = subChild.getComponent('ComExtensionData').getActionTag();
+                                cc.log('in registerEventListenerForAllChildren 4444:' + subChild.getComponent('ComExtensionData').getActionTag());
+                                subChild.ActionTag = subChild.getComponent('ComExtensionData').getActionTag();                                
                             }
                         }, this);
                     }
@@ -544,7 +550,11 @@ xc.ContentPanel = xc.AbstractContentPanel.extend({
 
     addCharacterToScene: function (configuration) {
         var load = ccs.load(xc.path + configuration.json);
-        load.node._actionTag = -new Date().valueOf();
+        var i = new Date().getTime();
+        i = i & 0xffffffff;
+        load.node._actionTag = i;
+        load.node.ActionTag = i; 
+        cc.log('load.node._actionTag of skeleton:' + load.node._actionTag);
         load.node.setScale(0.5, 0.5);
         load.node.setPosition(this.getContentSize().width / 2, this.getContentSize().height / 6);
         xc.ParseUtil.saveCharacterToJSON(xc.path + configuration.json, load, load.node._actionTag);
@@ -729,12 +739,23 @@ xc.ContentPanel = xc.AbstractContentPanel.extend({
         cc.log('xc.pageIndex at:' + xc.pageIndex + 'for current story:' + xc.currentStoryId);
         if(cc.sys.isNative && xc.pageIndex == 0) {            
             var viewPortWidth = cc.director.getWinSize().width - this.parent._objectConfigPanel.width;
-            var viewPortHeight = (cc.director.getWinSize().width - this.parent._objectConfigPanel.width) * xc.contentPanelScaleFactor;
+            //var viewPortHeight = (cc.director.getWinSize().width - this.parent._objectConfigPanel.width) * xc.contentPanelScaleFactor;
+            var viewPortHeight = cc.director.getWinSize().height;
             var renderer = new cc.RenderTexture(viewPortWidth, viewPortHeight, cc.TEXTURE_2D_PIXEL_FORMAT_RGBA8888);
             renderer.setVirtualViewport(cc.p(this.parent._objectConfigPanel.width, 0), cc.rect(0,0,viewPortWidth,viewPortHeight), cc.rect(0,0,cc.director.getWinSizeInPixels().width + 20, cc.director.getWinSizeInPixels().height + 10) );
             renderer.begin();
             this.visit();              
             renderer.end();
+
+            //exiting screen shot if present
+            var savedStoryId = xc.storiesJSON.stories[xc.currentStoryIndex].storyId;
+            cc.log('savedStoryId:' + savedStoryId);
+            if(savedStoryId) {
+                var imagePath = jsb.fileUtils.getWritablePath() + xc.currentStoryId + ".jpg";
+                cc.log("path to delete" + imagePath);
+                jsb.fileUtils.removeFile(imagePath);   
+            }
+
             //regenerate story Id
             xc.currentStoryId = "storyId_" + xc.ParseUtil.generateUUID();
             xc.storiesJSON.stories[xc.currentStoryIndex].storyId = xc.currentStoryId;
@@ -807,7 +828,7 @@ xc.ContentPanel = xc.AbstractContentPanel.extend({
         if (this._backLayer) {
             xc.CharacterUtil.storeActionToTemporaryStore(this._backLayer);
         }
-
+        cc.log("calling registerEventListenerForAllChildren on enter");
         this.registerEventListenerForAllChildren();
     },
 
