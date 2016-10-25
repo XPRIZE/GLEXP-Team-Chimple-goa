@@ -171,7 +171,7 @@ void WordScene::onEnterTransitionDidFinish() {
     
     _eventDispatcher->addCustomEventListener("chars_recognized", CC_CALLBACK_1(WordScene::charactersRecognized, this));
     
-    if(_menuContext->getCurrentLevel() == 1) {
+    if(_menuContext->getCurrentLevel() == 1 && _score == 0) {
         auto children = _answer->getChildren();
         if(children.size() > 0) {
             auto word = children.at(0);

@@ -31,7 +31,8 @@ public:
     void enableHandWriting();
     bool isHandWritingEnabled();
     static void textReceived(std::string text);
-        
+	MenuContext* _menuContext;
+	int _score = 0;
 CC_CONSTRUCTOR_ACCESS:
     WordScene();
     virtual ~WordScene();
@@ -61,7 +62,6 @@ protected:
     void charactersRecognized(cocos2d::EventCustom* event);
     void characterSelected(cocos2d::Ref *sender);
 
-    MenuContext* _menuContext;
     GraphemeGrid* _grid;
     Node* _background;
     Node* _answer;

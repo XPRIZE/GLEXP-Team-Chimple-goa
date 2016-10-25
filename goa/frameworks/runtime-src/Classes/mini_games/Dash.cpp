@@ -238,6 +238,7 @@ std::string Dash::constructSendMessage(std::string charName, int position) {
 void Dash::onEnterTransitionDidFinish()
 {
 	Node::onEnterTransitionDidFinish();
+	menu->setMaxPoints(14);
 	int level = menu->getCurrentLevel();
 	int division = ((level - 1) % 15)+1;
 	if (division >= 1 && division < 6) {
