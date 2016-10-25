@@ -50,8 +50,9 @@ xc.ButtonPanel = ccui.Layout.extend({
                         }
 
                         if (configuration[index] && configuration[index]['uniqueCharacterID']) {
-                            var cacheName = 'res/' + configuration[index]['uniqueCharacterID'] + '.png';
-                            item = new ccui.Button(cacheName, cacheName, cacheName, ccui.Widget.LOCAL_TEXTURE);
+                            var cacheName = xc.path  + 'wikitaki/' + configuration[index]['uniqueCharacterID'] + '.png';
+                            //item = new ccui.Button(cacheName, cacheName, cacheName, ccui.Widget.LOCAL_TEXTURE);
+                            item = new ccui.Button('icons/my_pet.png', 'icons/my_pet_onclick.png', 'icons/my_pet_onclick.png', ccui.Widget.PLIST_TEXTURE);
                             item.setFlippedY(true);
                         }
 

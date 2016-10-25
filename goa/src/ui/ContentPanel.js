@@ -30,20 +30,34 @@ xc.ContentPanel = xc.AbstractContentPanel.extend({
         cc.loader.cache[xc.STORY_KEY] = xc.story.items[xc.pageIndex].scene;
     },
 
-    //this method should only work when background changes - at this point backLayer MUST have 2 children
+    //this method should only work when background changes - at this point backLayer MUST have 2 children, i.e. old and new scene
     copyUserAddedObjectsToScene: function () {
         if (this._backLayer && this._backLayer.children && this._backLayer.children.length == 2) {
-            var backGroundChanged = false;
+            var backGroundChanged = true;
             var count = this._backLayer.children[0].children.length;
             for (var i = 0; i < count; i++) {
                 var element = this._backLayer.children[0].children[i];
-                if (element && element.UserData && element.UserData.userAdded) {
+                if(element && element.getName() && element.getName().indexOf("Skeleton") != -1 && xc.ParseUtil.getUserData(element._actionTag,'userAdded')) {
+                    var action = element.actionManager.getActionByTag(element.tag, element);                
+                    if (action) {
+                        action.retain();
+                        element._storedAction = action;
+                    }
+
                     element.retain();
                     element.removeFromParent();
                     i--;
                     this._constructedScene.addChild(element);
-                    element.release();
-                    backGroundChanged = true;
+                    action.release();
+                    var action = element._storedAction;
+                    if (action) {
+                        element.runAction(action);                        
+                    }                    
+                } else if (element && element.UserData && element.UserData.userAdded) {
+                    element.retain();
+                    element.removeFromParent();
+                    i--;
+                    this._constructedScene.addChild(element);
                 }
                 if(xc.customSprites != undefined) {
                     xc.customSprites.forEach(function (customSprite, index) {
@@ -52,7 +66,7 @@ xc.ContentPanel = xc.AbstractContentPanel.extend({
                             element.removeFromParent();
                             i--;
                             this._constructedScene.addChild(element);
-                            element.release();
+                            //element.release();
                         }
                     }, this);
                 }
@@ -72,7 +86,7 @@ xc.ContentPanel = xc.AbstractContentPanel.extend({
                             element.retain();
                             element.removeFromParent();
                             this._constructedScene.addChild(element);
-                            element.release();
+                        //element.release();
                         }
                     }, this);
                 }
@@ -94,12 +108,13 @@ xc.ContentPanel = xc.AbstractContentPanel.extend({
         if (constructedScene != null) {
             this._constructedScene = constructedScene.node;
             if (this._constructedScene) {
-                cc.log('this._constructedScene.width' + this._constructedScene.width);
-                if(this._constructedScene.width == xc.DESIGNED_WIDTH) {
-                    this._constructedScene.setScale(xc.contentPanelScaleFactor);
-                }                
-                
-                this._constructedScene.setAnchorPoint(0,0);
+                //if(this._constructedScene.width == xc.DESIGNED_WIDTH) {
+                 //   this._constructedScene.setScale(xc.contentPanelScaleFactor);
+                //}                
+
+                var configPanelWidth = (cc.director.getWinSize().width - cc.director.getWinSize().height) / 2;
+                this._constructedScene.setAnchorPoint(0.5,0);
+                this._constructedScene.setPosition(cc.director.getWinSize().width/2,0);                
                 this._backLayer.addChild(this._constructedScene);
                 //now copy user added objects from earlier constructed scene if any
                 this.copyUserAddedObjectsToScene();
@@ -549,6 +564,11 @@ xc.ContentPanel = xc.AbstractContentPanel.extend({
     },
 
     addCharacterToScene: function (configuration) {
+        cc.log('configuration:' + configuration.json);
+        if(configuration.favoriteSkins) {
+            cc.log('favoriteSkins:' + configuration.favoriteSkins.length);    
+        }
+        
         var load = ccs.load(xc.path + configuration.json);
         var i = new Date().getTime();
         i = i & 0xffffffff;
@@ -564,6 +584,7 @@ xc.ContentPanel = xc.AbstractContentPanel.extend({
         this.registerEventListenerForChild(load.node);
     },
 
+   
     zoomAll: function (context, touch, target) {
         var nodePostion = target.getPosition();
         var currentPosition = target.parent.convertToNodeSpace(touch.getLocation());

@@ -17,11 +17,9 @@ xc.PreviewPanel = cc.LayerColor.extend({
 
         this._targetRotationX = target.getRotationX();
         this._targetRotationY = target.getRotationY();
-        
-        target.removeFromParent(false);
         cc.eventManager.removeListeners(target);
-
-
+        target.removeFromParent(false);
+        
         this.addChild(target);
         target.setRotation(0);
         target.setPosition(width * 0.8, 200);
@@ -88,11 +86,17 @@ xc.PreviewPanel = cc.LayerColor.extend({
     goBack: function () {
         //update skins and color based on user selection
         //var renderer = new cc.RenderTexture(this._target.getBoundingBoxToWorld().width, this._target.getBoundingBoxToWorld().height);
+        cc.log('in preview 1111');
         xc.ParseUtil.cacheThumbnailForFavorites(this._target);
+        cc.log('in preview 2222');
         if (xc.customCharacters && xc.customCharacters.items) {
+            cc.log('in preview 3333');
             xc.customCharacters.items.forEach(function (element) {
+                cc.log('in preview 444' + element.uniqueCharacterID);
+                cc.log('in preview 4444444' + this._target.uniqueCharacterID);
                 if (element.uniqueCharacterID == this._target.uniqueCharacterID) {
-                    element.favoriteSkins = this._target.UserData.visibleSkins;
+                    element.favoriteSkins = xc.ParseUtil.getUserData(this._target._actionTag,'visibleSkins');
+                    cc.log('in preview 555' + JSON.stringify(element.favoriteSkins));
                 }
             }, this);
         }
