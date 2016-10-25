@@ -58,6 +58,8 @@
 		509D4AEB17EBB82600697056 /* IOKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 509D4AEA17EBB82600697056 /* IOKit.framework */; };
 		9C064E5C1DB8905C000892E1 /* DecomonGallery.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9C064E5A1DB8905C000892E1 /* DecomonGallery.cpp */; };
 		9C064E5F1DB8909B000892E1 /* DecomonGallery.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9C064E5A1DB8905C000892E1 /* DecomonGallery.cpp */; };
+		9C0E13471DBF707E00C10A81 /* WordSceneLipiTKNode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9C0E13461DBF707E00C10A81 /* WordSceneLipiTKNode.cpp */; };
+		9C0E13481DBF707E00C10A81 /* WordSceneLipiTKNode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9C0E13461DBF707E00C10A81 /* WordSceneLipiTKNode.cpp */; };
 		9C7B1AC71DAA1BCE00EBD1FE /* Order.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9C7B1AC51DAA1BCE00EBD1FE /* Order.cpp */; };
 		9C7B1ACA1DAA1BD200EBD1FE /* Order.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9C7B1AC51DAA1BCE00EBD1FE /* Order.cpp */; };
 		9FA3AE461BE9BBCA00FC9645 /* GameController.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9FA3AE451BE9BBCA00FC9645 /* GameController.framework */; };
@@ -498,6 +500,8 @@
 		509D4AEA17EBB82600697056 /* IOKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IOKit.framework; path = System/Library/Frameworks/IOKit.framework; sourceTree = SDKROOT; };
 		9C064E5A1DB8905C000892E1 /* DecomonGallery.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = DecomonGallery.cpp; sourceTree = "<group>"; };
 		9C064E5B1DB8905C000892E1 /* DecomonGallery.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DecomonGallery.h; sourceTree = "<group>"; };
+		9C0E13431DBF704400C10A81 /* WordSceneLipiTKNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WordSceneLipiTKNode.h; sourceTree = "<group>"; };
+		9C0E13461DBF707E00C10A81 /* WordSceneLipiTKNode.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = WordSceneLipiTKNode.cpp; sourceTree = "<group>"; };
 		9C7B1AC51DAA1BCE00EBD1FE /* Order.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Order.cpp; sourceTree = "<group>"; };
 		9C7B1AC61DAA1BCE00EBD1FE /* Order.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Order.h; sourceTree = "<group>"; };
 		9FA3AE451BE9BBCA00FC9645 /* GameController.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameController.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.0.sdk/System/Library/Frameworks/GameController.framework; sourceTree = DEVELOPER_DIR; };
@@ -1155,6 +1159,8 @@
 				F35247BF1D6D9D1A0077C333 /* WalkingState.h */,
 				F352477D1D6D9D1A0077C333 /* WordSprite.cpp */,
 				F352477E1D6D9D1A0077C333 /* WordSprite.h */,
+				9C0E13431DBF704400C10A81 /* WordSceneLipiTKNode.h */,
+				9C0E13461DBF707E00C10A81 /* WordSceneLipiTKNode.cpp */,
 			);
 			name = Classes;
 			path = ../Classes;
@@ -1787,6 +1793,7 @@
 				F35248591D6D9D1A0077C333 /* sqlite3.c in Sources */,
 				F3667D2F1DB4BA6F00EC8908 /* LipiTKNode.cpp in Sources */,
 				F35248331D6D9D1A0077C333 /* RunningState.cpp in Sources */,
+				9C0E13481DBF707E00C10A81 /* WordSceneLipiTKNode.cpp in Sources */,
 				F3667D771DB4BA7000EC8908 /* logger.cpp in Sources */,
 				F35247F91D6D9D1A0077C333 /* TextGenerator.cpp in Sources */,
 				F3667D391DB4BA6F00EC8908 /* LTKShapeRecoResult.cpp in Sources */,
@@ -1973,6 +1980,7 @@
 				F35247D81D6D9D1A0077C333 /* EndlessRunner.cpp in Sources */,
 				F35247F21D6D9D1A0077C333 /* KannadaUtil.cpp in Sources */,
 				F35248521D6D9D1A0077C333 /* FShake.cpp in Sources */,
+				9C0E13471DBF707E00C10A81 /* WordSceneLipiTKNode.cpp in Sources */,
 				F3667D2A1DB4BA6F00EC8908 /* LipiEngineModule.cpp in Sources */,
 				F3667D2C1DB4BA6F00EC8908 /* LipiTKInterface.cpp in Sources */,
 				F36840C01D8A812F00969162 /* AlphamoleLevel.cpp in Sources */,
