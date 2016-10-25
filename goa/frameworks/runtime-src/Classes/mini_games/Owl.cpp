@@ -119,17 +119,15 @@ void Owl::onEnterTransitionDidFinish()
 	};
 
 	std::map<int, std::string> owlSceneMapping = {
-		{ 0,	"owljungle" },
-		{ 1,	"owlisland" },
-		{ 2,    "owlCity" }
+		{ 1,	"owlCity" },
+		{ 2,	"owlisland" },
+		{ 3,    "owljungle" }
 	};
 	auto visibleSize = Director::getInstance()->getVisibleSize();
 	auto origin = Director::getInstance()->getVisibleOrigin();
 	
 	int gameCurrentLevel = _menuContext->getCurrentLevel();
-	std::tuple<int, int , int> levelKeyNumber = levelAllInfo(gameCurrentLevel,5,5,3,10);
-	
-	auto xxxx = levelAllInfos(gameCurrentLevel,10,3,5,5);
+	std::tuple<int, int , int> levelKeyNumber = levelAllInfo(65,5,5,3,10);
 
 	if (std::get<0>(levelKeyNumber) == 1) {
 		_data = TextGenerator::getInstance()->getAntonyms(5);
@@ -175,7 +173,6 @@ void Owl::onEnterTransitionDidFinish()
 	}
 	
 	_menuContext->setMaxPoints(totalPoints);
-
 
 	auto timelinecharacter1 = CSLoader::createTimeline(themeResourcePath.at("character1"));
 	_sprite = (Sprite *)CSLoader::createNode(themeResourcePath.at("character1"));
@@ -251,30 +248,29 @@ std::tuple<int, int,int> Owl::levelAllInfo(int currentLevel, int totalCategory ,
 {
 	float currentLevelInFloat = static_cast<float>(currentLevel);
 	int categoryBase = static_cast<int>(std::ceil(currentLevelInFloat / eachCategoryGroup));
-	int categoryNo = categoryBase % totalCategory;
-	if (categoryNo == 0)
+	
+	int categoryNo = totalCategory;
+
+	if(categoryBase != totalCategory)
+	 categoryNo = categoryBase % totalCategory;
+	
+	if (currentLevel % eachCategoryGroup == 0)
 		categoryNo = (categoryBase-1) % totalCategory + 1;
 
 	int sceneBase = static_cast<int>(std::ceil(currentLevelInFloat / SceneChangeAfterLevel));
 	int sceneNo = sceneBase % totalSceneTheme;
 
-	int categoryLevel = currentLevel % eachCategoryGroup + (std::ceil(currentLevel / (eachCategoryGroup *  totalCategory)) * eachCategoryGroup );
-	if (categoryLevel == 0)
-		categoryLevel = (currentLevel-1) % eachCategoryGroup + (std::ceil((currentLevel-1) / (eachCategoryGroup *  totalCategory)) * eachCategoryGroup) + 1;
+	int totalInterationLevel = totalCategory * eachCategoryGroup;
+	int Iteration = static_cast<int>(std::floor(currentLevel/totalInterationLevel));
+	int level = currentLevel % eachCategoryGroup;
+	if (level == 0)
+		level = eachCategoryGroup;
+	int categoryLevel = (Iteration * eachCategoryGroup) + level;
+
+	if (sceneNo == 0)
+		sceneNo = totalSceneTheme;
 
 	return std::make_tuple(categoryNo, sceneNo, categoryLevel);
-}
-
-std::pair<int, int> Owl::levelAllInfos(int currentLevel, int sceneRepetitionNo, int totalScene, int catagoryRepetitionNo, int totalcatagory)
-{
-	float currentLevelInFloat = static_cast<float>(currentLevel);
-	int sceneBaseValue = static_cast<int>(std::ceil(currentLevelInFloat / sceneRepetitionNo));
-	int sceneNo = sceneBaseValue % totalScene;
-
-	int catagoryBaseValue = static_cast<int>(std::ceil(currentLevelInFloat / catagoryRepetitionNo));
-	int catagoryNo = catagoryBaseValue % totalcatagory;
-
-	return std::make_pair(sceneNo, catagoryNo);
 }
 
 void Owl::autoPlayerController(float data) {

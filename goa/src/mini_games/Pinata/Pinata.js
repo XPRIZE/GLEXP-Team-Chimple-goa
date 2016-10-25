@@ -20,6 +20,22 @@ xc.Pinata = cc.Layer.extend({
     this.shootingFlag = false;
     this.flagSingleTouchFirst = true;
 
+    var info = this.levelAllInfo(11,5,5,3,10);
+    console.log("the pinata category value is : " +     info.category);
+    console.log("the pinata scene value is : " +     info.scene);
+    console.log("the pinata level value is : " +     info.level);
+   
+ if(info.category == 1){
+         this.map =  goa.TextGenerator.getInstance().getAntonyms(3);
+    }else if(info.category == 2){
+         this.map =  goa.TextGenerator.getInstance().getSynonyms(3);
+    }else if(info.category == 3){
+         this.map =  goa.TextGenerator.getInstance().getHomonyms(3);
+    }else{
+        console.log("ERROR :: Your category is wrong , please check your code : line no : 23");
+    }
+    gameTheme = gameRand[info.scene - 1];
+
     if(gameTheme == "pinatacream"){
          cc.spriteFrameCache.addSpriteFrames(xc.Pinata.res.pinatacream_plist);
          this.gameBg = ccs.load(xc.Pinata.res.pinatacream_json,xc.path);
@@ -57,7 +73,6 @@ xc.Pinata = cc.Layer.extend({
         angle : 90
     }
 
-    this.map =  goa.TextGenerator.getInstance().getAntonyms(3);
     var mapKeyArray = Object.keys(this.map);
     this.mapKey = mapKeyArray[this.getRandomInt(0,(mapKeyArray.length-1))];
         
@@ -254,11 +269,7 @@ xc.Pinata = cc.Layer.extend({
             }
      });
 
-    var vari = this.levelAllInfo(17,3,5,3,10);
-
-    console.log("the pinata category value is : " +     vari.category);
-    console.log("the pinata scene value is : " +     vari.scene);
-    console.log("the pinata level value is : " +     vari.level);
+    
 
     cc.eventManager.addListener(listnerBg,this.bubblePlayer);
     cc.eventManager.addListener(choosingListner,targetA);
@@ -377,20 +388,30 @@ xc.Pinata = cc.Layer.extend({
 
     levelAllInfo : function (currentLevel,totalCategory ,eachCategoryGroup , totalSceneTheme ,SceneChangeAfterLevel)
     {
+
         var categoryBase = Math.ceil(currentLevel / eachCategoryGroup);
-        var categoryNo = categoryBase % totalCategory;
-        if (categoryNo == 0)
+
+        var categoryNo = totalCategory;
+
+        if(categoryBase != totalCategory)
+           categoryNo = categoryBase % totalCategory;
+
+        if (currentLevel % eachCategoryGroup == 0)
             categoryNo = (categoryBase-1) % totalCategory + 1;
 
         var sceneBase = Math.ceil(currentLevel / SceneChangeAfterLevel);
         var sceneNo = sceneBase % totalSceneTheme;
 
-        var categoryLevel = currentLevel % eachCategoryGroup + (Math.ceil(currentLevel / (eachCategoryGroup *  totalCategory)) * eachCategoryGroup );
-        if (categoryLevel == 0)
-            categoryLevel = (currentLevel-1) % eachCategoryGroup + (Math.ceil((currentLevel-1) / (eachCategoryGroup *  totalCategory)) * eachCategoryGroup) + 1;
+        var totalInterationLevel = totalCategory * eachCategoryGroup;
+        var Iteration = Math.floor(currentLevel/totalInterationLevel);
+        var level = currentLevel % eachCategoryGroup;
+        if (level == 0)
+            level = eachCategoryGroup;
+        var categoryLevel = (Iteration * eachCategoryGroup) + level;
 
+        if (sceneNo == 0)
+            sceneNo = totalSceneTheme;
          return { category: categoryNo, scene: sceneNo,  level: categoryLevel };
-//        return std::make_tuple(categoryNo, sceneNo, categoryLevel);
     },
 
 
