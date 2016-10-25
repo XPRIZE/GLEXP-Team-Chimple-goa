@@ -322,13 +322,14 @@ void Pillar::update(float dt)
 			runAction(Sequence::create(DelayTime::create(2),CallFunc::create([=]() {
 				_pointRef = _cakeMove;
 				_cakeMove = nullptr;
-				newCake();
-				ladderMove();
+				
 				_score++;
 				if (_score == 5)
 				{
 					menu->showScore();
 				}
+				newCake();
+				ladderMove();
 			}),NULL));
 			
 			_rotateFlag = false;
