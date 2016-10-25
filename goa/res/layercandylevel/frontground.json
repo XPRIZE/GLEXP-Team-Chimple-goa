@@ -30,6 +30,8 @@
             "ColorVector": {
               "ScaleY": 1.0
             },
+            "Scale9Width": 1,
+            "Scale9Height": 1,
             "TouchEnable": true,
             "AnchorPoint": {},
             "Position": {
@@ -51,7 +53,7 @@
               "Y": 0.1111
             },
             "LeftMargin": 561.5856,
-            "RightMargin": 1798.4143,
+            "RightMargin": 1798.4144,
             "TopMargin": 1669.2668,
             "BottomMargin": -69.2668,
             "Tag": 599,
@@ -186,8 +188,8 @@
               "Y": 0.105
             },
             "LeftMargin": 408.0699,
-            "RightMargin": 1962.9301,
-            "TopMargin": 1442.7635,
+            "RightMargin": 1962.9302,
+            "TopMargin": 1442.7634,
             "BottomMargin": 168.2365,
             "Tag": 601,
             "ActionTag": 788502272,
@@ -232,7 +234,7 @@
             },
             "LeftMargin": 540.4412,
             "RightMargin": 1830.5588,
-            "TopMargin": 1555.1154,
+            "TopMargin": 1555.1152,
             "BottomMargin": 55.8847,
             "Tag": 602,
             "ActionTag": 2041398173,
@@ -283,7 +285,7 @@
             },
             "LeftMargin": 1728.4569,
             "RightMargin": 631.5431,
-            "TopMargin": 1705.8281,
+            "TopMargin": 1705.8282,
             "BottomMargin": -105.8282,
             "Tag": 605,
             "ActionTag": -1692494510,
@@ -328,7 +330,7 @@
             },
             "LeftMargin": 1636.7054,
             "RightMargin": 734.2946,
-            "TopMargin": 1262.7115,
+            "TopMargin": 1262.7114,
             "BottomMargin": 348.2885,
             "Tag": 606,
             "ActionTag": 825304559,
@@ -649,7 +651,7 @@
             },
             "LeftMargin": 3640.9709,
             "RightMargin": -1269.9709,
-            "TopMargin": 1628.5779,
+            "TopMargin": 1628.5778,
             "BottomMargin": -17.5778,
             "Tag": 613,
             "ActionTag": 394515424,
@@ -835,7 +837,7 @@
             },
             "LeftMargin": 5650.9062,
             "RightMargin": -3279.9062,
-            "TopMargin": 1521.076,
+            "TopMargin": 1521.0759,
             "BottomMargin": 89.924,
             "Tag": 617,
             "ActionTag": -927307202,
@@ -2452,7 +2454,7 @@
             },
             "LeftMargin": 19332.9746,
             "RightMargin": -16961.9746,
-            "TopMargin": 1448.9301,
+            "TopMargin": 1448.9302,
             "BottomMargin": 162.0699,
             "Tag": 923,
             "ActionTag": -1483472536,
@@ -3244,6 +3246,468 @@
               "Y": 189.0
             },
             "Name": "candyplant4_1_0_0_0_0_1_0_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "ClipAble": false,
+            "ComboBoxIndex": 1,
+            "SingleColor": {
+              "R": 197,
+              "G": 122,
+              "B": 33
+            },
+            "FirstColor": {
+              "R": 150,
+              "G": 200
+            },
+            "EndColor": {},
+            "ColorVector": {
+              "ScaleY": 1.0
+            },
+            "Scale9Width": 1,
+            "Scale9Height": 1,
+            "TouchEnable": true,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 23931.2852,
+              "Y": -169.2751
+            },
+            "Scale": {
+              "ScaleX": 0.0644,
+              "ScaleY": 2.3355
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 9.3482,
+              "Y": -0.094
+            },
+            "PreSize": {
+              "X": 0.0781,
+              "Y": 0.1111
+            },
+            "LeftMargin": 23931.2852,
+            "RightMargin": -21571.2852,
+            "TopMargin": 1769.2751,
+            "BottomMargin": -169.2751,
+            "Tag": 716,
+            "ActionTag": 1422999434,
+            "Size": {
+              "X": 200.0,
+              "Y": 200.0
+            },
+            "Name": "Panel_1_1_0_0_0",
+            "ctype": "PanelObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "layercandylevel/candyplant4.png",
+              "Plist": "layercandylevel/layercandylevel.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 23934.1641,
+              "Y": 379.3104
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 9.3493,
+              "Y": 0.2107
+            },
+            "PreSize": {
+              "X": 0.0738,
+              "Y": 0.105
+            },
+            "LeftMargin": 23839.6641,
+            "RightMargin": -21468.6641,
+            "TopMargin": 1326.1897,
+            "BottomMargin": 284.8104,
+            "Tag": 717,
+            "ActionTag": 518335847,
+            "Size": {
+              "X": 189.0,
+              "Y": 189.0
+            },
+            "Name": "candyplant4_1_2_0_0_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "layercandylevel/candyplant4.png",
+              "Plist": "layercandylevel/layercandylevel.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 24007.4512,
+              "Y": 216.5654
+            },
+            "Scale": {
+              "ScaleX": 0.7691,
+              "ScaleY": 0.7691
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 9.3779,
+              "Y": 0.1203
+            },
+            "PreSize": {
+              "X": 0.0738,
+              "Y": 0.105
+            },
+            "LeftMargin": 23912.9512,
+            "RightMargin": -21541.9512,
+            "TopMargin": 1488.9346,
+            "BottomMargin": 122.0654,
+            "Tag": 718,
+            "ActionTag": 1001170415,
+            "Size": {
+              "X": 189.0,
+              "Y": 189.0
+            },
+            "Name": "candyplant4_1_0_2_0_0_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "layercandylevel/candyplant4.png",
+              "Plist": "layercandylevel/layercandylevel.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 23872.4219,
+              "Y": 162.7081
+            },
+            "Scale": {
+              "ScaleX": 0.7691,
+              "ScaleY": 0.7691
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 9.3252,
+              "Y": 0.0904
+            },
+            "PreSize": {
+              "X": 0.0738,
+              "Y": 0.105
+            },
+            "LeftMargin": 23777.9219,
+            "RightMargin": -21406.9219,
+            "TopMargin": 1542.792,
+            "BottomMargin": 68.2081,
+            "Tag": 719,
+            "ActionTag": -827257063,
+            "Size": {
+              "X": 189.0,
+              "Y": 189.0
+            },
+            "Name": "candyplant4_1_0_0_2_0_0_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "layercandylevel/candyplant4.png",
+              "Plist": "layercandylevel/layercandylevel.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 24004.7754,
+              "Y": 50.3535
+            },
+            "Scale": {
+              "ScaleX": 0.7691,
+              "ScaleY": 0.7691
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 9.3769,
+              "Y": 0.028
+            },
+            "PreSize": {
+              "X": 0.0738,
+              "Y": 0.105
+            },
+            "LeftMargin": 23910.2754,
+            "RightMargin": -21539.2754,
+            "TopMargin": 1655.1465,
+            "BottomMargin": -44.1465,
+            "Tag": 720,
+            "ActionTag": 1766488527,
+            "Size": {
+              "X": 189.0,
+              "Y": 189.0
+            },
+            "Name": "candyplant4_1_0_0_0_1_0_0_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "ClipAble": false,
+            "ComboBoxIndex": 1,
+            "SingleColor": {
+              "R": 197,
+              "G": 122,
+              "B": 33
+            },
+            "FirstColor": {
+              "R": 150,
+              "G": 200
+            },
+            "EndColor": {},
+            "ColorVector": {
+              "ScaleY": 1.0
+            },
+            "Scale9Width": 1,
+            "Scale9Height": 1,
+            "TouchEnable": true,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 25101.2773,
+              "Y": -41.5451
+            },
+            "Scale": {
+              "ScaleX": 0.0644,
+              "ScaleY": 2.3355
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 9.8052,
+              "Y": -0.0231
+            },
+            "PreSize": {
+              "X": 0.0781,
+              "Y": 0.1111
+            },
+            "LeftMargin": 25101.2773,
+            "RightMargin": -22741.2773,
+            "TopMargin": 1641.545,
+            "BottomMargin": -41.5451,
+            "Tag": 721,
+            "ActionTag": -459686359,
+            "Size": {
+              "X": 200.0,
+              "Y": 200.0
+            },
+            "Name": "Panel_1_0_1_0_0_0",
+            "ctype": "PanelObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "layercandylevel/candyplant4.png",
+              "Plist": "layercandylevel/layercandylevel.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 25104.1172,
+              "Y": 507.033
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 9.8063,
+              "Y": 0.2817
+            },
+            "PreSize": {
+              "X": 0.0738,
+              "Y": 0.105
+            },
+            "LeftMargin": 25009.6172,
+            "RightMargin": -22638.6172,
+            "TopMargin": 1198.467,
+            "BottomMargin": 412.533,
+            "Tag": 722,
+            "ActionTag": 287457638,
+            "Size": {
+              "X": 189.0,
+              "Y": 189.0
+            },
+            "Name": "candyplant4_1_1_1_0_0_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "layercandylevel/candyplant4.png",
+              "Plist": "layercandylevel/layercandylevel.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 25035.8789,
+              "Y": 335.4371
+            },
+            "Scale": {
+              "ScaleX": 0.7691,
+              "ScaleY": 0.7691
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 9.7796,
+              "Y": 0.1864
+            },
+            "PreSize": {
+              "X": 0.0738,
+              "Y": 0.105
+            },
+            "LeftMargin": 24941.3789,
+            "RightMargin": -22570.3789,
+            "TopMargin": 1370.063,
+            "BottomMargin": 240.9371,
+            "Tag": 723,
+            "ActionTag": 1022304861,
+            "Size": {
+              "X": 189.0,
+              "Y": 189.0
+            },
+            "Name": "candyplant4_1_0_1_1_0_0_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "layercandylevel/candyplant4.png",
+              "Plist": "layercandylevel/layercandylevel.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 25033.6211,
+              "Y": 107.4701
+            },
+            "Scale": {
+              "ScaleX": 0.7691,
+              "ScaleY": 0.7691
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 9.7788,
+              "Y": 0.0597
+            },
+            "PreSize": {
+              "X": 0.0738,
+              "Y": 0.105
+            },
+            "LeftMargin": 24939.1211,
+            "RightMargin": -22568.1211,
+            "TopMargin": 1598.0299,
+            "BottomMargin": 12.9701,
+            "Tag": 724,
+            "ActionTag": 1775795857,
+            "Size": {
+              "X": 189.0,
+              "Y": 189.0
+            },
+            "Name": "candyplant4_1_0_0_1_1_0_0_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "layercandylevel/candyplant4.png",
+              "Plist": "layercandylevel/layercandylevel.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 25174.8672,
+              "Y": 178.0825
+            },
+            "Scale": {
+              "ScaleX": 0.7691,
+              "ScaleY": 0.7691
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 9.8339,
+              "Y": 0.0989
+            },
+            "PreSize": {
+              "X": 0.0738,
+              "Y": 0.105
+            },
+            "LeftMargin": 25080.3672,
+            "RightMargin": -22709.3672,
+            "TopMargin": 1527.4175,
+            "BottomMargin": 83.5825,
+            "Tag": 725,
+            "ActionTag": -1336700616,
+            "Size": {
+              "X": 189.0,
+              "Y": 189.0
+            },
+            "Name": "candyplant4_1_0_0_0_0_1_0_0_0",
             "ctype": "SpriteObjectData"
           }
         ],

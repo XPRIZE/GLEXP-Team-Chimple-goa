@@ -230,7 +230,7 @@ void Pillar::onEnterTransitionDidFinish()
 	newCake();
 	ladderMove();
 	this->scheduleUpdate();
-
+	menu->setMaxPoints(5);
 	
 }
 void Pillar::gameHelp()
@@ -324,6 +324,7 @@ void Pillar::update(float dt)
 				_cakeMove = nullptr;
 				
 				_score++;
+				menu->addPoints(1);
 				if (_score == 5)
 				{
 					menu->showScore();
