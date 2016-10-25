@@ -4,6 +4,7 @@ xc.ObjectConfigPanel = cc.LayerColor.extend({
     ctor: function (width, height, position, configuration, contentPanel) {
         this._super(xc.PRIMARY_COLOR, width, height);
         this.setPosition(position);
+        this.setOpacity(100);
         this._configuration = configuration;
         this._contentPanel = contentPanel;
         this.setButtonPanel(this.getDefaultPanel());

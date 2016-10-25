@@ -124,6 +124,24 @@ xc.ParseUtil.getUserData = function (tag, dataKey) {
     }
 }
 
+
+xc.ParseUtil.getUserDataByActionTag = function (tag) {
+    var result = null;
+    if (xc.story && xc.story.items != null && xc.story.items[xc.pageIndex].scene.Content) {
+        var children = xc.story.items[xc.pageIndex].scene.Content.Content.ObjectData.Children;
+        for (var index = 0; index < children.length; index++) {
+            if (children[index].ActionTag == tag) {
+                var object = children[index];
+                var obj = JSON.parse(object.UserData);
+                result = obj;
+                break;
+            }
+        }
+        return result;
+    }
+}
+
+
 xc.ParseUtil.updateUserData = function (tag, dataKey, dataValue) {
     if (xc.story && xc.story.items != null && xc.story.items[xc.pageIndex].scene.Content) {
         var children = xc.story.items[xc.pageIndex].scene.Content.Content.ObjectData.Children;
@@ -464,7 +482,8 @@ xc.ParseUtil.disableFavoriteChoiceIfCharacterAlreadyLoadedInPage = function (ite
         xc.story.items[xc.pageIndex].scene.Content && xc.story.items[xc.pageIndex].scene.Content.Content
         && xc.story.items[xc.pageIndex].scene.Content.Content.ObjectData) {
         xc.story.items[xc.pageIndex].scene.Content.Content.ObjectData.Children.forEach(function (child) {
-            if (child.UserData && child.UserData.uniqueCharacterID == itemConfiguration['uniqueCharacterID']) {
+            var uniqueCharacterID = xc.ParseUtil.getUserData(child._actionTag,'uniqueCharacterID')
+            if (uniqueCharacterID && uniqueCharacterID == itemConfiguration['uniqueCharacterID']) {
                 item.setEnabled(false);
             }
         }, this);
@@ -479,7 +498,9 @@ xc.ParseUtil.cacheThumbnailForFavorites = function (skeleton) {
     renderer.end();
     renderer.scaleY = -1;
     var sprite = renderer.getSprite();
-    var cacheName = xc.path  + "wikitaki/"+ skeleton.UserData.uniqueCharacterID + '.png';
+    var uniqueCharacterID = xc.ParseUtil.getUserData(skeleton._actionTag,'uniqueCharacterID')
+    var cacheName = xc.path  + "wikitaki/"+ uniqueCharacterID + '.png';
+    //cc.textureCache.cacheImage(cacheName, sprite.texture);
     renderer.cleanup();
 }
 

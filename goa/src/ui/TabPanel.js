@@ -40,7 +40,7 @@ xc.TabPanel = cc.LayerColor.extend({
                 if (this._callerPanel != undefined) {
                     this._callerPanel.goBack();
                 }
-                this.parent.removeChild(this, true);
+                //this.parent.removeChild(this, true);
 
                 break;
         }

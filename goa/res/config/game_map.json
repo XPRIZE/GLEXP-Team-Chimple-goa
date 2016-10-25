@@ -1,33 +1,5 @@
 [
     {
-        "name": "choose_character",
-        "cIcon": "gameicons/EndlessRunner_pressed.png",
-        "icon": "gameicons/EndlessRunner.png",
-        "multiPlayer": false,
-        "isJSGame": true,
-        "pureJS":"",
-        "script": "src/start/characterConfigure.js"
-    },    
-    {
-        "name": "story-teller",
-        "cIcon": "gameicons/EndlessRunner_pressed.png",
-        "icon": "gameicons/EndlessRunner.png",
-        "multiPlayer": false,
-        "isJSGame": true,
-        "pureJS":"",
-        "script": "src/start/storytelling.js"
-    },
-    {
-        "name": "show_bluetoothPeers",
-        "cIcon": "gameicons/EndlessRunner_pressed.png",
-        "icon": "gameicons/EndlessRunner.png",
-        "multiPlayer": false,
-        "isJSGame": true,
-        "pureJS":"",
-        "script": "src/start/showBlueToothPeers.js"
-    },
-
-    {
         "name": "EndlessRunner",
         "cIcon": "gameicons/EndlessRunner_pressed.png",
         "icon": "gameicons/EndlessRunner.png",
@@ -473,12 +445,12 @@
     "script": "src/NonJSGameLauncher.js",
     "span": "5",
     "numLevels": "24",
-    "backgroundJson": "cityscreen/background.json",
-    "foregroundJson": "cityscreen/foreground.json",
-    "frontgroundJson": "cityscreen/frontground.json",
-    "maingroundJson": "cityscreen/mainground.json",
-    "menuPlist": "cityscreen/cityscreen.plist",
-    "menuPng": "cityscreen/cityscreen.png"
+    "backgroundJson": "layercandylevel/background.json",
+    "foregroundJson": "layercandylevel/foreground.json",
+    "frontgroundJson": "layercandylevel/frontground.json",
+    "maingroundJson": "layercandylevel/mainground.json",
+    "menuPlist": "layercandylevel/layercandylevel.plist",
+    "menuPng": "layercandylevel/layercandylevel.png"
   },
    {
     "name": "circle",
@@ -504,18 +476,34 @@
     "isJSGame": false,
     "script": "src/NonJSGameLauncher.js",
     "span": "5",
-    "numLevels": "24",
-    "backgroundJson": "cityscreen/background.json",
-    "foregroundJson": "cityscreen/foreground.json",
-    "frontgroundJson": "cityscreen/frontground.json",
-    "maingroundJson": "cityscreen/mainground.json",
-    "menuPlist": "cityscreen/cityscreen.plist",
-    "menuPng": "cityscreen/cityscreen.png"
+    "numLevels": "40",
+    "backgroundJson": "jazzlevel/background.json",
+    "foregroundJson": "jazzlevel/foreground.json",
+    "frontgroundJson": "jazzlevel/frontground.json",
+    "maingroundJson": "jazzlevel/mainground.json",
+    "menuPlist": "jazzlevel/jazzlevel.plist",
+    "menuPng": "jazzlevel/jazzlevel.png"
   },
    {
     "name": "Smash The Rock",
     "cIcon": "gameicons/Smash The Rock_pressed.png",
     "icon": "gameicons/Smash The Rock.png",
+    "multiPlayer": false,
+    "isJSGame": false,
+    "script": "src/NonJSGameLauncher.js",
+    "span": "5",
+    "numLevels": "26",
+    "backgroundJson": "smash_de_rock/layer1.json",
+    "foregroundJson": "smash_de_rock/layer3.json",
+    "frontgroundJson": "smash_de_rock/layer4.json",
+    "maingroundJson": "smash_de_rock/layer2.json",
+    "menuPlist": "smash_de_rock/smashderock_01.plist",
+    "menuPng": "smash_de_rock/smashderock_01.png"
+  },
+   {
+    "name": "JumpOnWords",
+    "cIcon": "gameicons/JumpOnWords_pressed.png",
+    "icon": "gameicons/JumpOnWords.png",
     "multiPlayer": false,
     "isJSGame": false,
     "script": "src/NonJSGameLauncher.js",
