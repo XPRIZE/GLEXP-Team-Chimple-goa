@@ -32,6 +32,8 @@ protected:
 	cocostudio::timeline::ActionTimeline * _characterAnimation;
 	std::string _themeName;
 	std::vector<std::string> _sortedList;
+	std::map<std::string, std::map<std::string, std::string>> _differntSceneMapping;
+	std::map<std::string, std::map<std::string, float>> _differentPointsConfig;
 	//std::map<std::string, std::string> _scenePath;
 	bool _cartFloating = false, _touched = true;
 	float _yy, _cartMove;
@@ -47,6 +49,9 @@ protected:
 	virtual void onTouchMoved(cocos2d::Touch *touch, cocos2d::Event * event);
 	virtual void onTouchEnded(cocos2d::Touch *touch, cocos2d::Event * event);
 	static const char* gameName() { return ORDER.c_str(); }
+	void onEnterTransitionDidFinish();
+	void gameHelp();
+	bool _helpLayer = false;
 };
 
 #endif 

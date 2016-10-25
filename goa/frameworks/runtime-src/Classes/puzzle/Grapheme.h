@@ -23,6 +23,7 @@ public:
     cocos2d::Vec2 getPrevPosition();
     std::string getGraphemeString();
     cocos2d::ui::Text* getTextInGrapheme();
+    cocos2d::Rect getTextBoundingBox();
     std::function<bool(cocos2d::Touch*, cocos2d::Event*)> touchBeganCallback;
     std::function<void(cocos2d::Touch*, cocos2d::Event*)> touchMovedCallback;
     std::function<void(cocos2d::Touch*, cocos2d::Event*)> touchEndedCallback;

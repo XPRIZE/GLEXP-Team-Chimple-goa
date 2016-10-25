@@ -98,6 +98,12 @@ void Grapheme::changeBackground() {
     _eventDispatcher->dispatchEvent(&event);
 }
 
+Rect Grapheme::getTextBoundingBox() {
+    auto bb = _text->getBoundingBox();
+    return Rect(convertToWorldSpace(bb.origin), bb.size);
+}
+
+
 bool Grapheme::onTouchBegan(Touch* touch, Event* event){
     if(_actionManager->getNumberOfRunningActionsInTarget(this) == 0) {
         auto n = convertTouchToNodeSpace(touch);

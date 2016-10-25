@@ -20,7 +20,8 @@ void* AsyncTask::_doInBackground(void* pTask)
     ((AsyncTask*)pTask)->doInBackground();
     pthread_join(*(pthread_t*)(((AsyncTask*)pTask)->m_threadhandle), NULL);
     ((AsyncTask*)pTask)->onPostExecute();
-    #endif    
+    #endif  
+	return nullptr;
 }
 
 bool AsyncTask::execute()
@@ -35,7 +36,7 @@ bool AsyncTask::execute()
         pthread_create((pthread_t*) m_threadhandle, NULL, _doInBackground, (void*)this);
         return true;
     #endif
-
+		return false;
 }
 
 

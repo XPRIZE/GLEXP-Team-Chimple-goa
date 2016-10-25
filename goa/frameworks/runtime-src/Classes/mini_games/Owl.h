@@ -42,7 +42,6 @@ public:
 	static cocos2d::Scene* createScene();
 	void update(float) override;
 	void autoPlayerController(float);
-	std::pair<int, int> levelAllInfos(int currentLevel, int sceneRepetitionNo, int totalScene, int catagoryRepetitionNo, int totalcatagory);
 	std::tuple<int, int, int> levelAllInfo(int currentLevel ,int totalCategory, int eachCategoryGroup, int totalSceneTheme, int SceneChangeAfterLevel);
 	void  setSpriteProperties(Sprite *ImageObject, float positionX, float positionY, float scaleX, float scaleY, float anchorX, float anchorY, float rotation, int zorder);
 	string getConvertInUpperCase(string data);

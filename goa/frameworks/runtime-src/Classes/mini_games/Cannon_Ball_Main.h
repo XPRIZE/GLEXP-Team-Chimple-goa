@@ -48,7 +48,7 @@ public:
 	static std::vector<LabelClass*> meteorArray;
 
 	static MainGame *self;
-	HelpLayer *_help;
+	static HelpLayer *_help;
 	static Node *meteor_meteor_strike_node;
 	static cocostudio::timeline::ActionTimeline *meteor_meteor_strike_timeline;
 
@@ -72,6 +72,8 @@ public:
 	void removeFire(EventListenerClass *, Alphabet *, Node *);
 	virtual bool init();
 	void update(float dt);
+
+	void displayHelp();
 
 	static int _helpFlag;
 

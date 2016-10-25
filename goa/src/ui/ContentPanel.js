@@ -152,14 +152,17 @@ xc.ContentPanel = xc.AbstractContentPanel.extend({
         node.children.forEach(function (element) {
             if (element.getName().indexOf("Skeleton") != -1 || element.getName().indexOf("skeleton") != -1) {
                 xc.CharacterUtil.loadSkeletonConfig(element);
-                if (element.UserData && element.UserData.colorSkins) {
-                    element.UserData.colorSkins.forEach(function (colorSkin) {
-                        xc.CharacterUtil.colorSkins(element, colorSkin);
-                })}
 
                 if (element.UserData && element.UserData.visibleSkins) {
                     xc.CharacterUtil.displaySkins(element, element.UserData.visibleSkins);
                 }
+
+                if (element.UserData && element.UserData.colorSkins) {
+                    cc.log('prcessing color skins from user data');
+                    element.UserData.colorSkins.forEach(function (colorSkin) {
+                        xc.CharacterUtil.colorSkins(element, colorSkin);
+                })
+            }
 
 
                 if (element.UserData && element.UserData.currentAnimationName) {
