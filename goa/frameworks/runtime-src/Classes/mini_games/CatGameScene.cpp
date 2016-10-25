@@ -158,6 +158,8 @@ void CatGame::callAPI(std::string str)
 	_gameState = str;
 		hippo1 = new (std::nothrow) Cat();
 		hippo1->_state = str;
+		hippo1->_score = _score;
+		hippo1->_menuContext = _menuContext;
 		hippo1->_movingPositionX = _previousX;
 		hippo1->_movingPositionY = _distanceY;
 		hippo1->_gapNodes1 = _gapNodes;

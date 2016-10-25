@@ -110,6 +110,7 @@ bool Circle::init()
 	spritecache1->addSpriteFramesWithFile(_scenePath.at("plist"));
 
 	background = CSLoader::createNode(_scenePath.at("bg"));//"circle/circle.csb"
+	extraX = 0;
 	if(visibleSize.width > 2560) {
 		extraX = (visibleSize.width - 2560) / 2;
 		background->setPositionX((visibleSize.width - 2560) / 2);
@@ -197,7 +198,7 @@ void Circle::onEnterTransitionDidFinish()
 	if (division >= 1 && division < 6) {
 		int roundLevel = (level / 15) + 1;
 		int inner = division + ((roundLevel - 1) * 5);
-		CCLOG("Sysnonyms Level = %d", inner);
+		CCLOG("Synonyms Level = %d", inner);
 		_synonyms = TextGenerator::getInstance()->getSynonyms(10);
 	}
 	else if (division >5 && division < 11) {

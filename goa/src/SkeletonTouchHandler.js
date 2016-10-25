@@ -11,6 +11,7 @@ xc.SkeletonTouchHandler = function (context) {
     this._flipTarget = false;
     this.onTouchBegan = function (touch, event) {
         var target = event.getCurrentTarget();
+        cc.log('skeleton node action tag:' + target._actionTag);
         var boundingBox = target.getBoundingBoxToWorld();
         if (cc.rectContainsPoint(boundingBox, touch.getLocation())) {
                 var action = target.actionManager.getActionByTag(target.tag, target);

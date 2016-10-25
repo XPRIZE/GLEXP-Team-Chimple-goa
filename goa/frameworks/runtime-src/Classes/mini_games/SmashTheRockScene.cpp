@@ -96,6 +96,7 @@ void SmashTheRock::update(float dt)
 
 void SmashTheRock::startGame() {
     menu->showStartupHelp(CC_CALLBACK_0(SmashTheRock::begin, this));
+	menu->setMaxPoints(5);
 //	runAction(Sequence::create(CallFunc::create(CC_CALLBACK_0(MenuContext::showStartupHelp, menu)), CallFunc::create(CC_CALLBACK_0(SmashTheRock::begin, this)), NULL));
 }
 
@@ -385,6 +386,7 @@ bool SmashTheRock::onTouchBegan(cocos2d::Touch *touch, cocos2d::Event * event)
 			_eventDispatcher->removeEventListenersForTarget(target, false);
 			hit();
 			click++;
+			menu->addPoints(1);
 			if (_helpFlage) {
 				this->removeChildByName("helpLayer");
 				_helpFlage = false;
