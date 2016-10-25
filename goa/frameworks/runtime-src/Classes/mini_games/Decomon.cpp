@@ -12,6 +12,7 @@
 #include "../lang/LangUtil.h"
 #include "../puzzle/CharGenerator.h"
 #include "DecomonGallery.h"
+#include "../menu/HelpLayer.h"
 
 USING_NS_CC;
 
@@ -74,6 +75,7 @@ bool Decomon::init()
 		background->setPositionX(background->getPositionX() + (extar_X / 2));
 		//bg->setPositionX((visibleSize.width - 2560) / 2);
 	}
+	bg->setName("bg");
 	this->addChild(bg);
 
 	auto children = bg->getChildByName("left_panel")->getChildren();
@@ -217,6 +219,7 @@ bool Decomon::onTouchBegan(cocos2d::Touch * touch, cocos2d::Event * event)
 				_movedNodes.clear();
 			}
 			itemInAGrid(_eyePath , "csb");
+			_numberOfItemSelected++;
 			return false;
 		} else if(target->getName().compare("updated costume") == 0){
 			return true;
@@ -228,6 +231,7 @@ bool Decomon::onTouchBegan(cocos2d::Touch * touch, cocos2d::Event * event)
 				_movedNodes.clear();
 			}
 			itemInAGrid(_mouthPath, "csb");
+			_numberOfItemSelected++;
 			return false;
 		} else if (target->getName().compare("decomon_icon_skate") == 0) {
 			if (_touched) {
@@ -237,6 +241,7 @@ bool Decomon::onTouchBegan(cocos2d::Touch * touch, cocos2d::Event * event)
 				_movedNodes.clear();
 			}
 			itemInAGrid(_skatePath,"csb");
+			_numberOfItemSelected++;
 			return false;
 		} else if (target->getName().compare("decomon_icon_headgear") == 0) {
 			if (_touched) {
@@ -246,6 +251,12 @@ bool Decomon::onTouchBegan(cocos2d::Touch * touch, cocos2d::Event * event)
 				_movedNodes.clear();
 			}
 			itemInAGrid(_hornPath, "png");
+			if (_numberOfItemSelected == 0 && menu->getCurrentLevel() == 1) {
+				this->removeChildByName("helpLayer");
+				gameHelpDrag();
+			}
+			_numberOfItemSelected++;
+			
 			return false;
 		}
 		else if (target->getName().compare("decomon_icon_nose") == 0) {
@@ -256,6 +267,7 @@ bool Decomon::onTouchBegan(cocos2d::Touch * touch, cocos2d::Event * event)
 				_movedNodes.clear();
 			}
 			itemInAGrid(_nosePath, "_nosePath");
+			_numberOfItemSelected++;
 			return false;
 		}
 		else if (target->getName().compare("decomon_icon_paintbrush") == 0) {
@@ -266,6 +278,7 @@ bool Decomon::onTouchBegan(cocos2d::Touch * touch, cocos2d::Event * event)
 				_movedNodes.clear();
 			}
 			itemInAGrid(_paintPath, "png");
+			_numberOfItemSelected++;
 			return false;
 		}
 		else if (target->getName().compare("decomon_icon_mustache") == 0) {
@@ -276,6 +289,7 @@ bool Decomon::onTouchBegan(cocos2d::Touch * touch, cocos2d::Event * event)
 				_movedNodes.clear();
 			}
 			itemInAGrid(_mustachePath, "png");
+			_numberOfItemSelected++;
 			return false;
 		}
 		else if (target->getName().compare("decomon_icon_gear") == 0) {
@@ -286,6 +300,7 @@ bool Decomon::onTouchBegan(cocos2d::Touch * touch, cocos2d::Event * event)
 				_movedNodes.clear();
 			}
 			itemInAGrid(_gearPath, "png");
+			_numberOfItemSelected++;
 			return false;
 		}
 		else if (target->getName().compare("decomon_icon_camera") == 0) {
@@ -330,6 +345,10 @@ bool Decomon::onTouchBegan(cocos2d::Touch * touch, cocos2d::Event * event)
 				}
 				else {
 					//target->setScale(-1);
+				}
+				if (_helpIconIsClicked) {
+					this->removeChildByName("helpDragLayer");
+					_helpIconIsClicked = false;
 				}
 				generateDuplicatesInAGrid(target);
 				_flip = true;
@@ -734,4 +753,31 @@ void Decomon::onEnterTransitionDidFinish()
 	_paintingColour->retain();*/
 	_paintingNode = DrawNode::create();
 	_maskingLayer->addChild(_paintingNode);
+	if (menu->getCurrentLevel() == 1) {
+		gameHelp();
+	}
+
+}
+
+void Decomon::gameHelp()
+{
+	Size visibleSize = Director::getInstance()->getVisibleSize();
+	auto icon = this->getChildByName("bg")->getChildByName("right_panel")->getChildByName("decomon_icon_gear");
+	auto pos = this->convertToWorldSpace(icon->getPosition());
+	auto help = HelpLayer::create(Rect(visibleSize.width * 0.05, visibleSize.height * 0.74, 200, 300), Rect(0,0,0,0));
+	help->click(Vec2(visibleSize.width * 0.05, visibleSize.height * 0.74));
+	help->setName("helpLayer");
+	this->addChild(help);
+}
+
+void Decomon::gameHelpDrag()
+{
+	Size visibleSize = Director::getInstance()->getVisibleSize();
+	auto icon = _costumeLayer->getChildByName("decomon/decomon2/decomon_headgear_1.png");
+	//auto icon = this->getChildByName("bg")->getChildByName("right_panel")->getChildByName("decomon_icon_gear");
+	auto help = HelpLayer::create(Rect(icon->getPositionX(), icon->getPositionY(), icon->getContentSize().width, icon->getContentSize().height), Rect(0, 0, 0, 0));
+	help->clickAndDrag(Vec2(icon->getPositionX(), icon->getPositionY()), Vec2(visibleSize.width / 2, visibleSize.height / 2));//(Vec2(icon->getPositionX(), icon->getPositionY()));
+	help->setName("helpDragLayer");
+	this->addChild(help);
+	_helpIconIsClicked = true;
 }

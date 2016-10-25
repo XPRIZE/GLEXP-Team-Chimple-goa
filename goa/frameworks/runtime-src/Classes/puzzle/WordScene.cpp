@@ -71,7 +71,8 @@ _grid(nullptr),
 _lipiTKResultMenu(nullptr),
 _word(""),
 _helpLayer(nullptr),
-_helpGraphemeText("")
+_helpGraphemeText(""),
+_numTries(0)
 {
 }
 
@@ -160,6 +161,7 @@ void WordScene::onEnterTransitionDidFinish() {
     }
     _answerGraphemes = tg->getGraphemes(_word);
     _numGraphemes = _answerGraphemes.size();
+    _menuContext->setMaxPoints(_numGraphemes);
     _background = loadNode();
     addChild(_background);
     createAnswer();
@@ -171,7 +173,7 @@ void WordScene::onEnterTransitionDidFinish() {
     
     _eventDispatcher->addCustomEventListener("chars_recognized", CC_CALLBACK_1(WordScene::charactersRecognized, this));
     
-    if(_menuContext->getCurrentLevel() == 1) {
+    if(_menuContext->getCurrentLevel() == 1 && _score == 0) {
         auto children = _answer->getChildren();
         if(children.size() > 0) {
             auto word = children.at(0);
@@ -333,6 +335,7 @@ void WordScene::processGrapheme(Grapheme* grapheme) {
 }
 
 void WordScene::checkAnswer() {
+    _numTries++;
     if(_grid->getNumberOfActionsRunning() > 1) {
         return;
     }
@@ -346,12 +349,15 @@ void WordScene::checkAnswer() {
             correct = false;
         }
     }
+    if(correct) {
+        _menuContext->addPoints(_numGraphemes + _numGraphemes - _numTries);
+    }
     gameOver(correct);
 }
 
 void WordScene::gameOver(bool correct) {
     if(correct) {
-        _menuContext->showScore();        
+        _menuContext->showScore();
     }
 }
 

@@ -49,7 +49,11 @@ void LipiTKInterface::initialize() {
     int result;
     CCLOG("lipitkLocation 1111");
 #if (CC_TARGET_PLATFORM == CC_PLATFORM_WINRT || CC_TARGET_PLATFORM == CC_PLATFORM_WIN32)
-	std::string lipitkLocation = "D:/GLEXP-Team-Chimple/goa/frameworks/runtime-src/proj.win32/Debug.win32/res";
+//	auto ssssss = FileUtils::sharedFileUtils()->isFileExistInternal("D:/GLEXP-Team-Chimple/goa/frameworks/runtime-src/proj.win32/Debug.win32/res/largeBrush.png");
+	auto sss = FileUtils::sharedFileUtils()->fullPathForFilename("res/largeBrush.png");
+	std::string lipitkLocation = sss.substr(0, sss.size() - 15);
+//	std::string lipitkLocation = FileUtils::sharedFileUtils()->fullPathForFilename(_lipiDirectory);
+//	 lipitkLocation = "D:/GLEXP-Team-Chimple/goa/frameworks/runtime-src/proj.win32/Debug.win32/res";
 #else
 	std::string lipitkLocation = FileUtils::getInstance()->fullPathForFilename(_lipiDirectory);
 #endif // WIN32

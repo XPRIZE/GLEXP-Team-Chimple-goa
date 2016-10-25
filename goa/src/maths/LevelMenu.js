@@ -2,7 +2,7 @@
 
 var xc = xc || {}
 
-xc.LevelMenuLayer = cc.ScrollView.extend({
+xc.LevelMenuLayer = cc.Node.extend({
   _listener: null,
   _touchPoint: null,
   _clazz: null,
@@ -10,27 +10,77 @@ xc.LevelMenuLayer = cc.ScrollView.extend({
   _numLevels: null,
   _gameName: null,
   _isJSGame: false,
+  _parallax: null,
+  _scrollView: null,
   ctor: function(args) {
+    this._super()
     var gameConfig = args[0]
     this._span = parseInt(gameConfig.span)
     this._numLevels = parseInt(gameConfig.numLevels)
     this._clazz = xc[gameConfig.pureJS]
     this._gameName = gameConfig.name
     this._isJSGame = gameConfig.isJSGame
-    this._super(cc.size(cc.director.getWinSize().width * this._span, cc.director.getWinSize().height), new cc.ParallaxNode())
     cc.spriteFrameCache.addSpriteFrames(xc.LevelMenuLayer.res.hand_plist)
     if(gameConfig.menuPlist) {
       cc.spriteFrameCache.addSpriteFrames(xc.path + gameConfig.menuPlist)
     }
-    this.setViewSize(cc.director.getWinSize())
-    this.setBounceable(false)
-    var parallax = this.getContainer()
-    parallax.setContentSize(cc.size(cc.director.getWinSize().width * this._span, cc.director.getWinSize().height))
+    this._parallax = new cc.ParallaxNode()
+    this._parallax.setContentSize(cc.size(cc.director.getVisibleSize().width * this._span, cc.director.getVisibleSize().height))
+    this.addChild(this._parallax)
+    if(gameConfig.backgroundJson) {
+        var pLayer = ccs.load(xc.path + gameConfig.backgroundJson, xc.path)
+        this._parallax.addChild(pLayer.node, -4, cc.p(0.2, 0.2), cc.p(0, 0))
+    }
+    if(gameConfig.maingroundJson) {
+        var pLayer = ccs.load(xc.path + gameConfig.maingroundJson, xc.path)
+        this._parallax.addChild(pLayer.node, -3, cc.p(0.4, 0.4), cc.p(0, 0))        
+    }
+    if(gameConfig.foregroundJson) {
+        var pLayer = ccs.load(xc.path + gameConfig.foregroundJson, xc.path)
+        this._parallax.addChild(pLayer.node, -2, cc.p(0.6, 0.6), cc.p(0, 0))
+    }
+    if(gameConfig.frontgroundJson) {
+        var pLayer = ccs.load(xc.path + gameConfig.frontgroundJson, xc.path)
+        this._parallax.addChild(pLayer.node, -1, cc.p(0.8, 0.8), cc.p(0, 0))
+    }
+    this._scrollView = new xc.ScrollView(gameConfig)
+    this.addChild(this._scrollView)
+    this._scrollView.addEventListener(this.scrolled)
+  },
+  scrolled: function(target, event) {
+    if(target.getParent() && target.getParent()._parallax) {
+      target.getParent()._parallax.setPosition(target.getInnerContainerPosition())
+    }
+    
+  }
+})
+
+
+xc.ScrollView = ccui.ScrollView.extend({
+  _clazz: null,
+  _span: null,
+  _numLevels: null,
+  _gameName: null,
+  _isJSGame: false,
+  _initPos: null,
+  ctor: function(gameConfig) {
+    // this._super(cc.size(cc.director.getVisibleSize().width * this._span, cc.director.getVisibleSize().height), new cc.ParallaxNode())
+    this._super();
+    this._span = parseInt(gameConfig.span)
+    this._numLevels = parseInt(gameConfig.numLevels)
+    this._clazz = xc[gameConfig.pureJS]
+    this._gameName = gameConfig.name
+    this._isJSGame = gameConfig.isJSGame    
+    this.setContentSize(cc.director.getVisibleSize())
+    this.setDirection(ccui.ScrollView.DIR_HORIZONTAL)
+    this.setInnerContainerSize(cc.size(cc.director.getVisibleSize().width * this._span, cc.director.getVisibleSize().height))
+    // this.setViewSize(cc.director.getVisibleSize())
+    // this.setBounceable(false)
+    // var this._parallax = this.getContainer()
     var gameProgress = JSON.parse(cc.sys.localStorage.getItem(this._gameName + '.level')) || [0]
-    var gap = cc.director.getWinSize().width * this._span / (this._numLevels + 1)
-    cc.log(cc.director.getWinSize().width)
-    var goalTolerance = cc.director.getWinSize().height / 10
-    var goal = getRandomArbitrary(goalTolerance, cc.director.getWinSize().height - goalTolerance)
+    var gap = cc.director.getVisibleSize().width * this._span / (this._numLevels + 1)
+    var goalTolerance = cc.director.getVisibleSize().height / 10
+    var goal = getRandomArbitrary(goalTolerance, cc.director.getVisibleSize().height - goalTolerance)
     var start = goalTolerance
     var prevPos = null
     var numDots = 10
@@ -42,21 +92,22 @@ xc.LevelMenuLayer = cc.ScrollView.extend({
       but.addChild(label)
       start = getRandomArbitrary(start, goal)
       if(Math.abs(goal - start) < goalTolerance) {
-        goal = getRandomArbitrary(goalTolerance, cc.director.getWinSize().height - goalTolerance)
+        goal = getRandomArbitrary(goalTolerance, cc.director.getVisibleSize().height - goalTolerance)
       }
       var newPos = cc.p(gap * i, start)
-      parallax.addChild(but, 1, cc.p(1.0, 1.0), newPos)
+      but.setPosition(newPos)
       if(prevPos) {
         var line = new cc.DrawNode()
         line.drawSegment(prevPos, newPos, 20, cc.color(255, 0, 0))
-        parallax.addChild(line, 0, cc.p(1.0, 1.0), cc.p())
+        this.addChild(line, 1)
       }
+      this.addChild(but, 2)
       prevPos = newPos
       var levelStatus = parseInt(gameProgress[i])
       if(i == gameProgress.length) {
         but.setColor(cc.color(256, 128, 0))
         but.addTouchEventListener(this.itemSelected, this)
-        this.setContentOffset(cc.p(-Math.max(0, Math.min(cc.director.getWinSize().width * ( this._span - 1), newPos.x - cc.director.getWinSize().width / 2)), 0), 1)
+        this._initPos = cc.p(-Math.max(0, Math.min(cc.director.getVisibleSize().width * ( this._span - 1), newPos.x - cc.director.getVisibleSize().width / 2)), 0)
       } else if(i > gameProgress.length) {
         but.setColor(cc.color(128, 128, 128))
       } else {
@@ -76,29 +127,14 @@ xc.LevelMenuLayer = cc.ScrollView.extend({
         but.addTouchEventListener(this.itemSelected, this)
       }
     }
-    if(gameConfig.backgroundJson) {
-        var pLayer = ccs.load(xc.path + gameConfig.backgroundJson, xc.path)
-        parallax.addChild(pLayer.node, -4, cc.p(0.2, 0.2), cc.p(0, 0))
-    }
-    if(gameConfig.maingroundJson) {
-        var pLayer = ccs.load(xc.path + gameConfig.maingroundJson, xc.path)
-        parallax.addChild(pLayer.node, -3, cc.p(0.4, 0.4), cc.p(0, 0))
-    }
-    if(gameConfig.foregroundJson) {
-        var pLayer = ccs.load(xc.path + gameConfig.foregroundJson, xc.path)
-        parallax.addChild(pLayer.node, -2, cc.p(0.6, 0.6), cc.p(0, 0))
-    }
-    if(gameConfig.frontgroundJson) {
-        var pLayer = ccs.load(xc.path + gameConfig.frontgroundJson, xc.path)
-        parallax.addChild(pLayer.node, -1, cc.p(0.8, 0.8), cc.p(0, 0))
-    }
-    // SCROLL_DEACCEL_RATE = 0.99
-    // SCROLL_DEACCEL_DIST = 100.0
+  },
+  onEnter: function() {
+    ccui.ScrollView.prototype.onEnter.call(this);
+    this.setInnerContainerPosition(this._initPos)
   },
   itemSelected: function (sender, type) {
     switch (type) {
       case ccui.Widget.TOUCH_BEGAN:
-        cc.log("touched")
         var level = parseInt(sender.getChildren()[0].getString())
         cc.log(this._gameName + '.currentLevel')
         cc.sys.localStorage.setItem(this._gameName + '.currentLevel', level.toString())
