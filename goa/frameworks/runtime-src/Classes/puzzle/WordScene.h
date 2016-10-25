@@ -77,6 +77,7 @@ protected:
     cocos2d::ui::Button* _handWritingDialogButton;
     LipiTKNode* _lipiTKNode;
     cocos2d::Menu* _lipiTKResultMenu;
+    int _numTries;
 };
 
 #endif /* WordScene_h */
