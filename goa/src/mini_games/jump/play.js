@@ -266,17 +266,18 @@ nameLabel : null,
         //  cc.log("alpha =",group[i]);
         }
 
-       cc.log(group);
-      this.string = '';
+       cc.log("group = " ,group);
+      this.string1 = '';
+      for(var i=0; i< group.length - 6;i++)
         {
-            this.string += group[i];
+            this.string1 += group[i];
         }
-        cc.log(this.string);
-     this.dict =  xc.WordUtil.getValidCombinations(this.string.toLowerCase());
+        cc.log("string=",this.string1);
+     this.dict =  xc.WordUtil.getValidCombinations(this.string1.toLowerCase());
      this.allwords = cc.loader.getRes(xc.path + "english/allwords.json");
     // dict = ["abc","dsa","cba","bda","hsf"];
        
-        cc.log(this.dict);
+        cc.log("dict=",this.dict);
      },
 
 
