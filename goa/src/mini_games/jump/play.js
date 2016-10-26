@@ -19,12 +19,12 @@ xc.playLayer = cc.Layer.extend( {
    score:0,
    scoreLabel : null,
    _dir_Flag: true,
-nameLabel : null,
+  nameLabel : null,
     ctor:
     function () {
         this._super();
         
-
+        this.stepRef = [];
         this.size = cc.winSize;
         cc.spriteFrameCache.addSpriteFrames(xc.playLayer.res.jump_plist);
 

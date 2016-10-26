@@ -155,6 +155,17 @@ xc.CreateStoryLayer = cc.Layer.extend({
                 }
                 
                 xc.storiesJSON.stories.splice(this._curSelectedStoryIndex, 1);
+
+                if(cc.sys.isNative) {
+                    var writablePath = jsb.fileUtils.getWritablePath() + "story.json";
+                    var fileContent = JSON.stringify(xc.storiesJSON);
+                    cc.log('fileContent before upload:' + fileContent);
+                    jsb.fileUtils.writeStringToFile(fileContent, writablePath);
+                } else {
+                    var fileContent = JSON.stringify(xc.storiesJSON);
+                    cc.log('fileContent before upload:' + fileContent);
+                }                
+
                 this._optionPanel.setVisible(false);
                 this.reDrawPages();
 
@@ -230,6 +241,7 @@ xc.CreateStoryScene.load = function(layer) {
             xc.storyConfigurationObject = cc.loader.getRes(xc.CreateStoryLayer.res.Config_json);
             xc.storyPlayConfigurationObject = cc.loader.getRes(xc.CreateStoryLayer.res.EditPlayConfig_json);
             xc.onlyStoryPlayConfigurationObject = cc.loader.getRes(xc.CreateStoryLayer.res.OnlyStoryPlayConfig_json);
+            xc.onlyStoryPlayConfigurationObject = cc.loader.getRes(xc.CreateStoryLayer.res.OnlyStoryPlayConfig_json); 
                         
         } else {
             xc.storyConfigurationObject = cc.loader.cache[xc.CreateStoryLayer.res.Config_json];

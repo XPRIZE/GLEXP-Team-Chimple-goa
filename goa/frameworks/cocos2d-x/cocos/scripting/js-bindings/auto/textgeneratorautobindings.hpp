@@ -17,6 +17,7 @@ bool js_textgeneratorautobindings_TextGenerator_getNumGraphemesInString(JSContex
 bool js_textgeneratorautobindings_TextGenerator_getSynonyms(JSContext *cx, uint32_t argc, jsval *vp);
 bool js_textgeneratorautobindings_TextGenerator_getAllChars(JSContext *cx, uint32_t argc, jsval *vp);
 bool js_textgeneratorautobindings_TextGenerator_generateMatrix(JSContext *cx, uint32_t argc, jsval *vp);
+bool js_textgeneratorautobindings_TextGenerator_getLang(JSContext *cx, uint32_t argc, jsval *vp);
 bool js_textgeneratorautobindings_TextGenerator_generateASentence(JSContext *cx, uint32_t argc, jsval *vp);
 bool js_textgeneratorautobindings_TextGenerator_getValidCombinations(JSContext *cx, uint32_t argc, jsval *vp);
 bool js_textgeneratorautobindings_TextGenerator_getWords(JSContext *cx, uint32_t argc, jsval *vp);

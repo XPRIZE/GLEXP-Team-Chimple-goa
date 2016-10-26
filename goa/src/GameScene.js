@@ -9,12 +9,8 @@ xc.GameScene = cc.Scene.extend({
     args: [],
     ctor: function(args) {
         this._super();
-        cc.log(args)
         this.layerClass = args.shift()
         this.args = args
-    },
-    onEnter:function () {
-        this._super();
         if(this.layer == null) {
             if(this.multiPlayerGame) {
                 this.layer = new xc.ChoosePlayerModeLayer(this.layerClass, this.args);
@@ -24,14 +20,16 @@ xc.GameScene = cc.Scene.extend({
                 this.addChild(this.layer);
             }
         }
-        if (cc.sys.isNative) {
-            this.menuContext = goa.MenuContext.create(this.layer, this.layer.gameName);
-            this.addChild(this.menuContext);
+        this.menuContext = goa.MenuContext.create(this.layer, this.layer.gameName);
+        if(typeof this.args[0] === 'number') {
+            this.menuContext.setCurrentLevel(this.args[0]);
         }
+        this.addChild(this.menuContext);
     }
 });
 
 xc.GameScene.load = function(layer) {
+    cc.log(arguments);
     var args = (arguments.length === 1 ? [arguments[0]] : Array.apply(null, arguments));
     var t_resources = [];
     for (var i in layer.res) {

@@ -8,7 +8,7 @@ xc.SpriteTouchHandler = function (context) {
     this.onTouchBegan = function (touch, event) {
         var target = event.getCurrentTarget();
         cc.log('target name:' + target.getName());
-        if(target.getName() == 'background') {
+        if(target.getName() == 'background' || target.getName().indexOf('Panel') != -1) {
             return false;
         }
         var location = target.convertToNodeSpace(touch.getLocation());
