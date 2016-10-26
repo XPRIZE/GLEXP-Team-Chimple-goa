@@ -15,7 +15,14 @@ xc.ConnectTheDotsLayer = cc.LayerColor.extend({
     ctor: function(args) {
     this._super(cc.color(248, 248, 248), cc.director.getVisibleSize().width, cc.director.getVisibleSize().height)
     cc.spriteFrameCache.addSpriteFrames(xc.ConnectTheDotsLayer.res.hand_plist)
-    this._level = args[0]
+    cc.log(args)
+    this._dotNode = new cc.Node()
+    this.addChild(this._dotNode)
+    this._gap = Math.min(cc.director.getVisibleSize().width / this._numCols, cc.director.getVisibleSize().height / this._numRows)
+  },
+  onEnter: function() {
+    cc.LayerColor.prototype.onEnter.call(this)
+    this._level = this.getParent().menuContext.getCurrentLevel()
     if(this._level <= 3) {
       this._targetNum = 2
     } else if(this._level <= 6) {
@@ -27,9 +34,6 @@ xc.ConnectTheDotsLayer = cc.LayerColor.extend({
     } else {
       this._targetNum = 6
     }
-    this._dotNode = new cc.Node()
-    this.addChild(this._dotNode)
-    this._gap = Math.min(cc.director.getVisibleSize().width / this._numCols, cc.director.getVisibleSize().height / this._numRows)
     this.showDots()
     // var help = new xc.HelpLayer(cc.rect(1280, 1200, 200, 200), cc.rect(1280, 500, 400, 400))
     // this.addChild(help)
@@ -141,7 +145,10 @@ xc.ConnectTheDotsLayer = cc.LayerColor.extend({
         }
         if(touchedDots == this._targetNum) {
           if(++this._score >= 5) {
-            xc.GameScene.load(xc.ConnectTheDotsMenu)
+            var menuContext = this.getParent().menuContext
+            menuContext.setMaxPoints(5)
+            menuContext.addPoints(this._score)
+            this.getParent().menuContext.showScore()
           }
           this.enableTouch(false)
           for(var j = 0; j < this._numCols; j++) {

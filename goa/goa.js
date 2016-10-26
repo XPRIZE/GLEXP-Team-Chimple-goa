@@ -2,6 +2,41 @@
 
 var goa = goa || {};
 
+goa.MenuContext = cc.Node.extend({
+    _layer: null,
+    _gameName: null,
+    _maxPoints: 16,
+    _currentLevel: 1,
+    _points: 0,
+    ctor: function(layer, gameName) {
+        this._super();
+        this._layer = layer;
+        this._gameName = gameName;
+    },
+    setMaxPoints: function(maxPoints) {
+        this._maxPoints = maxPoints;
+    },
+    getMaxPoints: function() {
+        return this._maxPoints;
+    },
+    setCurrentLevel: function(currentLevel) {
+        this._currentLevel = currentLevel;
+    },
+    getCurrentLevel: function() {
+        return this._currentLevel;
+    },
+    addPoints: function(points) {
+        this._points += points;
+    },
+    showScore: function() {
+
+    }
+})
+
+goa.MenuContext.create = function(layer, gameName) {
+    return new goa.MenuContext(layer, gameName);
+}
+
 goa.TextGenerator = function() {
     console.log("created TextGenerator");
 }
