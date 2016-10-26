@@ -116,7 +116,7 @@ void SmashTheRock::begin()
 	mychar = LangUtil::getInstance()->getAllCharacters()[menu->getCurrentLevel() - 1];
 	//mychar = CharGenerator::getInstance()->generateAChar();
     _charkey = CharGenerator::getInstance()->generateMatrixForChoosingAChar(mychar, 2, 7, 50);
-
+	bool firstMychar = true;
 	int dis = (220.0 / 2560)*visibleSize.width;
 	for (int i = 1; i < 3; i++)
 	{
@@ -168,10 +168,11 @@ void SmashTheRock::begin()
 			label->setPositionX(blockWidth);
 			auto letter = label->getString();
 			label->setPositionY(blockHeight - 230);
-			if (str1 == mychar)
+			if (str1 == mychar && firstMychar)
 			{
 				helpX = blockWidth;
 				helpY = blockHeight;
+				firstMychar = false;
 			}
 			label->setAnchorPoint(Vec2::ANCHOR_MIDDLE_BOTTOM);
 			auto mystr = LangUtil::convertUTF16CharToString(str1);
