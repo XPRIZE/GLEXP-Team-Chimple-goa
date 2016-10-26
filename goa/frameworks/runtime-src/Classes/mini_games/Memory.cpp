@@ -294,8 +294,8 @@ void Memory::onEnterTransitionDidFinish() {
 		auto box2 = _memoryfarm->getChildByName("background")->getChildByName("nest16");
 
 
-		box1pos = box1->getPosition() + Vec2(80, 100);
-		box2pos = box2->getPosition() + Vec2(80, 100);
+		box1pos = box1->getPosition() + Vec2(visibleSize.width * 0.03, visibleSize.height * 0.05);
+		box2pos = box2->getPosition() + Vec2(visibleSize.width * 0.03, visibleSize.height * 0.05);
 
 		help1 = HelpLayer::create(Rect(box1pos.x, box1pos.y, box1->getChildByName("nestfront")->getContentSize().width, box1->getChildByName("nestfront")->getContentSize().height), Rect(0, 0, 0, 0));
 
@@ -363,7 +363,9 @@ bool Memory::onTouchBegan(Touch* touch, Event* event) {
 	
 	//Size s = target->getContentSize();
 	//Rect rect = Rect(0, 0, s.width, s.height);
-	
+	Size visibleSize = Director::getInstance()->getVisibleSize();
+	Vec2 origin = Director::getInstance()->getVisibleOrigin();
+
 
 	auto bb = target->getBoundingBox();
 
@@ -378,8 +380,8 @@ bool Memory::onTouchBegan(Touch* touch, Event* event) {
 			auto box2 = _memoryfarm->getChildByName("background")->getChildByName("nest16");
 
 
-			box1pos = box1->getPosition() + Vec2(80, 100);
-			box2pos = box2->getPosition() + Vec2(80, 100);
+			box1pos = box1->getPosition() + Vec2(visibleSize.width * 0.03, visibleSize.height * 0.05);
+			box2pos = box2->getPosition() + Vec2(visibleSize.width * 0.03, visibleSize.height * 0.05);
 
 			help2 = HelpLayer::create(Rect(box2pos.x, box2pos.y, box2->getChildByName("nestfront")->getContentSize().width, box2->getChildByName("nestfront")->getContentSize().height), Rect(0, 0, 0, 0));
 
