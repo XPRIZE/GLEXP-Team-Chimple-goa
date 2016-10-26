@@ -64,8 +64,12 @@ bool BalloonHero::init() {
 }
 
 void BalloonHero::onEnterTransitionDidFinish() {
-
-
+	/*
+	auto help = HelpLayer::create(Rect(boxPosition.x, boxPosition.y, boxContentSize.width, boxContentSize.height), Rect(0, 0, 0, 0));
+	help->clickAndDrag(Vec2(boxPosition), Vec2(visibleSize.width / 2, visibleSize.height *0.1));
+	help->setName("helpLayer");
+	this->addChild(help);
+	*/
 	
 	//SpriteFrameCache::getInstance()->addSpriteFramesWithFile("balloonhero/balloonhero.plist");
 	//_sceneNumber = RandomHelper::random_int(1, 2);
@@ -497,7 +501,7 @@ void BalloonHero::onEnterTransitionDidFinish() {
 		_fireFly->setPosition(Vec2(visibleSize.width / 2 + origin.x, visibleSize.height / 2 + origin.y));
 		
 		_fireFly->setScale(0.5, 0.5);
-		_fireFly->setContentSize(Size(200, 200));
+		//_fireFly->setContentSize(Size(200, 200));
 		
 		for (auto const& child : _fireFly->getChildren()) {
 
@@ -571,7 +575,7 @@ void BalloonHero::setupTouch() {
 	
 	auto listener = EventListenerTouchOneByOne::create();
 	
-	auto firefly = (Sprite* )_fireFly;
+	auto firefly = (Sprite* )_fireFly->getChildByName("firefly");
 	
 	
 	listener->onTouchBegan = CC_CALLBACK_2(BalloonHero::onTouchBegan, this);
