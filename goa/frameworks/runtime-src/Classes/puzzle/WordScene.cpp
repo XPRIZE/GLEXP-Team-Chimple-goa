@@ -12,7 +12,7 @@
 #include "../lang/TextGenerator.h"
 #include "GraphemeGrid.h"
 #include "Grapheme.h"
-#include "../LipiTKNode.h"
+#include "../WordSceneLipiTKNode.h"
 #include "../menu/HelpLayer.h"
 
 USING_NS_CC;
@@ -123,7 +123,7 @@ void WordScene::characterSelected(Ref *sender) {
     {
         WordScene::textReceived(text);
         clearLipiTKResult();
-        //_lipiTKNode->removeFromParent();
+        _lipiTKNode->removeFromParent();
         _handWritingDialogButton->setEnabled(true);
 
     }
@@ -391,7 +391,7 @@ void WordScene::showHandWritingDialog(Ref* pSender, ui::Widget::TouchEventType e
             {
                 _grid->setVisible(false);
                 clickedButton->setEnabled(false);
-                _lipiTKNode = LipiTKNode::create(1000,1000,Vec2(clickedButton->getPosition().x, clickedButton->getPosition().y + 600), 70);
+                _lipiTKNode = WordSceneLipiTKNode::create(1000,1000,Vec2(clickedButton->getPosition().x, clickedButton->getPosition().y + 600));
                 addChild(_lipiTKNode);
             } else {
                 clickedButton->setEnabled(false);

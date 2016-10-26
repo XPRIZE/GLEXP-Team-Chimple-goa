@@ -16,7 +16,7 @@
 #include "Grapheme.h"
 #include "RPGConfig.h"
 
-class LipiTKNode;
+class WordSceneLipiTKNode;
 class WordScene : public cocos2d::Node {
 public:
     static cocos2d::Scene* createScene();
@@ -75,7 +75,7 @@ protected:
     std::vector<std::pair<Node*, Grapheme*>> _answerVector;
     bool _showHandWriting;
     cocos2d::ui::Button* _handWritingDialogButton;
-    LipiTKNode* _lipiTKNode;
+    WordSceneLipiTKNode* _lipiTKNode;
     cocos2d::Menu* _lipiTKResultMenu;
     int _numTries;
 };

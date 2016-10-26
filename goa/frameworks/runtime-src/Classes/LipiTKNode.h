@@ -25,13 +25,9 @@ public:
     virtual ~LipiTKNode();
     
     //later add options
-    static LipiTKNode* create(int width, int height, cocos2d::Point position, int opacity);
+    static LipiTKNode* create(int width, int height, cocos2d::Point position);
+    virtual bool initialize(int width, int height, cocos2d::Point position);
     
-    virtual bool initialize(int width, int height, cocos2d::Point position, int opacity);
-    
-    virtual bool onTouchBegan(cocos2d::Touch * touch, cocos2d::Event* event);
-    virtual void onTouchMoved(cocos2d::Touch * touch, cocos2d::Event * event);
-    virtual void touchEnded(cocos2d::Touch* touch, cocos2d::Event* event);
     virtual cocos2d::Sprite* createDrawingAreaWithColor(cocos2d::Vec2 anchorPoint, cocos2d::Vec2 position, float opacity,const cocos2d::Color3B color);
     
     virtual cocos2d::Sprite* createDrawingAreaUsingFileName(cocos2d::Vec2 anchorPoint, cocos2d::Vec2 position, float opacity, std::string fileName);
@@ -46,26 +42,44 @@ public:
     
     void broadCastRecognizedChars(std::vector<std::string> results);
     
-private:
+    virtual cocos2d::Sprite* createDrawingBoard();
+    
+    virtual void draw(cocos2d::DrawNode* paintingNode, cocos2d::Point fromPoint, cocos2d::Point toPoint);
+    
+    virtual void postTouchBegan(cocos2d::Touch * touch, cocos2d::Event * event, cocos2d::Point touchPoint);
+    virtual void postTouchMoved(cocos2d::Touch * touch, cocos2d::Event * event, cocos2d::Point touchPoint);
+    virtual void postTouchEnded(cocos2d::Touch * touch, cocos2d::Event * event, cocos2d::Point touchPoint);
+
+protected:
     int _canvasHeight;
     int _canvasWidth;
+    cocos2d::ui::Button* _clearButton;
+    
+private:
     bool _isTouchEndedOrMovedOut;
-    // canvas and brush tip
+
+    // canvas, drawBoard and painting node
     cocos2d::RenderTexture* _canvas;
     cocos2d::Sprite* _drawingBoard;
-    cocos2d::Sprite* _brush;
-    cocos2d::DrawNode *_paintingNode;
+    cocos2d::DrawNode* _paintingNode;
+    
     std::vector<Stroke*> _strokes;
     Stroke* _currentStroke;
     LipiTKProcessTask* lipiProcessTask;
     LipiTKInterface* _lipiTKInterface;
     
-    cocos2d::ui::Button* _clearButton;
+    cocos2d::Point _startTouchPoint;
+    cocos2d::Point _lastTouchPoint;
     
     bool checkTouchOnDrawingBoard(cocos2d::Touch * touch, cocos2d::Event * event);
     
-    
+    bool onTouchBegan(cocos2d::Touch * touch, cocos2d::Event* event);
+    void onTouchMoved(cocos2d::Touch * touch, cocos2d::Event * event);
+    void touchEnded(cocos2d::Touch* touch, cocos2d::Event* event);
+
+
     void processLipiTK();
+
 };
 
 #endif /* LipiTKNode_h */

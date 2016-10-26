@@ -23,9 +23,8 @@ EndlessRunner::~EndlessRunner(void)
 	this->removeAllChildrenWithCleanup(true);
 }
 
-bool EndlessRunner::init()
+void EndlessRunner::onEnterTransitionDidFinish()
 {
-	if (!Layer::init()) { return false;}
 
 	CCSpriteFrameCache* framecache1 = CCSpriteFrameCache::sharedSpriteFrameCache();
 	framecache1->addSpriteFramesWithFile("endlessrunner/endlessrunner_01.plist");
@@ -36,7 +35,41 @@ bool EndlessRunner::init()
 	origin = Director::getInstance()->getVisibleOrigin();
 	tempChar = CharGenerator::getInstance()->generateAChar();
 	letters = CharGenerator::getInstance()->generateMatrixForChoosingAChar(tempChar,21, 1,70);
+	auto alpha = LangUtil::getInstance()->getAllCharacters();
+	int currentLevel = _menuContext->getCurrentLevel();
 
+	std::ostringstream blockName;
+	if (currentLevel <= 9 && currentLevel >= 1) {
+		int startPoint = (currentLevel - 1) * 3; // three letter sequence like : a,b,c or p,q,r
+
+		for (int i = 0; i < 3; i++) {
+			if (alpha[startPoint + i] == NULL) {
+				auto index = EndlessRunner::randmValueIncludeBoundery(0, startPoint-3);
+				blockName << (char)alpha[index];
+			}
+			else {
+				blockName << (char)alpha[startPoint + i];
+			}
+		}
+	}
+	if (currentLevel <= 10 && currentLevel >= 18) {
+		int startPoint = (currentLevel - 1) * 3; // three letter sequence like : a,b,c or p,q,r
+
+		for (int i = 0; i < 3; i++) {
+			if (alpha[startPoint + i] == NULL) {
+				auto index = EndlessRunner::randmValueIncludeBoundery(0, 22);
+				blockName << (char)alpha[index];
+			}
+			else {
+				blockName << (char)alpha[startPoint + i];
+			}
+		}
+	}
+
+
+
+
+	auto xxx = blockName.str();
 	this->addChild(LayerGradient::create(Color4B(255, 255, 255, 255), Color4B(255, 255, 255, 255)), 0);
 
 	EndlessRunner::addEvents(EndlessRunner::CreateSprites("endlessrunner/bgTouchImage.png", origin.x, origin.y, visibleSize.width, visibleSize.height, 0, "IMG"));
@@ -106,10 +139,7 @@ bool EndlessRunner::init()
 		allPathBlocks.push_back(mountain);
 		mountain->runAction(MoveTo::create(EndlessRunner::movingTime(mountain), Vec2((leftBarrier->getPosition().x), origin.y)));
 		}
-		
-		setonEnterTransitionDidFinishCallback(CC_CALLBACK_0(EndlessRunner::startGame, this));
-	
-		return true;
+		EndlessRunner::startGame();	
 }
 
 void EndlessRunner::scheduleMethod() {
