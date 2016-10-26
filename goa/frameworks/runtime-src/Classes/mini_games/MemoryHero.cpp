@@ -295,8 +295,8 @@ void MemoryHero::onEnterTransitionDidFinish() {
 		auto box2 = _memoryfarm->getChildByName("mainground")->getChildByName("board15");
 
 
-		box1pos = box1->getPosition() + Vec2(80, 0);
-		box2pos = box2->getPosition() + Vec2(80, 0);
+		box1pos = box1->getPosition() + Vec2(visibleSize.width * 0.03, 0);
+		box2pos = box2->getPosition() + Vec2(visibleSize.width * 0.03, 0);
 
 		help1 = HelpLayer::create(Rect(box1pos.x, box1pos.y, box1->getChildByName("window")->getChildByName("windowborder")->getContentSize().width, box1->getChildByName("window")->getChildByName("windowborder")->getContentSize().height), Rect(0, 0, 0, 0));
 
@@ -352,7 +352,9 @@ bool MemoryHero::onTouchBegan(Touch* touch, Event* event) {
 
 	//Size s = target->getContentSize();
 	//Rect rect = Rect(0, 0, s.width, s.height);
-	static int counter = 0;
+	
+	Size visibleSize = Director::getInstance()->getVisibleSize();
+	Vec2 origin = Director::getInstance()->getVisibleOrigin();
 
 	auto bb = target->getBoundingBox();
 
@@ -367,8 +369,8 @@ bool MemoryHero::onTouchBegan(Touch* touch, Event* event) {
 		auto box2 = _memoryfarm->getChildByName("mainground")->getChildByName("board15");
 
 
-		box1pos = box1->getPosition() + Vec2(80, 0);
-		box2pos = box2->getPosition() + Vec2(80, 0);
+		box1pos = box1->getPosition() + Vec2(visibleSize.width * 0.03, 0);
+		box2pos = box2->getPosition() + Vec2(visibleSize.width * 0.03, 0);
 
 		help2 = HelpLayer::create(Rect(box2pos.x, box2pos.y, box2->getChildByName("window")->getChildByName("windowborder")->getContentSize().width, box2->getChildByName("window")->getChildByName("windowborder")->getContentSize().height), Rect(0, 0, 0, 0));
 
