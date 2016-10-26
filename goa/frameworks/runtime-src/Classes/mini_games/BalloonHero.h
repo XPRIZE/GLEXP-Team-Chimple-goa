@@ -11,6 +11,7 @@
 #include "cocos2d.h"
 #include "../menu/MenuContext.h"
 #include "../StartMenuScene.h"
+#include "../menu/HelpLayer.h"
 
 class BalloonHero : public cocos2d::Layer {
 public:
@@ -36,6 +37,7 @@ CC_CONSTRUCTOR_ACCESS:
 	void fuelMeterPlus();
 	void fuelMeterMinus();
 	void removeMeteor4Animation();
+	void onEnterTransitionDidFinish() override;
 	static const char* classname() { return BALLONHERO.c_str(); }
 protected:
 	Node * _balloonHero;
@@ -56,7 +58,8 @@ protected:
 	cocos2d::Sprite * _cloud4;
 	cocostudio::timeline::ActionTimeline * _fireTimeline;
 	cocostudio::timeline::ActionTimeline * _bgTimeline;
-	
+	std::vector<std::string> _set1;
+	std::vector<std::string> _set2;
 	MenuContext *_menuContext;
 
 };

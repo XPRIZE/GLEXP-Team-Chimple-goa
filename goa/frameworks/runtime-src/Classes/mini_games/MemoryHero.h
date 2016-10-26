@@ -12,6 +12,7 @@
 #include "cocos2d.h"
 #include "../menu/MenuContext.h"
 #include "../StartMenuScene.h"
+#include "../menu/HelpLayer.h"
 
 class MemoryHero : public cocos2d::Layer {
 public:
