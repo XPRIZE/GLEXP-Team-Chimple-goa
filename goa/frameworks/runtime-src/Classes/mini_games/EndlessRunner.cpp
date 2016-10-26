@@ -2,6 +2,7 @@
 #include <vector>
 #include "SpriteCreate.h"
 #include "StartMenuScene.h"
+#include "../menu/HelpLayer.h"
 
 #define COCOS2D_DEBUG 1
 
@@ -134,7 +135,7 @@ void EndlessRunner::onEnterTransitionDidFinish()
 		allPathBlocks.push_back(mountain);
 		mountain->runAction(MoveTo::create(EndlessRunner::movingTime(mountain), Vec2((leftBarrier->getPosition().x), origin.y)));
 		}
-		EndlessRunner::startGame();	
+		EndlessRunner::startGame();
 }
 
 void EndlessRunner::scheduleMethod() {
@@ -171,6 +172,19 @@ void EndlessRunner::startGame() {
 }
 
 void EndlessRunner::update(float delta) {
+
+	if (_flagHelp && (allLabels.size() > 0) && (_menuContext->getCurrentLevel() == 1)) {
+		if (((allLabels[0]->getPositionX() - 700) <= Character.character->getPositionX())) {
+			_flagHelp = false;
+			auto help = HelpLayer::create(Rect((visibleSize.width * 25 / 100) + origin.x + 150, (int)(visibleSize.height * 11 / 100) + origin.y +250, 300,600),Rect(allLabels[0]->getPositionX()+10, allLabels[0]->getPositionY(), 400,250));
+			help->click(Vec2((visibleSize.width * 25 / 100) + origin.x + 150, (int)(visibleSize.height * 11 / 100) + origin.y + 250));
+			help->setName("helpLayer");
+			this->addChild(help, 15);
+			_resumeHelp = false;
+			allMonster[0]->pause();
+			allLabels[0]->pause();
+		}
+	}
 
 	if (initBool) {
 		for (std::size_t i = 0; i < allPathBlocks.size(); i++) {
@@ -581,7 +595,7 @@ void EndlessRunner::AddRocksInFirstLayerPath() {
 }
 
 void EndlessRunner::addFirstBlockSecondLayer(float dt) {
-	if (startSecondFlag) {
+	if (startSecondFlag && !_flagHelp && _resumeHelp) {
 		SpriteCreate* newSprite = EndlessRunner::addUpperLayerStartSpriteRock(currentFirstLayerRock, "secondLayer", (int)(visibleSize.height * 11 / 100) + origin.y, 10, 0);
 		currentSecondLayerRock = newSprite;
 		currentSecondLayerRock->runAction(MoveTo::create(EndlessRunner::movingTime(currentSecondLayerRock), Vec2(leftBarrier->getPosition().x + origin.x, (int)(visibleSize.height * 11 / 100) + origin.y)));
@@ -715,60 +729,67 @@ void EndlessRunner::removePathBlockTouchByLeftBarrier() {
 }
 
 void EndlessRunner::CreateMonsterWithLetter(float dt) {
+	if (_resumeHelp) {
+		cocostudio::timeline::ActionTimeline* timeline;
+		Sprite* monsterImage;
+		int switchMonster = EndlessRunner::randmValueIncludeBoundery(0, 1);
+		if (switchMonster == 0) {
+			timeline = CSLoader::createTimeline("endlessrunner/monster_yellow.csb");
+			monsterImage = (Sprite *)CSLoader::createNode("endlessrunner/monster_yellow.csb");
+		}
+		else {
+			timeline = CSLoader::createTimeline("endlessrunner/monster_red.csb");
+			monsterImage = (Sprite *)CSLoader::createNode("endlessrunner/monster_red.csb");
+		}
+		auto nameLand = currentFirstLayerRock->currentRockName;
+		monsterImage->setScale(1.175);
+		Rect box = monsterImage->getChildByName("monster_egg")->getBoundingBox();
 
-	cocostudio::timeline::ActionTimeline* timeline;
-	Sprite* monsterImage;
-	int switchMonster = EndlessRunner::randmValueIncludeBoundery(0, 1);
-	if (switchMonster == 0) {
-		timeline = CSLoader::createTimeline("endlessrunner/monster_yellow.csb");
-		monsterImage = (Sprite *)CSLoader::createNode("endlessrunner/monster_yellow.csb");
-	}
-	else {
-		timeline = CSLoader::createTimeline("endlessrunner/monster_red.csb");
-		monsterImage = (Sprite *)CSLoader::createNode("endlessrunner/monster_red.csb");
-	}
-	auto nameLand = currentFirstLayerRock->currentRockName;
-	monsterImage->setScale(1.175);
-	Rect box = monsterImage->getChildByName("monster_egg")->getBoundingBox();
+		monsterImage->runAction(timeline);  timeline->gotoFrameAndPlay(0);
 
-	monsterImage->runAction(timeline);  timeline->gotoFrameAndPlay(0);
-	
-	auto str = letters.at(counterLetter).at(0);
-	counterLetter++;
-	if (counterLetter == 21) {
-		letters = CharGenerator::getInstance()->generateMatrixForChoosingAChar(tempChar, 21, 1, 70);
-		counterLetter = 0;
-	}
-	auto mystr = LangUtil::convertUTF16CharToString(str);
-	auto label = Alphabet::createWithSize(str,300);
-	label->setName(mystr);
-	label->enableShadow(Color4B::BLACK, Size(8, -6), 5);
-	label->setTag(Character.uniqueId);
-	monsterImage->setTag(Character.uniqueId);
+		auto str = letters.at(counterLetter).at(0);
+		counterLetter++;
+		if (counterLetter == 21) {
+			letters = CharGenerator::getInstance()->generateMatrixForChoosingAChar(tempChar, 21, 1, 70);
+			counterLetter = 0;
+		}
+		
+		if (_flagLetter && (_menuContext->getCurrentLevel() == 1)) {
+			str = tempChar;
+			_flagLetter = false;
+		}
 
-	if (!startSecondFlag) {
-		monsterImage->setPosition(Vec2(rightBarrier->getPosition().x, (visibleSize.height * 58.8 / 100) + origin.y));
-	}
-	else if (FirstLayerModes == LayerMode.FirstLayerRightIntersectMode) {
-		monsterImage->setPosition(Vec2(rightBarrier->getPosition().x, (visibleSize.height * 47.3 / 100) + origin.y));
-		if (nameLand == "endLand") {
-			monsterImage->setPositionX(rightBarrier->getPosition().x - 500); }
-	}
-	else {
-		monsterImage->setPosition(Vec2(rightBarrier->getPosition().x, (visibleSize.height * 47 / 100) + origin.y));
-	}
-	auto parent = monsterImage->getBoundingBox();
-	auto boxs = Rect(parent.origin.x + (box.origin.x), parent.origin.y + (box.origin.y), box.size.width, box.size.height);
-	label->setPosition(Vec2(boxs.origin.x + (box.size.width / 2), boxs.origin.y + (box.size.height / 2)+20));
+		auto label = Alphabet::createWithSize(str, 300);
+		label->setName(LangUtil::convertUTF16CharToString(str));
+		label->enableShadow(Color4B::BLACK, Size(8, -6), 5);
+		label->setTag(Character.uniqueId);
+		monsterImage->setTag(Character.uniqueId);
 
-	this->addChild(monsterImage, 9);
-	this->addChild(label, 9);
-	monsterImage->runAction(MoveTo::create((monsterImage->getPosition().x + std::abs(leftBarrier->getPosition().x)) / LayerMode.PathMovingSpeed, Vec2(leftBarrier->getPosition().x + origin.x, monsterImage->getPosition().y)));
-	label->runAction(MoveTo::create((label->getPosition().x + std::abs(leftBarrier->getPosition().x)) / LayerMode.PathMovingSpeed, Vec2(leftBarrier->getPosition().x + origin.x, label->getPosition().y)));
+		if (!startSecondFlag) {
+			monsterImage->setPosition(Vec2(rightBarrier->getPosition().x, (visibleSize.height * 58.8 / 100) + origin.y));
+		}
+		else if (FirstLayerModes == LayerMode.FirstLayerRightIntersectMode) {
+			monsterImage->setPosition(Vec2(rightBarrier->getPosition().x, (visibleSize.height * 47.3 / 100) + origin.y));
+			if (nameLand == "endLand") {
+				monsterImage->setPositionX(rightBarrier->getPosition().x - 500);
+			}
+		}
+		else {
+			monsterImage->setPosition(Vec2(rightBarrier->getPosition().x, (visibleSize.height * 47 / 100) + origin.y));
+		}
+		auto parent = monsterImage->getBoundingBox();
+		auto boxs = Rect(parent.origin.x + (box.origin.x), parent.origin.y + (box.origin.y), box.size.width, box.size.height);
+		label->setPosition(Vec2(boxs.origin.x + (box.size.width / 2), boxs.origin.y + (box.size.height / 2) + 20));
 
-	Character.uniqueId = Character.uniqueId + 1;
-	allMonster.push_back(monsterImage);
-	allLabels.push_back(label);
+		this->addChild(monsterImage, 9);
+		this->addChild(label, 9);
+		monsterImage->runAction(MoveTo::create((monsterImage->getPosition().x + std::abs(leftBarrier->getPosition().x)) / LayerMode.PathMovingSpeed, Vec2(leftBarrier->getPosition().x + origin.x, monsterImage->getPosition().y)));
+		label->runAction(MoveTo::create((label->getPosition().x + std::abs(leftBarrier->getPosition().x)) / LayerMode.PathMovingSpeed, Vec2(leftBarrier->getPosition().x + origin.x, label->getPosition().y)));
+
+		Character.uniqueId = Character.uniqueId + 1;
+		allMonster.push_back(monsterImage);
+		allLabels.push_back(label);
+	}
 }
 
 void EndlessRunner::addEvents(Sprite* sprite)
@@ -815,6 +836,14 @@ void EndlessRunner::addEvents(Sprite* sprite)
 				Character.character->runAction(main_Sequence);
 			}
 		}
+
+		if (allLabels.size() > 0 && (!_resumeHelp)) {
+			this->removeChildByName("helpLayer");
+			_resumeHelp = true;
+			allMonster[0]->resume();
+			allLabels[0]->resume();
+		}
+
 		return false;
 	};
 	cocos2d::Director::getInstance()->getEventDispatcher()->addEventListenerWithSceneGraphPriority(listener, sprite);
