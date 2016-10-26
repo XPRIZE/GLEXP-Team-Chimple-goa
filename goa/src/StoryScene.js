@@ -67,6 +67,8 @@ xc.StoryLayer = cc.Layer.extend({
         } else {
             xc.isNewPage = false;
             var copyScene = JSON.parse(JSON.stringify(xc.story.items[xc.pageIndex - 1]));
+            var len = xc.story.items.length;
+            copyScene.pageNumber = len + 1;
             xc.story.items[xc.pageIndex] = copyScene;
         }
         //xc.StoryScene.load(xc.StoryLayer);

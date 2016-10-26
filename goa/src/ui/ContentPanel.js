@@ -437,8 +437,23 @@ xc.ContentPanel = xc.AbstractContentPanel.extend({
     },
 
     addTextToScene: function () {
-        this.parent.addChild(new xc.TextCreatePanel(cc.director.getWinSize().width, cc.director.getWinSize().height, cc.p(385, 250), xc.story.items[xc.pageIndex].sceneText, this.processText, this, true));
-        
+        xc.currentStoryId;
+        xc.pageIndex;
+
+        //load text file based on Current Story Id and Page index
+        var langDir = goa.TextGenerator.getInstance().getLang();
+        cc.log("langDir:" + langDir);
+        var textFileUrl = xc.path + "wikitaki/misc/" + langDir + "/" + xc.currentStoryId+".json";
+        // var textFileUrl = xc.path + "wikitaki/misc/" + langDir + "/txt.json";
+        var storyText = "";
+        var that = this;
+        cc.loader.loadJson(textFileUrl, function(err, json) {
+            if(json != null && json != undefined) {
+                storyText = json[xc.pageIndex]
+                xc.story.items[xc.pageIndex].sceneText = storyText;                                
+            } 
+            that.parent.addChild(new xc.TextCreatePanel(cc.director.getWinSize().width, cc.director.getWinSize().height, cc.p(385, 250), xc.story.items[xc.pageIndex].sceneText, that.processText, that, true));           
+        });
     },
 
     processText: function (text) {
@@ -604,7 +619,7 @@ xc.ContentPanel = xc.AbstractContentPanel.extend({
     },
 
         enableTargetTransformForTarget: function (context, touch, target, location) {
-        if (target.getName().indexOf("background") != -1) {
+        if (target.getName().indexOf("background") != -1 || target.getName().indexOf("Panel") != -1) {
             if (context._moveAction) {
                 if (!this._previousTouch) {
                     this._previousTouch = touch.getLocationInView();

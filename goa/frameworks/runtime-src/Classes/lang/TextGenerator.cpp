@@ -740,4 +740,8 @@ std::map<std::string, std::string> TextGenerator::getSingularPlurals(int maxNum,
 }
 
 
+std::string TextGenerator::getLang() {
+    return LangUtil::getInstance()->getLang();
+}
+
 

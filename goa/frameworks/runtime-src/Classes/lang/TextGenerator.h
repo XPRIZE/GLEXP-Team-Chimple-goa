@@ -46,6 +46,8 @@ public:
     std::vector<std::vector<std::pair<std::string, TextGenerator::POS>>> getSentenceWithPOS(TextGenerator::POS partOfSpeech, int maxLength, int level = 0);
     std::map<std::string, std::string> getSingularPlurals(int maxNum, int level = 0);
     
+    std::string getLang();
+    
 protected:
     std::map<int, int> getRandomLocations(int numLoc, int totalNum);
 
