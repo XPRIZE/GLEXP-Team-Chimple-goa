@@ -499,9 +499,10 @@ void BalloonHero::onEnterTransitionDidFinish() {
 
 		_fireFly->setAnchorPoint(Vec2(0, 0));
 		_fireFly->setPosition(Vec2(visibleSize.width / 2 + origin.x, visibleSize.height / 2 + origin.y));
+		//_fireFly->getChildByName("firefly")->setPosition(Vec2(visibleSize.width / 2 + origin.x, visibleSize.height / 2 + origin.y));
 		
 		_fireFly->setScale(0.5, 0.5);
-		//_fireFly->setContentSize(Size(200, 200));
+		_fireFly->setContentSize(Size(50, 50));
 		
 		for (auto const& child : _fireFly->getChildren()) {
 
@@ -514,9 +515,9 @@ void BalloonHero::onEnterTransitionDidFinish() {
 		addChild(_drawNode);
 
 		_drawNode->clear();
-		_drawNode->drawSolidRect(cocos2d::Vec2(_fireFly->getPositionX(), _fireFly->getPositionY()), cocos2d::Vec2(_fireFly->getPositionX() + 200, _fireFly->getPositionY() + 200), Color4F(0, 0, 1, 0.2));
+		_drawNode->drawSolidRect(cocos2d::Vec2(_fireFly->getPositionX(), _fireFly->getPositionY()), cocos2d::Vec2(_fireFly->getPositionX() + 50, _fireFly->getPositionY() + 50), Color4F(0, 0, 1, 0.2));
 
-		_drawNode->drawRect(cocos2d::Vec2(_fireFly->getPositionX(), _fireFly->getPositionY()), cocos2d::Vec2(_fireFly->getPositionX() + 200, _fireFly->getPositionY() + 200), Color4F::BLUE);
+		_drawNode->drawRect(cocos2d::Vec2(_fireFly->getPositionX(), _fireFly->getPositionY()), cocos2d::Vec2(_fireFly->getPositionX() + 50, _fireFly->getPositionY() + 50), Color4F::BLUE);
 		auto bb = _fireFly->getBoundingBox();
 		//_fireFly->setContentSize(Size( _fireFly->getPositionX() + 20, _fireFly->getPositionY() + 20 ));
 		
@@ -531,8 +532,6 @@ void BalloonHero::onEnterTransitionDidFinish() {
 
 		}
 
-		
-		
 		//_fireFly->setContentSize(_fireFly->getChildByName("Sprite")->getContentSize());
 		this->addChild(_fireFly, 1);
 	
@@ -575,7 +574,7 @@ void BalloonHero::setupTouch() {
 	
 	auto listener = EventListenerTouchOneByOne::create();
 	
-	auto firefly = (Sprite* )_fireFly->getChildByName("firefly");
+	auto firefly = (Sprite* )_fireFly;
 	
 	
 	listener->onTouchBegan = CC_CALLBACK_2(BalloonHero::onTouchBegan, this);
