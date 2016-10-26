@@ -75,6 +75,21 @@ void GraphemeGrid::resize(GLfloat width, GLfloat height, int numRows, int numCol
     }
 }
 
+Rect GraphemeGrid::getGraphemeRect(std::string alphabet) {
+    for (int i = 0; i < _numRows; i++) {
+        for (int j = 0; j < _numCols; j++) {
+            if(_graphemeMatrix.at(i).at(j)->getGraphemeString() == alphabet) {
+                const float squareWidth = _width / _numCols;
+                const float squareHeight = _height / _numRows;
+                
+                return Rect((j + 0.5) * squareWidth, (i + 0.5) * squareHeight, squareWidth, squareHeight);
+            }
+        }
+    }
+    return Rect::ZERO;
+}
+
+
 void GraphemeGrid::setGraphemeSelectedBackground(std::string spriteName) {
     _graphemeSelectedBackground = spriteName;
 }

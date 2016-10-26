@@ -115,11 +115,11 @@ bool DecomonGallery::init() {
 			for (int j = 0; j < numCols; j++) {
 				if (index < elems.size()) {
 					std::string gameName = elems.at(index);
-					auto sp = Sprite::create(elems.at(index), Rect(500, 150, 1000, 800));
+					auto sp = Sprite::create(elems.at(index), Rect(visibleSize.width * 0.2, visibleSize.height * 0.1, visibleSize.width * 0.3, visibleSize.height * 0.5));
 					sp->setPosition(Vec2(k * visibleSize.width + (j + 0.5) * visibleSize.width / numCols, visibleSize.height - (2 * i + initialYOffSet) * (visibleSize.height / numCols) - 30));
-					//sp->setAnchorPoint(Vec2(0, 0));
+				//	sp->setAnchorPoint(Vec2(0, 0.5));
 					CCLOG("path %s", gameName.c_str());
-					//sp->setScale(0.5);
+					sp->setScale(1.2);
 					this->addChild(sp);
 				}
 				index++;

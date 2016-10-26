@@ -61,6 +61,10 @@ protected:
 	void captureImage(bool capture, const std::string& outputFile);
 	static const char* gameName() { return DECOMON.c_str(); }
 	void onEnterTransitionDidFinish();
+	void gameHelp();
+	void gameHelpDrag();
+	bool _helpIconIsClicked = false;
+	int _numberOfItemSelected = 0;
 };
 
 #endif 

@@ -364,17 +364,18 @@ cocos2d::Node* MenuContext::createAvatarMenuItem(const std::string normalImage,
             // document is ok
             
             std::vector<std::string> configs = this->split(cachedCharacterInformation, '_');
+            CCLOG("configs size %d", configs.size());
+            auto faceIndex = configs[configs.size() - 1];
+            auto hairIndex = configs[configs.size() - 2];
             int index = 0;
-            for (std::vector<std::string>::iterator it = configs.begin() ; it != configs.end(); ++it)
+            for (std::vector<std::string>::iterator it = configs.begin() ; it != configs.end() - 3; ++it)
             {
                 std::string config = *(it);
                 int configId = atoi(config.c_str());
                 CCLOG("configId %d", configId);
                 const rapidjson::Value& ds = d["data"];
-                const std::string name = ds[index]["name"].GetString();
                 const std::string bone = ds[index]["bone"].GetString();
                 
-                printf("%s \n",name.c_str());
                 printf("%s \n",bone.c_str());
                 
                 cocostudio::timeline::BoneNode* boneNode = _character->getBoneNode(bone);
@@ -428,6 +429,7 @@ cocos2d::Node* MenuContext::createAvatarMenuItem(const std::string normalImage,
                 
                 index++;
             }
+            
             
         }
     }

@@ -89,11 +89,16 @@ xc.StoryLayer = cc.Layer.extend({
     uploadStory: function() {
         if(cc.sys.isNative) {
             var writablePath = jsb.fileUtils.getWritablePath() + "story.json";
+            xc.storiesJSON.stories[xc.currentStoryIndex].data = xc.story;
             var fileContent = JSON.stringify(xc.storiesJSON);
             cc.log('fileContent before upload:' + fileContent);
             jsb.fileUtils.writeStringToFile(fileContent, writablePath);
         } else {
             //upload to network
+            xc.storiesJSON.stories[xc.currentStoryIndex].data = xc.story;
+            var fileContent = JSON.stringify(xc.storiesJSON);
+            cc.log('fileContent before upload:' + fileContent);
+
         }
     },
 

@@ -81,7 +81,7 @@
     </Midl>
     <ClCompile>
       <Optimization>Disabled</Optimization>
-      <AdditionalIncludeDirectories>$(ProjectDir)..\Classes;$(EngineRoot);$(EngineRoot)cocos\audio\include;$(EngineRoot)cocos;$(EngineRoot)external\spidermonkey\include\win32;$(EngineRoot)external\chipmunk\include\chipmunk;$(EngineRoot)extensions;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\Classes;$(ProjectDir)..\Classes\reco\shaperec\nn;$(ProjectDir)..\Classes\reco\shaperec\preprocessing;$(ProjectDir)..\Classes\lipiengine;$(ProjectDir)..\Classes\reco\shaperec\featureextractor\pointfloat;$(ProjectDir)..\Classes\reco\shaperec\featureextractor\common;$(ProjectDir)..\Classes\reco\shaperec\common;$(ProjectDir)..\Classes\util\lib;$(ProjectDir)..\Classes\util\logger;$(EngineRoot);$(EngineRoot)cocos\audio\include;$(EngineRoot)cocos;$(EngineRoot)external\spidermonkey\include\win32;$(EngineRoot)external\chipmunk\include\chipmunk;$(EngineRoot)extensions;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>WIN32;_WINDOWS;STRICT;_DEBUG;XP_WIN;JS_HAVE___INTN;JS_INTPTR_TYPE=int;COCOS2D_DEBUG=1;COCOS2D_JAVASCRIPT=1;CC_ENABLE_CHIPMUNK_INTEGRATION=1;_CRT_SECURE_NO_WARNINGS;_SCL_SECURE_NO_WARNINGS;_USRJSSTATIC;_USRLIBSIMSTATIC;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <MinimalRebuild>false</MinimalRebuild>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
@@ -187,6 +187,14 @@ copy "$(ProjectDir)..\..\..\project.json" "$(OutDir)\" /Y</Command>
     <ClCompile Include="..\Classes\alphamon\HPMeter.cpp" />
     <ClCompile Include="..\Classes\alphamon\SelectAlphamonScene.cpp" />
     <ClCompile Include="..\Classes\AppDelegate.cpp" />
+    <ClCompile Include="..\Classes\AsyncTask.cpp" />
+    <ClCompile Include="..\Classes\common\LTKCaptureDevice.cpp" />
+    <ClCompile Include="..\Classes\common\LTKChannel.cpp" />
+    <ClCompile Include="..\Classes\common\LTKException.cpp" />
+    <ClCompile Include="..\Classes\common\LTKScreenContext.cpp" />
+    <ClCompile Include="..\Classes\common\LTKTrace.cpp" />
+    <ClCompile Include="..\Classes\common\LTKTraceFormat.cpp" />
+    <ClCompile Include="..\Classes\common\LTKTraceGroup.cpp" />
     <ClCompile Include="..\Classes\effects\FShake.cpp" />
     <ClCompile Include="..\Classes\Entry.cpp" />
     <ClCompile Include="..\Classes\ExternalSkeletonCharacter.cpp" />
@@ -205,6 +213,12 @@ copy "$(ProjectDir)..\..\..\project.json" "$(OutDir)\" /Y</Command>
     <ClCompile Include="..\Classes\lang\TextGenerator.cpp" />
     <ClCompile Include="..\Classes\lang\WordInfo.cpp" />
     <ClCompile Include="..\Classes\lang\WordManager.cpp" />
+    <ClCompile Include="..\Classes\lipiengine\lipiengine.cpp" />
+    <ClCompile Include="..\Classes\lipiengine\LipiEngineModule.cpp" />
+    <ClCompile Include="..\Classes\LipiTKInterface.cpp" />
+    <ClCompile Include="..\Classes\LipiTKNode.cpp" />
+    <ClCompile Include="..\Classes\LipiTKProcessTask.cpp" />
+    <ClCompile Include="..\Classes\LipiTKResult.cpp" />
     <ClCompile Include="..\Classes\MapIsland.cpp" />
     <ClCompile Include="..\Classes\MapScene.cpp" />
     <ClCompile Include="..\Classes\menu\HelpLayer.cpp" />
@@ -264,6 +278,21 @@ copy "$(ProjectDir)..\..\..\project.json" "$(OutDir)\" /Y</Command>
     <ClCompile Include="..\Classes\puzzle\PegWord.cpp" />
     <ClCompile Include="..\Classes\puzzle\WordBoard.cpp" />
     <ClCompile Include="..\Classes\puzzle\WordScene.cpp" />
+    <ClCompile Include="..\Classes\reco\shaperec\common\LTKShapeRecoConfig.cpp" />
+    <ClCompile Include="..\Classes\reco\shaperec\common\LTKShapeRecognizer.cpp" />
+    <ClCompile Include="..\Classes\reco\shaperec\common\LTKShapeRecoResult.cpp" />
+    <ClCompile Include="..\Classes\reco\shaperec\common\LTKShapeRecoUtil.cpp" />
+    <ClCompile Include="..\Classes\reco\shaperec\common\LTKShapeSample.cpp" />
+    <ClCompile Include="..\Classes\reco\shaperec\featureextractor\common\LTKShapeFeatureExtractor.cpp" />
+    <ClCompile Include="..\Classes\reco\shaperec\featureextractor\common\LTKShapeFeatureExtractorFactory.cpp" />
+    <ClCompile Include="..\Classes\reco\shaperec\featureextractor\pointfloat\PointFloat.cpp" />
+    <ClCompile Include="..\Classes\reco\shaperec\featureextractor\pointfloat\PointFloatShapeFeature.cpp" />
+    <ClCompile Include="..\Classes\reco\shaperec\featureextractor\pointfloat\PointFloatShapeFeatureExtractor.cpp" />
+    <ClCompile Include="..\Classes\reco\shaperec\nn\NN.cpp" />
+    <ClCompile Include="..\Classes\reco\shaperec\nn\NNAdapt.cpp" />
+    <ClCompile Include="..\Classes\reco\shaperec\nn\NNShapeRecognizer.cpp" />
+    <ClCompile Include="..\Classes\reco\shaperec\preprocessing\LTKPreprocessor.cpp" />
+    <ClCompile Include="..\Classes\reco\shaperec\preprocessing\preprocessing.cpp" />
     <ClCompile Include="..\Classes\RPGConfig.cpp" />
     <ClCompile Include="..\Classes\RPGSprite.cpp" />
     <ClCompile Include="..\Classes\RunningState.cpp" />
@@ -278,6 +307,22 @@ copy "$(ProjectDir)..\..\..\project.json" "$(OutDir)\" /Y</Command>
     <ClCompile Include="..\Classes\StartMenuScene.cpp" />
     <ClCompile Include="..\Classes\State.cpp" />
     <ClCompile Include="..\Classes\StateMachine.cpp" />
+    <ClCompile Include="..\Classes\Stroke.cpp" />
+    <ClCompile Include="..\Classes\util\lib\LTKCheckSumGenerate.cpp" />
+    <ClCompile Include="..\Classes\util\lib\LTKConfigFileReader.cpp" />
+    <ClCompile Include="..\Classes\util\lib\LTKErrors.cpp" />
+    <ClCompile Include="..\Classes\util\lib\LTKImageWriter.cpp" />
+    <ClCompile Include="..\Classes\util\lib\LTKInkFileReader.cpp" />
+    <ClCompile Include="..\Classes\util\lib\LTKInkFileWriter.cpp" />
+    <ClCompile Include="..\Classes\util\lib\LTKInkUtils.cpp" />
+    <ClCompile Include="..\Classes\util\lib\LTKLoggerUtil.cpp" />
+    <ClCompile Include="..\Classes\util\lib\LTKOSUtilFactory.cpp" />
+    <ClCompile Include="..\Classes\util\lib\LTKStrEncoding.cpp" />
+    <ClCompile Include="..\Classes\util\lib\LTKStringUtil.cpp" />
+    <ClCompile Include="..\Classes\util\lib\LTKVersionCompatibilityCheck.cpp" />
+    <ClCompile Include="..\Classes\util\lib\LTKWindowsUtil.cpp" />
+    <ClCompile Include="..\Classes\util\logger\logger.cpp" />
+    <ClCompile Include="..\Classes\util\logger\LTKLogger.cpp" />
     <ClCompile Include="..\Classes\WalkingState.cpp" />
     <ClCompile Include="..\Classes\WordSprite.cpp" />
     <ClCompile Include="main.cpp" />
@@ -288,6 +333,7 @@ copy "$(ProjectDir)..\..\..\project.json" "$(OutDir)\" /Y</Command>
     <ClInclude Include="..\Classes\alphamon\HPMeter.h" />
     <ClInclude Include="..\Classes\alphamon\SelectAlphamonScene.h" />
     <ClInclude Include="..\Classes\AppDelegate.h" />
+    <ClInclude Include="..\Classes\AsyncTask.hpp" />
     <ClInclude Include="..\Classes\effects\FShake.h" />
     <ClInclude Include="..\Classes\Entry.h" />
     <ClInclude Include="..\Classes\ExternalSkeletonCharacter.h" />
@@ -311,6 +357,44 @@ copy "$(ProjectDir)..\..\..\project.json" "$(OutDir)\" /Y</Command>
     <ClInclude Include="..\Classes\lang\TextGenerator.h" />
     <ClInclude Include="..\Classes\lang\WordInfo.h" />
     <ClInclude Include="..\Classes\lang\WordManager.h" />
+    <ClInclude Include="..\Classes\lipiengine\lipiengine.h" />
+    <ClInclude Include="..\Classes\lipiengine\LipiEngineModule.h" />
+    <ClInclude Include="..\Classes\lipiengine\version.h" />
+    <ClInclude Include="..\Classes\LipiTKInterface.h" />
+    <ClInclude Include="..\Classes\LipiTKNode.h" />
+    <ClInclude Include="..\Classes\LipiTKProcessTask.h" />
+    <ClInclude Include="..\Classes\LipiTKResult.h" />
+    <ClInclude Include="..\Classes\LTKCaptureDevice.h" />
+    <ClInclude Include="..\Classes\LTKChannel.h" />
+    <ClInclude Include="..\Classes\LTKClassifierDefaults.h" />
+    <ClInclude Include="..\Classes\LTKErrorsList.h" />
+    <ClInclude Include="..\Classes\LTKException.h" />
+    <ClInclude Include="..\Classes\LTKInc.h" />
+    <ClInclude Include="..\Classes\LTKLipiEngineInterface.h" />
+    <ClInclude Include="..\Classes\LTKLogger.h" />
+    <ClInclude Include="..\Classes\LTKLoggerInterface.h" />
+    <ClInclude Include="..\Classes\LTKMacros.h" />
+    <ClInclude Include="..\Classes\LTKOSUtil.h" />
+    <ClInclude Include="..\Classes\LTKOSUtilFactory.h" />
+    <ClInclude Include="..\Classes\LTKPreprocDefaults.h" />
+    <ClInclude Include="..\Classes\LTKPreprocessor.h" />
+    <ClInclude Include="..\Classes\LTKPreprocessorInterface.h" />
+    <ClInclude Include="..\Classes\LTKRecognitionContext.h" />
+    <ClInclude Include="..\Classes\LTKRefCountedPtr.h" />
+    <ClInclude Include="..\Classes\LTKScreenContext.h" />
+    <ClInclude Include="..\Classes\LTKShapeFeatureMacros.h" />
+    <ClInclude Include="..\Classes\LTKShapeRecoConfig.h" />
+    <ClInclude Include="..\Classes\LTKShapeRecoEngine.h" />
+    <ClInclude Include="..\Classes\LTKShapeRecognizer.h" />
+    <ClInclude Include="..\Classes\LTKShapeRecoResult.h" />
+    <ClInclude Include="..\Classes\LTKShapeRecoUtil.h" />
+    <ClInclude Include="..\Classes\LTKTrace.h" />
+    <ClInclude Include="..\Classes\LTKTraceFormat.h" />
+    <ClInclude Include="..\Classes\LTKTraceGroup.h" />
+    <ClInclude Include="..\Classes\LTKTypes.h" />
+    <ClInclude Include="..\Classes\LTKWordRecoConfig.h" />
+    <ClInclude Include="..\Classes\LTKWordRecognizer.h" />
+    <ClInclude Include="..\Classes\LTKWordRecoResult.h" />
     <ClInclude Include="..\Classes\MapIsland.h" />
     <ClInclude Include="..\Classes\MapScene.h" />
     <ClInclude Include="..\Classes\menu\HelpLayer.h" />
@@ -370,6 +454,17 @@ copy "$(ProjectDir)..\..\..\project.json" "$(OutDir)\" /Y</Command>
     <ClInclude Include="..\Classes\puzzle\PegWord.h" />
     <ClInclude Include="..\Classes\puzzle\WordBoard.h" />
     <ClInclude Include="..\Classes\puzzle\WordScene.h" />
+    <ClInclude Include="..\Classes\reco\shaperec\common\LTKShapeSample.h" />
+    <ClInclude Include="..\Classes\reco\shaperec\featureextractor\common\LTKShapeFeature.h" />
+    <ClInclude Include="..\Classes\reco\shaperec\featureextractor\common\LTKShapeFeatureExtractor.h" />
+    <ClInclude Include="..\Classes\reco\shaperec\featureextractor\common\LTKShapeFeatureExtractorFactory.h" />
+    <ClInclude Include="..\Classes\reco\shaperec\featureextractor\pointfloat\PointFloat.h" />
+    <ClInclude Include="..\Classes\reco\shaperec\featureextractor\pointfloat\PointFloatShapeFeature.h" />
+    <ClInclude Include="..\Classes\reco\shaperec\featureextractor\pointfloat\PointFloatShapeFeatureExtractor.h" />
+    <ClInclude Include="..\Classes\reco\shaperec\nn\NN.h" />
+    <ClInclude Include="..\Classes\reco\shaperec\nn\NNAdapt.h" />
+    <ClInclude Include="..\Classes\reco\shaperec\nn\NNShapeRecognizer.h" />
+    <ClInclude Include="..\Classes\reco\shaperec\preprocessing\preprocessing.h" />
     <ClInclude Include="..\Classes\RPGConfig.h" />
     <ClInclude Include="..\Classes\RPGSprite.h" />
     <ClInclude Include="..\Classes\RunningState.h" />
@@ -384,6 +479,22 @@ copy "$(ProjectDir)..\..\..\project.json" "$(OutDir)\" /Y</Command>
     <ClInclude Include="..\Classes\StartMenuScene.h" />
     <ClInclude Include="..\Classes\State.h" />
     <ClInclude Include="..\Classes\StateMachine.h" />
+    <ClInclude Include="..\Classes\Stroke.hpp" />
+    <ClInclude Include="..\Classes\util\lib\LTKCheckSumGenerate.h" />
+    <ClInclude Include="..\Classes\util\lib\LTKConfigFileReader.h" />
+    <ClInclude Include="..\Classes\util\lib\LTKDynamicTimeWarping.h" />
+    <ClInclude Include="..\Classes\util\lib\LTKErrors.h" />
+    <ClInclude Include="..\Classes\util\lib\LTKHierarchicalClustering.h" />
+    <ClInclude Include="..\Classes\util\lib\LTKImageWriter.h" />
+    <ClInclude Include="..\Classes\util\lib\LTKInkFileReader.h" />
+    <ClInclude Include="..\Classes\util\lib\LTKInkFileWriter.h" />
+    <ClInclude Include="..\Classes\util\lib\LTKInkUtils.h" />
+    <ClInclude Include="..\Classes\util\lib\LTKLoggerUtil.h" />
+    <ClInclude Include="..\Classes\util\lib\LTKStrEncoding.h" />
+    <ClInclude Include="..\Classes\util\lib\LTKStringUtil.h" />
+    <ClInclude Include="..\Classes\util\lib\LTKVersionCompatibilityCheck.h" />
+    <ClInclude Include="..\Classes\util\lib\LTKWindowsUtil.h" />
+    <ClInclude Include="..\Classes\util\logger\logger.h" />
     <ClInclude Include="..\Classes\WalkingState.h" />
     <ClInclude Include="..\Classes\WordSprite.h" />
     <ClInclude Include="main.h" />
@@ -399,6 +510,14 @@ copy "$(ProjectDir)..\..\..\project.json" "$(OutDir)\" /Y</Command>
     <ProjectReference Include="..\..\cocos2d-x\cocos\scripting\js-bindings\proj.win32\libjscocos2d.vcxproj">
       <Project>{39379840-825a-45a0-b363-c09ffef864bd}</Project>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\Classes\lipiengine\lipiengine.def" />
+    <None Include="..\Classes\reco\shaperec\featureextractor\pointfloat\PointFloat.def" />
+    <None Include="..\Classes\reco\shaperec\nn\nn.cfg" />
+    <None Include="..\Classes\reco\shaperec\nn\NN.def" />
+    <None Include="..\Classes\reco\shaperec\preprocessing\preprocessing.def" />
+    <None Include="..\Classes\util\logger\logger.def" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

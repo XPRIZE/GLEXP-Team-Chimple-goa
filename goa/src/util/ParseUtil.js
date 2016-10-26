@@ -19,6 +19,7 @@ xc.ParseUtil.copyUserAddedDataToScene = function (newScene) {
 xc.ParseUtil.saveScene = function (newScene) {
     if (xc.story && xc.story.items != null) {
         xc.story.items[xc.pageIndex].scene = newScene;
+        cc.log('lenght saveScene:' + newScene.Content.Content.ObjectData.Children.length);
     }
 }
 
@@ -36,6 +37,7 @@ xc.ParseUtil.saveObjectToStoredScene = function (jsonObject) {
         if (!replace) {
             //jsonObject.userAdded = true;
             children.push(jsonObject);
+            cc.log('adding object with Action tag:' + jsonObject.ActionTag);
         }
         xc.ParseUtil.saveScene(xc.story.items[xc.pageIndex].scene);
     }
@@ -43,23 +45,20 @@ xc.ParseUtil.saveObjectToStoredScene = function (jsonObject) {
 
 xc.ParseUtil.updateScaleRotationAndPositionObjectFromStoredScene = function (target) {
     if (xc.story && xc.story.items != null) {
+        cc.log('target x:' + target.x);
+        cc.log('target y:' + target.y);
+        cc.log('target ActionTag:' + target.ActionTag);
+        cc.log('target _actionTag:' + target._actionTag);   
+
+        if(!target.ActionTag && target._actionTag) {
+            target.ActionTag = target._actionTag;
+        } else if(target.ActionTag && !target._actionTag) {
+            target._actionTag = target.ActionTag;
+        }
+
         var children = xc.story.items[xc.pageIndex].scene.Content.Content.ObjectData.Children;
-        for (var index = 0; index < children.length; index++) {
-            var comExtensionData = target.getComponent("ComExtensionData");
-
-            if (comExtensionData && comExtensionData.getActionTag()) {
-                if (children[index].ActionTag == comExtensionData.getActionTag()) {
-                    children[index].Scale.ScaleX = target.scaleX;
-                    children[index].Scale.ScaleY = target.scaleY;
-
-                    children[index].Position.X = target.x;
-                    children[index].Position.Y = target.y;
-
-                    children[index].RotationSkewX = target.rotationX;
-                    children[index].RotationSkewY = target.rotationY;
-                    break;
-                }
-            } else if (target.ActionTag) {
+        for (var index = 0; index < children.length; index++) {            
+            if (target.ActionTag) {
                 if (children[index].ActionTag == target.ActionTag) {
                     children[index].Scale.ScaleX = target.scaleX;
                     children[index].Scale.ScaleY = target.scaleY;
@@ -73,6 +72,7 @@ xc.ParseUtil.updateScaleRotationAndPositionObjectFromStoredScene = function (tar
                 }
             }
         }
+
         xc.ParseUtil.saveScene(xc.story.items[xc.pageIndex].scene);
     }
 }
@@ -92,14 +92,18 @@ xc.ParseUtil.updateFlipObjectFromStoredScene = function (tag, scaleX) {
 
 
 xc.ParseUtil.removeObjectFromStoredScene = function (tag) {
+    cc.log('removeObjectFromStoredScene with tag' + tag);
     if (xc.story && xc.story.items != null) {
         var children = xc.story.items[xc.pageIndex].scene.Content.Content.ObjectData.Children;
+        cc.log('lenght before:' + xc.story.items[xc.pageIndex].scene.Content.Content.ObjectData.Children.length);
         for (var index = 0; index < children.length; index++) {
+            cc.log('action tag in removeObjectFromStoredScene 111' + children[index].ActionTag);
             if (children[index].ActionTag == tag) {
                 children.splice(index, 1);
                 break;
             }
         }
+        cc.log('lenght after:' + xc.story.items[xc.pageIndex].scene.Content.Content.ObjectData.Children.length);
         xc.ParseUtil.saveScene(xc.story.items[xc.pageIndex].scene);
     }
 }
@@ -119,6 +123,24 @@ xc.ParseUtil.getUserData = function (tag, dataKey) {
         return result;
     }
 }
+
+
+xc.ParseUtil.getUserDataByActionTag = function (tag) {
+    var result = null;
+    if (xc.story && xc.story.items != null && xc.story.items[xc.pageIndex].scene.Content) {
+        var children = xc.story.items[xc.pageIndex].scene.Content.Content.ObjectData.Children;
+        for (var index = 0; index < children.length; index++) {
+            if (children[index].ActionTag == tag) {
+                var object = children[index];
+                var obj = JSON.parse(object.UserData);
+                result = obj;
+                break;
+            }
+        }
+        return result;
+    }
+}
+
 
 xc.ParseUtil.updateUserData = function (tag, dataKey, dataValue) {
     if (xc.story && xc.story.items != null && xc.story.items[xc.pageIndex].scene.Content) {
@@ -178,22 +200,10 @@ xc.ParseUtil.constructJSONFromCharacter = function (skeleton, resourcePath, para
         "Y": skeleton.height
     };
     object.ActionTag = paramActionTag;
-    if (skeleton.getComponent("ComExtensionData") == null) {
-        skeleton.addComponent(new ccs.ComExtensionData());
-    }
-    skeleton.getComponent("ComExtensionData").setActionTag(object.ActionTag);
-
     object.Name = skeleton.getName();
     object.ctype = "ProjectNodeObjectData";
 
-    var existingUserData = null;
-    if (skeleton.getComponent('ComExtensionData') && skeleton.getComponent('ComExtensionData').getCustomProperty() != null
-        && skeleton.getComponent('ComExtensionData').getCustomProperty().length > 0) {
-        existingUserData = skeleton.getComponent('ComExtensionData').getCustomProperty();
-    } else {
-        existingUserData = {};
-    };
-
+    var existingUserData = {};
 
     existingUserData.currentAnimationName = skeleton._currentAnimationName;
     existingUserData.resourcePath = resourcePath;
@@ -251,11 +261,13 @@ xc.ParseUtil.constructJSONFromCCSprite = function (sprite, filePath) {
     if (sprite.getName().indexOf("%%") === -1) {
         sprite.setName(sprite.getName() + "%%" + xc.ParseUtil.generateUUID());
     }
-    object.ActionTag = -new Date().valueOf();
-    if (sprite.getComponent("ComExtensionData") == null) {
-        sprite.addComponent(new ccs.ComExtensionData());
-    }
-    sprite.getComponent("ComExtensionData").setActionTag(object.ActionTag);
+
+    var i = new Date().getTime();
+    i = i & 0xffffffff;
+
+    object.ActionTag = i;
+    cc.log('Action Tag for image:' + object.ActionTag);
+
 
     object.Name = sprite.getName();
     object.ctype = "SpriteObjectData";
@@ -322,8 +334,11 @@ xc.ParseUtil.constructJSONFromText = function (panel, resourcePath) {
 
     };
 
-    panelObject.Tag = new Date().valueOf();
-    panelObject.ActionTag = -new Date().valueOf();
+    var i = new Date().getTime();
+    i = i & 0xffffffff;
+
+    panelObject.Tag = i;
+    panelObject.ActionTag = i;
 
     panelObject.Size = {
         "X": panel.getContentSize().width,
@@ -370,8 +385,11 @@ xc.ParseUtil.constructJSONFromText = function (panel, resourcePath) {
         "B": textNode.getTextColor().b
     };
 
-    textObject.Tag = new Date().valueOf();
-    textObject.ActionTag = -new Date().valueOf();
+    var i = new Date().getTime();
+    i = i & 0xffffffff;
+
+    textObject.Tag = i;    
+    textObject.ActionTag = i; 
     textObject.Size = {
         "X": textNode.getContentSize().width,
         "Y": textNode.getContentSize().height
@@ -418,7 +436,10 @@ xc.ParseUtil.constructJSONFromTextNode = function (textNode, resourcePath) {
         "X": textNode.width,
         "Y": textNode.height
     };
-    object.ActionTag = -new Date().valueOf();
+    var i = new Date().getTime();
+    i = i & 0xffffffff;
+ 
+    object.ActionTag = i;
     object.Name = textNode.getName();
     object.ctype = "ProjectNodeObjectData";
     return object;
@@ -461,7 +482,8 @@ xc.ParseUtil.disableFavoriteChoiceIfCharacterAlreadyLoadedInPage = function (ite
         xc.story.items[xc.pageIndex].scene.Content && xc.story.items[xc.pageIndex].scene.Content.Content
         && xc.story.items[xc.pageIndex].scene.Content.Content.ObjectData) {
         xc.story.items[xc.pageIndex].scene.Content.Content.ObjectData.Children.forEach(function (child) {
-            if (child.UserData && child.UserData.uniqueCharacterID == itemConfiguration['uniqueCharacterID']) {
+            var uniqueCharacterID = xc.ParseUtil.getUserData(child._actionTag,'uniqueCharacterID')
+            if (uniqueCharacterID && uniqueCharacterID == itemConfiguration['uniqueCharacterID']) {
                 item.setEnabled(false);
             }
         }, this);
@@ -476,7 +498,9 @@ xc.ParseUtil.cacheThumbnailForFavorites = function (skeleton) {
     renderer.end();
     renderer.scaleY = -1;
     var sprite = renderer.getSprite();
-    var cacheName = xc.path  + "wikitaki/"+ skeleton.UserData.uniqueCharacterID + '.png';
+    var uniqueCharacterID = xc.ParseUtil.getUserData(skeleton._actionTag,'uniqueCharacterID')
+    var cacheName = xc.path  + "wikitaki/"+ uniqueCharacterID + '.png';
+    //cc.textureCache.cacheImage(cacheName, sprite.texture);
     renderer.cleanup();
 }
 

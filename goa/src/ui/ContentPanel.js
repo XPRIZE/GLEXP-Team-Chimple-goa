@@ -30,20 +30,34 @@ xc.ContentPanel = xc.AbstractContentPanel.extend({
         cc.loader.cache[xc.STORY_KEY] = xc.story.items[xc.pageIndex].scene;
     },
 
-    //this method should only work when background changes - at this point backLayer MUST have 2 children
+    //this method should only work when background changes - at this point backLayer MUST have 2 children, i.e. old and new scene
     copyUserAddedObjectsToScene: function () {
         if (this._backLayer && this._backLayer.children && this._backLayer.children.length == 2) {
-            var backGroundChanged = false;
+            var backGroundChanged = true;
             var count = this._backLayer.children[0].children.length;
             for (var i = 0; i < count; i++) {
                 var element = this._backLayer.children[0].children[i];
-                if (element && element.UserData && element.UserData.userAdded) {
+                if(element && element.getName() && element.getName().indexOf("Skeleton") != -1 && xc.ParseUtil.getUserData(element._actionTag,'userAdded')) {
+                    var action = element.actionManager.getActionByTag(element.tag, element);                
+                    if (action) {
+                        action.retain();
+                        element._storedAction = action;
+                    }
+
                     element.retain();
                     element.removeFromParent();
                     i--;
                     this._constructedScene.addChild(element);
-                    element.release();
-                    backGroundChanged = true;
+                    action.release();
+                    var action = element._storedAction;
+                    if (action) {
+                        element.runAction(action);                        
+                    }                    
+                } else if (element && element.UserData && element.UserData.userAdded) {
+                    element.retain();
+                    element.removeFromParent();
+                    i--;
+                    this._constructedScene.addChild(element);
                 }
                 if(xc.customSprites != undefined) {
                     xc.customSprites.forEach(function (customSprite, index) {
@@ -52,7 +66,7 @@ xc.ContentPanel = xc.AbstractContentPanel.extend({
                             element.removeFromParent();
                             i--;
                             this._constructedScene.addChild(element);
-                            element.release();
+                            //element.release();
                         }
                     }, this);
                 }
@@ -72,7 +86,7 @@ xc.ContentPanel = xc.AbstractContentPanel.extend({
                             element.retain();
                             element.removeFromParent();
                             this._constructedScene.addChild(element);
-                            element.release();
+                        //element.release();
                         }
                     }, this);
                 }
@@ -94,12 +108,13 @@ xc.ContentPanel = xc.AbstractContentPanel.extend({
         if (constructedScene != null) {
             this._constructedScene = constructedScene.node;
             if (this._constructedScene) {
-                cc.log('this._constructedScene.width' + this._constructedScene.width);
-                if(this._constructedScene.width == xc.DESIGNED_WIDTH) {
-                    this._constructedScene.setScale(xc.contentPanelScaleFactor);
-                }                
-                
-                this._constructedScene.setAnchorPoint(0,0);
+                //if(this._constructedScene.width == xc.DESIGNED_WIDTH) {
+                 //   this._constructedScene.setScale(xc.contentPanelScaleFactor);
+                //}                
+
+                var configPanelWidth = (cc.director.getWinSize().width - cc.director.getWinSize().height) / 2;
+                this._constructedScene.setAnchorPoint(0.5,0);
+                this._constructedScene.setPosition(cc.director.getWinSize().width/2,0);                
                 this._backLayer.addChild(this._constructedScene);
                 //now copy user added objects from earlier constructed scene if any
                 this.copyUserAddedObjectsToScene();
@@ -107,6 +122,7 @@ xc.ContentPanel = xc.AbstractContentPanel.extend({
                 if (!cc.sys.isNative) {
                     this._constructedScene._renderCmd._dirtyFlag = 1;
                 }
+                cc.log("calling registerEventListenerForAllChildren on doPostLoadingProcessForScene");
                 this.registerEventListenerForAllChildren();
                 this.postProcessForSceneObjects(this._constructedScene);
                 //parse JSON and store in local storage
@@ -151,14 +167,17 @@ xc.ContentPanel = xc.AbstractContentPanel.extend({
         node.children.forEach(function (element) {
             if (element.getName().indexOf("Skeleton") != -1 || element.getName().indexOf("skeleton") != -1) {
                 xc.CharacterUtil.loadSkeletonConfig(element);
-                if (element.UserData && element.UserData.colorSkins) {
-                    element.UserData.colorSkins.forEach(function (colorSkin) {
-                        xc.CharacterUtil.colorSkins(element, colorSkin);
-                })}
 
                 if (element.UserData && element.UserData.visibleSkins) {
                     xc.CharacterUtil.displaySkins(element, element.UserData.visibleSkins);
                 }
+
+                if (element.UserData && element.UserData.colorSkins) {
+                    cc.log('prcessing color skins from user data');
+                    element.UserData.colorSkins.forEach(function (colorSkin) {
+                        xc.CharacterUtil.colorSkins(element, colorSkin);
+                })
+            }
 
 
                 if (element.UserData && element.UserData.currentAnimationName) {
@@ -176,8 +195,10 @@ xc.ContentPanel = xc.AbstractContentPanel.extend({
                 element.children.forEach(function (child) {
                     if (child.getName() === 'Scene') {
                         child.children.forEach(function (subChild) {
+                            cc.log('in registerEventListenerForAllChildren:' + subChild.ActionTag);
                             if (subChild.getComponent('ComExtensionData') && subChild.getComponent('ComExtensionData').getActionTag()) {
-                                subChild.ActionTag = subChild.getComponent('ComExtensionData').getActionTag();
+                                cc.log('in registerEventListenerForAllChildren 4444:' + subChild.getComponent('ComExtensionData').getActionTag());
+                                subChild.ActionTag = subChild.getComponent('ComExtensionData').getActionTag();                                
                             }
                         }, this);
                     }
@@ -543,8 +564,17 @@ xc.ContentPanel = xc.AbstractContentPanel.extend({
     },
 
     addCharacterToScene: function (configuration) {
+        cc.log('configuration:' + configuration.json);
+        if(configuration.favoriteSkins) {
+            cc.log('favoriteSkins:' + configuration.favoriteSkins.length);    
+        }
+        
         var load = ccs.load(xc.path + configuration.json);
-        load.node._actionTag = -new Date().valueOf();
+        var i = new Date().getTime();
+        i = i & 0xffffffff;
+        load.node._actionTag = i;
+        load.node.ActionTag = i; 
+        cc.log('load.node._actionTag of skeleton:' + load.node._actionTag);
         load.node.setScale(0.5, 0.5);
         load.node.setPosition(this.getContentSize().width / 2, this.getContentSize().height / 6);
         xc.ParseUtil.saveCharacterToJSON(xc.path + configuration.json, load, load.node._actionTag);
@@ -554,6 +584,7 @@ xc.ContentPanel = xc.AbstractContentPanel.extend({
         this.registerEventListenerForChild(load.node);
     },
 
+   
     zoomAll: function (context, touch, target) {
         var nodePostion = target.getPosition();
         var currentPosition = target.parent.convertToNodeSpace(touch.getLocation());
@@ -729,12 +760,23 @@ xc.ContentPanel = xc.AbstractContentPanel.extend({
         cc.log('xc.pageIndex at:' + xc.pageIndex + 'for current story:' + xc.currentStoryId);
         if(cc.sys.isNative && xc.pageIndex == 0) {            
             var viewPortWidth = cc.director.getWinSize().width - this.parent._objectConfigPanel.width;
-            var viewPortHeight = (cc.director.getWinSize().width - this.parent._objectConfigPanel.width) * xc.contentPanelScaleFactor;
+            //var viewPortHeight = (cc.director.getWinSize().width - this.parent._objectConfigPanel.width) * xc.contentPanelScaleFactor;
+            var viewPortHeight = cc.director.getWinSize().height;
             var renderer = new cc.RenderTexture(viewPortWidth, viewPortHeight, cc.TEXTURE_2D_PIXEL_FORMAT_RGBA8888);
             renderer.setVirtualViewport(cc.p(this.parent._objectConfigPanel.width, 0), cc.rect(0,0,viewPortWidth,viewPortHeight), cc.rect(0,0,cc.director.getWinSizeInPixels().width + 20, cc.director.getWinSizeInPixels().height + 10) );
             renderer.begin();
             this.visit();              
             renderer.end();
+
+            //exiting screen shot if present
+            var savedStoryId = xc.storiesJSON.stories[xc.currentStoryIndex].storyId;
+            cc.log('savedStoryId:' + savedStoryId);
+            if(savedStoryId) {
+                var imagePath = jsb.fileUtils.getWritablePath() + xc.currentStoryId + ".jpg";
+                cc.log("path to delete" + imagePath);
+                jsb.fileUtils.removeFile(imagePath);   
+            }
+
             //regenerate story Id
             xc.currentStoryId = "storyId_" + xc.ParseUtil.generateUUID();
             xc.storiesJSON.stories[xc.currentStoryIndex].storyId = xc.currentStoryId;
@@ -807,7 +849,7 @@ xc.ContentPanel = xc.AbstractContentPanel.extend({
         if (this._backLayer) {
             xc.CharacterUtil.storeActionToTemporaryStore(this._backLayer);
         }
-
+        cc.log("calling registerEventListenerForAllChildren on enter");
         this.registerEventListenerForAllChildren();
     },
 

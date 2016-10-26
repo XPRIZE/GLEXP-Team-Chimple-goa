@@ -1,0 +1,312 @@
+{
+  "ID": "a2ee0952-26b5-49ae-8bf9-4f1d6279b798",
+  "Version": "2.3.4",
+  "Name": "Adhabu_Punishment01",
+  "Content": {
+    "Content": {
+      "Animation": {
+        "Duration": 0,
+        "Speed": 1.0,
+        "Timelines": [],
+        "ctype": "TimelineActionData"
+      },
+      "AnimationList": [],
+      "ObjectData": {
+        "Children": [
+          {
+            "ClipAble": false,
+            "ComboBoxIndex": 1,
+            "SingleColor": {
+              "R": 153,
+              "B": 218
+            },
+            "FirstColor": {
+              "R": 150,
+              "G": 200
+            },
+            "EndColor": {},
+            "ColorVector": {
+              "ScaleY": 1.0
+            },
+            "Scale9Width": 1,
+            "Scale9Height": 1,
+            "AnchorPoint": {},
+            "Position": {
+              "X": -0.1882,
+              "Y": 604.9693
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": -0.0002,
+              "Y": 0.9453
+            },
+            "PreSize": {
+              "X": 2.6667,
+              "Y": 1.875
+            },
+            "LeftMargin": -0.1882,
+            "RightMargin": -1599.8118,
+            "TopMargin": -1164.9692,
+            "BottomMargin": 604.9693,
+            "Tag": 2,
+            "ActionTag": 314966606,
+            "Size": {
+              "X": 2560.0,
+              "Y": 1200.0
+            },
+            "Name": "Panel_1",
+            "ctype": "PanelObjectData"
+          },
+          {
+            "ClipAble": false,
+            "ComboBoxIndex": 1,
+            "SingleColor": {
+              "R": 208,
+              "G": 234,
+              "B": 169
+            },
+            "FirstColor": {
+              "R": 150,
+              "G": 200
+            },
+            "EndColor": {},
+            "ColorVector": {
+              "ScaleY": 1.0
+            },
+            "Scale9Width": 1,
+            "Scale9Height": 1,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 0.0974,
+              "Y": 5.0427
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.0001,
+              "Y": 0.0079
+            },
+            "PreSize": {
+              "X": 2.6667,
+              "Y": 0.9375
+            },
+            "LeftMargin": 0.0974,
+            "RightMargin": -1600.0974,
+            "TopMargin": 34.9573,
+            "BottomMargin": 5.0427,
+            "Tag": 3,
+            "ActionTag": -511697373,
+            "Size": {
+              "X": 2560.0,
+              "Y": 600.0
+            },
+            "Name": "Panel_2",
+            "ctype": "PanelObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "ob/house/adhabu_house.png",
+              "Plist": ""
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1316.3523,
+              "Y": 1154.9709
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 1.3712,
+              "Y": 1.8046
+            },
+            "PreSize": {
+              "X": 1.5417,
+              "Y": 1.8125
+            },
+            "LeftMargin": 576.3523,
+            "RightMargin": -1096.3523,
+            "TopMargin": -1094.9709,
+            "BottomMargin": 574.9709,
+            "Tag": 4,
+            "ActionTag": -791319283,
+            "Size": {
+              "X": 1480.0,
+              "Y": 1160.0
+            },
+            "Name": "house_1",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "ob/other/adhabu_flower.png",
+              "Plist": ""
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 413.0694,
+              "Y": 681.3042
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.4303,
+              "Y": 1.0645
+            },
+            "PreSize": {
+              "X": 0.176,
+              "Y": 0.5063
+            },
+            "LeftMargin": 328.5694,
+            "RightMargin": 462.4306,
+            "TopMargin": -203.3042,
+            "BottomMargin": 519.3042,
+            "Tag": 5,
+            "ActionTag": -399000180,
+            "Size": {
+              "X": 169.0,
+              "Y": 324.0
+            },
+            "Name": "flower_2",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "ob/other/adhabu_flower.png",
+              "Plist": ""
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 2268.0332,
+              "Y": 676.8286
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 2.3625,
+              "Y": 1.0575
+            },
+            "PreSize": {
+              "X": 0.176,
+              "Y": 0.5063
+            },
+            "LeftMargin": 2183.5332,
+            "RightMargin": -1392.5332,
+            "TopMargin": -198.8286,
+            "BottomMargin": 514.8286,
+            "Tag": 6,
+            "ActionTag": 1354841011,
+            "Size": {
+              "X": 169.0,
+              "Y": 324.0
+            },
+            "Name": "flower_3",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "ob/other/adhabu_basket.png",
+              "Plist": ""
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1558.8032,
+              "Y": 447.9826
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 1.6238,
+              "Y": 0.7
+            },
+            "PreSize": {
+              "X": 0.5031,
+              "Y": 1.0078
+            },
+            "LeftMargin": 1317.3032,
+            "RightMargin": -840.3032,
+            "TopMargin": -130.4826,
+            "BottomMargin": 125.4826,
+            "Tag": 7,
+            "ActionTag": 1773292674,
+            "Size": {
+              "X": 483.0,
+              "Y": 645.0
+            },
+            "Name": "basket_4",
+            "ctype": "SpriteObjectData"
+          }
+        ],
+        "Size": {
+          "X": 960.0,
+          "Y": 640.0
+        },
+        "Name": "Scene",
+        "ctype": "SingleNodeObjectData"
+      },
+      "UsedResources": [
+        "ob/house/adhabu_house.png",
+        "ob/other/adhabu_basket.png",
+        "ob/other/adhabu_flower.png"
+      ],
+      "ctype": "GameFileData"
+    }
+  },
+  "Type": "Scene"
+}

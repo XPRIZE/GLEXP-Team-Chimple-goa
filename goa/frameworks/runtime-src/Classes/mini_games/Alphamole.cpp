@@ -123,12 +123,13 @@ children = Play2_Hole_Open_11*/
 
 void Alphamole::startGame()
 {
+	menu->setMaxPoints(5);
 	Size visibleSize = Director::getInstance()->getVisibleSize();
 	Vec2 origin = Director::getInstance()->getVisibleOrigin();
 	_mychar = LangUtil::getInstance()->getAllCharacters()[menu->getCurrentLevel() - 1];
 	_mainChar = Alphamon::createWithAlphabet(_mychar);
-	_mainChar->setScaleX(0.5);
-	_mainChar->setScaleY(0.5);
+	_mainChar->setScaleX(0.3);
+	_mainChar->setScaleY(0.3);
 	_mainChar->setPositionX(visibleSize.width / 2);
 	_mainChar->setPositionY(visibleSize.height / 1.2);
 	this->addChild(_mainChar);

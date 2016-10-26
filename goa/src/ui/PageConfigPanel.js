@@ -6,6 +6,7 @@ xc.PageConfigPanel = cc.LayerColor.extend({
         this.setPosition(position);
         this._configuration = configuration;
         this._contentPanel = contentPanel;
+        this.setOpacity(100);
 
         this._buttonPanel = new xc.ButtonPanel(new cc.p(0, 0), this.getContentSize(), 1, 6, configuration.addObjects, new xc.ButtonHandler(this.buttonPressed, this));
         this._currentStep = "addObjects";

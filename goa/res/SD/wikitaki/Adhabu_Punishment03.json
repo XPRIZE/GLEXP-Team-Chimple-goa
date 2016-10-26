@@ -1,0 +1,217 @@
+{
+  "ID": "f7fa1d7a-bc40-411d-b81f-57cb088cfaab",
+  "Version": "2.3.4",
+  "Name": "Adhabu_Punishment03",
+  "Content": {
+    "Content": {
+      "Animation": {
+        "Duration": 0,
+        "Speed": 1.0,
+        "Timelines": [],
+        "ctype": "TimelineActionData"
+      },
+      "AnimationList": [],
+      "ObjectData": {
+        "Tag": 13,
+        "Children": [
+          {
+            "ClipAble": false,
+            "ComboBoxIndex": 1,
+            "SingleColor": {
+              "G": 214,
+              "B": 123
+            },
+            "FirstColor": {
+              "R": 150,
+              "G": 200
+            },
+            "EndColor": {},
+            "ColorVector": {
+              "ScaleY": 1.0
+            },
+            "AnchorPoint": {},
+            "Position": {
+              "X": 0.0006,
+              "Y": 593.1104
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.0,
+              "Y": 0.3295
+            },
+            "PreSize": {
+              "X": 1.0,
+              "Y": 0.6667
+            },
+            "LeftMargin": 0.0006,
+            "RightMargin": -0.0005,
+            "TopMargin": 6.8896,
+            "BottomMargin": 593.1104,
+            "Tag": 14,
+            "ActionTag": 95264844,
+            "Size": {
+              "X": 2560.0,
+              "Y": 1200.0
+            },
+            "Name": "Panel_1",
+            "ctype": "PanelObjectData"
+          },
+          {
+            "ClipAble": false,
+            "ComboBoxIndex": 1,
+            "SingleColor": {
+              "G": 205,
+              "B": 82
+            },
+            "FirstColor": {
+              "R": 150,
+              "G": 200
+            },
+            "EndColor": {},
+            "ColorVector": {
+              "ScaleY": 1.0
+            },
+            "AnchorPoint": {},
+            "Position": {
+              "X": 0.3745,
+              "Y": -2.2053
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.0001,
+              "Y": -0.0012
+            },
+            "PreSize": {
+              "X": 1.0,
+              "Y": 0.3333
+            },
+            "LeftMargin": 0.3745,
+            "RightMargin": -0.3745,
+            "TopMargin": 1202.2053,
+            "BottomMargin": -2.2053,
+            "Tag": 15,
+            "ActionTag": -234063593,
+            "Size": {
+              "X": 2560.0,
+              "Y": 600.0
+            },
+            "Name": "Panel_2",
+            "ctype": "PanelObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "wikitaki/ob/furniture/adhabu_table.png",
+              "Plist": ""
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1241.524,
+              "Y": 451.5045
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.485,
+              "Y": 0.2508
+            },
+            "PreSize": {
+              "X": 0.5297,
+              "Y": 0.3933
+            },
+            "LeftMargin": 563.524,
+            "RightMargin": 640.476,
+            "TopMargin": 994.4955,
+            "BottomMargin": 97.5045,
+            "Tag": 16,
+            "ActionTag": -1268680046,
+            "Size": {
+              "X": 1356.0,
+              "Y": 708.0
+            },
+            "Name": "table_1",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "wikitaki/ob/other/adhabu_basket.png",
+              "Plist": ""
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1287.594,
+              "Y": 959.8461
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.503,
+              "Y": 0.5332
+            },
+            "PreSize": {
+              "X": 0.1887,
+              "Y": 0.3583
+            },
+            "LeftMargin": 1046.094,
+            "RightMargin": 1030.906,
+            "TopMargin": 517.6538,
+            "BottomMargin": 637.3461,
+            "Tag": 17,
+            "ActionTag": -577127405,
+            "Size": {
+              "X": 483.0,
+              "Y": 645.0
+            },
+            "Name": "basket_2",
+            "ctype": "SpriteObjectData"
+          }
+        ],
+        "Size": {
+          "X": 960.0,
+          "Y": 640.0
+        },
+        "Name": "Scene",
+        "ctype": "SingleNodeObjectData"
+      },
+      "UsedResources": [
+        "ob/furniture/adhabu_table.png",
+        "ob/other/adhabu_basket.png"
+      ],
+      "ctype": "GameFileData"
+    }
+  },
+  "Type": "Scene"
+}

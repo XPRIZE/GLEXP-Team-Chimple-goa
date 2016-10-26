@@ -111,7 +111,7 @@ bool AlphamonFeed::init()
 
 void AlphamonFeed::startGame() {
 
-
+	menu->setMaxPoints(10);
 	mychar = LangUtil::getInstance()->getAllCharacters()[menu->getCurrentLevel() - 1];
 	std::stringstream ss;
 	ss << mychar;

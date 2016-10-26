@@ -17,22 +17,22 @@ _canvasWidth(0),
 _canvasHeight(0),
 _currentStroke(),
 _lipiTKInterface(nullptr),
-_isTouchEndedOrMovedOut(false)
+_isTouchEndedOrMovedOut(false),
+_startTouchPoint(Vec2(0,0))
 {
     
 }
 
 
 LipiTKNode::~LipiTKNode() {
-    _canvas->release();
-    _brush->release();
 }
 
 
-LipiTKNode* LipiTKNode::create(int width, int height, Point position, int opacity)
+LipiTKNode* LipiTKNode::create(int width, int height, Point position)
 {
     auto node = new LipiTKNode();
-    if (node && node->initialize(width, height, position, opacity)) {
+    if (node && node->initialize(width, height, position)) {
+        node->setPosition(position);
         node->autorelease();
         return node;
     }
@@ -41,7 +41,16 @@ LipiTKNode* LipiTKNode::create(int width, int height, Point position, int opacit
 }
 
 
-Sprite* LipiTKNode::createDrawingAreaWithColor(Vec2 anchorPoint, Vec2 position, float opacity,const Color3B& color) {
+cocos2d::Sprite* LipiTKNode::createDrawingBoard() {
+    auto drawingBoardSprite = Sprite::create();
+    drawingBoardSprite->setTextureRect(Rect(0, 0, _canvasWidth, _canvasHeight));
+    drawingBoardSprite->setColor(Color3B::BLUE);
+    drawingBoardSprite->setOpacity(50);
+    return drawingBoardSprite;
+}
+
+
+cocos2d::Sprite* LipiTKNode::createDrawingAreaWithColor(cocos2d::Vec2 anchorPoint, cocos2d::Vec2 position, float opacity,const cocos2d::Color3B color) {
     _drawingBoard = Sprite::create();
     _drawingBoard->setName("_drawingBoard");
     _drawingBoard->setTextureRect(Rect(0, 0, _canvasWidth, _canvasHeight));
@@ -52,6 +61,8 @@ Sprite* LipiTKNode::createDrawingAreaWithColor(Vec2 anchorPoint, Vec2 position, 
     
     return _drawingBoard;
 }
+
+
 
 Sprite* LipiTKNode::createDrawingAreaUsingFileName(Vec2 anchorPoint, Vec2 position, float opacity, std::string fileName) {
     _drawingBoard = Sprite::create(fileName);
@@ -65,24 +76,26 @@ Sprite* LipiTKNode::createDrawingAreaUsingFileName(Vec2 anchorPoint, Vec2 positi
     return _drawingBoard;
 }
 
-bool LipiTKNode::initialize(int width, int height, Point position, int opacity) {
+
+bool LipiTKNode::initialize(int width, int height, Point position) {
+
+    //initialize lipiTK
     _lipiTKInterface = LipiTKInterface::getInstance("res");
+    
+    
     _canvasWidth = width;
     _canvasHeight = height;
     
     // create a canvas to draw on
     _canvas = RenderTexture::create(_canvasWidth, _canvasHeight, kCCTexture2DPixelFormat_RGBA8888);
-    _canvas->retain();
-    
-    // init the brush tip
-    _brush = Sprite::create("largeBrush.png");
-    _brush->retain();
+    addChild(_canvas);
     
     _paintingNode = DrawNode::create();
     addChild(_paintingNode);
     
     
-    _drawingBoard = createDrawingAreaWithColor(Vec2(0.5,0.5), position, opacity, Color3B::RED);
+    _drawingBoard = createDrawingBoard();
+    _drawingBoard->setName("_drawingBoard");
     addChild(_drawingBoard, 1);
     
     auto listenerTouches = EventListenerTouchOneByOne::create();
@@ -95,9 +108,15 @@ bool LipiTKNode::initialize(int width, int height, Point position, int opacity) 
     Vec2 clearButtonPos = Vec2(_drawingBoard->getBoundingBox().size.width - 15,_drawingBoard->getBoundingBox().size.height - 15);
     
     _clearButton = this->createButton("menu/help.png", "menu/help.png", "menu/help.png", clearButtonPos);
+    if(_clearButton) {
+        _drawingBoard->addChild(_clearButton);
+    }
     
     return true;
 }
+
+
+
 
 
 cocos2d::ui::Button* LipiTKNode::createButton(const std::string normalImage,
@@ -106,7 +125,6 @@ cocos2d::ui::Button* LipiTKNode::createButton(const std::string normalImage,
                                               Vec2 position) {
     cocos2d::ui::Button* button = cocos2d::ui::Button::create(normalImage, selectedImage, disableImage, cocos2d::ui::Widget::TextureResType::LOCAL);
     button->setPosition(position);
-    _drawingBoard->addChild(button);
     
     button->addTouchEventListener(CC_CALLBACK_2(LipiTKNode::clearDrawing, this));
     
@@ -136,9 +154,15 @@ bool LipiTKNode::onTouchBegan(Touch *touch, Event *event)
     {
         clearPrintedCharacters();
         Point n = this->convertTouchToNodeSpace(touch);
+        _startTouchPoint = n;
+        _lastTouchPoint = n;
         _currentStroke = new Stroke();
         CCLOG("touch begin Point x: %f and y %f", n.x, n.y);
         _currentStroke->addPoints(n.x, n.y);
+        
+        //Call Post Touch Began Handler
+        postTouchBegan(touch, event, _startTouchPoint);
+        
         return true;
     }
     return false;
@@ -161,6 +185,21 @@ bool LipiTKNode::checkTouchOnDrawingBoard(cocos2d::Touch * touch, cocos2d::Event
     return false;
 }
 
+
+void LipiTKNode::postTouchBegan(cocos2d::Touch * touch, cocos2d::Event * event, cocos2d::Point touchPoint) {
+    
+}
+
+
+void LipiTKNode::postTouchMoved(cocos2d::Touch * touch, cocos2d::Event * event, cocos2d::Point touchPoint) {
+    
+}
+
+void LipiTKNode::postTouchEnded(cocos2d::Touch * touch, cocos2d::Event * event, cocos2d::Point touchPoint) {
+    
+}
+
+
 void LipiTKNode::onTouchMoved(cocos2d::Touch * touch, cocos2d::Event * event)
 {
     if(checkTouchOnDrawingBoard(touch, event)) {
@@ -168,12 +207,18 @@ void LipiTKNode::onTouchMoved(cocos2d::Touch * touch, cocos2d::Event * event)
         Point n = this->convertTouchToNodeSpace(touch);
         CCLOG("touch move Point x: %f and y %f", n.x, n.y);
         _currentStroke->addPoints(n.x, n.y);
-        _paintingNode->drawSegment(touch->getPreviousLocation(), curDrawingPoint, 5, Color4F(14 / 255.0f, 221 / 255.0f, 23 / 255.0f, 1.0f));
+        draw(_paintingNode, _lastTouchPoint, n);
+        postTouchMoved(touch, event, n);
+        _lastTouchPoint = n;
     } else {
         if(_isTouchEndedOrMovedOut) {
             processLipiTK();
         }
     }
+}
+
+void LipiTKNode::draw(cocos2d::DrawNode* paintingNode, Point fromPoint, Point currentPoint) {
+    paintingNode->drawSegment(fromPoint, currentPoint, 5, Color4F(14 / 255.0f, 221 / 255.0f, 23 / 255.0f, 1.0f));
 }
 
 void LipiTKNode::touchEnded(Touch *touch, Event *event)
@@ -183,6 +228,7 @@ void LipiTKNode::touchEnded(Touch *touch, Event *event)
         Point n = this->convertTouchToNodeSpace(touch);
         CCLOG("touch ended Point x: %f and y %f", n.x, n.y);
         _currentStroke->addPoints(n.x, n.y);
+        postTouchEnded(touch, event, n);
     }
     
     if(_isTouchEndedOrMovedOut) {

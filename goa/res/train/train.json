@@ -17,9 +17,8 @@
             "ClipAble": false,
             "ComboBoxIndex": 1,
             "SingleColor": {
-              "R": 220,
-              "G": 244,
-              "B": 120
+              "R": 223,
+              "B": 90
             },
             "FirstColor": {
               "R": 150,
@@ -910,7 +909,7 @@
           {
             "FileData": {
               "Type": "MarkedSubImage",
-              "Path": "train/final_tunnel.png",
+              "Path": "train/hill.png",
               "Plist": "train/train.plist"
             },
             "BlendFunc": {
@@ -922,40 +921,40 @@
               "ScaleY": 0.5
             },
             "Position": {
-              "X": 2766.4915,
-              "Y": 1037.4324
+              "X": 97.0309,
+              "Y": 1607.6812
             },
             "Scale": {
-              "ScaleX": 1.0,
-              "ScaleY": 1.0
+              "ScaleX": 1.2638,
+              "ScaleY": 0.8106
             },
             "CColor": {},
             "IconVisible": false,
             "PrePosition": {
-              "X": 1.0807,
-              "Y": 0.5764
+              "X": 0.0379,
+              "Y": 0.8932
             },
             "PreSize": {
-              "X": 0.0406,
-              "Y": 0.1206
+              "X": 0.1273,
+              "Y": 0.1261
             },
-            "LeftMargin": 2714.4915,
-            "RightMargin": -258.4915,
-            "TopMargin": 654.0676,
-            "BottomMargin": 928.9324,
-            "Tag": 21,
-            "ActionTag": 2036988718,
+            "LeftMargin": -65.9691,
+            "RightMargin": 2299.9692,
+            "TopMargin": 78.8188,
+            "BottomMargin": 1494.1812,
+            "Tag": 23,
+            "ActionTag": -1961898527,
             "Size": {
-              "X": 104.0,
-              "Y": 217.0
+              "X": 326.0,
+              "Y": 227.0
             },
-            "Name": "final_tunnel_1",
+            "Name": "hill_1",
             "ctype": "SpriteObjectData"
           },
           {
             "FileData": {
               "Type": "MarkedSubImage",
-              "Path": "train/front_tunnel.png",
+              "Path": "train/hill.png",
               "Plist": "train/train.plist"
             },
             "BlendFunc": {
@@ -967,34 +966,530 @@
               "ScaleY": 0.5
             },
             "Position": {
-              "X": 2842.1465,
-              "Y": 1008.8994
+              "X": 447.7864,
+              "Y": 1629.1804
             },
             "Scale": {
-              "ScaleX": 1.0,
+              "ScaleX": 1.2722,
               "ScaleY": 1.0
             },
             "CColor": {},
             "IconVisible": false,
             "PrePosition": {
-              "X": 1.1102,
-              "Y": 0.5605
+              "X": 0.1749,
+              "Y": 0.9051
             },
             "PreSize": {
-              "X": 0.0172,
-              "Y": 0.0883
+              "X": 0.1273,
+              "Y": 0.1261
             },
-            "LeftMargin": 2820.1465,
-            "RightMargin": -304.1465,
-            "TopMargin": 711.6006,
-            "BottomMargin": 929.3994,
-            "Tag": 22,
-            "ActionTag": -2051971404,
+            "LeftMargin": 284.7864,
+            "RightMargin": 1949.2136,
+            "TopMargin": 57.3196,
+            "BottomMargin": 1515.6804,
+            "Tag": 24,
+            "ActionTag": -248991370,
             "Size": {
-              "X": 44.0,
-              "Y": 159.0
+              "X": 326.0,
+              "Y": 227.0
             },
-            "Name": "front_tunnel_2",
+            "Name": "hill_2",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "train/hill.png",
+              "Plist": "train/train.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 787.8649,
+              "Y": 1593.1414
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 0.6825
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.3078,
+              "Y": 0.8851
+            },
+            "PreSize": {
+              "X": 0.1273,
+              "Y": 0.1261
+            },
+            "LeftMargin": 624.8649,
+            "RightMargin": 1609.1351,
+            "TopMargin": 93.3586,
+            "BottomMargin": 1479.6414,
+            "Tag": 25,
+            "ActionTag": 821519459,
+            "Size": {
+              "X": 326.0,
+              "Y": 227.0
+            },
+            "Name": "hill_3",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "train/hill.png",
+              "Plist": "train/train.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1149.7598,
+              "Y": 1615.7571
+            },
+            "Scale": {
+              "ScaleX": 1.3741,
+              "ScaleY": 0.8817
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.4491,
+              "Y": 0.8976
+            },
+            "PreSize": {
+              "X": 0.1273,
+              "Y": 0.1261
+            },
+            "LeftMargin": 986.7598,
+            "RightMargin": 1247.2402,
+            "TopMargin": 70.7429,
+            "BottomMargin": 1502.2571,
+            "Tag": 26,
+            "ActionTag": 1775249904,
+            "Size": {
+              "X": 326.0,
+              "Y": 227.0
+            },
+            "Name": "hill_4",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "train/hill.png",
+              "Plist": "train/train.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1455.2578,
+              "Y": 1596.3481
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 0.7108
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.5685,
+              "Y": 0.8869
+            },
+            "PreSize": {
+              "X": 0.1273,
+              "Y": 0.1261
+            },
+            "LeftMargin": 1292.2578,
+            "RightMargin": 941.7422,
+            "TopMargin": 90.1519,
+            "BottomMargin": 1482.8481,
+            "Tag": 27,
+            "ActionTag": -1075933785,
+            "Size": {
+              "X": 326.0,
+              "Y": 227.0
+            },
+            "Name": "hill_5",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "train/hill.png",
+              "Plist": "train/train.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1869.1833,
+              "Y": 1629.1785
+            },
+            "Scale": {
+              "ScaleX": 2.0698,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.7301,
+              "Y": 0.9051
+            },
+            "PreSize": {
+              "X": 0.1273,
+              "Y": 0.1261
+            },
+            "LeftMargin": 1706.1833,
+            "RightMargin": 527.8167,
+            "TopMargin": 57.3215,
+            "BottomMargin": 1515.6785,
+            "Tag": 28,
+            "ActionTag": -451317585,
+            "Size": {
+              "X": 326.0,
+              "Y": 227.0
+            },
+            "Name": "hill_6",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "train/hill.png",
+              "Plist": "train/train.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 2406.7227,
+              "Y": 1609.8967
+            },
+            "Scale": {
+              "ScaleX": 1.7098,
+              "ScaleY": 0.8301
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.9401,
+              "Y": 0.8944
+            },
+            "PreSize": {
+              "X": 0.1273,
+              "Y": 0.1261
+            },
+            "LeftMargin": 2243.7227,
+            "RightMargin": -9.7227,
+            "TopMargin": 76.6033,
+            "BottomMargin": 1496.3967,
+            "Tag": 29,
+            "ActionTag": 1837851116,
+            "Size": {
+              "X": 326.0,
+              "Y": 227.0
+            },
+            "Name": "hill_7",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "train/grass.png",
+              "Plist": "train/train.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 163.0666,
+              "Y": 1546.8336
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 0.6049
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.0637,
+              "Y": 0.8594
+            },
+            "PreSize": {
+              "X": 0.3246,
+              "Y": 0.0572
+            },
+            "LeftMargin": -252.4334,
+            "RightMargin": 1981.4333,
+            "TopMargin": 201.6664,
+            "BottomMargin": 1495.3336,
+            "Tag": 31,
+            "ActionTag": -2077953010,
+            "Size": {
+              "X": 831.0,
+              "Y": 103.0
+            },
+            "Name": "grass_9",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "train/grass.png",
+              "Plist": "train/train.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1561.3644,
+              "Y": 1557.4609
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 0.8113
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.6099,
+              "Y": 0.8653
+            },
+            "PreSize": {
+              "X": 0.3246,
+              "Y": 0.0572
+            },
+            "LeftMargin": 1145.8644,
+            "RightMargin": 583.1356,
+            "TopMargin": 191.0391,
+            "BottomMargin": 1505.9609,
+            "Tag": 33,
+            "ActionTag": -726254971,
+            "Size": {
+              "X": 831.0,
+              "Y": 103.0
+            },
+            "Name": "grass_11",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "train/grass.png",
+              "Plist": "train/train.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 2301.6128,
+              "Y": 1547.9741
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 0.6271
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.8991,
+              "Y": 0.86
+            },
+            "PreSize": {
+              "X": 0.3246,
+              "Y": 0.0572
+            },
+            "LeftMargin": 1886.1128,
+            "RightMargin": -157.1128,
+            "TopMargin": 200.5259,
+            "BottomMargin": 1496.4741,
+            "Tag": 34,
+            "ActionTag": 1965189451,
+            "Size": {
+              "X": 831.0,
+              "Y": 103.0
+            },
+            "Name": "grass_12",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "train/grass.png",
+              "Plist": "train/train.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 953.0084,
+              "Y": 1552.3394
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 0.7119
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.3723,
+              "Y": 0.8624
+            },
+            "PreSize": {
+              "X": 0.3246,
+              "Y": 0.0572
+            },
+            "LeftMargin": 537.5084,
+            "RightMargin": 1191.4916,
+            "TopMargin": 196.1606,
+            "BottomMargin": 1500.8394,
+            "Tag": 35,
+            "ActionTag": 1055204862,
+            "Size": {
+              "X": 831.0,
+              "Y": 103.0
+            },
+            "Name": "grass_13",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "train/cloud.png",
+              "Plist": "train/train.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 875.7823,
+              "Y": 1715.0148
+            },
+            "Scale": {
+              "ScaleX": 0.6529,
+              "ScaleY": 0.6529
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.3421,
+              "Y": 0.9528
+            },
+            "PreSize": {
+              "X": 0.1641,
+              "Y": 0.0933
+            },
+            "LeftMargin": 665.7823,
+            "RightMargin": 1474.2178,
+            "TopMargin": 0.9852,
+            "BottomMargin": 1631.0148,
+            "Tag": 36,
+            "ActionTag": -751864087,
+            "Size": {
+              "X": 420.0,
+              "Y": 168.0
+            },
+            "Name": "cloud_14",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FlipX": true,
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "train/cloud.png",
+              "Plist": "train/train.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 2105.364,
+              "Y": 1646.7482
+            },
+            "Scale": {
+              "ScaleX": 0.5917,
+              "ScaleY": 0.5917
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.8224,
+              "Y": 0.9149
+            },
+            "PreSize": {
+              "X": 0.1641,
+              "Y": 0.0933
+            },
+            "LeftMargin": 1895.364,
+            "RightMargin": 244.636,
+            "TopMargin": 69.2518,
+            "BottomMargin": 1562.7482,
+            "Tag": 37,
+            "ActionTag": -809477187,
+            "Size": {
+              "X": 420.0,
+              "Y": 168.0
+            },
+            "Name": "cloud_15",
             "ctype": "SpriteObjectData"
           }
         ],
