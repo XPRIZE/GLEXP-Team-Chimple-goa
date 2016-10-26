@@ -2,20 +2,32 @@
 
 USING_NS_CC;
 
-Scene* Baja::createScene()
+Scene* Baja::createScene(int levelPoints)
 {
 	auto scene = Scene::create();
-	auto layer = Baja::create();
+	auto layer = Baja::create(levelPoints);
 	scene->addChild(layer);
-	layer->_menuContext = MenuContext::create(layer,"baja");
+	layer->_menuContext = MenuContext::create(layer, Baja::gameName());
 	scene->addChild(layer->_menuContext);
 	return scene;
 }
 
-bool Baja::init()
+Baja *Baja::create(int levelpoints) {
+	Baja *baja = new (std::nothrow) Baja();
+	if (baja && baja->init(levelpoints)) {
+		baja->autorelease();
+		return baja;
+	}
+	CC_SAFE_DELETE(baja);
+	return nullptr;
+
+}
+
+
+bool Baja::init(int levelPoints)
 {
 	if (!Layer::init()){ return false;}
-
+	auto x = levelPoints;
 	CCSpriteFrameCache* framecache1 = CCSpriteFrameCache::sharedSpriteFrameCache();
 	framecache1->addSpriteFramesWithFile("baja/baja.plist");
 	CCSpriteFrameCache* framecache2 = CCSpriteFrameCache::sharedSpriteFrameCache();

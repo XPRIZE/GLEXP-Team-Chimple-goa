@@ -51,15 +51,370 @@ BalloonHero *BalloonHero::create() {
 
 }
 
+
 bool BalloonHero::init() {
 
-
-	if (!Layer::init()) {
+	if (!Layer::init())
+	{
 		return false;
 	}
+
+	return true;
+
+}
+
+void BalloonHero::onEnterTransitionDidFinish() {
+	/*
+	auto help = HelpLayer::create(Rect(boxPosition.x, boxPosition.y, boxContentSize.width, boxContentSize.height), Rect(0, 0, 0, 0));
+	help->clickAndDrag(Vec2(boxPosition), Vec2(visibleSize.width / 2, visibleSize.height *0.1));
+	help->setName("helpLayer");
+	this->addChild(help);
+	*/
+	
 	//SpriteFrameCache::getInstance()->addSpriteFramesWithFile("balloonhero/balloonhero.plist");
 	//_sceneNumber = RandomHelper::random_int(1, 2);
-	_sceneNumber = 3;
+
+	
+	if (_menuContext->getCurrentLevel() <= 8 && _menuContext->getCurrentLevel() >= 1) {
+		
+		_menuContext->setMaxPoints(10);
+		_sceneNumber = 1;
+		switch (_menuContext->getCurrentLevel()) {
+
+
+		case 1: _set1 =  TextGenerator::getInstance()->getWords(TextGenerator::POS::NOUN, 10, 1);
+				_set2 = TextGenerator::getInstance()->getWords(TextGenerator::POS::VERB, 10, 1);
+				break;
+		case 2: _set1 = TextGenerator::getInstance()->getWords(TextGenerator::POS::ADJECTIVE, 10, 1);
+				_set2 = TextGenerator::getInstance()->getWords(TextGenerator::POS::PRONOUN, 10, 1); 
+				break;
+		case 3: _set1 = TextGenerator::getInstance()->getWords(TextGenerator::POS::ARTICLE, 10, 1);
+				_set2 = TextGenerator::getInstance()->getWords(TextGenerator::POS::PREPOSITION, 10, 1);
+				break;
+		case 4: _set1 = TextGenerator::getInstance()->getWords(TextGenerator::POS::CONJUNCTION, 10, 1);
+				_set2 = TextGenerator::getInstance()->getWords(TextGenerator::POS::INTERJECTION, 10, 1);
+				break;
+		case 5: _set1 = TextGenerator::getInstance()->getWords(TextGenerator::POS::NOUN, 10, 1);
+				_set2 = TextGenerator::getInstance()->getWords(TextGenerator::POS::INTERJECTION, 10, 1);
+				break;
+		case 6: _set1 = TextGenerator::getInstance()->getWords(TextGenerator::POS::CONJUNCTION, 10, 1);
+				_set2 = TextGenerator::getInstance()->getWords(TextGenerator::POS::VERB, 10, 1);
+				break;
+		case 7: _set1 = TextGenerator::getInstance()->getWords(TextGenerator::POS::ADJECTIVE, 10, 1);
+				_set2 = TextGenerator::getInstance()->getWords(TextGenerator::POS::PREPOSITION, 10, 1);
+				break;
+		case 8: _set1 = TextGenerator::getInstance()->getWords(TextGenerator::POS::ARTICLE, 10, 1);
+				_set2 = TextGenerator::getInstance()->getWords(TextGenerator::POS::PRONOUN, 10, 1);
+				break;
+
+		}
+
+	}
+
+	//second iteration
+	if (_menuContext->getCurrentLevel() <= 16 && _menuContext->getCurrentLevel() >= 9) {
+
+		_menuContext->setMaxPoints(10);
+		_sceneNumber = 2;
+		switch (_menuContext->getCurrentLevel()) {
+
+
+		case 9: _set1 = TextGenerator::getInstance()->getWords(TextGenerator::POS::NOUN, 10, 1);
+			_set2 = TextGenerator::getInstance()->getWords(TextGenerator::POS::VERB, 10, 1);
+			break;
+		case 10: _set1 = TextGenerator::getInstance()->getWords(TextGenerator::POS::NOUN, 10, 1);
+			_set2 = TextGenerator::getInstance()->getWords(TextGenerator::POS::VERB, 10, 1);
+			break;
+		case 11: _set1 = TextGenerator::getInstance()->getWords(TextGenerator::POS::NOUN, 10, 1);
+			_set2 = TextGenerator::getInstance()->getWords(TextGenerator::POS::VERB, 10, 1);
+			break;
+		case 12: _set1 = TextGenerator::getInstance()->getWords(TextGenerator::POS::NOUN, 10, 1);
+			_set2 = TextGenerator::getInstance()->getWords(TextGenerator::POS::VERB, 10, 1);
+			break;
+		case 13: _set1 = TextGenerator::getInstance()->getWords(TextGenerator::POS::NOUN, 10, 1);
+			_set2 = TextGenerator::getInstance()->getWords(TextGenerator::POS::VERB, 10, 1);
+			break;
+		case 14: _set1 = TextGenerator::getInstance()->getWords(TextGenerator::POS::NOUN, 10, 1);
+			_set2 = TextGenerator::getInstance()->getWords(TextGenerator::POS::VERB, 10, 1);
+			break;
+		case 15: _set1 = TextGenerator::getInstance()->getWords(TextGenerator::POS::NOUN, 10, 1);
+			_set2 = TextGenerator::getInstance()->getWords(TextGenerator::POS::VERB, 10, 1);
+			break;
+		case 16: _set1 = TextGenerator::getInstance()->getWords(TextGenerator::POS::NOUN, 10, 1);
+			_set2 = TextGenerator::getInstance()->getWords(TextGenerator::POS::VERB, 10, 1);
+			break;
+
+		}
+
+	}
+
+	//third iteration
+	if (_menuContext->getCurrentLevel() <= 24 && _menuContext->getCurrentLevel() >= 17) {
+
+		_menuContext->setMaxPoints(10);
+		_sceneNumber = 3;
+		switch (_menuContext->getCurrentLevel()) {
+
+
+		case 17: _set1 = TextGenerator::getInstance()->getWords(TextGenerator::POS::NOUN, 10, 1);
+			_set2 = TextGenerator::getInstance()->getWords(TextGenerator::POS::VERB, 10, 1);
+			break;
+		case 18: _set1 = TextGenerator::getInstance()->getWords(TextGenerator::POS::NOUN, 10, 1);
+			_set2 = TextGenerator::getInstance()->getWords(TextGenerator::POS::VERB, 10, 1);
+			break;
+		case 29: _set1 = TextGenerator::getInstance()->getWords(TextGenerator::POS::NOUN, 10, 1);
+			_set2 = TextGenerator::getInstance()->getWords(TextGenerator::POS::VERB, 10, 1);
+			break;
+		case 20: _set1 = TextGenerator::getInstance()->getWords(TextGenerator::POS::NOUN, 10, 1);
+			_set2 = TextGenerator::getInstance()->getWords(TextGenerator::POS::VERB, 10, 1);
+			break;
+		case 21: _set1 = TextGenerator::getInstance()->getWords(TextGenerator::POS::NOUN, 10, 1);
+			_set2 = TextGenerator::getInstance()->getWords(TextGenerator::POS::VERB, 10, 1);
+			break;
+		case 22: _set1 = TextGenerator::getInstance()->getWords(TextGenerator::POS::NOUN, 10, 1);
+			_set2 = TextGenerator::getInstance()->getWords(TextGenerator::POS::VERB, 10, 1);
+			break;
+		case 23: _set1 = TextGenerator::getInstance()->getWords(TextGenerator::POS::NOUN, 10, 1);
+			_set2 = TextGenerator::getInstance()->getWords(TextGenerator::POS::VERB, 10, 1);
+			break;
+		case 24: _set1 = TextGenerator::getInstance()->getWords(TextGenerator::POS::NOUN, 10, 1);
+			_set2 = TextGenerator::getInstance()->getWords(TextGenerator::POS::VERB, 10, 1);
+			break;
+
+		}
+
+	}
+
+	//fourth iteration
+
+	if (_menuContext->getCurrentLevel() <= 32 && _menuContext->getCurrentLevel() >= 25) {
+
+		_menuContext->setMaxPoints(10);
+		_sceneNumber = 1;
+		switch (_menuContext->getCurrentLevel()) {
+
+
+		case 25: _set1 = TextGenerator::getInstance()->getWords(TextGenerator::POS::NOUN, 10, 1);
+			_set2 = TextGenerator::getInstance()->getWords(TextGenerator::POS::VERB, 10, 1);
+			break;
+		case 26: _set1 = TextGenerator::getInstance()->getWords(TextGenerator::POS::NOUN, 10, 1);
+			_set2 = TextGenerator::getInstance()->getWords(TextGenerator::POS::VERB, 10, 1);
+			break;
+		case 27: _set1 = TextGenerator::getInstance()->getWords(TextGenerator::POS::NOUN, 10, 1);
+			_set2 = TextGenerator::getInstance()->getWords(TextGenerator::POS::VERB, 10, 1);
+			break;
+		case 28: _set1 = TextGenerator::getInstance()->getWords(TextGenerator::POS::NOUN, 10, 1);
+			_set2 = TextGenerator::getInstance()->getWords(TextGenerator::POS::VERB, 10, 1);
+			break;
+		case 29: _set1 = TextGenerator::getInstance()->getWords(TextGenerator::POS::NOUN, 10, 1);
+			_set2 = TextGenerator::getInstance()->getWords(TextGenerator::POS::VERB, 10, 1);
+			break;
+		case 30: _set1 = TextGenerator::getInstance()->getWords(TextGenerator::POS::NOUN, 10, 1);
+			_set2 = TextGenerator::getInstance()->getWords(TextGenerator::POS::VERB, 10, 1);
+			break;
+		case 31: _set1 = TextGenerator::getInstance()->getWords(TextGenerator::POS::NOUN, 10, 1);
+			_set2 = TextGenerator::getInstance()->getWords(TextGenerator::POS::VERB, 10, 1);
+			break;
+		case 32: _set1 = TextGenerator::getInstance()->getWords(TextGenerator::POS::NOUN, 10, 1);
+			_set2 = TextGenerator::getInstance()->getWords(TextGenerator::POS::VERB, 10, 1);
+			break;
+
+		}
+
+	}
+
+	//fifth iteration
+
+	if (_menuContext->getCurrentLevel() <= 40 && _menuContext->getCurrentLevel() >= 33) {
+
+		_menuContext->setMaxPoints(10);
+		_sceneNumber = 2;
+		switch (_menuContext->getCurrentLevel()) {
+
+
+		case 33: _set1 = TextGenerator::getInstance()->getWords(TextGenerator::POS::NOUN, 10, 1);
+			_set2 = TextGenerator::getInstance()->getWords(TextGenerator::POS::VERB, 10, 1);
+			break;
+		case 34: _set1 = TextGenerator::getInstance()->getWords(TextGenerator::POS::NOUN, 10, 1);
+			_set2 = TextGenerator::getInstance()->getWords(TextGenerator::POS::VERB, 10, 1);
+			break;
+		case 35: _set1 = TextGenerator::getInstance()->getWords(TextGenerator::POS::NOUN, 10, 1);
+			_set2 = TextGenerator::getInstance()->getWords(TextGenerator::POS::VERB, 10, 1);
+			break;
+		case 36: _set1 = TextGenerator::getInstance()->getWords(TextGenerator::POS::NOUN, 10, 1);
+			_set2 = TextGenerator::getInstance()->getWords(TextGenerator::POS::VERB, 10, 1);
+			break;
+		case 37: _set1 = TextGenerator::getInstance()->getWords(TextGenerator::POS::NOUN, 10, 1);
+			_set2 = TextGenerator::getInstance()->getWords(TextGenerator::POS::VERB, 10, 1);
+			break;
+		case 38: _set1 = TextGenerator::getInstance()->getWords(TextGenerator::POS::NOUN, 10, 1);
+			_set2 = TextGenerator::getInstance()->getWords(TextGenerator::POS::VERB, 10, 1);
+			break;
+		case 39: _set1 = TextGenerator::getInstance()->getWords(TextGenerator::POS::NOUN, 10, 1);
+			_set2 = TextGenerator::getInstance()->getWords(TextGenerator::POS::VERB, 10, 1);
+			break;
+		case 40: _set1 = TextGenerator::getInstance()->getWords(TextGenerator::POS::NOUN, 10, 1);
+			_set2 = TextGenerator::getInstance()->getWords(TextGenerator::POS::VERB, 10, 1);
+			break;
+
+		}
+
+	}
+
+	//six iteration
+
+	if (_menuContext->getCurrentLevel() <= 48 && _menuContext->getCurrentLevel() >= 41) {
+
+		_menuContext->setMaxPoints(10);
+		_sceneNumber = 3;
+		switch (_menuContext->getCurrentLevel()) {
+
+
+		case 41: _set1 = TextGenerator::getInstance()->getWords(TextGenerator::POS::NOUN, 10, 1);
+			_set2 = TextGenerator::getInstance()->getWords(TextGenerator::POS::VERB, 10, 1);
+			break;
+		case 42: _set1 = TextGenerator::getInstance()->getWords(TextGenerator::POS::NOUN, 10, 1);
+			_set2 = TextGenerator::getInstance()->getWords(TextGenerator::POS::VERB, 10, 1);
+			break;
+		case 43: _set1 = TextGenerator::getInstance()->getWords(TextGenerator::POS::NOUN, 10, 1);
+			_set2 = TextGenerator::getInstance()->getWords(TextGenerator::POS::VERB, 10, 1);
+			break;
+		case 44: _set1 = TextGenerator::getInstance()->getWords(TextGenerator::POS::NOUN, 10, 1);
+			_set2 = TextGenerator::getInstance()->getWords(TextGenerator::POS::VERB, 10, 1);
+			break;
+		case 45: _set1 = TextGenerator::getInstance()->getWords(TextGenerator::POS::NOUN, 10, 1);
+			_set2 = TextGenerator::getInstance()->getWords(TextGenerator::POS::VERB, 10, 1);
+			break;
+		case 46: _set1 = TextGenerator::getInstance()->getWords(TextGenerator::POS::NOUN, 10, 1);
+			_set2 = TextGenerator::getInstance()->getWords(TextGenerator::POS::VERB, 10, 1);
+			break;
+		case 47: _set1 = TextGenerator::getInstance()->getWords(TextGenerator::POS::NOUN, 10, 1);
+			_set2 = TextGenerator::getInstance()->getWords(TextGenerator::POS::VERB, 10, 1);
+			break;
+		case 48: _set1 = TextGenerator::getInstance()->getWords(TextGenerator::POS::NOUN, 10, 1);
+			_set2 = TextGenerator::getInstance()->getWords(TextGenerator::POS::VERB, 10, 1);
+			break;
+
+		}
+
+	}
+
+	//seven iteration
+	if (_menuContext->getCurrentLevel() <= 56 && _menuContext->getCurrentLevel() >= 49) {
+
+		_menuContext->setMaxPoints(10);
+		_sceneNumber = 1;
+		switch (_menuContext->getCurrentLevel()) {
+
+
+		case 49: _set1 = TextGenerator::getInstance()->getWords(TextGenerator::POS::NOUN, 10, 1);
+			_set2 = TextGenerator::getInstance()->getWords(TextGenerator::POS::VERB, 10, 1);
+			break;
+		case 50: _set1 = TextGenerator::getInstance()->getWords(TextGenerator::POS::NOUN, 10, 1);
+			_set2 = TextGenerator::getInstance()->getWords(TextGenerator::POS::VERB, 10, 1);
+			break;
+		case 51: _set1 = TextGenerator::getInstance()->getWords(TextGenerator::POS::NOUN, 10, 1);
+			_set2 = TextGenerator::getInstance()->getWords(TextGenerator::POS::VERB, 10, 1);
+			break;
+		case 52: _set1 = TextGenerator::getInstance()->getWords(TextGenerator::POS::NOUN, 10, 1);
+			_set2 = TextGenerator::getInstance()->getWords(TextGenerator::POS::VERB, 10, 1);
+			break;
+		case 53: _set1 = TextGenerator::getInstance()->getWords(TextGenerator::POS::NOUN, 10, 1);
+			_set2 = TextGenerator::getInstance()->getWords(TextGenerator::POS::VERB, 10, 1);
+			break;
+		case 54: _set1 = TextGenerator::getInstance()->getWords(TextGenerator::POS::NOUN, 10, 1);
+			_set2 = TextGenerator::getInstance()->getWords(TextGenerator::POS::VERB, 10, 1);
+			break;
+		case 55: _set1 = TextGenerator::getInstance()->getWords(TextGenerator::POS::NOUN, 10, 1);
+			_set2 = TextGenerator::getInstance()->getWords(TextGenerator::POS::VERB, 10, 1);
+			break;
+		case 56: _set1 = TextGenerator::getInstance()->getWords(TextGenerator::POS::NOUN, 10, 1);
+			_set2 = TextGenerator::getInstance()->getWords(TextGenerator::POS::VERB, 10, 1);
+			break;
+
+		}
+
+	}
+
+	//eight iteration
+
+	if (_menuContext->getCurrentLevel() <= 64 && _menuContext->getCurrentLevel() >= 57) {
+
+		_menuContext->setMaxPoints(10);
+		_sceneNumber = 2;
+		switch (_menuContext->getCurrentLevel()) {
+
+
+		case 57: _set1 = TextGenerator::getInstance()->getWords(TextGenerator::POS::NOUN, 10, 1);
+			_set2 = TextGenerator::getInstance()->getWords(TextGenerator::POS::VERB, 10, 1);
+			break;
+		case 58: _set1 = TextGenerator::getInstance()->getWords(TextGenerator::POS::NOUN, 10, 1);
+			_set2 = TextGenerator::getInstance()->getWords(TextGenerator::POS::VERB, 10, 1);
+			break;
+		case 59: _set1 = TextGenerator::getInstance()->getWords(TextGenerator::POS::NOUN, 10, 1);
+			_set2 = TextGenerator::getInstance()->getWords(TextGenerator::POS::VERB, 10, 1);
+			break;
+		case 60: _set1 = TextGenerator::getInstance()->getWords(TextGenerator::POS::NOUN, 10, 1);
+			_set2 = TextGenerator::getInstance()->getWords(TextGenerator::POS::VERB, 10, 1);
+			break;
+		case 61: _set1 = TextGenerator::getInstance()->getWords(TextGenerator::POS::NOUN, 10, 1);
+			_set2 = TextGenerator::getInstance()->getWords(TextGenerator::POS::VERB, 10, 1);
+			break;
+		case 62: _set1 = TextGenerator::getInstance()->getWords(TextGenerator::POS::NOUN, 10, 1);
+			_set2 = TextGenerator::getInstance()->getWords(TextGenerator::POS::VERB, 10, 1);
+			break;
+		case 63: _set1 = TextGenerator::getInstance()->getWords(TextGenerator::POS::NOUN, 10, 1);
+			_set2 = TextGenerator::getInstance()->getWords(TextGenerator::POS::VERB, 10, 1);
+			break;
+		case 64: _set1 = TextGenerator::getInstance()->getWords(TextGenerator::POS::NOUN, 10, 1);
+			_set2 = TextGenerator::getInstance()->getWords(TextGenerator::POS::VERB, 10, 1);
+			break;
+
+		}
+
+	}
+
+	//ninth iteration
+
+	if (_menuContext->getCurrentLevel() <= 72 && _menuContext->getCurrentLevel() >= 65) {
+
+		_menuContext->setMaxPoints(10);
+		_sceneNumber = 3;
+		switch (_menuContext->getCurrentLevel()) {
+
+
+		case 65: _set1 = TextGenerator::getInstance()->getWords(TextGenerator::POS::NOUN, 10, 1);
+			_set2 = TextGenerator::getInstance()->getWords(TextGenerator::POS::VERB, 10, 1);
+			break;
+		case 66: _set1 = TextGenerator::getInstance()->getWords(TextGenerator::POS::NOUN, 10, 1);
+			_set2 = TextGenerator::getInstance()->getWords(TextGenerator::POS::VERB, 10, 1);
+			break;
+		case 67: _set1 = TextGenerator::getInstance()->getWords(TextGenerator::POS::NOUN, 10, 1);
+			_set2 = TextGenerator::getInstance()->getWords(TextGenerator::POS::VERB, 10, 1);
+			break;
+		case 68: _set1 = TextGenerator::getInstance()->getWords(TextGenerator::POS::NOUN, 10, 1);
+			_set2 = TextGenerator::getInstance()->getWords(TextGenerator::POS::VERB, 10, 1);
+			break;
+		case 69: _set1 = TextGenerator::getInstance()->getWords(TextGenerator::POS::NOUN, 10, 1);
+			_set2 = TextGenerator::getInstance()->getWords(TextGenerator::POS::VERB, 10, 1);
+			break;
+		case 70: _set1 = TextGenerator::getInstance()->getWords(TextGenerator::POS::NOUN, 10, 1);
+			_set2 = TextGenerator::getInstance()->getWords(TextGenerator::POS::VERB, 10, 1);
+			break;
+		case 71: _set1 = TextGenerator::getInstance()->getWords(TextGenerator::POS::NOUN, 10, 1);
+			_set2 = TextGenerator::getInstance()->getWords(TextGenerator::POS::VERB, 10, 1);
+			break;
+		case 72: _set1 = TextGenerator::getInstance()->getWords(TextGenerator::POS::NOUN, 10, 1);
+			_set2 = TextGenerator::getInstance()->getWords(TextGenerator::POS::VERB, 10, 1);
+			break;
+
+		}
+
+	}
+	
+
+
+	//_sceneNumber = 2;
 
 	std::string mainSceneplist;
 
@@ -142,10 +497,27 @@ bool BalloonHero::init() {
 
 		_fireFly = (cocos2d::Sprite *)CSLoader::createNode(animationcsb);
 
+		_fireFly->setAnchorPoint(Vec2(0, 0));
 		_fireFly->setPosition(Vec2(visibleSize.width / 2 + origin.x, visibleSize.height / 2 + origin.y));
-		_fireFly->setAnchorPoint(Vec2(0.5, 0.5));
+		
 		_fireFly->setScale(0.5, 0.5);
-		_fireFly->setContentSize(Size(200,200));
+		//_fireFly->setContentSize(Size(200, 200));
+		
+		for (auto const& child : _fireFly->getChildren()) {
+
+			//child->setAnchorPoint(Vec2(0, 0));
+			//child->setContentSize(Size(0, 0));
+		}
+		
+		DrawNode *_drawNode;
+		_drawNode = DrawNode::create();
+		addChild(_drawNode);
+
+		_drawNode->clear();
+		_drawNode->drawSolidRect(cocos2d::Vec2(_fireFly->getPositionX(), _fireFly->getPositionY()), cocos2d::Vec2(_fireFly->getPositionX() + 200, _fireFly->getPositionY() + 200), Color4F(0, 0, 1, 0.2));
+
+		_drawNode->drawRect(cocos2d::Vec2(_fireFly->getPositionX(), _fireFly->getPositionY()), cocos2d::Vec2(_fireFly->getPositionX() + 200, _fireFly->getPositionY() + 200), Color4F::BLUE);
+		auto bb = _fireFly->getBoundingBox();
 		//_fireFly->setContentSize(Size( _fireFly->getPositionX() + 20, _fireFly->getPositionY() + 20 ));
 		
 		if (_sceneNumber == 3) {
@@ -186,7 +558,7 @@ bool BalloonHero::init() {
 
 
 	this->scheduleUpdate();
-	return true;
+	
 }
 
 void BalloonHero::startGame() {
@@ -203,7 +575,7 @@ void BalloonHero::setupTouch() {
 	
 	auto listener = EventListenerTouchOneByOne::create();
 	
-	auto firefly = (Sprite *)_fireFly;
+	auto firefly = (Sprite* )_fireFly->getChildByName("firefly");
 	
 	
 	listener->onTouchBegan = CC_CALLBACK_2(BalloonHero::onTouchBegan, this);
@@ -237,8 +609,11 @@ bool BalloonHero::onTouchBegan(Touch* touch, Event* event) {
 	if (_sceneNumber == 2) {
 
 		character = "firefly";
-		bb = target->getChildByName(character)->getBoundingBox();
-		locationInNode = target->getChildByName(character)->convertToNodeSpace(touch->getLocation());
+		//bb = target->getChildByName(character)->getBoundingBox();
+		//locationInNode = target->getChildByName(character)->convertToNodeSpace(touch->getLocation());
+
+		bb = target->getBoundingBox();
+		locationInNode = target->convertToNodeSpace(touch->getLocation());
 
 	}
 	if (_sceneNumber == 3) {
@@ -257,6 +632,7 @@ bool BalloonHero::onTouchBegan(Touch* touch, Event* event) {
 	
 	if (bb.containsPoint(locationInNode))
 	{
+		CCLOG("touched me");
 		return true; // to indicate that we have consumed it.
 	}
 
@@ -301,24 +677,16 @@ void BalloonHero::generateObjectsAndMove() {
 
 
 	if (_sceneNumber == 1) {
-		_objects = { "balloonhero/meteor.png","balloonhero/safe.png" ,"balloonhero/cloud2.png", "balloonhero/meteor.png" , "balloonhero/cloud4.png" ,"balloonhero/safe.png" };
+		_objects = { "balloonhero/safe.png","balloonhero/safe.png" ,"balloonhero/cloud2.png", "balloonhero/meteor.png" , "balloonhero/cloud4.png" ,"balloonhero/safe.png" };
 	}
 	if (_sceneNumber == 2) {
-		_objects = { "balloonfarm/wrongballoon.png","balloonfarm/wordballoon.png" ,"balloonfarm/cloud1.png", "balloonfarm/wrongballoon.png" , "balloonfarm/cloud2.png" ,"balloonfarm/wordballoon.png" };
+		_objects = { "balloonfarm/wordballoon.png","balloonfarm/wordballoon.png" ,"balloonfarm/cloud1.png", "balloonfarm/wrongballoon.png" , "balloonfarm/cloud2.png" ,"balloonfarm/wordballoon.png" };
 	}
 	if (_sceneNumber == 3) {
-		_objects = { "ballooncandy/candyblast1.png","ballooncandy/balloon1.png" ,"ballooncandy/cloud1.png", "ballooncandy/candyblast1.png" , "ballooncandy/cloud2.png" ,"ballooncandy/balloon1.png" };
+		_objects = { "ballooncandy/balloon1.png","ballooncandy/balloon1.png" ,"ballooncandy/cloud1.png", "ballooncandy/candyblast1.png" , "ballooncandy/cloud2.png" ,"ballooncandy/balloon1.png" };
 	}
-	/*_meteor = (cocos2d::Sprite *)CSLoader::createNode("balloonhero/meteor.csb");
 
-	_meteor->setPosition(Vec2(visibleSize.width / 2 + origin.x, visibleSize.height / 2 + origin.y));
-	_meteor->setAnchorPoint(Vec2(0.5, 0.5));
-	_meteor->setScale(0.5, 0.5);
-	this->addChild(_meteor, 0);
-	*/
-	std::vector<std::string> nouns = TextGenerator::getInstance()->getWords(TextGenerator::POS::NOUN, 10, 1);
-
-
+	
 	std::string obj1, obj2, obj3, obj4;
 
 	if (_sceneNumber == 1) {
@@ -382,24 +750,32 @@ void BalloonHero::generateObjectsAndMove() {
 		_cloud1->setVisible(true);
 		fuelMeterMinus();
 		_cloud1->setName("a");
-		if (numberPicker == 0 || numberPicker == 3) {
+		if (numberPicker == 3) {
 
 			_cloud1->setName("m");
 			
 		}
-		if (numberPicker == 5 || numberPicker == 1) {
+		if (numberPicker == 5 || numberPicker == 1 || numberPicker == 0) {
 			
+
 			int nounPicker = RandomHelper::random_int(0, 9);
+			int otherPicker = RandomHelper::random_int(0, 9);
 
 			auto label = ui::Text::create();
-			label->setString(nouns[nounPicker]);
+			if (numberPicker == 5 || numberPicker == 1) {
+				label->setString(_set1[nounPicker]);
+				_cloud1->setName("balloon");
+			}
+			if (numberPicker == 0) {
+				label->setString(_set2[otherPicker]);
+				_cloud1->setName("m");
+			}
 			label->setFontSize(100);
 			label->setFontName("fonts/Marker Felt.ttf");
 			label->setPosition(Vec2(140, 40));
 			label->setAnchorPoint(Vec2(0, 0));
 			label->setTextColor(Color4B::BLUE);
 			label->setScaleX(0.5);
-			_cloud1->setName("balloon");
 			_cloud1->addChild(label);
 
 		}
@@ -418,23 +794,32 @@ void BalloonHero::generateObjectsAndMove() {
 		_cloud2->setVisible(true);
 		fuelMeterMinus();
 		_cloud2->setName("a");
-		if (numberPicker == 0 || numberPicker == 3) {
+		if (numberPicker == 3) {
 
 			_cloud2->setName("m");
 
 		}
 
-		if (numberPicker == 5 || numberPicker == 1) {
+		if (numberPicker == 5 || numberPicker == 1 || numberPicker == 0) {
+			
 			int nounPicker = RandomHelper::random_int(0, 9);
+			int otherPicker = RandomHelper::random_int(0, 9);
+
 			auto label = ui::Text::create();
-			label->setString(nouns[nounPicker]);
+			if (numberPicker == 5 || numberPicker == 1) {
+				label->setString(_set1[nounPicker]);
+				_cloud2->setName("balloon");
+			}
+			if (numberPicker == 0) {
+				label->setString(_set2[otherPicker]);
+				_cloud2->setName("m");
+			}
 			label->setFontSize(100);
 			label->setFontName("fonts/Marker Felt.ttf");
 			label->setPosition(Vec2(140, 40));
 			label->setAnchorPoint(Vec2(0, 0));
 			label->setTextColor(Color4B::BLUE);
 			label->setScaleX(0.5);
-			_cloud2->setName("balloon");
 			_cloud2->addChild(label);
 
 		}
@@ -454,23 +839,32 @@ void BalloonHero::generateObjectsAndMove() {
 		_cloud3->setVisible(true);
 		fuelMeterMinus();
 		_cloud3->setName("a");
-		if (numberPicker == 0 || numberPicker == 3) {
+		if (numberPicker == 3) {
 
 			_cloud3->setName("m");
 
 		}
 
-		if (numberPicker == 5 || numberPicker == 1) {
+		if (numberPicker == 5 || numberPicker == 1 || numberPicker == 0) {
 			int nounPicker = RandomHelper::random_int(0, 9);
+			int otherPicker = RandomHelper::random_int(0, 9);
+
 			auto label = ui::Text::create();
-			label->setString(nouns[nounPicker]);
+			if (numberPicker == 5 || numberPicker == 1) {
+				label->setString(_set1[nounPicker]);
+				_cloud3->setName("balloon");
+			}
+			if (numberPicker == 0) {
+				label->setString(_set2[otherPicker]);
+				_cloud3->setName("m");
+			}
 			label->setFontSize(100);
 			label->setFontName("fonts/Marker Felt.ttf");
 			label->setPosition(Vec2(140, 40));
 			label->setAnchorPoint(Vec2(0, 0));
 			label->setTextColor(Color4B::BLUE);
 			label->setScaleX(0.5);
-			_cloud3->setName("balloon");
+			
 			_cloud3->addChild(label);
 
 		}
@@ -491,24 +885,34 @@ void BalloonHero::generateObjectsAndMove() {
 		fuelMeterMinus();
 
 		_cloud4->setName("a");
-		if (numberPicker == 0 || numberPicker == 3) {
+		if (numberPicker == 3) {
 
 			_cloud4->setName("m");
 
 		}
 
 
-		if (numberPicker == 5 || numberPicker == 1) {
+		if (numberPicker == 5 || numberPicker == 1 || numberPicker == 0) {
+			
 			int nounPicker = RandomHelper::random_int(0, 9);
+			int otherPicker = RandomHelper::random_int(0, 9);
+
 			auto label = ui::Text::create();
-			label->setString(nouns[nounPicker]);
+			if (numberPicker == 5 || numberPicker == 1) {
+				label->setString(_set1[nounPicker]);
+				_cloud4->setName("balloon");
+			}
+			if (numberPicker == 0) {
+				label->setString(_set2[otherPicker]);
+				_cloud4->setName("m");
+			}
 			label->setFontSize(100);
 			label->setFontName("fonts/Marker Felt.ttf");
 			label->setPosition(Vec2(140, 40));
 			label->setAnchorPoint(Vec2(0, 0));
 			label->setTextColor(Color4B::BLUE);
 			label->setScaleX(0.5);
-			_cloud4->setName("balloon");
+			
 			_cloud4->addChild(label);
 
 		}
@@ -580,7 +984,7 @@ void BalloonHero::update(float delta) {
 	if (_fireflyBB.intersectsRect(_cloud1BB) && _cloud1->getName() == "m" && _flag1) {
 		_flag1 = false;
 		fuelMeterMinus();
-
+		_menuContext->addPoints(-1);
 		_meteor1 = (cocos2d::Node *)CSLoader::createNode(burst);
 		float x = _cloud1->getPositionX();
 		float y = _cloud1->getPositionY();
@@ -606,6 +1010,7 @@ void BalloonHero::update(float delta) {
 		
 		_flag2 = false;
 		fuelMeterMinus();
+		_menuContext->addPoints(-1);
 		
 		
 		_meteor2 = (cocos2d::Node *)CSLoader::createNode(burst);
@@ -629,6 +1034,7 @@ void BalloonHero::update(float delta) {
 		_flag3 = false;
 		
 		fuelMeterMinus();
+		_menuContext->addPoints(-1);
 
 
 		
@@ -653,6 +1059,7 @@ void BalloonHero::update(float delta) {
 		
 		_flag4 = false;
 		fuelMeterMinus();
+		_menuContext->addPoints(-1);
 		_meteor4 = (cocos2d::Node *)CSLoader::createNode(burst);
 		float x = _cloud4->getPositionX();
 		float y = _cloud4->getPositionY();
@@ -675,22 +1082,26 @@ void BalloonHero::update(float delta) {
 
 	if (_fireflyBB.intersectsRect(_cloud1BB) && _cloud1->getName() == "balloon") {
 		fuelMeterPlus();
+		_menuContext->addPoints(1);
 		_cloud1->setVisible(false);
 	}
 	
 
 	if (_fireflyBB.intersectsRect(_cloud2BB) && _cloud2->getName() == "balloon") {
 		fuelMeterPlus();
+		_menuContext->addPoints(1);
 		_cloud2->setVisible(false);
 	}
 
 	if (_fireflyBB.intersectsRect(_cloud3BB) && _cloud3->getName() == "balloon") {
 		fuelMeterPlus();
+		_menuContext->addPoints(1);
 		_cloud3->setVisible(false);
 	}
 
 	if (_fireflyBB.intersectsRect(_cloud4BB) && _cloud4->getName() == "balloon") {
 		fuelMeterPlus();
+		_menuContext->addPoints(1);
 		_cloud4->setVisible(false);
 	}
 }

@@ -409,16 +409,21 @@ void Order::checkUserSortList(std::vector<int> list)
 	bool helpFlag = false;
 	std::vector<std::string> str1 = { "a","b","c","d","e","f","g","h","i","j", "k", "l" };
 	for (short i = 0; i < _boxes.size(); i++) {
+		int temp = 0;
 		//CCLOG("user list Name %s", _boxes.at(list.at(i))->getName().c_str());
 		float index = (_boxes.at(i)->getPositionY() - visibleSize.height*0.1) / (_boxes.at(i)->getContentSize().height * 1);
+		if ((int)round(index) == 0) {
+			temp = i;
+		}
 		if (_boxes.at(i)->getName().compare(_sortedList.at((int)round(index))) == 0) {
 			CCLOG("%s is in correct position", _sortedList.at((int)round(index)).c_str());
 			score++;
-			if (menu->getCurrentLevel() == 1) {
-				if (_boxes.at(0)->getName().compare(_sortedList.at(0)) == 0) {
-					helpFlag = true;
-					_helpLayer = true;
-				}
+			
+		}
+		if (menu->getCurrentLevel() == 1) {
+			if (_boxes.at(temp)->getName().compare(_sortedList.at(0)) == 0) {
+				helpFlag = true;
+				_helpLayer = true;
 			}
 		}
 	}

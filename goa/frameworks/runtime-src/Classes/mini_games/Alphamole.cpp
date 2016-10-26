@@ -63,10 +63,26 @@ bool Alphamole::init()
 	Vec2 origin = Director::getInstance()->getVisibleOrigin();
 	_score = 0;
 	_Xpos = 0.0f;
-	_randomBackground = cocos2d::RandomHelper::random_int(0, 4);
+
+
+	setonEnterTransitionDidFinishCallback(CC_CALLBACK_0(Alphamole::startGame, this));
+	return true;
+
+
+}
+
+void Alphamole::startGame()
+{
+	menu->setMaxPoints(5);
+	Size visibleSize = Director::getInstance()->getVisibleSize();
+	Vec2 origin = Director::getInstance()->getVisibleOrigin();
+
+	_randomBackground = (menu->getCurrentLevel() -1) % 5;
+
+	//_randomBackground = cocos2d::RandomHelper::random_int(0, 4);
 	std::vector<std::string> background = { "alphamole1_background", "alphamole2_background", "alphamole3_background", "alphamole4_background", "alphamole5_background" };
 	std::vector<std::string> foreground = { "alphamole1_foreground", "alphamole2_foreground", "alphamole3_foreground", "alphamole4_foreground", "alphamole5_foreground" };
-	_background = CSLoader::createNode("alphamole/"+ background.at(_randomBackground)+".csb");
+	_background = CSLoader::createNode("alphamole/" + background.at(_randomBackground) + ".csb");
 	if (visibleSize.width > 2560) {
 		_Xpos = (visibleSize.width - 2560) / 2;
 		_background->setPositionX(_Xpos);
@@ -81,11 +97,11 @@ bool Alphamole::init()
 	/*auto children = _background->getChildren();
 
 	for (auto item = children.rbegin(); item != children.rend(); ++item) {
-		Node * monsterItem = *item;
-		std::string str = monsterItem->getName().c_str();
-		CCLOG("children = %s", str.c_str());
+	Node * monsterItem = *item;
+	std::string str = monsterItem->getName().c_str();
+	CCLOG("children = %s", str.c_str());
 	}*/
-	
+
 	_alphabetLayer = Layer::create();
 	this->addChild(_alphabetLayer);
 	if (_randomBackground != 1) {
@@ -95,7 +111,7 @@ bool Alphamole::init()
 		}
 		this->addChild(front);
 	}
-	
+
 
 	std::stringstream ss;
 	ss << _score;
@@ -107,25 +123,6 @@ bool Alphamole::init()
 	_score_label->setColor(ccc3(0, 0, 0));
 	scoreBord->addChild(_score_label);
 
-	//_mainChar = mainChar;
-	/*Play2_Hole_Close_9
-		children = Play2_Hole_Close_9_0
-		children = Play2_Hole_Close_9_1
-		Play2_Hole_Open_11_1
-children = Play2_Hole_Open_11_0
-children = Play2_Hole_Open_11*/
-
-	setonEnterTransitionDidFinishCallback(CC_CALLBACK_0(Alphamole::startGame, this));
-	return true;
-
-
-}
-
-void Alphamole::startGame()
-{
-	menu->setMaxPoints(5);
-	Size visibleSize = Director::getInstance()->getVisibleSize();
-	Vec2 origin = Director::getInstance()->getVisibleOrigin();
 	_mychar = LangUtil::getInstance()->getAllCharacters()[menu->getCurrentLevel() - 1];
 	_mainChar = Alphamon::createWithAlphabet(_mychar);
 	_mainChar->setScaleX(0.3);
@@ -158,16 +155,18 @@ void Alphamole::showAlpha(float ft)
 		auto jumpAlphaArray = CharGenerator::getInstance()->generateMatrixForChoosingAChar(_mychar, 6, 1, 50);
 		auto str = jumpAlphaArray.at(cocos2d::RandomHelper::random_int(0, 5)).at(0);
 		
-		std::vector<std::string> holes = { "hole1", "hole2", "hole3" };
+		std::vector<std::string> holes = { "hole1", "hole3", "hole2" };
 		auto child = _background->getChildByName(holes.at(cocos2d::RandomHelper::random_int(0, 2)));
 		
 		if (menu->getCurrentLevel() == 1 && _score == 0) {
 			str = _mychar;
 			_helpLayer = true;
+			child = _background->getChildByName(holes.at(cocos2d::RandomHelper::random_int(0, 1)));
 			auto help = HelpLayer::create(Rect(child->getPositionX() + 100, child->getPositionY() + 300, 600, 600), Rect(visibleSize.width/2, visibleSize.height/1.1, 400, 400));
 			help->click(Vec2(child->getPositionX() + 100, child->getPositionY() + 300));
 			help->setName("helpLayer");
 			this->addChild(help);
+		    
 		}
 		_monsterReff = Alphamon::createWithAlphabet(str);
 		float x = child->getPositionX();
@@ -222,8 +221,8 @@ void Alphamole::leafOpen(float ft)
 		if (menu->getCurrentLevel() == 1 && _score == 0) {
 			str = _mychar;
 			_helpLayer = true;
-			auto help = HelpLayer::create(Rect(_leaf_openRff->getPositionX(), _leaf_openRff->getPositionY() + 300, 600, 600), Rect(visibleSize.width / 2, visibleSize.height / 1.1, 400, 400));
-			help->click(Vec2(_leaf_openRff->getPositionX(), _leaf_openRff->getPositionY() + 300));
+			auto help = HelpLayer::create(Rect(_leaf_closeRff->getPositionX(), _leaf_closeRff->getPositionY() + 300, 600, 600), Rect(visibleSize.width / 2, visibleSize.height / 1.1, 400, 400));
+			help->click(Vec2(_leaf_closeRff->getPositionX(), _leaf_closeRff->getPositionY() + 300));
 			help->setName("helpLayer");
 			this->addChild(help);
 		}
