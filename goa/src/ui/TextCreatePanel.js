@@ -3,9 +3,8 @@ xc.TextCreatePanel = cc.Layer.extend({
     ctor: function (width, height, position, existingText, callback, callbackContext, enabled) {
         this._super(width, height);
         var backButton = new ccui.Button('icons/check.png', 'icons/check_onclick.png', 'icons/check_onclick.png', ccui.Widget.PLIST_TEXTURE);
-        backButton.setPosition(cc.director.getWinSize().width * 0.8, cc.director.getWinSize().height * 0.9);
+        backButton.setPosition(cc.director.getWinSize().width * 0.55,cc.director.getWinSize().height * 0.65);
         backButton.addTouchEventListener(this.goBack, this);
-        this.addChild(backButton);                
         this.callback = callback;
         this._callbackContext = callbackContext;
         this._text = existingText;
@@ -31,6 +30,14 @@ xc.TextCreatePanel = cc.Layer.extend({
         if (this._text) {
             this._textField.setString(this._text);
         }
+
+        this._textField.addChild(backButton);
+
+        var audioButton = new ccui.Button('icons/check.png', 'icons/check_onclick.png', 'icons/check_onclick.png', ccui.Widget.PLIST_TEXTURE);
+        audioButton.setPosition(cc.director.getWinSize().width * 0.55,cc.director.getWinSize().height * 0.15);
+        audioButton.addTouchEventListener(this.playAudio, this);
+        this._textField.addChild(audioButton);
+
         this.addChild(this._textField, 0);
         if(enabled) {
             this._textField.addEventListener(this.updateText, this);
@@ -38,10 +45,25 @@ xc.TextCreatePanel = cc.Layer.extend({
         }  else {
             this._textField.setTouchEnabled(false);
         }
-        
-
-
     },   
+
+    playAudio: function(sender, type) {
+        switch (type) {
+            case ccui.Widget.TOUCH_ENDED:
+                var langDir = goa.TextGenerator.getInstance().getLang();
+
+                // var soundFile = xc.path + "wikitaki/misc/" + langDir + "/" + "sounds/" + "a.m4a";
+                var soundFile = xc.path + "wikitaki/misc/" + langDir + "/" + "sounds/" + xc.currentStoryId + "_" + xc.pageIndex +".json";;
+                cc.loader.load(soundFile, function(err, data) {
+                    if(!err) {
+                        cc.audioEngine.playMusic(soundFile, false);
+                    }
+                }); 
+                
+
+                break;
+        }
+    },
 
     goBack: function (sender, type) {
         switch (type) {

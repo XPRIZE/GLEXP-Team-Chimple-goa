@@ -61,6 +61,8 @@ xc.EditStoryScene = cc.Scene.extend({
 
     createStoryPage: function () {
         var newPage = {};
+        var len = xc.story.items.length;
+        newPage.pageNumber = len + 1;
         newPage.cIcon = "icons/page.png";
         newPage.icon = "icons/page.png";
         newPage.scene = {};        
