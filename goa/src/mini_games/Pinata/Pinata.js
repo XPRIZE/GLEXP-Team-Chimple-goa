@@ -19,8 +19,8 @@ xc.Pinata = cc.Layer.extend({
     this.xPosi =0; 
     this.shootingFlag = false;
     this.flagSingleTouchFirst = true;
-
-     var currentLevelValue = 1;
+     
+     var currentLevelValue = this.getParent().menuContext.getCurrentLevel();
      if (cc.sys.isNative) {
        // var menuContext = this.getParent().menuContext;
       //  menuContext.setMaxPoints(3);
