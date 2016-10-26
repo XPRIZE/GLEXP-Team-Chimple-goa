@@ -250,8 +250,8 @@ void Pillar::gameHelp()
 	auto optionLayer = _topLabel;
 	auto optionSize = optionLayer->getContentSize();
 	auto optionPosition = optionLayer->getPosition();
-	auto help = HelpLayer::create(Rect(_pointRef->getPositionX(), _ladder->getContentSize().height + _ladder->getPositionY(), labelSize.width, labelSize.height),Rect(0,0,0,0));
-	help->click(Vec2(_pointRef->getPositionX(), _ladder->getContentSize().height + _ladder->getPositionY()));
+	auto help = HelpLayer::create(Rect(_pointRef->getPositionX(), _ladder->getContentSize().height + _ladder->getPositionY(), labelSize.width + 400, labelSize.height + 40),Rect(0,0,0,0));
+	help->click(Vec2(_pointRef->getPositionX(), _ladder->getContentSize().height + _ladder->getPositionY() ));
 	help->setName("helpLayer");
 	this->addChild(help);
 
@@ -304,6 +304,7 @@ void Pillar::newCake()
 	_ladder->addChild(_topLabel);
 
 	if (menu->getCurrentLevel() == 1 && _score == 0) {
+		this->removeChildByName("helpLayer");
 		gameHelp();
 	}
 }
@@ -385,10 +386,9 @@ bool Pillar::onTouchBegan(cocos2d::Touch * touch, cocos2d::Event * event)
 				//auto action = RepeatForever::create(seq);
 				_cakeMove->runAction(seq);
 				_rotateFlag = true;
-				if (_helpFlage) {
+				
 					this->removeChildByName("helpLayer");
 					_helpFlage = false;
-				}
 			}
 
 			else
