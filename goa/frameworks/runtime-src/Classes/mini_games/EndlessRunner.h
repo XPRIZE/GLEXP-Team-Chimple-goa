@@ -26,13 +26,13 @@ protected:
 	std::vector<Alphabet*> allLabels;
 	Alphabet *letterOnBoard;
 	bool initBool = true, popUp = true, flagLifeDemo = true , startSecondFlag = true;
-
+	std::string _alphabets;
 	Size visibleSize;
 	Vec2 origin;
 	Sprite* leftBarrier, *rightBarrier , *leftBarrierForBigObject, *upBarrier , *hpUi;
 	cocostudio::timeline::ActionTimeline *hpUiCatchAction , *happyManAction;
 	double xSizeArray[7] = { 1.0,0.4,0.6,0.8,0.5,1.2,1.4 };
-	int counterAlphabets = 0, counterLife = 6 , counterLetter = 0;
+	int counterAlphabets = 0, counterLife = 6 , counterLetter = 0 , letterBoardAlphaLength = 0;
 	
 	std::vector<std::vector<wchar_t>> letters;
 
@@ -70,7 +70,8 @@ public:
 	// METHOD LIST 
 	static cocos2d::Scene* createScene();
 	~EndlessRunner();
-	//virtual bool init();
+
+	std::string getStringDataLevelInfo(const wchar_t* alpha, int currentLevel, int deductionValue, int groupLetter);
 	void onEnterTransitionDidFinish();
 	float movingTime(SpriteCreate* SpriteObject);
 	float movingTimes(cocos2d::Sprite* SpriteObject, int Speed);

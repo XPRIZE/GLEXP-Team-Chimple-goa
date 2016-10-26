@@ -33,43 +33,37 @@ void EndlessRunner::onEnterTransitionDidFinish()
 
 	visibleSize = Director::getInstance()->getVisibleSize();
 	origin = Director::getInstance()->getVisibleOrigin();
-	tempChar = CharGenerator::getInstance()->generateAChar();
-	letters = CharGenerator::getInstance()->generateMatrixForChoosingAChar(tempChar,21, 1,70);
-	auto alpha = LangUtil::getInstance()->getAllCharacters();
+//	tempChar = CharGenerator::getInstance()->generateAChar();
+	const wchar_t*  alpha;
 	int currentLevel = _menuContext->getCurrentLevel();
+	//int currentLevel = 30;
 
 	std::ostringstream blockName;
-	if (currentLevel <= 9 && currentLevel >= 1) {
-		int startPoint = (currentLevel - 1) * 3; // three letter sequence like : a,b,c or p,q,r
-
-		for (int i = 0; i < 3; i++) {
-			if (alpha[startPoint + i] == NULL) {
-				auto index = EndlessRunner::randmValueIncludeBoundery(0, startPoint-3);
-				blockName << (char)alpha[index];
-			}
-			else {
-				blockName << (char)alpha[startPoint + i];
-			}
-		}
+	if (currentLevel >= 1 && currentLevel <= 9) {
+		alpha = LangUtil::getInstance()->getAllCharacters();
+		_alphabets = EndlessRunner::getStringDataLevelInfo(alpha,currentLevel,0,3);
 	}
-	if (currentLevel <= 10 && currentLevel >= 18) {
-		int startPoint = (currentLevel - 1) * 3; // three letter sequence like : a,b,c or p,q,r
-
-		for (int i = 0; i < 3; i++) {
-			if (alpha[startPoint + i] == NULL) {
-				auto index = EndlessRunner::randmValueIncludeBoundery(0, 22);
-				blockName << (char)alpha[index];
-			}
-			else {
-				blockName << (char)alpha[startPoint + i];
-			}
-		}
+	else if (currentLevel >= 10 && currentLevel <= 18) {
+		alpha = LangUtil::getInstance()->getAllCharacters();
+		_alphabets = EndlessRunner::getStringDataLevelInfo(alpha, currentLevel, 9, 3);// three letter sequence like : A,B,C or P,Q,R (caps letter)
+	}
+	else if (currentLevel >= 19 && currentLevel <= 23) {
+		alpha = LangUtil::getInstance()->getAllCharacters();
+		_alphabets = EndlessRunner::getStringDataLevelInfo(alpha, currentLevel, 18, 6);// six letter sequence like : a,b,c,d,e,f
+	}
+	else if (currentLevel >= 24 && currentLevel <= 28) {
+		alpha = LangUtil::getInstance()->getAllCharacters();
+		_alphabets = EndlessRunner::getStringDataLevelInfo(alpha, currentLevel, 23, 6);// six letter sequence like : A,B,C,D,E,F
+	}
+	else {
+		blockName << "ABCDEF";
 	}
 
+	tempChar = _alphabets[letterBoardAlphaLength];
+	letters = CharGenerator::getInstance()->generateMatrixForChoosingAChar(tempChar, 21, 1, 70);
+	_menuContext->setMaxPoints(_alphabets.size() * 5);
 
 
-
-	auto xxx = blockName.str();
 	this->addChild(LayerGradient::create(Color4B(255, 255, 255, 255), Color4B(255, 255, 255, 255)), 0);
 
 	EndlessRunner::addEvents(EndlessRunner::CreateSprites("endlessrunner/bgTouchImage.png", origin.x, origin.y, visibleSize.width, visibleSize.height, 0, "IMG"));
@@ -117,6 +111,7 @@ void EndlessRunner::onEnterTransitionDidFinish()
 	this->addChild(boardDisplay, 10);
 	
 	letterOnBoard =  Alphabet::createWithSize(tempChar, 300);
+	letterOnBoard->setName("mainBoard");
 	letterOnBoard->setPosition(Vec2((visibleSize.width / 2) + origin.x,(visibleSize.height + origin.y) - (visibleSize.height * 0.07)));
 	letterOnBoard->enableShadow(Color4B::BLACK, Size(8, -6), 5);
 	this->addChild(letterOnBoard, 10);
@@ -153,6 +148,23 @@ void EndlessRunner::scheduleMethod() {
 	this->scheduleUpdate();
 }
 
+std::string EndlessRunner::getStringDataLevelInfo(const wchar_t* alpha, int currentLevel,int deductionValue,int groupLetter) {
+	std::ostringstream blockName;
+	int startPoint = ((currentLevel - deductionValue) - 1) * groupLetter; // three letter sequence like : A,B,C or P,Q,R (caps letter)
+
+	for (int i = 0; i < groupLetter; i++) {
+		if ((startPoint + i) > 25) {
+			int index = RandomHelper::random_int(0, 25 - groupLetter);
+			blockName << (char)alpha[index];
+		}
+		else {
+			blockName << (char)alpha[startPoint + i];
+		}
+	}
+	return blockName.str();
+}
+
+
 void EndlessRunner::startGame() {
 	_menuContext->showStartupHelp(CC_CALLBACK_0(EndlessRunner::scheduleMethod, this));
 //	runAction(Sequence::create(CallFunc::create(CC_CALLBACK_0(MenuContext::showStartupHelp, _menuContext)), CallFunc::create(CC_CALLBACK_0(EndlessRunner::scheduleMethod, this)), NULL));
@@ -185,7 +197,7 @@ void EndlessRunner::update(float delta) {
 
 	EndlessRunner::removePathBlockTouchByLeftBarrier();
 	
-	if (counterAlphabets == 10 || counterLife == 1) {
+	if (counterLife == 1) {
 		_menuContext->showScore();
 	}
 }
@@ -306,10 +318,32 @@ void EndlessRunner::startingIntersectMode() {
 				auto path = LangUtil::getInstance()->getAlphabetSoundFileName(allLabels[i]->getChar());
 				audio->playEffect(path.c_str(), false);
 
-				counterAlphabets = counterAlphabets + 1;
+				counterAlphabets = counterAlphabets + 2;
+
+				auto nextAlpha = CallFunc::create([=]() {
+					if (_alphabets.size() - 1 == letterBoardAlphaLength) {
+						_menuContext->showScore();
+					}
+					letterBoardAlphaLength++;
+					hpUiCatchAction->play("1", false);
+					tempChar = _alphabets[letterBoardAlphaLength];
+					
+					letterOnBoard->setString(LangUtil::convertUTF16CharToString(tempChar));
+					counterAlphabets = 0;
+					letters = CharGenerator::getInstance()->generateMatrixForChoosingAChar(tempChar, 21, 1, 70);
+					counterLetter = 0;
+				});
+
+				auto moveToNextAlphabets = Sequence::create(DelayTime::create(1.5), nextAlpha, NULL);
+
 				std::ostringstream counterForLetter;	counterForLetter << counterAlphabets; std::string counterValue = counterForLetter.str();
 				hpUiCatchAction->play(counterValue,false);
 				hpUi->getChildByName("happy_mad")->setScale(1.2);
+
+				if (counterAlphabets >= 10) {
+					this->runAction(moveToNextAlphabets);
+				}
+
 				if (!popUp) {
 					auto highScale = CallFunc::create([=]() { happyManAction->play("change_mad_happy", false);});
 					auto smallScale = CallFunc::create([=]() {happyManAction->play("happy_idle", true); });
@@ -322,6 +356,7 @@ void EndlessRunner::startingIntersectMode() {
 						this->removeChild(allLabels[i]);
 						allLabels.erase(allLabels.begin() + i);
 						Character.action->play("correct_catch", false);
+						_menuContext->addPoints(1);
 						allMonster[k]->getChildByName("monster_egg")->setVisible(false);
 						hpUi->getChildByName("happy_mad")->getChildByName("happy")->setVisible(true);	
 						hpUi->getChildByName("happy_mad")->getChildByName("mad")->setVisible(false);
@@ -359,6 +394,7 @@ void EndlessRunner::startingIntersectMode() {
 						Character.action->play("worng_catch", false);
 						this->removeChild(allLabels[i]);
 						allLabels.erase(allLabels.begin() + i);
+						_menuContext->addPoints(-1);
 						hpUi->getChildByName("happy_mad")->getChildByName("mad")->setVisible(true);
 						hpUi->getChildByName("happy_mad")->getChildByName("happy")->setVisible(false);
 						allMonster[k]->getChildByName("monster_egg")->setVisible(false);
