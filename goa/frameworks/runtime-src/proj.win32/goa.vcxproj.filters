@@ -508,6 +508,9 @@
     <ClCompile Include="..\Classes\util\lib\LTKWindowsUtil.cpp">
       <Filter>Classes\util\lib</Filter>
     </ClCompile>
+    <ClCompile Include="..\Classes\WordSceneLipiTKNode.cpp">
+      <Filter>Classes</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -1020,6 +1023,9 @@
     </ClInclude>
     <ClInclude Include="..\Classes\util\lib\LTKWindowsUtil.h">
       <Filter>Classes\util\lib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\WordSceneLipiTKNode.h">
+      <Filter>Classes</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

@@ -651,6 +651,7 @@ void Decomon::captureImage(bool capture, const std::string & outputFile)
 		sp->setPosition(s.width / 2, s.height / 2);
 		sp->setScale(0.25);
 		_screenShoot = true;
+		menu->showScore();
 	}
 	else
 	{
