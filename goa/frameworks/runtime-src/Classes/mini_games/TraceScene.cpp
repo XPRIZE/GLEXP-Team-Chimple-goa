@@ -38,19 +38,20 @@ Trace::~Trace() {
 
 cocostudio::timeline::ActionTimeline *timeline;
 
-Scene *Trace::createScene(int alphabet) {
-    auto alpha = LangUtil::getInstance()->getAllCharacters();
+Scene *Trace::createScene() {
+    
     auto scene = Scene::create();
-    auto layer = Trace::create(alpha[alphabet]);
+    auto layer = Trace::create();
+
     scene->addChild(layer);
     layer->_menuContext = MenuContext::create(layer, Trace::classname(), true);
     scene->addChild(layer->_menuContext);    
     return scene;
 }
 
-Trace *Trace::create(wchar_t alphabet) {
+Trace *Trace::create() {
     Trace *trace = new (std::nothrow) Trace();
-    if(trace && trace->init(alphabet)) {
+    if(trace && trace->init()) {
         trace->autorelease();
         return trace;
     }
@@ -59,14 +60,25 @@ Trace *Trace::create(wchar_t alphabet) {
 
 }
 
-bool Trace::init(wchar_t alphabet) {
+bool Trace::init() {
+
+	if (!Layer::init())
+	{
+		return false;
+	}
+
+	return true;
+
+}
+
+
+void Trace::onEnterTransitionDidFinish() {
 	
 	//_language = LangUtil::getInstance()->getLang();
 	
-    if (!Layer::init()){
-        return false;
-    }
-
+	
+	_alpha = LangUtil::getInstance()->getAllCharacters();
+    
 	CCSpriteFrameCache::sharedSpriteFrameCache()->addSpriteFramesWithFile("-Alphacombat.plist");
 	this->getEventDispatcher()->addCustomEventListener("on_menu_exit", CC_CALLBACK_0(Trace::resetLevel, this));
 	//CocosDenshion::SimpleAudioEngine::getInstance()->preloadBackgroundMusic ("TraceMusic.wav");
@@ -101,7 +113,7 @@ bool Trace::init(wchar_t alphabet) {
 
 	//std::string path = "Alpha Kombat/";//std::string(path)
     //_background = CSLoader::createNode(std::string(path) + alphabet +  std::string(".csb"));
-	_background = CSLoader::createNode(LangUtil::getInstance()->getSpecialAnimationFileName(alphabet, "Alpha Kombat"));
+	_background = CSLoader::createNode(LangUtil::getInstance()->getSpecialAnimationFileName(_alpha[_menuContext->getCurrentLevel()-1], "Alpha Kombat"));
 	//_background->setPosition(Vec2(visibleSize.width / 2 + origin.x, visibleSize.height / 2 + origin.y));
     addChild(_background);
 
@@ -142,10 +154,37 @@ bool Trace::init(wchar_t alphabet) {
 
 	_touches = _nodes.size();
     setupTouch();
+
+	_menuContext->setMaxPoints(_touches);
+
+	////////help
+
+	if (_menuContext->getCurrentLevel() == 1) {
+
+		auto box1 = _background->getChildByName("ball_1");
+		auto box2 = _background->getChildByName("dot_1_4");
+
+
+		auto box1pos = box1->getPosition();// +Vec2(visibleSize.width * 0.03, visibleSize.height * 0.05);
+		auto box2pos = box2->getPosition();// +Vec2(visibleSize.width * 0.03, visibleSize.height * 0.05);
+
+		_help = HelpLayer::create(Rect(box1pos.x, box1pos.y, box1->getContentSize().width, box1->getContentSize().height), Rect(box2pos.x, box2pos.y, box1->getContentSize().width, box1->getContentSize().height));
+
+
+		_help->clickAndDrag(Vec2(box1pos), Vec2(box2pos));
+
+
+		this->addChild(_help);
+	}
+
+
+	///////////
+
+
 	if (_level == 0) {
 		setonEnterTransitionDidFinishCallback(CC_CALLBACK_0(Trace::startGame, this));
 	}
-    return true;
+    
 }
 
 void Trace::startGame() {
@@ -223,7 +262,7 @@ bool Trace::onTouchBegan(Touch* touch, Event* event){
 
 void Trace::onTouchEnded(cocos2d::Touch *touch, cocos2d::Event *event) {
 //    CCLOG("onTouchEnded");
-	
+	_menuContext->addPoints(-1);
 	//setDotsVisibility(false);
     if (_currentNodeIndex >= _nodes[_currentStroke].size()) {
         /*_currentStroke++;
@@ -308,6 +347,12 @@ void Trace::onTouchMoved(cocos2d::Touch *touch, cocos2d::Event *event) {
                 if(nextDistance < 130) {
                     CCLOG("reached next");
 					
+					auto flag = 0;
+					if (_menuContext->getCurrentLevel() == 1 && flag ==0 && _currentNodeIndex == 1) {
+						this->removeChild(_help);
+						flag = 1;
+					}
+
 					//set it visible
 					std::ostringstream sstreami;
 					sstreami << "dot_" << _currentStroke+1 << "_" << _currentNodeIndex;
@@ -341,7 +386,7 @@ void Trace::onTouchMoved(cocos2d::Touch *touch, cocos2d::Event *event) {
 
 void Trace::transit(int level) {
 	//auto director = Director::getInstance();
-	auto scene = Trace::createScene(level);
+	auto scene = Trace::createScene();
 	//Director::getInstance()->replaceScene(TransitionFlipX::create(2, scene));
 	Director::getInstance()->replaceScene(scene);
 }
@@ -390,7 +435,7 @@ void Trace::finishedAll() {
 
 	std::string randomAnimation = animations[RandomHelper::random_int(0, 3)];
 
-	_menuContext->pickAlphabet('A', 'A', true);
+	_menuContext->addPoints(1);
 
 
 	timeline->play(randomAnimation, false);
@@ -399,8 +444,8 @@ void Trace::finishedAll() {
 	auto characterAudio = CallFunc::create([=] {
 
 		auto audio = CocosDenshion::SimpleAudioEngine::getInstance();
-		auto alpha = LangUtil::getInstance()->getAllCharacters();
-		auto path = LangUtil::getInstance()->getAlphabetSoundFileName(alpha[_level]);
+		//auto alpha = LangUtil::getInstance()->getAllCharacters();
+		auto path = LangUtil::getInstance()->getAlphabetSoundFileName(_alpha[_menuContext->getCurrentLevel()-1]);
 		audio->playEffect(path.c_str(), false);
 
 	});
@@ -433,12 +478,13 @@ void Trace::finishedAll() {
 		
 		std::chrono::seconds duration(1);
 		std::this_thread::sleep_for(duration);
-
+/*
 		if (_level == wcslen(LangUtil::getInstance()->getAllCharacters())-1) {
 			_level = -1;
 		}
 		_level++;
-		Trace::transit(_level);
+		Trace::transit(_level);*/
+		_menuContext->showScore();
 	});
 	auto redirect = Sequence::create(DelayTime::create(delay), redirectToNextLevel, NULL);
 
