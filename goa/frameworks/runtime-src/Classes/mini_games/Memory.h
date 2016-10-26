@@ -51,6 +51,9 @@ protected:
 	Node * _memoryfarm;
 	int _currentNest;
 
+	int _counter;
+	int _helpflag;
+
 	cocos2d::Sprite * nest;
 	int _sceneNumber;
 	std::vector<int> _gridTwoByTwoIds;
@@ -68,7 +71,10 @@ protected:
 	int _gridFourByFiveIds_Size = 20;
 	int _gridFourBySixIds_Size = 24;
 	
-
+	HelpLayer * help1;
+	HelpLayer * help2;
+	cocos2d::Vec2 box1pos;
+	cocos2d::Vec2 box2pos;
 	int _pairCount;
 	
 	void setupTouch();
