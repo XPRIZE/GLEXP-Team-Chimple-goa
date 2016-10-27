@@ -1,0 +1,171 @@
+{
+  "ID": "a2ee0952-26b5-49ae-8bf9-4f1d6279b798",
+  "Version": "3.10.0.0",
+  "Name": "cardraw",
+  "Content": {
+    "Content": {
+      "Animation": {
+        "Duration": 0,
+        "Speed": 1.0,
+        "Timelines": [],
+        "ctype": "TimelineActionData"
+      },
+      "AnimationList": [],
+      "ObjectData": {
+        "Children": [
+          {
+            "ClipAble": false,
+            "ComboBoxIndex": 1,
+            "SingleColor": {
+              "R": 204,
+              "G": 242,
+              "B": 47
+            },
+            "FirstColor": {
+              "R": 150,
+              "G": 200
+            },
+            "EndColor": {},
+            "ColorVector": {
+              "ScaleY": 1.0
+            },
+            "TouchEnable": true,
+            "AnchorPoint": {},
+            "Position": {
+              "X": -271.8412,
+              "Y": -1.9967
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": -0.1062,
+              "Y": -0.0011
+            },
+            "PreSize": {
+              "X": 1.2109,
+              "Y": 1.0
+            },
+            "LeftMargin": -271.8412,
+            "RightMargin": -268.1587,
+            "TopMargin": 1.9967,
+            "BottomMargin": -1.9967,
+            "Tag": 140,
+            "ActionTag": -1371234360,
+            "Size": {
+              "X": 3100.0,
+              "Y": 1800.0
+            },
+            "Name": "Panel_1",
+            "ctype": "PanelObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "cardraw/car.png",
+              "Plist": "cardraw/cardraw.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 322.2189,
+              "Y": 171.8812
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.1259,
+              "Y": 0.0955
+            },
+            "PreSize": {
+              "X": 0.0797,
+              "Y": 0.1761
+            },
+            "LeftMargin": 220.2189,
+            "RightMargin": 2135.781,
+            "TopMargin": 1469.6188,
+            "BottomMargin": 13.3812,
+            "Tag": 141,
+            "ActionTag": -1988309208,
+            "Size": {
+              "X": 204.0,
+              "Y": 317.0
+            },
+            "Name": "car_1",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "cardraw/house.png",
+              "Plist": "cardraw/cardraw.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 2072.7087,
+              "Y": 242.0655
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.8097,
+              "Y": 0.1345
+            },
+            "PreSize": {
+              "X": 0.2738,
+              "Y": 0.2561
+            },
+            "LeftMargin": 1722.2087,
+            "RightMargin": 136.7913,
+            "TopMargin": 1327.4346,
+            "BottomMargin": 11.5655,
+            "Tag": 142,
+            "ActionTag": -1309486340,
+            "Size": {
+              "X": 701.0,
+              "Y": 461.0
+            },
+            "Name": "house_2",
+            "ctype": "SpriteObjectData"
+          }
+        ],
+        "Size": {
+          "X": 2560.0,
+          "Y": 1800.0
+        },
+        "Name": "Scene",
+        "ctype": "SingleNodeObjectData"
+      },
+      "UsedResources": [
+        "cardraw.plist",
+        "cardraw.png"
+      ],
+      "ctype": "GameFileData"
+    }
+  },
+  "Type": "Scene"
+}

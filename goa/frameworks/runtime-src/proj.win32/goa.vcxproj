@@ -89,7 +89,7 @@
       <PrecompiledHeader>
       </PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
-      <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
+      <DebugInformationFormat>OldStyle</DebugInformationFormat>
       <DisableSpecificWarnings>4267;4251;4244;4800;%(DisableSpecificWarnings)</DisableSpecificWarnings>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
     </ClCompile>
@@ -237,6 +237,8 @@ copy "$(ProjectDir)..\..\..\project.json" "$(OutDir)\" /Y</Command>
     <ClCompile Include="..\Classes\mini_games\Bingo.cpp" />
     <ClCompile Include="..\Classes\mini_games\Cannon_Ball_Listener.cpp" />
     <ClCompile Include="..\Classes\mini_games\Cannon_Ball_Main.cpp" />
+    <ClCompile Include="..\Classes\mini_games\CarDraw.cpp" />
+    <ClCompile Include="..\Classes\mini_games\CarDrawNode.cpp" />
     <ClCompile Include="..\Classes\mini_games\CatGameScene.cpp" />
     <ClCompile Include="..\Classes\mini_games\CatScene.cpp" />
     <ClCompile Include="..\Classes\mini_games\Chain.cpp" />
@@ -414,6 +416,8 @@ copy "$(ProjectDir)..\..\..\project.json" "$(OutDir)\" /Y</Command>
     <ClInclude Include="..\Classes\mini_games\Bingo.h" />
     <ClInclude Include="..\Classes\mini_games\Cannon_Ball_Listener.h" />
     <ClInclude Include="..\Classes\mini_games\Cannon_Ball_Main.h" />
+    <ClInclude Include="..\Classes\mini_games\CarDraw.h" />
+    <ClInclude Include="..\Classes\mini_games\CarDrawNode.h" />
     <ClInclude Include="..\Classes\mini_games\CatGameScene.h" />
     <ClInclude Include="..\Classes\mini_games\CatScene.h" />
     <ClInclude Include="..\Classes\mini_games\Chain.h" />
