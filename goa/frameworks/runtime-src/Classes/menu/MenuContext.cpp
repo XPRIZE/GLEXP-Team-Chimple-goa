@@ -249,7 +249,10 @@ cocos2d::ClippingNode* MenuContext::createMaskedMenuItem(const std::string norma
     if(!cachedCharacterInformation.empty())
     {
         std::string contents = FileUtils::getInstance()->getStringFromFile("config/characterConfig.json");
-
+		if (contents.empty()) {
+			return nullptr;
+		}
+		CCLOG("Contents for character %s", contents.c_str());
         rapidjson::Document d;
         
         if (false == d.Parse<0>(contents.c_str()).HasParseError()) {
