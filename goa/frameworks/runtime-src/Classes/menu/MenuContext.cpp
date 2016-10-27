@@ -52,6 +52,7 @@
 #include "../mini_games/Decomon.h"
 #include "../mini_games/Order.h"
 #include "../mini_games/Pillar.h"
+#include "../mini_games/CarDraw.h"
 
 USING_NS_CC;
 using namespace cocos2d::ui;
@@ -864,6 +865,9 @@ void MenuContext::launchGameFromJS(std::string gameName) {
 		}
 		else if (gameName == SORT_IT) {
 			ScriptingCore::getInstance()->runScript("src/start/sortit.js");
+		}
+		else if (gameName == CARDRAW) {
+			Director::getInstance()->replaceScene(CarDraw::createScene());
 		}
     	else{
             CCLOG("Failed starting scene: %s", gameName.c_str());
