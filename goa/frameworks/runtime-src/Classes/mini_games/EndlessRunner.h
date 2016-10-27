@@ -104,7 +104,7 @@ public:
 	void stillCharacterOnPath(float delta);
 
 	// a selector callback
-	void addEvents(cocos2d::Sprite*);
+	void addEvents(cocos2d::LayerGradient*);
 
 	// implement the "static create()" method manually
 	CREATE_FUNC(EndlessRunner);

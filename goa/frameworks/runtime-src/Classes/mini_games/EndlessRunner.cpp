@@ -34,10 +34,8 @@ void EndlessRunner::onEnterTransitionDidFinish()
 
 	visibleSize = Director::getInstance()->getVisibleSize();
 	origin = Director::getInstance()->getVisibleOrigin();
-//	tempChar = CharGenerator::getInstance()->generateAChar();
 	const wchar_t*  alpha;
 	int currentLevel = _menuContext->getCurrentLevel();
-	//int currentLevel = 30;
 
 	std::ostringstream blockName;
 	if (currentLevel >= 1 && currentLevel <= 9) {
@@ -63,11 +61,9 @@ void EndlessRunner::onEnterTransitionDidFinish()
 	tempChar = _alphabets[letterBoardAlphaLength];
 	letters = CharGenerator::getInstance()->generateMatrixForChoosingAChar(tempChar, 21, 1, 70);
 	_menuContext->setMaxPoints(_alphabets.size() * 5);
-
-
-	this->addChild(LayerGradient::create(Color4B(255, 255, 255, 255), Color4B(255, 255, 255, 255)), 0);
-
-	EndlessRunner::addEvents(EndlessRunner::CreateSprites("endlessrunner/bgTouchImage.png", origin.x, origin.y, visibleSize.width, visibleSize.height, 0, "IMG"));
+	auto bgLayerGradient = LayerGradient::create(Color4B(255, 255, 255, 255), Color4B(255, 255, 255, 255));
+	this->addChild(bgLayerGradient, 0);
+	EndlessRunner::addEvents(bgLayerGradient);
 	leftBarrier = EndlessRunner::CreateSprites("endlessrunner/barrier.png", (visibleSize.width * -15 / 100) + origin.x, (visibleSize.height * 0) + origin.y, 1, 1, 0, "IMG");
 
 	leftBarrierForBigObject = EndlessRunner::CreateSprites("endlessrunner/barrier.png", (visibleSize.width * -70 / 100) + origin.x, (visibleSize.height * 0) + origin.y, 1, 1, 0, "IMG");
@@ -792,7 +788,7 @@ void EndlessRunner::CreateMonsterWithLetter(float dt) {
 	}
 }
 
-void EndlessRunner::addEvents(Sprite* sprite)
+void EndlessRunner::addEvents(LayerGradient* sprite)
 {
 	auto listener = cocos2d::EventListenerTouchOneByOne::create();
 	listener->setSwallowTouches(true);
