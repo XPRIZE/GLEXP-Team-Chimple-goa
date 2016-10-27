@@ -3,16 +3,19 @@ var xc = xc || {};
 
 xc.Pinata = cc.Layer.extend({
   gameName: "shoot",
-  menuContext = null,
+  menuContext: null,
 
   onEnter : function(){
-       menuContext = this.getParent().menuContext;
   },
 
   ctor:function () {
   
    this._super();
 //this.gameBg.node.getChildByName("Panel_1").getChildByName("Button_10");
+  },
+  onEnter: function() {
+    this._super();
+    menuContext = this.getParent().menuContext;
     var gameTheme = "";
     var gameRand = new Array(3);
     gameRand[0] = "pinatacity"; gameRand[1] ="pinatacream"; gameRand[2] ="pinatajungle";
