@@ -414,7 +414,7 @@ void BalloonHero::onEnterTransitionDidFinish() {
 	
 
 
-	//_sceneNumber = 2;
+	//_sceneNumber = 3;
 
 	std::string mainSceneplist;
 
@@ -552,7 +552,37 @@ void BalloonHero::onEnterTransitionDidFinish() {
 		_fireTimeline = CSLoader::createTimeline(animationTimeline);
 		_fireFly->runAction(_fireTimeline);
 		_fireTimeline->play("fly", true);
-	
+
+//////help
+		if (_menuContext->getCurrentLevel() == 1) {
+
+			auto box1 = _fireFly;
+			//auto box2 = _fireFly;
+
+
+			auto box1pos = box1->getPosition();// +Vec2(visibleSize.width * 0.03, visibleSize.height * 0.05);
+			//auto box2pos = box2->getPosition();// +Vec2(visibleSize.width * 0.03, visibleSize.height * 0.05);
+
+			//_help = HelpLayer::create(Rect(box1pos.x, box1pos.y, box1->getContentSize().width, box1->getContentSize().height), Rect(0,0,0,0));
+			
+			auto x = visibleSize.width;
+			auto y = visibleSize.height;
+
+			//_help = HelpLayer::create(Rect(visibleSize.width/2, visibleSize.height / 2, 500, 550), Rect(400, 0, 400, 4500));
+
+			//_help->clickAndDrag(Vec2(box1pos), Vec2(400, 1200));
+
+			_help = HelpLayer::create(Rect(visibleSize.width/2, visibleSize.height / 2, x* 0.2 , y*0.3), Rect(x*0.15, 0, x*0.15, y*2.5));
+
+			_help->clickAndDrag(Vec2(box1pos), Vec2(x*0.15, y*0.66));
+
+
+			this->addChild(_help);
+		}
+
+		////help
+
+
 	generateObjectsAndMove();
 
 
@@ -977,8 +1007,15 @@ void BalloonHero::update(float delta) {
 	if (_sceneNumber == 3) {
 		burst = "ballooncandy/meteor.csb";
 	}
+	auto helpflag = 0;
+	if (_fireflyBB.intersectsRect(_cloud1BB) && helpflag == 0) {
 
-
+		helpflag = 1;
+		if (_menuContext->getCurrentLevel() == 1) {
+		
+			this->removeChild(_help);
+		}
+	}
 
 	if (_fireflyBB.intersectsRect(_cloud1BB) && _cloud1->getName() == "m" && _flag1) {
 		_flag1 = false;
