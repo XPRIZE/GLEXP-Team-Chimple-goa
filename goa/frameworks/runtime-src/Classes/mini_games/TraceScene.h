@@ -16,8 +16,8 @@
 
 class Trace : public cocos2d::Layer {
 public:
-    static cocos2d::Scene* createScene(int alphabet);
-    static Trace *create(wchar_t alphabet);
+    static cocos2d::Scene* createScene();
+    static Trace *create();
     void onAlphabetSelected(cocos2d::EventCustom *event);
 	void transit(int level);
 	void resetLevel();
@@ -25,13 +25,16 @@ public:
     void dummy();
 	
 CC_CONSTRUCTOR_ACCESS:
-    virtual bool init(wchar_t alphabet);
+    virtual bool init();
     Trace();
     virtual ~Trace();
     bool onTouchBegan(cocos2d::Touch* touch, cocos2d::Event* event);
     void onTouchEnded(cocos2d::Touch* touch, cocos2d::Event* event);
     void onTouchMoved(cocos2d::Touch* touch, cocos2d::Event* event);
 	void startGame();
+	void onEnterTransitionDidFinish() override;
+	const wchar_t *_alpha;
+	HelpLayer * _help;
     static const char* classname() { return KUNG_FU_ALPHA.c_str();}
 protected:
     int _currentNodeIndex;

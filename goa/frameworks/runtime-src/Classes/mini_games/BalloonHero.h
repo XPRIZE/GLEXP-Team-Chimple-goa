@@ -38,6 +38,7 @@ CC_CONSTRUCTOR_ACCESS:
 	void fuelMeterMinus();
 	void removeMeteor4Animation();
 	void onEnterTransitionDidFinish() override;
+	HelpLayer * _help;
 	static const char* classname() { return BALLONHERO.c_str(); }
 protected:
 	Node * _balloonHero;
