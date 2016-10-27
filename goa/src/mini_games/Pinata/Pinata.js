@@ -19,8 +19,17 @@ xc.Pinata = cc.Layer.extend({
     this.xPosi =0; 
     this.shootingFlag = false;
     this.flagSingleTouchFirst = true;
-
-    var info = this.levelAllInfo(11,5,5,3,10);
+     
+     var currentLevelValue = this.getParent().menuContext.getCurrentLevel();
+     if (cc.sys.isNative) {
+       // var menuContext = this.getParent().menuContext;
+      //  menuContext.setMaxPoints(3);
+       // currentLevelValue = menuContext.getCurrentLevel();
+     }else{
+         console.log("I am in console mode ");
+     }
+    
+    var info = this.levelAllInfo(currentLevelValue,5,5,3,10);
     console.log("the pinata category value is : " +     info.category);
     console.log("the pinata scene value is : " +     info.scene);
     console.log("the pinata level value is : " +     info.level);
@@ -75,7 +84,7 @@ xc.Pinata = cc.Layer.extend({
 
     var mapKeyArray = Object.keys(this.map);
     this.mapKey = mapKeyArray[this.getRandomInt(0,(mapKeyArray.length-1))];
-        
+    
     var board = this.gameBg.node.getChildByName("board");
     var boardText = new cc.LabelTTF(""+this.mapKey,"res/fonts/Marker Felt.ttf",120);
     boardText.setName(board.getName());
@@ -131,6 +140,14 @@ xc.Pinata = cc.Layer.extend({
     this.gameBg.node.getChildByName("board").freezShooting = false;
     if(this.bubblePlayer.getName() == "pinatacity")
     this.gameBg.node.getChildByName("slingshot_16").visible = false;
+    var help = null;
+   
+    if(currentLevelValue == 1){
+        help = new xc.HelpLayer(cc.rect(targetB.x+70,targetB.y,targetB.width +targetB.width * 0.2,targetB.height), cc.rect(board.x+70, board.y,board.width,board.height))
+        this.addChild(help,4)
+        help.setName("help");
+        help.click(targetB.x,targetB.y);
+    }
 
     var classReference = this;
     var listnerBg = cc.EventListener.create({event: cc.EventListener.TOUCH_ONE_BY_ONE, swallowTouches: false,
@@ -215,11 +232,14 @@ xc.Pinata = cc.Layer.extend({
                     classReference.flagSingleTouchFirst = false;
                     return true;
                 }
- 
+
                 return false;
             },
             onTouchEnded : function(touch, event){
                 var target = event.getCurrentTarget();
+                 if(currentLevelValue == 1){
+                    classReference.removeChildByName("help");
+                 }
                 var path = "";
                 if(classReference.bubblePlayer.getName() == "pinatacity"){
                     path = xc.Pinata.res.pinatacity_anim;
@@ -243,6 +263,7 @@ xc.Pinata = cc.Layer.extend({
                         if(!targetB.dead){classReference.runAnimations(ccs.load(path,xc.path),targetB.x,targetB.y,path); classReference.gameBg.node.removeChild(targetB);}
                         classReference.gamePlay(targetA);
                     }
+                   // menuContext.addPoints(3);
                 }else{
                     console.log("its wrong answer");
                 
@@ -259,6 +280,7 @@ xc.Pinata = cc.Layer.extend({
                          classReference.runAnimations(ccs.load(path,xc.path),targetA.x,targetA.y,path);
                         classReference.gameBg.node.removeChild(targetA);
                     }
+                    //menuContext.addPoints(-1);
                 }
 
                 setTimeout(function() {
@@ -268,8 +290,6 @@ xc.Pinata = cc.Layer.extend({
                 return false;
             }
      });
-
-    
 
     cc.eventManager.addListener(listnerBg,this.bubblePlayer);
     cc.eventManager.addListener(choosingListner,targetA);
@@ -320,8 +340,9 @@ xc.Pinata = cc.Layer.extend({
                 var classReference = this;
                 setTimeout(function() {
                     if (cc.sys.isNative) {
-                         var menuContext = classReference.getParent().menuContext;
-                         menuContext.showScore();
+                          var menuContext = classReference.getParent().menuContext;
+                          menuContext.showScore();
+
                     }else{
                         xc.GameScene.load(xc.Pinata);
                     }

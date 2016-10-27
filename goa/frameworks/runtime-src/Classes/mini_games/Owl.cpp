@@ -1,4 +1,6 @@
 #include "Owl.h"
+#include "../menu/HelpLayer.h"
+
 USING_NS_CC;
 
 Scene* Owl::createScene()
@@ -127,22 +129,22 @@ void Owl::onEnterTransitionDidFinish()
 	auto origin = Director::getInstance()->getVisibleOrigin();
 	
 	int gameCurrentLevel = _menuContext->getCurrentLevel();
-	std::tuple<int, int , int> levelKeyNumber = levelAllInfo(65,5,5,3,10);
+	std::tuple<int, int , int> levelKeyNumber = levelAllInfo(gameCurrentLevel,5,5,3,10);
 
 	if (std::get<0>(levelKeyNumber) == 1) {
-		_data = TextGenerator::getInstance()->getAntonyms(5);
+		_data = TextGenerator::getInstance()->getAntonyms(5, std::get<2>(levelKeyNumber));
 	}
 	else if (std::get<0>(levelKeyNumber) == 2) {
-		_data = TextGenerator::getInstance()->getSynonyms(5);
+		_data = TextGenerator::getInstance()->getSynonyms(5, std::get<2>(levelKeyNumber));
 	}
 	else if (std::get<0>(levelKeyNumber) == 3) {
-		_data = TextGenerator::getInstance()->getHomonyms(5);
+		_data = TextGenerator::getInstance()->getHomonyms(5, std::get<2>(levelKeyNumber));
 	}
 	else if (std::get<0>(levelKeyNumber) == 4) {
-		_data = TextGenerator::getInstance()->getAntonyms(5);
+		_data = TextGenerator::getInstance()->getAntonyms(5, std::get<2>(levelKeyNumber));
 	}
 	else if (std::get<0>(levelKeyNumber) == 5) {
-		_data = TextGenerator::getInstance()->getSynonyms(5);
+		_data = TextGenerator::getInstance()->getSynonyms(5, std::get<2>(levelKeyNumber));
 	}
 
 	_owlCurrentTheme = owlSceneMapping.at(std::get<1>(levelKeyNumber));
@@ -237,6 +239,15 @@ void Owl::onEnterTransitionDidFinish()
 	
 	setBuildingBlockSecond(++_blockLevel2);
 	crateLetterGridOnBuildingSecond(_blockLevel2, _data_value[_textBoard2]);
+
+	auto downGrid = this->getChildByName(LangUtil::convertUTF16CharToString(_data_value[_textBoard][0]));
+	
+	if (_menuContext->getCurrentLevel() == 1) {
+		auto help = HelpLayer::create(Rect(downGrid->getPositionX(), downGrid->getPositionY(), downGrid->getContentSize().width, downGrid->getContentSize().height), Rect(visibleSize.width * 0.5, board->getContentSize().height / 2 + board->getPositionY(), board->getContentSize().width, board->getContentSize().height));
+		help->click(Vec2(downGrid->getPositionX(), downGrid->getPositionY()));
+		help->setName("helpLayer");
+		this->addChild(help, 4);
+	}
 
 	InitAnimation();
 	this->schedule(schedule_selector(Owl::autoPlayerController), RandomHelper::random_int(6,10));
@@ -507,6 +518,11 @@ void Owl::addEventsOnGrid(cocos2d::Sprite* callerObject)
 
 					if (blockChild.at(_textCounter)->getName() == target->getName() && _flagToControlMuiltipleTouch) {
 						_flagToControlMuiltipleTouch = false;
+						
+						if (_flagTurnHelp && (_menuContext->getCurrentLevel() == 1)) {
+							this->removeChildByName("helpLayer");
+							_flagTurnHelp = false;
+						}
 						_menuContext->addPoints(1);
 						auto y = _sprite->getPositionY() - target->getPositionY();
 						auto x = -_sprite->getPositionX() + target->getPositionX();
