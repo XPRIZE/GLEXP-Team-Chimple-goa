@@ -1,14 +1,41 @@
 /// <reference path="../../cocos2d-typescript-definitions/cocos2d/cocos2d-lib.d.ts" />
 
 var xc = xc || {};
+
+xc.sortitlevelLayer = cc.Layer.extend({
+    onEnter: function() {
+        
+        var level = this.getParent().menuContext.getCurrentLevel();
+        if(level == 1) {
+            this.getParent().menuContext.setMaxPoints(6);
+            xc.GameScene.load(xc.sortitlevel1Layer);
+        } else if(level == 2) {
+            this.getParent().menuContext.setMaxPoints(5);
+            xc.GameScene.load(xc.sortitlevel2Layer);
+        } else if(level == 3) {
+            this.getParent().menuContext.setMaxPoints(6);
+            xc.GameScene.load(xc.sortitlevel3Layer);
+        } else if(level == 4) {
+            this.getParent().menuContext.setMaxPoints(5);
+            xc.GameScene.load(xc.sortitlevel4Layer);
+        } else if(level == 5) {
+            this.getParent().menuContext.setMaxPoints(5);
+            xc.GameScene.load(xc.sortitlevel5Layer);
+        } else if(level == 6) {
+            this.getParent().menuContext.setMaxPoints(5);
+            xc.GameScene.load(xc.sortitlevel6Layer);
+        }        
+    }
+})
+
 xc.sortitlevel1Layer = cc.Layer.extend({
     
     counterLevel1 : 1,
-    
+    help : null,
     ctor:function () {
         
         this._super();
-
+      
 
         var self = this;
 
@@ -163,7 +190,12 @@ xc.sortitlevel1Layer = cc.Layer.extend({
          this.toy6.id = 6; 
          this.addChild(this.toy6);
    
-
+         cc.log("sortit");
+        
+         this.help = new xc.HelpLayer(cc.rect(this.toy1.x, this.toy1.y, this.toy1.width, this.toy1.height), cc.rect(this.toy1t.x, this.toy1t.y, this.toy1t.width, this.toy1t.height))
+        this.addChild(this.help)
+        this.help.clickAndDrag(this.toy1.x, this.toy1.y, this.toy1t.x, this.toy1t.y)
+  
         return true;
     }
 

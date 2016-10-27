@@ -109,6 +109,7 @@ LOCAL_SRC_FILES := hellojavascript/main.cpp \
 					../../Classes/PhotoCaptureScene.cpp \
 					../../Classes/mini_games/Spirograph.cpp	\
 					../../Classes/mini_games/Bingo.cpp \
+					../../Classes/WordSceneLipiTKNode.cpp\
 					./src/util/logger/LTKLogger.cpp	\
 					./src/util/logger/logger.cpp	\
 					./src/common/LTKCaptureDevice.cpp \
@@ -156,7 +157,7 @@ LOCAL_SRC_FILES := hellojavascript/main.cpp \
                     ../../Classes/LipiTKInterface.cpp \
                     ../../Classes/LipiTKProcessTask.cpp \
                     ../../Classes/LipiTKResult.cpp \
-                    ../../Classes/Stroke.cpp					
+                    ../../Classes/Stroke.cpp	
 					
 LOCAL_C_INCLUDES := $(LOCAL_PATH)/../../Classes
 LOCAL_C_INCLUDES += $(LOCAL_PATH)/../../../extensions

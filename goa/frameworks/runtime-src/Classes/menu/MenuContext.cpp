@@ -250,7 +250,10 @@ cocos2d::ClippingNode* MenuContext::createMaskedMenuItem(const std::string norma
     if(!cachedCharacterInformation.empty())
     {
         std::string contents = FileUtils::getInstance()->getStringFromFile("config/characterConfig.json");
-
+		if (contents.empty()) {
+			return nullptr;
+		}
+		CCLOG("Contents for character %s", contents.c_str());
         rapidjson::Document d;
         
         if (false == d.Parse<0>(contents.c_str()).HasParseError()) {
@@ -783,7 +786,7 @@ void MenuContext::launchGameFromJS(std::string gameName) {
         } else if(gameName == ENDLESS_RUNNER) {
             Director::getInstance()->replaceScene(EndlessRunner::createScene());
         } else if(gameName == KUNG_FU_ALPHA) {
-            Director::getInstance()->replaceScene(Trace::createScene(0));
+            Director::getInstance()->replaceScene(Trace::createScene());
         } else if(gameName == ALPHAMON_FEED) {
             Director::getInstance()->replaceScene(AlphamonFeed::createScene());
         } else if(gameName == BAJA) {
@@ -858,6 +861,7 @@ void MenuContext::launchGameFromJS(std::string gameName) {
     		case 2: Director::getInstance()->replaceScene(Memory::createScene());  break;
     		}
 			
+
 			
     	}
 		else if (gameName == BALLONHERO) {
