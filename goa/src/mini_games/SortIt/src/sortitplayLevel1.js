@@ -1,6 +1,26 @@
 /// <reference path="../../cocos2d-typescript-definitions/cocos2d/cocos2d-lib.d.ts" />
 
 var xc = xc || {};
+
+xc.sortitlevelLayer = cc.Layer.extend({
+    onEnter: function() {
+        var level = this.getParent().menuContext.getCurrentLevel();
+        if(level == 1) {
+            xc.GameScene.load(xc.sortitlevel1Layer);
+        } else if(level == 2) {
+            xc.GameScene.load(xc.sortitlevel2Layer);
+        } else if(level == 3) {
+            xc.GameScene.load(xc.sortitlevel3Layer);
+        } else if(level == 4) {
+            xc.GameScene.load(xc.sortitlevel4Layer);
+        } else if(level == 5) {
+            xc.GameScene.load(xc.sortitlevel5Layer);
+        } else if(level == 6) {
+            xc.GameScene.load(xc.sortitlevel6Layer);
+        }        
+    }
+})
+
 xc.sortitlevel1Layer = cc.Layer.extend({
     
     counterLevel1 : 1,
@@ -163,7 +183,7 @@ xc.sortitlevel1Layer = cc.Layer.extend({
          this.toy6.id = 6; 
          this.addChild(this.toy6);
    
-
+         cc.log("sortit");
         return true;
     }
 
