@@ -3,6 +3,12 @@ var xc = xc || {};
 
 xc.Pinata = cc.Layer.extend({
   gameName: "shoot",
+  menuContext = null,
+
+  onEnter : function(){
+       menuContext = this.getParent().menuContext;
+  },
+
   ctor:function () {
   
    this._super();
@@ -10,7 +16,6 @@ xc.Pinata = cc.Layer.extend({
     var gameTheme = "";
     var gameRand = new Array(3);
     gameRand[0] = "pinatacity"; gameRand[1] ="pinatacream"; gameRand[2] ="pinatajungle";
-    gameTheme = gameRand[this.getRandomInt(0,2)];
     //gameTheme = "pinatacream";
     this.gameBg = null;
     this.stringColor = new cc.color(255,255,255,255);
@@ -19,16 +24,8 @@ xc.Pinata = cc.Layer.extend({
     this.xPosi =0; 
     this.shootingFlag = false;
     this.flagSingleTouchFirst = true;
-     
-     var currentLevelValue = this.getParent().menuContext.getCurrentLevel();
-     if (cc.sys.isNative) {
-       // var menuContext = this.getParent().menuContext;
-      //  menuContext.setMaxPoints(3);
-       // currentLevelValue = menuContext.getCurrentLevel();
-     }else{
-         console.log("I am in console mode ");
-     }
-    
+    var currentLevelValue = menuContext.getCurrentLevel();
+ 
     var info = this.levelAllInfo(currentLevelValue,5,5,3,10);
     console.log("the pinata category value is : " +     info.category);
     console.log("the pinata scene value is : " +     info.scene);
@@ -263,7 +260,7 @@ xc.Pinata = cc.Layer.extend({
                         if(!targetB.dead){classReference.runAnimations(ccs.load(path,xc.path),targetB.x,targetB.y,path); classReference.gameBg.node.removeChild(targetB);}
                         classReference.gamePlay(targetA);
                     }
-                   // menuContext.addPoints(3);
+                    menuContext.addPoints(3);
                 }else{
                     console.log("its wrong answer");
                 
@@ -280,7 +277,7 @@ xc.Pinata = cc.Layer.extend({
                          classReference.runAnimations(ccs.load(path,xc.path),targetA.x,targetA.y,path);
                         classReference.gameBg.node.removeChild(targetA);
                     }
-                    //menuContext.addPoints(-1);
+                    menuContext.addPoints(-1);
                 }
 
                 setTimeout(function() {
@@ -340,7 +337,6 @@ xc.Pinata = cc.Layer.extend({
                 var classReference = this;
                 setTimeout(function() {
                     if (cc.sys.isNative) {
-                          var menuContext = classReference.getParent().menuContext;
                           menuContext.showScore();
 
                     }else{
