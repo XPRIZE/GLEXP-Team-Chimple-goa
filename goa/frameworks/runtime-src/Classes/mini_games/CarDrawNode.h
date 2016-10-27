@@ -15,7 +15,7 @@
 #include "editor-support/cocostudio/CocoStudio.h"
 #include "../WordSceneLipiTKNode.h"
 
-
+class CarDraw;
 class carDrawNode : public WordSceneLipiTKNode
 {
 public:
@@ -26,17 +26,17 @@ public:
 	cocos2d::Sprite* createDrawingBoard();
 	static carDrawNode *create(int width, int height, cocos2d::Point position);
 	cocos2d::Layer * carLayer;
-	//void draw(cocos2d::DrawNode* paintingNode, cocos2d::Point fromPoint, cocos2d::Point currentPoint);
+	void draw(cocos2d::DrawNode* paintingNode, cocos2d::Point fromPoint, cocos2d::Point currentPoint);
 
 	virtual void postTouchBegan(cocos2d::Touch * touch, cocos2d::Event * event, cocos2d::Point touchPoint);
 	virtual void postTouchMoved(cocos2d::Touch * touch, cocos2d::Event * event, cocos2d::Point touchPoint);
 	virtual void postTouchEnded(cocos2d::Touch * touch, cocos2d::Event * event, cocos2d::Point touchPoint);
+
+	void setParent(CarDraw* parent);
 protected:
 	MenuContext * menu;
+	CarDraw* _carDraw;
 
 };
 
 #endif 
-
-
-

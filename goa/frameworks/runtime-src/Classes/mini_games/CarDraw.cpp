@@ -47,21 +47,49 @@ cocos2d::Scene * CarDraw::createScene()
 }
 
 
-//void CarDraw::draw(cocos2d::DrawNode * paintingNode, cocos2d::Point fromPoint, cocos2d::Point currentPoint)
-//{
-//}
+void CarDraw::draw(cocos2d::DrawNode * paintingNode, cocos2d::Point fromPoint, cocos2d::Point currentPoint)
+{
+	paintingNode->drawSegment(fromPoint, currentPoint, 5, Color4F(27 / 255.0f, 190 / 255.0f, 78 / 255.0f, 1.0f));
+}
 
 void CarDraw::postTouchBegan(cocos2d::Touch * touch, cocos2d::Event * event, cocos2d::Point touchPoint)
 {
+	CCLOG("111");
+	Size visibleSize = Director::getInstance()->getVisibleSize();
+	auto target = event->getCurrentTarget();
+	Point localPoint = target->getParent()->getParent()->convertToNodeSpace(touchPoint);
+	CCLOG("localPoint.x 1111 %f", localPoint.x);
+	CCLOG("localPoint.y 1111 %f", localPoint.y);
+	localPoint.x += visibleSize.width / 2;
+	localPoint.y += visibleSize.height / 2;
+	Point previous = touch->getPreviousLocation();
+	//_road->drawSegment(previous, localPoint, 50, Color4F(1.0f, 1.0f, 1.0f, 1.0f));
+	_car->setPosition(localPoint);
+
 }
 
 void CarDraw::postTouchMoved(cocos2d::Touch * touch, cocos2d::Event * event, cocos2d::Point touchPoint)
 {
+	CCLOG("2222");
+	auto target = event->getCurrentTarget();
+	Size visibleSize = Director::getInstance()->getVisibleSize();
+	Point localPoint = target->getParent()->getParent()->convertToNodeSpace(touchPoint);
+	CCLOG("localPoint.x 2222 %f", localPoint.x);
+	CCLOG("localPoint.y 2222 %f", localPoint.y);
+	localPoint.x += visibleSize.width / 2;
+	localPoint.y += visibleSize.height / 2;
+	Point previous = touch->getPreviousLocation();
+	_road->drawSegment(previous, localPoint, 5, Color4F(1.0f, 1.0f, 1.0f, 1.0f));
+	_car->setPosition(localPoint);
+
+
 }
 
 void CarDraw::postTouchEnded(cocos2d::Touch * touch, cocos2d::Event * event, cocos2d::Point touchPoint)
 {
+	CCLOG("3333");
 }
+
 
 bool CarDraw::init()
 {
@@ -72,11 +100,21 @@ bool CarDraw::init()
 	}
 	Size visibleSize = Director::getInstance()->getVisibleSize();
 	Vec2 origin = Director::getInstance()->getVisibleOrigin();
-//	carDrawLiPi = new (std::nothrow) 
 	auto bg = CSLoader::createNode("cardraw/cardraw.csb");
 	this->addChild(bg);
-	//carDrawLiPi = new (std::nothrow) carDrawNode();
-	//carDrawLiPi->create(visibleSize.width / 2, visibleSize.height / 2, Vec2(100, 100));
-	//this->addChild(carDrawLiPi);
+
+	_car = bg->getChildByName("car_1");
+	auto carDrawLiPi = carDrawNode::create(visibleSize.width, visibleSize.height, Vec2(visibleSize.width / 2, visibleSize.height / 2));
+	carDrawLiPi->setOpacity(50);
+	carDrawLiPi->setParent(this);
+	this->addChild(carDrawLiPi);
+
+	_road = DrawNode::create();
+	this->addChild(_road);
+	//cardraw / car.png
+	_car = Sprite::createWithSpriteFrameName("cardraw/car.png");
+	_car->setPosition(Vec2(200, 200));
+	this->addChild(_car);
+
 	return true;
 }
