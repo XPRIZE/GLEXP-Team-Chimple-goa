@@ -414,7 +414,7 @@ void BalloonHero::onEnterTransitionDidFinish() {
 	
 
 
-	//_sceneNumber = 3;
+	_sceneNumber = 3;
 
 	std::string mainSceneplist;
 
@@ -502,7 +502,7 @@ void BalloonHero::onEnterTransitionDidFinish() {
 		//_fireFly->getChildByName("firefly")->setPosition(Vec2(visibleSize.width / 2 + origin.x, visibleSize.height / 2 + origin.y));
 		
 		_fireFly->setScale(0.5, 0.5);
-		_fireFly->setContentSize(Size(50, 50));
+		_fireFly->setContentSize(Size(200, 200));
 		
 		for (auto const& child : _fireFly->getChildren()) {
 
@@ -623,16 +623,18 @@ bool BalloonHero::onTouchBegan(Touch* touch, Event* event) {
 
 	auto target = event->getCurrentTarget();
 	
-	Point locationInNode;
-	auto bb = target->getBoundingBox();
+	Point locationInNode = target->getParent()->convertToNodeSpace(touch->getLocation());
 
+	auto bb = target->getChildByName("firefly")->getBoundingBox();
+	
+	
 	std::string character;
 
 	if (_sceneNumber == 1) {
 		
-		character = "firefly";
-		bb = target->getChildByName(character)->getBoundingBox();
-		locationInNode = target->getChildByName(character)->convertToNodeSpace(touch->getLocation());
+	//	character = "firefly";
+		//bb = target->getChildByName(character)->getBoundingBox();
+		//locationInNode = target->getChildByName(character)->convertToNodeSpace(touch->getLocation());
 
 	}
 	if (_sceneNumber == 2) {
@@ -641,8 +643,8 @@ bool BalloonHero::onTouchBegan(Touch* touch, Event* event) {
 		//bb = target->getChildByName(character)->getBoundingBox();
 		//locationInNode = target->getChildByName(character)->convertToNodeSpace(touch->getLocation());
 
-		bb = target->getBoundingBox();
-		locationInNode = target->convertToNodeSpace(touch->getLocation());
+		//bb = target->getBoundingBox();
+		//locationInNode = target->convertToNodeSpace(touch->getLocation());
 
 	}
 	if (_sceneNumber == 3) {
@@ -651,12 +653,11 @@ bool BalloonHero::onTouchBegan(Touch* touch, Event* event) {
 		bb = target->getBoundingBox();
 		locationInNode = target->convertToNodeSpace(touch->getLocation());*/
 
-		character = "firefly";
-		bb = target->getBoundingBox();
-		locationInNode = target->convertToNodeSpace(touch->getLocation());
+		//character = "firefly";
+		//bb = target->getBoundingBox();
+	//	locationInNode = target->convertToNodeSpace(touch->getLocation());
 
 	}
-
 	
 	
 	if (bb.containsPoint(locationInNode))
@@ -672,7 +673,7 @@ void BalloonHero::onTouchEnded(cocos2d::Touch *touch, cocos2d::Event *event) {
 	//    CCLOG("onTouchEnded");
 
 	auto target = event->getCurrentTarget();
-	Point locationInNode = target->convertToNodeSpace(touch->getLocation());
+	Point locationInNode = target->getParent()->convertToNodeSpace(touch->getLocation());
 
 
 }
