@@ -237,8 +237,8 @@ void Pillar::gameHelp()
 {
 	_helpFlage = true;
 	//game help only for first level
-	auto labelSize = _topLabel->getContentSize();
-	auto labelPosition = _topLabel->getPosition();
+	auto labelSize = _cake->getContentSize();
+	auto labelPosition = _cake->getPosition();
 	/*auto ans = _synonyms.at(_gameWord);
 	std::string name;
 	for (int i = 0; i < _answers.size(); i++) {
@@ -250,7 +250,7 @@ void Pillar::gameHelp()
 	auto optionLayer = _topLabel;
 	auto optionSize = optionLayer->getContentSize();
 	auto optionPosition = optionLayer->getPosition();
-	auto help = HelpLayer::create(Rect(_pointRef->getPositionX(), _ladder->getContentSize().height + _ladder->getPositionY(), labelSize.width + 400, labelSize.height + 40),Rect(0,0,0,0));
+	auto help = HelpLayer::create(Rect(_pointRef->getPositionX(), _ladder->getContentSize().height + _ladder->getPositionY(), labelSize.width , labelSize.height ),Rect(0,0,0,0));
 	help->click(Vec2(_pointRef->getPositionX(), _ladder->getContentSize().height + _ladder->getPositionY() ));
 	help->setName("helpLayer");
 	this->addChild(help);

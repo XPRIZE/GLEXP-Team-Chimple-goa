@@ -17,7 +17,9 @@ xc.playLayer = cc.Layer.extend( {
    correct: 0,
    flag:true,
    score:0,
+   _level:0,
    scoreLabel : null,
+   char:null,
    _dir_Flag: true,
   nameLabel : null,
     ctor:
@@ -28,11 +30,11 @@ xc.playLayer = cc.Layer.extend( {
         this.size = cc.winSize;
         cc.spriteFrameCache.addSpriteFrames(xc.playLayer.res.jump_plist);
 
-        this.char = ccs.load(xc.playLayer.res.char,xc.path);
+    /*    this.char = ccs.load(xc.playLayer.res.char,xc.path);
         this.char.node.setPosition(cc.p(this.size.width * 0.06, 780));
-        this.addChild(this.char.node,1);
+        this.addChild(this.char.node,1);*/
 
-      
+       // menuContext.setMaxPoints(10);
         this.bg = ccs.load(xc.playLayer.res.jump_game, xc.path);
         if( this.size.width > 2560) {
           this.extraX = (this.size.width - 2560) / 2;
@@ -280,16 +282,101 @@ xc.playLayer = cc.Layer.extend( {
         cc.log("dict=",this.dict);
      },
 
+    onEnterTransitionDidFinish: function() {
+    this._level = this.getParent().menuContext.getCurrentLevel();
+    cc.log("Level = ",this._level);
+    if(this._level <= 10 ) {
+        this.char = ccs.load(xc.playLayer.res.char,xc.path);
+        this.char.node.setPosition(cc.p(this.size.width * 0.06, 780));
+        this.addChild(this.char.node,1);
+       
+    } else if(this._level <= 20) {
+        this.char = ccs.load(xc.playLayer.res.char1,xc.path);
+        this.char.node.setPosition(cc.p(this.size.width * 0.06, 780));
+        this.addChild(this.char.node,1);
+         
+    }  else if(this._level <= 30) {
+        this.char = ccs.load(xc.playLayer.res.char2,xc.path);
+        this.char.node.setPosition(cc.p(this.size.width * 0.06, 780));
+        this.addChild(this.char.node,1);
+         
+    }  else if(this._level <= 40) {
+        this.char = ccs.load(xc.playLayer.res.char3,xc.path);
+        this.char.node.setPosition(cc.p(this.size.width * 0.06, 780));
+        this.addChild(this.char.node,1);
+        
+    }  else if(this._level <= 50) {
+        this.char = ccs.load(xc.playLayer.res.char4,xc.path);
+        this.char.node.setPosition(cc.p(this.size.width * 0.06, 780));
+        this.addChild(this.char.node,1);
+        
+    }  else if(this._level <= 60) {
+        this.char = ccs.load(xc.playLayer.res.char5,xc.path);
+        this.char.node.setPosition(cc.p(this.size.width * 0.06, 780));
+        this.addChild(this.char.node,1);
+        
+    }  else if(this._level <= 70) {
+        this.char = ccs.load(xc.playLayer.res.char6,xc.path);
+        this.char.node.setPosition(cc.p(this.size.width * 0.06, 780));
+        this.addChild(this.char.node,1);
+        
+    }  else if(this._level <= 80) {
+        this.char = ccs.load(xc.playLayer.res.char7,xc.path);
+        this.char.node.setPosition(cc.p(this.size.width * 0.06, 780));
+        this.addChild(this.char.node,1);
+        
+    }  else if(this._level <= 90) {
+        this.char = ccs.load(xc.playLayer.res.char8,xc.path);
+        this.char.node.setPosition(cc.p(this.size.width * 0.06, 780));
+        this.addChild(this.char.node,1);
+    }  
 
+
+  },
      charMove : function()
      {
 
         var jump = new cc.jumpBy(1,cc.p(this.size.width /4 - (cc.winSize.width * 0.06),230),150,1);
         this.char.node.runAction(jump);
 
+     if(this._level <= 10 ) {
         var animation = ccs.load(xc.playLayer.res.char,xc.path);
        this.char.node.runAction(animation.action);
        animation.action.play("jumping",false);
+     }else if(this._level <= 20) {
+       var animation = ccs.load(xc.playLayer.res.char1,xc.path);
+       this.char.node.runAction(animation.action);
+       animation.action.play("jumping",false);
+    }  else if(this._level <= 30) {
+       var animation = ccs.load(xc.playLayer.res.char2,xc.path);
+       this.char.node.runAction(animation.action);
+       animation.action.play("jumping",false);
+    } else if(this._level <= 40) {
+       var animation = ccs.load(xc.playLayer.res.char3,xc.path);
+       this.char.node.runAction(animation.action);
+       animation.action.play("jumping",false);
+    } else if(this._level <= 50) {
+       var animation = ccs.load(xc.playLayer.res.char4,xc.path);
+       this.char.node.runAction(animation.action);
+       animation.action.play("jumping",false);
+    } else if(this._level <= 60) {
+       var animation = ccs.load(xc.playLayer.res.char5,xc.path);
+       this.char.node.runAction(animation.action);
+       animation.action.play("jumping",false);
+    } else if(this._level <= 70) {
+       var animation = ccs.load(xc.playLayer.res.char6,xc.path);
+       this.char.node.runAction(animation.action);
+       animation.action.play("jumping",false);
+    } else if(this._level <= 80) {
+       var animation = ccs.load(xc.playLayer.res.char7,xc.path);
+       this.char.node.runAction(animation.action);
+       animation.action.play("jumping",false);
+    } else if(this._level <= 90) {
+       var animation = ccs.load(xc.playLayer.res.char8,xc.path);
+       this.char.node.runAction(animation.action);
+       animation.action.play("jumping",false);
+    } 
+
 
      },
     charjump: function()
@@ -309,7 +396,26 @@ xc.playLayer = cc.Layer.extend( {
         }
         var jump = new cc.JumpBy(1.5,cc.p(x * this.size.width /4,300),200,1);
        this.char.node.runAction(cc.sequence( jump, cc.callFunc(this.jumpCallback, this)));//runAction(jump);
+       if(this._level <= 10 ) {
        var animation = ccs.load(xc.playLayer.res.char,xc.path);
+       }else if(this._level <= 20) {
+          var animation = ccs.load(xc.playLayer.res.char1,xc.path); 
+       }else if(this._level <= 30) {
+          var animation = ccs.load(xc.playLayer.res.char2,xc.path); 
+       }else if(this._level <= 40) {
+          var animation = ccs.load(xc.playLayer.res.char3,xc.path); 
+       }else if(this._level <= 50) {
+          var animation = ccs.load(xc.playLayer.res.char4,xc.path); 
+       }else if(this._level <= 60) {
+          var animation = ccs.load(xc.playLayer.res.char5,xc.path); 
+       }else if(this._level <= 70) {
+          var animation = ccs.load(xc.playLayer.res.char6,xc.path); 
+       }else if(this._level <= 80) {
+          var animation = ccs.load(xc.playLayer.res.char7,xc.path); 
+       }else if(this._level <= 90) {
+          var animation = ccs.load(xc.playLayer.res.char8,xc.path); 
+       }
+
        this.char.node.runAction(animation.action);
        animation.action.play("jumping",false);
     },
@@ -507,6 +613,7 @@ this.remove();
   {
          self.correct++;
     this.score += 2;
+ //   menuContext.addPoints(2);
     scoreLabel.setString(""+ this.score);
     if(this.score >= 10)
     {
@@ -711,6 +818,14 @@ xc.playLayer.res = {
     jump_main: xc.path +"jump_on_words/jump_on_words_main_menu.json",
     jump_game: xc.path +"jump_on_words/jump_on_words_game_menu.json",
     char:xc.path +"jump_on_words/character.json",
+    char1:xc.path+"jump_on_words/character1.json",
+    char2:xc.path+"jump_on_words/character2.json",
+    char3:xc.path+"jump_on_words/character3.json",
+    char4:xc.path+"jump_on_words/character4.json",
+    char5:xc.path+"jump_on_words/character5.json",
+    char6:xc.path+"jump_on_words/character6.json",
+    char7:xc.path+"jump_on_words/character7.json",
+    char8:xc.path+"jump_on_words/character8.json",
     jump_plist: xc.path +"jump_on_words/jump_on_words.plist",
     jump_png: xc.path +"jump_on_words/jump_on_words.png",
     dict:xc.path + "english/allwords.json"
