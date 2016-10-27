@@ -51,6 +51,7 @@ static const std::string DASH = "dash";
 static const std::string CIRCLE = "circle";
 static const std::string ORDER = "order";
 static const std::string PILLAR = "pillar";
+static const std::string CARDRAW = "cardraw";
 
 class StartMenu {
 public:
