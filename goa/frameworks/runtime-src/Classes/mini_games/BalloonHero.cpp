@@ -414,7 +414,7 @@ void BalloonHero::onEnterTransitionDidFinish() {
 	
 
 
-	_sceneNumber = 3;
+	_sceneNumber = 2;
 
 	std::string mainSceneplist;
 
@@ -502,14 +502,14 @@ void BalloonHero::onEnterTransitionDidFinish() {
 		//_fireFly->getChildByName("firefly")->setPosition(Vec2(visibleSize.width / 2 + origin.x, visibleSize.height / 2 + origin.y));
 		
 		_fireFly->setScale(0.5, 0.5);
-		_fireFly->setContentSize(Size(200, 200));
+		_fireFly->setContentSize(Size( 200, 200));
 		
 		for (auto const& child : _fireFly->getChildren()) {
 
 			//child->setAnchorPoint(Vec2(0, 0));
 			//child->setContentSize(Size(0, 0));
 		}
-		
+		/*
 		DrawNode *_drawNode;
 		_drawNode = DrawNode::create();
 		addChild(_drawNode);
@@ -520,7 +520,7 @@ void BalloonHero::onEnterTransitionDidFinish() {
 		_drawNode->drawRect(cocos2d::Vec2(_fireFly->getPositionX(), _fireFly->getPositionY()), cocos2d::Vec2(_fireFly->getPositionX() + 50, _fireFly->getPositionY() + 50), Color4F::BLUE);
 		auto bb = _fireFly->getBoundingBox();
 		//_fireFly->setContentSize(Size( _fireFly->getPositionX() + 20, _fireFly->getPositionY() + 20 ));
-		
+		*/
 		if (_sceneNumber == 3) {
 			//_fireFly->setContentSize(Size(200,200));
 			_fireFly->setScale(1, 1);
@@ -625,7 +625,7 @@ bool BalloonHero::onTouchBegan(Touch* touch, Event* event) {
 	
 	Point locationInNode = target->getParent()->convertToNodeSpace(touch->getLocation());
 
-	auto bb = target->getChildByName("firefly")->getBoundingBox();
+	auto bb = target->getBoundingBox();
 	
 	
 	std::string character;
