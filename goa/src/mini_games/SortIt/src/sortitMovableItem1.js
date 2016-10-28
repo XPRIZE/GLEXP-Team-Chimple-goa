@@ -39,6 +39,10 @@ var sprite_click = cc.EventListener.create({event: cc.EventListener.TOUCH_ONE_BY
  
         if(cc.rectIntersectsRect(toyRect, toytRect) && target.id == that.counterLevel1){
            
+            that.getParent().menuContext.addPoints(1);
+            if(that.counterLevel1 == 1){
+                that.removeChild(that.help);
+            }
             var x = transparentSprite.getPosition().x;
             var y = transparentSprite.getPosition().y;
             target.setPosition(x, y);
@@ -51,7 +55,8 @@ var sprite_click = cc.EventListener.create({event: cc.EventListener.TOUCH_ONE_BY
             cc.eventManager.removeListener(this);
              if (that.counterLevel1 == 7) {
                      setTimeout(function(){
-                         xc.GameScene.load(xc.sortitlevel2Layer);
+                         //xc.GameScene.load(xc.sortitlevel2Layer);
+                         that.getParent().menuContext.showScore();
                      },1000);
                 }
             
@@ -78,6 +83,7 @@ var sprite_click = cc.EventListener.create({event: cc.EventListener.TOUCH_ONE_BY
                  var rectToy = cc.rect(0, 0, target.width, target.height);
                  //if (cc.rectContainsPoint(rectToy, location) && overlapped==0) { 
                  if (overlapped==0) { 
+                     that.getParent().menuContext.addPoints(-1);
                      var toy = new cc.MoveTo(2,cc.p(target.xP,target.yP));
                     target.runAction(new cc.Sequence( toy, new cc.CallFunc(function(){ 
                     _enableFlag = true; }, this)));

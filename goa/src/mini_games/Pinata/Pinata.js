@@ -28,8 +28,8 @@ xc.Pinata = cc.Layer.extend({
     this.shootingFlag = false;
     this.flagSingleTouchFirst = true;
     var currentLevelValue = menuContext.getCurrentLevel();
- 
-    var info = this.levelAllInfo(currentLevelValue,5,5,3,10);
+    menuContext.setMaxPoints(3);
+    var info = this.levelAllInfo(currentLevelValue,3,5,3,10);
     console.log("the pinata category value is : " +     info.category);
     console.log("the pinata scene value is : " +     info.scene);
     console.log("the pinata level value is : " +     info.level);

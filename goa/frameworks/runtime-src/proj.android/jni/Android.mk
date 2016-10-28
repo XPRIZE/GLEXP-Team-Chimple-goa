@@ -150,6 +150,8 @@ LOCAL_SRC_FILES := hellojavascript/main.cpp \
 					./src/reco/shaperec/preprocessing/LTKPreprocessor.cpp \
 					./src/reco/shaperec/preprocessing/preprocessing.cpp \
 					lipiJni.cpp \
+					../../Classes/mini_games/CarDraw.cpp \
+					../../Classes/mini_games/CarDrawNode.cpp \
                     ../../Classes/AsyncTask.cpp \
                     ../../Classes/LipiTKNode.cpp \
                     ../../Classes/LipiTKInterface.cpp \
