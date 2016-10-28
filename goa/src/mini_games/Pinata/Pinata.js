@@ -5,9 +5,6 @@ xc.Pinata = cc.Layer.extend({
   gameName: "shoot",
   menuContext: null,
 
-  onEnter : function(){
-  },
-
   ctor:function () {
   
    this._super();
@@ -143,10 +140,10 @@ xc.Pinata = cc.Layer.extend({
     var help = null;
    
     if(currentLevelValue == 1){
-        help = new xc.HelpLayer(cc.rect(targetB.x+70,targetB.y,targetB.width +targetB.width * 0.2,targetB.height), cc.rect(board.x+70, board.y,board.width,board.height))
+        help = new xc.HelpLayer(cc.rect((this.xPosi/2)+targetB.x,targetB.y,targetB.width +targetB.width * 0.3,targetB.height+targetB.height * 0.1), cc.rect((this.xPosi/2)+board.x, board.y,board.width,board.height))
         this.addChild(help,4)
         help.setName("help");
-        help.click(targetB.x,targetB.y);
+        help.click((this.xPosi/2)+targetB.x,targetB.y);
     }
 
     var classReference = this;
