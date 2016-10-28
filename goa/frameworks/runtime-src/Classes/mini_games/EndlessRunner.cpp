@@ -131,6 +131,7 @@ void EndlessRunner::onEnterTransitionDidFinish()
 		allPathBlocks.push_back(mountain);
 		mountain->runAction(MoveTo::create(EndlessRunner::movingTime(mountain), Vec2((leftBarrier->getPosition().x), origin.y)));
 		}
+		EndlessRunner::CreateMonsterWithLetter(1.0/60.0);
 		EndlessRunner::startGame();
 }
 
@@ -737,6 +738,9 @@ void EndlessRunner::CreateMonsterWithLetter(float dt) {
 			timeline = CSLoader::createTimeline("endlessrunner/monster_red.csb");
 			monsterImage = (Sprite *)CSLoader::createNode("endlessrunner/monster_red.csb");
 		}
+		if(initBool)
+		currentFirstLayerRock = allPathBlocks[4];
+
 		auto nameLand = currentFirstLayerRock->currentRockName;
 		monsterImage->setScale(1.175);
 		Rect box = monsterImage->getChildByName("monster_egg")->getBoundingBox();

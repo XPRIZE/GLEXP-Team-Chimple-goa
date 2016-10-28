@@ -5,9 +5,6 @@ xc.Pinata = cc.Layer.extend({
   gameName: "shoot",
   menuContext: null,
 
-  onEnter : function(){
-  },
-
   ctor:function () {
   
    this._super();
