@@ -1,10 +1,11 @@
 var xc = xc || {};
 xc.Bubble_Number = cc.Layer.extend({
+  menuContext: null,
   
-  ctor:function () {
-  
-   this._super();
-   imageSprite = ['bubble_shooter/red_ball','bubble_shooter/green_ball','bubble_shooter/yellow_ball','bubble_shooter/purple_ball','bubble_shooter/blue_ball','bubble_shooter/orange_ball',"bubble_shooter/yellow_ball","bubble_shooter/blue_ball"];
+  onEnter:function(){
+     this._super();
+    menuContext = this.getParent().menuContext;
+    imageSprite = ['bubble_shooter/red_ball','bubble_shooter/green_ball','bubble_shooter/yellow_ball','bubble_shooter/purple_ball','bubble_shooter/blue_ball','bubble_shooter/orange_ball',"bubble_shooter/yellow_ball","bubble_shooter/blue_ball"];
 
    var ScreenMenu = ccs.load(xc.BubbleGame_HomeScreenMenu.res.bubbleShooter_gameMenu_json,xc.path);
    this.addChild(ScreenMenu.node);
@@ -240,6 +241,9 @@ xc.Bubble_Number = cc.Layer.extend({
     return true;
     
   },
+  ctor:function () {
+       this._super();
+  },
   
     update : function (dt) {
          // Render player bubble
@@ -259,6 +263,11 @@ xc.Bubble_Number = cc.Layer.extend({
             this.stateRemoveCluster();
         }else if (this.gamestate == this.gamestates.gameover){
             console.log("game over bro !!");
+             menuContext.setMaxPoints(this.counterhits);
+             menuContext.addPoints(-this.counterhits);
+             cc.log("showscore game over");
+             menuContext.showScore();
+             this.unscheduleUpdate();
         }
     },
      
@@ -572,6 +581,8 @@ xc.Bubble_Number = cc.Layer.extend({
                     this.setGameState(this.gamestates.removecluster);
                     
                     return;
+                }else{
+                    console.log("the total missed : "+ ++this.negativePoints);
                 }   
             }
  
@@ -771,12 +782,14 @@ xc.Bubble_Number = cc.Layer.extend({
         }
         return false;
     },
-        
+    
    DataCard : function (gamestatus){
        console.log("gamestatus : "+gamestatus + " -------------- ");
        var level = levelValues;
     if (cc.sys.isNative) {
-               var menuContext = this.getParent().menuContext;
+               menuContext.setMaxPoints(this.counterhits);
+               menuContext.addPoints(this.counterhits);
+               menuContext.addPoints(this.negativePoints);
                cc.log("showscore");
                menuContext.showScore();
      }else{

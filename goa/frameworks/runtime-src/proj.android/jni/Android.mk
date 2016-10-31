@@ -109,6 +109,7 @@ LOCAL_SRC_FILES := hellojavascript/main.cpp \
 					../../Classes/PhotoCaptureScene.cpp \
 					../../Classes/mini_games/Spirograph.cpp	\
 					../../Classes/mini_games/Bingo.cpp \
+					../../Classes/WordSceneLipiTKNode.cpp\
 					./src/util/logger/LTKLogger.cpp	\
 					./src/util/logger/logger.cpp	\
 					./src/common/LTKCaptureDevice.cpp \
@@ -149,6 +150,8 @@ LOCAL_SRC_FILES := hellojavascript/main.cpp \
 					./src/reco/shaperec/preprocessing/LTKPreprocessor.cpp \
 					./src/reco/shaperec/preprocessing/preprocessing.cpp \
 					lipiJni.cpp \
+					../../Classes/mini_games/CarDraw.cpp \
+					../../Classes/mini_games/CarDrawNode.cpp \
                     ../../Classes/AsyncTask.cpp \
                     ../../Classes/LipiTKNode.cpp \
                     ../../Classes/LipiTKInterface.cpp \

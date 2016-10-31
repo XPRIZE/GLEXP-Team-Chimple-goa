@@ -34,6 +34,22 @@
         "isJSGame": true,
         "pureJS":"",
         "script": "src/start/showBlueToothPeers.js"
+    },
+    {
+        "name": "cardraw",
+        "cIcon": "gameicons/decomone_pressed.png",
+        "icon": "gameicons/decomone.png",
+        "multiPlayer":false,
+        "isJSGame":false,
+        "script":"src/NonJSGameLauncher.js",
+        "span": "5",
+        "numLevels": "26",
+        "backgroundJson": "decomonlevel/Layer1.json",
+        "foregroundJson": "decomonlevel/Layer3.json",
+        "frontgroundJson": "decomonlevel/Layer4.json",
+        "maingroundJson": "decomonlevel/Layer2.json",
+        "menuPlist": "decomonlevel/decomonlevel.plist",
+        "menuPng": "decomonlevel/decomonlevel.png"  
     },    
     {
         "name": "EndlessRunner",
@@ -43,11 +59,11 @@
         "isJSGame": false,
         "script": "src/NonJSGameLauncher.js",
         "span": "5",
-        "numLevels": "33",
-        "backgroundJson": "endlessrunner/layer1.json",
-        "foregroundJson": "endlessrunner/layer3.json",
-        "frontgroundJson": "endlessrunner/layer4.json",
-        "maingroundJson": "endlessrunner/layer2.json",
+        "numLevels": "28",
+        "backgroundJson": "endlessrunner/Layer1.json",
+        "foregroundJson": "endlessrunner/Layer3.json",
+        "frontgroundJson": "endlessrunner/Layer4.json",
+        "maingroundJson": "endlessrunner/Layer2.json",
         "menuPlist": "endlessrunner/endlessrunner_01.plist",
         "menuPng": "endlessrunner/endlessrunner_01.png"
     },
@@ -77,12 +93,12 @@
         "script": "src/start/BubbleShooter.js",
         "span": "5",
         "numLevels": "24",
-        "backgroundJson": "cityscreen/background.json",
-        "foregroundJson": "cityscreen/foreground.json",
-        "frontgroundJson": "cityscreen/frontground.json",
-        "maingroundJson": "cityscreen/mainground.json",
-        "menuPlist": "cityscreen/cityscreen.plist",
-        "menuPng": "cityscreen/cityscreen.png"
+        "backgroundJson": "plevelscreen2/bjlevelbg.json",
+        "foregroundJson": "plevelscreen2/bjlevelfrg.json",
+        "frontgroundJson": "plevelscreen2/bjlevelfng.json",
+        "maingroundJson": "plevelscreen2/bjlevelmng.json",
+        "menuPlist": "plevelscreen2/plevelscreen2.plist",
+        "menuPng": "plevelscreen2/plevelscreen2.png"
     },
     {
         "name": "shoot",
@@ -98,7 +114,7 @@
         "foregroundJson": "pinatacandylevel/foreground.json",
         "frontgroundJson": "pinatacandylevel/frontground.json",
         "maingroundJson": "pinatacandylevel/mainground.json",
-        "menuPlist": "pinatacandylevel/cityscreen.plist",
+        "menuPlist": "pinatacandylevel/pinatacandylevel.plist",
         "menuPng": "pinatacandylevel/pinatacandylevel.png"
     },
     {
@@ -413,10 +429,10 @@
     "icon": "gameicons/sortit.png",
     "multiPlayer": false,
     "isJSGame": true,
-    "pureJS": "sortitlevel1Layer",
+    "pureJS": "sortitlevelLayer",
     "script": "src/start/sortit.js",
     "span": "2",
-    "numLevels": "5",
+    "numLevels": "6",
     "backgroundJson": "sortitlevel/background.json",
     "foregroundJson": "sortitlevel/foreground.json",
     "frontgroundJson": "sortitlevel/frontground.json",
@@ -543,13 +559,13 @@
     "multiPlayer": false,
     "isJSGame": false,
     "script": "src/NonJSGameLauncher.js",
-    "span": "5",
-    "numLevels": "26",
-    "backgroundJson": "smash_de_rock/layer1.json",
-    "foregroundJson": "smash_de_rock/layer3.json",
-    "frontgroundJson": "smash_de_rock/layer4.json",
-    "maingroundJson": "smash_de_rock/layer2.json",
-    "menuPlist": "smash_de_rock/smashderock_01.plist",
-    "menuPng": "smash_de_rock/smashderock_01.png"
+    "span": "12",
+    "numLevels": "90",
+    "backgroundJson": "jump_on_words_level/background.json",
+    "foregroundJson": "jump_on_words_level/foreground.json",
+    "frontgroundJson": "jump_on_words_level/frontground.json",
+    "maingroundJson": "jump_on_words_level/mainground.json",
+    "menuPlist": "jump_on_words_level/jump_on_words_level.plist",
+    "menuPng": "jump_on_words_level/jump_on_words_level.png"
   }
 ]

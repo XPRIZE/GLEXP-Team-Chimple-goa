@@ -1,18 +1,18 @@
 var xc = xc || {};
 xc.Bubble_Alphabets = cc.Layer.extend({
-  
-  ctor:function () {
-  
+   menuContext: null,
+  onEnter: function() {
    this._super();
+    menuContext = this.getParent().menuContext;
+    this.negativePoints = 0;
    imageSprite = ['bubble_shooter/red_ball','bubble_shooter/green_ball','bubble_shooter/yellow_ball','bubble_shooter/purple_ball','bubble_shooter/blue_ball','bubble_shooter/orange_ball',"bubble_shooter/yellow_ball","bubble_shooter/blue_ball"];
 
    var ScreenMenu = ccs.load(xc.BubbleGame_HomeScreenMenu.res.bubbleShooter_gameMenu_json,xc.path);
    this.addChild(ScreenMenu.node);
    var xPosi ;
-    // if (cc.director.getWinSize().width > 2560){
-    //     xPosi = cc.director.getWinSize().width - 2560;
-    //     ScreenMenu.node.x = xPosi/2;
-    // }
+     if (cc.director.getWinSize().width > 2560){
+         xPosi = cc.director.getWinSize().width - 2560;
+     }
     
     var LangLetter = goa.TextGenerator.getInstance().getAllChars();
     
@@ -168,6 +168,10 @@ xc.Bubble_Alphabets = cc.Layer.extend({
     return true;
     
   },
+
+  ctor:function () {
+   this._super();
+  },
   
     update : function (dt) {
          // Render player bubble
@@ -187,6 +191,11 @@ xc.Bubble_Alphabets = cc.Layer.extend({
             this.stateRemoveCluster();
         }else if (this.gamestate == this.gamestates.gameover){
             console.log("game over bro !!");
+            menuContext.setMaxPoints(this.counterhits);
+             menuContext.addPoints(-this.counterhits);
+             cc.log("showscore game over");
+             menuContext.showScore();
+             this.unscheduleUpdate();
         }
     },
      
@@ -496,6 +505,8 @@ xc.Bubble_Alphabets = cc.Layer.extend({
                     this.setGameState(this.gamestates.removecluster);
                     
                     return;
+                }else{
+                    console.log("not matched --- > 503" + ++this.negativePoints);
                 }   
             }
  
@@ -700,8 +711,9 @@ xc.Bubble_Alphabets = cc.Layer.extend({
        console.log("gamestatus : "+gamestatus + " -------------- ");
        var level = levelValues;
     if (cc.sys.isNative) {
-               var menuContext = this.getParent().menuContext;
-               cc.log("showscore");
+               menuContext.setMaxPoints(this.counterhits);
+               menuContext.addPoints(this.counterhits);
+               menuContext.addPoints(this.negativePoints);
                menuContext.showScore();
      }else{
          xc.GameScene.load(xc.BubbleGame_HomeScreenMenu);
@@ -1210,7 +1222,7 @@ xc.Bubble_Alphabets = cc.Layer.extend({
 
         // Array Of BubbleColor
         this.counterhits = 0;
-        
+    
         // Array Of Letter
         this.letterSprite = [];
         this.imageSprite = [];
