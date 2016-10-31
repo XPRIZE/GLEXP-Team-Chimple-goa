@@ -1,0 +1,127 @@
+{
+  "ID": "b7bd9eeb-fd37-4a41-a346-4786a20e88d0",
+  "Version": "3.10.0.0",
+  "Name": "Anansi_Kunguru_na_Mamba_Anansi_the_crows02",
+  "Content": {
+    "Content": {
+      "Animation": {
+        "Duration": 0,
+        "Speed": 1.0,
+        "Timelines": [],
+        "ctype": "TimelineActionData"
+      },
+      "AnimationList": [],
+      "ObjectData": {
+        "Tag": 28,
+        "Children": [
+          {
+            "ClipAble": false,
+            "ComboBoxIndex": 1,
+            "SingleColor": {
+              "R": 248,
+              "G": 201,
+              "B": 83
+            },
+            "FirstColor": {
+              "R": 150,
+              "G": 200
+            },
+            "EndColor": {},
+            "ColorVector": {
+              "ScaleY": 1.0
+            },
+            "Scale9Width": 1,
+            "Scale9Height": 1,
+            "AnchorPoint": {},
+            "Position": {
+              "X": -272.3208,
+              "Y": 0.3754
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": -0.1064,
+              "Y": 0.0002
+            },
+            "PreSize": {
+              "X": 1.2109,
+              "Y": 1.0
+            },
+            "LeftMargin": -272.3208,
+            "RightMargin": -267.6792,
+            "TopMargin": -0.3754,
+            "BottomMargin": 0.3754,
+            "Tag": 29,
+            "ActionTag": -1519617482,
+            "Size": {
+              "X": 3100.0,
+              "Y": 1800.0
+            },
+            "Name": "Panel_1",
+            "ctype": "PanelObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "ob/other/kun_fire.png",
+              "Plist": ""
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1137.3076,
+              "Y": 485.5194
+            },
+            "Scale": {
+              "ScaleX": 0.9187,
+              "ScaleY": 0.9187
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.4443,
+              "Y": 0.2697
+            },
+            "PreSize": {
+              "X": 0.2547,
+              "Y": 0.4767
+            },
+            "LeftMargin": 811.3076,
+            "RightMargin": 1096.6924,
+            "TopMargin": 885.4806,
+            "BottomMargin": 56.5194,
+            "Tag": 30,
+            "ActionTag": -523635785,
+            "Size": {
+              "X": 652.0,
+              "Y": 858.0
+            },
+            "Name": "fire_1",
+            "ctype": "SpriteObjectData"
+          }
+        ],
+        "Size": {
+          "X": 2560.0,
+          "Y": 1800.0
+        },
+        "Name": "Scene",
+        "ctype": "SingleNodeObjectData"
+      },
+      "UsedResources": [
+        "ob/other/kun_fire.png"
+      ],
+      "ctype": "GameFileData"
+    }
+  },
+  "Type": "Scene"
+}

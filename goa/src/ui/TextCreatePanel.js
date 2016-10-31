@@ -53,7 +53,7 @@ xc.TextCreatePanel = cc.Layer.extend({
                 var langDir = goa.TextGenerator.getInstance().getLang();
 
                 // var soundFile = xc.path + "wikitaki/misc/" + langDir + "/" + "sounds/" + "a.m4a";
-                var soundFile = xc.path + "wikitaki/misc/" + langDir + "/" + "sounds/" + xc.currentStoryId + "_" + xc.pageIndex +".json";;
+                var soundFile = xc.path + "wikitaki/misc/" + langDir + "/" + "sounds/" + xc.currentStoryId + "_" + xc.pageIndex +".m4a";
                 cc.loader.load(soundFile, function(err, data) {
                     if(!err) {
                         cc.audioEngine.playMusic(soundFile, false);

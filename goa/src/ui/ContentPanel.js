@@ -437,9 +437,6 @@ xc.ContentPanel = xc.AbstractContentPanel.extend({
     },
 
     addTextToScene: function () {
-        xc.currentStoryId;
-        xc.pageIndex;
-
         //load text file based on Current Story Id and Page index
         var langDir = goa.TextGenerator.getInstance().getLang();
         cc.log("langDir:" + langDir);
