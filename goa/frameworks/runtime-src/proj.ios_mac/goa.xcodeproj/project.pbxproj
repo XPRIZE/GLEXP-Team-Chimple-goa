@@ -92,6 +92,10 @@
 		F303CCA41DB20DB700DB6D81 /* Pillar.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F303CC9F1DB20D9000DB6D81 /* Pillar.cpp */; };
 		F307808A1DB5C2C90078DF62 /* HelpLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F30780891DB5C2C90078DF62 /* HelpLayer.cpp */; };
 		F307808B1DB5C2C90078DF62 /* HelpLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F30780891DB5C2C90078DF62 /* HelpLayer.cpp */; };
+		F32F48FE1DC5CC8600452245 /* CarDraw.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F32F48FA1DC5CC8600452245 /* CarDraw.cpp */; };
+		F32F48FF1DC5CC8600452245 /* CarDraw.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F32F48FA1DC5CC8600452245 /* CarDraw.cpp */; };
+		F32F49001DC5CC8600452245 /* CarDrawNode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F32F48FC1DC5CC8600452245 /* CarDrawNode.cpp */; };
+		F32F49011DC5CC8600452245 /* CarDrawNode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F32F48FC1DC5CC8600452245 /* CarDrawNode.cpp */; };
 		F35247C01D6D9D1A0077C333 /* HelloWorldScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F35247171D6D9D1A0077C333 /* HelloWorldScene.cpp */; };
 		F35247C11D6D9D1A0077C333 /* HelloWorldScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F35247171D6D9D1A0077C333 /* HelloWorldScene.cpp */; };
 		F35247C21D6D9D1A0077C333 /* MapScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F35247191D6D9D1A0077C333 /* MapScene.cpp */; };
@@ -532,6 +536,10 @@
 		F303CCA01DB20D9000DB6D81 /* Pillar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Pillar.h; sourceTree = "<group>"; };
 		F30780891DB5C2C90078DF62 /* HelpLayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = HelpLayer.cpp; sourceTree = "<group>"; };
 		F307808E1DB5C2DD0078DF62 /* HelpLayer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HelpLayer.h; sourceTree = "<group>"; };
+		F32F48FA1DC5CC8600452245 /* CarDraw.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CarDraw.cpp; sourceTree = "<group>"; };
+		F32F48FB1DC5CC8600452245 /* CarDraw.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CarDraw.h; sourceTree = "<group>"; };
+		F32F48FC1DC5CC8600452245 /* CarDrawNode.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CarDrawNode.cpp; sourceTree = "<group>"; };
+		F32F48FD1DC5CC8600452245 /* CarDrawNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CarDrawNode.h; sourceTree = "<group>"; };
 		F35247171D6D9D1A0077C333 /* HelloWorldScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = HelloWorldScene.cpp; sourceTree = "<group>"; };
 		F35247181D6D9D1A0077C333 /* HelloWorldScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HelloWorldScene.h; sourceTree = "<group>"; };
 		F35247191D6D9D1A0077C333 /* MapScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MapScene.cpp; sourceTree = "<group>"; };
@@ -1169,6 +1177,10 @@
 		F352471A1D6D9D1A0077C333 /* mini_games */ = {
 			isa = PBXGroup;
 			children = (
+				F32F48FA1DC5CC8600452245 /* CarDraw.cpp */,
+				F32F48FB1DC5CC8600452245 /* CarDraw.h */,
+				F32F48FC1DC5CC8600452245 /* CarDrawNode.cpp */,
+				F32F48FD1DC5CC8600452245 /* CarDrawNode.h */,
 				9C064E5A1DB8905C000892E1 /* DecomonGallery.cpp */,
 				9C064E5B1DB8905C000892E1 /* DecomonGallery.h */,
 				F303CC9F1DB20D9000DB6D81 /* Pillar.cpp */,
@@ -1768,6 +1780,7 @@
 				F35248191D6D9D1A0077C333 /* ScoreBoardContent.cpp in Sources */,
 				F35247D71D6D9D1A0077C333 /* CrossTheBridgeScene.cpp in Sources */,
 				F35247F71D6D9D1A0077C333 /* SafariAnalyticsManager.cpp in Sources */,
+				F32F49011DC5CC8600452245 /* CarDrawNode.cpp in Sources */,
 				F35248411D6D9D1A0077C333 /* Entry.cpp in Sources */,
 				F35247E51D6D9D1A0077C333 /* SmashTheRockScene.cpp in Sources */,
 				F35248271D6D9D1A0077C333 /* WordSprite.cpp in Sources */,
@@ -1847,6 +1860,7 @@
 				F3667D511DB4BA6F00EC8908 /* NNAdapt.cpp in Sources */,
 				F35247FD1D6D9D1A0077C333 /* WordManager.cpp in Sources */,
 				F3667D5B1DB4BA7000EC8908 /* Stroke.cpp in Sources */,
+				F32F48FF1DC5CC8600452245 /* CarDraw.cpp in Sources */,
 				F352482D1D6D9D1A0077C333 /* SelectAlphamonScene.cpp in Sources */,
 				F3667D471DB4BA6F00EC8908 /* PointFloatShapeFeature.cpp in Sources */,
 				F3667D691DB4BA7000EC8908 /* LTKInkUtils.cpp in Sources */,
@@ -1901,6 +1915,7 @@
 				F35248001D6D9D1A0077C333 /* Alphabet.cpp in Sources */,
 				F35247F81D6D9D1A0077C333 /* TextGenerator.cpp in Sources */,
 				F35248441D6D9D1A0077C333 /* MO.cpp in Sources */,
+				F32F49001DC5CC8600452245 /* CarDrawNode.cpp in Sources */,
 				F352480A1D6D9D1A0077C333 /* GraphemeGrid.cpp in Sources */,
 				F3667D5E1DB4BA7000EC8908 /* LTKConfigFileReader.cpp in Sources */,
 				F35248541D6D9D1A0077C333 /* MessageReceiver.cpp in Sources */,
@@ -1920,6 +1935,7 @@
 				D4545227156E28EF00887EB5 /* AppDelegate.cpp in Sources */,
 				F3667D321DB4BA6F00EC8908 /* LipiTKResult.cpp in Sources */,
 				9C7B1AC71DAA1BCE00EBD1FE /* Order.cpp in Sources */,
+				F32F48FE1DC5CC8600452245 /* CarDraw.cpp in Sources */,
 				F3667D641DB4BA7000EC8908 /* LTKInkFileReader.cpp in Sources */,
 				F3667D3A1DB4BA6F00EC8908 /* LTKShapeRecoUtil.cpp in Sources */,
 				F3667D341DB4BA6F00EC8908 /* LTKShapeRecoConfig.cpp in Sources */,
