@@ -60,6 +60,10 @@
 		9C064E5F1DB8909B000892E1 /* DecomonGallery.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9C064E5A1DB8905C000892E1 /* DecomonGallery.cpp */; };
 		9C0E13471DBF707E00C10A81 /* WordSceneLipiTKNode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9C0E13461DBF707E00C10A81 /* WordSceneLipiTKNode.cpp */; };
 		9C0E13481DBF707E00C10A81 /* WordSceneLipiTKNode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9C0E13461DBF707E00C10A81 /* WordSceneLipiTKNode.cpp */; };
+		9C6007A71DC1DBB700F9C184 /* CarDraw.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9C6007A31DC1DBB700F9C184 /* CarDraw.cpp */; };
+		9C6007A81DC1DBB700F9C184 /* CarDraw.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9C6007A31DC1DBB700F9C184 /* CarDraw.cpp */; };
+		9C6007A91DC1DBB700F9C184 /* CarDrawNode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9C6007A51DC1DBB700F9C184 /* CarDrawNode.cpp */; };
+		9C6007AA1DC1DBB700F9C184 /* CarDrawNode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9C6007A51DC1DBB700F9C184 /* CarDrawNode.cpp */; };
 		9C7B1AC71DAA1BCE00EBD1FE /* Order.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9C7B1AC51DAA1BCE00EBD1FE /* Order.cpp */; };
 		9C7B1ACA1DAA1BD200EBD1FE /* Order.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9C7B1AC51DAA1BCE00EBD1FE /* Order.cpp */; };
 		9FA3AE461BE9BBCA00FC9645 /* GameController.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9FA3AE451BE9BBCA00FC9645 /* GameController.framework */; };
@@ -502,6 +506,10 @@
 		9C064E5B1DB8905C000892E1 /* DecomonGallery.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DecomonGallery.h; sourceTree = "<group>"; };
 		9C0E13431DBF704400C10A81 /* WordSceneLipiTKNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WordSceneLipiTKNode.h; sourceTree = "<group>"; };
 		9C0E13461DBF707E00C10A81 /* WordSceneLipiTKNode.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = WordSceneLipiTKNode.cpp; sourceTree = "<group>"; };
+		9C6007A31DC1DBB700F9C184 /* CarDraw.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CarDraw.cpp; sourceTree = "<group>"; };
+		9C6007A41DC1DBB700F9C184 /* CarDraw.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CarDraw.h; sourceTree = "<group>"; };
+		9C6007A51DC1DBB700F9C184 /* CarDrawNode.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CarDrawNode.cpp; sourceTree = "<group>"; };
+		9C6007A61DC1DBB700F9C184 /* CarDrawNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CarDrawNode.h; sourceTree = "<group>"; };
 		9C7B1AC51DAA1BCE00EBD1FE /* Order.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Order.cpp; sourceTree = "<group>"; };
 		9C7B1AC61DAA1BCE00EBD1FE /* Order.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Order.h; sourceTree = "<group>"; };
 		9FA3AE451BE9BBCA00FC9645 /* GameController.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameController.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.0.sdk/System/Library/Frameworks/GameController.framework; sourceTree = DEVELOPER_DIR; };
@@ -1173,6 +1181,10 @@
 				9C064E5B1DB8905C000892E1 /* DecomonGallery.h */,
 				F303CC9F1DB20D9000DB6D81 /* Pillar.cpp */,
 				F303CCA01DB20D9000DB6D81 /* Pillar.h */,
+				9C6007A31DC1DBB700F9C184 /* CarDraw.cpp */,
+				9C6007A41DC1DBB700F9C184 /* CarDraw.h */,
+				9C6007A51DC1DBB700F9C184 /* CarDrawNode.cpp */,
+				9C6007A61DC1DBB700F9C184 /* CarDrawNode.h */,
 				9C7B1AC51DAA1BCE00EBD1FE /* Order.cpp */,
 				9C7B1AC61DAA1BCE00EBD1FE /* Order.h */,
 				F3F7ED861DA65FF400727A7C /* BalloonHero.cpp */,
@@ -1768,6 +1780,7 @@
 				F35248191D6D9D1A0077C333 /* ScoreBoardContent.cpp in Sources */,
 				F35247D71D6D9D1A0077C333 /* CrossTheBridgeScene.cpp in Sources */,
 				F35247F71D6D9D1A0077C333 /* SafariAnalyticsManager.cpp in Sources */,
+				9C6007AA1DC1DBB700F9C184 /* CarDrawNode.cpp in Sources */,
 				F35248411D6D9D1A0077C333 /* Entry.cpp in Sources */,
 				F35247E51D6D9D1A0077C333 /* SmashTheRockScene.cpp in Sources */,
 				F35248271D6D9D1A0077C333 /* WordSprite.cpp in Sources */,
@@ -1847,6 +1860,7 @@
 				F3667D511DB4BA6F00EC8908 /* NNAdapt.cpp in Sources */,
 				F35247FD1D6D9D1A0077C333 /* WordManager.cpp in Sources */,
 				F3667D5B1DB4BA7000EC8908 /* Stroke.cpp in Sources */,
+				9C6007A81DC1DBB700F9C184 /* CarDraw.cpp in Sources */,
 				F352482D1D6D9D1A0077C333 /* SelectAlphamonScene.cpp in Sources */,
 				F3667D471DB4BA6F00EC8908 /* PointFloatShapeFeature.cpp in Sources */,
 				F3667D691DB4BA7000EC8908 /* LTKInkUtils.cpp in Sources */,
@@ -1901,6 +1915,7 @@
 				F35248001D6D9D1A0077C333 /* Alphabet.cpp in Sources */,
 				F35247F81D6D9D1A0077C333 /* TextGenerator.cpp in Sources */,
 				F35248441D6D9D1A0077C333 /* MO.cpp in Sources */,
+				9C6007A91DC1DBB700F9C184 /* CarDrawNode.cpp in Sources */,
 				F352480A1D6D9D1A0077C333 /* GraphemeGrid.cpp in Sources */,
 				F3667D5E1DB4BA7000EC8908 /* LTKConfigFileReader.cpp in Sources */,
 				F35248541D6D9D1A0077C333 /* MessageReceiver.cpp in Sources */,
@@ -1920,6 +1935,7 @@
 				D4545227156E28EF00887EB5 /* AppDelegate.cpp in Sources */,
 				F3667D321DB4BA6F00EC8908 /* LipiTKResult.cpp in Sources */,
 				9C7B1AC71DAA1BCE00EBD1FE /* Order.cpp in Sources */,
+				9C6007A71DC1DBB700F9C184 /* CarDraw.cpp in Sources */,
 				F3667D641DB4BA7000EC8908 /* LTKInkFileReader.cpp in Sources */,
 				F3667D3A1DB4BA6F00EC8908 /* LTKShapeRecoUtil.cpp in Sources */,
 				F3667D341DB4BA6F00EC8908 /* LTKShapeRecoConfig.cpp in Sources */,
