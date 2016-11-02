@@ -129,8 +129,8 @@ bool AppDelegate::applicationDidFinishLaunching()
         glview = GLViewImpl::createWithRect("goa", cocos2d::Rect(0, 0, 960, 640));
 //        glview = GLViewImpl::createWithRect("goa", cocos2d::Rect(0, 0, 640, 450));
 #else
-//        glview = GLViewImpl::createWithRect("goa", cocos2d::Rect(0, 0, 640, 450));
-        glview = GLViewImpl::createWithRect("goa", cocos2d::Rect(0, 0, 1280, 900));
+        glview = GLViewImpl::createWithRect("goa", cocos2d::Rect(0, 0, 640, 450));
+//        glview = GLViewImpl::createWithRect("goa", cocos2d::Rect(0, 0, 1280, 900));
 #endif
 
         director->setOpenGLView(glview);

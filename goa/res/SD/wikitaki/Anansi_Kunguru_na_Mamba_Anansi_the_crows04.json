@@ -1,0 +1,176 @@
+{
+  "ID": "c709563d-7f06-427c-b9b8-68c8525cc1be",
+  "Version": "3.10.0.0",
+  "Name": "Anansi_Kunguru_na_Mamba_Anansi_the_crows04",
+  "Content": {
+    "Content": {
+      "Animation": {
+        "Duration": 0,
+        "Speed": 1.0,
+        "Timelines": [],
+        "ctype": "TimelineActionData"
+      },
+      "AnimationList": [],
+      "ObjectData": {
+        "Tag": 41,
+        "Children": [
+          {
+            "ClipAble": false,
+            "ComboBoxIndex": 1,
+            "SingleColor": {
+              "R": 150,
+              "G": 200
+            },
+            "FirstColor": {
+              "R": 150,
+              "G": 200
+            },
+            "EndColor": {},
+            "ColorVector": {
+              "ScaleY": 1.0
+            },
+            "Scale9Width": 1,
+            "Scale9Height": 1,
+            "AnchorPoint": {},
+            "Position": {
+              "X": -272.2043,
+              "Y": -3.856
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": -0.1063,
+              "Y": -0.0021
+            },
+            "PreSize": {
+              "X": 1.2109,
+              "Y": 1.0
+            },
+            "LeftMargin": -272.2043,
+            "RightMargin": -267.7957,
+            "TopMargin": 3.856,
+            "BottomMargin": -3.856,
+            "Tag": 42,
+            "ActionTag": 1457070355,
+            "Size": {
+              "X": 3100.0,
+              "Y": 1800.0
+            },
+            "Name": "Panel_1",
+            "ctype": "PanelObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "ob/tree/kun_tree1.png",
+              "Plist": ""
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1280.4717,
+              "Y": 1027.0366
+            },
+            "Scale": {
+              "ScaleX": 2.9015,
+              "ScaleY": 2.9015
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.5002,
+              "Y": 0.5706
+            },
+            "PreSize": {
+              "X": 0.1891,
+              "Y": 0.2894
+            },
+            "LeftMargin": 1038.4717,
+            "RightMargin": 1037.5283,
+            "TopMargin": 512.4634,
+            "BottomMargin": 766.5366,
+            "Tag": 43,
+            "ActionTag": 1723839232,
+            "Size": {
+              "X": 484.0,
+              "Y": 521.0
+            },
+            "Name": "tree1_1",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "ClipAble": false,
+            "ComboBoxIndex": 1,
+            "SingleColor": {
+              "R": 128,
+              "G": 77,
+              "B": 16
+            },
+            "FirstColor": {
+              "R": 150,
+              "G": 200
+            },
+            "EndColor": {},
+            "ColorVector": {
+              "ScaleY": 1.0
+            },
+            "Scale9Width": 1,
+            "Scale9Height": 1,
+            "AnchorPoint": {},
+            "Position": {
+              "X": -272.2042,
+              "Y": -0.5893
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": -0.1063,
+              "Y": -0.0003
+            },
+            "PreSize": {
+              "X": 1.2109,
+              "Y": 0.1667
+            },
+            "LeftMargin": -272.2042,
+            "RightMargin": -267.7959,
+            "TopMargin": 1500.5894,
+            "BottomMargin": -0.5893,
+            "Tag": 44,
+            "ActionTag": 303095068,
+            "Size": {
+              "X": 3100.0,
+              "Y": 300.0
+            },
+            "Name": "Panel_2",
+            "ctype": "PanelObjectData"
+          }
+        ],
+        "Size": {
+          "X": 2560.0,
+          "Y": 1800.0
+        },
+        "Name": "Scene",
+        "ctype": "SingleNodeObjectData"
+      },
+      "UsedResources": [
+        "ob/tree/kun_tree1.png"
+      ],
+      "ctype": "GameFileData"
+    }
+  },
+  "Type": "Scene"
+}

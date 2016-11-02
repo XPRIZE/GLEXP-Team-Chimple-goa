@@ -23,6 +23,10 @@ xc.GameMap = cc.Scene.extend({
         else if(sender._configuration.name == 'story-teller') {
             xc.CreateStoryScene.load(xc.CreateStoryLayer);
         }
+        else if(sender._configuration.name == 'story-play') {
+            xc.CatalogueScene.load(xc.CatalogueLayer);
+        }
+        
         // else if(sender._configuration.name == 'train') {
         //     xc.GameScene.load(xc.TrainLayer);
         // }else if(sender._configuration.name == 'bubbleShooter') {

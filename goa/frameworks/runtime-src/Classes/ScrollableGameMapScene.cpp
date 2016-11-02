@@ -215,6 +215,10 @@ void ScrollableGameMapScene::gameSelected(Ref* pSender, ui::Widget::TouchEventTy
             {
                 ScriptingCore::getInstance()->runScript("src/start/storytelling.js");
             }
+            else if(clickedButton->getName() == "story-play")
+            {
+                ScriptingCore::getInstance()->runScript("src/start/storyPlay.js");
+            }
             else
             {
                 ScriptingCore::getInstance()->runScript("src/start/menu.js");

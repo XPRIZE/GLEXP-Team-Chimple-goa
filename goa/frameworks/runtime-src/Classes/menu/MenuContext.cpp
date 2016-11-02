@@ -52,7 +52,6 @@
 #include "../mini_games/Decomon.h"
 #include "../mini_games/Order.h"
 #include "../mini_games/Pillar.h"
-#include "../mini_games/CarDraw.h"
 
 USING_NS_CC;
 using namespace cocos2d::ui;
@@ -250,10 +249,7 @@ cocos2d::ClippingNode* MenuContext::createMaskedMenuItem(const std::string norma
     if(!cachedCharacterInformation.empty())
     {
         std::string contents = FileUtils::getInstance()->getStringFromFile("config/characterConfig.json");
-		if (contents.empty()) {
-			return nullptr;
-		}
-		CCLOG("Contents for character %s", contents.c_str());
+
         rapidjson::Document d;
         
         if (false == d.Parse<0>(contents.c_str()).HasParseError()) {
@@ -861,7 +857,6 @@ void MenuContext::launchGameFromJS(std::string gameName) {
     		case 2: Director::getInstance()->replaceScene(Memory::createScene());  break;
     		}
 			
-
 			
     	}
 		else if (gameName == BALLONHERO) {
@@ -869,9 +864,6 @@ void MenuContext::launchGameFromJS(std::string gameName) {
 		}
 		else if (gameName == SORT_IT) {
 			ScriptingCore::getInstance()->runScript("src/start/sortit.js");
-		}
-		else if (gameName == CARDRAW) {
-			Director::getInstance()->replaceScene(CarDraw::createScene());
 		}
     	else{
             CCLOG("Failed starting scene: %s", gameName.c_str());

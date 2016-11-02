@@ -22,10 +22,15 @@ xc.playLayer = cc.Layer.extend( {
    char:null,
    _dir_Flag: true,
   nameLabel : null,
+  helpLayerLetter:0,
+  helpIsFirst: true,
+  bg : null,
+  extraX:0,
     ctor:
     function () {
         this._super();
-        
+        this.helpLayerLetter = 0;
+        this.helpIsFirst = true;
         this.stepRef = [];
         this.size = cc.winSize;
         cc.spriteFrameCache.addSpriteFrames(xc.playLayer.res.jump_plist);
@@ -57,7 +62,7 @@ xc.playLayer = cc.Layer.extend( {
        
         
         
-        var ball1 = this.bg.node.getChildByName("ball_34_0");
+        var ball1 = this.bg.node.getChildByName("ball_34");
         ball1.id = "Ball1";
         this.ballref.push(ball1.getPosition());
         cc.eventManager.addListener(cc.EventListener.create(  
@@ -65,7 +70,7 @@ xc.playLayer = cc.Layer.extend( {
          swallowTouches:true,  
          onTouchBegan: this.onTouchBegan,}) , ball1); 
 
-        var ball2 = this.bg.node.getChildByName("ball_35_0");
+        var ball2 = this.bg.node.getChildByName("ball_35");
         ball2.id = "Ball2";
         this.ballref.push(ball2.getPosition());
         cc.eventManager.addListener(cc.EventListener.create(  
@@ -73,7 +78,7 @@ xc.playLayer = cc.Layer.extend( {
          swallowTouches:true,  
          onTouchBegan: this.onTouchBegan,}) , ball2); 
 
-        var ball3 = this.bg.node.getChildByName("ball_35");
+        var ball3 = this.bg.node.getChildByName("ball_34_0");
         ball3.id = "Ball3";
         this.ballref.push(ball3.getPosition());
         cc.eventManager.addListener(cc.EventListener.create(  
@@ -81,7 +86,7 @@ xc.playLayer = cc.Layer.extend( {
          swallowTouches:true,  
          onTouchBegan: this.onTouchBegan,}) , ball3); 
 
-        var ball4 = this.bg.node.getChildByName("ball_34");
+        var ball4 = this.bg.node.getChildByName("ball_35_0");
         ball4.id = "Ball4";
         this.ballref.push(ball4.getPosition());
         cc.eventManager.addListener(cc.EventListener.create(  
@@ -105,7 +110,7 @@ xc.playLayer = cc.Layer.extend( {
          swallowTouches:true,  
          onTouchBegan: this.onTouchBegan,}) , ball6); 
 
-        var ball7 = this.bg.node.getChildByName("ball_35_0_0");
+        var ball7 = this.bg.node.getChildByName("ball_34_0_0");
         ball7.id = "Ball7";
         this.ballref.push(ball7.getPosition());
         cc.eventManager.addListener(cc.EventListener.create(  
@@ -113,7 +118,7 @@ xc.playLayer = cc.Layer.extend( {
          swallowTouches:true,  
          onTouchBegan: this.onTouchBegan,}) , ball7); 
 
-         var ball8 = this.bg.node.getChildByName("ball_34_0_0");
+         var ball8 = this.bg.node.getChildByName("ball_35_0_0");
         ball8.id = "Ball8";
         this.ballref.push(ball8.getPosition());
         cc.eventManager.addListener(cc.EventListener.create(  
@@ -236,7 +241,7 @@ xc.playLayer = cc.Layer.extend( {
         this.vowels = ['A','E','I','O','U'];
 
        this.createLevel();
-         this.scheduleUpdate();
+       this.scheduleUpdate();
         self=this;
     },
 
@@ -262,6 +267,7 @@ xc.playLayer = cc.Layer.extend( {
       for( var i=0; i<10 ;i++){
       var alpha = cc.LabelTTF.create(group[i], 'Arial', 130);
       this.addChild(alpha);
+      cc.log("group[i]=",group[i]);
       alpha.setPosition(cc.p(this.ballref[i].x + this.extraX,this.ballref[i].y));
       alpha.setAnchorPoint(0.5,0.5);
       alpha.setColor(cc.color(0,0,0));
@@ -278,7 +284,7 @@ xc.playLayer = cc.Layer.extend( {
      this.dict =  xc.WordUtil.getValidCombinations(this.string1.toLowerCase());
      this.allwords = cc.loader.getRes(xc.path + "english/allwords.json");
     // dict = ["abc","dsa","cba","bda","hsf"];
-       
+      
         cc.log("dict=",this.dict);
      },
 
@@ -330,9 +336,47 @@ xc.playLayer = cc.Layer.extend( {
         this.char.node.setPosition(cc.p(this.size.width * 0.06, 780));
         this.addChild(this.char.node,1);
     }  
-
+     this.myGameHelp();
 
   },
+
+    myGameHelp: function() {
+
+if(this._level == 1)
+       {
+           cc.log("hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh");
+          var helpWord = this.dict[0];
+          cc.log("helpWord=",helpWord);
+    if (helpWord.length > this.helpLayerLetter)
+         {
+             cc.log("num=",helpWord[0]);
+             var pos = group.indexOf(helpWord[this.helpLayerLetter].toUpperCase());
+             cc.log("pos=",pos);
+             this.ballref[pos];
+             var helpLayer = new xc.HelpLayer(cc.rect( this.ballref[pos].x+ this.extraX, this.ballref[pos].y,200,200),cc.rect(0,0,0,0));
+             helpLayer.setName("helpLayer");
+             helpLayer.click( this.ballref[pos].x+ this.extraX, this.ballref[pos].y);
+             this.addChild(helpLayer);
+         } else{
+             var tickPos =  this.bg.node.getChildByName("tick_button_31");
+              var helpLayer = new xc.HelpLayer(cc.rect( tickPos.x+ this.extraX,tickPos.y,400,400),cc.rect(0,0,0,0));
+             this.addChild(helpLayer);
+             helpLayer.click(tickPos.x+ this.extraX,tickPos.y);
+             helpLayer.setName("helpLayer1");
+         }
+
+       }
+
+
+
+    },
+
+
+
+
+
+
+
      charMove : function()
      {
 
@@ -577,7 +621,7 @@ this.remove();
            this.nameLabel = null;
         },3);
 
-     if(this.score <= -3 )
+     if(this.score <= -4 )
      {
          if (cc.sys.isNative) {
                 var menuContext = this.getParent().menuContext;
@@ -612,7 +656,7 @@ this.remove();
      incrementScore : function()
   {
          self.correct++;
-    this.score += 2;
+    this.score += 2 ;
  //   menuContext.addPoints(2);
     scoreLabel.setString(""+ this.score);
     if(this.score >= 10)
@@ -627,7 +671,7 @@ this.remove();
   
    decrementScore : function()
    {
-       this.score -= 1;
+       this.score -= 2;
        scoreLabel.setString(""+ this.score);
    },
 
@@ -639,7 +683,8 @@ this.remove();
          var targetSize = target.getContentSize();
          var targetRectangle = cc.rect(0, 0, targetSize.width, targetSize.height);
          if (cc.rectContainsPoint(targetRectangle, location))
-                   {
+         {
+           
                        if(target.id == "Ball1" && self.word.length < 10){ 
                         var letter = new cc.LabelTTF (group[0], 'Arial' , 130);
                         self.addChild(letter,2);
@@ -794,7 +839,8 @@ this.remove();
                         }
                        if(target.id == "Tick"){ 
                        
-                        
+                        self.helpIsFirst = false;
+                        self.removeChildByName("helpLayer1");
                         self.verify(self.word);
                         cc.log("tick");
                           if (self.wordObj.length == 0)
@@ -807,7 +853,12 @@ this.remove();
                          self.help();
                          
                        }   
-                       
+                       if(self._level == 1 && self.helpIsFirst)
+            {
+                self.removeChildByName("helpLayer");
+                self.helpLayerLetter++;
+                self.myGameHelp();
+            } 
                    }
      return false;
     }              
