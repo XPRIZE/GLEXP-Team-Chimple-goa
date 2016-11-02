@@ -157,8 +157,7 @@ LOCAL_SRC_FILES := hellojavascript/main.cpp \
                     ../../Classes/LipiTKInterface.cpp \
                     ../../Classes/LipiTKProcessTask.cpp \
                     ../../Classes/LipiTKResult.cpp \
-                    ../../Classes/Stroke.cpp \
-                    ../../Classes/WordSceneLipiTKNode.cpp		
+                    ../../Classes/Stroke.cpp
 					
 LOCAL_C_INCLUDES := $(LOCAL_PATH)/../../Classes
 LOCAL_C_INCLUDES += $(LOCAL_PATH)/../../../extensions

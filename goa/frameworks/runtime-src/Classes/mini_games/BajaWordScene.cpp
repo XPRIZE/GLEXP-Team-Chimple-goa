@@ -100,6 +100,6 @@ void BajaWordScene::gameOver(bool correct) {
 			fuelPer++;	delay = delay + 0.03;
 			_fuelBar->runAction(sequenceFuel);
 		}
-		this->runAction(Sequence::create(DelayTime::create(delay), CallFunc::create([=]() { Director::getInstance()->replaceScene(Baja::createScene(_menuContext -> getPoints())); }), NULL));
+		this->runAction(Sequence::create(DelayTime::create(delay), CallFunc::create([=]() { Director::getInstance()->replaceScene(Baja::createScene(_menuContext -> getPoints(), _menuContext-> getMaxPoints())); }), NULL));
 	}
 }
