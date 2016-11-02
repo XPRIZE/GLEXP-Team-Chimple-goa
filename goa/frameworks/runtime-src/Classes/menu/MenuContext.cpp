@@ -52,6 +52,8 @@
 #include "../mini_games/Decomon.h"
 #include "../mini_games/Order.h"
 #include "../mini_games/Pillar.h"
+#include "../mini_games/CarDraw.h"
+
 
 USING_NS_CC;
 using namespace cocos2d::ui;
@@ -848,6 +850,10 @@ void MenuContext::launchGameFromJS(std::string gameName) {
     	else if (gameName == PILLAR) {
     		Director::getInstance()->replaceScene(Pillar::createScene());
     	}
+
+		else if (gameName == CARDRAW) {
+			Director::getInstance()->replaceScene(CarDraw::createScene());
+		}
     	else if (gameName == MEMORY) {
     		
 			int numberPicker = RandomHelper::random_int(0, 2);
