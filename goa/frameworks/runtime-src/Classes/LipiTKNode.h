@@ -40,7 +40,7 @@ public:
     
     virtual void clearPrintedCharacters();
     
-    void broadCastRecognizedChars(std::vector<std::string> results);
+    virtual void broadCastRecognizedChars(std::vector<std::string> results);
     
     virtual cocos2d::Sprite* createDrawingBoard();
     
@@ -49,6 +49,8 @@ public:
     virtual void postTouchBegan(cocos2d::Touch * touch, cocos2d::Event * event, cocos2d::Point touchPoint);
     virtual void postTouchMoved(cocos2d::Touch * touch, cocos2d::Event * event, cocos2d::Point touchPoint);
     virtual void postTouchEnded(cocos2d::Touch * touch, cocos2d::Event * event, cocos2d::Point touchPoint);
+
+	virtual std::vector<Stroke*> getStrokes();
 
 protected:
     int _canvasHeight;

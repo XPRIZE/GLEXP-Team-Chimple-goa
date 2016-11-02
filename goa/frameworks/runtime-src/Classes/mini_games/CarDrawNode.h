@@ -13,16 +13,14 @@
 #include "cocos2d.h"
 #include "../menu/MenuContext.h"
 #include "editor-support/cocostudio/CocoStudio.h"
-#include "../WordSceneLipiTKNode.h"
+#include "../LipiTKNode.h"
 
 class CarDraw;
-class carDrawNode : public WordSceneLipiTKNode
+class carDrawNode : public LipiTKNode
 {
 public:
 	carDrawNode();
 	~carDrawNode();
-	virtual bool init();
-	static cocos2d::Scene* createScene();
 	cocos2d::Sprite* createDrawingBoard();
 	static carDrawNode *create(int width, int height, cocos2d::Point position);
 	cocos2d::Layer * carLayer;
@@ -31,7 +29,8 @@ public:
 	virtual void postTouchBegan(cocos2d::Touch * touch, cocos2d::Event * event, cocos2d::Point touchPoint);
 	virtual void postTouchMoved(cocos2d::Touch * touch, cocos2d::Event * event, cocos2d::Point touchPoint);
 	virtual void postTouchEnded(cocos2d::Touch * touch, cocos2d::Event * event, cocos2d::Point touchPoint);
-
+	virtual void broadCastRecognizedChars(std::vector<std::string> results) override;
+	//virtual void broadCastRecognizedChars(std::vector<std::string> results);
 	void setParent(CarDraw* parent);
 protected:
 	MenuContext * menu;
