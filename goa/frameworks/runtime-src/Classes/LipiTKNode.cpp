@@ -266,3 +266,7 @@ void LipiTKNode::broadCastRecognizedChars(std::vector<std::string> results) {
         }
     }
 }
+
+std::vector<Stroke*> LipiTKNode::getStrokes() {
+	return _strokes;
+}
