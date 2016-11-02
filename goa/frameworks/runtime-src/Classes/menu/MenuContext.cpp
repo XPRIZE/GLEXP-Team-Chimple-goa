@@ -53,6 +53,7 @@
 #include "../mini_games/Order.h"
 #include "../mini_games/Pillar.h"
 #include "../mini_games/CarDraw.h"
+#include "../mini_games/BlastLetter.h"
 
 
 USING_NS_CC;
@@ -837,7 +838,10 @@ void MenuContext::launchGameFromJS(std::string gameName) {
     	}
     	else if (gameName == OWL) {
     		Director::getInstance()->replaceScene(Owl::createScene());
-    	}
+		}
+		else if (gameName == BLASTLETTER) {
+			Director::getInstance()->replaceScene(BlastLetter::createScene());
+		}
     	else if (gameName == DASH) {
     		Director::getInstance()->replaceScene(Dash::createScene());
     	}
