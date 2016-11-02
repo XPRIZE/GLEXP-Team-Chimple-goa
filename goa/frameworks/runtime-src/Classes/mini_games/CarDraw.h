@@ -32,6 +32,7 @@ protected:
 	MenuContext * menu;
 	cocos2d::Node* _car;
 	cocos2d::DrawNode * _road;
+	float _prevDegree;
 
 };
 

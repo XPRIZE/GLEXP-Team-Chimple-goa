@@ -65,6 +65,8 @@ void CarDraw::postTouchBegan(cocos2d::Touch * touch, cocos2d::Event * event, coc
 	Point previous = touch->getPreviousLocation();
 	//_road->drawSegment(previous, localPoint, 50, Color4F(1.0f, 1.0f, 1.0f, 1.0f));
 	_car->setPosition(localPoint);
+	auto diff = _car->getPosition() - touch->getLocation();
+	_prevDegree = CC_RADIANS_TO_DEGREES(atan2(diff.x, diff.y));
 
 }
 
@@ -79,9 +81,18 @@ void CarDraw::postTouchMoved(cocos2d::Touch * touch, cocos2d::Event * event, coc
 	localPoint.x += visibleSize.width / 2;
 	localPoint.y += visibleSize.height / 2;
 	Point previous = touch->getPreviousLocation();
+
+	/*float dot = localPoint.x*100 + localPoint.y*100;
+	float det = localPoint.x * 100 - localPoint.y*100;
+	float angle = atan2(det, dot);
+	float degree = angle * 180 / 22.7;
+	_car->setRotation(degree);*/
 	_road->drawSegment(previous, localPoint, 5, Color4F(1.0f, 1.0f, 1.0f, 1.0f));
 	_car->setPosition(localPoint);
-
+	auto diff = _car->getPosition() - touch->getLocation();
+	auto angle = CC_RADIANS_TO_DEGREES(atan2(diff.x, diff.y));
+	_car->setRotation(_car->getRotation() + (angle - _prevDegree));
+	_prevDegree = angle;
 
 }
 
