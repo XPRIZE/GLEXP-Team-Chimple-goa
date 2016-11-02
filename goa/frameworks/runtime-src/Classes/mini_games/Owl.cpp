@@ -262,8 +262,11 @@ std::tuple<int, int,int> Owl::levelAllInfo(int currentLevel, int totalCategory ,
 	
 	int categoryNo = totalCategory;
 
-	if(categoryBase != totalCategory)
-	 categoryNo = categoryBase % totalCategory;
+	if (categoryBase != totalCategory) {
+		categoryNo = categoryBase % totalCategory;
+		if (categoryNo == 0)
+			categoryNo = totalCategory;
+	}
 	
 	if (currentLevel % eachCategoryGroup == 0)
 		categoryNo = (categoryBase-1) % totalCategory + 1;

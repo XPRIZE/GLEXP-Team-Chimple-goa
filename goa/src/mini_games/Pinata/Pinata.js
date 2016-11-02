@@ -25,7 +25,7 @@ xc.Pinata = cc.Layer.extend({
     this.shootingFlag = false;
     this.flagSingleTouchFirst = true;
     var currentLevelValue = menuContext.getCurrentLevel();
-    menuContext.setMaxPoints(3);
+    menuContext.setMaxPoints(2);
     var info = this.levelAllInfo(currentLevelValue,3,5,3,10);
     console.log("the pinata category value is : " +     info.category);
     console.log("the pinata scene value is : " +     info.scene);
@@ -260,7 +260,7 @@ xc.Pinata = cc.Layer.extend({
                         if(!targetB.dead){classReference.runAnimations(ccs.load(path,xc.path),targetB.x,targetB.y,path); classReference.gameBg.node.removeChild(targetB);}
                         classReference.gamePlay(targetA);
                     }
-                    menuContext.addPoints(3);
+                    menuContext.addPoints(2);
                 }else{
                     console.log("its wrong answer");
                 
@@ -409,13 +409,16 @@ xc.Pinata = cc.Layer.extend({
         var categoryBase = Math.ceil(currentLevel / eachCategoryGroup);
 
         var categoryNo = totalCategory;
-
-        if(categoryBase != totalCategory)
+        
+        if(categoryBase != totalCategory){
            categoryNo = categoryBase % totalCategory;
-
-        if (currentLevel % eachCategoryGroup == 0)
+           if(categoryNo == 0)
+                categoryNo = totalCategory;
+        }
+        
+        if (currentLevel % eachCategoryGroup == 0){
             categoryNo = (categoryBase-1) % totalCategory + 1;
-
+        }
         var sceneBase = Math.ceil(currentLevel / SceneChangeAfterLevel);
         var sceneNo = sceneBase % totalSceneTheme;
 
