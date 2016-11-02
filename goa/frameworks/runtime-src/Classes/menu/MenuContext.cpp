@@ -782,7 +782,7 @@ void MenuContext::launchGameFromJS(std::string gameName) {
         } else if(gameName == ENDLESS_RUNNER) {
             Director::getInstance()->replaceScene(EndlessRunner::createScene());
         } else if(gameName == KUNG_FU_ALPHA) {
-            Director::getInstance()->replaceScene(Trace::createScene(0));
+            Director::getInstance()->replaceScene(Trace::createScene());
         } else if(gameName == ALPHAMON_FEED) {
             Director::getInstance()->replaceScene(AlphamonFeed::createScene());
         } else if(gameName == BAJA) {
