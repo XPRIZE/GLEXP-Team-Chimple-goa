@@ -39,6 +39,7 @@ void TreasureHunt::onEnterTransitionDidFinish() {
 
 	TreasureHuntNode* TreasureHuntNodeObj;
 
+	auto coord = getAllGridCoord(2, 2);
 
 	for (size_t coordIndex = 0; coordIndex < coord.size(); coordIndex++) {
 		TreasureHuntNodeObj = TreasureHuntNode::create(500, 500, Vec2(coord.at(coordIndex).second, coord.at(coordIndex).first));
