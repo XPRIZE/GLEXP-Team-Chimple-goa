@@ -27,18 +27,27 @@ xc.NarrateStoryLayer = cc.Layer.extend({
         var context = this;
         var listener = cc.EventListener.create({
             event: cc.EventListener.TOUCH_ONE_BY_ONE,
-            swallowTouches: false,
+            swallowTouches: true,
             onTouchBegan: function (touch, event) {
                 var target = event.getCurrentTarget();
                 var boundingBox = target.getBoundingBoxToWorld();
+                
                 var location = target.convertToNodeSpace(touch.getLocation());
+
+                // var wordCheckRect = cc.rect(boundingBox.x, boundingBox.y, boundingBox.width/2, boundingBox.height/2);
+                // if(cc.rectContainsPoint(wordCheckRect, touch.getLocation())) {
+                //     cc.log("touched:" + target.getName());
+                // }              
+                
                 if (cc.rectContainsPoint(boundingBox, touch.getLocation())) {
                     context[funcName](target, loop);
+                    cc.log("touched:" + target.getName());
                     if(target.draggingEnabled) {
                         target.actionManager.resumeTarget(target);
+                        return true;
                     }
-                }                
-                return true;
+                } 
+                return false;
             },
 
             onTouchMoved: function (touch, event) {
@@ -71,17 +80,25 @@ xc.NarrateStoryLayer = cc.Layer.extend({
         var context = this;
         var listener = cc.EventListener.create({
             event: cc.EventListener.TOUCH_ONE_BY_ONE,
-            swallowTouches: false,
+            swallowTouches: true,
             onTouchBegan: function (touch, event) {
                 var target = event.getCurrentTarget();
                 var location = target.convertToNodeSpace(touch.getLocation());
                   if(target.getChildren() != null && target.getChildren().length > 0)
                   {
+
                         var targetRectangle = target.getChildren()[0].getBoundingBox();
+
+                        // var wordCheckRect = cc.rect(targetRectangle.x, targetRectangle.y, targetRectangle.width/2, targetRectangle.height/2);
+                        // if(cc.rectContainsPoint(wordCheckRect, location)) {
+                        //     cc.log("touched:" + target.getName());
+                        // }                        
+                        
                         if (cc.rectContainsPoint(targetRectangle, location)) {
                             context[funcName](target, loop);
+                            cc.log("touched:" + target.getName());
+                            return true;
                         }
-                        return true;
                   }
                 return false;
             },
@@ -97,17 +114,26 @@ xc.NarrateStoryLayer = cc.Layer.extend({
         var context = this;
         var listener = cc.EventListener.create({
             event: cc.EventListener.TOUCH_ONE_BY_ONE,
-            swallowTouches: false,
+            swallowTouches: true,
             onTouchBegan: function (touch, event) {
                 var target = event.getCurrentTarget();
                 var location = target.convertToNodeSpace(touch.getLocation());
                 var targetSize = target.getContentSize();
                 var targetRectangle = cc.rect(0, 0, targetSize.width, targetSize.
                     height);
+
+                // var wordCheckRect = cc.rect(targetRectangle.x, targetRectangle.y, targetRectangle.width/2, targetRectangle.height/2);
+                // if(cc.rectContainsPoint(wordCheckRect, location)) {
+                //     cc.log("touched:" + target.getName());
+                // }                
+                    
                 if (cc.rectContainsPoint(targetRectangle, location)) {
                     context[funcName](target, loop);
+                    cc.log("touched:" + target.getName());
+                    return true;
                 }
-                return true;
+
+                return false;
             },
 
             onTouchMoved: function (touch, event) {
@@ -131,6 +157,7 @@ xc.NarrateStoryLayer = cc.Layer.extend({
         cc.eventManager.addListener(listener, target);
     },
 
+
     init: function () {
         var contentUrl = this._storyInformation["pages"][this._pageIndex]["contentJson"];
         this._constructedScene = ccs.load(xc.path + contentUrl, xc.path + "wikitaki/");
@@ -142,28 +169,12 @@ xc.NarrateStoryLayer = cc.Layer.extend({
             this.addChild(this._constructedScene.node,0);
         }        
 
-        
-        // var fireNode = ccs.load(xc.path+"wikitaki/fire.json", xc.path);
-        // var fireSprite = this._constructedScene.node.getChildByName("fire");
-        // var sp1 = fireSprite.getChildByName("Sprite_1");
-        // if(fireSprite) {
-        //     sp1.runAction(fireNode.action);
-        //     fireSprite.runAction(fireNode.action);
-        //     fireNode.action.gotoFrameAndPlay(0, true);
-        // }
-
         this._playButton = new cc.Sprite(xc.NarrateStoryLayer.res.play_png);
         this._playButton.setPosition(cc.director.getWinSize().width / 2, cc.director.getWinSize().height / 2);
         this.addChild(this._playButton);        
         this.bindTouchListener(this._playButton, "sceneTouched", false, 2);
 
         this.setUpScene();
-
-
-
-        // this._pageConfigPanel = new xc.BaseConfigPanel(this._configPanelWidth, this._configPanelHeight, cc.p(150, 0), xc.storyPlayConfigurationObject.editDefault, this._contentPanel);
-        // this.addChild(this._pageConfigPanel);
-        // this._pageConfigPanel.setVisible(false);
 
 
         this._leftButtonPanel = new xc.ButtonPanel(new cc.p(150, 0), cc.size(this._configPanelWidth, this._contentPanelHeight), 1, 1, xc.onlyStoryNarrateConfigurationObject.prevDefault, new xc.ButtonHandler(this.previousStory, this, false));        
@@ -180,50 +191,99 @@ xc.NarrateStoryLayer = cc.Layer.extend({
         this._rightButtonPanel.setVisible(false);
     },
 
+    bindEventsToTarget:function(child) {
+        if(child && child.getComponent("ComExtensionData") != undefined && 
+                child.getComponent("ComExtensionData").getCustomProperty() != undefined
+                && child.getComponent("ComExtensionData").getCustomProperty()) 
+        {
+            var events = child.getComponent("ComExtensionData").getCustomProperty().split(';');
+            var isMultipleEvents = events && events.length > 1;
+
+            if(isMultipleEvents) {
+                child.cEvents = [];                            
+            }
+            events.forEach(function(event){
+                if(event.trim() == 'drag') {
+                    child.draggingEnabled = true;
+                } else {                                
+                    if(child instanceof ccs.SkeletonNode) {
+                        child.cEvent = event;
+                    } else {
+                        if(isMultipleEvents) {
+                            child.cEvents.push(event);
+                            child.isMultipleEvents = true;
+                        }  else {
+                            child.cEvent = event;
+                            child.isMultipleEvents = false;                                               
+                        }                                     
+                    }                                
+                }
+            });                     
+        }
+    },
 
     processScene: function(node) {
         cc.log('processing node' + node);
+
         var that = this;
-        node.getChildren().forEach(function(child){
-            if(child && child.getComponent("ComExtensionData") != undefined && 
-                child.getComponent("ComExtensionData").getCustomProperty() != undefined) 
-                {
-                    if(child.getComponent("ComExtensionData").getCustomProperty()) {
-                        var events = child.getComponent("ComExtensionData").getCustomProperty().split(';');
-                        var isMultipleEvents = events && events.length > 1;
-                        if(isMultipleEvents) {
-                            child.cEvents = [];                            
-                        }
-                        events.forEach(function(event){
-                            if(event.trim() == 'drag') {
-                                child.draggingEnabled = true;
-                            } else {                                
-                                if(child instanceof ccs.SkeletonNode) {
-                                    child.cEvent = event;
-                                    that.bindTouchListenerToSkeleton(child, "playAnimiation", false);    
-                                } else {
-                                    if(isMultipleEvents) {
-                                        child.cEvents.push(event);
-                                        child.isMultipleEvents = true;
-                                    }  else {
-                                        child.cEvent = event;
-                                        child.isMultipleEvents = false;                                               
-                                    }                                     
-                                    
-                                    if(child.getChildren() != null && child.getChildren().length == 1) {
-                                        that.bindTouchListenerToSubChild(child, "playAnimationOnChild", false);                                        
-                                    } else {
-                                        that.bindTouchListener(child, "playAnimiation", false);
-                                    }
-                                    
-                                }
-                                
-                            }
-                        });
-                        
-                    }
+
+        node.getChildren().forEach(function(child)
+        {      
+            if(child instanceof ccs.SkeletonNode) {
+                that.bindEventsToTarget(child);
+                that.bindTouchListenerToSkeleton(child, "playAnimiation", false);    
+            } else {
+                if(!child.getName().startsWith("Panel")) {
+                    if(child.getChildren() != null && child.getChildren().length > 1) {
+                        that.bindEventsToTarget(child);
+                        that.bindTouchListenerToSubChild(child, "playAnimationOnChild", false);                                        
+                    } else {
+                        that.bindEventsToTarget(child);
+                        that.bindTouchListener(child, "playAnimiation", false);
+                    }                                    
                 }
-        });
+            }
+        }); 
+
+        // node.getChildren().forEach(function(child){            
+        //     if(child && child.getComponent("ComExtensionData") != undefined && 
+        //         child.getComponent("ComExtensionData").getCustomProperty() != undefined) 
+        //         {
+        //             if(child.getComponent("ComExtensionData").getCustomProperty()) {
+        //                 var events = child.getComponent("ComExtensionData").getCustomProperty().split(';');
+        //                 var isMultipleEvents = events && events.length > 1;
+        //                 if(isMultipleEvents) {
+        //                     child.cEvents = [];                            
+        //                 }
+        //                 events.forEach(function(event){
+        //                     if(event.trim() == 'drag') {
+        //                         child.draggingEnabled = true;
+        //                     } else {                                
+        //                         if(child instanceof ccs.SkeletonNode) {
+        //                             child.cEvent = event;
+        //                             that.bindTouchListenerToSkeleton(child, "playAnimiation", false);    
+        //                         } else {
+        //                             if(isMultipleEvents) {
+        //                                 child.cEvents.push(event);
+        //                                 child.isMultipleEvents = true;
+        //                             }  else {
+        //                                 child.cEvent = event;
+        //                                 child.isMultipleEvents = false;                                               
+        //                             }                                     
+                                    
+        //                             if(child.getChildren() != null && child.getChildren().length == 1) {
+        //                                 that.bindTouchListenerToSubChild(child, "playAnimationOnChild", false);                                        
+        //                             } else {
+        //                                 that.bindTouchListener(child, "playAnimiation", false);
+        //                             }
+                                    
+        //                         }
+                                
+        //                     }
+        //                 });                        
+        //             }
+        //         }
+        // });
     },
 
     playAnimiation: function(target, loop) {
@@ -233,8 +293,8 @@ xc.NarrateStoryLayer = cc.Layer.extend({
             cc.log("playAnimiation" + target.cEvents[target.currentAnimIndex]);
             var currentAnim = target.cEvents[target.currentAnimIndex];
             this._constructedScene.action.play(currentAnim, loop);
-            target.currentAnimIndex = (target.currentAnimIndex + 1)  % target.cEvents.length; 
-        } else {
+            target.currentAnimIndex = (target.currentAnimIndex + 1)  % target.cEvents.length;
+        } else if(target.cEvent) {
             cc.log("playAnimiation" + target.cEvent);
             this._constructedScene.action.play(target.cEvent, loop);
         }
@@ -248,7 +308,7 @@ xc.NarrateStoryLayer = cc.Layer.extend({
                 cc.log("playAnimationOnChild" + target.cEvents[target.currentAnimIndex]);
                 action.play(target.cEvents[target.currentAnimIndex], false);
                 target.currentAnimIndex = (target.currentAnimIndex + 1)  % target.cEvents.length; 
-            } else {
+            } else if(target.cEvent) {
                 action.play(target.cEvent, false);
             }
         }
@@ -271,9 +331,10 @@ xc.NarrateStoryLayer = cc.Layer.extend({
         var eventData = event.getEvent();
         var page = this._referenceToContext._storyInformation["pages"][this._referenceToContext._pageIndex];
         if(page) {
-            var soundFile = page[eventData];
+            //var soundFile = page[eventData];
+            var soundFile = eventData;
             if(soundFile != undefined) {
-                var soundFile = xc.path + "wikitaki/misc/" + langDir + "/" + "sounds/" + soundFile;
+                var soundFile = xc.path + "wikitaki/misc/" + langDir + "/" + "sounds/" + soundFile + ".mp3";
                 cc.loader.load(soundFile, function(err, data) {
                     if(!err) {
                         cc.audioEngine.playMusic(soundFile, false);
@@ -393,17 +454,30 @@ xc.NarrateStoryScene.load = function(pageIndex, storyInformation, layer, enableT
          xc.pageIndex = pageIndex;
 
         var storyContents = storyInformation["pages"];
+        var storyResources = storyInformation["resources"];
+
         if(storyContents != null && pageIndex < storyContents.length) {
            
             var page = storyContents[pageIndex];
             if(page) {
-                var contentUrl = page["contentJson"];
+                    var contentUrl = page["contentJson"];
+                    
+                    if(contentUrl) {
+                        t_resources.push(xc.path + contentUrl);
+                    }
+                    if(storyResources != undefined) {
+                        storyResources.forEach(function(e) {
+                            t_resources.push(xc.path + e);
+                        });
+                    }
+
+                    
                     for (var i in layer.res) {
                         cc.log('preloading:' + layer.res[i]);
                         t_resources.push(layer.res[i]);
                     }
 
-                    t_resources.push(xc.path + contentUrl);
+                    
                     cc.LoaderScene.preload(t_resources, function () {
 
                         //config data
