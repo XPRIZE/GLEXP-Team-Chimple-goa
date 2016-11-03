@@ -52,6 +52,16 @@ public:
 
 	virtual std::vector<Stroke*> getStrokes();
 
+
+	// canvas, drawBoard and painting node
+	cocos2d::RenderTexture* _canvas;
+	cocos2d::Sprite* _drawingBoard;
+	cocos2d::DrawNode* _paintingNode;
+
+	std::vector<Stroke*> _strokes;
+	Stroke* _currentStroke;
+
+
 protected:
     int _canvasHeight;
     int _canvasWidth;
@@ -60,13 +70,7 @@ protected:
 private:
     bool _isTouchEndedOrMovedOut;
 
-    // canvas, drawBoard and painting node
-    cocos2d::RenderTexture* _canvas;
-    cocos2d::Sprite* _drawingBoard;
-    cocos2d::DrawNode* _paintingNode;
     
-    std::vector<Stroke*> _strokes;
-    Stroke* _currentStroke;
     LipiTKProcessTask* lipiProcessTask;
     LipiTKInterface* _lipiTKInterface;
     
