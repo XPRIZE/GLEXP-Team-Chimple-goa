@@ -14,14 +14,16 @@ class BlastLetter : public cocos2d::Layer
 
 protected:
 	MenuContext *_menuContext;
+	std::vector<std::string> _result;
+
 public:
 	~BlastLetter();
 	static cocos2d::Scene* createScene();
 	virtual bool init();
 	static BlastLetter* create();
-
+	bool checkRecognizeLetter();
 	void onEnterTransitionDidFinish();
-
+	std::vector<std::pair<int, int>> getAllGridCoord(int row , int column);
 	void update(float) override;
 	static const char* gameName() { return BLASTLETTER.c_str(); }
 };
