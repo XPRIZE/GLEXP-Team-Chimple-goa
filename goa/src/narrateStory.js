@@ -34,13 +34,14 @@ xc.NarrateStoryLayer = cc.Layer.extend({
                 
                 var location = target.convertToNodeSpace(touch.getLocation());
 
-                var wordCheckRect = cc.rect(boundingBox.x, boundingBox.y, boundingBox.width/2, boundingBox.height/2);
-                if(cc.rectContainsPoint(wordCheckRect, touch.getLocation())) {
-                    cc.log("touched:" + target.getName());
-                }              
+                // var wordCheckRect = cc.rect(boundingBox.x, boundingBox.y, boundingBox.width/2, boundingBox.height/2);
+                // if(cc.rectContainsPoint(wordCheckRect, touch.getLocation())) {
+                //     cc.log("touched:" + target.getName());
+                // }              
                 
                 if (cc.rectContainsPoint(boundingBox, touch.getLocation())) {
                     context[funcName](target, loop);
+                    cc.log("touched:" + target.getName());
                     if(target.draggingEnabled) {
                         target.actionManager.resumeTarget(target);
                         return true;
@@ -88,13 +89,14 @@ xc.NarrateStoryLayer = cc.Layer.extend({
 
                         var targetRectangle = target.getChildren()[0].getBoundingBox();
 
-                        var wordCheckRect = cc.rect(targetRectangle.x, targetRectangle.y, targetRectangle.width/2, targetRectangle.height/2);
-                        if(cc.rectContainsPoint(wordCheckRect, location)) {
-                            cc.log("touched:" + target.getName());
-                        }                        
+                        // var wordCheckRect = cc.rect(targetRectangle.x, targetRectangle.y, targetRectangle.width/2, targetRectangle.height/2);
+                        // if(cc.rectContainsPoint(wordCheckRect, location)) {
+                        //     cc.log("touched:" + target.getName());
+                        // }                        
                         
                         if (cc.rectContainsPoint(targetRectangle, location)) {
                             context[funcName](target, loop);
+                            cc.log("touched:" + target.getName());
                             return true;
                         }
                   }
@@ -120,13 +122,14 @@ xc.NarrateStoryLayer = cc.Layer.extend({
                 var targetRectangle = cc.rect(0, 0, targetSize.width, targetSize.
                     height);
 
-                var wordCheckRect = cc.rect(targetRectangle.x, targetRectangle.y, targetRectangle.width/2, targetRectangle.height/2);
-                if(cc.rectContainsPoint(wordCheckRect, location)) {
-                    cc.log("touched:" + target.getName());
-                }                
+                // var wordCheckRect = cc.rect(targetRectangle.x, targetRectangle.y, targetRectangle.width/2, targetRectangle.height/2);
+                // if(cc.rectContainsPoint(wordCheckRect, location)) {
+                //     cc.log("touched:" + target.getName());
+                // }                
                     
                 if (cc.rectContainsPoint(targetRectangle, location)) {
                     context[funcName](target, loop);
+                    cc.log("touched:" + target.getName());
                     return true;
                 }
 
@@ -154,26 +157,6 @@ xc.NarrateStoryLayer = cc.Layer.extend({
         cc.eventManager.addListener(listener, target);
     },
 
-    sceneTouchListener: function(target) {
-        var context = this;
-        var listener = cc.EventListener.create({
-            event: cc.EventListener.TOUCH_ONE_BY_ONE,
-            swallowTouches: false,
-            onTouchBegan: function (touch, event) {
-                var target = event.getCurrentTarget();
-                var location = target.convertToNodeSpace(touch.getLocation());
-                var targetSize = target.getContentSize();
-                var targetRectangle = cc.rect(0, 0, targetSize.width, targetSize.
-                    height);
-                if (cc.rectContainsPoint(targetRectangle, location)) {
-                    //context[funcName](target, loop);
-                    cc.log('11111');
-                }
-                return true;
-            }        
-        });
-        cc.eventManager.addListener(listener, target);
-    },
 
     init: function () {
         var contentUrl = this._storyInformation["pages"][this._pageIndex]["contentJson"];
@@ -351,7 +334,7 @@ xc.NarrateStoryLayer = cc.Layer.extend({
             //var soundFile = page[eventData];
             var soundFile = eventData;
             if(soundFile != undefined) {
-                var soundFile = xc.path + "wikitaki/misc/" + langDir + "/" + "sounds/" + soundFile;
+                var soundFile = xc.path + "wikitaki/misc/" + langDir + "/" + "sounds/" + soundFile + ".mp3";
                 cc.loader.load(soundFile, function(err, data) {
                     if(!err) {
                         cc.audioEngine.playMusic(soundFile, false);
