@@ -41,6 +41,7 @@
 #include "mini_games/Decomon.h"
 #include "mini_games/Order.h"
 #include "mini_games/Pillar.h"
+#include "mini_games/BlastLetter.h"
 
 #include "storage/local-storage/LocalStorage.h"
 #include "external/json/document.h"
@@ -83,7 +84,8 @@ const std::vector<std::string> StartMenu::getGameNames() {
 
 	gameNames.push_back(DECOMON);
 	gameNames.push_back(PILLAR);
-	gameNames.push_back(OWL);
+	gameNames.push_back(OWL); 
+	gameNames.push_back(BLASTLETTER);
 	gameNames.push_back(PINATA);
 	gameNames.push_back(ORDER);
 	gameNames.push_back(BALLONHERO);
