@@ -126,8 +126,8 @@ bool AppDelegate::applicationDidFinishLaunching()
     auto glview = director->getOpenGLView();
     if(!glview) {
 #if (CC_TARGET_PLATFORM == CC_PLATFORM_WIN32) || (CC_TARGET_PLATFORM == CC_PLATFORM_MAC) || (CC_TARGET_PLATFORM == CC_PLATFORM_LINUX)
-        glview = GLViewImpl::createWithRect("goa", cocos2d::Rect(0, 0, 960, 640));
-//        glview = GLViewImpl::createWithRect("goa", cocos2d::Rect(0, 0, 640, 450));
+//        glview = GLViewImpl::createWithRect("goa", cocos2d::Rect(0, 0, 960, 640));
+        glview = GLViewImpl::createWithRect("goa", cocos2d::Rect(0, 0, 640, 450));
 #else
         glview = GLViewImpl::createWithRect("goa", cocos2d::Rect(0, 0, 640, 450));
 //        glview = GLViewImpl::createWithRect("goa", cocos2d::Rect(0, 0, 1280, 900));

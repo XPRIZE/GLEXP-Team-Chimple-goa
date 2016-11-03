@@ -7,7 +7,7 @@
       "Animation": {
         "Duration": 20,
         "Speed": 1.0,
-        "ActivedAnimationName": "firing",
+        "ActivedAnimationName": "fire",
         "Timelines": [
           {
             "ActionTag": 1468062345,
@@ -15,9 +15,9 @@
             "Frames": [
               {
                 "TextureFile": {
-                  "Type": "Normal",
-                  "Path": "ob/other/bonfire1.png",
-                  "Plist": ""
+                  "Type": "MarkedSubImage",
+                  "Path": "Anansi_Kunguru_na_Mamba_Anansi_the_crows/bonfire1.png",
+                  "Plist": "Anansi_Kunguru_na_Mamba_Anansi_the_crows/Anansi_Kunguru_na_Mamba_Anansi_the_crows.plist"
                 },
                 "FrameIndex": 0,
                 "Tween": false,
@@ -25,9 +25,9 @@
               },
               {
                 "TextureFile": {
-                  "Type": "Normal",
-                  "Path": "ob/other/bonfire2.png",
-                  "Plist": ""
+                  "Type": "MarkedSubImage",
+                  "Path": "Anansi_Kunguru_na_Mamba_Anansi_the_crows/bonfire2.png",
+                  "Plist": "Anansi_Kunguru_na_Mamba_Anansi_the_crows/Anansi_Kunguru_na_Mamba_Anansi_the_crows.plist"
                 },
                 "FrameIndex": 10,
                 "Tween": false,
@@ -35,9 +35,9 @@
               },
               {
                 "TextureFile": {
-                  "Type": "Normal",
-                  "Path": "ob/other/bonfire3.png",
-                  "Plist": ""
+                  "Type": "MarkedSubImage",
+                  "Path": "Anansi_Kunguru_na_Mamba_Anansi_the_crows/bonfire3.png",
+                  "Plist": "Anansi_Kunguru_na_Mamba_Anansi_the_crows/Anansi_Kunguru_na_Mamba_Anansi_the_crows.plist"
                 },
                 "FrameIndex": 20,
                 "Tween": false,
@@ -53,7 +53,7 @@
         {
           "StartIndex": 0,
           "EndIndex": 20,
-          "Name": "firing",
+          "Name": "fire",
           "ctype": "AnimationInfoData"
         }
       ],
@@ -62,9 +62,9 @@
         "Children": [
           {
             "FileData": {
-              "Type": "Normal",
-              "Path": "ob/other/bonfire2.png",
-              "Plist": ""
+              "Type": "MarkedSubImage",
+              "Path": "Anansi_Kunguru_na_Mamba_Anansi_the_crows/bonfire1.png",
+              "Plist": "Anansi_Kunguru_na_Mamba_Anansi_the_crows/Anansi_Kunguru_na_Mamba_Anansi_the_crows.plist"
             },
             "BlendFunc": {
               "Src": 1,
@@ -114,9 +114,8 @@
         "ctype": "SingleNodeObjectData"
       },
       "UsedResources": [
-        "ob/other/bonfire1.png",
-        "ob/other/bonfire2.png",
-        "ob/other/bonfire3.png"
+        "Anansi_Kunguru_na_Mamba_Anansi_the_crows.plist",
+        "Anansi_Kunguru_na_Mamba_Anansi_the_crows.png"
       ],
       "ctype": "GameFileData"
     }

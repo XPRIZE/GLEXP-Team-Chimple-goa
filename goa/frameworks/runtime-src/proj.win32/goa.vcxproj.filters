@@ -520,6 +520,9 @@
     <ClCompile Include="..\Classes\mini_games\BlastLetter.cpp">
       <Filter>Classes\mini_games</Filter>
     </ClCompile>
+    <ClCompile Include="..\Classes\mini_games\BlastLetterNode.cpp">
+      <Filter>Classes\mini_games</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -1043,6 +1046,9 @@
       <Filter>Classes\mini_games</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\mini_games\BlastLetter.h">
+      <Filter>Classes\mini_games</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\mini_games\BlastLetterNode.h">
       <Filter>Classes\mini_games</Filter>
     </ClInclude>
   </ItemGroup>
