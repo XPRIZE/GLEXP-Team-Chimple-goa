@@ -488,8 +488,24 @@
     "menuPlist": "memorylevel/memorylevel.plist",
     "menuPng": "memorylevel/memorylevel.png"
   },
-   {
+  {
     "name": "balloon",
+    "cIcon": "gameicons/balloon_pressed.png",
+    "icon": "gameicons/balloon.png",
+    "multiPlayer": false,
+    "isJSGame": false,
+    "script": "src/NonJSGameLauncher.js",
+    "span": "9",
+    "numLevels": "72",
+    "backgroundJson": "balloonhero/bllevelbg.json",
+    "foregroundJson": "balloonhero/bllevelfrg.json",
+    "frontgroundJson": "balloonhero/bllevelfng.json",
+    "maingroundJson": "balloonhero/bllevelmng.json",
+    "menuPlist": "plevelscreen/plevelscreen.plist",
+    "menuPng": "plevelscreen/plevelscreen.png"
+  },
+   {
+    "name": "TreasureHunt",
     "cIcon": "gameicons/balloon_pressed.png",
     "icon": "gameicons/balloon.png",
     "multiPlayer": false,
