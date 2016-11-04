@@ -31,6 +31,7 @@ public:
 	virtual void characterRecogination(std::vector<string> str);
 	
 protected:
+	string _myChar;
 	MenuContext * menu;
 	cocos2d::Node* _car;
 	cocos2d::DrawNode * _road;
@@ -42,6 +43,7 @@ protected:
 	Stroke* _carCurrentStroke;
 	void clearScreen(float ft);
 	void gameStart();
+	void onEnterTransitionDidFinish();
 };
 
 #endif 
