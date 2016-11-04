@@ -114,7 +114,7 @@ void CarDraw::postTouchEnded(cocos2d::Touch * touch, cocos2d::Event * event, coc
 void CarDraw::characterRecogination(std::vector<string> str)
 {
 	bool flage = false;
-	if (str.at(0).compare("A") == 0 || str.at(1).compare("A") == 0) {
+	if (str.at(0).compare(_myChar) == 0 || str.at(1).compare(_myChar) == 0) {
 		flage = true;
 	}
 	if (flage) {
@@ -123,6 +123,7 @@ void CarDraw::characterRecogination(std::vector<string> str)
 		CCLOG("right");
 	}
 	else {
+		this->unschedule(schedule_selector(CarDraw::clearScreen));
 		this->scheduleOnce(schedule_selector(CarDraw::clearScreen), 4);
 	}
 }
@@ -141,13 +142,13 @@ bool CarDraw::init()
 	Vec2 origin = Director::getInstance()->getVisibleOrigin();
 	auto bg = CSLoader::createNode("cardraw/cardraw.csb");
 	this->addChild(bg);
-
+	CCLOG("?????????????????game Start???????????????????");
 	_car = bg->getChildByName("car_1");
 	_carDrawNodeLiPi = carDrawNode::create(visibleSize.width, visibleSize.height, Vec2(visibleSize.width / 2, visibleSize.height / 2));
 	_carDrawNodeLiPi->setOpacity(50);
 	_carDrawNodeLiPi->setParent(this);
 	this->addChild(_carDrawNodeLiPi);
-
+	CCLOG("//////////////////////LIPI//////////////////");
 	_road = DrawNode::create();
 	_road->setName("roadNode");
 	this->addChild(_road);
@@ -155,7 +156,7 @@ bool CarDraw::init()
 	_car = Sprite::createWithSpriteFrameName("cardraw/car.png");
 	_car->setPosition(Vec2(200, 200));
 	this->addChild(_car);
-	gameStart();
+	
 	return true;
 }
 
@@ -165,6 +166,7 @@ void CarDraw::carMoving()
 	auto car = Sprite::createWithSpriteFrameName("cardraw/car.png");
 	car->setRotation(_prevDegree);
 	this->addChild(car);
+	car->setScale(0.5);
 	Vector< FiniteTimeAction * > fta;
 	Vector< FiniteTimeAction * > rotateAction;
 	for (int i = 0; i < _carStrokes.size(); i++) {
@@ -191,7 +193,8 @@ void CarDraw::carMoving()
 					_carPreviousAngle = angle;
 					avgAngle += angle;
 				}
-				auto rotateAction1 = RotateTo::create(0.05f, avgAngle/10);
+				int angleee = ((avgAngle / 10) + _carPreviousAngle) / 2;
+				auto rotateAction1 = RotateTo::create(0.05f, angleee);
 				rotateAction.pushBack(rotateAction1);
 				rotateAction.pushBack(DelayTime::create(0.5));
 			}
@@ -204,6 +207,13 @@ void CarDraw::carMoving()
 			}
 		}
 	}
+	auto showScore = CallFunc::create([=]() {
+		menu->showScore();
+		 });
+
+	fta.pushBack(showScore);
+
+
 	auto seq = Sequence::create(fta);
 	car->runAction(seq);
 	auto seq1 = Sequence::create(rotateAction);
@@ -216,12 +226,14 @@ void CarDraw::clearScreen(float ft)
 	//CC_CALLBACK_2()
 	_carStrokes.clear();
 	_carDrawNodeLiPi->clearDrawing(nullptr, cocos2d::ui::Widget::TouchEventType::ENDED);
+	gameStart();
 }
 
 void CarDraw::gameStart()
 {
 	Size visibleSize = Director::getInstance()->getVisibleSize();
-	auto myLabel = Label::createWithBMFont(LangUtil::getInstance()->getBMFontFileName(), "A");
+	_myChar = LangUtil::convertUTF16CharToString(LangUtil::getInstance()->getAllCharacters()[menu->getCurrentLevel() - 1]);
+	auto myLabel = Label::createWithBMFont(LangUtil::getInstance()->getBMFontFileName(), _myChar);
 	myLabel->setPositionX(visibleSize.width/2);
 	myLabel->setPositionY(visibleSize.height / 2);
 	myLabel->setScale(2);
@@ -229,4 +241,9 @@ void CarDraw::gameStart()
 	auto fadeOut = FadeOut::create(2.0f);
 	myLabel->runAction(fadeOut);
 
+}
+
+void CarDraw::onEnterTransitionDidFinish()
+{
+	gameStart();
 }
