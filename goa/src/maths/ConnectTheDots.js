@@ -5,20 +5,29 @@ var xc = xc || {}
 xc.ConnectTheDotsLayer = cc.LayerColor.extend({
   _dots: null,
   _dotNode: null,
+  _hand: null,
+  _handNode: null,
+  _num: null,
+  _numNode: null,
   _numRows: 8,
-  _numCols: 11,
+  _numCols: 8,
   _touchedDots: [],
   _targetNum: 2,
   _gap: 0,
   _level: 0,
   _score: 0,
     ctor: function(args) {
-    this._super(cc.color(248, 248, 248), cc.director.getVisibleSize().width, cc.director.getVisibleSize().height)
+    this._super(cc.color(0, 0, 248), cc.director.getVisibleSize().width, cc.director.getVisibleSize().height)
     cc.spriteFrameCache.addSpriteFrames(xc.ConnectTheDotsLayer.res.hand_plist)
-    cc.log(args)
     this._dotNode = new cc.Node()
+    this._dotNode.setPosition(xc.ConnectTheDotsLayer.WHITEBOARD_PADDING, 0)
+    var whiteboard = new cc.Sprite(xc.ConnectTheDotsLayer.res.whiteboard_png)
+    whiteboard.setScale((cc.director.getVisibleSize().height - xc.ConnectTheDotsLayer.WHITEBOARD_PADDING) / xc.ConnectTheDotsLayer.WHITEBOARD_HEIGHT)
+    whiteboard.setPosition(cc.director.getVisibleSize().height / 2, cc.director.getVisibleSize().height / 2)
+    this._dotNode.addChild(whiteboard)
     this.addChild(this._dotNode)
-    this._gap = Math.min(cc.director.getVisibleSize().width / this._numCols, cc.director.getVisibleSize().height / this._numRows)
+
+    this._gap = Math.min((cc.director.getVisibleSize().width - xc.ConnectTheDotsLayer.WHITEBOARD_PADDING * 3) / this._numCols, (cc.director.getVisibleSize().height - xc.ConnectTheDotsLayer.WHITEBOARD_PADDING * 3) / this._numRows)
   },
   onEnter: function() {
     cc.LayerColor.prototype.onEnter.call(this)
@@ -34,11 +43,52 @@ xc.ConnectTheDotsLayer = cc.LayerColor.extend({
     } else {
       this._targetNum = 6
     }
+
+    this._handNode = new cc.Node()
+    this._handNode.setPosition(cc.director.getVisibleSize().height + (cc.director.getVisibleSize().width - cc.director.getVisibleSize().height) / 2 + xc.ConnectTheDotsLayer.WHITEBOARD_PADDING / 2, (cc.director.getVisibleSize().width - cc.director.getVisibleSize().height) * 1.5 - xc.ConnectTheDotsLayer.WHITEBOARD_PADDING * 2)
+    var handboard = new cc.Sprite(xc.ConnectTheDotsLayer.res.whiteboard_png)
+    handboard.setScale((cc.director.getVisibleSize().width - cc.director.getVisibleSize().height - 3 * xc.ConnectTheDotsLayer.WHITEBOARD_PADDING) / xc.ConnectTheDotsLayer.WHITEBOARD_HEIGHT)
+    this._handNode.addChild(handboard)
+    this._hand = new cc.Sprite("#" + xc.DotsLayer.fingerRep[this._targetNum])
+    this._hand.setScale(0.8)
+    this._handNode.addChild(this._hand)
+    this.addChild(this._handNode)
+
+    this._numNode = new cc.Node()
+    this._numNode.setPosition(cc.director.getVisibleSize().height + (cc.director.getVisibleSize().width - cc.director.getVisibleSize().height) / 2 + xc.ConnectTheDotsLayer.WHITEBOARD_PADDING / 2, (cc.director.getVisibleSize().width - cc.director.getVisibleSize().height) / 2 - xc.ConnectTheDotsLayer.WHITEBOARD_PADDING / 2)
+    var handboard = new cc.Sprite(xc.ConnectTheDotsLayer.res.whiteboard_png)
+    handboard.setScale((cc.director.getVisibleSize().width - cc.director.getVisibleSize().height - 3 * xc.ConnectTheDotsLayer.WHITEBOARD_PADDING) / xc.ConnectTheDotsLayer.WHITEBOARD_HEIGHT)
+    this._numNode.addChild(handboard)
+    this._num = new cc.LabelTTF(this._targetNum.toString(), "Arial", 512)
+    this._num.color = new cc.Color(255, 192, 203)
+    this._numNode.addChild(this._num)
+    this.addChild(this._numNode)
+    
+    var dropAction = new cc.MoveTo(0.5, this._handNode.getPosition())
+    this._handNode.setPosition(this._handNode.getPosition().x, this._handNode.getPosition().y + cc.director.getVisibleSize().height)
+    dropAction.easing(cc.easeBackOut())
+    this._handNode.runAction(dropAction)
+    
+    dropAction = new cc.MoveTo(0.5, this._numNode.getPosition())
+    this._numNode.setPosition(this._numNode.getPosition().x, this._numNode.getPosition().y + cc.director.getVisibleSize().height)
+    dropAction.easing(cc.easeBackOut())
+    this._numNode.runAction(dropAction)
+
+    dropAction = new cc.MoveTo(0.5, this._dotNode.getPosition())
+    this._dotNode.setPosition(this._dotNode.getPosition().x, this._dotNode.getPosition().y + cc.director.getVisibleSize().height)
+    dropAction.easing(cc.easeBackOut())
+
+    var delay = new cc.DelayTime(1)
+    var callFunc = new cc.CallFunc(function() {
+      this.iterateToFindPath(true)
+    }, this)
+    var seq = new cc.Sequence(dropAction, delay, callFunc)
+    this._dotNode.runAction(seq)
+
     this.showDots()
     // var help = new xc.HelpLayer(cc.rect(1280, 1200, 200, 200), cc.rect(1280, 500, 400, 400))
     // this.addChild(help)
     // help.clickAndDrag(1280, 900, 500, 700)
-    this.iterateToFindPath()
   },
   showDots: function() {
     this._dots = new Array(this._numRows)
@@ -46,7 +96,7 @@ xc.ConnectTheDotsLayer = cc.LayerColor.extend({
       this._dots[i] = new Array(this._numCols)
       for(var j = 0; j < this._numCols; j++) {
         var dot = new xc.Dot(xc.ConnectTheDotsLayer.colors[getRandomInt(0, 3)], this.dotTouched, this)
-        dot.setPosition((j + 0.5) * this._gap, (i + 0.5) * this._gap)
+        dot.setPosition(xc.ConnectTheDotsLayer.WHITEBOARD_PADDING * 1.5 + (j + 0.5) * this._gap, xc.ConnectTheDotsLayer.WHITEBOARD_PADDING * 1.5 + (i + 0.5) * this._gap)
         this._dotNode.addChild(dot)
         this._dots[i][j] = dot
       }
@@ -83,6 +133,9 @@ xc.ConnectTheDotsLayer = cc.LayerColor.extend({
     var seq = new cc.Sequence(scaleAction, callFunc)
     pulse.runAction(seq)
   },
+  showNum: function(num) {
+    this._num.setString(num.toString())    
+  },
   dotTouched: function(touch, event) {
     switch (event.getEventCode()) {
       case cc.EventTouch.EventCode.BEGAN:
@@ -94,6 +147,7 @@ xc.ConnectTheDotsLayer = cc.LayerColor.extend({
         this._touchedDots[0] = [event.getCurrentTarget()].concat(this.getRowCol(event.getCurrentTarget())).concat([line])
         // event.getCurrentTarget().setOpacity(128)
         this.pulse(event.getCurrentTarget())
+        this.showNum(this._touchedDots.length)
         break
       case cc.EventTouch.EventCode.MOVED:
         var target = event.getCurrentTarget()
@@ -112,6 +166,7 @@ xc.ConnectTheDotsLayer = cc.LayerColor.extend({
                 // prevDot[0].setOpacity(255)
                 prevDot[3].removeFromParent()
                 this._touchedDots.pop()
+                this.showNum(this._touchedDots.length)
               } else {
                 if(Math.abs(prevDot[1] - i) <= 1 && Math.abs(prevDot[2] - j) <= 1) {
                   for(var k = 1; k < this._touchedDots.length; k++) {
@@ -126,6 +181,7 @@ xc.ConnectTheDotsLayer = cc.LayerColor.extend({
                   this._touchedDots.push([this._dots[i][j], i, j, line])
                   // this._dots[i][j].setOpacity(128)
                   this.pulse(this._dots[i][j])
+                  this.showNum(this._touchedDots.length)       
                   break outerloop
                 }
               }
@@ -142,6 +198,7 @@ xc.ConnectTheDotsLayer = cc.LayerColor.extend({
           if(this._touchedDots[i][0] != this._touchedDots[0][0]) {
             touchedDots++
           }
+          this.showNum(this._targetNum)
         }
         if(touchedDots == this._targetNum) {
           if(++this._score >= 5) {
@@ -161,7 +218,7 @@ xc.ConnectTheDotsLayer = cc.LayerColor.extend({
                   }
                   this._dots[m][j] = currentDot
                   currentDot.setColor(xc.ConnectTheDotsLayer.colors[getRandomInt(0, 5)])
-                  currentDot.setPosition(cc.p(currentDot.getPosition().x, (this._numCols + 0.5) * this._gap))
+                  currentDot.setPosition(cc.p(currentDot.getPosition().x, xc.ConnectTheDotsLayer.WHITEBOARD_PADDING * 1.5 + (this._numCols + 0.5) * this._gap))
                 }
               }
             }
@@ -180,7 +237,7 @@ xc.ConnectTheDotsLayer = cc.LayerColor.extend({
           }
           for(var i = 0; i < this._numRows; i++) {
             for(var j = 0; j < this._numCols; j++) {
-              var newPos = cc.p((j + 0.5) * this._gap, (i + 0.5) * this._gap)
+              var newPos = cc.p(xc.ConnectTheDotsLayer.WHITEBOARD_PADDING * 1.5 + (j + 0.5) * this._gap, xc.ConnectTheDotsLayer.WHITEBOARD_PADDING * 1.5 + (i + 0.5) * this._gap)
               if(!cc.pointEqualToPoint(this._dots[i][j].getPosition(), newPos)) {
                 var dropAction = new cc.MoveTo(0.5, newPos)
                 dropAction.easing(cc.easeBackOut())
@@ -195,14 +252,15 @@ xc.ConnectTheDotsLayer = cc.LayerColor.extend({
         break
     }
   },
-  iterateToFindPath: function() {
+  iterateToFindPath: function(help) {
     for(var i = 0; i < this._numRows; i++) {
       for(var j = 0; j < this._numCols; j++) {
         var dotArray = this.findPath(this._dots[i][j], i, j, null, this._targetNum)
         if(dotArray.length >= this._targetNum) {
-          for(var d = 0; d < dotArray.length; d++) {
-            cc.log(this.getRowCol(dotArray[d]))
-            this.pulse(dotArray[d])
+          if(help) {
+            for(var d = 0; d < dotArray.length; d++) {
+              this.pulse(dotArray[d])
+            }
           }
           return dotArray
         }
@@ -235,12 +293,16 @@ xc.ConnectTheDotsLayer = cc.LayerColor.extend({
 })
 
 xc.ConnectTheDotsLayer.gameName = "ConnectTheDots"
+xc.ConnectTheDotsLayer.WHITEBOARD_WIDTH = 1640
+xc.ConnectTheDotsLayer.WHITEBOARD_HEIGHT = 1640
+xc.ConnectTheDotsLayer.WHITEBOARD_PADDING = 80
 
 xc.ConnectTheDotsLayer.res = {
   hand_plist: xc.path + "maths/hand.plist",
   hand_png: xc.path + "maths/hand.png",
   dot_png: xc.path + "maths/dot.png",
-  graywindow_png: xc.path + "graywindow.png"  
+  graywindow_png: xc.path + "help/graywindow.png",
+  whiteboard_png: xc.path + "help/whiteboard.png"
 }
 
 xc.ConnectTheDotsMenu = xc.LevelMenuLayer.extend({
