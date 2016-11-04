@@ -66,6 +66,10 @@
 		9C6007AA1DC1DBB700F9C184 /* CarDrawNode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9C6007A51DC1DBB700F9C184 /* CarDrawNode.cpp */; };
 		9C7B1AC71DAA1BCE00EBD1FE /* Order.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9C7B1AC51DAA1BCE00EBD1FE /* Order.cpp */; };
 		9C7B1ACA1DAA1BD200EBD1FE /* Order.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9C7B1AC51DAA1BCE00EBD1FE /* Order.cpp */; };
+		9C9D46361DCB49350071BCF9 /* BlastLetter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9C9D46321DCB49350071BCF9 /* BlastLetter.cpp */; };
+		9C9D46371DCB49350071BCF9 /* BlastLetterNode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9C9D46341DCB49350071BCF9 /* BlastLetterNode.cpp */; };
+		9C9D463A1DCB493A0071BCF9 /* BlastLetterNode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9C9D46341DCB49350071BCF9 /* BlastLetterNode.cpp */; };
+		9C9D463B1DCB493F0071BCF9 /* BlastLetter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9C9D46321DCB49350071BCF9 /* BlastLetter.cpp */; };
 		9FA3AE461BE9BBCA00FC9645 /* GameController.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9FA3AE451BE9BBCA00FC9645 /* GameController.framework */; };
 		A92275421517C094001B78AA /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A92275411517C094001B78AA /* QuartzCore.framework */; };
 		A92275441517C094001B78AA /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A92275431517C094001B78AA /* OpenGLES.framework */; };
@@ -516,6 +520,10 @@
 		9C6007A61DC1DBB700F9C184 /* CarDrawNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CarDrawNode.h; sourceTree = "<group>"; };
 		9C7B1AC51DAA1BCE00EBD1FE /* Order.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Order.cpp; sourceTree = "<group>"; };
 		9C7B1AC61DAA1BCE00EBD1FE /* Order.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Order.h; sourceTree = "<group>"; };
+		9C9D46321DCB49350071BCF9 /* BlastLetter.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BlastLetter.cpp; sourceTree = "<group>"; };
+		9C9D46331DCB49350071BCF9 /* BlastLetter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlastLetter.h; sourceTree = "<group>"; };
+		9C9D46341DCB49350071BCF9 /* BlastLetterNode.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BlastLetterNode.cpp; sourceTree = "<group>"; };
+		9C9D46351DCB49350071BCF9 /* BlastLetterNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlastLetterNode.h; sourceTree = "<group>"; };
 		9FA3AE451BE9BBCA00FC9645 /* GameController.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameController.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.0.sdk/System/Library/Frameworks/GameController.framework; sourceTree = DEVELOPER_DIR; };
 		A922753D1517C094001B78AA /* goa-mobile.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "goa-mobile.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A92275411517C094001B78AA /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
@@ -1190,6 +1198,10 @@
 				F37286F01DCB4B5000F4804A /* BlastLetterNode.cpp */,
 				F37286F11DCB4B5000F4804A /* BlastLetterNode.h */,
 				9C064E5A1DB8905C000892E1 /* DecomonGallery.cpp */,
+				9C9D46321DCB49350071BCF9 /* BlastLetter.cpp */,
+				9C9D46331DCB49350071BCF9 /* BlastLetter.h */,
+				9C9D46341DCB49350071BCF9 /* BlastLetterNode.cpp */,
+				9C9D46351DCB49350071BCF9 /* BlastLetterNode.h */,
 				9C064E5B1DB8905C000892E1 /* DecomonGallery.h */,
 				F303CC9F1DB20D9000DB6D81 /* Pillar.cpp */,
 				F303CCA01DB20D9000DB6D81 /* Pillar.h */,
@@ -1798,6 +1810,7 @@
 				F35247E51D6D9D1A0077C333 /* SmashTheRockScene.cpp in Sources */,
 				F35248271D6D9D1A0077C333 /* WordSprite.cpp in Sources */,
 				F3667D431DB4BA6F00EC8908 /* PointFloat.cpp in Sources */,
+				9C9D463A1DCB493A0071BCF9 /* BlastLetterNode.cpp in Sources */,
 				F3667D331DB4BA6F00EC8908 /* LipiTKResult.cpp in Sources */,
 				F35248031D6D9D1A0077C333 /* AlphabetGrid.cpp in Sources */,
 				F3667D411DB4BA6F00EC8908 /* LTKShapeFeatureExtractorFactory.cpp in Sources */,
@@ -1867,6 +1880,7 @@
 				F3667D1B1DB4BA6F00EC8908 /* LTKChannel.cpp in Sources */,
 				F3667D251DB4BA6F00EC8908 /* LTKTraceGroup.cpp in Sources */,
 				F35247ED1D6D9D1A0077C333 /* Wembley.cpp in Sources */,
+				9C9D463B1DCB493F0071BCF9 /* BlastLetter.cpp in Sources */,
 				F3667D531DB4BA6F00EC8908 /* NNShapeRecognizer.cpp in Sources */,
 				F35248291D6D9D1A0077C333 /* Alphamon.cpp in Sources */,
 				F3667D751DB4BA7000EC8908 /* LTKVersionCompatibilityCheck.cpp in Sources */,

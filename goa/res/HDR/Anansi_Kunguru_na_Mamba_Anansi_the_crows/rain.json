@@ -72,7 +72,7 @@
           {
             "FileData": {
               "Type": "MarkedSubImage",
-              "Path": "Anansi_Kunguru_na_Mamba_Anansi_the_crows/raindrop3.png",
+              "Path": "Anansi_Kunguru_na_Mamba_Anansi_the_crows/raindrop2.png",
               "Plist": "Anansi_Kunguru_na_Mamba_Anansi_the_crows/Anansi_Kunguru_na_Mamba_Anansi_the_crows.plist"
             },
             "BlendFunc": {
@@ -101,11 +101,12 @@
               "X": 0.0,
               "Y": 0.0
             },
-            "LeftMargin": -302.1646,
-            "RightMargin": -296.8354,
-            "TopMargin": -110.7791,
-            "BottomMargin": -108.2209,
+            "LeftMargin": -325.6646,
+            "RightMargin": -320.3354,
+            "TopMargin": -309.7791,
+            "BottomMargin": -307.2209,
             "Tag": 8500,
+            "FrameEvent": "rain",
             "ActionTag": 1993201153,
             "Size": {
               "X": 646.0,
@@ -113,6 +114,52 @@
             },
             "Alpha": 104,
             "Name": "Sprite_1",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Anansi_Kunguru_na_Mamba_Anansi_the_crows/kun_cloud.png",
+              "Plist": "Anansi_Kunguru_na_Mamba_Anansi_the_crows/Anansi_Kunguru_na_Mamba_Anansi_the_crows.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 3.922,
+              "Y": 313.8434
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": -320.078,
+            "RightMargin": -327.922,
+            "TopMargin": -443.8434,
+            "BottomMargin": 183.8434,
+            "Tag": 577,
+            "FrameEvent": "rain",
+            "ActionTag": 840900723,
+            "Size": {
+              "X": 648.0,
+              "Y": 260.0
+            },
+            "Name": "kun_cloud_1",
             "ctype": "SpriteObjectData"
           }
         ],

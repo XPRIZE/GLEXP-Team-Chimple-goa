@@ -7,28 +7,12 @@
       "Animation": {
         "Duration": 690,
         "Speed": 1.0,
-        "ActivedAnimationName": "master",
+        "ActivedAnimationName": "rain",
         "Timelines": [
           {
-            "ActionTag": 347120825,
+            "ActionTag": 462477215,
             "Property": "ActionValue",
             "Frames": [
-              {
-                "InnerActionType": "NoLoopAction",
-                "CurrentAniamtionName": "rain",
-                "SingleFrameIndex": 0,
-                "FrameIndex": 0,
-                "Tween": false,
-                "ctype": "InnerActionFrameData"
-              },
-              {
-                "InnerActionType": "NoLoopAction",
-                "CurrentAniamtionName": "rain",
-                "SingleFrameIndex": 0,
-                "FrameIndex": 600,
-                "Tween": false,
-                "ctype": "InnerActionFrameData"
-              },
               {
                 "InnerActionType": "LoopAction",
                 "CurrentAniamtionName": "rain",
@@ -36,43 +20,26 @@
                 "FrameIndex": 630,
                 "Tween": false,
                 "ctype": "InnerActionFrameData"
-              },
-              {
-                "InnerActionType": "LoopAction",
-                "CurrentAniamtionName": "rain",
-                "SingleFrameIndex": 0,
-                "FrameIndex": 690,
-                "Tween": false,
-                "ctype": "InnerActionFrameData"
               }
             ],
             "ctype": "TimelineData"
           },
           {
-            "ActionTag": 347120825,
+            "ActionTag": 462477215,
             "Property": "Position",
             "Frames": [
               {
-                "X": 523.6638,
-                "Y": 1411.6702,
-                "FrameIndex": 204,
+                "X": 611.9485,
+                "Y": 1309.9238,
+                "FrameIndex": 630,
                 "EasingData": {
                   "Type": 0
                 },
                 "ctype": "PointFrameData"
               },
               {
-                "X": 527.1968,
-                "Y": 1392.2603,
-                "FrameIndex": 600,
-                "EasingData": {
-                  "Type": 0
-                },
-                "ctype": "PointFrameData"
-              },
-              {
-                "X": 527.9997,
-                "Y": 1387.8489,
+                "X": 611.9485,
+                "Y": 1309.9238,
                 "FrameIndex": 690,
                 "EasingData": {
                   "Type": 0
@@ -83,22 +50,13 @@
             "ctype": "TimelineData"
           },
           {
-            "ActionTag": 347120825,
+            "ActionTag": 462477215,
             "Property": "Scale",
             "Frames": [
               {
                 "X": 1.0,
                 "Y": 1.0,
-                "FrameIndex": 600,
-                "EasingData": {
-                  "Type": 0
-                },
-                "ctype": "ScaleValueFrameData"
-              },
-              {
-                "X": 1.0,
-                "Y": 1.0,
-                "FrameIndex": 690,
+                "FrameIndex": 630,
                 "EasingData": {
                   "Type": 0
                 },
@@ -108,49 +66,17 @@
             "ctype": "TimelineData"
           },
           {
-            "ActionTag": 347120825,
+            "ActionTag": 462477215,
             "Property": "RotationSkew",
             "Frames": [
               {
                 "X": 0.0,
                 "Y": 0.0,
-                "FrameIndex": 600,
-                "EasingData": {
-                  "Type": 0
-                },
-                "ctype": "ScaleValueFrameData"
-              },
-              {
-                "X": 0.0,
-                "Y": 0.0,
-                "FrameIndex": 690,
-                "EasingData": {
-                  "Type": 0
-                },
-                "ctype": "ScaleValueFrameData"
-              }
-            ],
-            "ctype": "TimelineData"
-          },
-          {
-            "ActionTag": 347120825,
-            "Property": "Alpha",
-            "Frames": [
-              {
-                "Value": 0,
-                "FrameIndex": 600,
-                "EasingData": {
-                  "Type": 0
-                },
-                "ctype": "IntFrameData"
-              },
-              {
-                "Value": 255,
                 "FrameIndex": 630,
                 "EasingData": {
                   "Type": 0
                 },
-                "ctype": "IntFrameData"
+                "ctype": "ScaleValueFrameData"
               }
             ],
             "ctype": "TimelineData"
@@ -459,6 +385,19 @@
                   "Type": 0
                 },
                 "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -164467386,
+            "Property": "FrameEvent",
+            "Frames": [
+              {
+                "Value": "bee",
+                "FrameIndex": 0,
+                "Tween": false,
+                "ctype": "EventFrameData"
               }
             ],
             "ctype": "TimelineData"
@@ -1767,52 +1706,6 @@
           {
             "FileData": {
               "Type": "MarkedSubImage",
-              "Path": "Anansi_Kunguru_na_Mamba_Anansi_the_crows/kun_cloud.png",
-              "Plist": "Anansi_Kunguru_na_Mamba_Anansi_the_crows/Anansi_Kunguru_na_Mamba_Anansi_the_crows.plist"
-            },
-            "BlendFunc": {
-              "Src": 1,
-              "Dst": 771
-            },
-            "AnchorPoint": {
-              "ScaleX": 0.5,
-              "ScaleY": 0.5
-            },
-            "Position": {
-              "X": 525.7763,
-              "Y": 1662.8472
-            },
-            "Scale": {
-              "ScaleX": 0.9165,
-              "ScaleY": 0.9165
-            },
-            "CColor": {},
-            "IconVisible": false,
-            "PrePosition": {
-              "X": 0.2054,
-              "Y": 0.9238
-            },
-            "PreSize": {
-              "X": 0.2531,
-              "Y": 0.1444
-            },
-            "LeftMargin": 201.7763,
-            "RightMargin": 1710.2236,
-            "TopMargin": 7.1528,
-            "BottomMargin": 1532.8472,
-            "UserData": "rain;drag ",
-            "Tag": 23,
-            "ActionTag": -1855345808,
-            "Size": {
-              "X": 648.0,
-              "Y": 260.0
-            },
-            "Name": "cloud_4",
-            "ctype": "SpriteObjectData"
-          },
-          {
-            "FileData": {
-              "Type": "MarkedSubImage",
               "Path": "Anansi_Kunguru_na_Mamba_Anansi_the_crows/kun_grass1.png",
               "Plist": "Anansi_Kunguru_na_Mamba_Anansi_the_crows/Anansi_Kunguru_na_Mamba_Anansi_the_crows.plist"
             },
@@ -1854,48 +1747,6 @@
             },
             "Name": "grass1_5",
             "ctype": "SpriteObjectData"
-          },
-          {
-            "FileData": {
-              "Type": "Normal",
-              "Path": "Anansi_Kunguru_na_Mamba_Anansi_the_crows/rain.json",
-              "Plist": ""
-            },
-            "StretchWidthEnable": false,
-            "StretchHeightEnable": false,
-            "InnerActionSpeed": 1.0,
-            "AnchorPoint": {},
-            "Position": {
-              "X": 523.6638,
-              "Y": 1411.6702
-            },
-            "Scale": {
-              "ScaleX": 1.0,
-              "ScaleY": 1.0
-            },
-            "CColor": {},
-            "IconVisible": true,
-            "PrePosition": {
-              "X": 0.2046,
-              "Y": 0.7843
-            },
-            "PreSize": {
-              "X": 0.0,
-              "Y": 0.0
-            },
-            "LeftMargin": 523.6638,
-            "RightMargin": 2036.3362,
-            "TopMargin": 388.3298,
-            "BottomMargin": 1411.6702,
-            "Tag": 8501,
-            "ActionTag": 347120825,
-            "Size": {
-              "X": 0.0,
-              "Y": 0.0
-            },
-            "Alpha": 0,
-            "Name": "rain",
-            "ctype": "ProjectNodeObjectData"
           },
           {
             "FileData": {
@@ -1991,6 +1842,48 @@
           {
             "FileData": {
               "Type": "Normal",
+              "Path": "Anansi_Kunguru_na_Mamba_Anansi_the_crows/rain.json",
+              "Plist": ""
+            },
+            "StretchWidthEnable": false,
+            "StretchHeightEnable": false,
+            "InnerActionSpeed": 1.0,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 611.9485,
+              "Y": 1309.9238
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 0.239,
+              "Y": 0.7277
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 611.9485,
+            "RightMargin": 1948.0515,
+            "TopMargin": 490.0762,
+            "BottomMargin": 1309.9238,
+            "UserData": "rain;drag",
+            "Tag": 5900,
+            "ActionTag": 462477215,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "rain",
+            "ctype": "ProjectNodeObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
               "Path": "Anansi_Kunguru_na_Mamba_Anansi_the_crows/bee.json",
               "Plist": ""
             },
@@ -2022,6 +1915,7 @@
             "BottomMargin": 946.9165,
             "UserData": "walking;drag",
             "Tag": 1719,
+            "FrameEvent": "bee",
             "ActionTag": -164467386,
             "Size": {
               "X": 0.0,

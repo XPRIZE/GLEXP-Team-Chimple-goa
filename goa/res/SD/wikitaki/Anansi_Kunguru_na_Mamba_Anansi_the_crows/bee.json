@@ -112,6 +112,25 @@
             "ctype": "TimelineData"
           },
           {
+            "ActionTag": -123522152,
+            "Property": "FrameEvent",
+            "Frames": [
+              {
+                "Value": "bee",
+                "FrameIndex": 0,
+                "Tween": false,
+                "ctype": "EventFrameData"
+              },
+              {
+                "Value": "bee",
+                "FrameIndex": 30,
+                "Tween": false,
+                "ctype": "EventFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
             "ActionTag": -563846237,
             "Property": "Position",
             "Frames": [
@@ -344,6 +363,19 @@
                   "Type": 0
                 },
                 "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -563846237,
+            "Property": "FrameEvent",
+            "Frames": [
+              {
+                "Value": "",
+                "FrameIndex": 0,
+                "Tween": false,
+                "ctype": "EventFrameData"
               }
             ],
             "ctype": "TimelineData"
@@ -1701,6 +1733,7 @@
             "TopMargin": -857.2602,
             "BottomMargin": 0.2602,
             "Tag": 1374,
+            "FrameEvent": "bee",
             "ActionTag": -123522152,
             "Size": {
               "X": 609.0,

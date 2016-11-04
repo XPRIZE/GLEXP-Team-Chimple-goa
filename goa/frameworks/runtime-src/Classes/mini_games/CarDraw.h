@@ -28,7 +28,8 @@ public:
 	virtual void postTouchBegan(cocos2d::Touch * touch, cocos2d::Event * event, cocos2d::Point touchPoint);
 	virtual void postTouchMoved(cocos2d::Touch * touch, cocos2d::Event * event, cocos2d::Point touchPoint);
 	virtual void postTouchEnded(cocos2d::Touch * touch, cocos2d::Event * event, cocos2d::Point touchPoint);
-	virtual void characterRecogination(string str);
+	virtual void characterRecogination(std::vector<string> str);
+	
 protected:
 	MenuContext * menu;
 	cocos2d::Node* _car;
@@ -36,9 +37,11 @@ protected:
 	float _prevDegree;
 	carDrawNode * _carDrawNodeLiPi;
 	void carMoving();
-
+	float _carPreviousAngle = 0.0f;
 	std::vector<Stroke*> _carStrokes;
 	Stroke* _carCurrentStroke;
+	void clearScreen(float ft);
+	void gameStart();
 };
 
 #endif 

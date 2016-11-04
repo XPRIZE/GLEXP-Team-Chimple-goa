@@ -42,6 +42,7 @@
 #include "mini_games/Order.h"
 #include "mini_games/Pillar.h"
 #include "mini_games/BlastLetter.h"
+#include "mini_games/TreasureHunt.h"
 
 #include "storage/local-storage/LocalStorage.h"
 #include "external/json/document.h"
@@ -114,6 +115,7 @@ const std::vector<std::string> StartMenu::getGameNames() {
     gameNames.push_back(TALK);
 	gameNames.push_back(STACK);
 	gameNames.push_back(DASH);
+	gameNames.push_back(TREASUREHUNT);
 	
     return gameNames;
 
