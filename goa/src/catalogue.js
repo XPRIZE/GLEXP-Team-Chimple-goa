@@ -43,7 +43,10 @@ xc.CatalogueLayer = cc.Layer.extend({
     },
 
     displayStories: function () {        
-        this._bookShelf = new xc.ScrollableButtonPanel(cc.p(0, 0), cc.size(cc.director.getWinSize().width, cc.director.getWinSize().height), 4, 4, this._stories, this.renderStory, this);
+        this._stories.forEach(function(story) {
+            story.icon = xc.path + story.icon;
+        });
+        this._bookShelf = new xc.ScrollableButtonPanel(cc.p(0, 0), cc.size(cc.director.getWinSize().width, cc.director.getWinSize().height), 4, 4, this._stories, this.renderStory, this, false, true);
         this.addChild(this._bookShelf);
     },
 
@@ -52,8 +55,7 @@ xc.CatalogueLayer = cc.Layer.extend({
         cc.log('loading story with index:' + this._curSelectedIndex);
         var storyInfo = this._stories[this._curSelectedIndex];
         if(storyInfo != undefined && storyInfo.hasOwnProperty("pages") && storyInfo["pages"] != undefined && storyInfo["pages"].length > 0) {
-            cc.log('loading story:' + storyInfo["pages"][0]);
-            xc.NarrateStoryScene.load(0, storyInfo, xc.NarrateStoryLayer);
+            xc.StoryCoverPageScene.load(0, storyInfo, xc.StoryCoverPageLayer);
         }
     }    
 });
