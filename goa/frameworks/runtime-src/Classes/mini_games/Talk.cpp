@@ -43,47 +43,47 @@ void Talk::onEnterTransitionDidFinish()
 	if (_level == 1 || _level == 12 || _level == 18 || _level == 26 || _level == 31 || _level == 35 || _level == 40 || _level == 45 || _level == 47 || _level == 52 || _level == 56 || _level == 60 || _level == 64 || _level == 66 || _level == 69)
 	{
 		_questionType = "VERB";
-		_allSentense = TextGenerator::getInstance()->getSentenceWithPOS(TextGenerator::POS::VERB, 5, 1);
+		_allSentense = TextGenerator::getInstance()->getSentenceWithPOS(TextGenerator::P_O_S::VERB, 5, 1);
 	}
 	else if (_level == 2 || _level == 16 || _level == 21 || _level == 25 || _level == 29 || _level == 34 || _level == 38 || _level == 41 || _level == 48 || _level == 51 || _level == 55 || _level == 57 || _level == 63 || _level == 67 || _level == 72)
 	{
 		_questionType = "NOUN";
-		_allSentense = TextGenerator::getInstance()->getSentenceWithPOS(TextGenerator::POS::NOUN, 5, 1);
+		_allSentense = TextGenerator::getInstance()->getSentenceWithPOS(TextGenerator::P_O_S::NOUN, 5, 1);
 	}
 	else if (_level == 3 || _level == 9 || _level == 19 || _level == 28 || _level == 32 || _level == 37 || _level == 39 || _level == 42 || _level == 46 || _level == 49 || _level == 54 || _level == 58 || _level == 62 || _level == 65 || _level == 71)
 	{
 		_questionType = "PRONOUN";
-		_allSentense = TextGenerator::getInstance()->getSentenceWithPOS(TextGenerator::POS::PRONOUN, 5, 1);
+		_allSentense = TextGenerator::getInstance()->getSentenceWithPOS(TextGenerator::P_O_S::PRONOUN, 5, 1);
 	}
 	else if (_level == 4 || _level == 13 || _level == 23 || _level == 27 || _level == 43 || _level == 59)
 	{
 		_questionType = "ADVERB";
-		_allSentense = TextGenerator::getInstance()->getSentenceWithPOS(TextGenerator::POS::ADVERB, 5, 1);
+		_allSentense = TextGenerator::getInstance()->getSentenceWithPOS(TextGenerator::P_O_S::ADVERB, 5, 1);
 	}
 	else if (_level == 5 || _level == 10 || _level == 22 || _level == 30 || _level == 33 || _level == 68)
 	{
 		_questionType = "ADJECTIVE";
-		_allSentense = TextGenerator::getInstance()->getSentenceWithPOS(TextGenerator::POS::ADJECTIVE, 5, 1);
+		_allSentense = TextGenerator::getInstance()->getSentenceWithPOS(TextGenerator::P_O_S::ADJECTIVE, 5, 1);
 	}
 	else if (_level == 6 || _level == 15 || _level == 17 || _level == 44 || _level == 53 || _level == 61)
 	{
 		_questionType = "PREPOSITION";
-		_allSentense = TextGenerator::getInstance()->getSentenceWithPOS(TextGenerator::POS::PREPOSITION, 5, 1);
+		_allSentense = TextGenerator::getInstance()->getSentenceWithPOS(TextGenerator::P_O_S::PREPOSITION, 5, 1);
 	}
 	else if (_level == 7 || _level == 11 || _level == 24)
 	{
 		_questionType = "CONJUNCTION";
-		_allSentense = TextGenerator::getInstance()->getSentenceWithPOS(TextGenerator::POS::PREPOSITION, 5, 1);
+		_allSentense = TextGenerator::getInstance()->getSentenceWithPOS(TextGenerator::P_O_S::PREPOSITION, 5, 1);
 	}
 	else if (_level == 8 || _level == 14 || _level == 20)
 	{
 		_questionType = "INTERJECTION";
-		_allSentense = TextGenerator::getInstance()->getSentenceWithPOS(TextGenerator::POS::INTERJECTION, 5, 1);
+		_allSentense = TextGenerator::getInstance()->getSentenceWithPOS(TextGenerator::P_O_S::INTERJECTION, 5, 1);
 	}
 	else if (_level == 70 || _level == 36 || _level == 50)
 	{
 		_questionType = "ARTICLE";
-		_allSentense = TextGenerator::getInstance()->getSentenceWithPOS(TextGenerator::POS::ARTICLE, 5, 1);
+		_allSentense = TextGenerator::getInstance()->getSentenceWithPOS(TextGenerator::P_O_S::ARTICLE, 5, 1);
 	}
 
 	visibleSize = Director::getInstance()->getWinSize();
@@ -239,15 +239,15 @@ void Talk::displayWord()
 	int count = 0;
 	for (int i = 0; i < _textToShow.size(); i++)
 	{
-		if ((_questionType == "NOUN" && _textToShow.at(i).second == TextGenerator::POS::NOUN) ||
-			(_questionType == "PRONOUN" && _textToShow.at(i).second == TextGenerator::POS::PRONOUN) ||
-			(_questionType == "ADJECTIVE" && _textToShow.at(i).second == TextGenerator::POS::ADJECTIVE) ||
-			(_questionType == "VERB" && _textToShow.at(i).second == TextGenerator::POS::VERB) ||
-			(_questionType == "ADVERB" && _textToShow.at(i).second == TextGenerator::POS::ADVERB) ||
-			(_questionType == "PREPOSITION" && _textToShow.at(i).second == TextGenerator::POS::PREPOSITION) ||
-			(_questionType == "CONJUNCTION" && _textToShow.at(i).second == TextGenerator::POS::CONJUNCTION) ||
-			(_questionType == "INTERJECTION" && _textToShow.at(i).second == TextGenerator::POS::INTERJECTION) ||
-			(_questionType == "ARTICLE" && _textToShow.at(i).second == TextGenerator::POS::ARTICLE))
+		if ((_questionType == "NOUN" && _textToShow.at(i).second == TextGenerator::P_O_S::NOUN) ||
+			(_questionType == "PRONOUN" && _textToShow.at(i).second == TextGenerator::P_O_S::PRONOUN) ||
+			(_questionType == "ADJECTIVE" && _textToShow.at(i).second == TextGenerator::P_O_S::ADJECTIVE) ||
+			(_questionType == "VERB" && _textToShow.at(i).second == TextGenerator::P_O_S::VERB) ||
+			(_questionType == "ADVERB" && _textToShow.at(i).second == TextGenerator::P_O_S::ADVERB) ||
+			(_questionType == "PREPOSITION" && _textToShow.at(i).second == TextGenerator::P_O_S::PREPOSITION) ||
+			(_questionType == "CONJUNCTION" && _textToShow.at(i).second == TextGenerator::P_O_S::CONJUNCTION) ||
+			(_questionType == "INTERJECTION" && _textToShow.at(i).second == TextGenerator::P_O_S::INTERJECTION) ||
+			(_questionType == "ARTICLE" && _textToShow.at(i).second == TextGenerator::P_O_S::ARTICLE))
 		{
 			count++;
 		}
@@ -323,15 +323,15 @@ void Talk::displayWord()
 			LabelDetails.flag = 0;
 			LabelDetails.label->setAnchorPoint(Vec2(.5, 0));
 
-			if ((_questionType == "NOUN" && _textToShow.at(i).second == TextGenerator::POS::NOUN) ||
-				(_questionType == "PRONOUN" && _textToShow.at(i).second == TextGenerator::POS::PRONOUN) ||
-				(_questionType == "ADJECTIVE" && _textToShow.at(i).second == TextGenerator::POS::ADJECTIVE) ||
-				(_questionType == "VERB" && _textToShow.at(i).second == TextGenerator::POS::VERB) ||
-				(_questionType == "ADVERB" && _textToShow.at(i).second == TextGenerator::POS::ADVERB) ||
-				(_questionType == "PREPOSITION" && _textToShow.at(i).second == TextGenerator::POS::PREPOSITION) ||
-				(_questionType == "CONJUNCTION" && _textToShow.at(i).second == TextGenerator::POS::CONJUNCTION) ||
-				(_questionType == "INTERJECTION" && _textToShow.at(i).second == TextGenerator::POS::INTERJECTION) ||
-				(_questionType == "ARTICLE" && _textToShow.at(i).second == TextGenerator::POS::ARTICLE))
+			if ((_questionType == "NOUN" && _textToShow.at(i).second == TextGenerator::P_O_S::NOUN) ||
+				(_questionType == "PRONOUN" && _textToShow.at(i).second == TextGenerator::P_O_S::PRONOUN) ||
+				(_questionType == "ADJECTIVE" && _textToShow.at(i).second == TextGenerator::P_O_S::ADJECTIVE) ||
+				(_questionType == "VERB" && _textToShow.at(i).second == TextGenerator::P_O_S::VERB) ||
+				(_questionType == "ADVERB" && _textToShow.at(i).second == TextGenerator::P_O_S::ADVERB) ||
+				(_questionType == "PREPOSITION" && _textToShow.at(i).second == TextGenerator::P_O_S::PREPOSITION) ||
+				(_questionType == "CONJUNCTION" && _textToShow.at(i).second == TextGenerator::P_O_S::CONJUNCTION) ||
+				(_questionType == "INTERJECTION" && _textToShow.at(i).second == TextGenerator::P_O_S::INTERJECTION) ||
+				(_questionType == "ARTICLE" && _textToShow.at(i).second == TextGenerator::P_O_S::ARTICLE))
 			{
 				LabelDetails.answer = 'c';
 				_totalAnswer++;
