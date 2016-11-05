@@ -1,6 +1,7 @@
 #include "BlastLetter.h"
 #include "../WordSceneLipiTKNode.h"
 #include "BlastLetterNode.h"
+#include "../lang/TextGenerator.h"
 
 USING_NS_CC;
 

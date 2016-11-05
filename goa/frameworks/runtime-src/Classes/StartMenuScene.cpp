@@ -42,7 +42,9 @@
 #include "mini_games/Order.h"
 #include "mini_games/Pillar.h"
 #include "mini_games/BlastLetter.h"
+#include "mini_games/Door.h"
 #include "mini_games/TreasureHunt.h"
+
 
 #include "storage/local-storage/LocalStorage.h"
 #include "external/json/document.h"

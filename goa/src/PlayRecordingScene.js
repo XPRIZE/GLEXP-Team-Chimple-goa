@@ -51,7 +51,7 @@ xc.PlayRecordingLayer = cc.Layer.extend({
     
     createWebView: function() {
         if (xc.story.items[xc.pageIndex].sceneText != null && xc.story.items[xc.pageIndex].sceneText !== "undefined") {
-            this.addChild(new xc.TextCreatePanel(cc.director.getWinSize().width, cc.director.getWinSize().height, cc.p(385, 250), xc.story.items[xc.pageIndex].sceneText, this.processText, this, false));
+            this.addChild(new xc.TextCreatePanel(cc.director.getWinSize().width, cc.director.getWinSize().height, cc.p(385, 250), xc.story.items[xc.pageIndex].sceneText, this.processText, null, this, false));
         }     
 
         this._pageConfigPanel.setVisible(true);           
