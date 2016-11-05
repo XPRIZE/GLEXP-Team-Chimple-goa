@@ -26,7 +26,7 @@ public:
 	~Talk();
 	virtual bool init();
 	void onEnterTransitionDidFinish() override;
-	std::vector<std::pair<std::string, TextGenerator::POS>> _textToShow;
+	std::vector<std::pair<std::string, TextGenerator::P_O_S>> _textToShow;
 
 	std::map<std::string, std::map<std::string, int>> differntSceneMapping;
 	std::vector<std::string> _scene;
@@ -45,7 +45,7 @@ public:
 
 //	std::vector<std::string> _allSentense;
 
-	std::vector<std::vector<std::pair<std::string, TextGenerator::POS>>> _allSentense;
+	std::vector<std::vector<std::pair<std::string, TextGenerator::P_O_S>>> _allSentense;
 
 	CREATE_FUNC(Talk);
     
