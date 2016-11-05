@@ -7,7 +7,6 @@
 #include "../WordSceneLipiTKNode.h"
 #include "DoorNode.h"
 
-
 USING_NS_CC;
 
 //DoorNode * DoorLiPi;
