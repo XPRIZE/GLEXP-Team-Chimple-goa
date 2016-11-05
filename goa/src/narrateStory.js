@@ -129,7 +129,7 @@ xc.NarrateStoryLayer = cc.Layer.extend({
                     
                 if (cc.rectContainsPoint(targetRectangle, location)) {
                     context[funcName](target, loop);
-                    cc.log("touched:" + target.getName());
+                    // cc.log("touched:" + target.getName());
                     return true;
                 }
 
@@ -160,7 +160,7 @@ xc.NarrateStoryLayer = cc.Layer.extend({
 
     init: function () {
         var contentUrl = this._storyInformation["pages"][this._pageIndex]["contentJson"];
-        this._constructedScene = ccs.load(xc.path + contentUrl, xc.path + "wikitaki/");
+        this._constructedScene = ccs.load(xc.path + contentUrl, xc.path);
         this._constructedScene.node.retain();
         this._constructedScene.action.retain();
         
@@ -334,9 +334,12 @@ xc.NarrateStoryLayer = cc.Layer.extend({
             //var soundFile = page[eventData];
             var soundFile = eventData;
             if(soundFile != undefined) {
-                var soundFile = xc.path + "wikitaki/misc/" + langDir + "/" + "sounds/" + soundFile + ".mp3";
+                var soundFile = xc.path + "misc/" + langDir + "/" + "sounds/" + soundFile + ".mp3";
                 cc.loader.load(soundFile, function(err, data) {
                     if(!err) {
+                        if(cc.audioEngine.isMusicPlaying()) {
+                            cc.audioEngine.stopMusic();
+                        }
                         cc.audioEngine.playMusic(soundFile, false);
                     }
                 }); 
@@ -399,24 +402,40 @@ xc.NarrateStoryLayer = cc.Layer.extend({
     },
     
     showText: function() {
-        //load text file based on Current Story Id and Page index
-        var langDir = goa.TextGenerator.getInstance().getLang();
-        cc.log("langDir:" + langDir);
-        var textFileUrl = xc.path + "wikitaki/misc/" + langDir + "/" + xc.currentStoryId + ".json";
-        var storyText = "";
-        var that = this;
-        cc.loader.loadJson(textFileUrl, function(err, json) {
-            if(json != null && json != undefined) {
-                storyText = json[xc.pageIndex];
-            } 
-            that.parent.addChild(new xc.TextCreatePanel(cc.director.getWinSize().width, cc.director.getWinSize().height, cc.p(385, 250), storyText, that.processText, that, true));           
-        });
-
+        cc.log("3333");
         this._constructedScene.action.clearLastFrameCallFunc();
         this._constructedScene.action.gotoFrameAndPause(this._constructedScene.action.getCurrentFrame());
         // this._constructedScene.action.pause();
         this.renderNextButton();
         this.renderPreviousButton();                
+        
+        //load text file based on Current Story Id and Page index
+        var langDir = goa.TextGenerator.getInstance().getLang();
+        cc.log("langDir:" + langDir);
+        var storyText = "";
+        var that = this;
+
+        var textFileUrl = xc.path + "misc/" + langDir + "/" + xc.currentStoryId + ".json";
+        if(cc.sys.isNative) {
+            var fileExists = jsb.fileUtils.isFileExist(textFileUrl);
+            if(fileExists) {
+                cc.loader.loadJson(textFileUrl, function(err, json) {            
+                    if(!err && json != null && json != undefined) {
+                        storyText = json[xc.pageIndex];
+                        that.parent.addChild(new xc.TextCreatePanel(cc.director.getWinSize().width, cc.director.getWinSize().height, cc.p(385, 250), storyText, that.processText, that, true));
+                    }                                
+                });                
+            } else {
+                that.parent.addChild(new xc.TextCreatePanel(cc.director.getWinSize().width, cc.director.getWinSize().height, cc.p(385, 250), storyText, that.processText, that, true));
+            }
+        } else {
+            cc.loader.loadJson(textFileUrl, function(err, json) {            
+                if(!err && json != null && json != undefined) {
+                    storyText = json[xc.pageIndex];
+                } 
+                that.parent.addChild(new xc.TextCreatePanel(cc.director.getWinSize().width, cc.director.getWinSize().height, cc.p(385, 250), storyText, that.processText, that, true));           
+            });
+        }        
     },
 
     playRecordedScene: function () {

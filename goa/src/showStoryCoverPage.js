@@ -48,7 +48,7 @@ xc.StoryCoverPageLayer = cc.Layer.extend({
 
     init: function () {
         var coverPageUrl = this._storyInformation["coverPage"];
-        this._constructedScene = ccs.load(xc.path + coverPageUrl, xc.path + "wikitaki/");
+        this._constructedScene = ccs.load(xc.path + coverPageUrl, xc.path);
         this._constructedScene.node.retain();
         this._constructedScene.action.retain();
         
@@ -82,7 +82,7 @@ xc.StoryCoverPageLayer = cc.Layer.extend({
             //var soundFile = page[eventData];
             var soundFile = eventData;
             if(soundFile != undefined) {
-                var soundFile = xc.path + "wikitaki/misc/" + langDir + "/" + "sounds/" + soundFile + ".mp3";
+                var soundFile = xc.path + "misc/" + langDir + "/" + "sounds/" + soundFile + ".mp3";
                 cc.loader.load(soundFile, function(err, data) {
                     if(!err) {
                         cc.audioEngine.playMusic(soundFile, false);
