@@ -115,5 +115,5 @@ xc.CatalogueLayer.res = {
         play_png: xc.path + "wikitaki/play.png",
         record_animation_png: xc.path + "wikitaki/recording.png",
         record_animation_plist: xc.path + "wikitaki/recording.plist",
-        Config_json: xc.path + "wikitaki/misc/shelfConfig.json"
+        Config_json: xc.path + "misc/shelfConfig.json"
 };

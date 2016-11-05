@@ -1,0 +1,565 @@
+{
+  "ID": "3440bcfe-7c0a-495b-aa10-e1ac0ace7baa",
+  "Version": "3.10.0.0",
+  "Name": "Mamba_mwenye_njaa_The_hungry_crocodile_4",
+  "Content": {
+    "Content": {
+      "Animation": {
+        "Duration": 155,
+        "Speed": 1.0,
+        "ActivedAnimationName": "master",
+        "Timelines": [
+          {
+            "ActionTag": -1375939128,
+            "Property": "ActionValue",
+            "Frames": [
+              {
+                "InnerActionType": "NoLoopAction",
+                "CurrentAniamtionName": "-- ALL --",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 105,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              },
+              {
+                "InnerActionType": "NoLoopAction",
+                "CurrentAniamtionName": "-- ALL --",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 155,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -1375939128,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": 1173.8926,
+                "Y": 814.2177,
+                "FrameIndex": 105,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 1173.8926,
+                "Y": 814.2177,
+                "FrameIndex": 155,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -1375939128,
+            "Property": "Scale",
+            "Frames": [
+              {
+                "X": 1.0,
+                "Y": 1.0,
+                "FrameIndex": 105,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 1.0,
+                "Y": 1.0,
+                "FrameIndex": 155,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -1375939128,
+            "Property": "RotationSkew",
+            "Frames": [
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 105,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 155,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -1375939128,
+            "Property": "FrameEvent",
+            "Frames": [
+              {
+                "Value": "crocodile",
+                "FrameIndex": 105,
+                "Tween": false,
+                "ctype": "EventFrameData"
+              },
+              {
+                "Value": "",
+                "FrameIndex": 155,
+                "Tween": false,
+                "ctype": "EventFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          }
+        ],
+        "ctype": "TimelineActionData"
+      },
+      "AnimationList": [
+        {
+          "StartIndex": 0,
+          "EndIndex": 155,
+          "Name": "master",
+          "ctype": "AnimationInfoData"
+        }
+      ],
+      "ObjectData": {
+        "Tag": 137,
+        "Children": [
+          {
+            "ClipAble": false,
+            "ComboBoxIndex": 1,
+            "SingleColor": {
+              "R": 109,
+              "G": 195,
+              "B": 215
+            },
+            "FirstColor": {
+              "R": 150,
+              "G": 200
+            },
+            "EndColor": {},
+            "ColorVector": {
+              "ScaleY": 1.0
+            },
+            "Scale9Width": 1,
+            "Scale9Height": 1,
+            "TouchEnable": true,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "PreSize": {
+              "X": 1.0,
+              "Y": 1.0
+            },
+            "Tag": 167,
+            "ActionTag": -1417120683,
+            "Size": {
+              "X": 2560.0,
+              "Y": 1800.0
+            },
+            "Name": "Panel_1",
+            "ctype": "PanelObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Mamba_mwenye_njaa_The_hungry_crocodile/Mamba_water.png",
+              "Plist": "Mamba_mwenye_njaa_The_hungry_crocodile/Mamba_mwenye_njaa_The_hungry_crocodile.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 681.728,
+              "Y": 149.9755
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.2663,
+              "Y": 0.0833
+            },
+            "PreSize": {
+              "X": 0.1328,
+              "Y": 0.0561
+            },
+            "LeftMargin": 511.728,
+            "RightMargin": 1708.272,
+            "TopMargin": 1599.5245,
+            "BottomMargin": 99.4755,
+            "Tag": 157,
+            "ActionTag": -547822044,
+            "Size": {
+              "X": 340.0,
+              "Y": 101.0
+            },
+            "Name": "Mamba_water_2_3",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Mamba_mwenye_njaa_The_hungry_crocodile/Mamba_water.png",
+              "Plist": "Mamba_mwenye_njaa_The_hungry_crocodile/Mamba_mwenye_njaa_The_hungry_crocodile.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1513.6951,
+              "Y": 303.1235
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.5913,
+              "Y": 0.1684
+            },
+            "PreSize": {
+              "X": 0.1328,
+              "Y": 0.0561
+            },
+            "LeftMargin": 1343.6951,
+            "RightMargin": 876.3049,
+            "TopMargin": 1446.3765,
+            "BottomMargin": 252.6235,
+            "Tag": 158,
+            "ActionTag": 963581870,
+            "Size": {
+              "X": 340.0,
+              "Y": 101.0
+            },
+            "Name": "Mamba_water_2_2",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Mamba_mwenye_njaa_The_hungry_crocodile/Mamba_water.png",
+              "Plist": "Mamba_mwenye_njaa_The_hungry_crocodile/Mamba_mwenye_njaa_The_hungry_crocodile.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 2246.3184,
+              "Y": 1321.3516
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.8775,
+              "Y": 0.7341
+            },
+            "PreSize": {
+              "X": 0.1328,
+              "Y": 0.0561
+            },
+            "LeftMargin": 2076.3184,
+            "RightMargin": 143.6816,
+            "TopMargin": 428.1484,
+            "BottomMargin": 1270.8516,
+            "Tag": 159,
+            "ActionTag": -588971882,
+            "Size": {
+              "X": 340.0,
+              "Y": 101.0
+            },
+            "Name": "Mamba_water_2_1",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Mamba_mwenye_njaa_The_hungry_crocodile/Mamba_water.png",
+              "Plist": "Mamba_mwenye_njaa_The_hungry_crocodile/Mamba_mwenye_njaa_The_hungry_crocodile.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 819.6973,
+              "Y": 1581.0581
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.3202,
+              "Y": 0.8784
+            },
+            "PreSize": {
+              "X": 0.1328,
+              "Y": 0.0561
+            },
+            "LeftMargin": 649.6973,
+            "RightMargin": 1570.3027,
+            "TopMargin": 168.4419,
+            "BottomMargin": 1530.5581,
+            "Tag": 160,
+            "ActionTag": 318458829,
+            "Size": {
+              "X": 340.0,
+              "Y": 101.0
+            },
+            "Name": "Mamba_water_2_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Mamba_mwenye_njaa_The_hungry_crocodile/Mamba_water.png",
+              "Plist": "Mamba_mwenye_njaa_The_hungry_crocodile/Mamba_mwenye_njaa_The_hungry_crocodile.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 491.1342,
+              "Y": 895.0688
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.1918,
+              "Y": 0.4973
+            },
+            "PreSize": {
+              "X": 0.1328,
+              "Y": 0.0561
+            },
+            "LeftMargin": 321.1342,
+            "RightMargin": 1898.8658,
+            "TopMargin": 854.4312,
+            "BottomMargin": 844.5688,
+            "Tag": 161,
+            "ActionTag": 578116463,
+            "Size": {
+              "X": 340.0,
+              "Y": 101.0
+            },
+            "Name": "Mamba_water_2",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FlipX": true,
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Mamba_mwenye_njaa_The_hungry_crocodile/Mamba_grass3.png",
+              "Plist": "Mamba_mwenye_njaa_The_hungry_crocodile/Mamba_mwenye_njaa_The_hungry_crocodile.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1510.2793,
+              "Y": 341.3589
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.59,
+              "Y": 0.1896
+            },
+            "PreSize": {
+              "X": 0.3363,
+              "Y": 0.21
+            },
+            "LeftMargin": 1079.7793,
+            "RightMargin": 619.2207,
+            "TopMargin": 1269.6411,
+            "BottomMargin": 152.3589,
+            "Tag": 168,
+            "ActionTag": 859299666,
+            "Size": {
+              "X": 861.0,
+              "Y": 378.0
+            },
+            "Name": "Mamba_grass3_1_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Mamba_mwenye_njaa_The_hungry_crocodile/Mamba_grass3.png",
+              "Plist": "Mamba_mwenye_njaa_The_hungry_crocodile/Mamba_mwenye_njaa_The_hungry_crocodile.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 756.5279,
+              "Y": 346.1392
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.2955,
+              "Y": 0.1923
+            },
+            "PreSize": {
+              "X": 0.3363,
+              "Y": 0.21
+            },
+            "LeftMargin": 326.0279,
+            "RightMargin": 1372.9722,
+            "TopMargin": 1264.8608,
+            "BottomMargin": 157.1392,
+            "Tag": 166,
+            "ActionTag": -821746204,
+            "Size": {
+              "X": 861.0,
+              "Y": 378.0
+            },
+            "Name": "Mamba_grass3_1",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "Mamba_mwenye_njaa_The_hungry_crocodile/crocodile.json",
+              "Plist": ""
+            },
+            "StretchWidthEnable": false,
+            "StretchHeightEnable": false,
+            "InnerActionSpeed": 1.0,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 1173.8926,
+              "Y": 814.2177
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 0.4586,
+              "Y": 0.4523
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 1173.8926,
+            "RightMargin": 1386.1074,
+            "TopMargin": 985.7823,
+            "BottomMargin": 814.2177,
+            "UserData": "crocodile:drag",
+            "Tag": 139,
+            "ActionTag": -1375939128,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "crocodile",
+            "ctype": "ProjectNodeObjectData"
+          }
+        ],
+        "Size": {
+          "X": 2560.0,
+          "Y": 1800.0
+        },
+        "Name": "Scene",
+        "ctype": "SingleNodeObjectData"
+      },
+      "UsedResources": [
+        "crocodile.json",
+        "Mamba_mwenye_njaa_The_hungry_crocodile.plist",
+        "Mamba_mwenye_njaa_The_hungry_crocodile.png"
+      ],
+      "ctype": "GameFileData"
+    }
+  },
+  "Type": "Scene"
+}
