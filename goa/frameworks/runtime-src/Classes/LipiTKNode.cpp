@@ -98,12 +98,12 @@ bool LipiTKNode::initialize(int width, int height, Point position) {
     _drawingBoard->setName("_drawingBoard");
     addChild(_drawingBoard, 1);
     
-    auto listenerTouches = EventListenerTouchOneByOne::create();
-    listenerTouches->setSwallowTouches(true);
-    listenerTouches->onTouchBegan = CC_CALLBACK_2(LipiTKNode::onTouchBegan, this);
-    listenerTouches->onTouchMoved = CC_CALLBACK_2(LipiTKNode::onTouchMoved, this);
-    listenerTouches->onTouchEnded = CC_CALLBACK_2(LipiTKNode::touchEnded, this);
-    this->getEventDispatcher()->addEventListenerWithSceneGraphPriority(listenerTouches, this);
+    _listenerTouches = EventListenerTouchOneByOne::create();
+    _listenerTouches->setSwallowTouches(true);
+    _listenerTouches->onTouchBegan = CC_CALLBACK_2(LipiTKNode::onTouchBegan, this);
+    _listenerTouches->onTouchMoved = CC_CALLBACK_2(LipiTKNode::onTouchMoved, this);
+    _listenerTouches->onTouchEnded = CC_CALLBACK_2(LipiTKNode::touchEnded, this);
+    this->getEventDispatcher()->addEventListenerWithSceneGraphPriority(_listenerTouches, this);
 
     Vec2 clearButtonPos = Vec2(_drawingBoard->getBoundingBox().size.width - 15,_drawingBoard->getBoundingBox().size.height - 15);
     
@@ -269,4 +269,9 @@ void LipiTKNode::broadCastRecognizedChars(std::vector<std::string> results) {
 
 std::vector<Stroke*> LipiTKNode::getStrokes() {
 	return _strokes;
+}
+
+void LipiTKNode::writingEnable(bool enable)
+{
+	_listenerTouches->setEnabled(enable);
 }
