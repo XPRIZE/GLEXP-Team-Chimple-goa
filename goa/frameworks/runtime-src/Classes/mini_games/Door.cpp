@@ -7,7 +7,6 @@
 #include "../WordSceneLipiTKNode.h"
 #include "DoorNode.h"
 
-
 USING_NS_CC;
 
 //DoorNode * DoorLiPi;
@@ -76,18 +75,39 @@ bool Door::init()
 }
 void Door::onEnterTransitionDidFinish()
 {
+
+	Size visibleSize = Director::getInstance()->getVisibleSize();
+	float box2X = visibleSize.width / 2;
+
+	float box1Y = visibleSize.height*0.94;
+
+	auto boxInside1 = Sprite::createWithSpriteFrameName("doors/boxinside.png");
+	boxInside1->setPosition(Vec2(box2X - visibleSize.width / 3.3, box1Y));
+	this->addChild(boxInside1);
+	boxInside1->setAnchorPoint(Vec2(0.5, 1));
 	auto box1 = CSLoader::createNode("doors/box.csb");
-	box1->setPosition(Vec2(500, 1700));
+	box1->setPosition(Vec2(box2X - visibleSize.width/3.3, box1Y));
 	this->addChild(box1);
 	_BoxRef.pushBack(box1);
+	auto timeline = CSLoader::createTimeline("doors/box.csb");
+	box1->runAction(timeline);
+	//timeline->play("open", false);
 
+	auto boxInside2 = Sprite::createWithSpriteFrameName("doors/boxinside.png");
+	boxInside2->setPosition(Vec2(box2X, box1Y));
+	this->addChild(boxInside2);
+	boxInside2->setAnchorPoint(Vec2(0.5, 1));
 	auto box2 = CSLoader::createNode("doors/box.csb");
-	box2->setPosition(Vec2(1300, 1700));
+	box2->setPosition(Vec2(box2X, box1Y));
 	this->addChild(box2);
 	_BoxRef.pushBack(box2);
 
+	auto boxInside3 = Sprite::createWithSpriteFrameName("doors/boxinside.png");
+	boxInside3->setPosition(Vec2(box2X + visibleSize.width / 3.3, box1Y));
+	this->addChild(boxInside3);
+	boxInside3->setAnchorPoint(Vec2(0.5, 1));
 	auto box3 = CSLoader::createNode("doors/box.csb");
-	box3->setPosition(Vec2(2100, 1700));
+	box3->setPosition(Vec2(box2X + visibleSize.width /3.3, box1Y));
 	this->addChild(box3);
 	_BoxRef.pushBack(box3);
 
