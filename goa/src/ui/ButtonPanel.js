@@ -24,12 +24,11 @@ xc.ButtonPanel = ccui.Layout.extend({
                             try {
                                 if(this._loadLocalTexture) {
                                     item = new ccui.Button(configuration[index]['icon'], configuration[index]['icon'], configuration[index]['icon'], ccui.Widget.LOCAL_TEXTURE);
-                                    item.setScale(0.2);                                
+                                    item.setScale(0.5);                                
                                 } else {
                                     item = new ccui.Button(configuration[index]['icon'], configuration[index]['icon'], configuration[index]['icon'], ccui.Widget.PLIST_TEXTURE);
                                     //item.setScale(3.0);
-                                }
-                                
+                                }                                
                             } catch (error) {
                                 cc.log(error);
                                 item = new ccui.Button('icons/my_pet.png', 'icons/my_pet_onclick.png', 'icons/my_pet_onclick.png', ccui.Widget.PLIST_TEXTURE);

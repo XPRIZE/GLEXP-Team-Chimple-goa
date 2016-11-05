@@ -55,6 +55,7 @@
 #include "../mini_games/CarDraw.h"
 #include "../mini_games/BlastLetter.h"
 #include "../mini_games/Door.h"
+#include "../mini_games/TreasureHunt.h"
 
 
 USING_NS_CC;
@@ -878,6 +879,9 @@ void MenuContext::launchGameFromJS(std::string gameName) {
 		}
 		else if (gameName == SORT_IT) {
 			ScriptingCore::getInstance()->runScript("src/start/sortit.js");
+		}
+		else if (gameName == TREASUREHUNT) {
+			Director::getInstance()->replaceScene(TreasureHunt::createScene());
 		}
     	else{
             CCLOG("Failed starting scene: %s", gameName.c_str());
