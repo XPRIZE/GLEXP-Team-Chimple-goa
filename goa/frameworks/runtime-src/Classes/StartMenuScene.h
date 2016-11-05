@@ -53,7 +53,7 @@ static const std::string ORDER = "order";
 static const std::string PILLAR = "pillar";
 static const std::string CARDRAW = "cardraw"; 
 static const std::string BLASTLETTER = "BlastLetter";
-
+static const std::string DOOR = "Door";
 class StartMenu {
 public:
     static void startScene(std::string gameName, std::string firstParam = "", std::string secondParam = "", std::string thirdParam = "");

@@ -54,6 +54,7 @@
 #include "../mini_games/Pillar.h"
 #include "../mini_games/CarDraw.h"
 #include "../mini_games/BlastLetter.h"
+#include "../mini_games/Door.h"
 
 
 USING_NS_CC;
@@ -857,6 +858,9 @@ void MenuContext::launchGameFromJS(std::string gameName) {
 
 		else if (gameName == CARDRAW) {
 			Director::getInstance()->replaceScene(CarDraw::createScene());
+		}
+		else if (gameName == DOOR) {
+			Director::getInstance()->replaceScene(Door::createScene());
 		}
     	else if (gameName == MEMORY) {
     		
