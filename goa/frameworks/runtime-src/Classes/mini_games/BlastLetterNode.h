@@ -14,9 +14,9 @@ public:
 	~BlastLetterNode();
 	cocos2d::Sprite* createDrawingBoard();
 	static BlastLetterNode *create(int width, int height, cocos2d::Point position);
-
-	void draw(cocos2d::DrawNode* paintingNode, cocos2d::Point fromPoint, cocos2d::Point currentPoint);
+	virtual void draw(cocos2d::DrawNode* paintingNode, cocos2d::Point fromPoint, cocos2d::Point currentPoint);
 	virtual void broadCastRecognizedChars(std::vector<std::string> results) override;
+	virtual ui::Button* createButton(const std::string normalImage, const std::string selectedImage, const std::string disableImage, Vec2 position) override;
 	std::vector<std::string> getPosibileCharacter();
 
 protected:
