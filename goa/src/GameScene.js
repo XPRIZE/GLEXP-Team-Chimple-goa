@@ -20,9 +20,12 @@ xc.GameScene = cc.Scene.extend({
                 this.addChild(this.layer);
             }
         }
+        if(typeof this.args[0] === 'string') {
+            this.layer.gameName = this.args[0];
+        }
         this.menuContext = goa.MenuContext.create(this.layer, this.layer.gameName);
-        if(typeof this.args[0] === 'number') {
-            this.menuContext.setCurrentLevel(this.args[0]);
+        if(typeof this.args[1] === 'number') {
+            this.menuContext.setCurrentLevel(this.args[1]);
         }
         this.addChild(this.menuContext);
     }
