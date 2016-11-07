@@ -141,6 +141,12 @@ void BlastLetter::update(float delta) {
 
 bool BlastLetter::checkRecognizeLetter(string letter)
 {
+	if (_result.size() > 0) {
+		if ((_result.at(0).compare("o") == 0 || _result.at(0).compare("0") == 0) && (LangUtil::convertUTF16CharToString(_data_value[_counterLetter]).compare("O") == 0)) {
+			return true;
+		}
+	}
+
 	for (size_t i = 0; i < _result.size(); i++) {
 		if (_result.at(i).compare(letter) == 0) {
 			return true;
