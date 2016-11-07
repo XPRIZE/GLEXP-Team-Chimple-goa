@@ -20,17 +20,20 @@ public:
 	void setWordInHelpBoard();
 	void charAnimation(int i, int j);
 	bool bingoChecker(bool flag);
-	std::vector<std::vector<Sprite *>> createGrid(int row , int column);
+	std::vector<std::vector<Sprite *>> createGrid(int row, int column);
 	std::vector<std::vector<cocostudio::timeline::ActionTimeline *>> createGridOfCharcater(int row, int column);
 	void setAllSpriteProperties(Sprite* object, int zOrder, float posX, float posY, bool visibility, float anchorPointX, float anchorPointY, float rotation, float scaleX, float scaleY, Sprite* parent);
 	std::map<std::string, std::string> _scenePath;
 	std::map<std::string, float> _gridBasedValue;
-	 Bingo();
+	void onEnterTransitionDidFinish();
+	Bingo();
 	~Bingo();
 	int bingoHorizotally();
 	int bingoVertically();
 	int bingoRightDiagonally();
 	int bingoLeftDiagonally();
+	std::pair<int, int> levelAllInfo(int levelNum, int sceneRepetitionNo, int totalScene, int catagoryRepetitionNo, int totalcatagory);
+
 
 	static const char* gameName() { return BINGO.c_str(); }
 
@@ -52,11 +55,11 @@ protected:
 	cocos2d::LabelTTF* _label = NULL;
 	bool _isBingoDone = false;
 	MenuContext* _menuContext;
-	std::string _bingoCurrentTheme ="";
+	std::string _bingoCurrentTheme = "";
 	std::string _bingoGridDimension = "";
 	std::string _resourcePath = "";
 	bool _flagForSingleTouch = true;
-	
+
 
 
 	// implement the "static create()" method manually
