@@ -75,7 +75,7 @@ float RPGConfig::calcuateVelocityForJump(cocos2d::Point point1, cocos2d::Point p
     //CCLOG("computed touchPointDifferenceX %f", touchPointDifferenceX);
 //    CCLOG("computed touchPointDifferneceY %f", touchPointDifferneceY);
     velocity = sqrt(std::abs(0.5 * RPG_GRAVITY * (touchPointDifferenceX * touchPointDifferenceX)
-                          / (touchPointDifferenceX * tan(angle * PI/RADIAN_TO_DEGREE) - touchPointDifferneceY))) / cos(angle * PI/RADIAN_TO_DEGREE) ;
+                          / (touchPointDifferenceX * tan(angle * MYPI/RADIAN_TO_DEGREE) - touchPointDifferneceY))) / cos(angle * MYPI/RADIAN_TO_DEGREE) ;
     
 //    CCLOG("computed velocity %f", velocity);
     return velocity;
@@ -101,7 +101,7 @@ float RPGConfig::calcuateAngleForJump(cocos2d::Point point1, cocos2d::Point poin
 //    CCLOG("computed touchPointDifferneceY 111 %f", touchPointDifferneceY);
 
     
-    angle = RADIAN_TO_DEGREE * atan2(touchPointDifferneceY, touchPointDifferenceX)/PI;
+    angle = RADIAN_TO_DEGREE * atan2(touchPointDifferneceY, touchPointDifferenceX)/MYPI;
     CCLOG("angle 111 %f", angle);
     
     float differenceInAngle = (angle - PERPENDICULAR_ANGLE) > 0 ?  (angle - PERPENDICULAR_ANGLE) * 0.6  : (PERPENDICULAR_ANGLE - angle) * 0.6;
@@ -123,7 +123,7 @@ float RPGConfig::calcuateAngleForJump(cocos2d::Point point1, cocos2d::Point poin
 
 float RPGConfig::calcuateTimeToStartJumpUpAnimation(float velocity, float angle, float numberOfFramesInAnimation) {
     
-    float verticalVelocity = velocity * sin(angle * PI/RADIAN_TO_DEGREE);
+    float verticalVelocity = velocity * sin(angle * MYPI/RADIAN_TO_DEGREE);
     
     float TotalTime = 2 * verticalVelocity / RPG_GRAVITY;
     

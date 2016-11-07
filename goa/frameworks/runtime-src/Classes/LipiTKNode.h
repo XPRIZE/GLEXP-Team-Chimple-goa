@@ -61,7 +61,7 @@ public:
 	std::vector<Stroke*> _strokes;
 	Stroke* _currentStroke;
 
-
+	void writingEnable(bool enable);
 protected:
     int _canvasHeight;
     int _canvasWidth;
@@ -83,7 +83,7 @@ private:
     void onTouchMoved(cocos2d::Touch * touch, cocos2d::Event * event);
     void touchEnded(cocos2d::Touch* touch, cocos2d::Event* event);
 
-
+	cocos2d::EventListenerTouchOneByOne * _listenerTouches;
     void processLipiTK();
 
 };

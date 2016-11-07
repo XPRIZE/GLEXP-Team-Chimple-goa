@@ -449,7 +449,7 @@ xc.ContentPanel = xc.AbstractContentPanel.extend({
                 storyText = json[xc.pageIndex]
                 xc.story.items[xc.pageIndex].sceneText = storyText;                                
             } 
-            that.parent.addChild(new xc.TextCreatePanel(cc.director.getWinSize().width, cc.director.getWinSize().height, cc.p(385, 250), xc.story.items[xc.pageIndex].sceneText, that.processText, that, true));           
+            that.parent.addChild(new xc.TextCreatePanel(cc.director.getWinSize().width, cc.director.getWinSize().height, cc.p(385, 250), xc.story.items[xc.pageIndex].sceneText, that.processText, null, that, true));           
         });
     },
 

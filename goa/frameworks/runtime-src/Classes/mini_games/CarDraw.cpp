@@ -9,6 +9,7 @@
 #include "CarDraw.h"
 #include "../WordSceneLipiTKNode.h"
 #include "CarDrawNode.h"
+#include "../menu/HelpLayer.h"
 
 USING_NS_CC;
 
@@ -53,6 +54,8 @@ void CarDraw::draw(cocos2d::DrawNode * paintingNode, cocos2d::Point fromPoint, c
 void CarDraw::postTouchBegan(cocos2d::Touch * touch, cocos2d::Event * event, cocos2d::Point touchPoint)
 {
 	CCLOG("111");
+	this->removeChildByName("gameHelpLayer");
+	this->removeChildByName("Alphabet");
 	Size visibleSize = Director::getInstance()->getVisibleSize();
 	auto target = event->getCurrentTarget();
 	Point localPoint = target->getParent()->getParent()->convertToNodeSpace(touchPoint);
@@ -114,8 +117,9 @@ void CarDraw::postTouchEnded(cocos2d::Touch * touch, cocos2d::Event * event, coc
 void CarDraw::characterRecogination(std::vector<string> str)
 {
 	bool flage = false;
-	if (str.at(0).compare("A") == 0 || str.at(1).compare("A") == 0) {
+	if (str.at(0).compare(_myChar) == 0 || str.at(1).compare(_myChar) == 0) {
 		flage = true;
+		_carDrawNodeLiPi->writingEnable(false);
 	}
 	if (flage) {
 		this->unschedule(schedule_selector(CarDraw::clearScreen));
@@ -123,8 +127,26 @@ void CarDraw::characterRecogination(std::vector<string> str)
 		CCLOG("right");
 	}
 	else {
+		this->unschedule(schedule_selector(CarDraw::clearScreen));
 		this->scheduleOnce(schedule_selector(CarDraw::clearScreen), 4);
 	}
+}
+
+void CarDraw::gameHelpLayer()
+{
+	Size visibleSize = Director::getInstance()->getVisibleSize();
+	auto helpLayer = HelpLayer::create(Rect(visibleSize.width / 2, visibleSize.height / 2, visibleSize.width / 2.8, visibleSize.height * 0.8), Rect(0, 0, 0, 0));
+	std::vector <Point> points;
+	float boxWidth = (visibleSize.width / 2.8)/2;
+	float boxHeight = (visibleSize.height * 0.8)/2;
+	points.push_back(Vec2(visibleSize.width / 2 - boxWidth / 1.25, visibleSize.height / 2 - boxHeight*0.6));
+	points.push_back(Vec2(visibleSize.width / 2 , visibleSize.height / 2 + boxHeight*0.7));
+	points.push_back(Vec2(visibleSize.width / 2 + boxWidth / 1.25, visibleSize.height / 2 - boxHeight*0.6));
+	points.push_back(Vec2(visibleSize.width / 2 - boxWidth / 2, visibleSize.height / 2 - boxHeight*0.1));
+	points.push_back(Vec2(visibleSize.width / 2 + boxWidth / 2, visibleSize.height / 2 - boxHeight*0.1));
+	helpLayer->writing(points);
+	this->addChild(helpLayer);
+	helpLayer->setName("gameHelpLayer");
 }
 
 
@@ -141,21 +163,18 @@ bool CarDraw::init()
 	Vec2 origin = Director::getInstance()->getVisibleOrigin();
 	auto bg = CSLoader::createNode("cardraw/cardraw.csb");
 	this->addChild(bg);
-
+	CCLOG("?????????????????game Start???????????????????");
 	_car = bg->getChildByName("car_1");
 	_carDrawNodeLiPi = carDrawNode::create(visibleSize.width, visibleSize.height, Vec2(visibleSize.width / 2, visibleSize.height / 2));
 	_carDrawNodeLiPi->setOpacity(50);
 	_carDrawNodeLiPi->setParent(this);
 	this->addChild(_carDrawNodeLiPi);
-
+	CCLOG("//////////////////////LIPI//////////////////");
 	_road = DrawNode::create();
 	_road->setName("roadNode");
 	this->addChild(_road);
 	//cardraw / car.png
-	_car = Sprite::createWithSpriteFrameName("cardraw/car.png");
-	_car->setPosition(Vec2(200, 200));
-	this->addChild(_car);
-	gameStart();
+	
 	return true;
 }
 
@@ -165,6 +184,7 @@ void CarDraw::carMoving()
 	auto car = Sprite::createWithSpriteFrameName("cardraw/car.png");
 	car->setRotation(_prevDegree);
 	this->addChild(car);
+	car->setScale(-0.65);
 	Vector< FiniteTimeAction * > fta;
 	Vector< FiniteTimeAction * > rotateAction;
 	for (int i = 0; i < _carStrokes.size(); i++) {
@@ -183,27 +203,52 @@ void CarDraw::carMoving()
 
 					auto diff = p1 - p2;
 					auto angle = CC_RADIANS_TO_DEGREES(atan2((int)diff.x, (int)diff.y));
-					CCLOG("angle %f", angle);
+					
 					if ((angle) > 179) {
 						CCLOG("180");
 						angle = _carPreviousAngle;
 					}
-					_carPreviousAngle = angle;
+					//_carPreviousAngle = angle;
 					avgAngle += angle;
 				}
-				auto rotateAction1 = RotateTo::create(0.05f, avgAngle/10);
-				rotateAction.pushBack(rotateAction1);
-				rotateAction.pushBack(DelayTime::create(0.5));
+				int angleee = ((avgAngle / 10) + _carPreviousAngle) / 2;
+				CCLOG("angle %d", angleee);
+				_carPreviousAngle = angleee;
+				if (i == 0) {
+					auto rotateAction1 = RotateTo::create(0.05f, angleee);
+					rotateAction.pushBack(rotateAction1);
+					rotateAction.pushBack(DelayTime::create(0.5));
+					
+				}
+				else {
+					auto rotateAction1 = RotateTo::create(0.5f, angleee);
+					rotateAction.pushBack(rotateAction1);
+				}
+				
+				//rotateAction.pushBack(DelayTime::create(0.51));
 			}
-			else if (k> _carStrokes.size() - 5) {
+			/*else if (k> _carStrokes.size() - 5) {
 				auto diff = _carStrokes.at(i)->getPointAt(k - 1) - _carStrokes.at(i)->getPointAt(k);
 				auto angle = CC_RADIANS_TO_DEGREES(atan2((int)diff.x, (int)diff.y));
 				CCLOG("111111s angle %f", angle);
 				auto rotateAction1 = RotateTo::create(0.05f, angle);
 				rotateAction.pushBack(rotateAction1);
-			}
+			}*/
 		}
 	}
+	auto showScore = CallFunc::create([=]() {
+		menu->showScore();
+		 });
+
+
+	auto rotateScore = CallFunc::create([=]() {
+		CCLOG("rotation done!!!");
+		//menu->showScore();
+	});
+	rotateAction.pushBack(rotateScore);
+	fta.pushBack(showScore);
+
+
 	auto seq = Sequence::create(fta);
 	car->runAction(seq);
 	auto seq1 = Sequence::create(rotateAction);
@@ -216,17 +261,34 @@ void CarDraw::clearScreen(float ft)
 	//CC_CALLBACK_2()
 	_carStrokes.clear();
 	_carDrawNodeLiPi->clearDrawing(nullptr, cocos2d::ui::Widget::TouchEventType::ENDED);
+	gameStart();
 }
 
 void CarDraw::gameStart()
 {
 	Size visibleSize = Director::getInstance()->getVisibleSize();
-	auto myLabel = Label::createWithBMFont(LangUtil::getInstance()->getBMFontFileName(), "A");
+	_myChar = LangUtil::convertUTF16CharToString(LangUtil::getInstance()->getAllCharacters()[menu->getCurrentLevel() - 1]);
+	auto myLabel = Label::createWithBMFont(LangUtil::getInstance()->getBMFontFileName(), _myChar);
 	myLabel->setPositionX(visibleSize.width/2);
 	myLabel->setPositionY(visibleSize.height / 2);
-	myLabel->setScale(2);
+	myLabel->setScale(2.5);
 	this->addChild(myLabel);
-	auto fadeOut = FadeOut::create(2.0f);
-	myLabel->runAction(fadeOut);
+	if (_helpLayerFlag && menu->getCurrentLevel() == 1) {
+		_helpLayerFlag = false;
+		myLabel->setName("Alphabet");
+	}
+	else {
+		auto fadeOut = FadeOut::create(2.0f);
+		myLabel->runAction(fadeOut);
+	}
 
+}
+
+void CarDraw::onEnterTransitionDidFinish()
+{
+	_helpLayerFlag = true;
+	gameStart();
+	if (menu->getCurrentLevel() == 1) {
+		gameHelpLayer();
+	}
 }

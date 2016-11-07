@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
     <Filter Include="resource">
@@ -519,6 +519,12 @@
     </ClCompile>
     <ClCompile Include="..\Classes\mini_games\BlastLetter.cpp">
       <Filter>Classes\mini_games</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\mini_games\DoorNode.cpp">
+      <Filter>Classes\mini_games</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\mini_games\Door.cpp">
+    <Filter>Classes\mini_games</Filter>
     </ClCompile>
     <ClCompile Include="..\Classes\mini_games\BlastLetterNode.cpp">
       <Filter>Classes\mini_games</Filter>
@@ -1053,6 +1059,12 @@
     </ClInclude>
     <ClInclude Include="..\Classes\mini_games\BlastLetter.h">
       <Filter>Classes\mini_games</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\mini_games\DoorNode.h">
+      <Filter>Classes\mini_games</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\mini_games\Door.h">
+    <Filter>Classes\mini_games</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\mini_games\BlastLetterNode.h">
       <Filter>Classes\mini_games</Filter>

@@ -66,10 +66,6 @@
 		9C6007AA1DC1DBB700F9C184 /* CarDrawNode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9C6007A51DC1DBB700F9C184 /* CarDrawNode.cpp */; };
 		9C7B1AC71DAA1BCE00EBD1FE /* Order.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9C7B1AC51DAA1BCE00EBD1FE /* Order.cpp */; };
 		9C7B1ACA1DAA1BD200EBD1FE /* Order.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9C7B1AC51DAA1BCE00EBD1FE /* Order.cpp */; };
-		9C9D46361DCB49350071BCF9 /* BlastLetter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9C9D46321DCB49350071BCF9 /* BlastLetter.cpp */; };
-		9C9D46371DCB49350071BCF9 /* BlastLetterNode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9C9D46341DCB49350071BCF9 /* BlastLetterNode.cpp */; };
-		9C9D463A1DCB493A0071BCF9 /* BlastLetterNode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9C9D46341DCB49350071BCF9 /* BlastLetterNode.cpp */; };
-		9C9D463B1DCB493F0071BCF9 /* BlastLetter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9C9D46321DCB49350071BCF9 /* BlastLetter.cpp */; };
 		9FA3AE461BE9BBCA00FC9645 /* GameController.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9FA3AE451BE9BBCA00FC9645 /* GameController.framework */; };
 		A92275421517C094001B78AA /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A92275411517C094001B78AA /* QuartzCore.framework */; };
 		A92275441517C094001B78AA /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A92275431517C094001B78AA /* OpenGLES.framework */; };
@@ -362,12 +358,24 @@
 		F36840BF1D8A812F00969162 /* Alphamole.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F36840BA1D8A812F00969162 /* Alphamole.cpp */; };
 		F36840C01D8A812F00969162 /* AlphamoleLevel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F36840BC1D8A812F00969162 /* AlphamoleLevel.cpp */; };
 		F36840C11D8A812F00969162 /* AlphamoleLevel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F36840BC1D8A812F00969162 /* AlphamoleLevel.cpp */; };
+		F37286F21DCB4B5000F4804A /* BlastLetter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F37286EE1DCB4B5000F4804A /* BlastLetter.cpp */; };
+		F37286F31DCB4B5000F4804A /* BlastLetter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F37286EE1DCB4B5000F4804A /* BlastLetter.cpp */; };
+		F37286F41DCB4B5000F4804A /* BlastLetterNode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F37286F01DCB4B5000F4804A /* BlastLetterNode.cpp */; };
+		F37286F51DCB4B5000F4804A /* BlastLetterNode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F37286F01DCB4B5000F4804A /* BlastLetterNode.cpp */; };
 		F37404101D78653D00A671D2 /* boot.js in Resources */ = {isa = PBXBuildFile; fileRef = F374040F1D78653C00A671D2 /* boot.js */; };
 		F37404131D78655700A671D2 /* boot.js in Resources */ = {isa = PBXBuildFile; fileRef = F374040F1D78653C00A671D2 /* boot.js */; };
+		F3AB34D31DCDA95900613C20 /* Door.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F3AB34CF1DCDA95900613C20 /* Door.cpp */; };
+		F3AB34D41DCDA95900613C20 /* Door.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F3AB34CF1DCDA95900613C20 /* Door.cpp */; };
+		F3AB34D51DCDA95900613C20 /* DoorNode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F3AB34D11DCDA95900613C20 /* DoorNode.cpp */; };
+		F3AB34D61DCDA95900613C20 /* DoorNode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F3AB34D11DCDA95900613C20 /* DoorNode.cpp */; };
 		F3D201A31D7409B400FDB750 /* Train.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F3D2019F1D7409B400FDB750 /* Train.cpp */; };
 		F3D201A41D7409B400FDB750 /* Pop.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F3D201A11D7409B400FDB750 /* Pop.cpp */; };
 		F3D201A71D740C6C00FDB750 /* Train.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F3D2019F1D7409B400FDB750 /* Train.cpp */; };
 		F3D201A81D740C7C00FDB750 /* Pop.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F3D201A11D7409B400FDB750 /* Pop.cpp */; };
+		F3E2102F1DCC60D300C301F8 /* TreasureHunt.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F3E2102B1DCC60D300C301F8 /* TreasureHunt.cpp */; };
+		F3E210301DCC60D300C301F8 /* TreasureHunt.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F3E2102B1DCC60D300C301F8 /* TreasureHunt.cpp */; };
+		F3E210311DCC60D300C301F8 /* TreasureHuntNode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F3E2102D1DCC60D300C301F8 /* TreasureHuntNode.cpp */; };
+		F3E210321DCC60D300C301F8 /* TreasureHuntNode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F3E2102D1DCC60D300C301F8 /* TreasureHuntNode.cpp */; };
 		F3F7ED621D93DAFE00727A7C /* Dash.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F3F7ED601D93DAFE00727A7C /* Dash.cpp */; };
 		F3F7ED631D93DAFE00727A7C /* Dash.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F3F7ED601D93DAFE00727A7C /* Dash.cpp */; };
 		F3F7ED6C1D94F22F00727A7C /* Bingo.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F3F7ED6B1D94F22F00727A7C /* Bingo.cpp */; };
@@ -516,10 +524,6 @@
 		9C6007A61DC1DBB700F9C184 /* CarDrawNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CarDrawNode.h; sourceTree = "<group>"; };
 		9C7B1AC51DAA1BCE00EBD1FE /* Order.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Order.cpp; sourceTree = "<group>"; };
 		9C7B1AC61DAA1BCE00EBD1FE /* Order.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Order.h; sourceTree = "<group>"; };
-		9C9D46321DCB49350071BCF9 /* BlastLetter.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BlastLetter.cpp; sourceTree = "<group>"; };
-		9C9D46331DCB49350071BCF9 /* BlastLetter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlastLetter.h; sourceTree = "<group>"; };
-		9C9D46341DCB49350071BCF9 /* BlastLetterNode.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BlastLetterNode.cpp; sourceTree = "<group>"; };
-		9C9D46351DCB49350071BCF9 /* BlastLetterNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlastLetterNode.h; sourceTree = "<group>"; };
 		9FA3AE451BE9BBCA00FC9645 /* GameController.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameController.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.0.sdk/System/Library/Frameworks/GameController.framework; sourceTree = DEVELOPER_DIR; };
 		A922753D1517C094001B78AA /* goa-mobile.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "goa-mobile.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A92275411517C094001B78AA /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
@@ -831,11 +835,23 @@
 		F36840BB1D8A812F00969162 /* Alphamole.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Alphamole.h; sourceTree = "<group>"; };
 		F36840BC1D8A812F00969162 /* AlphamoleLevel.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AlphamoleLevel.cpp; sourceTree = "<group>"; };
 		F36840BD1D8A812F00969162 /* AlphamoleLevel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AlphamoleLevel.h; sourceTree = "<group>"; };
+		F37286EE1DCB4B5000F4804A /* BlastLetter.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BlastLetter.cpp; sourceTree = "<group>"; };
+		F37286EF1DCB4B5000F4804A /* BlastLetter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlastLetter.h; sourceTree = "<group>"; };
+		F37286F01DCB4B5000F4804A /* BlastLetterNode.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BlastLetterNode.cpp; sourceTree = "<group>"; };
+		F37286F11DCB4B5000F4804A /* BlastLetterNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlastLetterNode.h; sourceTree = "<group>"; };
 		F374040F1D78653C00A671D2 /* boot.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = boot.js; sourceTree = "<group>"; };
+		F3AB34CF1DCDA95900613C20 /* Door.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Door.cpp; sourceTree = "<group>"; };
+		F3AB34D01DCDA95900613C20 /* Door.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Door.h; sourceTree = "<group>"; };
+		F3AB34D11DCDA95900613C20 /* DoorNode.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = DoorNode.cpp; sourceTree = "<group>"; };
+		F3AB34D21DCDA95900613C20 /* DoorNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DoorNode.h; sourceTree = "<group>"; };
 		F3D2019F1D7409B400FDB750 /* Train.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Train.cpp; sourceTree = "<group>"; };
 		F3D201A01D7409B400FDB750 /* Train.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Train.h; sourceTree = "<group>"; };
 		F3D201A11D7409B400FDB750 /* Pop.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Pop.cpp; sourceTree = "<group>"; };
 		F3D201A21D7409B400FDB750 /* Pop.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Pop.h; sourceTree = "<group>"; };
+		F3E2102B1DCC60D300C301F8 /* TreasureHunt.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TreasureHunt.cpp; sourceTree = "<group>"; };
+		F3E2102C1DCC60D300C301F8 /* TreasureHunt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TreasureHunt.h; sourceTree = "<group>"; };
+		F3E2102D1DCC60D300C301F8 /* TreasureHuntNode.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TreasureHuntNode.cpp; sourceTree = "<group>"; };
+		F3E2102E1DCC60D300C301F8 /* TreasureHuntNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TreasureHuntNode.h; sourceTree = "<group>"; };
 		F3F7ED601D93DAFE00727A7C /* Dash.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Dash.cpp; sourceTree = "<group>"; };
 		F3F7ED611D93DAFE00727A7C /* Dash.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Dash.h; sourceTree = "<group>"; };
 		F3F7ED6A1D94F22F00727A7C /* Bingo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Bingo.h; sourceTree = "<group>"; };
@@ -1185,11 +1201,19 @@
 		F352471A1D6D9D1A0077C333 /* mini_games */ = {
 			isa = PBXGroup;
 			children = (
+				F3AB34CF1DCDA95900613C20 /* Door.cpp */,
+				F3AB34D01DCDA95900613C20 /* Door.h */,
+				F3AB34D11DCDA95900613C20 /* DoorNode.cpp */,
+				F3AB34D21DCDA95900613C20 /* DoorNode.h */,
+				F3E2102B1DCC60D300C301F8 /* TreasureHunt.cpp */,
+				F3E2102C1DCC60D300C301F8 /* TreasureHunt.h */,
+				F3E2102D1DCC60D300C301F8 /* TreasureHuntNode.cpp */,
+				F3E2102E1DCC60D300C301F8 /* TreasureHuntNode.h */,
+				F37286EE1DCB4B5000F4804A /* BlastLetter.cpp */,
+				F37286EF1DCB4B5000F4804A /* BlastLetter.h */,
+				F37286F01DCB4B5000F4804A /* BlastLetterNode.cpp */,
+				F37286F11DCB4B5000F4804A /* BlastLetterNode.h */,
 				9C064E5A1DB8905C000892E1 /* DecomonGallery.cpp */,
-				9C9D46321DCB49350071BCF9 /* BlastLetter.cpp */,
-				9C9D46331DCB49350071BCF9 /* BlastLetter.h */,
-				9C9D46341DCB49350071BCF9 /* BlastLetterNode.cpp */,
-				9C9D46351DCB49350071BCF9 /* BlastLetterNode.h */,
 				9C064E5B1DB8905C000892E1 /* DecomonGallery.h */,
 				F303CC9F1DB20D9000DB6D81 /* Pillar.cpp */,
 				F303CCA01DB20D9000DB6D81 /* Pillar.h */,
@@ -1748,6 +1772,7 @@
 				F3667D5D1DB4BA7000EC8908 /* LTKCheckSumGenerate.cpp in Sources */,
 				F35248431D6D9D1A0077C333 /* I18nUtils.cpp in Sources */,
 				F35247CD1D6D9D1A0077C333 /* Cannon_Ball_Listener.cpp in Sources */,
+				F37286F51DCB4B5000F4804A /* BlastLetterNode.cpp in Sources */,
 				F3667D7B1DB4BA7000EC8908 /* LTKLogger.cpp in Sources */,
 				F3667D731DB4BA7000EC8908 /* LTKStringUtil.cpp in Sources */,
 				F3667D6D1DB4BA7000EC8908 /* LTKLoggerUtil.cpp in Sources */,
@@ -1764,6 +1789,7 @@
 				F352484D1D6D9D1A0077C333 /* SkeletonPosition.cpp in Sources */,
 				F3667D311DB4BA6F00EC8908 /* LipiTKProcessTask.cpp in Sources */,
 				F3667D631DB4BA7000EC8908 /* LTKImageWriter.cpp in Sources */,
+				F3AB34D41DCDA95900613C20 /* Door.cpp in Sources */,
 				9C064E5F1DB8909B000892E1 /* DecomonGallery.cpp in Sources */,
 				F3667D231DB4BA6F00EC8908 /* LTKTraceFormat.cpp in Sources */,
 				F3667D711DB4BA7000EC8908 /* LTKStrEncoding.cpp in Sources */,
@@ -1771,6 +1797,7 @@
 				F35247CB1D6D9D1A0077C333 /* BajaWordScene.cpp in Sources */,
 				F352480B1D6D9D1A0077C333 /* GraphemeGrid.cpp in Sources */,
 				F35247C71D6D9D1A0077C333 /* AlphamonFeedScene.cpp in Sources */,
+				F3E210301DCC60D300C301F8 /* TreasureHunt.cpp in Sources */,
 				F3667D271DB4BA6F00EC8908 /* lipiengine.cpp in Sources */,
 				F35247EF1D6D9D1A0077C333 /* GameScene.cpp in Sources */,
 				F35248491D6D9D1A0077C333 /* SpeechBubbleView.cpp in Sources */,
@@ -1778,6 +1805,7 @@
 				F35248251D6D9D1A0077C333 /* MapIsland.cpp in Sources */,
 				F35247C51D6D9D1A0077C333 /* AlphamonFeedLevelScene.cpp in Sources */,
 				F35248111D6D9D1A0077C333 /* WordScene.cpp in Sources */,
+				F3AB34D61DCDA95900613C20 /* DoorNode.cpp in Sources */,
 				F35247D91D6D9D1A0077C333 /* EndlessRunner.cpp in Sources */,
 				F3F7ED8F1DA65FF400727A7C /* BalloonHero.cpp in Sources */,
 				F352481B1D6D9D1A0077C333 /* RPGSprite.cpp in Sources */,
@@ -1787,6 +1815,7 @@
 				F35247E11D6D9D1A0077C333 /* PatchTheWallScene.cpp in Sources */,
 				F352485B1D6D9D1A0077C333 /* State.cpp in Sources */,
 				F3667D6F1DB4BA7000EC8908 /* LTKOSUtilFactory.cpp in Sources */,
+				F3E210321DCC60D300C301F8 /* TreasureHuntNode.cpp in Sources */,
 				F35247FF1D6D9D1A0077C333 /* PhotoCaptureScene.cpp in Sources */,
 				3740AD2E1D910EBA005BDCBA /* Memory.cpp in Sources */,
 				F35248191D6D9D1A0077C333 /* ScoreBoardContent.cpp in Sources */,
@@ -1797,7 +1826,6 @@
 				F35247E51D6D9D1A0077C333 /* SmashTheRockScene.cpp in Sources */,
 				F35248271D6D9D1A0077C333 /* WordSprite.cpp in Sources */,
 				F3667D431DB4BA6F00EC8908 /* PointFloat.cpp in Sources */,
-				9C9D463A1DCB493A0071BCF9 /* BlastLetterNode.cpp in Sources */,
 				F3667D331DB4BA6F00EC8908 /* LipiTKResult.cpp in Sources */,
 				F35248031D6D9D1A0077C333 /* AlphabetGrid.cpp in Sources */,
 				F3667D411DB4BA6F00EC8908 /* LTKShapeFeatureExtractorFactory.cpp in Sources */,
@@ -1855,6 +1883,7 @@
 				F35247F31D6D9D1A0077C333 /* KannadaUtil.cpp in Sources */,
 				F3667D5F1DB4BA7000EC8908 /* LTKConfigFileReader.cpp in Sources */,
 				F35248351D6D9D1A0077C333 /* StandingState.cpp in Sources */,
+				F37286F31DCB4B5000F4804A /* BlastLetter.cpp in Sources */,
 				F3667D6B1DB4BA7000EC8908 /* LTKLinuxUtil.cpp in Sources */,
 				F35247C91D6D9D1A0077C333 /* Baja.cpp in Sources */,
 				F35247F11D6D9D1A0077C333 /* EnglishUtil.cpp in Sources */,
@@ -1866,7 +1895,6 @@
 				F3667D1B1DB4BA6F00EC8908 /* LTKChannel.cpp in Sources */,
 				F3667D251DB4BA6F00EC8908 /* LTKTraceGroup.cpp in Sources */,
 				F35247ED1D6D9D1A0077C333 /* Wembley.cpp in Sources */,
-				9C9D463B1DCB493F0071BCF9 /* BlastLetter.cpp in Sources */,
 				F3667D531DB4BA6F00EC8908 /* NNShapeRecognizer.cpp in Sources */,
 				F35248291D6D9D1A0077C333 /* Alphamon.cpp in Sources */,
 				F3667D751DB4BA7000EC8908 /* LTKVersionCompatibilityCheck.cpp in Sources */,
@@ -1910,6 +1938,7 @@
 				F3F7ED621D93DAFE00727A7C /* Dash.cpp in Sources */,
 				F3667D741DB4BA7000EC8908 /* LTKVersionCompatibilityCheck.cpp in Sources */,
 				F35248201D6D9D1A0077C333 /* GestureLayer.cpp in Sources */,
+				F3AB34D51DCDA95900613C20 /* DoorNode.cpp in Sources */,
 				F35248021D6D9D1A0077C333 /* AlphabetGrid.cpp in Sources */,
 				F352484E1D6D9D1A0077C333 /* MessageContent.cpp in Sources */,
 				F35248461D6D9D1A0077C333 /* LanguageManager.cpp in Sources */,
@@ -1929,6 +1958,7 @@
 				F35248001D6D9D1A0077C333 /* Alphabet.cpp in Sources */,
 				F35247F81D6D9D1A0077C333 /* TextGenerator.cpp in Sources */,
 				F35248441D6D9D1A0077C333 /* MO.cpp in Sources */,
+				F3E2102F1DCC60D300C301F8 /* TreasureHunt.cpp in Sources */,
 				9C6007A91DC1DBB700F9C184 /* CarDrawNode.cpp in Sources */,
 				F352480A1D6D9D1A0077C333 /* GraphemeGrid.cpp in Sources */,
 				F3667D5E1DB4BA7000EC8908 /* LTKConfigFileReader.cpp in Sources */,
@@ -1945,6 +1975,7 @@
 				3740AD351D912A8B005BDCBA /* Stack.cpp in Sources */,
 				F3667D6A1DB4BA7000EC8908 /* LTKLinuxUtil.cpp in Sources */,
 				F3F7ED941DA65FF400727A7C /* Owl.cpp in Sources */,
+				F3E210311DCC60D300C301F8 /* TreasureHuntNode.cpp in Sources */,
 				F35248041D6D9D1A0077C333 /* CharGenerator.cpp in Sources */,
 				D4545227156E28EF00887EB5 /* AppDelegate.cpp in Sources */,
 				F3667D321DB4BA6F00EC8908 /* LipiTKResult.cpp in Sources */,
@@ -1960,7 +1991,7 @@
 				F3D201A31D7409B400FDB750 /* Train.cpp in Sources */,
 				F35247E21D6D9D1A0077C333 /* SmashTheRockLevelScene.cpp in Sources */,
 				F35247F01D6D9D1A0077C333 /* EnglishUtil.cpp in Sources */,
-				9C9D46361DCB49350071BCF9 /* BlastLetter.cpp in Sources */,
+				F37286F21DCB4B5000F4804A /* BlastLetter.cpp in Sources */,
 				F35247D21D6D9D1A0077C333 /* CatScene.cpp in Sources */,
 				F35248061D6D9D1A0077C333 /* DuelScene.cpp in Sources */,
 				F35248421D6D9D1A0077C333 /* I18nUtils.cpp in Sources */,
@@ -2031,12 +2062,13 @@
 				3740AD3D1D912CFD005BDCBA /* Circle.cpp in Sources */,
 				F35248381D6D9D1A0077C333 /* Sqlite3Helper.cpp in Sources */,
 				F35247E61D6D9D1A0077C333 /* Spirograph.cpp in Sources */,
-				9C9D46371DCB49350071BCF9 /* BlastLetterNode.cpp in Sources */,
+				F37286F41DCB4B5000F4804A /* BlastLetterNode.cpp in Sources */,
 				F3F7ED6C1D94F22F00727A7C /* Bingo.cpp in Sources */,
 				F3667D541DB4BA6F00EC8908 /* LTKPreprocessor.cpp in Sources */,
 				F3667D421DB4BA6F00EC8908 /* PointFloat.cpp in Sources */,
 				F352481C1D6D9D1A0077C333 /* ScrollableGameMapScene.cpp in Sources */,
 				F3667D5C1DB4BA7000EC8908 /* LTKCheckSumGenerate.cpp in Sources */,
+				F3AB34D31DCDA95900613C20 /* Door.cpp in Sources */,
 				F35248301D6D9D1A0077C333 /* JumpingState.cpp in Sources */,
 				F36840BE1D8A812F00969162 /* Alphamole.cpp in Sources */,
 				F352481A1D6D9D1A0077C333 /* RPGSprite.cpp in Sources */,

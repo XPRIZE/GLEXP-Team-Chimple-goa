@@ -29,9 +29,12 @@ public:
 	virtual void postTouchMoved(cocos2d::Touch * touch, cocos2d::Event * event, cocos2d::Point touchPoint);
 	virtual void postTouchEnded(cocos2d::Touch * touch, cocos2d::Event * event, cocos2d::Point touchPoint);
 	virtual void characterRecogination(std::vector<string> str);
+	void gameHelpLayer();
 	
 protected:
+	string _myChar;
 	MenuContext * menu;
+	bool _helpLayerFlag = false;
 	cocos2d::Node* _car;
 	cocos2d::DrawNode * _road;
 	float _prevDegree;
@@ -42,6 +45,7 @@ protected:
 	Stroke* _carCurrentStroke;
 	void clearScreen(float ft);
 	void gameStart();
+	void onEnterTransitionDidFinish();
 };
 
 #endif 

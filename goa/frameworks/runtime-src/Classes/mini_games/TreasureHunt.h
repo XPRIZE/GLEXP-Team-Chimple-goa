@@ -21,7 +21,7 @@ public:
 	static cocos2d::Scene* createScene();
 	virtual bool init();
 	static TreasureHunt* create();
-	bool checkRecognizeLetter();
+	bool checkRecognizeLetter(std::string letter);
 	void onEnterTransitionDidFinish();
 	std::vector<std::pair<int, int>> getAllGridCoord(int row, int column);
 	void update(float) override;
