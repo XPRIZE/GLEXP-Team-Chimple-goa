@@ -14,17 +14,20 @@ class TreasureHunt : public cocos2d::Layer
 
 protected:
 	MenuContext *_menuContext;
-	std::vector<std::string> _result;
+    std::vector<std::string> _result;
 
 public:
 	~TreasureHunt();
 	static cocos2d::Scene* createScene();
 	virtual bool init();
 	static TreasureHunt* create();
+	std::string _currentLetter;
 	bool checkRecognizeLetter(std::string letter);
 	void onEnterTransitionDidFinish();
 	std::vector<std::pair<int, int>> getAllGridCoord(int row, int column);
 	void update(float) override;
+	const wchar_t *_alpha;
+	std::string getConvertInUpperCase(std::string data);
 	static const char* gameName() { return TREASUREHUNT.c_str(); }
 };
 
