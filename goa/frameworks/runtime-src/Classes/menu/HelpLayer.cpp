@@ -82,6 +82,11 @@ void HelpLayer::clickAndDrag(Vec2 startPoint, Vec2 endPoint) {
     finger->runAction(Sequence::create(scaleBy, DelayTime::create(0.5), moveTo, scaleBy->reverse(), callFunc, NULL));
 }
 
+/*
+vector contains start point and end point of the each stroke
+
+
+*/
 void HelpLayer::writing(std::vector<cocos2d::Vec2> points)
 {
 	_animating = true;
