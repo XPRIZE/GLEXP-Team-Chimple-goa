@@ -48,6 +48,14 @@ xc.StoryCoverPageLayer = cc.Layer.extend({
 
     init: function () {
         var coverPageUrl = this._storyInformation["coverPage"];
+        this._baseDir = "";
+        if(coverPageUrl.indexOf("/") != -1) {
+            var parts = coverPageUrl.split("/");
+            if(parts != undefined && parts.length > 0) {
+                this._baseDir = parts[0];
+            }
+        }
+        
         this._constructedScene = ccs.load(xc.path + coverPageUrl, xc.path);
         this._constructedScene.node.retain();
         this._constructedScene.action.retain();
@@ -75,6 +83,7 @@ xc.StoryCoverPageLayer = cc.Layer.extend({
 
 
     enterFrameEvent: function(event) {
+        cc.log('enterFrameEvent' + event.getEvent());    
         var langDir = goa.TextGenerator.getInstance().getLang();
         var eventData = event.getEvent();
         var page = this._referenceToContext._storyInformation["pages"][this._referenceToContext._pageIndex];
@@ -82,15 +91,18 @@ xc.StoryCoverPageLayer = cc.Layer.extend({
             //var soundFile = page[eventData];
             var soundFile = eventData;
             if(soundFile != undefined) {
-                var soundFile = xc.path + "misc/" + langDir + "/" + "sounds/" + soundFile + ".mp3";
+                var soundFile = xc.path + this._referenceToContext._baseDir + "/sounds/" + soundFile + ".mp3";
                 cc.loader.load(soundFile, function(err, data) {
                     if(!err) {
+                        if(cc.audioEngine.isMusicPlaying()) {
+                            cc.audioEngine.stopMusic();
+                        }
                         cc.audioEngine.playMusic(soundFile, false);
                     }
                 }); 
             }            
 
-        }
+        }        
     },
     
     sceneTouched: function (target) {
