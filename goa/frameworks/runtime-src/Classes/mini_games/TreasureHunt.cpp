@@ -34,21 +34,61 @@ bool TreasureHunt::init()
 
 void TreasureHunt::onEnterTransitionDidFinish() {
 
-	auto bgLayerGradient = LayerGradient::create(Color4B(25, 115, 155, 55), Color4B(255, 255, 255, 255));
-	this->addChild(bgLayerGradient, 0);
+	Size visibleSize = Director::getInstance()->getVisibleSize();
+	Vec2 origin = Director::getInstance()->getVisibleOrigin();
 
-	TreasureHuntNode* TreasureHuntNodeObj;
+	//Added bg
+	auto bg = CSLoader::createNode("box/box.csb");
 
-	auto coord = getAllGridCoord(2, 2);
+	bg->setPosition(Vec2(visibleSize.width / 2 + origin.x, visibleSize.height / 2 + origin.y));
+	bg->setAnchorPoint(Vec2(0.5, 0.5));
+	addChild(bg, 0);
+
+	//Adding bubble animation and running it
+	cocostudio::timeline::ActionTimeline * bubble =  CSLoader::createTimeline("box/bubble.csb");
+	bg->runAction(bubble);
+	bubble->play("bubble", true);
+
+	//auto bgLayerGradient = LayerGradient::create(Color4B(25, 115, 155, 55), Color4B(255, 255, 255, 255));
+	//this->addChild(bgLayerGradient, 0);
+
+	std::vector<TreasureHuntNode*> TreasureHuntNodeObj;
+	TreasureHuntNodeObj.resize(6);
+
+	std::vector<Sprite*> boxes;
+	boxes.resize(6);
+
+	std::vector<Sprite*> layer;
+	layer.resize(6);
+
+	auto coord = getAllGridCoord(1, 6);
 
 	for (size_t coordIndex = 0; coordIndex < coord.size(); coordIndex++) {
-		TreasureHuntNodeObj = TreasureHuntNode::create(500, 500, Vec2(coord.at(coordIndex).second, coord.at(coordIndex).first));
-		addChild(TreasureHuntNodeObj);
+		TreasureHuntNodeObj[coordIndex] = TreasureHuntNode::create(350, 380, Vec2(coord.at(coordIndex).second, coord.at(coordIndex).first));
+		addChild(TreasureHuntNodeObj[coordIndex]);
 		std::ostringstream stringStream;
-		stringStream << "Node" << (coordIndex + 1);
-		TreasureHuntNodeObj->setName(stringStream.str());
-	}
+		stringStream << (coordIndex + 1);
+		TreasureHuntNodeObj[coordIndex]->setName(stringStream.str());
 
+		boxes[coordIndex] = Sprite::createWithSpriteFrameName("box/box1.png");
+		boxes[coordIndex]->setPosition(Vec2(coord.at(coordIndex).second, coord.at(coordIndex).first + 450));
+		boxes[coordIndex]->setAnchorPoint(Vec2(0.5, 0.5));
+		boxes[coordIndex]->setScaleX(0.8);
+		boxes[coordIndex]->setScaleY(0.8);
+		boxes[coordIndex]->setName(stringStream.str());
+		this->addChild(boxes[coordIndex], 1);
+
+		layer[coordIndex] = Sprite::create();
+		layer[coordIndex]->setName(stringStream.str());
+		layer[coordIndex]->setTextureRect(Rect(0, 0, 350, 380));
+		layer[coordIndex]->setAnchorPoint(Vec2(0.5, 0.5));
+		layer[coordIndex]->setColor(Color3B::WHITE);
+		layer[coordIndex]->setOpacity(GLubyte(6));
+		layer[coordIndex]->setPosition(Vec2(coord.at(coordIndex).second, coord.at(coordIndex).first));
+		this->addChild(layer[coordIndex], 10);
+
+	}
+	this->removeChild(layer[0], 4);
 	this->scheduleUpdate();
 
 }
@@ -73,19 +113,19 @@ std::vector<std::pair<int, int>> TreasureHunt::getAllGridCoord(int rowData, int 
 
 void TreasureHunt::update(float delta) {
 
-	if (checkRecognizeLetter()) {
+	if (checkRecognizeLetter("A")) {
 		_menuContext->showScore();
 	}
 	else {
-		_result = ((TreasureHuntNode *)this->getChildByName("Node1"))->getPosibileCharacter();
+		_result = ((TreasureHuntNode *)this->getChildByName("1"))->getPosibileCharacter();
 	}
 
 }
 
-bool TreasureHunt::checkRecognizeLetter()
+bool TreasureHunt::checkRecognizeLetter(string letter)
 {
 	for (size_t i = 0; i < _result.size(); i++) {
-		if (_result.at(i).compare("A") == 0) {
+		if (_result.at(i).compare(letter) == 0) {
 			return true;
 		}
 	}
