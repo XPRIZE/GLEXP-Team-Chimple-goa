@@ -147,16 +147,19 @@ bool AppDelegate::applicationDidFinishLaunching()
     
     if (frameSize.height > mediumResolutionSize.height)
     {
+        CCLOG("resolution %s", "HDR");
         searchPaths.push_back("res/HDR");
         scaleFactor = largeResolutionSize.height/designResolutionSize.height;
     }
     else if (frameSize.height > smallResolutionSize.height)
     {
+        CCLOG("resolution %s", "HD");
         searchPaths.push_back("res/HD");
         scaleFactor = mediumResolutionSize.height/designResolutionSize.height;
     }
     else
     {
+        CCLOG("resolution %s", "SD");
         searchPaths.push_back("res/SD");
         scaleFactor = smallResolutionSize.height/designResolutionSize.height;
     }

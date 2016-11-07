@@ -116,6 +116,7 @@ void CarDraw::characterRecogination(std::vector<string> str)
 	bool flage = false;
 	if (str.at(0).compare(_myChar) == 0 || str.at(1).compare(_myChar) == 0) {
 		flage = true;
+		_carDrawNodeLiPi->writingEnable(false);
 	}
 	if (flage) {
 		this->unschedule(schedule_selector(CarDraw::clearScreen));
@@ -153,9 +154,6 @@ bool CarDraw::init()
 	_road->setName("roadNode");
 	this->addChild(_road);
 	//cardraw / car.png
-	_car = Sprite::createWithSpriteFrameName("cardraw/car.png");
-	_car->setPosition(Vec2(200, 200));
-	this->addChild(_car);
 	
 	return true;
 }
@@ -166,7 +164,7 @@ void CarDraw::carMoving()
 	auto car = Sprite::createWithSpriteFrameName("cardraw/car.png");
 	car->setRotation(_prevDegree);
 	this->addChild(car);
-	car->setScale(0.5);
+	car->setScale(0.65);
 	Vector< FiniteTimeAction * > fta;
 	Vector< FiniteTimeAction * > rotateAction;
 	for (int i = 0; i < _carStrokes.size(); i++) {
@@ -185,18 +183,21 @@ void CarDraw::carMoving()
 
 					auto diff = p1 - p2;
 					auto angle = CC_RADIANS_TO_DEGREES(atan2((int)diff.x, (int)diff.y));
-					CCLOG("angle %f", angle);
+					
 					if ((angle) > 179) {
 						CCLOG("180");
 						angle = _carPreviousAngle;
 					}
-					_carPreviousAngle = angle;
+					//_carPreviousAngle = angle;
 					avgAngle += angle;
 				}
 				int angleee = ((avgAngle / 10) + _carPreviousAngle) / 2;
-				auto rotateAction1 = RotateTo::create(0.05f, angleee);
+				CCLOG("angle %d", angleee);
+				_carPreviousAngle = angleee;
+			//	angleee = angleee* -1;
+				auto rotateAction1 = RotateTo::create(0.5f, angleee);
 				rotateAction.pushBack(rotateAction1);
-				rotateAction.pushBack(DelayTime::create(0.5));
+				//rotateAction.pushBack(DelayTime::create(0.51));
 			}
 			else if (k> _carStrokes.size() - 5) {
 				auto diff = _carStrokes.at(i)->getPointAt(k - 1) - _carStrokes.at(i)->getPointAt(k);
@@ -211,6 +212,12 @@ void CarDraw::carMoving()
 		menu->showScore();
 		 });
 
+
+	auto rotateScore = CallFunc::create([=]() {
+		CCLOG("rotation done!!!");
+		//menu->showScore();
+	});
+	rotateAction.pushBack(rotateScore);
 	fta.pushBack(showScore);
 
 

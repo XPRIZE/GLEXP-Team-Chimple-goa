@@ -82,29 +82,29 @@ void BalloonHero::onEnterTransitionDidFinish() {
 		switch (_menuContext->getCurrentLevel()) {
 
 
-		case 1: _set1 =  TextGenerator::getInstance()->getWords(TextGenerator::POS::NOUN, 10, 1);
-				_set2 = TextGenerator::getInstance()->getWords(TextGenerator::POS::VERB, 10, 1);
+		case 1: _set1 =  TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::NOUN, 10, 1);
+				_set2 = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::VERB, 10, 1);
 				break;
-		case 2: _set1 = TextGenerator::getInstance()->getWords(TextGenerator::POS::ADJECTIVE, 10, 1);
-				_set2 = TextGenerator::getInstance()->getWords(TextGenerator::POS::PRONOUN, 10, 1); 
+		case 2: _set1 = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::ADJECTIVE, 10, 1);
+				_set2 = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::PRONOUN, 10, 1); 
 				break;
-		case 3: _set1 = TextGenerator::getInstance()->getWords(TextGenerator::POS::ARTICLE, 10, 1);
-				_set2 = TextGenerator::getInstance()->getWords(TextGenerator::POS::PREPOSITION, 10, 1);
+		case 3: _set1 = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::ARTICLE, 10, 1);
+				_set2 = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::PREPOSITION, 10, 1);
 				break;
-		case 4: _set1 = TextGenerator::getInstance()->getWords(TextGenerator::POS::CONJUNCTION, 10, 1);
-				_set2 = TextGenerator::getInstance()->getWords(TextGenerator::POS::INTERJECTION, 10, 1);
+		case 4: _set1 = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::CONJUNCTION, 10, 1);
+				_set2 = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::INTERJECTION, 10, 1);
 				break;
-		case 5: _set1 = TextGenerator::getInstance()->getWords(TextGenerator::POS::NOUN, 10, 1);
-				_set2 = TextGenerator::getInstance()->getWords(TextGenerator::POS::INTERJECTION, 10, 1);
+		case 5: _set1 = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::NOUN, 10, 1);
+				_set2 = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::INTERJECTION, 10, 1);
 				break;
-		case 6: _set1 = TextGenerator::getInstance()->getWords(TextGenerator::POS::CONJUNCTION, 10, 1);
-				_set2 = TextGenerator::getInstance()->getWords(TextGenerator::POS::VERB, 10, 1);
+		case 6: _set1 = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::CONJUNCTION, 10, 1);
+				_set2 = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::VERB, 10, 1);
 				break;
-		case 7: _set1 = TextGenerator::getInstance()->getWords(TextGenerator::POS::ADJECTIVE, 10, 1);
-				_set2 = TextGenerator::getInstance()->getWords(TextGenerator::POS::PREPOSITION, 10, 1);
+		case 7: _set1 = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::ADJECTIVE, 10, 1);
+				_set2 = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::PREPOSITION, 10, 1);
 				break;
-		case 8: _set1 = TextGenerator::getInstance()->getWords(TextGenerator::POS::ARTICLE, 10, 1);
-				_set2 = TextGenerator::getInstance()->getWords(TextGenerator::POS::PRONOUN, 10, 1);
+		case 8: _set1 = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::ARTICLE, 10, 1);
+				_set2 = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::PRONOUN, 10, 1);
 				break;
 
 		}
@@ -119,29 +119,29 @@ void BalloonHero::onEnterTransitionDidFinish() {
 		switch (_menuContext->getCurrentLevel()) {
 
 
-		case 9: _set1 = TextGenerator::getInstance()->getWords(TextGenerator::POS::NOUN, 10, 1);
-			_set2 = TextGenerator::getInstance()->getWords(TextGenerator::POS::VERB, 10, 1);
+		case 9: _set1 = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::NOUN, 10, 1);
+			_set2 = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::VERB, 10, 1);
 			break;
-		case 10: _set1 = TextGenerator::getInstance()->getWords(TextGenerator::POS::NOUN, 10, 1);
-			_set2 = TextGenerator::getInstance()->getWords(TextGenerator::POS::VERB, 10, 1);
+		case 10: _set1 = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::NOUN, 10, 1);
+			_set2 = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::VERB, 10, 1);
 			break;
-		case 11: _set1 = TextGenerator::getInstance()->getWords(TextGenerator::POS::NOUN, 10, 1);
-			_set2 = TextGenerator::getInstance()->getWords(TextGenerator::POS::VERB, 10, 1);
+		case 11: _set1 = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::NOUN, 10, 1);
+			_set2 = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::VERB, 10, 1);
 			break;
-		case 12: _set1 = TextGenerator::getInstance()->getWords(TextGenerator::POS::NOUN, 10, 1);
-			_set2 = TextGenerator::getInstance()->getWords(TextGenerator::POS::VERB, 10, 1);
+		case 12: _set1 = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::NOUN, 10, 1);
+			_set2 = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::VERB, 10, 1);
 			break;
-		case 13: _set1 = TextGenerator::getInstance()->getWords(TextGenerator::POS::NOUN, 10, 1);
-			_set2 = TextGenerator::getInstance()->getWords(TextGenerator::POS::VERB, 10, 1);
+		case 13: _set1 = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::NOUN, 10, 1);
+			_set2 = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::VERB, 10, 1);
 			break;
-		case 14: _set1 = TextGenerator::getInstance()->getWords(TextGenerator::POS::NOUN, 10, 1);
-			_set2 = TextGenerator::getInstance()->getWords(TextGenerator::POS::VERB, 10, 1);
+		case 14: _set1 = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::NOUN, 10, 1);
+			_set2 = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::VERB, 10, 1);
 			break;
-		case 15: _set1 = TextGenerator::getInstance()->getWords(TextGenerator::POS::NOUN, 10, 1);
-			_set2 = TextGenerator::getInstance()->getWords(TextGenerator::POS::VERB, 10, 1);
+		case 15: _set1 = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::NOUN, 10, 1);
+			_set2 = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::VERB, 10, 1);
 			break;
-		case 16: _set1 = TextGenerator::getInstance()->getWords(TextGenerator::POS::NOUN, 10, 1);
-			_set2 = TextGenerator::getInstance()->getWords(TextGenerator::POS::VERB, 10, 1);
+		case 16: _set1 = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::NOUN, 10, 1);
+			_set2 = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::VERB, 10, 1);
 			break;
 
 		}
@@ -156,29 +156,29 @@ void BalloonHero::onEnterTransitionDidFinish() {
 		switch (_menuContext->getCurrentLevel()) {
 
 
-		case 17: _set1 = TextGenerator::getInstance()->getWords(TextGenerator::POS::NOUN, 10, 1);
-			_set2 = TextGenerator::getInstance()->getWords(TextGenerator::POS::VERB, 10, 1);
+		case 17: _set1 = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::NOUN, 10, 1);
+			_set2 = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::VERB, 10, 1);
 			break;
-		case 18: _set1 = TextGenerator::getInstance()->getWords(TextGenerator::POS::NOUN, 10, 1);
-			_set2 = TextGenerator::getInstance()->getWords(TextGenerator::POS::VERB, 10, 1);
+		case 18: _set1 = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::NOUN, 10, 1);
+			_set2 = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::VERB, 10, 1);
 			break;
-		case 29: _set1 = TextGenerator::getInstance()->getWords(TextGenerator::POS::NOUN, 10, 1);
-			_set2 = TextGenerator::getInstance()->getWords(TextGenerator::POS::VERB, 10, 1);
+		case 29: _set1 = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::NOUN, 10, 1);
+			_set2 = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::VERB, 10, 1);
 			break;
-		case 20: _set1 = TextGenerator::getInstance()->getWords(TextGenerator::POS::NOUN, 10, 1);
-			_set2 = TextGenerator::getInstance()->getWords(TextGenerator::POS::VERB, 10, 1);
+		case 20: _set1 = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::NOUN, 10, 1);
+			_set2 = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::VERB, 10, 1);
 			break;
-		case 21: _set1 = TextGenerator::getInstance()->getWords(TextGenerator::POS::NOUN, 10, 1);
-			_set2 = TextGenerator::getInstance()->getWords(TextGenerator::POS::VERB, 10, 1);
+		case 21: _set1 = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::NOUN, 10, 1);
+			_set2 = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::VERB, 10, 1);
 			break;
-		case 22: _set1 = TextGenerator::getInstance()->getWords(TextGenerator::POS::NOUN, 10, 1);
-			_set2 = TextGenerator::getInstance()->getWords(TextGenerator::POS::VERB, 10, 1);
+		case 22: _set1 = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::NOUN, 10, 1);
+			_set2 = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::VERB, 10, 1);
 			break;
-		case 23: _set1 = TextGenerator::getInstance()->getWords(TextGenerator::POS::NOUN, 10, 1);
-			_set2 = TextGenerator::getInstance()->getWords(TextGenerator::POS::VERB, 10, 1);
+		case 23: _set1 = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::NOUN, 10, 1);
+			_set2 = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::VERB, 10, 1);
 			break;
-		case 24: _set1 = TextGenerator::getInstance()->getWords(TextGenerator::POS::NOUN, 10, 1);
-			_set2 = TextGenerator::getInstance()->getWords(TextGenerator::POS::VERB, 10, 1);
+		case 24: _set1 = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::NOUN, 10, 1);
+			_set2 = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::VERB, 10, 1);
 			break;
 
 		}
@@ -194,29 +194,29 @@ void BalloonHero::onEnterTransitionDidFinish() {
 		switch (_menuContext->getCurrentLevel()) {
 
 
-		case 25: _set1 = TextGenerator::getInstance()->getWords(TextGenerator::POS::NOUN, 10, 1);
-			_set2 = TextGenerator::getInstance()->getWords(TextGenerator::POS::VERB, 10, 1);
+		case 25: _set1 = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::NOUN, 10, 1);
+			_set2 = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::VERB, 10, 1);
 			break;
-		case 26: _set1 = TextGenerator::getInstance()->getWords(TextGenerator::POS::NOUN, 10, 1);
-			_set2 = TextGenerator::getInstance()->getWords(TextGenerator::POS::VERB, 10, 1);
+		case 26: _set1 = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::NOUN, 10, 1);
+			_set2 = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::VERB, 10, 1);
 			break;
-		case 27: _set1 = TextGenerator::getInstance()->getWords(TextGenerator::POS::NOUN, 10, 1);
-			_set2 = TextGenerator::getInstance()->getWords(TextGenerator::POS::VERB, 10, 1);
+		case 27: _set1 = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::NOUN, 10, 1);
+			_set2 = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::VERB, 10, 1);
 			break;
-		case 28: _set1 = TextGenerator::getInstance()->getWords(TextGenerator::POS::NOUN, 10, 1);
-			_set2 = TextGenerator::getInstance()->getWords(TextGenerator::POS::VERB, 10, 1);
+		case 28: _set1 = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::NOUN, 10, 1);
+			_set2 = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::VERB, 10, 1);
 			break;
-		case 29: _set1 = TextGenerator::getInstance()->getWords(TextGenerator::POS::NOUN, 10, 1);
-			_set2 = TextGenerator::getInstance()->getWords(TextGenerator::POS::VERB, 10, 1);
+		case 29: _set1 = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::NOUN, 10, 1);
+			_set2 = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::VERB, 10, 1);
 			break;
-		case 30: _set1 = TextGenerator::getInstance()->getWords(TextGenerator::POS::NOUN, 10, 1);
-			_set2 = TextGenerator::getInstance()->getWords(TextGenerator::POS::VERB, 10, 1);
+		case 30: _set1 = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::NOUN, 10, 1);
+			_set2 = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::VERB, 10, 1);
 			break;
-		case 31: _set1 = TextGenerator::getInstance()->getWords(TextGenerator::POS::NOUN, 10, 1);
-			_set2 = TextGenerator::getInstance()->getWords(TextGenerator::POS::VERB, 10, 1);
+		case 31: _set1 = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::NOUN, 10, 1);
+			_set2 = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::VERB, 10, 1);
 			break;
-		case 32: _set1 = TextGenerator::getInstance()->getWords(TextGenerator::POS::NOUN, 10, 1);
-			_set2 = TextGenerator::getInstance()->getWords(TextGenerator::POS::VERB, 10, 1);
+		case 32: _set1 = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::NOUN, 10, 1);
+			_set2 = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::VERB, 10, 1);
 			break;
 
 		}
@@ -232,29 +232,29 @@ void BalloonHero::onEnterTransitionDidFinish() {
 		switch (_menuContext->getCurrentLevel()) {
 
 
-		case 33: _set1 = TextGenerator::getInstance()->getWords(TextGenerator::POS::NOUN, 10, 1);
-			_set2 = TextGenerator::getInstance()->getWords(TextGenerator::POS::VERB, 10, 1);
+		case 33: _set1 = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::NOUN, 10, 1);
+			_set2 = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::VERB, 10, 1);
 			break;
-		case 34: _set1 = TextGenerator::getInstance()->getWords(TextGenerator::POS::NOUN, 10, 1);
-			_set2 = TextGenerator::getInstance()->getWords(TextGenerator::POS::VERB, 10, 1);
+		case 34: _set1 = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::NOUN, 10, 1);
+			_set2 = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::VERB, 10, 1);
 			break;
-		case 35: _set1 = TextGenerator::getInstance()->getWords(TextGenerator::POS::NOUN, 10, 1);
-			_set2 = TextGenerator::getInstance()->getWords(TextGenerator::POS::VERB, 10, 1);
+		case 35: _set1 = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::NOUN, 10, 1);
+			_set2 = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::VERB, 10, 1);
 			break;
-		case 36: _set1 = TextGenerator::getInstance()->getWords(TextGenerator::POS::NOUN, 10, 1);
-			_set2 = TextGenerator::getInstance()->getWords(TextGenerator::POS::VERB, 10, 1);
+		case 36: _set1 = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::NOUN, 10, 1);
+			_set2 = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::VERB, 10, 1);
 			break;
-		case 37: _set1 = TextGenerator::getInstance()->getWords(TextGenerator::POS::NOUN, 10, 1);
-			_set2 = TextGenerator::getInstance()->getWords(TextGenerator::POS::VERB, 10, 1);
+		case 37: _set1 = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::NOUN, 10, 1);
+			_set2 = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::VERB, 10, 1);
 			break;
-		case 38: _set1 = TextGenerator::getInstance()->getWords(TextGenerator::POS::NOUN, 10, 1);
-			_set2 = TextGenerator::getInstance()->getWords(TextGenerator::POS::VERB, 10, 1);
+		case 38: _set1 = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::NOUN, 10, 1);
+			_set2 = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::VERB, 10, 1);
 			break;
-		case 39: _set1 = TextGenerator::getInstance()->getWords(TextGenerator::POS::NOUN, 10, 1);
-			_set2 = TextGenerator::getInstance()->getWords(TextGenerator::POS::VERB, 10, 1);
+		case 39: _set1 = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::NOUN, 10, 1);
+			_set2 = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::VERB, 10, 1);
 			break;
-		case 40: _set1 = TextGenerator::getInstance()->getWords(TextGenerator::POS::NOUN, 10, 1);
-			_set2 = TextGenerator::getInstance()->getWords(TextGenerator::POS::VERB, 10, 1);
+		case 40: _set1 = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::NOUN, 10, 1);
+			_set2 = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::VERB, 10, 1);
 			break;
 
 		}
@@ -270,29 +270,29 @@ void BalloonHero::onEnterTransitionDidFinish() {
 		switch (_menuContext->getCurrentLevel()) {
 
 
-		case 41: _set1 = TextGenerator::getInstance()->getWords(TextGenerator::POS::NOUN, 10, 1);
-			_set2 = TextGenerator::getInstance()->getWords(TextGenerator::POS::VERB, 10, 1);
+		case 41: _set1 = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::NOUN, 10, 1);
+			_set2 = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::VERB, 10, 1);
 			break;
-		case 42: _set1 = TextGenerator::getInstance()->getWords(TextGenerator::POS::NOUN, 10, 1);
-			_set2 = TextGenerator::getInstance()->getWords(TextGenerator::POS::VERB, 10, 1);
+		case 42: _set1 = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::NOUN, 10, 1);
+			_set2 = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::VERB, 10, 1);
 			break;
-		case 43: _set1 = TextGenerator::getInstance()->getWords(TextGenerator::POS::NOUN, 10, 1);
-			_set2 = TextGenerator::getInstance()->getWords(TextGenerator::POS::VERB, 10, 1);
+		case 43: _set1 = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::NOUN, 10, 1);
+			_set2 = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::VERB, 10, 1);
 			break;
-		case 44: _set1 = TextGenerator::getInstance()->getWords(TextGenerator::POS::NOUN, 10, 1);
-			_set2 = TextGenerator::getInstance()->getWords(TextGenerator::POS::VERB, 10, 1);
+		case 44: _set1 = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::NOUN, 10, 1);
+			_set2 = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::VERB, 10, 1);
 			break;
-		case 45: _set1 = TextGenerator::getInstance()->getWords(TextGenerator::POS::NOUN, 10, 1);
-			_set2 = TextGenerator::getInstance()->getWords(TextGenerator::POS::VERB, 10, 1);
+		case 45: _set1 = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::NOUN, 10, 1);
+			_set2 = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::VERB, 10, 1);
 			break;
-		case 46: _set1 = TextGenerator::getInstance()->getWords(TextGenerator::POS::NOUN, 10, 1);
-			_set2 = TextGenerator::getInstance()->getWords(TextGenerator::POS::VERB, 10, 1);
+		case 46: _set1 = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::NOUN, 10, 1);
+			_set2 = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::VERB, 10, 1);
 			break;
-		case 47: _set1 = TextGenerator::getInstance()->getWords(TextGenerator::POS::NOUN, 10, 1);
-			_set2 = TextGenerator::getInstance()->getWords(TextGenerator::POS::VERB, 10, 1);
+		case 47: _set1 = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::NOUN, 10, 1);
+			_set2 = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::VERB, 10, 1);
 			break;
-		case 48: _set1 = TextGenerator::getInstance()->getWords(TextGenerator::POS::NOUN, 10, 1);
-			_set2 = TextGenerator::getInstance()->getWords(TextGenerator::POS::VERB, 10, 1);
+		case 48: _set1 = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::NOUN, 10, 1);
+			_set2 = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::VERB, 10, 1);
 			break;
 
 		}
@@ -307,29 +307,29 @@ void BalloonHero::onEnterTransitionDidFinish() {
 		switch (_menuContext->getCurrentLevel()) {
 
 
-		case 49: _set1 = TextGenerator::getInstance()->getWords(TextGenerator::POS::NOUN, 10, 1);
-			_set2 = TextGenerator::getInstance()->getWords(TextGenerator::POS::VERB, 10, 1);
+		case 49: _set1 = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::NOUN, 10, 1);
+			_set2 = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::VERB, 10, 1);
 			break;
-		case 50: _set1 = TextGenerator::getInstance()->getWords(TextGenerator::POS::NOUN, 10, 1);
-			_set2 = TextGenerator::getInstance()->getWords(TextGenerator::POS::VERB, 10, 1);
+		case 50: _set1 = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::NOUN, 10, 1);
+			_set2 = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::VERB, 10, 1);
 			break;
-		case 51: _set1 = TextGenerator::getInstance()->getWords(TextGenerator::POS::NOUN, 10, 1);
-			_set2 = TextGenerator::getInstance()->getWords(TextGenerator::POS::VERB, 10, 1);
+		case 51: _set1 = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::NOUN, 10, 1);
+			_set2 = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::VERB, 10, 1);
 			break;
-		case 52: _set1 = TextGenerator::getInstance()->getWords(TextGenerator::POS::NOUN, 10, 1);
-			_set2 = TextGenerator::getInstance()->getWords(TextGenerator::POS::VERB, 10, 1);
+		case 52: _set1 = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::NOUN, 10, 1);
+			_set2 = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::VERB, 10, 1);
 			break;
-		case 53: _set1 = TextGenerator::getInstance()->getWords(TextGenerator::POS::NOUN, 10, 1);
-			_set2 = TextGenerator::getInstance()->getWords(TextGenerator::POS::VERB, 10, 1);
+		case 53: _set1 = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::NOUN, 10, 1);
+			_set2 = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::VERB, 10, 1);
 			break;
-		case 54: _set1 = TextGenerator::getInstance()->getWords(TextGenerator::POS::NOUN, 10, 1);
-			_set2 = TextGenerator::getInstance()->getWords(TextGenerator::POS::VERB, 10, 1);
+		case 54: _set1 = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::NOUN, 10, 1);
+			_set2 = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::VERB, 10, 1);
 			break;
-		case 55: _set1 = TextGenerator::getInstance()->getWords(TextGenerator::POS::NOUN, 10, 1);
-			_set2 = TextGenerator::getInstance()->getWords(TextGenerator::POS::VERB, 10, 1);
+		case 55: _set1 = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::NOUN, 10, 1);
+			_set2 = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::VERB, 10, 1);
 			break;
-		case 56: _set1 = TextGenerator::getInstance()->getWords(TextGenerator::POS::NOUN, 10, 1);
-			_set2 = TextGenerator::getInstance()->getWords(TextGenerator::POS::VERB, 10, 1);
+		case 56: _set1 = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::NOUN, 10, 1);
+			_set2 = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::VERB, 10, 1);
 			break;
 
 		}
@@ -345,29 +345,29 @@ void BalloonHero::onEnterTransitionDidFinish() {
 		switch (_menuContext->getCurrentLevel()) {
 
 
-		case 57: _set1 = TextGenerator::getInstance()->getWords(TextGenerator::POS::NOUN, 10, 1);
-			_set2 = TextGenerator::getInstance()->getWords(TextGenerator::POS::VERB, 10, 1);
+		case 57: _set1 = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::NOUN, 10, 1);
+			_set2 = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::VERB, 10, 1);
 			break;
-		case 58: _set1 = TextGenerator::getInstance()->getWords(TextGenerator::POS::NOUN, 10, 1);
-			_set2 = TextGenerator::getInstance()->getWords(TextGenerator::POS::VERB, 10, 1);
+		case 58: _set1 = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::NOUN, 10, 1);
+			_set2 = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::VERB, 10, 1);
 			break;
-		case 59: _set1 = TextGenerator::getInstance()->getWords(TextGenerator::POS::NOUN, 10, 1);
-			_set2 = TextGenerator::getInstance()->getWords(TextGenerator::POS::VERB, 10, 1);
+		case 59: _set1 = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::NOUN, 10, 1);
+			_set2 = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::VERB, 10, 1);
 			break;
-		case 60: _set1 = TextGenerator::getInstance()->getWords(TextGenerator::POS::NOUN, 10, 1);
-			_set2 = TextGenerator::getInstance()->getWords(TextGenerator::POS::VERB, 10, 1);
+		case 60: _set1 = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::NOUN, 10, 1);
+			_set2 = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::VERB, 10, 1);
 			break;
-		case 61: _set1 = TextGenerator::getInstance()->getWords(TextGenerator::POS::NOUN, 10, 1);
-			_set2 = TextGenerator::getInstance()->getWords(TextGenerator::POS::VERB, 10, 1);
+		case 61: _set1 = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::NOUN, 10, 1);
+			_set2 = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::VERB, 10, 1);
 			break;
-		case 62: _set1 = TextGenerator::getInstance()->getWords(TextGenerator::POS::NOUN, 10, 1);
-			_set2 = TextGenerator::getInstance()->getWords(TextGenerator::POS::VERB, 10, 1);
+		case 62: _set1 = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::NOUN, 10, 1);
+			_set2 = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::VERB, 10, 1);
 			break;
-		case 63: _set1 = TextGenerator::getInstance()->getWords(TextGenerator::POS::NOUN, 10, 1);
-			_set2 = TextGenerator::getInstance()->getWords(TextGenerator::POS::VERB, 10, 1);
+		case 63: _set1 = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::NOUN, 10, 1);
+			_set2 = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::VERB, 10, 1);
 			break;
-		case 64: _set1 = TextGenerator::getInstance()->getWords(TextGenerator::POS::NOUN, 10, 1);
-			_set2 = TextGenerator::getInstance()->getWords(TextGenerator::POS::VERB, 10, 1);
+		case 64: _set1 = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::NOUN, 10, 1);
+			_set2 = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::VERB, 10, 1);
 			break;
 
 		}
@@ -383,29 +383,29 @@ void BalloonHero::onEnterTransitionDidFinish() {
 		switch (_menuContext->getCurrentLevel()) {
 
 
-		case 65: _set1 = TextGenerator::getInstance()->getWords(TextGenerator::POS::NOUN, 10, 1);
-			_set2 = TextGenerator::getInstance()->getWords(TextGenerator::POS::VERB, 10, 1);
+		case 65: _set1 = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::NOUN, 10, 1);
+			_set2 = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::VERB, 10, 1);
 			break;
-		case 66: _set1 = TextGenerator::getInstance()->getWords(TextGenerator::POS::NOUN, 10, 1);
-			_set2 = TextGenerator::getInstance()->getWords(TextGenerator::POS::VERB, 10, 1);
+		case 66: _set1 = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::NOUN, 10, 1);
+			_set2 = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::VERB, 10, 1);
 			break;
-		case 67: _set1 = TextGenerator::getInstance()->getWords(TextGenerator::POS::NOUN, 10, 1);
-			_set2 = TextGenerator::getInstance()->getWords(TextGenerator::POS::VERB, 10, 1);
+		case 67: _set1 = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::NOUN, 10, 1);
+			_set2 = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::VERB, 10, 1);
 			break;
-		case 68: _set1 = TextGenerator::getInstance()->getWords(TextGenerator::POS::NOUN, 10, 1);
-			_set2 = TextGenerator::getInstance()->getWords(TextGenerator::POS::VERB, 10, 1);
+		case 68: _set1 = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::NOUN, 10, 1);
+			_set2 = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::VERB, 10, 1);
 			break;
-		case 69: _set1 = TextGenerator::getInstance()->getWords(TextGenerator::POS::NOUN, 10, 1);
-			_set2 = TextGenerator::getInstance()->getWords(TextGenerator::POS::VERB, 10, 1);
+		case 69: _set1 = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::NOUN, 10, 1);
+			_set2 = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::VERB, 10, 1);
 			break;
-		case 70: _set1 = TextGenerator::getInstance()->getWords(TextGenerator::POS::NOUN, 10, 1);
-			_set2 = TextGenerator::getInstance()->getWords(TextGenerator::POS::VERB, 10, 1);
+		case 70: _set1 = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::NOUN, 10, 1);
+			_set2 = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::VERB, 10, 1);
 			break;
-		case 71: _set1 = TextGenerator::getInstance()->getWords(TextGenerator::POS::NOUN, 10, 1);
-			_set2 = TextGenerator::getInstance()->getWords(TextGenerator::POS::VERB, 10, 1);
+		case 71: _set1 = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::NOUN, 10, 1);
+			_set2 = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::VERB, 10, 1);
 			break;
-		case 72: _set1 = TextGenerator::getInstance()->getWords(TextGenerator::POS::NOUN, 10, 1);
-			_set2 = TextGenerator::getInstance()->getWords(TextGenerator::POS::VERB, 10, 1);
+		case 72: _set1 = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::NOUN, 10, 1);
+			_set2 = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::VERB, 10, 1);
 			break;
 
 		}

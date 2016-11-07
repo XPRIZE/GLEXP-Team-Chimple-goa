@@ -198,33 +198,33 @@ void Pillar::onEnterTransitionDidFinish()
 		int roundLevel = (level / 15) + 1;
 		int inner = division + ((roundLevel - 1) * 5);
 		CCLOG("Synonyms Level = %d", inner);
-		_wordCorrect = TextGenerator::getInstance()->getWords(TextGenerator::POS::NOUN, 5, 1);
+		_wordCorrect = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::NOUN, 5, 1);
 		std::copy(std::begin(_wordCorrect), std::end(_wordCorrect), std::back_inserter(_wordList));
-		auto wordVerb = TextGenerator::getInstance()->getWords(TextGenerator::POS::VERB, 3, 1);
+		auto wordVerb = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::VERB, 3, 1);
 		std::copy(std::begin(wordVerb), std::end(wordVerb), std::inserter(_wordList, _wordList.end()));
-		auto wordAdj = TextGenerator::getInstance()->getWords(TextGenerator::POS::ADJECTIVE, 3, 1);
+		auto wordAdj = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::ADJECTIVE, 3, 1);
 		std::copy(std::begin(wordAdj), std::end(wordAdj), std::inserter(_wordList, _wordList.end()));
 	}
 	else if (division > 5 && division < 11) {
 		int roundLevel = (level / 15) + 1;
 		int inner = division - 5 + ((roundLevel - 1) * 5);
 		CCLOG("Antonyms Level = %d", inner);
-		_wordCorrect = TextGenerator::getInstance()->getWords(TextGenerator::POS::VERB, 5, 1);
+		_wordCorrect = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::VERB, 5, 1);
 		std::copy(std::begin(_wordCorrect), std::end(_wordCorrect), std::back_inserter(_wordList));
-		auto wordVerb = TextGenerator::getInstance()->getWords(TextGenerator::POS::NOUN, 3, 1);
+		auto wordVerb = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::NOUN, 3, 1);
 		std::copy(std::begin(wordVerb), std::end(wordVerb), std::inserter(_wordList, _wordList.end()));
-		auto wordAdj = TextGenerator::getInstance()->getWords(TextGenerator::POS::ADJECTIVE, 3, 1);
+		auto wordAdj = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::ADJECTIVE, 3, 1);
 		std::copy(std::begin(wordAdj), std::end(wordAdj), std::inserter(_wordList, _wordList.end()));
 	}
 	else {
 		int roundLevel = (level / 15) + 1;
 		int inner = division - 10 + ((roundLevel - 1) * 5);
 		CCLOG("Homonyms Level = %d", inner);
-		_wordCorrect = TextGenerator::getInstance()->getWords(TextGenerator::POS::ADJECTIVE, 5, 1);
+		_wordCorrect = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::ADJECTIVE, 5, 1);
 		std::copy(std::begin(_wordCorrect), std::end(_wordCorrect), std::back_inserter(_wordList));
-		auto wordVerb = TextGenerator::getInstance()->getWords(TextGenerator::POS::VERB, 3, 1);
+		auto wordVerb = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::VERB, 3, 1);
 		std::copy(std::begin(wordVerb), std::end(wordVerb), std::inserter(_wordList, _wordList.end()));
-		auto wordAdj = TextGenerator::getInstance()->getWords(TextGenerator::POS::NOUN, 3, 1);
+		auto wordAdj = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::NOUN, 3, 1);
 		std::copy(std::begin(wordAdj), std::end(wordAdj), std::inserter(_wordList, _wordList.end()));
 	}
 	newCake();
