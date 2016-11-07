@@ -16,6 +16,8 @@ public:
     static HelpLayer* create(cocos2d::Rect touchRect, cocos2d::Rect otherRect);
     void click(cocos2d::Vec2 point);
     void clickAndDrag(cocos2d::Vec2 startPoint, cocos2d::Vec2 endPoint);
+	void writing(std::vector<cocos2d::Point> points);
+
 CC_CONSTRUCTOR_ACCESS:
     HelpLayer();
     virtual ~HelpLayer();

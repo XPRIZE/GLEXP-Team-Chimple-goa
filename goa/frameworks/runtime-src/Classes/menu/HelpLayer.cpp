@@ -82,6 +82,36 @@ void HelpLayer::clickAndDrag(Vec2 startPoint, Vec2 endPoint) {
     finger->runAction(Sequence::create(scaleBy, DelayTime::create(0.5), moveTo, scaleBy->reverse(), callFunc, NULL));
 }
 
+void HelpLayer::writing(std::vector<cocos2d::Vec2> points)
+{
+	_animating = true;
+	if (points.size() >= 5) {
+		auto finger = Sprite::create("help/touch.png");
+		finger->setPosition(points.at(0));
+		finger->setAnchorPoint(Vec2::ANCHOR_MIDDLE_TOP);
+		addChild(finger);
+		Vector< FiniteTimeAction * > fta_stroke1;
+		
+		auto scaleBy = ScaleBy::create(0.5, 0.8);
+		fta_stroke1.pushBack(scaleBy);
+		fta_stroke1.pushBack(DelayTime::create(0.5));
+		auto moveTo = MoveTo::create(0.5, points.at(1));
+		fta_stroke1.pushBack(moveTo);
+		auto moveTo1 = MoveTo::create(0.5, points.at(2));
+		fta_stroke1.pushBack(moveTo1);
+		fta_stroke1.pushBack(scaleBy->reverse());
+		auto callFunc = CallFunc::create(CC_CALLBACK_0(HelpLayer::removeFinger, this, finger));
+		
+		auto callFunc1 = CallFunc::create([=]() {
+			clickAndDrag(points.at(3), points.at(4));
+		});
+		fta_stroke1.pushBack(callFunc1);
+		fta_stroke1.pushBack(callFunc);
+		fta_stroke1.pushBack(DelayTime::create(0.3));
+		finger->runAction(Sequence::create(fta_stroke1));
+	}
+}
+
 void HelpLayer::removeFinger(Node* finger) {
     _animating = false;
     removeChild(finger);
@@ -134,4 +164,3 @@ _listener(nullptr)
 HelpLayer::~HelpLayer() {
     
 }
-
