@@ -18,11 +18,12 @@ public:
 	virtual void broadCastRecognizedChars(std::vector<std::string> results) override;
 	virtual ui::Button* createButton(const std::string normalImage, const std::string selectedImage, const std::string disableImage, Vec2 position) override;
 	std::vector<std::string> getPosibileCharacter();
+	void drawAllowance(bool permission);
 
 protected:
 	MenuContext * menu;
 	std::vector<std::string> _result;
-	
+	bool _drawAllowance = true;
 };
 
 #endif  // __BLASTLETTERNODE_NODE_H__
