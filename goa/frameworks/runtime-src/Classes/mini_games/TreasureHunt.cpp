@@ -52,17 +52,57 @@ void TreasureHunt::onEnterTransitionDidFinish() {
 	//auto bgLayerGradient = LayerGradient::create(Color4B(25, 115, 155, 55), Color4B(255, 255, 255, 255));
 	//this->addChild(bgLayerGradient, 0);
 
-	std::vector<TreasureHuntNode*> TreasureHuntNodeObj;
-	TreasureHuntNodeObj.resize(6);
+	_alpha = LangUtil::getInstance()->getAllCharacters();
 
-	std::vector<Sprite*> boxes;
-	boxes.resize(6);
+	_currentLetter = _alpha[0];
 
-	std::vector<Sprite*> layer;
-	layer.resize(6);
+	TreasureHuntNode* TreasureHuntNodeObj;
+	//TreasureHuntNodeObj.resize(6);
 
-	auto coord = getAllGridCoord(1, 6);
 
+	TreasureHuntNodeObj = TreasureHuntNode::create(1550, 800, Vec2(visibleSize.width/2 + 120, visibleSize.height/2));
+	TreasureHuntNodeObj->setName("1");
+	addChild(TreasureHuntNodeObj);
+
+
+	Sprite* box = Sprite::createWithSpriteFrameName("box/box1.png");
+	box->setPosition(Vec2(350, visibleSize.height / 2));
+	box->setAnchorPoint(Vec2(0.5, 0.5));
+	box->setScaleX(1.5);
+	box->setScaleY(1.5);
+	box->setName("box");
+	this->addChild(box, 1);
+
+
+	Sprite* labelBoard = Sprite::createWithSpriteFrameName("box/board.png");
+	labelBoard->setPosition(Vec2(visibleSize.width / 2 + 100, visibleSize.height / 2 + 750));
+	labelBoard->setAnchorPoint(Vec2(0.5, 0.5));
+	labelBoard->setScaleX(1);
+	labelBoard->setScaleY(1.2);
+	labelBoard->setName("board");
+	this->addChild(labelBoard, 1);
+
+	auto label = ui::Text::create();
+	label->setString(_currentLetter);
+	label->setFontSize(150);
+	label->setFontName("fonts/Marker Felt.ttf");
+	//label->setPosition(Vec2(labelBoard->getPositionX()/2, labelBoard->getPositionY()/2));
+	label->setPosition(Vec2(labelBoard->getBoundingBox().size.width/2, labelBoard->getBoundingBox().size.height / 2 - 20));
+	label->setAnchorPoint(Vec2(0.5, 0.5));
+	label->setTextColor(Color4B::BLUE);
+	label->setScaleX(1);
+	labelBoard->addChild(label);
+	
+
+	
+	//std::vector<Sprite*> boxes;
+	//boxes.resize(6);
+
+	//std::vector<Sprite*> layer;
+	//layer.resize(6);
+
+	//auto coord = getAllGridCoord(1, 6);
+	/*
 	for (size_t coordIndex = 0; coordIndex < coord.size(); coordIndex++) {
 		TreasureHuntNodeObj[coordIndex] = TreasureHuntNode::create(350, 380, Vec2(coord.at(coordIndex).second, coord.at(coordIndex).first));
 		addChild(TreasureHuntNodeObj[coordIndex]);
@@ -89,6 +129,7 @@ void TreasureHunt::onEnterTransitionDidFinish() {
 
 	}
 	this->removeChild(layer[0], 4);
+	*/
 	this->scheduleUpdate();
 
 }
@@ -113,7 +154,7 @@ std::vector<std::pair<int, int>> TreasureHunt::getAllGridCoord(int rowData, int 
 
 void TreasureHunt::update(float delta) {
 
-	if (checkRecognizeLetter("A")) {
+	if (checkRecognizeLetter(_currentLetter)) {
 		_menuContext->showScore();
 	}
 	else {
@@ -135,4 +176,16 @@ bool TreasureHunt::checkRecognizeLetter(string letter)
 TreasureHunt::~TreasureHunt(void)
 {
 	this->removeAllChildrenWithCleanup(true);
+}
+
+string TreasureHunt::getConvertInUpperCase(string data)
+{
+	std::ostringstream blockName;
+	int i = 0;
+	while (data[i])
+	{
+		blockName << (char)toupper(data[i]);
+		i++;
+	}
+	return blockName.str();
 }
