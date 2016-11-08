@@ -52,7 +52,7 @@ static const std::string CIRCLE = "circle";
 static const std::string ORDER = "order";
 static const std::string PILLAR = "pillar";
 static const std::string CARDRAW = "cardraw"; 
-static const std::string BLASTLETTER = "BlastLetter";
+static const std::string BLASTLETTER = "blastletter";
 static const std::string DOOR = "Door";
 static const std::string TREASUREHUNT = "TreasureHunt";
 

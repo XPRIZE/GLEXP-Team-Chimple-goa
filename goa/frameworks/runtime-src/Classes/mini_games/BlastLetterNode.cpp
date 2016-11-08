@@ -40,6 +40,7 @@ BlastLetterNode * BlastLetterNode::create(int width, int height, cocos2d::Point 
 
 void BlastLetterNode::draw(cocos2d::DrawNode * paintingNode, cocos2d::Point fromPoint, cocos2d::Point currentPoint)
 {
+	if(_drawAllowance)
 	paintingNode->drawSegment(fromPoint, currentPoint, 50, Color4F(0 / 255.0f, 0 / 255.0f, 0 / 255.0f, 1.0f));
 }
 
@@ -61,5 +62,10 @@ ui::Button * BlastLetterNode::createButton(const std::string normalImage, const 
 std::vector<std::string> BlastLetterNode::getPosibileCharacter()
 {
 	return _result;
+}
+
+void BlastLetterNode::drawAllowance(bool permission)
+{
+	_drawAllowance = permission;
 }
 
