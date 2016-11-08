@@ -122,8 +122,8 @@ xc.NarrateStoryLayer = cc.Layer.extend({
                     height);
                     
                 if (cc.rectContainsPoint(targetRectangle, location)) {
-                    context[funcName](target, loop);
                     context.displayText(target.getName());
+                    context[funcName](target, loop);                    
                     return true;
                 }
 
@@ -172,6 +172,7 @@ xc.NarrateStoryLayer = cc.Layer.extend({
         }        
 
         this._playButton = new cc.Sprite(xc.NarrateStoryLayer.res.play_png);
+        this._playButton.setName("Play");
         this._playButton.setPosition(cc.director.getWinSize().width / 2, cc.director.getWinSize().height / 2);
         this.addChild(this._playButton);        
         this.bindTouchListener(this._playButton, "sceneTouched", false, 2);
