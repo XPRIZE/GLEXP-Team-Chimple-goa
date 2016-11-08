@@ -43,6 +43,7 @@ protected:
 	float _carPreviousAngle = 0.0f;
 	std::vector<Stroke*> _carStrokes;
 	Stroke* _carCurrentStroke;
+	std::vector <float> _distance;
 	void clearScreen(float ft);
 	void gameStart();
 	void onEnterTransitionDidFinish();
