@@ -16,6 +16,8 @@ xc.ConnectTheDotsLayer = cc.LayerColor.extend({
   _gap: 0,
   _level: 0,
   _score: 0,
+  _maxColors: 3,
+  _help: null,
     ctor: function(args) {
     this._super(cc.color(0, 0, 248), cc.director.getVisibleSize().width, cc.director.getVisibleSize().height)
     cc.spriteFrameCache.addSpriteFrames(xc.ConnectTheDotsLayer.res.hand_plist)
@@ -32,18 +34,12 @@ xc.ConnectTheDotsLayer = cc.LayerColor.extend({
   onEnter: function() {
     cc.LayerColor.prototype.onEnter.call(this)
     this._level = this.getParent().menuContext.getCurrentLevel()
-    if(this._level <= 3) {
-      this._targetNum = 2
-    } else if(this._level <= 6) {
-      this._targetNum = 3
-    } else if(this._level <= 9) {
-      this._targetNum = 4
-    } else if(this._level <= 12) {
-      this._targetNum = 5
+    this._targetNum = (this._level - 1) % 5 + 2
+    if(this._level <= 5) {
+      this._maxColors = 3
     } else {
-      this._targetNum = 6
+      this._maxColors = 5      
     }
-
     this._handNode = new cc.Node()
     this._handNode.setPosition(cc.director.getVisibleSize().height + (cc.director.getVisibleSize().width - cc.director.getVisibleSize().height) / 2 + xc.ConnectTheDotsLayer.WHITEBOARD_PADDING / 2, (cc.director.getVisibleSize().width - cc.director.getVisibleSize().height) * 1.5 - xc.ConnectTheDotsLayer.WHITEBOARD_PADDING * 2)
     var handboard = new cc.Sprite(xc.ConnectTheDotsLayer.res.whiteboard_png)
@@ -80,22 +76,27 @@ xc.ConnectTheDotsLayer = cc.LayerColor.extend({
 
     var delay = new cc.DelayTime(1)
     var callFunc = new cc.CallFunc(function() {
-      this.iterateToFindPath(true)
+      var path = this.iterateToFindPath(true)
+      if(this._level == 1) {
+        var x = ( path[0].getPosition().x + path[1].getPosition().x ) / 2 + 64
+        var y = ( path[0].getPosition().y + path[1].getPosition().y ) / 2 
+        var width = Math.abs(path[0].getPosition().x - path[1].getPosition().x) + 128
+        var height = Math.abs(path[0].getPosition().y - path[1].getPosition().y) + 128
+        this._help = new xc.HelpLayer(cc.rect(x, y, width, height))
+        this.addChild(this._help)
+        this._help.clickAndDrag(path[0].getPosition().x + 64, path[0].getPosition().y + 64, path[1].getPosition().x + 64, path[1].getPosition().y + 64)
+      }
     }, this)
     var seq = new cc.Sequence(dropAction, delay, callFunc)
     this._dotNode.runAction(seq)
-
     this.showDots()
-    // var help = new xc.HelpLayer(cc.rect(1280, 1200, 200, 200), cc.rect(1280, 500, 400, 400))
-    // this.addChild(help)
-    // help.clickAndDrag(1280, 900, 500, 700)
   },
   showDots: function() {
     this._dots = new Array(this._numRows)
     for(var i = 0; i < this._numRows; i++) {
       this._dots[i] = new Array(this._numCols)
       for(var j = 0; j < this._numCols; j++) {
-        var dot = new xc.Dot(xc.ConnectTheDotsLayer.colors[getRandomInt(0, 3)], this.dotTouched, this)
+        var dot = new xc.Dot(xc.ConnectTheDotsLayer.colors[getRandomInt(0, this._maxColors)], this.dotTouched, this)
         dot.setPosition(xc.ConnectTheDotsLayer.WHITEBOARD_PADDING * 1.5 + (j + 0.5) * this._gap, xc.ConnectTheDotsLayer.WHITEBOARD_PADDING * 1.5 + (i + 0.5) * this._gap)
         this._dotNode.addChild(dot)
         this._dots[i][j] = dot
@@ -201,6 +202,10 @@ xc.ConnectTheDotsLayer = cc.LayerColor.extend({
           this.showNum(this._targetNum)
         }
         if(touchedDots == this._targetNum) {
+          if(this._help) {
+            this.removeChild(this._help)
+            this._help = null
+          }
           if(++this._score >= 5) {
             var menuContext = this.getParent().menuContext
             menuContext.setMaxPoints(5)
@@ -217,7 +222,7 @@ xc.ConnectTheDotsLayer = cc.LayerColor.extend({
                     this._dots[m][j] = this._dots[m + 1][j]
                   }
                   this._dots[m][j] = currentDot
-                  currentDot.setColor(xc.ConnectTheDotsLayer.colors[getRandomInt(0, 5)])
+                  currentDot.setColor(xc.ConnectTheDotsLayer.colors[getRandomInt(0, this._maxColors)])
                   currentDot.setPosition(cc.p(currentDot.getPosition().x, xc.ConnectTheDotsLayer.WHITEBOARD_PADDING * 1.5 + (this._numCols + 0.5) * this._gap))
                 }
               }

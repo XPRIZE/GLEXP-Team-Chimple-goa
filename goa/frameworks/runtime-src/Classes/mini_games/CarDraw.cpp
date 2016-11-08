@@ -9,6 +9,7 @@
 #include "CarDraw.h"
 #include "../WordSceneLipiTKNode.h"
 #include "CarDrawNode.h"
+#include "../menu/HelpLayer.h"
 
 USING_NS_CC;
 
@@ -53,6 +54,8 @@ void CarDraw::draw(cocos2d::DrawNode * paintingNode, cocos2d::Point fromPoint, c
 void CarDraw::postTouchBegan(cocos2d::Touch * touch, cocos2d::Event * event, cocos2d::Point touchPoint)
 {
 	CCLOG("111");
+	this->removeChildByName("gameHelpLayer");
+	this->removeChildByName("Alphabet");
 	Size visibleSize = Director::getInstance()->getVisibleSize();
 	auto target = event->getCurrentTarget();
 	Point localPoint = target->getParent()->getParent()->convertToNodeSpace(touchPoint);
@@ -129,6 +132,23 @@ void CarDraw::characterRecogination(std::vector<string> str)
 	}
 }
 
+void CarDraw::gameHelpLayer()
+{
+	Size visibleSize = Director::getInstance()->getVisibleSize();
+	auto helpLayer = HelpLayer::create(Rect(visibleSize.width / 2, visibleSize.height / 2, visibleSize.width / 2.8, visibleSize.height * 0.8), Rect(0, 0, 0, 0));
+	std::vector <Point> points;
+	float boxWidth = (visibleSize.width / 2.8)/2;
+	float boxHeight = (visibleSize.height * 0.8)/2;
+	points.push_back(Vec2(visibleSize.width / 2 - boxWidth / 1.25, visibleSize.height / 2 - boxHeight*0.6));
+	points.push_back(Vec2(visibleSize.width / 2 , visibleSize.height / 2 + boxHeight*0.7));
+	points.push_back(Vec2(visibleSize.width / 2 + boxWidth / 1.25, visibleSize.height / 2 - boxHeight*0.6));
+	points.push_back(Vec2(visibleSize.width / 2 - boxWidth / 2, visibleSize.height / 2 - boxHeight*0.1));
+	points.push_back(Vec2(visibleSize.width / 2 + boxWidth / 2, visibleSize.height / 2 - boxHeight*0.1));
+	helpLayer->writing(points);
+	this->addChild(helpLayer);
+	helpLayer->setName("gameHelpLayer");
+}
+
 
 
 
@@ -164,7 +184,7 @@ void CarDraw::carMoving()
 	auto car = Sprite::createWithSpriteFrameName("cardraw/car.png");
 	car->setRotation(_prevDegree);
 	this->addChild(car);
-	car->setScale(0.65);
+	car->setScale(-0.65);
 	Vector< FiniteTimeAction * > fta;
 	Vector< FiniteTimeAction * > rotateAction;
 	for (int i = 0; i < _carStrokes.size(); i++) {
@@ -194,18 +214,26 @@ void CarDraw::carMoving()
 				int angleee = ((avgAngle / 10) + _carPreviousAngle) / 2;
 				CCLOG("angle %d", angleee);
 				_carPreviousAngle = angleee;
-			//	angleee = angleee* -1;
-				auto rotateAction1 = RotateTo::create(0.5f, angleee);
-				rotateAction.pushBack(rotateAction1);
+				if (i == 0) {
+					auto rotateAction1 = RotateTo::create(0.05f, angleee);
+					rotateAction.pushBack(rotateAction1);
+					rotateAction.pushBack(DelayTime::create(0.5));
+					
+				}
+				else {
+					auto rotateAction1 = RotateTo::create(0.5f, angleee);
+					rotateAction.pushBack(rotateAction1);
+				}
+				
 				//rotateAction.pushBack(DelayTime::create(0.51));
 			}
-			else if (k> _carStrokes.size() - 5) {
+			/*else if (k> _carStrokes.size() - 5) {
 				auto diff = _carStrokes.at(i)->getPointAt(k - 1) - _carStrokes.at(i)->getPointAt(k);
 				auto angle = CC_RADIANS_TO_DEGREES(atan2((int)diff.x, (int)diff.y));
 				CCLOG("111111s angle %f", angle);
 				auto rotateAction1 = RotateTo::create(0.05f, angle);
 				rotateAction.pushBack(rotateAction1);
-			}
+			}*/
 		}
 	}
 	auto showScore = CallFunc::create([=]() {
@@ -243,14 +271,24 @@ void CarDraw::gameStart()
 	auto myLabel = Label::createWithBMFont(LangUtil::getInstance()->getBMFontFileName(), _myChar);
 	myLabel->setPositionX(visibleSize.width/2);
 	myLabel->setPositionY(visibleSize.height / 2);
-	myLabel->setScale(2);
+	myLabel->setScale(2.5);
 	this->addChild(myLabel);
-	auto fadeOut = FadeOut::create(2.0f);
-	myLabel->runAction(fadeOut);
+	if (_helpLayerFlag && menu->getCurrentLevel() == 1) {
+		_helpLayerFlag = false;
+		myLabel->setName("Alphabet");
+	}
+	else {
+		auto fadeOut = FadeOut::create(2.0f);
+		myLabel->runAction(fadeOut);
+	}
 
 }
 
 void CarDraw::onEnterTransitionDidFinish()
 {
+	_helpLayerFlag = true;
 	gameStart();
+	if (menu->getCurrentLevel() == 1) {
+		gameHelpLayer();
+	}
 }
