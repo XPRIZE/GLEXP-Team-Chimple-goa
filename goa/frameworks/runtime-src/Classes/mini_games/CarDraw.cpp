@@ -117,6 +117,14 @@ void CarDraw::postTouchEnded(cocos2d::Touch * touch, cocos2d::Event * event, coc
 void CarDraw::characterRecogination(std::vector<string> str)
 {
 	bool flage = false;
+
+	if (str.size() > 0) {
+		if ((str.at(0).compare("o") == 0 || str.at(0).compare("0") == 0) && (_myChar.compare("O") == 0)) {
+			flage = true;
+			_carDrawNodeLiPi->writingEnable(false);
+		}
+	}
+
 	if (str.at(0).compare(_myChar) == 0 || str.at(1).compare(_myChar) == 0) {
 		flage = true;
 		_carDrawNodeLiPi->writingEnable(false);
@@ -185,48 +193,69 @@ void CarDraw::carMoving()
 	car->setRotation(_prevDegree);
 	this->addChild(car);
 	car->setScale(-0.65);
+	
 	Vector< FiniteTimeAction * > fta;
 	Vector< FiniteTimeAction * > rotateAction;
 	for (int i = 0; i < _carStrokes.size(); i++) {
-		for (int j = 0; j <_carStrokes.at(i)->getNumberOfPoints(); j++) {
+		for (int j = 1; j <_carStrokes.at(i)->getNumberOfPoints(); j++) {
 			float x = _carStrokes.at(i)->getPointAt(j).x;//+ visibleSize.width / 2;
 			float y = _carStrokes.at(i)->getPointAt(j).y;// +visibleSize.height / 2;
-			auto moveAction = MoveTo::create(0.05f, Vec2(x, visibleSize.height-y));
+
+			auto distance = ccpDistance(_carStrokes.at(i)->getPointAt(j - 1), _carStrokes.at(i)->getPointAt(j));
+			_distance.push_back(distance);
+			auto moveAction = MoveTo::create(distance/300, Vec2(x, visibleSize.height-y));
 			fta.pushBack(moveAction);
+
+
+			Point p1 = Vec2(_carStrokes.at(i)->getPointAt(j - 1).x, -_carStrokes.at(i)->getPointAt(j - 1).y + visibleSize.height);
+			Point p2 = Vec2(_carStrokes.at(i)->getPointAt(j).x, -_carStrokes.at(i)->getPointAt(j).y + visibleSize.height);
+
+			auto diff = p1 - p2;
+			auto angle = CC_RADIANS_TO_DEGREES(atan2(diff.x, diff.y));
+			CCLOG("Angle = %f", angle);
+			if ((_carPreviousAngle - angle < 30) && (_carPreviousAngle - angle > -30)) {
+				angle = (_carPreviousAngle + angle)/2;
+			}
+			_carPreviousAngle = angle;
+			CCLOG(" after Angle = %f", angle);
+
+			auto rotateAction1 = RotateTo::create(distance / 300, angle);
+			rotateAction.pushBack(rotateAction1);
 		}	
-		for (int k = 0; k < _carStrokes.at(i)->getNumberOfPoints() - 10; k = k + 10) {
-			if (k > 0 && k< _carStrokes.size() - 10) {
+/*		for (int k = 0; k < _carStrokes.at(i)->getNumberOfPoints() - 10; k = k + 10) {
+			float avgTime = 0.0f;
+			//if (k > 0 && k< _carStrokes.size() - 10) {
 				float avgAngle = 0.0f;
 				for (int kk = 0; kk < 10; kk++) {
 					Point p1 = Vec2(_carStrokes.at(i)->getPointAt(k - 1).x,  - _carStrokes.at(i)->getPointAt(k - 1).y + visibleSize.height);
 					Point p2 = Vec2(_carStrokes.at(i)->getPointAt(kk+k).x, -_carStrokes.at(i)->getPointAt(kk + k).y + visibleSize.height);
 
 					auto diff = p1 - p2;
-					auto angle = CC_RADIANS_TO_DEGREES(atan2((int)diff.x, (int)diff.y));
+					auto angle = CC_RADIANS_TO_DEGREES(atan2(diff.x, diff.y));
 					
 					if ((angle) > 179) {
 						CCLOG("180");
 						angle = _carPreviousAngle;
 					}
-					//_carPreviousAngle = angle;
+					avgTime += _distance.at(k + kk);
 					avgAngle += angle;
 				}
 				int angleee = ((avgAngle / 10) + _carPreviousAngle) / 2;
 				CCLOG("angle %d", angleee);
 				_carPreviousAngle = angleee;
 				if (i == 0) {
-					auto rotateAction1 = RotateTo::create(0.05f, angleee);
+					auto rotateAction1 = RotateTo::create(avgTime/100, angleee);
 					rotateAction.pushBack(rotateAction1);
-					rotateAction.pushBack(DelayTime::create(0.5));
+					//rotateAction.pushBack(DelayTime::create(0.5));
 					
 				}
 				else {
-					auto rotateAction1 = RotateTo::create(0.5f, angleee);
+					auto rotateAction1 = RotateTo::create(avgTime/100, angleee);
 					rotateAction.pushBack(rotateAction1);
 				}
 				
 				//rotateAction.pushBack(DelayTime::create(0.51));
-			}
+		//	}
 			/*else if (k> _carStrokes.size() - 5) {
 				auto diff = _carStrokes.at(i)->getPointAt(k - 1) - _carStrokes.at(i)->getPointAt(k);
 				auto angle = CC_RADIANS_TO_DEGREES(atan2((int)diff.x, (int)diff.y));
@@ -234,7 +263,7 @@ void CarDraw::carMoving()
 				auto rotateAction1 = RotateTo::create(0.05f, angle);
 				rotateAction.pushBack(rotateAction1);
 			}*/
-		}
+	//	}
 	}
 	auto showScore = CallFunc::create([=]() {
 		menu->showScore();
