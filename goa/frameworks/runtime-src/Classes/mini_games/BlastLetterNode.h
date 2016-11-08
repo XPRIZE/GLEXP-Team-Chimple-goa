@@ -17,6 +17,7 @@ public:
 	virtual void draw(cocos2d::DrawNode* paintingNode, cocos2d::Point fromPoint, cocos2d::Point currentPoint);
 	virtual void broadCastRecognizedChars(std::vector<std::string> results) override;
 	virtual ui::Button* createButton(const std::string normalImage, const std::string selectedImage, const std::string disableImage, Vec2 position) override;
+	virtual void clearDrawing(cocos2d::Ref * pSender, cocos2d::ui::Widget::TouchEventType eEventType);
 	std::vector<std::string> getPosibileCharacter();
 	void drawAllowance(bool permission);
 

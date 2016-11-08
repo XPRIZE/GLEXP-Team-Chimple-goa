@@ -25,8 +25,9 @@ protected:
 	std::string _data_value;
 	int _counterLetter = 0 , _maxWrong = 3;
 	Node* _popGrid = NULL;
-	bool _checkingAlphabets = false , _bang = true;
+	bool _checkingAlphabets = false , _bang = true ,_touch = true;
 	cocostudio::timeline::ActionTimeline *_timelineBlast;
+
 
 public:
 	~BlastLetter();

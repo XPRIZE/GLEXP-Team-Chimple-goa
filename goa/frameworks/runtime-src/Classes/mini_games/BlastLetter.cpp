@@ -37,6 +37,7 @@ void BlastLetter::checkAlphabets()
 		((BlastLetterNode *)this->getChildByName(stringStream.str()))->setPosition(Vec2(grid->getPositionX(), grid->getPositionY()));
 		_checkingAlphabets = false;
 		_bang = false;
+		_touch = true;
 		this->removeChildByName("blastScene");
 		this->removeChildByName("tempBoard");
 		this->removeChildByName("tempBg");
@@ -180,7 +181,7 @@ void BlastLetter::addEventsOnGrid(cocos2d::Sprite* callerObject)
 			auto x = childText->getName();
 			CCLOG("Touched : %c", x.at(0));
 			auto t = target->getTag();
-			if (target->getTag() == (_counterLetter+1)) {
+			if (target->getTag() == (_counterLetter+1) && _touch) {
 				return true;
 			}
 			else {
@@ -199,7 +200,7 @@ void BlastLetter::addEventsOnGrid(cocos2d::Sprite* callerObject)
 		auto x = target->getName();
 		target->setColor(Color3B(219, 224, 252));
 		CCLOG("Touched : %c", x.at(0));
-
+		_touch = false;
 		if (target->getBoundingBox().containsPoint(touch->getLocation())) {
 		
 			auto fadeOut = FadeOut::create(2.0f);
