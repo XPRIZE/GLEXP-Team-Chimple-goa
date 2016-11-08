@@ -10,6 +10,19 @@
         "ActivedAnimationName": "master",
         "Timelines": [
           {
+            "ActionTag": -881272251,
+            "Property": "FrameEvent",
+            "Frames": [
+              {
+                "Value": "",
+                "FrameIndex": 0,
+                "Tween": false,
+                "ctype": "EventFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
             "ActionTag": -30217456,
             "Property": "ActionValue",
             "Frames": [
@@ -208,6 +221,19 @@
                   "Type": 0
                 },
                 "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -30217456,
+            "Property": "FrameEvent",
+            "Frames": [
+              {
+                "Value": "crash",
+                "FrameIndex": 242,
+                "Tween": false,
+                "ctype": "EventFrameData"
               }
             ],
             "ctype": "TimelineData"
@@ -1111,6 +1137,7 @@
             "RightMargin": 756.8037,
             "TopMargin": 176.2499,
             "BottomMargin": 1455.7501,
+            "UserData": "drag",
             "Tag": 41,
             "ActionTag": -881272251,
             "Size": {
@@ -1221,29 +1248,27 @@
             "InnerActionSpeed": 1.0,
             "AnchorPoint": {},
             "Position": {
-              "X": 1854.4691,
-              "Y": 1070.5037
+              "X": 2896.8469,
+              "Y": 35.6642
             },
             "Scale": {
               "ScaleX": -1.2853,
               "ScaleY": 1.2853
             },
-            "RotationSkewX": 179.4613,
-            "RotationSkewY": 179.4667,
             "CColor": {},
             "IconVisible": true,
             "PrePosition": {
-              "X": 0.7244,
-              "Y": 0.5947
+              "X": 1.1316,
+              "Y": 0.0198
             },
             "PreSize": {
               "X": 0.0,
               "Y": 0.0
             },
-            "LeftMargin": 1854.4691,
-            "RightMargin": 705.5309,
-            "TopMargin": 729.4963,
-            "BottomMargin": 1070.5037,
+            "LeftMargin": 2896.8469,
+            "RightMargin": -336.8469,
+            "TopMargin": 1764.3358,
+            "BottomMargin": 35.6642,
             "Tag": 391,
             "ActionTag": -30217456,
             "Size": {
@@ -1264,29 +1289,27 @@
             "InnerActionSpeed": 1.0,
             "AnchorPoint": {},
             "Position": {
-              "X": 382.2883,
-              "Y": 704.8434
+              "X": -464.0555,
+              "Y": 12.9492
             },
             "Scale": {
               "ScaleX": -1.3808,
               "ScaleY": 1.3808
             },
-            "RotationSkewX": 178.6374,
-            "RotationSkewY": 178.6374,
             "CColor": {},
             "IconVisible": true,
             "PrePosition": {
-              "X": 0.1493,
-              "Y": 0.3916
+              "X": -0.1813,
+              "Y": 0.0072
             },
             "PreSize": {
               "X": 0.0,
               "Y": 0.0
             },
-            "LeftMargin": 382.2883,
-            "RightMargin": 2177.7117,
-            "TopMargin": 1095.1566,
-            "BottomMargin": 704.8434,
+            "LeftMargin": -464.0555,
+            "RightMargin": 3024.0554,
+            "TopMargin": 1787.0508,
+            "BottomMargin": 12.9492,
             "Tag": 758,
             "ActionTag": -2005731790,
             "Size": {

@@ -20,7 +20,7 @@ xc.TextCreatePanel = cc.Layer.extend({
         this._textField = new ccui.TextField();
         this._textField.setFontSize(50);
         this._textField.setAnchorPoint(0.5, 0.5);
-        this._textField.setPosition(cc.director.getWinSize().width / 2  + textContentMargin, cc.director.getWinSize().height/2 - 2 * textContentMargin);
+        this._textField.setPosition(cc.director.getWinSize().width / 2 - 2 * textContentMargin + textContentMargin, cc.director.getWinSize().height/2 - 2 * textContentMargin);
         this._textField.setMaxLengthEnabled(true);
         this._textField.setMaxLength(500);
         this._textField.ignoreContentAdaptWithSize(false);

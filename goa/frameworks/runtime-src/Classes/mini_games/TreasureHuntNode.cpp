@@ -19,7 +19,7 @@ cocos2d::Sprite * TreasureHuntNode::createDrawingBoard()
 	Size visibleSize = Director::getInstance()->getVisibleSize();
 	auto drawingBoardSprite = Sprite::create();
 	drawingBoardSprite->setTextureRect(Rect(0, 0, _canvasWidth, _canvasHeight));
-	drawingBoardSprite->setColor(Color3B::BLACK);
+	drawingBoardSprite->setColor(Color3B::BLUE);
 	drawingBoardSprite->setOpacity(50);
 	return drawingBoardSprite;
 }
@@ -39,7 +39,7 @@ TreasureHuntNode * TreasureHuntNode::create(int width, int height, cocos2d::Poin
 
 void TreasureHuntNode::draw(cocos2d::DrawNode * paintingNode, cocos2d::Point fromPoint, cocos2d::Point currentPoint)
 {
-	paintingNode->drawSegment(fromPoint, currentPoint, 50, Color4F(0 / 255.0f, 0 / 255.0f, 0 / 255.0f, 1.0f));
+	paintingNode->drawSegment(fromPoint, currentPoint, 20, Color4F(0 / 255.0f, 0 / 255.0f, 0 / 255.0f, 1.0f));
 	//paintingNode->drawSegment(fromPoint, currentPoint, 5, Color4F(255 / 255.0f, 255 / 255.0f, 255 / 255.0f, 1.0f));
 }
 

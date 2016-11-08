@@ -34,14 +34,9 @@ xc.NarrateStoryLayer = cc.Layer.extend({
                 
                 var location = target.convertToNodeSpace(touch.getLocation());
 
-                // var wordCheckRect = cc.rect(boundingBox.x, boundingBox.y, boundingBox.width/2, boundingBox.height/2);
-                // if(cc.rectContainsPoint(wordCheckRect, touch.getLocation())) {
-                //     cc.log("touched:" + target.getName());
-                // }              
-                
                 if (cc.rectContainsPoint(boundingBox, touch.getLocation())) {
                     context[funcName](target, loop);
-                    cc.log("touched:" + target.getName());
+                    context.displayText(target.getName());
                     if(target.draggingEnabled) {
                         target.actionManager.resumeTarget(target);
                         return true;
@@ -88,15 +83,10 @@ xc.NarrateStoryLayer = cc.Layer.extend({
                   {
 
                         var targetRectangle = target.getChildren()[0].getBoundingBox();
-
-                        // var wordCheckRect = cc.rect(targetRectangle.x, targetRectangle.y, targetRectangle.width/2, targetRectangle.height/2);
-                        // if(cc.rectContainsPoint(wordCheckRect, location)) {
-                        //     cc.log("touched:" + target.getName());
-                        // }                        
                         
                         if (cc.rectContainsPoint(targetRectangle, location)) {
                             context[funcName](target, loop);
-                            cc.log("touched:" + target.getName());
+                            context.displayText(target.getName());                            
                             return true;
                         }
                   }
@@ -108,7 +98,16 @@ xc.NarrateStoryLayer = cc.Layer.extend({
             }            
         });
         cc.eventManager.addListener(listener, target);
-    },    
+    },   
+
+    displayText:function(text) {
+        var texts = text.split("_");
+        if(texts && texts.length > 0) {
+            var langText = texts[0];
+            cc.log('text:' + langText.toLowerCase());
+        }
+        
+    },
 
     bindTouchListener: function (target, funcName, loop) {
         var context = this;
@@ -121,15 +120,10 @@ xc.NarrateStoryLayer = cc.Layer.extend({
                 var targetSize = target.getContentSize();
                 var targetRectangle = cc.rect(0, 0, targetSize.width, targetSize.
                     height);
-
-                // var wordCheckRect = cc.rect(targetRectangle.x, targetRectangle.y, targetRectangle.width/2, targetRectangle.height/2);
-                // if(cc.rectContainsPoint(wordCheckRect, location)) {
-                //     cc.log("touched:" + target.getName());
-                // }                
                     
                 if (cc.rectContainsPoint(targetRectangle, location)) {
-                    context[funcName](target, loop);
-                    // cc.log("touched:" + target.getName());
+                    context.displayText(target.getName());
+                    context[funcName](target, loop);                    
                     return true;
                 }
 
@@ -178,6 +172,7 @@ xc.NarrateStoryLayer = cc.Layer.extend({
         }        
 
         this._playButton = new cc.Sprite(xc.NarrateStoryLayer.res.play_png);
+        this._playButton.setName("Play");
         this._playButton.setPosition(cc.director.getWinSize().width / 2, cc.director.getWinSize().height / 2);
         this.addChild(this._playButton);        
         this.bindTouchListener(this._playButton, "sceneTouched", false, 2);
@@ -381,13 +376,15 @@ xc.NarrateStoryLayer = cc.Layer.extend({
         var storyText = "";
         var that = this;
 
-        var textFileUrl = xc.path + this._baseDir + "/" + langDir + "/" + xc.currentStoryId + ".json";
+        var textFileUrl = xc.path + this._baseDir + "/" + langDir + "/" + xc.currentStoryId + ".txt";
+        cc.log('textFileUrl:' + textFileUrl);
         if(cc.sys.isNative) {
             var fileExists = jsb.fileUtils.isFileExist(textFileUrl);
             if(fileExists) {
-                cc.loader.loadJson(textFileUrl, function(err, json) {            
+                cc.loader.loadTxt(textFileUrl, function(err, json) {            
                     if(!err && json != null && json != undefined) {
-                        storyText = json[xc.pageIndex];
+                        var data = json.split(/"[\d]+":/);
+                        storyText = data[xc.pageIndex + 1];
                         that.parent.addChild(new xc.TextCreatePanel(cc.director.getWinSize().width, cc.director.getWinSize().height, cc.p(385, 250), storyText, that.processText, that.processAudio, that, false));
                     }                                
                 });                
@@ -395,9 +392,10 @@ xc.NarrateStoryLayer = cc.Layer.extend({
                 that.parent.addChild(new xc.TextCreatePanel(cc.director.getWinSize().width, cc.director.getWinSize().height, cc.p(385, 250), storyText, that.processText,that.processAudio, that, false));
             }
         } else {
-            cc.loader.loadJson(textFileUrl, function(err, json) {            
+            cc.loader.loadTxt(textFileUrl, function(err, json) {            
                 if(!err && json != null && json != undefined) {
-                    storyText = json[xc.pageIndex];
+                    var data = json.split(/"[\d]+":/);
+                    storyText = data[xc.pageIndex + 1];
                 } 
                 that.parent.addChild(new xc.TextCreatePanel(cc.director.getWinSize().width, cc.director.getWinSize().height, cc.p(385, 250), storyText, that.processText, that.processAudio, that, false));           
             });
