@@ -31,7 +31,7 @@ public:
     static TextGenerator* getInstance();
     
     std::vector<std::vector<std::string>> generateMatrix(std::string word, int numRows, int numCols);
-    std::string generateAWord(int level = 0);
+    std::string generateAWord(int level = 0, int length = 0);
     int getNumGraphemesInString(std::string word);
     std::vector<std::string> getGraphemes(std::string word);
     std::string generateASentence(int level = 0);
