@@ -8,6 +8,7 @@
 #include "../GameScene.h"
 #include "../effects/FShake.h"
 #include "../menu/MenuContext.h"
+#include "../menu/HelpLayer.h"
 
 using namespace cocos2d;
 
@@ -26,6 +27,7 @@ public:
 	std::map<std::string, std::string> _scenePath;
 	std::map<std::string, float> _gridBasedValue;
 	void onEnterTransitionDidFinish();
+	void creatHelp(Sprite* letterBox, Sprite* helpBox);
 	Bingo();
 	~Bingo();
 	int bingoHorizotally();
@@ -42,6 +44,7 @@ protected:
 	Size visibleSize = Director::getInstance()->getVisibleSize();
 	Vec2 origin = Director::getInstance()->getVisibleOrigin();
 
+	
 	std::vector<std::vector<Sprite *>> _boxContainer;
 	std::vector<std::vector<Sprite *>> _charFace;
 	std::vector<std::vector<cocostudio::timeline::ActionTimeline *>> _charAnimContainer;
@@ -55,6 +58,8 @@ protected:
 	cocos2d::LabelTTF* _label = NULL;
 	bool _isBingoDone = false;
 	MenuContext* _menuContext;
+	HelpLayer* _help;
+	int _isHelpDone = NULL;
 	std::string _bingoCurrentTheme = "";
 	std::string _bingoGridDimension = "";
 	std::string _resourcePath = "";

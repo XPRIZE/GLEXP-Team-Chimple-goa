@@ -32,154 +32,154 @@ void Bingo::onEnterTransitionDidFinish()
 	std::map<std::string, std::map<std::string, std::string>> sceneMap = {
 		{
 			{ "bingojungle",
-			{
-				{ "bg", "jungle/bingojungle.csb" },
-				{ "box", "jungle/jungleb/letterbox.png" },
-				{ "boxshade", "jungle/jungleb/letterboxshade.png" },
-				{ "_resourcePath", "jungle/" },
-				{ "griddimension", _bingoGridDimension }
-			}
+							{
+								{ "bg", "jungle/bingojungle.csb" },
+								{ "box", "jungle/jungleb/letterbox.png" },
+								{ "boxshade", "jungle/jungleb/letterboxshade.png" },
+								{ "_resourcePath", "jungle/" },
+								{ "griddimension", _bingoGridDimension }
+							}
 			},
 			{ "bingocity",
-			{
-				{ "bg", "bingo/bingocity/bingocity.csb" },
-				{ "box", "bingocity/letterbox.png" },
-				{ "boxshade", "bingocity/letterboxshade.png" },
-				{ "_resourcePath", "bingo/bingocity/" },
-				{ "griddimension", _bingoGridDimension }
-			}
+							{
+								{ "bg", "bingo/bingocity/bingocity.csb" },
+								{ "box", "bingocity/letterbox.png" },
+								{ "boxshade", "bingocity/letterboxshade.png" },
+								{ "_resourcePath", "bingo/bingocity/" },
+								{ "griddimension", _bingoGridDimension }
+							}
 			},
 			{ "bingofarm",
-			{
-				{ "bg", "bingo/bingofarm/bingofarm.csb" },
-				{ "box", "bingofarm/letterbox.png" },
-				{ "boxshade", "bingofarm/letterboxshade.png" },
-				{ "_resourcePath", "bingo/bingofarm/" },
-				{ "griddimension", _bingoGridDimension }
-			}
+							{
+								{ "bg", "bingo/bingofarm/bingofarm.csb" },
+								{ "box", "bingofarm/letterbox.png" },
+								{ "boxshade", "bingofarm/letterboxshade.png" },
+								{ "_resourcePath", "bingo/bingofarm/" },
+								{ "griddimension", _bingoGridDimension }
+							}
 			}
 		}
 	};
 	std::map<std::string, std::map<std::string, std::map<std::string, float>>> sceneGridValueMap = {
 
-		{ "bingojungle",
-		{
-			{ "threeByThree",
-			{
-				{ "pairRequired", 9.0f },
-				{ "addXFactor", 0.17f },
-				{ "addYFactor", 0.18f },
-				{ "bincapacity", 3.0f },
-				{ "scale",1.0f },
-				{ "bingoAnimScale",0.5f },
-				{ "animationLoop", 1.0f },
-				{ "helpLetterYFactor", 0.87 }
-			}
-			},
-			{ "fourByFour",
-			{
-				{ "pairRequired", 16.0f },
-				{ "addXFactor", 0.13f },
-				{ "addYFactor", 0.15f },
-				{ "bincapacity", 4.0f },
-				{ "scale",0.75f },
-				{ "bingoAnimScale",0.35f },
-				{ "animationLoop", 1.0f },
-				{ "helpLetterYFactor",0.87 }
-			}
-			},
-			{ "fiveByFive",
-			{
-				{ "pairRequired", 25.0f },
-				{ "addXFactor", 0.10f },
-				{ "addYFactor", 0.125f },
-				{ "bincapacity", 5.0f },
-				{ "scale",0.6f },
-				{ "bingoAnimScale",0.2f },
-				{ "animationLoop", 1.0f },
-				{ "helpLetterYFactor", 0.87 }
-			}
-			}
+		 { "bingojungle",
+						{
+							{ "threeByThree",
+												{
+													{ "pairRequired", 9.0f },
+													{ "addXFactor", 0.17f },
+													{ "addYFactor", 0.18f },
+													{ "bincapacity", 3.0f },
+													{ "scale",1.0f },
+													{ "bingoAnimScale",0.5f },
+													{ "animationLoop", 1.0f },
+													{ "helpLetterYFactor", 0.87 }
+												}
+							},
+						    { "fourByFour",
+											{
+												{ "pairRequired", 16.0f },
+												{ "addXFactor", 0.13f },
+												{ "addYFactor", 0.15f },
+												{ "bincapacity", 4.0f },
+												{ "scale",0.75f },
+												{ "bingoAnimScale",0.35f },
+												{ "animationLoop", 1.0f },
+												{ "helpLetterYFactor",0.87 }
+											}
+							},
+							{ "fiveByFive",
+											{
+												{ "pairRequired", 25.0f },
+												{ "addXFactor", 0.10f },
+												{ "addYFactor", 0.125f },
+												{ "bincapacity", 5.0f },
+												{ "scale",0.6f },
+												{ "bingoAnimScale",0.2f },
+												{ "animationLoop", 1.0f },
+												{ "helpLetterYFactor", 0.87 }
+											}
+							}
 		} },
 		{ "bingocity",
-		{
-			{ "threeByThree",
-			{
-				{ "pairRequired", 9.0f },
-				{ "addXFactor", 0.193f },
-				{ "addYFactor", 0.215f },
-				{ "bincapacity", 3.0f },
-				{ "scale",1.0f },
-				{ "bingoAnimScale",0.5f },
-				{ "animationLoop", 1.0f },
-				{ "helpLetterYFactor", 0.91 }
+						{
+						 { "threeByThree",
+											{
+												{ "pairRequired", 9.0f },
+												{ "addXFactor", 0.193f },
+												{ "addYFactor", 0.215f },
+												{ "bincapacity", 3.0f },
+												{ "scale",1.0f },
+												{ "bingoAnimScale",0.5f },
+												{ "animationLoop", 1.0f },
+												{ "helpLetterYFactor", 0.91 }
+											}
+					     },
+					    { "fourByFour",
+											{
+												{ "pairRequired", 16.0f },
+												{ "addXFactor", 0.150f },
+												{ "addYFactor", 0.184f },
+												{ "bincapacity", 4.0f },
+												{ "scale",0.75f },
+												{ "bingoAnimScale",0.35f },
+												{ "animationLoop", 1.0f },
+												{ "helpLetterYFactor", 0.91 }
+											}
+					  },
+					  { "fiveByFive",
+											{
+												{ "pairRequired", 25.0f },
+												{ "addXFactor", 0.124f },
+												{ "addYFactor", 0.149f },
+												{ "bincapacity", 5.0f },
+												{ "scale",0.6f },
+												{ "bingoAnimScale",0.25f },
+												{ "animationLoop", 1.0f },
+												{ "helpLetterYFactor", 0.91 }
+											}
+				    }
 			}
-			},
-			{ "fourByFour",
-			{
-				{ "pairRequired", 16.0f },
-				{ "addXFactor", 0.150f },
-				{ "addYFactor", 0.184f },
-				{ "bincapacity", 4.0f },
-				{ "scale",0.75f },
-				{ "bingoAnimScale",0.35f },
-				{ "animationLoop", 1.0f },
-				{ "helpLetterYFactor", 0.91 }
-			}
-			},
-			{ "fiveByFive",
-			{
-				{ "pairRequired", 25.0f },
-				{ "addXFactor", 0.124f },
-				{ "addYFactor", 0.149f },
-				{ "bincapacity", 5.0f },
-				{ "scale",0.6f },
-				{ "bingoAnimScale",0.25f },
-				{ "animationLoop", 1.0f },
-				{ "helpLetterYFactor", 0.91 }
-			}
-			}
-		}
 		},
 		{ "bingofarm",
-		{
-			{ "threeByThree",
-			{
-				{ "pairRequired", 9.0f },
-				{ "addXFactor", 0.193f },
-				{ "addYFactor", 0.229f },
-				{ "bincapacity", 3.0f },
-				{ "scale",1.0f },
-				{ "bingoAnimScale",0.55f },
-				{ "animationLoop", 0.0f },
-				{ "helpLetterYFactor", 0.91 }
-			}
-			},
-			{ "fourByFour",
-			{
-				{ "pairRequired", 16.0f },
-				{ "addXFactor", 0.150f },
-				{ "addYFactor", 0.192f },
-				{ "bincapacity", 4.0f },
-				{ "scale",0.75f },
-				{ "bingoAnimScale",0.40f },
-				{ "animationLoop", 0.0f },
-				{ "helpLetterYFactor", 0.91 }
-			}
-			},
-			{ "fiveByFive",
-			{
-				{ "pairRequired", 25.0f },
-				{ "addXFactor", 0.124f },
-				{ "addYFactor", 0.165f },
-				{ "bincapacity", 5.0f },
-				{ "scale",0.6f },
-				{ "bingoAnimScale",0.25f },
-				{ "animationLoop", 0.0f },
-				{ "helpLetterYFactor", 0.91 }
-			}
-			}
-		}
+		              {
+			             { "threeByThree",
+											{
+												{ "pairRequired", 9.0f },
+												{ "addXFactor", 0.193f },
+												{ "addYFactor", 0.229f },
+												{ "bincapacity", 3.0f },
+												{ "scale",1.0f },
+												{ "bingoAnimScale",0.55f },
+												{ "animationLoop", 0.0f },
+												{ "helpLetterYFactor", 0.91 }
+											}
+						},
+						{ "fourByFour",
+											{
+												{ "pairRequired", 16.0f },
+												{ "addXFactor", 0.150f },
+												{ "addYFactor", 0.192f },
+												{ "bincapacity", 4.0f },
+												{ "scale",0.75f },
+												{ "bingoAnimScale",0.40f },
+												{ "animationLoop", 0.0f },
+												{ "helpLetterYFactor", 0.91 }
+											}
+						},
+						{ "fiveByFive",
+											{
+												{ "pairRequired", 25.0f },
+												{ "addXFactor", 0.124f },
+												{ "addYFactor", 0.165f },
+												{ "bincapacity", 5.0f },
+												{ "scale",0.6f },
+												{ "bingoAnimScale",0.25f },
+												{ "animationLoop", 0.0f },
+												{ "helpLetterYFactor", 0.91 }
+											}
+						}
+				}
 		},
 
 	};
@@ -196,9 +196,8 @@ void Bingo::onEnterTransitionDidFinish()
 		{ 1,	"bingojungle" },
 		{ 2,    "bingocity" }
 	};
-	/*std::string theme[] = { "bingocity", "bingojungle","bingofarm" };
-	std::string gridInfo[] = { "threeByThree", "fourByFour" };
-	*/
+
+	
 	int gameCurrentLevel = _menuContext->getCurrentLevel();
 	std::pair<int, int> levelKeyNumber = levelAllInfo(gameCurrentLevel, 12, 3, 4, 3);
 	_bingoGridDimension = bingoGridMapping.at(levelKeyNumber.first);
@@ -285,8 +284,6 @@ void Bingo::onEnterTransitionDidFinish()
 		auto myGameWidth = (visibleSize.width - 2560) / 2;
 		bingoBackground->setPositionX(myGameWidth);
 	}
-	//static_cast<int>(num)
-
 
 	for (std::map<std::string, std::string>::iterator it = _data.begin(); it != _data.end(); ++it) {
 		_data_key.push_back(it->first);
@@ -337,6 +334,7 @@ void Bingo::onEnterTransitionDidFinish()
 	Sprite*	boxShade;
 	Sprite* bingoFace;
 	Sprite* wrong;
+	int Boxcounter =0;
 	cocos2d::LabelTTF * label;
 
 	for (int i = 0; i<_boxContainer.size(); i++)
@@ -359,7 +357,7 @@ void Bingo::onEnterTransitionDidFinish()
 			setAllSpriteProperties(bingoAnim, 1, addX, addY, false, 0.5, 0.5, 0, _gridBasedValue.at("bingoAnimScale"), _gridBasedValue.at("bingoAnimScale"), _boxBoard);
 
 			_bingoAnimBin[i][j] = bingoAnim;
-			bingoAnim->runAction(bingoTimeline);
+			 bingoAnim->runAction(bingoTimeline);
 			_bingoAnimTimelineBin[i][j] = bingoTimeline;
 
 			//Label
@@ -396,6 +394,11 @@ void Bingo::onEnterTransitionDidFinish()
 			_charFace[i][j] = charFace;
 
 			addX += box->getBoundingBox().size.width + _boxBoard->getBoundingBox().size.width * 0.011;
+			Boxcounter++;
+			if (_menuContext->getCurrentLevel() == 1 && Boxcounter ==1)
+			{
+				creatHelp(box, _helpBoard);
+			}
 		}
 
 		addY = addY + box->getBoundingBox().size.height + _boxBoard->getBoundingBox().size.width *0.013;
@@ -416,6 +419,16 @@ Bingo::~Bingo(void)
 Bingo::Bingo(void)
 {
 
+}
+void Bingo::creatHelp(Sprite* letterBox, Sprite* helpBox)
+{
+	auto box1 = letterBox->getPosition() +Vec2(visibleSize.width * 0.058, visibleSize.height * 0.07);
+	auto box2 = helpBox->getPosition() +Vec2(visibleSize.width * 0.024, -visibleSize.height * 0.01);
+
+	_help = HelpLayer::create(Rect(box1.x, box1.y, letterBox->getContentSize().width*1.3, letterBox->getContentSize().height*1.3), Rect(box2.x, box2.y, helpBox->getContentSize().width*1.4, helpBox->getContentSize().height*1.3));
+	_help->click(Vec2(box1.x, box1.y));
+	_isHelpDone = 0;
+ 	 this->addChild(_help);
 }
 std::pair<int, int> Bingo::levelAllInfo(int currentLevel, int sceneRepetitionNo, int totalScene, int catagoryRepetitionNo, int totalcatagory)
 {
@@ -513,6 +526,11 @@ void Bingo::addEvents(Sprite* clickedObject)
 				{
 					FShake* shake = FShake::actionWithDuration(0.5f, 5.0f);
 					target->runAction(shake);
+				}
+				if (_menuContext->getCurrentLevel() == 1 && _isHelpDone == 0)
+				{
+					this->removeChild(_help, true);
+					_isHelpDone = 1;
 				}
 				bingo = bingoChecker(bingo);
 
