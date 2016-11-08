@@ -29,9 +29,10 @@ void BlastLetter::checkAlphabets()
 	stringStream << "Node" << (_counterLetter + 1);
 
 	if (checkRecognizeLetter(LangUtil::convertUTF16CharToString(_data_value[_counterLetter]))) {
-		auto x = stringStream.str();
-		auto y = 1.0f / 3.0f;
+		
+		((BlastLetterNode *)this->getChildByName(stringStream.str()))->_drawingBoard->removeAllChildren();
 		((BlastLetterNode *)this->getChildByName(stringStream.str()))->setScale(1.0f/3.0f);
+		((BlastLetterNode *)this->getChildByName(stringStream.str()))->drawAllowance(false);
 		auto grid = this->getChildByName(LangUtil::convertUTF16CharToString(_data_value[_counterLetter]));
 		((BlastLetterNode *)this->getChildByName(stringStream.str()))->setPosition(Vec2(grid->getPositionX(), grid->getPositionY()));
 		_checkingAlphabets = false;
@@ -103,15 +104,12 @@ void BlastLetter::onEnterTransitionDidFinish() {
 		letterBoardSprite->setTag(coordIndex+1);
 		addEventsOnGrid(letterBoardSprite);
 	}
-		//auto x = this->getChildByName("bg");
 		auto myLabel = LabelTTF::create(_data_key, "Helvetica", this->getChildByName("bg")->getChildByName("topboard ")->getContentSize().height *0.8);
 		myLabel->setPosition(Vec2(this->getChildByName("bg")->getChildByName("topboard ")->getContentSize().width/2, this->getChildByName("bg")->getChildByName("topboard ")->getContentSize().height/2));
-//		myLabel->setScale(0.7);
 		myLabel->setName(myLabel->getString());
 		this->getChildByName("bg")->getChildByName("topboard ")->addChild(myLabel);
 
-	//((BlastLetterNode *)this->getChildByName("Node2"))->_drawingBoard->removeAllChildren();
-	this->scheduleUpdate();
+		this->scheduleUpdate();
 }
 
 std::vector<std::pair<int, int>> BlastLetter::getAllGridCoord(int rowData, int columnData)
