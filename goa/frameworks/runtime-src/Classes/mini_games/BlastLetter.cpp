@@ -36,8 +36,8 @@ void BlastLetter::checkAlphabets()
 		auto grid = this->getChildByName(LangUtil::convertUTF16CharToString(_data_value[_counterLetter]));
 		((BlastLetterNode *)this->getChildByName(stringStream.str()))->setPosition(Vec2(grid->getPositionX(), grid->getPositionY()));
 		_checkingAlphabets = false;
-		_bang = false;
 		_touch = true;
+
 		this->removeChildByName("blastScene");
 		this->removeChildByName("tempBoard");
 		this->removeChildByName("tempBg");
@@ -45,6 +45,10 @@ void BlastLetter::checkAlphabets()
 		_counterLetter++;		
 		if (_counterLetter == _data_value.size()) {
 			this->runAction(Sequence::create(DelayTime::create(3), CallFunc::create([=]() {_menuContext->showScore(); }), NULL));
+		}
+		else {
+			auto label = this->getChildByName(LangUtil::convertUTF16CharToString(_data_value[_counterLetter]));
+			label->getChildByName(label->getName())->runAction(RepeatForever::create(shakingCharacter()));
 		}
 	}
 	else {
@@ -138,6 +142,37 @@ void BlastLetter::update(float delta) {
 
 }
 
+void BlastLetter::removeAllWritingScene()
+{
+	std::ostringstream stringStream;
+	stringStream << "Node" << (_counterLetter + 1);
+	auto timelineBlast = CSLoader::createTimeline("blastletter/screen_blast.csb");	
+	this->getChildByName("blastScene")->runAction(timelineBlast);
+	timelineBlast->play("bang", false);
+	((BlastLetterNode *)this->getChildByName(stringStream.str()))->_drawingBoard->removeAllChildren();
+	((BlastLetterNode *)this->getChildByName(stringStream.str()))->drawAllowance(false);
+	_bang = false;
+	runAction(Sequence::create(DelayTime::create(3), CallFunc::create([=]() {
+		std::ostringstream stringStream;
+		stringStream << "Node" << (_counterLetter + 1);
+		auto label = this->getChildByName(LangUtil::convertUTF16CharToString(_data_value[_counterLetter]));
+		label->getChildByName(label->getName())->runAction(FadeIn::create(2.0f));
+		this->removeChildByName(stringStream.str());
+		this->removeChildByName("blastScene");
+		this->removeChildByName("tempBoard");
+		this->removeChildByName("tempBg");
+		_touch = true;
+	}), NULL));
+	_checkingAlphabets = false;
+}
+
+Sequence* BlastLetter::shakingCharacter(){
+	auto sequence_A = RotateTo::
+	auto sequence_B = MoveBy::create(0.5, Vec2(0, -10));
+	auto sequence_C = MoveBy::create(0.5, Vec2(0, 10));
+	auto sequence_D = MoveBy::create(0.5, Vec2(-10, 0));
+	return (Sequence::create(sequence_A, sequence_B, sequence_C, sequence_D, NULL));
+}
 bool BlastLetter::checkRecognizeLetter(string letter)
 {
 	if (_result.size() > 0) {
@@ -183,6 +218,9 @@ void BlastLetter::addEventsOnGrid(cocos2d::Sprite* callerObject)
 			auto t = target->getTag();
 			if (target->getTag() == (_counterLetter+1) && _touch) {
 				return true;
+				std::ostringstream stringStream;
+				stringStream << "Node" << target->getTag();
+				_NodeIdentity = stringStream.str();
 			}
 			else {
 				target->setColor(Color3B(219, 224, 252));
@@ -202,7 +240,7 @@ void BlastLetter::addEventsOnGrid(cocos2d::Sprite* callerObject)
 		CCLOG("Touched : %c", x.at(0));
 		_touch = false;
 		if (target->getBoundingBox().containsPoint(touch->getLocation())) {
-		
+			
 			auto fadeOut = FadeOut::create(2.0f);
 			target->getChildByName(target->getName())->runAction(fadeOut);
 			
@@ -254,25 +292,9 @@ void BlastLetter::addEventsOnGrid(cocos2d::Sprite* callerObject)
 				BlastLetterNodeObj->setName(stringStream.str());
 				_checkingAlphabets = true;
 				
-				auto afterBlast = CallFunc::create([=]() {
-					if (_bang ) {
-						timelineBlast->play("bang", false);
-						_bang = false;
-						//this->removeChildByName("blastScene");
-						//this->removeChildByName("tempBoard");
-						//this->removeChildByName("tempBg");
-						_checkingAlphabets = false;
-
-						//std::ostringstream objName;
-						//objName << "Node" << (_counterLetter+1);
-						//this->removeChildByName(objName.str());
-
-					}
-				});
-
 				timelineBlast->play("blast",false);
-				runAction(Sequence::create(DelayTime::create(10), CallFunc::create([=]() {  }), afterBlast, NULL));
-				
+				timelineBlast->setAnimationEndCallFunc("blast", CC_CALLBACK_0(BlastLetter::removeAllWritingScene, this));
+			
 				this->removeChildByName("tempBoard");
 			});
 
