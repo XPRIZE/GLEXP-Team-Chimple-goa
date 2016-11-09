@@ -7,6 +7,7 @@
       "Animation": {
         "Duration": 365,
         "Speed": 1.0,
+        "ActivedAnimationName": "master",
         "Timelines": [
           {
             "ActionTag": 92233056,
@@ -251,7 +252,14 @@
         ],
         "ctype": "TimelineActionData"
       },
-      "AnimationList": [],
+      "AnimationList": [
+        {
+          "StartIndex": 0,
+          "EndIndex": 365,
+          "Name": "master",
+          "ctype": "AnimationInfoData"
+        }
+      ],
       "ObjectData": {
         "Tag": 149,
         "Children": [
@@ -1182,8 +1190,8 @@
             "InnerActionSpeed": 1.0,
             "AnchorPoint": {},
             "Position": {
-              "X": 487.5179,
-              "Y": 179.9581
+              "X": -25.9986,
+              "Y": 178.0545
             },
             "Scale": {
               "ScaleX": 1.0,
@@ -1192,17 +1200,17 @@
             "CColor": {},
             "IconVisible": true,
             "PrePosition": {
-              "X": 0.1904,
-              "Y": 0.1
+              "X": -0.0102,
+              "Y": 0.0989
             },
             "PreSize": {
               "X": 0.0,
               "Y": 0.0
             },
-            "LeftMargin": 487.5179,
-            "RightMargin": 2072.4822,
-            "TopMargin": 1620.0419,
-            "BottomMargin": 179.9581,
+            "LeftMargin": -25.9986,
+            "RightMargin": 2585.9985,
+            "TopMargin": 1621.9454,
+            "BottomMargin": 178.0545,
             "Tag": 1130,
             "ActionTag": 92233056,
             "Size": {
@@ -1264,7 +1272,7 @@
             "InnerActionSpeed": 1.0,
             "AnchorPoint": {},
             "Position": {
-              "X": 1668.5781,
+              "X": 2179.9331,
               "Y": 25.9999
             },
             "Scale": {
@@ -1274,15 +1282,15 @@
             "CColor": {},
             "IconVisible": true,
             "PrePosition": {
-              "X": 0.6518,
+              "X": 0.8515,
               "Y": 0.0144
             },
             "PreSize": {
               "X": 0.0,
               "Y": 0.0
             },
-            "LeftMargin": 1668.5781,
-            "RightMargin": 891.4219,
+            "LeftMargin": 2179.9331,
+            "RightMargin": 380.0669,
             "TopMargin": 1774.0001,
             "BottomMargin": 25.9999,
             "Tag": 8241,
@@ -1305,8 +1313,8 @@
             "InnerActionSpeed": 1.0,
             "AnchorPoint": {},
             "Position": {
-              "X": 1146.5709,
-              "Y": -88.679
+              "X": 1759.9154,
+              "Y": -86.966
             },
             "Scale": {
               "ScaleX": -0.7206,
@@ -1315,17 +1323,17 @@
             "CColor": {},
             "IconVisible": true,
             "PrePosition": {
-              "X": 0.4479,
-              "Y": -0.0493
+              "X": 0.6875,
+              "Y": -0.0483
             },
             "PreSize": {
               "X": 0.0,
               "Y": 0.0
             },
-            "LeftMargin": 1146.5709,
-            "RightMargin": 1413.4291,
-            "TopMargin": 1888.6791,
-            "BottomMargin": -88.679,
+            "LeftMargin": 1759.9154,
+            "RightMargin": 800.0846,
+            "TopMargin": 1886.9659,
+            "BottomMargin": -86.966,
             "Tag": 7931,
             "ActionTag": 1732307817,
             "Size": {
