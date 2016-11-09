@@ -97,8 +97,23 @@ void TreasureHunt::onEnterTransitionDidFinish() {
 	label->setScaleX(1);
 	labelBoard->addChild(label);
 	
+	if (_menuContext->getCurrentLevel() == 1) {
+		
+		//auto startPos = Vec2(visibleSize.width / 2, visibleSize.height / 2 - 300);
+		//auto endPos = Vec2(visibleSize.width / 2 + 300, visibleSize.height / 2);
 
+		//_help = HelpLayer::create(Rect(startPos.x, startPos.y, 50, 50), Rect(endPos.x, endPos.y, 50, 50));
+
+		//_help->clickAndDrag(startPos, endPos);
+
+		//this->addChild(_help);
+		
+		gameHelpLayer();
+		
+	}
 	
+
+	_menuContext->setMaxPoints(1);
 	//std::vector<Sprite*> boxes;
 	//boxes.resize(6);
 
@@ -157,7 +172,12 @@ std::vector<std::pair<int, int>> TreasureHunt::getAllGridCoord(int rowData, int 
 }
 
 void TreasureHunt::update(float delta) {
-
+	
+	if (TreasureHuntNode::done == 1 && _menuContext->getCurrentLevel() == 1) {
+		this->removeChild(_help);
+		TreasureHuntNode::done = 0;
+	}
+	
 	if (checkRecognizeLetter(_currentLetter) && _flag ==0) {
 
 		
@@ -168,7 +188,7 @@ void TreasureHunt::update(float delta) {
 		});
 
 		auto gameOver = CallFunc::create([=] {
-
+			_menuContext->addPoints(1);
 			_menuContext->showScore();
 		});
 
@@ -237,3 +257,26 @@ void TreasureHunt::setLevel(int level) {
 	_currentLetter = _alpha[level];
 	
 }
+
+
+
+void TreasureHunt::gameHelpLayer()
+{
+
+	
+	Size visibleSize = Director::getInstance()->getVisibleSize();
+	_help = HelpLayer::create(Rect(visibleSize.width / 2, visibleSize.height / 2, visibleSize.width / 2.8, visibleSize.height * 0.4), Rect(0, 0, 0, 0));
+	std::vector <Point> points;
+	float boxWidth = (visibleSize.width / 2.8) / 2;
+	float boxHeight = (visibleSize.height * 0.4) / 2;
+	points.push_back(Vec2(visibleSize.width / 2 - boxWidth / 1.25, visibleSize.height / 2 - boxHeight*0.6));
+	points.push_back(Vec2(visibleSize.width / 2, visibleSize.height / 2 + boxHeight*0.7));
+	points.push_back(Vec2(visibleSize.width / 2 + boxWidth / 1.25, visibleSize.height / 2 - boxHeight*0.6));
+	points.push_back(Vec2(visibleSize.width / 2 - boxWidth / 2, visibleSize.height / 2 - boxHeight*0.1));
+	points.push_back(Vec2(visibleSize.width / 2 + boxWidth / 2, visibleSize.height / 2 - boxHeight*0.1));
+	_help->writing(points);
+	this->addChild(_help);
+	_help->setName("gameHelpLayer");
+}
+
+
