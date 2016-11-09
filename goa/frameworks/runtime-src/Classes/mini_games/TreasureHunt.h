@@ -27,7 +27,12 @@ public:
 	std::vector<std::pair<int, int>> getAllGridCoord(int row, int column);
 	void update(float) override;
 	const wchar_t *_alpha;
+	int _flag = 0;
+	Sprite* _box;
 	std::string getConvertInUpperCase(std::string data);
+	void openCoinBox();
+	void openStoneBox();
+	void setLevel(int level);
 	static const char* gameName() { return TREASUREHUNT.c_str(); }
 };
 

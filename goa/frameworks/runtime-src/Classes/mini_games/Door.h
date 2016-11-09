@@ -22,9 +22,20 @@ public:
 	static cocos2d::Scene* createScene();
 	static Door * create();
 	void onEnterTransitionDidFinish();
+	void clearScreen(float dt);
+	void showScore(float dt);
+	void gameHelpLayer();
 	float extraX;
+	std::string _randomWord;
+	std::string _alphabet;
+	int _score = 0;
+	int _wordLength;
+	std::string _myWord;
 	cocos2d::Vector <cocos2d::Node *> _BoxRef;
-	//std::string _randomWord1;
+	std::vector<std::string> _animalRef;
+	void characterRecognisation(std::vector<string> str);
+	DoorNode *_doorNode;
+	cocos2d::Vector <DoorNode *> _doorNodeRef;
 protected:
 	MenuContext * menu;
 	cocos2d::Node* _car;
