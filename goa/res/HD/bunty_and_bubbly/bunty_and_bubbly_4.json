@@ -2067,8 +2067,8 @@
           {
             "FileData": {
               "Type": "MarkedSubImage",
-              "Path": "bunty_and_bubbly/sandcastle4.png",
-              "Plist": "bunty_and_bubbly/bunty_and_bubbly.plist"
+              "Path": "bunty_and_bubbly/bb2/sandcastle4.png",
+              "Plist": "bunty_and_bubbly/bb2/bb2.plist"
             },
             "BlendFunc": {
               "Src": 1,
@@ -2113,8 +2113,8 @@
           {
             "FileData": {
               "Type": "MarkedSubImage",
-              "Path": "bunty_and_bubbly/sandcastle3.png",
-              "Plist": "bunty_and_bubbly/bunty_and_bubbly.plist"
+              "Path": "bunty_and_bubbly/bb2/sandcastle3.png",
+              "Plist": "bunty_and_bubbly/bb2/bb2.plist"
             },
             "BlendFunc": {
               "Src": 1,
@@ -2159,8 +2159,8 @@
           {
             "FileData": {
               "Type": "MarkedSubImage",
-              "Path": "bunty_and_bubbly/sandcastle4.png",
-              "Plist": "bunty_and_bubbly/bunty_and_bubbly.plist"
+              "Path": "bunty_and_bubbly/bb2/sandcastle4.png",
+              "Plist": "bunty_and_bubbly/bb2/bb2.plist"
             },
             "BlendFunc": {
               "Src": 1,
@@ -2205,8 +2205,8 @@
           {
             "FileData": {
               "Type": "MarkedSubImage",
-              "Path": "bunty_and_bubbly/sandcastle1.png",
-              "Plist": "bunty_and_bubbly/bunty_and_bubbly.plist"
+              "Path": "bunty_and_bubbly/bb2/sandcastle1.png",
+              "Plist": "bunty_and_bubbly/bb2/bb2.plist"
             },
             "BlendFunc": {
               "Src": 1,
@@ -2250,8 +2250,8 @@
           {
             "FileData": {
               "Type": "MarkedSubImage",
-              "Path": "bunty_and_bubbly/sandcastle2.png",
-              "Plist": "bunty_and_bubbly/bunty_and_bubbly.plist"
+              "Path": "bunty_and_bubbly/bb2/sandcastle2.png",
+              "Plist": "bunty_and_bubbly/bb2/bb2.plist"
             },
             "BlendFunc": {
               "Src": 1,
@@ -2289,14 +2289,15 @@
               "X": 252.0,
               "Y": 491.0
             },
+            "VisibleForFrame": false,
             "Name": "sandcastle2_17",
             "ctype": "SpriteObjectData"
           },
           {
             "FileData": {
               "Type": "MarkedSubImage",
-              "Path": "bunty_and_bubbly/sandcastle2.png",
-              "Plist": "bunty_and_bubbly/bunty_and_bubbly.plist"
+              "Path": "bunty_and_bubbly/bb2/sandcastle2.png",
+              "Plist": "bunty_and_bubbly/bb2/bb2.plist"
             },
             "BlendFunc": {
               "Src": 1,
@@ -2334,6 +2335,7 @@
               "X": 252.0,
               "Y": 491.0
             },
+            "VisibleForFrame": false,
             "Name": "sandcastle2_17_0",
             "ctype": "SpriteObjectData"
           },
@@ -2796,6 +2798,8 @@
         "ctype": "SingleNodeObjectData"
       },
       "UsedResources": [
+        "bb2/bb2.plist",
+        "bb2/bb2.png",
         "bunty_and_bubbly.plist",
         "bunty_and_bubbly.png",
         "puff.json"
