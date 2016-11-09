@@ -21,6 +21,10 @@ public:
 	virtual void broadCastRecognizedChars(std::vector<std::string> results) override;
 	//virtual void broadCastRecognizedChars(std::vector<std::string> results);
 	void setParent(Door* parent);
+	virtual void clearDrawing(cocos2d::Ref *pSender, cocos2d::ui::Widget::TouchEventType eEventType);
+	virtual cocos2d::ui::Button* createButton(const std::string normalImage,
+		const std::string selectedImage,
+		const std::string disableImage, cocos2d::Vec2 position) override;
 protected:
 	MenuContext * menu;
 	Door* _Door;
