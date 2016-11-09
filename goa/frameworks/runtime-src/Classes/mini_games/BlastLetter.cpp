@@ -167,7 +167,7 @@ void BlastLetter::removeAllWritingScene()
 }
 
 Sequence* BlastLetter::shakingCharacter(){
-	auto sequence_A = RotateTo::
+	auto sequence_A = MoveBy::create(0.5, Vec2(10, 0));
 	auto sequence_B = MoveBy::create(0.5, Vec2(0, -10));
 	auto sequence_C = MoveBy::create(0.5, Vec2(0, 10));
 	auto sequence_D = MoveBy::create(0.5, Vec2(-10, 0));
