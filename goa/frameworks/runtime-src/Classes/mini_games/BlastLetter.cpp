@@ -48,6 +48,7 @@ void BlastLetter::checkAlphabets()
 		}
 		else {
 			auto label = this->getChildByName(LangUtil::convertUTF16CharToString(_data_value[_counterLetter]));
+			label->getChildByName(label->getName())->setRotation(20);
 			label->getChildByName(label->getName())->runAction(RepeatForever::create(shakingCharacter()));
 		}
 	}
@@ -108,6 +109,11 @@ void BlastLetter::onEnterTransitionDidFinish() {
 		letterBoardSprite->setName(myLabel->getString());
 		letterBoardSprite->setTag(coordIndex+1);
 		addEventsOnGrid(letterBoardSprite);
+
+		if (coordIndex == 0) {
+			myLabel->setRotation(20);
+			myLabel->runAction(RepeatForever::create(shakingCharacter()));
+		}
 	}
 		auto myLabel = LabelTTF::create(_data_key, "Helvetica", this->getChildByName("bg")->getChildByName("topboard ")->getContentSize().height *0.8);
 		myLabel->setPosition(Vec2(this->getChildByName("bg")->getChildByName("topboard ")->getContentSize().width/2, this->getChildByName("bg")->getChildByName("topboard ")->getContentSize().height/2));
@@ -167,11 +173,9 @@ void BlastLetter::removeAllWritingScene()
 }
 
 Sequence* BlastLetter::shakingCharacter(){
-	auto sequence_A = MoveBy::create(0.5, Vec2(10, 0));
-	auto sequence_B = MoveBy::create(0.5, Vec2(0, -10));
-	auto sequence_C = MoveBy::create(0.5, Vec2(0, 10));
-	auto sequence_D = MoveBy::create(0.5, Vec2(-10, 0));
-	return (Sequence::create(sequence_A, sequence_B, sequence_C, sequence_D, NULL));
+	auto sequence_A = RotateBy::create(0.5,-40);
+	auto sequence_C = RotateBy::create(0.5,40);
+	return (Sequence::create(sequence_A, sequence_C, NULL));
 }
 bool BlastLetter::checkRecognizeLetter(string letter)
 {
