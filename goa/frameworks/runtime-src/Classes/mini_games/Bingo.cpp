@@ -209,21 +209,23 @@ void Bingo::onEnterTransitionDidFinish()
 
 	if (levelKeyNumber.second == 0)
 	{
-
 		int pairNo = static_cast<int>(_gridBasedValue.at("pairRequired"));
 		_data = TextGenerator::getInstance()->getHomonyms(pairNo);
+		_menuContext->setMaxPoints(pairNo*5);
 	}
 	else if (levelKeyNumber.second == 1)
 	{
 		_bingoCurrentTheme = "bingojungle";
 		int pairNo = static_cast<int>(_gridBasedValue.at("pairRequired"));
 		_data = TextGenerator::getInstance()->getSynonyms(pairNo);
+		_menuContext->setMaxPoints(pairNo*5);
 	}
 	else
 	{
 		_bingoCurrentTheme = "bingocity";
 		int pairNo = static_cast<int>(_gridBasedValue.at("pairRequired"));
 		_data = TextGenerator::getInstance()->getAntonyms(pairNo);
+		_menuContext->setMaxPoints(pairNo*5);
 	}
 
 	//BackGround
@@ -499,6 +501,7 @@ void Bingo::addEvents(Sprite* clickedObject)
 					target->setVisible(false);
 					target->setTag(1);
 					setWordInHelpBoard();
+					_menuContext->addPoints(5);
 
 					auto targetName = target->getName();
 					for (int i = 0; i < _boxContainer.size(); i++)
@@ -526,6 +529,7 @@ void Bingo::addEvents(Sprite* clickedObject)
 				{
 					FShake* shake = FShake::actionWithDuration(0.5f, 5.0f);
 					target->runAction(shake);
+					_menuContext->addPoints(-2);
 				}
 				if (_menuContext->getCurrentLevel() == 1 && _isHelpDone == 0)
 				{
