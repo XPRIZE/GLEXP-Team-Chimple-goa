@@ -122,21 +122,22 @@ void Drop::onEnterTransitionDidFinish()
 	{
 		auto tg = TextGenerator::getInstance();
 		auto _data = TextGenerator::getInstance()->getAntonyms(1);
-		wordOnLabel = _data.begin()->first;
-		wordOnLayout = _data.begin()->second;
+		wordOnLabel = getConvertInUpperCase(_data.begin()->first);
+		wordOnLayout = getConvertInUpperCase(_data.begin()->second);
 	}
 	else if (levelKeyNumber.second == 1)
 	{
-		auto tg = TextGenerator::getInstance();
-		wordOnLabel = tg->generateAWord();
-		wordOnLayout = tg->generateAWord();
+		auto word = TextGenerator::getInstance()->generateAWord(_menuContext->getCurrentLevel());
+		wordOnLabel = getConvertInUpperCase(word);
+		wordOnLayout = wordOnLabel;
+
 	}
 	else
 	{
 		auto tg = TextGenerator::getInstance();
 		auto _data = TextGenerator::getInstance()->getSynonyms(1);
-		wordOnLabel = _data.begin()->first;
-		wordOnLayout = _data.begin()->second;
+		wordOnLabel = getConvertInUpperCase(_data.begin()->first);
+		wordOnLayout = getConvertInUpperCase(_data.begin()->second);
 	}
 
 	/*std::string theme[] = { "dropjungle", "drophero","dropcity" };
@@ -198,7 +199,10 @@ void Drop::onEnterTransitionDidFinish()
 	int sizeOfRandomIndexVector;
 
 	if (sizeOfWord % 2 == 0)
+	{
 		sizeOfRandomIndexVector = sizeOfWord / 2;
+		_middleBasketIndex = sizeOfWord / 2-1;
+	}
 	else
 	{
 		int justANumber = RandomHelper::random_int(0, 1);
@@ -206,6 +210,8 @@ void Drop::onEnterTransitionDidFinish()
 			sizeOfRandomIndexVector = sizeOfWord / 2;
 		else
 			sizeOfRandomIndexVector = sizeOfWord / 2 + 1;
+
+		_middleBasketIndex = sizeOfWord / 2;
 	}
 	while (randomIndex.size() != sizeOfRandomIndexVector) {
 		bool duplicateCheck = true;
@@ -243,7 +249,7 @@ void Drop::onEnterTransitionDidFinish()
 		_dropHelp->click(Vec2(visibleSize.width*0.5, 0.75));
 		_dropHelpSelector = 1;
 	}*/
-	auto callShowScore = CCCallFunc::create([=] {
+	/*auto callShowScore = CCCallFunc::create([=] {
 		for (int i = 0; i < this->getChildren().size(); i++)
 		{
 			auto str = this->getChildren().at(i)->getName();
@@ -253,10 +259,37 @@ void Drop::onEnterTransitionDidFinish()
 				break;
 			}
 		}
-	});
-	this->runAction(Sequence::create(DelayTime::create(2), callShowScore, NULL));
-	this->schedule(schedule_selector(Drop::letterAndHolderMaker), 3);
+	});*/
+	_menuContext->setMaxPoints(randomIndex.size()*5);
+	if (_menuContext->getCurrentLevel() == 1)
+	{
+		Sprite* floatBox = Sprite::createWithSpriteFrameName(_scenePath.at("pseudoHolderImage"));
+		setAllSpriteProperties(floatBox, 0, visibleSize.width*1.1, visibleSize.height*_sceneBasedNumericalVal.at("floatBoxHeightFactor"), true, 0.5, 0.5, 0, 1, 1);//0.75, true
+		leftFloat(floatBox, 12, -(visibleSize.width*0.2), visibleSize.height*_sceneBasedNumericalVal.at("floatBoxHeightFactor"));//0.75
+		this->addChild(floatBox, 1);
+		addEvents(floatBox);
+		floatBox->setTag(letterHolderId);
+
+		_letterHolderSpriteBin.push_back(floatBox);
+
+		//Label
+		int maxIndex = _wordOptionBin.size() - 1;
+		std::string str = _wordOptionBin[RandomHelper::random_int(0, maxIndex)];
+		auto label = setAllLabelProperties(str, 0, (floatBox->getBoundingBox().size.width / 2), ((floatBox->getBoundingBox().size.height / 2)*_sceneBasedNumericalVal.at("flaotingLetterYFactor")), true, 0.5, 0.5, 0, 1, 1, 100);
+		floatBox->addChild(label, 0);
+		letterHolderId++;
+		_helpFlag = true;
+		_gapBetweenTwoBasket = gap;
+		creatHelp(gap);
+	}
+	
+	//this->runAction(Sequence::create(DelayTime::create(2), callShowScore, NULL));
+	if (_menuContext->getCurrentLevel() != 1)
+	{
+		this->schedule(schedule_selector(Drop::letterAndHolderMaker), 3);
+	}
 	this->scheduleUpdate();
+
 }
 
 std::pair<int, int> Drop::levelAllInfo(int currentLevel, int sceneRepetitionNo, int totalScene, int catagoryRepetitionNo, int totalcatagory)
@@ -321,11 +354,34 @@ void Drop::update(float delta) {
 	basketLetterCollisionChecker();
 	removeHeroTrailer();
 	removeFallingLetter();
+	if (_helpFlag )
+	{
+		if (_letterHolderSpriteBin[0]->getPositionX() < (_middleBasketIndex*_gapBetweenTwoBasket + _gapBetweenTwoBasket / 2))
+		{
+			_helpFlag = false;
+			_letterHolderSpriteBin[0]->pause();
+			auto letterBoardSprite = Sprite::create();
+			letterBoardSprite->setTextureRect(Rect(0, 0, _letterHolderSpriteBin[0]->getContentSize().width, _letterHolderSpriteBin[0]->getContentSize().height));
+			letterBoardSprite->setColor(Color3B(219, 224, 252));
+			letterBoardSprite->setPosition(Vec2(_letterHolderSpriteBin[0]->getPositionX(), _letterHolderSpriteBin[0]->getPositionY()));
+			letterBoardSprite->setName("touchSprite");
+			letterBoardSprite->setOpacity(0);
+			addEvents(letterBoardSprite);
+			addChild(letterBoardSprite,3);
+
+		}
+	}
 }
 
 Drop::~Drop(void)
 {
 	this->removeAllChildrenWithCleanup(true);
+}
+void Drop::creatHelp(float gap)
+{
+	_help = HelpLayer::create(Rect((_middleBasketIndex*gap + gap / 2), visibleSize.height*_sceneBasedNumericalVal.at("floatBoxHeightFactor"), _letterHolderSpriteBin[0]->getContentSize().width, _letterHolderSpriteBin[0]->getContentSize().height), Rect((visibleSize.width / 2), (visibleSize.height*_sceneBasedNumericalVal.at("helpBoardHeight")), visibleSize.width*0.35, visibleSize.height*0.1));
+	_help->click(Vec2((_middleBasketIndex*gap + gap / 2), visibleSize.height*_sceneBasedNumericalVal.at("floatBoxHeightFactor")));
+	 this->addChild(_help, 6);
 }
 void Drop::letterAndHolderMaker(float dt)
 {
@@ -345,7 +401,7 @@ void Drop::letterAndHolderMaker(float dt)
 		setAllSpriteProperties(floatBox, 0, visibleSize.width*1.1, visibleSize.height*_sceneBasedNumericalVal.at("floatBoxHeightFactor"), true, 0.5, 0.5, 0, 1, 1);//0.75, true
 		leftFloat(floatBox, 12, -(visibleSize.width*0.2), visibleSize.height*_sceneBasedNumericalVal.at("floatBoxHeightFactor"));//0.75
 		this->addChild(floatBox, 1);
-		addEvents(floatBox);
+		
 		floatBox->setTag(letterHolderId);
 
 	_letterHolderSpriteBin.push_back(floatBox);
@@ -355,6 +411,7 @@ void Drop::letterAndHolderMaker(float dt)
 	std::string str = _wordOptionBin[RandomHelper::random_int(0, maxIndex)];
 	auto label = setAllLabelProperties(str, 0, (floatBox->getBoundingBox().size.width / 2), ((floatBox->getBoundingBox().size.height / 2)*_sceneBasedNumericalVal.at("flaotingLetterYFactor")), true, 0.5, 0.5, 0, 1, 1, 100);
 	floatBox->addChild(label, 0);
+	addEvents(floatBox);
 	letterHolderId++;
 }
 void Drop::leftFloat(Sprite* floatingObj, int time, float positionX, float positionY)
@@ -381,7 +438,7 @@ void Drop::addEvents(Sprite* clickedObject)
 		{
 			rect = Rect(0, 0, s.width, s.height);
 		}
-
+		
 		if (rect.containsPoint(locationInNode))
 		{
 			cocostudio::timeline::ActionTimeline* holderTimeline;
@@ -412,20 +469,36 @@ void Drop::addEvents(Sprite* clickedObject)
 			sprite->setPosition(Vec2((target->getPosition().x), (target->getPosition().y)));
 			this->addChild(sprite, 0);
 
-			auto label = setAllLabelProperties(target->getChildren().at(0)->getName(), 0, (sprite->getBoundingBox().size.width / 2), (sprite->getBoundingBox().size.height / 2), true, 0.5, 0.5, 0, 1, 1, 100);
-			sprite->addChild(label, 0);
+			
 
 			sprite->runAction(MoveTo::create(1, Vec2(sprite->getPosition().x, -visibleSize.height*0.002)));
 			_FallingLetter.push_back(sprite);
 			target->setVisible(false);
-
-			for (int i = 0; i < _letterHolderSpriteBin.size(); i++)
-			{
-				if (_letterHolderSpriteBin[i]->getTag() == target->getTag())
+			
+			if (_initObj && _letterHolderSpriteBin.size() > 0 && _menuContext->getCurrentLevel() == 1) {
+				_letterHolderSpriteBin[0]->setVisible(false);
+				_letterHolderSpriteBin[0]->getEventDispatcher()->removeEventListener(listener);
+				_letterHolderSpriteBin[0]->resume();
+				this->removeChild(this->getChildByName("touchSprite"));
+				auto label = setAllLabelProperties(_letterHolderSpriteBin[0]->getChildren().at(0)->getName(), 0, (sprite->getBoundingBox().size.width / 2), (sprite->getBoundingBox().size.height / 2), true, 0.5, 0.5, 0, 1, 1, 100);
+				sprite->addChild(label, 0);
+				this->removeChild(_help);
+				this->schedule(schedule_selector(Drop::letterAndHolderMaker), 3);
+				_initObj = false;
+			}
+			else {
+				auto label = setAllLabelProperties(target->getChildren().at(0)->getName(), 0, (sprite->getBoundingBox().size.width / 2), (sprite->getBoundingBox().size.height / 2), true, 0.5, 0.5, 0, 1, 1, 100);
+				sprite->addChild(label, 0);
+				for (int i = 0; i < _letterHolderSpriteBin.size(); i++)
 				{
-					_letterHolderSpriteBin[i]->getEventDispatcher()->removeEventListener(listener);
+					if (_letterHolderSpriteBin[i]->getTag() == target->getTag())
+					{
+						_letterHolderSpriteBin[i]->getEventDispatcher()->removeEventListener(listener);
+					}
 				}
 			}
+
+			
 			CCLOG("size of holder container : %d", _letterHolderSpriteBin.size());
 		}
 		return false;
@@ -491,10 +564,12 @@ void Drop::basketLetterCollisionChecker()
 					_basketAnimBin.erase(_basketAnimBin.begin() + i);
 					_basketBin.erase(_basketBin.begin() + i);
 					CCLOG("YES");
+					_menuContext->addPoints(5);
 				}
 				else
 				{
 					_basketAnimBin[i]->play(_scenePath.at("wrongAnimName"), false);
+					_menuContext->addPoints(-2);
 					//_basketAnimBin[i]->gotoFrameAndPlay(0, false);
 					CCLOG("NO");
 				}
@@ -555,4 +630,16 @@ std::pair<Sprite*, cocostudio::timeline::ActionTimeline*> Drop::setAnimationAndP
 	sprite->runAction(timeline);
 	this->addChild(sprite, zOrder);
 	return std::make_pair(sprite, timeline);
+}
+
+std::string Drop::getConvertInUpperCase(std::string data)
+{
+	std::ostringstream blockName;
+	int i = 0;
+	while (data[i])
+	{
+		blockName << (char)toupper(data[i]);
+		i++;
+	}
+	return blockName.str();
 }

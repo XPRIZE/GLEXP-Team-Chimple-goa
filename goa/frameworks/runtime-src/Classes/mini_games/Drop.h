@@ -36,6 +36,10 @@ protected:
 	cocos2d::LabelTTF* _label = NULL;
 	int _dropHelpSelector = 0;
 	Sprite* _basketImg;
+	HelpLayer* _help;
+	int _middleBasketIndex = NULL;
+	bool _helpFlag = false, _initObj = true;
+	float _gapBetweenTwoBasket;
 
 public:
 	~Drop();
@@ -49,6 +53,7 @@ public:
 	void letterAndHolderMaker(float dt);
 	void removeLetterHolder();
 	void removeHolderAnimation(Sprite* obj);
+	void creatHelp( float gap);
 	//void removeHolderAnimationForHero(std::tuple<Sprite*,Sprite*,int> tp);
 	void basketLetterCollisionChecker();
 	void removeHeroTrailer();
@@ -60,6 +65,7 @@ public:
 	void setAllSpriteProperties(Sprite* object, int zOrder, float posX, float posY, bool visibility, float anchorPointX, float anchorPointY, float rotation, float scaleX, float scaleY);
 	LabelTTF* setAllLabelProperties(std::string letter, int zOrder, float posX, float posY, bool visibility, float anchorPointX, float anchorPointY, float rotation, float scaleX, float scaleY, int labelSizeInPixel);
 	std::pair<Sprite*, cocostudio::timeline::ActionTimeline*> setAnimationAndProperties(std::string csbString, float posX, float posY, int zOrder);
+	std::string getConvertInUpperCase(std::string data);
 	static const char* gameName() { return DROP.c_str(); }
 };
 

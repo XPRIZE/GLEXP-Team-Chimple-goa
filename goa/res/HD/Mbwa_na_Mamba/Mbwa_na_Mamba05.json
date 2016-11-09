@@ -5,7 +5,7 @@
   "Content": {
     "Content": {
       "Animation": {
-        "Duration": 420,
+        "Duration": 440,
         "Speed": 1.0,
         "ActivedAnimationName": "master",
         "Timelines": [
@@ -25,7 +25,23 @@
                 "InnerActionType": "SingleFrame",
                 "CurrentAniamtionName": "crocwalk",
                 "SingleFrameIndex": 30,
+                "FrameIndex": 244,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              },
+              {
+                "InnerActionType": "NoLoopAction",
+                "CurrentAniamtionName": "lifthead",
+                "SingleFrameIndex": 30,
                 "FrameIndex": 245,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              },
+              {
+                "InnerActionType": "SingleFrame",
+                "CurrentAniamtionName": "lifthead",
+                "SingleFrameIndex": 120,
+                "FrameIndex": 270,
                 "Tween": false,
                 "ctype": "InnerActionFrameData"
               }
@@ -48,6 +64,15 @@
               {
                 "X": 704.9656,
                 "Y": 184.2954,
+                "FrameIndex": 244,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 704.9656,
+                "Y": 184.2954,
                 "FrameIndex": 245,
                 "EasingData": {
                   "Type": 0
@@ -57,7 +82,115 @@
               {
                 "X": 704.9656,
                 "Y": 184.2954,
-                "FrameIndex": 420,
+                "FrameIndex": 270,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 704.9656,
+                "Y": 184.2954,
+                "FrameIndex": 440,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -1249060981,
+            "Property": "ActionValue",
+            "Frames": [
+              {
+                "InnerActionType": "SingleFrame",
+                "CurrentAniamtionName": "cheetawalk",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 0,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              },
+              {
+                "InnerActionType": "LoopAction",
+                "CurrentAniamtionName": "cheetawalk",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 30,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              },
+              {
+                "InnerActionType": "SingleFrame",
+                "CurrentAniamtionName": "cheetawalk",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 180,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              },
+              {
+                "InnerActionType": "LoopAction",
+                "CurrentAniamtionName": "no",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 325,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              },
+              {
+                "InnerActionType": "SingleFrame",
+                "CurrentAniamtionName": "no",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 440,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -1249060981,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": 2370.46,
+                "Y": 285.9328,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 2370.46,
+                "Y": 285.9328,
+                "FrameIndex": 30,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 1950.73,
+                "Y": 268.1981,
+                "FrameIndex": 180,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 1950.7297,
+                "Y": 268.1981,
+                "FrameIndex": 324,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 1950.7297,
+                "Y": 268.1981,
+                "FrameIndex": 325,
                 "EasingData": {
                   "Type": 0
                 },
@@ -72,7 +205,7 @@
       "AnimationList": [
         {
           "StartIndex": 0,
-          "EndIndex": 420,
+          "EndIndex": 440,
           "Name": "master",
           "ctype": "AnimationInfoData"
         }
@@ -640,6 +773,47 @@
             },
             "Name": "FileNode_1",
             "ctype": "ProjectNodeObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "Mbwa_na_Mamba/cheeta.json",
+              "Plist": ""
+            },
+            "StretchWidthEnable": false,
+            "StretchHeightEnable": false,
+            "InnerActionSpeed": 1.0,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 2370.46,
+              "Y": 285.9328
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 0.926,
+              "Y": 0.1589
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 2370.46,
+            "RightMargin": 189.54,
+            "TopMargin": 1514.0671,
+            "BottomMargin": 285.9328,
+            "Tag": 325,
+            "ActionTag": -1249060981,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "FileNode_2",
+            "ctype": "ProjectNodeObjectData"
           }
         ],
         "Size": {
@@ -650,6 +824,7 @@
         "ctype": "SingleNodeObjectData"
       },
       "UsedResources": [
+        "cheeta.json",
         "croc.json",
         "Mbwa_na_Mamba.plist",
         "Mbwa_na_Mamba.png"
