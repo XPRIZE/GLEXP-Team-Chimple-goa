@@ -53,6 +53,7 @@ public:
 	void onEnterTransitionDidFinish();
 	// a selector callback
 	void menuCloseCallback(cocos2d::Ref* pSender);
+	void creatHelp(Sprite* letterBoard, Sprite* pixel);
 
 	//static const char* gameName() { return "Cross The Bridge"; };
 	static const char* gameName() { return CROSS_THE_BRIDGE.c_str(); };
@@ -75,6 +76,7 @@ protected:
 	Sprite* alphaSoundBarrier;
 	Sprite* barrierLowerSide;
 	MenuContext *_menuContext;
+	Sprite* transparentBG;
 	CocosDenshion::SimpleAudioEngine* gameMelody;
 
 	Size visibleSize = Director::getInstance()->getVisibleSize();
@@ -102,7 +104,8 @@ protected:
 	int letterDisplayCounter = 0;
 	int enemyCreateCounter = 1;
 	int _gameCurrentLevel;
-
+	HelpLayer* _help;
+	bool _helpFlag = false, _initObj = true;;
 	std::map<int, wchar_t> _crossTheBridgeLevelMapping;
 
 	Label* myGameScoreLabel;

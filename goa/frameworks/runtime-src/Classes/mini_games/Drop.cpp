@@ -379,7 +379,7 @@ void Drop::creatHelp(float gap)
 {
 	_help = HelpLayer::create(Rect((_middleBasketIndex*gap + gap / 2), visibleSize.height*_sceneBasedNumericalVal.at("floatBoxHeightFactor"), _letterHolderSpriteBin[0]->getContentSize().width, _letterHolderSpriteBin[0]->getContentSize().height), Rect((visibleSize.width / 2), (visibleSize.height*_sceneBasedNumericalVal.at("helpBoardHeight")), visibleSize.width*0.35, visibleSize.height*0.1));
 	_help->click(Vec2((_middleBasketIndex*gap + gap / 2), visibleSize.height*_sceneBasedNumericalVal.at("floatBoxHeightFactor")));
-	this->addChild(_help, 6);
+	 this->addChild(_help, 6);
 }
 void Drop::letterAndHolderMaker(float dt)
 {
