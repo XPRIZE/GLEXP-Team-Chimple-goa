@@ -14,14 +14,16 @@ public:
 	~TreasureHuntNode();
 	cocos2d::Sprite* createDrawingBoard();
 	static TreasureHuntNode *create(int width, int height, cocos2d::Point position);
-
+	static int done;
+	void postTouchEnded(cocos2d::Touch * touch, cocos2d::Event * event, cocos2d::Point touchPoint) override;
 	void draw(cocos2d::DrawNode* paintingNode, cocos2d::Point fromPoint, cocos2d::Point currentPoint);
 	virtual void broadCastRecognizedChars(std::vector<std::string> results) override;
 	std::vector<std::string> getPosibileCharacter();
-
+	
 protected:
 	MenuContext * menu;
 	std::vector<std::string> _result;
+	
 
 };
 
