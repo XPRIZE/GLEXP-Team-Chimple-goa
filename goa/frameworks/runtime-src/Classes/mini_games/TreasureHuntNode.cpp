@@ -54,3 +54,5 @@ std::vector<std::string> TreasureHuntNode::getPosibileCharacter()
 	return _result;
 }
 
+
+
