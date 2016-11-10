@@ -144,35 +144,35 @@ bool JumpingNumber::init()
 		} },
 		{ 21,
 		{
-			{ 21, 41 }
+			{ 2, 22 }
 		} },
 		{ 22,
 		{
-			{ 41, 61 }
+			{ 21, 41 }
 		} },
 		{ 23,
 		{
-			{ 61, 81 }
+			{ 22, 42 }
 		} },
 		{ 24,
 		{
-			{ 81, 101 }
+			{ 41, 61 }
 		} },
 		{ 25,
 		{
-			{ 2, 22 }
+			{ 42, 62 }
 		} },
 		{ 26,
 		{
-			{ 22, 42 }
+			{ 61, 81 }
 		} },
 		{ 27,
 		{
-			{ 42, 62 }
+			{ 62, 82 }
 		} },
 		{ 28,
 		{
-			{ 62, 82 }
+			{ 81, 101 }
 		} },
 		{ 29,
 		{
@@ -204,6 +204,11 @@ void JumpingNumber::onEnterTransitionDidFinish()
 void JumpingNumber::stepsCreate(int numberLabel)
 {
 	auto score = numberLabel;
+	std::vector<int> myLabel;
+	myLabel.push_back(numberLabel);
+	myLabel.push_back(numberLabel + RandomHelper::random_int(1, 2));
+	myLabel.push_back(numberLabel + RandomHelper::random_int(3, 4));
+	int randomIndex = RandomHelper::random_int(0, 2);
 	Size visibleSize = Director::getInstance()->getVisibleSize();
 	for (int i = 1; i < 4; i++) {
 		auto step = Sprite::createWithSpriteFrameName("jumping_numbers/step.png");
@@ -217,7 +222,7 @@ void JumpingNumber::stepsCreate(int numberLabel)
 		_eventDispatcher->addEventListenerWithSceneGraphPriority(listener, step);
 
 		std::stringstream ss;
-		ss << score;
+		ss << myLabel.at(randomIndex % 3);
 		std::string str = ss.str();
 		step->setName(str);
 		auto number_label = Label::createWithSystemFont(str, "Arial", 90);
@@ -232,7 +237,7 @@ void JumpingNumber::stepsCreate(int numberLabel)
 
 		auto seq1 = Sequence::create(scale2, scale3, NULL);
 		step->runAction(seq1);
-		score++;
+		randomIndex++;
 		_stepReff.push_back(step);
 	}
 
@@ -303,7 +308,7 @@ void JumpingNumber::jumpAnimation(cocos2d::Point pos, bool gameEnd)
 	
 	auto stepMove = MoveBy::create(dis/500, Vec2(0, -difference));
 	characterAnimation("jumping");
-	character->runAction(Sequence::create(jump,move, CallFunc::create([=]() {
+	character->runAction(Sequence::create(jump, CallFunc::create([=]() {
 		if (!gameEnd) {
 			for (int i = 0; i < 3; i++) {
 				if (_floatingStepsReff.at(_stepIndex) != _stepReff.at(i)) {
@@ -312,6 +317,8 @@ void JumpingNumber::jumpAnimation(cocos2d::Point pos, bool gameEnd)
 			}
 			_stepReff.clear();
 		}
+	}),move, CallFunc::create([=]() {
+	
 		if (_passingNumber != _lastNumber) {
 			floatingCharacter();
 			stepsCreate(_passingNumber);
@@ -335,12 +342,12 @@ void JumpingNumber::jumpAnimation(cocos2d::Point pos, bool gameEnd)
 
 void JumpingNumber::floatingCharacter()
 {
-	auto dis = ccpDistance(Vec2(0, 0), Vec2(0, -1500));
+	auto dis = ccpDistance(Vec2(0, 0), Vec2(0, -1200));
 	auto character = this->getChildByName("character");
-	auto move = MoveBy::create(dis/500, Vec2(0,1500));
-	auto moveBack = MoveBy::create(dis / 500, Vec2(0, -1500));
-	auto moveStep = MoveBy::create(dis / 500, Vec2(0, 1500));
-	auto moveStepBack = MoveBy::create(dis / 500, Vec2(0, -1500));
+	auto move = MoveBy::create(dis/500, Vec2(0,1200));
+	auto moveBack = MoveBy::create(dis / 500, Vec2(0, -1200));
+	auto moveStep = MoveBy::create(dis / 500, Vec2(0, 1200));
+	auto moveStepBack = MoveBy::create(dis / 500, Vec2(0, -1200));
 	character->runAction(RepeatForever::create(Sequence::create(move,moveBack, NULL)));
 	_floatingStepsReff.at(_stepIndex)->runAction(RepeatForever::create(Sequence::create(moveStep, moveStepBack, NULL)));
 	_stepIndex++;
