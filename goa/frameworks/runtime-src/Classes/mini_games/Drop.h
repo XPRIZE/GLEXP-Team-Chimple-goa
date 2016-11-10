@@ -38,7 +38,7 @@ protected:
 	Sprite* _basketImg;
 	HelpLayer* _help;
 	int _middleBasketIndex = NULL;
-	bool _helpFlag = false, _initObj = true;;
+	bool _helpFlag = false, _initObj = true;
 	float _gapBetweenTwoBasket;
 
 public:

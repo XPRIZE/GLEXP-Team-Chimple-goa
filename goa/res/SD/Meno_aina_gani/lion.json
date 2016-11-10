@@ -1,0 +1,649 @@
+{
+  "ID": "64fe9814-39e3-41e4-9cd3-2dfb2c283ae0",
+  "Version": "3.10.0.0",
+  "Name": "lion",
+  "Content": {
+    "Content": {
+      "Animation": {
+        "Duration": 240,
+        "Speed": 1.0,
+        "ActivedAnimationName": "openmouth",
+        "Timelines": [
+          {
+            "ActionTag": 2043679394,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": 288.872,
+                "Y": -61.1216,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 288.872,
+                "Y": -61.1216,
+                "FrameIndex": 80,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 288.872,
+                "Y": -61.1216,
+                "FrameIndex": 160,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 288.872,
+                "Y": -61.1216,
+                "FrameIndex": 240,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 2043679394,
+            "Property": "RotationSkew",
+            "Frames": [
+              {
+                "X": -8.5417,
+                "Y": -8.5398,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": -3.8146,
+                "Y": -3.8102,
+                "FrameIndex": 40,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": -8.5417,
+                "Y": -8.5398,
+                "FrameIndex": 80,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": -3.8146,
+                "Y": -3.8102,
+                "FrameIndex": 120,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": -8.5417,
+                "Y": -8.5398,
+                "FrameIndex": 160,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": -3.8146,
+                "Y": -3.8102,
+                "FrameIndex": 200,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": -8.5417,
+                "Y": -8.5398,
+                "FrameIndex": 240,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 2043679394,
+            "Property": "AnchorPoint",
+            "Frames": [
+              {
+                "X": 0.0,
+                "Y": 1.0,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.0,
+                "Y": 1.0,
+                "FrameIndex": 80,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.0,
+                "Y": 1.0,
+                "FrameIndex": 160,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.0,
+                "Y": 1.0,
+                "FrameIndex": 240,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -460591861,
+            "Property": "FileData",
+            "Frames": [
+              {
+                "TextureFile": {
+                  "Type": "MarkedSubImage",
+                  "Path": "Meno_aina_gani/lionmouth1.png",
+                  "Plist": "Meno_aina_gani/Meno_aina_gani.plist"
+                },
+                "FrameIndex": 0,
+                "Tween": false,
+                "ctype": "TextureFrameData"
+              },
+              {
+                "TextureFile": {
+                  "Type": "MarkedSubImage",
+                  "Path": "Meno_aina_gani/lionmouth2.png",
+                  "Plist": "Meno_aina_gani/Meno_aina_gani.plist"
+                },
+                "FrameIndex": 10,
+                "Tween": false,
+                "ctype": "TextureFrameData"
+              },
+              {
+                "TextureFile": {
+                  "Type": "MarkedSubImage",
+                  "Path": "Meno_aina_gani/lionmouth3.png",
+                  "Plist": "Meno_aina_gani/Meno_aina_gani.plist"
+                },
+                "FrameIndex": 20,
+                "Tween": false,
+                "ctype": "TextureFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          }
+        ],
+        "ctype": "TimelineActionData"
+      },
+      "AnimationList": [
+        {
+          "StartIndex": 0,
+          "EndIndex": 240,
+          "Name": "openmouth",
+          "ctype": "AnimationInfoData"
+        }
+      ],
+      "ObjectData": {
+        "Tag": 952,
+        "Children": [
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Meno_aina_gani/MbwanaMamba_lionleg.png",
+              "Plist": "Meno_aina_gani/Meno_aina_gani.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": -112.8224,
+              "Y": -306.7689
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {
+              "R": 240,
+              "G": 240,
+              "B": 240
+            },
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": -165.3224,
+            "RightMargin": 60.3224,
+            "TopMargin": 180.2689,
+            "BottomMargin": -433.2689,
+            "Tag": 959,
+            "ActionTag": -1967052853,
+            "Size": {
+              "X": 105.0,
+              "Y": 253.0
+            },
+            "Name": "MbwanaMamba_lionleg_3_1",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Meno_aina_gani/MbwanaMamba_lionleg.png",
+              "Plist": "Meno_aina_gani/Meno_aina_gani.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 177.7954,
+              "Y": -271.2507
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {
+              "R": 240,
+              "G": 240,
+              "B": 240
+            },
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 125.2954,
+            "RightMargin": -230.2954,
+            "TopMargin": 144.7507,
+            "BottomMargin": -397.7507,
+            "Tag": 960,
+            "ActionTag": 638804106,
+            "Size": {
+              "X": 105.0,
+              "Y": 253.0
+            },
+            "Name": "MbwanaMamba_lionleg_3_2",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Meno_aina_gani/MbwanaMamba_liontail.png",
+              "Plist": "Meno_aina_gani/Meno_aina_gani.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleY": 1.0
+            },
+            "Position": {
+              "X": 288.872,
+              "Y": -61.1216
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "RotationSkewX": -8.5417,
+            "RotationSkewY": -8.5398,
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 288.872,
+            "RightMargin": -484.872,
+            "TopMargin": 61.1216,
+            "BottomMargin": -384.1216,
+            "Tag": 957,
+            "ActionTag": 2043679394,
+            "Size": {
+              "X": 196.0,
+              "Y": 323.0
+            },
+            "Name": "MbwanaMamba_liontail_5",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Meno_aina_gani/MbwanaMamba_lionbody.png",
+              "Plist": "Meno_aina_gani/Meno_aina_gani.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 83.8397,
+              "Y": -161.1464
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": -168.1603,
+            "RightMargin": -335.8397,
+            "TopMargin": 26.6464,
+            "BottomMargin": -295.6464,
+            "Tag": 953,
+            "ActionTag": -1973280381,
+            "Size": {
+              "X": 504.0,
+              "Y": 269.0
+            },
+            "Name": "MbwanaMamba_lionbody_1",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Meno_aina_gani/MbwanaMamba_lionleg.png",
+              "Plist": "Meno_aina_gani/Meno_aina_gani.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 271.1265,
+              "Y": -296.766
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 218.6265,
+            "RightMargin": -323.6265,
+            "TopMargin": 170.266,
+            "BottomMargin": -423.266,
+            "Tag": 955,
+            "ActionTag": 1979594688,
+            "Size": {
+              "X": 105.0,
+              "Y": 253.0
+            },
+            "Name": "MbwanaMamba_lionleg_3",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Meno_aina_gani/MbwanaMamba_lionneck.png",
+              "Plist": "Meno_aina_gani/Meno_aina_gani.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": -71.1572,
+              "Y": -28.7508
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": -164.6572,
+            "RightMargin": -22.3428,
+            "TopMargin": -52.7492,
+            "BottomMargin": -110.2508,
+            "Tag": 956,
+            "ActionTag": -378657189,
+            "Size": {
+              "X": 187.0,
+              "Y": 163.0
+            },
+            "Name": "MbwanaMamba_lionneck_4",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Meno_aina_gani/MbwanaMamba_lionhead.png",
+              "Plist": "Meno_aina_gani/Meno_aina_gani.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": -106.7369,
+              "Y": 150.7126
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": -352.2369,
+            "RightMargin": -138.7631,
+            "TopMargin": -347.7126,
+            "BottomMargin": -46.2874,
+            "Tag": 954,
+            "ActionTag": 756552540,
+            "Size": {
+              "X": 491.0,
+              "Y": 394.0
+            },
+            "Name": "MbwanaMamba_lionhead_2",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Meno_aina_gani/MbwanaMamba_lionleg.png",
+              "Plist": "Meno_aina_gani/Meno_aina_gani.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": -3.0333,
+              "Y": -316.4549
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": -55.5333,
+            "RightMargin": -49.4667,
+            "TopMargin": 189.9549,
+            "BottomMargin": -442.9549,
+            "Tag": 958,
+            "ActionTag": -1689683586,
+            "Size": {
+              "X": 105.0,
+              "Y": 253.0
+            },
+            "Name": "MbwanaMamba_lionleg_3_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Meno_aina_gani/lionmouth1.png",
+              "Plist": "Meno_aina_gani/Meno_aina_gani.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": -164.8989,
+              "Y": 32.1231
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": -221.3989,
+            "RightMargin": 108.3989,
+            "TopMargin": -44.6231,
+            "BottomMargin": 19.6231,
+            "Tag": 961,
+            "ActionTag": -460591861,
+            "Size": {
+              "X": 113.0,
+              "Y": 25.0
+            },
+            "Name": "Sprite_9",
+            "ctype": "SpriteObjectData"
+          }
+        ],
+        "Size": {
+          "X": 0.0,
+          "Y": 0.0
+        },
+        "Name": "Node",
+        "ctype": "SingleNodeObjectData"
+      },
+      "UsedResources": [
+        "Meno_aina_gani.plist",
+        "Meno_aina_gani.png"
+      ],
+      "ctype": "GameFileData"
+    }
+  },
+  "Type": "Node"
+}

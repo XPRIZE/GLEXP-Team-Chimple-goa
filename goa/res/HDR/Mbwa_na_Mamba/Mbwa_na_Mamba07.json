@@ -5,19 +5,27 @@
   "Content": {
     "Content": {
       "Animation": {
-        "Duration": 0,
+        "Duration": 190,
         "Speed": 1.0,
         "ActivedAnimationName": "master",
         "Timelines": [
           {
-            "ActionTag": 963891521,
+            "ActionTag": 475315120,
             "Property": "ActionValue",
             "Frames": [
               {
                 "InnerActionType": "LoopAction",
-                "CurrentAniamtionName": "crocwalk",
+                "CurrentAniamtionName": "dogwalk",
                 "SingleFrameIndex": 0,
                 "FrameIndex": 0,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              },
+              {
+                "InnerActionType": "SingleFrame",
+                "CurrentAniamtionName": "dogwalk",
+                "SingleFrameIndex": 100,
+                "FrameIndex": 85,
                 "Tween": false,
                 "ctype": "InnerActionFrameData"
               }
@@ -25,13 +33,22 @@
             "ctype": "TimelineData"
           },
           {
-            "ActionTag": 963891521,
+            "ActionTag": 475315120,
             "Property": "Position",
             "Frames": [
               {
-                "X": 1443.1439,
-                "Y": 169.0211,
+                "X": 286.9381,
+                "Y": 751.3746,
                 "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 1124.0439,
+                "Y": 729.6808,
+                "FrameIndex": 85,
                 "EasingData": {
                   "Type": 0
                 },
@@ -41,6 +58,70 @@
             "ctype": "TimelineData"
           },
           {
+            "ActionTag": 963891521,
+            "Property": "ActionValue",
+            "Frames": [
+              {
+                "InnerActionType": "LoopAction",
+                "CurrentAniamtionName": "crocwalk",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 70,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              },
+              {
+                "InnerActionType": "LoopAction",
+                "CurrentAniamtionName": "crocwalk",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 155,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 963891521,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": 1561.1842,
+                "Y": -38.6405,
+                "FrameIndex": 70,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 1443.804,
+                "Y": 169.0211,
+                "FrameIndex": 155,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 963891521,
+            "Property": "RotationSkew",
+            "Frames": [
+              {
+                "X": 46.8696,
+                "Y": 46.8336,
+                "FrameIndex": 70,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
             "ActionTag": -2017654548,
             "Property": "ActionValue",
             "Frames": [
@@ -48,7 +129,15 @@
                 "InnerActionType": "LoopAction",
                 "CurrentAniamtionName": "crocwalk",
                 "SingleFrameIndex": 0,
-                "FrameIndex": 0,
+                "FrameIndex": 70,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              },
+              {
+                "InnerActionType": "LoopAction",
+                "CurrentAniamtionName": "crocwalk",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 170,
                 "Tween": false,
                 "ctype": "InnerActionFrameData"
               }
@@ -59,14 +148,39 @@
             "ActionTag": -2017654548,
             "Property": "Position",
             "Frames": [
+              {
+                "X": 975.1483,
+                "Y": -62.266,
+                "FrameIndex": 70,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
               {
                 "X": 1146.7379,
                 "Y": 145.7885,
-                "FrameIndex": 0,
+                "FrameIndex": 170,
                 "EasingData": {
                   "Type": 0
                 },
                 "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -2017654548,
+            "Property": "RotationSkew",
+            "Frames": [
+              {
+                "X": -48.0259,
+                "Y": -48.0992,
+                "FrameIndex": 70,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
               }
             ],
             "ctype": "TimelineData"
@@ -79,7 +193,15 @@
                 "InnerActionType": "LoopAction",
                 "CurrentAniamtionName": "crocwalk",
                 "SingleFrameIndex": 0,
-                "FrameIndex": 0,
+                "FrameIndex": 70,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              },
+              {
+                "InnerActionType": "LoopAction",
+                "CurrentAniamtionName": "crocwalk",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 175,
                 "Tween": false,
                 "ctype": "InnerActionFrameData"
               }
@@ -91,9 +213,18 @@
             "Property": "Position",
             "Frames": [
               {
+                "X": 1954.0234,
+                "Y": 240.9681,
+                "FrameIndex": 70,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
                 "X": 1617.1906,
                 "Y": 337.066,
-                "FrameIndex": 0,
+                "FrameIndex": 175,
                 "EasingData": {
                   "Type": 0
                 },
@@ -108,8 +239,17 @@
             "Frames": [
               {
                 "X": 17.6026,
+                "Y": 17.5658,
+                "FrameIndex": 70,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 17.6026,
                 "Y": 17.5837,
-                "FrameIndex": 0,
+                "FrameIndex": 175,
                 "EasingData": {
                   "Type": 0
                 },
@@ -126,7 +266,15 @@
                 "InnerActionType": "LoopAction",
                 "CurrentAniamtionName": "crocwalk",
                 "SingleFrameIndex": 0,
-                "FrameIndex": 0,
+                "FrameIndex": 70,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              },
+              {
+                "InnerActionType": "LoopAction",
+                "CurrentAniamtionName": "crocwalk",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 160,
                 "Tween": false,
                 "ctype": "InnerActionFrameData"
               }
@@ -138,9 +286,18 @@
             "Property": "Position",
             "Frames": [
               {
+                "X": 2443.1025,
+                "Y": 538.3801,
+                "FrameIndex": 70,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
                 "X": 1637.8768,
                 "Y": 520.4805,
-                "FrameIndex": 0,
+                "FrameIndex": 160,
                 "EasingData": {
                   "Type": 0
                 },
@@ -157,7 +314,15 @@
                 "InnerActionType": "LoopAction",
                 "CurrentAniamtionName": "crocwalk",
                 "SingleFrameIndex": 0,
-                "FrameIndex": 0,
+                "FrameIndex": 70,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              },
+              {
+                "InnerActionType": "LoopAction",
+                "CurrentAniamtionName": "crocwalk",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 190,
                 "Tween": false,
                 "ctype": "InnerActionFrameData"
               }
@@ -169,13 +334,38 @@
             "Property": "Position",
             "Frames": [
               {
-                "X": 1016.486,
-                "Y": 266.8384,
-                "FrameIndex": 0,
+                "X": 676.036,
+                "Y": 28.5762,
+                "FrameIndex": 70,
                 "EasingData": {
                   "Type": 0
                 },
                 "ctype": "PointFrameData"
+              },
+              {
+                "X": 1016.486,
+                "Y": 266.8384,
+                "FrameIndex": 190,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 2042800780,
+            "Property": "RotationSkew",
+            "Frames": [
+              {
+                "X": -14.0381,
+                "Y": -14.0116,
+                "FrameIndex": 70,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
               }
             ],
             "ctype": "TimelineData"
@@ -186,7 +376,7 @@
       "AnimationList": [
         {
           "StartIndex": 0,
-          "EndIndex": 0,
+          "EndIndex": 190,
           "Name": "master",
           "ctype": "AnimationInfoData"
         }
@@ -491,8 +681,8 @@
             "InnerActionSpeed": 1.0,
             "AnchorPoint": {},
             "Position": {
-              "X": 1346.0525,
-              "Y": 775.153
+              "X": 1114.1957,
+              "Y": 729.9361
             },
             "Scale": {
               "ScaleX": -1.4047,
@@ -501,17 +691,17 @@
             "CColor": {},
             "IconVisible": true,
             "PrePosition": {
-              "X": 0.5258,
-              "Y": 0.4306
+              "X": 0.4352,
+              "Y": 0.4055
             },
             "PreSize": {
               "X": 0.0,
               "Y": 0.0
             },
-            "LeftMargin": 1346.0525,
-            "RightMargin": 1213.9475,
-            "TopMargin": 1024.8469,
-            "BottomMargin": 775.153,
+            "LeftMargin": 1114.1957,
+            "RightMargin": 1445.8043,
+            "TopMargin": 1070.064,
+            "BottomMargin": 729.9361,
             "Tag": 177,
             "ActionTag": 475315120,
             "Size": {
@@ -532,29 +722,29 @@
             "InnerActionSpeed": 1.0,
             "AnchorPoint": {},
             "Position": {
-              "X": 1443.1439,
-              "Y": 169.0211
+              "X": 1541.851,
+              "Y": -4.4374
             },
             "Scale": {
               "ScaleX": 0.2325,
               "ScaleY": 0.2325
             },
             "RotationSkewX": 46.8696,
-            "RotationSkewY": 46.8349,
+            "RotationSkewY": 46.8336,
             "CColor": {},
             "IconVisible": true,
             "PrePosition": {
-              "X": 0.5637,
-              "Y": 0.0939
+              "X": 0.6023,
+              "Y": -0.0025
             },
             "PreSize": {
               "X": 0.0,
               "Y": 0.0
             },
-            "LeftMargin": 1443.1439,
-            "RightMargin": 1116.8561,
-            "TopMargin": 1630.9789,
-            "BottomMargin": 169.0211,
+            "LeftMargin": 1541.851,
+            "RightMargin": 1018.149,
+            "TopMargin": 1804.4374,
+            "BottomMargin": -4.4374,
             "Tag": 326,
             "ActionTag": 963891521,
             "Size": {
@@ -575,29 +765,29 @@
             "InnerActionSpeed": 1.0,
             "AnchorPoint": {},
             "Position": {
-              "X": 1146.7379,
-              "Y": 145.7885
+              "X": 999.1708,
+              "Y": -33.1384
             },
             "Scale": {
               "ScaleX": -0.2325,
               "ScaleY": 0.2325
             },
-            "RotationSkewX": -48.0329,
-            "RotationSkewY": -48.0916,
+            "RotationSkewX": -48.0259,
+            "RotationSkewY": -48.0992,
             "CColor": {},
             "IconVisible": true,
             "PrePosition": {
-              "X": 0.4479,
-              "Y": 0.081
+              "X": 0.3903,
+              "Y": -0.0184
             },
             "PreSize": {
               "X": 0.0,
               "Y": 0.0
             },
-            "LeftMargin": 1146.7379,
-            "RightMargin": 1413.2621,
-            "TopMargin": 1654.2115,
-            "BottomMargin": 145.7885,
+            "LeftMargin": 999.1708,
+            "RightMargin": 1560.8291,
+            "TopMargin": 1833.1383,
+            "BottomMargin": -33.1384,
             "Tag": 347,
             "ActionTag": -2017654548,
             "Size": {
@@ -618,29 +808,29 @@
             "InnerActionSpeed": 1.0,
             "AnchorPoint": {},
             "Position": {
-              "X": 1617.1906,
-              "Y": 337.066
+              "X": 1909.1124,
+              "Y": 253.7812
             },
             "Scale": {
               "ScaleX": 0.2325,
               "ScaleY": 0.2325
             },
             "RotationSkewX": 17.6026,
-            "RotationSkewY": 17.5837,
+            "RotationSkewY": 17.5682,
             "CColor": {},
             "IconVisible": true,
             "PrePosition": {
-              "X": 0.6317,
-              "Y": 0.1873
+              "X": 0.7457,
+              "Y": 0.141
             },
             "PreSize": {
               "X": 0.0,
               "Y": 0.0
             },
-            "LeftMargin": 1617.1906,
-            "RightMargin": 942.8094,
-            "TopMargin": 1462.934,
-            "BottomMargin": 337.066,
+            "LeftMargin": 1909.1124,
+            "RightMargin": 650.8876,
+            "TopMargin": 1546.2188,
+            "BottomMargin": 253.7812,
             "Tag": 368,
             "ActionTag": -1113065839,
             "Size": {
@@ -661,8 +851,8 @@
             "InnerActionSpeed": 1.0,
             "AnchorPoint": {},
             "Position": {
-              "X": 1637.8768,
-              "Y": 520.4805
+              "X": 2317.8452,
+              "Y": 535.5958
             },
             "Scale": {
               "ScaleX": 0.2691,
@@ -671,17 +861,17 @@
             "CColor": {},
             "IconVisible": true,
             "PrePosition": {
-              "X": 0.6398,
-              "Y": 0.2892
+              "X": 0.9054,
+              "Y": 0.2976
             },
             "PreSize": {
               "X": 0.0,
               "Y": 0.0
             },
-            "LeftMargin": 1637.8768,
-            "RightMargin": 922.1232,
-            "TopMargin": 1279.5195,
-            "BottomMargin": 520.4805,
+            "LeftMargin": 2317.8452,
+            "RightMargin": 242.1548,
+            "TopMargin": 1264.4043,
+            "BottomMargin": 535.5958,
             "Tag": 389,
             "ActionTag": 1264955105,
             "Size": {
@@ -702,29 +892,29 @@
             "InnerActionSpeed": 1.0,
             "AnchorPoint": {},
             "Position": {
-              "X": 1016.486,
-              "Y": 266.8384
+              "X": 715.7552,
+              "Y": 56.3735
             },
             "Scale": {
               "ScaleX": -0.2325,
               "ScaleY": 0.2325
             },
             "RotationSkewX": -14.0381,
-            "RotationSkewY": -14.0289,
+            "RotationSkewY": -14.0116,
             "CColor": {},
             "IconVisible": true,
             "PrePosition": {
-              "X": 0.3971,
-              "Y": 0.1482
+              "X": 0.2796,
+              "Y": 0.0313
             },
             "PreSize": {
               "X": 0.0,
               "Y": 0.0
             },
-            "LeftMargin": 1016.486,
-            "RightMargin": 1543.5139,
-            "TopMargin": 1533.1616,
-            "BottomMargin": 266.8384,
+            "LeftMargin": 715.7552,
+            "RightMargin": 1844.2449,
+            "TopMargin": 1743.6266,
+            "BottomMargin": 56.3735,
             "UserData": ";             ",
             "Tag": 410,
             "ActionTag": 2042800780,
