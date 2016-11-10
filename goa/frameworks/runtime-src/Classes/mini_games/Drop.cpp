@@ -249,7 +249,7 @@ void Drop::onEnterTransitionDidFinish()
 		_dropHelp->click(Vec2(visibleSize.width*0.5, 0.75));
 		_dropHelpSelector = 1;
 	}*/
-	auto callShowScore = CCCallFunc::create([=] {
+	/*auto callShowScore = CCCallFunc::create([=] {
 		for (int i = 0; i < this->getChildren().size(); i++)
 		{
 			auto str = this->getChildren().at(i)->getName();
@@ -259,7 +259,8 @@ void Drop::onEnterTransitionDidFinish()
 				break;
 			}
 		}
-	});
+	});*/
+	_menuContext->setMaxPoints(randomIndex.size()*5);
 	if (_menuContext->getCurrentLevel() == 1)
 	{
 		Sprite* floatBox = Sprite::createWithSpriteFrameName(_scenePath.at("pseudoHolderImage"));
@@ -282,12 +283,13 @@ void Drop::onEnterTransitionDidFinish()
 		creatHelp(gap);
 	}
 	
-	this->runAction(Sequence::create(DelayTime::create(2), callShowScore, NULL));
+	//this->runAction(Sequence::create(DelayTime::create(2), callShowScore, NULL));
 	if (_menuContext->getCurrentLevel() != 1)
 	{
 		this->schedule(schedule_selector(Drop::letterAndHolderMaker), 3);
 	}
 	this->scheduleUpdate();
+
 }
 
 std::pair<int, int> Drop::levelAllInfo(int currentLevel, int sceneRepetitionNo, int totalScene, int catagoryRepetitionNo, int totalcatagory)
@@ -562,10 +564,12 @@ void Drop::basketLetterCollisionChecker()
 					_basketAnimBin.erase(_basketAnimBin.begin() + i);
 					_basketBin.erase(_basketBin.begin() + i);
 					CCLOG("YES");
+					_menuContext->addPoints(5);
 				}
 				else
 				{
 					_basketAnimBin[i]->play(_scenePath.at("wrongAnimName"), false);
+					_menuContext->addPoints(-2);
 					//_basketAnimBin[i]->gotoFrameAndPlay(0, false);
 					CCLOG("NO");
 				}
