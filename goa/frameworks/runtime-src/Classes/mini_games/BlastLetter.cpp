@@ -23,56 +23,7 @@ BlastLetter *BlastLetter::create() {
 
 }
 
-void BlastLetter::checkAlphabets()
-{
-	std::ostringstream stringStream;
-	stringStream << "Node" << (_counterLetter + 1);
 
-	if (checkRecognizeLetter(LangUtil::convertUTF16CharToString(_data_value[_counterLetter]))) {
-		
-		((BlastLetterNode *)this->getChildByName(stringStream.str()))->_drawingBoard->removeAllChildren();
-		((BlastLetterNode *)this->getChildByName(stringStream.str()))->setScale(1.0f/3.0f);
-		((BlastLetterNode *)this->getChildByName(stringStream.str()))->drawAllowance(false);
-		std::ostringstream nameLetterBoard;
-		nameLetterBoard << LangUtil::convertUTF16CharToString(_data_value[_counterLetter])<<(_counterLetter + 1);
-		auto grid = this->getChildByName(nameLetterBoard.str());
-		((BlastLetterNode *)this->getChildByName(stringStream.str()))->setPosition(Vec2(grid->getPositionX(), grid->getPositionY()));
-		_checkingAlphabets = false;
-		_touch = true;
-
-		this->removeChildByName("blastScene");
-		this->removeChildByName("tempBoard");
-		this->removeChildByName("tempBg");
-
-		_counterLetter++;		
-		if (_counterLetter == _data_value.size()) {
-			this->runAction(Sequence::create(DelayTime::create(3), CallFunc::create([=]() {_menuContext->showScore(); }), NULL));
-		}
-		else {
-			std::ostringstream nameLetterBoard;
-			nameLetterBoard << LangUtil::convertUTF16CharToString(_data_value[_counterLetter])<<(_counterLetter + 1);
-			auto label = this->getChildByName(nameLetterBoard.str());
-			label->getChildByName(LangUtil::convertUTF16CharToString(nameLetterBoard.str().at(1)))->setRotation(20);
-			label->getChildByName(LangUtil::convertUTF16CharToString(nameLetterBoard.str().at(1)))->runAction(RepeatForever::create(shakingCharacter()));
-		}
-	}
-	else {
-		_result = ((BlastLetterNode *)this->getChildByName(stringStream.str()))->getPosibileCharacter();
-	}
-}
-
-void BlastLetter::wrongSoTryAgain(BlastLetterNode *canvasWriting)
-{
-	canvasWriting->_paintingNode->clear();
-	canvasWriting->_canvas->clear(0, 0, canvasWriting->getContentSize().width, canvasWriting->getContentSize().height);
-	canvasWriting->_strokes.clear();
-	canvasWriting->clearPrintedCharacters();
-	_timelineBlast->play("blast", false);
-	_maxWrong--;
-	if (_maxWrong == 0) {
-		_menuContext->showScore();
-	}
-}
 
 bool BlastLetter::init()
 {
@@ -93,19 +44,44 @@ void BlastLetter::onEnterTransitionDidFinish() {
 	}
 
 	BlastLetterNode* BlastLetterNodeObj;
+
 	auto currentLevel = _menuContext->getCurrentLevel();
-	
-	if (currentLevel >= 1 && currentLevel <= 26) {
-	
-	}else if (currentLevel >= 1 && currentLevel <= 26) {
-	}else if (currentLevel >= 1 && currentLevel <= 26) {
-	}
-
-
 	_data_key = getConvertInUpperCase(TextGenerator::getInstance()->generateAWord(1));
 	_data_value = _data_key;
-	auto coord = getAllGridCoord(1, _data_value.size());
+	
+	if (currentLevel >= 1 && currentLevel <= 26) {
+		auto charcaterStream = LangUtil::getInstance()->getAllCharacters();
+		std::ostringstream namemyLabel;
+		_data_key = charcaterStream[(currentLevel - 1)];
+		for (int i = 0; i < 6; i++) {
+			namemyLabel << _data_key;
+		}
+		_data_value = namemyLabel.str();
 
+	}else if (currentLevel >= 27 && currentLevel <= 36) {
+		_data_key = TextGenerator::getInstance()->generateAWord((_menuContext->getCurrentLevel() - 26));
+		_data_value = _data_key;
+	}else if (currentLevel >= 37 && currentLevel <= 46) {
+		_data_key = TextGenerator::getInstance()->generateAWord((_menuContext->getCurrentLevel() - 36));
+		_data_value = _data_key;
+	}else if (currentLevel >= 47 && currentLevel <= 56) {
+		_data = TextGenerator::getInstance()->getSingularPlurals(1, (_menuContext->getCurrentLevel() - 46));
+	}else if (currentLevel >= 57 && currentLevel <= 66) {
+		_data = TextGenerator::getInstance()->getAntonyms(1, (_menuContext->getCurrentLevel() - 56));
+	}else if (currentLevel >= 67 && currentLevel <= 76) {
+		_data = TextGenerator::getInstance()->getSynonyms(1, (_menuContext->getCurrentLevel() - 66));
+	}else if (currentLevel >= 77 && currentLevel <= 86) {
+		_data = TextGenerator::getInstance()->getHomonyms(1, (_menuContext->getCurrentLevel() - 76));
+	}else{
+		CCLOG("ERROR : Level code error !!!!!! ");
+	}
+	if(currentLevel >= 47 && currentLevel <= 86)
+	for (std::map<std::string, std::string>::iterator it = _data.begin(); it != _data.end(); ++it) {
+		_data_key = (getConvertInUpperCase(it->first));
+		_data_value = (getConvertInUpperCase(it->second));
+	}
+
+	auto coord = getAllGridCoord(1, _data_value.size());
 	for (size_t coordIndex = 0; coordIndex < _data_value.size(); coordIndex++) {
 		auto letterBoardSprite = Sprite::create();
 		letterBoardSprite->setTextureRect(Rect(0, 0, 350, 380));
@@ -114,6 +90,7 @@ void BlastLetter::onEnterTransitionDidFinish() {
 		addChild(letterBoardSprite);
 
 		auto myLabel = Label::createWithBMFont(LangUtil::getInstance()->getBMFontFileName(), LangUtil::convertUTF16CharToString(_data_value[coordIndex]));
+//		auto myLabel = LabelTTF::create(_data_key[_textBoard], "Helvetica", board->getContentSize().height *0.8);
 		myLabel->setPosition(Vec2(letterBoardSprite->getContentSize().width * 0.5, letterBoardSprite->getContentSize().height * 0.45));
 		myLabel->setScale(0.7);
 		std::ostringstream namemyLabel;
@@ -335,6 +312,44 @@ void BlastLetter::addEventsOnGrid(cocos2d::Sprite* callerObject)
 	};
 
 	_eventDispatcher->addEventListenerWithSceneGraphPriority(listener, callerObject);
+}
+
+void BlastLetter::checkAlphabets()
+{
+	std::ostringstream stringStream;
+	stringStream << "Node" << (_counterLetter + 1);
+
+	if (checkRecognizeLetter(LangUtil::convertUTF16CharToString(_data_value[_counterLetter]))) {
+
+		((BlastLetterNode *)this->getChildByName(stringStream.str()))->_drawingBoard->removeAllChildren();
+		((BlastLetterNode *)this->getChildByName(stringStream.str()))->setScale(1.0f / 3.0f);
+		((BlastLetterNode *)this->getChildByName(stringStream.str()))->drawAllowance(false);
+		std::ostringstream nameLetterBoard;
+		nameLetterBoard << LangUtil::convertUTF16CharToString(_data_value[_counterLetter]) << (_counterLetter + 1);
+		auto grid = this->getChildByName(nameLetterBoard.str());
+		((BlastLetterNode *)this->getChildByName(stringStream.str()))->setPosition(Vec2(grid->getPositionX(), grid->getPositionY()));
+		_checkingAlphabets = false;
+		_touch = true;
+
+		this->removeChildByName("blastScene");
+		this->removeChildByName("tempBoard");
+		this->removeChildByName("tempBg");
+
+		_counterLetter++;
+		if (_counterLetter == _data_value.size()) {
+			this->runAction(Sequence::create(DelayTime::create(3), CallFunc::create([=]() {_menuContext->showScore(); }), NULL));
+		}
+		else {
+			std::ostringstream nameLetterBoard;
+			nameLetterBoard << LangUtil::convertUTF16CharToString(_data_value[_counterLetter]) << (_counterLetter + 1);
+			auto label = this->getChildByName(nameLetterBoard.str());
+			label->getChildByName(LangUtil::convertUTF16CharToString(nameLetterBoard.str().at(1)))->setRotation(20);
+			label->getChildByName(LangUtil::convertUTF16CharToString(nameLetterBoard.str().at(1)))->runAction(RepeatForever::create(shakingCharacter()));
+		}
+	}
+	else {
+		_result = ((BlastLetterNode *)this->getChildByName(stringStream.str()))->getPosibileCharacter();
+	}
 }
 
 BlastLetter::~BlastLetter(void)
